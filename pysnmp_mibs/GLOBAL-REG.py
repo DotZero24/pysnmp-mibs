@@ -1,0 +1,36 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+globalRegModule=ModuleIdentity((1,3,6,1,4,1,20246,2,1,1,1))
+_Delta_ObjectIdentity=ObjectIdentity
+delta=_Delta_ObjectIdentity((1,3,6,1,4,1,20246))
+_Root_ObjectIdentity=ObjectIdentity
+root=_Root_ObjectIdentity((1,3,6,1,4,1,20246,2))
+_Reg_ObjectIdentity=ObjectIdentity
+reg=_Reg_ObjectIdentity((1,3,6,1,4,1,20246,2,1))
+_Modules_ObjectIdentity=ObjectIdentity
+modules=_Modules_ObjectIdentity((1,3,6,1,4,1,20246,2,1,1))
+_ControllerReg_ObjectIdentity=ObjectIdentity
+controllerReg=_ControllerReg_ObjectIdentity((1,3,6,1,4,1,20246,2,1,2))
+_ControllerOrionReg_ObjectIdentity=ObjectIdentity
+controllerOrionReg=_ControllerOrionReg_ObjectIdentity((1,3,6,1,4,1,20246,2,1,2,1))
+if mibBuilder.loadTexts:controllerOrionReg.setStatus('current')
+_Generic_ObjectIdentity=ObjectIdentity
+generic=_Generic_ObjectIdentity((1,3,6,1,4,1,20246,2,2))
+_Products_ObjectIdentity=ObjectIdentity
+products=_Products_ObjectIdentity((1,3,6,1,4,1,20246,2,3))
+_Controller_ObjectIdentity=ObjectIdentity
+controller=_Controller_ObjectIdentity((1,3,6,1,4,1,20246,2,3,1))
+_Orion_ObjectIdentity=ObjectIdentity
+orion=_Orion_ObjectIdentity((1,3,6,1,4,1,20246,2,3,1,1))
+_Caps_ObjectIdentity=ObjectIdentity
+caps=_Caps_ObjectIdentity((1,3,6,1,4,1,20246,2,4))
+_Regs_ObjectIdentity=ObjectIdentity
+regs=_Regs_ObjectIdentity((1,3,6,1,4,1,20246,2,5))
+_Expr_ObjectIdentity=ObjectIdentity
+expr=_Expr_ObjectIdentity((1,3,6,1,4,1,20246,2,6))
+mibBuilder.exportSymbols('GLOBAL-REG',**{'delta':delta,'root':root,'reg':reg,'modules':modules,'globalRegModule':globalRegModule,'controllerReg':controllerReg,'controllerOrionReg':controllerOrionReg,'generic':generic,'products':products,'controller':controller,'orion':orion,'caps':caps,'regs':regs,'expr':expr})

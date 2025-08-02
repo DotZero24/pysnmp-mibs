@@ -1,0 +1,20 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+adComplianceShared,adIdentityShared,adShared=mibBuilder.importSymbols('ADTRAN-MIB','adComplianceShared','adIdentityShared','adShared')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+adGenGponModuleIdentity=ModuleIdentity((1,3,6,1,4,1,664,6,10000,76))
+_AdGenGpon_ObjectIdentity=ObjectIdentity
+adGenGpon=_AdGenGpon_ObjectIdentity((1,3,6,1,4,1,664,5,76))
+_AdGenGponProduct_ObjectIdentity=ObjectIdentity
+adGenGponProduct=_AdGenGponProduct_ObjectIdentity((1,3,6,1,4,1,664,5,76,1))
+_AdGenGponProductID_ObjectIdentity=ObjectIdentity
+adGenGponProductID=_AdGenGponProductID_ObjectIdentity((1,3,6,1,4,1,664,6,10000,76,1))
+_AdGenGponConformance_ObjectIdentity=ObjectIdentity
+adGenGponConformance=_AdGenGponConformance_ObjectIdentity((1,3,6,1,4,1,664,99,10000,76))
+_AdGenGponProductConformance_ObjectIdentity=ObjectIdentity
+adGenGponProductConformance=_AdGenGponProductConformance_ObjectIdentity((1,3,6,1,4,1,664,99,10000,76,1))
+mibBuilder.exportSymbols('ADTRAN-GENGPONCONTAINER-MIB',**{'adGenGpon':adGenGpon,'adGenGponProduct':adGenGponProduct,'adGenGponModuleIdentity':adGenGponModuleIdentity,'adGenGponProductID':adGenGponProductID,'adGenGponConformance':adGenGponConformance,'adGenGponProductConformance':adGenGponProductConformance})

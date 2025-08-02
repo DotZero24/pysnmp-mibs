@@ -1,0 +1,954 @@
+_N='cfprProcessorUnitAssocCtxInstanceId'
+_M='cfprProcessorUnitInstanceId'
+_L='cfprProcessorThreadInstanceId'
+_K='cfprProcessorRuntimeHistInstanceId'
+_J='cfprProcessorRuntimeInstanceId'
+_I='cfprProcessorQualInstanceId'
+_H='cfprProcessorErrorStatsInstanceId'
+_G='cfprProcessorEnvStatsHistInstanceId'
+_F='cfprProcessorEnvStatsInstanceId'
+_E='cfprProcessorCoreInstanceId'
+_D='not-accessible'
+_C='CISCO-FIREPOWER-PROCESSOR-MIB'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+CfprManagedObjectDn,CfprManagedObjectId,ciscoFirepowerMIBObjects=mibBuilder.importSymbols('CISCO-FIREPOWER-MIB','CfprManagedObjectDn','CfprManagedObjectId','ciscoFirepowerMIBObjects')
+CfprEquipmentOperability,CfprEquipmentPowerState,CfprEquipmentPresence,CfprEquipmentSensorThresholdStatus,CfprMemoryVisibility,CfprProcessorEnvStatsHistThresholded,CfprProcessorEnvStatsThresholded,CfprProcessorErrorStatsThresholded,CfprProcessorQualArch,CfprProcessorRuntimeHistThresholded,CfprProcessorRuntimeThresholded,CfprProcessorUnitArch=mibBuilder.importSymbols('CISCO-FIREPOWER-TC-MIB','CfprEquipmentOperability','CfprEquipmentPowerState','CfprEquipmentPresence','CfprEquipmentSensorThresholdStatus','CfprMemoryVisibility','CfprProcessorEnvStatsHistThresholded','CfprProcessorEnvStatsThresholded','CfprProcessorErrorStatsThresholded','CfprProcessorQualArch','CfprProcessorRuntimeHistThresholded','CfprProcessorRuntimeThresholded','CfprProcessorUnitArch')
+ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
+CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
+InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
+cfprProcessorObjects=ModuleIdentity((1,3,6,1,4,1,9,9,826,1,66))
+_CfprProcessorCoreTable_Object=MibTable
+cfprProcessorCoreTable=_CfprProcessorCoreTable_Object((1,3,6,1,4,1,9,9,826,1,66,1))
+if mibBuilder.loadTexts:cfprProcessorCoreTable.setStatus(_A)
+_CfprProcessorCoreEntry_Object=MibTableRow
+cfprProcessorCoreEntry=_CfprProcessorCoreEntry_Object((1,3,6,1,4,1,9,9,826,1,66,1,1))
+cfprProcessorCoreEntry.setIndexNames((0,_C,_E))
+if mibBuilder.loadTexts:cfprProcessorCoreEntry.setStatus(_A)
+_CfprProcessorCoreInstanceId_Type=CfprManagedObjectId
+_CfprProcessorCoreInstanceId_Object=MibTableColumn
+cfprProcessorCoreInstanceId=_CfprProcessorCoreInstanceId_Object((1,3,6,1,4,1,9,9,826,1,66,1,1,1),_CfprProcessorCoreInstanceId_Type())
+cfprProcessorCoreInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprProcessorCoreInstanceId.setStatus(_A)
+_CfprProcessorCoreDn_Type=CfprManagedObjectDn
+_CfprProcessorCoreDn_Object=MibTableColumn
+cfprProcessorCoreDn=_CfprProcessorCoreDn_Object((1,3,6,1,4,1,9,9,826,1,66,1,1,2),_CfprProcessorCoreDn_Type())
+cfprProcessorCoreDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorCoreDn.setStatus(_A)
+_CfprProcessorCoreRn_Type=SnmpAdminString
+_CfprProcessorCoreRn_Object=MibTableColumn
+cfprProcessorCoreRn=_CfprProcessorCoreRn_Object((1,3,6,1,4,1,9,9,826,1,66,1,1,3),_CfprProcessorCoreRn_Type())
+cfprProcessorCoreRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorCoreRn.setStatus(_A)
+_CfprProcessorCoreId_Type=Gauge32
+_CfprProcessorCoreId_Object=MibTableColumn
+cfprProcessorCoreId=_CfprProcessorCoreId_Object((1,3,6,1,4,1,9,9,826,1,66,1,1,4),_CfprProcessorCoreId_Type())
+cfprProcessorCoreId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorCoreId.setStatus(_A)
+_CfprProcessorEnvStatsTable_Object=MibTable
+cfprProcessorEnvStatsTable=_CfprProcessorEnvStatsTable_Object((1,3,6,1,4,1,9,9,826,1,66,2))
+if mibBuilder.loadTexts:cfprProcessorEnvStatsTable.setStatus(_A)
+_CfprProcessorEnvStatsEntry_Object=MibTableRow
+cfprProcessorEnvStatsEntry=_CfprProcessorEnvStatsEntry_Object((1,3,6,1,4,1,9,9,826,1,66,2,1))
+cfprProcessorEnvStatsEntry.setIndexNames((0,_C,_F))
+if mibBuilder.loadTexts:cfprProcessorEnvStatsEntry.setStatus(_A)
+_CfprProcessorEnvStatsInstanceId_Type=CfprManagedObjectId
+_CfprProcessorEnvStatsInstanceId_Object=MibTableColumn
+cfprProcessorEnvStatsInstanceId=_CfprProcessorEnvStatsInstanceId_Object((1,3,6,1,4,1,9,9,826,1,66,2,1,1),_CfprProcessorEnvStatsInstanceId_Type())
+cfprProcessorEnvStatsInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsInstanceId.setStatus(_A)
+_CfprProcessorEnvStatsDn_Type=CfprManagedObjectDn
+_CfprProcessorEnvStatsDn_Object=MibTableColumn
+cfprProcessorEnvStatsDn=_CfprProcessorEnvStatsDn_Object((1,3,6,1,4,1,9,9,826,1,66,2,1,2),_CfprProcessorEnvStatsDn_Type())
+cfprProcessorEnvStatsDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsDn.setStatus(_A)
+_CfprProcessorEnvStatsRn_Type=SnmpAdminString
+_CfprProcessorEnvStatsRn_Object=MibTableColumn
+cfprProcessorEnvStatsRn=_CfprProcessorEnvStatsRn_Object((1,3,6,1,4,1,9,9,826,1,66,2,1,3),_CfprProcessorEnvStatsRn_Type())
+cfprProcessorEnvStatsRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsRn.setStatus(_A)
+_CfprProcessorEnvStatsInputCurrent_Type=Integer32
+_CfprProcessorEnvStatsInputCurrent_Object=MibTableColumn
+cfprProcessorEnvStatsInputCurrent=_CfprProcessorEnvStatsInputCurrent_Object((1,3,6,1,4,1,9,9,826,1,66,2,1,4),_CfprProcessorEnvStatsInputCurrent_Type())
+cfprProcessorEnvStatsInputCurrent.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsInputCurrent.setStatus(_A)
+_CfprProcessorEnvStatsInputCurrentAvg_Type=Integer32
+_CfprProcessorEnvStatsInputCurrentAvg_Object=MibTableColumn
+cfprProcessorEnvStatsInputCurrentAvg=_CfprProcessorEnvStatsInputCurrentAvg_Object((1,3,6,1,4,1,9,9,826,1,66,2,1,5),_CfprProcessorEnvStatsInputCurrentAvg_Type())
+cfprProcessorEnvStatsInputCurrentAvg.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsInputCurrentAvg.setStatus(_A)
+_CfprProcessorEnvStatsInputCurrentMax_Type=Integer32
+_CfprProcessorEnvStatsInputCurrentMax_Object=MibTableColumn
+cfprProcessorEnvStatsInputCurrentMax=_CfprProcessorEnvStatsInputCurrentMax_Object((1,3,6,1,4,1,9,9,826,1,66,2,1,6),_CfprProcessorEnvStatsInputCurrentMax_Type())
+cfprProcessorEnvStatsInputCurrentMax.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsInputCurrentMax.setStatus(_A)
+_CfprProcessorEnvStatsInputCurrentMin_Type=Integer32
+_CfprProcessorEnvStatsInputCurrentMin_Object=MibTableColumn
+cfprProcessorEnvStatsInputCurrentMin=_CfprProcessorEnvStatsInputCurrentMin_Object((1,3,6,1,4,1,9,9,826,1,66,2,1,7),_CfprProcessorEnvStatsInputCurrentMin_Type())
+cfprProcessorEnvStatsInputCurrentMin.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsInputCurrentMin.setStatus(_A)
+_CfprProcessorEnvStatsIntervals_Type=Gauge32
+_CfprProcessorEnvStatsIntervals_Object=MibTableColumn
+cfprProcessorEnvStatsIntervals=_CfprProcessorEnvStatsIntervals_Object((1,3,6,1,4,1,9,9,826,1,66,2,1,8),_CfprProcessorEnvStatsIntervals_Type())
+cfprProcessorEnvStatsIntervals.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsIntervals.setStatus(_A)
+_CfprProcessorEnvStatsSuspect_Type=TruthValue
+_CfprProcessorEnvStatsSuspect_Object=MibTableColumn
+cfprProcessorEnvStatsSuspect=_CfprProcessorEnvStatsSuspect_Object((1,3,6,1,4,1,9,9,826,1,66,2,1,9),_CfprProcessorEnvStatsSuspect_Type())
+cfprProcessorEnvStatsSuspect.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsSuspect.setStatus(_A)
+_CfprProcessorEnvStatsTemperature_Type=Integer32
+_CfprProcessorEnvStatsTemperature_Object=MibTableColumn
+cfprProcessorEnvStatsTemperature=_CfprProcessorEnvStatsTemperature_Object((1,3,6,1,4,1,9,9,826,1,66,2,1,10),_CfprProcessorEnvStatsTemperature_Type())
+cfprProcessorEnvStatsTemperature.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsTemperature.setStatus(_A)
+_CfprProcessorEnvStatsTemperatureAvg_Type=Integer32
+_CfprProcessorEnvStatsTemperatureAvg_Object=MibTableColumn
+cfprProcessorEnvStatsTemperatureAvg=_CfprProcessorEnvStatsTemperatureAvg_Object((1,3,6,1,4,1,9,9,826,1,66,2,1,11),_CfprProcessorEnvStatsTemperatureAvg_Type())
+cfprProcessorEnvStatsTemperatureAvg.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsTemperatureAvg.setStatus(_A)
+_CfprProcessorEnvStatsTemperatureMax_Type=Integer32
+_CfprProcessorEnvStatsTemperatureMax_Object=MibTableColumn
+cfprProcessorEnvStatsTemperatureMax=_CfprProcessorEnvStatsTemperatureMax_Object((1,3,6,1,4,1,9,9,826,1,66,2,1,12),_CfprProcessorEnvStatsTemperatureMax_Type())
+cfprProcessorEnvStatsTemperatureMax.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsTemperatureMax.setStatus(_A)
+_CfprProcessorEnvStatsTemperatureMin_Type=Integer32
+_CfprProcessorEnvStatsTemperatureMin_Object=MibTableColumn
+cfprProcessorEnvStatsTemperatureMin=_CfprProcessorEnvStatsTemperatureMin_Object((1,3,6,1,4,1,9,9,826,1,66,2,1,13),_CfprProcessorEnvStatsTemperatureMin_Type())
+cfprProcessorEnvStatsTemperatureMin.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsTemperatureMin.setStatus(_A)
+_CfprProcessorEnvStatsThresholded_Type=CfprProcessorEnvStatsThresholded
+_CfprProcessorEnvStatsThresholded_Object=MibTableColumn
+cfprProcessorEnvStatsThresholded=_CfprProcessorEnvStatsThresholded_Object((1,3,6,1,4,1,9,9,826,1,66,2,1,14),_CfprProcessorEnvStatsThresholded_Type())
+cfprProcessorEnvStatsThresholded.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsThresholded.setStatus(_A)
+_CfprProcessorEnvStatsTimeCollected_Type=DateAndTime
+_CfprProcessorEnvStatsTimeCollected_Object=MibTableColumn
+cfprProcessorEnvStatsTimeCollected=_CfprProcessorEnvStatsTimeCollected_Object((1,3,6,1,4,1,9,9,826,1,66,2,1,15),_CfprProcessorEnvStatsTimeCollected_Type())
+cfprProcessorEnvStatsTimeCollected.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsTimeCollected.setStatus(_A)
+_CfprProcessorEnvStatsUpdate_Type=Gauge32
+_CfprProcessorEnvStatsUpdate_Object=MibTableColumn
+cfprProcessorEnvStatsUpdate=_CfprProcessorEnvStatsUpdate_Object((1,3,6,1,4,1,9,9,826,1,66,2,1,16),_CfprProcessorEnvStatsUpdate_Type())
+cfprProcessorEnvStatsUpdate.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsUpdate.setStatus(_A)
+_CfprProcessorEnvStatsHistTable_Object=MibTable
+cfprProcessorEnvStatsHistTable=_CfprProcessorEnvStatsHistTable_Object((1,3,6,1,4,1,9,9,826,1,66,3))
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistTable.setStatus(_A)
+_CfprProcessorEnvStatsHistEntry_Object=MibTableRow
+cfprProcessorEnvStatsHistEntry=_CfprProcessorEnvStatsHistEntry_Object((1,3,6,1,4,1,9,9,826,1,66,3,1))
+cfprProcessorEnvStatsHistEntry.setIndexNames((0,_C,_G))
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistEntry.setStatus(_A)
+_CfprProcessorEnvStatsHistInstanceId_Type=CfprManagedObjectId
+_CfprProcessorEnvStatsHistInstanceId_Object=MibTableColumn
+cfprProcessorEnvStatsHistInstanceId=_CfprProcessorEnvStatsHistInstanceId_Object((1,3,6,1,4,1,9,9,826,1,66,3,1,1),_CfprProcessorEnvStatsHistInstanceId_Type())
+cfprProcessorEnvStatsHistInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistInstanceId.setStatus(_A)
+_CfprProcessorEnvStatsHistDn_Type=CfprManagedObjectDn
+_CfprProcessorEnvStatsHistDn_Object=MibTableColumn
+cfprProcessorEnvStatsHistDn=_CfprProcessorEnvStatsHistDn_Object((1,3,6,1,4,1,9,9,826,1,66,3,1,2),_CfprProcessorEnvStatsHistDn_Type())
+cfprProcessorEnvStatsHistDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistDn.setStatus(_A)
+_CfprProcessorEnvStatsHistRn_Type=SnmpAdminString
+_CfprProcessorEnvStatsHistRn_Object=MibTableColumn
+cfprProcessorEnvStatsHistRn=_CfprProcessorEnvStatsHistRn_Object((1,3,6,1,4,1,9,9,826,1,66,3,1,3),_CfprProcessorEnvStatsHistRn_Type())
+cfprProcessorEnvStatsHistRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistRn.setStatus(_A)
+_CfprProcessorEnvStatsHistId_Type=Unsigned64
+_CfprProcessorEnvStatsHistId_Object=MibTableColumn
+cfprProcessorEnvStatsHistId=_CfprProcessorEnvStatsHistId_Object((1,3,6,1,4,1,9,9,826,1,66,3,1,4),_CfprProcessorEnvStatsHistId_Type())
+cfprProcessorEnvStatsHistId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistId.setStatus(_A)
+_CfprProcessorEnvStatsHistInputCurrent_Type=Integer32
+_CfprProcessorEnvStatsHistInputCurrent_Object=MibTableColumn
+cfprProcessorEnvStatsHistInputCurrent=_CfprProcessorEnvStatsHistInputCurrent_Object((1,3,6,1,4,1,9,9,826,1,66,3,1,5),_CfprProcessorEnvStatsHistInputCurrent_Type())
+cfprProcessorEnvStatsHistInputCurrent.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistInputCurrent.setStatus(_A)
+_CfprProcessorEnvStatsHistInputCurrentAvg_Type=Integer32
+_CfprProcessorEnvStatsHistInputCurrentAvg_Object=MibTableColumn
+cfprProcessorEnvStatsHistInputCurrentAvg=_CfprProcessorEnvStatsHistInputCurrentAvg_Object((1,3,6,1,4,1,9,9,826,1,66,3,1,6),_CfprProcessorEnvStatsHistInputCurrentAvg_Type())
+cfprProcessorEnvStatsHistInputCurrentAvg.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistInputCurrentAvg.setStatus(_A)
+_CfprProcessorEnvStatsHistInputCurrentMax_Type=Integer32
+_CfprProcessorEnvStatsHistInputCurrentMax_Object=MibTableColumn
+cfprProcessorEnvStatsHistInputCurrentMax=_CfprProcessorEnvStatsHistInputCurrentMax_Object((1,3,6,1,4,1,9,9,826,1,66,3,1,7),_CfprProcessorEnvStatsHistInputCurrentMax_Type())
+cfprProcessorEnvStatsHistInputCurrentMax.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistInputCurrentMax.setStatus(_A)
+_CfprProcessorEnvStatsHistInputCurrentMin_Type=Integer32
+_CfprProcessorEnvStatsHistInputCurrentMin_Object=MibTableColumn
+cfprProcessorEnvStatsHistInputCurrentMin=_CfprProcessorEnvStatsHistInputCurrentMin_Object((1,3,6,1,4,1,9,9,826,1,66,3,1,8),_CfprProcessorEnvStatsHistInputCurrentMin_Type())
+cfprProcessorEnvStatsHistInputCurrentMin.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistInputCurrentMin.setStatus(_A)
+_CfprProcessorEnvStatsHistMostRecent_Type=TruthValue
+_CfprProcessorEnvStatsHistMostRecent_Object=MibTableColumn
+cfprProcessorEnvStatsHistMostRecent=_CfprProcessorEnvStatsHistMostRecent_Object((1,3,6,1,4,1,9,9,826,1,66,3,1,9),_CfprProcessorEnvStatsHistMostRecent_Type())
+cfprProcessorEnvStatsHistMostRecent.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistMostRecent.setStatus(_A)
+_CfprProcessorEnvStatsHistSuspect_Type=TruthValue
+_CfprProcessorEnvStatsHistSuspect_Object=MibTableColumn
+cfprProcessorEnvStatsHistSuspect=_CfprProcessorEnvStatsHistSuspect_Object((1,3,6,1,4,1,9,9,826,1,66,3,1,10),_CfprProcessorEnvStatsHistSuspect_Type())
+cfprProcessorEnvStatsHistSuspect.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistSuspect.setStatus(_A)
+_CfprProcessorEnvStatsHistTemperature_Type=Integer32
+_CfprProcessorEnvStatsHistTemperature_Object=MibTableColumn
+cfprProcessorEnvStatsHistTemperature=_CfprProcessorEnvStatsHistTemperature_Object((1,3,6,1,4,1,9,9,826,1,66,3,1,11),_CfprProcessorEnvStatsHistTemperature_Type())
+cfprProcessorEnvStatsHistTemperature.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistTemperature.setStatus(_A)
+_CfprProcessorEnvStatsHistTemperatureAvg_Type=Integer32
+_CfprProcessorEnvStatsHistTemperatureAvg_Object=MibTableColumn
+cfprProcessorEnvStatsHistTemperatureAvg=_CfprProcessorEnvStatsHistTemperatureAvg_Object((1,3,6,1,4,1,9,9,826,1,66,3,1,12),_CfprProcessorEnvStatsHistTemperatureAvg_Type())
+cfprProcessorEnvStatsHistTemperatureAvg.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistTemperatureAvg.setStatus(_A)
+_CfprProcessorEnvStatsHistTemperatureMax_Type=Integer32
+_CfprProcessorEnvStatsHistTemperatureMax_Object=MibTableColumn
+cfprProcessorEnvStatsHistTemperatureMax=_CfprProcessorEnvStatsHistTemperatureMax_Object((1,3,6,1,4,1,9,9,826,1,66,3,1,13),_CfprProcessorEnvStatsHistTemperatureMax_Type())
+cfprProcessorEnvStatsHistTemperatureMax.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistTemperatureMax.setStatus(_A)
+_CfprProcessorEnvStatsHistTemperatureMin_Type=Integer32
+_CfprProcessorEnvStatsHistTemperatureMin_Object=MibTableColumn
+cfprProcessorEnvStatsHistTemperatureMin=_CfprProcessorEnvStatsHistTemperatureMin_Object((1,3,6,1,4,1,9,9,826,1,66,3,1,14),_CfprProcessorEnvStatsHistTemperatureMin_Type())
+cfprProcessorEnvStatsHistTemperatureMin.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistTemperatureMin.setStatus(_A)
+_CfprProcessorEnvStatsHistThresholded_Type=CfprProcessorEnvStatsHistThresholded
+_CfprProcessorEnvStatsHistThresholded_Object=MibTableColumn
+cfprProcessorEnvStatsHistThresholded=_CfprProcessorEnvStatsHistThresholded_Object((1,3,6,1,4,1,9,9,826,1,66,3,1,15),_CfprProcessorEnvStatsHistThresholded_Type())
+cfprProcessorEnvStatsHistThresholded.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistThresholded.setStatus(_A)
+_CfprProcessorEnvStatsHistTimeCollected_Type=DateAndTime
+_CfprProcessorEnvStatsHistTimeCollected_Object=MibTableColumn
+cfprProcessorEnvStatsHistTimeCollected=_CfprProcessorEnvStatsHistTimeCollected_Object((1,3,6,1,4,1,9,9,826,1,66,3,1,16),_CfprProcessorEnvStatsHistTimeCollected_Type())
+cfprProcessorEnvStatsHistTimeCollected.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorEnvStatsHistTimeCollected.setStatus(_A)
+_CfprProcessorErrorStatsTable_Object=MibTable
+cfprProcessorErrorStatsTable=_CfprProcessorErrorStatsTable_Object((1,3,6,1,4,1,9,9,826,1,66,4))
+if mibBuilder.loadTexts:cfprProcessorErrorStatsTable.setStatus(_A)
+_CfprProcessorErrorStatsEntry_Object=MibTableRow
+cfprProcessorErrorStatsEntry=_CfprProcessorErrorStatsEntry_Object((1,3,6,1,4,1,9,9,826,1,66,4,1))
+cfprProcessorErrorStatsEntry.setIndexNames((0,_C,_H))
+if mibBuilder.loadTexts:cfprProcessorErrorStatsEntry.setStatus(_A)
+_CfprProcessorErrorStatsInstanceId_Type=CfprManagedObjectId
+_CfprProcessorErrorStatsInstanceId_Object=MibTableColumn
+cfprProcessorErrorStatsInstanceId=_CfprProcessorErrorStatsInstanceId_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,1),_CfprProcessorErrorStatsInstanceId_Type())
+cfprProcessorErrorStatsInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsInstanceId.setStatus(_A)
+_CfprProcessorErrorStatsDn_Type=CfprManagedObjectDn
+_CfprProcessorErrorStatsDn_Object=MibTableColumn
+cfprProcessorErrorStatsDn=_CfprProcessorErrorStatsDn_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,2),_CfprProcessorErrorStatsDn_Type())
+cfprProcessorErrorStatsDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsDn.setStatus(_A)
+_CfprProcessorErrorStatsRn_Type=SnmpAdminString
+_CfprProcessorErrorStatsRn_Object=MibTableColumn
+cfprProcessorErrorStatsRn=_CfprProcessorErrorStatsRn_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,3),_CfprProcessorErrorStatsRn_Type())
+cfprProcessorErrorStatsRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsRn.setStatus(_A)
+_CfprProcessorErrorStatsIntervals_Type=Gauge32
+_CfprProcessorErrorStatsIntervals_Object=MibTableColumn
+cfprProcessorErrorStatsIntervals=_CfprProcessorErrorStatsIntervals_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,4),_CfprProcessorErrorStatsIntervals_Type())
+cfprProcessorErrorStatsIntervals.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsIntervals.setStatus(_A)
+_CfprProcessorErrorStatsMirroringInterSockErrors_Type=Counter32
+_CfprProcessorErrorStatsMirroringInterSockErrors_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringInterSockErrors=_CfprProcessorErrorStatsMirroringInterSockErrors_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,5),_CfprProcessorErrorStatsMirroringInterSockErrors_Type())
+cfprProcessorErrorStatsMirroringInterSockErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringInterSockErrors.setStatus(_A)
+_CfprProcessorErrorStatsMirroringInterSockErrors15Min_Type=Gauge32
+_CfprProcessorErrorStatsMirroringInterSockErrors15Min_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringInterSockErrors15Min=_CfprProcessorErrorStatsMirroringInterSockErrors15Min_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,6),_CfprProcessorErrorStatsMirroringInterSockErrors15Min_Type())
+cfprProcessorErrorStatsMirroringInterSockErrors15Min.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringInterSockErrors15Min.setStatus(_A)
+_CfprProcessorErrorStatsMirroringInterSockErrors15MinH_Type=Gauge32
+_CfprProcessorErrorStatsMirroringInterSockErrors15MinH_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringInterSockErrors15MinH=_CfprProcessorErrorStatsMirroringInterSockErrors15MinH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,7),_CfprProcessorErrorStatsMirroringInterSockErrors15MinH_Type())
+cfprProcessorErrorStatsMirroringInterSockErrors15MinH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringInterSockErrors15MinH.setStatus(_A)
+_CfprProcessorErrorStatsMirroringInterSockErrors1Day_Type=Gauge32
+_CfprProcessorErrorStatsMirroringInterSockErrors1Day_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringInterSockErrors1Day=_CfprProcessorErrorStatsMirroringInterSockErrors1Day_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,8),_CfprProcessorErrorStatsMirroringInterSockErrors1Day_Type())
+cfprProcessorErrorStatsMirroringInterSockErrors1Day.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringInterSockErrors1Day.setStatus(_A)
+_CfprProcessorErrorStatsMirroringInterSockErrors1DayH_Type=Gauge32
+_CfprProcessorErrorStatsMirroringInterSockErrors1DayH_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringInterSockErrors1DayH=_CfprProcessorErrorStatsMirroringInterSockErrors1DayH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,9),_CfprProcessorErrorStatsMirroringInterSockErrors1DayH_Type())
+cfprProcessorErrorStatsMirroringInterSockErrors1DayH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringInterSockErrors1DayH.setStatus(_A)
+_CfprProcessorErrorStatsMirroringInterSockErrors1Hour_Type=Gauge32
+_CfprProcessorErrorStatsMirroringInterSockErrors1Hour_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringInterSockErrors1Hour=_CfprProcessorErrorStatsMirroringInterSockErrors1Hour_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,10),_CfprProcessorErrorStatsMirroringInterSockErrors1Hour_Type())
+cfprProcessorErrorStatsMirroringInterSockErrors1Hour.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringInterSockErrors1Hour.setStatus(_A)
+_CfprProcessorErrorStatsMirroringInterSockErrors1HourH_Type=Gauge32
+_CfprProcessorErrorStatsMirroringInterSockErrors1HourH_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringInterSockErrors1HourH=_CfprProcessorErrorStatsMirroringInterSockErrors1HourH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,11),_CfprProcessorErrorStatsMirroringInterSockErrors1HourH_Type())
+cfprProcessorErrorStatsMirroringInterSockErrors1HourH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringInterSockErrors1HourH.setStatus(_A)
+_CfprProcessorErrorStatsMirroringInterSockErrors1Week_Type=Gauge32
+_CfprProcessorErrorStatsMirroringInterSockErrors1Week_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringInterSockErrors1Week=_CfprProcessorErrorStatsMirroringInterSockErrors1Week_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,12),_CfprProcessorErrorStatsMirroringInterSockErrors1Week_Type())
+cfprProcessorErrorStatsMirroringInterSockErrors1Week.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringInterSockErrors1Week.setStatus(_A)
+_CfprProcessorErrorStatsMirroringInterSockErrors1WeekH_Type=Gauge32
+_CfprProcessorErrorStatsMirroringInterSockErrors1WeekH_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringInterSockErrors1WeekH=_CfprProcessorErrorStatsMirroringInterSockErrors1WeekH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,13),_CfprProcessorErrorStatsMirroringInterSockErrors1WeekH_Type())
+cfprProcessorErrorStatsMirroringInterSockErrors1WeekH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringInterSockErrors1WeekH.setStatus(_A)
+_CfprProcessorErrorStatsMirroringInterSockErrors2Weeks_Type=Gauge32
+_CfprProcessorErrorStatsMirroringInterSockErrors2Weeks_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringInterSockErrors2Weeks=_CfprProcessorErrorStatsMirroringInterSockErrors2Weeks_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,14),_CfprProcessorErrorStatsMirroringInterSockErrors2Weeks_Type())
+cfprProcessorErrorStatsMirroringInterSockErrors2Weeks.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringInterSockErrors2Weeks.setStatus(_A)
+_CfprProcessorErrorStatsMirroringInterSockErrors2WeeksH_Type=Gauge32
+_CfprProcessorErrorStatsMirroringInterSockErrors2WeeksH_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringInterSockErrors2WeeksH=_CfprProcessorErrorStatsMirroringInterSockErrors2WeeksH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,15),_CfprProcessorErrorStatsMirroringInterSockErrors2WeeksH_Type())
+cfprProcessorErrorStatsMirroringInterSockErrors2WeeksH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringInterSockErrors2WeeksH.setStatus(_A)
+_CfprProcessorErrorStatsMirroringIntraSockErrors_Type=Counter32
+_CfprProcessorErrorStatsMirroringIntraSockErrors_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringIntraSockErrors=_CfprProcessorErrorStatsMirroringIntraSockErrors_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,16),_CfprProcessorErrorStatsMirroringIntraSockErrors_Type())
+cfprProcessorErrorStatsMirroringIntraSockErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringIntraSockErrors.setStatus(_A)
+_CfprProcessorErrorStatsMirroringIntraSockErrors15Min_Type=Gauge32
+_CfprProcessorErrorStatsMirroringIntraSockErrors15Min_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringIntraSockErrors15Min=_CfprProcessorErrorStatsMirroringIntraSockErrors15Min_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,17),_CfprProcessorErrorStatsMirroringIntraSockErrors15Min_Type())
+cfprProcessorErrorStatsMirroringIntraSockErrors15Min.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringIntraSockErrors15Min.setStatus(_A)
+_CfprProcessorErrorStatsMirroringIntraSockErrors15MinH_Type=Gauge32
+_CfprProcessorErrorStatsMirroringIntraSockErrors15MinH_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringIntraSockErrors15MinH=_CfprProcessorErrorStatsMirroringIntraSockErrors15MinH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,18),_CfprProcessorErrorStatsMirroringIntraSockErrors15MinH_Type())
+cfprProcessorErrorStatsMirroringIntraSockErrors15MinH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringIntraSockErrors15MinH.setStatus(_A)
+_CfprProcessorErrorStatsMirroringIntraSockErrors1Day_Type=Gauge32
+_CfprProcessorErrorStatsMirroringIntraSockErrors1Day_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringIntraSockErrors1Day=_CfprProcessorErrorStatsMirroringIntraSockErrors1Day_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,19),_CfprProcessorErrorStatsMirroringIntraSockErrors1Day_Type())
+cfprProcessorErrorStatsMirroringIntraSockErrors1Day.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringIntraSockErrors1Day.setStatus(_A)
+_CfprProcessorErrorStatsMirroringIntraSockErrors1DayH_Type=Gauge32
+_CfprProcessorErrorStatsMirroringIntraSockErrors1DayH_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringIntraSockErrors1DayH=_CfprProcessorErrorStatsMirroringIntraSockErrors1DayH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,20),_CfprProcessorErrorStatsMirroringIntraSockErrors1DayH_Type())
+cfprProcessorErrorStatsMirroringIntraSockErrors1DayH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringIntraSockErrors1DayH.setStatus(_A)
+_CfprProcessorErrorStatsMirroringIntraSockErrors1Hour_Type=Gauge32
+_CfprProcessorErrorStatsMirroringIntraSockErrors1Hour_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringIntraSockErrors1Hour=_CfprProcessorErrorStatsMirroringIntraSockErrors1Hour_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,21),_CfprProcessorErrorStatsMirroringIntraSockErrors1Hour_Type())
+cfprProcessorErrorStatsMirroringIntraSockErrors1Hour.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringIntraSockErrors1Hour.setStatus(_A)
+_CfprProcessorErrorStatsMirroringIntraSockErrors1HourH_Type=Gauge32
+_CfprProcessorErrorStatsMirroringIntraSockErrors1HourH_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringIntraSockErrors1HourH=_CfprProcessorErrorStatsMirroringIntraSockErrors1HourH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,22),_CfprProcessorErrorStatsMirroringIntraSockErrors1HourH_Type())
+cfprProcessorErrorStatsMirroringIntraSockErrors1HourH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringIntraSockErrors1HourH.setStatus(_A)
+_CfprProcessorErrorStatsMirroringIntraSockErrors1Week_Type=Gauge32
+_CfprProcessorErrorStatsMirroringIntraSockErrors1Week_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringIntraSockErrors1Week=_CfprProcessorErrorStatsMirroringIntraSockErrors1Week_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,23),_CfprProcessorErrorStatsMirroringIntraSockErrors1Week_Type())
+cfprProcessorErrorStatsMirroringIntraSockErrors1Week.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringIntraSockErrors1Week.setStatus(_A)
+_CfprProcessorErrorStatsMirroringIntraSockErrors1WeekH_Type=Gauge32
+_CfprProcessorErrorStatsMirroringIntraSockErrors1WeekH_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringIntraSockErrors1WeekH=_CfprProcessorErrorStatsMirroringIntraSockErrors1WeekH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,24),_CfprProcessorErrorStatsMirroringIntraSockErrors1WeekH_Type())
+cfprProcessorErrorStatsMirroringIntraSockErrors1WeekH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringIntraSockErrors1WeekH.setStatus(_A)
+_CfprProcessorErrorStatsMirroringIntraSockErrors2Weeks_Type=Gauge32
+_CfprProcessorErrorStatsMirroringIntraSockErrors2Weeks_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringIntraSockErrors2Weeks=_CfprProcessorErrorStatsMirroringIntraSockErrors2Weeks_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,25),_CfprProcessorErrorStatsMirroringIntraSockErrors2Weeks_Type())
+cfprProcessorErrorStatsMirroringIntraSockErrors2Weeks.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringIntraSockErrors2Weeks.setStatus(_A)
+_CfprProcessorErrorStatsMirroringIntraSockErrors2WeeksH_Type=Gauge32
+_CfprProcessorErrorStatsMirroringIntraSockErrors2WeeksH_Object=MibTableColumn
+cfprProcessorErrorStatsMirroringIntraSockErrors2WeeksH=_CfprProcessorErrorStatsMirroringIntraSockErrors2WeeksH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,26),_CfprProcessorErrorStatsMirroringIntraSockErrors2WeeksH_Type())
+cfprProcessorErrorStatsMirroringIntraSockErrors2WeeksH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsMirroringIntraSockErrors2WeeksH.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkCorrErrors_Type=Counter32
+_CfprProcessorErrorStatsSmiLinkCorrErrors_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkCorrErrors=_CfprProcessorErrorStatsSmiLinkCorrErrors_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,27),_CfprProcessorErrorStatsSmiLinkCorrErrors_Type())
+cfprProcessorErrorStatsSmiLinkCorrErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkCorrErrors.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkCorrErrors15Min_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkCorrErrors15Min_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkCorrErrors15Min=_CfprProcessorErrorStatsSmiLinkCorrErrors15Min_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,28),_CfprProcessorErrorStatsSmiLinkCorrErrors15Min_Type())
+cfprProcessorErrorStatsSmiLinkCorrErrors15Min.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkCorrErrors15Min.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkCorrErrors15MinH_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkCorrErrors15MinH_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkCorrErrors15MinH=_CfprProcessorErrorStatsSmiLinkCorrErrors15MinH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,29),_CfprProcessorErrorStatsSmiLinkCorrErrors15MinH_Type())
+cfprProcessorErrorStatsSmiLinkCorrErrors15MinH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkCorrErrors15MinH.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkCorrErrors1Day_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkCorrErrors1Day_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkCorrErrors1Day=_CfprProcessorErrorStatsSmiLinkCorrErrors1Day_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,30),_CfprProcessorErrorStatsSmiLinkCorrErrors1Day_Type())
+cfprProcessorErrorStatsSmiLinkCorrErrors1Day.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkCorrErrors1Day.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkCorrErrors1DayH_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkCorrErrors1DayH_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkCorrErrors1DayH=_CfprProcessorErrorStatsSmiLinkCorrErrors1DayH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,31),_CfprProcessorErrorStatsSmiLinkCorrErrors1DayH_Type())
+cfprProcessorErrorStatsSmiLinkCorrErrors1DayH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkCorrErrors1DayH.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkCorrErrors1Hour_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkCorrErrors1Hour_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkCorrErrors1Hour=_CfprProcessorErrorStatsSmiLinkCorrErrors1Hour_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,32),_CfprProcessorErrorStatsSmiLinkCorrErrors1Hour_Type())
+cfprProcessorErrorStatsSmiLinkCorrErrors1Hour.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkCorrErrors1Hour.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkCorrErrors1HourH_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkCorrErrors1HourH_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkCorrErrors1HourH=_CfprProcessorErrorStatsSmiLinkCorrErrors1HourH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,33),_CfprProcessorErrorStatsSmiLinkCorrErrors1HourH_Type())
+cfprProcessorErrorStatsSmiLinkCorrErrors1HourH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkCorrErrors1HourH.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkCorrErrors1Week_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkCorrErrors1Week_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkCorrErrors1Week=_CfprProcessorErrorStatsSmiLinkCorrErrors1Week_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,34),_CfprProcessorErrorStatsSmiLinkCorrErrors1Week_Type())
+cfprProcessorErrorStatsSmiLinkCorrErrors1Week.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkCorrErrors1Week.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkCorrErrors1WeekH_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkCorrErrors1WeekH_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkCorrErrors1WeekH=_CfprProcessorErrorStatsSmiLinkCorrErrors1WeekH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,35),_CfprProcessorErrorStatsSmiLinkCorrErrors1WeekH_Type())
+cfprProcessorErrorStatsSmiLinkCorrErrors1WeekH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkCorrErrors1WeekH.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkCorrErrors2Weeks_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkCorrErrors2Weeks_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkCorrErrors2Weeks=_CfprProcessorErrorStatsSmiLinkCorrErrors2Weeks_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,36),_CfprProcessorErrorStatsSmiLinkCorrErrors2Weeks_Type())
+cfprProcessorErrorStatsSmiLinkCorrErrors2Weeks.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkCorrErrors2Weeks.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkCorrErrors2WeeksH_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkCorrErrors2WeeksH_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkCorrErrors2WeeksH=_CfprProcessorErrorStatsSmiLinkCorrErrors2WeeksH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,37),_CfprProcessorErrorStatsSmiLinkCorrErrors2WeeksH_Type())
+cfprProcessorErrorStatsSmiLinkCorrErrors2WeeksH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkCorrErrors2WeeksH.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkUncorrErrors_Type=Counter32
+_CfprProcessorErrorStatsSmiLinkUncorrErrors_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkUncorrErrors=_CfprProcessorErrorStatsSmiLinkUncorrErrors_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,38),_CfprProcessorErrorStatsSmiLinkUncorrErrors_Type())
+cfprProcessorErrorStatsSmiLinkUncorrErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkUncorrErrors.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkUncorrErrors15Min_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkUncorrErrors15Min_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkUncorrErrors15Min=_CfprProcessorErrorStatsSmiLinkUncorrErrors15Min_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,39),_CfprProcessorErrorStatsSmiLinkUncorrErrors15Min_Type())
+cfprProcessorErrorStatsSmiLinkUncorrErrors15Min.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkUncorrErrors15Min.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkUncorrErrors15MinH_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkUncorrErrors15MinH_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkUncorrErrors15MinH=_CfprProcessorErrorStatsSmiLinkUncorrErrors15MinH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,40),_CfprProcessorErrorStatsSmiLinkUncorrErrors15MinH_Type())
+cfprProcessorErrorStatsSmiLinkUncorrErrors15MinH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkUncorrErrors15MinH.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkUncorrErrors1Day_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkUncorrErrors1Day_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkUncorrErrors1Day=_CfprProcessorErrorStatsSmiLinkUncorrErrors1Day_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,41),_CfprProcessorErrorStatsSmiLinkUncorrErrors1Day_Type())
+cfprProcessorErrorStatsSmiLinkUncorrErrors1Day.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkUncorrErrors1Day.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkUncorrErrors1DayH_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkUncorrErrors1DayH_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkUncorrErrors1DayH=_CfprProcessorErrorStatsSmiLinkUncorrErrors1DayH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,42),_CfprProcessorErrorStatsSmiLinkUncorrErrors1DayH_Type())
+cfprProcessorErrorStatsSmiLinkUncorrErrors1DayH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkUncorrErrors1DayH.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkUncorrErrors1Hour_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkUncorrErrors1Hour_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkUncorrErrors1Hour=_CfprProcessorErrorStatsSmiLinkUncorrErrors1Hour_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,43),_CfprProcessorErrorStatsSmiLinkUncorrErrors1Hour_Type())
+cfprProcessorErrorStatsSmiLinkUncorrErrors1Hour.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkUncorrErrors1Hour.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkUncorrErrors1HourH_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkUncorrErrors1HourH_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkUncorrErrors1HourH=_CfprProcessorErrorStatsSmiLinkUncorrErrors1HourH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,44),_CfprProcessorErrorStatsSmiLinkUncorrErrors1HourH_Type())
+cfprProcessorErrorStatsSmiLinkUncorrErrors1HourH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkUncorrErrors1HourH.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkUncorrErrors1Week_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkUncorrErrors1Week_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkUncorrErrors1Week=_CfprProcessorErrorStatsSmiLinkUncorrErrors1Week_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,45),_CfprProcessorErrorStatsSmiLinkUncorrErrors1Week_Type())
+cfprProcessorErrorStatsSmiLinkUncorrErrors1Week.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkUncorrErrors1Week.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkUncorrErrors1WeekH_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkUncorrErrors1WeekH_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkUncorrErrors1WeekH=_CfprProcessorErrorStatsSmiLinkUncorrErrors1WeekH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,46),_CfprProcessorErrorStatsSmiLinkUncorrErrors1WeekH_Type())
+cfprProcessorErrorStatsSmiLinkUncorrErrors1WeekH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkUncorrErrors1WeekH.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkUncorrErrors2Weeks_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkUncorrErrors2Weeks_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkUncorrErrors2Weeks=_CfprProcessorErrorStatsSmiLinkUncorrErrors2Weeks_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,47),_CfprProcessorErrorStatsSmiLinkUncorrErrors2Weeks_Type())
+cfprProcessorErrorStatsSmiLinkUncorrErrors2Weeks.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkUncorrErrors2Weeks.setStatus(_A)
+_CfprProcessorErrorStatsSmiLinkUncorrErrors2WeeksH_Type=Gauge32
+_CfprProcessorErrorStatsSmiLinkUncorrErrors2WeeksH_Object=MibTableColumn
+cfprProcessorErrorStatsSmiLinkUncorrErrors2WeeksH=_CfprProcessorErrorStatsSmiLinkUncorrErrors2WeeksH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,48),_CfprProcessorErrorStatsSmiLinkUncorrErrors2WeeksH_Type())
+cfprProcessorErrorStatsSmiLinkUncorrErrors2WeeksH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSmiLinkUncorrErrors2WeeksH.setStatus(_A)
+_CfprProcessorErrorStatsSparingErrors_Type=Counter32
+_CfprProcessorErrorStatsSparingErrors_Object=MibTableColumn
+cfprProcessorErrorStatsSparingErrors=_CfprProcessorErrorStatsSparingErrors_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,49),_CfprProcessorErrorStatsSparingErrors_Type())
+cfprProcessorErrorStatsSparingErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSparingErrors.setStatus(_A)
+_CfprProcessorErrorStatsSparingErrors15Min_Type=Gauge32
+_CfprProcessorErrorStatsSparingErrors15Min_Object=MibTableColumn
+cfprProcessorErrorStatsSparingErrors15Min=_CfprProcessorErrorStatsSparingErrors15Min_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,50),_CfprProcessorErrorStatsSparingErrors15Min_Type())
+cfprProcessorErrorStatsSparingErrors15Min.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSparingErrors15Min.setStatus(_A)
+_CfprProcessorErrorStatsSparingErrors15MinH_Type=Gauge32
+_CfprProcessorErrorStatsSparingErrors15MinH_Object=MibTableColumn
+cfprProcessorErrorStatsSparingErrors15MinH=_CfprProcessorErrorStatsSparingErrors15MinH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,51),_CfprProcessorErrorStatsSparingErrors15MinH_Type())
+cfprProcessorErrorStatsSparingErrors15MinH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSparingErrors15MinH.setStatus(_A)
+_CfprProcessorErrorStatsSparingErrors1Day_Type=Gauge32
+_CfprProcessorErrorStatsSparingErrors1Day_Object=MibTableColumn
+cfprProcessorErrorStatsSparingErrors1Day=_CfprProcessorErrorStatsSparingErrors1Day_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,52),_CfprProcessorErrorStatsSparingErrors1Day_Type())
+cfprProcessorErrorStatsSparingErrors1Day.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSparingErrors1Day.setStatus(_A)
+_CfprProcessorErrorStatsSparingErrors1DayH_Type=Gauge32
+_CfprProcessorErrorStatsSparingErrors1DayH_Object=MibTableColumn
+cfprProcessorErrorStatsSparingErrors1DayH=_CfprProcessorErrorStatsSparingErrors1DayH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,53),_CfprProcessorErrorStatsSparingErrors1DayH_Type())
+cfprProcessorErrorStatsSparingErrors1DayH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSparingErrors1DayH.setStatus(_A)
+_CfprProcessorErrorStatsSparingErrors1Hour_Type=Gauge32
+_CfprProcessorErrorStatsSparingErrors1Hour_Object=MibTableColumn
+cfprProcessorErrorStatsSparingErrors1Hour=_CfprProcessorErrorStatsSparingErrors1Hour_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,54),_CfprProcessorErrorStatsSparingErrors1Hour_Type())
+cfprProcessorErrorStatsSparingErrors1Hour.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSparingErrors1Hour.setStatus(_A)
+_CfprProcessorErrorStatsSparingErrors1HourH_Type=Gauge32
+_CfprProcessorErrorStatsSparingErrors1HourH_Object=MibTableColumn
+cfprProcessorErrorStatsSparingErrors1HourH=_CfprProcessorErrorStatsSparingErrors1HourH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,55),_CfprProcessorErrorStatsSparingErrors1HourH_Type())
+cfprProcessorErrorStatsSparingErrors1HourH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSparingErrors1HourH.setStatus(_A)
+_CfprProcessorErrorStatsSparingErrors1Week_Type=Gauge32
+_CfprProcessorErrorStatsSparingErrors1Week_Object=MibTableColumn
+cfprProcessorErrorStatsSparingErrors1Week=_CfprProcessorErrorStatsSparingErrors1Week_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,56),_CfprProcessorErrorStatsSparingErrors1Week_Type())
+cfprProcessorErrorStatsSparingErrors1Week.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSparingErrors1Week.setStatus(_A)
+_CfprProcessorErrorStatsSparingErrors1WeekH_Type=Gauge32
+_CfprProcessorErrorStatsSparingErrors1WeekH_Object=MibTableColumn
+cfprProcessorErrorStatsSparingErrors1WeekH=_CfprProcessorErrorStatsSparingErrors1WeekH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,57),_CfprProcessorErrorStatsSparingErrors1WeekH_Type())
+cfprProcessorErrorStatsSparingErrors1WeekH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSparingErrors1WeekH.setStatus(_A)
+_CfprProcessorErrorStatsSparingErrors2Weeks_Type=Gauge32
+_CfprProcessorErrorStatsSparingErrors2Weeks_Object=MibTableColumn
+cfprProcessorErrorStatsSparingErrors2Weeks=_CfprProcessorErrorStatsSparingErrors2Weeks_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,58),_CfprProcessorErrorStatsSparingErrors2Weeks_Type())
+cfprProcessorErrorStatsSparingErrors2Weeks.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSparingErrors2Weeks.setStatus(_A)
+_CfprProcessorErrorStatsSparingErrors2WeeksH_Type=Gauge32
+_CfprProcessorErrorStatsSparingErrors2WeeksH_Object=MibTableColumn
+cfprProcessorErrorStatsSparingErrors2WeeksH=_CfprProcessorErrorStatsSparingErrors2WeeksH_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,59),_CfprProcessorErrorStatsSparingErrors2WeeksH_Type())
+cfprProcessorErrorStatsSparingErrors2WeeksH.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSparingErrors2WeeksH.setStatus(_A)
+_CfprProcessorErrorStatsSuspect_Type=TruthValue
+_CfprProcessorErrorStatsSuspect_Object=MibTableColumn
+cfprProcessorErrorStatsSuspect=_CfprProcessorErrorStatsSuspect_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,60),_CfprProcessorErrorStatsSuspect_Type())
+cfprProcessorErrorStatsSuspect.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsSuspect.setStatus(_A)
+_CfprProcessorErrorStatsThresholded_Type=CfprProcessorErrorStatsThresholded
+_CfprProcessorErrorStatsThresholded_Object=MibTableColumn
+cfprProcessorErrorStatsThresholded=_CfprProcessorErrorStatsThresholded_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,61),_CfprProcessorErrorStatsThresholded_Type())
+cfprProcessorErrorStatsThresholded.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsThresholded.setStatus(_A)
+_CfprProcessorErrorStatsTimeCollected_Type=DateAndTime
+_CfprProcessorErrorStatsTimeCollected_Object=MibTableColumn
+cfprProcessorErrorStatsTimeCollected=_CfprProcessorErrorStatsTimeCollected_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,62),_CfprProcessorErrorStatsTimeCollected_Type())
+cfprProcessorErrorStatsTimeCollected.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsTimeCollected.setStatus(_A)
+_CfprProcessorErrorStatsUpdate_Type=Gauge32
+_CfprProcessorErrorStatsUpdate_Object=MibTableColumn
+cfprProcessorErrorStatsUpdate=_CfprProcessorErrorStatsUpdate_Object((1,3,6,1,4,1,9,9,826,1,66,4,1,63),_CfprProcessorErrorStatsUpdate_Type())
+cfprProcessorErrorStatsUpdate.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorErrorStatsUpdate.setStatus(_A)
+_CfprProcessorQualTable_Object=MibTable
+cfprProcessorQualTable=_CfprProcessorQualTable_Object((1,3,6,1,4,1,9,9,826,1,66,5))
+if mibBuilder.loadTexts:cfprProcessorQualTable.setStatus(_A)
+_CfprProcessorQualEntry_Object=MibTableRow
+cfprProcessorQualEntry=_CfprProcessorQualEntry_Object((1,3,6,1,4,1,9,9,826,1,66,5,1))
+cfprProcessorQualEntry.setIndexNames((0,_C,_I))
+if mibBuilder.loadTexts:cfprProcessorQualEntry.setStatus(_A)
+_CfprProcessorQualInstanceId_Type=CfprManagedObjectId
+_CfprProcessorQualInstanceId_Object=MibTableColumn
+cfprProcessorQualInstanceId=_CfprProcessorQualInstanceId_Object((1,3,6,1,4,1,9,9,826,1,66,5,1,1),_CfprProcessorQualInstanceId_Type())
+cfprProcessorQualInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprProcessorQualInstanceId.setStatus(_A)
+_CfprProcessorQualDn_Type=CfprManagedObjectDn
+_CfprProcessorQualDn_Object=MibTableColumn
+cfprProcessorQualDn=_CfprProcessorQualDn_Object((1,3,6,1,4,1,9,9,826,1,66,5,1,2),_CfprProcessorQualDn_Type())
+cfprProcessorQualDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorQualDn.setStatus(_A)
+_CfprProcessorQualRn_Type=SnmpAdminString
+_CfprProcessorQualRn_Object=MibTableColumn
+cfprProcessorQualRn=_CfprProcessorQualRn_Object((1,3,6,1,4,1,9,9,826,1,66,5,1,3),_CfprProcessorQualRn_Type())
+cfprProcessorQualRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorQualRn.setStatus(_A)
+_CfprProcessorQualArch_Type=CfprProcessorQualArch
+_CfprProcessorQualArch_Object=MibTableColumn
+cfprProcessorQualArch=_CfprProcessorQualArch_Object((1,3,6,1,4,1,9,9,826,1,66,5,1,4),_CfprProcessorQualArch_Type())
+cfprProcessorQualArch.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorQualArch.setStatus(_A)
+_CfprProcessorQualMaxCores_Type=Gauge32
+_CfprProcessorQualMaxCores_Object=MibTableColumn
+cfprProcessorQualMaxCores=_CfprProcessorQualMaxCores_Object((1,3,6,1,4,1,9,9,826,1,66,5,1,5),_CfprProcessorQualMaxCores_Type())
+cfprProcessorQualMaxCores.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorQualMaxCores.setStatus(_A)
+_CfprProcessorQualMaxProcs_Type=Gauge32
+_CfprProcessorQualMaxProcs_Object=MibTableColumn
+cfprProcessorQualMaxProcs=_CfprProcessorQualMaxProcs_Object((1,3,6,1,4,1,9,9,826,1,66,5,1,6),_CfprProcessorQualMaxProcs_Type())
+cfprProcessorQualMaxProcs.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorQualMaxProcs.setStatus(_A)
+_CfprProcessorQualMaxThreads_Type=Gauge32
+_CfprProcessorQualMaxThreads_Object=MibTableColumn
+cfprProcessorQualMaxThreads=_CfprProcessorQualMaxThreads_Object((1,3,6,1,4,1,9,9,826,1,66,5,1,7),_CfprProcessorQualMaxThreads_Type())
+cfprProcessorQualMaxThreads.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorQualMaxThreads.setStatus(_A)
+_CfprProcessorQualMinCores_Type=Gauge32
+_CfprProcessorQualMinCores_Object=MibTableColumn
+cfprProcessorQualMinCores=_CfprProcessorQualMinCores_Object((1,3,6,1,4,1,9,9,826,1,66,5,1,8),_CfprProcessorQualMinCores_Type())
+cfprProcessorQualMinCores.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorQualMinCores.setStatus(_A)
+_CfprProcessorQualMinProcs_Type=Gauge32
+_CfprProcessorQualMinProcs_Object=MibTableColumn
+cfprProcessorQualMinProcs=_CfprProcessorQualMinProcs_Object((1,3,6,1,4,1,9,9,826,1,66,5,1,9),_CfprProcessorQualMinProcs_Type())
+cfprProcessorQualMinProcs.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorQualMinProcs.setStatus(_A)
+_CfprProcessorQualMinThreads_Type=Gauge32
+_CfprProcessorQualMinThreads_Object=MibTableColumn
+cfprProcessorQualMinThreads=_CfprProcessorQualMinThreads_Object((1,3,6,1,4,1,9,9,826,1,66,5,1,10),_CfprProcessorQualMinThreads_Type())
+cfprProcessorQualMinThreads.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorQualMinThreads.setStatus(_A)
+_CfprProcessorQualModel_Type=SnmpAdminString
+_CfprProcessorQualModel_Object=MibTableColumn
+cfprProcessorQualModel=_CfprProcessorQualModel_Object((1,3,6,1,4,1,9,9,826,1,66,5,1,11),_CfprProcessorQualModel_Type())
+cfprProcessorQualModel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorQualModel.setStatus(_A)
+_CfprProcessorQualSpeed_Type=Integer32
+_CfprProcessorQualSpeed_Object=MibTableColumn
+cfprProcessorQualSpeed=_CfprProcessorQualSpeed_Object((1,3,6,1,4,1,9,9,826,1,66,5,1,12),_CfprProcessorQualSpeed_Type())
+cfprProcessorQualSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorQualSpeed.setStatus(_A)
+_CfprProcessorQualStepping_Type=Gauge32
+_CfprProcessorQualStepping_Object=MibTableColumn
+cfprProcessorQualStepping=_CfprProcessorQualStepping_Object((1,3,6,1,4,1,9,9,826,1,66,5,1,13),_CfprProcessorQualStepping_Type())
+cfprProcessorQualStepping.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorQualStepping.setStatus(_A)
+_CfprProcessorRuntimeTable_Object=MibTable
+cfprProcessorRuntimeTable=_CfprProcessorRuntimeTable_Object((1,3,6,1,4,1,9,9,826,1,66,6))
+if mibBuilder.loadTexts:cfprProcessorRuntimeTable.setStatus(_A)
+_CfprProcessorRuntimeEntry_Object=MibTableRow
+cfprProcessorRuntimeEntry=_CfprProcessorRuntimeEntry_Object((1,3,6,1,4,1,9,9,826,1,66,6,1))
+cfprProcessorRuntimeEntry.setIndexNames((0,_C,_J))
+if mibBuilder.loadTexts:cfprProcessorRuntimeEntry.setStatus(_A)
+_CfprProcessorRuntimeInstanceId_Type=CfprManagedObjectId
+_CfprProcessorRuntimeInstanceId_Object=MibTableColumn
+cfprProcessorRuntimeInstanceId=_CfprProcessorRuntimeInstanceId_Object((1,3,6,1,4,1,9,9,826,1,66,6,1,1),_CfprProcessorRuntimeInstanceId_Type())
+cfprProcessorRuntimeInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprProcessorRuntimeInstanceId.setStatus(_A)
+_CfprProcessorRuntimeDn_Type=CfprManagedObjectDn
+_CfprProcessorRuntimeDn_Object=MibTableColumn
+cfprProcessorRuntimeDn=_CfprProcessorRuntimeDn_Object((1,3,6,1,4,1,9,9,826,1,66,6,1,2),_CfprProcessorRuntimeDn_Type())
+cfprProcessorRuntimeDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeDn.setStatus(_A)
+_CfprProcessorRuntimeRn_Type=SnmpAdminString
+_CfprProcessorRuntimeRn_Object=MibTableColumn
+cfprProcessorRuntimeRn=_CfprProcessorRuntimeRn_Object((1,3,6,1,4,1,9,9,826,1,66,6,1,3),_CfprProcessorRuntimeRn_Type())
+cfprProcessorRuntimeRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeRn.setStatus(_A)
+_CfprProcessorRuntimeIntervals_Type=Gauge32
+_CfprProcessorRuntimeIntervals_Object=MibTableColumn
+cfprProcessorRuntimeIntervals=_CfprProcessorRuntimeIntervals_Object((1,3,6,1,4,1,9,9,826,1,66,6,1,4),_CfprProcessorRuntimeIntervals_Type())
+cfprProcessorRuntimeIntervals.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeIntervals.setStatus(_A)
+_CfprProcessorRuntimeLoad_Type=Integer32
+_CfprProcessorRuntimeLoad_Object=MibTableColumn
+cfprProcessorRuntimeLoad=_CfprProcessorRuntimeLoad_Object((1,3,6,1,4,1,9,9,826,1,66,6,1,5),_CfprProcessorRuntimeLoad_Type())
+cfprProcessorRuntimeLoad.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeLoad.setStatus(_A)
+_CfprProcessorRuntimeLoadAvg_Type=Integer32
+_CfprProcessorRuntimeLoadAvg_Object=MibTableColumn
+cfprProcessorRuntimeLoadAvg=_CfprProcessorRuntimeLoadAvg_Object((1,3,6,1,4,1,9,9,826,1,66,6,1,6),_CfprProcessorRuntimeLoadAvg_Type())
+cfprProcessorRuntimeLoadAvg.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeLoadAvg.setStatus(_A)
+_CfprProcessorRuntimeLoadMax_Type=Integer32
+_CfprProcessorRuntimeLoadMax_Object=MibTableColumn
+cfprProcessorRuntimeLoadMax=_CfprProcessorRuntimeLoadMax_Object((1,3,6,1,4,1,9,9,826,1,66,6,1,7),_CfprProcessorRuntimeLoadMax_Type())
+cfprProcessorRuntimeLoadMax.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeLoadMax.setStatus(_A)
+_CfprProcessorRuntimeLoadMin_Type=Integer32
+_CfprProcessorRuntimeLoadMin_Object=MibTableColumn
+cfprProcessorRuntimeLoadMin=_CfprProcessorRuntimeLoadMin_Object((1,3,6,1,4,1,9,9,826,1,66,6,1,8),_CfprProcessorRuntimeLoadMin_Type())
+cfprProcessorRuntimeLoadMin.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeLoadMin.setStatus(_A)
+_CfprProcessorRuntimeSuspect_Type=TruthValue
+_CfprProcessorRuntimeSuspect_Object=MibTableColumn
+cfprProcessorRuntimeSuspect=_CfprProcessorRuntimeSuspect_Object((1,3,6,1,4,1,9,9,826,1,66,6,1,9),_CfprProcessorRuntimeSuspect_Type())
+cfprProcessorRuntimeSuspect.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeSuspect.setStatus(_A)
+_CfprProcessorRuntimeThresholded_Type=CfprProcessorRuntimeThresholded
+_CfprProcessorRuntimeThresholded_Object=MibTableColumn
+cfprProcessorRuntimeThresholded=_CfprProcessorRuntimeThresholded_Object((1,3,6,1,4,1,9,9,826,1,66,6,1,10),_CfprProcessorRuntimeThresholded_Type())
+cfprProcessorRuntimeThresholded.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeThresholded.setStatus(_A)
+_CfprProcessorRuntimeTimeCollected_Type=DateAndTime
+_CfprProcessorRuntimeTimeCollected_Object=MibTableColumn
+cfprProcessorRuntimeTimeCollected=_CfprProcessorRuntimeTimeCollected_Object((1,3,6,1,4,1,9,9,826,1,66,6,1,11),_CfprProcessorRuntimeTimeCollected_Type())
+cfprProcessorRuntimeTimeCollected.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeTimeCollected.setStatus(_A)
+_CfprProcessorRuntimeUpdate_Type=Gauge32
+_CfprProcessorRuntimeUpdate_Object=MibTableColumn
+cfprProcessorRuntimeUpdate=_CfprProcessorRuntimeUpdate_Object((1,3,6,1,4,1,9,9,826,1,66,6,1,12),_CfprProcessorRuntimeUpdate_Type())
+cfprProcessorRuntimeUpdate.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeUpdate.setStatus(_A)
+_CfprProcessorRuntimeUptime_Type=TimeIntervalSec
+_CfprProcessorRuntimeUptime_Object=MibTableColumn
+cfprProcessorRuntimeUptime=_CfprProcessorRuntimeUptime_Object((1,3,6,1,4,1,9,9,826,1,66,6,1,13),_CfprProcessorRuntimeUptime_Type())
+cfprProcessorRuntimeUptime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeUptime.setStatus(_A)
+_CfprProcessorRuntimeHistTable_Object=MibTable
+cfprProcessorRuntimeHistTable=_CfprProcessorRuntimeHistTable_Object((1,3,6,1,4,1,9,9,826,1,66,7))
+if mibBuilder.loadTexts:cfprProcessorRuntimeHistTable.setStatus(_A)
+_CfprProcessorRuntimeHistEntry_Object=MibTableRow
+cfprProcessorRuntimeHistEntry=_CfprProcessorRuntimeHistEntry_Object((1,3,6,1,4,1,9,9,826,1,66,7,1))
+cfprProcessorRuntimeHistEntry.setIndexNames((0,_C,_K))
+if mibBuilder.loadTexts:cfprProcessorRuntimeHistEntry.setStatus(_A)
+_CfprProcessorRuntimeHistInstanceId_Type=CfprManagedObjectId
+_CfprProcessorRuntimeHistInstanceId_Object=MibTableColumn
+cfprProcessorRuntimeHistInstanceId=_CfprProcessorRuntimeHistInstanceId_Object((1,3,6,1,4,1,9,9,826,1,66,7,1,1),_CfprProcessorRuntimeHistInstanceId_Type())
+cfprProcessorRuntimeHistInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprProcessorRuntimeHistInstanceId.setStatus(_A)
+_CfprProcessorRuntimeHistDn_Type=CfprManagedObjectDn
+_CfprProcessorRuntimeHistDn_Object=MibTableColumn
+cfprProcessorRuntimeHistDn=_CfprProcessorRuntimeHistDn_Object((1,3,6,1,4,1,9,9,826,1,66,7,1,2),_CfprProcessorRuntimeHistDn_Type())
+cfprProcessorRuntimeHistDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeHistDn.setStatus(_A)
+_CfprProcessorRuntimeHistRn_Type=SnmpAdminString
+_CfprProcessorRuntimeHistRn_Object=MibTableColumn
+cfprProcessorRuntimeHistRn=_CfprProcessorRuntimeHistRn_Object((1,3,6,1,4,1,9,9,826,1,66,7,1,3),_CfprProcessorRuntimeHistRn_Type())
+cfprProcessorRuntimeHistRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeHistRn.setStatus(_A)
+_CfprProcessorRuntimeHistId_Type=Unsigned64
+_CfprProcessorRuntimeHistId_Object=MibTableColumn
+cfprProcessorRuntimeHistId=_CfprProcessorRuntimeHistId_Object((1,3,6,1,4,1,9,9,826,1,66,7,1,4),_CfprProcessorRuntimeHistId_Type())
+cfprProcessorRuntimeHistId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeHistId.setStatus(_A)
+_CfprProcessorRuntimeHistLoad_Type=Integer32
+_CfprProcessorRuntimeHistLoad_Object=MibTableColumn
+cfprProcessorRuntimeHistLoad=_CfprProcessorRuntimeHistLoad_Object((1,3,6,1,4,1,9,9,826,1,66,7,1,5),_CfprProcessorRuntimeHistLoad_Type())
+cfprProcessorRuntimeHistLoad.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeHistLoad.setStatus(_A)
+_CfprProcessorRuntimeHistLoadAvg_Type=Integer32
+_CfprProcessorRuntimeHistLoadAvg_Object=MibTableColumn
+cfprProcessorRuntimeHistLoadAvg=_CfprProcessorRuntimeHistLoadAvg_Object((1,3,6,1,4,1,9,9,826,1,66,7,1,6),_CfprProcessorRuntimeHistLoadAvg_Type())
+cfprProcessorRuntimeHistLoadAvg.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeHistLoadAvg.setStatus(_A)
+_CfprProcessorRuntimeHistLoadMax_Type=Integer32
+_CfprProcessorRuntimeHistLoadMax_Object=MibTableColumn
+cfprProcessorRuntimeHistLoadMax=_CfprProcessorRuntimeHistLoadMax_Object((1,3,6,1,4,1,9,9,826,1,66,7,1,7),_CfprProcessorRuntimeHistLoadMax_Type())
+cfprProcessorRuntimeHistLoadMax.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeHistLoadMax.setStatus(_A)
+_CfprProcessorRuntimeHistLoadMin_Type=Integer32
+_CfprProcessorRuntimeHistLoadMin_Object=MibTableColumn
+cfprProcessorRuntimeHistLoadMin=_CfprProcessorRuntimeHistLoadMin_Object((1,3,6,1,4,1,9,9,826,1,66,7,1,8),_CfprProcessorRuntimeHistLoadMin_Type())
+cfprProcessorRuntimeHistLoadMin.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeHistLoadMin.setStatus(_A)
+_CfprProcessorRuntimeHistMostRecent_Type=TruthValue
+_CfprProcessorRuntimeHistMostRecent_Object=MibTableColumn
+cfprProcessorRuntimeHistMostRecent=_CfprProcessorRuntimeHistMostRecent_Object((1,3,6,1,4,1,9,9,826,1,66,7,1,9),_CfprProcessorRuntimeHistMostRecent_Type())
+cfprProcessorRuntimeHistMostRecent.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeHistMostRecent.setStatus(_A)
+_CfprProcessorRuntimeHistSuspect_Type=TruthValue
+_CfprProcessorRuntimeHistSuspect_Object=MibTableColumn
+cfprProcessorRuntimeHistSuspect=_CfprProcessorRuntimeHistSuspect_Object((1,3,6,1,4,1,9,9,826,1,66,7,1,10),_CfprProcessorRuntimeHistSuspect_Type())
+cfprProcessorRuntimeHistSuspect.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeHistSuspect.setStatus(_A)
+_CfprProcessorRuntimeHistThresholded_Type=CfprProcessorRuntimeHistThresholded
+_CfprProcessorRuntimeHistThresholded_Object=MibTableColumn
+cfprProcessorRuntimeHistThresholded=_CfprProcessorRuntimeHistThresholded_Object((1,3,6,1,4,1,9,9,826,1,66,7,1,11),_CfprProcessorRuntimeHistThresholded_Type())
+cfprProcessorRuntimeHistThresholded.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeHistThresholded.setStatus(_A)
+_CfprProcessorRuntimeHistTimeCollected_Type=DateAndTime
+_CfprProcessorRuntimeHistTimeCollected_Object=MibTableColumn
+cfprProcessorRuntimeHistTimeCollected=_CfprProcessorRuntimeHistTimeCollected_Object((1,3,6,1,4,1,9,9,826,1,66,7,1,12),_CfprProcessorRuntimeHistTimeCollected_Type())
+cfprProcessorRuntimeHistTimeCollected.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorRuntimeHistTimeCollected.setStatus(_A)
+_CfprProcessorThreadTable_Object=MibTable
+cfprProcessorThreadTable=_CfprProcessorThreadTable_Object((1,3,6,1,4,1,9,9,826,1,66,8))
+if mibBuilder.loadTexts:cfprProcessorThreadTable.setStatus(_A)
+_CfprProcessorThreadEntry_Object=MibTableRow
+cfprProcessorThreadEntry=_CfprProcessorThreadEntry_Object((1,3,6,1,4,1,9,9,826,1,66,8,1))
+cfprProcessorThreadEntry.setIndexNames((0,_C,_L))
+if mibBuilder.loadTexts:cfprProcessorThreadEntry.setStatus(_A)
+_CfprProcessorThreadInstanceId_Type=CfprManagedObjectId
+_CfprProcessorThreadInstanceId_Object=MibTableColumn
+cfprProcessorThreadInstanceId=_CfprProcessorThreadInstanceId_Object((1,3,6,1,4,1,9,9,826,1,66,8,1,1),_CfprProcessorThreadInstanceId_Type())
+cfprProcessorThreadInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprProcessorThreadInstanceId.setStatus(_A)
+_CfprProcessorThreadDn_Type=CfprManagedObjectDn
+_CfprProcessorThreadDn_Object=MibTableColumn
+cfprProcessorThreadDn=_CfprProcessorThreadDn_Object((1,3,6,1,4,1,9,9,826,1,66,8,1,2),_CfprProcessorThreadDn_Type())
+cfprProcessorThreadDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorThreadDn.setStatus(_A)
+_CfprProcessorThreadRn_Type=SnmpAdminString
+_CfprProcessorThreadRn_Object=MibTableColumn
+cfprProcessorThreadRn=_CfprProcessorThreadRn_Object((1,3,6,1,4,1,9,9,826,1,66,8,1,3),_CfprProcessorThreadRn_Type())
+cfprProcessorThreadRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorThreadRn.setStatus(_A)
+_CfprProcessorThreadId_Type=Gauge32
+_CfprProcessorThreadId_Object=MibTableColumn
+cfprProcessorThreadId=_CfprProcessorThreadId_Object((1,3,6,1,4,1,9,9,826,1,66,8,1,4),_CfprProcessorThreadId_Type())
+cfprProcessorThreadId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorThreadId.setStatus(_A)
+_CfprProcessorUnitTable_Object=MibTable
+cfprProcessorUnitTable=_CfprProcessorUnitTable_Object((1,3,6,1,4,1,9,9,826,1,66,9))
+if mibBuilder.loadTexts:cfprProcessorUnitTable.setStatus(_A)
+_CfprProcessorUnitEntry_Object=MibTableRow
+cfprProcessorUnitEntry=_CfprProcessorUnitEntry_Object((1,3,6,1,4,1,9,9,826,1,66,9,1))
+cfprProcessorUnitEntry.setIndexNames((0,_C,_M))
+if mibBuilder.loadTexts:cfprProcessorUnitEntry.setStatus(_A)
+_CfprProcessorUnitInstanceId_Type=CfprManagedObjectId
+_CfprProcessorUnitInstanceId_Object=MibTableColumn
+cfprProcessorUnitInstanceId=_CfprProcessorUnitInstanceId_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,1),_CfprProcessorUnitInstanceId_Type())
+cfprProcessorUnitInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprProcessorUnitInstanceId.setStatus(_A)
+_CfprProcessorUnitDn_Type=CfprManagedObjectDn
+_CfprProcessorUnitDn_Object=MibTableColumn
+cfprProcessorUnitDn=_CfprProcessorUnitDn_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,2),_CfprProcessorUnitDn_Type())
+cfprProcessorUnitDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitDn.setStatus(_A)
+_CfprProcessorUnitRn_Type=SnmpAdminString
+_CfprProcessorUnitRn_Object=MibTableColumn
+cfprProcessorUnitRn=_CfprProcessorUnitRn_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,3),_CfprProcessorUnitRn_Type())
+cfprProcessorUnitRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitRn.setStatus(_A)
+_CfprProcessorUnitArch_Type=CfprProcessorUnitArch
+_CfprProcessorUnitArch_Object=MibTableColumn
+cfprProcessorUnitArch=_CfprProcessorUnitArch_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,4),_CfprProcessorUnitArch_Type())
+cfprProcessorUnitArch.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitArch.setStatus(_A)
+_CfprProcessorUnitCores_Type=Gauge32
+_CfprProcessorUnitCores_Object=MibTableColumn
+cfprProcessorUnitCores=_CfprProcessorUnitCores_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,5),_CfprProcessorUnitCores_Type())
+cfprProcessorUnitCores.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitCores.setStatus(_A)
+_CfprProcessorUnitCoresEnabled_Type=Gauge32
+_CfprProcessorUnitCoresEnabled_Object=MibTableColumn
+cfprProcessorUnitCoresEnabled=_CfprProcessorUnitCoresEnabled_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,6),_CfprProcessorUnitCoresEnabled_Type())
+cfprProcessorUnitCoresEnabled.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitCoresEnabled.setStatus(_A)
+_CfprProcessorUnitId_Type=Gauge32
+_CfprProcessorUnitId_Object=MibTableColumn
+cfprProcessorUnitId=_CfprProcessorUnitId_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,7),_CfprProcessorUnitId_Type())
+cfprProcessorUnitId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitId.setStatus(_A)
+_CfprProcessorUnitLocationDn_Type=SnmpAdminString
+_CfprProcessorUnitLocationDn_Object=MibTableColumn
+cfprProcessorUnitLocationDn=_CfprProcessorUnitLocationDn_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,8),_CfprProcessorUnitLocationDn_Type())
+cfprProcessorUnitLocationDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitLocationDn.setStatus(_A)
+_CfprProcessorUnitModel_Type=SnmpAdminString
+_CfprProcessorUnitModel_Object=MibTableColumn
+cfprProcessorUnitModel=_CfprProcessorUnitModel_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,9),_CfprProcessorUnitModel_Type())
+cfprProcessorUnitModel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitModel.setStatus(_A)
+_CfprProcessorUnitOperQualifierReason_Type=SnmpAdminString
+_CfprProcessorUnitOperQualifierReason_Object=MibTableColumn
+cfprProcessorUnitOperQualifierReason=_CfprProcessorUnitOperQualifierReason_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,10),_CfprProcessorUnitOperQualifierReason_Type())
+cfprProcessorUnitOperQualifierReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitOperQualifierReason.setStatus(_A)
+_CfprProcessorUnitOperState_Type=CfprEquipmentOperability
+_CfprProcessorUnitOperState_Object=MibTableColumn
+cfprProcessorUnitOperState=_CfprProcessorUnitOperState_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,11),_CfprProcessorUnitOperState_Type())
+cfprProcessorUnitOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitOperState.setStatus(_A)
+_CfprProcessorUnitOperability_Type=CfprEquipmentOperability
+_CfprProcessorUnitOperability_Object=MibTableColumn
+cfprProcessorUnitOperability=_CfprProcessorUnitOperability_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,12),_CfprProcessorUnitOperability_Type())
+cfprProcessorUnitOperability.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitOperability.setStatus(_A)
+_CfprProcessorUnitPerf_Type=CfprEquipmentSensorThresholdStatus
+_CfprProcessorUnitPerf_Object=MibTableColumn
+cfprProcessorUnitPerf=_CfprProcessorUnitPerf_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,13),_CfprProcessorUnitPerf_Type())
+cfprProcessorUnitPerf.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitPerf.setStatus(_A)
+_CfprProcessorUnitPower_Type=CfprEquipmentPowerState
+_CfprProcessorUnitPower_Object=MibTableColumn
+cfprProcessorUnitPower=_CfprProcessorUnitPower_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,14),_CfprProcessorUnitPower_Type())
+cfprProcessorUnitPower.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitPower.setStatus(_A)
+_CfprProcessorUnitPresence_Type=CfprEquipmentPresence
+_CfprProcessorUnitPresence_Object=MibTableColumn
+cfprProcessorUnitPresence=_CfprProcessorUnitPresence_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,15),_CfprProcessorUnitPresence_Type())
+cfprProcessorUnitPresence.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitPresence.setStatus(_A)
+_CfprProcessorUnitRevision_Type=SnmpAdminString
+_CfprProcessorUnitRevision_Object=MibTableColumn
+cfprProcessorUnitRevision=_CfprProcessorUnitRevision_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,16),_CfprProcessorUnitRevision_Type())
+cfprProcessorUnitRevision.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitRevision.setStatus(_A)
+_CfprProcessorUnitSerial_Type=SnmpAdminString
+_CfprProcessorUnitSerial_Object=MibTableColumn
+cfprProcessorUnitSerial=_CfprProcessorUnitSerial_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,17),_CfprProcessorUnitSerial_Type())
+cfprProcessorUnitSerial.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitSerial.setStatus(_A)
+_CfprProcessorUnitSocketDesignation_Type=SnmpAdminString
+_CfprProcessorUnitSocketDesignation_Object=MibTableColumn
+cfprProcessorUnitSocketDesignation=_CfprProcessorUnitSocketDesignation_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,18),_CfprProcessorUnitSocketDesignation_Type())
+cfprProcessorUnitSocketDesignation.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitSocketDesignation.setStatus(_A)
+_CfprProcessorUnitSpeed_Type=Integer32
+_CfprProcessorUnitSpeed_Object=MibTableColumn
+cfprProcessorUnitSpeed=_CfprProcessorUnitSpeed_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,19),_CfprProcessorUnitSpeed_Type())
+cfprProcessorUnitSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitSpeed.setStatus(_A)
+_CfprProcessorUnitStepping_Type=Gauge32
+_CfprProcessorUnitStepping_Object=MibTableColumn
+cfprProcessorUnitStepping=_CfprProcessorUnitStepping_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,20),_CfprProcessorUnitStepping_Type())
+cfprProcessorUnitStepping.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitStepping.setStatus(_A)
+_CfprProcessorUnitThermal_Type=CfprEquipmentSensorThresholdStatus
+_CfprProcessorUnitThermal_Object=MibTableColumn
+cfprProcessorUnitThermal=_CfprProcessorUnitThermal_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,21),_CfprProcessorUnitThermal_Type())
+cfprProcessorUnitThermal.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitThermal.setStatus(_A)
+_CfprProcessorUnitThreads_Type=Gauge32
+_CfprProcessorUnitThreads_Object=MibTableColumn
+cfprProcessorUnitThreads=_CfprProcessorUnitThreads_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,22),_CfprProcessorUnitThreads_Type())
+cfprProcessorUnitThreads.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitThreads.setStatus(_A)
+_CfprProcessorUnitVendor_Type=SnmpAdminString
+_CfprProcessorUnitVendor_Object=MibTableColumn
+cfprProcessorUnitVendor=_CfprProcessorUnitVendor_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,23),_CfprProcessorUnitVendor_Type())
+cfprProcessorUnitVendor.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitVendor.setStatus(_A)
+_CfprProcessorUnitVisibility_Type=CfprMemoryVisibility
+_CfprProcessorUnitVisibility_Object=MibTableColumn
+cfprProcessorUnitVisibility=_CfprProcessorUnitVisibility_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,24),_CfprProcessorUnitVisibility_Type())
+cfprProcessorUnitVisibility.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitVisibility.setStatus(_A)
+_CfprProcessorUnitVoltage_Type=CfprEquipmentSensorThresholdStatus
+_CfprProcessorUnitVoltage_Object=MibTableColumn
+cfprProcessorUnitVoltage=_CfprProcessorUnitVoltage_Object((1,3,6,1,4,1,9,9,826,1,66,9,1,25),_CfprProcessorUnitVoltage_Type())
+cfprProcessorUnitVoltage.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitVoltage.setStatus(_A)
+_CfprProcessorUnitAssocCtxTable_Object=MibTable
+cfprProcessorUnitAssocCtxTable=_CfprProcessorUnitAssocCtxTable_Object((1,3,6,1,4,1,9,9,826,1,66,10))
+if mibBuilder.loadTexts:cfprProcessorUnitAssocCtxTable.setStatus(_A)
+_CfprProcessorUnitAssocCtxEntry_Object=MibTableRow
+cfprProcessorUnitAssocCtxEntry=_CfprProcessorUnitAssocCtxEntry_Object((1,3,6,1,4,1,9,9,826,1,66,10,1))
+cfprProcessorUnitAssocCtxEntry.setIndexNames((0,_C,_N))
+if mibBuilder.loadTexts:cfprProcessorUnitAssocCtxEntry.setStatus(_A)
+_CfprProcessorUnitAssocCtxInstanceId_Type=CfprManagedObjectId
+_CfprProcessorUnitAssocCtxInstanceId_Object=MibTableColumn
+cfprProcessorUnitAssocCtxInstanceId=_CfprProcessorUnitAssocCtxInstanceId_Object((1,3,6,1,4,1,9,9,826,1,66,10,1,1),_CfprProcessorUnitAssocCtxInstanceId_Type())
+cfprProcessorUnitAssocCtxInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprProcessorUnitAssocCtxInstanceId.setStatus(_A)
+_CfprProcessorUnitAssocCtxDn_Type=CfprManagedObjectDn
+_CfprProcessorUnitAssocCtxDn_Object=MibTableColumn
+cfprProcessorUnitAssocCtxDn=_CfprProcessorUnitAssocCtxDn_Object((1,3,6,1,4,1,9,9,826,1,66,10,1,2),_CfprProcessorUnitAssocCtxDn_Type())
+cfprProcessorUnitAssocCtxDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitAssocCtxDn.setStatus(_A)
+_CfprProcessorUnitAssocCtxRn_Type=SnmpAdminString
+_CfprProcessorUnitAssocCtxRn_Object=MibTableColumn
+cfprProcessorUnitAssocCtxRn=_CfprProcessorUnitAssocCtxRn_Object((1,3,6,1,4,1,9,9,826,1,66,10,1,3),_CfprProcessorUnitAssocCtxRn_Type())
+cfprProcessorUnitAssocCtxRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitAssocCtxRn.setStatus(_A)
+_CfprProcessorUnitAssocCtxFruCapDn_Type=SnmpAdminString
+_CfprProcessorUnitAssocCtxFruCapDn_Object=MibTableColumn
+cfprProcessorUnitAssocCtxFruCapDn=_CfprProcessorUnitAssocCtxFruCapDn_Object((1,3,6,1,4,1,9,9,826,1,66,10,1,4),_CfprProcessorUnitAssocCtxFruCapDn_Type())
+cfprProcessorUnitAssocCtxFruCapDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitAssocCtxFruCapDn.setStatus(_A)
+_CfprProcessorUnitAssocCtxStepping_Type=Gauge32
+_CfprProcessorUnitAssocCtxStepping_Object=MibTableColumn
+cfprProcessorUnitAssocCtxStepping=_CfprProcessorUnitAssocCtxStepping_Object((1,3,6,1,4,1,9,9,826,1,66,10,1,5),_CfprProcessorUnitAssocCtxStepping_Type())
+cfprProcessorUnitAssocCtxStepping.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprProcessorUnitAssocCtxStepping.setStatus(_A)
+mibBuilder.exportSymbols(_C,**{'cfprProcessorObjects':cfprProcessorObjects,'cfprProcessorCoreTable':cfprProcessorCoreTable,'cfprProcessorCoreEntry':cfprProcessorCoreEntry,_E:cfprProcessorCoreInstanceId,'cfprProcessorCoreDn':cfprProcessorCoreDn,'cfprProcessorCoreRn':cfprProcessorCoreRn,'cfprProcessorCoreId':cfprProcessorCoreId,'cfprProcessorEnvStatsTable':cfprProcessorEnvStatsTable,'cfprProcessorEnvStatsEntry':cfprProcessorEnvStatsEntry,_F:cfprProcessorEnvStatsInstanceId,'cfprProcessorEnvStatsDn':cfprProcessorEnvStatsDn,'cfprProcessorEnvStatsRn':cfprProcessorEnvStatsRn,'cfprProcessorEnvStatsInputCurrent':cfprProcessorEnvStatsInputCurrent,'cfprProcessorEnvStatsInputCurrentAvg':cfprProcessorEnvStatsInputCurrentAvg,'cfprProcessorEnvStatsInputCurrentMax':cfprProcessorEnvStatsInputCurrentMax,'cfprProcessorEnvStatsInputCurrentMin':cfprProcessorEnvStatsInputCurrentMin,'cfprProcessorEnvStatsIntervals':cfprProcessorEnvStatsIntervals,'cfprProcessorEnvStatsSuspect':cfprProcessorEnvStatsSuspect,'cfprProcessorEnvStatsTemperature':cfprProcessorEnvStatsTemperature,'cfprProcessorEnvStatsTemperatureAvg':cfprProcessorEnvStatsTemperatureAvg,'cfprProcessorEnvStatsTemperatureMax':cfprProcessorEnvStatsTemperatureMax,'cfprProcessorEnvStatsTemperatureMin':cfprProcessorEnvStatsTemperatureMin,'cfprProcessorEnvStatsThresholded':cfprProcessorEnvStatsThresholded,'cfprProcessorEnvStatsTimeCollected':cfprProcessorEnvStatsTimeCollected,'cfprProcessorEnvStatsUpdate':cfprProcessorEnvStatsUpdate,'cfprProcessorEnvStatsHistTable':cfprProcessorEnvStatsHistTable,'cfprProcessorEnvStatsHistEntry':cfprProcessorEnvStatsHistEntry,_G:cfprProcessorEnvStatsHistInstanceId,'cfprProcessorEnvStatsHistDn':cfprProcessorEnvStatsHistDn,'cfprProcessorEnvStatsHistRn':cfprProcessorEnvStatsHistRn,'cfprProcessorEnvStatsHistId':cfprProcessorEnvStatsHistId,'cfprProcessorEnvStatsHistInputCurrent':cfprProcessorEnvStatsHistInputCurrent,'cfprProcessorEnvStatsHistInputCurrentAvg':cfprProcessorEnvStatsHistInputCurrentAvg,'cfprProcessorEnvStatsHistInputCurrentMax':cfprProcessorEnvStatsHistInputCurrentMax,'cfprProcessorEnvStatsHistInputCurrentMin':cfprProcessorEnvStatsHistInputCurrentMin,'cfprProcessorEnvStatsHistMostRecent':cfprProcessorEnvStatsHistMostRecent,'cfprProcessorEnvStatsHistSuspect':cfprProcessorEnvStatsHistSuspect,'cfprProcessorEnvStatsHistTemperature':cfprProcessorEnvStatsHistTemperature,'cfprProcessorEnvStatsHistTemperatureAvg':cfprProcessorEnvStatsHistTemperatureAvg,'cfprProcessorEnvStatsHistTemperatureMax':cfprProcessorEnvStatsHistTemperatureMax,'cfprProcessorEnvStatsHistTemperatureMin':cfprProcessorEnvStatsHistTemperatureMin,'cfprProcessorEnvStatsHistThresholded':cfprProcessorEnvStatsHistThresholded,'cfprProcessorEnvStatsHistTimeCollected':cfprProcessorEnvStatsHistTimeCollected,'cfprProcessorErrorStatsTable':cfprProcessorErrorStatsTable,'cfprProcessorErrorStatsEntry':cfprProcessorErrorStatsEntry,_H:cfprProcessorErrorStatsInstanceId,'cfprProcessorErrorStatsDn':cfprProcessorErrorStatsDn,'cfprProcessorErrorStatsRn':cfprProcessorErrorStatsRn,'cfprProcessorErrorStatsIntervals':cfprProcessorErrorStatsIntervals,'cfprProcessorErrorStatsMirroringInterSockErrors':cfprProcessorErrorStatsMirroringInterSockErrors,'cfprProcessorErrorStatsMirroringInterSockErrors15Min':cfprProcessorErrorStatsMirroringInterSockErrors15Min,'cfprProcessorErrorStatsMirroringInterSockErrors15MinH':cfprProcessorErrorStatsMirroringInterSockErrors15MinH,'cfprProcessorErrorStatsMirroringInterSockErrors1Day':cfprProcessorErrorStatsMirroringInterSockErrors1Day,'cfprProcessorErrorStatsMirroringInterSockErrors1DayH':cfprProcessorErrorStatsMirroringInterSockErrors1DayH,'cfprProcessorErrorStatsMirroringInterSockErrors1Hour':cfprProcessorErrorStatsMirroringInterSockErrors1Hour,'cfprProcessorErrorStatsMirroringInterSockErrors1HourH':cfprProcessorErrorStatsMirroringInterSockErrors1HourH,'cfprProcessorErrorStatsMirroringInterSockErrors1Week':cfprProcessorErrorStatsMirroringInterSockErrors1Week,'cfprProcessorErrorStatsMirroringInterSockErrors1WeekH':cfprProcessorErrorStatsMirroringInterSockErrors1WeekH,'cfprProcessorErrorStatsMirroringInterSockErrors2Weeks':cfprProcessorErrorStatsMirroringInterSockErrors2Weeks,'cfprProcessorErrorStatsMirroringInterSockErrors2WeeksH':cfprProcessorErrorStatsMirroringInterSockErrors2WeeksH,'cfprProcessorErrorStatsMirroringIntraSockErrors':cfprProcessorErrorStatsMirroringIntraSockErrors,'cfprProcessorErrorStatsMirroringIntraSockErrors15Min':cfprProcessorErrorStatsMirroringIntraSockErrors15Min,'cfprProcessorErrorStatsMirroringIntraSockErrors15MinH':cfprProcessorErrorStatsMirroringIntraSockErrors15MinH,'cfprProcessorErrorStatsMirroringIntraSockErrors1Day':cfprProcessorErrorStatsMirroringIntraSockErrors1Day,'cfprProcessorErrorStatsMirroringIntraSockErrors1DayH':cfprProcessorErrorStatsMirroringIntraSockErrors1DayH,'cfprProcessorErrorStatsMirroringIntraSockErrors1Hour':cfprProcessorErrorStatsMirroringIntraSockErrors1Hour,'cfprProcessorErrorStatsMirroringIntraSockErrors1HourH':cfprProcessorErrorStatsMirroringIntraSockErrors1HourH,'cfprProcessorErrorStatsMirroringIntraSockErrors1Week':cfprProcessorErrorStatsMirroringIntraSockErrors1Week,'cfprProcessorErrorStatsMirroringIntraSockErrors1WeekH':cfprProcessorErrorStatsMirroringIntraSockErrors1WeekH,'cfprProcessorErrorStatsMirroringIntraSockErrors2Weeks':cfprProcessorErrorStatsMirroringIntraSockErrors2Weeks,'cfprProcessorErrorStatsMirroringIntraSockErrors2WeeksH':cfprProcessorErrorStatsMirroringIntraSockErrors2WeeksH,'cfprProcessorErrorStatsSmiLinkCorrErrors':cfprProcessorErrorStatsSmiLinkCorrErrors,'cfprProcessorErrorStatsSmiLinkCorrErrors15Min':cfprProcessorErrorStatsSmiLinkCorrErrors15Min,'cfprProcessorErrorStatsSmiLinkCorrErrors15MinH':cfprProcessorErrorStatsSmiLinkCorrErrors15MinH,'cfprProcessorErrorStatsSmiLinkCorrErrors1Day':cfprProcessorErrorStatsSmiLinkCorrErrors1Day,'cfprProcessorErrorStatsSmiLinkCorrErrors1DayH':cfprProcessorErrorStatsSmiLinkCorrErrors1DayH,'cfprProcessorErrorStatsSmiLinkCorrErrors1Hour':cfprProcessorErrorStatsSmiLinkCorrErrors1Hour,'cfprProcessorErrorStatsSmiLinkCorrErrors1HourH':cfprProcessorErrorStatsSmiLinkCorrErrors1HourH,'cfprProcessorErrorStatsSmiLinkCorrErrors1Week':cfprProcessorErrorStatsSmiLinkCorrErrors1Week,'cfprProcessorErrorStatsSmiLinkCorrErrors1WeekH':cfprProcessorErrorStatsSmiLinkCorrErrors1WeekH,'cfprProcessorErrorStatsSmiLinkCorrErrors2Weeks':cfprProcessorErrorStatsSmiLinkCorrErrors2Weeks,'cfprProcessorErrorStatsSmiLinkCorrErrors2WeeksH':cfprProcessorErrorStatsSmiLinkCorrErrors2WeeksH,'cfprProcessorErrorStatsSmiLinkUncorrErrors':cfprProcessorErrorStatsSmiLinkUncorrErrors,'cfprProcessorErrorStatsSmiLinkUncorrErrors15Min':cfprProcessorErrorStatsSmiLinkUncorrErrors15Min,'cfprProcessorErrorStatsSmiLinkUncorrErrors15MinH':cfprProcessorErrorStatsSmiLinkUncorrErrors15MinH,'cfprProcessorErrorStatsSmiLinkUncorrErrors1Day':cfprProcessorErrorStatsSmiLinkUncorrErrors1Day,'cfprProcessorErrorStatsSmiLinkUncorrErrors1DayH':cfprProcessorErrorStatsSmiLinkUncorrErrors1DayH,'cfprProcessorErrorStatsSmiLinkUncorrErrors1Hour':cfprProcessorErrorStatsSmiLinkUncorrErrors1Hour,'cfprProcessorErrorStatsSmiLinkUncorrErrors1HourH':cfprProcessorErrorStatsSmiLinkUncorrErrors1HourH,'cfprProcessorErrorStatsSmiLinkUncorrErrors1Week':cfprProcessorErrorStatsSmiLinkUncorrErrors1Week,'cfprProcessorErrorStatsSmiLinkUncorrErrors1WeekH':cfprProcessorErrorStatsSmiLinkUncorrErrors1WeekH,'cfprProcessorErrorStatsSmiLinkUncorrErrors2Weeks':cfprProcessorErrorStatsSmiLinkUncorrErrors2Weeks,'cfprProcessorErrorStatsSmiLinkUncorrErrors2WeeksH':cfprProcessorErrorStatsSmiLinkUncorrErrors2WeeksH,'cfprProcessorErrorStatsSparingErrors':cfprProcessorErrorStatsSparingErrors,'cfprProcessorErrorStatsSparingErrors15Min':cfprProcessorErrorStatsSparingErrors15Min,'cfprProcessorErrorStatsSparingErrors15MinH':cfprProcessorErrorStatsSparingErrors15MinH,'cfprProcessorErrorStatsSparingErrors1Day':cfprProcessorErrorStatsSparingErrors1Day,'cfprProcessorErrorStatsSparingErrors1DayH':cfprProcessorErrorStatsSparingErrors1DayH,'cfprProcessorErrorStatsSparingErrors1Hour':cfprProcessorErrorStatsSparingErrors1Hour,'cfprProcessorErrorStatsSparingErrors1HourH':cfprProcessorErrorStatsSparingErrors1HourH,'cfprProcessorErrorStatsSparingErrors1Week':cfprProcessorErrorStatsSparingErrors1Week,'cfprProcessorErrorStatsSparingErrors1WeekH':cfprProcessorErrorStatsSparingErrors1WeekH,'cfprProcessorErrorStatsSparingErrors2Weeks':cfprProcessorErrorStatsSparingErrors2Weeks,'cfprProcessorErrorStatsSparingErrors2WeeksH':cfprProcessorErrorStatsSparingErrors2WeeksH,'cfprProcessorErrorStatsSuspect':cfprProcessorErrorStatsSuspect,'cfprProcessorErrorStatsThresholded':cfprProcessorErrorStatsThresholded,'cfprProcessorErrorStatsTimeCollected':cfprProcessorErrorStatsTimeCollected,'cfprProcessorErrorStatsUpdate':cfprProcessorErrorStatsUpdate,'cfprProcessorQualTable':cfprProcessorQualTable,'cfprProcessorQualEntry':cfprProcessorQualEntry,_I:cfprProcessorQualInstanceId,'cfprProcessorQualDn':cfprProcessorQualDn,'cfprProcessorQualRn':cfprProcessorQualRn,'cfprProcessorQualArch':cfprProcessorQualArch,'cfprProcessorQualMaxCores':cfprProcessorQualMaxCores,'cfprProcessorQualMaxProcs':cfprProcessorQualMaxProcs,'cfprProcessorQualMaxThreads':cfprProcessorQualMaxThreads,'cfprProcessorQualMinCores':cfprProcessorQualMinCores,'cfprProcessorQualMinProcs':cfprProcessorQualMinProcs,'cfprProcessorQualMinThreads':cfprProcessorQualMinThreads,'cfprProcessorQualModel':cfprProcessorQualModel,'cfprProcessorQualSpeed':cfprProcessorQualSpeed,'cfprProcessorQualStepping':cfprProcessorQualStepping,'cfprProcessorRuntimeTable':cfprProcessorRuntimeTable,'cfprProcessorRuntimeEntry':cfprProcessorRuntimeEntry,_J:cfprProcessorRuntimeInstanceId,'cfprProcessorRuntimeDn':cfprProcessorRuntimeDn,'cfprProcessorRuntimeRn':cfprProcessorRuntimeRn,'cfprProcessorRuntimeIntervals':cfprProcessorRuntimeIntervals,'cfprProcessorRuntimeLoad':cfprProcessorRuntimeLoad,'cfprProcessorRuntimeLoadAvg':cfprProcessorRuntimeLoadAvg,'cfprProcessorRuntimeLoadMax':cfprProcessorRuntimeLoadMax,'cfprProcessorRuntimeLoadMin':cfprProcessorRuntimeLoadMin,'cfprProcessorRuntimeSuspect':cfprProcessorRuntimeSuspect,'cfprProcessorRuntimeThresholded':cfprProcessorRuntimeThresholded,'cfprProcessorRuntimeTimeCollected':cfprProcessorRuntimeTimeCollected,'cfprProcessorRuntimeUpdate':cfprProcessorRuntimeUpdate,'cfprProcessorRuntimeUptime':cfprProcessorRuntimeUptime,'cfprProcessorRuntimeHistTable':cfprProcessorRuntimeHistTable,'cfprProcessorRuntimeHistEntry':cfprProcessorRuntimeHistEntry,_K:cfprProcessorRuntimeHistInstanceId,'cfprProcessorRuntimeHistDn':cfprProcessorRuntimeHistDn,'cfprProcessorRuntimeHistRn':cfprProcessorRuntimeHistRn,'cfprProcessorRuntimeHistId':cfprProcessorRuntimeHistId,'cfprProcessorRuntimeHistLoad':cfprProcessorRuntimeHistLoad,'cfprProcessorRuntimeHistLoadAvg':cfprProcessorRuntimeHistLoadAvg,'cfprProcessorRuntimeHistLoadMax':cfprProcessorRuntimeHistLoadMax,'cfprProcessorRuntimeHistLoadMin':cfprProcessorRuntimeHistLoadMin,'cfprProcessorRuntimeHistMostRecent':cfprProcessorRuntimeHistMostRecent,'cfprProcessorRuntimeHistSuspect':cfprProcessorRuntimeHistSuspect,'cfprProcessorRuntimeHistThresholded':cfprProcessorRuntimeHistThresholded,'cfprProcessorRuntimeHistTimeCollected':cfprProcessorRuntimeHistTimeCollected,'cfprProcessorThreadTable':cfprProcessorThreadTable,'cfprProcessorThreadEntry':cfprProcessorThreadEntry,_L:cfprProcessorThreadInstanceId,'cfprProcessorThreadDn':cfprProcessorThreadDn,'cfprProcessorThreadRn':cfprProcessorThreadRn,'cfprProcessorThreadId':cfprProcessorThreadId,'cfprProcessorUnitTable':cfprProcessorUnitTable,'cfprProcessorUnitEntry':cfprProcessorUnitEntry,_M:cfprProcessorUnitInstanceId,'cfprProcessorUnitDn':cfprProcessorUnitDn,'cfprProcessorUnitRn':cfprProcessorUnitRn,'cfprProcessorUnitArch':cfprProcessorUnitArch,'cfprProcessorUnitCores':cfprProcessorUnitCores,'cfprProcessorUnitCoresEnabled':cfprProcessorUnitCoresEnabled,'cfprProcessorUnitId':cfprProcessorUnitId,'cfprProcessorUnitLocationDn':cfprProcessorUnitLocationDn,'cfprProcessorUnitModel':cfprProcessorUnitModel,'cfprProcessorUnitOperQualifierReason':cfprProcessorUnitOperQualifierReason,'cfprProcessorUnitOperState':cfprProcessorUnitOperState,'cfprProcessorUnitOperability':cfprProcessorUnitOperability,'cfprProcessorUnitPerf':cfprProcessorUnitPerf,'cfprProcessorUnitPower':cfprProcessorUnitPower,'cfprProcessorUnitPresence':cfprProcessorUnitPresence,'cfprProcessorUnitRevision':cfprProcessorUnitRevision,'cfprProcessorUnitSerial':cfprProcessorUnitSerial,'cfprProcessorUnitSocketDesignation':cfprProcessorUnitSocketDesignation,'cfprProcessorUnitSpeed':cfprProcessorUnitSpeed,'cfprProcessorUnitStepping':cfprProcessorUnitStepping,'cfprProcessorUnitThermal':cfprProcessorUnitThermal,'cfprProcessorUnitThreads':cfprProcessorUnitThreads,'cfprProcessorUnitVendor':cfprProcessorUnitVendor,'cfprProcessorUnitVisibility':cfprProcessorUnitVisibility,'cfprProcessorUnitVoltage':cfprProcessorUnitVoltage,'cfprProcessorUnitAssocCtxTable':cfprProcessorUnitAssocCtxTable,'cfprProcessorUnitAssocCtxEntry':cfprProcessorUnitAssocCtxEntry,_N:cfprProcessorUnitAssocCtxInstanceId,'cfprProcessorUnitAssocCtxDn':cfprProcessorUnitAssocCtxDn,'cfprProcessorUnitAssocCtxRn':cfprProcessorUnitAssocCtxRn,'cfprProcessorUnitAssocCtxFruCapDn':cfprProcessorUnitAssocCtxFruCapDn,'cfprProcessorUnitAssocCtxStepping':cfprProcessorUnitAssocCtxStepping})

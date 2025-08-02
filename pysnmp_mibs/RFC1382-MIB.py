@@ -1,352 +1,910 @@
-#
-# PySNMP MIB module RFC1382-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/RFC1382-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:26:33 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, ObjectIdentifier, Integer, ) = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-( PositiveInteger, ) = mibBuilder.importSymbols("RFC1253-MIB", "PositiveInteger")
-( EntryStatus, ) = mibBuilder.importSymbols("RFC1271-MIB", "EntryStatus")
-( IfIndexType, ) = mibBuilder.importSymbols("RFC1381-MIB", "IfIndexType")
-( ModuleCompliance, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-( IpAddress, iso, ObjectIdentity, MibIdentifier, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Counter32, NotificationType, transmission, Bits, TimeTicks, Integer32, Gauge32, Counter64, Unsigned32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "iso", "ObjectIdentity", "MibIdentifier", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Counter32", "NotificationType", "transmission", "Bits", "TimeTicks", "Integer32", "Gauge32", "Counter64", "Unsigned32")
-( TextualConvention, DisplayString, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-x25 = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 5))
-class X121Address(OctetString):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,17)
-
-x25AdmnTable = MibTable((1, 3, 6, 1, 2, 1, 10, 5, 1), )
-if mibBuilder.loadTexts: x25AdmnTable.setDescription('This table contains the administratively\n                          set configuration parameters for an X.25\n                          Packet Level Entity (PLE).\n\n                         Most of the objects in this table have\n                          corresponding objects in the x25OperTable.\n                          This table contains the values as last set\n                          by the administrator.  The x25OperTable\n                          contains the values actually in use by an\n                          X.25 PLE.\n\n                          Changing an administrative value may or may\n                          not change a current operating value.  The\n                          operating value may not change until the\n                          interface is restarted.  Some\n                          implementations may change the values\n                          immediately upon changing the administrative\n                          table.  All implementations are required to\n                          load the values from the administrative\n                          table when initializing a PLE.')
-x25AdmnEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 5, 1, 1), ).setIndexNames((0, "RFC1382-MIB", "x25AdmnIndex"))
-if mibBuilder.loadTexts: x25AdmnEntry.setDescription('Entries of x25AdmnTable.')
-x25AdmnIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 1), IfIndexType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25AdmnIndex.setDescription('The ifIndex value for the X.25 Interface.')
-x25AdmnInterfaceMode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("dte", 1), ("dce", 2), ("dxe", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnInterfaceMode.setDescription('Identifies DCE/DTE mode in which the\n                          interface operates.  A value of dxe\n                          indicates the mode will be determined by XID\n                          negotiation.')
-x25AdmnMaxActiveCircuits = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4096))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnMaxActiveCircuits.setDescription('The maximum number of circuits this PLE can\n                          support; including PVCs.')
-x25AdmnPacketSequencing = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("modulo8", 1), ("modulo128", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnPacketSequencing.setDescription('The modulus of the packet sequence number\n                          space.')
-x25AdmnRestartTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 5), PositiveInteger()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnRestartTimer.setDescription('The T20 restart timer in milliseconds.')
-x25AdmnCallTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 6), PositiveInteger()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnCallTimer.setDescription('The T21 Call timer in milliseconds.')
-x25AdmnResetTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 7), PositiveInteger()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnResetTimer.setDescription('The T22 Reset timer in milliseconds.')
-x25AdmnClearTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 8), PositiveInteger()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnClearTimer.setDescription('The T23 Clear timer in milliseconds.')
-x25AdmnWindowTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 9), PositiveInteger()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnWindowTimer.setDescription('The T24 window status transmission timer in\n                          milliseconds.  A value of 2147483647\n                          indicates no window timer in use.')
-x25AdmnDataRxmtTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 10), PositiveInteger()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnDataRxmtTimer.setDescription('The T25 data retransmission timer in\n\n\n                          milliseconds.  A value of 2147483647\n                          indicates no data retransmission timer in\n                          use.')
-x25AdmnInterruptTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 11), PositiveInteger()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnInterruptTimer.setDescription('The T26 interrupt timer in milliseconds.  A\n                          value of 2147483647 indicates no interrupt\n                          timer in use.')
-x25AdmnRejectTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 12), PositiveInteger()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnRejectTimer.setDescription('The T27 Reject retransmission timer in\n                          milliseconds.  A value of 2147483647\n                          indicates no reject timer in use.')
-x25AdmnRegistrationRequestTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 13), PositiveInteger()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnRegistrationRequestTimer.setDescription('The T28 registration timer in milliseconds.\n                          A value of 2147483647 indicates no\n                          registration timer in use.')
-x25AdmnMinimumRecallTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 14), PositiveInteger()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnMinimumRecallTimer.setDescription('Minimum time interval between unsuccessful\n                          call attempts in milliseconds.')
-x25AdmnRestartCount = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnRestartCount.setDescription('The R20 restart retransmission count.')
-x25AdmnResetCount = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnResetCount.setDescription('The r22 Reset retransmission count.')
-x25AdmnClearCount = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnClearCount.setDescription('The r23 Clear retransmission count.')
-x25AdmnDataRxmtCount = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnDataRxmtCount.setDescription('The R25 Data retransmission count.  This\n                          value is irrelevant if the\n                          x25AdmnDataRxmtTimer indicates no timer in\n                          use.')
-x25AdmnRejectCount = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnRejectCount.setDescription('The R27 reject retransmission count.  This\n                          value is irrelevant if the\n                          x25AdmnRejectTimer indicates no timer in\n                          use.')
-x25AdmnRegistrationRequestCount = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnRegistrationRequestCount.setDescription('The R28 Registration retransmission Count.\n                          This value is irrelevant if the\n                          x25AdmnRegistrationRequestTimer indicates no\n                          timer in use.')
-x25AdmnNumberPVCs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4096))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnNumberPVCs.setDescription('The number of PVC configured for this PLE.\n                          The PVCs use channel numbers from 1 to this\n                          number.')
-x25AdmnDefCallParamId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 22), ObjectIdentifier()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnDefCallParamId.setDescription('This identifies the instance of the\n                          x25CallParmIndex for the entry in the\n                          x25CallParmTable which contains the default\n                          call parameters for this PLE.')
-x25AdmnLocalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 23), X121Address()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnLocalAddress.setDescription('The local address for this PLE subnetwork.\n                          A zero length address maybe returned by PLEs\n                          that only support PVCs.')
-x25AdmnProtocolVersionSupported = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 1, 1, 24), ObjectIdentifier()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25AdmnProtocolVersionSupported.setDescription('Identifies the version of the X.25 protocol\n                          this interface should support.  Object\n                          identifiers for common versions are defined\n                          below in the x25ProtocolVersion subtree.')
-x25OperTable = MibTable((1, 3, 6, 1, 2, 1, 10, 5, 2), )
-if mibBuilder.loadTexts: x25OperTable.setDescription('The operation parameters in use by the X.25\n                          PLE.')
-x25OperEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 5, 2, 1), ).setIndexNames((0, "RFC1382-MIB", "x25OperIndex"))
-if mibBuilder.loadTexts: x25OperEntry.setDescription('Entries of x25OperTable.')
-x25OperIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 1), IfIndexType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperIndex.setDescription('The ifIndex value for the X.25 interface.')
-x25OperInterfaceMode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("dte", 1), ("dce", 2), ("dxe", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperInterfaceMode.setDescription('Identifies DCE/DTE mode in which the\n                          interface operates.  A value of dxe\n                          indicates the role will be determined by XID\n                          negotiation at the Link Layer and that\n                          negotiation has not yet taken place.')
-x25OperMaxActiveCircuits = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4096))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperMaxActiveCircuits.setDescription('Maximum number of circuits this PLE can\n                          support.')
-x25OperPacketSequencing = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("modulo8", 1), ("modulo128", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperPacketSequencing.setDescription('The modulus of the packet sequence number\n                          space.')
-x25OperRestartTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 5), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperRestartTimer.setDescription('The T20 restart timer in milliseconds.')
-x25OperCallTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 6), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperCallTimer.setDescription('The T21 Call timer in milliseconds.')
-x25OperResetTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 7), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperResetTimer.setDescription('The T22 Reset timer in milliseconds.')
-x25OperClearTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 8), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperClearTimer.setDescription('The T23 Clear timer in milliseconds.')
-x25OperWindowTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 9), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperWindowTimer.setDescription('The T24 window status transmission timer\n\n\n                          milliseconds.  A value of 2147483647\n                          indicates no window timer in use.')
-x25OperDataRxmtTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 10), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperDataRxmtTimer.setDescription('The T25 Data Retransmission timer in\n                          milliseconds.  A value of 2147483647\n                          indicates no data retransmission timer in\n                          use.')
-x25OperInterruptTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 11), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperInterruptTimer.setDescription('The T26 Interrupt timer in milliseconds.  A\n                          value of 2147483647 indicates interrupts are\n                          not being used.')
-x25OperRejectTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 12), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperRejectTimer.setDescription('The T27 Reject retransmission timer in\n                          milliseconds.  A value of 2147483647\n                          indicates no reject timer in use.')
-x25OperRegistrationRequestTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 13), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperRegistrationRequestTimer.setDescription('The T28 registration timer in milliseconds.\n                          A value of 2147483647 indicates no\n                          registration timer in use.')
-x25OperMinimumRecallTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 14), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperMinimumRecallTimer.setDescription('Minimum time interval between unsuccessful\n                          call attempts in milliseconds.')
-x25OperRestartCount = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperRestartCount.setDescription('The R20 restart retransmission count.')
-x25OperResetCount = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperResetCount.setDescription('The r22 Reset retransmission count.')
-x25OperClearCount = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperClearCount.setDescription('The r23 Clear retransmission count.')
-x25OperDataRxmtCount = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperDataRxmtCount.setDescription('The R25 Data retransmission count.  This\n                          value is undefined if the\n                          x25OperDataRxmtTimer indicates no timer in\n                          use.')
-x25OperRejectCount = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperRejectCount.setDescription('The R27 reject retransmission count.  This\n                          value is undefined if the x25OperRejectTimer\n                          indicates no timer in use.')
-x25OperRegistrationRequestCount = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperRegistrationRequestCount.setDescription('The R28 Registration retransmission Count.\n                          This value is undefined if the\n                          x25OperREgistrationRequestTimer indicates no\n                          timer in use.')
-x25OperNumberPVCs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4096))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperNumberPVCs.setDescription('The number of PVC configured for this PLE.\n                          The PVCs use channel numbers from 1 to this\n                          number.')
-x25OperDefCallParamId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 22), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperDefCallParamId.setDescription('This identifies the instance of the\n                          x25CallParmIndex for the entry in the\n                          x25CallParmTable that contains the default\n                          call parameters for this PLE.')
-x25OperLocalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 23), X121Address()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperLocalAddress.setDescription('The local address for this PLE subnetwork.\n                          A zero length address maybe returned by PLEs\n                          that only support PVCs.')
-x25OperDataLinkId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 24), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperDataLinkId.setDescription('This identifies the instance of the index\n                          object in the first table of the most device\n                          specific MIB for the interface used by this\n                          PLE.')
-x25OperProtocolVersionSupported = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 2, 1, 25), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25OperProtocolVersionSupported.setDescription('Identifies the version of the X.25 protocol\n                          this interface supports.  Object identifiers\n                          for common versions are defined below in the\n                          x25ProtocolVersion subtree.')
-x25StatTable = MibTable((1, 3, 6, 1, 2, 1, 10, 5, 3), )
-if mibBuilder.loadTexts: x25StatTable.setDescription('Statistics information about this X.25\n                          PLE.')
-x25StatEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 5, 3, 1), ).setIndexNames((0, "RFC1382-MIB", "x25StatIndex"))
-if mibBuilder.loadTexts: x25StatEntry.setDescription('Entries of the x25StatTable.')
-x25StatIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 1), IfIndexType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatIndex.setDescription('The ifIndex value for the X.25 interface.')
-x25StatInCalls = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatInCalls.setDescription('The number of incoming calls received.')
-x25StatInCallRefusals = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatInCallRefusals.setDescription('The number of incoming calls refused.  This\n                          includes calls refused by the PLE and by\n                          higher layers.  This also includes calls\n                          cleared because of restricted fast select.')
-x25StatInProviderInitiatedClears = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatInProviderInitiatedClears.setDescription('The number of clear requests with a cause\n                          code other than DTE initiated.')
-x25StatInRemotelyInitiatedResets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatInRemotelyInitiatedResets.setDescription('The number of reset requests received with\n\n\n                          cause code DTE initiated.')
-x25StatInProviderInitiatedResets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatInProviderInitiatedResets.setDescription('The number of reset requests received with\n                          cause code other than DTE initiated.')
-x25StatInRestarts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatInRestarts.setDescription('The number of remotely initiated (including\n                          provider initiated) restarts experienced by\n                          the PLE excluding the restart associated\n                          with bringing up the PLE interface.  This\n                          only counts restarts received when the PLE\n                          already has an established connection with\n                          the remove PLE.')
-x25StatInDataPackets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatInDataPackets.setDescription('The number of data packets received.')
-x25StatInAccusedOfProtocolErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatInAccusedOfProtocolErrors.setDescription('The number of packets received containing a\n                          procedure error cause code.  These include\n                          clear, reset, restart, or diagnostic\n                          packets.')
-x25StatInInterrupts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatInInterrupts.setDescription('The number of interrupt packets received by\n                          the PLE or over the PVC/VC.')
-x25StatOutCallAttempts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatOutCallAttempts.setDescription('The number of calls attempted.')
-x25StatOutCallFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatOutCallFailures.setDescription('The number of call attempts which failed.\n                          This includes calls that were cleared\n                          because of restrictive fast select.')
-x25StatOutInterrupts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatOutInterrupts.setDescription('The number of interrupt packets send by the\n                          PLE or over the PVC/VC.')
-x25StatOutDataPackets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatOutDataPackets.setDescription('The number of data packets sent by this\n                          PLE.')
-x25StatOutgoingCircuits = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 15), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatOutgoingCircuits.setDescription('The number of active outgoing circuits.\n                          This includes call requests sent but not yet\n                          confirmed.  This does not count PVCs.')
-x25StatIncomingCircuits = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 16), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatIncomingCircuits.setDescription('The number of active Incoming Circuits.\n                          This includes call indications received but\n                          not yet acknowledged.  This does not count\n                          PVCs.')
-x25StatTwowayCircuits = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 17), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatTwowayCircuits.setDescription('The number of active two-way Circuits.\n                          This includes call requests sent but not yet\n                          confirmed.  This does not count PVCs.')
-x25StatRestartTimeouts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatRestartTimeouts.setDescription('The number of times the T20 restart timer\n                          expired.')
-x25StatCallTimeouts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatCallTimeouts.setDescription('The number of times the T21 call timer\n                          expired.')
-x25StatResetTimeouts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatResetTimeouts.setDescription('The number of times the T22 reset timer\n                          expired.')
-x25StatClearTimeouts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 21), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatClearTimeouts.setDescription('The number of times the T23 clear timer\n                          expired.')
-x25StatDataRxmtTimeouts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 22), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatDataRxmtTimeouts.setDescription('The number of times the T25 data timer\n                          expired.')
-x25StatInterruptTimeouts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 23), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatInterruptTimeouts.setDescription('The number of times the T26 interrupt timer\n                          expired.')
-x25StatRetryCountExceededs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 24), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatRetryCountExceededs.setDescription('The number of times a retry counter was\n                          exhausted.')
-x25StatClearCountExceededs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 3, 1, 25), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25StatClearCountExceededs.setDescription('The number of times the R23 clear count was\n                          exceeded.')
-x25ChannelTable = MibTable((1, 3, 6, 1, 2, 1, 10, 5, 4), )
-if mibBuilder.loadTexts: x25ChannelTable.setDescription('These objects contain information about the\n                          channel number configuration in an X.25 PLE.\n                          These values are the configured values.\n                          changes in these values after the interfaces\n                          has started may not be reflected in the\n                          operating PLE.')
-x25ChannelEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 5, 4, 1), ).setIndexNames((0, "RFC1382-MIB", "x25ChannelIndex"))
-if mibBuilder.loadTexts: x25ChannelEntry.setDescription('Entries of x25ChannelTable.')
-x25ChannelIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 4, 1, 1), IfIndexType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25ChannelIndex.setDescription('The ifIndex value for the X.25 Interface.')
-x25ChannelLIC = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4095))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25ChannelLIC.setDescription('Lowest Incoming channel.')
-x25ChannelHIC = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 4, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4095))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25ChannelHIC.setDescription('Highest Incoming channel.  A value of zero\n                          indicates no channels in this range.')
-x25ChannelLTC = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 4, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4095))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25ChannelLTC.setDescription('Lowest Two-way channel.')
-x25ChannelHTC = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 4, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4095))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25ChannelHTC.setDescription('Highest Two-way channel.  A value of zero\n                          indicates no channels in this range.')
-x25ChannelLOC = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 4, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4095))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25ChannelLOC.setDescription('Lowest outgoing channel.')
-x25ChannelHOC = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 4, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4095))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25ChannelHOC.setDescription('Highest outgoing channel.  A value of zero\n\n\n                          indicates no channels in this range.')
-x25CircuitTable = MibTable((1, 3, 6, 1, 2, 1, 10, 5, 5), )
-if mibBuilder.loadTexts: x25CircuitTable.setDescription('These objects contain general information\n                          about a specific circuit of an X.25 PLE.')
-x25CircuitEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 5, 5, 1), ).setIndexNames((0, "RFC1382-MIB", "x25CircuitIndex"), (0, "RFC1382-MIB", "x25CircuitChannel"))
-if mibBuilder.loadTexts: x25CircuitEntry.setDescription('Entries of x25CircuitTable.')
-x25CircuitIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 1), IfIndexType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25CircuitIndex.setDescription('The ifIndex value for the X.25 Interface.')
-x25CircuitChannel = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4095))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25CircuitChannel.setDescription('The channel number for this circuit.')
-x25CircuitStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,))).clone(namedValues=NamedValues(("invalid", 1), ("closed", 2), ("calling", 3), ("open", 4), ("clearing", 5), ("pvc", 6), ("pvcResetting", 7), ("startClear", 8), ("startPvcResetting", 9), ("other", 10),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CircuitStatus.setDescription("This object reports the current status of\n                          the circuit.\n\n                          An existing instance of this object can only\n                          be set to startClear, startPvcResetting, or\n                          invalid.  An instance with the value calling\n                          or open can only be set to startClear and\n                          that action will start clearing the circuit.\n                          An instance with the value PVC can only be\n                          set to startPvcResetting or invalid and that\n                          action resets the PVC or deletes the circuit\n                          respectively.  The values startClear or\n                          startPvcResetting will never be returned by\n                          an agent.  An attempt to set the status of\n                          an existing instance to a value other than\n                          one of these values will result in an error.\n\n                          A non-existing instance can be set to PVC to\n                          create a PVC if the implementation supports\n                          dynamic creation of PVCs.  Some\n                          implementations may only allow creation and\n                          deletion of PVCs if the interface is down.\n                          Since the instance identifier will supply\n                          the PLE index and the channel number,\n                          setting this object alone supplies\n                          sufficient information to create the\n                          instance.  All the DEFVAL clauses for the\n                          other objects of this table are appropriate\n                          for creating a PVC; PLEs creating entries\n                          for placed or accepted calls will use values\n                          appropriate for the call rather than the\n                          value of the DEFVAL clause.  Two managers\n                          trying to create the same PVC can determine\n                          from the return code which manager succeeded\n                          and which failed (the failing manager fails\n                          because it can not set a value of PVC for an\n                          existing object).\n\n\n                          An entry in the closed or invalid state may\n                          be deleted or reused at the agent's\n                          convence.  If the entry is kept in the\n                          closed state, the values of the parameters\n                          associated with the entry must be correct.\n                          Closed implies the values in the circuit\n                          table are correct.\n\n                          The value of invalid indicates the other\n                          values in the table are invalid.  Many\n                          agents may never return a value of invalid\n                          because they dynamically allocate and free\n                          unused table entries.  An agent for a\n                          statically configured systems can return\n                          invalid to indicate the entry has not yet\n                          been used so the counters contain no\n                          information.")
-x25CircuitEstablishTime = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25CircuitEstablishTime.setDescription('The value of sysUpTime when the channel was\n                          associated with this circuit.  For outgoing\n                          SVCs, this is the time the first call packet\n                          was sent.  For incoming SVCs, this is the\n                          time the call indication was received.  For\n                          PVCs this is the time the PVC was able to\n                          pass data to a higher layer entity without\n                          loss of data.')
-x25CircuitDirection = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("incoming", 1), ("outgoing", 2), ("pvc", 3),)).clone('pvc')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CircuitDirection.setDescription('The direction of the call that established\n                          this circuit.')
-x25CircuitInOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25CircuitInOctets.setDescription('The number of octets of user data delivered\n                          to upper layer.')
-x25CircuitInPdus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25CircuitInPdus.setDescription('The number of PDUs received for this\n                          circuit.')
-x25CircuitInRemotelyInitiatedResets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25CircuitInRemotelyInitiatedResets.setDescription('The number of Resets received for this\n                          circuit with cause code of DTE initiated.')
-x25CircuitInProviderInitiatedResets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25CircuitInProviderInitiatedResets.setDescription('The number of Resets received for this\n                          circuit with cause code other than DTE\n                          initiated.')
-x25CircuitInInterrupts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25CircuitInInterrupts.setDescription('The number of interrupt packets received\n                          for this circuit.')
-x25CircuitOutOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25CircuitOutOctets.setDescription('The number of octets of user data sent for\n                          this circuit.')
-x25CircuitOutPdus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25CircuitOutPdus.setDescription('The number of PDUs sent for this circuit.')
-x25CircuitOutInterrupts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25CircuitOutInterrupts.setDescription('The number of interrupt packets sent on\n                          this circuit.')
-x25CircuitDataRetransmissionTimeouts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25CircuitDataRetransmissionTimeouts.setDescription('The number of times the T25 data\n                          retransmission timer expired for this\n                          circuit.')
-x25CircuitResetTimeouts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25CircuitResetTimeouts.setDescription('The number of times the T22 reset timer\n                          expired for this circuit.')
-x25CircuitInterruptTimeouts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25CircuitInterruptTimeouts.setDescription('The number of times the T26 Interrupt timer\n                          expired for this circuit.')
-x25CircuitCallParamId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 17), ObjectIdentifier()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CircuitCallParamId.setDescription('This identifies the instance of the\n                          x25CallParmIndex for the entry in the\n                          x25CallParmTable which contains the call\n                          parameters in use with this circuit.  The\n                          entry referenced must contain the values\n                          that are currently in use by the circuit\n                          rather than proposed values.  A value of\n                          NULL indicates the circuit is a PVC or is\n                          using all the default parameters.')
-x25CircuitCalledDteAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 18), X121Address().clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CircuitCalledDteAddress.setDescription('For incoming calls, this is the called\n                          address from the call indication packet.\n                          For outgoing calls, this is the called\n\n\n                          address from the call confirmation packet.\n                          This will be zero length for PVCs.')
-x25CircuitCallingDteAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 19), X121Address().clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CircuitCallingDteAddress.setDescription('For incoming calls, this is the calling\n                          address from the call indication packet.\n                          For outgoing calls, this is the calling\n                          address from the call confirmation packet.\n                          This will be zero length for PVCs.')
-x25CircuitOriginallyCalledAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 20), X121Address().clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CircuitOriginallyCalledAddress.setDescription('For incoming calls, this is the address in\n                          the call Redirection or Call Deflection\n                          Notification facility if the call was\n                          deflected or redirected, otherwise it will\n                          be called address from the call indication\n                          packet.  For outgoing calls, this is the\n                          address from the call request packet.  This\n                          will be zero length for PVCs.')
-x25CircuitDescr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 5, 1, 21), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,255)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CircuitDescr.setDescription("A descriptive string associated with this\n                          circuit.  This provides a place for the\n                          agent to supply any descriptive information\n                          it knows about the use or owner of the\n                          circuit.  The agent may return the process\n                          identifier and user name for the process\n\n\n                          using the circuit.  Alternative the agent\n                          may return the name of the configuration\n                          entry that caused a bridge to establish the\n                          circuit.  A zero length value indicates the\n                          agent doesn't have any additional\n                          information.")
-x25ClearedCircuitEntriesRequested = MibScalar((1, 3, 6, 1, 2, 1, 10, 5, 6), PositiveInteger()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25ClearedCircuitEntriesRequested.setDescription('The requested number of entries for the\n                          agent to keep in the x25ClearedCircuit\n                          table.')
-x25ClearedCircuitEntriesGranted = MibScalar((1, 3, 6, 1, 2, 1, 10, 5, 7), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25ClearedCircuitEntriesGranted.setDescription('The actual number of entries the agent will\n                          keep in the x25ClearedCircuit Table.')
-x25ClearedCircuitTable = MibTable((1, 3, 6, 1, 2, 1, 10, 5, 8), )
-if mibBuilder.loadTexts: x25ClearedCircuitTable.setDescription('A table of entries about closed circuits.\n                          Entries must be made in this table whenever\n                          circuits are closed and the close request or\n                          close indication packet contains a clearing\n                          cause other than DTE Originated or a\n                          Diagnostic code field other than Higher\n                          Layer Initiated disconnection-normal.  An\n                          agent may optionally make entries for normal\n                          closes (to record closing facilities or\n\n\n                          other information).\n\n                          Agents will delete the oldest entry in the\n                          table when adding a new entry would exceed\n                          agent resources.  Agents are required to\n                          keep the last entry put in the table and may\n                          keep more entries.  The object\n                          x25OperClearEntriesGranted returns the\n                          maximum number of entries kept in the\n                          table.')
-x25ClearedCircuitEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 5, 8, 1), ).setIndexNames((0, "RFC1382-MIB", "x25ClearedCircuitIndex"))
-if mibBuilder.loadTexts: x25ClearedCircuitEntry.setDescription('Information about a cleared circuit.')
-x25ClearedCircuitIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 8, 1, 1), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25ClearedCircuitIndex.setDescription('An index that uniquely distinguishes one\n                          entry in the clearedCircuitTable from\n                          another.  This index will start at\n                          2147483647 and will decrease by one for each\n                          new entry added to the table.  Upon reaching\n                          one, the index will reset to 2147483647.\n                          Because the index starts at 2147483647 and\n                          decreases, a manager may do a getnext on\n                          entry zero and obtain the most recent entry.\n                          When the index has the value of 1, the next\n                          entry will delete all entries in the table\n                          and that entry will be numbered 2147483647.')
-x25ClearedCircuitPleIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 8, 1, 2), IfIndexType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25ClearedCircuitPleIndex.setDescription('The value of ifIndex for the PLE which\n                          cleared the circuit that created the entry.')
-x25ClearedCircuitTimeEstablished = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 8, 1, 3), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25ClearedCircuitTimeEstablished.setDescription('The value of sysUpTime when the circuit was\n                          established.  This will be the same value\n                          that was in the x25CircuitEstablishTime for\n                          the circuit.')
-x25ClearedCircuitTimeCleared = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 8, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25ClearedCircuitTimeCleared.setDescription('The value of sysUpTime when the circuit was\n                          cleared.  For locally initiated clears, this\n\n\n                          will be the time when the clear confirmation\n                          was received.  For remotely initiated\n                          clears, this will be the time when the clear\n                          indication was received.')
-x25ClearedCircuitChannel = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 8, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4095))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25ClearedCircuitChannel.setDescription('The channel number for the circuit that was\n                          cleared.')
-x25ClearedCircuitClearingCause = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 8, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25ClearedCircuitClearingCause.setDescription('The Clearing Cause from the clear request\n                          or clear indication packet that cleared the\n                          circuit.')
-x25ClearedCircuitDiagnosticCode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 8, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25ClearedCircuitDiagnosticCode.setDescription('The Diagnostic Code from the clear request\n                          or clear indication packet that cleared the\n                          circuit.')
-x25ClearedCircuitInPdus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 8, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25ClearedCircuitInPdus.setDescription('The number of PDUs received on the\n                          circuit.')
-x25ClearedCircuitOutPdus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 8, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25ClearedCircuitOutPdus.setDescription('The number of PDUs transmitted on the\n                          circuit.')
-x25ClearedCircuitCalledAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 8, 1, 10), X121Address()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25ClearedCircuitCalledAddress.setDescription('The called address from the cleared\n                          circuit.')
-x25ClearedCircuitCallingAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 8, 1, 11), X121Address()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25ClearedCircuitCallingAddress.setDescription('The calling address from the cleared\n                          circuit.')
-x25ClearedCircuitClearFacilities = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 8, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,109))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25ClearedCircuitClearFacilities.setDescription('The facilities field from the clear request\n                          or clear indication packet that cleared the\n                          circuit.  A size of zero indicates no\n                          facilities were present.')
-x25CallParmTable = MibTable((1, 3, 6, 1, 2, 1, 10, 5, 9), )
-if mibBuilder.loadTexts: x25CallParmTable.setDescription('These objects contain the parameters that\n                          can be varied between X.25 calls.  The\n                          entries in this table are independent of the\n                          PLE.  There exists only one of these tables\n                          for the entire system.  The indexes for the\n                          entries are independent of any PLE or any\n                          circuit.  Other tables reference entries in\n                          this table.  Entries in this table can be\n                          used for default PLE parameters, for\n                          parameters to use to place/answer a call,\n                          for the parameters currently in use for a\n                          circuit, or parameters that were used by a\n                          circuit.\n\n                          The number of references to a given set of\n                          parameters can be found in the\n                          x25CallParmRefCount object sharing the same\n                          instance identifier with the parameters.\n                          The value of this reference count also\n                          affects the access of the objects in this\n                          table.  An object in this table with the\n                          same instance identifier as the instance\n                          identifier of an x25CallParmRefCount must be\n                          consider associated with that reference\n                          count.  An object with an associated\n                          reference count of zero can be written (if\n                          its ACCESS clause allows it).  An object\n                          with an associated reference count greater\n                          than zero can not be written (regardless of\n                          the ACCESS clause).  This ensures that a set\n                          of call parameters being referenced from\n                          another table can not be modified or changed\n                          in a ways inappropriate for continued use by\n                          that table.')
-x25CallParmEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 5, 9, 1), ).setIndexNames((0, "RFC1382-MIB", "x25CallParmIndex"))
-if mibBuilder.loadTexts: x25CallParmEntry.setDescription('Entries of x25CallParmTable.')
-x25CallParmIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 1), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25CallParmIndex.setDescription('A value that distinguishes this entry from\n                          another entry.  Entries in this table are\n                          referenced from other objects which identify\n                          call parameters.\n\n                          It is impossible to know which other objects\n                          in the MIB reference entries in the table by\n                          looking at this table.  Because of this,\n                          changes to parameters must be accomplished\n                          by creating a new entry in this table and\n                          then changing the referencing table to\n                          identify the new entry.\n\n                          Note that an agent will only use the values\n                          in this table when another table is changed\n                          to reference those values.  The number of\n                          other tables that reference an index object\n                          in this table can be found in\n                          x25CallParmRefCount.  The value of the\n                          reference count will affect the writability\n                          of the objects as explained above.\n\n                          Entries in this table which have a reference\n                          count of zero maybe deleted at the convence\n                          of the agent.  Care should be taken by the\n                          agent to give the NMS sufficient time to\n                          create a reference to newly created entries.\n\n                          Should a Management Station not find a free\n                          index with which to create a new entry, it\n                          may feel free to delete entries with a\n\n\n                          reference count of zero.  However in doing\n                          so the Management Station much realize it\n                          may impact other Management Stations.')
-x25CallParmStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 2), EntryStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmStatus.setDescription('The status of this call parameter entry.\n                          See RFC 1271 for details of usage.')
-x25CallParmRefCount = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 3), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: x25CallParmRefCount.setDescription('The number of references know by a\n                          management station to exist to this set of\n                          call parameters.  This is the number of\n                          other objects that have returned a value of,\n                          and will return a value of, the index for\n                          this set of call parameters.  Examples of\n                          such objects are the x25AdmnDefCallParamId,\n                          x25OperDataLinkId, or x25AdmnDefCallParamId\n                          objects defined above.')
-x25CallParmInPacketSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4096)).clone(128)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmInPacketSize.setDescription('The maximum receive packet size in octets\n                          for a circuit.  A size of zero for a circuit\n                          means use the PLE default size.  A size of\n                          zero for the PLE means use a default size of\n                          128.')
-x25CallParmOutPacketSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4096)).clone(128)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmOutPacketSize.setDescription('The maximum transmit packet size in octets\n                          for a circuit.  A size of zero for a circuit\n                          means use the PLE default size.  A size of\n                          zero for the PLE default means use a default\n                          size of 128.')
-x25CallParmInWindowSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,127)).clone(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmInWindowSize.setDescription('The receive window size for a circuit.  A\n                          size of zero for a circuit means use the PLE\n                          default size.  A size of zero for the PLE\n                          default means use 2.')
-x25CallParmOutWindowSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,127)).clone(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmOutWindowSize.setDescription('The transmit window size for a circuit.  A\n                          size of zero for a circuit means use the PLE\n                          default size.  A size of zero for the PLE\n                          default means use 2.')
-x25CallParmAcceptReverseCharging = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("default", 1), ("accept", 2), ("refuse", 3), ("neverAccept", 4),)).clone('refuse')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmAcceptReverseCharging.setDescription('An enumeration defining if the PLE will\n                          accept or refuse charges.  A value of\n                          default for a circuit means use the PLE\n                          default value.  A value of neverAccept is\n                          only used for the PLE default and indicates\n                          the PLE will never accept reverse charging.\n                          A value of default for a PLE default means\n                          refuse.')
-x25CallParmProposeReverseCharging = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("default", 1), ("reverse", 2), ("local", 3),)).clone('local')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmProposeReverseCharging.setDescription('An enumeration defining if the PLE should\n                          propose reverse or local charging.  The\n                          value of default for a circuit means use the\n                          PLE default.  The value of default for the\n                          PLE default means use local.')
-x25CallParmFastSelect = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("default", 1), ("notSpecified", 2), ("fastSelect", 3), ("restrictedFastResponse", 4), ("noFastSelect", 5), ("noRestrictedFastResponse", 6),)).clone('noFastSelect')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmFastSelect.setDescription('Expresses preference for use of fast select\n                          facility.  The value of default for a\n                          circuit is the PLE default.  A value of\n\n\n                          default for the PLE means noFastSelect.  A\n                          value of noFastSelect or\n                          noRestrictedFastResponse indicates a circuit\n                          may not use fast select or restricted fast\n                          response.')
-x25CallParmInThruPutClasSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,))).clone(namedValues=NamedValues(("tcReserved1", 1), ("tcReserved2", 2), ("tc75", 3), ("tc150", 4), ("tc300", 5), ("tc600", 6), ("tc1200", 7), ("tc2400", 8), ("tc4800", 9), ("tc9600", 10), ("tc19200", 11), ("tc48000", 12), ("tc64000", 13), ("tcReserved14", 14), ("tcReserved15", 15), ("tcReserved0", 16), ("tcNone", 17), ("tcDefault", 18),)).clone('tcNone')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmInThruPutClasSize.setDescription('The incoming throughput class to negotiate.\n                          A value of tcDefault for a circuit means use\n                          the PLE default.  A value of tcDefault for\n                          the PLE default means tcNone.  A value of\n                          tcNone means do not negotiate throughtput\n                          class.')
-x25CallParmOutThruPutClasSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,))).clone(namedValues=NamedValues(("tcReserved1", 1), ("tcReserved2", 2), ("tc75", 3), ("tc150", 4), ("tc300", 5), ("tc600", 6), ("tc1200", 7), ("tc2400", 8), ("tc4800", 9), ("tc9600", 10), ("tc19200", 11), ("tc48000", 12), ("tc64000", 13), ("tcReserved14", 14), ("tcReserved15", 15), ("tcReserved0", 16), ("tcNone", 17), ("tcDefault", 18),)).clone('tcNone')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmOutThruPutClasSize.setDescription('The outgoing throughput class to negotiate.\n                          A value of tcDefault for a circuit means use\n                          the PLE default.  A value of tcDefault for\n                          the PLE default means use tcNone.  A value\n                          of tcNone means do not negotiate throughtput\n                          class.')
-x25CallParmCug = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,4)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmCug.setDescription('The Closed User Group to specify.  This\n                          consists of two or four octets containing\n                          the characters 0 through 9.  A zero length\n                          string indicates no facility requested.  A\n                          string length of three containing the\n                          characters DEF for a circuit means use the\n                          PLE default, (the PLE default parameter may\n                          not reference an entry of DEF.)')
-x25CallParmCugoa = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,4)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmCugoa.setDescription('The Closed User Group with Outgoing Access\n                          to specify.  This consists of two or four\n                          octets containing the characters 0 through\n                          9.  A string length of three containing the\n                          characters DEF for a circuit means use the\n                          PLE default (the PLE default parameters may\n                          not reference an entry of DEF).  A zero\n                          length string indicates no facility\n                          requested.')
-x25CallParmBcug = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 15), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,3)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmBcug.setDescription('The Bilateral Closed User Group to specify.\n                          This consists of two octets containing the\n                          characters 0 through 9.  A string length of\n                          three containing the characters DEF for a\n                          circuit means use the PLE default (the PLE\n                          default parameter may not reference an entry\n                          of DEF).  A zero length string indicates no\n                          facility requested.')
-x25CallParmNui = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 16), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,108)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmNui.setDescription('The Network User Identifier facility.  This\n                          is binary value to be included immediately\n                          after the length field.  The PLE will supply\n                          the length octet.  A zero length string\n                          indicates no facility requested.  This value\n                          is ignored for the PLE default parameters\n                          entry.')
-x25CallParmChargingInfo = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("default", 1), ("noFacility", 2), ("noChargingInfo", 3), ("chargingInfo", 4),)).clone('noFacility')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmChargingInfo.setDescription('The charging Information facility.  A value\n                          of default for a circuit means use the PLE\n                          default.  The value of default for the\n                          default PLE parameters means use noFacility.\n                          The value of noFacility means do not include\n                          a facility.')
-x25CallParmRpoa = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 18), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,108)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmRpoa.setDescription('The RPOA facility.  The octet string\n                          contains n * 4 sequences of the characters\n                          0-9 to specify a facility with n entries.\n                          The octet string containing the 3 characters\n                          DEF for a circuit specifies use of the PLE\n                          default (the entry for the PLE default may\n                          not contain DEF).  A zero length string\n                          indicates no facility requested.')
-x25CallParmTrnstDly = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65537)).clone(65536)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmTrnstDly.setDescription('The Transit Delay Selection and Indication\n                          value.  A value of 65536 indicates no\n                          facility requested.  A value of 65537 for a\n                          circuit means use the PLE default (the PLE\n\n\n                          default parameters entry may not use the\n                          value 65537).  The value 65535 may only be\n                          used to indicate the value in use by a\n                          circuit.')
-x25CallParmCallingExt = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 20), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,40)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmCallingExt.setDescription('The Calling Extension facility.  This\n                          contains one of the following:\n\n                          A sequence of hex digits with the value to\n                          be put in the facility. These digits will be\n                          converted to binary by the agent and put in\n                          the facility.  These octets do not include\n                          the length octet.\n\n                          A value containing the three character DEF\n                          for a circuit means use the PLE default,\n                          (the entry for the PLE default parameters\n                          may not use the value DEF).\n\n                          A zero length string indicates no facility\n                          requested.')
-x25CallParmCalledExt = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 21), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,40)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmCalledExt.setDescription('The Called Extension facility.  This\n                          contains one of the following:\n\n                          A sequence of hex digits with the value to\n                          be put in the facility.  These digits will be\n                          converted to binary by the agent and put in\n                          the facility.  These octets do not include\n\n\n                          the length octet.\n\n                          A value containing the three character DEF\n                          for a circuit means use the PLE default,\n                          (the entry for the PLE default parameters\n                          may not use the value DEF).\n\n                          A zero length string indicates no facility\n                          requested.')
-x25CallParmInMinThuPutCls = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 22), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,17)).clone(17)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmInMinThuPutCls.setDescription('The minimum input throughput Class.  A\n                          value of 16 for a circuit means use the PLE\n                          default (the PLE parameters entry may not\n                          use this value).  A value of 17 indicates no\n                          facility requested.')
-x25CallParmOutMinThuPutCls = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 23), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,17)).clone(17)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmOutMinThuPutCls.setDescription('The minimum output throughput Class.  A\n                          value of 16 for a circuit means use the PLE\n                          default (the PLE parameters entry may not\n                          use this value).  A value of 17 indicates no\n                          facility requested.')
-x25CallParmEndTrnsDly = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 24), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,6)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmEndTrnsDly.setDescription('The End-to-End Transit Delay to negotiate.\n                          An octet string of length 2, 4, or 6\n\n\n                          contains the facility encoded as specified\n                          in ISO/IEC 8208 section 15.3.2.4.  An octet\n                          string of length 3 containing the three\n                          character DEF for a circuit means use the\n                          PLE default (the entry for the PLE default\n                          can not contain the characters DEF).  A zero\n                          length string indicates no facility\n                          requested.')
-x25CallParmPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 25), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,6)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmPriority.setDescription('The priority facility to negotiate.  The\n                          octet string encoded as specified in ISO/IEC\n                          8208 section 15.3.2.5.  A zero length string\n                          indicates no facility requested.  The entry\n                          for the PLE default parameters must be zero\n                          length.')
-x25CallParmProtection = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 26), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,108)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmProtection.setDescription('A string contains the following:\n                          A hex string containing the value for the\n                          protection facility.  This will be converted\n                          from hex to the octets actually in the\n                          packet by the agent.  The agent will supply\n                          the length field and the length octet is not\n                          contained in this string.\n\n                          An string containing the 3 characters DEF\n                          for a circuit means use the PLE default (the\n                          entry for the PLE default parameters may not\n                          use the value DEF).\n\n                          A zero length string mean no facility\n                          requested.')
-x25CallParmExptData = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 27), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("default", 1), ("noExpeditedData", 2), ("expeditedData", 3),)).clone('noExpeditedData')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmExptData.setDescription('The Expedited Data facility to negotiate.\n                          A value of default for a circuit means use\n                          the PLE default value.  The entry for the\n                          PLE default parameters may not have the\n                          value default.')
-x25CallParmUserData = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 28), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,128)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmUserData.setDescription('The call user data as placed in the packet.\n                          A zero length string indicates no call user\n                          data.  If both the circuit call parameters\n                          and the PLE default have call user data\n                          defined, the data from the circuit call\n                          parameters will be used.  If only the PLE\n                          has data defined, the PLE entry will be\n                          used.  If neither the circuit call\n                          parameters or the PLE default entry has a\n                          value, no call user data will be sent.')
-x25CallParmCallingNetworkFacilities = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 29), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,108)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmCallingNetworkFacilities.setDescription('The calling network facilities.  The\n                          facilities are encoded here exactly as\n                          encoded in the call packet.  These\n\n\n                          facilities do not include the marker\n                          facility code.\n\n                          A zero length string in the entry for the\n                          parameter to use when establishing a circuit\n                          means use the PLE default.  A zero length\n                          string in the entry for PLE default\n                          parameters indicates no default facilities.')
-x25CallParmCalledNetworkFacilities = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 5, 9, 1, 30), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,108)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: x25CallParmCalledNetworkFacilities.setDescription('The called network facilities.  The\n                          facilities are encoded here exactly as\n                          encoded in the call packet.  These\n                          facilities do not include the marker\n                          facility code.\n\n                          A zero length string in the entry for the\n                          parameter to use when establishing a circuit\n                          means use the PLE default.  A zero length\n                          string in the entry for PLE default\n                          parameters indicates no default facilities.')
-x25Restart = NotificationType((1, 3, 6, 1, 2, 1, 10, 5) + (0,1)).setObjects(*(("RFC1382-MIB", "x25OperIndex"),))
-if mibBuilder.loadTexts: x25Restart.setDescription('This trap means the X.25 PLE sent or\n                          received a restart packet.  The restart that\n                          brings up the link should not send a\n                          x25Restart trap so the interface should send\n                          a linkUp trap.  Sending this trap means the\n                          agent does not send a linkDown and linkUp\n                          trap.')
-x25Reset = NotificationType((1, 3, 6, 1, 2, 1, 10, 5) + (0,2)).setObjects(*(("RFC1382-MIB", "x25CircuitIndex"), ("RFC1382-MIB", "x25CircuitChannel"),))
-if mibBuilder.loadTexts: x25Reset.setDescription('If the PLE sends or receives a reset, the\n                          agent should send an x25Reset trap.')
-x25ProtocolVersion = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 5, 10))
-x25protocolCcittV1976 = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 5, 10, 1))
-x25protocolCcittV1980 = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 5, 10, 2))
-x25protocolCcittV1984 = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 5, 10, 3))
-x25protocolCcittV1988 = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 5, 10, 4))
-x25protocolIso8208V1987 = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 5, 10, 5))
-x25protocolIso8208V1989 = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 5, 10, 6))
-mibBuilder.exportSymbols("RFC1382-MIB", x25CallParmAcceptReverseCharging=x25CallParmAcceptReverseCharging, x25StatRetryCountExceededs=x25StatRetryCountExceededs, x25StatEntry=x25StatEntry, x25StatOutInterrupts=x25StatOutInterrupts, x25StatInCalls=x25StatInCalls, x25StatInRestarts=x25StatInRestarts, x25ClearedCircuitIndex=x25ClearedCircuitIndex, x25CallParmFastSelect=x25CallParmFastSelect, x25CircuitOutOctets=x25CircuitOutOctets, x25AdmnRestartCount=x25AdmnRestartCount, x25OperRejectTimer=x25OperRejectTimer, x25ChannelLIC=x25ChannelLIC, x25ChannelTable=x25ChannelTable, x25AdmnPacketSequencing=x25AdmnPacketSequencing, x25StatIndex=x25StatIndex, x25OperLocalAddress=x25OperLocalAddress, x25AdmnMinimumRecallTimer=x25AdmnMinimumRecallTimer, x25ChannelHTC=x25ChannelHTC, x25StatOutCallFailures=x25StatOutCallFailures, x25Reset=x25Reset, x25StatResetTimeouts=x25StatResetTimeouts, x25CircuitEstablishTime=x25CircuitEstablishTime, x25CallParmInPacketSize=x25CallParmInPacketSize, x25protocolCcittV1976=x25protocolCcittV1976, x25=x25, x25OperDataLinkId=x25OperDataLinkId, x25StatCallTimeouts=x25StatCallTimeouts, x25OperClearCount=x25OperClearCount, x25ClearedCircuitInPdus=x25ClearedCircuitInPdus, x25OperDataRxmtTimer=x25OperDataRxmtTimer, X121Address=X121Address, x25OperResetTimer=x25OperResetTimer, x25StatDataRxmtTimeouts=x25StatDataRxmtTimeouts, x25CallParmCallingExt=x25CallParmCallingExt, x25CallParmCalledNetworkFacilities=x25CallParmCalledNetworkFacilities, x25ClearedCircuitCallingAddress=x25ClearedCircuitCallingAddress, x25AdmnLocalAddress=x25AdmnLocalAddress, x25AdmnMaxActiveCircuits=x25AdmnMaxActiveCircuits, x25CallParmOutMinThuPutCls=x25CallParmOutMinThuPutCls, x25CircuitOutPdus=x25CircuitOutPdus, x25ProtocolVersion=x25ProtocolVersion, x25CircuitOutInterrupts=x25CircuitOutInterrupts, x25CircuitCallParamId=x25CircuitCallParamId, x25OperPacketSequencing=x25OperPacketSequencing, x25AdmnDefCallParamId=x25AdmnDefCallParamId, x25CallParmRefCount=x25CallParmRefCount, x25AdmnResetTimer=x25AdmnResetTimer, x25AdmnRegistrationRequestCount=x25AdmnRegistrationRequestCount, x25CircuitInOctets=x25CircuitInOctets, x25CallParmOutPacketSize=x25CallParmOutPacketSize, x25ClearedCircuitClearingCause=x25ClearedCircuitClearingCause, x25AdmnInterfaceMode=x25AdmnInterfaceMode, x25CircuitInPdus=x25CircuitInPdus, x25CallParmOutThruPutClasSize=x25CallParmOutThruPutClasSize, x25CallParmProtection=x25CallParmProtection, x25OperCallTimer=x25OperCallTimer, x25AdmnRejectCount=x25AdmnRejectCount, x25OperNumberPVCs=x25OperNumberPVCs, x25CircuitOriginallyCalledAddress=x25CircuitOriginallyCalledAddress, x25ClearedCircuitTimeEstablished=x25ClearedCircuitTimeEstablished, x25AdmnIndex=x25AdmnIndex, x25OperTable=x25OperTable, x25CallParmStatus=x25CallParmStatus, x25AdmnClearTimer=x25AdmnClearTimer, x25CallParmCalledExt=x25CallParmCalledExt, x25CallParmEntry=x25CallParmEntry, x25CircuitChannel=x25CircuitChannel, x25StatOutDataPackets=x25StatOutDataPackets, x25OperInterfaceMode=x25OperInterfaceMode, x25AdmnResetCount=x25AdmnResetCount, x25StatOutgoingCircuits=x25StatOutgoingCircuits, x25CircuitCalledDteAddress=x25CircuitCalledDteAddress, x25AdmnCallTimer=x25AdmnCallTimer, x25ChannelHOC=x25ChannelHOC, x25CallParmExptData=x25CallParmExptData, x25CallParmProposeReverseCharging=x25CallParmProposeReverseCharging, x25CircuitDescr=x25CircuitDescr, x25CallParmInMinThuPutCls=x25CallParmInMinThuPutCls, x25ClearedCircuitClearFacilities=x25ClearedCircuitClearFacilities, x25CallParmTrnstDly=x25CallParmTrnstDly, x25CallParmNui=x25CallParmNui, x25StatInProviderInitiatedResets=x25StatInProviderInitiatedResets, x25CallParmChargingInfo=x25CallParmChargingInfo, x25StatRestartTimeouts=x25StatRestartTimeouts, x25protocolCcittV1984=x25protocolCcittV1984, x25protocolIso8208V1987=x25protocolIso8208V1987, x25CircuitIndex=x25CircuitIndex, x25OperRestartTimer=x25OperRestartTimer, x25ClearedCircuitPleIndex=x25ClearedCircuitPleIndex, x25OperInterruptTimer=x25OperInterruptTimer, x25CallParmCug=x25CallParmCug, x25StatTwowayCircuits=x25StatTwowayCircuits, x25AdmnWindowTimer=x25AdmnWindowTimer, x25ClearedCircuitCalledAddress=x25ClearedCircuitCalledAddress, x25ClearedCircuitTimeCleared=x25ClearedCircuitTimeCleared, x25CallParmPriority=x25CallParmPriority, x25OperRegistrationRequestTimer=x25OperRegistrationRequestTimer, x25AdmnClearCount=x25AdmnClearCount, x25protocolCcittV1980=x25protocolCcittV1980, x25protocolCcittV1988=x25protocolCcittV1988, x25ClearedCircuitEntriesGranted=x25ClearedCircuitEntriesGranted, x25CallParmInWindowSize=x25CallParmInWindowSize, x25ChannelLOC=x25ChannelLOC, x25CircuitDataRetransmissionTimeouts=x25CircuitDataRetransmissionTimeouts, x25OperClearTimer=x25OperClearTimer, x25StatOutCallAttempts=x25StatOutCallAttempts, x25CallParmRpoa=x25CallParmRpoa, x25CallParmInThruPutClasSize=x25CallParmInThruPutClasSize, x25ClearedCircuitEntriesRequested=x25ClearedCircuitEntriesRequested, x25StatInterruptTimeouts=x25StatInterruptTimeouts, x25OperIndex=x25OperIndex, x25CallParmUserData=x25CallParmUserData, x25AdmnRejectTimer=x25AdmnRejectTimer, x25ClearedCircuitEntry=x25ClearedCircuitEntry, x25ClearedCircuitTable=x25ClearedCircuitTable, x25protocolIso8208V1989=x25protocolIso8208V1989, x25StatClearCountExceededs=x25StatClearCountExceededs, x25OperMaxActiveCircuits=x25OperMaxActiveCircuits, x25StatInCallRefusals=x25StatInCallRefusals, x25CircuitInRemotelyInitiatedResets=x25CircuitInRemotelyInitiatedResets, x25OperRestartCount=x25OperRestartCount, x25OperProtocolVersionSupported=x25OperProtocolVersionSupported, x25CallParmOutWindowSize=x25CallParmOutWindowSize, x25OperRejectCount=x25OperRejectCount, x25StatIncomingCircuits=x25StatIncomingCircuits, x25ClearedCircuitChannel=x25ClearedCircuitChannel, x25StatInAccusedOfProtocolErrors=x25StatInAccusedOfProtocolErrors, x25CircuitInterruptTimeouts=x25CircuitInterruptTimeouts, x25AdmnNumberPVCs=x25AdmnNumberPVCs, x25OperDefCallParamId=x25OperDefCallParamId, x25AdmnInterruptTimer=x25AdmnInterruptTimer, x25CircuitInProviderInitiatedResets=x25CircuitInProviderInitiatedResets, x25StatInRemotelyInitiatedResets=x25StatInRemotelyInitiatedResets, x25OperResetCount=x25OperResetCount, x25ChannelIndex=x25ChannelIndex, x25ChannelLTC=x25ChannelLTC, x25CallParmTable=x25CallParmTable, x25CallParmCugoa=x25CallParmCugoa, x25AdmnDataRxmtTimer=x25AdmnDataRxmtTimer, x25ChannelEntry=x25ChannelEntry, x25ChannelHIC=x25ChannelHIC, x25CircuitInInterrupts=x25CircuitInInterrupts, x25StatInProviderInitiatedClears=x25StatInProviderInitiatedClears, x25AdmnTable=x25AdmnTable, x25AdmnDataRxmtCount=x25AdmnDataRxmtCount, x25AdmnEntry=x25AdmnEntry, x25ClearedCircuitDiagnosticCode=x25ClearedCircuitDiagnosticCode, x25CircuitResetTimeouts=x25CircuitResetTimeouts, x25Restart=x25Restart, x25CallParmEndTrnsDly=x25CallParmEndTrnsDly, x25CallParmIndex=x25CallParmIndex, x25OperMinimumRecallTimer=x25OperMinimumRecallTimer, x25OperWindowTimer=x25OperWindowTimer, x25AdmnRestartTimer=x25AdmnRestartTimer, x25OperEntry=x25OperEntry, x25CircuitCallingDteAddress=x25CircuitCallingDteAddress, x25CircuitDirection=x25CircuitDirection, x25ClearedCircuitOutPdus=x25ClearedCircuitOutPdus, x25CallParmBcug=x25CallParmBcug, x25StatInInterrupts=x25StatInInterrupts, x25AdmnRegistrationRequestTimer=x25AdmnRegistrationRequestTimer, x25StatTable=x25StatTable, x25AdmnProtocolVersionSupported=x25AdmnProtocolVersionSupported, x25OperRegistrationRequestCount=x25OperRegistrationRequestCount, x25CallParmCallingNetworkFacilities=x25CallParmCallingNetworkFacilities, x25OperDataRxmtCount=x25OperDataRxmtCount, x25CircuitStatus=x25CircuitStatus, x25CircuitTable=x25CircuitTable, x25CircuitEntry=x25CircuitEntry, x25StatInDataPackets=x25StatInDataPackets, x25StatClearTimeouts=x25StatClearTimeouts)
+_h='tcDefault'
+_g='tcNone'
+_f='tcReserved0'
+_e='tcReserved15'
+_d='tcReserved14'
+_c='tc64000'
+_b='tc48000'
+_a='tc19200'
+_Z='tc9600'
+_Y='tc4800'
+_X='tc2400'
+_W='tc1200'
+_V='tcReserved2'
+_U='tcReserved1'
+_T='x25CallParmIndex'
+_S='x25ClearedCircuitIndex'
+_R='x25ChannelIndex'
+_Q='x25StatIndex'
+_P='modulo128'
+_O='modulo8'
+_N='x25AdmnIndex'
+_M='NotificationType'
+_L='x25CircuitChannel'
+_K='x25CircuitIndex'
+_J='x25OperIndex'
+_I='X121Address'
+_H='default'
+_G='OctetString'
+_F='DisplayString'
+_E='RFC1382-MIB'
+_D='Integer32'
+_C='read-write'
+_B='read-only'
+_A='mandatory'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_G,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+EntryStatus,=mibBuilder.importSymbols('RFC1271-MIB','EntryStatus')
+IfIndexType,PositiveInteger=mibBuilder.importSymbols('RFC1381-MIB','IfIndexType','PositiveInteger')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier',_M,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_M,'TimeTicks','Unsigned32','iso','transmission')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_F,'PhysAddress','TextualConvention')
+class X121Address(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,17))
+_X25_ObjectIdentity=ObjectIdentity
+x25=_X25_ObjectIdentity((1,3,6,1,2,1,10,5))
+_X25AdmnTable_Object=MibTable
+x25AdmnTable=_X25AdmnTable_Object((1,3,6,1,2,1,10,5,1))
+if mibBuilder.loadTexts:x25AdmnTable.setStatus(_A)
+_X25AdmnEntry_Object=MibTableRow
+x25AdmnEntry=_X25AdmnEntry_Object((1,3,6,1,2,1,10,5,1,1))
+x25AdmnEntry.setIndexNames((0,_E,_N))
+if mibBuilder.loadTexts:x25AdmnEntry.setStatus(_A)
+_X25AdmnIndex_Type=IfIndexType
+_X25AdmnIndex_Object=MibTableColumn
+x25AdmnIndex=_X25AdmnIndex_Object((1,3,6,1,2,1,10,5,1,1,1),_X25AdmnIndex_Type())
+x25AdmnIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25AdmnIndex.setStatus(_A)
+class _X25AdmnInterfaceMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('dte',1),('dce',2),('dxe',3)))
+_X25AdmnInterfaceMode_Type.__name__=_D
+_X25AdmnInterfaceMode_Object=MibTableColumn
+x25AdmnInterfaceMode=_X25AdmnInterfaceMode_Object((1,3,6,1,2,1,10,5,1,1,2),_X25AdmnInterfaceMode_Type())
+x25AdmnInterfaceMode.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnInterfaceMode.setStatus(_A)
+class _X25AdmnMaxActiveCircuits_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4096))
+_X25AdmnMaxActiveCircuits_Type.__name__=_D
+_X25AdmnMaxActiveCircuits_Object=MibTableColumn
+x25AdmnMaxActiveCircuits=_X25AdmnMaxActiveCircuits_Object((1,3,6,1,2,1,10,5,1,1,3),_X25AdmnMaxActiveCircuits_Type())
+x25AdmnMaxActiveCircuits.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnMaxActiveCircuits.setStatus(_A)
+class _X25AdmnPacketSequencing_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_O,1),(_P,2)))
+_X25AdmnPacketSequencing_Type.__name__=_D
+_X25AdmnPacketSequencing_Object=MibTableColumn
+x25AdmnPacketSequencing=_X25AdmnPacketSequencing_Object((1,3,6,1,2,1,10,5,1,1,4),_X25AdmnPacketSequencing_Type())
+x25AdmnPacketSequencing.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnPacketSequencing.setStatus(_A)
+_X25AdmnRestartTimer_Type=PositiveInteger
+_X25AdmnRestartTimer_Object=MibTableColumn
+x25AdmnRestartTimer=_X25AdmnRestartTimer_Object((1,3,6,1,2,1,10,5,1,1,5),_X25AdmnRestartTimer_Type())
+x25AdmnRestartTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnRestartTimer.setStatus(_A)
+_X25AdmnCallTimer_Type=PositiveInteger
+_X25AdmnCallTimer_Object=MibTableColumn
+x25AdmnCallTimer=_X25AdmnCallTimer_Object((1,3,6,1,2,1,10,5,1,1,6),_X25AdmnCallTimer_Type())
+x25AdmnCallTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnCallTimer.setStatus(_A)
+_X25AdmnResetTimer_Type=PositiveInteger
+_X25AdmnResetTimer_Object=MibTableColumn
+x25AdmnResetTimer=_X25AdmnResetTimer_Object((1,3,6,1,2,1,10,5,1,1,7),_X25AdmnResetTimer_Type())
+x25AdmnResetTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnResetTimer.setStatus(_A)
+_X25AdmnClearTimer_Type=PositiveInteger
+_X25AdmnClearTimer_Object=MibTableColumn
+x25AdmnClearTimer=_X25AdmnClearTimer_Object((1,3,6,1,2,1,10,5,1,1,8),_X25AdmnClearTimer_Type())
+x25AdmnClearTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnClearTimer.setStatus(_A)
+_X25AdmnWindowTimer_Type=PositiveInteger
+_X25AdmnWindowTimer_Object=MibTableColumn
+x25AdmnWindowTimer=_X25AdmnWindowTimer_Object((1,3,6,1,2,1,10,5,1,1,9),_X25AdmnWindowTimer_Type())
+x25AdmnWindowTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnWindowTimer.setStatus(_A)
+_X25AdmnDataRxmtTimer_Type=PositiveInteger
+_X25AdmnDataRxmtTimer_Object=MibTableColumn
+x25AdmnDataRxmtTimer=_X25AdmnDataRxmtTimer_Object((1,3,6,1,2,1,10,5,1,1,10),_X25AdmnDataRxmtTimer_Type())
+x25AdmnDataRxmtTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnDataRxmtTimer.setStatus(_A)
+_X25AdmnInterruptTimer_Type=PositiveInteger
+_X25AdmnInterruptTimer_Object=MibTableColumn
+x25AdmnInterruptTimer=_X25AdmnInterruptTimer_Object((1,3,6,1,2,1,10,5,1,1,11),_X25AdmnInterruptTimer_Type())
+x25AdmnInterruptTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnInterruptTimer.setStatus(_A)
+_X25AdmnRejectTimer_Type=PositiveInteger
+_X25AdmnRejectTimer_Object=MibTableColumn
+x25AdmnRejectTimer=_X25AdmnRejectTimer_Object((1,3,6,1,2,1,10,5,1,1,12),_X25AdmnRejectTimer_Type())
+x25AdmnRejectTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnRejectTimer.setStatus(_A)
+_X25AdmnRegistrationRequestTimer_Type=PositiveInteger
+_X25AdmnRegistrationRequestTimer_Object=MibTableColumn
+x25AdmnRegistrationRequestTimer=_X25AdmnRegistrationRequestTimer_Object((1,3,6,1,2,1,10,5,1,1,13),_X25AdmnRegistrationRequestTimer_Type())
+x25AdmnRegistrationRequestTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnRegistrationRequestTimer.setStatus(_A)
+_X25AdmnMinimumRecallTimer_Type=PositiveInteger
+_X25AdmnMinimumRecallTimer_Object=MibTableColumn
+x25AdmnMinimumRecallTimer=_X25AdmnMinimumRecallTimer_Object((1,3,6,1,2,1,10,5,1,1,14),_X25AdmnMinimumRecallTimer_Type())
+x25AdmnMinimumRecallTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnMinimumRecallTimer.setStatus(_A)
+class _X25AdmnRestartCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_X25AdmnRestartCount_Type.__name__=_D
+_X25AdmnRestartCount_Object=MibTableColumn
+x25AdmnRestartCount=_X25AdmnRestartCount_Object((1,3,6,1,2,1,10,5,1,1,15),_X25AdmnRestartCount_Type())
+x25AdmnRestartCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnRestartCount.setStatus(_A)
+class _X25AdmnResetCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_X25AdmnResetCount_Type.__name__=_D
+_X25AdmnResetCount_Object=MibTableColumn
+x25AdmnResetCount=_X25AdmnResetCount_Object((1,3,6,1,2,1,10,5,1,1,16),_X25AdmnResetCount_Type())
+x25AdmnResetCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnResetCount.setStatus(_A)
+class _X25AdmnClearCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_X25AdmnClearCount_Type.__name__=_D
+_X25AdmnClearCount_Object=MibTableColumn
+x25AdmnClearCount=_X25AdmnClearCount_Object((1,3,6,1,2,1,10,5,1,1,17),_X25AdmnClearCount_Type())
+x25AdmnClearCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnClearCount.setStatus(_A)
+class _X25AdmnDataRxmtCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_X25AdmnDataRxmtCount_Type.__name__=_D
+_X25AdmnDataRxmtCount_Object=MibTableColumn
+x25AdmnDataRxmtCount=_X25AdmnDataRxmtCount_Object((1,3,6,1,2,1,10,5,1,1,18),_X25AdmnDataRxmtCount_Type())
+x25AdmnDataRxmtCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnDataRxmtCount.setStatus(_A)
+class _X25AdmnRejectCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_X25AdmnRejectCount_Type.__name__=_D
+_X25AdmnRejectCount_Object=MibTableColumn
+x25AdmnRejectCount=_X25AdmnRejectCount_Object((1,3,6,1,2,1,10,5,1,1,19),_X25AdmnRejectCount_Type())
+x25AdmnRejectCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnRejectCount.setStatus(_A)
+class _X25AdmnRegistrationRequestCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_X25AdmnRegistrationRequestCount_Type.__name__=_D
+_X25AdmnRegistrationRequestCount_Object=MibTableColumn
+x25AdmnRegistrationRequestCount=_X25AdmnRegistrationRequestCount_Object((1,3,6,1,2,1,10,5,1,1,20),_X25AdmnRegistrationRequestCount_Type())
+x25AdmnRegistrationRequestCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnRegistrationRequestCount.setStatus(_A)
+class _X25AdmnNumberPVCs_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4096))
+_X25AdmnNumberPVCs_Type.__name__=_D
+_X25AdmnNumberPVCs_Object=MibTableColumn
+x25AdmnNumberPVCs=_X25AdmnNumberPVCs_Object((1,3,6,1,2,1,10,5,1,1,21),_X25AdmnNumberPVCs_Type())
+x25AdmnNumberPVCs.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnNumberPVCs.setStatus(_A)
+_X25AdmnDefCallParamId_Type=ObjectIdentifier
+_X25AdmnDefCallParamId_Object=MibTableColumn
+x25AdmnDefCallParamId=_X25AdmnDefCallParamId_Object((1,3,6,1,2,1,10,5,1,1,22),_X25AdmnDefCallParamId_Type())
+x25AdmnDefCallParamId.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnDefCallParamId.setStatus(_A)
+_X25AdmnLocalAddress_Type=X121Address
+_X25AdmnLocalAddress_Object=MibTableColumn
+x25AdmnLocalAddress=_X25AdmnLocalAddress_Object((1,3,6,1,2,1,10,5,1,1,23),_X25AdmnLocalAddress_Type())
+x25AdmnLocalAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnLocalAddress.setStatus(_A)
+_X25AdmnProtocolVersionSupported_Type=ObjectIdentifier
+_X25AdmnProtocolVersionSupported_Object=MibTableColumn
+x25AdmnProtocolVersionSupported=_X25AdmnProtocolVersionSupported_Object((1,3,6,1,2,1,10,5,1,1,24),_X25AdmnProtocolVersionSupported_Type())
+x25AdmnProtocolVersionSupported.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25AdmnProtocolVersionSupported.setStatus(_A)
+_X25OperTable_Object=MibTable
+x25OperTable=_X25OperTable_Object((1,3,6,1,2,1,10,5,2))
+if mibBuilder.loadTexts:x25OperTable.setStatus(_A)
+_X25OperEntry_Object=MibTableRow
+x25OperEntry=_X25OperEntry_Object((1,3,6,1,2,1,10,5,2,1))
+x25OperEntry.setIndexNames((0,_E,_J))
+if mibBuilder.loadTexts:x25OperEntry.setStatus(_A)
+_X25OperIndex_Type=IfIndexType
+_X25OperIndex_Object=MibTableColumn
+x25OperIndex=_X25OperIndex_Object((1,3,6,1,2,1,10,5,2,1,1),_X25OperIndex_Type())
+x25OperIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperIndex.setStatus(_A)
+class _X25OperInterfaceMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('dte',1),('dce',2),('dxe',3)))
+_X25OperInterfaceMode_Type.__name__=_D
+_X25OperInterfaceMode_Object=MibTableColumn
+x25OperInterfaceMode=_X25OperInterfaceMode_Object((1,3,6,1,2,1,10,5,2,1,2),_X25OperInterfaceMode_Type())
+x25OperInterfaceMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperInterfaceMode.setStatus(_A)
+class _X25OperMaxActiveCircuits_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4096))
+_X25OperMaxActiveCircuits_Type.__name__=_D
+_X25OperMaxActiveCircuits_Object=MibTableColumn
+x25OperMaxActiveCircuits=_X25OperMaxActiveCircuits_Object((1,3,6,1,2,1,10,5,2,1,3),_X25OperMaxActiveCircuits_Type())
+x25OperMaxActiveCircuits.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperMaxActiveCircuits.setStatus(_A)
+class _X25OperPacketSequencing_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_O,1),(_P,2)))
+_X25OperPacketSequencing_Type.__name__=_D
+_X25OperPacketSequencing_Object=MibTableColumn
+x25OperPacketSequencing=_X25OperPacketSequencing_Object((1,3,6,1,2,1,10,5,2,1,4),_X25OperPacketSequencing_Type())
+x25OperPacketSequencing.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperPacketSequencing.setStatus(_A)
+_X25OperRestartTimer_Type=PositiveInteger
+_X25OperRestartTimer_Object=MibTableColumn
+x25OperRestartTimer=_X25OperRestartTimer_Object((1,3,6,1,2,1,10,5,2,1,5),_X25OperRestartTimer_Type())
+x25OperRestartTimer.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperRestartTimer.setStatus(_A)
+_X25OperCallTimer_Type=PositiveInteger
+_X25OperCallTimer_Object=MibTableColumn
+x25OperCallTimer=_X25OperCallTimer_Object((1,3,6,1,2,1,10,5,2,1,6),_X25OperCallTimer_Type())
+x25OperCallTimer.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperCallTimer.setStatus(_A)
+_X25OperResetTimer_Type=PositiveInteger
+_X25OperResetTimer_Object=MibTableColumn
+x25OperResetTimer=_X25OperResetTimer_Object((1,3,6,1,2,1,10,5,2,1,7),_X25OperResetTimer_Type())
+x25OperResetTimer.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperResetTimer.setStatus(_A)
+_X25OperClearTimer_Type=PositiveInteger
+_X25OperClearTimer_Object=MibTableColumn
+x25OperClearTimer=_X25OperClearTimer_Object((1,3,6,1,2,1,10,5,2,1,8),_X25OperClearTimer_Type())
+x25OperClearTimer.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperClearTimer.setStatus(_A)
+_X25OperWindowTimer_Type=PositiveInteger
+_X25OperWindowTimer_Object=MibTableColumn
+x25OperWindowTimer=_X25OperWindowTimer_Object((1,3,6,1,2,1,10,5,2,1,9),_X25OperWindowTimer_Type())
+x25OperWindowTimer.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperWindowTimer.setStatus(_A)
+_X25OperDataRxmtTimer_Type=PositiveInteger
+_X25OperDataRxmtTimer_Object=MibTableColumn
+x25OperDataRxmtTimer=_X25OperDataRxmtTimer_Object((1,3,6,1,2,1,10,5,2,1,10),_X25OperDataRxmtTimer_Type())
+x25OperDataRxmtTimer.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperDataRxmtTimer.setStatus(_A)
+_X25OperInterruptTimer_Type=PositiveInteger
+_X25OperInterruptTimer_Object=MibTableColumn
+x25OperInterruptTimer=_X25OperInterruptTimer_Object((1,3,6,1,2,1,10,5,2,1,11),_X25OperInterruptTimer_Type())
+x25OperInterruptTimer.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperInterruptTimer.setStatus(_A)
+_X25OperRejectTimer_Type=PositiveInteger
+_X25OperRejectTimer_Object=MibTableColumn
+x25OperRejectTimer=_X25OperRejectTimer_Object((1,3,6,1,2,1,10,5,2,1,12),_X25OperRejectTimer_Type())
+x25OperRejectTimer.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperRejectTimer.setStatus(_A)
+_X25OperRegistrationRequestTimer_Type=PositiveInteger
+_X25OperRegistrationRequestTimer_Object=MibTableColumn
+x25OperRegistrationRequestTimer=_X25OperRegistrationRequestTimer_Object((1,3,6,1,2,1,10,5,2,1,13),_X25OperRegistrationRequestTimer_Type())
+x25OperRegistrationRequestTimer.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperRegistrationRequestTimer.setStatus(_A)
+_X25OperMinimumRecallTimer_Type=PositiveInteger
+_X25OperMinimumRecallTimer_Object=MibTableColumn
+x25OperMinimumRecallTimer=_X25OperMinimumRecallTimer_Object((1,3,6,1,2,1,10,5,2,1,14),_X25OperMinimumRecallTimer_Type())
+x25OperMinimumRecallTimer.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperMinimumRecallTimer.setStatus(_A)
+class _X25OperRestartCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_X25OperRestartCount_Type.__name__=_D
+_X25OperRestartCount_Object=MibTableColumn
+x25OperRestartCount=_X25OperRestartCount_Object((1,3,6,1,2,1,10,5,2,1,15),_X25OperRestartCount_Type())
+x25OperRestartCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperRestartCount.setStatus(_A)
+class _X25OperResetCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_X25OperResetCount_Type.__name__=_D
+_X25OperResetCount_Object=MibTableColumn
+x25OperResetCount=_X25OperResetCount_Object((1,3,6,1,2,1,10,5,2,1,16),_X25OperResetCount_Type())
+x25OperResetCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperResetCount.setStatus(_A)
+class _X25OperClearCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_X25OperClearCount_Type.__name__=_D
+_X25OperClearCount_Object=MibTableColumn
+x25OperClearCount=_X25OperClearCount_Object((1,3,6,1,2,1,10,5,2,1,17),_X25OperClearCount_Type())
+x25OperClearCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperClearCount.setStatus(_A)
+class _X25OperDataRxmtCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_X25OperDataRxmtCount_Type.__name__=_D
+_X25OperDataRxmtCount_Object=MibTableColumn
+x25OperDataRxmtCount=_X25OperDataRxmtCount_Object((1,3,6,1,2,1,10,5,2,1,18),_X25OperDataRxmtCount_Type())
+x25OperDataRxmtCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperDataRxmtCount.setStatus(_A)
+class _X25OperRejectCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_X25OperRejectCount_Type.__name__=_D
+_X25OperRejectCount_Object=MibTableColumn
+x25OperRejectCount=_X25OperRejectCount_Object((1,3,6,1,2,1,10,5,2,1,19),_X25OperRejectCount_Type())
+x25OperRejectCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperRejectCount.setStatus(_A)
+class _X25OperRegistrationRequestCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_X25OperRegistrationRequestCount_Type.__name__=_D
+_X25OperRegistrationRequestCount_Object=MibTableColumn
+x25OperRegistrationRequestCount=_X25OperRegistrationRequestCount_Object((1,3,6,1,2,1,10,5,2,1,20),_X25OperRegistrationRequestCount_Type())
+x25OperRegistrationRequestCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperRegistrationRequestCount.setStatus(_A)
+class _X25OperNumberPVCs_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4096))
+_X25OperNumberPVCs_Type.__name__=_D
+_X25OperNumberPVCs_Object=MibTableColumn
+x25OperNumberPVCs=_X25OperNumberPVCs_Object((1,3,6,1,2,1,10,5,2,1,21),_X25OperNumberPVCs_Type())
+x25OperNumberPVCs.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperNumberPVCs.setStatus(_A)
+_X25OperDefCallParamId_Type=ObjectIdentifier
+_X25OperDefCallParamId_Object=MibTableColumn
+x25OperDefCallParamId=_X25OperDefCallParamId_Object((1,3,6,1,2,1,10,5,2,1,22),_X25OperDefCallParamId_Type())
+x25OperDefCallParamId.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperDefCallParamId.setStatus(_A)
+_X25OperLocalAddress_Type=X121Address
+_X25OperLocalAddress_Object=MibTableColumn
+x25OperLocalAddress=_X25OperLocalAddress_Object((1,3,6,1,2,1,10,5,2,1,23),_X25OperLocalAddress_Type())
+x25OperLocalAddress.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperLocalAddress.setStatus(_A)
+_X25OperDataLinkId_Type=ObjectIdentifier
+_X25OperDataLinkId_Object=MibTableColumn
+x25OperDataLinkId=_X25OperDataLinkId_Object((1,3,6,1,2,1,10,5,2,1,24),_X25OperDataLinkId_Type())
+x25OperDataLinkId.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperDataLinkId.setStatus(_A)
+_X25OperProtocolVersionSupported_Type=ObjectIdentifier
+_X25OperProtocolVersionSupported_Object=MibTableColumn
+x25OperProtocolVersionSupported=_X25OperProtocolVersionSupported_Object((1,3,6,1,2,1,10,5,2,1,25),_X25OperProtocolVersionSupported_Type())
+x25OperProtocolVersionSupported.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25OperProtocolVersionSupported.setStatus(_A)
+_X25StatTable_Object=MibTable
+x25StatTable=_X25StatTable_Object((1,3,6,1,2,1,10,5,3))
+if mibBuilder.loadTexts:x25StatTable.setStatus(_A)
+_X25StatEntry_Object=MibTableRow
+x25StatEntry=_X25StatEntry_Object((1,3,6,1,2,1,10,5,3,1))
+x25StatEntry.setIndexNames((0,_E,_Q))
+if mibBuilder.loadTexts:x25StatEntry.setStatus(_A)
+_X25StatIndex_Type=IfIndexType
+_X25StatIndex_Object=MibTableColumn
+x25StatIndex=_X25StatIndex_Object((1,3,6,1,2,1,10,5,3,1,1),_X25StatIndex_Type())
+x25StatIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatIndex.setStatus(_A)
+_X25StatInCalls_Type=Counter32
+_X25StatInCalls_Object=MibTableColumn
+x25StatInCalls=_X25StatInCalls_Object((1,3,6,1,2,1,10,5,3,1,2),_X25StatInCalls_Type())
+x25StatInCalls.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatInCalls.setStatus(_A)
+_X25StatInCallRefusals_Type=Counter32
+_X25StatInCallRefusals_Object=MibTableColumn
+x25StatInCallRefusals=_X25StatInCallRefusals_Object((1,3,6,1,2,1,10,5,3,1,3),_X25StatInCallRefusals_Type())
+x25StatInCallRefusals.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatInCallRefusals.setStatus(_A)
+_X25StatInProviderInitiatedClears_Type=Counter32
+_X25StatInProviderInitiatedClears_Object=MibTableColumn
+x25StatInProviderInitiatedClears=_X25StatInProviderInitiatedClears_Object((1,3,6,1,2,1,10,5,3,1,4),_X25StatInProviderInitiatedClears_Type())
+x25StatInProviderInitiatedClears.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatInProviderInitiatedClears.setStatus(_A)
+_X25StatInRemotelyInitiatedResets_Type=Counter32
+_X25StatInRemotelyInitiatedResets_Object=MibTableColumn
+x25StatInRemotelyInitiatedResets=_X25StatInRemotelyInitiatedResets_Object((1,3,6,1,2,1,10,5,3,1,5),_X25StatInRemotelyInitiatedResets_Type())
+x25StatInRemotelyInitiatedResets.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatInRemotelyInitiatedResets.setStatus(_A)
+_X25StatInProviderInitiatedResets_Type=Counter32
+_X25StatInProviderInitiatedResets_Object=MibTableColumn
+x25StatInProviderInitiatedResets=_X25StatInProviderInitiatedResets_Object((1,3,6,1,2,1,10,5,3,1,6),_X25StatInProviderInitiatedResets_Type())
+x25StatInProviderInitiatedResets.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatInProviderInitiatedResets.setStatus(_A)
+_X25StatInRestarts_Type=Counter32
+_X25StatInRestarts_Object=MibTableColumn
+x25StatInRestarts=_X25StatInRestarts_Object((1,3,6,1,2,1,10,5,3,1,7),_X25StatInRestarts_Type())
+x25StatInRestarts.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatInRestarts.setStatus(_A)
+_X25StatInDataPackets_Type=Counter32
+_X25StatInDataPackets_Object=MibTableColumn
+x25StatInDataPackets=_X25StatInDataPackets_Object((1,3,6,1,2,1,10,5,3,1,8),_X25StatInDataPackets_Type())
+x25StatInDataPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatInDataPackets.setStatus(_A)
+_X25StatInAccusedOfProtocolErrors_Type=Counter32
+_X25StatInAccusedOfProtocolErrors_Object=MibTableColumn
+x25StatInAccusedOfProtocolErrors=_X25StatInAccusedOfProtocolErrors_Object((1,3,6,1,2,1,10,5,3,1,9),_X25StatInAccusedOfProtocolErrors_Type())
+x25StatInAccusedOfProtocolErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatInAccusedOfProtocolErrors.setStatus(_A)
+_X25StatInInterrupts_Type=Counter32
+_X25StatInInterrupts_Object=MibTableColumn
+x25StatInInterrupts=_X25StatInInterrupts_Object((1,3,6,1,2,1,10,5,3,1,10),_X25StatInInterrupts_Type())
+x25StatInInterrupts.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatInInterrupts.setStatus(_A)
+_X25StatOutCallAttempts_Type=Counter32
+_X25StatOutCallAttempts_Object=MibTableColumn
+x25StatOutCallAttempts=_X25StatOutCallAttempts_Object((1,3,6,1,2,1,10,5,3,1,11),_X25StatOutCallAttempts_Type())
+x25StatOutCallAttempts.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatOutCallAttempts.setStatus(_A)
+_X25StatOutCallFailures_Type=Counter32
+_X25StatOutCallFailures_Object=MibTableColumn
+x25StatOutCallFailures=_X25StatOutCallFailures_Object((1,3,6,1,2,1,10,5,3,1,12),_X25StatOutCallFailures_Type())
+x25StatOutCallFailures.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatOutCallFailures.setStatus(_A)
+_X25StatOutInterrupts_Type=Counter32
+_X25StatOutInterrupts_Object=MibTableColumn
+x25StatOutInterrupts=_X25StatOutInterrupts_Object((1,3,6,1,2,1,10,5,3,1,13),_X25StatOutInterrupts_Type())
+x25StatOutInterrupts.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatOutInterrupts.setStatus(_A)
+_X25StatOutDataPackets_Type=Counter32
+_X25StatOutDataPackets_Object=MibTableColumn
+x25StatOutDataPackets=_X25StatOutDataPackets_Object((1,3,6,1,2,1,10,5,3,1,14),_X25StatOutDataPackets_Type())
+x25StatOutDataPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatOutDataPackets.setStatus(_A)
+_X25StatOutgoingCircuits_Type=Gauge32
+_X25StatOutgoingCircuits_Object=MibTableColumn
+x25StatOutgoingCircuits=_X25StatOutgoingCircuits_Object((1,3,6,1,2,1,10,5,3,1,15),_X25StatOutgoingCircuits_Type())
+x25StatOutgoingCircuits.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatOutgoingCircuits.setStatus(_A)
+_X25StatIncomingCircuits_Type=Gauge32
+_X25StatIncomingCircuits_Object=MibTableColumn
+x25StatIncomingCircuits=_X25StatIncomingCircuits_Object((1,3,6,1,2,1,10,5,3,1,16),_X25StatIncomingCircuits_Type())
+x25StatIncomingCircuits.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatIncomingCircuits.setStatus(_A)
+_X25StatTwowayCircuits_Type=Gauge32
+_X25StatTwowayCircuits_Object=MibTableColumn
+x25StatTwowayCircuits=_X25StatTwowayCircuits_Object((1,3,6,1,2,1,10,5,3,1,17),_X25StatTwowayCircuits_Type())
+x25StatTwowayCircuits.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatTwowayCircuits.setStatus(_A)
+_X25StatRestartTimeouts_Type=Counter32
+_X25StatRestartTimeouts_Object=MibTableColumn
+x25StatRestartTimeouts=_X25StatRestartTimeouts_Object((1,3,6,1,2,1,10,5,3,1,18),_X25StatRestartTimeouts_Type())
+x25StatRestartTimeouts.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatRestartTimeouts.setStatus(_A)
+_X25StatCallTimeouts_Type=Counter32
+_X25StatCallTimeouts_Object=MibTableColumn
+x25StatCallTimeouts=_X25StatCallTimeouts_Object((1,3,6,1,2,1,10,5,3,1,19),_X25StatCallTimeouts_Type())
+x25StatCallTimeouts.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatCallTimeouts.setStatus(_A)
+_X25StatResetTimeouts_Type=Counter32
+_X25StatResetTimeouts_Object=MibTableColumn
+x25StatResetTimeouts=_X25StatResetTimeouts_Object((1,3,6,1,2,1,10,5,3,1,20),_X25StatResetTimeouts_Type())
+x25StatResetTimeouts.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatResetTimeouts.setStatus(_A)
+_X25StatClearTimeouts_Type=Counter32
+_X25StatClearTimeouts_Object=MibTableColumn
+x25StatClearTimeouts=_X25StatClearTimeouts_Object((1,3,6,1,2,1,10,5,3,1,21),_X25StatClearTimeouts_Type())
+x25StatClearTimeouts.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatClearTimeouts.setStatus(_A)
+_X25StatDataRxmtTimeouts_Type=Counter32
+_X25StatDataRxmtTimeouts_Object=MibTableColumn
+x25StatDataRxmtTimeouts=_X25StatDataRxmtTimeouts_Object((1,3,6,1,2,1,10,5,3,1,22),_X25StatDataRxmtTimeouts_Type())
+x25StatDataRxmtTimeouts.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatDataRxmtTimeouts.setStatus(_A)
+_X25StatInterruptTimeouts_Type=Counter32
+_X25StatInterruptTimeouts_Object=MibTableColumn
+x25StatInterruptTimeouts=_X25StatInterruptTimeouts_Object((1,3,6,1,2,1,10,5,3,1,23),_X25StatInterruptTimeouts_Type())
+x25StatInterruptTimeouts.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatInterruptTimeouts.setStatus(_A)
+_X25StatRetryCountExceededs_Type=Counter32
+_X25StatRetryCountExceededs_Object=MibTableColumn
+x25StatRetryCountExceededs=_X25StatRetryCountExceededs_Object((1,3,6,1,2,1,10,5,3,1,24),_X25StatRetryCountExceededs_Type())
+x25StatRetryCountExceededs.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatRetryCountExceededs.setStatus(_A)
+_X25StatClearCountExceededs_Type=Counter32
+_X25StatClearCountExceededs_Object=MibTableColumn
+x25StatClearCountExceededs=_X25StatClearCountExceededs_Object((1,3,6,1,2,1,10,5,3,1,25),_X25StatClearCountExceededs_Type())
+x25StatClearCountExceededs.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25StatClearCountExceededs.setStatus(_A)
+_X25ChannelTable_Object=MibTable
+x25ChannelTable=_X25ChannelTable_Object((1,3,6,1,2,1,10,5,4))
+if mibBuilder.loadTexts:x25ChannelTable.setStatus(_A)
+_X25ChannelEntry_Object=MibTableRow
+x25ChannelEntry=_X25ChannelEntry_Object((1,3,6,1,2,1,10,5,4,1))
+x25ChannelEntry.setIndexNames((0,_E,_R))
+if mibBuilder.loadTexts:x25ChannelEntry.setStatus(_A)
+_X25ChannelIndex_Type=IfIndexType
+_X25ChannelIndex_Object=MibTableColumn
+x25ChannelIndex=_X25ChannelIndex_Object((1,3,6,1,2,1,10,5,4,1,1),_X25ChannelIndex_Type())
+x25ChannelIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25ChannelIndex.setStatus(_A)
+class _X25ChannelLIC_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
+_X25ChannelLIC_Type.__name__=_D
+_X25ChannelLIC_Object=MibTableColumn
+x25ChannelLIC=_X25ChannelLIC_Object((1,3,6,1,2,1,10,5,4,1,2),_X25ChannelLIC_Type())
+x25ChannelLIC.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25ChannelLIC.setStatus(_A)
+class _X25ChannelHIC_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
+_X25ChannelHIC_Type.__name__=_D
+_X25ChannelHIC_Object=MibTableColumn
+x25ChannelHIC=_X25ChannelHIC_Object((1,3,6,1,2,1,10,5,4,1,3),_X25ChannelHIC_Type())
+x25ChannelHIC.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25ChannelHIC.setStatus(_A)
+class _X25ChannelLTC_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
+_X25ChannelLTC_Type.__name__=_D
+_X25ChannelLTC_Object=MibTableColumn
+x25ChannelLTC=_X25ChannelLTC_Object((1,3,6,1,2,1,10,5,4,1,4),_X25ChannelLTC_Type())
+x25ChannelLTC.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25ChannelLTC.setStatus(_A)
+class _X25ChannelHTC_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
+_X25ChannelHTC_Type.__name__=_D
+_X25ChannelHTC_Object=MibTableColumn
+x25ChannelHTC=_X25ChannelHTC_Object((1,3,6,1,2,1,10,5,4,1,5),_X25ChannelHTC_Type())
+x25ChannelHTC.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25ChannelHTC.setStatus(_A)
+class _X25ChannelLOC_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
+_X25ChannelLOC_Type.__name__=_D
+_X25ChannelLOC_Object=MibTableColumn
+x25ChannelLOC=_X25ChannelLOC_Object((1,3,6,1,2,1,10,5,4,1,6),_X25ChannelLOC_Type())
+x25ChannelLOC.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25ChannelLOC.setStatus(_A)
+class _X25ChannelHOC_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
+_X25ChannelHOC_Type.__name__=_D
+_X25ChannelHOC_Object=MibTableColumn
+x25ChannelHOC=_X25ChannelHOC_Object((1,3,6,1,2,1,10,5,4,1,7),_X25ChannelHOC_Type())
+x25ChannelHOC.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25ChannelHOC.setStatus(_A)
+_X25CircuitTable_Object=MibTable
+x25CircuitTable=_X25CircuitTable_Object((1,3,6,1,2,1,10,5,5))
+if mibBuilder.loadTexts:x25CircuitTable.setStatus(_A)
+_X25CircuitEntry_Object=MibTableRow
+x25CircuitEntry=_X25CircuitEntry_Object((1,3,6,1,2,1,10,5,5,1))
+x25CircuitEntry.setIndexNames((0,_E,_K),(0,_E,_L))
+if mibBuilder.loadTexts:x25CircuitEntry.setStatus(_A)
+_X25CircuitIndex_Type=IfIndexType
+_X25CircuitIndex_Object=MibTableColumn
+x25CircuitIndex=_X25CircuitIndex_Object((1,3,6,1,2,1,10,5,5,1,1),_X25CircuitIndex_Type())
+x25CircuitIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25CircuitIndex.setStatus(_A)
+class _X25CircuitChannel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
+_X25CircuitChannel_Type.__name__=_D
+_X25CircuitChannel_Object=MibTableColumn
+x25CircuitChannel=_X25CircuitChannel_Object((1,3,6,1,2,1,10,5,5,1,2),_X25CircuitChannel_Type())
+x25CircuitChannel.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25CircuitChannel.setStatus(_A)
+class _X25CircuitStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*(('invalid',1),('closed',2),('calling',3),('open',4),('clearing',5),('pvc',6),('pvcResetting',7),('startClear',8),('startPvcResetting',9),('other',10)))
+_X25CircuitStatus_Type.__name__=_D
+_X25CircuitStatus_Object=MibTableColumn
+x25CircuitStatus=_X25CircuitStatus_Object((1,3,6,1,2,1,10,5,5,1,3),_X25CircuitStatus_Type())
+x25CircuitStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CircuitStatus.setStatus(_A)
+_X25CircuitEstablishTime_Type=TimeTicks
+_X25CircuitEstablishTime_Object=MibTableColumn
+x25CircuitEstablishTime=_X25CircuitEstablishTime_Object((1,3,6,1,2,1,10,5,5,1,4),_X25CircuitEstablishTime_Type())
+x25CircuitEstablishTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25CircuitEstablishTime.setStatus(_A)
+class _X25CircuitDirection_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('incoming',1),('outgoing',2),('pvc',3)))
+_X25CircuitDirection_Type.__name__=_D
+_X25CircuitDirection_Object=MibTableColumn
+x25CircuitDirection=_X25CircuitDirection_Object((1,3,6,1,2,1,10,5,5,1,5),_X25CircuitDirection_Type())
+x25CircuitDirection.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CircuitDirection.setStatus(_A)
+_X25CircuitInOctets_Type=Counter32
+_X25CircuitInOctets_Object=MibTableColumn
+x25CircuitInOctets=_X25CircuitInOctets_Object((1,3,6,1,2,1,10,5,5,1,6),_X25CircuitInOctets_Type())
+x25CircuitInOctets.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25CircuitInOctets.setStatus(_A)
+_X25CircuitInPdus_Type=Counter32
+_X25CircuitInPdus_Object=MibTableColumn
+x25CircuitInPdus=_X25CircuitInPdus_Object((1,3,6,1,2,1,10,5,5,1,7),_X25CircuitInPdus_Type())
+x25CircuitInPdus.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25CircuitInPdus.setStatus(_A)
+_X25CircuitInRemotelyInitiatedResets_Type=Counter32
+_X25CircuitInRemotelyInitiatedResets_Object=MibTableColumn
+x25CircuitInRemotelyInitiatedResets=_X25CircuitInRemotelyInitiatedResets_Object((1,3,6,1,2,1,10,5,5,1,8),_X25CircuitInRemotelyInitiatedResets_Type())
+x25CircuitInRemotelyInitiatedResets.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25CircuitInRemotelyInitiatedResets.setStatus(_A)
+_X25CircuitInProviderInitiatedResets_Type=Counter32
+_X25CircuitInProviderInitiatedResets_Object=MibTableColumn
+x25CircuitInProviderInitiatedResets=_X25CircuitInProviderInitiatedResets_Object((1,3,6,1,2,1,10,5,5,1,9),_X25CircuitInProviderInitiatedResets_Type())
+x25CircuitInProviderInitiatedResets.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25CircuitInProviderInitiatedResets.setStatus(_A)
+_X25CircuitInInterrupts_Type=Counter32
+_X25CircuitInInterrupts_Object=MibTableColumn
+x25CircuitInInterrupts=_X25CircuitInInterrupts_Object((1,3,6,1,2,1,10,5,5,1,10),_X25CircuitInInterrupts_Type())
+x25CircuitInInterrupts.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25CircuitInInterrupts.setStatus(_A)
+_X25CircuitOutOctets_Type=Counter32
+_X25CircuitOutOctets_Object=MibTableColumn
+x25CircuitOutOctets=_X25CircuitOutOctets_Object((1,3,6,1,2,1,10,5,5,1,11),_X25CircuitOutOctets_Type())
+x25CircuitOutOctets.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25CircuitOutOctets.setStatus(_A)
+_X25CircuitOutPdus_Type=Counter32
+_X25CircuitOutPdus_Object=MibTableColumn
+x25CircuitOutPdus=_X25CircuitOutPdus_Object((1,3,6,1,2,1,10,5,5,1,12),_X25CircuitOutPdus_Type())
+x25CircuitOutPdus.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25CircuitOutPdus.setStatus(_A)
+_X25CircuitOutInterrupts_Type=Counter32
+_X25CircuitOutInterrupts_Object=MibTableColumn
+x25CircuitOutInterrupts=_X25CircuitOutInterrupts_Object((1,3,6,1,2,1,10,5,5,1,13),_X25CircuitOutInterrupts_Type())
+x25CircuitOutInterrupts.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25CircuitOutInterrupts.setStatus(_A)
+_X25CircuitDataRetransmissionTimeouts_Type=Counter32
+_X25CircuitDataRetransmissionTimeouts_Object=MibTableColumn
+x25CircuitDataRetransmissionTimeouts=_X25CircuitDataRetransmissionTimeouts_Object((1,3,6,1,2,1,10,5,5,1,14),_X25CircuitDataRetransmissionTimeouts_Type())
+x25CircuitDataRetransmissionTimeouts.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25CircuitDataRetransmissionTimeouts.setStatus(_A)
+_X25CircuitResetTimeouts_Type=Counter32
+_X25CircuitResetTimeouts_Object=MibTableColumn
+x25CircuitResetTimeouts=_X25CircuitResetTimeouts_Object((1,3,6,1,2,1,10,5,5,1,15),_X25CircuitResetTimeouts_Type())
+x25CircuitResetTimeouts.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25CircuitResetTimeouts.setStatus(_A)
+_X25CircuitInterruptTimeouts_Type=Counter32
+_X25CircuitInterruptTimeouts_Object=MibTableColumn
+x25CircuitInterruptTimeouts=_X25CircuitInterruptTimeouts_Object((1,3,6,1,2,1,10,5,5,1,16),_X25CircuitInterruptTimeouts_Type())
+x25CircuitInterruptTimeouts.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25CircuitInterruptTimeouts.setStatus(_A)
+_X25CircuitCallParamId_Type=ObjectIdentifier
+_X25CircuitCallParamId_Object=MibTableColumn
+x25CircuitCallParamId=_X25CircuitCallParamId_Object((1,3,6,1,2,1,10,5,5,1,17),_X25CircuitCallParamId_Type())
+x25CircuitCallParamId.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CircuitCallParamId.setStatus(_A)
+class _X25CircuitCalledDteAddress_Type(X121Address):defaultHexValue=''
+_X25CircuitCalledDteAddress_Type.__name__=_I
+_X25CircuitCalledDteAddress_Object=MibTableColumn
+x25CircuitCalledDteAddress=_X25CircuitCalledDteAddress_Object((1,3,6,1,2,1,10,5,5,1,18),_X25CircuitCalledDteAddress_Type())
+x25CircuitCalledDteAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CircuitCalledDteAddress.setStatus(_A)
+class _X25CircuitCallingDteAddress_Type(X121Address):defaultHexValue=''
+_X25CircuitCallingDteAddress_Type.__name__=_I
+_X25CircuitCallingDteAddress_Object=MibTableColumn
+x25CircuitCallingDteAddress=_X25CircuitCallingDteAddress_Object((1,3,6,1,2,1,10,5,5,1,19),_X25CircuitCallingDteAddress_Type())
+x25CircuitCallingDteAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CircuitCallingDteAddress.setStatus(_A)
+class _X25CircuitOriginallyCalledAddress_Type(X121Address):defaultHexValue=''
+_X25CircuitOriginallyCalledAddress_Type.__name__=_I
+_X25CircuitOriginallyCalledAddress_Object=MibTableColumn
+x25CircuitOriginallyCalledAddress=_X25CircuitOriginallyCalledAddress_Object((1,3,6,1,2,1,10,5,5,1,20),_X25CircuitOriginallyCalledAddress_Type())
+x25CircuitOriginallyCalledAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CircuitOriginallyCalledAddress.setStatus(_A)
+class _X25CircuitDescr_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_X25CircuitDescr_Type.__name__=_F
+_X25CircuitDescr_Object=MibTableColumn
+x25CircuitDescr=_X25CircuitDescr_Object((1,3,6,1,2,1,10,5,5,1,21),_X25CircuitDescr_Type())
+x25CircuitDescr.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CircuitDescr.setStatus(_A)
+_X25ClearedCircuitEntriesRequested_Type=PositiveInteger
+_X25ClearedCircuitEntriesRequested_Object=MibScalar
+x25ClearedCircuitEntriesRequested=_X25ClearedCircuitEntriesRequested_Object((1,3,6,1,2,1,10,5,6),_X25ClearedCircuitEntriesRequested_Type())
+x25ClearedCircuitEntriesRequested.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25ClearedCircuitEntriesRequested.setStatus(_A)
+_X25ClearedCircuitEntriesGranted_Type=PositiveInteger
+_X25ClearedCircuitEntriesGranted_Object=MibScalar
+x25ClearedCircuitEntriesGranted=_X25ClearedCircuitEntriesGranted_Object((1,3,6,1,2,1,10,5,7),_X25ClearedCircuitEntriesGranted_Type())
+x25ClearedCircuitEntriesGranted.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25ClearedCircuitEntriesGranted.setStatus(_A)
+_X25ClearedCircuitTable_Object=MibTable
+x25ClearedCircuitTable=_X25ClearedCircuitTable_Object((1,3,6,1,2,1,10,5,8))
+if mibBuilder.loadTexts:x25ClearedCircuitTable.setStatus(_A)
+_X25ClearedCircuitEntry_Object=MibTableRow
+x25ClearedCircuitEntry=_X25ClearedCircuitEntry_Object((1,3,6,1,2,1,10,5,8,1))
+x25ClearedCircuitEntry.setIndexNames((0,_E,_S))
+if mibBuilder.loadTexts:x25ClearedCircuitEntry.setStatus(_A)
+_X25ClearedCircuitIndex_Type=PositiveInteger
+_X25ClearedCircuitIndex_Object=MibTableColumn
+x25ClearedCircuitIndex=_X25ClearedCircuitIndex_Object((1,3,6,1,2,1,10,5,8,1,1),_X25ClearedCircuitIndex_Type())
+x25ClearedCircuitIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25ClearedCircuitIndex.setStatus(_A)
+_X25ClearedCircuitPleIndex_Type=IfIndexType
+_X25ClearedCircuitPleIndex_Object=MibTableColumn
+x25ClearedCircuitPleIndex=_X25ClearedCircuitPleIndex_Object((1,3,6,1,2,1,10,5,8,1,2),_X25ClearedCircuitPleIndex_Type())
+x25ClearedCircuitPleIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25ClearedCircuitPleIndex.setStatus(_A)
+_X25ClearedCircuitTimeEstablished_Type=TimeTicks
+_X25ClearedCircuitTimeEstablished_Object=MibTableColumn
+x25ClearedCircuitTimeEstablished=_X25ClearedCircuitTimeEstablished_Object((1,3,6,1,2,1,10,5,8,1,3),_X25ClearedCircuitTimeEstablished_Type())
+x25ClearedCircuitTimeEstablished.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25ClearedCircuitTimeEstablished.setStatus(_A)
+_X25ClearedCircuitTimeCleared_Type=TimeTicks
+_X25ClearedCircuitTimeCleared_Object=MibTableColumn
+x25ClearedCircuitTimeCleared=_X25ClearedCircuitTimeCleared_Object((1,3,6,1,2,1,10,5,8,1,4),_X25ClearedCircuitTimeCleared_Type())
+x25ClearedCircuitTimeCleared.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25ClearedCircuitTimeCleared.setStatus(_A)
+class _X25ClearedCircuitChannel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
+_X25ClearedCircuitChannel_Type.__name__=_D
+_X25ClearedCircuitChannel_Object=MibTableColumn
+x25ClearedCircuitChannel=_X25ClearedCircuitChannel_Object((1,3,6,1,2,1,10,5,8,1,5),_X25ClearedCircuitChannel_Type())
+x25ClearedCircuitChannel.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25ClearedCircuitChannel.setStatus(_A)
+class _X25ClearedCircuitClearingCause_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_X25ClearedCircuitClearingCause_Type.__name__=_D
+_X25ClearedCircuitClearingCause_Object=MibTableColumn
+x25ClearedCircuitClearingCause=_X25ClearedCircuitClearingCause_Object((1,3,6,1,2,1,10,5,8,1,6),_X25ClearedCircuitClearingCause_Type())
+x25ClearedCircuitClearingCause.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25ClearedCircuitClearingCause.setStatus(_A)
+class _X25ClearedCircuitDiagnosticCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_X25ClearedCircuitDiagnosticCode_Type.__name__=_D
+_X25ClearedCircuitDiagnosticCode_Object=MibTableColumn
+x25ClearedCircuitDiagnosticCode=_X25ClearedCircuitDiagnosticCode_Object((1,3,6,1,2,1,10,5,8,1,7),_X25ClearedCircuitDiagnosticCode_Type())
+x25ClearedCircuitDiagnosticCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25ClearedCircuitDiagnosticCode.setStatus(_A)
+_X25ClearedCircuitInPdus_Type=Counter32
+_X25ClearedCircuitInPdus_Object=MibTableColumn
+x25ClearedCircuitInPdus=_X25ClearedCircuitInPdus_Object((1,3,6,1,2,1,10,5,8,1,8),_X25ClearedCircuitInPdus_Type())
+x25ClearedCircuitInPdus.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25ClearedCircuitInPdus.setStatus(_A)
+_X25ClearedCircuitOutPdus_Type=Counter32
+_X25ClearedCircuitOutPdus_Object=MibTableColumn
+x25ClearedCircuitOutPdus=_X25ClearedCircuitOutPdus_Object((1,3,6,1,2,1,10,5,8,1,9),_X25ClearedCircuitOutPdus_Type())
+x25ClearedCircuitOutPdus.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25ClearedCircuitOutPdus.setStatus(_A)
+_X25ClearedCircuitCalledAddress_Type=X121Address
+_X25ClearedCircuitCalledAddress_Object=MibTableColumn
+x25ClearedCircuitCalledAddress=_X25ClearedCircuitCalledAddress_Object((1,3,6,1,2,1,10,5,8,1,10),_X25ClearedCircuitCalledAddress_Type())
+x25ClearedCircuitCalledAddress.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25ClearedCircuitCalledAddress.setStatus(_A)
+_X25ClearedCircuitCallingAddress_Type=X121Address
+_X25ClearedCircuitCallingAddress_Object=MibTableColumn
+x25ClearedCircuitCallingAddress=_X25ClearedCircuitCallingAddress_Object((1,3,6,1,2,1,10,5,8,1,11),_X25ClearedCircuitCallingAddress_Type())
+x25ClearedCircuitCallingAddress.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25ClearedCircuitCallingAddress.setStatus(_A)
+class _X25ClearedCircuitClearFacilities_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,109))
+_X25ClearedCircuitClearFacilities_Type.__name__=_G
+_X25ClearedCircuitClearFacilities_Object=MibTableColumn
+x25ClearedCircuitClearFacilities=_X25ClearedCircuitClearFacilities_Object((1,3,6,1,2,1,10,5,8,1,12),_X25ClearedCircuitClearFacilities_Type())
+x25ClearedCircuitClearFacilities.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25ClearedCircuitClearFacilities.setStatus(_A)
+_X25CallParmTable_Object=MibTable
+x25CallParmTable=_X25CallParmTable_Object((1,3,6,1,2,1,10,5,9))
+if mibBuilder.loadTexts:x25CallParmTable.setStatus(_A)
+_X25CallParmEntry_Object=MibTableRow
+x25CallParmEntry=_X25CallParmEntry_Object((1,3,6,1,2,1,10,5,9,1))
+x25CallParmEntry.setIndexNames((0,_E,_T))
+if mibBuilder.loadTexts:x25CallParmEntry.setStatus(_A)
+_X25CallParmIndex_Type=PositiveInteger
+_X25CallParmIndex_Object=MibTableColumn
+x25CallParmIndex=_X25CallParmIndex_Object((1,3,6,1,2,1,10,5,9,1,1),_X25CallParmIndex_Type())
+x25CallParmIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25CallParmIndex.setStatus(_A)
+_X25CallParmStatus_Type=EntryStatus
+_X25CallParmStatus_Object=MibTableColumn
+x25CallParmStatus=_X25CallParmStatus_Object((1,3,6,1,2,1,10,5,9,1,2),_X25CallParmStatus_Type())
+x25CallParmStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmStatus.setStatus(_A)
+_X25CallParmRefCount_Type=PositiveInteger
+_X25CallParmRefCount_Object=MibTableColumn
+x25CallParmRefCount=_X25CallParmRefCount_Object((1,3,6,1,2,1,10,5,9,1,3),_X25CallParmRefCount_Type())
+x25CallParmRefCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:x25CallParmRefCount.setStatus(_A)
+class _X25CallParmInPacketSize_Type(Integer32):defaultValue=128;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4096))
+_X25CallParmInPacketSize_Type.__name__=_D
+_X25CallParmInPacketSize_Object=MibTableColumn
+x25CallParmInPacketSize=_X25CallParmInPacketSize_Object((1,3,6,1,2,1,10,5,9,1,4),_X25CallParmInPacketSize_Type())
+x25CallParmInPacketSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmInPacketSize.setStatus(_A)
+class _X25CallParmOutPacketSize_Type(Integer32):defaultValue=128;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4096))
+_X25CallParmOutPacketSize_Type.__name__=_D
+_X25CallParmOutPacketSize_Object=MibTableColumn
+x25CallParmOutPacketSize=_X25CallParmOutPacketSize_Object((1,3,6,1,2,1,10,5,9,1,5),_X25CallParmOutPacketSize_Type())
+x25CallParmOutPacketSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmOutPacketSize.setStatus(_A)
+class _X25CallParmInWindowSize_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,127))
+_X25CallParmInWindowSize_Type.__name__=_D
+_X25CallParmInWindowSize_Object=MibTableColumn
+x25CallParmInWindowSize=_X25CallParmInWindowSize_Object((1,3,6,1,2,1,10,5,9,1,6),_X25CallParmInWindowSize_Type())
+x25CallParmInWindowSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmInWindowSize.setStatus(_A)
+class _X25CallParmOutWindowSize_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,127))
+_X25CallParmOutWindowSize_Type.__name__=_D
+_X25CallParmOutWindowSize_Object=MibTableColumn
+x25CallParmOutWindowSize=_X25CallParmOutWindowSize_Object((1,3,6,1,2,1,10,5,9,1,7),_X25CallParmOutWindowSize_Type())
+x25CallParmOutWindowSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmOutWindowSize.setStatus(_A)
+class _X25CallParmAcceptReverseCharging_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_H,1),('accept',2),('refuse',3),('neverAccept',4)))
+_X25CallParmAcceptReverseCharging_Type.__name__=_D
+_X25CallParmAcceptReverseCharging_Object=MibTableColumn
+x25CallParmAcceptReverseCharging=_X25CallParmAcceptReverseCharging_Object((1,3,6,1,2,1,10,5,9,1,8),_X25CallParmAcceptReverseCharging_Type())
+x25CallParmAcceptReverseCharging.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmAcceptReverseCharging.setStatus(_A)
+class _X25CallParmProposeReverseCharging_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_H,1),('reverse',2),('local',3)))
+_X25CallParmProposeReverseCharging_Type.__name__=_D
+_X25CallParmProposeReverseCharging_Object=MibTableColumn
+x25CallParmProposeReverseCharging=_X25CallParmProposeReverseCharging_Object((1,3,6,1,2,1,10,5,9,1,9),_X25CallParmProposeReverseCharging_Type())
+x25CallParmProposeReverseCharging.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmProposeReverseCharging.setStatus(_A)
+class _X25CallParmFastSelect_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_H,1),('notSpecified',2),('fastSelect',3),('restrictedFastResponse',4),('noFastSelect',5),('noRestrictedFastResponse',6)))
+_X25CallParmFastSelect_Type.__name__=_D
+_X25CallParmFastSelect_Object=MibTableColumn
+x25CallParmFastSelect=_X25CallParmFastSelect_Object((1,3,6,1,2,1,10,5,9,1,10),_X25CallParmFastSelect_Type())
+x25CallParmFastSelect.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmFastSelect.setStatus(_A)
+class _X25CallParmInThruPutClasSize_Type(Integer32):defaultValue=17;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18)));namedValues=NamedValues(*((_U,1),(_V,2),('tc75',3),('tc150',4),('tc300',5),('tc600',6),(_W,7),(_X,8),(_Y,9),(_Z,10),(_a,11),(_b,12),(_c,13),(_d,14),(_e,15),(_f,16),(_g,17),(_h,18)))
+_X25CallParmInThruPutClasSize_Type.__name__=_D
+_X25CallParmInThruPutClasSize_Object=MibTableColumn
+x25CallParmInThruPutClasSize=_X25CallParmInThruPutClasSize_Object((1,3,6,1,2,1,10,5,9,1,11),_X25CallParmInThruPutClasSize_Type())
+x25CallParmInThruPutClasSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmInThruPutClasSize.setStatus(_A)
+class _X25CallParmOutThruPutClasSize_Type(Integer32):defaultValue=17;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18)));namedValues=NamedValues(*((_U,1),(_V,2),('tc75',3),('tc150',4),('tc300',5),('tc600',6),(_W,7),(_X,8),(_Y,9),(_Z,10),(_a,11),(_b,12),(_c,13),(_d,14),(_e,15),(_f,16),(_g,17),(_h,18)))
+_X25CallParmOutThruPutClasSize_Type.__name__=_D
+_X25CallParmOutThruPutClasSize_Object=MibTableColumn
+x25CallParmOutThruPutClasSize=_X25CallParmOutThruPutClasSize_Object((1,3,6,1,2,1,10,5,9,1,12),_X25CallParmOutThruPutClasSize_Type())
+x25CallParmOutThruPutClasSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmOutThruPutClasSize.setStatus(_A)
+class _X25CallParmCug_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,4))
+_X25CallParmCug_Type.__name__=_F
+_X25CallParmCug_Object=MibTableColumn
+x25CallParmCug=_X25CallParmCug_Object((1,3,6,1,2,1,10,5,9,1,13),_X25CallParmCug_Type())
+x25CallParmCug.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmCug.setStatus(_A)
+class _X25CallParmCugoa_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,4))
+_X25CallParmCugoa_Type.__name__=_F
+_X25CallParmCugoa_Object=MibTableColumn
+x25CallParmCugoa=_X25CallParmCugoa_Object((1,3,6,1,2,1,10,5,9,1,14),_X25CallParmCugoa_Type())
+x25CallParmCugoa.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmCugoa.setStatus(_A)
+class _X25CallParmBcug_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,3))
+_X25CallParmBcug_Type.__name__=_F
+_X25CallParmBcug_Object=MibTableColumn
+x25CallParmBcug=_X25CallParmBcug_Object((1,3,6,1,2,1,10,5,9,1,15),_X25CallParmBcug_Type())
+x25CallParmBcug.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmBcug.setStatus(_A)
+class _X25CallParmNui_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,108))
+_X25CallParmNui_Type.__name__=_G
+_X25CallParmNui_Object=MibTableColumn
+x25CallParmNui=_X25CallParmNui_Object((1,3,6,1,2,1,10,5,9,1,16),_X25CallParmNui_Type())
+x25CallParmNui.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmNui.setStatus(_A)
+class _X25CallParmChargingInfo_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_H,1),('noFacility',2),('noChargingInfo',3),('chargingInfo',4)))
+_X25CallParmChargingInfo_Type.__name__=_D
+_X25CallParmChargingInfo_Object=MibTableColumn
+x25CallParmChargingInfo=_X25CallParmChargingInfo_Object((1,3,6,1,2,1,10,5,9,1,17),_X25CallParmChargingInfo_Type())
+x25CallParmChargingInfo.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmChargingInfo.setStatus(_A)
+class _X25CallParmRpoa_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,108))
+_X25CallParmRpoa_Type.__name__=_F
+_X25CallParmRpoa_Object=MibTableColumn
+x25CallParmRpoa=_X25CallParmRpoa_Object((1,3,6,1,2,1,10,5,9,1,18),_X25CallParmRpoa_Type())
+x25CallParmRpoa.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmRpoa.setStatus(_A)
+class _X25CallParmTrnstDly_Type(Integer32):defaultValue=65536;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65537))
+_X25CallParmTrnstDly_Type.__name__=_D
+_X25CallParmTrnstDly_Object=MibTableColumn
+x25CallParmTrnstDly=_X25CallParmTrnstDly_Object((1,3,6,1,2,1,10,5,9,1,19),_X25CallParmTrnstDly_Type())
+x25CallParmTrnstDly.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmTrnstDly.setStatus(_A)
+class _X25CallParmCallingExt_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,40))
+_X25CallParmCallingExt_Type.__name__=_F
+_X25CallParmCallingExt_Object=MibTableColumn
+x25CallParmCallingExt=_X25CallParmCallingExt_Object((1,3,6,1,2,1,10,5,9,1,20),_X25CallParmCallingExt_Type())
+x25CallParmCallingExt.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmCallingExt.setStatus(_A)
+class _X25CallParmCalledExt_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,40))
+_X25CallParmCalledExt_Type.__name__=_F
+_X25CallParmCalledExt_Object=MibTableColumn
+x25CallParmCalledExt=_X25CallParmCalledExt_Object((1,3,6,1,2,1,10,5,9,1,21),_X25CallParmCalledExt_Type())
+x25CallParmCalledExt.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmCalledExt.setStatus(_A)
+class _X25CallParmInMinThuPutCls_Type(Integer32):defaultValue=17;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,17))
+_X25CallParmInMinThuPutCls_Type.__name__=_D
+_X25CallParmInMinThuPutCls_Object=MibTableColumn
+x25CallParmInMinThuPutCls=_X25CallParmInMinThuPutCls_Object((1,3,6,1,2,1,10,5,9,1,22),_X25CallParmInMinThuPutCls_Type())
+x25CallParmInMinThuPutCls.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmInMinThuPutCls.setStatus(_A)
+class _X25CallParmOutMinThuPutCls_Type(Integer32):defaultValue=17;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,17))
+_X25CallParmOutMinThuPutCls_Type.__name__=_D
+_X25CallParmOutMinThuPutCls_Object=MibTableColumn
+x25CallParmOutMinThuPutCls=_X25CallParmOutMinThuPutCls_Object((1,3,6,1,2,1,10,5,9,1,23),_X25CallParmOutMinThuPutCls_Type())
+x25CallParmOutMinThuPutCls.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmOutMinThuPutCls.setStatus(_A)
+class _X25CallParmEndTrnsDly_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,6))
+_X25CallParmEndTrnsDly_Type.__name__=_G
+_X25CallParmEndTrnsDly_Object=MibTableColumn
+x25CallParmEndTrnsDly=_X25CallParmEndTrnsDly_Object((1,3,6,1,2,1,10,5,9,1,24),_X25CallParmEndTrnsDly_Type())
+x25CallParmEndTrnsDly.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmEndTrnsDly.setStatus(_A)
+class _X25CallParmPriority_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,6))
+_X25CallParmPriority_Type.__name__=_G
+_X25CallParmPriority_Object=MibTableColumn
+x25CallParmPriority=_X25CallParmPriority_Object((1,3,6,1,2,1,10,5,9,1,25),_X25CallParmPriority_Type())
+x25CallParmPriority.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmPriority.setStatus(_A)
+class _X25CallParmProtection_Type(DisplayString):defaultHexValue='';subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,108))
+_X25CallParmProtection_Type.__name__=_F
+_X25CallParmProtection_Object=MibTableColumn
+x25CallParmProtection=_X25CallParmProtection_Object((1,3,6,1,2,1,10,5,9,1,26),_X25CallParmProtection_Type())
+x25CallParmProtection.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmProtection.setStatus(_A)
+class _X25CallParmExptData_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_H,1),('noExpeditedData',2),('expeditedData',3)))
+_X25CallParmExptData_Type.__name__=_D
+_X25CallParmExptData_Object=MibTableColumn
+x25CallParmExptData=_X25CallParmExptData_Object((1,3,6,1,2,1,10,5,9,1,27),_X25CallParmExptData_Type())
+x25CallParmExptData.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmExptData.setStatus(_A)
+class _X25CallParmUserData_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
+_X25CallParmUserData_Type.__name__=_G
+_X25CallParmUserData_Object=MibTableColumn
+x25CallParmUserData=_X25CallParmUserData_Object((1,3,6,1,2,1,10,5,9,1,28),_X25CallParmUserData_Type())
+x25CallParmUserData.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmUserData.setStatus(_A)
+class _X25CallParmCallingNetworkFacilities_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,108))
+_X25CallParmCallingNetworkFacilities_Type.__name__=_G
+_X25CallParmCallingNetworkFacilities_Object=MibTableColumn
+x25CallParmCallingNetworkFacilities=_X25CallParmCallingNetworkFacilities_Object((1,3,6,1,2,1,10,5,9,1,29),_X25CallParmCallingNetworkFacilities_Type())
+x25CallParmCallingNetworkFacilities.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmCallingNetworkFacilities.setStatus(_A)
+class _X25CallParmCalledNetworkFacilities_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,108))
+_X25CallParmCalledNetworkFacilities_Type.__name__=_G
+_X25CallParmCalledNetworkFacilities_Object=MibTableColumn
+x25CallParmCalledNetworkFacilities=_X25CallParmCalledNetworkFacilities_Object((1,3,6,1,2,1,10,5,9,1,30),_X25CallParmCalledNetworkFacilities_Type())
+x25CallParmCalledNetworkFacilities.setMaxAccess(_C)
+if mibBuilder.loadTexts:x25CallParmCalledNetworkFacilities.setStatus(_A)
+_X25ProtocolVersion_ObjectIdentity=ObjectIdentity
+x25ProtocolVersion=_X25ProtocolVersion_ObjectIdentity((1,3,6,1,2,1,10,5,10))
+_X25protocolCcittV1976_ObjectIdentity=ObjectIdentity
+x25protocolCcittV1976=_X25protocolCcittV1976_ObjectIdentity((1,3,6,1,2,1,10,5,10,1))
+_X25protocolCcittV1980_ObjectIdentity=ObjectIdentity
+x25protocolCcittV1980=_X25protocolCcittV1980_ObjectIdentity((1,3,6,1,2,1,10,5,10,2))
+_X25protocolCcittV1984_ObjectIdentity=ObjectIdentity
+x25protocolCcittV1984=_X25protocolCcittV1984_ObjectIdentity((1,3,6,1,2,1,10,5,10,3))
+_X25protocolCcittV1988_ObjectIdentity=ObjectIdentity
+x25protocolCcittV1988=_X25protocolCcittV1988_ObjectIdentity((1,3,6,1,2,1,10,5,10,4))
+_X25protocolIso8208V1987_ObjectIdentity=ObjectIdentity
+x25protocolIso8208V1987=_X25protocolIso8208V1987_ObjectIdentity((1,3,6,1,2,1,10,5,10,5))
+_X25protocolIso8208V1989_ObjectIdentity=ObjectIdentity
+x25protocolIso8208V1989=_X25protocolIso8208V1989_ObjectIdentity((1,3,6,1,2,1,10,5,10,6))
+x25Restart=NotificationType((1,3,6,1,2,1,10,5,0,1))
+x25Restart.setObjects((_E,_J))
+if mibBuilder.loadTexts:x25Restart.setStatus('')
+x25Reset=NotificationType((1,3,6,1,2,1,10,5,0,2))
+x25Reset.setObjects(*((_E,_K),(_E,_L)))
+if mibBuilder.loadTexts:x25Reset.setStatus('')
+mibBuilder.exportSymbols(_E,**{_I:X121Address,'x25':x25,'x25Restart':x25Restart,'x25Reset':x25Reset,'x25AdmnTable':x25AdmnTable,'x25AdmnEntry':x25AdmnEntry,_N:x25AdmnIndex,'x25AdmnInterfaceMode':x25AdmnInterfaceMode,'x25AdmnMaxActiveCircuits':x25AdmnMaxActiveCircuits,'x25AdmnPacketSequencing':x25AdmnPacketSequencing,'x25AdmnRestartTimer':x25AdmnRestartTimer,'x25AdmnCallTimer':x25AdmnCallTimer,'x25AdmnResetTimer':x25AdmnResetTimer,'x25AdmnClearTimer':x25AdmnClearTimer,'x25AdmnWindowTimer':x25AdmnWindowTimer,'x25AdmnDataRxmtTimer':x25AdmnDataRxmtTimer,'x25AdmnInterruptTimer':x25AdmnInterruptTimer,'x25AdmnRejectTimer':x25AdmnRejectTimer,'x25AdmnRegistrationRequestTimer':x25AdmnRegistrationRequestTimer,'x25AdmnMinimumRecallTimer':x25AdmnMinimumRecallTimer,'x25AdmnRestartCount':x25AdmnRestartCount,'x25AdmnResetCount':x25AdmnResetCount,'x25AdmnClearCount':x25AdmnClearCount,'x25AdmnDataRxmtCount':x25AdmnDataRxmtCount,'x25AdmnRejectCount':x25AdmnRejectCount,'x25AdmnRegistrationRequestCount':x25AdmnRegistrationRequestCount,'x25AdmnNumberPVCs':x25AdmnNumberPVCs,'x25AdmnDefCallParamId':x25AdmnDefCallParamId,'x25AdmnLocalAddress':x25AdmnLocalAddress,'x25AdmnProtocolVersionSupported':x25AdmnProtocolVersionSupported,'x25OperTable':x25OperTable,'x25OperEntry':x25OperEntry,_J:x25OperIndex,'x25OperInterfaceMode':x25OperInterfaceMode,'x25OperMaxActiveCircuits':x25OperMaxActiveCircuits,'x25OperPacketSequencing':x25OperPacketSequencing,'x25OperRestartTimer':x25OperRestartTimer,'x25OperCallTimer':x25OperCallTimer,'x25OperResetTimer':x25OperResetTimer,'x25OperClearTimer':x25OperClearTimer,'x25OperWindowTimer':x25OperWindowTimer,'x25OperDataRxmtTimer':x25OperDataRxmtTimer,'x25OperInterruptTimer':x25OperInterruptTimer,'x25OperRejectTimer':x25OperRejectTimer,'x25OperRegistrationRequestTimer':x25OperRegistrationRequestTimer,'x25OperMinimumRecallTimer':x25OperMinimumRecallTimer,'x25OperRestartCount':x25OperRestartCount,'x25OperResetCount':x25OperResetCount,'x25OperClearCount':x25OperClearCount,'x25OperDataRxmtCount':x25OperDataRxmtCount,'x25OperRejectCount':x25OperRejectCount,'x25OperRegistrationRequestCount':x25OperRegistrationRequestCount,'x25OperNumberPVCs':x25OperNumberPVCs,'x25OperDefCallParamId':x25OperDefCallParamId,'x25OperLocalAddress':x25OperLocalAddress,'x25OperDataLinkId':x25OperDataLinkId,'x25OperProtocolVersionSupported':x25OperProtocolVersionSupported,'x25StatTable':x25StatTable,'x25StatEntry':x25StatEntry,_Q:x25StatIndex,'x25StatInCalls':x25StatInCalls,'x25StatInCallRefusals':x25StatInCallRefusals,'x25StatInProviderInitiatedClears':x25StatInProviderInitiatedClears,'x25StatInRemotelyInitiatedResets':x25StatInRemotelyInitiatedResets,'x25StatInProviderInitiatedResets':x25StatInProviderInitiatedResets,'x25StatInRestarts':x25StatInRestarts,'x25StatInDataPackets':x25StatInDataPackets,'x25StatInAccusedOfProtocolErrors':x25StatInAccusedOfProtocolErrors,'x25StatInInterrupts':x25StatInInterrupts,'x25StatOutCallAttempts':x25StatOutCallAttempts,'x25StatOutCallFailures':x25StatOutCallFailures,'x25StatOutInterrupts':x25StatOutInterrupts,'x25StatOutDataPackets':x25StatOutDataPackets,'x25StatOutgoingCircuits':x25StatOutgoingCircuits,'x25StatIncomingCircuits':x25StatIncomingCircuits,'x25StatTwowayCircuits':x25StatTwowayCircuits,'x25StatRestartTimeouts':x25StatRestartTimeouts,'x25StatCallTimeouts':x25StatCallTimeouts,'x25StatResetTimeouts':x25StatResetTimeouts,'x25StatClearTimeouts':x25StatClearTimeouts,'x25StatDataRxmtTimeouts':x25StatDataRxmtTimeouts,'x25StatInterruptTimeouts':x25StatInterruptTimeouts,'x25StatRetryCountExceededs':x25StatRetryCountExceededs,'x25StatClearCountExceededs':x25StatClearCountExceededs,'x25ChannelTable':x25ChannelTable,'x25ChannelEntry':x25ChannelEntry,_R:x25ChannelIndex,'x25ChannelLIC':x25ChannelLIC,'x25ChannelHIC':x25ChannelHIC,'x25ChannelLTC':x25ChannelLTC,'x25ChannelHTC':x25ChannelHTC,'x25ChannelLOC':x25ChannelLOC,'x25ChannelHOC':x25ChannelHOC,'x25CircuitTable':x25CircuitTable,'x25CircuitEntry':x25CircuitEntry,_K:x25CircuitIndex,_L:x25CircuitChannel,'x25CircuitStatus':x25CircuitStatus,'x25CircuitEstablishTime':x25CircuitEstablishTime,'x25CircuitDirection':x25CircuitDirection,'x25CircuitInOctets':x25CircuitInOctets,'x25CircuitInPdus':x25CircuitInPdus,'x25CircuitInRemotelyInitiatedResets':x25CircuitInRemotelyInitiatedResets,'x25CircuitInProviderInitiatedResets':x25CircuitInProviderInitiatedResets,'x25CircuitInInterrupts':x25CircuitInInterrupts,'x25CircuitOutOctets':x25CircuitOutOctets,'x25CircuitOutPdus':x25CircuitOutPdus,'x25CircuitOutInterrupts':x25CircuitOutInterrupts,'x25CircuitDataRetransmissionTimeouts':x25CircuitDataRetransmissionTimeouts,'x25CircuitResetTimeouts':x25CircuitResetTimeouts,'x25CircuitInterruptTimeouts':x25CircuitInterruptTimeouts,'x25CircuitCallParamId':x25CircuitCallParamId,'x25CircuitCalledDteAddress':x25CircuitCalledDteAddress,'x25CircuitCallingDteAddress':x25CircuitCallingDteAddress,'x25CircuitOriginallyCalledAddress':x25CircuitOriginallyCalledAddress,'x25CircuitDescr':x25CircuitDescr,'x25ClearedCircuitEntriesRequested':x25ClearedCircuitEntriesRequested,'x25ClearedCircuitEntriesGranted':x25ClearedCircuitEntriesGranted,'x25ClearedCircuitTable':x25ClearedCircuitTable,'x25ClearedCircuitEntry':x25ClearedCircuitEntry,_S:x25ClearedCircuitIndex,'x25ClearedCircuitPleIndex':x25ClearedCircuitPleIndex,'x25ClearedCircuitTimeEstablished':x25ClearedCircuitTimeEstablished,'x25ClearedCircuitTimeCleared':x25ClearedCircuitTimeCleared,'x25ClearedCircuitChannel':x25ClearedCircuitChannel,'x25ClearedCircuitClearingCause':x25ClearedCircuitClearingCause,'x25ClearedCircuitDiagnosticCode':x25ClearedCircuitDiagnosticCode,'x25ClearedCircuitInPdus':x25ClearedCircuitInPdus,'x25ClearedCircuitOutPdus':x25ClearedCircuitOutPdus,'x25ClearedCircuitCalledAddress':x25ClearedCircuitCalledAddress,'x25ClearedCircuitCallingAddress':x25ClearedCircuitCallingAddress,'x25ClearedCircuitClearFacilities':x25ClearedCircuitClearFacilities,'x25CallParmTable':x25CallParmTable,'x25CallParmEntry':x25CallParmEntry,_T:x25CallParmIndex,'x25CallParmStatus':x25CallParmStatus,'x25CallParmRefCount':x25CallParmRefCount,'x25CallParmInPacketSize':x25CallParmInPacketSize,'x25CallParmOutPacketSize':x25CallParmOutPacketSize,'x25CallParmInWindowSize':x25CallParmInWindowSize,'x25CallParmOutWindowSize':x25CallParmOutWindowSize,'x25CallParmAcceptReverseCharging':x25CallParmAcceptReverseCharging,'x25CallParmProposeReverseCharging':x25CallParmProposeReverseCharging,'x25CallParmFastSelect':x25CallParmFastSelect,'x25CallParmInThruPutClasSize':x25CallParmInThruPutClasSize,'x25CallParmOutThruPutClasSize':x25CallParmOutThruPutClasSize,'x25CallParmCug':x25CallParmCug,'x25CallParmCugoa':x25CallParmCugoa,'x25CallParmBcug':x25CallParmBcug,'x25CallParmNui':x25CallParmNui,'x25CallParmChargingInfo':x25CallParmChargingInfo,'x25CallParmRpoa':x25CallParmRpoa,'x25CallParmTrnstDly':x25CallParmTrnstDly,'x25CallParmCallingExt':x25CallParmCallingExt,'x25CallParmCalledExt':x25CallParmCalledExt,'x25CallParmInMinThuPutCls':x25CallParmInMinThuPutCls,'x25CallParmOutMinThuPutCls':x25CallParmOutMinThuPutCls,'x25CallParmEndTrnsDly':x25CallParmEndTrnsDly,'x25CallParmPriority':x25CallParmPriority,'x25CallParmProtection':x25CallParmProtection,'x25CallParmExptData':x25CallParmExptData,'x25CallParmUserData':x25CallParmUserData,'x25CallParmCallingNetworkFacilities':x25CallParmCallingNetworkFacilities,'x25CallParmCalledNetworkFacilities':x25CallParmCalledNetworkFacilities,'x25ProtocolVersion':x25ProtocolVersion,'x25protocolCcittV1976':x25protocolCcittV1976,'x25protocolCcittV1980':x25protocolCcittV1980,'x25protocolCcittV1984':x25protocolCcittV1984,'x25protocolCcittV1988':x25protocolCcittV1988,'x25protocolIso8208V1987':x25protocolIso8208V1987,'x25protocolIso8208V1989':x25protocolIso8208V1989})

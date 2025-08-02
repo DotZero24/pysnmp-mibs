@@ -1,300 +1,864 @@
-#
-# PySNMP MIB module SNA-NAU-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/SNA-NAU-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:05:05 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, OctetString, Integer, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
-( ModuleCompliance, NotificationGroup, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-( TimeTicks, iso, Unsigned32, ObjectIdentity, NotificationType, Counter32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Counter64, Bits, Integer32, MibIdentifier, ModuleIdentity, mib_2, ) = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "iso", "Unsigned32", "ObjectIdentity", "NotificationType", "Counter32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Counter64", "Bits", "Integer32", "MibIdentifier", "ModuleIdentity", "mib-2")
-( DisplayString, TextualConvention, RowStatus, InstancePointer, TimeStamp, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus", "InstancePointer", "TimeStamp")
-snanauMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 34))
-if mibBuilder.loadTexts: snanauMIB.setLastUpdated('9405120900Z')
-if mibBuilder.loadTexts: snanauMIB.setOrganization('IETF SNA NAU MIB Working Group')
-if mibBuilder.loadTexts: snanauMIB.setContactInfo('       Zbigniew Kielczewski\n                        Eicon Technology Inc.\n                        2196 32nd Avenue\n                        Lachine, Que  H8T 3H7\n                        Canada\n                        Tel:    1 514 631 2592\n                        E-mail: zbig@eicon.qc.ca\n\n                        Deirdre Kostick\n                        Bellcore\n                        331 Newman Springs Road\n                        Red Bank, NJ 07701\n                        Tel:    1 908 758 2642\n\n\n\n\n\n                        E-mail: dck2@mail.bellcore.com\n\n                        Kitty Shih (editor)\n                        Novell\n                        890 Ross Drive\n                        Sunnyvale, CA 94089\n                        Tel:   1 408 747 4305\n                        E-mail: kmshih@novell.com')
-if mibBuilder.loadTexts: snanauMIB.setDescription('This is the MIB module for objects used to\n                 manage SNA devices.')
-snanauObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 1))
-snaNode = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 1, 1))
-snaLu = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 1, 2))
-snaMgtTools = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 1, 3))
-snaNodeAdminTable = MibTable((1, 3, 6, 1, 2, 1, 34, 1, 1, 1), )
-if mibBuilder.loadTexts: snaNodeAdminTable.setDescription('This table contains objects which describe the\n                configuration parameters for an SNA Node.  Link\n                specific configuration objects are contained in\n                a separate MIB module (e.g., SNA DLC MIB)\n\n\n\n\n\n                corresponding to the link type.\n                The table snaNodeAdminLinkTable contains objects\n                which identify the relationship between node instances\n                and link instances.\n\n                The entries (i.e., rows) in this table can be created\n                by either an Agent or a Management Station.\n                The Management Station can do this through setting\n                the appropriate value in the snaNodeAdminRowStatus.\n\n                The snaNodeAdminRowStatus object describes the\n                status of an entry and is used to change the status\n                of an entry.  The entry is deleted by an Agent based\n                on the value of the snaNodeAdminRowStatus.\n\n                The snaNodeAdminState object describes the desired\n                operational state of a Node and is used to change the\n                operational state of a Node.  For example, such\n                information may be obtained from a configuration file.\n\n                How an Agent or a Management Station obtains the\n                initial value of each object at creation time is an\n                implementation specific issue.\n\n                For each entry in this table, there is a corresponding\n                entry in the snaNodeOperTable.\n                While the objects in this table describe the desired\n                or configured operational values of the SNA Node, the\n                actual runtime values are contained in\n                snaNodeOperTable.')
-snaNodeAdminEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 1, 1, 1, 1), ).setIndexNames((0, "SNA-NAU-MIB", "snaNodeAdminIndex"))
-if mibBuilder.loadTexts: snaNodeAdminEntry.setDescription('An entry contains the configuration parameters for\n                one SNA Node instance. The objects in the entry\n                have read-create access.\n                An entry can be created, modified or deleted.  The\n                object snaNodeAdminRowStatus is used (i.e., set) to\n                create or delete a row entry.')
-snaNodeAdminIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 1, 1, 1), Integer32())
-if mibBuilder.loadTexts: snaNodeAdminIndex.setDescription('Index used to uniquely identify each Node instance.\n                If an Agent creates the entry, then it will assign\n                this number otherwise a Management Station\n                generates a random number when it reserves the\n                entry for creation.')
-snaNodeAdminName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,17))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaNodeAdminName.setDescription('The value indicates the desired name of the\n                Node for use during Node activation.\n                In Type 2.1 networks, this is a fully-qualified name,\n                meaning that the Node name is preceded by the NetId (if\n\n\n\n\n\n                present) with a period as the delimiter.\n\n                A write operation to this object will\n                not change the operational value reflected\n                in snaNodeOperName until the Node has\n                been re-activated (e.g., after the next initialization\n                of the SNA services).')
-snaNodeAdminType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("other", 1), ("pu10", 2), ("pu20", 3), ("t21len", 4), ("endNode", 5), ("networkNode", 6),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaNodeAdminType.setDescription('The value indicates the type of SNA Node.\n\n                A write operation to this object will\n                not change the operational value reflected\n                in snaNodeOperType until the Node has\n                been re-activated (e.g., after the next initialization\n                of the SNA services).')
-snaNodeAdminXidFormat = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("format0", 1), ("format1", 2), ("format3", 3),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaNodeAdminXidFormat.setDescription('The value indicates the type of XID format used for\n                this Node.  Note that there is no format type 2.\n\n                A write operation to this object will\n                not change the operational value reflected\n                in snaNodeOperAdminXidFormat until the Node has\n                been re-activated (e.g., after the next initialization\n                of the SNA services).')
-snaNodeAdminBlockNum = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(3,3)).setFixedLength(3)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaNodeAdminBlockNum.setDescription('The value indicates the block number for this Node\n                instance.  It is the first 3 hexadecimal digits of the\n                SNA Node id.\n\n                A write operation to this object will\n                not change the operational value reflected\n                in snaNodeOperBlockNum until the Node has\n                been re-activated (e.g., after the next initialization\n                of the SNA services).')
-snaNodeAdminIdNum = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(5,5)).setFixedLength(5)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaNodeAdminIdNum.setDescription('The value indicates the ID number for this Node\n                instance.  This is the last 5 hexadecimal digits of\n                the SNA Node id.\n\n                A write operation to this object will\n                not change the operational value reflected\n                in snaNodeOperIdNum until the Node has\n                been re-activated (e.g., after the next initialization\n                of the SNA services).')
-snaNodeAdminEnablingMethod = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("other", 1), ("startup", 2), ("demand", 3), ("onlyMS", 4),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaNodeAdminEnablingMethod.setDescription("The value indicates how the Node should be\n                activated for the first time.\n                The values have the following meanings:\n\n                other (1)  - may be used for proprietary methods\n                   not listed in this enumeration,\n\n\n\n\n\n                startup (2) - at SNA services' initialization time\n                   (this is the default),\n                demand (3) - only when LU is requested by application,\n                             or\n                onlyMS (4) - by a Management Station only.\n\n                A  write operation to this object may immediately\n                change the operational value reflected\n                in snaNodeOperEnablingMethod depending\n                on the Agent implementation.  If the Agent\n                implementation accepts immediate changes, then the\n                behavior of the Node changes immediately and not only\n                after the next system startup of the SNA services.\n                An immediate change may only apply when the\n                current value 'demand (3)' is changed to 'onlyMS (4)'\n                and vice versa.")
-snaNodeAdminLuTermDefault = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("unbind", 1), ("termself", 2), ("rshutd", 3), ("poweroff", 4),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaNodeAdminLuTermDefault.setDescription("The value indicates the desired default method\n                used to deactivate LUs for this Node\n                For LU6.2s, 'unbind(1)' is the only valid value.\n\n                unbind(1) -   terminate the LU-LU session by sending\n                        an SNA UNBIND request.\n                termself(2) - terminate the LU-LU session by sending\n                        an SNA TERM-SELF (Terminate Self) request on\n                        the SSCP-LU session. The SSCP will inform the\n                        remote session LU partner to send an UNBIND\n                        request to terminate the session.\n                rshutd(3) -   terminate the LU-LU session by sending\n                        an SNA RSHUTD (Request ShutDown) request to\n                        the remote session LU partner. The remote LU\n                        will then send an UNBIND request to terminate\n                        the session.\n                poweroff(4) - terminate the LU-LU session by sending\n                        either an SNA LUSTAT (LU Status) request on\n                        the LU-LU session or an SNA NOTIFY request on\n                        the SSCP-LU session indicating that the LU has\n\n\n\n\n\n                        been powered off. Sending both is also\n                        acceptable. The result should be that the\n                        remote session LU partner will send an UNBIND\n                        to terminate the session.\n\n                The default behavior indicated by the value of this\n                object may be overridden for an LU instance. The\n                override is performed by setting the snaLuAdminTerm\n                object instance in the snaLuAdminTable to the desired\n                value.\n\n                A write operation to this object may immediately\n                change the operational value reflected\n                in snaNodeOperLuTermDefault depending\n                on the Agent implementation.")
-snaNodeAdminMaxLu = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 1, 1, 9), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaNodeAdminMaxLu.setDescription('The maximum number of LUs that may be\n                activated for this Node. For PU2.1, this object\n                refers to the number of dependent LUs.\n\n                A write operation to this object will\n                not change the operational value reflected\n                in snaNodeOperMaxLu until the Node has\n                been re-activated (e.g., after the next initialization\n                of the SNA services).')
-snaNodeAdminHostDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 1, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,128))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaNodeAdminHostDescription.setDescription("The value identifies the remote host associated\n                  with this Node.\n                  Since SSCP Id's may not be unique\n                  across hosts, the host description\n                  is required to uniquely identify the SSCP.\n                  This object is only applicable to PU2.0 type\n                  Nodes. If the remote host is unknown, then the\n                  value is the null string.\n\n                  A write operation to this object may immediately\n\n\n\n\n\n                  change the operational value reflected\n                  in snaNodeOperHostDescription depending\n                  on the Agent implementation.")
-snaNodeAdminStopMethod = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("other", 1), ("normal", 2), ("immed", 3), ("force", 4),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaNodeAdminStopMethod.setDescription("The value indicates the desired method to be used\n                  by the Agent to stop a Node (i.e., change the Node's\n                  operational state to inactive(1) ).\n\n                  The values have the following meaning:\n\n                  other (1) - used for proprietary\n                        methods not listed in this enumeration.\n                  normal(2) - deactivate only when there is no more\n                        activity on this Node (i.e., all data flows\n                        have been completed and all sessions\n                        have been terminated).\n                  immed(3)  - deactivate immediately regardless of\n                        current activities on this Node. Wait for\n                        deactivation responses (from remote Node)\n                        before changing the Node state to inactive.\n                  force(4)  - deactivate immediately regardless of\n                        current activities on this Node. Do not wait\n                        for deactivation responses (from remote Node)\n                        before changing the Node state to inactive.\n\n                  A write operation to this object may immediately\n                  change the operational value reflected\n                  in snaNodeOperStopMethod depending\n                  on the Agent implementation.")
-snaNodeAdminState = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaNodeAdminState.setDescription("The value indicates the desired operational\n                   state of the SNA Node. This object is used\n                   by the Management Station to\n                   activate or deactivate the Node.\n\n                  If the current value in snaNodeOperState is\n                  'active (2)', then setting this object to\n                  'inactive (1)' will initiate the Node shutdown\n                  process using the method indicated\n                  by snaNodeOperStopMethod.\n\n                  If the current value in snaNodeOperState is\n                  'inactive (1)', then setting this object to\n                  'active (2)' will initiate the\n                  Node's activation.\n\n                  A Management Station can always set this object to\n                  'active (2)' irrespective of the value in the\n                  snaOperEnablingMethod.")
-snaNodeAdminRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 1, 1, 13), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaNodeAdminRowStatus.setDescription("This object is used by a Management Station to\n                  create or delete the row entry in the\n                  snaNodeAdminTable following\n                  the RowStatus textual convention.\n\n                  Upon successful creation of\n                  the row, an Agent automatically creates a\n                  corresponding entry in the snaNodeOperTable with\n                  snaNodeOperState equal to 'inactive (1)'.\n\n                  Row deletion can be Management Station or Agent\n                  initiated:\n                  (a) The Management Station can set the value to\n                  'destroy (6)' only when the value of\n                  snaNodeOperState of this Node instance is\n                  'inactive (1)'. The Agent will then delete the rows\n                  corresponding to this Node instance from the\n                  snaNodeAdminTable and the snaNodeOperTable.\n                  (b) The Agent detects that a row is in the\n                  'notReady (3)' state for greater than a\n\n\n\n\n\n                  default period of 5 minutes.\n                  (c) All rows with the snaNodeAdminRowStatus object's\n                  value of 'notReady (3)' will be removed upon the\n                  next initialization of the SNA services.")
-snaNodeAdminTableLastChange = MibScalar((1, 3, 6, 1, 2, 1, 34, 1, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeAdminTableLastChange.setDescription("The value indicates the timestamp\n                  (e.g., the Agent's sysUpTime value) of the last\n                  change made to any object in the snaNodeAdminTable,\n                  including row deletions/additions (e.g., changes to\n                  snaNodeAdminRowStatus values).\n\n                  This object can be used to reduce frequent\n                  retrievals of the snaNodeAdminTable by a Management\n                  Station. It is expected that a Management Station\n                  will periodically poll this object and compare its\n                  current value with the previous one. A difference\n                  indicates that some Node configuration information\n                  has been changed. Only then will the Management\n                  Station retrieve the entire table.")
-snaNodeOperTable = MibTable((1, 3, 6, 1, 2, 1, 34, 1, 1, 3), )
-if mibBuilder.loadTexts: snaNodeOperTable.setDescription('This table contains the dynamic parameters which\n                  have read-only access. These objects reflect the\n                  actual status of the Node. The entries in this\n                  table cannot be created or modified by a\n                  Management Station.\n\n\n\n\n\n                  This table augments the snaNodeAdminTable.')
-snaNodeOperEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 1, 1, 3, 1), ).setIndexNames((0, "SNA-NAU-MIB", "snaNodeAdminIndex"))
-if mibBuilder.loadTexts: snaNodeOperEntry.setDescription('The entry contains parameters which describe the\n                  state of one Node. The entries are created by the\n                  Agent. They have read-only access.')
-snaNodeOperName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 3, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeOperName.setDescription('The value identifies the current name of the Node.\n                In Type 2.1 networks, this\n                is a fully-qualified name, meaning that the Node name\n                is preceded by the NetId (if present) with a period\n                as the delimiter.')
-snaNodeOperType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("other", 1), ("pu10", 2), ("pu20", 3), ("t21LEN", 4), ("endNode", 5), ("networkNode", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeOperType.setDescription('The value identifies the current type of the Node.')
-snaNodeOperXidFormat = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("format0", 1), ("format1", 2), ("format3", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeOperXidFormat.setDescription('The value identifies the type of XID format currently\n                   used for this Node.\n                   Note that there is no format type 2.')
-snaNodeOperBlockNum = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 3, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(3,3)).setFixedLength(3)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeOperBlockNum.setDescription('The value identifies the block number for this Node\n                  instance. It is the first 3 hexadecimal digits\n\n\n\n\n\n                  of the SNA Node id.')
-snaNodeOperIdNum = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 3, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(5,5)).setFixedLength(5)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeOperIdNum.setDescription('The value identifies the ID number for this Node\n                  instance.  This is the last 5 hexadecimal digits of\n                  the SNA Node id.')
-snaNodeOperEnablingMethod = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("other", 1), ("startup", 2), ("demand", 3), ("onlyMS", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeOperEnablingMethod.setDescription("The value indicates how the Node is activated for\n                  the first time.\n                  The values have the following meanings:\n                     other (1)   - not at boot time, LU activation\n                        or by a Management Station;\n                     startup (2) - at SNA services' initialization\n                        time (this is the default),\n                     demand (3)  - only when LU is requested by\n                        application,\n                     onlyMS (4) - by a network Management Station\n                        only.")
-snaNodeOperLuTermDefault = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("unbind", 1), ("termself", 2), ("rshutd", 3), ("poweroff", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeOperLuTermDefault.setDescription("The value identifies the default method used to\n                deactivate LUs for this Node.\n\n\n\n\n\n                For LU6.2s, 'unbind(1)' is the only valid value.\n\n                unbind(1) -   terminate the LU-LU session by sending\n                        an SNA UNBIND request.\n                termself(2) - terminate the LU-LU session by sending\n                        an SNA TERM-SELF (Terminate Self) request on\n                        the SSCP-LU session. The SSCP will inform the\n                        remote session LU partner to send an UNBIND\n                        request to terminate the session.\n                rshutd(3) -   terminate the LU-LU session by sending\n                        an SNA RSHUTD (Request ShutDown) request to\n                        the remote session LU partner. The remote LU\n                        will then send an UNBIND request to terminate\n                        the session.\n                poweroff(4) - terminate the LU-LU session by sending\n                        either an SNA LUSTAT (LU Status) request on\n                        the LU-LU session or an SNA NOTIFY request on\n                        the SSCP-LU session indicating that the LU has\n                        been powered off. Sending both is also\n                        acceptable. The result should be that the\n                        remote session LU partner will send an UNBIND\n                        to terminate the session.\n\n                This object describes the default behavior for this\n                Node; however, it is possible that for a specific LU\n                the behavior indicated by the snaLuOperTerm object is\n                different.")
-snaNodeOperMaxLu = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 3, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeOperMaxLu.setDescription('This value identifies the current, maximum number\n                  of LUs that are activated for this Node. For PU2.1,\n                  this object refers to the number of dependent LUs.')
-snaNodeOperHostDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 3, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeOperHostDescription.setDescription("This value identifies the remote host currently\n                   associated with this Node.\n                   Since SSCP Id's may not be unique\n                   across hosts, the host description\n\n\n\n\n\n                   is required to uniquely identify the SSCP.")
-snaNodeOperStopMethod = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 3, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("other", 1), ("normal", 2), ("immed", 3), ("force", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeOperStopMethod.setDescription("This value identifies the current Node shutdown\n                  method to be used by the Agent to stop the Node.\n                  When the Agent changes the Node's state to 'inactive\n                  (1)', the Agent must use the shutdown method\n                  indicated by this object.\n\n                  The values have the following meaning:\n\n                  other (1) - proprietary method not listed in this\n                              enumeration\n                  normal(2) - deactivate only when there is no more\n                        activity on this Node (i.e., all data flows\n                        have been completed and all sessions have\n                        been terminated).\n                  immed(3)  - deactivate immediately regardless of\n                        current activities on this Node. Wait for\n                        deactivation responses (from remote Node)\n                        before changing the Node state to inactive.\n                  force(4)  - deactivate immediately regardless of\n                        current activities on this Node. Do not wait\n                        for deactivation responses (from remote Node)\n                        before changing the Node state to inactive.\n\n                  Note that a write operation to\n                  snaNodeAdminOperStopMethod may immediately change\n                  the value of snaNodeOperStopMethod depending on\n                  the Agent implementation.")
-snaNodeOperState = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 3, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2), ("waiting", 3), ("stopping", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeOperState.setDescription('The current state of the Node.\n                  The values have the following meanings:\n                    inactive (1), a row representing the Node has\n                        been created in the AdminTable\n                        and, the Node is ready for activation -or-\n                        an active Node has been stopped -or-\n                        a waiting Node has returned to the inactive\n                        state.\n                    waiting (3), a request to have the Node activated\n                        has been issued, and the Node is pending\n                        activation.\n                    active (2), the Node is ready and operating.\n                    stopping (4), the request to stop the Node has\n                        been issued while the StopMethod normal\n                        or immediate is used.')
-snaNodeOperHostSscpId = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 3, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,6))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeOperHostSscpId.setDescription('This value identifies the current SSCP Id\n                   associated with the Node. This object is only\n                   applicable to PU 2.0s. If the Node\n                   is not a PU 2.0 type, then this object contains a\n                   zero length string.')
-snaNodeOperStartTime = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 3, 1, 13), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeOperStartTime.setDescription("The timestamp (e.g, the Agent's sysUpTime value)\n                   at the Node activation.")
-snaNodeOperLastStateChange = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 3, 1, 14), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeOperLastStateChange.setDescription("The timestamp (e.g., the Agent's sysUpTime value)\n\n\n\n\n\n                  at the last state change of the Node.")
-snaNodeOperActFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 3, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeOperActFailures.setDescription('This value identifies the number of failed Node\n                  activation attempts.')
-snaNodeOperActFailureReason = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 3, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("other", 1), ("linkFailure", 2), ("noResources", 3), ("badConfiguration", 4), ("internalError", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeOperActFailureReason.setDescription("The value indicates the reason for the activation\n                  failure.  The value 'other (1)' indicates a reason\n                  not listed in the enumeration. This object\n                  will be sent in the trap snaNodeActFailTrap.")
-snaNodeOperTableLastChange = MibScalar((1, 3, 6, 1, 2, 1, 34, 1, 1, 4), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeOperTableLastChange.setDescription("The timestamp (e.g., the Agent's sysUpTime value)\n                  at the last change made to any object in the\n                  snaNodeOperTable, including row deletions/additions\n                  made as a result of changes to the\n                  snaNodeAdminRowStatus object.\n\n                  This object can be used to reduce frequent\n\n\n\n\n\n                  retrievals of the snaNodeOperTable by a Management\n                  Station. It is expected that a Management Station\n                  will periodically poll this object and compare its\n                  current value with the previous one. A difference\n                  indicates that some Node operational information\n                  has been changed. Only then will the Management\n                  Station retrieve the entire table.")
-snaPu20StatsTable = MibTable((1, 3, 6, 1, 2, 1, 34, 1, 1, 5), )
-if mibBuilder.loadTexts: snaPu20StatsTable.setDescription('This table contains the dynamic parameters which\n                  have read-only access. The entries in this table\n                  correspond to PU 2.0 entries in the snaNodeOperTable\n                  and cannot be created by a Management Station.')
-snaPu20StatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 1, 1, 5, 1), ).setIndexNames((0, "SNA-NAU-MIB", "snaNodeAdminIndex"))
-if mibBuilder.loadTexts: snaPu20StatsEntry.setDescription('The entry contains parameters which describe the\n                  statistics for one PU 2.0. They have read-only\n                  access.\n                  The counters represent traffic for all kinds\n                  of sessions: LU-LU, SSCP-PU, SSCP-LU.\n\n                  Each Node of PU Type 2.0 from the snaNodeAdminTable\n                  has one entry in this table and the index used\n                  here has the same value as snaNodeAdminIndex of\n                  that PU.  The entry is created by the Agent.')
-snaPu20StatsSentBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 5, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaPu20StatsSentBytes.setDescription('The number of bytes sent by this Node.')
-snaPu20StatsReceivedBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 5, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaPu20StatsReceivedBytes.setDescription('The number of bytes received by this Node.')
-snaPu20StatsSentPius = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 5, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaPu20StatsSentPius.setDescription('The number of PIUs sent by this Node.')
-snaPu20StatsReceivedPius = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 5, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaPu20StatsReceivedPius.setDescription('The number of PIUs received by this Node.')
-snaPu20StatsSentNegativeResps = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 5, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaPu20StatsSentNegativeResps.setDescription('The number of negative responses sent\n                  by this Node.')
-snaPu20StatsReceivedNegativeResps = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 5, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaPu20StatsReceivedNegativeResps.setDescription('The number of negative responses received\n                  by this Node.')
-snaPu20StatsActLus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 5, 1, 7), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaPu20StatsActLus.setDescription('The number of LUs on this PU which have\n                  received and responded to ACTLU from the host.')
-snaPu20StatsInActLus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 5, 1, 8), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaPu20StatsInActLus.setDescription('The number of LUs on this PU which have\n                  not received an ACTLU from the host.  This is\n                  possible if the number of configured LUs exceeds\n                  that on the host.')
-snaPu20StatsBindLus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 5, 1, 9), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaPu20StatsBindLus.setDescription('The number of LUs on this PU which have\n                  received and acknowledged a BIND request from the\n                  host.')
-snaNodeLinkAdminTable = MibTable((1, 3, 6, 1, 2, 1, 34, 1, 1, 6), )
-if mibBuilder.loadTexts: snaNodeLinkAdminTable.setDescription('This table contains the references to link\n                  specific tables. If a Node is configured for\n                  multiple links, then the Node will have\n                  multiple entries in this table.\n                  The entries in this table can be generated\n                  initially, after initialization of SNA service,\n                  by the Agent which uses information from\n                  Node configuration file.\n                  Subsequent modifications of parameters,\n                  creation of new Nodes link entries and deletion\n                  of entries is possible.\n                  The modification to this table can be\n                  saved in the Node configuration file for the\n                  next initialization of SNA service, but the mechanism\n                  for this function is not defined here.')
-snaNodeLinkAdminEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 1, 1, 6, 1), ).setIndexNames((0, "SNA-NAU-MIB", "snaNodeAdminIndex"), (0, "SNA-NAU-MIB", "snaNodeLinkAdminIndex"))
-if mibBuilder.loadTexts: snaNodeLinkAdminEntry.setDescription('Entry contains the configuration information that\n                  associates a Node instance to one link instance.\n                  The objects in the entry have read-create access.\n                  Entry can be created, modified or deleted.\n                  The object snaNodeLinkAdminRowStatus is used (set)\n                  to create or delete an entry.\n                  The object snaNodeLinkAdminSpecific can be set\n                  later, after the entry has been created.')
-snaNodeLinkAdminIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 6, 1, 1), Integer32())
-if mibBuilder.loadTexts: snaNodeLinkAdminIndex.setDescription('This value is used to index the instances of objects.\n                  If an Agent creates the entry, then it will assign\n                  this number otherwise a Management Station\n                  generates a random number when it reserves the\n                  entry for creation.')
-snaNodeLinkAdminSpecific = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 6, 1, 2), InstancePointer()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaNodeLinkAdminSpecific.setDescription('This value points to the row in the table\n                  containing information on the link instance.\n                  (e.g., the sdlcLSAdminTable of\n                  the SNA DLC MIB module).')
-snaNodeLinkAdminMaxPiu = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 6, 1, 3), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaNodeLinkAdminMaxPiu.setDescription('This value identifies the maximum number of octets\n                  that can be exchanged by this Node in one\n                  Path Information Unit (PIU).')
-snaNodeLinkAdminRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 6, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaNodeLinkAdminRowStatus.setDescription("This object is used by a Management Station to\n                create or delete the row entry in the\n\n\n\n\n\n                snaNodeLinkAdminTable.\n                To activate a row, a Management Station sets the value\n                to 'active (1)' or 'notReady (3)'.  Upon successful\n                creation of the row, the Agent automatically creates\n                a corresponding entry in the snaNodeLinkOperTable.\n\n                Row deletion can be Management Station or Agent\n                initiated:\n                (a) The Management Station can set the value to\n                'destroy (6)' only when the value of\n                snaNodeLinkOperState of this Link\n                instance is 'inactive (1)'. The Agent will then\n                delete the row corresponding to this Link\n                instance from snaNodeLinkOperTable and\n                from snaNodeLinkAdminTable.\n                (b) The Agent detects that a row is in the\n                'notReady (3)' state for greater than a\n                default period of 5 minutes.\n                (c) The Agent will not include a row with RowStatus=\n                'notReady (3)', after SNA system re-initialization\n                 (e.g., reboot).")
-snaNodeLinkAdminTableLastChange = MibScalar((1, 3, 6, 1, 2, 1, 34, 1, 1, 7), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeLinkAdminTableLastChange.setDescription("The timestamp (e.g., the Agent's sysUpTime value)\n                  at the last\n                  change made to any object in the snaNodeLinkAdminTable,\n                  including row deletions/additions (i.e., changes\n                  to the snaNodeLinkAdminRowStatus object).\n\n                  This object can be used to reduce frequent\n                  retrievals of the snaNodeLinkAdminTable by a\n                  Management Station. It is expected that a\n                  Management Station will periodically poll this\n                  object and compare its current value with the\n                  previous one.\n                  A difference indicates that some Node operational\n                  information has been changed. Only then will the\n\n\n\n\n\n                  Management Station retrieve the entire table.")
-snaNodeLinkOperTable = MibTable((1, 3, 6, 1, 2, 1, 34, 1, 1, 8), )
-if mibBuilder.loadTexts: snaNodeLinkOperTable.setDescription('This table contains all references to link\n                  specific tables for operational parameters.\n                  If a Node is configured for multiple links,\n                  then the Node will have multiple entries in\n                  this table. This table augments the\n                  snaNodeLinkAdminTable.')
-snaNodeLinkOperEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 1, 1, 8, 1), ).setIndexNames((0, "SNA-NAU-MIB", "snaNodeAdminIndex"), (0, "SNA-NAU-MIB", "snaNodeLinkAdminIndex"))
-if mibBuilder.loadTexts: snaNodeLinkOperEntry.setDescription('Entry contains all current parameters for one\n                  Node link. The objects in the entry have\n                  read-only access.')
-snaNodeLinkOperSpecific = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 8, 1, 1), InstancePointer()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeLinkOperSpecific.setDescription('This value points to the row in the table\n                  containing information on the link instance.\n\n\n\n\n\n                  (e.g., the sdlcLSOperTable of\n                  the SNA DLC MIB module).')
-snaNodeLinkOperMaxPiu = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 1, 8, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeLinkOperMaxPiu.setDescription('Maximum number of octets that can\n                  be exchanged by this Node in one Path\n                  Information Unit (PIU).')
-snaNodeLinkOperTableLastChange = MibScalar((1, 3, 6, 1, 2, 1, 34, 1, 1, 9), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaNodeLinkOperTableLastChange.setDescription('The timestamp of the last\n                  change made to any object in the snaNodeLinkOperTable,\n                  including row deletions/additions.\n\n                  This object can be used to reduce frequent\n                  retrievals of the snaNodeLinkOperTable by a\n                  Management Station. It is expected that a\n                  Management Station will periodically poll this\n                  object and compare its current value with the\n                  previous one.\n                  A difference indicates that some Node operational\n                  information has been changed. Only then will the\n                  Management Station retrieve the entire table.')
-snaNodeTraps = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 1, 1, 10))
-snaNodeStateChangeTrap = NotificationType((1, 3, 6, 1, 2, 1, 34, 1, 1, 10, 1)).setObjects(*(("SNA-NAU-MIB", "snaNodeOperName"), ("SNA-NAU-MIB", "snaNodeOperState"),))
-if mibBuilder.loadTexts: snaNodeStateChangeTrap.setDescription('This trap indicates that the operational state\n                  (i.e., value of the snaNodeOperState object) of a Node\n                   has changed. The following variables are returned:\n                    snaNodeOperName - current name of the Node,\n                      with the instance identifying the Node; and,\n                    snaNodeOperState - current state after\n                      the change.')
-snaNodeActFailTrap = NotificationType((1, 3, 6, 1, 2, 1, 34, 1, 1, 10, 2)).setObjects(*(("SNA-NAU-MIB", "snaNodeOperName"), ("SNA-NAU-MIB", "snaNodeOperState"), ("SNA-NAU-MIB", "snaNodeOperActFailureReason"),))
-if mibBuilder.loadTexts: snaNodeActFailTrap.setDescription('This trap indicates a Node activation failure.\n                  The value of snaNodeOperState indicates the current\n                  state after the activation attempt.\n                  The value of snaNodeOperActFailureReason indicates\n                  the failure reason.')
-snaLuAdminTable = MibTable((1, 3, 6, 1, 2, 1, 34, 1, 2, 1), )
-if mibBuilder.loadTexts: snaLuAdminTable.setDescription('This table contains LU configuration information.\n                The rows in this table can be created and deleted\n                by a Management Station.\n                Only objects which are common to all types of LUs\n                are included in this table.')
-snaLuAdminEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 1, 2, 1, 1), ).setIndexNames((0, "SNA-NAU-MIB", "snaNodeAdminIndex"), (0, "SNA-NAU-MIB", "snaLuAdminLuIndex"))
-if mibBuilder.loadTexts: snaLuAdminEntry.setDescription('Contains configuration variables for an LU.')
-snaLuAdminLuIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 1, 1, 1), Integer32())
-if mibBuilder.loadTexts: snaLuAdminLuIndex.setDescription('This value identifies the unique index for an\n\n\n\n\n\n                 LU instance within a Node.')
-snaLuAdminName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,48))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaLuAdminName.setDescription('This value identifies the user configurable\n                name for this LU. If a name is not assigned to the LU,\n                then this object contains a zero length string.\n\n                A write operation to this object will\n                not change the operational value reflected\n                in snaLuOperName until the Node has\n                been re-activated (e.g., after the next\n                initialization of the SNA services).')
-snaLuAdminSnaName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaLuAdminSnaName.setDescription('This value identifies the SNA LU name\n                used in exchange of SNA data.\n\n                A write operation to this object will\n                not change the operational value reflected\n                in snaLuOperSnaName until the Node has\n                been re-activated (e.g., after the next\n                initialization of the SNA services).')
-snaLuAdminType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8,))).clone(namedValues=NamedValues(("other", 1), ("lu0", 2), ("lu1", 3), ("lu2", 4), ("lu3", 5), ("lu4", 6), ("lu62", 7), ("lu7", 8),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaLuAdminType.setDescription('This value identifies the LU type.\n\n                A write operation to this object will\n                not change the operational value reflected\n                in snaLuOperAdminType until the Node has\n                been re-activated (e.g., after the next\n                initialization of the SNA services).')
-snaLuAdminDepType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("dependent", 1), ("independent", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaLuAdminDepType.setDescription('This value identifies whether the LU is\n                dependent or independent.\n\n                A write operation to this object will\n                not change the operational value reflected\n                in snaLuOperDepType until the Node has\n                been re-activated (e.g., after the next\n                initialization of the SNA services).')
-snaLuAdminLocalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaLuAdminLocalAddress.setDescription('The local address for this LU is a byte with a value\n                ranging from 0 to 254.For dependent LUs, this value\n                ranges from 1 to 254 and for independent LUs this\n                value is always 0.\n\n                A write operation to this object will not change the\n                operational value reflected in snaLuOperLocalAddress\n                until the Node has been re-activated (e.g., after the\n                next initialization of the SNA services).')
-snaLuAdminDisplayModel = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,))).clone(namedValues=NamedValues(("invalid", 1), ("model2A", 2), ("model2B", 3), ("model3A", 4), ("model3B", 5), ("model4A", 6), ("model4B", 7), ("model5A", 8), ("model5B", 9), ("dynamic", 10),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaLuAdminDisplayModel.setDescription('The value of this object identifies the  model type\n                and screen size of the terminal connected to the host.\n                This is only valid for LU Type 2.  The values have\n                the following meaning:\n\n                model2A(2) - Model 2 (24 rows x 80 cols) with base\n                        attributes\n                model2B(3) - Model 2 (24 rows x 80 cols) with\n                        extended attributes\n                model3A(4) - Model 3 (32 rows x 80 cols) with base\n                        attributes\n                model3B(5) - Model 3 (32 rows x 80 cols) with extended\n                        attributes\n                model4A(6) - Model 4 (43 rows x 80 cols) with base\n                        attributes\n                model4B(7) - Model 4 (43 rows x 80 cols) with extended\n                                                attributes\n                model5A(8) - Model 5 (27 rows x 132 cols) with base\n                        attributes\n                model5B(9) - Model 5 (27 rows x 132 cols) with\n                        extended attributes\n                dynamic(10) - Screen size determine with BIND and Read\n                                                Partition Query.\n\n                In case this LU is not Type 2, then this object\n                should contain the invalid(1) value.')
-snaLuAdminTerm = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("unbind", 1), ("termself", 2), ("rshutd", 3), ("poweroff", 4),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaLuAdminTerm.setDescription("This value identifies the desired method for\n                deactivation of this LU. This value overrides the\n                default method (snaNodeOperLuTermDefault) for this\n                Node.  For LU 6.2, only the value 'unbind (1)'\n                applies.\n\n                unbind(1) -   terminate the LU-LU session by sending\n                        an SNA UNBIND request.\n                termself(2) - terminate the LU-LU session by sending\n                        an SNA TERM-SELF (Terminate Self) request on\n                        the SSCP-LU session. The SSCP will inform the\n                        remote session LU partner to send an UNBIND\n                        request to terminate the session.\n                rshutd(3) -   terminate the LU-LU session by sending\n                        an SNA RSHUTD (Request ShutDown) request to\n                        the remote session LU partner. The remote LU\n                        will then send an UNBIND request to terminate\n                        the session.\n                poweroff(4) - terminate the LU-LU session by sending\n                        either an SNA LUSTAT (LU Status) request on\n                        the LU-LU session or an SNA NOTIFY request on\n                        the SSCP-LU session indicating that the LU has\n                        been powered off. Sending both is also\n                        acceptable. The result should be that the\n                        remote session LU partner will send an UNBIND\n                        to terminate the session.\n\n                A write operation to this object may immediately\n                change the operational value reflected\n                in snaLuOperTerm depending\n                on the Agent implementation.")
-snaLuAdminRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 1, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: snaLuAdminRowStatus.setDescription("This object is used by a Management Station to\n                create or delete the row entry in the\n                snaLuAdminTable.\n                To activate a row, the Management Station sets the\n                value to 'active (1)' or 'notReady (3)'.\n                Upon successful creation of the row, the Agent\n                automatically creates a corresponding entry in the\n                snaLuOperTable with snaLuOperState equal to\n                'inactive (1)'.\n\n\n\n\n\n                Row deletion can be Management Station or Agent\n                initiated:\n                (a) The Management Station can set the value to\n                'destroy (6)' only when the value of snaLuOperState\n                of this LU instance is 'inactive (1)'. The Agent will\n                then delete the row corresponding to this LU\n                instance from snaLuAdminTable and\n                from snaLuOperTable.\n                (b) The Agent detects that a row is in the\n                'notReady (3)' state for greater than a\n                default period of 5 minutes.\n                (c) The Agent will not create a row with RowStatus\n                equal to 'notReady (3)', after SNA system\n                re-initialization (e.g., reboot).")
-snaLuOperTable = MibTable((1, 3, 6, 1, 2, 1, 34, 1, 2, 2), )
-if mibBuilder.loadTexts: snaLuOperTable.setDescription('This table contains dynamic runtime information and\n                control variables relating to LUs.\n                Only objects which are common to all types of LUs are\n                included in this table. This table augments the\n                snaLuAdminTable.')
-snaLuOperEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 1, 2, 2, 1), ).setIndexNames((0, "SNA-NAU-MIB", "snaNodeAdminIndex"), (0, "SNA-NAU-MIB", "snaLuAdminLuIndex"))
-if mibBuilder.loadTexts: snaLuOperEntry.setDescription('Contains objects reflecting current information\n                for an LU.\n                Each entry is created by the Agent.  All entries\n                have read-only access.')
-snaLuOperName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 2, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,48))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuOperName.setDescription('User configurable name for this LU. If a name\n                is not assigned, then this object contains a\n                zero length string.')
-snaLuOperSnaName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuOperSnaName.setDescription('The value identifies the current SNA LU name.')
-snaLuOperType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8,))).clone(namedValues=NamedValues(("other", 1), ("lu0", 2), ("lu1", 3), ("lu2", 4), ("lu3", 5), ("lu4", 6), ("lu62", 7), ("lu7", 8),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuOperType.setDescription('The value identifies the current LU type.')
-snaLuOperDepType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("dependent", 1), ("independent", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuOperDepType.setDescription('The value identifies whether the LU is currently\n                 dependent or independent.\n\n                A write operation to this object will\n                not change the operational value reflected\n                in snaLuOperDepType until the Node has\n                been re-activated (e.g., after the next\n                initialization of the SNA services).')
-snaLuOperLocalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 2, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuOperLocalAddress.setDescription('The local address for this LU is a byte with a value\n                ranging from 0 to 254. For dependent LUs, this value\n                ranges from 1 to 254; for independent LUs this value\n                is always 0.\n\n                A write operation to this object will\n                not change the operational value reflected\n                in snaLuOperLocalAddress until the Node has\n                been re-activated (e.g., after the next\n                initialization of the SNA services).')
-snaLuOperDisplayModel = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,))).clone(namedValues=NamedValues(("invalid", 1), ("model2A", 2), ("model2B", 3), ("model3A", 4), ("model3B", 5), ("model4A", 6), ("model4B", 7), ("model5A", 8), ("model5B", 9), ("dynamic", 10),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuOperDisplayModel.setDescription("The screen model type of the terminal connected to\n                the host. If this LU is not Type 2, then this\n                object should contain the 'invalid(1)' value.")
-snaLuOperTerm = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("unbind", 1), ("termself", 2), ("rshutd", 3), ("poweroff", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuOperTerm.setDescription("The value identifies the current method for\n                deactivation of this LU. This value overrides the\n                default method (snaNodeOperLuTermDefault) for this\n                Node.  For LU 6.2, only the value 'unbind (1)'\n                applies.\n\n                unbind(1) -   terminate the LU-LU session by sending\n                        an SNA UNBIND request.\n                termself(2) - terminate the LU-LU session by sending\n                        an SNA TERM-SELF (Terminate Self) request on\n                        the SSCP-LU session. The SSCP will inform the\n                        remote session LU partner to send an UNBIND\n                        request to terminate the session.\n                rshutd(3) -   terminate the LU-LU session by sending\n                        an SNA RSHUTD (Request ShutDown) request to\n                        the remote session LU partner. The remote LU\n                        will then send an UNBIND request to terminate\n                        the session.\n                poweroff(4) - terminate the LU-LU session by sending\n                        either an SNA LUSTAT (LU Status) request on\n                        the LU-LU session or an SNA NOTIFY request on\n                        the SSCP-LU session indicating that the LU has\n                        been powered off. Sending both is also\n                        acceptable. The result should be that the\n                        remote session LU partner will send an UNBIND\n\n\n\n\n\n                        to terminate the session.")
-snaLuOperState = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuOperState.setDescription("The value identifies the current operational state of\n                this LU.\n                It has different meanings for dependent and independent\n                LUs.\n                For dependent LUs the values indicate the following:\n                  inactive (1) - LU didn't receive ACTLU, or\n                        it received DACTLU, or received ACTLU and sent\n                        negative response.\n                  active (2) - LU received ACTLU and acknowledged\n                        positively.\n\n                For independent LUs the values indicate the following:\n                  active (2) - the LU is defined and is able to send\n                        and receive BIND.\n                  inactive (1) - the LU has a session count equal\n                        to 0.")
-snaLuOperSessnCount = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 2, 1, 9), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuOperSessnCount.setDescription('The number of currently active LU-LU sessions of\n                this LU.\n                For the independent LU, if this object has value 0,\n                it indicates that LU is inactive.')
-snaLuSessnTable = MibTable((1, 3, 6, 1, 2, 1, 34, 1, 2, 3), )
-if mibBuilder.loadTexts: snaLuSessnTable.setDescription("This is a table containing objects which describe the\n                operational state of LU sessions.  Only objects which\n                are common to all types of LU sessions are included\n                in this table.\n\n                When a session's snaLuSessnOperState value changes to\n                'pendingBind (2)', then the corresponding entry\n                in the session table is created by the Agent.\n\n                When the session's snaLuSessnOperState value changes to\n                 'unbound (1)',  then the session will be removed from\n                the session table by the Agent.")
-snaLuSessnEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 1, 2, 3, 1), ).setIndexNames((0, "SNA-NAU-MIB", "snaNodeAdminIndex"), (0, "SNA-NAU-MIB", "snaLuAdminLuIndex"), (0, "SNA-NAU-MIB", "snaLuSessnRluIndex"), (0, "SNA-NAU-MIB", "snaLuSessnIndex"))
-if mibBuilder.loadTexts: snaLuSessnEntry.setDescription('An entry contains dynamic parameters for an LU-LU\n                session.\n                The indices identify the Node, local LU, and remote LU\n                for this session.')
-snaLuSessnRluIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 3, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnRluIndex.setDescription('This value may be used to identify information about\n                the session partner LU in a table of information about\n                remote LUs.  Such a table is not defined in this\n                document.  If a table of remote LU information is not\n                implemented, or if the table is implemented but it does\n                not contain information about the partner LU for a\n                particular session (as for dependent LU-LU sessions)\n                then this object will have a value of zero.')
-snaLuSessnIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 3, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnIndex.setDescription('This value identifies the unique index of the session.\n                It is recommended that an Agent should not reuse the\n                index of a deactivated session for a significant\n                period of time (e.g., one week).')
-snaLuSessnLocalApplName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,48))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnLocalApplName.setDescription('The name of the local application using this LU.\n\n\n\n\n\n                If the local application is unknown, then this object\n                contains a zero length string.')
-snaLuSessnRemoteLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 3, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnRemoteLuName.setDescription("For dependent LUs which are indicated by the\n                snaLuOperDepType object containing the value\n                'dependent (1)', this object contains the Primary\n                LU (PLU) name.  For independent LUs,\n                this object contains the fully-qualified remote LU\n                name of this 6.2 session.\n                A fully qualified name is an SNA NAU entity name\n                preceded by the NetId and a period as the delimiter.")
-snaLuSessnMaxSndRuSize = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,8192))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnMaxSndRuSize.setDescription('The maximum RU size used on this session for sending\n                RUs.')
-snaLuSessnMaxRcvRuSize = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 3, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,8192))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnMaxRcvRuSize.setDescription('The maximum RU size used on this session for\n                receiving RUs.')
-snaLuSessnSndPacingSize = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 3, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnSndPacingSize.setDescription('The size of the send pacing window on this session.')
-snaLuSessnRcvPacingSize = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 3, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnRcvPacingSize.setDescription('The size of the receive pacing window on this\n                session.')
-snaLuSessnActiveTime = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 3, 1, 9), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnActiveTime.setDescription("The timestamp (e.g., the Agent's sysUpTime value)\n                when this session becomes active.")
-snaLuSessnAdminState = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 3, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3,))).clone(namedValues=NamedValues(("unbound", 1), ("bound", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snaLuSessnAdminState.setDescription("The value indicates the desired operational state of\n                the session. This object is used to\n                change the operational state of the session.\n                A Management Station can only change the operational\n                state of the session to 'unbound (1)'.\n\n                Session deactivation:\n                  If a session is in the operational state\n                  'bound (3)' then setting the value of this\n                  object to 'unbound (1)' will initiate the\n                  session shutdown.\n\n                  If a session is in the operational state\n                  'pendingBind (2)' then setting the value of this\n                  object to 'unbound (1)' will initiate the session\n                  shutdown.\n                  If a session is in the operational state\n                  'pendingUnbind (4)' for an abnormally long period\n                  of time (e.g., three minutes) then setting the value\n                  of this object to 'unbound (1)' will change the\n                  session operational state to 'unbound (1)'.\n\n                Note: for dependent LUs, deactivating the session is\n                the same as deactivating the LU.")
-snaLuSessnOperState = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 3, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("unbound", 1), ("pendingBind", 2), ("bound", 3), ("pendingUnbind", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnOperState.setDescription("The value indicates the current operational state of\n                the session.\n\n                  'unbound (1)' - session has been  unbound;\n                        in this state it will be removed from the\n                        session table by the Agent.\n\n                  'pendingBind (2)' - this state has different\n                        meanings for dependent and independent LUs;\n                        for dependent LU - waiting for BIND from\n                        the host, for independent LU - waiting for\n                        BIND response.  When a session enters this\n                        state, the corresponding entry in the\n                        session table is created by the Agent.\n\n                  'bound (3)' - session has been successfully bound.\n\n                  'pendingUnbind (4)' - session enters this state\n                        when an UNBIND is sent and before the\n                        rsp(UNBIND) is received.")
-snaLuSessnSenseData = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 3, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnSenseData.setDescription('The value identifies the sense code when there is\n                a BIND failure. It is taken from the negative BIND\n                response or UNBIND request.\n                This is displayed as 8 hexadecimal digits.')
-snaLuSessnTerminationRu = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 3, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("other", 1), ("bindFailure", 2), ("unbind", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnTerminationRu.setDescription("The value identifies the SNA RU that terminated the\n                session.\n                If the session is not in the unbound state, this object\n                has a value of  'other (1)'.")
-snaLuSessnUnbindType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 3, 1, 14), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnUnbindType.setDescription('If the session is in the unbound state, and it was\n                terminated by an UNBIND, then this object contains\n                the UNBIND type value (byte 1 of the UNBIND RU);\n                otherwise the string is null.')
-snaLuSessnLinkIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 3, 1, 15), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnLinkIndex.setDescription('This value identifies the link over which the session\n                passes.  It is an index into snaNodeLinkAdminTable.\n                If the index value is not known, the value of this\n                object shall be zero.')
-snaLuSessnStatsTable = MibTable((1, 3, 6, 1, 2, 1, 34, 1, 2, 4), )
-if mibBuilder.loadTexts: snaLuSessnStatsTable.setDescription('This table contains dynamic statistics information\n                relating to LU sessions.\n                The entries in this table augment the entries in\n                the snaLuSessnTable and cannot be created by\n\n\n\n\n\n                a Management Station.')
-snaLuSessnStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 1, 2, 4, 1), ).setIndexNames((0, "SNA-NAU-MIB", "snaNodeAdminIndex"), (0, "SNA-NAU-MIB", "snaLuAdminLuIndex"), (0, "SNA-NAU-MIB", "snaLuSessnRluIndex"), (0, "SNA-NAU-MIB", "snaLuSessnIndex"))
-if mibBuilder.loadTexts: snaLuSessnStatsEntry.setDescription('Contains statistics information for an LU session.\n                Each entry is created by the Agent.\n                Objects in this table have read-only access.\n                Each session from snaLuSessnTable\n                has one entry in this table.')
-snaLuSessnStatsSentBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 4, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnStatsSentBytes.setDescription('The number of bytes sent by the local LU.')
-snaLuSessnStatsReceivedBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 4, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnStatsReceivedBytes.setDescription('The number of bytes received by the local LU.')
-snaLuSessnStatsSentRus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 4, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnStatsSentRus.setDescription('The number of RUs sent by the local LU.')
-snaLuSessnStatsReceivedRus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 4, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnStatsReceivedRus.setDescription('The number of RUs received by the local LU.')
-snaLuSessnStatsSentNegativeResps = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 4, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnStatsSentNegativeResps.setDescription('The number of negative responses sent by the\n                local LU.')
-snaLuSessnStatsReceivedNegativeResps = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 2, 4, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuSessnStatsReceivedNegativeResps.setDescription('The number of negative responses received by the\n                local LU.')
-snaLuTraps = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 1, 2, 5))
-snaLuStateChangeTrap = NotificationType((1, 3, 6, 1, 2, 1, 34, 1, 2, 5, 1)).setObjects(*(("SNA-NAU-MIB", "snaLuOperName"), ("SNA-NAU-MIB", "snaLuOperSnaName"), ("SNA-NAU-MIB", "snaLuOperState"),))
-if mibBuilder.loadTexts: snaLuStateChangeTrap.setDescription('This trap indicates that the operational state\n                (i.e., snaLuOperState value) of the LU has changed.\n\n\n\n\n\n                The value of snaLuOperName indicates the name of the\n                LU.\n                The value of snaLuOperSnaName indicates the SNA name\n                of LU.\n                The value of snaLuOperState indicates the current\n                state after change.')
-snaLuSessnBindFailTrap = NotificationType((1, 3, 6, 1, 2, 1, 34, 1, 2, 5, 2)).setObjects(*(("SNA-NAU-MIB", "snaLuSessnLocalApplName"), ("SNA-NAU-MIB", "snaLuSessnRemoteLuName"), ("SNA-NAU-MIB", "snaLuSessnOperState"), ("SNA-NAU-MIB", "snaLuSessnSenseData"),))
-if mibBuilder.loadTexts: snaLuSessnBindFailTrap.setDescription('This trap indicates the failure of a BIND.\n                The value of snaLuSessnLocalApplName indicates the local\n                application name.\n                The value of snaLuSessnPartnerName indicates the partner\n                name.\n                The value of snaLuSessnOperState indicates the current\n                state after change.\n                The value of snaLuSessnBindFailureReason\n                indicates the failure reason.\n                The Agent should not generate more than 1 trap of this\n                type per minute to minimize the level of management\n                traffic on the network.')
-snaLuRtmTable = MibTable((1, 3, 6, 1, 2, 1, 34, 1, 3, 1), )
-if mibBuilder.loadTexts: snaLuRtmTable.setDescription('This table contains Response Time Monitoring (RTM)\n                information relating to an LU (Type 2). Each entry\n                corresponds to an LU 2 entry in\n                snaLuAdminTable.')
-snaLuRtmEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1), ).setIndexNames((0, "SNA-NAU-MIB", "snaLuRtmPuIndex"), (0, "SNA-NAU-MIB", "snaLuRtmLuIndex"))
-if mibBuilder.loadTexts: snaLuRtmEntry.setDescription('Contains RTM information for an LU (Type 2).\n                Each entry is created by the Agent.')
-snaLuRtmPuIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 1), Integer32())
-if mibBuilder.loadTexts: snaLuRtmPuIndex.setDescription('The value identifies the PU 2.0 with which this LU is\n                associated.')
-snaLuRtmLuIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 2), Integer32())
-if mibBuilder.loadTexts: snaLuRtmLuIndex.setDescription('The value uniquely identifies an LU in a PU 2.0.')
-snaLuRtmState = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("off", 1), ("on", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuRtmState.setDescription('The value indicates the current RTM state of an LU.')
-snaLuRtmStateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 4), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuRtmStateTime.setDescription("The timestamp (e.g., the Agent's sysUpTime value)\n\n\n\n\n\n                when this session's RTM state (e.g., snaLuRtmState)\n                changes value.")
-snaLuRtmDef = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("firstChar", 1), ("kb", 2), ("cdeb", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuRtmDef.setDescription('The value indicates the mode of measurement for this\n                RTM request.  The values have following meaning:\n                  firstChar(1) - time to first character on screen\n                  kb(2) - time to keyboard usable by operator\n                  cdeb(3) - time to Change Direction/End Bracket.')
-snaLuRtmBoundary1 = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuRtmBoundary1.setDescription('This object contains the value of the first boundary\n                in units of 1/10th of a second.')
-snaLuRtmBoundary2 = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuRtmBoundary2.setDescription('This object contains the value of the second boundary\n                 in units of 1/10th of a second.')
-snaLuRtmBoundary3 = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuRtmBoundary3.setDescription('This object contains the value of the third boundary\n                 in units of 1/10th of a second.')
-snaLuRtmBoundary4 = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuRtmBoundary4.setDescription('This object contains the value of the fourth boundary\n                in units of 1/10th of a second.')
-snaLuRtmCounter1 = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuRtmCounter1.setDescription('This value indicates the number of transactions which\n                fall in the range specified by the first boundary.')
-snaLuRtmCounter2 = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuRtmCounter2.setDescription('This value indicates the number of transactions which\n                fall in the range specified by the second boundary.')
-snaLuRtmCounter3 = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuRtmCounter3.setDescription('This value indicates the number of transactions which\n                fall in the range specified by the third boundary.')
-snaLuRtmCounter4 = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuRtmCounter4.setDescription('This value indicates the number of transactions which\n                fall in the range specified by the fourth boundary.')
-snaLuRtmOverFlows = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuRtmOverFlows.setDescription('This value indicates the number of transactions which\n                exceed the highest range specified by the\n                boundaries.')
-snaLuRtmObjPercent = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 15), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuRtmObjPercent.setDescription('This value indicates the desired percentage of\n                transactions which should be under a designated\n                boundary range indicated by snaLuRtmObjRange.')
-snaLuRtmObjRange = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("other", 1), ("range1", 2), ("range2", 3), ("range3", 4), ("range4", 5), ("range5", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuRtmObjRange.setDescription('This value indicates the designated boundary range to\n                which the snaLuRtmObject refers.\n                The values have the following meanings:\n                  other(1)   - not specified\n                  range1(2)  - less than boundary 1\n                  range2(3)  - between boundary 1 and 2\n                  range3(4)  - between boundary 2 and 3\n                  range4(5)  - between boundary 3 and 4\n                  range5(6)  - greater than boundary 4.')
-snaLuRtmNumTrans = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 17), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuRtmNumTrans.setDescription("This value indicates the total number of transactions\n                executed since the RTM monitoring began (i.e.,\n                snaLuRtmState changed to 'on(2)') for this LU.")
-snaLuRtmLastRspTime = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 18), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuRtmLastRspTime.setDescription('This value indicates the response time for the last\n                transaction in units of 1/10th of a second.')
-snaLuRtmAvgRspTime = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 1, 3, 1, 1, 19), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snaLuRtmAvgRspTime.setDescription('This value indicates the average response time for all\n                transactions in units of 1/10th of a second.')
-snanauConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 2))
-snanauCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 2, 1))
-snanauGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 2, 2))
-snanauCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 34, 2, 1, 1)).setObjects(*(("SNA-NAU-MIB", "snaNodeGroup"), ("SNA-NAU-MIB", "snaLuGroup"), ("SNA-NAU-MIB", "snaSessionGroup"), ("SNA-NAU-MIB", "snaPu20Group"), ("SNA-NAU-MIB", "snaMgtToolsRtmGroup"),))
-if mibBuilder.loadTexts: snanauCompliance.setDescription('The compliance statement for the SNMPv2 entities\n                which implement the snanau MIB.')
-snaNodeGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 2, 2, 1)).setObjects(*(("SNA-NAU-MIB", "snaNodeAdminName"), ("SNA-NAU-MIB", "snaNodeAdminType"), ("SNA-NAU-MIB", "snaNodeAdminXidFormat"), ("SNA-NAU-MIB", "snaNodeAdminBlockNum"), ("SNA-NAU-MIB", "snaNodeAdminIdNum"), ("SNA-NAU-MIB", "snaNodeAdminEnablingMethod"), ("SNA-NAU-MIB", "snaNodeAdminLuTermDefault"), ("SNA-NAU-MIB", "snaNodeAdminMaxLu"), ("SNA-NAU-MIB", "snaNodeAdminHostDescription"), ("SNA-NAU-MIB", "snaNodeAdminStopMethod"), ("SNA-NAU-MIB", "snaNodeAdminState"), ("SNA-NAU-MIB", "snaNodeAdminRowStatus"), ("SNA-NAU-MIB", "snaNodeAdminTableLastChange"), ("SNA-NAU-MIB", "snaNodeOperName"), ("SNA-NAU-MIB", "snaNodeOperType"), ("SNA-NAU-MIB", "snaNodeOperXidFormat"), ("SNA-NAU-MIB", "snaNodeOperBlockNum"), ("SNA-NAU-MIB", "snaNodeOperIdNum"), ("SNA-NAU-MIB", "snaNodeOperEnablingMethod"), ("SNA-NAU-MIB", "snaNodeOperLuTermDefault"), ("SNA-NAU-MIB", "snaNodeOperMaxLu"), ("SNA-NAU-MIB", "snaNodeOperHostDescription"), ("SNA-NAU-MIB", "snaNodeOperStopMethod"), ("SNA-NAU-MIB", "snaNodeOperState"), ("SNA-NAU-MIB", "snaNodeOperHostSscpId"), ("SNA-NAU-MIB", "snaNodeOperStartTime"), ("SNA-NAU-MIB", "snaNodeOperLastStateChange"), ("SNA-NAU-MIB", "snaNodeOperActFailures"), ("SNA-NAU-MIB", "snaNodeOperActFailureReason"), ("SNA-NAU-MIB", "snaNodeOperTableLastChange"), ("SNA-NAU-MIB", "snaNodeLinkAdminSpecific"), ("SNA-NAU-MIB", "snaNodeLinkAdminMaxPiu"), ("SNA-NAU-MIB", "snaNodeLinkAdminRowStatus"), ("SNA-NAU-MIB", "snaNodeLinkAdminTableLastChange"), ("SNA-NAU-MIB", "snaNodeLinkOperSpecific"), ("SNA-NAU-MIB", "snaNodeLinkOperMaxPiu"), ("SNA-NAU-MIB", "snaNodeLinkOperTableLastChange"),))
-if mibBuilder.loadTexts: snaNodeGroup.setDescription('A collection of objects providing the\n                instrumentation of SNA nodes.')
-snaLuGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 2, 2, 2)).setObjects(*(("SNA-NAU-MIB", "snaLuAdminName"), ("SNA-NAU-MIB", "snaLuAdminSnaName"), ("SNA-NAU-MIB", "snaLuAdminType"), ("SNA-NAU-MIB", "snaLuAdminDepType"), ("SNA-NAU-MIB", "snaLuAdminLocalAddress"), ("SNA-NAU-MIB", "snaLuAdminDisplayModel"), ("SNA-NAU-MIB", "snaLuAdminTerm"), ("SNA-NAU-MIB", "snaLuAdminRowStatus"), ("SNA-NAU-MIB", "snaLuOperName"), ("SNA-NAU-MIB", "snaLuOperSnaName"), ("SNA-NAU-MIB", "snaLuOperType"), ("SNA-NAU-MIB", "snaLuOperDepType"), ("SNA-NAU-MIB", "snaLuOperLocalAddress"), ("SNA-NAU-MIB", "snaLuOperDisplayModel"), ("SNA-NAU-MIB", "snaLuOperTerm"), ("SNA-NAU-MIB", "snaLuOperState"), ("SNA-NAU-MIB", "snaLuOperSessnCount"),))
-if mibBuilder.loadTexts: snaLuGroup.setDescription('A collection of objects providing the\n                instrumentation of SNA LUs.')
-snaSessionGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 2, 2, 3)).setObjects(*(("SNA-NAU-MIB", "snaLuSessnRluIndex"), ("SNA-NAU-MIB", "snaLuSessnIndex"), ("SNA-NAU-MIB", "snaLuSessnLocalApplName"), ("SNA-NAU-MIB", "snaLuSessnRemoteLuName"), ("SNA-NAU-MIB", "snaLuSessnMaxSndRuSize"), ("SNA-NAU-MIB", "snaLuSessnMaxRcvRuSize"), ("SNA-NAU-MIB", "snaLuSessnSndPacingSize"), ("SNA-NAU-MIB", "snaLuSessnRcvPacingSize"), ("SNA-NAU-MIB", "snaLuSessnActiveTime"), ("SNA-NAU-MIB", "snaLuSessnAdminState"), ("SNA-NAU-MIB", "snaLuSessnOperState"), ("SNA-NAU-MIB", "snaLuSessnSenseData"), ("SNA-NAU-MIB", "snaLuSessnTerminationRu"), ("SNA-NAU-MIB", "snaLuSessnUnbindType"), ("SNA-NAU-MIB", "snaLuSessnLinkIndex"), ("SNA-NAU-MIB", "snaLuSessnStatsSentBytes"), ("SNA-NAU-MIB", "snaLuSessnStatsReceivedBytes"), ("SNA-NAU-MIB", "snaLuSessnStatsSentRus"), ("SNA-NAU-MIB", "snaLuSessnStatsReceivedRus"), ("SNA-NAU-MIB", "snaLuSessnStatsSentNegativeResps"), ("SNA-NAU-MIB", "snaLuSessnStatsReceivedNegativeResps"),))
-if mibBuilder.loadTexts: snaSessionGroup.setDescription('A collection of objects providing the\n                instrumentation of SNA sessions.')
-snaPu20Group = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 2, 2, 4)).setObjects(*(("SNA-NAU-MIB", "snaPu20StatsSentBytes"), ("SNA-NAU-MIB", "snaPu20StatsReceivedBytes"), ("SNA-NAU-MIB", "snaPu20StatsSentPius"), ("SNA-NAU-MIB", "snaPu20StatsReceivedPius"), ("SNA-NAU-MIB", "snaPu20StatsSentNegativeResps"), ("SNA-NAU-MIB", "snaPu20StatsReceivedNegativeResps"), ("SNA-NAU-MIB", "snaPu20StatsActLus"), ("SNA-NAU-MIB", "snaPu20StatsInActLus"), ("SNA-NAU-MIB", "snaPu20StatsBindLus"),))
-if mibBuilder.loadTexts: snaPu20Group.setDescription('A collection of objects providing the\n                instrumentation of PU 2.0.')
-snaMgtToolsRtmGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 2, 2, 5)).setObjects(*(("SNA-NAU-MIB", "snaLuRtmState"), ("SNA-NAU-MIB", "snaLuRtmStateTime"), ("SNA-NAU-MIB", "snaLuRtmDef"), ("SNA-NAU-MIB", "snaLuRtmBoundary1"), ("SNA-NAU-MIB", "snaLuRtmBoundary2"), ("SNA-NAU-MIB", "snaLuRtmBoundary3"), ("SNA-NAU-MIB", "snaLuRtmBoundary4"), ("SNA-NAU-MIB", "snaLuRtmCounter1"), ("SNA-NAU-MIB", "snaLuRtmCounter2"), ("SNA-NAU-MIB", "snaLuRtmCounter3"), ("SNA-NAU-MIB", "snaLuRtmCounter4"), ("SNA-NAU-MIB", "snaLuRtmOverFlows"), ("SNA-NAU-MIB", "snaLuRtmObjPercent"), ("SNA-NAU-MIB", "snaLuRtmObjRange"), ("SNA-NAU-MIB", "snaLuRtmNumTrans"), ("SNA-NAU-MIB", "snaLuRtmLastRspTime"), ("SNA-NAU-MIB", "snaLuRtmAvgRspTime"),))
-if mibBuilder.loadTexts: snaMgtToolsRtmGroup.setDescription('A collection of objects providing the\n                instrumentation of RTM for SNA LU 2.0.')
-mibBuilder.exportSymbols("SNA-NAU-MIB", snaLuOperName=snaLuOperName, snaMgtToolsRtmGroup=snaMgtToolsRtmGroup, snaNodeOperBlockNum=snaNodeOperBlockNum, snaNodeOperHostSscpId=snaNodeOperHostSscpId, snaNodeStateChangeTrap=snaNodeStateChangeTrap, snaLuRtmObjRange=snaLuRtmObjRange, snaNodeAdminEntry=snaNodeAdminEntry, snaLuSessnOperState=snaLuSessnOperState, snaNodeOperEnablingMethod=snaNodeOperEnablingMethod, snaLuSessnUnbindType=snaLuSessnUnbindType, snaNodeAdminType=snaNodeAdminType, snaLuSessnStatsReceivedRus=snaLuSessnStatsReceivedRus, snaPu20StatsReceivedPius=snaPu20StatsReceivedPius, snaNodeOperType=snaNodeOperType, snaLuOperDisplayModel=snaLuOperDisplayModel, snaLuOperTerm=snaLuOperTerm, snaPu20StatsReceivedBytes=snaPu20StatsReceivedBytes, snaNodeOperTable=snaNodeOperTable, snaNodeAdminBlockNum=snaNodeAdminBlockNum, snaLuRtmCounter3=snaLuRtmCounter3, snaPu20StatsSentNegativeResps=snaPu20StatsSentNegativeResps, snaLuSessnAdminState=snaLuSessnAdminState, snaLuSessnStatsSentRus=snaLuSessnStatsSentRus, snaLuSessnStatsReceivedBytes=snaLuSessnStatsReceivedBytes, snaNodeAdminXidFormat=snaNodeAdminXidFormat, snaLuSessnTerminationRu=snaLuSessnTerminationRu, snaNodeOperTableLastChange=snaNodeOperTableLastChange, snaLuOperTable=snaLuOperTable, snaNodeTraps=snaNodeTraps, snaLuSessnStatsEntry=snaLuSessnStatsEntry, snaPu20StatsSentPius=snaPu20StatsSentPius, snaNodeAdminName=snaNodeAdminName, snaLuRtmBoundary2=snaLuRtmBoundary2, snaPu20StatsActLus=snaPu20StatsActLus, snaLuAdminSnaName=snaLuAdminSnaName, snaLuRtmLuIndex=snaLuRtmLuIndex, snaNodeOperActFailures=snaNodeOperActFailures, snaLuAdminTerm=snaLuAdminTerm, snanauMIB=snanauMIB, snaLuSessnIndex=snaLuSessnIndex, snaLuSessnSenseData=snaLuSessnSenseData, snaSessionGroup=snaSessionGroup, snaLuAdminLuIndex=snaLuAdminLuIndex, snaMgtTools=snaMgtTools, snaNodeLinkAdminIndex=snaNodeLinkAdminIndex, snanauCompliance=snanauCompliance, snaLuRtmState=snaLuRtmState, snaNodeLinkAdminTableLastChange=snaNodeLinkAdminTableLastChange, snaNodeAdminStopMethod=snaNodeAdminStopMethod, snaLuGroup=snaLuGroup, snaLuSessnStatsSentNegativeResps=snaLuSessnStatsSentNegativeResps, snaNodeLinkAdminEntry=snaNodeLinkAdminEntry, snaNodeAdminEnablingMethod=snaNodeAdminEnablingMethod, snaNodeAdminLuTermDefault=snaNodeAdminLuTermDefault, snaLuOperSnaName=snaLuOperSnaName, snaLuAdminType=snaLuAdminType, snanauGroups=snanauGroups, snaLuSessnRcvPacingSize=snaLuSessnRcvPacingSize, snaPu20Group=snaPu20Group, snaPu20StatsEntry=snaPu20StatsEntry, snaNodeLinkAdminRowStatus=snaNodeLinkAdminRowStatus, snaLuRtmAvgRspTime=snaLuRtmAvgRspTime, snaPu20StatsBindLus=snaPu20StatsBindLus, snaLuRtmEntry=snaLuRtmEntry, snaNodeLinkOperTable=snaNodeLinkOperTable, snanauConformance=snanauConformance, snaLuSessnStatsSentBytes=snaLuSessnStatsSentBytes, snaLuSessnLinkIndex=snaLuSessnLinkIndex, snaNodeOperEntry=snaNodeOperEntry, snaNodeOperStartTime=snaNodeOperStartTime, snaLuSessnSndPacingSize=snaLuSessnSndPacingSize, snaLuRtmObjPercent=snaLuRtmObjPercent, snaLuSessnRluIndex=snaLuSessnRluIndex, snaLuRtmOverFlows=snaLuRtmOverFlows, snaLuSessnMaxSndRuSize=snaLuSessnMaxSndRuSize, snaNodeLinkOperMaxPiu=snaNodeLinkOperMaxPiu, snaLuRtmBoundary4=snaLuRtmBoundary4, snaLuStateChangeTrap=snaLuStateChangeTrap, snaLuRtmNumTrans=snaLuRtmNumTrans, snaLuOperType=snaLuOperType, snaLuRtmCounter1=snaLuRtmCounter1, snaLuOperDepType=snaLuOperDepType, snaLuRtmCounter2=snaLuRtmCounter2, snaNodeAdminRowStatus=snaNodeAdminRowStatus, snaNodeOperLastStateChange=snaNodeOperLastStateChange, snaLuRtmStateTime=snaLuRtmStateTime, snanauCompliances=snanauCompliances, snaNodeAdminHostDescription=snaNodeAdminHostDescription, snaLuOperLocalAddress=snaLuOperLocalAddress, snaLuSessnLocalApplName=snaLuSessnLocalApplName, snaLuRtmDef=snaLuRtmDef, snaLuTraps=snaLuTraps, snaNodeOperHostDescription=snaNodeOperHostDescription, snaNodeLinkAdminSpecific=snaNodeLinkAdminSpecific, snaLuRtmBoundary3=snaLuRtmBoundary3, snaPu20StatsSentBytes=snaPu20StatsSentBytes, snaNodeLinkOperEntry=snaNodeLinkOperEntry, snaLuRtmCounter4=snaLuRtmCounter4, snaLuSessnActiveTime=snaLuSessnActiveTime, snaNodeAdminMaxLu=snaNodeAdminMaxLu, snaLuOperState=snaLuOperState, snaLuSessnTable=snaLuSessnTable, snaNodeAdminIdNum=snaNodeAdminIdNum, snaPu20StatsReceivedNegativeResps=snaPu20StatsReceivedNegativeResps, snaLuAdminRowStatus=snaLuAdminRowStatus, snaLuAdminDisplayModel=snaLuAdminDisplayModel, snaNodeLinkOperSpecific=snaNodeLinkOperSpecific, snaNodeOperActFailureReason=snaNodeOperActFailureReason, snaNodeAdminTableLastChange=snaNodeAdminTableLastChange, snaLuOperEntry=snaLuOperEntry, snaLuSessnStatsReceivedNegativeResps=snaLuSessnStatsReceivedNegativeResps, snaNodeAdminTable=snaNodeAdminTable, snaNodeAdminState=snaNodeAdminState, snaLuRtmBoundary1=snaLuRtmBoundary1, snaLuSessnRemoteLuName=snaLuSessnRemoteLuName, snaNodeOperLuTermDefault=snaNodeOperLuTermDefault, snaNodeLinkOperTableLastChange=snaNodeLinkOperTableLastChange, snaLuSessnMaxRcvRuSize=snaLuSessnMaxRcvRuSize, snaNodeLinkAdminTable=snaNodeLinkAdminTable, snaNodeOperXidFormat=snaNodeOperXidFormat, snaLuAdminLocalAddress=snaLuAdminLocalAddress, snaLuAdminDepType=snaLuAdminDepType, snaNodeOperIdNum=snaNodeOperIdNum, snaLuRtmTable=snaLuRtmTable, snaLuAdminEntry=snaLuAdminEntry, snaPu20StatsTable=snaPu20StatsTable, snaLuAdminTable=snaLuAdminTable, snaNodeAdminIndex=snaNodeAdminIndex, snaNodeGroup=snaNodeGroup, snaLuAdminName=snaLuAdminName, snaLuOperSessnCount=snaLuOperSessnCount, snaLu=snaLu, snanauObjects=snanauObjects, snaLuRtmLastRspTime=snaLuRtmLastRspTime, snaNodeLinkAdminMaxPiu=snaNodeLinkAdminMaxPiu, snaNodeOperStopMethod=snaNodeOperStopMethod, snaNode=snaNode, snaLuSessnEntry=snaLuSessnEntry, PYSNMP_MODULE_ID=snanauMIB, snaNodeOperState=snaNodeOperState, snaNodeOperName=snaNodeOperName, snaLuRtmPuIndex=snaLuRtmPuIndex, snaLuSessnBindFailTrap=snaLuSessnBindFailTrap, snaPu20StatsInActLus=snaPu20StatsInActLus, snaLuSessnStatsTable=snaLuSessnStatsTable, snaNodeOperMaxLu=snaNodeOperMaxLu, snaNodeActFailTrap=snaNodeActFailTrap)
+_Ba='snaMgtToolsRtmGroup'
+_BZ='snaPu20Group'
+_BY='snaSessionGroup'
+_BX='snaLuGroup'
+_BW='snaNodeGroup'
+_BV='snaLuRtmAvgRspTime'
+_BU='snaLuRtmLastRspTime'
+_BT='snaLuRtmNumTrans'
+_BS='snaLuRtmObjRange'
+_BR='snaLuRtmObjPercent'
+_BQ='snaLuRtmOverFlows'
+_BP='snaLuRtmCounter4'
+_BO='snaLuRtmCounter3'
+_BN='snaLuRtmCounter2'
+_BM='snaLuRtmCounter1'
+_BL='snaLuRtmBoundary4'
+_BK='snaLuRtmBoundary3'
+_BJ='snaLuRtmBoundary2'
+_BI='snaLuRtmBoundary1'
+_BH='snaLuRtmDef'
+_BG='snaLuRtmStateTime'
+_BF='snaLuRtmState'
+_BE='snaPu20StatsBindLus'
+_BD='snaPu20StatsInActLus'
+_BC='snaPu20StatsActLus'
+_BB='snaPu20StatsReceivedNegativeResps'
+_BA='snaPu20StatsSentNegativeResps'
+_B9='snaPu20StatsReceivedPius'
+_B8='snaPu20StatsSentPius'
+_B7='snaPu20StatsReceivedBytes'
+_B6='snaPu20StatsSentBytes'
+_B5='snaLuSessnStatsReceivedNegativeResps'
+_B4='snaLuSessnStatsSentNegativeResps'
+_B3='snaLuSessnStatsReceivedRus'
+_B2='snaLuSessnStatsSentRus'
+_B1='snaLuSessnStatsReceivedBytes'
+_B0='snaLuSessnStatsSentBytes'
+_A_='snaLuSessnLinkIndex'
+_Az='snaLuSessnUnbindType'
+_Ay='snaLuSessnTerminationRu'
+_Ax='snaLuSessnAdminState'
+_Aw='snaLuSessnActiveTime'
+_Av='snaLuSessnRcvPacingSize'
+_Au='snaLuSessnSndPacingSize'
+_At='snaLuSessnMaxRcvRuSize'
+_As='snaLuSessnMaxSndRuSize'
+_Ar='snaLuOperSessnCount'
+_Aq='snaLuOperTerm'
+_Ap='snaLuOperDisplayModel'
+_Ao='snaLuOperLocalAddress'
+_An='snaLuOperDepType'
+_Am='snaLuOperType'
+_Al='snaLuAdminRowStatus'
+_Ak='snaLuAdminTerm'
+_Aj='snaLuAdminDisplayModel'
+_Ai='snaLuAdminLocalAddress'
+_Ah='snaLuAdminDepType'
+_Ag='snaLuAdminType'
+_Af='snaLuAdminSnaName'
+_Ae='snaLuAdminName'
+_Ad='snaNodeLinkOperTableLastChange'
+_Ac='snaNodeLinkOperMaxPiu'
+_Ab='snaNodeLinkOperSpecific'
+_Aa='snaNodeLinkAdminTableLastChange'
+_AZ='snaNodeLinkAdminRowStatus'
+_AY='snaNodeLinkAdminMaxPiu'
+_AX='snaNodeLinkAdminSpecific'
+_AW='snaNodeOperTableLastChange'
+_AV='snaNodeOperActFailures'
+_AU='snaNodeOperLastStateChange'
+_AT='snaNodeOperStartTime'
+_AS='snaNodeOperHostSscpId'
+_AR='snaNodeOperStopMethod'
+_AQ='snaNodeOperHostDescription'
+_AP='snaNodeOperMaxLu'
+_AO='snaNodeOperLuTermDefault'
+_AN='snaNodeOperEnablingMethod'
+_AM='snaNodeOperIdNum'
+_AL='snaNodeOperBlockNum'
+_AK='snaNodeOperXidFormat'
+_AJ='snaNodeOperType'
+_AI='snaNodeAdminTableLastChange'
+_AH='snaNodeAdminRowStatus'
+_AG='snaNodeAdminState'
+_AF='snaNodeAdminStopMethod'
+_AE='snaNodeAdminHostDescription'
+_AD='snaNodeAdminMaxLu'
+_AC='snaNodeAdminLuTermDefault'
+_AB='snaNodeAdminEnablingMethod'
+_AA='snaNodeAdminIdNum'
+_A9='snaNodeAdminBlockNum'
+_A8='snaNodeAdminXidFormat'
+_A7='snaNodeAdminType'
+_A6='snaNodeAdminName'
+_A5='snaLuSessnStatsEntry'
+_A4='snaLuOperEntry'
+_A3='snaNodeLinkOperEntry'
+_A2='snaNodeOperEntry'
+_A1='snaLuRtmLuIndex'
+_A0='snaLuRtmPuIndex'
+_z='unbound'
+_y='dynamic'
+_x='model5B'
+_w='model5A'
+_v='model4B'
+_u='model4A'
+_t='model3B'
+_s='model3A'
+_r='model2B'
+_q='model2A'
+_p='invalid'
+_o='independent'
+_n='dependent'
+_m='snaNodeLinkAdminIndex'
+_l='normal'
+_k='onlyMS'
+_j='demand'
+_i='startup'
+_h='format3'
+_g='format1'
+_f='format0'
+_e='networkNode'
+_d='endNode'
+_c='snaLuSessnSenseData'
+_b='snaLuSessnOperState'
+_a='snaLuSessnRemoteLuName'
+_Z='snaLuSessnLocalApplName'
+_Y='snaLuOperState'
+_X='snaLuOperSnaName'
+_W='snaLuOperName'
+_V='snaNodeOperActFailureReason'
+_U='snaLuSessnIndex'
+_T='snaLuSessnRluIndex'
+_S='snaLuAdminLuIndex'
+_R='active'
+_Q='inactive'
+_P='snaNodeOperState'
+_O='snaNodeOperName'
+_N='poweroff'
+_M='rshutd'
+_L='termself'
+_K='unbind'
+_J='not-accessible'
+_I='snaNodeAdminIndex'
+_H='OctetString'
+_G='other'
+_F='DisplayString'
+_E='read-create'
+_D='Integer32'
+_C='read-only'
+_B='SNA-NAU-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_H,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,InstancePointer,PhysAddress,RowStatus,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC',_F,'InstancePointer','PhysAddress','RowStatus','TextualConvention','TimeStamp')
+snanauMIB=ModuleIdentity((1,3,6,1,2,1,34))
+_SnanauObjects_ObjectIdentity=ObjectIdentity
+snanauObjects=_SnanauObjects_ObjectIdentity((1,3,6,1,2,1,34,1))
+_SnaNode_ObjectIdentity=ObjectIdentity
+snaNode=_SnaNode_ObjectIdentity((1,3,6,1,2,1,34,1,1))
+_SnaNodeAdminTable_Object=MibTable
+snaNodeAdminTable=_SnaNodeAdminTable_Object((1,3,6,1,2,1,34,1,1,1))
+if mibBuilder.loadTexts:snaNodeAdminTable.setStatus(_A)
+_SnaNodeAdminEntry_Object=MibTableRow
+snaNodeAdminEntry=_SnaNodeAdminEntry_Object((1,3,6,1,2,1,34,1,1,1,1))
+snaNodeAdminEntry.setIndexNames((0,_B,_I))
+if mibBuilder.loadTexts:snaNodeAdminEntry.setStatus(_A)
+_SnaNodeAdminIndex_Type=Integer32
+_SnaNodeAdminIndex_Object=MibTableColumn
+snaNodeAdminIndex=_SnaNodeAdminIndex_Object((1,3,6,1,2,1,34,1,1,1,1,1),_SnaNodeAdminIndex_Type())
+snaNodeAdminIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:snaNodeAdminIndex.setStatus(_A)
+class _SnaNodeAdminName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,17))
+_SnaNodeAdminName_Type.__name__=_F
+_SnaNodeAdminName_Object=MibTableColumn
+snaNodeAdminName=_SnaNodeAdminName_Object((1,3,6,1,2,1,34,1,1,1,1,2),_SnaNodeAdminName_Type())
+snaNodeAdminName.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaNodeAdminName.setStatus(_A)
+class _SnaNodeAdminType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_G,1),('pu10',2),('pu20',3),('t21len',4),(_d,5),(_e,6)))
+_SnaNodeAdminType_Type.__name__=_D
+_SnaNodeAdminType_Object=MibTableColumn
+snaNodeAdminType=_SnaNodeAdminType_Object((1,3,6,1,2,1,34,1,1,1,1,3),_SnaNodeAdminType_Type())
+snaNodeAdminType.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaNodeAdminType.setStatus(_A)
+class _SnaNodeAdminXidFormat_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_f,1),(_g,2),(_h,3)))
+_SnaNodeAdminXidFormat_Type.__name__=_D
+_SnaNodeAdminXidFormat_Object=MibTableColumn
+snaNodeAdminXidFormat=_SnaNodeAdminXidFormat_Object((1,3,6,1,2,1,34,1,1,1,1,4),_SnaNodeAdminXidFormat_Type())
+snaNodeAdminXidFormat.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaNodeAdminXidFormat.setStatus(_A)
+class _SnaNodeAdminBlockNum_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,3));fixedLength=3
+_SnaNodeAdminBlockNum_Type.__name__=_F
+_SnaNodeAdminBlockNum_Object=MibTableColumn
+snaNodeAdminBlockNum=_SnaNodeAdminBlockNum_Object((1,3,6,1,2,1,34,1,1,1,1,5),_SnaNodeAdminBlockNum_Type())
+snaNodeAdminBlockNum.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaNodeAdminBlockNum.setStatus(_A)
+class _SnaNodeAdminIdNum_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(5,5));fixedLength=5
+_SnaNodeAdminIdNum_Type.__name__=_F
+_SnaNodeAdminIdNum_Object=MibTableColumn
+snaNodeAdminIdNum=_SnaNodeAdminIdNum_Object((1,3,6,1,2,1,34,1,1,1,1,6),_SnaNodeAdminIdNum_Type())
+snaNodeAdminIdNum.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaNodeAdminIdNum.setStatus(_A)
+class _SnaNodeAdminEnablingMethod_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),(_i,2),(_j,3),(_k,4)))
+_SnaNodeAdminEnablingMethod_Type.__name__=_D
+_SnaNodeAdminEnablingMethod_Object=MibTableColumn
+snaNodeAdminEnablingMethod=_SnaNodeAdminEnablingMethod_Object((1,3,6,1,2,1,34,1,1,1,1,7),_SnaNodeAdminEnablingMethod_Type())
+snaNodeAdminEnablingMethod.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaNodeAdminEnablingMethod.setStatus(_A)
+class _SnaNodeAdminLuTermDefault_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_K,1),(_L,2),(_M,3),(_N,4)))
+_SnaNodeAdminLuTermDefault_Type.__name__=_D
+_SnaNodeAdminLuTermDefault_Object=MibTableColumn
+snaNodeAdminLuTermDefault=_SnaNodeAdminLuTermDefault_Object((1,3,6,1,2,1,34,1,1,1,1,8),_SnaNodeAdminLuTermDefault_Type())
+snaNodeAdminLuTermDefault.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaNodeAdminLuTermDefault.setStatus(_A)
+_SnaNodeAdminMaxLu_Type=Integer32
+_SnaNodeAdminMaxLu_Object=MibTableColumn
+snaNodeAdminMaxLu=_SnaNodeAdminMaxLu_Object((1,3,6,1,2,1,34,1,1,1,1,9),_SnaNodeAdminMaxLu_Type())
+snaNodeAdminMaxLu.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaNodeAdminMaxLu.setStatus(_A)
+class _SnaNodeAdminHostDescription_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
+_SnaNodeAdminHostDescription_Type.__name__=_F
+_SnaNodeAdminHostDescription_Object=MibTableColumn
+snaNodeAdminHostDescription=_SnaNodeAdminHostDescription_Object((1,3,6,1,2,1,34,1,1,1,1,10),_SnaNodeAdminHostDescription_Type())
+snaNodeAdminHostDescription.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaNodeAdminHostDescription.setStatus(_A)
+class _SnaNodeAdminStopMethod_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),(_l,2),('immed',3),('force',4)))
+_SnaNodeAdminStopMethod_Type.__name__=_D
+_SnaNodeAdminStopMethod_Object=MibTableColumn
+snaNodeAdminStopMethod=_SnaNodeAdminStopMethod_Object((1,3,6,1,2,1,34,1,1,1,1,11),_SnaNodeAdminStopMethod_Type())
+snaNodeAdminStopMethod.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaNodeAdminStopMethod.setStatus(_A)
+class _SnaNodeAdminState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_Q,1),(_R,2)))
+_SnaNodeAdminState_Type.__name__=_D
+_SnaNodeAdminState_Object=MibTableColumn
+snaNodeAdminState=_SnaNodeAdminState_Object((1,3,6,1,2,1,34,1,1,1,1,12),_SnaNodeAdminState_Type())
+snaNodeAdminState.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaNodeAdminState.setStatus(_A)
+_SnaNodeAdminRowStatus_Type=RowStatus
+_SnaNodeAdminRowStatus_Object=MibTableColumn
+snaNodeAdminRowStatus=_SnaNodeAdminRowStatus_Object((1,3,6,1,2,1,34,1,1,1,1,13),_SnaNodeAdminRowStatus_Type())
+snaNodeAdminRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaNodeAdminRowStatus.setStatus(_A)
+_SnaNodeAdminTableLastChange_Type=TimeStamp
+_SnaNodeAdminTableLastChange_Object=MibScalar
+snaNodeAdminTableLastChange=_SnaNodeAdminTableLastChange_Object((1,3,6,1,2,1,34,1,1,2),_SnaNodeAdminTableLastChange_Type())
+snaNodeAdminTableLastChange.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeAdminTableLastChange.setStatus(_A)
+_SnaNodeOperTable_Object=MibTable
+snaNodeOperTable=_SnaNodeOperTable_Object((1,3,6,1,2,1,34,1,1,3))
+if mibBuilder.loadTexts:snaNodeOperTable.setStatus(_A)
+_SnaNodeOperEntry_Object=MibTableRow
+snaNodeOperEntry=_SnaNodeOperEntry_Object((1,3,6,1,2,1,34,1,1,3,1))
+if mibBuilder.loadTexts:snaNodeOperEntry.setStatus(_A)
+class _SnaNodeOperName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,17))
+_SnaNodeOperName_Type.__name__=_F
+_SnaNodeOperName_Object=MibTableColumn
+snaNodeOperName=_SnaNodeOperName_Object((1,3,6,1,2,1,34,1,1,3,1,1),_SnaNodeOperName_Type())
+snaNodeOperName.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeOperName.setStatus(_A)
+class _SnaNodeOperType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_G,1),('pu10',2),('pu20',3),('t21LEN',4),(_d,5),(_e,6)))
+_SnaNodeOperType_Type.__name__=_D
+_SnaNodeOperType_Object=MibTableColumn
+snaNodeOperType=_SnaNodeOperType_Object((1,3,6,1,2,1,34,1,1,3,1,2),_SnaNodeOperType_Type())
+snaNodeOperType.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeOperType.setStatus(_A)
+class _SnaNodeOperXidFormat_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_f,1),(_g,2),(_h,3)))
+_SnaNodeOperXidFormat_Type.__name__=_D
+_SnaNodeOperXidFormat_Object=MibTableColumn
+snaNodeOperXidFormat=_SnaNodeOperXidFormat_Object((1,3,6,1,2,1,34,1,1,3,1,3),_SnaNodeOperXidFormat_Type())
+snaNodeOperXidFormat.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeOperXidFormat.setStatus(_A)
+class _SnaNodeOperBlockNum_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,3));fixedLength=3
+_SnaNodeOperBlockNum_Type.__name__=_F
+_SnaNodeOperBlockNum_Object=MibTableColumn
+snaNodeOperBlockNum=_SnaNodeOperBlockNum_Object((1,3,6,1,2,1,34,1,1,3,1,4),_SnaNodeOperBlockNum_Type())
+snaNodeOperBlockNum.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeOperBlockNum.setStatus(_A)
+class _SnaNodeOperIdNum_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(5,5));fixedLength=5
+_SnaNodeOperIdNum_Type.__name__=_F
+_SnaNodeOperIdNum_Object=MibTableColumn
+snaNodeOperIdNum=_SnaNodeOperIdNum_Object((1,3,6,1,2,1,34,1,1,3,1,5),_SnaNodeOperIdNum_Type())
+snaNodeOperIdNum.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeOperIdNum.setStatus(_A)
+class _SnaNodeOperEnablingMethod_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),(_i,2),(_j,3),(_k,4)))
+_SnaNodeOperEnablingMethod_Type.__name__=_D
+_SnaNodeOperEnablingMethod_Object=MibTableColumn
+snaNodeOperEnablingMethod=_SnaNodeOperEnablingMethod_Object((1,3,6,1,2,1,34,1,1,3,1,6),_SnaNodeOperEnablingMethod_Type())
+snaNodeOperEnablingMethod.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeOperEnablingMethod.setStatus(_A)
+class _SnaNodeOperLuTermDefault_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_K,1),(_L,2),(_M,3),(_N,4)))
+_SnaNodeOperLuTermDefault_Type.__name__=_D
+_SnaNodeOperLuTermDefault_Object=MibTableColumn
+snaNodeOperLuTermDefault=_SnaNodeOperLuTermDefault_Object((1,3,6,1,2,1,34,1,1,3,1,7),_SnaNodeOperLuTermDefault_Type())
+snaNodeOperLuTermDefault.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeOperLuTermDefault.setStatus(_A)
+_SnaNodeOperMaxLu_Type=Integer32
+_SnaNodeOperMaxLu_Object=MibTableColumn
+snaNodeOperMaxLu=_SnaNodeOperMaxLu_Object((1,3,6,1,2,1,34,1,1,3,1,8),_SnaNodeOperMaxLu_Type())
+snaNodeOperMaxLu.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeOperMaxLu.setStatus(_A)
+class _SnaNodeOperHostDescription_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
+_SnaNodeOperHostDescription_Type.__name__=_F
+_SnaNodeOperHostDescription_Object=MibTableColumn
+snaNodeOperHostDescription=_SnaNodeOperHostDescription_Object((1,3,6,1,2,1,34,1,1,3,1,9),_SnaNodeOperHostDescription_Type())
+snaNodeOperHostDescription.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeOperHostDescription.setStatus(_A)
+class _SnaNodeOperStopMethod_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),(_l,2),('immed',3),('force',4)))
+_SnaNodeOperStopMethod_Type.__name__=_D
+_SnaNodeOperStopMethod_Object=MibTableColumn
+snaNodeOperStopMethod=_SnaNodeOperStopMethod_Object((1,3,6,1,2,1,34,1,1,3,1,10),_SnaNodeOperStopMethod_Type())
+snaNodeOperStopMethod.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeOperStopMethod.setStatus(_A)
+class _SnaNodeOperState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_Q,1),(_R,2),('waiting',3),('stopping',4)))
+_SnaNodeOperState_Type.__name__=_D
+_SnaNodeOperState_Object=MibTableColumn
+snaNodeOperState=_SnaNodeOperState_Object((1,3,6,1,2,1,34,1,1,3,1,11),_SnaNodeOperState_Type())
+snaNodeOperState.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeOperState.setStatus(_A)
+class _SnaNodeOperHostSscpId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,6))
+_SnaNodeOperHostSscpId_Type.__name__=_H
+_SnaNodeOperHostSscpId_Object=MibTableColumn
+snaNodeOperHostSscpId=_SnaNodeOperHostSscpId_Object((1,3,6,1,2,1,34,1,1,3,1,12),_SnaNodeOperHostSscpId_Type())
+snaNodeOperHostSscpId.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeOperHostSscpId.setStatus(_A)
+_SnaNodeOperStartTime_Type=TimeStamp
+_SnaNodeOperStartTime_Object=MibTableColumn
+snaNodeOperStartTime=_SnaNodeOperStartTime_Object((1,3,6,1,2,1,34,1,1,3,1,13),_SnaNodeOperStartTime_Type())
+snaNodeOperStartTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeOperStartTime.setStatus(_A)
+_SnaNodeOperLastStateChange_Type=TimeStamp
+_SnaNodeOperLastStateChange_Object=MibTableColumn
+snaNodeOperLastStateChange=_SnaNodeOperLastStateChange_Object((1,3,6,1,2,1,34,1,1,3,1,14),_SnaNodeOperLastStateChange_Type())
+snaNodeOperLastStateChange.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeOperLastStateChange.setStatus(_A)
+_SnaNodeOperActFailures_Type=Counter32
+_SnaNodeOperActFailures_Object=MibTableColumn
+snaNodeOperActFailures=_SnaNodeOperActFailures_Object((1,3,6,1,2,1,34,1,1,3,1,15),_SnaNodeOperActFailures_Type())
+snaNodeOperActFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeOperActFailures.setStatus(_A)
+class _SnaNodeOperActFailureReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_G,1),('linkFailure',2),('noResources',3),('badConfiguration',4),('internalError',5)))
+_SnaNodeOperActFailureReason_Type.__name__=_D
+_SnaNodeOperActFailureReason_Object=MibTableColumn
+snaNodeOperActFailureReason=_SnaNodeOperActFailureReason_Object((1,3,6,1,2,1,34,1,1,3,1,16),_SnaNodeOperActFailureReason_Type())
+snaNodeOperActFailureReason.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeOperActFailureReason.setStatus(_A)
+_SnaNodeOperTableLastChange_Type=TimeStamp
+_SnaNodeOperTableLastChange_Object=MibScalar
+snaNodeOperTableLastChange=_SnaNodeOperTableLastChange_Object((1,3,6,1,2,1,34,1,1,4),_SnaNodeOperTableLastChange_Type())
+snaNodeOperTableLastChange.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeOperTableLastChange.setStatus(_A)
+_SnaPu20StatsTable_Object=MibTable
+snaPu20StatsTable=_SnaPu20StatsTable_Object((1,3,6,1,2,1,34,1,1,5))
+if mibBuilder.loadTexts:snaPu20StatsTable.setStatus(_A)
+_SnaPu20StatsEntry_Object=MibTableRow
+snaPu20StatsEntry=_SnaPu20StatsEntry_Object((1,3,6,1,2,1,34,1,1,5,1))
+snaPu20StatsEntry.setIndexNames((0,_B,_I))
+if mibBuilder.loadTexts:snaPu20StatsEntry.setStatus(_A)
+_SnaPu20StatsSentBytes_Type=Counter32
+_SnaPu20StatsSentBytes_Object=MibTableColumn
+snaPu20StatsSentBytes=_SnaPu20StatsSentBytes_Object((1,3,6,1,2,1,34,1,1,5,1,1),_SnaPu20StatsSentBytes_Type())
+snaPu20StatsSentBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaPu20StatsSentBytes.setStatus(_A)
+_SnaPu20StatsReceivedBytes_Type=Counter32
+_SnaPu20StatsReceivedBytes_Object=MibTableColumn
+snaPu20StatsReceivedBytes=_SnaPu20StatsReceivedBytes_Object((1,3,6,1,2,1,34,1,1,5,1,2),_SnaPu20StatsReceivedBytes_Type())
+snaPu20StatsReceivedBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaPu20StatsReceivedBytes.setStatus(_A)
+_SnaPu20StatsSentPius_Type=Counter32
+_SnaPu20StatsSentPius_Object=MibTableColumn
+snaPu20StatsSentPius=_SnaPu20StatsSentPius_Object((1,3,6,1,2,1,34,1,1,5,1,3),_SnaPu20StatsSentPius_Type())
+snaPu20StatsSentPius.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaPu20StatsSentPius.setStatus(_A)
+_SnaPu20StatsReceivedPius_Type=Counter32
+_SnaPu20StatsReceivedPius_Object=MibTableColumn
+snaPu20StatsReceivedPius=_SnaPu20StatsReceivedPius_Object((1,3,6,1,2,1,34,1,1,5,1,4),_SnaPu20StatsReceivedPius_Type())
+snaPu20StatsReceivedPius.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaPu20StatsReceivedPius.setStatus(_A)
+_SnaPu20StatsSentNegativeResps_Type=Counter32
+_SnaPu20StatsSentNegativeResps_Object=MibTableColumn
+snaPu20StatsSentNegativeResps=_SnaPu20StatsSentNegativeResps_Object((1,3,6,1,2,1,34,1,1,5,1,5),_SnaPu20StatsSentNegativeResps_Type())
+snaPu20StatsSentNegativeResps.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaPu20StatsSentNegativeResps.setStatus(_A)
+_SnaPu20StatsReceivedNegativeResps_Type=Counter32
+_SnaPu20StatsReceivedNegativeResps_Object=MibTableColumn
+snaPu20StatsReceivedNegativeResps=_SnaPu20StatsReceivedNegativeResps_Object((1,3,6,1,2,1,34,1,1,5,1,6),_SnaPu20StatsReceivedNegativeResps_Type())
+snaPu20StatsReceivedNegativeResps.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaPu20StatsReceivedNegativeResps.setStatus(_A)
+_SnaPu20StatsActLus_Type=Gauge32
+_SnaPu20StatsActLus_Object=MibTableColumn
+snaPu20StatsActLus=_SnaPu20StatsActLus_Object((1,3,6,1,2,1,34,1,1,5,1,7),_SnaPu20StatsActLus_Type())
+snaPu20StatsActLus.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaPu20StatsActLus.setStatus(_A)
+_SnaPu20StatsInActLus_Type=Gauge32
+_SnaPu20StatsInActLus_Object=MibTableColumn
+snaPu20StatsInActLus=_SnaPu20StatsInActLus_Object((1,3,6,1,2,1,34,1,1,5,1,8),_SnaPu20StatsInActLus_Type())
+snaPu20StatsInActLus.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaPu20StatsInActLus.setStatus(_A)
+_SnaPu20StatsBindLus_Type=Gauge32
+_SnaPu20StatsBindLus_Object=MibTableColumn
+snaPu20StatsBindLus=_SnaPu20StatsBindLus_Object((1,3,6,1,2,1,34,1,1,5,1,9),_SnaPu20StatsBindLus_Type())
+snaPu20StatsBindLus.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaPu20StatsBindLus.setStatus(_A)
+_SnaNodeLinkAdminTable_Object=MibTable
+snaNodeLinkAdminTable=_SnaNodeLinkAdminTable_Object((1,3,6,1,2,1,34,1,1,6))
+if mibBuilder.loadTexts:snaNodeLinkAdminTable.setStatus(_A)
+_SnaNodeLinkAdminEntry_Object=MibTableRow
+snaNodeLinkAdminEntry=_SnaNodeLinkAdminEntry_Object((1,3,6,1,2,1,34,1,1,6,1))
+snaNodeLinkAdminEntry.setIndexNames((0,_B,_I),(0,_B,_m))
+if mibBuilder.loadTexts:snaNodeLinkAdminEntry.setStatus(_A)
+_SnaNodeLinkAdminIndex_Type=Integer32
+_SnaNodeLinkAdminIndex_Object=MibTableColumn
+snaNodeLinkAdminIndex=_SnaNodeLinkAdminIndex_Object((1,3,6,1,2,1,34,1,1,6,1,1),_SnaNodeLinkAdminIndex_Type())
+snaNodeLinkAdminIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:snaNodeLinkAdminIndex.setStatus(_A)
+_SnaNodeLinkAdminSpecific_Type=InstancePointer
+_SnaNodeLinkAdminSpecific_Object=MibTableColumn
+snaNodeLinkAdminSpecific=_SnaNodeLinkAdminSpecific_Object((1,3,6,1,2,1,34,1,1,6,1,2),_SnaNodeLinkAdminSpecific_Type())
+snaNodeLinkAdminSpecific.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaNodeLinkAdminSpecific.setStatus(_A)
+_SnaNodeLinkAdminMaxPiu_Type=Integer32
+_SnaNodeLinkAdminMaxPiu_Object=MibTableColumn
+snaNodeLinkAdminMaxPiu=_SnaNodeLinkAdminMaxPiu_Object((1,3,6,1,2,1,34,1,1,6,1,3),_SnaNodeLinkAdminMaxPiu_Type())
+snaNodeLinkAdminMaxPiu.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaNodeLinkAdminMaxPiu.setStatus(_A)
+_SnaNodeLinkAdminRowStatus_Type=RowStatus
+_SnaNodeLinkAdminRowStatus_Object=MibTableColumn
+snaNodeLinkAdminRowStatus=_SnaNodeLinkAdminRowStatus_Object((1,3,6,1,2,1,34,1,1,6,1,4),_SnaNodeLinkAdminRowStatus_Type())
+snaNodeLinkAdminRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaNodeLinkAdminRowStatus.setStatus(_A)
+_SnaNodeLinkAdminTableLastChange_Type=TimeStamp
+_SnaNodeLinkAdminTableLastChange_Object=MibScalar
+snaNodeLinkAdminTableLastChange=_SnaNodeLinkAdminTableLastChange_Object((1,3,6,1,2,1,34,1,1,7),_SnaNodeLinkAdminTableLastChange_Type())
+snaNodeLinkAdminTableLastChange.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeLinkAdminTableLastChange.setStatus(_A)
+_SnaNodeLinkOperTable_Object=MibTable
+snaNodeLinkOperTable=_SnaNodeLinkOperTable_Object((1,3,6,1,2,1,34,1,1,8))
+if mibBuilder.loadTexts:snaNodeLinkOperTable.setStatus(_A)
+_SnaNodeLinkOperEntry_Object=MibTableRow
+snaNodeLinkOperEntry=_SnaNodeLinkOperEntry_Object((1,3,6,1,2,1,34,1,1,8,1))
+if mibBuilder.loadTexts:snaNodeLinkOperEntry.setStatus(_A)
+_SnaNodeLinkOperSpecific_Type=InstancePointer
+_SnaNodeLinkOperSpecific_Object=MibTableColumn
+snaNodeLinkOperSpecific=_SnaNodeLinkOperSpecific_Object((1,3,6,1,2,1,34,1,1,8,1,1),_SnaNodeLinkOperSpecific_Type())
+snaNodeLinkOperSpecific.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeLinkOperSpecific.setStatus(_A)
+_SnaNodeLinkOperMaxPiu_Type=Integer32
+_SnaNodeLinkOperMaxPiu_Object=MibTableColumn
+snaNodeLinkOperMaxPiu=_SnaNodeLinkOperMaxPiu_Object((1,3,6,1,2,1,34,1,1,8,1,2),_SnaNodeLinkOperMaxPiu_Type())
+snaNodeLinkOperMaxPiu.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeLinkOperMaxPiu.setStatus(_A)
+_SnaNodeLinkOperTableLastChange_Type=TimeStamp
+_SnaNodeLinkOperTableLastChange_Object=MibScalar
+snaNodeLinkOperTableLastChange=_SnaNodeLinkOperTableLastChange_Object((1,3,6,1,2,1,34,1,1,9),_SnaNodeLinkOperTableLastChange_Type())
+snaNodeLinkOperTableLastChange.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaNodeLinkOperTableLastChange.setStatus(_A)
+_SnaNodeTraps_ObjectIdentity=ObjectIdentity
+snaNodeTraps=_SnaNodeTraps_ObjectIdentity((1,3,6,1,2,1,34,1,1,10))
+_SnaLu_ObjectIdentity=ObjectIdentity
+snaLu=_SnaLu_ObjectIdentity((1,3,6,1,2,1,34,1,2))
+_SnaLuAdminTable_Object=MibTable
+snaLuAdminTable=_SnaLuAdminTable_Object((1,3,6,1,2,1,34,1,2,1))
+if mibBuilder.loadTexts:snaLuAdminTable.setStatus(_A)
+_SnaLuAdminEntry_Object=MibTableRow
+snaLuAdminEntry=_SnaLuAdminEntry_Object((1,3,6,1,2,1,34,1,2,1,1))
+snaLuAdminEntry.setIndexNames((0,_B,_I),(0,_B,_S))
+if mibBuilder.loadTexts:snaLuAdminEntry.setStatus(_A)
+_SnaLuAdminLuIndex_Type=Integer32
+_SnaLuAdminLuIndex_Object=MibTableColumn
+snaLuAdminLuIndex=_SnaLuAdminLuIndex_Object((1,3,6,1,2,1,34,1,2,1,1,1),_SnaLuAdminLuIndex_Type())
+snaLuAdminLuIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:snaLuAdminLuIndex.setStatus(_A)
+class _SnaLuAdminName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,48))
+_SnaLuAdminName_Type.__name__=_F
+_SnaLuAdminName_Object=MibTableColumn
+snaLuAdminName=_SnaLuAdminName_Object((1,3,6,1,2,1,34,1,2,1,1,2),_SnaLuAdminName_Type())
+snaLuAdminName.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaLuAdminName.setStatus(_A)
+class _SnaLuAdminSnaName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_SnaLuAdminSnaName_Type.__name__=_F
+_SnaLuAdminSnaName_Object=MibTableColumn
+snaLuAdminSnaName=_SnaLuAdminSnaName_Object((1,3,6,1,2,1,34,1,2,1,1,3),_SnaLuAdminSnaName_Type())
+snaLuAdminSnaName.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaLuAdminSnaName.setStatus(_A)
+class _SnaLuAdminType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_G,1),('lu0',2),('lu1',3),('lu2',4),('lu3',5),('lu4',6),('lu62',7),('lu7',8)))
+_SnaLuAdminType_Type.__name__=_D
+_SnaLuAdminType_Object=MibTableColumn
+snaLuAdminType=_SnaLuAdminType_Object((1,3,6,1,2,1,34,1,2,1,1,4),_SnaLuAdminType_Type())
+snaLuAdminType.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaLuAdminType.setStatus(_A)
+class _SnaLuAdminDepType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_n,1),(_o,2)))
+_SnaLuAdminDepType_Type.__name__=_D
+_SnaLuAdminDepType_Object=MibTableColumn
+snaLuAdminDepType=_SnaLuAdminDepType_Object((1,3,6,1,2,1,34,1,2,1,1,5),_SnaLuAdminDepType_Type())
+snaLuAdminDepType.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaLuAdminDepType.setStatus(_A)
+class _SnaLuAdminLocalAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_SnaLuAdminLocalAddress_Type.__name__=_H
+_SnaLuAdminLocalAddress_Object=MibTableColumn
+snaLuAdminLocalAddress=_SnaLuAdminLocalAddress_Object((1,3,6,1,2,1,34,1,2,1,1,6),_SnaLuAdminLocalAddress_Type())
+snaLuAdminLocalAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaLuAdminLocalAddress.setStatus(_A)
+class _SnaLuAdminDisplayModel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_p,1),(_q,2),(_r,3),(_s,4),(_t,5),(_u,6),(_v,7),(_w,8),(_x,9),(_y,10)))
+_SnaLuAdminDisplayModel_Type.__name__=_D
+_SnaLuAdminDisplayModel_Object=MibTableColumn
+snaLuAdminDisplayModel=_SnaLuAdminDisplayModel_Object((1,3,6,1,2,1,34,1,2,1,1,7),_SnaLuAdminDisplayModel_Type())
+snaLuAdminDisplayModel.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaLuAdminDisplayModel.setStatus(_A)
+class _SnaLuAdminTerm_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_K,1),(_L,2),(_M,3),(_N,4)))
+_SnaLuAdminTerm_Type.__name__=_D
+_SnaLuAdminTerm_Object=MibTableColumn
+snaLuAdminTerm=_SnaLuAdminTerm_Object((1,3,6,1,2,1,34,1,2,1,1,8),_SnaLuAdminTerm_Type())
+snaLuAdminTerm.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaLuAdminTerm.setStatus(_A)
+_SnaLuAdminRowStatus_Type=RowStatus
+_SnaLuAdminRowStatus_Object=MibTableColumn
+snaLuAdminRowStatus=_SnaLuAdminRowStatus_Object((1,3,6,1,2,1,34,1,2,1,1,9),_SnaLuAdminRowStatus_Type())
+snaLuAdminRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:snaLuAdminRowStatus.setStatus(_A)
+_SnaLuOperTable_Object=MibTable
+snaLuOperTable=_SnaLuOperTable_Object((1,3,6,1,2,1,34,1,2,2))
+if mibBuilder.loadTexts:snaLuOperTable.setStatus(_A)
+_SnaLuOperEntry_Object=MibTableRow
+snaLuOperEntry=_SnaLuOperEntry_Object((1,3,6,1,2,1,34,1,2,2,1))
+if mibBuilder.loadTexts:snaLuOperEntry.setStatus(_A)
+class _SnaLuOperName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,48))
+_SnaLuOperName_Type.__name__=_F
+_SnaLuOperName_Object=MibTableColumn
+snaLuOperName=_SnaLuOperName_Object((1,3,6,1,2,1,34,1,2,2,1,1),_SnaLuOperName_Type())
+snaLuOperName.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuOperName.setStatus(_A)
+class _SnaLuOperSnaName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_SnaLuOperSnaName_Type.__name__=_F
+_SnaLuOperSnaName_Object=MibTableColumn
+snaLuOperSnaName=_SnaLuOperSnaName_Object((1,3,6,1,2,1,34,1,2,2,1,2),_SnaLuOperSnaName_Type())
+snaLuOperSnaName.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuOperSnaName.setStatus(_A)
+class _SnaLuOperType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_G,1),('lu0',2),('lu1',3),('lu2',4),('lu3',5),('lu4',6),('lu62',7),('lu7',8)))
+_SnaLuOperType_Type.__name__=_D
+_SnaLuOperType_Object=MibTableColumn
+snaLuOperType=_SnaLuOperType_Object((1,3,6,1,2,1,34,1,2,2,1,3),_SnaLuOperType_Type())
+snaLuOperType.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuOperType.setStatus(_A)
+class _SnaLuOperDepType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_n,1),(_o,2)))
+_SnaLuOperDepType_Type.__name__=_D
+_SnaLuOperDepType_Object=MibTableColumn
+snaLuOperDepType=_SnaLuOperDepType_Object((1,3,6,1,2,1,34,1,2,2,1,4),_SnaLuOperDepType_Type())
+snaLuOperDepType.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuOperDepType.setStatus(_A)
+class _SnaLuOperLocalAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_SnaLuOperLocalAddress_Type.__name__=_H
+_SnaLuOperLocalAddress_Object=MibTableColumn
+snaLuOperLocalAddress=_SnaLuOperLocalAddress_Object((1,3,6,1,2,1,34,1,2,2,1,5),_SnaLuOperLocalAddress_Type())
+snaLuOperLocalAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuOperLocalAddress.setStatus(_A)
+class _SnaLuOperDisplayModel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_p,1),(_q,2),(_r,3),(_s,4),(_t,5),(_u,6),(_v,7),(_w,8),(_x,9),(_y,10)))
+_SnaLuOperDisplayModel_Type.__name__=_D
+_SnaLuOperDisplayModel_Object=MibTableColumn
+snaLuOperDisplayModel=_SnaLuOperDisplayModel_Object((1,3,6,1,2,1,34,1,2,2,1,6),_SnaLuOperDisplayModel_Type())
+snaLuOperDisplayModel.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuOperDisplayModel.setStatus(_A)
+class _SnaLuOperTerm_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_K,1),(_L,2),(_M,3),(_N,4)))
+_SnaLuOperTerm_Type.__name__=_D
+_SnaLuOperTerm_Object=MibTableColumn
+snaLuOperTerm=_SnaLuOperTerm_Object((1,3,6,1,2,1,34,1,2,2,1,7),_SnaLuOperTerm_Type())
+snaLuOperTerm.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuOperTerm.setStatus(_A)
+class _SnaLuOperState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_Q,1),(_R,2)))
+_SnaLuOperState_Type.__name__=_D
+_SnaLuOperState_Object=MibTableColumn
+snaLuOperState=_SnaLuOperState_Object((1,3,6,1,2,1,34,1,2,2,1,8),_SnaLuOperState_Type())
+snaLuOperState.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuOperState.setStatus(_A)
+_SnaLuOperSessnCount_Type=Gauge32
+_SnaLuOperSessnCount_Object=MibTableColumn
+snaLuOperSessnCount=_SnaLuOperSessnCount_Object((1,3,6,1,2,1,34,1,2,2,1,9),_SnaLuOperSessnCount_Type())
+snaLuOperSessnCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuOperSessnCount.setStatus(_A)
+_SnaLuSessnTable_Object=MibTable
+snaLuSessnTable=_SnaLuSessnTable_Object((1,3,6,1,2,1,34,1,2,3))
+if mibBuilder.loadTexts:snaLuSessnTable.setStatus(_A)
+_SnaLuSessnEntry_Object=MibTableRow
+snaLuSessnEntry=_SnaLuSessnEntry_Object((1,3,6,1,2,1,34,1,2,3,1))
+snaLuSessnEntry.setIndexNames((0,_B,_I),(0,_B,_S),(0,_B,_T),(0,_B,_U))
+if mibBuilder.loadTexts:snaLuSessnEntry.setStatus(_A)
+_SnaLuSessnRluIndex_Type=Integer32
+_SnaLuSessnRluIndex_Object=MibTableColumn
+snaLuSessnRluIndex=_SnaLuSessnRluIndex_Object((1,3,6,1,2,1,34,1,2,3,1,1),_SnaLuSessnRluIndex_Type())
+snaLuSessnRluIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnRluIndex.setStatus(_A)
+_SnaLuSessnIndex_Type=Integer32
+_SnaLuSessnIndex_Object=MibTableColumn
+snaLuSessnIndex=_SnaLuSessnIndex_Object((1,3,6,1,2,1,34,1,2,3,1,2),_SnaLuSessnIndex_Type())
+snaLuSessnIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnIndex.setStatus(_A)
+class _SnaLuSessnLocalApplName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,48))
+_SnaLuSessnLocalApplName_Type.__name__=_F
+_SnaLuSessnLocalApplName_Object=MibTableColumn
+snaLuSessnLocalApplName=_SnaLuSessnLocalApplName_Object((1,3,6,1,2,1,34,1,2,3,1,3),_SnaLuSessnLocalApplName_Type())
+snaLuSessnLocalApplName.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnLocalApplName.setStatus(_A)
+class _SnaLuSessnRemoteLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,17))
+_SnaLuSessnRemoteLuName_Type.__name__=_F
+_SnaLuSessnRemoteLuName_Object=MibTableColumn
+snaLuSessnRemoteLuName=_SnaLuSessnRemoteLuName_Object((1,3,6,1,2,1,34,1,2,3,1,4),_SnaLuSessnRemoteLuName_Type())
+snaLuSessnRemoteLuName.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnRemoteLuName.setStatus(_A)
+class _SnaLuSessnMaxSndRuSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8192))
+_SnaLuSessnMaxSndRuSize_Type.__name__=_D
+_SnaLuSessnMaxSndRuSize_Object=MibTableColumn
+snaLuSessnMaxSndRuSize=_SnaLuSessnMaxSndRuSize_Object((1,3,6,1,2,1,34,1,2,3,1,5),_SnaLuSessnMaxSndRuSize_Type())
+snaLuSessnMaxSndRuSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnMaxSndRuSize.setStatus(_A)
+class _SnaLuSessnMaxRcvRuSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8192))
+_SnaLuSessnMaxRcvRuSize_Type.__name__=_D
+_SnaLuSessnMaxRcvRuSize_Object=MibTableColumn
+snaLuSessnMaxRcvRuSize=_SnaLuSessnMaxRcvRuSize_Object((1,3,6,1,2,1,34,1,2,3,1,6),_SnaLuSessnMaxRcvRuSize_Type())
+snaLuSessnMaxRcvRuSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnMaxRcvRuSize.setStatus(_A)
+class _SnaLuSessnSndPacingSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,63))
+_SnaLuSessnSndPacingSize_Type.__name__=_D
+_SnaLuSessnSndPacingSize_Object=MibTableColumn
+snaLuSessnSndPacingSize=_SnaLuSessnSndPacingSize_Object((1,3,6,1,2,1,34,1,2,3,1,7),_SnaLuSessnSndPacingSize_Type())
+snaLuSessnSndPacingSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnSndPacingSize.setStatus(_A)
+class _SnaLuSessnRcvPacingSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,63))
+_SnaLuSessnRcvPacingSize_Type.__name__=_D
+_SnaLuSessnRcvPacingSize_Object=MibTableColumn
+snaLuSessnRcvPacingSize=_SnaLuSessnRcvPacingSize_Object((1,3,6,1,2,1,34,1,2,3,1,8),_SnaLuSessnRcvPacingSize_Type())
+snaLuSessnRcvPacingSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnRcvPacingSize.setStatus(_A)
+_SnaLuSessnActiveTime_Type=TimeStamp
+_SnaLuSessnActiveTime_Object=MibTableColumn
+snaLuSessnActiveTime=_SnaLuSessnActiveTime_Object((1,3,6,1,2,1,34,1,2,3,1,9),_SnaLuSessnActiveTime_Type())
+snaLuSessnActiveTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnActiveTime.setStatus(_A)
+class _SnaLuSessnAdminState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,3)));namedValues=NamedValues(*((_z,1),('bound',3)))
+_SnaLuSessnAdminState_Type.__name__=_D
+_SnaLuSessnAdminState_Object=MibTableColumn
+snaLuSessnAdminState=_SnaLuSessnAdminState_Object((1,3,6,1,2,1,34,1,2,3,1,10),_SnaLuSessnAdminState_Type())
+snaLuSessnAdminState.setMaxAccess('read-write')
+if mibBuilder.loadTexts:snaLuSessnAdminState.setStatus(_A)
+class _SnaLuSessnOperState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_z,1),('pendingBind',2),('bound',3),('pendingUnbind',4)))
+_SnaLuSessnOperState_Type.__name__=_D
+_SnaLuSessnOperState_Object=MibTableColumn
+snaLuSessnOperState=_SnaLuSessnOperState_Object((1,3,6,1,2,1,34,1,2,3,1,11),_SnaLuSessnOperState_Type())
+snaLuSessnOperState.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnOperState.setStatus(_A)
+class _SnaLuSessnSenseData_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_SnaLuSessnSenseData_Type.__name__=_H
+_SnaLuSessnSenseData_Object=MibTableColumn
+snaLuSessnSenseData=_SnaLuSessnSenseData_Object((1,3,6,1,2,1,34,1,2,3,1,12),_SnaLuSessnSenseData_Type())
+snaLuSessnSenseData.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnSenseData.setStatus(_A)
+class _SnaLuSessnTerminationRu_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),('bindFailure',2),(_K,3)))
+_SnaLuSessnTerminationRu_Type.__name__=_D
+_SnaLuSessnTerminationRu_Object=MibTableColumn
+snaLuSessnTerminationRu=_SnaLuSessnTerminationRu_Object((1,3,6,1,2,1,34,1,2,3,1,13),_SnaLuSessnTerminationRu_Type())
+snaLuSessnTerminationRu.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnTerminationRu.setStatus(_A)
+class _SnaLuSessnUnbindType_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1))
+_SnaLuSessnUnbindType_Type.__name__=_H
+_SnaLuSessnUnbindType_Object=MibTableColumn
+snaLuSessnUnbindType=_SnaLuSessnUnbindType_Object((1,3,6,1,2,1,34,1,2,3,1,14),_SnaLuSessnUnbindType_Type())
+snaLuSessnUnbindType.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnUnbindType.setStatus(_A)
+_SnaLuSessnLinkIndex_Type=Integer32
+_SnaLuSessnLinkIndex_Object=MibTableColumn
+snaLuSessnLinkIndex=_SnaLuSessnLinkIndex_Object((1,3,6,1,2,1,34,1,2,3,1,15),_SnaLuSessnLinkIndex_Type())
+snaLuSessnLinkIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnLinkIndex.setStatus(_A)
+_SnaLuSessnStatsTable_Object=MibTable
+snaLuSessnStatsTable=_SnaLuSessnStatsTable_Object((1,3,6,1,2,1,34,1,2,4))
+if mibBuilder.loadTexts:snaLuSessnStatsTable.setStatus(_A)
+_SnaLuSessnStatsEntry_Object=MibTableRow
+snaLuSessnStatsEntry=_SnaLuSessnStatsEntry_Object((1,3,6,1,2,1,34,1,2,4,1))
+if mibBuilder.loadTexts:snaLuSessnStatsEntry.setStatus(_A)
+_SnaLuSessnStatsSentBytes_Type=Counter32
+_SnaLuSessnStatsSentBytes_Object=MibTableColumn
+snaLuSessnStatsSentBytes=_SnaLuSessnStatsSentBytes_Object((1,3,6,1,2,1,34,1,2,4,1,1),_SnaLuSessnStatsSentBytes_Type())
+snaLuSessnStatsSentBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnStatsSentBytes.setStatus(_A)
+_SnaLuSessnStatsReceivedBytes_Type=Counter32
+_SnaLuSessnStatsReceivedBytes_Object=MibTableColumn
+snaLuSessnStatsReceivedBytes=_SnaLuSessnStatsReceivedBytes_Object((1,3,6,1,2,1,34,1,2,4,1,2),_SnaLuSessnStatsReceivedBytes_Type())
+snaLuSessnStatsReceivedBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnStatsReceivedBytes.setStatus(_A)
+_SnaLuSessnStatsSentRus_Type=Counter32
+_SnaLuSessnStatsSentRus_Object=MibTableColumn
+snaLuSessnStatsSentRus=_SnaLuSessnStatsSentRus_Object((1,3,6,1,2,1,34,1,2,4,1,3),_SnaLuSessnStatsSentRus_Type())
+snaLuSessnStatsSentRus.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnStatsSentRus.setStatus(_A)
+_SnaLuSessnStatsReceivedRus_Type=Counter32
+_SnaLuSessnStatsReceivedRus_Object=MibTableColumn
+snaLuSessnStatsReceivedRus=_SnaLuSessnStatsReceivedRus_Object((1,3,6,1,2,1,34,1,2,4,1,4),_SnaLuSessnStatsReceivedRus_Type())
+snaLuSessnStatsReceivedRus.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnStatsReceivedRus.setStatus(_A)
+_SnaLuSessnStatsSentNegativeResps_Type=Counter32
+_SnaLuSessnStatsSentNegativeResps_Object=MibTableColumn
+snaLuSessnStatsSentNegativeResps=_SnaLuSessnStatsSentNegativeResps_Object((1,3,6,1,2,1,34,1,2,4,1,5),_SnaLuSessnStatsSentNegativeResps_Type())
+snaLuSessnStatsSentNegativeResps.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnStatsSentNegativeResps.setStatus(_A)
+_SnaLuSessnStatsReceivedNegativeResps_Type=Counter32
+_SnaLuSessnStatsReceivedNegativeResps_Object=MibTableColumn
+snaLuSessnStatsReceivedNegativeResps=_SnaLuSessnStatsReceivedNegativeResps_Object((1,3,6,1,2,1,34,1,2,4,1,6),_SnaLuSessnStatsReceivedNegativeResps_Type())
+snaLuSessnStatsReceivedNegativeResps.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuSessnStatsReceivedNegativeResps.setStatus(_A)
+_SnaLuTraps_ObjectIdentity=ObjectIdentity
+snaLuTraps=_SnaLuTraps_ObjectIdentity((1,3,6,1,2,1,34,1,2,5))
+_SnaMgtTools_ObjectIdentity=ObjectIdentity
+snaMgtTools=_SnaMgtTools_ObjectIdentity((1,3,6,1,2,1,34,1,3))
+_SnaLuRtmTable_Object=MibTable
+snaLuRtmTable=_SnaLuRtmTable_Object((1,3,6,1,2,1,34,1,3,1))
+if mibBuilder.loadTexts:snaLuRtmTable.setStatus(_A)
+_SnaLuRtmEntry_Object=MibTableRow
+snaLuRtmEntry=_SnaLuRtmEntry_Object((1,3,6,1,2,1,34,1,3,1,1))
+snaLuRtmEntry.setIndexNames((0,_B,_A0),(0,_B,_A1))
+if mibBuilder.loadTexts:snaLuRtmEntry.setStatus(_A)
+_SnaLuRtmPuIndex_Type=Integer32
+_SnaLuRtmPuIndex_Object=MibTableColumn
+snaLuRtmPuIndex=_SnaLuRtmPuIndex_Object((1,3,6,1,2,1,34,1,3,1,1,1),_SnaLuRtmPuIndex_Type())
+snaLuRtmPuIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:snaLuRtmPuIndex.setStatus(_A)
+_SnaLuRtmLuIndex_Type=Integer32
+_SnaLuRtmLuIndex_Object=MibTableColumn
+snaLuRtmLuIndex=_SnaLuRtmLuIndex_Object((1,3,6,1,2,1,34,1,3,1,1,2),_SnaLuRtmLuIndex_Type())
+snaLuRtmLuIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:snaLuRtmLuIndex.setStatus(_A)
+class _SnaLuRtmState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('off',1),('on',2)))
+_SnaLuRtmState_Type.__name__=_D
+_SnaLuRtmState_Object=MibTableColumn
+snaLuRtmState=_SnaLuRtmState_Object((1,3,6,1,2,1,34,1,3,1,1,3),_SnaLuRtmState_Type())
+snaLuRtmState.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuRtmState.setStatus(_A)
+_SnaLuRtmStateTime_Type=TimeStamp
+_SnaLuRtmStateTime_Object=MibTableColumn
+snaLuRtmStateTime=_SnaLuRtmStateTime_Object((1,3,6,1,2,1,34,1,3,1,1,4),_SnaLuRtmStateTime_Type())
+snaLuRtmStateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuRtmStateTime.setStatus(_A)
+class _SnaLuRtmDef_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('firstChar',1),('kb',2),('cdeb',3)))
+_SnaLuRtmDef_Type.__name__=_D
+_SnaLuRtmDef_Object=MibTableColumn
+snaLuRtmDef=_SnaLuRtmDef_Object((1,3,6,1,2,1,34,1,3,1,1,5),_SnaLuRtmDef_Type())
+snaLuRtmDef.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuRtmDef.setStatus(_A)
+_SnaLuRtmBoundary1_Type=Integer32
+_SnaLuRtmBoundary1_Object=MibTableColumn
+snaLuRtmBoundary1=_SnaLuRtmBoundary1_Object((1,3,6,1,2,1,34,1,3,1,1,6),_SnaLuRtmBoundary1_Type())
+snaLuRtmBoundary1.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuRtmBoundary1.setStatus(_A)
+_SnaLuRtmBoundary2_Type=Integer32
+_SnaLuRtmBoundary2_Object=MibTableColumn
+snaLuRtmBoundary2=_SnaLuRtmBoundary2_Object((1,3,6,1,2,1,34,1,3,1,1,7),_SnaLuRtmBoundary2_Type())
+snaLuRtmBoundary2.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuRtmBoundary2.setStatus(_A)
+_SnaLuRtmBoundary3_Type=Integer32
+_SnaLuRtmBoundary3_Object=MibTableColumn
+snaLuRtmBoundary3=_SnaLuRtmBoundary3_Object((1,3,6,1,2,1,34,1,3,1,1,8),_SnaLuRtmBoundary3_Type())
+snaLuRtmBoundary3.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuRtmBoundary3.setStatus(_A)
+_SnaLuRtmBoundary4_Type=Integer32
+_SnaLuRtmBoundary4_Object=MibTableColumn
+snaLuRtmBoundary4=_SnaLuRtmBoundary4_Object((1,3,6,1,2,1,34,1,3,1,1,9),_SnaLuRtmBoundary4_Type())
+snaLuRtmBoundary4.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuRtmBoundary4.setStatus(_A)
+_SnaLuRtmCounter1_Type=Counter32
+_SnaLuRtmCounter1_Object=MibTableColumn
+snaLuRtmCounter1=_SnaLuRtmCounter1_Object((1,3,6,1,2,1,34,1,3,1,1,10),_SnaLuRtmCounter1_Type())
+snaLuRtmCounter1.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuRtmCounter1.setStatus(_A)
+_SnaLuRtmCounter2_Type=Counter32
+_SnaLuRtmCounter2_Object=MibTableColumn
+snaLuRtmCounter2=_SnaLuRtmCounter2_Object((1,3,6,1,2,1,34,1,3,1,1,11),_SnaLuRtmCounter2_Type())
+snaLuRtmCounter2.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuRtmCounter2.setStatus(_A)
+_SnaLuRtmCounter3_Type=Counter32
+_SnaLuRtmCounter3_Object=MibTableColumn
+snaLuRtmCounter3=_SnaLuRtmCounter3_Object((1,3,6,1,2,1,34,1,3,1,1,12),_SnaLuRtmCounter3_Type())
+snaLuRtmCounter3.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuRtmCounter3.setStatus(_A)
+_SnaLuRtmCounter4_Type=Counter32
+_SnaLuRtmCounter4_Object=MibTableColumn
+snaLuRtmCounter4=_SnaLuRtmCounter4_Object((1,3,6,1,2,1,34,1,3,1,1,13),_SnaLuRtmCounter4_Type())
+snaLuRtmCounter4.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuRtmCounter4.setStatus(_A)
+_SnaLuRtmOverFlows_Type=Counter32
+_SnaLuRtmOverFlows_Object=MibTableColumn
+snaLuRtmOverFlows=_SnaLuRtmOverFlows_Object((1,3,6,1,2,1,34,1,3,1,1,14),_SnaLuRtmOverFlows_Type())
+snaLuRtmOverFlows.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuRtmOverFlows.setStatus(_A)
+_SnaLuRtmObjPercent_Type=Integer32
+_SnaLuRtmObjPercent_Object=MibTableColumn
+snaLuRtmObjPercent=_SnaLuRtmObjPercent_Object((1,3,6,1,2,1,34,1,3,1,1,15),_SnaLuRtmObjPercent_Type())
+snaLuRtmObjPercent.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuRtmObjPercent.setStatus(_A)
+class _SnaLuRtmObjRange_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_G,1),('range1',2),('range2',3),('range3',4),('range4',5),('range5',6)))
+_SnaLuRtmObjRange_Type.__name__=_D
+_SnaLuRtmObjRange_Object=MibTableColumn
+snaLuRtmObjRange=_SnaLuRtmObjRange_Object((1,3,6,1,2,1,34,1,3,1,1,16),_SnaLuRtmObjRange_Type())
+snaLuRtmObjRange.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuRtmObjRange.setStatus(_A)
+_SnaLuRtmNumTrans_Type=Integer32
+_SnaLuRtmNumTrans_Object=MibTableColumn
+snaLuRtmNumTrans=_SnaLuRtmNumTrans_Object((1,3,6,1,2,1,34,1,3,1,1,17),_SnaLuRtmNumTrans_Type())
+snaLuRtmNumTrans.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuRtmNumTrans.setStatus(_A)
+_SnaLuRtmLastRspTime_Type=Integer32
+_SnaLuRtmLastRspTime_Object=MibTableColumn
+snaLuRtmLastRspTime=_SnaLuRtmLastRspTime_Object((1,3,6,1,2,1,34,1,3,1,1,18),_SnaLuRtmLastRspTime_Type())
+snaLuRtmLastRspTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuRtmLastRspTime.setStatus(_A)
+_SnaLuRtmAvgRspTime_Type=Integer32
+_SnaLuRtmAvgRspTime_Object=MibTableColumn
+snaLuRtmAvgRspTime=_SnaLuRtmAvgRspTime_Object((1,3,6,1,2,1,34,1,3,1,1,19),_SnaLuRtmAvgRspTime_Type())
+snaLuRtmAvgRspTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:snaLuRtmAvgRspTime.setStatus(_A)
+_SnanauConformance_ObjectIdentity=ObjectIdentity
+snanauConformance=_SnanauConformance_ObjectIdentity((1,3,6,1,2,1,34,2))
+_SnanauCompliances_ObjectIdentity=ObjectIdentity
+snanauCompliances=_SnanauCompliances_ObjectIdentity((1,3,6,1,2,1,34,2,1))
+_SnanauGroups_ObjectIdentity=ObjectIdentity
+snanauGroups=_SnanauGroups_ObjectIdentity((1,3,6,1,2,1,34,2,2))
+snaNodeAdminEntry.registerAugmentions((_B,_A2))
+snaNodeOperEntry.setIndexNames(*snaNodeAdminEntry.getIndexNames())
+snaNodeLinkAdminEntry.registerAugmentions((_B,_A3))
+snaNodeLinkOperEntry.setIndexNames(*snaNodeLinkAdminEntry.getIndexNames())
+snaLuAdminEntry.registerAugmentions((_B,_A4))
+snaLuOperEntry.setIndexNames(*snaLuAdminEntry.getIndexNames())
+snaLuSessnEntry.registerAugmentions((_B,_A5))
+snaLuSessnStatsEntry.setIndexNames(*snaLuSessnEntry.getIndexNames())
+snaNodeGroup=ObjectGroup((1,3,6,1,2,1,34,2,2,1))
+snaNodeGroup.setObjects(*((_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_O),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_P),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_V),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad)))
+if mibBuilder.loadTexts:snaNodeGroup.setStatus(_A)
+snaLuGroup=ObjectGroup((1,3,6,1,2,1,34,2,2,2))
+snaLuGroup.setObjects(*((_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_W),(_B,_X),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Y),(_B,_Ar)))
+if mibBuilder.loadTexts:snaLuGroup.setStatus(_A)
+snaSessionGroup=ObjectGroup((1,3,6,1,2,1,34,2,2,3))
+snaSessionGroup.setObjects(*((_B,_T),(_B,_U),(_B,_Z),(_B,_a),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_b),(_B,_c),(_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5)))
+if mibBuilder.loadTexts:snaSessionGroup.setStatus(_A)
+snaPu20Group=ObjectGroup((1,3,6,1,2,1,34,2,2,4))
+snaPu20Group.setObjects(*((_B,_B6),(_B,_B7),(_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD),(_B,_BE)))
+if mibBuilder.loadTexts:snaPu20Group.setStatus(_A)
+snaMgtToolsRtmGroup=ObjectGroup((1,3,6,1,2,1,34,2,2,5))
+snaMgtToolsRtmGroup.setObjects(*((_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI),(_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_BS),(_B,_BT),(_B,_BU),(_B,_BV)))
+if mibBuilder.loadTexts:snaMgtToolsRtmGroup.setStatus(_A)
+snaNodeStateChangeTrap=NotificationType((1,3,6,1,2,1,34,1,1,10,1))
+snaNodeStateChangeTrap.setObjects(*((_B,_O),(_B,_P)))
+if mibBuilder.loadTexts:snaNodeStateChangeTrap.setStatus(_A)
+snaNodeActFailTrap=NotificationType((1,3,6,1,2,1,34,1,1,10,2))
+snaNodeActFailTrap.setObjects(*((_B,_O),(_B,_P),(_B,_V)))
+if mibBuilder.loadTexts:snaNodeActFailTrap.setStatus(_A)
+snaLuStateChangeTrap=NotificationType((1,3,6,1,2,1,34,1,2,5,1))
+snaLuStateChangeTrap.setObjects(*((_B,_W),(_B,_X),(_B,_Y)))
+if mibBuilder.loadTexts:snaLuStateChangeTrap.setStatus(_A)
+snaLuSessnBindFailTrap=NotificationType((1,3,6,1,2,1,34,1,2,5,2))
+snaLuSessnBindFailTrap.setObjects(*((_B,_Z),(_B,_a),(_B,_b),(_B,_c)))
+if mibBuilder.loadTexts:snaLuSessnBindFailTrap.setStatus(_A)
+snanauCompliance=ModuleCompliance((1,3,6,1,2,1,34,2,1,1))
+snanauCompliance.setObjects(*((_B,_BW),(_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba)))
+if mibBuilder.loadTexts:snanauCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'snanauMIB':snanauMIB,'snanauObjects':snanauObjects,'snaNode':snaNode,'snaNodeAdminTable':snaNodeAdminTable,'snaNodeAdminEntry':snaNodeAdminEntry,_I:snaNodeAdminIndex,_A6:snaNodeAdminName,_A7:snaNodeAdminType,_A8:snaNodeAdminXidFormat,_A9:snaNodeAdminBlockNum,_AA:snaNodeAdminIdNum,_AB:snaNodeAdminEnablingMethod,_AC:snaNodeAdminLuTermDefault,_AD:snaNodeAdminMaxLu,_AE:snaNodeAdminHostDescription,_AF:snaNodeAdminStopMethod,_AG:snaNodeAdminState,_AH:snaNodeAdminRowStatus,_AI:snaNodeAdminTableLastChange,'snaNodeOperTable':snaNodeOperTable,_A2:snaNodeOperEntry,_O:snaNodeOperName,_AJ:snaNodeOperType,_AK:snaNodeOperXidFormat,_AL:snaNodeOperBlockNum,_AM:snaNodeOperIdNum,_AN:snaNodeOperEnablingMethod,_AO:snaNodeOperLuTermDefault,_AP:snaNodeOperMaxLu,_AQ:snaNodeOperHostDescription,_AR:snaNodeOperStopMethod,_P:snaNodeOperState,_AS:snaNodeOperHostSscpId,_AT:snaNodeOperStartTime,_AU:snaNodeOperLastStateChange,_AV:snaNodeOperActFailures,_V:snaNodeOperActFailureReason,_AW:snaNodeOperTableLastChange,'snaPu20StatsTable':snaPu20StatsTable,'snaPu20StatsEntry':snaPu20StatsEntry,_B6:snaPu20StatsSentBytes,_B7:snaPu20StatsReceivedBytes,_B8:snaPu20StatsSentPius,_B9:snaPu20StatsReceivedPius,_BA:snaPu20StatsSentNegativeResps,_BB:snaPu20StatsReceivedNegativeResps,_BC:snaPu20StatsActLus,_BD:snaPu20StatsInActLus,_BE:snaPu20StatsBindLus,'snaNodeLinkAdminTable':snaNodeLinkAdminTable,'snaNodeLinkAdminEntry':snaNodeLinkAdminEntry,_m:snaNodeLinkAdminIndex,_AX:snaNodeLinkAdminSpecific,_AY:snaNodeLinkAdminMaxPiu,_AZ:snaNodeLinkAdminRowStatus,_Aa:snaNodeLinkAdminTableLastChange,'snaNodeLinkOperTable':snaNodeLinkOperTable,_A3:snaNodeLinkOperEntry,_Ab:snaNodeLinkOperSpecific,_Ac:snaNodeLinkOperMaxPiu,_Ad:snaNodeLinkOperTableLastChange,'snaNodeTraps':snaNodeTraps,'snaNodeStateChangeTrap':snaNodeStateChangeTrap,'snaNodeActFailTrap':snaNodeActFailTrap,'snaLu':snaLu,'snaLuAdminTable':snaLuAdminTable,'snaLuAdminEntry':snaLuAdminEntry,_S:snaLuAdminLuIndex,_Ae:snaLuAdminName,_Af:snaLuAdminSnaName,_Ag:snaLuAdminType,_Ah:snaLuAdminDepType,_Ai:snaLuAdminLocalAddress,_Aj:snaLuAdminDisplayModel,_Ak:snaLuAdminTerm,_Al:snaLuAdminRowStatus,'snaLuOperTable':snaLuOperTable,_A4:snaLuOperEntry,_W:snaLuOperName,_X:snaLuOperSnaName,_Am:snaLuOperType,_An:snaLuOperDepType,_Ao:snaLuOperLocalAddress,_Ap:snaLuOperDisplayModel,_Aq:snaLuOperTerm,_Y:snaLuOperState,_Ar:snaLuOperSessnCount,'snaLuSessnTable':snaLuSessnTable,'snaLuSessnEntry':snaLuSessnEntry,_T:snaLuSessnRluIndex,_U:snaLuSessnIndex,_Z:snaLuSessnLocalApplName,_a:snaLuSessnRemoteLuName,_As:snaLuSessnMaxSndRuSize,_At:snaLuSessnMaxRcvRuSize,_Au:snaLuSessnSndPacingSize,_Av:snaLuSessnRcvPacingSize,_Aw:snaLuSessnActiveTime,_Ax:snaLuSessnAdminState,_b:snaLuSessnOperState,_c:snaLuSessnSenseData,_Ay:snaLuSessnTerminationRu,_Az:snaLuSessnUnbindType,_A_:snaLuSessnLinkIndex,'snaLuSessnStatsTable':snaLuSessnStatsTable,_A5:snaLuSessnStatsEntry,_B0:snaLuSessnStatsSentBytes,_B1:snaLuSessnStatsReceivedBytes,_B2:snaLuSessnStatsSentRus,_B3:snaLuSessnStatsReceivedRus,_B4:snaLuSessnStatsSentNegativeResps,_B5:snaLuSessnStatsReceivedNegativeResps,'snaLuTraps':snaLuTraps,'snaLuStateChangeTrap':snaLuStateChangeTrap,'snaLuSessnBindFailTrap':snaLuSessnBindFailTrap,'snaMgtTools':snaMgtTools,'snaLuRtmTable':snaLuRtmTable,'snaLuRtmEntry':snaLuRtmEntry,_A0:snaLuRtmPuIndex,_A1:snaLuRtmLuIndex,_BF:snaLuRtmState,_BG:snaLuRtmStateTime,_BH:snaLuRtmDef,_BI:snaLuRtmBoundary1,_BJ:snaLuRtmBoundary2,_BK:snaLuRtmBoundary3,_BL:snaLuRtmBoundary4,_BM:snaLuRtmCounter1,_BN:snaLuRtmCounter2,_BO:snaLuRtmCounter3,_BP:snaLuRtmCounter4,_BQ:snaLuRtmOverFlows,_BR:snaLuRtmObjPercent,_BS:snaLuRtmObjRange,_BT:snaLuRtmNumTrans,_BU:snaLuRtmLastRspTime,_BV:snaLuRtmAvgRspTime,'snanauConformance':snanauConformance,'snanauCompliances':snanauCompliances,'snanauCompliance':snanauCompliance,'snanauGroups':snanauGroups,_BW:snaNodeGroup,_BX:snaLuGroup,_BY:snaSessionGroup,_BZ:snaPu20Group,_Ba:snaMgtToolsRtmGroup})

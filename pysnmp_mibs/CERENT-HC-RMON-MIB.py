@@ -1,0 +1,1180 @@
+_CE='cMediaIndependentHistoryPcsEgRxErrFrames'
+_CD='cMediaIndependentHistoryTxLcvErrors'
+_CC='cMediaIndependentHistoryRxLcvErrors'
+_CB='cMediaIndependentHistoryPkts1519toMaxOctets'
+_CA='cMediaIndependentHistoryPcs49RxErrDec'
+_C9='cMediaIndependentHistoryPcs49RxErrBer'
+_C8='cMediaIndependentHistoryPcsErrCount2'
+_C7='cMediaIndependentHistoryPcsErrCount'
+_C6='cMediaIndependentHistoryOutFramesTruncated'
+_C5='cMediaIndependentHistoryPkts1519to1522Octets'
+_C4='cMediaIndependentHistoryOutFramesTooLong'
+_C3='cMediaIndependentHistoryInGfpSblkCRCErr'
+_C2='cMediaIndependentHistory8b10bInvalidOrdSetsDispErrorsSum'
+_C1='cMediaIndependentHistoryOutRecvrReady'
+_C0='cMediaIndependentHistoryInRecvrReady'
+_B_='cMediaIndependentHistoryOutPayloadCrcErrors'
+_Bz='cMediaIndependentHistoryInPayloadCrcErrors'
+_By='cMediaIndependentHistoryOutOversizePkts'
+_Bx='cMediaIndependentHistoryInJunkInterPkts'
+_Bw='cMediaIndependentHistoryInFramingErrorPkts'
+_Bv='cMediaIndependentHistoryInErrorBytePkts'
+_Bu='cMediaIndependentHistoryOversizeDropped'
+_Bt='cMediaIndependentHistoryOutShortPkts'
+_Bs='cMediaIndependentHistoryInShortPkts'
+_Br='cMediaIndependentHistoryHdlcInAborts'
+_Bq='cMediaIndependentHistoryHdlcOutOctets'
+_Bp='cMediaIndependentHistoryHdlcInOctets'
+_Bo='cMediaIndependentHistoryHdlcPktDrops'
+_Bn='cMediaIndependentHistoryInUnknownOpcodeFrames'
+_Bm='cMediaIndependentHistoryInControlFrames'
+_Bl='cMediaIndependentHistoryOutPktsDroppedInternalCongestion'
+_Bk='cMediaIndependentHistoryInPktsDroppedInternalCongestion'
+_Bj='cMediaIndependentHistoryOutPauseFrames'
+_Bi='cMediaIndependentHistoryInPauseFrames'
+_Bh='cMediaIndependentHistory8b10bLossOfSync'
+_Bg='cMediaIndependentHistory8b10bEncodingDispErr'
+_Bf='cMediaIndependentHistory8b10bInvalidOrdSets'
+_Be='cMediaIndependentHistoryHighCapacity8b10bDataSets'
+_Bd='cMediaIndependentHistoryOverflow8b10bDataSets'
+_Bc='cMediaIndependentHistory8b10bDataSets'
+_Bb='cMediaIndependentHistoryHighCapacity8b10bNonIdleSets'
+_Ba='cMediaIndependentHistoryOverflow8b10bNonIdleSets'
+_BZ='cMediaIndependentHistory8b10bNonIdleSets'
+_BY='cMediaIndependentHistoryHighCapacity8b10bIdleSets'
+_BX='cMediaIndependentHistoryOverflow8b10bIdleSets'
+_BW='cMediaIndependentHistory8b10bIdleSets'
+_BV='cMediaIndependentHistoryGfpRoundTripLatency'
+_BU='cMediaIndependentHistoryInGfpCSFRaised'
+_BT='cMediaIndependentHistoryInGfpLFDRaised'
+_BS='cMediaIndependentHistoryInGfpCIDInvalid'
+_BR='cMediaIndependentHistoryInGfpTypeInvalid'
+_BQ='cMediaIndependentHistoryOutHighCapacityGfpOctets'
+_BP='cMediaIndependentHistoryOutOverflowGfpOctets'
+_BO='cMediaIndependentHistoryOutGfpOctets'
+_BN='cMediaIndependentHistoryInHighCapacityGfpOctets'
+_BM='cMediaIndependentHistoryInOverflowGfpOctets'
+_BL='cMediaIndependentHistoryInGfpOctets'
+_BK='cMediaIndependentHistoryOutHighCapacityGfpFrames'
+_BJ='cMediaIndependentHistoryOutOverflowGfpFrames'
+_BI='cMediaIndependentHistoryOutGfpFrames'
+_BH='cMediaIndependentHistoryInHighCapacityGfpFrames'
+_BG='cMediaIndependentHistoryInOverflowGfpFrames'
+_BF='cMediaIndependentHistoryInGfpFrames'
+_BE='cMediaIndependentHistoryInGfpCRCErr'
+_BD='cMediaIndependentHistoryInGfpMBitErr'
+_BC='cMediaIndependentHistoryInGfpSBitErr'
+_BB='cMediaIndependentHistoryOutZeroCredits'
+_BA='cMediaIndependentHistoryOutCredits'
+_B9='cMediaIndependentHistoryInCredits'
+_B8='cMediaIndependentHistoryOutDistanceExtBuffers'
+_B7='cMediaIndependentHistoryInDistanceExtBuffers'
+_B6='cMediaIndependentHistoryLinkRecoveries'
+_B5='cMediaIndependentHistoryInFramesTooLong'
+_B4='cMediaIndependentHistoryInFramesTruncated'
+_B3='cMediaIndependentHistoryOutBadCRC'
+_B2='cMediaIndependentHistoryInBadCRC'
+_B1='cMediaIndependentHistoryOutErrors'
+_B0='cMediaIndependentHistoryInErrors'
+_A_='cMediaIndependentHistoryOutNUCastHighCapacityPkts'
+_Az='cMediaIndependentHistoryOutNUCastOverflowPkts'
+_Ay='cMediaIndependentHistoryOutNUCastPkts'
+_Ax='cMediaIndependentHistoryInNUCastHighCapacityPkts'
+_Aw='cMediaIndependentHistoryInNUCastOverflowPkts'
+_Av='cMediaIndependentHistoryInNUCastPkts'
+_Au='cMediaIndependentHistoryOutHighCapacityOctets'
+_At='cMediaIndependentHistoryOutOverflowOctets'
+_As='cMediaIndependentHistoryOutOctets'
+_Ar='cMediaIndependentHistoryInHighCapacityOctets'
+_Aq='cMediaIndependentHistoryInOverflowOctets'
+_Ap='cMediaIndependentHistoryInOctets'
+_Ao='cMediaIndependentHistoryOutHighCapacityPkts'
+_An='cMediaIndependentHistoryOutOverflowPkts'
+_Am='cMediaIndependentHistoryOutPkts'
+_Al='cMediaIndependentHistoryInHighCapacityPkts'
+_Ak='cMediaIndependentHistoryInOverflowPkts'
+_Aj='cMediaIndependentHistoryInPkts'
+_Ai='cMediaIndependentHistoryDroppedFrames'
+_Ah='cMediaIndependentHistoryDropEvents'
+_Ag='cMediaIndependentHistoryControlStatus'
+_Af='cMediaIndependentHistoryControlOwner'
+_Ae='cMediaIndependentHistoryControlInterval'
+_Ad='cMediaIndependentHistoryControlBucketsGranted'
+_Ac='cMediaIndependentHistoryControlBucketsRequested'
+_Ab='cMediaIndependentHistoryControlDataSource'
+_Aa='cMediaIndependentPcsEgRxErrFrames'
+_AZ='cMediaIndependentGfpTxCmfFrame'
+_AY='cMediaIndependentGfpRxCmfFrame'
+_AX='cMediaIndependentTxLcvErrors'
+_AW='cMediaIndependentRxLcvErrors'
+_AV='cMediaIndependentPkts1519toMaxOctets'
+_AU='cMediaIndependentPcs49RxErrDec'
+_AT='cMediaIndependentPcs49RxErrBer'
+_AS='cMediaIndependentPcsErrCount2'
+_AR='cMediaIndependentPcsErrCount'
+_AQ='cMediaIndependentOutFramesTruncated'
+_AP='cMediaIndependentPkts1519to1522Octets'
+_AO='cMediaIndependentOutFramesTooLong'
+_AN='cMediaIndependentInGfpSblkCRCErr'
+_AM='cMediaIndependent8b10bInvalidOrdSetsDispErrorsSum'
+_AL='cMediaIndependentOutRecvrReady'
+_AK='cMediaIndependentInRecvrReady'
+_AJ='cMediaIndependentOutPayloadCrcErrors'
+_AI='cMediaIndependentInPayloadCrcErrors'
+_AH='cMediaIndependentOutOversizePkts'
+_AG='cMediaIndependentInJunkInterPkts'
+_AF='cMediaIndependentInFramingErrorPkts'
+_AE='cMediaIndependentInErrorBytePkts'
+_AD='cMediaIndependentOversizeDropped'
+_AC='cMediaIndependentOutShortPkts'
+_AB='cMediaIndependentInShortPkts'
+_AA='cMediaIndependentHdlcInAborts'
+_A9='cMediaIndependentHdlcOutOctets'
+_A8='cMediaIndependentHdlcInOctets'
+_A7='cMediaIndependentHdlcPktDrops'
+_A6='cMediaIndependentInUnknownOpcodeFrames'
+_A5='cMediaIndependentInControlFrames'
+_A4='cMediaIndependentOutPktsDroppedInternalCongestion'
+_A3='cMediaIndependentInPktsDroppedInternalCongestion'
+_A2='cMediaIndependentOutPauseFrames'
+_A1='cMediaIndependentInPauseFrames'
+_A0='cMediaIndependent8b10bLossOfSync'
+_z='cMediaIndependent8b10bEncodingDispErr'
+_y='cMediaIndependent8b10bInvalidOrdSets'
+_x='cMediaIndependentHighCapacity8b10bDataSets'
+_w='cMediaIndependentOverflow8b10bDataSets'
+_v='cMediaIndependent8b10bDataSets'
+_u='cMediaIndependentHighCapacity8b10bNonIdleSets'
+_t='cMediaIndependentOverflow8b10bNonIdleSets'
+_s='cMediaIndependent8b10bNonIdleSets'
+_r='cMediaIndependentHighCapacity8b10bIdleSets'
+_q='cMediaIndependentOverflow8b10bIdleSets'
+_p='cMediaIndependent8b10bIdleSets'
+_o='cMediaIndependentGfpRoundTripLatency'
+_n='cMediaIndependentInGfpCSFRaised'
+_m='cMediaIndependentInGfpLFDRaised'
+_l='cMediaIndependentInGfpCIDInvalid'
+_k='cMediaIndependentInGfpTypeInvalid'
+_j='cMediaIndependentOutHighCapacityGfpOctets'
+_i='cMediaIndependentOutOverflowGfpOctets'
+_h='cMediaIndependentOutGfpOctets'
+_g='cMediaIndependentInHighCapacityGfpOctets'
+_f='cMediaIndependentInOverflowGfpOctets'
+_e='cMediaIndependentInGfpOctets'
+_d='cMediaIndependentOutHighCapacityGfpFrames'
+_c='cMediaIndependentOutOverflowGfpFrames'
+_b='cMediaIndependentOutGfpFrames'
+_a='cMediaIndependentInHighCapacityGfpFrames'
+_Z='cMediaIndependentInOverflowGfpFrames'
+_Y='cMediaIndependentInGfpFrames'
+_X='cMediaIndependentInGfpCRCErr'
+_W='cMediaIndependentInGfpMBitErr'
+_V='cMediaIndependentInGfpSBitErr'
+_U='cMediaIndependentOutZeroCredits'
+_T='cMediaIndependentOutCredits'
+_S='cMediaIndependentInCredits'
+_R='cMediaIndependentOutDistanceExtBuffers'
+_Q='cMediaIndependentInDistanceExtBuffers'
+_P='cMediaIndependentLinkRecoveries'
+_O='cMediaIndependentInFramesTooLong'
+_N='cMediaIndependentInFramesTruncated'
+_M='cMediaIndependentOutBadCRC'
+_L='cMediaIndependentInBadCRC'
+_K='cMediaIndependentHistorySampleIndex'
+_J='cMediaIndependentHistoryIndex'
+_I='cMediaIndependentHistoryControlIndex'
+_H='mediaIndependentIndex'
+_G='HC-RMON-MIB'
+_F='not-accessible'
+_E='read-create'
+_D='Integer32'
+_C='read-only'
+_B='CERENT-HC-RMON-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+cerentGeneric,cerentModules,cerentRequirements=mibBuilder.importSymbols('CERENT-GLOBAL-REGISTRY','cerentGeneric','cerentModules','cerentRequirements')
+mediaIndependentIndex,=mibBuilder.importSymbols(_G,_H)
+EntryStatus,OwnerString=mibBuilder.importSymbols('RMON-MIB','EntryStatus','OwnerString')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+cerentHcRMON=ModuleIdentity((1,3,6,1,4,1,3607,1,10,110))
+if mibBuilder.loadTexts:cerentHcRMON.setRevisions(('1912-01-20 00:00',))
+_CerentHcRmonMIBObjects_ObjectIdentity=ObjectIdentity
+cerentHcRmonMIBObjects=_CerentHcRmonMIBObjects_ObjectIdentity((1,3,6,1,4,1,3607,2,70))
+_CerentHcRmon_ObjectIdentity=ObjectIdentity
+cerentHcRmon=_CerentHcRmon_ObjectIdentity((1,3,6,1,4,1,3607,2,70,10))
+_CMediaIndependentTable_Object=MibTable
+cMediaIndependentTable=_CMediaIndependentTable_Object((1,3,6,1,4,1,3607,2,70,10,10))
+if mibBuilder.loadTexts:cMediaIndependentTable.setStatus(_A)
+_CMediaIndependentEntry_Object=MibTableRow
+cMediaIndependentEntry=_CMediaIndependentEntry_Object((1,3,6,1,4,1,3607,2,70,10,10,1))
+cMediaIndependentEntry.setIndexNames((0,_G,_H))
+if mibBuilder.loadTexts:cMediaIndependentEntry.setStatus(_A)
+_CMediaIndependentInBadCRC_Type=Counter32
+_CMediaIndependentInBadCRC_Object=MibTableColumn
+cMediaIndependentInBadCRC=_CMediaIndependentInBadCRC_Object((1,3,6,1,4,1,3607,2,70,10,10,1,10),_CMediaIndependentInBadCRC_Type())
+cMediaIndependentInBadCRC.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInBadCRC.setStatus(_A)
+_CMediaIndependentOutBadCRC_Type=Counter32
+_CMediaIndependentOutBadCRC_Object=MibTableColumn
+cMediaIndependentOutBadCRC=_CMediaIndependentOutBadCRC_Object((1,3,6,1,4,1,3607,2,70,10,10,1,20),_CMediaIndependentOutBadCRC_Type())
+cMediaIndependentOutBadCRC.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutBadCRC.setStatus(_A)
+_CMediaIndependentInFramesTruncated_Type=Counter32
+_CMediaIndependentInFramesTruncated_Object=MibTableColumn
+cMediaIndependentInFramesTruncated=_CMediaIndependentInFramesTruncated_Object((1,3,6,1,4,1,3607,2,70,10,10,1,30),_CMediaIndependentInFramesTruncated_Type())
+cMediaIndependentInFramesTruncated.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInFramesTruncated.setStatus(_A)
+_CMediaIndependentInFramesTooLong_Type=Counter32
+_CMediaIndependentInFramesTooLong_Object=MibTableColumn
+cMediaIndependentInFramesTooLong=_CMediaIndependentInFramesTooLong_Object((1,3,6,1,4,1,3607,2,70,10,10,1,40),_CMediaIndependentInFramesTooLong_Type())
+cMediaIndependentInFramesTooLong.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInFramesTooLong.setStatus(_A)
+_CMediaIndependentLinkRecoveries_Type=Counter32
+_CMediaIndependentLinkRecoveries_Object=MibTableColumn
+cMediaIndependentLinkRecoveries=_CMediaIndependentLinkRecoveries_Object((1,3,6,1,4,1,3607,2,70,10,10,1,50),_CMediaIndependentLinkRecoveries_Type())
+cMediaIndependentLinkRecoveries.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentLinkRecoveries.setStatus(_A)
+_CMediaIndependentInDistanceExtBuffers_Type=Counter32
+_CMediaIndependentInDistanceExtBuffers_Object=MibTableColumn
+cMediaIndependentInDistanceExtBuffers=_CMediaIndependentInDistanceExtBuffers_Object((1,3,6,1,4,1,3607,2,70,10,10,1,60),_CMediaIndependentInDistanceExtBuffers_Type())
+cMediaIndependentInDistanceExtBuffers.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInDistanceExtBuffers.setStatus(_A)
+_CMediaIndependentOutDistanceExtBuffers_Type=Counter32
+_CMediaIndependentOutDistanceExtBuffers_Object=MibTableColumn
+cMediaIndependentOutDistanceExtBuffers=_CMediaIndependentOutDistanceExtBuffers_Object((1,3,6,1,4,1,3607,2,70,10,10,1,70),_CMediaIndependentOutDistanceExtBuffers_Type())
+cMediaIndependentOutDistanceExtBuffers.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutDistanceExtBuffers.setStatus(_A)
+_CMediaIndependentInCredits_Type=Counter32
+_CMediaIndependentInCredits_Object=MibTableColumn
+cMediaIndependentInCredits=_CMediaIndependentInCredits_Object((1,3,6,1,4,1,3607,2,70,10,10,1,80),_CMediaIndependentInCredits_Type())
+cMediaIndependentInCredits.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInCredits.setStatus(_A)
+_CMediaIndependentOutCredits_Type=Counter32
+_CMediaIndependentOutCredits_Object=MibTableColumn
+cMediaIndependentOutCredits=_CMediaIndependentOutCredits_Object((1,3,6,1,4,1,3607,2,70,10,10,1,90),_CMediaIndependentOutCredits_Type())
+cMediaIndependentOutCredits.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutCredits.setStatus(_A)
+_CMediaIndependentOutZeroCredits_Type=Counter32
+_CMediaIndependentOutZeroCredits_Object=MibTableColumn
+cMediaIndependentOutZeroCredits=_CMediaIndependentOutZeroCredits_Object((1,3,6,1,4,1,3607,2,70,10,10,1,100),_CMediaIndependentOutZeroCredits_Type())
+cMediaIndependentOutZeroCredits.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutZeroCredits.setStatus(_A)
+_CMediaIndependentInGfpSBitErr_Type=Counter32
+_CMediaIndependentInGfpSBitErr_Object=MibTableColumn
+cMediaIndependentInGfpSBitErr=_CMediaIndependentInGfpSBitErr_Object((1,3,6,1,4,1,3607,2,70,10,10,1,110),_CMediaIndependentInGfpSBitErr_Type())
+cMediaIndependentInGfpSBitErr.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInGfpSBitErr.setStatus(_A)
+_CMediaIndependentInGfpMBitErr_Type=Counter32
+_CMediaIndependentInGfpMBitErr_Object=MibTableColumn
+cMediaIndependentInGfpMBitErr=_CMediaIndependentInGfpMBitErr_Object((1,3,6,1,4,1,3607,2,70,10,10,1,120),_CMediaIndependentInGfpMBitErr_Type())
+cMediaIndependentInGfpMBitErr.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInGfpMBitErr.setStatus(_A)
+_CMediaIndependentInGfpCRCErr_Type=Counter32
+_CMediaIndependentInGfpCRCErr_Object=MibTableColumn
+cMediaIndependentInGfpCRCErr=_CMediaIndependentInGfpCRCErr_Object((1,3,6,1,4,1,3607,2,70,10,10,1,130),_CMediaIndependentInGfpCRCErr_Type())
+cMediaIndependentInGfpCRCErr.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInGfpCRCErr.setStatus(_A)
+_CMediaIndependentInGfpFrames_Type=Counter32
+_CMediaIndependentInGfpFrames_Object=MibTableColumn
+cMediaIndependentInGfpFrames=_CMediaIndependentInGfpFrames_Object((1,3,6,1,4,1,3607,2,70,10,10,1,140),_CMediaIndependentInGfpFrames_Type())
+cMediaIndependentInGfpFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInGfpFrames.setStatus(_A)
+_CMediaIndependentInOverflowGfpFrames_Type=Counter32
+_CMediaIndependentInOverflowGfpFrames_Object=MibTableColumn
+cMediaIndependentInOverflowGfpFrames=_CMediaIndependentInOverflowGfpFrames_Object((1,3,6,1,4,1,3607,2,70,10,10,1,150),_CMediaIndependentInOverflowGfpFrames_Type())
+cMediaIndependentInOverflowGfpFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInOverflowGfpFrames.setStatus(_A)
+_CMediaIndependentInHighCapacityGfpFrames_Type=Counter64
+_CMediaIndependentInHighCapacityGfpFrames_Object=MibTableColumn
+cMediaIndependentInHighCapacityGfpFrames=_CMediaIndependentInHighCapacityGfpFrames_Object((1,3,6,1,4,1,3607,2,70,10,10,1,160),_CMediaIndependentInHighCapacityGfpFrames_Type())
+cMediaIndependentInHighCapacityGfpFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInHighCapacityGfpFrames.setStatus(_A)
+_CMediaIndependentOutGfpFrames_Type=Counter32
+_CMediaIndependentOutGfpFrames_Object=MibTableColumn
+cMediaIndependentOutGfpFrames=_CMediaIndependentOutGfpFrames_Object((1,3,6,1,4,1,3607,2,70,10,10,1,170),_CMediaIndependentOutGfpFrames_Type())
+cMediaIndependentOutGfpFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutGfpFrames.setStatus(_A)
+_CMediaIndependentOutOverflowGfpFrames_Type=Counter32
+_CMediaIndependentOutOverflowGfpFrames_Object=MibTableColumn
+cMediaIndependentOutOverflowGfpFrames=_CMediaIndependentOutOverflowGfpFrames_Object((1,3,6,1,4,1,3607,2,70,10,10,1,180),_CMediaIndependentOutOverflowGfpFrames_Type())
+cMediaIndependentOutOverflowGfpFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutOverflowGfpFrames.setStatus(_A)
+_CMediaIndependentOutHighCapacityGfpFrames_Type=Counter64
+_CMediaIndependentOutHighCapacityGfpFrames_Object=MibTableColumn
+cMediaIndependentOutHighCapacityGfpFrames=_CMediaIndependentOutHighCapacityGfpFrames_Object((1,3,6,1,4,1,3607,2,70,10,10,1,190),_CMediaIndependentOutHighCapacityGfpFrames_Type())
+cMediaIndependentOutHighCapacityGfpFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutHighCapacityGfpFrames.setStatus(_A)
+_CMediaIndependentInGfpOctets_Type=Counter32
+_CMediaIndependentInGfpOctets_Object=MibTableColumn
+cMediaIndependentInGfpOctets=_CMediaIndependentInGfpOctets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,200),_CMediaIndependentInGfpOctets_Type())
+cMediaIndependentInGfpOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInGfpOctets.setStatus(_A)
+_CMediaIndependentInOverflowGfpOctets_Type=Counter32
+_CMediaIndependentInOverflowGfpOctets_Object=MibTableColumn
+cMediaIndependentInOverflowGfpOctets=_CMediaIndependentInOverflowGfpOctets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,210),_CMediaIndependentInOverflowGfpOctets_Type())
+cMediaIndependentInOverflowGfpOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInOverflowGfpOctets.setStatus(_A)
+_CMediaIndependentInHighCapacityGfpOctets_Type=Counter64
+_CMediaIndependentInHighCapacityGfpOctets_Object=MibTableColumn
+cMediaIndependentInHighCapacityGfpOctets=_CMediaIndependentInHighCapacityGfpOctets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,220),_CMediaIndependentInHighCapacityGfpOctets_Type())
+cMediaIndependentInHighCapacityGfpOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInHighCapacityGfpOctets.setStatus(_A)
+_CMediaIndependentOutGfpOctets_Type=Counter32
+_CMediaIndependentOutGfpOctets_Object=MibTableColumn
+cMediaIndependentOutGfpOctets=_CMediaIndependentOutGfpOctets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,230),_CMediaIndependentOutGfpOctets_Type())
+cMediaIndependentOutGfpOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutGfpOctets.setStatus(_A)
+_CMediaIndependentOutOverflowGfpOctets_Type=Counter32
+_CMediaIndependentOutOverflowGfpOctets_Object=MibTableColumn
+cMediaIndependentOutOverflowGfpOctets=_CMediaIndependentOutOverflowGfpOctets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,240),_CMediaIndependentOutOverflowGfpOctets_Type())
+cMediaIndependentOutOverflowGfpOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutOverflowGfpOctets.setStatus(_A)
+_CMediaIndependentOutHighCapacityGfpOctets_Type=Counter64
+_CMediaIndependentOutHighCapacityGfpOctets_Object=MibTableColumn
+cMediaIndependentOutHighCapacityGfpOctets=_CMediaIndependentOutHighCapacityGfpOctets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,250),_CMediaIndependentOutHighCapacityGfpOctets_Type())
+cMediaIndependentOutHighCapacityGfpOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutHighCapacityGfpOctets.setStatus(_A)
+_CMediaIndependentInGfpTypeInvalid_Type=Counter32
+_CMediaIndependentInGfpTypeInvalid_Object=MibTableColumn
+cMediaIndependentInGfpTypeInvalid=_CMediaIndependentInGfpTypeInvalid_Object((1,3,6,1,4,1,3607,2,70,10,10,1,260),_CMediaIndependentInGfpTypeInvalid_Type())
+cMediaIndependentInGfpTypeInvalid.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInGfpTypeInvalid.setStatus(_A)
+_CMediaIndependentInGfpCIDInvalid_Type=Counter32
+_CMediaIndependentInGfpCIDInvalid_Object=MibTableColumn
+cMediaIndependentInGfpCIDInvalid=_CMediaIndependentInGfpCIDInvalid_Object((1,3,6,1,4,1,3607,2,70,10,10,1,270),_CMediaIndependentInGfpCIDInvalid_Type())
+cMediaIndependentInGfpCIDInvalid.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInGfpCIDInvalid.setStatus(_A)
+_CMediaIndependentInGfpLFDRaised_Type=Counter32
+_CMediaIndependentInGfpLFDRaised_Object=MibTableColumn
+cMediaIndependentInGfpLFDRaised=_CMediaIndependentInGfpLFDRaised_Object((1,3,6,1,4,1,3607,2,70,10,10,1,280),_CMediaIndependentInGfpLFDRaised_Type())
+cMediaIndependentInGfpLFDRaised.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInGfpLFDRaised.setStatus(_A)
+_CMediaIndependentInGfpCSFRaised_Type=Counter32
+_CMediaIndependentInGfpCSFRaised_Object=MibTableColumn
+cMediaIndependentInGfpCSFRaised=_CMediaIndependentInGfpCSFRaised_Object((1,3,6,1,4,1,3607,2,70,10,10,1,290),_CMediaIndependentInGfpCSFRaised_Type())
+cMediaIndependentInGfpCSFRaised.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInGfpCSFRaised.setStatus(_A)
+_CMediaIndependentGfpRoundTripLatency_Type=Counter32
+_CMediaIndependentGfpRoundTripLatency_Object=MibTableColumn
+cMediaIndependentGfpRoundTripLatency=_CMediaIndependentGfpRoundTripLatency_Object((1,3,6,1,4,1,3607,2,70,10,10,1,300),_CMediaIndependentGfpRoundTripLatency_Type())
+cMediaIndependentGfpRoundTripLatency.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentGfpRoundTripLatency.setStatus(_A)
+_CMediaIndependent8b10bIdleSets_Type=Counter32
+_CMediaIndependent8b10bIdleSets_Object=MibTableColumn
+cMediaIndependent8b10bIdleSets=_CMediaIndependent8b10bIdleSets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,310),_CMediaIndependent8b10bIdleSets_Type())
+cMediaIndependent8b10bIdleSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependent8b10bIdleSets.setStatus(_A)
+_CMediaIndependentOverflow8b10bIdleSets_Type=Counter32
+_CMediaIndependentOverflow8b10bIdleSets_Object=MibTableColumn
+cMediaIndependentOverflow8b10bIdleSets=_CMediaIndependentOverflow8b10bIdleSets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,320),_CMediaIndependentOverflow8b10bIdleSets_Type())
+cMediaIndependentOverflow8b10bIdleSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOverflow8b10bIdleSets.setStatus(_A)
+_CMediaIndependentHighCapacity8b10bIdleSets_Type=Counter64
+_CMediaIndependentHighCapacity8b10bIdleSets_Object=MibTableColumn
+cMediaIndependentHighCapacity8b10bIdleSets=_CMediaIndependentHighCapacity8b10bIdleSets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,330),_CMediaIndependentHighCapacity8b10bIdleSets_Type())
+cMediaIndependentHighCapacity8b10bIdleSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHighCapacity8b10bIdleSets.setStatus(_A)
+_CMediaIndependent8b10bNonIdleSets_Type=Counter32
+_CMediaIndependent8b10bNonIdleSets_Object=MibTableColumn
+cMediaIndependent8b10bNonIdleSets=_CMediaIndependent8b10bNonIdleSets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,340),_CMediaIndependent8b10bNonIdleSets_Type())
+cMediaIndependent8b10bNonIdleSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependent8b10bNonIdleSets.setStatus(_A)
+_CMediaIndependentOverflow8b10bNonIdleSets_Type=Counter32
+_CMediaIndependentOverflow8b10bNonIdleSets_Object=MibTableColumn
+cMediaIndependentOverflow8b10bNonIdleSets=_CMediaIndependentOverflow8b10bNonIdleSets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,350),_CMediaIndependentOverflow8b10bNonIdleSets_Type())
+cMediaIndependentOverflow8b10bNonIdleSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOverflow8b10bNonIdleSets.setStatus(_A)
+_CMediaIndependentHighCapacity8b10bNonIdleSets_Type=Counter64
+_CMediaIndependentHighCapacity8b10bNonIdleSets_Object=MibTableColumn
+cMediaIndependentHighCapacity8b10bNonIdleSets=_CMediaIndependentHighCapacity8b10bNonIdleSets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,360),_CMediaIndependentHighCapacity8b10bNonIdleSets_Type())
+cMediaIndependentHighCapacity8b10bNonIdleSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHighCapacity8b10bNonIdleSets.setStatus(_A)
+_CMediaIndependent8b10bDataSets_Type=Counter32
+_CMediaIndependent8b10bDataSets_Object=MibTableColumn
+cMediaIndependent8b10bDataSets=_CMediaIndependent8b10bDataSets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,370),_CMediaIndependent8b10bDataSets_Type())
+cMediaIndependent8b10bDataSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependent8b10bDataSets.setStatus(_A)
+_CMediaIndependentOverflow8b10bDataSets_Type=Counter32
+_CMediaIndependentOverflow8b10bDataSets_Object=MibTableColumn
+cMediaIndependentOverflow8b10bDataSets=_CMediaIndependentOverflow8b10bDataSets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,380),_CMediaIndependentOverflow8b10bDataSets_Type())
+cMediaIndependentOverflow8b10bDataSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOverflow8b10bDataSets.setStatus(_A)
+_CMediaIndependentHighCapacity8b10bDataSets_Type=Counter64
+_CMediaIndependentHighCapacity8b10bDataSets_Object=MibTableColumn
+cMediaIndependentHighCapacity8b10bDataSets=_CMediaIndependentHighCapacity8b10bDataSets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,390),_CMediaIndependentHighCapacity8b10bDataSets_Type())
+cMediaIndependentHighCapacity8b10bDataSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHighCapacity8b10bDataSets.setStatus(_A)
+_CMediaIndependent8b10bInvalidOrdSets_Type=Counter32
+_CMediaIndependent8b10bInvalidOrdSets_Object=MibTableColumn
+cMediaIndependent8b10bInvalidOrdSets=_CMediaIndependent8b10bInvalidOrdSets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,400),_CMediaIndependent8b10bInvalidOrdSets_Type())
+cMediaIndependent8b10bInvalidOrdSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependent8b10bInvalidOrdSets.setStatus(_A)
+_CMediaIndependent8b10bEncodingDispErr_Type=Counter32
+_CMediaIndependent8b10bEncodingDispErr_Object=MibTableColumn
+cMediaIndependent8b10bEncodingDispErr=_CMediaIndependent8b10bEncodingDispErr_Object((1,3,6,1,4,1,3607,2,70,10,10,1,410),_CMediaIndependent8b10bEncodingDispErr_Type())
+cMediaIndependent8b10bEncodingDispErr.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependent8b10bEncodingDispErr.setStatus(_A)
+_CMediaIndependent8b10bLossOfSync_Type=Counter32
+_CMediaIndependent8b10bLossOfSync_Object=MibTableColumn
+cMediaIndependent8b10bLossOfSync=_CMediaIndependent8b10bLossOfSync_Object((1,3,6,1,4,1,3607,2,70,10,10,1,420),_CMediaIndependent8b10bLossOfSync_Type())
+cMediaIndependent8b10bLossOfSync.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependent8b10bLossOfSync.setStatus(_A)
+_CMediaIndependentInPauseFrames_Type=Counter32
+_CMediaIndependentInPauseFrames_Object=MibTableColumn
+cMediaIndependentInPauseFrames=_CMediaIndependentInPauseFrames_Object((1,3,6,1,4,1,3607,2,70,10,10,1,430),_CMediaIndependentInPauseFrames_Type())
+cMediaIndependentInPauseFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInPauseFrames.setStatus(_A)
+_CMediaIndependentOutPauseFrames_Type=Counter32
+_CMediaIndependentOutPauseFrames_Object=MibTableColumn
+cMediaIndependentOutPauseFrames=_CMediaIndependentOutPauseFrames_Object((1,3,6,1,4,1,3607,2,70,10,10,1,440),_CMediaIndependentOutPauseFrames_Type())
+cMediaIndependentOutPauseFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutPauseFrames.setStatus(_A)
+_CMediaIndependentInPktsDroppedInternalCongestion_Type=Counter32
+_CMediaIndependentInPktsDroppedInternalCongestion_Object=MibTableColumn
+cMediaIndependentInPktsDroppedInternalCongestion=_CMediaIndependentInPktsDroppedInternalCongestion_Object((1,3,6,1,4,1,3607,2,70,10,10,1,450),_CMediaIndependentInPktsDroppedInternalCongestion_Type())
+cMediaIndependentInPktsDroppedInternalCongestion.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInPktsDroppedInternalCongestion.setStatus(_A)
+_CMediaIndependentOutPktsDroppedInternalCongestion_Type=Counter32
+_CMediaIndependentOutPktsDroppedInternalCongestion_Object=MibTableColumn
+cMediaIndependentOutPktsDroppedInternalCongestion=_CMediaIndependentOutPktsDroppedInternalCongestion_Object((1,3,6,1,4,1,3607,2,70,10,10,1,460),_CMediaIndependentOutPktsDroppedInternalCongestion_Type())
+cMediaIndependentOutPktsDroppedInternalCongestion.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutPktsDroppedInternalCongestion.setStatus(_A)
+_CMediaIndependentInControlFrames_Type=Counter32
+_CMediaIndependentInControlFrames_Object=MibTableColumn
+cMediaIndependentInControlFrames=_CMediaIndependentInControlFrames_Object((1,3,6,1,4,1,3607,2,70,10,10,1,470),_CMediaIndependentInControlFrames_Type())
+cMediaIndependentInControlFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInControlFrames.setStatus(_A)
+_CMediaIndependentInUnknownOpcodeFrames_Type=Counter32
+_CMediaIndependentInUnknownOpcodeFrames_Object=MibTableColumn
+cMediaIndependentInUnknownOpcodeFrames=_CMediaIndependentInUnknownOpcodeFrames_Object((1,3,6,1,4,1,3607,2,70,10,10,1,480),_CMediaIndependentInUnknownOpcodeFrames_Type())
+cMediaIndependentInUnknownOpcodeFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInUnknownOpcodeFrames.setStatus(_A)
+_CMediaIndependentHdlcPktDrops_Type=Counter32
+_CMediaIndependentHdlcPktDrops_Object=MibTableColumn
+cMediaIndependentHdlcPktDrops=_CMediaIndependentHdlcPktDrops_Object((1,3,6,1,4,1,3607,2,70,10,10,1,490),_CMediaIndependentHdlcPktDrops_Type())
+cMediaIndependentHdlcPktDrops.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHdlcPktDrops.setStatus(_A)
+_CMediaIndependentHdlcInOctets_Type=Counter32
+_CMediaIndependentHdlcInOctets_Object=MibTableColumn
+cMediaIndependentHdlcInOctets=_CMediaIndependentHdlcInOctets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,500),_CMediaIndependentHdlcInOctets_Type())
+cMediaIndependentHdlcInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHdlcInOctets.setStatus(_A)
+_CMediaIndependentHdlcOutOctets_Type=Counter32
+_CMediaIndependentHdlcOutOctets_Object=MibTableColumn
+cMediaIndependentHdlcOutOctets=_CMediaIndependentHdlcOutOctets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,510),_CMediaIndependentHdlcOutOctets_Type())
+cMediaIndependentHdlcOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHdlcOutOctets.setStatus(_A)
+_CMediaIndependentHdlcInAborts_Type=Counter32
+_CMediaIndependentHdlcInAborts_Object=MibTableColumn
+cMediaIndependentHdlcInAborts=_CMediaIndependentHdlcInAborts_Object((1,3,6,1,4,1,3607,2,70,10,10,1,520),_CMediaIndependentHdlcInAborts_Type())
+cMediaIndependentHdlcInAborts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHdlcInAborts.setStatus(_A)
+_CMediaIndependentInShortPkts_Type=Counter32
+_CMediaIndependentInShortPkts_Object=MibTableColumn
+cMediaIndependentInShortPkts=_CMediaIndependentInShortPkts_Object((1,3,6,1,4,1,3607,2,70,10,10,1,530),_CMediaIndependentInShortPkts_Type())
+cMediaIndependentInShortPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInShortPkts.setStatus(_A)
+_CMediaIndependentOutShortPkts_Type=Counter32
+_CMediaIndependentOutShortPkts_Object=MibTableColumn
+cMediaIndependentOutShortPkts=_CMediaIndependentOutShortPkts_Object((1,3,6,1,4,1,3607,2,70,10,10,1,535),_CMediaIndependentOutShortPkts_Type())
+cMediaIndependentOutShortPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutShortPkts.setStatus(_A)
+_CMediaIndependentOversizeDropped_Type=Counter32
+_CMediaIndependentOversizeDropped_Object=MibTableColumn
+cMediaIndependentOversizeDropped=_CMediaIndependentOversizeDropped_Object((1,3,6,1,4,1,3607,2,70,10,10,1,540),_CMediaIndependentOversizeDropped_Type())
+cMediaIndependentOversizeDropped.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOversizeDropped.setStatus(_A)
+_CMediaIndependentInErrorBytePkts_Type=Counter32
+_CMediaIndependentInErrorBytePkts_Object=MibTableColumn
+cMediaIndependentInErrorBytePkts=_CMediaIndependentInErrorBytePkts_Object((1,3,6,1,4,1,3607,2,70,10,10,1,550),_CMediaIndependentInErrorBytePkts_Type())
+cMediaIndependentInErrorBytePkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInErrorBytePkts.setStatus(_A)
+_CMediaIndependentInFramingErrorPkts_Type=Counter32
+_CMediaIndependentInFramingErrorPkts_Object=MibTableColumn
+cMediaIndependentInFramingErrorPkts=_CMediaIndependentInFramingErrorPkts_Object((1,3,6,1,4,1,3607,2,70,10,10,1,560),_CMediaIndependentInFramingErrorPkts_Type())
+cMediaIndependentInFramingErrorPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInFramingErrorPkts.setStatus(_A)
+_CMediaIndependentInJunkInterPkts_Type=Counter32
+_CMediaIndependentInJunkInterPkts_Object=MibTableColumn
+cMediaIndependentInJunkInterPkts=_CMediaIndependentInJunkInterPkts_Object((1,3,6,1,4,1,3607,2,70,10,10,1,570),_CMediaIndependentInJunkInterPkts_Type())
+cMediaIndependentInJunkInterPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInJunkInterPkts.setStatus(_A)
+_CMediaIndependentOutOversizePkts_Type=Counter32
+_CMediaIndependentOutOversizePkts_Object=MibTableColumn
+cMediaIndependentOutOversizePkts=_CMediaIndependentOutOversizePkts_Object((1,3,6,1,4,1,3607,2,70,10,10,1,580),_CMediaIndependentOutOversizePkts_Type())
+cMediaIndependentOutOversizePkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutOversizePkts.setStatus(_A)
+_CMediaIndependentInPayloadCrcErrors_Type=Counter32
+_CMediaIndependentInPayloadCrcErrors_Object=MibTableColumn
+cMediaIndependentInPayloadCrcErrors=_CMediaIndependentInPayloadCrcErrors_Object((1,3,6,1,4,1,3607,2,70,10,10,1,590),_CMediaIndependentInPayloadCrcErrors_Type())
+cMediaIndependentInPayloadCrcErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInPayloadCrcErrors.setStatus(_A)
+_CMediaIndependentOutPayloadCrcErrors_Type=Counter32
+_CMediaIndependentOutPayloadCrcErrors_Object=MibTableColumn
+cMediaIndependentOutPayloadCrcErrors=_CMediaIndependentOutPayloadCrcErrors_Object((1,3,6,1,4,1,3607,2,70,10,10,1,600),_CMediaIndependentOutPayloadCrcErrors_Type())
+cMediaIndependentOutPayloadCrcErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutPayloadCrcErrors.setStatus(_A)
+_CMediaIndependentInRecvrReady_Type=Counter32
+_CMediaIndependentInRecvrReady_Object=MibTableColumn
+cMediaIndependentInRecvrReady=_CMediaIndependentInRecvrReady_Object((1,3,6,1,4,1,3607,2,70,10,10,1,610),_CMediaIndependentInRecvrReady_Type())
+cMediaIndependentInRecvrReady.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInRecvrReady.setStatus(_A)
+_CMediaIndependentOutRecvrReady_Type=Counter32
+_CMediaIndependentOutRecvrReady_Object=MibTableColumn
+cMediaIndependentOutRecvrReady=_CMediaIndependentOutRecvrReady_Object((1,3,6,1,4,1,3607,2,70,10,10,1,620),_CMediaIndependentOutRecvrReady_Type())
+cMediaIndependentOutRecvrReady.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutRecvrReady.setStatus(_A)
+_CMediaIndependent8b10bInvalidOrdSetsDispErrorsSum_Type=Counter32
+_CMediaIndependent8b10bInvalidOrdSetsDispErrorsSum_Object=MibTableColumn
+cMediaIndependent8b10bInvalidOrdSetsDispErrorsSum=_CMediaIndependent8b10bInvalidOrdSetsDispErrorsSum_Object((1,3,6,1,4,1,3607,2,70,10,10,1,630),_CMediaIndependent8b10bInvalidOrdSetsDispErrorsSum_Type())
+cMediaIndependent8b10bInvalidOrdSetsDispErrorsSum.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependent8b10bInvalidOrdSetsDispErrorsSum.setStatus(_A)
+_CMediaIndependentInGfpSblkCRCErr_Type=Counter32
+_CMediaIndependentInGfpSblkCRCErr_Object=MibTableColumn
+cMediaIndependentInGfpSblkCRCErr=_CMediaIndependentInGfpSblkCRCErr_Object((1,3,6,1,4,1,3607,2,70,10,10,1,640),_CMediaIndependentInGfpSblkCRCErr_Type())
+cMediaIndependentInGfpSblkCRCErr.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentInGfpSblkCRCErr.setStatus(_A)
+_CMediaIndependentOutFramesTooLong_Type=Counter32
+_CMediaIndependentOutFramesTooLong_Object=MibTableColumn
+cMediaIndependentOutFramesTooLong=_CMediaIndependentOutFramesTooLong_Object((1,3,6,1,4,1,3607,2,70,10,10,1,650),_CMediaIndependentOutFramesTooLong_Type())
+cMediaIndependentOutFramesTooLong.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutFramesTooLong.setStatus(_A)
+_CMediaIndependentPkts1519to1522Octets_Type=Counter32
+_CMediaIndependentPkts1519to1522Octets_Object=MibTableColumn
+cMediaIndependentPkts1519to1522Octets=_CMediaIndependentPkts1519to1522Octets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,660),_CMediaIndependentPkts1519to1522Octets_Type())
+cMediaIndependentPkts1519to1522Octets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentPkts1519to1522Octets.setStatus(_A)
+_CMediaIndependentOutFramesTruncated_Type=Counter32
+_CMediaIndependentOutFramesTruncated_Object=MibTableColumn
+cMediaIndependentOutFramesTruncated=_CMediaIndependentOutFramesTruncated_Object((1,3,6,1,4,1,3607,2,70,10,10,1,670),_CMediaIndependentOutFramesTruncated_Type())
+cMediaIndependentOutFramesTruncated.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentOutFramesTruncated.setStatus(_A)
+_CMediaIndependentPcsErrCount_Type=Counter32
+_CMediaIndependentPcsErrCount_Object=MibTableColumn
+cMediaIndependentPcsErrCount=_CMediaIndependentPcsErrCount_Object((1,3,6,1,4,1,3607,2,70,10,10,1,680),_CMediaIndependentPcsErrCount_Type())
+cMediaIndependentPcsErrCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentPcsErrCount.setStatus(_A)
+_CMediaIndependentPcsErrCount2_Type=Counter32
+_CMediaIndependentPcsErrCount2_Object=MibTableColumn
+cMediaIndependentPcsErrCount2=_CMediaIndependentPcsErrCount2_Object((1,3,6,1,4,1,3607,2,70,10,10,1,690),_CMediaIndependentPcsErrCount2_Type())
+cMediaIndependentPcsErrCount2.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentPcsErrCount2.setStatus(_A)
+_CMediaIndependentPcs49RxErrBer_Type=Counter32
+_CMediaIndependentPcs49RxErrBer_Object=MibTableColumn
+cMediaIndependentPcs49RxErrBer=_CMediaIndependentPcs49RxErrBer_Object((1,3,6,1,4,1,3607,2,70,10,10,1,700),_CMediaIndependentPcs49RxErrBer_Type())
+cMediaIndependentPcs49RxErrBer.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentPcs49RxErrBer.setStatus(_A)
+_CMediaIndependentPcs49RxErrDec_Type=Counter32
+_CMediaIndependentPcs49RxErrDec_Object=MibTableColumn
+cMediaIndependentPcs49RxErrDec=_CMediaIndependentPcs49RxErrDec_Object((1,3,6,1,4,1,3607,2,70,10,10,1,710),_CMediaIndependentPcs49RxErrDec_Type())
+cMediaIndependentPcs49RxErrDec.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentPcs49RxErrDec.setStatus(_A)
+_CMediaIndependentPkts1519toMaxOctets_Type=Counter32
+_CMediaIndependentPkts1519toMaxOctets_Object=MibTableColumn
+cMediaIndependentPkts1519toMaxOctets=_CMediaIndependentPkts1519toMaxOctets_Object((1,3,6,1,4,1,3607,2,70,10,10,1,720),_CMediaIndependentPkts1519toMaxOctets_Type())
+cMediaIndependentPkts1519toMaxOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentPkts1519toMaxOctets.setStatus(_A)
+_CMediaIndependentRxLcvErrors_Type=Counter32
+_CMediaIndependentRxLcvErrors_Object=MibTableColumn
+cMediaIndependentRxLcvErrors=_CMediaIndependentRxLcvErrors_Object((1,3,6,1,4,1,3607,2,70,10,10,1,730),_CMediaIndependentRxLcvErrors_Type())
+cMediaIndependentRxLcvErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentRxLcvErrors.setStatus(_A)
+_CMediaIndependentTxLcvErrors_Type=Counter32
+_CMediaIndependentTxLcvErrors_Object=MibTableColumn
+cMediaIndependentTxLcvErrors=_CMediaIndependentTxLcvErrors_Object((1,3,6,1,4,1,3607,2,70,10,10,1,740),_CMediaIndependentTxLcvErrors_Type())
+cMediaIndependentTxLcvErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentTxLcvErrors.setStatus(_A)
+_CMediaIndependentGfpRxCmfFrame_Type=Counter32
+_CMediaIndependentGfpRxCmfFrame_Object=MibTableColumn
+cMediaIndependentGfpRxCmfFrame=_CMediaIndependentGfpRxCmfFrame_Object((1,3,6,1,4,1,3607,2,70,10,10,1,750),_CMediaIndependentGfpRxCmfFrame_Type())
+cMediaIndependentGfpRxCmfFrame.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentGfpRxCmfFrame.setStatus(_A)
+_CMediaIndependentGfpTxCmfFrame_Type=Counter32
+_CMediaIndependentGfpTxCmfFrame_Object=MibTableColumn
+cMediaIndependentGfpTxCmfFrame=_CMediaIndependentGfpTxCmfFrame_Object((1,3,6,1,4,1,3607,2,70,10,10,1,760),_CMediaIndependentGfpTxCmfFrame_Type())
+cMediaIndependentGfpTxCmfFrame.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentGfpTxCmfFrame.setStatus(_A)
+_CMediaIndependentPcsEgRxErrFrames_Type=Counter32
+_CMediaIndependentPcsEgRxErrFrames_Object=MibTableColumn
+cMediaIndependentPcsEgRxErrFrames=_CMediaIndependentPcsEgRxErrFrames_Object((1,3,6,1,4,1,3607,2,70,10,10,1,770),_CMediaIndependentPcsEgRxErrFrames_Type())
+cMediaIndependentPcsEgRxErrFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentPcsEgRxErrFrames.setStatus(_A)
+_CMediaIndependentHistoryControlTable_Object=MibTable
+cMediaIndependentHistoryControlTable=_CMediaIndependentHistoryControlTable_Object((1,3,6,1,4,1,3607,2,70,10,20))
+if mibBuilder.loadTexts:cMediaIndependentHistoryControlTable.setStatus(_A)
+_CMediaIndependentHistoryControlEntry_Object=MibTableRow
+cMediaIndependentHistoryControlEntry=_CMediaIndependentHistoryControlEntry_Object((1,3,6,1,4,1,3607,2,70,10,20,1))
+cMediaIndependentHistoryControlEntry.setIndexNames((0,_B,_I))
+if mibBuilder.loadTexts:cMediaIndependentHistoryControlEntry.setStatus(_A)
+class _CMediaIndependentHistoryControlIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_CMediaIndependentHistoryControlIndex_Type.__name__=_D
+_CMediaIndependentHistoryControlIndex_Object=MibTableColumn
+cMediaIndependentHistoryControlIndex=_CMediaIndependentHistoryControlIndex_Object((1,3,6,1,4,1,3607,2,70,10,20,1,10),_CMediaIndependentHistoryControlIndex_Type())
+cMediaIndependentHistoryControlIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:cMediaIndependentHistoryControlIndex.setStatus(_A)
+_CMediaIndependentHistoryControlDataSource_Type=ObjectIdentifier
+_CMediaIndependentHistoryControlDataSource_Object=MibTableColumn
+cMediaIndependentHistoryControlDataSource=_CMediaIndependentHistoryControlDataSource_Object((1,3,6,1,4,1,3607,2,70,10,20,1,20),_CMediaIndependentHistoryControlDataSource_Type())
+cMediaIndependentHistoryControlDataSource.setMaxAccess(_E)
+if mibBuilder.loadTexts:cMediaIndependentHistoryControlDataSource.setStatus(_A)
+class _CMediaIndependentHistoryControlBucketsRequested_Type(Integer32):defaultValue=50;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_CMediaIndependentHistoryControlBucketsRequested_Type.__name__=_D
+_CMediaIndependentHistoryControlBucketsRequested_Object=MibTableColumn
+cMediaIndependentHistoryControlBucketsRequested=_CMediaIndependentHistoryControlBucketsRequested_Object((1,3,6,1,4,1,3607,2,70,10,20,1,30),_CMediaIndependentHistoryControlBucketsRequested_Type())
+cMediaIndependentHistoryControlBucketsRequested.setMaxAccess(_E)
+if mibBuilder.loadTexts:cMediaIndependentHistoryControlBucketsRequested.setStatus(_A)
+class _CMediaIndependentHistoryControlBucketsGranted_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_CMediaIndependentHistoryControlBucketsGranted_Type.__name__=_D
+_CMediaIndependentHistoryControlBucketsGranted_Object=MibTableColumn
+cMediaIndependentHistoryControlBucketsGranted=_CMediaIndependentHistoryControlBucketsGranted_Object((1,3,6,1,4,1,3607,2,70,10,20,1,40),_CMediaIndependentHistoryControlBucketsGranted_Type())
+cMediaIndependentHistoryControlBucketsGranted.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryControlBucketsGranted.setStatus(_A)
+class _CMediaIndependentHistoryControlInterval_Type(Integer32):defaultValue=1800;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3600))
+_CMediaIndependentHistoryControlInterval_Type.__name__=_D
+_CMediaIndependentHistoryControlInterval_Object=MibTableColumn
+cMediaIndependentHistoryControlInterval=_CMediaIndependentHistoryControlInterval_Object((1,3,6,1,4,1,3607,2,70,10,20,1,50),_CMediaIndependentHistoryControlInterval_Type())
+cMediaIndependentHistoryControlInterval.setMaxAccess(_E)
+if mibBuilder.loadTexts:cMediaIndependentHistoryControlInterval.setStatus(_A)
+if mibBuilder.loadTexts:cMediaIndependentHistoryControlInterval.setUnits('Seconds')
+_CMediaIndependentHistoryControlOwner_Type=OwnerString
+_CMediaIndependentHistoryControlOwner_Object=MibTableColumn
+cMediaIndependentHistoryControlOwner=_CMediaIndependentHistoryControlOwner_Object((1,3,6,1,4,1,3607,2,70,10,20,1,60),_CMediaIndependentHistoryControlOwner_Type())
+cMediaIndependentHistoryControlOwner.setMaxAccess(_E)
+if mibBuilder.loadTexts:cMediaIndependentHistoryControlOwner.setStatus(_A)
+_CMediaIndependentHistoryControlStatus_Type=EntryStatus
+_CMediaIndependentHistoryControlStatus_Object=MibTableColumn
+cMediaIndependentHistoryControlStatus=_CMediaIndependentHistoryControlStatus_Object((1,3,6,1,4,1,3607,2,70,10,20,1,70),_CMediaIndependentHistoryControlStatus_Type())
+cMediaIndependentHistoryControlStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:cMediaIndependentHistoryControlStatus.setStatus(_A)
+_CMediaIndependentHistoryTable_Object=MibTable
+cMediaIndependentHistoryTable=_CMediaIndependentHistoryTable_Object((1,3,6,1,4,1,3607,2,70,10,30))
+if mibBuilder.loadTexts:cMediaIndependentHistoryTable.setStatus(_A)
+_CMediaIndependentHistoryEntry_Object=MibTableRow
+cMediaIndependentHistoryEntry=_CMediaIndependentHistoryEntry_Object((1,3,6,1,4,1,3607,2,70,10,30,1))
+cMediaIndependentHistoryEntry.setIndexNames((0,_B,_J),(0,_B,_K))
+if mibBuilder.loadTexts:cMediaIndependentHistoryEntry.setStatus(_A)
+class _CMediaIndependentHistoryIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_CMediaIndependentHistoryIndex_Type.__name__=_D
+_CMediaIndependentHistoryIndex_Object=MibTableColumn
+cMediaIndependentHistoryIndex=_CMediaIndependentHistoryIndex_Object((1,3,6,1,4,1,3607,2,70,10,30,1,10),_CMediaIndependentHistoryIndex_Type())
+cMediaIndependentHistoryIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:cMediaIndependentHistoryIndex.setStatus(_A)
+class _CMediaIndependentHistorySampleIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_CMediaIndependentHistorySampleIndex_Type.__name__=_D
+_CMediaIndependentHistorySampleIndex_Object=MibTableColumn
+cMediaIndependentHistorySampleIndex=_CMediaIndependentHistorySampleIndex_Object((1,3,6,1,4,1,3607,2,70,10,30,1,20),_CMediaIndependentHistorySampleIndex_Type())
+cMediaIndependentHistorySampleIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:cMediaIndependentHistorySampleIndex.setStatus(_A)
+_CMediaIndependentHistoryDropEvents_Type=Counter32
+_CMediaIndependentHistoryDropEvents_Object=MibTableColumn
+cMediaIndependentHistoryDropEvents=_CMediaIndependentHistoryDropEvents_Object((1,3,6,1,4,1,3607,2,70,10,30,1,30),_CMediaIndependentHistoryDropEvents_Type())
+cMediaIndependentHistoryDropEvents.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryDropEvents.setStatus(_A)
+_CMediaIndependentHistoryDroppedFrames_Type=Counter32
+_CMediaIndependentHistoryDroppedFrames_Object=MibTableColumn
+cMediaIndependentHistoryDroppedFrames=_CMediaIndependentHistoryDroppedFrames_Object((1,3,6,1,4,1,3607,2,70,10,30,1,40),_CMediaIndependentHistoryDroppedFrames_Type())
+cMediaIndependentHistoryDroppedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryDroppedFrames.setStatus(_A)
+_CMediaIndependentHistoryInPkts_Type=Counter32
+_CMediaIndependentHistoryInPkts_Object=MibTableColumn
+cMediaIndependentHistoryInPkts=_CMediaIndependentHistoryInPkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,50),_CMediaIndependentHistoryInPkts_Type())
+cMediaIndependentHistoryInPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInPkts.setStatus(_A)
+_CMediaIndependentHistoryInOverflowPkts_Type=Counter32
+_CMediaIndependentHistoryInOverflowPkts_Object=MibTableColumn
+cMediaIndependentHistoryInOverflowPkts=_CMediaIndependentHistoryInOverflowPkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,60),_CMediaIndependentHistoryInOverflowPkts_Type())
+cMediaIndependentHistoryInOverflowPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInOverflowPkts.setStatus(_A)
+_CMediaIndependentHistoryInHighCapacityPkts_Type=Counter64
+_CMediaIndependentHistoryInHighCapacityPkts_Object=MibTableColumn
+cMediaIndependentHistoryInHighCapacityPkts=_CMediaIndependentHistoryInHighCapacityPkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,70),_CMediaIndependentHistoryInHighCapacityPkts_Type())
+cMediaIndependentHistoryInHighCapacityPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInHighCapacityPkts.setStatus(_A)
+_CMediaIndependentHistoryOutPkts_Type=Counter32
+_CMediaIndependentHistoryOutPkts_Object=MibTableColumn
+cMediaIndependentHistoryOutPkts=_CMediaIndependentHistoryOutPkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,80),_CMediaIndependentHistoryOutPkts_Type())
+cMediaIndependentHistoryOutPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutPkts.setStatus(_A)
+_CMediaIndependentHistoryOutOverflowPkts_Type=Counter32
+_CMediaIndependentHistoryOutOverflowPkts_Object=MibTableColumn
+cMediaIndependentHistoryOutOverflowPkts=_CMediaIndependentHistoryOutOverflowPkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,90),_CMediaIndependentHistoryOutOverflowPkts_Type())
+cMediaIndependentHistoryOutOverflowPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutOverflowPkts.setStatus(_A)
+_CMediaIndependentHistoryOutHighCapacityPkts_Type=Counter64
+_CMediaIndependentHistoryOutHighCapacityPkts_Object=MibTableColumn
+cMediaIndependentHistoryOutHighCapacityPkts=_CMediaIndependentHistoryOutHighCapacityPkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,100),_CMediaIndependentHistoryOutHighCapacityPkts_Type())
+cMediaIndependentHistoryOutHighCapacityPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutHighCapacityPkts.setStatus(_A)
+_CMediaIndependentHistoryInOctets_Type=Counter32
+_CMediaIndependentHistoryInOctets_Object=MibTableColumn
+cMediaIndependentHistoryInOctets=_CMediaIndependentHistoryInOctets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,110),_CMediaIndependentHistoryInOctets_Type())
+cMediaIndependentHistoryInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInOctets.setStatus(_A)
+_CMediaIndependentHistoryInOverflowOctets_Type=Counter32
+_CMediaIndependentHistoryInOverflowOctets_Object=MibTableColumn
+cMediaIndependentHistoryInOverflowOctets=_CMediaIndependentHistoryInOverflowOctets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,120),_CMediaIndependentHistoryInOverflowOctets_Type())
+cMediaIndependentHistoryInOverflowOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInOverflowOctets.setStatus(_A)
+_CMediaIndependentHistoryInHighCapacityOctets_Type=Counter64
+_CMediaIndependentHistoryInHighCapacityOctets_Object=MibTableColumn
+cMediaIndependentHistoryInHighCapacityOctets=_CMediaIndependentHistoryInHighCapacityOctets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,130),_CMediaIndependentHistoryInHighCapacityOctets_Type())
+cMediaIndependentHistoryInHighCapacityOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInHighCapacityOctets.setStatus(_A)
+_CMediaIndependentHistoryOutOctets_Type=Counter32
+_CMediaIndependentHistoryOutOctets_Object=MibTableColumn
+cMediaIndependentHistoryOutOctets=_CMediaIndependentHistoryOutOctets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,140),_CMediaIndependentHistoryOutOctets_Type())
+cMediaIndependentHistoryOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutOctets.setStatus(_A)
+_CMediaIndependentHistoryOutOverflowOctets_Type=Counter32
+_CMediaIndependentHistoryOutOverflowOctets_Object=MibTableColumn
+cMediaIndependentHistoryOutOverflowOctets=_CMediaIndependentHistoryOutOverflowOctets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,150),_CMediaIndependentHistoryOutOverflowOctets_Type())
+cMediaIndependentHistoryOutOverflowOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutOverflowOctets.setStatus(_A)
+_CMediaIndependentHistoryOutHighCapacityOctets_Type=Counter64
+_CMediaIndependentHistoryOutHighCapacityOctets_Object=MibTableColumn
+cMediaIndependentHistoryOutHighCapacityOctets=_CMediaIndependentHistoryOutHighCapacityOctets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,160),_CMediaIndependentHistoryOutHighCapacityOctets_Type())
+cMediaIndependentHistoryOutHighCapacityOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutHighCapacityOctets.setStatus(_A)
+_CMediaIndependentHistoryInNUCastPkts_Type=Counter32
+_CMediaIndependentHistoryInNUCastPkts_Object=MibTableColumn
+cMediaIndependentHistoryInNUCastPkts=_CMediaIndependentHistoryInNUCastPkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,170),_CMediaIndependentHistoryInNUCastPkts_Type())
+cMediaIndependentHistoryInNUCastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInNUCastPkts.setStatus(_A)
+_CMediaIndependentHistoryInNUCastOverflowPkts_Type=Counter32
+_CMediaIndependentHistoryInNUCastOverflowPkts_Object=MibTableColumn
+cMediaIndependentHistoryInNUCastOverflowPkts=_CMediaIndependentHistoryInNUCastOverflowPkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,180),_CMediaIndependentHistoryInNUCastOverflowPkts_Type())
+cMediaIndependentHistoryInNUCastOverflowPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInNUCastOverflowPkts.setStatus(_A)
+_CMediaIndependentHistoryInNUCastHighCapacityPkts_Type=Counter64
+_CMediaIndependentHistoryInNUCastHighCapacityPkts_Object=MibTableColumn
+cMediaIndependentHistoryInNUCastHighCapacityPkts=_CMediaIndependentHistoryInNUCastHighCapacityPkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,190),_CMediaIndependentHistoryInNUCastHighCapacityPkts_Type())
+cMediaIndependentHistoryInNUCastHighCapacityPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInNUCastHighCapacityPkts.setStatus(_A)
+_CMediaIndependentHistoryOutNUCastPkts_Type=Counter32
+_CMediaIndependentHistoryOutNUCastPkts_Object=MibTableColumn
+cMediaIndependentHistoryOutNUCastPkts=_CMediaIndependentHistoryOutNUCastPkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,200),_CMediaIndependentHistoryOutNUCastPkts_Type())
+cMediaIndependentHistoryOutNUCastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutNUCastPkts.setStatus(_A)
+_CMediaIndependentHistoryOutNUCastOverflowPkts_Type=Counter32
+_CMediaIndependentHistoryOutNUCastOverflowPkts_Object=MibTableColumn
+cMediaIndependentHistoryOutNUCastOverflowPkts=_CMediaIndependentHistoryOutNUCastOverflowPkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,210),_CMediaIndependentHistoryOutNUCastOverflowPkts_Type())
+cMediaIndependentHistoryOutNUCastOverflowPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutNUCastOverflowPkts.setStatus(_A)
+_CMediaIndependentHistoryOutNUCastHighCapacityPkts_Type=Counter64
+_CMediaIndependentHistoryOutNUCastHighCapacityPkts_Object=MibTableColumn
+cMediaIndependentHistoryOutNUCastHighCapacityPkts=_CMediaIndependentHistoryOutNUCastHighCapacityPkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,220),_CMediaIndependentHistoryOutNUCastHighCapacityPkts_Type())
+cMediaIndependentHistoryOutNUCastHighCapacityPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutNUCastHighCapacityPkts.setStatus(_A)
+_CMediaIndependentHistoryInErrors_Type=Counter32
+_CMediaIndependentHistoryInErrors_Object=MibTableColumn
+cMediaIndependentHistoryInErrors=_CMediaIndependentHistoryInErrors_Object((1,3,6,1,4,1,3607,2,70,10,30,1,230),_CMediaIndependentHistoryInErrors_Type())
+cMediaIndependentHistoryInErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInErrors.setStatus(_A)
+_CMediaIndependentHistoryOutErrors_Type=Counter32
+_CMediaIndependentHistoryOutErrors_Object=MibTableColumn
+cMediaIndependentHistoryOutErrors=_CMediaIndependentHistoryOutErrors_Object((1,3,6,1,4,1,3607,2,70,10,30,1,240),_CMediaIndependentHistoryOutErrors_Type())
+cMediaIndependentHistoryOutErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutErrors.setStatus(_A)
+_CMediaIndependentHistoryInBadCRC_Type=Counter32
+_CMediaIndependentHistoryInBadCRC_Object=MibTableColumn
+cMediaIndependentHistoryInBadCRC=_CMediaIndependentHistoryInBadCRC_Object((1,3,6,1,4,1,3607,2,70,10,30,1,250),_CMediaIndependentHistoryInBadCRC_Type())
+cMediaIndependentHistoryInBadCRC.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInBadCRC.setStatus(_A)
+_CMediaIndependentHistoryOutBadCRC_Type=Counter32
+_CMediaIndependentHistoryOutBadCRC_Object=MibTableColumn
+cMediaIndependentHistoryOutBadCRC=_CMediaIndependentHistoryOutBadCRC_Object((1,3,6,1,4,1,3607,2,70,10,30,1,260),_CMediaIndependentHistoryOutBadCRC_Type())
+cMediaIndependentHistoryOutBadCRC.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutBadCRC.setStatus(_A)
+_CMediaIndependentHistoryInFramesTruncated_Type=Counter32
+_CMediaIndependentHistoryInFramesTruncated_Object=MibTableColumn
+cMediaIndependentHistoryInFramesTruncated=_CMediaIndependentHistoryInFramesTruncated_Object((1,3,6,1,4,1,3607,2,70,10,30,1,270),_CMediaIndependentHistoryInFramesTruncated_Type())
+cMediaIndependentHistoryInFramesTruncated.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInFramesTruncated.setStatus(_A)
+_CMediaIndependentHistoryInFramesTooLong_Type=Counter32
+_CMediaIndependentHistoryInFramesTooLong_Object=MibTableColumn
+cMediaIndependentHistoryInFramesTooLong=_CMediaIndependentHistoryInFramesTooLong_Object((1,3,6,1,4,1,3607,2,70,10,30,1,280),_CMediaIndependentHistoryInFramesTooLong_Type())
+cMediaIndependentHistoryInFramesTooLong.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInFramesTooLong.setStatus(_A)
+_CMediaIndependentHistoryLinkRecoveries_Type=Counter32
+_CMediaIndependentHistoryLinkRecoveries_Object=MibTableColumn
+cMediaIndependentHistoryLinkRecoveries=_CMediaIndependentHistoryLinkRecoveries_Object((1,3,6,1,4,1,3607,2,70,10,30,1,290),_CMediaIndependentHistoryLinkRecoveries_Type())
+cMediaIndependentHistoryLinkRecoveries.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryLinkRecoveries.setStatus(_A)
+_CMediaIndependentHistoryInDistanceExtBuffers_Type=Counter32
+_CMediaIndependentHistoryInDistanceExtBuffers_Object=MibTableColumn
+cMediaIndependentHistoryInDistanceExtBuffers=_CMediaIndependentHistoryInDistanceExtBuffers_Object((1,3,6,1,4,1,3607,2,70,10,30,1,300),_CMediaIndependentHistoryInDistanceExtBuffers_Type())
+cMediaIndependentHistoryInDistanceExtBuffers.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInDistanceExtBuffers.setStatus(_A)
+_CMediaIndependentHistoryOutDistanceExtBuffers_Type=Counter32
+_CMediaIndependentHistoryOutDistanceExtBuffers_Object=MibTableColumn
+cMediaIndependentHistoryOutDistanceExtBuffers=_CMediaIndependentHistoryOutDistanceExtBuffers_Object((1,3,6,1,4,1,3607,2,70,10,30,1,310),_CMediaIndependentHistoryOutDistanceExtBuffers_Type())
+cMediaIndependentHistoryOutDistanceExtBuffers.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutDistanceExtBuffers.setStatus(_A)
+_CMediaIndependentHistoryInCredits_Type=Counter32
+_CMediaIndependentHistoryInCredits_Object=MibTableColumn
+cMediaIndependentHistoryInCredits=_CMediaIndependentHistoryInCredits_Object((1,3,6,1,4,1,3607,2,70,10,30,1,320),_CMediaIndependentHistoryInCredits_Type())
+cMediaIndependentHistoryInCredits.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInCredits.setStatus(_A)
+_CMediaIndependentHistoryOutCredits_Type=Counter32
+_CMediaIndependentHistoryOutCredits_Object=MibTableColumn
+cMediaIndependentHistoryOutCredits=_CMediaIndependentHistoryOutCredits_Object((1,3,6,1,4,1,3607,2,70,10,30,1,330),_CMediaIndependentHistoryOutCredits_Type())
+cMediaIndependentHistoryOutCredits.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutCredits.setStatus(_A)
+_CMediaIndependentHistoryOutZeroCredits_Type=Counter32
+_CMediaIndependentHistoryOutZeroCredits_Object=MibTableColumn
+cMediaIndependentHistoryOutZeroCredits=_CMediaIndependentHistoryOutZeroCredits_Object((1,3,6,1,4,1,3607,2,70,10,30,1,340),_CMediaIndependentHistoryOutZeroCredits_Type())
+cMediaIndependentHistoryOutZeroCredits.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutZeroCredits.setStatus(_A)
+_CMediaIndependentHistoryInGfpSBitErr_Type=Counter32
+_CMediaIndependentHistoryInGfpSBitErr_Object=MibTableColumn
+cMediaIndependentHistoryInGfpSBitErr=_CMediaIndependentHistoryInGfpSBitErr_Object((1,3,6,1,4,1,3607,2,70,10,30,1,350),_CMediaIndependentHistoryInGfpSBitErr_Type())
+cMediaIndependentHistoryInGfpSBitErr.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInGfpSBitErr.setStatus(_A)
+_CMediaIndependentHistoryInGfpMBitErr_Type=Counter32
+_CMediaIndependentHistoryInGfpMBitErr_Object=MibTableColumn
+cMediaIndependentHistoryInGfpMBitErr=_CMediaIndependentHistoryInGfpMBitErr_Object((1,3,6,1,4,1,3607,2,70,10,30,1,360),_CMediaIndependentHistoryInGfpMBitErr_Type())
+cMediaIndependentHistoryInGfpMBitErr.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInGfpMBitErr.setStatus(_A)
+_CMediaIndependentHistoryInGfpCRCErr_Type=Counter32
+_CMediaIndependentHistoryInGfpCRCErr_Object=MibTableColumn
+cMediaIndependentHistoryInGfpCRCErr=_CMediaIndependentHistoryInGfpCRCErr_Object((1,3,6,1,4,1,3607,2,70,10,30,1,370),_CMediaIndependentHistoryInGfpCRCErr_Type())
+cMediaIndependentHistoryInGfpCRCErr.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInGfpCRCErr.setStatus(_A)
+_CMediaIndependentHistoryInGfpFrames_Type=Counter32
+_CMediaIndependentHistoryInGfpFrames_Object=MibTableColumn
+cMediaIndependentHistoryInGfpFrames=_CMediaIndependentHistoryInGfpFrames_Object((1,3,6,1,4,1,3607,2,70,10,30,1,380),_CMediaIndependentHistoryInGfpFrames_Type())
+cMediaIndependentHistoryInGfpFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInGfpFrames.setStatus(_A)
+_CMediaIndependentHistoryInOverflowGfpFrames_Type=Counter32
+_CMediaIndependentHistoryInOverflowGfpFrames_Object=MibTableColumn
+cMediaIndependentHistoryInOverflowGfpFrames=_CMediaIndependentHistoryInOverflowGfpFrames_Object((1,3,6,1,4,1,3607,2,70,10,30,1,390),_CMediaIndependentHistoryInOverflowGfpFrames_Type())
+cMediaIndependentHistoryInOverflowGfpFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInOverflowGfpFrames.setStatus(_A)
+_CMediaIndependentHistoryInHighCapacityGfpFrames_Type=Counter64
+_CMediaIndependentHistoryInHighCapacityGfpFrames_Object=MibTableColumn
+cMediaIndependentHistoryInHighCapacityGfpFrames=_CMediaIndependentHistoryInHighCapacityGfpFrames_Object((1,3,6,1,4,1,3607,2,70,10,30,1,400),_CMediaIndependentHistoryInHighCapacityGfpFrames_Type())
+cMediaIndependentHistoryInHighCapacityGfpFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInHighCapacityGfpFrames.setStatus(_A)
+_CMediaIndependentHistoryOutGfpFrames_Type=Counter32
+_CMediaIndependentHistoryOutGfpFrames_Object=MibTableColumn
+cMediaIndependentHistoryOutGfpFrames=_CMediaIndependentHistoryOutGfpFrames_Object((1,3,6,1,4,1,3607,2,70,10,30,1,410),_CMediaIndependentHistoryOutGfpFrames_Type())
+cMediaIndependentHistoryOutGfpFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutGfpFrames.setStatus(_A)
+_CMediaIndependentHistoryOutOverflowGfpFrames_Type=Counter32
+_CMediaIndependentHistoryOutOverflowGfpFrames_Object=MibTableColumn
+cMediaIndependentHistoryOutOverflowGfpFrames=_CMediaIndependentHistoryOutOverflowGfpFrames_Object((1,3,6,1,4,1,3607,2,70,10,30,1,420),_CMediaIndependentHistoryOutOverflowGfpFrames_Type())
+cMediaIndependentHistoryOutOverflowGfpFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutOverflowGfpFrames.setStatus(_A)
+_CMediaIndependentHistoryOutHighCapacityGfpFrames_Type=Counter64
+_CMediaIndependentHistoryOutHighCapacityGfpFrames_Object=MibTableColumn
+cMediaIndependentHistoryOutHighCapacityGfpFrames=_CMediaIndependentHistoryOutHighCapacityGfpFrames_Object((1,3,6,1,4,1,3607,2,70,10,30,1,430),_CMediaIndependentHistoryOutHighCapacityGfpFrames_Type())
+cMediaIndependentHistoryOutHighCapacityGfpFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutHighCapacityGfpFrames.setStatus(_A)
+_CMediaIndependentHistoryInGfpOctets_Type=Counter32
+_CMediaIndependentHistoryInGfpOctets_Object=MibTableColumn
+cMediaIndependentHistoryInGfpOctets=_CMediaIndependentHistoryInGfpOctets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,440),_CMediaIndependentHistoryInGfpOctets_Type())
+cMediaIndependentHistoryInGfpOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInGfpOctets.setStatus(_A)
+_CMediaIndependentHistoryInOverflowGfpOctets_Type=Counter32
+_CMediaIndependentHistoryInOverflowGfpOctets_Object=MibTableColumn
+cMediaIndependentHistoryInOverflowGfpOctets=_CMediaIndependentHistoryInOverflowGfpOctets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,450),_CMediaIndependentHistoryInOverflowGfpOctets_Type())
+cMediaIndependentHistoryInOverflowGfpOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInOverflowGfpOctets.setStatus(_A)
+_CMediaIndependentHistoryInHighCapacityGfpOctets_Type=Counter64
+_CMediaIndependentHistoryInHighCapacityGfpOctets_Object=MibTableColumn
+cMediaIndependentHistoryInHighCapacityGfpOctets=_CMediaIndependentHistoryInHighCapacityGfpOctets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,460),_CMediaIndependentHistoryInHighCapacityGfpOctets_Type())
+cMediaIndependentHistoryInHighCapacityGfpOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInHighCapacityGfpOctets.setStatus(_A)
+_CMediaIndependentHistoryOutGfpOctets_Type=Counter32
+_CMediaIndependentHistoryOutGfpOctets_Object=MibTableColumn
+cMediaIndependentHistoryOutGfpOctets=_CMediaIndependentHistoryOutGfpOctets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,470),_CMediaIndependentHistoryOutGfpOctets_Type())
+cMediaIndependentHistoryOutGfpOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutGfpOctets.setStatus(_A)
+_CMediaIndependentHistoryOutOverflowGfpOctets_Type=Counter32
+_CMediaIndependentHistoryOutOverflowGfpOctets_Object=MibTableColumn
+cMediaIndependentHistoryOutOverflowGfpOctets=_CMediaIndependentHistoryOutOverflowGfpOctets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,480),_CMediaIndependentHistoryOutOverflowGfpOctets_Type())
+cMediaIndependentHistoryOutOverflowGfpOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutOverflowGfpOctets.setStatus(_A)
+_CMediaIndependentHistoryOutHighCapacityGfpOctets_Type=Counter64
+_CMediaIndependentHistoryOutHighCapacityGfpOctets_Object=MibTableColumn
+cMediaIndependentHistoryOutHighCapacityGfpOctets=_CMediaIndependentHistoryOutHighCapacityGfpOctets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,490),_CMediaIndependentHistoryOutHighCapacityGfpOctets_Type())
+cMediaIndependentHistoryOutHighCapacityGfpOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutHighCapacityGfpOctets.setStatus(_A)
+_CMediaIndependentHistoryInGfpTypeInvalid_Type=Counter32
+_CMediaIndependentHistoryInGfpTypeInvalid_Object=MibTableColumn
+cMediaIndependentHistoryInGfpTypeInvalid=_CMediaIndependentHistoryInGfpTypeInvalid_Object((1,3,6,1,4,1,3607,2,70,10,30,1,500),_CMediaIndependentHistoryInGfpTypeInvalid_Type())
+cMediaIndependentHistoryInGfpTypeInvalid.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInGfpTypeInvalid.setStatus(_A)
+_CMediaIndependentHistoryInGfpCIDInvalid_Type=Counter32
+_CMediaIndependentHistoryInGfpCIDInvalid_Object=MibTableColumn
+cMediaIndependentHistoryInGfpCIDInvalid=_CMediaIndependentHistoryInGfpCIDInvalid_Object((1,3,6,1,4,1,3607,2,70,10,30,1,510),_CMediaIndependentHistoryInGfpCIDInvalid_Type())
+cMediaIndependentHistoryInGfpCIDInvalid.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInGfpCIDInvalid.setStatus(_A)
+_CMediaIndependentHistoryInGfpLFDRaised_Type=Counter32
+_CMediaIndependentHistoryInGfpLFDRaised_Object=MibTableColumn
+cMediaIndependentHistoryInGfpLFDRaised=_CMediaIndependentHistoryInGfpLFDRaised_Object((1,3,6,1,4,1,3607,2,70,10,30,1,520),_CMediaIndependentHistoryInGfpLFDRaised_Type())
+cMediaIndependentHistoryInGfpLFDRaised.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInGfpLFDRaised.setStatus(_A)
+_CMediaIndependentHistoryInGfpCSFRaised_Type=Counter32
+_CMediaIndependentHistoryInGfpCSFRaised_Object=MibTableColumn
+cMediaIndependentHistoryInGfpCSFRaised=_CMediaIndependentHistoryInGfpCSFRaised_Object((1,3,6,1,4,1,3607,2,70,10,30,1,530),_CMediaIndependentHistoryInGfpCSFRaised_Type())
+cMediaIndependentHistoryInGfpCSFRaised.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInGfpCSFRaised.setStatus(_A)
+_CMediaIndependentHistoryGfpRoundTripLatency_Type=Counter32
+_CMediaIndependentHistoryGfpRoundTripLatency_Object=MibTableColumn
+cMediaIndependentHistoryGfpRoundTripLatency=_CMediaIndependentHistoryGfpRoundTripLatency_Object((1,3,6,1,4,1,3607,2,70,10,30,1,540),_CMediaIndependentHistoryGfpRoundTripLatency_Type())
+cMediaIndependentHistoryGfpRoundTripLatency.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryGfpRoundTripLatency.setStatus(_A)
+_CMediaIndependentHistory8b10bIdleSets_Type=Counter32
+_CMediaIndependentHistory8b10bIdleSets_Object=MibTableColumn
+cMediaIndependentHistory8b10bIdleSets=_CMediaIndependentHistory8b10bIdleSets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,550),_CMediaIndependentHistory8b10bIdleSets_Type())
+cMediaIndependentHistory8b10bIdleSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistory8b10bIdleSets.setStatus(_A)
+_CMediaIndependentHistoryOverflow8b10bIdleSets_Type=Counter32
+_CMediaIndependentHistoryOverflow8b10bIdleSets_Object=MibTableColumn
+cMediaIndependentHistoryOverflow8b10bIdleSets=_CMediaIndependentHistoryOverflow8b10bIdleSets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,560),_CMediaIndependentHistoryOverflow8b10bIdleSets_Type())
+cMediaIndependentHistoryOverflow8b10bIdleSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOverflow8b10bIdleSets.setStatus(_A)
+_CMediaIndependentHistoryHighCapacity8b10bIdleSets_Type=Counter64
+_CMediaIndependentHistoryHighCapacity8b10bIdleSets_Object=MibTableColumn
+cMediaIndependentHistoryHighCapacity8b10bIdleSets=_CMediaIndependentHistoryHighCapacity8b10bIdleSets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,570),_CMediaIndependentHistoryHighCapacity8b10bIdleSets_Type())
+cMediaIndependentHistoryHighCapacity8b10bIdleSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryHighCapacity8b10bIdleSets.setStatus(_A)
+_CMediaIndependentHistory8b10bNonIdleSets_Type=Counter32
+_CMediaIndependentHistory8b10bNonIdleSets_Object=MibTableColumn
+cMediaIndependentHistory8b10bNonIdleSets=_CMediaIndependentHistory8b10bNonIdleSets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,580),_CMediaIndependentHistory8b10bNonIdleSets_Type())
+cMediaIndependentHistory8b10bNonIdleSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistory8b10bNonIdleSets.setStatus(_A)
+_CMediaIndependentHistoryOverflow8b10bNonIdleSets_Type=Counter32
+_CMediaIndependentHistoryOverflow8b10bNonIdleSets_Object=MibTableColumn
+cMediaIndependentHistoryOverflow8b10bNonIdleSets=_CMediaIndependentHistoryOverflow8b10bNonIdleSets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,590),_CMediaIndependentHistoryOverflow8b10bNonIdleSets_Type())
+cMediaIndependentHistoryOverflow8b10bNonIdleSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOverflow8b10bNonIdleSets.setStatus(_A)
+_CMediaIndependentHistoryHighCapacity8b10bNonIdleSets_Type=Counter64
+_CMediaIndependentHistoryHighCapacity8b10bNonIdleSets_Object=MibTableColumn
+cMediaIndependentHistoryHighCapacity8b10bNonIdleSets=_CMediaIndependentHistoryHighCapacity8b10bNonIdleSets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,600),_CMediaIndependentHistoryHighCapacity8b10bNonIdleSets_Type())
+cMediaIndependentHistoryHighCapacity8b10bNonIdleSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryHighCapacity8b10bNonIdleSets.setStatus(_A)
+_CMediaIndependentHistory8b10bDataSets_Type=Counter32
+_CMediaIndependentHistory8b10bDataSets_Object=MibTableColumn
+cMediaIndependentHistory8b10bDataSets=_CMediaIndependentHistory8b10bDataSets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,610),_CMediaIndependentHistory8b10bDataSets_Type())
+cMediaIndependentHistory8b10bDataSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistory8b10bDataSets.setStatus(_A)
+_CMediaIndependentHistoryOverflow8b10bDataSets_Type=Counter32
+_CMediaIndependentHistoryOverflow8b10bDataSets_Object=MibTableColumn
+cMediaIndependentHistoryOverflow8b10bDataSets=_CMediaIndependentHistoryOverflow8b10bDataSets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,620),_CMediaIndependentHistoryOverflow8b10bDataSets_Type())
+cMediaIndependentHistoryOverflow8b10bDataSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOverflow8b10bDataSets.setStatus(_A)
+_CMediaIndependentHistoryHighCapacity8b10bDataSets_Type=Counter64
+_CMediaIndependentHistoryHighCapacity8b10bDataSets_Object=MibTableColumn
+cMediaIndependentHistoryHighCapacity8b10bDataSets=_CMediaIndependentHistoryHighCapacity8b10bDataSets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,630),_CMediaIndependentHistoryHighCapacity8b10bDataSets_Type())
+cMediaIndependentHistoryHighCapacity8b10bDataSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryHighCapacity8b10bDataSets.setStatus(_A)
+_CMediaIndependentHistory8b10bInvalidOrdSets_Type=Counter32
+_CMediaIndependentHistory8b10bInvalidOrdSets_Object=MibTableColumn
+cMediaIndependentHistory8b10bInvalidOrdSets=_CMediaIndependentHistory8b10bInvalidOrdSets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,640),_CMediaIndependentHistory8b10bInvalidOrdSets_Type())
+cMediaIndependentHistory8b10bInvalidOrdSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistory8b10bInvalidOrdSets.setStatus(_A)
+_CMediaIndependentHistory8b10bEncodingDispErr_Type=Counter32
+_CMediaIndependentHistory8b10bEncodingDispErr_Object=MibTableColumn
+cMediaIndependentHistory8b10bEncodingDispErr=_CMediaIndependentHistory8b10bEncodingDispErr_Object((1,3,6,1,4,1,3607,2,70,10,30,1,650),_CMediaIndependentHistory8b10bEncodingDispErr_Type())
+cMediaIndependentHistory8b10bEncodingDispErr.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistory8b10bEncodingDispErr.setStatus(_A)
+_CMediaIndependentHistory8b10bLossOfSync_Type=Counter32
+_CMediaIndependentHistory8b10bLossOfSync_Object=MibTableColumn
+cMediaIndependentHistory8b10bLossOfSync=_CMediaIndependentHistory8b10bLossOfSync_Object((1,3,6,1,4,1,3607,2,70,10,30,1,660),_CMediaIndependentHistory8b10bLossOfSync_Type())
+cMediaIndependentHistory8b10bLossOfSync.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistory8b10bLossOfSync.setStatus(_A)
+_CMediaIndependentHistoryInPauseFrames_Type=Counter32
+_CMediaIndependentHistoryInPauseFrames_Object=MibTableColumn
+cMediaIndependentHistoryInPauseFrames=_CMediaIndependentHistoryInPauseFrames_Object((1,3,6,1,4,1,3607,2,70,10,30,1,670),_CMediaIndependentHistoryInPauseFrames_Type())
+cMediaIndependentHistoryInPauseFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInPauseFrames.setStatus(_A)
+_CMediaIndependentHistoryOutPauseFrames_Type=Counter32
+_CMediaIndependentHistoryOutPauseFrames_Object=MibTableColumn
+cMediaIndependentHistoryOutPauseFrames=_CMediaIndependentHistoryOutPauseFrames_Object((1,3,6,1,4,1,3607,2,70,10,30,1,680),_CMediaIndependentHistoryOutPauseFrames_Type())
+cMediaIndependentHistoryOutPauseFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutPauseFrames.setStatus(_A)
+_CMediaIndependentHistoryInPktsDroppedInternalCongestion_Type=Counter32
+_CMediaIndependentHistoryInPktsDroppedInternalCongestion_Object=MibTableColumn
+cMediaIndependentHistoryInPktsDroppedInternalCongestion=_CMediaIndependentHistoryInPktsDroppedInternalCongestion_Object((1,3,6,1,4,1,3607,2,70,10,30,1,690),_CMediaIndependentHistoryInPktsDroppedInternalCongestion_Type())
+cMediaIndependentHistoryInPktsDroppedInternalCongestion.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInPktsDroppedInternalCongestion.setStatus(_A)
+_CMediaIndependentHistoryOutPktsDroppedInternalCongestion_Type=Counter32
+_CMediaIndependentHistoryOutPktsDroppedInternalCongestion_Object=MibTableColumn
+cMediaIndependentHistoryOutPktsDroppedInternalCongestion=_CMediaIndependentHistoryOutPktsDroppedInternalCongestion_Object((1,3,6,1,4,1,3607,2,70,10,30,1,700),_CMediaIndependentHistoryOutPktsDroppedInternalCongestion_Type())
+cMediaIndependentHistoryOutPktsDroppedInternalCongestion.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutPktsDroppedInternalCongestion.setStatus(_A)
+_CMediaIndependentHistoryInControlFrames_Type=Counter32
+_CMediaIndependentHistoryInControlFrames_Object=MibTableColumn
+cMediaIndependentHistoryInControlFrames=_CMediaIndependentHistoryInControlFrames_Object((1,3,6,1,4,1,3607,2,70,10,30,1,710),_CMediaIndependentHistoryInControlFrames_Type())
+cMediaIndependentHistoryInControlFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInControlFrames.setStatus(_A)
+_CMediaIndependentHistoryInUnknownOpcodeFrames_Type=Counter32
+_CMediaIndependentHistoryInUnknownOpcodeFrames_Object=MibTableColumn
+cMediaIndependentHistoryInUnknownOpcodeFrames=_CMediaIndependentHistoryInUnknownOpcodeFrames_Object((1,3,6,1,4,1,3607,2,70,10,30,1,720),_CMediaIndependentHistoryInUnknownOpcodeFrames_Type())
+cMediaIndependentHistoryInUnknownOpcodeFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInUnknownOpcodeFrames.setStatus(_A)
+_CMediaIndependentHistoryHdlcPktDrops_Type=Counter32
+_CMediaIndependentHistoryHdlcPktDrops_Object=MibTableColumn
+cMediaIndependentHistoryHdlcPktDrops=_CMediaIndependentHistoryHdlcPktDrops_Object((1,3,6,1,4,1,3607,2,70,10,30,1,730),_CMediaIndependentHistoryHdlcPktDrops_Type())
+cMediaIndependentHistoryHdlcPktDrops.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryHdlcPktDrops.setStatus(_A)
+_CMediaIndependentHistoryHdlcInOctets_Type=Counter32
+_CMediaIndependentHistoryHdlcInOctets_Object=MibTableColumn
+cMediaIndependentHistoryHdlcInOctets=_CMediaIndependentHistoryHdlcInOctets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,740),_CMediaIndependentHistoryHdlcInOctets_Type())
+cMediaIndependentHistoryHdlcInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryHdlcInOctets.setStatus(_A)
+_CMediaIndependentHistoryHdlcOutOctets_Type=Counter32
+_CMediaIndependentHistoryHdlcOutOctets_Object=MibTableColumn
+cMediaIndependentHistoryHdlcOutOctets=_CMediaIndependentHistoryHdlcOutOctets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,750),_CMediaIndependentHistoryHdlcOutOctets_Type())
+cMediaIndependentHistoryHdlcOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryHdlcOutOctets.setStatus(_A)
+_CMediaIndependentHistoryHdlcInAborts_Type=Counter32
+_CMediaIndependentHistoryHdlcInAborts_Object=MibTableColumn
+cMediaIndependentHistoryHdlcInAborts=_CMediaIndependentHistoryHdlcInAborts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,760),_CMediaIndependentHistoryHdlcInAborts_Type())
+cMediaIndependentHistoryHdlcInAborts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryHdlcInAborts.setStatus(_A)
+_CMediaIndependentHistoryInShortPkts_Type=Counter32
+_CMediaIndependentHistoryInShortPkts_Object=MibTableColumn
+cMediaIndependentHistoryInShortPkts=_CMediaIndependentHistoryInShortPkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,770),_CMediaIndependentHistoryInShortPkts_Type())
+cMediaIndependentHistoryInShortPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInShortPkts.setStatus(_A)
+_CMediaIndependentHistoryOutShortPkts_Type=Counter32
+_CMediaIndependentHistoryOutShortPkts_Object=MibTableColumn
+cMediaIndependentHistoryOutShortPkts=_CMediaIndependentHistoryOutShortPkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,775),_CMediaIndependentHistoryOutShortPkts_Type())
+cMediaIndependentHistoryOutShortPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutShortPkts.setStatus(_A)
+_CMediaIndependentHistoryOversizeDropped_Type=Counter32
+_CMediaIndependentHistoryOversizeDropped_Object=MibTableColumn
+cMediaIndependentHistoryOversizeDropped=_CMediaIndependentHistoryOversizeDropped_Object((1,3,6,1,4,1,3607,2,70,10,30,1,780),_CMediaIndependentHistoryOversizeDropped_Type())
+cMediaIndependentHistoryOversizeDropped.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOversizeDropped.setStatus(_A)
+_CMediaIndependentHistoryInErrorBytePkts_Type=Counter32
+_CMediaIndependentHistoryInErrorBytePkts_Object=MibTableColumn
+cMediaIndependentHistoryInErrorBytePkts=_CMediaIndependentHistoryInErrorBytePkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,790),_CMediaIndependentHistoryInErrorBytePkts_Type())
+cMediaIndependentHistoryInErrorBytePkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInErrorBytePkts.setStatus(_A)
+_CMediaIndependentHistoryInFramingErrorPkts_Type=Counter32
+_CMediaIndependentHistoryInFramingErrorPkts_Object=MibTableColumn
+cMediaIndependentHistoryInFramingErrorPkts=_CMediaIndependentHistoryInFramingErrorPkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,800),_CMediaIndependentHistoryInFramingErrorPkts_Type())
+cMediaIndependentHistoryInFramingErrorPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInFramingErrorPkts.setStatus(_A)
+_CMediaIndependentHistoryInJunkInterPkts_Type=Counter32
+_CMediaIndependentHistoryInJunkInterPkts_Object=MibTableColumn
+cMediaIndependentHistoryInJunkInterPkts=_CMediaIndependentHistoryInJunkInterPkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,810),_CMediaIndependentHistoryInJunkInterPkts_Type())
+cMediaIndependentHistoryInJunkInterPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInJunkInterPkts.setStatus(_A)
+_CMediaIndependentHistoryOutOversizePkts_Type=Counter32
+_CMediaIndependentHistoryOutOversizePkts_Object=MibTableColumn
+cMediaIndependentHistoryOutOversizePkts=_CMediaIndependentHistoryOutOversizePkts_Object((1,3,6,1,4,1,3607,2,70,10,30,1,820),_CMediaIndependentHistoryOutOversizePkts_Type())
+cMediaIndependentHistoryOutOversizePkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutOversizePkts.setStatus(_A)
+_CMediaIndependentHistoryInPayloadCrcErrors_Type=Counter32
+_CMediaIndependentHistoryInPayloadCrcErrors_Object=MibTableColumn
+cMediaIndependentHistoryInPayloadCrcErrors=_CMediaIndependentHistoryInPayloadCrcErrors_Object((1,3,6,1,4,1,3607,2,70,10,30,1,830),_CMediaIndependentHistoryInPayloadCrcErrors_Type())
+cMediaIndependentHistoryInPayloadCrcErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInPayloadCrcErrors.setStatus(_A)
+_CMediaIndependentHistoryOutPayloadCrcErrors_Type=Counter32
+_CMediaIndependentHistoryOutPayloadCrcErrors_Object=MibTableColumn
+cMediaIndependentHistoryOutPayloadCrcErrors=_CMediaIndependentHistoryOutPayloadCrcErrors_Object((1,3,6,1,4,1,3607,2,70,10,30,1,840),_CMediaIndependentHistoryOutPayloadCrcErrors_Type())
+cMediaIndependentHistoryOutPayloadCrcErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutPayloadCrcErrors.setStatus(_A)
+_CMediaIndependentHistoryInRecvrReady_Type=Counter32
+_CMediaIndependentHistoryInRecvrReady_Object=MibTableColumn
+cMediaIndependentHistoryInRecvrReady=_CMediaIndependentHistoryInRecvrReady_Object((1,3,6,1,4,1,3607,2,70,10,30,1,850),_CMediaIndependentHistoryInRecvrReady_Type())
+cMediaIndependentHistoryInRecvrReady.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInRecvrReady.setStatus(_A)
+_CMediaIndependentHistoryOutRecvrReady_Type=Counter32
+_CMediaIndependentHistoryOutRecvrReady_Object=MibTableColumn
+cMediaIndependentHistoryOutRecvrReady=_CMediaIndependentHistoryOutRecvrReady_Object((1,3,6,1,4,1,3607,2,70,10,30,1,860),_CMediaIndependentHistoryOutRecvrReady_Type())
+cMediaIndependentHistoryOutRecvrReady.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutRecvrReady.setStatus(_A)
+_CMediaIndependentHistory8b10bInvalidOrdSetsDispErrorsSum_Type=Counter32
+_CMediaIndependentHistory8b10bInvalidOrdSetsDispErrorsSum_Object=MibTableColumn
+cMediaIndependentHistory8b10bInvalidOrdSetsDispErrorsSum=_CMediaIndependentHistory8b10bInvalidOrdSetsDispErrorsSum_Object((1,3,6,1,4,1,3607,2,70,10,30,1,870),_CMediaIndependentHistory8b10bInvalidOrdSetsDispErrorsSum_Type())
+cMediaIndependentHistory8b10bInvalidOrdSetsDispErrorsSum.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistory8b10bInvalidOrdSetsDispErrorsSum.setStatus(_A)
+_CMediaIndependentHistoryInGfpSblkCRCErr_Type=Counter32
+_CMediaIndependentHistoryInGfpSblkCRCErr_Object=MibTableColumn
+cMediaIndependentHistoryInGfpSblkCRCErr=_CMediaIndependentHistoryInGfpSblkCRCErr_Object((1,3,6,1,4,1,3607,2,70,10,30,1,880),_CMediaIndependentHistoryInGfpSblkCRCErr_Type())
+cMediaIndependentHistoryInGfpSblkCRCErr.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryInGfpSblkCRCErr.setStatus(_A)
+_CMediaIndependentHistoryOutFramesTooLong_Type=Counter32
+_CMediaIndependentHistoryOutFramesTooLong_Object=MibTableColumn
+cMediaIndependentHistoryOutFramesTooLong=_CMediaIndependentHistoryOutFramesTooLong_Object((1,3,6,1,4,1,3607,2,70,10,30,1,890),_CMediaIndependentHistoryOutFramesTooLong_Type())
+cMediaIndependentHistoryOutFramesTooLong.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutFramesTooLong.setStatus(_A)
+_CMediaIndependentHistoryPkts1519to1522Octets_Type=Counter32
+_CMediaIndependentHistoryPkts1519to1522Octets_Object=MibTableColumn
+cMediaIndependentHistoryPkts1519to1522Octets=_CMediaIndependentHistoryPkts1519to1522Octets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,900),_CMediaIndependentHistoryPkts1519to1522Octets_Type())
+cMediaIndependentHistoryPkts1519to1522Octets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryPkts1519to1522Octets.setStatus(_A)
+_CMediaIndependentHistoryOutFramesTruncated_Type=Counter32
+_CMediaIndependentHistoryOutFramesTruncated_Object=MibTableColumn
+cMediaIndependentHistoryOutFramesTruncated=_CMediaIndependentHistoryOutFramesTruncated_Object((1,3,6,1,4,1,3607,2,70,10,30,1,910),_CMediaIndependentHistoryOutFramesTruncated_Type())
+cMediaIndependentHistoryOutFramesTruncated.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryOutFramesTruncated.setStatus(_A)
+_CMediaIndependentHistoryPcsErrCount_Type=Counter32
+_CMediaIndependentHistoryPcsErrCount_Object=MibTableColumn
+cMediaIndependentHistoryPcsErrCount=_CMediaIndependentHistoryPcsErrCount_Object((1,3,6,1,4,1,3607,2,70,10,30,1,920),_CMediaIndependentHistoryPcsErrCount_Type())
+cMediaIndependentHistoryPcsErrCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryPcsErrCount.setStatus(_A)
+_CMediaIndependentHistoryPcsErrCount2_Type=Counter32
+_CMediaIndependentHistoryPcsErrCount2_Object=MibTableColumn
+cMediaIndependentHistoryPcsErrCount2=_CMediaIndependentHistoryPcsErrCount2_Object((1,3,6,1,4,1,3607,2,70,10,30,1,930),_CMediaIndependentHistoryPcsErrCount2_Type())
+cMediaIndependentHistoryPcsErrCount2.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryPcsErrCount2.setStatus(_A)
+_CMediaIndependentHistoryPcs49RxErrBer_Type=Counter32
+_CMediaIndependentHistoryPcs49RxErrBer_Object=MibTableColumn
+cMediaIndependentHistoryPcs49RxErrBer=_CMediaIndependentHistoryPcs49RxErrBer_Object((1,3,6,1,4,1,3607,2,70,10,30,1,940),_CMediaIndependentHistoryPcs49RxErrBer_Type())
+cMediaIndependentHistoryPcs49RxErrBer.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryPcs49RxErrBer.setStatus(_A)
+_CMediaIndependentHistoryPcs49RxErrDec_Type=Counter32
+_CMediaIndependentHistoryPcs49RxErrDec_Object=MibTableColumn
+cMediaIndependentHistoryPcs49RxErrDec=_CMediaIndependentHistoryPcs49RxErrDec_Object((1,3,6,1,4,1,3607,2,70,10,30,1,950),_CMediaIndependentHistoryPcs49RxErrDec_Type())
+cMediaIndependentHistoryPcs49RxErrDec.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryPcs49RxErrDec.setStatus(_A)
+_CMediaIndependentHistoryPkts1519toMaxOctets_Type=Counter32
+_CMediaIndependentHistoryPkts1519toMaxOctets_Object=MibTableColumn
+cMediaIndependentHistoryPkts1519toMaxOctets=_CMediaIndependentHistoryPkts1519toMaxOctets_Object((1,3,6,1,4,1,3607,2,70,10,30,1,960),_CMediaIndependentHistoryPkts1519toMaxOctets_Type())
+cMediaIndependentHistoryPkts1519toMaxOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryPkts1519toMaxOctets.setStatus(_A)
+_CMediaIndependentHistoryRxLcvErrors_Type=Counter32
+_CMediaIndependentHistoryRxLcvErrors_Object=MibTableColumn
+cMediaIndependentHistoryRxLcvErrors=_CMediaIndependentHistoryRxLcvErrors_Object((1,3,6,1,4,1,3607,2,70,10,30,1,970),_CMediaIndependentHistoryRxLcvErrors_Type())
+cMediaIndependentHistoryRxLcvErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryRxLcvErrors.setStatus(_A)
+_CMediaIndependentHistoryTxLcvErrors_Type=Counter32
+_CMediaIndependentHistoryTxLcvErrors_Object=MibTableColumn
+cMediaIndependentHistoryTxLcvErrors=_CMediaIndependentHistoryTxLcvErrors_Object((1,3,6,1,4,1,3607,2,70,10,30,1,980),_CMediaIndependentHistoryTxLcvErrors_Type())
+cMediaIndependentHistoryTxLcvErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryTxLcvErrors.setStatus(_A)
+_CMediaIndependentHistoryPcsEgRxErrFrames_Type=Counter32
+_CMediaIndependentHistoryPcsEgRxErrFrames_Object=MibTableColumn
+cMediaIndependentHistoryPcsEgRxErrFrames=_CMediaIndependentHistoryPcsEgRxErrFrames_Object((1,3,6,1,4,1,3607,2,70,10,30,1,990),_CMediaIndependentHistoryPcsEgRxErrFrames_Type())
+cMediaIndependentHistoryPcsEgRxErrFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:cMediaIndependentHistoryPcsEgRxErrFrames.setStatus(_A)
+_CerentHcRmonMIBConformance_ObjectIdentity=ObjectIdentity
+cerentHcRmonMIBConformance=_CerentHcRmonMIBConformance_ObjectIdentity((1,3,6,1,4,1,3607,5,60))
+_CerentHcRmonMIBCompliances_ObjectIdentity=ObjectIdentity
+cerentHcRmonMIBCompliances=_CerentHcRmonMIBCompliances_ObjectIdentity((1,3,6,1,4,1,3607,5,60,10))
+_CerentHcRmonMIBGroups_ObjectIdentity=ObjectIdentity
+cerentHcRmonMIBGroups=_CerentHcRmonMIBGroups_ObjectIdentity((1,3,6,1,4,1,3607,5,60,20))
+cMediaIndependentGroup=ObjectGroup((1,3,6,1,4,1,3607,5,60,20,10))
+cMediaIndependentGroup.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa)))
+if mibBuilder.loadTexts:cMediaIndependentGroup.setStatus(_A)
+cMediaIndependenHistoryControlGroup=ObjectGroup((1,3,6,1,4,1,3607,5,60,20,20))
+cMediaIndependenHistoryControlGroup.setObjects(*((_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag)))
+if mibBuilder.loadTexts:cMediaIndependenHistoryControlGroup.setStatus(_A)
+cMediaIndependentHistoryGroup=ObjectGroup((1,3,6,1,4,1,3607,5,60,20,30))
+cMediaIndependentHistoryGroup.setObjects(*((_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7),(_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI),(_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_BS),(_B,_BT),(_B,_BU),(_B,_BV),(_B,_BW),(_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba),(_B,_Bb),(_B,_Bc),(_B,_Bd),(_B,_Be),(_B,_Bf),(_B,_Bg),(_B,_Bh),(_B,_Bi),(_B,_Bj),(_B,_Bk),(_B,_Bl),(_B,_Bm),(_B,_Bn),(_B,_Bo),(_B,_Bp),(_B,_Bq),(_B,_Br),(_B,_Bs),(_B,_Bt),(_B,_Bu),(_B,_Bv),(_B,_Bw),(_B,_Bx),(_B,_By),(_B,_Bz),(_B,_B_),(_B,_C0),(_B,_C1),(_B,_C2),(_B,_C3),(_B,_C4),(_B,_C5),(_B,_C6),(_B,_C7),(_B,_C8),(_B,_C9),(_B,_CA),(_B,_CB),(_B,_CC),(_B,_CD),(_B,_CE)))
+if mibBuilder.loadTexts:cMediaIndependentHistoryGroup.setStatus(_A)
+cerentHcMediaIndependentCompliance=ModuleCompliance((1,3,6,1,4,1,3607,5,60,10,10))
+if mibBuilder.loadTexts:cerentHcMediaIndependentCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'cerentHcRMON':cerentHcRMON,'cerentHcRmonMIBObjects':cerentHcRmonMIBObjects,'cerentHcRmon':cerentHcRmon,'cMediaIndependentTable':cMediaIndependentTable,'cMediaIndependentEntry':cMediaIndependentEntry,_L:cMediaIndependentInBadCRC,_M:cMediaIndependentOutBadCRC,_N:cMediaIndependentInFramesTruncated,_O:cMediaIndependentInFramesTooLong,_P:cMediaIndependentLinkRecoveries,_Q:cMediaIndependentInDistanceExtBuffers,_R:cMediaIndependentOutDistanceExtBuffers,_S:cMediaIndependentInCredits,_T:cMediaIndependentOutCredits,_U:cMediaIndependentOutZeroCredits,_V:cMediaIndependentInGfpSBitErr,_W:cMediaIndependentInGfpMBitErr,_X:cMediaIndependentInGfpCRCErr,_Y:cMediaIndependentInGfpFrames,_Z:cMediaIndependentInOverflowGfpFrames,_a:cMediaIndependentInHighCapacityGfpFrames,_b:cMediaIndependentOutGfpFrames,_c:cMediaIndependentOutOverflowGfpFrames,_d:cMediaIndependentOutHighCapacityGfpFrames,_e:cMediaIndependentInGfpOctets,_f:cMediaIndependentInOverflowGfpOctets,_g:cMediaIndependentInHighCapacityGfpOctets,_h:cMediaIndependentOutGfpOctets,_i:cMediaIndependentOutOverflowGfpOctets,_j:cMediaIndependentOutHighCapacityGfpOctets,_k:cMediaIndependentInGfpTypeInvalid,_l:cMediaIndependentInGfpCIDInvalid,_m:cMediaIndependentInGfpLFDRaised,_n:cMediaIndependentInGfpCSFRaised,_o:cMediaIndependentGfpRoundTripLatency,_p:cMediaIndependent8b10bIdleSets,_q:cMediaIndependentOverflow8b10bIdleSets,_r:cMediaIndependentHighCapacity8b10bIdleSets,_s:cMediaIndependent8b10bNonIdleSets,_t:cMediaIndependentOverflow8b10bNonIdleSets,_u:cMediaIndependentHighCapacity8b10bNonIdleSets,_v:cMediaIndependent8b10bDataSets,_w:cMediaIndependentOverflow8b10bDataSets,_x:cMediaIndependentHighCapacity8b10bDataSets,_y:cMediaIndependent8b10bInvalidOrdSets,_z:cMediaIndependent8b10bEncodingDispErr,_A0:cMediaIndependent8b10bLossOfSync,_A1:cMediaIndependentInPauseFrames,_A2:cMediaIndependentOutPauseFrames,_A3:cMediaIndependentInPktsDroppedInternalCongestion,_A4:cMediaIndependentOutPktsDroppedInternalCongestion,_A5:cMediaIndependentInControlFrames,_A6:cMediaIndependentInUnknownOpcodeFrames,_A7:cMediaIndependentHdlcPktDrops,_A8:cMediaIndependentHdlcInOctets,_A9:cMediaIndependentHdlcOutOctets,_AA:cMediaIndependentHdlcInAborts,_AB:cMediaIndependentInShortPkts,_AC:cMediaIndependentOutShortPkts,_AD:cMediaIndependentOversizeDropped,_AE:cMediaIndependentInErrorBytePkts,_AF:cMediaIndependentInFramingErrorPkts,_AG:cMediaIndependentInJunkInterPkts,_AH:cMediaIndependentOutOversizePkts,_AI:cMediaIndependentInPayloadCrcErrors,_AJ:cMediaIndependentOutPayloadCrcErrors,_AK:cMediaIndependentInRecvrReady,_AL:cMediaIndependentOutRecvrReady,_AM:cMediaIndependent8b10bInvalidOrdSetsDispErrorsSum,_AN:cMediaIndependentInGfpSblkCRCErr,_AO:cMediaIndependentOutFramesTooLong,_AP:cMediaIndependentPkts1519to1522Octets,_AQ:cMediaIndependentOutFramesTruncated,_AR:cMediaIndependentPcsErrCount,_AS:cMediaIndependentPcsErrCount2,_AT:cMediaIndependentPcs49RxErrBer,_AU:cMediaIndependentPcs49RxErrDec,_AV:cMediaIndependentPkts1519toMaxOctets,_AW:cMediaIndependentRxLcvErrors,_AX:cMediaIndependentTxLcvErrors,_AY:cMediaIndependentGfpRxCmfFrame,_AZ:cMediaIndependentGfpTxCmfFrame,_Aa:cMediaIndependentPcsEgRxErrFrames,'cMediaIndependentHistoryControlTable':cMediaIndependentHistoryControlTable,'cMediaIndependentHistoryControlEntry':cMediaIndependentHistoryControlEntry,_I:cMediaIndependentHistoryControlIndex,_Ab:cMediaIndependentHistoryControlDataSource,_Ac:cMediaIndependentHistoryControlBucketsRequested,_Ad:cMediaIndependentHistoryControlBucketsGranted,_Ae:cMediaIndependentHistoryControlInterval,_Af:cMediaIndependentHistoryControlOwner,_Ag:cMediaIndependentHistoryControlStatus,'cMediaIndependentHistoryTable':cMediaIndependentHistoryTable,'cMediaIndependentHistoryEntry':cMediaIndependentHistoryEntry,_J:cMediaIndependentHistoryIndex,_K:cMediaIndependentHistorySampleIndex,_Ah:cMediaIndependentHistoryDropEvents,_Ai:cMediaIndependentHistoryDroppedFrames,_Aj:cMediaIndependentHistoryInPkts,_Ak:cMediaIndependentHistoryInOverflowPkts,_Al:cMediaIndependentHistoryInHighCapacityPkts,_Am:cMediaIndependentHistoryOutPkts,_An:cMediaIndependentHistoryOutOverflowPkts,_Ao:cMediaIndependentHistoryOutHighCapacityPkts,_Ap:cMediaIndependentHistoryInOctets,_Aq:cMediaIndependentHistoryInOverflowOctets,_Ar:cMediaIndependentHistoryInHighCapacityOctets,_As:cMediaIndependentHistoryOutOctets,_At:cMediaIndependentHistoryOutOverflowOctets,_Au:cMediaIndependentHistoryOutHighCapacityOctets,_Av:cMediaIndependentHistoryInNUCastPkts,_Aw:cMediaIndependentHistoryInNUCastOverflowPkts,_Ax:cMediaIndependentHistoryInNUCastHighCapacityPkts,_Ay:cMediaIndependentHistoryOutNUCastPkts,_Az:cMediaIndependentHistoryOutNUCastOverflowPkts,_A_:cMediaIndependentHistoryOutNUCastHighCapacityPkts,_B0:cMediaIndependentHistoryInErrors,_B1:cMediaIndependentHistoryOutErrors,_B2:cMediaIndependentHistoryInBadCRC,_B3:cMediaIndependentHistoryOutBadCRC,_B4:cMediaIndependentHistoryInFramesTruncated,_B5:cMediaIndependentHistoryInFramesTooLong,_B6:cMediaIndependentHistoryLinkRecoveries,_B7:cMediaIndependentHistoryInDistanceExtBuffers,_B8:cMediaIndependentHistoryOutDistanceExtBuffers,_B9:cMediaIndependentHistoryInCredits,_BA:cMediaIndependentHistoryOutCredits,_BB:cMediaIndependentHistoryOutZeroCredits,_BC:cMediaIndependentHistoryInGfpSBitErr,_BD:cMediaIndependentHistoryInGfpMBitErr,_BE:cMediaIndependentHistoryInGfpCRCErr,_BF:cMediaIndependentHistoryInGfpFrames,_BG:cMediaIndependentHistoryInOverflowGfpFrames,_BH:cMediaIndependentHistoryInHighCapacityGfpFrames,_BI:cMediaIndependentHistoryOutGfpFrames,_BJ:cMediaIndependentHistoryOutOverflowGfpFrames,_BK:cMediaIndependentHistoryOutHighCapacityGfpFrames,_BL:cMediaIndependentHistoryInGfpOctets,_BM:cMediaIndependentHistoryInOverflowGfpOctets,_BN:cMediaIndependentHistoryInHighCapacityGfpOctets,_BO:cMediaIndependentHistoryOutGfpOctets,_BP:cMediaIndependentHistoryOutOverflowGfpOctets,_BQ:cMediaIndependentHistoryOutHighCapacityGfpOctets,_BR:cMediaIndependentHistoryInGfpTypeInvalid,_BS:cMediaIndependentHistoryInGfpCIDInvalid,_BT:cMediaIndependentHistoryInGfpLFDRaised,_BU:cMediaIndependentHistoryInGfpCSFRaised,_BV:cMediaIndependentHistoryGfpRoundTripLatency,_BW:cMediaIndependentHistory8b10bIdleSets,_BX:cMediaIndependentHistoryOverflow8b10bIdleSets,_BY:cMediaIndependentHistoryHighCapacity8b10bIdleSets,_BZ:cMediaIndependentHistory8b10bNonIdleSets,_Ba:cMediaIndependentHistoryOverflow8b10bNonIdleSets,_Bb:cMediaIndependentHistoryHighCapacity8b10bNonIdleSets,_Bc:cMediaIndependentHistory8b10bDataSets,_Bd:cMediaIndependentHistoryOverflow8b10bDataSets,_Be:cMediaIndependentHistoryHighCapacity8b10bDataSets,_Bf:cMediaIndependentHistory8b10bInvalidOrdSets,_Bg:cMediaIndependentHistory8b10bEncodingDispErr,_Bh:cMediaIndependentHistory8b10bLossOfSync,_Bi:cMediaIndependentHistoryInPauseFrames,_Bj:cMediaIndependentHistoryOutPauseFrames,_Bk:cMediaIndependentHistoryInPktsDroppedInternalCongestion,_Bl:cMediaIndependentHistoryOutPktsDroppedInternalCongestion,_Bm:cMediaIndependentHistoryInControlFrames,_Bn:cMediaIndependentHistoryInUnknownOpcodeFrames,_Bo:cMediaIndependentHistoryHdlcPktDrops,_Bp:cMediaIndependentHistoryHdlcInOctets,_Bq:cMediaIndependentHistoryHdlcOutOctets,_Br:cMediaIndependentHistoryHdlcInAborts,_Bs:cMediaIndependentHistoryInShortPkts,_Bt:cMediaIndependentHistoryOutShortPkts,_Bu:cMediaIndependentHistoryOversizeDropped,_Bv:cMediaIndependentHistoryInErrorBytePkts,_Bw:cMediaIndependentHistoryInFramingErrorPkts,_Bx:cMediaIndependentHistoryInJunkInterPkts,_By:cMediaIndependentHistoryOutOversizePkts,_Bz:cMediaIndependentHistoryInPayloadCrcErrors,_B_:cMediaIndependentHistoryOutPayloadCrcErrors,_C0:cMediaIndependentHistoryInRecvrReady,_C1:cMediaIndependentHistoryOutRecvrReady,_C2:cMediaIndependentHistory8b10bInvalidOrdSetsDispErrorsSum,_C3:cMediaIndependentHistoryInGfpSblkCRCErr,_C4:cMediaIndependentHistoryOutFramesTooLong,_C5:cMediaIndependentHistoryPkts1519to1522Octets,_C6:cMediaIndependentHistoryOutFramesTruncated,_C7:cMediaIndependentHistoryPcsErrCount,_C8:cMediaIndependentHistoryPcsErrCount2,_C9:cMediaIndependentHistoryPcs49RxErrBer,_CA:cMediaIndependentHistoryPcs49RxErrDec,_CB:cMediaIndependentHistoryPkts1519toMaxOctets,_CC:cMediaIndependentHistoryRxLcvErrors,_CD:cMediaIndependentHistoryTxLcvErrors,_CE:cMediaIndependentHistoryPcsEgRxErrFrames,'cerentHcRmonMIBConformance':cerentHcRmonMIBConformance,'cerentHcRmonMIBCompliances':cerentHcRmonMIBCompliances,'cerentHcMediaIndependentCompliance':cerentHcMediaIndependentCompliance,'cerentHcRmonMIBGroups':cerentHcRmonMIBGroups,'cMediaIndependentGroup':cMediaIndependentGroup,'cMediaIndependenHistoryControlGroup':cMediaIndependenHistoryControlGroup,'cMediaIndependentHistoryGroup':cMediaIndependentHistoryGroup})

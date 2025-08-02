@@ -1,0 +1,229 @@
+_M='wwpLeosPremiumFeatureLicenseInstallUnsuccessful'
+_L='wwpLeosPremiumFeatureLicenseInstallModuleIndex'
+_K='wwpLeosPremiumFeatureOperStatus'
+_J='wwpLeosPremiumFeatureName'
+_I='wwpLeosPremiumFeatureLicenseInstalledModuleIndex'
+_H='wwpLeosPremiumFeatureId'
+_G='Unsigned32'
+_F='OctetString'
+_E='read-write'
+_D='WWP-LEOS-FEATURE-LICENSE-MIB'
+_C='Integer32'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso')
+DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
+wwpModulesLeos,=mibBuilder.importSymbols('WWP-SMI','wwpModulesLeos')
+wwpLeosFeatureLicenseMIB=ModuleIdentity((1,3,6,1,4,1,6141,2,60,29))
+if mibBuilder.loadTexts:wwpLeosFeatureLicenseMIB.setRevisions(('2010-01-28 00:00','2005-08-05 00:00'))
+_WwpLeosFeatureLicenseMIBObjects_ObjectIdentity=ObjectIdentity
+wwpLeosFeatureLicenseMIBObjects=_WwpLeosFeatureLicenseMIBObjects_ObjectIdentity((1,3,6,1,4,1,6141,2,60,29,1))
+_WwpLeosPremiumFeatureLicense_ObjectIdentity=ObjectIdentity
+wwpLeosPremiumFeatureLicense=_WwpLeosPremiumFeatureLicense_ObjectIdentity((1,3,6,1,4,1,6141,2,60,29,1,1))
+_WwpLeosPremiumFeatureStatusTable_Object=MibTable
+wwpLeosPremiumFeatureStatusTable=_WwpLeosPremiumFeatureStatusTable_Object((1,3,6,1,4,1,6141,2,60,29,1,1,1))
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureStatusTable.setStatus(_A)
+_WwpLeosPremiumFeatureStatusEntry_Object=MibTableRow
+wwpLeosPremiumFeatureStatusEntry=_WwpLeosPremiumFeatureStatusEntry_Object((1,3,6,1,4,1,6141,2,60,29,1,1,1,1))
+wwpLeosPremiumFeatureStatusEntry.setIndexNames((0,_D,_H))
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureStatusEntry.setStatus(_A)
+class _WwpLeosPremiumFeatureId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('baseFeatures',0),('dynamicVPLS',1),('security',2),('pbt',3),('carrierEdition',4),('advancedEthernet',5),('advancedOam',6),('pbbTe',7),('advanced10G',8),('aeAndAoam',9),('pbb',10),('advancedSync',11)))
+_WwpLeosPremiumFeatureId_Type.__name__=_C
+_WwpLeosPremiumFeatureId_Object=MibTableColumn
+wwpLeosPremiumFeatureId=_WwpLeosPremiumFeatureId_Object((1,3,6,1,4,1,6141,2,60,29,1,1,1,1,1),_WwpLeosPremiumFeatureId_Type())
+wwpLeosPremiumFeatureId.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureId.setStatus(_A)
+class _WwpLeosPremiumFeatureName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
+_WwpLeosPremiumFeatureName_Type.__name__=_F
+_WwpLeosPremiumFeatureName_Object=MibTableColumn
+wwpLeosPremiumFeatureName=_WwpLeosPremiumFeatureName_Object((1,3,6,1,4,1,6141,2,60,29,1,1,1,1,2),_WwpLeosPremiumFeatureName_Type())
+wwpLeosPremiumFeatureName.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureName.setStatus(_A)
+class _WwpLeosPremiumFeatureDomainName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
+_WwpLeosPremiumFeatureDomainName_Type.__name__=_F
+_WwpLeosPremiumFeatureDomainName_Object=MibTableColumn
+wwpLeosPremiumFeatureDomainName=_WwpLeosPremiumFeatureDomainName_Object((1,3,6,1,4,1,6141,2,60,29,1,1,1,1,3),_WwpLeosPremiumFeatureDomainName_Type())
+wwpLeosPremiumFeatureDomainName.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureDomainName.setStatus(_A)
+class _WwpLeosPremiumFeatureDomainId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_WwpLeosPremiumFeatureDomainId_Type.__name__=_C
+_WwpLeosPremiumFeatureDomainId_Object=MibTableColumn
+wwpLeosPremiumFeatureDomainId=_WwpLeosPremiumFeatureDomainId_Object((1,3,6,1,4,1,6141,2,60,29,1,1,1,1,4),_WwpLeosPremiumFeatureDomainId_Type())
+wwpLeosPremiumFeatureDomainId.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureDomainId.setStatus(_A)
+class _WwpLeosPremiumFeatureCustomerId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_WwpLeosPremiumFeatureCustomerId_Type.__name__=_C
+_WwpLeosPremiumFeatureCustomerId_Object=MibTableColumn
+wwpLeosPremiumFeatureCustomerId=_WwpLeosPremiumFeatureCustomerId_Object((1,3,6,1,4,1,6141,2,60,29,1,1,1,1,5),_WwpLeosPremiumFeatureCustomerId_Type())
+wwpLeosPremiumFeatureCustomerId.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureCustomerId.setStatus(_A)
+class _WwpLeosPremiumFeatureLicenseAdminId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_WwpLeosPremiumFeatureLicenseAdminId_Type.__name__=_C
+_WwpLeosPremiumFeatureLicenseAdminId_Object=MibTableColumn
+wwpLeosPremiumFeatureLicenseAdminId=_WwpLeosPremiumFeatureLicenseAdminId_Object((1,3,6,1,4,1,6141,2,60,29,1,1,1,1,6),_WwpLeosPremiumFeatureLicenseAdminId_Type())
+wwpLeosPremiumFeatureLicenseAdminId.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseAdminId.setStatus(_A)
+class _WwpLeosPremiumFeatureOperStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('infoNotAvailable',1),('notInstalled',2),('installed',3),('partial',4),('noBaseLic',5)))
+_WwpLeosPremiumFeatureOperStatus_Type.__name__=_C
+_WwpLeosPremiumFeatureOperStatus_Object=MibTableColumn
+wwpLeosPremiumFeatureOperStatus=_WwpLeosPremiumFeatureOperStatus_Object((1,3,6,1,4,1,6141,2,60,29,1,1,1,1,7),_WwpLeosPremiumFeatureOperStatus_Type())
+wwpLeosPremiumFeatureOperStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureOperStatus.setStatus(_A)
+class _WwpLeosPremiumFeatureDaysRemaining_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_WwpLeosPremiumFeatureDaysRemaining_Type.__name__=_C
+_WwpLeosPremiumFeatureDaysRemaining_Object=MibTableColumn
+wwpLeosPremiumFeatureDaysRemaining=_WwpLeosPremiumFeatureDaysRemaining_Object((1,3,6,1,4,1,6141,2,60,29,1,1,1,1,8),_WwpLeosPremiumFeatureDaysRemaining_Type())
+wwpLeosPremiumFeatureDaysRemaining.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureDaysRemaining.setStatus(_A)
+class _WwpLeosPremiumFeatureLicenseKey_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
+_WwpLeosPremiumFeatureLicenseKey_Type.__name__=_F
+_WwpLeosPremiumFeatureLicenseKey_Object=MibTableColumn
+wwpLeosPremiumFeatureLicenseKey=_WwpLeosPremiumFeatureLicenseKey_Object((1,3,6,1,4,1,6141,2,60,29,1,1,1,1,9),_WwpLeosPremiumFeatureLicenseKey_Type())
+wwpLeosPremiumFeatureLicenseKey.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseKey.setStatus(_A)
+_WwpLeosPremiumFeatureLicenseKeyInstall_Type=DisplayString
+_WwpLeosPremiumFeatureLicenseKeyInstall_Object=MibScalar
+wwpLeosPremiumFeatureLicenseKeyInstall=_WwpLeosPremiumFeatureLicenseKeyInstall_Object((1,3,6,1,4,1,6141,2,60,29,1,1,2),_WwpLeosPremiumFeatureLicenseKeyInstall_Type())
+wwpLeosPremiumFeatureLicenseKeyInstall.setMaxAccess(_E)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseKeyInstall.setStatus(_A)
+_WwpLeosPremiumFeatureLicenseNameUnInstall_Type=DisplayString
+_WwpLeosPremiumFeatureLicenseNameUnInstall_Object=MibScalar
+wwpLeosPremiumFeatureLicenseNameUnInstall=_WwpLeosPremiumFeatureLicenseNameUnInstall_Object((1,3,6,1,4,1,6141,2,60,29,1,1,3),_WwpLeosPremiumFeatureLicenseNameUnInstall_Type())
+wwpLeosPremiumFeatureLicenseNameUnInstall.setMaxAccess(_E)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseNameUnInstall.setStatus(_A)
+_WwpLeosPremiumFeatureLicenseStatusNotif_ObjectIdentity=ObjectIdentity
+wwpLeosPremiumFeatureLicenseStatusNotif=_WwpLeosPremiumFeatureLicenseStatusNotif_ObjectIdentity((1,3,6,1,4,1,6141,2,60,29,1,2))
+_WwpLeosTcePremiumFeatureLicense_ObjectIdentity=ObjectIdentity
+wwpLeosTcePremiumFeatureLicense=_WwpLeosTcePremiumFeatureLicense_ObjectIdentity((1,3,6,1,4,1,6141,2,60,29,1,10))
+_WwpLeosPremiumFeatureLicenseInstalledTable_Object=MibTable
+wwpLeosPremiumFeatureLicenseInstalledTable=_WwpLeosPremiumFeatureLicenseInstalledTable_Object((1,3,6,1,4,1,6141,2,60,29,1,10,1))
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstalledTable.setStatus(_A)
+_WwpLeosPremiumFeatureLicenseInstalledEntry_Object=MibTableRow
+wwpLeosPremiumFeatureLicenseInstalledEntry=_WwpLeosPremiumFeatureLicenseInstalledEntry_Object((1,3,6,1,4,1,6141,2,60,29,1,10,1,1))
+wwpLeosPremiumFeatureLicenseInstalledEntry.setIndexNames((0,_D,_I),(0,_D,_H))
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstalledEntry.setStatus(_A)
+class _WwpLeosPremiumFeatureLicenseInstalledModuleIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3))
+_WwpLeosPremiumFeatureLicenseInstalledModuleIndex_Type.__name__=_G
+_WwpLeosPremiumFeatureLicenseInstalledModuleIndex_Object=MibTableColumn
+wwpLeosPremiumFeatureLicenseInstalledModuleIndex=_WwpLeosPremiumFeatureLicenseInstalledModuleIndex_Object((1,3,6,1,4,1,6141,2,60,29,1,10,1,1,1),_WwpLeosPremiumFeatureLicenseInstalledModuleIndex_Type())
+wwpLeosPremiumFeatureLicenseInstalledModuleIndex.setMaxAccess('not-accessible')
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstalledModuleIndex.setStatus(_A)
+class _WwpLeosPremiumFeatureLicenseInstalledOemId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_WwpLeosPremiumFeatureLicenseInstalledOemId_Type.__name__=_C
+_WwpLeosPremiumFeatureLicenseInstalledOemId_Object=MibTableColumn
+wwpLeosPremiumFeatureLicenseInstalledOemId=_WwpLeosPremiumFeatureLicenseInstalledOemId_Object((1,3,6,1,4,1,6141,2,60,29,1,10,1,1,3),_WwpLeosPremiumFeatureLicenseInstalledOemId_Type())
+wwpLeosPremiumFeatureLicenseInstalledOemId.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstalledOemId.setStatus(_A)
+class _WwpLeosPremiumFeatureLicenseInstalledCustomerId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_WwpLeosPremiumFeatureLicenseInstalledCustomerId_Type.__name__=_C
+_WwpLeosPremiumFeatureLicenseInstalledCustomerId_Object=MibTableColumn
+wwpLeosPremiumFeatureLicenseInstalledCustomerId=_WwpLeosPremiumFeatureLicenseInstalledCustomerId_Object((1,3,6,1,4,1,6141,2,60,29,1,10,1,1,4),_WwpLeosPremiumFeatureLicenseInstalledCustomerId_Type())
+wwpLeosPremiumFeatureLicenseInstalledCustomerId.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstalledCustomerId.setStatus(_A)
+class _WwpLeosPremiumFeatureLicenseInstalledAdminId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_WwpLeosPremiumFeatureLicenseInstalledAdminId_Type.__name__=_C
+_WwpLeosPremiumFeatureLicenseInstalledAdminId_Object=MibTableColumn
+wwpLeosPremiumFeatureLicenseInstalledAdminId=_WwpLeosPremiumFeatureLicenseInstalledAdminId_Object((1,3,6,1,4,1,6141,2,60,29,1,10,1,1,5),_WwpLeosPremiumFeatureLicenseInstalledAdminId_Type())
+wwpLeosPremiumFeatureLicenseInstalledAdminId.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstalledAdminId.setStatus(_A)
+class _WwpLeosPremiumFeatureLicenseInstalledDaysRemaining_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_WwpLeosPremiumFeatureLicenseInstalledDaysRemaining_Type.__name__=_C
+_WwpLeosPremiumFeatureLicenseInstalledDaysRemaining_Object=MibTableColumn
+wwpLeosPremiumFeatureLicenseInstalledDaysRemaining=_WwpLeosPremiumFeatureLicenseInstalledDaysRemaining_Object((1,3,6,1,4,1,6141,2,60,29,1,10,1,1,6),_WwpLeosPremiumFeatureLicenseInstalledDaysRemaining_Type())
+wwpLeosPremiumFeatureLicenseInstalledDaysRemaining.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstalledDaysRemaining.setStatus(_A)
+_WwpLeosPremiumFeatureLicenseInstalledEnabled_Type=TruthValue
+_WwpLeosPremiumFeatureLicenseInstalledEnabled_Object=MibTableColumn
+wwpLeosPremiumFeatureLicenseInstalledEnabled=_WwpLeosPremiumFeatureLicenseInstalledEnabled_Object((1,3,6,1,4,1,6141,2,60,29,1,10,1,1,7),_WwpLeosPremiumFeatureLicenseInstalledEnabled_Type())
+wwpLeosPremiumFeatureLicenseInstalledEnabled.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstalledEnabled.setStatus(_A)
+_WwpLeosPremiumFeatureLicenseInstalledSequence_Type=Unsigned32
+_WwpLeosPremiumFeatureLicenseInstalledSequence_Object=MibTableColumn
+wwpLeosPremiumFeatureLicenseInstalledSequence=_WwpLeosPremiumFeatureLicenseInstalledSequence_Object((1,3,6,1,4,1,6141,2,60,29,1,10,1,1,8),_WwpLeosPremiumFeatureLicenseInstalledSequence_Type())
+wwpLeosPremiumFeatureLicenseInstalledSequence.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstalledSequence.setStatus(_A)
+class _WwpLeosPremiumFeatureLicenseInstalledDomainId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_WwpLeosPremiumFeatureLicenseInstalledDomainId_Type.__name__=_C
+_WwpLeosPremiumFeatureLicenseInstalledDomainId_Object=MibTableColumn
+wwpLeosPremiumFeatureLicenseInstalledDomainId=_WwpLeosPremiumFeatureLicenseInstalledDomainId_Object((1,3,6,1,4,1,6141,2,60,29,1,10,1,1,9),_WwpLeosPremiumFeatureLicenseInstalledDomainId_Type())
+wwpLeosPremiumFeatureLicenseInstalledDomainId.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstalledDomainId.setStatus(_A)
+_WwpLeosPremiumFeatureLicenseInstalledName_Type=DisplayString
+_WwpLeosPremiumFeatureLicenseInstalledName_Object=MibTableColumn
+wwpLeosPremiumFeatureLicenseInstalledName=_WwpLeosPremiumFeatureLicenseInstalledName_Object((1,3,6,1,4,1,6141,2,60,29,1,10,1,1,10),_WwpLeosPremiumFeatureLicenseInstalledName_Type())
+wwpLeosPremiumFeatureLicenseInstalledName.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstalledName.setStatus(_A)
+_WwpLeosPremiumFeatureLicenseInstalledDomainName_Type=DisplayString
+_WwpLeosPremiumFeatureLicenseInstalledDomainName_Object=MibTableColumn
+wwpLeosPremiumFeatureLicenseInstalledDomainName=_WwpLeosPremiumFeatureLicenseInstalledDomainName_Object((1,3,6,1,4,1,6141,2,60,29,1,10,1,1,11),_WwpLeosPremiumFeatureLicenseInstalledDomainName_Type())
+wwpLeosPremiumFeatureLicenseInstalledDomainName.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstalledDomainName.setStatus(_A)
+class _WwpLeosPremiumFeatureLicenseInstalledKey_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
+_WwpLeosPremiumFeatureLicenseInstalledKey_Type.__name__=_F
+_WwpLeosPremiumFeatureLicenseInstalledKey_Object=MibTableColumn
+wwpLeosPremiumFeatureLicenseInstalledKey=_WwpLeosPremiumFeatureLicenseInstalledKey_Object((1,3,6,1,4,1,6141,2,60,29,1,10,1,1,12),_WwpLeosPremiumFeatureLicenseInstalledKey_Type())
+wwpLeosPremiumFeatureLicenseInstalledKey.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstalledKey.setStatus(_A)
+_WwpLeosPremiumFeatureLicenseInstall_ObjectIdentity=ObjectIdentity
+wwpLeosPremiumFeatureLicenseInstall=_WwpLeosPremiumFeatureLicenseInstall_ObjectIdentity((1,3,6,1,4,1,6141,2,60,29,1,10,2))
+class _WwpLeosPremiumFeatureLicenseInstallModuleIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3))
+_WwpLeosPremiumFeatureLicenseInstallModuleIndex_Type.__name__=_G
+_WwpLeosPremiumFeatureLicenseInstallModuleIndex_Object=MibScalar
+wwpLeosPremiumFeatureLicenseInstallModuleIndex=_WwpLeosPremiumFeatureLicenseInstallModuleIndex_Object((1,3,6,1,4,1,6141,2,60,29,1,10,2,1),_WwpLeosPremiumFeatureLicenseInstallModuleIndex_Type())
+wwpLeosPremiumFeatureLicenseInstallModuleIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstallModuleIndex.setStatus(_A)
+_WwpLeosPremiumFeatureLicenseInstallKey_Type=DisplayString
+_WwpLeosPremiumFeatureLicenseInstallKey_Object=MibScalar
+wwpLeosPremiumFeatureLicenseInstallKey=_WwpLeosPremiumFeatureLicenseInstallKey_Object((1,3,6,1,4,1,6141,2,60,29,1,10,2,2),_WwpLeosPremiumFeatureLicenseInstallKey_Type())
+wwpLeosPremiumFeatureLicenseInstallKey.setMaxAccess(_E)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstallKey.setStatus(_A)
+_WwpLeosPremiumFeatureLicenseInstallCommit_Type=TruthValue
+_WwpLeosPremiumFeatureLicenseInstallCommit_Object=MibScalar
+wwpLeosPremiumFeatureLicenseInstallCommit=_WwpLeosPremiumFeatureLicenseInstallCommit_Object((1,3,6,1,4,1,6141,2,60,29,1,10,2,3),_WwpLeosPremiumFeatureLicenseInstallCommit_Type())
+wwpLeosPremiumFeatureLicenseInstallCommit.setMaxAccess(_E)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstallCommit.setStatus(_A)
+_WwpLeosPremiumFeatureLicenseInstallUnsuccessful_Type=DisplayString
+_WwpLeosPremiumFeatureLicenseInstallUnsuccessful_Object=MibScalar
+wwpLeosPremiumFeatureLicenseInstallUnsuccessful=_WwpLeosPremiumFeatureLicenseInstallUnsuccessful_Object((1,3,6,1,4,1,6141,2,60,29,1,10,2,4),_WwpLeosPremiumFeatureLicenseInstallUnsuccessful_Type())
+wwpLeosPremiumFeatureLicenseInstallUnsuccessful.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstallUnsuccessful.setStatus(_A)
+_WwpLeosPremiumFeatureLicenseUninstall_ObjectIdentity=ObjectIdentity
+wwpLeosPremiumFeatureLicenseUninstall=_WwpLeosPremiumFeatureLicenseUninstall_ObjectIdentity((1,3,6,1,4,1,6141,2,60,29,1,10,3))
+class _WwpLeosPremiumFeatureLicenseUninstallModuleIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3))
+_WwpLeosPremiumFeatureLicenseUninstallModuleIndex_Type.__name__=_G
+_WwpLeosPremiumFeatureLicenseUninstallModuleIndex_Object=MibScalar
+wwpLeosPremiumFeatureLicenseUninstallModuleIndex=_WwpLeosPremiumFeatureLicenseUninstallModuleIndex_Object((1,3,6,1,4,1,6141,2,60,29,1,10,3,1),_WwpLeosPremiumFeatureLicenseUninstallModuleIndex_Type())
+wwpLeosPremiumFeatureLicenseUninstallModuleIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseUninstallModuleIndex.setStatus(_A)
+_WwpLeosPremiumFeatureLicenseUninstallName_Type=DisplayString
+_WwpLeosPremiumFeatureLicenseUninstallName_Object=MibScalar
+wwpLeosPremiumFeatureLicenseUninstallName=_WwpLeosPremiumFeatureLicenseUninstallName_Object((1,3,6,1,4,1,6141,2,60,29,1,10,3,2),_WwpLeosPremiumFeatureLicenseUninstallName_Type())
+wwpLeosPremiumFeatureLicenseUninstallName.setMaxAccess(_E)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseUninstallName.setStatus(_A)
+_WwpLeosPremiumFeatureLicenseUninstallCommit_Type=TruthValue
+_WwpLeosPremiumFeatureLicenseUninstallCommit_Object=MibScalar
+wwpLeosPremiumFeatureLicenseUninstallCommit=_WwpLeosPremiumFeatureLicenseUninstallCommit_Object((1,3,6,1,4,1,6141,2,60,29,1,10,3,3),_WwpLeosPremiumFeatureLicenseUninstallCommit_Type())
+wwpLeosPremiumFeatureLicenseUninstallCommit.setMaxAccess(_E)
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseUninstallCommit.setStatus(_A)
+_WwpLeosFeatureLicenseMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
+wwpLeosFeatureLicenseMIBNotificationPrefix=_WwpLeosFeatureLicenseMIBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,6141,2,60,29,2))
+_WwpLeosFeatureLicenseMIBNotifications_ObjectIdentity=ObjectIdentity
+wwpLeosFeatureLicenseMIBNotifications=_WwpLeosFeatureLicenseMIBNotifications_ObjectIdentity((1,3,6,1,4,1,6141,2,60,29,2,0))
+_WwpLeosFeatureLicenseMIBConformance_ObjectIdentity=ObjectIdentity
+wwpLeosFeatureLicenseMIBConformance=_WwpLeosFeatureLicenseMIBConformance_ObjectIdentity((1,3,6,1,4,1,6141,2,60,29,3))
+_WwpLeosFeatureLicenseMIBCompliances_ObjectIdentity=ObjectIdentity
+wwpLeosFeatureLicenseMIBCompliances=_WwpLeosFeatureLicenseMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6141,2,60,29,3,1))
+_WwpLeosFeatureLicenseMIBGroups_ObjectIdentity=ObjectIdentity
+wwpLeosFeatureLicenseMIBGroups=_WwpLeosFeatureLicenseMIBGroups_ObjectIdentity((1,3,6,1,4,1,6141,2,60,29,3,2))
+wwpLeosPremiumFeatureLicenseStatusNotification=NotificationType((1,3,6,1,4,1,6141,2,60,29,2,0,1))
+wwpLeosPremiumFeatureLicenseStatusNotification.setObjects(*((_D,_J),(_D,_K)))
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseStatusNotification.setStatus(_A)
+wwpLeosPremiumFeatureLicenseInstallErrorNotification=NotificationType((1,3,6,1,4,1,6141,2,60,29,2,0,2))
+wwpLeosPremiumFeatureLicenseInstallErrorNotification.setObjects(*((_D,_L),(_D,_M)))
+if mibBuilder.loadTexts:wwpLeosPremiumFeatureLicenseInstallErrorNotification.setStatus(_A)
+mibBuilder.exportSymbols(_D,**{'wwpLeosFeatureLicenseMIB':wwpLeosFeatureLicenseMIB,'wwpLeosFeatureLicenseMIBObjects':wwpLeosFeatureLicenseMIBObjects,'wwpLeosPremiumFeatureLicense':wwpLeosPremiumFeatureLicense,'wwpLeosPremiumFeatureStatusTable':wwpLeosPremiumFeatureStatusTable,'wwpLeosPremiumFeatureStatusEntry':wwpLeosPremiumFeatureStatusEntry,_H:wwpLeosPremiumFeatureId,_J:wwpLeosPremiumFeatureName,'wwpLeosPremiumFeatureDomainName':wwpLeosPremiumFeatureDomainName,'wwpLeosPremiumFeatureDomainId':wwpLeosPremiumFeatureDomainId,'wwpLeosPremiumFeatureCustomerId':wwpLeosPremiumFeatureCustomerId,'wwpLeosPremiumFeatureLicenseAdminId':wwpLeosPremiumFeatureLicenseAdminId,_K:wwpLeosPremiumFeatureOperStatus,'wwpLeosPremiumFeatureDaysRemaining':wwpLeosPremiumFeatureDaysRemaining,'wwpLeosPremiumFeatureLicenseKey':wwpLeosPremiumFeatureLicenseKey,'wwpLeosPremiumFeatureLicenseKeyInstall':wwpLeosPremiumFeatureLicenseKeyInstall,'wwpLeosPremiumFeatureLicenseNameUnInstall':wwpLeosPremiumFeatureLicenseNameUnInstall,'wwpLeosPremiumFeatureLicenseStatusNotif':wwpLeosPremiumFeatureLicenseStatusNotif,'wwpLeosTcePremiumFeatureLicense':wwpLeosTcePremiumFeatureLicense,'wwpLeosPremiumFeatureLicenseInstalledTable':wwpLeosPremiumFeatureLicenseInstalledTable,'wwpLeosPremiumFeatureLicenseInstalledEntry':wwpLeosPremiumFeatureLicenseInstalledEntry,_I:wwpLeosPremiumFeatureLicenseInstalledModuleIndex,'wwpLeosPremiumFeatureLicenseInstalledOemId':wwpLeosPremiumFeatureLicenseInstalledOemId,'wwpLeosPremiumFeatureLicenseInstalledCustomerId':wwpLeosPremiumFeatureLicenseInstalledCustomerId,'wwpLeosPremiumFeatureLicenseInstalledAdminId':wwpLeosPremiumFeatureLicenseInstalledAdminId,'wwpLeosPremiumFeatureLicenseInstalledDaysRemaining':wwpLeosPremiumFeatureLicenseInstalledDaysRemaining,'wwpLeosPremiumFeatureLicenseInstalledEnabled':wwpLeosPremiumFeatureLicenseInstalledEnabled,'wwpLeosPremiumFeatureLicenseInstalledSequence':wwpLeosPremiumFeatureLicenseInstalledSequence,'wwpLeosPremiumFeatureLicenseInstalledDomainId':wwpLeosPremiumFeatureLicenseInstalledDomainId,'wwpLeosPremiumFeatureLicenseInstalledName':wwpLeosPremiumFeatureLicenseInstalledName,'wwpLeosPremiumFeatureLicenseInstalledDomainName':wwpLeosPremiumFeatureLicenseInstalledDomainName,'wwpLeosPremiumFeatureLicenseInstalledKey':wwpLeosPremiumFeatureLicenseInstalledKey,'wwpLeosPremiumFeatureLicenseInstall':wwpLeosPremiumFeatureLicenseInstall,_L:wwpLeosPremiumFeatureLicenseInstallModuleIndex,'wwpLeosPremiumFeatureLicenseInstallKey':wwpLeosPremiumFeatureLicenseInstallKey,'wwpLeosPremiumFeatureLicenseInstallCommit':wwpLeosPremiumFeatureLicenseInstallCommit,_M:wwpLeosPremiumFeatureLicenseInstallUnsuccessful,'wwpLeosPremiumFeatureLicenseUninstall':wwpLeosPremiumFeatureLicenseUninstall,'wwpLeosPremiumFeatureLicenseUninstallModuleIndex':wwpLeosPremiumFeatureLicenseUninstallModuleIndex,'wwpLeosPremiumFeatureLicenseUninstallName':wwpLeosPremiumFeatureLicenseUninstallName,'wwpLeosPremiumFeatureLicenseUninstallCommit':wwpLeosPremiumFeatureLicenseUninstallCommit,'wwpLeosFeatureLicenseMIBNotificationPrefix':wwpLeosFeatureLicenseMIBNotificationPrefix,'wwpLeosFeatureLicenseMIBNotifications':wwpLeosFeatureLicenseMIBNotifications,'wwpLeosPremiumFeatureLicenseStatusNotification':wwpLeosPremiumFeatureLicenseStatusNotification,'wwpLeosPremiumFeatureLicenseInstallErrorNotification':wwpLeosPremiumFeatureLicenseInstallErrorNotification,'wwpLeosFeatureLicenseMIBConformance':wwpLeosFeatureLicenseMIBConformance,'wwpLeosFeatureLicenseMIBCompliances':wwpLeosFeatureLicenseMIBCompliances,'wwpLeosFeatureLicenseMIBGroups':wwpLeosFeatureLicenseMIBGroups})

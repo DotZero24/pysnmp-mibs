@@ -1,39 +1,76 @@
-#
-# PySNMP MIB module PPP-IP-NCP-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/PPP-IP-NCP-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:24:21 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, ObjectIdentifier, OctetString, ) = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
-( ifIndex, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-( ppp, ) = mibBuilder.importSymbols("PPP-LCP-MIB", "ppp")
-( NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-( TimeTicks, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ModuleIdentity, ObjectIdentity, NotificationType, iso, Bits, Gauge32, Counter64, MibIdentifier, Counter32, Integer32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ModuleIdentity", "ObjectIdentity", "NotificationType", "iso", "Bits", "Gauge32", "Counter64", "MibIdentifier", "Counter32", "Integer32")
-( TextualConvention, DisplayString, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-pppIp = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 23, 3))
-pppIpTable = MibTable((1, 3, 6, 1, 2, 1, 10, 23, 3, 1), )
-if mibBuilder.loadTexts: pppIpTable.setDescription('Table containing the IP parameters and\n                         statistics for the local PPP entity.')
-pppIpEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 23, 3, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: pppIpEntry.setDescription('IPCP status information for a particular PPP\n                         link.')
-pppIpOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("opened", 1), ("not-opened", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pppIpOperStatus.setDescription('The operational status of the IP network\n                         protocol. If the value of this object is up\n                         then the finite state machine for the IP\n                         network protocol has reached the Opened state.')
-pppIpLocalToRemoteCompressionProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("none", 1), ("vj-tcp", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pppIpLocalToRemoteCompressionProtocol.setDescription('The IP compression protocol that the local\n                         PPP-IP entity uses when sending packets to the\n                         remote PPP-IP entity. The value of this object\n                         is meaningful only when the link has reached\n                         the open state (pppIpOperStatus is opened).')
-pppIpRemoteToLocalCompressionProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("none", 1), ("vj-tcp", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pppIpRemoteToLocalCompressionProtocol.setDescription('The IP compression protocol that the remote\n                         PPP-IP entity uses when sending packets to the\n                         local PPP-IP entity. The value of this object\n                         is meaningful only when the link has reached\n                         the open state (pppIpOperStatus is opened).')
-pppIpRemoteMaxSlotId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pppIpRemoteMaxSlotId.setDescription('The Max-Slot-Id parameter that the remote node\n                         has advertised and that is in use on the link.\n                         If vj-tcp header compression is not in use on\n                         the link then the value of this object shall be\n                         0. The value of this object is meaningful only\n                         when the link has reached the open state\n                         (pppIpOperStatus is opened).')
-pppIpLocalMaxSlotId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pppIpLocalMaxSlotId.setDescription('The Max-Slot-Id parameter that the local node\n                         has advertised and that is in use on the link.\n                         If vj-tcp header compression is not in use on\n                         the link then the value of this object shall be\n                         0. The value of this object is meaningful only\n                         when the link has reached the open state\n                         (pppIpOperStatus is opened).')
-pppIpConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 23, 3, 2), )
-if mibBuilder.loadTexts: pppIpConfigTable.setDescription('Table containing configuration variables for\n                         the IPCP for the local PPP entity.')
-pppIpConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 23, 3, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: pppIpConfigEntry.setDescription('IPCP information for a particular PPP link.')
-pppIpConfigAdminStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("open", 1), ("close", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pppIpConfigAdminStatus.setDescription("The immediate desired status of the IP network\n                         protocol. Setting this object to open will\n                         inject an administrative open event into the IP\n                         network protocol's finite state machine.\n                         Setting this object to close will inject an\n                         administrative close event into the IP network\n                         protocol's finite state machine.")
-pppIpConfigCompression = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("none", 1), ("vj-tcp", 2),)).clone('none')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pppIpConfigCompression.setDescription('If none(1) then the local node will not\n                         attempt to negotiate any IP Compression option.\n                         Otherwise, the local node will attempt to\n                         negotiate compression mode indicated by the\n                         enumerated value. Changing this object will\n                         have effect when the link is next restarted.')
-mibBuilder.exportSymbols("PPP-IP-NCP-MIB", pppIpConfigAdminStatus=pppIpConfigAdminStatus, pppIpRemoteMaxSlotId=pppIpRemoteMaxSlotId, pppIpConfigEntry=pppIpConfigEntry, pppIpLocalMaxSlotId=pppIpLocalMaxSlotId, pppIpEntry=pppIpEntry, pppIpLocalToRemoteCompressionProtocol=pppIpLocalToRemoteCompressionProtocol, pppIpOperStatus=pppIpOperStatus, pppIpTable=pppIpTable, pppIpRemoteToLocalCompressionProtocol=pppIpRemoteToLocalCompressionProtocol, pppIpConfigTable=pppIpConfigTable, pppIp=pppIp, pppIpConfigCompression=pppIpConfigCompression)
+_H='read-write'
+_G='vj-tcp'
+_F='none'
+_E='ifIndex'
+_D='IF-MIB'
+_C='read-only'
+_B='Integer32'
+_A='mandatory'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ifIndex,=mibBuilder.importSymbols(_D,_E)
+ppp,=mibBuilder.importSymbols('PPP-LCP-MIB','ppp')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+_PppIp_ObjectIdentity=ObjectIdentity
+pppIp=_PppIp_ObjectIdentity((1,3,6,1,2,1,10,23,3))
+_PppIpTable_Object=MibTable
+pppIpTable=_PppIpTable_Object((1,3,6,1,2,1,10,23,3,1))
+if mibBuilder.loadTexts:pppIpTable.setStatus(_A)
+_PppIpEntry_Object=MibTableRow
+pppIpEntry=_PppIpEntry_Object((1,3,6,1,2,1,10,23,3,1,1))
+pppIpEntry.setIndexNames((0,_D,_E))
+if mibBuilder.loadTexts:pppIpEntry.setStatus(_A)
+class _PppIpOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('opened',1),('not-opened',2)))
+_PppIpOperStatus_Type.__name__=_B
+_PppIpOperStatus_Object=MibTableColumn
+pppIpOperStatus=_PppIpOperStatus_Object((1,3,6,1,2,1,10,23,3,1,1,1),_PppIpOperStatus_Type())
+pppIpOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:pppIpOperStatus.setStatus(_A)
+class _PppIpLocalToRemoteCompressionProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
+_PppIpLocalToRemoteCompressionProtocol_Type.__name__=_B
+_PppIpLocalToRemoteCompressionProtocol_Object=MibTableColumn
+pppIpLocalToRemoteCompressionProtocol=_PppIpLocalToRemoteCompressionProtocol_Object((1,3,6,1,2,1,10,23,3,1,1,2),_PppIpLocalToRemoteCompressionProtocol_Type())
+pppIpLocalToRemoteCompressionProtocol.setMaxAccess(_C)
+if mibBuilder.loadTexts:pppIpLocalToRemoteCompressionProtocol.setStatus(_A)
+class _PppIpRemoteToLocalCompressionProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
+_PppIpRemoteToLocalCompressionProtocol_Type.__name__=_B
+_PppIpRemoteToLocalCompressionProtocol_Object=MibTableColumn
+pppIpRemoteToLocalCompressionProtocol=_PppIpRemoteToLocalCompressionProtocol_Object((1,3,6,1,2,1,10,23,3,1,1,3),_PppIpRemoteToLocalCompressionProtocol_Type())
+pppIpRemoteToLocalCompressionProtocol.setMaxAccess(_C)
+if mibBuilder.loadTexts:pppIpRemoteToLocalCompressionProtocol.setStatus(_A)
+class _PppIpRemoteMaxSlotId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_PppIpRemoteMaxSlotId_Type.__name__=_B
+_PppIpRemoteMaxSlotId_Object=MibTableColumn
+pppIpRemoteMaxSlotId=_PppIpRemoteMaxSlotId_Object((1,3,6,1,2,1,10,23,3,1,1,4),_PppIpRemoteMaxSlotId_Type())
+pppIpRemoteMaxSlotId.setMaxAccess(_C)
+if mibBuilder.loadTexts:pppIpRemoteMaxSlotId.setStatus(_A)
+class _PppIpLocalMaxSlotId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_PppIpLocalMaxSlotId_Type.__name__=_B
+_PppIpLocalMaxSlotId_Object=MibTableColumn
+pppIpLocalMaxSlotId=_PppIpLocalMaxSlotId_Object((1,3,6,1,2,1,10,23,3,1,1,5),_PppIpLocalMaxSlotId_Type())
+pppIpLocalMaxSlotId.setMaxAccess(_C)
+if mibBuilder.loadTexts:pppIpLocalMaxSlotId.setStatus(_A)
+_PppIpConfigTable_Object=MibTable
+pppIpConfigTable=_PppIpConfigTable_Object((1,3,6,1,2,1,10,23,3,2))
+if mibBuilder.loadTexts:pppIpConfigTable.setStatus(_A)
+_PppIpConfigEntry_Object=MibTableRow
+pppIpConfigEntry=_PppIpConfigEntry_Object((1,3,6,1,2,1,10,23,3,2,1))
+pppIpConfigEntry.setIndexNames((0,_D,_E))
+if mibBuilder.loadTexts:pppIpConfigEntry.setStatus(_A)
+class _PppIpConfigAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('open',1),('close',2)))
+_PppIpConfigAdminStatus_Type.__name__=_B
+_PppIpConfigAdminStatus_Object=MibTableColumn
+pppIpConfigAdminStatus=_PppIpConfigAdminStatus_Object((1,3,6,1,2,1,10,23,3,2,1,1),_PppIpConfigAdminStatus_Type())
+pppIpConfigAdminStatus.setMaxAccess(_H)
+if mibBuilder.loadTexts:pppIpConfigAdminStatus.setStatus(_A)
+class _PppIpConfigCompression_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
+_PppIpConfigCompression_Type.__name__=_B
+_PppIpConfigCompression_Object=MibTableColumn
+pppIpConfigCompression=_PppIpConfigCompression_Object((1,3,6,1,2,1,10,23,3,2,1,2),_PppIpConfigCompression_Type())
+pppIpConfigCompression.setMaxAccess(_H)
+if mibBuilder.loadTexts:pppIpConfigCompression.setStatus(_A)
+mibBuilder.exportSymbols('PPP-IP-NCP-MIB',**{'pppIp':pppIp,'pppIpTable':pppIpTable,'pppIpEntry':pppIpEntry,'pppIpOperStatus':pppIpOperStatus,'pppIpLocalToRemoteCompressionProtocol':pppIpLocalToRemoteCompressionProtocol,'pppIpRemoteToLocalCompressionProtocol':pppIpRemoteToLocalCompressionProtocol,'pppIpRemoteMaxSlotId':pppIpRemoteMaxSlotId,'pppIpLocalMaxSlotId':pppIpLocalMaxSlotId,'pppIpConfigTable':pppIpConfigTable,'pppIpConfigEntry':pppIpConfigEntry,'pppIpConfigAdminStatus':pppIpConfigAdminStatus,'pppIpConfigCompression':pppIpConfigCompression})

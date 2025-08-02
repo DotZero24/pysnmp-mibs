@@ -1,573 +1,1327 @@
-#
-# PySNMP MIB module Printer-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/Printer-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:12:48 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-( hrStorageIndex, hrDeviceIndex, ) = mibBuilder.importSymbols("HOST-RESOURCES-MIB", "hrStorageIndex", "hrDeviceIndex")
-( NotificationGroup, ModuleCompliance, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-( Bits, ModuleIdentity, Counter32, IpAddress, Unsigned32, MibIdentifier, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, mib_2, NotificationType, Counter64, TimeTicks, Gauge32, Integer32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "ModuleIdentity", "Counter32", "IpAddress", "Unsigned32", "MibIdentifier", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "mib-2", "NotificationType", "Counter64", "TimeTicks", "Gauge32", "Integer32")
-( TextualConvention, DisplayString, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-printmib = ModuleIdentity((1, 3, 6, 1, 2, 1, 43))
-if mibBuilder.loadTexts: printmib.setLastUpdated('9810070000Z')
-if mibBuilder.loadTexts: printmib.setOrganization('IETF Printer MIB Working Group')
-if mibBuilder.loadTexts: printmib.setContactInfo('Randy Turner\n           Sharp Laboratories of America\n           5750 NW Pacific Rim Blvd\n           Camas, WA 98607\n           rturner@sharplabs.com')
-if mibBuilder.loadTexts: printmib.setDescription('The MIB module for management of printers.')
-class PrtMediaUnitTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(3, 4,))
-    namedValues = NamedValues(("tenThousandthsOfInches", 3), ("micrometers", 4),)
-
-class PrtCapacityUnitTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(3, 4, 8, 16, 17,))
-    namedValues = NamedValues(("tenThousandthsOfInches", 3), ("micrometers", 4), ("sheets", 8), ("feet", 16), ("meters", 17),)
-
-class PrtPrintOrientationTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 3, 4,))
-    namedValues = NamedValues(("other", 1), ("portrait", 3), ("landscape", 4),)
-
-class PrtCoverStatusTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 3, 4, 5, 6,))
-    namedValues = NamedValues(("other", 1), ("coverOpen", 3), ("coverClosed", 4), ("interlockOpen", 5), ("interlockClosed", 6),)
-
-class PrtSubUnitStatusTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,126)
-
-class PresentOnOff(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 3, 4, 5,))
-    namedValues = NamedValues(("other", 1), ("on", 3), ("off", 4), ("notPresent", 5),)
-
-class CodedCharSet(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1,))
-    namedValues = NamedValues(("other", 1),)
-
-class PrtGeneralResetTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(3, 4, 5, 6,))
-    namedValues = NamedValues(("notResetting", 3), ("powerCycleReset", 4), ("resetToNVRAM", 5), ("resetToFactoryDefaults", 6),)
-
-class PrtChannelStateTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 3, 4,))
-    namedValues = NamedValues(("other", 1), ("printDataAccepted", 3), ("noDataAccepted", 4),)
-
-class PrtChannelTypeTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 26, 27, 28, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43,))
-    namedValues = NamedValues(("other", 1), ("chSerialPort", 3), ("chParallelPort", 4), ("chIEEE1284Port", 5), ("chSCSIPort", 6), ("chAppleTalkPAP", 7), ("chLPDServer", 8), ("chNetwareRPrinter", 9), ("chNetwarePServer", 10), ("chPort9100", 11), ("chAppSocket", 12), ("chFTP", 13), ("chTFTP", 14), ("chDLCLLCPort", 15), ("chIBM3270", 16), ("chIBM5250", 17), ("chFax", 18), ("chIEEE1394", 19), ("chTransport1", 20), ("chCPAP", 21), ("chPCPrint", 26), ("chServerMessageBlock", 27), ("chPSM", 28), ("chSystemObjectManager", 31), ("chDECLAT", 32), ("chNPAP", 33), ("chUSB", 34), ("chIRDA", 35), ("chPrintXChange", 36), ("chPortTCP", 37), ("chBidirPortTCP", 38), ("chUNPP", 39), ("chAppleTalkADSP", 40), ("chPortSPX", 41), ("chPortHTTP", 42), ("chNDPS", 43),)
-
-class PrtInterpreterLangFamilyTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59,))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("langPCL", 3), ("langHPGL", 4), ("langPJL", 5), ("langPS", 6), ("langIPDS", 7), ("langPPDS", 8), ("langEscapeP", 9), ("langEpson", 10), ("langDDIF", 11), ("langInterpress", 12), ("langISO6429", 13), ("langLineData", 14), ("langMODCA", 15), ("langREGIS", 16), ("langSCS", 17), ("langSPDL", 18), ("langTEK4014", 19), ("langPDS", 20), ("langIGP", 21), ("langCodeV", 22), ("langDSCDSE", 23), ("langWPS", 24), ("langLN03", 25), ("langCCITT", 26), ("langQUIC", 27), ("langCPAP", 28), ("langDecPPL", 29), ("langSimpleText", 30), ("langNPAP", 31), ("langDOC", 32), ("langimPress", 33), ("langPinwriter", 34), ("langNPDL", 35), ("langNEC201PL", 36), ("langAutomatic", 37), ("langPages", 38), ("langLIPS", 39), ("langTIFF", 40), ("langDiagnostic", 41), ("langPSPrinter", 42), ("langCaPSL", 43), ("langEXCL", 44), ("langLCDS", 45), ("langXES", 46), ("langPCLXL", 47), ("langART", 48), ("langTIPSI", 49), ("langPrescribe", 50), ("langLinePrinter", 51), ("langIDP", 52), ("langXJCL", 53), ("langPDF", 54), ("langRPDL", 55), ("langIntermecIPL", 56), ("langUBIFingerprint", 57), ("langUBIDirectProtocol", 58), ("langFujitsu", 59),)
-
-class PrtInputTypeTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7,))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("sheetFeedAutoRemovableTray", 3), ("sheetFeedAutoNonRemovableTray", 4), ("sheetFeedManual", 5), ("continuousRoll", 6), ("continuousFanFold", 7),)
-
-class PrtOutputTypeTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7,))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("removableBin", 3), ("unRemovableBin", 4), ("continuousRollDevice", 5), ("mailBox", 6), ("continuousFanFold", 7),)
-
-class PrtOutputStackingOrderTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(2, 3, 4,))
-    namedValues = NamedValues(("unknown", 2), ("firstToLast", 3), ("lastToFirst", 4),)
-
-class PrtOutputPageDeliveryOrientationTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(3, 4,))
-    namedValues = NamedValues(("faceUp", 3), ("faceDown", 4),)
-
-class PrtMarkerMarkTechTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27,))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("electrophotographicLED", 3), ("electrophotographicLaser", 4), ("electrophotographicOther", 5), ("impactMovingHeadDotMatrix9pin", 6), ("impactMovingHeadDotMatrix24pin", 7), ("impactMovingHeadDotMatrixOther", 8), ("impactMovingHeadFullyFormed", 9), ("impactBand", 10), ("impactOther", 11), ("inkjetAqueous", 12), ("inkjetSolid", 13), ("inkjetOther", 14), ("pen", 15), ("thermalTransfer", 16), ("thermalSensitive", 17), ("thermalDiffusion", 18), ("thermalOther", 19), ("electroerosion", 20), ("electrostatic", 21), ("photographicMicrofiche", 22), ("photographicImagesetter", 23), ("photographicOther", 24), ("ionDeposition", 25), ("eBeam", 26), ("typesetter", 27),)
-
-class PrtMarkerCounterUnitTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(3, 4, 5, 6, 7, 8, 9, 11, 16, 17,))
-    namedValues = NamedValues(("tenThousandthsOfInches", 3), ("micrometers", 4), ("characters", 5), ("lines", 6), ("impressions", 7), ("sheets", 8), ("dotRow", 9), ("hours", 11), ("feet", 16), ("meters", 17),)
-
-class PrtMarkerSuppliesTypeTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34,))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("toner", 3), ("wasteToner", 4), ("ink", 5), ("inkCartridge", 6), ("inkRibbon", 7), ("wasteInk", 8), ("opc", 9), ("developer", 10), ("fuserOil", 11), ("solidWax", 12), ("ribbonWax", 13), ("wasteWax", 14), ("fuser", 15), ("coronaWire", 16), ("fuserOilWick", 17), ("cleanerUnit", 18), ("fuserCleaningPad", 19), ("transferUnit", 20), ("tonerCartridge", 21), ("fuserOiler", 22), ("water", 23), ("wasteWater", 24), ("glueWaterAdditive", 25), ("wastePaper", 26), ("bindingSupply", 27), ("bandingSupply", 28), ("stitchingWire", 29), ("shrinkWrap", 30), ("paperWrap", 31), ("staples", 32), ("inserts", 33), ("covers", 34),)
-
-class PrtMarkerSuppliesSupplyUnitTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(3, 4, 7, 8, 11, 12, 13, 14, 15, 16, 17, 18,))
-    namedValues = NamedValues(("tenThousandthsOfInches", 3), ("micrometers", 4), ("impressions", 7), ("sheets", 8), ("hours", 11), ("thousandthsOfOunces", 12), ("tenthsOfGrams", 13), ("hundrethsOfFluidOunces", 14), ("tenthsOfMilliliters", 15), ("feet", 16), ("meters", 17), ("items", 18),)
-
-class PrtMarkerSuppliesClassTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 3, 4,))
-    namedValues = NamedValues(("other", 1), ("supplyThatIsConsumed", 3), ("receptacleThatIsFilled", 4),)
-
-class PrtMarkerColorantRoleTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 3, 4,))
-    namedValues = NamedValues(("other", 1), ("process", 3), ("spot", 4),)
-
-class PrtMediaPathMaxSpeedPrintUnitTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(3, 4, 5, 6, 7, 8, 9, 16, 17,))
-    namedValues = NamedValues(("tenThousandthsOfInchesPerHour", 3), ("micrometersPerHour", 4), ("charactersPerHour", 5), ("linesPerHour", 6), ("impressionsPerHour", 7), ("sheetsPerHour", 8), ("dotRowPerHour", 9), ("feetPerHour", 16), ("metersPerHour", 17),)
-
-class PrtMediaPathTypeTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("longEdgeBindingDuplex", 3), ("shortEdgeBindingDuplex", 4), ("simplex", 5),)
-
-class PrtInterpreterTwoWayTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(3, 4,))
-    namedValues = NamedValues(("yes", 3), ("no", 4),)
-
-class PrtConsoleColorTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("white", 3), ("red", 4), ("green", 5), ("blue", 6), ("cyan", 7), ("magenta", 8), ("yellow", 9), ("orange", 10),)
-
-class PrtAlertSeverityLevelTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 3, 4, 5,))
-    namedValues = NamedValues(("other", 1), ("criticalBinaryChangeEvent", 3), ("warningUnaryChangeEvent", 4), ("warningBinaryChangeEvent", 5),)
-
-class PrtAlertTrainingLevelTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7,))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("untrained", 3), ("trained", 4), ("fieldService", 5), ("management", 6), ("noInterventionRequired", 7),)
-
-class PrtAlertGroupTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 30, 31, 32, 33,))
-    namedValues = NamedValues(("other", 1), ("hostResourcesMIBStorageTable", 3), ("hostResourcesMIBDeviceTable", 4), ("generalPrinter", 5), ("cover", 6), ("localization", 7), ("input", 8), ("output", 9), ("marker", 10), ("markerSupplies", 11), ("markerColorant", 12), ("mediaPath", 13), ("channel", 14), ("interpreter", 15), ("consoleDisplayBuffer", 16), ("consoleLights", 17), ("alert", 18), ("finDevice", 30), ("finSupply", 31), ("finSupplyMediaInput", 32), ("finAttributeTable", 33),)
-
-class PrtAlertCodeTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 501, 502, 503, 504, 505, 506, 507, 801, 802, 803, 804, 805, 806, 807, 808, 809, 810, 811, 812, 813, 901, 902, 903, 904, 1001, 1002, 1003, 1004, 1005, 1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108, 1109, 1110, 1111, 1112, 1113, 1114, 1115, 1301, 1302, 1303, 1501, 1502, 1503, 1504, 1505, 1506, 1507, 1509, 1801,))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("coverOpened", 3), ("coverClosed", 4), ("interlockOpened", 5), ("interlockClosed", 6), ("configurationChanged", 7), ("jammed", 8), ("subunitMissing", 9), ("subunitLifeAlmostOver", 10), ("subunitLifeOver", 11), ("subunitAlmostEmpty", 12), ("subunitEmpty", 13), ("subunitAlmostFull", 14), ("subunitFull", 15), ("subunitNearLimit", 16), ("subunitAtLimit", 17), ("subunitOpened", 18), ("subunitClosed", 19), ("subunitTurnedOn", 20), ("subunitTurnedOff", 21), ("subunitOffline", 22), ("subunitPowerSaver", 23), ("subunitWarmingUp", 24), ("subunitAdded", 25), ("subunitRemoved", 26), ("subunitResourceAdded", 27), ("subunitResourceRemoved", 28), ("subunitRecoverableFailure", 29), ("subunitUnrecoverableFailure", 30), ("subunitRecoverableStorageError", 31), ("subunitUnrecoverableStorageError", 32), ("subunitMotorFailure", 33), ("subunitMemoryExhausted", 34), ("subunitUnderTemperature", 35), ("subunitOverTemperature", 36), ("subunitTimingFailure", 37), ("subunitThermistorFailure", 38), ("doorOpen", 501), ("doorClosed", 502), ("poweredUp", 503), ("poweredDown", 504), ("printerNMSReset", 505), ("printerManualReset", 506), ("printerReadyToPrint", 507), ("inputMediaTrayMissing", 801), ("inputMediaSizeChanged", 802), ("inputMediaWeightChanged", 803), ("inputMediaTypeChanged", 804), ("inputMediaColorChanged", 805), ("inputMediaFormPartsChange", 806), ("inputMediaSupplyLow", 807), ("inputMediaSupplyEmpty", 808), ("inputMediaChangeRequest", 809), ("inputManualInputRequest", 810), ("inputTrayPositionFailure", 811), ("inputTrayElevationFailure", 812), ("inputCannotFeedSizeSelected", 813), ("outputMediaTrayMissing", 901), ("outputMediaTrayAlmostFull", 902), ("outputMediaTrayFull", 903), ("outputMailboxSelectFailure", 904), ("markerFuserUnderTemperature", 1001), ("markerFuserOverTemperature", 1002), ("markerFuserTimingFailure", 1003), ("markerFuserThermistorFailure", 1004), ("markerAdjustingPrintQuality", 1005), ("markerTonerEmpty", 1101), ("markerInkEmpty", 1102), ("markerPrintRibbonEmpty", 1103), ("markerTonerAlmostEmpty", 1104), ("markerInkAlmostEmpty", 1105), ("markerPrintRibbonAlmostEmpty", 1106), ("markerWasteTonerReceptacleAlmostFull", 1107), ("markerWasteInkReceptacleAlmostFull", 1108), ("markerWasteTonerReceptacleFull", 1109), ("markerWasteInkReceptacleFull", 1110), ("markerOpcLifeAlmostOver", 1111), ("markerOpcLifeOver", 1112), ("markerDeveloperAlmostEmpty", 1113), ("markerDeveloperEmpty", 1114), ("markerTonerCartridgeMissing", 1115), ("mediaPathMediaTrayMissing", 1301), ("mediaPathMediaTrayAlmostFull", 1302), ("mediaPathMediaTrayFull", 1303), ("interpreterMemoryIncreased", 1501), ("interpreterMemoryDecreased", 1502), ("interpreterCartridgeAdded", 1503), ("interpreterCartridgeDeleted", 1504), ("interpreterResourceAdded", 1505), ("interpreterResourceDeleted", 1506), ("interpreterResourceUnavailable", 1507), ("interpreterComplexPageEncountered", 1509), ("alertRemovalOfBinaryChangeEntry", 1801),)
-
-prtGeneral = MibIdentifier((1, 3, 6, 1, 2, 1, 43, 5))
-prtGeneralTable = MibTable((1, 3, 6, 1, 2, 1, 43, 5, 1), )
-if mibBuilder.loadTexts: prtGeneralTable.setDescription('A table of general information per printer.\n        Objects in this table are defined in various\n        places in the MIB, nearby the groups to\n        which they apply.  They are all defined\n        here to minimize the number of tables that would\n        otherwise need to exist.')
-prtGeneralEntry = MibTableRow((1, 3, 6, 1, 2, 1, 43, 5, 1, 1), ).setIndexNames((0, "HOST-RESOURCES-MIB", "hrDeviceIndex"))
-if mibBuilder.loadTexts: prtGeneralEntry.setDescription("An entry exists in this table for each device entry in\n         the host resources MIB device table with a device type\n         of 'printer'")
-prtGeneralConfigChanges = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtGeneralConfigChanges.setDescription("Counts configuration changes within the printer. A\n         configuration change is defined to be an action that\n         results in a change to any MIB object other than those\n         that reflect status or level, or those that act as\n         counters or gauges. In addition, any action that results\n         in a row being added or deleted from any table in the\n         Printer MIB is considered a configuration change. Such\n         changes will often affect the capability of the printer\n         to service certain types of print jobs. Management\n         applications may cache infrequently changed\n         configuration information about sub-units within the\n         printer. This object should be incremented whenever the\n         agent wishes to notify management applications that any\n         cached configuration information for this device is to\n         be considered 'stale'. At this point, the management\n         application should flush any configuration information\n         cached about this device and fetch new configuration\n         information.\n\n         The following are examples of actions that would cause\n         the prtGeneralConfigChanges object to be incremented:\n\n         - Adding an output bin\n         - Changing the media in a sensing input tray\n         - Changing the value of prtInputMediaType\n         Note that the prtGeneralConfigChanges counter would not\n         be incremented when an input tray is removed, or the\n         level of an input device changes.")
-prtGeneralCurrentLocalization = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtGeneralCurrentLocalization.setDescription('The value of the prtLocalizationIndex corresponding to\n          the current language, country, and character set to be\n          used for localized string values that are identified as\n          being dependent on the value of this object.  Note that\n          this object does not apply to localized strings in the\n          prtConsole group or to any object that is not\n          explicitly identified as being localized according to\n          prtGeneralCurrentLocalization.')
-prtGeneralReset = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 3), PrtGeneralResetTC()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtGeneralReset.setDescription("Setting this value to 'powerCycleReset',\n         'resetToNVRAM', or 'resetToFactoryDefaults' will result\n         in the resetting of the printer.  When read, this object\n         will always have the value 'notResetting(3)', and a SET\n         of the value 'notResetting' shall have no effect on the\n         printer.  Some of the defined values are optional.\n         However, every implementation must support at least the\n         values 'notResetting' and 'resetToNVRAM'.")
-prtGeneralCurrentOperator = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,127))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtGeneralCurrentOperator.setDescription("The name of the person who is responsible for operating\n         this printer. It is suggested that this string include\n         information that would enable other humans to reach the\n         operator, such as a phone number. As a convention to\n         facilitate automatic notification of the operator by the\n         agent or the network management station, the phone\n         number, fax number or email address should be placed on\n         a separate line starting with ASCII LF (hex 0x0A) and\n         the ASCII text string (without the quotes): 'phone: ',\n         'fax: ', and 'email: ', respectively. Phone numbers may\n         contain digits, spaces and parentheses, which shall be\n         ignored. Phone numbers may also include ASCII comma\n         characters(hex 2C) that are used to indicate a two-\n         second pause during the dialing sequence. If either the\n         phone, fax, or email information is not available, then\n         a line should not be included for this information.\n\n         NOTE: For interoperability purposes, it is advisable to\n         use email addresses formatted according to RFC 822\n         requirements.")
-prtGeneralServicePerson = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,127))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtGeneralServicePerson.setDescription("The name of the person responsible for servicing this\n         printer. It is suggested that this string include\n         information that would enable other humans to reach the\n         service person, such as a phone number. As a convention\n         to facilitate automatic notification of the service\n         person by the agent or a network management station, the\n         phone number, fax number or email address should be\n         placed on a separate line starting with ASCII LF (hex\n         0x0A) and the ASCII text string (without the quotes):\n         'phone: ', 'fax: ', and 'email: ', respectively. Phone\n         numbers may contain digits, spaces and parentheses,\n         which shall be ignored. Phone numbers can also include\n         one or more ASCII comma characters(hex 2C) to indicate a\n         two-second pause during the dialing sequence. If either\n         the phone, fax, or email information is not available,\n         then a line should not included for this information.\n\n         NOTE: For interoperability purposes, it is advisable to\n         use email addresses formatted according to RFC 822\n         requirements.")
-prtInputDefaultIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtInputDefaultIndex.setDescription('The value of prtInputIndex corresponding to the default\n         input sub-unit: that is, this object selects the default\n         source of input media.\n\n         This value shall be -1 if there is no default input\n         subunit specified for the printer as a whole.  In this\n         case, the actual default input subunit may be specified\n         by means outside the scope of this MIB, such as by each\n         interpreter in a printer with multiple interpreters.')
-prtOutputDefaultIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtOutputDefaultIndex.setDescription('The value of prtOutputIndex corresponding to the\n         default output sub-unit; that is, this object selects\n         the default output destination.\n\n         This value shall be -1 if there is no default output\n         subunit specified for the printer as a whole.  In this\n         case, the actual default output subunit may be specified\n         by means outside the scope of this MIB, such as by each\n         interpreter in a printer with multiple interpreters.')
-prtMarkerDefaultIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtMarkerDefaultIndex.setDescription('The value of prtMarkerIndex corresponding to the\n        default marker sub-unit; that is, this object selects the\n        default marker.')
-prtMediaPathDefaultIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtMediaPathDefaultIndex.setDescription('The value of prtMediaPathIndex corresponding to\n        the default media path; that is, the selection of the\n        default media path.')
-prtConsoleLocalization = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtConsoleLocalization.setDescription('The value of the prtLocalizationIndex corresponding to\n         the language, country, and character set to be used for\n         the console.  This localization applies both to the\n         actual display on the console as well as the encoding of\n         these console objects in management operations.')
-prtConsoleNumberOfDisplayLines = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtConsoleNumberOfDisplayLines.setDescription("The number of lines on the printer's physical\n        display.  This value is 0 if there are no lines on the\n        physical display or if there is no physical display")
-prtConsoleNumberOfDisplayChars = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtConsoleNumberOfDisplayChars.setDescription('The number of characters per line displayed on the\n         physical display. This value is 0 if there are no lines\n         on the physical display or if there is no physical\n         display')
-prtConsoleDisable = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3, 4, 5, 6, 7,))).clone(namedValues=NamedValues(("operatorConsoleEnabled", 3), ("operatorConsoleDisabled", 4), ("operatorConsoleEnabledLevel1", 5), ("operatorConsoleEnabledLevel2", 6), ("operatorConsoleEnabledLevel3", 7),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtConsoleDisable.setDescription("If the object prtConsoleDisable has value\n         'operatorConsoleDisabled' then input is not accepted\n         from the operator console. If the object\n         prtConsoleDisable has the value 'operatorConsoleEnabled'\n         then input is accepted from the operator console. If the\n         object prtConsoleDisable has the value\n         'operatorConsoleEnabledLevel1',\n         'operatorConsoleEnabledLevel2' or\n         'operatorConsoleEnabledLevel3' then limited input is\n         accepted from the operator console; the limitations are\n         product specific, however, the limitations are generally\n         less restrictive for operatorConsoleEnabledLevel1 than\n         for operatorConsoleEnabledLeve2, which is less\n         restrictive than operatorConsoleEnabledLevel3.\n\n         The value of the prtConsoleDisable object is a type-2\n         enumeration.")
-prtAuxiliarySheetStartupPage = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 14), PresentOnOff()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtAuxiliarySheetStartupPage.setDescription('Used to enable or disable printing a startup page. If\n         enabled, a startup page will be printed shortly after\n         power-up, when the device is ready. Typical startup\n         pages include test patterns and/or printer configuration\n         information.')
-prtAuxiliarySheetBannerPage = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 15), PresentOnOff()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtAuxiliarySheetBannerPage.setDescription('Used to enable or disable printing banner pages at the\n         beginning of jobs. This is a master switch which applies\n         to all jobs, regardless of interpreter.')
-prtGeneralPrinterName = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 16), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,127))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtGeneralPrinterName.setDescription("An administrator-specified name for this printer.\n         Depending upon implementation of this printer, the value\n         of this object may or may not be same as the value for\n         the MIB-II 'SysName' object.")
-prtGeneralSerialNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 17), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtGeneralSerialNumber.setDescription('A recorded serial number for this device that indexes\n         some type device catalog or inventory. This value is\n         usually set by the device manufacturer but the MIB\n         supports the option of writing for this object for site-\n         specific administration of device inventory or\n         tracking.')
-prtAlertCriticalEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtAlertCriticalEvents.setDescription('A running counter of the number of critical alert\n         events that have been recorded in the alert table. The\n         value of this object is RESET in the event of a power\n         cycle operation (i.e., the value is not persistent.')
-prtAlertAllEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 1, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtAlertAllEvents.setDescription('A running counter of the total number of alert event\n         entries (critical and non-critical) that have been\n         recorded in the alert table')
-prtCover = MibIdentifier((1, 3, 6, 1, 2, 1, 43, 6))
-prtCoverTable = MibTable((1, 3, 6, 1, 2, 1, 43, 6, 1), )
-if mibBuilder.loadTexts: prtCoverTable.setDescription('A table of the covers and interlocks of the printer.')
-prtCoverEntry = MibTableRow((1, 3, 6, 1, 2, 1, 43, 6, 1, 1), ).setIndexNames((0, "HOST-RESOURCES-MIB", "hrDeviceIndex"), (0, "Printer-MIB", "prtCoverIndex"))
-if mibBuilder.loadTexts: prtCoverEntry.setDescription("Information about a cover or interlock.\n        Entries may exist in the table for each device\n        index with a device type of 'printer'.")
-prtCoverIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 6, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: prtCoverIndex.setDescription('A unique value used by the printer to identify this\n         Cover sub-unit.  Although these values may change due to\n         a major reconfiguration of the device (e.g. the addition\n         of new cover sub-units to the printer), values are\n         expected to remain stable across successive printer\n         power cycles.')
-prtCoverDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 6, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtCoverDescription.setDescription('The manufacturer provided cover sub-mechanism name in\n         the localization specified by\n         prtGeneralCurrentLocalization.')
-prtCoverStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 6, 1, 1, 3), PrtCoverStatusTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtCoverStatus.setDescription('The status of this cover sub-unit.')
-prtLocalization = MibIdentifier((1, 3, 6, 1, 2, 1, 43, 7))
-prtLocalizationTable = MibTable((1, 3, 6, 1, 2, 1, 43, 7, 1), )
-if mibBuilder.loadTexts: prtLocalizationTable.setDescription('The available localizations in this printer.')
-prtLocalizationEntry = MibTableRow((1, 3, 6, 1, 2, 1, 43, 7, 1, 1), ).setIndexNames((0, "HOST-RESOURCES-MIB", "hrDeviceIndex"), (0, "Printer-MIB", "prtLocalizationIndex"))
-if mibBuilder.loadTexts: prtLocalizationEntry.setDescription("A description of a localization.\n        Entries may exist in the table for each device\n        index with a device type of 'printer'.")
-prtLocalizationIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 7, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: prtLocalizationIndex.setDescription('A unique value used by the printer to identify this\n         localization entry.  Although these values may change\n         due to a major reconfiguration of the device (e.g., the\n         addition of new localization data to the printer),\n         values are expected to remain stable across successive\n         printer power cycles.')
-prtLocalizationLanguage = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 7, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtLocalizationLanguage.setDescription('A two character language code from ISO 639.  Examples\n         en, gb, ca, fr, de.')
-prtLocalizationCountry = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 7, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtLocalizationCountry.setDescription('A two character country code from ISO 3166, a blank\n         string (two space characters) shall indicate that the\n         country is not defined.  Examples: US, FR, DE, ...')
-prtLocalizationCharacterSet = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 7, 1, 1, 4), CodedCharSet()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtLocalizationCharacterSet.setDescription('The coded character set used for this localization.')
-prtStorageRefTable = MibTable((1, 3, 6, 1, 2, 1, 43, 5, 2), )
-if mibBuilder.loadTexts: prtStorageRefTable.setDescription('')
-prtStorageRefEntry = MibTableRow((1, 3, 6, 1, 2, 1, 43, 5, 2, 1), ).setIndexNames((0, "HOST-RESOURCES-MIB", "hrStorageIndex"), (0, "Printer-MIB", "prtStorageRefSeqNumber"))
-if mibBuilder.loadTexts: prtStorageRefEntry.setDescription('This table will have an entry for each entry in the\n         Host Resources MIB storage table that represents storage\n         associated with a printer managed by this agent.')
-prtStorageRefSeqNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: prtStorageRefSeqNumber.setDescription('This value will be unique amongst all entries with a\n         common value of hrStorageIndex. This object allows a\n         storage entry to point to the multiple printer devices\n         with which it is associated.')
-prtStorageRefIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtStorageRefIndex.setDescription('The value of the hrDeviceIndex of the printer device\n         that this storageEntry is associated with.')
-prtDeviceRefTable = MibTable((1, 3, 6, 1, 2, 1, 43, 5, 3), )
-if mibBuilder.loadTexts: prtDeviceRefTable.setDescription('')
-prtDeviceRefEntry = MibTableRow((1, 3, 6, 1, 2, 1, 43, 5, 3, 1), ).setIndexNames((0, "HOST-RESOURCES-MIB", "hrDeviceIndex"), (0, "Printer-MIB", "prtDeviceRefSeqNumber"))
-if mibBuilder.loadTexts: prtDeviceRefEntry.setDescription('This table will have an entry for each entry in the\n         Host Resources MIB device table that represents a device\n         associated with a printer managed by this agent.')
-prtDeviceRefSeqNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: prtDeviceRefSeqNumber.setDescription('This value will be unique amongst all entries with a\n         common value of hrDeviceIndex. This object allows a\n         device entry to point to the multiple printer devices\n         with which it is associated.')
-prtDeviceRefIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 5, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtDeviceRefIndex.setDescription('The value of the hrDeviceIndex of the printer device\n         that this deviceEntry is associated with.')
-prtInput = MibIdentifier((1, 3, 6, 1, 2, 1, 43, 8))
-prtInputTable = MibTable((1, 3, 6, 1, 2, 1, 43, 8, 2), )
-if mibBuilder.loadTexts: prtInputTable.setDescription('A table of the devices capable of providing media for\n         input to the printing process.')
-prtInputEntry = MibTableRow((1, 3, 6, 1, 2, 1, 43, 8, 2, 1), ).setIndexNames((0, "HOST-RESOURCES-MIB", "hrDeviceIndex"), (0, "Printer-MIB", "prtInputIndex"))
-if mibBuilder.loadTexts: prtInputEntry.setDescription("Attributes of a device capable of providing media for\n         input to the printing process. Entries may exist in the\n         table for each device index with a device type of\n         'printer'.")
-prtInputIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: prtInputIndex.setDescription('A unique value used by the printer to identify this\n         input sub-unit. Although these values may change due to\n         a major reconfiguration of the device (e.g. the addition\n         of n input sub-units to the printer), values are\n         expected to remain stable across successive printer\n         power cycles.')
-prtInputType = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 2), PrtInputTypeTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInputType.setDescription('The type of technology (discriminated primarily\n         according to feeder mechanism type) employed by the\n         input sub-unit.  Note, the Optional Input Class provides\n         for a descriptor field to further qualify the other\n         choice.')
-prtInputDimUnit = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 3), PrtMediaUnitTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInputDimUnit.setDescription('The unit of measurement for use calculating and relaying\n         dimensional values for this input sub-unit.')
-prtInputMediaDimFeedDirDeclared = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtInputMediaDimFeedDirDeclared.setDescription('This object provides the value of the declared\n         dimension, in the feed direction, of the media that is\n         (or, if empty, was or will be) in this input sub-unit.\n         The feed direction is the direction in which the media\n         is fed on this sub-unit.  This dimension is measured in\n         input sub-unit dimensional units (prtInputDimUnit).  If\n         this input sub-unit can reliably sense this value, the\n         value is sensed by the printer and may not be changed by\n         management requests.  Otherwise, the value may be\n         changed. The value (-1) means other and specifically\n         means that this sub-unit places no restriction on this\n         parameter.\n\n         The value (-2) indicates unknown.')
-prtInputMediaDimXFeedDirDeclared = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtInputMediaDimXFeedDirDeclared.setDescription('This object provides the value of the declared\n         dimension, in the cross feed direction, of the media\n         that is (or, if empty, was or will be) in this input\n         sub-unit.  The cross  feed direction is ninety degrees\n         relative to the feed direction associated with this sub-\n         unit. This dimension is measured in input sub-unit\n         dimensional units (prtInputDimUnit).  If this input sub-\n         unit can reliably sense this value, the value is sensed\n         by the printer and may not be changed by management\n         requests. Otherwise, the value may be changed. The value\n         (-1) means other and specifically means that this sub-\n         unit places no restriction on this parameter. The value\n         (-2) indicates unknown.')
-prtInputMediaDimFeedDirChosen = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInputMediaDimFeedDirChosen.setDescription('The printer will act as if media of the chosen\n         dimension (in the feed direction) is present in this\n         input source.  Note that this value will be used even if\n         the input tray is empty. Feed dimension measurements are\n         taken relative to the feed direction associated with\n         that sub-unit and are in input sub-unit dimensional\n         units (MediaUnit). If the printer supports the declared\n         dimension, the granted dimension is the same as the\n         declared dimension. If not, the granted dimension is set\n         to the closest dimension that the printer supports when\n         the declared dimension is set. The value (-1) means\n         other and specifically indicates that this sub-unit\n         places no restriction on this parameter. The value (-2)\n         indicates unknown.')
-prtInputMediaDimXFeedDirChosen = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInputMediaDimXFeedDirChosen.setDescription('The printer will act as if media of the chosen\n         dimension (in the cross feed direction) is present in\n         this input source. Note that this value will be used\n         even if the input tray is empty.  The cross feed\n         direction is ninety degrees relative to the feed\n         direction associated with this sub-unit. This dimension\n         is measured in input sub-unit dimensional units\n         (MediaUnit).  If the printer supports the declare\n         dimension, the granted dimension is the same as the\n         declared dimension. If not, the granted dimension is set\n         to the closest dimension that the printer supports when\n         the declared dimension is set. The value (-1) means\n         other and specifically indicates that this sub-unit\n         places no restriction on this parameter.  The value (-2)\n         indicates unknown.')
-prtInputCapacityUnit = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 8), PrtCapacityUnitTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInputCapacityUnit.setDescription('The unit of measurement for use in calculating and\n         relaying capacity values for this input sub-unit.')
-prtInputMaxCapacity = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 9), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtInputMaxCapacity.setDescription('The maximum capacity of the input sub-unit in input\n         sub-unit capacity units (PrtCapacityUnitTC).  There is\n         no convention associated with the media itself so this\n         value reflects claimed capacity. If this input sub-unit\n         can reliably sense this value, the value is sensed by\n         the printer and may not be changed by management\n         requests; otherwise, the value may be written (by a\n         Remote Control Panel or a Management Application). The\n         value (-1) means other and specifically indicates that\n         the sub-unit places no restrictions on this parameter.\n         The value (-2) means unknown.')
-prtInputCurrentLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 10), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtInputCurrentLevel.setDescription('The current capacity of the input sub-unit in input\n         sub-unit capacity units (PrtCapacityUnitTC). If this\n         input sub-unit can reliably sense this value, the value\n         is sensed by the printer and may not be changed by\n         management requests; otherwise, the value may be written\n         (by a Remote Control Panel or a Management Application).\n         The value (-1) means other and specifically indicates\n         that the sub-unit places no restrictions on this\n         parameter. The value (-2) means unknown. The value (-3)\n         means that the printer knows that at least one unit\n         remains.')
-prtInputStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 11), PrtSubUnitStatusTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInputStatus.setDescription('The current status of this input sub-unit.')
-prtInputMediaName = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtInputMediaName.setDescription("A description of the media contained in this input sub-\n         unit; This description is intended for display to a\n         human operator. This description is not processed by the\n         printer.  It is used to provide information not\n         expressible in terms of the other media attributes (e.g.\n         prtInputMediaDimFeedDirChosen,\n         prtInputMediaDimXFeedDirChosen, prtInputMediaWeight,\n         prtInputMediaType). An example would be 'legal tender\n         bond paper'.")
-prtInputName = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 13), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtInputName.setDescription('The name assigned to this input sub-unit.')
-prtInputVendorName = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 14), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInputVendorName.setDescription('The vendor name of this input sub-unit.')
-prtInputModel = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 15), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInputModel.setDescription('The model name of this input sub-unit.')
-prtInputVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 16), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInputVersion.setDescription('The version of this input sub-unit.')
-prtInputSerialNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 17), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInputSerialNumber.setDescription('The serial number assigned to this input sub-unit.')
-prtInputDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 18), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInputDescription.setDescription('A free-form text description of this input sub-unit in\n         the localization specified by\n         prtGeneralCurrentLocalization.')
-prtInputSecurity = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 19), PresentOnOff()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtInputSecurity.setDescription('Indicates if this input sub-unit has some security\n         associated with it.')
-prtInputMediaWeight = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 20), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtInputMediaWeight.setDescription('The weight of the medium associated with this input\n         sub-unit in grams / per meter squared. The value (-2)\n         means unknown.')
-prtInputMediaType = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 21), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtInputMediaType.setDescription('The name of the type of medium associated with this\n         input sub-unit. This name need not be processed by the\n         printer; it might simply be displayed to an operator.\n         The standardized string values from ISO 10175 (DPA) and\n         ISO 10180 (SPDL) are:\n\n         stationery       Separately cut sheets of an opaque\n                          material\n         transparency     Separately cut sheets of a transparent\n                          material\n         envelope         Envelopes that can be used for\n                          conventional mailing purposes\n         envelope-plain   Envelopes that are not preprinted and\n                          have no windows\n         envelope-window  Envelopes that have windows for\n                          addressing purposes\n         continuous-long  Continuously connected sheets of an\n                          opaque material connected along the\n                          long edge\n         continuous-short Continuously connected sheets of an\n                          opaque material connected along the\n                          short edge\n         tab-stock        Media with tabs\n         multi-part-form  Form medium composed of multiple layers\n                          not pre-attached to one another; each\n                          sheet may be drawn separately from an\n                          input source\n         labels           Label stock\n         multi-layer      Form medium composed of multiple layers\n                          which are pre-attached to one another;\n                          e.g., for use with impact printers.\n\n         Implementers may add additional string values. The\n         naming\n         conventions in ISO 9070 are recommended in order to\n         avoid\n         potential name clashes.')
-prtInputMediaColor = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 22), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtInputMediaColor.setDescription('The name of the color of the medium associated with\n        this input sub-unit using standardized string values\n        from ISO 10175 (DPA) and ISO 10180 (SPDL) which are:\n\n        other\n        unknown\n        white\n        pink\n        yellow\n        buff\n        goldenrod\n        blue\n        green\n        transparent\n\n        Implementers may add additional string values. The naming\n        conventions in ISO 9070 are recommended in order to avoid\n        potential name clashes.')
-prtInputMediaFormParts = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 23), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtInputMediaFormParts.setDescription('The number of parts associated with the medium\n         associated with this input sub-unit if the medium is a\n         multi-part form.  The value (-1) means other and\n         specifically indicates that the device places no\n         restrictions on this parameter.  The value (-2) means\n         unknown.')
-prtInputMediaLoadTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 24), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtInputMediaLoadTimeout.setDescription("When the printer is not able to print due to a subunit\n         being empty or the requested media must be manually\n         loaded, the printer will wait for the duration (in\n         seconds) specified by this object. Upon expiration of\n         the time-out, the printer will take the action specified\n         by prtInputNextIndex.\n\n         The event which causes the printer to enter the waiting\n         state is product specific. If the printer is not waiting\n         for manually fed media, it may switch from an empty\n         subunit to a different subunit without waiting for the\n         time-out to expire.\n\n         A value of (-1) implies 'other' or 'infinite' which\n         translates to 'wait forever'. The action which causes\n         printing to continue is product specific. A value of (-\n         2) implies 'unknown'.")
-prtInputNextIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 8, 2, 1, 25), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtInputNextIndex.setDescription("The value of prtInputIndex corresponding to the input\n         subunit which will be used when this input subunit is\n         emptied and the time-out specified by\n         prtInputMediaLoadTimeout expires. A value of zero(0)\n         indicates that auto input switching will not occur when\n         this input subunit is emptied. If the time-out specified\n         by prtInputLoadMediaTimeout expires and this value is\n         zero(0), the job will be aborted. A value of (-1) means\n         other. The value (-2) means 'unknown' and specifically\n         indicates that an implementation specific method will\n         determine the next input subunit to use at the time this\n         subunit is emptied and the time-out expires. The value(-\n         3) means input switching is not supported for this\n         subunit.")
-prtOutput = MibIdentifier((1, 3, 6, 1, 2, 1, 43, 9))
-prtOutputTable = MibTable((1, 3, 6, 1, 2, 1, 43, 9, 2), )
-if mibBuilder.loadTexts: prtOutputTable.setDescription('A table of the devices capable of receiving media\n         delivered from the printing process.')
-prtOutputEntry = MibTableRow((1, 3, 6, 1, 2, 1, 43, 9, 2, 1), ).setIndexNames((0, "HOST-RESOURCES-MIB", "hrDeviceIndex"), (0, "Printer-MIB", "prtOutputIndex"))
-if mibBuilder.loadTexts: prtOutputEntry.setDescription("Attributes of a device capable of receiving media\n         delivered from the printing process. Entries may exist\n         in the table for each device index with a device type of\n         'printer'.")
-prtOutputIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: prtOutputIndex.setDescription('A unique value used by this printer to identify this\n        output sub-unit. Although these values may change due\n        to a major reconfiguration of the sub-unit (e.g.  the\n        addition of new output devices to the printer), values\n        are expected to remain stable across successive printer\n        power cycles.')
-prtOutputType = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 2), PrtOutputTypeTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtOutputType.setDescription('The type of technology supported by this output sub-\n         unit.')
-prtOutputCapacityUnit = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 3), PrtCapacityUnitTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtOutputCapacityUnit.setDescription('The unit of measurement for use in calculating and\n         relaying capacity values for this output sub-unit.')
-prtOutputMaxCapacity = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtOutputMaxCapacity.setDescription('The maximum capacity of this output sub-unit in output\n         sub-unit capacity units (PrtCapacityUnitTC). There is no\n         convention associated with the media itself so this\n         value essentially reflects claimed capacity. If this\n         output sub-unit can reliably sense this value, the value\n         is sensed by the printer and may not be changed by\n         management requests; otherwise, the value may be written\n         (by a Remote Control Panel or a Management Application).\n         The value (-1) means other and specifically indicates\n         that the sub-unit places no restrictions on this\n         parameter. The value (-2) means unknown.')
-prtOutputRemainingCapacity = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtOutputRemainingCapacity.setDescription('The remaining capacity of the possible output sub-unit\n         capacity in output sub-unit capacity units\n         (PrtCapacityUnitTC)of this output sub-unit. If this\n         output sub-unit can reliably sense this value, the value\n         is sensed by the printer and may not be modified by\n         management requests; otherwise, the value may be written\n         (by a Remote Control Panel or a Management Application).\n         The value (-1) means other and specifically indicates\n         that the sub-unit places no restrictions on this\n         parameter.  The value (-2) means unknown.  The value (-\n         3) means that the printer knows that there remains\n         capacity for at least one unit.')
-prtOutputStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 6), PrtSubUnitStatusTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtOutputStatus.setDescription('The current status of this output sub-unit.')
-prtOutputName = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtOutputName.setDescription('The name assigned to this output sub-unit.')
-prtOutputVendorName = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtOutputVendorName.setDescription('The vendor name of this output sub-unit.')
-prtOutputModel = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtOutputModel.setDescription('The model name assigned to this output sub-unit.')
-prtOutputVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtOutputVersion.setDescription('The version of this output sub-unit.')
-prtOutputSerialNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 11), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtOutputSerialNumber.setDescription('The serial number assigned to this output sub-unit.')
-prtOutputDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtOutputDescription.setDescription('A free-form text description of this output sub-unit in\n         the localization specified by\n         prtGeneralCurrentLocalization.')
-prtOutputSecurity = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 13), PresentOnOff()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtOutputSecurity.setDescription('Indicates if this output sub-unit has some security\n         associated with it and if that security is enabled or\n         not.')
-prtOutputDimUnit = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 14), PrtMediaUnitTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtOutputDimUnit.setDescription('The unit of measurement for use in calculating and\n         relaying dimensional values for this output sub-unit.')
-prtOutputMaxDimFeedDir = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 15), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtOutputMaxDimFeedDir.setDescription('The maximum dimensions supported by this output sub-unit\n        for measurements taken parallel relative to the feed\n        direction associated with that sub-unit in output\n        sub-unit dimensional units (MediaUnit). If this output\n        sub-unit can reliably sense this value, the value is\n        sensed by the printer and may not be changed with\n        management protocol operations.')
-prtOutputMaxDimXFeedDir = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 16), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtOutputMaxDimXFeedDir.setDescription('The maximum dimensions supported by this output sub-unit\n        for measurements taken ninety degrees relative to the\n        feed direction associated with that sub-unit in output\n        sub-unit dimensional units (MediaUnit). If this output\n        sub-unit can reliably sense this value, the value is\n        sensed by the printer and may not be changed with\n        management protocol operations.')
-prtOutputMinDimFeedDir = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 17), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtOutputMinDimFeedDir.setDescription('The minimum dimensions supported by this output sub-unit\n        for measurements taken parallel relative to the feed\n        direction associated with that sub-unit in output\n        sub-unit dimensional units (DimUnit).  If this output\n        sub-unit can reliably sense this value, the value is\n        sensed by the printer and may not be changed with\n        management protocol operations.')
-prtOutputMinDimXFeedDir = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 18), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtOutputMinDimXFeedDir.setDescription('The minimum dimensions supported by this output sub-unit\n        for measurements taken ninety degrees relative to the\n        feed direction associated with that sub-unit in output\n        sub-unit dimensional units (DimUnit). If this output\n        sub-unit can reliably sense this value, the value is\n        sensed by the printer and may not be changed with\n        management protocol operations.')
-prtOutputStackingOrder = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 19), PrtOutputStackingOrderTC()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtOutputStackingOrder.setDescription("The current state of the stacking order for the\n        associated output sub-unit. 'FirstToLast' means\n        that as pages are output the front of the next page is\n        placed against the back of the previous page.\n        'LasttoFirst' means that as pages are output the back\n        of the next page is placed against the front of the\n        previous page.")
-prtOutputPageDeliveryOrientation = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 20), PrtOutputPageDeliveryOrientationTC()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtOutputPageDeliveryOrientation.setDescription("The reading surface that will be 'up' when pages are\n        delivered to the associated output sub-unit. Values are\n        faceUp and faceDown. (Note: interpretation of these\n        values is in general context-dependent based on locale;\n        presentation of these values to an end-user should be\n        normalized to the expectations of the user).")
-prtOutputBursting = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 21), PresentOnOff()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtOutputBursting.setDescription('This object indicates that the outputting sub-unit\n         supports bursting, and if so, whether the feature is\n         enabled. Bursting is the process by which continuous\n         media is separated into individual sheets, typically by\n         bursting along pre-formed perforations.')
-prtOutputDecollating = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 22), PresentOnOff()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtOutputDecollating.setDescription('This object indicates that the output supports\n         decollating, and if so, whether the feature is enabled.\n         Decollating is the process by which the individual parts\n         within a multi-part form are separated and sorted into\n         separate stacks for each part.')
-prtOutputPageCollated = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 23), PresentOnOff()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtOutputPageCollated.setDescription('This object indicates that the output sub-unit supports\n         page collation, and if so, whether the feature is\n         enabled. See glossary for definition of how this\n         document defines collation.')
-prtOutputOffsetStacking = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 9, 2, 1, 24), PresentOnOff()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtOutputOffsetStacking.setDescription('This object indicates that the output supports offset\n         stacking, and if so, whether the feature is enabled. See\n         glossary for how Offset Stacking is defined by this\n         document.')
-prtMarker = MibIdentifier((1, 3, 6, 1, 2, 1, 43, 10))
-prtMarkerTable = MibTable((1, 3, 6, 1, 2, 1, 43, 10, 2), )
-if mibBuilder.loadTexts: prtMarkerTable.setDescription('')
-prtMarkerEntry = MibTableRow((1, 3, 6, 1, 2, 1, 43, 10, 2, 1), ).setIndexNames((0, "HOST-RESOURCES-MIB", "hrDeviceIndex"), (0, "Printer-MIB", "prtMarkerIndex"))
-if mibBuilder.loadTexts: prtMarkerEntry.setDescription("Entries may exist in the table for each device index\n         with a device type of 'printer'.")
-prtMarkerIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 10, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: prtMarkerIndex.setDescription('A unique value used by the printer to identify this\n         marking SubUnit.  Although these values may change due\n         to a major reconfiguration of the device (e.g. the\n         addition of new marking sub-units to the printer),\n         values are expected to remain stable across successive\n         printer power cycles.')
-prtMarkerMarkTech = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 10, 2, 1, 2), PrtMarkerMarkTechTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerMarkTech.setDescription('The type of marking technology used for this marking\n         sub-unit.')
-prtMarkerCounterUnit = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 10, 2, 1, 3), PrtMarkerCounterUnitTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerCounterUnit.setDescription('The unit that will be used by the printer when\n         reporting counter values for this marking sub-unit.  The\n         time units of measure are provided for a device like a\n         strip recorder that does not or cannot track the\n         physical dimensions of the media and does not use\n         characters, lines or sheets.')
-prtMarkerLifeCount = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 10, 2, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerLifeCount.setDescription('The count of the number of units of measure counted\n         during the life of printer using units of measure as\n         specified by prtMarkerCounterUnit.')
-prtMarkerPowerOnCount = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 10, 2, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerPowerOnCount.setDescription('The count of the number of units of measure counted\n         since the equipment was most recently powered on using\n         units of measure as specified by prtMarkerCounterUnit.')
-prtMarkerProcessColorants = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 10, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerProcessColorants.setDescription('The number of process colors supported by this marker.\n         A process color of 1 implies monochrome.  The value of\n         this object and prtMarkerSpotColorants cannot both be 0.\n         The value of prtMarkerProcessColorants must be 0 or\n         greater.')
-prtMarkerSpotColorants = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 10, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerSpotColorants.setDescription('The number of spot colors supported by this marker. The\n         value of this object and prtMarkerProcessColorants\n         cannot both be 0.  Must be 0 or greater.')
-prtMarkerAddressabilityUnit = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 10, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3, 4,))).clone(namedValues=NamedValues(("tenThousandthsOfInches", 3), ("micrometers", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerAddressabilityUnit.setDescription("The unit of measure of distances, as applied to the\n         marker's resolution.")
-prtMarkerAddressabilityFeedDir = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 10, 2, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerAddressabilityFeedDir.setDescription("The maximum number of addressable marking positions in\n         the feed direction per 10000 units of measure specified\n         by prtMarkerAddressabilityUnit.  A value of (-1) implies\n         'other' or 'infinite' while a value of (-2) implies\n         'unknown'.")
-prtMarkerAddressabilityXFeedDir = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 10, 2, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerAddressabilityXFeedDir.setDescription("The maximum number of addressable marking positions in\n         the cross feed direction in 10000 units of measure\n         specified by prtMarkerAddressabilityUnit.  A value of (-\n         1) implies 'other' or 'infinite' while a value of (-2)\n         implies 'unknown'.")
-prtMarkerNorthMargin = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 10, 2, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerNorthMargin.setDescription('The margin, in units identified by\n         prtMarkerAddressabilityUnit, from the leading edge of\n         the medium as the medium flows through the marking\n         engine with the side to be imaged facing the observer.\n         The leading edge is the North edge and the other edges\n         are defined by the normal compass layout of  directions\n         with the compass facing the observer.  Printing within\n         the area bounded by all four margins is guaranteed for\n         all interpreters.   The value (-2) means unknown.')
-prtMarkerSouthMargin = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 10, 2, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerSouthMargin.setDescription('The margin from the South edge  (see\n         prtMarkerNorthMargin) of the medium in units identified\n         by prtMarkerAddressabilityUnit.  Printing within the\n         area bounded by all four margins  is guaranteed for all\n         interpreters. The value (-2) means unknown.')
-prtMarkerWestMargin = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 10, 2, 1, 13), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerWestMargin.setDescription('The margin from the West edge (see\n         prtMarkerNorthMargin) of the medium in units identified\n         by prtMarkerAddressabilityUnit. Printing within the area\n         bounded by all four margins is guaranteed for all\n         interpreters. The value (-2) means unknown.')
-prtMarkerEastMargin = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 10, 2, 1, 14), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerEastMargin.setDescription('The margin from the East edge (see\n         prtMarkerNorthMargin) of the medium in units identified\n         by prtMarkerAddressabilityUnit. Printing within the area\n         bounded by all four margins is guaranteed for all\n         interpreters. The value (-2) means unknown.')
-prtMarkerStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 10, 2, 1, 15), PrtSubUnitStatusTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerStatus.setDescription('The current status of this marker sub-unit.')
-prtMarkerSupplies = MibIdentifier((1, 3, 6, 1, 2, 1, 43, 11))
-prtMarkerSuppliesTable = MibTable((1, 3, 6, 1, 2, 1, 43, 11, 1), )
-if mibBuilder.loadTexts: prtMarkerSuppliesTable.setDescription('A table of the marker supplies available on this\n         printer.')
-prtMarkerSuppliesEntry = MibTableRow((1, 3, 6, 1, 2, 1, 43, 11, 1, 1), ).setIndexNames((0, "HOST-RESOURCES-MIB", "hrDeviceIndex"), (0, "Printer-MIB", "prtMarkerSuppliesIndex"))
-if mibBuilder.loadTexts: prtMarkerSuppliesEntry.setDescription("Attributes of a marker supply. Entries may exist in the\n         table for each device index with a device type of\n         'printer'.")
-prtMarkerSuppliesIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 11, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: prtMarkerSuppliesIndex.setDescription('A unique value used by the printer to identify this\n         marker supply.  Although these values may change due to\n         a major reconfiguration of the device (e.g. the addition\n         of new marker supplies to the printer), values are\n         expected to remain stable across successive power\n         cycles.')
-prtMarkerSuppliesMarkerIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 11, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerSuppliesMarkerIndex.setDescription('The value of prtMarkerIndex corresponding to the\n         marking sub-unit with which this marker supply sub-unit\n         is associated.')
-prtMarkerSuppliesColorantIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 11, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerSuppliesColorantIndex.setDescription('The value of prtMarkerColorantIndex corresponding to\n         the colorant with which this marker supply sub-unit is\n         associated.  This value shall be 0 if there is no\n         colorant table or if this supply does not depend on a\n         single specified colorant.')
-prtMarkerSuppliesClass = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 11, 1, 1, 4), PrtMarkerSuppliesClassTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerSuppliesClass.setDescription('Indicates whether this supply entity represents a\n         supply that is consumed or a receptacle that is filled.')
-prtMarkerSuppliesType = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 11, 1, 1, 5), PrtMarkerSuppliesTypeTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerSuppliesType.setDescription('The type of this supply.')
-prtMarkerSuppliesDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 11, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerSuppliesDescription.setDescription('The description of this supply container/receptacle in\n         the localization specified by\n         prtGeneralCurrentLocalization.')
-prtMarkerSuppliesSupplyUnit = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 11, 1, 1, 7), PrtMarkerSuppliesSupplyUnitTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerSuppliesSupplyUnit.setDescription('Unit of measure of this marker supply\n         container/receptacle.')
-prtMarkerSuppliesMaxCapacity = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 11, 1, 1, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtMarkerSuppliesMaxCapacity.setDescription('The maximum capacity of this supply\n         container/receptacle expressed in\n         prtMarkerSuppliesSupplyUnit. If this supply\n         container/receptacle can reliably sense this value, the\n         value is reported by the printer and is read-only;\n         otherwise, the value may be written (by a Remote Control\n         Panel or a Management Application). The value (-1) means\n         other and specifically indicates that the sub-unit\n         places no restrictions on this parameter. The value (-2)\n         means unknown.')
-prtMarkerSuppliesLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 11, 1, 1, 9), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtMarkerSuppliesLevel.setDescription('The current level if this supply is a container;\n         remaining space if this supply is a receptacle. If this\n         supply container/receptacle can reliably sense this\n         value, the value is reported by the printer and is read-\n         only; otherwise, the value may be written (by a Remote\n         Control Panel or a Management Application). The value (-\n         1) means other and specifically indicates that the sub-\n         unit places no restrictions on this parameter. The value\n         (-2) means unknown.  A value of (-3) means that the\n         printer knows that there is some supply/remaining space,\n         respectively.')
-prtMarkerColorant = MibIdentifier((1, 3, 6, 1, 2, 1, 43, 12))
-prtMarkerColorantTable = MibTable((1, 3, 6, 1, 2, 1, 43, 12, 1), )
-if mibBuilder.loadTexts: prtMarkerColorantTable.setDescription('A table of all of the colorants available on the\n         printer.')
-prtMarkerColorantEntry = MibTableRow((1, 3, 6, 1, 2, 1, 43, 12, 1, 1), ).setIndexNames((0, "HOST-RESOURCES-MIB", "hrDeviceIndex"), (0, "Printer-MIB", "prtMarkerColorantIndex"))
-if mibBuilder.loadTexts: prtMarkerColorantEntry.setDescription("Attributes of a colorant available on the printer.\n         Entries may exist in the table for each device index\n         with a device type of 'printer'.")
-prtMarkerColorantIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 12, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: prtMarkerColorantIndex.setDescription('A unique value used by the printer to identify this\n        colorant. Although these values may change due to a major\n        reconfiguration of the device (e.g. the addition of new\n        colorants to the printer).')
-prtMarkerColorantMarkerIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 12, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerColorantMarkerIndex.setDescription('The value of prtMarkerIndex corresponding to the marker\n         sub-unit with which this colorant entry is associated.')
-prtMarkerColorantRole = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 12, 1, 1, 3), PrtMarkerColorantRoleTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerColorantRole.setDescription('The role played by this colorant.')
-prtMarkerColorantValue = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 12, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerColorantValue.setDescription('The name of the color of this colorant using\n         standardized string names from ISO 10175 (DPA) and ISO\n         10180 (SPDL) which are:\n           other\n           unknown\n           white\n           red\n           green\n           blue\n           cyan\n           magenta\n           yellow\n           black\n         Implementers may add additional string values. The\n         naming conventions in ISO 9070 are recommended in order\n         to avoid potential name clashes')
-prtMarkerColorantTonality = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 12, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMarkerColorantTonality.setDescription('The distinct levels of tonality realizable by a marking\n         sub-unit when using this colorant.  This value does not\n         include the number of levels of tonal difference that an\n         interpreter can obtain by techniques such as half\n         toning. This value must be at least 2.')
-prtMediaPath = MibIdentifier((1, 3, 6, 1, 2, 1, 43, 13))
-prtMediaPathTable = MibTable((1, 3, 6, 1, 2, 1, 43, 13, 4), )
-if mibBuilder.loadTexts: prtMediaPathTable.setDescription('')
-prtMediaPathEntry = MibTableRow((1, 3, 6, 1, 2, 1, 43, 13, 4, 1), ).setIndexNames((0, "HOST-RESOURCES-MIB", "hrDeviceIndex"), (0, "Printer-MIB", "prtMediaPathIndex"))
-if mibBuilder.loadTexts: prtMediaPathEntry.setDescription("Entries may exist in the table for each device index\n         with a device type of 'printer'.")
-prtMediaPathIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 13, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: prtMediaPathIndex.setDescription('A unique value used by the printer to identify this\n         media path. Although these values may change due to a\n         major reconfiguration of the device (e.g. the addition\n         of new media paths to the printer), values are expected\n         to remain stable across successive printer power\n         cycles.')
-prtMediaPathMaxSpeedPrintUnit = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 13, 4, 1, 2), PrtMediaPathMaxSpeedPrintUnitTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMediaPathMaxSpeedPrintUnit.setDescription('The unit of measure used in specifying the speed of all\n         media paths in the printer.')
-prtMediaPathMediaSizeUnit = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 13, 4, 1, 3), PrtMediaUnitTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMediaPathMediaSizeUnit.setDescription('The units of measure of media size for use in\n         calculating and relaying dimensional values for all\n         media paths in the printer.')
-prtMediaPathMaxSpeed = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 13, 4, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMediaPathMaxSpeed.setDescription("The maximum printing speed of this media path expressed\n         in prtMediaPathMaxSpeedUnit's.  A value of (-1) implies\n         'other'.")
-prtMediaPathMaxMediaFeedDir = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 13, 4, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMediaPathMaxMediaFeedDir.setDescription("The maximum physical media size in the feed direction\n         of this media path expressed in units of measure\n         specified by PrtMediaPathMediaSizeUnit.  A value of (-1)\n         implies 'unlimited' a value of (-2) implies 'unknown'")
-prtMediaPathMaxMediaXFeedDir = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 13, 4, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMediaPathMaxMediaXFeedDir.setDescription("The maximum physical media size across the feed\n         direction of this media path expressed in units of\n         measure specified by prtMediaPathMediaSizeUnit.  A value\n         of (-2) implies 'unknown'.")
-prtMediaPathMinMediaFeedDir = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 13, 4, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMediaPathMinMediaFeedDir.setDescription("The minimum physical media size in the feed direction\n         of this media path expressed in units of measure\n         specified by prtMediaPathMediaSizeUnit. A value of (-2)\n         implies 'unknown'.")
-prtMediaPathMinMediaXFeedDir = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 13, 4, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMediaPathMinMediaXFeedDir.setDescription("The minimum physical media size across the feed\n         direction of this media path expressed in units of\n         measure specified by prtMediaPathMediaSizeUnit.  A value\n         of (-2) implies 'unknown'.")
-prtMediaPathType = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 13, 4, 1, 9), PrtMediaPathTypeTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMediaPathType.setDescription('The type of the media path for this media path.')
-prtMediaPathDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 13, 4, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMediaPathDescription.setDescription('The manufacturer-provided description of this media\n         path in the localization specified by\n         prtGeneralCurrentLocalization.')
-prtMediaPathStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 13, 4, 1, 11), PrtSubUnitStatusTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtMediaPathStatus.setDescription('The current status of this media path.')
-prtChannel = MibIdentifier((1, 3, 6, 1, 2, 1, 43, 14))
-prtChannelTable = MibTable((1, 3, 6, 1, 2, 1, 43, 14, 1), )
-if mibBuilder.loadTexts: prtChannelTable.setDescription('')
-prtChannelEntry = MibTableRow((1, 3, 6, 1, 2, 1, 43, 14, 1, 1), ).setIndexNames((0, "HOST-RESOURCES-MIB", "hrDeviceIndex"), (0, "Printer-MIB", "prtChannelIndex"))
-if mibBuilder.loadTexts: prtChannelEntry.setDescription("Entries may exist in the table for each device index\n         with a device type of 'printer'.")
-prtChannelIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 14, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: prtChannelIndex.setDescription('A unique value used by the printer to identify this\n         data channel.  Although these values may change due to a\n         major reconfiguration of the device (e.g. the addition\n         of new data channels to the printer), values are\n         expected to remain stable across successive printer\n         power cycles.')
-prtChannelType = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 14, 1, 1, 2), PrtChannelTypeTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtChannelType.setDescription('The type of this print data channel.  This object\n         provides the linkage to ChannelType-specific groups that\n         may (conceptually) extend the prtChannelTable with\n         additional details about that channel.')
-prtChannelProtocolVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 14, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtChannelProtocolVersion.setDescription('The version of the protocol used on this channel.  The\n         format used for version numbering depends on\n         prtChannelType.')
-prtChannelCurrentJobCntlLangIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 14, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtChannelCurrentJobCntlLangIndex.setDescription('The value of prtInterpreterIndex corresponding to the\n         Control Language Interpreter for this channel. This\n         interpreter defines the syntax used for control\n         functions, such as querying or changing environment\n         variables and identifying job boundaries (e.g. PJL,\n         PostScript, NPAP). A value of zero indicates that there\n         is no current Job Control Language Interpreter for this\n         channel')
-prtChannelDefaultPageDescLangIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 14, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtChannelDefaultPageDescLangIndex.setDescription('The value of prtInterpreterIndex corresponding to the\n         Page Description Language Interpreter for this channel.\n         This interpreter defines the default Page Description\n         Language interpreter to be used for the print data\n         unless the Control Language is used to select a specific\n         interpreter (e.g., PCL, PostScript Language, auto-\n         sense). A value of zero indicates that there is no\n         default page description language interpreter for this\n         channel.')
-prtChannelState = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 14, 1, 1, 6), PrtChannelStateTC()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtChannelState.setDescription('The state of this print data channel. The value\n         determines whether control information and print data is\n         allowed through this channel or not.')
-prtChannelIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 14, 1, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtChannelIfIndex.setDescription('The value of ifIndex (in the ifTable; see the interface\n         section of MIB-2/RFC 1213) which corresponds to this\n         channel. When more than one row of the ifTable is\n         relevant, this is the index of the row representing the\n         topmost layer in the interface hierarchy.  A value of\n         zero indicates that no interface is associated with this\n         channel.')
-prtChannelStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 14, 1, 1, 8), PrtSubUnitStatusTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtChannelStatus.setDescription('The current status of the channel.')
-prtChannelInformation = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 14, 1, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtChannelInformation.setDescription("Auxiliary information to allow a printing application\n         to use the channel for data submission to the printer.\n         An application capable of using a specific\n         PrtChannelType should be able to use the combined\n         information from the prtChannelInformation and other\n         channel and interface group objects to 'bootstrap' its\n         use of the channel.  prtChannelInformation is not\n         intended to provide a general channel description, nor\n         to provide information that is available once the\n         channel is in use.\n\n         The encoding and interpretation of the\n         prtChannelInformation object is specific to channel\n         type.  The description of each PrtChannelType enum value\n         for which prtChannelInformation is defined specifies the\n         appropriate encoding and interpretation, including\n         interaction with other objects.  For channel types that\n         do not specify a prtChannelInformation value, its value\n         shall be null (0 length).\n\n         When a new PrtChannelType enumeration value is\n         registered, its accompanying description must specify\n         the encoding and interpretation of the\n         prtChannelInformation value for the channel type.\n         prtChannelInformation semantics for an existing\n         PrtChannelType may be added or amended in the same\n         manner as described in section 2.4.1 for type 2\n         enumeration values.\n\n         The prtChannelInformation specifies values for a\n         collection of channel attributes, represented as text\n         according to the following rules:\n\n         1. The prtChannelInformation is not affected by\n         localization.\n\n         2. The prtChannelInformation is a list of entries\n         representing the attribute values.  Each entry consists\n         of the following items, in order:\n\n         a. a keyword, composed of alphabetic characters (A-Z,\n         a-z) represented by their NVT ASCII [NVT ASCII] codes,\n         that identifies a channel attribute,\n         b. the NVT ASCII code for an Equals Sign (=) (code 61)\n         to delimit the keyword,\n\n         c. a data value encoded using rules specific to the\n         PrtChannelType to with the prtChannelInformation applies\n         which must in no case allow an octet with value 10 (the\n         NVT ASCII Line Feed code),\n\n         d. the NVT ASCII code for a Line Feed character (code\n         10) to delimit the data value.\n\n         No other octets shall be present.\n\n         Keywords are case-sensitive.  Conventionally, keywords\n         are capitalized (including each word of a multi-word\n         keyword) and since they occupy space in the\n         prtChannelInformation, they are kept short.\n\n         3. If a channel attribute has multiple values, it is\n         represented by multiple entries with the same keyword,\n         each specifying one value. Otherwise, there shall be at\n         most one entry for each attribute.\n\n         4. By default, entries may appear in any order.  If\n         there are ordering constraints for particular entries,\n         these must be specified in their definitions.\n\n         5. The prtChannelInformation value by default consists\n         of text represented by NVT ASCII graphics character\n         codes. However, other representations may be specified:\n\n         a. In cases where the prtChannelInformation value\n         contains information not normally coded in textual form,\n         whatever symbolic representation is conventionally used\n         for the information should be used for encoding the\n         prtChannelInformation value. (For instance, a binary\n         port value might be represented as a decimal number\n         using NVT ASCII codes.) Such encoding must be specified\n         in the definition of the value.\n\n         b. The value may contain textual information in a\n         character set other than NVT ASCII graphics characters.\n         (For instance, an identifier might consist of ISO 10646\n         text encoded using the UTF-8 encoding scheme.) Such a\n         character set and its encoding must be specified in the\n         definition of the value.\n\n         6. For each PrtChannelType for which\n         prtChannelInformation entries are defined, the\n         descriptive text associated with the PrtChannelType\n         enumeration value shall specify the following\n         information for each entry:\n\n         Title:        Brief description phrase, e.g.: 'Port\n                       name', 'Service Name', etc.\n\n         Keyword:      The keyword value, e.g.: 'Port' or\n                       'Service'\n\n         Syntax:       The encoding of the entry value if it\n                       cannot be directly represented by NVT\n                       ASCII.\n\n         Status:       'Mandatory', 'Optional', or 'Conditionally\n                       Mandatory'\n\n         Multiplicity: 'Single' or 'Multiple' to indicate whether\n                       the entry may be present multiple times.\n\n         Description:  Description of the use of the entry, other\n                       information required to complete the\n                       definition (e.g.: ordering constraints,\n                       interactions between entries).\n\n         Applications that interpret prtChannelInformation should\n         ignore unrecognized entries, so they are not affected if\n         new entry types are added.")
-prtInterpreter = MibIdentifier((1, 3, 6, 1, 2, 1, 43, 15))
-prtInterpreterTable = MibTable((1, 3, 6, 1, 2, 1, 43, 15, 1), )
-if mibBuilder.loadTexts: prtInterpreterTable.setDescription('')
-prtInterpreterEntry = MibTableRow((1, 3, 6, 1, 2, 1, 43, 15, 1, 1), ).setIndexNames((0, "HOST-RESOURCES-MIB", "hrDeviceIndex"), (0, "Printer-MIB", "prtInterpreterIndex"))
-if mibBuilder.loadTexts: prtInterpreterEntry.setDescription("Entries may exist in the table for each device index\n         with a device type of 'printer'.")
-prtInterpreterIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 15, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: prtInterpreterIndex.setDescription('A unique value for each PDL or control language for\n         which there exists an interpreter or emulator in the\n         printer. The value is used to identify this interpreter.\n         Although these values may change due to a major\n         reconfiguration of the device (e.g. the addition of new\n         interpreters to the printer), values are expected to\n         remain stable across successive printer power cycles.')
-prtInterpreterLangFamily = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 15, 1, 1, 2), PrtInterpreterLangFamilyTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInterpreterLangFamily.setDescription('The family name of a Page Description Language (PDL) or\n         control language which this interpreter in the printer\n         can interpret or emulate.')
-prtInterpreterLangLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 15, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInterpreterLangLevel.setDescription("The level of the language which this interpreter is\n         interpreting or emulating.  This might contain a value\n         like '5e' for an interpreter which is emulating level 5e\n         of the PCL language. It might contain '2' for an\n         interpreter which is emulating level 2 of the PostScript\n         language. Similarly it might contain '2' for an\n         interpreter which is emulating level 2 of the HPGL\n         language.")
-prtInterpreterLangVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 15, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInterpreterLangVersion.setDescription('The date code or version of the language which this\n         interpreter is interpreting or emulating.')
-prtInterpreterDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 15, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInterpreterDescription.setDescription('A string to identify this interpreter in the\n         localization specified by prtGeneralCurrentLocalization\n         as opposed to the language which is being interpreted.\n         It is anticipated that this string will allow\n         manufacturers to unambiguously identify their\n         interpreters.')
-prtInterpreterVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 15, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInterpreterVersion.setDescription('The date code, version number, or other product\n         specific information tied to this interpreter.  This\n         value is associated with the interpreter, rather than\n         with the version of the language which is being\n         interpreted or emulated.')
-prtInterpreterDefaultOrientation = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 15, 1, 1, 7), PrtPrintOrientationTC()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtInterpreterDefaultOrientation.setDescription('The current orientation default for this interpreter.\n         This value may be overridden for a particular job (e.g.,\n         by a command in the input data stream).')
-prtInterpreterFeedAddressability = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 15, 1, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInterpreterFeedAddressability.setDescription('The maximum interpreter addressability in the feed\n         direction in 10000 prtMarkerAddressabilityUnits (see\n         prtMarkerAddressabilityFeedDir ) for this interpreter.\n         The value (-1) means other and specifically indicates\n         that the sub-unit places no restrictions on this\n         parameter.')
-prtInterpreterXFeedAddressability = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 15, 1, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInterpreterXFeedAddressability.setDescription('The maximum interpreter addressability in the cross\n         feed direction in 10000 prtMarkerAddressabilityUnits\n         (see prtMarkerAddressabilityXFeedDir) for this\n         interpreter. The value (-1) means other and specifically\n         indicates that the sub-unit places no restrictions on\n         this parameter.')
-prtInterpreterDefaultCharSetIn = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 15, 1, 1, 10), CodedCharSet()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtInterpreterDefaultCharSetIn.setDescription('The default coded character set for input octets\n         encountered outside a context in which the Page\n         Description Language established the interpretation of\n         the octets. (Input octets are presented to the\n         interpreter through a path defined in the channel\n         group.) This value shall be (2) if there is no default.')
-prtInterpreterDefaultCharSetOut = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 15, 1, 1, 11), CodedCharSet()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtInterpreterDefaultCharSetOut.setDescription("The default character set for data coming from this\n         interpreter through the printer's output channel (i.e.\n         the 'backchannel'). This value shall be (2) if there is\n         no default.")
-prtInterpreterTwoWay = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 15, 1, 1, 12), PrtInterpreterTwoWayTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtInterpreterTwoWay.setDescription('Indicates whether or not this interpreter returns\n         information back to the host.')
-prtConsoleDisplayBuffer = MibIdentifier((1, 3, 6, 1, 2, 1, 43, 16))
-prtConsoleDisplayBufferTable = MibTable((1, 3, 6, 1, 2, 1, 43, 16, 5), )
-if mibBuilder.loadTexts: prtConsoleDisplayBufferTable.setDescription('Physical display buffer for printer console display or\n         operator panel')
-prtConsoleDisplayBufferEntry = MibTableRow((1, 3, 6, 1, 2, 1, 43, 16, 5, 1), ).setIndexNames((0, "HOST-RESOURCES-MIB", "hrDeviceIndex"), (0, "Printer-MIB", "prtConsoleDisplayBufferIndex"))
-if mibBuilder.loadTexts: prtConsoleDisplayBufferEntry.setDescription("This table contains one entry for each physical line on\n         the display.  Lines cannot be added or deleted. Entries\n         may exist in the table for each device index with a\n         device type of 'printer'.")
-prtConsoleDisplayBufferIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 16, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: prtConsoleDisplayBufferIndex.setDescription('A unique value for each console line in the printer.\n         The value is used to identify this console line.\n         Although these values may change due to a major\n         reconfiguration of the device (e.g. the addition of new\n         console lines to the printer). Values are normally\n         expected to remain stable across successive printer\n         power cycles.')
-prtConsoleDisplayBufferText = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 16, 5, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtConsoleDisplayBufferText.setDescription("The content of a line in the logical display buffer of\n         the operator's console of the printer.  When a write\n         operation occurs, normally a critical message, to one of\n         the LineText strings, the agent should make that line\n         displayable if a physical display is present.  Writing a\n         zero length string clears the line.  It is an\n         implementation-specific matter as to whether the agent\n         allows a line to be overwritten before it has been\n         cleared. Printer generated strings shall be in the\n         localization specified by prtConsoleLocalization.\n         Management Application generated strings should be\n         localized by the Management Application.")
-prtConsoleLights = MibIdentifier((1, 3, 6, 1, 2, 1, 43, 17))
-prtConsoleLightTable = MibTable((1, 3, 6, 1, 2, 1, 43, 17, 6), )
-if mibBuilder.loadTexts: prtConsoleLightTable.setDescription('')
-prtConsoleLightEntry = MibTableRow((1, 3, 6, 1, 2, 1, 43, 17, 6, 1), ).setIndexNames((0, "HOST-RESOURCES-MIB", "hrDeviceIndex"), (0, "Printer-MIB", "prtConsoleLightIndex"))
-if mibBuilder.loadTexts: prtConsoleLightEntry.setDescription("Entries may exist in the table for each device index\n         with a device type of 'printer'.")
-prtConsoleLightIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 17, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: prtConsoleLightIndex.setDescription('A unique value used by the printer to identify this\n         light. Although these values may change due to a major\n         reconfiguration of the device (e.g. the addition of new\n         lights to the printer). Values are normally expected to\n         remain stable across successive printer power cycles.')
-prtConsoleOnTime = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 17, 6, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtConsoleOnTime.setDescription('This object, in conjunction with prtConsoleOffTime,\n         defines the current status of the light.  If both\n         prtConsoleOnTime and prtConsoleOffTime are non-zero, the\n         lamp is blinking and the values presented define the on\n         time and off time, respectively, in milliseconds. If\n         prtConsoleOnTime is zero and prtConsoleOffTime is non-\n         zero, the lamp is off. If prtConsoleOffTime is zero and\n         prtConsoleOnTime is non-zero, the lamp is on. If both\n         values are zero the lamp is off.')
-prtConsoleOffTime = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 17, 6, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: prtConsoleOffTime.setDescription('This object, in conjunction with prtConsoleOnTime,\n         defines the current status of the light. If both\n         prtConsoleOnTime and prtConsoleOffTime are non-zero, the\n         lamp is blinking and the values presented define the on\n         time and off time, respectively, in milliseconds. If\n         prtConsoleOnTime is zero and prtConsoleOffTime is non-\n         zero, the lamp is off. If prtConsoleOffTime is zero and\n         prtConsoleOnTime is non-zero, the lamp is on. If both\n         values are zero the lamp is off.')
-prtConsoleColor = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 17, 6, 1, 4), PrtConsoleColorTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtConsoleColor.setDescription('The color of this light.')
-prtConsoleDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 17, 6, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtConsoleDescription.setDescription('The vendor description or label of this light in the\n         localization specified by prtConsoleLocalization.')
-prtAlert = MibIdentifier((1, 3, 6, 1, 2, 1, 43, 18))
-prtAlertTable = MibTable((1, 3, 6, 1, 2, 1, 43, 18, 1), )
-if mibBuilder.loadTexts: prtAlertTable.setDescription('')
-prtAlertEntry = MibTableRow((1, 3, 6, 1, 2, 1, 43, 18, 1, 1), ).setIndexNames((0, "HOST-RESOURCES-MIB", "hrDeviceIndex"), (0, "Printer-MIB", "prtAlertIndex"))
-if mibBuilder.loadTexts: prtAlertEntry.setDescription("Entries may exist in the table for each device\n        index with a device type of 'printer'.")
-prtAlertIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 18, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtAlertIndex.setDescription('The index value used to determine which alerts have\n         been added or removed from the alert table. This is an\n         incrementing integer starting from zero every time the\n         printer is reset.  When the printer adds an alert to the\n         table, that alert is assigned the next higher integer\n         value from the last item entered into the table.  If the\n         index value reaches its maximum value, the next item\n         entered will cause the index value to roll over and\n         start at zero again.  The first event placed in the\n         alert table after a reset of the printer shall have an\n         index value of 1.  NOTE: The management application will\n         read the alert table when a trap or event notification\n         occurs or at a periodic rate and then parse the table to\n         determine if any new entries were added by comparing the\n         last known index value with the current highest index\n         value. The management application will then update its\n         copy of the alert table.  When the printer discovers\n         that an alert is no longer active, the printer shall\n         remove the row for that alert from the table and shall\n         reduce the number of rows in the table.  The printer may\n         add or delete any number of rows from the table at any\n         time.  The management station can detect when binary\n         change alerts have been deleted by requesting an\n         attribute of each alert, and noting alerts as deleted\n         when that retrieval is not possible.')
-prtAlertSeverityLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 18, 1, 1, 2), PrtAlertSeverityLevelTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtAlertSeverityLevel.setDescription('The level of severity of this alert table entry.  The\n         printer determines the severity level assigned to each\n         entry into the table.')
-prtAlertTrainingLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 18, 1, 1, 3), PrtAlertTrainingLevelTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtAlertTrainingLevel.setDescription('See textual convention PrtAlertTrainingLevelTC')
-prtAlertGroup = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 18, 1, 1, 4), PrtAlertGroupTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtAlertGroup.setDescription('The type of sub-unit within the printer model that this\n         alert is related. Input, output, and markers are\n         examples of printer model groups, i.e., examples of\n         types of sub-units. Wherever possible, these\n         enumerations match the sub-identifier that identifies\n         the relevant table in the printmib.')
-prtAlertGroupIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 18, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtAlertGroupIndex.setDescription('An index of the row within the principle table in the\n         group identified by prtAlertGroup that represents the\n         sub-unit of the printer that caused this alert.  The\n         combination of the prtAlertGroup and the\n         prtAlertGroupIndex defines exactly which printer sub-\n         unit caused the alert; for example, Input #3, Output #2,\n         and Marker #1. Every object in this MIB is indexed with\n         hrDeviceIndex and optionally, another index variable.\n         If this other index variable is present in the table\n         that generated the alert, it will be used as the value\n         for this object.  Otherwise, this value shall be -1.')
-prtAlertLocation = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 18, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtAlertLocation.setDescription('The sub-unit location that is defined by the printer\n         manufacturer to further refine the location of this\n         alert within the designated sub-unit.  The location is\n         used in conjunction with the Group and GroupIndex\n         values; for example, there is an alert in Input #2 at\n         location number 7. The value (-2) indicates unknown')
-prtAlertCode = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 18, 1, 1, 7), PrtAlertCodeTC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtAlertCode.setDescription('See associated textual convention PrtAlertCodeTC')
-prtAlertDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 18, 1, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtAlertDescription.setDescription("A description of this alert entry in the localization\n         specified by prtGeneralCurrentLocalization.  The\n         description is provided by the printer to further\n         elaborate on the enumerated alert or provide information\n         in the case where the code is classified as 'other' or\n         'unknown'.  The printer is required to return a\n         description string but the string may be a null\n         string.")
-prtAlertTime = MibTableColumn((1, 3, 6, 1, 2, 1, 43, 18, 1, 1, 9), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prtAlertTime.setDescription('The value of sysUpTime at the time that this alert was\n         generated.')
-printerV1Alert = ObjectIdentity((1, 3, 6, 1, 2, 1, 43, 18, 2))
-if mibBuilder.loadTexts: printerV1Alert.setDescription('The value of the enterprise-specific OID in an SNMPv1\n         trap sent signaling a critical event in the\n         prtAlertTable.')
-printerV2AlertPrefix = MibIdentifier((1, 3, 6, 1, 2, 1, 43, 18, 2, 0))
-printerV2Alert = NotificationType((1, 3, 6, 1, 2, 1, 43, 18, 2, 0, 1)).setObjects(*(("Printer-MIB", "prtAlertIndex"), ("Printer-MIB", "prtAlertSeverityLevel"), ("Printer-MIB", "prtAlertGroup"), ("Printer-MIB", "prtAlertGroupIndex"), ("Printer-MIB", "prtAlertLocation"), ("Printer-MIB", "prtAlertCode"),))
-if mibBuilder.loadTexts: printerV2Alert.setDescription('This trap is sent whenever a critical event is added to\n         the prtAlertTable.')
-prtMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 43, 2))
-prtMIBCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 43, 2, 1)).setObjects(*(("Printer-MIB", "prtGeneralGroup"), ("Printer-MIB", "prtInputGroup"), ("Printer-MIB", "prtOutputGroup"), ("Printer-MIB", "prtMarkerGroup"), ("Printer-MIB", "prtMediaPathGroup"), ("Printer-MIB", "prtChannelGroup"), ("Printer-MIB", "prtInterpreterGroup"), ("Printer-MIB", "prtConsoleGroup"), ("Printer-MIB", "prtAlertTableGroup"),))
-if mibBuilder.loadTexts: prtMIBCompliance.setDescription('The compliance statement for agents that implement the\n        printer MIB.')
-prtMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 43, 2, 2))
-prtGeneralGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 1)).setObjects(*(("Printer-MIB", "prtGeneralConfigChanges"), ("Printer-MIB", "prtGeneralCurrentLocalization"), ("Printer-MIB", "prtGeneralReset"), ("Printer-MIB", "prtCoverDescription"), ("Printer-MIB", "prtCoverStatus"), ("Printer-MIB", "prtLocalizationLanguage"), ("Printer-MIB", "prtLocalizationCountry"), ("Printer-MIB", "prtLocalizationCharacterSet"), ("Printer-MIB", "prtStorageRefIndex"), ("Printer-MIB", "prtDeviceRefIndex"), ("Printer-MIB", "prtGeneralPrinterName"), ("Printer-MIB", "prtGeneralSerialNumber"),))
-if mibBuilder.loadTexts: prtGeneralGroup.setDescription('The general printer group.')
-prtResponsiblePartyGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 2)).setObjects(*(("Printer-MIB", "prtGeneralCurrentOperator"), ("Printer-MIB", "prtGeneralServicePerson"),))
-if mibBuilder.loadTexts: prtResponsiblePartyGroup.setDescription('The responsible party group contains contact\n         information for humans responsible for the printer.')
-prtInputGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 3)).setObjects(*(("Printer-MIB", "prtInputDefaultIndex"), ("Printer-MIB", "prtInputType"), ("Printer-MIB", "prtInputDimUnit"), ("Printer-MIB", "prtInputMediaDimFeedDirDeclared"), ("Printer-MIB", "prtInputMediaDimXFeedDirDeclared"), ("Printer-MIB", "prtInputMediaDimFeedDirChosen"), ("Printer-MIB", "prtInputMediaDimXFeedDirChosen"), ("Printer-MIB", "prtInputCapacityUnit"), ("Printer-MIB", "prtInputMaxCapacity"), ("Printer-MIB", "prtInputCurrentLevel"), ("Printer-MIB", "prtInputStatus"), ("Printer-MIB", "prtInputMediaName"),))
-if mibBuilder.loadTexts: prtInputGroup.setDescription('The input group.')
-prtExtendedInputGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 4)).setObjects(*(("Printer-MIB", "prtInputName"), ("Printer-MIB", "prtInputVendorName"), ("Printer-MIB", "prtInputModel"), ("Printer-MIB", "prtInputVersion"), ("Printer-MIB", "prtInputSerialNumber"), ("Printer-MIB", "prtInputDescription"), ("Printer-MIB", "prtInputSecurity"),))
-if mibBuilder.loadTexts: prtExtendedInputGroup.setDescription('The extended input group.')
-prtInputMediaGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 5)).setObjects(*(("Printer-MIB", "prtInputMediaWeight"), ("Printer-MIB", "prtInputMediaType"), ("Printer-MIB", "prtInputMediaColor"), ("Printer-MIB", "prtInputMediaFormParts"),))
-if mibBuilder.loadTexts: prtInputMediaGroup.setDescription('The input media group.')
-prtOutputGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 6)).setObjects(*(("Printer-MIB", "prtOutputDefaultIndex"), ("Printer-MIB", "prtOutputType"), ("Printer-MIB", "prtOutputCapacityUnit"), ("Printer-MIB", "prtOutputMaxCapacity"), ("Printer-MIB", "prtOutputRemainingCapacity"), ("Printer-MIB", "prtOutputStatus"),))
-if mibBuilder.loadTexts: prtOutputGroup.setDescription('The output group.')
-prtExtendedOutputGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 7)).setObjects(*(("Printer-MIB", "prtOutputName"), ("Printer-MIB", "prtOutputVendorName"), ("Printer-MIB", "prtOutputModel"), ("Printer-MIB", "prtOutputVersion"), ("Printer-MIB", "prtOutputSerialNumber"), ("Printer-MIB", "prtOutputDescription"), ("Printer-MIB", "prtOutputSecurity"),))
-if mibBuilder.loadTexts: prtExtendedOutputGroup.setDescription('The extended output group.')
-prtOutputDimensionsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 8)).setObjects(*(("Printer-MIB", "prtOutputDimUnit"), ("Printer-MIB", "prtOutputMaxDimFeedDir"), ("Printer-MIB", "prtOutputMaxDimXFeedDir"), ("Printer-MIB", "prtOutputMinDimFeedDir"), ("Printer-MIB", "prtOutputMinDimXFeedDir"),))
-if mibBuilder.loadTexts: prtOutputDimensionsGroup.setDescription('The output dimensions group')
-prtOutputFeaturesGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 9)).setObjects(*(("Printer-MIB", "prtOutputStackingOrder"), ("Printer-MIB", "prtOutputPageDeliveryOrientation"), ("Printer-MIB", "prtOutputBursting"), ("Printer-MIB", "prtOutputDecollating"), ("Printer-MIB", "prtOutputPageCollated"), ("Printer-MIB", "prtOutputOffsetStacking"),))
-if mibBuilder.loadTexts: prtOutputFeaturesGroup.setDescription('The output features group.')
-prtMarkerGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 10)).setObjects(*(("Printer-MIB", "prtMarkerDefaultIndex"), ("Printer-MIB", "prtMarkerMarkTech"), ("Printer-MIB", "prtMarkerCounterUnit"), ("Printer-MIB", "prtMarkerLifeCount"), ("Printer-MIB", "prtMarkerPowerOnCount"), ("Printer-MIB", "prtMarkerProcessColorants"), ("Printer-MIB", "prtMarkerSpotColorants"), ("Printer-MIB", "prtMarkerAddressabilityUnit"), ("Printer-MIB", "prtMarkerAddressabilityFeedDir"), ("Printer-MIB", "prtMarkerAddressabilityXFeedDir"), ("Printer-MIB", "prtMarkerNorthMargin"), ("Printer-MIB", "prtMarkerSouthMargin"), ("Printer-MIB", "prtMarkerWestMargin"), ("Printer-MIB", "prtMarkerEastMargin"), ("Printer-MIB", "prtMarkerStatus"),))
-if mibBuilder.loadTexts: prtMarkerGroup.setDescription('The marker group.')
-prtMarkerSuppliesGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 11)).setObjects(*(("Printer-MIB", "prtMarkerSuppliesMarkerIndex"), ("Printer-MIB", "prtMarkerSuppliesColorantIndex"), ("Printer-MIB", "prtMarkerSuppliesClass"), ("Printer-MIB", "prtMarkerSuppliesType"), ("Printer-MIB", "prtMarkerSuppliesDescription"), ("Printer-MIB", "prtMarkerSuppliesSupplyUnit"), ("Printer-MIB", "prtMarkerSuppliesMaxCapacity"), ("Printer-MIB", "prtMarkerSuppliesLevel"),))
-if mibBuilder.loadTexts: prtMarkerSuppliesGroup.setDescription('The marker supplies group.')
-prtMarkerColorantGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 12)).setObjects(*(("Printer-MIB", "prtMarkerColorantMarkerIndex"), ("Printer-MIB", "prtMarkerColorantRole"), ("Printer-MIB", "prtMarkerColorantValue"), ("Printer-MIB", "prtMarkerColorantTonality"),))
-if mibBuilder.loadTexts: prtMarkerColorantGroup.setDescription('The marker colorant group.')
-prtMediaPathGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 13)).setObjects(*(("Printer-MIB", "prtMediaPathDefaultIndex"), ("Printer-MIB", "prtMediaPathMaxSpeedPrintUnit"), ("Printer-MIB", "prtMediaPathMediaSizeUnit"), ("Printer-MIB", "prtMediaPathMaxSpeed"), ("Printer-MIB", "prtMediaPathMaxMediaFeedDir"), ("Printer-MIB", "prtMediaPathMaxMediaXFeedDir"), ("Printer-MIB", "prtMediaPathMinMediaFeedDir"), ("Printer-MIB", "prtMediaPathMinMediaXFeedDir"), ("Printer-MIB", "prtMediaPathType"), ("Printer-MIB", "prtMediaPathDescription"), ("Printer-MIB", "prtMediaPathStatus"),))
-if mibBuilder.loadTexts: prtMediaPathGroup.setDescription('The media path group.')
-prtChannelGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 14)).setObjects(*(("Printer-MIB", "prtChannelType"), ("Printer-MIB", "prtChannelProtocolVersion"), ("Printer-MIB", "prtChannelCurrentJobCntlLangIndex"), ("Printer-MIB", "prtChannelDefaultPageDescLangIndex"), ("Printer-MIB", "prtChannelState"), ("Printer-MIB", "prtChannelIfIndex"), ("Printer-MIB", "prtChannelStatus"), ("Printer-MIB", "prtChannelInformation"),))
-if mibBuilder.loadTexts: prtChannelGroup.setDescription('The channel group.')
-prtInterpreterGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 15)).setObjects(*(("Printer-MIB", "prtInterpreterLangFamily"), ("Printer-MIB", "prtInterpreterLangLevel"), ("Printer-MIB", "prtInterpreterLangVersion"), ("Printer-MIB", "prtInterpreterDescription"), ("Printer-MIB", "prtInterpreterVersion"), ("Printer-MIB", "prtInterpreterDefaultOrientation"), ("Printer-MIB", "prtInterpreterFeedAddressability"), ("Printer-MIB", "prtInterpreterXFeedAddressability"), ("Printer-MIB", "prtInterpreterDefaultCharSetIn"), ("Printer-MIB", "prtInterpreterDefaultCharSetOut"), ("Printer-MIB", "prtInterpreterTwoWay"),))
-if mibBuilder.loadTexts: prtInterpreterGroup.setDescription('The interpreter group.')
-prtConsoleGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 16)).setObjects(*(("Printer-MIB", "prtConsoleLocalization"), ("Printer-MIB", "prtConsoleNumberOfDisplayLines"), ("Printer-MIB", "prtConsoleNumberOfDisplayChars"), ("Printer-MIB", "prtConsoleDisable"), ("Printer-MIB", "prtConsoleDisplayBufferText"), ("Printer-MIB", "prtConsoleOnTime"), ("Printer-MIB", "prtConsoleOffTime"), ("Printer-MIB", "prtConsoleColor"), ("Printer-MIB", "prtConsoleDescription"),))
-if mibBuilder.loadTexts: prtConsoleGroup.setDescription('The console group.')
-prtAlertTableGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 17)).setObjects(*(("Printer-MIB", "prtAlertIndex"), ("Printer-MIB", "prtAlertCriticalEvents"), ("Printer-MIB", "prtAlertAllEvents"), ("Printer-MIB", "prtAlertSeverityLevel"), ("Printer-MIB", "prtAlertTrainingLevel"), ("Printer-MIB", "prtAlertGroup"), ("Printer-MIB", "prtAlertGroupIndex"), ("Printer-MIB", "prtAlertLocation"), ("Printer-MIB", "prtAlertCode"), ("Printer-MIB", "prtAlertDescription"), ("Printer-MIB", "prtAlertTime"),))
-if mibBuilder.loadTexts: prtAlertTableGroup.setDescription('The alert table group.')
-prtAuxiliarySheetGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 19)).setObjects(*(("Printer-MIB", "prtAuxiliarySheetStartupPage"), ("Printer-MIB", "prtAuxiliarySheetBannerPage"),))
-if mibBuilder.loadTexts: prtAuxiliarySheetGroup.setDescription('The auxiliary sheet group.')
-prtInputSwitchingGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 43, 2, 2, 20)).setObjects(*(("Printer-MIB", "prtInputMediaLoadTimeout"), ("Printer-MIB", "prtInputNextIndex"),))
-if mibBuilder.loadTexts: prtInputSwitchingGroup.setDescription('The input switching group.')
-mibBuilder.exportSymbols("Printer-MIB", prtInputStatus=prtInputStatus, prtChannelState=prtChannelState, prtGeneralPrinterName=prtGeneralPrinterName, prtMIBCompliance=prtMIBCompliance, prtMarkerEntry=prtMarkerEntry, prtInputEntry=prtInputEntry, prtGeneralServicePerson=prtGeneralServicePerson, prtConsoleNumberOfDisplayChars=prtConsoleNumberOfDisplayChars, prtConsoleDescription=prtConsoleDescription, prtInputGroup=prtInputGroup, prtConsoleDisplayBufferText=prtConsoleDisplayBufferText, printerV2AlertPrefix=printerV2AlertPrefix, prtCoverIndex=prtCoverIndex, prtDeviceRefEntry=prtDeviceRefEntry, prtAuxiliarySheetStartupPage=prtAuxiliarySheetStartupPage, prtMarkerAddressabilityFeedDir=prtMarkerAddressabilityFeedDir, prtStorageRefIndex=prtStorageRefIndex, prtOutputBursting=prtOutputBursting, prtMediaPath=prtMediaPath, prtOutputOffsetStacking=prtOutputOffsetStacking, prtInterpreterTwoWay=prtInterpreterTwoWay, prtAlertCode=prtAlertCode, prtGeneralEntry=prtGeneralEntry, prtInputMediaDimXFeedDirChosen=prtInputMediaDimXFeedDirChosen, prtMediaPathMinMediaFeedDir=prtMediaPathMinMediaFeedDir, prtInputNextIndex=prtInputNextIndex, PrtInterpreterLangFamilyTC=PrtInterpreterLangFamilyTC, PrtPrintOrientationTC=PrtPrintOrientationTC, PrtCoverStatusTC=PrtCoverStatusTC, prtGeneralReset=prtGeneralReset, prtMediaPathGroup=prtMediaPathGroup, prtAlertDescription=prtAlertDescription, prtChannel=prtChannel, prtInputMediaDimFeedDirDeclared=prtInputMediaDimFeedDirDeclared, prtOutputRemainingCapacity=prtOutputRemainingCapacity, prtInterpreterDefaultOrientation=prtInterpreterDefaultOrientation, prtMarkerDefaultIndex=prtMarkerDefaultIndex, prtInterpreterTable=prtInterpreterTable, prtOutputCapacityUnit=prtOutputCapacityUnit, prtConsoleOnTime=prtConsoleOnTime, prtCoverTable=prtCoverTable, prtInterpreterLangLevel=prtInterpreterLangLevel, prtInterpreterGroup=prtInterpreterGroup, prtMIBConformance=prtMIBConformance, prtOutputVendorName=prtOutputVendorName, prtInputSecurity=prtInputSecurity, prtConsoleColor=prtConsoleColor, prtGeneralGroup=prtGeneralGroup, prtInputMediaName=prtInputMediaName, PrtMarkerColorantRoleTC=PrtMarkerColorantRoleTC, PrtOutputPageDeliveryOrientationTC=PrtOutputPageDeliveryOrientationTC, prtMarkerColorantIndex=prtMarkerColorantIndex, prtLocalizationIndex=prtLocalizationIndex, prtMarkerSuppliesLevel=prtMarkerSuppliesLevel, prtMediaPathType=prtMediaPathType, prtResponsiblePartyGroup=prtResponsiblePartyGroup, prtInputMediaType=prtInputMediaType, prtMarkerColorantValue=prtMarkerColorantValue, prtAuxiliarySheetGroup=prtAuxiliarySheetGroup, PrtGeneralResetTC=PrtGeneralResetTC, prtGeneralSerialNumber=prtGeneralSerialNumber, prtMarkerSuppliesClass=prtMarkerSuppliesClass, PrtMarkerSuppliesClassTC=PrtMarkerSuppliesClassTC, prtMarkerSupplies=prtMarkerSupplies, prtAlertGroupIndex=prtAlertGroupIndex, CodedCharSet=CodedCharSet, prtMarkerLifeCount=prtMarkerLifeCount, prtInputMediaWeight=prtInputMediaWeight, prtMarkerMarkTech=prtMarkerMarkTech, prtLocalizationEntry=prtLocalizationEntry, prtAlertIndex=prtAlertIndex, prtMarkerSouthMargin=prtMarkerSouthMargin, prtMarkerIndex=prtMarkerIndex, prtInputMediaGroup=prtInputMediaGroup, prtAlertCriticalEvents=prtAlertCriticalEvents, prtInputCapacityUnit=prtInputCapacityUnit, prtChannelEntry=prtChannelEntry, prtMediaPathDefaultIndex=prtMediaPathDefaultIndex, prtMarkerGroup=prtMarkerGroup, prtAlertSeverityLevel=prtAlertSeverityLevel, prtChannelTable=prtChannelTable, prtAlertTableGroup=prtAlertTableGroup, prtGeneral=prtGeneral, prtMediaPathDescription=prtMediaPathDescription, prtGeneralCurrentLocalization=prtGeneralCurrentLocalization, prtMarkerWestMargin=prtMarkerWestMargin, prtMediaPathMaxSpeedPrintUnit=prtMediaPathMaxSpeedPrintUnit, PrtChannelTypeTC=PrtChannelTypeTC, prtInputSerialNumber=prtInputSerialNumber, prtInputName=prtInputName, prtCover=prtCover, prtMarkerSpotColorants=prtMarkerSpotColorants, prtMarkerColorantRole=prtMarkerColorantRole, prtMarkerEastMargin=prtMarkerEastMargin, prtInputMediaDimXFeedDirDeclared=prtInputMediaDimXFeedDirDeclared, prtMediaPathEntry=prtMediaPathEntry, prtOutputTable=prtOutputTable, prtInterpreterFeedAddressability=prtInterpreterFeedAddressability, prtConsoleDisplayBufferEntry=prtConsoleDisplayBufferEntry, prtMediaPathMaxMediaFeedDir=prtMediaPathMaxMediaFeedDir, prtMarkerColorantGroup=prtMarkerColorantGroup, prtAlert=prtAlert, prtConsoleLightTable=prtConsoleLightTable, prtOutputVersion=prtOutputVersion, prtInterpreterDefaultCharSetIn=prtInterpreterDefaultCharSetIn, prtInputMediaColor=prtInputMediaColor, prtMarkerSuppliesColorantIndex=prtMarkerSuppliesColorantIndex, PrtInputTypeTC=PrtInputTypeTC, prtGeneralConfigChanges=prtGeneralConfigChanges, prtStorageRefEntry=prtStorageRefEntry, prtInputVendorName=prtInputVendorName, PrtAlertSeverityLevelTC=PrtAlertSeverityLevelTC, prtLocalization=prtLocalization, prtMarkerSuppliesMaxCapacity=prtMarkerSuppliesMaxCapacity, prtChannelType=prtChannelType, prtInputCurrentLevel=prtInputCurrentLevel, PrtMarkerSuppliesTypeTC=PrtMarkerSuppliesTypeTC, prtMarkerSuppliesSupplyUnit=prtMarkerSuppliesSupplyUnit, printerV2Alert=printerV2Alert, prtLocalizationLanguage=prtLocalizationLanguage, prtInterpreterDefaultCharSetOut=prtInterpreterDefaultCharSetOut, prtCoverEntry=prtCoverEntry, prtMarkerSuppliesIndex=prtMarkerSuppliesIndex, prtCoverStatus=prtCoverStatus, prtAlertAllEvents=prtAlertAllEvents, prtOutputMaxCapacity=prtOutputMaxCapacity, prtOutputPageDeliveryOrientation=prtOutputPageDeliveryOrientation, PrtAlertCodeTC=PrtAlertCodeTC, prtInputMaxCapacity=prtInputMaxCapacity, PrtSubUnitStatusTC=PrtSubUnitStatusTC, prtMediaPathTable=prtMediaPathTable, prtOutputGroup=prtOutputGroup, prtMarkerPowerOnCount=prtMarkerPowerOnCount, prtMarkerNorthMargin=prtMarkerNorthMargin, PrtMediaPathMaxSpeedPrintUnitTC=PrtMediaPathMaxSpeedPrintUnitTC, prtInputDimUnit=prtInputDimUnit, prtInputModel=prtInputModel, prtOutputModel=prtOutputModel, prtGeneralTable=prtGeneralTable, PrtOutputStackingOrderTC=PrtOutputStackingOrderTC, prtAlertTable=prtAlertTable, prtConsoleGroup=prtConsoleGroup, prtOutputMinDimFeedDir=prtOutputMinDimFeedDir, prtOutputDimensionsGroup=prtOutputDimensionsGroup, prtLocalizationCountry=prtLocalizationCountry, prtDeviceRefTable=prtDeviceRefTable, prtAlertEntry=prtAlertEntry, prtConsoleDisplayBufferTable=prtConsoleDisplayBufferTable, prtOutputMaxDimFeedDir=prtOutputMaxDimFeedDir, prtMarkerSuppliesTable=prtMarkerSuppliesTable, PrtOutputTypeTC=PrtOutputTypeTC, prtOutputName=prtOutputName, prtChannelProtocolVersion=prtChannelProtocolVersion, prtInterpreterLangFamily=prtInterpreterLangFamily, prtInputMediaFormParts=prtInputMediaFormParts, prtInputTable=prtInputTable, prtMarkerSuppliesDescription=prtMarkerSuppliesDescription, prtOutputType=prtOutputType, prtInputIndex=prtInputIndex, printerV1Alert=printerV1Alert, prtChannelGroup=prtChannelGroup, prtMarker=prtMarker, prtMarkerSuppliesEntry=prtMarkerSuppliesEntry, prtMediaPathMinMediaXFeedDir=prtMediaPathMinMediaXFeedDir, prtMediaPathStatus=prtMediaPathStatus, prtMarkerColorantEntry=prtMarkerColorantEntry, prtOutputEntry=prtOutputEntry, prtLocalizationTable=prtLocalizationTable, prtMarkerSuppliesType=prtMarkerSuppliesType, prtConsoleDisplayBuffer=prtConsoleDisplayBuffer, prtMarkerColorantMarkerIndex=prtMarkerColorantMarkerIndex, PrtMediaPathTypeTC=PrtMediaPathTypeTC, prtExtendedInputGroup=prtExtendedInputGroup, PrtMarkerMarkTechTC=PrtMarkerMarkTechTC, prtOutputStatus=prtOutputStatus, prtMarkerColorantTonality=prtMarkerColorantTonality, prtInterpreterIndex=prtInterpreterIndex, prtOutputSerialNumber=prtOutputSerialNumber, prtMarkerStatus=prtMarkerStatus, PYSNMP_MODULE_ID=printmib, prtOutputDimUnit=prtOutputDimUnit, prtMediaPathIndex=prtMediaPathIndex, prtMarkerSuppliesGroup=prtMarkerSuppliesGroup, prtOutputDefaultIndex=prtOutputDefaultIndex, prtOutputStackingOrder=prtOutputStackingOrder, prtInterpreterEntry=prtInterpreterEntry, prtConsoleDisable=prtConsoleDisable, PrtChannelStateTC=PrtChannelStateTC, PrtAlertGroupTC=PrtAlertGroupTC, prtInputDescription=prtInputDescription, prtInputSwitchingGroup=prtInputSwitchingGroup, prtAlertLocation=prtAlertLocation, prtInterpreterXFeedAddressability=prtInterpreterXFeedAddressability, prtChannelStatus=prtChannelStatus, prtChannelInformation=prtChannelInformation, prtExtendedOutputGroup=prtExtendedOutputGroup, prtConsoleLightIndex=prtConsoleLightIndex, prtInputMediaDimFeedDirChosen=prtInputMediaDimFeedDirChosen, prtMarkerTable=prtMarkerTable, prtOutputDescription=prtOutputDescription, PrtAlertTrainingLevelTC=PrtAlertTrainingLevelTC, prtInputType=prtInputType, prtChannelDefaultPageDescLangIndex=prtChannelDefaultPageDescLangIndex, PrtMarkerCounterUnitTC=PrtMarkerCounterUnitTC, prtInputMediaLoadTimeout=prtInputMediaLoadTimeout, PrtCapacityUnitTC=PrtCapacityUnitTC, prtDeviceRefIndex=prtDeviceRefIndex, prtMarkerProcessColorants=prtMarkerProcessColorants, prtChannelCurrentJobCntlLangIndex=prtChannelCurrentJobCntlLangIndex, prtConsoleLightEntry=prtConsoleLightEntry, prtInputDefaultIndex=prtInputDefaultIndex, prtOutputFeaturesGroup=prtOutputFeaturesGroup, PrtConsoleColorTC=PrtConsoleColorTC, prtAlertTrainingLevel=prtAlertTrainingLevel, prtConsoleOffTime=prtConsoleOffTime, prtCoverDescription=prtCoverDescription, prtStorageRefSeqNumber=prtStorageRefSeqNumber, prtOutput=prtOutput, prtMarkerColorant=prtMarkerColorant, prtAlertGroup=prtAlertGroup, prtOutputPageCollated=prtOutputPageCollated, prtOutputDecollating=prtOutputDecollating, prtOutputMaxDimXFeedDir=prtOutputMaxDimXFeedDir, prtInterpreterDescription=prtInterpreterDescription, prtAlertTime=prtAlertTime, prtOutputIndex=prtOutputIndex, prtMarkerColorantTable=prtMarkerColorantTable, prtOutputMinDimXFeedDir=prtOutputMinDimXFeedDir, prtInterpreter=prtInterpreter, prtInterpreterLangVersion=prtInterpreterLangVersion, prtConsoleNumberOfDisplayLines=prtConsoleNumberOfDisplayLines, PrtMediaUnitTC=PrtMediaUnitTC, printmib=printmib, prtInput=prtInput, prtMarkerAddressabilityXFeedDir=prtMarkerAddressabilityXFeedDir, prtMediaPathMaxMediaXFeedDir=prtMediaPathMaxMediaXFeedDir, prtChannelIndex=prtChannelIndex, prtChannelIfIndex=prtChannelIfIndex, prtGeneralCurrentOperator=prtGeneralCurrentOperator, prtLocalizationCharacterSet=prtLocalizationCharacterSet, prtConsoleLocalization=prtConsoleLocalization, prtMIBGroups=prtMIBGroups, prtMarkerAddressabilityUnit=prtMarkerAddressabilityUnit, PresentOnOff=PresentOnOff, prtConsoleLights=prtConsoleLights, prtAuxiliarySheetBannerPage=prtAuxiliarySheetBannerPage, PrtInterpreterTwoWayTC=PrtInterpreterTwoWayTC, prtStorageRefTable=prtStorageRefTable, PrtMarkerSuppliesSupplyUnitTC=PrtMarkerSuppliesSupplyUnitTC, prtOutputSecurity=prtOutputSecurity, prtMediaPathMediaSizeUnit=prtMediaPathMediaSizeUnit, prtMarkerSuppliesMarkerIndex=prtMarkerSuppliesMarkerIndex, prtDeviceRefSeqNumber=prtDeviceRefSeqNumber, prtConsoleDisplayBufferIndex=prtConsoleDisplayBufferIndex)
-mibBuilder.exportSymbols("Printer-MIB", prtMediaPathMaxSpeed=prtMediaPathMaxSpeed, prtInputVersion=prtInputVersion, prtInterpreterVersion=prtInterpreterVersion, prtMarkerCounterUnit=prtMarkerCounterUnit)
+_C7='printerV2Alert'
+_C6='prtChannelInformation'
+_C5='prtAlertAllEvents'
+_C4='prtAlertCriticalEvents'
+_C3='prtGeneralSerialNumber'
+_C2='prtGeneralPrinterName'
+_C1='prtInputNextIndex'
+_C0='prtInputMediaLoadTimeout'
+_B_='prtAuxiliarySheetBannerPage'
+_Bz='prtAuxiliarySheetStartupPage'
+_By='prtAlertTime'
+_Bx='prtAlertDescription'
+_Bw='prtAlertTrainingLevel'
+_Bv='prtConsoleDescription'
+_Bu='prtConsoleColor'
+_Bt='prtConsoleOffTime'
+_Bs='prtConsoleOnTime'
+_Br='prtConsoleDisplayBufferText'
+_Bq='prtConsoleDisable'
+_Bp='prtConsoleNumberOfDisplayChars'
+_Bo='prtConsoleNumberOfDisplayLines'
+_Bn='prtConsoleLocalization'
+_Bm='prtInterpreterTwoWay'
+_Bl='prtInterpreterDefaultCharSetOut'
+_Bk='prtInterpreterDefaultCharSetIn'
+_Bj='prtInterpreterXFeedAddressability'
+_Bi='prtInterpreterFeedAddressability'
+_Bh='prtInterpreterDefaultOrientation'
+_Bg='prtInterpreterVersion'
+_Bf='prtInterpreterDescription'
+_Be='prtInterpreterLangVersion'
+_Bd='prtInterpreterLangLevel'
+_Bc='prtInterpreterLangFamily'
+_Bb='prtChannelStatus'
+_Ba='prtChannelIfIndex'
+_BZ='prtChannelState'
+_BY='prtChannelDefaultPageDescLangIndex'
+_BX='prtChannelCurrentJobCntlLangIndex'
+_BW='prtChannelProtocolVersion'
+_BV='prtChannelType'
+_BU='prtMediaPathStatus'
+_BT='prtMediaPathDescription'
+_BS='prtMediaPathType'
+_BR='prtMediaPathMinMediaXFeedDir'
+_BQ='prtMediaPathMinMediaFeedDir'
+_BP='prtMediaPathMaxMediaXFeedDir'
+_BO='prtMediaPathMaxMediaFeedDir'
+_BN='prtMediaPathMaxSpeed'
+_BM='prtMediaPathMediaSizeUnit'
+_BL='prtMediaPathMaxSpeedPrintUnit'
+_BK='prtMediaPathDefaultIndex'
+_BJ='prtMarkerColorantTonality'
+_BI='prtMarkerColorantValue'
+_BH='prtMarkerColorantRole'
+_BG='prtMarkerColorantMarkerIndex'
+_BF='prtMarkerSuppliesLevel'
+_BE='prtMarkerSuppliesMaxCapacity'
+_BD='prtMarkerSuppliesSupplyUnit'
+_BC='prtMarkerSuppliesDescription'
+_BB='prtMarkerSuppliesType'
+_BA='prtMarkerSuppliesClass'
+_B9='prtMarkerSuppliesColorantIndex'
+_B8='prtMarkerSuppliesMarkerIndex'
+_B7='prtMarkerStatus'
+_B6='prtMarkerEastMargin'
+_B5='prtMarkerWestMargin'
+_B4='prtMarkerSouthMargin'
+_B3='prtMarkerNorthMargin'
+_B2='prtMarkerAddressabilityXFeedDir'
+_B1='prtMarkerAddressabilityFeedDir'
+_B0='prtMarkerAddressabilityUnit'
+_A_='prtMarkerSpotColorants'
+_Az='prtMarkerProcessColorants'
+_Ay='prtMarkerPowerOnCount'
+_Ax='prtMarkerLifeCount'
+_Aw='prtMarkerCounterUnit'
+_Av='prtMarkerMarkTech'
+_Au='prtMarkerDefaultIndex'
+_At='prtOutputOffsetStacking'
+_As='prtOutputPageCollated'
+_Ar='prtOutputDecollating'
+_Aq='prtOutputBursting'
+_Ap='prtOutputPageDeliveryOrientation'
+_Ao='prtOutputStackingOrder'
+_An='prtOutputMinDimXFeedDir'
+_Am='prtOutputMinDimFeedDir'
+_Al='prtOutputMaxDimXFeedDir'
+_Ak='prtOutputMaxDimFeedDir'
+_Aj='prtOutputDimUnit'
+_Ai='prtOutputSecurity'
+_Ah='prtOutputDescription'
+_Ag='prtOutputSerialNumber'
+_Af='prtOutputVersion'
+_Ae='prtOutputModel'
+_Ad='prtOutputVendorName'
+_Ac='prtOutputName'
+_Ab='prtOutputStatus'
+_Aa='prtOutputRemainingCapacity'
+_AZ='prtOutputMaxCapacity'
+_AY='prtOutputCapacityUnit'
+_AX='prtOutputType'
+_AW='prtOutputDefaultIndex'
+_AV='prtInputMediaFormParts'
+_AU='prtInputMediaColor'
+_AT='prtInputMediaType'
+_AS='prtInputMediaWeight'
+_AR='prtInputSecurity'
+_AQ='prtInputDescription'
+_AP='prtInputSerialNumber'
+_AO='prtInputVersion'
+_AN='prtInputModel'
+_AM='prtInputVendorName'
+_AL='prtInputName'
+_AK='prtInputMediaName'
+_AJ='prtInputStatus'
+_AI='prtInputCurrentLevel'
+_AH='prtInputMaxCapacity'
+_AG='prtInputCapacityUnit'
+_AF='prtInputMediaDimXFeedDirChosen'
+_AE='prtInputMediaDimFeedDirChosen'
+_AD='prtInputMediaDimXFeedDirDeclared'
+_AC='prtInputMediaDimFeedDirDeclared'
+_AB='prtInputDimUnit'
+_AA='prtInputType'
+_A9='prtInputDefaultIndex'
+_A8='prtGeneralServicePerson'
+_A7='prtGeneralCurrentOperator'
+_A6='prtDeviceRefIndex'
+_A5='prtStorageRefIndex'
+_A4='prtLocalizationCharacterSet'
+_A3='prtLocalizationCountry'
+_A2='prtLocalizationLanguage'
+_A1='prtCoverStatus'
+_A0='prtCoverDescription'
+_z='prtGeneralReset'
+_y='prtGeneralCurrentLocalization'
+_x='prtGeneralConfigChanges'
+_w='prtConsoleLightIndex'
+_v='prtConsoleDisplayBufferIndex'
+_u='prtInterpreterIndex'
+_t='prtChannelIndex'
+_s='prtMediaPathIndex'
+_r='prtMarkerColorantIndex'
+_q='prtMarkerSuppliesIndex'
+_p='prtMarkerIndex'
+_o='prtOutputIndex'
+_n='prtInputIndex'
+_m='prtLocalizationIndex'
+_l='prtCoverIndex'
+_k='prtDeviceRefSeqNumber'
+_j='prtStorageRefSeqNumber'
+_i='impressions'
+_h='percent'
+_g='hrStorageIndex'
+_f='prtAlertTableGroup'
+_e='prtConsoleGroup'
+_d='prtInterpreterGroup'
+_c='prtChannelGroup'
+_b='prtMediaPathGroup'
+_a='prtMarkerGroup'
+_Z='prtOutputGroup'
+_Y='prtInputGroup'
+_X='prtGeneralGroup'
+_W='prtAlertCode'
+_V='prtAlertLocation'
+_U='prtAlertGroupIndex'
+_T='prtAlertGroup'
+_S='prtAlertSeverityLevel'
+_R='unknown'
+_Q='prtAlertIndex'
+_P='meters'
+_O='feet'
+_N='sheets'
+_M='deprecated'
+_L='micrometers'
+_K='tenThousandthsOfInches'
+_J='other'
+_I='not-accessible'
+_H='hrDeviceIndex'
+_G='HOST-RESOURCES-MIB'
+_F='OctetString'
+_E='read-write'
+_D='Integer32'
+_C='read-only'
+_B='Printer-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+hrDeviceIndex,hrStorageIndex=mibBuilder.importSymbols(_G,_H,_g)
+IANACharset,=mibBuilder.importSymbols('IANA-CHARSET-MIB','IANACharset')
+PrtAlertCodeTC,PrtAlertGroupTC,PrtAlertTrainingLevelTC,PrtChannelTypeTC,PrtConsoleColorTC,PrtConsoleDisableTC,PrtCoverStatusTC,PrtGeneralResetTC,PrtInputTypeTC,PrtInterpreterLangFamilyTC,PrtMarkerMarkTechTC,PrtMarkerSuppliesTypeTC,PrtMediaPathTypeTC,PrtOutputTypeTC=mibBuilder.importSymbols('IANA-PRINTER-MIB','PrtAlertCodeTC','PrtAlertGroupTC','PrtAlertTrainingLevelTC','PrtChannelTypeTC','PrtConsoleColorTC','PrtConsoleDisableTC','PrtCoverStatusTC','PrtGeneralResetTC','PrtInputTypeTC','PrtInterpreterLangFamilyTC','PrtMarkerMarkTechTC','PrtMarkerSuppliesTypeTC','PrtMediaPathTypeTC','PrtOutputTypeTC')
+InterfaceIndexOrZero,=mibBuilder.importSymbols('IF-MIB','InterfaceIndexOrZero')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+printmib=ModuleIdentity((1,3,6,1,2,1,43))
+if mibBuilder.loadTexts:printmib.setRevisions(('2004-06-02 00:00','1994-11-25 00:00'))
+class PrtMediaUnitTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(3,4)));namedValues=NamedValues(*((_K,3),(_L,4)))
+class MediaUnit(TextualConvention,Integer32):status=_M;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(3,4)));namedValues=NamedValues(*((_K,3),(_L,4)))
+class PrtCapacityUnitTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,8,16,17,18,19)));namedValues=NamedValues(*((_J,1),(_R,2),(_K,3),(_L,4),(_N,8),(_O,16),(_P,17),('items',18),(_h,19)))
+class CapacityUnit(TextualConvention,Integer32):status=_M;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(3,4,8,16,17)));namedValues=NamedValues(*((_K,3),(_L,4),(_N,8),(_O,16),(_P,17)))
+class PrtPrintOrientationTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,3,4)));namedValues=NamedValues(*((_J,1),('portrait',3),('landscape',4)))
+class PrtSubUnitStatusTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,126))
+class SubUnitStatus(TextualConvention,Integer32):status=_M;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,126))
+class PresentOnOff(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,3,4,5)));namedValues=NamedValues(*((_J,1),('on',3),('off',4),('notPresent',5)))
+class PrtLocalizedDescriptionStringTC(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+class PrtConsoleDescriptionStringTC(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+class CodedCharSet(TextualConvention,Integer32):status=_M;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues((_J,1))
+class PrtChannelStateTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,3,4)));namedValues=NamedValues(*((_J,1),('printDataAccepted',3),('noDataAccepted',4)))
+class PrtOutputStackingOrderTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3,4)));namedValues=NamedValues(*((_R,2),('firstToLast',3),('lastToFirst',4)))
+class PrtOutputPageDeliveryOrientationTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(3,4)));namedValues=NamedValues(*(('faceUp',3),('faceDown',4)))
+class PrtMarkerCounterUnitTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(3,4,5,6,7,8,9,11,16,17)));namedValues=NamedValues(*((_K,3),(_L,4),('characters',5),('lines',6),(_i,7),(_N,8),('dotRow',9),('hours',11),(_O,16),(_P,17)))
+class PrtMarkerSuppliesSupplyUnitTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,7,8,11,12,13,14,15,16,17,18,19)));namedValues=NamedValues(*((_J,1),(_R,2),(_K,3),(_L,4),(_i,7),(_N,8),('hours',11),('thousandthsOfOunces',12),('tenthsOfGrams',13),('hundrethsOfFluidOunces',14),('tenthsOfMilliliters',15),(_O,16),(_P,17),('items',18),(_h,19)))
+class PrtMarkerSuppliesClassTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,3,4)));namedValues=NamedValues(*((_J,1),('supplyThatIsConsumed',3),('receptacleThatIsFilled',4)))
+class PrtMarkerColorantRoleTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,3,4)));namedValues=NamedValues(*((_J,1),('process',3),('spot',4)))
+class PrtMarkerAddressabilityUnitTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(3,4)));namedValues=NamedValues(*((_K,3),(_L,4)))
+class PrtMediaPathMaxSpeedPrintUnitTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(3,4,5,6,7,8,9,16,17)));namedValues=NamedValues(*(('tenThousandthsOfInchesPerHour',3),('micrometersPerHour',4),('charactersPerHour',5),('linesPerHour',6),('impressionsPerHour',7),('sheetsPerHour',8),('dotRowPerHour',9),('feetPerHour',16),('metersPerHour',17)))
+class PrtInterpreterTwoWayTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(3,4)));namedValues=NamedValues(*(('yes',3),('no',4)))
+class PrtAlertSeverityLevelTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,3,4,5)));namedValues=NamedValues(*((_J,1),('critical',3),('warning',4),('warningBinaryChangeEvent',5)))
+_PrtMIBConformance_ObjectIdentity=ObjectIdentity
+prtMIBConformance=_PrtMIBConformance_ObjectIdentity((1,3,6,1,2,1,43,2))
+_PrtMIBGroups_ObjectIdentity=ObjectIdentity
+prtMIBGroups=_PrtMIBGroups_ObjectIdentity((1,3,6,1,2,1,43,2,2))
+_PrtMIB2Groups_ObjectIdentity=ObjectIdentity
+prtMIB2Groups=_PrtMIB2Groups_ObjectIdentity((1,3,6,1,2,1,43,2,4))
+_PrtGeneral_ObjectIdentity=ObjectIdentity
+prtGeneral=_PrtGeneral_ObjectIdentity((1,3,6,1,2,1,43,5))
+_PrtGeneralTable_Object=MibTable
+prtGeneralTable=_PrtGeneralTable_Object((1,3,6,1,2,1,43,5,1))
+if mibBuilder.loadTexts:prtGeneralTable.setStatus(_A)
+_PrtGeneralEntry_Object=MibTableRow
+prtGeneralEntry=_PrtGeneralEntry_Object((1,3,6,1,2,1,43,5,1,1))
+prtGeneralEntry.setIndexNames((0,_G,_H))
+if mibBuilder.loadTexts:prtGeneralEntry.setStatus(_A)
+_PrtGeneralConfigChanges_Type=Counter32
+_PrtGeneralConfigChanges_Object=MibTableColumn
+prtGeneralConfigChanges=_PrtGeneralConfigChanges_Object((1,3,6,1,2,1,43,5,1,1,1),_PrtGeneralConfigChanges_Type())
+prtGeneralConfigChanges.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtGeneralConfigChanges.setStatus(_A)
+class _PrtGeneralCurrentLocalization_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtGeneralCurrentLocalization_Type.__name__=_D
+_PrtGeneralCurrentLocalization_Object=MibTableColumn
+prtGeneralCurrentLocalization=_PrtGeneralCurrentLocalization_Object((1,3,6,1,2,1,43,5,1,1,2),_PrtGeneralCurrentLocalization_Type())
+prtGeneralCurrentLocalization.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtGeneralCurrentLocalization.setStatus(_A)
+_PrtGeneralReset_Type=PrtGeneralResetTC
+_PrtGeneralReset_Object=MibTableColumn
+prtGeneralReset=_PrtGeneralReset_Object((1,3,6,1,2,1,43,5,1,1,3),_PrtGeneralReset_Type())
+prtGeneralReset.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtGeneralReset.setStatus(_A)
+class _PrtGeneralCurrentOperator_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
+_PrtGeneralCurrentOperator_Type.__name__=_F
+_PrtGeneralCurrentOperator_Object=MibTableColumn
+prtGeneralCurrentOperator=_PrtGeneralCurrentOperator_Object((1,3,6,1,2,1,43,5,1,1,4),_PrtGeneralCurrentOperator_Type())
+prtGeneralCurrentOperator.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtGeneralCurrentOperator.setStatus(_A)
+class _PrtGeneralServicePerson_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
+_PrtGeneralServicePerson_Type.__name__=_F
+_PrtGeneralServicePerson_Object=MibTableColumn
+prtGeneralServicePerson=_PrtGeneralServicePerson_Object((1,3,6,1,2,1,43,5,1,1,5),_PrtGeneralServicePerson_Type())
+prtGeneralServicePerson.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtGeneralServicePerson.setStatus(_A)
+class _PrtInputDefaultIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtInputDefaultIndex_Type.__name__=_D
+_PrtInputDefaultIndex_Object=MibTableColumn
+prtInputDefaultIndex=_PrtInputDefaultIndex_Object((1,3,6,1,2,1,43,5,1,1,6),_PrtInputDefaultIndex_Type())
+prtInputDefaultIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtInputDefaultIndex.setStatus(_A)
+class _PrtOutputDefaultIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtOutputDefaultIndex_Type.__name__=_D
+_PrtOutputDefaultIndex_Object=MibTableColumn
+prtOutputDefaultIndex=_PrtOutputDefaultIndex_Object((1,3,6,1,2,1,43,5,1,1,7),_PrtOutputDefaultIndex_Type())
+prtOutputDefaultIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtOutputDefaultIndex.setStatus(_A)
+class _PrtMarkerDefaultIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtMarkerDefaultIndex_Type.__name__=_D
+_PrtMarkerDefaultIndex_Object=MibTableColumn
+prtMarkerDefaultIndex=_PrtMarkerDefaultIndex_Object((1,3,6,1,2,1,43,5,1,1,8),_PrtMarkerDefaultIndex_Type())
+prtMarkerDefaultIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtMarkerDefaultIndex.setStatus(_A)
+class _PrtMediaPathDefaultIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtMediaPathDefaultIndex_Type.__name__=_D
+_PrtMediaPathDefaultIndex_Object=MibTableColumn
+prtMediaPathDefaultIndex=_PrtMediaPathDefaultIndex_Object((1,3,6,1,2,1,43,5,1,1,9),_PrtMediaPathDefaultIndex_Type())
+prtMediaPathDefaultIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtMediaPathDefaultIndex.setStatus(_A)
+class _PrtConsoleLocalization_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtConsoleLocalization_Type.__name__=_D
+_PrtConsoleLocalization_Object=MibTableColumn
+prtConsoleLocalization=_PrtConsoleLocalization_Object((1,3,6,1,2,1,43,5,1,1,10),_PrtConsoleLocalization_Type())
+prtConsoleLocalization.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtConsoleLocalization.setStatus(_A)
+class _PrtConsoleNumberOfDisplayLines_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PrtConsoleNumberOfDisplayLines_Type.__name__=_D
+_PrtConsoleNumberOfDisplayLines_Object=MibTableColumn
+prtConsoleNumberOfDisplayLines=_PrtConsoleNumberOfDisplayLines_Object((1,3,6,1,2,1,43,5,1,1,11),_PrtConsoleNumberOfDisplayLines_Type())
+prtConsoleNumberOfDisplayLines.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtConsoleNumberOfDisplayLines.setStatus(_A)
+class _PrtConsoleNumberOfDisplayChars_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PrtConsoleNumberOfDisplayChars_Type.__name__=_D
+_PrtConsoleNumberOfDisplayChars_Object=MibTableColumn
+prtConsoleNumberOfDisplayChars=_PrtConsoleNumberOfDisplayChars_Object((1,3,6,1,2,1,43,5,1,1,12),_PrtConsoleNumberOfDisplayChars_Type())
+prtConsoleNumberOfDisplayChars.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtConsoleNumberOfDisplayChars.setStatus(_A)
+_PrtConsoleDisable_Type=PrtConsoleDisableTC
+_PrtConsoleDisable_Object=MibTableColumn
+prtConsoleDisable=_PrtConsoleDisable_Object((1,3,6,1,2,1,43,5,1,1,13),_PrtConsoleDisable_Type())
+prtConsoleDisable.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtConsoleDisable.setStatus(_A)
+_PrtAuxiliarySheetStartupPage_Type=PresentOnOff
+_PrtAuxiliarySheetStartupPage_Object=MibTableColumn
+prtAuxiliarySheetStartupPage=_PrtAuxiliarySheetStartupPage_Object((1,3,6,1,2,1,43,5,1,1,14),_PrtAuxiliarySheetStartupPage_Type())
+prtAuxiliarySheetStartupPage.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtAuxiliarySheetStartupPage.setStatus(_A)
+_PrtAuxiliarySheetBannerPage_Type=PresentOnOff
+_PrtAuxiliarySheetBannerPage_Object=MibTableColumn
+prtAuxiliarySheetBannerPage=_PrtAuxiliarySheetBannerPage_Object((1,3,6,1,2,1,43,5,1,1,15),_PrtAuxiliarySheetBannerPage_Type())
+prtAuxiliarySheetBannerPage.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtAuxiliarySheetBannerPage.setStatus(_A)
+class _PrtGeneralPrinterName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
+_PrtGeneralPrinterName_Type.__name__=_F
+_PrtGeneralPrinterName_Object=MibTableColumn
+prtGeneralPrinterName=_PrtGeneralPrinterName_Object((1,3,6,1,2,1,43,5,1,1,16),_PrtGeneralPrinterName_Type())
+prtGeneralPrinterName.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtGeneralPrinterName.setStatus(_A)
+class _PrtGeneralSerialNumber_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_PrtGeneralSerialNumber_Type.__name__=_F
+_PrtGeneralSerialNumber_Object=MibTableColumn
+prtGeneralSerialNumber=_PrtGeneralSerialNumber_Object((1,3,6,1,2,1,43,5,1,1,17),_PrtGeneralSerialNumber_Type())
+prtGeneralSerialNumber.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtGeneralSerialNumber.setStatus(_A)
+_PrtAlertCriticalEvents_Type=Counter32
+_PrtAlertCriticalEvents_Object=MibTableColumn
+prtAlertCriticalEvents=_PrtAlertCriticalEvents_Object((1,3,6,1,2,1,43,5,1,1,18),_PrtAlertCriticalEvents_Type())
+prtAlertCriticalEvents.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtAlertCriticalEvents.setStatus(_A)
+_PrtAlertAllEvents_Type=Counter32
+_PrtAlertAllEvents_Object=MibTableColumn
+prtAlertAllEvents=_PrtAlertAllEvents_Object((1,3,6,1,2,1,43,5,1,1,19),_PrtAlertAllEvents_Type())
+prtAlertAllEvents.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtAlertAllEvents.setStatus(_A)
+_PrtStorageRefTable_Object=MibTable
+prtStorageRefTable=_PrtStorageRefTable_Object((1,3,6,1,2,1,43,5,2))
+if mibBuilder.loadTexts:prtStorageRefTable.setStatus(_A)
+_PrtStorageRefEntry_Object=MibTableRow
+prtStorageRefEntry=_PrtStorageRefEntry_Object((1,3,6,1,2,1,43,5,2,1))
+prtStorageRefEntry.setIndexNames((0,_G,_g),(0,_B,_j))
+if mibBuilder.loadTexts:prtStorageRefEntry.setStatus(_A)
+class _PrtStorageRefSeqNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtStorageRefSeqNumber_Type.__name__=_D
+_PrtStorageRefSeqNumber_Object=MibTableColumn
+prtStorageRefSeqNumber=_PrtStorageRefSeqNumber_Object((1,3,6,1,2,1,43,5,2,1,1),_PrtStorageRefSeqNumber_Type())
+prtStorageRefSeqNumber.setMaxAccess(_I)
+if mibBuilder.loadTexts:prtStorageRefSeqNumber.setStatus(_A)
+class _PrtStorageRefIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_PrtStorageRefIndex_Type.__name__=_D
+_PrtStorageRefIndex_Object=MibTableColumn
+prtStorageRefIndex=_PrtStorageRefIndex_Object((1,3,6,1,2,1,43,5,2,1,2),_PrtStorageRefIndex_Type())
+prtStorageRefIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtStorageRefIndex.setStatus(_A)
+_PrtDeviceRefTable_Object=MibTable
+prtDeviceRefTable=_PrtDeviceRefTable_Object((1,3,6,1,2,1,43,5,3))
+if mibBuilder.loadTexts:prtDeviceRefTable.setStatus(_A)
+_PrtDeviceRefEntry_Object=MibTableRow
+prtDeviceRefEntry=_PrtDeviceRefEntry_Object((1,3,6,1,2,1,43,5,3,1))
+prtDeviceRefEntry.setIndexNames((0,_G,_H),(0,_B,_k))
+if mibBuilder.loadTexts:prtDeviceRefEntry.setStatus(_A)
+class _PrtDeviceRefSeqNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtDeviceRefSeqNumber_Type.__name__=_D
+_PrtDeviceRefSeqNumber_Object=MibTableColumn
+prtDeviceRefSeqNumber=_PrtDeviceRefSeqNumber_Object((1,3,6,1,2,1,43,5,3,1,1),_PrtDeviceRefSeqNumber_Type())
+prtDeviceRefSeqNumber.setMaxAccess(_I)
+if mibBuilder.loadTexts:prtDeviceRefSeqNumber.setStatus(_A)
+class _PrtDeviceRefIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_PrtDeviceRefIndex_Type.__name__=_D
+_PrtDeviceRefIndex_Object=MibTableColumn
+prtDeviceRefIndex=_PrtDeviceRefIndex_Object((1,3,6,1,2,1,43,5,3,1,2),_PrtDeviceRefIndex_Type())
+prtDeviceRefIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtDeviceRefIndex.setStatus(_A)
+_PrtCover_ObjectIdentity=ObjectIdentity
+prtCover=_PrtCover_ObjectIdentity((1,3,6,1,2,1,43,6))
+_PrtCoverTable_Object=MibTable
+prtCoverTable=_PrtCoverTable_Object((1,3,6,1,2,1,43,6,1))
+if mibBuilder.loadTexts:prtCoverTable.setStatus(_A)
+_PrtCoverEntry_Object=MibTableRow
+prtCoverEntry=_PrtCoverEntry_Object((1,3,6,1,2,1,43,6,1,1))
+prtCoverEntry.setIndexNames((0,_G,_H),(0,_B,_l))
+if mibBuilder.loadTexts:prtCoverEntry.setStatus(_A)
+class _PrtCoverIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtCoverIndex_Type.__name__=_D
+_PrtCoverIndex_Object=MibTableColumn
+prtCoverIndex=_PrtCoverIndex_Object((1,3,6,1,2,1,43,6,1,1,1),_PrtCoverIndex_Type())
+prtCoverIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:prtCoverIndex.setStatus(_A)
+_PrtCoverDescription_Type=PrtLocalizedDescriptionStringTC
+_PrtCoverDescription_Object=MibTableColumn
+prtCoverDescription=_PrtCoverDescription_Object((1,3,6,1,2,1,43,6,1,1,2),_PrtCoverDescription_Type())
+prtCoverDescription.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtCoverDescription.setStatus(_A)
+_PrtCoverStatus_Type=PrtCoverStatusTC
+_PrtCoverStatus_Object=MibTableColumn
+prtCoverStatus=_PrtCoverStatus_Object((1,3,6,1,2,1,43,6,1,1,3),_PrtCoverStatus_Type())
+prtCoverStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtCoverStatus.setStatus(_A)
+_PrtLocalization_ObjectIdentity=ObjectIdentity
+prtLocalization=_PrtLocalization_ObjectIdentity((1,3,6,1,2,1,43,7))
+_PrtLocalizationTable_Object=MibTable
+prtLocalizationTable=_PrtLocalizationTable_Object((1,3,6,1,2,1,43,7,1))
+if mibBuilder.loadTexts:prtLocalizationTable.setStatus(_A)
+_PrtLocalizationEntry_Object=MibTableRow
+prtLocalizationEntry=_PrtLocalizationEntry_Object((1,3,6,1,2,1,43,7,1,1))
+prtLocalizationEntry.setIndexNames((0,_G,_H),(0,_B,_m))
+if mibBuilder.loadTexts:prtLocalizationEntry.setStatus(_A)
+class _PrtLocalizationIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtLocalizationIndex_Type.__name__=_D
+_PrtLocalizationIndex_Object=MibTableColumn
+prtLocalizationIndex=_PrtLocalizationIndex_Object((1,3,6,1,2,1,43,7,1,1,1),_PrtLocalizationIndex_Type())
+prtLocalizationIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:prtLocalizationIndex.setStatus(_A)
+class _PrtLocalizationLanguage_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
+_PrtLocalizationLanguage_Type.__name__=_F
+_PrtLocalizationLanguage_Object=MibTableColumn
+prtLocalizationLanguage=_PrtLocalizationLanguage_Object((1,3,6,1,2,1,43,7,1,1,2),_PrtLocalizationLanguage_Type())
+prtLocalizationLanguage.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtLocalizationLanguage.setStatus(_A)
+class _PrtLocalizationCountry_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
+_PrtLocalizationCountry_Type.__name__=_F
+_PrtLocalizationCountry_Object=MibTableColumn
+prtLocalizationCountry=_PrtLocalizationCountry_Object((1,3,6,1,2,1,43,7,1,1,3),_PrtLocalizationCountry_Type())
+prtLocalizationCountry.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtLocalizationCountry.setStatus(_A)
+_PrtLocalizationCharacterSet_Type=IANACharset
+_PrtLocalizationCharacterSet_Object=MibTableColumn
+prtLocalizationCharacterSet=_PrtLocalizationCharacterSet_Object((1,3,6,1,2,1,43,7,1,1,4),_PrtLocalizationCharacterSet_Type())
+prtLocalizationCharacterSet.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtLocalizationCharacterSet.setStatus(_A)
+_PrtInput_ObjectIdentity=ObjectIdentity
+prtInput=_PrtInput_ObjectIdentity((1,3,6,1,2,1,43,8))
+_PrtInputTable_Object=MibTable
+prtInputTable=_PrtInputTable_Object((1,3,6,1,2,1,43,8,2))
+if mibBuilder.loadTexts:prtInputTable.setStatus(_A)
+_PrtInputEntry_Object=MibTableRow
+prtInputEntry=_PrtInputEntry_Object((1,3,6,1,2,1,43,8,2,1))
+prtInputEntry.setIndexNames((0,_G,_H),(0,_B,_n))
+if mibBuilder.loadTexts:prtInputEntry.setStatus(_A)
+class _PrtInputIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtInputIndex_Type.__name__=_D
+_PrtInputIndex_Object=MibTableColumn
+prtInputIndex=_PrtInputIndex_Object((1,3,6,1,2,1,43,8,2,1,1),_PrtInputIndex_Type())
+prtInputIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:prtInputIndex.setStatus(_A)
+_PrtInputType_Type=PrtInputTypeTC
+_PrtInputType_Object=MibTableColumn
+prtInputType=_PrtInputType_Object((1,3,6,1,2,1,43,8,2,1,2),_PrtInputType_Type())
+prtInputType.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInputType.setStatus(_A)
+_PrtInputDimUnit_Type=PrtMediaUnitTC
+_PrtInputDimUnit_Object=MibTableColumn
+prtInputDimUnit=_PrtInputDimUnit_Object((1,3,6,1,2,1,43,8,2,1,3),_PrtInputDimUnit_Type())
+prtInputDimUnit.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInputDimUnit.setStatus(_A)
+class _PrtInputMediaDimFeedDirDeclared_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtInputMediaDimFeedDirDeclared_Type.__name__=_D
+_PrtInputMediaDimFeedDirDeclared_Object=MibTableColumn
+prtInputMediaDimFeedDirDeclared=_PrtInputMediaDimFeedDirDeclared_Object((1,3,6,1,2,1,43,8,2,1,4),_PrtInputMediaDimFeedDirDeclared_Type())
+prtInputMediaDimFeedDirDeclared.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtInputMediaDimFeedDirDeclared.setStatus(_A)
+class _PrtInputMediaDimXFeedDirDeclared_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtInputMediaDimXFeedDirDeclared_Type.__name__=_D
+_PrtInputMediaDimXFeedDirDeclared_Object=MibTableColumn
+prtInputMediaDimXFeedDirDeclared=_PrtInputMediaDimXFeedDirDeclared_Object((1,3,6,1,2,1,43,8,2,1,5),_PrtInputMediaDimXFeedDirDeclared_Type())
+prtInputMediaDimXFeedDirDeclared.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtInputMediaDimXFeedDirDeclared.setStatus(_A)
+class _PrtInputMediaDimFeedDirChosen_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtInputMediaDimFeedDirChosen_Type.__name__=_D
+_PrtInputMediaDimFeedDirChosen_Object=MibTableColumn
+prtInputMediaDimFeedDirChosen=_PrtInputMediaDimFeedDirChosen_Object((1,3,6,1,2,1,43,8,2,1,6),_PrtInputMediaDimFeedDirChosen_Type())
+prtInputMediaDimFeedDirChosen.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInputMediaDimFeedDirChosen.setStatus(_A)
+class _PrtInputMediaDimXFeedDirChosen_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtInputMediaDimXFeedDirChosen_Type.__name__=_D
+_PrtInputMediaDimXFeedDirChosen_Object=MibTableColumn
+prtInputMediaDimXFeedDirChosen=_PrtInputMediaDimXFeedDirChosen_Object((1,3,6,1,2,1,43,8,2,1,7),_PrtInputMediaDimXFeedDirChosen_Type())
+prtInputMediaDimXFeedDirChosen.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInputMediaDimXFeedDirChosen.setStatus(_A)
+_PrtInputCapacityUnit_Type=PrtCapacityUnitTC
+_PrtInputCapacityUnit_Object=MibTableColumn
+prtInputCapacityUnit=_PrtInputCapacityUnit_Object((1,3,6,1,2,1,43,8,2,1,8),_PrtInputCapacityUnit_Type())
+prtInputCapacityUnit.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInputCapacityUnit.setStatus(_A)
+class _PrtInputMaxCapacity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtInputMaxCapacity_Type.__name__=_D
+_PrtInputMaxCapacity_Object=MibTableColumn
+prtInputMaxCapacity=_PrtInputMaxCapacity_Object((1,3,6,1,2,1,43,8,2,1,9),_PrtInputMaxCapacity_Type())
+prtInputMaxCapacity.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtInputMaxCapacity.setStatus(_A)
+class _PrtInputCurrentLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-3,2147483647))
+_PrtInputCurrentLevel_Type.__name__=_D
+_PrtInputCurrentLevel_Object=MibTableColumn
+prtInputCurrentLevel=_PrtInputCurrentLevel_Object((1,3,6,1,2,1,43,8,2,1,10),_PrtInputCurrentLevel_Type())
+prtInputCurrentLevel.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtInputCurrentLevel.setStatus(_A)
+_PrtInputStatus_Type=PrtSubUnitStatusTC
+_PrtInputStatus_Object=MibTableColumn
+prtInputStatus=_PrtInputStatus_Object((1,3,6,1,2,1,43,8,2,1,11),_PrtInputStatus_Type())
+prtInputStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInputStatus.setStatus(_A)
+class _PrtInputMediaName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_PrtInputMediaName_Type.__name__=_F
+_PrtInputMediaName_Object=MibTableColumn
+prtInputMediaName=_PrtInputMediaName_Object((1,3,6,1,2,1,43,8,2,1,12),_PrtInputMediaName_Type())
+prtInputMediaName.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtInputMediaName.setStatus(_A)
+class _PrtInputName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_PrtInputName_Type.__name__=_F
+_PrtInputName_Object=MibTableColumn
+prtInputName=_PrtInputName_Object((1,3,6,1,2,1,43,8,2,1,13),_PrtInputName_Type())
+prtInputName.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtInputName.setStatus(_A)
+class _PrtInputVendorName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_PrtInputVendorName_Type.__name__=_F
+_PrtInputVendorName_Object=MibTableColumn
+prtInputVendorName=_PrtInputVendorName_Object((1,3,6,1,2,1,43,8,2,1,14),_PrtInputVendorName_Type())
+prtInputVendorName.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInputVendorName.setStatus(_A)
+class _PrtInputModel_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_PrtInputModel_Type.__name__=_F
+_PrtInputModel_Object=MibTableColumn
+prtInputModel=_PrtInputModel_Object((1,3,6,1,2,1,43,8,2,1,15),_PrtInputModel_Type())
+prtInputModel.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInputModel.setStatus(_A)
+class _PrtInputVersion_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_PrtInputVersion_Type.__name__=_F
+_PrtInputVersion_Object=MibTableColumn
+prtInputVersion=_PrtInputVersion_Object((1,3,6,1,2,1,43,8,2,1,16),_PrtInputVersion_Type())
+prtInputVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInputVersion.setStatus(_A)
+class _PrtInputSerialNumber_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_PrtInputSerialNumber_Type.__name__=_F
+_PrtInputSerialNumber_Object=MibTableColumn
+prtInputSerialNumber=_PrtInputSerialNumber_Object((1,3,6,1,2,1,43,8,2,1,17),_PrtInputSerialNumber_Type())
+prtInputSerialNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInputSerialNumber.setStatus(_A)
+_PrtInputDescription_Type=PrtLocalizedDescriptionStringTC
+_PrtInputDescription_Object=MibTableColumn
+prtInputDescription=_PrtInputDescription_Object((1,3,6,1,2,1,43,8,2,1,18),_PrtInputDescription_Type())
+prtInputDescription.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInputDescription.setStatus(_A)
+_PrtInputSecurity_Type=PresentOnOff
+_PrtInputSecurity_Object=MibTableColumn
+prtInputSecurity=_PrtInputSecurity_Object((1,3,6,1,2,1,43,8,2,1,19),_PrtInputSecurity_Type())
+prtInputSecurity.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtInputSecurity.setStatus(_A)
+class _PrtInputMediaWeight_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtInputMediaWeight_Type.__name__=_D
+_PrtInputMediaWeight_Object=MibTableColumn
+prtInputMediaWeight=_PrtInputMediaWeight_Object((1,3,6,1,2,1,43,8,2,1,20),_PrtInputMediaWeight_Type())
+prtInputMediaWeight.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtInputMediaWeight.setStatus(_A)
+class _PrtInputMediaType_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_PrtInputMediaType_Type.__name__=_F
+_PrtInputMediaType_Object=MibTableColumn
+prtInputMediaType=_PrtInputMediaType_Object((1,3,6,1,2,1,43,8,2,1,21),_PrtInputMediaType_Type())
+prtInputMediaType.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtInputMediaType.setStatus(_A)
+class _PrtInputMediaColor_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_PrtInputMediaColor_Type.__name__=_F
+_PrtInputMediaColor_Object=MibTableColumn
+prtInputMediaColor=_PrtInputMediaColor_Object((1,3,6,1,2,1,43,8,2,1,22),_PrtInputMediaColor_Type())
+prtInputMediaColor.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtInputMediaColor.setStatus(_A)
+class _PrtInputMediaFormParts_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtInputMediaFormParts_Type.__name__=_D
+_PrtInputMediaFormParts_Object=MibTableColumn
+prtInputMediaFormParts=_PrtInputMediaFormParts_Object((1,3,6,1,2,1,43,8,2,1,23),_PrtInputMediaFormParts_Type())
+prtInputMediaFormParts.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtInputMediaFormParts.setStatus(_A)
+class _PrtInputMediaLoadTimeout_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtInputMediaLoadTimeout_Type.__name__=_D
+_PrtInputMediaLoadTimeout_Object=MibTableColumn
+prtInputMediaLoadTimeout=_PrtInputMediaLoadTimeout_Object((1,3,6,1,2,1,43,8,2,1,24),_PrtInputMediaLoadTimeout_Type())
+prtInputMediaLoadTimeout.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtInputMediaLoadTimeout.setStatus(_A)
+class _PrtInputNextIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-3,2147483647))
+_PrtInputNextIndex_Type.__name__=_D
+_PrtInputNextIndex_Object=MibTableColumn
+prtInputNextIndex=_PrtInputNextIndex_Object((1,3,6,1,2,1,43,8,2,1,25),_PrtInputNextIndex_Type())
+prtInputNextIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtInputNextIndex.setStatus(_A)
+_PrtOutput_ObjectIdentity=ObjectIdentity
+prtOutput=_PrtOutput_ObjectIdentity((1,3,6,1,2,1,43,9))
+_PrtOutputTable_Object=MibTable
+prtOutputTable=_PrtOutputTable_Object((1,3,6,1,2,1,43,9,2))
+if mibBuilder.loadTexts:prtOutputTable.setStatus(_A)
+_PrtOutputEntry_Object=MibTableRow
+prtOutputEntry=_PrtOutputEntry_Object((1,3,6,1,2,1,43,9,2,1))
+prtOutputEntry.setIndexNames((0,_G,_H),(0,_B,_o))
+if mibBuilder.loadTexts:prtOutputEntry.setStatus(_A)
+class _PrtOutputIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtOutputIndex_Type.__name__=_D
+_PrtOutputIndex_Object=MibTableColumn
+prtOutputIndex=_PrtOutputIndex_Object((1,3,6,1,2,1,43,9,2,1,1),_PrtOutputIndex_Type())
+prtOutputIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:prtOutputIndex.setStatus(_A)
+_PrtOutputType_Type=PrtOutputTypeTC
+_PrtOutputType_Object=MibTableColumn
+prtOutputType=_PrtOutputType_Object((1,3,6,1,2,1,43,9,2,1,2),_PrtOutputType_Type())
+prtOutputType.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtOutputType.setStatus(_A)
+_PrtOutputCapacityUnit_Type=PrtCapacityUnitTC
+_PrtOutputCapacityUnit_Object=MibTableColumn
+prtOutputCapacityUnit=_PrtOutputCapacityUnit_Object((1,3,6,1,2,1,43,9,2,1,3),_PrtOutputCapacityUnit_Type())
+prtOutputCapacityUnit.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtOutputCapacityUnit.setStatus(_A)
+class _PrtOutputMaxCapacity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtOutputMaxCapacity_Type.__name__=_D
+_PrtOutputMaxCapacity_Object=MibTableColumn
+prtOutputMaxCapacity=_PrtOutputMaxCapacity_Object((1,3,6,1,2,1,43,9,2,1,4),_PrtOutputMaxCapacity_Type())
+prtOutputMaxCapacity.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtOutputMaxCapacity.setStatus(_A)
+class _PrtOutputRemainingCapacity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-3,2147483647))
+_PrtOutputRemainingCapacity_Type.__name__=_D
+_PrtOutputRemainingCapacity_Object=MibTableColumn
+prtOutputRemainingCapacity=_PrtOutputRemainingCapacity_Object((1,3,6,1,2,1,43,9,2,1,5),_PrtOutputRemainingCapacity_Type())
+prtOutputRemainingCapacity.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtOutputRemainingCapacity.setStatus(_A)
+_PrtOutputStatus_Type=PrtSubUnitStatusTC
+_PrtOutputStatus_Object=MibTableColumn
+prtOutputStatus=_PrtOutputStatus_Object((1,3,6,1,2,1,43,9,2,1,6),_PrtOutputStatus_Type())
+prtOutputStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtOutputStatus.setStatus(_A)
+class _PrtOutputName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_PrtOutputName_Type.__name__=_F
+_PrtOutputName_Object=MibTableColumn
+prtOutputName=_PrtOutputName_Object((1,3,6,1,2,1,43,9,2,1,7),_PrtOutputName_Type())
+prtOutputName.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtOutputName.setStatus(_A)
+class _PrtOutputVendorName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_PrtOutputVendorName_Type.__name__=_F
+_PrtOutputVendorName_Object=MibTableColumn
+prtOutputVendorName=_PrtOutputVendorName_Object((1,3,6,1,2,1,43,9,2,1,8),_PrtOutputVendorName_Type())
+prtOutputVendorName.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtOutputVendorName.setStatus(_A)
+class _PrtOutputModel_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_PrtOutputModel_Type.__name__=_F
+_PrtOutputModel_Object=MibTableColumn
+prtOutputModel=_PrtOutputModel_Object((1,3,6,1,2,1,43,9,2,1,9),_PrtOutputModel_Type())
+prtOutputModel.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtOutputModel.setStatus(_A)
+class _PrtOutputVersion_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_PrtOutputVersion_Type.__name__=_F
+_PrtOutputVersion_Object=MibTableColumn
+prtOutputVersion=_PrtOutputVersion_Object((1,3,6,1,2,1,43,9,2,1,10),_PrtOutputVersion_Type())
+prtOutputVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtOutputVersion.setStatus(_A)
+class _PrtOutputSerialNumber_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_PrtOutputSerialNumber_Type.__name__=_F
+_PrtOutputSerialNumber_Object=MibTableColumn
+prtOutputSerialNumber=_PrtOutputSerialNumber_Object((1,3,6,1,2,1,43,9,2,1,11),_PrtOutputSerialNumber_Type())
+prtOutputSerialNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtOutputSerialNumber.setStatus(_A)
+_PrtOutputDescription_Type=PrtLocalizedDescriptionStringTC
+_PrtOutputDescription_Object=MibTableColumn
+prtOutputDescription=_PrtOutputDescription_Object((1,3,6,1,2,1,43,9,2,1,12),_PrtOutputDescription_Type())
+prtOutputDescription.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtOutputDescription.setStatus(_A)
+_PrtOutputSecurity_Type=PresentOnOff
+_PrtOutputSecurity_Object=MibTableColumn
+prtOutputSecurity=_PrtOutputSecurity_Object((1,3,6,1,2,1,43,9,2,1,13),_PrtOutputSecurity_Type())
+prtOutputSecurity.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtOutputSecurity.setStatus(_A)
+_PrtOutputDimUnit_Type=PrtMediaUnitTC
+_PrtOutputDimUnit_Object=MibTableColumn
+prtOutputDimUnit=_PrtOutputDimUnit_Object((1,3,6,1,2,1,43,9,2,1,14),_PrtOutputDimUnit_Type())
+prtOutputDimUnit.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtOutputDimUnit.setStatus(_A)
+class _PrtOutputMaxDimFeedDir_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtOutputMaxDimFeedDir_Type.__name__=_D
+_PrtOutputMaxDimFeedDir_Object=MibTableColumn
+prtOutputMaxDimFeedDir=_PrtOutputMaxDimFeedDir_Object((1,3,6,1,2,1,43,9,2,1,15),_PrtOutputMaxDimFeedDir_Type())
+prtOutputMaxDimFeedDir.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtOutputMaxDimFeedDir.setStatus(_A)
+class _PrtOutputMaxDimXFeedDir_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtOutputMaxDimXFeedDir_Type.__name__=_D
+_PrtOutputMaxDimXFeedDir_Object=MibTableColumn
+prtOutputMaxDimXFeedDir=_PrtOutputMaxDimXFeedDir_Object((1,3,6,1,2,1,43,9,2,1,16),_PrtOutputMaxDimXFeedDir_Type())
+prtOutputMaxDimXFeedDir.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtOutputMaxDimXFeedDir.setStatus(_A)
+class _PrtOutputMinDimFeedDir_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtOutputMinDimFeedDir_Type.__name__=_D
+_PrtOutputMinDimFeedDir_Object=MibTableColumn
+prtOutputMinDimFeedDir=_PrtOutputMinDimFeedDir_Object((1,3,6,1,2,1,43,9,2,1,17),_PrtOutputMinDimFeedDir_Type())
+prtOutputMinDimFeedDir.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtOutputMinDimFeedDir.setStatus(_A)
+class _PrtOutputMinDimXFeedDir_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtOutputMinDimXFeedDir_Type.__name__=_D
+_PrtOutputMinDimXFeedDir_Object=MibTableColumn
+prtOutputMinDimXFeedDir=_PrtOutputMinDimXFeedDir_Object((1,3,6,1,2,1,43,9,2,1,18),_PrtOutputMinDimXFeedDir_Type())
+prtOutputMinDimXFeedDir.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtOutputMinDimXFeedDir.setStatus(_A)
+_PrtOutputStackingOrder_Type=PrtOutputStackingOrderTC
+_PrtOutputStackingOrder_Object=MibTableColumn
+prtOutputStackingOrder=_PrtOutputStackingOrder_Object((1,3,6,1,2,1,43,9,2,1,19),_PrtOutputStackingOrder_Type())
+prtOutputStackingOrder.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtOutputStackingOrder.setStatus(_A)
+_PrtOutputPageDeliveryOrientation_Type=PrtOutputPageDeliveryOrientationTC
+_PrtOutputPageDeliveryOrientation_Object=MibTableColumn
+prtOutputPageDeliveryOrientation=_PrtOutputPageDeliveryOrientation_Object((1,3,6,1,2,1,43,9,2,1,20),_PrtOutputPageDeliveryOrientation_Type())
+prtOutputPageDeliveryOrientation.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtOutputPageDeliveryOrientation.setStatus(_A)
+_PrtOutputBursting_Type=PresentOnOff
+_PrtOutputBursting_Object=MibTableColumn
+prtOutputBursting=_PrtOutputBursting_Object((1,3,6,1,2,1,43,9,2,1,21),_PrtOutputBursting_Type())
+prtOutputBursting.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtOutputBursting.setStatus(_A)
+_PrtOutputDecollating_Type=PresentOnOff
+_PrtOutputDecollating_Object=MibTableColumn
+prtOutputDecollating=_PrtOutputDecollating_Object((1,3,6,1,2,1,43,9,2,1,22),_PrtOutputDecollating_Type())
+prtOutputDecollating.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtOutputDecollating.setStatus(_A)
+_PrtOutputPageCollated_Type=PresentOnOff
+_PrtOutputPageCollated_Object=MibTableColumn
+prtOutputPageCollated=_PrtOutputPageCollated_Object((1,3,6,1,2,1,43,9,2,1,23),_PrtOutputPageCollated_Type())
+prtOutputPageCollated.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtOutputPageCollated.setStatus(_A)
+_PrtOutputOffsetStacking_Type=PresentOnOff
+_PrtOutputOffsetStacking_Object=MibTableColumn
+prtOutputOffsetStacking=_PrtOutputOffsetStacking_Object((1,3,6,1,2,1,43,9,2,1,24),_PrtOutputOffsetStacking_Type())
+prtOutputOffsetStacking.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtOutputOffsetStacking.setStatus(_A)
+_PrtMarker_ObjectIdentity=ObjectIdentity
+prtMarker=_PrtMarker_ObjectIdentity((1,3,6,1,2,1,43,10))
+_PrtMarkerTable_Object=MibTable
+prtMarkerTable=_PrtMarkerTable_Object((1,3,6,1,2,1,43,10,2))
+if mibBuilder.loadTexts:prtMarkerTable.setStatus(_A)
+_PrtMarkerEntry_Object=MibTableRow
+prtMarkerEntry=_PrtMarkerEntry_Object((1,3,6,1,2,1,43,10,2,1))
+prtMarkerEntry.setIndexNames((0,_G,_H),(0,_B,_p))
+if mibBuilder.loadTexts:prtMarkerEntry.setStatus(_A)
+class _PrtMarkerIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtMarkerIndex_Type.__name__=_D
+_PrtMarkerIndex_Object=MibTableColumn
+prtMarkerIndex=_PrtMarkerIndex_Object((1,3,6,1,2,1,43,10,2,1,1),_PrtMarkerIndex_Type())
+prtMarkerIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:prtMarkerIndex.setStatus(_A)
+_PrtMarkerMarkTech_Type=PrtMarkerMarkTechTC
+_PrtMarkerMarkTech_Object=MibTableColumn
+prtMarkerMarkTech=_PrtMarkerMarkTech_Object((1,3,6,1,2,1,43,10,2,1,2),_PrtMarkerMarkTech_Type())
+prtMarkerMarkTech.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerMarkTech.setStatus(_A)
+_PrtMarkerCounterUnit_Type=PrtMarkerCounterUnitTC
+_PrtMarkerCounterUnit_Object=MibTableColumn
+prtMarkerCounterUnit=_PrtMarkerCounterUnit_Object((1,3,6,1,2,1,43,10,2,1,3),_PrtMarkerCounterUnit_Type())
+prtMarkerCounterUnit.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerCounterUnit.setStatus(_A)
+_PrtMarkerLifeCount_Type=Counter32
+_PrtMarkerLifeCount_Object=MibTableColumn
+prtMarkerLifeCount=_PrtMarkerLifeCount_Object((1,3,6,1,2,1,43,10,2,1,4),_PrtMarkerLifeCount_Type())
+prtMarkerLifeCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerLifeCount.setStatus(_A)
+_PrtMarkerPowerOnCount_Type=Counter32
+_PrtMarkerPowerOnCount_Object=MibTableColumn
+prtMarkerPowerOnCount=_PrtMarkerPowerOnCount_Object((1,3,6,1,2,1,43,10,2,1,5),_PrtMarkerPowerOnCount_Type())
+prtMarkerPowerOnCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerPowerOnCount.setStatus(_A)
+class _PrtMarkerProcessColorants_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PrtMarkerProcessColorants_Type.__name__=_D
+_PrtMarkerProcessColorants_Object=MibTableColumn
+prtMarkerProcessColorants=_PrtMarkerProcessColorants_Object((1,3,6,1,2,1,43,10,2,1,6),_PrtMarkerProcessColorants_Type())
+prtMarkerProcessColorants.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerProcessColorants.setStatus(_A)
+class _PrtMarkerSpotColorants_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PrtMarkerSpotColorants_Type.__name__=_D
+_PrtMarkerSpotColorants_Object=MibTableColumn
+prtMarkerSpotColorants=_PrtMarkerSpotColorants_Object((1,3,6,1,2,1,43,10,2,1,7),_PrtMarkerSpotColorants_Type())
+prtMarkerSpotColorants.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerSpotColorants.setStatus(_A)
+_PrtMarkerAddressabilityUnit_Type=PrtMarkerAddressabilityUnitTC
+_PrtMarkerAddressabilityUnit_Object=MibTableColumn
+prtMarkerAddressabilityUnit=_PrtMarkerAddressabilityUnit_Object((1,3,6,1,2,1,43,10,2,1,8),_PrtMarkerAddressabilityUnit_Type())
+prtMarkerAddressabilityUnit.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerAddressabilityUnit.setStatus(_A)
+class _PrtMarkerAddressabilityFeedDir_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtMarkerAddressabilityFeedDir_Type.__name__=_D
+_PrtMarkerAddressabilityFeedDir_Object=MibTableColumn
+prtMarkerAddressabilityFeedDir=_PrtMarkerAddressabilityFeedDir_Object((1,3,6,1,2,1,43,10,2,1,9),_PrtMarkerAddressabilityFeedDir_Type())
+prtMarkerAddressabilityFeedDir.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerAddressabilityFeedDir.setStatus(_A)
+class _PrtMarkerAddressabilityXFeedDir_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtMarkerAddressabilityXFeedDir_Type.__name__=_D
+_PrtMarkerAddressabilityXFeedDir_Object=MibTableColumn
+prtMarkerAddressabilityXFeedDir=_PrtMarkerAddressabilityXFeedDir_Object((1,3,6,1,2,1,43,10,2,1,10),_PrtMarkerAddressabilityXFeedDir_Type())
+prtMarkerAddressabilityXFeedDir.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerAddressabilityXFeedDir.setStatus(_A)
+class _PrtMarkerNorthMargin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtMarkerNorthMargin_Type.__name__=_D
+_PrtMarkerNorthMargin_Object=MibTableColumn
+prtMarkerNorthMargin=_PrtMarkerNorthMargin_Object((1,3,6,1,2,1,43,10,2,1,11),_PrtMarkerNorthMargin_Type())
+prtMarkerNorthMargin.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerNorthMargin.setStatus(_A)
+class _PrtMarkerSouthMargin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtMarkerSouthMargin_Type.__name__=_D
+_PrtMarkerSouthMargin_Object=MibTableColumn
+prtMarkerSouthMargin=_PrtMarkerSouthMargin_Object((1,3,6,1,2,1,43,10,2,1,12),_PrtMarkerSouthMargin_Type())
+prtMarkerSouthMargin.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerSouthMargin.setStatus(_A)
+class _PrtMarkerWestMargin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtMarkerWestMargin_Type.__name__=_D
+_PrtMarkerWestMargin_Object=MibTableColumn
+prtMarkerWestMargin=_PrtMarkerWestMargin_Object((1,3,6,1,2,1,43,10,2,1,13),_PrtMarkerWestMargin_Type())
+prtMarkerWestMargin.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerWestMargin.setStatus(_A)
+class _PrtMarkerEastMargin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtMarkerEastMargin_Type.__name__=_D
+_PrtMarkerEastMargin_Object=MibTableColumn
+prtMarkerEastMargin=_PrtMarkerEastMargin_Object((1,3,6,1,2,1,43,10,2,1,14),_PrtMarkerEastMargin_Type())
+prtMarkerEastMargin.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerEastMargin.setStatus(_A)
+_PrtMarkerStatus_Type=PrtSubUnitStatusTC
+_PrtMarkerStatus_Object=MibTableColumn
+prtMarkerStatus=_PrtMarkerStatus_Object((1,3,6,1,2,1,43,10,2,1,15),_PrtMarkerStatus_Type())
+prtMarkerStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerStatus.setStatus(_A)
+_PrtMarkerSupplies_ObjectIdentity=ObjectIdentity
+prtMarkerSupplies=_PrtMarkerSupplies_ObjectIdentity((1,3,6,1,2,1,43,11))
+_PrtMarkerSuppliesTable_Object=MibTable
+prtMarkerSuppliesTable=_PrtMarkerSuppliesTable_Object((1,3,6,1,2,1,43,11,1))
+if mibBuilder.loadTexts:prtMarkerSuppliesTable.setStatus(_A)
+_PrtMarkerSuppliesEntry_Object=MibTableRow
+prtMarkerSuppliesEntry=_PrtMarkerSuppliesEntry_Object((1,3,6,1,2,1,43,11,1,1))
+prtMarkerSuppliesEntry.setIndexNames((0,_G,_H),(0,_B,_q))
+if mibBuilder.loadTexts:prtMarkerSuppliesEntry.setStatus(_A)
+class _PrtMarkerSuppliesIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtMarkerSuppliesIndex_Type.__name__=_D
+_PrtMarkerSuppliesIndex_Object=MibTableColumn
+prtMarkerSuppliesIndex=_PrtMarkerSuppliesIndex_Object((1,3,6,1,2,1,43,11,1,1,1),_PrtMarkerSuppliesIndex_Type())
+prtMarkerSuppliesIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:prtMarkerSuppliesIndex.setStatus(_A)
+class _PrtMarkerSuppliesMarkerIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PrtMarkerSuppliesMarkerIndex_Type.__name__=_D
+_PrtMarkerSuppliesMarkerIndex_Object=MibTableColumn
+prtMarkerSuppliesMarkerIndex=_PrtMarkerSuppliesMarkerIndex_Object((1,3,6,1,2,1,43,11,1,1,2),_PrtMarkerSuppliesMarkerIndex_Type())
+prtMarkerSuppliesMarkerIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerSuppliesMarkerIndex.setStatus(_A)
+class _PrtMarkerSuppliesColorantIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PrtMarkerSuppliesColorantIndex_Type.__name__=_D
+_PrtMarkerSuppliesColorantIndex_Object=MibTableColumn
+prtMarkerSuppliesColorantIndex=_PrtMarkerSuppliesColorantIndex_Object((1,3,6,1,2,1,43,11,1,1,3),_PrtMarkerSuppliesColorantIndex_Type())
+prtMarkerSuppliesColorantIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerSuppliesColorantIndex.setStatus(_A)
+_PrtMarkerSuppliesClass_Type=PrtMarkerSuppliesClassTC
+_PrtMarkerSuppliesClass_Object=MibTableColumn
+prtMarkerSuppliesClass=_PrtMarkerSuppliesClass_Object((1,3,6,1,2,1,43,11,1,1,4),_PrtMarkerSuppliesClass_Type())
+prtMarkerSuppliesClass.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerSuppliesClass.setStatus(_A)
+_PrtMarkerSuppliesType_Type=PrtMarkerSuppliesTypeTC
+_PrtMarkerSuppliesType_Object=MibTableColumn
+prtMarkerSuppliesType=_PrtMarkerSuppliesType_Object((1,3,6,1,2,1,43,11,1,1,5),_PrtMarkerSuppliesType_Type())
+prtMarkerSuppliesType.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerSuppliesType.setStatus(_A)
+_PrtMarkerSuppliesDescription_Type=PrtLocalizedDescriptionStringTC
+_PrtMarkerSuppliesDescription_Object=MibTableColumn
+prtMarkerSuppliesDescription=_PrtMarkerSuppliesDescription_Object((1,3,6,1,2,1,43,11,1,1,6),_PrtMarkerSuppliesDescription_Type())
+prtMarkerSuppliesDescription.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerSuppliesDescription.setStatus(_A)
+_PrtMarkerSuppliesSupplyUnit_Type=PrtMarkerSuppliesSupplyUnitTC
+_PrtMarkerSuppliesSupplyUnit_Object=MibTableColumn
+prtMarkerSuppliesSupplyUnit=_PrtMarkerSuppliesSupplyUnit_Object((1,3,6,1,2,1,43,11,1,1,7),_PrtMarkerSuppliesSupplyUnit_Type())
+prtMarkerSuppliesSupplyUnit.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerSuppliesSupplyUnit.setStatus(_A)
+class _PrtMarkerSuppliesMaxCapacity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtMarkerSuppliesMaxCapacity_Type.__name__=_D
+_PrtMarkerSuppliesMaxCapacity_Object=MibTableColumn
+prtMarkerSuppliesMaxCapacity=_PrtMarkerSuppliesMaxCapacity_Object((1,3,6,1,2,1,43,11,1,1,8),_PrtMarkerSuppliesMaxCapacity_Type())
+prtMarkerSuppliesMaxCapacity.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtMarkerSuppliesMaxCapacity.setStatus(_A)
+class _PrtMarkerSuppliesLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-3,2147483647))
+_PrtMarkerSuppliesLevel_Type.__name__=_D
+_PrtMarkerSuppliesLevel_Object=MibTableColumn
+prtMarkerSuppliesLevel=_PrtMarkerSuppliesLevel_Object((1,3,6,1,2,1,43,11,1,1,9),_PrtMarkerSuppliesLevel_Type())
+prtMarkerSuppliesLevel.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtMarkerSuppliesLevel.setStatus(_A)
+_PrtMarkerColorant_ObjectIdentity=ObjectIdentity
+prtMarkerColorant=_PrtMarkerColorant_ObjectIdentity((1,3,6,1,2,1,43,12))
+_PrtMarkerColorantTable_Object=MibTable
+prtMarkerColorantTable=_PrtMarkerColorantTable_Object((1,3,6,1,2,1,43,12,1))
+if mibBuilder.loadTexts:prtMarkerColorantTable.setStatus(_A)
+_PrtMarkerColorantEntry_Object=MibTableRow
+prtMarkerColorantEntry=_PrtMarkerColorantEntry_Object((1,3,6,1,2,1,43,12,1,1))
+prtMarkerColorantEntry.setIndexNames((0,_G,_H),(0,_B,_r))
+if mibBuilder.loadTexts:prtMarkerColorantEntry.setStatus(_A)
+class _PrtMarkerColorantIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtMarkerColorantIndex_Type.__name__=_D
+_PrtMarkerColorantIndex_Object=MibTableColumn
+prtMarkerColorantIndex=_PrtMarkerColorantIndex_Object((1,3,6,1,2,1,43,12,1,1,1),_PrtMarkerColorantIndex_Type())
+prtMarkerColorantIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:prtMarkerColorantIndex.setStatus(_A)
+class _PrtMarkerColorantMarkerIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PrtMarkerColorantMarkerIndex_Type.__name__=_D
+_PrtMarkerColorantMarkerIndex_Object=MibTableColumn
+prtMarkerColorantMarkerIndex=_PrtMarkerColorantMarkerIndex_Object((1,3,6,1,2,1,43,12,1,1,2),_PrtMarkerColorantMarkerIndex_Type())
+prtMarkerColorantMarkerIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerColorantMarkerIndex.setStatus(_A)
+_PrtMarkerColorantRole_Type=PrtMarkerColorantRoleTC
+_PrtMarkerColorantRole_Object=MibTableColumn
+prtMarkerColorantRole=_PrtMarkerColorantRole_Object((1,3,6,1,2,1,43,12,1,1,3),_PrtMarkerColorantRole_Type())
+prtMarkerColorantRole.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerColorantRole.setStatus(_A)
+class _PrtMarkerColorantValue_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_PrtMarkerColorantValue_Type.__name__=_F
+_PrtMarkerColorantValue_Object=MibTableColumn
+prtMarkerColorantValue=_PrtMarkerColorantValue_Object((1,3,6,1,2,1,43,12,1,1,4),_PrtMarkerColorantValue_Type())
+prtMarkerColorantValue.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerColorantValue.setStatus(_A)
+class _PrtMarkerColorantTonality_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(2,2147483647))
+_PrtMarkerColorantTonality_Type.__name__=_D
+_PrtMarkerColorantTonality_Object=MibTableColumn
+prtMarkerColorantTonality=_PrtMarkerColorantTonality_Object((1,3,6,1,2,1,43,12,1,1,5),_PrtMarkerColorantTonality_Type())
+prtMarkerColorantTonality.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMarkerColorantTonality.setStatus(_A)
+_PrtMediaPath_ObjectIdentity=ObjectIdentity
+prtMediaPath=_PrtMediaPath_ObjectIdentity((1,3,6,1,2,1,43,13))
+_PrtMediaPathTable_Object=MibTable
+prtMediaPathTable=_PrtMediaPathTable_Object((1,3,6,1,2,1,43,13,4))
+if mibBuilder.loadTexts:prtMediaPathTable.setStatus(_A)
+_PrtMediaPathEntry_Object=MibTableRow
+prtMediaPathEntry=_PrtMediaPathEntry_Object((1,3,6,1,2,1,43,13,4,1))
+prtMediaPathEntry.setIndexNames((0,_G,_H),(0,_B,_s))
+if mibBuilder.loadTexts:prtMediaPathEntry.setStatus(_A)
+class _PrtMediaPathIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtMediaPathIndex_Type.__name__=_D
+_PrtMediaPathIndex_Object=MibTableColumn
+prtMediaPathIndex=_PrtMediaPathIndex_Object((1,3,6,1,2,1,43,13,4,1,1),_PrtMediaPathIndex_Type())
+prtMediaPathIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:prtMediaPathIndex.setStatus(_A)
+_PrtMediaPathMaxSpeedPrintUnit_Type=PrtMediaPathMaxSpeedPrintUnitTC
+_PrtMediaPathMaxSpeedPrintUnit_Object=MibTableColumn
+prtMediaPathMaxSpeedPrintUnit=_PrtMediaPathMaxSpeedPrintUnit_Object((1,3,6,1,2,1,43,13,4,1,2),_PrtMediaPathMaxSpeedPrintUnit_Type())
+prtMediaPathMaxSpeedPrintUnit.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMediaPathMaxSpeedPrintUnit.setStatus(_A)
+_PrtMediaPathMediaSizeUnit_Type=PrtMediaUnitTC
+_PrtMediaPathMediaSizeUnit_Object=MibTableColumn
+prtMediaPathMediaSizeUnit=_PrtMediaPathMediaSizeUnit_Object((1,3,6,1,2,1,43,13,4,1,3),_PrtMediaPathMediaSizeUnit_Type())
+prtMediaPathMediaSizeUnit.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMediaPathMediaSizeUnit.setStatus(_A)
+class _PrtMediaPathMaxSpeed_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtMediaPathMaxSpeed_Type.__name__=_D
+_PrtMediaPathMaxSpeed_Object=MibTableColumn
+prtMediaPathMaxSpeed=_PrtMediaPathMaxSpeed_Object((1,3,6,1,2,1,43,13,4,1,4),_PrtMediaPathMaxSpeed_Type())
+prtMediaPathMaxSpeed.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMediaPathMaxSpeed.setStatus(_A)
+class _PrtMediaPathMaxMediaFeedDir_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtMediaPathMaxMediaFeedDir_Type.__name__=_D
+_PrtMediaPathMaxMediaFeedDir_Object=MibTableColumn
+prtMediaPathMaxMediaFeedDir=_PrtMediaPathMaxMediaFeedDir_Object((1,3,6,1,2,1,43,13,4,1,5),_PrtMediaPathMaxMediaFeedDir_Type())
+prtMediaPathMaxMediaFeedDir.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMediaPathMaxMediaFeedDir.setStatus(_A)
+class _PrtMediaPathMaxMediaXFeedDir_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtMediaPathMaxMediaXFeedDir_Type.__name__=_D
+_PrtMediaPathMaxMediaXFeedDir_Object=MibTableColumn
+prtMediaPathMaxMediaXFeedDir=_PrtMediaPathMaxMediaXFeedDir_Object((1,3,6,1,2,1,43,13,4,1,6),_PrtMediaPathMaxMediaXFeedDir_Type())
+prtMediaPathMaxMediaXFeedDir.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMediaPathMaxMediaXFeedDir.setStatus(_A)
+class _PrtMediaPathMinMediaFeedDir_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtMediaPathMinMediaFeedDir_Type.__name__=_D
+_PrtMediaPathMinMediaFeedDir_Object=MibTableColumn
+prtMediaPathMinMediaFeedDir=_PrtMediaPathMinMediaFeedDir_Object((1,3,6,1,2,1,43,13,4,1,7),_PrtMediaPathMinMediaFeedDir_Type())
+prtMediaPathMinMediaFeedDir.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMediaPathMinMediaFeedDir.setStatus(_A)
+class _PrtMediaPathMinMediaXFeedDir_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtMediaPathMinMediaXFeedDir_Type.__name__=_D
+_PrtMediaPathMinMediaXFeedDir_Object=MibTableColumn
+prtMediaPathMinMediaXFeedDir=_PrtMediaPathMinMediaXFeedDir_Object((1,3,6,1,2,1,43,13,4,1,8),_PrtMediaPathMinMediaXFeedDir_Type())
+prtMediaPathMinMediaXFeedDir.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMediaPathMinMediaXFeedDir.setStatus(_A)
+_PrtMediaPathType_Type=PrtMediaPathTypeTC
+_PrtMediaPathType_Object=MibTableColumn
+prtMediaPathType=_PrtMediaPathType_Object((1,3,6,1,2,1,43,13,4,1,9),_PrtMediaPathType_Type())
+prtMediaPathType.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMediaPathType.setStatus(_A)
+_PrtMediaPathDescription_Type=PrtLocalizedDescriptionStringTC
+_PrtMediaPathDescription_Object=MibTableColumn
+prtMediaPathDescription=_PrtMediaPathDescription_Object((1,3,6,1,2,1,43,13,4,1,10),_PrtMediaPathDescription_Type())
+prtMediaPathDescription.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMediaPathDescription.setStatus(_A)
+_PrtMediaPathStatus_Type=PrtSubUnitStatusTC
+_PrtMediaPathStatus_Object=MibTableColumn
+prtMediaPathStatus=_PrtMediaPathStatus_Object((1,3,6,1,2,1,43,13,4,1,11),_PrtMediaPathStatus_Type())
+prtMediaPathStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtMediaPathStatus.setStatus(_A)
+_PrtChannel_ObjectIdentity=ObjectIdentity
+prtChannel=_PrtChannel_ObjectIdentity((1,3,6,1,2,1,43,14))
+_PrtChannelTable_Object=MibTable
+prtChannelTable=_PrtChannelTable_Object((1,3,6,1,2,1,43,14,1))
+if mibBuilder.loadTexts:prtChannelTable.setStatus(_A)
+_PrtChannelEntry_Object=MibTableRow
+prtChannelEntry=_PrtChannelEntry_Object((1,3,6,1,2,1,43,14,1,1))
+prtChannelEntry.setIndexNames((0,_G,_H),(0,_B,_t))
+if mibBuilder.loadTexts:prtChannelEntry.setStatus(_A)
+class _PrtChannelIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtChannelIndex_Type.__name__=_D
+_PrtChannelIndex_Object=MibTableColumn
+prtChannelIndex=_PrtChannelIndex_Object((1,3,6,1,2,1,43,14,1,1,1),_PrtChannelIndex_Type())
+prtChannelIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:prtChannelIndex.setStatus(_A)
+_PrtChannelType_Type=PrtChannelTypeTC
+_PrtChannelType_Object=MibTableColumn
+prtChannelType=_PrtChannelType_Object((1,3,6,1,2,1,43,14,1,1,2),_PrtChannelType_Type())
+prtChannelType.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtChannelType.setStatus(_A)
+class _PrtChannelProtocolVersion_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_PrtChannelProtocolVersion_Type.__name__=_F
+_PrtChannelProtocolVersion_Object=MibTableColumn
+prtChannelProtocolVersion=_PrtChannelProtocolVersion_Object((1,3,6,1,2,1,43,14,1,1,3),_PrtChannelProtocolVersion_Type())
+prtChannelProtocolVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtChannelProtocolVersion.setStatus(_A)
+class _PrtChannelCurrentJobCntlLangIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PrtChannelCurrentJobCntlLangIndex_Type.__name__=_D
+_PrtChannelCurrentJobCntlLangIndex_Object=MibTableColumn
+prtChannelCurrentJobCntlLangIndex=_PrtChannelCurrentJobCntlLangIndex_Object((1,3,6,1,2,1,43,14,1,1,4),_PrtChannelCurrentJobCntlLangIndex_Type())
+prtChannelCurrentJobCntlLangIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtChannelCurrentJobCntlLangIndex.setStatus(_A)
+class _PrtChannelDefaultPageDescLangIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PrtChannelDefaultPageDescLangIndex_Type.__name__=_D
+_PrtChannelDefaultPageDescLangIndex_Object=MibTableColumn
+prtChannelDefaultPageDescLangIndex=_PrtChannelDefaultPageDescLangIndex_Object((1,3,6,1,2,1,43,14,1,1,5),_PrtChannelDefaultPageDescLangIndex_Type())
+prtChannelDefaultPageDescLangIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtChannelDefaultPageDescLangIndex.setStatus(_A)
+_PrtChannelState_Type=PrtChannelStateTC
+_PrtChannelState_Object=MibTableColumn
+prtChannelState=_PrtChannelState_Object((1,3,6,1,2,1,43,14,1,1,6),_PrtChannelState_Type())
+prtChannelState.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtChannelState.setStatus(_A)
+_PrtChannelIfIndex_Type=InterfaceIndexOrZero
+_PrtChannelIfIndex_Object=MibTableColumn
+prtChannelIfIndex=_PrtChannelIfIndex_Object((1,3,6,1,2,1,43,14,1,1,7),_PrtChannelIfIndex_Type())
+prtChannelIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtChannelIfIndex.setStatus(_A)
+_PrtChannelStatus_Type=PrtSubUnitStatusTC
+_PrtChannelStatus_Object=MibTableColumn
+prtChannelStatus=_PrtChannelStatus_Object((1,3,6,1,2,1,43,14,1,1,8),_PrtChannelStatus_Type())
+prtChannelStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtChannelStatus.setStatus(_A)
+class _PrtChannelInformation_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_PrtChannelInformation_Type.__name__=_F
+_PrtChannelInformation_Object=MibTableColumn
+prtChannelInformation=_PrtChannelInformation_Object((1,3,6,1,2,1,43,14,1,1,9),_PrtChannelInformation_Type())
+prtChannelInformation.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtChannelInformation.setStatus(_A)
+_PrtInterpreter_ObjectIdentity=ObjectIdentity
+prtInterpreter=_PrtInterpreter_ObjectIdentity((1,3,6,1,2,1,43,15))
+_PrtInterpreterTable_Object=MibTable
+prtInterpreterTable=_PrtInterpreterTable_Object((1,3,6,1,2,1,43,15,1))
+if mibBuilder.loadTexts:prtInterpreterTable.setStatus(_A)
+_PrtInterpreterEntry_Object=MibTableRow
+prtInterpreterEntry=_PrtInterpreterEntry_Object((1,3,6,1,2,1,43,15,1,1))
+prtInterpreterEntry.setIndexNames((0,_G,_H),(0,_B,_u))
+if mibBuilder.loadTexts:prtInterpreterEntry.setStatus(_A)
+class _PrtInterpreterIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtInterpreterIndex_Type.__name__=_D
+_PrtInterpreterIndex_Object=MibTableColumn
+prtInterpreterIndex=_PrtInterpreterIndex_Object((1,3,6,1,2,1,43,15,1,1,1),_PrtInterpreterIndex_Type())
+prtInterpreterIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:prtInterpreterIndex.setStatus(_A)
+_PrtInterpreterLangFamily_Type=PrtInterpreterLangFamilyTC
+_PrtInterpreterLangFamily_Object=MibTableColumn
+prtInterpreterLangFamily=_PrtInterpreterLangFamily_Object((1,3,6,1,2,1,43,15,1,1,2),_PrtInterpreterLangFamily_Type())
+prtInterpreterLangFamily.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInterpreterLangFamily.setStatus(_A)
+class _PrtInterpreterLangLevel_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
+_PrtInterpreterLangLevel_Type.__name__=_F
+_PrtInterpreterLangLevel_Object=MibTableColumn
+prtInterpreterLangLevel=_PrtInterpreterLangLevel_Object((1,3,6,1,2,1,43,15,1,1,3),_PrtInterpreterLangLevel_Type())
+prtInterpreterLangLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInterpreterLangLevel.setStatus(_A)
+class _PrtInterpreterLangVersion_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
+_PrtInterpreterLangVersion_Type.__name__=_F
+_PrtInterpreterLangVersion_Object=MibTableColumn
+prtInterpreterLangVersion=_PrtInterpreterLangVersion_Object((1,3,6,1,2,1,43,15,1,1,4),_PrtInterpreterLangVersion_Type())
+prtInterpreterLangVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInterpreterLangVersion.setStatus(_A)
+_PrtInterpreterDescription_Type=PrtLocalizedDescriptionStringTC
+_PrtInterpreterDescription_Object=MibTableColumn
+prtInterpreterDescription=_PrtInterpreterDescription_Object((1,3,6,1,2,1,43,15,1,1,5),_PrtInterpreterDescription_Type())
+prtInterpreterDescription.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInterpreterDescription.setStatus(_A)
+class _PrtInterpreterVersion_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
+_PrtInterpreterVersion_Type.__name__=_F
+_PrtInterpreterVersion_Object=MibTableColumn
+prtInterpreterVersion=_PrtInterpreterVersion_Object((1,3,6,1,2,1,43,15,1,1,6),_PrtInterpreterVersion_Type())
+prtInterpreterVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInterpreterVersion.setStatus(_A)
+_PrtInterpreterDefaultOrientation_Type=PrtPrintOrientationTC
+_PrtInterpreterDefaultOrientation_Object=MibTableColumn
+prtInterpreterDefaultOrientation=_PrtInterpreterDefaultOrientation_Object((1,3,6,1,2,1,43,15,1,1,7),_PrtInterpreterDefaultOrientation_Type())
+prtInterpreterDefaultOrientation.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtInterpreterDefaultOrientation.setStatus(_A)
+class _PrtInterpreterFeedAddressability_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtInterpreterFeedAddressability_Type.__name__=_D
+_PrtInterpreterFeedAddressability_Object=MibTableColumn
+prtInterpreterFeedAddressability=_PrtInterpreterFeedAddressability_Object((1,3,6,1,2,1,43,15,1,1,8),_PrtInterpreterFeedAddressability_Type())
+prtInterpreterFeedAddressability.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInterpreterFeedAddressability.setStatus(_A)
+class _PrtInterpreterXFeedAddressability_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtInterpreterXFeedAddressability_Type.__name__=_D
+_PrtInterpreterXFeedAddressability_Object=MibTableColumn
+prtInterpreterXFeedAddressability=_PrtInterpreterXFeedAddressability_Object((1,3,6,1,2,1,43,15,1,1,9),_PrtInterpreterXFeedAddressability_Type())
+prtInterpreterXFeedAddressability.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInterpreterXFeedAddressability.setStatus(_A)
+_PrtInterpreterDefaultCharSetIn_Type=IANACharset
+_PrtInterpreterDefaultCharSetIn_Object=MibTableColumn
+prtInterpreterDefaultCharSetIn=_PrtInterpreterDefaultCharSetIn_Object((1,3,6,1,2,1,43,15,1,1,10),_PrtInterpreterDefaultCharSetIn_Type())
+prtInterpreterDefaultCharSetIn.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtInterpreterDefaultCharSetIn.setStatus(_A)
+_PrtInterpreterDefaultCharSetOut_Type=IANACharset
+_PrtInterpreterDefaultCharSetOut_Object=MibTableColumn
+prtInterpreterDefaultCharSetOut=_PrtInterpreterDefaultCharSetOut_Object((1,3,6,1,2,1,43,15,1,1,11),_PrtInterpreterDefaultCharSetOut_Type())
+prtInterpreterDefaultCharSetOut.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtInterpreterDefaultCharSetOut.setStatus(_A)
+_PrtInterpreterTwoWay_Type=PrtInterpreterTwoWayTC
+_PrtInterpreterTwoWay_Object=MibTableColumn
+prtInterpreterTwoWay=_PrtInterpreterTwoWay_Object((1,3,6,1,2,1,43,15,1,1,12),_PrtInterpreterTwoWay_Type())
+prtInterpreterTwoWay.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtInterpreterTwoWay.setStatus(_A)
+_PrtConsoleDisplayBuffer_ObjectIdentity=ObjectIdentity
+prtConsoleDisplayBuffer=_PrtConsoleDisplayBuffer_ObjectIdentity((1,3,6,1,2,1,43,16))
+_PrtConsoleDisplayBufferTable_Object=MibTable
+prtConsoleDisplayBufferTable=_PrtConsoleDisplayBufferTable_Object((1,3,6,1,2,1,43,16,5))
+if mibBuilder.loadTexts:prtConsoleDisplayBufferTable.setStatus(_A)
+_PrtConsoleDisplayBufferEntry_Object=MibTableRow
+prtConsoleDisplayBufferEntry=_PrtConsoleDisplayBufferEntry_Object((1,3,6,1,2,1,43,16,5,1))
+prtConsoleDisplayBufferEntry.setIndexNames((0,_G,_H),(0,_B,_v))
+if mibBuilder.loadTexts:prtConsoleDisplayBufferEntry.setStatus(_A)
+class _PrtConsoleDisplayBufferIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtConsoleDisplayBufferIndex_Type.__name__=_D
+_PrtConsoleDisplayBufferIndex_Object=MibTableColumn
+prtConsoleDisplayBufferIndex=_PrtConsoleDisplayBufferIndex_Object((1,3,6,1,2,1,43,16,5,1,1),_PrtConsoleDisplayBufferIndex_Type())
+prtConsoleDisplayBufferIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:prtConsoleDisplayBufferIndex.setStatus(_A)
+_PrtConsoleDisplayBufferText_Type=PrtConsoleDescriptionStringTC
+_PrtConsoleDisplayBufferText_Object=MibTableColumn
+prtConsoleDisplayBufferText=_PrtConsoleDisplayBufferText_Object((1,3,6,1,2,1,43,16,5,1,2),_PrtConsoleDisplayBufferText_Type())
+prtConsoleDisplayBufferText.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtConsoleDisplayBufferText.setStatus(_A)
+_PrtConsoleLights_ObjectIdentity=ObjectIdentity
+prtConsoleLights=_PrtConsoleLights_ObjectIdentity((1,3,6,1,2,1,43,17))
+_PrtConsoleLightTable_Object=MibTable
+prtConsoleLightTable=_PrtConsoleLightTable_Object((1,3,6,1,2,1,43,17,6))
+if mibBuilder.loadTexts:prtConsoleLightTable.setStatus(_A)
+_PrtConsoleLightEntry_Object=MibTableRow
+prtConsoleLightEntry=_PrtConsoleLightEntry_Object((1,3,6,1,2,1,43,17,6,1))
+prtConsoleLightEntry.setIndexNames((0,_G,_H),(0,_B,_w))
+if mibBuilder.loadTexts:prtConsoleLightEntry.setStatus(_A)
+class _PrtConsoleLightIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PrtConsoleLightIndex_Type.__name__=_D
+_PrtConsoleLightIndex_Object=MibTableColumn
+prtConsoleLightIndex=_PrtConsoleLightIndex_Object((1,3,6,1,2,1,43,17,6,1,1),_PrtConsoleLightIndex_Type())
+prtConsoleLightIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:prtConsoleLightIndex.setStatus(_A)
+class _PrtConsoleOnTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_PrtConsoleOnTime_Type.__name__=_D
+_PrtConsoleOnTime_Object=MibTableColumn
+prtConsoleOnTime=_PrtConsoleOnTime_Object((1,3,6,1,2,1,43,17,6,1,2),_PrtConsoleOnTime_Type())
+prtConsoleOnTime.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtConsoleOnTime.setStatus(_A)
+class _PrtConsoleOffTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_PrtConsoleOffTime_Type.__name__=_D
+_PrtConsoleOffTime_Object=MibTableColumn
+prtConsoleOffTime=_PrtConsoleOffTime_Object((1,3,6,1,2,1,43,17,6,1,3),_PrtConsoleOffTime_Type())
+prtConsoleOffTime.setMaxAccess(_E)
+if mibBuilder.loadTexts:prtConsoleOffTime.setStatus(_A)
+_PrtConsoleColor_Type=PrtConsoleColorTC
+_PrtConsoleColor_Object=MibTableColumn
+prtConsoleColor=_PrtConsoleColor_Object((1,3,6,1,2,1,43,17,6,1,4),_PrtConsoleColor_Type())
+prtConsoleColor.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtConsoleColor.setStatus(_A)
+_PrtConsoleDescription_Type=PrtConsoleDescriptionStringTC
+_PrtConsoleDescription_Object=MibTableColumn
+prtConsoleDescription=_PrtConsoleDescription_Object((1,3,6,1,2,1,43,17,6,1,5),_PrtConsoleDescription_Type())
+prtConsoleDescription.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtConsoleDescription.setStatus(_A)
+_PrtAlert_ObjectIdentity=ObjectIdentity
+prtAlert=_PrtAlert_ObjectIdentity((1,3,6,1,2,1,43,18))
+_PrtAlertTable_Object=MibTable
+prtAlertTable=_PrtAlertTable_Object((1,3,6,1,2,1,43,18,1))
+if mibBuilder.loadTexts:prtAlertTable.setStatus(_A)
+_PrtAlertEntry_Object=MibTableRow
+prtAlertEntry=_PrtAlertEntry_Object((1,3,6,1,2,1,43,18,1,1))
+prtAlertEntry.setIndexNames((0,_G,_H),(0,_B,_Q))
+if mibBuilder.loadTexts:prtAlertEntry.setStatus(_A)
+class _PrtAlertIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_PrtAlertIndex_Type.__name__=_D
+_PrtAlertIndex_Object=MibTableColumn
+prtAlertIndex=_PrtAlertIndex_Object((1,3,6,1,2,1,43,18,1,1,1),_PrtAlertIndex_Type())
+prtAlertIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtAlertIndex.setStatus(_A)
+_PrtAlertSeverityLevel_Type=PrtAlertSeverityLevelTC
+_PrtAlertSeverityLevel_Object=MibTableColumn
+prtAlertSeverityLevel=_PrtAlertSeverityLevel_Object((1,3,6,1,2,1,43,18,1,1,2),_PrtAlertSeverityLevel_Type())
+prtAlertSeverityLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtAlertSeverityLevel.setStatus(_A)
+_PrtAlertTrainingLevel_Type=PrtAlertTrainingLevelTC
+_PrtAlertTrainingLevel_Object=MibTableColumn
+prtAlertTrainingLevel=_PrtAlertTrainingLevel_Object((1,3,6,1,2,1,43,18,1,1,3),_PrtAlertTrainingLevel_Type())
+prtAlertTrainingLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtAlertTrainingLevel.setStatus(_A)
+_PrtAlertGroup_Type=PrtAlertGroupTC
+_PrtAlertGroup_Object=MibTableColumn
+prtAlertGroup=_PrtAlertGroup_Object((1,3,6,1,2,1,43,18,1,1,4),_PrtAlertGroup_Type())
+prtAlertGroup.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtAlertGroup.setStatus(_A)
+class _PrtAlertGroupIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
+_PrtAlertGroupIndex_Type.__name__=_D
+_PrtAlertGroupIndex_Object=MibTableColumn
+prtAlertGroupIndex=_PrtAlertGroupIndex_Object((1,3,6,1,2,1,43,18,1,1,5),_PrtAlertGroupIndex_Type())
+prtAlertGroupIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtAlertGroupIndex.setStatus(_A)
+class _PrtAlertLocation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_PrtAlertLocation_Type.__name__=_D
+_PrtAlertLocation_Object=MibTableColumn
+prtAlertLocation=_PrtAlertLocation_Object((1,3,6,1,2,1,43,18,1,1,6),_PrtAlertLocation_Type())
+prtAlertLocation.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtAlertLocation.setStatus(_A)
+_PrtAlertCode_Type=PrtAlertCodeTC
+_PrtAlertCode_Object=MibTableColumn
+prtAlertCode=_PrtAlertCode_Object((1,3,6,1,2,1,43,18,1,1,7),_PrtAlertCode_Type())
+prtAlertCode.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtAlertCode.setStatus(_A)
+_PrtAlertDescription_Type=PrtLocalizedDescriptionStringTC
+_PrtAlertDescription_Object=MibTableColumn
+prtAlertDescription=_PrtAlertDescription_Object((1,3,6,1,2,1,43,18,1,1,8),_PrtAlertDescription_Type())
+prtAlertDescription.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtAlertDescription.setStatus(_A)
+_PrtAlertTime_Type=TimeTicks
+_PrtAlertTime_Object=MibTableColumn
+prtAlertTime=_PrtAlertTime_Object((1,3,6,1,2,1,43,18,1,1,9),_PrtAlertTime_Type())
+prtAlertTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:prtAlertTime.setStatus(_A)
+_PrinterV1Alert_ObjectIdentity=ObjectIdentity
+printerV1Alert=_PrinterV1Alert_ObjectIdentity((1,3,6,1,2,1,43,18,2))
+if mibBuilder.loadTexts:printerV1Alert.setStatus(_A)
+_PrinterV2AlertPrefix_ObjectIdentity=ObjectIdentity
+printerV2AlertPrefix=_PrinterV2AlertPrefix_ObjectIdentity((1,3,6,1,2,1,43,18,2,0))
+prtGeneralGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,1))
+prtGeneralGroup.setObjects(*((_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6)))
+if mibBuilder.loadTexts:prtGeneralGroup.setStatus(_A)
+prtResponsiblePartyGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,2))
+prtResponsiblePartyGroup.setObjects(*((_B,_A7),(_B,_A8)))
+if mibBuilder.loadTexts:prtResponsiblePartyGroup.setStatus(_A)
+prtInputGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,3))
+prtInputGroup.setObjects(*((_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK)))
+if mibBuilder.loadTexts:prtInputGroup.setStatus(_A)
+prtExtendedInputGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,4))
+prtExtendedInputGroup.setObjects(*((_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR)))
+if mibBuilder.loadTexts:prtExtendedInputGroup.setStatus(_A)
+prtInputMediaGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,5))
+prtInputMediaGroup.setObjects(*((_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV)))
+if mibBuilder.loadTexts:prtInputMediaGroup.setStatus(_A)
+prtOutputGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,6))
+prtOutputGroup.setObjects(*((_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa),(_B,_Ab)))
+if mibBuilder.loadTexts:prtOutputGroup.setStatus(_A)
+prtExtendedOutputGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,7))
+prtExtendedOutputGroup.setObjects(*((_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai)))
+if mibBuilder.loadTexts:prtExtendedOutputGroup.setStatus(_A)
+prtOutputDimensionsGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,8))
+prtOutputDimensionsGroup.setObjects(*((_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am),(_B,_An)))
+if mibBuilder.loadTexts:prtOutputDimensionsGroup.setStatus(_A)
+prtOutputFeaturesGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,9))
+prtOutputFeaturesGroup.setObjects(*((_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At)))
+if mibBuilder.loadTexts:prtOutputFeaturesGroup.setStatus(_A)
+prtMarkerGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,10))
+prtMarkerGroup.setObjects(*((_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7)))
+if mibBuilder.loadTexts:prtMarkerGroup.setStatus(_A)
+prtMarkerSuppliesGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,11))
+prtMarkerSuppliesGroup.setObjects(*((_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF)))
+if mibBuilder.loadTexts:prtMarkerSuppliesGroup.setStatus(_A)
+prtMarkerColorantGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,12))
+prtMarkerColorantGroup.setObjects(*((_B,_BG),(_B,_BH),(_B,_BI),(_B,_BJ)))
+if mibBuilder.loadTexts:prtMarkerColorantGroup.setStatus(_A)
+prtMediaPathGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,13))
+prtMediaPathGroup.setObjects(*((_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_BS),(_B,_BT),(_B,_BU)))
+if mibBuilder.loadTexts:prtMediaPathGroup.setStatus(_A)
+prtChannelGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,14))
+prtChannelGroup.setObjects(*((_B,_BV),(_B,_BW),(_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba),(_B,_Bb)))
+if mibBuilder.loadTexts:prtChannelGroup.setStatus(_A)
+prtInterpreterGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,15))
+prtInterpreterGroup.setObjects(*((_B,_Bc),(_B,_Bd),(_B,_Be),(_B,_Bf),(_B,_Bg),(_B,_Bh),(_B,_Bi),(_B,_Bj),(_B,_Bk),(_B,_Bl),(_B,_Bm)))
+if mibBuilder.loadTexts:prtInterpreterGroup.setStatus(_A)
+prtConsoleGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,16))
+prtConsoleGroup.setObjects(*((_B,_Bn),(_B,_Bo),(_B,_Bp),(_B,_Bq),(_B,_Br),(_B,_Bs),(_B,_Bt),(_B,_Bu),(_B,_Bv)))
+if mibBuilder.loadTexts:prtConsoleGroup.setStatus(_A)
+prtAlertTableGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,17))
+prtAlertTableGroup.setObjects(*((_B,_S),(_B,_Bw),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_Bx)))
+if mibBuilder.loadTexts:prtAlertTableGroup.setStatus(_A)
+prtAlertTimeGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,18))
+prtAlertTimeGroup.setObjects((_B,_By))
+if mibBuilder.loadTexts:prtAlertTimeGroup.setStatus(_A)
+prtAuxiliarySheetGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,19))
+prtAuxiliarySheetGroup.setObjects(*((_B,_Bz),(_B,_B_)))
+if mibBuilder.loadTexts:prtAuxiliarySheetGroup.setStatus(_A)
+prtInputSwitchingGroup=ObjectGroup((1,3,6,1,2,1,43,2,2,20))
+prtInputSwitchingGroup.setObjects(*((_B,_C0),(_B,_C1)))
+if mibBuilder.loadTexts:prtInputSwitchingGroup.setStatus(_A)
+prtGeneralV2Group=ObjectGroup((1,3,6,1,2,1,43,2,2,21))
+prtGeneralV2Group.setObjects(*((_B,_C2),(_B,_C3)))
+if mibBuilder.loadTexts:prtGeneralV2Group.setStatus(_A)
+prtAlertTableV2Group=ObjectGroup((1,3,6,1,2,1,43,2,2,22))
+prtAlertTableV2Group.setObjects(*((_B,_Q),(_B,_C4),(_B,_C5)))
+if mibBuilder.loadTexts:prtAlertTableV2Group.setStatus(_A)
+prtChannelV2Group=ObjectGroup((1,3,6,1,2,1,43,2,2,23))
+prtChannelV2Group.setObjects((_B,_C6))
+if mibBuilder.loadTexts:prtChannelV2Group.setStatus(_A)
+printerV2Alert=NotificationType((1,3,6,1,2,1,43,18,2,0,1))
+printerV2Alert.setObjects(*((_B,_Q),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W)))
+if mibBuilder.loadTexts:printerV2Alert.setStatus(_A)
+prtAlertTrapGroup=NotificationGroup((1,3,6,1,2,1,43,2,2,24))
+prtAlertTrapGroup.setObjects((_B,_C7))
+if mibBuilder.loadTexts:prtAlertTrapGroup.setStatus(_A)
+prtMIBCompliance=ModuleCompliance((1,3,6,1,2,1,43,2,1))
+prtMIBCompliance.setObjects(*((_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f)))
+if mibBuilder.loadTexts:prtMIBCompliance.setStatus(_A)
+prtMIB2Compliance=ModuleCompliance((1,3,6,1,2,1,43,2,3))
+prtMIB2Compliance.setObjects(*((_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f)))
+if mibBuilder.loadTexts:prtMIB2Compliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'PrtMediaUnitTC':PrtMediaUnitTC,'MediaUnit':MediaUnit,'PrtCapacityUnitTC':PrtCapacityUnitTC,'CapacityUnit':CapacityUnit,'PrtPrintOrientationTC':PrtPrintOrientationTC,'PrtSubUnitStatusTC':PrtSubUnitStatusTC,'SubUnitStatus':SubUnitStatus,'PresentOnOff':PresentOnOff,'PrtLocalizedDescriptionStringTC':PrtLocalizedDescriptionStringTC,'PrtConsoleDescriptionStringTC':PrtConsoleDescriptionStringTC,'CodedCharSet':CodedCharSet,'PrtChannelStateTC':PrtChannelStateTC,'PrtOutputStackingOrderTC':PrtOutputStackingOrderTC,'PrtOutputPageDeliveryOrientationTC':PrtOutputPageDeliveryOrientationTC,'PrtMarkerCounterUnitTC':PrtMarkerCounterUnitTC,'PrtMarkerSuppliesSupplyUnitTC':PrtMarkerSuppliesSupplyUnitTC,'PrtMarkerSuppliesClassTC':PrtMarkerSuppliesClassTC,'PrtMarkerColorantRoleTC':PrtMarkerColorantRoleTC,'PrtMarkerAddressabilityUnitTC':PrtMarkerAddressabilityUnitTC,'PrtMediaPathMaxSpeedPrintUnitTC':PrtMediaPathMaxSpeedPrintUnitTC,'PrtInterpreterTwoWayTC':PrtInterpreterTwoWayTC,'PrtAlertSeverityLevelTC':PrtAlertSeverityLevelTC,'printmib':printmib,'prtMIBConformance':prtMIBConformance,'prtMIBCompliance':prtMIBCompliance,'prtMIBGroups':prtMIBGroups,_X:prtGeneralGroup,'prtResponsiblePartyGroup':prtResponsiblePartyGroup,_Y:prtInputGroup,'prtExtendedInputGroup':prtExtendedInputGroup,'prtInputMediaGroup':prtInputMediaGroup,_Z:prtOutputGroup,'prtExtendedOutputGroup':prtExtendedOutputGroup,'prtOutputDimensionsGroup':prtOutputDimensionsGroup,'prtOutputFeaturesGroup':prtOutputFeaturesGroup,_a:prtMarkerGroup,'prtMarkerSuppliesGroup':prtMarkerSuppliesGroup,'prtMarkerColorantGroup':prtMarkerColorantGroup,_b:prtMediaPathGroup,_c:prtChannelGroup,_d:prtInterpreterGroup,_e:prtConsoleGroup,_f:prtAlertTableGroup,'prtAlertTimeGroup':prtAlertTimeGroup,'prtAuxiliarySheetGroup':prtAuxiliarySheetGroup,'prtInputSwitchingGroup':prtInputSwitchingGroup,'prtGeneralV2Group':prtGeneralV2Group,'prtAlertTableV2Group':prtAlertTableV2Group,'prtChannelV2Group':prtChannelV2Group,'prtAlertTrapGroup':prtAlertTrapGroup,'prtMIB2Compliance':prtMIB2Compliance,'prtMIB2Groups':prtMIB2Groups,'prtGeneral':prtGeneral,'prtGeneralTable':prtGeneralTable,'prtGeneralEntry':prtGeneralEntry,_x:prtGeneralConfigChanges,_y:prtGeneralCurrentLocalization,_z:prtGeneralReset,_A7:prtGeneralCurrentOperator,_A8:prtGeneralServicePerson,_A9:prtInputDefaultIndex,_AW:prtOutputDefaultIndex,_Au:prtMarkerDefaultIndex,_BK:prtMediaPathDefaultIndex,_Bn:prtConsoleLocalization,_Bo:prtConsoleNumberOfDisplayLines,_Bp:prtConsoleNumberOfDisplayChars,_Bq:prtConsoleDisable,_Bz:prtAuxiliarySheetStartupPage,_B_:prtAuxiliarySheetBannerPage,_C2:prtGeneralPrinterName,_C3:prtGeneralSerialNumber,_C4:prtAlertCriticalEvents,_C5:prtAlertAllEvents,'prtStorageRefTable':prtStorageRefTable,'prtStorageRefEntry':prtStorageRefEntry,_j:prtStorageRefSeqNumber,_A5:prtStorageRefIndex,'prtDeviceRefTable':prtDeviceRefTable,'prtDeviceRefEntry':prtDeviceRefEntry,_k:prtDeviceRefSeqNumber,_A6:prtDeviceRefIndex,'prtCover':prtCover,'prtCoverTable':prtCoverTable,'prtCoverEntry':prtCoverEntry,_l:prtCoverIndex,_A0:prtCoverDescription,_A1:prtCoverStatus,'prtLocalization':prtLocalization,'prtLocalizationTable':prtLocalizationTable,'prtLocalizationEntry':prtLocalizationEntry,_m:prtLocalizationIndex,_A2:prtLocalizationLanguage,_A3:prtLocalizationCountry,_A4:prtLocalizationCharacterSet,'prtInput':prtInput,'prtInputTable':prtInputTable,'prtInputEntry':prtInputEntry,_n:prtInputIndex,_AA:prtInputType,_AB:prtInputDimUnit,_AC:prtInputMediaDimFeedDirDeclared,_AD:prtInputMediaDimXFeedDirDeclared,_AE:prtInputMediaDimFeedDirChosen,_AF:prtInputMediaDimXFeedDirChosen,_AG:prtInputCapacityUnit,_AH:prtInputMaxCapacity,_AI:prtInputCurrentLevel,_AJ:prtInputStatus,_AK:prtInputMediaName,_AL:prtInputName,_AM:prtInputVendorName,_AN:prtInputModel,_AO:prtInputVersion,_AP:prtInputSerialNumber,_AQ:prtInputDescription,_AR:prtInputSecurity,_AS:prtInputMediaWeight,_AT:prtInputMediaType,_AU:prtInputMediaColor,_AV:prtInputMediaFormParts,_C0:prtInputMediaLoadTimeout,_C1:prtInputNextIndex,'prtOutput':prtOutput,'prtOutputTable':prtOutputTable,'prtOutputEntry':prtOutputEntry,_o:prtOutputIndex,_AX:prtOutputType,_AY:prtOutputCapacityUnit,_AZ:prtOutputMaxCapacity,_Aa:prtOutputRemainingCapacity,_Ab:prtOutputStatus,_Ac:prtOutputName,_Ad:prtOutputVendorName,_Ae:prtOutputModel,_Af:prtOutputVersion,_Ag:prtOutputSerialNumber,_Ah:prtOutputDescription,_Ai:prtOutputSecurity,_Aj:prtOutputDimUnit,_Ak:prtOutputMaxDimFeedDir,_Al:prtOutputMaxDimXFeedDir,_Am:prtOutputMinDimFeedDir,_An:prtOutputMinDimXFeedDir,_Ao:prtOutputStackingOrder,_Ap:prtOutputPageDeliveryOrientation,_Aq:prtOutputBursting,_Ar:prtOutputDecollating,_As:prtOutputPageCollated,_At:prtOutputOffsetStacking,'prtMarker':prtMarker,'prtMarkerTable':prtMarkerTable,'prtMarkerEntry':prtMarkerEntry,_p:prtMarkerIndex,_Av:prtMarkerMarkTech,_Aw:prtMarkerCounterUnit,_Ax:prtMarkerLifeCount,_Ay:prtMarkerPowerOnCount,_Az:prtMarkerProcessColorants,_A_:prtMarkerSpotColorants,_B0:prtMarkerAddressabilityUnit,_B1:prtMarkerAddressabilityFeedDir,_B2:prtMarkerAddressabilityXFeedDir,_B3:prtMarkerNorthMargin,_B4:prtMarkerSouthMargin,_B5:prtMarkerWestMargin,_B6:prtMarkerEastMargin,_B7:prtMarkerStatus,'prtMarkerSupplies':prtMarkerSupplies,'prtMarkerSuppliesTable':prtMarkerSuppliesTable,'prtMarkerSuppliesEntry':prtMarkerSuppliesEntry,_q:prtMarkerSuppliesIndex,_B8:prtMarkerSuppliesMarkerIndex,_B9:prtMarkerSuppliesColorantIndex,_BA:prtMarkerSuppliesClass,_BB:prtMarkerSuppliesType,_BC:prtMarkerSuppliesDescription,_BD:prtMarkerSuppliesSupplyUnit,_BE:prtMarkerSuppliesMaxCapacity,_BF:prtMarkerSuppliesLevel,'prtMarkerColorant':prtMarkerColorant,'prtMarkerColorantTable':prtMarkerColorantTable,'prtMarkerColorantEntry':prtMarkerColorantEntry,_r:prtMarkerColorantIndex,_BG:prtMarkerColorantMarkerIndex,_BH:prtMarkerColorantRole,_BI:prtMarkerColorantValue,_BJ:prtMarkerColorantTonality,'prtMediaPath':prtMediaPath,'prtMediaPathTable':prtMediaPathTable,'prtMediaPathEntry':prtMediaPathEntry,_s:prtMediaPathIndex,_BL:prtMediaPathMaxSpeedPrintUnit,_BM:prtMediaPathMediaSizeUnit,_BN:prtMediaPathMaxSpeed,_BO:prtMediaPathMaxMediaFeedDir,_BP:prtMediaPathMaxMediaXFeedDir,_BQ:prtMediaPathMinMediaFeedDir,_BR:prtMediaPathMinMediaXFeedDir,_BS:prtMediaPathType,_BT:prtMediaPathDescription,_BU:prtMediaPathStatus,'prtChannel':prtChannel,'prtChannelTable':prtChannelTable,'prtChannelEntry':prtChannelEntry,_t:prtChannelIndex,_BV:prtChannelType,_BW:prtChannelProtocolVersion,_BX:prtChannelCurrentJobCntlLangIndex,_BY:prtChannelDefaultPageDescLangIndex,_BZ:prtChannelState,_Ba:prtChannelIfIndex,_Bb:prtChannelStatus,_C6:prtChannelInformation,'prtInterpreter':prtInterpreter,'prtInterpreterTable':prtInterpreterTable,'prtInterpreterEntry':prtInterpreterEntry,_u:prtInterpreterIndex,_Bc:prtInterpreterLangFamily,_Bd:prtInterpreterLangLevel,_Be:prtInterpreterLangVersion,_Bf:prtInterpreterDescription,_Bg:prtInterpreterVersion,_Bh:prtInterpreterDefaultOrientation,_Bi:prtInterpreterFeedAddressability,_Bj:prtInterpreterXFeedAddressability,_Bk:prtInterpreterDefaultCharSetIn,_Bl:prtInterpreterDefaultCharSetOut,_Bm:prtInterpreterTwoWay,'prtConsoleDisplayBuffer':prtConsoleDisplayBuffer,'prtConsoleDisplayBufferTable':prtConsoleDisplayBufferTable,'prtConsoleDisplayBufferEntry':prtConsoleDisplayBufferEntry,_v:prtConsoleDisplayBufferIndex,_Br:prtConsoleDisplayBufferText,'prtConsoleLights':prtConsoleLights,'prtConsoleLightTable':prtConsoleLightTable,'prtConsoleLightEntry':prtConsoleLightEntry,_w:prtConsoleLightIndex,_Bs:prtConsoleOnTime,_Bt:prtConsoleOffTime,_Bu:prtConsoleColor,_Bv:prtConsoleDescription,'prtAlert':prtAlert,'prtAlertTable':prtAlertTable,'prtAlertEntry':prtAlertEntry,_Q:prtAlertIndex,_S:prtAlertSeverityLevel,_Bw:prtAlertTrainingLevel,_T:prtAlertGroup,_U:prtAlertGroupIndex,_V:prtAlertLocation,_W:prtAlertCode,_Bx:prtAlertDescription,_By:prtAlertTime,'printerV1Alert':printerV1Alert,'printerV2AlertPrefix':printerV2AlertPrefix,_C7:printerV2Alert})

@@ -1,0 +1,32 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+clabProjPacketCable,=mibBuilder.importSymbols('CLAB-DEF-MIB','clabProjPacketCable')
+ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+sysDescr,=mibBuilder.importSymbols('SNMPv2-MIB','sysDescr')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
+pktcSecMib=ModuleIdentity((1,3,6,1,4,1,4491,2,2,4))
+if mibBuilder.loadTexts:pktcSecMib.setRevisions(('2003-07-28 00:00',))
+_MemberBody_ObjectIdentity=ObjectIdentity
+memberBody=_MemberBody_ObjectIdentity((1,2))
+_Us_ObjectIdentity=ObjectIdentity
+us=_Us_ObjectIdentity((1,2,840))
+_AnsiX942_ObjectIdentity=ObjectIdentity
+ansiX942=_AnsiX942_ObjectIdentity((1,2,840,10046))
+_NumberType_ObjectIdentity=ObjectIdentity
+numberType=_NumberType_ObjectIdentity((1,2,840,10046,2))
+_DhPublicNumber_ObjectIdentity=ObjectIdentity
+dhPublicNumber=_DhPublicNumber_ObjectIdentity((1,2,840,10046,2,1))
+_PktcSecErrorCodes_ObjectIdentity=ObjectIdentity
+pktcSecErrorCodes=_PktcSecErrorCodes_ObjectIdentity((1,3,6,1,4,1,4491,2,2,4,1))
+_PktcSecErrorIpsec_ObjectIdentity=ObjectIdentity
+pktcSecErrorIpsec=_PktcSecErrorIpsec_ObjectIdentity((1,3,6,1,4,1,4491,2,2,4,1,1))
+_PktcSecErrorSnmpv3_ObjectIdentity=ObjectIdentity
+pktcSecErrorSnmpv3=_PktcSecErrorSnmpv3_ObjectIdentity((1,3,6,1,4,1,4491,2,2,4,1,2))
+_PktcSecErrorFqdn_ObjectIdentity=ObjectIdentity
+pktcSecErrorFqdn=_PktcSecErrorFqdn_ObjectIdentity((1,3,6,1,4,1,4491,2,2,4,1,3))
+mibBuilder.exportSymbols('PKTC-SEC-MIB',**{'memberBody':memberBody,'us':us,'ansiX942':ansiX942,'numberType':numberType,'dhPublicNumber':dhPublicNumber,'pktcSecMib':pktcSecMib,'pktcSecErrorCodes':pktcSecErrorCodes,'pktcSecErrorIpsec':pktcSecErrorIpsec,'pktcSecErrorSnmpv3':pktcSecErrorSnmpv3,'pktcSecErrorFqdn':pktcSecErrorFqdn})

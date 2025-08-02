@@ -1,109 +1,277 @@
-#
-# PySNMP MIB module CHARACTER-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/CHARACTER-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:06:47 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, OctetString, Integer, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
-( InterfaceIndex, ) = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( MibIdentifier, transmission, Bits, Integer32, IpAddress, Gauge32, mib_2, Counter32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Unsigned32, ObjectIdentity, TimeTicks, ModuleIdentity, NotificationType, ) = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "transmission", "Bits", "Integer32", "IpAddress", "Gauge32", "mib-2", "Counter32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Unsigned32", "ObjectIdentity", "TimeTicks", "ModuleIdentity", "NotificationType")
-( TextualConvention, DisplayString, AutonomousType, InstancePointer, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "AutonomousType", "InstancePointer")
-char = ModuleIdentity((1, 3, 6, 1, 2, 1, 19))
-if mibBuilder.loadTexts: char.setLastUpdated('9405261700Z')
-if mibBuilder.loadTexts: char.setOrganization('IETF Character MIB Working Group')
-if mibBuilder.loadTexts: char.setContactInfo('        Bob Stewart\n                Postal: Xyplex, Inc.\n                        295 Foster Street\n                        Littleton, MA 01460\n\n                   Tel: 508-952-4816\n                   Fax: 508-952-4887\n\n                E-mail: rlstewart@eng.xyplex.com')
-if mibBuilder.loadTexts: char.setDescription('The MIB module for character stream devices.')
-class PortIndex(Integer32, TextualConvention):
-    displayHint = 'd'
-
-charNumber = MibScalar((1, 3, 6, 1, 2, 1, 19, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charNumber.setDescription('The number of entries in charPortTable, regardless\n           of their current state.')
-charPortTable = MibTable((1, 3, 6, 1, 2, 1, 19, 2), )
-if mibBuilder.loadTexts: charPortTable.setDescription('A list of port entries.  The number of entries is\n           given by the value of charNumber.')
-charPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 19, 2, 1), ).setIndexNames((0, "CHARACTER-MIB", "charPortIndex"))
-if mibBuilder.loadTexts: charPortEntry.setDescription('Status and parameter values for a character port.')
-charPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 1), PortIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortIndex.setDescription('A unique value for each character port, perhaps\n           corresponding to the same value of ifIndex when the\n           character port is associated with a hardware port\n           represented by an ifIndex.')
-charPortName = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charPortName.setDescription('An administratively assigned name for the port,\n           typically with some local significance.')
-charPortType = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("physical", 1), ("virtual", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortType.setDescription("The port's type, 'physical' if the port represents\n           an external hardware connector, 'virtual' if it does\n           not.")
-charPortHardware = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 4), AutonomousType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortHardware.setDescription("A reference to hardware MIB definitions specific to\n           a physical port's external connector.  For example,\n           if the connector is RS-232, then the value of this\n           object refers to a MIB sub-tree defining objects\n           specific to RS-232.  If an agent is not configured\n           to have such values, the agent returns the object\n           identifier:\n\n               nullHardware OBJECT IDENTIFIER ::= { 0 0 }\n           ")
-charPortReset = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("ready", 1), ("execute", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charPortReset.setDescription("A control to force the port into a clean, initial\n           state, both hardware and software, disconnecting all\n           the port's existing sessions.  In response to a\n           get-request or get-next-request, the agent always\n           returns 'ready' as the value.  Setting the value to\n           'execute' causes a reset.")
-charPortAdminStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2), ("off", 3), ("maintenance", 4),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charPortAdminStatus.setDescription("The port's desired state, independent of flow\n           control.  'enabled' indicates that the port is\n           allowed to pass characters and form new sessions.\n           'disabled' indicates that the port is allowed to\n           pass characters but not form new sessions.  'off'\n           indicates that the port is not allowed to pass\n           characters or have any sessions. 'maintenance'\n           indicates a maintenance mode, exclusive of normal\n           operation, such as running a test.\n\n           'enabled' corresponds to ifAdminStatus 'up'.\n           'disabled' and 'off' correspond to ifAdminStatus\n           'down'.  'maintenance' corresponds to ifAdminStatus\n           'test'.")
-charPortOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("maintenance", 3), ("absent", 4), ("active", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortOperStatus.setDescription("The port's actual, operational state, independent\n           of flow control.  'up' indicates able to function\n           normally.  'down' indicates inability to function\n           for administrative or operational reasons.\n           'maintenance' indicates a maintenance mode,\n           exclusive of normal operation, such as running a\n           test.  'absent' indicates that port hardware is not\n           present.  'active' indicates up with a user present\n           (e.g. logged in).\n\n           'up' and 'active' correspond to ifOperStatus 'up'.\n           'down' and 'absent' correspond to ifOperStatus\n           'down'.  'maintenance' corresponds to ifOperStatus\n           'test'.")
-charPortLastChange = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 8), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortLastChange.setDescription('The value of sysUpTime at the time the port entered\n           its current operational state.  If the current state\n           was entered prior to the last reinitialization of\n           the local network management subsystem, then this\n           object contains a zero value.')
-charPortInFlowType = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("none", 1), ("xonXoff", 2), ("hardware", 3), ("ctsRts", 4), ("dsrDtr", 5),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charPortInFlowType.setDescription("The port's type of input flow control.  'none'\n           indicates no flow control at this level or below.\n           'xonXoff' indicates software flow control by\n           recognizing XON and XOFF characters.  'hardware'\n           indicates flow control delegated to the lower level,\n           for example a parallel port.\n\n           'ctsRts' and 'dsrDtr' are specific to RS-232-like\n           ports.  Although not architecturally pure, they are\n           included here for simplicity's sake.")
-charPortOutFlowType = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("none", 1), ("xonXoff", 2), ("hardware", 3), ("ctsRts", 4), ("dsrDtr", 5),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charPortOutFlowType.setDescription("The port's type of output flow control.  'none'\n           indicates no flow control at this level or below.\n           'xonXoff' indicates software flow control by\n           recognizing XON and XOFF characters.  'hardware'\n           indicates flow control delegated to the lower level,\n           for example a parallel port.\n\n           'ctsRts' and 'dsrDtr' are specific to RS-232-like\n           ports.  Although not architecturally pure, they are\n           included here for simplicy's sake.")
-charPortInFlowState = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("none", 1), ("unknown", 2), ("stop", 3), ("go", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortInFlowState.setDescription("The current operational state of input flow control\n           on the port.  'none' indicates not applicable.\n           'unknown' indicates this level does not know.\n           'stop' indicates flow not allowed.  'go' indicates\n           flow allowed.")
-charPortOutFlowState = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("none", 1), ("unknown", 2), ("stop", 3), ("go", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortOutFlowState.setDescription("The current operational state of output flow\n           control on the port.  'none' indicates not\n           applicable.  'unknown' indicates this level does not\n           know.  'stop' indicates flow not allowed.  'go'\n           indicates flow allowed.")
-charPortInCharacters = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortInCharacters.setDescription("Total number of characters detected as input from\n           the port since system re-initialization and while\n           the port operational state was 'up', 'active', or\n           'maintenance', including, for example, framing, flow\n           control (i.e. XON and XOFF), each occurrence of a\n           BREAK condition, locally-processed input, and input\n           sent to all sessions.")
-charPortOutCharacters = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortOutCharacters.setDescription("Total number of characters detected as output to\n           the port since system re-initialization and while\n           the port operational state was 'up', 'active', or\n           'maintenance', including, for example, framing, flow\n           control (i.e. XON and XOFF), each occurrence of a\n           BREAK condition, locally-created output, and output\n           received from all sessions.")
-charPortAdminOrigin = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("dynamic", 1), ("network", 2), ("local", 3), ("none", 4),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charPortAdminOrigin.setDescription("The administratively allowed origin for\n           establishing session on the port.  'dynamic' allows\n           'network' or 'local' session establishment. 'none'\n           disallows session establishment.")
-charPortSessionMaximum = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1,2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charPortSessionMaximum.setDescription('The maximum number of concurrent sessions allowed\n           on the port.  A value of -1 indicates no maximum.\n           Setting the maximum to less than the current number\n           of sessions has unspecified results.')
-charPortSessionNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 17), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortSessionNumber.setDescription('The number of open sessions on the port that are in\n           the connecting, connected, or disconnecting state.')
-charPortSessionIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortSessionIndex.setDescription("The value of charSessIndex for the port's first or\n           only active session.  If the port has no active\n           session, the agent returns the value zero.")
-charPortInFlowTypes = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 19), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charPortInFlowTypes.setDescription("The port's types of input flow control at the\n           software level.  Hardware-level flow control is\n           independently controlled by the appropriate\n           hardware-level MIB.\n\n           A value of zero indicates no flow control.\n           Depending on the specific implementation, any or\n           all combinations of flow control may be chosen by\n           adding the values:\n\n           128  xonXoff, recognizing XON and XOFF characters\n           64   enqHost, ENQ/ACK to allow input to host\n           32   enqTerm, ACK to allow output to port\n           ")
-charPortOutFlowTypes = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 20), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charPortOutFlowTypes.setDescription("The port's types of output flow control at the\n           software level.  Hardware-level flow control is\n           independently controlled by the appropriate\n           hardware-level MIB.\n\n           A value of zero indicates no flow control.\n           Depending on the specific implementation, any or\n           all combinations of flow control may be chosen by\n           adding the values:\n\n           128  xonXoff, recognizing XON and XOFF characters\n           64   enqHost, ENQ/ACK to allow input to host\n           32   enqTerm, ACK to allow output to port\n           ")
-charPortLowerIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 2, 1, 21), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charPortLowerIfIndex.setDescription('The ifIndex value of the lower level hardware supporting\n           this character port, zero if none.')
-charSessTable = MibTable((1, 3, 6, 1, 2, 1, 19, 3), )
-if mibBuilder.loadTexts: charSessTable.setDescription('A list of port session entries.')
-charSessEntry = MibTableRow((1, 3, 6, 1, 2, 1, 19, 3, 1), ).setIndexNames((0, "CHARACTER-MIB", "charSessPortIndex"), (0, "CHARACTER-MIB", "charSessIndex"))
-if mibBuilder.loadTexts: charSessEntry.setDescription('Status and parameter values for a character port\n           session.')
-charSessPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 1), PortIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessPortIndex.setDescription('The value of charPortIndex for the port to which\n           this session belongs.')
-charSessIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessIndex.setDescription('The session index in the context of the port, a\n           non-zero positive integer.  Session indexes within a\n           port need not be sequential.  Session indexes may be\n           reused for different ports.  For example, port 1 and\n           port 3 may both have a session 2 at the same time.\n           Session indexes may have any valid integer value,\n           with any meaning convenient to the agent\n           implementation.')
-charSessKill = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("ready", 1), ("execute", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: charSessKill.setDescription("A control to terminate the session.  In response to\n           a get-request or get-next-request, the agent always\n           returns 'ready' as the value.  Setting the value to\n           'execute' causes termination.")
-charSessState = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("connecting", 1), ("connected", 2), ("disconnecting", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessState.setDescription("The current operational state of the session,\n           disregarding flow control.  'connected' indicates\n           that character data could flow on the network side\n           of session.  'connecting' indicates moving from\n           nonexistent toward 'connected'.  'disconnecting'\n           indicates moving from 'connected' or 'connecting' to\n           nonexistent.")
-charSessProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 5), AutonomousType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessProtocol.setDescription('The network protocol over which the session is\n           running.  Other OBJECT IDENTIFIER values may be\n           defined elsewhere, in association with specific\n           protocols.  However, this document assigns those of\n           known interest as of this writing.')
-wellKnownProtocols = MibIdentifier((1, 3, 6, 1, 2, 1, 19, 4))
-protocolOther = MibIdentifier((1, 3, 6, 1, 2, 1, 19, 4, 1))
-protocolTelnet = MibIdentifier((1, 3, 6, 1, 2, 1, 19, 4, 2))
-protocolRlogin = MibIdentifier((1, 3, 6, 1, 2, 1, 19, 4, 3))
-protocolLat = MibIdentifier((1, 3, 6, 1, 2, 1, 19, 4, 4))
-protocolX29 = MibIdentifier((1, 3, 6, 1, 2, 1, 19, 4, 5))
-protocolVtp = MibIdentifier((1, 3, 6, 1, 2, 1, 19, 4, 6))
-charSessOperOrigin = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("unknown", 1), ("network", 2), ("local", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessOperOrigin.setDescription("The session's source of establishment.")
-charSessInCharacters = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessInCharacters.setDescription("This session's subset of charPortInCharacters.")
-charSessOutCharacters = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessOutCharacters.setDescription("This session's subset of charPortOutCharacters.")
-charSessConnectionId = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 9), InstancePointer()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessConnectionId.setDescription('A reference to additional local MIB information.\n           This should be the highest available related MIB,\n           corresponding to charSessProtocol, such as Telnet.\n           For example, the value for a TCP connection (in the\n           absence of a Telnet MIB) is the object identifier of\n           tcpConnState.  If an agent is not configured to have\n           such values, the agent returns the object\n           identifier:\n\n               nullConnectionId OBJECT IDENTIFIER ::= { 0 0 }\n           ')
-charSessStartTime = MibTableColumn((1, 3, 6, 1, 2, 1, 19, 3, 1, 10), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: charSessStartTime.setDescription('The value of sysUpTime in MIB-2 when the session\n           entered connecting state.')
-charConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 19, 5))
-charGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 19, 5, 1))
-charCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 19, 5, 2))
-charCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 19, 5, 2, 1)).setObjects(*(("CHARACTER-MIB", "charGroup"),))
-if mibBuilder.loadTexts: charCompliance.setDescription('The compliance statement for SNMPv2 entities\n               which have Character hardware interfaces.')
-charGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 19, 5, 1, 1)).setObjects(*(("CHARACTER-MIB", "charNumber"), ("CHARACTER-MIB", "charPortIndex"), ("CHARACTER-MIB", "charPortName"), ("CHARACTER-MIB", "charPortType"), ("CHARACTER-MIB", "charPortHardware"), ("CHARACTER-MIB", "charPortReset"), ("CHARACTER-MIB", "charPortAdminStatus"), ("CHARACTER-MIB", "charPortOperStatus"), ("CHARACTER-MIB", "charPortLastChange"), ("CHARACTER-MIB", "charPortInFlowState"), ("CHARACTER-MIB", "charPortOutFlowState"), ("CHARACTER-MIB", "charPortAdminOrigin"), ("CHARACTER-MIB", "charPortSessionMaximum"), ("CHARACTER-MIB", "charPortInFlowTypes"), ("CHARACTER-MIB", "charPortOutFlowTypes"), ("CHARACTER-MIB", "charPortInCharacters"), ("CHARACTER-MIB", "charPortOutCharacters"), ("CHARACTER-MIB", "charPortSessionNumber"), ("CHARACTER-MIB", "charPortSessionIndex"), ("CHARACTER-MIB", "charPortLowerIfIndex"), ("CHARACTER-MIB", "charSessPortIndex"), ("CHARACTER-MIB", "charSessIndex"), ("CHARACTER-MIB", "charSessKill"), ("CHARACTER-MIB", "charSessState"), ("CHARACTER-MIB", "charSessProtocol"), ("CHARACTER-MIB", "charSessOperOrigin"), ("CHARACTER-MIB", "charSessInCharacters"), ("CHARACTER-MIB", "charSessOutCharacters"), ("CHARACTER-MIB", "charSessConnectionId"), ("CHARACTER-MIB", "charSessStartTime"),))
-if mibBuilder.loadTexts: charGroup.setDescription('A collection of objects providing information\n                applicable to all Character interfaces.')
-mibBuilder.exportSymbols("CHARACTER-MIB", protocolOther=protocolOther, charPortAdminOrigin=charPortAdminOrigin, charPortSessionMaximum=charPortSessionMaximum, charSessIndex=charSessIndex, charSessInCharacters=charSessInCharacters, charPortAdminStatus=charPortAdminStatus, charSessEntry=charSessEntry, charNumber=charNumber, charPortType=charPortType, charSessKill=charSessKill, protocolRlogin=protocolRlogin, charCompliance=charCompliance, charPortInCharacters=charPortInCharacters, charPortLowerIfIndex=charPortLowerIfIndex, charPortOutFlowState=charPortOutFlowState, charConformance=charConformance, charSessConnectionId=charSessConnectionId, charPortOutCharacters=charPortOutCharacters, charSessStartTime=charSessStartTime, charSessOutCharacters=charSessOutCharacters, wellKnownProtocols=wellKnownProtocols, charPortIndex=charPortIndex, charPortReset=charPortReset, charPortInFlowType=charPortInFlowType, charPortHardware=charPortHardware, protocolLat=protocolLat, charPortLastChange=charPortLastChange, charPortSessionIndex=charPortSessionIndex, protocolVtp=protocolVtp, charSessTable=charSessTable, charSessProtocol=charSessProtocol, charSessOperOrigin=charSessOperOrigin, charPortOutFlowTypes=charPortOutFlowTypes, protocolTelnet=protocolTelnet, charPortOutFlowType=charPortOutFlowType, charPortTable=charPortTable, charPortInFlowState=charPortInFlowState, charSessPortIndex=charSessPortIndex, PortIndex=PortIndex, charPortSessionNumber=charPortSessionNumber, charCompliances=charCompliances, PYSNMP_MODULE_ID=char, charGroups=charGroups, charPortEntry=charPortEntry, charPortInFlowTypes=charPortInFlowTypes, charPortOperStatus=charPortOperStatus, charGroup=charGroup, charPortName=charPortName, charSessState=charSessState, char=char, protocolX29=protocolX29)
+_v='charGroup'
+_u='charSessStartTime'
+_t='charSessConnectionId'
+_s='charSessOutCharacters'
+_r='charSessInCharacters'
+_q='charSessOperOrigin'
+_p='charSessProtocol'
+_o='charSessState'
+_n='charSessKill'
+_m='charPortLowerIfIndex'
+_l='charPortSessionIndex'
+_k='charPortSessionNumber'
+_j='charPortOutCharacters'
+_i='charPortInCharacters'
+_h='charPortOutFlowTypes'
+_g='charPortInFlowTypes'
+_f='charPortSessionMaximum'
+_e='charPortAdminOrigin'
+_d='charPortOutFlowState'
+_c='charPortInFlowState'
+_b='charPortLastChange'
+_a='charPortOperStatus'
+_Z='charPortAdminStatus'
+_Y='charPortReset'
+_X='charPortHardware'
+_W='charPortType'
+_V='charPortName'
+_U='charNumber'
+_T='network'
+_S='deprecated'
+_R='dsrDtr'
+_Q='ctsRts'
+_P='hardware'
+_O='xonXoff'
+_N='maintenance'
+_M='execute'
+_L='DisplayString'
+_K='charSessIndex'
+_J='charSessPortIndex'
+_I='unknown'
+_H='charPortIndex'
+_G='OctetString'
+_F='none'
+_E='read-write'
+_D='Integer32'
+_C='read-only'
+_B='CHARACTER-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_G,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2,transmission=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2','transmission')
+AutonomousType,DisplayString,InstancePointer,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','AutonomousType',_L,'InstancePointer','PhysAddress','TextualConvention')
+char=ModuleIdentity((1,3,6,1,2,1,19))
+class PortIndex(TextualConvention,Integer32):status=_A;displayHint='d'
+_CharNumber_Type=Integer32
+_CharNumber_Object=MibScalar
+charNumber=_CharNumber_Object((1,3,6,1,2,1,19,1),_CharNumber_Type())
+charNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:charNumber.setStatus(_A)
+_CharPortTable_Object=MibTable
+charPortTable=_CharPortTable_Object((1,3,6,1,2,1,19,2))
+if mibBuilder.loadTexts:charPortTable.setStatus(_A)
+_CharPortEntry_Object=MibTableRow
+charPortEntry=_CharPortEntry_Object((1,3,6,1,2,1,19,2,1))
+charPortEntry.setIndexNames((0,_B,_H))
+if mibBuilder.loadTexts:charPortEntry.setStatus(_A)
+_CharPortIndex_Type=PortIndex
+_CharPortIndex_Object=MibTableColumn
+charPortIndex=_CharPortIndex_Object((1,3,6,1,2,1,19,2,1,1),_CharPortIndex_Type())
+charPortIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:charPortIndex.setStatus(_A)
+class _CharPortName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_CharPortName_Type.__name__=_L
+_CharPortName_Object=MibTableColumn
+charPortName=_CharPortName_Object((1,3,6,1,2,1,19,2,1,2),_CharPortName_Type())
+charPortName.setMaxAccess(_E)
+if mibBuilder.loadTexts:charPortName.setStatus(_A)
+class _CharPortType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('physical',1),('virtual',2)))
+_CharPortType_Type.__name__=_D
+_CharPortType_Object=MibTableColumn
+charPortType=_CharPortType_Object((1,3,6,1,2,1,19,2,1,3),_CharPortType_Type())
+charPortType.setMaxAccess(_C)
+if mibBuilder.loadTexts:charPortType.setStatus(_A)
+_CharPortHardware_Type=AutonomousType
+_CharPortHardware_Object=MibTableColumn
+charPortHardware=_CharPortHardware_Object((1,3,6,1,2,1,19,2,1,4),_CharPortHardware_Type())
+charPortHardware.setMaxAccess(_C)
+if mibBuilder.loadTexts:charPortHardware.setStatus(_A)
+class _CharPortReset_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ready',1),(_M,2)))
+_CharPortReset_Type.__name__=_D
+_CharPortReset_Object=MibTableColumn
+charPortReset=_CharPortReset_Object((1,3,6,1,2,1,19,2,1,5),_CharPortReset_Type())
+charPortReset.setMaxAccess(_E)
+if mibBuilder.loadTexts:charPortReset.setStatus(_A)
+class _CharPortAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('enabled',1),('disabled',2),('off',3),(_N,4)))
+_CharPortAdminStatus_Type.__name__=_D
+_CharPortAdminStatus_Object=MibTableColumn
+charPortAdminStatus=_CharPortAdminStatus_Object((1,3,6,1,2,1,19,2,1,6),_CharPortAdminStatus_Type())
+charPortAdminStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:charPortAdminStatus.setStatus(_A)
+class _CharPortOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('up',1),('down',2),(_N,3),('absent',4),('active',5)))
+_CharPortOperStatus_Type.__name__=_D
+_CharPortOperStatus_Object=MibTableColumn
+charPortOperStatus=_CharPortOperStatus_Object((1,3,6,1,2,1,19,2,1,7),_CharPortOperStatus_Type())
+charPortOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:charPortOperStatus.setStatus(_A)
+_CharPortLastChange_Type=TimeTicks
+_CharPortLastChange_Object=MibTableColumn
+charPortLastChange=_CharPortLastChange_Object((1,3,6,1,2,1,19,2,1,8),_CharPortLastChange_Type())
+charPortLastChange.setMaxAccess(_C)
+if mibBuilder.loadTexts:charPortLastChange.setStatus(_A)
+class _CharPortInFlowType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_F,1),(_O,2),(_P,3),(_Q,4),(_R,5)))
+_CharPortInFlowType_Type.__name__=_D
+_CharPortInFlowType_Object=MibTableColumn
+charPortInFlowType=_CharPortInFlowType_Object((1,3,6,1,2,1,19,2,1,9),_CharPortInFlowType_Type())
+charPortInFlowType.setMaxAccess(_E)
+if mibBuilder.loadTexts:charPortInFlowType.setStatus(_S)
+class _CharPortOutFlowType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_F,1),(_O,2),(_P,3),(_Q,4),(_R,5)))
+_CharPortOutFlowType_Type.__name__=_D
+_CharPortOutFlowType_Object=MibTableColumn
+charPortOutFlowType=_CharPortOutFlowType_Object((1,3,6,1,2,1,19,2,1,10),_CharPortOutFlowType_Type())
+charPortOutFlowType.setMaxAccess(_E)
+if mibBuilder.loadTexts:charPortOutFlowType.setStatus(_S)
+class _CharPortInFlowState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_F,1),(_I,2),('stop',3),('go',4)))
+_CharPortInFlowState_Type.__name__=_D
+_CharPortInFlowState_Object=MibTableColumn
+charPortInFlowState=_CharPortInFlowState_Object((1,3,6,1,2,1,19,2,1,11),_CharPortInFlowState_Type())
+charPortInFlowState.setMaxAccess(_C)
+if mibBuilder.loadTexts:charPortInFlowState.setStatus(_A)
+class _CharPortOutFlowState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_F,1),(_I,2),('stop',3),('go',4)))
+_CharPortOutFlowState_Type.__name__=_D
+_CharPortOutFlowState_Object=MibTableColumn
+charPortOutFlowState=_CharPortOutFlowState_Object((1,3,6,1,2,1,19,2,1,12),_CharPortOutFlowState_Type())
+charPortOutFlowState.setMaxAccess(_C)
+if mibBuilder.loadTexts:charPortOutFlowState.setStatus(_A)
+_CharPortInCharacters_Type=Counter32
+_CharPortInCharacters_Object=MibTableColumn
+charPortInCharacters=_CharPortInCharacters_Object((1,3,6,1,2,1,19,2,1,13),_CharPortInCharacters_Type())
+charPortInCharacters.setMaxAccess(_C)
+if mibBuilder.loadTexts:charPortInCharacters.setStatus(_A)
+_CharPortOutCharacters_Type=Counter32
+_CharPortOutCharacters_Object=MibTableColumn
+charPortOutCharacters=_CharPortOutCharacters_Object((1,3,6,1,2,1,19,2,1,14),_CharPortOutCharacters_Type())
+charPortOutCharacters.setMaxAccess(_C)
+if mibBuilder.loadTexts:charPortOutCharacters.setStatus(_A)
+class _CharPortAdminOrigin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('dynamic',1),(_T,2),('local',3),(_F,4)))
+_CharPortAdminOrigin_Type.__name__=_D
+_CharPortAdminOrigin_Object=MibTableColumn
+charPortAdminOrigin=_CharPortAdminOrigin_Object((1,3,6,1,2,1,19,2,1,15),_CharPortAdminOrigin_Type())
+charPortAdminOrigin.setMaxAccess(_E)
+if mibBuilder.loadTexts:charPortAdminOrigin.setStatus(_A)
+class _CharPortSessionMaximum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
+_CharPortSessionMaximum_Type.__name__=_D
+_CharPortSessionMaximum_Object=MibTableColumn
+charPortSessionMaximum=_CharPortSessionMaximum_Object((1,3,6,1,2,1,19,2,1,16),_CharPortSessionMaximum_Type())
+charPortSessionMaximum.setMaxAccess(_E)
+if mibBuilder.loadTexts:charPortSessionMaximum.setStatus(_A)
+_CharPortSessionNumber_Type=Gauge32
+_CharPortSessionNumber_Object=MibTableColumn
+charPortSessionNumber=_CharPortSessionNumber_Object((1,3,6,1,2,1,19,2,1,17),_CharPortSessionNumber_Type())
+charPortSessionNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:charPortSessionNumber.setStatus(_A)
+class _CharPortSessionIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_CharPortSessionIndex_Type.__name__=_D
+_CharPortSessionIndex_Object=MibTableColumn
+charPortSessionIndex=_CharPortSessionIndex_Object((1,3,6,1,2,1,19,2,1,18),_CharPortSessionIndex_Type())
+charPortSessionIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:charPortSessionIndex.setStatus(_A)
+class _CharPortInFlowTypes_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_CharPortInFlowTypes_Type.__name__=_G
+_CharPortInFlowTypes_Object=MibTableColumn
+charPortInFlowTypes=_CharPortInFlowTypes_Object((1,3,6,1,2,1,19,2,1,19),_CharPortInFlowTypes_Type())
+charPortInFlowTypes.setMaxAccess(_E)
+if mibBuilder.loadTexts:charPortInFlowTypes.setStatus(_A)
+class _CharPortOutFlowTypes_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_CharPortOutFlowTypes_Type.__name__=_G
+_CharPortOutFlowTypes_Object=MibTableColumn
+charPortOutFlowTypes=_CharPortOutFlowTypes_Object((1,3,6,1,2,1,19,2,1,20),_CharPortOutFlowTypes_Type())
+charPortOutFlowTypes.setMaxAccess(_E)
+if mibBuilder.loadTexts:charPortOutFlowTypes.setStatus(_A)
+_CharPortLowerIfIndex_Type=InterfaceIndex
+_CharPortLowerIfIndex_Object=MibTableColumn
+charPortLowerIfIndex=_CharPortLowerIfIndex_Object((1,3,6,1,2,1,19,2,1,21),_CharPortLowerIfIndex_Type())
+charPortLowerIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:charPortLowerIfIndex.setStatus(_A)
+_CharSessTable_Object=MibTable
+charSessTable=_CharSessTable_Object((1,3,6,1,2,1,19,3))
+if mibBuilder.loadTexts:charSessTable.setStatus(_A)
+_CharSessEntry_Object=MibTableRow
+charSessEntry=_CharSessEntry_Object((1,3,6,1,2,1,19,3,1))
+charSessEntry.setIndexNames((0,_B,_J),(0,_B,_K))
+if mibBuilder.loadTexts:charSessEntry.setStatus(_A)
+_CharSessPortIndex_Type=PortIndex
+_CharSessPortIndex_Object=MibTableColumn
+charSessPortIndex=_CharSessPortIndex_Object((1,3,6,1,2,1,19,3,1,1),_CharSessPortIndex_Type())
+charSessPortIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:charSessPortIndex.setStatus(_A)
+class _CharSessIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_CharSessIndex_Type.__name__=_D
+_CharSessIndex_Object=MibTableColumn
+charSessIndex=_CharSessIndex_Object((1,3,6,1,2,1,19,3,1,2),_CharSessIndex_Type())
+charSessIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:charSessIndex.setStatus(_A)
+class _CharSessKill_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ready',1),(_M,2)))
+_CharSessKill_Type.__name__=_D
+_CharSessKill_Object=MibTableColumn
+charSessKill=_CharSessKill_Object((1,3,6,1,2,1,19,3,1,3),_CharSessKill_Type())
+charSessKill.setMaxAccess(_E)
+if mibBuilder.loadTexts:charSessKill.setStatus(_A)
+class _CharSessState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('connecting',1),('connected',2),('disconnecting',3)))
+_CharSessState_Type.__name__=_D
+_CharSessState_Object=MibTableColumn
+charSessState=_CharSessState_Object((1,3,6,1,2,1,19,3,1,4),_CharSessState_Type())
+charSessState.setMaxAccess(_C)
+if mibBuilder.loadTexts:charSessState.setStatus(_A)
+_CharSessProtocol_Type=AutonomousType
+_CharSessProtocol_Object=MibTableColumn
+charSessProtocol=_CharSessProtocol_Object((1,3,6,1,2,1,19,3,1,5),_CharSessProtocol_Type())
+charSessProtocol.setMaxAccess(_C)
+if mibBuilder.loadTexts:charSessProtocol.setStatus(_A)
+class _CharSessOperOrigin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),(_T,2),('local',3)))
+_CharSessOperOrigin_Type.__name__=_D
+_CharSessOperOrigin_Object=MibTableColumn
+charSessOperOrigin=_CharSessOperOrigin_Object((1,3,6,1,2,1,19,3,1,6),_CharSessOperOrigin_Type())
+charSessOperOrigin.setMaxAccess(_C)
+if mibBuilder.loadTexts:charSessOperOrigin.setStatus(_A)
+_CharSessInCharacters_Type=Counter32
+_CharSessInCharacters_Object=MibTableColumn
+charSessInCharacters=_CharSessInCharacters_Object((1,3,6,1,2,1,19,3,1,7),_CharSessInCharacters_Type())
+charSessInCharacters.setMaxAccess(_C)
+if mibBuilder.loadTexts:charSessInCharacters.setStatus(_A)
+_CharSessOutCharacters_Type=Counter32
+_CharSessOutCharacters_Object=MibTableColumn
+charSessOutCharacters=_CharSessOutCharacters_Object((1,3,6,1,2,1,19,3,1,8),_CharSessOutCharacters_Type())
+charSessOutCharacters.setMaxAccess(_C)
+if mibBuilder.loadTexts:charSessOutCharacters.setStatus(_A)
+_CharSessConnectionId_Type=InstancePointer
+_CharSessConnectionId_Object=MibTableColumn
+charSessConnectionId=_CharSessConnectionId_Object((1,3,6,1,2,1,19,3,1,9),_CharSessConnectionId_Type())
+charSessConnectionId.setMaxAccess(_C)
+if mibBuilder.loadTexts:charSessConnectionId.setStatus(_A)
+_CharSessStartTime_Type=TimeTicks
+_CharSessStartTime_Object=MibTableColumn
+charSessStartTime=_CharSessStartTime_Object((1,3,6,1,2,1,19,3,1,10),_CharSessStartTime_Type())
+charSessStartTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:charSessStartTime.setStatus(_A)
+_WellKnownProtocols_ObjectIdentity=ObjectIdentity
+wellKnownProtocols=_WellKnownProtocols_ObjectIdentity((1,3,6,1,2,1,19,4))
+_ProtocolOther_ObjectIdentity=ObjectIdentity
+protocolOther=_ProtocolOther_ObjectIdentity((1,3,6,1,2,1,19,4,1))
+_ProtocolTelnet_ObjectIdentity=ObjectIdentity
+protocolTelnet=_ProtocolTelnet_ObjectIdentity((1,3,6,1,2,1,19,4,2))
+_ProtocolRlogin_ObjectIdentity=ObjectIdentity
+protocolRlogin=_ProtocolRlogin_ObjectIdentity((1,3,6,1,2,1,19,4,3))
+_ProtocolLat_ObjectIdentity=ObjectIdentity
+protocolLat=_ProtocolLat_ObjectIdentity((1,3,6,1,2,1,19,4,4))
+_ProtocolX29_ObjectIdentity=ObjectIdentity
+protocolX29=_ProtocolX29_ObjectIdentity((1,3,6,1,2,1,19,4,5))
+_ProtocolVtp_ObjectIdentity=ObjectIdentity
+protocolVtp=_ProtocolVtp_ObjectIdentity((1,3,6,1,2,1,19,4,6))
+_CharConformance_ObjectIdentity=ObjectIdentity
+charConformance=_CharConformance_ObjectIdentity((1,3,6,1,2,1,19,5))
+_CharGroups_ObjectIdentity=ObjectIdentity
+charGroups=_CharGroups_ObjectIdentity((1,3,6,1,2,1,19,5,1))
+_CharCompliances_ObjectIdentity=ObjectIdentity
+charCompliances=_CharCompliances_ObjectIdentity((1,3,6,1,2,1,19,5,2))
+charGroup=ObjectGroup((1,3,6,1,2,1,19,5,1,1))
+charGroup.setObjects(*((_B,_U),(_B,_H),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_J),(_B,_K),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u)))
+if mibBuilder.loadTexts:charGroup.setStatus(_A)
+charCompliance=ModuleCompliance((1,3,6,1,2,1,19,5,2,1))
+charCompliance.setObjects((_B,_v))
+if mibBuilder.loadTexts:charCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'PortIndex':PortIndex,'char':char,_U:charNumber,'charPortTable':charPortTable,'charPortEntry':charPortEntry,_H:charPortIndex,_V:charPortName,_W:charPortType,_X:charPortHardware,_Y:charPortReset,_Z:charPortAdminStatus,_a:charPortOperStatus,_b:charPortLastChange,'charPortInFlowType':charPortInFlowType,'charPortOutFlowType':charPortOutFlowType,_c:charPortInFlowState,_d:charPortOutFlowState,_i:charPortInCharacters,_j:charPortOutCharacters,_e:charPortAdminOrigin,_f:charPortSessionMaximum,_k:charPortSessionNumber,_l:charPortSessionIndex,_g:charPortInFlowTypes,_h:charPortOutFlowTypes,_m:charPortLowerIfIndex,'charSessTable':charSessTable,'charSessEntry':charSessEntry,_J:charSessPortIndex,_K:charSessIndex,_n:charSessKill,_o:charSessState,_p:charSessProtocol,_q:charSessOperOrigin,_r:charSessInCharacters,_s:charSessOutCharacters,_t:charSessConnectionId,_u:charSessStartTime,'wellKnownProtocols':wellKnownProtocols,'protocolOther':protocolOther,'protocolTelnet':protocolTelnet,'protocolRlogin':protocolRlogin,'protocolLat':protocolLat,'protocolX29':protocolX29,'protocolVtp':protocolVtp,'charConformance':charConformance,'charGroups':charGroups,_v:charGroup,'charCompliances':charCompliances,'charCompliance':charCompliance})

@@ -1,65 +1,118 @@
-#
-# PySNMP MIB module CIRCUIT-IF-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/CIRCUIT-IF-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:06:52 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
-( InterfaceIndex, ifIndex, ) = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex", "ifIndex")
-( NotificationGroup, ObjectGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-( TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, iso, NotificationType, MibIdentifier, Counter64, Bits, ModuleIdentity, Counter32, mib_2, ObjectIdentity, IpAddress, Unsigned32, Gauge32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "iso", "NotificationType", "MibIdentifier", "Counter64", "Bits", "ModuleIdentity", "Counter32", "mib-2", "ObjectIdentity", "IpAddress", "Unsigned32", "Gauge32")
-( RowPointer, TextualConvention, DisplayString, StorageType, RowStatus, TimeStamp, ) = mibBuilder.importSymbols("SNMPv2-TC", "RowPointer", "TextualConvention", "DisplayString", "StorageType", "RowStatus", "TimeStamp")
-circuitIfMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 94)).setRevisions(("2002-01-03 00:00",))
-if mibBuilder.loadTexts: circuitIfMIB.setLastUpdated('200201030000Z')
-if mibBuilder.loadTexts: circuitIfMIB.setOrganization('IETF Frame Relay Service MIB Working Group')
-if mibBuilder.loadTexts: circuitIfMIB.setContactInfo('IETF Frame Relay Service MIB (frnetmib) Working Group\n\n           WG Charter:    http://www.ietf.org/html.charters/\n                                 frnetmib-charter.html\n           WG-email:      frnetmib@sunroof.eng.sun.com\n           Subscribe:     frnetmib-request@sunroof.eng.sun.com\n           Email Archive: ftp://ftp.ietf.org/ietf-mail-archive/frnetmib\n\n           Chair:      Andy Malis\n                       Vivace Networks\n           Email:      Andy.Malis@vivacenetworks.com\n\n           WG editor:  Robert Steinberger\n                       Paradyne Networks and\n                       Fujitsu Network Communications\n           Email:      robert.steinberger@fnc.fujitsu.com\n\n           Co-author:  Orly Nicklass\n                       RAD Data Communications Ltd.\n           EMail:      Orly_n@rad.co.il')
-if mibBuilder.loadTexts: circuitIfMIB.setDescription('The MIB module to allow insertion of selected circuit into\n             the ifTable.')
-class CiFlowDirection(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3,))
-    namedValues = NamedValues(("transmit", 1), ("receive", 2), ("both", 3),)
-
-ciObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 94, 1))
-ciCapabilities = MibIdentifier((1, 3, 6, 1, 2, 1, 94, 2))
-ciConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 94, 3))
-ciCircuitTable = MibTable((1, 3, 6, 1, 2, 1, 94, 1, 1), )
-if mibBuilder.loadTexts: ciCircuitTable.setDescription('The Circuit Interface Circuit Table.')
-ciCircuitEntry = MibTableRow((1, 3, 6, 1, 2, 1, 94, 1, 1, 1), ).setIndexNames((0, "CIRCUIT-IF-MIB", "ciCircuitObject"), (0, "CIRCUIT-IF-MIB", "ciCircuitFlow"))
-if mibBuilder.loadTexts: ciCircuitEntry.setDescription('An entry in the Circuit Interface Circuit Table.')
-ciCircuitObject = MibTableColumn((1, 3, 6, 1, 2, 1, 94, 1, 1, 1, 1), RowPointer())
-if mibBuilder.loadTexts: ciCircuitObject.setDescription('This value contains the RowPointer that uniquely\n\n             describes the circuit that is to be added to this table.\n             Any RowPointer that will force the size of OBJECT\n             IDENTIFIER of the row to grow beyond the legal limit\n             MUST be rejected.\n\n             The purpose of this object is to point a network manager\n             to the table in which the circuit was created as well as\n             define the circuit on which the interface is defined.\n\n             Valid tables for this object include the frCircuitTable\n             from the Frame Relay DTE MIB(FRAME-RELAY-DTE-MIB), the\n             frPVCEndptTable from the Frame Relay Service MIB\n             (FRNETSERV-MIB), and the aal5VccTable from the ATM MIB\n             (ATM MIB).  However, including circuits from other MIB\n             tables IS NOT prohibited.')
-ciCircuitFlow = MibTableColumn((1, 3, 6, 1, 2, 1, 94, 1, 1, 1, 2), CiFlowDirection())
-if mibBuilder.loadTexts: ciCircuitFlow.setDescription('The direction of data flow through the circuit for which\n             the virtual interface is defined.  The following define\n             the information that the virtual interface will report.\n\n                transmit(1) - Only transmitted frames\n                receive(2)  - Only received frames\n                both(3)     - Both transmitted and received frames.\n\n             It is recommended that the ifDescr of the circuit\n             interfaces that are not both(3) SHOULD have text warning\n             the operators that the particular interface represents\n             only half the traffic on the circuit.')
-ciCircuitStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 94, 1, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ciCircuitStatus.setDescription('The status of the current row.  This object is\n             used to add, delete, and disable rows in this\n             table.  When the status changes to active(1), a row\n             will also be added to the interface map table below\n             and a row will be added to the ifTable.  These rows\n             SHOULD not be removed until the status is changed\n             from active(1).  The value of ifIndex for the row that\n\n             is added to the ifTable is determined by the agent\n             and MUST follow the rules of the ifTable.  The value\n             of ifType for that interface will be frDlciEndPt(193)\n             for a frame relay circuit, atmVciEndPt(194) for an\n             ATM circuit, or another ifType defining the circuit\n             type for any other circuit.\n\n             When this object is set to destroy(6), the associated\n             row in the interface map table will be removed and the\n             ifIndex will be removed from the ifTable.  Removing\n             the ifIndex MAY initiate a chain of events that causes\n             changes to other tables as well.\n\n             The rows added to this table MUST have a valid object\n             identifier for ciCircuitObject.  This means that the\n             referenced object must exist and it must be in a table\n             that supports circuits.\n\n             The object referenced by ciCircuitObject MUST exist\n             prior to transitioning a row to active(1).  If at any\n             point the object referenced by ciCircuitObject does not\n             exist or the row containing it is not in the active(1)\n             state, the status SHOULD either age out the row or\n             report notReady(3).  The effects transitioning from\n             active(1) to notReady(3) are the same as those caused\n             by setting the status to destroy(6).\n\n             Each row in this table relies on information from other\n             MIB modules.  The rules persistence of data SHOULD follow\n             the same rules as those of the underlying MIB module.\n             For example, if the circuit defined by ciCircuitObject\n             would normally be stored in non-volatile memory, then\n             the row SHOULD also be non-volatile.')
-ciCircuitIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 94, 1, 1, 1, 4), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ciCircuitIfIndex.setDescription('The ifIndex that the agent assigns to this row.')
-ciCircuitCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 94, 1, 1, 1, 5), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ciCircuitCreateTime.setDescription('This object returns the value of sysUpTime at the time\n             the value of ciCircuitStatus last transitioned to\n             active(1).  If ciCircuitStatus has never been active(1),\n             this object SHOULD return 0.')
-ciCircuitStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 94, 1, 1, 1, 6), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ciCircuitStorageType.setDescription('The storage type used for this row.')
-ciIfMapTable = MibTable((1, 3, 6, 1, 2, 1, 94, 1, 2), )
-if mibBuilder.loadTexts: ciIfMapTable.setDescription('The Circuit Interface Map Table.')
-ciIfMapEntry = MibTableRow((1, 3, 6, 1, 2, 1, 94, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: ciIfMapEntry.setDescription('An entry in the Circuit Interface Map Table.')
-ciIfMapObject = MibTableColumn((1, 3, 6, 1, 2, 1, 94, 1, 2, 1, 1), RowPointer()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ciIfMapObject.setDescription('This value contains the value of RowPointer that\n             corresponds to the current ifIndex.')
-ciIfMapFlow = MibTableColumn((1, 3, 6, 1, 2, 1, 94, 1, 2, 1, 2), CiFlowDirection()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ciIfMapFlow.setDescription('The value contains the value of ciCircuitFlow that\n             corresponds to the current ifIndex.')
-ciIfLastChange = MibScalar((1, 3, 6, 1, 2, 1, 94, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ciIfLastChange.setDescription('The value of sysUpTime at the most recent change to\n             ciCircuitStatus for any row in ciCircuitTable.')
-ciIfNumActive = MibScalar((1, 3, 6, 1, 2, 1, 94, 1, 4), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ciIfNumActive.setDescription('The number of active rows in ciCircuitTable.')
-ciMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 94, 3, 1))
-ciMIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 94, 3, 2))
-ciCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 94, 3, 2, 1)).setObjects(*(("CIRCUIT-IF-MIB", "ciCircuitGroup"), ("CIRCUIT-IF-MIB", "ciIfMapGroup"), ("CIRCUIT-IF-MIB", "ciStatsGroup"),))
-if mibBuilder.loadTexts: ciCompliance.setDescription('The compliance statement for SNMP entities\n\n             which support of the Circuit Interfaces MIB module.\n             This group defines the minimum level of support\n             required for compliance.')
-ciCircuitGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 94, 3, 1, 1)).setObjects(*(("CIRCUIT-IF-MIB", "ciCircuitStatus"), ("CIRCUIT-IF-MIB", "ciCircuitIfIndex"), ("CIRCUIT-IF-MIB", "ciCircuitCreateTime"), ("CIRCUIT-IF-MIB", "ciCircuitStorageType"),))
-if mibBuilder.loadTexts: ciCircuitGroup.setDescription('A collection of required objects providing\n            information from the circuit table.')
-ciIfMapGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 94, 3, 1, 2)).setObjects(*(("CIRCUIT-IF-MIB", "ciIfMapObject"), ("CIRCUIT-IF-MIB", "ciIfMapFlow"),))
-if mibBuilder.loadTexts: ciIfMapGroup.setDescription('A collection of required objects providing\n            information from the interface map table.')
-ciStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 94, 3, 1, 3)).setObjects(*(("CIRCUIT-IF-MIB", "ciIfLastChange"), ("CIRCUIT-IF-MIB", "ciIfNumActive"),))
-if mibBuilder.loadTexts: ciStatsGroup.setDescription('A collection of statistical metrics used to help manage\n            the ciCircuitTable.')
-mibBuilder.exportSymbols("CIRCUIT-IF-MIB", ciCircuitStorageType=ciCircuitStorageType, ciIfLastChange=ciIfLastChange, ciCircuitTable=ciCircuitTable, ciIfNumActive=ciIfNumActive, ciCircuitIfIndex=ciCircuitIfIndex, ciCircuitEntry=ciCircuitEntry, ciCapabilities=ciCapabilities, circuitIfMIB=circuitIfMIB, ciMIBCompliances=ciMIBCompliances, ciIfMapGroup=ciIfMapGroup, ciCircuitCreateTime=ciCircuitCreateTime, ciIfMapEntry=ciIfMapEntry, ciStatsGroup=ciStatsGroup, ciIfMapTable=ciIfMapTable, ciCircuitObject=ciCircuitObject, ciCircuitFlow=ciCircuitFlow, CiFlowDirection=CiFlowDirection, ciConformance=ciConformance, ciIfMapObject=ciIfMapObject, ciCircuitGroup=ciCircuitGroup, ciIfMapFlow=ciIfMapFlow, ciCompliance=ciCompliance, ciMIBGroups=ciMIBGroups, ciObjects=ciObjects, ciCircuitStatus=ciCircuitStatus, PYSNMP_MODULE_ID=circuitIfMIB)
+_T='ciStatsGroup'
+_S='ciIfMapGroup'
+_R='ciCircuitGroup'
+_Q='ciIfNumActive'
+_P='ciIfLastChange'
+_O='ciIfMapFlow'
+_N='ciIfMapObject'
+_M='ciCircuitStorageType'
+_L='ciCircuitCreateTime'
+_K='ciCircuitIfIndex'
+_J='ciCircuitStatus'
+_I='read-create'
+_H='not-accessible'
+_G='ciCircuitFlow'
+_F='ciCircuitObject'
+_E='ifIndex'
+_D='IF-MIB'
+_C='read-only'
+_B='CIRCUIT-IF-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InterfaceIndex,ifIndex=mibBuilder.importSymbols(_D,'InterfaceIndex',_E)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,RowPointer,RowStatus,StorageType,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowPointer','RowStatus','StorageType','TextualConvention','TimeStamp')
+circuitIfMIB=ModuleIdentity((1,3,6,1,2,1,94))
+if mibBuilder.loadTexts:circuitIfMIB.setRevisions(('2002-01-03 00:00',))
+class CiFlowDirection(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('transmit',1),('receive',2),('both',3)))
+_CiObjects_ObjectIdentity=ObjectIdentity
+ciObjects=_CiObjects_ObjectIdentity((1,3,6,1,2,1,94,1))
+_CiCircuitTable_Object=MibTable
+ciCircuitTable=_CiCircuitTable_Object((1,3,6,1,2,1,94,1,1))
+if mibBuilder.loadTexts:ciCircuitTable.setStatus(_A)
+_CiCircuitEntry_Object=MibTableRow
+ciCircuitEntry=_CiCircuitEntry_Object((1,3,6,1,2,1,94,1,1,1))
+ciCircuitEntry.setIndexNames((0,_B,_F),(0,_B,_G))
+if mibBuilder.loadTexts:ciCircuitEntry.setStatus(_A)
+_CiCircuitObject_Type=RowPointer
+_CiCircuitObject_Object=MibTableColumn
+ciCircuitObject=_CiCircuitObject_Object((1,3,6,1,2,1,94,1,1,1,1),_CiCircuitObject_Type())
+ciCircuitObject.setMaxAccess(_H)
+if mibBuilder.loadTexts:ciCircuitObject.setStatus(_A)
+_CiCircuitFlow_Type=CiFlowDirection
+_CiCircuitFlow_Object=MibTableColumn
+ciCircuitFlow=_CiCircuitFlow_Object((1,3,6,1,2,1,94,1,1,1,2),_CiCircuitFlow_Type())
+ciCircuitFlow.setMaxAccess(_H)
+if mibBuilder.loadTexts:ciCircuitFlow.setStatus(_A)
+_CiCircuitStatus_Type=RowStatus
+_CiCircuitStatus_Object=MibTableColumn
+ciCircuitStatus=_CiCircuitStatus_Object((1,3,6,1,2,1,94,1,1,1,3),_CiCircuitStatus_Type())
+ciCircuitStatus.setMaxAccess(_I)
+if mibBuilder.loadTexts:ciCircuitStatus.setStatus(_A)
+_CiCircuitIfIndex_Type=InterfaceIndex
+_CiCircuitIfIndex_Object=MibTableColumn
+ciCircuitIfIndex=_CiCircuitIfIndex_Object((1,3,6,1,2,1,94,1,1,1,4),_CiCircuitIfIndex_Type())
+ciCircuitIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:ciCircuitIfIndex.setStatus(_A)
+_CiCircuitCreateTime_Type=TimeStamp
+_CiCircuitCreateTime_Object=MibTableColumn
+ciCircuitCreateTime=_CiCircuitCreateTime_Object((1,3,6,1,2,1,94,1,1,1,5),_CiCircuitCreateTime_Type())
+ciCircuitCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:ciCircuitCreateTime.setStatus(_A)
+_CiCircuitStorageType_Type=StorageType
+_CiCircuitStorageType_Object=MibTableColumn
+ciCircuitStorageType=_CiCircuitStorageType_Object((1,3,6,1,2,1,94,1,1,1,6),_CiCircuitStorageType_Type())
+ciCircuitStorageType.setMaxAccess(_I)
+if mibBuilder.loadTexts:ciCircuitStorageType.setStatus(_A)
+_CiIfMapTable_Object=MibTable
+ciIfMapTable=_CiIfMapTable_Object((1,3,6,1,2,1,94,1,2))
+if mibBuilder.loadTexts:ciIfMapTable.setStatus(_A)
+_CiIfMapEntry_Object=MibTableRow
+ciIfMapEntry=_CiIfMapEntry_Object((1,3,6,1,2,1,94,1,2,1))
+ciIfMapEntry.setIndexNames((0,_D,_E))
+if mibBuilder.loadTexts:ciIfMapEntry.setStatus(_A)
+_CiIfMapObject_Type=RowPointer
+_CiIfMapObject_Object=MibTableColumn
+ciIfMapObject=_CiIfMapObject_Object((1,3,6,1,2,1,94,1,2,1,1),_CiIfMapObject_Type())
+ciIfMapObject.setMaxAccess(_C)
+if mibBuilder.loadTexts:ciIfMapObject.setStatus(_A)
+_CiIfMapFlow_Type=CiFlowDirection
+_CiIfMapFlow_Object=MibTableColumn
+ciIfMapFlow=_CiIfMapFlow_Object((1,3,6,1,2,1,94,1,2,1,2),_CiIfMapFlow_Type())
+ciIfMapFlow.setMaxAccess(_C)
+if mibBuilder.loadTexts:ciIfMapFlow.setStatus(_A)
+_CiIfLastChange_Type=TimeStamp
+_CiIfLastChange_Object=MibScalar
+ciIfLastChange=_CiIfLastChange_Object((1,3,6,1,2,1,94,1,3),_CiIfLastChange_Type())
+ciIfLastChange.setMaxAccess(_C)
+if mibBuilder.loadTexts:ciIfLastChange.setStatus(_A)
+_CiIfNumActive_Type=Gauge32
+_CiIfNumActive_Object=MibScalar
+ciIfNumActive=_CiIfNumActive_Object((1,3,6,1,2,1,94,1,4),_CiIfNumActive_Type())
+ciIfNumActive.setMaxAccess(_C)
+if mibBuilder.loadTexts:ciIfNumActive.setStatus(_A)
+_CiCapabilities_ObjectIdentity=ObjectIdentity
+ciCapabilities=_CiCapabilities_ObjectIdentity((1,3,6,1,2,1,94,2))
+_CiConformance_ObjectIdentity=ObjectIdentity
+ciConformance=_CiConformance_ObjectIdentity((1,3,6,1,2,1,94,3))
+_CiMIBGroups_ObjectIdentity=ObjectIdentity
+ciMIBGroups=_CiMIBGroups_ObjectIdentity((1,3,6,1,2,1,94,3,1))
+_CiMIBCompliances_ObjectIdentity=ObjectIdentity
+ciMIBCompliances=_CiMIBCompliances_ObjectIdentity((1,3,6,1,2,1,94,3,2))
+ciCircuitGroup=ObjectGroup((1,3,6,1,2,1,94,3,1,1))
+ciCircuitGroup.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M)))
+if mibBuilder.loadTexts:ciCircuitGroup.setStatus(_A)
+ciIfMapGroup=ObjectGroup((1,3,6,1,2,1,94,3,1,2))
+ciIfMapGroup.setObjects(*((_B,_N),(_B,_O)))
+if mibBuilder.loadTexts:ciIfMapGroup.setStatus(_A)
+ciStatsGroup=ObjectGroup((1,3,6,1,2,1,94,3,1,3))
+ciStatsGroup.setObjects(*((_B,_P),(_B,_Q)))
+if mibBuilder.loadTexts:ciStatsGroup.setStatus(_A)
+ciCompliance=ModuleCompliance((1,3,6,1,2,1,94,3,2,1))
+ciCompliance.setObjects(*((_B,_R),(_B,_S),(_B,_T)))
+if mibBuilder.loadTexts:ciCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'CiFlowDirection':CiFlowDirection,'circuitIfMIB':circuitIfMIB,'ciObjects':ciObjects,'ciCircuitTable':ciCircuitTable,'ciCircuitEntry':ciCircuitEntry,_F:ciCircuitObject,_G:ciCircuitFlow,_J:ciCircuitStatus,_K:ciCircuitIfIndex,_L:ciCircuitCreateTime,_M:ciCircuitStorageType,'ciIfMapTable':ciIfMapTable,'ciIfMapEntry':ciIfMapEntry,_N:ciIfMapObject,_O:ciIfMapFlow,_P:ciIfLastChange,_Q:ciIfNumActive,'ciCapabilities':ciCapabilities,'ciConformance':ciConformance,'ciMIBGroups':ciMIBGroups,_R:ciCircuitGroup,_S:ciIfMapGroup,_T:ciStatsGroup,'ciMIBCompliances':ciMIBCompliances,'ciCompliance':ciCompliance})

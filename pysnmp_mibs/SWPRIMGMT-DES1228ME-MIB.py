@@ -1,0 +1,21 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+dlink_mgmt,dlink_products=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-mgmt','dlink-products')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+_Dlink_des1228MEproductProd_ObjectIdentity=ObjectIdentity
+dlink_des1228MEproductProd=_Dlink_des1228MEproductProd_ObjectIdentity((1,3,6,1,4,1,171,10,116))
+_Dlink_des1228MEProd_ObjectIdentity=ObjectIdentity
+dlink_des1228MEProd=_Dlink_des1228MEProd_ObjectIdentity((1,3,6,1,4,1,171,10,116,1))
+_Dlink_des1228MEv2Prod_ObjectIdentity=ObjectIdentity
+dlink_des1228MEv2Prod=_Dlink_des1228MEv2Prod_ObjectIdentity((1,3,6,1,4,1,171,10,116,2))
+_Des1228MESeriesProd_ObjectIdentity=ObjectIdentity
+des1228MESeriesProd=_Des1228MESeriesProd_ObjectIdentity((1,3,6,1,4,1,171,11,116))
+_Des1228ME_ObjectIdentity=ObjectIdentity
+des1228ME=_Des1228ME_ObjectIdentity((1,3,6,1,4,1,171,11,116,1))
+_Des1228MEv2_ObjectIdentity=ObjectIdentity
+des1228MEv2=_Des1228MEv2_ObjectIdentity((1,3,6,1,4,1,171,11,116,2))
+mibBuilder.exportSymbols('SWPRIMGMT-DES1228ME-MIB',**{'dlink-des1228MEproductProd':dlink_des1228MEproductProd,'dlink-des1228MEProd':dlink_des1228MEProd,'dlink-des1228MEv2Prod':dlink_des1228MEv2Prod,'des1228MESeriesProd':des1228MESeriesProd,'des1228ME':des1228ME,'des1228MEv2':des1228MEv2})

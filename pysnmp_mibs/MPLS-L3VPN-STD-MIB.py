@@ -1,223 +1,540 @@
-#
-# PySNMP MIB module MPLS-L3VPN-STD-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/MPLS-L3VPN-STD-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:20:45 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, ObjectIdentifier, Integer, ) = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-( IANAipRouteProtocol, ) = mibBuilder.importSymbols("IANA-RTPROTO-MIB", "IANAipRouteProtocol")
-( InterfaceIndex, InterfaceIndexOrZero, ) = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex", "InterfaceIndexOrZero")
-( InetAddress, InetAutonomousSystemNumber, InetAddressPrefixLength, InetAddressType, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAutonomousSystemNumber", "InetAddressPrefixLength", "InetAddressType")
-( MplsIndexType, ) = mibBuilder.importSymbols("MPLS-LSR-STD-MIB", "MplsIndexType")
-( mplsStdMIB, ) = mibBuilder.importSymbols("MPLS-TC-STD-MIB", "mplsStdMIB")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ObjectGroup, ModuleCompliance, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-( iso, Counter64, IpAddress, Integer32, NotificationType, Bits, ObjectIdentity, Unsigned32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, MibIdentifier, TimeTicks, Counter32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter64", "IpAddress", "Integer32", "NotificationType", "Bits", "ObjectIdentity", "Unsigned32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "MibIdentifier", "TimeTicks", "Counter32")
-( TextualConvention, DisplayString, RowStatus, TimeStamp, TruthValue, StorageType, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus", "TimeStamp", "TruthValue", "StorageType")
-( VPNIdOrZero, ) = mibBuilder.importSymbols("VPN-TC-STD-MIB", "VPNIdOrZero")
-mplsL3VpnMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 166, 11)).setRevisions(("2006-01-23 00:00",))
-if mibBuilder.loadTexts: mplsL3VpnMIB.setLastUpdated('200601230000Z')
-if mibBuilder.loadTexts: mplsL3VpnMIB.setOrganization('IETF Layer-3 Virtual Private\n                 Networks Working Group.')
-if mibBuilder.loadTexts: mplsL3VpnMIB.setContactInfo('        Thomas D. Nadeau\n                   tnadeau@cisco.com\n\n                   Harmen van der Linde\n                   havander@cisco.com\n\n                   Comments and discussion to l3vpn@ietf.org')
-if mibBuilder.loadTexts: mplsL3VpnMIB.setDescription('This MIB contains managed object definitions for the\n         Layer-3 Multiprotocol Label Switching Virtual\n         Private Networks.\n\n        Copyright (C) The Internet Society (2006).  This\n        version of this MIB module is part of RFC4382; see\n        the RFC itself for full legal notices.')
-class MplsL3VpnName(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,31)
-
-class MplsL3VpnRouteDistinguisher(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,256)
-
-class MplsL3VpnRtType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3,))
-    namedValues = NamedValues(("import", 1), ("export", 2), ("both", 3),)
-
-mplsL3VpnNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 11, 0))
-mplsL3VpnObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 11, 1))
-mplsL3VpnScalars = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 1))
-mplsL3VpnConf = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2))
-mplsL3VpnPerf = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 3))
-mplsL3VpnRoute = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4))
-mplsL3VpnConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 11, 2))
-mplsL3VpnConfiguredVrfs = MibScalar((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnConfiguredVrfs.setDescription('The number of VRFs that are configured on this node.')
-mplsL3VpnActiveVrfs = MibScalar((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 1, 2), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnActiveVrfs.setDescription('The number of VRFs that are active on this node.\n        That is, those VRFs whose corresponding mplsL3VpnVrfOperStatus\n        object value is equal to operational (1).')
-mplsL3VpnConnectedInterfaces = MibScalar((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 1, 3), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnConnectedInterfaces.setDescription('Total number of interfaces connected to a VRF.')
-mplsL3VpnNotificationEnable = MibScalar((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 1, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mplsL3VpnNotificationEnable.setDescription("If this object is true, then it enables the\n         generation of all notifications defined in\n         this MIB.  This object's value should be\n         preserved across agent reboots.")
-mplsL3VpnVrfConfMaxPossRts = MibScalar((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnVrfConfMaxPossRts.setDescription('Denotes maximum number of routes that the device\n      will allow all VRFs jointly to hold.  If this value is\n      set to 0, this indicates that the device is\n      unable to determine the absolute maximum.  In this\n      case, the configured maximum MAY not actually\n      be allowed by the device.')
-mplsL3VpnVrfConfRteMxThrshTime = MibScalar((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 1, 6), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnVrfConfRteMxThrshTime.setDescription('Denotes the interval in seconds, at which the route max threshold\n      notification may be reissued after the maximum value has been\n      exceeded (or has been reached if mplsL3VpnVrfConfMaxRoutes and\n      mplsL3VpnVrfConfHighRteThresh are equal) and the initial\n      notification has been issued.  This value is intended to prevent\n      continuous generation of notifications by an agent in the event\n      that routes are continually added to a VRF after it has reached\n      its maximum value.  If this value is set to 0, the agent should\n      only issue a single notification at the time that the maximum\n      threshold has been reached, and should not issue any more\n      notifications until the value of routes has fallen below the\n      configured threshold value.  This is the recommended default\n      behavior.')
-mplsL3VpnIllLblRcvThrsh = MibScalar((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 1, 7), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mplsL3VpnIllLblRcvThrsh.setDescription("The number of illegally received labels above which\n        the mplsNumVrfSecIllglLblThrshExcd notification\n        is issued.  The persistence of this value mimics\n        that of the device's configuration.")
-mplsL3VpnIfConfTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 1), )
-if mibBuilder.loadTexts: mplsL3VpnIfConfTable.setDescription('This table specifies per-interface MPLS capability\n        and associated information.')
-mplsL3VpnIfConfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 1, 1), ).setIndexNames((0, "MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfName"), (0, "MPLS-L3VPN-STD-MIB", "mplsL3VpnIfConfIndex"))
-if mibBuilder.loadTexts: mplsL3VpnIfConfEntry.setDescription('An entry in this table is created by an LSR for\n        every interface capable of supporting MPLS L3VPN.\n        Each entry in this table is meant to correspond to\n        an entry in the Interfaces Table.')
-mplsL3VpnIfConfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 1, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: mplsL3VpnIfConfIndex.setDescription('This is a unique index for an entry in the\n        mplsL3VpnIfConfTable.  A non-zero index for an\n        entry indicates the ifIndex for the corresponding\n        interface entry in the MPLS-VPN-layer in the ifTable.\n        Note that this table does not necessarily correspond\n        one-to-one with all entries in the Interface MIB\n        having an ifType of MPLS-layer; rather, only those\n        that are enabled for MPLS L3VPN functionality.')
-mplsL3VpnIfVpnClassification = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("carrierOfCarrier", 1), ("enterprise", 2), ("interProvider", 3),)).clone('enterprise')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnIfVpnClassification.setDescription("Denotes whether this link participates in a\n        carrier's carrier, enterprise, or inter-provider\n        scenario.")
-mplsL3VpnIfVpnRouteDistProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 1, 1, 3), Bits().clone(namedValues=NamedValues(("none", 0), ("bgp", 1), ("ospf", 2), ("rip", 3), ("isis", 4), ("static", 5), ("other", 6),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnIfVpnRouteDistProtocol.setDescription('Denotes the route distribution protocol across the\n        PE-CE link.  Note that more than one routing protocol\n        may be enabled at the same time; thus, this object is\n        specified as a bitmask.  For example, static(5) and\n        ospf(2) are a typical configuration.')
-mplsL3VpnIfConfStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 1, 1, 4), StorageType().clone('volatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnIfConfStorageType.setDescription("The storage type for this VPN If entry.\n        Conceptual rows having the value 'permanent'\n        need not allow write access to any columnar\n        objects in the row.")
-mplsL3VpnIfConfRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnIfConfRowStatus.setDescription('This variable is used to create, modify, and/or\n        delete a row in this table.  Rows in this\n        table signify that the specified interface is\n        associated with this VRF.  If the row creation\n        operation succeeds, the interface will have been\n        associated with the specified VRF, otherwise the\n        agent MUST not allow the association.  If the agent\n        only allows read-only operations on this table, it\n        MUST create entries in this table as they are created\n        on the device.  When a row in this table is in\n        active(1) state, no objects in that row can be\n        modified except mplsL3VpnIfConfStorageType and\n        mplsL3VpnIfConfRowStatus.')
-mplsL3VpnVrfTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 2), )
-if mibBuilder.loadTexts: mplsL3VpnVrfTable.setDescription('This table specifies per-interface MPLS L3VPN\n        VRF Table capability and associated information.\n        Entries in this table define VRF routing instances\n        associated with MPLS/VPN interfaces.  Note that\n        multiple interfaces can belong to the same VRF\n        instance.  The collection of all VRF instances\n        comprises an actual VPN.')
-mplsL3VpnVrfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 2, 1), ).setIndexNames((0, "MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfName"))
-if mibBuilder.loadTexts: mplsL3VpnVrfEntry.setDescription('An entry in this table is created by an LSR for\n        every VRF capable of supporting MPLS L3VPN.  The\n        indexing provides an ordering of VRFs per-VPN\n        interface.')
-mplsL3VpnVrfName = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 2, 1, 1), MplsL3VpnName())
-if mibBuilder.loadTexts: mplsL3VpnVrfName.setDescription('The human-readable name of this VPN.  This MAY\n        be equivalent to the [RFC2685] VPN-ID, but may\n        also vary.  If it is set to the VPN ID, it MUST\n        be equivalent to the value of mplsL3VpnVrfVpnId.\n        It is strongly recommended that all sites supporting\n        VRFs that are part of the same VPN use the same\n        naming convention for VRFs as well as the same VPN\n        ID.')
-mplsL3VpnVrfVpnId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 2, 1, 2), VPNIdOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfVpnId.setDescription('The VPN ID as specified in [RFC2685].  If a VPN ID\n        has not been specified for this VRF, then this\n        variable SHOULD be set to a zero-length OCTET\n        STRING.')
-mplsL3VpnVrfDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 2, 1, 3), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfDescription.setDescription('The human-readable description of this VRF.')
-mplsL3VpnVrfRD = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 2, 1, 4), MplsL3VpnRouteDistinguisher()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfRD.setDescription('The route distinguisher for this VRF.')
-mplsL3VpnVrfCreationTime = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 2, 1, 5), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnVrfCreationTime.setDescription('The time at which this VRF entry was created.')
-mplsL3VpnVrfOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("up", 1), ("down", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnVrfOperStatus.setDescription('Denotes whether or not a VRF is operational.  A VRF is\n        up(1) when there is at least one interface associated\n        with the VRF whose ifOperStatus is up(1).  A VRF is\n        down(2) when:\n        a. There does not exist at least one interface whose\n           ifOperStatus is up(1).\n        b. There are no interfaces associated with the VRF.')
-mplsL3VpnVrfActiveInterfaces = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 2, 1, 7), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnVrfActiveInterfaces.setDescription('Total number of interfaces connected to this VRF with\n        ifOperStatus = up(1).\n\n        This value should increase when an interface is associated\n        with the corresponding VRF and its corresponding ifOperStatus\n        is equal to up(1).  If an interface is associated whose\n        ifOperStatus is not up(1), then the value is not incremented\n        until such time as it transitions to this state.\n\n        This value should be decremented when an interface is\n        disassociated with a VRF or the corresponding ifOperStatus\n        transitions out of the up(1) state to any other state.\n       ')
-mplsL3VpnVrfAssociatedInterfaces = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 2, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnVrfAssociatedInterfaces.setDescription('Total number of interfaces connected to this VRF\n        (independent of ifOperStatus type).')
-mplsL3VpnVrfConfMidRteThresh = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 2, 1, 9), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfConfMidRteThresh.setDescription('Denotes mid-level water marker for the number\n      of routes that this VRF may hold.')
-mplsL3VpnVrfConfHighRteThresh = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 2, 1, 10), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfConfHighRteThresh.setDescription('Denotes high-level water marker for the number of\n      routes that this VRF may hold.')
-mplsL3VpnVrfConfMaxRoutes = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 2, 1, 11), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfConfMaxRoutes.setDescription('Denotes maximum number of routes that this VRF is\n      configured to hold.  This value MUST be less than or\n      equal to mplsL3VpnVrfConfMaxPossRts unless it is set\n      to 0.')
-mplsL3VpnVrfConfLastChanged = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 2, 1, 12), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnVrfConfLastChanged.setDescription('The value of sysUpTime at the time of the last\n      change of this table entry, which includes changes of\n      VRF parameters defined in this table or addition or\n      deletion of interfaces associated with this VRF.')
-mplsL3VpnVrfConfRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 2, 1, 13), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfConfRowStatus.setDescription('This variable is used to create, modify, and/or\n        delete a row in this table.\n        When a row in this table is in active(1) state, no\n        objects in that row can be modified except\n        mplsL3VpnVrfConfAdminStatus, mplsL3VpnVrfConfRowStatus,\n        and mplsL3VpnVrfConfStorageType.')
-mplsL3VpnVrfConfAdminStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 2, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("testing", 3),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfConfAdminStatus.setDescription('Indicates the desired operational status of this\n         VRF.')
-mplsL3VpnVrfConfStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 2, 1, 15), StorageType().clone('volatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfConfStorageType.setDescription("The storage type for this VPN VRF entry.\n         Conceptual rows having the value 'permanent'\n         need not allow write access to any columnar\n         objects in the row.")
-mplsL3VpnVrfRTTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 3), )
-if mibBuilder.loadTexts: mplsL3VpnVrfRTTable.setDescription('This table specifies per-VRF route target association.\n         Each entry identifies a connectivity policy supported\n         as part of a VPN.')
-mplsL3VpnVrfRTEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 3, 1), ).setIndexNames((0, "MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfName"), (0, "MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRTIndex"), (0, "MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRTType"))
-if mibBuilder.loadTexts: mplsL3VpnVrfRTEntry.setDescription('An entry in this table is created by an LSR for\n        each route target configured for a VRF supporting\n        a MPLS L3VPN instance.  The indexing provides an\n        ordering per-VRF instance.  See [RFC4364] for a\n        complete definition of a route target.')
-mplsL3VpnVrfRTIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 3, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: mplsL3VpnVrfRTIndex.setDescription('Auxiliary index for route targets configured for a\n        particular VRF.')
-mplsL3VpnVrfRTType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 3, 1, 3), MplsL3VpnRtType())
-if mibBuilder.loadTexts: mplsL3VpnVrfRTType.setDescription('The route target distribution type.')
-mplsL3VpnVrfRT = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 3, 1, 4), MplsL3VpnRouteDistinguisher()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfRT.setDescription('The route target distribution policy.')
-mplsL3VpnVrfRTDescr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 3, 1, 5), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfRTDescr.setDescription('Description of the route target.')
-mplsL3VpnVrfRTRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 3, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfRTRowStatus.setDescription('This variable is used to create, modify, and/or\n        delete a row in this table.  When a row in this\n        table is in active(1) state, no objects in that row\n        can be modified except mplsL3VpnVrfRTRowStatus.')
-mplsL3VpnVrfRTStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 3, 1, 7), StorageType().clone('volatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfRTStorageType.setDescription("The storage type for this VPN route target (RT) entry.\n         Conceptual rows having the value 'permanent'\n         need not allow write access to any columnar\n         objects in the row.")
-mplsL3VpnVrfSecTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 6), )
-if mibBuilder.loadTexts: mplsL3VpnVrfSecTable.setDescription('This table specifies per MPLS L3VPN VRF Table\n        security-related counters.')
-mplsL3VpnVrfSecEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 6, 1), )
-mplsL3VpnVrfEntry.registerAugmentions(("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfSecEntry"))
+_Ab='mplsL3VpnNumVrfRouteMaxThreshCleared'
+_Aa='mplsL3VpnNumVrfSecIllglLblThrshExcd'
+_AZ='mplsL3VpnVrfNumVrfRouteMaxThreshExceeded'
+_AY='mplsL3VpnVrfRouteMidThreshExceeded'
+_AX='mplsL3VpnVrfDown'
+_AW='mplsL3VpnVrfUp'
+_AV='mplsL3VpnVrfRTStorageType'
+_AU='mplsL3VpnVrfRTRowStatus'
+_AT='mplsL3VpnVrfRT'
+_AS='mplsL3VpnVrfRTDescr'
+_AR='mplsL3VpnVrfRteInetCidrStatus'
+_AQ='mplsL3VpnVrfRteXCPointer'
+_AP='mplsL3VpnVrfRteInetCidrMetric5'
+_AO='mplsL3VpnVrfRteInetCidrMetric4'
+_AN='mplsL3VpnVrfRteInetCidrMetric3'
+_AM='mplsL3VpnVrfRteInetCidrMetric2'
+_AL='mplsL3VpnVrfRteInetCidrMetric1'
+_AK='mplsL3VpnVrfRteInetCidrNextHopAS'
+_AJ='mplsL3VpnVrfRteInetCidrAge'
+_AI='mplsL3VpnVrfRteInetCidrProto'
+_AH='mplsL3VpnVrfRteInetCidrType'
+_AG='mplsL3VpnVrfRteInetCidrIfIndex'
+_AF='mplsL3VpnVrfSecDiscontinuityTime'
+_AE='mplsL3VpnVrfPerfDiscTime'
+_AD='mplsL3VpnVrfPerfRoutesDropped'
+_AC='mplsL3VpnVrfPerfRoutesDeleted'
+_AB='mplsL3VpnVrfPerfRoutesAdded'
+_AA='mplsL3VpnIfConfStorageType'
+_A9='mplsL3VpnIfVpnRouteDistProtocol'
+_A8='mplsL3VpnIfVpnClassification'
+_A7='mplsL3VpnVrfConfStorageType'
+_A6='mplsL3VpnVrfConfAdminStatus'
+_A5='mplsL3VpnVrfConfRowStatus'
+_A4='mplsL3VpnVrfConfLastChanged'
+_A3='mplsL3VpnVrfConfMaxRoutes'
+_A2='mplsL3VpnVrfAssociatedInterfaces'
+_A1='mplsL3VpnVrfActiveInterfaces'
+_A0='mplsL3VpnVrfCreationTime'
+_z='mplsL3VpnVrfRD'
+_y='mplsL3VpnVrfDescription'
+_x='mplsL3VpnVrfVpnId'
+_w='mplsL3VpnIllLblRcvThrsh'
+_v='mplsL3VpnVrfConfRteMxThrshTime'
+_u='mplsL3VpnVrfConfMaxPossRts'
+_t='mplsL3VpnNotificationEnable'
+_s='mplsL3VpnConnectedInterfaces'
+_r='mplsL3VpnActiveVrfs'
+_q='mplsL3VpnConfiguredVrfs'
+_p='mplsL3VpnVrfPerfEntry'
+_o='mplsL3VpnVrfSecEntry'
+_n='mplsL3VpnVrfRteInetCidrNextHop'
+_m='mplsL3VpnVrfRteInetCidrNHopType'
+_l='mplsL3VpnVrfRteInetCidrPolicy'
+_k='mplsL3VpnVrfRteInetCidrPfxLen'
+_j='mplsL3VpnVrfRteInetCidrDest'
+_i='mplsL3VpnVrfRteInetCidrDestType'
+_h='mplsL3VpnVrfRTType'
+_g='mplsL3VpnVrfRTIndex'
+_f='mplsL3VpnIfConfIndex'
+_e='read-write'
+_d='TruthValue'
+_c='InetAutonomousSystemNumber'
+_b='InetAddressPrefixLength'
+_a='InterfaceIndexOrZero'
+_Z='mplsL3VpnPerfRouteGroup'
+_Y='mplsL3VpnNotificationGroup'
+_X='mplsL3VpnSecGroup'
+_W='mplsL3VpnVrfRTGroup'
+_V='mplsL3VpnVrfRteGroup'
+_U='mplsL3VpnPerfGroup'
+_T='mplsL3VpnIfGroup'
+_S='mplsL3VpnVrfGroup'
+_R='mplsL3VpnScalarGroup'
+_Q='mplsL3VpnVrfSecIllegalLblVltns'
+_P='mplsL3VpnVrfConfMidRteThresh'
+_O='MplsL3VpnRouteDistinguisher'
+_N='SnmpAdminString'
+_M='mplsL3VpnIfConfRowStatus'
+_L='mplsL3VpnVrfConfHighRteThresh'
+_K='mplsL3VpnVrfOperStatus'
+_J='StorageType'
+_I='mplsL3VpnVrfPerfCurrNumRoutes'
+_H='mplsL3VpnVrfName'
+_G='Unsigned32'
+_F='not-accessible'
+_E='Integer32'
+_D='read-only'
+_C='read-create'
+_B='current'
+_A='MPLS-L3VPN-STD-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+IANAipRouteProtocol,=mibBuilder.importSymbols('IANA-RTPROTO-MIB','IANAipRouteProtocol')
+InterfaceIndex,InterfaceIndexOrZero=mibBuilder.importSymbols('IF-MIB','InterfaceIndex',_a)
+InetAddress,InetAddressPrefixLength,InetAddressType,InetAutonomousSystemNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress',_b,'InetAddressType',_c)
+MplsIndexType,=mibBuilder.importSymbols('MPLS-LSR-STD-MIB','MplsIndexType')
+mplsStdMIB,=mibBuilder.importSymbols('MPLS-TC-STD-MIB','mplsStdMIB')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_N)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso')
+DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_J,'TextualConvention','TimeStamp',_d)
+VPNIdOrZero,=mibBuilder.importSymbols('VPN-TC-STD-MIB','VPNIdOrZero')
+mplsL3VpnMIB=ModuleIdentity((1,3,6,1,2,1,10,166,11))
+if mibBuilder.loadTexts:mplsL3VpnMIB.setRevisions(('2006-01-23 00:00',))
+class MplsL3VpnName(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
+class MplsL3VpnRouteDistinguisher(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
+class MplsL3VpnRtType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('import',1),('export',2),('both',3)))
+_MplsL3VpnNotifications_ObjectIdentity=ObjectIdentity
+mplsL3VpnNotifications=_MplsL3VpnNotifications_ObjectIdentity((1,3,6,1,2,1,10,166,11,0))
+_MplsL3VpnObjects_ObjectIdentity=ObjectIdentity
+mplsL3VpnObjects=_MplsL3VpnObjects_ObjectIdentity((1,3,6,1,2,1,10,166,11,1))
+_MplsL3VpnScalars_ObjectIdentity=ObjectIdentity
+mplsL3VpnScalars=_MplsL3VpnScalars_ObjectIdentity((1,3,6,1,2,1,10,166,11,1,1))
+_MplsL3VpnConfiguredVrfs_Type=Unsigned32
+_MplsL3VpnConfiguredVrfs_Object=MibScalar
+mplsL3VpnConfiguredVrfs=_MplsL3VpnConfiguredVrfs_Object((1,3,6,1,2,1,10,166,11,1,1,1),_MplsL3VpnConfiguredVrfs_Type())
+mplsL3VpnConfiguredVrfs.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnConfiguredVrfs.setStatus(_B)
+_MplsL3VpnActiveVrfs_Type=Gauge32
+_MplsL3VpnActiveVrfs_Object=MibScalar
+mplsL3VpnActiveVrfs=_MplsL3VpnActiveVrfs_Object((1,3,6,1,2,1,10,166,11,1,1,2),_MplsL3VpnActiveVrfs_Type())
+mplsL3VpnActiveVrfs.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnActiveVrfs.setStatus(_B)
+_MplsL3VpnConnectedInterfaces_Type=Gauge32
+_MplsL3VpnConnectedInterfaces_Object=MibScalar
+mplsL3VpnConnectedInterfaces=_MplsL3VpnConnectedInterfaces_Object((1,3,6,1,2,1,10,166,11,1,1,3),_MplsL3VpnConnectedInterfaces_Type())
+mplsL3VpnConnectedInterfaces.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnConnectedInterfaces.setStatus(_B)
+class _MplsL3VpnNotificationEnable_Type(TruthValue):defaultValue=2
+_MplsL3VpnNotificationEnable_Type.__name__=_d
+_MplsL3VpnNotificationEnable_Object=MibScalar
+mplsL3VpnNotificationEnable=_MplsL3VpnNotificationEnable_Object((1,3,6,1,2,1,10,166,11,1,1,4),_MplsL3VpnNotificationEnable_Type())
+mplsL3VpnNotificationEnable.setMaxAccess(_e)
+if mibBuilder.loadTexts:mplsL3VpnNotificationEnable.setStatus(_B)
+_MplsL3VpnVrfConfMaxPossRts_Type=Unsigned32
+_MplsL3VpnVrfConfMaxPossRts_Object=MibScalar
+mplsL3VpnVrfConfMaxPossRts=_MplsL3VpnVrfConfMaxPossRts_Object((1,3,6,1,2,1,10,166,11,1,1,5),_MplsL3VpnVrfConfMaxPossRts_Type())
+mplsL3VpnVrfConfMaxPossRts.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnVrfConfMaxPossRts.setStatus(_B)
+class _MplsL3VpnVrfConfRteMxThrshTime_Type(Unsigned32):defaultValue=0
+_MplsL3VpnVrfConfRteMxThrshTime_Type.__name__=_G
+_MplsL3VpnVrfConfRteMxThrshTime_Object=MibScalar
+mplsL3VpnVrfConfRteMxThrshTime=_MplsL3VpnVrfConfRteMxThrshTime_Object((1,3,6,1,2,1,10,166,11,1,1,6),_MplsL3VpnVrfConfRteMxThrshTime_Type())
+mplsL3VpnVrfConfRteMxThrshTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnVrfConfRteMxThrshTime.setStatus(_B)
+if mibBuilder.loadTexts:mplsL3VpnVrfConfRteMxThrshTime.setUnits('seconds')
+_MplsL3VpnIllLblRcvThrsh_Type=Unsigned32
+_MplsL3VpnIllLblRcvThrsh_Object=MibScalar
+mplsL3VpnIllLblRcvThrsh=_MplsL3VpnIllLblRcvThrsh_Object((1,3,6,1,2,1,10,166,11,1,1,7),_MplsL3VpnIllLblRcvThrsh_Type())
+mplsL3VpnIllLblRcvThrsh.setMaxAccess(_e)
+if mibBuilder.loadTexts:mplsL3VpnIllLblRcvThrsh.setStatus(_B)
+_MplsL3VpnConf_ObjectIdentity=ObjectIdentity
+mplsL3VpnConf=_MplsL3VpnConf_ObjectIdentity((1,3,6,1,2,1,10,166,11,1,2))
+_MplsL3VpnIfConfTable_Object=MibTable
+mplsL3VpnIfConfTable=_MplsL3VpnIfConfTable_Object((1,3,6,1,2,1,10,166,11,1,2,1))
+if mibBuilder.loadTexts:mplsL3VpnIfConfTable.setStatus(_B)
+_MplsL3VpnIfConfEntry_Object=MibTableRow
+mplsL3VpnIfConfEntry=_MplsL3VpnIfConfEntry_Object((1,3,6,1,2,1,10,166,11,1,2,1,1))
+mplsL3VpnIfConfEntry.setIndexNames((0,_A,_H),(0,_A,_f))
+if mibBuilder.loadTexts:mplsL3VpnIfConfEntry.setStatus(_B)
+_MplsL3VpnIfConfIndex_Type=InterfaceIndex
+_MplsL3VpnIfConfIndex_Object=MibTableColumn
+mplsL3VpnIfConfIndex=_MplsL3VpnIfConfIndex_Object((1,3,6,1,2,1,10,166,11,1,2,1,1,1),_MplsL3VpnIfConfIndex_Type())
+mplsL3VpnIfConfIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:mplsL3VpnIfConfIndex.setStatus(_B)
+class _MplsL3VpnIfVpnClassification_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('carrierOfCarrier',1),('enterprise',2),('interProvider',3)))
+_MplsL3VpnIfVpnClassification_Type.__name__=_E
+_MplsL3VpnIfVpnClassification_Object=MibTableColumn
+mplsL3VpnIfVpnClassification=_MplsL3VpnIfVpnClassification_Object((1,3,6,1,2,1,10,166,11,1,2,1,1,2),_MplsL3VpnIfVpnClassification_Type())
+mplsL3VpnIfVpnClassification.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnIfVpnClassification.setStatus(_B)
+class _MplsL3VpnIfVpnRouteDistProtocol_Type(Bits):namedValues=NamedValues(*(('none',0),('bgp',1),('ospf',2),('rip',3),('isis',4),('static',5),('other',6)))
+_MplsL3VpnIfVpnRouteDistProtocol_Type.__name__='Bits'
+_MplsL3VpnIfVpnRouteDistProtocol_Object=MibTableColumn
+mplsL3VpnIfVpnRouteDistProtocol=_MplsL3VpnIfVpnRouteDistProtocol_Object((1,3,6,1,2,1,10,166,11,1,2,1,1,3),_MplsL3VpnIfVpnRouteDistProtocol_Type())
+mplsL3VpnIfVpnRouteDistProtocol.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnIfVpnRouteDistProtocol.setStatus(_B)
+class _MplsL3VpnIfConfStorageType_Type(StorageType):defaultValue=2
+_MplsL3VpnIfConfStorageType_Type.__name__=_J
+_MplsL3VpnIfConfStorageType_Object=MibTableColumn
+mplsL3VpnIfConfStorageType=_MplsL3VpnIfConfStorageType_Object((1,3,6,1,2,1,10,166,11,1,2,1,1,4),_MplsL3VpnIfConfStorageType_Type())
+mplsL3VpnIfConfStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnIfConfStorageType.setStatus(_B)
+_MplsL3VpnIfConfRowStatus_Type=RowStatus
+_MplsL3VpnIfConfRowStatus_Object=MibTableColumn
+mplsL3VpnIfConfRowStatus=_MplsL3VpnIfConfRowStatus_Object((1,3,6,1,2,1,10,166,11,1,2,1,1,5),_MplsL3VpnIfConfRowStatus_Type())
+mplsL3VpnIfConfRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnIfConfRowStatus.setStatus(_B)
+_MplsL3VpnVrfTable_Object=MibTable
+mplsL3VpnVrfTable=_MplsL3VpnVrfTable_Object((1,3,6,1,2,1,10,166,11,1,2,2))
+if mibBuilder.loadTexts:mplsL3VpnVrfTable.setStatus(_B)
+_MplsL3VpnVrfEntry_Object=MibTableRow
+mplsL3VpnVrfEntry=_MplsL3VpnVrfEntry_Object((1,3,6,1,2,1,10,166,11,1,2,2,1))
+mplsL3VpnVrfEntry.setIndexNames((0,_A,_H))
+if mibBuilder.loadTexts:mplsL3VpnVrfEntry.setStatus(_B)
+_MplsL3VpnVrfName_Type=MplsL3VpnName
+_MplsL3VpnVrfName_Object=MibTableColumn
+mplsL3VpnVrfName=_MplsL3VpnVrfName_Object((1,3,6,1,2,1,10,166,11,1,2,2,1,1),_MplsL3VpnVrfName_Type())
+mplsL3VpnVrfName.setMaxAccess(_F)
+if mibBuilder.loadTexts:mplsL3VpnVrfName.setStatus(_B)
+_MplsL3VpnVrfVpnId_Type=VPNIdOrZero
+_MplsL3VpnVrfVpnId_Object=MibTableColumn
+mplsL3VpnVrfVpnId=_MplsL3VpnVrfVpnId_Object((1,3,6,1,2,1,10,166,11,1,2,2,1,2),_MplsL3VpnVrfVpnId_Type())
+mplsL3VpnVrfVpnId.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfVpnId.setStatus(_B)
+class _MplsL3VpnVrfDescription_Type(SnmpAdminString):defaultValue=OctetString('')
+_MplsL3VpnVrfDescription_Type.__name__=_N
+_MplsL3VpnVrfDescription_Object=MibTableColumn
+mplsL3VpnVrfDescription=_MplsL3VpnVrfDescription_Object((1,3,6,1,2,1,10,166,11,1,2,2,1,3),_MplsL3VpnVrfDescription_Type())
+mplsL3VpnVrfDescription.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfDescription.setStatus(_B)
+class _MplsL3VpnVrfRD_Type(MplsL3VpnRouteDistinguisher):defaultValue=OctetString('')
+_MplsL3VpnVrfRD_Type.__name__=_O
+_MplsL3VpnVrfRD_Object=MibTableColumn
+mplsL3VpnVrfRD=_MplsL3VpnVrfRD_Object((1,3,6,1,2,1,10,166,11,1,2,2,1,4),_MplsL3VpnVrfRD_Type())
+mplsL3VpnVrfRD.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfRD.setStatus(_B)
+_MplsL3VpnVrfCreationTime_Type=TimeStamp
+_MplsL3VpnVrfCreationTime_Object=MibTableColumn
+mplsL3VpnVrfCreationTime=_MplsL3VpnVrfCreationTime_Object((1,3,6,1,2,1,10,166,11,1,2,2,1,5),_MplsL3VpnVrfCreationTime_Type())
+mplsL3VpnVrfCreationTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnVrfCreationTime.setStatus(_B)
+class _MplsL3VpnVrfOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
+_MplsL3VpnVrfOperStatus_Type.__name__=_E
+_MplsL3VpnVrfOperStatus_Object=MibTableColumn
+mplsL3VpnVrfOperStatus=_MplsL3VpnVrfOperStatus_Object((1,3,6,1,2,1,10,166,11,1,2,2,1,6),_MplsL3VpnVrfOperStatus_Type())
+mplsL3VpnVrfOperStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnVrfOperStatus.setStatus(_B)
+_MplsL3VpnVrfActiveInterfaces_Type=Gauge32
+_MplsL3VpnVrfActiveInterfaces_Object=MibTableColumn
+mplsL3VpnVrfActiveInterfaces=_MplsL3VpnVrfActiveInterfaces_Object((1,3,6,1,2,1,10,166,11,1,2,2,1,7),_MplsL3VpnVrfActiveInterfaces_Type())
+mplsL3VpnVrfActiveInterfaces.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnVrfActiveInterfaces.setStatus(_B)
+_MplsL3VpnVrfAssociatedInterfaces_Type=Unsigned32
+_MplsL3VpnVrfAssociatedInterfaces_Object=MibTableColumn
+mplsL3VpnVrfAssociatedInterfaces=_MplsL3VpnVrfAssociatedInterfaces_Object((1,3,6,1,2,1,10,166,11,1,2,2,1,8),_MplsL3VpnVrfAssociatedInterfaces_Type())
+mplsL3VpnVrfAssociatedInterfaces.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnVrfAssociatedInterfaces.setStatus(_B)
+class _MplsL3VpnVrfConfMidRteThresh_Type(Unsigned32):defaultValue=0
+_MplsL3VpnVrfConfMidRteThresh_Type.__name__=_G
+_MplsL3VpnVrfConfMidRteThresh_Object=MibTableColumn
+mplsL3VpnVrfConfMidRteThresh=_MplsL3VpnVrfConfMidRteThresh_Object((1,3,6,1,2,1,10,166,11,1,2,2,1,9),_MplsL3VpnVrfConfMidRteThresh_Type())
+mplsL3VpnVrfConfMidRteThresh.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfConfMidRteThresh.setStatus(_B)
+class _MplsL3VpnVrfConfHighRteThresh_Type(Unsigned32):defaultValue=0
+_MplsL3VpnVrfConfHighRteThresh_Type.__name__=_G
+_MplsL3VpnVrfConfHighRteThresh_Object=MibTableColumn
+mplsL3VpnVrfConfHighRteThresh=_MplsL3VpnVrfConfHighRteThresh_Object((1,3,6,1,2,1,10,166,11,1,2,2,1,10),_MplsL3VpnVrfConfHighRteThresh_Type())
+mplsL3VpnVrfConfHighRteThresh.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfConfHighRteThresh.setStatus(_B)
+class _MplsL3VpnVrfConfMaxRoutes_Type(Unsigned32):defaultValue=0
+_MplsL3VpnVrfConfMaxRoutes_Type.__name__=_G
+_MplsL3VpnVrfConfMaxRoutes_Object=MibTableColumn
+mplsL3VpnVrfConfMaxRoutes=_MplsL3VpnVrfConfMaxRoutes_Object((1,3,6,1,2,1,10,166,11,1,2,2,1,11),_MplsL3VpnVrfConfMaxRoutes_Type())
+mplsL3VpnVrfConfMaxRoutes.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfConfMaxRoutes.setStatus(_B)
+_MplsL3VpnVrfConfLastChanged_Type=TimeStamp
+_MplsL3VpnVrfConfLastChanged_Object=MibTableColumn
+mplsL3VpnVrfConfLastChanged=_MplsL3VpnVrfConfLastChanged_Object((1,3,6,1,2,1,10,166,11,1,2,2,1,12),_MplsL3VpnVrfConfLastChanged_Type())
+mplsL3VpnVrfConfLastChanged.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnVrfConfLastChanged.setStatus(_B)
+_MplsL3VpnVrfConfRowStatus_Type=RowStatus
+_MplsL3VpnVrfConfRowStatus_Object=MibTableColumn
+mplsL3VpnVrfConfRowStatus=_MplsL3VpnVrfConfRowStatus_Object((1,3,6,1,2,1,10,166,11,1,2,2,1,13),_MplsL3VpnVrfConfRowStatus_Type())
+mplsL3VpnVrfConfRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfConfRowStatus.setStatus(_B)
+class _MplsL3VpnVrfConfAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('up',1),('down',2),('testing',3)))
+_MplsL3VpnVrfConfAdminStatus_Type.__name__=_E
+_MplsL3VpnVrfConfAdminStatus_Object=MibTableColumn
+mplsL3VpnVrfConfAdminStatus=_MplsL3VpnVrfConfAdminStatus_Object((1,3,6,1,2,1,10,166,11,1,2,2,1,14),_MplsL3VpnVrfConfAdminStatus_Type())
+mplsL3VpnVrfConfAdminStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfConfAdminStatus.setStatus(_B)
+class _MplsL3VpnVrfConfStorageType_Type(StorageType):defaultValue=2
+_MplsL3VpnVrfConfStorageType_Type.__name__=_J
+_MplsL3VpnVrfConfStorageType_Object=MibTableColumn
+mplsL3VpnVrfConfStorageType=_MplsL3VpnVrfConfStorageType_Object((1,3,6,1,2,1,10,166,11,1,2,2,1,15),_MplsL3VpnVrfConfStorageType_Type())
+mplsL3VpnVrfConfStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfConfStorageType.setStatus(_B)
+_MplsL3VpnVrfRTTable_Object=MibTable
+mplsL3VpnVrfRTTable=_MplsL3VpnVrfRTTable_Object((1,3,6,1,2,1,10,166,11,1,2,3))
+if mibBuilder.loadTexts:mplsL3VpnVrfRTTable.setStatus(_B)
+_MplsL3VpnVrfRTEntry_Object=MibTableRow
+mplsL3VpnVrfRTEntry=_MplsL3VpnVrfRTEntry_Object((1,3,6,1,2,1,10,166,11,1,2,3,1))
+mplsL3VpnVrfRTEntry.setIndexNames((0,_A,_H),(0,_A,_g),(0,_A,_h))
+if mibBuilder.loadTexts:mplsL3VpnVrfRTEntry.setStatus(_B)
+class _MplsL3VpnVrfRTIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_MplsL3VpnVrfRTIndex_Type.__name__=_G
+_MplsL3VpnVrfRTIndex_Object=MibTableColumn
+mplsL3VpnVrfRTIndex=_MplsL3VpnVrfRTIndex_Object((1,3,6,1,2,1,10,166,11,1,2,3,1,2),_MplsL3VpnVrfRTIndex_Type())
+mplsL3VpnVrfRTIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:mplsL3VpnVrfRTIndex.setStatus(_B)
+_MplsL3VpnVrfRTType_Type=MplsL3VpnRtType
+_MplsL3VpnVrfRTType_Object=MibTableColumn
+mplsL3VpnVrfRTType=_MplsL3VpnVrfRTType_Object((1,3,6,1,2,1,10,166,11,1,2,3,1,3),_MplsL3VpnVrfRTType_Type())
+mplsL3VpnVrfRTType.setMaxAccess(_F)
+if mibBuilder.loadTexts:mplsL3VpnVrfRTType.setStatus(_B)
+class _MplsL3VpnVrfRT_Type(MplsL3VpnRouteDistinguisher):defaultValue=OctetString('')
+_MplsL3VpnVrfRT_Type.__name__=_O
+_MplsL3VpnVrfRT_Object=MibTableColumn
+mplsL3VpnVrfRT=_MplsL3VpnVrfRT_Object((1,3,6,1,2,1,10,166,11,1,2,3,1,4),_MplsL3VpnVrfRT_Type())
+mplsL3VpnVrfRT.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfRT.setStatus(_B)
+class _MplsL3VpnVrfRTDescr_Type(SnmpAdminString):defaultValue=OctetString('')
+_MplsL3VpnVrfRTDescr_Type.__name__=_N
+_MplsL3VpnVrfRTDescr_Object=MibTableColumn
+mplsL3VpnVrfRTDescr=_MplsL3VpnVrfRTDescr_Object((1,3,6,1,2,1,10,166,11,1,2,3,1,5),_MplsL3VpnVrfRTDescr_Type())
+mplsL3VpnVrfRTDescr.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfRTDescr.setStatus(_B)
+_MplsL3VpnVrfRTRowStatus_Type=RowStatus
+_MplsL3VpnVrfRTRowStatus_Object=MibTableColumn
+mplsL3VpnVrfRTRowStatus=_MplsL3VpnVrfRTRowStatus_Object((1,3,6,1,2,1,10,166,11,1,2,3,1,6),_MplsL3VpnVrfRTRowStatus_Type())
+mplsL3VpnVrfRTRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfRTRowStatus.setStatus(_B)
+class _MplsL3VpnVrfRTStorageType_Type(StorageType):defaultValue=2
+_MplsL3VpnVrfRTStorageType_Type.__name__=_J
+_MplsL3VpnVrfRTStorageType_Object=MibTableColumn
+mplsL3VpnVrfRTStorageType=_MplsL3VpnVrfRTStorageType_Object((1,3,6,1,2,1,10,166,11,1,2,3,1,7),_MplsL3VpnVrfRTStorageType_Type())
+mplsL3VpnVrfRTStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfRTStorageType.setStatus(_B)
+_MplsL3VpnVrfSecTable_Object=MibTable
+mplsL3VpnVrfSecTable=_MplsL3VpnVrfSecTable_Object((1,3,6,1,2,1,10,166,11,1,2,6))
+if mibBuilder.loadTexts:mplsL3VpnVrfSecTable.setStatus(_B)
+_MplsL3VpnVrfSecEntry_Object=MibTableRow
+mplsL3VpnVrfSecEntry=_MplsL3VpnVrfSecEntry_Object((1,3,6,1,2,1,10,166,11,1,2,6,1))
+if mibBuilder.loadTexts:mplsL3VpnVrfSecEntry.setStatus(_B)
+_MplsL3VpnVrfSecIllegalLblVltns_Type=Counter32
+_MplsL3VpnVrfSecIllegalLblVltns_Object=MibTableColumn
+mplsL3VpnVrfSecIllegalLblVltns=_MplsL3VpnVrfSecIllegalLblVltns_Object((1,3,6,1,2,1,10,166,11,1,2,6,1,1),_MplsL3VpnVrfSecIllegalLblVltns_Type())
+mplsL3VpnVrfSecIllegalLblVltns.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnVrfSecIllegalLblVltns.setStatus(_B)
+_MplsL3VpnVrfSecDiscontinuityTime_Type=TimeStamp
+_MplsL3VpnVrfSecDiscontinuityTime_Object=MibTableColumn
+mplsL3VpnVrfSecDiscontinuityTime=_MplsL3VpnVrfSecDiscontinuityTime_Object((1,3,6,1,2,1,10,166,11,1,2,6,1,2),_MplsL3VpnVrfSecDiscontinuityTime_Type())
+mplsL3VpnVrfSecDiscontinuityTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnVrfSecDiscontinuityTime.setStatus(_B)
+_MplsL3VpnPerf_ObjectIdentity=ObjectIdentity
+mplsL3VpnPerf=_MplsL3VpnPerf_ObjectIdentity((1,3,6,1,2,1,10,166,11,1,3))
+_MplsL3VpnVrfPerfTable_Object=MibTable
+mplsL3VpnVrfPerfTable=_MplsL3VpnVrfPerfTable_Object((1,3,6,1,2,1,10,166,11,1,3,1))
+if mibBuilder.loadTexts:mplsL3VpnVrfPerfTable.setStatus(_B)
+_MplsL3VpnVrfPerfEntry_Object=MibTableRow
+mplsL3VpnVrfPerfEntry=_MplsL3VpnVrfPerfEntry_Object((1,3,6,1,2,1,10,166,11,1,3,1,1))
+if mibBuilder.loadTexts:mplsL3VpnVrfPerfEntry.setStatus(_B)
+_MplsL3VpnVrfPerfRoutesAdded_Type=Counter32
+_MplsL3VpnVrfPerfRoutesAdded_Object=MibTableColumn
+mplsL3VpnVrfPerfRoutesAdded=_MplsL3VpnVrfPerfRoutesAdded_Object((1,3,6,1,2,1,10,166,11,1,3,1,1,1),_MplsL3VpnVrfPerfRoutesAdded_Type())
+mplsL3VpnVrfPerfRoutesAdded.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnVrfPerfRoutesAdded.setStatus(_B)
+_MplsL3VpnVrfPerfRoutesDeleted_Type=Counter32
+_MplsL3VpnVrfPerfRoutesDeleted_Object=MibTableColumn
+mplsL3VpnVrfPerfRoutesDeleted=_MplsL3VpnVrfPerfRoutesDeleted_Object((1,3,6,1,2,1,10,166,11,1,3,1,1,2),_MplsL3VpnVrfPerfRoutesDeleted_Type())
+mplsL3VpnVrfPerfRoutesDeleted.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnVrfPerfRoutesDeleted.setStatus(_B)
+_MplsL3VpnVrfPerfCurrNumRoutes_Type=Gauge32
+_MplsL3VpnVrfPerfCurrNumRoutes_Object=MibTableColumn
+mplsL3VpnVrfPerfCurrNumRoutes=_MplsL3VpnVrfPerfCurrNumRoutes_Object((1,3,6,1,2,1,10,166,11,1,3,1,1,3),_MplsL3VpnVrfPerfCurrNumRoutes_Type())
+mplsL3VpnVrfPerfCurrNumRoutes.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnVrfPerfCurrNumRoutes.setStatus(_B)
+_MplsL3VpnVrfPerfRoutesDropped_Type=Counter32
+_MplsL3VpnVrfPerfRoutesDropped_Object=MibTableColumn
+mplsL3VpnVrfPerfRoutesDropped=_MplsL3VpnVrfPerfRoutesDropped_Object((1,3,6,1,2,1,10,166,11,1,3,1,1,4),_MplsL3VpnVrfPerfRoutesDropped_Type())
+mplsL3VpnVrfPerfRoutesDropped.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnVrfPerfRoutesDropped.setStatus(_B)
+_MplsL3VpnVrfPerfDiscTime_Type=TimeStamp
+_MplsL3VpnVrfPerfDiscTime_Object=MibTableColumn
+mplsL3VpnVrfPerfDiscTime=_MplsL3VpnVrfPerfDiscTime_Object((1,3,6,1,2,1,10,166,11,1,3,1,1,5),_MplsL3VpnVrfPerfDiscTime_Type())
+mplsL3VpnVrfPerfDiscTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnVrfPerfDiscTime.setStatus(_B)
+_MplsL3VpnRoute_ObjectIdentity=ObjectIdentity
+mplsL3VpnRoute=_MplsL3VpnRoute_ObjectIdentity((1,3,6,1,2,1,10,166,11,1,4))
+_MplsL3VpnVrfRteTable_Object=MibTable
+mplsL3VpnVrfRteTable=_MplsL3VpnVrfRteTable_Object((1,3,6,1,2,1,10,166,11,1,4,1))
+if mibBuilder.loadTexts:mplsL3VpnVrfRteTable.setStatus(_B)
+_MplsL3VpnVrfRteEntry_Object=MibTableRow
+mplsL3VpnVrfRteEntry=_MplsL3VpnVrfRteEntry_Object((1,3,6,1,2,1,10,166,11,1,4,1,1))
+mplsL3VpnVrfRteEntry.setIndexNames((0,_A,_H),(0,_A,_i),(0,_A,_j),(0,_A,_k),(0,_A,_l),(0,_A,_m),(0,_A,_n))
+if mibBuilder.loadTexts:mplsL3VpnVrfRteEntry.setStatus(_B)
+_MplsL3VpnVrfRteInetCidrDestType_Type=InetAddressType
+_MplsL3VpnVrfRteInetCidrDestType_Object=MibTableColumn
+mplsL3VpnVrfRteInetCidrDestType=_MplsL3VpnVrfRteInetCidrDestType_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,1),_MplsL3VpnVrfRteInetCidrDestType_Type())
+mplsL3VpnVrfRteInetCidrDestType.setMaxAccess(_F)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteInetCidrDestType.setStatus(_B)
+_MplsL3VpnVrfRteInetCidrDest_Type=InetAddress
+_MplsL3VpnVrfRteInetCidrDest_Object=MibTableColumn
+mplsL3VpnVrfRteInetCidrDest=_MplsL3VpnVrfRteInetCidrDest_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,2),_MplsL3VpnVrfRteInetCidrDest_Type())
+mplsL3VpnVrfRteInetCidrDest.setMaxAccess(_F)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteInetCidrDest.setStatus(_B)
+class _MplsL3VpnVrfRteInetCidrPfxLen_Type(InetAddressPrefixLength):subtypeSpec=InetAddressPrefixLength.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
+_MplsL3VpnVrfRteInetCidrPfxLen_Type.__name__=_b
+_MplsL3VpnVrfRteInetCidrPfxLen_Object=MibTableColumn
+mplsL3VpnVrfRteInetCidrPfxLen=_MplsL3VpnVrfRteInetCidrPfxLen_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,3),_MplsL3VpnVrfRteInetCidrPfxLen_Type())
+mplsL3VpnVrfRteInetCidrPfxLen.setMaxAccess(_F)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteInetCidrPfxLen.setStatus(_B)
+_MplsL3VpnVrfRteInetCidrPolicy_Type=ObjectIdentifier
+_MplsL3VpnVrfRteInetCidrPolicy_Object=MibTableColumn
+mplsL3VpnVrfRteInetCidrPolicy=_MplsL3VpnVrfRteInetCidrPolicy_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,4),_MplsL3VpnVrfRteInetCidrPolicy_Type())
+mplsL3VpnVrfRteInetCidrPolicy.setMaxAccess(_F)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteInetCidrPolicy.setStatus(_B)
+_MplsL3VpnVrfRteInetCidrNHopType_Type=InetAddressType
+_MplsL3VpnVrfRteInetCidrNHopType_Object=MibTableColumn
+mplsL3VpnVrfRteInetCidrNHopType=_MplsL3VpnVrfRteInetCidrNHopType_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,5),_MplsL3VpnVrfRteInetCidrNHopType_Type())
+mplsL3VpnVrfRteInetCidrNHopType.setMaxAccess(_F)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteInetCidrNHopType.setStatus(_B)
+_MplsL3VpnVrfRteInetCidrNextHop_Type=InetAddress
+_MplsL3VpnVrfRteInetCidrNextHop_Object=MibTableColumn
+mplsL3VpnVrfRteInetCidrNextHop=_MplsL3VpnVrfRteInetCidrNextHop_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,6),_MplsL3VpnVrfRteInetCidrNextHop_Type())
+mplsL3VpnVrfRteInetCidrNextHop.setMaxAccess(_F)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteInetCidrNextHop.setStatus(_B)
+class _MplsL3VpnVrfRteInetCidrIfIndex_Type(InterfaceIndexOrZero):defaultValue=0
+_MplsL3VpnVrfRteInetCidrIfIndex_Type.__name__=_a
+_MplsL3VpnVrfRteInetCidrIfIndex_Object=MibTableColumn
+mplsL3VpnVrfRteInetCidrIfIndex=_MplsL3VpnVrfRteInetCidrIfIndex_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,7),_MplsL3VpnVrfRteInetCidrIfIndex_Type())
+mplsL3VpnVrfRteInetCidrIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteInetCidrIfIndex.setStatus(_B)
+class _MplsL3VpnVrfRteInetCidrType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('other',1),('reject',2),('local',3),('remote',4),('blackhole',5)))
+_MplsL3VpnVrfRteInetCidrType_Type.__name__=_E
+_MplsL3VpnVrfRteInetCidrType_Object=MibTableColumn
+mplsL3VpnVrfRteInetCidrType=_MplsL3VpnVrfRteInetCidrType_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,8),_MplsL3VpnVrfRteInetCidrType_Type())
+mplsL3VpnVrfRteInetCidrType.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteInetCidrType.setStatus(_B)
+_MplsL3VpnVrfRteInetCidrProto_Type=IANAipRouteProtocol
+_MplsL3VpnVrfRteInetCidrProto_Object=MibTableColumn
+mplsL3VpnVrfRteInetCidrProto=_MplsL3VpnVrfRteInetCidrProto_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,9),_MplsL3VpnVrfRteInetCidrProto_Type())
+mplsL3VpnVrfRteInetCidrProto.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteInetCidrProto.setStatus(_B)
+_MplsL3VpnVrfRteInetCidrAge_Type=Gauge32
+_MplsL3VpnVrfRteInetCidrAge_Object=MibTableColumn
+mplsL3VpnVrfRteInetCidrAge=_MplsL3VpnVrfRteInetCidrAge_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,10),_MplsL3VpnVrfRteInetCidrAge_Type())
+mplsL3VpnVrfRteInetCidrAge.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteInetCidrAge.setStatus(_B)
+class _MplsL3VpnVrfRteInetCidrNextHopAS_Type(InetAutonomousSystemNumber):defaultValue=0
+_MplsL3VpnVrfRteInetCidrNextHopAS_Type.__name__=_c
+_MplsL3VpnVrfRteInetCidrNextHopAS_Object=MibTableColumn
+mplsL3VpnVrfRteInetCidrNextHopAS=_MplsL3VpnVrfRteInetCidrNextHopAS_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,11),_MplsL3VpnVrfRteInetCidrNextHopAS_Type())
+mplsL3VpnVrfRteInetCidrNextHopAS.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteInetCidrNextHopAS.setStatus(_B)
+class _MplsL3VpnVrfRteInetCidrMetric1_Type(Integer32):defaultValue=-1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,-1),ValueRangeConstraint(0,2147483647))
+_MplsL3VpnVrfRteInetCidrMetric1_Type.__name__=_E
+_MplsL3VpnVrfRteInetCidrMetric1_Object=MibTableColumn
+mplsL3VpnVrfRteInetCidrMetric1=_MplsL3VpnVrfRteInetCidrMetric1_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,12),_MplsL3VpnVrfRteInetCidrMetric1_Type())
+mplsL3VpnVrfRteInetCidrMetric1.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteInetCidrMetric1.setStatus(_B)
+class _MplsL3VpnVrfRteInetCidrMetric2_Type(Integer32):defaultValue=-1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,-1),ValueRangeConstraint(0,2147483647))
+_MplsL3VpnVrfRteInetCidrMetric2_Type.__name__=_E
+_MplsL3VpnVrfRteInetCidrMetric2_Object=MibTableColumn
+mplsL3VpnVrfRteInetCidrMetric2=_MplsL3VpnVrfRteInetCidrMetric2_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,13),_MplsL3VpnVrfRteInetCidrMetric2_Type())
+mplsL3VpnVrfRteInetCidrMetric2.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteInetCidrMetric2.setStatus(_B)
+class _MplsL3VpnVrfRteInetCidrMetric3_Type(Integer32):defaultValue=-1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,-1),ValueRangeConstraint(0,2147483647))
+_MplsL3VpnVrfRteInetCidrMetric3_Type.__name__=_E
+_MplsL3VpnVrfRteInetCidrMetric3_Object=MibTableColumn
+mplsL3VpnVrfRteInetCidrMetric3=_MplsL3VpnVrfRteInetCidrMetric3_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,14),_MplsL3VpnVrfRteInetCidrMetric3_Type())
+mplsL3VpnVrfRteInetCidrMetric3.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteInetCidrMetric3.setStatus(_B)
+class _MplsL3VpnVrfRteInetCidrMetric4_Type(Integer32):defaultValue=-1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,-1),ValueRangeConstraint(0,2147483647))
+_MplsL3VpnVrfRteInetCidrMetric4_Type.__name__=_E
+_MplsL3VpnVrfRteInetCidrMetric4_Object=MibTableColumn
+mplsL3VpnVrfRteInetCidrMetric4=_MplsL3VpnVrfRteInetCidrMetric4_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,15),_MplsL3VpnVrfRteInetCidrMetric4_Type())
+mplsL3VpnVrfRteInetCidrMetric4.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteInetCidrMetric4.setStatus(_B)
+class _MplsL3VpnVrfRteInetCidrMetric5_Type(Integer32):defaultValue=-1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,-1),ValueRangeConstraint(0,2147483647))
+_MplsL3VpnVrfRteInetCidrMetric5_Type.__name__=_E
+_MplsL3VpnVrfRteInetCidrMetric5_Object=MibTableColumn
+mplsL3VpnVrfRteInetCidrMetric5=_MplsL3VpnVrfRteInetCidrMetric5_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,16),_MplsL3VpnVrfRteInetCidrMetric5_Type())
+mplsL3VpnVrfRteInetCidrMetric5.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteInetCidrMetric5.setStatus(_B)
+_MplsL3VpnVrfRteXCPointer_Type=MplsIndexType
+_MplsL3VpnVrfRteXCPointer_Object=MibTableColumn
+mplsL3VpnVrfRteXCPointer=_MplsL3VpnVrfRteXCPointer_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,17),_MplsL3VpnVrfRteXCPointer_Type())
+mplsL3VpnVrfRteXCPointer.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteXCPointer.setStatus(_B)
+_MplsL3VpnVrfRteInetCidrStatus_Type=RowStatus
+_MplsL3VpnVrfRteInetCidrStatus_Object=MibTableColumn
+mplsL3VpnVrfRteInetCidrStatus=_MplsL3VpnVrfRteInetCidrStatus_Object((1,3,6,1,2,1,10,166,11,1,4,1,1,18),_MplsL3VpnVrfRteInetCidrStatus_Type())
+mplsL3VpnVrfRteInetCidrStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsL3VpnVrfRteInetCidrStatus.setStatus(_B)
+_MplsL3VpnConformance_ObjectIdentity=ObjectIdentity
+mplsL3VpnConformance=_MplsL3VpnConformance_ObjectIdentity((1,3,6,1,2,1,10,166,11,2))
+_MplsL3VpnGroups_ObjectIdentity=ObjectIdentity
+mplsL3VpnGroups=_MplsL3VpnGroups_ObjectIdentity((1,3,6,1,2,1,10,166,11,2,1))
+_MplsL3VpnCompliances_ObjectIdentity=ObjectIdentity
+mplsL3VpnCompliances=_MplsL3VpnCompliances_ObjectIdentity((1,3,6,1,2,1,10,166,11,2,2))
+mplsL3VpnVrfEntry.registerAugmentions((_A,_o))
 mplsL3VpnVrfSecEntry.setIndexNames(*mplsL3VpnVrfEntry.getIndexNames())
-if mibBuilder.loadTexts: mplsL3VpnVrfSecEntry.setDescription('An entry in this table is created by an LSR for\n        every VRF capable of supporting MPLS L3VPN.  Each\n        entry in this table is used to indicate security-related\n        information for each VRF entry.')
-mplsL3VpnVrfSecIllegalLblVltns = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 6, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnVrfSecIllegalLblVltns.setDescription('Indicates the number of illegally received\n        labels on this VPN/VRF.\n\n        Discontinuities in the value of this counter can occur\n        at re-initialization of the management system, and at\n        other times as indicated by the value of\n        mplsL3VpnVrfSecDiscontinuityTime.')
-mplsL3VpnVrfSecDiscontinuityTime = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 2, 6, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnVrfSecDiscontinuityTime.setDescription("The value of sysUpTime on the most recent occasion at\n        which any one or more of this entry's counters suffered\n        a discontinuity.  If no such discontinuities have\n        occurred since the last re-initialization of the local\n        management subsystem, then this object contains a zero\n        value.")
-mplsL3VpnVrfPerfTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 3, 1), )
-if mibBuilder.loadTexts: mplsL3VpnVrfPerfTable.setDescription('This table specifies per MPLS L3VPN VRF Table performance\n        information.')
-mplsL3VpnVrfPerfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 3, 1, 1), )
-mplsL3VpnVrfEntry.registerAugmentions(("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfPerfEntry"))
+mplsL3VpnVrfEntry.registerAugmentions((_A,_p))
 mplsL3VpnVrfPerfEntry.setIndexNames(*mplsL3VpnVrfEntry.getIndexNames())
-if mibBuilder.loadTexts: mplsL3VpnVrfPerfEntry.setDescription('An entry in this table is created by an LSR for\n        every VRF capable of supporting MPLS L3VPN.')
-mplsL3VpnVrfPerfRoutesAdded = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 3, 1, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnVrfPerfRoutesAdded.setDescription('Indicates the number of routes added to this VPN/VRF\n        since the last discontinuity.  Discontinuities in\n        the value of this counter can occur\n        at re-initialization of the management system, and at\n        other times as indicated by the value of\n        mplsL3VpnVrfPerfDiscTime.')
-mplsL3VpnVrfPerfRoutesDeleted = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 3, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnVrfPerfRoutesDeleted.setDescription('Indicates the number of routes removed from this VPN/VRF.\n\n        Discontinuities in the value of this counter can occur\n        at re-initialization of the management system, and at\n        other times as indicated by the value of\n        mplsL3VpnVrfPerfDiscTime.')
-mplsL3VpnVrfPerfCurrNumRoutes = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 3, 1, 1, 3), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnVrfPerfCurrNumRoutes.setDescription('Indicates the number of routes currently used by this\n        VRF.')
-mplsL3VpnVrfPerfRoutesDropped = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 3, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnVrfPerfRoutesDropped.setDescription('This counter should be incremented when the number of routes\n        contained by the specified VRF exceeds or attempts to exceed\n        the maximum allowed value as indicated by\n        mplsL3VpnVrfMaxRouteThreshold.\n\n        Discontinuities in the value of this counter can occur\n        at re-initialization of the management system, and at\n        other times as indicated by the value of\n        mplsL3VpnVrfPerfDiscTime.')
-mplsL3VpnVrfPerfDiscTime = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 3, 1, 1, 5), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnVrfPerfDiscTime.setDescription("The value of sysUpTime on the most recent occasion at\n        which any one or more of this entry's counters suffered\n        a discontinuity.  If no such discontinuities have\n        occurred since the last re-initialization of the local\n        management subsystem, then this object contains a zero\n        value.")
-mplsL3VpnVrfRteTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1), )
-if mibBuilder.loadTexts: mplsL3VpnVrfRteTable.setDescription('This table specifies per-interface MPLS L3VPN VRF Table\n        routing information.  Entries in this table define VRF routing\n        entries associated with the specified MPLS/VPN interfaces.  Note\n        that this table contains both BGP and Interior Gateway Protocol\n        IGP routes, as both may appear in the same VRF.')
-mplsL3VpnVrfRteEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1), ).setIndexNames((0, "MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfName"), (0, "MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteInetCidrDestType"), (0, "MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteInetCidrDest"), (0, "MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteInetCidrPfxLen"), (0, "MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteInetCidrPolicy"), (0, "MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteInetCidrNHopType"), (0, "MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteInetCidrNextHop"))
-if mibBuilder.loadTexts: mplsL3VpnVrfRteEntry.setDescription('An entry in this table is created by an LSR for every route\n        present configured (either dynamically or statically) within\n        the context of a specific VRF capable of supporting MPLS/BGP\n        VPN.  The indexing provides an ordering of VRFs per-VPN\n        interface.\n\n        Implementers need to be aware that there are quite a few\n        index objects that together can exceed the size allowed\n        for an Object Identifier (OID).  So implementers must make\n        sure that OIDs of column instances in this table will have\n        no more than 128 sub-identifiers, otherwise they cannot be\n        accessed using SNMPv1, SNMPv2c, or SNMPv3.')
-mplsL3VpnVrfRteInetCidrDestType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: mplsL3VpnVrfRteInetCidrDestType.setDescription('The type of the mplsL3VpnVrfRteInetCidrDest address, as\n                defined in the InetAddress MIB.\n\n                Only those address types that may appear in an actual\n                routing table are allowed as values of this object.')
-mplsL3VpnVrfRteInetCidrDest = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 2), InetAddress())
-if mibBuilder.loadTexts: mplsL3VpnVrfRteInetCidrDest.setDescription('The destination IP address of this route.\n\n                The type of this address is determined by the value of\n                the mplsL3VpnVrfRteInetCidrDestType object.\n\n                The values for the index objects\n                mplsL3VpnVrfRteInetCidrDest and\n                mplsL3VpnVrfRteInetCidrPfxLen must be consistent.  When\n                the value of mplsL3VpnVrfRteInetCidrDest is x, then\n                the bitwise logical-AND of x with the value of the mask\n                formed from the corresponding index object\n                mplsL3VpnVrfRteInetCidrPfxLen MUST be\n                equal to x.  If not, then the index pair is not\n                consistent and an inconsistentName error must be\n                returned on SET or CREATE requests.')
-mplsL3VpnVrfRteInetCidrPfxLen = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 3), InetAddressPrefixLength().subtype(subtypeSpec=ValueRangeConstraint(0,128)))
-if mibBuilder.loadTexts: mplsL3VpnVrfRteInetCidrPfxLen.setDescription('Indicates the number of leading one bits that form the\n                mask to be logical-ANDed with the destination address\n                before being compared to the value in the\n                mplsL3VpnVrfRteInetCidrDest field.\n\n                The values for the index objects\n                mplsL3VpnVrfRteInetCidrDest and\n                mplsL3VpnVrfRteInetCidrPfxLen must be consistent.  When\n                the value of mplsL3VpnVrfRteInetCidrDest is x, then the\n                bitwise logical-AND of x with the value of the mask\n                formed from the corresponding index object\n                mplsL3VpnVrfRteInetCidrPfxLen MUST be\n                equal to x.  If not, then the index pair is not\n                consistent and an inconsistentName error must be\n                returned on SET or CREATE requests.')
-mplsL3VpnVrfRteInetCidrPolicy = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 4), ObjectIdentifier())
-if mibBuilder.loadTexts: mplsL3VpnVrfRteInetCidrPolicy.setDescription('This object is an opaque object without any defined\n                semantics.  Its purpose is to serve as an additional\n                index that may delineate between multiple entries to\n                the same destination.  The value { 0 0 } shall be used\n                as the default value for this object.')
-mplsL3VpnVrfRteInetCidrNHopType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 5), InetAddressType())
-if mibBuilder.loadTexts: mplsL3VpnVrfRteInetCidrNHopType.setDescription('The type of the mplsL3VpnVrfRteInetCidrNextHop address,\n                as defined in the InetAddress MIB.\n\n                Value should be set to unknown(0) for non-remote\n                routes.\n\n                Only those address types that may appear in an actual\n                routing table are allowed as values of this object.')
-mplsL3VpnVrfRteInetCidrNextHop = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 6), InetAddress())
-if mibBuilder.loadTexts: mplsL3VpnVrfRteInetCidrNextHop.setDescription('On remote routes, the address of the next system en\n                route.  For non-remote routes, a zero-length string.\n                The type of this address is determined by the value of\n                the mplsL3VpnVrfRteInetCidrNHopType object.')
-mplsL3VpnVrfRteInetCidrIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 7), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfRteInetCidrIfIndex.setDescription('The ifIndex value that identifies the local interface\n                through which the next hop of this route should be\n                reached.  A value of 0 is valid and represents the\n                scenario where no interface is specified.')
-mplsL3VpnVrfRteInetCidrType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("other", 1), ("reject", 2), ("local", 3), ("remote", 4), ("blackhole", 5),)).clone('other')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfRteInetCidrType.setDescription('The type of route.  Note that local(3) refers to a\n                route for which the next hop is the final destination;\n                remote(4) refers to a route for which the next hop is\n                not the final destination.\n\n                Routes that do not result in traffic forwarding or\n                rejection should not be displayed even if the\n                implementation keeps them stored internally.\n\n                reject(2) refers to a route that, if matched, discards\n                the message as unreachable and returns a notification\n                (e.g., ICMP error) to the message sender.  This is used\n                in some protocols as a means of correctly aggregating\n                routes.\n\n                blackhole(5) refers to a route that, if matched,\n                discards the message silently.')
-mplsL3VpnVrfRteInetCidrProto = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 9), IANAipRouteProtocol()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnVrfRteInetCidrProto.setDescription('The routing mechanism via which this route was learned.\n                Inclusion of values for gateway routing protocols is\n                not intended to imply that hosts should support those\n                protocols.')
-mplsL3VpnVrfRteInetCidrAge = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 10), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsL3VpnVrfRteInetCidrAge.setDescription("The number of seconds since this route was last updated\n                or otherwise determined to be correct.  Note that no\n                semantics of 'too old' can be implied except through\n                knowledge of the routing protocol by which the route\n                was learned.")
-mplsL3VpnVrfRteInetCidrNextHopAS = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 11), InetAutonomousSystemNumber()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfRteInetCidrNextHopAS.setDescription("The Autonomous System Number of the next hop.  The\n                semantics of this object are determined by the\n                routing protocol specified in the route's\n                mplsL3VpnVrfRteInetCidrProto value.  When this\n                object is unknown or not relevant, its value should\n                be set to zero.")
-mplsL3VpnVrfRteInetCidrMetric1 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1,-1),ValueRangeConstraint(0,2147483647),)).clone(-1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfRteInetCidrMetric1.setDescription("The primary routing metric for this route.  The\n                semantics of this metric are determined by the\n                routing protocol specified in the route's\n                mplsL3VpnVrfRteInetCidrProto value.  If this\n                metric is not used, its value should be set to\n                -1.")
-mplsL3VpnVrfRteInetCidrMetric2 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1,-1),ValueRangeConstraint(0,2147483647),)).clone(-1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfRteInetCidrMetric2.setDescription("An alternate routing metric for this route.  The\n                semantics of this metric are determined by the routing\n                protocol specified in the route's\n                mplsL3VpnVrfRteInetCidrProto\n                value.  If this metric is not used, its value should be\n                set to -1.")
-mplsL3VpnVrfRteInetCidrMetric3 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1,-1),ValueRangeConstraint(0,2147483647),)).clone(-1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfRteInetCidrMetric3.setDescription("An alternate routing metric for this route.  The\n                semantics of this metric are determined by the routing\n                protocol specified in the route's\n                mplsL3VpnVrfRteInetCidrProto\n                value.  If this metric is not used, its value should be\n                set to -1.")
-mplsL3VpnVrfRteInetCidrMetric4 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1,-1),ValueRangeConstraint(0,2147483647),)).clone(-1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfRteInetCidrMetric4.setDescription("An alternate routing metric for this route.  The\n                semantics of this metric are determined by the routing\n                protocol specified in the route's\n                mplsL3VpnVrfRteInetCidrProto value.  If this metric\n                is not used, its value should be set to -1.")
-mplsL3VpnVrfRteInetCidrMetric5 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1,-1),ValueRangeConstraint(0,2147483647),)).clone(-1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfRteInetCidrMetric5.setDescription("An alternate routing metric for this route.  The\n                semantics of this metric are determined by the routing\n                protocol specified in the route's\n                mplsL3VpnVrfRteInetCidrProto value.  If this metric is\n                not used, its value should be set to -1.")
-mplsL3VpnVrfRteXCPointer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 17), MplsIndexType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfRteXCPointer.setDescription('Index into mplsXCTable that identifies which cross-\n        connect entry is associated with this VRF route entry\n        by containing the mplsXCIndex of that cross-connect entry.\n        The string containing the single-octet 0x00 indicates that\n        a label stack is not associated with this route entry.  This\n        can be the case because the label bindings have not yet\n        been established, or because some change in the agent has\n        removed them.\n\n        When the label stack associated with this VRF route is created,\n        it MUST establish the associated cross-connect\n        entry in the mplsXCTable and then set that index to the value\n        of this object.  Changes to the cross-connect object in the\n        mplsXCTable MUST automatically be reflected in the value of\n        this object.  If this object represents a static routing entry,\n        then the manager must ensure that this entry is maintained\n        consistently in the corresponding mplsXCTable as well.')
-mplsL3VpnVrfRteInetCidrStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 11, 1, 4, 1, 1, 18), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsL3VpnVrfRteInetCidrStatus.setDescription('The row status variable, used according to row\n                installation and removal conventions.\n                A row entry cannot be modified when the status is\n                marked as active(1).')
-mplsL3VpnVrfUp = NotificationType((1, 3, 6, 1, 2, 1, 10, 166, 11, 0, 1)).setObjects(*(("MPLS-L3VPN-STD-MIB", "mplsL3VpnIfConfRowStatus"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfOperStatus"),))
-if mibBuilder.loadTexts: mplsL3VpnVrfUp.setDescription('This notification is generated when:\n        a. No interface is associated with this VRF, and the first\n           (and only first) interface associated with it has its\n           ifOperStatus change to up(1).\n\n        b. One interface is associated with this VRF, and\n           the ifOperStatus of this interface changes to up(1).\n\n        c. Multiple interfaces are associated with this VRF, and the\n           ifOperStatus of all interfaces is down(2), and the first\n           of those interfaces has its ifOperStatus change to up(1).')
-mplsL3VpnVrfDown = NotificationType((1, 3, 6, 1, 2, 1, 10, 166, 11, 0, 2)).setObjects(*(("MPLS-L3VPN-STD-MIB", "mplsL3VpnIfConfRowStatus"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfOperStatus"),))
-if mibBuilder.loadTexts: mplsL3VpnVrfDown.setDescription('This notification is generated when:\n        a. One interface is associated with this VRF, and\n           the ifOperStatus of this interface changes from up(1)\n           to down(2).\n\n        b. Multiple interfaces are associated with this VRF, and\n           the ifOperStatus of all except one of these interfaces is\n           equal to up(1), and the ifOperStatus of that interface\n           changes from up(1) to down(2).\n\n        c. The last interface with ifOperStatus equal to up(1)\n           is disassociated from a VRF.')
-mplsL3VpnVrfRouteMidThreshExceeded = NotificationType((1, 3, 6, 1, 2, 1, 10, 166, 11, 0, 3)).setObjects(*(("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfPerfCurrNumRoutes"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfConfMidRteThresh"),))
-if mibBuilder.loadTexts: mplsL3VpnVrfRouteMidThreshExceeded.setDescription('This notification is generated when the number of routes\n        contained by the specified VRF exceeds the value indicated by\n        mplsL3VpnVrfMidRouteThreshold.  A single notification MUST be\n        generated when this threshold is exceeded, and no other\n        notifications of this type should be issued until the value\n        of mplsL3VpnVrfPerfCurrNumRoutes has fallen below that of\n        mplsL3VpnVrfConfMidRteThresh.')
-mplsL3VpnVrfNumVrfRouteMaxThreshExceeded = NotificationType((1, 3, 6, 1, 2, 1, 10, 166, 11, 0, 4)).setObjects(*(("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfPerfCurrNumRoutes"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfConfHighRteThresh"),))
-if mibBuilder.loadTexts: mplsL3VpnVrfNumVrfRouteMaxThreshExceeded.setDescription('This notification is generated when the number of routes\n        contained by the specified VRF exceeds or attempts to exceed\n        the maximum allowed value as indicated by\n        mplsL3VpnVrfMaxRouteThreshold.  In cases where\n        mplsL3VpnVrfConfHighRteThresh is set to the same value\n        as mplsL3VpnVrfConfMaxRoutes, mplsL3VpnVrfConfHighRteThresh\n        need not be exceeded; rather, just reached for this notification\n        to be issued.\n\n        Note that mplsL3VpnVrfConfRteMxThrshTime denotes the interval\n        at which the this notification will be reissued after the\n        maximum value has been exceeded (or reached if\n        mplsL3VpnVrfConfMaxRoutes and mplsL3VpnVrfConfHighRteThresh are\n        equal) and the initial notification has been issued.  This value\n        is intended to prevent continuous generation of notifications by\n        an agent in the event that routes are continually added to a VRF\n        after it has reached its maximum value.  The default value is 0\n        minutes.  If this value is set to 0, the agent should only issue\n        a single notification at the time that the maximum threshold has\n        been reached, and should not issue any more notifications until\n        the value of routes has fallen below the configured threshold\n        value.')
-mplsL3VpnNumVrfSecIllglLblThrshExcd = NotificationType((1, 3, 6, 1, 2, 1, 10, 166, 11, 0, 5)).setObjects(*(("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfSecIllegalLblVltns"),))
-if mibBuilder.loadTexts: mplsL3VpnNumVrfSecIllglLblThrshExcd.setDescription('This notification is generated when the number of illegal\n        label violations on a VRF as indicated by\n        mplsL3VpnVrfSecIllegalLblVltns has exceeded\n        mplsL3VpnIllLblRcvThrsh.  The threshold is not\n        included in the varbind here because the value of\n        mplsL3VpnVrfSecIllegalLblVltns should be one greater than\n        the threshold at the time this notification is issued.')
-mplsL3VpnNumVrfRouteMaxThreshCleared = NotificationType((1, 3, 6, 1, 2, 1, 10, 166, 11, 0, 6)).setObjects(*(("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfPerfCurrNumRoutes"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfConfHighRteThresh"),))
-if mibBuilder.loadTexts: mplsL3VpnNumVrfRouteMaxThreshCleared.setDescription('This notification is generated only after the number of routes\n        contained by the specified VRF exceeds or attempts to exceed\n        the maximum allowed value as indicated by\n        mplsVrfMaxRouteThreshold, and then falls below this value.  The\n        emission of this notification informs the operator that the\n        error condition has been cleared without the operator having to\n        query the device.\n\n        Note that mplsL3VpnVrfConfRteMxThrshTime denotes the interval at\n        which the mplsNumVrfRouteMaxThreshExceeded notification will\n        be reissued after the maximum value has been exceeded (or\n        reached if mplsL3VpnVrfConfMaxRoutes and\n        mplsL3VpnVrfConfHighRteThresh are equal) and the initial\n        notification has been issued.  Therefore,\n        the generation of this notification should also be emitted with\n        this same frequency (assuming that the error condition is\n        cleared).  Specifically, if the error condition is reached and\n        cleared several times during the period of time specified in\n        mplsL3VpnVrfConfRteMxThrshTime, only a single notification will\n        be issued to indicate the first instance of the error condition\n        as well as the first time the error condition is cleared.\n        This behavior is intended to prevent continuous generation of\n        notifications by an agent in the event that routes are\n        continually added and removed to/from a VRF after it has\n        reached its maximum value.  The default value is 0.  If this\n        value is set to 0, the agent should issue a notification\n        whenever the maximum threshold has been cleared.')
-mplsL3VpnGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 11, 2, 1))
-mplsL3VpnCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 11, 2, 2))
-mplsL3VpnModuleFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 166, 11, 2, 2, 1)).setObjects(*(("MPLS-L3VPN-STD-MIB", "mplsL3VpnScalarGroup"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfGroup"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnIfGroup"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnPerfGroup"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteGroup"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRTGroup"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnSecGroup"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnNotificationGroup"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnPerfRouteGroup"),))
-if mibBuilder.loadTexts: mplsL3VpnModuleFullCompliance.setDescription('Compliance statement for agents that provide full support\n           for the MPLS-L3VPN-STD-MIB')
-mplsL3VpnModuleReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 166, 11, 2, 2, 2)).setObjects(*(("MPLS-L3VPN-STD-MIB", "mplsL3VpnScalarGroup"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfGroup"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnIfGroup"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnPerfGroup"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteGroup"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRTGroup"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnSecGroup"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnNotificationGroup"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnPerfRouteGroup"),))
-if mibBuilder.loadTexts: mplsL3VpnModuleReadOnlyCompliance.setDescription('Compliance requirement for implementations that only\n                   provide read-only support for MPLS-L3VPN-STD-MIB.\n                   Such devices can then be monitored but cannot be\n                   configured using this MIB module.')
-mplsL3VpnScalarGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 11, 2, 1, 1)).setObjects(*(("MPLS-L3VPN-STD-MIB", "mplsL3VpnConfiguredVrfs"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnActiveVrfs"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnConnectedInterfaces"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnNotificationEnable"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfConfMaxPossRts"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfConfRteMxThrshTime"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnIllLblRcvThrsh"),))
-if mibBuilder.loadTexts: mplsL3VpnScalarGroup.setDescription('Collection of scalar objects required for MPLS VPN\n              management.')
-mplsL3VpnVrfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 11, 2, 1, 2)).setObjects(*(("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfVpnId"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfDescription"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRD"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfCreationTime"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfOperStatus"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfActiveInterfaces"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfAssociatedInterfaces"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfConfMidRteThresh"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfConfHighRteThresh"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfConfMaxRoutes"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfConfLastChanged"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfConfRowStatus"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfConfAdminStatus"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfConfStorageType"),))
-if mibBuilder.loadTexts: mplsL3VpnVrfGroup.setDescription('Collection of objects needed for MPLS VPN VRF\n              management.')
-mplsL3VpnIfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 11, 2, 1, 3)).setObjects(*(("MPLS-L3VPN-STD-MIB", "mplsL3VpnIfVpnClassification"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnIfVpnRouteDistProtocol"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnIfConfStorageType"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnIfConfRowStatus"),))
-if mibBuilder.loadTexts: mplsL3VpnIfGroup.setDescription('Collection of objects needed for MPLS VPN interface\n              management.')
-mplsL3VpnPerfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 11, 2, 1, 4)).setObjects(*(("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfPerfRoutesAdded"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfPerfRoutesDeleted"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfPerfCurrNumRoutes"),))
-if mibBuilder.loadTexts: mplsL3VpnPerfGroup.setDescription('Collection of objects needed for MPLS VPN\n              performance information.')
-mplsL3VpnPerfRouteGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 11, 2, 1, 5)).setObjects(*(("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfPerfRoutesDropped"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfPerfDiscTime"),))
-if mibBuilder.loadTexts: mplsL3VpnPerfRouteGroup.setDescription('Collection of objects needed to track MPLS VPN\n              routing table dropped routes.')
-mplsL3VpnSecGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 11, 2, 1, 7)).setObjects(*(("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfSecIllegalLblVltns"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfSecDiscontinuityTime"),))
-if mibBuilder.loadTexts: mplsL3VpnSecGroup.setDescription('Collection of objects needed for MPLS VPN\n              security-related information.')
-mplsL3VpnVrfRteGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 11, 2, 1, 8)).setObjects(*(("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteInetCidrIfIndex"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteInetCidrType"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteInetCidrProto"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteInetCidrAge"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteInetCidrNextHopAS"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteInetCidrMetric1"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteInetCidrMetric2"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteInetCidrMetric3"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteInetCidrMetric4"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteInetCidrMetric5"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteXCPointer"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRteInetCidrStatus"),))
-if mibBuilder.loadTexts: mplsL3VpnVrfRteGroup.setDescription('Objects required for VRF route table management.')
-mplsL3VpnVrfRTGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 11, 2, 1, 9)).setObjects(*(("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRTDescr"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRT"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRTRowStatus"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRTStorageType"),))
-if mibBuilder.loadTexts: mplsL3VpnVrfRTGroup.setDescription('Objects required for VRF route target management.')
-mplsL3VpnNotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 10, 166, 11, 2, 1, 10)).setObjects(*(("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfUp"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfDown"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfRouteMidThreshExceeded"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnVrfNumVrfRouteMaxThreshExceeded"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnNumVrfSecIllglLblThrshExcd"), ("MPLS-L3VPN-STD-MIB", "mplsL3VpnNumVrfRouteMaxThreshCleared"),))
-if mibBuilder.loadTexts: mplsL3VpnNotificationGroup.setDescription('Objects required for MPLS VPN notifications.')
-mibBuilder.exportSymbols("MPLS-L3VPN-STD-MIB", mplsL3VpnVrfDescription=mplsL3VpnVrfDescription, mplsL3VpnVrfRteInetCidrPolicy=mplsL3VpnVrfRteInetCidrPolicy, mplsL3VpnIfConfStorageType=mplsL3VpnIfConfStorageType, mplsL3VpnVrfRteXCPointer=mplsL3VpnVrfRteXCPointer, mplsL3VpnIfConfEntry=mplsL3VpnIfConfEntry, mplsL3VpnVrfSecTable=mplsL3VpnVrfSecTable, mplsL3VpnVrfActiveInterfaces=mplsL3VpnVrfActiveInterfaces, mplsL3VpnVrfSecIllegalLblVltns=mplsL3VpnVrfSecIllegalLblVltns, mplsL3VpnModuleFullCompliance=mplsL3VpnModuleFullCompliance, mplsL3VpnVrfPerfRoutesDropped=mplsL3VpnVrfPerfRoutesDropped, mplsL3VpnVrfRTEntry=mplsL3VpnVrfRTEntry, mplsL3VpnRoute=mplsL3VpnRoute, mplsL3VpnScalarGroup=mplsL3VpnScalarGroup, mplsL3VpnVrfName=mplsL3VpnVrfName, mplsL3VpnVrfConfRowStatus=mplsL3VpnVrfConfRowStatus, mplsL3VpnPerfRouteGroup=mplsL3VpnPerfRouteGroup, mplsL3VpnVrfTable=mplsL3VpnVrfTable, mplsL3VpnConf=mplsL3VpnConf, mplsL3VpnConnectedInterfaces=mplsL3VpnConnectedInterfaces, MplsL3VpnName=MplsL3VpnName, mplsL3VpnVrfRteInetCidrMetric1=mplsL3VpnVrfRteInetCidrMetric1, mplsL3VpnVrfAssociatedInterfaces=mplsL3VpnVrfAssociatedInterfaces, mplsL3VpnMIB=mplsL3VpnMIB, mplsL3VpnNumVrfRouteMaxThreshCleared=mplsL3VpnNumVrfRouteMaxThreshCleared, mplsL3VpnVrfGroup=mplsL3VpnVrfGroup, mplsL3VpnVrfRteGroup=mplsL3VpnVrfRteGroup, mplsL3VpnVrfRTIndex=mplsL3VpnVrfRTIndex, mplsL3VpnVrfRteInetCidrNextHopAS=mplsL3VpnVrfRteInetCidrNextHopAS, mplsL3VpnConformance=mplsL3VpnConformance, mplsL3VpnVrfConfHighRteThresh=mplsL3VpnVrfConfHighRteThresh, mplsL3VpnVrfConfMaxPossRts=mplsL3VpnVrfConfMaxPossRts, mplsL3VpnVrfRTType=mplsL3VpnVrfRTType, mplsL3VpnVrfRTTable=mplsL3VpnVrfRTTable, mplsL3VpnVrfRteInetCidrDest=mplsL3VpnVrfRteInetCidrDest, mplsL3VpnIfVpnClassification=mplsL3VpnIfVpnClassification, mplsL3VpnVrfEntry=mplsL3VpnVrfEntry, mplsL3VpnIfConfTable=mplsL3VpnIfConfTable, mplsL3VpnCompliances=mplsL3VpnCompliances, mplsL3VpnVrfRTGroup=mplsL3VpnVrfRTGroup, mplsL3VpnNotifications=mplsL3VpnNotifications, mplsL3VpnActiveVrfs=mplsL3VpnActiveVrfs, mplsL3VpnVrfPerfDiscTime=mplsL3VpnVrfPerfDiscTime, mplsL3VpnIfVpnRouteDistProtocol=mplsL3VpnIfVpnRouteDistProtocol, mplsL3VpnVrfConfMaxRoutes=mplsL3VpnVrfConfMaxRoutes, mplsL3VpnVrfPerfCurrNumRoutes=mplsL3VpnVrfPerfCurrNumRoutes, mplsL3VpnVrfSecEntry=mplsL3VpnVrfSecEntry, mplsL3VpnVrfVpnId=mplsL3VpnVrfVpnId, mplsL3VpnVrfRouteMidThreshExceeded=mplsL3VpnVrfRouteMidThreshExceeded, mplsL3VpnVrfDown=mplsL3VpnVrfDown, mplsL3VpnVrfRTDescr=mplsL3VpnVrfRTDescr, mplsL3VpnVrfConfRteMxThrshTime=mplsL3VpnVrfConfRteMxThrshTime, mplsL3VpnVrfRT=mplsL3VpnVrfRT, mplsL3VpnVrfRteInetCidrStatus=mplsL3VpnVrfRteInetCidrStatus, mplsL3VpnVrfRteInetCidrAge=mplsL3VpnVrfRteInetCidrAge, mplsL3VpnIllLblRcvThrsh=mplsL3VpnIllLblRcvThrsh, mplsL3VpnVrfSecDiscontinuityTime=mplsL3VpnVrfSecDiscontinuityTime, mplsL3VpnVrfRD=mplsL3VpnVrfRD, mplsL3VpnVrfRteInetCidrIfIndex=mplsL3VpnVrfRteInetCidrIfIndex, mplsL3VpnVrfRteInetCidrMetric3=mplsL3VpnVrfRteInetCidrMetric3, mplsL3VpnSecGroup=mplsL3VpnSecGroup, mplsL3VpnVrfOperStatus=mplsL3VpnVrfOperStatus, mplsL3VpnVrfRteInetCidrNHopType=mplsL3VpnVrfRteInetCidrNHopType, mplsL3VpnConfiguredVrfs=mplsL3VpnConfiguredVrfs, mplsL3VpnVrfRteInetCidrDestType=mplsL3VpnVrfRteInetCidrDestType, mplsL3VpnVrfConfAdminStatus=mplsL3VpnVrfConfAdminStatus, mplsL3VpnNotificationGroup=mplsL3VpnNotificationGroup, mplsL3VpnVrfRteInetCidrPfxLen=mplsL3VpnVrfRteInetCidrPfxLen, mplsL3VpnVrfRteInetCidrMetric2=mplsL3VpnVrfRteInetCidrMetric2, mplsL3VpnScalars=mplsL3VpnScalars, mplsL3VpnModuleReadOnlyCompliance=mplsL3VpnModuleReadOnlyCompliance, mplsL3VpnVrfNumVrfRouteMaxThreshExceeded=mplsL3VpnVrfNumVrfRouteMaxThreshExceeded, mplsL3VpnVrfRteInetCidrMetric5=mplsL3VpnVrfRteInetCidrMetric5, mplsL3VpnVrfRteInetCidrType=mplsL3VpnVrfRteInetCidrType, mplsL3VpnVrfRteEntry=mplsL3VpnVrfRteEntry, PYSNMP_MODULE_ID=mplsL3VpnMIB, mplsL3VpnVrfCreationTime=mplsL3VpnVrfCreationTime, mplsL3VpnPerf=mplsL3VpnPerf, MplsL3VpnRtType=MplsL3VpnRtType, mplsL3VpnVrfRTStorageType=mplsL3VpnVrfRTStorageType, mplsL3VpnVrfRteInetCidrNextHop=mplsL3VpnVrfRteInetCidrNextHop, mplsL3VpnVrfUp=mplsL3VpnVrfUp, mplsL3VpnObjects=mplsL3VpnObjects, mplsL3VpnVrfPerfRoutesDeleted=mplsL3VpnVrfPerfRoutesDeleted, mplsL3VpnVrfConfLastChanged=mplsL3VpnVrfConfLastChanged, mplsL3VpnVrfPerfEntry=mplsL3VpnVrfPerfEntry, mplsL3VpnNumVrfSecIllglLblThrshExcd=mplsL3VpnNumVrfSecIllglLblThrshExcd, mplsL3VpnPerfGroup=mplsL3VpnPerfGroup, mplsL3VpnVrfRteTable=mplsL3VpnVrfRteTable, mplsL3VpnIfConfIndex=mplsL3VpnIfConfIndex, mplsL3VpnIfGroup=mplsL3VpnIfGroup, MplsL3VpnRouteDistinguisher=MplsL3VpnRouteDistinguisher, mplsL3VpnGroups=mplsL3VpnGroups, mplsL3VpnIfConfRowStatus=mplsL3VpnIfConfRowStatus, mplsL3VpnVrfPerfTable=mplsL3VpnVrfPerfTable, mplsL3VpnVrfRteInetCidrMetric4=mplsL3VpnVrfRteInetCidrMetric4, mplsL3VpnVrfPerfRoutesAdded=mplsL3VpnVrfPerfRoutesAdded, mplsL3VpnVrfConfMidRteThresh=mplsL3VpnVrfConfMidRteThresh, mplsL3VpnVrfRTRowStatus=mplsL3VpnVrfRTRowStatus, mplsL3VpnVrfRteInetCidrProto=mplsL3VpnVrfRteInetCidrProto, mplsL3VpnNotificationEnable=mplsL3VpnNotificationEnable, mplsL3VpnVrfConfStorageType=mplsL3VpnVrfConfStorageType)
+mplsL3VpnScalarGroup=ObjectGroup((1,3,6,1,2,1,10,166,11,2,1,1))
+mplsL3VpnScalarGroup.setObjects(*((_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w)))
+if mibBuilder.loadTexts:mplsL3VpnScalarGroup.setStatus(_B)
+mplsL3VpnVrfGroup=ObjectGroup((1,3,6,1,2,1,10,166,11,2,1,2))
+mplsL3VpnVrfGroup.setObjects(*((_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_K),(_A,_A1),(_A,_A2),(_A,_P),(_A,_L),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7)))
+if mibBuilder.loadTexts:mplsL3VpnVrfGroup.setStatus(_B)
+mplsL3VpnIfGroup=ObjectGroup((1,3,6,1,2,1,10,166,11,2,1,3))
+mplsL3VpnIfGroup.setObjects(*((_A,_A8),(_A,_A9),(_A,_AA),(_A,_M)))
+if mibBuilder.loadTexts:mplsL3VpnIfGroup.setStatus(_B)
+mplsL3VpnPerfGroup=ObjectGroup((1,3,6,1,2,1,10,166,11,2,1,4))
+mplsL3VpnPerfGroup.setObjects(*((_A,_AB),(_A,_AC),(_A,_I)))
+if mibBuilder.loadTexts:mplsL3VpnPerfGroup.setStatus(_B)
+mplsL3VpnPerfRouteGroup=ObjectGroup((1,3,6,1,2,1,10,166,11,2,1,5))
+mplsL3VpnPerfRouteGroup.setObjects(*((_A,_AD),(_A,_AE)))
+if mibBuilder.loadTexts:mplsL3VpnPerfRouteGroup.setStatus(_B)
+mplsL3VpnSecGroup=ObjectGroup((1,3,6,1,2,1,10,166,11,2,1,7))
+mplsL3VpnSecGroup.setObjects(*((_A,_Q),(_A,_AF)))
+if mibBuilder.loadTexts:mplsL3VpnSecGroup.setStatus(_B)
+mplsL3VpnVrfRteGroup=ObjectGroup((1,3,6,1,2,1,10,166,11,2,1,8))
+mplsL3VpnVrfRteGroup.setObjects(*((_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR)))
+if mibBuilder.loadTexts:mplsL3VpnVrfRteGroup.setStatus(_B)
+mplsL3VpnVrfRTGroup=ObjectGroup((1,3,6,1,2,1,10,166,11,2,1,9))
+mplsL3VpnVrfRTGroup.setObjects(*((_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV)))
+if mibBuilder.loadTexts:mplsL3VpnVrfRTGroup.setStatus(_B)
+mplsL3VpnVrfUp=NotificationType((1,3,6,1,2,1,10,166,11,0,1))
+mplsL3VpnVrfUp.setObjects(*((_A,_M),(_A,_K)))
+if mibBuilder.loadTexts:mplsL3VpnVrfUp.setStatus(_B)
+mplsL3VpnVrfDown=NotificationType((1,3,6,1,2,1,10,166,11,0,2))
+mplsL3VpnVrfDown.setObjects(*((_A,_M),(_A,_K)))
+if mibBuilder.loadTexts:mplsL3VpnVrfDown.setStatus(_B)
+mplsL3VpnVrfRouteMidThreshExceeded=NotificationType((1,3,6,1,2,1,10,166,11,0,3))
+mplsL3VpnVrfRouteMidThreshExceeded.setObjects(*((_A,_I),(_A,_P)))
+if mibBuilder.loadTexts:mplsL3VpnVrfRouteMidThreshExceeded.setStatus(_B)
+mplsL3VpnVrfNumVrfRouteMaxThreshExceeded=NotificationType((1,3,6,1,2,1,10,166,11,0,4))
+mplsL3VpnVrfNumVrfRouteMaxThreshExceeded.setObjects(*((_A,_I),(_A,_L)))
+if mibBuilder.loadTexts:mplsL3VpnVrfNumVrfRouteMaxThreshExceeded.setStatus(_B)
+mplsL3VpnNumVrfSecIllglLblThrshExcd=NotificationType((1,3,6,1,2,1,10,166,11,0,5))
+mplsL3VpnNumVrfSecIllglLblThrshExcd.setObjects((_A,_Q))
+if mibBuilder.loadTexts:mplsL3VpnNumVrfSecIllglLblThrshExcd.setStatus(_B)
+mplsL3VpnNumVrfRouteMaxThreshCleared=NotificationType((1,3,6,1,2,1,10,166,11,0,6))
+mplsL3VpnNumVrfRouteMaxThreshCleared.setObjects(*((_A,_I),(_A,_L)))
+if mibBuilder.loadTexts:mplsL3VpnNumVrfRouteMaxThreshCleared.setStatus(_B)
+mplsL3VpnNotificationGroup=NotificationGroup((1,3,6,1,2,1,10,166,11,2,1,10))
+mplsL3VpnNotificationGroup.setObjects(*((_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab)))
+if mibBuilder.loadTexts:mplsL3VpnNotificationGroup.setStatus(_B)
+mplsL3VpnModuleFullCompliance=ModuleCompliance((1,3,6,1,2,1,10,166,11,2,2,1))
+mplsL3VpnModuleFullCompliance.setObjects(*((_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z)))
+if mibBuilder.loadTexts:mplsL3VpnModuleFullCompliance.setStatus(_B)
+mplsL3VpnModuleReadOnlyCompliance=ModuleCompliance((1,3,6,1,2,1,10,166,11,2,2,2))
+mplsL3VpnModuleReadOnlyCompliance.setObjects(*((_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z)))
+if mibBuilder.loadTexts:mplsL3VpnModuleReadOnlyCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'MplsL3VpnName':MplsL3VpnName,_O:MplsL3VpnRouteDistinguisher,'MplsL3VpnRtType':MplsL3VpnRtType,'mplsL3VpnMIB':mplsL3VpnMIB,'mplsL3VpnNotifications':mplsL3VpnNotifications,_AW:mplsL3VpnVrfUp,_AX:mplsL3VpnVrfDown,_AY:mplsL3VpnVrfRouteMidThreshExceeded,_AZ:mplsL3VpnVrfNumVrfRouteMaxThreshExceeded,_Aa:mplsL3VpnNumVrfSecIllglLblThrshExcd,_Ab:mplsL3VpnNumVrfRouteMaxThreshCleared,'mplsL3VpnObjects':mplsL3VpnObjects,'mplsL3VpnScalars':mplsL3VpnScalars,_q:mplsL3VpnConfiguredVrfs,_r:mplsL3VpnActiveVrfs,_s:mplsL3VpnConnectedInterfaces,_t:mplsL3VpnNotificationEnable,_u:mplsL3VpnVrfConfMaxPossRts,_v:mplsL3VpnVrfConfRteMxThrshTime,_w:mplsL3VpnIllLblRcvThrsh,'mplsL3VpnConf':mplsL3VpnConf,'mplsL3VpnIfConfTable':mplsL3VpnIfConfTable,'mplsL3VpnIfConfEntry':mplsL3VpnIfConfEntry,_f:mplsL3VpnIfConfIndex,_A8:mplsL3VpnIfVpnClassification,_A9:mplsL3VpnIfVpnRouteDistProtocol,_AA:mplsL3VpnIfConfStorageType,_M:mplsL3VpnIfConfRowStatus,'mplsL3VpnVrfTable':mplsL3VpnVrfTable,'mplsL3VpnVrfEntry':mplsL3VpnVrfEntry,_H:mplsL3VpnVrfName,_x:mplsL3VpnVrfVpnId,_y:mplsL3VpnVrfDescription,_z:mplsL3VpnVrfRD,_A0:mplsL3VpnVrfCreationTime,_K:mplsL3VpnVrfOperStatus,_A1:mplsL3VpnVrfActiveInterfaces,_A2:mplsL3VpnVrfAssociatedInterfaces,_P:mplsL3VpnVrfConfMidRteThresh,_L:mplsL3VpnVrfConfHighRteThresh,_A3:mplsL3VpnVrfConfMaxRoutes,_A4:mplsL3VpnVrfConfLastChanged,_A5:mplsL3VpnVrfConfRowStatus,_A6:mplsL3VpnVrfConfAdminStatus,_A7:mplsL3VpnVrfConfStorageType,'mplsL3VpnVrfRTTable':mplsL3VpnVrfRTTable,'mplsL3VpnVrfRTEntry':mplsL3VpnVrfRTEntry,_g:mplsL3VpnVrfRTIndex,_h:mplsL3VpnVrfRTType,_AT:mplsL3VpnVrfRT,_AS:mplsL3VpnVrfRTDescr,_AU:mplsL3VpnVrfRTRowStatus,_AV:mplsL3VpnVrfRTStorageType,'mplsL3VpnVrfSecTable':mplsL3VpnVrfSecTable,_o:mplsL3VpnVrfSecEntry,_Q:mplsL3VpnVrfSecIllegalLblVltns,_AF:mplsL3VpnVrfSecDiscontinuityTime,'mplsL3VpnPerf':mplsL3VpnPerf,'mplsL3VpnVrfPerfTable':mplsL3VpnVrfPerfTable,_p:mplsL3VpnVrfPerfEntry,_AB:mplsL3VpnVrfPerfRoutesAdded,_AC:mplsL3VpnVrfPerfRoutesDeleted,_I:mplsL3VpnVrfPerfCurrNumRoutes,_AD:mplsL3VpnVrfPerfRoutesDropped,_AE:mplsL3VpnVrfPerfDiscTime,'mplsL3VpnRoute':mplsL3VpnRoute,'mplsL3VpnVrfRteTable':mplsL3VpnVrfRteTable,'mplsL3VpnVrfRteEntry':mplsL3VpnVrfRteEntry,_i:mplsL3VpnVrfRteInetCidrDestType,_j:mplsL3VpnVrfRteInetCidrDest,_k:mplsL3VpnVrfRteInetCidrPfxLen,_l:mplsL3VpnVrfRteInetCidrPolicy,_m:mplsL3VpnVrfRteInetCidrNHopType,_n:mplsL3VpnVrfRteInetCidrNextHop,_AG:mplsL3VpnVrfRteInetCidrIfIndex,_AH:mplsL3VpnVrfRteInetCidrType,_AI:mplsL3VpnVrfRteInetCidrProto,_AJ:mplsL3VpnVrfRteInetCidrAge,_AK:mplsL3VpnVrfRteInetCidrNextHopAS,_AL:mplsL3VpnVrfRteInetCidrMetric1,_AM:mplsL3VpnVrfRteInetCidrMetric2,_AN:mplsL3VpnVrfRteInetCidrMetric3,_AO:mplsL3VpnVrfRteInetCidrMetric4,_AP:mplsL3VpnVrfRteInetCidrMetric5,_AQ:mplsL3VpnVrfRteXCPointer,_AR:mplsL3VpnVrfRteInetCidrStatus,'mplsL3VpnConformance':mplsL3VpnConformance,'mplsL3VpnGroups':mplsL3VpnGroups,_R:mplsL3VpnScalarGroup,_S:mplsL3VpnVrfGroup,_T:mplsL3VpnIfGroup,_U:mplsL3VpnPerfGroup,_Z:mplsL3VpnPerfRouteGroup,_X:mplsL3VpnSecGroup,_V:mplsL3VpnVrfRteGroup,_W:mplsL3VpnVrfRTGroup,_Y:mplsL3VpnNotificationGroup,'mplsL3VpnCompliances':mplsL3VpnCompliances,'mplsL3VpnModuleFullCompliance':mplsL3VpnModuleFullCompliance,'mplsL3VpnModuleReadOnlyCompliance':mplsL3VpnModuleReadOnlyCompliance})

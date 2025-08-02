@@ -1,268 +1,612 @@
-#
-# PySNMP MIB module RFC1253-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/RFC1253-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:25:56 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, OctetString, Integer, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
-( ModuleCompliance, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-( MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, TimeTicks, Counter64, IpAddress, iso, Unsigned32, Gauge32, Bits, Counter32, ModuleIdentity, ObjectIdentity, MibIdentifier, mib_2, Integer32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "TimeTicks", "Counter64", "IpAddress", "iso", "Unsigned32", "Gauge32", "Bits", "Counter32", "ModuleIdentity", "ObjectIdentity", "MibIdentifier", "mib-2", "Integer32")
-( TextualConvention, DisplayString, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ospf = MibIdentifier((1, 3, 6, 1, 2, 1, 14))
-class AreaID(IpAddress):
-    pass
-
-class RouterID(IpAddress):
-    pass
-
-class Metric(Integer32):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(1,65535)
-
-class BigMetric(Integer32):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(1,16777215)
-
-class TruthValue(Integer32):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2,))
-    namedValues = NamedValues(("true", 1), ("false", 2),)
-
-class Status(Integer32):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2,))
-    namedValues = NamedValues(("enabled", 1), ("disabled", 2),)
-
-class Validation(Integer32):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2,))
-    namedValues = NamedValues(("valid", 1), ("invalid", 2),)
-
-class PositiveInteger(Integer32):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(1,4294967295)
-
-class HelloRange(Integer32):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(1,65535)
-
-class UpToMaxAge(Integer32):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(1,3600)
-
-class InterfaceIndex(Integer32):
-    pass
-
-class DesignatedRouterPriority(Integer32):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,255)
-
-class TOSType(Integer32):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,31)
-
-ospfGeneralGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 14, 1))
-ospfRouterId = MibScalar((1, 3, 6, 1, 2, 1, 14, 1, 1), RouterID()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfRouterId.setDescription("A 32-bit integer uniquely identifying the router in\n            the Autonomous System.\n\n            By convention, to ensure uniqueness, this should\n            default to the value of one of the router's IP\n            interface addresses.")
-ospfAdminStat = MibScalar((1, 3, 6, 1, 2, 1, 14, 1, 2), Status()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfAdminStat.setDescription("The administrative status of OSPF in the router.  The\n            value 'enabled' denotes that the OSPF Process is active\n            on at least one interface; 'disabled' disables it on\n            all interfaces.")
-ospfVersionNumber = MibScalar((1, 3, 6, 1, 2, 1, 14, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2,))).clone(namedValues=NamedValues(("version2", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfVersionNumber.setDescription('The current version number of the OSPF protocol is 2.')
-ospfAreaBdrRtrStatus = MibScalar((1, 3, 6, 1, 2, 1, 14, 1, 4), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfAreaBdrRtrStatus.setDescription('A flag to note whether this router is an area border\n            router.')
-ospfASBdrRtrStatus = MibScalar((1, 3, 6, 1, 2, 1, 14, 1, 5), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfASBdrRtrStatus.setDescription('A flag to note whether this router is an Autonomous\n            System border router.')
-ospfExternLSACount = MibScalar((1, 3, 6, 1, 2, 1, 14, 1, 6), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfExternLSACount.setDescription('The number of external (LS type 5) link-state\n            advertisements in the link-state database.')
-ospfExternLSACksumSum = MibScalar((1, 3, 6, 1, 2, 1, 14, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfExternLSACksumSum.setDescription("The 32-bit unsigned sum of the LS checksums of the\n            external link-state advertisements contained in the\n            link-state database.  This sum can be used to determine\n            if there has been a change in a router's link state\n            database, and to compare the link-state database of two\n            routers.")
-ospfTOSSupport = MibScalar((1, 3, 6, 1, 2, 1, 14, 1, 8), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfTOSSupport.setDescription("The router's support for type-of-service routing.")
-ospfOriginateNewLSAs = MibScalar((1, 3, 6, 1, 2, 1, 14, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfOriginateNewLSAs.setDescription('The number of new link-state advertisements that have\n            been originated.  This number is incremented each time\n            the router originates a new LSA.')
-ospfRxNewLSAs = MibScalar((1, 3, 6, 1, 2, 1, 14, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfRxNewLSAs.setDescription('The number of link-state advertisements received\n            determined to be new instantiations.  This number does\n            not include newer instantiations of self-originated\n            link-state advertisements.')
-ospfAreaTable = MibTable((1, 3, 6, 1, 2, 1, 14, 2), )
-if mibBuilder.loadTexts: ospfAreaTable.setDescription("Information describing the configured parameters and\n            cumulative statistics of the router's attached areas.")
-ospfAreaEntry = MibTableRow((1, 3, 6, 1, 2, 1, 14, 2, 1), ).setIndexNames((0, "RFC1253-MIB", "ospfAreaId"))
-if mibBuilder.loadTexts: ospfAreaEntry.setDescription("Information describing the configured parameters and\n            cumulative statistics of one of the router's attached\n            areas.")
-ospfAreaId = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 2, 1, 1), AreaID()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfAreaId.setDescription('A 32-bit integer uniquely identifying an area.  Area\n            ID 0.0.0.0 is used for the OSPF backbone.')
-ospfAuthType = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 2, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfAuthType.setDescription('The authentication type specified for an area.\n            Additional authentication types may be assigned locally\n            on a per Area basis.')
-ospfImportASExtern = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 2, 1, 3), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfImportASExtern.setDescription("The area's support for importing AS external link-\n            state advertisements.")
-ospfSpfRuns = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 2, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfSpfRuns.setDescription("The number of times that the intra-area route table\n            has been calculated using this area's link-state\n            database.  This is typically done using Dijkstra's\n            algorithm.")
-ospfAreaBdrRtrCount = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 2, 1, 5), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfAreaBdrRtrCount.setDescription('The total number of area border routers reachable\n            within this area.  This is initially zero, and is\n            calculated in each SPF Pass.')
-ospfASBdrRtrCount = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 2, 1, 6), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfASBdrRtrCount.setDescription('The total number of Autonomous System border routers\n            reachable within this area.  This is initially zero,\n            and is calculated in each SPF Pass.')
-ospfAreaLSACount = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 2, 1, 7), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfAreaLSACount.setDescription("The total number of link-state advertisements in this\n            area's link-state database, excluding AS External\n            LSA's.")
-ospfAreaLSACksumSum = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 2, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfAreaLSACksumSum.setDescription("The 32-bit unsigned sum of the link-state\n            advertisements' LS checksums contained in this area's\n            link-state database.  This sum excludes external (LS\n            type 5) link-state advertisements.  The sum can be used\n            to determine if there has been a change in a router's\n            link state database, and to compare the link-state\n            database of two routers.")
-ospfStubAreaTable = MibTable((1, 3, 6, 1, 2, 1, 14, 3), )
-if mibBuilder.loadTexts: ospfStubAreaTable.setDescription('The set of metrics that will be advertised by a\n            default Area Border Router into a stub area.')
-ospfStubAreaEntry = MibTableRow((1, 3, 6, 1, 2, 1, 14, 3, 1), ).setIndexNames((0, "RFC1253-MIB", "ospfStubAreaID"), (0, "RFC1253-MIB", "ospfStubTOS"))
-if mibBuilder.loadTexts: ospfStubAreaEntry.setDescription('The metric for a given Type of Service that will be\n            advertised by a default Area Border Router into a stub\n            area.')
-ospfStubAreaID = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 3, 1, 1), AreaID()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfStubAreaID.setDescription('The 32 bit identifier for the Stub Area.  On creation,\n            this can be derived from the instance.')
-ospfStubTOS = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 3, 1, 2), TOSType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfStubTOS.setDescription('The Type of Service associated with the metric.  On\n            creation, this can be derived from the instance.')
-ospfStubMetric = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 3, 1, 3), BigMetric()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfStubMetric.setDescription('The metric value applied at the indicated type of\n            service.  By default, this equals the least metric at\n            the type of service among the interfaces to other\n            areas.')
-ospfStubStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 3, 1, 4), Validation().clone('valid')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfStubStatus.setDescription("This variable displays the validity or invalidity of\n            the entry.  Setting it to 'invalid' has the effect of\n            rendering it inoperative.  The internal effect (row\n            removal) is implementation dependent.")
-ospfLsdbTable = MibTable((1, 3, 6, 1, 2, 1, 14, 4), )
-if mibBuilder.loadTexts: ospfLsdbTable.setDescription("The OSPF Process's Links State Database.")
-ospfLsdbEntry = MibTableRow((1, 3, 6, 1, 2, 1, 14, 4, 1), ).setIndexNames((0, "RFC1253-MIB", "ospfLsdbAreaId"), (0, "RFC1253-MIB", "ospfLsdbType"), (0, "RFC1253-MIB", "ospfLsdbLSID"), (0, "RFC1253-MIB", "ospfLsdbRouterId"))
-if mibBuilder.loadTexts: ospfLsdbEntry.setDescription('A single Link State Advertisement.')
-ospfLsdbAreaId = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 4, 1, 1), AreaID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfLsdbAreaId.setDescription('The 32 bit identifier of the Area from which the LSA\n            was received.')
-ospfLsdbType = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("routerLink", 1), ("networkLink", 2), ("summaryLink", 3), ("asSummaryLink", 4), ("asExternalLink", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfLsdbType.setDescription('The type of the link state advertisement.  Each link\n            state type has a separate advertisement format.')
-ospfLsdbLSID = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 4, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfLsdbLSID.setDescription('The Link State ID is an LS Type Specific field\n            containing either a Router ID or an IP Address; it\n            identifies the piece of the routing domain that is\n            being described by the advertisement.')
-ospfLsdbRouterId = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 4, 1, 4), RouterID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfLsdbRouterId.setDescription('The 32 bit number that uniquely identifies the\n            originating router in the Autonomous System.')
-ospfLsdbSequence = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 4, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfLsdbSequence.setDescription('The sequence number field is a signed 32-bit integer.\n            It is used to detect old and duplicate link state\n            advertisements.  The space of sequence numbers is\n            linearly ordered.  The larger the sequence number the\n            more recent the advertisement.')
-ospfLsdbAge = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 4, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfLsdbAge.setDescription('This field is the age of the link state advertisement\n            in seconds.')
-ospfLsdbChecksum = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 4, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfLsdbChecksum.setDescription("This field is the checksum of the complete contents of\n            the advertisement, excepting the age field.  The age\n            field is excepted so that an advertisement's age can be\n            incremented without updating the checksum.  The\n            checksum used is the same that is used for ISO\n            connectionless datagrams; it is commonly referred to as\n            the Fletcher checksum.")
-ospfLsdbAdvertisement = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 4, 1, 8), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfLsdbAdvertisement.setDescription('The entire Link State Advertisement, including its\n            header.')
-ospfAreaRangeTable = MibTable((1, 3, 6, 1, 2, 1, 14, 5), )
-if mibBuilder.loadTexts: ospfAreaRangeTable.setDescription('A range if IP addresses specified by an IP address/IP\n            network mask pair.  For example, class B address range\n            of X.X.X.X with a network mask of 255.255.0.0 includes\n            all IP addresses from X.X.0.0 to X.X.255.255')
-ospfAreaRangeEntry = MibTableRow((1, 3, 6, 1, 2, 1, 14, 5, 1), ).setIndexNames((0, "RFC1253-MIB", "ospfAreaRangeAreaID"), (0, "RFC1253-MIB", "ospfAreaRangeNet"))
-if mibBuilder.loadTexts: ospfAreaRangeEntry.setDescription('A range if IP addresses specified by an IP address/IP\n            network mask pair.  For example, class B address range\n            of X.X.X.X with a network mask of 255.255.0.0 includes\n            all IP addresses from X.X.0.0 to X.X.255.255')
-ospfAreaRangeAreaID = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 5, 1, 1), AreaID()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfAreaRangeAreaID.setDescription('The Area the Address Range is to be found within.')
-ospfAreaRangeNet = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 5, 1, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfAreaRangeNet.setDescription('The IP Address of the Net or Subnet indicated by the\n            range.')
-ospfAreaRangeMask = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 5, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfAreaRangeMask.setDescription('The Subnet Mask that pertains to the Net or Subnet.')
-ospfAreaRangeStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 5, 1, 4), Validation().clone('valid')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfAreaRangeStatus.setDescription("This variable displays the validity or invalidity of\n            the entry.  Setting it to 'invalid' has the effect of\n            rendering it inoperative.  The internal effect (row\n            removal) is implementation dependent.")
-ospfHostTable = MibTable((1, 3, 6, 1, 2, 1, 14, 6), )
-if mibBuilder.loadTexts: ospfHostTable.setDescription('The list of Hosts, and their metrics, that the router\n            will advertise as host routes.')
-ospfHostEntry = MibTableRow((1, 3, 6, 1, 2, 1, 14, 6, 1), ).setIndexNames((0, "RFC1253-MIB", "ospfHostIpAddress"), (0, "RFC1253-MIB", "ospfHostTOS"))
-if mibBuilder.loadTexts: ospfHostEntry.setDescription('A metric to be advertised, for a given type of service,\n            when a given host is reachable.')
-ospfHostIpAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 6, 1, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfHostIpAddress.setDescription('The IP Address of the Host.')
-ospfHostTOS = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 6, 1, 2), TOSType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfHostTOS.setDescription('The Type of Service of the route being configured.')
-ospfHostMetric = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 6, 1, 3), Metric()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfHostMetric.setDescription('The Metric to be advertised.')
-ospfHostStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 6, 1, 4), Validation().clone('valid')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfHostStatus.setDescription("This variable displays the validity or invalidity of\n            the entry.  Setting it to 'invalid' has the effect of\n            rendering it inoperative.  The internal effect (row\n            removal) is implementation dependent.")
-ospfIfTable = MibTable((1, 3, 6, 1, 2, 1, 14, 7), )
-if mibBuilder.loadTexts: ospfIfTable.setDescription('The OSPF Interface Table describes the interfaces from\n            the viewpoint of OSPF.')
-ospfIfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 14, 7, 1), ).setIndexNames((0, "RFC1253-MIB", "ospfIfIpAddress"), (0, "RFC1253-MIB", "ospfAddressLessIf"))
-if mibBuilder.loadTexts: ospfIfEntry.setDescription('The OSPF Interface Entry describes one interface from\n            the viewpoint of OSPF.')
-ospfIfIpAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 7, 1, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfIfIpAddress.setDescription('The IP address of this OSPF interface.')
-ospfAddressLessIf = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 7, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfAddressLessIf.setDescription('For the purpose of easing the instancing of addressed\n            and addressless interfaces; This variable takes the\n            value 0 on interfaces with IP Addresses, and the\n            corresponding value of ifIndex for interfaces having no\n            IP Address.')
-ospfIfAreaId = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 7, 1, 3), AreaID().clone(hexValue="00000000")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfIfAreaId.setDescription('A 32-bit integer uniquely identifying the area to\n            which the interface connects.  Area ID 0.0.0.0 is used\n            for the OSPF backbone.')
-ospfIfType = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 7, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("broadcast", 1), ("nbma", 2), ("pointToPoint", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfIfType.setDescription("The OSPF interface type.\n\n            By way of a default, this field may be intuited from\n            the corresponding value of ifType.  Broadcast LANs,\n            such as Ethernet and IEEE 802.5, take the value\n            'broadcast', X.25, Frame Relay, and similar\n            technologies take the value 'nbma', and links that are\n            definitively point to point take the value\n            'pointToPoint'.")
-ospfIfAdminStat = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 7, 1, 5), Status().clone('enabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfIfAdminStat.setDescription("The OSPF interface's administrative status.  The value\n            'enabled' denotes that neighbor relationships may be\n            formed on the interface, and the interface will be\n            advertised as an internal route to some area.  The\n            value 'disabled' denotes that the interface is external\n            to OSPF.")
-ospfIfRtrPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 7, 1, 6), DesignatedRouterPriority().clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfIfRtrPriority.setDescription('The priority of this interface.  Used in multi-access\n            networks, this field is used in the designated router\n            election algorithm.  The value 0 signifies that the\n            router is not eligible to become the designated router\n            on this particular network.  In the event of a tie in\n            this value, routers will use their router id as a tie\n            breaker.')
-ospfIfTransitDelay = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 7, 1, 7), UpToMaxAge().clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfIfTransitDelay.setDescription('The estimated number of seconds it takes to transmit a\n            link- state update packet over this interface.')
-ospfIfRetransInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 7, 1, 8), UpToMaxAge().clone(5)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfIfRetransInterval.setDescription('The number of seconds between link-state advertisement\n            retransmissions, for adjacencies belonging to this\n            interface.  This value is also used when retransmitting\n            database description and link-state request packets.')
-ospfIfHelloInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 7, 1, 9), HelloRange().clone(10)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfIfHelloInterval.setDescription('The length of time, in seconds, between the Hello\n            packets that the router sends on the interface.  This\n            value must be the same for all routers attached to a\n            common network.')
-ospfIfRtrDeadInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 7, 1, 10), PositiveInteger().clone(40)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfIfRtrDeadInterval.setDescription("The number of seconds that a router's Hello packets\n            have not been seen before it's neighbors declare the\n            router down.  This should be some multiple of the Hello\n            interval.  This value must be the same for all routers\n            attached to a common network.")
-ospfIfPollInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 7, 1, 11), PositiveInteger().clone(120)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfIfPollInterval.setDescription('The larger time interval, in seconds, between the\n            Hello packets sent to an inactive non-broadcast multi-\n            access neighbor.')
-ospfIfState = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 7, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7,))).clone(namedValues=NamedValues(("down", 1), ("loopback", 2), ("waiting", 3), ("pointToPoint", 4), ("designatedRouter", 5), ("backupDesignatedRouter", 6), ("otherDesignatedRouter", 7),)).clone('down')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfIfState.setDescription('The OSPF Interface State.')
-ospfIfDesignatedRouter = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 7, 1, 13), IpAddress().clone(hexValue="00000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfIfDesignatedRouter.setDescription('The IP Address of the Designated Router.')
-ospfIfBackupDesignatedRouter = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 7, 1, 14), IpAddress().clone(hexValue="00000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfIfBackupDesignatedRouter.setDescription('The IP Address of the Backup Designated Router.')
-ospfIfEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 7, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfIfEvents.setDescription('The number of times this OSPF interface has changed\n            its state, or an error has occurred.')
-ospfIfAuthKey = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 7, 1, 16), OctetString().clone(hexValue="0000000000000000")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfIfAuthKey.setDescription("The Authentication Key.  If the Area's Authorization\n            Type is simplePassword, and the key length is shorter\n            than 8 octets, the agent will left adjust and zero fill\n            to 8 octets.\n\n            When read, ospfIfAuthKey always returns an Octet String\n            of length zero.")
-ospfIfMetricTable = MibTable((1, 3, 6, 1, 2, 1, 14, 8), )
-if mibBuilder.loadTexts: ospfIfMetricTable.setDescription('The TOS metrics for a non-virtual interface identified\n            by the interface index.')
-ospfIfMetricEntry = MibTableRow((1, 3, 6, 1, 2, 1, 14, 8, 1), ).setIndexNames((0, "RFC1253-MIB", "ospfIfMetricIpAddress"), (0, "RFC1253-MIB", "ospfIfMetricAddressLessIf"), (0, "RFC1253-MIB", "ospfIfMetricTOS"))
-if mibBuilder.loadTexts: ospfIfMetricEntry.setDescription('A particular TOS metric for a non-virtual interface\n            identified by the interface index.')
-ospfIfMetricIpAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 8, 1, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfIfMetricIpAddress.setDescription('The IP address of this OSPF interface.  On row\n            creation, this can be derived from the instance.')
-ospfIfMetricAddressLessIf = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 8, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfIfMetricAddressLessIf.setDescription('For the purpose of easing the instancing of addressed\n            and addressless interfaces; This variable takes the\n            value 0 on interfaces with IP Addresses, and the value\n            of ifIndex for interfaces having no IP Address.  On row\n            creation, this can be derived from the instance.')
-ospfIfMetricTOS = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 8, 1, 3), TOSType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfIfMetricTOS.setDescription('The type of service metric being referenced.  On row\n            creation, this can be derived from the instance.')
-ospfIfMetricMetric = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 8, 1, 4), Metric()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfIfMetricMetric.setDescription("The metric of using this type of service on this\n            interface.  The default value of the TOS 0 Metric is\n            10^8 / ifSpeed.\n\n            The value FFFF is distinguished to mean 'no route via\n            this TOS'.")
-ospfIfMetricStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 8, 1, 5), Validation().clone('valid')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfIfMetricStatus.setDescription("This variable displays the validity or invalidity of\n            the entry.  Setting it to 'invalid' has the effect of\n            rendering it inoperative.  The internal effect (row\n            removal) is implementation dependent.")
-ospfVirtIfTable = MibTable((1, 3, 6, 1, 2, 1, 14, 9), )
-if mibBuilder.loadTexts: ospfVirtIfTable.setDescription("Information about this router's virtual interfaces.")
-ospfVirtIfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 14, 9, 1), ).setIndexNames((0, "RFC1253-MIB", "ospfVirtIfAreaID"), (0, "RFC1253-MIB", "ospfVirtIfNeighbor"))
-if mibBuilder.loadTexts: ospfVirtIfEntry.setDescription('Information about a single Virtual Interface.')
-ospfVirtIfAreaID = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 9, 1, 1), AreaID()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfVirtIfAreaID.setDescription('The Transit Area that the Virtual Link traverses.  By\n            definition, this is not 0.0.0.0')
-ospfVirtIfNeighbor = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 9, 1, 2), RouterID()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfVirtIfNeighbor.setDescription('The Router ID of the Virtual Neighbor.')
-ospfVirtIfTransitDelay = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 9, 1, 3), UpToMaxAge().clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfVirtIfTransitDelay.setDescription('The estimated number of seconds it takes to transmit a\n            link- state update packet over this interface.')
-ospfVirtIfRetransInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 9, 1, 4), UpToMaxAge().clone(5)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfVirtIfRetransInterval.setDescription('The number of seconds between link-state advertisement\n            retransmissions, for adjacencies belonging to this\n            interface.  This value is also used when retransmitting\n            database description and link-state request packets.\n            This value should be well over the expected round-trip\n            time.')
-ospfVirtIfHelloInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 9, 1, 5), HelloRange().clone(10)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfVirtIfHelloInterval.setDescription('The length of time, in seconds, between the Hello\n            packets that the router sends on the interface.  This\n            value must be the same for the virtual neighbor.')
-ospfVirtIfRtrDeadInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 9, 1, 6), PositiveInteger().clone(60)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfVirtIfRtrDeadInterval.setDescription("The number of seconds that a router's Hello packets\n            have not been seen before it's neighbors declare the\n            router down.  This should be some multiple of the Hello\n            interval.  This value must be the same for the virtual\n            neighbor.")
-ospfVirtIfState = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 9, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 4,))).clone(namedValues=NamedValues(("down", 1), ("pointToPoint", 4),)).clone('down')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfVirtIfState.setDescription('OSPF virtual interface states.')
-ospfVirtIfEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 9, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfVirtIfEvents.setDescription('The number of state changes or error events on this\n            Virtual Link')
-ospfVirtIfAuthKey = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 9, 1, 9), OctetString().clone(hexValue="0000000000000000")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfVirtIfAuthKey.setDescription('If Authentication Type is simplePassword, the device\n            will left adjust and zero fill to 8 octets.\n\n            When read, ospfVifAuthKey always returns a string of\n            length zero.')
-ospfVirtIfStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 9, 1, 10), Validation().clone('valid')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfVirtIfStatus.setDescription("This variable displays the validity or invalidity of\n            the entry.  Setting it to 'invalid' has the effect of\n            rendering it inoperative.  The internal effect (row\n            removal) is implementation dependent.")
-ospfNbrTable = MibTable((1, 3, 6, 1, 2, 1, 14, 10), )
-if mibBuilder.loadTexts: ospfNbrTable.setDescription('A table of non-virtual neighbor information.')
-ospfNbrEntry = MibTableRow((1, 3, 6, 1, 2, 1, 14, 10, 1), ).setIndexNames((0, "RFC1253-MIB", "ospfNbrIpAddr"), (0, "RFC1253-MIB", "ospfNbrAddressLessIndex"))
-if mibBuilder.loadTexts: ospfNbrEntry.setDescription('The information regarding a single neighbor.')
-ospfNbrIpAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 10, 1, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfNbrIpAddr.setDescription('The IP address of this neighbor.')
-ospfNbrAddressLessIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 10, 1, 2), InterfaceIndex()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfNbrAddressLessIndex.setDescription(' On an interface having an IP Address, zero.  On\n            addressless interfaces, the corresponding value of\n            ifIndex in the Internet Standard MIB.  On row creation,\n            this can be derived from the instance.')
-ospfNbrRtrId = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 10, 1, 3), RouterID().clone(hexValue="00000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfNbrRtrId.setDescription('A 32-bit integer (represented as a type IpAddress)\n            uniquely identifying the neighboring router in the\n            Autonomous System.')
-ospfNbrOptions = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 10, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfNbrOptions.setDescription("A Bit Mask corresponding to the neighbor's options\n            field.\n\n            Bit 0, if set, indicates that the area accepts and\n            operates on external information; if zero, it is a stub\n            area.\n\n            Bit 1, if set, indicates that the system will operate\n            on Type of Service metrics other than TOS 0.  If zero,\n            the neighbor will ignore all metrics except the TOS 0\n            metric.")
-ospfNbrPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 10, 1, 5), DesignatedRouterPriority().clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfNbrPriority.setDescription('The priority of this neighbor in the designated router\n            election algorithm.  The value 0 signifies that the\n            neighbor is not eligible to become the designated\n            router on this particular network.')
-ospfNbrState = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 10, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8,))).clone(namedValues=NamedValues(("down", 1), ("attempt", 2), ("init", 3), ("twoWay", 4), ("exchangeStart", 5), ("exchange", 6), ("loading", 7), ("full", 8),)).clone('down')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfNbrState.setDescription('The State of the relationship with this Neighbor.')
-ospfNbrEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 10, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfNbrEvents.setDescription('The number of times this neighbor relationship has\n            changed state, or an error has occurred.')
-ospfNbrLSRetransQLen = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 10, 1, 8), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfNbrLSRetransQLen.setDescription('The current length of the retransmission queue.')
-ospfNBMANbrStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 10, 1, 9), Validation().clone('valid')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ospfNBMANbrStatus.setDescription("This variable displays the validity or invalidity of\n            the entry.  Setting it to 'invalid' has the effect of\n            rendering it inoperative.  The internal effect (row\n            removal) is implementation dependent.")
-ospfVirtNbrTable = MibTable((1, 3, 6, 1, 2, 1, 14, 11), )
-if mibBuilder.loadTexts: ospfVirtNbrTable.setDescription('A table of virtual neighbor information.')
-ospfVirtNbrEntry = MibTableRow((1, 3, 6, 1, 2, 1, 14, 11, 1), ).setIndexNames((0, "RFC1253-MIB", "ospfVirtNbrArea"), (0, "RFC1253-MIB", "ospfVirtNbrRtrId"))
-if mibBuilder.loadTexts: ospfVirtNbrEntry.setDescription('Virtual neighbor information.')
-ospfVirtNbrArea = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 11, 1, 1), AreaID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfVirtNbrArea.setDescription('The Transit Area Identifier.')
-ospfVirtNbrRtrId = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 11, 1, 2), RouterID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfVirtNbrRtrId.setDescription('A 32-bit integer uniquely identifying the neighboring\n            router in the Autonomous System.')
-ospfVirtNbrIpAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 11, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfVirtNbrIpAddr.setDescription('The IP address this Virtual Neighbor is using.')
-ospfVirtNbrOptions = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 11, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfVirtNbrOptions.setDescription("A bit map corresponding to the neighbor's options\n            field.  Thus, Bit 1, if set, indicates that the\n            neighbor supports Type of Service Routing; if zero, no\n            metrics other than TOS 0 are in use by the neighbor.")
-ospfVirtNbrState = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 11, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8,))).clone(namedValues=NamedValues(("down", 1), ("attempt", 2), ("init", 3), ("twoWay", 4), ("exchangeStart", 5), ("exchange", 6), ("loading", 7), ("full", 8),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfVirtNbrState.setDescription('The state of the Virtual Neighbor Relationship.')
-ospfVirtNbrEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 11, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfVirtNbrEvents.setDescription('The number of times this virtual link has changed its\n            state, or an error has occurred.')
-ospfVirtNbrLSRetransQLen = MibTableColumn((1, 3, 6, 1, 2, 1, 14, 11, 1, 7), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfVirtNbrLSRetransQLen.setDescription('The current length of the retransmission queue.')
-mibBuilder.exportSymbols("RFC1253-MIB", ospfAreaRangeNet=ospfAreaRangeNet, ospfVirtIfTransitDelay=ospfVirtIfTransitDelay, ospfAreaLSACksumSum=ospfAreaLSACksumSum, ospfIfEvents=ospfIfEvents, ospfVirtIfStatus=ospfVirtIfStatus, ospfLsdbType=ospfLsdbType, ospfStubAreaID=ospfStubAreaID, DesignatedRouterPriority=DesignatedRouterPriority, ospfSpfRuns=ospfSpfRuns, ospfVirtIfRetransInterval=ospfVirtIfRetransInterval, Validation=Validation, ospfRouterId=ospfRouterId, ospfIfTable=ospfIfTable, ospfIfMetricEntry=ospfIfMetricEntry, ospfVirtNbrIpAddr=ospfVirtNbrIpAddr, Metric=Metric, ospfIfDesignatedRouter=ospfIfDesignatedRouter, ospfExternLSACksumSum=ospfExternLSACksumSum, ospfStubStatus=ospfStubStatus, TruthValue=TruthValue, ospfImportASExtern=ospfImportASExtern, ospfLsdbChecksum=ospfLsdbChecksum, ospfOriginateNewLSAs=ospfOriginateNewLSAs, ospfGeneralGroup=ospfGeneralGroup, ospfVirtIfTable=ospfVirtIfTable, ospfLsdbAge=ospfLsdbAge, ospfASBdrRtrStatus=ospfASBdrRtrStatus, ospfNbrLSRetransQLen=ospfNbrLSRetransQLen, ospfIfTransitDelay=ospfIfTransitDelay, ospfIfMetricTable=ospfIfMetricTable, ospfExternLSACount=ospfExternLSACount, ospfIfType=ospfIfType, BigMetric=BigMetric, ospfTOSSupport=ospfTOSSupport, ospfIfMetricTOS=ospfIfMetricTOS, TOSType=TOSType, ospfIfIpAddress=ospfIfIpAddress, ospfIfBackupDesignatedRouter=ospfIfBackupDesignatedRouter, ospfStubAreaEntry=ospfStubAreaEntry, ospfStubAreaTable=ospfStubAreaTable, ospfVirtNbrState=ospfVirtNbrState, ospfNbrIpAddr=ospfNbrIpAddr, ospfVirtNbrEvents=ospfVirtNbrEvents, ospfVersionNumber=ospfVersionNumber, ospfIfPollInterval=ospfIfPollInterval, InterfaceIndex=InterfaceIndex, AreaID=AreaID, ospfIfAreaId=ospfIfAreaId, ospfNbrState=ospfNbrState, ospfLsdbAreaId=ospfLsdbAreaId, ospfNBMANbrStatus=ospfNBMANbrStatus, ospfVirtIfAreaID=ospfVirtIfAreaID, ospfVirtNbrEntry=ospfVirtNbrEntry, ospfIfState=ospfIfState, ospfLsdbEntry=ospfLsdbEntry, ospfAreaRangeEntry=ospfAreaRangeEntry, ospfHostTOS=ospfHostTOS, ospfVirtIfRtrDeadInterval=ospfVirtIfRtrDeadInterval, ospfNbrTable=ospfNbrTable, ospf=ospf, ospfStubMetric=ospfStubMetric, ospfIfRtrDeadInterval=ospfIfRtrDeadInterval, ospfAreaBdrRtrCount=ospfAreaBdrRtrCount, ospfAddressLessIf=ospfAddressLessIf, ospfVirtIfEntry=ospfVirtIfEntry, HelloRange=HelloRange, ospfIfAdminStat=ospfIfAdminStat, ospfIfMetricMetric=ospfIfMetricMetric, ospfAreaRangeAreaID=ospfAreaRangeAreaID, ospfVirtIfNeighbor=ospfVirtIfNeighbor, ospfNbrPriority=ospfNbrPriority, ospfIfRtrPriority=ospfIfRtrPriority, ospfHostMetric=ospfHostMetric, ospfNbrEvents=ospfNbrEvents, ospfLsdbTable=ospfLsdbTable, ospfNbrOptions=ospfNbrOptions, ospfAreaBdrRtrStatus=ospfAreaBdrRtrStatus, ospfAreaLSACount=ospfAreaLSACount, ospfLsdbAdvertisement=ospfLsdbAdvertisement, ospfAreaEntry=ospfAreaEntry, ospfLsdbRouterId=ospfLsdbRouterId, ospfLsdbLSID=ospfLsdbLSID, ospfVirtNbrLSRetransQLen=ospfVirtNbrLSRetransQLen, ospfRxNewLSAs=ospfRxNewLSAs, ospfASBdrRtrCount=ospfASBdrRtrCount, ospfLsdbSequence=ospfLsdbSequence, ospfIfHelloInterval=ospfIfHelloInterval, ospfIfEntry=ospfIfEntry, ospfAuthType=ospfAuthType, ospfVirtIfHelloInterval=ospfVirtIfHelloInterval, ospfVirtNbrRtrId=ospfVirtNbrRtrId, ospfHostEntry=ospfHostEntry, ospfHostTable=ospfHostTable, ospfVirtNbrOptions=ospfVirtNbrOptions, ospfIfRetransInterval=ospfIfRetransInterval, Status=Status, ospfVirtNbrArea=ospfVirtNbrArea, ospfVirtNbrTable=ospfVirtNbrTable, ospfAdminStat=ospfAdminStat, UpToMaxAge=UpToMaxAge, ospfAreaRangeStatus=ospfAreaRangeStatus, ospfAreaRangeTable=ospfAreaRangeTable, ospfHostStatus=ospfHostStatus, ospfVirtIfEvents=ospfVirtIfEvents, ospfIfAuthKey=ospfIfAuthKey, ospfAreaId=ospfAreaId, ospfNbrEntry=ospfNbrEntry, ospfAreaTable=ospfAreaTable, ospfNbrAddressLessIndex=ospfNbrAddressLessIndex, RouterID=RouterID, ospfHostIpAddress=ospfHostIpAddress, ospfIfMetricAddressLessIf=ospfIfMetricAddressLessIf, ospfAreaRangeMask=ospfAreaRangeMask, ospfVirtIfAuthKey=ospfVirtIfAuthKey, PositiveInteger=PositiveInteger, ospfIfMetricStatus=ospfIfMetricStatus, ospfVirtIfState=ospfVirtIfState, ospfIfMetricIpAddress=ospfIfMetricIpAddress, ospfNbrRtrId=ospfNbrRtrId, ospfStubTOS=ospfStubTOS)
+_w='ospfVirtNbrRtrId'
+_v='ospfVirtNbrArea'
+_u='loading'
+_t='exchange'
+_s='exchangeStart'
+_r='twoWay'
+_q='attempt'
+_p='RouterID'
+_o='ospfNbrAddressLessIndex'
+_n='ospfNbrIpAddr'
+_m='ospfVirtIfNeighbor'
+_l='ospfVirtIfAreaID'
+_k='ospfIfMetricTOS'
+_j='ospfIfMetricAddressLessIf'
+_i='ospfIfMetricIpAddress'
+_h='0000000000000000'
+_g='Status'
+_f='AreaID'
+_e='ospfAddressLessIf'
+_d='ospfIfIpAddress'
+_c='ospfHostTOS'
+_b='ospfHostIpAddress'
+_a='ospfAreaRangeNet'
+_Z='ospfAreaRangeAreaID'
+_Y='ospfLsdbRouterId'
+_X='ospfLsdbLSID'
+_W='ospfLsdbType'
+_V='ospfLsdbAreaId'
+_U='ospfStubTOS'
+_T='ospfStubAreaID'
+_S='TruthValue'
+_R='ospfAreaId'
+_Q='HelloRange'
+_P='DesignatedRouterPriority'
+_O='pointToPoint'
+_N='IpAddress'
+_M='OctetString'
+_L='down'
+_K='PositiveInteger'
+_J='00000000'
+_I='UpToMaxAge'
+_H='Gauge32'
+_G='Counter32'
+_F='Validation'
+_E='Integer32'
+_D='RFC1253-MIB'
+_C='read-only'
+_B='read-write'
+_A='mandatory'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_M,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits',_G,'Counter64',_H,_E,_N,'ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+class AreaID(IpAddress):0
+class RouterID(IpAddress):0
+class Metric(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+class BigMetric(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16777215))
+class TruthValue(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('true',1),('false',2)))
+class Status(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
+class Validation(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('valid',1),('invalid',2)))
+class PositiveInteger(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+class HelloRange(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+class UpToMaxAge(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3600))
+class InterfaceIndex(Integer32):0
+class DesignatedRouterPriority(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+class TOSType(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,31))
+_Ospf_ObjectIdentity=ObjectIdentity
+ospf=_Ospf_ObjectIdentity((1,3,6,1,2,1,14))
+_OspfGeneralGroup_ObjectIdentity=ObjectIdentity
+ospfGeneralGroup=_OspfGeneralGroup_ObjectIdentity((1,3,6,1,2,1,14,1))
+_OspfRouterId_Type=RouterID
+_OspfRouterId_Object=MibScalar
+ospfRouterId=_OspfRouterId_Object((1,3,6,1,2,1,14,1,1),_OspfRouterId_Type())
+ospfRouterId.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfRouterId.setStatus(_A)
+_OspfAdminStat_Type=Status
+_OspfAdminStat_Object=MibScalar
+ospfAdminStat=_OspfAdminStat_Object((1,3,6,1,2,1,14,1,2),_OspfAdminStat_Type())
+ospfAdminStat.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfAdminStat.setStatus(_A)
+class _OspfVersionNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(2));namedValues=NamedValues(('version2',2))
+_OspfVersionNumber_Type.__name__=_E
+_OspfVersionNumber_Object=MibScalar
+ospfVersionNumber=_OspfVersionNumber_Object((1,3,6,1,2,1,14,1,3),_OspfVersionNumber_Type())
+ospfVersionNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfVersionNumber.setStatus(_A)
+_OspfAreaBdrRtrStatus_Type=TruthValue
+_OspfAreaBdrRtrStatus_Object=MibScalar
+ospfAreaBdrRtrStatus=_OspfAreaBdrRtrStatus_Object((1,3,6,1,2,1,14,1,4),_OspfAreaBdrRtrStatus_Type())
+ospfAreaBdrRtrStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfAreaBdrRtrStatus.setStatus(_A)
+_OspfASBdrRtrStatus_Type=TruthValue
+_OspfASBdrRtrStatus_Object=MibScalar
+ospfASBdrRtrStatus=_OspfASBdrRtrStatus_Object((1,3,6,1,2,1,14,1,5),_OspfASBdrRtrStatus_Type())
+ospfASBdrRtrStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfASBdrRtrStatus.setStatus(_A)
+_OspfExternLSACount_Type=Gauge32
+_OspfExternLSACount_Object=MibScalar
+ospfExternLSACount=_OspfExternLSACount_Object((1,3,6,1,2,1,14,1,6),_OspfExternLSACount_Type())
+ospfExternLSACount.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfExternLSACount.setStatus(_A)
+_OspfExternLSACksumSum_Type=Integer32
+_OspfExternLSACksumSum_Object=MibScalar
+ospfExternLSACksumSum=_OspfExternLSACksumSum_Object((1,3,6,1,2,1,14,1,7),_OspfExternLSACksumSum_Type())
+ospfExternLSACksumSum.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfExternLSACksumSum.setStatus(_A)
+_OspfTOSSupport_Type=TruthValue
+_OspfTOSSupport_Object=MibScalar
+ospfTOSSupport=_OspfTOSSupport_Object((1,3,6,1,2,1,14,1,8),_OspfTOSSupport_Type())
+ospfTOSSupport.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfTOSSupport.setStatus(_A)
+_OspfOriginateNewLSAs_Type=Counter32
+_OspfOriginateNewLSAs_Object=MibScalar
+ospfOriginateNewLSAs=_OspfOriginateNewLSAs_Object((1,3,6,1,2,1,14,1,9),_OspfOriginateNewLSAs_Type())
+ospfOriginateNewLSAs.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfOriginateNewLSAs.setStatus(_A)
+_OspfRxNewLSAs_Type=Counter32
+_OspfRxNewLSAs_Object=MibScalar
+ospfRxNewLSAs=_OspfRxNewLSAs_Object((1,3,6,1,2,1,14,1,10),_OspfRxNewLSAs_Type())
+ospfRxNewLSAs.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfRxNewLSAs.setStatus(_A)
+_OspfAreaTable_Object=MibTable
+ospfAreaTable=_OspfAreaTable_Object((1,3,6,1,2,1,14,2))
+if mibBuilder.loadTexts:ospfAreaTable.setStatus(_A)
+_OspfAreaEntry_Object=MibTableRow
+ospfAreaEntry=_OspfAreaEntry_Object((1,3,6,1,2,1,14,2,1))
+ospfAreaEntry.setIndexNames((0,_D,_R))
+if mibBuilder.loadTexts:ospfAreaEntry.setStatus(_A)
+_OspfAreaId_Type=AreaID
+_OspfAreaId_Object=MibTableColumn
+ospfAreaId=_OspfAreaId_Object((1,3,6,1,2,1,14,2,1,1),_OspfAreaId_Type())
+ospfAreaId.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfAreaId.setStatus(_A)
+class _OspfAuthType_Type(Integer32):defaultValue=0
+_OspfAuthType_Type.__name__=_E
+_OspfAuthType_Object=MibTableColumn
+ospfAuthType=_OspfAuthType_Object((1,3,6,1,2,1,14,2,1,2),_OspfAuthType_Type())
+ospfAuthType.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfAuthType.setStatus(_A)
+class _OspfImportASExtern_Type(TruthValue):defaultValue=1
+_OspfImportASExtern_Type.__name__=_S
+_OspfImportASExtern_Object=MibTableColumn
+ospfImportASExtern=_OspfImportASExtern_Object((1,3,6,1,2,1,14,2,1,3),_OspfImportASExtern_Type())
+ospfImportASExtern.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfImportASExtern.setStatus(_A)
+class _OspfSpfRuns_Type(Counter32):defaultValue=0
+_OspfSpfRuns_Type.__name__=_G
+_OspfSpfRuns_Object=MibTableColumn
+ospfSpfRuns=_OspfSpfRuns_Object((1,3,6,1,2,1,14,2,1,4),_OspfSpfRuns_Type())
+ospfSpfRuns.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfSpfRuns.setStatus(_A)
+class _OspfAreaBdrRtrCount_Type(Gauge32):defaultValue=0
+_OspfAreaBdrRtrCount_Type.__name__=_H
+_OspfAreaBdrRtrCount_Object=MibTableColumn
+ospfAreaBdrRtrCount=_OspfAreaBdrRtrCount_Object((1,3,6,1,2,1,14,2,1,5),_OspfAreaBdrRtrCount_Type())
+ospfAreaBdrRtrCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfAreaBdrRtrCount.setStatus(_A)
+class _OspfASBdrRtrCount_Type(Gauge32):defaultValue=0
+_OspfASBdrRtrCount_Type.__name__=_H
+_OspfASBdrRtrCount_Object=MibTableColumn
+ospfASBdrRtrCount=_OspfASBdrRtrCount_Object((1,3,6,1,2,1,14,2,1,6),_OspfASBdrRtrCount_Type())
+ospfASBdrRtrCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfASBdrRtrCount.setStatus(_A)
+class _OspfAreaLSACount_Type(Gauge32):defaultValue=0
+_OspfAreaLSACount_Type.__name__=_H
+_OspfAreaLSACount_Object=MibTableColumn
+ospfAreaLSACount=_OspfAreaLSACount_Object((1,3,6,1,2,1,14,2,1,7),_OspfAreaLSACount_Type())
+ospfAreaLSACount.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfAreaLSACount.setStatus(_A)
+class _OspfAreaLSACksumSum_Type(Integer32):defaultValue=0
+_OspfAreaLSACksumSum_Type.__name__=_E
+_OspfAreaLSACksumSum_Object=MibTableColumn
+ospfAreaLSACksumSum=_OspfAreaLSACksumSum_Object((1,3,6,1,2,1,14,2,1,8),_OspfAreaLSACksumSum_Type())
+ospfAreaLSACksumSum.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfAreaLSACksumSum.setStatus(_A)
+_OspfStubAreaTable_Object=MibTable
+ospfStubAreaTable=_OspfStubAreaTable_Object((1,3,6,1,2,1,14,3))
+if mibBuilder.loadTexts:ospfStubAreaTable.setStatus(_A)
+_OspfStubAreaEntry_Object=MibTableRow
+ospfStubAreaEntry=_OspfStubAreaEntry_Object((1,3,6,1,2,1,14,3,1))
+ospfStubAreaEntry.setIndexNames((0,_D,_T),(0,_D,_U))
+if mibBuilder.loadTexts:ospfStubAreaEntry.setStatus(_A)
+_OspfStubAreaID_Type=AreaID
+_OspfStubAreaID_Object=MibTableColumn
+ospfStubAreaID=_OspfStubAreaID_Object((1,3,6,1,2,1,14,3,1,1),_OspfStubAreaID_Type())
+ospfStubAreaID.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfStubAreaID.setStatus(_A)
+_OspfStubTOS_Type=TOSType
+_OspfStubTOS_Object=MibTableColumn
+ospfStubTOS=_OspfStubTOS_Object((1,3,6,1,2,1,14,3,1,2),_OspfStubTOS_Type())
+ospfStubTOS.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfStubTOS.setStatus(_A)
+_OspfStubMetric_Type=BigMetric
+_OspfStubMetric_Object=MibTableColumn
+ospfStubMetric=_OspfStubMetric_Object((1,3,6,1,2,1,14,3,1,3),_OspfStubMetric_Type())
+ospfStubMetric.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfStubMetric.setStatus(_A)
+class _OspfStubStatus_Type(Validation):defaultValue=1
+_OspfStubStatus_Type.__name__=_F
+_OspfStubStatus_Object=MibTableColumn
+ospfStubStatus=_OspfStubStatus_Object((1,3,6,1,2,1,14,3,1,4),_OspfStubStatus_Type())
+ospfStubStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfStubStatus.setStatus(_A)
+_OspfLsdbTable_Object=MibTable
+ospfLsdbTable=_OspfLsdbTable_Object((1,3,6,1,2,1,14,4))
+if mibBuilder.loadTexts:ospfLsdbTable.setStatus(_A)
+_OspfLsdbEntry_Object=MibTableRow
+ospfLsdbEntry=_OspfLsdbEntry_Object((1,3,6,1,2,1,14,4,1))
+ospfLsdbEntry.setIndexNames((0,_D,_V),(0,_D,_W),(0,_D,_X),(0,_D,_Y))
+if mibBuilder.loadTexts:ospfLsdbEntry.setStatus(_A)
+_OspfLsdbAreaId_Type=AreaID
+_OspfLsdbAreaId_Object=MibTableColumn
+ospfLsdbAreaId=_OspfLsdbAreaId_Object((1,3,6,1,2,1,14,4,1,1),_OspfLsdbAreaId_Type())
+ospfLsdbAreaId.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfLsdbAreaId.setStatus(_A)
+class _OspfLsdbType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('routerLink',1),('networkLink',2),('summaryLink',3),('asSummaryLink',4),('asExternalLink',5)))
+_OspfLsdbType_Type.__name__=_E
+_OspfLsdbType_Object=MibTableColumn
+ospfLsdbType=_OspfLsdbType_Object((1,3,6,1,2,1,14,4,1,2),_OspfLsdbType_Type())
+ospfLsdbType.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfLsdbType.setStatus(_A)
+_OspfLsdbLSID_Type=IpAddress
+_OspfLsdbLSID_Object=MibTableColumn
+ospfLsdbLSID=_OspfLsdbLSID_Object((1,3,6,1,2,1,14,4,1,3),_OspfLsdbLSID_Type())
+ospfLsdbLSID.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfLsdbLSID.setStatus(_A)
+_OspfLsdbRouterId_Type=RouterID
+_OspfLsdbRouterId_Object=MibTableColumn
+ospfLsdbRouterId=_OspfLsdbRouterId_Object((1,3,6,1,2,1,14,4,1,4),_OspfLsdbRouterId_Type())
+ospfLsdbRouterId.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfLsdbRouterId.setStatus(_A)
+_OspfLsdbSequence_Type=Integer32
+_OspfLsdbSequence_Object=MibTableColumn
+ospfLsdbSequence=_OspfLsdbSequence_Object((1,3,6,1,2,1,14,4,1,5),_OspfLsdbSequence_Type())
+ospfLsdbSequence.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfLsdbSequence.setStatus(_A)
+_OspfLsdbAge_Type=Integer32
+_OspfLsdbAge_Object=MibTableColumn
+ospfLsdbAge=_OspfLsdbAge_Object((1,3,6,1,2,1,14,4,1,6),_OspfLsdbAge_Type())
+ospfLsdbAge.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfLsdbAge.setStatus(_A)
+_OspfLsdbChecksum_Type=Integer32
+_OspfLsdbChecksum_Object=MibTableColumn
+ospfLsdbChecksum=_OspfLsdbChecksum_Object((1,3,6,1,2,1,14,4,1,7),_OspfLsdbChecksum_Type())
+ospfLsdbChecksum.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfLsdbChecksum.setStatus(_A)
+_OspfLsdbAdvertisement_Type=OctetString
+_OspfLsdbAdvertisement_Object=MibTableColumn
+ospfLsdbAdvertisement=_OspfLsdbAdvertisement_Object((1,3,6,1,2,1,14,4,1,8),_OspfLsdbAdvertisement_Type())
+ospfLsdbAdvertisement.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfLsdbAdvertisement.setStatus(_A)
+_OspfAreaRangeTable_Object=MibTable
+ospfAreaRangeTable=_OspfAreaRangeTable_Object((1,3,6,1,2,1,14,5))
+if mibBuilder.loadTexts:ospfAreaRangeTable.setStatus(_A)
+_OspfAreaRangeEntry_Object=MibTableRow
+ospfAreaRangeEntry=_OspfAreaRangeEntry_Object((1,3,6,1,2,1,14,5,1))
+ospfAreaRangeEntry.setIndexNames((0,_D,_Z),(0,_D,_a))
+if mibBuilder.loadTexts:ospfAreaRangeEntry.setStatus(_A)
+_OspfAreaRangeAreaID_Type=AreaID
+_OspfAreaRangeAreaID_Object=MibTableColumn
+ospfAreaRangeAreaID=_OspfAreaRangeAreaID_Object((1,3,6,1,2,1,14,5,1,1),_OspfAreaRangeAreaID_Type())
+ospfAreaRangeAreaID.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfAreaRangeAreaID.setStatus(_A)
+_OspfAreaRangeNet_Type=IpAddress
+_OspfAreaRangeNet_Object=MibTableColumn
+ospfAreaRangeNet=_OspfAreaRangeNet_Object((1,3,6,1,2,1,14,5,1,2),_OspfAreaRangeNet_Type())
+ospfAreaRangeNet.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfAreaRangeNet.setStatus(_A)
+_OspfAreaRangeMask_Type=IpAddress
+_OspfAreaRangeMask_Object=MibTableColumn
+ospfAreaRangeMask=_OspfAreaRangeMask_Object((1,3,6,1,2,1,14,5,1,3),_OspfAreaRangeMask_Type())
+ospfAreaRangeMask.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfAreaRangeMask.setStatus(_A)
+class _OspfAreaRangeStatus_Type(Validation):defaultValue=1
+_OspfAreaRangeStatus_Type.__name__=_F
+_OspfAreaRangeStatus_Object=MibTableColumn
+ospfAreaRangeStatus=_OspfAreaRangeStatus_Object((1,3,6,1,2,1,14,5,1,4),_OspfAreaRangeStatus_Type())
+ospfAreaRangeStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfAreaRangeStatus.setStatus(_A)
+_OspfHostTable_Object=MibTable
+ospfHostTable=_OspfHostTable_Object((1,3,6,1,2,1,14,6))
+if mibBuilder.loadTexts:ospfHostTable.setStatus(_A)
+_OspfHostEntry_Object=MibTableRow
+ospfHostEntry=_OspfHostEntry_Object((1,3,6,1,2,1,14,6,1))
+ospfHostEntry.setIndexNames((0,_D,_b),(0,_D,_c))
+if mibBuilder.loadTexts:ospfHostEntry.setStatus(_A)
+_OspfHostIpAddress_Type=IpAddress
+_OspfHostIpAddress_Object=MibTableColumn
+ospfHostIpAddress=_OspfHostIpAddress_Object((1,3,6,1,2,1,14,6,1,1),_OspfHostIpAddress_Type())
+ospfHostIpAddress.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfHostIpAddress.setStatus(_A)
+_OspfHostTOS_Type=TOSType
+_OspfHostTOS_Object=MibTableColumn
+ospfHostTOS=_OspfHostTOS_Object((1,3,6,1,2,1,14,6,1,2),_OspfHostTOS_Type())
+ospfHostTOS.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfHostTOS.setStatus(_A)
+_OspfHostMetric_Type=Metric
+_OspfHostMetric_Object=MibTableColumn
+ospfHostMetric=_OspfHostMetric_Object((1,3,6,1,2,1,14,6,1,3),_OspfHostMetric_Type())
+ospfHostMetric.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfHostMetric.setStatus(_A)
+class _OspfHostStatus_Type(Validation):defaultValue=1
+_OspfHostStatus_Type.__name__=_F
+_OspfHostStatus_Object=MibTableColumn
+ospfHostStatus=_OspfHostStatus_Object((1,3,6,1,2,1,14,6,1,4),_OspfHostStatus_Type())
+ospfHostStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfHostStatus.setStatus(_A)
+_OspfIfTable_Object=MibTable
+ospfIfTable=_OspfIfTable_Object((1,3,6,1,2,1,14,7))
+if mibBuilder.loadTexts:ospfIfTable.setStatus(_A)
+_OspfIfEntry_Object=MibTableRow
+ospfIfEntry=_OspfIfEntry_Object((1,3,6,1,2,1,14,7,1))
+ospfIfEntry.setIndexNames((0,_D,_d),(0,_D,_e))
+if mibBuilder.loadTexts:ospfIfEntry.setStatus(_A)
+_OspfIfIpAddress_Type=IpAddress
+_OspfIfIpAddress_Object=MibTableColumn
+ospfIfIpAddress=_OspfIfIpAddress_Object((1,3,6,1,2,1,14,7,1,1),_OspfIfIpAddress_Type())
+ospfIfIpAddress.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfIfIpAddress.setStatus(_A)
+_OspfAddressLessIf_Type=Integer32
+_OspfAddressLessIf_Object=MibTableColumn
+ospfAddressLessIf=_OspfAddressLessIf_Object((1,3,6,1,2,1,14,7,1,2),_OspfAddressLessIf_Type())
+ospfAddressLessIf.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfAddressLessIf.setStatus(_A)
+class _OspfIfAreaId_Type(AreaID):defaultHexValue=_J
+_OspfIfAreaId_Type.__name__=_f
+_OspfIfAreaId_Object=MibTableColumn
+ospfIfAreaId=_OspfIfAreaId_Object((1,3,6,1,2,1,14,7,1,3),_OspfIfAreaId_Type())
+ospfIfAreaId.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfIfAreaId.setStatus(_A)
+class _OspfIfType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('broadcast',1),('nbma',2),(_O,3)))
+_OspfIfType_Type.__name__=_E
+_OspfIfType_Object=MibTableColumn
+ospfIfType=_OspfIfType_Object((1,3,6,1,2,1,14,7,1,4),_OspfIfType_Type())
+ospfIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfIfType.setStatus(_A)
+class _OspfIfAdminStat_Type(Status):defaultValue=1
+_OspfIfAdminStat_Type.__name__=_g
+_OspfIfAdminStat_Object=MibTableColumn
+ospfIfAdminStat=_OspfIfAdminStat_Object((1,3,6,1,2,1,14,7,1,5),_OspfIfAdminStat_Type())
+ospfIfAdminStat.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfIfAdminStat.setStatus(_A)
+class _OspfIfRtrPriority_Type(DesignatedRouterPriority):defaultValue=1
+_OspfIfRtrPriority_Type.__name__=_P
+_OspfIfRtrPriority_Object=MibTableColumn
+ospfIfRtrPriority=_OspfIfRtrPriority_Object((1,3,6,1,2,1,14,7,1,6),_OspfIfRtrPriority_Type())
+ospfIfRtrPriority.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfIfRtrPriority.setStatus(_A)
+class _OspfIfTransitDelay_Type(UpToMaxAge):defaultValue=1
+_OspfIfTransitDelay_Type.__name__=_I
+_OspfIfTransitDelay_Object=MibTableColumn
+ospfIfTransitDelay=_OspfIfTransitDelay_Object((1,3,6,1,2,1,14,7,1,7),_OspfIfTransitDelay_Type())
+ospfIfTransitDelay.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfIfTransitDelay.setStatus(_A)
+class _OspfIfRetransInterval_Type(UpToMaxAge):defaultValue=5
+_OspfIfRetransInterval_Type.__name__=_I
+_OspfIfRetransInterval_Object=MibTableColumn
+ospfIfRetransInterval=_OspfIfRetransInterval_Object((1,3,6,1,2,1,14,7,1,8),_OspfIfRetransInterval_Type())
+ospfIfRetransInterval.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfIfRetransInterval.setStatus(_A)
+class _OspfIfHelloInterval_Type(HelloRange):defaultValue=10
+_OspfIfHelloInterval_Type.__name__=_Q
+_OspfIfHelloInterval_Object=MibTableColumn
+ospfIfHelloInterval=_OspfIfHelloInterval_Object((1,3,6,1,2,1,14,7,1,9),_OspfIfHelloInterval_Type())
+ospfIfHelloInterval.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfIfHelloInterval.setStatus(_A)
+class _OspfIfRtrDeadInterval_Type(PositiveInteger):defaultValue=40
+_OspfIfRtrDeadInterval_Type.__name__=_K
+_OspfIfRtrDeadInterval_Object=MibTableColumn
+ospfIfRtrDeadInterval=_OspfIfRtrDeadInterval_Object((1,3,6,1,2,1,14,7,1,10),_OspfIfRtrDeadInterval_Type())
+ospfIfRtrDeadInterval.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfIfRtrDeadInterval.setStatus(_A)
+class _OspfIfPollInterval_Type(PositiveInteger):defaultValue=120
+_OspfIfPollInterval_Type.__name__=_K
+_OspfIfPollInterval_Object=MibTableColumn
+ospfIfPollInterval=_OspfIfPollInterval_Object((1,3,6,1,2,1,14,7,1,11),_OspfIfPollInterval_Type())
+ospfIfPollInterval.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfIfPollInterval.setStatus(_A)
+class _OspfIfState_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*((_L,1),('loopback',2),('waiting',3),(_O,4),('designatedRouter',5),('backupDesignatedRouter',6),('otherDesignatedRouter',7)))
+_OspfIfState_Type.__name__=_E
+_OspfIfState_Object=MibTableColumn
+ospfIfState=_OspfIfState_Object((1,3,6,1,2,1,14,7,1,12),_OspfIfState_Type())
+ospfIfState.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfIfState.setStatus(_A)
+class _OspfIfDesignatedRouter_Type(IpAddress):defaultHexValue=_J
+_OspfIfDesignatedRouter_Type.__name__=_N
+_OspfIfDesignatedRouter_Object=MibTableColumn
+ospfIfDesignatedRouter=_OspfIfDesignatedRouter_Object((1,3,6,1,2,1,14,7,1,13),_OspfIfDesignatedRouter_Type())
+ospfIfDesignatedRouter.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfIfDesignatedRouter.setStatus(_A)
+class _OspfIfBackupDesignatedRouter_Type(IpAddress):defaultHexValue=_J
+_OspfIfBackupDesignatedRouter_Type.__name__=_N
+_OspfIfBackupDesignatedRouter_Object=MibTableColumn
+ospfIfBackupDesignatedRouter=_OspfIfBackupDesignatedRouter_Object((1,3,6,1,2,1,14,7,1,14),_OspfIfBackupDesignatedRouter_Type())
+ospfIfBackupDesignatedRouter.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfIfBackupDesignatedRouter.setStatus(_A)
+class _OspfIfEvents_Type(Counter32):defaultValue=0
+_OspfIfEvents_Type.__name__=_G
+_OspfIfEvents_Object=MibTableColumn
+ospfIfEvents=_OspfIfEvents_Object((1,3,6,1,2,1,14,7,1,15),_OspfIfEvents_Type())
+ospfIfEvents.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfIfEvents.setStatus(_A)
+class _OspfIfAuthKey_Type(OctetString):defaultHexValue=_h
+_OspfIfAuthKey_Type.__name__=_M
+_OspfIfAuthKey_Object=MibTableColumn
+ospfIfAuthKey=_OspfIfAuthKey_Object((1,3,6,1,2,1,14,7,1,16),_OspfIfAuthKey_Type())
+ospfIfAuthKey.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfIfAuthKey.setStatus(_A)
+_OspfIfMetricTable_Object=MibTable
+ospfIfMetricTable=_OspfIfMetricTable_Object((1,3,6,1,2,1,14,8))
+if mibBuilder.loadTexts:ospfIfMetricTable.setStatus(_A)
+_OspfIfMetricEntry_Object=MibTableRow
+ospfIfMetricEntry=_OspfIfMetricEntry_Object((1,3,6,1,2,1,14,8,1))
+ospfIfMetricEntry.setIndexNames((0,_D,_i),(0,_D,_j),(0,_D,_k))
+if mibBuilder.loadTexts:ospfIfMetricEntry.setStatus(_A)
+_OspfIfMetricIpAddress_Type=IpAddress
+_OspfIfMetricIpAddress_Object=MibTableColumn
+ospfIfMetricIpAddress=_OspfIfMetricIpAddress_Object((1,3,6,1,2,1,14,8,1,1),_OspfIfMetricIpAddress_Type())
+ospfIfMetricIpAddress.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfIfMetricIpAddress.setStatus(_A)
+_OspfIfMetricAddressLessIf_Type=Integer32
+_OspfIfMetricAddressLessIf_Object=MibTableColumn
+ospfIfMetricAddressLessIf=_OspfIfMetricAddressLessIf_Object((1,3,6,1,2,1,14,8,1,2),_OspfIfMetricAddressLessIf_Type())
+ospfIfMetricAddressLessIf.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfIfMetricAddressLessIf.setStatus(_A)
+_OspfIfMetricTOS_Type=TOSType
+_OspfIfMetricTOS_Object=MibTableColumn
+ospfIfMetricTOS=_OspfIfMetricTOS_Object((1,3,6,1,2,1,14,8,1,3),_OspfIfMetricTOS_Type())
+ospfIfMetricTOS.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfIfMetricTOS.setStatus(_A)
+_OspfIfMetricMetric_Type=Metric
+_OspfIfMetricMetric_Object=MibTableColumn
+ospfIfMetricMetric=_OspfIfMetricMetric_Object((1,3,6,1,2,1,14,8,1,4),_OspfIfMetricMetric_Type())
+ospfIfMetricMetric.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfIfMetricMetric.setStatus(_A)
+class _OspfIfMetricStatus_Type(Validation):defaultValue=1
+_OspfIfMetricStatus_Type.__name__=_F
+_OspfIfMetricStatus_Object=MibTableColumn
+ospfIfMetricStatus=_OspfIfMetricStatus_Object((1,3,6,1,2,1,14,8,1,5),_OspfIfMetricStatus_Type())
+ospfIfMetricStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfIfMetricStatus.setStatus(_A)
+_OspfVirtIfTable_Object=MibTable
+ospfVirtIfTable=_OspfVirtIfTable_Object((1,3,6,1,2,1,14,9))
+if mibBuilder.loadTexts:ospfVirtIfTable.setStatus(_A)
+_OspfVirtIfEntry_Object=MibTableRow
+ospfVirtIfEntry=_OspfVirtIfEntry_Object((1,3,6,1,2,1,14,9,1))
+ospfVirtIfEntry.setIndexNames((0,_D,_l),(0,_D,_m))
+if mibBuilder.loadTexts:ospfVirtIfEntry.setStatus(_A)
+_OspfVirtIfAreaID_Type=AreaID
+_OspfVirtIfAreaID_Object=MibTableColumn
+ospfVirtIfAreaID=_OspfVirtIfAreaID_Object((1,3,6,1,2,1,14,9,1,1),_OspfVirtIfAreaID_Type())
+ospfVirtIfAreaID.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfVirtIfAreaID.setStatus(_A)
+_OspfVirtIfNeighbor_Type=RouterID
+_OspfVirtIfNeighbor_Object=MibTableColumn
+ospfVirtIfNeighbor=_OspfVirtIfNeighbor_Object((1,3,6,1,2,1,14,9,1,2),_OspfVirtIfNeighbor_Type())
+ospfVirtIfNeighbor.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfVirtIfNeighbor.setStatus(_A)
+class _OspfVirtIfTransitDelay_Type(UpToMaxAge):defaultValue=1
+_OspfVirtIfTransitDelay_Type.__name__=_I
+_OspfVirtIfTransitDelay_Object=MibTableColumn
+ospfVirtIfTransitDelay=_OspfVirtIfTransitDelay_Object((1,3,6,1,2,1,14,9,1,3),_OspfVirtIfTransitDelay_Type())
+ospfVirtIfTransitDelay.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfVirtIfTransitDelay.setStatus(_A)
+class _OspfVirtIfRetransInterval_Type(UpToMaxAge):defaultValue=5
+_OspfVirtIfRetransInterval_Type.__name__=_I
+_OspfVirtIfRetransInterval_Object=MibTableColumn
+ospfVirtIfRetransInterval=_OspfVirtIfRetransInterval_Object((1,3,6,1,2,1,14,9,1,4),_OspfVirtIfRetransInterval_Type())
+ospfVirtIfRetransInterval.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfVirtIfRetransInterval.setStatus(_A)
+class _OspfVirtIfHelloInterval_Type(HelloRange):defaultValue=10
+_OspfVirtIfHelloInterval_Type.__name__=_Q
+_OspfVirtIfHelloInterval_Object=MibTableColumn
+ospfVirtIfHelloInterval=_OspfVirtIfHelloInterval_Object((1,3,6,1,2,1,14,9,1,5),_OspfVirtIfHelloInterval_Type())
+ospfVirtIfHelloInterval.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfVirtIfHelloInterval.setStatus(_A)
+class _OspfVirtIfRtrDeadInterval_Type(PositiveInteger):defaultValue=60
+_OspfVirtIfRtrDeadInterval_Type.__name__=_K
+_OspfVirtIfRtrDeadInterval_Object=MibTableColumn
+ospfVirtIfRtrDeadInterval=_OspfVirtIfRtrDeadInterval_Object((1,3,6,1,2,1,14,9,1,6),_OspfVirtIfRtrDeadInterval_Type())
+ospfVirtIfRtrDeadInterval.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfVirtIfRtrDeadInterval.setStatus(_A)
+class _OspfVirtIfState_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,4)));namedValues=NamedValues(*((_L,1),(_O,4)))
+_OspfVirtIfState_Type.__name__=_E
+_OspfVirtIfState_Object=MibTableColumn
+ospfVirtIfState=_OspfVirtIfState_Object((1,3,6,1,2,1,14,9,1,7),_OspfVirtIfState_Type())
+ospfVirtIfState.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfVirtIfState.setStatus(_A)
+class _OspfVirtIfEvents_Type(Counter32):defaultValue=0
+_OspfVirtIfEvents_Type.__name__=_G
+_OspfVirtIfEvents_Object=MibTableColumn
+ospfVirtIfEvents=_OspfVirtIfEvents_Object((1,3,6,1,2,1,14,9,1,8),_OspfVirtIfEvents_Type())
+ospfVirtIfEvents.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfVirtIfEvents.setStatus(_A)
+class _OspfVirtIfAuthKey_Type(OctetString):defaultHexValue=_h
+_OspfVirtIfAuthKey_Type.__name__=_M
+_OspfVirtIfAuthKey_Object=MibTableColumn
+ospfVirtIfAuthKey=_OspfVirtIfAuthKey_Object((1,3,6,1,2,1,14,9,1,9),_OspfVirtIfAuthKey_Type())
+ospfVirtIfAuthKey.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfVirtIfAuthKey.setStatus(_A)
+class _OspfVirtIfStatus_Type(Validation):defaultValue=1
+_OspfVirtIfStatus_Type.__name__=_F
+_OspfVirtIfStatus_Object=MibTableColumn
+ospfVirtIfStatus=_OspfVirtIfStatus_Object((1,3,6,1,2,1,14,9,1,10),_OspfVirtIfStatus_Type())
+ospfVirtIfStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfVirtIfStatus.setStatus(_A)
+_OspfNbrTable_Object=MibTable
+ospfNbrTable=_OspfNbrTable_Object((1,3,6,1,2,1,14,10))
+if mibBuilder.loadTexts:ospfNbrTable.setStatus(_A)
+_OspfNbrEntry_Object=MibTableRow
+ospfNbrEntry=_OspfNbrEntry_Object((1,3,6,1,2,1,14,10,1))
+ospfNbrEntry.setIndexNames((0,_D,_n),(0,_D,_o))
+if mibBuilder.loadTexts:ospfNbrEntry.setStatus(_A)
+_OspfNbrIpAddr_Type=IpAddress
+_OspfNbrIpAddr_Object=MibTableColumn
+ospfNbrIpAddr=_OspfNbrIpAddr_Object((1,3,6,1,2,1,14,10,1,1),_OspfNbrIpAddr_Type())
+ospfNbrIpAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfNbrIpAddr.setStatus(_A)
+_OspfNbrAddressLessIndex_Type=InterfaceIndex
+_OspfNbrAddressLessIndex_Object=MibTableColumn
+ospfNbrAddressLessIndex=_OspfNbrAddressLessIndex_Object((1,3,6,1,2,1,14,10,1,2),_OspfNbrAddressLessIndex_Type())
+ospfNbrAddressLessIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfNbrAddressLessIndex.setStatus(_A)
+class _OspfNbrRtrId_Type(RouterID):defaultHexValue=_J
+_OspfNbrRtrId_Type.__name__=_p
+_OspfNbrRtrId_Object=MibTableColumn
+ospfNbrRtrId=_OspfNbrRtrId_Object((1,3,6,1,2,1,14,10,1,3),_OspfNbrRtrId_Type())
+ospfNbrRtrId.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfNbrRtrId.setStatus(_A)
+class _OspfNbrOptions_Type(Integer32):defaultValue=0
+_OspfNbrOptions_Type.__name__=_E
+_OspfNbrOptions_Object=MibTableColumn
+ospfNbrOptions=_OspfNbrOptions_Object((1,3,6,1,2,1,14,10,1,4),_OspfNbrOptions_Type())
+ospfNbrOptions.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfNbrOptions.setStatus(_A)
+class _OspfNbrPriority_Type(DesignatedRouterPriority):defaultValue=1
+_OspfNbrPriority_Type.__name__=_P
+_OspfNbrPriority_Object=MibTableColumn
+ospfNbrPriority=_OspfNbrPriority_Object((1,3,6,1,2,1,14,10,1,5),_OspfNbrPriority_Type())
+ospfNbrPriority.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfNbrPriority.setStatus(_A)
+class _OspfNbrState_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_L,1),(_q,2),('init',3),(_r,4),(_s,5),(_t,6),(_u,7),('full',8)))
+_OspfNbrState_Type.__name__=_E
+_OspfNbrState_Object=MibTableColumn
+ospfNbrState=_OspfNbrState_Object((1,3,6,1,2,1,14,10,1,6),_OspfNbrState_Type())
+ospfNbrState.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfNbrState.setStatus(_A)
+class _OspfNbrEvents_Type(Counter32):defaultValue=0
+_OspfNbrEvents_Type.__name__=_G
+_OspfNbrEvents_Object=MibTableColumn
+ospfNbrEvents=_OspfNbrEvents_Object((1,3,6,1,2,1,14,10,1,7),_OspfNbrEvents_Type())
+ospfNbrEvents.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfNbrEvents.setStatus(_A)
+class _OspfNbrLSRetransQLen_Type(Gauge32):defaultValue=0
+_OspfNbrLSRetransQLen_Type.__name__=_H
+_OspfNbrLSRetransQLen_Object=MibTableColumn
+ospfNbrLSRetransQLen=_OspfNbrLSRetransQLen_Object((1,3,6,1,2,1,14,10,1,8),_OspfNbrLSRetransQLen_Type())
+ospfNbrLSRetransQLen.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfNbrLSRetransQLen.setStatus(_A)
+class _OspfNBMANbrStatus_Type(Validation):defaultValue=1
+_OspfNBMANbrStatus_Type.__name__=_F
+_OspfNBMANbrStatus_Object=MibTableColumn
+ospfNBMANbrStatus=_OspfNBMANbrStatus_Object((1,3,6,1,2,1,14,10,1,9),_OspfNBMANbrStatus_Type())
+ospfNBMANbrStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:ospfNBMANbrStatus.setStatus(_A)
+_OspfVirtNbrTable_Object=MibTable
+ospfVirtNbrTable=_OspfVirtNbrTable_Object((1,3,6,1,2,1,14,11))
+if mibBuilder.loadTexts:ospfVirtNbrTable.setStatus(_A)
+_OspfVirtNbrEntry_Object=MibTableRow
+ospfVirtNbrEntry=_OspfVirtNbrEntry_Object((1,3,6,1,2,1,14,11,1))
+ospfVirtNbrEntry.setIndexNames((0,_D,_v),(0,_D,_w))
+if mibBuilder.loadTexts:ospfVirtNbrEntry.setStatus(_A)
+_OspfVirtNbrArea_Type=AreaID
+_OspfVirtNbrArea_Object=MibTableColumn
+ospfVirtNbrArea=_OspfVirtNbrArea_Object((1,3,6,1,2,1,14,11,1,1),_OspfVirtNbrArea_Type())
+ospfVirtNbrArea.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfVirtNbrArea.setStatus(_A)
+_OspfVirtNbrRtrId_Type=RouterID
+_OspfVirtNbrRtrId_Object=MibTableColumn
+ospfVirtNbrRtrId=_OspfVirtNbrRtrId_Object((1,3,6,1,2,1,14,11,1,2),_OspfVirtNbrRtrId_Type())
+ospfVirtNbrRtrId.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfVirtNbrRtrId.setStatus(_A)
+_OspfVirtNbrIpAddr_Type=IpAddress
+_OspfVirtNbrIpAddr_Object=MibTableColumn
+ospfVirtNbrIpAddr=_OspfVirtNbrIpAddr_Object((1,3,6,1,2,1,14,11,1,3),_OspfVirtNbrIpAddr_Type())
+ospfVirtNbrIpAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfVirtNbrIpAddr.setStatus(_A)
+_OspfVirtNbrOptions_Type=Integer32
+_OspfVirtNbrOptions_Object=MibTableColumn
+ospfVirtNbrOptions=_OspfVirtNbrOptions_Object((1,3,6,1,2,1,14,11,1,4),_OspfVirtNbrOptions_Type())
+ospfVirtNbrOptions.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfVirtNbrOptions.setStatus(_A)
+class _OspfVirtNbrState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_L,1),(_q,2),('init',3),(_r,4),(_s,5),(_t,6),(_u,7),('full',8)))
+_OspfVirtNbrState_Type.__name__=_E
+_OspfVirtNbrState_Object=MibTableColumn
+ospfVirtNbrState=_OspfVirtNbrState_Object((1,3,6,1,2,1,14,11,1,5),_OspfVirtNbrState_Type())
+ospfVirtNbrState.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfVirtNbrState.setStatus(_A)
+_OspfVirtNbrEvents_Type=Counter32
+_OspfVirtNbrEvents_Object=MibTableColumn
+ospfVirtNbrEvents=_OspfVirtNbrEvents_Object((1,3,6,1,2,1,14,11,1,6),_OspfVirtNbrEvents_Type())
+ospfVirtNbrEvents.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfVirtNbrEvents.setStatus(_A)
+_OspfVirtNbrLSRetransQLen_Type=Gauge32
+_OspfVirtNbrLSRetransQLen_Object=MibTableColumn
+ospfVirtNbrLSRetransQLen=_OspfVirtNbrLSRetransQLen_Object((1,3,6,1,2,1,14,11,1,7),_OspfVirtNbrLSRetransQLen_Type())
+ospfVirtNbrLSRetransQLen.setMaxAccess(_C)
+if mibBuilder.loadTexts:ospfVirtNbrLSRetransQLen.setStatus(_A)
+mibBuilder.exportSymbols(_D,**{_f:AreaID,_p:RouterID,'Metric':Metric,'BigMetric':BigMetric,_S:TruthValue,_g:Status,_F:Validation,_K:PositiveInteger,_Q:HelloRange,_I:UpToMaxAge,'InterfaceIndex':InterfaceIndex,_P:DesignatedRouterPriority,'TOSType':TOSType,'ospf':ospf,'ospfGeneralGroup':ospfGeneralGroup,'ospfRouterId':ospfRouterId,'ospfAdminStat':ospfAdminStat,'ospfVersionNumber':ospfVersionNumber,'ospfAreaBdrRtrStatus':ospfAreaBdrRtrStatus,'ospfASBdrRtrStatus':ospfASBdrRtrStatus,'ospfExternLSACount':ospfExternLSACount,'ospfExternLSACksumSum':ospfExternLSACksumSum,'ospfTOSSupport':ospfTOSSupport,'ospfOriginateNewLSAs':ospfOriginateNewLSAs,'ospfRxNewLSAs':ospfRxNewLSAs,'ospfAreaTable':ospfAreaTable,'ospfAreaEntry':ospfAreaEntry,_R:ospfAreaId,'ospfAuthType':ospfAuthType,'ospfImportASExtern':ospfImportASExtern,'ospfSpfRuns':ospfSpfRuns,'ospfAreaBdrRtrCount':ospfAreaBdrRtrCount,'ospfASBdrRtrCount':ospfASBdrRtrCount,'ospfAreaLSACount':ospfAreaLSACount,'ospfAreaLSACksumSum':ospfAreaLSACksumSum,'ospfStubAreaTable':ospfStubAreaTable,'ospfStubAreaEntry':ospfStubAreaEntry,_T:ospfStubAreaID,_U:ospfStubTOS,'ospfStubMetric':ospfStubMetric,'ospfStubStatus':ospfStubStatus,'ospfLsdbTable':ospfLsdbTable,'ospfLsdbEntry':ospfLsdbEntry,_V:ospfLsdbAreaId,_W:ospfLsdbType,_X:ospfLsdbLSID,_Y:ospfLsdbRouterId,'ospfLsdbSequence':ospfLsdbSequence,'ospfLsdbAge':ospfLsdbAge,'ospfLsdbChecksum':ospfLsdbChecksum,'ospfLsdbAdvertisement':ospfLsdbAdvertisement,'ospfAreaRangeTable':ospfAreaRangeTable,'ospfAreaRangeEntry':ospfAreaRangeEntry,_Z:ospfAreaRangeAreaID,_a:ospfAreaRangeNet,'ospfAreaRangeMask':ospfAreaRangeMask,'ospfAreaRangeStatus':ospfAreaRangeStatus,'ospfHostTable':ospfHostTable,'ospfHostEntry':ospfHostEntry,_b:ospfHostIpAddress,_c:ospfHostTOS,'ospfHostMetric':ospfHostMetric,'ospfHostStatus':ospfHostStatus,'ospfIfTable':ospfIfTable,'ospfIfEntry':ospfIfEntry,_d:ospfIfIpAddress,_e:ospfAddressLessIf,'ospfIfAreaId':ospfIfAreaId,'ospfIfType':ospfIfType,'ospfIfAdminStat':ospfIfAdminStat,'ospfIfRtrPriority':ospfIfRtrPriority,'ospfIfTransitDelay':ospfIfTransitDelay,'ospfIfRetransInterval':ospfIfRetransInterval,'ospfIfHelloInterval':ospfIfHelloInterval,'ospfIfRtrDeadInterval':ospfIfRtrDeadInterval,'ospfIfPollInterval':ospfIfPollInterval,'ospfIfState':ospfIfState,'ospfIfDesignatedRouter':ospfIfDesignatedRouter,'ospfIfBackupDesignatedRouter':ospfIfBackupDesignatedRouter,'ospfIfEvents':ospfIfEvents,'ospfIfAuthKey':ospfIfAuthKey,'ospfIfMetricTable':ospfIfMetricTable,'ospfIfMetricEntry':ospfIfMetricEntry,_i:ospfIfMetricIpAddress,_j:ospfIfMetricAddressLessIf,_k:ospfIfMetricTOS,'ospfIfMetricMetric':ospfIfMetricMetric,'ospfIfMetricStatus':ospfIfMetricStatus,'ospfVirtIfTable':ospfVirtIfTable,'ospfVirtIfEntry':ospfVirtIfEntry,_l:ospfVirtIfAreaID,_m:ospfVirtIfNeighbor,'ospfVirtIfTransitDelay':ospfVirtIfTransitDelay,'ospfVirtIfRetransInterval':ospfVirtIfRetransInterval,'ospfVirtIfHelloInterval':ospfVirtIfHelloInterval,'ospfVirtIfRtrDeadInterval':ospfVirtIfRtrDeadInterval,'ospfVirtIfState':ospfVirtIfState,'ospfVirtIfEvents':ospfVirtIfEvents,'ospfVirtIfAuthKey':ospfVirtIfAuthKey,'ospfVirtIfStatus':ospfVirtIfStatus,'ospfNbrTable':ospfNbrTable,'ospfNbrEntry':ospfNbrEntry,_n:ospfNbrIpAddr,_o:ospfNbrAddressLessIndex,'ospfNbrRtrId':ospfNbrRtrId,'ospfNbrOptions':ospfNbrOptions,'ospfNbrPriority':ospfNbrPriority,'ospfNbrState':ospfNbrState,'ospfNbrEvents':ospfNbrEvents,'ospfNbrLSRetransQLen':ospfNbrLSRetransQLen,'ospfNBMANbrStatus':ospfNBMANbrStatus,'ospfVirtNbrTable':ospfVirtNbrTable,'ospfVirtNbrEntry':ospfVirtNbrEntry,_v:ospfVirtNbrArea,_w:ospfVirtNbrRtrId,'ospfVirtNbrIpAddr':ospfVirtNbrIpAddr,'ospfVirtNbrOptions':ospfVirtNbrOptions,'ospfVirtNbrState':ospfVirtNbrState,'ospfVirtNbrEvents':ospfVirtNbrEvents,'ospfVirtNbrLSRetransQLen':ospfVirtNbrLSRetransQLen})

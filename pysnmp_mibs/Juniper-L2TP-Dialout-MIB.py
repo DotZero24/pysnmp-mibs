@@ -1,0 +1,1161 @@
+_C8='juniL2tpDialoutSessionStatisticsGroup'
+_C7='juniL2tpDialoutTargetStatisticsGroup'
+_C6='juniL2tpDialoutVRouterStatisticsGroup'
+_C5='juniL2tpDialoutSystemWideSessionStatisticsGroup'
+_C4='juniL2tpDialoutSystemWideTargetStatisticsGroup'
+_C3='juniL2tpDialoutSystemWideVRouterStatisticsGroup'
+_C2='juniL2tpDialoutSystemStatisticsGroup'
+_C1='juniL2tpDialoutStatusGroup'
+_C0='juniL2tpDialoutSessionControlGroup'
+_B_='juniL2tpDialoutTriggerBuffersGroup'
+_Bz='juniL2tpDialoutTargetConfigGroup'
+_By='juniL2tpDialoutTimersGroup'
+_Bx='juniL2tpDialoutSessionStatisticsDialoutsTornDown'
+_Bw='juniL2tpDialoutSessionStatisticsDialoutsTimedout'
+_Bv='juniL2tpDialoutSessionStatisticsDialoutsEstablished'
+_Bu='juniL2tpDialoutSessionStatisticsDialoutsRejected'
+_Bt='juniL2tpDialoutSessionStatisticsDialoutsRequested'
+_Bs='juniL2tpDialoutSessionStatisticsAuthenticationDenies'
+_Br='juniL2tpDialoutSessionStatisticsAuthenticationGrants'
+_Bq='juniL2tpDialoutSessionStatisticsAuthenticationNoResources'
+_Bp='juniL2tpDialoutSessionStatisticsAuthenticationRequests'
+_Bo='juniL2tpDialoutSessionStatisticsTriggersMaxEnqueued'
+_Bn='juniL2tpDialoutSessionStatisticsTriggersForwarded'
+_Bm='juniL2tpDialoutSessionStatisticsTriggersDiscarded'
+_Bl='juniL2tpDialoutSessionStatisticsTriggersEnqueued'
+_Bk='juniL2tpDialoutSessionStatisticsTriggersReceived'
+_Bj='juniL2tpDialoutSessionStatisticsSessionsReset'
+_Bi='juniL2tpDialoutSessionStatisticsSessionsRemoved'
+_Bh='juniL2tpDialoutSessionStatisticsSessionsCreated'
+_Bg='juniL2tpDialoutSessionStatisticsSessionsActive'
+_Bf='juniL2tpDialoutTargetStatisticsDialoutsTornDown'
+_Be='juniL2tpDialoutTargetStatisticsDialoutsTimedout'
+_Bd='juniL2tpDialoutTargetStatisticsDialoutsEstablished'
+_Bc='juniL2tpDialoutTargetStatisticsDialoutsRejected'
+_Bb='juniL2tpDialoutTargetStatisticsDialoutsRequested'
+_Ba='juniL2tpDialoutTargetStatisticsAuthenticationDenies'
+_BZ='juniL2tpDialoutTargetStatisticsAuthenticationGrants'
+_BY='juniL2tpDialoutTargetStatisticsAuthenticationNoResources'
+_BX='juniL2tpDialoutTargetStatisticsAuthenticationRequests'
+_BW='juniL2tpDialoutTargetStatisticsTriggersMaxEnqueued'
+_BV='juniL2tpDialoutTargetStatisticsTriggersForwarded'
+_BU='juniL2tpDialoutTargetStatisticsTriggersDiscarded'
+_BT='juniL2tpDialoutTargetStatisticsTriggersEnqueued'
+_BS='juniL2tpDialoutTargetStatisticsTriggersReceived'
+_BR='juniL2tpDialoutTargetStatisticsSessionsReset'
+_BQ='juniL2tpDialoutTargetStatisticsSessionsRemoved'
+_BP='juniL2tpDialoutTargetStatisticsSessionsCreated'
+_BO='juniL2tpDialoutTargetStatisticsSessionsActive'
+_BN='juniL2tpDialoutTargetStatisticsTargetsInService'
+_BM='juniL2tpDialoutTargetStatisticsTargetsInhibited'
+_BL='juniL2tpDialoutTargetStatisticsTargetsDown'
+_BK='juniL2tpDialoutTargetStatisticsTargetsRemoved'
+_BJ='juniL2tpDialoutTargetStatisticsTargetsCreated'
+_BI='juniL2tpDialoutTargetStatisticsTargetsActive'
+_BH='juniL2tpDialoutVRouterStatisticsDialoutsTornDown'
+_BG='juniL2tpDialoutVRouterStatisticsDialoutsTimedout'
+_BF='juniL2tpDialoutVRouterStatisticsDialoutsEstablished'
+_BE='juniL2tpDialoutVRouterStatisticsDialoutsRejected'
+_BD='juniL2tpDialoutVRouterStatisticsDialoutsRequested'
+_BC='juniL2tpDialoutVRouterStatisticsAuthenticationDenies'
+_BB='juniL2tpDialoutVRouterStatisticsAuthenticationGrants'
+_BA='juniL2tpDialoutVRouterStatisticsAuthenticationNoResources'
+_B9='juniL2tpDialoutVRouterStatisticsAuthenticationRequests'
+_B8='juniL2tpDialoutVRouterStatisticsTriggersMaxEnqueued'
+_B7='juniL2tpDialoutVRouterStatisticsTriggersForwarded'
+_B6='juniL2tpDialoutVRouterStatisticsTriggersDiscarded'
+_B5='juniL2tpDialoutVRouterStatisticsTriggersEnqueued'
+_B4='juniL2tpDialoutVRouterStatisticsTriggersReceived'
+_B3='juniL2tpDialoutVRouterStatisticsSessionsReset'
+_B2='juniL2tpDialoutVRouterStatisticsSessionsRemoved'
+_B1='juniL2tpDialoutVRouterStatisticsSessionsCreated'
+_B0='juniL2tpDialoutVRouterStatisticsSessionsActive'
+_A_='juniL2tpDialoutVRouterStatisticsTargetsInService'
+_Az='juniL2tpDialoutVRouterStatisticsTargetsInhibited'
+_Ay='juniL2tpDialoutVRouterStatisticsTargetsDown'
+_Ax='juniL2tpDialoutVRouterStatisticsTargetsRemoved'
+_Aw='juniL2tpDialoutVRouterStatisticsTargetsCreated'
+_Av='juniL2tpDialoutVRouterStatisticsTargetsActive'
+_Au='juniL2tpDialoutVRouterStatisticsSessionStateFailed'
+_At='juniL2tpDialoutVRouterStatisticsSessionStatePostInhibited'
+_As='juniL2tpDialoutVRouterStatisticsSessionStateInhibited'
+_Ar='juniL2tpDialoutVRouterStatisticsSessionStateInService'
+_Aq='juniL2tpDialoutVRouterStatisticsSessionStateConnecting'
+_Ap='juniL2tpDialoutVRouterStatisticsSessionStateAuthenticating'
+_Ao='juniL2tpDialoutVRouterStatisticsSessionStatePending'
+_An='juniL2tpDialoutVRouterStatisticsSessionStateDormant'
+_Am='juniL2tpDialoutVRouterStatisticsTriggerRouteUnknown'
+_Al='juniL2tpDialoutVRouterStatisticsTriggersMissed'
+_Ak='juniL2tpDialoutSessionDialoutsTornDown'
+_Aj='juniL2tpDialoutSessionDialoutsTimedout'
+_Ai='juniL2tpDialoutSessionDialoutsEstablished'
+_Ah='juniL2tpDialoutSessionDialoutsRejected'
+_Ag='juniL2tpDialoutSessionDialoutsRequested'
+_Af='juniL2tpDialoutSessionAuthenticationDenies'
+_Ae='juniL2tpDialoutSessionAuthenticationGrants'
+_Ad='juniL2tpDialoutSessionAuthenticationNoResources'
+_Ac='juniL2tpDialoutSessionAuthenticationRequests'
+_Ab='juniL2tpDialoutSessionTriggersMaxEnqueued'
+_Aa='juniL2tpDialoutSessionTriggersForwarded'
+_AZ='juniL2tpDialoutSessionTriggersDiscarded'
+_AY='juniL2tpDialoutSessionTriggersEnqueued'
+_AX='juniL2tpDialoutSessionTriggersReceived'
+_AW='juniL2tpDialoutSessionsReset'
+_AV='juniL2tpDialoutSessionsRemoved'
+_AU='juniL2tpDialoutSessionsCreated'
+_AT='juniL2tpDialoutSessionsActive'
+_AS='juniL2tpDialoutTargetTriggersDiscarded'
+_AR='juniL2tpDialoutTargetsInService'
+_AQ='juniL2tpDialoutTargetsInhibited'
+_AP='juniL2tpDialoutTargetsDown'
+_AO='juniL2tpDialoutTargetsRemoved'
+_AN='juniL2tpDialoutTargetsCreated'
+_AM='juniL2tpDialoutTargetsActive'
+_AL='juniL2tpDialoutVRoutersSessionsFailed'
+_AK='juniL2tpDialoutVRoutersSessionsPostInhibited'
+_AJ='juniL2tpDialoutVRoutersSessionsInhibited'
+_AI='juniL2tpDialoutVRoutersSessionsInService'
+_AH='juniL2tpDialoutVRoutersSessionsConnecting'
+_AG='juniL2tpDialoutVRoutersSessionsAuthenticating'
+_AF='juniL2tpDialoutVRoutersSessionsPending'
+_AE='juniL2tpDialoutVRoutersSessionsDormant'
+_AD='juniL2tpDialoutVRoutersTriggerRouteUnknown'
+_AC='juniL2tpDialoutVRoutersTriggersMissed'
+_AB='juniL2tpDialoutVRoutersInService'
+_AA='juniL2tpDialoutVRoutersDown'
+_A9='juniL2tpDialoutVRoutersInitFailed'
+_A8='juniL2tpDialoutVRoutersInitPending'
+_A7='juniL2tpDialoutVRoutersRemoved'
+_A6='juniL2tpDialoutVRoutersCreated'
+_A5='juniL2tpDialoutVRoutersActive'
+_A4='juniL2tpDialoutSystemAuthDenyNoSession'
+_A3='juniL2tpDialoutSystemAuthGrantNoSession'
+_A2='juniL2tpDialoutSystemMaximumTargetsInhibited'
+_A1='juniL2tpDialoutSystemTargetsInhibited'
+_A0='juniL2tpDialoutSystemMaximumSessionsPending'
+_z='juniL2tpDialoutSystemSessionsPending'
+_y='juniL2tpDialoutSystemMaximumSessionsConnecting'
+_x='juniL2tpDialoutSystemSessionsConnecting'
+_w='juniL2tpDialoutSystemMaximumSessions'
+_v='juniL2tpDialoutSystemCurrentSessions'
+_u='juniL2tpDialoutSessionStatus'
+_t='juniL2tpDialoutTargetStatus'
+_s='juniL2tpDialoutVRouterStatus'
+_r='juniL2tpDialoutSystemStatus'
+_q='juniL2tpDialoutSessionConfigRowStatus'
+_p='juniL2tpDialoutSessionConfigControl'
+_o='juniL2tpDialoutTriggerBufferCount'
+_n='juniL2tpDialoutTargetRowStatus'
+_m='juniL2tpDialoutTargetProfileName'
+_l='juniL2tpDialoutTargetDomainName'
+_k='juniL2tpDialoutDormantTimerValue'
+_j='juniL2tpDialoutConnectingTimerValue'
+_i='juniL2tpDialoutVRouterStatisticsRouterIndex'
+_h='juniL2tpDialoutVRouterStatusRouterIndex'
+_g='juniL2tpDialoutSessionStatisticsRouterIndex'
+_f='juniL2tpDialoutSessionStatisticsTargetIpAddressMask'
+_e='juniL2tpDialoutSessionStatisticsTargetIpAddress'
+_d='juniL2tpDialoutSessionStatisticsHandle'
+_c='juniL2tpDialoutSessionStatusRouterIndex'
+_b='juniL2tpDialoutSessionStatusTargetIpAddressMask'
+_a='juniL2tpDialoutSessionStatusTargetIpAddress'
+_Z='juniL2tpDialoutSessionStatusHandle'
+_Y='juniL2tpDialoutSessionConfigRouterIndex'
+_X='juniL2tpDialoutSessionConfigTargetIpAddressMask'
+_W='juniL2tpDialoutSessionConfigTargetIpAddress'
+_V='juniL2tpDialoutSessionConfigHandle'
+_U='juniL2tpDialoutTriggerBufferRouterIndex'
+_T='juniL2tpDialoutTargetStatisticsIpAddressMask'
+_S='juniL2tpDialoutTargetStatisticsIpAddress'
+_R='juniL2tpDialoutTargetStatisticsRouterIndex'
+_Q='inhibited'
+_P='juniL2tpDialoutTargetStatusIpAddressMask'
+_O='juniL2tpDialoutTargetStatusIpAddress'
+_N='juniL2tpDialoutTargetStatusRouterIndex'
+_M='juniL2tpDialoutTargetIpAddressMask'
+_L='juniL2tpDialoutTargetIpAddress'
+_K='juniL2tpDialoutTargetRouterIndex'
+_J='seconds'
+_I='read-write'
+_H='Gauge32'
+_G='inService'
+_F='read-create'
+_E='Integer32'
+_D='not-accessible'
+_C='read-only'
+_B='Juniper-L2TP-Dialout-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+juniMibs,=mibBuilder.importSymbols('Juniper-MIBs','juniMibs')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64',_H,_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
+juniL2tpDialoutMIB=ModuleIdentity((1,3,6,1,4,1,4874,2,2,62))
+if mibBuilder.loadTexts:juniL2tpDialoutMIB.setRevisions(('2002-11-14 20:54',))
+class JuniL2tpDialoutDomainName(TextualConvention,OctetString):status=_A;displayHint='63a';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,63))
+_JuniL2tpDialoutMIBNotifications_ObjectIdentity=ObjectIdentity
+juniL2tpDialoutMIBNotifications=_JuniL2tpDialoutMIBNotifications_ObjectIdentity((1,3,6,1,4,1,4874,2,2,62,0))
+_JuniL2tpDialoutMIBObjects_ObjectIdentity=ObjectIdentity
+juniL2tpDialoutMIBObjects=_JuniL2tpDialoutMIBObjects_ObjectIdentity((1,3,6,1,4,1,4874,2,2,62,1))
+_JuniL2tpDialoutGeneral_ObjectIdentity=ObjectIdentity
+juniL2tpDialoutGeneral=_JuniL2tpDialoutGeneral_ObjectIdentity((1,3,6,1,4,1,4874,2,2,62,1,1))
+class _JuniL2tpDialoutConnectingTimerValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(30,3600))
+_JuniL2tpDialoutConnectingTimerValue_Type.__name__=_E
+_JuniL2tpDialoutConnectingTimerValue_Object=MibScalar
+juniL2tpDialoutConnectingTimerValue=_JuniL2tpDialoutConnectingTimerValue_Object((1,3,6,1,4,1,4874,2,2,62,1,1,1),_JuniL2tpDialoutConnectingTimerValue_Type())
+juniL2tpDialoutConnectingTimerValue.setMaxAccess(_I)
+if mibBuilder.loadTexts:juniL2tpDialoutConnectingTimerValue.setStatus(_A)
+if mibBuilder.loadTexts:juniL2tpDialoutConnectingTimerValue.setUnits(_J)
+class _JuniL2tpDialoutDormantTimerValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3600))
+_JuniL2tpDialoutDormantTimerValue_Type.__name__=_E
+_JuniL2tpDialoutDormantTimerValue_Object=MibScalar
+juniL2tpDialoutDormantTimerValue=_JuniL2tpDialoutDormantTimerValue_Object((1,3,6,1,4,1,4874,2,2,62,1,1,2),_JuniL2tpDialoutDormantTimerValue_Type())
+juniL2tpDialoutDormantTimerValue.setMaxAccess(_I)
+if mibBuilder.loadTexts:juniL2tpDialoutDormantTimerValue.setStatus(_A)
+if mibBuilder.loadTexts:juniL2tpDialoutDormantTimerValue.setUnits(_J)
+_JuniL2tpDialoutTarget_ObjectIdentity=ObjectIdentity
+juniL2tpDialoutTarget=_JuniL2tpDialoutTarget_ObjectIdentity((1,3,6,1,4,1,4874,2,2,62,1,2))
+_JuniL2tpDialoutTargetConfigTable_Object=MibTable
+juniL2tpDialoutTargetConfigTable=_JuniL2tpDialoutTargetConfigTable_Object((1,3,6,1,4,1,4874,2,2,62,1,2,1))
+if mibBuilder.loadTexts:juniL2tpDialoutTargetConfigTable.setStatus(_A)
+_JuniL2tpDialoutTargetConfigEntry_Object=MibTableRow
+juniL2tpDialoutTargetConfigEntry=_JuniL2tpDialoutTargetConfigEntry_Object((1,3,6,1,4,1,4874,2,2,62,1,2,1,1))
+juniL2tpDialoutTargetConfigEntry.setIndexNames((0,_B,_K),(0,_B,_L),(0,_B,_M))
+if mibBuilder.loadTexts:juniL2tpDialoutTargetConfigEntry.setStatus(_A)
+_JuniL2tpDialoutTargetRouterIndex_Type=Unsigned32
+_JuniL2tpDialoutTargetRouterIndex_Object=MibTableColumn
+juniL2tpDialoutTargetRouterIndex=_JuniL2tpDialoutTargetRouterIndex_Object((1,3,6,1,4,1,4874,2,2,62,1,2,1,1,1),_JuniL2tpDialoutTargetRouterIndex_Type())
+juniL2tpDialoutTargetRouterIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetRouterIndex.setStatus(_A)
+_JuniL2tpDialoutTargetIpAddress_Type=IpAddress
+_JuniL2tpDialoutTargetIpAddress_Object=MibTableColumn
+juniL2tpDialoutTargetIpAddress=_JuniL2tpDialoutTargetIpAddress_Object((1,3,6,1,4,1,4874,2,2,62,1,2,1,1,2),_JuniL2tpDialoutTargetIpAddress_Type())
+juniL2tpDialoutTargetIpAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetIpAddress.setStatus(_A)
+_JuniL2tpDialoutTargetIpAddressMask_Type=IpAddress
+_JuniL2tpDialoutTargetIpAddressMask_Object=MibTableColumn
+juniL2tpDialoutTargetIpAddressMask=_JuniL2tpDialoutTargetIpAddressMask_Object((1,3,6,1,4,1,4874,2,2,62,1,2,1,1,3),_JuniL2tpDialoutTargetIpAddressMask_Type())
+juniL2tpDialoutTargetIpAddressMask.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetIpAddressMask.setStatus(_A)
+_JuniL2tpDialoutTargetDomainName_Type=JuniL2tpDialoutDomainName
+_JuniL2tpDialoutTargetDomainName_Object=MibTableColumn
+juniL2tpDialoutTargetDomainName=_JuniL2tpDialoutTargetDomainName_Object((1,3,6,1,4,1,4874,2,2,62,1,2,1,1,4),_JuniL2tpDialoutTargetDomainName_Type())
+juniL2tpDialoutTargetDomainName.setMaxAccess(_F)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetDomainName.setStatus(_A)
+_JuniL2tpDialoutTargetProfileName_Type=DisplayString
+_JuniL2tpDialoutTargetProfileName_Object=MibTableColumn
+juniL2tpDialoutTargetProfileName=_JuniL2tpDialoutTargetProfileName_Object((1,3,6,1,4,1,4874,2,2,62,1,2,1,1,5),_JuniL2tpDialoutTargetProfileName_Type())
+juniL2tpDialoutTargetProfileName.setMaxAccess(_F)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetProfileName.setStatus(_A)
+_JuniL2tpDialoutTargetRowStatus_Type=RowStatus
+_JuniL2tpDialoutTargetRowStatus_Object=MibTableColumn
+juniL2tpDialoutTargetRowStatus=_JuniL2tpDialoutTargetRowStatus_Object((1,3,6,1,4,1,4874,2,2,62,1,2,1,1,6),_JuniL2tpDialoutTargetRowStatus_Type())
+juniL2tpDialoutTargetRowStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetRowStatus.setStatus(_A)
+_JuniL2tpDialoutTargetStatusTable_Object=MibTable
+juniL2tpDialoutTargetStatusTable=_JuniL2tpDialoutTargetStatusTable_Object((1,3,6,1,4,1,4874,2,2,62,1,2,2))
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatusTable.setStatus(_A)
+_JuniL2tpDialoutTargetStatusEntry_Object=MibTableRow
+juniL2tpDialoutTargetStatusEntry=_JuniL2tpDialoutTargetStatusEntry_Object((1,3,6,1,4,1,4874,2,2,62,1,2,2,1))
+juniL2tpDialoutTargetStatusEntry.setIndexNames((0,_B,_N),(0,_B,_O),(0,_B,_P))
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatusEntry.setStatus(_A)
+_JuniL2tpDialoutTargetStatusRouterIndex_Type=Unsigned32
+_JuniL2tpDialoutTargetStatusRouterIndex_Object=MibTableColumn
+juniL2tpDialoutTargetStatusRouterIndex=_JuniL2tpDialoutTargetStatusRouterIndex_Object((1,3,6,1,4,1,4874,2,2,62,1,2,2,1,1),_JuniL2tpDialoutTargetStatusRouterIndex_Type())
+juniL2tpDialoutTargetStatusRouterIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatusRouterIndex.setStatus(_A)
+_JuniL2tpDialoutTargetStatusIpAddress_Type=IpAddress
+_JuniL2tpDialoutTargetStatusIpAddress_Object=MibTableColumn
+juniL2tpDialoutTargetStatusIpAddress=_JuniL2tpDialoutTargetStatusIpAddress_Object((1,3,6,1,4,1,4874,2,2,62,1,2,2,1,2),_JuniL2tpDialoutTargetStatusIpAddress_Type())
+juniL2tpDialoutTargetStatusIpAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatusIpAddress.setStatus(_A)
+_JuniL2tpDialoutTargetStatusIpAddressMask_Type=IpAddress
+_JuniL2tpDialoutTargetStatusIpAddressMask_Object=MibTableColumn
+juniL2tpDialoutTargetStatusIpAddressMask=_JuniL2tpDialoutTargetStatusIpAddressMask_Object((1,3,6,1,4,1,4874,2,2,62,1,2,2,1,3),_JuniL2tpDialoutTargetStatusIpAddressMask_Type())
+juniL2tpDialoutTargetStatusIpAddressMask.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatusIpAddressMask.setStatus(_A)
+class _JuniL2tpDialoutTargetStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('down',0),(_Q,1),(_G,2)))
+_JuniL2tpDialoutTargetStatus_Type.__name__=_E
+_JuniL2tpDialoutTargetStatus_Object=MibTableColumn
+juniL2tpDialoutTargetStatus=_JuniL2tpDialoutTargetStatus_Object((1,3,6,1,4,1,4874,2,2,62,1,2,2,1,4),_JuniL2tpDialoutTargetStatus_Type())
+juniL2tpDialoutTargetStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatus.setStatus(_A)
+_JuniL2tpDialoutTargetSystemStatistics_ObjectIdentity=ObjectIdentity
+juniL2tpDialoutTargetSystemStatistics=_JuniL2tpDialoutTargetSystemStatistics_ObjectIdentity((1,3,6,1,4,1,4874,2,2,62,1,2,3))
+_JuniL2tpDialoutTargetsActive_Type=Gauge32
+_JuniL2tpDialoutTargetsActive_Object=MibScalar
+juniL2tpDialoutTargetsActive=_JuniL2tpDialoutTargetsActive_Object((1,3,6,1,4,1,4874,2,2,62,1,2,3,1),_JuniL2tpDialoutTargetsActive_Type())
+juniL2tpDialoutTargetsActive.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetsActive.setStatus(_A)
+_JuniL2tpDialoutTargetsCreated_Type=Counter32
+_JuniL2tpDialoutTargetsCreated_Object=MibScalar
+juniL2tpDialoutTargetsCreated=_JuniL2tpDialoutTargetsCreated_Object((1,3,6,1,4,1,4874,2,2,62,1,2,3,2),_JuniL2tpDialoutTargetsCreated_Type())
+juniL2tpDialoutTargetsCreated.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetsCreated.setStatus(_A)
+_JuniL2tpDialoutTargetsRemoved_Type=Counter32
+_JuniL2tpDialoutTargetsRemoved_Object=MibScalar
+juniL2tpDialoutTargetsRemoved=_JuniL2tpDialoutTargetsRemoved_Object((1,3,6,1,4,1,4874,2,2,62,1,2,3,3),_JuniL2tpDialoutTargetsRemoved_Type())
+juniL2tpDialoutTargetsRemoved.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetsRemoved.setStatus(_A)
+_JuniL2tpDialoutTargetsDown_Type=Gauge32
+_JuniL2tpDialoutTargetsDown_Object=MibScalar
+juniL2tpDialoutTargetsDown=_JuniL2tpDialoutTargetsDown_Object((1,3,6,1,4,1,4874,2,2,62,1,2,3,4),_JuniL2tpDialoutTargetsDown_Type())
+juniL2tpDialoutTargetsDown.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetsDown.setStatus(_A)
+_JuniL2tpDialoutTargetsInhibited_Type=Gauge32
+_JuniL2tpDialoutTargetsInhibited_Object=MibScalar
+juniL2tpDialoutTargetsInhibited=_JuniL2tpDialoutTargetsInhibited_Object((1,3,6,1,4,1,4874,2,2,62,1,2,3,5),_JuniL2tpDialoutTargetsInhibited_Type())
+juniL2tpDialoutTargetsInhibited.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetsInhibited.setStatus(_A)
+_JuniL2tpDialoutTargetsInService_Type=Gauge32
+_JuniL2tpDialoutTargetsInService_Object=MibScalar
+juniL2tpDialoutTargetsInService=_JuniL2tpDialoutTargetsInService_Object((1,3,6,1,4,1,4874,2,2,62,1,2,3,6),_JuniL2tpDialoutTargetsInService_Type())
+juniL2tpDialoutTargetsInService.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetsInService.setStatus(_A)
+_JuniL2tpDialoutTargetTriggersDiscarded_Type=Counter32
+_JuniL2tpDialoutTargetTriggersDiscarded_Object=MibScalar
+juniL2tpDialoutTargetTriggersDiscarded=_JuniL2tpDialoutTargetTriggersDiscarded_Object((1,3,6,1,4,1,4874,2,2,62,1,2,3,7),_JuniL2tpDialoutTargetTriggersDiscarded_Type())
+juniL2tpDialoutTargetTriggersDiscarded.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetTriggersDiscarded.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsTable_Object=MibTable
+juniL2tpDialoutTargetStatisticsTable=_JuniL2tpDialoutTargetStatisticsTable_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4))
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsTable.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsEntry_Object=MibTableRow
+juniL2tpDialoutTargetStatisticsEntry=_JuniL2tpDialoutTargetStatisticsEntry_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1))
+juniL2tpDialoutTargetStatisticsEntry.setIndexNames((0,_B,_R),(0,_B,_S),(0,_B,_T))
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsEntry.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsRouterIndex_Type=Unsigned32
+_JuniL2tpDialoutTargetStatisticsRouterIndex_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsRouterIndex=_JuniL2tpDialoutTargetStatisticsRouterIndex_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,1),_JuniL2tpDialoutTargetStatisticsRouterIndex_Type())
+juniL2tpDialoutTargetStatisticsRouterIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsRouterIndex.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsIpAddress_Type=IpAddress
+_JuniL2tpDialoutTargetStatisticsIpAddress_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsIpAddress=_JuniL2tpDialoutTargetStatisticsIpAddress_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,2),_JuniL2tpDialoutTargetStatisticsIpAddress_Type())
+juniL2tpDialoutTargetStatisticsIpAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsIpAddress.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsIpAddressMask_Type=IpAddress
+_JuniL2tpDialoutTargetStatisticsIpAddressMask_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsIpAddressMask=_JuniL2tpDialoutTargetStatisticsIpAddressMask_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,3),_JuniL2tpDialoutTargetStatisticsIpAddressMask_Type())
+juniL2tpDialoutTargetStatisticsIpAddressMask.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsIpAddressMask.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsTargetsActive_Type=Gauge32
+_JuniL2tpDialoutTargetStatisticsTargetsActive_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsTargetsActive=_JuniL2tpDialoutTargetStatisticsTargetsActive_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,4),_JuniL2tpDialoutTargetStatisticsTargetsActive_Type())
+juniL2tpDialoutTargetStatisticsTargetsActive.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsTargetsActive.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsTargetsCreated_Type=Counter32
+_JuniL2tpDialoutTargetStatisticsTargetsCreated_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsTargetsCreated=_JuniL2tpDialoutTargetStatisticsTargetsCreated_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,5),_JuniL2tpDialoutTargetStatisticsTargetsCreated_Type())
+juniL2tpDialoutTargetStatisticsTargetsCreated.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsTargetsCreated.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsTargetsRemoved_Type=Counter32
+_JuniL2tpDialoutTargetStatisticsTargetsRemoved_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsTargetsRemoved=_JuniL2tpDialoutTargetStatisticsTargetsRemoved_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,6),_JuniL2tpDialoutTargetStatisticsTargetsRemoved_Type())
+juniL2tpDialoutTargetStatisticsTargetsRemoved.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsTargetsRemoved.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsTargetsDown_Type=Gauge32
+_JuniL2tpDialoutTargetStatisticsTargetsDown_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsTargetsDown=_JuniL2tpDialoutTargetStatisticsTargetsDown_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,7),_JuniL2tpDialoutTargetStatisticsTargetsDown_Type())
+juniL2tpDialoutTargetStatisticsTargetsDown.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsTargetsDown.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsTargetsInhibited_Type=Gauge32
+_JuniL2tpDialoutTargetStatisticsTargetsInhibited_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsTargetsInhibited=_JuniL2tpDialoutTargetStatisticsTargetsInhibited_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,8),_JuniL2tpDialoutTargetStatisticsTargetsInhibited_Type())
+juniL2tpDialoutTargetStatisticsTargetsInhibited.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsTargetsInhibited.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsTargetsInService_Type=Gauge32
+_JuniL2tpDialoutTargetStatisticsTargetsInService_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsTargetsInService=_JuniL2tpDialoutTargetStatisticsTargetsInService_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,9),_JuniL2tpDialoutTargetStatisticsTargetsInService_Type())
+juniL2tpDialoutTargetStatisticsTargetsInService.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsTargetsInService.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsSessionsActive_Type=Gauge32
+_JuniL2tpDialoutTargetStatisticsSessionsActive_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsSessionsActive=_JuniL2tpDialoutTargetStatisticsSessionsActive_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,10),_JuniL2tpDialoutTargetStatisticsSessionsActive_Type())
+juniL2tpDialoutTargetStatisticsSessionsActive.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsSessionsActive.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsSessionsCreated_Type=Counter32
+_JuniL2tpDialoutTargetStatisticsSessionsCreated_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsSessionsCreated=_JuniL2tpDialoutTargetStatisticsSessionsCreated_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,11),_JuniL2tpDialoutTargetStatisticsSessionsCreated_Type())
+juniL2tpDialoutTargetStatisticsSessionsCreated.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsSessionsCreated.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsSessionsRemoved_Type=Counter32
+_JuniL2tpDialoutTargetStatisticsSessionsRemoved_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsSessionsRemoved=_JuniL2tpDialoutTargetStatisticsSessionsRemoved_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,12),_JuniL2tpDialoutTargetStatisticsSessionsRemoved_Type())
+juniL2tpDialoutTargetStatisticsSessionsRemoved.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsSessionsRemoved.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsSessionsReset_Type=Counter32
+_JuniL2tpDialoutTargetStatisticsSessionsReset_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsSessionsReset=_JuniL2tpDialoutTargetStatisticsSessionsReset_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,13),_JuniL2tpDialoutTargetStatisticsSessionsReset_Type())
+juniL2tpDialoutTargetStatisticsSessionsReset.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsSessionsReset.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsTriggersReceived_Type=Counter32
+_JuniL2tpDialoutTargetStatisticsTriggersReceived_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsTriggersReceived=_JuniL2tpDialoutTargetStatisticsTriggersReceived_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,14),_JuniL2tpDialoutTargetStatisticsTriggersReceived_Type())
+juniL2tpDialoutTargetStatisticsTriggersReceived.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsTriggersReceived.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsTriggersEnqueued_Type=Gauge32
+_JuniL2tpDialoutTargetStatisticsTriggersEnqueued_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsTriggersEnqueued=_JuniL2tpDialoutTargetStatisticsTriggersEnqueued_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,15),_JuniL2tpDialoutTargetStatisticsTriggersEnqueued_Type())
+juniL2tpDialoutTargetStatisticsTriggersEnqueued.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsTriggersEnqueued.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsTriggersDiscarded_Type=Counter32
+_JuniL2tpDialoutTargetStatisticsTriggersDiscarded_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsTriggersDiscarded=_JuniL2tpDialoutTargetStatisticsTriggersDiscarded_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,16),_JuniL2tpDialoutTargetStatisticsTriggersDiscarded_Type())
+juniL2tpDialoutTargetStatisticsTriggersDiscarded.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsTriggersDiscarded.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsTriggersForwarded_Type=Counter32
+_JuniL2tpDialoutTargetStatisticsTriggersForwarded_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsTriggersForwarded=_JuniL2tpDialoutTargetStatisticsTriggersForwarded_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,17),_JuniL2tpDialoutTargetStatisticsTriggersForwarded_Type())
+juniL2tpDialoutTargetStatisticsTriggersForwarded.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsTriggersForwarded.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsTriggersMaxEnqueued_Type=Gauge32
+_JuniL2tpDialoutTargetStatisticsTriggersMaxEnqueued_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsTriggersMaxEnqueued=_JuniL2tpDialoutTargetStatisticsTriggersMaxEnqueued_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,18),_JuniL2tpDialoutTargetStatisticsTriggersMaxEnqueued_Type())
+juniL2tpDialoutTargetStatisticsTriggersMaxEnqueued.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsTriggersMaxEnqueued.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsAuthenticationRequests_Type=Counter32
+_JuniL2tpDialoutTargetStatisticsAuthenticationRequests_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsAuthenticationRequests=_JuniL2tpDialoutTargetStatisticsAuthenticationRequests_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,19),_JuniL2tpDialoutTargetStatisticsAuthenticationRequests_Type())
+juniL2tpDialoutTargetStatisticsAuthenticationRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsAuthenticationRequests.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsAuthenticationNoResources_Type=Counter32
+_JuniL2tpDialoutTargetStatisticsAuthenticationNoResources_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsAuthenticationNoResources=_JuniL2tpDialoutTargetStatisticsAuthenticationNoResources_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,20),_JuniL2tpDialoutTargetStatisticsAuthenticationNoResources_Type())
+juniL2tpDialoutTargetStatisticsAuthenticationNoResources.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsAuthenticationNoResources.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsAuthenticationGrants_Type=Counter32
+_JuniL2tpDialoutTargetStatisticsAuthenticationGrants_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsAuthenticationGrants=_JuniL2tpDialoutTargetStatisticsAuthenticationGrants_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,21),_JuniL2tpDialoutTargetStatisticsAuthenticationGrants_Type())
+juniL2tpDialoutTargetStatisticsAuthenticationGrants.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsAuthenticationGrants.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsAuthenticationDenies_Type=Counter32
+_JuniL2tpDialoutTargetStatisticsAuthenticationDenies_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsAuthenticationDenies=_JuniL2tpDialoutTargetStatisticsAuthenticationDenies_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,22),_JuniL2tpDialoutTargetStatisticsAuthenticationDenies_Type())
+juniL2tpDialoutTargetStatisticsAuthenticationDenies.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsAuthenticationDenies.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsDialoutsRequested_Type=Counter32
+_JuniL2tpDialoutTargetStatisticsDialoutsRequested_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsDialoutsRequested=_JuniL2tpDialoutTargetStatisticsDialoutsRequested_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,23),_JuniL2tpDialoutTargetStatisticsDialoutsRequested_Type())
+juniL2tpDialoutTargetStatisticsDialoutsRequested.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsDialoutsRequested.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsDialoutsRejected_Type=Counter32
+_JuniL2tpDialoutTargetStatisticsDialoutsRejected_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsDialoutsRejected=_JuniL2tpDialoutTargetStatisticsDialoutsRejected_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,24),_JuniL2tpDialoutTargetStatisticsDialoutsRejected_Type())
+juniL2tpDialoutTargetStatisticsDialoutsRejected.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsDialoutsRejected.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsDialoutsEstablished_Type=Counter32
+_JuniL2tpDialoutTargetStatisticsDialoutsEstablished_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsDialoutsEstablished=_JuniL2tpDialoutTargetStatisticsDialoutsEstablished_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,25),_JuniL2tpDialoutTargetStatisticsDialoutsEstablished_Type())
+juniL2tpDialoutTargetStatisticsDialoutsEstablished.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsDialoutsEstablished.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsDialoutsTimedout_Type=Counter32
+_JuniL2tpDialoutTargetStatisticsDialoutsTimedout_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsDialoutsTimedout=_JuniL2tpDialoutTargetStatisticsDialoutsTimedout_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,26),_JuniL2tpDialoutTargetStatisticsDialoutsTimedout_Type())
+juniL2tpDialoutTargetStatisticsDialoutsTimedout.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsDialoutsTimedout.setStatus(_A)
+_JuniL2tpDialoutTargetStatisticsDialoutsTornDown_Type=Counter32
+_JuniL2tpDialoutTargetStatisticsDialoutsTornDown_Object=MibTableColumn
+juniL2tpDialoutTargetStatisticsDialoutsTornDown=_JuniL2tpDialoutTargetStatisticsDialoutsTornDown_Object((1,3,6,1,4,1,4874,2,2,62,1,2,4,1,27),_JuniL2tpDialoutTargetStatisticsDialoutsTornDown_Type())
+juniL2tpDialoutTargetStatisticsDialoutsTornDown.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsDialoutsTornDown.setStatus(_A)
+_JuniL2tpDialoutTriggerBuffer_ObjectIdentity=ObjectIdentity
+juniL2tpDialoutTriggerBuffer=_JuniL2tpDialoutTriggerBuffer_ObjectIdentity((1,3,6,1,4,1,4874,2,2,62,1,3))
+_JuniL2tpDialoutTriggerBufferTable_Object=MibTable
+juniL2tpDialoutTriggerBufferTable=_JuniL2tpDialoutTriggerBufferTable_Object((1,3,6,1,4,1,4874,2,2,62,1,3,1))
+if mibBuilder.loadTexts:juniL2tpDialoutTriggerBufferTable.setStatus(_A)
+_JuniL2tpDialoutTriggerBufferEntry_Object=MibTableRow
+juniL2tpDialoutTriggerBufferEntry=_JuniL2tpDialoutTriggerBufferEntry_Object((1,3,6,1,4,1,4874,2,2,62,1,3,1,1))
+juniL2tpDialoutTriggerBufferEntry.setIndexNames((0,_B,_U))
+if mibBuilder.loadTexts:juniL2tpDialoutTriggerBufferEntry.setStatus(_A)
+_JuniL2tpDialoutTriggerBufferRouterIndex_Type=Unsigned32
+_JuniL2tpDialoutTriggerBufferRouterIndex_Object=MibTableColumn
+juniL2tpDialoutTriggerBufferRouterIndex=_JuniL2tpDialoutTriggerBufferRouterIndex_Object((1,3,6,1,4,1,4874,2,2,62,1,3,1,1,1),_JuniL2tpDialoutTriggerBufferRouterIndex_Type())
+juniL2tpDialoutTriggerBufferRouterIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutTriggerBufferRouterIndex.setStatus(_A)
+class _JuniL2tpDialoutTriggerBufferCount_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,50))
+_JuniL2tpDialoutTriggerBufferCount_Type.__name__=_H
+_JuniL2tpDialoutTriggerBufferCount_Object=MibTableColumn
+juniL2tpDialoutTriggerBufferCount=_JuniL2tpDialoutTriggerBufferCount_Object((1,3,6,1,4,1,4874,2,2,62,1,3,1,1,2),_JuniL2tpDialoutTriggerBufferCount_Type())
+juniL2tpDialoutTriggerBufferCount.setMaxAccess(_F)
+if mibBuilder.loadTexts:juniL2tpDialoutTriggerBufferCount.setStatus(_A)
+_JuniL2tpDialoutSession_ObjectIdentity=ObjectIdentity
+juniL2tpDialoutSession=_JuniL2tpDialoutSession_ObjectIdentity((1,3,6,1,4,1,4874,2,2,62,1,4))
+_JuniL2tpDialoutSessionConfigTable_Object=MibTable
+juniL2tpDialoutSessionConfigTable=_JuniL2tpDialoutSessionConfigTable_Object((1,3,6,1,4,1,4874,2,2,62,1,4,1))
+if mibBuilder.loadTexts:juniL2tpDialoutSessionConfigTable.setStatus(_A)
+_JuniL2tpDialoutSessionConfigEntry_Object=MibTableRow
+juniL2tpDialoutSessionConfigEntry=_JuniL2tpDialoutSessionConfigEntry_Object((1,3,6,1,4,1,4874,2,2,62,1,4,1,1))
+juniL2tpDialoutSessionConfigEntry.setIndexNames((0,_B,_V),(0,_B,_W),(0,_B,_X),(0,_B,_Y))
+if mibBuilder.loadTexts:juniL2tpDialoutSessionConfigEntry.setStatus(_A)
+_JuniL2tpDialoutSessionConfigHandle_Type=IpAddress
+_JuniL2tpDialoutSessionConfigHandle_Object=MibTableColumn
+juniL2tpDialoutSessionConfigHandle=_JuniL2tpDialoutSessionConfigHandle_Object((1,3,6,1,4,1,4874,2,2,62,1,4,1,1,1),_JuniL2tpDialoutSessionConfigHandle_Type())
+juniL2tpDialoutSessionConfigHandle.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionConfigHandle.setStatus(_A)
+_JuniL2tpDialoutSessionConfigTargetIpAddress_Type=IpAddress
+_JuniL2tpDialoutSessionConfigTargetIpAddress_Object=MibTableColumn
+juniL2tpDialoutSessionConfigTargetIpAddress=_JuniL2tpDialoutSessionConfigTargetIpAddress_Object((1,3,6,1,4,1,4874,2,2,62,1,4,1,1,2),_JuniL2tpDialoutSessionConfigTargetIpAddress_Type())
+juniL2tpDialoutSessionConfigTargetIpAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionConfigTargetIpAddress.setStatus(_A)
+_JuniL2tpDialoutSessionConfigTargetIpAddressMask_Type=IpAddress
+_JuniL2tpDialoutSessionConfigTargetIpAddressMask_Object=MibTableColumn
+juniL2tpDialoutSessionConfigTargetIpAddressMask=_JuniL2tpDialoutSessionConfigTargetIpAddressMask_Object((1,3,6,1,4,1,4874,2,2,62,1,4,1,1,3),_JuniL2tpDialoutSessionConfigTargetIpAddressMask_Type())
+juniL2tpDialoutSessionConfigTargetIpAddressMask.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionConfigTargetIpAddressMask.setStatus(_A)
+_JuniL2tpDialoutSessionConfigRouterIndex_Type=Unsigned32
+_JuniL2tpDialoutSessionConfigRouterIndex_Object=MibTableColumn
+juniL2tpDialoutSessionConfigRouterIndex=_JuniL2tpDialoutSessionConfigRouterIndex_Object((1,3,6,1,4,1,4874,2,2,62,1,4,1,1,4),_JuniL2tpDialoutSessionConfigRouterIndex_Type())
+juniL2tpDialoutSessionConfigRouterIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionConfigRouterIndex.setStatus(_A)
+class _JuniL2tpDialoutSessionConfigControl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('operational',0),('reset',1)))
+_JuniL2tpDialoutSessionConfigControl_Type.__name__=_E
+_JuniL2tpDialoutSessionConfigControl_Object=MibTableColumn
+juniL2tpDialoutSessionConfigControl=_JuniL2tpDialoutSessionConfigControl_Object((1,3,6,1,4,1,4874,2,2,62,1,4,1,1,5),_JuniL2tpDialoutSessionConfigControl_Type())
+juniL2tpDialoutSessionConfigControl.setMaxAccess(_F)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionConfigControl.setStatus(_A)
+_JuniL2tpDialoutSessionConfigRowStatus_Type=RowStatus
+_JuniL2tpDialoutSessionConfigRowStatus_Object=MibTableColumn
+juniL2tpDialoutSessionConfigRowStatus=_JuniL2tpDialoutSessionConfigRowStatus_Object((1,3,6,1,4,1,4874,2,2,62,1,4,1,1,6),_JuniL2tpDialoutSessionConfigRowStatus_Type())
+juniL2tpDialoutSessionConfigRowStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionConfigRowStatus.setStatus(_A)
+_JuniL2tpDialoutSessionStatusTable_Object=MibTable
+juniL2tpDialoutSessionStatusTable=_JuniL2tpDialoutSessionStatusTable_Object((1,3,6,1,4,1,4874,2,2,62,1,4,2))
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatusTable.setStatus(_A)
+_JuniL2tpDialoutSessionStatusEntry_Object=MibTableRow
+juniL2tpDialoutSessionStatusEntry=_JuniL2tpDialoutSessionStatusEntry_Object((1,3,6,1,4,1,4874,2,2,62,1,4,2,1))
+juniL2tpDialoutSessionStatusEntry.setIndexNames((0,_B,_Z),(0,_B,_a),(0,_B,_b),(0,_B,_c))
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatusEntry.setStatus(_A)
+_JuniL2tpDialoutSessionStatusHandle_Type=IpAddress
+_JuniL2tpDialoutSessionStatusHandle_Object=MibTableColumn
+juniL2tpDialoutSessionStatusHandle=_JuniL2tpDialoutSessionStatusHandle_Object((1,3,6,1,4,1,4874,2,2,62,1,4,2,1,1),_JuniL2tpDialoutSessionStatusHandle_Type())
+juniL2tpDialoutSessionStatusHandle.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatusHandle.setStatus(_A)
+_JuniL2tpDialoutSessionStatusTargetIpAddress_Type=IpAddress
+_JuniL2tpDialoutSessionStatusTargetIpAddress_Object=MibTableColumn
+juniL2tpDialoutSessionStatusTargetIpAddress=_JuniL2tpDialoutSessionStatusTargetIpAddress_Object((1,3,6,1,4,1,4874,2,2,62,1,4,2,1,2),_JuniL2tpDialoutSessionStatusTargetIpAddress_Type())
+juniL2tpDialoutSessionStatusTargetIpAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatusTargetIpAddress.setStatus(_A)
+_JuniL2tpDialoutSessionStatusTargetIpAddressMask_Type=IpAddress
+_JuniL2tpDialoutSessionStatusTargetIpAddressMask_Object=MibTableColumn
+juniL2tpDialoutSessionStatusTargetIpAddressMask=_JuniL2tpDialoutSessionStatusTargetIpAddressMask_Object((1,3,6,1,4,1,4874,2,2,62,1,4,2,1,3),_JuniL2tpDialoutSessionStatusTargetIpAddressMask_Type())
+juniL2tpDialoutSessionStatusTargetIpAddressMask.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatusTargetIpAddressMask.setStatus(_A)
+_JuniL2tpDialoutSessionStatusRouterIndex_Type=Unsigned32
+_JuniL2tpDialoutSessionStatusRouterIndex_Object=MibTableColumn
+juniL2tpDialoutSessionStatusRouterIndex=_JuniL2tpDialoutSessionStatusRouterIndex_Object((1,3,6,1,4,1,4874,2,2,62,1,4,2,1,4),_JuniL2tpDialoutSessionStatusRouterIndex_Type())
+juniL2tpDialoutSessionStatusRouterIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatusRouterIndex.setStatus(_A)
+class _JuniL2tpDialoutSessionStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('dormant',1),('pending',2),('authenticating',3),('connecting',4),(_G,5),(_Q,6),('postInhibited',7),('failed',8)))
+_JuniL2tpDialoutSessionStatus_Type.__name__=_E
+_JuniL2tpDialoutSessionStatus_Object=MibTableColumn
+juniL2tpDialoutSessionStatus=_JuniL2tpDialoutSessionStatus_Object((1,3,6,1,4,1,4874,2,2,62,1,4,2,1,5),_JuniL2tpDialoutSessionStatus_Type())
+juniL2tpDialoutSessionStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatus.setStatus(_A)
+_JuniL2tpDialoutSessionSystemStatistics_ObjectIdentity=ObjectIdentity
+juniL2tpDialoutSessionSystemStatistics=_JuniL2tpDialoutSessionSystemStatistics_ObjectIdentity((1,3,6,1,4,1,4874,2,2,62,1,4,3))
+_JuniL2tpDialoutSessionsActive_Type=Gauge32
+_JuniL2tpDialoutSessionsActive_Object=MibScalar
+juniL2tpDialoutSessionsActive=_JuniL2tpDialoutSessionsActive_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,1),_JuniL2tpDialoutSessionsActive_Type())
+juniL2tpDialoutSessionsActive.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionsActive.setStatus(_A)
+_JuniL2tpDialoutSessionsCreated_Type=Counter32
+_JuniL2tpDialoutSessionsCreated_Object=MibScalar
+juniL2tpDialoutSessionsCreated=_JuniL2tpDialoutSessionsCreated_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,2),_JuniL2tpDialoutSessionsCreated_Type())
+juniL2tpDialoutSessionsCreated.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionsCreated.setStatus(_A)
+_JuniL2tpDialoutSessionsRemoved_Type=Counter32
+_JuniL2tpDialoutSessionsRemoved_Object=MibScalar
+juniL2tpDialoutSessionsRemoved=_JuniL2tpDialoutSessionsRemoved_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,3),_JuniL2tpDialoutSessionsRemoved_Type())
+juniL2tpDialoutSessionsRemoved.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionsRemoved.setStatus(_A)
+_JuniL2tpDialoutSessionsReset_Type=Counter32
+_JuniL2tpDialoutSessionsReset_Object=MibScalar
+juniL2tpDialoutSessionsReset=_JuniL2tpDialoutSessionsReset_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,4),_JuniL2tpDialoutSessionsReset_Type())
+juniL2tpDialoutSessionsReset.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionsReset.setStatus(_A)
+_JuniL2tpDialoutSessionTriggersReceived_Type=Counter32
+_JuniL2tpDialoutSessionTriggersReceived_Object=MibScalar
+juniL2tpDialoutSessionTriggersReceived=_JuniL2tpDialoutSessionTriggersReceived_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,5),_JuniL2tpDialoutSessionTriggersReceived_Type())
+juniL2tpDialoutSessionTriggersReceived.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionTriggersReceived.setStatus(_A)
+_JuniL2tpDialoutSessionTriggersEnqueued_Type=Counter32
+_JuniL2tpDialoutSessionTriggersEnqueued_Object=MibScalar
+juniL2tpDialoutSessionTriggersEnqueued=_JuniL2tpDialoutSessionTriggersEnqueued_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,6),_JuniL2tpDialoutSessionTriggersEnqueued_Type())
+juniL2tpDialoutSessionTriggersEnqueued.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionTriggersEnqueued.setStatus(_A)
+_JuniL2tpDialoutSessionTriggersDiscarded_Type=Counter32
+_JuniL2tpDialoutSessionTriggersDiscarded_Object=MibScalar
+juniL2tpDialoutSessionTriggersDiscarded=_JuniL2tpDialoutSessionTriggersDiscarded_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,7),_JuniL2tpDialoutSessionTriggersDiscarded_Type())
+juniL2tpDialoutSessionTriggersDiscarded.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionTriggersDiscarded.setStatus(_A)
+_JuniL2tpDialoutSessionTriggersForwarded_Type=Counter32
+_JuniL2tpDialoutSessionTriggersForwarded_Object=MibScalar
+juniL2tpDialoutSessionTriggersForwarded=_JuniL2tpDialoutSessionTriggersForwarded_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,8),_JuniL2tpDialoutSessionTriggersForwarded_Type())
+juniL2tpDialoutSessionTriggersForwarded.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionTriggersForwarded.setStatus(_A)
+_JuniL2tpDialoutSessionTriggersMaxEnqueued_Type=Gauge32
+_JuniL2tpDialoutSessionTriggersMaxEnqueued_Object=MibScalar
+juniL2tpDialoutSessionTriggersMaxEnqueued=_JuniL2tpDialoutSessionTriggersMaxEnqueued_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,9),_JuniL2tpDialoutSessionTriggersMaxEnqueued_Type())
+juniL2tpDialoutSessionTriggersMaxEnqueued.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionTriggersMaxEnqueued.setStatus(_A)
+_JuniL2tpDialoutSessionAuthenticationRequests_Type=Counter32
+_JuniL2tpDialoutSessionAuthenticationRequests_Object=MibScalar
+juniL2tpDialoutSessionAuthenticationRequests=_JuniL2tpDialoutSessionAuthenticationRequests_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,10),_JuniL2tpDialoutSessionAuthenticationRequests_Type())
+juniL2tpDialoutSessionAuthenticationRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionAuthenticationRequests.setStatus(_A)
+_JuniL2tpDialoutSessionAuthenticationNoResources_Type=Counter32
+_JuniL2tpDialoutSessionAuthenticationNoResources_Object=MibScalar
+juniL2tpDialoutSessionAuthenticationNoResources=_JuniL2tpDialoutSessionAuthenticationNoResources_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,11),_JuniL2tpDialoutSessionAuthenticationNoResources_Type())
+juniL2tpDialoutSessionAuthenticationNoResources.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionAuthenticationNoResources.setStatus(_A)
+_JuniL2tpDialoutSessionAuthenticationGrants_Type=Counter32
+_JuniL2tpDialoutSessionAuthenticationGrants_Object=MibScalar
+juniL2tpDialoutSessionAuthenticationGrants=_JuniL2tpDialoutSessionAuthenticationGrants_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,12),_JuniL2tpDialoutSessionAuthenticationGrants_Type())
+juniL2tpDialoutSessionAuthenticationGrants.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionAuthenticationGrants.setStatus(_A)
+_JuniL2tpDialoutSessionAuthenticationDenies_Type=Counter32
+_JuniL2tpDialoutSessionAuthenticationDenies_Object=MibScalar
+juniL2tpDialoutSessionAuthenticationDenies=_JuniL2tpDialoutSessionAuthenticationDenies_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,13),_JuniL2tpDialoutSessionAuthenticationDenies_Type())
+juniL2tpDialoutSessionAuthenticationDenies.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionAuthenticationDenies.setStatus(_A)
+_JuniL2tpDialoutSessionDialoutsRequested_Type=Counter32
+_JuniL2tpDialoutSessionDialoutsRequested_Object=MibScalar
+juniL2tpDialoutSessionDialoutsRequested=_JuniL2tpDialoutSessionDialoutsRequested_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,14),_JuniL2tpDialoutSessionDialoutsRequested_Type())
+juniL2tpDialoutSessionDialoutsRequested.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionDialoutsRequested.setStatus(_A)
+_JuniL2tpDialoutSessionDialoutsRejected_Type=Counter32
+_JuniL2tpDialoutSessionDialoutsRejected_Object=MibScalar
+juniL2tpDialoutSessionDialoutsRejected=_JuniL2tpDialoutSessionDialoutsRejected_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,15),_JuniL2tpDialoutSessionDialoutsRejected_Type())
+juniL2tpDialoutSessionDialoutsRejected.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionDialoutsRejected.setStatus(_A)
+_JuniL2tpDialoutSessionDialoutsEstablished_Type=Counter32
+_JuniL2tpDialoutSessionDialoutsEstablished_Object=MibScalar
+juniL2tpDialoutSessionDialoutsEstablished=_JuniL2tpDialoutSessionDialoutsEstablished_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,16),_JuniL2tpDialoutSessionDialoutsEstablished_Type())
+juniL2tpDialoutSessionDialoutsEstablished.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionDialoutsEstablished.setStatus(_A)
+_JuniL2tpDialoutSessionDialoutsTimedout_Type=Counter32
+_JuniL2tpDialoutSessionDialoutsTimedout_Object=MibScalar
+juniL2tpDialoutSessionDialoutsTimedout=_JuniL2tpDialoutSessionDialoutsTimedout_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,17),_JuniL2tpDialoutSessionDialoutsTimedout_Type())
+juniL2tpDialoutSessionDialoutsTimedout.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionDialoutsTimedout.setStatus(_A)
+_JuniL2tpDialoutSessionDialoutsTornDown_Type=Counter32
+_JuniL2tpDialoutSessionDialoutsTornDown_Object=MibScalar
+juniL2tpDialoutSessionDialoutsTornDown=_JuniL2tpDialoutSessionDialoutsTornDown_Object((1,3,6,1,4,1,4874,2,2,62,1,4,3,18),_JuniL2tpDialoutSessionDialoutsTornDown_Type())
+juniL2tpDialoutSessionDialoutsTornDown.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionDialoutsTornDown.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsTable_Object=MibTable
+juniL2tpDialoutSessionStatisticsTable=_JuniL2tpDialoutSessionStatisticsTable_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4))
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsTable.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsEntry_Object=MibTableRow
+juniL2tpDialoutSessionStatisticsEntry=_JuniL2tpDialoutSessionStatisticsEntry_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1))
+juniL2tpDialoutSessionStatisticsEntry.setIndexNames((0,_B,_d),(0,_B,_e),(0,_B,_f),(0,_B,_g))
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsEntry.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsHandle_Type=IpAddress
+_JuniL2tpDialoutSessionStatisticsHandle_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsHandle=_JuniL2tpDialoutSessionStatisticsHandle_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,1),_JuniL2tpDialoutSessionStatisticsHandle_Type())
+juniL2tpDialoutSessionStatisticsHandle.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsHandle.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsTargetIpAddress_Type=IpAddress
+_JuniL2tpDialoutSessionStatisticsTargetIpAddress_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsTargetIpAddress=_JuniL2tpDialoutSessionStatisticsTargetIpAddress_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,2),_JuniL2tpDialoutSessionStatisticsTargetIpAddress_Type())
+juniL2tpDialoutSessionStatisticsTargetIpAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsTargetIpAddress.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsTargetIpAddressMask_Type=IpAddress
+_JuniL2tpDialoutSessionStatisticsTargetIpAddressMask_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsTargetIpAddressMask=_JuniL2tpDialoutSessionStatisticsTargetIpAddressMask_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,3),_JuniL2tpDialoutSessionStatisticsTargetIpAddressMask_Type())
+juniL2tpDialoutSessionStatisticsTargetIpAddressMask.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsTargetIpAddressMask.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsRouterIndex_Type=Unsigned32
+_JuniL2tpDialoutSessionStatisticsRouterIndex_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsRouterIndex=_JuniL2tpDialoutSessionStatisticsRouterIndex_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,4),_JuniL2tpDialoutSessionStatisticsRouterIndex_Type())
+juniL2tpDialoutSessionStatisticsRouterIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsRouterIndex.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsSessionsActive_Type=Gauge32
+_JuniL2tpDialoutSessionStatisticsSessionsActive_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsSessionsActive=_JuniL2tpDialoutSessionStatisticsSessionsActive_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,5),_JuniL2tpDialoutSessionStatisticsSessionsActive_Type())
+juniL2tpDialoutSessionStatisticsSessionsActive.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsSessionsActive.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsSessionsCreated_Type=Counter32
+_JuniL2tpDialoutSessionStatisticsSessionsCreated_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsSessionsCreated=_JuniL2tpDialoutSessionStatisticsSessionsCreated_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,6),_JuniL2tpDialoutSessionStatisticsSessionsCreated_Type())
+juniL2tpDialoutSessionStatisticsSessionsCreated.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsSessionsCreated.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsSessionsRemoved_Type=Counter32
+_JuniL2tpDialoutSessionStatisticsSessionsRemoved_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsSessionsRemoved=_JuniL2tpDialoutSessionStatisticsSessionsRemoved_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,7),_JuniL2tpDialoutSessionStatisticsSessionsRemoved_Type())
+juniL2tpDialoutSessionStatisticsSessionsRemoved.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsSessionsRemoved.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsSessionsReset_Type=Counter32
+_JuniL2tpDialoutSessionStatisticsSessionsReset_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsSessionsReset=_JuniL2tpDialoutSessionStatisticsSessionsReset_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,8),_JuniL2tpDialoutSessionStatisticsSessionsReset_Type())
+juniL2tpDialoutSessionStatisticsSessionsReset.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsSessionsReset.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsTriggersReceived_Type=Counter32
+_JuniL2tpDialoutSessionStatisticsTriggersReceived_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsTriggersReceived=_JuniL2tpDialoutSessionStatisticsTriggersReceived_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,9),_JuniL2tpDialoutSessionStatisticsTriggersReceived_Type())
+juniL2tpDialoutSessionStatisticsTriggersReceived.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsTriggersReceived.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsTriggersEnqueued_Type=Gauge32
+_JuniL2tpDialoutSessionStatisticsTriggersEnqueued_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsTriggersEnqueued=_JuniL2tpDialoutSessionStatisticsTriggersEnqueued_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,10),_JuniL2tpDialoutSessionStatisticsTriggersEnqueued_Type())
+juniL2tpDialoutSessionStatisticsTriggersEnqueued.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsTriggersEnqueued.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsTriggersDiscarded_Type=Counter32
+_JuniL2tpDialoutSessionStatisticsTriggersDiscarded_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsTriggersDiscarded=_JuniL2tpDialoutSessionStatisticsTriggersDiscarded_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,11),_JuniL2tpDialoutSessionStatisticsTriggersDiscarded_Type())
+juniL2tpDialoutSessionStatisticsTriggersDiscarded.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsTriggersDiscarded.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsTriggersForwarded_Type=Counter32
+_JuniL2tpDialoutSessionStatisticsTriggersForwarded_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsTriggersForwarded=_JuniL2tpDialoutSessionStatisticsTriggersForwarded_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,12),_JuniL2tpDialoutSessionStatisticsTriggersForwarded_Type())
+juniL2tpDialoutSessionStatisticsTriggersForwarded.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsTriggersForwarded.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsTriggersMaxEnqueued_Type=Gauge32
+_JuniL2tpDialoutSessionStatisticsTriggersMaxEnqueued_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsTriggersMaxEnqueued=_JuniL2tpDialoutSessionStatisticsTriggersMaxEnqueued_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,13),_JuniL2tpDialoutSessionStatisticsTriggersMaxEnqueued_Type())
+juniL2tpDialoutSessionStatisticsTriggersMaxEnqueued.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsTriggersMaxEnqueued.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsAuthenticationRequests_Type=Counter32
+_JuniL2tpDialoutSessionStatisticsAuthenticationRequests_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsAuthenticationRequests=_JuniL2tpDialoutSessionStatisticsAuthenticationRequests_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,14),_JuniL2tpDialoutSessionStatisticsAuthenticationRequests_Type())
+juniL2tpDialoutSessionStatisticsAuthenticationRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsAuthenticationRequests.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsAuthenticationNoResources_Type=Counter32
+_JuniL2tpDialoutSessionStatisticsAuthenticationNoResources_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsAuthenticationNoResources=_JuniL2tpDialoutSessionStatisticsAuthenticationNoResources_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,15),_JuniL2tpDialoutSessionStatisticsAuthenticationNoResources_Type())
+juniL2tpDialoutSessionStatisticsAuthenticationNoResources.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsAuthenticationNoResources.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsAuthenticationGrants_Type=Counter32
+_JuniL2tpDialoutSessionStatisticsAuthenticationGrants_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsAuthenticationGrants=_JuniL2tpDialoutSessionStatisticsAuthenticationGrants_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,16),_JuniL2tpDialoutSessionStatisticsAuthenticationGrants_Type())
+juniL2tpDialoutSessionStatisticsAuthenticationGrants.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsAuthenticationGrants.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsAuthenticationDenies_Type=Counter32
+_JuniL2tpDialoutSessionStatisticsAuthenticationDenies_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsAuthenticationDenies=_JuniL2tpDialoutSessionStatisticsAuthenticationDenies_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,17),_JuniL2tpDialoutSessionStatisticsAuthenticationDenies_Type())
+juniL2tpDialoutSessionStatisticsAuthenticationDenies.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsAuthenticationDenies.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsDialoutsRequested_Type=Counter32
+_JuniL2tpDialoutSessionStatisticsDialoutsRequested_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsDialoutsRequested=_JuniL2tpDialoutSessionStatisticsDialoutsRequested_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,18),_JuniL2tpDialoutSessionStatisticsDialoutsRequested_Type())
+juniL2tpDialoutSessionStatisticsDialoutsRequested.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsDialoutsRequested.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsDialoutsRejected_Type=Counter32
+_JuniL2tpDialoutSessionStatisticsDialoutsRejected_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsDialoutsRejected=_JuniL2tpDialoutSessionStatisticsDialoutsRejected_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,19),_JuniL2tpDialoutSessionStatisticsDialoutsRejected_Type())
+juniL2tpDialoutSessionStatisticsDialoutsRejected.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsDialoutsRejected.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsDialoutsEstablished_Type=Counter32
+_JuniL2tpDialoutSessionStatisticsDialoutsEstablished_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsDialoutsEstablished=_JuniL2tpDialoutSessionStatisticsDialoutsEstablished_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,20),_JuniL2tpDialoutSessionStatisticsDialoutsEstablished_Type())
+juniL2tpDialoutSessionStatisticsDialoutsEstablished.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsDialoutsEstablished.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsDialoutsTimedout_Type=Counter32
+_JuniL2tpDialoutSessionStatisticsDialoutsTimedout_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsDialoutsTimedout=_JuniL2tpDialoutSessionStatisticsDialoutsTimedout_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,21),_JuniL2tpDialoutSessionStatisticsDialoutsTimedout_Type())
+juniL2tpDialoutSessionStatisticsDialoutsTimedout.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsDialoutsTimedout.setStatus(_A)
+_JuniL2tpDialoutSessionStatisticsDialoutsTornDown_Type=Counter32
+_JuniL2tpDialoutSessionStatisticsDialoutsTornDown_Object=MibTableColumn
+juniL2tpDialoutSessionStatisticsDialoutsTornDown=_JuniL2tpDialoutSessionStatisticsDialoutsTornDown_Object((1,3,6,1,4,1,4874,2,2,62,1,4,4,1,22),_JuniL2tpDialoutSessionStatisticsDialoutsTornDown_Type())
+juniL2tpDialoutSessionStatisticsDialoutsTornDown.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsDialoutsTornDown.setStatus(_A)
+_JuniL2tpDialoutVRouter_ObjectIdentity=ObjectIdentity
+juniL2tpDialoutVRouter=_JuniL2tpDialoutVRouter_ObjectIdentity((1,3,6,1,4,1,4874,2,2,62,1,5))
+_JuniL2tpDialoutVRouterStatusTable_Object=MibTable
+juniL2tpDialoutVRouterStatusTable=_JuniL2tpDialoutVRouterStatusTable_Object((1,3,6,1,4,1,4874,2,2,62,1,5,1))
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatusTable.setStatus(_A)
+_JuniL2tpDialoutVRouterStatusEntry_Object=MibTableRow
+juniL2tpDialoutVRouterStatusEntry=_JuniL2tpDialoutVRouterStatusEntry_Object((1,3,6,1,4,1,4874,2,2,62,1,5,1,1))
+juniL2tpDialoutVRouterStatusEntry.setIndexNames((0,_B,_h))
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatusEntry.setStatus(_A)
+_JuniL2tpDialoutVRouterStatusRouterIndex_Type=Unsigned32
+_JuniL2tpDialoutVRouterStatusRouterIndex_Object=MibTableColumn
+juniL2tpDialoutVRouterStatusRouterIndex=_JuniL2tpDialoutVRouterStatusRouterIndex_Object((1,3,6,1,4,1,4874,2,2,62,1,5,1,1,1),_JuniL2tpDialoutVRouterStatusRouterIndex_Type())
+juniL2tpDialoutVRouterStatusRouterIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatusRouterIndex.setStatus(_A)
+class _JuniL2tpDialoutVRouterStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('initPending',0),('initFailed',1),('down',2),(_G,3)))
+_JuniL2tpDialoutVRouterStatus_Type.__name__=_E
+_JuniL2tpDialoutVRouterStatus_Object=MibTableColumn
+juniL2tpDialoutVRouterStatus=_JuniL2tpDialoutVRouterStatus_Object((1,3,6,1,4,1,4874,2,2,62,1,5,1,1,2),_JuniL2tpDialoutVRouterStatus_Type())
+juniL2tpDialoutVRouterStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatus.setStatus(_A)
+_JuniL2tpDialoutVRouterSystemStatistics_ObjectIdentity=ObjectIdentity
+juniL2tpDialoutVRouterSystemStatistics=_JuniL2tpDialoutVRouterSystemStatistics_ObjectIdentity((1,3,6,1,4,1,4874,2,2,62,1,5,2))
+_JuniL2tpDialoutVRoutersActive_Type=Gauge32
+_JuniL2tpDialoutVRoutersActive_Object=MibScalar
+juniL2tpDialoutVRoutersActive=_JuniL2tpDialoutVRoutersActive_Object((1,3,6,1,4,1,4874,2,2,62,1,5,2,1),_JuniL2tpDialoutVRoutersActive_Type())
+juniL2tpDialoutVRoutersActive.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRoutersActive.setStatus(_A)
+_JuniL2tpDialoutVRoutersCreated_Type=Counter32
+_JuniL2tpDialoutVRoutersCreated_Object=MibScalar
+juniL2tpDialoutVRoutersCreated=_JuniL2tpDialoutVRoutersCreated_Object((1,3,6,1,4,1,4874,2,2,62,1,5,2,2),_JuniL2tpDialoutVRoutersCreated_Type())
+juniL2tpDialoutVRoutersCreated.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRoutersCreated.setStatus(_A)
+_JuniL2tpDialoutVRoutersRemoved_Type=Counter32
+_JuniL2tpDialoutVRoutersRemoved_Object=MibScalar
+juniL2tpDialoutVRoutersRemoved=_JuniL2tpDialoutVRoutersRemoved_Object((1,3,6,1,4,1,4874,2,2,62,1,5,2,3),_JuniL2tpDialoutVRoutersRemoved_Type())
+juniL2tpDialoutVRoutersRemoved.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRoutersRemoved.setStatus(_A)
+_JuniL2tpDialoutVRoutersInitPending_Type=Gauge32
+_JuniL2tpDialoutVRoutersInitPending_Object=MibScalar
+juniL2tpDialoutVRoutersInitPending=_JuniL2tpDialoutVRoutersInitPending_Object((1,3,6,1,4,1,4874,2,2,62,1,5,2,4),_JuniL2tpDialoutVRoutersInitPending_Type())
+juniL2tpDialoutVRoutersInitPending.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRoutersInitPending.setStatus(_A)
+_JuniL2tpDialoutVRoutersInitFailed_Type=Gauge32
+_JuniL2tpDialoutVRoutersInitFailed_Object=MibScalar
+juniL2tpDialoutVRoutersInitFailed=_JuniL2tpDialoutVRoutersInitFailed_Object((1,3,6,1,4,1,4874,2,2,62,1,5,2,5),_JuniL2tpDialoutVRoutersInitFailed_Type())
+juniL2tpDialoutVRoutersInitFailed.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRoutersInitFailed.setStatus(_A)
+_JuniL2tpDialoutVRoutersDown_Type=Gauge32
+_JuniL2tpDialoutVRoutersDown_Object=MibScalar
+juniL2tpDialoutVRoutersDown=_JuniL2tpDialoutVRoutersDown_Object((1,3,6,1,4,1,4874,2,2,62,1,5,2,6),_JuniL2tpDialoutVRoutersDown_Type())
+juniL2tpDialoutVRoutersDown.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRoutersDown.setStatus(_A)
+_JuniL2tpDialoutVRoutersInService_Type=Gauge32
+_JuniL2tpDialoutVRoutersInService_Object=MibScalar
+juniL2tpDialoutVRoutersInService=_JuniL2tpDialoutVRoutersInService_Object((1,3,6,1,4,1,4874,2,2,62,1,5,2,7),_JuniL2tpDialoutVRoutersInService_Type())
+juniL2tpDialoutVRoutersInService.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRoutersInService.setStatus(_A)
+_JuniL2tpDialoutVRoutersTriggersMissed_Type=Counter32
+_JuniL2tpDialoutVRoutersTriggersMissed_Object=MibScalar
+juniL2tpDialoutVRoutersTriggersMissed=_JuniL2tpDialoutVRoutersTriggersMissed_Object((1,3,6,1,4,1,4874,2,2,62,1,5,2,8),_JuniL2tpDialoutVRoutersTriggersMissed_Type())
+juniL2tpDialoutVRoutersTriggersMissed.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRoutersTriggersMissed.setStatus(_A)
+_JuniL2tpDialoutVRoutersTriggerRouteUnknown_Type=Counter32
+_JuniL2tpDialoutVRoutersTriggerRouteUnknown_Object=MibScalar
+juniL2tpDialoutVRoutersTriggerRouteUnknown=_JuniL2tpDialoutVRoutersTriggerRouteUnknown_Object((1,3,6,1,4,1,4874,2,2,62,1,5,2,9),_JuniL2tpDialoutVRoutersTriggerRouteUnknown_Type())
+juniL2tpDialoutVRoutersTriggerRouteUnknown.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRoutersTriggerRouteUnknown.setStatus(_A)
+_JuniL2tpDialoutVRoutersSessionsDormant_Type=Gauge32
+_JuniL2tpDialoutVRoutersSessionsDormant_Object=MibScalar
+juniL2tpDialoutVRoutersSessionsDormant=_JuniL2tpDialoutVRoutersSessionsDormant_Object((1,3,6,1,4,1,4874,2,2,62,1,5,2,10),_JuniL2tpDialoutVRoutersSessionsDormant_Type())
+juniL2tpDialoutVRoutersSessionsDormant.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRoutersSessionsDormant.setStatus(_A)
+_JuniL2tpDialoutVRoutersSessionsPending_Type=Gauge32
+_JuniL2tpDialoutVRoutersSessionsPending_Object=MibScalar
+juniL2tpDialoutVRoutersSessionsPending=_JuniL2tpDialoutVRoutersSessionsPending_Object((1,3,6,1,4,1,4874,2,2,62,1,5,2,11),_JuniL2tpDialoutVRoutersSessionsPending_Type())
+juniL2tpDialoutVRoutersSessionsPending.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRoutersSessionsPending.setStatus(_A)
+_JuniL2tpDialoutVRoutersSessionsAuthenticating_Type=Gauge32
+_JuniL2tpDialoutVRoutersSessionsAuthenticating_Object=MibScalar
+juniL2tpDialoutVRoutersSessionsAuthenticating=_JuniL2tpDialoutVRoutersSessionsAuthenticating_Object((1,3,6,1,4,1,4874,2,2,62,1,5,2,12),_JuniL2tpDialoutVRoutersSessionsAuthenticating_Type())
+juniL2tpDialoutVRoutersSessionsAuthenticating.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRoutersSessionsAuthenticating.setStatus(_A)
+_JuniL2tpDialoutVRoutersSessionsConnecting_Type=Gauge32
+_JuniL2tpDialoutVRoutersSessionsConnecting_Object=MibScalar
+juniL2tpDialoutVRoutersSessionsConnecting=_JuniL2tpDialoutVRoutersSessionsConnecting_Object((1,3,6,1,4,1,4874,2,2,62,1,5,2,13),_JuniL2tpDialoutVRoutersSessionsConnecting_Type())
+juniL2tpDialoutVRoutersSessionsConnecting.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRoutersSessionsConnecting.setStatus(_A)
+_JuniL2tpDialoutVRoutersSessionsInService_Type=Gauge32
+_JuniL2tpDialoutVRoutersSessionsInService_Object=MibScalar
+juniL2tpDialoutVRoutersSessionsInService=_JuniL2tpDialoutVRoutersSessionsInService_Object((1,3,6,1,4,1,4874,2,2,62,1,5,2,14),_JuniL2tpDialoutVRoutersSessionsInService_Type())
+juniL2tpDialoutVRoutersSessionsInService.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRoutersSessionsInService.setStatus(_A)
+_JuniL2tpDialoutVRoutersSessionsInhibited_Type=Gauge32
+_JuniL2tpDialoutVRoutersSessionsInhibited_Object=MibScalar
+juniL2tpDialoutVRoutersSessionsInhibited=_JuniL2tpDialoutVRoutersSessionsInhibited_Object((1,3,6,1,4,1,4874,2,2,62,1,5,2,15),_JuniL2tpDialoutVRoutersSessionsInhibited_Type())
+juniL2tpDialoutVRoutersSessionsInhibited.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRoutersSessionsInhibited.setStatus(_A)
+_JuniL2tpDialoutVRoutersSessionsPostInhibited_Type=Gauge32
+_JuniL2tpDialoutVRoutersSessionsPostInhibited_Object=MibScalar
+juniL2tpDialoutVRoutersSessionsPostInhibited=_JuniL2tpDialoutVRoutersSessionsPostInhibited_Object((1,3,6,1,4,1,4874,2,2,62,1,5,2,16),_JuniL2tpDialoutVRoutersSessionsPostInhibited_Type())
+juniL2tpDialoutVRoutersSessionsPostInhibited.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRoutersSessionsPostInhibited.setStatus(_A)
+_JuniL2tpDialoutVRoutersSessionsFailed_Type=Gauge32
+_JuniL2tpDialoutVRoutersSessionsFailed_Object=MibScalar
+juniL2tpDialoutVRoutersSessionsFailed=_JuniL2tpDialoutVRoutersSessionsFailed_Object((1,3,6,1,4,1,4874,2,2,62,1,5,2,17),_JuniL2tpDialoutVRoutersSessionsFailed_Type())
+juniL2tpDialoutVRoutersSessionsFailed.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRoutersSessionsFailed.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsTable_Object=MibTable
+juniL2tpDialoutVRouterStatisticsTable=_JuniL2tpDialoutVRouterStatisticsTable_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3))
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsTable.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsEntry_Object=MibTableRow
+juniL2tpDialoutVRouterStatisticsEntry=_JuniL2tpDialoutVRouterStatisticsEntry_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1))
+juniL2tpDialoutVRouterStatisticsEntry.setIndexNames((0,_B,_i))
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsEntry.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsRouterIndex_Type=Unsigned32
+_JuniL2tpDialoutVRouterStatisticsRouterIndex_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsRouterIndex=_JuniL2tpDialoutVRouterStatisticsRouterIndex_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,1),_JuniL2tpDialoutVRouterStatisticsRouterIndex_Type())
+juniL2tpDialoutVRouterStatisticsRouterIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsRouterIndex.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsTriggersMissed_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsTriggersMissed_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsTriggersMissed=_JuniL2tpDialoutVRouterStatisticsTriggersMissed_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,2),_JuniL2tpDialoutVRouterStatisticsTriggersMissed_Type())
+juniL2tpDialoutVRouterStatisticsTriggersMissed.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsTriggersMissed.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsTriggerRouteUnknown_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsTriggerRouteUnknown_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsTriggerRouteUnknown=_JuniL2tpDialoutVRouterStatisticsTriggerRouteUnknown_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,3),_JuniL2tpDialoutVRouterStatisticsTriggerRouteUnknown_Type())
+juniL2tpDialoutVRouterStatisticsTriggerRouteUnknown.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsTriggerRouteUnknown.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsSessionStateDormant_Type=Gauge32
+_JuniL2tpDialoutVRouterStatisticsSessionStateDormant_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsSessionStateDormant=_JuniL2tpDialoutVRouterStatisticsSessionStateDormant_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,4),_JuniL2tpDialoutVRouterStatisticsSessionStateDormant_Type())
+juniL2tpDialoutVRouterStatisticsSessionStateDormant.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsSessionStateDormant.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsSessionStatePending_Type=Gauge32
+_JuniL2tpDialoutVRouterStatisticsSessionStatePending_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsSessionStatePending=_JuniL2tpDialoutVRouterStatisticsSessionStatePending_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,5),_JuniL2tpDialoutVRouterStatisticsSessionStatePending_Type())
+juniL2tpDialoutVRouterStatisticsSessionStatePending.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsSessionStatePending.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsSessionStateAuthenticating_Type=Gauge32
+_JuniL2tpDialoutVRouterStatisticsSessionStateAuthenticating_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsSessionStateAuthenticating=_JuniL2tpDialoutVRouterStatisticsSessionStateAuthenticating_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,6),_JuniL2tpDialoutVRouterStatisticsSessionStateAuthenticating_Type())
+juniL2tpDialoutVRouterStatisticsSessionStateAuthenticating.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsSessionStateAuthenticating.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsSessionStateConnecting_Type=Gauge32
+_JuniL2tpDialoutVRouterStatisticsSessionStateConnecting_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsSessionStateConnecting=_JuniL2tpDialoutVRouterStatisticsSessionStateConnecting_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,7),_JuniL2tpDialoutVRouterStatisticsSessionStateConnecting_Type())
+juniL2tpDialoutVRouterStatisticsSessionStateConnecting.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsSessionStateConnecting.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsSessionStateInService_Type=Gauge32
+_JuniL2tpDialoutVRouterStatisticsSessionStateInService_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsSessionStateInService=_JuniL2tpDialoutVRouterStatisticsSessionStateInService_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,8),_JuniL2tpDialoutVRouterStatisticsSessionStateInService_Type())
+juniL2tpDialoutVRouterStatisticsSessionStateInService.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsSessionStateInService.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsSessionStateInhibited_Type=Gauge32
+_JuniL2tpDialoutVRouterStatisticsSessionStateInhibited_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsSessionStateInhibited=_JuniL2tpDialoutVRouterStatisticsSessionStateInhibited_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,9),_JuniL2tpDialoutVRouterStatisticsSessionStateInhibited_Type())
+juniL2tpDialoutVRouterStatisticsSessionStateInhibited.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsSessionStateInhibited.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsSessionStatePostInhibited_Type=Gauge32
+_JuniL2tpDialoutVRouterStatisticsSessionStatePostInhibited_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsSessionStatePostInhibited=_JuniL2tpDialoutVRouterStatisticsSessionStatePostInhibited_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,10),_JuniL2tpDialoutVRouterStatisticsSessionStatePostInhibited_Type())
+juniL2tpDialoutVRouterStatisticsSessionStatePostInhibited.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsSessionStatePostInhibited.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsSessionStateFailed_Type=Gauge32
+_JuniL2tpDialoutVRouterStatisticsSessionStateFailed_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsSessionStateFailed=_JuniL2tpDialoutVRouterStatisticsSessionStateFailed_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,11),_JuniL2tpDialoutVRouterStatisticsSessionStateFailed_Type())
+juniL2tpDialoutVRouterStatisticsSessionStateFailed.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsSessionStateFailed.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsTargetsActive_Type=Gauge32
+_JuniL2tpDialoutVRouterStatisticsTargetsActive_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsTargetsActive=_JuniL2tpDialoutVRouterStatisticsTargetsActive_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,12),_JuniL2tpDialoutVRouterStatisticsTargetsActive_Type())
+juniL2tpDialoutVRouterStatisticsTargetsActive.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsTargetsActive.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsTargetsCreated_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsTargetsCreated_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsTargetsCreated=_JuniL2tpDialoutVRouterStatisticsTargetsCreated_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,13),_JuniL2tpDialoutVRouterStatisticsTargetsCreated_Type())
+juniL2tpDialoutVRouterStatisticsTargetsCreated.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsTargetsCreated.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsTargetsRemoved_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsTargetsRemoved_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsTargetsRemoved=_JuniL2tpDialoutVRouterStatisticsTargetsRemoved_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,14),_JuniL2tpDialoutVRouterStatisticsTargetsRemoved_Type())
+juniL2tpDialoutVRouterStatisticsTargetsRemoved.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsTargetsRemoved.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsTargetsDown_Type=Gauge32
+_JuniL2tpDialoutVRouterStatisticsTargetsDown_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsTargetsDown=_JuniL2tpDialoutVRouterStatisticsTargetsDown_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,15),_JuniL2tpDialoutVRouterStatisticsTargetsDown_Type())
+juniL2tpDialoutVRouterStatisticsTargetsDown.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsTargetsDown.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsTargetsInhibited_Type=Gauge32
+_JuniL2tpDialoutVRouterStatisticsTargetsInhibited_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsTargetsInhibited=_JuniL2tpDialoutVRouterStatisticsTargetsInhibited_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,16),_JuniL2tpDialoutVRouterStatisticsTargetsInhibited_Type())
+juniL2tpDialoutVRouterStatisticsTargetsInhibited.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsTargetsInhibited.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsTargetsInService_Type=Gauge32
+_JuniL2tpDialoutVRouterStatisticsTargetsInService_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsTargetsInService=_JuniL2tpDialoutVRouterStatisticsTargetsInService_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,17),_JuniL2tpDialoutVRouterStatisticsTargetsInService_Type())
+juniL2tpDialoutVRouterStatisticsTargetsInService.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsTargetsInService.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsSessionsActive_Type=Gauge32
+_JuniL2tpDialoutVRouterStatisticsSessionsActive_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsSessionsActive=_JuniL2tpDialoutVRouterStatisticsSessionsActive_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,18),_JuniL2tpDialoutVRouterStatisticsSessionsActive_Type())
+juniL2tpDialoutVRouterStatisticsSessionsActive.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsSessionsActive.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsSessionsCreated_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsSessionsCreated_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsSessionsCreated=_JuniL2tpDialoutVRouterStatisticsSessionsCreated_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,19),_JuniL2tpDialoutVRouterStatisticsSessionsCreated_Type())
+juniL2tpDialoutVRouterStatisticsSessionsCreated.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsSessionsCreated.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsSessionsRemoved_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsSessionsRemoved_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsSessionsRemoved=_JuniL2tpDialoutVRouterStatisticsSessionsRemoved_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,20),_JuniL2tpDialoutVRouterStatisticsSessionsRemoved_Type())
+juniL2tpDialoutVRouterStatisticsSessionsRemoved.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsSessionsRemoved.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsSessionsReset_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsSessionsReset_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsSessionsReset=_JuniL2tpDialoutVRouterStatisticsSessionsReset_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,21),_JuniL2tpDialoutVRouterStatisticsSessionsReset_Type())
+juniL2tpDialoutVRouterStatisticsSessionsReset.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsSessionsReset.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsTriggersReceived_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsTriggersReceived_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsTriggersReceived=_JuniL2tpDialoutVRouterStatisticsTriggersReceived_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,22),_JuniL2tpDialoutVRouterStatisticsTriggersReceived_Type())
+juniL2tpDialoutVRouterStatisticsTriggersReceived.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsTriggersReceived.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsTriggersEnqueued_Type=Gauge32
+_JuniL2tpDialoutVRouterStatisticsTriggersEnqueued_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsTriggersEnqueued=_JuniL2tpDialoutVRouterStatisticsTriggersEnqueued_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,23),_JuniL2tpDialoutVRouterStatisticsTriggersEnqueued_Type())
+juniL2tpDialoutVRouterStatisticsTriggersEnqueued.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsTriggersEnqueued.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsTriggersDiscarded_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsTriggersDiscarded_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsTriggersDiscarded=_JuniL2tpDialoutVRouterStatisticsTriggersDiscarded_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,24),_JuniL2tpDialoutVRouterStatisticsTriggersDiscarded_Type())
+juniL2tpDialoutVRouterStatisticsTriggersDiscarded.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsTriggersDiscarded.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsTriggersForwarded_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsTriggersForwarded_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsTriggersForwarded=_JuniL2tpDialoutVRouterStatisticsTriggersForwarded_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,25),_JuniL2tpDialoutVRouterStatisticsTriggersForwarded_Type())
+juniL2tpDialoutVRouterStatisticsTriggersForwarded.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsTriggersForwarded.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsTriggersMaxEnqueued_Type=Gauge32
+_JuniL2tpDialoutVRouterStatisticsTriggersMaxEnqueued_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsTriggersMaxEnqueued=_JuniL2tpDialoutVRouterStatisticsTriggersMaxEnqueued_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,26),_JuniL2tpDialoutVRouterStatisticsTriggersMaxEnqueued_Type())
+juniL2tpDialoutVRouterStatisticsTriggersMaxEnqueued.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsTriggersMaxEnqueued.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsAuthenticationRequests_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsAuthenticationRequests_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsAuthenticationRequests=_JuniL2tpDialoutVRouterStatisticsAuthenticationRequests_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,27),_JuniL2tpDialoutVRouterStatisticsAuthenticationRequests_Type())
+juniL2tpDialoutVRouterStatisticsAuthenticationRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsAuthenticationRequests.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsAuthenticationNoResources_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsAuthenticationNoResources_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsAuthenticationNoResources=_JuniL2tpDialoutVRouterStatisticsAuthenticationNoResources_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,28),_JuniL2tpDialoutVRouterStatisticsAuthenticationNoResources_Type())
+juniL2tpDialoutVRouterStatisticsAuthenticationNoResources.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsAuthenticationNoResources.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsAuthenticationGrants_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsAuthenticationGrants_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsAuthenticationGrants=_JuniL2tpDialoutVRouterStatisticsAuthenticationGrants_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,29),_JuniL2tpDialoutVRouterStatisticsAuthenticationGrants_Type())
+juniL2tpDialoutVRouterStatisticsAuthenticationGrants.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsAuthenticationGrants.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsAuthenticationDenies_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsAuthenticationDenies_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsAuthenticationDenies=_JuniL2tpDialoutVRouterStatisticsAuthenticationDenies_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,30),_JuniL2tpDialoutVRouterStatisticsAuthenticationDenies_Type())
+juniL2tpDialoutVRouterStatisticsAuthenticationDenies.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsAuthenticationDenies.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsDialoutsRequested_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsDialoutsRequested_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsDialoutsRequested=_JuniL2tpDialoutVRouterStatisticsDialoutsRequested_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,31),_JuniL2tpDialoutVRouterStatisticsDialoutsRequested_Type())
+juniL2tpDialoutVRouterStatisticsDialoutsRequested.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsDialoutsRequested.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsDialoutsRejected_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsDialoutsRejected_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsDialoutsRejected=_JuniL2tpDialoutVRouterStatisticsDialoutsRejected_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,32),_JuniL2tpDialoutVRouterStatisticsDialoutsRejected_Type())
+juniL2tpDialoutVRouterStatisticsDialoutsRejected.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsDialoutsRejected.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsDialoutsEstablished_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsDialoutsEstablished_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsDialoutsEstablished=_JuniL2tpDialoutVRouterStatisticsDialoutsEstablished_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,33),_JuniL2tpDialoutVRouterStatisticsDialoutsEstablished_Type())
+juniL2tpDialoutVRouterStatisticsDialoutsEstablished.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsDialoutsEstablished.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsDialoutsTimedout_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsDialoutsTimedout_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsDialoutsTimedout=_JuniL2tpDialoutVRouterStatisticsDialoutsTimedout_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,34),_JuniL2tpDialoutVRouterStatisticsDialoutsTimedout_Type())
+juniL2tpDialoutVRouterStatisticsDialoutsTimedout.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsDialoutsTimedout.setStatus(_A)
+_JuniL2tpDialoutVRouterStatisticsDialoutsTornDown_Type=Counter32
+_JuniL2tpDialoutVRouterStatisticsDialoutsTornDown_Object=MibTableColumn
+juniL2tpDialoutVRouterStatisticsDialoutsTornDown=_JuniL2tpDialoutVRouterStatisticsDialoutsTornDown_Object((1,3,6,1,4,1,4874,2,2,62,1,5,3,1,35),_JuniL2tpDialoutVRouterStatisticsDialoutsTornDown_Type())
+juniL2tpDialoutVRouterStatisticsDialoutsTornDown.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsDialoutsTornDown.setStatus(_A)
+_JuniL2tpDialoutSystem_ObjectIdentity=ObjectIdentity
+juniL2tpDialoutSystem=_JuniL2tpDialoutSystem_ObjectIdentity((1,3,6,1,4,1,4874,2,2,62,1,6))
+class _JuniL2tpDialoutSystemStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('initIncomplete',0),(_G,1),('restricted',2)))
+_JuniL2tpDialoutSystemStatus_Type.__name__=_E
+_JuniL2tpDialoutSystemStatus_Object=MibScalar
+juniL2tpDialoutSystemStatus=_JuniL2tpDialoutSystemStatus_Object((1,3,6,1,4,1,4874,2,2,62,1,6,1),_JuniL2tpDialoutSystemStatus_Type())
+juniL2tpDialoutSystemStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSystemStatus.setStatus(_A)
+_JuniL2tpDialoutSystemStatistics_ObjectIdentity=ObjectIdentity
+juniL2tpDialoutSystemStatistics=_JuniL2tpDialoutSystemStatistics_ObjectIdentity((1,3,6,1,4,1,4874,2,2,62,1,6,2))
+_JuniL2tpDialoutSystemCurrentSessions_Type=Gauge32
+_JuniL2tpDialoutSystemCurrentSessions_Object=MibScalar
+juniL2tpDialoutSystemCurrentSessions=_JuniL2tpDialoutSystemCurrentSessions_Object((1,3,6,1,4,1,4874,2,2,62,1,6,2,1),_JuniL2tpDialoutSystemCurrentSessions_Type())
+juniL2tpDialoutSystemCurrentSessions.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSystemCurrentSessions.setStatus(_A)
+_JuniL2tpDialoutSystemMaximumSessions_Type=Gauge32
+_JuniL2tpDialoutSystemMaximumSessions_Object=MibScalar
+juniL2tpDialoutSystemMaximumSessions=_JuniL2tpDialoutSystemMaximumSessions_Object((1,3,6,1,4,1,4874,2,2,62,1,6,2,2),_JuniL2tpDialoutSystemMaximumSessions_Type())
+juniL2tpDialoutSystemMaximumSessions.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSystemMaximumSessions.setStatus(_A)
+_JuniL2tpDialoutSystemSessionsConnecting_Type=Gauge32
+_JuniL2tpDialoutSystemSessionsConnecting_Object=MibScalar
+juniL2tpDialoutSystemSessionsConnecting=_JuniL2tpDialoutSystemSessionsConnecting_Object((1,3,6,1,4,1,4874,2,2,62,1,6,2,3),_JuniL2tpDialoutSystemSessionsConnecting_Type())
+juniL2tpDialoutSystemSessionsConnecting.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSystemSessionsConnecting.setStatus(_A)
+_JuniL2tpDialoutSystemMaximumSessionsConnecting_Type=Gauge32
+_JuniL2tpDialoutSystemMaximumSessionsConnecting_Object=MibScalar
+juniL2tpDialoutSystemMaximumSessionsConnecting=_JuniL2tpDialoutSystemMaximumSessionsConnecting_Object((1,3,6,1,4,1,4874,2,2,62,1,6,2,4),_JuniL2tpDialoutSystemMaximumSessionsConnecting_Type())
+juniL2tpDialoutSystemMaximumSessionsConnecting.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSystemMaximumSessionsConnecting.setStatus(_A)
+_JuniL2tpDialoutSystemSessionsPending_Type=Gauge32
+_JuniL2tpDialoutSystemSessionsPending_Object=MibScalar
+juniL2tpDialoutSystemSessionsPending=_JuniL2tpDialoutSystemSessionsPending_Object((1,3,6,1,4,1,4874,2,2,62,1,6,2,5),_JuniL2tpDialoutSystemSessionsPending_Type())
+juniL2tpDialoutSystemSessionsPending.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSystemSessionsPending.setStatus(_A)
+_JuniL2tpDialoutSystemMaximumSessionsPending_Type=Gauge32
+_JuniL2tpDialoutSystemMaximumSessionsPending_Object=MibScalar
+juniL2tpDialoutSystemMaximumSessionsPending=_JuniL2tpDialoutSystemMaximumSessionsPending_Object((1,3,6,1,4,1,4874,2,2,62,1,6,2,6),_JuniL2tpDialoutSystemMaximumSessionsPending_Type())
+juniL2tpDialoutSystemMaximumSessionsPending.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSystemMaximumSessionsPending.setStatus(_A)
+_JuniL2tpDialoutSystemTargetsInhibited_Type=Gauge32
+_JuniL2tpDialoutSystemTargetsInhibited_Object=MibScalar
+juniL2tpDialoutSystemTargetsInhibited=_JuniL2tpDialoutSystemTargetsInhibited_Object((1,3,6,1,4,1,4874,2,2,62,1,6,2,7),_JuniL2tpDialoutSystemTargetsInhibited_Type())
+juniL2tpDialoutSystemTargetsInhibited.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSystemTargetsInhibited.setStatus(_A)
+_JuniL2tpDialoutSystemMaximumTargetsInhibited_Type=Gauge32
+_JuniL2tpDialoutSystemMaximumTargetsInhibited_Object=MibScalar
+juniL2tpDialoutSystemMaximumTargetsInhibited=_JuniL2tpDialoutSystemMaximumTargetsInhibited_Object((1,3,6,1,4,1,4874,2,2,62,1,6,2,8),_JuniL2tpDialoutSystemMaximumTargetsInhibited_Type())
+juniL2tpDialoutSystemMaximumTargetsInhibited.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSystemMaximumTargetsInhibited.setStatus(_A)
+_JuniL2tpDialoutSystemAuthGrantNoSession_Type=Counter32
+_JuniL2tpDialoutSystemAuthGrantNoSession_Object=MibScalar
+juniL2tpDialoutSystemAuthGrantNoSession=_JuniL2tpDialoutSystemAuthGrantNoSession_Object((1,3,6,1,4,1,4874,2,2,62,1,6,2,9),_JuniL2tpDialoutSystemAuthGrantNoSession_Type())
+juniL2tpDialoutSystemAuthGrantNoSession.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSystemAuthGrantNoSession.setStatus(_A)
+_JuniL2tpDialoutSystemAuthDenyNoSession_Type=Counter32
+_JuniL2tpDialoutSystemAuthDenyNoSession_Object=MibScalar
+juniL2tpDialoutSystemAuthDenyNoSession=_JuniL2tpDialoutSystemAuthDenyNoSession_Object((1,3,6,1,4,1,4874,2,2,62,1,6,2,10),_JuniL2tpDialoutSystemAuthDenyNoSession_Type())
+juniL2tpDialoutSystemAuthDenyNoSession.setMaxAccess(_C)
+if mibBuilder.loadTexts:juniL2tpDialoutSystemAuthDenyNoSession.setStatus(_A)
+_JuniL2tpDialoutMIBConformance_ObjectIdentity=ObjectIdentity
+juniL2tpDialoutMIBConformance=_JuniL2tpDialoutMIBConformance_ObjectIdentity((1,3,6,1,4,1,4874,2,2,62,2))
+_JuniL2tpDialoutMIBCompliances_ObjectIdentity=ObjectIdentity
+juniL2tpDialoutMIBCompliances=_JuniL2tpDialoutMIBCompliances_ObjectIdentity((1,3,6,1,4,1,4874,2,2,62,2,1))
+_JuniL2tpDialoutMIBGroups_ObjectIdentity=ObjectIdentity
+juniL2tpDialoutMIBGroups=_JuniL2tpDialoutMIBGroups_ObjectIdentity((1,3,6,1,4,1,4874,2,2,62,2,2))
+juniL2tpDialoutTimersGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,62,2,2,1))
+juniL2tpDialoutTimersGroup.setObjects(*((_B,_j),(_B,_k)))
+if mibBuilder.loadTexts:juniL2tpDialoutTimersGroup.setStatus(_A)
+juniL2tpDialoutTargetConfigGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,62,2,2,2))
+juniL2tpDialoutTargetConfigGroup.setObjects(*((_B,_l),(_B,_m),(_B,_n)))
+if mibBuilder.loadTexts:juniL2tpDialoutTargetConfigGroup.setStatus(_A)
+juniL2tpDialoutTriggerBuffersGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,62,2,2,3))
+juniL2tpDialoutTriggerBuffersGroup.setObjects((_B,_o))
+if mibBuilder.loadTexts:juniL2tpDialoutTriggerBuffersGroup.setStatus(_A)
+juniL2tpDialoutSessionControlGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,62,2,2,4))
+juniL2tpDialoutSessionControlGroup.setObjects(*((_B,_p),(_B,_q)))
+if mibBuilder.loadTexts:juniL2tpDialoutSessionControlGroup.setStatus(_A)
+juniL2tpDialoutStatusGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,62,2,2,5))
+juniL2tpDialoutStatusGroup.setObjects(*((_B,_r),(_B,_s),(_B,_t),(_B,_u)))
+if mibBuilder.loadTexts:juniL2tpDialoutStatusGroup.setStatus(_A)
+juniL2tpDialoutSystemStatisticsGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,62,2,2,6))
+juniL2tpDialoutSystemStatisticsGroup.setObjects(*((_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4)))
+if mibBuilder.loadTexts:juniL2tpDialoutSystemStatisticsGroup.setStatus(_A)
+juniL2tpDialoutSystemWideVRouterStatisticsGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,62,2,2,7))
+juniL2tpDialoutSystemWideVRouterStatisticsGroup.setObjects(*((_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL)))
+if mibBuilder.loadTexts:juniL2tpDialoutSystemWideVRouterStatisticsGroup.setStatus(_A)
+juniL2tpDialoutSystemWideTargetStatisticsGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,62,2,2,8))
+juniL2tpDialoutSystemWideTargetStatisticsGroup.setObjects(*((_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS)))
+if mibBuilder.loadTexts:juniL2tpDialoutSystemWideTargetStatisticsGroup.setStatus(_A)
+juniL2tpDialoutSystemWideSessionStatisticsGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,62,2,2,9))
+juniL2tpDialoutSystemWideSessionStatisticsGroup.setObjects(*((_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak)))
+if mibBuilder.loadTexts:juniL2tpDialoutSystemWideSessionStatisticsGroup.setStatus(_A)
+juniL2tpDialoutVRouterStatisticsGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,62,2,2,10))
+juniL2tpDialoutVRouterStatisticsGroup.setObjects(*((_B,_Al),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7),(_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH)))
+if mibBuilder.loadTexts:juniL2tpDialoutVRouterStatisticsGroup.setStatus(_A)
+juniL2tpDialoutTargetStatisticsGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,62,2,2,11))
+juniL2tpDialoutTargetStatisticsGroup.setObjects(*((_B,_BI),(_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_BS),(_B,_BT),(_B,_BU),(_B,_BV),(_B,_BW),(_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba),(_B,_Bb),(_B,_Bc),(_B,_Bd),(_B,_Be),(_B,_Bf)))
+if mibBuilder.loadTexts:juniL2tpDialoutTargetStatisticsGroup.setStatus(_A)
+juniL2tpDialoutSessionStatisticsGroup=ObjectGroup((1,3,6,1,4,1,4874,2,2,62,2,2,12))
+juniL2tpDialoutSessionStatisticsGroup.setObjects(*((_B,_Bg),(_B,_Bh),(_B,_Bi),(_B,_Bj),(_B,_Bk),(_B,_Bl),(_B,_Bm),(_B,_Bn),(_B,_Bo),(_B,_Bp),(_B,_Bq),(_B,_Br),(_B,_Bs),(_B,_Bt),(_B,_Bu),(_B,_Bv),(_B,_Bw),(_B,_Bx)))
+if mibBuilder.loadTexts:juniL2tpDialoutSessionStatisticsGroup.setStatus(_A)
+juniL2tpDialoutCompliance=ModuleCompliance((1,3,6,1,4,1,4874,2,2,62,2,1,1))
+juniL2tpDialoutCompliance.setObjects(*((_B,_By),(_B,_Bz),(_B,_B_),(_B,_C0),(_B,_C1),(_B,_C2),(_B,_C3),(_B,_C4),(_B,_C5),(_B,_C6),(_B,_C7),(_B,_C8)))
+if mibBuilder.loadTexts:juniL2tpDialoutCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'JuniL2tpDialoutDomainName':JuniL2tpDialoutDomainName,'juniL2tpDialoutMIB':juniL2tpDialoutMIB,'juniL2tpDialoutMIBNotifications':juniL2tpDialoutMIBNotifications,'juniL2tpDialoutMIBObjects':juniL2tpDialoutMIBObjects,'juniL2tpDialoutGeneral':juniL2tpDialoutGeneral,_j:juniL2tpDialoutConnectingTimerValue,_k:juniL2tpDialoutDormantTimerValue,'juniL2tpDialoutTarget':juniL2tpDialoutTarget,'juniL2tpDialoutTargetConfigTable':juniL2tpDialoutTargetConfigTable,'juniL2tpDialoutTargetConfigEntry':juniL2tpDialoutTargetConfigEntry,_K:juniL2tpDialoutTargetRouterIndex,_L:juniL2tpDialoutTargetIpAddress,_M:juniL2tpDialoutTargetIpAddressMask,_l:juniL2tpDialoutTargetDomainName,_m:juniL2tpDialoutTargetProfileName,_n:juniL2tpDialoutTargetRowStatus,'juniL2tpDialoutTargetStatusTable':juniL2tpDialoutTargetStatusTable,'juniL2tpDialoutTargetStatusEntry':juniL2tpDialoutTargetStatusEntry,_N:juniL2tpDialoutTargetStatusRouterIndex,_O:juniL2tpDialoutTargetStatusIpAddress,_P:juniL2tpDialoutTargetStatusIpAddressMask,_t:juniL2tpDialoutTargetStatus,'juniL2tpDialoutTargetSystemStatistics':juniL2tpDialoutTargetSystemStatistics,_AM:juniL2tpDialoutTargetsActive,_AN:juniL2tpDialoutTargetsCreated,_AO:juniL2tpDialoutTargetsRemoved,_AP:juniL2tpDialoutTargetsDown,_AQ:juniL2tpDialoutTargetsInhibited,_AR:juniL2tpDialoutTargetsInService,_AS:juniL2tpDialoutTargetTriggersDiscarded,'juniL2tpDialoutTargetStatisticsTable':juniL2tpDialoutTargetStatisticsTable,'juniL2tpDialoutTargetStatisticsEntry':juniL2tpDialoutTargetStatisticsEntry,_R:juniL2tpDialoutTargetStatisticsRouterIndex,_S:juniL2tpDialoutTargetStatisticsIpAddress,_T:juniL2tpDialoutTargetStatisticsIpAddressMask,_BI:juniL2tpDialoutTargetStatisticsTargetsActive,_BJ:juniL2tpDialoutTargetStatisticsTargetsCreated,_BK:juniL2tpDialoutTargetStatisticsTargetsRemoved,_BL:juniL2tpDialoutTargetStatisticsTargetsDown,_BM:juniL2tpDialoutTargetStatisticsTargetsInhibited,_BN:juniL2tpDialoutTargetStatisticsTargetsInService,_BO:juniL2tpDialoutTargetStatisticsSessionsActive,_BP:juniL2tpDialoutTargetStatisticsSessionsCreated,_BQ:juniL2tpDialoutTargetStatisticsSessionsRemoved,_BR:juniL2tpDialoutTargetStatisticsSessionsReset,_BS:juniL2tpDialoutTargetStatisticsTriggersReceived,_BT:juniL2tpDialoutTargetStatisticsTriggersEnqueued,_BU:juniL2tpDialoutTargetStatisticsTriggersDiscarded,_BV:juniL2tpDialoutTargetStatisticsTriggersForwarded,_BW:juniL2tpDialoutTargetStatisticsTriggersMaxEnqueued,_BX:juniL2tpDialoutTargetStatisticsAuthenticationRequests,_BY:juniL2tpDialoutTargetStatisticsAuthenticationNoResources,_BZ:juniL2tpDialoutTargetStatisticsAuthenticationGrants,_Ba:juniL2tpDialoutTargetStatisticsAuthenticationDenies,_Bb:juniL2tpDialoutTargetStatisticsDialoutsRequested,_Bc:juniL2tpDialoutTargetStatisticsDialoutsRejected,_Bd:juniL2tpDialoutTargetStatisticsDialoutsEstablished,_Be:juniL2tpDialoutTargetStatisticsDialoutsTimedout,_Bf:juniL2tpDialoutTargetStatisticsDialoutsTornDown,'juniL2tpDialoutTriggerBuffer':juniL2tpDialoutTriggerBuffer,'juniL2tpDialoutTriggerBufferTable':juniL2tpDialoutTriggerBufferTable,'juniL2tpDialoutTriggerBufferEntry':juniL2tpDialoutTriggerBufferEntry,_U:juniL2tpDialoutTriggerBufferRouterIndex,_o:juniL2tpDialoutTriggerBufferCount,'juniL2tpDialoutSession':juniL2tpDialoutSession,'juniL2tpDialoutSessionConfigTable':juniL2tpDialoutSessionConfigTable,'juniL2tpDialoutSessionConfigEntry':juniL2tpDialoutSessionConfigEntry,_V:juniL2tpDialoutSessionConfigHandle,_W:juniL2tpDialoutSessionConfigTargetIpAddress,_X:juniL2tpDialoutSessionConfigTargetIpAddressMask,_Y:juniL2tpDialoutSessionConfigRouterIndex,_p:juniL2tpDialoutSessionConfigControl,_q:juniL2tpDialoutSessionConfigRowStatus,'juniL2tpDialoutSessionStatusTable':juniL2tpDialoutSessionStatusTable,'juniL2tpDialoutSessionStatusEntry':juniL2tpDialoutSessionStatusEntry,_Z:juniL2tpDialoutSessionStatusHandle,_a:juniL2tpDialoutSessionStatusTargetIpAddress,_b:juniL2tpDialoutSessionStatusTargetIpAddressMask,_c:juniL2tpDialoutSessionStatusRouterIndex,_u:juniL2tpDialoutSessionStatus,'juniL2tpDialoutSessionSystemStatistics':juniL2tpDialoutSessionSystemStatistics,_AT:juniL2tpDialoutSessionsActive,_AU:juniL2tpDialoutSessionsCreated,_AV:juniL2tpDialoutSessionsRemoved,_AW:juniL2tpDialoutSessionsReset,_AX:juniL2tpDialoutSessionTriggersReceived,_AY:juniL2tpDialoutSessionTriggersEnqueued,_AZ:juniL2tpDialoutSessionTriggersDiscarded,_Aa:juniL2tpDialoutSessionTriggersForwarded,_Ab:juniL2tpDialoutSessionTriggersMaxEnqueued,_Ac:juniL2tpDialoutSessionAuthenticationRequests,_Ad:juniL2tpDialoutSessionAuthenticationNoResources,_Ae:juniL2tpDialoutSessionAuthenticationGrants,_Af:juniL2tpDialoutSessionAuthenticationDenies,_Ag:juniL2tpDialoutSessionDialoutsRequested,_Ah:juniL2tpDialoutSessionDialoutsRejected,_Ai:juniL2tpDialoutSessionDialoutsEstablished,_Aj:juniL2tpDialoutSessionDialoutsTimedout,_Ak:juniL2tpDialoutSessionDialoutsTornDown,'juniL2tpDialoutSessionStatisticsTable':juniL2tpDialoutSessionStatisticsTable,'juniL2tpDialoutSessionStatisticsEntry':juniL2tpDialoutSessionStatisticsEntry,_d:juniL2tpDialoutSessionStatisticsHandle,_e:juniL2tpDialoutSessionStatisticsTargetIpAddress,_f:juniL2tpDialoutSessionStatisticsTargetIpAddressMask,_g:juniL2tpDialoutSessionStatisticsRouterIndex,_Bg:juniL2tpDialoutSessionStatisticsSessionsActive,_Bh:juniL2tpDialoutSessionStatisticsSessionsCreated,_Bi:juniL2tpDialoutSessionStatisticsSessionsRemoved,_Bj:juniL2tpDialoutSessionStatisticsSessionsReset,_Bk:juniL2tpDialoutSessionStatisticsTriggersReceived,_Bl:juniL2tpDialoutSessionStatisticsTriggersEnqueued,_Bm:juniL2tpDialoutSessionStatisticsTriggersDiscarded,_Bn:juniL2tpDialoutSessionStatisticsTriggersForwarded,_Bo:juniL2tpDialoutSessionStatisticsTriggersMaxEnqueued,_Bp:juniL2tpDialoutSessionStatisticsAuthenticationRequests,_Bq:juniL2tpDialoutSessionStatisticsAuthenticationNoResources,_Br:juniL2tpDialoutSessionStatisticsAuthenticationGrants,_Bs:juniL2tpDialoutSessionStatisticsAuthenticationDenies,_Bt:juniL2tpDialoutSessionStatisticsDialoutsRequested,_Bu:juniL2tpDialoutSessionStatisticsDialoutsRejected,_Bv:juniL2tpDialoutSessionStatisticsDialoutsEstablished,_Bw:juniL2tpDialoutSessionStatisticsDialoutsTimedout,_Bx:juniL2tpDialoutSessionStatisticsDialoutsTornDown,'juniL2tpDialoutVRouter':juniL2tpDialoutVRouter,'juniL2tpDialoutVRouterStatusTable':juniL2tpDialoutVRouterStatusTable,'juniL2tpDialoutVRouterStatusEntry':juniL2tpDialoutVRouterStatusEntry,_h:juniL2tpDialoutVRouterStatusRouterIndex,_s:juniL2tpDialoutVRouterStatus,'juniL2tpDialoutVRouterSystemStatistics':juniL2tpDialoutVRouterSystemStatistics,_A5:juniL2tpDialoutVRoutersActive,_A6:juniL2tpDialoutVRoutersCreated,_A7:juniL2tpDialoutVRoutersRemoved,_A8:juniL2tpDialoutVRoutersInitPending,_A9:juniL2tpDialoutVRoutersInitFailed,_AA:juniL2tpDialoutVRoutersDown,_AB:juniL2tpDialoutVRoutersInService,_AC:juniL2tpDialoutVRoutersTriggersMissed,_AD:juniL2tpDialoutVRoutersTriggerRouteUnknown,_AE:juniL2tpDialoutVRoutersSessionsDormant,_AF:juniL2tpDialoutVRoutersSessionsPending,_AG:juniL2tpDialoutVRoutersSessionsAuthenticating,_AH:juniL2tpDialoutVRoutersSessionsConnecting,_AI:juniL2tpDialoutVRoutersSessionsInService,_AJ:juniL2tpDialoutVRoutersSessionsInhibited,_AK:juniL2tpDialoutVRoutersSessionsPostInhibited,_AL:juniL2tpDialoutVRoutersSessionsFailed,'juniL2tpDialoutVRouterStatisticsTable':juniL2tpDialoutVRouterStatisticsTable,'juniL2tpDialoutVRouterStatisticsEntry':juniL2tpDialoutVRouterStatisticsEntry,_i:juniL2tpDialoutVRouterStatisticsRouterIndex,_Al:juniL2tpDialoutVRouterStatisticsTriggersMissed,_Am:juniL2tpDialoutVRouterStatisticsTriggerRouteUnknown,_An:juniL2tpDialoutVRouterStatisticsSessionStateDormant,_Ao:juniL2tpDialoutVRouterStatisticsSessionStatePending,_Ap:juniL2tpDialoutVRouterStatisticsSessionStateAuthenticating,_Aq:juniL2tpDialoutVRouterStatisticsSessionStateConnecting,_Ar:juniL2tpDialoutVRouterStatisticsSessionStateInService,_As:juniL2tpDialoutVRouterStatisticsSessionStateInhibited,_At:juniL2tpDialoutVRouterStatisticsSessionStatePostInhibited,_Au:juniL2tpDialoutVRouterStatisticsSessionStateFailed,_Av:juniL2tpDialoutVRouterStatisticsTargetsActive,_Aw:juniL2tpDialoutVRouterStatisticsTargetsCreated,_Ax:juniL2tpDialoutVRouterStatisticsTargetsRemoved,_Ay:juniL2tpDialoutVRouterStatisticsTargetsDown,_Az:juniL2tpDialoutVRouterStatisticsTargetsInhibited,_A_:juniL2tpDialoutVRouterStatisticsTargetsInService,_B0:juniL2tpDialoutVRouterStatisticsSessionsActive,_B1:juniL2tpDialoutVRouterStatisticsSessionsCreated,_B2:juniL2tpDialoutVRouterStatisticsSessionsRemoved,_B3:juniL2tpDialoutVRouterStatisticsSessionsReset,_B4:juniL2tpDialoutVRouterStatisticsTriggersReceived,_B5:juniL2tpDialoutVRouterStatisticsTriggersEnqueued,_B6:juniL2tpDialoutVRouterStatisticsTriggersDiscarded,_B7:juniL2tpDialoutVRouterStatisticsTriggersForwarded,_B8:juniL2tpDialoutVRouterStatisticsTriggersMaxEnqueued,_B9:juniL2tpDialoutVRouterStatisticsAuthenticationRequests,_BA:juniL2tpDialoutVRouterStatisticsAuthenticationNoResources,_BB:juniL2tpDialoutVRouterStatisticsAuthenticationGrants,_BC:juniL2tpDialoutVRouterStatisticsAuthenticationDenies,_BD:juniL2tpDialoutVRouterStatisticsDialoutsRequested,_BE:juniL2tpDialoutVRouterStatisticsDialoutsRejected,_BF:juniL2tpDialoutVRouterStatisticsDialoutsEstablished,_BG:juniL2tpDialoutVRouterStatisticsDialoutsTimedout,_BH:juniL2tpDialoutVRouterStatisticsDialoutsTornDown,'juniL2tpDialoutSystem':juniL2tpDialoutSystem,_r:juniL2tpDialoutSystemStatus,'juniL2tpDialoutSystemStatistics':juniL2tpDialoutSystemStatistics,_v:juniL2tpDialoutSystemCurrentSessions,_w:juniL2tpDialoutSystemMaximumSessions,_x:juniL2tpDialoutSystemSessionsConnecting,_y:juniL2tpDialoutSystemMaximumSessionsConnecting,_z:juniL2tpDialoutSystemSessionsPending,_A0:juniL2tpDialoutSystemMaximumSessionsPending,_A1:juniL2tpDialoutSystemTargetsInhibited,_A2:juniL2tpDialoutSystemMaximumTargetsInhibited,_A3:juniL2tpDialoutSystemAuthGrantNoSession,_A4:juniL2tpDialoutSystemAuthDenyNoSession,'juniL2tpDialoutMIBConformance':juniL2tpDialoutMIBConformance,'juniL2tpDialoutMIBCompliances':juniL2tpDialoutMIBCompliances,'juniL2tpDialoutCompliance':juniL2tpDialoutCompliance,'juniL2tpDialoutMIBGroups':juniL2tpDialoutMIBGroups,_By:juniL2tpDialoutTimersGroup,_Bz:juniL2tpDialoutTargetConfigGroup,_B_:juniL2tpDialoutTriggerBuffersGroup,_C0:juniL2tpDialoutSessionControlGroup,_C1:juniL2tpDialoutStatusGroup,_C2:juniL2tpDialoutSystemStatisticsGroup,_C3:juniL2tpDialoutSystemWideVRouterStatisticsGroup,_C4:juniL2tpDialoutSystemWideTargetStatisticsGroup,_C5:juniL2tpDialoutSystemWideSessionStatisticsGroup,_C6:juniL2tpDialoutVRouterStatisticsGroup,_C7:juniL2tpDialoutTargetStatisticsGroup,_C8:juniL2tpDialoutSessionStatisticsGroup})

@@ -1,0 +1,45 @@
+_F='wsIgmpCacheReporter'
+_E='wsIgmpCacheIfIndex'
+_D='wsIgmpCacheAddress'
+_C='not-accessible'
+_B='WAYSTREAM-IGMP-CACHE-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+wsMgmt,=mibBuilder.importSymbols('WAYSTREAM-SMI','wsMgmt')
+wsIgmp=ModuleIdentity((1,3,6,1,4,1,9303,4,13))
+if mibBuilder.loadTexts:wsIgmp.setRevisions(('2017-02-10 11:00','2011-01-11 17:54','2009-04-29 13:49','2009-03-23 11:25','2008-04-30 13:48','2007-06-13 14:37'))
+_WsIgmpCacheTable_Object=MibTable
+wsIgmpCacheTable=_WsIgmpCacheTable_Object((1,3,6,1,4,1,9303,4,13,2))
+if mibBuilder.loadTexts:wsIgmpCacheTable.setStatus(_A)
+_WsIgmpCacheEntry_Object=MibTableRow
+wsIgmpCacheEntry=_WsIgmpCacheEntry_Object((1,3,6,1,4,1,9303,4,13,2,1))
+wsIgmpCacheEntry.setIndexNames((0,_B,_D),(0,_B,_E),(0,_B,_F))
+if mibBuilder.loadTexts:wsIgmpCacheEntry.setStatus(_A)
+_WsIgmpCacheAddress_Type=IpAddress
+_WsIgmpCacheAddress_Object=MibTableColumn
+wsIgmpCacheAddress=_WsIgmpCacheAddress_Object((1,3,6,1,4,1,9303,4,13,2,1,1),_WsIgmpCacheAddress_Type())
+wsIgmpCacheAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:wsIgmpCacheAddress.setStatus(_A)
+_WsIgmpCacheIfIndex_Type=InterfaceIndex
+_WsIgmpCacheIfIndex_Object=MibTableColumn
+wsIgmpCacheIfIndex=_WsIgmpCacheIfIndex_Object((1,3,6,1,4,1,9303,4,13,2,1,2),_WsIgmpCacheIfIndex_Type())
+wsIgmpCacheIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:wsIgmpCacheIfIndex.setStatus(_A)
+_WsIgmpCacheReporter_Type=IpAddress
+_WsIgmpCacheReporter_Object=MibTableColumn
+wsIgmpCacheReporter=_WsIgmpCacheReporter_Object((1,3,6,1,4,1,9303,4,13,2,1,3),_WsIgmpCacheReporter_Type())
+wsIgmpCacheReporter.setMaxAccess(_C)
+if mibBuilder.loadTexts:wsIgmpCacheReporter.setStatus(_A)
+_WsIgmpCacheUpTime_Type=TimeTicks
+_WsIgmpCacheUpTime_Object=MibTableColumn
+wsIgmpCacheUpTime=_WsIgmpCacheUpTime_Object((1,3,6,1,4,1,9303,4,13,2,1,4),_WsIgmpCacheUpTime_Type())
+wsIgmpCacheUpTime.setMaxAccess('read-only')
+if mibBuilder.loadTexts:wsIgmpCacheUpTime.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'wsIgmp':wsIgmp,'wsIgmpCacheTable':wsIgmpCacheTable,'wsIgmpCacheEntry':wsIgmpCacheEntry,_D:wsIgmpCacheAddress,_E:wsIgmpCacheIfIndex,_F:wsIgmpCacheReporter,'wsIgmpCacheUpTime':wsIgmpCacheUpTime})

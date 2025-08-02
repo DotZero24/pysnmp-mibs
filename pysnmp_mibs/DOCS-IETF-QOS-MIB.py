@@ -1,367 +1,1041 @@
-#
-# PySNMP MIB module DOCS-IETF-QOS-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/DOCS-IETF-QOS-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:09:59 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, OctetString, Integer, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
-( DscpOrAny, ) = mibBuilder.importSymbols("DIFFSERV-DSCP-TC", "DscpOrAny")
-( ifIndex, InterfaceIndex, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
-( InetAddress, InetAddressType, InetPortNumber, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType", "InetPortNumber")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( TimeTicks, Bits, ModuleIdentity, mib_2, MibIdentifier, iso, NotificationType, Gauge32, Unsigned32, ObjectIdentity, IpAddress, Integer32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ) = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Bits", "ModuleIdentity", "mib-2", "MibIdentifier", "iso", "NotificationType", "Gauge32", "Unsigned32", "ObjectIdentity", "IpAddress", "Integer32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64")
-( MacAddress, DisplayString, TextualConvention, StorageType, RowStatus, TruthValue, TimeStamp, ) = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TextualConvention", "StorageType", "RowStatus", "TruthValue", "TimeStamp")
-docsIetfQosMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 127)).setRevisions(("2006-01-23 00:00",))
-if mibBuilder.loadTexts: docsIetfQosMIB.setLastUpdated('200601230000Z')
-if mibBuilder.loadTexts: docsIetfQosMIB.setOrganization('IETF IP over Cable Data Network (IPCDN)\n                     Working Group')
-if mibBuilder.loadTexts: docsIetfQosMIB.setContactInfo('\n         Co-Author: Michael Patrick\n         Postal:    Motorola BCS\n                    111 Locke Drive\n                    Marlborough, MA 01752-7214\n                    U.S.A.\n         Phone:     +1 508 786 7563\n         E-mail:    michael.patrick@motorola.com\n\n         Co-Author: William Murwin\n         Postal:    Motorola BCS\n                    111 Locke Drive\n                    Marlborough, MA 01752-7214\n                    U.S.A.\n         Phone:     +1 508 786 7594\n         E-mail:    w.murwin@motorola.com\n\n         IETF IPCDN Working Group\n         General Discussion: ipcdn@ietf.org\n         Subscribe: http://www.ietf.org/mailman/listinfo/ipcdn\n         Archive: ftp://ftp.ietf.org/ietf-mail-archive/ipcdn\n         Co-chairs: Richard Woundy, Richard_Woundy@cable.comcast.com\n                    Jean-Francois Mule, jfm@cablelabs.com')
-if mibBuilder.loadTexts: docsIetfQosMIB.setDescription('This is the management information for\n         Quality Of Service (QOS) for DOCSIS 1.1 and 2.0.\n         Copyright (C) The Internet Society (2006).  This version of\n         this MIB module is part of RFC 4323; see the RFC itself for\n         full legal notices.')
-docsIetfQosNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 127, 0))
-docsIetfQosMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 127, 1))
-class DocsIetfQosRfMacIfDirection(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2,))
-    namedValues = NamedValues(("downstream", 1), ("upstream", 2),)
-
-class DocsIetfQosBitRate(Unsigned32, TextualConvention):
-    displayHint = 'd'
-
-class DocsIetfQosSchedulingType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))
-    namedValues = NamedValues(("undefined", 1), ("bestEffort", 2), ("nonRealTimePollingService", 3), ("realTimePollingService", 4), ("unsolictedGrantServiceWithAD", 5), ("unsolictedGrantService", 6),)
-
-docsIetfQosPktClassTable = MibTable((1, 3, 6, 1, 2, 1, 127, 1, 1), )
-if mibBuilder.loadTexts: docsIetfQosPktClassTable.setDescription('This table describes the packet classification\n                    configured on the CM or CMTS.\n                    The model is that a packet either received\n                    as input from an interface or transmitted\n                    for output on an interface may be compared\n                    against an ordered list of rules pertaining to\n                    the packet contents.  Each rule is a row of this\n                    table.  A matching rule provides a Service Flow\n                    ID to which the packet is classified.\n                    All rules need to match for a packet to match\n                    a classifier.\n\n                    The objects in this row correspond to a set of\n                    Classifier Encoding parameters in a DOCSIS\n                    MAC management message.  The\n                    docsIetfQosPktClassBitMap indicates which\n                    particular parameters were present in the\n                    classifier as signaled in the DOCSIS message.\n                    If the referenced parameter was not present\n                    in the signaled DOCSIS 1.1 and 2.0 Classifier, the\n                    corresponding object in this row reports a\n                    value as specified in the DESCRIPTION section.')
-docsIetfQosPktClassEntry = MibTableRow((1, 3, 6, 1, 2, 1, 127, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowId"), (0, "DOCS-IETF-QOS-MIB", "docsIetfQosPktClassId"))
-if mibBuilder.loadTexts: docsIetfQosPktClassEntry.setDescription('An entry in this table provides a single packet\n                    classifier rule.  The index ifIndex is an ifType\n                    of docsCableMaclayer(127).')
-docsIetfQosPktClassId = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: docsIetfQosPktClassId.setDescription('Index assigned to packet classifier entry by\n                    the CMTS, which is unique per Service Flow.')
-docsIetfQosPktClassDirection = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 2), DocsIetfQosRfMacIfDirection()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassDirection.setDescription('Indicates the direction to which the classifier\n                    is applied.')
-docsIetfQosPktClassPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassPriority.setDescription('The value specifies the order of evaluation\n                    of the classifiers.\n\n                    The higher the value, the higher the priority.\n                    The value of 0 is used as default in\n                    provisioned Service Flows Classifiers.\n                    The default value of 64 is used for dynamic\n                    Service Flow Classifiers.\n\n                    If the referenced parameter is not present\n                    in a classifier, this object reports the default\n                    value as defined above.')
-docsIetfQosPktClassIpTosLow = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassIpTosLow.setDescription('The low value of a range of TOS byte values.\n                    If the referenced parameter is not present\n                    in a classifier, this object reports the value\n                    of 0.\n\n                    The IP TOS octet, as originally defined in RFC 791,\n                    has been superseded by the 6-bit Differentiated\n                    Services Field (DSField, RFC 3260) and the 2-bit\n                    Explicit Congestion Notification Field (ECN field,\n                    RFC 3168).  This object is defined as an 8-bit\n                    octet as per the DOCSIS Specification\n                    for packet classification.')
-docsIetfQosPktClassIpTosHigh = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassIpTosHigh.setDescription('The 8-bit high value of a range of TOS byte\n                    values.\n\n                    If the referenced parameter is not present\n                    in a classifier, this object reports the\n                    value of 0.\n\n                    The IP TOS octet as originally defined in RFC 791\n                    has been superseded by the 6-bit Differentiated\n                    Services Field (DSField, RFC 3260) and the 2-bit\n                    Explicit Congestion Notification Field (ECN field,\n                    RFC 3168).  This object is defined as an 8-bit\n                    octet as defined by the DOCSIS Specification\n                    for packet classification.')
-docsIetfQosPktClassIpTosMask = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassIpTosMask.setDescription('The mask value is bitwise ANDed with TOS byte\n                    in an IP packet, and this value is used for\n                    range checking of TosLow and TosHigh.\n\n                    If the referenced parameter is not present\n                    in a classifier, this object reports the value\n                    of 0.\n\n                    The IP TOS octet as originally defined in RFC 791\n                    has been superseded by the 6-bit Differentiated\n                    Services Field (DSField, RFC 3260) and the 2-bit\n                    Explicit Congestion Notification Field (ECN field,\n                    RFC 3168).  This object is defined as an 8-bit\n                    octet per the DOCSIS Specification for packet\n                    classification.')
-docsIetfQosPktClassIpProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,258))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassIpProtocol.setDescription('This object indicates the value of the IP\n                    Protocol field required for IP packets to match\n                    this rule.\n\n                    The value 256 matches traffic with any IP Protocol\n                    value.  The value 257 by convention matches both TCP\n                    and UDP.\n\n                    If the referenced parameter is not present\n                    in a classifier, this object reports the value\n                    of 258.')
-docsIetfQosPktClassInetAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 8), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassInetAddressType.setDescription('The type of the Internet address for\n                    docsIetfQosPktClassInetSourceAddr,\n                    docsIetfQosPktClassInetSourceMask,\n                    docsIetfQosPktClassInetDestAddr, and\n                    docsIetfQosPktClassInetDestMask.\n\n                    If the referenced parameter is not present\n                    in a classifier, this object reports the value of\n                    ipv4(1).')
-docsIetfQosPktClassInetSourceAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 9), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassInetSourceAddr.setDescription("This object specifies the value of the IP\n                    Source Address required for packets to match\n                    this rule.\n\n                    An IP packet matches the rule when the packet\n                    IP Source Address bitwise ANDed with the\n                    docsIetfQosPktClassInetSourceMask value equals the\n                    docsIetfQosPktClassInetSourceAddr value.\n\n                    The address type of this object is specified by\n                    docsIetfQosPktClassInetAddressType.\n\n                    If the referenced parameter is not present\n                    in a classifier, this object reports the value of\n                    '00000000'H.")
-docsIetfQosPktClassInetSourceMask = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 10), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassInetSourceMask.setDescription("This object specifies which bits of a packet's\n                    IP Source Address are compared to match\n                    this rule.\n\n                    An IP packet matches the rule when the packet\n                    source address bitwise ANDed with the\n                    docsIetfQosPktClassInetSourceMask value equals the\n                    docsIetfQosIpPktClassInetSourceAddr value.\n\n                    The address type of this object is specified by\n                    docsIetfQosPktClassInetAddressType.\n\n                    If the referenced parameter is not present\n                    in a classifier, this object reports the value of\n                    'FFFFFFFF'H.")
-docsIetfQosPktClassInetDestAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 11), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassInetDestAddr.setDescription("This object specifies the value of the IP\n                    Destination Address required for packets to match\n                    this rule.\n\n                    An IP packet matches the rule when the packet\n                    IP Destination Address bitwise ANDed with the\n                    docsIetfQosPktClassInetDestMask value\n                    equals the docsIetfQosPktClassInetDestAddr value.\n\n                    The address type of this object is specified by\n                    docsIetfQosPktClassInetAddressType.\n\n                    If the referenced parameter is not present\n                    in a classifier, this object reports the value of\n                    '00000000'H.")
-docsIetfQosPktClassInetDestMask = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 12), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassInetDestMask.setDescription("This object specifies which bits of a packet's\n                    IP Destination Address are compared to\n                    match this rule.\n\n                    An IP packet matches the rule when the packet\n                    destination address bitwise ANDed with the\n                    docsIetfQosPktClassInetDestMask value equals the\n                    docsIetfQosIpPktClassInetDestAddr value.\n\n                    The address type of this object is specified by\n                    docsIetfQosPktClassInetAddressType.\n\n                    If the referenced parameter is not present\n                    in a classifier, this object reports the value of\n                    'FFFFFFFF'H.")
-docsIetfQosPktClassSourcePortStart = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 13), InetPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassSourcePortStart.setDescription('This object specifies the low-end inclusive\n                    range of TCP/UDP source port numbers to which\n                    a packet is compared.  This object is irrelevant\n                    for non-TCP/UDP IP packets.\n\n                    If the referenced parameter is not present\n                    in a classifier, this object reports the value\n                    of 0.')
-docsIetfQosPktClassSourcePortEnd = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 14), InetPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassSourcePortEnd.setDescription('This object specifies the high-end inclusive\n                    range of TCP/UDP source port numbers to which\n                    a packet is compared.  This object is irrelevant\n                    for non-TCP/UDP IP packets.\n\n                    If the referenced parameter is not present\n                    in a classifier, this object reports the value of\n                    65535.')
-docsIetfQosPktClassDestPortStart = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 15), InetPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassDestPortStart.setDescription('This object specifies the low-end inclusive\n                     range of TCP/UDP destination port numbers to\n                     which a packet is compared.\n\n                     If the referenced parameter is not present\n                     in a classifier, this object reports the value\n                     of 0.')
-docsIetfQosPktClassDestPortEnd = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 16), InetPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassDestPortEnd.setDescription('This object specifies the high-end inclusive\n                    range of TCP/UDP destination port numbers to which\n                    a packet is compared.\n\n                    If the referenced parameter is not present\n                    in a classifier, this object reports the value of\n                    65535.')
-docsIetfQosPktClassDestMacAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 17), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassDestMacAddr.setDescription("An Ethernet packet matches an entry when its\n                    destination MAC address bitwise ANDed with\n                    docsIetfQosPktClassDestMacMask equals the value of\n                    docsIetfQosPktClassDestMacAddr.\n\n\n                    If the referenced parameter is not present\n                    in a classifier, this object reports the value of\n                    '000000000000'H.")
-docsIetfQosPktClassDestMacMask = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 18), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassDestMacMask.setDescription("An Ethernet packet matches an entry when its\n                    destination MAC address bitwise ANDed with\n                    docsIetfQosPktClassDestMacMask equals the value of\n                    docsIetfQosPktClassDestMacAddr.\n\n                    If the referenced parameter is not present\n                    in a classifier, this object reports the value of\n                    '000000000000'H.")
-docsIetfQosPktClassSourceMacAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 19), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassSourceMacAddr.setDescription("An Ethernet packet matches this entry when its\n                    source MAC address equals the value of\n                    this object.\n\n                    If the referenced parameter is not present\n                    in a classifier, this object reports the value of\n                    'FFFFFFFFFFFF'H.")
-docsIetfQosPktClassEnetProtocolType = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4,))).clone(namedValues=NamedValues(("none", 0), ("ethertype", 1), ("dsap", 2), ("mac", 3), ("all", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassEnetProtocolType.setDescription('This object indicates the format of the layer 3\n                    protocol ID in the Ethernet packet.  A value of\n                    none(0) means that the rule does not use the\n                    layer 3 protocol type as a matching criteria.\n\n                    A value of ethertype(1) means that the rule\n                    applies only to frames that contain an\n                    EtherType value.  Ethertype values are contained\n                    in packets using the Dec-Intel-Xerox (DIX)\n                    encapsulation or the RFC1042 Sub-Network Access\n                    Protocol (SNAP) encapsulation formats.\n\n                    A value of dsap(2) means that the rule applies\n                    only to frames using the IEEE802.3\n                    encapsulation format with a Destination Service\n                    Access Point (DSAP) other\n                    than 0xAA (which is reserved for SNAP).\n\n                    A value of mac(3) means that the rule applies\n                    only to MAC management messages for MAC management\n                    messages.\n\n                    A value of all(4) means that the rule matches\n                    all Ethernet packets.\n\n                    If the Ethernet frame contains an 802.1P/Q Tag\n                    header (i.e., EtherType 0x8100), this object\n                    applies to the embedded EtherType field within\n                    the 802.1P/Q header.\n\n                    If the referenced parameter is not present in a\n                    classifier, this object reports the value of 0.')
-docsIetfQosPktClassEnetProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassEnetProtocol.setDescription("If docsIetfQosEthPktClassProtocolType is none(0),\n                    this object is ignored when considering whether\n                    a packet matches the current rule.\n\n                    If dosQosPktClassEnetProtocolType is ethertype(1),\n                    this object gives the 16-bit value of the\n                    EtherType that the packet must match in order to\n                    match the rule.\n\n                    If docsIetfQosPktClassEnetProtocolType is dsap(2),\n                    the lower 8 bits of this object's value must match\n                    the DSAP byte of the packet in order to match the\n                    rule.\n\n                    If docsIetfQosPktClassEnetProtocolType is mac(3),\n                    the lower 8 bits of this object's value represent a\n                    lower bound (inclusive) of MAC management message\n                    type codes matched, and the upper 8 bits represent\n                    the upper bound (inclusive) of matched MAC message\n                    type codes.  Certain message type codes are\n                    excluded from matching, as specified in the\n                    reference.\n\n                    If the Ethernet frame contains an 802.1P/Q Tag\n                    header (i.e., EtherType 0x8100), this object applies\n                    to the embedded EtherType field within the 802.1P/Q\n                    header.\n\n                    If the referenced parameter is not present in the\n                    classifier, the value of this object is reported\n                    as 0.")
-docsIetfQosPktClassUserPriLow = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 22), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,7))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassUserPriLow.setDescription('This object applies only to Ethernet frames\n                    using the 802.1P/Q tag header (indicated with\n                    EtherType 0x8100).  Such frames include a 16-bit\n                    Tag that contains a 3-bit Priority field and\n                    a 12-bit VLAN number.\n\n                    Tagged Ethernet packets must have a 3-bit\n                    Priority field within the range of\n                    docsIetfQosPktClassPriLow to\n                    docsIetfQosPktClassPriHigh in order to match this\n                    rule.\n\n                    If the referenced parameter is not present in the\n                    classifier, the value of this object is reported\n                    as 0.')
-docsIetfQosPktClassUserPriHigh = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 23), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,7))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassUserPriHigh.setDescription('This object applies only to Ethernet frames\n                    using the 802.1P/Qtag header (indicated with\n                    EtherType 0x8100).  Such frames include a 16-bit\n                    Tag that contains a 3-bit Priority field and\n                    a 12-bit VLAN number.\n\n                    Tagged Ethernet packets must have a 3-bit\n                    Priority field within the range of\n                    docsIetfQosPktClassPriLow to\n                    docsIetfQosPktClassPriHigh in order to match this\n                    rule.\n\n                    If the referenced parameter is not present in the\n                    classifier, the value of this object is reported\n                    as 7.')
-docsIetfQosPktClassVlanId = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,4094),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassVlanId.setDescription('This object applies only to Ethernet frames\n                    using the 802.1P/Q tag header.\n\n                    Tagged packets must have a VLAN Identifier that\n                    matches the value in order to match the rule.\n\n                    If the referenced parameter is not present in the\n                    classifier, the value of this object is reported\n                    as 0.')
-docsIetfQosPktClassStateActive = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 25), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassStateActive.setDescription('This object indicates whether or not the classifier\n                    is enabled to classify packets to a Service Flow.\n\n                    If the referenced parameter is not present in the\n                    classifier, the value of this object is reported\n                    as true(1).')
-docsIetfQosPktClassPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 26), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassPkts.setDescription("This object counts the number of packets that have\n                    been classified using this entry.  This\n                    includes all packets delivered to a Service Flow\n                    maximum rate policing function, whether or not that\n                    function drops the packets.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosPktClassBitMap = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 1, 1, 27), Bits().clone(namedValues=NamedValues(("rulePriority", 0), ("activationState", 1), ("ipTos", 2), ("ipProtocol", 3), ("ipSourceAddr", 4), ("ipSourceMask", 5), ("ipDestAddr", 6), ("ipDestMask", 7), ("sourcePortStart", 8), ("sourcePortEnd", 9), ("destPortStart", 10), ("destPortEnd", 11), ("destMac", 12), ("sourceMac", 13), ("ethertype", 14), ("userPri", 15), ("vlanId", 16),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPktClassBitMap.setDescription("This object indicates which parameter encodings\n                    were actually present in the DOCSIS packet\n                    classifier encoding signaled in the DOCSIS message\n                    that created or modified the classifier.  Note that\n                    Dynamic Service Change messages have replace\n                    semantics, so that all non-default parameters must\n                    be present whether the classifier is being created\n                    or changed.\n\n                    A bit of this object is set to 1 if the parameter\n                    indicated by the comment was present in the\n                    classifier encoding, and to 0 otherwise.\n\n                    Note that BITS are encoded most significant bit\n                    first, so that if, for example, bits 6 and 7 are\n                    set, this object is encoded as the octet string\n                    '030000'H.")
-docsIetfQosParamSetTable = MibTable((1, 3, 6, 1, 2, 1, 127, 1, 2), )
-if mibBuilder.loadTexts: docsIetfQosParamSetTable.setDescription('This table describes the set of DOCSIS 1.1 and 2.0\n                    QOS parameters defined in a managed device.\n\n                    The ifIndex index specifies a DOCSIS MAC Domain.\n                    The docsIetfQosServiceFlowId index specifies a\n                    particular Service Flow.\n                    The docsIetfQosParamSetType index indicates whether\n                    the active, admitted, or provisioned QOS Parameter\n                    Set is being described by the row.\n\n                    Only the QOS Parameter Sets of DOCSIS 1.1 and 2.0\n                    Service Flows are represented in this table.\n\n                    DOCSIS 1.0 QOS service profiles are not\n                    represented in this table.\n\n                    Each row corresponds to a DOCSIS QOS Parameter Set\n                    as signaled via DOCSIS MAC management messages.\n                    Each object in the row corresponds to one or\n                    part of one DOCSIS 1.1 Service Flow Encoding.\n                    The docsIetfQosParamSetBitMap object in the row\n                    indicates which particular parameters were signaled\n                    in the original registration or dynamic service\n                    request message that created the QOS Parameter Set.\n\n                    In many cases, even if a QOS Parameter Set parameter\n                    was not signaled, the DOCSIS specification calls\n                    for a default value to be used.  That default value\n                    is reported as the value of the corresponding object\n                    in this row.\n\n                    Many objects are not applicable, depending on\n                    the Service Flow direction or upstream scheduling\n                    type.  The object value reported in this case\n                    is specified in the DESCRIPTION clause.')
-docsIetfQosParamSetEntry = MibTableRow((1, 3, 6, 1, 2, 1, 127, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowId"), (0, "DOCS-IETF-QOS-MIB", "docsIetfQosParamSetType"))
-if mibBuilder.loadTexts: docsIetfQosParamSetEntry.setDescription('A unique set of QOS parameters.')
-docsIetfQosParamSetServiceClassName = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 1), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetServiceClassName.setDescription('Refers to the Service Class Name from which the\n                    parameter set values were derived.\n\n                    If the referenced parameter is not present in the\n                    corresponding DOCSIS QOS Parameter Set, the default\n                    value of this object is a zero-length string.')
-docsIetfQosParamSetPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,7))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetPriority.setDescription('The relative priority of a Service Flow.\n                    Higher numbers indicate higher priority.\n                    This priority should only be used to differentiate\n                    Service Flow from identical parameter sets.\n\n                    If the referenced parameter is not present in the\n                    corresponding DOCSIS QOS Parameter Set, the default\n                    value of this object is 0.  If the parameter is\n                    not applicable, the reported value is 0.')
-docsIetfQosParamSetMaxTrafficRate = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 3), DocsIetfQosBitRate()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetMaxTrafficRate.setDescription('Maximum sustained traffic rate allowed for this\n                    Service Flow in bits/sec.  Must count all MAC frame\n                    data PDU from the bytes following the MAC header\n                    HCS to the end of the CRC.  The number of bytes\n                    forwarded is limited during any time interval.\n                    The value 0 means no maximum traffic rate is\n                    enforced.  This object applies to both upstream and\n                    downstream Service Flows.\n\n                    If the referenced parameter is not present in the\n                    corresponding DOCSIS QOS Parameter Set, the default\n                    value of this object is 0.  If the parameter is\n                    not applicable, it is reported as 0.')
-docsIetfQosParamSetMaxTrafficBurst = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetMaxTrafficBurst.setDescription('Specifies the token bucket size in bytes\n                    for this parameter set.  The value is calculated\n                    from the byte following the MAC header HCS to\n                    the end of the CRC.  This object is applied in\n                    conjunction with docsIetfQosParamSetMaxTrafficRate\n                    to calculate maximum sustained traffic rate.\n\n                    If the referenced parameter is not present in the\n                    corresponding DOCSIS QOS Parameter Set, the default\n                    value of this object for scheduling types\n                    bestEffort (2), nonRealTimePollingService(3),\n                    and realTimePollingService(4) is 3044.\n\n                    If this parameter is not applicable, it is reported\n                    as 0.\n                   ')
-docsIetfQosParamSetMinReservedRate = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 5), DocsIetfQosBitRate()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetMinReservedRate.setDescription('Specifies the guaranteed minimum rate in\n                    bits/sec for this parameter set.  The value is\n                    calculated from the byte following the MAC\n                    header HCS to the end of the CRC.  The default\n                    value of 0 means that no bandwidth is reserved.\n\n                    If the referenced parameter is not present in the\n                    corresponding DOCSIS QOS Parameter Set, the default\n                    value of this object is 0.  If the parameter\n                    is not applicable, it is reported as 0.')
-docsIetfQosParamSetMinReservedPkt = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetMinReservedPkt.setDescription("Specifies an assumed minimum packet size in\n                    bytes for which the\n                    docsIetfQosParamSetMinReservedRate will be\n                    provided.  The value is calculated from the byte\n                    following the MAC header HCS to the end of the\n                    CRC.\n\n                    If the referenced parameter is omitted from a\n                    DOCSIS QOS parameter set, the default value is\n                    CMTS implementation dependent.  In this case, the\n                    CMTS reports the default value it is using, and the\n                    CM reports a value of 0.  If the referenced\n                    parameter is not applicable to the direction or\n                    scheduling type of the Service Flow, both CMTS and\n                    CM report this object's value as 0.")
-docsIetfQosParamSetActiveTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetActiveTimeout.setDescription('Specifies the maximum duration in seconds that\n                    resources remain unused on an active service\n                    flow before CMTS signals that both active and\n                    admitted parameters set are null.  The default\n                    value of 0 signifies an infinite amount of time.\n\n                    If the referenced parameter is not present in the\n                    corresponding DOCSIS QOS Parameter Set, the default\n                    value of this object is 0.')
-docsIetfQosParamSetAdmittedTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(200)).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetAdmittedTimeout.setDescription('Specifies the maximum duration in seconds that\n                    resources remain in admitted state before\n                    resources must be released.\n\n                    The value of 0 signifies an infinite amount\n                    of time.\n\n                    If the referenced parameter is not present in the\n                    corresponding DOCSIS QOS Parameter Set, the\n                    default value of this object is 200.\n                   ')
-docsIetfQosParamSetMaxConcatBurst = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetMaxConcatBurst.setDescription("Specifies the maximum concatenated burst in\n                    bytes that an upstream Service Flow is allowed.\n                    The value is calculated from the FC byte of the\n                    Concatenation MAC Header to the last CRC byte in\n                    of the last concatenated MAC frame, inclusive.\n                    The value of 0 specifies no maximum burst.\n\n                    If the referenced parameter is not present in the\n                    corresponding DOCSIS QOS Parameter Set, the default\n                    value of this object for scheduling types\n                    bestEffort(2), nonRealTimePollingService(3), and\n                    realTimePollingService(4) is 1522.  If the parameter\n                    is not applicable, this object's value is reported\n                    as 0.")
-docsIetfQosParamSetSchedulingType = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 10), DocsIetfQosSchedulingType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetSchedulingType.setDescription("Specifies the upstream scheduling service used for\n                    upstream Service Flow.\n\n                    If the referenced parameter is not present in the\n                    corresponding DOCSIS QOS Parameter Set of an\n                    upstream Service Flow, the default value of this\n                    object is bestEffort(2).  For QOS parameter sets of\n                    downstream Service Flows, this object's value is\n                    reported as undefined(1).")
-docsIetfQosParamSetNomPollInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 11), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetNomPollInterval.setDescription("Specifies the nominal interval in microseconds\n                    between successive unicast request\n                    opportunities on an upstream Service Flow.\n\n                    This object applies only to upstream Service Flows\n                    with DocsIetfQosSchedulingType of value\n                    nonRealTimePollingService(3),\n                    realTimePollingService(4), and\n                    unsolictedGrantServiceWithAD(5).  The parameter is\n                    mandatory for realTimePollingService(4).  If the\n                    parameter is omitted with\n                    nonRealTimePollingService(3), the CMTS uses an\n                    implementation-dependent value.  If the parameter\n                    is omitted with unsolictedGrantServiceWithAD(5),\n                    the CMTS uses as a default value the value of the\n                    Nominal Grant Interval parameter.  In all cases,\n                    the CMTS reports the value it is using when the\n                    parameter is applicable.  The CM reports the\n                    signaled parameter value if it was signaled,\n                    and 0 otherwise.\n                    If the referenced parameter is not applicable to\n                    the direction or scheduling type of the\n                    corresponding DOCSIS QOS Parameter Set, both\n                    CMTS and CM report this object's value as 0.")
-docsIetfQosParamSetTolPollJitter = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 12), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetTolPollJitter.setDescription("Specifies the maximum amount of time in\n                    microseconds that the unicast request interval\n                    may be delayed from the nominal periodic\n                    schedule on an upstream Service Flow.\n\n                    This parameter is applicable only to upstream\n                    Service Flows with a DocsIetfQosSchedulingType of\n                    realTimePollingService(4) or\n                    unsolictedGrantServiceWithAD(5).\n\n                    If the referenced parameter is applicable but not\n                    present in the corresponding DOCSIS QOS Parameter\n                    Set, the CMTS uses an implementation-dependent\n                    value and reports the value it is using.\n                    The CM reports a value of 0 in this case.\n\n                    If the parameter is not applicable to the\n                    direction or upstream scheduling type of the\n                    Service Flow, both CMTS and CM report this\n                    object's value as 0.")
-docsIetfQosParamSetUnsolicitGrantSize = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetUnsolicitGrantSize.setDescription("Specifies the unsolicited grant size in bytes.\n                    The grant size includes the entire MAC frame\n                    data PDU from the Frame Control byte to the end\n                    of the MAC frame.\n\n                    The referenced parameter is applicable only\n                    for upstream flows with a DocsIetfQosSchedulingType\n                    of unsolicitedGrantServicewithAD(5) or\n                    unsolicitedGrantService(6), and it is mandatory\n                    when applicable.  Both CMTS and CM report\n                    the signaled value of the parameter in this\n                    case.\n\n                    If the referenced parameter is not applicable to\n                    the direction or scheduling type of the\n                    corresponding DOCSIS QOS Parameter Set, both\n                    CMTS and CM report this object's value as 0.")
-docsIetfQosParamSetNomGrantInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 14), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetNomGrantInterval.setDescription("Specifies the nominal interval in microseconds\n                    between successive data grant opportunities\n                    on an upstream Service Flow.\n\n                    The referenced parameter is applicable only\n                    for upstream flows with a DocsIetfQosSchedulingType\n                    of unsolicitedGrantServicewithAD(5) or\n                    unsolicitedGrantService(6), and it is mandatory\n                    when applicable.  Both CMTS and CM report the\n                    signaled value of the parameter in this case.\n\n                    If the referenced parameter is not applicable to\n                    the direction or scheduling type of the\n                    corresponding DOCSIS QOS Parameter Set, both\n                    CMTS and CM report this object's value as 0.")
-docsIetfQosParamSetTolGrantJitter = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 15), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetTolGrantJitter.setDescription("Specifies the maximum amount of time in\n                    microseconds that the transmission opportunities\n                    may be delayed from the nominal periodic schedule.\n\n                    The referenced parameter is applicable only\n                    for upstream flows with a DocsIetfQosSchedulingType\n                    of unsolicitedGrantServicewithAD(5) or\n                    unsolicitedGrantService(6), and it is mandatory\n                    when applicable.  Both CMTS and CM report the\n                    signaled value of the parameter in this case.\n\n                    If the referenced parameter is not applicable to\n                    the direction or scheduling type of the\n                    corresponding DOCSIS QOS Parameter Set, both\n                    CMTS and CM report this object's value as 0.")
-docsIetfQosParamSetGrantsPerInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,127))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetGrantsPerInterval.setDescription("Specifies the number of data grants per Nominal\n                    Grant Interval\n                    (docsIetfQosParamSetNomGrantInterval).\n\n                    The referenced parameter is applicable only\n                    for upstream flows with a DocsIetfQosSchedulingType\n                    of unsolicitedGrantServicewithAD(5) or\n                    unsolicitedGrantService(6), and it is mandatory\n                    when applicable.  Both CMTS and CM report the\n                    signaled value of the parameter in this case.\n\n                    If the referenced parameter is not applicable to\n                    the direction or scheduling type of the\n                    corresponding DOCSIS QOS Parameter Set, both\n                    CMTS and CM report this object's value as 0.")
-docsIetfQosParamSetTosAndMask = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 17), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetTosAndMask.setDescription("Specifies the AND mask for the IP TOS byte for\n                    overwriting IP packet's TOS value.  The IP packet\n                    TOS byte is bitwise ANDed with\n                    docsIetfQosParamSetTosAndMask, and the result is\n                    bitwise ORed with docsIetfQosParamSetTosORMask and\n                    the result is written to the IP packet TOS byte.\n                    A value of 'FF'H for docsIetfQosParamSetTosAndMask\n                    and a value of '00'H for\n                    docsIetfQosParamSetTosOrMask means that the IP\n                    Packet TOS byte is not overwritten.\n\n                    This combination is reported if the referenced\n                    parameter is not present in a QOS Parameter Set.\n                    The IP TOS octet as originally defined in RFC 791\n                    has been superseded by the 6-bit Differentiated\n                    Services Field (DSField, RFC 3260) and the 2-bit\n                    Explicit Congestion Notification Field (ECN field,\n                    RFC 3168).  Network operators SHOULD avoid\n                    specifying values of docsIetfQosParamSetTosAndMask\n                    and docsIetfQosParamSetTosORMask that would result\n                    in the modification of the ECN bits.\n\n                    In particular, operators should not use values of\n                    docsIetfQosParamSetTosAndMask that have either of\n                    the least-significant two bits set to 0.  Similarly,\n                    operators should not use values of\n                    docsIetfQosParamSetTosORMask that have either of\n                    the least-significant two bits set to 1.\n\n                    Even though this object is only enforced by the\n                    Cable Modem Termination System (CMTS),\n                    Cable Modems MUST report the value as signaled in\n                    the referenced parameter.")
-docsIetfQosParamSetTosOrMask = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 18), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetTosOrMask.setDescription('Specifies the OR mask for the IP TOS byte.\n\n                    See the description of docsIetfQosParamSetTosAndMask\n                    for further details.\n\n                    The IP TOS octet as originally defined in RFC 791\n                    has been superseded by the 6-bit Differentiated\n                    Services Field (DSField, RFC 3260) and the 2-bit\n                    Explicit Congestion Notification Field (ECN field,\n                    RFC 3168).  Network operators SHOULD avoid\n                    specifying values of docsIetfQosParamSetTosAndMask\n                    and docsIetfQosParamSetTosORMask that would result\n                    in the modification of the ECN bits.')
-docsIetfQosParamSetMaxLatency = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 19), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetMaxLatency.setDescription('Specifies the maximum latency between the\n                    reception of a packet by the CMTS on its NSI\n                    and the forwarding of the packet to the RF\n                    interface.  A value of 0 signifies no maximum\n                    latency is enforced.  This object only applies to\n                    downstream Service Flows.\n\n                    If the referenced parameter is not present in the\n                    corresponding downstream DOCSIS QOS Parameter Set,\n                    the default value is 0.  This parameter is\n                    not applicable to upstream DOCSIS QOS Parameter\n                    Sets, and its value is reported as 0 in this case.')
-docsIetfQosParamSetType = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("active", 1), ("admitted", 2), ("provisioned", 3),)))
-if mibBuilder.loadTexts: docsIetfQosParamSetType.setDescription('Defines the type of the QOS parameter set defined\n                    by this row.  active(1) indicates the Active QOS\n                    parameter set, describing the service currently\n                    being provided by the DOCSIS MAC domain to the\n                    Service Flow.  admitted(2) indicates the Admitted\n                    QOS Parameter Set, describing services reserved by\n                    the DOCSIS MAC domain for use by the service\n                    flow.  provisioned (3) describes the QOS Parameter\n                    Set defined in the DOCSIS CM Configuration file for\n                    the Service Flow.')
-docsIetfQosParamSetRequestPolicyOct = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 21), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4,4)).setFixedLength(4)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetRequestPolicyOct.setDescription("Specifies which transmit interval opportunities\n                    the CM omits for upstream transmission requests and\n                    packet transmissions.  This object takes its\n                    default value for downstream Service Flows.\n\n                    Unless otherwise indicated, a bit value of 1 means\n                    that a CM must not use that opportunity for\n                    upstream transmission.\n\n                    If bit 0 is the least significant bit of the\n                    least significant (4th) octet, and if bit number\n                    is increased with significance, the bit definitions\n                    are defined as follows:\n\n                    broadcastReqOpp(0):\n                         all CMs broadcast request opportunities\n\n                    priorityReqMulticastReq(1):\n                         priority request multicast request\n                         opportunities\n\n                    reqDataForReq(2):\n                         request/data opportunities for requests\n\n                    reqDataForData(3):\n                         request/data opportunities for data\n\n                    piggybackReqWithData(4):\n                         piggyback requests with data\n\n                    concatenateData(5):\n                         concatenate data\n\n                    fragmentData(6):\n                         fragment data\n\n                    suppresspayloadheaders(7):\n                         suppress payload headers\n\n                    dropPktsExceedUGSize(8):\n                         A value of 1 means that the Service Flow must\n                         drop packets that do not fit in the Unsolicited\n                         Grant size.\n\n                    If the referenced parameter is not present in\n                    a QOS Parameter Set, the value of this object is\n                    reported as '00000000'H.")
-docsIetfQosParamSetBitMap = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 2, 1, 22), Bits().clone(namedValues=NamedValues(("trafficPriority", 0), ("maxTrafficRate", 1), ("maxTrafficBurst", 2), ("minReservedRate", 3), ("minReservedPkt", 4), ("activeTimeout", 5), ("admittedTimeout", 6), ("maxConcatBurst", 7), ("schedulingType", 8), ("requestPolicy", 9), ("nomPollInterval", 10), ("tolPollJitter", 11), ("unsolicitGrantSize", 12), ("nomGrantInterval", 13), ("tolGrantJitter", 14), ("grantsPerInterval", 15), ("tosOverwrite", 16), ("maxLatency", 17),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosParamSetBitMap.setDescription("This object indicates the set of QOS Parameter\n                    Set parameters actually signaled in the\n                    DOCSIS registration or dynamic service request\n                    message that created or modified the QOS Parameter\n                    Set.  A bit is set to 1 when the parameter described\n                    by the indicated reference section is present\n                    in the original request.\n\n                    Note that when Service Class names are expanded,\n                    the registration or dynamic response message may\n                    contain parameters as expanded by the CMTS based\n                    on a stored service class.  These expanded\n                    parameters are not indicated by a 1 bit in this\n                    object.\n\n                    Note that even though some QOS Parameter Set\n                    parameters may not be signaled in a message\n                    (so that the paramater's bit in this object is 0),\n                    the DOCSIS specification requires that default\n                    values be used.  These default values are reported\n                    as the corresponding object's value in the row.\n\n                    Note that BITS objects are encoded most\n                    significant bit first.  For example, if bits\n                    1 and 16 are set, the value of this object\n                    is the octet string '400080'H.")
-docsIetfQosServiceFlowTable = MibTable((1, 3, 6, 1, 2, 1, 127, 1, 3), )
-if mibBuilder.loadTexts: docsIetfQosServiceFlowTable.setDescription('This table describes the set of DOCSIS-QOS\n                    Service Flows in a managed device.')
-docsIetfQosServiceFlowEntry = MibTableRow((1, 3, 6, 1, 2, 1, 127, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowId"))
-if mibBuilder.loadTexts: docsIetfQosServiceFlowEntry.setDescription('Describes a Service Flow.\n                    An entry in the table exists for each\n                    Service Flow ID.  The ifIndex is an\n                    ifType of docsCableMaclayer(127).')
-docsIetfQosServiceFlowId = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: docsIetfQosServiceFlowId.setDescription('An index assigned to a Service Flow by CMTS.')
-docsIetfQosServiceFlowSID = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 3, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,16383))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowSID.setDescription('Service Identifier (SID) assigned to an\n                    admitted or active Service Flow.  This object\n                    reports a value of 0 if a Service ID is not\n                    associated with the Service Flow.  Only active\n                    or admitted upstream Service Flows will have a\n                    Service ID (SID).')
-docsIetfQosServiceFlowDirection = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 3, 1, 3), DocsIetfQosRfMacIfDirection()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowDirection.setDescription('The direction of the Service Flow.')
-docsIetfQosServiceFlowPrimary = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 3, 1, 4), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowPrimary.setDescription('Object reflects whether Service Flow is the primary\n                    or a secondary Service Flow.\n\n                    A primary Service Flow is the default Service Flow\n                    for otherwise unclassified traffic and all MAC\n                    messages.')
-docsIetfQosServiceFlowStatsTable = MibTable((1, 3, 6, 1, 2, 1, 127, 1, 4), )
-if mibBuilder.loadTexts: docsIetfQosServiceFlowStatsTable.setDescription('This table describes statistics associated with the\n                     Service Flows in a managed device.')
-docsIetfQosServiceFlowStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 127, 1, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowId"))
-if mibBuilder.loadTexts: docsIetfQosServiceFlowStatsEntry.setDescription('Describes a set of Service Flow statistics.\n                    An entry in the table exists for each\n                    Service Flow ID.  The ifIndex is an\n                    ifType of docsCableMaclayer(127).')
-docsIetfQosServiceFlowPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 4, 1, 1), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowPkts.setDescription("For outgoing Service Flows, this object counts the\n                    number of Packet Data PDUs forwarded to this\n                    Service Flow.  For incoming upstream CMTS service\n                    flows, this object counts the number of Packet\n                    Data PDUs actually received on the Service Flow\n                    identified by the SID for which the packet was\n                    scheduled.  CMs not classifying downstream packets\n                    may report this object's value as 0 for downstream\n                    Service Flows.  This object does not count\n                    MAC-specific management messages.\n\n                    Particularly for UGS flows, packets sent on the\n                    primary Service Flow in violation of the UGS grant\n                    size should be counted only by the instance of this\n                    object that is associated with the primary service\n                    flow.\n\n                    Unclassified upstream user data packets (i.e., non-\n                    MAC-management) forwarded to the primary upstream\n                    Service Flow should be counted by the instance of\n                    this object that is associated with the primary\n                    service flow.\n\n                    This object does include packets counted by\n                    docsIetfQosServiceFlowPolicedDelayPkts, but does not\n                    include packets counted by\n                    docsIetfQosServiceFlowPolicedDropPkts\n                    and docsIetfQosServiceFlowPHSUnknowns.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosServiceFlowOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 4, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowOctets.setDescription("The number of octets from the byte after the MAC\n                    header HCS to the end of the CRC for all packets\n                    counted in the docsIetfQosServiceFlowPkts object for\n                    this row.  Note that this counts the octets after\n                    payload header suppression and before payload\n                    header expansion have been applied.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosServiceFlowTimeCreated = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 4, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowTimeCreated.setDescription('The value of sysUpTime when the service flow\n                    was created.')
-docsIetfQosServiceFlowTimeActive = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 4, 1, 4), Counter32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowTimeActive.setDescription("The number of seconds that the service flow\n                    has been active.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosServiceFlowPHSUnknowns = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 4, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowPHSUnknowns.setDescription("For incoming upstream CMTS service flows, this\n                    object counts the number of packets received\n                    with an unknown payload header suppression index.\n                    The service flow is identified by the SID for which\n                    the packet was scheduled.\n\n                    On a CM, only this object's instance for the primary\n                    downstream service flow counts packets received with\n                    an unknown payload header suppression index.  All\n                    other downstream service flows on CM report this\n                    objects value as 0.\n\n                    All outgoing service flows report this object's\n                    value as 0.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosServiceFlowPolicedDropPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 4, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowPolicedDropPkts.setDescription("For outgoing service flows, this object counts the\n                    number of Packet Data PDUs classified to this\n                    service flow dropped due to:\n                       (1) implementation-dependent excessive delay\n                           while enforcing the Maximum Sustained\n                           Traffic Rate; or\n                       (2) UGS packets dropped due to exceeding the\n                           Unsolicited Grant Size with a\n                           Request/Transmission policy that requires\n                           such packets to be dropped.\n\n                    Classified packets dropped due to other reasons\n                    must be counted in ifOutDiscards for the interface\n                    of this service flow.  This object reports 0 for\n                    incoming service flows.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosServiceFlowPolicedDelayPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 4, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowPolicedDelayPkts.setDescription("This object counts only outgoing packets delayed in\n                    order to maintain the Maximum Sustained Traffic\n                    Rate.  This object will always report a value of 0\n                    for UGS flows because the Maximum Sustained Traffic\n                    Rate does not apply.  This object is 0 for incoming\n                    service flows.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosUpstreamStatsTable = MibTable((1, 3, 6, 1, 2, 1, 127, 1, 5), )
-if mibBuilder.loadTexts: docsIetfQosUpstreamStatsTable.setDescription('This table describes statistics associated with\n                    upstream service flows.  All counted frames must\n                    be received without a Frame Check Sequence (FCS)\n                    error.')
-docsIetfQosUpstreamStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 127, 1, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "DOCS-IETF-QOS-MIB", "docsIetfQosSID"))
-if mibBuilder.loadTexts: docsIetfQosUpstreamStatsEntry.setDescription('Describes a set of upstream service flow\n                    statistics.  An entry in the table exists for each\n                    upstream Service Flow in a managed device.\n                    The ifIndex is an ifType of\n                    docsCableMaclayer(127).')
-docsIetfQosSID = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 5, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,16383)))
-if mibBuilder.loadTexts: docsIetfQosSID.setDescription('Identifies a service ID for an admitted or active\n                    upstream service flow.')
-docsIetfQosUpstreamFragments = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 5, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosUpstreamFragments.setDescription("The number of fragmentation headers received on an\n                    upstream service flow, regardless of whether\n                    the fragment was correctly reassembled into a\n                    valid packet.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosUpstreamFragDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 5, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosUpstreamFragDiscards.setDescription("The number of upstream fragments discarded and not\n                    assembled into a valid upstream packet.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosUpstreamConcatBursts = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 5, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosUpstreamConcatBursts.setDescription("The number of concatenation headers received on an\n                    upstream service flow.\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDynamicServiceStatsTable = MibTable((1, 3, 6, 1, 2, 1, 127, 1, 6), )
-if mibBuilder.loadTexts: docsIetfQosDynamicServiceStatsTable.setDescription('This table describes statistics associated with the\n                    Dynamic Service Flows in a managed device.')
-docsIetfQosDynamicServiceStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 127, 1, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "DOCS-IETF-QOS-MIB", "docsIetfQosIfDirection"))
-if mibBuilder.loadTexts: docsIetfQosDynamicServiceStatsEntry.setDescription('Describes a set of dynamic service flow statistics.\n                    Two entries exist for each DOCSIS MAC layer\n                    interface for the upstream and downstream\n                    direction.  On the CMTS, the downstream direction\n                    row indicates messages transmitted or transactions\n                    originated by the CMTS.  The upstream direction row\n                    indicates messages received or transaction\n                    originated by the CM.  On the CM, the downstream\n                    direction row indicates messages received or\n                    transactions originated by the CMTS.  The upstream\n                    direction row indicates messages transmitted by\n                    the CM or transactions originated by the CM.\n                    The ifIndex is an ifType of\n                    docsCableMaclayer(127).')
-docsIetfQosIfDirection = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 1), DocsIetfQosRfMacIfDirection())
-if mibBuilder.loadTexts: docsIetfQosIfDirection.setDescription('The direction of interface.')
-docsIetfQosDSAReqs = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDSAReqs.setDescription("The number of Dynamic Service Addition Requests,\n                    including retries.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDSARsps = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDSARsps.setDescription("The number of Dynamic Service Addition Responses,\n                    including retries.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDSAAcks = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDSAAcks.setDescription("The number of Dynamic Service Addition\n                    Acknowledgements, including retries.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDSCReqs = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDSCReqs.setDescription("The number of Dynamic Service Change Requests,\n                    including retries.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDSCRsps = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDSCRsps.setDescription("The number of Dynamic Service Change Responses,\n                    including retries.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDSCAcks = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDSCAcks.setDescription("The number of Dynamic Service Change\n                    Acknowledgements, including retries.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDSDReqs = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDSDReqs.setDescription("The number of Dynamic Service Delete Requests,\n                    including retries.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDSDRsps = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDSDRsps.setDescription("The number of Dynamic Service Delete Responses,\n                    including retries.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDynamicAdds = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDynamicAdds.setDescription("The number of successful Dynamic Service Addition\n                    transactions.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDynamicAddFails = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDynamicAddFails.setDescription("The number of failed Dynamic Service Addition\n                    transactions.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDynamicChanges = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDynamicChanges.setDescription("The number of successful Dynamic Service Change\n                    transactions.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDynamicChangeFails = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDynamicChangeFails.setDescription("The number of failed Dynamic Service Change\n                    transactions.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDynamicDeletes = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDynamicDeletes.setDescription("The number of successful Dynamic Service Delete\n                    transactions.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDynamicDeleteFails = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDynamicDeleteFails.setDescription("The number of failed Dynamic Service Delete\n                    transactions.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDCCReqs = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDCCReqs.setDescription("The number of Dynamic Channel Change Request\n                    messages traversing an interface.  This count\n                    is nonzero only on downstream direction rows.\n                    This count should include the number of retries.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex\n                    that indexes this object.")
-docsIetfQosDCCRsps = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDCCRsps.setDescription("The number of Dynamic Channel Change Response\n                    messages traversing an interface.  This count is\n                    nonzero only on upstream direction rows.  This count\n                    should include the number of retries.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDCCAcks = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDCCAcks.setDescription("The number of Dynamic Channel Change Acknowledgement\n                    messages traversing an interface.  This count\n                    is nonzero only on downstream direction rows.\n                    This count should include the number of retries.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDCCs = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDCCs.setDescription("The number of successful Dynamic Channel Change\n                    transactions.  This count is nonzero only on\n                    downstream direction rows.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosDCCFails = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 6, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosDCCFails.setDescription("The number of failed Dynamic Channel Change\n                    transactions.  This count is nonzero only on\n                    downstream direction rows.\n\n                    This counter's last discontinuity is the\n                    ifCounterDiscontinuityTime for the same ifIndex that\n                    indexes this object.")
-docsIetfQosServiceFlowLogTable = MibTable((1, 3, 6, 1, 2, 1, 127, 1, 7), )
-if mibBuilder.loadTexts: docsIetfQosServiceFlowLogTable.setDescription('This table contains a log of the disconnected\n                    Service Flows in a managed device.')
-docsIetfQosServiceFlowLogEntry = MibTableRow((1, 3, 6, 1, 2, 1, 127, 1, 7, 1), ).setIndexNames((0, "DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowLogIndex"))
-if mibBuilder.loadTexts: docsIetfQosServiceFlowLogEntry.setDescription('The information regarding a single disconnected\n                    service flow.')
-docsIetfQosServiceFlowLogIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 7, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: docsIetfQosServiceFlowLogIndex.setDescription('Unique index for a logged service flow.')
-docsIetfQosServiceFlowLogIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 7, 1, 2), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowLogIfIndex.setDescription('The ifIndex of ifType docsCableMaclayer(127)\n                    on the CMTS where the service flow was present.')
-docsIetfQosServiceFlowLogSFID = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 7, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowLogSFID.setDescription('The index assigned to the service flow by the CMTS.')
-docsIetfQosServiceFlowLogCmMac = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 7, 1, 4), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowLogCmMac.setDescription('The MAC address for the cable modem associated with\n                    the service flow.')
-docsIetfQosServiceFlowLogPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 7, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowLogPkts.setDescription('The number of packets counted on this service flow\n                    after payload header suppression.')
-docsIetfQosServiceFlowLogOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 7, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowLogOctets.setDescription('The number of octets counted on this service flow\n                    after payload header suppression.')
-docsIetfQosServiceFlowLogTimeDeleted = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 7, 1, 7), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowLogTimeDeleted.setDescription('The value of sysUpTime when the service flow\n                    was deleted.')
-docsIetfQosServiceFlowLogTimeCreated = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 7, 1, 8), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowLogTimeCreated.setDescription('The value of sysUpTime when the service flow\n                    was created.')
-docsIetfQosServiceFlowLogTimeActive = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 7, 1, 9), Counter32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowLogTimeActive.setDescription('The total time that the service flow was active.')
-docsIetfQosServiceFlowLogDirection = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 7, 1, 10), DocsIetfQosRfMacIfDirection()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowLogDirection.setDescription('The value of docsIetfQosServiceFlowDirection\n                    for the service flow.')
-docsIetfQosServiceFlowLogPrimary = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 7, 1, 11), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowLogPrimary.setDescription('The value of docsIetfQosServiceFlowPrimary for the\n                    service flow.')
-docsIetfQosServiceFlowLogServiceClassName = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 7, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowLogServiceClassName.setDescription('The value of docsIetfQosParamSetServiceClassName for\n                    the provisioned QOS Parameter Set of the\n                    service flow.')
-docsIetfQosServiceFlowLogPolicedDropPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 7, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowLogPolicedDropPkts.setDescription('The final value of\n                    docsIetfQosServiceFlowPolicedDropPkts for the\n                    service flow.')
-docsIetfQosServiceFlowLogPolicedDelayPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 7, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowLogPolicedDelayPkts.setDescription('The final value of\n                    docsIetfQosServiceFlowPolicedDelayPkts for the\n                    service flow.')
-docsIetfQosServiceFlowLogControl = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 7, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 6,))).clone(namedValues=NamedValues(("active", 1), ("destroy", 6),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: docsIetfQosServiceFlowLogControl.setDescription('Setting this object to the value destroy(6) removes\n                    this entry from the table.\n\n                    Reading this object returns the value active(1).')
-docsIetfQosServiceClassTable = MibTable((1, 3, 6, 1, 2, 1, 127, 1, 8), )
-if mibBuilder.loadTexts: docsIetfQosServiceClassTable.setDescription('This table describes the set of DOCSIS-QOS\n                    Service Classes in a CMTS.')
-docsIetfQosServiceClassEntry = MibTableRow((1, 3, 6, 1, 2, 1, 127, 1, 8, 1), ).setIndexNames((0, "DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassName"))
-if mibBuilder.loadTexts: docsIetfQosServiceClassEntry.setDescription('A provisioned service class on a CMTS.\n                    Each entry defines a template for certain\n                    DOCSIS QOS Parameter Set values.  When a CM\n                    creates or modifies an Admitted QOS Parameter Set\n                    for a Service Flow, it may reference a Service Class\n                    Name instead of providing explicit QOS Parameter\n                    Set values.  In this case, the CMTS populates\n                    the QOS Parameter Set with the applicable\n                    corresponding values from the named Service Class.\n                    Subsequent changes to a Service Class row do not\n                    affect the QOS Parameter Set values of any service\n                    flows already admitted.\n\n                    A service class template applies to only\n                    a single direction, as indicated in the\n                    docsIetfQosServiceClassDirection object.')
-docsIetfQosServiceClassName = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,15)))
-if mibBuilder.loadTexts: docsIetfQosServiceClassName.setDescription('Service Class Name.  DOCSIS specifies that the\n                    maximum size is 16 ASCII characters including\n                    a terminating zero.  The terminating zero is not\n                    represented in this SnmpAdminString syntax object.')
-docsIetfQosServiceClassStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassStatus.setDescription('Used to create or delete rows in this table.\n                    There is no restriction on the ability to change\n                    values in this row while the row is active.\n                    Inactive rows need not be timed out.')
-docsIetfQosServiceClassPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassPriority.setDescription('Template for docsIetfQosParamSetPriority.')
-docsIetfQosServiceClassMaxTrafficRate = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 4), DocsIetfQosBitRate()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassMaxTrafficRate.setDescription('Template for docsIetfQosParamSetMaxTrafficRate.')
-docsIetfQosServiceClassMaxTrafficBurst = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 5), Unsigned32().clone(3044)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassMaxTrafficBurst.setDescription('Template for docsIetfQosParamSetMaxTrafficBurst.')
-docsIetfQosServiceClassMinReservedRate = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 6), DocsIetfQosBitRate()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassMinReservedRate.setDescription('Template for docsIetfQosParamSEtMinReservedRate.')
-docsIetfQosServiceClassMinReservedPkt = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassMinReservedPkt.setDescription('Template for docsIetfQosParamSetMinReservedPkt.')
-docsIetfQosServiceClassMaxConcatBurst = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(1522)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassMaxConcatBurst.setDescription('Template for docsIetfQosParamSetMaxConcatBurst.')
-docsIetfQosServiceClassNomPollInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 9), Unsigned32()).setUnits('microseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassNomPollInterval.setDescription('Template for docsIetfQosParamSetNomPollInterval.')
-docsIetfQosServiceClassTolPollJitter = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 10), Unsigned32()).setUnits('microseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassTolPollJitter.setDescription('Template for docsIetfQosParamSetTolPollJitter.')
-docsIetfQosServiceClassUnsolicitGrantSize = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassUnsolicitGrantSize.setDescription('Template for docsIetfQosParamSetUnsolicitGrantSize.')
-docsIetfQosServiceClassNomGrantInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 12), Unsigned32()).setUnits('microseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassNomGrantInterval.setDescription('Template for docsIetfQosParamSetNomGrantInterval.')
-docsIetfQosServiceClassTolGrantJitter = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 13), Unsigned32()).setUnits('microseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassTolGrantJitter.setDescription('Template for docsIetfQosParamSetTolGrantJitter.')
-docsIetfQosServiceClassGrantsPerInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,127))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassGrantsPerInterval.setDescription('Template for docsIetfQosParamSetGrantsPerInterval.')
-docsIetfQosServiceClassMaxLatency = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 15), Unsigned32()).setUnits('microseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassMaxLatency.setDescription('Template for docsIetfQosParamSetClassMaxLatency.')
-docsIetfQosServiceClassActiveTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassActiveTimeout.setDescription('Template for docsIetfQosParamSetActiveTimeout.')
-docsIetfQosServiceClassAdmittedTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(200)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassAdmittedTimeout.setDescription('Template for docsIetfQosParamSetAdmittedTimeout.')
-docsIetfQosServiceClassSchedulingType = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 18), DocsIetfQosSchedulingType().clone('bestEffort')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassSchedulingType.setDescription('Template for docsIetfQosParamSetSchedulingType.')
-docsIetfQosServiceClassRequestPolicy = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 19), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4,4)).setFixedLength(4).clone(hexValue="00000000")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassRequestPolicy.setDescription('Template for docsIetfQosParamSetRequestPolicyOct.')
-docsIetfQosServiceClassTosAndMask = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 20), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceClassTosAndMask.setDescription('Template for docsIetfQosParamSetTosAndMask.\n                    The IP TOS octet as originally defined in RFC 791\n                    has been superseded by the 6-bit Differentiated\n                    Services Field (DSField, RFC 3260) and the 2-bit\n                    Explicit Congestion Notification Field (ECN field,\n                    RFC 3168).  Network operators SHOULD avoid\n                    specifying values of\n                    docsIetfQosServiceClassTosAndMask and\n                    docsIetfQosServiceClassTosOrMask that would result\n                    in the modification of the ECN bits.\n                    In particular, operators should not use values of\n                    docsIetfQosServiceClassTosAndMask that have either\n                    of the least-significant two bits set to 0.\n                    Similarly,operators should not use values of\n                    docsIetfQosServiceClassTosOrMask that have either\n                    of the least-significant two bits set to 1.')
-docsIetfQosServiceClassTosOrMask = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 21), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosServiceClassTosOrMask.setDescription('Template for docsIetfQosParamSetTosOrMask.\n                    The IP TOS octet as originally defined in RFC 791\n                    has been superseded by the 6-bit Differentiated\n                    Services Field (DSField, RFC 3260) and the 2-bit\n                    Explicit Congestion Notification Field (ECN field,\n                    RFC 3168).  Network operators SHOULD avoid\n                    specifying values of\n                    docsIetfQosServiceClassTosAndMask and\n                    docsIetfQosServiceClassTosOrMask that would result\n                    in the modification of the ECN bits.\n\n                    In particular, operators should not use values of\n                    docsIetfQosServiceClassTosAndMask that have either\n                    of the least-significant two bits set to 0.\n                    Similarly, operators should not use values of\n                    docsIetfQosServiceClassTosOrMask that have either\n                    of the least-significant two bits set to 1.')
-docsIetfQosServiceClassDirection = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 22), DocsIetfQosRfMacIfDirection().clone('upstream')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassDirection.setDescription('Specifies whether the service class template\n                    applies to upstream or downstream service flows.')
-docsIetfQosServiceClassStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 23), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassStorageType.setDescription("This object defines whether this row is kept in\n                    volatile storage and lost upon reboot or whether\n                    it is backed up by non-volatile or permanent\n                    storage.  'permanent' entries need not allow\n                    writable access to any object.")
-docsIetfQosServiceClassDSCPOverwrite = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 8, 1, 24), DscpOrAny().clone(-1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassDSCPOverwrite.setDescription("This object allows the overwrite of the DSCP\n                    field per RFC 3260.\n\n                    If this object is -1, then the corresponding entry's\n                    docsIetfQosServiceClassTosAndMask value MUST be\n                    'FF'H and docsIetfQosServiceClassTosOrMask MUST be\n                    '00'H.  Otherwise, this object is in the range of\n                    0..63, and the corresponding entry's\n                    docsIetfQosServiceClassTosAndMask value MUST be\n                    '03'H and the docsIetfQosServiceClassTosOrMask MUST\n                    be this object's value shifted left by two bit\n                    positions.")
-docsIetfQosServiceClassPolicyTable = MibTable((1, 3, 6, 1, 2, 1, 127, 1, 9), )
-if mibBuilder.loadTexts: docsIetfQosServiceClassPolicyTable.setDescription('This table describes the set of DOCSIS-QOS\n                    Service Class Policies.\n\n                    This table is an adjunct to the\n                    docsDevFilterPolicy table.   Entries in the\n                    docsDevFilterPolicy table can point to\n                    specific rows in this table.\n\n                    This table permits mapping a packet to a service\n                    class name of an active service flow so long as\n                    a classifier does not exist at a higher\n                    priority.')
-docsIetfQosServiceClassPolicyEntry = MibTableRow((1, 3, 6, 1, 2, 1, 127, 1, 9, 1), ).setIndexNames((0, "DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassPolicyIndex"))
-if mibBuilder.loadTexts: docsIetfQosServiceClassPolicyEntry.setDescription('A service class name policy entry.')
-docsIetfQosServiceClassPolicyIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 9, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: docsIetfQosServiceClassPolicyIndex.setDescription('Index value to identify an entry in\n                    this table uniquely.')
-docsIetfQosServiceClassPolicyName = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 9, 1, 2), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassPolicyName.setDescription('Service Class Name to identify the name of the\n                    service class flow to which the packet should be\n                    directed.')
-docsIetfQosServiceClassPolicyRulePriority = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 9, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassPolicyRulePriority.setDescription('Service Class Policy rule priority for the\n                    entry.')
-docsIetfQosServiceClassPolicyStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 9, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassPolicyStatus.setDescription('Used to create or delete rows in this table.\n                    This object should not be deleted if it is\n                    referenced by an entry in docsDevFilterPolicy.\n                    The reference should be deleted first.\n                    There is no restriction on the ability\n                    to change values in this row while the row is\n                    active.  Inactive rows need not be timed out.')
-docsIetfQosServiceClassPolicyStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 9, 1, 5), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: docsIetfQosServiceClassPolicyStorageType.setDescription("This object defines whether this row is kept in\n                    volatile storage and lost upon reboot or whether\n                    it is backed up by non-volatile or permanent\n                    storage.  'permanent' entries need not allow\n                    writable access to any object.")
-docsIetfQosPHSTable = MibTable((1, 3, 6, 1, 2, 1, 127, 1, 10), )
-if mibBuilder.loadTexts: docsIetfQosPHSTable.setDescription('This table describes the set of payload header\n                    suppression entries.')
-docsIetfQosPHSEntry = MibTableRow((1, 3, 6, 1, 2, 1, 127, 1, 10, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowId"), (0, "DOCS-IETF-QOS-MIB", "docsIetfQosPktClassId"))
-if mibBuilder.loadTexts: docsIetfQosPHSEntry.setDescription('A payload header suppression entry.\n\n                    The ifIndex is an ifType of docsCableMaclayer(127).\n                    The index docsIetfQosServiceFlowId selects one\n                    service flow from the cable MAC layer interface.\n                    The docsIetfQosPktClassId index matches an\n                    index of the docsIetfQosPktClassTable.')
-docsIetfQosPHSField = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 10, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPHSField.setDescription('Payload header suppression field defines the\n                    bytes of the header that must be\n                    suppressed/restored by the sending/receiving\n                    device.\n\n                    The number of octets in this object should be\n                    the same as the value of docsIetfQosPHSSize.')
-docsIetfQosPHSMask = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 10, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPHSMask.setDescription("Payload header suppression mask defines the\n                    bit mask that is used in combination with the\n                    docsIetfQosPHSField.  It defines which bytes in\n                    the header must be suppressed/restored by the\n                    sending or receiving device.\n\n                    Each bit of this bit mask corresponds to a byte\n                    in the docsIetfQosPHSField, with the least\n                    significant bit corresponding to the first byte\n                    of the docsIetfQosPHSField.\n\n                    Each bit of the bit mask specifies whether\n                    the corresponding byte should be suppressed\n                    in the packet.  A bit value of '1' indicates that\n                    the byte should be suppressed by the sending\n                    device and restored by the receiving device.\n                    A bit value of '0' indicates that\n                    the byte should not be suppressed by the sending\n                    device or restored by the receiving device.\n\n                    If the bit mask does not contain a bit for each\n                    byte in the docsIetfQosPHSField, then the bit mask\n                    is extended with bit values of '1' to be the\n                    necessary length.")
-docsIetfQosPHSSize = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 10, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPHSSize.setDescription('Payload header suppression size specifies the\n                    number of bytes in the header to be suppressed\n                    and restored.\n\n                    The value of this object must match the number\n                    of bytes in the docsIetfQosPHSField.')
-docsIetfQosPHSVerify = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 10, 1, 4), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPHSVerify.setDescription("Payload header suppression verification value.  If\n                    'true', the sender must verify docsIetfQosPHSField\n                    is the same as what is contained in the packet\n                    to be suppressed.")
-docsIetfQosPHSIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 10, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosPHSIndex.setDescription('Payload header suppression index uniquely\n                    references the PHS rule for a given service flow.')
-docsIetfQosCmtsMacToSrvFlowTable = MibTable((1, 3, 6, 1, 2, 1, 127, 1, 11), )
-if mibBuilder.loadTexts: docsIetfQosCmtsMacToSrvFlowTable.setDescription('This table provides for referencing the service\n                    flows associated with a particular cable modem.\n                    This allows indexing into other docsIetfQos\n                    tables that are indexed by docsIetfQosServiceFlowId\n                    and ifIndex.')
-docsIetfQosCmtsMacToSrvFlowEntry = MibTableRow((1, 3, 6, 1, 2, 1, 127, 1, 11, 1), ).setIndexNames((0, "DOCS-IETF-QOS-MIB", "docsIetfQosCmtsCmMac"), (0, "DOCS-IETF-QOS-MIB", "docsIetfQosCmtsServiceFlowId"))
-if mibBuilder.loadTexts: docsIetfQosCmtsMacToSrvFlowEntry.setDescription('An entry is created by CMTS for each service flow\n                    connected to this CMTS.')
-docsIetfQosCmtsCmMac = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 11, 1, 1), MacAddress())
-if mibBuilder.loadTexts: docsIetfQosCmtsCmMac.setDescription('The MAC address for the referenced CM.')
-docsIetfQosCmtsServiceFlowId = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 11, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: docsIetfQosCmtsServiceFlowId.setDescription('An index assigned to a service flow by CMTS.')
-docsIetfQosCmtsIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 127, 1, 11, 1, 3), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: docsIetfQosCmtsIfIndex.setDescription('The ifIndex of ifType docsCableMacLayer(127)\n                    on the CMTS that is connected to the Cable Modem.')
-docsIetfQosConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 127, 2))
-docsIetfQosGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 127, 2, 1))
-docsIetfQosCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 127, 2, 2))
-docsIetfQosCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 127, 2, 2, 1)).setObjects(*(("DOCS-IETF-QOS-MIB", "docsIetfQosBaseGroup"), ("DOCS-IETF-QOS-MIB", "docsIetfQosCmtsGroup"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetGroup"), ("DOCS-IETF-QOS-MIB", "docsIetfQosSrvClassPolicyGroup"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassGroup"),))
-if mibBuilder.loadTexts: docsIetfQosCompliance.setDescription('The compliance statement for MCNS Cable Modems and\n         Cable Modem Termination Systems that implement DOCSIS\n         Service Flows.')
-docsIetfQosBaseGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 127, 2, 1, 1)).setObjects(*(("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassDirection"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassPriority"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassIpTosLow"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassIpTosHigh"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassIpTosMask"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassIpProtocol"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassSourcePortStart"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassSourcePortEnd"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassDestPortStart"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassDestPortEnd"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassDestMacAddr"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassDestMacMask"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassSourceMacAddr"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassEnetProtocolType"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassEnetProtocol"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassUserPriLow"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassUserPriHigh"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassVlanId"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassStateActive"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassPkts"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassBitMap"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassInetAddressType"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassInetSourceAddr"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassInetSourceMask"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassInetDestAddr"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPktClassInetDestMask"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowSID"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowDirection"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowPrimary"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowPkts"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowOctets"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowTimeCreated"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowTimeActive"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowPHSUnknowns"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowPolicedDropPkts"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowPolicedDelayPkts"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDSAReqs"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDSARsps"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDSAAcks"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDSCReqs"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDSCRsps"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDSCAcks"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDSDReqs"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDSDRsps"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDynamicAdds"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDynamicAddFails"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDynamicChanges"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDynamicChangeFails"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDynamicDeletes"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDynamicDeleteFails"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDCCReqs"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDCCRsps"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDCCAcks"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDCCs"), ("DOCS-IETF-QOS-MIB", "docsIetfQosDCCFails"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPHSField"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPHSMask"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPHSSize"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPHSVerify"), ("DOCS-IETF-QOS-MIB", "docsIetfQosPHSIndex"),))
-if mibBuilder.loadTexts: docsIetfQosBaseGroup.setDescription('Group of objects implemented in both Cable Modems and\n         Cable Modem Termination Systems.')
-docsIetfQosParamSetGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 127, 2, 1, 2)).setObjects(*(("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetServiceClassName"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetPriority"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetMaxTrafficRate"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetMaxTrafficBurst"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetMinReservedRate"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetMinReservedPkt"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetActiveTimeout"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetAdmittedTimeout"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetMaxConcatBurst"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetSchedulingType"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetNomPollInterval"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetTolPollJitter"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetUnsolicitGrantSize"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetNomGrantInterval"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetTolGrantJitter"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetGrantsPerInterval"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetTosAndMask"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetTosOrMask"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetMaxLatency"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetRequestPolicyOct"), ("DOCS-IETF-QOS-MIB", "docsIetfQosParamSetBitMap"),))
-if mibBuilder.loadTexts: docsIetfQosParamSetGroup.setDescription('Group of objects implemented in both Cable Modems and\n         Cable Modem Termination Systems for QOS Parameter Sets.')
-docsIetfQosCmtsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 127, 2, 1, 3)).setObjects(*(("DOCS-IETF-QOS-MIB", "docsIetfQosUpstreamFragments"), ("DOCS-IETF-QOS-MIB", "docsIetfQosUpstreamFragDiscards"), ("DOCS-IETF-QOS-MIB", "docsIetfQosUpstreamConcatBursts"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowLogIfIndex"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowLogSFID"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowLogCmMac"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowLogPkts"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowLogOctets"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowLogTimeDeleted"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowLogTimeCreated"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowLogTimeActive"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowLogDirection"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowLogPrimary"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowLogServiceClassName"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowLogPolicedDropPkts"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowLogPolicedDelayPkts"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceFlowLogControl"), ("DOCS-IETF-QOS-MIB", "docsIetfQosCmtsIfIndex"),))
-if mibBuilder.loadTexts: docsIetfQosCmtsGroup.setDescription('Group of objects implemented only in the CMTS.')
-docsIetfQosSrvClassPolicyGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 127, 2, 1, 4)).setObjects(*(("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassPolicyName"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassPolicyRulePriority"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassPolicyStatus"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassPolicyStorageType"),))
-if mibBuilder.loadTexts: docsIetfQosSrvClassPolicyGroup.setDescription('Group of objects implemented in both Cable Modems and\n         Cable Modem Termination Systems when supporting policy-based\n         service flows.')
-docsIetfQosServiceClassGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 127, 2, 1, 5)).setObjects(*(("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassStatus"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassPriority"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassMaxTrafficRate"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassMaxTrafficBurst"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassMinReservedRate"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassMinReservedPkt"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassMaxConcatBurst"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassNomPollInterval"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassTolPollJitter"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassUnsolicitGrantSize"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassNomGrantInterval"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassTolGrantJitter"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassGrantsPerInterval"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassMaxLatency"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassActiveTimeout"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassAdmittedTimeout"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassSchedulingType"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassRequestPolicy"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassTosAndMask"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassTosOrMask"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassDirection"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassStorageType"), ("DOCS-IETF-QOS-MIB", "docsIetfQosServiceClassDSCPOverwrite"),))
-if mibBuilder.loadTexts: docsIetfQosServiceClassGroup.setDescription('Group of objects implemented only in Cable Modem\n         Termination Systems when supporting expansion of Service\n         Class Names in a QOS Parameter Set')
-mibBuilder.exportSymbols("DOCS-IETF-QOS-MIB", docsIetfQosDCCFails=docsIetfQosDCCFails, docsIetfQosParamSetTosOrMask=docsIetfQosParamSetTosOrMask, docsIetfQosDynamicAddFails=docsIetfQosDynamicAddFails, docsIetfQosServiceFlowTable=docsIetfQosServiceFlowTable, docsIetfQosDSCReqs=docsIetfQosDSCReqs, docsIetfQosServiceFlowLogTable=docsIetfQosServiceFlowLogTable, docsIetfQosCmtsMacToSrvFlowTable=docsIetfQosCmtsMacToSrvFlowTable, docsIetfQosParamSetActiveTimeout=docsIetfQosParamSetActiveTimeout, docsIetfQosParamSetNomGrantInterval=docsIetfQosParamSetNomGrantInterval, docsIetfQosPktClassDestPortStart=docsIetfQosPktClassDestPortStart, docsIetfQosDCCAcks=docsIetfQosDCCAcks, docsIetfQosPktClassBitMap=docsIetfQosPktClassBitMap, docsIetfQosServiceClassPriority=docsIetfQosServiceClassPriority, docsIetfQosParamSetMaxLatency=docsIetfQosParamSetMaxLatency, docsIetfQosServiceFlowDirection=docsIetfQosServiceFlowDirection, docsIetfQosSrvClassPolicyGroup=docsIetfQosSrvClassPolicyGroup, docsIetfQosServiceClassStorageType=docsIetfQosServiceClassStorageType, docsIetfQosDynamicDeleteFails=docsIetfQosDynamicDeleteFails, docsIetfQosServiceFlowPkts=docsIetfQosServiceFlowPkts, docsIetfQosServiceClassPolicyStatus=docsIetfQosServiceClassPolicyStatus, docsIetfQosPktClassInetDestMask=docsIetfQosPktClassInetDestMask, docsIetfQosServiceFlowLogControl=docsIetfQosServiceFlowLogControl, docsIetfQosSID=docsIetfQosSID, docsIetfQosServiceFlowLogPrimary=docsIetfQosServiceFlowLogPrimary, docsIetfQosCmtsCmMac=docsIetfQosCmtsCmMac, docsIetfQosCmtsMacToSrvFlowEntry=docsIetfQosCmtsMacToSrvFlowEntry, docsIetfQosServiceFlowPHSUnknowns=docsIetfQosServiceFlowPHSUnknowns, docsIetfQosServiceClassRequestPolicy=docsIetfQosServiceClassRequestPolicy, docsIetfQosParamSetTolPollJitter=docsIetfQosParamSetTolPollJitter, docsIetfQosServiceClassTosAndMask=docsIetfQosServiceClassTosAndMask, docsIetfQosGroups=docsIetfQosGroups, docsIetfQosServiceClassGroup=docsIetfQosServiceClassGroup, docsIetfQosParamSetNomPollInterval=docsIetfQosParamSetNomPollInterval, docsIetfQosServiceClassPolicyName=docsIetfQosServiceClassPolicyName, docsIetfQosDCCReqs=docsIetfQosDCCReqs, docsIetfQosServiceClassPolicyTable=docsIetfQosServiceClassPolicyTable, docsIetfQosServiceFlowPrimary=docsIetfQosServiceFlowPrimary, docsIetfQosPktClassPkts=docsIetfQosPktClassPkts, docsIetfQosServiceClassNomGrantInterval=docsIetfQosServiceClassNomGrantInterval, docsIetfQosDSCRsps=docsIetfQosDSCRsps, docsIetfQosUpstreamStatsEntry=docsIetfQosUpstreamStatsEntry, docsIetfQosIfDirection=docsIetfQosIfDirection, docsIetfQosServiceFlowStatsTable=docsIetfQosServiceFlowStatsTable, docsIetfQosPHSVerify=docsIetfQosPHSVerify, docsIetfQosConformance=docsIetfQosConformance, docsIetfQosPktClassDestMacMask=docsIetfQosPktClassDestMacMask, docsIetfQosParamSetAdmittedTimeout=docsIetfQosParamSetAdmittedTimeout, docsIetfQosServiceFlowTimeCreated=docsIetfQosServiceFlowTimeCreated, docsIetfQosMIBObjects=docsIetfQosMIBObjects, docsIetfQosParamSetMaxTrafficRate=docsIetfQosParamSetMaxTrafficRate, docsIetfQosServiceClassMaxTrafficRate=docsIetfQosServiceClassMaxTrafficRate, docsIetfQosCompliance=docsIetfQosCompliance, docsIetfQosServiceClassNomPollInterval=docsIetfQosServiceClassNomPollInterval, docsIetfQosServiceClassSchedulingType=docsIetfQosServiceClassSchedulingType, docsIetfQosServiceFlowLogCmMac=docsIetfQosServiceFlowLogCmMac, docsIetfQosServiceClassStatus=docsIetfQosServiceClassStatus, docsIetfQosCompliances=docsIetfQosCompliances, docsIetfQosPktClassTable=docsIetfQosPktClassTable, docsIetfQosPktClassPriority=docsIetfQosPktClassPriority, docsIetfQosPHSMask=docsIetfQosPHSMask, docsIetfQosPktClassId=docsIetfQosPktClassId, docsIetfQosDCCs=docsIetfQosDCCs, docsIetfQosDSCAcks=docsIetfQosDSCAcks, docsIetfQosDynamicChanges=docsIetfQosDynamicChanges, docsIetfQosServiceFlowLogIndex=docsIetfQosServiceFlowLogIndex, docsIetfQosServiceFlowLogPolicedDropPkts=docsIetfQosServiceFlowLogPolicedDropPkts, docsIetfQosBaseGroup=docsIetfQosBaseGroup, docsIetfQosPktClassIpTosMask=docsIetfQosPktClassIpTosMask, docsIetfQosServiceClassMaxLatency=docsIetfQosServiceClassMaxLatency, docsIetfQosMIB=docsIetfQosMIB, docsIetfQosPktClassEnetProtocol=docsIetfQosPktClassEnetProtocol, docsIetfQosParamSetBitMap=docsIetfQosParamSetBitMap, docsIetfQosParamSetUnsolicitGrantSize=docsIetfQosParamSetUnsolicitGrantSize, docsIetfQosServiceFlowLogDirection=docsIetfQosServiceFlowLogDirection, docsIetfQosServiceFlowStatsEntry=docsIetfQosServiceFlowStatsEntry, docsIetfQosDynamicDeletes=docsIetfQosDynamicDeletes, docsIetfQosUpstreamFragDiscards=docsIetfQosUpstreamFragDiscards, docsIetfQosServiceClassDSCPOverwrite=docsIetfQosServiceClassDSCPOverwrite, docsIetfQosParamSetType=docsIetfQosParamSetType, docsIetfQosDSARsps=docsIetfQosDSARsps, docsIetfQosServiceFlowLogIfIndex=docsIetfQosServiceFlowLogIfIndex, docsIetfQosPktClassIpProtocol=docsIetfQosPktClassIpProtocol, docsIetfQosParamSetMaxConcatBurst=docsIetfQosParamSetMaxConcatBurst, docsIetfQosServiceFlowSID=docsIetfQosServiceFlowSID, docsIetfQosServiceClassMaxTrafficBurst=docsIetfQosServiceClassMaxTrafficBurst, DocsIetfQosSchedulingType=DocsIetfQosSchedulingType, docsIetfQosPktClassIpTosHigh=docsIetfQosPktClassIpTosHigh, docsIetfQosParamSetTolGrantJitter=docsIetfQosParamSetTolGrantJitter, docsIetfQosServiceFlowPolicedDelayPkts=docsIetfQosServiceFlowPolicedDelayPkts, docsIetfQosServiceClassAdmittedTimeout=docsIetfQosServiceClassAdmittedTimeout, docsIetfQosDynamicServiceStatsTable=docsIetfQosDynamicServiceStatsTable, docsIetfQosPktClassEnetProtocolType=docsIetfQosPktClassEnetProtocolType, docsIetfQosServiceClassUnsolicitGrantSize=docsIetfQosServiceClassUnsolicitGrantSize, docsIetfQosPktClassInetSourceAddr=docsIetfQosPktClassInetSourceAddr, docsIetfQosPktClassDirection=docsIetfQosPktClassDirection, docsIetfQosCmtsGroup=docsIetfQosCmtsGroup, docsIetfQosParamSetSchedulingType=docsIetfQosParamSetSchedulingType, docsIetfQosPktClassIpTosLow=docsIetfQosPktClassIpTosLow, docsIetfQosServiceFlowId=docsIetfQosServiceFlowId, docsIetfQosDynamicAdds=docsIetfQosDynamicAdds, docsIetfQosUpstreamConcatBursts=docsIetfQosUpstreamConcatBursts, docsIetfQosCmtsIfIndex=docsIetfQosCmtsIfIndex, docsIetfQosParamSetEntry=docsIetfQosParamSetEntry, docsIetfQosPktClassSourceMacAddr=docsIetfQosPktClassSourceMacAddr, docsIetfQosServiceClassTable=docsIetfQosServiceClassTable, docsIetfQosParamSetTable=docsIetfQosParamSetTable, docsIetfQosUpstreamStatsTable=docsIetfQosUpstreamStatsTable, docsIetfQosServiceClassTolPollJitter=docsIetfQosServiceClassTolPollJitter, docsIetfQosParamSetPriority=docsIetfQosParamSetPriority, docsIetfQosPktClassUserPriLow=docsIetfQosPktClassUserPriLow, docsIetfQosPktClassStateActive=docsIetfQosPktClassStateActive, docsIetfQosPktClassInetDestAddr=docsIetfQosPktClassInetDestAddr, docsIetfQosPktClassInetAddressType=docsIetfQosPktClassInetAddressType, docsIetfQosParamSetMaxTrafficBurst=docsIetfQosParamSetMaxTrafficBurst, docsIetfQosServiceClassGrantsPerInterval=docsIetfQosServiceClassGrantsPerInterval, docsIetfQosServiceClassMinReservedRate=docsIetfQosServiceClassMinReservedRate, docsIetfQosServiceFlowLogOctets=docsIetfQosServiceFlowLogOctets, DocsIetfQosBitRate=DocsIetfQosBitRate, docsIetfQosServiceFlowLogPolicedDelayPkts=docsIetfQosServiceFlowLogPolicedDelayPkts, docsIetfQosServiceFlowLogTimeCreated=docsIetfQosServiceFlowLogTimeCreated, docsIetfQosServiceFlowOctets=docsIetfQosServiceFlowOctets, docsIetfQosDSDReqs=docsIetfQosDSDReqs, docsIetfQosServiceFlowLogSFID=docsIetfQosServiceFlowLogSFID, docsIetfQosServiceFlowLogTimeDeleted=docsIetfQosServiceFlowLogTimeDeleted, docsIetfQosNotifications=docsIetfQosNotifications, docsIetfQosPktClassVlanId=docsIetfQosPktClassVlanId, docsIetfQosPktClassUserPriHigh=docsIetfQosPktClassUserPriHigh, docsIetfQosServiceClassTosOrMask=docsIetfQosServiceClassTosOrMask, docsIetfQosServiceClassEntry=docsIetfQosServiceClassEntry, docsIetfQosPHSIndex=docsIetfQosPHSIndex, docsIetfQosServiceFlowLogEntry=docsIetfQosServiceFlowLogEntry, docsIetfQosServiceFlowLogServiceClassName=docsIetfQosServiceFlowLogServiceClassName, docsIetfQosServiceClassPolicyIndex=docsIetfQosServiceClassPolicyIndex, docsIetfQosServiceClassPolicyStorageType=docsIetfQosServiceClassPolicyStorageType, docsIetfQosUpstreamFragments=docsIetfQosUpstreamFragments, docsIetfQosDSAAcks=docsIetfQosDSAAcks, docsIetfQosPktClassDestMacAddr=docsIetfQosPktClassDestMacAddr, docsIetfQosServiceClassTolGrantJitter=docsIetfQosServiceClassTolGrantJitter, docsIetfQosServiceClassActiveTimeout=docsIetfQosServiceClassActiveTimeout, docsIetfQosPktClassSourcePortEnd=docsIetfQosPktClassSourcePortEnd, docsIetfQosPHSTable=docsIetfQosPHSTable, docsIetfQosPHSEntry=docsIetfQosPHSEntry, docsIetfQosDSAReqs=docsIetfQosDSAReqs, docsIetfQosPktClassDestPortEnd=docsIetfQosPktClassDestPortEnd, docsIetfQosPktClassEntry=docsIetfQosPktClassEntry, docsIetfQosDCCRsps=docsIetfQosDCCRsps, docsIetfQosParamSetTosAndMask=docsIetfQosParamSetTosAndMask, docsIetfQosParamSetGrantsPerInterval=docsIetfQosParamSetGrantsPerInterval, docsIetfQosServiceClassPolicyRulePriority=docsIetfQosServiceClassPolicyRulePriority, docsIetfQosPHSField=docsIetfQosPHSField, docsIetfQosParamSetMinReservedPkt=docsIetfQosParamSetMinReservedPkt, DocsIetfQosRfMacIfDirection=DocsIetfQosRfMacIfDirection, docsIetfQosParamSetMinReservedRate=docsIetfQosParamSetMinReservedRate, docsIetfQosCmtsServiceFlowId=docsIetfQosCmtsServiceFlowId, docsIetfQosServiceFlowTimeActive=docsIetfQosServiceFlowTimeActive, docsIetfQosServiceFlowPolicedDropPkts=docsIetfQosServiceFlowPolicedDropPkts, docsIetfQosPHSSize=docsIetfQosPHSSize, docsIetfQosServiceClassMinReservedPkt=docsIetfQosServiceClassMinReservedPkt, docsIetfQosServiceClassDirection=docsIetfQosServiceClassDirection, docsIetfQosDynamicChangeFails=docsIetfQosDynamicChangeFails, docsIetfQosDSDRsps=docsIetfQosDSDRsps, docsIetfQosParamSetGroup=docsIetfQosParamSetGroup, docsIetfQosParamSetServiceClassName=docsIetfQosParamSetServiceClassName, PYSNMP_MODULE_ID=docsIetfQosMIB, docsIetfQosParamSetRequestPolicyOct=docsIetfQosParamSetRequestPolicyOct, docsIetfQosServiceFlowEntry=docsIetfQosServiceFlowEntry, docsIetfQosServiceClassPolicyEntry=docsIetfQosServiceClassPolicyEntry, docsIetfQosPktClassInetSourceMask=docsIetfQosPktClassInetSourceMask, docsIetfQosPktClassSourcePortStart=docsIetfQosPktClassSourcePortStart, docsIetfQosDynamicServiceStatsEntry=docsIetfQosDynamicServiceStatsEntry, docsIetfQosServiceFlowLogTimeActive=docsIetfQosServiceFlowLogTimeActive, docsIetfQosServiceFlowLogPkts=docsIetfQosServiceFlowLogPkts, docsIetfQosServiceClassMaxConcatBurst=docsIetfQosServiceClassMaxConcatBurst, docsIetfQosServiceClassName=docsIetfQosServiceClassName)
+_Bk='docsIetfQosServiceClassGroup'
+_Bj='docsIetfQosSrvClassPolicyGroup'
+_Bi='docsIetfQosParamSetGroup'
+_Bh='docsIetfQosCmtsGroup'
+_Bg='docsIetfQosBaseGroup'
+_Bf='docsIetfQosServiceClassDSCPOverwrite'
+_Be='docsIetfQosServiceClassStorageType'
+_Bd='docsIetfQosServiceClassDirection'
+_Bc='docsIetfQosServiceClassTosOrMask'
+_Bb='docsIetfQosServiceClassTosAndMask'
+_Ba='docsIetfQosServiceClassRequestPolicy'
+_BZ='docsIetfQosServiceClassSchedulingType'
+_BY='docsIetfQosServiceClassAdmittedTimeout'
+_BX='docsIetfQosServiceClassActiveTimeout'
+_BW='docsIetfQosServiceClassMaxLatency'
+_BV='docsIetfQosServiceClassGrantsPerInterval'
+_BU='docsIetfQosServiceClassTolGrantJitter'
+_BT='docsIetfQosServiceClassNomGrantInterval'
+_BS='docsIetfQosServiceClassUnsolicitGrantSize'
+_BR='docsIetfQosServiceClassTolPollJitter'
+_BQ='docsIetfQosServiceClassNomPollInterval'
+_BP='docsIetfQosServiceClassMaxConcatBurst'
+_BO='docsIetfQosServiceClassMinReservedPkt'
+_BN='docsIetfQosServiceClassMinReservedRate'
+_BM='docsIetfQosServiceClassMaxTrafficBurst'
+_BL='docsIetfQosServiceClassMaxTrafficRate'
+_BK='docsIetfQosServiceClassPriority'
+_BJ='docsIetfQosServiceClassStatus'
+_BI='docsIetfQosServiceClassPolicyStorageType'
+_BH='docsIetfQosServiceClassPolicyStatus'
+_BG='docsIetfQosServiceClassPolicyRulePriority'
+_BF='docsIetfQosServiceClassPolicyName'
+_BE='docsIetfQosCmtsIfIndex'
+_BD='docsIetfQosServiceFlowLogControl'
+_BC='docsIetfQosServiceFlowLogPolicedDelayPkts'
+_BB='docsIetfQosServiceFlowLogPolicedDropPkts'
+_BA='docsIetfQosServiceFlowLogServiceClassName'
+_B9='docsIetfQosServiceFlowLogPrimary'
+_B8='docsIetfQosServiceFlowLogDirection'
+_B7='docsIetfQosServiceFlowLogTimeActive'
+_B6='docsIetfQosServiceFlowLogTimeCreated'
+_B5='docsIetfQosServiceFlowLogTimeDeleted'
+_B4='docsIetfQosServiceFlowLogOctets'
+_B3='docsIetfQosServiceFlowLogPkts'
+_B2='docsIetfQosServiceFlowLogCmMac'
+_B1='docsIetfQosServiceFlowLogSFID'
+_B0='docsIetfQosServiceFlowLogIfIndex'
+_A_='docsIetfQosUpstreamConcatBursts'
+_Az='docsIetfQosUpstreamFragDiscards'
+_Ay='docsIetfQosUpstreamFragments'
+_Ax='docsIetfQosParamSetBitMap'
+_Aw='docsIetfQosParamSetRequestPolicyOct'
+_Av='docsIetfQosParamSetMaxLatency'
+_Au='docsIetfQosParamSetTosOrMask'
+_At='docsIetfQosParamSetTosAndMask'
+_As='docsIetfQosParamSetGrantsPerInterval'
+_Ar='docsIetfQosParamSetTolGrantJitter'
+_Aq='docsIetfQosParamSetNomGrantInterval'
+_Ap='docsIetfQosParamSetUnsolicitGrantSize'
+_Ao='docsIetfQosParamSetTolPollJitter'
+_An='docsIetfQosParamSetNomPollInterval'
+_Am='docsIetfQosParamSetSchedulingType'
+_Al='docsIetfQosParamSetMaxConcatBurst'
+_Ak='docsIetfQosParamSetAdmittedTimeout'
+_Aj='docsIetfQosParamSetActiveTimeout'
+_Ai='docsIetfQosParamSetMinReservedPkt'
+_Ah='docsIetfQosParamSetMinReservedRate'
+_Ag='docsIetfQosParamSetMaxTrafficBurst'
+_Af='docsIetfQosParamSetMaxTrafficRate'
+_Ae='docsIetfQosParamSetPriority'
+_Ad='docsIetfQosParamSetServiceClassName'
+_Ac='docsIetfQosPHSIndex'
+_Ab='docsIetfQosPHSVerify'
+_Aa='docsIetfQosPHSSize'
+_AZ='docsIetfQosPHSMask'
+_AY='docsIetfQosPHSField'
+_AX='docsIetfQosDCCFails'
+_AW='docsIetfQosDCCs'
+_AV='docsIetfQosDCCAcks'
+_AU='docsIetfQosDCCRsps'
+_AT='docsIetfQosDCCReqs'
+_AS='docsIetfQosDynamicDeleteFails'
+_AR='docsIetfQosDynamicDeletes'
+_AQ='docsIetfQosDynamicChangeFails'
+_AP='docsIetfQosDynamicChanges'
+_AO='docsIetfQosDynamicAddFails'
+_AN='docsIetfQosDynamicAdds'
+_AM='docsIetfQosDSDRsps'
+_AL='docsIetfQosDSDReqs'
+_AK='docsIetfQosDSCAcks'
+_AJ='docsIetfQosDSCRsps'
+_AI='docsIetfQosDSCReqs'
+_AH='docsIetfQosDSAAcks'
+_AG='docsIetfQosDSARsps'
+_AF='docsIetfQosDSAReqs'
+_AE='docsIetfQosServiceFlowPolicedDelayPkts'
+_AD='docsIetfQosServiceFlowPolicedDropPkts'
+_AC='docsIetfQosServiceFlowPHSUnknowns'
+_AB='docsIetfQosServiceFlowTimeActive'
+_AA='docsIetfQosServiceFlowTimeCreated'
+_A9='docsIetfQosServiceFlowOctets'
+_A8='docsIetfQosServiceFlowPkts'
+_A7='docsIetfQosServiceFlowPrimary'
+_A6='docsIetfQosServiceFlowDirection'
+_A5='docsIetfQosServiceFlowSID'
+_A4='docsIetfQosPktClassInetDestMask'
+_A3='docsIetfQosPktClassInetDestAddr'
+_A2='docsIetfQosPktClassInetSourceMask'
+_A1='docsIetfQosPktClassInetSourceAddr'
+_A0='docsIetfQosPktClassInetAddressType'
+_z='docsIetfQosPktClassBitMap'
+_y='docsIetfQosPktClassPkts'
+_x='docsIetfQosPktClassStateActive'
+_w='docsIetfQosPktClassVlanId'
+_v='docsIetfQosPktClassUserPriHigh'
+_u='docsIetfQosPktClassUserPriLow'
+_t='docsIetfQosPktClassEnetProtocol'
+_s='docsIetfQosPktClassEnetProtocolType'
+_r='docsIetfQosPktClassSourceMacAddr'
+_q='docsIetfQosPktClassDestMacMask'
+_p='docsIetfQosPktClassDestMacAddr'
+_o='docsIetfQosPktClassDestPortEnd'
+_n='docsIetfQosPktClassDestPortStart'
+_m='docsIetfQosPktClassSourcePortEnd'
+_l='docsIetfQosPktClassSourcePortStart'
+_k='docsIetfQosPktClassIpProtocol'
+_j='docsIetfQosPktClassIpTosMask'
+_i='docsIetfQosPktClassIpTosHigh'
+_h='docsIetfQosPktClassIpTosLow'
+_g='docsIetfQosPktClassPriority'
+_f='docsIetfQosPktClassDirection'
+_e='docsIetfQosCmtsServiceFlowId'
+_d='docsIetfQosCmtsCmMac'
+_c='docsIetfQosServiceClassPolicyIndex'
+_b='DocsIetfQosRfMacIfDirection'
+_a='DocsIetfQosSchedulingType'
+_Z='docsIetfQosServiceClassName'
+_Y='docsIetfQosServiceFlowLogIndex'
+_X='docsIetfQosIfDirection'
+_W='docsIetfQosSID'
+_V='active'
+_U='docsIetfQosParamSetType'
+_T='ethertype'
+_S='SnmpAdminString'
+_R='DscpOrAny'
+_Q='DocsIetfQosBitRate'
+_P='docsIetfQosPktClassId'
+_O='StorageType'
+_N='Bits'
+_M='seconds'
+_L='docsIetfQosServiceFlowId'
+_K='ifIndex'
+_J='IF-MIB'
+_I='microseconds'
+_H='not-accessible'
+_G='OctetString'
+_F='Unsigned32'
+_E='read-create'
+_D='Integer32'
+_C='read-only'
+_B='DOCS-IETF-QOS-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_G,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+DscpOrAny,=mibBuilder.importSymbols('DIFFSERV-DSCP-TC',_R)
+InterfaceIndex,ifIndex=mibBuilder.importSymbols(_J,'InterfaceIndex',_K)
+InetAddress,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType','InetPortNumber')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_S)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI',_N,'Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'iso','mib-2')
+DisplayString,MacAddress,PhysAddress,RowStatus,StorageType,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','RowStatus',_O,'TextualConvention','TimeStamp','TruthValue')
+docsIetfQosMIB=ModuleIdentity((1,3,6,1,2,1,127))
+if mibBuilder.loadTexts:docsIetfQosMIB.setRevisions(('2006-01-23 00:00',))
+class DocsIetfQosRfMacIfDirection(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('downstream',1),('upstream',2)))
+class DocsIetfQosBitRate(TextualConvention,Unsigned32):status=_A;displayHint='d'
+class DocsIetfQosSchedulingType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('undefined',1),('bestEffort',2),('nonRealTimePollingService',3),('realTimePollingService',4),('unsolictedGrantServiceWithAD',5),('unsolictedGrantService',6)))
+_DocsIetfQosNotifications_ObjectIdentity=ObjectIdentity
+docsIetfQosNotifications=_DocsIetfQosNotifications_ObjectIdentity((1,3,6,1,2,1,127,0))
+_DocsIetfQosMIBObjects_ObjectIdentity=ObjectIdentity
+docsIetfQosMIBObjects=_DocsIetfQosMIBObjects_ObjectIdentity((1,3,6,1,2,1,127,1))
+_DocsIetfQosPktClassTable_Object=MibTable
+docsIetfQosPktClassTable=_DocsIetfQosPktClassTable_Object((1,3,6,1,2,1,127,1,1))
+if mibBuilder.loadTexts:docsIetfQosPktClassTable.setStatus(_A)
+_DocsIetfQosPktClassEntry_Object=MibTableRow
+docsIetfQosPktClassEntry=_DocsIetfQosPktClassEntry_Object((1,3,6,1,2,1,127,1,1,1))
+docsIetfQosPktClassEntry.setIndexNames((0,_J,_K),(0,_B,_L),(0,_B,_P))
+if mibBuilder.loadTexts:docsIetfQosPktClassEntry.setStatus(_A)
+class _DocsIetfQosPktClassId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_DocsIetfQosPktClassId_Type.__name__=_F
+_DocsIetfQosPktClassId_Object=MibTableColumn
+docsIetfQosPktClassId=_DocsIetfQosPktClassId_Object((1,3,6,1,2,1,127,1,1,1,1),_DocsIetfQosPktClassId_Type())
+docsIetfQosPktClassId.setMaxAccess(_H)
+if mibBuilder.loadTexts:docsIetfQosPktClassId.setStatus(_A)
+_DocsIetfQosPktClassDirection_Type=DocsIetfQosRfMacIfDirection
+_DocsIetfQosPktClassDirection_Object=MibTableColumn
+docsIetfQosPktClassDirection=_DocsIetfQosPktClassDirection_Object((1,3,6,1,2,1,127,1,1,1,2),_DocsIetfQosPktClassDirection_Type())
+docsIetfQosPktClassDirection.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassDirection.setStatus(_A)
+class _DocsIetfQosPktClassPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_DocsIetfQosPktClassPriority_Type.__name__=_D
+_DocsIetfQosPktClassPriority_Object=MibTableColumn
+docsIetfQosPktClassPriority=_DocsIetfQosPktClassPriority_Object((1,3,6,1,2,1,127,1,1,1,3),_DocsIetfQosPktClassPriority_Type())
+docsIetfQosPktClassPriority.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassPriority.setStatus(_A)
+class _DocsIetfQosPktClassIpTosLow_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_DocsIetfQosPktClassIpTosLow_Type.__name__=_G
+_DocsIetfQosPktClassIpTosLow_Object=MibTableColumn
+docsIetfQosPktClassIpTosLow=_DocsIetfQosPktClassIpTosLow_Object((1,3,6,1,2,1,127,1,1,1,4),_DocsIetfQosPktClassIpTosLow_Type())
+docsIetfQosPktClassIpTosLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassIpTosLow.setStatus(_A)
+class _DocsIetfQosPktClassIpTosHigh_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_DocsIetfQosPktClassIpTosHigh_Type.__name__=_G
+_DocsIetfQosPktClassIpTosHigh_Object=MibTableColumn
+docsIetfQosPktClassIpTosHigh=_DocsIetfQosPktClassIpTosHigh_Object((1,3,6,1,2,1,127,1,1,1,5),_DocsIetfQosPktClassIpTosHigh_Type())
+docsIetfQosPktClassIpTosHigh.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassIpTosHigh.setStatus(_A)
+class _DocsIetfQosPktClassIpTosMask_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_DocsIetfQosPktClassIpTosMask_Type.__name__=_G
+_DocsIetfQosPktClassIpTosMask_Object=MibTableColumn
+docsIetfQosPktClassIpTosMask=_DocsIetfQosPktClassIpTosMask_Object((1,3,6,1,2,1,127,1,1,1,6),_DocsIetfQosPktClassIpTosMask_Type())
+docsIetfQosPktClassIpTosMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassIpTosMask.setStatus(_A)
+class _DocsIetfQosPktClassIpProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,258))
+_DocsIetfQosPktClassIpProtocol_Type.__name__=_D
+_DocsIetfQosPktClassIpProtocol_Object=MibTableColumn
+docsIetfQosPktClassIpProtocol=_DocsIetfQosPktClassIpProtocol_Object((1,3,6,1,2,1,127,1,1,1,7),_DocsIetfQosPktClassIpProtocol_Type())
+docsIetfQosPktClassIpProtocol.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassIpProtocol.setStatus(_A)
+_DocsIetfQosPktClassInetAddressType_Type=InetAddressType
+_DocsIetfQosPktClassInetAddressType_Object=MibTableColumn
+docsIetfQosPktClassInetAddressType=_DocsIetfQosPktClassInetAddressType_Object((1,3,6,1,2,1,127,1,1,1,8),_DocsIetfQosPktClassInetAddressType_Type())
+docsIetfQosPktClassInetAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassInetAddressType.setStatus(_A)
+_DocsIetfQosPktClassInetSourceAddr_Type=InetAddress
+_DocsIetfQosPktClassInetSourceAddr_Object=MibTableColumn
+docsIetfQosPktClassInetSourceAddr=_DocsIetfQosPktClassInetSourceAddr_Object((1,3,6,1,2,1,127,1,1,1,9),_DocsIetfQosPktClassInetSourceAddr_Type())
+docsIetfQosPktClassInetSourceAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassInetSourceAddr.setStatus(_A)
+_DocsIetfQosPktClassInetSourceMask_Type=InetAddress
+_DocsIetfQosPktClassInetSourceMask_Object=MibTableColumn
+docsIetfQosPktClassInetSourceMask=_DocsIetfQosPktClassInetSourceMask_Object((1,3,6,1,2,1,127,1,1,1,10),_DocsIetfQosPktClassInetSourceMask_Type())
+docsIetfQosPktClassInetSourceMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassInetSourceMask.setStatus(_A)
+_DocsIetfQosPktClassInetDestAddr_Type=InetAddress
+_DocsIetfQosPktClassInetDestAddr_Object=MibTableColumn
+docsIetfQosPktClassInetDestAddr=_DocsIetfQosPktClassInetDestAddr_Object((1,3,6,1,2,1,127,1,1,1,11),_DocsIetfQosPktClassInetDestAddr_Type())
+docsIetfQosPktClassInetDestAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassInetDestAddr.setStatus(_A)
+_DocsIetfQosPktClassInetDestMask_Type=InetAddress
+_DocsIetfQosPktClassInetDestMask_Object=MibTableColumn
+docsIetfQosPktClassInetDestMask=_DocsIetfQosPktClassInetDestMask_Object((1,3,6,1,2,1,127,1,1,1,12),_DocsIetfQosPktClassInetDestMask_Type())
+docsIetfQosPktClassInetDestMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassInetDestMask.setStatus(_A)
+_DocsIetfQosPktClassSourcePortStart_Type=InetPortNumber
+_DocsIetfQosPktClassSourcePortStart_Object=MibTableColumn
+docsIetfQosPktClassSourcePortStart=_DocsIetfQosPktClassSourcePortStart_Object((1,3,6,1,2,1,127,1,1,1,13),_DocsIetfQosPktClassSourcePortStart_Type())
+docsIetfQosPktClassSourcePortStart.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassSourcePortStart.setStatus(_A)
+_DocsIetfQosPktClassSourcePortEnd_Type=InetPortNumber
+_DocsIetfQosPktClassSourcePortEnd_Object=MibTableColumn
+docsIetfQosPktClassSourcePortEnd=_DocsIetfQosPktClassSourcePortEnd_Object((1,3,6,1,2,1,127,1,1,1,14),_DocsIetfQosPktClassSourcePortEnd_Type())
+docsIetfQosPktClassSourcePortEnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassSourcePortEnd.setStatus(_A)
+_DocsIetfQosPktClassDestPortStart_Type=InetPortNumber
+_DocsIetfQosPktClassDestPortStart_Object=MibTableColumn
+docsIetfQosPktClassDestPortStart=_DocsIetfQosPktClassDestPortStart_Object((1,3,6,1,2,1,127,1,1,1,15),_DocsIetfQosPktClassDestPortStart_Type())
+docsIetfQosPktClassDestPortStart.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassDestPortStart.setStatus(_A)
+_DocsIetfQosPktClassDestPortEnd_Type=InetPortNumber
+_DocsIetfQosPktClassDestPortEnd_Object=MibTableColumn
+docsIetfQosPktClassDestPortEnd=_DocsIetfQosPktClassDestPortEnd_Object((1,3,6,1,2,1,127,1,1,1,16),_DocsIetfQosPktClassDestPortEnd_Type())
+docsIetfQosPktClassDestPortEnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassDestPortEnd.setStatus(_A)
+_DocsIetfQosPktClassDestMacAddr_Type=MacAddress
+_DocsIetfQosPktClassDestMacAddr_Object=MibTableColumn
+docsIetfQosPktClassDestMacAddr=_DocsIetfQosPktClassDestMacAddr_Object((1,3,6,1,2,1,127,1,1,1,17),_DocsIetfQosPktClassDestMacAddr_Type())
+docsIetfQosPktClassDestMacAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassDestMacAddr.setStatus(_A)
+_DocsIetfQosPktClassDestMacMask_Type=MacAddress
+_DocsIetfQosPktClassDestMacMask_Object=MibTableColumn
+docsIetfQosPktClassDestMacMask=_DocsIetfQosPktClassDestMacMask_Object((1,3,6,1,2,1,127,1,1,1,18),_DocsIetfQosPktClassDestMacMask_Type())
+docsIetfQosPktClassDestMacMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassDestMacMask.setStatus(_A)
+_DocsIetfQosPktClassSourceMacAddr_Type=MacAddress
+_DocsIetfQosPktClassSourceMacAddr_Object=MibTableColumn
+docsIetfQosPktClassSourceMacAddr=_DocsIetfQosPktClassSourceMacAddr_Object((1,3,6,1,2,1,127,1,1,1,19),_DocsIetfQosPktClassSourceMacAddr_Type())
+docsIetfQosPktClassSourceMacAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassSourceMacAddr.setStatus(_A)
+class _DocsIetfQosPktClassEnetProtocolType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('none',0),(_T,1),('dsap',2),('mac',3),('all',4)))
+_DocsIetfQosPktClassEnetProtocolType_Type.__name__=_D
+_DocsIetfQosPktClassEnetProtocolType_Object=MibTableColumn
+docsIetfQosPktClassEnetProtocolType=_DocsIetfQosPktClassEnetProtocolType_Object((1,3,6,1,2,1,127,1,1,1,20),_DocsIetfQosPktClassEnetProtocolType_Type())
+docsIetfQosPktClassEnetProtocolType.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassEnetProtocolType.setStatus(_A)
+class _DocsIetfQosPktClassEnetProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_DocsIetfQosPktClassEnetProtocol_Type.__name__=_D
+_DocsIetfQosPktClassEnetProtocol_Object=MibTableColumn
+docsIetfQosPktClassEnetProtocol=_DocsIetfQosPktClassEnetProtocol_Object((1,3,6,1,2,1,127,1,1,1,21),_DocsIetfQosPktClassEnetProtocol_Type())
+docsIetfQosPktClassEnetProtocol.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassEnetProtocol.setStatus(_A)
+class _DocsIetfQosPktClassUserPriLow_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
+_DocsIetfQosPktClassUserPriLow_Type.__name__=_D
+_DocsIetfQosPktClassUserPriLow_Object=MibTableColumn
+docsIetfQosPktClassUserPriLow=_DocsIetfQosPktClassUserPriLow_Object((1,3,6,1,2,1,127,1,1,1,22),_DocsIetfQosPktClassUserPriLow_Type())
+docsIetfQosPktClassUserPriLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassUserPriLow.setStatus(_A)
+class _DocsIetfQosPktClassUserPriHigh_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
+_DocsIetfQosPktClassUserPriHigh_Type.__name__=_D
+_DocsIetfQosPktClassUserPriHigh_Object=MibTableColumn
+docsIetfQosPktClassUserPriHigh=_DocsIetfQosPktClassUserPriHigh_Object((1,3,6,1,2,1,127,1,1,1,23),_DocsIetfQosPktClassUserPriHigh_Type())
+docsIetfQosPktClassUserPriHigh.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassUserPriHigh.setStatus(_A)
+class _DocsIetfQosPktClassVlanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,4094))
+_DocsIetfQosPktClassVlanId_Type.__name__=_D
+_DocsIetfQosPktClassVlanId_Object=MibTableColumn
+docsIetfQosPktClassVlanId=_DocsIetfQosPktClassVlanId_Object((1,3,6,1,2,1,127,1,1,1,24),_DocsIetfQosPktClassVlanId_Type())
+docsIetfQosPktClassVlanId.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassVlanId.setStatus(_A)
+_DocsIetfQosPktClassStateActive_Type=TruthValue
+_DocsIetfQosPktClassStateActive_Object=MibTableColumn
+docsIetfQosPktClassStateActive=_DocsIetfQosPktClassStateActive_Object((1,3,6,1,2,1,127,1,1,1,25),_DocsIetfQosPktClassStateActive_Type())
+docsIetfQosPktClassStateActive.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassStateActive.setStatus(_A)
+_DocsIetfQosPktClassPkts_Type=Counter64
+_DocsIetfQosPktClassPkts_Object=MibTableColumn
+docsIetfQosPktClassPkts=_DocsIetfQosPktClassPkts_Object((1,3,6,1,2,1,127,1,1,1,26),_DocsIetfQosPktClassPkts_Type())
+docsIetfQosPktClassPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassPkts.setStatus(_A)
+class _DocsIetfQosPktClassBitMap_Type(Bits):namedValues=NamedValues(*(('rulePriority',0),('activationState',1),('ipTos',2),('ipProtocol',3),('ipSourceAddr',4),('ipSourceMask',5),('ipDestAddr',6),('ipDestMask',7),('sourcePortStart',8),('sourcePortEnd',9),('destPortStart',10),('destPortEnd',11),('destMac',12),('sourceMac',13),(_T,14),('userPri',15),('vlanId',16)))
+_DocsIetfQosPktClassBitMap_Type.__name__=_N
+_DocsIetfQosPktClassBitMap_Object=MibTableColumn
+docsIetfQosPktClassBitMap=_DocsIetfQosPktClassBitMap_Object((1,3,6,1,2,1,127,1,1,1,27),_DocsIetfQosPktClassBitMap_Type())
+docsIetfQosPktClassBitMap.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPktClassBitMap.setStatus(_A)
+_DocsIetfQosParamSetTable_Object=MibTable
+docsIetfQosParamSetTable=_DocsIetfQosParamSetTable_Object((1,3,6,1,2,1,127,1,2))
+if mibBuilder.loadTexts:docsIetfQosParamSetTable.setStatus(_A)
+_DocsIetfQosParamSetEntry_Object=MibTableRow
+docsIetfQosParamSetEntry=_DocsIetfQosParamSetEntry_Object((1,3,6,1,2,1,127,1,2,1))
+docsIetfQosParamSetEntry.setIndexNames((0,_J,_K),(0,_B,_L),(0,_B,_U))
+if mibBuilder.loadTexts:docsIetfQosParamSetEntry.setStatus(_A)
+_DocsIetfQosParamSetServiceClassName_Type=SnmpAdminString
+_DocsIetfQosParamSetServiceClassName_Object=MibTableColumn
+docsIetfQosParamSetServiceClassName=_DocsIetfQosParamSetServiceClassName_Object((1,3,6,1,2,1,127,1,2,1,1),_DocsIetfQosParamSetServiceClassName_Type())
+docsIetfQosParamSetServiceClassName.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetServiceClassName.setStatus(_A)
+class _DocsIetfQosParamSetPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
+_DocsIetfQosParamSetPriority_Type.__name__=_D
+_DocsIetfQosParamSetPriority_Object=MibTableColumn
+docsIetfQosParamSetPriority=_DocsIetfQosParamSetPriority_Object((1,3,6,1,2,1,127,1,2,1,2),_DocsIetfQosParamSetPriority_Type())
+docsIetfQosParamSetPriority.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetPriority.setStatus(_A)
+_DocsIetfQosParamSetMaxTrafficRate_Type=DocsIetfQosBitRate
+_DocsIetfQosParamSetMaxTrafficRate_Object=MibTableColumn
+docsIetfQosParamSetMaxTrafficRate=_DocsIetfQosParamSetMaxTrafficRate_Object((1,3,6,1,2,1,127,1,2,1,3),_DocsIetfQosParamSetMaxTrafficRate_Type())
+docsIetfQosParamSetMaxTrafficRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetMaxTrafficRate.setStatus(_A)
+_DocsIetfQosParamSetMaxTrafficBurst_Type=Unsigned32
+_DocsIetfQosParamSetMaxTrafficBurst_Object=MibTableColumn
+docsIetfQosParamSetMaxTrafficBurst=_DocsIetfQosParamSetMaxTrafficBurst_Object((1,3,6,1,2,1,127,1,2,1,4),_DocsIetfQosParamSetMaxTrafficBurst_Type())
+docsIetfQosParamSetMaxTrafficBurst.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetMaxTrafficBurst.setStatus(_A)
+_DocsIetfQosParamSetMinReservedRate_Type=DocsIetfQosBitRate
+_DocsIetfQosParamSetMinReservedRate_Object=MibTableColumn
+docsIetfQosParamSetMinReservedRate=_DocsIetfQosParamSetMinReservedRate_Object((1,3,6,1,2,1,127,1,2,1,5),_DocsIetfQosParamSetMinReservedRate_Type())
+docsIetfQosParamSetMinReservedRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetMinReservedRate.setStatus(_A)
+class _DocsIetfQosParamSetMinReservedPkt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_DocsIetfQosParamSetMinReservedPkt_Type.__name__=_D
+_DocsIetfQosParamSetMinReservedPkt_Object=MibTableColumn
+docsIetfQosParamSetMinReservedPkt=_DocsIetfQosParamSetMinReservedPkt_Object((1,3,6,1,2,1,127,1,2,1,6),_DocsIetfQosParamSetMinReservedPkt_Type())
+docsIetfQosParamSetMinReservedPkt.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetMinReservedPkt.setStatus(_A)
+class _DocsIetfQosParamSetActiveTimeout_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_DocsIetfQosParamSetActiveTimeout_Type.__name__=_D
+_DocsIetfQosParamSetActiveTimeout_Object=MibTableColumn
+docsIetfQosParamSetActiveTimeout=_DocsIetfQosParamSetActiveTimeout_Object((1,3,6,1,2,1,127,1,2,1,7),_DocsIetfQosParamSetActiveTimeout_Type())
+docsIetfQosParamSetActiveTimeout.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetActiveTimeout.setStatus(_A)
+if mibBuilder.loadTexts:docsIetfQosParamSetActiveTimeout.setUnits(_M)
+class _DocsIetfQosParamSetAdmittedTimeout_Type(Integer32):defaultValue=200;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_DocsIetfQosParamSetAdmittedTimeout_Type.__name__=_D
+_DocsIetfQosParamSetAdmittedTimeout_Object=MibTableColumn
+docsIetfQosParamSetAdmittedTimeout=_DocsIetfQosParamSetAdmittedTimeout_Object((1,3,6,1,2,1,127,1,2,1,8),_DocsIetfQosParamSetAdmittedTimeout_Type())
+docsIetfQosParamSetAdmittedTimeout.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetAdmittedTimeout.setStatus(_A)
+if mibBuilder.loadTexts:docsIetfQosParamSetAdmittedTimeout.setUnits(_M)
+class _DocsIetfQosParamSetMaxConcatBurst_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_DocsIetfQosParamSetMaxConcatBurst_Type.__name__=_D
+_DocsIetfQosParamSetMaxConcatBurst_Object=MibTableColumn
+docsIetfQosParamSetMaxConcatBurst=_DocsIetfQosParamSetMaxConcatBurst_Object((1,3,6,1,2,1,127,1,2,1,9),_DocsIetfQosParamSetMaxConcatBurst_Type())
+docsIetfQosParamSetMaxConcatBurst.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetMaxConcatBurst.setStatus(_A)
+_DocsIetfQosParamSetSchedulingType_Type=DocsIetfQosSchedulingType
+_DocsIetfQosParamSetSchedulingType_Object=MibTableColumn
+docsIetfQosParamSetSchedulingType=_DocsIetfQosParamSetSchedulingType_Object((1,3,6,1,2,1,127,1,2,1,10),_DocsIetfQosParamSetSchedulingType_Type())
+docsIetfQosParamSetSchedulingType.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetSchedulingType.setStatus(_A)
+_DocsIetfQosParamSetNomPollInterval_Type=Unsigned32
+_DocsIetfQosParamSetNomPollInterval_Object=MibTableColumn
+docsIetfQosParamSetNomPollInterval=_DocsIetfQosParamSetNomPollInterval_Object((1,3,6,1,2,1,127,1,2,1,11),_DocsIetfQosParamSetNomPollInterval_Type())
+docsIetfQosParamSetNomPollInterval.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetNomPollInterval.setStatus(_A)
+if mibBuilder.loadTexts:docsIetfQosParamSetNomPollInterval.setUnits(_I)
+_DocsIetfQosParamSetTolPollJitter_Type=Unsigned32
+_DocsIetfQosParamSetTolPollJitter_Object=MibTableColumn
+docsIetfQosParamSetTolPollJitter=_DocsIetfQosParamSetTolPollJitter_Object((1,3,6,1,2,1,127,1,2,1,12),_DocsIetfQosParamSetTolPollJitter_Type())
+docsIetfQosParamSetTolPollJitter.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetTolPollJitter.setStatus(_A)
+if mibBuilder.loadTexts:docsIetfQosParamSetTolPollJitter.setUnits(_I)
+class _DocsIetfQosParamSetUnsolicitGrantSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_DocsIetfQosParamSetUnsolicitGrantSize_Type.__name__=_D
+_DocsIetfQosParamSetUnsolicitGrantSize_Object=MibTableColumn
+docsIetfQosParamSetUnsolicitGrantSize=_DocsIetfQosParamSetUnsolicitGrantSize_Object((1,3,6,1,2,1,127,1,2,1,13),_DocsIetfQosParamSetUnsolicitGrantSize_Type())
+docsIetfQosParamSetUnsolicitGrantSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetUnsolicitGrantSize.setStatus(_A)
+_DocsIetfQosParamSetNomGrantInterval_Type=Unsigned32
+_DocsIetfQosParamSetNomGrantInterval_Object=MibTableColumn
+docsIetfQosParamSetNomGrantInterval=_DocsIetfQosParamSetNomGrantInterval_Object((1,3,6,1,2,1,127,1,2,1,14),_DocsIetfQosParamSetNomGrantInterval_Type())
+docsIetfQosParamSetNomGrantInterval.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetNomGrantInterval.setStatus(_A)
+if mibBuilder.loadTexts:docsIetfQosParamSetNomGrantInterval.setUnits(_I)
+_DocsIetfQosParamSetTolGrantJitter_Type=Unsigned32
+_DocsIetfQosParamSetTolGrantJitter_Object=MibTableColumn
+docsIetfQosParamSetTolGrantJitter=_DocsIetfQosParamSetTolGrantJitter_Object((1,3,6,1,2,1,127,1,2,1,15),_DocsIetfQosParamSetTolGrantJitter_Type())
+docsIetfQosParamSetTolGrantJitter.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetTolGrantJitter.setStatus(_A)
+if mibBuilder.loadTexts:docsIetfQosParamSetTolGrantJitter.setUnits(_I)
+class _DocsIetfQosParamSetGrantsPerInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,127))
+_DocsIetfQosParamSetGrantsPerInterval_Type.__name__=_D
+_DocsIetfQosParamSetGrantsPerInterval_Object=MibTableColumn
+docsIetfQosParamSetGrantsPerInterval=_DocsIetfQosParamSetGrantsPerInterval_Object((1,3,6,1,2,1,127,1,2,1,16),_DocsIetfQosParamSetGrantsPerInterval_Type())
+docsIetfQosParamSetGrantsPerInterval.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetGrantsPerInterval.setStatus(_A)
+class _DocsIetfQosParamSetTosAndMask_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_DocsIetfQosParamSetTosAndMask_Type.__name__=_G
+_DocsIetfQosParamSetTosAndMask_Object=MibTableColumn
+docsIetfQosParamSetTosAndMask=_DocsIetfQosParamSetTosAndMask_Object((1,3,6,1,2,1,127,1,2,1,17),_DocsIetfQosParamSetTosAndMask_Type())
+docsIetfQosParamSetTosAndMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetTosAndMask.setStatus(_A)
+class _DocsIetfQosParamSetTosOrMask_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_DocsIetfQosParamSetTosOrMask_Type.__name__=_G
+_DocsIetfQosParamSetTosOrMask_Object=MibTableColumn
+docsIetfQosParamSetTosOrMask=_DocsIetfQosParamSetTosOrMask_Object((1,3,6,1,2,1,127,1,2,1,18),_DocsIetfQosParamSetTosOrMask_Type())
+docsIetfQosParamSetTosOrMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetTosOrMask.setStatus(_A)
+_DocsIetfQosParamSetMaxLatency_Type=Unsigned32
+_DocsIetfQosParamSetMaxLatency_Object=MibTableColumn
+docsIetfQosParamSetMaxLatency=_DocsIetfQosParamSetMaxLatency_Object((1,3,6,1,2,1,127,1,2,1,19),_DocsIetfQosParamSetMaxLatency_Type())
+docsIetfQosParamSetMaxLatency.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetMaxLatency.setStatus(_A)
+if mibBuilder.loadTexts:docsIetfQosParamSetMaxLatency.setUnits(_I)
+class _DocsIetfQosParamSetType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_V,1),('admitted',2),('provisioned',3)))
+_DocsIetfQosParamSetType_Type.__name__=_D
+_DocsIetfQosParamSetType_Object=MibTableColumn
+docsIetfQosParamSetType=_DocsIetfQosParamSetType_Object((1,3,6,1,2,1,127,1,2,1,20),_DocsIetfQosParamSetType_Type())
+docsIetfQosParamSetType.setMaxAccess(_H)
+if mibBuilder.loadTexts:docsIetfQosParamSetType.setStatus(_A)
+class _DocsIetfQosParamSetRequestPolicyOct_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
+_DocsIetfQosParamSetRequestPolicyOct_Type.__name__=_G
+_DocsIetfQosParamSetRequestPolicyOct_Object=MibTableColumn
+docsIetfQosParamSetRequestPolicyOct=_DocsIetfQosParamSetRequestPolicyOct_Object((1,3,6,1,2,1,127,1,2,1,21),_DocsIetfQosParamSetRequestPolicyOct_Type())
+docsIetfQosParamSetRequestPolicyOct.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetRequestPolicyOct.setStatus(_A)
+class _DocsIetfQosParamSetBitMap_Type(Bits):namedValues=NamedValues(*(('trafficPriority',0),('maxTrafficRate',1),('maxTrafficBurst',2),('minReservedRate',3),('minReservedPkt',4),('activeTimeout',5),('admittedTimeout',6),('maxConcatBurst',7),('schedulingType',8),('requestPolicy',9),('nomPollInterval',10),('tolPollJitter',11),('unsolicitGrantSize',12),('nomGrantInterval',13),('tolGrantJitter',14),('grantsPerInterval',15),('tosOverwrite',16),('maxLatency',17)))
+_DocsIetfQosParamSetBitMap_Type.__name__=_N
+_DocsIetfQosParamSetBitMap_Object=MibTableColumn
+docsIetfQosParamSetBitMap=_DocsIetfQosParamSetBitMap_Object((1,3,6,1,2,1,127,1,2,1,22),_DocsIetfQosParamSetBitMap_Type())
+docsIetfQosParamSetBitMap.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosParamSetBitMap.setStatus(_A)
+_DocsIetfQosServiceFlowTable_Object=MibTable
+docsIetfQosServiceFlowTable=_DocsIetfQosServiceFlowTable_Object((1,3,6,1,2,1,127,1,3))
+if mibBuilder.loadTexts:docsIetfQosServiceFlowTable.setStatus(_A)
+_DocsIetfQosServiceFlowEntry_Object=MibTableRow
+docsIetfQosServiceFlowEntry=_DocsIetfQosServiceFlowEntry_Object((1,3,6,1,2,1,127,1,3,1))
+docsIetfQosServiceFlowEntry.setIndexNames((0,_J,_K),(0,_B,_L))
+if mibBuilder.loadTexts:docsIetfQosServiceFlowEntry.setStatus(_A)
+class _DocsIetfQosServiceFlowId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_DocsIetfQosServiceFlowId_Type.__name__=_F
+_DocsIetfQosServiceFlowId_Object=MibTableColumn
+docsIetfQosServiceFlowId=_DocsIetfQosServiceFlowId_Object((1,3,6,1,2,1,127,1,3,1,1),_DocsIetfQosServiceFlowId_Type())
+docsIetfQosServiceFlowId.setMaxAccess(_H)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowId.setStatus(_A)
+class _DocsIetfQosServiceFlowSID_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16383))
+_DocsIetfQosServiceFlowSID_Type.__name__=_F
+_DocsIetfQosServiceFlowSID_Object=MibTableColumn
+docsIetfQosServiceFlowSID=_DocsIetfQosServiceFlowSID_Object((1,3,6,1,2,1,127,1,3,1,2),_DocsIetfQosServiceFlowSID_Type())
+docsIetfQosServiceFlowSID.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowSID.setStatus(_A)
+_DocsIetfQosServiceFlowDirection_Type=DocsIetfQosRfMacIfDirection
+_DocsIetfQosServiceFlowDirection_Object=MibTableColumn
+docsIetfQosServiceFlowDirection=_DocsIetfQosServiceFlowDirection_Object((1,3,6,1,2,1,127,1,3,1,3),_DocsIetfQosServiceFlowDirection_Type())
+docsIetfQosServiceFlowDirection.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowDirection.setStatus(_A)
+_DocsIetfQosServiceFlowPrimary_Type=TruthValue
+_DocsIetfQosServiceFlowPrimary_Object=MibTableColumn
+docsIetfQosServiceFlowPrimary=_DocsIetfQosServiceFlowPrimary_Object((1,3,6,1,2,1,127,1,3,1,4),_DocsIetfQosServiceFlowPrimary_Type())
+docsIetfQosServiceFlowPrimary.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowPrimary.setStatus(_A)
+_DocsIetfQosServiceFlowStatsTable_Object=MibTable
+docsIetfQosServiceFlowStatsTable=_DocsIetfQosServiceFlowStatsTable_Object((1,3,6,1,2,1,127,1,4))
+if mibBuilder.loadTexts:docsIetfQosServiceFlowStatsTable.setStatus(_A)
+_DocsIetfQosServiceFlowStatsEntry_Object=MibTableRow
+docsIetfQosServiceFlowStatsEntry=_DocsIetfQosServiceFlowStatsEntry_Object((1,3,6,1,2,1,127,1,4,1))
+docsIetfQosServiceFlowStatsEntry.setIndexNames((0,_J,_K),(0,_B,_L))
+if mibBuilder.loadTexts:docsIetfQosServiceFlowStatsEntry.setStatus(_A)
+_DocsIetfQosServiceFlowPkts_Type=Counter64
+_DocsIetfQosServiceFlowPkts_Object=MibTableColumn
+docsIetfQosServiceFlowPkts=_DocsIetfQosServiceFlowPkts_Object((1,3,6,1,2,1,127,1,4,1,1),_DocsIetfQosServiceFlowPkts_Type())
+docsIetfQosServiceFlowPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowPkts.setStatus(_A)
+_DocsIetfQosServiceFlowOctets_Type=Counter64
+_DocsIetfQosServiceFlowOctets_Object=MibTableColumn
+docsIetfQosServiceFlowOctets=_DocsIetfQosServiceFlowOctets_Object((1,3,6,1,2,1,127,1,4,1,2),_DocsIetfQosServiceFlowOctets_Type())
+docsIetfQosServiceFlowOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowOctets.setStatus(_A)
+_DocsIetfQosServiceFlowTimeCreated_Type=TimeStamp
+_DocsIetfQosServiceFlowTimeCreated_Object=MibTableColumn
+docsIetfQosServiceFlowTimeCreated=_DocsIetfQosServiceFlowTimeCreated_Object((1,3,6,1,2,1,127,1,4,1,3),_DocsIetfQosServiceFlowTimeCreated_Type())
+docsIetfQosServiceFlowTimeCreated.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowTimeCreated.setStatus(_A)
+_DocsIetfQosServiceFlowTimeActive_Type=Counter32
+_DocsIetfQosServiceFlowTimeActive_Object=MibTableColumn
+docsIetfQosServiceFlowTimeActive=_DocsIetfQosServiceFlowTimeActive_Object((1,3,6,1,2,1,127,1,4,1,4),_DocsIetfQosServiceFlowTimeActive_Type())
+docsIetfQosServiceFlowTimeActive.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowTimeActive.setStatus(_A)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowTimeActive.setUnits(_M)
+_DocsIetfQosServiceFlowPHSUnknowns_Type=Counter32
+_DocsIetfQosServiceFlowPHSUnknowns_Object=MibTableColumn
+docsIetfQosServiceFlowPHSUnknowns=_DocsIetfQosServiceFlowPHSUnknowns_Object((1,3,6,1,2,1,127,1,4,1,5),_DocsIetfQosServiceFlowPHSUnknowns_Type())
+docsIetfQosServiceFlowPHSUnknowns.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowPHSUnknowns.setStatus(_A)
+_DocsIetfQosServiceFlowPolicedDropPkts_Type=Counter32
+_DocsIetfQosServiceFlowPolicedDropPkts_Object=MibTableColumn
+docsIetfQosServiceFlowPolicedDropPkts=_DocsIetfQosServiceFlowPolicedDropPkts_Object((1,3,6,1,2,1,127,1,4,1,6),_DocsIetfQosServiceFlowPolicedDropPkts_Type())
+docsIetfQosServiceFlowPolicedDropPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowPolicedDropPkts.setStatus(_A)
+_DocsIetfQosServiceFlowPolicedDelayPkts_Type=Counter32
+_DocsIetfQosServiceFlowPolicedDelayPkts_Object=MibTableColumn
+docsIetfQosServiceFlowPolicedDelayPkts=_DocsIetfQosServiceFlowPolicedDelayPkts_Object((1,3,6,1,2,1,127,1,4,1,7),_DocsIetfQosServiceFlowPolicedDelayPkts_Type())
+docsIetfQosServiceFlowPolicedDelayPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowPolicedDelayPkts.setStatus(_A)
+_DocsIetfQosUpstreamStatsTable_Object=MibTable
+docsIetfQosUpstreamStatsTable=_DocsIetfQosUpstreamStatsTable_Object((1,3,6,1,2,1,127,1,5))
+if mibBuilder.loadTexts:docsIetfQosUpstreamStatsTable.setStatus(_A)
+_DocsIetfQosUpstreamStatsEntry_Object=MibTableRow
+docsIetfQosUpstreamStatsEntry=_DocsIetfQosUpstreamStatsEntry_Object((1,3,6,1,2,1,127,1,5,1))
+docsIetfQosUpstreamStatsEntry.setIndexNames((0,_J,_K),(0,_B,_W))
+if mibBuilder.loadTexts:docsIetfQosUpstreamStatsEntry.setStatus(_A)
+class _DocsIetfQosSID_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16383))
+_DocsIetfQosSID_Type.__name__=_F
+_DocsIetfQosSID_Object=MibTableColumn
+docsIetfQosSID=_DocsIetfQosSID_Object((1,3,6,1,2,1,127,1,5,1,1),_DocsIetfQosSID_Type())
+docsIetfQosSID.setMaxAccess(_H)
+if mibBuilder.loadTexts:docsIetfQosSID.setStatus(_A)
+_DocsIetfQosUpstreamFragments_Type=Counter32
+_DocsIetfQosUpstreamFragments_Object=MibTableColumn
+docsIetfQosUpstreamFragments=_DocsIetfQosUpstreamFragments_Object((1,3,6,1,2,1,127,1,5,1,2),_DocsIetfQosUpstreamFragments_Type())
+docsIetfQosUpstreamFragments.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosUpstreamFragments.setStatus(_A)
+_DocsIetfQosUpstreamFragDiscards_Type=Counter32
+_DocsIetfQosUpstreamFragDiscards_Object=MibTableColumn
+docsIetfQosUpstreamFragDiscards=_DocsIetfQosUpstreamFragDiscards_Object((1,3,6,1,2,1,127,1,5,1,3),_DocsIetfQosUpstreamFragDiscards_Type())
+docsIetfQosUpstreamFragDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosUpstreamFragDiscards.setStatus(_A)
+_DocsIetfQosUpstreamConcatBursts_Type=Counter32
+_DocsIetfQosUpstreamConcatBursts_Object=MibTableColumn
+docsIetfQosUpstreamConcatBursts=_DocsIetfQosUpstreamConcatBursts_Object((1,3,6,1,2,1,127,1,5,1,4),_DocsIetfQosUpstreamConcatBursts_Type())
+docsIetfQosUpstreamConcatBursts.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosUpstreamConcatBursts.setStatus(_A)
+_DocsIetfQosDynamicServiceStatsTable_Object=MibTable
+docsIetfQosDynamicServiceStatsTable=_DocsIetfQosDynamicServiceStatsTable_Object((1,3,6,1,2,1,127,1,6))
+if mibBuilder.loadTexts:docsIetfQosDynamicServiceStatsTable.setStatus(_A)
+_DocsIetfQosDynamicServiceStatsEntry_Object=MibTableRow
+docsIetfQosDynamicServiceStatsEntry=_DocsIetfQosDynamicServiceStatsEntry_Object((1,3,6,1,2,1,127,1,6,1))
+docsIetfQosDynamicServiceStatsEntry.setIndexNames((0,_J,_K),(0,_B,_X))
+if mibBuilder.loadTexts:docsIetfQosDynamicServiceStatsEntry.setStatus(_A)
+_DocsIetfQosIfDirection_Type=DocsIetfQosRfMacIfDirection
+_DocsIetfQosIfDirection_Object=MibTableColumn
+docsIetfQosIfDirection=_DocsIetfQosIfDirection_Object((1,3,6,1,2,1,127,1,6,1,1),_DocsIetfQosIfDirection_Type())
+docsIetfQosIfDirection.setMaxAccess(_H)
+if mibBuilder.loadTexts:docsIetfQosIfDirection.setStatus(_A)
+_DocsIetfQosDSAReqs_Type=Counter32
+_DocsIetfQosDSAReqs_Object=MibTableColumn
+docsIetfQosDSAReqs=_DocsIetfQosDSAReqs_Object((1,3,6,1,2,1,127,1,6,1,2),_DocsIetfQosDSAReqs_Type())
+docsIetfQosDSAReqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDSAReqs.setStatus(_A)
+_DocsIetfQosDSARsps_Type=Counter32
+_DocsIetfQosDSARsps_Object=MibTableColumn
+docsIetfQosDSARsps=_DocsIetfQosDSARsps_Object((1,3,6,1,2,1,127,1,6,1,3),_DocsIetfQosDSARsps_Type())
+docsIetfQosDSARsps.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDSARsps.setStatus(_A)
+_DocsIetfQosDSAAcks_Type=Counter32
+_DocsIetfQosDSAAcks_Object=MibTableColumn
+docsIetfQosDSAAcks=_DocsIetfQosDSAAcks_Object((1,3,6,1,2,1,127,1,6,1,4),_DocsIetfQosDSAAcks_Type())
+docsIetfQosDSAAcks.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDSAAcks.setStatus(_A)
+_DocsIetfQosDSCReqs_Type=Counter32
+_DocsIetfQosDSCReqs_Object=MibTableColumn
+docsIetfQosDSCReqs=_DocsIetfQosDSCReqs_Object((1,3,6,1,2,1,127,1,6,1,5),_DocsIetfQosDSCReqs_Type())
+docsIetfQosDSCReqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDSCReqs.setStatus(_A)
+_DocsIetfQosDSCRsps_Type=Counter32
+_DocsIetfQosDSCRsps_Object=MibTableColumn
+docsIetfQosDSCRsps=_DocsIetfQosDSCRsps_Object((1,3,6,1,2,1,127,1,6,1,6),_DocsIetfQosDSCRsps_Type())
+docsIetfQosDSCRsps.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDSCRsps.setStatus(_A)
+_DocsIetfQosDSCAcks_Type=Counter32
+_DocsIetfQosDSCAcks_Object=MibTableColumn
+docsIetfQosDSCAcks=_DocsIetfQosDSCAcks_Object((1,3,6,1,2,1,127,1,6,1,7),_DocsIetfQosDSCAcks_Type())
+docsIetfQosDSCAcks.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDSCAcks.setStatus(_A)
+_DocsIetfQosDSDReqs_Type=Counter32
+_DocsIetfQosDSDReqs_Object=MibTableColumn
+docsIetfQosDSDReqs=_DocsIetfQosDSDReqs_Object((1,3,6,1,2,1,127,1,6,1,8),_DocsIetfQosDSDReqs_Type())
+docsIetfQosDSDReqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDSDReqs.setStatus(_A)
+_DocsIetfQosDSDRsps_Type=Counter32
+_DocsIetfQosDSDRsps_Object=MibTableColumn
+docsIetfQosDSDRsps=_DocsIetfQosDSDRsps_Object((1,3,6,1,2,1,127,1,6,1,9),_DocsIetfQosDSDRsps_Type())
+docsIetfQosDSDRsps.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDSDRsps.setStatus(_A)
+_DocsIetfQosDynamicAdds_Type=Counter32
+_DocsIetfQosDynamicAdds_Object=MibTableColumn
+docsIetfQosDynamicAdds=_DocsIetfQosDynamicAdds_Object((1,3,6,1,2,1,127,1,6,1,10),_DocsIetfQosDynamicAdds_Type())
+docsIetfQosDynamicAdds.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDynamicAdds.setStatus(_A)
+_DocsIetfQosDynamicAddFails_Type=Counter32
+_DocsIetfQosDynamicAddFails_Object=MibTableColumn
+docsIetfQosDynamicAddFails=_DocsIetfQosDynamicAddFails_Object((1,3,6,1,2,1,127,1,6,1,11),_DocsIetfQosDynamicAddFails_Type())
+docsIetfQosDynamicAddFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDynamicAddFails.setStatus(_A)
+_DocsIetfQosDynamicChanges_Type=Counter32
+_DocsIetfQosDynamicChanges_Object=MibTableColumn
+docsIetfQosDynamicChanges=_DocsIetfQosDynamicChanges_Object((1,3,6,1,2,1,127,1,6,1,12),_DocsIetfQosDynamicChanges_Type())
+docsIetfQosDynamicChanges.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDynamicChanges.setStatus(_A)
+_DocsIetfQosDynamicChangeFails_Type=Counter32
+_DocsIetfQosDynamicChangeFails_Object=MibTableColumn
+docsIetfQosDynamicChangeFails=_DocsIetfQosDynamicChangeFails_Object((1,3,6,1,2,1,127,1,6,1,13),_DocsIetfQosDynamicChangeFails_Type())
+docsIetfQosDynamicChangeFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDynamicChangeFails.setStatus(_A)
+_DocsIetfQosDynamicDeletes_Type=Counter32
+_DocsIetfQosDynamicDeletes_Object=MibTableColumn
+docsIetfQosDynamicDeletes=_DocsIetfQosDynamicDeletes_Object((1,3,6,1,2,1,127,1,6,1,14),_DocsIetfQosDynamicDeletes_Type())
+docsIetfQosDynamicDeletes.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDynamicDeletes.setStatus(_A)
+_DocsIetfQosDynamicDeleteFails_Type=Counter32
+_DocsIetfQosDynamicDeleteFails_Object=MibTableColumn
+docsIetfQosDynamicDeleteFails=_DocsIetfQosDynamicDeleteFails_Object((1,3,6,1,2,1,127,1,6,1,15),_DocsIetfQosDynamicDeleteFails_Type())
+docsIetfQosDynamicDeleteFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDynamicDeleteFails.setStatus(_A)
+_DocsIetfQosDCCReqs_Type=Counter32
+_DocsIetfQosDCCReqs_Object=MibTableColumn
+docsIetfQosDCCReqs=_DocsIetfQosDCCReqs_Object((1,3,6,1,2,1,127,1,6,1,16),_DocsIetfQosDCCReqs_Type())
+docsIetfQosDCCReqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDCCReqs.setStatus(_A)
+_DocsIetfQosDCCRsps_Type=Counter32
+_DocsIetfQosDCCRsps_Object=MibTableColumn
+docsIetfQosDCCRsps=_DocsIetfQosDCCRsps_Object((1,3,6,1,2,1,127,1,6,1,17),_DocsIetfQosDCCRsps_Type())
+docsIetfQosDCCRsps.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDCCRsps.setStatus(_A)
+_DocsIetfQosDCCAcks_Type=Counter32
+_DocsIetfQosDCCAcks_Object=MibTableColumn
+docsIetfQosDCCAcks=_DocsIetfQosDCCAcks_Object((1,3,6,1,2,1,127,1,6,1,18),_DocsIetfQosDCCAcks_Type())
+docsIetfQosDCCAcks.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDCCAcks.setStatus(_A)
+_DocsIetfQosDCCs_Type=Counter32
+_DocsIetfQosDCCs_Object=MibTableColumn
+docsIetfQosDCCs=_DocsIetfQosDCCs_Object((1,3,6,1,2,1,127,1,6,1,19),_DocsIetfQosDCCs_Type())
+docsIetfQosDCCs.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDCCs.setStatus(_A)
+_DocsIetfQosDCCFails_Type=Counter32
+_DocsIetfQosDCCFails_Object=MibTableColumn
+docsIetfQosDCCFails=_DocsIetfQosDCCFails_Object((1,3,6,1,2,1,127,1,6,1,20),_DocsIetfQosDCCFails_Type())
+docsIetfQosDCCFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosDCCFails.setStatus(_A)
+_DocsIetfQosServiceFlowLogTable_Object=MibTable
+docsIetfQosServiceFlowLogTable=_DocsIetfQosServiceFlowLogTable_Object((1,3,6,1,2,1,127,1,7))
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogTable.setStatus(_A)
+_DocsIetfQosServiceFlowLogEntry_Object=MibTableRow
+docsIetfQosServiceFlowLogEntry=_DocsIetfQosServiceFlowLogEntry_Object((1,3,6,1,2,1,127,1,7,1))
+docsIetfQosServiceFlowLogEntry.setIndexNames((0,_B,_Y))
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogEntry.setStatus(_A)
+class _DocsIetfQosServiceFlowLogIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_DocsIetfQosServiceFlowLogIndex_Type.__name__=_F
+_DocsIetfQosServiceFlowLogIndex_Object=MibTableColumn
+docsIetfQosServiceFlowLogIndex=_DocsIetfQosServiceFlowLogIndex_Object((1,3,6,1,2,1,127,1,7,1,1),_DocsIetfQosServiceFlowLogIndex_Type())
+docsIetfQosServiceFlowLogIndex.setMaxAccess(_H)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogIndex.setStatus(_A)
+_DocsIetfQosServiceFlowLogIfIndex_Type=InterfaceIndex
+_DocsIetfQosServiceFlowLogIfIndex_Object=MibTableColumn
+docsIetfQosServiceFlowLogIfIndex=_DocsIetfQosServiceFlowLogIfIndex_Object((1,3,6,1,2,1,127,1,7,1,2),_DocsIetfQosServiceFlowLogIfIndex_Type())
+docsIetfQosServiceFlowLogIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogIfIndex.setStatus(_A)
+class _DocsIetfQosServiceFlowLogSFID_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_DocsIetfQosServiceFlowLogSFID_Type.__name__=_F
+_DocsIetfQosServiceFlowLogSFID_Object=MibTableColumn
+docsIetfQosServiceFlowLogSFID=_DocsIetfQosServiceFlowLogSFID_Object((1,3,6,1,2,1,127,1,7,1,3),_DocsIetfQosServiceFlowLogSFID_Type())
+docsIetfQosServiceFlowLogSFID.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogSFID.setStatus(_A)
+_DocsIetfQosServiceFlowLogCmMac_Type=MacAddress
+_DocsIetfQosServiceFlowLogCmMac_Object=MibTableColumn
+docsIetfQosServiceFlowLogCmMac=_DocsIetfQosServiceFlowLogCmMac_Object((1,3,6,1,2,1,127,1,7,1,4),_DocsIetfQosServiceFlowLogCmMac_Type())
+docsIetfQosServiceFlowLogCmMac.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogCmMac.setStatus(_A)
+_DocsIetfQosServiceFlowLogPkts_Type=Counter64
+_DocsIetfQosServiceFlowLogPkts_Object=MibTableColumn
+docsIetfQosServiceFlowLogPkts=_DocsIetfQosServiceFlowLogPkts_Object((1,3,6,1,2,1,127,1,7,1,5),_DocsIetfQosServiceFlowLogPkts_Type())
+docsIetfQosServiceFlowLogPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogPkts.setStatus(_A)
+_DocsIetfQosServiceFlowLogOctets_Type=Counter64
+_DocsIetfQosServiceFlowLogOctets_Object=MibTableColumn
+docsIetfQosServiceFlowLogOctets=_DocsIetfQosServiceFlowLogOctets_Object((1,3,6,1,2,1,127,1,7,1,6),_DocsIetfQosServiceFlowLogOctets_Type())
+docsIetfQosServiceFlowLogOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogOctets.setStatus(_A)
+_DocsIetfQosServiceFlowLogTimeDeleted_Type=TimeStamp
+_DocsIetfQosServiceFlowLogTimeDeleted_Object=MibTableColumn
+docsIetfQosServiceFlowLogTimeDeleted=_DocsIetfQosServiceFlowLogTimeDeleted_Object((1,3,6,1,2,1,127,1,7,1,7),_DocsIetfQosServiceFlowLogTimeDeleted_Type())
+docsIetfQosServiceFlowLogTimeDeleted.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogTimeDeleted.setStatus(_A)
+_DocsIetfQosServiceFlowLogTimeCreated_Type=TimeStamp
+_DocsIetfQosServiceFlowLogTimeCreated_Object=MibTableColumn
+docsIetfQosServiceFlowLogTimeCreated=_DocsIetfQosServiceFlowLogTimeCreated_Object((1,3,6,1,2,1,127,1,7,1,8),_DocsIetfQosServiceFlowLogTimeCreated_Type())
+docsIetfQosServiceFlowLogTimeCreated.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogTimeCreated.setStatus(_A)
+_DocsIetfQosServiceFlowLogTimeActive_Type=Counter32
+_DocsIetfQosServiceFlowLogTimeActive_Object=MibTableColumn
+docsIetfQosServiceFlowLogTimeActive=_DocsIetfQosServiceFlowLogTimeActive_Object((1,3,6,1,2,1,127,1,7,1,9),_DocsIetfQosServiceFlowLogTimeActive_Type())
+docsIetfQosServiceFlowLogTimeActive.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogTimeActive.setStatus(_A)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogTimeActive.setUnits(_M)
+_DocsIetfQosServiceFlowLogDirection_Type=DocsIetfQosRfMacIfDirection
+_DocsIetfQosServiceFlowLogDirection_Object=MibTableColumn
+docsIetfQosServiceFlowLogDirection=_DocsIetfQosServiceFlowLogDirection_Object((1,3,6,1,2,1,127,1,7,1,10),_DocsIetfQosServiceFlowLogDirection_Type())
+docsIetfQosServiceFlowLogDirection.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogDirection.setStatus(_A)
+_DocsIetfQosServiceFlowLogPrimary_Type=TruthValue
+_DocsIetfQosServiceFlowLogPrimary_Object=MibTableColumn
+docsIetfQosServiceFlowLogPrimary=_DocsIetfQosServiceFlowLogPrimary_Object((1,3,6,1,2,1,127,1,7,1,11),_DocsIetfQosServiceFlowLogPrimary_Type())
+docsIetfQosServiceFlowLogPrimary.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogPrimary.setStatus(_A)
+_DocsIetfQosServiceFlowLogServiceClassName_Type=SnmpAdminString
+_DocsIetfQosServiceFlowLogServiceClassName_Object=MibTableColumn
+docsIetfQosServiceFlowLogServiceClassName=_DocsIetfQosServiceFlowLogServiceClassName_Object((1,3,6,1,2,1,127,1,7,1,12),_DocsIetfQosServiceFlowLogServiceClassName_Type())
+docsIetfQosServiceFlowLogServiceClassName.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogServiceClassName.setStatus(_A)
+_DocsIetfQosServiceFlowLogPolicedDropPkts_Type=Counter32
+_DocsIetfQosServiceFlowLogPolicedDropPkts_Object=MibTableColumn
+docsIetfQosServiceFlowLogPolicedDropPkts=_DocsIetfQosServiceFlowLogPolicedDropPkts_Object((1,3,6,1,2,1,127,1,7,1,13),_DocsIetfQosServiceFlowLogPolicedDropPkts_Type())
+docsIetfQosServiceFlowLogPolicedDropPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogPolicedDropPkts.setStatus(_A)
+_DocsIetfQosServiceFlowLogPolicedDelayPkts_Type=Counter32
+_DocsIetfQosServiceFlowLogPolicedDelayPkts_Object=MibTableColumn
+docsIetfQosServiceFlowLogPolicedDelayPkts=_DocsIetfQosServiceFlowLogPolicedDelayPkts_Object((1,3,6,1,2,1,127,1,7,1,14),_DocsIetfQosServiceFlowLogPolicedDelayPkts_Type())
+docsIetfQosServiceFlowLogPolicedDelayPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogPolicedDelayPkts.setStatus(_A)
+class _DocsIetfQosServiceFlowLogControl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,6)));namedValues=NamedValues(*((_V,1),('destroy',6)))
+_DocsIetfQosServiceFlowLogControl_Type.__name__=_D
+_DocsIetfQosServiceFlowLogControl_Object=MibTableColumn
+docsIetfQosServiceFlowLogControl=_DocsIetfQosServiceFlowLogControl_Object((1,3,6,1,2,1,127,1,7,1,15),_DocsIetfQosServiceFlowLogControl_Type())
+docsIetfQosServiceFlowLogControl.setMaxAccess('read-write')
+if mibBuilder.loadTexts:docsIetfQosServiceFlowLogControl.setStatus(_A)
+_DocsIetfQosServiceClassTable_Object=MibTable
+docsIetfQosServiceClassTable=_DocsIetfQosServiceClassTable_Object((1,3,6,1,2,1,127,1,8))
+if mibBuilder.loadTexts:docsIetfQosServiceClassTable.setStatus(_A)
+_DocsIetfQosServiceClassEntry_Object=MibTableRow
+docsIetfQosServiceClassEntry=_DocsIetfQosServiceClassEntry_Object((1,3,6,1,2,1,127,1,8,1))
+docsIetfQosServiceClassEntry.setIndexNames((0,_B,_Z))
+if mibBuilder.loadTexts:docsIetfQosServiceClassEntry.setStatus(_A)
+class _DocsIetfQosServiceClassName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,15))
+_DocsIetfQosServiceClassName_Type.__name__=_S
+_DocsIetfQosServiceClassName_Object=MibTableColumn
+docsIetfQosServiceClassName=_DocsIetfQosServiceClassName_Object((1,3,6,1,2,1,127,1,8,1,1),_DocsIetfQosServiceClassName_Type())
+docsIetfQosServiceClassName.setMaxAccess(_H)
+if mibBuilder.loadTexts:docsIetfQosServiceClassName.setStatus(_A)
+_DocsIetfQosServiceClassStatus_Type=RowStatus
+_DocsIetfQosServiceClassStatus_Object=MibTableColumn
+docsIetfQosServiceClassStatus=_DocsIetfQosServiceClassStatus_Object((1,3,6,1,2,1,127,1,8,1,2),_DocsIetfQosServiceClassStatus_Type())
+docsIetfQosServiceClassStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassStatus.setStatus(_A)
+class _DocsIetfQosServiceClassPriority_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
+_DocsIetfQosServiceClassPriority_Type.__name__=_D
+_DocsIetfQosServiceClassPriority_Object=MibTableColumn
+docsIetfQosServiceClassPriority=_DocsIetfQosServiceClassPriority_Object((1,3,6,1,2,1,127,1,8,1,3),_DocsIetfQosServiceClassPriority_Type())
+docsIetfQosServiceClassPriority.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassPriority.setStatus(_A)
+class _DocsIetfQosServiceClassMaxTrafficRate_Type(DocsIetfQosBitRate):defaultValue=0
+_DocsIetfQosServiceClassMaxTrafficRate_Type.__name__=_Q
+_DocsIetfQosServiceClassMaxTrafficRate_Object=MibTableColumn
+docsIetfQosServiceClassMaxTrafficRate=_DocsIetfQosServiceClassMaxTrafficRate_Object((1,3,6,1,2,1,127,1,8,1,4),_DocsIetfQosServiceClassMaxTrafficRate_Type())
+docsIetfQosServiceClassMaxTrafficRate.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassMaxTrafficRate.setStatus(_A)
+class _DocsIetfQosServiceClassMaxTrafficBurst_Type(Unsigned32):defaultValue=3044
+_DocsIetfQosServiceClassMaxTrafficBurst_Type.__name__=_F
+_DocsIetfQosServiceClassMaxTrafficBurst_Object=MibTableColumn
+docsIetfQosServiceClassMaxTrafficBurst=_DocsIetfQosServiceClassMaxTrafficBurst_Object((1,3,6,1,2,1,127,1,8,1,5),_DocsIetfQosServiceClassMaxTrafficBurst_Type())
+docsIetfQosServiceClassMaxTrafficBurst.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassMaxTrafficBurst.setStatus(_A)
+class _DocsIetfQosServiceClassMinReservedRate_Type(DocsIetfQosBitRate):defaultValue=0
+_DocsIetfQosServiceClassMinReservedRate_Type.__name__=_Q
+_DocsIetfQosServiceClassMinReservedRate_Object=MibTableColumn
+docsIetfQosServiceClassMinReservedRate=_DocsIetfQosServiceClassMinReservedRate_Object((1,3,6,1,2,1,127,1,8,1,6),_DocsIetfQosServiceClassMinReservedRate_Type())
+docsIetfQosServiceClassMinReservedRate.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassMinReservedRate.setStatus(_A)
+class _DocsIetfQosServiceClassMinReservedPkt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_DocsIetfQosServiceClassMinReservedPkt_Type.__name__=_D
+_DocsIetfQosServiceClassMinReservedPkt_Object=MibTableColumn
+docsIetfQosServiceClassMinReservedPkt=_DocsIetfQosServiceClassMinReservedPkt_Object((1,3,6,1,2,1,127,1,8,1,7),_DocsIetfQosServiceClassMinReservedPkt_Type())
+docsIetfQosServiceClassMinReservedPkt.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassMinReservedPkt.setStatus(_A)
+class _DocsIetfQosServiceClassMaxConcatBurst_Type(Integer32):defaultValue=1522;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_DocsIetfQosServiceClassMaxConcatBurst_Type.__name__=_D
+_DocsIetfQosServiceClassMaxConcatBurst_Object=MibTableColumn
+docsIetfQosServiceClassMaxConcatBurst=_DocsIetfQosServiceClassMaxConcatBurst_Object((1,3,6,1,2,1,127,1,8,1,8),_DocsIetfQosServiceClassMaxConcatBurst_Type())
+docsIetfQosServiceClassMaxConcatBurst.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassMaxConcatBurst.setStatus(_A)
+class _DocsIetfQosServiceClassNomPollInterval_Type(Unsigned32):defaultValue=0
+_DocsIetfQosServiceClassNomPollInterval_Type.__name__=_F
+_DocsIetfQosServiceClassNomPollInterval_Object=MibTableColumn
+docsIetfQosServiceClassNomPollInterval=_DocsIetfQosServiceClassNomPollInterval_Object((1,3,6,1,2,1,127,1,8,1,9),_DocsIetfQosServiceClassNomPollInterval_Type())
+docsIetfQosServiceClassNomPollInterval.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassNomPollInterval.setStatus(_A)
+if mibBuilder.loadTexts:docsIetfQosServiceClassNomPollInterval.setUnits(_I)
+class _DocsIetfQosServiceClassTolPollJitter_Type(Unsigned32):defaultValue=0
+_DocsIetfQosServiceClassTolPollJitter_Type.__name__=_F
+_DocsIetfQosServiceClassTolPollJitter_Object=MibTableColumn
+docsIetfQosServiceClassTolPollJitter=_DocsIetfQosServiceClassTolPollJitter_Object((1,3,6,1,2,1,127,1,8,1,10),_DocsIetfQosServiceClassTolPollJitter_Type())
+docsIetfQosServiceClassTolPollJitter.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassTolPollJitter.setStatus(_A)
+if mibBuilder.loadTexts:docsIetfQosServiceClassTolPollJitter.setUnits(_I)
+class _DocsIetfQosServiceClassUnsolicitGrantSize_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_DocsIetfQosServiceClassUnsolicitGrantSize_Type.__name__=_D
+_DocsIetfQosServiceClassUnsolicitGrantSize_Object=MibTableColumn
+docsIetfQosServiceClassUnsolicitGrantSize=_DocsIetfQosServiceClassUnsolicitGrantSize_Object((1,3,6,1,2,1,127,1,8,1,11),_DocsIetfQosServiceClassUnsolicitGrantSize_Type())
+docsIetfQosServiceClassUnsolicitGrantSize.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassUnsolicitGrantSize.setStatus(_A)
+class _DocsIetfQosServiceClassNomGrantInterval_Type(Unsigned32):defaultValue=0
+_DocsIetfQosServiceClassNomGrantInterval_Type.__name__=_F
+_DocsIetfQosServiceClassNomGrantInterval_Object=MibTableColumn
+docsIetfQosServiceClassNomGrantInterval=_DocsIetfQosServiceClassNomGrantInterval_Object((1,3,6,1,2,1,127,1,8,1,12),_DocsIetfQosServiceClassNomGrantInterval_Type())
+docsIetfQosServiceClassNomGrantInterval.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassNomGrantInterval.setStatus(_A)
+if mibBuilder.loadTexts:docsIetfQosServiceClassNomGrantInterval.setUnits(_I)
+class _DocsIetfQosServiceClassTolGrantJitter_Type(Unsigned32):defaultValue=0
+_DocsIetfQosServiceClassTolGrantJitter_Type.__name__=_F
+_DocsIetfQosServiceClassTolGrantJitter_Object=MibTableColumn
+docsIetfQosServiceClassTolGrantJitter=_DocsIetfQosServiceClassTolGrantJitter_Object((1,3,6,1,2,1,127,1,8,1,13),_DocsIetfQosServiceClassTolGrantJitter_Type())
+docsIetfQosServiceClassTolGrantJitter.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassTolGrantJitter.setStatus(_A)
+if mibBuilder.loadTexts:docsIetfQosServiceClassTolGrantJitter.setUnits(_I)
+class _DocsIetfQosServiceClassGrantsPerInterval_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,127))
+_DocsIetfQosServiceClassGrantsPerInterval_Type.__name__=_D
+_DocsIetfQosServiceClassGrantsPerInterval_Object=MibTableColumn
+docsIetfQosServiceClassGrantsPerInterval=_DocsIetfQosServiceClassGrantsPerInterval_Object((1,3,6,1,2,1,127,1,8,1,14),_DocsIetfQosServiceClassGrantsPerInterval_Type())
+docsIetfQosServiceClassGrantsPerInterval.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassGrantsPerInterval.setStatus(_A)
+class _DocsIetfQosServiceClassMaxLatency_Type(Unsigned32):defaultValue=0
+_DocsIetfQosServiceClassMaxLatency_Type.__name__=_F
+_DocsIetfQosServiceClassMaxLatency_Object=MibTableColumn
+docsIetfQosServiceClassMaxLatency=_DocsIetfQosServiceClassMaxLatency_Object((1,3,6,1,2,1,127,1,8,1,15),_DocsIetfQosServiceClassMaxLatency_Type())
+docsIetfQosServiceClassMaxLatency.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassMaxLatency.setStatus(_A)
+if mibBuilder.loadTexts:docsIetfQosServiceClassMaxLatency.setUnits(_I)
+class _DocsIetfQosServiceClassActiveTimeout_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_DocsIetfQosServiceClassActiveTimeout_Type.__name__=_D
+_DocsIetfQosServiceClassActiveTimeout_Object=MibTableColumn
+docsIetfQosServiceClassActiveTimeout=_DocsIetfQosServiceClassActiveTimeout_Object((1,3,6,1,2,1,127,1,8,1,16),_DocsIetfQosServiceClassActiveTimeout_Type())
+docsIetfQosServiceClassActiveTimeout.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassActiveTimeout.setStatus(_A)
+if mibBuilder.loadTexts:docsIetfQosServiceClassActiveTimeout.setUnits(_M)
+class _DocsIetfQosServiceClassAdmittedTimeout_Type(Integer32):defaultValue=200;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_DocsIetfQosServiceClassAdmittedTimeout_Type.__name__=_D
+_DocsIetfQosServiceClassAdmittedTimeout_Object=MibTableColumn
+docsIetfQosServiceClassAdmittedTimeout=_DocsIetfQosServiceClassAdmittedTimeout_Object((1,3,6,1,2,1,127,1,8,1,17),_DocsIetfQosServiceClassAdmittedTimeout_Type())
+docsIetfQosServiceClassAdmittedTimeout.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassAdmittedTimeout.setStatus(_A)
+if mibBuilder.loadTexts:docsIetfQosServiceClassAdmittedTimeout.setUnits(_M)
+class _DocsIetfQosServiceClassSchedulingType_Type(DocsIetfQosSchedulingType):defaultValue=2
+_DocsIetfQosServiceClassSchedulingType_Type.__name__=_a
+_DocsIetfQosServiceClassSchedulingType_Object=MibTableColumn
+docsIetfQosServiceClassSchedulingType=_DocsIetfQosServiceClassSchedulingType_Object((1,3,6,1,2,1,127,1,8,1,18),_DocsIetfQosServiceClassSchedulingType_Type())
+docsIetfQosServiceClassSchedulingType.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassSchedulingType.setStatus(_A)
+class _DocsIetfQosServiceClassRequestPolicy_Type(OctetString):defaultHexValue='00000000';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
+_DocsIetfQosServiceClassRequestPolicy_Type.__name__=_G
+_DocsIetfQosServiceClassRequestPolicy_Object=MibTableColumn
+docsIetfQosServiceClassRequestPolicy=_DocsIetfQosServiceClassRequestPolicy_Object((1,3,6,1,2,1,127,1,8,1,19),_DocsIetfQosServiceClassRequestPolicy_Type())
+docsIetfQosServiceClassRequestPolicy.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassRequestPolicy.setStatus(_A)
+class _DocsIetfQosServiceClassTosAndMask_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_DocsIetfQosServiceClassTosAndMask_Type.__name__=_G
+_DocsIetfQosServiceClassTosAndMask_Object=MibTableColumn
+docsIetfQosServiceClassTosAndMask=_DocsIetfQosServiceClassTosAndMask_Object((1,3,6,1,2,1,127,1,8,1,20),_DocsIetfQosServiceClassTosAndMask_Type())
+docsIetfQosServiceClassTosAndMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceClassTosAndMask.setStatus(_A)
+class _DocsIetfQosServiceClassTosOrMask_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_DocsIetfQosServiceClassTosOrMask_Type.__name__=_G
+_DocsIetfQosServiceClassTosOrMask_Object=MibTableColumn
+docsIetfQosServiceClassTosOrMask=_DocsIetfQosServiceClassTosOrMask_Object((1,3,6,1,2,1,127,1,8,1,21),_DocsIetfQosServiceClassTosOrMask_Type())
+docsIetfQosServiceClassTosOrMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosServiceClassTosOrMask.setStatus(_A)
+class _DocsIetfQosServiceClassDirection_Type(DocsIetfQosRfMacIfDirection):defaultValue=2
+_DocsIetfQosServiceClassDirection_Type.__name__=_b
+_DocsIetfQosServiceClassDirection_Object=MibTableColumn
+docsIetfQosServiceClassDirection=_DocsIetfQosServiceClassDirection_Object((1,3,6,1,2,1,127,1,8,1,22),_DocsIetfQosServiceClassDirection_Type())
+docsIetfQosServiceClassDirection.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassDirection.setStatus(_A)
+class _DocsIetfQosServiceClassStorageType_Type(StorageType):defaultValue=3
+_DocsIetfQosServiceClassStorageType_Type.__name__=_O
+_DocsIetfQosServiceClassStorageType_Object=MibTableColumn
+docsIetfQosServiceClassStorageType=_DocsIetfQosServiceClassStorageType_Object((1,3,6,1,2,1,127,1,8,1,23),_DocsIetfQosServiceClassStorageType_Type())
+docsIetfQosServiceClassStorageType.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassStorageType.setStatus(_A)
+class _DocsIetfQosServiceClassDSCPOverwrite_Type(DscpOrAny):defaultValue=-1
+_DocsIetfQosServiceClassDSCPOverwrite_Type.__name__=_R
+_DocsIetfQosServiceClassDSCPOverwrite_Object=MibTableColumn
+docsIetfQosServiceClassDSCPOverwrite=_DocsIetfQosServiceClassDSCPOverwrite_Object((1,3,6,1,2,1,127,1,8,1,24),_DocsIetfQosServiceClassDSCPOverwrite_Type())
+docsIetfQosServiceClassDSCPOverwrite.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassDSCPOverwrite.setStatus(_A)
+_DocsIetfQosServiceClassPolicyTable_Object=MibTable
+docsIetfQosServiceClassPolicyTable=_DocsIetfQosServiceClassPolicyTable_Object((1,3,6,1,2,1,127,1,9))
+if mibBuilder.loadTexts:docsIetfQosServiceClassPolicyTable.setStatus(_A)
+_DocsIetfQosServiceClassPolicyEntry_Object=MibTableRow
+docsIetfQosServiceClassPolicyEntry=_DocsIetfQosServiceClassPolicyEntry_Object((1,3,6,1,2,1,127,1,9,1))
+docsIetfQosServiceClassPolicyEntry.setIndexNames((0,_B,_c))
+if mibBuilder.loadTexts:docsIetfQosServiceClassPolicyEntry.setStatus(_A)
+class _DocsIetfQosServiceClassPolicyIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_DocsIetfQosServiceClassPolicyIndex_Type.__name__=_F
+_DocsIetfQosServiceClassPolicyIndex_Object=MibTableColumn
+docsIetfQosServiceClassPolicyIndex=_DocsIetfQosServiceClassPolicyIndex_Object((1,3,6,1,2,1,127,1,9,1,1),_DocsIetfQosServiceClassPolicyIndex_Type())
+docsIetfQosServiceClassPolicyIndex.setMaxAccess(_H)
+if mibBuilder.loadTexts:docsIetfQosServiceClassPolicyIndex.setStatus(_A)
+_DocsIetfQosServiceClassPolicyName_Type=SnmpAdminString
+_DocsIetfQosServiceClassPolicyName_Object=MibTableColumn
+docsIetfQosServiceClassPolicyName=_DocsIetfQosServiceClassPolicyName_Object((1,3,6,1,2,1,127,1,9,1,2),_DocsIetfQosServiceClassPolicyName_Type())
+docsIetfQosServiceClassPolicyName.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassPolicyName.setStatus(_A)
+class _DocsIetfQosServiceClassPolicyRulePriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_DocsIetfQosServiceClassPolicyRulePriority_Type.__name__=_D
+_DocsIetfQosServiceClassPolicyRulePriority_Object=MibTableColumn
+docsIetfQosServiceClassPolicyRulePriority=_DocsIetfQosServiceClassPolicyRulePriority_Object((1,3,6,1,2,1,127,1,9,1,3),_DocsIetfQosServiceClassPolicyRulePriority_Type())
+docsIetfQosServiceClassPolicyRulePriority.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassPolicyRulePriority.setStatus(_A)
+_DocsIetfQosServiceClassPolicyStatus_Type=RowStatus
+_DocsIetfQosServiceClassPolicyStatus_Object=MibTableColumn
+docsIetfQosServiceClassPolicyStatus=_DocsIetfQosServiceClassPolicyStatus_Object((1,3,6,1,2,1,127,1,9,1,4),_DocsIetfQosServiceClassPolicyStatus_Type())
+docsIetfQosServiceClassPolicyStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassPolicyStatus.setStatus(_A)
+class _DocsIetfQosServiceClassPolicyStorageType_Type(StorageType):defaultValue=3
+_DocsIetfQosServiceClassPolicyStorageType_Type.__name__=_O
+_DocsIetfQosServiceClassPolicyStorageType_Object=MibTableColumn
+docsIetfQosServiceClassPolicyStorageType=_DocsIetfQosServiceClassPolicyStorageType_Object((1,3,6,1,2,1,127,1,9,1,5),_DocsIetfQosServiceClassPolicyStorageType_Type())
+docsIetfQosServiceClassPolicyStorageType.setMaxAccess(_E)
+if mibBuilder.loadTexts:docsIetfQosServiceClassPolicyStorageType.setStatus(_A)
+_DocsIetfQosPHSTable_Object=MibTable
+docsIetfQosPHSTable=_DocsIetfQosPHSTable_Object((1,3,6,1,2,1,127,1,10))
+if mibBuilder.loadTexts:docsIetfQosPHSTable.setStatus(_A)
+_DocsIetfQosPHSEntry_Object=MibTableRow
+docsIetfQosPHSEntry=_DocsIetfQosPHSEntry_Object((1,3,6,1,2,1,127,1,10,1))
+docsIetfQosPHSEntry.setIndexNames((0,_J,_K),(0,_B,_L),(0,_B,_P))
+if mibBuilder.loadTexts:docsIetfQosPHSEntry.setStatus(_A)
+class _DocsIetfQosPHSField_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_DocsIetfQosPHSField_Type.__name__=_G
+_DocsIetfQosPHSField_Object=MibTableColumn
+docsIetfQosPHSField=_DocsIetfQosPHSField_Object((1,3,6,1,2,1,127,1,10,1,1),_DocsIetfQosPHSField_Type())
+docsIetfQosPHSField.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPHSField.setStatus(_A)
+class _DocsIetfQosPHSMask_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_DocsIetfQosPHSMask_Type.__name__=_G
+_DocsIetfQosPHSMask_Object=MibTableColumn
+docsIetfQosPHSMask=_DocsIetfQosPHSMask_Object((1,3,6,1,2,1,127,1,10,1,2),_DocsIetfQosPHSMask_Type())
+docsIetfQosPHSMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPHSMask.setStatus(_A)
+class _DocsIetfQosPHSSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_DocsIetfQosPHSSize_Type.__name__=_D
+_DocsIetfQosPHSSize_Object=MibTableColumn
+docsIetfQosPHSSize=_DocsIetfQosPHSSize_Object((1,3,6,1,2,1,127,1,10,1,3),_DocsIetfQosPHSSize_Type())
+docsIetfQosPHSSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPHSSize.setStatus(_A)
+_DocsIetfQosPHSVerify_Type=TruthValue
+_DocsIetfQosPHSVerify_Object=MibTableColumn
+docsIetfQosPHSVerify=_DocsIetfQosPHSVerify_Object((1,3,6,1,2,1,127,1,10,1,4),_DocsIetfQosPHSVerify_Type())
+docsIetfQosPHSVerify.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPHSVerify.setStatus(_A)
+class _DocsIetfQosPHSIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_DocsIetfQosPHSIndex_Type.__name__=_D
+_DocsIetfQosPHSIndex_Object=MibTableColumn
+docsIetfQosPHSIndex=_DocsIetfQosPHSIndex_Object((1,3,6,1,2,1,127,1,10,1,5),_DocsIetfQosPHSIndex_Type())
+docsIetfQosPHSIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosPHSIndex.setStatus(_A)
+_DocsIetfQosCmtsMacToSrvFlowTable_Object=MibTable
+docsIetfQosCmtsMacToSrvFlowTable=_DocsIetfQosCmtsMacToSrvFlowTable_Object((1,3,6,1,2,1,127,1,11))
+if mibBuilder.loadTexts:docsIetfQosCmtsMacToSrvFlowTable.setStatus(_A)
+_DocsIetfQosCmtsMacToSrvFlowEntry_Object=MibTableRow
+docsIetfQosCmtsMacToSrvFlowEntry=_DocsIetfQosCmtsMacToSrvFlowEntry_Object((1,3,6,1,2,1,127,1,11,1))
+docsIetfQosCmtsMacToSrvFlowEntry.setIndexNames((0,_B,_d),(0,_B,_e))
+if mibBuilder.loadTexts:docsIetfQosCmtsMacToSrvFlowEntry.setStatus(_A)
+_DocsIetfQosCmtsCmMac_Type=MacAddress
+_DocsIetfQosCmtsCmMac_Object=MibTableColumn
+docsIetfQosCmtsCmMac=_DocsIetfQosCmtsCmMac_Object((1,3,6,1,2,1,127,1,11,1,1),_DocsIetfQosCmtsCmMac_Type())
+docsIetfQosCmtsCmMac.setMaxAccess(_H)
+if mibBuilder.loadTexts:docsIetfQosCmtsCmMac.setStatus(_A)
+class _DocsIetfQosCmtsServiceFlowId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_DocsIetfQosCmtsServiceFlowId_Type.__name__=_F
+_DocsIetfQosCmtsServiceFlowId_Object=MibTableColumn
+docsIetfQosCmtsServiceFlowId=_DocsIetfQosCmtsServiceFlowId_Object((1,3,6,1,2,1,127,1,11,1,2),_DocsIetfQosCmtsServiceFlowId_Type())
+docsIetfQosCmtsServiceFlowId.setMaxAccess(_H)
+if mibBuilder.loadTexts:docsIetfQosCmtsServiceFlowId.setStatus(_A)
+_DocsIetfQosCmtsIfIndex_Type=InterfaceIndex
+_DocsIetfQosCmtsIfIndex_Object=MibTableColumn
+docsIetfQosCmtsIfIndex=_DocsIetfQosCmtsIfIndex_Object((1,3,6,1,2,1,127,1,11,1,3),_DocsIetfQosCmtsIfIndex_Type())
+docsIetfQosCmtsIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:docsIetfQosCmtsIfIndex.setStatus(_A)
+_DocsIetfQosConformance_ObjectIdentity=ObjectIdentity
+docsIetfQosConformance=_DocsIetfQosConformance_ObjectIdentity((1,3,6,1,2,1,127,2))
+_DocsIetfQosGroups_ObjectIdentity=ObjectIdentity
+docsIetfQosGroups=_DocsIetfQosGroups_ObjectIdentity((1,3,6,1,2,1,127,2,1))
+_DocsIetfQosCompliances_ObjectIdentity=ObjectIdentity
+docsIetfQosCompliances=_DocsIetfQosCompliances_ObjectIdentity((1,3,6,1,2,1,127,2,2))
+docsIetfQosBaseGroup=ObjectGroup((1,3,6,1,2,1,127,2,1,1))
+docsIetfQosBaseGroup.setObjects(*((_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac)))
+if mibBuilder.loadTexts:docsIetfQosBaseGroup.setStatus(_A)
+docsIetfQosParamSetGroup=ObjectGroup((1,3,6,1,2,1,127,2,1,2))
+docsIetfQosParamSetGroup.setObjects(*((_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax)))
+if mibBuilder.loadTexts:docsIetfQosParamSetGroup.setStatus(_A)
+docsIetfQosCmtsGroup=ObjectGroup((1,3,6,1,2,1,127,2,1,3))
+docsIetfQosCmtsGroup.setObjects(*((_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7),(_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD),(_B,_BE)))
+if mibBuilder.loadTexts:docsIetfQosCmtsGroup.setStatus(_A)
+docsIetfQosSrvClassPolicyGroup=ObjectGroup((1,3,6,1,2,1,127,2,1,4))
+docsIetfQosSrvClassPolicyGroup.setObjects(*((_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI)))
+if mibBuilder.loadTexts:docsIetfQosSrvClassPolicyGroup.setStatus(_A)
+docsIetfQosServiceClassGroup=ObjectGroup((1,3,6,1,2,1,127,2,1,5))
+docsIetfQosServiceClassGroup.setObjects(*((_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_BS),(_B,_BT),(_B,_BU),(_B,_BV),(_B,_BW),(_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba),(_B,_Bb),(_B,_Bc),(_B,_Bd),(_B,_Be),(_B,_Bf)))
+if mibBuilder.loadTexts:docsIetfQosServiceClassGroup.setStatus(_A)
+docsIetfQosCompliance=ModuleCompliance((1,3,6,1,2,1,127,2,2,1))
+docsIetfQosCompliance.setObjects(*((_B,_Bg),(_B,_Bh),(_B,_Bi),(_B,_Bj),(_B,_Bk)))
+if mibBuilder.loadTexts:docsIetfQosCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{_b:DocsIetfQosRfMacIfDirection,_Q:DocsIetfQosBitRate,_a:DocsIetfQosSchedulingType,'docsIetfQosMIB':docsIetfQosMIB,'docsIetfQosNotifications':docsIetfQosNotifications,'docsIetfQosMIBObjects':docsIetfQosMIBObjects,'docsIetfQosPktClassTable':docsIetfQosPktClassTable,'docsIetfQosPktClassEntry':docsIetfQosPktClassEntry,_P:docsIetfQosPktClassId,_f:docsIetfQosPktClassDirection,_g:docsIetfQosPktClassPriority,_h:docsIetfQosPktClassIpTosLow,_i:docsIetfQosPktClassIpTosHigh,_j:docsIetfQosPktClassIpTosMask,_k:docsIetfQosPktClassIpProtocol,_A0:docsIetfQosPktClassInetAddressType,_A1:docsIetfQosPktClassInetSourceAddr,_A2:docsIetfQosPktClassInetSourceMask,_A3:docsIetfQosPktClassInetDestAddr,_A4:docsIetfQosPktClassInetDestMask,_l:docsIetfQosPktClassSourcePortStart,_m:docsIetfQosPktClassSourcePortEnd,_n:docsIetfQosPktClassDestPortStart,_o:docsIetfQosPktClassDestPortEnd,_p:docsIetfQosPktClassDestMacAddr,_q:docsIetfQosPktClassDestMacMask,_r:docsIetfQosPktClassSourceMacAddr,_s:docsIetfQosPktClassEnetProtocolType,_t:docsIetfQosPktClassEnetProtocol,_u:docsIetfQosPktClassUserPriLow,_v:docsIetfQosPktClassUserPriHigh,_w:docsIetfQosPktClassVlanId,_x:docsIetfQosPktClassStateActive,_y:docsIetfQosPktClassPkts,_z:docsIetfQosPktClassBitMap,'docsIetfQosParamSetTable':docsIetfQosParamSetTable,'docsIetfQosParamSetEntry':docsIetfQosParamSetEntry,_Ad:docsIetfQosParamSetServiceClassName,_Ae:docsIetfQosParamSetPriority,_Af:docsIetfQosParamSetMaxTrafficRate,_Ag:docsIetfQosParamSetMaxTrafficBurst,_Ah:docsIetfQosParamSetMinReservedRate,_Ai:docsIetfQosParamSetMinReservedPkt,_Aj:docsIetfQosParamSetActiveTimeout,_Ak:docsIetfQosParamSetAdmittedTimeout,_Al:docsIetfQosParamSetMaxConcatBurst,_Am:docsIetfQosParamSetSchedulingType,_An:docsIetfQosParamSetNomPollInterval,_Ao:docsIetfQosParamSetTolPollJitter,_Ap:docsIetfQosParamSetUnsolicitGrantSize,_Aq:docsIetfQosParamSetNomGrantInterval,_Ar:docsIetfQosParamSetTolGrantJitter,_As:docsIetfQosParamSetGrantsPerInterval,_At:docsIetfQosParamSetTosAndMask,_Au:docsIetfQosParamSetTosOrMask,_Av:docsIetfQosParamSetMaxLatency,_U:docsIetfQosParamSetType,_Aw:docsIetfQosParamSetRequestPolicyOct,_Ax:docsIetfQosParamSetBitMap,'docsIetfQosServiceFlowTable':docsIetfQosServiceFlowTable,'docsIetfQosServiceFlowEntry':docsIetfQosServiceFlowEntry,_L:docsIetfQosServiceFlowId,_A5:docsIetfQosServiceFlowSID,_A6:docsIetfQosServiceFlowDirection,_A7:docsIetfQosServiceFlowPrimary,'docsIetfQosServiceFlowStatsTable':docsIetfQosServiceFlowStatsTable,'docsIetfQosServiceFlowStatsEntry':docsIetfQosServiceFlowStatsEntry,_A8:docsIetfQosServiceFlowPkts,_A9:docsIetfQosServiceFlowOctets,_AA:docsIetfQosServiceFlowTimeCreated,_AB:docsIetfQosServiceFlowTimeActive,_AC:docsIetfQosServiceFlowPHSUnknowns,_AD:docsIetfQosServiceFlowPolicedDropPkts,_AE:docsIetfQosServiceFlowPolicedDelayPkts,'docsIetfQosUpstreamStatsTable':docsIetfQosUpstreamStatsTable,'docsIetfQosUpstreamStatsEntry':docsIetfQosUpstreamStatsEntry,_W:docsIetfQosSID,_Ay:docsIetfQosUpstreamFragments,_Az:docsIetfQosUpstreamFragDiscards,_A_:docsIetfQosUpstreamConcatBursts,'docsIetfQosDynamicServiceStatsTable':docsIetfQosDynamicServiceStatsTable,'docsIetfQosDynamicServiceStatsEntry':docsIetfQosDynamicServiceStatsEntry,_X:docsIetfQosIfDirection,_AF:docsIetfQosDSAReqs,_AG:docsIetfQosDSARsps,_AH:docsIetfQosDSAAcks,_AI:docsIetfQosDSCReqs,_AJ:docsIetfQosDSCRsps,_AK:docsIetfQosDSCAcks,_AL:docsIetfQosDSDReqs,_AM:docsIetfQosDSDRsps,_AN:docsIetfQosDynamicAdds,_AO:docsIetfQosDynamicAddFails,_AP:docsIetfQosDynamicChanges,_AQ:docsIetfQosDynamicChangeFails,_AR:docsIetfQosDynamicDeletes,_AS:docsIetfQosDynamicDeleteFails,_AT:docsIetfQosDCCReqs,_AU:docsIetfQosDCCRsps,_AV:docsIetfQosDCCAcks,_AW:docsIetfQosDCCs,_AX:docsIetfQosDCCFails,'docsIetfQosServiceFlowLogTable':docsIetfQosServiceFlowLogTable,'docsIetfQosServiceFlowLogEntry':docsIetfQosServiceFlowLogEntry,_Y:docsIetfQosServiceFlowLogIndex,_B0:docsIetfQosServiceFlowLogIfIndex,_B1:docsIetfQosServiceFlowLogSFID,_B2:docsIetfQosServiceFlowLogCmMac,_B3:docsIetfQosServiceFlowLogPkts,_B4:docsIetfQosServiceFlowLogOctets,_B5:docsIetfQosServiceFlowLogTimeDeleted,_B6:docsIetfQosServiceFlowLogTimeCreated,_B7:docsIetfQosServiceFlowLogTimeActive,_B8:docsIetfQosServiceFlowLogDirection,_B9:docsIetfQosServiceFlowLogPrimary,_BA:docsIetfQosServiceFlowLogServiceClassName,_BB:docsIetfQosServiceFlowLogPolicedDropPkts,_BC:docsIetfQosServiceFlowLogPolicedDelayPkts,_BD:docsIetfQosServiceFlowLogControl,'docsIetfQosServiceClassTable':docsIetfQosServiceClassTable,'docsIetfQosServiceClassEntry':docsIetfQosServiceClassEntry,_Z:docsIetfQosServiceClassName,_BJ:docsIetfQosServiceClassStatus,_BK:docsIetfQosServiceClassPriority,_BL:docsIetfQosServiceClassMaxTrafficRate,_BM:docsIetfQosServiceClassMaxTrafficBurst,_BN:docsIetfQosServiceClassMinReservedRate,_BO:docsIetfQosServiceClassMinReservedPkt,_BP:docsIetfQosServiceClassMaxConcatBurst,_BQ:docsIetfQosServiceClassNomPollInterval,_BR:docsIetfQosServiceClassTolPollJitter,_BS:docsIetfQosServiceClassUnsolicitGrantSize,_BT:docsIetfQosServiceClassNomGrantInterval,_BU:docsIetfQosServiceClassTolGrantJitter,_BV:docsIetfQosServiceClassGrantsPerInterval,_BW:docsIetfQosServiceClassMaxLatency,_BX:docsIetfQosServiceClassActiveTimeout,_BY:docsIetfQosServiceClassAdmittedTimeout,_BZ:docsIetfQosServiceClassSchedulingType,_Ba:docsIetfQosServiceClassRequestPolicy,_Bb:docsIetfQosServiceClassTosAndMask,_Bc:docsIetfQosServiceClassTosOrMask,_Bd:docsIetfQosServiceClassDirection,_Be:docsIetfQosServiceClassStorageType,_Bf:docsIetfQosServiceClassDSCPOverwrite,'docsIetfQosServiceClassPolicyTable':docsIetfQosServiceClassPolicyTable,'docsIetfQosServiceClassPolicyEntry':docsIetfQosServiceClassPolicyEntry,_c:docsIetfQosServiceClassPolicyIndex,_BF:docsIetfQosServiceClassPolicyName,_BG:docsIetfQosServiceClassPolicyRulePriority,_BH:docsIetfQosServiceClassPolicyStatus,_BI:docsIetfQosServiceClassPolicyStorageType,'docsIetfQosPHSTable':docsIetfQosPHSTable,'docsIetfQosPHSEntry':docsIetfQosPHSEntry,_AY:docsIetfQosPHSField,_AZ:docsIetfQosPHSMask,_Aa:docsIetfQosPHSSize,_Ab:docsIetfQosPHSVerify,_Ac:docsIetfQosPHSIndex,'docsIetfQosCmtsMacToSrvFlowTable':docsIetfQosCmtsMacToSrvFlowTable,'docsIetfQosCmtsMacToSrvFlowEntry':docsIetfQosCmtsMacToSrvFlowEntry,_d:docsIetfQosCmtsCmMac,_e:docsIetfQosCmtsServiceFlowId,_BE:docsIetfQosCmtsIfIndex,'docsIetfQosConformance':docsIetfQosConformance,'docsIetfQosGroups':docsIetfQosGroups,_Bg:docsIetfQosBaseGroup,_Bi:docsIetfQosParamSetGroup,_Bh:docsIetfQosCmtsGroup,_Bj:docsIetfQosSrvClassPolicyGroup,_Bk:docsIetfQosServiceClassGroup,'docsIetfQosCompliances':docsIetfQosCompliances,'docsIetfQosCompliance':docsIetfQosCompliance})

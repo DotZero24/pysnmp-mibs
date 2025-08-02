@@ -1,0 +1,122 @@
+_Q='cie1000PortPowerSavingsStatusInterfaceTableInfoGroup'
+_P='cie1000PortPowerSavingsConfigInterfaceParamTableInfoGroup'
+_O='cie1000PortPowerSavingsCapabilitiesInterfaceInfoGroup'
+_N='cie1000PortPowerSavingsStatusInterfaceShortCable'
+_M='cie1000PortPowerSavingsStatusInterfaceNoLinkPartner'
+_L='cie1000PortPowerSavingsConfigInterfaceParamShortReach'
+_K='cie1000PortPowerSavingsConfigInterfaceParamLinkPartner'
+_J='cie1000PortPowerSavingsCapabilitiesInterfaceShortReach'
+_I='cie1000PortPowerSavingsCapabilitiesInterfaceLinkPartner'
+_H='read-write'
+_G='cie1000PortPowerSavingsStatusInterfaceIfIndex'
+_F='cie1000PortPowerSavingsConfigInterfaceParamIfIndex'
+_E='accessible-for-notify'
+_D='cie1000PortPowerSavingsCapabilitiesInterfaceIfIndex'
+_C='read-only'
+_B='CIE1000-PORT-POWER-SAVINGS-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+CIE1000InterfaceIndex,=mibBuilder.importSymbols('CIE1000-TC','CIE1000InterfaceIndex')
+cie1000SwitchMgmt,=mibBuilder.importSymbols('CISCO-IE1000-MIB','cie1000SwitchMgmt')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
+cie1000PortPowerSavingsMib=ModuleIdentity((1,3,6,1,4,1,9,9,832,1,100))
+if mibBuilder.loadTexts:cie1000PortPowerSavingsMib.setRevisions(('2014-08-07 00:00',))
+class CIE1000PortPowerSavingsStatusType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('no',0),('yes',1),('notSupported',2)))
+_Cie1000PortPowerSavingsMibObjects_ObjectIdentity=ObjectIdentity
+cie1000PortPowerSavingsMibObjects=_Cie1000PortPowerSavingsMibObjects_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,100,1))
+_Cie1000PortPowerSavingsCapabilities_ObjectIdentity=ObjectIdentity
+cie1000PortPowerSavingsCapabilities=_Cie1000PortPowerSavingsCapabilities_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,100,1,1))
+_Cie1000PortPowerSavingsCapabilitiesInterfaceTable_Object=MibTable
+cie1000PortPowerSavingsCapabilitiesInterfaceTable=_Cie1000PortPowerSavingsCapabilitiesInterfaceTable_Object((1,3,6,1,4,1,9,9,832,1,100,1,1,1))
+if mibBuilder.loadTexts:cie1000PortPowerSavingsCapabilitiesInterfaceTable.setStatus(_A)
+_Cie1000PortPowerSavingsCapabilitiesInterfaceEntry_Object=MibTableRow
+cie1000PortPowerSavingsCapabilitiesInterfaceEntry=_Cie1000PortPowerSavingsCapabilitiesInterfaceEntry_Object((1,3,6,1,4,1,9,9,832,1,100,1,1,1,1))
+cie1000PortPowerSavingsCapabilitiesInterfaceEntry.setIndexNames((0,_B,_D))
+if mibBuilder.loadTexts:cie1000PortPowerSavingsCapabilitiesInterfaceEntry.setStatus(_A)
+_Cie1000PortPowerSavingsCapabilitiesInterfaceIfIndex_Type=CIE1000InterfaceIndex
+_Cie1000PortPowerSavingsCapabilitiesInterfaceIfIndex_Object=MibTableColumn
+cie1000PortPowerSavingsCapabilitiesInterfaceIfIndex=_Cie1000PortPowerSavingsCapabilitiesInterfaceIfIndex_Object((1,3,6,1,4,1,9,9,832,1,100,1,1,1,1,1),_Cie1000PortPowerSavingsCapabilitiesInterfaceIfIndex_Type())
+cie1000PortPowerSavingsCapabilitiesInterfaceIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:cie1000PortPowerSavingsCapabilitiesInterfaceIfIndex.setStatus(_A)
+_Cie1000PortPowerSavingsCapabilitiesInterfaceLinkPartner_Type=TruthValue
+_Cie1000PortPowerSavingsCapabilitiesInterfaceLinkPartner_Object=MibTableColumn
+cie1000PortPowerSavingsCapabilitiesInterfaceLinkPartner=_Cie1000PortPowerSavingsCapabilitiesInterfaceLinkPartner_Object((1,3,6,1,4,1,9,9,832,1,100,1,1,1,1,2),_Cie1000PortPowerSavingsCapabilitiesInterfaceLinkPartner_Type())
+cie1000PortPowerSavingsCapabilitiesInterfaceLinkPartner.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000PortPowerSavingsCapabilitiesInterfaceLinkPartner.setStatus(_A)
+_Cie1000PortPowerSavingsCapabilitiesInterfaceShortReach_Type=TruthValue
+_Cie1000PortPowerSavingsCapabilitiesInterfaceShortReach_Object=MibTableColumn
+cie1000PortPowerSavingsCapabilitiesInterfaceShortReach=_Cie1000PortPowerSavingsCapabilitiesInterfaceShortReach_Object((1,3,6,1,4,1,9,9,832,1,100,1,1,1,1,3),_Cie1000PortPowerSavingsCapabilitiesInterfaceShortReach_Type())
+cie1000PortPowerSavingsCapabilitiesInterfaceShortReach.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000PortPowerSavingsCapabilitiesInterfaceShortReach.setStatus(_A)
+_Cie1000PortPowerSavingsConfig_ObjectIdentity=ObjectIdentity
+cie1000PortPowerSavingsConfig=_Cie1000PortPowerSavingsConfig_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,100,1,2))
+_Cie1000PortPowerSavingsConfigInterfaceParamTable_Object=MibTable
+cie1000PortPowerSavingsConfigInterfaceParamTable=_Cie1000PortPowerSavingsConfigInterfaceParamTable_Object((1,3,6,1,4,1,9,9,832,1,100,1,2,1))
+if mibBuilder.loadTexts:cie1000PortPowerSavingsConfigInterfaceParamTable.setStatus(_A)
+_Cie1000PortPowerSavingsConfigInterfaceParamEntry_Object=MibTableRow
+cie1000PortPowerSavingsConfigInterfaceParamEntry=_Cie1000PortPowerSavingsConfigInterfaceParamEntry_Object((1,3,6,1,4,1,9,9,832,1,100,1,2,1,1))
+cie1000PortPowerSavingsConfigInterfaceParamEntry.setIndexNames((0,_B,_F))
+if mibBuilder.loadTexts:cie1000PortPowerSavingsConfigInterfaceParamEntry.setStatus(_A)
+_Cie1000PortPowerSavingsConfigInterfaceParamIfIndex_Type=CIE1000InterfaceIndex
+_Cie1000PortPowerSavingsConfigInterfaceParamIfIndex_Object=MibTableColumn
+cie1000PortPowerSavingsConfigInterfaceParamIfIndex=_Cie1000PortPowerSavingsConfigInterfaceParamIfIndex_Object((1,3,6,1,4,1,9,9,832,1,100,1,2,1,1,1),_Cie1000PortPowerSavingsConfigInterfaceParamIfIndex_Type())
+cie1000PortPowerSavingsConfigInterfaceParamIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:cie1000PortPowerSavingsConfigInterfaceParamIfIndex.setStatus(_A)
+_Cie1000PortPowerSavingsConfigInterfaceParamLinkPartner_Type=TruthValue
+_Cie1000PortPowerSavingsConfigInterfaceParamLinkPartner_Object=MibTableColumn
+cie1000PortPowerSavingsConfigInterfaceParamLinkPartner=_Cie1000PortPowerSavingsConfigInterfaceParamLinkPartner_Object((1,3,6,1,4,1,9,9,832,1,100,1,2,1,1,2),_Cie1000PortPowerSavingsConfigInterfaceParamLinkPartner_Type())
+cie1000PortPowerSavingsConfigInterfaceParamLinkPartner.setMaxAccess(_H)
+if mibBuilder.loadTexts:cie1000PortPowerSavingsConfigInterfaceParamLinkPartner.setStatus(_A)
+_Cie1000PortPowerSavingsConfigInterfaceParamShortReach_Type=TruthValue
+_Cie1000PortPowerSavingsConfigInterfaceParamShortReach_Object=MibTableColumn
+cie1000PortPowerSavingsConfigInterfaceParamShortReach=_Cie1000PortPowerSavingsConfigInterfaceParamShortReach_Object((1,3,6,1,4,1,9,9,832,1,100,1,2,1,1,3),_Cie1000PortPowerSavingsConfigInterfaceParamShortReach_Type())
+cie1000PortPowerSavingsConfigInterfaceParamShortReach.setMaxAccess(_H)
+if mibBuilder.loadTexts:cie1000PortPowerSavingsConfigInterfaceParamShortReach.setStatus(_A)
+_Cie1000PortPowerSavingsStatus_ObjectIdentity=ObjectIdentity
+cie1000PortPowerSavingsStatus=_Cie1000PortPowerSavingsStatus_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,100,1,3))
+_Cie1000PortPowerSavingsStatusInterfaceTable_Object=MibTable
+cie1000PortPowerSavingsStatusInterfaceTable=_Cie1000PortPowerSavingsStatusInterfaceTable_Object((1,3,6,1,4,1,9,9,832,1,100,1,3,1))
+if mibBuilder.loadTexts:cie1000PortPowerSavingsStatusInterfaceTable.setStatus(_A)
+_Cie1000PortPowerSavingsStatusInterfaceEntry_Object=MibTableRow
+cie1000PortPowerSavingsStatusInterfaceEntry=_Cie1000PortPowerSavingsStatusInterfaceEntry_Object((1,3,6,1,4,1,9,9,832,1,100,1,3,1,1))
+cie1000PortPowerSavingsStatusInterfaceEntry.setIndexNames((0,_B,_G))
+if mibBuilder.loadTexts:cie1000PortPowerSavingsStatusInterfaceEntry.setStatus(_A)
+_Cie1000PortPowerSavingsStatusInterfaceIfIndex_Type=CIE1000InterfaceIndex
+_Cie1000PortPowerSavingsStatusInterfaceIfIndex_Object=MibTableColumn
+cie1000PortPowerSavingsStatusInterfaceIfIndex=_Cie1000PortPowerSavingsStatusInterfaceIfIndex_Object((1,3,6,1,4,1,9,9,832,1,100,1,3,1,1,1),_Cie1000PortPowerSavingsStatusInterfaceIfIndex_Type())
+cie1000PortPowerSavingsStatusInterfaceIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:cie1000PortPowerSavingsStatusInterfaceIfIndex.setStatus(_A)
+_Cie1000PortPowerSavingsStatusInterfaceNoLinkPartner_Type=CIE1000PortPowerSavingsStatusType
+_Cie1000PortPowerSavingsStatusInterfaceNoLinkPartner_Object=MibTableColumn
+cie1000PortPowerSavingsStatusInterfaceNoLinkPartner=_Cie1000PortPowerSavingsStatusInterfaceNoLinkPartner_Object((1,3,6,1,4,1,9,9,832,1,100,1,3,1,1,2),_Cie1000PortPowerSavingsStatusInterfaceNoLinkPartner_Type())
+cie1000PortPowerSavingsStatusInterfaceNoLinkPartner.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000PortPowerSavingsStatusInterfaceNoLinkPartner.setStatus(_A)
+_Cie1000PortPowerSavingsStatusInterfaceShortCable_Type=CIE1000PortPowerSavingsStatusType
+_Cie1000PortPowerSavingsStatusInterfaceShortCable_Object=MibTableColumn
+cie1000PortPowerSavingsStatusInterfaceShortCable=_Cie1000PortPowerSavingsStatusInterfaceShortCable_Object((1,3,6,1,4,1,9,9,832,1,100,1,3,1,1,3),_Cie1000PortPowerSavingsStatusInterfaceShortCable_Type())
+cie1000PortPowerSavingsStatusInterfaceShortCable.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000PortPowerSavingsStatusInterfaceShortCable.setStatus(_A)
+_Cie1000PortPowerSavingsMibConformance_ObjectIdentity=ObjectIdentity
+cie1000PortPowerSavingsMibConformance=_Cie1000PortPowerSavingsMibConformance_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,100,2))
+_Cie1000PortPowerSavingsMibCompliances_ObjectIdentity=ObjectIdentity
+cie1000PortPowerSavingsMibCompliances=_Cie1000PortPowerSavingsMibCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,100,2,1))
+_Cie1000PortPowerSavingsMibGroups_ObjectIdentity=ObjectIdentity
+cie1000PortPowerSavingsMibGroups=_Cie1000PortPowerSavingsMibGroups_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,100,2,2))
+cie1000PortPowerSavingsCapabilitiesInterfaceInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,100,2,2,1))
+cie1000PortPowerSavingsCapabilitiesInterfaceInfoGroup.setObjects(*((_B,_D),(_B,_I),(_B,_J)))
+if mibBuilder.loadTexts:cie1000PortPowerSavingsCapabilitiesInterfaceInfoGroup.setStatus(_A)
+cie1000PortPowerSavingsConfigInterfaceParamTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,100,2,2,2))
+cie1000PortPowerSavingsConfigInterfaceParamTableInfoGroup.setObjects(*((_B,_F),(_B,_K),(_B,_L)))
+if mibBuilder.loadTexts:cie1000PortPowerSavingsConfigInterfaceParamTableInfoGroup.setStatus(_A)
+cie1000PortPowerSavingsStatusInterfaceTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,100,2,2,3))
+cie1000PortPowerSavingsStatusInterfaceTableInfoGroup.setObjects(*((_B,_G),(_B,_M),(_B,_N)))
+if mibBuilder.loadTexts:cie1000PortPowerSavingsStatusInterfaceTableInfoGroup.setStatus(_A)
+cie1000PortPowerSavingsMibCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,832,1,100,2,1,1))
+cie1000PortPowerSavingsMibCompliance.setObjects(*((_B,_O),(_B,_P),(_B,_Q)))
+if mibBuilder.loadTexts:cie1000PortPowerSavingsMibCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'CIE1000PortPowerSavingsStatusType':CIE1000PortPowerSavingsStatusType,'cie1000PortPowerSavingsMib':cie1000PortPowerSavingsMib,'cie1000PortPowerSavingsMibObjects':cie1000PortPowerSavingsMibObjects,'cie1000PortPowerSavingsCapabilities':cie1000PortPowerSavingsCapabilities,'cie1000PortPowerSavingsCapabilitiesInterfaceTable':cie1000PortPowerSavingsCapabilitiesInterfaceTable,'cie1000PortPowerSavingsCapabilitiesInterfaceEntry':cie1000PortPowerSavingsCapabilitiesInterfaceEntry,_D:cie1000PortPowerSavingsCapabilitiesInterfaceIfIndex,_I:cie1000PortPowerSavingsCapabilitiesInterfaceLinkPartner,_J:cie1000PortPowerSavingsCapabilitiesInterfaceShortReach,'cie1000PortPowerSavingsConfig':cie1000PortPowerSavingsConfig,'cie1000PortPowerSavingsConfigInterfaceParamTable':cie1000PortPowerSavingsConfigInterfaceParamTable,'cie1000PortPowerSavingsConfigInterfaceParamEntry':cie1000PortPowerSavingsConfigInterfaceParamEntry,_F:cie1000PortPowerSavingsConfigInterfaceParamIfIndex,_K:cie1000PortPowerSavingsConfigInterfaceParamLinkPartner,_L:cie1000PortPowerSavingsConfigInterfaceParamShortReach,'cie1000PortPowerSavingsStatus':cie1000PortPowerSavingsStatus,'cie1000PortPowerSavingsStatusInterfaceTable':cie1000PortPowerSavingsStatusInterfaceTable,'cie1000PortPowerSavingsStatusInterfaceEntry':cie1000PortPowerSavingsStatusInterfaceEntry,_G:cie1000PortPowerSavingsStatusInterfaceIfIndex,_M:cie1000PortPowerSavingsStatusInterfaceNoLinkPartner,_N:cie1000PortPowerSavingsStatusInterfaceShortCable,'cie1000PortPowerSavingsMibConformance':cie1000PortPowerSavingsMibConformance,'cie1000PortPowerSavingsMibCompliances':cie1000PortPowerSavingsMibCompliances,'cie1000PortPowerSavingsMibCompliance':cie1000PortPowerSavingsMibCompliance,'cie1000PortPowerSavingsMibGroups':cie1000PortPowerSavingsMibGroups,_O:cie1000PortPowerSavingsCapabilitiesInterfaceInfoGroup,_P:cie1000PortPowerSavingsConfigInterfaceParamTableInfoGroup,_Q:cie1000PortPowerSavingsStatusInterfaceTableInfoGroup})

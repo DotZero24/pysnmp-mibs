@@ -1,303 +1,788 @@
-#
-# PySNMP MIB module DS1-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/DS1-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:10:55 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-( ifIndex, InterfaceIndex, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
-( PerfIntervalCount, PerfTotalCount, PerfCurrentCount, ) = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfIntervalCount", "PerfTotalCount", "PerfCurrentCount")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( TimeTicks, Counter64, Bits, IpAddress, Counter32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, transmission, iso, ObjectIdentity, MibIdentifier, Integer32, Gauge32, NotificationType, ) = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Counter64", "Bits", "IpAddress", "Counter32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "transmission", "iso", "ObjectIdentity", "MibIdentifier", "Integer32", "Gauge32", "NotificationType")
-( TimeStamp, DisplayString, TruthValue, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "DisplayString", "TruthValue", "TextualConvention")
-ds1 = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 18)).setRevisions(("2007-03-05 00:00", "2004-09-09 00:00", "1998-08-01 18:30", "1993-01-25 20:28",))
-if mibBuilder.loadTexts: ds1.setLastUpdated('200703050000Z')
-if mibBuilder.loadTexts: ds1.setOrganization('IETF AToM MIB Working Group')
-if mibBuilder.loadTexts: ds1.setContactInfo('WG charter:\n       http://www.ietf.org/html.charters/atommib-charter.html\n\n       Mailing Lists:\n         General Discussion: atommib@research.telcordia.com\n         To Subscribe: atommib-request@research.telcordia.com\n\n       Editor: Orly Nicklass\n\n       Postal: RAD Data Communications, Ltd.\n               Ziv Tower, 24 Roul Walenberg\n               Tel Aviv, Israel, 69719\n\n               Tel: +9723 765 9969\n       E-mail: orly_n@rad.com')
-if mibBuilder.loadTexts: ds1.setDescription('The MIB module to describe DS1, J1, E1, DS2, and\n          E2 interfaces objects.\n\n          Copyright (c) The IETF Trust (2007).  This\n          version of this MIB module is part of RFC 4805;\n          see the RFC itself for full legal notices.')
-dsx1ConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 18, 6), )
-if mibBuilder.loadTexts: dsx1ConfigTable.setDescription('The DS1 Configuration table.')
-dsx1ConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 18, 6, 1), ).setIndexNames((0, "DS1-MIB", "dsx1LineIndex"))
-if mibBuilder.loadTexts: dsx1ConfigEntry.setDescription('An entry in the DS1 Configuration table.')
-dsx1LineIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1LineIndex.setDescription('This object should be made equal to ifIndex.  The\n            next paragraph describes its previous usage.\n            Making the object equal to ifIndex allows proper\n            use of the ifStackTable and ds0/ds0bundle MIBs.\n\n            Previously, this object was the identifier of a DS1\n            interface on a managed device.  If there is an\n            ifEntry that is directly associated with this and\n            only this DS1 interface, it should have the same\n            value as ifIndex.  Otherwise, number the\n            dsx1LineIndices with a unique identifier\n            following the rules of choosing a number that is\n            greater than ifNumber and numbering the inside\n            interfaces (e.g., equipment side) with even\n            numbers and outside interfaces (e.g., network\n            side) with odd numbers.')
-dsx1IfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 2), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1IfIndex.setDescription('This value for this object is equal to the value\n\n            of ifIndex from the Interfaces table (RFC 2863).')
-dsx1TimeElapsed = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,899))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1TimeElapsed.setDescription("The number of seconds that have elapsed since the\n            beginning of the near-end current error-\n            measurement period.  If, for some reason, such as\n            an adjustment in the system's time-of-day clock,\n            the current interval exceeds the maximum value,\n            the agent will return the maximum value.")
-dsx1ValidIntervals = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,96))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1ValidIntervals.setDescription('The number of previous near-end intervals for\n            which data was collected.  The value will be 96\n            unless the interface was brought online within the\n            last 24 hours, in which case the value will be the\n            number of complete 15-minute near-end intervals\n            since the interface has been online.  In the case\n            where the agent is a proxy, it is possible that\n            some intervals are unavailable.  In this case,\n            this interval is the maximum interval number for\n            which data is available.')
-dsx1LineType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16,))).clone(namedValues=NamedValues(("other", 1), ("dsx1ESF", 2), ("dsx1D4", 3), ("dsx1E1", 4), ("dsx1E1CRC", 5), ("dsx1E1MF", 6), ("dsx1E1CRCMF", 7), ("dsx1Unframed", 8), ("dsx1E1Unframed", 9), ("dsx1DS2M12", 10), ("dsx1E2", 11), ("dsx1E1Q50", 12), ("dsx1E1Q50CRC", 13), ("dsx1J1ESF", 14), ("dsx1J1Unframed", 16),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx1LineType.setDescription('This variable indicates the variety of DS1\n            Line implementing this circuit.  The type of\n            circuit affects the number of bits per second\n            that the circuit can reasonably carry, as well\n            as the interpretation of the usage and error\n            statistics.  The values, in sequence, describe:\n\n                  TITLE:          SPECIFICATION:\n                  dsx1ESF         Extended SuperFrame DS1\n                                         (T1.107)\n                  dsx1D4          AT&T D4 format DS1 (T1.107)\n                  dsx1E1          ITU-T G.704, (Table 5A)\n                  dsx1E1-CRC      ITU-T G.704, (Table 5B)\n                  dsxE1-MF        G.704 (Table 5A) with TS16\n                                         multiframing enabled\n                  dsx1E1-CRC-MF   G.704 (Table 5B) with TS16\n                                         multiframing enabled\n                  dsx1Unframed    DS1 with No Framing\n                  dsx1E1Unframed  E1 with No Framing (G.703)\n                  dsx1DS2M12      DS2 frame format (T1.107)\n                  dsx1E2          E2 frame format (G.704)\n                  dsx1E1Q50       TS16 bits 5,7,8 set to 101,\n                                  [in all other cases it is set\n                                  to 111.] (G.704, table 14)\n                  dsx1E1Q50CRC    E1Q50 with CRC\n                  dsx1J1ESF       J1 according to (JT-G704,\n                                         JT-G706, and JT-I431)\n                  dsx1J1Unframed  J1 with No Framing\n\n            For clarification, the capacity for each E1 type\n            is as listed below:\n            dsx1E1Unframed - E1, no framing = 32 x 64k = 2048k\n            dsx1E1 or dsx1E1CRC - E1, with framing,\n            no signalling = 31 x 64k = 1984k\n            dsx1E1MF or dsx1E1CRCMF - E1, with framing,\n            signalling = 30 x 64k = 1920k')
-dsx1LineCoding = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7,))).clone(namedValues=NamedValues(("dsx1JBZS", 1), ("dsx1B8ZS", 2), ("dsx1HDB3", 3), ("dsx1ZBTSI", 4), ("dsx1AMI", 5), ("other", 6), ("dsx1B6ZS", 7),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx1LineCoding.setDescription('This variable describes the variety of Zero Code\n            Suppression used on this interface, which in turn\n            affects a number of its characteristics.\n\n            dsx1JBZS refers the Jammed Bit Zero Suppression,\n            in which the AT&T specification of at least one\n            pulse every 8-bit period is literally implemented\n            by forcing a pulse in bit 8 of each channel.\n            Thus, only 7 bits per channel, or 1.344 Mbps,\n            are available for data.\n\n            dsx1B8ZS refers to the use of a specified pattern\n            of normal bits and bipolar violations that are\n            used to replace a sequence of 8 zero bits.\n            ANSI Clear Channels may use dsx1ZBTSI, or Zero\n            Byte Time Slot Interchange.\n\n            E1 links, with or without CRC, use dsx1HDB3 or\n            dsx1AMI.\n\n            dsx1AMI refers to a mode wherein no Zero Code\n            Suppression is present and the line encoding does\n\n            not solve the problem directly.  In this\n            application, the higher layer must provide data\n            that meets or exceeds the pulse density\n            requirements, such as inverting HDLC data.\n\n            dsx1B6ZS refers to the user of a specified pattern\n            of normal bits and bipolar violations that are\n            used to replace a sequence of 6 zero bits.  Used\n            for DS2.\n            For more information about line coding see\n            [ANSI-T1.102]')
-dsx1SendCode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8,))).clone(namedValues=NamedValues(("dsx1SendNoCode", 1), ("dsx1SendLineCode", 2), ("dsx1SendPayloadCode", 3), ("dsx1SendResetCode", 4), ("dsx1SendQRS", 5), ("dsx1Send511Pattern", 6), ("dsx1Send3in24Pattern", 7), ("dsx1SendOtherTestPattern", 8),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx1SendCode.setDescription('This variable indicates what type of code is\n            being sent across the DS1 interface by the device.\n            Setting this variable causes the interface to send\n            the code requested.  The values mean the following:\n\n      dsx1SendNoCode\n           sending looped or normal data\n\n      dsx1SendLineCode\n           sending a request for a line loopback\n\n      dsx1SendPayloadCode\n           sending a request for a payload loopback\n\n      dsx1SendResetCode\n           sending a loopback termination request\n\n      dsx1SendQRS\n           sending a Quasi-Random Signal (QRS) test\n           pattern\n\n      dsx1Send511Pattern\n           sending a 511-bit fixed test pattern\n\n      dsx1Send3in24Pattern\n           sending a fixed test pattern of 3 bits set\n           in 24\n\n      dsx1SendOtherTestPattern\n           sending a test pattern other than those\n           described by this object')
-dsx1CircuitIdentifier = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx1CircuitIdentifier.setDescription("This variable contains the transmission vendor's\n            circuit identifier, for the purpose of\n            facilitating troubleshooting.")
-dsx1LoopbackConfig = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("dsx1NoLoop", 1), ("dsx1PayloadLoop", 2), ("dsx1LineLoop", 3), ("dsx1OtherLoop", 4), ("dsx1InwardLoop", 5), ("dsx1DualLoop", 6),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx1LoopbackConfig.setDescription("This variable represents the desired loopback\n            configuration of the DS1 interface.  Agents\n            supporting read/write access should return\n            inconsistentValue in response to a requested\n            loopback state that the interface does not\n            support.  The values mean:\n\n      dsx1NoLoop\n            not in the loopback state.  A device that is not\n            capable of performing a loopback on the interface\n            shall always return this as its value.\n\n      dsx1PayloadLoop\n\n            the received signal at this interface is looped\n            through the device.  Typically, the received signal\n            is looped back for retransmission after it has\n            passed through the device's framing function.\n\n      dsx1LineLoop\n            the received signal at this interface does not go\n            through the device (minimum penetration) but is\n            looped back out.\n\n      dsx1OtherLoop\n            loopbacks that are not defined here.\n\n      dsx1InwardLoop\n            the transmitted signal at this interface is\n            looped back and received by the same interface.\n            What is transmitted onto the line is product\n            dependent.\n\n      dsx1DualLoop\n            both dsx1LineLoop and dsx1InwardLoop will be\n            active simultaneously.")
-dsx1LineStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,131071))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1LineStatus.setDescription('This variable indicates the line status of the\n            interface.  It contains loopback, failure,\n            received alarm and transmitted alarms\n            information.\n\n            The dsx1LineStatus is a bitmap represented as a\n            sum; therefore, it can represent multiple failures\n            (alarms) and a LoopbackState simultaneously.\n\n            dsx1NoAlarm must be set if and only if no other\n            flag is set.\n\n            If the dsx1loopbackState bit is set, the loopback\n            in effect can be determined from the\n            dsx1loopbackConfig object.  The various bit\n            positions are as follows:\n\n      1     dsx1NoAlarm           No alarm present\n      2     dsx1RcvFarEndLOF      Far end LOF (a.k.a.\n\n                                  Yellow Alarm)\n      4     dsx1XmtFarEndLOF      Near end sending LOF\n                                  indication\n      8     dsx1RcvAIS            Far end sending AIS\n     16     dsx1XmtAIS            Near end sending AIS\n     32     dsx1LossOfFrame       Near end LOF (a.k.a.\n                                  Red Alarm)\n     64     dsx1LossOfSignal      Near end Loss of Signal\n    128     dsx1LoopbackState     Near end is looped\n    256     dsx1T16AIS            E1 TS16 AIS\n    512     dsx1RcvFarEndLOMF     Far end sending TS16 LOMF\n   1024     dsx1XmtFarEndLOMF     Near end sending TS16 LOMF\n   2048     dsx1RcvTestCode       Near end detects a test code\n   4096     dsx1OtherFailure      Any line status not defined\n                                  here\n   8192     dsx1UnavailSigState   Near end in unavailable\n                                  signal state\n  16384     dsx1NetEquipOOS       Carrier equipment out of\n                                  service\n  32768     dsx1RcvPayloadAIS     DS2 payload AIS\n  65536     dsx1Ds2PerfThreshold  DS2 performance threshold\n                                  exceeded')
-dsx1SignalMode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("none", 1), ("robbedBit", 2), ("bitOriented", 3), ("messageOriented", 4), ("other", 5),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx1SignalMode.setDescription("'none' indicates that no bits are reserved for\n       signaling on this channel.\n\n       'robbedBit' indicates that DS1 Robbed Bit Signaling\n       is in use.\n\n       'bitOriented' indicates that E1 Channel Associated\n       Signaling is in use.\n\n       'messageOriented' indicates that Common Channel\n       Signaling is in use on either channel 16 of\n       an E1 link or channel 24 of a DS1.")
-dsx1TransmitClockSource = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("loopTiming", 1), ("localTiming", 2), ("throughTiming", 3), ("adaptive", 4),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx1TransmitClockSource.setDescription("The source of transmit clock.\n\n        'loopTiming' indicates that the recovered\n        receive clock is used as the transmit clock.\n\n        'localTiming' indicates that a local clock\n       source is used or when an external clock is\n       attached to the box containing the interface.\n\n        'throughTiming' indicates that recovered\n       receive clock from another interface is used as\n       the transmit clock.\n\n        'adaptive' indicates that the clock is recovered\n       based on the data flow and not based on the\n       physical layer")
-dsx1Fdl = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx1Fdl.setDescription("This bitmap describes the use of the\n       facilities data link and is the sum of the\n       capabilities.  Set any bits that are appropriate:\n\n       other(1),\n       dsx1AnsiT1403(2),\n       dsx1Att54016(4),\n       dsx1FdlNone(8)\n\n        'other' indicates that a protocol other than\n       one of the following is used.\n\n        'dsx1AnsiT1403' refers to the FDL exchange\n       recommended by ANSI.\n\n        'dsx1Att54016' refers to ESF FDL exchanges.\n\n        'dsx1FdlNone' indicates that the device does\n       not use the FDL.")
-dsx1InvalidIntervals = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,96))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1InvalidIntervals.setDescription('The number of intervals in the range from 0 to\n            dsx1ValidIntervals for which no data is available.\n            This object will typically be zero except in cases\n            where the data for some intervals is not\n            available (e.g., in proxy situations).')
-dsx1LineLength = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,64000))).setUnits('meters').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx1LineLength.setDescription('The length of the DS1 line in meters.  This\n            object provides information for line build-out\n            circuitry.  This object is only useful if the\n            interface has configurable line build-out\n            circuitry.')
-dsx1LineStatusLastChange = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 16), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1LineStatusLastChange.setDescription("The value of MIB II's sysUpTime object at the\n            time this DS1 entered its current line status\n            state.  If the current state was entered prior to\n            the last re-initialization of the proxy-agent,\n            then this object contains a zero value.")
-dsx1LineStatusChangeTrapEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),)).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx1LineStatusChangeTrapEnable.setDescription('Indicates whether dsx1LineStatusChange traps\n            should be generated for this interface.')
-dsx1LoopbackStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,127))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1LoopbackStatus.setDescription('This variable represents the current state of the\n            loopback on the DS1 interface.  It contains\n            information about loopbacks established by a\n            manager and remotely from the far end.\n\n            The dsx1LoopbackStatus is a bitmap represented as\n            a sum; therefore, it can represent multiple\n            loopbacks simultaneously.\n\n            The various bit positions are as follows:\n             1  dsx1NoLoopback\n             2  dsx1NearEndPayloadLoopback\n             4  dsx1NearEndLineLoopback\n             8  dsx1NearEndOtherLoopback\n            16  dsx1NearEndInwardLoopback\n            32  dsx1FarEndPayloadLoopback\n            64  dsx1FarEndLineLoopback')
-dsx1Ds1ChannelNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,28))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1Ds1ChannelNumber.setDescription('This variable represents the channel number of\n            the DS1/E1 on its parent DS2/E2 or DS3/E3.  A\n            value of 0 indicates that this DS1/E1 does not\n            have a parent DS3/E3.')
-dsx1Channelization = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("disabled", 1), ("enabledDs0", 2), ("enabledDs1", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx1Channelization.setDescription('Indicates whether this DS1/E1 or DS2 is\n            channelized or unchannelized.\n\n            The value of enabledDs0(2) indicates that this is a\n            DS1 channelized into DS0s.  Setting this value will\n            cause the creation, and resetting it to disabled(1)\n            will cause the deletion of entries in the ifTable\n            for the DS0s that are within the DS1.\n\n            The value of enabledDs1(3) indicates that this is a\n            DS2 channelized into DS1s.  Setting this value will\n            cause the creation, and resetting it to disabled(1)\n            will cause the deletion of entries in the ifTable\n            for the DS1s that are within the DS2.')
-dsx1LineMode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("csu", 1), ("dsu", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx1LineMode.setDescription('This setting puts the T1 framer into either\n            long-haul (CSU) mode or short-haul (DSU) mode.')
-dsx1LineBuildOut = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("notApplicable", 1), ("neg75dB", 2), ("neg15dB", 3), ("neg225dB", 4), ("zerodB", 5),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx1LineBuildOut.setDescription('Attenuation setting for T1 framer in long haul\n            (CSU) mode.  The optional values are -7.5dB,\n            -15dB, -22.5dB, and 0dB.')
-dsx1LineImpedance = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 6, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("notApplicable", 1), ("unbalanced75ohms", 2), ("balanced100ohms", 3), ("balanced120ohms", 4),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx1LineImpedance.setDescription('Nominal line impedance.  For T1 and J1 lines, the\n            value is typically balanced100ohms(3).  For E1\n            lines, the value is typically unbalanced75ohms(2)\n            and balanced120ohms(4).  When this object does not\n            apply, or when the appropriate value is not known,\n            the value should be set to notApplicable(1).')
-dsx1CurrentTable = MibTable((1, 3, 6, 1, 2, 1, 10, 18, 7), )
-if mibBuilder.loadTexts: dsx1CurrentTable.setDescription('The DS1 Current table contains various statistics\n            being collected for the current 15-minute\n            interval.')
-dsx1CurrentEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 18, 7, 1), ).setIndexNames((0, "DS1-MIB", "dsx1CurrentIndex"))
-if mibBuilder.loadTexts: dsx1CurrentEntry.setDescription('An entry in the DS1 Current table.')
-dsx1CurrentIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 7, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1CurrentIndex.setDescription('The index value that uniquely identifies the DS1\n            interface to which this entry is applicable.  The\n            interface identified by a particular value of this\n            index is the same interface as identified by the\n            same value as a dsx1LineIndex object instance.')
-dsx1CurrentESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 7, 1, 2), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1CurrentESs.setDescription('The number of Errored Seconds.')
-dsx1CurrentSESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 7, 1, 3), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1CurrentSESs.setDescription('The number of Severely Errored Seconds.')
-dsx1CurrentSEFSs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 7, 1, 4), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1CurrentSEFSs.setDescription('The number of Severely Errored Framing Seconds.')
-dsx1CurrentUASs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 7, 1, 5), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1CurrentUASs.setDescription('The number of Unavailable Seconds.')
-dsx1CurrentCSSs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 7, 1, 6), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1CurrentCSSs.setDescription('The number of Controlled Slip Seconds.')
-dsx1CurrentPCVs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 7, 1, 7), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1CurrentPCVs.setDescription('The number of Path Coding Violations.')
-dsx1CurrentLESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 7, 1, 8), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1CurrentLESs.setDescription('The number of Line Errored Seconds.')
-dsx1CurrentBESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 7, 1, 9), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1CurrentBESs.setDescription('The number of Bursty Errored Seconds.')
-dsx1CurrentDMs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 7, 1, 10), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1CurrentDMs.setDescription('The number of Degraded Minutes.')
-dsx1CurrentLCVs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 7, 1, 11), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1CurrentLCVs.setDescription('The number of Line Coding Violations (LCVs).')
-dsx1IntervalTable = MibTable((1, 3, 6, 1, 2, 1, 10, 18, 8), )
-if mibBuilder.loadTexts: dsx1IntervalTable.setDescription('The DS1 Interval table contains various\n            statistics collected by each DS1 interface over\n            the previous 24 hours of operation.  The past 24\n            hours are broken into 96 completed 15-minute\n            intervals.  Each row in this table represents one\n            such interval (identified by dsx1IntervalNumber)\n            for one specific instance (identified by\n            dsx1IntervalIndex).')
-dsx1IntervalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 18, 8, 1), ).setIndexNames((0, "DS1-MIB", "dsx1IntervalIndex"), (0, "DS1-MIB", "dsx1IntervalNumber"))
-if mibBuilder.loadTexts: dsx1IntervalEntry.setDescription('An entry in the DS1 Interval table.')
-dsx1IntervalIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 8, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1IntervalIndex.setDescription('The index value that uniquely identifies the DS1\n            interface to which this entry is applicable.  The\n            interface identified by a particular value of this\n            index is the same interface as identified by the\n            same value as a dsx1LineIndex object instance.')
-dsx1IntervalNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 8, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,96))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1IntervalNumber.setDescription('A number between 1 and 96, where 1 is the most\n            recently completed 15-minute interval and 96 is\n            the 15-minute interval completed 23 hours and 45\n            minutes prior to interval 1.')
-dsx1IntervalESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 8, 1, 3), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1IntervalESs.setDescription('The number of Errored Seconds.')
-dsx1IntervalSESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 8, 1, 4), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1IntervalSESs.setDescription('The number of Severely Errored Seconds.')
-dsx1IntervalSEFSs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 8, 1, 5), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1IntervalSEFSs.setDescription('The number of Severely Errored Framing Seconds.')
-dsx1IntervalUASs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 8, 1, 6), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1IntervalUASs.setDescription('The number of Unavailable Seconds.  This object\n            may decrease if the occurrence of unavailable\n            seconds occurs across an interval boundary.')
-dsx1IntervalCSSs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 8, 1, 7), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1IntervalCSSs.setDescription('The number of Controlled Slip Seconds.')
-dsx1IntervalPCVs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 8, 1, 8), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1IntervalPCVs.setDescription('The number of Path Coding Violations.')
-dsx1IntervalLESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 8, 1, 9), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1IntervalLESs.setDescription('The number of Line Errored Seconds.')
-dsx1IntervalBESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 8, 1, 10), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1IntervalBESs.setDescription('The number of Bursty Errored Seconds.')
-dsx1IntervalDMs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 8, 1, 11), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1IntervalDMs.setDescription('The number of Degraded Minutes.')
-dsx1IntervalLCVs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 8, 1, 12), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1IntervalLCVs.setDescription('The number of Line Coding Violations.')
-dsx1IntervalValidData = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 8, 1, 13), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1IntervalValidData.setDescription('This variable indicates whether the data for this\n            interval is valid.')
-dsx1TotalTable = MibTable((1, 3, 6, 1, 2, 1, 10, 18, 9), )
-if mibBuilder.loadTexts: dsx1TotalTable.setDescription('The DS1 Total table contains the cumulative sum\n            of the various statistics for the 24-hour period\n            preceding the current interval.')
-dsx1TotalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 18, 9, 1), ).setIndexNames((0, "DS1-MIB", "dsx1TotalIndex"))
-if mibBuilder.loadTexts: dsx1TotalEntry.setDescription('An entry in the DS1 Total table.')
-dsx1TotalIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 9, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1TotalIndex.setDescription('The index value that uniquely identifies the DS1\n            interface to which this entry is applicable.  The\n            interface identified by a particular value of this\n            index is the same interface as identified by the\n            same value as a dsx1LineIndex object instance.')
-dsx1TotalESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 9, 1, 2), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1TotalESs.setDescription('The number of Errored Seconds encountered by a DS1\n            interface in the previous 24-hour interval.\n            Invalid 15-minute intervals count as 0.')
-dsx1TotalSESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 9, 1, 3), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1TotalSESs.setDescription('The number of Severely Errored Seconds\n            encountered by a DS1 interface in the previous\n            24-hour interval.  Invalid 15-minute intervals\n            count as 0.')
-dsx1TotalSEFSs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 9, 1, 4), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1TotalSEFSs.setDescription('The number of Severely Errored Framing Seconds\n            encountered by a DS1 interface in the previous\n            24-hour interval.  Invalid 15-minute intervals\n            count as 0.')
-dsx1TotalUASs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 9, 1, 5), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1TotalUASs.setDescription('The number of Unavailable Seconds encountered by\n            a DS1 interface in the previous 24-hour interval.\n            Invalid 15-minute intervals count as 0.')
-dsx1TotalCSSs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 9, 1, 6), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1TotalCSSs.setDescription('The number of Controlled Slip Seconds encountered\n            by a DS1 interface in the previous 24-hour\n            interval.  Invalid 15-minute intervals count as\n            0.')
-dsx1TotalPCVs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 9, 1, 7), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1TotalPCVs.setDescription('The number of Path Coding Violations encountered\n            by a DS1 interface in the previous 24-hour\n            interval.  Invalid 15-minute intervals count as\n            0.')
-dsx1TotalLESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 9, 1, 8), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1TotalLESs.setDescription('The number of Line Errored Seconds encountered by\n            a DS1 interface in the previous 24-hour interval.\n            Invalid 15-minute intervals count as 0.')
-dsx1TotalBESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 9, 1, 9), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1TotalBESs.setDescription('The number of Bursty Errored Seconds (BESs)\n\n            encountered by a DS1 interface in the previous\n            24-hour interval.  Invalid 15-minute intervals count\n            as 0.')
-dsx1TotalDMs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 9, 1, 10), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1TotalDMs.setDescription('The number of Degraded Minutes (DMs) encountered\n            by a DS1 interface in the previous 24-hour\n            interval.  Invalid 15-minute intervals count as\n            0.')
-dsx1TotalLCVs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 9, 1, 11), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1TotalLCVs.setDescription('The number of Line Coding Violations (LCVs)\n            encountered by a DS1 interface in the current\n            15-minute interval.  Invalid 15-minute intervals\n            count as 0.')
-dsx1ChanMappingTable = MibTable((1, 3, 6, 1, 2, 1, 10, 18, 16), )
-if mibBuilder.loadTexts: dsx1ChanMappingTable.setDescription('The DS1 Channel Mapping table.  This table maps a\n            DS1 channel number on a particular DS3 into an\n            ifIndex.  In the presence of DS2s, this table can\n            be used to map a DS2 channel number on a DS3 into\n            an ifIndex, or used to map a DS1 channel number on\n            a DS2 into an ifIndex.')
-dsx1ChanMappingEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 18, 16, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "DS1-MIB", "dsx1Ds1ChannelNumber"))
-if mibBuilder.loadTexts: dsx1ChanMappingEntry.setDescription('An entry in the DS1 Channel Mapping table.  There\n\n            is an entry in this table corresponding to each\n            DS1 ifEntry within any interface that is\n            channelized to the individual DS1 ifEntry level.\n\n            This table is intended to facilitate mapping from\n            channelized interface / channel number to DS1\n            ifEntry (e.g., mapping (DS3 ifIndex, DS1 channel\n            number) -> ifIndex).\n\n            While this table provides information that can\n            also be found in the ifStackTable and\n            dsx1ConfigTable, it provides this same information\n            with a single table lookup, rather than by walking\n            the ifStackTable to find the various constituent\n            DS1 ifTable entries, and testing various\n            dsx1ConfigTable entries to check for the entry\n            with the applicable DS1 channel number.')
-dsx1ChanMappedIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 16, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1ChanMappedIfIndex.setDescription('This object indicates the ifIndex value assigned\n            by the agent for the individual DS1 ifEntry that\n            corresponds to the given DS1 channel number\n            (specified by the INDEX element\n            dsx1Ds1ChannelNumber) of the given channelized\n            interface (specified by INDEX element ifIndex).')
-dsx1FarEndCurrentTable = MibTable((1, 3, 6, 1, 2, 1, 10, 18, 10), )
-if mibBuilder.loadTexts: dsx1FarEndCurrentTable.setDescription('The DS1 Far End Current table contains various\n            statistics being collected for the current\n            15-minute interval.  The statistics are collected\n\n            from the far-end messages on the Facilities Data\n            Link.  The definitions are the same as described\n            for the near-end information.')
-dsx1FarEndCurrentEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 18, 10, 1), ).setIndexNames((0, "DS1-MIB", "dsx1FarEndCurrentIndex"))
-if mibBuilder.loadTexts: dsx1FarEndCurrentEntry.setDescription('An entry in the DS1 Far End Current table.')
-dsx1FarEndCurrentIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 10, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndCurrentIndex.setDescription('The index value that uniquely identifies the DS1\n            interface to which this entry is applicable.  The\n            interface identified by a particular value of this\n            index is identical to the interface identified by\n            the same value of dsx1LineIndex.')
-dsx1FarEndTimeElapsed = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 10, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,899))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndTimeElapsed.setDescription("The number of seconds that have elapsed since the\n            beginning of the far-end current error-measurement\n            period.  If, for some reason, such as an adjustment\n            in the system's time-of-day clock, the current\n            interval exceeds the maximum value, the agent will\n            return the maximum value.")
-dsx1FarEndValidIntervals = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 10, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,96))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndValidIntervals.setDescription('The number of previous far-end intervals for\n            which data was collected.  The value will be 96\n            unless the interface was brought online within the\n            last 24 hours, in which case the value will be the\n            number of complete 15-minute far-end intervals\n            since the interface has been online.  In the case\n            where the agent is a proxy, it is possible that\n            some intervals are unavailable.  In this case,\n            this interval is the maximum interval number for\n            which data is available.')
-dsx1FarEndCurrentESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 10, 1, 4), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndCurrentESs.setDescription('The number of Far End Errored Seconds.')
-dsx1FarEndCurrentSESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 10, 1, 5), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndCurrentSESs.setDescription('The number of Far End Severely Errored Seconds.')
-dsx1FarEndCurrentSEFSs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 10, 1, 6), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndCurrentSEFSs.setDescription('The number of Far End Severely Errored Framing\n\n            Seconds.')
-dsx1FarEndCurrentUASs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 10, 1, 7), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndCurrentUASs.setDescription('The number of Unavailable Seconds.')
-dsx1FarEndCurrentCSSs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 10, 1, 8), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndCurrentCSSs.setDescription('The number of Far End Controlled Slip Seconds.')
-dsx1FarEndCurrentLESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 10, 1, 9), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndCurrentLESs.setDescription('The number of Far End Line Errored Seconds.')
-dsx1FarEndCurrentPCVs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 10, 1, 10), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndCurrentPCVs.setDescription('The number of Far End Path Coding Violations.')
-dsx1FarEndCurrentBESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 10, 1, 11), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndCurrentBESs.setDescription('The number of Far End Bursty Errored Seconds.')
-dsx1FarEndCurrentDMs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 10, 1, 12), PerfCurrentCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndCurrentDMs.setDescription('The number of Far End Degraded Minutes.')
-dsx1FarEndInvalidIntervals = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 10, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,96))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndInvalidIntervals.setDescription('The number of intervals in the range from 0 to\n            dsx1FarEndValidIntervals for which no data is\n            available.  This object will typically be zero\n            except in cases where the data for some intervals\n            is not available (e.g., in proxy situations).')
-dsx1FarEndIntervalTable = MibTable((1, 3, 6, 1, 2, 1, 10, 18, 11), )
-if mibBuilder.loadTexts: dsx1FarEndIntervalTable.setDescription('The DS1 Far End Interval table contains various\n            statistics collected by each DS1 interface over\n            the previous 24 hours of operation.  The past 24\n            hours are broken into 96 completed 15-minute\n            intervals.  Each row in this table represents one\n            such interval (identified by\n            dsx1FarEndIntervalNumber) for one specific\n            instance (identified by dsx1FarEndIntervalIndex).')
-dsx1FarEndIntervalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 18, 11, 1), ).setIndexNames((0, "DS1-MIB", "dsx1FarEndIntervalIndex"), (0, "DS1-MIB", "dsx1FarEndIntervalNumber"))
-if mibBuilder.loadTexts: dsx1FarEndIntervalEntry.setDescription('An entry in the DS1 Far End Interval table.')
-dsx1FarEndIntervalIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 11, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndIntervalIndex.setDescription('The index value that uniquely identifies the DS1\n            interface to which this entry is applicable.  The\n            interface identified by a particular value of this\n            index is identical to the interface identified by\n            the same value of dsx1LineIndex.')
-dsx1FarEndIntervalNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 11, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,96))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndIntervalNumber.setDescription('A number between 1 and 96, where 1 is the most\n            recently completed 15-minute interval and 96 is\n            the 15 minutes interval completed 23 hours and 45\n            minutes prior to interval 1.')
-dsx1FarEndIntervalESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 11, 1, 3), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndIntervalESs.setDescription('The number of Far End Errored Seconds.')
-dsx1FarEndIntervalSESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 11, 1, 4), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndIntervalSESs.setDescription('The number of Far End Severely Errored Seconds.')
-dsx1FarEndIntervalSEFSs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 11, 1, 5), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndIntervalSEFSs.setDescription('The number of Far End Severely Errored Framing\n            Seconds.')
-dsx1FarEndIntervalUASs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 11, 1, 6), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndIntervalUASs.setDescription('The number of Unavailable Seconds.')
-dsx1FarEndIntervalCSSs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 11, 1, 7), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndIntervalCSSs.setDescription('The number of Far End Controlled Slip Seconds.')
-dsx1FarEndIntervalLESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 11, 1, 8), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndIntervalLESs.setDescription('The number of Far End Line Errored Seconds.')
-dsx1FarEndIntervalPCVs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 11, 1, 9), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndIntervalPCVs.setDescription('The number of Far End Path Coding Violations.')
-dsx1FarEndIntervalBESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 11, 1, 10), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndIntervalBESs.setDescription('The number of Far End Bursty Errored Seconds.')
-dsx1FarEndIntervalDMs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 11, 1, 11), PerfIntervalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndIntervalDMs.setDescription('The number of Far End Degraded Minutes.')
-dsx1FarEndIntervalValidData = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 11, 1, 12), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndIntervalValidData.setDescription(' This variable indicates if the data for this\n            interval is valid.')
-dsx1FarEndTotalTable = MibTable((1, 3, 6, 1, 2, 1, 10, 18, 12), )
-if mibBuilder.loadTexts: dsx1FarEndTotalTable.setDescription('The DS1 Far End Total table contains the\n            cumulative sum of the various statistics for the\n            24-hour period preceding the current interval.')
-dsx1FarEndTotalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 18, 12, 1), ).setIndexNames((0, "DS1-MIB", "dsx1FarEndTotalIndex"))
-if mibBuilder.loadTexts: dsx1FarEndTotalEntry.setDescription('An entry in the DS1 Far End Total table.')
-dsx1FarEndTotalIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 12, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndTotalIndex.setDescription('The index value that uniquely identifies the DS1\n            interface to which this entry is applicable.  The\n            interface identified by a particular value of this\n            index is identical to the interface identified by\n            the same value of dsx1LineIndex.')
-dsx1FarEndTotalESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 12, 1, 2), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndTotalESs.setDescription('The number of Far End Errored Seconds encountered\n            by a DS1 interface in the previous 24-hour\n            interval.  Invalid 15-minute intervals count as\n            0.')
-dsx1FarEndTotalSESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 12, 1, 3), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndTotalSESs.setDescription('The number of Far End Severely Errored Seconds\n            encountered by a DS1 interface in the previous\n            24-hour interval.  Invalid 15-minute intervals\n            count as 0.')
-dsx1FarEndTotalSEFSs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 12, 1, 4), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndTotalSEFSs.setDescription('The number of Far End Severely Errored Framing\n            Seconds encountered by a DS1 interface in the\n            previous 24-hour interval.  Invalid 15-minute\n            intervals count as 0.')
-dsx1FarEndTotalUASs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 12, 1, 5), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndTotalUASs.setDescription('The number of Unavailable Seconds encountered by\n            a DS1 interface in the previous 24-hour interval.\n            Invalid 15-minute intervals count as 0.')
-dsx1FarEndTotalCSSs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 12, 1, 6), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndTotalCSSs.setDescription('The number of Far End Controlled Slip Seconds\n            encountered by a DS1 interface in the previous\n            24-hour interval.  Invalid 15 minute intervals\n            count as 0.')
-dsx1FarEndTotalLESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 12, 1, 7), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndTotalLESs.setDescription('The number of Far End Line Errored Seconds\n            encountered by a DS1 interface in the previous\n            24-hour interval.  Invalid 15-minute intervals\n            count as 0.')
-dsx1FarEndTotalPCVs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 12, 1, 8), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndTotalPCVs.setDescription('The number of Far End Path Coding Violations\n            reported via the far end block error count\n            encountered by a DS1 interface in the previous\n            24-hour interval.  Invalid 15-minute intervals\n            count as 0.')
-dsx1FarEndTotalBESs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 12, 1, 9), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndTotalBESs.setDescription('The number of Bursty Errored Seconds (BESs)\n            encountered by a DS1 interface in the previous\n            24-hour interval.  Invalid 15-minute intervals\n            count as 0.')
-dsx1FarEndTotalDMs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 12, 1, 10), PerfTotalCount()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FarEndTotalDMs.setDescription('The number of Degraded Minutes (DMs) encountered\n            by a DS1 interface in the previous 24-hour\n            interval.  Invalid 15-minute intervals count as\n            0.')
-dsx1FracTable = MibTable((1, 3, 6, 1, 2, 1, 10, 18, 13), )
-if mibBuilder.loadTexts: dsx1FracTable.setDescription('This table is deprecated in favor of using\n            ifStackTable.\n\n            The table was mandatory for systems dividing a DS1\n            into channels containing different data streams\n            that are of local interest.  Systems that are\n            indifferent to data content, such as CSUs, need\n            not implement it.\n\n            The DS1 Fractional table identifies which DS1\n            channels associated with a CSU are being used to\n            support a logical interface, i.e., an entry in the\n            interfaces table from the Internet-standard MIB.\n\n            For example, consider an application managing a\n            North American ISDN Primary Rate link whose\n            division is a 384-kbit/s H1 _B_ Channel for video,\n            a second H1 for data to a primary routing peer,\n            and 12 64-kbit/s H0 _B_ Channels.  Consider that\n            some subset of the H0 channels is used for voice\n            and the remainder are available for dynamic data\n            calls.\n\n            We count a total of 14 interfaces multiplexed onto\n            the DS1 interface.  Six DS1 channels (for the sake\n            of the example, channels 1..6) are used for video,\n            six more (7..11 and 13) are used for data, and the\n            remaining 12 are in channels 12 and 14..24.\n\n            Let us further imagine that ifIndex 2 is of type\n            DS1 and refers to the DS1 interface and that the\n            interfaces layered onto it are numbered 3..16.\n\n            We might describe the allocation of channels, in\n            the dsx1FracTable, as follows:\n          dsx1FracIfIndex.2. 1 = 3  dsx1FracIfIndex.2.13 = 4\n          dsx1FracIfIndex.2. 2 = 3  dsx1FracIfIndex.2.14 = 6\n          dsx1FracIfIndex.2. 3 = 3  dsx1FracIfIndex.2.15 = 7\n          dsx1FracIfIndex.2. 4 = 3  dsx1FracIfIndex.2.16 = 8\n          dsx1FracIfIndex.2. 5 = 3  dsx1FracIfIndex.2.17 = 9\n          dsx1FracIfIndex.2. 6 = 3  dsx1FracIfIndex.2.18 = 10\n          dsx1FracIfIndex.2. 7 = 4  dsx1FracIfIndex.2.19 = 11\n          dsx1FracIfIndex.2. 8 = 4  dsx1FracIfIndex.2.20 = 12\n          dsx1FracIfIndex.2. 9 = 4  dsx1FracIfIndex.2.21 = 13\n          dsx1FracIfIndex.2.10 = 4  dsx1FracIfIndex.2.22 = 14\n          dsx1FracIfIndex.2.11 = 4  dsx1FracIfIndex.2.23 = 15\n          dsx1FracIfIndex.2.12 = 5  dsx1FracIfIndex.2.24 = 16\n\n            For North American (DS1) interfaces, there are 24\n            legal channels, numbered 1 through 24.\n\n            For G.704 interfaces, there are 31 legal channels,\n            numbered 1 through 31.  The channels (1..31)\n            correspond directly to the equivalently numbered\n            time-slots.')
-dsx1FracEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 18, 13, 1), ).setIndexNames((0, "DS1-MIB", "dsx1FracIndex"), (0, "DS1-MIB", "dsx1FracNumber"))
-if mibBuilder.loadTexts: dsx1FracEntry.setDescription('An entry in the DS1 Fractional table.')
-dsx1FracIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 13, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FracIndex.setDescription('The index value that uniquely identifies the\n       DS1 interface to which this entry is applicable.\n       The interface identified by a particular\n       value of this index is the same interface as\n       identified by the same value as a dsx1LineIndex\n       object instance.')
-dsx1FracNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 13, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx1FracNumber.setDescription('The channel number for this entry.')
-dsx1FracIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 18, 13, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx1FracIfIndex.setDescription('An index value that uniquely identifies an\n       interface.  The interface identified by a particular\n       value of this index is the same interface\n       as identified by the same value as an ifIndex\n       object instance.  If no interface is currently using\n       a channel, the value should be zero.  If a\n       single interface occupies more than one time-slot,\n       that ifIndex value will be found in multiple\n       time-slots.')
-ds1Traps = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 18, 15))
-dsx1LineStatusChange = NotificationType((1, 3, 6, 1, 2, 1, 10, 18, 15, 0, 1)).setObjects(*(("DS1-MIB", "dsx1LineStatus"), ("DS1-MIB", "dsx1LineStatusLastChange"),))
-if mibBuilder.loadTexts: dsx1LineStatusChange.setDescription('A dsx1LineStatusChange trap is sent when the\n            value of an instance dsx1LineStatus changes.  It\n            can be utilized by an Network Management Station\n            (NMS) to trigger polls.  When the line status\n            change results from a higher-level line status\n            change (i.e., DS3), then no traps for the DS1\n            are sent.')
-ds1Conformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 18, 14))
-ds1Groups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 18, 14, 1))
-ds1Compliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 18, 14, 2))
-ds1Compliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 18, 14, 2, 1)).setObjects(*(("DS1-MIB", "ds1NearEndConfigGroup"), ("DS1-MIB", "ds1NearEndStatisticsGroup"), ("DS1-MIB", "ds1FarEndGroup"), ("DS1-MIB", "ds1NearEndOptionalConfigGroup"), ("DS1-MIB", "ds1DS2Group"), ("DS1-MIB", "ds1TransStatsGroup"), ("DS1-MIB", "ds1ChanMappingGroup"),))
-if mibBuilder.loadTexts: ds1Compliance.setDescription('The compliance statement for T1 and E1\n            interfaces.')
-ds1MibT1PriCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 18, 14, 2, 2)).setObjects(*(("DS1-MIB", "ds1NearEndConfigGroup"), ("DS1-MIB", "ds1NearEndStatisticsGroup"),))
-if mibBuilder.loadTexts: ds1MibT1PriCompliance.setDescription('Compliance statement for using this MIB for ISDN\n            Primary Rate interfaces on T1 lines.')
-ds1MibE1PriCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 18, 14, 2, 3)).setObjects(*(("DS1-MIB", "ds1NearEndConfigGroup"), ("DS1-MIB", "ds1NearEndStatisticsGroup"),))
-if mibBuilder.loadTexts: ds1MibE1PriCompliance.setDescription('Compliance statement for using this MIB for ISDN\n            Primary Rate interfaces on E1 lines.')
-ds1Ds2Compliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 18, 14, 2, 4)).setObjects(*(("DS1-MIB", "ds1DS2Group"),))
-if mibBuilder.loadTexts: ds1Ds2Compliance.setDescription('Compliance statement for using this MIB for DS2\n            interfaces.')
-ds1NCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 18, 14, 2, 5)).setObjects(*(("DS1-MIB", "ds1NearEndConfigurationGroup"), ("DS1-MIB", "ds1NearEndStatisticsGroup"), ("DS1-MIB", "ds1FarEndGroup"), ("DS1-MIB", "ds1NearEndOptionalTrapGroup"), ("DS1-MIB", "ds1NearEndOptionalConfigGroup"), ("DS1-MIB", "ds1DS2Group"), ("DS1-MIB", "ds1TransStatsGroup"), ("DS1-MIB", "ds1ChanMappingGroup"),))
-if mibBuilder.loadTexts: ds1NCompliance.setDescription('The compliance statement for T1 and E1\n            interfaces.')
-ds1MibT1PriNCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 18, 14, 2, 6)).setObjects(*(("DS1-MIB", "ds1NearEndConfigurationGroup"), ("DS1-MIB", "ds1NearEndStatisticsGroup"),))
-if mibBuilder.loadTexts: ds1MibT1PriNCompliance.setDescription('Compliance statement for using this MIB for ISDN\n            Primary Rate interfaces on T1 lines.')
-ds1MibE1PriNCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 18, 14, 2, 7)).setObjects(*(("DS1-MIB", "ds1NearEndConfigurationGroup"), ("DS1-MIB", "ds1NearEndStatisticsGroup"),))
-if mibBuilder.loadTexts: ds1MibE1PriNCompliance.setDescription('Compliance statement for using this MIB for ISDN\n            Primary Rate interfaces on E1 lines.')
-ds1J1Compliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 18, 14, 2, 8)).setObjects(*(("DS1-MIB", "ds1NearEndCfgGroup"), ("DS1-MIB", "ds1NearEndStatGroup"), ("DS1-MIB", "ds1FarEndNGroup"), ("DS1-MIB", "ds1NearEndOptionalTrapGroup"), ("DS1-MIB", "ds1NearEndOptionalConfigGroup"), ("DS1-MIB", "ds1DS2Group"), ("DS1-MIB", "ds1TransStatsGroup"), ("DS1-MIB", "ds1ChanMappingGroup"),))
-if mibBuilder.loadTexts: ds1J1Compliance.setDescription('The compliance statement for T1, J1, and E1\n            interfaces.')
-ds1NMibT1PriNCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 18, 14, 2, 9)).setObjects(*(("DS1-MIB", "ds1NearEndCfgGroup"), ("DS1-MIB", "ds1NearEndStatGroup"),))
-if mibBuilder.loadTexts: ds1NMibT1PriNCompliance.setDescription('Compliance statement for using this MIB for ISDN\n            Primary Rate interfaces on T1 lines.')
-ds1NMibE1PriNCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 18, 14, 2, 10)).setObjects(*(("DS1-MIB", "ds1NearEndCfgGroup"), ("DS1-MIB", "ds1NearEndStatGroup"),))
-if mibBuilder.loadTexts: ds1NMibE1PriNCompliance.setDescription('Compliance statement for using this MIB for ISDN\n            Primary Rate interfaces on E1 lines.')
-ds1NearEndConfigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 18, 14, 1, 1)).setObjects(*(("DS1-MIB", "dsx1LineIndex"), ("DS1-MIB", "dsx1TimeElapsed"), ("DS1-MIB", "dsx1ValidIntervals"), ("DS1-MIB", "dsx1LineType"), ("DS1-MIB", "dsx1LineCoding"), ("DS1-MIB", "dsx1SendCode"), ("DS1-MIB", "dsx1CircuitIdentifier"), ("DS1-MIB", "dsx1LoopbackConfig"), ("DS1-MIB", "dsx1LineStatus"), ("DS1-MIB", "dsx1SignalMode"), ("DS1-MIB", "dsx1TransmitClockSource"), ("DS1-MIB", "dsx1Fdl"), ("DS1-MIB", "dsx1InvalidIntervals"), ("DS1-MIB", "dsx1LineLength"), ("DS1-MIB", "dsx1LoopbackStatus"), ("DS1-MIB", "dsx1Ds1ChannelNumber"), ("DS1-MIB", "dsx1Channelization"),))
-if mibBuilder.loadTexts: ds1NearEndConfigGroup.setDescription('A collection of objects providing configuration\n            information applicable to all DS1 interfaces.')
-ds1NearEndStatisticsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 18, 14, 1, 2)).setObjects(*(("DS1-MIB", "dsx1CurrentIndex"), ("DS1-MIB", "dsx1CurrentESs"), ("DS1-MIB", "dsx1CurrentSESs"), ("DS1-MIB", "dsx1CurrentSEFSs"), ("DS1-MIB", "dsx1CurrentUASs"), ("DS1-MIB", "dsx1CurrentCSSs"), ("DS1-MIB", "dsx1CurrentPCVs"), ("DS1-MIB", "dsx1CurrentLESs"), ("DS1-MIB", "dsx1CurrentBESs"), ("DS1-MIB", "dsx1CurrentDMs"), ("DS1-MIB", "dsx1CurrentLCVs"), ("DS1-MIB", "dsx1IntervalIndex"), ("DS1-MIB", "dsx1IntervalNumber"), ("DS1-MIB", "dsx1IntervalESs"), ("DS1-MIB", "dsx1IntervalSESs"), ("DS1-MIB", "dsx1IntervalSEFSs"), ("DS1-MIB", "dsx1IntervalUASs"), ("DS1-MIB", "dsx1IntervalCSSs"), ("DS1-MIB", "dsx1IntervalPCVs"), ("DS1-MIB", "dsx1IntervalLESs"), ("DS1-MIB", "dsx1IntervalBESs"), ("DS1-MIB", "dsx1IntervalDMs"), ("DS1-MIB", "dsx1IntervalLCVs"), ("DS1-MIB", "dsx1IntervalValidData"), ("DS1-MIB", "dsx1TotalIndex"), ("DS1-MIB", "dsx1TotalESs"), ("DS1-MIB", "dsx1TotalSESs"), ("DS1-MIB", "dsx1TotalSEFSs"), ("DS1-MIB", "dsx1TotalUASs"), ("DS1-MIB", "dsx1TotalCSSs"), ("DS1-MIB", "dsx1TotalPCVs"), ("DS1-MIB", "dsx1TotalLESs"), ("DS1-MIB", "dsx1TotalBESs"), ("DS1-MIB", "dsx1TotalDMs"), ("DS1-MIB", "dsx1TotalLCVs"),))
-if mibBuilder.loadTexts: ds1NearEndStatisticsGroup.setDescription('A collection of objects providing statistics\n            information applicable to all DS1 interfaces.')
-ds1FarEndGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 18, 14, 1, 3)).setObjects(*(("DS1-MIB", "dsx1FarEndCurrentIndex"), ("DS1-MIB", "dsx1FarEndTimeElapsed"), ("DS1-MIB", "dsx1FarEndValidIntervals"), ("DS1-MIB", "dsx1FarEndCurrentESs"), ("DS1-MIB", "dsx1FarEndCurrentSESs"), ("DS1-MIB", "dsx1FarEndCurrentSEFSs"), ("DS1-MIB", "dsx1FarEndCurrentUASs"), ("DS1-MIB", "dsx1FarEndCurrentCSSs"), ("DS1-MIB", "dsx1FarEndCurrentLESs"), ("DS1-MIB", "dsx1FarEndCurrentPCVs"), ("DS1-MIB", "dsx1FarEndCurrentBESs"), ("DS1-MIB", "dsx1FarEndCurrentDMs"), ("DS1-MIB", "dsx1FarEndInvalidIntervals"), ("DS1-MIB", "dsx1FarEndIntervalIndex"), ("DS1-MIB", "dsx1FarEndIntervalNumber"), ("DS1-MIB", "dsx1FarEndIntervalESs"), ("DS1-MIB", "dsx1FarEndIntervalSESs"), ("DS1-MIB", "dsx1FarEndIntervalSEFSs"), ("DS1-MIB", "dsx1FarEndIntervalUASs"), ("DS1-MIB", "dsx1FarEndIntervalCSSs"), ("DS1-MIB", "dsx1FarEndIntervalLESs"), ("DS1-MIB", "dsx1FarEndIntervalPCVs"), ("DS1-MIB", "dsx1FarEndIntervalBESs"), ("DS1-MIB", "dsx1FarEndIntervalDMs"), ("DS1-MIB", "dsx1FarEndIntervalValidData"), ("DS1-MIB", "dsx1FarEndTotalIndex"), ("DS1-MIB", "dsx1FarEndTotalESs"), ("DS1-MIB", "dsx1FarEndTotalSESs"), ("DS1-MIB", "dsx1FarEndTotalSEFSs"), ("DS1-MIB", "dsx1FarEndTotalUASs"), ("DS1-MIB", "dsx1FarEndTotalCSSs"), ("DS1-MIB", "dsx1FarEndTotalLESs"), ("DS1-MIB", "dsx1FarEndTotalPCVs"), ("DS1-MIB", "dsx1FarEndTotalBESs"), ("DS1-MIB", "dsx1FarEndTotalDMs"),))
-if mibBuilder.loadTexts: ds1FarEndGroup.setDescription('A collection of objects providing remote\n            configuration and statistics information.')
-ds1DeprecatedGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 18, 14, 1, 4)).setObjects(*(("DS1-MIB", "dsx1IfIndex"), ("DS1-MIB", "dsx1FracIndex"), ("DS1-MIB", "dsx1FracNumber"), ("DS1-MIB", "dsx1FracIfIndex"),))
-if mibBuilder.loadTexts: ds1DeprecatedGroup.setDescription('A collection of obsolete objects that may be\n            implemented for backwards compatibility.')
-ds1NearEndOptionalConfigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 18, 14, 1, 5)).setObjects(*(("DS1-MIB", "dsx1LineStatusLastChange"), ("DS1-MIB", "dsx1LineStatusChangeTrapEnable"),))
-if mibBuilder.loadTexts: ds1NearEndOptionalConfigGroup.setDescription('A collection of objects that may be implemented\n            on DS1 and DS2 interfaces.')
-ds1DS2Group = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 18, 14, 1, 6)).setObjects(*(("DS1-MIB", "dsx1LineIndex"), ("DS1-MIB", "dsx1LineType"), ("DS1-MIB", "dsx1LineCoding"), ("DS1-MIB", "dsx1SendCode"), ("DS1-MIB", "dsx1LineStatus"), ("DS1-MIB", "dsx1SignalMode"), ("DS1-MIB", "dsx1TransmitClockSource"), ("DS1-MIB", "dsx1Channelization"),))
-if mibBuilder.loadTexts: ds1DS2Group.setDescription('A collection of objects providing information\n            about DS2 (6,312 kbps) and E2 (8,448 kbps)\n            systems.')
-ds1TransStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 18, 14, 1, 7)).setObjects(*(("DS1-MIB", "dsx1CurrentESs"), ("DS1-MIB", "dsx1CurrentSESs"), ("DS1-MIB", "dsx1CurrentUASs"), ("DS1-MIB", "dsx1IntervalESs"), ("DS1-MIB", "dsx1IntervalSESs"), ("DS1-MIB", "dsx1IntervalUASs"), ("DS1-MIB", "dsx1TotalESs"), ("DS1-MIB", "dsx1TotalSESs"), ("DS1-MIB", "dsx1TotalUASs"),))
-if mibBuilder.loadTexts: ds1TransStatsGroup.setDescription('A collection of objects that are the\n            statistics that can be collected from a DS1\n            interface that is running transparent or unframed\n            lineType.  Statistics not in this list should\n            return noSuchInstance.')
-ds1NearEndOptionalTrapGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 10, 18, 14, 1, 8)).setObjects(*(("DS1-MIB", "dsx1LineStatusChange"),))
-if mibBuilder.loadTexts: ds1NearEndOptionalTrapGroup.setDescription('A collection of notifications that may be\n            implemented on DS1 and DS2 interfaces.')
-ds1ChanMappingGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 18, 14, 1, 9)).setObjects(*(("DS1-MIB", "dsx1ChanMappedIfIndex"),))
-if mibBuilder.loadTexts: ds1ChanMappingGroup.setDescription('A collection of objects that give a mapping of\n            DS3 Channel (dsx1Ds1ChannelNumber) to ifIndex.')
-ds1NearEndConfigurationGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 18, 14, 1, 10)).setObjects(*(("DS1-MIB", "dsx1LineIndex"), ("DS1-MIB", "dsx1TimeElapsed"), ("DS1-MIB", "dsx1ValidIntervals"), ("DS1-MIB", "dsx1LineType"), ("DS1-MIB", "dsx1LineCoding"), ("DS1-MIB", "dsx1SendCode"), ("DS1-MIB", "dsx1CircuitIdentifier"), ("DS1-MIB", "dsx1LoopbackConfig"), ("DS1-MIB", "dsx1LineStatus"), ("DS1-MIB", "dsx1SignalMode"), ("DS1-MIB", "dsx1TransmitClockSource"), ("DS1-MIB", "dsx1Fdl"), ("DS1-MIB", "dsx1InvalidIntervals"), ("DS1-MIB", "dsx1LineLength"), ("DS1-MIB", "dsx1LoopbackStatus"), ("DS1-MIB", "dsx1Ds1ChannelNumber"), ("DS1-MIB", "dsx1Channelization"), ("DS1-MIB", "dsx1LineMode"), ("DS1-MIB", "dsx1LineBuildOut"),))
-if mibBuilder.loadTexts: ds1NearEndConfigurationGroup.setDescription('A collection of objects providing configuration\n            information applicable to all DS1 interfaces.')
-ds1NearEndCfgGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 18, 14, 1, 11)).setObjects(*(("DS1-MIB", "dsx1LineIndex"), ("DS1-MIB", "dsx1TimeElapsed"), ("DS1-MIB", "dsx1ValidIntervals"), ("DS1-MIB", "dsx1LineType"), ("DS1-MIB", "dsx1LineCoding"), ("DS1-MIB", "dsx1SendCode"), ("DS1-MIB", "dsx1CircuitIdentifier"), ("DS1-MIB", "dsx1LoopbackConfig"), ("DS1-MIB", "dsx1LineStatus"), ("DS1-MIB", "dsx1SignalMode"), ("DS1-MIB", "dsx1TransmitClockSource"), ("DS1-MIB", "dsx1Fdl"), ("DS1-MIB", "dsx1InvalidIntervals"), ("DS1-MIB", "dsx1LineLength"), ("DS1-MIB", "dsx1LoopbackStatus"), ("DS1-MIB", "dsx1Ds1ChannelNumber"), ("DS1-MIB", "dsx1Channelization"), ("DS1-MIB", "dsx1LineMode"), ("DS1-MIB", "dsx1LineBuildOut"), ("DS1-MIB", "dsx1LineImpedance"),))
-if mibBuilder.loadTexts: ds1NearEndCfgGroup.setDescription('A collection of objects providing configuration\n            information applicable to all DS1 interfaces.')
-ds1NearEndStatGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 18, 14, 1, 12)).setObjects(*(("DS1-MIB", "dsx1CurrentIndex"), ("DS1-MIB", "dsx1CurrentESs"), ("DS1-MIB", "dsx1CurrentSESs"), ("DS1-MIB", "dsx1CurrentSEFSs"), ("DS1-MIB", "dsx1CurrentUASs"), ("DS1-MIB", "dsx1CurrentCSSs"), ("DS1-MIB", "dsx1CurrentPCVs"), ("DS1-MIB", "dsx1CurrentLESs"), ("DS1-MIB", "dsx1CurrentBESs"), ("DS1-MIB", "dsx1CurrentLCVs"), ("DS1-MIB", "dsx1IntervalIndex"), ("DS1-MIB", "dsx1IntervalNumber"), ("DS1-MIB", "dsx1IntervalESs"), ("DS1-MIB", "dsx1IntervalSESs"), ("DS1-MIB", "dsx1IntervalSEFSs"), ("DS1-MIB", "dsx1IntervalUASs"), ("DS1-MIB", "dsx1IntervalCSSs"), ("DS1-MIB", "dsx1IntervalPCVs"), ("DS1-MIB", "dsx1IntervalLESs"), ("DS1-MIB", "dsx1IntervalBESs"), ("DS1-MIB", "dsx1IntervalLCVs"), ("DS1-MIB", "dsx1IntervalValidData"), ("DS1-MIB", "dsx1TotalIndex"), ("DS1-MIB", "dsx1TotalESs"), ("DS1-MIB", "dsx1TotalSESs"), ("DS1-MIB", "dsx1TotalSEFSs"), ("DS1-MIB", "dsx1TotalUASs"), ("DS1-MIB", "dsx1TotalCSSs"), ("DS1-MIB", "dsx1TotalPCVs"), ("DS1-MIB", "dsx1TotalLESs"), ("DS1-MIB", "dsx1TotalBESs"), ("DS1-MIB", "dsx1TotalLCVs"),))
-if mibBuilder.loadTexts: ds1NearEndStatGroup.setDescription('A collection of objects providing statistics\n            information applicable to all DS1 interfaces.')
-ds1FarEndNGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 18, 14, 1, 13)).setObjects(*(("DS1-MIB", "dsx1FarEndCurrentIndex"), ("DS1-MIB", "dsx1FarEndTimeElapsed"), ("DS1-MIB", "dsx1FarEndValidIntervals"), ("DS1-MIB", "dsx1FarEndCurrentESs"), ("DS1-MIB", "dsx1FarEndCurrentSESs"), ("DS1-MIB", "dsx1FarEndCurrentSEFSs"), ("DS1-MIB", "dsx1FarEndCurrentUASs"), ("DS1-MIB", "dsx1FarEndCurrentCSSs"), ("DS1-MIB", "dsx1FarEndCurrentLESs"), ("DS1-MIB", "dsx1FarEndCurrentPCVs"), ("DS1-MIB", "dsx1FarEndCurrentBESs"), ("DS1-MIB", "dsx1FarEndInvalidIntervals"), ("DS1-MIB", "dsx1FarEndIntervalIndex"), ("DS1-MIB", "dsx1FarEndIntervalNumber"), ("DS1-MIB", "dsx1FarEndIntervalESs"), ("DS1-MIB", "dsx1FarEndIntervalSESs"), ("DS1-MIB", "dsx1FarEndIntervalSEFSs"), ("DS1-MIB", "dsx1FarEndIntervalUASs"), ("DS1-MIB", "dsx1FarEndIntervalCSSs"), ("DS1-MIB", "dsx1FarEndIntervalLESs"), ("DS1-MIB", "dsx1FarEndIntervalPCVs"), ("DS1-MIB", "dsx1FarEndIntervalBESs"), ("DS1-MIB", "dsx1FarEndIntervalValidData"), ("DS1-MIB", "dsx1FarEndTotalIndex"), ("DS1-MIB", "dsx1FarEndTotalESs"), ("DS1-MIB", "dsx1FarEndTotalSESs"), ("DS1-MIB", "dsx1FarEndTotalSEFSs"), ("DS1-MIB", "dsx1FarEndTotalUASs"), ("DS1-MIB", "dsx1FarEndTotalCSSs"), ("DS1-MIB", "dsx1FarEndTotalLESs"), ("DS1-MIB", "dsx1FarEndTotalPCVs"), ("DS1-MIB", "dsx1FarEndTotalBESs"),))
-if mibBuilder.loadTexts: ds1FarEndNGroup.setDescription('A collection of objects providing remote\n            configuration and statistics information.')
-mibBuilder.exportSymbols("DS1-MIB", dsx1FracIfIndex=dsx1FracIfIndex, ds1NMibE1PriNCompliance=ds1NMibE1PriNCompliance, ds1NearEndConfigurationGroup=ds1NearEndConfigurationGroup, dsx1FarEndTotalBESs=dsx1FarEndTotalBESs, dsx1FracEntry=dsx1FracEntry, dsx1TotalSESs=dsx1TotalSESs, ds1MibE1PriNCompliance=ds1MibE1PriNCompliance, dsx1IntervalPCVs=dsx1IntervalPCVs, dsx1LineCoding=dsx1LineCoding, dsx1FarEndTotalCSSs=dsx1FarEndTotalCSSs, dsx1IntervalIndex=dsx1IntervalIndex, dsx1TotalTable=dsx1TotalTable, dsx1FarEndTotalLESs=dsx1FarEndTotalLESs, dsx1CurrentLESs=dsx1CurrentLESs, dsx1FarEndIntervalESs=dsx1FarEndIntervalESs, dsx1TotalBESs=dsx1TotalBESs, dsx1ChanMappedIfIndex=dsx1ChanMappedIfIndex, dsx1LineStatus=dsx1LineStatus, ds1Compliances=ds1Compliances, ds1Ds2Compliance=ds1Ds2Compliance, dsx1SignalMode=dsx1SignalMode, dsx1IntervalEntry=dsx1IntervalEntry, dsx1TotalSEFSs=dsx1TotalSEFSs, ds1ChanMappingGroup=ds1ChanMappingGroup, dsx1Ds1ChannelNumber=dsx1Ds1ChannelNumber, dsx1SendCode=dsx1SendCode, dsx1IntervalNumber=dsx1IntervalNumber, dsx1IntervalESs=dsx1IntervalESs, dsx1FarEndCurrentPCVs=dsx1FarEndCurrentPCVs, dsx1CurrentDMs=dsx1CurrentDMs, ds1TransStatsGroup=ds1TransStatsGroup, dsx1CurrentEntry=dsx1CurrentEntry, dsx1LineType=dsx1LineType, ds1DS2Group=ds1DS2Group, dsx1IntervalUASs=dsx1IntervalUASs, dsx1FarEndTotalPCVs=dsx1FarEndTotalPCVs, ds1Traps=ds1Traps, dsx1FarEndCurrentTable=dsx1FarEndCurrentTable, dsx1FarEndTotalSEFSs=dsx1FarEndTotalSEFSs, ds1J1Compliance=ds1J1Compliance, dsx1CircuitIdentifier=dsx1CircuitIdentifier, dsx1FarEndIntervalUASs=dsx1FarEndIntervalUASs, dsx1ValidIntervals=dsx1ValidIntervals, dsx1LineLength=dsx1LineLength, dsx1FarEndTotalSESs=dsx1FarEndTotalSESs, dsx1IfIndex=dsx1IfIndex, dsx1LineMode=dsx1LineMode, ds1NearEndStatisticsGroup=ds1NearEndStatisticsGroup, dsx1ConfigTable=dsx1ConfigTable, ds1Groups=ds1Groups, dsx1FarEndCurrentUASs=dsx1FarEndCurrentUASs, dsx1FarEndIntervalNumber=dsx1FarEndIntervalNumber, dsx1FarEndTotalESs=dsx1FarEndTotalESs, ds1NCompliance=ds1NCompliance, dsx1FarEndIntervalSESs=dsx1FarEndIntervalSESs, dsx1FarEndCurrentEntry=dsx1FarEndCurrentEntry, dsx1IntervalSEFSs=dsx1IntervalSEFSs, dsx1TotalUASs=dsx1TotalUASs, dsx1FarEndTotalTable=dsx1FarEndTotalTable, dsx1LineStatusChangeTrapEnable=dsx1LineStatusChangeTrapEnable, dsx1LineStatusLastChange=dsx1LineStatusLastChange, dsx1InvalidIntervals=dsx1InvalidIntervals, ds1NearEndCfgGroup=ds1NearEndCfgGroup, dsx1FarEndIntervalLESs=dsx1FarEndIntervalLESs, dsx1CurrentLCVs=dsx1CurrentLCVs, dsx1FarEndCurrentDMs=dsx1FarEndCurrentDMs, dsx1ChanMappingTable=dsx1ChanMappingTable, dsx1FarEndIntervalIndex=dsx1FarEndIntervalIndex, dsx1FarEndTotalEntry=dsx1FarEndTotalEntry, dsx1TotalESs=dsx1TotalESs, dsx1CurrentTable=dsx1CurrentTable, ds1NearEndConfigGroup=ds1NearEndConfigGroup, dsx1TransmitClockSource=dsx1TransmitClockSource, dsx1Channelization=dsx1Channelization, dsx1FarEndCurrentLESs=dsx1FarEndCurrentLESs, ds1FarEndGroup=ds1FarEndGroup, ds1MibT1PriCompliance=ds1MibT1PriCompliance, ds1Compliance=ds1Compliance, dsx1IntervalSESs=dsx1IntervalSESs, ds1MibT1PriNCompliance=ds1MibT1PriNCompliance, ds1Conformance=ds1Conformance, dsx1LineStatusChange=dsx1LineStatusChange, ds1DeprecatedGroup=ds1DeprecatedGroup, dsx1IntervalLESs=dsx1IntervalLESs, ds1FarEndNGroup=ds1FarEndNGroup, dsx1IntervalBESs=dsx1IntervalBESs, dsx1FarEndInvalidIntervals=dsx1FarEndInvalidIntervals, dsx1CurrentSESs=dsx1CurrentSESs, dsx1LineIndex=dsx1LineIndex, dsx1CurrentCSSs=dsx1CurrentCSSs, dsx1FarEndTotalIndex=dsx1FarEndTotalIndex, dsx1FarEndCurrentESs=dsx1FarEndCurrentESs, dsx1FarEndIntervalBESs=dsx1FarEndIntervalBESs, dsx1FarEndIntervalPCVs=dsx1FarEndIntervalPCVs, ds1NearEndOptionalTrapGroup=ds1NearEndOptionalTrapGroup, dsx1FarEndIntervalTable=dsx1FarEndIntervalTable, dsx1FarEndCurrentSEFSs=dsx1FarEndCurrentSEFSs, dsx1Fdl=dsx1Fdl, dsx1FarEndTimeElapsed=dsx1FarEndTimeElapsed, dsx1FarEndIntervalEntry=dsx1FarEndIntervalEntry, dsx1FracIndex=dsx1FracIndex, ds1MibE1PriCompliance=ds1MibE1PriCompliance, dsx1CurrentPCVs=dsx1CurrentPCVs, dsx1FarEndCurrentIndex=dsx1FarEndCurrentIndex, dsx1IntervalTable=dsx1IntervalTable, dsx1FarEndIntervalDMs=dsx1FarEndIntervalDMs, dsx1TotalEntry=dsx1TotalEntry, dsx1IntervalDMs=dsx1IntervalDMs, dsx1CurrentIndex=dsx1CurrentIndex, dsx1FarEndCurrentSESs=dsx1FarEndCurrentSESs, dsx1FarEndCurrentCSSs=dsx1FarEndCurrentCSSs, ds1NearEndOptionalConfigGroup=ds1NearEndOptionalConfigGroup, dsx1CurrentUASs=dsx1CurrentUASs, dsx1LoopbackConfig=dsx1LoopbackConfig, dsx1ChanMappingEntry=dsx1ChanMappingEntry, dsx1CurrentSEFSs=dsx1CurrentSEFSs, dsx1FarEndIntervalSEFSs=dsx1FarEndIntervalSEFSs, dsx1IntervalCSSs=dsx1IntervalCSSs, dsx1TotalLCVs=dsx1TotalLCVs, dsx1TimeElapsed=dsx1TimeElapsed, dsx1FarEndTotalDMs=dsx1FarEndTotalDMs, dsx1TotalCSSs=dsx1TotalCSSs, ds1NearEndStatGroup=ds1NearEndStatGroup, dsx1FracTable=dsx1FracTable, dsx1CurrentBESs=dsx1CurrentBESs, dsx1IntervalLCVs=dsx1IntervalLCVs, dsx1TotalPCVs=dsx1TotalPCVs, dsx1FarEndIntervalValidData=dsx1FarEndIntervalValidData, ds1NMibT1PriNCompliance=ds1NMibT1PriNCompliance, dsx1CurrentESs=dsx1CurrentESs, dsx1IntervalValidData=dsx1IntervalValidData, dsx1TotalLESs=dsx1TotalLESs, dsx1TotalDMs=dsx1TotalDMs, dsx1FarEndCurrentBESs=dsx1FarEndCurrentBESs, dsx1ConfigEntry=dsx1ConfigEntry, dsx1FarEndTotalUASs=dsx1FarEndTotalUASs, ds1=ds1, dsx1LineBuildOut=dsx1LineBuildOut, dsx1FracNumber=dsx1FracNumber, dsx1LoopbackStatus=dsx1LoopbackStatus, dsx1FarEndIntervalCSSs=dsx1FarEndIntervalCSSs, dsx1FarEndValidIntervals=dsx1FarEndValidIntervals, dsx1TotalIndex=dsx1TotalIndex, dsx1LineImpedance=dsx1LineImpedance, PYSNMP_MODULE_ID=ds1)
+_B3='ds1FarEndNGroup'
+_B2='dsx1LineStatusChange'
+_B1='dsx1LineImpedance'
+_B0='dsx1ChanMappedIfIndex'
+_A_='dsx1LineStatusChangeTrapEnable'
+_Az='dsx1FracIfIndex'
+_Ay='dsx1IfIndex'
+_Ax='dsx1FarEndTotalDMs'
+_Aw='dsx1FarEndIntervalDMs'
+_Av='dsx1FarEndCurrentDMs'
+_Au='dsx1TotalDMs'
+_At='dsx1IntervalDMs'
+_As='dsx1CurrentDMs'
+_Ar='notApplicable'
+_Aq='DisplayString'
+_Ap='ds1NearEndOptionalTrapGroup'
+_Ao='ds1FarEndGroup'
+_An='dsx1LineBuildOut'
+_Am='dsx1LineMode'
+_Al='dsx1LineStatusLastChange'
+_Ak='dsx1FarEndTotalBESs'
+_Aj='dsx1FarEndTotalPCVs'
+_Ai='dsx1FarEndTotalLESs'
+_Ah='dsx1FarEndTotalCSSs'
+_Ag='dsx1FarEndTotalUASs'
+_Af='dsx1FarEndTotalSEFSs'
+_Ae='dsx1FarEndTotalSESs'
+_Ad='dsx1FarEndTotalESs'
+_Ac='dsx1FarEndIntervalValidData'
+_Ab='dsx1FarEndIntervalBESs'
+_Aa='dsx1FarEndIntervalPCVs'
+_AZ='dsx1FarEndIntervalLESs'
+_AY='dsx1FarEndIntervalCSSs'
+_AX='dsx1FarEndIntervalUASs'
+_AW='dsx1FarEndIntervalSEFSs'
+_AV='dsx1FarEndIntervalSESs'
+_AU='dsx1FarEndIntervalESs'
+_AT='dsx1FarEndInvalidIntervals'
+_AS='dsx1FarEndCurrentBESs'
+_AR='dsx1FarEndCurrentPCVs'
+_AQ='dsx1FarEndCurrentLESs'
+_AP='dsx1FarEndCurrentCSSs'
+_AO='dsx1FarEndCurrentUASs'
+_AN='dsx1FarEndCurrentSEFSs'
+_AM='dsx1FarEndCurrentSESs'
+_AL='dsx1FarEndCurrentESs'
+_AK='dsx1FarEndValidIntervals'
+_AJ='dsx1FarEndTimeElapsed'
+_AI='dsx1TotalLCVs'
+_AH='dsx1TotalBESs'
+_AG='dsx1TotalLESs'
+_AF='dsx1TotalPCVs'
+_AE='dsx1TotalCSSs'
+_AD='dsx1TotalSEFSs'
+_AC='dsx1IntervalValidData'
+_AB='dsx1IntervalLCVs'
+_AA='dsx1IntervalBESs'
+_A9='dsx1IntervalLESs'
+_A8='dsx1IntervalPCVs'
+_A7='dsx1IntervalCSSs'
+_A6='dsx1IntervalSEFSs'
+_A5='dsx1CurrentLCVs'
+_A4='dsx1CurrentBESs'
+_A3='dsx1CurrentLESs'
+_A2='dsx1CurrentPCVs'
+_A1='dsx1CurrentCSSs'
+_A0='dsx1CurrentSEFSs'
+_z='dsx1FracNumber'
+_y='dsx1FracIndex'
+_x='other'
+_w='ds1NearEndStatGroup'
+_v='ds1NearEndCfgGroup'
+_u='ds1NearEndConfigurationGroup'
+_t='ds1ChanMappingGroup'
+_s='ds1TransStatsGroup'
+_r='ds1NearEndOptionalConfigGroup'
+_q='ds1NearEndConfigGroup'
+_p='dsx1TotalUASs'
+_o='dsx1TotalSESs'
+_n='dsx1TotalESs'
+_m='dsx1IntervalUASs'
+_l='dsx1IntervalSESs'
+_k='dsx1IntervalESs'
+_j='dsx1CurrentUASs'
+_i='dsx1CurrentSESs'
+_h='dsx1CurrentESs'
+_g='dsx1LoopbackStatus'
+_f='dsx1LineLength'
+_e='dsx1InvalidIntervals'
+_d='dsx1Fdl'
+_c='dsx1LoopbackConfig'
+_b='dsx1CircuitIdentifier'
+_a='dsx1ValidIntervals'
+_Z='dsx1TimeElapsed'
+_Y='dsx1FarEndTotalIndex'
+_X='dsx1FarEndIntervalNumber'
+_W='dsx1FarEndIntervalIndex'
+_V='dsx1FarEndCurrentIndex'
+_U='dsx1TotalIndex'
+_T='dsx1IntervalNumber'
+_S='dsx1IntervalIndex'
+_R='dsx1CurrentIndex'
+_Q='ds1DS2Group'
+_P='dsx1Channelization'
+_O='dsx1TransmitClockSource'
+_N='dsx1SignalMode'
+_M='dsx1SendCode'
+_L='dsx1LineCoding'
+_K='dsx1LineType'
+_J='dsx1Ds1ChannelNumber'
+_I='dsx1LineStatus'
+_H='dsx1LineIndex'
+_G='ds1NearEndStatisticsGroup'
+_F='read-write'
+_E='deprecated'
+_D='Integer32'
+_C='read-only'
+_B='current'
+_A='DS1-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InterfaceIndex,ifIndex=mibBuilder.importSymbols('IF-MIB','InterfaceIndex','ifIndex')
+PerfCurrentCount,PerfIntervalCount,PerfTotalCount=mibBuilder.importSymbols('PerfHist-TC-MIB','PerfCurrentCount','PerfIntervalCount','PerfTotalCount')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','transmission')
+DisplayString,PhysAddress,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_Aq,'PhysAddress','TextualConvention','TimeStamp','TruthValue')
+ds1=ModuleIdentity((1,3,6,1,2,1,10,18))
+if mibBuilder.loadTexts:ds1.setRevisions(('2007-03-05 00:00','2004-09-09 00:00','1998-08-01 18:30','1993-01-25 20:28'))
+_Dsx1ConfigTable_Object=MibTable
+dsx1ConfigTable=_Dsx1ConfigTable_Object((1,3,6,1,2,1,10,18,6))
+if mibBuilder.loadTexts:dsx1ConfigTable.setStatus(_B)
+_Dsx1ConfigEntry_Object=MibTableRow
+dsx1ConfigEntry=_Dsx1ConfigEntry_Object((1,3,6,1,2,1,10,18,6,1))
+dsx1ConfigEntry.setIndexNames((0,_A,_H))
+if mibBuilder.loadTexts:dsx1ConfigEntry.setStatus(_B)
+_Dsx1LineIndex_Type=InterfaceIndex
+_Dsx1LineIndex_Object=MibTableColumn
+dsx1LineIndex=_Dsx1LineIndex_Object((1,3,6,1,2,1,10,18,6,1,1),_Dsx1LineIndex_Type())
+dsx1LineIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1LineIndex.setStatus(_B)
+_Dsx1IfIndex_Type=InterfaceIndex
+_Dsx1IfIndex_Object=MibTableColumn
+dsx1IfIndex=_Dsx1IfIndex_Object((1,3,6,1,2,1,10,18,6,1,2),_Dsx1IfIndex_Type())
+dsx1IfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1IfIndex.setStatus(_E)
+class _Dsx1TimeElapsed_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,899))
+_Dsx1TimeElapsed_Type.__name__=_D
+_Dsx1TimeElapsed_Object=MibTableColumn
+dsx1TimeElapsed=_Dsx1TimeElapsed_Object((1,3,6,1,2,1,10,18,6,1,3),_Dsx1TimeElapsed_Type())
+dsx1TimeElapsed.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1TimeElapsed.setStatus(_B)
+class _Dsx1ValidIntervals_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,96))
+_Dsx1ValidIntervals_Type.__name__=_D
+_Dsx1ValidIntervals_Object=MibTableColumn
+dsx1ValidIntervals=_Dsx1ValidIntervals_Object((1,3,6,1,2,1,10,18,6,1,4),_Dsx1ValidIntervals_Type())
+dsx1ValidIntervals.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1ValidIntervals.setStatus(_B)
+class _Dsx1LineType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,16)));namedValues=NamedValues(*((_x,1),('dsx1ESF',2),('dsx1D4',3),('dsx1E1',4),('dsx1E1CRC',5),('dsx1E1MF',6),('dsx1E1CRCMF',7),('dsx1Unframed',8),('dsx1E1Unframed',9),('dsx1DS2M12',10),('dsx1E2',11),('dsx1E1Q50',12),('dsx1E1Q50CRC',13),('dsx1J1ESF',14),('dsx1J1Unframed',16)))
+_Dsx1LineType_Type.__name__=_D
+_Dsx1LineType_Object=MibTableColumn
+dsx1LineType=_Dsx1LineType_Object((1,3,6,1,2,1,10,18,6,1,5),_Dsx1LineType_Type())
+dsx1LineType.setMaxAccess(_F)
+if mibBuilder.loadTexts:dsx1LineType.setStatus(_B)
+class _Dsx1LineCoding_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('dsx1JBZS',1),('dsx1B8ZS',2),('dsx1HDB3',3),('dsx1ZBTSI',4),('dsx1AMI',5),(_x,6),('dsx1B6ZS',7)))
+_Dsx1LineCoding_Type.__name__=_D
+_Dsx1LineCoding_Object=MibTableColumn
+dsx1LineCoding=_Dsx1LineCoding_Object((1,3,6,1,2,1,10,18,6,1,6),_Dsx1LineCoding_Type())
+dsx1LineCoding.setMaxAccess(_F)
+if mibBuilder.loadTexts:dsx1LineCoding.setStatus(_B)
+class _Dsx1SendCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('dsx1SendNoCode',1),('dsx1SendLineCode',2),('dsx1SendPayloadCode',3),('dsx1SendResetCode',4),('dsx1SendQRS',5),('dsx1Send511Pattern',6),('dsx1Send3in24Pattern',7),('dsx1SendOtherTestPattern',8)))
+_Dsx1SendCode_Type.__name__=_D
+_Dsx1SendCode_Object=MibTableColumn
+dsx1SendCode=_Dsx1SendCode_Object((1,3,6,1,2,1,10,18,6,1,7),_Dsx1SendCode_Type())
+dsx1SendCode.setMaxAccess(_F)
+if mibBuilder.loadTexts:dsx1SendCode.setStatus(_B)
+class _Dsx1CircuitIdentifier_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_Dsx1CircuitIdentifier_Type.__name__=_Aq
+_Dsx1CircuitIdentifier_Object=MibTableColumn
+dsx1CircuitIdentifier=_Dsx1CircuitIdentifier_Object((1,3,6,1,2,1,10,18,6,1,8),_Dsx1CircuitIdentifier_Type())
+dsx1CircuitIdentifier.setMaxAccess(_F)
+if mibBuilder.loadTexts:dsx1CircuitIdentifier.setStatus(_B)
+class _Dsx1LoopbackConfig_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('dsx1NoLoop',1),('dsx1PayloadLoop',2),('dsx1LineLoop',3),('dsx1OtherLoop',4),('dsx1InwardLoop',5),('dsx1DualLoop',6)))
+_Dsx1LoopbackConfig_Type.__name__=_D
+_Dsx1LoopbackConfig_Object=MibTableColumn
+dsx1LoopbackConfig=_Dsx1LoopbackConfig_Object((1,3,6,1,2,1,10,18,6,1,9),_Dsx1LoopbackConfig_Type())
+dsx1LoopbackConfig.setMaxAccess(_F)
+if mibBuilder.loadTexts:dsx1LoopbackConfig.setStatus(_B)
+class _Dsx1LineStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,131071))
+_Dsx1LineStatus_Type.__name__=_D
+_Dsx1LineStatus_Object=MibTableColumn
+dsx1LineStatus=_Dsx1LineStatus_Object((1,3,6,1,2,1,10,18,6,1,10),_Dsx1LineStatus_Type())
+dsx1LineStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1LineStatus.setStatus(_B)
+class _Dsx1SignalMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('none',1),('robbedBit',2),('bitOriented',3),('messageOriented',4),(_x,5)))
+_Dsx1SignalMode_Type.__name__=_D
+_Dsx1SignalMode_Object=MibTableColumn
+dsx1SignalMode=_Dsx1SignalMode_Object((1,3,6,1,2,1,10,18,6,1,11),_Dsx1SignalMode_Type())
+dsx1SignalMode.setMaxAccess(_F)
+if mibBuilder.loadTexts:dsx1SignalMode.setStatus(_B)
+class _Dsx1TransmitClockSource_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('loopTiming',1),('localTiming',2),('throughTiming',3),('adaptive',4)))
+_Dsx1TransmitClockSource_Type.__name__=_D
+_Dsx1TransmitClockSource_Object=MibTableColumn
+dsx1TransmitClockSource=_Dsx1TransmitClockSource_Object((1,3,6,1,2,1,10,18,6,1,12),_Dsx1TransmitClockSource_Type())
+dsx1TransmitClockSource.setMaxAccess(_F)
+if mibBuilder.loadTexts:dsx1TransmitClockSource.setStatus(_B)
+class _Dsx1Fdl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,15))
+_Dsx1Fdl_Type.__name__=_D
+_Dsx1Fdl_Object=MibTableColumn
+dsx1Fdl=_Dsx1Fdl_Object((1,3,6,1,2,1,10,18,6,1,13),_Dsx1Fdl_Type())
+dsx1Fdl.setMaxAccess(_F)
+if mibBuilder.loadTexts:dsx1Fdl.setStatus(_B)
+class _Dsx1InvalidIntervals_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,96))
+_Dsx1InvalidIntervals_Type.__name__=_D
+_Dsx1InvalidIntervals_Object=MibTableColumn
+dsx1InvalidIntervals=_Dsx1InvalidIntervals_Object((1,3,6,1,2,1,10,18,6,1,14),_Dsx1InvalidIntervals_Type())
+dsx1InvalidIntervals.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1InvalidIntervals.setStatus(_B)
+class _Dsx1LineLength_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,64000))
+_Dsx1LineLength_Type.__name__=_D
+_Dsx1LineLength_Object=MibTableColumn
+dsx1LineLength=_Dsx1LineLength_Object((1,3,6,1,2,1,10,18,6,1,15),_Dsx1LineLength_Type())
+dsx1LineLength.setMaxAccess(_F)
+if mibBuilder.loadTexts:dsx1LineLength.setStatus(_B)
+if mibBuilder.loadTexts:dsx1LineLength.setUnits('meters')
+_Dsx1LineStatusLastChange_Type=TimeStamp
+_Dsx1LineStatusLastChange_Object=MibTableColumn
+dsx1LineStatusLastChange=_Dsx1LineStatusLastChange_Object((1,3,6,1,2,1,10,18,6,1,16),_Dsx1LineStatusLastChange_Type())
+dsx1LineStatusLastChange.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1LineStatusLastChange.setStatus(_B)
+class _Dsx1LineStatusChangeTrapEnable_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
+_Dsx1LineStatusChangeTrapEnable_Type.__name__=_D
+_Dsx1LineStatusChangeTrapEnable_Object=MibTableColumn
+dsx1LineStatusChangeTrapEnable=_Dsx1LineStatusChangeTrapEnable_Object((1,3,6,1,2,1,10,18,6,1,17),_Dsx1LineStatusChangeTrapEnable_Type())
+dsx1LineStatusChangeTrapEnable.setMaxAccess(_F)
+if mibBuilder.loadTexts:dsx1LineStatusChangeTrapEnable.setStatus(_B)
+class _Dsx1LoopbackStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,127))
+_Dsx1LoopbackStatus_Type.__name__=_D
+_Dsx1LoopbackStatus_Object=MibTableColumn
+dsx1LoopbackStatus=_Dsx1LoopbackStatus_Object((1,3,6,1,2,1,10,18,6,1,18),_Dsx1LoopbackStatus_Type())
+dsx1LoopbackStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1LoopbackStatus.setStatus(_B)
+class _Dsx1Ds1ChannelNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,28))
+_Dsx1Ds1ChannelNumber_Type.__name__=_D
+_Dsx1Ds1ChannelNumber_Object=MibTableColumn
+dsx1Ds1ChannelNumber=_Dsx1Ds1ChannelNumber_Object((1,3,6,1,2,1,10,18,6,1,19),_Dsx1Ds1ChannelNumber_Type())
+dsx1Ds1ChannelNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1Ds1ChannelNumber.setStatus(_B)
+class _Dsx1Channelization_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('disabled',1),('enabledDs0',2),('enabledDs1',3)))
+_Dsx1Channelization_Type.__name__=_D
+_Dsx1Channelization_Object=MibTableColumn
+dsx1Channelization=_Dsx1Channelization_Object((1,3,6,1,2,1,10,18,6,1,20),_Dsx1Channelization_Type())
+dsx1Channelization.setMaxAccess(_F)
+if mibBuilder.loadTexts:dsx1Channelization.setStatus(_B)
+class _Dsx1LineMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('csu',1),('dsu',2)))
+_Dsx1LineMode_Type.__name__=_D
+_Dsx1LineMode_Object=MibTableColumn
+dsx1LineMode=_Dsx1LineMode_Object((1,3,6,1,2,1,10,18,6,1,21),_Dsx1LineMode_Type())
+dsx1LineMode.setMaxAccess(_F)
+if mibBuilder.loadTexts:dsx1LineMode.setStatus(_B)
+class _Dsx1LineBuildOut_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_Ar,1),('neg75dB',2),('neg15dB',3),('neg225dB',4),('zerodB',5)))
+_Dsx1LineBuildOut_Type.__name__=_D
+_Dsx1LineBuildOut_Object=MibTableColumn
+dsx1LineBuildOut=_Dsx1LineBuildOut_Object((1,3,6,1,2,1,10,18,6,1,22),_Dsx1LineBuildOut_Type())
+dsx1LineBuildOut.setMaxAccess(_F)
+if mibBuilder.loadTexts:dsx1LineBuildOut.setStatus(_B)
+class _Dsx1LineImpedance_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_Ar,1),('unbalanced75ohms',2),('balanced100ohms',3),('balanced120ohms',4)))
+_Dsx1LineImpedance_Type.__name__=_D
+_Dsx1LineImpedance_Object=MibTableColumn
+dsx1LineImpedance=_Dsx1LineImpedance_Object((1,3,6,1,2,1,10,18,6,1,23),_Dsx1LineImpedance_Type())
+dsx1LineImpedance.setMaxAccess(_F)
+if mibBuilder.loadTexts:dsx1LineImpedance.setStatus(_B)
+_Dsx1CurrentTable_Object=MibTable
+dsx1CurrentTable=_Dsx1CurrentTable_Object((1,3,6,1,2,1,10,18,7))
+if mibBuilder.loadTexts:dsx1CurrentTable.setStatus(_B)
+_Dsx1CurrentEntry_Object=MibTableRow
+dsx1CurrentEntry=_Dsx1CurrentEntry_Object((1,3,6,1,2,1,10,18,7,1))
+dsx1CurrentEntry.setIndexNames((0,_A,_R))
+if mibBuilder.loadTexts:dsx1CurrentEntry.setStatus(_B)
+_Dsx1CurrentIndex_Type=InterfaceIndex
+_Dsx1CurrentIndex_Object=MibTableColumn
+dsx1CurrentIndex=_Dsx1CurrentIndex_Object((1,3,6,1,2,1,10,18,7,1,1),_Dsx1CurrentIndex_Type())
+dsx1CurrentIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1CurrentIndex.setStatus(_B)
+_Dsx1CurrentESs_Type=PerfCurrentCount
+_Dsx1CurrentESs_Object=MibTableColumn
+dsx1CurrentESs=_Dsx1CurrentESs_Object((1,3,6,1,2,1,10,18,7,1,2),_Dsx1CurrentESs_Type())
+dsx1CurrentESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1CurrentESs.setStatus(_B)
+_Dsx1CurrentSESs_Type=PerfCurrentCount
+_Dsx1CurrentSESs_Object=MibTableColumn
+dsx1CurrentSESs=_Dsx1CurrentSESs_Object((1,3,6,1,2,1,10,18,7,1,3),_Dsx1CurrentSESs_Type())
+dsx1CurrentSESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1CurrentSESs.setStatus(_B)
+_Dsx1CurrentSEFSs_Type=PerfCurrentCount
+_Dsx1CurrentSEFSs_Object=MibTableColumn
+dsx1CurrentSEFSs=_Dsx1CurrentSEFSs_Object((1,3,6,1,2,1,10,18,7,1,4),_Dsx1CurrentSEFSs_Type())
+dsx1CurrentSEFSs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1CurrentSEFSs.setStatus(_B)
+_Dsx1CurrentUASs_Type=PerfCurrentCount
+_Dsx1CurrentUASs_Object=MibTableColumn
+dsx1CurrentUASs=_Dsx1CurrentUASs_Object((1,3,6,1,2,1,10,18,7,1,5),_Dsx1CurrentUASs_Type())
+dsx1CurrentUASs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1CurrentUASs.setStatus(_B)
+_Dsx1CurrentCSSs_Type=PerfCurrentCount
+_Dsx1CurrentCSSs_Object=MibTableColumn
+dsx1CurrentCSSs=_Dsx1CurrentCSSs_Object((1,3,6,1,2,1,10,18,7,1,6),_Dsx1CurrentCSSs_Type())
+dsx1CurrentCSSs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1CurrentCSSs.setStatus(_B)
+_Dsx1CurrentPCVs_Type=PerfCurrentCount
+_Dsx1CurrentPCVs_Object=MibTableColumn
+dsx1CurrentPCVs=_Dsx1CurrentPCVs_Object((1,3,6,1,2,1,10,18,7,1,7),_Dsx1CurrentPCVs_Type())
+dsx1CurrentPCVs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1CurrentPCVs.setStatus(_B)
+_Dsx1CurrentLESs_Type=PerfCurrentCount
+_Dsx1CurrentLESs_Object=MibTableColumn
+dsx1CurrentLESs=_Dsx1CurrentLESs_Object((1,3,6,1,2,1,10,18,7,1,8),_Dsx1CurrentLESs_Type())
+dsx1CurrentLESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1CurrentLESs.setStatus(_B)
+_Dsx1CurrentBESs_Type=PerfCurrentCount
+_Dsx1CurrentBESs_Object=MibTableColumn
+dsx1CurrentBESs=_Dsx1CurrentBESs_Object((1,3,6,1,2,1,10,18,7,1,9),_Dsx1CurrentBESs_Type())
+dsx1CurrentBESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1CurrentBESs.setStatus(_B)
+_Dsx1CurrentDMs_Type=PerfCurrentCount
+_Dsx1CurrentDMs_Object=MibTableColumn
+dsx1CurrentDMs=_Dsx1CurrentDMs_Object((1,3,6,1,2,1,10,18,7,1,10),_Dsx1CurrentDMs_Type())
+dsx1CurrentDMs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1CurrentDMs.setStatus(_E)
+_Dsx1CurrentLCVs_Type=PerfCurrentCount
+_Dsx1CurrentLCVs_Object=MibTableColumn
+dsx1CurrentLCVs=_Dsx1CurrentLCVs_Object((1,3,6,1,2,1,10,18,7,1,11),_Dsx1CurrentLCVs_Type())
+dsx1CurrentLCVs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1CurrentLCVs.setStatus(_B)
+_Dsx1IntervalTable_Object=MibTable
+dsx1IntervalTable=_Dsx1IntervalTable_Object((1,3,6,1,2,1,10,18,8))
+if mibBuilder.loadTexts:dsx1IntervalTable.setStatus(_B)
+_Dsx1IntervalEntry_Object=MibTableRow
+dsx1IntervalEntry=_Dsx1IntervalEntry_Object((1,3,6,1,2,1,10,18,8,1))
+dsx1IntervalEntry.setIndexNames((0,_A,_S),(0,_A,_T))
+if mibBuilder.loadTexts:dsx1IntervalEntry.setStatus(_B)
+_Dsx1IntervalIndex_Type=InterfaceIndex
+_Dsx1IntervalIndex_Object=MibTableColumn
+dsx1IntervalIndex=_Dsx1IntervalIndex_Object((1,3,6,1,2,1,10,18,8,1,1),_Dsx1IntervalIndex_Type())
+dsx1IntervalIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1IntervalIndex.setStatus(_B)
+class _Dsx1IntervalNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,96))
+_Dsx1IntervalNumber_Type.__name__=_D
+_Dsx1IntervalNumber_Object=MibTableColumn
+dsx1IntervalNumber=_Dsx1IntervalNumber_Object((1,3,6,1,2,1,10,18,8,1,2),_Dsx1IntervalNumber_Type())
+dsx1IntervalNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1IntervalNumber.setStatus(_B)
+_Dsx1IntervalESs_Type=PerfIntervalCount
+_Dsx1IntervalESs_Object=MibTableColumn
+dsx1IntervalESs=_Dsx1IntervalESs_Object((1,3,6,1,2,1,10,18,8,1,3),_Dsx1IntervalESs_Type())
+dsx1IntervalESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1IntervalESs.setStatus(_B)
+_Dsx1IntervalSESs_Type=PerfIntervalCount
+_Dsx1IntervalSESs_Object=MibTableColumn
+dsx1IntervalSESs=_Dsx1IntervalSESs_Object((1,3,6,1,2,1,10,18,8,1,4),_Dsx1IntervalSESs_Type())
+dsx1IntervalSESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1IntervalSESs.setStatus(_B)
+_Dsx1IntervalSEFSs_Type=PerfIntervalCount
+_Dsx1IntervalSEFSs_Object=MibTableColumn
+dsx1IntervalSEFSs=_Dsx1IntervalSEFSs_Object((1,3,6,1,2,1,10,18,8,1,5),_Dsx1IntervalSEFSs_Type())
+dsx1IntervalSEFSs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1IntervalSEFSs.setStatus(_B)
+_Dsx1IntervalUASs_Type=PerfIntervalCount
+_Dsx1IntervalUASs_Object=MibTableColumn
+dsx1IntervalUASs=_Dsx1IntervalUASs_Object((1,3,6,1,2,1,10,18,8,1,6),_Dsx1IntervalUASs_Type())
+dsx1IntervalUASs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1IntervalUASs.setStatus(_B)
+_Dsx1IntervalCSSs_Type=PerfIntervalCount
+_Dsx1IntervalCSSs_Object=MibTableColumn
+dsx1IntervalCSSs=_Dsx1IntervalCSSs_Object((1,3,6,1,2,1,10,18,8,1,7),_Dsx1IntervalCSSs_Type())
+dsx1IntervalCSSs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1IntervalCSSs.setStatus(_B)
+_Dsx1IntervalPCVs_Type=PerfIntervalCount
+_Dsx1IntervalPCVs_Object=MibTableColumn
+dsx1IntervalPCVs=_Dsx1IntervalPCVs_Object((1,3,6,1,2,1,10,18,8,1,8),_Dsx1IntervalPCVs_Type())
+dsx1IntervalPCVs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1IntervalPCVs.setStatus(_B)
+_Dsx1IntervalLESs_Type=PerfIntervalCount
+_Dsx1IntervalLESs_Object=MibTableColumn
+dsx1IntervalLESs=_Dsx1IntervalLESs_Object((1,3,6,1,2,1,10,18,8,1,9),_Dsx1IntervalLESs_Type())
+dsx1IntervalLESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1IntervalLESs.setStatus(_B)
+_Dsx1IntervalBESs_Type=PerfIntervalCount
+_Dsx1IntervalBESs_Object=MibTableColumn
+dsx1IntervalBESs=_Dsx1IntervalBESs_Object((1,3,6,1,2,1,10,18,8,1,10),_Dsx1IntervalBESs_Type())
+dsx1IntervalBESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1IntervalBESs.setStatus(_B)
+_Dsx1IntervalDMs_Type=PerfIntervalCount
+_Dsx1IntervalDMs_Object=MibTableColumn
+dsx1IntervalDMs=_Dsx1IntervalDMs_Object((1,3,6,1,2,1,10,18,8,1,11),_Dsx1IntervalDMs_Type())
+dsx1IntervalDMs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1IntervalDMs.setStatus(_E)
+_Dsx1IntervalLCVs_Type=PerfIntervalCount
+_Dsx1IntervalLCVs_Object=MibTableColumn
+dsx1IntervalLCVs=_Dsx1IntervalLCVs_Object((1,3,6,1,2,1,10,18,8,1,12),_Dsx1IntervalLCVs_Type())
+dsx1IntervalLCVs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1IntervalLCVs.setStatus(_B)
+_Dsx1IntervalValidData_Type=TruthValue
+_Dsx1IntervalValidData_Object=MibTableColumn
+dsx1IntervalValidData=_Dsx1IntervalValidData_Object((1,3,6,1,2,1,10,18,8,1,13),_Dsx1IntervalValidData_Type())
+dsx1IntervalValidData.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1IntervalValidData.setStatus(_B)
+_Dsx1TotalTable_Object=MibTable
+dsx1TotalTable=_Dsx1TotalTable_Object((1,3,6,1,2,1,10,18,9))
+if mibBuilder.loadTexts:dsx1TotalTable.setStatus(_B)
+_Dsx1TotalEntry_Object=MibTableRow
+dsx1TotalEntry=_Dsx1TotalEntry_Object((1,3,6,1,2,1,10,18,9,1))
+dsx1TotalEntry.setIndexNames((0,_A,_U))
+if mibBuilder.loadTexts:dsx1TotalEntry.setStatus(_B)
+_Dsx1TotalIndex_Type=InterfaceIndex
+_Dsx1TotalIndex_Object=MibTableColumn
+dsx1TotalIndex=_Dsx1TotalIndex_Object((1,3,6,1,2,1,10,18,9,1,1),_Dsx1TotalIndex_Type())
+dsx1TotalIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1TotalIndex.setStatus(_B)
+_Dsx1TotalESs_Type=PerfTotalCount
+_Dsx1TotalESs_Object=MibTableColumn
+dsx1TotalESs=_Dsx1TotalESs_Object((1,3,6,1,2,1,10,18,9,1,2),_Dsx1TotalESs_Type())
+dsx1TotalESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1TotalESs.setStatus(_B)
+_Dsx1TotalSESs_Type=PerfTotalCount
+_Dsx1TotalSESs_Object=MibTableColumn
+dsx1TotalSESs=_Dsx1TotalSESs_Object((1,3,6,1,2,1,10,18,9,1,3),_Dsx1TotalSESs_Type())
+dsx1TotalSESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1TotalSESs.setStatus(_B)
+_Dsx1TotalSEFSs_Type=PerfTotalCount
+_Dsx1TotalSEFSs_Object=MibTableColumn
+dsx1TotalSEFSs=_Dsx1TotalSEFSs_Object((1,3,6,1,2,1,10,18,9,1,4),_Dsx1TotalSEFSs_Type())
+dsx1TotalSEFSs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1TotalSEFSs.setStatus(_B)
+_Dsx1TotalUASs_Type=PerfTotalCount
+_Dsx1TotalUASs_Object=MibTableColumn
+dsx1TotalUASs=_Dsx1TotalUASs_Object((1,3,6,1,2,1,10,18,9,1,5),_Dsx1TotalUASs_Type())
+dsx1TotalUASs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1TotalUASs.setStatus(_B)
+_Dsx1TotalCSSs_Type=PerfTotalCount
+_Dsx1TotalCSSs_Object=MibTableColumn
+dsx1TotalCSSs=_Dsx1TotalCSSs_Object((1,3,6,1,2,1,10,18,9,1,6),_Dsx1TotalCSSs_Type())
+dsx1TotalCSSs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1TotalCSSs.setStatus(_B)
+_Dsx1TotalPCVs_Type=PerfTotalCount
+_Dsx1TotalPCVs_Object=MibTableColumn
+dsx1TotalPCVs=_Dsx1TotalPCVs_Object((1,3,6,1,2,1,10,18,9,1,7),_Dsx1TotalPCVs_Type())
+dsx1TotalPCVs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1TotalPCVs.setStatus(_B)
+_Dsx1TotalLESs_Type=PerfTotalCount
+_Dsx1TotalLESs_Object=MibTableColumn
+dsx1TotalLESs=_Dsx1TotalLESs_Object((1,3,6,1,2,1,10,18,9,1,8),_Dsx1TotalLESs_Type())
+dsx1TotalLESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1TotalLESs.setStatus(_B)
+_Dsx1TotalBESs_Type=PerfTotalCount
+_Dsx1TotalBESs_Object=MibTableColumn
+dsx1TotalBESs=_Dsx1TotalBESs_Object((1,3,6,1,2,1,10,18,9,1,9),_Dsx1TotalBESs_Type())
+dsx1TotalBESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1TotalBESs.setStatus(_B)
+_Dsx1TotalDMs_Type=PerfTotalCount
+_Dsx1TotalDMs_Object=MibTableColumn
+dsx1TotalDMs=_Dsx1TotalDMs_Object((1,3,6,1,2,1,10,18,9,1,10),_Dsx1TotalDMs_Type())
+dsx1TotalDMs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1TotalDMs.setStatus(_E)
+_Dsx1TotalLCVs_Type=PerfTotalCount
+_Dsx1TotalLCVs_Object=MibTableColumn
+dsx1TotalLCVs=_Dsx1TotalLCVs_Object((1,3,6,1,2,1,10,18,9,1,11),_Dsx1TotalLCVs_Type())
+dsx1TotalLCVs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1TotalLCVs.setStatus(_B)
+_Dsx1FarEndCurrentTable_Object=MibTable
+dsx1FarEndCurrentTable=_Dsx1FarEndCurrentTable_Object((1,3,6,1,2,1,10,18,10))
+if mibBuilder.loadTexts:dsx1FarEndCurrentTable.setStatus(_B)
+_Dsx1FarEndCurrentEntry_Object=MibTableRow
+dsx1FarEndCurrentEntry=_Dsx1FarEndCurrentEntry_Object((1,3,6,1,2,1,10,18,10,1))
+dsx1FarEndCurrentEntry.setIndexNames((0,_A,_V))
+if mibBuilder.loadTexts:dsx1FarEndCurrentEntry.setStatus(_B)
+_Dsx1FarEndCurrentIndex_Type=InterfaceIndex
+_Dsx1FarEndCurrentIndex_Object=MibTableColumn
+dsx1FarEndCurrentIndex=_Dsx1FarEndCurrentIndex_Object((1,3,6,1,2,1,10,18,10,1,1),_Dsx1FarEndCurrentIndex_Type())
+dsx1FarEndCurrentIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndCurrentIndex.setStatus(_B)
+class _Dsx1FarEndTimeElapsed_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,899))
+_Dsx1FarEndTimeElapsed_Type.__name__=_D
+_Dsx1FarEndTimeElapsed_Object=MibTableColumn
+dsx1FarEndTimeElapsed=_Dsx1FarEndTimeElapsed_Object((1,3,6,1,2,1,10,18,10,1,2),_Dsx1FarEndTimeElapsed_Type())
+dsx1FarEndTimeElapsed.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndTimeElapsed.setStatus(_B)
+class _Dsx1FarEndValidIntervals_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,96))
+_Dsx1FarEndValidIntervals_Type.__name__=_D
+_Dsx1FarEndValidIntervals_Object=MibTableColumn
+dsx1FarEndValidIntervals=_Dsx1FarEndValidIntervals_Object((1,3,6,1,2,1,10,18,10,1,3),_Dsx1FarEndValidIntervals_Type())
+dsx1FarEndValidIntervals.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndValidIntervals.setStatus(_B)
+_Dsx1FarEndCurrentESs_Type=PerfCurrentCount
+_Dsx1FarEndCurrentESs_Object=MibTableColumn
+dsx1FarEndCurrentESs=_Dsx1FarEndCurrentESs_Object((1,3,6,1,2,1,10,18,10,1,4),_Dsx1FarEndCurrentESs_Type())
+dsx1FarEndCurrentESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndCurrentESs.setStatus(_B)
+_Dsx1FarEndCurrentSESs_Type=PerfCurrentCount
+_Dsx1FarEndCurrentSESs_Object=MibTableColumn
+dsx1FarEndCurrentSESs=_Dsx1FarEndCurrentSESs_Object((1,3,6,1,2,1,10,18,10,1,5),_Dsx1FarEndCurrentSESs_Type())
+dsx1FarEndCurrentSESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndCurrentSESs.setStatus(_B)
+_Dsx1FarEndCurrentSEFSs_Type=PerfCurrentCount
+_Dsx1FarEndCurrentSEFSs_Object=MibTableColumn
+dsx1FarEndCurrentSEFSs=_Dsx1FarEndCurrentSEFSs_Object((1,3,6,1,2,1,10,18,10,1,6),_Dsx1FarEndCurrentSEFSs_Type())
+dsx1FarEndCurrentSEFSs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndCurrentSEFSs.setStatus(_B)
+_Dsx1FarEndCurrentUASs_Type=PerfCurrentCount
+_Dsx1FarEndCurrentUASs_Object=MibTableColumn
+dsx1FarEndCurrentUASs=_Dsx1FarEndCurrentUASs_Object((1,3,6,1,2,1,10,18,10,1,7),_Dsx1FarEndCurrentUASs_Type())
+dsx1FarEndCurrentUASs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndCurrentUASs.setStatus(_B)
+_Dsx1FarEndCurrentCSSs_Type=PerfCurrentCount
+_Dsx1FarEndCurrentCSSs_Object=MibTableColumn
+dsx1FarEndCurrentCSSs=_Dsx1FarEndCurrentCSSs_Object((1,3,6,1,2,1,10,18,10,1,8),_Dsx1FarEndCurrentCSSs_Type())
+dsx1FarEndCurrentCSSs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndCurrentCSSs.setStatus(_B)
+_Dsx1FarEndCurrentLESs_Type=PerfCurrentCount
+_Dsx1FarEndCurrentLESs_Object=MibTableColumn
+dsx1FarEndCurrentLESs=_Dsx1FarEndCurrentLESs_Object((1,3,6,1,2,1,10,18,10,1,9),_Dsx1FarEndCurrentLESs_Type())
+dsx1FarEndCurrentLESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndCurrentLESs.setStatus(_B)
+_Dsx1FarEndCurrentPCVs_Type=PerfCurrentCount
+_Dsx1FarEndCurrentPCVs_Object=MibTableColumn
+dsx1FarEndCurrentPCVs=_Dsx1FarEndCurrentPCVs_Object((1,3,6,1,2,1,10,18,10,1,10),_Dsx1FarEndCurrentPCVs_Type())
+dsx1FarEndCurrentPCVs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndCurrentPCVs.setStatus(_B)
+_Dsx1FarEndCurrentBESs_Type=PerfCurrentCount
+_Dsx1FarEndCurrentBESs_Object=MibTableColumn
+dsx1FarEndCurrentBESs=_Dsx1FarEndCurrentBESs_Object((1,3,6,1,2,1,10,18,10,1,11),_Dsx1FarEndCurrentBESs_Type())
+dsx1FarEndCurrentBESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndCurrentBESs.setStatus(_B)
+_Dsx1FarEndCurrentDMs_Type=PerfCurrentCount
+_Dsx1FarEndCurrentDMs_Object=MibTableColumn
+dsx1FarEndCurrentDMs=_Dsx1FarEndCurrentDMs_Object((1,3,6,1,2,1,10,18,10,1,12),_Dsx1FarEndCurrentDMs_Type())
+dsx1FarEndCurrentDMs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndCurrentDMs.setStatus(_E)
+class _Dsx1FarEndInvalidIntervals_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,96))
+_Dsx1FarEndInvalidIntervals_Type.__name__=_D
+_Dsx1FarEndInvalidIntervals_Object=MibTableColumn
+dsx1FarEndInvalidIntervals=_Dsx1FarEndInvalidIntervals_Object((1,3,6,1,2,1,10,18,10,1,13),_Dsx1FarEndInvalidIntervals_Type())
+dsx1FarEndInvalidIntervals.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndInvalidIntervals.setStatus(_B)
+_Dsx1FarEndIntervalTable_Object=MibTable
+dsx1FarEndIntervalTable=_Dsx1FarEndIntervalTable_Object((1,3,6,1,2,1,10,18,11))
+if mibBuilder.loadTexts:dsx1FarEndIntervalTable.setStatus(_B)
+_Dsx1FarEndIntervalEntry_Object=MibTableRow
+dsx1FarEndIntervalEntry=_Dsx1FarEndIntervalEntry_Object((1,3,6,1,2,1,10,18,11,1))
+dsx1FarEndIntervalEntry.setIndexNames((0,_A,_W),(0,_A,_X))
+if mibBuilder.loadTexts:dsx1FarEndIntervalEntry.setStatus(_B)
+_Dsx1FarEndIntervalIndex_Type=InterfaceIndex
+_Dsx1FarEndIntervalIndex_Object=MibTableColumn
+dsx1FarEndIntervalIndex=_Dsx1FarEndIntervalIndex_Object((1,3,6,1,2,1,10,18,11,1,1),_Dsx1FarEndIntervalIndex_Type())
+dsx1FarEndIntervalIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndIntervalIndex.setStatus(_B)
+class _Dsx1FarEndIntervalNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,96))
+_Dsx1FarEndIntervalNumber_Type.__name__=_D
+_Dsx1FarEndIntervalNumber_Object=MibTableColumn
+dsx1FarEndIntervalNumber=_Dsx1FarEndIntervalNumber_Object((1,3,6,1,2,1,10,18,11,1,2),_Dsx1FarEndIntervalNumber_Type())
+dsx1FarEndIntervalNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndIntervalNumber.setStatus(_B)
+_Dsx1FarEndIntervalESs_Type=PerfIntervalCount
+_Dsx1FarEndIntervalESs_Object=MibTableColumn
+dsx1FarEndIntervalESs=_Dsx1FarEndIntervalESs_Object((1,3,6,1,2,1,10,18,11,1,3),_Dsx1FarEndIntervalESs_Type())
+dsx1FarEndIntervalESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndIntervalESs.setStatus(_B)
+_Dsx1FarEndIntervalSESs_Type=PerfIntervalCount
+_Dsx1FarEndIntervalSESs_Object=MibTableColumn
+dsx1FarEndIntervalSESs=_Dsx1FarEndIntervalSESs_Object((1,3,6,1,2,1,10,18,11,1,4),_Dsx1FarEndIntervalSESs_Type())
+dsx1FarEndIntervalSESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndIntervalSESs.setStatus(_B)
+_Dsx1FarEndIntervalSEFSs_Type=PerfIntervalCount
+_Dsx1FarEndIntervalSEFSs_Object=MibTableColumn
+dsx1FarEndIntervalSEFSs=_Dsx1FarEndIntervalSEFSs_Object((1,3,6,1,2,1,10,18,11,1,5),_Dsx1FarEndIntervalSEFSs_Type())
+dsx1FarEndIntervalSEFSs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndIntervalSEFSs.setStatus(_B)
+_Dsx1FarEndIntervalUASs_Type=PerfIntervalCount
+_Dsx1FarEndIntervalUASs_Object=MibTableColumn
+dsx1FarEndIntervalUASs=_Dsx1FarEndIntervalUASs_Object((1,3,6,1,2,1,10,18,11,1,6),_Dsx1FarEndIntervalUASs_Type())
+dsx1FarEndIntervalUASs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndIntervalUASs.setStatus(_B)
+_Dsx1FarEndIntervalCSSs_Type=PerfIntervalCount
+_Dsx1FarEndIntervalCSSs_Object=MibTableColumn
+dsx1FarEndIntervalCSSs=_Dsx1FarEndIntervalCSSs_Object((1,3,6,1,2,1,10,18,11,1,7),_Dsx1FarEndIntervalCSSs_Type())
+dsx1FarEndIntervalCSSs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndIntervalCSSs.setStatus(_B)
+_Dsx1FarEndIntervalLESs_Type=PerfIntervalCount
+_Dsx1FarEndIntervalLESs_Object=MibTableColumn
+dsx1FarEndIntervalLESs=_Dsx1FarEndIntervalLESs_Object((1,3,6,1,2,1,10,18,11,1,8),_Dsx1FarEndIntervalLESs_Type())
+dsx1FarEndIntervalLESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndIntervalLESs.setStatus(_B)
+_Dsx1FarEndIntervalPCVs_Type=PerfIntervalCount
+_Dsx1FarEndIntervalPCVs_Object=MibTableColumn
+dsx1FarEndIntervalPCVs=_Dsx1FarEndIntervalPCVs_Object((1,3,6,1,2,1,10,18,11,1,9),_Dsx1FarEndIntervalPCVs_Type())
+dsx1FarEndIntervalPCVs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndIntervalPCVs.setStatus(_B)
+_Dsx1FarEndIntervalBESs_Type=PerfIntervalCount
+_Dsx1FarEndIntervalBESs_Object=MibTableColumn
+dsx1FarEndIntervalBESs=_Dsx1FarEndIntervalBESs_Object((1,3,6,1,2,1,10,18,11,1,10),_Dsx1FarEndIntervalBESs_Type())
+dsx1FarEndIntervalBESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndIntervalBESs.setStatus(_B)
+_Dsx1FarEndIntervalDMs_Type=PerfIntervalCount
+_Dsx1FarEndIntervalDMs_Object=MibTableColumn
+dsx1FarEndIntervalDMs=_Dsx1FarEndIntervalDMs_Object((1,3,6,1,2,1,10,18,11,1,11),_Dsx1FarEndIntervalDMs_Type())
+dsx1FarEndIntervalDMs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndIntervalDMs.setStatus(_E)
+_Dsx1FarEndIntervalValidData_Type=TruthValue
+_Dsx1FarEndIntervalValidData_Object=MibTableColumn
+dsx1FarEndIntervalValidData=_Dsx1FarEndIntervalValidData_Object((1,3,6,1,2,1,10,18,11,1,12),_Dsx1FarEndIntervalValidData_Type())
+dsx1FarEndIntervalValidData.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndIntervalValidData.setStatus(_B)
+_Dsx1FarEndTotalTable_Object=MibTable
+dsx1FarEndTotalTable=_Dsx1FarEndTotalTable_Object((1,3,6,1,2,1,10,18,12))
+if mibBuilder.loadTexts:dsx1FarEndTotalTable.setStatus(_B)
+_Dsx1FarEndTotalEntry_Object=MibTableRow
+dsx1FarEndTotalEntry=_Dsx1FarEndTotalEntry_Object((1,3,6,1,2,1,10,18,12,1))
+dsx1FarEndTotalEntry.setIndexNames((0,_A,_Y))
+if mibBuilder.loadTexts:dsx1FarEndTotalEntry.setStatus(_B)
+_Dsx1FarEndTotalIndex_Type=InterfaceIndex
+_Dsx1FarEndTotalIndex_Object=MibTableColumn
+dsx1FarEndTotalIndex=_Dsx1FarEndTotalIndex_Object((1,3,6,1,2,1,10,18,12,1,1),_Dsx1FarEndTotalIndex_Type())
+dsx1FarEndTotalIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndTotalIndex.setStatus(_B)
+_Dsx1FarEndTotalESs_Type=PerfTotalCount
+_Dsx1FarEndTotalESs_Object=MibTableColumn
+dsx1FarEndTotalESs=_Dsx1FarEndTotalESs_Object((1,3,6,1,2,1,10,18,12,1,2),_Dsx1FarEndTotalESs_Type())
+dsx1FarEndTotalESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndTotalESs.setStatus(_B)
+_Dsx1FarEndTotalSESs_Type=PerfTotalCount
+_Dsx1FarEndTotalSESs_Object=MibTableColumn
+dsx1FarEndTotalSESs=_Dsx1FarEndTotalSESs_Object((1,3,6,1,2,1,10,18,12,1,3),_Dsx1FarEndTotalSESs_Type())
+dsx1FarEndTotalSESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndTotalSESs.setStatus(_B)
+_Dsx1FarEndTotalSEFSs_Type=PerfTotalCount
+_Dsx1FarEndTotalSEFSs_Object=MibTableColumn
+dsx1FarEndTotalSEFSs=_Dsx1FarEndTotalSEFSs_Object((1,3,6,1,2,1,10,18,12,1,4),_Dsx1FarEndTotalSEFSs_Type())
+dsx1FarEndTotalSEFSs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndTotalSEFSs.setStatus(_B)
+_Dsx1FarEndTotalUASs_Type=PerfTotalCount
+_Dsx1FarEndTotalUASs_Object=MibTableColumn
+dsx1FarEndTotalUASs=_Dsx1FarEndTotalUASs_Object((1,3,6,1,2,1,10,18,12,1,5),_Dsx1FarEndTotalUASs_Type())
+dsx1FarEndTotalUASs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndTotalUASs.setStatus(_B)
+_Dsx1FarEndTotalCSSs_Type=PerfTotalCount
+_Dsx1FarEndTotalCSSs_Object=MibTableColumn
+dsx1FarEndTotalCSSs=_Dsx1FarEndTotalCSSs_Object((1,3,6,1,2,1,10,18,12,1,6),_Dsx1FarEndTotalCSSs_Type())
+dsx1FarEndTotalCSSs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndTotalCSSs.setStatus(_B)
+_Dsx1FarEndTotalLESs_Type=PerfTotalCount
+_Dsx1FarEndTotalLESs_Object=MibTableColumn
+dsx1FarEndTotalLESs=_Dsx1FarEndTotalLESs_Object((1,3,6,1,2,1,10,18,12,1,7),_Dsx1FarEndTotalLESs_Type())
+dsx1FarEndTotalLESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndTotalLESs.setStatus(_B)
+_Dsx1FarEndTotalPCVs_Type=PerfTotalCount
+_Dsx1FarEndTotalPCVs_Object=MibTableColumn
+dsx1FarEndTotalPCVs=_Dsx1FarEndTotalPCVs_Object((1,3,6,1,2,1,10,18,12,1,8),_Dsx1FarEndTotalPCVs_Type())
+dsx1FarEndTotalPCVs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndTotalPCVs.setStatus(_B)
+_Dsx1FarEndTotalBESs_Type=PerfTotalCount
+_Dsx1FarEndTotalBESs_Object=MibTableColumn
+dsx1FarEndTotalBESs=_Dsx1FarEndTotalBESs_Object((1,3,6,1,2,1,10,18,12,1,9),_Dsx1FarEndTotalBESs_Type())
+dsx1FarEndTotalBESs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndTotalBESs.setStatus(_B)
+_Dsx1FarEndTotalDMs_Type=PerfTotalCount
+_Dsx1FarEndTotalDMs_Object=MibTableColumn
+dsx1FarEndTotalDMs=_Dsx1FarEndTotalDMs_Object((1,3,6,1,2,1,10,18,12,1,10),_Dsx1FarEndTotalDMs_Type())
+dsx1FarEndTotalDMs.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FarEndTotalDMs.setStatus(_E)
+_Dsx1FracTable_Object=MibTable
+dsx1FracTable=_Dsx1FracTable_Object((1,3,6,1,2,1,10,18,13))
+if mibBuilder.loadTexts:dsx1FracTable.setStatus(_E)
+_Dsx1FracEntry_Object=MibTableRow
+dsx1FracEntry=_Dsx1FracEntry_Object((1,3,6,1,2,1,10,18,13,1))
+dsx1FracEntry.setIndexNames((0,_A,_y),(0,_A,_z))
+if mibBuilder.loadTexts:dsx1FracEntry.setStatus(_E)
+class _Dsx1FracIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_Dsx1FracIndex_Type.__name__=_D
+_Dsx1FracIndex_Object=MibTableColumn
+dsx1FracIndex=_Dsx1FracIndex_Object((1,3,6,1,2,1,10,18,13,1,1),_Dsx1FracIndex_Type())
+dsx1FracIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FracIndex.setStatus(_E)
+class _Dsx1FracNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,31))
+_Dsx1FracNumber_Type.__name__=_D
+_Dsx1FracNumber_Object=MibTableColumn
+dsx1FracNumber=_Dsx1FracNumber_Object((1,3,6,1,2,1,10,18,13,1,2),_Dsx1FracNumber_Type())
+dsx1FracNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1FracNumber.setStatus(_E)
+class _Dsx1FracIfIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_Dsx1FracIfIndex_Type.__name__=_D
+_Dsx1FracIfIndex_Object=MibTableColumn
+dsx1FracIfIndex=_Dsx1FracIfIndex_Object((1,3,6,1,2,1,10,18,13,1,3),_Dsx1FracIfIndex_Type())
+dsx1FracIfIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:dsx1FracIfIndex.setStatus(_E)
+_Ds1Conformance_ObjectIdentity=ObjectIdentity
+ds1Conformance=_Ds1Conformance_ObjectIdentity((1,3,6,1,2,1,10,18,14))
+_Ds1Groups_ObjectIdentity=ObjectIdentity
+ds1Groups=_Ds1Groups_ObjectIdentity((1,3,6,1,2,1,10,18,14,1))
+_Ds1Compliances_ObjectIdentity=ObjectIdentity
+ds1Compliances=_Ds1Compliances_ObjectIdentity((1,3,6,1,2,1,10,18,14,2))
+_Ds1Traps_ObjectIdentity=ObjectIdentity
+ds1Traps=_Ds1Traps_ObjectIdentity((1,3,6,1,2,1,10,18,15))
+_Dsx1ChanMappingTable_Object=MibTable
+dsx1ChanMappingTable=_Dsx1ChanMappingTable_Object((1,3,6,1,2,1,10,18,16))
+if mibBuilder.loadTexts:dsx1ChanMappingTable.setStatus(_B)
+_Dsx1ChanMappingEntry_Object=MibTableRow
+dsx1ChanMappingEntry=_Dsx1ChanMappingEntry_Object((1,3,6,1,2,1,10,18,16,1))
+dsx1ChanMappingEntry.setIndexNames((0,'IF-MIB','ifIndex'),(0,_A,_J))
+if mibBuilder.loadTexts:dsx1ChanMappingEntry.setStatus(_B)
+_Dsx1ChanMappedIfIndex_Type=InterfaceIndex
+_Dsx1ChanMappedIfIndex_Object=MibTableColumn
+dsx1ChanMappedIfIndex=_Dsx1ChanMappedIfIndex_Object((1,3,6,1,2,1,10,18,16,1,1),_Dsx1ChanMappedIfIndex_Type())
+dsx1ChanMappedIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:dsx1ChanMappedIfIndex.setStatus(_B)
+ds1NearEndConfigGroup=ObjectGroup((1,3,6,1,2,1,10,18,14,1,1))
+ds1NearEndConfigGroup.setObjects(*((_A,_H),(_A,_Z),(_A,_a),(_A,_K),(_A,_L),(_A,_M),(_A,_b),(_A,_c),(_A,_I),(_A,_N),(_A,_O),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_J),(_A,_P)))
+if mibBuilder.loadTexts:ds1NearEndConfigGroup.setStatus(_E)
+ds1NearEndStatisticsGroup=ObjectGroup((1,3,6,1,2,1,10,18,14,1,2))
+ds1NearEndStatisticsGroup.setObjects(*((_A,_R),(_A,_h),(_A,_i),(_A,_A0),(_A,_j),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_As),(_A,_A5),(_A,_S),(_A,_T),(_A,_k),(_A,_l),(_A,_A6),(_A,_m),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_At),(_A,_AB),(_A,_AC),(_A,_U),(_A,_n),(_A,_o),(_A,_AD),(_A,_p),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_Au),(_A,_AI)))
+if mibBuilder.loadTexts:ds1NearEndStatisticsGroup.setStatus(_E)
+ds1FarEndGroup=ObjectGroup((1,3,6,1,2,1,10,18,14,1,3))
+ds1FarEndGroup.setObjects(*((_A,_V),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_Av),(_A,_AT),(_A,_W),(_A,_X),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Aw),(_A,_Ac),(_A,_Y),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Ax)))
+if mibBuilder.loadTexts:ds1FarEndGroup.setStatus(_E)
+ds1DeprecatedGroup=ObjectGroup((1,3,6,1,2,1,10,18,14,1,4))
+ds1DeprecatedGroup.setObjects(*((_A,_Ay),(_A,_y),(_A,_z),(_A,_Az)))
+if mibBuilder.loadTexts:ds1DeprecatedGroup.setStatus(_E)
+ds1NearEndOptionalConfigGroup=ObjectGroup((1,3,6,1,2,1,10,18,14,1,5))
+ds1NearEndOptionalConfigGroup.setObjects(*((_A,_Al),(_A,_A_)))
+if mibBuilder.loadTexts:ds1NearEndOptionalConfigGroup.setStatus(_B)
+ds1DS2Group=ObjectGroup((1,3,6,1,2,1,10,18,14,1,6))
+ds1DS2Group.setObjects(*((_A,_H),(_A,_K),(_A,_L),(_A,_M),(_A,_I),(_A,_N),(_A,_O),(_A,_P)))
+if mibBuilder.loadTexts:ds1DS2Group.setStatus(_B)
+ds1TransStatsGroup=ObjectGroup((1,3,6,1,2,1,10,18,14,1,7))
+ds1TransStatsGroup.setObjects(*((_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p)))
+if mibBuilder.loadTexts:ds1TransStatsGroup.setStatus(_B)
+ds1ChanMappingGroup=ObjectGroup((1,3,6,1,2,1,10,18,14,1,9))
+ds1ChanMappingGroup.setObjects((_A,_B0))
+if mibBuilder.loadTexts:ds1ChanMappingGroup.setStatus(_B)
+ds1NearEndConfigurationGroup=ObjectGroup((1,3,6,1,2,1,10,18,14,1,10))
+ds1NearEndConfigurationGroup.setObjects(*((_A,_H),(_A,_Z),(_A,_a),(_A,_K),(_A,_L),(_A,_M),(_A,_b),(_A,_c),(_A,_I),(_A,_N),(_A,_O),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_J),(_A,_P),(_A,_Am),(_A,_An)))
+if mibBuilder.loadTexts:ds1NearEndConfigurationGroup.setStatus(_E)
+ds1NearEndCfgGroup=ObjectGroup((1,3,6,1,2,1,10,18,14,1,11))
+ds1NearEndCfgGroup.setObjects(*((_A,_H),(_A,_Z),(_A,_a),(_A,_K),(_A,_L),(_A,_M),(_A,_b),(_A,_c),(_A,_I),(_A,_N),(_A,_O),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_J),(_A,_P),(_A,_Am),(_A,_An),(_A,_B1)))
+if mibBuilder.loadTexts:ds1NearEndCfgGroup.setStatus(_B)
+ds1NearEndStatGroup=ObjectGroup((1,3,6,1,2,1,10,18,14,1,12))
+ds1NearEndStatGroup.setObjects(*((_A,_R),(_A,_h),(_A,_i),(_A,_A0),(_A,_j),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_S),(_A,_T),(_A,_k),(_A,_l),(_A,_A6),(_A,_m),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_U),(_A,_n),(_A,_o),(_A,_AD),(_A,_p),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI)))
+if mibBuilder.loadTexts:ds1NearEndStatGroup.setStatus(_B)
+ds1FarEndNGroup=ObjectGroup((1,3,6,1,2,1,10,18,14,1,13))
+ds1FarEndNGroup.setObjects(*((_A,_V),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_W),(_A,_X),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Y),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak)))
+if mibBuilder.loadTexts:ds1FarEndNGroup.setStatus(_B)
+dsx1LineStatusChange=NotificationType((1,3,6,1,2,1,10,18,15,0,1))
+dsx1LineStatusChange.setObjects(*((_A,_I),(_A,_Al)))
+if mibBuilder.loadTexts:dsx1LineStatusChange.setStatus(_B)
+ds1NearEndOptionalTrapGroup=NotificationGroup((1,3,6,1,2,1,10,18,14,1,8))
+ds1NearEndOptionalTrapGroup.setObjects((_A,_B2))
+if mibBuilder.loadTexts:ds1NearEndOptionalTrapGroup.setStatus(_B)
+ds1Compliance=ModuleCompliance((1,3,6,1,2,1,10,18,14,2,1))
+ds1Compliance.setObjects(*((_A,_q),(_A,_G),(_A,_Ao),(_A,_r),(_A,_Q),(_A,_s),(_A,_t)))
+if mibBuilder.loadTexts:ds1Compliance.setStatus(_E)
+ds1MibT1PriCompliance=ModuleCompliance((1,3,6,1,2,1,10,18,14,2,2))
+ds1MibT1PriCompliance.setObjects(*((_A,_q),(_A,_G)))
+if mibBuilder.loadTexts:ds1MibT1PriCompliance.setStatus(_E)
+ds1MibE1PriCompliance=ModuleCompliance((1,3,6,1,2,1,10,18,14,2,3))
+ds1MibE1PriCompliance.setObjects(*((_A,_q),(_A,_G)))
+if mibBuilder.loadTexts:ds1MibE1PriCompliance.setStatus(_E)
+ds1Ds2Compliance=ModuleCompliance((1,3,6,1,2,1,10,18,14,2,4))
+ds1Ds2Compliance.setObjects((_A,_Q))
+if mibBuilder.loadTexts:ds1Ds2Compliance.setStatus(_B)
+ds1NCompliance=ModuleCompliance((1,3,6,1,2,1,10,18,14,2,5))
+ds1NCompliance.setObjects(*((_A,_u),(_A,_G),(_A,_Ao),(_A,_Ap),(_A,_r),(_A,_Q),(_A,_s),(_A,_t)))
+if mibBuilder.loadTexts:ds1NCompliance.setStatus(_E)
+ds1MibT1PriNCompliance=ModuleCompliance((1,3,6,1,2,1,10,18,14,2,6))
+ds1MibT1PriNCompliance.setObjects(*((_A,_u),(_A,_G)))
+if mibBuilder.loadTexts:ds1MibT1PriNCompliance.setStatus(_E)
+ds1MibE1PriNCompliance=ModuleCompliance((1,3,6,1,2,1,10,18,14,2,7))
+ds1MibE1PriNCompliance.setObjects(*((_A,_u),(_A,_G)))
+if mibBuilder.loadTexts:ds1MibE1PriNCompliance.setStatus(_E)
+ds1J1Compliance=ModuleCompliance((1,3,6,1,2,1,10,18,14,2,8))
+ds1J1Compliance.setObjects(*((_A,_v),(_A,_w),(_A,_B3),(_A,_Ap),(_A,_r),(_A,_Q),(_A,_s),(_A,_t)))
+if mibBuilder.loadTexts:ds1J1Compliance.setStatus(_B)
+ds1NMibT1PriNCompliance=ModuleCompliance((1,3,6,1,2,1,10,18,14,2,9))
+ds1NMibT1PriNCompliance.setObjects(*((_A,_v),(_A,_w)))
+if mibBuilder.loadTexts:ds1NMibT1PriNCompliance.setStatus(_B)
+ds1NMibE1PriNCompliance=ModuleCompliance((1,3,6,1,2,1,10,18,14,2,10))
+ds1NMibE1PriNCompliance.setObjects(*((_A,_v),(_A,_w)))
+if mibBuilder.loadTexts:ds1NMibE1PriNCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'ds1':ds1,'dsx1ConfigTable':dsx1ConfigTable,'dsx1ConfigEntry':dsx1ConfigEntry,_H:dsx1LineIndex,_Ay:dsx1IfIndex,_Z:dsx1TimeElapsed,_a:dsx1ValidIntervals,_K:dsx1LineType,_L:dsx1LineCoding,_M:dsx1SendCode,_b:dsx1CircuitIdentifier,_c:dsx1LoopbackConfig,_I:dsx1LineStatus,_N:dsx1SignalMode,_O:dsx1TransmitClockSource,_d:dsx1Fdl,_e:dsx1InvalidIntervals,_f:dsx1LineLength,_Al:dsx1LineStatusLastChange,_A_:dsx1LineStatusChangeTrapEnable,_g:dsx1LoopbackStatus,_J:dsx1Ds1ChannelNumber,_P:dsx1Channelization,_Am:dsx1LineMode,_An:dsx1LineBuildOut,_B1:dsx1LineImpedance,'dsx1CurrentTable':dsx1CurrentTable,'dsx1CurrentEntry':dsx1CurrentEntry,_R:dsx1CurrentIndex,_h:dsx1CurrentESs,_i:dsx1CurrentSESs,_A0:dsx1CurrentSEFSs,_j:dsx1CurrentUASs,_A1:dsx1CurrentCSSs,_A2:dsx1CurrentPCVs,_A3:dsx1CurrentLESs,_A4:dsx1CurrentBESs,_As:dsx1CurrentDMs,_A5:dsx1CurrentLCVs,'dsx1IntervalTable':dsx1IntervalTable,'dsx1IntervalEntry':dsx1IntervalEntry,_S:dsx1IntervalIndex,_T:dsx1IntervalNumber,_k:dsx1IntervalESs,_l:dsx1IntervalSESs,_A6:dsx1IntervalSEFSs,_m:dsx1IntervalUASs,_A7:dsx1IntervalCSSs,_A8:dsx1IntervalPCVs,_A9:dsx1IntervalLESs,_AA:dsx1IntervalBESs,_At:dsx1IntervalDMs,_AB:dsx1IntervalLCVs,_AC:dsx1IntervalValidData,'dsx1TotalTable':dsx1TotalTable,'dsx1TotalEntry':dsx1TotalEntry,_U:dsx1TotalIndex,_n:dsx1TotalESs,_o:dsx1TotalSESs,_AD:dsx1TotalSEFSs,_p:dsx1TotalUASs,_AE:dsx1TotalCSSs,_AF:dsx1TotalPCVs,_AG:dsx1TotalLESs,_AH:dsx1TotalBESs,_Au:dsx1TotalDMs,_AI:dsx1TotalLCVs,'dsx1FarEndCurrentTable':dsx1FarEndCurrentTable,'dsx1FarEndCurrentEntry':dsx1FarEndCurrentEntry,_V:dsx1FarEndCurrentIndex,_AJ:dsx1FarEndTimeElapsed,_AK:dsx1FarEndValidIntervals,_AL:dsx1FarEndCurrentESs,_AM:dsx1FarEndCurrentSESs,_AN:dsx1FarEndCurrentSEFSs,_AO:dsx1FarEndCurrentUASs,_AP:dsx1FarEndCurrentCSSs,_AQ:dsx1FarEndCurrentLESs,_AR:dsx1FarEndCurrentPCVs,_AS:dsx1FarEndCurrentBESs,_Av:dsx1FarEndCurrentDMs,_AT:dsx1FarEndInvalidIntervals,'dsx1FarEndIntervalTable':dsx1FarEndIntervalTable,'dsx1FarEndIntervalEntry':dsx1FarEndIntervalEntry,_W:dsx1FarEndIntervalIndex,_X:dsx1FarEndIntervalNumber,_AU:dsx1FarEndIntervalESs,_AV:dsx1FarEndIntervalSESs,_AW:dsx1FarEndIntervalSEFSs,_AX:dsx1FarEndIntervalUASs,_AY:dsx1FarEndIntervalCSSs,_AZ:dsx1FarEndIntervalLESs,_Aa:dsx1FarEndIntervalPCVs,_Ab:dsx1FarEndIntervalBESs,_Aw:dsx1FarEndIntervalDMs,_Ac:dsx1FarEndIntervalValidData,'dsx1FarEndTotalTable':dsx1FarEndTotalTable,'dsx1FarEndTotalEntry':dsx1FarEndTotalEntry,_Y:dsx1FarEndTotalIndex,_Ad:dsx1FarEndTotalESs,_Ae:dsx1FarEndTotalSESs,_Af:dsx1FarEndTotalSEFSs,_Ag:dsx1FarEndTotalUASs,_Ah:dsx1FarEndTotalCSSs,_Ai:dsx1FarEndTotalLESs,_Aj:dsx1FarEndTotalPCVs,_Ak:dsx1FarEndTotalBESs,_Ax:dsx1FarEndTotalDMs,'dsx1FracTable':dsx1FracTable,'dsx1FracEntry':dsx1FracEntry,_y:dsx1FracIndex,_z:dsx1FracNumber,_Az:dsx1FracIfIndex,'ds1Conformance':ds1Conformance,'ds1Groups':ds1Groups,_q:ds1NearEndConfigGroup,_G:ds1NearEndStatisticsGroup,_Ao:ds1FarEndGroup,'ds1DeprecatedGroup':ds1DeprecatedGroup,_r:ds1NearEndOptionalConfigGroup,_Q:ds1DS2Group,_s:ds1TransStatsGroup,_Ap:ds1NearEndOptionalTrapGroup,_t:ds1ChanMappingGroup,_u:ds1NearEndConfigurationGroup,_v:ds1NearEndCfgGroup,_w:ds1NearEndStatGroup,_B3:ds1FarEndNGroup,'ds1Compliances':ds1Compliances,'ds1Compliance':ds1Compliance,'ds1MibT1PriCompliance':ds1MibT1PriCompliance,'ds1MibE1PriCompliance':ds1MibE1PriCompliance,'ds1Ds2Compliance':ds1Ds2Compliance,'ds1NCompliance':ds1NCompliance,'ds1MibT1PriNCompliance':ds1MibT1PriNCompliance,'ds1MibE1PriNCompliance':ds1MibE1PriNCompliance,'ds1J1Compliance':ds1J1Compliance,'ds1NMibT1PriNCompliance':ds1NMibT1PriNCompliance,'ds1NMibE1PriNCompliance':ds1NMibE1PriNCompliance,'ds1Traps':ds1Traps,_B2:dsx1LineStatusChange,'dsx1ChanMappingTable':dsx1ChanMappingTable,'dsx1ChanMappingEntry':dsx1ChanMappingEntry,_B0:dsx1ChanMappedIfIndex})

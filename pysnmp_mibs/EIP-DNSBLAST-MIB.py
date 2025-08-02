@@ -1,0 +1,556 @@
+_E='eipDNSGUARDIANViewStatViewID'
+_D='EIP-DNSBLAST-MIB'
+_C='Integer32'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+eip=ModuleIdentity((1,3,6,1,4,1,2440))
+if mibBuilder.loadTexts:eip.setRevisions(('2015-11-30 00:00',))
+_Products_ObjectIdentity=ObjectIdentity
+products=_Products_ObjectIdentity((1,3,6,1,4,1,2440,1))
+_EipDNSGUARDIAN_ObjectIdentity=ObjectIdentity
+eipDNSGUARDIAN=_EipDNSGUARDIAN_ObjectIdentity((1,3,6,1,4,1,2440,1,11))
+_EipDNSGUARDIANStat_ObjectIdentity=ObjectIdentity
+eipDNSGUARDIANStat=_EipDNSGUARDIANStat_ObjectIdentity((1,3,6,1,4,1,2440,1,11,2))
+_EipDNSGUARDIANViewStatTable_Object=MibTable
+eipDNSGUARDIANViewStatTable=_EipDNSGUARDIANViewStatTable_Object((1,3,6,1,4,1,2440,1,11,2,3))
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatTable.setStatus(_A)
+_EipDNSGUARDIANViewStatEntry_Object=MibTableRow
+eipDNSGUARDIANViewStatEntry=_EipDNSGUARDIANViewStatEntry_Object((1,3,6,1,4,1,2440,1,11,2,3,1))
+eipDNSGUARDIANViewStatEntry.setIndexNames((0,_D,_E))
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatEntry.setStatus(_A)
+class _EipDNSGUARDIANViewStatViewID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
+_EipDNSGUARDIANViewStatViewID_Type.__name__=_C
+_EipDNSGUARDIANViewStatViewID_Object=MibTableColumn
+eipDNSGUARDIANViewStatViewID=_EipDNSGUARDIANViewStatViewID_Object((1,3,6,1,4,1,2440,1,11,2,3,1,1),_EipDNSGUARDIANViewStatViewID_Type())
+eipDNSGUARDIANViewStatViewID.setMaxAccess('not-accessible')
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatViewID.setStatus(_A)
+_EipDNSGUARDIANViewStatViewName_Type=DisplayString
+_EipDNSGUARDIANViewStatViewName_Object=MibTableColumn
+eipDNSGUARDIANViewStatViewName=_EipDNSGUARDIANViewStatViewName_Object((1,3,6,1,4,1,2440,1,11,2,3,1,2),_EipDNSGUARDIANViewStatViewName_Type())
+eipDNSGUARDIANViewStatViewName.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatViewName.setStatus(_A)
+_EipDNSGUARDIANViewStatCacheHit_Type=Counter64
+_EipDNSGUARDIANViewStatCacheHit_Object=MibTableColumn
+eipDNSGUARDIANViewStatCacheHit=_EipDNSGUARDIANViewStatCacheHit_Object((1,3,6,1,4,1,2440,1,11,2,3,1,3),_EipDNSGUARDIANViewStatCacheHit_Type())
+eipDNSGUARDIANViewStatCacheHit.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatCacheHit.setStatus(_A)
+_EipDNSGUARDIANViewStatCacheMiss_Type=Counter64
+_EipDNSGUARDIANViewStatCacheMiss_Object=MibTableColumn
+eipDNSGUARDIANViewStatCacheMiss=_EipDNSGUARDIANViewStatCacheMiss_Object((1,3,6,1,4,1,2440,1,11,2,3,1,4),_EipDNSGUARDIANViewStatCacheMiss_Type())
+eipDNSGUARDIANViewStatCacheMiss.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatCacheMiss.setStatus(_A)
+_EipDNSGUARDIANViewStatCacheSize_Type=Gauge32
+_EipDNSGUARDIANViewStatCacheSize_Object=MibTableColumn
+eipDNSGUARDIANViewStatCacheSize=_EipDNSGUARDIANViewStatCacheSize_Object((1,3,6,1,4,1,2440,1,11,2,3,1,5),_EipDNSGUARDIANViewStatCacheSize_Type())
+eipDNSGUARDIANViewStatCacheSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatCacheSize.setStatus(_A)
+_EipDNSGUARDIANViewStatSendDNSPacket_Type=Counter64
+_EipDNSGUARDIANViewStatSendDNSPacket_Object=MibTableColumn
+eipDNSGUARDIANViewStatSendDNSPacket=_EipDNSGUARDIANViewStatSendDNSPacket_Object((1,3,6,1,4,1,2440,1,11,2,3,1,6),_EipDNSGUARDIANViewStatSendDNSPacket_Type())
+eipDNSGUARDIANViewStatSendDNSPacket.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatSendDNSPacket.setStatus(_A)
+_EipDNSGUARDIANViewStatSendDNSByte_Type=Counter64
+_EipDNSGUARDIANViewStatSendDNSByte_Object=MibTableColumn
+eipDNSGUARDIANViewStatSendDNSByte=_EipDNSGUARDIANViewStatSendDNSByte_Object((1,3,6,1,4,1,2440,1,11,2,3,1,7),_EipDNSGUARDIANViewStatSendDNSByte_Type())
+eipDNSGUARDIANViewStatSendDNSByte.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatSendDNSByte.setStatus(_A)
+_EipDNSGUARDIANViewStatRecvDNSPacket_Type=Counter64
+_EipDNSGUARDIANViewStatRecvDNSPacket_Object=MibTableColumn
+eipDNSGUARDIANViewStatRecvDNSPacket=_EipDNSGUARDIANViewStatRecvDNSPacket_Object((1,3,6,1,4,1,2440,1,11,2,3,1,8),_EipDNSGUARDIANViewStatRecvDNSPacket_Type())
+eipDNSGUARDIANViewStatRecvDNSPacket.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRecvDNSPacket.setStatus(_A)
+_EipDNSGUARDIANViewStatRecvDNSByte_Type=Counter64
+_EipDNSGUARDIANViewStatRecvDNSByte_Object=MibTableColumn
+eipDNSGUARDIANViewStatRecvDNSByte=_EipDNSGUARDIANViewStatRecvDNSByte_Object((1,3,6,1,4,1,2440,1,11,2,3,1,9),_EipDNSGUARDIANViewStatRecvDNSByte_Type())
+eipDNSGUARDIANViewStatRecvDNSByte.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRecvDNSByte.setStatus(_A)
+_EipDNSGUARDIANViewStatCacheMissExist_Type=Counter64
+_EipDNSGUARDIANViewStatCacheMissExist_Object=MibTableColumn
+eipDNSGUARDIANViewStatCacheMissExist=_EipDNSGUARDIANViewStatCacheMissExist_Object((1,3,6,1,4,1,2440,1,11,2,3,1,10),_EipDNSGUARDIANViewStatCacheMissExist_Type())
+eipDNSGUARDIANViewStatCacheMissExist.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatCacheMissExist.setStatus(_A)
+_EipDNSGUARDIANViewStatCacheMissNotExist_Type=Counter64
+_EipDNSGUARDIANViewStatCacheMissNotExist_Object=MibTableColumn
+eipDNSGUARDIANViewStatCacheMissNotExist=_EipDNSGUARDIANViewStatCacheMissNotExist_Object((1,3,6,1,4,1,2440,1,11,2,3,1,11),_EipDNSGUARDIANViewStatCacheMissNotExist_Type())
+eipDNSGUARDIANViewStatCacheMissNotExist.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatCacheMissNotExist.setStatus(_A)
+_EipDNSGUARDIANViewStatSendRescueDNSPacket_Type=Counter64
+_EipDNSGUARDIANViewStatSendRescueDNSPacket_Object=MibTableColumn
+eipDNSGUARDIANViewStatSendRescueDNSPacket=_EipDNSGUARDIANViewStatSendRescueDNSPacket_Object((1,3,6,1,4,1,2440,1,11,2,3,1,12),_EipDNSGUARDIANViewStatSendRescueDNSPacket_Type())
+eipDNSGUARDIANViewStatSendRescueDNSPacket.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatSendRescueDNSPacket.setStatus(_A)
+_EipDNSGUARDIANViewStatSendRescueDNSByte_Type=Counter64
+_EipDNSGUARDIANViewStatSendRescueDNSByte_Object=MibTableColumn
+eipDNSGUARDIANViewStatSendRescueDNSByte=_EipDNSGUARDIANViewStatSendRescueDNSByte_Object((1,3,6,1,4,1,2440,1,11,2,3,1,13),_EipDNSGUARDIANViewStatSendRescueDNSByte_Type())
+eipDNSGUARDIANViewStatSendRescueDNSByte.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatSendRescueDNSByte.setStatus(_A)
+_EipDNSGUARDIANViewStatRecvInvalidDNSPacket_Type=Counter64
+_EipDNSGUARDIANViewStatRecvInvalidDNSPacket_Object=MibTableColumn
+eipDNSGUARDIANViewStatRecvInvalidDNSPacket=_EipDNSGUARDIANViewStatRecvInvalidDNSPacket_Object((1,3,6,1,4,1,2440,1,11,2,3,1,14),_EipDNSGUARDIANViewStatRecvInvalidDNSPacket_Type())
+eipDNSGUARDIANViewStatRecvInvalidDNSPacket.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRecvInvalidDNSPacket.setStatus(_A)
+_EipDNSGUARDIANViewStatRecvInvalidDNSByte_Type=Counter64
+_EipDNSGUARDIANViewStatRecvInvalidDNSByte_Object=MibTableColumn
+eipDNSGUARDIANViewStatRecvInvalidDNSByte=_EipDNSGUARDIANViewStatRecvInvalidDNSByte_Object((1,3,6,1,4,1,2440,1,11,2,3,1,15),_EipDNSGUARDIANViewStatRecvInvalidDNSByte_Type())
+eipDNSGUARDIANViewStatRecvInvalidDNSByte.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRecvInvalidDNSByte.setStatus(_A)
+_EipDNSGUARDIANViewStatRecvInvalidClass_Type=Counter64
+_EipDNSGUARDIANViewStatRecvInvalidClass_Object=MibTableColumn
+eipDNSGUARDIANViewStatRecvInvalidClass=_EipDNSGUARDIANViewStatRecvInvalidClass_Object((1,3,6,1,4,1,2440,1,11,2,3,1,16),_EipDNSGUARDIANViewStatRecvInvalidClass_Type())
+eipDNSGUARDIANViewStatRecvInvalidClass.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRecvInvalidClass.setStatus(_A)
+_EipDNSGUARDIANViewStatRecvInvalidOverflow_Type=Counter64
+_EipDNSGUARDIANViewStatRecvInvalidOverflow_Object=MibTableColumn
+eipDNSGUARDIANViewStatRecvInvalidOverflow=_EipDNSGUARDIANViewStatRecvInvalidOverflow_Object((1,3,6,1,4,1,2440,1,11,2,3,1,17),_EipDNSGUARDIANViewStatRecvInvalidOverflow_Type())
+eipDNSGUARDIANViewStatRecvInvalidOverflow.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRecvInvalidOverflow.setStatus(_A)
+_EipDNSGUARDIANViewStatRecvInvalidEtherSource_Type=Counter64
+_EipDNSGUARDIANViewStatRecvInvalidEtherSource_Object=MibTableColumn
+eipDNSGUARDIANViewStatRecvInvalidEtherSource=_EipDNSGUARDIANViewStatRecvInvalidEtherSource_Object((1,3,6,1,4,1,2440,1,11,2,3,1,18),_EipDNSGUARDIANViewStatRecvInvalidEtherSource_Type())
+eipDNSGUARDIANViewStatRecvInvalidEtherSource.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRecvInvalidEtherSource.setStatus(_A)
+_EipDNSGUARDIANViewStatRecvInvalidUDPSource_Type=Counter64
+_EipDNSGUARDIANViewStatRecvInvalidUDPSource_Object=MibTableColumn
+eipDNSGUARDIANViewStatRecvInvalidUDPSource=_EipDNSGUARDIANViewStatRecvInvalidUDPSource_Object((1,3,6,1,4,1,2440,1,11,2,3,1,19),_EipDNSGUARDIANViewStatRecvInvalidUDPSource_Type())
+eipDNSGUARDIANViewStatRecvInvalidUDPSource.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRecvInvalidUDPSource.setStatus(_A)
+_EipDNSGUARDIANViewStatRecvInvalidIPSrcEqDst_Type=Counter64
+_EipDNSGUARDIANViewStatRecvInvalidIPSrcEqDst_Object=MibTableColumn
+eipDNSGUARDIANViewStatRecvInvalidIPSrcEqDst=_EipDNSGUARDIANViewStatRecvInvalidIPSrcEqDst_Object((1,3,6,1,4,1,2440,1,11,2,3,1,20),_EipDNSGUARDIANViewStatRecvInvalidIPSrcEqDst_Type())
+eipDNSGUARDIANViewStatRecvInvalidIPSrcEqDst.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRecvInvalidIPSrcEqDst.setStatus(_A)
+_EipDNSGUARDIANViewStatRecvInvalidQDCount_Type=Counter64
+_EipDNSGUARDIANViewStatRecvInvalidQDCount_Object=MibTableColumn
+eipDNSGUARDIANViewStatRecvInvalidQDCount=_EipDNSGUARDIANViewStatRecvInvalidQDCount_Object((1,3,6,1,4,1,2440,1,11,2,3,1,21),_EipDNSGUARDIANViewStatRecvInvalidQDCount_Type())
+eipDNSGUARDIANViewStatRecvInvalidQDCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRecvInvalidQDCount.setStatus(_A)
+_EipDNSGUARDIANViewStatRecvInvalidOPCode_Type=Counter64
+_EipDNSGUARDIANViewStatRecvInvalidOPCode_Object=MibTableColumn
+eipDNSGUARDIANViewStatRecvInvalidOPCode=_EipDNSGUARDIANViewStatRecvInvalidOPCode_Object((1,3,6,1,4,1,2440,1,11,2,3,1,22),_EipDNSGUARDIANViewStatRecvInvalidOPCode_Type())
+eipDNSGUARDIANViewStatRecvInvalidOPCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRecvInvalidOPCode.setStatus(_A)
+_EipDNSGUARDIANViewStatRecvSharedPacket_Type=Counter64
+_EipDNSGUARDIANViewStatRecvSharedPacket_Object=MibTableColumn
+eipDNSGUARDIANViewStatRecvSharedPacket=_EipDNSGUARDIANViewStatRecvSharedPacket_Object((1,3,6,1,4,1,2440,1,11,2,3,1,30),_EipDNSGUARDIANViewStatRecvSharedPacket_Type())
+eipDNSGUARDIANViewStatRecvSharedPacket.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRecvSharedPacket.setStatus(_A)
+_EipDNSGUARDIANViewStatRecvSharedByte_Type=Counter64
+_EipDNSGUARDIANViewStatRecvSharedByte_Object=MibTableColumn
+eipDNSGUARDIANViewStatRecvSharedByte=_EipDNSGUARDIANViewStatRecvSharedByte_Object((1,3,6,1,4,1,2440,1,11,2,3,1,31),_EipDNSGUARDIANViewStatRecvSharedByte_Type())
+eipDNSGUARDIANViewStatRecvSharedByte.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRecvSharedByte.setStatus(_A)
+_EipDNSGUARDIANViewStatSendSharedPacket_Type=Counter64
+_EipDNSGUARDIANViewStatSendSharedPacket_Object=MibTableColumn
+eipDNSGUARDIANViewStatSendSharedPacket=_EipDNSGUARDIANViewStatSendSharedPacket_Object((1,3,6,1,4,1,2440,1,11,2,3,1,32),_EipDNSGUARDIANViewStatSendSharedPacket_Type())
+eipDNSGUARDIANViewStatSendSharedPacket.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatSendSharedPacket.setStatus(_A)
+_EipDNSGUARDIANViewStatSendSharedByte_Type=Counter64
+_EipDNSGUARDIANViewStatSendSharedByte_Object=MibTableColumn
+eipDNSGUARDIANViewStatSendSharedByte=_EipDNSGUARDIANViewStatSendSharedByte_Object((1,3,6,1,4,1,2440,1,11,2,3,1,33),_EipDNSGUARDIANViewStatSendSharedByte_Type())
+eipDNSGUARDIANViewStatSendSharedByte.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatSendSharedByte.setStatus(_A)
+_EipDNSGUARDIANViewStatCacheMissQuarantine_Type=Counter64
+_EipDNSGUARDIANViewStatCacheMissQuarantine_Object=MibTableColumn
+eipDNSGUARDIANViewStatCacheMissQuarantine=_EipDNSGUARDIANViewStatCacheMissQuarantine_Object((1,3,6,1,4,1,2440,1,11,2,3,1,34),_EipDNSGUARDIANViewStatCacheMissQuarantine_Type())
+eipDNSGUARDIANViewStatCacheMissQuarantine.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatCacheMissQuarantine.setStatus(_A)
+_EipDNSGUARDIANViewStatCacheMissExistQuarantine_Type=Counter64
+_EipDNSGUARDIANViewStatCacheMissExistQuarantine_Object=MibTableColumn
+eipDNSGUARDIANViewStatCacheMissExistQuarantine=_EipDNSGUARDIANViewStatCacheMissExistQuarantine_Object((1,3,6,1,4,1,2440,1,11,2,3,1,35),_EipDNSGUARDIANViewStatCacheMissExistQuarantine_Type())
+eipDNSGUARDIANViewStatCacheMissExistQuarantine.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatCacheMissExistQuarantine.setStatus(_A)
+_EipDNSGUARDIANViewStatCacheMissNotExistQuarantine_Type=Counter64
+_EipDNSGUARDIANViewStatCacheMissNotExistQuarantine_Object=MibTableColumn
+eipDNSGUARDIANViewStatCacheMissNotExistQuarantine=_EipDNSGUARDIANViewStatCacheMissNotExistQuarantine_Object((1,3,6,1,4,1,2440,1,11,2,3,1,36),_EipDNSGUARDIANViewStatCacheMissNotExistQuarantine_Type())
+eipDNSGUARDIANViewStatCacheMissNotExistQuarantine.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatCacheMissNotExistQuarantine.setStatus(_A)
+_EipDNSGUARDIANViewStatCacheHitQuarantine_Type=Counter64
+_EipDNSGUARDIANViewStatCacheHitQuarantine_Object=MibTableColumn
+eipDNSGUARDIANViewStatCacheHitQuarantine=_EipDNSGUARDIANViewStatCacheHitQuarantine_Object((1,3,6,1,4,1,2440,1,11,2,3,1,37),_EipDNSGUARDIANViewStatCacheHitQuarantine_Type())
+eipDNSGUARDIANViewStatCacheHitQuarantine.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatCacheHitQuarantine.setStatus(_A)
+_EipDNSGUARDIANViewStatQuarantineSendDNSPacket_Type=Counter64
+_EipDNSGUARDIANViewStatQuarantineSendDNSPacket_Object=MibTableColumn
+eipDNSGUARDIANViewStatQuarantineSendDNSPacket=_EipDNSGUARDIANViewStatQuarantineSendDNSPacket_Object((1,3,6,1,4,1,2440,1,11,2,3,1,38),_EipDNSGUARDIANViewStatQuarantineSendDNSPacket_Type())
+eipDNSGUARDIANViewStatQuarantineSendDNSPacket.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatQuarantineSendDNSPacket.setStatus(_A)
+_EipDNSGUARDIANViewStatQuarantineSendDNSByte_Type=Counter64
+_EipDNSGUARDIANViewStatQuarantineSendDNSByte_Object=MibTableColumn
+eipDNSGUARDIANViewStatQuarantineSendDNSByte=_EipDNSGUARDIANViewStatQuarantineSendDNSByte_Object((1,3,6,1,4,1,2440,1,11,2,3,1,39),_EipDNSGUARDIANViewStatQuarantineSendDNSByte_Type())
+eipDNSGUARDIANViewStatQuarantineSendDNSByte.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatQuarantineSendDNSByte.setStatus(_A)
+_EipDNSGUARDIANViewStatCacheMissRescue_Type=Counter64
+_EipDNSGUARDIANViewStatCacheMissRescue_Object=MibTableColumn
+eipDNSGUARDIANViewStatCacheMissRescue=_EipDNSGUARDIANViewStatCacheMissRescue_Object((1,3,6,1,4,1,2440,1,11,2,3,1,40),_EipDNSGUARDIANViewStatCacheMissRescue_Type())
+eipDNSGUARDIANViewStatCacheMissRescue.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatCacheMissRescue.setStatus(_A)
+_EipDNSGUARDIANViewStatCacheMissExistRescue_Type=Counter64
+_EipDNSGUARDIANViewStatCacheMissExistRescue_Object=MibTableColumn
+eipDNSGUARDIANViewStatCacheMissExistRescue=_EipDNSGUARDIANViewStatCacheMissExistRescue_Object((1,3,6,1,4,1,2440,1,11,2,3,1,41),_EipDNSGUARDIANViewStatCacheMissExistRescue_Type())
+eipDNSGUARDIANViewStatCacheMissExistRescue.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatCacheMissExistRescue.setStatus(_A)
+_EipDNSGUARDIANViewStatCacheMissNotExistRescue_Type=Counter64
+_EipDNSGUARDIANViewStatCacheMissNotExistRescue_Object=MibTableColumn
+eipDNSGUARDIANViewStatCacheMissNotExistRescue=_EipDNSGUARDIANViewStatCacheMissNotExistRescue_Object((1,3,6,1,4,1,2440,1,11,2,3,1,42),_EipDNSGUARDIANViewStatCacheMissNotExistRescue_Type())
+eipDNSGUARDIANViewStatCacheMissNotExistRescue.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatCacheMissNotExistRescue.setStatus(_A)
+_EipDNSGUARDIANViewStatCacheHitRescue_Type=Counter64
+_EipDNSGUARDIANViewStatCacheHitRescue_Object=MibTableColumn
+eipDNSGUARDIANViewStatCacheHitRescue=_EipDNSGUARDIANViewStatCacheHitRescue_Object((1,3,6,1,4,1,2440,1,11,2,3,1,43),_EipDNSGUARDIANViewStatCacheHitRescue_Type())
+eipDNSGUARDIANViewStatCacheHitRescue.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatCacheHitRescue.setStatus(_A)
+_EipDNSGUARDIANViewStatBlockedQuery_Type=Counter64
+_EipDNSGUARDIANViewStatBlockedQuery_Object=MibTableColumn
+eipDNSGUARDIANViewStatBlockedQuery=_EipDNSGUARDIANViewStatBlockedQuery_Object((1,3,6,1,4,1,2440,1,11,2,3,1,44),_EipDNSGUARDIANViewStatBlockedQuery_Type())
+eipDNSGUARDIANViewStatBlockedQuery.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatBlockedQuery.setStatus(_A)
+_EipDNSGUARDIANViewStatRatelimitedQuery_Type=Counter64
+_EipDNSGUARDIANViewStatRatelimitedQuery_Object=MibTableColumn
+eipDNSGUARDIANViewStatRatelimitedQuery=_EipDNSGUARDIANViewStatRatelimitedQuery_Object((1,3,6,1,4,1,2440,1,11,2,3,1,47),_EipDNSGUARDIANViewStatRatelimitedQuery_Type())
+eipDNSGUARDIANViewStatRatelimitedQuery.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRatelimitedQuery.setStatus(_A)
+_EipDNSGUARDIANViewStatRTT10_Type=Counter64
+_EipDNSGUARDIANViewStatRTT10_Object=MibTableColumn
+eipDNSGUARDIANViewStatRTT10=_EipDNSGUARDIANViewStatRTT10_Object((1,3,6,1,4,1,2440,1,11,2,3,1,48),_EipDNSGUARDIANViewStatRTT10_Type())
+eipDNSGUARDIANViewStatRTT10.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRTT10.setStatus(_A)
+_EipDNSGUARDIANViewStatRTT100_Type=Counter64
+_EipDNSGUARDIANViewStatRTT100_Object=MibTableColumn
+eipDNSGUARDIANViewStatRTT100=_EipDNSGUARDIANViewStatRTT100_Object((1,3,6,1,4,1,2440,1,11,2,3,1,49),_EipDNSGUARDIANViewStatRTT100_Type())
+eipDNSGUARDIANViewStatRTT100.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRTT100.setStatus(_A)
+_EipDNSGUARDIANViewStatRTT500_Type=Counter64
+_EipDNSGUARDIANViewStatRTT500_Object=MibTableColumn
+eipDNSGUARDIANViewStatRTT500=_EipDNSGUARDIANViewStatRTT500_Object((1,3,6,1,4,1,2440,1,11,2,3,1,50),_EipDNSGUARDIANViewStatRTT500_Type())
+eipDNSGUARDIANViewStatRTT500.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRTT500.setStatus(_A)
+_EipDNSGUARDIANViewStatRTT800_Type=Counter64
+_EipDNSGUARDIANViewStatRTT800_Object=MibTableColumn
+eipDNSGUARDIANViewStatRTT800=_EipDNSGUARDIANViewStatRTT800_Object((1,3,6,1,4,1,2440,1,11,2,3,1,51),_EipDNSGUARDIANViewStatRTT800_Type())
+eipDNSGUARDIANViewStatRTT800.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRTT800.setStatus(_A)
+_EipDNSGUARDIANViewStatRTT1600_Type=Counter64
+_EipDNSGUARDIANViewStatRTT1600_Object=MibTableColumn
+eipDNSGUARDIANViewStatRTT1600=_EipDNSGUARDIANViewStatRTT1600_Object((1,3,6,1,4,1,2440,1,11,2,3,1,52),_EipDNSGUARDIANViewStatRTT1600_Type())
+eipDNSGUARDIANViewStatRTT1600.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRTT1600.setStatus(_A)
+_EipDNSGUARDIANViewStatRTTMax_Type=Counter64
+_EipDNSGUARDIANViewStatRTTMax_Object=MibTableColumn
+eipDNSGUARDIANViewStatRTTMax=_EipDNSGUARDIANViewStatRTTMax_Object((1,3,6,1,4,1,2440,1,11,2,3,1,53),_EipDNSGUARDIANViewStatRTTMax_Type())
+eipDNSGUARDIANViewStatRTTMax.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatRTTMax.setStatus(_A)
+_EipDNSGUARDIANViewStatCacheMissQuarantineRedirect_Type=Counter64
+_EipDNSGUARDIANViewStatCacheMissQuarantineRedirect_Object=MibTableColumn
+eipDNSGUARDIANViewStatCacheMissQuarantineRedirect=_EipDNSGUARDIANViewStatCacheMissQuarantineRedirect_Object((1,3,6,1,4,1,2440,1,11,2,3,1,54),_EipDNSGUARDIANViewStatCacheMissQuarantineRedirect_Type())
+eipDNSGUARDIANViewStatCacheMissQuarantineRedirect.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatCacheMissQuarantineRedirect.setStatus(_A)
+_EipDNSGUARDIANViewStatQuarantineRedirectSendDNSPacket_Type=Counter64
+_EipDNSGUARDIANViewStatQuarantineRedirectSendDNSPacket_Object=MibTableColumn
+eipDNSGUARDIANViewStatQuarantineRedirectSendDNSPacket=_EipDNSGUARDIANViewStatQuarantineRedirectSendDNSPacket_Object((1,3,6,1,4,1,2440,1,11,2,3,1,55),_EipDNSGUARDIANViewStatQuarantineRedirectSendDNSPacket_Type())
+eipDNSGUARDIANViewStatQuarantineRedirectSendDNSPacket.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatQuarantineRedirectSendDNSPacket.setStatus(_A)
+_EipDNSGUARDIANViewStatQuarantineRedirectSendDNSByte_Type=Counter64
+_EipDNSGUARDIANViewStatQuarantineRedirectSendDNSByte_Object=MibTableColumn
+eipDNSGUARDIANViewStatQuarantineRedirectSendDNSByte=_EipDNSGUARDIANViewStatQuarantineRedirectSendDNSByte_Object((1,3,6,1,4,1,2440,1,11,2,3,1,56),_EipDNSGUARDIANViewStatQuarantineRedirectSendDNSByte_Type())
+eipDNSGUARDIANViewStatQuarantineRedirectSendDNSByte.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANViewStatQuarantineRedirectSendDNSByte.setStatus(_A)
+_EipDNSGUARDIANGlobalStat_ObjectIdentity=ObjectIdentity
+eipDNSGUARDIANGlobalStat=_EipDNSGUARDIANGlobalStat_ObjectIdentity((1,3,6,1,4,1,2440,1,11,2,4))
+_EipDNSGUARDIANStatCacheHit_Type=Counter64
+_EipDNSGUARDIANStatCacheHit_Object=MibScalar
+eipDNSGUARDIANStatCacheHit=_EipDNSGUARDIANStatCacheHit_Object((1,3,6,1,4,1,2440,1,11,2,4,3),_EipDNSGUARDIANStatCacheHit_Type())
+eipDNSGUARDIANStatCacheHit.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatCacheHit.setStatus(_A)
+_EipDNSGUARDIANStatCacheMiss_Type=Counter64
+_EipDNSGUARDIANStatCacheMiss_Object=MibScalar
+eipDNSGUARDIANStatCacheMiss=_EipDNSGUARDIANStatCacheMiss_Object((1,3,6,1,4,1,2440,1,11,2,4,4),_EipDNSGUARDIANStatCacheMiss_Type())
+eipDNSGUARDIANStatCacheMiss.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatCacheMiss.setStatus(_A)
+_EipDNSGUARDIANStatCacheSize_Type=Gauge32
+_EipDNSGUARDIANStatCacheSize_Object=MibScalar
+eipDNSGUARDIANStatCacheSize=_EipDNSGUARDIANStatCacheSize_Object((1,3,6,1,4,1,2440,1,11,2,4,5),_EipDNSGUARDIANStatCacheSize_Type())
+eipDNSGUARDIANStatCacheSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatCacheSize.setStatus(_A)
+_EipDNSGUARDIANStatSendDNSPacket_Type=Counter64
+_EipDNSGUARDIANStatSendDNSPacket_Object=MibScalar
+eipDNSGUARDIANStatSendDNSPacket=_EipDNSGUARDIANStatSendDNSPacket_Object((1,3,6,1,4,1,2440,1,11,2,4,6),_EipDNSGUARDIANStatSendDNSPacket_Type())
+eipDNSGUARDIANStatSendDNSPacket.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatSendDNSPacket.setStatus(_A)
+_EipDNSGUARDIANStatSendDNSByte_Type=Counter64
+_EipDNSGUARDIANStatSendDNSByte_Object=MibScalar
+eipDNSGUARDIANStatSendDNSByte=_EipDNSGUARDIANStatSendDNSByte_Object((1,3,6,1,4,1,2440,1,11,2,4,7),_EipDNSGUARDIANStatSendDNSByte_Type())
+eipDNSGUARDIANStatSendDNSByte.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatSendDNSByte.setStatus(_A)
+_EipDNSGUARDIANStatRecvDNSPacket_Type=Counter64
+_EipDNSGUARDIANStatRecvDNSPacket_Object=MibScalar
+eipDNSGUARDIANStatRecvDNSPacket=_EipDNSGUARDIANStatRecvDNSPacket_Object((1,3,6,1,4,1,2440,1,11,2,4,8),_EipDNSGUARDIANStatRecvDNSPacket_Type())
+eipDNSGUARDIANStatRecvDNSPacket.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRecvDNSPacket.setStatus(_A)
+_EipDNSGUARDIANStatRecvDNSByte_Type=Counter64
+_EipDNSGUARDIANStatRecvDNSByte_Object=MibScalar
+eipDNSGUARDIANStatRecvDNSByte=_EipDNSGUARDIANStatRecvDNSByte_Object((1,3,6,1,4,1,2440,1,11,2,4,9),_EipDNSGUARDIANStatRecvDNSByte_Type())
+eipDNSGUARDIANStatRecvDNSByte.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRecvDNSByte.setStatus(_A)
+_EipDNSGUARDIANStatCacheMissExist_Type=Counter64
+_EipDNSGUARDIANStatCacheMissExist_Object=MibScalar
+eipDNSGUARDIANStatCacheMissExist=_EipDNSGUARDIANStatCacheMissExist_Object((1,3,6,1,4,1,2440,1,11,2,4,10),_EipDNSGUARDIANStatCacheMissExist_Type())
+eipDNSGUARDIANStatCacheMissExist.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatCacheMissExist.setStatus(_A)
+_EipDNSGUARDIANStatCacheMissNotExist_Type=Counter64
+_EipDNSGUARDIANStatCacheMissNotExist_Object=MibScalar
+eipDNSGUARDIANStatCacheMissNotExist=_EipDNSGUARDIANStatCacheMissNotExist_Object((1,3,6,1,4,1,2440,1,11,2,4,11),_EipDNSGUARDIANStatCacheMissNotExist_Type())
+eipDNSGUARDIANStatCacheMissNotExist.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatCacheMissNotExist.setStatus(_A)
+_EipDNSGUARDIANStatSendRescueDNSPacket_Type=Counter64
+_EipDNSGUARDIANStatSendRescueDNSPacket_Object=MibScalar
+eipDNSGUARDIANStatSendRescueDNSPacket=_EipDNSGUARDIANStatSendRescueDNSPacket_Object((1,3,6,1,4,1,2440,1,11,2,4,12),_EipDNSGUARDIANStatSendRescueDNSPacket_Type())
+eipDNSGUARDIANStatSendRescueDNSPacket.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatSendRescueDNSPacket.setStatus(_A)
+_EipDNSGUARDIANStatSendRescueDNSByte_Type=Counter64
+_EipDNSGUARDIANStatSendRescueDNSByte_Object=MibScalar
+eipDNSGUARDIANStatSendRescueDNSByte=_EipDNSGUARDIANStatSendRescueDNSByte_Object((1,3,6,1,4,1,2440,1,11,2,4,13),_EipDNSGUARDIANStatSendRescueDNSByte_Type())
+eipDNSGUARDIANStatSendRescueDNSByte.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatSendRescueDNSByte.setStatus(_A)
+_EipDNSGUARDIANStatRecvInvalidDNSPacket_Type=Counter64
+_EipDNSGUARDIANStatRecvInvalidDNSPacket_Object=MibScalar
+eipDNSGUARDIANStatRecvInvalidDNSPacket=_EipDNSGUARDIANStatRecvInvalidDNSPacket_Object((1,3,6,1,4,1,2440,1,11,2,4,14),_EipDNSGUARDIANStatRecvInvalidDNSPacket_Type())
+eipDNSGUARDIANStatRecvInvalidDNSPacket.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRecvInvalidDNSPacket.setStatus(_A)
+_EipDNSGUARDIANStatRecvInvalidDNSByte_Type=Counter64
+_EipDNSGUARDIANStatRecvInvalidDNSByte_Object=MibScalar
+eipDNSGUARDIANStatRecvInvalidDNSByte=_EipDNSGUARDIANStatRecvInvalidDNSByte_Object((1,3,6,1,4,1,2440,1,11,2,4,15),_EipDNSGUARDIANStatRecvInvalidDNSByte_Type())
+eipDNSGUARDIANStatRecvInvalidDNSByte.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRecvInvalidDNSByte.setStatus(_A)
+_EipDNSGUARDIANStatRecvInvalidClass_Type=Counter64
+_EipDNSGUARDIANStatRecvInvalidClass_Object=MibScalar
+eipDNSGUARDIANStatRecvInvalidClass=_EipDNSGUARDIANStatRecvInvalidClass_Object((1,3,6,1,4,1,2440,1,11,2,4,16),_EipDNSGUARDIANStatRecvInvalidClass_Type())
+eipDNSGUARDIANStatRecvInvalidClass.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRecvInvalidClass.setStatus(_A)
+_EipDNSGUARDIANStatRecvInvalidOverflow_Type=Counter64
+_EipDNSGUARDIANStatRecvInvalidOverflow_Object=MibScalar
+eipDNSGUARDIANStatRecvInvalidOverflow=_EipDNSGUARDIANStatRecvInvalidOverflow_Object((1,3,6,1,4,1,2440,1,11,2,4,17),_EipDNSGUARDIANStatRecvInvalidOverflow_Type())
+eipDNSGUARDIANStatRecvInvalidOverflow.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRecvInvalidOverflow.setStatus(_A)
+_EipDNSGUARDIANStatRecvInvalidEtherSource_Type=Counter64
+_EipDNSGUARDIANStatRecvInvalidEtherSource_Object=MibScalar
+eipDNSGUARDIANStatRecvInvalidEtherSource=_EipDNSGUARDIANStatRecvInvalidEtherSource_Object((1,3,6,1,4,1,2440,1,11,2,4,18),_EipDNSGUARDIANStatRecvInvalidEtherSource_Type())
+eipDNSGUARDIANStatRecvInvalidEtherSource.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRecvInvalidEtherSource.setStatus(_A)
+_EipDNSGUARDIANStatRecvInvalidUDPSource_Type=Counter64
+_EipDNSGUARDIANStatRecvInvalidUDPSource_Object=MibScalar
+eipDNSGUARDIANStatRecvInvalidUDPSource=_EipDNSGUARDIANStatRecvInvalidUDPSource_Object((1,3,6,1,4,1,2440,1,11,2,4,19),_EipDNSGUARDIANStatRecvInvalidUDPSource_Type())
+eipDNSGUARDIANStatRecvInvalidUDPSource.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRecvInvalidUDPSource.setStatus(_A)
+_EipDNSGUARDIANStatRecvInvalidIPSrcEqDst_Type=Counter64
+_EipDNSGUARDIANStatRecvInvalidIPSrcEqDst_Object=MibScalar
+eipDNSGUARDIANStatRecvInvalidIPSrcEqDst=_EipDNSGUARDIANStatRecvInvalidIPSrcEqDst_Object((1,3,6,1,4,1,2440,1,11,2,4,20),_EipDNSGUARDIANStatRecvInvalidIPSrcEqDst_Type())
+eipDNSGUARDIANStatRecvInvalidIPSrcEqDst.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRecvInvalidIPSrcEqDst.setStatus(_A)
+_EipDNSGUARDIANStatRecvInvalidQDCount_Type=Counter64
+_EipDNSGUARDIANStatRecvInvalidQDCount_Object=MibScalar
+eipDNSGUARDIANStatRecvInvalidQDCount=_EipDNSGUARDIANStatRecvInvalidQDCount_Object((1,3,6,1,4,1,2440,1,11,2,4,21),_EipDNSGUARDIANStatRecvInvalidQDCount_Type())
+eipDNSGUARDIANStatRecvInvalidQDCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRecvInvalidQDCount.setStatus(_A)
+_EipDNSGUARDIANStatRecvInvalidOPCode_Type=Counter64
+_EipDNSGUARDIANStatRecvInvalidOPCode_Object=MibScalar
+eipDNSGUARDIANStatRecvInvalidOPCode=_EipDNSGUARDIANStatRecvInvalidOPCode_Object((1,3,6,1,4,1,2440,1,11,2,4,22),_EipDNSGUARDIANStatRecvInvalidOPCode_Type())
+eipDNSGUARDIANStatRecvInvalidOPCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRecvInvalidOPCode.setStatus(_A)
+_EipDNSGUARDIANStatRecvSharedPacket_Type=Counter64
+_EipDNSGUARDIANStatRecvSharedPacket_Object=MibScalar
+eipDNSGUARDIANStatRecvSharedPacket=_EipDNSGUARDIANStatRecvSharedPacket_Object((1,3,6,1,4,1,2440,1,11,2,4,30),_EipDNSGUARDIANStatRecvSharedPacket_Type())
+eipDNSGUARDIANStatRecvSharedPacket.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRecvSharedPacket.setStatus(_A)
+_EipDNSGUARDIANStatRecvSharedByte_Type=Counter64
+_EipDNSGUARDIANStatRecvSharedByte_Object=MibScalar
+eipDNSGUARDIANStatRecvSharedByte=_EipDNSGUARDIANStatRecvSharedByte_Object((1,3,6,1,4,1,2440,1,11,2,4,31),_EipDNSGUARDIANStatRecvSharedByte_Type())
+eipDNSGUARDIANStatRecvSharedByte.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRecvSharedByte.setStatus(_A)
+_EipDNSGUARDIANStatSendSharedPacket_Type=Counter64
+_EipDNSGUARDIANStatSendSharedPacket_Object=MibScalar
+eipDNSGUARDIANStatSendSharedPacket=_EipDNSGUARDIANStatSendSharedPacket_Object((1,3,6,1,4,1,2440,1,11,2,4,32),_EipDNSGUARDIANStatSendSharedPacket_Type())
+eipDNSGUARDIANStatSendSharedPacket.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatSendSharedPacket.setStatus(_A)
+_EipDNSGUARDIANStatSendSharedByte_Type=Counter64
+_EipDNSGUARDIANStatSendSharedByte_Object=MibScalar
+eipDNSGUARDIANStatSendSharedByte=_EipDNSGUARDIANStatSendSharedByte_Object((1,3,6,1,4,1,2440,1,11,2,4,33),_EipDNSGUARDIANStatSendSharedByte_Type())
+eipDNSGUARDIANStatSendSharedByte.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatSendSharedByte.setStatus(_A)
+_EipDNSGUARDIANStatCacheMissQuarantine_Type=Counter64
+_EipDNSGUARDIANStatCacheMissQuarantine_Object=MibScalar
+eipDNSGUARDIANStatCacheMissQuarantine=_EipDNSGUARDIANStatCacheMissQuarantine_Object((1,3,6,1,4,1,2440,1,11,2,4,34),_EipDNSGUARDIANStatCacheMissQuarantine_Type())
+eipDNSGUARDIANStatCacheMissQuarantine.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatCacheMissQuarantine.setStatus(_A)
+_EipDNSGUARDIANStatCacheMissExistQuarantine_Type=Counter64
+_EipDNSGUARDIANStatCacheMissExistQuarantine_Object=MibScalar
+eipDNSGUARDIANStatCacheMissExistQuarantine=_EipDNSGUARDIANStatCacheMissExistQuarantine_Object((1,3,6,1,4,1,2440,1,11,2,4,35),_EipDNSGUARDIANStatCacheMissExistQuarantine_Type())
+eipDNSGUARDIANStatCacheMissExistQuarantine.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatCacheMissExistQuarantine.setStatus(_A)
+_EipDNSGUARDIANStatCacheMissNotExistQuarantine_Type=Counter64
+_EipDNSGUARDIANStatCacheMissNotExistQuarantine_Object=MibScalar
+eipDNSGUARDIANStatCacheMissNotExistQuarantine=_EipDNSGUARDIANStatCacheMissNotExistQuarantine_Object((1,3,6,1,4,1,2440,1,11,2,4,36),_EipDNSGUARDIANStatCacheMissNotExistQuarantine_Type())
+eipDNSGUARDIANStatCacheMissNotExistQuarantine.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatCacheMissNotExistQuarantine.setStatus(_A)
+_EipDNSGUARDIANStatCacheHitQuarantine_Type=Counter64
+_EipDNSGUARDIANStatCacheHitQuarantine_Object=MibScalar
+eipDNSGUARDIANStatCacheHitQuarantine=_EipDNSGUARDIANStatCacheHitQuarantine_Object((1,3,6,1,4,1,2440,1,11,2,4,37),_EipDNSGUARDIANStatCacheHitQuarantine_Type())
+eipDNSGUARDIANStatCacheHitQuarantine.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatCacheHitQuarantine.setStatus(_A)
+_EipDNSGUARDIANStatQuarantineSendDNSPacket_Type=Counter64
+_EipDNSGUARDIANStatQuarantineSendDNSPacket_Object=MibScalar
+eipDNSGUARDIANStatQuarantineSendDNSPacket=_EipDNSGUARDIANStatQuarantineSendDNSPacket_Object((1,3,6,1,4,1,2440,1,11,2,4,38),_EipDNSGUARDIANStatQuarantineSendDNSPacket_Type())
+eipDNSGUARDIANStatQuarantineSendDNSPacket.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatQuarantineSendDNSPacket.setStatus(_A)
+_EipDNSGUARDIANStatQuarantineSendDNSByte_Type=Counter64
+_EipDNSGUARDIANStatQuarantineSendDNSByte_Object=MibScalar
+eipDNSGUARDIANStatQuarantineSendDNSByte=_EipDNSGUARDIANStatQuarantineSendDNSByte_Object((1,3,6,1,4,1,2440,1,11,2,4,39),_EipDNSGUARDIANStatQuarantineSendDNSByte_Type())
+eipDNSGUARDIANStatQuarantineSendDNSByte.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatQuarantineSendDNSByte.setStatus(_A)
+_EipDNSGUARDIANStatCacheMissRescue_Type=Counter64
+_EipDNSGUARDIANStatCacheMissRescue_Object=MibScalar
+eipDNSGUARDIANStatCacheMissRescue=_EipDNSGUARDIANStatCacheMissRescue_Object((1,3,6,1,4,1,2440,1,11,2,4,40),_EipDNSGUARDIANStatCacheMissRescue_Type())
+eipDNSGUARDIANStatCacheMissRescue.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatCacheMissRescue.setStatus(_A)
+_EipDNSGUARDIANStatCacheMissExistRescue_Type=Counter64
+_EipDNSGUARDIANStatCacheMissExistRescue_Object=MibScalar
+eipDNSGUARDIANStatCacheMissExistRescue=_EipDNSGUARDIANStatCacheMissExistRescue_Object((1,3,6,1,4,1,2440,1,11,2,4,41),_EipDNSGUARDIANStatCacheMissExistRescue_Type())
+eipDNSGUARDIANStatCacheMissExistRescue.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatCacheMissExistRescue.setStatus(_A)
+_EipDNSGUARDIANStatCacheMissNotExistRescue_Type=Counter64
+_EipDNSGUARDIANStatCacheMissNotExistRescue_Object=MibScalar
+eipDNSGUARDIANStatCacheMissNotExistRescue=_EipDNSGUARDIANStatCacheMissNotExistRescue_Object((1,3,6,1,4,1,2440,1,11,2,4,42),_EipDNSGUARDIANStatCacheMissNotExistRescue_Type())
+eipDNSGUARDIANStatCacheMissNotExistRescue.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatCacheMissNotExistRescue.setStatus(_A)
+_EipDNSGUARDIANStatCacheHitRescue_Type=Counter64
+_EipDNSGUARDIANStatCacheHitRescue_Object=MibScalar
+eipDNSGUARDIANStatCacheHitRescue=_EipDNSGUARDIANStatCacheHitRescue_Object((1,3,6,1,4,1,2440,1,11,2,4,43),_EipDNSGUARDIANStatCacheHitRescue_Type())
+eipDNSGUARDIANStatCacheHitRescue.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatCacheHitRescue.setStatus(_A)
+_EipDNSGUARDIANStatBlockedQuery_Type=Counter64
+_EipDNSGUARDIANStatBlockedQuery_Object=MibScalar
+eipDNSGUARDIANStatBlockedQuery=_EipDNSGUARDIANStatBlockedQuery_Object((1,3,6,1,4,1,2440,1,11,2,4,44),_EipDNSGUARDIANStatBlockedQuery_Type())
+eipDNSGUARDIANStatBlockedQuery.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatBlockedQuery.setStatus(_A)
+_EipDNSGUARDIANStatClientsSize_Type=Gauge32
+_EipDNSGUARDIANStatClientsSize_Object=MibScalar
+eipDNSGUARDIANStatClientsSize=_EipDNSGUARDIANStatClientsSize_Object((1,3,6,1,4,1,2440,1,11,2,4,45),_EipDNSGUARDIANStatClientsSize_Type())
+eipDNSGUARDIANStatClientsSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatClientsSize.setStatus(_A)
+_EipDNSGUARDIANStatClientsUpdated_Type=Counter64
+_EipDNSGUARDIANStatClientsUpdated_Object=MibScalar
+eipDNSGUARDIANStatClientsUpdated=_EipDNSGUARDIANStatClientsUpdated_Object((1,3,6,1,4,1,2440,1,11,2,4,46),_EipDNSGUARDIANStatClientsUpdated_Type())
+eipDNSGUARDIANStatClientsUpdated.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatClientsUpdated.setStatus(_A)
+_EipDNSGUARDIANStatRatelimitedQuery_Type=Counter64
+_EipDNSGUARDIANStatRatelimitedQuery_Object=MibScalar
+eipDNSGUARDIANStatRatelimitedQuery=_EipDNSGUARDIANStatRatelimitedQuery_Object((1,3,6,1,4,1,2440,1,11,2,4,47),_EipDNSGUARDIANStatRatelimitedQuery_Type())
+eipDNSGUARDIANStatRatelimitedQuery.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRatelimitedQuery.setStatus(_A)
+_EipDNSGUARDIANStatRTT10_Type=Counter64
+_EipDNSGUARDIANStatRTT10_Object=MibScalar
+eipDNSGUARDIANStatRTT10=_EipDNSGUARDIANStatRTT10_Object((1,3,6,1,4,1,2440,1,11,2,4,48),_EipDNSGUARDIANStatRTT10_Type())
+eipDNSGUARDIANStatRTT10.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRTT10.setStatus(_A)
+_EipDNSGUARDIANStatRTT100_Type=Counter64
+_EipDNSGUARDIANStatRTT100_Object=MibScalar
+eipDNSGUARDIANStatRTT100=_EipDNSGUARDIANStatRTT100_Object((1,3,6,1,4,1,2440,1,11,2,4,49),_EipDNSGUARDIANStatRTT100_Type())
+eipDNSGUARDIANStatRTT100.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRTT100.setStatus(_A)
+_EipDNSGUARDIANStatRTT500_Type=Counter64
+_EipDNSGUARDIANStatRTT500_Object=MibScalar
+eipDNSGUARDIANStatRTT500=_EipDNSGUARDIANStatRTT500_Object((1,3,6,1,4,1,2440,1,11,2,4,50),_EipDNSGUARDIANStatRTT500_Type())
+eipDNSGUARDIANStatRTT500.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRTT500.setStatus(_A)
+_EipDNSGUARDIANStatRTT800_Type=Counter64
+_EipDNSGUARDIANStatRTT800_Object=MibScalar
+eipDNSGUARDIANStatRTT800=_EipDNSGUARDIANStatRTT800_Object((1,3,6,1,4,1,2440,1,11,2,4,51),_EipDNSGUARDIANStatRTT800_Type())
+eipDNSGUARDIANStatRTT800.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRTT800.setStatus(_A)
+_EipDNSGUARDIANStatRTT1600_Type=Counter64
+_EipDNSGUARDIANStatRTT1600_Object=MibScalar
+eipDNSGUARDIANStatRTT1600=_EipDNSGUARDIANStatRTT1600_Object((1,3,6,1,4,1,2440,1,11,2,4,52),_EipDNSGUARDIANStatRTT1600_Type())
+eipDNSGUARDIANStatRTT1600.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRTT1600.setStatus(_A)
+_EipDNSGUARDIANStatRTTMax_Type=Counter64
+_EipDNSGUARDIANStatRTTMax_Object=MibScalar
+eipDNSGUARDIANStatRTTMax=_EipDNSGUARDIANStatRTTMax_Object((1,3,6,1,4,1,2440,1,11,2,4,53),_EipDNSGUARDIANStatRTTMax_Type())
+eipDNSGUARDIANStatRTTMax.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatRTTMax.setStatus(_A)
+_EipDNSGUARDIANStatCacheMissQuarantineRedirect_Type=Counter64
+_EipDNSGUARDIANStatCacheMissQuarantineRedirect_Object=MibScalar
+eipDNSGUARDIANStatCacheMissQuarantineRedirect=_EipDNSGUARDIANStatCacheMissQuarantineRedirect_Object((1,3,6,1,4,1,2440,1,11,2,4,54),_EipDNSGUARDIANStatCacheMissQuarantineRedirect_Type())
+eipDNSGUARDIANStatCacheMissQuarantineRedirect.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatCacheMissQuarantineRedirect.setStatus(_A)
+_EipDNSGUARDIANStatQuarantineRedirectSendDNSPacket_Type=Counter64
+_EipDNSGUARDIANStatQuarantineRedirectSendDNSPacket_Object=MibScalar
+eipDNSGUARDIANStatQuarantineRedirectSendDNSPacket=_EipDNSGUARDIANStatQuarantineRedirectSendDNSPacket_Object((1,3,6,1,4,1,2440,1,11,2,4,55),_EipDNSGUARDIANStatQuarantineRedirectSendDNSPacket_Type())
+eipDNSGUARDIANStatQuarantineRedirectSendDNSPacket.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatQuarantineRedirectSendDNSPacket.setStatus(_A)
+_EipDNSGUARDIANStatQuarantineRedirectSendDNSByte_Type=Counter64
+_EipDNSGUARDIANStatQuarantineRedirectSendDNSByte_Object=MibScalar
+eipDNSGUARDIANStatQuarantineRedirectSendDNSByte=_EipDNSGUARDIANStatQuarantineRedirectSendDNSByte_Object((1,3,6,1,4,1,2440,1,11,2,4,56),_EipDNSGUARDIANStatQuarantineRedirectSendDNSByte_Type())
+eipDNSGUARDIANStatQuarantineRedirectSendDNSByte.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatQuarantineRedirectSendDNSByte.setStatus(_A)
+_EipDNSGUARDIANStatReplyNOERROR_Type=Counter64
+_EipDNSGUARDIANStatReplyNOERROR_Object=MibScalar
+eipDNSGUARDIANStatReplyNOERROR=_EipDNSGUARDIANStatReplyNOERROR_Object((1,3,6,1,4,1,2440,1,11,2,4,101),_EipDNSGUARDIANStatReplyNOERROR_Type())
+eipDNSGUARDIANStatReplyNOERROR.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatReplyNOERROR.setStatus(_A)
+_EipDNSGUARDIANStatReplyFORMERR_Type=Counter64
+_EipDNSGUARDIANStatReplyFORMERR_Object=MibScalar
+eipDNSGUARDIANStatReplyFORMERR=_EipDNSGUARDIANStatReplyFORMERR_Object((1,3,6,1,4,1,2440,1,11,2,4,102),_EipDNSGUARDIANStatReplyFORMERR_Type())
+eipDNSGUARDIANStatReplyFORMERR.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatReplyFORMERR.setStatus(_A)
+_EipDNSGUARDIANStatReplySERVFAIL_Type=Counter64
+_EipDNSGUARDIANStatReplySERVFAIL_Object=MibScalar
+eipDNSGUARDIANStatReplySERVFAIL=_EipDNSGUARDIANStatReplySERVFAIL_Object((1,3,6,1,4,1,2440,1,11,2,4,103),_EipDNSGUARDIANStatReplySERVFAIL_Type())
+eipDNSGUARDIANStatReplySERVFAIL.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatReplySERVFAIL.setStatus(_A)
+_EipDNSGUARDIANStatReplyNXDOMAIN_Type=Counter64
+_EipDNSGUARDIANStatReplyNXDOMAIN_Object=MibScalar
+eipDNSGUARDIANStatReplyNXDOMAIN=_EipDNSGUARDIANStatReplyNXDOMAIN_Object((1,3,6,1,4,1,2440,1,11,2,4,104),_EipDNSGUARDIANStatReplyNXDOMAIN_Type())
+eipDNSGUARDIANStatReplyNXDOMAIN.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatReplyNXDOMAIN.setStatus(_A)
+_EipDNSGUARDIANStatReplyNOTIMP_Type=Counter64
+_EipDNSGUARDIANStatReplyNOTIMP_Object=MibScalar
+eipDNSGUARDIANStatReplyNOTIMP=_EipDNSGUARDIANStatReplyNOTIMP_Object((1,3,6,1,4,1,2440,1,11,2,4,105),_EipDNSGUARDIANStatReplyNOTIMP_Type())
+eipDNSGUARDIANStatReplyNOTIMP.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatReplyNOTIMP.setStatus(_A)
+_EipDNSGUARDIANStatReplyREFUSED_Type=Counter64
+_EipDNSGUARDIANStatReplyREFUSED_Object=MibScalar
+eipDNSGUARDIANStatReplyREFUSED=_EipDNSGUARDIANStatReplyREFUSED_Object((1,3,6,1,4,1,2440,1,11,2,4,106),_EipDNSGUARDIANStatReplyREFUSED_Type())
+eipDNSGUARDIANStatReplyREFUSED.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatReplyREFUSED.setStatus(_A)
+_EipDNSGUARDIANStatReplyYXDOMAIN_Type=Counter64
+_EipDNSGUARDIANStatReplyYXDOMAIN_Object=MibScalar
+eipDNSGUARDIANStatReplyYXDOMAIN=_EipDNSGUARDIANStatReplyYXDOMAIN_Object((1,3,6,1,4,1,2440,1,11,2,4,107),_EipDNSGUARDIANStatReplyYXDOMAIN_Type())
+eipDNSGUARDIANStatReplyYXDOMAIN.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatReplyYXDOMAIN.setStatus(_A)
+_EipDNSGUARDIANStatReplyYXRRSET_Type=Counter64
+_EipDNSGUARDIANStatReplyYXRRSET_Object=MibScalar
+eipDNSGUARDIANStatReplyYXRRSET=_EipDNSGUARDIANStatReplyYXRRSET_Object((1,3,6,1,4,1,2440,1,11,2,4,108),_EipDNSGUARDIANStatReplyYXRRSET_Type())
+eipDNSGUARDIANStatReplyYXRRSET.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatReplyYXRRSET.setStatus(_A)
+_EipDNSGUARDIANStatReplyNXRRSET_Type=Counter64
+_EipDNSGUARDIANStatReplyNXRRSET_Object=MibScalar
+eipDNSGUARDIANStatReplyNXRRSET=_EipDNSGUARDIANStatReplyNXRRSET_Object((1,3,6,1,4,1,2440,1,11,2,4,109),_EipDNSGUARDIANStatReplyNXRRSET_Type())
+eipDNSGUARDIANStatReplyNXRRSET.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatReplyNXRRSET.setStatus(_A)
+_EipDNSGUARDIANStatReplyNOTAUTH_Type=Counter64
+_EipDNSGUARDIANStatReplyNOTAUTH_Object=MibScalar
+eipDNSGUARDIANStatReplyNOTAUTH=_EipDNSGUARDIANStatReplyNOTAUTH_Object((1,3,6,1,4,1,2440,1,11,2,4,120),_EipDNSGUARDIANStatReplyNOTAUTH_Type())
+eipDNSGUARDIANStatReplyNOTAUTH.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatReplyNOTAUTH.setStatus(_A)
+_EipDNSGUARDIANStatReplyNOTZONE_Type=Counter64
+_EipDNSGUARDIANStatReplyNOTZONE_Object=MibScalar
+eipDNSGUARDIANStatReplyNOTZONE=_EipDNSGUARDIANStatReplyNOTZONE_Object((1,3,6,1,4,1,2440,1,11,2,4,121),_EipDNSGUARDIANStatReplyNOTZONE_Type())
+eipDNSGUARDIANStatReplyNOTZONE.setMaxAccess(_B)
+if mibBuilder.loadTexts:eipDNSGUARDIANStatReplyNOTZONE.setStatus(_A)
+mibBuilder.exportSymbols(_D,**{'eip':eip,'products':products,'eipDNSGUARDIAN':eipDNSGUARDIAN,'eipDNSGUARDIANStat':eipDNSGUARDIANStat,'eipDNSGUARDIANViewStatTable':eipDNSGUARDIANViewStatTable,'eipDNSGUARDIANViewStatEntry':eipDNSGUARDIANViewStatEntry,_E:eipDNSGUARDIANViewStatViewID,'eipDNSGUARDIANViewStatViewName':eipDNSGUARDIANViewStatViewName,'eipDNSGUARDIANViewStatCacheHit':eipDNSGUARDIANViewStatCacheHit,'eipDNSGUARDIANViewStatCacheMiss':eipDNSGUARDIANViewStatCacheMiss,'eipDNSGUARDIANViewStatCacheSize':eipDNSGUARDIANViewStatCacheSize,'eipDNSGUARDIANViewStatSendDNSPacket':eipDNSGUARDIANViewStatSendDNSPacket,'eipDNSGUARDIANViewStatSendDNSByte':eipDNSGUARDIANViewStatSendDNSByte,'eipDNSGUARDIANViewStatRecvDNSPacket':eipDNSGUARDIANViewStatRecvDNSPacket,'eipDNSGUARDIANViewStatRecvDNSByte':eipDNSGUARDIANViewStatRecvDNSByte,'eipDNSGUARDIANViewStatCacheMissExist':eipDNSGUARDIANViewStatCacheMissExist,'eipDNSGUARDIANViewStatCacheMissNotExist':eipDNSGUARDIANViewStatCacheMissNotExist,'eipDNSGUARDIANViewStatSendRescueDNSPacket':eipDNSGUARDIANViewStatSendRescueDNSPacket,'eipDNSGUARDIANViewStatSendRescueDNSByte':eipDNSGUARDIANViewStatSendRescueDNSByte,'eipDNSGUARDIANViewStatRecvInvalidDNSPacket':eipDNSGUARDIANViewStatRecvInvalidDNSPacket,'eipDNSGUARDIANViewStatRecvInvalidDNSByte':eipDNSGUARDIANViewStatRecvInvalidDNSByte,'eipDNSGUARDIANViewStatRecvInvalidClass':eipDNSGUARDIANViewStatRecvInvalidClass,'eipDNSGUARDIANViewStatRecvInvalidOverflow':eipDNSGUARDIANViewStatRecvInvalidOverflow,'eipDNSGUARDIANViewStatRecvInvalidEtherSource':eipDNSGUARDIANViewStatRecvInvalidEtherSource,'eipDNSGUARDIANViewStatRecvInvalidUDPSource':eipDNSGUARDIANViewStatRecvInvalidUDPSource,'eipDNSGUARDIANViewStatRecvInvalidIPSrcEqDst':eipDNSGUARDIANViewStatRecvInvalidIPSrcEqDst,'eipDNSGUARDIANViewStatRecvInvalidQDCount':eipDNSGUARDIANViewStatRecvInvalidQDCount,'eipDNSGUARDIANViewStatRecvInvalidOPCode':eipDNSGUARDIANViewStatRecvInvalidOPCode,'eipDNSGUARDIANViewStatRecvSharedPacket':eipDNSGUARDIANViewStatRecvSharedPacket,'eipDNSGUARDIANViewStatRecvSharedByte':eipDNSGUARDIANViewStatRecvSharedByte,'eipDNSGUARDIANViewStatSendSharedPacket':eipDNSGUARDIANViewStatSendSharedPacket,'eipDNSGUARDIANViewStatSendSharedByte':eipDNSGUARDIANViewStatSendSharedByte,'eipDNSGUARDIANViewStatCacheMissQuarantine':eipDNSGUARDIANViewStatCacheMissQuarantine,'eipDNSGUARDIANViewStatCacheMissExistQuarantine':eipDNSGUARDIANViewStatCacheMissExistQuarantine,'eipDNSGUARDIANViewStatCacheMissNotExistQuarantine':eipDNSGUARDIANViewStatCacheMissNotExistQuarantine,'eipDNSGUARDIANViewStatCacheHitQuarantine':eipDNSGUARDIANViewStatCacheHitQuarantine,'eipDNSGUARDIANViewStatQuarantineSendDNSPacket':eipDNSGUARDIANViewStatQuarantineSendDNSPacket,'eipDNSGUARDIANViewStatQuarantineSendDNSByte':eipDNSGUARDIANViewStatQuarantineSendDNSByte,'eipDNSGUARDIANViewStatCacheMissRescue':eipDNSGUARDIANViewStatCacheMissRescue,'eipDNSGUARDIANViewStatCacheMissExistRescue':eipDNSGUARDIANViewStatCacheMissExistRescue,'eipDNSGUARDIANViewStatCacheMissNotExistRescue':eipDNSGUARDIANViewStatCacheMissNotExistRescue,'eipDNSGUARDIANViewStatCacheHitRescue':eipDNSGUARDIANViewStatCacheHitRescue,'eipDNSGUARDIANViewStatBlockedQuery':eipDNSGUARDIANViewStatBlockedQuery,'eipDNSGUARDIANViewStatRatelimitedQuery':eipDNSGUARDIANViewStatRatelimitedQuery,'eipDNSGUARDIANViewStatRTT10':eipDNSGUARDIANViewStatRTT10,'eipDNSGUARDIANViewStatRTT100':eipDNSGUARDIANViewStatRTT100,'eipDNSGUARDIANViewStatRTT500':eipDNSGUARDIANViewStatRTT500,'eipDNSGUARDIANViewStatRTT800':eipDNSGUARDIANViewStatRTT800,'eipDNSGUARDIANViewStatRTT1600':eipDNSGUARDIANViewStatRTT1600,'eipDNSGUARDIANViewStatRTTMax':eipDNSGUARDIANViewStatRTTMax,'eipDNSGUARDIANViewStatCacheMissQuarantineRedirect':eipDNSGUARDIANViewStatCacheMissQuarantineRedirect,'eipDNSGUARDIANViewStatQuarantineRedirectSendDNSPacket':eipDNSGUARDIANViewStatQuarantineRedirectSendDNSPacket,'eipDNSGUARDIANViewStatQuarantineRedirectSendDNSByte':eipDNSGUARDIANViewStatQuarantineRedirectSendDNSByte,'eipDNSGUARDIANGlobalStat':eipDNSGUARDIANGlobalStat,'eipDNSGUARDIANStatCacheHit':eipDNSGUARDIANStatCacheHit,'eipDNSGUARDIANStatCacheMiss':eipDNSGUARDIANStatCacheMiss,'eipDNSGUARDIANStatCacheSize':eipDNSGUARDIANStatCacheSize,'eipDNSGUARDIANStatSendDNSPacket':eipDNSGUARDIANStatSendDNSPacket,'eipDNSGUARDIANStatSendDNSByte':eipDNSGUARDIANStatSendDNSByte,'eipDNSGUARDIANStatRecvDNSPacket':eipDNSGUARDIANStatRecvDNSPacket,'eipDNSGUARDIANStatRecvDNSByte':eipDNSGUARDIANStatRecvDNSByte,'eipDNSGUARDIANStatCacheMissExist':eipDNSGUARDIANStatCacheMissExist,'eipDNSGUARDIANStatCacheMissNotExist':eipDNSGUARDIANStatCacheMissNotExist,'eipDNSGUARDIANStatSendRescueDNSPacket':eipDNSGUARDIANStatSendRescueDNSPacket,'eipDNSGUARDIANStatSendRescueDNSByte':eipDNSGUARDIANStatSendRescueDNSByte,'eipDNSGUARDIANStatRecvInvalidDNSPacket':eipDNSGUARDIANStatRecvInvalidDNSPacket,'eipDNSGUARDIANStatRecvInvalidDNSByte':eipDNSGUARDIANStatRecvInvalidDNSByte,'eipDNSGUARDIANStatRecvInvalidClass':eipDNSGUARDIANStatRecvInvalidClass,'eipDNSGUARDIANStatRecvInvalidOverflow':eipDNSGUARDIANStatRecvInvalidOverflow,'eipDNSGUARDIANStatRecvInvalidEtherSource':eipDNSGUARDIANStatRecvInvalidEtherSource,'eipDNSGUARDIANStatRecvInvalidUDPSource':eipDNSGUARDIANStatRecvInvalidUDPSource,'eipDNSGUARDIANStatRecvInvalidIPSrcEqDst':eipDNSGUARDIANStatRecvInvalidIPSrcEqDst,'eipDNSGUARDIANStatRecvInvalidQDCount':eipDNSGUARDIANStatRecvInvalidQDCount,'eipDNSGUARDIANStatRecvInvalidOPCode':eipDNSGUARDIANStatRecvInvalidOPCode,'eipDNSGUARDIANStatRecvSharedPacket':eipDNSGUARDIANStatRecvSharedPacket,'eipDNSGUARDIANStatRecvSharedByte':eipDNSGUARDIANStatRecvSharedByte,'eipDNSGUARDIANStatSendSharedPacket':eipDNSGUARDIANStatSendSharedPacket,'eipDNSGUARDIANStatSendSharedByte':eipDNSGUARDIANStatSendSharedByte,'eipDNSGUARDIANStatCacheMissQuarantine':eipDNSGUARDIANStatCacheMissQuarantine,'eipDNSGUARDIANStatCacheMissExistQuarantine':eipDNSGUARDIANStatCacheMissExistQuarantine,'eipDNSGUARDIANStatCacheMissNotExistQuarantine':eipDNSGUARDIANStatCacheMissNotExistQuarantine,'eipDNSGUARDIANStatCacheHitQuarantine':eipDNSGUARDIANStatCacheHitQuarantine,'eipDNSGUARDIANStatQuarantineSendDNSPacket':eipDNSGUARDIANStatQuarantineSendDNSPacket,'eipDNSGUARDIANStatQuarantineSendDNSByte':eipDNSGUARDIANStatQuarantineSendDNSByte,'eipDNSGUARDIANStatCacheMissRescue':eipDNSGUARDIANStatCacheMissRescue,'eipDNSGUARDIANStatCacheMissExistRescue':eipDNSGUARDIANStatCacheMissExistRescue,'eipDNSGUARDIANStatCacheMissNotExistRescue':eipDNSGUARDIANStatCacheMissNotExistRescue,'eipDNSGUARDIANStatCacheHitRescue':eipDNSGUARDIANStatCacheHitRescue,'eipDNSGUARDIANStatBlockedQuery':eipDNSGUARDIANStatBlockedQuery,'eipDNSGUARDIANStatClientsSize':eipDNSGUARDIANStatClientsSize,'eipDNSGUARDIANStatClientsUpdated':eipDNSGUARDIANStatClientsUpdated,'eipDNSGUARDIANStatRatelimitedQuery':eipDNSGUARDIANStatRatelimitedQuery,'eipDNSGUARDIANStatRTT10':eipDNSGUARDIANStatRTT10,'eipDNSGUARDIANStatRTT100':eipDNSGUARDIANStatRTT100,'eipDNSGUARDIANStatRTT500':eipDNSGUARDIANStatRTT500,'eipDNSGUARDIANStatRTT800':eipDNSGUARDIANStatRTT800,'eipDNSGUARDIANStatRTT1600':eipDNSGUARDIANStatRTT1600,'eipDNSGUARDIANStatRTTMax':eipDNSGUARDIANStatRTTMax,'eipDNSGUARDIANStatCacheMissQuarantineRedirect':eipDNSGUARDIANStatCacheMissQuarantineRedirect,'eipDNSGUARDIANStatQuarantineRedirectSendDNSPacket':eipDNSGUARDIANStatQuarantineRedirectSendDNSPacket,'eipDNSGUARDIANStatQuarantineRedirectSendDNSByte':eipDNSGUARDIANStatQuarantineRedirectSendDNSByte,'eipDNSGUARDIANStatReplyNOERROR':eipDNSGUARDIANStatReplyNOERROR,'eipDNSGUARDIANStatReplyFORMERR':eipDNSGUARDIANStatReplyFORMERR,'eipDNSGUARDIANStatReplySERVFAIL':eipDNSGUARDIANStatReplySERVFAIL,'eipDNSGUARDIANStatReplyNXDOMAIN':eipDNSGUARDIANStatReplyNXDOMAIN,'eipDNSGUARDIANStatReplyNOTIMP':eipDNSGUARDIANStatReplyNOTIMP,'eipDNSGUARDIANStatReplyREFUSED':eipDNSGUARDIANStatReplyREFUSED,'eipDNSGUARDIANStatReplyYXDOMAIN':eipDNSGUARDIANStatReplyYXDOMAIN,'eipDNSGUARDIANStatReplyYXRRSET':eipDNSGUARDIANStatReplyYXRRSET,'eipDNSGUARDIANStatReplyNXRRSET':eipDNSGUARDIANStatReplyNXRRSET,'eipDNSGUARDIANStatReplyNOTAUTH':eipDNSGUARDIANStatReplyNOTAUTH,'eipDNSGUARDIANStatReplyNOTZONE':eipDNSGUARDIANStatReplyNOTZONE})

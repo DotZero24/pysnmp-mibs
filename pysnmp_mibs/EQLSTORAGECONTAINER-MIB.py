@@ -1,0 +1,293 @@
+_Q='eqlStorageBucketStatisticsEntry'
+_P='eqlStorageContainerStatisticsEntry'
+_O='Unsigned64'
+_N='not-accessible'
+_M='eqlStorageContainerIndex'
+_L='TruthValue'
+_K='eqlStorageBucketIndex'
+_J='OctetString'
+_I='pages'
+_H='Unsigned32'
+_G='eqliscsiLocalMemberId'
+_F='EQLVOLUME-MIB'
+_E='EQLSTORAGECONTAINER-MIB'
+_D='UTFString'
+_C='read-create'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_J,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+UTFString,=mibBuilder.importSymbols('EQLGROUP-MIB',_D)
+eqlStoragePoolIndex,=mibBuilder.importSymbols('EQLSTORAGEPOOL-MIB','eqlStoragePoolIndex')
+EQL2PartRowPointerStr,eqliscsiLocalMemberId=mibBuilder.importSymbols(_F,'EQL2PartRowPointerStr',_G)
+equalLogic,=mibBuilder.importSymbols('EQUALLOGIC-SMI','equalLogic')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_H,'enterprises','iso')
+DateAndTime,DisplayString,PhysAddress,RowPointer,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','RowPointer','RowStatus','TextualConvention',_L)
+eqlStorageContainerModule=ModuleIdentity((1,3,6,1,4,1,12740,25))
+if mibBuilder.loadTexts:eqlStorageContainerModule.setRevisions(('2012-06-20 00:00',))
+class Unsigned64(TextualConvention,Counter64):status=_A
+_EqlStorageContainerObjects_ObjectIdentity=ObjectIdentity
+eqlStorageContainerObjects=_EqlStorageContainerObjects_ObjectIdentity((1,3,6,1,4,1,12740,25,1))
+_EqlStorageContainerTable_Object=MibTable
+eqlStorageContainerTable=_EqlStorageContainerTable_Object((1,3,6,1,4,1,12740,25,1,1))
+if mibBuilder.loadTexts:eqlStorageContainerTable.setStatus(_A)
+_EqlStorageContainerEntry_Object=MibTableRow
+eqlStorageContainerEntry=_EqlStorageContainerEntry_Object((1,3,6,1,4,1,12740,25,1,1,1))
+eqlStorageContainerEntry.setIndexNames((0,_F,_G),(0,_E,_M))
+if mibBuilder.loadTexts:eqlStorageContainerEntry.setStatus(_A)
+_EqlStorageContainerIndex_Type=Unsigned32
+_EqlStorageContainerIndex_Object=MibTableColumn
+eqlStorageContainerIndex=_EqlStorageContainerIndex_Object((1,3,6,1,4,1,12740,25,1,1,1,1),_EqlStorageContainerIndex_Type())
+eqlStorageContainerIndex.setMaxAccess(_N)
+if mibBuilder.loadTexts:eqlStorageContainerIndex.setStatus(_A)
+_EqlStorageContainerRowStatus_Type=RowStatus
+_EqlStorageContainerRowStatus_Object=MibTableColumn
+eqlStorageContainerRowStatus=_EqlStorageContainerRowStatus_Object((1,3,6,1,4,1,12740,25,1,1,1,2),_EqlStorageContainerRowStatus_Type())
+eqlStorageContainerRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:eqlStorageContainerRowStatus.setStatus(_A)
+class _EqlStorageContainerUuid_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
+_EqlStorageContainerUuid_Type.__name__=_J
+_EqlStorageContainerUuid_Object=MibTableColumn
+eqlStorageContainerUuid=_EqlStorageContainerUuid_Object((1,3,6,1,4,1,12740,25,1,1,1,3),_EqlStorageContainerUuid_Type())
+eqlStorageContainerUuid.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageContainerUuid.setStatus(_A)
+class _EqlStorageContainerName_Type(UTFString):subtypeSpec=UTFString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
+_EqlStorageContainerName_Type.__name__=_D
+_EqlStorageContainerName_Object=MibTableColumn
+eqlStorageContainerName=_EqlStorageContainerName_Object((1,3,6,1,4,1,12740,25,1,1,1,4),_EqlStorageContainerName_Type())
+eqlStorageContainerName.setMaxAccess(_C)
+if mibBuilder.loadTexts:eqlStorageContainerName.setStatus(_A)
+class _EqlStorageContainerLookupName_Type(UTFString):subtypeSpec=UTFString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
+_EqlStorageContainerLookupName_Type.__name__=_D
+_EqlStorageContainerLookupName_Object=MibTableColumn
+eqlStorageContainerLookupName=_EqlStorageContainerLookupName_Object((1,3,6,1,4,1,12740,25,1,1,1,5),_EqlStorageContainerLookupName_Type())
+eqlStorageContainerLookupName.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageContainerLookupName.setStatus(_A)
+class _EqlStorageContainerDescription_Type(UTFString):subtypeSpec=UTFString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
+_EqlStorageContainerDescription_Type.__name__=_D
+_EqlStorageContainerDescription_Object=MibTableColumn
+eqlStorageContainerDescription=_EqlStorageContainerDescription_Object((1,3,6,1,4,1,12740,25,1,1,1,6),_EqlStorageContainerDescription_Type())
+eqlStorageContainerDescription.setMaxAccess(_C)
+if mibBuilder.loadTexts:eqlStorageContainerDescription.setStatus(_A)
+class _EqlStorageContainerLogicalLimit_Type(Unsigned64):defaultValue=8589934592
+_EqlStorageContainerLogicalLimit_Type.__name__=_O
+_EqlStorageContainerLogicalLimit_Object=MibTableColumn
+eqlStorageContainerLogicalLimit=_EqlStorageContainerLogicalLimit_Object((1,3,6,1,4,1,12740,25,1,1,1,7),_EqlStorageContainerLogicalLimit_Type())
+eqlStorageContainerLogicalLimit.setMaxAccess(_C)
+if mibBuilder.loadTexts:eqlStorageContainerLogicalLimit.setStatus(_A)
+if mibBuilder.loadTexts:eqlStorageContainerLogicalLimit.setUnits('MB')
+_EqlStorageContainerStatisticsTable_Object=MibTable
+eqlStorageContainerStatisticsTable=_EqlStorageContainerStatisticsTable_Object((1,3,6,1,4,1,12740,25,1,2))
+if mibBuilder.loadTexts:eqlStorageContainerStatisticsTable.setStatus(_A)
+_EqlStorageContainerStatisticsEntry_Object=MibTableRow
+eqlStorageContainerStatisticsEntry=_EqlStorageContainerStatisticsEntry_Object((1,3,6,1,4,1,12740,25,1,2,1))
+if mibBuilder.loadTexts:eqlStorageContainerStatisticsEntry.setStatus(_A)
+_EqlStorageContainerStatisticsLogicalUsed_Type=Unsigned64
+_EqlStorageContainerStatisticsLogicalUsed_Object=MibTableColumn
+eqlStorageContainerStatisticsLogicalUsed=_EqlStorageContainerStatisticsLogicalUsed_Object((1,3,6,1,4,1,12740,25,1,2,1,1),_EqlStorageContainerStatisticsLogicalUsed_Type())
+eqlStorageContainerStatisticsLogicalUsed.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageContainerStatisticsLogicalUsed.setStatus(_A)
+_EqlStorageContainerStatisticsLogicalFree_Type=Unsigned64
+_EqlStorageContainerStatisticsLogicalFree_Object=MibTableColumn
+eqlStorageContainerStatisticsLogicalFree=_EqlStorageContainerStatisticsLogicalFree_Object((1,3,6,1,4,1,12740,25,1,2,1,2),_EqlStorageContainerStatisticsLogicalFree_Type())
+eqlStorageContainerStatisticsLogicalFree.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageContainerStatisticsLogicalFree.setStatus(_A)
+_EqlStorageContainerStatisticsPhysicalUsed_Type=Unsigned64
+_EqlStorageContainerStatisticsPhysicalUsed_Object=MibTableColumn
+eqlStorageContainerStatisticsPhysicalUsed=_EqlStorageContainerStatisticsPhysicalUsed_Object((1,3,6,1,4,1,12740,25,1,2,1,3),_EqlStorageContainerStatisticsPhysicalUsed_Type())
+eqlStorageContainerStatisticsPhysicalUsed.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageContainerStatisticsPhysicalUsed.setStatus(_A)
+_EqlStorageContainerStatisticsPhysicalFree_Type=Unsigned64
+_EqlStorageContainerStatisticsPhysicalFree_Object=MibTableColumn
+eqlStorageContainerStatisticsPhysicalFree=_EqlStorageContainerStatisticsPhysicalFree_Object((1,3,6,1,4,1,12740,25,1,2,1,4),_EqlStorageContainerStatisticsPhysicalFree_Type())
+eqlStorageContainerStatisticsPhysicalFree.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageContainerStatisticsPhysicalFree.setStatus(_A)
+_EqlStorageContainerStatisticsThinProvFree_Type=Unsigned64
+_EqlStorageContainerStatisticsThinProvFree_Object=MibTableColumn
+eqlStorageContainerStatisticsThinProvFree=_EqlStorageContainerStatisticsThinProvFree_Object((1,3,6,1,4,1,12740,25,1,2,1,5),_EqlStorageContainerStatisticsThinProvFree_Type())
+eqlStorageContainerStatisticsThinProvFree.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageContainerStatisticsThinProvFree.setStatus(_A)
+_EqlStorageContainerStatisticsVvolsBound_Type=Counter32
+_EqlStorageContainerStatisticsVvolsBound_Object=MibTableColumn
+eqlStorageContainerStatisticsVvolsBound=_EqlStorageContainerStatisticsVvolsBound_Object((1,3,6,1,4,1,12740,25,1,2,1,6),_EqlStorageContainerStatisticsVvolsBound_Type())
+eqlStorageContainerStatisticsVvolsBound.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageContainerStatisticsVvolsBound.setStatus(_A)
+_EqlStorageContainerStatisticsSVCount_Type=Counter32
+_EqlStorageContainerStatisticsSVCount_Object=MibTableColumn
+eqlStorageContainerStatisticsSVCount=_EqlStorageContainerStatisticsSVCount_Object((1,3,6,1,4,1,12740,25,1,2,1,7),_EqlStorageContainerStatisticsSVCount_Type())
+eqlStorageContainerStatisticsSVCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageContainerStatisticsSVCount.setStatus(_A)
+_EqlStorageContainerStatisticsSVSCount_Type=Counter32
+_EqlStorageContainerStatisticsSVSCount_Object=MibTableColumn
+eqlStorageContainerStatisticsSVSCount=_EqlStorageContainerStatisticsSVSCount_Object((1,3,6,1,4,1,12740,25,1,2,1,8),_EqlStorageContainerStatisticsSVSCount_Type())
+eqlStorageContainerStatisticsSVSCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageContainerStatisticsSVSCount.setStatus(_A)
+_EqlStorageContainerStatisticsThinProvisioned_Type=TruthValue
+_EqlStorageContainerStatisticsThinProvisioned_Object=MibTableColumn
+eqlStorageContainerStatisticsThinProvisioned=_EqlStorageContainerStatisticsThinProvisioned_Object((1,3,6,1,4,1,12740,25,1,2,1,9),_EqlStorageContainerStatisticsThinProvisioned_Type())
+eqlStorageContainerStatisticsThinProvisioned.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageContainerStatisticsThinProvisioned.setStatus(_A)
+_EqlStorageContainerStatisticsVvolsOnline_Type=Counter32
+_EqlStorageContainerStatisticsVvolsOnline_Object=MibTableColumn
+eqlStorageContainerStatisticsVvolsOnline=_EqlStorageContainerStatisticsVvolsOnline_Object((1,3,6,1,4,1,12740,25,1,2,1,10),_EqlStorageContainerStatisticsVvolsOnline_Type())
+eqlStorageContainerStatisticsVvolsOnline.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageContainerStatisticsVvolsOnline.setStatus(_A)
+_EqlStorageBucketTable_Object=MibTable
+eqlStorageBucketTable=_EqlStorageBucketTable_Object((1,3,6,1,4,1,12740,25,1,3))
+if mibBuilder.loadTexts:eqlStorageBucketTable.setStatus(_A)
+_EqlStorageBucketEntry_Object=MibTableRow
+eqlStorageBucketEntry=_EqlStorageBucketEntry_Object((1,3,6,1,4,1,12740,25,1,3,1))
+eqlStorageBucketEntry.setIndexNames((0,_F,_G),(0,_E,_K))
+if mibBuilder.loadTexts:eqlStorageBucketEntry.setStatus(_A)
+_EqlStorageBucketIndex_Type=Unsigned32
+_EqlStorageBucketIndex_Object=MibTableColumn
+eqlStorageBucketIndex=_EqlStorageBucketIndex_Object((1,3,6,1,4,1,12740,25,1,3,1,1),_EqlStorageBucketIndex_Type())
+eqlStorageBucketIndex.setMaxAccess(_N)
+if mibBuilder.loadTexts:eqlStorageBucketIndex.setStatus(_A)
+_EqlStorageBucketRowStatus_Type=RowStatus
+_EqlStorageBucketRowStatus_Object=MibTableColumn
+eqlStorageBucketRowStatus=_EqlStorageBucketRowStatus_Object((1,3,6,1,4,1,12740,25,1,3,1,2),_EqlStorageBucketRowStatus_Type())
+eqlStorageBucketRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:eqlStorageBucketRowStatus.setStatus(_A)
+class _EqlStorageBucketName_Type(UTFString):subtypeSpec=UTFString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
+_EqlStorageBucketName_Type.__name__=_D
+_EqlStorageBucketName_Object=MibTableColumn
+eqlStorageBucketName=_EqlStorageBucketName_Object((1,3,6,1,4,1,12740,25,1,3,1,3),_EqlStorageBucketName_Type())
+eqlStorageBucketName.setMaxAccess(_C)
+if mibBuilder.loadTexts:eqlStorageBucketName.setStatus(_A)
+class _EqlStorageBucketLookupName_Type(UTFString):subtypeSpec=UTFString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
+_EqlStorageBucketLookupName_Type.__name__=_D
+_EqlStorageBucketLookupName_Object=MibTableColumn
+eqlStorageBucketLookupName=_EqlStorageBucketLookupName_Object((1,3,6,1,4,1,12740,25,1,3,1,4),_EqlStorageBucketLookupName_Type())
+eqlStorageBucketLookupName.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageBucketLookupName.setStatus(_A)
+class _EqlStorageBucketUuid_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
+_EqlStorageBucketUuid_Type.__name__=_J
+_EqlStorageBucketUuid_Object=MibTableColumn
+eqlStorageBucketUuid=_EqlStorageBucketUuid_Object((1,3,6,1,4,1,12740,25,1,3,1,5),_EqlStorageBucketUuid_Type())
+eqlStorageBucketUuid.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageBucketUuid.setStatus(_A)
+_EqlStorageBucketPhysicalSize_Type=Unsigned64
+_EqlStorageBucketPhysicalSize_Object=MibTableColumn
+eqlStorageBucketPhysicalSize=_EqlStorageBucketPhysicalSize_Object((1,3,6,1,4,1,12740,25,1,3,1,6),_EqlStorageBucketPhysicalSize_Type())
+eqlStorageBucketPhysicalSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:eqlStorageBucketPhysicalSize.setStatus(_A)
+if mibBuilder.loadTexts:eqlStorageBucketPhysicalSize.setUnits('MB')
+class _EqlStorageBucketThinProvision_Type(TruthValue):defaultValue=2
+_EqlStorageBucketThinProvision_Type.__name__=_L
+_EqlStorageBucketThinProvision_Object=MibTableColumn
+eqlStorageBucketThinProvision=_EqlStorageBucketThinProvision_Object((1,3,6,1,4,1,12740,25,1,3,1,7),_EqlStorageBucketThinProvision_Type())
+eqlStorageBucketThinProvision.setMaxAccess(_C)
+if mibBuilder.loadTexts:eqlStorageBucketThinProvision.setStatus(_A)
+class _EqlStorageBucketThinMinReserve_Type(Unsigned32):defaultValue=10;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
+_EqlStorageBucketThinMinReserve_Type.__name__=_H
+_EqlStorageBucketThinMinReserve_Object=MibTableColumn
+eqlStorageBucketThinMinReserve=_EqlStorageBucketThinMinReserve_Object((1,3,6,1,4,1,12740,25,1,3,1,8),_EqlStorageBucketThinMinReserve_Type())
+eqlStorageBucketThinMinReserve.setMaxAccess(_C)
+if mibBuilder.loadTexts:eqlStorageBucketThinMinReserve.setStatus(_A)
+class _EqlStorageBucketThinMaxGrow_Type(Unsigned32):defaultValue=100;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
+_EqlStorageBucketThinMaxGrow_Type.__name__=_H
+_EqlStorageBucketThinMaxGrow_Object=MibTableColumn
+eqlStorageBucketThinMaxGrow=_EqlStorageBucketThinMaxGrow_Object((1,3,6,1,4,1,12740,25,1,3,1,9),_EqlStorageBucketThinMaxGrow_Type())
+eqlStorageBucketThinMaxGrow.setMaxAccess(_C)
+if mibBuilder.loadTexts:eqlStorageBucketThinMaxGrow.setStatus(_A)
+class _EqlStorageBucketFreeWarnPercentage_Type(Unsigned32):defaultValue=10;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
+_EqlStorageBucketFreeWarnPercentage_Type.__name__=_H
+_EqlStorageBucketFreeWarnPercentage_Object=MibTableColumn
+eqlStorageBucketFreeWarnPercentage=_EqlStorageBucketFreeWarnPercentage_Object((1,3,6,1,4,1,12740,25,1,3,1,10),_EqlStorageBucketFreeWarnPercentage_Type())
+eqlStorageBucketFreeWarnPercentage.setMaxAccess(_C)
+if mibBuilder.loadTexts:eqlStorageBucketFreeWarnPercentage.setStatus(_A)
+_EqlParentStorageContainerPointer_Type=EQL2PartRowPointerStr
+_EqlParentStorageContainerPointer_Object=MibTableColumn
+eqlParentStorageContainerPointer=_EqlParentStorageContainerPointer_Object((1,3,6,1,4,1,12740,25,1,3,1,11),_EqlParentStorageContainerPointer_Type())
+eqlParentStorageContainerPointer.setMaxAccess(_C)
+if mibBuilder.loadTexts:eqlParentStorageContainerPointer.setStatus(_A)
+_EqlParentStoragePoolIndex_Type=Unsigned32
+_EqlParentStoragePoolIndex_Object=MibTableColumn
+eqlParentStoragePoolIndex=_EqlParentStoragePoolIndex_Object((1,3,6,1,4,1,12740,25,1,3,1,12),_EqlParentStoragePoolIndex_Type())
+eqlParentStoragePoolIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:eqlParentStoragePoolIndex.setStatus(_A)
+_EqlStorageBucketDynamicConfigTable_Object=MibTable
+eqlStorageBucketDynamicConfigTable=_EqlStorageBucketDynamicConfigTable_Object((1,3,6,1,4,1,12740,25,1,4))
+if mibBuilder.loadTexts:eqlStorageBucketDynamicConfigTable.setStatus(_A)
+_EqlStorageBucketDynamicConfigEntry_Object=MibTableRow
+eqlStorageBucketDynamicConfigEntry=_EqlStorageBucketDynamicConfigEntry_Object((1,3,6,1,4,1,12740,25,1,4,1))
+eqlStorageBucketDynamicConfigEntry.setIndexNames((0,_F,_G),(0,_E,_K))
+if mibBuilder.loadTexts:eqlStorageBucketDynamicConfigEntry.setStatus(_A)
+_EqlStorageBucketDynamicReservePages_Type=Counter64
+_EqlStorageBucketDynamicReservePages_Object=MibTableColumn
+eqlStorageBucketDynamicReservePages=_EqlStorageBucketDynamicReservePages_Object((1,3,6,1,4,1,12740,25,1,4,1,1),_EqlStorageBucketDynamicReservePages_Type())
+eqlStorageBucketDynamicReservePages.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageBucketDynamicReservePages.setStatus(_A)
+if mibBuilder.loadTexts:eqlStorageBucketDynamicReservePages.setUnits(_I)
+_EqlStorageBucketFreeWarnInUsePageCount_Type=Counter64
+_EqlStorageBucketFreeWarnInUsePageCount_Object=MibTableColumn
+eqlStorageBucketFreeWarnInUsePageCount=_EqlStorageBucketFreeWarnInUsePageCount_Object((1,3,6,1,4,1,12740,25,1,4,1,2),_EqlStorageBucketFreeWarnInUsePageCount_Type())
+eqlStorageBucketFreeWarnInUsePageCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageBucketFreeWarnInUsePageCount.setStatus(_A)
+if mibBuilder.loadTexts:eqlStorageBucketFreeWarnInUsePageCount.setUnits(_I)
+_EqlStorageBucketMaxResvInUsePageCount_Type=Counter64
+_EqlStorageBucketMaxResvInUsePageCount_Object=MibTableColumn
+eqlStorageBucketMaxResvInUsePageCount=_EqlStorageBucketMaxResvInUsePageCount_Object((1,3,6,1,4,1,12740,25,1,4,1,3),_EqlStorageBucketMaxResvInUsePageCount_Type())
+eqlStorageBucketMaxResvInUsePageCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageBucketMaxResvInUsePageCount.setStatus(_A)
+if mibBuilder.loadTexts:eqlStorageBucketMaxResvInUsePageCount.setUnits(_I)
+_EqlStorageBucketFreeWarnThresholdPageCount_Type=Counter64
+_EqlStorageBucketFreeWarnThresholdPageCount_Object=MibTableColumn
+eqlStorageBucketFreeWarnThresholdPageCount=_EqlStorageBucketFreeWarnThresholdPageCount_Object((1,3,6,1,4,1,12740,25,1,4,1,4),_EqlStorageBucketFreeWarnThresholdPageCount_Type())
+eqlStorageBucketFreeWarnThresholdPageCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageBucketFreeWarnThresholdPageCount.setStatus(_A)
+if mibBuilder.loadTexts:eqlStorageBucketFreeWarnThresholdPageCount.setUnits(_I)
+_EqlStorageBucketStatisticsTable_Object=MibTable
+eqlStorageBucketStatisticsTable=_EqlStorageBucketStatisticsTable_Object((1,3,6,1,4,1,12740,25,1,5))
+if mibBuilder.loadTexts:eqlStorageBucketStatisticsTable.setStatus(_A)
+_EqlStorageBucketStatisticsEntry_Object=MibTableRow
+eqlStorageBucketStatisticsEntry=_EqlStorageBucketStatisticsEntry_Object((1,3,6,1,4,1,12740,25,1,5,1))
+if mibBuilder.loadTexts:eqlStorageBucketStatisticsEntry.setStatus(_A)
+_EqlStorageBucketStatisticsPhysicalUsed_Type=Unsigned64
+_EqlStorageBucketStatisticsPhysicalUsed_Object=MibTableColumn
+eqlStorageBucketStatisticsPhysicalUsed=_EqlStorageBucketStatisticsPhysicalUsed_Object((1,3,6,1,4,1,12740,25,1,5,1,1),_EqlStorageBucketStatisticsPhysicalUsed_Type())
+eqlStorageBucketStatisticsPhysicalUsed.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageBucketStatisticsPhysicalUsed.setStatus(_A)
+_EqlStorageBucketStatisticsPhysicalFree_Type=Unsigned64
+_EqlStorageBucketStatisticsPhysicalFree_Object=MibTableColumn
+eqlStorageBucketStatisticsPhysicalFree=_EqlStorageBucketStatisticsPhysicalFree_Object((1,3,6,1,4,1,12740,25,1,5,1,2),_EqlStorageBucketStatisticsPhysicalFree_Type())
+eqlStorageBucketStatisticsPhysicalFree.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageBucketStatisticsPhysicalFree.setStatus(_A)
+_EqlStorageBucketStatisticsThinProvFree_Type=Unsigned64
+_EqlStorageBucketStatisticsThinProvFree_Object=MibTableColumn
+eqlStorageBucketStatisticsThinProvFree=_EqlStorageBucketStatisticsThinProvFree_Object((1,3,6,1,4,1,12740,25,1,5,1,3),_EqlStorageBucketStatisticsThinProvFree_Type())
+eqlStorageBucketStatisticsThinProvFree.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageBucketStatisticsThinProvFree.setStatus(_A)
+_EqlStorageBucketStatisticsVvolsBound_Type=Counter32
+_EqlStorageBucketStatisticsVvolsBound_Object=MibTableColumn
+eqlStorageBucketStatisticsVvolsBound=_EqlStorageBucketStatisticsVvolsBound_Object((1,3,6,1,4,1,12740,25,1,5,1,4),_EqlStorageBucketStatisticsVvolsBound_Type())
+eqlStorageBucketStatisticsVvolsBound.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageBucketStatisticsVvolsBound.setStatus(_A)
+_EqlStorageBucketStatisticsSVCount_Type=Counter32
+_EqlStorageBucketStatisticsSVCount_Object=MibTableColumn
+eqlStorageBucketStatisticsSVCount=_EqlStorageBucketStatisticsSVCount_Object((1,3,6,1,4,1,12740,25,1,5,1,5),_EqlStorageBucketStatisticsSVCount_Type())
+eqlStorageBucketStatisticsSVCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageBucketStatisticsSVCount.setStatus(_A)
+_EqlStorageBucketStatisticsSVSCount_Type=Counter32
+_EqlStorageBucketStatisticsSVSCount_Object=MibTableColumn
+eqlStorageBucketStatisticsSVSCount=_EqlStorageBucketStatisticsSVSCount_Object((1,3,6,1,4,1,12740,25,1,5,1,6),_EqlStorageBucketStatisticsSVSCount_Type())
+eqlStorageBucketStatisticsSVSCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageBucketStatisticsSVSCount.setStatus(_A)
+_EqlStorageBucketStatisticsVvolsOnline_Type=Counter32
+_EqlStorageBucketStatisticsVvolsOnline_Object=MibTableColumn
+eqlStorageBucketStatisticsVvolsOnline=_EqlStorageBucketStatisticsVvolsOnline_Object((1,3,6,1,4,1,12740,25,1,5,1,7),_EqlStorageBucketStatisticsVvolsOnline_Type())
+eqlStorageBucketStatisticsVvolsOnline.setMaxAccess(_B)
+if mibBuilder.loadTexts:eqlStorageBucketStatisticsVvolsOnline.setStatus(_A)
+_EqlStorageContainerNotifications_ObjectIdentity=ObjectIdentity
+eqlStorageContainerNotifications=_EqlStorageContainerNotifications_ObjectIdentity((1,3,6,1,4,1,12740,25,2))
+_EqlStorageContainerConformance_ObjectIdentity=ObjectIdentity
+eqlStorageContainerConformance=_EqlStorageContainerConformance_ObjectIdentity((1,3,6,1,4,1,12740,25,3))
+eqlStorageContainerEntry.registerAugmentions((_E,_P))
+eqlStorageContainerStatisticsEntry.setIndexNames(*eqlStorageContainerEntry.getIndexNames())
+eqlStorageBucketEntry.registerAugmentions((_E,_Q))
+eqlStorageBucketStatisticsEntry.setIndexNames(*eqlStorageBucketEntry.getIndexNames())
+mibBuilder.exportSymbols(_E,**{_O:Unsigned64,'eqlStorageContainerModule':eqlStorageContainerModule,'eqlStorageContainerObjects':eqlStorageContainerObjects,'eqlStorageContainerTable':eqlStorageContainerTable,'eqlStorageContainerEntry':eqlStorageContainerEntry,_M:eqlStorageContainerIndex,'eqlStorageContainerRowStatus':eqlStorageContainerRowStatus,'eqlStorageContainerUuid':eqlStorageContainerUuid,'eqlStorageContainerName':eqlStorageContainerName,'eqlStorageContainerLookupName':eqlStorageContainerLookupName,'eqlStorageContainerDescription':eqlStorageContainerDescription,'eqlStorageContainerLogicalLimit':eqlStorageContainerLogicalLimit,'eqlStorageContainerStatisticsTable':eqlStorageContainerStatisticsTable,_P:eqlStorageContainerStatisticsEntry,'eqlStorageContainerStatisticsLogicalUsed':eqlStorageContainerStatisticsLogicalUsed,'eqlStorageContainerStatisticsLogicalFree':eqlStorageContainerStatisticsLogicalFree,'eqlStorageContainerStatisticsPhysicalUsed':eqlStorageContainerStatisticsPhysicalUsed,'eqlStorageContainerStatisticsPhysicalFree':eqlStorageContainerStatisticsPhysicalFree,'eqlStorageContainerStatisticsThinProvFree':eqlStorageContainerStatisticsThinProvFree,'eqlStorageContainerStatisticsVvolsBound':eqlStorageContainerStatisticsVvolsBound,'eqlStorageContainerStatisticsSVCount':eqlStorageContainerStatisticsSVCount,'eqlStorageContainerStatisticsSVSCount':eqlStorageContainerStatisticsSVSCount,'eqlStorageContainerStatisticsThinProvisioned':eqlStorageContainerStatisticsThinProvisioned,'eqlStorageContainerStatisticsVvolsOnline':eqlStorageContainerStatisticsVvolsOnline,'eqlStorageBucketTable':eqlStorageBucketTable,'eqlStorageBucketEntry':eqlStorageBucketEntry,_K:eqlStorageBucketIndex,'eqlStorageBucketRowStatus':eqlStorageBucketRowStatus,'eqlStorageBucketName':eqlStorageBucketName,'eqlStorageBucketLookupName':eqlStorageBucketLookupName,'eqlStorageBucketUuid':eqlStorageBucketUuid,'eqlStorageBucketPhysicalSize':eqlStorageBucketPhysicalSize,'eqlStorageBucketThinProvision':eqlStorageBucketThinProvision,'eqlStorageBucketThinMinReserve':eqlStorageBucketThinMinReserve,'eqlStorageBucketThinMaxGrow':eqlStorageBucketThinMaxGrow,'eqlStorageBucketFreeWarnPercentage':eqlStorageBucketFreeWarnPercentage,'eqlParentStorageContainerPointer':eqlParentStorageContainerPointer,'eqlParentStoragePoolIndex':eqlParentStoragePoolIndex,'eqlStorageBucketDynamicConfigTable':eqlStorageBucketDynamicConfigTable,'eqlStorageBucketDynamicConfigEntry':eqlStorageBucketDynamicConfigEntry,'eqlStorageBucketDynamicReservePages':eqlStorageBucketDynamicReservePages,'eqlStorageBucketFreeWarnInUsePageCount':eqlStorageBucketFreeWarnInUsePageCount,'eqlStorageBucketMaxResvInUsePageCount':eqlStorageBucketMaxResvInUsePageCount,'eqlStorageBucketFreeWarnThresholdPageCount':eqlStorageBucketFreeWarnThresholdPageCount,'eqlStorageBucketStatisticsTable':eqlStorageBucketStatisticsTable,_Q:eqlStorageBucketStatisticsEntry,'eqlStorageBucketStatisticsPhysicalUsed':eqlStorageBucketStatisticsPhysicalUsed,'eqlStorageBucketStatisticsPhysicalFree':eqlStorageBucketStatisticsPhysicalFree,'eqlStorageBucketStatisticsThinProvFree':eqlStorageBucketStatisticsThinProvFree,'eqlStorageBucketStatisticsVvolsBound':eqlStorageBucketStatisticsVvolsBound,'eqlStorageBucketStatisticsSVCount':eqlStorageBucketStatisticsSVCount,'eqlStorageBucketStatisticsSVSCount':eqlStorageBucketStatisticsSVSCount,'eqlStorageBucketStatisticsVvolsOnline':eqlStorageBucketStatisticsVvolsOnline,'eqlStorageContainerNotifications':eqlStorageContainerNotifications,'eqlStorageContainerConformance':eqlStorageContainerConformance})

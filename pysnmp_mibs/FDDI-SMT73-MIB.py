@@ -1,279 +1,709 @@
-#
-# PySNMP MIB module FDDI-SMT73-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/FDDI-SMT73-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:12:32 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, Integer, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-( NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-( MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Gauge32, Bits, Unsigned32, Counter64, TimeTicks, NotificationType, ModuleIdentity, ObjectIdentity, mib_2, MibIdentifier, iso, Counter32, IpAddress, ) = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Gauge32", "Bits", "Unsigned32", "Counter64", "TimeTicks", "NotificationType", "ModuleIdentity", "ObjectIdentity", "mib-2", "MibIdentifier", "iso", "Counter32", "IpAddress")
-( DisplayString, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-transmission = MibIdentifier((1, 3, 6, 1, 2, 1, 10))
-fddi = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 15))
-fddimib = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 15, 73))
-class FddiTimeNano(Integer32):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,2147483647)
-
-class FddiTimeMilli(Integer32):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,2147483647)
-
-class FddiResourceId(Integer32):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,65535)
-
-class FddiSMTStationIdType(OctetString):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(8,8)
-    fixedLength = 8
-
-class FddiMACLongAddressType(OctetString):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(6,6)
-    fixedLength = 6
-
-fddimibSMT = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 15, 73, 1))
-fddimibMAC = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 15, 73, 2))
-fddimibMACCounters = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 15, 73, 3))
-fddimibPATH = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 15, 73, 4))
-fddimibPORT = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 15, 73, 5))
-fddimibSMTNumber = MibScalar((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTNumber.setDescription("The number of SMT implementations (regardless of \n                      their current state) on this network management \n                      application entity.  The value for this variable \n                      must remain constant at least from one re- \n                      initialization of the entity's network management \n                      system to the next re-initialization.")
-fddimibSMTTable = MibTable((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2), )
-if mibBuilder.loadTexts: fddimibSMTTable.setDescription('A list of SMT entries.  The number of entries \n                      shall not exceed the value of fddimibSMTNumber.')
-fddimibSMTEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1), ).setIndexNames((0, "FDDI-SMT73-MIB", "fddimibSMTIndex"))
-if mibBuilder.loadTexts: fddimibSMTEntry.setDescription('An SMT entry containing information common to a \n                      given SMT.')
-fddimibSMTIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTIndex.setDescription("A unique value for each SMT.  The value for each \n                      SMT must remain constant at least from one re- \n                      initialization of the entity's network management \n                      system to the next re-initialization.")
-fddimibSMTStationId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 2), FddiSMTStationIdType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTStationId.setDescription('Used to uniquely identify an FDDI station.')
-fddimibSMTOpVersionId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTOpVersionId.setDescription('The version that this station is using for its \n                      operation (refer to ANSI 7.1.2.2). The value of \n                      this variable is 2 for this SMT revision.')
-fddimibSMTHiVersionId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTHiVersionId.setDescription('The highest version of SMT that this station \n                      supports (refer to ANSI 7.1.2.2).')
-fddimibSMTLoVersionId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTLoVersionId.setDescription('The lowest version of SMT that this station \n                      supports (refer to ANSI 7.1.2.2).')
-fddimibSMTUserData = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(32,32)).setFixedLength(32)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibSMTUserData.setDescription('This variable contains 32 octets of user defined \n                      information. The information shall be an ASCII \n                      string.')
-fddimibSMTMIBVersionId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTMIBVersionId.setDescription('The version of the FDDI MIB of this station.  The \n                      value of this variable is 1 for this SMT \n                      revision.')
-fddimibSMTMACCts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTMACCts.setDescription('The number of MACs in this station or \n                      concentrator.')
-fddimibSMTNonMasterCts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTNonMasterCts.setDescription('The value of this variable is the number of A, B, \n                      and S ports in this station or concentrator.')
-fddimibSMTMasterCts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTMasterCts.setDescription('The number of M Ports in a node. If the node is \n                      not a concentrator, the value of the variable is \n                      zero.')
-fddimibSMTAvailablePaths = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,7))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTAvailablePaths.setDescription('A value that indicates the PATH types available \n                      in the station. \n \n                      The value is a sum.  This value initially takes \n                      the value zero, then for each type of PATH that \n                      this node has available, 2 raised to a power is \n                      added to the sum.  The powers are according to the \n                      following table: \n \n                               Path   Power \n                            Primary     0 \n                          Secondary     1 \n                              Local     2 \n \n                      For example, a station having Primary and Local \n                      PATHs available would have a value of 5 (2**0 + \n                      2**2).')
-fddimibSMTConfigCapabilities = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,3))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTConfigCapabilities.setDescription("A value that indicates the configuration \n                      capabilities of a node. The 'Hold Available' bit \n                      indicates the support of the optional Hold \n                      Function, which is controlled by \n                      fddiSMTConfigPolicy.  The 'CF-Wrap-AB' bit \n                      indicates that the station has the capability of \n                      performing a wrap_ab (refer to ANSI SMT 9.7.2.2). \n \n                      The value is a sum.  This value initially takes \n                      the value zero, then for each of the configuration \n                      policies currently enforced on the node, 2 raised \n                      to a power is added to the sum.  The powers are \n                      according to the following table: \n \n                                 Policy   Power \n                          holdAvailable     0 \n                             CF-Wrap-AB     1 ")
-fddimibSMTConfigPolicy = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,1))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibSMTConfigPolicy.setDescription("A value that indicates the configuration policies \n                      currently desired in a node.  'Hold' is one of the \n                      terms used for the Hold Flag, an optional ECM flag \n                      used to enable the optional Hold policy. \n \n                      The value is a sum.  This value initially takes \n                      the value zero, then for each of the configuration \n                      policies currently enforced on the node, 2 raised \n                      to a power is added to the sum.  The powers are \n                      according to the following table: \n \n                                     Policy   Power \n                          configurationhold     0 ")
-fddimibSMTConnectionPolicy = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(32768,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibSMTConnectionPolicy.setDescription("A value representing the connection policies in \n                      effect in a node. A station sets the corresponding \n                      bit for each of the connection types that it \n                      rejects. The letter designations, X and Y, in the \n                      'rejectX-Y' names have the following significance: \n                      X represents the PC-Type of the local PORT and Y \n                      represents the PC_Type of the adjacent PORT \n                      (PC_Neighbor). The evaluation of Connection- \n                      Policy (PC-Type, PC-Neighbor) is done to determine \n                      the setting of T- Val(3) in the PC-Signalling \n                      sequence (refer to ANSI 9.6.3). Note that Bit 15, \n                      (rejectM-M), is always set and cannot be cleared. \n \n                      The value is a sum.  This value initially takes \n                      the value zero, then for each of the connection \n                      policies currently enforced on the node, 2 raised \n                      to a power is added to the sum.  The powers are \n                      according to the following table: \n \n                             Policy   Power \n                          rejectA-A     0 \n                          rejectA-B     1 \n                          rejectA-S     2 \n                          rejectA-M     3 \n                          rejectB-A     4 \n                          rejectB-B     5 \n                          rejectB-S     6 \n                          rejectB-M     7 \n                          rejectS-A     8 \n                          rejectS-B     9 \n                          rejectS-S     10 \n                          rejectS-M     11 \n                          rejectM-A     12 \n                          rejectM-B     13 \n                          rejectM-S     14 \n                          rejectM-M     15 ")
-fddimibSMTTNotify = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(2,30))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibSMTTNotify.setDescription('The timer, expressed in seconds, used in the \n                      Neighbor Notification protocol. It has a range of \n                      2 seconds to 30 seconds, and its default value is \n                      30 seconds (refer to ANSI SMT 8.2).')
-fddimibSMTStatRptPolicy = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("true", 1), ("false", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibSMTStatRptPolicy.setDescription('If true, indicates that the node will generate \n                      Status Reporting Frames for its implemented events \n                      and conditions. It has an initial value of true. \n                      This variable determines the value of the \n                      SR_Enable Flag (refer to ANSI SMT 8.3.2.1).')
-fddimibSMTTraceMaxExpiration = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 17), FddiTimeMilli()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibSMTTraceMaxExpiration.setDescription('Reference Trace_Max (refer to ANSI SMT \n                      9.4.4.2.2).')
-fddimibSMTBypassPresent = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("true", 1), ("false", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTBypassPresent.setDescription('A flag indicating if the station has a bypass on \n                      its AB port pair.')
-fddimibSMTECMState = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8,))).clone(namedValues=NamedValues(("ec0", 1), ("ec1", 2), ("ec2", 3), ("ec3", 4), ("ec4", 5), ("ec5", 6), ("ec6", 7), ("ec7", 8),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTECMState.setDescription('Indicates the current state of the ECM state \n                      machine (refer to ANSI SMT 9.5.2).')
-fddimibSMTCFState = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,))).clone(namedValues=NamedValues(("cf0", 1), ("cf1", 2), ("cf2", 3), ("cf3", 4), ("cf4", 5), ("cf5", 6), ("cf6", 7), ("cf7", 8), ("cf8", 9), ("cf9", 10), ("cf10", 11), ("cf11", 12), ("cf12", 13),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTCFState.setDescription('The attachment configuration for the station or \n                      concentrator (refer to ANSI SMT 9.7.2.2).')
-fddimibSMTRemoteDisconnectFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("true", 1), ("false", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTRemoteDisconnectFlag.setDescription('A flag indicating that the station was remotely \n                      disconnected from the network as a result of \n                      receiving an fddiSMTAction, disconnect (refer to \n                      ANSI SMT 6.4.5.3) in a Parameter Management Frame. \n                      A station requires a Connect Action to rejoin and \n                      clear the flag (refer to ANSI SMT 6.4.5.2).')
-fddimibSMTStationStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("concatenated", 1), ("separated", 2), ("thru", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTStationStatus.setDescription('The current status of the primary and secondary \n                      paths within this station.')
-fddimibSMTPeerWrapFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("true", 1), ("false", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTPeerWrapFlag.setDescription('This variable assumes the value of the \n                      PeerWrapFlag in CFM (refer to ANSI SMT \n                      9.7.2.4.4).')
-fddimibSMTTimeStamp = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 24), FddiTimeMilli()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTTimeStamp.setDescription('This variable assumes the value of TimeStamp \n                      (refer to ANSI SMT 8.3.2.1).')
-fddimibSMTTransitionTimeStamp = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 25), FddiTimeMilli()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibSMTTransitionTimeStamp.setDescription('This variable assumes the value of \n                      TransitionTimeStamp (refer to ANSI SMT 8.3.2.1).')
-fddimibSMTStationAction = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 1, 2, 1, 26), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8,))).clone(namedValues=NamedValues(("other", 1), ("connect", 2), ("disconnect", 3), ("path-Test", 4), ("self-Test", 5), ("disable-a", 6), ("disable-b", 7), ("disable-m", 8),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibSMTStationAction.setDescription("This object, when read, always returns a value of \n                      other(1).  The behavior of setting this variable \n                      to each of the acceptable values is as follows: \n \n                           other(1): Results in an appropriate error. \n                           connect(2): Generates a Connect signal to ECM \n                                to begin a connection sequence. See ANSI \n                                Ref 9.4.2. \n                           disconnect(3): Generates a Disconnect signal \n                                to ECM. see ANSI Ref 9.4.2. \n                           path-Test(4): Initiates a station Path_Test. \n                                The Path_Test variable (see ANSI Ref \n                                9.4.1) is set to 'Testing'. The results \n                                of this action are not specified in this \n                                standard. \n                           self-Test(5): Initiates a station Self_Test. \n                                The results of this action are not \n                                specified in this standard. \n                           disable-a(6): Causes a PC_Disable on the A \n                                port if the A port mode is peer. \n                           disable-b(7): Causes a PC_Disable on the B \n                                port if the B port mode is peer. \n                           disable-m(8): Causes a PC_Disable on all M \n                                ports. \n \n                      Attempts to set this object to all other values \n                      results in an appropriate error.  The result of \n                      setting this variable to path-Test(4) or self- \n                      Test(5) is implementation-specific.")
-fddimibMACNumber = MibScalar((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACNumber.setDescription("The total number of MAC implementations (across \n                      all SMTs) on this network management application \n                      entity.  The value for this variable must remain \n                      constant at least from one re-initialization of \n                      the entity's network management system to the next \n                      re-initialization.")
-fddimibMACTable = MibTable((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2), )
-if mibBuilder.loadTexts: fddimibMACTable.setDescription('A list of MAC entries.  The number of entries \n                      shall not exceed the value of fddimibMACNumber.')
-fddimibMACEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1), ).setIndexNames((0, "FDDI-SMT73-MIB", "fddimibMACSMTIndex"), (0, "FDDI-SMT73-MIB", "fddimibMACIndex"))
-if mibBuilder.loadTexts: fddimibMACEntry.setDescription('A MAC entry containing information common to a \n                      given MAC.')
-fddimibMACSMTIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACSMTIndex.setDescription('The value of the SMT index associated with this \n                      MAC.')
-fddimibMACIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACIndex.setDescription('Index variable for uniquely identifying the MAC \n                      object instances, which is the same as the \n                      corresponding resource index in SMT.')
-fddimibMACIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACIfIndex.setDescription('The value of the MIB-II ifIndex corresponding to \n                      this MAC.  If none is applicable, 0 is returned.')
-fddimibMACFrameStatusFunctions = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,7))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACFrameStatusFunctions.setDescription("Indicates the MAC's optional Frame Status \n                      processing functions. \n \n                      The value is a sum.  This value initially takes \n                      the value zero, then for each function present, 2 \n                      raised to a power is added to the sum.  The powers \n                      are according to the following table: \n \n                           function   Power \n                       fs-repeating     0 \n                         fs-setting     1 \n                        fs-clearing     2 ")
-fddimibMACTMaxCapability = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 5), FddiTimeNano()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACTMaxCapability.setDescription('Indicates the maximum time value of fddiMACTMax \n                      that this MAC can support.')
-fddimibMACTVXCapability = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 6), FddiTimeNano()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACTVXCapability.setDescription('Indicates the maximum time value of \n                      fddiMACTvxValue that this MAC can support.')
-fddimibMACAvailablePaths = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,7))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACAvailablePaths.setDescription('Indicates the paths available for this MAC (refer \n                      to ANSI SMT 9.7.7). \n \n                      The value is a sum.  This value initially takes \n                      the value zero, then for each type of PATH that \n                      this MAC has available, 2 raised to a power is \n                      added to the sum.  The powers are according to the \n                      following table: \n \n                               Path   Power \n                            Primary     0 \n                          Secondary     1 \n                              Local     2 ')
-fddimibMACCurrentPath = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("isolated", 1), ("local", 2), ("secondary", 3), ("primary", 4), ("concatenated", 5), ("thru", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACCurrentPath.setDescription('Indicates the Path into which this MAC is \n                      currently inserted (refer to ANSI 9.7.7).')
-fddimibMACUpstreamNbr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 9), FddiMACLongAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACUpstreamNbr.setDescription("The MAC's upstream neighbor's long individual MAC \n                      address. It has an initial value of the SMT- \n                      Unknown-MAC Address and is only modified as \n                      specified by the Neighbor Information Frame \n                      protocol (refer to ANSI SMT 7.2.1 and 8.2).")
-fddimibMACDownstreamNbr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 10), FddiMACLongAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACDownstreamNbr.setDescription("The MAC's downstream neighbor's long individual \n                      MAC address. It has an initial value of the SMT- \n                      Unknown-MAC Address and is only modified as \n                      specified by the Neighbor Information Frame \n                      protocol (refer to ANSI SMT 7.2.1 and 8.2).")
-fddimibMACOldUpstreamNbr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 11), FddiMACLongAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACOldUpstreamNbr.setDescription("The previous value of the MAC's upstream \n                      neighbor's long individual MAC address. It has an \n                      initial value of the SMT-Unknown- MAC Address and \n                      is only modified as specified by the Neighbor \n                      Information Frame protocol (refer to ANSI SMT \n                      7.2.1 and 8.2).")
-fddimibMACOldDownstreamNbr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 12), FddiMACLongAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACOldDownstreamNbr.setDescription("The previous value of the MAC's downstream \n                      neighbor's long individual MAC address. It has an \n                      initial value of the SMT- Unknown-MAC Address and \n                      is only modified as specified by the Neighbor \n                      Information Frame protocol (refer to ANSI SMT \n                      7.2.1 and 8.2).")
-fddimibMACDupAddressTest = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("none", 1), ("pass", 2), ("fail", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACDupAddressTest.setDescription('The Duplicate Address Test flag, Dup_Addr_Test \n                      (refer to ANSI 8.2).')
-fddimibMACRequestedPaths = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibMACRequestedPaths.setDescription('List of permitted Paths which specifies the \n                      Path(s) into which the MAC may be inserted (refer \n                      to ansi SMT 9.7). \n \n                      The value is a sum which represents the individual \n                      paths that are desired.  This value initially \n                      takes the value zero, then for each type of PATH \n                      that this node is, 2 raised to a power is added to \n                      the sum.  The powers are according to the \n                      following table: \n \n                                         Path   Power \n                                        local     0 \n                          secondary-alternate     1 \n                            primary-alternate     2 \n                       concatenated-alternate     3 \n                          secondary-preferred     4 \n                            primary-preferred     5 \n                       concatenated-preferred     6 \n                                         thru     7 ')
-fddimibMACDownstreamPORTType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("a", 1), ("b", 2), ("s", 3), ("m", 4), ("none", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACDownstreamPORTType.setDescription('Indicates the PC-Type of the first port that is \n                      downstream of this MAC (the exit port).')
-fddimibMACSMTAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 16), FddiMACLongAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACSMTAddress.setDescription('The 48-bit individual address of the MAC used for \n                      SMT frames.')
-fddimibMACTReq = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 17), FddiTimeNano()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACTReq.setDescription('This variable is the T_Req_value passed to the \n                      MAC.  Without having detected a duplicate, the \n                      time value of this variable shall assume the \n                      maximum supported time value which is less than or \n                      equal to the time value of fddiPATHMaxT-Req.  When \n                      a MAC has an address detected as a duplicate, it \n                      may use a time value for this variable greater \n                      than the time value of fddiPATHTMaxLowerBound.  A \n                      station shall cause claim when the new T_Req may \n                      cause the value of T_Neg to change in the claim \n                      process, (i.e., time value new T_Req < T_Neg, or \n                      old T_Req = T_Neg).')
-fddimibMACTNeg = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 18), FddiTimeNano()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACTNeg.setDescription('It is reported as a FddiTimeNano number.')
-fddimibMACTMax = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 19), FddiTimeNano()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACTMax.setDescription('This variable is the T_Max_value passed to the \n                      MAC.  The time value of this variable shall assume \n                      the minimum suported time value which is greater \n                      than or equal to the time value of fddiPATHT- \n                      MaxLowerBound')
-fddimibMACTvxValue = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 20), FddiTimeNano()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACTvxValue.setDescription('This variable is the TVX_value passed to the MAC. \n                      The time value of this variable shall assume the \n                      minimum suported time value which is greater than \n                      or equal to the time value of \n                      fddiPATHTVXLowerBound.')
-fddimibMACFrameCts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 21), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACFrameCts.setDescription('A count of the number of frames received by this \n                      MAC (refer to ANSI MAC 7.5.1).')
-fddimibMACCopiedCts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 22), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACCopiedCts.setDescription("A count that should as closely as possible match \n                      the number of frames addressed to (A bit set) and \n                      successfully copied into the station's receive \n                      buffers (C bit set) by this MAC (refer to ANSI MAC \n                      7.5). Note that this count does not include MAC \n                      frames.")
-fddimibMACTransmitCts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 23), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACTransmitCts.setDescription('A count that should as closely as possible match \n                      the number of frames transmitted by this MAC \n                      (refer to ANSI MAC 7.5).  Note that this count \n                      does not include MAC frames.')
-fddimibMACErrorCts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 24), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACErrorCts.setDescription('A count of the number of frames that were \n                      detected in error by this MAC that had not been \n                      detected in error by another MAC (refer to ANSI \n                      MAC 7.5.2).')
-fddimibMACLostCts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 25), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACLostCts.setDescription('A count of the number of instances that this MAC \n                      detected a format error during frame reception \n                      such that the frame was stripped (refer to ANSI \n                      MAC 7.5.3).')
-fddimibMACFrameErrorThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 26), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibMACFrameErrorThreshold.setDescription('A threshold for determining when a MAC Condition \n                      report (see ANSI 8.3.1.1) shall be generated. \n                      Stations not supporting variable thresholds shall \n                      have a value of 0 and a range of (0..0).')
-fddimibMACFrameErrorRatio = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 27), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACFrameErrorRatio.setDescription('This variable is the value of the ratio, \n \n                       ((delta fddiMACLostCts + delta fddiMACErrorCts) / \n                       (delta fddiMACFrameCts + delta fddiMACLostCts )) \n                       * 2**16 ')
-fddimibMACRMTState = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 28), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8,))).clone(namedValues=NamedValues(("rm0", 1), ("rm1", 2), ("rm2", 3), ("rm3", 4), ("rm4", 5), ("rm5", 6), ("rm6", 7), ("rm7", 8),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACRMTState.setDescription('Indicates the current state of the RMT State \n                      Machine (refer to ANSI 10.3.2).')
-fddimibMACDaFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 29), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("true", 1), ("false", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACDaFlag.setDescription('The RMT flag Duplicate Address Flag, DA_Flag \n                      (refer to ANSI 10.2.1.2).')
-fddimibMACUnaDaFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 30), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("true", 1), ("false", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACUnaDaFlag.setDescription('A flag, UNDA_Flag (refer to ANSI 8.2.2.1), set \n                      when the upstream neighbor reports a duplicate \n                      address condition. Cleared when the condition \n                      clears.')
-fddimibMACFrameErrorFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 31), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("true", 1), ("false", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACFrameErrorFlag.setDescription('Indicates the MAC Frame Error Condition is \n                      present when set. Cleared when the condition \n                      clears and on station initialization.')
-fddimibMACMAUnitdataAvailable = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 32), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("true", 1), ("false", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACMAUnitdataAvailable.setDescription('This variable shall take on the value of the \n                      MAC_Avail flag defined in RMT.')
-fddimibMACHardwarePresent = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 33), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("true", 1), ("false", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACHardwarePresent.setDescription('This variable indicates the presence of \n                      underlying hardware support for this MAC object. \n                      If the value of this object is false(2), the \n                      reporting of the objects in this entry may be \n                      handled in an implementation-specific manner.')
-fddimibMACMAUnitdataEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 2, 2, 1, 34), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("true", 1), ("false", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibMACMAUnitdataEnable.setDescription('This variable determines the value of the \n                      MA_UNITDATA_Enable flag in RMT.  The default and \n                      initial value of this flag is true(1).')
-fddimibMACCountersTable = MibTable((1, 3, 6, 1, 2, 1, 10, 15, 73, 3, 1), )
-if mibBuilder.loadTexts: fddimibMACCountersTable.setDescription('A list of MAC Counters entries.  The number of \n                      entries shall not exceed the value of \n                      fddimibMACNumber.')
-fddimibMACCountersEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 15, 73, 3, 1, 1), ).setIndexNames((0, "FDDI-SMT73-MIB", "fddimibMACSMTIndex"), (0, "FDDI-SMT73-MIB", "fddimibMACIndex"))
-if mibBuilder.loadTexts: fddimibMACCountersEntry.setDescription('A MAC Counters entry containing information \n                      common to a given MAC.')
-fddimibMACTokenCts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 3, 1, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACTokenCts.setDescription('A count that should as closely as possible match \n                      the number of times the station has received a \n                      token (total of non-restricted and restricted) on \n                      this MAC (see ANSI MAC 7.4). This count is \n                      valuable for determination of network load.')
-fddimibMACTvxExpiredCts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 3, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACTvxExpiredCts.setDescription('A count that should as closely as possible match \n                      the number of times that TVX has expired.')
-fddimibMACNotCopiedCts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 3, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACNotCopiedCts.setDescription('A count that should as closely as possible match \n                      the number of frames that were addressed to this \n                      MAC but were not copied into its receive buffers \n                      (see ANSI MAC 7.5). For example, this might occur \n                      due to local buffer congestion. Because of \n                      implementation considerations, this count may not \n                      match the actual number of frames not copied. It \n                      is not a requirement that this count be exact. \n                      Note that this count does not include MAC frames.')
-fddimibMACLateCts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 3, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACLateCts.setDescription('A count that should as closely as possible match \n                      the number of TRT expirations since this MAC was \n                      reset or a token was received (refer to ANSI MAC \n                      7.4.5).')
-fddimibMACRingOpCts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 3, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACRingOpCts.setDescription("The count of the number of times the ring has \n                      entered the 'Ring_Operational' state from the \n                      'Ring Not Operational' state.  This count is \n                      updated when a SM_MA_STATUS.Indication of a change \n                      in the Ring_Operational status occurs (refer to \n                      ANSI 6.1.4). Because of implementation \n                      considerations, this count may be less than the \n                      actual RingOp_Ct. It is not a requirement that \n                      this count be exact.")
-fddimibMACNotCopiedRatio = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 3, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACNotCopiedRatio.setDescription('This variable is the value of the ratio: \n \n                       (delta fddiMACNotCopiedCts / \n                       (delta fddiMACCopiedCts + \n                         delta fddiMACNotCopiedCts )) * 2**16 ')
-fddimibMACNotCopiedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 3, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("true", 1), ("false", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibMACNotCopiedFlag.setDescription('Indicates that the Not Copied condition is \n                      present when read as true(1).  Set to false(2) \n                      when the condition clears and on station \n                      initialization.')
-fddimibMACNotCopiedThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 3, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibMACNotCopiedThreshold.setDescription('A threshold for determining when a MAC condition \n                      report shall be generated.  Stations not \n                      supporting variable thresholds shall have a value \n                      of 0 and a range of (0..0).')
-fddimibPATHNumber = MibScalar((1, 3, 6, 1, 2, 1, 10, 15, 73, 4, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPATHNumber.setDescription("The total number of PATHs possible (across all \n                      SMTs) on this network management application \n                      entity.  The value for this variable must remain \n                      constant at least from one re-initialization of \n                      the entity's network management system to the next \n                      re-initialization.")
-fddimibPATHTable = MibTable((1, 3, 6, 1, 2, 1, 10, 15, 73, 4, 2), )
-if mibBuilder.loadTexts: fddimibPATHTable.setDescription('A list of PATH entries.  The number of entries \n                      shall not exceed the value of fddimibPATHNumber.')
-fddimibPATHEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 15, 73, 4, 2, 1), ).setIndexNames((0, "FDDI-SMT73-MIB", "fddimibPATHSMTIndex"), (0, "FDDI-SMT73-MIB", "fddimibPATHIndex"))
-if mibBuilder.loadTexts: fddimibPATHEntry.setDescription('A PATH entry containing information common to a \n                      given PATH.')
-fddimibPATHSMTIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 4, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPATHSMTIndex.setDescription('The value of the SMT index associated with this \n                      PATH.')
-fddimibPATHIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 4, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPATHIndex.setDescription('Index variable for uniquely identifying the \n                      primary, secondary and local PATH object \n                      instances. Local PATH object instances are \n                      represented with integer values 3 to 255.')
-fddimibPATHTVXLowerBound = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 4, 2, 1, 3), FddiTimeNano()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibPATHTVXLowerBound.setDescription('Specifies the minimum time value of \n                      fddiMACTvxValue that shall be used by any MAC that \n                      is configured in this path. The operational value \n                      of fddiMACTvxValue is managed by settting this \n                      variable.  This variable has the time value range \n                      of: \n \n                      0 < fddimibPATHTVXLowerBound < fddimibPATHMaxTReq \n                      Changes to this variable shall either satisfy the \n                      time value relationship: \n \n                      fddimibPATHTVXLowerBound <= \n                      fddimibMACTVXCapability \n \n                      of each of the MACs currently on the path, or be \n                      considered out of range.  The initial value of \n                      fddimibPATHTVXLowerBound shall be 2500 nsec (2.5 \n                      ms).')
-fddimibPATHTMaxLowerBound = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 4, 2, 1, 4), FddiTimeNano()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibPATHTMaxLowerBound.setDescription('Specifies the minimum time value of fddiMACTMax \n                      that shall be used by any MAC that is configured \n                      in this path.  The operational value of \n                      fddiMACTMax is managed by setting this variable. \n                      This variable has the time value range of: \n \n                      fddimibPATHMaxTReq <= fddimibPATHTMaxLowerBound \n \n                      and an absolute time value range of: \n \n                      10000nsec (10 msec) <= fddimibPATHTMaxLowerBound \n \n                      Changes to this variable shall either satisfy the \n                      time value relationship: \n \n                      fddimibPATHTMaxLowerBound < \n                      fddimibMACTMaxCapability \n \n                      of each of the MACs currently on the path, or be \n                      considered out of range.  The initial value of \n                      fddimibPATHTMaxLowerBound shall be 165000 nsec \n                      (165 msec).')
-fddimibPATHMaxTReq = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 4, 2, 1, 5), FddiTimeNano()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibPATHMaxTReq.setDescription('Specifies the maximum time value of fddiMACT-Req \n                      that shall be used by any MAC that is configured \n                      in this path.  The operational value of fddiMACT- \n                      Req is managed by setting this variable.  This \n                      variable has the time value range of: \n \n                      fddimibPATHTVXLowerBound < fddimibPATHMaxTReq <= \n                                               fddimibPATHTMaxLowerBound. \n \n                      The default value of fddimibPATHMaxTReq is 165000 \n                      nsec (165 msec).')
-fddimibPATHConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 15, 73, 4, 3), )
-if mibBuilder.loadTexts: fddimibPATHConfigTable.setDescription('A table of Path configuration entries.  This \n                      table lists all the resources that may be in this \n                      Path.')
-fddimibPATHConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 15, 73, 4, 3, 1), ).setIndexNames((0, "FDDI-SMT73-MIB", "fddimibPATHConfigSMTIndex"), (0, "FDDI-SMT73-MIB", "fddimibPATHConfigPATHIndex"), (0, "FDDI-SMT73-MIB", "fddimibPATHConfigTokenOrder"))
-if mibBuilder.loadTexts: fddimibPATHConfigEntry.setDescription('A collection of objects containing information \n                      for a given PATH Configuration entry.')
-fddimibPATHConfigSMTIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 4, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPATHConfigSMTIndex.setDescription('The value of the SMT index associated with this \n                      configuration entry.')
-fddimibPATHConfigPATHIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 4, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPATHConfigPATHIndex.setDescription('The value of the PATH resource index associated \n                      with this configuration entry.')
-fddimibPATHConfigTokenOrder = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 4, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPATHConfigTokenOrder.setDescription('An object associated with Token order for this \n                      entry.  Thus if the token passes resources a, b, c \n                      and d, in that order, then the value of this \n                      object for these resources would be 1, 2, 3 and 4 \n                      respectively.')
-fddimibPATHConfigResourceType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 4, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 4,))).clone(namedValues=NamedValues(("mac", 2), ("port", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPATHConfigResourceType.setDescription('The type of resource associated with this \n                      configuration entry.')
-fddimibPATHConfigResourceIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 4, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPATHConfigResourceIndex.setDescription('The value of the SMT resource index used to refer \n                      to the instance of this MAC or Port resource.')
-fddimibPATHConfigCurrentPath = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 4, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("isolated", 1), ("local", 2), ("secondary", 3), ("primary", 4), ("concatenated", 5), ("thru", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPATHConfigCurrentPath.setDescription('The current insertion status for this resource on \n                      this Path.')
-fddimibPORTNumber = MibScalar((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTNumber.setDescription("The total number of PORT implementations (across \n                      all SMTs) on this network management application \n                      entity.  The value for this variable must remain \n                      constant at least from one re-initialization of \n                      the entity's network management system to the next \n                      re-initialization.")
-fddimibPORTTable = MibTable((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2), )
-if mibBuilder.loadTexts: fddimibPORTTable.setDescription('A list of PORT entries.  The number of entries \n                      shall not exceed the value of fddimibPORTNumber.')
-fddimibPORTEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1), ).setIndexNames((0, "FDDI-SMT73-MIB", "fddimibPORTSMTIndex"), (0, "FDDI-SMT73-MIB", "fddimibPORTIndex"))
-if mibBuilder.loadTexts: fddimibPORTEntry.setDescription('A PORT entry containing information common to a \n                      given PORT.')
-fddimibPORTSMTIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTSMTIndex.setDescription('The value of the SMT index associated with this \n                      PORT.')
-fddimibPORTIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTIndex.setDescription("A unique value for each PORT within a given SMT, \n                      which is the same as the corresponding resource \n                      index in SMT.  The value for each PORT must remain \n                      constant at least from one re-initialization of \n                      the entity's network management system to the next \n                      re-initialization.")
-fddimibPORTMyType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("a", 1), ("b", 2), ("s", 3), ("m", 4), ("none", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTMyType.setDescription("The value of the PORT's PC_Type (refer to ANSI \n                      9.4.1, and 9.6.3.2).")
-fddimibPORTNeighborType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("a", 1), ("b", 2), ("s", 3), ("m", 4), ("none", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTNeighborType.setDescription('The type of the remote PORT as determined in PCM. \n                      This variable has an initial value of none, and is \n                      only modified in PC_RCode(3)_Actions (refer to \n                      ANSI SMT 9.6.3.2).')
-fddimibPORTConnectionPolicies = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibPORTConnectionPolicies.setDescription("A value representing the PORT's connection \n                      policies desired in the node. The value of pc- \n                      mac-lct is a term used in the PC_MAC_LCT Flag (see \n                      9.4.3.2).  The value of pc-mac-loop is a term used \n                      in the PC_MAC_Loop Flag. \n \n                      The value is a sum.  This value initially takes \n                      the value zero, then for each PORT policy, 2 \n                      raised to a power is added to the sum.  The powers \n                      are according to the following table: \n \n                                    Policy   Power \n                                pc-mac-lct     0 \n                               pc-mac-loop     1 ")
-fddimibPORTMACIndicated = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("tVal9FalseRVal9False", 1), ("tVal9FalseRVal9True", 2), ("tVal9TrueRVal9False", 3), ("tVal9TrueRVal9True", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTMACIndicated.setDescription('The indications (T_Val(9), R_Val(9)) in PC- \n                      Signalling, of the intent to place a MAC in the \n                      output token path to a PORT (refer to ANSI SMT \n                      9.6.3.2.).')
-fddimibPORTCurrentPath = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("ce0", 1), ("ce1", 2), ("ce2", 3), ("ce3", 4), ("ce4", 5), ("ce5", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTCurrentPath.setDescription('Indicates the Path(s) into which this PORT is \n                      currently inserted.')
-fddimibPORTRequestedPaths = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(3,3)).setFixedLength(3)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibPORTRequestedPaths.setDescription("This variable is a list of permitted Paths where \n                      each list element defines the Port's permitted \n                      Paths.  The first octet corresponds to 'none', the \n                      second octet to 'tree', and the third octet to \n                      'peer'.")
-fddimibPORTMACPlacement = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 9), FddiResourceId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTMACPlacement.setDescription('Indicates the MAC, if any, whose transmit path \n                      exits the station via this PORT. The value shall \n                      be zero if there is no MAC associated with the \n                      PORT. Otherwise, the MACIndex of the MAC will be \n                      the value of the variable.')
-fddimibPORTAvailablePaths = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,7))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTAvailablePaths.setDescription('Indicates the Paths which are available to this \n                      Port. In the absence of faults, the A and B Ports \n                      will always have both the Primary and Secondary \n                      Paths available. \n \n                      The value is a sum.  This value initially takes \n                      the value zero, then for each type of PATH that \n                      this port has available, 2 raised to a power is \n                      added to the sum.  The powers are according to the \n                      following table: \n \n                               Path   Power \n                            Primary     0 \n                          Secondary     1 \n                              Local     2 ')
-fddimibPORTPMDClass = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8,))).clone(namedValues=NamedValues(("multimode", 1), ("single-mode1", 2), ("single-mode2", 3), ("sonet", 4), ("low-cost-fiber", 5), ("twisted-pair", 6), ("unknown", 7), ("unspecified", 8),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTPMDClass.setDescription('This variable indicates the type of PMD entity \n                      associated with this port.')
-fddimibPORTConnectionCapabilities = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,3))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTConnectionCapabilities.setDescription('A value that indicates the connection \n                      capabilities of the port. The pc-mac-lct bit \n                      indicates that the station has the capability of \n                      setting the PC_MAC_LCT Flag. The pc-mac-loop bit \n                      indicates that the station has the capability of \n                      setting the PC_MAC_Loop Flag (refer to ANSI \n                      9.4.3.2). \n \n                      The value is a sum.  This value initially takes \n                      the value zero, then for each capability that this \n                      port has, 2 raised to a power is added to the sum. \n                      The powers are according to the following table: \n \n                         capability   Power \n                         pc-mac-lct     0 \n                        pc-mac-loop     1 ')
-fddimibPORTBSFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("true", 1), ("false", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTBSFlag.setDescription('This variable assumes the value of the BS_Flag \n                      (refer to ANSI SMT 9.4.3.3).')
-fddimibPORTLCTFailCts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTLCTFailCts.setDescription('The count of the consecutive times the link \n                      confidence test (LCT) has failed during connection \n                      management (refer to ANSI 9.4.1).')
-fddimibPORTLerEstimate = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(4,15))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTLerEstimate.setDescription('A long term average link error rate. It ranges \n                      from 10**-4 to 10**-15 and is reported as the \n                      absolute value of the base 10 logarithm (refer to \n                      ANSI SMT 9.4.7.5.).')
-fddimibPORTLemRejectCts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTLemRejectCts.setDescription('A link error monitoring count of the times that a \n                      link has been rejected.')
-fddimibPORTLemCts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTLemCts.setDescription('The aggregate link error monitor error count, set \n                      to zero only on station initialization.')
-fddimibPORTLerCutoff = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(4,15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibPORTLerCutoff.setDescription('The link error rate estimate at which a link \n                      connection will be broken. It ranges from 10**-4 \n                      to 10**-15 and is reported as the absolute value \n                      of the base 10 logarithm (default of 7).')
-fddimibPORTLerAlarm = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(4,15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibPORTLerAlarm.setDescription('The link error rate estimate at which a link \n                      connection will generate an alarm. It ranges from \n                      10**-4 to 10**-15 and is reported as the absolute \n                      value of the base 10 logarithm of the estimate \n                      (default of 8).')
-fddimibPORTConnectState = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("disabled", 1), ("connecting", 2), ("standby", 3), ("active", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTConnectState.setDescription('An indication of the connect state of this PORT \n                      and is equal to the value of Connect_State (refer \n                      to ANSI 9.4.1)')
-fddimibPORTPCMState = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,))).clone(namedValues=NamedValues(("pc0", 1), ("pc1", 2), ("pc2", 3), ("pc3", 4), ("pc4", 5), ("pc5", 6), ("pc6", 7), ("pc7", 8), ("pc8", 9), ("pc9", 10),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTPCMState.setDescription("The state of this Port's PCM state machine refer \n                      to ANSI SMT 9.6.2).")
-fddimibPORTPCWithhold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("none", 1), ("m-m", 2), ("otherincompatible", 3), ("pathnotavailable", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTPCWithhold.setDescription('The value of PC_Withhold (refer to ANSI SMT \n                      9.4.1).')
-fddimibPORTLerFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("true", 1), ("false", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTLerFlag.setDescription('The condition becomes active when the value of \n                      fddiPORTLerEstimate is less than or equal to \n                      fddiPORTLerAlarm. This will be reported with the \n                      Status Report Frames (SRF) (refer to ANSI SMT \n                       7.2.7 and 8.3).')
-fddimibPORTHardwarePresent = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("true", 1), ("false", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fddimibPORTHardwarePresent.setDescription('This variable indicates the presence of \n                      underlying hardware support for this Port object. \n                      If the value of this object is false(2), the \n                      reporting of the objects in this entry may be \n                      handled in an implementation-specific manner.')
-fddimibPORTAction = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 15, 73, 5, 2, 1, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("other", 1), ("maintPORT", 2), ("enablePORT", 3), ("disablePORT", 4), ("startPORT", 5), ("stopPORT", 6),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fddimibPORTAction.setDescription("Causes a Control signal to be generated with a \n                      control_action of 'Signal' and the 'variable' \n                      parameter set with the appropriate value (i.e., \n                      PC_Maint, PC_Enable, PC_Disable, PC_Start, or \n                      PC_Stop) (refer to ANSI 9.4.2).")
-mibBuilder.exportSymbols("FDDI-SMT73-MIB", fddimibPATHConfigSMTIndex=fddimibPATHConfigSMTIndex, fddimibMACAvailablePaths=fddimibMACAvailablePaths, fddimibSMTTransitionTimeStamp=fddimibSMTTransitionTimeStamp, fddimibPORTHardwarePresent=fddimibPORTHardwarePresent, fddimibMACRequestedPaths=fddimibMACRequestedPaths, fddimibPATHConfigTable=fddimibPATHConfigTable, fddimibMACMAUnitdataAvailable=fddimibMACMAUnitdataAvailable, fddimibMACFrameStatusFunctions=fddimibMACFrameStatusFunctions, fddimibSMTConfigCapabilities=fddimibSMTConfigCapabilities, fddimibMACNumber=fddimibMACNumber, fddimibMACSMTIndex=fddimibMACSMTIndex, fddimibSMTECMState=fddimibSMTECMState, FddiResourceId=FddiResourceId, fddimibPATHSMTIndex=fddimibPATHSMTIndex, fddimibMACTMaxCapability=fddimibMACTMaxCapability, fddimibMAC=fddimibMAC, fddimibPORTLemRejectCts=fddimibPORTLemRejectCts, fddimibMACSMTAddress=fddimibMACSMTAddress, fddimibMACRMTState=fddimibMACRMTState, fddimibPORTEntry=fddimibPORTEntry, fddimibSMTTNotify=fddimibSMTTNotify, fddimibPORTLerAlarm=fddimibPORTLerAlarm, FddiTimeNano=FddiTimeNano, fddimibMACFrameErrorRatio=fddimibMACFrameErrorRatio, fddimibPORTSMTIndex=fddimibPORTSMTIndex, fddimibSMTStationAction=fddimibSMTStationAction, fddimibMACCopiedCts=fddimibMACCopiedCts, fddimibSMTNumber=fddimibSMTNumber, fddimib=fddimib, FddiMACLongAddressType=FddiMACLongAddressType, fddimibSMTLoVersionId=fddimibSMTLoVersionId, fddimibMACTransmitCts=fddimibMACTransmitCts, fddimibMACHardwarePresent=fddimibMACHardwarePresent, fddimibSMTBypassPresent=fddimibSMTBypassPresent, fddimibPORTIndex=fddimibPORTIndex, fddimibSMTTable=fddimibSMTTable, fddimibMACDownstreamNbr=fddimibMACDownstreamNbr, fddimibSMTOpVersionId=fddimibSMTOpVersionId, fddimibPORTConnectionCapabilities=fddimibPORTConnectionCapabilities, fddimibPATHConfigResourceIndex=fddimibPATHConfigResourceIndex, fddimibPORTCurrentPath=fddimibPORTCurrentPath, fddimibMACIndex=fddimibMACIndex, fddimibMACOldDownstreamNbr=fddimibMACOldDownstreamNbr, fddimibSMTTraceMaxExpiration=fddimibSMTTraceMaxExpiration, fddimibPORTPCWithhold=fddimibPORTPCWithhold, fddimibPORTTable=fddimibPORTTable, fddimibMACNotCopiedFlag=fddimibMACNotCopiedFlag, FddiSMTStationIdType=FddiSMTStationIdType, fddimibMACTvxValue=fddimibMACTvxValue, fddimibSMTRemoteDisconnectFlag=fddimibSMTRemoteDisconnectFlag, fddimibMACTokenCts=fddimibMACTokenCts, fddimibMACCountersTable=fddimibMACCountersTable, fddimibPORTNumber=fddimibPORTNumber, fddimibMACNotCopiedCts=fddimibMACNotCopiedCts, fddimibPORTConnectState=fddimibPORTConnectState, fddimibPORTAction=fddimibPORTAction, fddimibSMTStationStatus=fddimibSMTStationStatus, fddimibPORTNeighborType=fddimibPORTNeighborType, fddimibPORTLerEstimate=fddimibPORTLerEstimate, fddimibPORTPMDClass=fddimibPORTPMDClass, fddimibMACTVXCapability=fddimibMACTVXCapability, FddiTimeMilli=FddiTimeMilli, fddimibPATHTVXLowerBound=fddimibPATHTVXLowerBound, fddimibSMTHiVersionId=fddimibSMTHiVersionId, fddimibMACTReq=fddimibMACTReq, fddimibPATHNumber=fddimibPATHNumber, fddimibSMTUserData=fddimibSMTUserData, fddimibMACFrameCts=fddimibMACFrameCts, fddimibPATHConfigTokenOrder=fddimibPATHConfigTokenOrder, transmission=transmission, fddimibMACLostCts=fddimibMACLostCts, fddimibMACFrameErrorThreshold=fddimibMACFrameErrorThreshold, fddimibSMTConnectionPolicy=fddimibSMTConnectionPolicy, fddimibMACErrorCts=fddimibMACErrorCts, fddimibPORT=fddimibPORT, fddimibPORTLCTFailCts=fddimibPORTLCTFailCts, fddi=fddi, fddimibPORTMACPlacement=fddimibPORTMACPlacement, fddimibSMTEntry=fddimibSMTEntry, fddimibPORTLerFlag=fddimibPORTLerFlag, fddimibPORTLemCts=fddimibPORTLemCts, fddimibMACIfIndex=fddimibMACIfIndex, fddimibSMTCFState=fddimibSMTCFState, fddimibPATHConfigEntry=fddimibPATHConfigEntry, fddimibPORTAvailablePaths=fddimibPORTAvailablePaths, fddimibPATHTMaxLowerBound=fddimibPATHTMaxLowerBound, fddimibPORTMyType=fddimibPORTMyType, fddimibMACTvxExpiredCts=fddimibMACTvxExpiredCts, fddimibPATHConfigCurrentPath=fddimibPATHConfigCurrentPath, fddimibSMTIndex=fddimibSMTIndex, fddimibPATHConfigResourceType=fddimibPATHConfigResourceType, fddimibSMTPeerWrapFlag=fddimibSMTPeerWrapFlag, fddimibSMTStationId=fddimibSMTStationId, fddimibPATH=fddimibPATH, fddimibMACDownstreamPORTType=fddimibMACDownstreamPORTType, fddimibMACOldUpstreamNbr=fddimibMACOldUpstreamNbr, fddimibPORTRequestedPaths=fddimibPORTRequestedPaths, fddimibSMT=fddimibSMT, fddimibMACFrameErrorFlag=fddimibMACFrameErrorFlag, fddimibPATHConfigPATHIndex=fddimibPATHConfigPATHIndex, fddimibPATHMaxTReq=fddimibPATHMaxTReq, fddimibMACUnaDaFlag=fddimibMACUnaDaFlag, fddimibPORTBSFlag=fddimibPORTBSFlag, fddimibPORTConnectionPolicies=fddimibPORTConnectionPolicies, fddimibMACCurrentPath=fddimibMACCurrentPath, fddimibMACRingOpCts=fddimibMACRingOpCts, fddimibSMTMACCts=fddimibSMTMACCts, fddimibSMTTimeStamp=fddimibSMTTimeStamp, fddimibMACNotCopiedRatio=fddimibMACNotCopiedRatio, fddimibMACDupAddressTest=fddimibMACDupAddressTest, fddimibPORTLerCutoff=fddimibPORTLerCutoff, fddimibSMTConfigPolicy=fddimibSMTConfigPolicy, fddimibMACTMax=fddimibMACTMax, fddimibPATHIndex=fddimibPATHIndex, fddimibMACLateCts=fddimibMACLateCts, fddimibSMTNonMasterCts=fddimibSMTNonMasterCts, fddimibMACCountersEntry=fddimibMACCountersEntry, fddimibMACUpstreamNbr=fddimibMACUpstreamNbr, fddimibPATHEntry=fddimibPATHEntry, fddimibPATHTable=fddimibPATHTable, fddimibMACMAUnitdataEnable=fddimibMACMAUnitdataEnable, fddimibPORTPCMState=fddimibPORTPCMState, fddimibMACTNeg=fddimibMACTNeg, fddimibSMTMIBVersionId=fddimibSMTMIBVersionId, fddimibSMTMasterCts=fddimibSMTMasterCts, fddimibSMTStatRptPolicy=fddimibSMTStatRptPolicy, fddimibPORTMACIndicated=fddimibPORTMACIndicated, fddimibMACNotCopiedThreshold=fddimibMACNotCopiedThreshold, fddimibMACCounters=fddimibMACCounters, fddimibSMTAvailablePaths=fddimibSMTAvailablePaths, fddimibMACEntry=fddimibMACEntry, fddimibMACDaFlag=fddimibMACDaFlag, fddimibMACTable=fddimibMACTable)
+_X='fddimibPORTIndex'
+_W='fddimibPORTSMTIndex'
+_V='fddimibPATHConfigTokenOrder'
+_U='fddimibPATHConfigPATHIndex'
+_T='fddimibPATHConfigSMTIndex'
+_S='fddimibPATHIndex'
+_R='fddimibPATHSMTIndex'
+_Q='primary'
+_P='secondary'
+_O='isolated'
+_N='fddimibSMTIndex'
+_M='fddimibMACIndex'
+_L='fddimibMACSMTIndex'
+_K='thru'
+_J='concatenated'
+_I='OctetString'
+_H='none'
+_G='FDDI-SMT73-MIB'
+_F='false'
+_E='true'
+_D='read-write'
+_C='Integer32'
+_B='read-only'
+_A='mandatory'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_I,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','transmission')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+class FddiTimeNano(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+class FddiTimeMilli(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+class FddiResourceId(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+class FddiSMTStationIdType(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
+class FddiMACLongAddressType(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
+_Fddi_ObjectIdentity=ObjectIdentity
+fddi=_Fddi_ObjectIdentity((1,3,6,1,2,1,10,15))
+_Fddimib_ObjectIdentity=ObjectIdentity
+fddimib=_Fddimib_ObjectIdentity((1,3,6,1,2,1,10,15,73))
+_FddimibSMT_ObjectIdentity=ObjectIdentity
+fddimibSMT=_FddimibSMT_ObjectIdentity((1,3,6,1,2,1,10,15,73,1))
+class _FddimibSMTNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_FddimibSMTNumber_Type.__name__=_C
+_FddimibSMTNumber_Object=MibScalar
+fddimibSMTNumber=_FddimibSMTNumber_Object((1,3,6,1,2,1,10,15,73,1,1),_FddimibSMTNumber_Type())
+fddimibSMTNumber.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTNumber.setStatus(_A)
+_FddimibSMTTable_Object=MibTable
+fddimibSMTTable=_FddimibSMTTable_Object((1,3,6,1,2,1,10,15,73,1,2))
+if mibBuilder.loadTexts:fddimibSMTTable.setStatus(_A)
+_FddimibSMTEntry_Object=MibTableRow
+fddimibSMTEntry=_FddimibSMTEntry_Object((1,3,6,1,2,1,10,15,73,1,2,1))
+fddimibSMTEntry.setIndexNames((0,_G,_N))
+if mibBuilder.loadTexts:fddimibSMTEntry.setStatus(_A)
+class _FddimibSMTIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_FddimibSMTIndex_Type.__name__=_C
+_FddimibSMTIndex_Object=MibTableColumn
+fddimibSMTIndex=_FddimibSMTIndex_Object((1,3,6,1,2,1,10,15,73,1,2,1,1),_FddimibSMTIndex_Type())
+fddimibSMTIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTIndex.setStatus(_A)
+_FddimibSMTStationId_Type=FddiSMTStationIdType
+_FddimibSMTStationId_Object=MibTableColumn
+fddimibSMTStationId=_FddimibSMTStationId_Object((1,3,6,1,2,1,10,15,73,1,2,1,2),_FddimibSMTStationId_Type())
+fddimibSMTStationId.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTStationId.setStatus(_A)
+class _FddimibSMTOpVersionId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_FddimibSMTOpVersionId_Type.__name__=_C
+_FddimibSMTOpVersionId_Object=MibTableColumn
+fddimibSMTOpVersionId=_FddimibSMTOpVersionId_Object((1,3,6,1,2,1,10,15,73,1,2,1,3),_FddimibSMTOpVersionId_Type())
+fddimibSMTOpVersionId.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTOpVersionId.setStatus(_A)
+class _FddimibSMTHiVersionId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_FddimibSMTHiVersionId_Type.__name__=_C
+_FddimibSMTHiVersionId_Object=MibTableColumn
+fddimibSMTHiVersionId=_FddimibSMTHiVersionId_Object((1,3,6,1,2,1,10,15,73,1,2,1,4),_FddimibSMTHiVersionId_Type())
+fddimibSMTHiVersionId.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTHiVersionId.setStatus(_A)
+class _FddimibSMTLoVersionId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_FddimibSMTLoVersionId_Type.__name__=_C
+_FddimibSMTLoVersionId_Object=MibTableColumn
+fddimibSMTLoVersionId=_FddimibSMTLoVersionId_Object((1,3,6,1,2,1,10,15,73,1,2,1,5),_FddimibSMTLoVersionId_Type())
+fddimibSMTLoVersionId.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTLoVersionId.setStatus(_A)
+class _FddimibSMTUserData_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(32,32));fixedLength=32
+_FddimibSMTUserData_Type.__name__=_I
+_FddimibSMTUserData_Object=MibTableColumn
+fddimibSMTUserData=_FddimibSMTUserData_Object((1,3,6,1,2,1,10,15,73,1,2,1,6),_FddimibSMTUserData_Type())
+fddimibSMTUserData.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibSMTUserData.setStatus(_A)
+class _FddimibSMTMIBVersionId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_FddimibSMTMIBVersionId_Type.__name__=_C
+_FddimibSMTMIBVersionId_Object=MibTableColumn
+fddimibSMTMIBVersionId=_FddimibSMTMIBVersionId_Object((1,3,6,1,2,1,10,15,73,1,2,1,7),_FddimibSMTMIBVersionId_Type())
+fddimibSMTMIBVersionId.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTMIBVersionId.setStatus(_A)
+class _FddimibSMTMACCts_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_FddimibSMTMACCts_Type.__name__=_C
+_FddimibSMTMACCts_Object=MibTableColumn
+fddimibSMTMACCts=_FddimibSMTMACCts_Object((1,3,6,1,2,1,10,15,73,1,2,1,8),_FddimibSMTMACCts_Type())
+fddimibSMTMACCts.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTMACCts.setStatus(_A)
+class _FddimibSMTNonMasterCts_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
+_FddimibSMTNonMasterCts_Type.__name__=_C
+_FddimibSMTNonMasterCts_Object=MibTableColumn
+fddimibSMTNonMasterCts=_FddimibSMTNonMasterCts_Object((1,3,6,1,2,1,10,15,73,1,2,1,9),_FddimibSMTNonMasterCts_Type())
+fddimibSMTNonMasterCts.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTNonMasterCts.setStatus(_A)
+class _FddimibSMTMasterCts_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_FddimibSMTMasterCts_Type.__name__=_C
+_FddimibSMTMasterCts_Object=MibTableColumn
+fddimibSMTMasterCts=_FddimibSMTMasterCts_Object((1,3,6,1,2,1,10,15,73,1,2,1,10),_FddimibSMTMasterCts_Type())
+fddimibSMTMasterCts.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTMasterCts.setStatus(_A)
+class _FddimibSMTAvailablePaths_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
+_FddimibSMTAvailablePaths_Type.__name__=_C
+_FddimibSMTAvailablePaths_Object=MibTableColumn
+fddimibSMTAvailablePaths=_FddimibSMTAvailablePaths_Object((1,3,6,1,2,1,10,15,73,1,2,1,11),_FddimibSMTAvailablePaths_Type())
+fddimibSMTAvailablePaths.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTAvailablePaths.setStatus(_A)
+class _FddimibSMTConfigCapabilities_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3))
+_FddimibSMTConfigCapabilities_Type.__name__=_C
+_FddimibSMTConfigCapabilities_Object=MibTableColumn
+fddimibSMTConfigCapabilities=_FddimibSMTConfigCapabilities_Object((1,3,6,1,2,1,10,15,73,1,2,1,12),_FddimibSMTConfigCapabilities_Type())
+fddimibSMTConfigCapabilities.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTConfigCapabilities.setStatus(_A)
+class _FddimibSMTConfigPolicy_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
+_FddimibSMTConfigPolicy_Type.__name__=_C
+_FddimibSMTConfigPolicy_Object=MibTableColumn
+fddimibSMTConfigPolicy=_FddimibSMTConfigPolicy_Object((1,3,6,1,2,1,10,15,73,1,2,1,13),_FddimibSMTConfigPolicy_Type())
+fddimibSMTConfigPolicy.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibSMTConfigPolicy.setStatus(_A)
+class _FddimibSMTConnectionPolicy_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(32768,65535))
+_FddimibSMTConnectionPolicy_Type.__name__=_C
+_FddimibSMTConnectionPolicy_Object=MibTableColumn
+fddimibSMTConnectionPolicy=_FddimibSMTConnectionPolicy_Object((1,3,6,1,2,1,10,15,73,1,2,1,14),_FddimibSMTConnectionPolicy_Type())
+fddimibSMTConnectionPolicy.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibSMTConnectionPolicy.setStatus(_A)
+class _FddimibSMTTNotify_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(2,30))
+_FddimibSMTTNotify_Type.__name__=_C
+_FddimibSMTTNotify_Object=MibTableColumn
+fddimibSMTTNotify=_FddimibSMTTNotify_Object((1,3,6,1,2,1,10,15,73,1,2,1,15),_FddimibSMTTNotify_Type())
+fddimibSMTTNotify.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibSMTTNotify.setStatus(_A)
+class _FddimibSMTStatRptPolicy_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
+_FddimibSMTStatRptPolicy_Type.__name__=_C
+_FddimibSMTStatRptPolicy_Object=MibTableColumn
+fddimibSMTStatRptPolicy=_FddimibSMTStatRptPolicy_Object((1,3,6,1,2,1,10,15,73,1,2,1,16),_FddimibSMTStatRptPolicy_Type())
+fddimibSMTStatRptPolicy.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibSMTStatRptPolicy.setStatus(_A)
+_FddimibSMTTraceMaxExpiration_Type=FddiTimeMilli
+_FddimibSMTTraceMaxExpiration_Object=MibTableColumn
+fddimibSMTTraceMaxExpiration=_FddimibSMTTraceMaxExpiration_Object((1,3,6,1,2,1,10,15,73,1,2,1,17),_FddimibSMTTraceMaxExpiration_Type())
+fddimibSMTTraceMaxExpiration.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibSMTTraceMaxExpiration.setStatus(_A)
+class _FddimibSMTBypassPresent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
+_FddimibSMTBypassPresent_Type.__name__=_C
+_FddimibSMTBypassPresent_Object=MibTableColumn
+fddimibSMTBypassPresent=_FddimibSMTBypassPresent_Object((1,3,6,1,2,1,10,15,73,1,2,1,18),_FddimibSMTBypassPresent_Type())
+fddimibSMTBypassPresent.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTBypassPresent.setStatus(_A)
+class _FddimibSMTECMState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('ec0',1),('ec1',2),('ec2',3),('ec3',4),('ec4',5),('ec5',6),('ec6',7),('ec7',8)))
+_FddimibSMTECMState_Type.__name__=_C
+_FddimibSMTECMState_Object=MibTableColumn
+fddimibSMTECMState=_FddimibSMTECMState_Object((1,3,6,1,2,1,10,15,73,1,2,1,19),_FddimibSMTECMState_Type())
+fddimibSMTECMState.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTECMState.setStatus(_A)
+class _FddimibSMTCFState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13)));namedValues=NamedValues(*(('cf0',1),('cf1',2),('cf2',3),('cf3',4),('cf4',5),('cf5',6),('cf6',7),('cf7',8),('cf8',9),('cf9',10),('cf10',11),('cf11',12),('cf12',13)))
+_FddimibSMTCFState_Type.__name__=_C
+_FddimibSMTCFState_Object=MibTableColumn
+fddimibSMTCFState=_FddimibSMTCFState_Object((1,3,6,1,2,1,10,15,73,1,2,1,20),_FddimibSMTCFState_Type())
+fddimibSMTCFState.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTCFState.setStatus(_A)
+class _FddimibSMTRemoteDisconnectFlag_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
+_FddimibSMTRemoteDisconnectFlag_Type.__name__=_C
+_FddimibSMTRemoteDisconnectFlag_Object=MibTableColumn
+fddimibSMTRemoteDisconnectFlag=_FddimibSMTRemoteDisconnectFlag_Object((1,3,6,1,2,1,10,15,73,1,2,1,21),_FddimibSMTRemoteDisconnectFlag_Type())
+fddimibSMTRemoteDisconnectFlag.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTRemoteDisconnectFlag.setStatus(_A)
+class _FddimibSMTStationStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_J,1),('separated',2),(_K,3)))
+_FddimibSMTStationStatus_Type.__name__=_C
+_FddimibSMTStationStatus_Object=MibTableColumn
+fddimibSMTStationStatus=_FddimibSMTStationStatus_Object((1,3,6,1,2,1,10,15,73,1,2,1,22),_FddimibSMTStationStatus_Type())
+fddimibSMTStationStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTStationStatus.setStatus(_A)
+class _FddimibSMTPeerWrapFlag_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
+_FddimibSMTPeerWrapFlag_Type.__name__=_C
+_FddimibSMTPeerWrapFlag_Object=MibTableColumn
+fddimibSMTPeerWrapFlag=_FddimibSMTPeerWrapFlag_Object((1,3,6,1,2,1,10,15,73,1,2,1,23),_FddimibSMTPeerWrapFlag_Type())
+fddimibSMTPeerWrapFlag.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTPeerWrapFlag.setStatus(_A)
+_FddimibSMTTimeStamp_Type=FddiTimeMilli
+_FddimibSMTTimeStamp_Object=MibTableColumn
+fddimibSMTTimeStamp=_FddimibSMTTimeStamp_Object((1,3,6,1,2,1,10,15,73,1,2,1,24),_FddimibSMTTimeStamp_Type())
+fddimibSMTTimeStamp.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTTimeStamp.setStatus(_A)
+_FddimibSMTTransitionTimeStamp_Type=FddiTimeMilli
+_FddimibSMTTransitionTimeStamp_Object=MibTableColumn
+fddimibSMTTransitionTimeStamp=_FddimibSMTTransitionTimeStamp_Object((1,3,6,1,2,1,10,15,73,1,2,1,25),_FddimibSMTTransitionTimeStamp_Type())
+fddimibSMTTransitionTimeStamp.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibSMTTransitionTimeStamp.setStatus(_A)
+class _FddimibSMTStationAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('other',1),('connect',2),('disconnect',3),('path-Test',4),('self-Test',5),('disable-a',6),('disable-b',7),('disable-m',8)))
+_FddimibSMTStationAction_Type.__name__=_C
+_FddimibSMTStationAction_Object=MibTableColumn
+fddimibSMTStationAction=_FddimibSMTStationAction_Object((1,3,6,1,2,1,10,15,73,1,2,1,26),_FddimibSMTStationAction_Type())
+fddimibSMTStationAction.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibSMTStationAction.setStatus(_A)
+_FddimibMAC_ObjectIdentity=ObjectIdentity
+fddimibMAC=_FddimibMAC_ObjectIdentity((1,3,6,1,2,1,10,15,73,2))
+class _FddimibMACNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_FddimibMACNumber_Type.__name__=_C
+_FddimibMACNumber_Object=MibScalar
+fddimibMACNumber=_FddimibMACNumber_Object((1,3,6,1,2,1,10,15,73,2,1),_FddimibMACNumber_Type())
+fddimibMACNumber.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACNumber.setStatus(_A)
+_FddimibMACTable_Object=MibTable
+fddimibMACTable=_FddimibMACTable_Object((1,3,6,1,2,1,10,15,73,2,2))
+if mibBuilder.loadTexts:fddimibMACTable.setStatus(_A)
+_FddimibMACEntry_Object=MibTableRow
+fddimibMACEntry=_FddimibMACEntry_Object((1,3,6,1,2,1,10,15,73,2,2,1))
+fddimibMACEntry.setIndexNames((0,_G,_L),(0,_G,_M))
+if mibBuilder.loadTexts:fddimibMACEntry.setStatus(_A)
+class _FddimibMACSMTIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_FddimibMACSMTIndex_Type.__name__=_C
+_FddimibMACSMTIndex_Object=MibTableColumn
+fddimibMACSMTIndex=_FddimibMACSMTIndex_Object((1,3,6,1,2,1,10,15,73,2,2,1,1),_FddimibMACSMTIndex_Type())
+fddimibMACSMTIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACSMTIndex.setStatus(_A)
+class _FddimibMACIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_FddimibMACIndex_Type.__name__=_C
+_FddimibMACIndex_Object=MibTableColumn
+fddimibMACIndex=_FddimibMACIndex_Object((1,3,6,1,2,1,10,15,73,2,2,1,2),_FddimibMACIndex_Type())
+fddimibMACIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACIndex.setStatus(_A)
+class _FddimibMACIfIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_FddimibMACIfIndex_Type.__name__=_C
+_FddimibMACIfIndex_Object=MibTableColumn
+fddimibMACIfIndex=_FddimibMACIfIndex_Object((1,3,6,1,2,1,10,15,73,2,2,1,3),_FddimibMACIfIndex_Type())
+fddimibMACIfIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACIfIndex.setStatus(_A)
+class _FddimibMACFrameStatusFunctions_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
+_FddimibMACFrameStatusFunctions_Type.__name__=_C
+_FddimibMACFrameStatusFunctions_Object=MibTableColumn
+fddimibMACFrameStatusFunctions=_FddimibMACFrameStatusFunctions_Object((1,3,6,1,2,1,10,15,73,2,2,1,4),_FddimibMACFrameStatusFunctions_Type())
+fddimibMACFrameStatusFunctions.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACFrameStatusFunctions.setStatus(_A)
+_FddimibMACTMaxCapability_Type=FddiTimeNano
+_FddimibMACTMaxCapability_Object=MibTableColumn
+fddimibMACTMaxCapability=_FddimibMACTMaxCapability_Object((1,3,6,1,2,1,10,15,73,2,2,1,5),_FddimibMACTMaxCapability_Type())
+fddimibMACTMaxCapability.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACTMaxCapability.setStatus(_A)
+_FddimibMACTVXCapability_Type=FddiTimeNano
+_FddimibMACTVXCapability_Object=MibTableColumn
+fddimibMACTVXCapability=_FddimibMACTVXCapability_Object((1,3,6,1,2,1,10,15,73,2,2,1,6),_FddimibMACTVXCapability_Type())
+fddimibMACTVXCapability.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACTVXCapability.setStatus(_A)
+class _FddimibMACAvailablePaths_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
+_FddimibMACAvailablePaths_Type.__name__=_C
+_FddimibMACAvailablePaths_Object=MibTableColumn
+fddimibMACAvailablePaths=_FddimibMACAvailablePaths_Object((1,3,6,1,2,1,10,15,73,2,2,1,7),_FddimibMACAvailablePaths_Type())
+fddimibMACAvailablePaths.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACAvailablePaths.setStatus(_A)
+class _FddimibMACCurrentPath_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_O,1),('local',2),(_P,3),(_Q,4),(_J,5),(_K,6)))
+_FddimibMACCurrentPath_Type.__name__=_C
+_FddimibMACCurrentPath_Object=MibTableColumn
+fddimibMACCurrentPath=_FddimibMACCurrentPath_Object((1,3,6,1,2,1,10,15,73,2,2,1,8),_FddimibMACCurrentPath_Type())
+fddimibMACCurrentPath.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACCurrentPath.setStatus(_A)
+_FddimibMACUpstreamNbr_Type=FddiMACLongAddressType
+_FddimibMACUpstreamNbr_Object=MibTableColumn
+fddimibMACUpstreamNbr=_FddimibMACUpstreamNbr_Object((1,3,6,1,2,1,10,15,73,2,2,1,9),_FddimibMACUpstreamNbr_Type())
+fddimibMACUpstreamNbr.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACUpstreamNbr.setStatus(_A)
+_FddimibMACDownstreamNbr_Type=FddiMACLongAddressType
+_FddimibMACDownstreamNbr_Object=MibTableColumn
+fddimibMACDownstreamNbr=_FddimibMACDownstreamNbr_Object((1,3,6,1,2,1,10,15,73,2,2,1,10),_FddimibMACDownstreamNbr_Type())
+fddimibMACDownstreamNbr.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACDownstreamNbr.setStatus(_A)
+_FddimibMACOldUpstreamNbr_Type=FddiMACLongAddressType
+_FddimibMACOldUpstreamNbr_Object=MibTableColumn
+fddimibMACOldUpstreamNbr=_FddimibMACOldUpstreamNbr_Object((1,3,6,1,2,1,10,15,73,2,2,1,11),_FddimibMACOldUpstreamNbr_Type())
+fddimibMACOldUpstreamNbr.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACOldUpstreamNbr.setStatus(_A)
+_FddimibMACOldDownstreamNbr_Type=FddiMACLongAddressType
+_FddimibMACOldDownstreamNbr_Object=MibTableColumn
+fddimibMACOldDownstreamNbr=_FddimibMACOldDownstreamNbr_Object((1,3,6,1,2,1,10,15,73,2,2,1,12),_FddimibMACOldDownstreamNbr_Type())
+fddimibMACOldDownstreamNbr.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACOldDownstreamNbr.setStatus(_A)
+class _FddimibMACDupAddressTest_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_H,1),('pass',2),('fail',3)))
+_FddimibMACDupAddressTest_Type.__name__=_C
+_FddimibMACDupAddressTest_Object=MibTableColumn
+fddimibMACDupAddressTest=_FddimibMACDupAddressTest_Object((1,3,6,1,2,1,10,15,73,2,2,1,13),_FddimibMACDupAddressTest_Type())
+fddimibMACDupAddressTest.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACDupAddressTest.setStatus(_A)
+class _FddimibMACRequestedPaths_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_FddimibMACRequestedPaths_Type.__name__=_C
+_FddimibMACRequestedPaths_Object=MibTableColumn
+fddimibMACRequestedPaths=_FddimibMACRequestedPaths_Object((1,3,6,1,2,1,10,15,73,2,2,1,14),_FddimibMACRequestedPaths_Type())
+fddimibMACRequestedPaths.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibMACRequestedPaths.setStatus(_A)
+class _FddimibMACDownstreamPORTType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('a',1),('b',2),('s',3),('m',4),(_H,5)))
+_FddimibMACDownstreamPORTType_Type.__name__=_C
+_FddimibMACDownstreamPORTType_Object=MibTableColumn
+fddimibMACDownstreamPORTType=_FddimibMACDownstreamPORTType_Object((1,3,6,1,2,1,10,15,73,2,2,1,15),_FddimibMACDownstreamPORTType_Type())
+fddimibMACDownstreamPORTType.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACDownstreamPORTType.setStatus(_A)
+_FddimibMACSMTAddress_Type=FddiMACLongAddressType
+_FddimibMACSMTAddress_Object=MibTableColumn
+fddimibMACSMTAddress=_FddimibMACSMTAddress_Object((1,3,6,1,2,1,10,15,73,2,2,1,16),_FddimibMACSMTAddress_Type())
+fddimibMACSMTAddress.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACSMTAddress.setStatus(_A)
+_FddimibMACTReq_Type=FddiTimeNano
+_FddimibMACTReq_Object=MibTableColumn
+fddimibMACTReq=_FddimibMACTReq_Object((1,3,6,1,2,1,10,15,73,2,2,1,17),_FddimibMACTReq_Type())
+fddimibMACTReq.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACTReq.setStatus(_A)
+_FddimibMACTNeg_Type=FddiTimeNano
+_FddimibMACTNeg_Object=MibTableColumn
+fddimibMACTNeg=_FddimibMACTNeg_Object((1,3,6,1,2,1,10,15,73,2,2,1,18),_FddimibMACTNeg_Type())
+fddimibMACTNeg.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACTNeg.setStatus(_A)
+_FddimibMACTMax_Type=FddiTimeNano
+_FddimibMACTMax_Object=MibTableColumn
+fddimibMACTMax=_FddimibMACTMax_Object((1,3,6,1,2,1,10,15,73,2,2,1,19),_FddimibMACTMax_Type())
+fddimibMACTMax.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACTMax.setStatus(_A)
+_FddimibMACTvxValue_Type=FddiTimeNano
+_FddimibMACTvxValue_Object=MibTableColumn
+fddimibMACTvxValue=_FddimibMACTvxValue_Object((1,3,6,1,2,1,10,15,73,2,2,1,20),_FddimibMACTvxValue_Type())
+fddimibMACTvxValue.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACTvxValue.setStatus(_A)
+_FddimibMACFrameCts_Type=Counter32
+_FddimibMACFrameCts_Object=MibTableColumn
+fddimibMACFrameCts=_FddimibMACFrameCts_Object((1,3,6,1,2,1,10,15,73,2,2,1,21),_FddimibMACFrameCts_Type())
+fddimibMACFrameCts.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACFrameCts.setStatus(_A)
+_FddimibMACCopiedCts_Type=Counter32
+_FddimibMACCopiedCts_Object=MibTableColumn
+fddimibMACCopiedCts=_FddimibMACCopiedCts_Object((1,3,6,1,2,1,10,15,73,2,2,1,22),_FddimibMACCopiedCts_Type())
+fddimibMACCopiedCts.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACCopiedCts.setStatus(_A)
+_FddimibMACTransmitCts_Type=Counter32
+_FddimibMACTransmitCts_Object=MibTableColumn
+fddimibMACTransmitCts=_FddimibMACTransmitCts_Object((1,3,6,1,2,1,10,15,73,2,2,1,23),_FddimibMACTransmitCts_Type())
+fddimibMACTransmitCts.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACTransmitCts.setStatus(_A)
+_FddimibMACErrorCts_Type=Counter32
+_FddimibMACErrorCts_Object=MibTableColumn
+fddimibMACErrorCts=_FddimibMACErrorCts_Object((1,3,6,1,2,1,10,15,73,2,2,1,24),_FddimibMACErrorCts_Type())
+fddimibMACErrorCts.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACErrorCts.setStatus(_A)
+_FddimibMACLostCts_Type=Counter32
+_FddimibMACLostCts_Object=MibTableColumn
+fddimibMACLostCts=_FddimibMACLostCts_Object((1,3,6,1,2,1,10,15,73,2,2,1,25),_FddimibMACLostCts_Type())
+fddimibMACLostCts.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACLostCts.setStatus(_A)
+class _FddimibMACFrameErrorThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_FddimibMACFrameErrorThreshold_Type.__name__=_C
+_FddimibMACFrameErrorThreshold_Object=MibTableColumn
+fddimibMACFrameErrorThreshold=_FddimibMACFrameErrorThreshold_Object((1,3,6,1,2,1,10,15,73,2,2,1,26),_FddimibMACFrameErrorThreshold_Type())
+fddimibMACFrameErrorThreshold.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibMACFrameErrorThreshold.setStatus(_A)
+class _FddimibMACFrameErrorRatio_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_FddimibMACFrameErrorRatio_Type.__name__=_C
+_FddimibMACFrameErrorRatio_Object=MibTableColumn
+fddimibMACFrameErrorRatio=_FddimibMACFrameErrorRatio_Object((1,3,6,1,2,1,10,15,73,2,2,1,27),_FddimibMACFrameErrorRatio_Type())
+fddimibMACFrameErrorRatio.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACFrameErrorRatio.setStatus(_A)
+class _FddimibMACRMTState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('rm0',1),('rm1',2),('rm2',3),('rm3',4),('rm4',5),('rm5',6),('rm6',7),('rm7',8)))
+_FddimibMACRMTState_Type.__name__=_C
+_FddimibMACRMTState_Object=MibTableColumn
+fddimibMACRMTState=_FddimibMACRMTState_Object((1,3,6,1,2,1,10,15,73,2,2,1,28),_FddimibMACRMTState_Type())
+fddimibMACRMTState.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACRMTState.setStatus(_A)
+class _FddimibMACDaFlag_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
+_FddimibMACDaFlag_Type.__name__=_C
+_FddimibMACDaFlag_Object=MibTableColumn
+fddimibMACDaFlag=_FddimibMACDaFlag_Object((1,3,6,1,2,1,10,15,73,2,2,1,29),_FddimibMACDaFlag_Type())
+fddimibMACDaFlag.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACDaFlag.setStatus(_A)
+class _FddimibMACUnaDaFlag_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
+_FddimibMACUnaDaFlag_Type.__name__=_C
+_FddimibMACUnaDaFlag_Object=MibTableColumn
+fddimibMACUnaDaFlag=_FddimibMACUnaDaFlag_Object((1,3,6,1,2,1,10,15,73,2,2,1,30),_FddimibMACUnaDaFlag_Type())
+fddimibMACUnaDaFlag.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACUnaDaFlag.setStatus(_A)
+class _FddimibMACFrameErrorFlag_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
+_FddimibMACFrameErrorFlag_Type.__name__=_C
+_FddimibMACFrameErrorFlag_Object=MibTableColumn
+fddimibMACFrameErrorFlag=_FddimibMACFrameErrorFlag_Object((1,3,6,1,2,1,10,15,73,2,2,1,31),_FddimibMACFrameErrorFlag_Type())
+fddimibMACFrameErrorFlag.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACFrameErrorFlag.setStatus(_A)
+class _FddimibMACMAUnitdataAvailable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
+_FddimibMACMAUnitdataAvailable_Type.__name__=_C
+_FddimibMACMAUnitdataAvailable_Object=MibTableColumn
+fddimibMACMAUnitdataAvailable=_FddimibMACMAUnitdataAvailable_Object((1,3,6,1,2,1,10,15,73,2,2,1,32),_FddimibMACMAUnitdataAvailable_Type())
+fddimibMACMAUnitdataAvailable.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACMAUnitdataAvailable.setStatus(_A)
+class _FddimibMACHardwarePresent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
+_FddimibMACHardwarePresent_Type.__name__=_C
+_FddimibMACHardwarePresent_Object=MibTableColumn
+fddimibMACHardwarePresent=_FddimibMACHardwarePresent_Object((1,3,6,1,2,1,10,15,73,2,2,1,33),_FddimibMACHardwarePresent_Type())
+fddimibMACHardwarePresent.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACHardwarePresent.setStatus(_A)
+class _FddimibMACMAUnitdataEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
+_FddimibMACMAUnitdataEnable_Type.__name__=_C
+_FddimibMACMAUnitdataEnable_Object=MibTableColumn
+fddimibMACMAUnitdataEnable=_FddimibMACMAUnitdataEnable_Object((1,3,6,1,2,1,10,15,73,2,2,1,34),_FddimibMACMAUnitdataEnable_Type())
+fddimibMACMAUnitdataEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibMACMAUnitdataEnable.setStatus(_A)
+_FddimibMACCounters_ObjectIdentity=ObjectIdentity
+fddimibMACCounters=_FddimibMACCounters_ObjectIdentity((1,3,6,1,2,1,10,15,73,3))
+_FddimibMACCountersTable_Object=MibTable
+fddimibMACCountersTable=_FddimibMACCountersTable_Object((1,3,6,1,2,1,10,15,73,3,1))
+if mibBuilder.loadTexts:fddimibMACCountersTable.setStatus(_A)
+_FddimibMACCountersEntry_Object=MibTableRow
+fddimibMACCountersEntry=_FddimibMACCountersEntry_Object((1,3,6,1,2,1,10,15,73,3,1,1))
+fddimibMACCountersEntry.setIndexNames((0,_G,_L),(0,_G,_M))
+if mibBuilder.loadTexts:fddimibMACCountersEntry.setStatus(_A)
+_FddimibMACTokenCts_Type=Counter32
+_FddimibMACTokenCts_Object=MibTableColumn
+fddimibMACTokenCts=_FddimibMACTokenCts_Object((1,3,6,1,2,1,10,15,73,3,1,1,1),_FddimibMACTokenCts_Type())
+fddimibMACTokenCts.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACTokenCts.setStatus(_A)
+_FddimibMACTvxExpiredCts_Type=Counter32
+_FddimibMACTvxExpiredCts_Object=MibTableColumn
+fddimibMACTvxExpiredCts=_FddimibMACTvxExpiredCts_Object((1,3,6,1,2,1,10,15,73,3,1,1,2),_FddimibMACTvxExpiredCts_Type())
+fddimibMACTvxExpiredCts.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACTvxExpiredCts.setStatus(_A)
+_FddimibMACNotCopiedCts_Type=Counter32
+_FddimibMACNotCopiedCts_Object=MibTableColumn
+fddimibMACNotCopiedCts=_FddimibMACNotCopiedCts_Object((1,3,6,1,2,1,10,15,73,3,1,1,3),_FddimibMACNotCopiedCts_Type())
+fddimibMACNotCopiedCts.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACNotCopiedCts.setStatus(_A)
+_FddimibMACLateCts_Type=Counter32
+_FddimibMACLateCts_Object=MibTableColumn
+fddimibMACLateCts=_FddimibMACLateCts_Object((1,3,6,1,2,1,10,15,73,3,1,1,4),_FddimibMACLateCts_Type())
+fddimibMACLateCts.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACLateCts.setStatus(_A)
+_FddimibMACRingOpCts_Type=Counter32
+_FddimibMACRingOpCts_Object=MibTableColumn
+fddimibMACRingOpCts=_FddimibMACRingOpCts_Object((1,3,6,1,2,1,10,15,73,3,1,1,5),_FddimibMACRingOpCts_Type())
+fddimibMACRingOpCts.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACRingOpCts.setStatus(_A)
+class _FddimibMACNotCopiedRatio_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_FddimibMACNotCopiedRatio_Type.__name__=_C
+_FddimibMACNotCopiedRatio_Object=MibTableColumn
+fddimibMACNotCopiedRatio=_FddimibMACNotCopiedRatio_Object((1,3,6,1,2,1,10,15,73,3,1,1,6),_FddimibMACNotCopiedRatio_Type())
+fddimibMACNotCopiedRatio.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACNotCopiedRatio.setStatus(_A)
+class _FddimibMACNotCopiedFlag_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
+_FddimibMACNotCopiedFlag_Type.__name__=_C
+_FddimibMACNotCopiedFlag_Object=MibTableColumn
+fddimibMACNotCopiedFlag=_FddimibMACNotCopiedFlag_Object((1,3,6,1,2,1,10,15,73,3,1,1,7),_FddimibMACNotCopiedFlag_Type())
+fddimibMACNotCopiedFlag.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibMACNotCopiedFlag.setStatus(_A)
+class _FddimibMACNotCopiedThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_FddimibMACNotCopiedThreshold_Type.__name__=_C
+_FddimibMACNotCopiedThreshold_Object=MibTableColumn
+fddimibMACNotCopiedThreshold=_FddimibMACNotCopiedThreshold_Object((1,3,6,1,2,1,10,15,73,3,1,1,8),_FddimibMACNotCopiedThreshold_Type())
+fddimibMACNotCopiedThreshold.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibMACNotCopiedThreshold.setStatus(_A)
+_FddimibPATH_ObjectIdentity=ObjectIdentity
+fddimibPATH=_FddimibPATH_ObjectIdentity((1,3,6,1,2,1,10,15,73,4))
+class _FddimibPATHNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_FddimibPATHNumber_Type.__name__=_C
+_FddimibPATHNumber_Object=MibScalar
+fddimibPATHNumber=_FddimibPATHNumber_Object((1,3,6,1,2,1,10,15,73,4,1),_FddimibPATHNumber_Type())
+fddimibPATHNumber.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPATHNumber.setStatus(_A)
+_FddimibPATHTable_Object=MibTable
+fddimibPATHTable=_FddimibPATHTable_Object((1,3,6,1,2,1,10,15,73,4,2))
+if mibBuilder.loadTexts:fddimibPATHTable.setStatus(_A)
+_FddimibPATHEntry_Object=MibTableRow
+fddimibPATHEntry=_FddimibPATHEntry_Object((1,3,6,1,2,1,10,15,73,4,2,1))
+fddimibPATHEntry.setIndexNames((0,_G,_R),(0,_G,_S))
+if mibBuilder.loadTexts:fddimibPATHEntry.setStatus(_A)
+class _FddimibPATHSMTIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_FddimibPATHSMTIndex_Type.__name__=_C
+_FddimibPATHSMTIndex_Object=MibTableColumn
+fddimibPATHSMTIndex=_FddimibPATHSMTIndex_Object((1,3,6,1,2,1,10,15,73,4,2,1,1),_FddimibPATHSMTIndex_Type())
+fddimibPATHSMTIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPATHSMTIndex.setStatus(_A)
+class _FddimibPATHIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_FddimibPATHIndex_Type.__name__=_C
+_FddimibPATHIndex_Object=MibTableColumn
+fddimibPATHIndex=_FddimibPATHIndex_Object((1,3,6,1,2,1,10,15,73,4,2,1,2),_FddimibPATHIndex_Type())
+fddimibPATHIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPATHIndex.setStatus(_A)
+_FddimibPATHTVXLowerBound_Type=FddiTimeNano
+_FddimibPATHTVXLowerBound_Object=MibTableColumn
+fddimibPATHTVXLowerBound=_FddimibPATHTVXLowerBound_Object((1,3,6,1,2,1,10,15,73,4,2,1,3),_FddimibPATHTVXLowerBound_Type())
+fddimibPATHTVXLowerBound.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibPATHTVXLowerBound.setStatus(_A)
+_FddimibPATHTMaxLowerBound_Type=FddiTimeNano
+_FddimibPATHTMaxLowerBound_Object=MibTableColumn
+fddimibPATHTMaxLowerBound=_FddimibPATHTMaxLowerBound_Object((1,3,6,1,2,1,10,15,73,4,2,1,4),_FddimibPATHTMaxLowerBound_Type())
+fddimibPATHTMaxLowerBound.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibPATHTMaxLowerBound.setStatus(_A)
+_FddimibPATHMaxTReq_Type=FddiTimeNano
+_FddimibPATHMaxTReq_Object=MibTableColumn
+fddimibPATHMaxTReq=_FddimibPATHMaxTReq_Object((1,3,6,1,2,1,10,15,73,4,2,1,5),_FddimibPATHMaxTReq_Type())
+fddimibPATHMaxTReq.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibPATHMaxTReq.setStatus(_A)
+_FddimibPATHConfigTable_Object=MibTable
+fddimibPATHConfigTable=_FddimibPATHConfigTable_Object((1,3,6,1,2,1,10,15,73,4,3))
+if mibBuilder.loadTexts:fddimibPATHConfigTable.setStatus(_A)
+_FddimibPATHConfigEntry_Object=MibTableRow
+fddimibPATHConfigEntry=_FddimibPATHConfigEntry_Object((1,3,6,1,2,1,10,15,73,4,3,1))
+fddimibPATHConfigEntry.setIndexNames((0,_G,_T),(0,_G,_U),(0,_G,_V))
+if mibBuilder.loadTexts:fddimibPATHConfigEntry.setStatus(_A)
+class _FddimibPATHConfigSMTIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_FddimibPATHConfigSMTIndex_Type.__name__=_C
+_FddimibPATHConfigSMTIndex_Object=MibTableColumn
+fddimibPATHConfigSMTIndex=_FddimibPATHConfigSMTIndex_Object((1,3,6,1,2,1,10,15,73,4,3,1,1),_FddimibPATHConfigSMTIndex_Type())
+fddimibPATHConfigSMTIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPATHConfigSMTIndex.setStatus(_A)
+class _FddimibPATHConfigPATHIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_FddimibPATHConfigPATHIndex_Type.__name__=_C
+_FddimibPATHConfigPATHIndex_Object=MibTableColumn
+fddimibPATHConfigPATHIndex=_FddimibPATHConfigPATHIndex_Object((1,3,6,1,2,1,10,15,73,4,3,1,2),_FddimibPATHConfigPATHIndex_Type())
+fddimibPATHConfigPATHIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPATHConfigPATHIndex.setStatus(_A)
+class _FddimibPATHConfigTokenOrder_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_FddimibPATHConfigTokenOrder_Type.__name__=_C
+_FddimibPATHConfigTokenOrder_Object=MibTableColumn
+fddimibPATHConfigTokenOrder=_FddimibPATHConfigTokenOrder_Object((1,3,6,1,2,1,10,15,73,4,3,1,3),_FddimibPATHConfigTokenOrder_Type())
+fddimibPATHConfigTokenOrder.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPATHConfigTokenOrder.setStatus(_A)
+class _FddimibPATHConfigResourceType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,4)));namedValues=NamedValues(*(('mac',2),('port',4)))
+_FddimibPATHConfigResourceType_Type.__name__=_C
+_FddimibPATHConfigResourceType_Object=MibTableColumn
+fddimibPATHConfigResourceType=_FddimibPATHConfigResourceType_Object((1,3,6,1,2,1,10,15,73,4,3,1,4),_FddimibPATHConfigResourceType_Type())
+fddimibPATHConfigResourceType.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPATHConfigResourceType.setStatus(_A)
+class _FddimibPATHConfigResourceIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_FddimibPATHConfigResourceIndex_Type.__name__=_C
+_FddimibPATHConfigResourceIndex_Object=MibTableColumn
+fddimibPATHConfigResourceIndex=_FddimibPATHConfigResourceIndex_Object((1,3,6,1,2,1,10,15,73,4,3,1,5),_FddimibPATHConfigResourceIndex_Type())
+fddimibPATHConfigResourceIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPATHConfigResourceIndex.setStatus(_A)
+class _FddimibPATHConfigCurrentPath_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_O,1),('local',2),(_P,3),(_Q,4),(_J,5),(_K,6)))
+_FddimibPATHConfigCurrentPath_Type.__name__=_C
+_FddimibPATHConfigCurrentPath_Object=MibTableColumn
+fddimibPATHConfigCurrentPath=_FddimibPATHConfigCurrentPath_Object((1,3,6,1,2,1,10,15,73,4,3,1,6),_FddimibPATHConfigCurrentPath_Type())
+fddimibPATHConfigCurrentPath.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPATHConfigCurrentPath.setStatus(_A)
+_FddimibPORT_ObjectIdentity=ObjectIdentity
+fddimibPORT=_FddimibPORT_ObjectIdentity((1,3,6,1,2,1,10,15,73,5))
+class _FddimibPORTNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_FddimibPORTNumber_Type.__name__=_C
+_FddimibPORTNumber_Object=MibScalar
+fddimibPORTNumber=_FddimibPORTNumber_Object((1,3,6,1,2,1,10,15,73,5,1),_FddimibPORTNumber_Type())
+fddimibPORTNumber.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTNumber.setStatus(_A)
+_FddimibPORTTable_Object=MibTable
+fddimibPORTTable=_FddimibPORTTable_Object((1,3,6,1,2,1,10,15,73,5,2))
+if mibBuilder.loadTexts:fddimibPORTTable.setStatus(_A)
+_FddimibPORTEntry_Object=MibTableRow
+fddimibPORTEntry=_FddimibPORTEntry_Object((1,3,6,1,2,1,10,15,73,5,2,1))
+fddimibPORTEntry.setIndexNames((0,_G,_W),(0,_G,_X))
+if mibBuilder.loadTexts:fddimibPORTEntry.setStatus(_A)
+class _FddimibPORTSMTIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_FddimibPORTSMTIndex_Type.__name__=_C
+_FddimibPORTSMTIndex_Object=MibTableColumn
+fddimibPORTSMTIndex=_FddimibPORTSMTIndex_Object((1,3,6,1,2,1,10,15,73,5,2,1,1),_FddimibPORTSMTIndex_Type())
+fddimibPORTSMTIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTSMTIndex.setStatus(_A)
+class _FddimibPORTIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_FddimibPORTIndex_Type.__name__=_C
+_FddimibPORTIndex_Object=MibTableColumn
+fddimibPORTIndex=_FddimibPORTIndex_Object((1,3,6,1,2,1,10,15,73,5,2,1,2),_FddimibPORTIndex_Type())
+fddimibPORTIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTIndex.setStatus(_A)
+class _FddimibPORTMyType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('a',1),('b',2),('s',3),('m',4),(_H,5)))
+_FddimibPORTMyType_Type.__name__=_C
+_FddimibPORTMyType_Object=MibTableColumn
+fddimibPORTMyType=_FddimibPORTMyType_Object((1,3,6,1,2,1,10,15,73,5,2,1,3),_FddimibPORTMyType_Type())
+fddimibPORTMyType.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTMyType.setStatus(_A)
+class _FddimibPORTNeighborType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('a',1),('b',2),('s',3),('m',4),(_H,5)))
+_FddimibPORTNeighborType_Type.__name__=_C
+_FddimibPORTNeighborType_Object=MibTableColumn
+fddimibPORTNeighborType=_FddimibPORTNeighborType_Object((1,3,6,1,2,1,10,15,73,5,2,1,4),_FddimibPORTNeighborType_Type())
+fddimibPORTNeighborType.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTNeighborType.setStatus(_A)
+class _FddimibPORTConnectionPolicies_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3))
+_FddimibPORTConnectionPolicies_Type.__name__=_C
+_FddimibPORTConnectionPolicies_Object=MibTableColumn
+fddimibPORTConnectionPolicies=_FddimibPORTConnectionPolicies_Object((1,3,6,1,2,1,10,15,73,5,2,1,5),_FddimibPORTConnectionPolicies_Type())
+fddimibPORTConnectionPolicies.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibPORTConnectionPolicies.setStatus(_A)
+class _FddimibPORTMACIndicated_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('tVal9FalseRVal9False',1),('tVal9FalseRVal9True',2),('tVal9TrueRVal9False',3),('tVal9TrueRVal9True',4)))
+_FddimibPORTMACIndicated_Type.__name__=_C
+_FddimibPORTMACIndicated_Object=MibTableColumn
+fddimibPORTMACIndicated=_FddimibPORTMACIndicated_Object((1,3,6,1,2,1,10,15,73,5,2,1,6),_FddimibPORTMACIndicated_Type())
+fddimibPORTMACIndicated.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTMACIndicated.setStatus(_A)
+class _FddimibPORTCurrentPath_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('ce0',1),('ce1',2),('ce2',3),('ce3',4),('ce4',5),('ce5',6)))
+_FddimibPORTCurrentPath_Type.__name__=_C
+_FddimibPORTCurrentPath_Object=MibTableColumn
+fddimibPORTCurrentPath=_FddimibPORTCurrentPath_Object((1,3,6,1,2,1,10,15,73,5,2,1,7),_FddimibPORTCurrentPath_Type())
+fddimibPORTCurrentPath.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTCurrentPath.setStatus(_A)
+class _FddimibPORTRequestedPaths_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,3));fixedLength=3
+_FddimibPORTRequestedPaths_Type.__name__=_I
+_FddimibPORTRequestedPaths_Object=MibTableColumn
+fddimibPORTRequestedPaths=_FddimibPORTRequestedPaths_Object((1,3,6,1,2,1,10,15,73,5,2,1,8),_FddimibPORTRequestedPaths_Type())
+fddimibPORTRequestedPaths.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibPORTRequestedPaths.setStatus(_A)
+_FddimibPORTMACPlacement_Type=FddiResourceId
+_FddimibPORTMACPlacement_Object=MibTableColumn
+fddimibPORTMACPlacement=_FddimibPORTMACPlacement_Object((1,3,6,1,2,1,10,15,73,5,2,1,9),_FddimibPORTMACPlacement_Type())
+fddimibPORTMACPlacement.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTMACPlacement.setStatus(_A)
+class _FddimibPORTAvailablePaths_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
+_FddimibPORTAvailablePaths_Type.__name__=_C
+_FddimibPORTAvailablePaths_Object=MibTableColumn
+fddimibPORTAvailablePaths=_FddimibPORTAvailablePaths_Object((1,3,6,1,2,1,10,15,73,5,2,1,10),_FddimibPORTAvailablePaths_Type())
+fddimibPORTAvailablePaths.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTAvailablePaths.setStatus(_A)
+class _FddimibPORTPMDClass_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('multimode',1),('single-mode1',2),('single-mode2',3),('sonet',4),('low-cost-fiber',5),('twisted-pair',6),('unknown',7),('unspecified',8)))
+_FddimibPORTPMDClass_Type.__name__=_C
+_FddimibPORTPMDClass_Object=MibTableColumn
+fddimibPORTPMDClass=_FddimibPORTPMDClass_Object((1,3,6,1,2,1,10,15,73,5,2,1,11),_FddimibPORTPMDClass_Type())
+fddimibPORTPMDClass.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTPMDClass.setStatus(_A)
+class _FddimibPORTConnectionCapabilities_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3))
+_FddimibPORTConnectionCapabilities_Type.__name__=_C
+_FddimibPORTConnectionCapabilities_Object=MibTableColumn
+fddimibPORTConnectionCapabilities=_FddimibPORTConnectionCapabilities_Object((1,3,6,1,2,1,10,15,73,5,2,1,12),_FddimibPORTConnectionCapabilities_Type())
+fddimibPORTConnectionCapabilities.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTConnectionCapabilities.setStatus(_A)
+class _FddimibPORTBSFlag_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
+_FddimibPORTBSFlag_Type.__name__=_C
+_FddimibPORTBSFlag_Object=MibTableColumn
+fddimibPORTBSFlag=_FddimibPORTBSFlag_Object((1,3,6,1,2,1,10,15,73,5,2,1,13),_FddimibPORTBSFlag_Type())
+fddimibPORTBSFlag.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTBSFlag.setStatus(_A)
+_FddimibPORTLCTFailCts_Type=Counter32
+_FddimibPORTLCTFailCts_Object=MibTableColumn
+fddimibPORTLCTFailCts=_FddimibPORTLCTFailCts_Object((1,3,6,1,2,1,10,15,73,5,2,1,14),_FddimibPORTLCTFailCts_Type())
+fddimibPORTLCTFailCts.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTLCTFailCts.setStatus(_A)
+class _FddimibPORTLerEstimate_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(4,15))
+_FddimibPORTLerEstimate_Type.__name__=_C
+_FddimibPORTLerEstimate_Object=MibTableColumn
+fddimibPORTLerEstimate=_FddimibPORTLerEstimate_Object((1,3,6,1,2,1,10,15,73,5,2,1,15),_FddimibPORTLerEstimate_Type())
+fddimibPORTLerEstimate.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTLerEstimate.setStatus(_A)
+_FddimibPORTLemRejectCts_Type=Counter32
+_FddimibPORTLemRejectCts_Object=MibTableColumn
+fddimibPORTLemRejectCts=_FddimibPORTLemRejectCts_Object((1,3,6,1,2,1,10,15,73,5,2,1,16),_FddimibPORTLemRejectCts_Type())
+fddimibPORTLemRejectCts.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTLemRejectCts.setStatus(_A)
+_FddimibPORTLemCts_Type=Counter32
+_FddimibPORTLemCts_Object=MibTableColumn
+fddimibPORTLemCts=_FddimibPORTLemCts_Object((1,3,6,1,2,1,10,15,73,5,2,1,17),_FddimibPORTLemCts_Type())
+fddimibPORTLemCts.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTLemCts.setStatus(_A)
+class _FddimibPORTLerCutoff_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(4,15))
+_FddimibPORTLerCutoff_Type.__name__=_C
+_FddimibPORTLerCutoff_Object=MibTableColumn
+fddimibPORTLerCutoff=_FddimibPORTLerCutoff_Object((1,3,6,1,2,1,10,15,73,5,2,1,18),_FddimibPORTLerCutoff_Type())
+fddimibPORTLerCutoff.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibPORTLerCutoff.setStatus(_A)
+class _FddimibPORTLerAlarm_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(4,15))
+_FddimibPORTLerAlarm_Type.__name__=_C
+_FddimibPORTLerAlarm_Object=MibTableColumn
+fddimibPORTLerAlarm=_FddimibPORTLerAlarm_Object((1,3,6,1,2,1,10,15,73,5,2,1,19),_FddimibPORTLerAlarm_Type())
+fddimibPORTLerAlarm.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibPORTLerAlarm.setStatus(_A)
+class _FddimibPORTConnectState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('disabled',1),('connecting',2),('standby',3),('active',4)))
+_FddimibPORTConnectState_Type.__name__=_C
+_FddimibPORTConnectState_Object=MibTableColumn
+fddimibPORTConnectState=_FddimibPORTConnectState_Object((1,3,6,1,2,1,10,15,73,5,2,1,20),_FddimibPORTConnectState_Type())
+fddimibPORTConnectState.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTConnectState.setStatus(_A)
+class _FddimibPORTPCMState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*(('pc0',1),('pc1',2),('pc2',3),('pc3',4),('pc4',5),('pc5',6),('pc6',7),('pc7',8),('pc8',9),('pc9',10)))
+_FddimibPORTPCMState_Type.__name__=_C
+_FddimibPORTPCMState_Object=MibTableColumn
+fddimibPORTPCMState=_FddimibPORTPCMState_Object((1,3,6,1,2,1,10,15,73,5,2,1,21),_FddimibPORTPCMState_Type())
+fddimibPORTPCMState.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTPCMState.setStatus(_A)
+class _FddimibPORTPCWithhold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_H,1),('m-m',2),('otherincompatible',3),('pathnotavailable',4)))
+_FddimibPORTPCWithhold_Type.__name__=_C
+_FddimibPORTPCWithhold_Object=MibTableColumn
+fddimibPORTPCWithhold=_FddimibPORTPCWithhold_Object((1,3,6,1,2,1,10,15,73,5,2,1,22),_FddimibPORTPCWithhold_Type())
+fddimibPORTPCWithhold.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTPCWithhold.setStatus(_A)
+class _FddimibPORTLerFlag_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
+_FddimibPORTLerFlag_Type.__name__=_C
+_FddimibPORTLerFlag_Object=MibTableColumn
+fddimibPORTLerFlag=_FddimibPORTLerFlag_Object((1,3,6,1,2,1,10,15,73,5,2,1,23),_FddimibPORTLerFlag_Type())
+fddimibPORTLerFlag.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTLerFlag.setStatus(_A)
+class _FddimibPORTHardwarePresent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_E,1),(_F,2)))
+_FddimibPORTHardwarePresent_Type.__name__=_C
+_FddimibPORTHardwarePresent_Object=MibTableColumn
+fddimibPORTHardwarePresent=_FddimibPORTHardwarePresent_Object((1,3,6,1,2,1,10,15,73,5,2,1,24),_FddimibPORTHardwarePresent_Type())
+fddimibPORTHardwarePresent.setMaxAccess(_B)
+if mibBuilder.loadTexts:fddimibPORTHardwarePresent.setStatus(_A)
+class _FddimibPORTAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('other',1),('maintPORT',2),('enablePORT',3),('disablePORT',4),('startPORT',5),('stopPORT',6)))
+_FddimibPORTAction_Type.__name__=_C
+_FddimibPORTAction_Object=MibTableColumn
+fddimibPORTAction=_FddimibPORTAction_Object((1,3,6,1,2,1,10,15,73,5,2,1,25),_FddimibPORTAction_Type())
+fddimibPORTAction.setMaxAccess(_D)
+if mibBuilder.loadTexts:fddimibPORTAction.setStatus(_A)
+mibBuilder.exportSymbols(_G,**{'FddiTimeNano':FddiTimeNano,'FddiTimeMilli':FddiTimeMilli,'FddiResourceId':FddiResourceId,'FddiSMTStationIdType':FddiSMTStationIdType,'FddiMACLongAddressType':FddiMACLongAddressType,'fddi':fddi,'fddimib':fddimib,'fddimibSMT':fddimibSMT,'fddimibSMTNumber':fddimibSMTNumber,'fddimibSMTTable':fddimibSMTTable,'fddimibSMTEntry':fddimibSMTEntry,_N:fddimibSMTIndex,'fddimibSMTStationId':fddimibSMTStationId,'fddimibSMTOpVersionId':fddimibSMTOpVersionId,'fddimibSMTHiVersionId':fddimibSMTHiVersionId,'fddimibSMTLoVersionId':fddimibSMTLoVersionId,'fddimibSMTUserData':fddimibSMTUserData,'fddimibSMTMIBVersionId':fddimibSMTMIBVersionId,'fddimibSMTMACCts':fddimibSMTMACCts,'fddimibSMTNonMasterCts':fddimibSMTNonMasterCts,'fddimibSMTMasterCts':fddimibSMTMasterCts,'fddimibSMTAvailablePaths':fddimibSMTAvailablePaths,'fddimibSMTConfigCapabilities':fddimibSMTConfigCapabilities,'fddimibSMTConfigPolicy':fddimibSMTConfigPolicy,'fddimibSMTConnectionPolicy':fddimibSMTConnectionPolicy,'fddimibSMTTNotify':fddimibSMTTNotify,'fddimibSMTStatRptPolicy':fddimibSMTStatRptPolicy,'fddimibSMTTraceMaxExpiration':fddimibSMTTraceMaxExpiration,'fddimibSMTBypassPresent':fddimibSMTBypassPresent,'fddimibSMTECMState':fddimibSMTECMState,'fddimibSMTCFState':fddimibSMTCFState,'fddimibSMTRemoteDisconnectFlag':fddimibSMTRemoteDisconnectFlag,'fddimibSMTStationStatus':fddimibSMTStationStatus,'fddimibSMTPeerWrapFlag':fddimibSMTPeerWrapFlag,'fddimibSMTTimeStamp':fddimibSMTTimeStamp,'fddimibSMTTransitionTimeStamp':fddimibSMTTransitionTimeStamp,'fddimibSMTStationAction':fddimibSMTStationAction,'fddimibMAC':fddimibMAC,'fddimibMACNumber':fddimibMACNumber,'fddimibMACTable':fddimibMACTable,'fddimibMACEntry':fddimibMACEntry,_L:fddimibMACSMTIndex,_M:fddimibMACIndex,'fddimibMACIfIndex':fddimibMACIfIndex,'fddimibMACFrameStatusFunctions':fddimibMACFrameStatusFunctions,'fddimibMACTMaxCapability':fddimibMACTMaxCapability,'fddimibMACTVXCapability':fddimibMACTVXCapability,'fddimibMACAvailablePaths':fddimibMACAvailablePaths,'fddimibMACCurrentPath':fddimibMACCurrentPath,'fddimibMACUpstreamNbr':fddimibMACUpstreamNbr,'fddimibMACDownstreamNbr':fddimibMACDownstreamNbr,'fddimibMACOldUpstreamNbr':fddimibMACOldUpstreamNbr,'fddimibMACOldDownstreamNbr':fddimibMACOldDownstreamNbr,'fddimibMACDupAddressTest':fddimibMACDupAddressTest,'fddimibMACRequestedPaths':fddimibMACRequestedPaths,'fddimibMACDownstreamPORTType':fddimibMACDownstreamPORTType,'fddimibMACSMTAddress':fddimibMACSMTAddress,'fddimibMACTReq':fddimibMACTReq,'fddimibMACTNeg':fddimibMACTNeg,'fddimibMACTMax':fddimibMACTMax,'fddimibMACTvxValue':fddimibMACTvxValue,'fddimibMACFrameCts':fddimibMACFrameCts,'fddimibMACCopiedCts':fddimibMACCopiedCts,'fddimibMACTransmitCts':fddimibMACTransmitCts,'fddimibMACErrorCts':fddimibMACErrorCts,'fddimibMACLostCts':fddimibMACLostCts,'fddimibMACFrameErrorThreshold':fddimibMACFrameErrorThreshold,'fddimibMACFrameErrorRatio':fddimibMACFrameErrorRatio,'fddimibMACRMTState':fddimibMACRMTState,'fddimibMACDaFlag':fddimibMACDaFlag,'fddimibMACUnaDaFlag':fddimibMACUnaDaFlag,'fddimibMACFrameErrorFlag':fddimibMACFrameErrorFlag,'fddimibMACMAUnitdataAvailable':fddimibMACMAUnitdataAvailable,'fddimibMACHardwarePresent':fddimibMACHardwarePresent,'fddimibMACMAUnitdataEnable':fddimibMACMAUnitdataEnable,'fddimibMACCounters':fddimibMACCounters,'fddimibMACCountersTable':fddimibMACCountersTable,'fddimibMACCountersEntry':fddimibMACCountersEntry,'fddimibMACTokenCts':fddimibMACTokenCts,'fddimibMACTvxExpiredCts':fddimibMACTvxExpiredCts,'fddimibMACNotCopiedCts':fddimibMACNotCopiedCts,'fddimibMACLateCts':fddimibMACLateCts,'fddimibMACRingOpCts':fddimibMACRingOpCts,'fddimibMACNotCopiedRatio':fddimibMACNotCopiedRatio,'fddimibMACNotCopiedFlag':fddimibMACNotCopiedFlag,'fddimibMACNotCopiedThreshold':fddimibMACNotCopiedThreshold,'fddimibPATH':fddimibPATH,'fddimibPATHNumber':fddimibPATHNumber,'fddimibPATHTable':fddimibPATHTable,'fddimibPATHEntry':fddimibPATHEntry,_R:fddimibPATHSMTIndex,_S:fddimibPATHIndex,'fddimibPATHTVXLowerBound':fddimibPATHTVXLowerBound,'fddimibPATHTMaxLowerBound':fddimibPATHTMaxLowerBound,'fddimibPATHMaxTReq':fddimibPATHMaxTReq,'fddimibPATHConfigTable':fddimibPATHConfigTable,'fddimibPATHConfigEntry':fddimibPATHConfigEntry,_T:fddimibPATHConfigSMTIndex,_U:fddimibPATHConfigPATHIndex,_V:fddimibPATHConfigTokenOrder,'fddimibPATHConfigResourceType':fddimibPATHConfigResourceType,'fddimibPATHConfigResourceIndex':fddimibPATHConfigResourceIndex,'fddimibPATHConfigCurrentPath':fddimibPATHConfigCurrentPath,'fddimibPORT':fddimibPORT,'fddimibPORTNumber':fddimibPORTNumber,'fddimibPORTTable':fddimibPORTTable,'fddimibPORTEntry':fddimibPORTEntry,_W:fddimibPORTSMTIndex,_X:fddimibPORTIndex,'fddimibPORTMyType':fddimibPORTMyType,'fddimibPORTNeighborType':fddimibPORTNeighborType,'fddimibPORTConnectionPolicies':fddimibPORTConnectionPolicies,'fddimibPORTMACIndicated':fddimibPORTMACIndicated,'fddimibPORTCurrentPath':fddimibPORTCurrentPath,'fddimibPORTRequestedPaths':fddimibPORTRequestedPaths,'fddimibPORTMACPlacement':fddimibPORTMACPlacement,'fddimibPORTAvailablePaths':fddimibPORTAvailablePaths,'fddimibPORTPMDClass':fddimibPORTPMDClass,'fddimibPORTConnectionCapabilities':fddimibPORTConnectionCapabilities,'fddimibPORTBSFlag':fddimibPORTBSFlag,'fddimibPORTLCTFailCts':fddimibPORTLCTFailCts,'fddimibPORTLerEstimate':fddimibPORTLerEstimate,'fddimibPORTLemRejectCts':fddimibPORTLemRejectCts,'fddimibPORTLemCts':fddimibPORTLemCts,'fddimibPORTLerCutoff':fddimibPORTLerCutoff,'fddimibPORTLerAlarm':fddimibPORTLerAlarm,'fddimibPORTConnectState':fddimibPORTConnectState,'fddimibPORTPCMState':fddimibPORTPCMState,'fddimibPORTPCWithhold':fddimibPORTPCWithhold,'fddimibPORTLerFlag':fddimibPORTLerFlag,'fddimibPORTHardwarePresent':fddimibPORTHardwarePresent,'fddimibPORTAction':fddimibPORTAction})

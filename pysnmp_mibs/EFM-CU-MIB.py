@@ -1,267 +1,912 @@
-#
-# PySNMP MIB module EFM-CU-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/EFM-CU-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:11:39 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, ObjectIdentifier, Integer, ) = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
-( ifIndex, ifSpeed, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifSpeed")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( Bits, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, mib_2, IpAddress, Integer32, NotificationType, Unsigned32, ObjectIdentity, Counter64, TimeTicks, Gauge32, iso, Counter32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "mib-2", "IpAddress", "Integer32", "NotificationType", "Unsigned32", "ObjectIdentity", "Counter64", "TimeTicks", "Gauge32", "iso", "Counter32")
-( TextualConvention, DisplayString, TruthValue, PhysAddress, RowStatus, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TruthValue", "PhysAddress", "RowStatus")
-efmCuMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 167)).setRevisions(("2007-11-14 00:00",))
-if mibBuilder.loadTexts: efmCuMIB.setLastUpdated('200711140000Z')
-if mibBuilder.loadTexts: efmCuMIB.setOrganization('IETF Ethernet Interfaces and Hub MIB Working Group')
-if mibBuilder.loadTexts: efmCuMIB.setContactInfo('WG charter:\n        http://www.ietf.org/html.charters/OLD/hubmib-charter.html\n\n\n\n      Mailing Lists:\n        General Discussion: hubmib@ietf.org\n        To Subscribe: hubmib-request@ietf.org\n        In Body: subscribe your_email_address\n\n      Chair:  Bert Wijnen\n      Postal: Alcatel-Lucent\n              Schagen 33\n              3461 GL Linschoten\n              Netherlands\n       Phone: +31-348-407-775\n       EMail: bwijnen@alcatel-lucent.com\n\n      Editor: Edward Beili\n      Postal: Actelis Networks Inc.\n              25 Bazel St., P.O.B. 10173\n              Petach-Tikva 10173\n              Israel\n       Phone: +972-3-924-3491\n       Email: edward.beili@actelis.com')
-if mibBuilder.loadTexts: efmCuMIB.setDescription("The objects in this MIB module are used to manage\n      the Ethernet in the First Mile (EFM) Copper (EFMCu) Interfaces\n      2BASE-TL and 10PASS-TS, defined in IEEE Std. 802.3ah-2004,\n      which is now a part of IEEE Std. 802.3-2005.\n\n      The following references are used throughout this MIB module:\n\n      [802.3ah] refers to:\n        IEEE Std 802.3ah-2004: 'IEEE Standard for Information\n        technology - Telecommunications and information exchange\n        between systems - Local and metropolitan area networks -\n        Specific requirements -\n        Part 3: Carrier Sense Multiple Access with Collision\n        Detection (CSMA/CD) Access Method and Physical Layer\n        Specifications -\n        Amendment: Media Access Control Parameters, Physical\n        Layers and Management Parameters for Subscriber Access\n        Networks', 07 September 2004.\n\n      Of particular interest are Clause 61, 'Physical Coding\n      Sublayer (PCS) and common specifications, type 10PASS-TS and\n      type 2BASE-TL', Clause 30, 'Management', Clause 45,\n      'Management Data Input/Output (MDIO) Interface', Annex 62A,\n      'PMD profiles for 10PASS-TS' and Annex 63A, 'PMD profiles for\n      2BASE-TL'.\n\n\n\n\n      [G.991.2] refers to:\n        ITU-T Recommendation G.991.2: 'Single-pair High-speed Digital\n        Subscriber Line (SHDSL) transceivers', December 2003.\n\n      [ANFP] refers to:\n        NICC Document ND1602:2005/08: 'Specification of the Access\n        Network Frequency Plan (ANFP) applicable to transmission\n        systems used on the BT Access Network,' August 2005.\n\n      The following normative documents are quoted by the DESCRIPTION\n      clauses in this MIB module:\n\n      [G.993.1] refers to:\n        ITU-T Recommendation G.993.1: 'Very High speed Digital\n        Subscriber Line transceivers', June 2004.\n\n      [T1.424] refers to:\n        ANSI T1.424-2004: 'Interface Between Networks and Customer\n        Installation Very-high-bit-rate Digital Subscriber Lines\n        (VDSL) Metallic Interface (DMT Based)', June 2004.\n\n      [TS 101 270-1] refers to:\n        ETSI TS 101 270-1: 'Transmission and Multiplexing (TM);\n        Access transmission systems on metallic access cables;\n        Very high speed Digital Subscriber Line (VDSL); Part 1:\n        Functional requirements', October 2005.\n\n      Naming Conventions:\n        Atn   - Attenuation\n        CO    - Central Office\n        CPE   - Customer Premises Equipment\n        EFM   - Ethernet in the First Mile\n        EFMCu - EFM Copper\n        MDIO  - Management Data Input/Output\n        Mgn   - Margin\n        PAF   - PME Aggregation Function\n        PBO   - Power Back-Off\n        PCS   - Physical Coding Sublayer\n        PMD   - Physical Medium Dependent\n        PME   - Physical Medium Entity\n        PSD   - Power Spectral Density\n        SNR   - Signal to Noise Ratio\n        TCPAM - Trellis Coded Pulse Amplitude Modulation\n\n      Copyright (C) The IETF Trust (2007).  This version\n      of this MIB module is part of RFC 5066;  see the RFC\n      itself for full legal notices.")
-efmCuObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 167, 1))
-efmCuConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 167, 2))
-efmCuPort = MibIdentifier((1, 3, 6, 1, 2, 1, 167, 1, 1))
-efmCuPme = MibIdentifier((1, 3, 6, 1, 2, 1, 167, 1, 2))
-class EfmProfileIndex(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(1,255)
-
-class EfmProfileIndexOrZero(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(0,255)
-
-class EfmProfileIndexList(OctetString, TextualConvention):
-    displayHint = '1d:'
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,6)
-
-class EfmTruthValueOrUnknown(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(0, 1, 2,))
-    namedValues = NamedValues(("unknown", 0), ("true", 1), ("false", 2),)
-
-efmCuPortNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 167, 1, 1, 0))
-efmCuLowRateCrossing = NotificationType((1, 3, 6, 1, 2, 1, 167, 1, 1, 0, 1)).setObjects(*(("EFM-CU-MIB", "ifSpeed"), ("EFM-CU-MIB", "efmCuThreshLowRate"),))
-if mibBuilder.loadTexts: efmCuLowRateCrossing.setDescription("This notification indicates that the EFMCu port's data rate\n       has reached/dropped below or exceeded the low rate threshold,\n       specified by efmCuThreshLowRate.\n\n       This notification MAY be sent for the -O subtype ports\n       (2BaseTL-O/10PassTS-O) while the port is Up, on the crossing\n       event in both directions: from normal (rate is above the\n       threshold) to low (rate equals the threshold or below it) and\n\n\n\n       from low to normal.  This notification is not applicable to\n       the -R subtypes.\n\n       It is RECOMMENDED that a small debouncing period of 2.5 sec,\n       between the detection of the condition and the notification,\n       is implemented to prevent simultaneous LinkUp/LinkDown and\n       efmCuLowRateCrossing notifications to be sent.\n\n       The adaptive nature of the EFMCu technology allows the port to\n       adapt itself to the changes in the copper environment, e.g.,\n       an impulse noise, alien crosstalk, or a micro-interruption may\n       temporarily drop one or more PMEs in the aggregation group,\n       causing a rate degradation of the aggregated EFMCu link.\n       The dropped PMEs would then try to re-initialize, possibly at\n       a lower rate than before, adjusting the rate to provide\n       required target SNR margin.\n\n       Generation of this notification is controlled by the\n       efmCuLowRateCrossingEnable object.")
-efmCuPortConfTable = MibTable((1, 3, 6, 1, 2, 1, 167, 1, 1, 1), )
-if mibBuilder.loadTexts: efmCuPortConfTable.setDescription('Table for Configuration of EFMCu 2BASE-TL/10PASS-TS (PCS)\n       Ports.  Entries in this table MUST be maintained in a\n       persistent manner.')
-efmCuPortConfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 167, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: efmCuPortConfEntry.setDescription('An entry in the EFMCu Port Configuration table.\n       Each entry represents an EFMCu port indexed by the ifIndex.\n       Note that an EFMCu PCS port runs on top of a single\n       or multiple PME port(s), which are also indexed by ifIndex.')
-efmCuPAFAdminState = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuPAFAdminState.setDescription("Administrative (desired) state of the PAF of the EFMCu port\n       (PCS).\n       When 'disabled', PME aggregation will not be performed by the\n       PCS.  No more than a single PME can be assigned to this PCS in\n       this case.\n       When 'enabled', PAF will be performed by the PCS when the link\n       is Up, even on a single attached PME, if PAF is supported.\n\n       PCS ports incapable of supporting PAF SHALL return a value of\n       'disabled'.  Attempts to 'enable' such ports SHALL be\n       rejected.\n\n       A PAF 'enabled' port with multiple PMEs assigned cannot be\n       'disabled'.  Attempts to 'disable' such port SHALL be\n       rejected, until at most one PME is left assigned.\n\n       Changing PAFAdminState is a traffic-disruptive operation and\n       as such SHALL be done when the link is Down.  Attempts to\n       change this object SHALL be rejected if the link is Up or\n       Initializing.\n\n       This object maps to the Clause 30 attribute aPAFAdminState.\n\n       If a Clause 45 MDIO Interface to the PCS is present, then this\n       object maps to the PAF enable bit in the 10P/2B PCS control\n       register.\n\n       This object MUST be maintained in a persistent manner.")
-efmCuPAFDiscoveryCode = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 1, 1, 2), PhysAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(6,6),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuPAFDiscoveryCode.setDescription('PAF Discovery Code of the EFMCu port (PCS).\n       A unique 6-octet code used by the Discovery function,\n       when PAF is supported.\n       PCS ports incapable of supporting PAF SHALL return a\n       zero-length octet string on an attempt to read this object.\n       An attempt to write to this object SHALL be rejected for such\n       ports.\n       This object MUST be instantiated for the -O subtype PCS before\n       writing operations on the efmCuPAFRemoteDiscoveryCode\n       (Set_if_Clear and Clear_if_Same) are performed by PMEs\n       associated with the PCS.\n       The initial value of this object for -R subtype ports after\n       reset is all zeroes.  For -R subtype ports, the value of this\n       object cannot be changed directly.  This value may be changed\n       as a result of writing operation on the\n       efmCuPAFRemoteDiscoveryCode object of remote PME of -O\n       subtype, connected to one of the local PMEs associated with\n       the PCS.\n\n       Discovery MUST be performed when the link is Down.\n       Attempts to change this object MUST be rejected (in case of\n       SNMP with the error inconsistentValue), if the link is Up or\n       Initializing.\n\n       The PAF Discovery Code maps to the local Discovery code\n       variable in PAF (note that it does not have a corresponding\n       Clause 45 register).')
-efmCuAdminProfile = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 1, 1, 3), EfmProfileIndexList().clone(hexValue="01")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuAdminProfile.setDescription('Desired configuration profile(s), common for all PMEs in the\n       EFMCu port.  This object is a list of pointers to entries in\n       either efmCuPme2BProfileTable or\n       efmCuPme10PProfileTable, depending on the current\n       operating SubType of the EFMCu port as indicated by\n       efmCuPortSide.\n\n\n\n       The value of this object is a list of up to 6 indices of\n       profiles.  If this list consists of a single profile index,\n       then all PMEs assigned to this EFMCu port SHALL be configured\n       according to the profile referenced by that index, unless it\n       is overwritten by a corresponding non-zero\n       efmCuPmeAdminProfile instance, which takes precedence over\n       efmCuAdminProfile.\n       A list consisting of more than one index allows each PME\n       in the port to be configured according to any profile\n       specified in the list.\n       By default, this object has a value of 0x01, referencing the\n       1st entry in efmCuPme2BProfileTable or\n       efmCuPme10PProfileTable.\n\n       This object is writable and readable for the -O subtype\n       (2BaseTL-O or 10PassTS-O) EFMCu ports.  It is irrelevant for\n       the -R  subtype (2BaseTL-R or 10PassTS-R) ports -- a\n       zero-length octet string SHALL be returned on an attempt to\n       read this object and an attempt to change this object MUST be\n       rejected in this case.\n\n       Note that the current operational profile value is available\n       via the efmCuPmeOperProfile object.\n\n       Any modification of this object MUST be performed when the\n       link is Down.  Attempts to change this object MUST be\n       rejected, if the link is Up or Initializing.\n       Attempts to set this object to a list with a member value that\n       is not the value of the index for an active entry in the\n       corresponding profile table MUST be rejected.\n\n       This object maps to the Clause 30 attribute aProfileSelect.\n\n       This object MUST be maintained in a persistent manner.')
-efmCuTargetDataRate = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(1,100000),ValueRangeConstraint(999999,999999),))).setUnits('Kbps').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuTargetDataRate.setDescription("Desired EFMCu port 'net' (as seen across MII) Data Rate in\n       Kbps, to be achieved during initialization, under spectral\n       restrictions placed on each PME via efmCuAdminProfile or\n\n\n\n       efmCuPmeAdminProfile, with the desired SNR margin specified by\n       efmCuTargetSnrMgn.\n       In case of PAF, this object represents a sum of individual PME\n       data rates, modified to compensate for fragmentation and\n       64/65-octet encapsulation overhead (e.g., target data rate of\n       10 Mbps SHALL allow lossless transmission of a full-duplex\n       10 Mbps Ethernet frame stream with minimal inter-frame gap).\n\n       The value is limited above by 100 Mbps as this is the max\n       burst rate across MII for EFMCu ports.\n\n       The value between 1 and 100000 indicates that the total data\n       rate (ifSpeed) of the EFMCu port after initialization SHALL be\n       equal to the target data rate or less, if the target data rate\n       cannot be achieved under spectral restrictions specified by\n       efmCuAdminProfile/efmCuPmeAdminProfile and with the desired\n       SNR margin.  In case the copper environment allows a higher\n       total data rate to be achieved than that specified by the\n       target, the excess capability SHALL be either converted to\n       additional SNR margin or reclaimed by minimizing transmit\n       power as controlled by efmCuAdaptiveSpectra.\n\n       The value of 999999 means that the target data rate is not\n       fixed and SHALL be set to the maximum attainable rate during\n       initialization (Best Effort), under specified spectral\n       restrictions and with the desired SNR margin.\n\n       This object is read-write for the -O subtype EFMCu ports\n       (2BaseTL-O/10PassTS-O) and not available for the -R subtypes.\n\n       Changing of the Target Data Rate MUST be performed when the\n       link is Down.  Attempts to change this object MUST be rejected\n       (in case of SNMP with the error inconsistentValue), if the\n       link is Up or Initializing.\n\n       Note that the current Data Rate of the EFMCu port is\n       represented by the ifSpeed object of IF-MIB.\n\n       This object MUST be maintained in a persistent manner.")
-efmCuTargetSnrMgn = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,21))).setUnits('dB').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuTargetSnrMgn.setDescription('Desired EFMCu port SNR margin to be achieved on all PMEs\n\n\n\n       assigned to the port, during initialization. (The SNR margin\n       is the difference between the desired SNR and the actual SNR).\n\n       Note that 802.3ah recommends using a default target SNR margin\n       of 5 dB for 2BASE-TL ports and 6 dB for 10PASS-TS ports in\n       order to achieve a mean Bit Error Rate (BER) of 10^-7 at the\n       PMA service interface.\n\n       This object is read-write for the -O subtype EFMCu ports\n       (2BaseTL-O/10PassTS-O) and not available for the -R subtypes.\n\n       Changing of the target SNR margin MUST be performed when the\n       link is Down.  Attempts to change this object MUST be rejected\n       (in case of SNMP with the error inconsistentValue), if the\n       link is Up or Initializing.\n\n       Note that the current SNR margin of the PMEs comprising the\n       EFMCu port is represented by efmCuPmeSnrMgn.\n\n       This object MUST be maintained in a persistent manner.')
-efmCuAdaptiveSpectra = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 1, 1, 6), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuAdaptiveSpectra.setDescription('Indicates how to utilize excess capacity when the copper\n       environment allows a higher total data rate to be achieved\n       than that specified by the efmCuTargetDataRate.\n\n       A value of true(1) indicates that the excess capability SHALL\n       be reclaimed by minimizing transmit power, e.g., using higher\n       constellations and Power Back-Off, in order to reduce\n       interference to other copper pairs in the binder and the\n       adverse impact to link/system performance.\n\n       A value of false(2) indicates that the excess capability SHALL\n       be converted to additional SNR margin and spread evenly across\n       all active PMEs assigned to the (PCS) port, to increase link\n       robustness.\n\n       This object is read-write for the -O subtype EFMCu ports\n       (2BaseTL-O/10PassTS-O) and not available for the -R subtypes.\n\n       Changing of this object MUST be performed when the link is\n\n\n\n       Down.  Attempts to change this object MUST be rejected (in\n       case of SNMP with the error inconsistentValue), if the link\n       is Up or Initializing.\n\n       This object MUST be maintained in a persistent manner.')
-efmCuThreshLowRate = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,100000))).setUnits('Kbps').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuThreshLowRate.setDescription('This object configures the EFMCu port low-rate crossing alarm\n       threshold.  When the current value of ifSpeed for this port\n       reaches/drops below or exceeds this threshold, an\n       efmCuLowRateCrossing notification MAY be generated if enabled\n       by efmCuLowRateCrossingEnable.\n\n       This object is read-write for the -O subtype EFMCu ports\n       (2BaseTL-O/10PassTS-O) and not available for the -R subtypes.\n\n       This object MUST be maintained in a persistent manner.')
-efmCuLowRateCrossingEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 1, 1, 8), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuLowRateCrossingEnable.setDescription('Indicates whether efmCuLowRateCrossing notifications should\n       be generated for this interface.\n\n       A value of true(1) indicates that efmCuLowRateCrossing\n       notification is enabled.  A value of false(2) indicates that\n       the notification is disabled.\n\n       This object is read-write for the -O subtype EFMCu ports\n       (2BaseTL-O/10PassTS-O) and not available for the -R subtypes.\n\n       This object MUST be maintained in a persistent manner.')
-efmCuPortCapabilityTable = MibTable((1, 3, 6, 1, 2, 1, 167, 1, 1, 2), )
-if mibBuilder.loadTexts: efmCuPortCapabilityTable.setDescription('Table for Capabilities of EFMCu 2BASE-TL/10PASS-TS (PCS)\n       Ports.  Entries in this table MUST be maintained in a\n       persistent manner')
-efmCuPortCapabilityEntry = MibTableRow((1, 3, 6, 1, 2, 1, 167, 1, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: efmCuPortCapabilityEntry.setDescription('An entry in the EFMCu Port Capability table.\n       Each entry represents an EFMCu port indexed by the ifIndex.\n       Note that an EFMCu PCS port runs on top of a single\n       or multiple PME port(s), which are also indexed by ifIndex.')
-efmCuPAFSupported = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 2, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPAFSupported.setDescription('PME Aggregation Function (PAF) capability of the EFMCu port\n       (PCS).\n       This object has a value of true(1) when the PCS can perform\n       PME aggregation on the available PMEs.\n       Ports incapable of PAF SHALL return a value of false(2).\n\n       This object maps to the Clause 30 attribute aPAFSupported.\n\n       If a Clause 45 MDIO Interface to the PCS is present,\n       then this object maps to the PAF available bit in the\n       10P/2B capability register.')
-efmCuPeerPAFSupported = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 2, 1, 2), EfmTruthValueOrUnknown()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPeerPAFSupported.setDescription('PME Aggregation Function (PAF) capability of the EFMCu port\n       (PCS) link partner.\n       This object has a value of true(1) when the remote PCS can\n       perform PME aggregation on its available PMEs.\n       Ports whose peers are incapable of PAF SHALL return a value\n       of false(2).\n       Ports whose peers cannot be reached because of the link\n       state SHALL return a value of unknown(0).\n\n       This object maps to the Clause 30 attribute\n       aRemotePAFSupported.\n\n       If a Clause 45 MDIO Interface to the PCS is present, then\n       this object maps to the Remote PAF supported bit in the\n       10P/2B capability register.')
-efmCuPAFCapacity = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPAFCapacity.setDescription('Number of PMEs that can be aggregated by the local PAF.\n       The number of PMEs currently assigned to a particular\n       EFMCu port (efmCuNumPMEs) is never greater than\n       efmCuPAFCapacity.\n\n       This object maps to the Clause 30 attribute\n       aLocalPAFCapacity.')
-efmCuPeerPAFCapacity = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 2, 1, 4), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,32),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPeerPAFCapacity.setDescription('Number of PMEs that can be aggregated by the PAF of the peer\n       PHY (PCS port).\n       A value of 0 is returned when peer PAF capacity is unknown\n       (peer cannot be reached).\n\n\n\n\n       This object maps to the Clause 30 attribute\n       aRemotePAFCapacity.')
-efmCuPortStatusTable = MibTable((1, 3, 6, 1, 2, 1, 167, 1, 1, 3), )
-if mibBuilder.loadTexts: efmCuPortStatusTable.setDescription('This table provides overall status information of EFMCu\n       2BASE-TL/10PASS-TS ports, complementing the generic status\n       information from the ifTable of IF-MIB and ifMauTable of\n       MAU-MIB.  Additional status information about connected PMEs\n       is available from the efmCuPmeStatusTable.\n\n       This table contains live data from the equipment.  As such,\n       it is NOT persistent.')
-efmCuPortStatusEntry = MibTableRow((1, 3, 6, 1, 2, 1, 167, 1, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: efmCuPortStatusEntry.setDescription('An entry in the EFMCu Port Status table.\n       Each entry represents an EFMCu port indexed by the ifIndex.\n       Note that an EFMCu PCS port runs on top of a single\n       or multiple PME port(s), which are also indexed by ifIndex.')
-efmCuFltStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 3, 1, 1), Bits().clone(namedValues=NamedValues(("noPeer", 0), ("peerPowerLoss", 1), ("pmeSubTypeMismatch", 2), ("lowRate", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuFltStatus.setDescription("EFMCu (PCS) port Fault Status.  This is a bitmap of possible\n       conditions.  The various bit positions are:\n         noPeer              - the peer PHY cannot be reached (e.g.,\n                               no PMEs attached, all PMEs are Down,\n                               etc.). More info is available in\n                               efmCuPmeFltStatus.\n         peerPowerLoss       - the peer PHY has indicated impending\n                               unit failure due to loss of local\n                               power ('Dying Gasp').\n         pmeSubTypeMismatch  - local PMEs in the aggregation group\n                               are not of the same subtype, e.g.,\n                               some PMEs in the local device are -O\n                               while others are -R subtype.\n         lowRate             - ifSpeed of the port reached or dropped\n                               below efmCuThreshLowRate.\n\n       This object is intended to supplement the ifOperStatus object\n       in IF-MIB and ifMauMediaAvailable in MAU-MIB.\n\n       Additional information is available via the efmCuPmeFltStatus\n       object for each PME in the aggregation group (single PME if\n       PAF is disabled).")
-efmCuPortSide = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("subscriber", 1), ("office", 2), ("unknown", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPortSide.setDescription("EFM port mode of operation (subtype).\n       The value of 'subscriber' indicates that the port is\n\n\n\n       designated as '-R' subtype (all PMEs assigned to this port are\n       of subtype '-R').\n       The value of the 'office' indicates that the port is\n       designated as '-O' subtype (all PMEs assigned to this port are\n       of subtype '-O').\n       The value of 'unknown' indicates that the port has no assigned\n       PMEs yet or that the assigned PMEs are not of the same side\n       (subTypePMEMismatch).\n\n       This object partially maps to the Clause 30 attribute\n       aPhyEnd.")
-efmCuNumPMEs = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 3, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuNumPMEs.setDescription('The number of PMEs that is currently aggregated by the local\n       PAF (assigned to the EFMCu port using the ifStackTable).\n       This number is never greater than efmCuPAFCapacity.\n\n       This object SHALL be automatically incremented or decremented\n       when a PME is added or deleted to/from the EFMCu port using\n       the ifStackTable.')
-efmCuPAFInErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 3, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPAFInErrors.setDescription('The number of fragments that have been received across the\n       gamma interface with RxErr asserted and discarded.\n       This read-only counter is inactive (not incremented) when the\n       PAF is unsupported or disabled.  Upon disabling the PAF, the\n       counter retains its previous value.\n\n       If a Clause 45 MDIO Interface to the PCS is present, then\n       this object maps to the 10P/2B PAF RX error register.\n\n       Discontinuities in the value of this counter can occur at\n       re-initialization of the management system, and at other times\n       as indicated by the value of ifCounterDiscontinuityTime,\n\n\n\n       defined in IF-MIB.')
-efmCuPAFInSmallFragments = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 3, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPAFInSmallFragments.setDescription('The number of fragments smaller than minFragmentSize\n       (64 bytes) that have been received across the gamma interface\n       and discarded.\n       This read-only counter is inactive when the PAF is\n       unsupported or disabled.  Upon disabling the PAF, the counter\n       retains its previous value.\n\n       If a Clause 45 MDIO Interface to the PCS is present, then\n       this object maps to the 10P/2B PAF small fragments register.\n\n       Discontinuities in the value of this counter can occur at\n       re-initialization of the management system, and at other times\n       as indicated by the value of ifCounterDiscontinuityTime,\n       defined in IF-MIB.')
-efmCuPAFInLargeFragments = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 3, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPAFInLargeFragments.setDescription('The number of fragments larger than maxFragmentSize\n       (512 bytes) that have been received across the gamma interface\n       and discarded.\n       This read-only counter is inactive when the PAF is\n       unsupported or disabled.  Upon disabling the PAF, the counter\n       retains its previous value.\n\n       If a Clause 45 MDIO Interface to the PCS is present, then\n       this object maps to the 10P/2B PAF large fragments register.\n\n       Discontinuities in the value of this counter can occur at\n       re-initialization of the management system, and at other times\n       as indicated by the value of ifCounterDiscontinuityTime,\n       defined in IF-MIB.')
-efmCuPAFInBadFragments = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 3, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPAFInBadFragments.setDescription('The number of fragments that do not fit into the sequence\n       expected by the frame assembly function and that have been\n       received across the gamma interface and discarded (the\n       frame buffer is flushed to the next valid frame start).\n       This read-only counter is inactive when the PAF is\n       unsupported or disabled.  Upon disabling the PAF, the counter\n       retains its previous value.\n\n       If a Clause 45 MDIO Interface to the PCS is present, then\n       this object maps to the 10P/2B PAF bad fragments register.\n\n       Discontinuities in the value of this counter can occur at\n       re-initialization of the management system, and at other times\n       as indicated by the value of ifCounterDiscontinuityTime,\n       defined in IF-MIB.')
-efmCuPAFInLostFragments = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 3, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPAFInLostFragments.setDescription('The number of gaps in the sequence of fragments that have\n       been received across the gamma interface (the frame buffer is\n       flushed to the next valid frame start, when fragment/fragments\n       expected by the frame assembly function is/are not received).\n       This read-only counter is inactive when the PAF is\n       unsupported or disabled.  Upon disabling the PAF, the counter\n       retains its previous value.\n\n       If a Clause 45 MDIO Interface to the PCS is present, then\n       this object maps to the 10P/2B PAF lost fragment register.\n\n       Discontinuities in the value of this counter can occur at\n       re-initialization of the management system, and at other times\n       as indicated by the value of ifCounterDiscontinuityTime,\n       defined in IF-MIB.')
-efmCuPAFInLostStarts = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 3, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPAFInLostStarts.setDescription('The number of missing StartOfPacket indicators expected by\n       the frame assembly function.\n       This read-only counter is inactive when the PAF is\n       unsupported or disabled.  Upon disabling the PAF, the counter\n       retains its previous value.\n\n       If a Clause 45 MDIO Interface to the PCS is present, then\n       this object maps to the 10P/2B PAF lost start of fragment\n       register.\n\n       Discontinuities in the value of this counter can occur at\n       re-initialization of the management system, and at other times\n       as indicated by the value of ifCounterDiscontinuityTime,\n       defined in IF-MIB.')
-efmCuPAFInLostEnds = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 3, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPAFInLostEnds.setDescription('The number of missing EndOfPacket indicators expected by the\n       frame assembly function.\n       This read-only counter is inactive when the PAF is\n       unsupported or disabled.  Upon disabling the PAF, the counter\n       retains its previous value.\n\n       If a Clause 45 MDIO Interface to the PCS is present, then\n       this object maps to the 10P/2B PAF lost start of fragment\n       register.\n\n       Discontinuities in the value of this counter can occur at\n       re-initialization of the management system, and at other times\n       as indicated by the value of ifCounterDiscontinuityTime,\n       defined in IF-MIB.')
-efmCuPAFInOverflows = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 1, 3, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPAFInOverflows.setDescription('The number of fragments, received across the gamma interface\n       and discarded, which would have caused the frame assembly\n       buffer to overflow.\n       This read-only counter is inactive when the PAF is\n       unsupported or disabled.  Upon disabling the PAF, the counter\n       retains its previous value.\n\n       If a Clause 45 MDIO Interface to the PCS is present, then\n       this object maps to the 10P/2B PAF overflow register.\n\n       Discontinuities in the value of this counter can occur at\n       re-initialization of the management system, and at other times\n       as indicated by the value of ifCounterDiscontinuityTime,\n       defined in IF-MIB.')
-efmCuPmeNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 167, 1, 2, 0))
-efmCuPmeLineAtnCrossing = NotificationType((1, 3, 6, 1, 2, 1, 167, 1, 2, 0, 1)).setObjects(*(("EFM-CU-MIB", "efmCuPmeLineAtn"), ("EFM-CU-MIB", "efmCuPmeThreshLineAtn"),))
-if mibBuilder.loadTexts: efmCuPmeLineAtnCrossing.setDescription('This notification indicates that the loop attenuation\n       threshold (as per the efmCuPmeThreshLineAtn\n       value) has been reached/exceeded for the 2BASE-TL/10PASS-TS\n       PME.  This notification MAY be sent on the crossing event in\n       both directions: from normal to exceeded and from exceeded\n       to normal.\n\n       It is RECOMMENDED that a small debouncing period of 2.5 sec,\n       between the detection of the condition and the notification,\n       is implemented to prevent intermittent notifications from\n       being sent.\n\n       Generation of this notification is controlled by the\n       efmCuPmeLineAtnCrossingEnable object.')
-efmCuPmeSnrMgnCrossing = NotificationType((1, 3, 6, 1, 2, 1, 167, 1, 2, 0, 2)).setObjects(*(("EFM-CU-MIB", "efmCuPmeSnrMgn"), ("EFM-CU-MIB", "efmCuPmeThreshSnrMgn"),))
-if mibBuilder.loadTexts: efmCuPmeSnrMgnCrossing.setDescription('This notification indicates that the SNR margin threshold\n       (as per the efmCuPmeThreshSnrMgn value) has been\n       reached/exceeded for the 2BASE-TL/10PASS-TS PME.\n       This notification MAY be sent on the crossing event in\n       both directions: from normal to exceeded and from exceeded\n       to normal.\n\n       It is RECOMMENDED that a small debouncing period of 2.5 sec,\n       between the detection of the condition and the notification,\n       is implemented to prevent intermittent notifications from\n       being sent.\n\n       Generation of this notification is controlled by the\n       efmCuPmeSnrMgnCrossingEnable object.')
-efmCuPmeDeviceFault = NotificationType((1, 3, 6, 1, 2, 1, 167, 1, 2, 0, 3)).setObjects(*(("EFM-CU-MIB", "efmCuPmeFltStatus"),))
-if mibBuilder.loadTexts: efmCuPmeDeviceFault.setDescription('This notification indicates that a fault in the PME has been\n       detected by a vendor-specific diagnostic or a self-test.\n\n       Generation of this notification is controlled by the\n       efmCuPmeDeviceFaultEnable object.')
-efmCuPmeConfigInitFailure = NotificationType((1, 3, 6, 1, 2, 1, 167, 1, 2, 0, 4)).setObjects(*(("EFM-CU-MIB", "efmCuPmeFltStatus"), ("EFM-CU-MIB", "efmCuAdminProfile"), ("EFM-CU-MIB", "efmCuPmeAdminProfile"),))
-if mibBuilder.loadTexts: efmCuPmeConfigInitFailure.setDescription('This notification indicates that PME initialization has\n       failed, due to inability of the PME link to achieve the\n\n\n\n       requested configuration profile.\n\n       Generation of this notification is controlled by the\n       efmCuPmeConfigInitFailEnable object.')
-efmCuPmeProtocolInitFailure = NotificationType((1, 3, 6, 1, 2, 1, 167, 1, 2, 0, 5)).setObjects(*(("EFM-CU-MIB", "efmCuPmeFltStatus"), ("EFM-CU-MIB", "efmCuPmeOperSubType"),))
-if mibBuilder.loadTexts: efmCuPmeProtocolInitFailure.setDescription('This notification indicates that the peer PME was using\n       an incompatible protocol during initialization.\n\n       Generation of this notification is controlled by the\n       efmCuPmeProtocolInitFailEnable object.')
-efmCuPmeConfTable = MibTable((1, 3, 6, 1, 2, 1, 167, 1, 2, 1), )
-if mibBuilder.loadTexts: efmCuPmeConfTable.setDescription('Table for Configuration of common aspects for EFMCu\n       2BASE-TL/10PASS-TS PME ports (modems).  Configuration of\n       aspects specific to 2BASE-TL or 10PASS-TS PME types is\n       represented in efmCuPme2BConfTable and efmCuPme10PConfTable,\n       respectively.\n\n       Entries in this table MUST be maintained in a persistent\n       manner.')
-efmCuPmeConfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 167, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: efmCuPmeConfEntry.setDescription('An entry in the EFMCu PME Configuration table.\n       Each entry represents common aspects of an EFMCu PME port\n       indexed by the ifIndex.  Note that an EFMCu PME port can be\n       stacked below a single PCS port, also indexed by ifIndex,\n       possibly together with other PME ports if PAF is enabled.')
-efmCuPmeAdminSubType = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7,))).clone(namedValues=NamedValues(("ieee2BaseTLO", 1), ("ieee2BaseTLR", 2), ("ieee10PassTSO", 3), ("ieee10PassTSR", 4), ("ieee2BaseTLor10PassTSR", 5), ("ieee2BaseTLor10PassTSO", 6), ("ieee10PassTSor2BaseTLO", 7),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuPmeAdminSubType.setDescription('Administrative (desired) subtype of the PME.\n       Possible values are:\n         ieee2BaseTLO           - PME SHALL operate as 2BaseTL-O\n         ieee2BaseTLR           - PME SHALL operate as 2BaseTL-R\n         ieee10PassTSO          - PME SHALL operate as 10PassTS-O\n         ieee10PassTSR          - PME SHALL operate as 10PassTS-R\n         ieee2BaseTLor10PassTSR - PME SHALL operate as 2BaseTL-R or\n                                  10PassTS-R.  The actual value will\n                                  be set by the -O link partner\n                                  during initialization (handshake).\n         ieee2BaseTLor10PassTSO - PME SHALL operate as 2BaseTL-O\n                                  (preferred) or 10PassTS-O.  The\n                                  actual value will be set during\n                                  initialization depending on the -R\n                                  link partner capability (i.e., if\n                                  -R is incapable of the preferred\n                                  2BaseTL mode, 10PassTS will be\n                                  used).\n         ieee10PassTSor2BaseTLO - PME SHALL operate as 10PassTS-O\n\n\n\n                                  (preferred) or 2BaseTL-O.  The\n                                  actual value will be set during\n                                  initialization depending on the -R\n                                  link partner capability (i.e., if\n                                  -R is incapable of the preferred\n                                  10PassTS mode, 2BaseTL will be\n                                  used).\n\n       Changing efmCuPmeAdminSubType is a traffic-disruptive\n       operation and as such SHALL be done when the link is Down.\n       Attempts to change this object SHALL be rejected if the link\n       is Up or Initializing.\n       Attempts to change this object to an unsupported subtype\n       (see efmCuPmeSubTypesSupported) SHALL be rejected.\n\n       The current operational subtype is indicated by the\n       efmCuPmeOperSubType variable.\n\n       If a Clause 45 MDIO Interface to the PMA/PMD is present, then\n       this object combines values of the Port subtype select bits\n       and the PMA/PMD type selection bits in the 10P/2B PMA/PMD\n       control register.')
-efmCuPmeAdminProfile = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 1, 1, 2), EfmProfileIndexOrZero()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuPmeAdminProfile.setDescription('Desired PME configuration profile.  This object is a pointer\n       to an entry in either the efmCuPme2BProfileTable or the\n       efmCuPme10PProfileTable, depending on the current operating\n       SubType of the PME.  The value of this object is the index of\n       the referenced profile.\n       The value of zero (default) indicates that the PME is\n       configured via the efmCuAdminProfile object for the PCS port\n       to which this PME is assigned.  That is, the profile\n       referenced by efmCuPmeAdminProfile takes precedence\n       over the profile(s) referenced by efmCuAdminProfile.\n\n       This object is writable and readable for the CO subtype PMEs\n       (2BaseTL-O or 10PassTS-O). It is irrelevant for the CPE\n       subtype (2BaseTL-R or 10PassTS-R) -- a zero value SHALL be\n       returned on an attempt to read this object and any attempt\n       to change this object MUST be rejected in this case.\n\n\n\n\n       Note that the current operational profile value is available\n       via efmCuPmeOperProfile object.\n\n       Any modification of this object MUST be performed when the\n       link is Down.  Attempts to change this object MUST be\n       rejected, if the link is Up or Initializing.\n\n       Attempts to set this object to a value that is not the value\n       of the index for an active entry in the corresponding profile\n       table MUST be rejected.\n\n       This object maps to the Clause 30 attribute aProfileSelect.\n\n       This object MUST be maintained in a persistent manner.')
-efmCuPAFRemoteDiscoveryCode = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 1, 1, 3), PhysAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(6,6),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuPAFRemoteDiscoveryCode.setDescription('PAF Remote Discovery Code of the PME port at the CO.\n       The 6-octet Discovery Code of the peer PCS connected via\n       the PME.\n       Reading this object results in a Discovery Get operation.\n       Setting this object to all zeroes results in a Discovery\n       Clear_if_Same operation (the value of efmCuPAFDiscoveryCode\n       at the peer PCS SHALL be the same as efmCuPAFDiscoveryCode of\n       the local PCS associated with the PME for the operation to\n       succeed).\n       Writing a non-zero value to this object results in a\n       Discovery Set_if_Clear operation.\n       A zero-length octet string SHALL be returned on an attempt to\n       read this object when PAF aggregation is not enabled.\n\n       This object is irrelevant in CPE port (-R) subtypes: in this\n       case, a zero-length octet string SHALL be returned on an\n       attempt to read this object; writing to this object SHALL\n       be rejected.\n\n       Discovery MUST be performed when the link is Down.\n       Attempts to change this object MUST be rejected (in case of\n       SNMP with the error inconsistentValue), if the link is Up or\n       Initializing.\n\n\n\n\n       If a Clause 45 MDIO Interface to the PMA/PMD is present, then\n       this object is a function of 10P/2B aggregation discovery\n       control register, Discovery operation result bits in 10P/2B\n       aggregation and discovery status register and\n       10P/2B aggregation discovery code register.')
-efmCuPmeThreshLineAtn = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-127,128))).setUnits('dB').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuPmeThreshLineAtn.setDescription('Desired Line Attenuation threshold for the 2B/10P PME.\n       This object configures the line attenuation alarm threshold.\n       When the current value of Line Attenuation reaches or\n       exceeds this threshold, an efmCuPmeLineAtnCrossing\n       notification MAY be generated, if enabled by\n       efmCuPmeLineAtnCrossingEnable.\n\n       This object is writable for the CO subtype PMEs (-O).\n       It is read-only for the CPE subtype (-R).\n\n       Changing of the Line Attenuation threshold MUST be performed\n       when the link is Down.  Attempts to change this object MUST be\n       rejected (in case of SNMP with the error inconsistentValue),\n       if the link is Up or Initializing.\n\n       If a Clause 45 MDIO Interface to the PME is present, then this\n       object maps to the loop attenuation threshold bits in\n       the 2B PMD line quality thresholds register.')
-efmCuPmeThreshSnrMgn = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-127,128))).setUnits('dB').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuPmeThreshSnrMgn.setDescription('Desired SNR margin threshold for the 2B/10P PME.\n       This object configures the SNR margin alarm threshold.\n       When the current value of SNR margin reaches or exceeds this\n       threshold, an efmCuPmeSnrMgnCrossing notification MAY be\n       generated, if enabled by efmCuPmeSnrMgnCrossingEnable.\n\n\n\n       This object is writable for the CO subtype PMEs\n       (2BaseTL-O/10PassTS-O).  It is read-only for the CPE subtype\n       (2BaseTL-R/10PassTS-R).\n\n       Changing of the SNR margin threshold MUST be performed when\n       the link is Down.  Attempts to change this object MUST be\n       rejected (in case of SNMP with the error inconsistentValue),\n       if the link is Up or Initializing.\n\n       If a Clause 45 MDIO Interface to the PME is present, then this\n       object maps to the SNR margin threshold bits in the 2B PMD\n       line quality thresholds register.')
-efmCuPmeLineAtnCrossingEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 1, 1, 6), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuPmeLineAtnCrossingEnable.setDescription('Indicates whether efmCuPmeLineAtnCrossing notifications\n       should be generated for this interface.\n\n       A value of true(1) indicates that efmCuPmeLineAtnCrossing\n       notification is enabled.  A value of false(2) indicates that\n       the notification is disabled.')
-efmCuPmeSnrMgnCrossingEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 1, 1, 7), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuPmeSnrMgnCrossingEnable.setDescription('Indicates whether efmCuPmeSnrMgnCrossing notifications\n       should be generated for this interface.\n\n       A value of true(1) indicates that efmCuPmeSnrMgnCrossing\n       notification is enabled.  A value of false(2) indicates that\n       the notification is disabled.')
-efmCuPmeDeviceFaultEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 1, 1, 8), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuPmeDeviceFaultEnable.setDescription('Indicates whether efmCuPmeDeviceFault notifications\n\n\n\n       should be generated for this interface.\n\n       A value of true(1) indicates that efmCuPmeDeviceFault\n       notification is enabled.  A value of false(2) indicates that\n       the notification is disabled.')
-efmCuPmeConfigInitFailEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 1, 1, 9), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuPmeConfigInitFailEnable.setDescription('Indicates whether efmCuPmeConfigInitFailure notifications\n       should be generated for this interface.\n\n       A value of true(1) indicates that efmCuPmeConfigInitFailure\n       notification is enabled.  A value of false(2) indicates that\n       the notification is disabled.')
-efmCuPmeProtocolInitFailEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 1, 1, 10), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: efmCuPmeProtocolInitFailEnable.setDescription('Indicates whether efmCuPmeProtocolInitFailure notifications\n       should be generated for this interface.\n\n       A value of true(1) indicates that efmCuPmeProtocolInitFailure\n       notification is enabled.  A value of false(2) indicates that\n       the notification is disabled.')
-efmCuPmeCapabilityTable = MibTable((1, 3, 6, 1, 2, 1, 167, 1, 2, 2), )
-if mibBuilder.loadTexts: efmCuPmeCapabilityTable.setDescription('Table for the configuration of common aspects for EFMCu\n       2BASE-TL/10PASS-TS PME ports (modems).  The configuration of\n       aspects specific to 2BASE-TL or 10PASS-TS PME types is\n       represented in the efmCuPme2BConfTable and the\n       efmCuPme10PConfTable, respectively.\n\n       Entries in this table MUST be maintained in a persistent\n       manner.')
-efmCuPmeCapabilityEntry = MibTableRow((1, 3, 6, 1, 2, 1, 167, 1, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: efmCuPmeCapabilityEntry.setDescription('An entry in the EFMCu PME Capability table.\n       Each entry represents common aspects of an EFMCu PME port\n       indexed by the ifIndex.  Note that an EFMCu PME port can be\n       stacked below a single PCS port, also indexed by ifIndex,\n       possibly together with other PME ports if PAF is enabled.')
-efmCuPmeSubTypesSupported = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 2, 1, 1), Bits().clone(namedValues=NamedValues(("ieee2BaseTLO", 0), ("ieee2BaseTLR", 1), ("ieee10PassTSO", 2), ("ieee10PassTSR", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPmeSubTypesSupported.setDescription('PME supported subtypes.  This is a bitmap of possible\n       subtypes.  The various bit positions are:\n         ieee2BaseTLO    - PME is capable of operating as 2BaseTL-O\n         ieee2BaseTLR    - PME is capable of operating as 2BaseTL-R\n         ieee10PassTSO   - PME is capable of operating as 10PassTS-O\n         ieee10PassTSR   - PME is capable of operating as 10PassTS-R\n\n       The desired mode of operation is determined by\n       efmCuPmeAdminSubType, while efmCuPmeOperSubType reflects the\n       current operating mode.\n\n       If a Clause 45 MDIO Interface to the PCS is present, then this\n       object combines the 10PASS-TS capable and 2BASE-TL capable\n       bits in the 10P/2B PMA/PMD speed ability register and the\n       CO supported and CPE supported bits in the 10P/2B PMA/PMD\n       status register.')
-efmCuPmeStatusTable = MibTable((1, 3, 6, 1, 2, 1, 167, 1, 2, 3), )
-if mibBuilder.loadTexts: efmCuPmeStatusTable.setDescription('This table provides common status information of EFMCu\n       2BASE-TL/10PASS-TS PME ports.  Status information specific\n       to 10PASS-TS PME is represented in efmCuPme10PStatusTable.\n\n       This table contains live data from the equipment.  As such,\n       it is NOT persistent.')
-efmCuPmeStatusEntry = MibTableRow((1, 3, 6, 1, 2, 1, 167, 1, 2, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: efmCuPmeStatusEntry.setDescription('An entry in the EFMCu PME Status table.\n       Each entry represents common aspects of an EFMCu PME port\n       indexed by the ifIndex.  Note that an EFMCu PME port can be\n       stacked below a single PCS port, also indexed by ifIndex,\n       possibly together with other PME ports if PAF is enabled.')
-efmCuPmeOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("up", 1), ("downNotReady", 2), ("downReady", 3), ("init", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPmeOperStatus.setDescription("Current PME link Operational Status.  Possible values are:\n         up(1)           - The link is Up and ready to pass\n                           64/65-octet encoded frames or fragments.\n         downNotReady(2) - The link is Down and the PME does not\n                           detect Handshake tones from its peer.\n                           This value may indicate a possible\n                           problem with the peer PME.\n         downReady(3)    - The link is Down and the PME detects\n                           Handshake tones from its peer.\n         init(4)         - The link is Initializing, as a result of\n                           ifAdminStatus being set to 'up' for a\n                           particular PME or a PCS to which the PME\n                           is connected.\n\n       This object is intended to supplement the Down(2) state of\n       ifOperStatus.\n\n       This object partially maps to the Clause 30 attribute\n       aPMEStatus.\n\n       If a Clause 45 MDIO Interface to the PME is present, then this\n       object partially maps to PMA/PMD link status bits in 10P/2B\n       PMA/PMD status register.")
-efmCuPmeFltStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 3, 1, 2), Bits().clone(namedValues=NamedValues(("lossOfFraming", 0), ("snrMgnDefect", 1), ("lineAtnDefect", 2), ("deviceFault", 3), ("configInitFailure", 4), ("protocolInitFailure", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPmeFltStatus.setDescription('Current/Last PME link Fault Status.  This is a bitmap of\n       possible conditions.  The various bit positions are:\n\n         lossOfFraming       - Loss of Framing for 10P or\n                               Loss of Sync word for 2B PMD or\n                               Loss of 64/65-octet framing.\n\n\n\n         snrMgnDefect        - SNR margin dropped below the\n                               threshold.\n         lineAtnDefect       - Line Attenuation exceeds the\n                               threshold.\n         deviceFault         - Indicates a vendor-dependent\n                               diagnostic or self-test fault\n                               has been detected.\n         configInitFailure   - Configuration initialization failure,\n                               due to inability of the PME link to\n                               support the configuration profile,\n                               requested during initialization.\n         protocolInitFailure - Protocol initialization failure, due\n                               to an incompatible protocol used by\n                               the peer PME during init (that could\n                               happen if a peer PMD is a regular\n                               G.SDHSL/VDSL modem instead of a\n                               2BASE-TL/10PASS-TS PME).\n\n       This object is intended to supplement ifOperStatus in IF-MIB.\n\n       This object holds information about the last fault.\n       efmCuPmeFltStatus is cleared by the device restart.\n       In addition, lossOfFraming, configInitFailure, and\n       protocolInitFailure are cleared by PME init;\n       deviceFault is cleared by successful diagnostics/test;\n       snrMgnDefect and lineAtnDefect are cleared by SNR margin\n       and Line attenuation, respectively, returning to norm and by\n       PME init.\n\n       This object partially maps to the Clause 30 attribute\n       aPMEStatus.\n\n       If a Clause 45 MDIO Interface to the PME is present, then this\n       object consolidates information from various PMA/PMD\n       registers, namely: Fault bit in PMA/PMD status 1 register,\n       10P/2B PMA/PMD link loss register,\n       10P outgoing indicator bits status register,\n       10P incoming indicator bits status register,\n       2B state defects register.')
-efmCuPmeOperSubType = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("ieee2BaseTLO", 1), ("ieee2BaseTLR", 2), ("ieee10PassTSO", 3), ("ieee10PassTSR", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPmeOperSubType.setDescription('Current operational subtype of the PME.\n       Possible values are:\n         ieee2BaseTLO           - PME operates as 2BaseTL-O\n         ieee2BaseTLR           - PME operates as 2BaseTL-R\n         ieee10PassTSO          - PME operates as 10PassTS-O\n         ieee10PassTSR          - PME operates as 10PassTS-R\n\n       The desired operational subtype of the PME can be configured\n       via the efmCuPmeAdminSubType variable.\n\n       If a Clause 45 MDIO Interface to the PMA/PMD is present, then\n       this object combines values of the Port subtype select\n       bits, the PMA/PMD type selection bits in the 10P/2B\n       PMA/PMD control register, and the PMA/PMD link status bits in\n       the 10P/2B PMA/PMD status register.')
-efmCuPmeOperProfile = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 3, 1, 4), EfmProfileIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPmeOperProfile.setDescription('PME current operating profile.  This object is a pointer to\n       an entry in either the efmCuPme2BProfileTable or the\n       efmCuPme10PProfileTable, depending on the current operating\n       SubType of the PME as indicated by efmCuPmeOperSubType.\n       Note that a profile entry to which efmCuPmeOperProfile is\n       pointing can be created automatically to reflect achieved\n       parameters in adaptive (not fixed) initialization,\n       i.e., values of efmCuPmeOperProfile and efmCuAdminProfile or\n       efmCuPmeAdminProfile may differ.\n       The value of zero indicates that the PME is Down or\n       Initializing.\n\n       This object partially maps to the aOperatingProfile attribute\n       in Clause 30.')
-efmCuPmeSnrMgn = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-127,128),ValueRangeConstraint(65535,65535),))).setUnits('dB').setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPmeSnrMgn.setDescription('The current Signal to Noise Ratio (SNR) margin with respect\n       to the received signal as perceived by the local PME.\n       The value of 65535 is returned when the PME is Down or\n       Initializing.\n\n       This object maps to the aPMESNRMgn attribute in Clause 30.\n\n       If a Clause 45 MDIO Interface is present, then this\n       object maps to the 10P/2B RX SNR margin register.')
-efmCuPmePeerSnrMgn = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-127,128),ValueRangeConstraint(65535,65535),))).setUnits('dB').setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPmePeerSnrMgn.setDescription('The current SNR margin in dB with respect to the received\n       signal, as perceived by the remote (link partner) PME.\n       The value of 65535 is returned when the PME is Down or\n       Initializing.\n\n       This object is irrelevant for the -R PME subtypes.  The value\n       of 65535 SHALL be returned in this case.\n\n       If a Clause 45 MDIO Interface is present, then this\n       object maps to the 10P/2B link partner RX SNR margin\n       register.')
-efmCuPmeLineAtn = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-127,128),ValueRangeConstraint(65535,65535),))).setUnits('dB').setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPmeLineAtn.setDescription('The current Line Attenuation in dB as perceived by the local\n       PME.\n\n\n\n       The value of 65535 is returned when the PME is Down or\n       Initializing.\n\n       If a Clause 45 MDIO Interface is present, then this\n       object maps to the Line Attenuation register.')
-efmCuPmePeerLineAtn = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-127,128),ValueRangeConstraint(65535,65535),))).setUnits('dB').setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPmePeerLineAtn.setDescription('The current Line Attenuation in dB as perceived by the remote\n       (link partner) PME.\n       The value of 65535 is returned when the PME is Down or\n       Initializing.\n\n       This object is irrelevant for the -R PME subtypes.  The value\n       of 65535 SHALL be returned in this case.\n\n       If a Clause 45 MDIO Interface is present, then this\n       object maps to the 20P/2B link partner Line Attenuation\n       register.')
-efmCuPmeEquivalentLength = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 3, 1, 9), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,8192),ValueRangeConstraint(65535,65535),))).setUnits('m').setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPmeEquivalentLength.setDescription("An estimate of the equivalent loop's physical length in\n       meters, as perceived by the PME after the link is established.\n       An equivalent loop is a hypothetical 26AWG (0.4mm) loop with a\n       perfect square root attenuation characteristic, without any\n       bridged taps.\n       The value of 65535 is returned if the link is Down or\n       Initializing or the PME is unable to estimate the equivalent\n       length.\n\n       For a 10BASE-TL PME, if a Clause 45 MDIO Interface to the PME\n       is present, then this object maps to the 10P Electrical Length\n       register.")
-efmCuPmeTCCodingErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 3, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPmeTCCodingErrors.setDescription('The number of 64/65-octet encapsulation errors.  This counter\n       is incremented for each 64/65-octet encapsulation error\n       detected by the 64/65-octet receive function.\n\n       This object maps to aTCCodingViolations attribute in\n       Clause 30.\n\n       If a Clause 45 MDIO Interface to the PME TC is present, then\n       this object maps to the TC coding violations register\n       (see 45.2.6.12).\n\n       Discontinuities in the value of this counter can occur at\n       re-initialization of the management system, and at other times\n       as indicated by the value of ifCounterDiscontinuityTime,\n       defined in IF-MIB.')
-efmCuPmeTCCrcErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 3, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPmeTCCrcErrors.setDescription('The number of TC-CRC errors.  This counter is incremented for\n       each TC-CRC error detected by the 64/65-octet receive function\n       (see 61.3.3.3 and Figure 61-19).\n\n       This object maps to aTCCRCErrors attribute in\n       Clause 30.\n\n       If a Clause 45 MDIO Interface to the PME TC is present, then\n       this object maps to the TC CRC error register\n       (see 45.2.6.11).\n\n       Discontinuities in the value of this counter can occur at\n       re-initialization of the management system, and at other times\n       as indicated by the value of ifCounterDiscontinuityTime,\n       defined in IF-MIB.')
-efmCuPme2B = MibIdentifier((1, 3, 6, 1, 2, 1, 167, 1, 2, 5))
-efmCuPme2BProfileTable = MibTable((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 2), )
-if mibBuilder.loadTexts: efmCuPme2BProfileTable.setDescription('This table supports definitions of administrative and\n       operating profiles for 2BASE-TL PMEs.\n       The first 14 entries in this table SHALL always be defined as\n       follows (see 802.3ah Annex 63A):\n       -------+-------+-------+-----+------+-------------+-----------\n       Profile MinRate MaxRate Power Region Constellation Comment\n        index  (Kbps)  (Kbps)  (dBm)\n       -------+-------+-------+-----+------+-------------+-----------\n          1     5696    5696    13.5    1   32-TCPAM      default\n          2     3072    3072    13.5    1   32-TCPAM\n          3     2048    2048    13.5    1   16-TCPAM\n          4     1024    1024    13.5    1   16-TCPAM\n          5      704     704    13.5    1   16-TCPAM\n          6      512     512    13.5    1   16-TCPAM\n          7     5696    5696    14.5    2   32-TCPAM\n          8     3072    3072    14.5    2   32-TCPAM\n          9     2048    2048    14.5    2   16-TCPAM\n         10     1024    1024    13.5    2   16-TCPAM\n         11      704     704    13.5    2   16-TCPAM\n         12      512     512    13.5    2   16-TCPAM\n         13      192    5696       0    1   0             best effort\n         14      192    5696       0    2   0             best effort\n       -------+-------+-------+-----+------+-------------+-----------\n\n       These default entries SHALL be created during agent\n       initialization and MUST NOT be deleted.\n\n       Entries following the first 14 can be dynamically created and\n       deleted to provide custom administrative (configuration)\n       profiles and automatic operating profiles.\n\n       This table MUST be maintained in a persistent manner.')
-efmCuPme2BProfileEntry = MibTableRow((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 2, 1), ).setIndexNames((0, "EFM-CU-MIB", "efmCuPme2BProfileIndex"))
-if mibBuilder.loadTexts: efmCuPme2BProfileEntry.setDescription("Each entry corresponds to a single 2BASE-TL PME profile.\n       Each profile contains a set of parameters, used either for\n       configuration or representation of a 2BASE-TL PME.\n       In case a particular profile is referenced via the\n       efmCuPmeAdminProfile object (or efmCuAdminProfile if\n       efmCuPmeAdminProfile is zero), it represents the desired\n       parameters for the 2BaseTL-O PME initialization.\n       If a profile is referenced via an efmCuPmeOperProfile object,\n       it represents the current operating parameters of an\n       operational PME.\n\n       Profiles may be created/deleted using the row creation/\n       deletion mechanism via efmCuPme2BProfileRowStatus.  If an\n       active entry is referenced, the entry MUST remain 'active'\n       until all references are removed.\n       Default entries MUST NOT be removed.")
-efmCuPme2BProfileIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 2, 1, 1), EfmProfileIndex())
-if mibBuilder.loadTexts: efmCuPme2BProfileIndex.setDescription('2BASE-TL PME profile index.\n       This object is the unique index associated with this profile.\n       Entries in this table are referenced via efmCuAdminProfile or\n       efmCuPmeAdminProfile objects.')
-efmCuPme2BProfileDescr = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 2, 1, 2), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme2BProfileDescr.setDescription('A textual string containing information about a 2BASE-TL PME\n       profile.  The string may include information about the data\n       rate and spectral limitations of this particular profile.')
-efmCuPme2BRegion = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("region1", 1), ("region2", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme2BRegion.setDescription('Regional settings for a 2BASE-TL PME, as specified in the\n       relevant Regional Annex of [G.991.2].\n       Regional settings specify the Power Spectral Density (PSD)\n       mask and the Power Back-Off (PBO) values, and place\n       limitations on the max allowed data rate, power, and\n       constellation.\n\n       Possible values for this object are:\n         region1      - Annexes A and F (e.g., North America)\n         region2      - Annexes B and G (e.g., Europe)\n\n       Annex A/B specify regional settings for data rates 192-2304\n       Kbps using 16-TCPAM encoding.\n       Annex F/G specify regional settings for rates 2320-3840 Kbps\n       using 16-TCPAM encoding and 768-5696 Kbps using 32-TCPAM\n       encoding.\n\n       If a Clause 45 MDIO Interface to the PME is present, then this\n       object partially maps to the Region bits in the 2B general\n       parameter register.')
-efmCuPme2BsMode = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 2, 1, 4), EfmProfileIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme2BsMode.setDescription('Desired custom Spectral Mode for a 2BASE-TL PME.  This object\n\n\n\n       is a pointer to an entry in efmCuPme2BsModeTable and a block\n       of entries in efmCuPme2BRateReachTable, which together define\n       (country-specific) reach-dependent rate limitations in\n       addition to those defined by efmCuPme2BRegion.\n\n       The value of this object is the index of the referenced\n       spectral mode.\n       The value of zero (default) indicates that no specific\n       spectral mode is applicable.\n\n       Attempts to set this object to a value that is not the value\n       of the index for an active entry in the corresponding spectral\n       mode table MUST be rejected.')
-efmCuPme2BMinDataRate = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 2, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(192,5696))).setUnits('Kbps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme2BMinDataRate.setDescription("Minimum Data Rate for the 2BASE-TL PME.\n       This object can take values of (n x 64)Kbps,\n       where n=3..60 for 16-TCPAM and n=12..89 for 32-TCPAM encoding.\n\n       The data rate of the 2BASE-TL PME is considered 'fixed' when\n       the value of this object equals that of efmCuPme2BMaxDataRate.\n       If efmCuPme2BMinDataRate is less than efmCuPme2BMaxDataRate in\n       the administrative profile, the data rate is considered\n       'adaptive', and SHALL be set to the maximum attainable rate\n       not exceeding efmCuPme2BMaxDataRate, under the spectral\n       limitations placed by the efmCuPme2BRegion and\n       efmCuPme2BsMode.\n\n       Note that the current operational data rate of the PME is\n       represented by the ifSpeed object of IF-MIB.\n\n       If a Clause 45 MDIO Interface to the PME is present, then this\n       object maps to the Min Data Rate1 bits in the 2B PMD\n       parameters register.\n\n       This object MUST be maintained in a persistent manner.")
-efmCuPme2BMaxDataRate = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 2, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(192,5696))).setUnits('Kbps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme2BMaxDataRate.setDescription("Maximum Data Rate for the 2BASE-TL PME.\n       This object can take values of (n x 64)Kbps,\n       where n=3..60 for 16-TCPAM and n=12..89 for 32-TCPAM encoding.\n\n       The data rate of the 2BASE-TL PME is considered 'fixed' when\n       the value of this object equals that of efmCuPme2BMinDataRate.\n       If efmCuPme2BMinDataRate is less than efmCuPme2BMaxDataRate in\n       the administrative profile, the data rate is considered\n       'adaptive', and SHALL be set to the maximum attainable rate\n       not exceeding efmCuPme2BMaxDataRate, under the spectral\n       limitations placed by the efmCuPme2BRegion and\n       efmCuPme2BsMode.\n\n       Note that the current operational data rate of the PME is\n       represented by the ifSpeed object of IF-MIB.\n\n       If a Clause 45 MDIO Interface to the PME is present, then this\n       object maps to the Max Data Rate1 bits in the 2B PMD\n       parameters register.\n\n       This object MUST be maintained in a persistent manner.")
-efmCuPme2BPower = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 2, 1, 7), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(10,42),))).setUnits('0.5 dBm').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme2BPower.setDescription('Signal Transmit Power.  Multiple of 0.5 dBm.\n       The value of 0 in the administrative profile means that the\n       signal transmit power is not fixed and SHALL be set to\n       maximize the attainable rate, under the spectral limitations\n       placed by the efmCuPme2BRegion and efmCuPme2BsMode.\n\n       If a Clause 45 MDIO Interface to the PME is present, then this\n       object maps to the Power1 bits in the 2B PMD parameters\n       register.')
-efmCuPme2BConstellation = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2,))).clone(namedValues=NamedValues(("adaptive", 0), ("tcpam16", 1), ("tcpam32", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme2BConstellation.setDescription('TCPAM Constellation of the 2BASE-TL PME.\n       The possible values are:\n         adaptive(0)    - either 16- or 32-TCPAM\n         tcpam16(1)     - 16-TCPAM\n         tcpam32(2)     - 32-TCPAM\n\n       The value of adaptive(0) in the administrative profile means\n       that the constellation is not fixed and SHALL be set to\n       maximize the attainable rate, under the spectral limitations\n       placed by the efmCuPme2BRegion and efmCuPme2BsMode.\n\n       If a Clause 45 MDIO Interface to the PME is present, then this\n       object maps to the Constellation1 bits in the 2B general\n       parameter register.')
-efmCuPme2BProfileRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 2, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme2BProfileRowStatus.setDescription("This object controls the creation, modification, or deletion\n       of the associated entry in the efmCuPme2BProfileTable per the\n       semantics of RowStatus.\n\n       If an 'active' entry is referenced via efmCuAdminProfile or\n       efmCuPmeAdminProfile instance(s), the entry MUST remain\n       'active'.\n\n       An 'active' entry SHALL NOT be modified.  In order to modify\n       an existing entry, it MUST be taken out of service (by setting\n       this object to 'notInService'), modified, and set 'active'\n       again.")
-efmCuPme2BsModeTable = MibTable((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 3), )
-if mibBuilder.loadTexts: efmCuPme2BsModeTable.setDescription('This table, together with efmCu2BReachRateTable, supports\n       definition of administrative custom spectral modes for\n       2BASE-TL PMEs, describing spectral limitations in addition to\n       those specified by efmCuPme2BRegion.\n\n       In some countries, spectral regulations (e.g., UK ANFP) limit\n       the length of the loops for certain data rates.  This table\n       allows these country-specific limitations to be specified.\n\n       Entries in this table referenced by the efmCuPme2BsMode\n       MUST NOT be deleted until all the active references are\n       removed.\n\n       This table MUST be maintained in a persistent manner.')
-efmCuPme2BsModeEntry = MibTableRow((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 3, 1), ).setIndexNames((0, "EFM-CU-MIB", "efmCuPme2BsModeIndex"))
-if mibBuilder.loadTexts: efmCuPme2BsModeEntry.setDescription('Each entry specifies a spectral mode description and its\n       index, which is used to reference corresponding entries in the\n       efmCu2BReachRateTable.\n\n       Entries may be created/deleted using the row creation/\n       deletion mechanism via efmCuPme2BsModeRowStatus.')
-efmCuPme2BsModeIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 3, 1, 1), EfmProfileIndex())
-if mibBuilder.loadTexts: efmCuPme2BsModeIndex.setDescription('2BASE-TL PME Spectral Mode index.\n       This object is the unique index associated with this spectral\n       mode.\n       Entries in this table are referenced via the efmCuPme2BsMode\n       object.')
-efmCuPme2BsModeDescr = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 3, 1, 2), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme2BsModeDescr.setDescription('A textual string containing information about a 2BASE-TL PME\n       spectral mode.  The string may include information about\n       corresponding (country-specific) spectral regulations\n       and rate/reach limitations of this particular spectral mode.')
-efmCuPme2BsModeRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme2BsModeRowStatus.setDescription("This object controls creation, modification, or deletion of\n       the associated entry in efmCuPme2BsModeTable per the semantics\n       of RowStatus.\n\n       If an 'active' entry is referenced via efmCuPme2BsMode\n       instance(s), the entry MUST remain 'active'.\n\n       An 'active' entry SHALL NOT be modified.  In order to modify\n       an existing entry, it MUST be taken out of service (by setting\n       this object to 'notInService'), modified, and set 'active'\n       again.")
-efmCuPme2BReachRateTable = MibTable((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 4), )
-if mibBuilder.loadTexts: efmCuPme2BReachRateTable.setDescription('This table supports the definition of administrative custom\n       spectral modes for 2BASE-TL PMEs, providing spectral\n       limitations in addition to those specified by\n       efmCuPme2BRegion.\n\n\n\n\n       The spectral regulations in some countries (e.g., UK ANFP)\n       limit the length of the loops for certain data rates.\n       This table allows these country-specific limitations to be\n       specified.\n\n       Below is an example of this table for [ANFP]:\n       ----------+-------+-------\n       Equivalent MaxRate MaxRate\n         Length    PAM16   PAM32\n           (m)     (Kbps)  (Kbps)\n       ----------+-------+-------\n           975      2304    5696\n          1125      2304    5504\n          1275      2304    5120\n          1350      2304    4864\n          1425      2304    4544\n          1500      2304    4288\n          1575      2304    3968\n          1650      2304    3776\n          1725      2304    3520\n          1800      2304    3264\n          1875      2304    3072\n          1950      2048    2688\n          2100      1792    2368\n          2250      1536       0\n          2400      1408       0\n          2550      1280       0\n          2775      1152       0\n          2925      1152       0\n          3150      1088       0\n          3375      1024       0\n       ----------+-------+-------\n\n       Entries in this table referenced by an efmCuPme2BsMode\n       instance MUST NOT be deleted.\n\n       This table MUST be maintained in a persistent manner.')
-efmCuPme2BReachRateEntry = MibTableRow((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 4, 1), ).setIndexNames((0, "EFM-CU-MIB", "efmCuPme2BsModeIndex"), (0, "EFM-CU-MIB", "efmCuPme2BReachRateIndex"))
-if mibBuilder.loadTexts: efmCuPme2BReachRateEntry.setDescription('Each entry specifies maximum 2BASE-TL PME data rates\n       allowed for a certain equivalent loop length, when using\n\n\n\n       16-TCPAM or 32-TCPAM encoding.\n\n       When a 2BASE-TL PME is initialized, its data rate MUST NOT\n       exceed one of the following limitations:\n       - the value of efmCuPme2BMaxDataRate\n       - maximum data rate allowed by efmCuPme2BRegion and\n         efmCuPme2BPower\n       - maximum data rate for a given encoding specified in the\n         efmCuPme2BsModeEntry, corresponding to the equivalent loop\n         length, estimated by the PME\n\n       It is RECOMMENDED that the efmCuPme2BEquivalentLength values\n       are assigned in increasing order, starting from the minimum\n       value.\n\n       Entries may be created/deleted using the row creation/\n       deletion mechanism via efmCuPme2ReachRateRowStatus.')
-efmCuPme2BReachRateIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 4, 1, 1), EfmProfileIndex())
-if mibBuilder.loadTexts: efmCuPme2BReachRateIndex.setDescription('2BASE-TL custom spectral mode Reach-Rate table index.\n       This object is the unique index associated with each entry.')
-efmCuPme2BEquivalentLength = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 4, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,8192))).setUnits('m').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme2BEquivalentLength.setDescription("Maximum allowed equivalent loop's physical length in meters\n       for the specified data rates.\n       An equivalent loop is a hypothetical 26AWG (0.4mm) loop with a\n       perfect square root attenuation characteristic, without any\n\n\n\n       bridged taps.")
-efmCuPme2BMaxDataRatePam16 = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 4, 1, 3), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(192,5696),))).setUnits('Kbps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme2BMaxDataRatePam16.setDescription("Maximum data rate for a 2BASE-TL PME at the specified\n       equivalent loop's length using TC-PAM16 encoding.\n       The value of zero means that TC-PAM16 encoding should not be\n       used at this distance.")
-efmCuPme2BMaxDataRatePam32 = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 4, 1, 4), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(192,5696),))).setUnits('Kbps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme2BMaxDataRatePam32.setDescription("Maximum data rate for a 2BASE-TL PME at the specified\n       equivalent loop's length using TC-PAM32 encoding.\n       The value of zero means that TC-PAM32 encoding should not be\n       used at this distance.")
-efmCuPme2BReachRateRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 5, 4, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme2BReachRateRowStatus.setDescription("This object controls the creation, modification, or deletion\n       of the associated entry in the efmCuPme2BReachRateTable per\n       the semantics of RowStatus.\n\n       If an 'active' entry is referenced via efmCuPme2BsMode\n       instance(s), the entry MUST remain 'active'.\n\n       An 'active' entry SHALL NOT be modified.  In order to modify\n       an existing entry, it MUST be taken out of service (by setting\n       this object to 'notInService'), modified, and set 'active'\n       again.")
-efmCuPme10P = MibIdentifier((1, 3, 6, 1, 2, 1, 167, 1, 2, 6))
-efmCuPme10PProfileTable = MibTable((1, 3, 6, 1, 2, 1, 167, 1, 2, 6, 1), )
-if mibBuilder.loadTexts: efmCuPme10PProfileTable.setDescription('This table supports definitions of configuration profiles for\n       10PASS-TS PMEs.\n       The first 22 entries in this table SHALL always be defined as\n       follows (see 802.3ah Annex 62B.3, table 62B-1):\n       -------+--------+----+---------+-----+-----+---------------\n       Profile Bandplan UPBO BandNotch DRate URate Comment\n        Index  PSDMask#  p#    p#        p#    p#\n       -------+--------+----+---------+-----+-----+---------------\n          1      1      3    2,6,10,11    20    20 default profile\n          2     13      5    0            20    20\n          3      1      1    0            20    20\n          4     16      0    0           100   100\n          5     16      0    0            70    50\n          6      6      0    0            50    10\n          7     17      0    0            30    30\n          8      8      0    0            30     5\n          9      4      0    0            25    25\n         10      4      0    0            15    15\n         11     23      0    0            10    10\n         12     23      0    0             5     5\n         13     16      0    2,5,9,11    100   100\n         14     16      0    2,5,9,11     70    50\n         15      6      0    2,6,10,11    50    10\n         16     17      0    2,5,9,11     30    30\n         17      8      0    2,6,10,11    30     5\n         18      4      0    2,6,10,11    25    25\n         19      4      0    2,6,10,11    15    15\n         20     23      0    2,5,9,11     10    10\n         21     23      0    2,5,9,11      5     5\n         22     30      0    0           200    50\n       -------+--------+----+---------+-----+-----+---------------\n\n       These default entries SHALL be created during agent\n       initialization and MUST NOT be deleted.\n\n       Entries following the first 22 can be dynamically created and\n       deleted to provide custom administrative (configuration)\n       profiles and automatic operating profiles.\n\n       This table MUST be maintained in a persistent manner.')
-efmCuPme10PProfileEntry = MibTableRow((1, 3, 6, 1, 2, 1, 167, 1, 2, 6, 1, 1), ).setIndexNames((0, "EFM-CU-MIB", "efmCuPme10PProfileIndex"))
-if mibBuilder.loadTexts: efmCuPme10PProfileEntry.setDescription("Each entry corresponds to a single 10PASS-TS PME profile.\n\n       Each profile contains a set of parameters, used either for\n       configuration or representation of a 10PASS-TS PME.\n       In case a particular profile is referenced via the\n       efmCuPmeAdminProfile object (or efmCuAdminProfile if\n       efmCuPmeAdminProfile is zero), it represents the desired\n       parameters for the 10PassTS-O PME initialization.\n       If a profile is referenced via an efmCuPmeOperProfile object,\n       it represents the current operating parameters of the PME.\n\n       Profiles may be created/deleted using the row creation/\n       deletion mechanism via efmCuPme10PProfileRowStatus.  If an\n       'active' entry is referenced, the entry MUST remain 'active'\n       until all references are removed.\n       Default entries MUST NOT be removed.")
-efmCuPme10PProfileIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 6, 1, 1, 1), EfmProfileIndex())
-if mibBuilder.loadTexts: efmCuPme10PProfileIndex.setDescription('10PASS-TS PME profile index.\n       This object is the unique index associated with this profile.\n       Entries in this table are referenced via efmCuAdminProfile or\n       efmCuPmeAdminProfile.')
-efmCuPme10PProfileDescr = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 6, 1, 1, 2), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme10PProfileDescr.setDescription('A textual string containing information about a 10PASS-TS PME\n       profile.  The string may include information about data rate\n       and spectral limitations of this particular profile.')
-efmCuPme10PBandplanPSDMskProfile = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 6, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,))).clone(namedValues=NamedValues(("profile1", 1), ("profile2", 2), ("profile3", 3), ("profile4", 4), ("profile5", 5), ("profile6", 6), ("profile7", 7), ("profile8", 8), ("profile9", 9), ("profile10", 10), ("profile11", 11), ("profile12", 12), ("profile13", 13), ("profile14", 14), ("profile15", 15), ("profile16", 16), ("profile17", 17), ("profile18", 18), ("profile19", 19), ("profile20", 20), ("profile21", 21), ("profile22", 22), ("profile23", 23), ("profile24", 24), ("profile25", 25), ("profile26", 26), ("profile27", 27), ("profile28", 28), ("profile29", 29), ("profile30", 30),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme10PBandplanPSDMskProfile.setDescription('The 10PASS-TS PME Bandplan and PSD Mask Profile, as specified\n       in 802.3ah Annex 62A, table 62A-1.  Possible values are:\n       --------------+------------------------+------------+--------\n       Profile Name    PSD Mask                  Bands      G.993.1\n                                               0/1/2/3/4/5  Bandplan\n       --------------+------------------------+------------+--------\n       profile1(1)    T1.424 FTTCab.M1         x/D/U/D/U    A\n       profile2(2)    T1.424 FTTEx.M1          x/D/U/D/U    A\n       profile3(3)    T1.424 FTTCab.M2         x/D/U/D/U    A\n       profile4(4)    T1.424 FTTEx.M2          x/D/U/D/U    A\n       profile5(5)    T1.424 FTTCab.M1         D/D/U/D/U    A\n       profile6(6)    T1.424 FTTEx.M1          D/D/U/D/U    A\n       profile7(7)    T1.424 FTTCab.M2         D/D/U/D/U    A\n       profile8(8)    T1.424 FTTEx.M2          D/D/U/D/U    A\n       profile9(9)    T1.424 FTTCab.M1         U/D/U/D/x    A\n       profile10(10)  T1.424 FTTEx.M1          U/D/U/D/x    A\n       profile11(11)  T1.424 FTTCab.M2         U/D/U/D/x    A\n       profile12(12)  T1.424 FTTEx.M2          U/D/U/D/x    A\n       profile13(13)  TS 101 270-1 Pcab.M1.A   x/D/U/D/U    B\n       profile14(14)  TS 101 270-1 Pcab.M1.B   x/D/U/D/U    B\n       profile15(15)  TS 101 270-1 Pex.P1.M1   x/D/U/D/U    B\n       profile16(16)  TS 101 270-1 Pex.P2.M1   x/D/U/D/U    B\n       profile17(17)  TS 101 270-1 Pcab.M2     x/D/U/D/U    B\n       profile18(18)  TS 101 270-1 Pex.P1.M2   x/D/U/D/U    B\n       profile19(19)  TS 101 270-1 Pex.P2.M2   x/D/U/D/U    B\n       profile20(20)  TS 101 270-1 Pcab.M1.A   U/D/U/D/x    B\n       profile21(21)  TS 101 270-1 Pcab.M1.B   U/D/U/D/x    B\n       profile22(22)  TS 101 270-1 Pex.P1.M1   U/D/U/D/x    B\n       profile23(23)  TS 101 270-1 Pex.P2.M1   U/D/U/D/x    B\n       profile24(24)  TS 101 270-1 Pcab.M2     U/D/U/D/x    B\n       profile25(25)  TS 101 270-1 Pex.P1.M2   U/D/U/D/x    B\n       profile26(26)  TS 101 270-1 Pex.P2.M2   U/D/U/D/x    B\n       profile27(27)  G.993.1 F.1.2.1          x/D/U/D/U    Annex F\n       profile28(28)  G.993.1 F.1.2.2          x/D/U/D/U    Annex F\n       profile29(29)  G.993.1 F.1.2.3          x/D/U/D/U    Annex F\n       profile30(30)  T1.424 FTTCab.M1 (ext.)  x/D/U/D/U/D  Annex A\n       --------------+------------------------+------------+--------\n       ')
-efmCuPme10PUPBOReferenceProfile = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 6, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,))).clone(namedValues=NamedValues(("profile0", 0), ("profile1", 1), ("profile2", 2), ("profile3", 3), ("profile4", 4), ("profile5", 5), ("profile6", 6), ("profile7", 7), ("profile8", 8), ("profile9", 9),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme10PUPBOReferenceProfile.setDescription('The 10PASS-TS PME Upstream Power Back-Off (UPBO) Reference\n       PSD Profile, as specified in 802.3 Annex 62A, table 62A-3.\n       Possible values are:\n       ------------+-----------------------------\n       Profile Name   Reference PSD\n       ------------+-----------------------------\n       profile0(0)  no profile\n       profile1(1)  T1.424        Noise A    M1\n       profile2(2)  T1.424        Noise A    M2\n       profile3(3)  T1.424        Noise F    M1\n       profile4(4)  T1.424        Noise F    M2\n       profile5(5)  TS 101 270-1  Noise A&B\n       profile6(6)  TS 101 270-1  Noise C\n       profile7(7)  TS 101 270-1  Noise D\n       profile8(8)  TS 101 270-1  Noise E\n       profile9(9)  TS 101 270-1  Noise F\n       ------------+-----------------------------\n       ')
-efmCuPme10PBandNotchProfiles = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 6, 1, 1, 5), Bits().clone(namedValues=NamedValues(("profile0", 0), ("profile1", 1), ("profile2", 2), ("profile3", 3), ("profile4", 4), ("profile5", 5), ("profile6", 6), ("profile7", 7), ("profile8", 8), ("profile9", 9), ("profile10", 10), ("profile11", 11),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme10PBandNotchProfiles.setDescription('The 10PASS-TS PME Egress Control Band Notch Profile bitmap,\n       as specified in 802.3 Annex 62A, table 62A-4.  Possible values\n       are:\n       --------------+--------+------+------------+------+------\n       Profile Name   G.991.3  T1.424 TS 101 270-1 StartF EndF\n                      table    table  table        (MHz)  (MHz)\n       --------------+--------+------+------------+------+------\n       profile0(0)    no profile\n       profile1(1)    F-5 #01  -      -            1.810  1.825\n       profile2(2)    6-2      15-1   17           1.810  2.000\n       profile3(3)    F-5 #02  -      -            1.907  1.912\n       profile4(4)    F-5 #03  -      -            3.500  3.575\n       profile5(5)    6-2      -      17           3.500  3.800\n       profile6(6)    -        15-1   -            3.500  4.000\n       profile7(7)    F-5 #04  -      -            3.747  3.754\n       profile8(8)    F-5 #05  -      -            3.791  3.805\n       profile9(9)    6-2      -      17           7.000  7.100\n       profile10(10)  F-5 #06  15-1   -            7.000  7.300\n       profile11(11)  6-2      15-1   1            10.100 10.150\n       --------------+--------+------+------------+------+------\n\n       Any combination of profiles can be specified by ORing\n       individual profiles, for example, a value of 0x2230 selects\n       profiles 2, 6, 10, and 11.')
-efmCuPme10PPayloadDRateProfile = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 6, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(5, 10, 15, 20, 25, 30, 50, 70, 100, 140, 200,))).clone(namedValues=NamedValues(("profile5", 5), ("profile10", 10), ("profile15", 15), ("profile20", 20), ("profile25", 25), ("profile30", 30), ("profile50", 50), ("profile70", 70), ("profile100", 100), ("profile140", 140), ("profile200", 200),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme10PPayloadDRateProfile.setDescription("The 10PASS-TS PME Downstream Payload Rate Profile, as\n\n\n\n       specified in 802.3 Annex 62A.  Possible values are:\n         profile5(5)      - 2.5 Mbps\n         profile10(10)    - 5 Mbps\n         profile15(15)    - 7.5 Mbps\n         profile20(20)    - 10 Mbps\n         profile25(25)    - 12.5 Mbps\n         profile30(30)    - 15 Mbps\n         profile50(50)    - 25 Mbps\n         profile70(70)    - 35 Mbps\n         profile100(100)  - 50 Mbps\n         profile140(140)  - 70 Mbps\n         profile200(200)  - 100 Mbps\n\n       Each value represents a target for the PME's Downstream\n       Payload Bitrate as seen at the MII.  If the payload rate of\n       the selected profile cannot be achieved based on the loop\n       environment, bandplan, and PSD mask, the PME initialization\n       SHALL fail.")
-efmCuPme10PPayloadURateProfile = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 6, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(5, 10, 15, 20, 25, 30, 50, 70, 100,))).clone(namedValues=NamedValues(("profile5", 5), ("profile10", 10), ("profile15", 15), ("profile20", 20), ("profile25", 25), ("profile30", 30), ("profile50", 50), ("profile70", 70), ("profile100", 100),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme10PPayloadURateProfile.setDescription("The 10PASS-TS PME Upstream Payload Rate Profile, as specified\n        in 802.3 Annex 62A.  Possible values are:\n         profile5(5)       - 2.5 Mbps\n         profile10(10)     - 5 Mbps\n         profile15(15)     - 7.5 Mbps\n         profile20(20)     - 10 Mbps\n         profile25(25)     - 12.5 Mbps\n         profile30(30)     - 15 Mbps\n         profile50(50)     - 25 Mbps\n         profile70(70)     - 35 Mbps\n         profile100(100)   - 50 Mbps\n\n\n\n       Each value represents a target for the PME's Upstream Payload\n       Bitrate as seen at the MII.  If the payload rate of the\n       selected profile cannot be achieved based on the loop\n       environment, bandplan, and PSD mask, the PME initialization\n       SHALL fail.")
-efmCuPme10PProfileRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 6, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: efmCuPme10PProfileRowStatus.setDescription("This object controls creation, modification, or deletion of\n       the associated entry in efmCuPme10PProfileTable per the\n       semantics of RowStatus.\n\n       If an active entry is referenced via efmCuAdminProfile or\n       efmCuPmeAdminProfile, the entry MUST remain 'active' until\n       all references are removed.\n\n       An 'active' entry SHALL NOT be modified.  In order to modify\n       an existing entry, it MUST be taken out of service (by setting\n       this object to 'notInService'), modified, and set 'active'\n       again.")
-efmCuPme10PStatusTable = MibTable((1, 3, 6, 1, 2, 1, 167, 1, 2, 6, 2), )
-if mibBuilder.loadTexts: efmCuPme10PStatusTable.setDescription('This table provides status information of EFMCu 10PASS-TS\n       PMEs (modems).\n\n       This table contains live data from the equipment.  As such,\n       it is NOT persistent.')
-efmCuPme10PStatusEntry = MibTableRow((1, 3, 6, 1, 2, 1, 167, 1, 2, 6, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: efmCuPme10PStatusEntry.setDescription('An entry in the EFMCu 10PASS-TS PME Status table.')
-efmCuPme10PFECCorrectedBlocks = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 6, 2, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPme10PFECCorrectedBlocks.setDescription('The number of received and corrected Forward Error Correction\n       (FEC) codewords in this 10PASS-TS PME.\n\n       This object maps to the aPMEFECCorrectedBlocks attribute in\n       Clause 30.\n\n       If a Clause 45 MDIO Interface to the PMA/PMD is present,\n       then this object maps to the 10P FEC correctable errors\n       register.\n\n       Discontinuities in the value of this counter can occur at\n       re-initialization of the management system, and at other times\n       as indicated by the value of ifCounterDiscontinuityTime,\n       defined in IF-MIB.')
-efmCuPme10PFECUncorrectedBlocks = MibTableColumn((1, 3, 6, 1, 2, 1, 167, 1, 2, 6, 2, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: efmCuPme10PFECUncorrectedBlocks.setDescription('The number of received uncorrectable FEC codewords in this\n       10PASS-TS PME.\n\n       This object maps to the aPMEFECUncorrectableBlocks attribute\n       in Clause 30.\n\n       If a Clause 45 MDIO Interface to the PMA/PMD is present,\n       then this object maps to the 10P FEC uncorrectable errors\n       register.\n\n       Discontinuities in the value of this counter can occur at\n       re-initialization of the management system, and at other times\n\n\n\n       as indicated by the value of ifCounterDiscontinuityTime,\n       defined in IF-MIB.')
-efmCuGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 167, 2, 1))
-efmCuCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 167, 2, 2))
-efmCuBasicGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 167, 2, 1, 1)).setObjects(*(("EFM-CU-MIB", "efmCuPAFSupported"), ("EFM-CU-MIB", "efmCuAdminProfile"), ("EFM-CU-MIB", "efmCuTargetDataRate"), ("EFM-CU-MIB", "efmCuTargetSnrMgn"), ("EFM-CU-MIB", "efmCuAdaptiveSpectra"), ("EFM-CU-MIB", "efmCuPortSide"), ("EFM-CU-MIB", "efmCuFltStatus"),))
-if mibBuilder.loadTexts: efmCuBasicGroup.setDescription('A collection of objects representing management information\n       common for all types of EFMCu ports.')
-efmCuPAFGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 167, 2, 1, 2)).setObjects(*(("EFM-CU-MIB", "efmCuPeerPAFSupported"), ("EFM-CU-MIB", "efmCuPAFCapacity"), ("EFM-CU-MIB", "efmCuPeerPAFCapacity"), ("EFM-CU-MIB", "efmCuPAFAdminState"), ("EFM-CU-MIB", "efmCuPAFDiscoveryCode"), ("EFM-CU-MIB", "efmCuPAFRemoteDiscoveryCode"), ("EFM-CU-MIB", "efmCuNumPMEs"),))
-if mibBuilder.loadTexts: efmCuPAFGroup.setDescription('A collection of objects supporting OPTIONAL PME\n       Aggregation Function (PAF) and PAF discovery in EFMCu ports.')
-efmCuPAFErrorsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 167, 2, 1, 3)).setObjects(*(("EFM-CU-MIB", "efmCuPAFInErrors"), ("EFM-CU-MIB", "efmCuPAFInSmallFragments"), ("EFM-CU-MIB", "efmCuPAFInLargeFragments"), ("EFM-CU-MIB", "efmCuPAFInBadFragments"), ("EFM-CU-MIB", "efmCuPAFInLostFragments"), ("EFM-CU-MIB", "efmCuPAFInLostStarts"), ("EFM-CU-MIB", "efmCuPAFInLostEnds"), ("EFM-CU-MIB", "efmCuPAFInOverflows"),))
-if mibBuilder.loadTexts: efmCuPAFErrorsGroup.setDescription('A collection of objects supporting OPTIONAL error counters\n       of PAF on EFMCu ports.')
-efmCuPmeGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 167, 2, 1, 4)).setObjects(*(("EFM-CU-MIB", "efmCuPmeAdminProfile"), ("EFM-CU-MIB", "efmCuPmeOperStatus"), ("EFM-CU-MIB", "efmCuPmeFltStatus"), ("EFM-CU-MIB", "efmCuPmeSubTypesSupported"), ("EFM-CU-MIB", "efmCuPmeAdminSubType"), ("EFM-CU-MIB", "efmCuPmeOperSubType"), ("EFM-CU-MIB", "efmCuPAFRemoteDiscoveryCode"), ("EFM-CU-MIB", "efmCuPmeOperProfile"), ("EFM-CU-MIB", "efmCuPmeSnrMgn"), ("EFM-CU-MIB", "efmCuPmePeerSnrMgn"), ("EFM-CU-MIB", "efmCuPmeLineAtn"), ("EFM-CU-MIB", "efmCuPmePeerLineAtn"), ("EFM-CU-MIB", "efmCuPmeEquivalentLength"), ("EFM-CU-MIB", "efmCuPmeTCCodingErrors"), ("EFM-CU-MIB", "efmCuPmeTCCrcErrors"), ("EFM-CU-MIB", "efmCuPmeThreshLineAtn"), ("EFM-CU-MIB", "efmCuPmeThreshSnrMgn"),))
-if mibBuilder.loadTexts: efmCuPmeGroup.setDescription('A collection of objects providing information about\n       a 2BASE-TL/10PASS-TS PME.')
-efmCuAlarmConfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 167, 2, 1, 5)).setObjects(*(("EFM-CU-MIB", "efmCuThreshLowRate"), ("EFM-CU-MIB", "efmCuLowRateCrossingEnable"), ("EFM-CU-MIB", "efmCuPmeThreshLineAtn"), ("EFM-CU-MIB", "efmCuPmeLineAtnCrossingEnable"), ("EFM-CU-MIB", "efmCuPmeThreshSnrMgn"), ("EFM-CU-MIB", "efmCuPmeSnrMgnCrossingEnable"), ("EFM-CU-MIB", "efmCuPmeDeviceFaultEnable"), ("EFM-CU-MIB", "efmCuPmeConfigInitFailEnable"), ("EFM-CU-MIB", "efmCuPmeProtocolInitFailEnable"),))
-if mibBuilder.loadTexts: efmCuAlarmConfGroup.setDescription('A collection of objects supporting configuration of alarm\n       thresholds and notifications in EFMCu ports.')
-efmCuNotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 167, 2, 1, 6)).setObjects(*(("EFM-CU-MIB", "efmCuLowRateCrossing"), ("EFM-CU-MIB", "efmCuPmeLineAtnCrossing"), ("EFM-CU-MIB", "efmCuPmeSnrMgnCrossing"), ("EFM-CU-MIB", "efmCuPmeDeviceFault"), ("EFM-CU-MIB", "efmCuPmeConfigInitFailure"), ("EFM-CU-MIB", "efmCuPmeProtocolInitFailure"),))
-if mibBuilder.loadTexts: efmCuNotificationGroup.setDescription('This group supports notifications of significant conditions\n       associated with EFMCu ports.')
-efmCuPme2BProfileGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 167, 2, 1, 7)).setObjects(*(("EFM-CU-MIB", "efmCuPme2BProfileDescr"), ("EFM-CU-MIB", "efmCuPme2BRegion"), ("EFM-CU-MIB", "efmCuPme2BsMode"), ("EFM-CU-MIB", "efmCuPme2BMinDataRate"), ("EFM-CU-MIB", "efmCuPme2BMaxDataRate"), ("EFM-CU-MIB", "efmCuPme2BPower"), ("EFM-CU-MIB", "efmCuPme2BConstellation"), ("EFM-CU-MIB", "efmCuPme2BProfileRowStatus"), ("EFM-CU-MIB", "efmCuPme2BsModeDescr"), ("EFM-CU-MIB", "efmCuPme2BsModeRowStatus"), ("EFM-CU-MIB", "efmCuPme2BEquivalentLength"), ("EFM-CU-MIB", "efmCuPme2BMaxDataRatePam16"), ("EFM-CU-MIB", "efmCuPme2BMaxDataRatePam32"), ("EFM-CU-MIB", "efmCuPme2BReachRateRowStatus"),))
-if mibBuilder.loadTexts: efmCuPme2BProfileGroup.setDescription('A collection of objects that constitute a configuration\n\n\n\n       profile for configuration of 2BASE-TL ports.')
-efmCuPme10PProfileGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 167, 2, 1, 8)).setObjects(*(("EFM-CU-MIB", "efmCuPme10PProfileDescr"), ("EFM-CU-MIB", "efmCuPme10PBandplanPSDMskProfile"), ("EFM-CU-MIB", "efmCuPme10PUPBOReferenceProfile"), ("EFM-CU-MIB", "efmCuPme10PBandNotchProfiles"), ("EFM-CU-MIB", "efmCuPme10PPayloadDRateProfile"), ("EFM-CU-MIB", "efmCuPme10PPayloadURateProfile"), ("EFM-CU-MIB", "efmCuPme10PProfileRowStatus"),))
-if mibBuilder.loadTexts: efmCuPme10PProfileGroup.setDescription('A collection of objects that constitute a configuration\n       profile for configuration of 10PASS-TS ports.')
-efmCuPme10PStatusGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 167, 2, 1, 9)).setObjects(*(("EFM-CU-MIB", "efmCuPme10PFECCorrectedBlocks"), ("EFM-CU-MIB", "efmCuPme10PFECUncorrectedBlocks"),))
-if mibBuilder.loadTexts: efmCuPme10PStatusGroup.setDescription('A collection of objects providing status information\n       specific to 10PASS-TS PMEs.')
-efmCuCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 167, 2, 2, 1)).setObjects(*(("EFM-CU-MIB", "efmCuBasicGroup"), ("EFM-CU-MIB", "efmCuPmeGroup"), ("EFM-CU-MIB", "efmCuAlarmConfGroup"), ("EFM-CU-MIB", "efmCuNotificationGroup"), ("EFM-CU-MIB", "efmCuPme2BProfileGroup"), ("EFM-CU-MIB", "efmCuPme10PProfileGroup"), ("EFM-CU-MIB", "efmCuPAFGroup"), ("EFM-CU-MIB", "efmCuPAFErrorsGroup"), ("EFM-CU-MIB", "efmCuPme10PStatusGroup"),))
-if mibBuilder.loadTexts: efmCuCompliance.setDescription('The compliance statement for 2BASE-TL/10PASS-TS interfaces.\n       Compliance with the following external compliance statements\n       is REQUIRED:\n\n       MIB Module             Compliance Statement\n       ----------             --------------------\n       IF-MIB                 ifCompliance3\n       EtherLike-MIB          dot3Compliance2\n       MAU-MIB                mauModIfCompl3\n\n       Compliance with the following external compliance statements\n       is OPTIONAL for implementations supporting PME Aggregation\n       Function (PAF) with flexible cross-connect between the PCS\n\n\n\n       and PME ports:\n\n       MIB Module             Compliance Statement\n       ----------             --------------------\n       IF-INVERTED-STACK-MIB  ifInvCompliance\n       IF-CAP-STACK-MIB       ifCapStackCompliance')
-mibBuilder.exportSymbols("EFM-CU-MIB", efmCuPmeEquivalentLength=efmCuPmeEquivalentLength, efmCuPme2BMinDataRate=efmCuPme2BMinDataRate, efmCuLowRateCrossing=efmCuLowRateCrossing, efmCuPme2BMaxDataRatePam16=efmCuPme2BMaxDataRatePam16, efmCuAdminProfile=efmCuAdminProfile, efmCuPme10PProfileRowStatus=efmCuPme10PProfileRowStatus, efmCuPortCapabilityTable=efmCuPortCapabilityTable, efmCuPmeCapabilityTable=efmCuPmeCapabilityTable, efmCuPortSide=efmCuPortSide, efmCuPmeOperSubType=efmCuPmeOperSubType, efmCuPmeSnrMgnCrossingEnable=efmCuPmeSnrMgnCrossingEnable, efmCuPmeSnrMgnCrossing=efmCuPmeSnrMgnCrossing, efmCuPme10PBandplanPSDMskProfile=efmCuPme10PBandplanPSDMskProfile, PYSNMP_MODULE_ID=efmCuMIB, efmCuPme10PFECCorrectedBlocks=efmCuPme10PFECCorrectedBlocks, efmCuPAFInBadFragments=efmCuPAFInBadFragments, efmCuThreshLowRate=efmCuThreshLowRate, efmCuPme10PStatusTable=efmCuPme10PStatusTable, efmCuGroups=efmCuGroups, efmCuPAFErrorsGroup=efmCuPAFErrorsGroup, efmCuPme2BReachRateRowStatus=efmCuPme2BReachRateRowStatus, efmCuPme10PStatusGroup=efmCuPme10PStatusGroup, efmCuPortStatusTable=efmCuPortStatusTable, efmCuPme10PPayloadURateProfile=efmCuPme10PPayloadURateProfile, EfmProfileIndex=EfmProfileIndex, efmCuPmeSnrMgn=efmCuPmeSnrMgn, efmCuPAFDiscoveryCode=efmCuPAFDiscoveryCode, efmCuTargetDataRate=efmCuTargetDataRate, efmCuPme10P=efmCuPme10P, efmCuPmeLineAtnCrossing=efmCuPmeLineAtnCrossing, efmCuPmeConfEntry=efmCuPmeConfEntry, efmCuPme2BsModeTable=efmCuPme2BsModeTable, efmCuPmeStatusEntry=efmCuPmeStatusEntry, efmCuPortNotifications=efmCuPortNotifications, efmCuCompliance=efmCuCompliance, efmCuPme10PProfileIndex=efmCuPme10PProfileIndex, efmCuPAFAdminState=efmCuPAFAdminState, efmCuPme10PPayloadDRateProfile=efmCuPme10PPayloadDRateProfile, efmCuNotificationGroup=efmCuNotificationGroup, efmCuPme2BProfileDescr=efmCuPme2BProfileDescr, efmCuPmeProtocolInitFailure=efmCuPmeProtocolInitFailure, efmCuObjects=efmCuObjects, efmCuPAFSupported=efmCuPAFSupported, efmCuBasicGroup=efmCuBasicGroup, efmCuPme2BsModeDescr=efmCuPme2BsModeDescr, efmCuPmeConfigInitFailEnable=efmCuPmeConfigInitFailEnable, efmCuPme2BPower=efmCuPme2BPower, efmCuPmeDeviceFaultEnable=efmCuPmeDeviceFaultEnable, efmCuPmeGroup=efmCuPmeGroup, efmCuAdaptiveSpectra=efmCuAdaptiveSpectra, efmCuPmeAdminSubType=efmCuPmeAdminSubType, efmCuPeerPAFSupported=efmCuPeerPAFSupported, efmCuCompliances=efmCuCompliances, efmCuPAFInOverflows=efmCuPAFInOverflows, efmCuPAFGroup=efmCuPAFGroup, efmCuPme2BProfileRowStatus=efmCuPme2BProfileRowStatus, efmCuPmeSubTypesSupported=efmCuPmeSubTypesSupported, efmCuMIB=efmCuMIB, efmCuPme2BProfileGroup=efmCuPme2BProfileGroup, efmCuPme2BMaxDataRatePam32=efmCuPme2BMaxDataRatePam32, efmCuPme=efmCuPme, efmCuPme2BProfileIndex=efmCuPme2BProfileIndex, efmCuPAFInSmallFragments=efmCuPAFInSmallFragments, efmCuPmeLineAtn=efmCuPmeLineAtn, EfmProfileIndexOrZero=EfmProfileIndexOrZero, efmCuPortStatusEntry=efmCuPortStatusEntry, efmCuPmeAdminProfile=efmCuPmeAdminProfile, efmCuPeerPAFCapacity=efmCuPeerPAFCapacity, efmCuConformance=efmCuConformance, efmCuPAFCapacity=efmCuPAFCapacity, efmCuPme2BEquivalentLength=efmCuPme2BEquivalentLength, efmCuPme2BProfileTable=efmCuPme2BProfileTable, efmCuTargetSnrMgn=efmCuTargetSnrMgn, efmCuPme2BReachRateEntry=efmCuPme2BReachRateEntry, efmCuPme10PUPBOReferenceProfile=efmCuPme10PUPBOReferenceProfile, efmCuPme2BConstellation=efmCuPme2BConstellation, efmCuPme10PProfileEntry=efmCuPme10PProfileEntry, efmCuPme2BMaxDataRate=efmCuPme2BMaxDataRate, efmCuAlarmConfGroup=efmCuAlarmConfGroup, efmCuPortCapabilityEntry=efmCuPortCapabilityEntry, efmCuLowRateCrossingEnable=efmCuLowRateCrossingEnable, efmCuPme10PBandNotchProfiles=efmCuPme10PBandNotchProfiles, EfmTruthValueOrUnknown=EfmTruthValueOrUnknown, efmCuPme2BsModeRowStatus=efmCuPme2BsModeRowStatus, efmCuPAFInLostStarts=efmCuPAFInLostStarts, efmCuPmeProtocolInitFailEnable=efmCuPmeProtocolInitFailEnable, efmCuPmeCapabilityEntry=efmCuPmeCapabilityEntry, efmCuPme2BReachRateIndex=efmCuPme2BReachRateIndex, efmCuPmeConfigInitFailure=efmCuPmeConfigInitFailure, efmCuPort=efmCuPort, efmCuNumPMEs=efmCuNumPMEs, efmCuPmeNotifications=efmCuPmeNotifications, efmCuPmePeerLineAtn=efmCuPmePeerLineAtn, efmCuPme2B=efmCuPme2B, efmCuPmeDeviceFault=efmCuPmeDeviceFault, efmCuPmeLineAtnCrossingEnable=efmCuPmeLineAtnCrossingEnable, efmCuPmeOperStatus=efmCuPmeOperStatus, efmCuPme10PFECUncorrectedBlocks=efmCuPme10PFECUncorrectedBlocks, efmCuPme2BProfileEntry=efmCuPme2BProfileEntry, efmCuPme10PProfileGroup=efmCuPme10PProfileGroup, efmCuPmeThreshSnrMgn=efmCuPmeThreshSnrMgn, efmCuFltStatus=efmCuFltStatus, efmCuPme2BsMode=efmCuPme2BsMode, efmCuPme2BRegion=efmCuPme2BRegion, efmCuPme10PStatusEntry=efmCuPme10PStatusEntry, efmCuPAFInErrors=efmCuPAFInErrors, efmCuPAFInLargeFragments=efmCuPAFInLargeFragments, efmCuPAFInLostFragments=efmCuPAFInLostFragments, efmCuPAFRemoteDiscoveryCode=efmCuPAFRemoteDiscoveryCode, efmCuPmeConfTable=efmCuPmeConfTable, efmCuPme2BReachRateTable=efmCuPme2BReachRateTable, efmCuPmeThreshLineAtn=efmCuPmeThreshLineAtn, efmCuPmeStatusTable=efmCuPmeStatusTable, efmCuPortConfEntry=efmCuPortConfEntry, efmCuPmeFltStatus=efmCuPmeFltStatus, efmCuPme2BsModeIndex=efmCuPme2BsModeIndex, efmCuPmePeerSnrMgn=efmCuPmePeerSnrMgn, efmCuPmeTCCrcErrors=efmCuPmeTCCrcErrors, efmCuPAFInLostEnds=efmCuPAFInLostEnds, EfmProfileIndexList=EfmProfileIndexList, efmCuPmeOperProfile=efmCuPmeOperProfile, efmCuPme10PProfileDescr=efmCuPme10PProfileDescr, efmCuPortConfTable=efmCuPortConfTable, efmCuPme10PProfileTable=efmCuPme10PProfileTable, efmCuPme2BsModeEntry=efmCuPme2BsModeEntry, efmCuPmeTCCodingErrors=efmCuPmeTCCodingErrors)
+_BS='efmCuPme10PStatusGroup'
+_BR='efmCuPAFErrorsGroup'
+_BQ='ifStackCapabilityGroup'
+_BP='efmCuPAFGroup'
+_BO='efmCuPme10PProfileGroup'
+_BN='efmCuPme2BProfileGroup'
+_BM='efmCuNotificationGroup'
+_BL='efmCuAlarmConfGroup'
+_BK='efmCuPmeGroup'
+_BJ='efmCuBasicGroup'
+_BI='efmCuPmeSnrMgnCrossingClear'
+_BH='efmCuPmeProtocolInitFailure'
+_BG='efmCuPmeConfigInitFailure'
+_BF='efmCuPmeDeviceFault'
+_BE='efmCuPmeSnrMgnCrossing'
+_BD='efmCuPmeLineAtnCrossing'
+_BC='efmCuLowBandwidth'
+_BB='efmCuPmeErrorThreshMonClrInterval'
+_BA='efmCuPmeErrorThreshMonInterval'
+_B9='efmCuPme10PFECUncorrectedBlocks'
+_B8='efmCuPme10PFECCorrectedBlocks'
+_B7='efmCuPme10PElectricalLength'
+_B6='efmCuPme10PProfileRowStatus'
+_B5='efmCuPme10PPayloadDRateProfile'
+_B4='efmCuPme10PPayloadURateProfile'
+_B3='efmCuPme10PBandNotchProfiles'
+_B2='efmCuPme10PUPBOReferenceProfile'
+_B1='efmCuPme10PBandplanPSDMskProfile'
+_B0='efmCuPme10PProfileDescr'
+_A_='efmCuPme2BProfileRowStatus'
+_Az='efmCuPme2BConstellation'
+_Ay='efmCuPme2BPower'
+_Ax='efmCuPme2BDataRate'
+_Aw='efmCuPme2BRegion'
+_Av='efmCuPme2BProfileDescr'
+_Au='efmCuPmeSnrMonitoringInterval'
+_At='efmCuPmeMaintenanceEndTime'
+_As='efmCuPmeMaintenanceStartTime'
+_Ar='efmCuPmeMaintenanceMode'
+_Aq='efmCuPmeProtocolInitFailEnable'
+_Ap='efmCuPmeConfigInitFailEnable'
+_Ao='efmCuPmeDeviceFaultEnable'
+_An='efmCuPmeSnrMgnCrossingTrapEnable'
+_Am='efmCuLowBandwidthEnable'
+_Al='efmCuPmeTCCrcErrors'
+_Ak='efmCuPmeTCCodingErrors'
+_Aj='efmCuPmePeerLineAtn'
+_Ai='efmCuPmePeerSnrMgn'
+_Ah='efmCuPmeOperProfile'
+_Ag='efmCuPmeAdminSubType'
+_Af='efmCuPmeSubTypesSupported'
+_Ae='efmCuPmeOperStatus'
+_Ad='efmCuPAFInOverflows'
+_Ac='efmCuPAFInLostEnds'
+_Ab='efmCuPAFInLostStarts'
+_Aa='efmCuPAFInLostFragments'
+_AZ='efmCuPAFInBadFragments'
+_AY='efmCuPAFInLargeFragments'
+_AX='efmCuPAFInSmallFragments'
+_AW='efmCuPAFInErrors'
+_AV='efmCuNumPMEs'
+_AU='efmCuPAFDiscoveryCode'
+_AT='efmCuPAFAdminState'
+_AS='efmCuPeerPAFCapacity'
+_AR='efmCuPAFCapacity'
+_AQ='efmCuPeerPAFSupported'
+_AP='efmCuTargetWorstCaseMode'
+_AO='efmCuTargetCurrentConditionSnrMgn'
+_AN='efmCuTargetCurrentConditionMode'
+_AM='efmCuFltStatus'
+_AL='efmCuPortSide'
+_AK='efmCuTargetWorstCaseSnrMgn'
+_AJ='efmCuTargetDataRate'
+_AI='efmCuPAFSupported'
+_AH='efmCuPme10PStatusEntry'
+_AG='tenths of dB'
+_AF='efmCuRegenSide'
+_AE='efmCuRegenIndex'
+_AD='ifAvailableStackLowerLayer'
+_AC='ifAvailableStackHigherLayer'
+_AB='profile100'
+_AA='profile70'
+_A9='profile50'
+_A8='profile30'
+_A7='profile11'
+_A6='efmCuPme10PProfileIndex'
+_A5='efmCuPme2BProfileIndex'
+_A4='ProfileIndexOrZero'
+_A3='clearStats'
+_A2='normalStats'
+_A1='ProfileIndexList'
+_A0='000000000000'
+_z='enabled'
+_y='unknown'
+_x='ifSpeed'
+_w='efmCuPmeLineAtnCrossingEnable'
+_v='efmCuThreshLowBandwidth'
+_u='efmCuPmeLineAtn'
+_t='efmCuPmeOperSubType'
+_s='efmCuPmeAdminProfile'
+_r='ifAvailableStackStatus'
+_q='efmCuPAFRemoteDiscoveryCode'
+_p='efmCuAdminProfile'
+_o='profile25'
+_n='profile20'
+_m='profile15'
+_l='profile9'
+_k='profile8'
+_j='profile7'
+_i='profile6'
+_h='profile4'
+_g='profile3'
+_f='profile2'
+_e='profile1'
+_d='ieee10PassTSR'
+_c='ieee10PassTSO'
+_b='ieee2BaseTLR'
+_a='ieee2BaseTLO'
+_Z='Kbps'
+_Y='disabled'
+_X='PhysAddress'
+_W='SnmpAdminString'
+_V='efmCuPmeThreshLineAtn'
+_U='efmCuPmeSnrMgn'
+_T='Seconds'
+_S='profile10'
+_R='DisplayString'
+_Q='efmCuPmeThreshMaxSnrMgnDelta'
+_P='efmCuPmeThreshMinSnrMgn'
+_O='efmCuPmeFltStatus'
+_N='profile5'
+_M='Bits'
+_L='not-accessible'
+_K='ifIndex'
+_J='dB'
+_I='IF-MIB'
+_H='Unsigned32'
+_G='TruthValue'
+_F='read-create'
+_E='Integer32'
+_D='read-write'
+_C='read-only'
+_B='EFM-CU-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InterfaceIndex,ifIndex,ifSpeed=mibBuilder.importSymbols(_I,'InterfaceIndex',_K,_x)
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_W)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI',_M,'Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_H,'iso','mib-2')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_R,_X,'RowStatus','TextualConvention',_G)
+ietfDrafts,=mibBuilder.importSymbols('Zhone','ietfDrafts')
+efmCuMIB=ModuleIdentity((1,3,6,1,4,1,5504,10,1,7))
+if mibBuilder.loadTexts:efmCuMIB.setRevisions(('2012-06-29 00:00','2005-04-04 00:00'))
+class ProfileIndex(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+class ProfileIndexOrZero(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+class ProfileIndexList(TextualConvention,OctetString):status=_A;displayHint='1d:';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,6))
+class TruthValueOrUnknown(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_y,0),('true',1),('false',2)))
+_EfmCuObjects_ObjectIdentity=ObjectIdentity
+efmCuObjects=_EfmCuObjects_ObjectIdentity((1,3,6,1,4,1,5504,10,1,7,1))
+_EfmCuPort_ObjectIdentity=ObjectIdentity
+efmCuPort=_EfmCuPort_ObjectIdentity((1,3,6,1,4,1,5504,10,1,7,1,1))
+_EfmCuPortNotifications_ObjectIdentity=ObjectIdentity
+efmCuPortNotifications=_EfmCuPortNotifications_ObjectIdentity((1,3,6,1,4,1,5504,10,1,7,1,1,0))
+_EfmCuPortConfTable_Object=MibTable
+efmCuPortConfTable=_EfmCuPortConfTable_Object((1,3,6,1,4,1,5504,10,1,7,1,1,1))
+if mibBuilder.loadTexts:efmCuPortConfTable.setStatus(_A)
+_EfmCuPortConfEntry_Object=MibTableRow
+efmCuPortConfEntry=_EfmCuPortConfEntry_Object((1,3,6,1,4,1,5504,10,1,7,1,1,1,1))
+efmCuPortConfEntry.setIndexNames((0,_I,_K))
+if mibBuilder.loadTexts:efmCuPortConfEntry.setStatus(_A)
+class _EfmCuPAFAdminState_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_z,1),(_Y,2)))
+_EfmCuPAFAdminState_Type.__name__=_E
+_EfmCuPAFAdminState_Object=MibTableColumn
+efmCuPAFAdminState=_EfmCuPAFAdminState_Object((1,3,6,1,4,1,5504,10,1,7,1,1,1,1,1),_EfmCuPAFAdminState_Type())
+efmCuPAFAdminState.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPAFAdminState.setStatus(_A)
+class _EfmCuPAFDiscoveryCode_Type(PhysAddress):defaultHexValue=_A0
+_EfmCuPAFDiscoveryCode_Type.__name__=_X
+_EfmCuPAFDiscoveryCode_Object=MibTableColumn
+efmCuPAFDiscoveryCode=_EfmCuPAFDiscoveryCode_Object((1,3,6,1,4,1,5504,10,1,7,1,1,1,1,2),_EfmCuPAFDiscoveryCode_Type())
+efmCuPAFDiscoveryCode.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPAFDiscoveryCode.setStatus(_A)
+class _EfmCuAdminProfile_Type(ProfileIndexList):defaultHexValue='01'
+_EfmCuAdminProfile_Type.__name__=_A1
+_EfmCuAdminProfile_Object=MibTableColumn
+efmCuAdminProfile=_EfmCuAdminProfile_Object((1,3,6,1,4,1,5504,10,1,7,1,1,1,1,3),_EfmCuAdminProfile_Type())
+efmCuAdminProfile.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuAdminProfile.setStatus(_A)
+class _EfmCuTargetDataRate_Type(Unsigned32):defaultValue=50000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100000),ValueRangeConstraint(999999,999999))
+_EfmCuTargetDataRate_Type.__name__=_H
+_EfmCuTargetDataRate_Object=MibTableColumn
+efmCuTargetDataRate=_EfmCuTargetDataRate_Object((1,3,6,1,4,1,5504,10,1,7,1,1,1,1,4),_EfmCuTargetDataRate_Type())
+efmCuTargetDataRate.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuTargetDataRate.setStatus(_A)
+if mibBuilder.loadTexts:efmCuTargetDataRate.setUnits(_Z)
+class _EfmCuTargetWorstCaseSnrMgn_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-10,21))
+_EfmCuTargetWorstCaseSnrMgn_Type.__name__=_E
+_EfmCuTargetWorstCaseSnrMgn_Object=MibTableColumn
+efmCuTargetWorstCaseSnrMgn=_EfmCuTargetWorstCaseSnrMgn_Object((1,3,6,1,4,1,5504,10,1,7,1,1,1,1,5),_EfmCuTargetWorstCaseSnrMgn_Type())
+efmCuTargetWorstCaseSnrMgn.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuTargetWorstCaseSnrMgn.setStatus(_A)
+if mibBuilder.loadTexts:efmCuTargetWorstCaseSnrMgn.setUnits(_J)
+class _EfmCuThreshLowBandwidth_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100000))
+_EfmCuThreshLowBandwidth_Type.__name__=_H
+_EfmCuThreshLowBandwidth_Object=MibTableColumn
+efmCuThreshLowBandwidth=_EfmCuThreshLowBandwidth_Object((1,3,6,1,4,1,5504,10,1,7,1,1,1,1,6),_EfmCuThreshLowBandwidth_Type())
+efmCuThreshLowBandwidth.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuThreshLowBandwidth.setStatus(_A)
+if mibBuilder.loadTexts:efmCuThreshLowBandwidth.setUnits(_Z)
+class _EfmCuLowBandwidthEnable_Type(TruthValue):defaultValue=2
+_EfmCuLowBandwidthEnable_Type.__name__=_G
+_EfmCuLowBandwidthEnable_Object=MibTableColumn
+efmCuLowBandwidthEnable=_EfmCuLowBandwidthEnable_Object((1,3,6,1,4,1,5504,10,1,7,1,1,1,1,7),_EfmCuLowBandwidthEnable_Type())
+efmCuLowBandwidthEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuLowBandwidthEnable.setStatus(_A)
+class _EfmCuTargetCurrentConditionMode_Type(TruthValue):defaultValue=2
+_EfmCuTargetCurrentConditionMode_Type.__name__=_G
+_EfmCuTargetCurrentConditionMode_Object=MibTableColumn
+efmCuTargetCurrentConditionMode=_EfmCuTargetCurrentConditionMode_Object((1,3,6,1,4,1,5504,10,1,7,1,1,1,1,8),_EfmCuTargetCurrentConditionMode_Type())
+efmCuTargetCurrentConditionMode.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuTargetCurrentConditionMode.setStatus(_A)
+class _EfmCuTargetCurrentConditionSnrMgn_Type(Integer32):defaultValue=6;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-10,21))
+_EfmCuTargetCurrentConditionSnrMgn_Type.__name__=_E
+_EfmCuTargetCurrentConditionSnrMgn_Object=MibTableColumn
+efmCuTargetCurrentConditionSnrMgn=_EfmCuTargetCurrentConditionSnrMgn_Object((1,3,6,1,4,1,5504,10,1,7,1,1,1,1,9),_EfmCuTargetCurrentConditionSnrMgn_Type())
+efmCuTargetCurrentConditionSnrMgn.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuTargetCurrentConditionSnrMgn.setStatus(_A)
+if mibBuilder.loadTexts:efmCuTargetCurrentConditionSnrMgn.setUnits(_J)
+class _EfmCuTargetWorstCaseMode_Type(TruthValue):defaultValue=1
+_EfmCuTargetWorstCaseMode_Type.__name__=_G
+_EfmCuTargetWorstCaseMode_Object=MibTableColumn
+efmCuTargetWorstCaseMode=_EfmCuTargetWorstCaseMode_Object((1,3,6,1,4,1,5504,10,1,7,1,1,1,1,10),_EfmCuTargetWorstCaseMode_Type())
+efmCuTargetWorstCaseMode.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuTargetWorstCaseMode.setStatus(_A)
+class _EfmCuPAFAutoDiscovery_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_Y,1),('optional',2),('required',3)))
+_EfmCuPAFAutoDiscovery_Type.__name__=_E
+_EfmCuPAFAutoDiscovery_Object=MibTableColumn
+efmCuPAFAutoDiscovery=_EfmCuPAFAutoDiscovery_Object((1,3,6,1,4,1,5504,10,1,7,1,1,1,1,11),_EfmCuPAFAutoDiscovery_Type())
+efmCuPAFAutoDiscovery.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPAFAutoDiscovery.setStatus(_A)
+class _EfmCuPmeErrorClearStats_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_A2,1),(_A3,2)))
+_EfmCuPmeErrorClearStats_Type.__name__=_E
+_EfmCuPmeErrorClearStats_Object=MibTableColumn
+efmCuPmeErrorClearStats=_EfmCuPmeErrorClearStats_Object((1,3,6,1,4,1,5504,10,1,7,1,1,1,1,12),_EfmCuPmeErrorClearStats_Type())
+efmCuPmeErrorClearStats.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeErrorClearStats.setStatus(_A)
+class _EfmCuPmeSnrClearStats_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_A2,1),(_A3,2)))
+_EfmCuPmeSnrClearStats_Type.__name__=_E
+_EfmCuPmeSnrClearStats_Object=MibTableColumn
+efmCuPmeSnrClearStats=_EfmCuPmeSnrClearStats_Object((1,3,6,1,4,1,5504,10,1,7,1,1,1,1,13),_EfmCuPmeSnrClearStats_Type())
+efmCuPmeSnrClearStats.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeSnrClearStats.setStatus(_A)
+_EfmCuPortCapabilityTable_Object=MibTable
+efmCuPortCapabilityTable=_EfmCuPortCapabilityTable_Object((1,3,6,1,4,1,5504,10,1,7,1,1,2))
+if mibBuilder.loadTexts:efmCuPortCapabilityTable.setStatus(_A)
+_EfmCuPortCapabilityEntry_Object=MibTableRow
+efmCuPortCapabilityEntry=_EfmCuPortCapabilityEntry_Object((1,3,6,1,4,1,5504,10,1,7,1,1,2,1))
+efmCuPortCapabilityEntry.setIndexNames((0,_I,_K))
+if mibBuilder.loadTexts:efmCuPortCapabilityEntry.setStatus(_A)
+_EfmCuPAFSupported_Type=TruthValue
+_EfmCuPAFSupported_Object=MibTableColumn
+efmCuPAFSupported=_EfmCuPAFSupported_Object((1,3,6,1,4,1,5504,10,1,7,1,1,2,1,1),_EfmCuPAFSupported_Type())
+efmCuPAFSupported.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPAFSupported.setStatus(_A)
+_EfmCuPeerPAFSupported_Type=TruthValueOrUnknown
+_EfmCuPeerPAFSupported_Object=MibTableColumn
+efmCuPeerPAFSupported=_EfmCuPeerPAFSupported_Object((1,3,6,1,4,1,5504,10,1,7,1,1,2,1,2),_EfmCuPeerPAFSupported_Type())
+efmCuPeerPAFSupported.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPeerPAFSupported.setStatus(_A)
+class _EfmCuPAFCapacity_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
+_EfmCuPAFCapacity_Type.__name__=_H
+_EfmCuPAFCapacity_Object=MibTableColumn
+efmCuPAFCapacity=_EfmCuPAFCapacity_Object((1,3,6,1,4,1,5504,10,1,7,1,1,2,1,3),_EfmCuPAFCapacity_Type())
+efmCuPAFCapacity.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPAFCapacity.setStatus(_A)
+class _EfmCuPeerPAFCapacity_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(1,32))
+_EfmCuPeerPAFCapacity_Type.__name__=_H
+_EfmCuPeerPAFCapacity_Object=MibTableColumn
+efmCuPeerPAFCapacity=_EfmCuPeerPAFCapacity_Object((1,3,6,1,4,1,5504,10,1,7,1,1,2,1,4),_EfmCuPeerPAFCapacity_Type())
+efmCuPeerPAFCapacity.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPeerPAFCapacity.setStatus(_A)
+_EfmCuPortStatusTable_Object=MibTable
+efmCuPortStatusTable=_EfmCuPortStatusTable_Object((1,3,6,1,4,1,5504,10,1,7,1,1,3))
+if mibBuilder.loadTexts:efmCuPortStatusTable.setStatus(_A)
+_EfmCuPortStatusEntry_Object=MibTableRow
+efmCuPortStatusEntry=_EfmCuPortStatusEntry_Object((1,3,6,1,4,1,5504,10,1,7,1,1,3,1))
+efmCuPortStatusEntry.setIndexNames((0,_I,_K))
+if mibBuilder.loadTexts:efmCuPortStatusEntry.setStatus(_A)
+class _EfmCuFltStatus_Type(Bits):namedValues=NamedValues(*(('noPeer',0),('pmeSubTypeMismatch',1),('lowBandwidth',2)))
+_EfmCuFltStatus_Type.__name__=_M
+_EfmCuFltStatus_Object=MibTableColumn
+efmCuFltStatus=_EfmCuFltStatus_Object((1,3,6,1,4,1,5504,10,1,7,1,1,3,1,1),_EfmCuFltStatus_Type())
+efmCuFltStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuFltStatus.setStatus(_A)
+class _EfmCuPortSide_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('subscriber',1),('office',2),(_y,3)))
+_EfmCuPortSide_Type.__name__=_E
+_EfmCuPortSide_Object=MibTableColumn
+efmCuPortSide=_EfmCuPortSide_Object((1,3,6,1,4,1,5504,10,1,7,1,1,3,1,2),_EfmCuPortSide_Type())
+efmCuPortSide.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPortSide.setStatus(_A)
+class _EfmCuNumPMEs_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
+_EfmCuNumPMEs_Type.__name__=_H
+_EfmCuNumPMEs_Object=MibTableColumn
+efmCuNumPMEs=_EfmCuNumPMEs_Object((1,3,6,1,4,1,5504,10,1,7,1,1,3,1,3),_EfmCuNumPMEs_Type())
+efmCuNumPMEs.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuNumPMEs.setStatus(_A)
+_EfmCuPAFInErrors_Type=Counter32
+_EfmCuPAFInErrors_Object=MibTableColumn
+efmCuPAFInErrors=_EfmCuPAFInErrors_Object((1,3,6,1,4,1,5504,10,1,7,1,1,3,1,4),_EfmCuPAFInErrors_Type())
+efmCuPAFInErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPAFInErrors.setStatus(_A)
+_EfmCuPAFInSmallFragments_Type=Counter32
+_EfmCuPAFInSmallFragments_Object=MibTableColumn
+efmCuPAFInSmallFragments=_EfmCuPAFInSmallFragments_Object((1,3,6,1,4,1,5504,10,1,7,1,1,3,1,5),_EfmCuPAFInSmallFragments_Type())
+efmCuPAFInSmallFragments.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPAFInSmallFragments.setStatus(_A)
+_EfmCuPAFInLargeFragments_Type=Counter32
+_EfmCuPAFInLargeFragments_Object=MibTableColumn
+efmCuPAFInLargeFragments=_EfmCuPAFInLargeFragments_Object((1,3,6,1,4,1,5504,10,1,7,1,1,3,1,6),_EfmCuPAFInLargeFragments_Type())
+efmCuPAFInLargeFragments.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPAFInLargeFragments.setStatus(_A)
+_EfmCuPAFInBadFragments_Type=Counter32
+_EfmCuPAFInBadFragments_Object=MibTableColumn
+efmCuPAFInBadFragments=_EfmCuPAFInBadFragments_Object((1,3,6,1,4,1,5504,10,1,7,1,1,3,1,7),_EfmCuPAFInBadFragments_Type())
+efmCuPAFInBadFragments.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPAFInBadFragments.setStatus(_A)
+_EfmCuPAFInLostFragments_Type=Counter32
+_EfmCuPAFInLostFragments_Object=MibTableColumn
+efmCuPAFInLostFragments=_EfmCuPAFInLostFragments_Object((1,3,6,1,4,1,5504,10,1,7,1,1,3,1,8),_EfmCuPAFInLostFragments_Type())
+efmCuPAFInLostFragments.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPAFInLostFragments.setStatus(_A)
+_EfmCuPAFInLostStarts_Type=Counter32
+_EfmCuPAFInLostStarts_Object=MibTableColumn
+efmCuPAFInLostStarts=_EfmCuPAFInLostStarts_Object((1,3,6,1,4,1,5504,10,1,7,1,1,3,1,9),_EfmCuPAFInLostStarts_Type())
+efmCuPAFInLostStarts.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPAFInLostStarts.setStatus(_A)
+_EfmCuPAFInLostEnds_Type=Counter32
+_EfmCuPAFInLostEnds_Object=MibTableColumn
+efmCuPAFInLostEnds=_EfmCuPAFInLostEnds_Object((1,3,6,1,4,1,5504,10,1,7,1,1,3,1,10),_EfmCuPAFInLostEnds_Type())
+efmCuPAFInLostEnds.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPAFInLostEnds.setStatus(_A)
+_EfmCuPAFInOverflows_Type=Counter32
+_EfmCuPAFInOverflows_Object=MibTableColumn
+efmCuPAFInOverflows=_EfmCuPAFInOverflows_Object((1,3,6,1,4,1,5504,10,1,7,1,1,3,1,11),_EfmCuPAFInOverflows_Type())
+efmCuPAFInOverflows.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPAFInOverflows.setStatus(_A)
+_EfmCuPme_ObjectIdentity=ObjectIdentity
+efmCuPme=_EfmCuPme_ObjectIdentity((1,3,6,1,4,1,5504,10,1,7,1,2))
+_EfmCuPmeNotifications_ObjectIdentity=ObjectIdentity
+efmCuPmeNotifications=_EfmCuPmeNotifications_ObjectIdentity((1,3,6,1,4,1,5504,10,1,7,1,2,0))
+_EfmCuPmeConfTable_Object=MibTable
+efmCuPmeConfTable=_EfmCuPmeConfTable_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1))
+if mibBuilder.loadTexts:efmCuPmeConfTable.setStatus(_A)
+_EfmCuPmeConfEntry_Object=MibTableRow
+efmCuPmeConfEntry=_EfmCuPmeConfEntry_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1))
+efmCuPmeConfEntry.setIndexNames((0,_I,_K))
+if mibBuilder.loadTexts:efmCuPmeConfEntry.setStatus(_A)
+class _EfmCuPmeAdminSubType_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*((_a,1),(_b,2),(_c,3),(_d,4),('ieee2BaseTLor10PassTSR',5),('ieee2BaseTLor10PassTSO',6),('ieee10PassTSor2BaseTLO',7)))
+_EfmCuPmeAdminSubType_Type.__name__=_E
+_EfmCuPmeAdminSubType_Object=MibTableColumn
+efmCuPmeAdminSubType=_EfmCuPmeAdminSubType_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,1),_EfmCuPmeAdminSubType_Type())
+efmCuPmeAdminSubType.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeAdminSubType.setStatus(_A)
+class _EfmCuPmeAdminProfile_Type(ProfileIndexOrZero):defaultValue=0
+_EfmCuPmeAdminProfile_Type.__name__=_A4
+_EfmCuPmeAdminProfile_Object=MibTableColumn
+efmCuPmeAdminProfile=_EfmCuPmeAdminProfile_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,2),_EfmCuPmeAdminProfile_Type())
+efmCuPmeAdminProfile.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeAdminProfile.setStatus(_A)
+class _EfmCuPAFRemoteDiscoveryCode_Type(PhysAddress):defaultHexValue=_A0
+_EfmCuPAFRemoteDiscoveryCode_Type.__name__=_X
+_EfmCuPAFRemoteDiscoveryCode_Object=MibTableColumn
+efmCuPAFRemoteDiscoveryCode=_EfmCuPAFRemoteDiscoveryCode_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,3),_EfmCuPAFRemoteDiscoveryCode_Type())
+efmCuPAFRemoteDiscoveryCode.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPAFRemoteDiscoveryCode.setStatus(_A)
+class _EfmCuPmeThreshLineAtn_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-127,128))
+_EfmCuPmeThreshLineAtn_Type.__name__=_E
+_EfmCuPmeThreshLineAtn_Object=MibTableColumn
+efmCuPmeThreshLineAtn=_EfmCuPmeThreshLineAtn_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,4),_EfmCuPmeThreshLineAtn_Type())
+efmCuPmeThreshLineAtn.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeThreshLineAtn.setStatus(_A)
+if mibBuilder.loadTexts:efmCuPmeThreshLineAtn.setUnits(_J)
+class _EfmCuPmeThreshMinSnrMgn_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-127,128))
+_EfmCuPmeThreshMinSnrMgn_Type.__name__=_E
+_EfmCuPmeThreshMinSnrMgn_Object=MibTableColumn
+efmCuPmeThreshMinSnrMgn=_EfmCuPmeThreshMinSnrMgn_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,5),_EfmCuPmeThreshMinSnrMgn_Type())
+efmCuPmeThreshMinSnrMgn.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeThreshMinSnrMgn.setStatus(_A)
+if mibBuilder.loadTexts:efmCuPmeThreshMinSnrMgn.setUnits(_J)
+class _EfmCuPmeLineAtnCrossingEnable_Type(TruthValue):defaultValue=2
+_EfmCuPmeLineAtnCrossingEnable_Type.__name__=_G
+_EfmCuPmeLineAtnCrossingEnable_Object=MibTableColumn
+efmCuPmeLineAtnCrossingEnable=_EfmCuPmeLineAtnCrossingEnable_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,6),_EfmCuPmeLineAtnCrossingEnable_Type())
+efmCuPmeLineAtnCrossingEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeLineAtnCrossingEnable.setStatus(_A)
+class _EfmCuPmeSnrMgnCrossingTrapEnable_Type(TruthValue):defaultValue=2
+_EfmCuPmeSnrMgnCrossingTrapEnable_Type.__name__=_G
+_EfmCuPmeSnrMgnCrossingTrapEnable_Object=MibTableColumn
+efmCuPmeSnrMgnCrossingTrapEnable=_EfmCuPmeSnrMgnCrossingTrapEnable_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,7),_EfmCuPmeSnrMgnCrossingTrapEnable_Type())
+efmCuPmeSnrMgnCrossingTrapEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeSnrMgnCrossingTrapEnable.setStatus(_A)
+class _EfmCuPmeDeviceFaultEnable_Type(TruthValue):defaultValue=2
+_EfmCuPmeDeviceFaultEnable_Type.__name__=_G
+_EfmCuPmeDeviceFaultEnable_Object=MibTableColumn
+efmCuPmeDeviceFaultEnable=_EfmCuPmeDeviceFaultEnable_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,8),_EfmCuPmeDeviceFaultEnable_Type())
+efmCuPmeDeviceFaultEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeDeviceFaultEnable.setStatus(_A)
+class _EfmCuPmeConfigInitFailEnable_Type(TruthValue):defaultValue=2
+_EfmCuPmeConfigInitFailEnable_Type.__name__=_G
+_EfmCuPmeConfigInitFailEnable_Object=MibTableColumn
+efmCuPmeConfigInitFailEnable=_EfmCuPmeConfigInitFailEnable_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,9),_EfmCuPmeConfigInitFailEnable_Type())
+efmCuPmeConfigInitFailEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeConfigInitFailEnable.setStatus(_A)
+class _EfmCuPmeProtocolInitFailEnable_Type(TruthValue):defaultValue=2
+_EfmCuPmeProtocolInitFailEnable_Type.__name__=_G
+_EfmCuPmeProtocolInitFailEnable_Object=MibTableColumn
+efmCuPmeProtocolInitFailEnable=_EfmCuPmeProtocolInitFailEnable_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,10),_EfmCuPmeProtocolInitFailEnable_Type())
+efmCuPmeProtocolInitFailEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeProtocolInitFailEnable.setStatus(_A)
+class _EfmCuPmeThreshMaxSnrMgnDelta_Type(Integer32):defaultValue=20;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
+_EfmCuPmeThreshMaxSnrMgnDelta_Type.__name__=_E
+_EfmCuPmeThreshMaxSnrMgnDelta_Object=MibTableColumn
+efmCuPmeThreshMaxSnrMgnDelta=_EfmCuPmeThreshMaxSnrMgnDelta_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,11),_EfmCuPmeThreshMaxSnrMgnDelta_Type())
+efmCuPmeThreshMaxSnrMgnDelta.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeThreshMaxSnrMgnDelta.setStatus(_A)
+if mibBuilder.loadTexts:efmCuPmeThreshMaxSnrMgnDelta.setUnits(_J)
+class _EfmCuPmeMaintenanceMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('off',1),('manual',2),('automaticOnce',3),('automaticDaily',4),('automaticContinuous',5)))
+_EfmCuPmeMaintenanceMode_Type.__name__=_E
+_EfmCuPmeMaintenanceMode_Object=MibTableColumn
+efmCuPmeMaintenanceMode=_EfmCuPmeMaintenanceMode_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,12),_EfmCuPmeMaintenanceMode_Type())
+efmCuPmeMaintenanceMode.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeMaintenanceMode.setStatus(_A)
+class _EfmCuPmeMaintenanceStartTime_Type(DisplayString):defaultValue=OctetString('00:00')
+_EfmCuPmeMaintenanceStartTime_Type.__name__=_R
+_EfmCuPmeMaintenanceStartTime_Object=MibTableColumn
+efmCuPmeMaintenanceStartTime=_EfmCuPmeMaintenanceStartTime_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,13),_EfmCuPmeMaintenanceStartTime_Type())
+efmCuPmeMaintenanceStartTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeMaintenanceStartTime.setStatus(_A)
+class _EfmCuPmeMaintenanceEndTime_Type(DisplayString):defaultValue=OctetString('23:59')
+_EfmCuPmeMaintenanceEndTime_Type.__name__=_R
+_EfmCuPmeMaintenanceEndTime_Object=MibTableColumn
+efmCuPmeMaintenanceEndTime=_EfmCuPmeMaintenanceEndTime_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,14),_EfmCuPmeMaintenanceEndTime_Type())
+efmCuPmeMaintenanceEndTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeMaintenanceEndTime.setStatus(_A)
+class _EfmCuPmeSnrMonitoringInterval_Type(DisplayString):defaultValue=OctetString('01:00')
+_EfmCuPmeSnrMonitoringInterval_Type.__name__=_R
+_EfmCuPmeSnrMonitoringInterval_Object=MibTableColumn
+efmCuPmeSnrMonitoringInterval=_EfmCuPmeSnrMonitoringInterval_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,15),_EfmCuPmeSnrMonitoringInterval_Type())
+efmCuPmeSnrMonitoringInterval.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeSnrMonitoringInterval.setStatus(_A)
+class _EfmCuPmeErrorThreshMonEnable_Type(TruthValue):defaultValue=2
+_EfmCuPmeErrorThreshMonEnable_Type.__name__=_G
+_EfmCuPmeErrorThreshMonEnable_Object=MibTableColumn
+efmCuPmeErrorThreshMonEnable=_EfmCuPmeErrorThreshMonEnable_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,16),_EfmCuPmeErrorThreshMonEnable_Type())
+efmCuPmeErrorThreshMonEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeErrorThreshMonEnable.setStatus(_A)
+class _EfmCuPmeErrorThreshMonNotifyEnable_Type(TruthValue):defaultValue=2
+_EfmCuPmeErrorThreshMonNotifyEnable_Type.__name__=_G
+_EfmCuPmeErrorThreshMonNotifyEnable_Object=MibTableColumn
+efmCuPmeErrorThreshMonNotifyEnable=_EfmCuPmeErrorThreshMonNotifyEnable_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,17),_EfmCuPmeErrorThreshMonNotifyEnable_Type())
+efmCuPmeErrorThreshMonNotifyEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeErrorThreshMonNotifyEnable.setStatus(_A)
+class _EfmCuPmeErrorThreshMonInterval_Type(Unsigned32):defaultValue=12;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(3,65535))
+_EfmCuPmeErrorThreshMonInterval_Type.__name__=_H
+_EfmCuPmeErrorThreshMonInterval_Object=MibTableColumn
+efmCuPmeErrorThreshMonInterval=_EfmCuPmeErrorThreshMonInterval_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,18),_EfmCuPmeErrorThreshMonInterval_Type())
+efmCuPmeErrorThreshMonInterval.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeErrorThreshMonInterval.setStatus(_A)
+class _EfmCuPmeErrorThreshMonClrInterval_Type(Unsigned32):defaultValue=1800;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(3,65535))
+_EfmCuPmeErrorThreshMonClrInterval_Type.__name__=_H
+_EfmCuPmeErrorThreshMonClrInterval_Object=MibTableColumn
+efmCuPmeErrorThreshMonClrInterval=_EfmCuPmeErrorThreshMonClrInterval_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,19),_EfmCuPmeErrorThreshMonClrInterval_Type())
+efmCuPmeErrorThreshMonClrInterval.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeErrorThreshMonClrInterval.setStatus(_A)
+class _EfmCuPmeLinkTrfcDisablTrapEnable_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_z,1),(_Y,2)))
+_EfmCuPmeLinkTrfcDisablTrapEnable_Type.__name__=_E
+_EfmCuPmeLinkTrfcDisablTrapEnable_Object=MibTableColumn
+efmCuPmeLinkTrfcDisablTrapEnable=_EfmCuPmeLinkTrfcDisablTrapEnable_Object((1,3,6,1,4,1,5504,10,1,7,1,2,1,1,20),_EfmCuPmeLinkTrfcDisablTrapEnable_Type())
+efmCuPmeLinkTrfcDisablTrapEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuPmeLinkTrfcDisablTrapEnable.setStatus(_A)
+_EfmCuPmeCapabilityTable_Object=MibTable
+efmCuPmeCapabilityTable=_EfmCuPmeCapabilityTable_Object((1,3,6,1,4,1,5504,10,1,7,1,2,2))
+if mibBuilder.loadTexts:efmCuPmeCapabilityTable.setStatus(_A)
+_EfmCuPmeCapabilityEntry_Object=MibTableRow
+efmCuPmeCapabilityEntry=_EfmCuPmeCapabilityEntry_Object((1,3,6,1,4,1,5504,10,1,7,1,2,2,1))
+efmCuPmeCapabilityEntry.setIndexNames((0,_I,_K))
+if mibBuilder.loadTexts:efmCuPmeCapabilityEntry.setStatus(_A)
+class _EfmCuPmeSubTypesSupported_Type(Bits):namedValues=NamedValues(*((_a,0),(_b,1),(_c,2),(_d,3)))
+_EfmCuPmeSubTypesSupported_Type.__name__=_M
+_EfmCuPmeSubTypesSupported_Object=MibTableColumn
+efmCuPmeSubTypesSupported=_EfmCuPmeSubTypesSupported_Object((1,3,6,1,4,1,5504,10,1,7,1,2,2,1,1),_EfmCuPmeSubTypesSupported_Type())
+efmCuPmeSubTypesSupported.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmeSubTypesSupported.setStatus(_A)
+_EfmCuPmeStatusTable_Object=MibTable
+efmCuPmeStatusTable=_EfmCuPmeStatusTable_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3))
+if mibBuilder.loadTexts:efmCuPmeStatusTable.setStatus(_A)
+_EfmCuPmeStatusEntry_Object=MibTableRow
+efmCuPmeStatusEntry=_EfmCuPmeStatusEntry_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1))
+efmCuPmeStatusEntry.setIndexNames((0,_I,_K))
+if mibBuilder.loadTexts:efmCuPmeStatusEntry.setStatus(_A)
+class _EfmCuPmeOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('up',1),('downNotReady',2),('downReady',3),('init',4)))
+_EfmCuPmeOperStatus_Type.__name__=_E
+_EfmCuPmeOperStatus_Object=MibTableColumn
+efmCuPmeOperStatus=_EfmCuPmeOperStatus_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1,1),_EfmCuPmeOperStatus_Type())
+efmCuPmeOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmeOperStatus.setStatus(_A)
+class _EfmCuPmeFltStatus_Type(Bits):namedValues=NamedValues(*(('lossOfFraming',0),('snrMgnDefect',1),('lineAtnDefect',2),('deviceFault',3),('configInitFailure',4),('protocolInitFailure',5)))
+_EfmCuPmeFltStatus_Type.__name__=_M
+_EfmCuPmeFltStatus_Object=MibTableColumn
+efmCuPmeFltStatus=_EfmCuPmeFltStatus_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1,2),_EfmCuPmeFltStatus_Type())
+efmCuPmeFltStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmeFltStatus.setStatus(_A)
+class _EfmCuPmeOperSubType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_a,1),(_b,2),(_c,3),(_d,4)))
+_EfmCuPmeOperSubType_Type.__name__=_E
+_EfmCuPmeOperSubType_Object=MibTableColumn
+efmCuPmeOperSubType=_EfmCuPmeOperSubType_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1,3),_EfmCuPmeOperSubType_Type())
+efmCuPmeOperSubType.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmeOperSubType.setStatus(_A)
+_EfmCuPmeOperProfile_Type=ProfileIndexOrZero
+_EfmCuPmeOperProfile_Object=MibTableColumn
+efmCuPmeOperProfile=_EfmCuPmeOperProfile_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1,4),_EfmCuPmeOperProfile_Type())
+efmCuPmeOperProfile.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmeOperProfile.setStatus(_A)
+class _EfmCuPmeSnrMgn_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-127,128),ValueRangeConstraint(65535,65535))
+_EfmCuPmeSnrMgn_Type.__name__=_E
+_EfmCuPmeSnrMgn_Object=MibTableColumn
+efmCuPmeSnrMgn=_EfmCuPmeSnrMgn_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1,5),_EfmCuPmeSnrMgn_Type())
+efmCuPmeSnrMgn.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmeSnrMgn.setStatus(_A)
+if mibBuilder.loadTexts:efmCuPmeSnrMgn.setUnits(_J)
+class _EfmCuPmePeerSnrMgn_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-127,128),ValueRangeConstraint(65535,65535))
+_EfmCuPmePeerSnrMgn_Type.__name__=_E
+_EfmCuPmePeerSnrMgn_Object=MibTableColumn
+efmCuPmePeerSnrMgn=_EfmCuPmePeerSnrMgn_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1,6),_EfmCuPmePeerSnrMgn_Type())
+efmCuPmePeerSnrMgn.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmePeerSnrMgn.setStatus(_A)
+if mibBuilder.loadTexts:efmCuPmePeerSnrMgn.setUnits(_J)
+class _EfmCuPmeLineAtn_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-127,128),ValueRangeConstraint(65535,65535))
+_EfmCuPmeLineAtn_Type.__name__=_E
+_EfmCuPmeLineAtn_Object=MibTableColumn
+efmCuPmeLineAtn=_EfmCuPmeLineAtn_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1,7),_EfmCuPmeLineAtn_Type())
+efmCuPmeLineAtn.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmeLineAtn.setStatus(_A)
+if mibBuilder.loadTexts:efmCuPmeLineAtn.setUnits(_J)
+class _EfmCuPmePeerLineAtn_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-127,128),ValueRangeConstraint(65535,65535))
+_EfmCuPmePeerLineAtn_Type.__name__=_E
+_EfmCuPmePeerLineAtn_Object=MibTableColumn
+efmCuPmePeerLineAtn=_EfmCuPmePeerLineAtn_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1,8),_EfmCuPmePeerLineAtn_Type())
+efmCuPmePeerLineAtn.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmePeerLineAtn.setStatus(_A)
+if mibBuilder.loadTexts:efmCuPmePeerLineAtn.setUnits(_J)
+_EfmCuPmeTCCodingErrors_Type=Counter32
+_EfmCuPmeTCCodingErrors_Object=MibTableColumn
+efmCuPmeTCCodingErrors=_EfmCuPmeTCCodingErrors_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1,9),_EfmCuPmeTCCodingErrors_Type())
+efmCuPmeTCCodingErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmeTCCodingErrors.setStatus(_A)
+_EfmCuPmeTCCrcErrors_Type=Counter32
+_EfmCuPmeTCCrcErrors_Object=MibTableColumn
+efmCuPmeTCCrcErrors=_EfmCuPmeTCCrcErrors_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1,10),_EfmCuPmeTCCrcErrors_Type())
+efmCuPmeTCCrcErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmeTCCrcErrors.setStatus(_A)
+_EfmCuPmeSnrCrossingCnt_Type=Counter32
+_EfmCuPmeSnrCrossingCnt_Object=MibTableColumn
+efmCuPmeSnrCrossingCnt=_EfmCuPmeSnrCrossingCnt_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1,11),_EfmCuPmeSnrCrossingCnt_Type())
+efmCuPmeSnrCrossingCnt.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmeSnrCrossingCnt.setStatus(_A)
+_EfmCuPmeTCDownCnt_Type=Counter32
+_EfmCuPmeTCDownCnt_Object=MibTableColumn
+efmCuPmeTCDownCnt=_EfmCuPmeTCDownCnt_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1,12),_EfmCuPmeTCDownCnt_Type())
+efmCuPmeTCDownCnt.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmeTCDownCnt.setStatus(_A)
+_EfmCuPmeErrorTCDownCnt_Type=Counter32
+_EfmCuPmeErrorTCDownCnt_Object=MibTableColumn
+efmCuPmeErrorTCDownCnt=_EfmCuPmeErrorTCDownCnt_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1,13),_EfmCuPmeErrorTCDownCnt_Type())
+efmCuPmeErrorTCDownCnt.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmeErrorTCDownCnt.setStatus(_A)
+_EfmCuPmeErrorRestartCnt_Type=Counter32
+_EfmCuPmeErrorRestartCnt_Object=MibTableColumn
+efmCuPmeErrorRestartCnt=_EfmCuPmeErrorRestartCnt_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1,14),_EfmCuPmeErrorRestartCnt_Type())
+efmCuPmeErrorRestartCnt.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmeErrorRestartCnt.setStatus(_A)
+_EfmCuPmeSnrRestartCnt_Type=Counter32
+_EfmCuPmeSnrRestartCnt_Object=MibTableColumn
+efmCuPmeSnrRestartCnt=_EfmCuPmeSnrRestartCnt_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1,15),_EfmCuPmeSnrRestartCnt_Type())
+efmCuPmeSnrRestartCnt.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmeSnrRestartCnt.setStatus(_A)
+_EfmCuPmeErrorConsecutiveSec_Type=Counter32
+_EfmCuPmeErrorConsecutiveSec_Object=MibTableColumn
+efmCuPmeErrorConsecutiveSec=_EfmCuPmeErrorConsecutiveSec_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1,16),_EfmCuPmeErrorConsecutiveSec_Type())
+efmCuPmeErrorConsecutiveSec.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmeErrorConsecutiveSec.setStatus(_A)
+_EfmCuPmeErrorMaxConsecutiveSec_Type=Counter32
+_EfmCuPmeErrorMaxConsecutiveSec_Object=MibTableColumn
+efmCuPmeErrorMaxConsecutiveSec=_EfmCuPmeErrorMaxConsecutiveSec_Object((1,3,6,1,4,1,5504,10,1,7,1,2,3,1,17),_EfmCuPmeErrorMaxConsecutiveSec_Type())
+efmCuPmeErrorMaxConsecutiveSec.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPmeErrorMaxConsecutiveSec.setStatus(_A)
+_EfmCuPme2B_ObjectIdentity=ObjectIdentity
+efmCuPme2B=_EfmCuPme2B_ObjectIdentity((1,3,6,1,4,1,5504,10,1,7,1,2,5))
+_EfmCuPme2BProfileTable_Object=MibTable
+efmCuPme2BProfileTable=_EfmCuPme2BProfileTable_Object((1,3,6,1,4,1,5504,10,1,7,1,2,5,2))
+if mibBuilder.loadTexts:efmCuPme2BProfileTable.setStatus(_A)
+_EfmCuPme2BProfileEntry_Object=MibTableRow
+efmCuPme2BProfileEntry=_EfmCuPme2BProfileEntry_Object((1,3,6,1,4,1,5504,10,1,7,1,2,5,2,1))
+efmCuPme2BProfileEntry.setIndexNames((0,_B,_A5))
+if mibBuilder.loadTexts:efmCuPme2BProfileEntry.setStatus(_A)
+_EfmCuPme2BProfileIndex_Type=ProfileIndex
+_EfmCuPme2BProfileIndex_Object=MibTableColumn
+efmCuPme2BProfileIndex=_EfmCuPme2BProfileIndex_Object((1,3,6,1,4,1,5504,10,1,7,1,2,5,2,1,1),_EfmCuPme2BProfileIndex_Type())
+efmCuPme2BProfileIndex.setMaxAccess(_L)
+if mibBuilder.loadTexts:efmCuPme2BProfileIndex.setStatus(_A)
+class _EfmCuPme2BProfileDescr_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_EfmCuPme2BProfileDescr_Type.__name__=_W
+_EfmCuPme2BProfileDescr_Object=MibTableColumn
+efmCuPme2BProfileDescr=_EfmCuPme2BProfileDescr_Object((1,3,6,1,4,1,5504,10,1,7,1,2,5,2,1,2),_EfmCuPme2BProfileDescr_Type())
+efmCuPme2BProfileDescr.setMaxAccess(_F)
+if mibBuilder.loadTexts:efmCuPme2BProfileDescr.setStatus(_A)
+class _EfmCuPme2BRegion_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('region1',1),('region2',2)))
+_EfmCuPme2BRegion_Type.__name__=_E
+_EfmCuPme2BRegion_Object=MibTableColumn
+efmCuPme2BRegion=_EfmCuPme2BRegion_Object((1,3,6,1,4,1,5504,10,1,7,1,2,5,2,1,3),_EfmCuPme2BRegion_Type())
+efmCuPme2BRegion.setMaxAccess(_F)
+if mibBuilder.loadTexts:efmCuPme2BRegion.setStatus(_A)
+class _EfmCuPme2BDataRate_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15352))
+_EfmCuPme2BDataRate_Type.__name__=_H
+_EfmCuPme2BDataRate_Object=MibTableColumn
+efmCuPme2BDataRate=_EfmCuPme2BDataRate_Object((1,3,6,1,4,1,5504,10,1,7,1,2,5,2,1,4),_EfmCuPme2BDataRate_Type())
+efmCuPme2BDataRate.setMaxAccess(_F)
+if mibBuilder.loadTexts:efmCuPme2BDataRate.setStatus(_A)
+if mibBuilder.loadTexts:efmCuPme2BDataRate.setUnits(_Z)
+class _EfmCuPme2BPower_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(10,42))
+_EfmCuPme2BPower_Type.__name__=_H
+_EfmCuPme2BPower_Object=MibTableColumn
+efmCuPme2BPower=_EfmCuPme2BPower_Object((1,3,6,1,4,1,5504,10,1,7,1,2,5,2,1,5),_EfmCuPme2BPower_Type())
+efmCuPme2BPower.setMaxAccess(_F)
+if mibBuilder.loadTexts:efmCuPme2BPower.setStatus(_A)
+if mibBuilder.loadTexts:efmCuPme2BPower.setUnits('0.5 dBm')
+class _EfmCuPme2BConstellation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6)));namedValues=NamedValues(*(('adaptive',0),('tcpam16',1),('tcpam32',2),('tcpam4',3),('tcpam8',4),('tcpam64',5),('tcpam128',6)))
+_EfmCuPme2BConstellation_Type.__name__=_E
+_EfmCuPme2BConstellation_Object=MibTableColumn
+efmCuPme2BConstellation=_EfmCuPme2BConstellation_Object((1,3,6,1,4,1,5504,10,1,7,1,2,5,2,1,6),_EfmCuPme2BConstellation_Type())
+efmCuPme2BConstellation.setMaxAccess(_F)
+if mibBuilder.loadTexts:efmCuPme2BConstellation.setStatus(_A)
+_EfmCuPme2BProfileRowStatus_Type=RowStatus
+_EfmCuPme2BProfileRowStatus_Object=MibTableColumn
+efmCuPme2BProfileRowStatus=_EfmCuPme2BProfileRowStatus_Object((1,3,6,1,4,1,5504,10,1,7,1,2,5,2,1,7),_EfmCuPme2BProfileRowStatus_Type())
+efmCuPme2BProfileRowStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:efmCuPme2BProfileRowStatus.setStatus(_A)
+class _EfmCuPmeNtr_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('localOsc',1),('refClk8khz',2)))
+_EfmCuPmeNtr_Type.__name__=_E
+_EfmCuPmeNtr_Object=MibTableColumn
+efmCuPmeNtr=_EfmCuPmeNtr_Object((1,3,6,1,4,1,5504,10,1,7,1,2,5,2,1,8),_EfmCuPmeNtr_Type())
+efmCuPmeNtr.setMaxAccess(_F)
+if mibBuilder.loadTexts:efmCuPmeNtr.setStatus(_A)
+_EfmCuPme10P_ObjectIdentity=ObjectIdentity
+efmCuPme10P=_EfmCuPme10P_ObjectIdentity((1,3,6,1,4,1,5504,10,1,7,1,2,6))
+_EfmCuPme10PProfileTable_Object=MibTable
+efmCuPme10PProfileTable=_EfmCuPme10PProfileTable_Object((1,3,6,1,4,1,5504,10,1,7,1,2,6,1))
+if mibBuilder.loadTexts:efmCuPme10PProfileTable.setStatus(_A)
+_EfmCuPme10PProfileEntry_Object=MibTableRow
+efmCuPme10PProfileEntry=_EfmCuPme10PProfileEntry_Object((1,3,6,1,4,1,5504,10,1,7,1,2,6,1,1))
+efmCuPme10PProfileEntry.setIndexNames((0,_B,_A6))
+if mibBuilder.loadTexts:efmCuPme10PProfileEntry.setStatus(_A)
+_EfmCuPme10PProfileIndex_Type=ProfileIndex
+_EfmCuPme10PProfileIndex_Object=MibTableColumn
+efmCuPme10PProfileIndex=_EfmCuPme10PProfileIndex_Object((1,3,6,1,4,1,5504,10,1,7,1,2,6,1,1,1),_EfmCuPme10PProfileIndex_Type())
+efmCuPme10PProfileIndex.setMaxAccess(_L)
+if mibBuilder.loadTexts:efmCuPme10PProfileIndex.setStatus(_A)
+class _EfmCuPme10PProfileDescr_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_EfmCuPme10PProfileDescr_Type.__name__=_W
+_EfmCuPme10PProfileDescr_Object=MibTableColumn
+efmCuPme10PProfileDescr=_EfmCuPme10PProfileDescr_Object((1,3,6,1,4,1,5504,10,1,7,1,2,6,1,1,2),_EfmCuPme10PProfileDescr_Type())
+efmCuPme10PProfileDescr.setMaxAccess(_F)
+if mibBuilder.loadTexts:efmCuPme10PProfileDescr.setStatus(_A)
+class _EfmCuPme10PBandplanPSDMskProfile_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29)));namedValues=NamedValues(*((_e,1),(_f,2),(_g,3),(_h,4),(_N,5),(_i,6),(_j,7),(_k,8),(_l,9),(_S,10),(_A7,11),('profile12',12),('profile13',13),('profile14',14),(_m,15),('profile16',16),('profile17',17),('profile18',18),('profile19',19),(_n,20),('profile21',21),('profile22',22),('profile23',23),('profile24',24),(_o,25),('profile26',26),('profile27',27),('profile28',28),('profile29',29)))
+_EfmCuPme10PBandplanPSDMskProfile_Type.__name__=_E
+_EfmCuPme10PBandplanPSDMskProfile_Object=MibTableColumn
+efmCuPme10PBandplanPSDMskProfile=_EfmCuPme10PBandplanPSDMskProfile_Object((1,3,6,1,4,1,5504,10,1,7,1,2,6,1,1,3),_EfmCuPme10PBandplanPSDMskProfile_Type())
+efmCuPme10PBandplanPSDMskProfile.setMaxAccess(_F)
+if mibBuilder.loadTexts:efmCuPme10PBandplanPSDMskProfile.setStatus(_A)
+class _EfmCuPme10PUPBOReferenceProfile_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*((_e,1),(_f,2),(_g,3),(_h,4),(_N,5),(_i,6),(_j,7),(_k,8),(_l,9)))
+_EfmCuPme10PUPBOReferenceProfile_Type.__name__=_E
+_EfmCuPme10PUPBOReferenceProfile_Object=MibTableColumn
+efmCuPme10PUPBOReferenceProfile=_EfmCuPme10PUPBOReferenceProfile_Object((1,3,6,1,4,1,5504,10,1,7,1,2,6,1,1,4),_EfmCuPme10PUPBOReferenceProfile_Type())
+efmCuPme10PUPBOReferenceProfile.setMaxAccess(_F)
+if mibBuilder.loadTexts:efmCuPme10PUPBOReferenceProfile.setStatus(_A)
+class _EfmCuPme10PBandNotchProfiles_Type(Bits):namedValues=NamedValues(*(('profile0',0),(_e,1),(_f,2),(_g,3),(_h,4),(_N,5),(_i,6),(_j,7),(_k,8),(_l,9),(_S,10),(_A7,11)))
+_EfmCuPme10PBandNotchProfiles_Type.__name__=_M
+_EfmCuPme10PBandNotchProfiles_Object=MibTableColumn
+efmCuPme10PBandNotchProfiles=_EfmCuPme10PBandNotchProfiles_Object((1,3,6,1,4,1,5504,10,1,7,1,2,6,1,1,5),_EfmCuPme10PBandNotchProfiles_Type())
+efmCuPme10PBandNotchProfiles.setMaxAccess(_F)
+if mibBuilder.loadTexts:efmCuPme10PBandNotchProfiles.setStatus(_A)
+class _EfmCuPme10PPayloadURateProfile_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(5,10,15,20,25,30,50,70,100)));namedValues=NamedValues(*((_N,5),(_S,10),(_m,15),(_n,20),(_o,25),(_A8,30),(_A9,50),(_AA,70),(_AB,100)))
+_EfmCuPme10PPayloadURateProfile_Type.__name__=_E
+_EfmCuPme10PPayloadURateProfile_Object=MibTableColumn
+efmCuPme10PPayloadURateProfile=_EfmCuPme10PPayloadURateProfile_Object((1,3,6,1,4,1,5504,10,1,7,1,2,6,1,1,6),_EfmCuPme10PPayloadURateProfile_Type())
+efmCuPme10PPayloadURateProfile.setMaxAccess(_F)
+if mibBuilder.loadTexts:efmCuPme10PPayloadURateProfile.setStatus(_A)
+class _EfmCuPme10PPayloadDRateProfile_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(5,10,15,20,25,30,50,70,100,140,200)));namedValues=NamedValues(*((_N,5),(_S,10),(_m,15),(_n,20),(_o,25),(_A8,30),(_A9,50),(_AA,70),(_AB,100),('profile140',140),('profile200',200)))
+_EfmCuPme10PPayloadDRateProfile_Type.__name__=_E
+_EfmCuPme10PPayloadDRateProfile_Object=MibTableColumn
+efmCuPme10PPayloadDRateProfile=_EfmCuPme10PPayloadDRateProfile_Object((1,3,6,1,4,1,5504,10,1,7,1,2,6,1,1,7),_EfmCuPme10PPayloadDRateProfile_Type())
+efmCuPme10PPayloadDRateProfile.setMaxAccess(_F)
+if mibBuilder.loadTexts:efmCuPme10PPayloadDRateProfile.setStatus(_A)
+_EfmCuPme10PProfileRowStatus_Type=RowStatus
+_EfmCuPme10PProfileRowStatus_Object=MibTableColumn
+efmCuPme10PProfileRowStatus=_EfmCuPme10PProfileRowStatus_Object((1,3,6,1,4,1,5504,10,1,7,1,2,6,1,1,8),_EfmCuPme10PProfileRowStatus_Type())
+efmCuPme10PProfileRowStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:efmCuPme10PProfileRowStatus.setStatus(_A)
+_EfmCuPme10PStatusTable_Object=MibTable
+efmCuPme10PStatusTable=_EfmCuPme10PStatusTable_Object((1,3,6,1,4,1,5504,10,1,7,1,2,6,2))
+if mibBuilder.loadTexts:efmCuPme10PStatusTable.setStatus(_A)
+_EfmCuPme10PStatusEntry_Object=MibTableRow
+efmCuPme10PStatusEntry=_EfmCuPme10PStatusEntry_Object((1,3,6,1,4,1,5504,10,1,7,1,2,6,2,1))
+if mibBuilder.loadTexts:efmCuPme10PStatusEntry.setStatus(_A)
+class _EfmCuPme10PElectricalLength_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,8192),ValueRangeConstraint(65535,65535))
+_EfmCuPme10PElectricalLength_Type.__name__=_E
+_EfmCuPme10PElectricalLength_Object=MibTableColumn
+efmCuPme10PElectricalLength=_EfmCuPme10PElectricalLength_Object((1,3,6,1,4,1,5504,10,1,7,1,2,6,2,1,1),_EfmCuPme10PElectricalLength_Type())
+efmCuPme10PElectricalLength.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPme10PElectricalLength.setStatus(_A)
+if mibBuilder.loadTexts:efmCuPme10PElectricalLength.setUnits('m')
+_EfmCuPme10PFECCorrectedBlocks_Type=Counter32
+_EfmCuPme10PFECCorrectedBlocks_Object=MibTableColumn
+efmCuPme10PFECCorrectedBlocks=_EfmCuPme10PFECCorrectedBlocks_Object((1,3,6,1,4,1,5504,10,1,7,1,2,6,2,1,2),_EfmCuPme10PFECCorrectedBlocks_Type())
+efmCuPme10PFECCorrectedBlocks.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPme10PFECCorrectedBlocks.setStatus(_A)
+_EfmCuPme10PFECUncorrectedBlocks_Type=Counter32
+_EfmCuPme10PFECUncorrectedBlocks_Object=MibTableColumn
+efmCuPme10PFECUncorrectedBlocks=_EfmCuPme10PFECUncorrectedBlocks_Object((1,3,6,1,4,1,5504,10,1,7,1,2,6,2,1,3),_EfmCuPme10PFECUncorrectedBlocks_Type())
+efmCuPme10PFECUncorrectedBlocks.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuPme10PFECUncorrectedBlocks.setStatus(_A)
+_IfAvailableStackTable_Object=MibTable
+ifAvailableStackTable=_IfAvailableStackTable_Object((1,3,6,1,4,1,5504,10,1,7,1,3))
+if mibBuilder.loadTexts:ifAvailableStackTable.setStatus(_A)
+_IfAvailableStackEntry_Object=MibTableRow
+ifAvailableStackEntry=_IfAvailableStackEntry_Object((1,3,6,1,4,1,5504,10,1,7,1,3,1))
+ifAvailableStackEntry.setIndexNames((0,_B,_AC),(0,_B,_AD))
+if mibBuilder.loadTexts:ifAvailableStackEntry.setStatus(_A)
+_IfAvailableStackHigherLayer_Type=InterfaceIndex
+_IfAvailableStackHigherLayer_Object=MibTableColumn
+ifAvailableStackHigherLayer=_IfAvailableStackHigherLayer_Object((1,3,6,1,4,1,5504,10,1,7,1,3,1,1),_IfAvailableStackHigherLayer_Type())
+ifAvailableStackHigherLayer.setMaxAccess(_L)
+if mibBuilder.loadTexts:ifAvailableStackHigherLayer.setStatus(_A)
+_IfAvailableStackLowerLayer_Type=InterfaceIndex
+_IfAvailableStackLowerLayer_Object=MibTableColumn
+ifAvailableStackLowerLayer=_IfAvailableStackLowerLayer_Object((1,3,6,1,4,1,5504,10,1,7,1,3,1,2),_IfAvailableStackLowerLayer_Type())
+ifAvailableStackLowerLayer.setMaxAccess(_L)
+if mibBuilder.loadTexts:ifAvailableStackLowerLayer.setStatus(_A)
+class _IfAvailableStackStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('capable',1),('outOfService',2)))
+_IfAvailableStackStatus_Type.__name__=_E
+_IfAvailableStackStatus_Object=MibTableColumn
+ifAvailableStackStatus=_IfAvailableStackStatus_Object((1,3,6,1,4,1,5504,10,1,7,1,3,1,3),_IfAvailableStackStatus_Type())
+ifAvailableStackStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifAvailableStackStatus.setStatus(_A)
+_EfmCuRegeneratorStats_ObjectIdentity=ObjectIdentity
+efmCuRegeneratorStats=_EfmCuRegeneratorStats_ObjectIdentity((1,3,6,1,4,1,5504,10,1,7,1,4))
+_EfmCuRegeneratorStatusTable_Object=MibTable
+efmCuRegeneratorStatusTable=_EfmCuRegeneratorStatusTable_Object((1,3,6,1,4,1,5504,10,1,7,1,4,1))
+if mibBuilder.loadTexts:efmCuRegeneratorStatusTable.setStatus(_A)
+_EfmCuRegeneratorStatusEntry_Object=MibTableRow
+efmCuRegeneratorStatusEntry=_EfmCuRegeneratorStatusEntry_Object((1,3,6,1,4,1,5504,10,1,7,1,4,1,1))
+efmCuRegeneratorStatusEntry.setIndexNames((0,_I,_K),(0,_B,_AE),(0,_B,_AF))
+if mibBuilder.loadTexts:efmCuRegeneratorStatusEntry.setStatus(_A)
+class _EfmCuRegenIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*(('ltu-c',1),('ltu-r',2),('regenerator-1',3),('regenerator-2',4),('regenerator-3',5),('regenerator-4',6),('regenerator-5',7),('regenerator-6',8),('regenerator-7',9),('regenerator-8',10)))
+_EfmCuRegenIndex_Type.__name__=_E
+_EfmCuRegenIndex_Object=MibTableColumn
+efmCuRegenIndex=_EfmCuRegenIndex_Object((1,3,6,1,4,1,5504,10,1,7,1,4,1,1,1),_EfmCuRegenIndex_Type())
+efmCuRegenIndex.setMaxAccess(_L)
+if mibBuilder.loadTexts:efmCuRegenIndex.setStatus(_A)
+if mibBuilder.loadTexts:efmCuRegenIndex.setUnits('Address')
+class _EfmCuRegenSide_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('network',1),('customer',2)))
+_EfmCuRegenSide_Type.__name__=_E
+_EfmCuRegenSide_Object=MibTableColumn
+efmCuRegenSide=_EfmCuRegenSide_Object((1,3,6,1,4,1,5504,10,1,7,1,4,1,1,2),_EfmCuRegenSide_Type())
+efmCuRegenSide.setMaxAccess(_L)
+if mibBuilder.loadTexts:efmCuRegenSide.setStatus(_A)
+if mibBuilder.loadTexts:efmCuRegenSide.setUnits('Side')
+_EfmCuRegenSNR_Type=Integer32
+_EfmCuRegenSNR_Object=MibTableColumn
+efmCuRegenSNR=_EfmCuRegenSNR_Object((1,3,6,1,4,1,5504,10,1,7,1,4,1,1,3),_EfmCuRegenSNR_Type())
+efmCuRegenSNR.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuRegenSNR.setStatus(_A)
+if mibBuilder.loadTexts:efmCuRegenSNR.setUnits(_AG)
+_EfmCuRegenLineAttn_Type=Integer32
+_EfmCuRegenLineAttn_Object=MibTableColumn
+efmCuRegenLineAttn=_EfmCuRegenLineAttn_Object((1,3,6,1,4,1,5504,10,1,7,1,4,1,1,4),_EfmCuRegenLineAttn_Type())
+efmCuRegenLineAttn.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuRegenLineAttn.setStatus(_A)
+if mibBuilder.loadTexts:efmCuRegenLineAttn.setUnits(_AG)
+_EfmCuRegenCRC_Type=Counter32
+_EfmCuRegenCRC_Object=MibTableColumn
+efmCuRegenCRC=_EfmCuRegenCRC_Object((1,3,6,1,4,1,5504,10,1,7,1,4,1,1,5),_EfmCuRegenCRC_Type())
+efmCuRegenCRC.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuRegenCRC.setStatus(_A)
+if mibBuilder.loadTexts:efmCuRegenCRC.setUnits('Errors')
+_EfmCuRegenES_Type=Counter32
+_EfmCuRegenES_Object=MibTableColumn
+efmCuRegenES=_EfmCuRegenES_Object((1,3,6,1,4,1,5504,10,1,7,1,4,1,1,6),_EfmCuRegenES_Type())
+efmCuRegenES.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuRegenES.setStatus(_A)
+if mibBuilder.loadTexts:efmCuRegenES.setUnits(_T)
+_EfmCuRegenSES_Type=Counter32
+_EfmCuRegenSES_Object=MibTableColumn
+efmCuRegenSES=_EfmCuRegenSES_Object((1,3,6,1,4,1,5504,10,1,7,1,4,1,1,7),_EfmCuRegenSES_Type())
+efmCuRegenSES.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuRegenSES.setStatus(_A)
+if mibBuilder.loadTexts:efmCuRegenSES.setUnits(_T)
+_EfmCuRegenUAS_Type=Counter32
+_EfmCuRegenUAS_Object=MibTableColumn
+efmCuRegenUAS=_EfmCuRegenUAS_Object((1,3,6,1,4,1,5504,10,1,7,1,4,1,1,8),_EfmCuRegenUAS_Type())
+efmCuRegenUAS.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuRegenUAS.setStatus(_A)
+if mibBuilder.loadTexts:efmCuRegenUAS.setUnits(_T)
+_EfmCuRegenLOSWS_Type=Counter32
+_EfmCuRegenLOSWS_Object=MibTableColumn
+efmCuRegenLOSWS=_EfmCuRegenLOSWS_Object((1,3,6,1,4,1,5504,10,1,7,1,4,1,1,9),_EfmCuRegenLOSWS_Type())
+efmCuRegenLOSWS.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuRegenLOSWS.setStatus(_A)
+if mibBuilder.loadTexts:efmCuRegenLOSWS.setUnits(_T)
+class _EfmCuRegenDCAlarm_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('no',1),('yes',2)))
+_EfmCuRegenDCAlarm_Type.__name__=_E
+_EfmCuRegenDCAlarm_Object=MibTableColumn
+efmCuRegenDCAlarm=_EfmCuRegenDCAlarm_Object((1,3,6,1,4,1,5504,10,1,7,1,4,1,1,10),_EfmCuRegenDCAlarm_Type())
+efmCuRegenDCAlarm.setMaxAccess(_C)
+if mibBuilder.loadTexts:efmCuRegenDCAlarm.setStatus(_A)
+if mibBuilder.loadTexts:efmCuRegenDCAlarm.setUnits('Alarm')
+class _EfmCuRegenClearCounts_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('normalCounts',1),('clearCounts',2)))
+_EfmCuRegenClearCounts_Type.__name__=_E
+_EfmCuRegenClearCounts_Object=MibTableColumn
+efmCuRegenClearCounts=_EfmCuRegenClearCounts_Object((1,3,6,1,4,1,5504,10,1,7,1,4,1,1,11),_EfmCuRegenClearCounts_Type())
+efmCuRegenClearCounts.setMaxAccess(_D)
+if mibBuilder.loadTexts:efmCuRegenClearCounts.setStatus(_A)
+_EfmCuConformance_ObjectIdentity=ObjectIdentity
+efmCuConformance=_EfmCuConformance_ObjectIdentity((1,3,6,1,4,1,5504,10,1,7,2))
+_EfmCuGroups_ObjectIdentity=ObjectIdentity
+efmCuGroups=_EfmCuGroups_ObjectIdentity((1,3,6,1,4,1,5504,10,1,7,2,1))
+_EfmCuCompliances_ObjectIdentity=ObjectIdentity
+efmCuCompliances=_EfmCuCompliances_ObjectIdentity((1,3,6,1,4,1,5504,10,1,7,2,2))
+efmCuPmeStatusEntry.registerAugmentions((_B,_AH))
+efmCuPme10PStatusEntry.setIndexNames(*efmCuPmeStatusEntry.getIndexNames())
+efmCuBasicGroup=ObjectGroup((1,3,6,1,4,1,5504,10,1,7,2,1,1))
+efmCuBasicGroup.setObjects(*((_B,_AI),(_B,_p),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP)))
+if mibBuilder.loadTexts:efmCuBasicGroup.setStatus(_A)
+efmCuPAFGroup=ObjectGroup((1,3,6,1,4,1,5504,10,1,7,2,1,2))
+efmCuPAFGroup.setObjects(*((_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_q),(_B,_AV),(_B,_r)))
+if mibBuilder.loadTexts:efmCuPAFGroup.setStatus(_A)
+ifStackCapabilityGroup=ObjectGroup((1,3,6,1,4,1,5504,10,1,7,2,1,3))
+ifStackCapabilityGroup.setObjects((_B,_r))
+if mibBuilder.loadTexts:ifStackCapabilityGroup.setStatus(_A)
+efmCuPAFErrorsGroup=ObjectGroup((1,3,6,1,4,1,5504,10,1,7,2,1,4))
+efmCuPAFErrorsGroup.setObjects(*((_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad)))
+if mibBuilder.loadTexts:efmCuPAFErrorsGroup.setStatus(_A)
+efmCuPmeGroup=ObjectGroup((1,3,6,1,4,1,5504,10,1,7,2,1,5))
+efmCuPmeGroup.setObjects(*((_B,_s),(_B,_Ae),(_B,_O),(_B,_Af),(_B,_Ag),(_B,_t),(_B,_q),(_B,_Ah),(_B,_U),(_B,_Ai),(_B,_u),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_V),(_B,_P),(_B,_Q)))
+if mibBuilder.loadTexts:efmCuPmeGroup.setStatus(_A)
+efmCuAlarmConfGroup=ObjectGroup((1,3,6,1,4,1,5504,10,1,7,2,1,6))
+efmCuAlarmConfGroup.setObjects(*((_B,_v),(_B,_Am),(_B,_V),(_B,_w),(_B,_P),(_B,_An),(_B,_w),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Q),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au)))
+if mibBuilder.loadTexts:efmCuAlarmConfGroup.setStatus(_A)
+efmCuPme2BProfileGroup=ObjectGroup((1,3,6,1,4,1,5504,10,1,7,2,1,8))
+efmCuPme2BProfileGroup.setObjects(*((_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az),(_B,_A_)))
+if mibBuilder.loadTexts:efmCuPme2BProfileGroup.setStatus(_A)
+efmCuPme10PProfileGroup=ObjectGroup((1,3,6,1,4,1,5504,10,1,7,2,1,9))
+efmCuPme10PProfileGroup.setObjects(*((_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6)))
+if mibBuilder.loadTexts:efmCuPme10PProfileGroup.setStatus(_A)
+efmCuPme10PStatusGroup=ObjectGroup((1,3,6,1,4,1,5504,10,1,7,2,1,10))
+efmCuPme10PStatusGroup.setObjects(*((_B,_B7),(_B,_B8),(_B,_B9)))
+if mibBuilder.loadTexts:efmCuPme10PStatusGroup.setStatus(_A)
+efmCuLowBandwidth=NotificationType((1,3,6,1,4,1,5504,10,1,7,1,1,0,1))
+efmCuLowBandwidth.setObjects(*((_I,_x),(_B,_v)))
+if mibBuilder.loadTexts:efmCuLowBandwidth.setStatus(_A)
+efmCuPmeLineAtnCrossing=NotificationType((1,3,6,1,4,1,5504,10,1,7,1,2,0,1))
+efmCuPmeLineAtnCrossing.setObjects(*((_B,_u),(_B,_V)))
+if mibBuilder.loadTexts:efmCuPmeLineAtnCrossing.setStatus(_A)
+efmCuPmeSnrMgnCrossing=NotificationType((1,3,6,1,4,1,5504,10,1,7,1,2,0,2))
+efmCuPmeSnrMgnCrossing.setObjects(*((_B,_U),(_B,_P),(_B,_Q)))
+if mibBuilder.loadTexts:efmCuPmeSnrMgnCrossing.setStatus(_A)
+efmCuPmeDeviceFault=NotificationType((1,3,6,1,4,1,5504,10,1,7,1,2,0,3))
+efmCuPmeDeviceFault.setObjects((_B,_O))
+if mibBuilder.loadTexts:efmCuPmeDeviceFault.setStatus(_A)
+efmCuPmeConfigInitFailure=NotificationType((1,3,6,1,4,1,5504,10,1,7,1,2,0,4))
+efmCuPmeConfigInitFailure.setObjects(*((_B,_O),(_B,_p),(_B,_s)))
+if mibBuilder.loadTexts:efmCuPmeConfigInitFailure.setStatus(_A)
+efmCuPmeProtocolInitFailure=NotificationType((1,3,6,1,4,1,5504,10,1,7,1,2,0,5))
+efmCuPmeProtocolInitFailure.setObjects(*((_B,_O),(_B,_t)))
+if mibBuilder.loadTexts:efmCuPmeProtocolInitFailure.setStatus(_A)
+efmCuPmeSnrMgnCrossingClear=NotificationType((1,3,6,1,4,1,5504,10,1,7,1,2,0,6))
+efmCuPmeSnrMgnCrossingClear.setObjects(*((_B,_U),(_B,_P),(_B,_Q)))
+if mibBuilder.loadTexts:efmCuPmeSnrMgnCrossingClear.setStatus(_A)
+efmCuPmeErrorThreshEfmTrafficDisable=NotificationType((1,3,6,1,4,1,5504,10,1,7,1,2,0,7))
+efmCuPmeErrorThreshEfmTrafficDisable.setObjects((_B,_BA))
+if mibBuilder.loadTexts:efmCuPmeErrorThreshEfmTrafficDisable.setStatus(_A)
+efmCuPmeErrorThreshEfmTrafficEnable=NotificationType((1,3,6,1,4,1,5504,10,1,7,1,2,0,8))
+efmCuPmeErrorThreshEfmTrafficEnable.setObjects((_B,_BB))
+if mibBuilder.loadTexts:efmCuPmeErrorThreshEfmTrafficEnable.setStatus(_A)
+efmCuPmeBondGroupTrafficDisabled=NotificationType((1,3,6,1,4,1,5504,10,1,7,1,2,0,9))
+if mibBuilder.loadTexts:efmCuPmeBondGroupTrafficDisabled.setStatus(_A)
+efmCuPmeBondGroupTrafficEnabled=NotificationType((1,3,6,1,4,1,5504,10,1,7,1,2,0,10))
+if mibBuilder.loadTexts:efmCuPmeBondGroupTrafficEnabled.setStatus(_A)
+efmCuPmeLinkTrafficDisabled=NotificationType((1,3,6,1,4,1,5504,10,1,7,1,2,0,11))
+if mibBuilder.loadTexts:efmCuPmeLinkTrafficDisabled.setStatus(_A)
+efmCuPmeLinkTrafficEnabled=NotificationType((1,3,6,1,4,1,5504,10,1,7,1,2,0,12))
+if mibBuilder.loadTexts:efmCuPmeLinkTrafficEnabled.setStatus(_A)
+efmCuNotificationGroup=NotificationGroup((1,3,6,1,4,1,5504,10,1,7,2,1,7))
+efmCuNotificationGroup.setObjects(*((_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI)))
+if mibBuilder.loadTexts:efmCuNotificationGroup.setStatus(_A)
+efmCuCompliance=ModuleCompliance((1,3,6,1,4,1,5504,10,1,7,2,2,1))
+efmCuCompliance.setObjects(*((_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_BS)))
+if mibBuilder.loadTexts:efmCuCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'ProfileIndex':ProfileIndex,_A4:ProfileIndexOrZero,_A1:ProfileIndexList,'TruthValueOrUnknown':TruthValueOrUnknown,'efmCuMIB':efmCuMIB,'efmCuObjects':efmCuObjects,'efmCuPort':efmCuPort,'efmCuPortNotifications':efmCuPortNotifications,_BC:efmCuLowBandwidth,'efmCuPortConfTable':efmCuPortConfTable,'efmCuPortConfEntry':efmCuPortConfEntry,_AT:efmCuPAFAdminState,_AU:efmCuPAFDiscoveryCode,_p:efmCuAdminProfile,_AJ:efmCuTargetDataRate,_AK:efmCuTargetWorstCaseSnrMgn,_v:efmCuThreshLowBandwidth,_Am:efmCuLowBandwidthEnable,_AN:efmCuTargetCurrentConditionMode,_AO:efmCuTargetCurrentConditionSnrMgn,_AP:efmCuTargetWorstCaseMode,'efmCuPAFAutoDiscovery':efmCuPAFAutoDiscovery,'efmCuPmeErrorClearStats':efmCuPmeErrorClearStats,'efmCuPmeSnrClearStats':efmCuPmeSnrClearStats,'efmCuPortCapabilityTable':efmCuPortCapabilityTable,'efmCuPortCapabilityEntry':efmCuPortCapabilityEntry,_AI:efmCuPAFSupported,_AQ:efmCuPeerPAFSupported,_AR:efmCuPAFCapacity,_AS:efmCuPeerPAFCapacity,'efmCuPortStatusTable':efmCuPortStatusTable,'efmCuPortStatusEntry':efmCuPortStatusEntry,_AM:efmCuFltStatus,_AL:efmCuPortSide,_AV:efmCuNumPMEs,_AW:efmCuPAFInErrors,_AX:efmCuPAFInSmallFragments,_AY:efmCuPAFInLargeFragments,_AZ:efmCuPAFInBadFragments,_Aa:efmCuPAFInLostFragments,_Ab:efmCuPAFInLostStarts,_Ac:efmCuPAFInLostEnds,_Ad:efmCuPAFInOverflows,'efmCuPme':efmCuPme,'efmCuPmeNotifications':efmCuPmeNotifications,_BD:efmCuPmeLineAtnCrossing,_BE:efmCuPmeSnrMgnCrossing,_BF:efmCuPmeDeviceFault,_BG:efmCuPmeConfigInitFailure,_BH:efmCuPmeProtocolInitFailure,_BI:efmCuPmeSnrMgnCrossingClear,'efmCuPmeErrorThreshEfmTrafficDisable':efmCuPmeErrorThreshEfmTrafficDisable,'efmCuPmeErrorThreshEfmTrafficEnable':efmCuPmeErrorThreshEfmTrafficEnable,'efmCuPmeBondGroupTrafficDisabled':efmCuPmeBondGroupTrafficDisabled,'efmCuPmeBondGroupTrafficEnabled':efmCuPmeBondGroupTrafficEnabled,'efmCuPmeLinkTrafficDisabled':efmCuPmeLinkTrafficDisabled,'efmCuPmeLinkTrafficEnabled':efmCuPmeLinkTrafficEnabled,'efmCuPmeConfTable':efmCuPmeConfTable,'efmCuPmeConfEntry':efmCuPmeConfEntry,_Ag:efmCuPmeAdminSubType,_s:efmCuPmeAdminProfile,_q:efmCuPAFRemoteDiscoveryCode,_V:efmCuPmeThreshLineAtn,_P:efmCuPmeThreshMinSnrMgn,_w:efmCuPmeLineAtnCrossingEnable,_An:efmCuPmeSnrMgnCrossingTrapEnable,_Ao:efmCuPmeDeviceFaultEnable,_Ap:efmCuPmeConfigInitFailEnable,_Aq:efmCuPmeProtocolInitFailEnable,_Q:efmCuPmeThreshMaxSnrMgnDelta,_Ar:efmCuPmeMaintenanceMode,_As:efmCuPmeMaintenanceStartTime,_At:efmCuPmeMaintenanceEndTime,_Au:efmCuPmeSnrMonitoringInterval,'efmCuPmeErrorThreshMonEnable':efmCuPmeErrorThreshMonEnable,'efmCuPmeErrorThreshMonNotifyEnable':efmCuPmeErrorThreshMonNotifyEnable,_BA:efmCuPmeErrorThreshMonInterval,_BB:efmCuPmeErrorThreshMonClrInterval,'efmCuPmeLinkTrfcDisablTrapEnable':efmCuPmeLinkTrfcDisablTrapEnable,'efmCuPmeCapabilityTable':efmCuPmeCapabilityTable,'efmCuPmeCapabilityEntry':efmCuPmeCapabilityEntry,_Af:efmCuPmeSubTypesSupported,'efmCuPmeStatusTable':efmCuPmeStatusTable,'efmCuPmeStatusEntry':efmCuPmeStatusEntry,_Ae:efmCuPmeOperStatus,_O:efmCuPmeFltStatus,_t:efmCuPmeOperSubType,_Ah:efmCuPmeOperProfile,_U:efmCuPmeSnrMgn,_Ai:efmCuPmePeerSnrMgn,_u:efmCuPmeLineAtn,_Aj:efmCuPmePeerLineAtn,_Ak:efmCuPmeTCCodingErrors,_Al:efmCuPmeTCCrcErrors,'efmCuPmeSnrCrossingCnt':efmCuPmeSnrCrossingCnt,'efmCuPmeTCDownCnt':efmCuPmeTCDownCnt,'efmCuPmeErrorTCDownCnt':efmCuPmeErrorTCDownCnt,'efmCuPmeErrorRestartCnt':efmCuPmeErrorRestartCnt,'efmCuPmeSnrRestartCnt':efmCuPmeSnrRestartCnt,'efmCuPmeErrorConsecutiveSec':efmCuPmeErrorConsecutiveSec,'efmCuPmeErrorMaxConsecutiveSec':efmCuPmeErrorMaxConsecutiveSec,'efmCuPme2B':efmCuPme2B,'efmCuPme2BProfileTable':efmCuPme2BProfileTable,'efmCuPme2BProfileEntry':efmCuPme2BProfileEntry,_A5:efmCuPme2BProfileIndex,_Av:efmCuPme2BProfileDescr,_Aw:efmCuPme2BRegion,_Ax:efmCuPme2BDataRate,_Ay:efmCuPme2BPower,_Az:efmCuPme2BConstellation,_A_:efmCuPme2BProfileRowStatus,'efmCuPmeNtr':efmCuPmeNtr,'efmCuPme10P':efmCuPme10P,'efmCuPme10PProfileTable':efmCuPme10PProfileTable,'efmCuPme10PProfileEntry':efmCuPme10PProfileEntry,_A6:efmCuPme10PProfileIndex,_B0:efmCuPme10PProfileDescr,_B1:efmCuPme10PBandplanPSDMskProfile,_B2:efmCuPme10PUPBOReferenceProfile,_B3:efmCuPme10PBandNotchProfiles,_B4:efmCuPme10PPayloadURateProfile,_B5:efmCuPme10PPayloadDRateProfile,_B6:efmCuPme10PProfileRowStatus,'efmCuPme10PStatusTable':efmCuPme10PStatusTable,_AH:efmCuPme10PStatusEntry,_B7:efmCuPme10PElectricalLength,_B8:efmCuPme10PFECCorrectedBlocks,_B9:efmCuPme10PFECUncorrectedBlocks,'ifAvailableStackTable':ifAvailableStackTable,'ifAvailableStackEntry':ifAvailableStackEntry,_AC:ifAvailableStackHigherLayer,_AD:ifAvailableStackLowerLayer,_r:ifAvailableStackStatus,'efmCuRegeneratorStats':efmCuRegeneratorStats,'efmCuRegeneratorStatusTable':efmCuRegeneratorStatusTable,'efmCuRegeneratorStatusEntry':efmCuRegeneratorStatusEntry,_AE:efmCuRegenIndex,_AF:efmCuRegenSide,'efmCuRegenSNR':efmCuRegenSNR,'efmCuRegenLineAttn':efmCuRegenLineAttn,'efmCuRegenCRC':efmCuRegenCRC,'efmCuRegenES':efmCuRegenES,'efmCuRegenSES':efmCuRegenSES,'efmCuRegenUAS':efmCuRegenUAS,'efmCuRegenLOSWS':efmCuRegenLOSWS,'efmCuRegenDCAlarm':efmCuRegenDCAlarm,'efmCuRegenClearCounts':efmCuRegenClearCounts,'efmCuConformance':efmCuConformance,'efmCuGroups':efmCuGroups,_BJ:efmCuBasicGroup,_BP:efmCuPAFGroup,_BQ:ifStackCapabilityGroup,_BR:efmCuPAFErrorsGroup,_BK:efmCuPmeGroup,_BL:efmCuAlarmConfGroup,_BM:efmCuNotificationGroup,_BN:efmCuPme2BProfileGroup,_BO:efmCuPme10PProfileGroup,_BS:efmCuPme10PStatusGroup,'efmCuCompliances':efmCuCompliances,'efmCuCompliance':efmCuCompliance})

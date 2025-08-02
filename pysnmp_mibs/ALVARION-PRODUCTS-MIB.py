@@ -1,0 +1,20 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+alvarionModules,alvarionProducts=mibBuilder.importSymbols('ALVARION-SMI','alvarionModules','alvarionProducts')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+alvarionProductsMIB=ModuleIdentity((1,3,6,1,4,1,12394,1,10,4,2))
+_AlvarionWI2CTRL40_ObjectIdentity=ObjectIdentity
+alvarionWI2CTRL40=_AlvarionWI2CTRL40_ObjectIdentity((1,3,6,1,4,1,12394,1,10,1,25))
+_AlvarionWI2CTRL200_ObjectIdentity=ObjectIdentity
+alvarionWI2CTRL200=_AlvarionWI2CTRL200_ObjectIdentity((1,3,6,1,4,1,12394,1,10,1,27))
+_AlvarionWI2CTRL10_ObjectIdentity=ObjectIdentity
+alvarionWI2CTRL10=_AlvarionWI2CTRL10_ObjectIdentity((1,3,6,1,4,1,12394,1,10,1,35))
+_AlvarionWI2SR1_ObjectIdentity=ObjectIdentity
+alvarionWI2SR1=_AlvarionWI2SR1_ObjectIdentity((1,3,6,1,4,1,12394,1,10,1,36))
+_AlvarionWI2DR1_ObjectIdentity=ObjectIdentity
+alvarionWI2DR1=_AlvarionWI2DR1_ObjectIdentity((1,3,6,1,4,1,12394,1,10,1,37))
+mibBuilder.exportSymbols('ALVARION-PRODUCTS-MIB',**{'alvarionWI2CTRL40':alvarionWI2CTRL40,'alvarionWI2CTRL200':alvarionWI2CTRL200,'alvarionWI2CTRL10':alvarionWI2CTRL10,'alvarionWI2SR1':alvarionWI2SR1,'alvarionWI2DR1':alvarionWI2DR1,'alvarionProductsMIB':alvarionProductsMIB})

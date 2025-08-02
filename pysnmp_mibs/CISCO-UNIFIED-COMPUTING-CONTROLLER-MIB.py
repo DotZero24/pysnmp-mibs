@@ -1,0 +1,160 @@
+_H='cucsControllerMgmtDbCheckPolInstanceId'
+_G='cucsControllerPreferedVersionHolderInstanceId'
+_F='cucsControllerOperationalVersionHolderInstanceId'
+_E='cucsControllerHaControllerInstanceId'
+_D='not-accessible'
+_C='CISCO-UNIFIED-COMPUTING-CONTROLLER-MIB'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
+CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
+CucsManagedObjectDn,CucsManagedObjectId,ciscoUnifiedComputingMIBObjects=mibBuilder.importSymbols('CISCO-UNIFIED-COMPUTING-MIB','CucsManagedObjectDn','CucsManagedObjectId','ciscoUnifiedComputingMIBObjects')
+InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
+cucsControllerObjects=ModuleIdentity((1,3,6,1,4,1,9,9,719,1,83))
+_CucsControllerHaControllerTable_Object=MibTable
+cucsControllerHaControllerTable=_CucsControllerHaControllerTable_Object((1,3,6,1,4,1,9,9,719,1,83,5))
+if mibBuilder.loadTexts:cucsControllerHaControllerTable.setStatus(_A)
+_CucsControllerHaControllerEntry_Object=MibTableRow
+cucsControllerHaControllerEntry=_CucsControllerHaControllerEntry_Object((1,3,6,1,4,1,9,9,719,1,83,5,1))
+cucsControllerHaControllerEntry.setIndexNames((0,_C,_E))
+if mibBuilder.loadTexts:cucsControllerHaControllerEntry.setStatus(_A)
+_CucsControllerHaControllerInstanceId_Type=CucsManagedObjectId
+_CucsControllerHaControllerInstanceId_Object=MibTableColumn
+cucsControllerHaControllerInstanceId=_CucsControllerHaControllerInstanceId_Object((1,3,6,1,4,1,9,9,719,1,83,5,1,1),_CucsControllerHaControllerInstanceId_Type())
+cucsControllerHaControllerInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsControllerHaControllerInstanceId.setStatus(_A)
+_CucsControllerHaControllerDn_Type=CucsManagedObjectDn
+_CucsControllerHaControllerDn_Object=MibTableColumn
+cucsControllerHaControllerDn=_CucsControllerHaControllerDn_Object((1,3,6,1,4,1,9,9,719,1,83,5,1,2),_CucsControllerHaControllerDn_Type())
+cucsControllerHaControllerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerHaControllerDn.setStatus(_A)
+_CucsControllerHaControllerRn_Type=SnmpAdminString
+_CucsControllerHaControllerRn_Object=MibTableColumn
+cucsControllerHaControllerRn=_CucsControllerHaControllerRn_Object((1,3,6,1,4,1,9,9,719,1,83,5,1,3),_CucsControllerHaControllerRn_Type())
+cucsControllerHaControllerRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerHaControllerRn.setStatus(_A)
+_CucsControllerHaControllerTrigElectionFlag_Type=TruthValue
+_CucsControllerHaControllerTrigElectionFlag_Object=MibTableColumn
+cucsControllerHaControllerTrigElectionFlag=_CucsControllerHaControllerTrigElectionFlag_Object((1,3,6,1,4,1,9,9,719,1,83,5,1,4),_CucsControllerHaControllerTrigElectionFlag_Type())
+cucsControllerHaControllerTrigElectionFlag.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerHaControllerTrigElectionFlag.setStatus(_A)
+_CucsControllerOperationalVersionHolderTable_Object=MibTable
+cucsControllerOperationalVersionHolderTable=_CucsControllerOperationalVersionHolderTable_Object((1,3,6,1,4,1,9,9,719,1,83,6))
+if mibBuilder.loadTexts:cucsControllerOperationalVersionHolderTable.setStatus(_A)
+_CucsControllerOperationalVersionHolderEntry_Object=MibTableRow
+cucsControllerOperationalVersionHolderEntry=_CucsControllerOperationalVersionHolderEntry_Object((1,3,6,1,4,1,9,9,719,1,83,6,1))
+cucsControllerOperationalVersionHolderEntry.setIndexNames((0,_C,_F))
+if mibBuilder.loadTexts:cucsControllerOperationalVersionHolderEntry.setStatus(_A)
+_CucsControllerOperationalVersionHolderInstanceId_Type=CucsManagedObjectId
+_CucsControllerOperationalVersionHolderInstanceId_Object=MibTableColumn
+cucsControllerOperationalVersionHolderInstanceId=_CucsControllerOperationalVersionHolderInstanceId_Object((1,3,6,1,4,1,9,9,719,1,83,6,1,1),_CucsControllerOperationalVersionHolderInstanceId_Type())
+cucsControllerOperationalVersionHolderInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsControllerOperationalVersionHolderInstanceId.setStatus(_A)
+_CucsControllerOperationalVersionHolderDn_Type=CucsManagedObjectDn
+_CucsControllerOperationalVersionHolderDn_Object=MibTableColumn
+cucsControllerOperationalVersionHolderDn=_CucsControllerOperationalVersionHolderDn_Object((1,3,6,1,4,1,9,9,719,1,83,6,1,2),_CucsControllerOperationalVersionHolderDn_Type())
+cucsControllerOperationalVersionHolderDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerOperationalVersionHolderDn.setStatus(_A)
+_CucsControllerOperationalVersionHolderRn_Type=SnmpAdminString
+_CucsControllerOperationalVersionHolderRn_Object=MibTableColumn
+cucsControllerOperationalVersionHolderRn=_CucsControllerOperationalVersionHolderRn_Object((1,3,6,1,4,1,9,9,719,1,83,6,1,3),_CucsControllerOperationalVersionHolderRn_Type())
+cucsControllerOperationalVersionHolderRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerOperationalVersionHolderRn.setStatus(_A)
+_CucsControllerOperationalVersionHolderSerial_Type=SnmpAdminString
+_CucsControllerOperationalVersionHolderSerial_Object=MibTableColumn
+cucsControllerOperationalVersionHolderSerial=_CucsControllerOperationalVersionHolderSerial_Object((1,3,6,1,4,1,9,9,719,1,83,6,1,4),_CucsControllerOperationalVersionHolderSerial_Type())
+cucsControllerOperationalVersionHolderSerial.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerOperationalVersionHolderSerial.setStatus(_A)
+_CucsControllerPreferedVersionHolderTable_Object=MibTable
+cucsControllerPreferedVersionHolderTable=_CucsControllerPreferedVersionHolderTable_Object((1,3,6,1,4,1,9,9,719,1,83,7))
+if mibBuilder.loadTexts:cucsControllerPreferedVersionHolderTable.setStatus(_A)
+_CucsControllerPreferedVersionHolderEntry_Object=MibTableRow
+cucsControllerPreferedVersionHolderEntry=_CucsControllerPreferedVersionHolderEntry_Object((1,3,6,1,4,1,9,9,719,1,83,7,1))
+cucsControllerPreferedVersionHolderEntry.setIndexNames((0,_C,_G))
+if mibBuilder.loadTexts:cucsControllerPreferedVersionHolderEntry.setStatus(_A)
+_CucsControllerPreferedVersionHolderInstanceId_Type=CucsManagedObjectId
+_CucsControllerPreferedVersionHolderInstanceId_Object=MibTableColumn
+cucsControllerPreferedVersionHolderInstanceId=_CucsControllerPreferedVersionHolderInstanceId_Object((1,3,6,1,4,1,9,9,719,1,83,7,1,1),_CucsControllerPreferedVersionHolderInstanceId_Type())
+cucsControllerPreferedVersionHolderInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsControllerPreferedVersionHolderInstanceId.setStatus(_A)
+_CucsControllerPreferedVersionHolderDn_Type=CucsManagedObjectDn
+_CucsControllerPreferedVersionHolderDn_Object=MibTableColumn
+cucsControllerPreferedVersionHolderDn=_CucsControllerPreferedVersionHolderDn_Object((1,3,6,1,4,1,9,9,719,1,83,7,1,2),_CucsControllerPreferedVersionHolderDn_Type())
+cucsControllerPreferedVersionHolderDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerPreferedVersionHolderDn.setStatus(_A)
+_CucsControllerPreferedVersionHolderRn_Type=SnmpAdminString
+_CucsControllerPreferedVersionHolderRn_Object=MibTableColumn
+cucsControllerPreferedVersionHolderRn=_CucsControllerPreferedVersionHolderRn_Object((1,3,6,1,4,1,9,9,719,1,83,7,1,3),_CucsControllerPreferedVersionHolderRn_Type())
+cucsControllerPreferedVersionHolderRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerPreferedVersionHolderRn.setStatus(_A)
+_CucsControllerPreferedVersionHolderInUse_Type=TruthValue
+_CucsControllerPreferedVersionHolderInUse_Object=MibTableColumn
+cucsControllerPreferedVersionHolderInUse=_CucsControllerPreferedVersionHolderInUse_Object((1,3,6,1,4,1,9,9,719,1,83,7,1,4),_CucsControllerPreferedVersionHolderInUse_Type())
+cucsControllerPreferedVersionHolderInUse.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerPreferedVersionHolderInUse.setStatus(_A)
+_CucsControllerPreferedVersionHolderSerial_Type=SnmpAdminString
+_CucsControllerPreferedVersionHolderSerial_Object=MibTableColumn
+cucsControllerPreferedVersionHolderSerial=_CucsControllerPreferedVersionHolderSerial_Object((1,3,6,1,4,1,9,9,719,1,83,7,1,5),_CucsControllerPreferedVersionHolderSerial_Type())
+cucsControllerPreferedVersionHolderSerial.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerPreferedVersionHolderSerial.setStatus(_A)
+_CucsControllerMgmtDbCheckPolTable_Object=MibTable
+cucsControllerMgmtDbCheckPolTable=_CucsControllerMgmtDbCheckPolTable_Object((1,3,6,1,4,1,9,9,719,1,83,8))
+if mibBuilder.loadTexts:cucsControllerMgmtDbCheckPolTable.setStatus(_A)
+_CucsControllerMgmtDbCheckPolEntry_Object=MibTableRow
+cucsControllerMgmtDbCheckPolEntry=_CucsControllerMgmtDbCheckPolEntry_Object((1,3,6,1,4,1,9,9,719,1,83,8,1))
+cucsControllerMgmtDbCheckPolEntry.setIndexNames((0,_C,_H))
+if mibBuilder.loadTexts:cucsControllerMgmtDbCheckPolEntry.setStatus(_A)
+_CucsControllerMgmtDbCheckPolInstanceId_Type=CucsManagedObjectId
+_CucsControllerMgmtDbCheckPolInstanceId_Object=MibTableColumn
+cucsControllerMgmtDbCheckPolInstanceId=_CucsControllerMgmtDbCheckPolInstanceId_Object((1,3,6,1,4,1,9,9,719,1,83,8,1,1),_CucsControllerMgmtDbCheckPolInstanceId_Type())
+cucsControllerMgmtDbCheckPolInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsControllerMgmtDbCheckPolInstanceId.setStatus(_A)
+_CucsControllerMgmtDbCheckPolDn_Type=CucsManagedObjectDn
+_CucsControllerMgmtDbCheckPolDn_Object=MibTableColumn
+cucsControllerMgmtDbCheckPolDn=_CucsControllerMgmtDbCheckPolDn_Object((1,3,6,1,4,1,9,9,719,1,83,8,1,2),_CucsControllerMgmtDbCheckPolDn_Type())
+cucsControllerMgmtDbCheckPolDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerMgmtDbCheckPolDn.setStatus(_A)
+_CucsControllerMgmtDbCheckPolRn_Type=SnmpAdminString
+_CucsControllerMgmtDbCheckPolRn_Object=MibTableColumn
+cucsControllerMgmtDbCheckPolRn=_CucsControllerMgmtDbCheckPolRn_Object((1,3,6,1,4,1,9,9,719,1,83,8,1,3),_CucsControllerMgmtDbCheckPolRn_Type())
+cucsControllerMgmtDbCheckPolRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerMgmtDbCheckPolRn.setStatus(_A)
+_CucsControllerMgmtDbCheckPolHealthCheckInterval_Type=Gauge32
+_CucsControllerMgmtDbCheckPolHealthCheckInterval_Object=MibTableColumn
+cucsControllerMgmtDbCheckPolHealthCheckInterval=_CucsControllerMgmtDbCheckPolHealthCheckInterval_Object((1,3,6,1,4,1,9,9,719,1,83,8,1,4),_CucsControllerMgmtDbCheckPolHealthCheckInterval_Type())
+cucsControllerMgmtDbCheckPolHealthCheckInterval.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerMgmtDbCheckPolHealthCheckInterval.setStatus(_A)
+_CucsControllerMgmtDbCheckPolInternalBackupInterval_Type=Gauge32
+_CucsControllerMgmtDbCheckPolInternalBackupInterval_Object=MibTableColumn
+cucsControllerMgmtDbCheckPolInternalBackupInterval=_CucsControllerMgmtDbCheckPolInternalBackupInterval_Object((1,3,6,1,4,1,9,9,719,1,83,8,1,5),_CucsControllerMgmtDbCheckPolInternalBackupInterval_Type())
+cucsControllerMgmtDbCheckPolInternalBackupInterval.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerMgmtDbCheckPolInternalBackupInterval.setStatus(_A)
+_CucsControllerMgmtDbCheckPolLastIntegrityCheckTime_Type=DateAndTime
+_CucsControllerMgmtDbCheckPolLastIntegrityCheckTime_Object=MibTableColumn
+cucsControllerMgmtDbCheckPolLastIntegrityCheckTime=_CucsControllerMgmtDbCheckPolLastIntegrityCheckTime_Object((1,3,6,1,4,1,9,9,719,1,83,8,1,6),_CucsControllerMgmtDbCheckPolLastIntegrityCheckTime_Type())
+cucsControllerMgmtDbCheckPolLastIntegrityCheckTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerMgmtDbCheckPolLastIntegrityCheckTime.setStatus(_A)
+_CucsControllerMgmtDbCheckPolLastInternalBackupTime_Type=DateAndTime
+_CucsControllerMgmtDbCheckPolLastInternalBackupTime_Object=MibTableColumn
+cucsControllerMgmtDbCheckPolLastInternalBackupTime=_CucsControllerMgmtDbCheckPolLastInternalBackupTime_Object((1,3,6,1,4,1,9,9,719,1,83,8,1,7),_CucsControllerMgmtDbCheckPolLastInternalBackupTime_Type())
+cucsControllerMgmtDbCheckPolLastInternalBackupTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerMgmtDbCheckPolLastInternalBackupTime.setStatus(_A)
+_CucsControllerMgmtDbCheckPolResetCorruptCount_Type=TruthValue
+_CucsControllerMgmtDbCheckPolResetCorruptCount_Object=MibTableColumn
+cucsControllerMgmtDbCheckPolResetCorruptCount=_CucsControllerMgmtDbCheckPolResetCorruptCount_Object((1,3,6,1,4,1,9,9,719,1,83,8,1,8),_CucsControllerMgmtDbCheckPolResetCorruptCount_Type())
+cucsControllerMgmtDbCheckPolResetCorruptCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerMgmtDbCheckPolResetCorruptCount.setStatus(_A)
+_CucsControllerMgmtDbCheckPolTriggerHealthCheck_Type=TruthValue
+_CucsControllerMgmtDbCheckPolTriggerHealthCheck_Object=MibTableColumn
+cucsControllerMgmtDbCheckPolTriggerHealthCheck=_CucsControllerMgmtDbCheckPolTriggerHealthCheck_Object((1,3,6,1,4,1,9,9,719,1,83,8,1,9),_CucsControllerMgmtDbCheckPolTriggerHealthCheck_Type())
+cucsControllerMgmtDbCheckPolTriggerHealthCheck.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsControllerMgmtDbCheckPolTriggerHealthCheck.setStatus(_A)
+mibBuilder.exportSymbols(_C,**{'cucsControllerObjects':cucsControllerObjects,'cucsControllerHaControllerTable':cucsControllerHaControllerTable,'cucsControllerHaControllerEntry':cucsControllerHaControllerEntry,_E:cucsControllerHaControllerInstanceId,'cucsControllerHaControllerDn':cucsControllerHaControllerDn,'cucsControllerHaControllerRn':cucsControllerHaControllerRn,'cucsControllerHaControllerTrigElectionFlag':cucsControllerHaControllerTrigElectionFlag,'cucsControllerOperationalVersionHolderTable':cucsControllerOperationalVersionHolderTable,'cucsControllerOperationalVersionHolderEntry':cucsControllerOperationalVersionHolderEntry,_F:cucsControllerOperationalVersionHolderInstanceId,'cucsControllerOperationalVersionHolderDn':cucsControllerOperationalVersionHolderDn,'cucsControllerOperationalVersionHolderRn':cucsControllerOperationalVersionHolderRn,'cucsControllerOperationalVersionHolderSerial':cucsControllerOperationalVersionHolderSerial,'cucsControllerPreferedVersionHolderTable':cucsControllerPreferedVersionHolderTable,'cucsControllerPreferedVersionHolderEntry':cucsControllerPreferedVersionHolderEntry,_G:cucsControllerPreferedVersionHolderInstanceId,'cucsControllerPreferedVersionHolderDn':cucsControllerPreferedVersionHolderDn,'cucsControllerPreferedVersionHolderRn':cucsControllerPreferedVersionHolderRn,'cucsControllerPreferedVersionHolderInUse':cucsControllerPreferedVersionHolderInUse,'cucsControllerPreferedVersionHolderSerial':cucsControllerPreferedVersionHolderSerial,'cucsControllerMgmtDbCheckPolTable':cucsControllerMgmtDbCheckPolTable,'cucsControllerMgmtDbCheckPolEntry':cucsControllerMgmtDbCheckPolEntry,_H:cucsControllerMgmtDbCheckPolInstanceId,'cucsControllerMgmtDbCheckPolDn':cucsControllerMgmtDbCheckPolDn,'cucsControllerMgmtDbCheckPolRn':cucsControllerMgmtDbCheckPolRn,'cucsControllerMgmtDbCheckPolHealthCheckInterval':cucsControllerMgmtDbCheckPolHealthCheckInterval,'cucsControllerMgmtDbCheckPolInternalBackupInterval':cucsControllerMgmtDbCheckPolInternalBackupInterval,'cucsControllerMgmtDbCheckPolLastIntegrityCheckTime':cucsControllerMgmtDbCheckPolLastIntegrityCheckTime,'cucsControllerMgmtDbCheckPolLastInternalBackupTime':cucsControllerMgmtDbCheckPolLastInternalBackupTime,'cucsControllerMgmtDbCheckPolResetCorruptCount':cucsControllerMgmtDbCheckPolResetCorruptCount,'cucsControllerMgmtDbCheckPolTriggerHealthCheck':cucsControllerMgmtDbCheckPolTriggerHealthCheck})

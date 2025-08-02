@@ -1,55 +1,106 @@
-#
-# PySNMP MIB module MPLS-LC-ATM-STD-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/MPLS-LC-ATM-STD-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:20:52 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
-( AtmVpIdentifier, ) = mibBuilder.importSymbols("ATM-TC-MIB", "AtmVpIdentifier")
-( mplsInterfaceIndex, ) = mibBuilder.importSymbols("MPLS-LSR-STD-MIB", "mplsInterfaceIndex")
-( mplsStdMIB, MplsAtmVcIdentifier, ) = mibBuilder.importSymbols("MPLS-TC-STD-MIB", "mplsStdMIB", "MplsAtmVcIdentifier")
-( ModuleCompliance, NotificationGroup, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-( iso, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Integer32, Bits, Counter32, NotificationType, ObjectIdentity, Unsigned32, MibIdentifier, ModuleIdentity, Counter64, IpAddress, ) = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Integer32", "Bits", "Counter32", "NotificationType", "ObjectIdentity", "Unsigned32", "MibIdentifier", "ModuleIdentity", "Counter64", "IpAddress")
-( TextualConvention, StorageType, TruthValue, RowStatus, DisplayString, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "StorageType", "TruthValue", "RowStatus", "DisplayString")
-mplsLcAtmStdMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 166, 9)).setRevisions(("2006-01-12 00:00",))
-if mibBuilder.loadTexts: mplsLcAtmStdMIB.setLastUpdated('200601120000Z')
-if mibBuilder.loadTexts: mplsLcAtmStdMIB.setOrganization('Multiprotocol Label Switching (MPLS) Working Group')
-if mibBuilder.loadTexts: mplsLcAtmStdMIB.setContactInfo('        Thomas D. Nadeau\n        Postal: Cisco Systems, Inc.\n                250 Apollo Drive\n                Chelmsford, MA 01824\n        Tel:    +1-978-244-3051\n        Email:  tnadeau@cisco.com\n\n                Subrahmanya Hegde\n        Postal: Cisco Systems, Inc.\n                225 East Tazman Drive\n        Tel:    +1-408-525-6562\n        Email:  subrah@cisco.com\n        General comments should be sent to mpls@uu.net\n       ')
-if mibBuilder.loadTexts: mplsLcAtmStdMIB.setDescription('This MIB module contains managed object definitions for\n        MPLS Label-Controlled ATM interfaces as defined in\n        [RFC3035].\n\n        Copyright (C) The Internet Society (2006).  This\n        version of this MIB module is part of RFC 4368; see\n        the RFC itself for full legal notices.')
-mplsLcAtmStdNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 9, 0))
-mplsLcAtmStdObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 9, 1))
-mplsLcAtmStdConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 9, 2))
-mplsLcAtmStdInterfaceConfTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 9, 1, 1), )
-if mibBuilder.loadTexts: mplsLcAtmStdInterfaceConfTable.setDescription("This table specifies per-interface MPLS LC-ATM\n        capability and associated information.  In particular,\n        this table sparsely extends the MPLS-LSR-STD-MIB's\n        mplsInterfaceConfTable.")
-mplsLcAtmStdInterfaceConfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 9, 1, 1, 1), ).setIndexNames((0, "MPLS-LSR-STD-MIB", "mplsInterfaceIndex"))
-if mibBuilder.loadTexts: mplsLcAtmStdInterfaceConfEntry.setDescription('An entry in this table is created by an LSR for\n        every interface capable of supporting MPLS LC-ATM.\n        Each entry in this table will exist only if a\n        corresponding entry in ifTable and mplsInterfaceConfTable\n        exists.  If the associated entries in ifTable and\n        mplsInterfaceConfTable are deleted, the corresponding\n        entry in this table must also be deleted shortly\n        thereafter.')
-mplsLcAtmStdCtrlVpi = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 9, 1, 1, 1, 1), AtmVpIdentifier()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsLcAtmStdCtrlVpi.setDescription('This is the VPI value over which this\n        LSR is willing to accept control traffic on\n        this interface.')
-mplsLcAtmStdCtrlVci = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 9, 1, 1, 1, 2), MplsAtmVcIdentifier()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsLcAtmStdCtrlVci.setDescription('This is the VCI value over which this\n        LSR is willing to accept control traffic\n        on this interface.')
-mplsLcAtmStdUnlabTrafVpi = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 9, 1, 1, 1, 3), AtmVpIdentifier()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsLcAtmStdUnlabTrafVpi.setDescription('This is the VPI value over which this\n        LSR is willing to accept unlabeled traffic\n        on this interface.')
-mplsLcAtmStdUnlabTrafVci = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 9, 1, 1, 1, 4), MplsAtmVcIdentifier()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsLcAtmStdUnlabTrafVci.setDescription('This is the VCI value over which this\n        LSR is willing to accept unlabeled traffic\n        on this interface.')
-mplsLcAtmStdVcMerge = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 9, 1, 1, 1, 5), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsLcAtmStdVcMerge.setDescription('If set to true(1), indicates that this interface\n        is capable of ATM VC merge; otherwise, it MUST\n        be set to false(2).')
-mplsLcAtmVcDirectlyConnected = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 9, 1, 1, 1, 6), TruthValue().clone('true')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsLcAtmVcDirectlyConnected.setDescription('This value indicates whether an LC-ATM is directly\n      or indirectly (by means of a VP) connected.  If set to\n      true(1), indicates that this interface is directly\n      connected LC-ATM; otherwise, it MUST be set to\n      false(2).  Note that although it can be intimated\n      from RFC 3057 that multiple VPs may be used,\n      in practice only a single one is used, and therefore\n      the authors of this MIB module have chosen to model\n      it as such.')
-mplsLcAtmLcAtmVPI = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 9, 1, 1, 1, 7), AtmVpIdentifier()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsLcAtmLcAtmVPI.setDescription('This is the VPI value used for indirectly\n      connected LC-ATM interfaces.  For these\n      interfaces, the VPI field is not\n      available to MPLS, and the label MUST be\n      encoded entirely within the VCI field\n      (see [RFC3035]).  If the interface is directly\n      connected, this value MUST be set to zero.')
-mplsLcAtmStdIfConfRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 9, 1, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsLcAtmStdIfConfRowStatus.setDescription('This object is used to create and\n        delete entries in this table.  When configuring\n        entries in this table, the corresponding\n        ifEntry and mplsInterfaceConfEntry\n        MUST exist beforehand.  If a manager attempts to\n        create an entry for a corresponding\n        mplsInterfaceConfEntry that does not support LC-ATM,\n        the agent MUST return an inconsistentValue error.\n        If this table is implemented read-only, then the\n        agent must set this object to active(1) when this\n        row is made active.  If this table is implemented\n        writable, then an agent MUST not allow modification\n        to its objects once this value is set to active(1),\n        except to mplsLcAtmStdIfConfRowStatus and\n        mplsLcAtmStdIfConfStorageType.')
-mplsLcAtmStdIfConfStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 9, 1, 1, 1, 9), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsLcAtmStdIfConfStorageType.setDescription("The storage type for this conceptual row.\n        Conceptual rows having the value 'permanent(4)'\n        need not allow write-access to any columnar\n        objects in the row.")
-mplsLcAtmStdCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 9, 2, 1))
-mplsLcAtmStdGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 9, 2, 2))
-mplsLcAtmStdModuleFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 166, 9, 2, 1, 1)).setObjects(*(("MPLS-LC-ATM-STD-MIB", "mplsLcAtmStdIfGroup"),))
-if mibBuilder.loadTexts: mplsLcAtmStdModuleFullCompliance.setDescription('Compliance statement for agents that provide\n        full support for MPLS-LC-ATM-STD-MIB.  Such\n        devices can be monitored and also be configured\n        using this MIB module.')
-mplsLcAtmStdModuleReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 166, 9, 2, 1, 2)).setObjects(*(("MPLS-LC-ATM-STD-MIB", "mplsLcAtmStdIfGroup"),))
-if mibBuilder.loadTexts: mplsLcAtmStdModuleReadOnlyCompliance.setDescription('Compliance requirement for implementations that only\n        provide read-only support for MPLS-LC-ATM-STD-MIB.\n        Such devices can be monitored but cannot be configured\n        using this MIB module.\n       ')
-mplsLcAtmStdIfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 9, 2, 2, 1)).setObjects(*(("MPLS-LC-ATM-STD-MIB", "mplsLcAtmStdCtrlVpi"), ("MPLS-LC-ATM-STD-MIB", "mplsLcAtmStdCtrlVci"), ("MPLS-LC-ATM-STD-MIB", "mplsLcAtmStdUnlabTrafVpi"), ("MPLS-LC-ATM-STD-MIB", "mplsLcAtmStdUnlabTrafVci"), ("MPLS-LC-ATM-STD-MIB", "mplsLcAtmStdVcMerge"), ("MPLS-LC-ATM-STD-MIB", "mplsLcAtmVcDirectlyConnected"), ("MPLS-LC-ATM-STD-MIB", "mplsLcAtmLcAtmVPI"), ("MPLS-LC-ATM-STD-MIB", "mplsLcAtmStdIfConfRowStatus"), ("MPLS-LC-ATM-STD-MIB", "mplsLcAtmStdIfConfStorageType"),))
-if mibBuilder.loadTexts: mplsLcAtmStdIfGroup.setDescription('Collection of objects needed for MPLS LC-ATM\n\n\n\n           interface configuration.')
-mibBuilder.exportSymbols("MPLS-LC-ATM-STD-MIB", mplsLcAtmStdIfConfRowStatus=mplsLcAtmStdIfConfRowStatus, mplsLcAtmVcDirectlyConnected=mplsLcAtmVcDirectlyConnected, mplsLcAtmStdGroups=mplsLcAtmStdGroups, mplsLcAtmStdUnlabTrafVpi=mplsLcAtmStdUnlabTrafVpi, PYSNMP_MODULE_ID=mplsLcAtmStdMIB, mplsLcAtmStdInterfaceConfTable=mplsLcAtmStdInterfaceConfTable, mplsLcAtmLcAtmVPI=mplsLcAtmLcAtmVPI, mplsLcAtmStdIfConfStorageType=mplsLcAtmStdIfConfStorageType, mplsLcAtmStdConformance=mplsLcAtmStdConformance, mplsLcAtmStdModuleFullCompliance=mplsLcAtmStdModuleFullCompliance, mplsLcAtmStdObjects=mplsLcAtmStdObjects, mplsLcAtmStdCtrlVpi=mplsLcAtmStdCtrlVpi, mplsLcAtmStdCompliances=mplsLcAtmStdCompliances, mplsLcAtmStdIfGroup=mplsLcAtmStdIfGroup, mplsLcAtmStdNotifications=mplsLcAtmStdNotifications, mplsLcAtmStdCtrlVci=mplsLcAtmStdCtrlVci, mplsLcAtmStdVcMerge=mplsLcAtmStdVcMerge, mplsLcAtmStdInterfaceConfEntry=mplsLcAtmStdInterfaceConfEntry, mplsLcAtmStdUnlabTrafVci=mplsLcAtmStdUnlabTrafVci, mplsLcAtmStdModuleReadOnlyCompliance=mplsLcAtmStdModuleReadOnlyCompliance, mplsLcAtmStdMIB=mplsLcAtmStdMIB)
+_R='mplsLcAtmStdIfConfStorageType'
+_Q='mplsLcAtmStdIfConfRowStatus'
+_P='mplsLcAtmLcAtmVPI'
+_O='mplsLcAtmVcDirectlyConnected'
+_N='mplsLcAtmStdVcMerge'
+_M='mplsLcAtmStdUnlabTrafVci'
+_L='mplsLcAtmStdUnlabTrafVpi'
+_K='mplsLcAtmStdCtrlVci'
+_J='mplsLcAtmStdCtrlVpi'
+_I='StorageType'
+_H='mplsInterfaceIndex'
+_G='MPLS-LSR-STD-MIB'
+_F='AtmVpIdentifier'
+_E='mplsLcAtmStdIfGroup'
+_D='TruthValue'
+_C='read-create'
+_B='MPLS-LC-ATM-STD-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+AtmVpIdentifier,=mibBuilder.importSymbols('ATM-TC-MIB',_F)
+mplsInterfaceIndex,=mibBuilder.importSymbols(_G,_H)
+MplsAtmVcIdentifier,mplsStdMIB=mibBuilder.importSymbols('MPLS-TC-STD-MIB','MplsAtmVcIdentifier','mplsStdMIB')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_I,'TextualConvention',_D)
+mplsLcAtmStdMIB=ModuleIdentity((1,3,6,1,2,1,10,166,9))
+if mibBuilder.loadTexts:mplsLcAtmStdMIB.setRevisions(('2006-01-12 00:00',))
+_MplsLcAtmStdNotifications_ObjectIdentity=ObjectIdentity
+mplsLcAtmStdNotifications=_MplsLcAtmStdNotifications_ObjectIdentity((1,3,6,1,2,1,10,166,9,0))
+_MplsLcAtmStdObjects_ObjectIdentity=ObjectIdentity
+mplsLcAtmStdObjects=_MplsLcAtmStdObjects_ObjectIdentity((1,3,6,1,2,1,10,166,9,1))
+_MplsLcAtmStdInterfaceConfTable_Object=MibTable
+mplsLcAtmStdInterfaceConfTable=_MplsLcAtmStdInterfaceConfTable_Object((1,3,6,1,2,1,10,166,9,1,1))
+if mibBuilder.loadTexts:mplsLcAtmStdInterfaceConfTable.setStatus(_A)
+_MplsLcAtmStdInterfaceConfEntry_Object=MibTableRow
+mplsLcAtmStdInterfaceConfEntry=_MplsLcAtmStdInterfaceConfEntry_Object((1,3,6,1,2,1,10,166,9,1,1,1))
+mplsLcAtmStdInterfaceConfEntry.setIndexNames((0,_G,_H))
+if mibBuilder.loadTexts:mplsLcAtmStdInterfaceConfEntry.setStatus(_A)
+_MplsLcAtmStdCtrlVpi_Type=AtmVpIdentifier
+_MplsLcAtmStdCtrlVpi_Object=MibTableColumn
+mplsLcAtmStdCtrlVpi=_MplsLcAtmStdCtrlVpi_Object((1,3,6,1,2,1,10,166,9,1,1,1,1),_MplsLcAtmStdCtrlVpi_Type())
+mplsLcAtmStdCtrlVpi.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsLcAtmStdCtrlVpi.setStatus(_A)
+_MplsLcAtmStdCtrlVci_Type=MplsAtmVcIdentifier
+_MplsLcAtmStdCtrlVci_Object=MibTableColumn
+mplsLcAtmStdCtrlVci=_MplsLcAtmStdCtrlVci_Object((1,3,6,1,2,1,10,166,9,1,1,1,2),_MplsLcAtmStdCtrlVci_Type())
+mplsLcAtmStdCtrlVci.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsLcAtmStdCtrlVci.setStatus(_A)
+_MplsLcAtmStdUnlabTrafVpi_Type=AtmVpIdentifier
+_MplsLcAtmStdUnlabTrafVpi_Object=MibTableColumn
+mplsLcAtmStdUnlabTrafVpi=_MplsLcAtmStdUnlabTrafVpi_Object((1,3,6,1,2,1,10,166,9,1,1,1,3),_MplsLcAtmStdUnlabTrafVpi_Type())
+mplsLcAtmStdUnlabTrafVpi.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsLcAtmStdUnlabTrafVpi.setStatus(_A)
+_MplsLcAtmStdUnlabTrafVci_Type=MplsAtmVcIdentifier
+_MplsLcAtmStdUnlabTrafVci_Object=MibTableColumn
+mplsLcAtmStdUnlabTrafVci=_MplsLcAtmStdUnlabTrafVci_Object((1,3,6,1,2,1,10,166,9,1,1,1,4),_MplsLcAtmStdUnlabTrafVci_Type())
+mplsLcAtmStdUnlabTrafVci.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsLcAtmStdUnlabTrafVci.setStatus(_A)
+class _MplsLcAtmStdVcMerge_Type(TruthValue):defaultValue=2
+_MplsLcAtmStdVcMerge_Type.__name__=_D
+_MplsLcAtmStdVcMerge_Object=MibTableColumn
+mplsLcAtmStdVcMerge=_MplsLcAtmStdVcMerge_Object((1,3,6,1,2,1,10,166,9,1,1,1,5),_MplsLcAtmStdVcMerge_Type())
+mplsLcAtmStdVcMerge.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsLcAtmStdVcMerge.setStatus(_A)
+class _MplsLcAtmVcDirectlyConnected_Type(TruthValue):defaultValue=1
+_MplsLcAtmVcDirectlyConnected_Type.__name__=_D
+_MplsLcAtmVcDirectlyConnected_Object=MibTableColumn
+mplsLcAtmVcDirectlyConnected=_MplsLcAtmVcDirectlyConnected_Object((1,3,6,1,2,1,10,166,9,1,1,1,6),_MplsLcAtmVcDirectlyConnected_Type())
+mplsLcAtmVcDirectlyConnected.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsLcAtmVcDirectlyConnected.setStatus(_A)
+class _MplsLcAtmLcAtmVPI_Type(AtmVpIdentifier):defaultValue=0
+_MplsLcAtmLcAtmVPI_Type.__name__=_F
+_MplsLcAtmLcAtmVPI_Object=MibTableColumn
+mplsLcAtmLcAtmVPI=_MplsLcAtmLcAtmVPI_Object((1,3,6,1,2,1,10,166,9,1,1,1,7),_MplsLcAtmLcAtmVPI_Type())
+mplsLcAtmLcAtmVPI.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsLcAtmLcAtmVPI.setStatus(_A)
+_MplsLcAtmStdIfConfRowStatus_Type=RowStatus
+_MplsLcAtmStdIfConfRowStatus_Object=MibTableColumn
+mplsLcAtmStdIfConfRowStatus=_MplsLcAtmStdIfConfRowStatus_Object((1,3,6,1,2,1,10,166,9,1,1,1,8),_MplsLcAtmStdIfConfRowStatus_Type())
+mplsLcAtmStdIfConfRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsLcAtmStdIfConfRowStatus.setStatus(_A)
+class _MplsLcAtmStdIfConfStorageType_Type(StorageType):defaultValue=3
+_MplsLcAtmStdIfConfStorageType_Type.__name__=_I
+_MplsLcAtmStdIfConfStorageType_Object=MibTableColumn
+mplsLcAtmStdIfConfStorageType=_MplsLcAtmStdIfConfStorageType_Object((1,3,6,1,2,1,10,166,9,1,1,1,9),_MplsLcAtmStdIfConfStorageType_Type())
+mplsLcAtmStdIfConfStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsLcAtmStdIfConfStorageType.setStatus(_A)
+_MplsLcAtmStdConformance_ObjectIdentity=ObjectIdentity
+mplsLcAtmStdConformance=_MplsLcAtmStdConformance_ObjectIdentity((1,3,6,1,2,1,10,166,9,2))
+_MplsLcAtmStdCompliances_ObjectIdentity=ObjectIdentity
+mplsLcAtmStdCompliances=_MplsLcAtmStdCompliances_ObjectIdentity((1,3,6,1,2,1,10,166,9,2,1))
+_MplsLcAtmStdGroups_ObjectIdentity=ObjectIdentity
+mplsLcAtmStdGroups=_MplsLcAtmStdGroups_ObjectIdentity((1,3,6,1,2,1,10,166,9,2,2))
+mplsLcAtmStdIfGroup=ObjectGroup((1,3,6,1,2,1,10,166,9,2,2,1))
+mplsLcAtmStdIfGroup.setObjects(*((_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R)))
+if mibBuilder.loadTexts:mplsLcAtmStdIfGroup.setStatus(_A)
+mplsLcAtmStdModuleFullCompliance=ModuleCompliance((1,3,6,1,2,1,10,166,9,2,1,1))
+mplsLcAtmStdModuleFullCompliance.setObjects((_B,_E))
+if mibBuilder.loadTexts:mplsLcAtmStdModuleFullCompliance.setStatus(_A)
+mplsLcAtmStdModuleReadOnlyCompliance=ModuleCompliance((1,3,6,1,2,1,10,166,9,2,1,2))
+mplsLcAtmStdModuleReadOnlyCompliance.setObjects((_B,_E))
+if mibBuilder.loadTexts:mplsLcAtmStdModuleReadOnlyCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'mplsLcAtmStdMIB':mplsLcAtmStdMIB,'mplsLcAtmStdNotifications':mplsLcAtmStdNotifications,'mplsLcAtmStdObjects':mplsLcAtmStdObjects,'mplsLcAtmStdInterfaceConfTable':mplsLcAtmStdInterfaceConfTable,'mplsLcAtmStdInterfaceConfEntry':mplsLcAtmStdInterfaceConfEntry,_J:mplsLcAtmStdCtrlVpi,_K:mplsLcAtmStdCtrlVci,_L:mplsLcAtmStdUnlabTrafVpi,_M:mplsLcAtmStdUnlabTrafVci,_N:mplsLcAtmStdVcMerge,_O:mplsLcAtmVcDirectlyConnected,_P:mplsLcAtmLcAtmVPI,_Q:mplsLcAtmStdIfConfRowStatus,_R:mplsLcAtmStdIfConfStorageType,'mplsLcAtmStdConformance':mplsLcAtmStdConformance,'mplsLcAtmStdCompliances':mplsLcAtmStdCompliances,'mplsLcAtmStdModuleFullCompliance':mplsLcAtmStdModuleFullCompliance,'mplsLcAtmStdModuleReadOnlyCompliance':mplsLcAtmStdModuleReadOnlyCompliance,'mplsLcAtmStdGroups':mplsLcAtmStdGroups,_E:mplsLcAtmStdIfGroup})

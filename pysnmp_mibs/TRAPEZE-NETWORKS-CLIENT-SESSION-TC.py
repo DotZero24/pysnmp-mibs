@@ -1,0 +1,22 @@
+_C='255a'
+_B='wired'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+trpzMibs,=mibBuilder.importSymbols('TRAPEZE-NETWORKS-ROOT-MIB','trpzMibs')
+trpzClientSessionTc=ModuleIdentity((1,3,6,1,4,1,14525,4,10))
+if mibBuilder.loadTexts:trpzClientSessionTc.setRevisions(('2012-04-19 00:40','2011-01-27 00:33','2009-11-30 00:21','2007-10-08 00:10','2006-09-26 00:01'))
+class TrpzUserAccessType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('mac',1),('web',2),('dot1x',3),('last-resort',4),('profile',5)))
+class TrpzClientSessionState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('associated',1),('authorizing',2),('authorized',3),('active',4),('de-associated',5),('roaming-away',6),('updated-to-roam',7),(_B,8),('clearing',9),('invalid',10),('web-authing',11)))
+class TrpzClientDot1xState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('initialize',1),('disconnected',2),('connecting',3),('authenticating',4),('authenticated',5),(_B,6),('aborting',7),('held',8)))
+class TrpzClientAuthenProtocolType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('none',1),('eap-tls',2),('eap-ttls',3),('md5',4),('peap',5),('leap',6),('pass-through',7)))
+class TrpzClientAccessMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('other',1),('ap',2),(_B,3)))
+class TrpzClientDeviceType(TextualConvention,OctetString):status=_A;displayHint=_C;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+class TrpzClientDeviceGroupName(TextualConvention,OctetString):status=_A;displayHint=_C;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+class TrpzClientDeviceProfileName(TextualConvention,OctetString):status=_A;displayHint=_C;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+mibBuilder.exportSymbols('TRAPEZE-NETWORKS-CLIENT-SESSION-TC',**{'TrpzUserAccessType':TrpzUserAccessType,'TrpzClientSessionState':TrpzClientSessionState,'TrpzClientDot1xState':TrpzClientDot1xState,'TrpzClientAuthenProtocolType':TrpzClientAuthenProtocolType,'TrpzClientAccessMode':TrpzClientAccessMode,'TrpzClientDeviceType':TrpzClientDeviceType,'TrpzClientDeviceGroupName':TrpzClientDeviceGroupName,'TrpzClientDeviceProfileName':TrpzClientDeviceProfileName,'trpzClientSessionTc':trpzClientSessionTc})

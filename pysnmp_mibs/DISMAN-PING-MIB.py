@@ -1,154 +1,395 @@
-#
-# PySNMP MIB module DISMAN-PING-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/DISMAN-PING-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:08:09 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, OctetString, Integer, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-( InterfaceIndexOrZero, ) = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-( InetAddress, InetAddressType, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( NotificationGroup, ModuleCompliance, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-( Counter64, Unsigned32, Bits, TimeTicks, ModuleIdentity, NotificationType, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, IpAddress, MibIdentifier, iso, Integer32, mib_2, ObjectIdentity, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "Unsigned32", "Bits", "TimeTicks", "ModuleIdentity", "NotificationType", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "IpAddress", "MibIdentifier", "iso", "Integer32", "mib-2", "ObjectIdentity")
-( RowStatus, TextualConvention, DateAndTime, TruthValue, DisplayString, StorageType, ) = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DateAndTime", "TruthValue", "DisplayString", "StorageType")
-pingMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 80)).setRevisions(("2006-06-13 00:00", "2000-09-21 00:00",))
-if mibBuilder.loadTexts: pingMIB.setLastUpdated('200606130000Z')
-if mibBuilder.loadTexts: pingMIB.setOrganization('IETF Distributed Management Working Group')
-if mibBuilder.loadTexts: pingMIB.setContactInfo('Juergen Quittek\n\n           NEC Europe Ltd.\n           Network Laboratories\n           Kurfuersten-Anlage 36\n           69115 Heidelberg\n           Germany\n\n           Phone: +49 6221 4342-115\n           Email: quittek@netlab.nec.de')
-if mibBuilder.loadTexts: pingMIB.setDescription('The Ping MIB (DISMAN-PING-MIB) provides the capability of\n           controlling the use of the ping function at a remote\n           host.\n\n           Copyright (C) The Internet Society (2006).  This version of\n           this MIB module is part of RFC 4560; see the RFC itself for\n           full legal notices.')
-class OperationResponseStatus(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,))
-    namedValues = NamedValues(("responseReceived", 1), ("unknown", 2), ("internalError", 3), ("requestTimedOut", 4), ("unknownDestinationAddress", 5), ("noRouteToTarget", 6), ("interfaceInactiveToTarget", 7), ("arpFailure", 8), ("maxConcurrentLimitReached", 9), ("unableToResolveDnsName", 10), ("invalidHostAddress", 11),)
-
-pingNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 80, 0))
-pingObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 80, 1))
-pingConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 80, 2))
-pingImplementationTypeDomains = MibIdentifier((1, 3, 6, 1, 2, 1, 80, 3))
-pingIcmpEcho = ObjectIdentity((1, 3, 6, 1, 2, 1, 80, 3, 1))
-if mibBuilder.loadTexts: pingIcmpEcho.setDescription("Indicates that an implementation is using the Internet\n           Control Message Protocol (ICMP) 'ECHO' facility.")
-pingUdpEcho = ObjectIdentity((1, 3, 6, 1, 2, 1, 80, 3, 2))
-if mibBuilder.loadTexts: pingUdpEcho.setDescription('Indicates that an implementation is using the UDP echo\n           port (7).')
-pingSnmpQuery = ObjectIdentity((1, 3, 6, 1, 2, 1, 80, 3, 3))
-if mibBuilder.loadTexts: pingSnmpQuery.setDescription('Indicates that an implementation is using an SNMP query\n            to calculate a round trip time.')
-pingTcpConnectionAttempt = ObjectIdentity((1, 3, 6, 1, 2, 1, 80, 3, 4))
-if mibBuilder.loadTexts: pingTcpConnectionAttempt.setDescription('Indicates that an implementation is attempting to\n           connect to a TCP port in order to calculate a round\n           trip time.')
-pingMaxConcurrentRequests = MibScalar((1, 3, 6, 1, 2, 1, 80, 1, 1), Unsigned32().clone(10)).setUnits('requests').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pingMaxConcurrentRequests.setDescription('The maximum number of concurrent active ping requests\n          that are allowed within an agent implementation.  A value\n          of 0 for this object implies that there is no limit for\n          the number of concurrent active requests in effect.\n          The limit applies only to new requests being activated.\n          When a new value is set, the agent will continue processing\n          all the requests already active, even if their number\n          exceeds the limit just imposed.')
-pingCtlTable = MibTable((1, 3, 6, 1, 2, 1, 80, 1, 2), )
-if mibBuilder.loadTexts: pingCtlTable.setDescription('Defines the ping Control Table for providing, via SNMP,\n           the capability of performing ping operations at\n           a remote host.  The results of these operations are\n           stored in the pingResultsTable and the\n           pingProbeHistoryTable.')
-pingCtlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 80, 1, 2, 1), ).setIndexNames((0, "DISMAN-PING-MIB", "pingCtlOwnerIndex"), (0, "DISMAN-PING-MIB", "pingCtlTestName"))
-if mibBuilder.loadTexts: pingCtlEntry.setDescription('Defines an entry in the pingCtlTable.  The first index\n           element, pingCtlOwnerIndex, is of type SnmpAdminString,\n           a textual convention that allows for use of the SNMPv3\n           View-Based Access Control Model (RFC 3415, VACM)\n           and that allows a management application to identify its\n           entries.  The second index, pingCtlTestName (also an\n           SnmpAdminString), enables the same management\n           application to have multiple outstanding requests.')
-pingCtlOwnerIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,32)))
-if mibBuilder.loadTexts: pingCtlOwnerIndex.setDescription("To facilitate the provisioning of access control by a\n          security administrator using the View-Based Access\n          Control Model (RFC 2575, VACM) for tables in which\n          multiple users may need to create or\n          modify entries independently, the initial index is used\n          as an 'owner index'.  Such an initial index has a syntax\n          of SnmpAdminString and can thus be trivially mapped to a\n          securityName or groupName defined in VACM, in\n          accordance with a security policy.\n\n          When used in conjunction with such a security policy, all\n          entries in the table belonging to a particular user (or\n          group) will have the same value for this initial index.\n          For a given user's entries in a particular table, the\n          object identifiers for the information in these entries\n          will have the same subidentifiers (except for the 'column'\n          subidentifier) up to the end of the encoded owner index.\n          To configure VACM to permit access to this portion of the\n          table, one would create vacmViewTreeFamilyTable entries\n          with the value of vacmViewTreeFamilySubtree including\n          the owner index portion, and vacmViewTreeFamilyMask\n          'wildcarding' the column subidentifier.  More elaborate\n          configurations are possible.")
-pingCtlTestName = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,32)))
-if mibBuilder.loadTexts: pingCtlTestName.setDescription('The name of the ping test.  This is locally unique, within\n           the scope of a pingCtlOwnerIndex.')
-pingCtlTargetAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 3), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlTargetAddressType.setDescription('Specifies the type of host address to be used at a remote\n           host for performing a ping operation.')
-pingCtlTargetAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 4), InetAddress().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlTargetAddress.setDescription('Specifies the host address to be used at a remote host for\n           performing a ping operation.  The host address type is\n           determined by the value of the corresponding\n           pingCtlTargetAddressType.\n\n           A value for this object MUST be set prior to transitioning\n           its corresponding pingCtlEntry to active(1) via\n           pingCtlRowStatus.')
-pingCtlDataSize = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65507))).setUnits('octets').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlDataSize.setDescription('Specifies the size of the data portion to be\n           transmitted in a ping operation, in octets.  Whether this\n           value can be applied depends on the selected\n           implementation method for performing a ping operation,\n           indicated by pingCtlType in the same conceptual row.\n           If the method used allows applying the value contained\n           in this object, then it MUST be applied.  If the specified\n           size is not appropriate for the chosen ping method, the\n           implementation SHOULD use whatever size (appropriate to\n           the method) is closest to the specified size.\n\n           The maximum value for this object was computed by\n           subtracting the smallest possible IP header size of\n           20 octets (IPv4 header with no options) and the UDP\n           header size of 8 octets from the maximum IP packet size.\n           An IP packet has a maximum size of 65535 octets\n           (excluding IPv6 Jumbograms).')
-pingCtlTimeOut = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,60)).clone(3)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlTimeOut.setDescription('Specifies the time-out value, in seconds, for a\n           remote ping operation.')
-pingCtlProbeCount = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,15)).clone(1)).setUnits('probes').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlProbeCount.setDescription('Specifies the number of times to perform a ping\n           operation at a remote host as part of a single ping test.')
-pingCtlAdminStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),)).clone('disabled')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlAdminStatus.setDescription('Reflects the desired state that a pingCtlEntry should be\n           in:\n              enabled(1)  - Attempt to activate the test as defined by\n                            this pingCtlEntry.\n              disabled(2) - Deactivate the test as defined by this\n                            pingCtlEntry.\n\n           Refer to the corresponding pingResultsOperStatus to\n           determine the operational state of the test defined by\n           this entry.')
-pingCtlDataFill = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,1024)).clone(hexValue="00")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlDataFill.setDescription('The content of this object is used together with the\n           corresponding pingCtlDataSize value to determine how to\n           fill the data portion of a probe packet.  The option of\n           selecting a data fill pattern can be useful when links\n           are compressed or have data pattern sensitivities.  The\n           contents of pingCtlDataFill should be repeated in a ping\n           packet when the size of the data portion of the ping\n           packet is greater than the size of pingCtlDataFill.')
-pingCtlFrequency = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 10), Unsigned32()).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlFrequency.setDescription('The number of seconds to wait before repeating a ping test\n           as defined by the value of the various objects in the\n           corresponding row.\n\n           A single ping test consists of a series of ping probes.\n           The number of probes is determined by the value of the\n           corresponding pingCtlProbeCount object.  After a single\n           test is completed the number of seconds as defined by the\n           value of pingCtlFrequency MUST elapse before the\n           next ping test is started.\n\n           A value of 0 for this object implies that the test\n           as defined by the corresponding entry will not be\n           repeated.')
-pingCtlMaxRows = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 11), Unsigned32().clone(50)).setUnits('rows').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlMaxRows.setDescription('The maximum number of corresponding entries allowed\n           in the pingProbeHistoryTable.  An implementation of this\n           MIB will remove the oldest corresponding entry in the\n           pingProbeHistoryTable to allow the addition of an\n           new entry once the number of corresponding rows in the\n           pingProbeHistoryTable reaches this value.\n\n           Old entries are not removed when a new test is\n           started.  Entries are added to the pingProbeHistoryTable\n           until pingCtlMaxRows is reached before entries begin to\n           be removed.\n\n           A value of 0 for this object disables creation of\n           pingProbeHistoryTable entries.')
-pingCtlStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 12), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlStorageType.setDescription("The storage type for this conceptual row.\n           Conceptual rows having the value 'permanent' need not\n           allow write-access to any columnar objects in the row.")
-pingCtlTrapGeneration = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 13), Bits().clone(namedValues=NamedValues(("probeFailure", 0), ("testFailure", 1), ("testCompletion", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlTrapGeneration.setDescription('The value of this object determines when and whether\n           to generate a notification for this entry:\n           probeFailure(0)   - Generate a pingProbeFailed\n               notification subject to the value of\n               pingCtlTrapProbeFailureFilter.  The object\n               pingCtlTrapProbeFailureFilter can be used\n               to specify the number of consecutive probe\n               failures that are required before a\n               pingProbeFailed notification can be generated.\n           testFailure(1)    - Generate a pingTestFailed\n               notification.  In this instance the object\n               pingCtlTrapTestFailureFilter can be used to\n               determine the number of probe failures that\n               signal when a test fails.\n           testCompletion(2) - Generate a pingTestCompleted\n               notification.\n\n           By default, no bits are set, indicating that\n           none of the above options is selected.')
-pingCtlTrapProbeFailureFilter = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,15)).clone(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlTrapProbeFailureFilter.setDescription("The value of this object is used to determine when\n           to generate a pingProbeFailed NOTIFICATION.\n\n           Setting BIT probeFailure(0) of object\n           pingCtlTrapGeneration to '1' implies that a\n           pingProbeFailed NOTIFICATION is generated only when\n\n           a number of consecutive ping probes equal to the\n           value of pingCtlTrapProbeFailureFilter fail within\n           a given ping test.  After triggering the notification,\n           the probe failure counter is reset to zero.")
-pingCtlTrapTestFailureFilter = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,15)).clone(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlTrapTestFailureFilter.setDescription("The value of this object is used to determine when\n           to generate a pingTestFailed NOTIFICATION.\n\n           Setting BIT testFailure(1) of object\n           pingCtlTrapGeneration to '1' implies that a\n           pingTestFailed NOTIFICATION is generated only when\n           a number of consecutive ping tests equal to the\n           value of pingCtlTrapProbeFailureFilter fail.\n           After triggering the notification, the test failure\n           counter is reset to zero.")
-pingCtlType = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 16), ObjectIdentifier().clone((1, 3, 6, 1, 2, 1, 80, 3, 1))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlType.setDescription('The value of this object is used either to report or\n           to select the implementation method to be used for\n           calculating a ping response time.  The value of this\n           object MAY be selected from pingImplementationTypeDomains.\n\n           Additional implementation types SHOULD be allocated as\n           required by implementers of the DISMAN-PING-MIB under\n           their enterprise-specific registration point and not\n           beneath pingImplementationTypeDomains.')
-pingCtlDescr = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 17), SnmpAdminString().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlDescr.setDescription('The purpose of this object is to provide a\n           descriptive name of the remote ping test.')
-pingCtlSourceAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 18), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlSourceAddressType.setDescription('Specifies the type of the source address,\n           pingCtlSourceAddress, to be used at a remote host\n           when a ping operation is performed.')
-pingCtlSourceAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 19), InetAddress().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlSourceAddress.setDescription("Use the specified IP address (which must be given in\n           numeric form, not as a hostname) as the source address\n           in outgoing probe packets.  On hosts with more than one\n           IP address, this option can be used to select the address\n           to be used.  If the IP address is not one of this\n           machine's interface addresses, an error is returned and\n           nothing is sent.  A zero-length octet string value for\n           this object disables source address specification.\n\n           The address type (InetAddressType) that relates to\n           this object is specified by the corresponding value\n           of pingCtlSourceAddressType.")
-pingCtlIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 20), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlIfIndex.setDescription("Setting this object to an interface's ifIndex prior\n           to starting a remote ping operation directs\n           the ping probes to be transmitted over the\n           specified interface.  A value of zero for this object\n           means that this option is not enabled.")
-pingCtlByPassRouteTable = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 21), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlByPassRouteTable.setDescription('The purpose of this object is to enable optional\n          bypassing the route table.  If enabled, the remote\n          host will bypass the normal routing tables and send\n          directly to a host on an attached network.  If the\n          host is not on a directly attached network, an\n          error is returned.  This option can be used to perform\n          the ping operation to a local host through an\n          interface that has no route defined (e.g., after the\n          interface was dropped by the routing daemon at the host).')
-pingCtlDSField = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 22), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlDSField.setDescription('Specifies the value to store in the Type of Service\n           (TOS) octet in the IPv4 header or in the Traffic\n           Class octet in the IPv6 header, respectively, of the\n           IP packet used to encapsulate the ping probe.\n\n           The octet to be set in the IP header contains the\n           Differentiated Services (DS) Field in the six most\n           significant bits.\n\n           This option can be used to determine what effect an\n           explicit DS Field setting has on a ping response.\n           Not all values are legal or meaningful.  A value of 0\n           means that the function represented by this option is\n           not supported.  DS Field usage is often not supported\n           by IP implementations, and not all values are supported.\n           Refer to RFC 2474 and RFC 3260 for guidance on usage of\n           this field.')
-pingCtlRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 2, 1, 23), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pingCtlRowStatus.setDescription("This object allows entries to be created and deleted\n           in the pingCtlTable.  Deletion of an entry in this\n           table results in the deletion of all corresponding (same\n           pingCtlOwnerIndex and pingCtlTestName index values)\n           pingResultsTable and pingProbeHistoryTable entries.\n\n           A value MUST be specified for pingCtlTargetAddress\n           prior to acceptance of a transition to active(1) state.\n\n           When a value for pingCtlTargetAddress is set,\n           the value of object pingCtlRowStatus changes\n           from notReady(3) to notInService(2).\n\n           Activation of a remote ping operation is controlled\n           via pingCtlAdminStatus, not by changing\n           this object's value to active(1).\n\n           Transitions in and out of active(1) state are not\n           allowed while an entry's pingResultsOperStatus is\n           active(1), with the exception that deletion of\n           an entry in this table by setting its RowStatus\n           object to destroy(6) will stop an active\n           ping operation.\n\n           The operational state of a ping operation\n           can be determined by examination of its\n           pingResultsOperStatus object.")
-pingResultsTable = MibTable((1, 3, 6, 1, 2, 1, 80, 1, 3), )
-if mibBuilder.loadTexts: pingResultsTable.setDescription('Defines the Ping Results Table for providing\n           the capability of performing ping operations at\n           a remote host.  The results of these operations are\n           stored in the pingResultsTable and the pingProbeHistoryTable.\n\n           An entry is added to the pingResultsTable when an\n           pingCtlEntry is started by successful transition\n           of its pingCtlAdminStatus object to enabled(1).\n\n           If the object pingCtlAdminStatus already has the value\n           enabled(1), and if the corresponding pingResultsOperStatus\n           object has the value completed(3), then successfully writing\n           enabled(1) to object pingCtlAdminStatus re-initializes the\n           already existing entry in the pingResultsTable.  The values\n           of objects in the re-initialized entry are the same as the\n           values of objects in a new entry would be.\n\n           An entry is removed from the pingResultsTable when\n           its corresponding pingCtlEntry is deleted.')
-pingResultsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 80, 1, 3, 1), ).setIndexNames((0, "DISMAN-PING-MIB", "pingCtlOwnerIndex"), (0, "DISMAN-PING-MIB", "pingCtlTestName"))
-if mibBuilder.loadTexts: pingResultsEntry.setDescription('Defines an entry in the pingResultsTable.  The\n           pingResultsTable has the same indexing as the\n           pingCtlTable so that a pingResultsEntry\n           corresponds to the pingCtlEntry that caused it to\n           be created.')
-pingResultsOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2), ("completed", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pingResultsOperStatus.setDescription('Reflects the operational state of a pingCtlEntry:\n\n              enabled(1)    - Test is active.\n              disabled(2)   - Test has stopped.\n              completed(3)  - Test is completed.')
-pingResultsIpTargetAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 3, 1, 2), InetAddressType().clone('unknown')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pingResultsIpTargetAddressType.setDescription('This object indicates the type of address stored\n           in the corresponding pingResultsIpTargetAddress\n           object.')
-pingResultsIpTargetAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 3, 1, 3), InetAddress().clone(hexValue="")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pingResultsIpTargetAddress.setDescription('This object reports the IP address associated\n           with a pingCtlTargetAddress value when the destination\n           address is specified as a DNS name.  The value of\n           this object should be a zero-length octet string\n           when a DNS name is not specified or when a\n           specified DNS name fails to resolve.\n\n           The address type (InetAddressType) that relates to\n           this object is specified by the corresponding value\n           of pingResultsIpTargetAddressType.')
-pingResultsMinRtt = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 3, 1, 4), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pingResultsMinRtt.setDescription('The minimum ping round-trip-time (RTT) received.  A value\n           of 0 for this object implies that no RTT has been received.')
-pingResultsMaxRtt = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 3, 1, 5), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pingResultsMaxRtt.setDescription('The maximum ping round-trip-time (RTT) received.  A value\n           of 0 for this object implies that no RTT has been received.')
-pingResultsAverageRtt = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 3, 1, 6), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pingResultsAverageRtt.setDescription('The current average ping round-trip-time (RTT).')
-pingResultsProbeResponses = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 3, 1, 7), Gauge32()).setUnits('responses').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pingResultsProbeResponses.setDescription('Number of responses received for the corresponding\n           pingCtlEntry and pingResultsEntry.  The value of this object\n           MUST be reported as 0 when no probe responses have been\n           received.')
-pingResultsSentProbes = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 3, 1, 8), Gauge32()).setUnits('probes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pingResultsSentProbes.setDescription('The value of this object reflects the number of probes sent\n           for the corresponding pingCtlEntry and pingResultsEntry.\n           The value of this object MUST be reported as 0 when no probes\n           have been sent.')
-pingResultsRttSumOfSquares = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 3, 1, 9), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pingResultsRttSumOfSquares.setDescription('This object contains the sum of the squares for all ping\n           responses received.  Its purpose is to enable standard\n           deviation calculation.  The value of this object MUST\n           be reported as 0 when no ping responses have been\n           received.')
-pingResultsLastGoodProbe = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 3, 1, 10), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pingResultsLastGoodProbe.setDescription('Date and time when the last response was received for\n           a probe.')
-pingProbeHistoryTable = MibTable((1, 3, 6, 1, 2, 1, 80, 1, 4), )
-if mibBuilder.loadTexts: pingProbeHistoryTable.setDescription('Defines a table for storing the results of ping\n           operations.  The number of entries in this table is\n           limited per entry in the pingCtlTable by the value\n           of the corresponding pingCtlMaxRows object.\n\n           An entry in this table is created when the result of\n           a ping probe is determined.  The initial 2 instance\n           identifier index values identify the pingCtlEntry\n           that a probe result (pingProbeHistoryEntry) belongs\n           to.  An entry is removed from this table when\n           its corresponding pingCtlEntry is deleted.\n\n           An implementation of this MIB will remove the oldest\n           entry in the pingProbeHistoryTable of the\n           corresponding entry in the pingCtlTable to allow\n           the addition of an new entry once the number of rows\n           in the pingProbeHistoryTable reaches the value\n           specified by pingCtlMaxRows for the corresponding\n           entry in the pingCtlTable.')
-pingProbeHistoryEntry = MibTableRow((1, 3, 6, 1, 2, 1, 80, 1, 4, 1), ).setIndexNames((0, "DISMAN-PING-MIB", "pingCtlOwnerIndex"), (0, "DISMAN-PING-MIB", "pingCtlTestName"), (0, "DISMAN-PING-MIB", "pingProbeHistoryIndex"))
-if mibBuilder.loadTexts: pingProbeHistoryEntry.setDescription('Defines an entry in the pingProbeHistoryTable.\n           The first two index elements identify the\n           pingCtlEntry that a pingProbeHistoryEntry belongs\n           to.  The third index element selects a single\n           probe result.')
-pingProbeHistoryIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 4, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: pingProbeHistoryIndex.setDescription("An entry in this table is created when the result of\n           a ping probe is determined.  The initial 2 instance\n           identifier index values identify the pingCtlEntry\n           that a probe result (pingProbeHistoryEntry) belongs\n           to.\n\n           An implementation MUST start assigning\n           pingProbeHistoryIndex values at 1 and wrap after\n           exceeding the maximum possible value as defined by\n           the limit of this object ('ffffffff'h).")
-pingProbeHistoryResponse = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 4, 1, 2), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pingProbeHistoryResponse.setDescription('The amount of time measured in milliseconds from when\n           a probe was sent to when its response was received or\n           when it timed out.  The value of this object is reported\n           as 0 when it is not possible to transmit a probe.')
-pingProbeHistoryStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 4, 1, 3), OperationResponseStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pingProbeHistoryStatus.setDescription('The result of a particular probe done by a remote host.')
-pingProbeHistoryLastRC = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 4, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pingProbeHistoryLastRC.setDescription('The last implementation-method-specific reply code received.\n           If the ICMP Echo capability is being used, then a successful\n           probe ends when an ICMP response is received that contains\n           the code ICMP_ECHOREPLY(0).  The ICMP codes are maintained\n           by IANA.  Standardized ICMP codes are listed at\n           http://www.iana.org/assignments/icmp-parameters.\n           The ICMPv6 codes are listed at\n           http://www.iana.org/assignments/icmpv6-parameters.')
-pingProbeHistoryTime = MibTableColumn((1, 3, 6, 1, 2, 1, 80, 1, 4, 1, 5), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pingProbeHistoryTime.setDescription('Timestamp for when this probe result was determined.')
-pingProbeFailed = NotificationType((1, 3, 6, 1, 2, 1, 80, 0, 1)).setObjects(*(("DISMAN-PING-MIB", "pingCtlTargetAddressType"), ("DISMAN-PING-MIB", "pingCtlTargetAddress"), ("DISMAN-PING-MIB", "pingResultsOperStatus"), ("DISMAN-PING-MIB", "pingResultsIpTargetAddressType"), ("DISMAN-PING-MIB", "pingResultsIpTargetAddress"), ("DISMAN-PING-MIB", "pingResultsMinRtt"), ("DISMAN-PING-MIB", "pingResultsMaxRtt"), ("DISMAN-PING-MIB", "pingResultsAverageRtt"), ("DISMAN-PING-MIB", "pingResultsProbeResponses"), ("DISMAN-PING-MIB", "pingResultsSentProbes"), ("DISMAN-PING-MIB", "pingResultsRttSumOfSquares"), ("DISMAN-PING-MIB", "pingResultsLastGoodProbe"),))
-if mibBuilder.loadTexts: pingProbeFailed.setDescription('Generated when a probe failure is detected, when the\n             corresponding pingCtlTrapGeneration object is set to\n             probeFailure(0), subject to the value of\n             pingCtlTrapProbeFailureFilter.  The object\n             pingCtlTrapProbeFailureFilter can be used to specify the\n             number of consecutive probe failures that are required\n             before this notification can be generated.')
-pingTestFailed = NotificationType((1, 3, 6, 1, 2, 1, 80, 0, 2)).setObjects(*(("DISMAN-PING-MIB", "pingCtlTargetAddressType"), ("DISMAN-PING-MIB", "pingCtlTargetAddress"), ("DISMAN-PING-MIB", "pingResultsOperStatus"), ("DISMAN-PING-MIB", "pingResultsIpTargetAddressType"), ("DISMAN-PING-MIB", "pingResultsIpTargetAddress"), ("DISMAN-PING-MIB", "pingResultsMinRtt"), ("DISMAN-PING-MIB", "pingResultsMaxRtt"), ("DISMAN-PING-MIB", "pingResultsAverageRtt"), ("DISMAN-PING-MIB", "pingResultsProbeResponses"), ("DISMAN-PING-MIB", "pingResultsSentProbes"), ("DISMAN-PING-MIB", "pingResultsRttSumOfSquares"), ("DISMAN-PING-MIB", "pingResultsLastGoodProbe"),))
-if mibBuilder.loadTexts: pingTestFailed.setDescription('Generated when a ping test is determined to have failed,\n             when the corresponding pingCtlTrapGeneration object is\n             set to testFailure(1).  In this instance,\n             pingCtlTrapTestFailureFilter should specify the number of\n             probes in a test required to have failed in order to\n             consider the test failed.')
-pingTestCompleted = NotificationType((1, 3, 6, 1, 2, 1, 80, 0, 3)).setObjects(*(("DISMAN-PING-MIB", "pingCtlTargetAddressType"), ("DISMAN-PING-MIB", "pingCtlTargetAddress"), ("DISMAN-PING-MIB", "pingResultsOperStatus"), ("DISMAN-PING-MIB", "pingResultsIpTargetAddressType"), ("DISMAN-PING-MIB", "pingResultsIpTargetAddress"), ("DISMAN-PING-MIB", "pingResultsMinRtt"), ("DISMAN-PING-MIB", "pingResultsMaxRtt"), ("DISMAN-PING-MIB", "pingResultsAverageRtt"), ("DISMAN-PING-MIB", "pingResultsProbeResponses"), ("DISMAN-PING-MIB", "pingResultsSentProbes"), ("DISMAN-PING-MIB", "pingResultsRttSumOfSquares"), ("DISMAN-PING-MIB", "pingResultsLastGoodProbe"),))
-if mibBuilder.loadTexts: pingTestCompleted.setDescription('Generated at the completion of a ping test when the\n             corresponding pingCtlTrapGeneration object has the\n             testCompletion(2) bit set.')
-pingCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 80, 2, 1))
-pingGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 80, 2, 2))
-pingFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 80, 2, 1, 2)).setObjects(*(("DISMAN-PING-MIB", "pingMinimumGroup"), ("DISMAN-PING-MIB", "pingCtlRowStatusGroup"), ("DISMAN-PING-MIB", "pingHistoryGroup"), ("DISMAN-PING-MIB", "pingNotificationsGroup"),))
-if mibBuilder.loadTexts: pingFullCompliance.setDescription('The compliance statement for SNMP entities that\n               fully implement the DISMAN-PING-MIB.')
-pingMinimumCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 80, 2, 1, 3)).setObjects(*(("DISMAN-PING-MIB", "pingMinimumGroup"), ("DISMAN-PING-MIB", "pingCtlRowStatusGroup"), ("DISMAN-PING-MIB", "pingHistoryGroup"), ("DISMAN-PING-MIB", "pingNotificationsGroup"),))
-if mibBuilder.loadTexts: pingMinimumCompliance.setDescription('The minimum compliance statement for SNMP entities\n               that implement the minimal subset of the\n               DISMAN-PING-MIB.  Implementors might choose this\n               subset for small devices with limited resources.')
-pingCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 80, 2, 1, 1)).setObjects(*(("DISMAN-PING-MIB", "pingGroup"), ("DISMAN-PING-MIB", "pingNotificationsGroup"), ("DISMAN-PING-MIB", "pingTimeStampGroup"),))
-if mibBuilder.loadTexts: pingCompliance.setDescription('The compliance statement for the DISMAN-PING-MIB.  This\n               compliance statement has been deprecated because the\n               group pingGroup and the pingTimeStampGroup have been\n               split and deprecated.  The pingFullCompliance statement\n               is semantically identical to the deprecated\n               pingCompliance statement.')
-pingMinimumGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 80, 2, 2, 4)).setObjects(*(("DISMAN-PING-MIB", "pingMaxConcurrentRequests"), ("DISMAN-PING-MIB", "pingCtlTargetAddressType"), ("DISMAN-PING-MIB", "pingCtlTargetAddress"), ("DISMAN-PING-MIB", "pingCtlDataSize"), ("DISMAN-PING-MIB", "pingCtlTimeOut"), ("DISMAN-PING-MIB", "pingCtlProbeCount"), ("DISMAN-PING-MIB", "pingCtlAdminStatus"), ("DISMAN-PING-MIB", "pingCtlDataFill"), ("DISMAN-PING-MIB", "pingCtlFrequency"), ("DISMAN-PING-MIB", "pingCtlMaxRows"), ("DISMAN-PING-MIB", "pingCtlStorageType"), ("DISMAN-PING-MIB", "pingCtlTrapGeneration"), ("DISMAN-PING-MIB", "pingCtlTrapProbeFailureFilter"), ("DISMAN-PING-MIB", "pingCtlTrapTestFailureFilter"), ("DISMAN-PING-MIB", "pingCtlType"), ("DISMAN-PING-MIB", "pingCtlDescr"), ("DISMAN-PING-MIB", "pingCtlByPassRouteTable"), ("DISMAN-PING-MIB", "pingCtlSourceAddressType"), ("DISMAN-PING-MIB", "pingCtlSourceAddress"), ("DISMAN-PING-MIB", "pingCtlIfIndex"), ("DISMAN-PING-MIB", "pingCtlDSField"), ("DISMAN-PING-MIB", "pingResultsOperStatus"), ("DISMAN-PING-MIB", "pingResultsIpTargetAddressType"), ("DISMAN-PING-MIB", "pingResultsIpTargetAddress"), ("DISMAN-PING-MIB", "pingResultsMinRtt"), ("DISMAN-PING-MIB", "pingResultsMaxRtt"), ("DISMAN-PING-MIB", "pingResultsAverageRtt"), ("DISMAN-PING-MIB", "pingResultsProbeResponses"), ("DISMAN-PING-MIB", "pingResultsSentProbes"), ("DISMAN-PING-MIB", "pingResultsRttSumOfSquares"), ("DISMAN-PING-MIB", "pingResultsLastGoodProbe"),))
-if mibBuilder.loadTexts: pingMinimumGroup.setDescription('The group of objects that constitute the remote ping\n          capability.')
-pingCtlRowStatusGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 80, 2, 2, 5)).setObjects(*(("DISMAN-PING-MIB", "pingCtlRowStatus"),))
-if mibBuilder.loadTexts: pingCtlRowStatusGroup.setDescription('The RowStatus object of the pingCtlTable.')
-pingHistoryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 80, 2, 2, 6)).setObjects(*(("DISMAN-PING-MIB", "pingProbeHistoryResponse"), ("DISMAN-PING-MIB", "pingProbeHistoryStatus"), ("DISMAN-PING-MIB", "pingProbeHistoryLastRC"), ("DISMAN-PING-MIB", "pingProbeHistoryTime"),))
-if mibBuilder.loadTexts: pingHistoryGroup.setDescription('The group of objects that constitute the history\n          capability.')
-pingNotificationsGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 80, 2, 2, 3)).setObjects(*(("DISMAN-PING-MIB", "pingProbeFailed"), ("DISMAN-PING-MIB", "pingTestFailed"), ("DISMAN-PING-MIB", "pingTestCompleted"),))
-if mibBuilder.loadTexts: pingNotificationsGroup.setDescription('The notification that are required to be supported by\n          implementations of this MIB.')
-pingGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 80, 2, 2, 1)).setObjects(*(("DISMAN-PING-MIB", "pingMaxConcurrentRequests"), ("DISMAN-PING-MIB", "pingCtlTargetAddressType"), ("DISMAN-PING-MIB", "pingCtlTargetAddress"), ("DISMAN-PING-MIB", "pingCtlDataSize"), ("DISMAN-PING-MIB", "pingCtlTimeOut"), ("DISMAN-PING-MIB", "pingCtlProbeCount"), ("DISMAN-PING-MIB", "pingCtlAdminStatus"), ("DISMAN-PING-MIB", "pingCtlDataFill"), ("DISMAN-PING-MIB", "pingCtlFrequency"), ("DISMAN-PING-MIB", "pingCtlMaxRows"), ("DISMAN-PING-MIB", "pingCtlStorageType"), ("DISMAN-PING-MIB", "pingCtlTrapGeneration"), ("DISMAN-PING-MIB", "pingCtlTrapProbeFailureFilter"), ("DISMAN-PING-MIB", "pingCtlTrapTestFailureFilter"), ("DISMAN-PING-MIB", "pingCtlType"), ("DISMAN-PING-MIB", "pingCtlDescr"), ("DISMAN-PING-MIB", "pingCtlByPassRouteTable"), ("DISMAN-PING-MIB", "pingCtlSourceAddressType"), ("DISMAN-PING-MIB", "pingCtlSourceAddress"), ("DISMAN-PING-MIB", "pingCtlIfIndex"), ("DISMAN-PING-MIB", "pingCtlDSField"), ("DISMAN-PING-MIB", "pingCtlRowStatus"), ("DISMAN-PING-MIB", "pingResultsOperStatus"), ("DISMAN-PING-MIB", "pingResultsIpTargetAddressType"), ("DISMAN-PING-MIB", "pingResultsIpTargetAddress"), ("DISMAN-PING-MIB", "pingResultsMinRtt"), ("DISMAN-PING-MIB", "pingResultsMaxRtt"), ("DISMAN-PING-MIB", "pingResultsAverageRtt"), ("DISMAN-PING-MIB", "pingResultsProbeResponses"), ("DISMAN-PING-MIB", "pingResultsSentProbes"), ("DISMAN-PING-MIB", "pingResultsRttSumOfSquares"), ("DISMAN-PING-MIB", "pingProbeHistoryResponse"), ("DISMAN-PING-MIB", "pingProbeHistoryStatus"), ("DISMAN-PING-MIB", "pingProbeHistoryLastRC"),))
-if mibBuilder.loadTexts: pingGroup.setDescription('The group of objects that constitute the remote ping\n          capability.')
-pingTimeStampGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 80, 2, 2, 2)).setObjects(*(("DISMAN-PING-MIB", "pingResultsLastGoodProbe"), ("DISMAN-PING-MIB", "pingProbeHistoryTime"),))
-if mibBuilder.loadTexts: pingTimeStampGroup.setDescription('The group of DateAndTime objects.')
-mibBuilder.exportSymbols("DISMAN-PING-MIB", pingProbeHistoryEntry=pingProbeHistoryEntry, pingCtlEntry=pingCtlEntry, pingTestCompleted=pingTestCompleted, pingCtlTargetAddress=pingCtlTargetAddress, pingTestFailed=pingTestFailed, pingGroup=pingGroup, pingSnmpQuery=pingSnmpQuery, pingFullCompliance=pingFullCompliance, pingCtlOwnerIndex=pingCtlOwnerIndex, pingCtlType=pingCtlType, pingCtlRowStatusGroup=pingCtlRowStatusGroup, pingProbeHistoryLastRC=pingProbeHistoryLastRC, pingResultsOperStatus=pingResultsOperStatus, pingCtlTestName=pingCtlTestName, pingCtlRowStatus=pingCtlRowStatus, OperationResponseStatus=OperationResponseStatus, pingIcmpEcho=pingIcmpEcho, pingCtlByPassRouteTable=pingCtlByPassRouteTable, pingResultsLastGoodProbe=pingResultsLastGoodProbe, pingResultsMaxRtt=pingResultsMaxRtt, pingProbeHistoryResponse=pingProbeHistoryResponse, pingCtlDataFill=pingCtlDataFill, pingCtlTrapTestFailureFilter=pingCtlTrapTestFailureFilter, pingResultsTable=pingResultsTable, pingCtlTable=pingCtlTable, pingHistoryGroup=pingHistoryGroup, pingCtlFrequency=pingCtlFrequency, pingCtlDSField=pingCtlDSField, pingImplementationTypeDomains=pingImplementationTypeDomains, PYSNMP_MODULE_ID=pingMIB, pingResultsIpTargetAddress=pingResultsIpTargetAddress, pingResultsAverageRtt=pingResultsAverageRtt, pingCtlDataSize=pingCtlDataSize, pingNotifications=pingNotifications, pingProbeHistoryTime=pingProbeHistoryTime, pingProbeHistoryStatus=pingProbeHistoryStatus, pingUdpEcho=pingUdpEcho, pingResultsEntry=pingResultsEntry, pingResultsIpTargetAddressType=pingResultsIpTargetAddressType, pingMIB=pingMIB, pingCtlTrapGeneration=pingCtlTrapGeneration, pingCtlDescr=pingCtlDescr, pingCompliances=pingCompliances, pingMinimumCompliance=pingMinimumCompliance, pingTimeStampGroup=pingTimeStampGroup, pingGroups=pingGroups, pingObjects=pingObjects, pingProbeHistoryTable=pingProbeHistoryTable, pingProbeHistoryIndex=pingProbeHistoryIndex, pingResultsSentProbes=pingResultsSentProbes, pingCtlTrapProbeFailureFilter=pingCtlTrapProbeFailureFilter, pingCtlMaxRows=pingCtlMaxRows, pingCtlAdminStatus=pingCtlAdminStatus, pingCtlTargetAddressType=pingCtlTargetAddressType, pingNotificationsGroup=pingNotificationsGroup, pingMaxConcurrentRequests=pingMaxConcurrentRequests, pingResultsMinRtt=pingResultsMinRtt, pingCtlTimeOut=pingCtlTimeOut, pingCtlProbeCount=pingCtlProbeCount, pingResultsRttSumOfSquares=pingResultsRttSumOfSquares, pingCompliance=pingCompliance, pingCtlStorageType=pingCtlStorageType, pingConformance=pingConformance, pingProbeFailed=pingProbeFailed, pingCtlSourceAddressType=pingCtlSourceAddressType, pingCtlIfIndex=pingCtlIfIndex, pingResultsProbeResponses=pingResultsProbeResponses, pingCtlSourceAddress=pingCtlSourceAddress, pingTcpConnectionAttempt=pingTcpConnectionAttempt, pingMinimumGroup=pingMinimumGroup)
+_AC='pingTimeStampGroup'
+_AB='pingGroup'
+_AA='pingTestCompleted'
+_A9='pingTestFailed'
+_A8='pingProbeFailed'
+_A7='pingProbeHistoryIndex'
+_A6='TruthValue'
+_A5='StorageType'
+_A4='InterfaceIndexOrZero'
+_A3='ObjectIdentifier'
+_A2='OctetString'
+_A1='pingHistoryGroup'
+_A0='pingCtlRowStatusGroup'
+_z='pingMinimumGroup'
+_y='pingProbeHistoryTime'
+_x='deprecated'
+_w='pingProbeHistoryLastRC'
+_v='pingProbeHistoryStatus'
+_u='pingProbeHistoryResponse'
+_t='pingCtlRowStatus'
+_s='pingCtlDSField'
+_r='pingCtlIfIndex'
+_q='pingCtlSourceAddress'
+_p='pingCtlSourceAddressType'
+_o='pingCtlByPassRouteTable'
+_n='pingCtlDescr'
+_m='pingCtlType'
+_l='pingCtlTrapTestFailureFilter'
+_k='pingCtlTrapProbeFailureFilter'
+_j='pingCtlTrapGeneration'
+_i='pingCtlStorageType'
+_h='pingCtlMaxRows'
+_g='pingCtlFrequency'
+_f='pingCtlDataFill'
+_e='pingCtlAdminStatus'
+_d='pingCtlProbeCount'
+_c='pingCtlTimeOut'
+_b='pingCtlDataSize'
+_a='pingMaxConcurrentRequests'
+_Z='not-accessible'
+_Y='Integer32'
+_X='pingNotificationsGroup'
+_W='pingCtlTestName'
+_V='pingCtlOwnerIndex'
+_U='SnmpAdminString'
+_T='InetAddressType'
+_S='InetAddress'
+_R='milliseconds'
+_Q='pingResultsLastGoodProbe'
+_P='pingResultsRttSumOfSquares'
+_O='pingResultsSentProbes'
+_N='pingResultsProbeResponses'
+_M='pingResultsAverageRtt'
+_L='pingResultsMaxRtt'
+_K='pingResultsMinRtt'
+_J='pingResultsIpTargetAddress'
+_I='pingResultsIpTargetAddressType'
+_H='pingResultsOperStatus'
+_G='pingCtlTargetAddress'
+_F='pingCtlTargetAddressType'
+_E='Unsigned32'
+_D='read-only'
+_C='read-create'
+_B='current'
+_A='DISMAN-PING-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_A2,_A3)
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InterfaceIndexOrZero,=mibBuilder.importSymbols('IF-MIB',_A4)
+InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB',_S,_T)
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_U)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_Y,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso','mib-2')
+DateAndTime,DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','RowStatus',_A5,'TextualConvention',_A6)
+pingMIB=ModuleIdentity((1,3,6,1,2,1,80))
+if mibBuilder.loadTexts:pingMIB.setRevisions(('2006-06-13 00:00','2000-09-21 00:00'))
+class OperationResponseStatus(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('responseReceived',1),('unknown',2),('internalError',3),('requestTimedOut',4),('unknownDestinationAddress',5),('noRouteToTarget',6),('interfaceInactiveToTarget',7),('arpFailure',8),('maxConcurrentLimitReached',9),('unableToResolveDnsName',10),('invalidHostAddress',11)))
+_PingNotifications_ObjectIdentity=ObjectIdentity
+pingNotifications=_PingNotifications_ObjectIdentity((1,3,6,1,2,1,80,0))
+_PingObjects_ObjectIdentity=ObjectIdentity
+pingObjects=_PingObjects_ObjectIdentity((1,3,6,1,2,1,80,1))
+class _PingMaxConcurrentRequests_Type(Unsigned32):defaultValue=10
+_PingMaxConcurrentRequests_Type.__name__=_E
+_PingMaxConcurrentRequests_Object=MibScalar
+pingMaxConcurrentRequests=_PingMaxConcurrentRequests_Object((1,3,6,1,2,1,80,1,1),_PingMaxConcurrentRequests_Type())
+pingMaxConcurrentRequests.setMaxAccess('read-write')
+if mibBuilder.loadTexts:pingMaxConcurrentRequests.setStatus(_B)
+if mibBuilder.loadTexts:pingMaxConcurrentRequests.setUnits('requests')
+_PingCtlTable_Object=MibTable
+pingCtlTable=_PingCtlTable_Object((1,3,6,1,2,1,80,1,2))
+if mibBuilder.loadTexts:pingCtlTable.setStatus(_B)
+_PingCtlEntry_Object=MibTableRow
+pingCtlEntry=_PingCtlEntry_Object((1,3,6,1,2,1,80,1,2,1))
+pingCtlEntry.setIndexNames((0,_A,_V),(0,_A,_W))
+if mibBuilder.loadTexts:pingCtlEntry.setStatus(_B)
+class _PingCtlOwnerIndex_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_PingCtlOwnerIndex_Type.__name__=_U
+_PingCtlOwnerIndex_Object=MibTableColumn
+pingCtlOwnerIndex=_PingCtlOwnerIndex_Object((1,3,6,1,2,1,80,1,2,1,1),_PingCtlOwnerIndex_Type())
+pingCtlOwnerIndex.setMaxAccess(_Z)
+if mibBuilder.loadTexts:pingCtlOwnerIndex.setStatus(_B)
+class _PingCtlTestName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_PingCtlTestName_Type.__name__=_U
+_PingCtlTestName_Object=MibTableColumn
+pingCtlTestName=_PingCtlTestName_Object((1,3,6,1,2,1,80,1,2,1,2),_PingCtlTestName_Type())
+pingCtlTestName.setMaxAccess(_Z)
+if mibBuilder.loadTexts:pingCtlTestName.setStatus(_B)
+class _PingCtlTargetAddressType_Type(InetAddressType):defaultValue=0
+_PingCtlTargetAddressType_Type.__name__=_T
+_PingCtlTargetAddressType_Object=MibTableColumn
+pingCtlTargetAddressType=_PingCtlTargetAddressType_Object((1,3,6,1,2,1,80,1,2,1,3),_PingCtlTargetAddressType_Type())
+pingCtlTargetAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlTargetAddressType.setStatus(_B)
+class _PingCtlTargetAddress_Type(InetAddress):defaultHexValue=''
+_PingCtlTargetAddress_Type.__name__=_S
+_PingCtlTargetAddress_Object=MibTableColumn
+pingCtlTargetAddress=_PingCtlTargetAddress_Object((1,3,6,1,2,1,80,1,2,1,4),_PingCtlTargetAddress_Type())
+pingCtlTargetAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlTargetAddress.setStatus(_B)
+class _PingCtlDataSize_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65507))
+_PingCtlDataSize_Type.__name__=_E
+_PingCtlDataSize_Object=MibTableColumn
+pingCtlDataSize=_PingCtlDataSize_Object((1,3,6,1,2,1,80,1,2,1,5),_PingCtlDataSize_Type())
+pingCtlDataSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlDataSize.setStatus(_B)
+if mibBuilder.loadTexts:pingCtlDataSize.setUnits('octets')
+class _PingCtlTimeOut_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,60))
+_PingCtlTimeOut_Type.__name__=_E
+_PingCtlTimeOut_Object=MibTableColumn
+pingCtlTimeOut=_PingCtlTimeOut_Object((1,3,6,1,2,1,80,1,2,1,6),_PingCtlTimeOut_Type())
+pingCtlTimeOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlTimeOut.setStatus(_B)
+if mibBuilder.loadTexts:pingCtlTimeOut.setUnits('seconds')
+class _PingCtlProbeCount_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,15))
+_PingCtlProbeCount_Type.__name__=_E
+_PingCtlProbeCount_Object=MibTableColumn
+pingCtlProbeCount=_PingCtlProbeCount_Object((1,3,6,1,2,1,80,1,2,1,7),_PingCtlProbeCount_Type())
+pingCtlProbeCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlProbeCount.setStatus(_B)
+if mibBuilder.loadTexts:pingCtlProbeCount.setUnits('probes')
+class _PingCtlAdminStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
+_PingCtlAdminStatus_Type.__name__=_Y
+_PingCtlAdminStatus_Object=MibTableColumn
+pingCtlAdminStatus=_PingCtlAdminStatus_Object((1,3,6,1,2,1,80,1,2,1,8),_PingCtlAdminStatus_Type())
+pingCtlAdminStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlAdminStatus.setStatus(_B)
+class _PingCtlDataFill_Type(OctetString):defaultHexValue='00';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1024))
+_PingCtlDataFill_Type.__name__=_A2
+_PingCtlDataFill_Object=MibTableColumn
+pingCtlDataFill=_PingCtlDataFill_Object((1,3,6,1,2,1,80,1,2,1,9),_PingCtlDataFill_Type())
+pingCtlDataFill.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlDataFill.setStatus(_B)
+class _PingCtlFrequency_Type(Unsigned32):defaultValue=0
+_PingCtlFrequency_Type.__name__=_E
+_PingCtlFrequency_Object=MibTableColumn
+pingCtlFrequency=_PingCtlFrequency_Object((1,3,6,1,2,1,80,1,2,1,10),_PingCtlFrequency_Type())
+pingCtlFrequency.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlFrequency.setStatus(_B)
+if mibBuilder.loadTexts:pingCtlFrequency.setUnits('seconds')
+class _PingCtlMaxRows_Type(Unsigned32):defaultValue=50
+_PingCtlMaxRows_Type.__name__=_E
+_PingCtlMaxRows_Object=MibTableColumn
+pingCtlMaxRows=_PingCtlMaxRows_Object((1,3,6,1,2,1,80,1,2,1,11),_PingCtlMaxRows_Type())
+pingCtlMaxRows.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlMaxRows.setStatus(_B)
+if mibBuilder.loadTexts:pingCtlMaxRows.setUnits('rows')
+class _PingCtlStorageType_Type(StorageType):defaultValue=3
+_PingCtlStorageType_Type.__name__=_A5
+_PingCtlStorageType_Object=MibTableColumn
+pingCtlStorageType=_PingCtlStorageType_Object((1,3,6,1,2,1,80,1,2,1,12),_PingCtlStorageType_Type())
+pingCtlStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlStorageType.setStatus(_B)
+class _PingCtlTrapGeneration_Type(Bits):defaultBinValue='0';namedValues=NamedValues(*(('probeFailure',0),('testFailure',1),('testCompletion',2)))
+_PingCtlTrapGeneration_Type.__name__='Bits'
+_PingCtlTrapGeneration_Object=MibTableColumn
+pingCtlTrapGeneration=_PingCtlTrapGeneration_Object((1,3,6,1,2,1,80,1,2,1,13),_PingCtlTrapGeneration_Type())
+pingCtlTrapGeneration.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlTrapGeneration.setStatus(_B)
+class _PingCtlTrapProbeFailureFilter_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
+_PingCtlTrapProbeFailureFilter_Type.__name__=_E
+_PingCtlTrapProbeFailureFilter_Object=MibTableColumn
+pingCtlTrapProbeFailureFilter=_PingCtlTrapProbeFailureFilter_Object((1,3,6,1,2,1,80,1,2,1,14),_PingCtlTrapProbeFailureFilter_Type())
+pingCtlTrapProbeFailureFilter.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlTrapProbeFailureFilter.setStatus(_B)
+class _PingCtlTrapTestFailureFilter_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
+_PingCtlTrapTestFailureFilter_Type.__name__=_E
+_PingCtlTrapTestFailureFilter_Object=MibTableColumn
+pingCtlTrapTestFailureFilter=_PingCtlTrapTestFailureFilter_Object((1,3,6,1,2,1,80,1,2,1,15),_PingCtlTrapTestFailureFilter_Type())
+pingCtlTrapTestFailureFilter.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlTrapTestFailureFilter.setStatus(_B)
+class _PingCtlType_Type(ObjectIdentifier):defaultValue=1,3,6,1,2,1,80,3,1
+_PingCtlType_Type.__name__=_A3
+_PingCtlType_Object=MibTableColumn
+pingCtlType=_PingCtlType_Object((1,3,6,1,2,1,80,1,2,1,16),_PingCtlType_Type())
+pingCtlType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlType.setStatus(_B)
+class _PingCtlDescr_Type(SnmpAdminString):defaultHexValue=''
+_PingCtlDescr_Type.__name__=_U
+_PingCtlDescr_Object=MibTableColumn
+pingCtlDescr=_PingCtlDescr_Object((1,3,6,1,2,1,80,1,2,1,17),_PingCtlDescr_Type())
+pingCtlDescr.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlDescr.setStatus(_B)
+class _PingCtlSourceAddressType_Type(InetAddressType):defaultValue=0
+_PingCtlSourceAddressType_Type.__name__=_T
+_PingCtlSourceAddressType_Object=MibTableColumn
+pingCtlSourceAddressType=_PingCtlSourceAddressType_Object((1,3,6,1,2,1,80,1,2,1,18),_PingCtlSourceAddressType_Type())
+pingCtlSourceAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlSourceAddressType.setStatus(_B)
+class _PingCtlSourceAddress_Type(InetAddress):defaultHexValue=''
+_PingCtlSourceAddress_Type.__name__=_S
+_PingCtlSourceAddress_Object=MibTableColumn
+pingCtlSourceAddress=_PingCtlSourceAddress_Object((1,3,6,1,2,1,80,1,2,1,19),_PingCtlSourceAddress_Type())
+pingCtlSourceAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlSourceAddress.setStatus(_B)
+class _PingCtlIfIndex_Type(InterfaceIndexOrZero):defaultValue=0
+_PingCtlIfIndex_Type.__name__=_A4
+_PingCtlIfIndex_Object=MibTableColumn
+pingCtlIfIndex=_PingCtlIfIndex_Object((1,3,6,1,2,1,80,1,2,1,20),_PingCtlIfIndex_Type())
+pingCtlIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlIfIndex.setStatus(_B)
+class _PingCtlByPassRouteTable_Type(TruthValue):defaultValue=2
+_PingCtlByPassRouteTable_Type.__name__=_A6
+_PingCtlByPassRouteTable_Object=MibTableColumn
+pingCtlByPassRouteTable=_PingCtlByPassRouteTable_Object((1,3,6,1,2,1,80,1,2,1,21),_PingCtlByPassRouteTable_Type())
+pingCtlByPassRouteTable.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlByPassRouteTable.setStatus(_B)
+class _PingCtlDSField_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_PingCtlDSField_Type.__name__=_E
+_PingCtlDSField_Object=MibTableColumn
+pingCtlDSField=_PingCtlDSField_Object((1,3,6,1,2,1,80,1,2,1,22),_PingCtlDSField_Type())
+pingCtlDSField.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlDSField.setStatus(_B)
+_PingCtlRowStatus_Type=RowStatus
+_PingCtlRowStatus_Object=MibTableColumn
+pingCtlRowStatus=_PingCtlRowStatus_Object((1,3,6,1,2,1,80,1,2,1,23),_PingCtlRowStatus_Type())
+pingCtlRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:pingCtlRowStatus.setStatus(_B)
+_PingResultsTable_Object=MibTable
+pingResultsTable=_PingResultsTable_Object((1,3,6,1,2,1,80,1,3))
+if mibBuilder.loadTexts:pingResultsTable.setStatus(_B)
+_PingResultsEntry_Object=MibTableRow
+pingResultsEntry=_PingResultsEntry_Object((1,3,6,1,2,1,80,1,3,1))
+pingResultsEntry.setIndexNames((0,_A,_V),(0,_A,_W))
+if mibBuilder.loadTexts:pingResultsEntry.setStatus(_B)
+class _PingResultsOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('enabled',1),('disabled',2),('completed',3)))
+_PingResultsOperStatus_Type.__name__=_Y
+_PingResultsOperStatus_Object=MibTableColumn
+pingResultsOperStatus=_PingResultsOperStatus_Object((1,3,6,1,2,1,80,1,3,1,1),_PingResultsOperStatus_Type())
+pingResultsOperStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:pingResultsOperStatus.setStatus(_B)
+class _PingResultsIpTargetAddressType_Type(InetAddressType):defaultValue=0
+_PingResultsIpTargetAddressType_Type.__name__=_T
+_PingResultsIpTargetAddressType_Object=MibTableColumn
+pingResultsIpTargetAddressType=_PingResultsIpTargetAddressType_Object((1,3,6,1,2,1,80,1,3,1,2),_PingResultsIpTargetAddressType_Type())
+pingResultsIpTargetAddressType.setMaxAccess(_D)
+if mibBuilder.loadTexts:pingResultsIpTargetAddressType.setStatus(_B)
+class _PingResultsIpTargetAddress_Type(InetAddress):defaultHexValue=''
+_PingResultsIpTargetAddress_Type.__name__=_S
+_PingResultsIpTargetAddress_Object=MibTableColumn
+pingResultsIpTargetAddress=_PingResultsIpTargetAddress_Object((1,3,6,1,2,1,80,1,3,1,3),_PingResultsIpTargetAddress_Type())
+pingResultsIpTargetAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:pingResultsIpTargetAddress.setStatus(_B)
+_PingResultsMinRtt_Type=Unsigned32
+_PingResultsMinRtt_Object=MibTableColumn
+pingResultsMinRtt=_PingResultsMinRtt_Object((1,3,6,1,2,1,80,1,3,1,4),_PingResultsMinRtt_Type())
+pingResultsMinRtt.setMaxAccess(_D)
+if mibBuilder.loadTexts:pingResultsMinRtt.setStatus(_B)
+if mibBuilder.loadTexts:pingResultsMinRtt.setUnits(_R)
+_PingResultsMaxRtt_Type=Unsigned32
+_PingResultsMaxRtt_Object=MibTableColumn
+pingResultsMaxRtt=_PingResultsMaxRtt_Object((1,3,6,1,2,1,80,1,3,1,5),_PingResultsMaxRtt_Type())
+pingResultsMaxRtt.setMaxAccess(_D)
+if mibBuilder.loadTexts:pingResultsMaxRtt.setStatus(_B)
+if mibBuilder.loadTexts:pingResultsMaxRtt.setUnits(_R)
+_PingResultsAverageRtt_Type=Unsigned32
+_PingResultsAverageRtt_Object=MibTableColumn
+pingResultsAverageRtt=_PingResultsAverageRtt_Object((1,3,6,1,2,1,80,1,3,1,6),_PingResultsAverageRtt_Type())
+pingResultsAverageRtt.setMaxAccess(_D)
+if mibBuilder.loadTexts:pingResultsAverageRtt.setStatus(_B)
+if mibBuilder.loadTexts:pingResultsAverageRtt.setUnits(_R)
+_PingResultsProbeResponses_Type=Gauge32
+_PingResultsProbeResponses_Object=MibTableColumn
+pingResultsProbeResponses=_PingResultsProbeResponses_Object((1,3,6,1,2,1,80,1,3,1,7),_PingResultsProbeResponses_Type())
+pingResultsProbeResponses.setMaxAccess(_D)
+if mibBuilder.loadTexts:pingResultsProbeResponses.setStatus(_B)
+if mibBuilder.loadTexts:pingResultsProbeResponses.setUnits('responses')
+_PingResultsSentProbes_Type=Gauge32
+_PingResultsSentProbes_Object=MibTableColumn
+pingResultsSentProbes=_PingResultsSentProbes_Object((1,3,6,1,2,1,80,1,3,1,8),_PingResultsSentProbes_Type())
+pingResultsSentProbes.setMaxAccess(_D)
+if mibBuilder.loadTexts:pingResultsSentProbes.setStatus(_B)
+if mibBuilder.loadTexts:pingResultsSentProbes.setUnits('probes')
+_PingResultsRttSumOfSquares_Type=Unsigned32
+_PingResultsRttSumOfSquares_Object=MibTableColumn
+pingResultsRttSumOfSquares=_PingResultsRttSumOfSquares_Object((1,3,6,1,2,1,80,1,3,1,9),_PingResultsRttSumOfSquares_Type())
+pingResultsRttSumOfSquares.setMaxAccess(_D)
+if mibBuilder.loadTexts:pingResultsRttSumOfSquares.setStatus(_B)
+if mibBuilder.loadTexts:pingResultsRttSumOfSquares.setUnits(_R)
+_PingResultsLastGoodProbe_Type=DateAndTime
+_PingResultsLastGoodProbe_Object=MibTableColumn
+pingResultsLastGoodProbe=_PingResultsLastGoodProbe_Object((1,3,6,1,2,1,80,1,3,1,10),_PingResultsLastGoodProbe_Type())
+pingResultsLastGoodProbe.setMaxAccess(_D)
+if mibBuilder.loadTexts:pingResultsLastGoodProbe.setStatus(_B)
+_PingProbeHistoryTable_Object=MibTable
+pingProbeHistoryTable=_PingProbeHistoryTable_Object((1,3,6,1,2,1,80,1,4))
+if mibBuilder.loadTexts:pingProbeHistoryTable.setStatus(_B)
+_PingProbeHistoryEntry_Object=MibTableRow
+pingProbeHistoryEntry=_PingProbeHistoryEntry_Object((1,3,6,1,2,1,80,1,4,1))
+pingProbeHistoryEntry.setIndexNames((0,_A,_V),(0,_A,_W),(0,_A,_A7))
+if mibBuilder.loadTexts:pingProbeHistoryEntry.setStatus(_B)
+class _PingProbeHistoryIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_PingProbeHistoryIndex_Type.__name__=_E
+_PingProbeHistoryIndex_Object=MibTableColumn
+pingProbeHistoryIndex=_PingProbeHistoryIndex_Object((1,3,6,1,2,1,80,1,4,1,1),_PingProbeHistoryIndex_Type())
+pingProbeHistoryIndex.setMaxAccess(_Z)
+if mibBuilder.loadTexts:pingProbeHistoryIndex.setStatus(_B)
+_PingProbeHistoryResponse_Type=Unsigned32
+_PingProbeHistoryResponse_Object=MibTableColumn
+pingProbeHistoryResponse=_PingProbeHistoryResponse_Object((1,3,6,1,2,1,80,1,4,1,2),_PingProbeHistoryResponse_Type())
+pingProbeHistoryResponse.setMaxAccess(_D)
+if mibBuilder.loadTexts:pingProbeHistoryResponse.setStatus(_B)
+if mibBuilder.loadTexts:pingProbeHistoryResponse.setUnits(_R)
+_PingProbeHistoryStatus_Type=OperationResponseStatus
+_PingProbeHistoryStatus_Object=MibTableColumn
+pingProbeHistoryStatus=_PingProbeHistoryStatus_Object((1,3,6,1,2,1,80,1,4,1,3),_PingProbeHistoryStatus_Type())
+pingProbeHistoryStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:pingProbeHistoryStatus.setStatus(_B)
+_PingProbeHistoryLastRC_Type=Integer32
+_PingProbeHistoryLastRC_Object=MibTableColumn
+pingProbeHistoryLastRC=_PingProbeHistoryLastRC_Object((1,3,6,1,2,1,80,1,4,1,4),_PingProbeHistoryLastRC_Type())
+pingProbeHistoryLastRC.setMaxAccess(_D)
+if mibBuilder.loadTexts:pingProbeHistoryLastRC.setStatus(_B)
+_PingProbeHistoryTime_Type=DateAndTime
+_PingProbeHistoryTime_Object=MibTableColumn
+pingProbeHistoryTime=_PingProbeHistoryTime_Object((1,3,6,1,2,1,80,1,4,1,5),_PingProbeHistoryTime_Type())
+pingProbeHistoryTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:pingProbeHistoryTime.setStatus(_B)
+_PingConformance_ObjectIdentity=ObjectIdentity
+pingConformance=_PingConformance_ObjectIdentity((1,3,6,1,2,1,80,2))
+_PingCompliances_ObjectIdentity=ObjectIdentity
+pingCompliances=_PingCompliances_ObjectIdentity((1,3,6,1,2,1,80,2,1))
+_PingGroups_ObjectIdentity=ObjectIdentity
+pingGroups=_PingGroups_ObjectIdentity((1,3,6,1,2,1,80,2,2))
+_PingImplementationTypeDomains_ObjectIdentity=ObjectIdentity
+pingImplementationTypeDomains=_PingImplementationTypeDomains_ObjectIdentity((1,3,6,1,2,1,80,3))
+_PingIcmpEcho_ObjectIdentity=ObjectIdentity
+pingIcmpEcho=_PingIcmpEcho_ObjectIdentity((1,3,6,1,2,1,80,3,1))
+if mibBuilder.loadTexts:pingIcmpEcho.setStatus(_B)
+_PingUdpEcho_ObjectIdentity=ObjectIdentity
+pingUdpEcho=_PingUdpEcho_ObjectIdentity((1,3,6,1,2,1,80,3,2))
+if mibBuilder.loadTexts:pingUdpEcho.setStatus(_B)
+_PingSnmpQuery_ObjectIdentity=ObjectIdentity
+pingSnmpQuery=_PingSnmpQuery_ObjectIdentity((1,3,6,1,2,1,80,3,3))
+if mibBuilder.loadTexts:pingSnmpQuery.setStatus(_B)
+_PingTcpConnectionAttempt_ObjectIdentity=ObjectIdentity
+pingTcpConnectionAttempt=_PingTcpConnectionAttempt_ObjectIdentity((1,3,6,1,2,1,80,3,4))
+if mibBuilder.loadTexts:pingTcpConnectionAttempt.setStatus(_B)
+pingGroup=ObjectGroup((1,3,6,1,2,1,80,2,2,1))
+pingGroup.setObjects(*((_A,_a),(_A,_F),(_A,_G),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_u),(_A,_v),(_A,_w)))
+if mibBuilder.loadTexts:pingGroup.setStatus(_x)
+pingTimeStampGroup=ObjectGroup((1,3,6,1,2,1,80,2,2,2))
+pingTimeStampGroup.setObjects(*((_A,_Q),(_A,_y)))
+if mibBuilder.loadTexts:pingTimeStampGroup.setStatus(_x)
+pingMinimumGroup=ObjectGroup((1,3,6,1,2,1,80,2,2,4))
+pingMinimumGroup.setObjects(*((_A,_a),(_A,_F),(_A,_G),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q)))
+if mibBuilder.loadTexts:pingMinimumGroup.setStatus(_B)
+pingCtlRowStatusGroup=ObjectGroup((1,3,6,1,2,1,80,2,2,5))
+pingCtlRowStatusGroup.setObjects((_A,_t))
+if mibBuilder.loadTexts:pingCtlRowStatusGroup.setStatus(_B)
+pingHistoryGroup=ObjectGroup((1,3,6,1,2,1,80,2,2,6))
+pingHistoryGroup.setObjects(*((_A,_u),(_A,_v),(_A,_w),(_A,_y)))
+if mibBuilder.loadTexts:pingHistoryGroup.setStatus(_B)
+pingProbeFailed=NotificationType((1,3,6,1,2,1,80,0,1))
+pingProbeFailed.setObjects(*((_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q)))
+if mibBuilder.loadTexts:pingProbeFailed.setStatus(_B)
+pingTestFailed=NotificationType((1,3,6,1,2,1,80,0,2))
+pingTestFailed.setObjects(*((_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q)))
+if mibBuilder.loadTexts:pingTestFailed.setStatus(_B)
+pingTestCompleted=NotificationType((1,3,6,1,2,1,80,0,3))
+pingTestCompleted.setObjects(*((_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q)))
+if mibBuilder.loadTexts:pingTestCompleted.setStatus(_B)
+pingNotificationsGroup=NotificationGroup((1,3,6,1,2,1,80,2,2,3))
+pingNotificationsGroup.setObjects(*((_A,_A8),(_A,_A9),(_A,_AA)))
+if mibBuilder.loadTexts:pingNotificationsGroup.setStatus(_B)
+pingCompliance=ModuleCompliance((1,3,6,1,2,1,80,2,1,1))
+pingCompliance.setObjects(*((_A,_AB),(_A,_X),(_A,_AC)))
+if mibBuilder.loadTexts:pingCompliance.setStatus(_x)
+pingFullCompliance=ModuleCompliance((1,3,6,1,2,1,80,2,1,2))
+pingFullCompliance.setObjects(*((_A,_z),(_A,_A0),(_A,_A1),(_A,_X)))
+if mibBuilder.loadTexts:pingFullCompliance.setStatus(_B)
+pingMinimumCompliance=ModuleCompliance((1,3,6,1,2,1,80,2,1,3))
+pingMinimumCompliance.setObjects(*((_A,_z),(_A,_A0),(_A,_A1),(_A,_X)))
+if mibBuilder.loadTexts:pingMinimumCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'OperationResponseStatus':OperationResponseStatus,'pingMIB':pingMIB,'pingNotifications':pingNotifications,_A8:pingProbeFailed,_A9:pingTestFailed,_AA:pingTestCompleted,'pingObjects':pingObjects,_a:pingMaxConcurrentRequests,'pingCtlTable':pingCtlTable,'pingCtlEntry':pingCtlEntry,_V:pingCtlOwnerIndex,_W:pingCtlTestName,_F:pingCtlTargetAddressType,_G:pingCtlTargetAddress,_b:pingCtlDataSize,_c:pingCtlTimeOut,_d:pingCtlProbeCount,_e:pingCtlAdminStatus,_f:pingCtlDataFill,_g:pingCtlFrequency,_h:pingCtlMaxRows,_i:pingCtlStorageType,_j:pingCtlTrapGeneration,_k:pingCtlTrapProbeFailureFilter,_l:pingCtlTrapTestFailureFilter,_m:pingCtlType,_n:pingCtlDescr,_p:pingCtlSourceAddressType,_q:pingCtlSourceAddress,_r:pingCtlIfIndex,_o:pingCtlByPassRouteTable,_s:pingCtlDSField,_t:pingCtlRowStatus,'pingResultsTable':pingResultsTable,'pingResultsEntry':pingResultsEntry,_H:pingResultsOperStatus,_I:pingResultsIpTargetAddressType,_J:pingResultsIpTargetAddress,_K:pingResultsMinRtt,_L:pingResultsMaxRtt,_M:pingResultsAverageRtt,_N:pingResultsProbeResponses,_O:pingResultsSentProbes,_P:pingResultsRttSumOfSquares,_Q:pingResultsLastGoodProbe,'pingProbeHistoryTable':pingProbeHistoryTable,'pingProbeHistoryEntry':pingProbeHistoryEntry,_A7:pingProbeHistoryIndex,_u:pingProbeHistoryResponse,_v:pingProbeHistoryStatus,_w:pingProbeHistoryLastRC,_y:pingProbeHistoryTime,'pingConformance':pingConformance,'pingCompliances':pingCompliances,'pingCompliance':pingCompliance,'pingFullCompliance':pingFullCompliance,'pingMinimumCompliance':pingMinimumCompliance,'pingGroups':pingGroups,_AB:pingGroup,_AC:pingTimeStampGroup,_X:pingNotificationsGroup,_z:pingMinimumGroup,_A0:pingCtlRowStatusGroup,_A1:pingHistoryGroup,'pingImplementationTypeDomains':pingImplementationTypeDomains,'pingIcmpEcho':pingIcmpEcho,'pingUdpEcho':pingUdpEcho,'pingSnmpQuery':pingSnmpQuery,'pingTcpConnectionAttempt':pingTcpConnectionAttempt})

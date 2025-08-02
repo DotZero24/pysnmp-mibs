@@ -1,248 +1,618 @@
-#
-# PySNMP MIB module MPLS-LSR-STD-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/MPLS-LSR-STD-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:14:00 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, OctetString, Integer, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
-( AddressFamilyNumbers, ) = mibBuilder.importSymbols("IANA-ADDRESS-FAMILY-NUMBERS-MIB", "AddressFamilyNumbers")
-( ifCounterDiscontinuityGroup, ifGeneralInformationGroup, InterfaceIndexOrZero, ) = mibBuilder.importSymbols("IF-MIB", "ifCounterDiscontinuityGroup", "ifGeneralInformationGroup", "InterfaceIndexOrZero")
-( InetAddress, InetAddressType, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
-( MplsOwner, MplsLabel, MplsLSPID, MplsBitRate, mplsStdMIB, ) = mibBuilder.importSymbols("MPLS-TC-STD-MIB", "MplsOwner", "MplsLabel", "MplsLSPID", "MplsBitRate", "mplsStdMIB")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( IpAddress, Unsigned32, Counter32, iso, Counter64, TimeTicks, zeroDotZero, ModuleIdentity, Bits, Gauge32, NotificationType, ObjectIdentity, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Unsigned32", "Counter32", "iso", "Counter64", "TimeTicks", "zeroDotZero", "ModuleIdentity", "Bits", "Gauge32", "NotificationType", "ObjectIdentity", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32")
-( TextualConvention, TimeStamp, RowStatus, StorageType, RowPointer, TruthValue, DisplayString, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "RowStatus", "StorageType", "RowPointer", "TruthValue", "DisplayString")
-mplsLsrStdMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 166, 2)).setRevisions(("2004-06-03 00:00",))
-if mibBuilder.loadTexts: mplsLsrStdMIB.setLastUpdated('200406030000Z')
-if mibBuilder.loadTexts: mplsLsrStdMIB.setOrganization('Multiprotocol Label Switching (MPLS) Working Group')
-if mibBuilder.loadTexts: mplsLsrStdMIB.setContactInfo('        Cheenu Srinivasan\n                     Bloomberg L.P.\n             Email:  cheenu@bloomberg.net\n            \n                     Arun Viswanathan\n                     Force10 Networks, Inc.\n             Email:  arunv@force10networks.com\n            \n                     Thomas D. Nadeau\n                     Cisco Systems, Inc.\n             Email:  tnadeau@cisco.com\n            \n             Comments about this document should be emailed\n             directly to the MPLS working group mailing list at\n             mpls@uu.net.')
-if mibBuilder.loadTexts: mplsLsrStdMIB.setDescription('This MIB module contains managed object definitions for\n             the Multiprotocol Label Switching (MPLS) Router as\n             defined in: Rosen, E., Viswanathan, A., and R.\n             Callon, Multiprotocol Label Switching Architecture,\n             RFC 3031, January 2001.\n            \n             Copyright (C) The Internet Society (2004). The\n             initial version of this MIB module was published\n             in RFC 3812. For full legal notices see the RFC\n             itself or see:\n             http://www.ietf.org/copyrights/ianamib.html')
-class MplsIndexType(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(1,24)
-
-class MplsIndexNextType(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(1,24)
-
-mplsLsrNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 2, 0))
-mplsLsrObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 2, 1))
-mplsLsrConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 2, 2))
-mplsInterfaceTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 1), )
-if mibBuilder.loadTexts: mplsInterfaceTable.setDescription('This table specifies per-interface MPLS capability\n             and associated information.')
-mplsInterfaceEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 1, 1), ).setIndexNames((0, "MPLS-LSR-STD-MIB", "mplsInterfaceIndex"))
-if mibBuilder.loadTexts: mplsInterfaceEntry.setDescription('A conceptual row in this table is created\n             automatically by an LSR for every interface capable\n             of supporting MPLS and which is configured to do so.\n             A conceptual row in this table will exist if and only if\n             a corresponding entry in ifTable exists with ifType =\n             mpls(166). If this associated entry in ifTable is\n             operationally disabled (thus removing MPLS\n             capabilities on that interface), the corresponding\n             entry in this table MUST be deleted shortly thereafter.\n             An conceptual row with index 0 is created if the LSR\n             supports per-platform labels. This conceptual row\n             represents the per-platform label space and contains\n             parameters that apply to all interfaces that participate\n             in the per-platform label space. Other conceptual rows\n             in this table represent MPLS interfaces that may\n             participate in either the per-platform or per-\n             interface label spaces, or both.  Implementations\n             that either only support per-platform labels,\n             or have only them configured, may choose to return\n             just the mplsInterfaceEntry of 0 and not return\n             the other rows. This will greatly reduce the number\n             of objects returned. Further information about label\n             space participation of an interface is provided in\n             the DESCRIPTION clause of\n             mplsInterfaceLabelParticipationType.')
-mplsInterfaceIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 1, 1, 1), InterfaceIndexOrZero())
-if mibBuilder.loadTexts: mplsInterfaceIndex.setDescription('This is a unique index for an entry in the\n             MplsInterfaceTable.  A non-zero index for an\n             entry indicates the ifIndex for the corresponding\n             interface entry of the MPLS-layer in the ifTable.\n             The entry with index 0 represents the per-platform\n             label space and contains parameters that apply to all\n             interfaces that participate in the per-platform label\n             space. Other entries defined in this table represent\n             additional MPLS interfaces that may participate in either\n             the per-platform or per-interface label spaces, or both.')
-mplsInterfaceLabelMinIn = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 1, 1, 2), MplsLabel()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInterfaceLabelMinIn.setDescription('This is the minimum value of an MPLS label that this\n             LSR is willing to receive on this interface.')
-mplsInterfaceLabelMaxIn = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 1, 1, 3), MplsLabel()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInterfaceLabelMaxIn.setDescription('This is the maximum value of an MPLS label that this\n             LSR is willing to receive on this interface.')
-mplsInterfaceLabelMinOut = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 1, 1, 4), MplsLabel()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInterfaceLabelMinOut.setDescription('This is the minimum value of an MPLS label that this\n             LSR is willing to send on this interface.')
-mplsInterfaceLabelMaxOut = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 1, 1, 5), MplsLabel()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInterfaceLabelMaxOut.setDescription('This is the maximum value of an MPLS label that this\n             LSR is willing to send on this interface.')
-mplsInterfaceTotalBandwidth = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 1, 1, 6), MplsBitRate()).setUnits('kilobits per second').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInterfaceTotalBandwidth.setDescription('This value indicates the total amount of usable\n             bandwidth on this interface and is specified in\n             kilobits per second (Kbps).  This variable is not\n             applicable when applied to the interface with index\n             0. When this value cannot be measured, this value\n             should contain the nominal bandwidth.')
-mplsInterfaceAvailableBandwidth = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 1, 1, 7), MplsBitRate()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInterfaceAvailableBandwidth.setDescription('This value indicates the total amount of available\n             bandwidth available on this interface and is\n             specified in kilobits per second (Kbps).  This value\n             is calculated as the difference between the amount\n             of bandwidth currently in use and that specified in\n             mplsInterfaceTotalBandwidth.  This variable is not\n             applicable when applied to the interface with index\n             0. When this value cannot be measured, this value\n             should contain the nominal bandwidth.')
-mplsInterfaceLabelParticipationType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 1, 1, 8), Bits().clone(namedValues=NamedValues(("perPlatform", 0), ("perInterface", 1),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInterfaceLabelParticipationType.setDescription('If the value of the mplsInterfaceIndex for this\n             entry is zero, then this entry corresponds to the\n             per-platform label space for all interfaces configured\n             to use that label space. In this case the perPlatform(0)\n             bit MUST be set; the perInterface(1) bit is meaningless\n             and MUST be ignored.\n    \n             The remainder of this description applies to entries\n             with a non-zero value of mplsInterfaceIndex.\n    \n             If the perInterface(1) bit is set then the value of\n             mplsInterfaceLabelMinIn, mplsInterfaceLabelMaxIn,\n             mplsInterfaceLabelMinOut, and\n             mplsInterfaceLabelMaxOut for this entry reflect the\n             label ranges for this interface.\n    \n             If only the perPlatform(0) bit is set, then the value of\n             mplsInterfaceLabelMinIn, mplsInterfaceLabelMaxIn,\n             mplsInterfaceLabelMinOut, and\n             mplsInterfaceLabelMaxOut for this entry MUST be\n             identical to the instance of these objects with\n             index 0.  These objects may only vary from the entry\n             with index 0 if both the perPlatform(0) and perInterface(1)\n             bits are set.\n    \n             In all cases, at a minimum one of the perPlatform(0) or\n             perInterface(1) bits MUST be set to indicate that\n             at least one label space is in use by this interface. In\n             all cases, agents MUST ensure that label ranges are\n             specified consistently and MUST return an\n             inconsistentValue error when they do not.')
-mplsInterfacePerfTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 2), )
-if mibBuilder.loadTexts: mplsInterfacePerfTable.setDescription('This table provides MPLS performance information on\n             a per-interface basis.')
-mplsInterfacePerfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 2, 1), )
-mplsInterfaceEntry.registerAugmentions(("MPLS-LSR-STD-MIB", "mplsInterfacePerfEntry"))
+_An='mplsXCDown'
+_Am='mplsLabelStackIndexNext'
+_Al='mplsMaxLabelStackDepth'
+_Ak='mplsLabelStackStorageType'
+_Aj='mplsLabelStackRowStatus'
+_Ai='mplsLabelStackLabelPtr'
+_Ah='mplsLabelStackLabel'
+_Ag='mplsOutSegmentPerfHCOctets'
+_Af='mplsInSegmentPerfHCOctets'
+_Ae='mplsInterfacePerfOutLabelsInUse'
+_Ad='mplsInterfacePerfOutFragmentedPkts'
+_Ac='mplsInterfacePerfInLabelLookupFailures'
+_Ab='mplsInterfacePerfInLabelsInUse'
+_Aa='mplsOutSegmentPerfDiscontinuityTime'
+_AZ='mplsOutSegmentPerfPackets'
+_AY='mplsInSegmentPerfDiscontinuityTime'
+_AX='mplsInSegmentPerfDiscards'
+_AW='mplsInSegmentPerfErrors'
+_AV='mplsInSegmentPerfPackets'
+_AU='mplsInSegmentPerfOctets'
+_AT='mplsXCNotificationsEnable'
+_AS='mplsXCRowStatus'
+_AR='mplsXCAdminStatus'
+_AQ='mplsXCStorageType'
+_AP='mplsXCOwner'
+_AO='mplsXCLabelStackIndex'
+_AN='mplsXCLspId'
+_AM='mplsXCIndexNext'
+_AL='mplsOutSegmentTrafficParamPtr'
+_AK='mplsOutSegmentStorageType'
+_AJ='mplsOutSegmentRowStatus'
+_AI='mplsOutSegmentPerfErrors'
+_AH='mplsOutSegmentOwner'
+_AG='mplsOutSegmentXCIndex'
+_AF='mplsOutSegmentNextHopAddr'
+_AE='mplsOutSegmentNextHopAddrType'
+_AD='mplsOutSegmentTopLabelPtr'
+_AC='mplsOutSegmentTopLabel'
+_AB='mplsOutSegmentPushTopLabel'
+_AA='mplsOutSegmentInterface'
+_A9='mplsOutSegmentIndexNext'
+_A8='mplsInSegmentMapIndex'
+_A7='mplsInSegmentTrafficParamPtr'
+_A6='mplsInSegmentStorageType'
+_A5='mplsInSegmentRowStatus'
+_A4='mplsInSegmentOwner'
+_A3='mplsInSegmentXCIndex'
+_A2='mplsInSegmentAddrFamily'
+_A1='mplsInSegmentNPop'
+_A0='mplsInSegmentLabelPtr'
+_z='mplsInSegmentLabel'
+_y='mplsInSegmentInterface'
+_x='mplsInSegmentIndexNext'
+_w='mplsInterfaceLabelParticipationType'
+_v='mplsInterfaceAvailableBandwidth'
+_u='mplsInterfaceTotalBandwidth'
+_t='mplsInterfaceLabelMaxOut'
+_s='mplsInterfaceLabelMinOut'
+_r='mplsInterfaceLabelMaxIn'
+_q='mplsInterfaceLabelMinIn'
+_p='mplsOutSegmentPerfEntry'
+_o='mplsInSegmentPerfEntry'
+_n='mplsInterfacePerfEntry'
+_m='mplsInSegmentMapLabelPtrIndex'
+_l='mplsInSegmentMapLabel'
+_k='mplsInSegmentMapInterface'
+_j='mplsLabelStackLabelIndex'
+_i='mplsLabelStackIndex'
+_h='testing'
+_g='mplsXCOutSegmentIndex'
+_f='mplsXCInSegmentIndex'
+_e='mplsXCIndex'
+_d='mplsOutSegmentIndex'
+_c='mplsInSegmentIndex'
+_b='mplsInterfaceIndex'
+_a='MplsLabel'
+_Z='AddressFamilyNumbers'
+_Y='mplsLsrNotificationGroup'
+_X='mplsHCOutSegmentPerfGroup'
+_W='mplsHCInSegmentPerfGroup'
+_V='mplsLabelStackGroup'
+_U='mplsPerfGroup'
+_T='mplsXCGroup'
+_S='mplsOutSegmentGroup'
+_R='mplsInSegmentGroup'
+_Q='mplsInterfaceGroup'
+_P='mplsOutSegmentPerfDiscards'
+_O='mplsOutSegmentPerfOctets'
+_N='TruthValue'
+_M='Unsigned32'
+_L='ifGeneralInformationGroup'
+_K='ifCounterDiscontinuityGroup'
+_J='Integer32'
+_I='StorageType'
+_H='IF-MIB'
+_G='mplsXCOperStatus'
+_F='RowPointer'
+_E='not-accessible'
+_D='read-create'
+_C='read-only'
+_B='MPLS-LSR-STD-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+AddressFamilyNumbers,=mibBuilder.importSymbols('IANA-ADDRESS-FAMILY-NUMBERS-MIB',_Z)
+InterfaceIndexOrZero,ifCounterDiscontinuityGroup,ifGeneralInformationGroup=mibBuilder.importSymbols(_H,'InterfaceIndexOrZero',_K,_L)
+InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
+MplsBitRate,MplsLSPID,MplsLabel,MplsOwner,mplsStdMIB=mibBuilder.importSymbols('MPLS-TC-STD-MIB','MplsBitRate','MplsLSPID',_a,'MplsOwner','mplsStdMIB')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,zeroDotZero=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_J,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_M,'iso','zeroDotZero')
+DisplayString,PhysAddress,RowPointer,RowStatus,StorageType,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress',_F,'RowStatus',_I,'TextualConvention','TimeStamp',_N)
+mplsLsrStdMIB=ModuleIdentity((1,3,6,1,2,1,10,166,2))
+if mibBuilder.loadTexts:mplsLsrStdMIB.setRevisions(('2004-06-03 00:00',))
+class MplsIndexType(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,24))
+class MplsIndexNextType(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,24))
+_MplsLsrNotifications_ObjectIdentity=ObjectIdentity
+mplsLsrNotifications=_MplsLsrNotifications_ObjectIdentity((1,3,6,1,2,1,10,166,2,0))
+_MplsLsrObjects_ObjectIdentity=ObjectIdentity
+mplsLsrObjects=_MplsLsrObjects_ObjectIdentity((1,3,6,1,2,1,10,166,2,1))
+_MplsInterfaceTable_Object=MibTable
+mplsInterfaceTable=_MplsInterfaceTable_Object((1,3,6,1,2,1,10,166,2,1,1))
+if mibBuilder.loadTexts:mplsInterfaceTable.setStatus(_A)
+_MplsInterfaceEntry_Object=MibTableRow
+mplsInterfaceEntry=_MplsInterfaceEntry_Object((1,3,6,1,2,1,10,166,2,1,1,1))
+mplsInterfaceEntry.setIndexNames((0,_B,_b))
+if mibBuilder.loadTexts:mplsInterfaceEntry.setStatus(_A)
+_MplsInterfaceIndex_Type=InterfaceIndexOrZero
+_MplsInterfaceIndex_Object=MibTableColumn
+mplsInterfaceIndex=_MplsInterfaceIndex_Object((1,3,6,1,2,1,10,166,2,1,1,1,1),_MplsInterfaceIndex_Type())
+mplsInterfaceIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:mplsInterfaceIndex.setStatus(_A)
+_MplsInterfaceLabelMinIn_Type=MplsLabel
+_MplsInterfaceLabelMinIn_Object=MibTableColumn
+mplsInterfaceLabelMinIn=_MplsInterfaceLabelMinIn_Object((1,3,6,1,2,1,10,166,2,1,1,1,2),_MplsInterfaceLabelMinIn_Type())
+mplsInterfaceLabelMinIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInterfaceLabelMinIn.setStatus(_A)
+_MplsInterfaceLabelMaxIn_Type=MplsLabel
+_MplsInterfaceLabelMaxIn_Object=MibTableColumn
+mplsInterfaceLabelMaxIn=_MplsInterfaceLabelMaxIn_Object((1,3,6,1,2,1,10,166,2,1,1,1,3),_MplsInterfaceLabelMaxIn_Type())
+mplsInterfaceLabelMaxIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInterfaceLabelMaxIn.setStatus(_A)
+_MplsInterfaceLabelMinOut_Type=MplsLabel
+_MplsInterfaceLabelMinOut_Object=MibTableColumn
+mplsInterfaceLabelMinOut=_MplsInterfaceLabelMinOut_Object((1,3,6,1,2,1,10,166,2,1,1,1,4),_MplsInterfaceLabelMinOut_Type())
+mplsInterfaceLabelMinOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInterfaceLabelMinOut.setStatus(_A)
+_MplsInterfaceLabelMaxOut_Type=MplsLabel
+_MplsInterfaceLabelMaxOut_Object=MibTableColumn
+mplsInterfaceLabelMaxOut=_MplsInterfaceLabelMaxOut_Object((1,3,6,1,2,1,10,166,2,1,1,1,5),_MplsInterfaceLabelMaxOut_Type())
+mplsInterfaceLabelMaxOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInterfaceLabelMaxOut.setStatus(_A)
+_MplsInterfaceTotalBandwidth_Type=MplsBitRate
+_MplsInterfaceTotalBandwidth_Object=MibTableColumn
+mplsInterfaceTotalBandwidth=_MplsInterfaceTotalBandwidth_Object((1,3,6,1,2,1,10,166,2,1,1,1,6),_MplsInterfaceTotalBandwidth_Type())
+mplsInterfaceTotalBandwidth.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInterfaceTotalBandwidth.setStatus(_A)
+if mibBuilder.loadTexts:mplsInterfaceTotalBandwidth.setUnits('kilobits per second')
+_MplsInterfaceAvailableBandwidth_Type=MplsBitRate
+_MplsInterfaceAvailableBandwidth_Object=MibTableColumn
+mplsInterfaceAvailableBandwidth=_MplsInterfaceAvailableBandwidth_Object((1,3,6,1,2,1,10,166,2,1,1,1,7),_MplsInterfaceAvailableBandwidth_Type())
+mplsInterfaceAvailableBandwidth.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInterfaceAvailableBandwidth.setStatus(_A)
+class _MplsInterfaceLabelParticipationType_Type(Bits):namedValues=NamedValues(*(('perPlatform',0),('perInterface',1)))
+_MplsInterfaceLabelParticipationType_Type.__name__='Bits'
+_MplsInterfaceLabelParticipationType_Object=MibTableColumn
+mplsInterfaceLabelParticipationType=_MplsInterfaceLabelParticipationType_Object((1,3,6,1,2,1,10,166,2,1,1,1,8),_MplsInterfaceLabelParticipationType_Type())
+mplsInterfaceLabelParticipationType.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInterfaceLabelParticipationType.setStatus(_A)
+_MplsInterfacePerfTable_Object=MibTable
+mplsInterfacePerfTable=_MplsInterfacePerfTable_Object((1,3,6,1,2,1,10,166,2,1,2))
+if mibBuilder.loadTexts:mplsInterfacePerfTable.setStatus(_A)
+_MplsInterfacePerfEntry_Object=MibTableRow
+mplsInterfacePerfEntry=_MplsInterfacePerfEntry_Object((1,3,6,1,2,1,10,166,2,1,2,1))
+if mibBuilder.loadTexts:mplsInterfacePerfEntry.setStatus(_A)
+_MplsInterfacePerfInLabelsInUse_Type=Gauge32
+_MplsInterfacePerfInLabelsInUse_Object=MibTableColumn
+mplsInterfacePerfInLabelsInUse=_MplsInterfacePerfInLabelsInUse_Object((1,3,6,1,2,1,10,166,2,1,2,1,1),_MplsInterfacePerfInLabelsInUse_Type())
+mplsInterfacePerfInLabelsInUse.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInterfacePerfInLabelsInUse.setStatus(_A)
+_MplsInterfacePerfInLabelLookupFailures_Type=Counter32
+_MplsInterfacePerfInLabelLookupFailures_Object=MibTableColumn
+mplsInterfacePerfInLabelLookupFailures=_MplsInterfacePerfInLabelLookupFailures_Object((1,3,6,1,2,1,10,166,2,1,2,1,2),_MplsInterfacePerfInLabelLookupFailures_Type())
+mplsInterfacePerfInLabelLookupFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInterfacePerfInLabelLookupFailures.setStatus(_A)
+_MplsInterfacePerfOutLabelsInUse_Type=Gauge32
+_MplsInterfacePerfOutLabelsInUse_Object=MibTableColumn
+mplsInterfacePerfOutLabelsInUse=_MplsInterfacePerfOutLabelsInUse_Object((1,3,6,1,2,1,10,166,2,1,2,1,3),_MplsInterfacePerfOutLabelsInUse_Type())
+mplsInterfacePerfOutLabelsInUse.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInterfacePerfOutLabelsInUse.setStatus(_A)
+_MplsInterfacePerfOutFragmentedPkts_Type=Counter32
+_MplsInterfacePerfOutFragmentedPkts_Object=MibTableColumn
+mplsInterfacePerfOutFragmentedPkts=_MplsInterfacePerfOutFragmentedPkts_Object((1,3,6,1,2,1,10,166,2,1,2,1,4),_MplsInterfacePerfOutFragmentedPkts_Type())
+mplsInterfacePerfOutFragmentedPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInterfacePerfOutFragmentedPkts.setStatus(_A)
+_MplsInSegmentIndexNext_Type=MplsIndexNextType
+_MplsInSegmentIndexNext_Object=MibScalar
+mplsInSegmentIndexNext=_MplsInSegmentIndexNext_Object((1,3,6,1,2,1,10,166,2,1,3),_MplsInSegmentIndexNext_Type())
+mplsInSegmentIndexNext.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInSegmentIndexNext.setStatus(_A)
+_MplsInSegmentTable_Object=MibTable
+mplsInSegmentTable=_MplsInSegmentTable_Object((1,3,6,1,2,1,10,166,2,1,4))
+if mibBuilder.loadTexts:mplsInSegmentTable.setStatus(_A)
+_MplsInSegmentEntry_Object=MibTableRow
+mplsInSegmentEntry=_MplsInSegmentEntry_Object((1,3,6,1,2,1,10,166,2,1,4,1))
+mplsInSegmentEntry.setIndexNames((0,_B,_c))
+if mibBuilder.loadTexts:mplsInSegmentEntry.setStatus(_A)
+_MplsInSegmentIndex_Type=MplsIndexType
+_MplsInSegmentIndex_Object=MibTableColumn
+mplsInSegmentIndex=_MplsInSegmentIndex_Object((1,3,6,1,2,1,10,166,2,1,4,1,1),_MplsInSegmentIndex_Type())
+mplsInSegmentIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:mplsInSegmentIndex.setStatus(_A)
+_MplsInSegmentInterface_Type=InterfaceIndexOrZero
+_MplsInSegmentInterface_Object=MibTableColumn
+mplsInSegmentInterface=_MplsInSegmentInterface_Object((1,3,6,1,2,1,10,166,2,1,4,1,2),_MplsInSegmentInterface_Type())
+mplsInSegmentInterface.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsInSegmentInterface.setStatus(_A)
+_MplsInSegmentLabel_Type=MplsLabel
+_MplsInSegmentLabel_Object=MibTableColumn
+mplsInSegmentLabel=_MplsInSegmentLabel_Object((1,3,6,1,2,1,10,166,2,1,4,1,3),_MplsInSegmentLabel_Type())
+mplsInSegmentLabel.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsInSegmentLabel.setStatus(_A)
+class _MplsInSegmentLabelPtr_Type(RowPointer):defaultValue=0,0
+_MplsInSegmentLabelPtr_Type.__name__=_F
+_MplsInSegmentLabelPtr_Object=MibTableColumn
+mplsInSegmentLabelPtr=_MplsInSegmentLabelPtr_Object((1,3,6,1,2,1,10,166,2,1,4,1,4),_MplsInSegmentLabelPtr_Type())
+mplsInSegmentLabelPtr.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsInSegmentLabelPtr.setStatus(_A)
+class _MplsInSegmentNPop_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_MplsInSegmentNPop_Type.__name__=_J
+_MplsInSegmentNPop_Object=MibTableColumn
+mplsInSegmentNPop=_MplsInSegmentNPop_Object((1,3,6,1,2,1,10,166,2,1,4,1,5),_MplsInSegmentNPop_Type())
+mplsInSegmentNPop.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsInSegmentNPop.setStatus(_A)
+class _MplsInSegmentAddrFamily_Type(AddressFamilyNumbers):defaultValue=0
+_MplsInSegmentAddrFamily_Type.__name__=_Z
+_MplsInSegmentAddrFamily_Object=MibTableColumn
+mplsInSegmentAddrFamily=_MplsInSegmentAddrFamily_Object((1,3,6,1,2,1,10,166,2,1,4,1,6),_MplsInSegmentAddrFamily_Type())
+mplsInSegmentAddrFamily.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsInSegmentAddrFamily.setStatus(_A)
+_MplsInSegmentXCIndex_Type=MplsIndexType
+_MplsInSegmentXCIndex_Object=MibTableColumn
+mplsInSegmentXCIndex=_MplsInSegmentXCIndex_Object((1,3,6,1,2,1,10,166,2,1,4,1,7),_MplsInSegmentXCIndex_Type())
+mplsInSegmentXCIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInSegmentXCIndex.setStatus(_A)
+_MplsInSegmentOwner_Type=MplsOwner
+_MplsInSegmentOwner_Object=MibTableColumn
+mplsInSegmentOwner=_MplsInSegmentOwner_Object((1,3,6,1,2,1,10,166,2,1,4,1,8),_MplsInSegmentOwner_Type())
+mplsInSegmentOwner.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInSegmentOwner.setStatus(_A)
+class _MplsInSegmentTrafficParamPtr_Type(RowPointer):defaultValue=0,0
+_MplsInSegmentTrafficParamPtr_Type.__name__=_F
+_MplsInSegmentTrafficParamPtr_Object=MibTableColumn
+mplsInSegmentTrafficParamPtr=_MplsInSegmentTrafficParamPtr_Object((1,3,6,1,2,1,10,166,2,1,4,1,9),_MplsInSegmentTrafficParamPtr_Type())
+mplsInSegmentTrafficParamPtr.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsInSegmentTrafficParamPtr.setStatus(_A)
+_MplsInSegmentRowStatus_Type=RowStatus
+_MplsInSegmentRowStatus_Object=MibTableColumn
+mplsInSegmentRowStatus=_MplsInSegmentRowStatus_Object((1,3,6,1,2,1,10,166,2,1,4,1,10),_MplsInSegmentRowStatus_Type())
+mplsInSegmentRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsInSegmentRowStatus.setStatus(_A)
+class _MplsInSegmentStorageType_Type(StorageType):defaultValue=2
+_MplsInSegmentStorageType_Type.__name__=_I
+_MplsInSegmentStorageType_Object=MibTableColumn
+mplsInSegmentStorageType=_MplsInSegmentStorageType_Object((1,3,6,1,2,1,10,166,2,1,4,1,11),_MplsInSegmentStorageType_Type())
+mplsInSegmentStorageType.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsInSegmentStorageType.setStatus(_A)
+_MplsInSegmentPerfTable_Object=MibTable
+mplsInSegmentPerfTable=_MplsInSegmentPerfTable_Object((1,3,6,1,2,1,10,166,2,1,5))
+if mibBuilder.loadTexts:mplsInSegmentPerfTable.setStatus(_A)
+_MplsInSegmentPerfEntry_Object=MibTableRow
+mplsInSegmentPerfEntry=_MplsInSegmentPerfEntry_Object((1,3,6,1,2,1,10,166,2,1,5,1))
+if mibBuilder.loadTexts:mplsInSegmentPerfEntry.setStatus(_A)
+_MplsInSegmentPerfOctets_Type=Counter32
+_MplsInSegmentPerfOctets_Object=MibTableColumn
+mplsInSegmentPerfOctets=_MplsInSegmentPerfOctets_Object((1,3,6,1,2,1,10,166,2,1,5,1,1),_MplsInSegmentPerfOctets_Type())
+mplsInSegmentPerfOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInSegmentPerfOctets.setStatus(_A)
+_MplsInSegmentPerfPackets_Type=Counter32
+_MplsInSegmentPerfPackets_Object=MibTableColumn
+mplsInSegmentPerfPackets=_MplsInSegmentPerfPackets_Object((1,3,6,1,2,1,10,166,2,1,5,1,2),_MplsInSegmentPerfPackets_Type())
+mplsInSegmentPerfPackets.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInSegmentPerfPackets.setStatus(_A)
+_MplsInSegmentPerfErrors_Type=Counter32
+_MplsInSegmentPerfErrors_Object=MibTableColumn
+mplsInSegmentPerfErrors=_MplsInSegmentPerfErrors_Object((1,3,6,1,2,1,10,166,2,1,5,1,3),_MplsInSegmentPerfErrors_Type())
+mplsInSegmentPerfErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInSegmentPerfErrors.setStatus(_A)
+_MplsInSegmentPerfDiscards_Type=Counter32
+_MplsInSegmentPerfDiscards_Object=MibTableColumn
+mplsInSegmentPerfDiscards=_MplsInSegmentPerfDiscards_Object((1,3,6,1,2,1,10,166,2,1,5,1,4),_MplsInSegmentPerfDiscards_Type())
+mplsInSegmentPerfDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInSegmentPerfDiscards.setStatus(_A)
+_MplsInSegmentPerfHCOctets_Type=Counter64
+_MplsInSegmentPerfHCOctets_Object=MibTableColumn
+mplsInSegmentPerfHCOctets=_MplsInSegmentPerfHCOctets_Object((1,3,6,1,2,1,10,166,2,1,5,1,5),_MplsInSegmentPerfHCOctets_Type())
+mplsInSegmentPerfHCOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInSegmentPerfHCOctets.setStatus(_A)
+_MplsInSegmentPerfDiscontinuityTime_Type=TimeStamp
+_MplsInSegmentPerfDiscontinuityTime_Object=MibTableColumn
+mplsInSegmentPerfDiscontinuityTime=_MplsInSegmentPerfDiscontinuityTime_Object((1,3,6,1,2,1,10,166,2,1,5,1,6),_MplsInSegmentPerfDiscontinuityTime_Type())
+mplsInSegmentPerfDiscontinuityTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInSegmentPerfDiscontinuityTime.setStatus(_A)
+_MplsOutSegmentIndexNext_Type=MplsIndexNextType
+_MplsOutSegmentIndexNext_Object=MibScalar
+mplsOutSegmentIndexNext=_MplsOutSegmentIndexNext_Object((1,3,6,1,2,1,10,166,2,1,6),_MplsOutSegmentIndexNext_Type())
+mplsOutSegmentIndexNext.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsOutSegmentIndexNext.setStatus(_A)
+_MplsOutSegmentTable_Object=MibTable
+mplsOutSegmentTable=_MplsOutSegmentTable_Object((1,3,6,1,2,1,10,166,2,1,7))
+if mibBuilder.loadTexts:mplsOutSegmentTable.setStatus(_A)
+_MplsOutSegmentEntry_Object=MibTableRow
+mplsOutSegmentEntry=_MplsOutSegmentEntry_Object((1,3,6,1,2,1,10,166,2,1,7,1))
+mplsOutSegmentEntry.setIndexNames((0,_B,_d))
+if mibBuilder.loadTexts:mplsOutSegmentEntry.setStatus(_A)
+_MplsOutSegmentIndex_Type=MplsIndexType
+_MplsOutSegmentIndex_Object=MibTableColumn
+mplsOutSegmentIndex=_MplsOutSegmentIndex_Object((1,3,6,1,2,1,10,166,2,1,7,1,1),_MplsOutSegmentIndex_Type())
+mplsOutSegmentIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:mplsOutSegmentIndex.setStatus(_A)
+_MplsOutSegmentInterface_Type=InterfaceIndexOrZero
+_MplsOutSegmentInterface_Object=MibTableColumn
+mplsOutSegmentInterface=_MplsOutSegmentInterface_Object((1,3,6,1,2,1,10,166,2,1,7,1,2),_MplsOutSegmentInterface_Type())
+mplsOutSegmentInterface.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsOutSegmentInterface.setStatus(_A)
+class _MplsOutSegmentPushTopLabel_Type(TruthValue):defaultValue=1
+_MplsOutSegmentPushTopLabel_Type.__name__=_N
+_MplsOutSegmentPushTopLabel_Object=MibTableColumn
+mplsOutSegmentPushTopLabel=_MplsOutSegmentPushTopLabel_Object((1,3,6,1,2,1,10,166,2,1,7,1,3),_MplsOutSegmentPushTopLabel_Type())
+mplsOutSegmentPushTopLabel.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsOutSegmentPushTopLabel.setStatus(_A)
+class _MplsOutSegmentTopLabel_Type(MplsLabel):defaultValue=0
+_MplsOutSegmentTopLabel_Type.__name__=_a
+_MplsOutSegmentTopLabel_Object=MibTableColumn
+mplsOutSegmentTopLabel=_MplsOutSegmentTopLabel_Object((1,3,6,1,2,1,10,166,2,1,7,1,4),_MplsOutSegmentTopLabel_Type())
+mplsOutSegmentTopLabel.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsOutSegmentTopLabel.setStatus(_A)
+class _MplsOutSegmentTopLabelPtr_Type(RowPointer):defaultValue=0,0
+_MplsOutSegmentTopLabelPtr_Type.__name__=_F
+_MplsOutSegmentTopLabelPtr_Object=MibTableColumn
+mplsOutSegmentTopLabelPtr=_MplsOutSegmentTopLabelPtr_Object((1,3,6,1,2,1,10,166,2,1,7,1,5),_MplsOutSegmentTopLabelPtr_Type())
+mplsOutSegmentTopLabelPtr.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsOutSegmentTopLabelPtr.setStatus(_A)
+_MplsOutSegmentNextHopAddrType_Type=InetAddressType
+_MplsOutSegmentNextHopAddrType_Object=MibTableColumn
+mplsOutSegmentNextHopAddrType=_MplsOutSegmentNextHopAddrType_Object((1,3,6,1,2,1,10,166,2,1,7,1,6),_MplsOutSegmentNextHopAddrType_Type())
+mplsOutSegmentNextHopAddrType.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsOutSegmentNextHopAddrType.setStatus(_A)
+_MplsOutSegmentNextHopAddr_Type=InetAddress
+_MplsOutSegmentNextHopAddr_Object=MibTableColumn
+mplsOutSegmentNextHopAddr=_MplsOutSegmentNextHopAddr_Object((1,3,6,1,2,1,10,166,2,1,7,1,7),_MplsOutSegmentNextHopAddr_Type())
+mplsOutSegmentNextHopAddr.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsOutSegmentNextHopAddr.setStatus(_A)
+_MplsOutSegmentXCIndex_Type=MplsIndexType
+_MplsOutSegmentXCIndex_Object=MibTableColumn
+mplsOutSegmentXCIndex=_MplsOutSegmentXCIndex_Object((1,3,6,1,2,1,10,166,2,1,7,1,8),_MplsOutSegmentXCIndex_Type())
+mplsOutSegmentXCIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsOutSegmentXCIndex.setStatus(_A)
+_MplsOutSegmentOwner_Type=MplsOwner
+_MplsOutSegmentOwner_Object=MibTableColumn
+mplsOutSegmentOwner=_MplsOutSegmentOwner_Object((1,3,6,1,2,1,10,166,2,1,7,1,9),_MplsOutSegmentOwner_Type())
+mplsOutSegmentOwner.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsOutSegmentOwner.setStatus(_A)
+class _MplsOutSegmentTrafficParamPtr_Type(RowPointer):defaultValue=0,0
+_MplsOutSegmentTrafficParamPtr_Type.__name__=_F
+_MplsOutSegmentTrafficParamPtr_Object=MibTableColumn
+mplsOutSegmentTrafficParamPtr=_MplsOutSegmentTrafficParamPtr_Object((1,3,6,1,2,1,10,166,2,1,7,1,10),_MplsOutSegmentTrafficParamPtr_Type())
+mplsOutSegmentTrafficParamPtr.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsOutSegmentTrafficParamPtr.setStatus(_A)
+_MplsOutSegmentRowStatus_Type=RowStatus
+_MplsOutSegmentRowStatus_Object=MibTableColumn
+mplsOutSegmentRowStatus=_MplsOutSegmentRowStatus_Object((1,3,6,1,2,1,10,166,2,1,7,1,11),_MplsOutSegmentRowStatus_Type())
+mplsOutSegmentRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsOutSegmentRowStatus.setStatus(_A)
+class _MplsOutSegmentStorageType_Type(StorageType):defaultValue=2
+_MplsOutSegmentStorageType_Type.__name__=_I
+_MplsOutSegmentStorageType_Object=MibTableColumn
+mplsOutSegmentStorageType=_MplsOutSegmentStorageType_Object((1,3,6,1,2,1,10,166,2,1,7,1,12),_MplsOutSegmentStorageType_Type())
+mplsOutSegmentStorageType.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsOutSegmentStorageType.setStatus(_A)
+_MplsOutSegmentPerfTable_Object=MibTable
+mplsOutSegmentPerfTable=_MplsOutSegmentPerfTable_Object((1,3,6,1,2,1,10,166,2,1,8))
+if mibBuilder.loadTexts:mplsOutSegmentPerfTable.setStatus(_A)
+_MplsOutSegmentPerfEntry_Object=MibTableRow
+mplsOutSegmentPerfEntry=_MplsOutSegmentPerfEntry_Object((1,3,6,1,2,1,10,166,2,1,8,1))
+if mibBuilder.loadTexts:mplsOutSegmentPerfEntry.setStatus(_A)
+_MplsOutSegmentPerfOctets_Type=Counter32
+_MplsOutSegmentPerfOctets_Object=MibTableColumn
+mplsOutSegmentPerfOctets=_MplsOutSegmentPerfOctets_Object((1,3,6,1,2,1,10,166,2,1,8,1,1),_MplsOutSegmentPerfOctets_Type())
+mplsOutSegmentPerfOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsOutSegmentPerfOctets.setStatus(_A)
+_MplsOutSegmentPerfPackets_Type=Counter32
+_MplsOutSegmentPerfPackets_Object=MibTableColumn
+mplsOutSegmentPerfPackets=_MplsOutSegmentPerfPackets_Object((1,3,6,1,2,1,10,166,2,1,8,1,2),_MplsOutSegmentPerfPackets_Type())
+mplsOutSegmentPerfPackets.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsOutSegmentPerfPackets.setStatus(_A)
+_MplsOutSegmentPerfErrors_Type=Counter32
+_MplsOutSegmentPerfErrors_Object=MibTableColumn
+mplsOutSegmentPerfErrors=_MplsOutSegmentPerfErrors_Object((1,3,6,1,2,1,10,166,2,1,8,1,3),_MplsOutSegmentPerfErrors_Type())
+mplsOutSegmentPerfErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsOutSegmentPerfErrors.setStatus(_A)
+_MplsOutSegmentPerfDiscards_Type=Counter32
+_MplsOutSegmentPerfDiscards_Object=MibTableColumn
+mplsOutSegmentPerfDiscards=_MplsOutSegmentPerfDiscards_Object((1,3,6,1,2,1,10,166,2,1,8,1,4),_MplsOutSegmentPerfDiscards_Type())
+mplsOutSegmentPerfDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsOutSegmentPerfDiscards.setStatus(_A)
+_MplsOutSegmentPerfHCOctets_Type=Counter64
+_MplsOutSegmentPerfHCOctets_Object=MibTableColumn
+mplsOutSegmentPerfHCOctets=_MplsOutSegmentPerfHCOctets_Object((1,3,6,1,2,1,10,166,2,1,8,1,5),_MplsOutSegmentPerfHCOctets_Type())
+mplsOutSegmentPerfHCOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsOutSegmentPerfHCOctets.setStatus(_A)
+_MplsOutSegmentPerfDiscontinuityTime_Type=TimeStamp
+_MplsOutSegmentPerfDiscontinuityTime_Object=MibTableColumn
+mplsOutSegmentPerfDiscontinuityTime=_MplsOutSegmentPerfDiscontinuityTime_Object((1,3,6,1,2,1,10,166,2,1,8,1,6),_MplsOutSegmentPerfDiscontinuityTime_Type())
+mplsOutSegmentPerfDiscontinuityTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsOutSegmentPerfDiscontinuityTime.setStatus(_A)
+_MplsXCIndexNext_Type=MplsIndexNextType
+_MplsXCIndexNext_Object=MibScalar
+mplsXCIndexNext=_MplsXCIndexNext_Object((1,3,6,1,2,1,10,166,2,1,9),_MplsXCIndexNext_Type())
+mplsXCIndexNext.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsXCIndexNext.setStatus(_A)
+_MplsXCTable_Object=MibTable
+mplsXCTable=_MplsXCTable_Object((1,3,6,1,2,1,10,166,2,1,10))
+if mibBuilder.loadTexts:mplsXCTable.setStatus(_A)
+_MplsXCEntry_Object=MibTableRow
+mplsXCEntry=_MplsXCEntry_Object((1,3,6,1,2,1,10,166,2,1,10,1))
+mplsXCEntry.setIndexNames((0,_B,_e),(0,_B,_f),(0,_B,_g))
+if mibBuilder.loadTexts:mplsXCEntry.setStatus(_A)
+_MplsXCIndex_Type=MplsIndexType
+_MplsXCIndex_Object=MibTableColumn
+mplsXCIndex=_MplsXCIndex_Object((1,3,6,1,2,1,10,166,2,1,10,1,1),_MplsXCIndex_Type())
+mplsXCIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:mplsXCIndex.setStatus(_A)
+_MplsXCInSegmentIndex_Type=MplsIndexType
+_MplsXCInSegmentIndex_Object=MibTableColumn
+mplsXCInSegmentIndex=_MplsXCInSegmentIndex_Object((1,3,6,1,2,1,10,166,2,1,10,1,2),_MplsXCInSegmentIndex_Type())
+mplsXCInSegmentIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:mplsXCInSegmentIndex.setStatus(_A)
+_MplsXCOutSegmentIndex_Type=MplsIndexType
+_MplsXCOutSegmentIndex_Object=MibTableColumn
+mplsXCOutSegmentIndex=_MplsXCOutSegmentIndex_Object((1,3,6,1,2,1,10,166,2,1,10,1,3),_MplsXCOutSegmentIndex_Type())
+mplsXCOutSegmentIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:mplsXCOutSegmentIndex.setStatus(_A)
+_MplsXCLspId_Type=MplsLSPID
+_MplsXCLspId_Object=MibTableColumn
+mplsXCLspId=_MplsXCLspId_Object((1,3,6,1,2,1,10,166,2,1,10,1,4),_MplsXCLspId_Type())
+mplsXCLspId.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsXCLspId.setStatus(_A)
+_MplsXCLabelStackIndex_Type=MplsIndexType
+_MplsXCLabelStackIndex_Object=MibTableColumn
+mplsXCLabelStackIndex=_MplsXCLabelStackIndex_Object((1,3,6,1,2,1,10,166,2,1,10,1,5),_MplsXCLabelStackIndex_Type())
+mplsXCLabelStackIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsXCLabelStackIndex.setStatus(_A)
+_MplsXCOwner_Type=MplsOwner
+_MplsXCOwner_Object=MibTableColumn
+mplsXCOwner=_MplsXCOwner_Object((1,3,6,1,2,1,10,166,2,1,10,1,6),_MplsXCOwner_Type())
+mplsXCOwner.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsXCOwner.setStatus(_A)
+_MplsXCRowStatus_Type=RowStatus
+_MplsXCRowStatus_Object=MibTableColumn
+mplsXCRowStatus=_MplsXCRowStatus_Object((1,3,6,1,2,1,10,166,2,1,10,1,7),_MplsXCRowStatus_Type())
+mplsXCRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsXCRowStatus.setStatus(_A)
+class _MplsXCStorageType_Type(StorageType):defaultValue=2
+_MplsXCStorageType_Type.__name__=_I
+_MplsXCStorageType_Object=MibTableColumn
+mplsXCStorageType=_MplsXCStorageType_Object((1,3,6,1,2,1,10,166,2,1,10,1,8),_MplsXCStorageType_Type())
+mplsXCStorageType.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsXCStorageType.setStatus(_A)
+class _MplsXCAdminStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('up',1),('down',2),(_h,3)))
+_MplsXCAdminStatus_Type.__name__=_J
+_MplsXCAdminStatus_Object=MibTableColumn
+mplsXCAdminStatus=_MplsXCAdminStatus_Object((1,3,6,1,2,1,10,166,2,1,10,1,9),_MplsXCAdminStatus_Type())
+mplsXCAdminStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsXCAdminStatus.setStatus(_A)
+class _MplsXCOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('up',1),('down',2),(_h,3),('unknown',4),('dormant',5),('notPresent',6),('lowerLayerDown',7)))
+_MplsXCOperStatus_Type.__name__=_J
+_MplsXCOperStatus_Object=MibTableColumn
+mplsXCOperStatus=_MplsXCOperStatus_Object((1,3,6,1,2,1,10,166,2,1,10,1,10),_MplsXCOperStatus_Type())
+mplsXCOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsXCOperStatus.setStatus(_A)
+class _MplsMaxLabelStackDepth_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_MplsMaxLabelStackDepth_Type.__name__=_M
+_MplsMaxLabelStackDepth_Object=MibScalar
+mplsMaxLabelStackDepth=_MplsMaxLabelStackDepth_Object((1,3,6,1,2,1,10,166,2,1,11),_MplsMaxLabelStackDepth_Type())
+mplsMaxLabelStackDepth.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsMaxLabelStackDepth.setStatus(_A)
+_MplsLabelStackIndexNext_Type=MplsIndexNextType
+_MplsLabelStackIndexNext_Object=MibScalar
+mplsLabelStackIndexNext=_MplsLabelStackIndexNext_Object((1,3,6,1,2,1,10,166,2,1,12),_MplsLabelStackIndexNext_Type())
+mplsLabelStackIndexNext.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsLabelStackIndexNext.setStatus(_A)
+_MplsLabelStackTable_Object=MibTable
+mplsLabelStackTable=_MplsLabelStackTable_Object((1,3,6,1,2,1,10,166,2,1,13))
+if mibBuilder.loadTexts:mplsLabelStackTable.setStatus(_A)
+_MplsLabelStackEntry_Object=MibTableRow
+mplsLabelStackEntry=_MplsLabelStackEntry_Object((1,3,6,1,2,1,10,166,2,1,13,1))
+mplsLabelStackEntry.setIndexNames((0,_B,_i),(0,_B,_j))
+if mibBuilder.loadTexts:mplsLabelStackEntry.setStatus(_A)
+_MplsLabelStackIndex_Type=MplsIndexType
+_MplsLabelStackIndex_Object=MibTableColumn
+mplsLabelStackIndex=_MplsLabelStackIndex_Object((1,3,6,1,2,1,10,166,2,1,13,1,1),_MplsLabelStackIndex_Type())
+mplsLabelStackIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:mplsLabelStackIndex.setStatus(_A)
+class _MplsLabelStackLabelIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_MplsLabelStackLabelIndex_Type.__name__=_M
+_MplsLabelStackLabelIndex_Object=MibTableColumn
+mplsLabelStackLabelIndex=_MplsLabelStackLabelIndex_Object((1,3,6,1,2,1,10,166,2,1,13,1,2),_MplsLabelStackLabelIndex_Type())
+mplsLabelStackLabelIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:mplsLabelStackLabelIndex.setStatus(_A)
+_MplsLabelStackLabel_Type=MplsLabel
+_MplsLabelStackLabel_Object=MibTableColumn
+mplsLabelStackLabel=_MplsLabelStackLabel_Object((1,3,6,1,2,1,10,166,2,1,13,1,3),_MplsLabelStackLabel_Type())
+mplsLabelStackLabel.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsLabelStackLabel.setStatus(_A)
+class _MplsLabelStackLabelPtr_Type(RowPointer):defaultValue=0,0
+_MplsLabelStackLabelPtr_Type.__name__=_F
+_MplsLabelStackLabelPtr_Object=MibTableColumn
+mplsLabelStackLabelPtr=_MplsLabelStackLabelPtr_Object((1,3,6,1,2,1,10,166,2,1,13,1,4),_MplsLabelStackLabelPtr_Type())
+mplsLabelStackLabelPtr.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsLabelStackLabelPtr.setStatus(_A)
+_MplsLabelStackRowStatus_Type=RowStatus
+_MplsLabelStackRowStatus_Object=MibTableColumn
+mplsLabelStackRowStatus=_MplsLabelStackRowStatus_Object((1,3,6,1,2,1,10,166,2,1,13,1,5),_MplsLabelStackRowStatus_Type())
+mplsLabelStackRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsLabelStackRowStatus.setStatus(_A)
+class _MplsLabelStackStorageType_Type(StorageType):defaultValue=2
+_MplsLabelStackStorageType_Type.__name__=_I
+_MplsLabelStackStorageType_Object=MibTableColumn
+mplsLabelStackStorageType=_MplsLabelStackStorageType_Object((1,3,6,1,2,1,10,166,2,1,13,1,6),_MplsLabelStackStorageType_Type())
+mplsLabelStackStorageType.setMaxAccess(_D)
+if mibBuilder.loadTexts:mplsLabelStackStorageType.setStatus(_A)
+_MplsInSegmentMapTable_Object=MibTable
+mplsInSegmentMapTable=_MplsInSegmentMapTable_Object((1,3,6,1,2,1,10,166,2,1,14))
+if mibBuilder.loadTexts:mplsInSegmentMapTable.setStatus(_A)
+_MplsInSegmentMapEntry_Object=MibTableRow
+mplsInSegmentMapEntry=_MplsInSegmentMapEntry_Object((1,3,6,1,2,1,10,166,2,1,14,1))
+mplsInSegmentMapEntry.setIndexNames((0,_B,_k),(0,_B,_l),(0,_B,_m))
+if mibBuilder.loadTexts:mplsInSegmentMapEntry.setStatus(_A)
+_MplsInSegmentMapInterface_Type=InterfaceIndexOrZero
+_MplsInSegmentMapInterface_Object=MibTableColumn
+mplsInSegmentMapInterface=_MplsInSegmentMapInterface_Object((1,3,6,1,2,1,10,166,2,1,14,1,1),_MplsInSegmentMapInterface_Type())
+mplsInSegmentMapInterface.setMaxAccess(_E)
+if mibBuilder.loadTexts:mplsInSegmentMapInterface.setStatus(_A)
+_MplsInSegmentMapLabel_Type=MplsLabel
+_MplsInSegmentMapLabel_Object=MibTableColumn
+mplsInSegmentMapLabel=_MplsInSegmentMapLabel_Object((1,3,6,1,2,1,10,166,2,1,14,1,2),_MplsInSegmentMapLabel_Type())
+mplsInSegmentMapLabel.setMaxAccess(_E)
+if mibBuilder.loadTexts:mplsInSegmentMapLabel.setStatus(_A)
+_MplsInSegmentMapLabelPtrIndex_Type=RowPointer
+_MplsInSegmentMapLabelPtrIndex_Object=MibTableColumn
+mplsInSegmentMapLabelPtrIndex=_MplsInSegmentMapLabelPtrIndex_Object((1,3,6,1,2,1,10,166,2,1,14,1,3),_MplsInSegmentMapLabelPtrIndex_Type())
+mplsInSegmentMapLabelPtrIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:mplsInSegmentMapLabelPtrIndex.setStatus(_A)
+_MplsInSegmentMapIndex_Type=MplsIndexType
+_MplsInSegmentMapIndex_Object=MibTableColumn
+mplsInSegmentMapIndex=_MplsInSegmentMapIndex_Object((1,3,6,1,2,1,10,166,2,1,14,1,4),_MplsInSegmentMapIndex_Type())
+mplsInSegmentMapIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:mplsInSegmentMapIndex.setStatus(_A)
+class _MplsXCNotificationsEnable_Type(TruthValue):defaultValue=2
+_MplsXCNotificationsEnable_Type.__name__=_N
+_MplsXCNotificationsEnable_Object=MibScalar
+mplsXCNotificationsEnable=_MplsXCNotificationsEnable_Object((1,3,6,1,2,1,10,166,2,1,15),_MplsXCNotificationsEnable_Type())
+mplsXCNotificationsEnable.setMaxAccess('read-write')
+if mibBuilder.loadTexts:mplsXCNotificationsEnable.setStatus(_A)
+_MplsLsrConformance_ObjectIdentity=ObjectIdentity
+mplsLsrConformance=_MplsLsrConformance_ObjectIdentity((1,3,6,1,2,1,10,166,2,2))
+_MplsLsrGroups_ObjectIdentity=ObjectIdentity
+mplsLsrGroups=_MplsLsrGroups_ObjectIdentity((1,3,6,1,2,1,10,166,2,2,1))
+_MplsLsrCompliances_ObjectIdentity=ObjectIdentity
+mplsLsrCompliances=_MplsLsrCompliances_ObjectIdentity((1,3,6,1,2,1,10,166,2,2,2))
+mplsInterfaceEntry.registerAugmentions((_B,_n))
 mplsInterfacePerfEntry.setIndexNames(*mplsInterfaceEntry.getIndexNames())
-if mibBuilder.loadTexts: mplsInterfacePerfEntry.setDescription("An entry in this table is created by the LSR for\n             every interface capable of supporting MPLS.  Its is\n             an extension to the mplsInterfaceEntry table.\n             Note that the discontinuity behavior of entries in\n             this table MUST be based on the corresponding\n             ifEntry's ifDiscontinuityTime.")
-mplsInterfacePerfInLabelsInUse = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 2, 1, 1), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInterfacePerfInLabelsInUse.setDescription('This object counts the number of labels that are in\n             use at this point in time on this interface in the\n             incoming direction. If the interface participates in\n             only the per-platform label space, then the value of\n             the instance of this object MUST be identical to\n             the value of the instance with index 0. If the\n             interface participates in the per-interface label\n             space, then the instance of this object MUST\n             represent the number of per-interface labels that\n             are in use on this interface.')
-mplsInterfacePerfInLabelLookupFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 2, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInterfacePerfInLabelLookupFailures.setDescription('This object counts the number of labeled packets\n             that have been received on this interface and which\n             were discarded because there was no matching cross-\n             connect entry. This object MUST count on a per-\n             interface basis regardless of which label space the\n             interface participates in.')
-mplsInterfacePerfOutLabelsInUse = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 2, 1, 3), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInterfacePerfOutLabelsInUse.setDescription('This object counts the number of top-most labels in\n             the outgoing label stacks that are in use at this\n             point in time on this interface. This object MUST\n             count on a per-interface basis regardless of which\n             label space the interface participates in.')
-mplsInterfacePerfOutFragmentedPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 2, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInterfacePerfOutFragmentedPkts.setDescription('This object counts the number of outgoing MPLS\n             packets that required fragmentation before\n             transmission on this interface. This object MUST\n             count on a per-interface basis regardless of which\n             label space the interface participates in.')
-mplsInSegmentIndexNext = MibScalar((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 3), MplsIndexNextType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInSegmentIndexNext.setDescription('This object contains the next available value to\n             be used for mplsInSegmentIndex when creating entries\n             in the mplsInSegmentTable. The special value of a\n             string containing the single octet 0x00 indicates\n             that no new entries can be created in this table.\n             Agents not allowing managers to create entries\n             in this table MUST set this object to this special\n             value.')
-mplsInSegmentTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 4), )
-if mibBuilder.loadTexts: mplsInSegmentTable.setDescription("This table contains a description of the incoming MPLS\n             segments (labels) to an LSR and their associated parameters.\n             The index for this table is mplsInSegmentIndex.\n             The index structure of this table is specifically designed\n             to handle many different MPLS implementations that manage\n             their labels both in a distributed and centralized manner.\n             The table is also designed to handle existing MPLS labels\n             as defined in RFC3031 as well as longer ones that may\n             be necessary in the future.\n    \n             In cases where the label cannot fit into the\n             mplsInSegmentLabel object, the mplsInSegmentLabelPtr\n             will indicate this by being set to the first accessible\n             column in the appropriate extension table's row.\n             In this case an additional table MUST\n             be provided and MUST be indexed by at least the indexes\n             used by this table. In all other cases when the label is\n             represented within the mplsInSegmentLabel object, the\n             mplsInSegmentLabelPtr MUST be set to 0.0. Due to the\n             fact that MPLS labels may not exceed 24 bits, the\n             mplsInSegmentLabelPtr object is only a provision for\n             future-proofing the MIB module. Thus, the definition\n             of any extension tables is beyond the scope of this\n             MIB module.")
-mplsInSegmentEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 4, 1), ).setIndexNames((0, "MPLS-LSR-STD-MIB", "mplsInSegmentIndex"))
-if mibBuilder.loadTexts: mplsInSegmentEntry.setDescription("An entry in this table represents one incoming\n             segment as is represented in an LSR's LFIB.\n             An entry can be created by a network\n             administrator or an SNMP agent, or an MPLS signaling\n             protocol.  The creator of the entry is denoted by\n             mplsInSegmentOwner.\n             The value of mplsInSegmentRowStatus cannot be active(1)\n             unless the ifTable entry corresponding to\n             mplsInSegmentInterface exists.  An entry in this table\n             must match any incoming packets, and indicates an\n             instance of mplsXCEntry based on which forwarding\n             and/or switching actions are taken.")
-mplsInSegmentIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 4, 1, 1), MplsIndexType())
-if mibBuilder.loadTexts: mplsInSegmentIndex.setDescription('The index for this in-segment. The\n             string containing the single octet 0x00\n             MUST not be used as an index.')
-mplsInSegmentInterface = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 4, 1, 2), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsInSegmentInterface.setDescription('This object represents the\n             interface index for the incoming MPLS interface.  A\n             value of zero represents all interfaces participating in\n             the per-platform label space.  This may only be used\n             in cases where the incoming interface and label\n             are associated with the same mplsXCEntry. Specifically,\n             given a label and any incoming interface pair from the\n             per-platform label space, the outgoing label/interface\n             mapping remains the same. If this is not the case,\n             then individual entries MUST exist that\n             can then be mapped to unique mplsXCEntries.')
-mplsInSegmentLabel = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 4, 1, 3), MplsLabel()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsInSegmentLabel.setDescription('If the corresponding instance of mplsInSegmentLabelPtr is\n             zeroDotZero then this object MUST contain the incoming label\n             associated with this in-segment. If not this object SHOULD\n             be zero and MUST be ignored.')
-mplsInSegmentLabelPtr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 4, 1, 4), RowPointer().clone((0, 0))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsInSegmentLabelPtr.setDescription('If the label for this segment cannot be represented\n             fully within the mplsInSegmentLabel object,\n             this object MUST point to the first accessible\n             column of a conceptual row in an external table containing\n             the label.  In this case, the mplsInSegmentTopLabel\n             object SHOULD be set to 0 and ignored. This object MUST\n             be set to zeroDotZero otherwise.')
-mplsInSegmentNPop = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)).clone(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsInSegmentNPop.setDescription('The number of labels to pop from the incoming\n             packet.  Normally only the top label is popped from\n             the packet and used for all switching decisions for\n             that packet.  This is indicated by setting this\n             object to the default value of 1. If an LSR supports\n             popping of more than one label, this object MUST\n             be set to that number. This object cannot be modified\n             if mplsInSegmentRowStatus is active(1).')
-mplsInSegmentAddrFamily = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 4, 1, 6), AddressFamilyNumbers().clone('other')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsInSegmentAddrFamily.setDescription('The IANA address family [IANAFamily] of packets\n             received on this segment, which is used at an egress\n             LSR to deliver them to the appropriate layer 3 entity.\n             A value of other(0) indicates that the family type is\n             either unknown or undefined; this SHOULD NOT be used\n             at an egress LSR. This object cannot be\n             modified if mplsInSegmentRowStatus is active(1).')
-mplsInSegmentXCIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 4, 1, 7), MplsIndexType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInSegmentXCIndex.setDescription('Index into mplsXCTable which identifies which cross-\n             connect entry this segment is part of.  The string\n             containing the single octet 0x00 indicates that this\n             entry is not referred to by any cross-connect entry.\n             When a cross-connect entry is created which this\n             in-segment is a part of, this object is automatically\n             updated to reflect the value of mplsXCIndex of that\n             cross-connect entry.')
-mplsInSegmentOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 4, 1, 8), MplsOwner()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInSegmentOwner.setDescription('Denotes the entity that created and is responsible\n             for managing this segment.')
-mplsInSegmentTrafficParamPtr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 4, 1, 9), RowPointer().clone((0, 0))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsInSegmentTrafficParamPtr.setDescription('This variable represents a pointer to the traffic\n             parameter specification for this in-segment.  This\n             value may point at an entry in the\n             mplsTunnelResourceTable in the MPLS-TE-STD-MIB (RFC3812)\n             to indicate which traffic parameter settings for this\n             segment if it represents an LSP used for a TE tunnel.\n            \n             This value may optionally point at an\n             externally defined traffic parameter specification\n             table.  A value of zeroDotZero indicates best-effort\n             treatment.  By having the same value of this object,\n             two or more segments can indicate resource sharing\n             of such things as LSP queue space, etc.\n            \n             This object cannot be modified if mplsInSegmentRowStatus\n             is active(1).  For entries in this table that\n             are preserved after a re-boot, the agent MUST ensure\n             that their integrity be preserved, or this object should\n             be set to 0.0 if it cannot.')
-mplsInSegmentRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 4, 1, 10), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsInSegmentRowStatus.setDescription('This variable is used to create, modify, and/or\n             delete a row in this table. When a row in this\n             table has a row in the active(1) state, no\n             objects in this row can be modified except the\n             mplsInSegmentRowStatus and mplsInSegmentStorageType.')
-mplsInSegmentStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 4, 1, 11), StorageType().clone('volatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsInSegmentStorageType.setDescription("This variable indicates the storage type for this\n             object. The agent MUST ensure that this object's\n             value remains consistent with the associated\n             mplsXCEntry. Conceptual rows having the value\n             'permanent' need not allow write-access to any\n             columnar objects in the row.")
-mplsInSegmentPerfTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 5), )
-if mibBuilder.loadTexts: mplsInSegmentPerfTable.setDescription('This table contains statistical information for\n             incoming MPLS segments to an LSR.')
-mplsInSegmentPerfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 5, 1), )
-mplsInSegmentEntry.registerAugmentions(("MPLS-LSR-STD-MIB", "mplsInSegmentPerfEntry"))
+mplsInSegmentEntry.registerAugmentions((_B,_o))
 mplsInSegmentPerfEntry.setIndexNames(*mplsInSegmentEntry.getIndexNames())
-if mibBuilder.loadTexts: mplsInSegmentPerfEntry.setDescription('An entry in this table contains statistical\n             information about one incoming segment which is\n             configured in the mplsInSegmentTable. The counters\n             in this entry should behave in a manner similar to\n             that of the interface.\n             mplsInSegmentPerfDiscontinuityTime indicates the\n             time of the last discontinuity in all of these\n             objects.')
-mplsInSegmentPerfOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 5, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInSegmentPerfOctets.setDescription('This value represents the total number of octets\n             received by this segment. It MUST be equal to the\n             least significant 32 bits of\n             mplsInSegmentPerfHCOctets\n             if mplsInSegmentPerfHCOctets is supported according to\n             the rules spelled out in RFC2863.')
-mplsInSegmentPerfPackets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 5, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInSegmentPerfPackets.setDescription('Total number of packets received by this segment.')
-mplsInSegmentPerfErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 5, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInSegmentPerfErrors.setDescription('The number of errored packets received on this\n             segment.')
-mplsInSegmentPerfDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 5, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInSegmentPerfDiscards.setDescription('The number of labeled packets received on this in-\n             segment, which were chosen to be discarded even\n             though no errors had been detected to prevent their\n             being transmitted.  One possible reason for\n             discarding such a labeled packet could be to free up\n             buffer space.')
-mplsInSegmentPerfHCOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 5, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInSegmentPerfHCOctets.setDescription('The total number of octets received.  This is the 64\n             bit version of mplsInSegmentPerfOctets,\n             if mplsInSegmentPerfHCOctets is supported according to\n             the rules spelled out in RFC2863.')
-mplsInSegmentPerfDiscontinuityTime = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 5, 1, 6), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInSegmentPerfDiscontinuityTime.setDescription("The value of sysUpTime on the most recent occasion\n             at which any one or more of this segment's Counter32\n             or Counter64 suffered a discontinuity. If no such\n             discontinuities have occurred since the last re-\n             initialization of the local management subsystem,\n             then this object contains a zero value.")
-mplsOutSegmentIndexNext = MibScalar((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 6), MplsIndexNextType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsOutSegmentIndexNext.setDescription('This object contains the next available value to\n             be used for mplsOutSegmentIndex when creating entries\n             in the mplsOutSegmentTable. The special value of a\n             string containing the single octet 0x00\n             indicates that no new entries can be created in this\n             table. Agents not allowing managers to create entries\n             in this table MUST set this object to this special\n             value.')
-mplsOutSegmentTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 7), )
-if mibBuilder.loadTexts: mplsOutSegmentTable.setDescription('This table contains a representation of the outgoing\n             segments from an LSR.')
-mplsOutSegmentEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 7, 1), ).setIndexNames((0, "MPLS-LSR-STD-MIB", "mplsOutSegmentIndex"))
-if mibBuilder.loadTexts: mplsOutSegmentEntry.setDescription('An entry in this table represents one outgoing\n             segment.  An entry can be created by a network\n             administrator, an SNMP agent, or an MPLS signaling\n             protocol.  The object mplsOutSegmentOwner indicates\n             the creator of this entry. The value of\n             mplsOutSegmentRowStatus cannot be active(1) unless\n             the ifTable entry corresponding to\n             mplsOutSegmentInterface exists.\n    \n             Note that the indexing of this table uses a single,\n             arbitrary index (mplsOutSegmentIndex) to indicate\n             which out-segment (i.e.: label) is being switched to\n             from which in-segment (i.e: label) or in-segments.\n             This is necessary because it is possible to have an\n             equal-cost multi-path situation where two identical\n             out-going labels are assigned to the same\n             cross-connect (i.e.: they go to two different neighboring\n             LSRs); thus, requiring two out-segments. In order to\n             preserve the uniqueness of the references\n             by the mplsXCEntry, an arbitrary integer must be used as\n             the index for this table.')
-mplsOutSegmentIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 7, 1, 1), MplsIndexType())
-if mibBuilder.loadTexts: mplsOutSegmentIndex.setDescription('This value contains a unique index for this row.\n             While a value of a string containing the single\n             octet 0x00 is not valid as an index for entries\n             in this table, it can be supplied as a valid value\n             to index the mplsXCTable to represent entries for\n             which no out-segment has been configured or\n             exists.')
-mplsOutSegmentInterface = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 7, 1, 2), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsOutSegmentInterface.setDescription('This value must contain the interface index of the\n             outgoing interface. This object cannot be modified\n             if mplsOutSegmentRowStatus is active(1). The\n             mplsOutSegmentRowStatus cannot be set to active(1)\n             until this object is set to a value corresponding to\n             a valid ifEntry.')
-mplsOutSegmentPushTopLabel = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 7, 1, 3), TruthValue().clone('true')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsOutSegmentPushTopLabel.setDescription("This value indicates whether or not a top label\n             should be pushed onto the outgoing packet's label\n             stack.  The value of this variable MUST be set to\n             true(1) if the outgoing interface does not support\n             pop-and-go (and no label stack remains). For example,\n             on ATM interface, or if the segment represents a\n             tunnel origination.  Note that it is considered\n             an error in the case that mplsOutSegmentPushTopLabel\n             is set to false, but the cross-connect entry which\n             refers to this out-segment has a non-zero\n             mplsLabelStackIndex.  The LSR MUST ensure that this\n             situation does not happen. This object cannot be\n             modified if mplsOutSegmentRowStatus is active(1).")
-mplsOutSegmentTopLabel = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 7, 1, 4), MplsLabel()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsOutSegmentTopLabel.setDescription("If mplsOutSegmentPushTopLabel is true then this\n             represents the label that should be pushed onto the\n             top of the outgoing packet's label stack. Otherwise\n             this value SHOULD be set to 0 by the management\n             station and MUST be ignored by the agent. This\n             object cannot be modified if mplsOutSegmentRowStatus\n             is active(1).")
-mplsOutSegmentTopLabelPtr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 7, 1, 5), RowPointer().clone((0, 0))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsOutSegmentTopLabelPtr.setDescription('If the label for this segment cannot be represented\n             fully within the mplsOutSegmentLabel object,\n             this object MUST point to the first accessible\n             column of a conceptual row in an external table containing\n             the label.  In this case, the mplsOutSegmentTopLabel\n             object SHOULD be set to 0 and ignored. This object\n             MUST be set to zeroDotZero otherwise.')
-mplsOutSegmentNextHopAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 7, 1, 6), InetAddressType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsOutSegmentNextHopAddrType.setDescription('Indicates the next hop Internet address type.\n             Only values unknown(0), ipv4(1) or ipv6(2)\n             have to be supported.\n    \n             A value of unknown(0) is allowed only when\n             the outgoing interface is of type point-to-point.\n             If any other unsupported values are attempted in a set\n             operation, the agent MUST return an inconsistentValue\n             error.')
-mplsOutSegmentNextHopAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 7, 1, 7), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsOutSegmentNextHopAddr.setDescription('The internet address of the next hop. The type of\n             this address is determined by the value of the\n             mplslOutSegmentNextHopAddrType object.\n    \n             This object cannot be modified if\n             mplsOutSegmentRowStatus is active(1).')
-mplsOutSegmentXCIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 7, 1, 8), MplsIndexType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsOutSegmentXCIndex.setDescription('Index into mplsXCTable which identifies which cross-\n             connect entry this segment is part of.  A value of\n             the string containing the single octet 0x00\n             indicates that this entry is not referred\n             to by any cross-connect entry.  When a cross-connect\n             entry is created which this out-segment is a part of,\n             this object MUST be updated by the agent to reflect\n             the value of mplsXCIndex of that cross-connect\n             entry.')
-mplsOutSegmentOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 7, 1, 9), MplsOwner()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsOutSegmentOwner.setDescription('Denotes the entity which created and is responsible\n             for managing this segment.')
-mplsOutSegmentTrafficParamPtr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 7, 1, 10), RowPointer().clone((0, 0))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsOutSegmentTrafficParamPtr.setDescription('This variable represents a pointer to the traffic\n             parameter specification for this out-segment.  This\n             value may point at an entry in the\n             MplsTunnelResourceEntry in the MPLS-TE-STD-MIB (RFC3812)\n            \n             RFC Editor: Please fill in RFC number.\n            \n             to indicate which traffic parameter settings for this\n             segment if it represents an LSP used for a TE tunnel.\n            \n             This value may optionally point at an\n             externally defined traffic parameter specification\n             table.  A value of zeroDotZero indicates best-effort\n             treatment.  By having the same value of this object,\n             two or more segments can indicate resource sharing\n             of such things as LSP queue space, etc.\n            \n             This object cannot be modified if\n             mplsOutSegmentRowStatus is active(1).\n             For entries in this table that\n             are preserved after a re-boot, the agent MUST ensure\n             that their integrity be preserved, or this object should\n             be set to 0.0 if it cannot.')
-mplsOutSegmentRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 7, 1, 11), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsOutSegmentRowStatus.setDescription('For creating, modifying, and deleting this row.\n             When a row in this table has a row in the active(1)\n             state, no objects in this row can be modified\n             except the mplsOutSegmentRowStatus or\n             mplsOutSegmentStorageType.')
-mplsOutSegmentStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 7, 1, 12), StorageType().clone('volatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsOutSegmentStorageType.setDescription("This variable indicates the storage type for this\n             object. The agent MUST ensure that this object's value\n             remains consistent with the associated mplsXCEntry.\n             Conceptual rows having the value 'permanent'\n             need not allow write-access to any columnar\n             objects in the row.")
-mplsOutSegmentPerfTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 8), )
-if mibBuilder.loadTexts: mplsOutSegmentPerfTable.setDescription('This table contains statistical information about\n             outgoing segments from an LSR. The counters in this\n             entry should behave in a manner similar to that of\n             the interface.')
-mplsOutSegmentPerfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 8, 1), )
-mplsOutSegmentEntry.registerAugmentions(("MPLS-LSR-STD-MIB", "mplsOutSegmentPerfEntry"))
+mplsOutSegmentEntry.registerAugmentions((_B,_p))
 mplsOutSegmentPerfEntry.setIndexNames(*mplsOutSegmentEntry.getIndexNames())
-if mibBuilder.loadTexts: mplsOutSegmentPerfEntry.setDescription('An entry in this table contains statistical\n             information about one outgoing segment configured in\n             mplsOutSegmentTable. The object\n             mplsOutSegmentPerfDiscontinuityTime indicates the\n             time of the last discontinuity in these objects. ')
-mplsOutSegmentPerfOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 8, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsOutSegmentPerfOctets.setDescription('This value contains the total number of octets sent\n             on this segment. It MUST be equal to the least\n             significant 32 bits of mplsOutSegmentPerfHCOctets\n             if mplsOutSegmentPerfHCOctets is supported according to\n             the rules spelled out in RFC2863.')
-mplsOutSegmentPerfPackets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 8, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsOutSegmentPerfPackets.setDescription('This value contains the total number of packets sent\n             on this segment.')
-mplsOutSegmentPerfErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 8, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsOutSegmentPerfErrors.setDescription('Number of packets that could not be sent due to\n             errors on this segment.')
-mplsOutSegmentPerfDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 8, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsOutSegmentPerfDiscards.setDescription('The number of labeled packets attempted to be transmitted\n             on this out-segment, which were chosen to be discarded\n             even though no errors had been detected to prevent their\n             being transmitted. One possible reason for\n             discarding such a labeled packet could be to free up\n             buffer space.')
-mplsOutSegmentPerfHCOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 8, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsOutSegmentPerfHCOctets.setDescription('Total number of octets sent.  This is the 64 bit\n             version of mplsOutSegmentPerfOctets,\n             if mplsOutSegmentPerfHCOctets is supported according to\n             the rules spelled out in RFC2863.')
-mplsOutSegmentPerfDiscontinuityTime = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 8, 1, 6), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsOutSegmentPerfDiscontinuityTime.setDescription("The value of sysUpTime on the most recent occasion\n             at which any one or more of this segment's Counter32\n             or Counter64 suffered a discontinuity. If no such\n             discontinuities have occurred since the last re-\n             initialization of the local management subsystem,\n             then this object contains a zero value.")
-mplsXCIndexNext = MibScalar((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 9), MplsIndexNextType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsXCIndexNext.setDescription('This object contains the next available value to\n             be used for mplsXCIndex when creating entries in\n             the mplsXCTable. A special value of the zero length\n             string indicates that no more new entries can be created\n             in the relevant table.  Agents not allowing managers\n             to create entries in this table MUST set this value\n             to the zero length string.')
-mplsXCTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 10), )
-if mibBuilder.loadTexts: mplsXCTable.setDescription('This table specifies information for switching\n             between LSP segments.  It supports point-to-point,\n             point-to-multipoint and multipoint-to-point\n             connections.  mplsLabelStackTable specifies the\n             label stack information for a cross-connect LSR and\n             is referred to from mplsXCTable.')
-mplsXCEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 10, 1), ).setIndexNames((0, "MPLS-LSR-STD-MIB", "mplsXCIndex"), (0, "MPLS-LSR-STD-MIB", "mplsXCInSegmentIndex"), (0, "MPLS-LSR-STD-MIB", "mplsXCOutSegmentIndex"))
-if mibBuilder.loadTexts: mplsXCEntry.setDescription('A row in this table represents one cross-connect\n             entry.  It is indexed by the following objects:\n    \n             - cross-connect index mplsXCIndex that uniquely\n               identifies a group of cross-connect entries\n    \n             - in-segment index, mplsXCInSegmentIndex\n    \n             - out-segment index, mplsXCOutSegmentIndex\n    \n            LSPs originating at this LSR:\n             These are represented by using the special\n             of value of mplsXCInSegmentIndex set to the\n             string containing a single octet 0x00. In\n             this case the mplsXCOutSegmentIndex\n             MUST not be the string containing a single\n             octet 0x00.\n    \n            LSPs terminating at this LSR:\n             These are represented by using the special value\n             mplsXCOutSegmentIndex set to the string containing\n             a single octet 0x00.\n    \n            Special labels:\n             Entries indexed by the strings containing the\n             reserved MPLS label values as a single octet 0x00\n             through 0x0f (inclusive) imply LSPs terminating at\n             this LSR.  Note that situations where LSPs are\n             terminated with incoming label equal to the string\n             containing a single octet 0x00 can be distinguished\n             from LSPs originating at this LSR because the\n             mplsXCOutSegmentIndex equals the string containing the\n             single octet 0x00.\n    \n             An entry can be created by a network administrator\n             or by an SNMP agent as instructed by an MPLS\n             signaling protocol.')
-mplsXCIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 10, 1, 1), MplsIndexType())
-if mibBuilder.loadTexts: mplsXCIndex.setDescription('Primary index for the conceptual row identifying a\n             group of cross-connect segments. The string\n             containing a single octet 0x00 is an invalid index.')
-mplsXCInSegmentIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 10, 1, 2), MplsIndexType())
-if mibBuilder.loadTexts: mplsXCInSegmentIndex.setDescription("Incoming label index.\n             If this object is set to the string containing\n             a single octet 0x00, this indicates a special\n             case outlined in the table's description above.\n             In this case no corresponding mplsInSegmentEntry\n             shall exist.")
-mplsXCOutSegmentIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 10, 1, 3), MplsIndexType())
-if mibBuilder.loadTexts: mplsXCOutSegmentIndex.setDescription('Index of out-segment for LSPs not terminating on\n             this LSR if not set to the string containing the\n             single octet 0x00. If the segment identified by this\n             entry is terminating, then this object MUST be set to\n             the string containing a single octet 0x00 to indicate\n             that no corresponding mplsOutSegmentEntry shall\n             exist.')
-mplsXCLspId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 10, 1, 4), MplsLSPID()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsXCLspId.setDescription('This value identifies the label switched path that\n             this cross-connect entry belongs to. This object\n             cannot be modified if mplsXCRowStatus is active(1)\n             except for this object.')
-mplsXCLabelStackIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 10, 1, 5), MplsIndexType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsXCLabelStackIndex.setDescription('Primary index into mplsLabelStackTable identifying a\n             stack of labels to be pushed beneath the top label.\n             Note that the top label identified by the out-\n             segment ensures that all the components of a\n             multipoint-to-point connection have the same\n             outgoing label. A value of the string containing the\n             single octet 0x00 indicates that no labels are to\n             be stacked beneath the top label.\n             This object cannot be modified if mplsXCRowStatus is\n             active(1).')
-mplsXCOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 10, 1, 6), MplsOwner()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsXCOwner.setDescription('Denotes the entity that created and is responsible\n             for managing this cross-connect.')
-mplsXCRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 10, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsXCRowStatus.setDescription('For creating, modifying, and deleting this row.\n             When a row in this table has a row in the active(1)\n             state, no objects in this row except this object\n             and the mplsXCStorageType can be modified. ')
-mplsXCStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 10, 1, 8), StorageType().clone('volatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsXCStorageType.setDescription("This variable indicates the storage type for this\n             object. The agent MUST ensure that the associated in\n             and out segments also have the same StorageType value\n             and are restored consistently upon system restart.\n             This value SHOULD be set to permanent(4) if created\n             as a result of a static LSP configuration.\n    \n             Conceptual rows having the value 'permanent'\n             need not allow write-access to any columnar\n             objects in the row.")
-mplsXCAdminStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 10, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("testing", 3),)).clone('up')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsXCAdminStatus.setDescription('The desired operational status of this segment.')
-mplsXCOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 10, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7,))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("testing", 3), ("unknown", 4), ("dormant", 5), ("notPresent", 6), ("lowerLayerDown", 7),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsXCOperStatus.setDescription('The actual operational status of this cross-\n             connect.')
-mplsMaxLabelStackDepth = MibScalar((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsMaxLabelStackDepth.setDescription('The maximum stack depth supported by this LSR.')
-mplsLabelStackIndexNext = MibScalar((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 12), MplsIndexNextType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsLabelStackIndexNext.setDescription('This object contains the next available value to\n             be used for mplsLabelStackIndex when creating entries\n             in the mplsLabelStackTable. The special string\n             containing the single octet 0x00\n             indicates that no more new entries can be created\n             in the relevant table.  Agents not allowing managers\n             to create entries in this table MUST set this value\n             to the string containing the single octet 0x00.')
-mplsLabelStackTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 13), )
-if mibBuilder.loadTexts: mplsLabelStackTable.setDescription('This table specifies the label stack to be pushed\n             onto a packet, beneath the top label.  Entries into\n             this table are referred to from mplsXCTable.')
-mplsLabelStackEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 13, 1), ).setIndexNames((0, "MPLS-LSR-STD-MIB", "mplsLabelStackIndex"), (0, "MPLS-LSR-STD-MIB", "mplsLabelStackLabelIndex"))
-if mibBuilder.loadTexts: mplsLabelStackEntry.setDescription('An entry in this table represents one label which is\n             to be pushed onto an outgoing packet, beneath the\n             top label.  An entry can be created by a network\n             administrator or by an SNMP agent as instructed by\n             an MPLS signaling protocol.')
-mplsLabelStackIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 13, 1, 1), MplsIndexType())
-if mibBuilder.loadTexts: mplsLabelStackIndex.setDescription('Primary index for this row identifying a stack of\n             labels to be pushed on an outgoing packet, beneath\n             the top label. An index containing the string with\n             a single octet 0x00 MUST not be used.')
-mplsLabelStackLabelIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 13, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: mplsLabelStackLabelIndex.setDescription('Secondary index for this row identifying one label\n             of the stack.  Note that an entry with a smaller\n             mplsLabelStackLabelIndex would refer to a label\n             higher up the label stack and would be popped at a\n             downstream LSR before a label represented by a\n             higher mplsLabelStackLabelIndex at a downstream\n             LSR.')
-mplsLabelStackLabel = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 13, 1, 3), MplsLabel()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsLabelStackLabel.setDescription('The label to pushed.')
-mplsLabelStackLabelPtr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 13, 1, 4), RowPointer().clone((0, 0))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsLabelStackLabelPtr.setDescription('If the label for this segment cannot be represented\n             fully within the mplsLabelStackLabel object,\n             this object MUST point to the first accessible\n             column of a conceptual row in an external table containing\n             the label.  In this case, the mplsLabelStackLabel\n             object SHOULD be set to 0 and ignored. This object\n             MUST be set to zeroDotZero otherwise.')
-mplsLabelStackRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 13, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsLabelStackRowStatus.setDescription('For creating, modifying, and deleting this row.\n             When a row in this table has a row in the active(1)\n             state, no objects in this row except this object\n             and the mplsLabelStackStorageType can be modified.')
-mplsLabelStackStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 13, 1, 6), StorageType().clone('volatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mplsLabelStackStorageType.setDescription("This variable indicates the storage type for this\n             object. This object cannot be modified if\n             mplsLabelStackRowStatus is active(1).\n             No objects are required to be writable for\n             rows in this table with this object set to\n             permanent(4).\n    \n             The agent MUST ensure that all related entries\n             in this table retain the same value for this\n             object.  Agents MUST ensure that the storage type\n             for all entries related to a particular mplsXCEntry\n             retain the same value for this object as the\n             mplsXCEntry's StorageType.")
-mplsInSegmentMapTable = MibTable((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 14), )
-if mibBuilder.loadTexts: mplsInSegmentMapTable.setDescription('This table specifies the mapping from the\n             mplsInSegmentIndex to the corresponding\n             mplsInSegmentInterface and mplsInSegmentLabel\n             objects. The purpose of this table is to\n             provide the manager with an alternative\n             means by which to locate in-segments.')
-mplsInSegmentMapEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 14, 1), ).setIndexNames((0, "MPLS-LSR-STD-MIB", "mplsInSegmentMapInterface"), (0, "MPLS-LSR-STD-MIB", "mplsInSegmentMapLabel"), (0, "MPLS-LSR-STD-MIB", "mplsInSegmentMapLabelPtrIndex"))
-if mibBuilder.loadTexts: mplsInSegmentMapEntry.setDescription("An entry in this table represents one interface\n             and incoming label pair.\n    \n             In cases where the label cannot fit into the\n             mplsInSegmentLabel object, the mplsInSegmentLabelPtr\n             will indicate this by being set to the first accessible\n             column in the appropriate extension table's row,\n             and the mplsInSegmentLabel SHOULD be set to 0.\n             In all other cases when the label is\n             represented within the mplsInSegmentLabel object, the\n             mplsInSegmentLabelPtr MUST be 0.0.\n    \n             Implementors need to be aware that if the value of\n             the mplsInSegmentMapLabelPtrIndex (an OID) has more\n             that 111 sub-identifiers, then OIDs of column\n             instances in this table will have more than 128\n             sub-identifiers and cannot be accessed using SNMPv1,\n             SNMPv2c, or SNMPv3.")
-mplsInSegmentMapInterface = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 14, 1, 1), InterfaceIndexOrZero())
-if mibBuilder.loadTexts: mplsInSegmentMapInterface.setDescription('This index contains the same value as the\n             mplsInSegmentIndex in the mplsInSegmentTable.')
-mplsInSegmentMapLabel = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 14, 1, 2), MplsLabel())
-if mibBuilder.loadTexts: mplsInSegmentMapLabel.setDescription('This index contains the same value as the\n             mplsInSegmentLabel in the mplsInSegmentTable.')
-mplsInSegmentMapLabelPtrIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 14, 1, 3), RowPointer())
-if mibBuilder.loadTexts: mplsInSegmentMapLabelPtrIndex.setDescription('This index contains the same value as the\n             mplsInSegmentLabelPtr.\n    \n             If the label for the InSegment cannot be represented\n             fully within the mplsInSegmentLabel object,\n             this index MUST point to the first accessible\n             column of a conceptual row in an external table containing\n             the label.  In this case, the mplsInSegmentTopLabel\n             object SHOULD be set to 0 and ignored. This object MUST\n             be set to zeroDotZero otherwise.')
-mplsInSegmentMapIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 14, 1, 4), MplsIndexType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mplsInSegmentMapIndex.setDescription('The mplsInSegmentIndex that corresponds\n             to the mplsInSegmentInterface and\n             mplsInSegmentLabel, or the mplsInSegmentInterface\n             and mplsInSegmentLabelPtr, if applicable.\n             The string containing the single octet 0x00\n             MUST not be returned.')
-mplsXCNotificationsEnable = MibScalar((1, 3, 6, 1, 2, 1, 10, 166, 2, 1, 15), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mplsXCNotificationsEnable.setDescription('If this object is set to true(1), then it enables\n             the emission of mplsXCUp and mplsXCDown\n             notifications; otherwise these notifications are not\n             emitted.')
-mplsXCUp = NotificationType((1, 3, 6, 1, 2, 1, 10, 166, 2, 0, 1)).setObjects(*(("MPLS-LSR-STD-MIB", "mplsXCOperStatus"), ("MPLS-LSR-STD-MIB", "mplsXCOperStatus"),))
-if mibBuilder.loadTexts: mplsXCUp.setDescription('This notification is generated when the\n             mplsXCOperStatus object for one or more contiguous\n             entries in mplsXCTable are about to enter the up(1)\n             state from some other state. The included values of\n             mplsXCOperStatus MUST both be set equal to this\n             new state (i.e: up(1)).  The two instances of\n             mplsXCOperStatus in this notification indicate the range\n             of indexes that are affected.  Note that all the indexes\n             of the two ends of the range can be derived from the\n             instance identifiers of these two objects.  For\n             cases where a contiguous range of cross-connects\n             have transitioned into the up(1) state at roughly\n             the same time, the device SHOULD issue a single\n             notification for each range of contiguous indexes in\n             an effort to minimize the emission of a large number\n             of notifications.  If a notification has to be\n             issued for just a single cross-connect entry, then\n             the instance identifier (and values) of the two\n             mplsXCOperStatus objects MUST be the identical.')
-mplsXCDown = NotificationType((1, 3, 6, 1, 2, 1, 10, 166, 2, 0, 2)).setObjects(*(("MPLS-LSR-STD-MIB", "mplsXCOperStatus"), ("MPLS-LSR-STD-MIB", "mplsXCOperStatus"),))
-if mibBuilder.loadTexts: mplsXCDown.setDescription('This notification is generated when the\n             mplsXCOperStatus object for one or more contiguous\n             entries in mplsXCTable are about to enter the\n             down(2) state from some other state. The included values\n             of mplsXCOperStatus MUST both be set equal to this\n             down(2) state.  The two instances of mplsXCOperStatus\n             in this notification indicate the range of indexes\n             that are affected.  Note that all the indexes of the\n             two ends of the range can be derived from the\n             instance identifiers of these two objects.  For\n             cases where a contiguous range of cross-connects\n             have transitioned into the down(2) state at roughly\n             the same time, the device SHOULD issue a single\n             notification for each range of contiguous indexes in\n             an effort to minimize the emission of a large number\n             of notifications.  If a notification has to be\n             issued for just a single cross-connect entry, then\n             the instance identifier (and values) of the two\n             mplsXCOperStatus objects MUST be identical.')
-mplsLsrGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 2, 2, 1))
-mplsLsrCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 166, 2, 2, 2))
-mplsLsrModuleFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 166, 2, 2, 2, 1)).setObjects(*(("IF-MIB", "ifGeneralInformationGroup"), ("IF-MIB", "ifCounterDiscontinuityGroup"), ("MPLS-LSR-STD-MIB", "mplsInterfaceGroup"), ("MPLS-LSR-STD-MIB", "mplsInSegmentGroup"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentGroup"), ("MPLS-LSR-STD-MIB", "mplsXCGroup"), ("MPLS-LSR-STD-MIB", "mplsPerfGroup"), ("MPLS-LSR-STD-MIB", "mplsLabelStackGroup"), ("MPLS-LSR-STD-MIB", "mplsHCInSegmentPerfGroup"), ("MPLS-LSR-STD-MIB", "mplsHCOutSegmentPerfGroup"), ("MPLS-LSR-STD-MIB", "mplsLsrNotificationGroup"),))
-if mibBuilder.loadTexts: mplsLsrModuleFullCompliance.setDescription('Compliance statement for agents that provide full\n                      support for MPLS-LSR-STD-MIB. Such devices can\n                      then be monitored and also be configured using\n                      this MIB module.')
-mplsLsrModuleReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 166, 2, 2, 2, 2)).setObjects(*(("IF-MIB", "ifGeneralInformationGroup"), ("IF-MIB", "ifCounterDiscontinuityGroup"), ("MPLS-LSR-STD-MIB", "mplsInterfaceGroup"), ("MPLS-LSR-STD-MIB", "mplsInSegmentGroup"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentGroup"), ("MPLS-LSR-STD-MIB", "mplsXCGroup"), ("MPLS-LSR-STD-MIB", "mplsPerfGroup"), ("MPLS-LSR-STD-MIB", "mplsLabelStackGroup"), ("MPLS-LSR-STD-MIB", "mplsHCInSegmentPerfGroup"), ("MPLS-LSR-STD-MIB", "mplsHCOutSegmentPerfGroup"), ("MPLS-LSR-STD-MIB", "mplsLsrNotificationGroup"),))
-if mibBuilder.loadTexts: mplsLsrModuleReadOnlyCompliance.setDescription('Compliance requirement for implementations that only\n                      provide read-only support for MPLS-LSR-STD-MIB. Such\n                      devices can then be monitored but cannot be configured\n                      using this MIB module.\n                     ')
-mplsInterfaceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 2, 2, 1, 1)).setObjects(*(("MPLS-LSR-STD-MIB", "mplsInterfaceLabelMinIn"), ("MPLS-LSR-STD-MIB", "mplsInterfaceLabelMaxIn"), ("MPLS-LSR-STD-MIB", "mplsInterfaceLabelMinOut"), ("MPLS-LSR-STD-MIB", "mplsInterfaceLabelMaxOut"), ("MPLS-LSR-STD-MIB", "mplsInterfaceTotalBandwidth"), ("MPLS-LSR-STD-MIB", "mplsInterfaceAvailableBandwidth"), ("MPLS-LSR-STD-MIB", "mplsInterfaceLabelParticipationType"),))
-if mibBuilder.loadTexts: mplsInterfaceGroup.setDescription('Collection of objects needed for MPLS interface\n                and interface performance information.')
-mplsInSegmentGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 2, 2, 1, 2)).setObjects(*(("MPLS-LSR-STD-MIB", "mplsInSegmentIndexNext"), ("MPLS-LSR-STD-MIB", "mplsInSegmentInterface"), ("MPLS-LSR-STD-MIB", "mplsInSegmentLabel"), ("MPLS-LSR-STD-MIB", "mplsInSegmentLabelPtr"), ("MPLS-LSR-STD-MIB", "mplsInSegmentNPop"), ("MPLS-LSR-STD-MIB", "mplsInSegmentAddrFamily"), ("MPLS-LSR-STD-MIB", "mplsInSegmentXCIndex"), ("MPLS-LSR-STD-MIB", "mplsInSegmentOwner"), ("MPLS-LSR-STD-MIB", "mplsInSegmentRowStatus"), ("MPLS-LSR-STD-MIB", "mplsInSegmentStorageType"), ("MPLS-LSR-STD-MIB", "mplsInSegmentTrafficParamPtr"), ("MPLS-LSR-STD-MIB", "mplsInSegmentMapIndex"),))
-if mibBuilder.loadTexts: mplsInSegmentGroup.setDescription('Collection of objects needed to implement an in-\n            segment.')
-mplsOutSegmentGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 2, 2, 1, 3)).setObjects(*(("MPLS-LSR-STD-MIB", "mplsOutSegmentIndexNext"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentInterface"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentPushTopLabel"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentTopLabel"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentTopLabelPtr"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentNextHopAddrType"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentNextHopAddr"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentXCIndex"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentOwner"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentPerfOctets"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentPerfDiscards"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentPerfErrors"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentRowStatus"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentStorageType"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentTrafficParamPtr"),))
-if mibBuilder.loadTexts: mplsOutSegmentGroup.setDescription('Collection of objects needed to implement an out-\n            segment.')
-mplsXCGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 2, 2, 1, 4)).setObjects(*(("MPLS-LSR-STD-MIB", "mplsXCIndexNext"), ("MPLS-LSR-STD-MIB", "mplsXCLspId"), ("MPLS-LSR-STD-MIB", "mplsXCLabelStackIndex"), ("MPLS-LSR-STD-MIB", "mplsXCOwner"), ("MPLS-LSR-STD-MIB", "mplsXCStorageType"), ("MPLS-LSR-STD-MIB", "mplsXCAdminStatus"), ("MPLS-LSR-STD-MIB", "mplsXCOperStatus"), ("MPLS-LSR-STD-MIB", "mplsXCRowStatus"), ("MPLS-LSR-STD-MIB", "mplsXCNotificationsEnable"),))
-if mibBuilder.loadTexts: mplsXCGroup.setDescription('Collection of objects needed to implement a\n                cross-connect entry.')
-mplsPerfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 2, 2, 1, 5)).setObjects(*(("MPLS-LSR-STD-MIB", "mplsInSegmentPerfOctets"), ("MPLS-LSR-STD-MIB", "mplsInSegmentPerfPackets"), ("MPLS-LSR-STD-MIB", "mplsInSegmentPerfErrors"), ("MPLS-LSR-STD-MIB", "mplsInSegmentPerfDiscards"), ("MPLS-LSR-STD-MIB", "mplsInSegmentPerfDiscontinuityTime"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentPerfOctets"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentPerfPackets"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentPerfDiscards"), ("MPLS-LSR-STD-MIB", "mplsOutSegmentPerfDiscontinuityTime"), ("MPLS-LSR-STD-MIB", "mplsInterfacePerfInLabelsInUse"), ("MPLS-LSR-STD-MIB", "mplsInterfacePerfInLabelLookupFailures"), ("MPLS-LSR-STD-MIB", "mplsInterfacePerfOutFragmentedPkts"), ("MPLS-LSR-STD-MIB", "mplsInterfacePerfOutLabelsInUse"),))
-if mibBuilder.loadTexts: mplsPerfGroup.setDescription('Collection of objects providing performance\n             information\n             about an LSR.')
-mplsHCInSegmentPerfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 2, 2, 1, 6)).setObjects(*(("MPLS-LSR-STD-MIB", "mplsInSegmentPerfHCOctets"),))
-if mibBuilder.loadTexts: mplsHCInSegmentPerfGroup.setDescription('Object(s) providing performance information\n             specific to out-segments for which the object\n             mplsInterfaceInOctets wraps around too quickly.')
-mplsHCOutSegmentPerfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 2, 2, 1, 7)).setObjects(*(("MPLS-LSR-STD-MIB", "mplsOutSegmentPerfHCOctets"),))
-if mibBuilder.loadTexts: mplsHCOutSegmentPerfGroup.setDescription('Object(s) providing performance information\n             specific to out-segments for which the object\n             mplsInterfaceOutOctets wraps around too\n             quickly.')
-mplsLabelStackGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 2, 2, 1, 8)).setObjects(*(("MPLS-LSR-STD-MIB", "mplsLabelStackLabel"), ("MPLS-LSR-STD-MIB", "mplsLabelStackLabelPtr"), ("MPLS-LSR-STD-MIB", "mplsLabelStackRowStatus"), ("MPLS-LSR-STD-MIB", "mplsLabelStackStorageType"), ("MPLS-LSR-STD-MIB", "mplsMaxLabelStackDepth"), ("MPLS-LSR-STD-MIB", "mplsLabelStackIndexNext"),))
-if mibBuilder.loadTexts: mplsLabelStackGroup.setDescription('Objects needed to support label stacking.')
-mplsLsrNotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 10, 166, 2, 2, 1, 9)).setObjects(*(("MPLS-LSR-STD-MIB", "mplsXCUp"), ("MPLS-LSR-STD-MIB", "mplsXCDown"),))
-if mibBuilder.loadTexts: mplsLsrNotificationGroup.setDescription('Set of notifications implemented in this\n                module.')
-mibBuilder.exportSymbols("MPLS-LSR-STD-MIB", mplsLabelStackLabelPtr=mplsLabelStackLabelPtr, mplsInSegmentPerfDiscards=mplsInSegmentPerfDiscards, mplsXCOwner=mplsXCOwner, mplsOutSegmentEntry=mplsOutSegmentEntry, mplsOutSegmentPerfDiscards=mplsOutSegmentPerfDiscards, mplsInterfacePerfOutLabelsInUse=mplsInterfacePerfOutLabelsInUse, mplsInSegmentStorageType=mplsInSegmentStorageType, mplsXCRowStatus=mplsXCRowStatus, mplsInSegmentMapLabel=mplsInSegmentMapLabel, mplsXCInSegmentIndex=mplsXCInSegmentIndex, mplsLabelStackRowStatus=mplsLabelStackRowStatus, mplsOutSegmentRowStatus=mplsOutSegmentRowStatus, mplsOutSegmentIndex=mplsOutSegmentIndex, mplsXCUp=mplsXCUp, mplsOutSegmentOwner=mplsOutSegmentOwner, mplsOutSegmentTopLabel=mplsOutSegmentTopLabel, mplsInSegmentXCIndex=mplsInSegmentXCIndex, mplsInSegmentPerfEntry=mplsInSegmentPerfEntry, mplsLsrModuleReadOnlyCompliance=mplsLsrModuleReadOnlyCompliance, mplsInSegmentPerfErrors=mplsInSegmentPerfErrors, mplsXCEntry=mplsXCEntry, mplsXCDown=mplsXCDown, mplsLabelStackLabel=mplsLabelStackLabel, mplsOutSegmentTable=mplsOutSegmentTable, mplsXCLabelStackIndex=mplsXCLabelStackIndex, mplsInterfacePerfEntry=mplsInterfacePerfEntry, mplsInterfaceEntry=mplsInterfaceEntry, mplsXCTable=mplsXCTable, mplsLabelStackGroup=mplsLabelStackGroup, mplsInSegmentTable=mplsInSegmentTable, mplsXCLspId=mplsXCLspId, mplsLsrConformance=mplsLsrConformance, mplsInterfaceLabelMinOut=mplsInterfaceLabelMinOut, mplsOutSegmentPerfPackets=mplsOutSegmentPerfPackets, mplsInterfacePerfInLabelsInUse=mplsInterfacePerfInLabelsInUse, mplsInterfaceTable=mplsInterfaceTable, mplsXCOutSegmentIndex=mplsXCOutSegmentIndex, mplsInSegmentMapEntry=mplsInSegmentMapEntry, mplsLsrStdMIB=mplsLsrStdMIB, mplsInSegmentPerfHCOctets=mplsInSegmentPerfHCOctets, mplsOutSegmentPushTopLabel=mplsOutSegmentPushTopLabel, mplsLsrCompliances=mplsLsrCompliances, mplsOutSegmentPerfOctets=mplsOutSegmentPerfOctets, mplsInSegmentMapLabelPtrIndex=mplsInSegmentMapLabelPtrIndex, mplsInterfaceTotalBandwidth=mplsInterfaceTotalBandwidth, mplsXCGroup=mplsXCGroup, mplsLabelStackEntry=mplsLabelStackEntry, mplsOutSegmentNextHopAddrType=mplsOutSegmentNextHopAddrType, mplsOutSegmentTopLabelPtr=mplsOutSegmentTopLabelPtr, mplsInSegmentIndexNext=mplsInSegmentIndexNext, mplsInterfacePerfOutFragmentedPkts=mplsInterfacePerfOutFragmentedPkts, mplsLsrObjects=mplsLsrObjects, mplsOutSegmentNextHopAddr=mplsOutSegmentNextHopAddr, mplsPerfGroup=mplsPerfGroup, mplsHCOutSegmentPerfGroup=mplsHCOutSegmentPerfGroup, mplsInSegmentNPop=mplsInSegmentNPop, mplsLabelStackIndexNext=mplsLabelStackIndexNext, mplsInSegmentRowStatus=mplsInSegmentRowStatus, mplsLsrModuleFullCompliance=mplsLsrModuleFullCompliance, mplsInterfaceIndex=mplsInterfaceIndex, mplsInSegmentTrafficParamPtr=mplsInSegmentTrafficParamPtr, mplsInSegmentGroup=mplsInSegmentGroup, mplsInSegmentIndex=mplsInSegmentIndex, mplsOutSegmentPerfErrors=mplsOutSegmentPerfErrors, mplsLabelStackTable=mplsLabelStackTable, mplsOutSegmentInterface=mplsOutSegmentInterface, mplsInSegmentPerfTable=mplsInSegmentPerfTable, MplsIndexNextType=MplsIndexNextType, mplsOutSegmentPerfTable=mplsOutSegmentPerfTable, mplsInterfaceLabelParticipationType=mplsInterfaceLabelParticipationType, mplsOutSegmentStorageType=mplsOutSegmentStorageType, mplsInSegmentMapIndex=mplsInSegmentMapIndex, mplsXCIndexNext=mplsXCIndexNext, mplsOutSegmentXCIndex=mplsOutSegmentXCIndex, mplsInSegmentLabel=mplsInSegmentLabel, mplsInterfaceLabelMaxIn=mplsInterfaceLabelMaxIn, mplsInSegmentPerfPackets=mplsInSegmentPerfPackets, mplsOutSegmentTrafficParamPtr=mplsOutSegmentTrafficParamPtr, mplsXCOperStatus=mplsXCOperStatus, mplsInSegmentLabelPtr=mplsInSegmentLabelPtr, PYSNMP_MODULE_ID=mplsLsrStdMIB, mplsOutSegmentPerfEntry=mplsOutSegmentPerfEntry, mplsXCNotificationsEnable=mplsXCNotificationsEnable, mplsLsrNotificationGroup=mplsLsrNotificationGroup, mplsInSegmentMapTable=mplsInSegmentMapTable, mplsInterfaceLabelMinIn=mplsInterfaceLabelMinIn, mplsInSegmentMapInterface=mplsInSegmentMapInterface, mplsInterfaceGroup=mplsInterfaceGroup, mplsLabelStackIndex=mplsLabelStackIndex, mplsInSegmentInterface=mplsInSegmentInterface, mplsLabelStackLabelIndex=mplsLabelStackLabelIndex, mplsInterfacePerfTable=mplsInterfacePerfTable, mplsInSegmentPerfOctets=mplsInSegmentPerfOctets, mplsInSegmentPerfDiscontinuityTime=mplsInSegmentPerfDiscontinuityTime, mplsLabelStackStorageType=mplsLabelStackStorageType, mplsXCIndex=mplsXCIndex, mplsInterfaceLabelMaxOut=mplsInterfaceLabelMaxOut, mplsInSegmentAddrFamily=mplsInSegmentAddrFamily, mplsXCAdminStatus=mplsXCAdminStatus, mplsLsrGroups=mplsLsrGroups, mplsInterfacePerfInLabelLookupFailures=mplsInterfacePerfInLabelLookupFailures, mplsOutSegmentIndexNext=mplsOutSegmentIndexNext, mplsOutSegmentGroup=mplsOutSegmentGroup, mplsXCStorageType=mplsXCStorageType, mplsHCInSegmentPerfGroup=mplsHCInSegmentPerfGroup, mplsInSegmentEntry=mplsInSegmentEntry, mplsLsrNotifications=mplsLsrNotifications, MplsIndexType=MplsIndexType, mplsOutSegmentPerfHCOctets=mplsOutSegmentPerfHCOctets, mplsInSegmentOwner=mplsInSegmentOwner, mplsOutSegmentPerfDiscontinuityTime=mplsOutSegmentPerfDiscontinuityTime, mplsInterfaceAvailableBandwidth=mplsInterfaceAvailableBandwidth, mplsMaxLabelStackDepth=mplsMaxLabelStackDepth)
+mplsInterfaceGroup=ObjectGroup((1,3,6,1,2,1,10,166,2,2,1,1))
+mplsInterfaceGroup.setObjects(*((_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w)))
+if mibBuilder.loadTexts:mplsInterfaceGroup.setStatus(_A)
+mplsInSegmentGroup=ObjectGroup((1,3,6,1,2,1,10,166,2,2,1,2))
+mplsInSegmentGroup.setObjects(*((_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8)))
+if mibBuilder.loadTexts:mplsInSegmentGroup.setStatus(_A)
+mplsOutSegmentGroup=ObjectGroup((1,3,6,1,2,1,10,166,2,2,1,3))
+mplsOutSegmentGroup.setObjects(*((_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_O),(_B,_P),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL)))
+if mibBuilder.loadTexts:mplsOutSegmentGroup.setStatus(_A)
+mplsXCGroup=ObjectGroup((1,3,6,1,2,1,10,166,2,2,1,4))
+mplsXCGroup.setObjects(*((_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_G),(_B,_AS),(_B,_AT)))
+if mibBuilder.loadTexts:mplsXCGroup.setStatus(_A)
+mplsPerfGroup=ObjectGroup((1,3,6,1,2,1,10,166,2,2,1,5))
+mplsPerfGroup.setObjects(*((_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_O),(_B,_AZ),(_B,_P),(_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae)))
+if mibBuilder.loadTexts:mplsPerfGroup.setStatus(_A)
+mplsHCInSegmentPerfGroup=ObjectGroup((1,3,6,1,2,1,10,166,2,2,1,6))
+mplsHCInSegmentPerfGroup.setObjects((_B,_Af))
+if mibBuilder.loadTexts:mplsHCInSegmentPerfGroup.setStatus(_A)
+mplsHCOutSegmentPerfGroup=ObjectGroup((1,3,6,1,2,1,10,166,2,2,1,7))
+mplsHCOutSegmentPerfGroup.setObjects((_B,_Ag))
+if mibBuilder.loadTexts:mplsHCOutSegmentPerfGroup.setStatus(_A)
+mplsLabelStackGroup=ObjectGroup((1,3,6,1,2,1,10,166,2,2,1,8))
+mplsLabelStackGroup.setObjects(*((_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am)))
+if mibBuilder.loadTexts:mplsLabelStackGroup.setStatus(_A)
+mplsXCUp=NotificationType((1,3,6,1,2,1,10,166,2,0,1))
+mplsXCUp.setObjects(*((_B,_G),(_B,_G)))
+if mibBuilder.loadTexts:mplsXCUp.setStatus(_A)
+mplsXCDown=NotificationType((1,3,6,1,2,1,10,166,2,0,2))
+mplsXCDown.setObjects(*((_B,_G),(_B,_G)))
+if mibBuilder.loadTexts:mplsXCDown.setStatus(_A)
+mplsLsrNotificationGroup=NotificationGroup((1,3,6,1,2,1,10,166,2,2,1,9))
+mplsLsrNotificationGroup.setObjects(*((_B,'mplsXCUp'),(_B,_An)))
+if mibBuilder.loadTexts:mplsLsrNotificationGroup.setStatus(_A)
+mplsLsrModuleFullCompliance=ModuleCompliance((1,3,6,1,2,1,10,166,2,2,2,1))
+mplsLsrModuleFullCompliance.setObjects(*((_H,_L),(_H,_K),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y)))
+if mibBuilder.loadTexts:mplsLsrModuleFullCompliance.setStatus(_A)
+mplsLsrModuleReadOnlyCompliance=ModuleCompliance((1,3,6,1,2,1,10,166,2,2,2,2))
+mplsLsrModuleReadOnlyCompliance.setObjects(*((_H,_L),(_H,_K),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y)))
+if mibBuilder.loadTexts:mplsLsrModuleReadOnlyCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'MplsIndexType':MplsIndexType,'MplsIndexNextType':MplsIndexNextType,'mplsLsrStdMIB':mplsLsrStdMIB,'mplsLsrNotifications':mplsLsrNotifications,'mplsXCUp':mplsXCUp,_An:mplsXCDown,'mplsLsrObjects':mplsLsrObjects,'mplsInterfaceTable':mplsInterfaceTable,'mplsInterfaceEntry':mplsInterfaceEntry,_b:mplsInterfaceIndex,_q:mplsInterfaceLabelMinIn,_r:mplsInterfaceLabelMaxIn,_s:mplsInterfaceLabelMinOut,_t:mplsInterfaceLabelMaxOut,_u:mplsInterfaceTotalBandwidth,_v:mplsInterfaceAvailableBandwidth,_w:mplsInterfaceLabelParticipationType,'mplsInterfacePerfTable':mplsInterfacePerfTable,_n:mplsInterfacePerfEntry,_Ab:mplsInterfacePerfInLabelsInUse,_Ac:mplsInterfacePerfInLabelLookupFailures,_Ae:mplsInterfacePerfOutLabelsInUse,_Ad:mplsInterfacePerfOutFragmentedPkts,_x:mplsInSegmentIndexNext,'mplsInSegmentTable':mplsInSegmentTable,'mplsInSegmentEntry':mplsInSegmentEntry,_c:mplsInSegmentIndex,_y:mplsInSegmentInterface,_z:mplsInSegmentLabel,_A0:mplsInSegmentLabelPtr,_A1:mplsInSegmentNPop,_A2:mplsInSegmentAddrFamily,_A3:mplsInSegmentXCIndex,_A4:mplsInSegmentOwner,_A7:mplsInSegmentTrafficParamPtr,_A5:mplsInSegmentRowStatus,_A6:mplsInSegmentStorageType,'mplsInSegmentPerfTable':mplsInSegmentPerfTable,_o:mplsInSegmentPerfEntry,_AU:mplsInSegmentPerfOctets,_AV:mplsInSegmentPerfPackets,_AW:mplsInSegmentPerfErrors,_AX:mplsInSegmentPerfDiscards,_Af:mplsInSegmentPerfHCOctets,_AY:mplsInSegmentPerfDiscontinuityTime,_A9:mplsOutSegmentIndexNext,'mplsOutSegmentTable':mplsOutSegmentTable,'mplsOutSegmentEntry':mplsOutSegmentEntry,_d:mplsOutSegmentIndex,_AA:mplsOutSegmentInterface,_AB:mplsOutSegmentPushTopLabel,_AC:mplsOutSegmentTopLabel,_AD:mplsOutSegmentTopLabelPtr,_AE:mplsOutSegmentNextHopAddrType,_AF:mplsOutSegmentNextHopAddr,_AG:mplsOutSegmentXCIndex,_AH:mplsOutSegmentOwner,_AL:mplsOutSegmentTrafficParamPtr,_AJ:mplsOutSegmentRowStatus,_AK:mplsOutSegmentStorageType,'mplsOutSegmentPerfTable':mplsOutSegmentPerfTable,_p:mplsOutSegmentPerfEntry,_O:mplsOutSegmentPerfOctets,_AZ:mplsOutSegmentPerfPackets,_AI:mplsOutSegmentPerfErrors,_P:mplsOutSegmentPerfDiscards,_Ag:mplsOutSegmentPerfHCOctets,_Aa:mplsOutSegmentPerfDiscontinuityTime,_AM:mplsXCIndexNext,'mplsXCTable':mplsXCTable,'mplsXCEntry':mplsXCEntry,_e:mplsXCIndex,_f:mplsXCInSegmentIndex,_g:mplsXCOutSegmentIndex,_AN:mplsXCLspId,_AO:mplsXCLabelStackIndex,_AP:mplsXCOwner,_AS:mplsXCRowStatus,_AQ:mplsXCStorageType,_AR:mplsXCAdminStatus,_G:mplsXCOperStatus,_Al:mplsMaxLabelStackDepth,_Am:mplsLabelStackIndexNext,'mplsLabelStackTable':mplsLabelStackTable,'mplsLabelStackEntry':mplsLabelStackEntry,_i:mplsLabelStackIndex,_j:mplsLabelStackLabelIndex,_Ah:mplsLabelStackLabel,_Ai:mplsLabelStackLabelPtr,_Aj:mplsLabelStackRowStatus,_Ak:mplsLabelStackStorageType,'mplsInSegmentMapTable':mplsInSegmentMapTable,'mplsInSegmentMapEntry':mplsInSegmentMapEntry,_k:mplsInSegmentMapInterface,_l:mplsInSegmentMapLabel,_m:mplsInSegmentMapLabelPtrIndex,_A8:mplsInSegmentMapIndex,_AT:mplsXCNotificationsEnable,'mplsLsrConformance':mplsLsrConformance,'mplsLsrGroups':mplsLsrGroups,_Q:mplsInterfaceGroup,_R:mplsInSegmentGroup,_S:mplsOutSegmentGroup,_T:mplsXCGroup,_U:mplsPerfGroup,_W:mplsHCInSegmentPerfGroup,_X:mplsHCOutSegmentPerfGroup,_V:mplsLabelStackGroup,_Y:mplsLsrNotificationGroup,'mplsLsrCompliances':mplsLsrCompliances,'mplsLsrModuleFullCompliance':mplsLsrModuleFullCompliance,'mplsLsrModuleReadOnlyCompliance':mplsLsrModuleReadOnlyCompliance})

@@ -1,0 +1,687 @@
+_T='wwpLeosTacacsClientAccountingServerIndex'
+_S='wwpLeosTacacsClientAuthorizationServerIndex'
+_R='wwpLeosTacacsClientAuthenticationServerIndex'
+_Q='wwpLeosTacacsClientServerIndex'
+_P='off'
+_O='all'
+_N='dot1x'
+_M='userLogin'
+_L='not-accessible'
+_K='WWP-LEOS-TACACS-CLIENT-MIB'
+_J='deprecated'
+_I='TruthValue'
+_H='DisplayString'
+_G='enabled'
+_F='disabled'
+_E='read-create'
+_D='Integer32'
+_C='read-write'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_H,'PhysAddress','RowStatus','TextualConvention',_I)
+wwpModulesLeos,=mibBuilder.importSymbols('WWP-SMI','wwpModulesLeos')
+wwpLeosTacacsClientMIB=ModuleIdentity((1,3,6,1,4,1,6141,2,60,402))
+if mibBuilder.loadTexts:wwpLeosTacacsClientMIB.setRevisions(('2012-04-05 00:00','2011-08-04 00:00','2001-04-03 17:00'))
+class TacacsString(TextualConvention,OctetString):status=_A;displayHint='255a';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,127))
+_WwpLeosTacacsClientMIBObjects_ObjectIdentity=ObjectIdentity
+wwpLeosTacacsClientMIBObjects=_WwpLeosTacacsClientMIBObjects_ObjectIdentity((1,3,6,1,4,1,6141,2,60,402,1))
+_WwpLeosTacacsClient_ObjectIdentity=ObjectIdentity
+wwpLeosTacacsClient=_WwpLeosTacacsClient_ObjectIdentity((1,3,6,1,4,1,6141,2,60,402,1,1))
+class _WwpLeosTacacsAdminState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
+_WwpLeosTacacsAdminState_Type.__name__=_D
+_WwpLeosTacacsAdminState_Object=MibScalar
+wwpLeosTacacsAdminState=_WwpLeosTacacsAdminState_Object((1,3,6,1,4,1,6141,2,60,402,1,1,1),_WwpLeosTacacsAdminState_Type())
+wwpLeosTacacsAdminState.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsAdminState.setStatus(_A)
+class _WwpLeosTacacsOperState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
+_WwpLeosTacacsOperState_Type.__name__=_D
+_WwpLeosTacacsOperState_Object=MibScalar
+wwpLeosTacacsOperState=_WwpLeosTacacsOperState_Object((1,3,6,1,4,1,6141,2,60,402,1,1,2),_WwpLeosTacacsOperState_Type())
+wwpLeosTacacsOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsOperState.setStatus(_A)
+class _WwpLeosTacacsClientTimeout_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,30))
+_WwpLeosTacacsClientTimeout_Type.__name__=_D
+_WwpLeosTacacsClientTimeout_Object=MibScalar
+wwpLeosTacacsClientTimeout=_WwpLeosTacacsClientTimeout_Object((1,3,6,1,4,1,6141,2,60,402,1,1,3),_WwpLeosTacacsClientTimeout_Type())
+wwpLeosTacacsClientTimeout.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientTimeout.setStatus(_A)
+if mibBuilder.loadTexts:wwpLeosTacacsClientTimeout.setUnits('seconds')
+class _WwpLeosTacacsClientRetries_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3))
+_WwpLeosTacacsClientRetries_Type.__name__=_D
+_WwpLeosTacacsClientRetries_Object=MibScalar
+wwpLeosTacacsClientRetries=_WwpLeosTacacsClientRetries_Object((1,3,6,1,4,1,6141,2,60,402,1,1,4),_WwpLeosTacacsClientRetries_Type())
+wwpLeosTacacsClientRetries.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientRetries.setStatus(_J)
+class _WwpLeosTacacsClientPrivilegeLevelRW_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(2,14))
+_WwpLeosTacacsClientPrivilegeLevelRW_Type.__name__=_D
+_WwpLeosTacacsClientPrivilegeLevelRW_Object=MibScalar
+wwpLeosTacacsClientPrivilegeLevelRW=_WwpLeosTacacsClientPrivilegeLevelRW_Object((1,3,6,1,4,1,6141,2,60,402,1,1,5),_WwpLeosTacacsClientPrivilegeLevelRW_Type())
+wwpLeosTacacsClientPrivilegeLevelRW.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientPrivilegeLevelRW.setStatus(_A)
+class _WwpLeosTacacsClientPrivilegeLevelAdmin_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(2,13))
+_WwpLeosTacacsClientPrivilegeLevelAdmin_Type.__name__=_D
+_WwpLeosTacacsClientPrivilegeLevelAdmin_Object=MibScalar
+wwpLeosTacacsClientPrivilegeLevelAdmin=_WwpLeosTacacsClientPrivilegeLevelAdmin_Object((1,3,6,1,4,1,6141,2,60,402,1,1,6),_WwpLeosTacacsClientPrivilegeLevelAdmin_Type())
+wwpLeosTacacsClientPrivilegeLevelAdmin.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientPrivilegeLevelAdmin.setStatus(_A)
+class _WwpLeosTacacsClientPrivilegeLevelDiag_Type(Integer32):defaultValue=15;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(4,15))
+_WwpLeosTacacsClientPrivilegeLevelDiag_Type.__name__=_D
+_WwpLeosTacacsClientPrivilegeLevelDiag_Object=MibScalar
+wwpLeosTacacsClientPrivilegeLevelDiag=_WwpLeosTacacsClientPrivilegeLevelDiag_Object((1,3,6,1,4,1,6141,2,60,402,1,1,7),_WwpLeosTacacsClientPrivilegeLevelDiag_Type())
+wwpLeosTacacsClientPrivilegeLevelDiag.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientPrivilegeLevelDiag.setStatus(_A)
+_WwpLeosTacacsClientAuthKey_Type=TacacsString
+_WwpLeosTacacsClientAuthKey_Object=MibScalar
+wwpLeosTacacsClientAuthKey=_WwpLeosTacacsClientAuthKey_Object((1,3,6,1,4,1,6141,2,60,402,1,1,8),_WwpLeosTacacsClientAuthKey_Type())
+wwpLeosTacacsClientAuthKey.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthKey.setStatus(_A)
+class _WwpLeosTacacsAuthenticationAdminState_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
+_WwpLeosTacacsAuthenticationAdminState_Type.__name__=_D
+_WwpLeosTacacsAuthenticationAdminState_Object=MibScalar
+wwpLeosTacacsAuthenticationAdminState=_WwpLeosTacacsAuthenticationAdminState_Object((1,3,6,1,4,1,6141,2,60,402,1,1,9),_WwpLeosTacacsAuthenticationAdminState_Type())
+wwpLeosTacacsAuthenticationAdminState.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsAuthenticationAdminState.setStatus(_A)
+class _WwpLeosTacacsAuthorizationAdminState_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
+_WwpLeosTacacsAuthorizationAdminState_Type.__name__=_D
+_WwpLeosTacacsAuthorizationAdminState_Object=MibScalar
+wwpLeosTacacsAuthorizationAdminState=_WwpLeosTacacsAuthorizationAdminState_Object((1,3,6,1,4,1,6141,2,60,402,1,1,10),_WwpLeosTacacsAuthorizationAdminState_Type())
+wwpLeosTacacsAuthorizationAdminState.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsAuthorizationAdminState.setStatus(_A)
+class _WwpLeosTacacsAccountingAdminState_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
+_WwpLeosTacacsAccountingAdminState_Type.__name__=_D
+_WwpLeosTacacsAccountingAdminState_Object=MibScalar
+wwpLeosTacacsAccountingAdminState=_WwpLeosTacacsAccountingAdminState_Object((1,3,6,1,4,1,6141,2,60,402,1,1,11),_WwpLeosTacacsAccountingAdminState_Type())
+wwpLeosTacacsAccountingAdminState.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsAccountingAdminState.setStatus(_A)
+class _WwpLeosTacacsSyslogAdminState_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_G,2)))
+_WwpLeosTacacsSyslogAdminState_Type.__name__=_D
+_WwpLeosTacacsSyslogAdminState_Object=MibScalar
+wwpLeosTacacsSyslogAdminState=_WwpLeosTacacsSyslogAdminState_Object((1,3,6,1,4,1,6141,2,60,402,1,1,12),_WwpLeosTacacsSyslogAdminState_Type())
+wwpLeosTacacsSyslogAdminState.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsSyslogAdminState.setStatus(_A)
+_WwpLeosTacacsClientServerTable_Object=MibTable
+wwpLeosTacacsClientServerTable=_WwpLeosTacacsClientServerTable_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13))
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerTable.setStatus(_A)
+_WwpLeosTacacsClientServerEntry_Object=MibTableRow
+wwpLeosTacacsClientServerEntry=_WwpLeosTacacsClientServerEntry_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1))
+wwpLeosTacacsClientServerEntry.setIndexNames((0,_K,_Q))
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerEntry.setStatus(_A)
+class _WwpLeosTacacsClientServerIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
+_WwpLeosTacacsClientServerIndex_Type.__name__=_D
+_WwpLeosTacacsClientServerIndex_Object=MibTableColumn
+wwpLeosTacacsClientServerIndex=_WwpLeosTacacsClientServerIndex_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,1),_WwpLeosTacacsClientServerIndex_Type())
+wwpLeosTacacsClientServerIndex.setMaxAccess(_L)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerIndex.setStatus(_A)
+class _WwpLeosTacacsClientServerAddr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
+_WwpLeosTacacsClientServerAddr_Type.__name__=_H
+_WwpLeosTacacsClientServerAddr_Object=MibTableColumn
+wwpLeosTacacsClientServerAddr=_WwpLeosTacacsClientServerAddr_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,2),_WwpLeosTacacsClientServerAddr_Type())
+wwpLeosTacacsClientServerAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerAddr.setStatus(_A)
+_WwpLeosTacacsClientServerResolvedAddr_Type=IpAddress
+_WwpLeosTacacsClientServerResolvedAddr_Object=MibTableColumn
+wwpLeosTacacsClientServerResolvedAddr=_WwpLeosTacacsClientServerResolvedAddr_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,3),_WwpLeosTacacsClientServerResolvedAddr_Type())
+wwpLeosTacacsClientServerResolvedAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerResolvedAddr.setStatus(_A)
+_WwpLeosTacacsClientServerPriority_Type=Integer32
+_WwpLeosTacacsClientServerPriority_Object=MibTableColumn
+wwpLeosTacacsClientServerPriority=_WwpLeosTacacsClientServerPriority_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,4),_WwpLeosTacacsClientServerPriority_Type())
+wwpLeosTacacsClientServerPriority.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerPriority.setStatus(_A)
+class _WwpLeosTacacsClientServerAuthPort_Type(Integer32):defaultValue=49;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_WwpLeosTacacsClientServerAuthPort_Type.__name__=_D
+_WwpLeosTacacsClientServerAuthPort_Object=MibTableColumn
+wwpLeosTacacsClientServerAuthPort=_WwpLeosTacacsClientServerAuthPort_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,5),_WwpLeosTacacsClientServerAuthPort_Type())
+wwpLeosTacacsClientServerAuthPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerAuthPort.setStatus(_A)
+_WwpLeosTacacsClientServerAccessRequests_Type=Counter32
+_WwpLeosTacacsClientServerAccessRequests_Object=MibTableColumn
+wwpLeosTacacsClientServerAccessRequests=_WwpLeosTacacsClientServerAccessRequests_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,6),_WwpLeosTacacsClientServerAccessRequests_Type())
+wwpLeosTacacsClientServerAccessRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerAccessRequests.setStatus(_A)
+_WwpLeosTacacsClientServerAccessRetransmissions_Type=Counter32
+_WwpLeosTacacsClientServerAccessRetransmissions_Object=MibTableColumn
+wwpLeosTacacsClientServerAccessRetransmissions=_WwpLeosTacacsClientServerAccessRetransmissions_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,7),_WwpLeosTacacsClientServerAccessRetransmissions_Type())
+wwpLeosTacacsClientServerAccessRetransmissions.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerAccessRetransmissions.setStatus(_A)
+_WwpLeosTacacsClientServerAccessAccepts_Type=Counter32
+_WwpLeosTacacsClientServerAccessAccepts_Object=MibTableColumn
+wwpLeosTacacsClientServerAccessAccepts=_WwpLeosTacacsClientServerAccessAccepts_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,8),_WwpLeosTacacsClientServerAccessAccepts_Type())
+wwpLeosTacacsClientServerAccessAccepts.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerAccessAccepts.setStatus(_A)
+_WwpLeosTacacsClientServerAccessRejects_Type=Counter32
+_WwpLeosTacacsClientServerAccessRejects_Object=MibTableColumn
+wwpLeosTacacsClientServerAccessRejects=_WwpLeosTacacsClientServerAccessRejects_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,9),_WwpLeosTacacsClientServerAccessRejects_Type())
+wwpLeosTacacsClientServerAccessRejects.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerAccessRejects.setStatus(_A)
+_WwpLeosTacacsClientServerMalformedAccessResponses_Type=Counter32
+_WwpLeosTacacsClientServerMalformedAccessResponses_Object=MibTableColumn
+wwpLeosTacacsClientServerMalformedAccessResponses=_WwpLeosTacacsClientServerMalformedAccessResponses_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,10),_WwpLeosTacacsClientServerMalformedAccessResponses_Type())
+wwpLeosTacacsClientServerMalformedAccessResponses.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerMalformedAccessResponses.setStatus(_A)
+_WwpLeosTacacsClientServerBadAuthenticators_Type=Counter32
+_WwpLeosTacacsClientServerBadAuthenticators_Object=MibTableColumn
+wwpLeosTacacsClientServerBadAuthenticators=_WwpLeosTacacsClientServerBadAuthenticators_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,11),_WwpLeosTacacsClientServerBadAuthenticators_Type())
+wwpLeosTacacsClientServerBadAuthenticators.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerBadAuthenticators.setStatus(_A)
+_WwpLeosTacacsClientServerPendingRequests_Type=Gauge32
+_WwpLeosTacacsClientServerPendingRequests_Object=MibTableColumn
+wwpLeosTacacsClientServerPendingRequests=_WwpLeosTacacsClientServerPendingRequests_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,12),_WwpLeosTacacsClientServerPendingRequests_Type())
+wwpLeosTacacsClientServerPendingRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerPendingRequests.setStatus(_J)
+_WwpLeosTacacsClientServerTimeouts_Type=Counter32
+_WwpLeosTacacsClientServerTimeouts_Object=MibTableColumn
+wwpLeosTacacsClientServerTimeouts=_WwpLeosTacacsClientServerTimeouts_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,13),_WwpLeosTacacsClientServerTimeouts_Type())
+wwpLeosTacacsClientServerTimeouts.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerTimeouts.setStatus(_A)
+_WwpLeosTacacsClientServerUnknownTypes_Type=Counter32
+_WwpLeosTacacsClientServerUnknownTypes_Object=MibTableColumn
+wwpLeosTacacsClientServerUnknownTypes=_WwpLeosTacacsClientServerUnknownTypes_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,14),_WwpLeosTacacsClientServerUnknownTypes_Type())
+wwpLeosTacacsClientServerUnknownTypes.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerUnknownTypes.setStatus(_A)
+_WwpLeosTacacsClientServerBadHeaderSequence_Type=Counter32
+_WwpLeosTacacsClientServerBadHeaderSequence_Object=MibTableColumn
+wwpLeosTacacsClientServerBadHeaderSequence=_WwpLeosTacacsClientServerBadHeaderSequence_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,15),_WwpLeosTacacsClientServerBadHeaderSequence_Type())
+wwpLeosTacacsClientServerBadHeaderSequence.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerBadHeaderSequence.setStatus(_A)
+_WwpLeosTacacsClientServerStatus_Type=RowStatus
+_WwpLeosTacacsClientServerStatus_Object=MibTableColumn
+wwpLeosTacacsClientServerStatus=_WwpLeosTacacsClientServerStatus_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,16),_WwpLeosTacacsClientServerStatus_Type())
+wwpLeosTacacsClientServerStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerStatus.setStatus(_A)
+class _WwpLeosTacacsClientServerApplication_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_M,1),(_N,2),(_O,3)))
+_WwpLeosTacacsClientServerApplication_Type.__name__=_D
+_WwpLeosTacacsClientServerApplication_Object=MibTableColumn
+wwpLeosTacacsClientServerApplication=_WwpLeosTacacsClientServerApplication_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,17),_WwpLeosTacacsClientServerApplication_Type())
+wwpLeosTacacsClientServerApplication.setMaxAccess(_E)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerApplication.setStatus(_A)
+class _WwpLeosTacacsClientServerClearStatistics_Type(TruthValue):defaultValue=2
+_WwpLeosTacacsClientServerClearStatistics_Type.__name__=_I
+_WwpLeosTacacsClientServerClearStatistics_Object=MibTableColumn
+wwpLeosTacacsClientServerClearStatistics=_WwpLeosTacacsClientServerClearStatistics_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,18),_WwpLeosTacacsClientServerClearStatistics_Type())
+wwpLeosTacacsClientServerClearStatistics.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerClearStatistics.setStatus(_A)
+_WwpLeosTacacsClientGlobalAuthorizationAccessRequests_Type=Counter32
+_WwpLeosTacacsClientGlobalAuthorizationAccessRequests_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAuthorizationAccessRequests=_WwpLeosTacacsClientGlobalAuthorizationAccessRequests_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,19),_WwpLeosTacacsClientGlobalAuthorizationAccessRequests_Type())
+wwpLeosTacacsClientGlobalAuthorizationAccessRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAuthorizationAccessRequests.setStatus(_A)
+_WwpLeosTacacsClientGlobalAuthorizationAccessRetransmissions_Type=Counter32
+_WwpLeosTacacsClientGlobalAuthorizationAccessRetransmissions_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAuthorizationAccessRetransmissions=_WwpLeosTacacsClientGlobalAuthorizationAccessRetransmissions_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,20),_WwpLeosTacacsClientGlobalAuthorizationAccessRetransmissions_Type())
+wwpLeosTacacsClientGlobalAuthorizationAccessRetransmissions.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAuthorizationAccessRetransmissions.setStatus(_A)
+_WwpLeosTacacsClientGlobalAuthorizationAccessAccepts_Type=Counter32
+_WwpLeosTacacsClientGlobalAuthorizationAccessAccepts_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAuthorizationAccessAccepts=_WwpLeosTacacsClientGlobalAuthorizationAccessAccepts_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,21),_WwpLeosTacacsClientGlobalAuthorizationAccessAccepts_Type())
+wwpLeosTacacsClientGlobalAuthorizationAccessAccepts.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAuthorizationAccessAccepts.setStatus(_A)
+_WwpLeosTacacsClientGlobalAuthorizationAccessRejects_Type=Counter32
+_WwpLeosTacacsClientGlobalAuthorizationAccessRejects_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAuthorizationAccessRejects=_WwpLeosTacacsClientGlobalAuthorizationAccessRejects_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,22),_WwpLeosTacacsClientGlobalAuthorizationAccessRejects_Type())
+wwpLeosTacacsClientGlobalAuthorizationAccessRejects.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAuthorizationAccessRejects.setStatus(_A)
+_WwpLeosTacacsClientGlobalAuthorizationMalformedAccessResponses_Type=Counter32
+_WwpLeosTacacsClientGlobalAuthorizationMalformedAccessResponses_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAuthorizationMalformedAccessResponses=_WwpLeosTacacsClientGlobalAuthorizationMalformedAccessResponses_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,23),_WwpLeosTacacsClientGlobalAuthorizationMalformedAccessResponses_Type())
+wwpLeosTacacsClientGlobalAuthorizationMalformedAccessResponses.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAuthorizationMalformedAccessResponses.setStatus(_A)
+_WwpLeosTacacsClientGlobalAuthorizationBadAuthenticators_Type=Counter32
+_WwpLeosTacacsClientGlobalAuthorizationBadAuthenticators_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAuthorizationBadAuthenticators=_WwpLeosTacacsClientGlobalAuthorizationBadAuthenticators_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,24),_WwpLeosTacacsClientGlobalAuthorizationBadAuthenticators_Type())
+wwpLeosTacacsClientGlobalAuthorizationBadAuthenticators.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAuthorizationBadAuthenticators.setStatus(_A)
+_WwpLeosTacacsClientGlobalAuthorizationTimeouts_Type=Counter32
+_WwpLeosTacacsClientGlobalAuthorizationTimeouts_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAuthorizationTimeouts=_WwpLeosTacacsClientGlobalAuthorizationTimeouts_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,25),_WwpLeosTacacsClientGlobalAuthorizationTimeouts_Type())
+wwpLeosTacacsClientGlobalAuthorizationTimeouts.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAuthorizationTimeouts.setStatus(_A)
+_WwpLeosTacacsClientGlobalAuthorizationUnknownTypes_Type=Counter32
+_WwpLeosTacacsClientGlobalAuthorizationUnknownTypes_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAuthorizationUnknownTypes=_WwpLeosTacacsClientGlobalAuthorizationUnknownTypes_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,26),_WwpLeosTacacsClientGlobalAuthorizationUnknownTypes_Type())
+wwpLeosTacacsClientGlobalAuthorizationUnknownTypes.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAuthorizationUnknownTypes.setStatus(_A)
+_WwpLeosTacacsClientGlobalAuthorizationBadHeaderSequence_Type=Counter32
+_WwpLeosTacacsClientGlobalAuthorizationBadHeaderSequence_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAuthorizationBadHeaderSequence=_WwpLeosTacacsClientGlobalAuthorizationBadHeaderSequence_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,27),_WwpLeosTacacsClientGlobalAuthorizationBadHeaderSequence_Type())
+wwpLeosTacacsClientGlobalAuthorizationBadHeaderSequence.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAuthorizationBadHeaderSequence.setStatus(_A)
+_WwpLeosTacacsClientGlobalAccountingAccessRequests_Type=Counter32
+_WwpLeosTacacsClientGlobalAccountingAccessRequests_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAccountingAccessRequests=_WwpLeosTacacsClientGlobalAccountingAccessRequests_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,28),_WwpLeosTacacsClientGlobalAccountingAccessRequests_Type())
+wwpLeosTacacsClientGlobalAccountingAccessRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAccountingAccessRequests.setStatus(_A)
+_WwpLeosTacacsClientGlobalAccountingAccessRetransmissions_Type=Counter32
+_WwpLeosTacacsClientGlobalAccountingAccessRetransmissions_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAccountingAccessRetransmissions=_WwpLeosTacacsClientGlobalAccountingAccessRetransmissions_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,29),_WwpLeosTacacsClientGlobalAccountingAccessRetransmissions_Type())
+wwpLeosTacacsClientGlobalAccountingAccessRetransmissions.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAccountingAccessRetransmissions.setStatus(_A)
+_WwpLeosTacacsClientGlobalAccountingAccessAccepts_Type=Counter32
+_WwpLeosTacacsClientGlobalAccountingAccessAccepts_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAccountingAccessAccepts=_WwpLeosTacacsClientGlobalAccountingAccessAccepts_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,30),_WwpLeosTacacsClientGlobalAccountingAccessAccepts_Type())
+wwpLeosTacacsClientGlobalAccountingAccessAccepts.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAccountingAccessAccepts.setStatus(_A)
+_WwpLeosTacacsClientGlobalAccountingAccessRejects_Type=Counter32
+_WwpLeosTacacsClientGlobalAccountingAccessRejects_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAccountingAccessRejects=_WwpLeosTacacsClientGlobalAccountingAccessRejects_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,31),_WwpLeosTacacsClientGlobalAccountingAccessRejects_Type())
+wwpLeosTacacsClientGlobalAccountingAccessRejects.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAccountingAccessRejects.setStatus(_A)
+_WwpLeosTacacsClientGlobalAccountingMalformedAccessResponses_Type=Counter32
+_WwpLeosTacacsClientGlobalAccountingMalformedAccessResponses_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAccountingMalformedAccessResponses=_WwpLeosTacacsClientGlobalAccountingMalformedAccessResponses_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,32),_WwpLeosTacacsClientGlobalAccountingMalformedAccessResponses_Type())
+wwpLeosTacacsClientGlobalAccountingMalformedAccessResponses.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAccountingMalformedAccessResponses.setStatus(_A)
+_WwpLeosTacacsClientGlobalAccountingBadAuthenticators_Type=Counter32
+_WwpLeosTacacsClientGlobalAccountingBadAuthenticators_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAccountingBadAuthenticators=_WwpLeosTacacsClientGlobalAccountingBadAuthenticators_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,33),_WwpLeosTacacsClientGlobalAccountingBadAuthenticators_Type())
+wwpLeosTacacsClientGlobalAccountingBadAuthenticators.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAccountingBadAuthenticators.setStatus(_A)
+_WwpLeosTacacsClientGlobalAccountingTimeouts_Type=Counter32
+_WwpLeosTacacsClientGlobalAccountingTimeouts_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAccountingTimeouts=_WwpLeosTacacsClientGlobalAccountingTimeouts_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,34),_WwpLeosTacacsClientGlobalAccountingTimeouts_Type())
+wwpLeosTacacsClientGlobalAccountingTimeouts.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAccountingTimeouts.setStatus(_A)
+_WwpLeosTacacsClientGlobalAccountingUnknownTypes_Type=Counter32
+_WwpLeosTacacsClientGlobalAccountingUnknownTypes_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAccountingUnknownTypes=_WwpLeosTacacsClientGlobalAccountingUnknownTypes_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,35),_WwpLeosTacacsClientGlobalAccountingUnknownTypes_Type())
+wwpLeosTacacsClientGlobalAccountingUnknownTypes.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAccountingUnknownTypes.setStatus(_A)
+_WwpLeosTacacsClientGlobalAccountingBadHeaderSequence_Type=Counter32
+_WwpLeosTacacsClientGlobalAccountingBadHeaderSequence_Object=MibTableColumn
+wwpLeosTacacsClientGlobalAccountingBadHeaderSequence=_WwpLeosTacacsClientGlobalAccountingBadHeaderSequence_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,36),_WwpLeosTacacsClientGlobalAccountingBadHeaderSequence_Type())
+wwpLeosTacacsClientGlobalAccountingBadHeaderSequence.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalAccountingBadHeaderSequence.setStatus(_A)
+_WwpLeosTacacsClientServerResolvedInetAddrType_Type=InetAddressType
+_WwpLeosTacacsClientServerResolvedInetAddrType_Object=MibTableColumn
+wwpLeosTacacsClientServerResolvedInetAddrType=_WwpLeosTacacsClientServerResolvedInetAddrType_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,37),_WwpLeosTacacsClientServerResolvedInetAddrType_Type())
+wwpLeosTacacsClientServerResolvedInetAddrType.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerResolvedInetAddrType.setStatus(_A)
+_WwpLeosTacacsClientServerResolvedInetAddr_Type=InetAddress
+_WwpLeosTacacsClientServerResolvedInetAddr_Object=MibTableColumn
+wwpLeosTacacsClientServerResolvedInetAddr=_WwpLeosTacacsClientServerResolvedInetAddr_Object((1,3,6,1,4,1,6141,2,60,402,1,1,13,1,38),_WwpLeosTacacsClientServerResolvedInetAddr_Type())
+wwpLeosTacacsClientServerResolvedInetAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientServerResolvedInetAddr.setStatus(_A)
+_WwpLeosTacacsClientAuthenticationServerTable_Object=MibTable
+wwpLeosTacacsClientAuthenticationServerTable=_WwpLeosTacacsClientAuthenticationServerTable_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14))
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerTable.setStatus(_A)
+_WwpLeosTacacsClientAuthenticationServerEntry_Object=MibTableRow
+wwpLeosTacacsClientAuthenticationServerEntry=_WwpLeosTacacsClientAuthenticationServerEntry_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1))
+wwpLeosTacacsClientAuthenticationServerEntry.setIndexNames((0,_K,_R))
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerEntry.setStatus(_A)
+class _WwpLeosTacacsClientAuthenticationServerIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
+_WwpLeosTacacsClientAuthenticationServerIndex_Type.__name__=_D
+_WwpLeosTacacsClientAuthenticationServerIndex_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerIndex=_WwpLeosTacacsClientAuthenticationServerIndex_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,1),_WwpLeosTacacsClientAuthenticationServerIndex_Type())
+wwpLeosTacacsClientAuthenticationServerIndex.setMaxAccess(_L)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerIndex.setStatus(_A)
+class _WwpLeosTacacsClientAuthenticationServerAddr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
+_WwpLeosTacacsClientAuthenticationServerAddr_Type.__name__=_H
+_WwpLeosTacacsClientAuthenticationServerAddr_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerAddr=_WwpLeosTacacsClientAuthenticationServerAddr_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,2),_WwpLeosTacacsClientAuthenticationServerAddr_Type())
+wwpLeosTacacsClientAuthenticationServerAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerAddr.setStatus(_A)
+_WwpLeosTacacsClientAuthenticationServerResolvedAddr_Type=IpAddress
+_WwpLeosTacacsClientAuthenticationServerResolvedAddr_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerResolvedAddr=_WwpLeosTacacsClientAuthenticationServerResolvedAddr_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,3),_WwpLeosTacacsClientAuthenticationServerResolvedAddr_Type())
+wwpLeosTacacsClientAuthenticationServerResolvedAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerResolvedAddr.setStatus(_A)
+_WwpLeosTacacsClientAuthenticationServerPriority_Type=Integer32
+_WwpLeosTacacsClientAuthenticationServerPriority_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerPriority=_WwpLeosTacacsClientAuthenticationServerPriority_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,4),_WwpLeosTacacsClientAuthenticationServerPriority_Type())
+wwpLeosTacacsClientAuthenticationServerPriority.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerPriority.setStatus(_A)
+class _WwpLeosTacacsClientAuthenticationServerAuthPort_Type(Integer32):defaultValue=49;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_WwpLeosTacacsClientAuthenticationServerAuthPort_Type.__name__=_D
+_WwpLeosTacacsClientAuthenticationServerAuthPort_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerAuthPort=_WwpLeosTacacsClientAuthenticationServerAuthPort_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,5),_WwpLeosTacacsClientAuthenticationServerAuthPort_Type())
+wwpLeosTacacsClientAuthenticationServerAuthPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerAuthPort.setStatus(_A)
+_WwpLeosTacacsClientAuthenticationServerAccessRequests_Type=Counter32
+_WwpLeosTacacsClientAuthenticationServerAccessRequests_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerAccessRequests=_WwpLeosTacacsClientAuthenticationServerAccessRequests_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,6),_WwpLeosTacacsClientAuthenticationServerAccessRequests_Type())
+wwpLeosTacacsClientAuthenticationServerAccessRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerAccessRequests.setStatus(_A)
+_WwpLeosTacacsClientAuthenticationServerAccessRetransmissions_Type=Counter32
+_WwpLeosTacacsClientAuthenticationServerAccessRetransmissions_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerAccessRetransmissions=_WwpLeosTacacsClientAuthenticationServerAccessRetransmissions_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,7),_WwpLeosTacacsClientAuthenticationServerAccessRetransmissions_Type())
+wwpLeosTacacsClientAuthenticationServerAccessRetransmissions.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerAccessRetransmissions.setStatus(_A)
+_WwpLeosTacacsClientAuthenticationServerAccessAccepts_Type=Counter32
+_WwpLeosTacacsClientAuthenticationServerAccessAccepts_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerAccessAccepts=_WwpLeosTacacsClientAuthenticationServerAccessAccepts_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,8),_WwpLeosTacacsClientAuthenticationServerAccessAccepts_Type())
+wwpLeosTacacsClientAuthenticationServerAccessAccepts.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerAccessAccepts.setStatus(_A)
+_WwpLeosTacacsClientAuthenticationServerAccessRejects_Type=Counter32
+_WwpLeosTacacsClientAuthenticationServerAccessRejects_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerAccessRejects=_WwpLeosTacacsClientAuthenticationServerAccessRejects_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,9),_WwpLeosTacacsClientAuthenticationServerAccessRejects_Type())
+wwpLeosTacacsClientAuthenticationServerAccessRejects.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerAccessRejects.setStatus(_A)
+_WwpLeosTacacsClientAuthenticationServerMalformedAccessResponses_Type=Counter32
+_WwpLeosTacacsClientAuthenticationServerMalformedAccessResponses_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerMalformedAccessResponses=_WwpLeosTacacsClientAuthenticationServerMalformedAccessResponses_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,10),_WwpLeosTacacsClientAuthenticationServerMalformedAccessResponses_Type())
+wwpLeosTacacsClientAuthenticationServerMalformedAccessResponses.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerMalformedAccessResponses.setStatus(_A)
+_WwpLeosTacacsClientAuthenticationServerBadAuthenticators_Type=Counter32
+_WwpLeosTacacsClientAuthenticationServerBadAuthenticators_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerBadAuthenticators=_WwpLeosTacacsClientAuthenticationServerBadAuthenticators_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,11),_WwpLeosTacacsClientAuthenticationServerBadAuthenticators_Type())
+wwpLeosTacacsClientAuthenticationServerBadAuthenticators.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerBadAuthenticators.setStatus(_A)
+_WwpLeosTacacsClientAuthenticationServerPendingRequests_Type=Gauge32
+_WwpLeosTacacsClientAuthenticationServerPendingRequests_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerPendingRequests=_WwpLeosTacacsClientAuthenticationServerPendingRequests_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,12),_WwpLeosTacacsClientAuthenticationServerPendingRequests_Type())
+wwpLeosTacacsClientAuthenticationServerPendingRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerPendingRequests.setStatus(_J)
+_WwpLeosTacacsClientAuthenticationServerTimeouts_Type=Counter32
+_WwpLeosTacacsClientAuthenticationServerTimeouts_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerTimeouts=_WwpLeosTacacsClientAuthenticationServerTimeouts_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,13),_WwpLeosTacacsClientAuthenticationServerTimeouts_Type())
+wwpLeosTacacsClientAuthenticationServerTimeouts.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerTimeouts.setStatus(_A)
+_WwpLeosTacacsClientAuthenticationServerUnknownTypes_Type=Counter32
+_WwpLeosTacacsClientAuthenticationServerUnknownTypes_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerUnknownTypes=_WwpLeosTacacsClientAuthenticationServerUnknownTypes_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,14),_WwpLeosTacacsClientAuthenticationServerUnknownTypes_Type())
+wwpLeosTacacsClientAuthenticationServerUnknownTypes.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerUnknownTypes.setStatus(_A)
+_WwpLeosTacacsClientAuthenticationServerBadHeaderSequence_Type=Counter32
+_WwpLeosTacacsClientAuthenticationServerBadHeaderSequence_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerBadHeaderSequence=_WwpLeosTacacsClientAuthenticationServerBadHeaderSequence_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,15),_WwpLeosTacacsClientAuthenticationServerBadHeaderSequence_Type())
+wwpLeosTacacsClientAuthenticationServerBadHeaderSequence.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerBadHeaderSequence.setStatus(_A)
+_WwpLeosTacacsClientAuthenticationServerStatus_Type=RowStatus
+_WwpLeosTacacsClientAuthenticationServerStatus_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerStatus=_WwpLeosTacacsClientAuthenticationServerStatus_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,16),_WwpLeosTacacsClientAuthenticationServerStatus_Type())
+wwpLeosTacacsClientAuthenticationServerStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerStatus.setStatus(_A)
+class _WwpLeosTacacsClientAuthenticationServerApplication_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_M,1),(_N,2),(_O,3)))
+_WwpLeosTacacsClientAuthenticationServerApplication_Type.__name__=_D
+_WwpLeosTacacsClientAuthenticationServerApplication_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerApplication=_WwpLeosTacacsClientAuthenticationServerApplication_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,17),_WwpLeosTacacsClientAuthenticationServerApplication_Type())
+wwpLeosTacacsClientAuthenticationServerApplication.setMaxAccess(_E)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerApplication.setStatus(_A)
+class _WwpLeosTacacsClientAuthenticationServerClearStatistics_Type(TruthValue):defaultValue=2
+_WwpLeosTacacsClientAuthenticationServerClearStatistics_Type.__name__=_I
+_WwpLeosTacacsClientAuthenticationServerClearStatistics_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerClearStatistics=_WwpLeosTacacsClientAuthenticationServerClearStatistics_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,18),_WwpLeosTacacsClientAuthenticationServerClearStatistics_Type())
+wwpLeosTacacsClientAuthenticationServerClearStatistics.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerClearStatistics.setStatus(_A)
+_WwpLeosTacacsClientAuthenticationServerResolvedInetAddrType_Type=InetAddressType
+_WwpLeosTacacsClientAuthenticationServerResolvedInetAddrType_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerResolvedInetAddrType=_WwpLeosTacacsClientAuthenticationServerResolvedInetAddrType_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,19),_WwpLeosTacacsClientAuthenticationServerResolvedInetAddrType_Type())
+wwpLeosTacacsClientAuthenticationServerResolvedInetAddrType.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerResolvedInetAddrType.setStatus(_A)
+_WwpLeosTacacsClientAuthenticationServerResolvedInetAddr_Type=InetAddress
+_WwpLeosTacacsClientAuthenticationServerResolvedInetAddr_Object=MibTableColumn
+wwpLeosTacacsClientAuthenticationServerResolvedInetAddr=_WwpLeosTacacsClientAuthenticationServerResolvedInetAddr_Object((1,3,6,1,4,1,6141,2,60,402,1,1,14,1,20),_WwpLeosTacacsClientAuthenticationServerResolvedInetAddr_Type())
+wwpLeosTacacsClientAuthenticationServerResolvedInetAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthenticationServerResolvedInetAddr.setStatus(_A)
+_WwpLeosTacacsClientAuthorizationServerTable_Object=MibTable
+wwpLeosTacacsClientAuthorizationServerTable=_WwpLeosTacacsClientAuthorizationServerTable_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15))
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerTable.setStatus(_A)
+_WwpLeosTacacsClientAuthorizationServerEntry_Object=MibTableRow
+wwpLeosTacacsClientAuthorizationServerEntry=_WwpLeosTacacsClientAuthorizationServerEntry_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1))
+wwpLeosTacacsClientAuthorizationServerEntry.setIndexNames((0,_K,_S))
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerEntry.setStatus(_A)
+class _WwpLeosTacacsClientAuthorizationServerIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
+_WwpLeosTacacsClientAuthorizationServerIndex_Type.__name__=_D
+_WwpLeosTacacsClientAuthorizationServerIndex_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerIndex=_WwpLeosTacacsClientAuthorizationServerIndex_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,1),_WwpLeosTacacsClientAuthorizationServerIndex_Type())
+wwpLeosTacacsClientAuthorizationServerIndex.setMaxAccess(_L)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerIndex.setStatus(_A)
+class _WwpLeosTacacsClientAuthorizationServerAddr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
+_WwpLeosTacacsClientAuthorizationServerAddr_Type.__name__=_H
+_WwpLeosTacacsClientAuthorizationServerAddr_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerAddr=_WwpLeosTacacsClientAuthorizationServerAddr_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,2),_WwpLeosTacacsClientAuthorizationServerAddr_Type())
+wwpLeosTacacsClientAuthorizationServerAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerAddr.setStatus(_A)
+_WwpLeosTacacsClientAuthorizationServerResolvedAddr_Type=IpAddress
+_WwpLeosTacacsClientAuthorizationServerResolvedAddr_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerResolvedAddr=_WwpLeosTacacsClientAuthorizationServerResolvedAddr_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,3),_WwpLeosTacacsClientAuthorizationServerResolvedAddr_Type())
+wwpLeosTacacsClientAuthorizationServerResolvedAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerResolvedAddr.setStatus(_A)
+_WwpLeosTacacsClientAuthorizationServerPriority_Type=Integer32
+_WwpLeosTacacsClientAuthorizationServerPriority_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerPriority=_WwpLeosTacacsClientAuthorizationServerPriority_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,4),_WwpLeosTacacsClientAuthorizationServerPriority_Type())
+wwpLeosTacacsClientAuthorizationServerPriority.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerPriority.setStatus(_A)
+class _WwpLeosTacacsClientAuthorizationServerAuthPort_Type(Integer32):defaultValue=49;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_WwpLeosTacacsClientAuthorizationServerAuthPort_Type.__name__=_D
+_WwpLeosTacacsClientAuthorizationServerAuthPort_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerAuthPort=_WwpLeosTacacsClientAuthorizationServerAuthPort_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,5),_WwpLeosTacacsClientAuthorizationServerAuthPort_Type())
+wwpLeosTacacsClientAuthorizationServerAuthPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerAuthPort.setStatus(_A)
+_WwpLeosTacacsClientAuthorizationServerAccessRequests_Type=Counter32
+_WwpLeosTacacsClientAuthorizationServerAccessRequests_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerAccessRequests=_WwpLeosTacacsClientAuthorizationServerAccessRequests_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,6),_WwpLeosTacacsClientAuthorizationServerAccessRequests_Type())
+wwpLeosTacacsClientAuthorizationServerAccessRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerAccessRequests.setStatus(_A)
+_WwpLeosTacacsClientAuthorizationServerAccessRetransmissions_Type=Counter32
+_WwpLeosTacacsClientAuthorizationServerAccessRetransmissions_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerAccessRetransmissions=_WwpLeosTacacsClientAuthorizationServerAccessRetransmissions_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,7),_WwpLeosTacacsClientAuthorizationServerAccessRetransmissions_Type())
+wwpLeosTacacsClientAuthorizationServerAccessRetransmissions.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerAccessRetransmissions.setStatus(_A)
+_WwpLeosTacacsClientAuthorizationServerAccessAccepts_Type=Counter32
+_WwpLeosTacacsClientAuthorizationServerAccessAccepts_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerAccessAccepts=_WwpLeosTacacsClientAuthorizationServerAccessAccepts_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,8),_WwpLeosTacacsClientAuthorizationServerAccessAccepts_Type())
+wwpLeosTacacsClientAuthorizationServerAccessAccepts.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerAccessAccepts.setStatus(_A)
+_WwpLeosTacacsClientAuthorizationServerAccessRejects_Type=Counter32
+_WwpLeosTacacsClientAuthorizationServerAccessRejects_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerAccessRejects=_WwpLeosTacacsClientAuthorizationServerAccessRejects_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,9),_WwpLeosTacacsClientAuthorizationServerAccessRejects_Type())
+wwpLeosTacacsClientAuthorizationServerAccessRejects.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerAccessRejects.setStatus(_A)
+_WwpLeosTacacsClientAuthorizationServerMalformedAccessResponses_Type=Counter32
+_WwpLeosTacacsClientAuthorizationServerMalformedAccessResponses_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerMalformedAccessResponses=_WwpLeosTacacsClientAuthorizationServerMalformedAccessResponses_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,10),_WwpLeosTacacsClientAuthorizationServerMalformedAccessResponses_Type())
+wwpLeosTacacsClientAuthorizationServerMalformedAccessResponses.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerMalformedAccessResponses.setStatus(_A)
+_WwpLeosTacacsClientAuthorizationServerBadAuthenticators_Type=Counter32
+_WwpLeosTacacsClientAuthorizationServerBadAuthenticators_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerBadAuthenticators=_WwpLeosTacacsClientAuthorizationServerBadAuthenticators_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,11),_WwpLeosTacacsClientAuthorizationServerBadAuthenticators_Type())
+wwpLeosTacacsClientAuthorizationServerBadAuthenticators.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerBadAuthenticators.setStatus(_A)
+_WwpLeosTacacsClientAuthorizationServerPendingRequests_Type=Gauge32
+_WwpLeosTacacsClientAuthorizationServerPendingRequests_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerPendingRequests=_WwpLeosTacacsClientAuthorizationServerPendingRequests_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,12),_WwpLeosTacacsClientAuthorizationServerPendingRequests_Type())
+wwpLeosTacacsClientAuthorizationServerPendingRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerPendingRequests.setStatus(_J)
+_WwpLeosTacacsClientAuthorizationServerTimeouts_Type=Counter32
+_WwpLeosTacacsClientAuthorizationServerTimeouts_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerTimeouts=_WwpLeosTacacsClientAuthorizationServerTimeouts_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,13),_WwpLeosTacacsClientAuthorizationServerTimeouts_Type())
+wwpLeosTacacsClientAuthorizationServerTimeouts.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerTimeouts.setStatus(_A)
+_WwpLeosTacacsClientAuthorizationServerUnknownTypes_Type=Counter32
+_WwpLeosTacacsClientAuthorizationServerUnknownTypes_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerUnknownTypes=_WwpLeosTacacsClientAuthorizationServerUnknownTypes_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,14),_WwpLeosTacacsClientAuthorizationServerUnknownTypes_Type())
+wwpLeosTacacsClientAuthorizationServerUnknownTypes.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerUnknownTypes.setStatus(_A)
+_WwpLeosTacacsClientAuthorizationServerBadHeaderSequence_Type=Counter32
+_WwpLeosTacacsClientAuthorizationServerBadHeaderSequence_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerBadHeaderSequence=_WwpLeosTacacsClientAuthorizationServerBadHeaderSequence_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,15),_WwpLeosTacacsClientAuthorizationServerBadHeaderSequence_Type())
+wwpLeosTacacsClientAuthorizationServerBadHeaderSequence.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerBadHeaderSequence.setStatus(_A)
+_WwpLeosTacacsClientAuthorizationServerStatus_Type=RowStatus
+_WwpLeosTacacsClientAuthorizationServerStatus_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerStatus=_WwpLeosTacacsClientAuthorizationServerStatus_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,16),_WwpLeosTacacsClientAuthorizationServerStatus_Type())
+wwpLeosTacacsClientAuthorizationServerStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerStatus.setStatus(_A)
+class _WwpLeosTacacsClientAuthorizationServerApplication_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_M,1),(_N,2),(_O,3)))
+_WwpLeosTacacsClientAuthorizationServerApplication_Type.__name__=_D
+_WwpLeosTacacsClientAuthorizationServerApplication_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerApplication=_WwpLeosTacacsClientAuthorizationServerApplication_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,17),_WwpLeosTacacsClientAuthorizationServerApplication_Type())
+wwpLeosTacacsClientAuthorizationServerApplication.setMaxAccess(_E)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerApplication.setStatus(_A)
+class _WwpLeosTacacsClientAuthorizationServerClearStatistics_Type(TruthValue):defaultValue=2
+_WwpLeosTacacsClientAuthorizationServerClearStatistics_Type.__name__=_I
+_WwpLeosTacacsClientAuthorizationServerClearStatistics_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerClearStatistics=_WwpLeosTacacsClientAuthorizationServerClearStatistics_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,18),_WwpLeosTacacsClientAuthorizationServerClearStatistics_Type())
+wwpLeosTacacsClientAuthorizationServerClearStatistics.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerClearStatistics.setStatus(_A)
+_WwpLeosTacacsClientAuthorizationServerResolvedInetAddrType_Type=InetAddressType
+_WwpLeosTacacsClientAuthorizationServerResolvedInetAddrType_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerResolvedInetAddrType=_WwpLeosTacacsClientAuthorizationServerResolvedInetAddrType_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,19),_WwpLeosTacacsClientAuthorizationServerResolvedInetAddrType_Type())
+wwpLeosTacacsClientAuthorizationServerResolvedInetAddrType.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerResolvedInetAddrType.setStatus(_A)
+_WwpLeosTacacsClientAuthorizationServerResolvedInetAddr_Type=InetAddress
+_WwpLeosTacacsClientAuthorizationServerResolvedInetAddr_Object=MibTableColumn
+wwpLeosTacacsClientAuthorizationServerResolvedInetAddr=_WwpLeosTacacsClientAuthorizationServerResolvedInetAddr_Object((1,3,6,1,4,1,6141,2,60,402,1,1,15,1,20),_WwpLeosTacacsClientAuthorizationServerResolvedInetAddr_Type())
+wwpLeosTacacsClientAuthorizationServerResolvedInetAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAuthorizationServerResolvedInetAddr.setStatus(_A)
+_WwpLeosTacacsClientAccountingServerTable_Object=MibTable
+wwpLeosTacacsClientAccountingServerTable=_WwpLeosTacacsClientAccountingServerTable_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16))
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerTable.setStatus(_A)
+_WwpLeosTacacsClientAccountingServerEntry_Object=MibTableRow
+wwpLeosTacacsClientAccountingServerEntry=_WwpLeosTacacsClientAccountingServerEntry_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1))
+wwpLeosTacacsClientAccountingServerEntry.setIndexNames((0,_K,_T))
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerEntry.setStatus(_A)
+class _WwpLeosTacacsClientAccountingServerIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
+_WwpLeosTacacsClientAccountingServerIndex_Type.__name__=_D
+_WwpLeosTacacsClientAccountingServerIndex_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerIndex=_WwpLeosTacacsClientAccountingServerIndex_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,1),_WwpLeosTacacsClientAccountingServerIndex_Type())
+wwpLeosTacacsClientAccountingServerIndex.setMaxAccess(_L)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerIndex.setStatus(_A)
+class _WwpLeosTacacsClientAccountingServerAddr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
+_WwpLeosTacacsClientAccountingServerAddr_Type.__name__=_H
+_WwpLeosTacacsClientAccountingServerAddr_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerAddr=_WwpLeosTacacsClientAccountingServerAddr_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,2),_WwpLeosTacacsClientAccountingServerAddr_Type())
+wwpLeosTacacsClientAccountingServerAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerAddr.setStatus(_A)
+_WwpLeosTacacsClientAccountingServerResolvedAddr_Type=IpAddress
+_WwpLeosTacacsClientAccountingServerResolvedAddr_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerResolvedAddr=_WwpLeosTacacsClientAccountingServerResolvedAddr_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,3),_WwpLeosTacacsClientAccountingServerResolvedAddr_Type())
+wwpLeosTacacsClientAccountingServerResolvedAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerResolvedAddr.setStatus(_A)
+_WwpLeosTacacsClientAccountingServerPriority_Type=Integer32
+_WwpLeosTacacsClientAccountingServerPriority_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerPriority=_WwpLeosTacacsClientAccountingServerPriority_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,4),_WwpLeosTacacsClientAccountingServerPriority_Type())
+wwpLeosTacacsClientAccountingServerPriority.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerPriority.setStatus(_A)
+class _WwpLeosTacacsClientAccountingServerAuthPort_Type(Integer32):defaultValue=49;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_WwpLeosTacacsClientAccountingServerAuthPort_Type.__name__=_D
+_WwpLeosTacacsClientAccountingServerAuthPort_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerAuthPort=_WwpLeosTacacsClientAccountingServerAuthPort_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,5),_WwpLeosTacacsClientAccountingServerAuthPort_Type())
+wwpLeosTacacsClientAccountingServerAuthPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerAuthPort.setStatus(_A)
+_WwpLeosTacacsClientAccountingServerAccessRequests_Type=Counter32
+_WwpLeosTacacsClientAccountingServerAccessRequests_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerAccessRequests=_WwpLeosTacacsClientAccountingServerAccessRequests_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,6),_WwpLeosTacacsClientAccountingServerAccessRequests_Type())
+wwpLeosTacacsClientAccountingServerAccessRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerAccessRequests.setStatus(_A)
+_WwpLeosTacacsClientAccountingServerAccessRetransmissions_Type=Counter32
+_WwpLeosTacacsClientAccountingServerAccessRetransmissions_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerAccessRetransmissions=_WwpLeosTacacsClientAccountingServerAccessRetransmissions_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,7),_WwpLeosTacacsClientAccountingServerAccessRetransmissions_Type())
+wwpLeosTacacsClientAccountingServerAccessRetransmissions.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerAccessRetransmissions.setStatus(_A)
+_WwpLeosTacacsClientAccountingServerAccessAccepts_Type=Counter32
+_WwpLeosTacacsClientAccountingServerAccessAccepts_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerAccessAccepts=_WwpLeosTacacsClientAccountingServerAccessAccepts_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,8),_WwpLeosTacacsClientAccountingServerAccessAccepts_Type())
+wwpLeosTacacsClientAccountingServerAccessAccepts.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerAccessAccepts.setStatus(_A)
+_WwpLeosTacacsClientAccountingServerAccessRejects_Type=Counter32
+_WwpLeosTacacsClientAccountingServerAccessRejects_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerAccessRejects=_WwpLeosTacacsClientAccountingServerAccessRejects_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,9),_WwpLeosTacacsClientAccountingServerAccessRejects_Type())
+wwpLeosTacacsClientAccountingServerAccessRejects.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerAccessRejects.setStatus(_A)
+_WwpLeosTacacsClientAccountingServerMalformedAccessResponses_Type=Counter32
+_WwpLeosTacacsClientAccountingServerMalformedAccessResponses_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerMalformedAccessResponses=_WwpLeosTacacsClientAccountingServerMalformedAccessResponses_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,10),_WwpLeosTacacsClientAccountingServerMalformedAccessResponses_Type())
+wwpLeosTacacsClientAccountingServerMalformedAccessResponses.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerMalformedAccessResponses.setStatus(_A)
+_WwpLeosTacacsClientAccountingServerBadAuthenticators_Type=Counter32
+_WwpLeosTacacsClientAccountingServerBadAuthenticators_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerBadAuthenticators=_WwpLeosTacacsClientAccountingServerBadAuthenticators_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,11),_WwpLeosTacacsClientAccountingServerBadAuthenticators_Type())
+wwpLeosTacacsClientAccountingServerBadAuthenticators.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerBadAuthenticators.setStatus(_A)
+_WwpLeosTacacsClientAccountingServerPendingRequests_Type=Gauge32
+_WwpLeosTacacsClientAccountingServerPendingRequests_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerPendingRequests=_WwpLeosTacacsClientAccountingServerPendingRequests_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,12),_WwpLeosTacacsClientAccountingServerPendingRequests_Type())
+wwpLeosTacacsClientAccountingServerPendingRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerPendingRequests.setStatus(_A)
+_WwpLeosTacacsClientAccountingServerTimeouts_Type=Counter32
+_WwpLeosTacacsClientAccountingServerTimeouts_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerTimeouts=_WwpLeosTacacsClientAccountingServerTimeouts_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,13),_WwpLeosTacacsClientAccountingServerTimeouts_Type())
+wwpLeosTacacsClientAccountingServerTimeouts.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerTimeouts.setStatus(_A)
+_WwpLeosTacacsClientAccountingServerUnknownTypes_Type=Counter32
+_WwpLeosTacacsClientAccountingServerUnknownTypes_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerUnknownTypes=_WwpLeosTacacsClientAccountingServerUnknownTypes_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,14),_WwpLeosTacacsClientAccountingServerUnknownTypes_Type())
+wwpLeosTacacsClientAccountingServerUnknownTypes.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerUnknownTypes.setStatus(_A)
+_WwpLeosTacacsClientAccountingServerBadHeaderSequence_Type=Counter32
+_WwpLeosTacacsClientAccountingServerBadHeaderSequence_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerBadHeaderSequence=_WwpLeosTacacsClientAccountingServerBadHeaderSequence_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,15),_WwpLeosTacacsClientAccountingServerBadHeaderSequence_Type())
+wwpLeosTacacsClientAccountingServerBadHeaderSequence.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerBadHeaderSequence.setStatus(_A)
+_WwpLeosTacacsClientAccountingServerStatus_Type=RowStatus
+_WwpLeosTacacsClientAccountingServerStatus_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerStatus=_WwpLeosTacacsClientAccountingServerStatus_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,16),_WwpLeosTacacsClientAccountingServerStatus_Type())
+wwpLeosTacacsClientAccountingServerStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerStatus.setStatus(_A)
+class _WwpLeosTacacsClientAccountingServerApplication_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_M,1),(_N,2),(_O,3)))
+_WwpLeosTacacsClientAccountingServerApplication_Type.__name__=_D
+_WwpLeosTacacsClientAccountingServerApplication_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerApplication=_WwpLeosTacacsClientAccountingServerApplication_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,17),_WwpLeosTacacsClientAccountingServerApplication_Type())
+wwpLeosTacacsClientAccountingServerApplication.setMaxAccess(_E)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerApplication.setStatus(_A)
+class _WwpLeosTacacsClientAccountingServerClearStatistics_Type(TruthValue):defaultValue=2
+_WwpLeosTacacsClientAccountingServerClearStatistics_Type.__name__=_I
+_WwpLeosTacacsClientAccountingServerClearStatistics_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerClearStatistics=_WwpLeosTacacsClientAccountingServerClearStatistics_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,18),_WwpLeosTacacsClientAccountingServerClearStatistics_Type())
+wwpLeosTacacsClientAccountingServerClearStatistics.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerClearStatistics.setStatus(_A)
+_WwpLeosTacacsClientAccountingServerResolvedInetAddrType_Type=InetAddressType
+_WwpLeosTacacsClientAccountingServerResolvedInetAddrType_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerResolvedInetAddrType=_WwpLeosTacacsClientAccountingServerResolvedInetAddrType_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,19),_WwpLeosTacacsClientAccountingServerResolvedInetAddrType_Type())
+wwpLeosTacacsClientAccountingServerResolvedInetAddrType.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerResolvedInetAddrType.setStatus(_A)
+_WwpLeosTacacsClientAccountingServerResolvedInetAddr_Type=InetAddress
+_WwpLeosTacacsClientAccountingServerResolvedInetAddr_Object=MibTableColumn
+wwpLeosTacacsClientAccountingServerResolvedInetAddr=_WwpLeosTacacsClientAccountingServerResolvedInetAddr_Object((1,3,6,1,4,1,6141,2,60,402,1,1,16,1,20),_WwpLeosTacacsClientAccountingServerResolvedInetAddr_Type())
+wwpLeosTacacsClientAccountingServerResolvedInetAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingServerResolvedInetAddr.setStatus(_A)
+class _WwpLeosTacacsClientAccountingSession_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_P,1),('on',2)))
+_WwpLeosTacacsClientAccountingSession_Type.__name__=_D
+_WwpLeosTacacsClientAccountingSession_Object=MibScalar
+wwpLeosTacacsClientAccountingSession=_WwpLeosTacacsClientAccountingSession_Object((1,3,6,1,4,1,6141,2,60,402,1,1,20),_WwpLeosTacacsClientAccountingSession_Type())
+wwpLeosTacacsClientAccountingSession.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingSession.setStatus(_A)
+class _WwpLeosTacacsClientAccountingCommand_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_P,1),('on',2)))
+_WwpLeosTacacsClientAccountingCommand_Type.__name__=_D
+_WwpLeosTacacsClientAccountingCommand_Object=MibScalar
+wwpLeosTacacsClientAccountingCommand=_WwpLeosTacacsClientAccountingCommand_Object((1,3,6,1,4,1,6141,2,60,402,1,1,21),_WwpLeosTacacsClientAccountingCommand_Type())
+wwpLeosTacacsClientAccountingCommand.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientAccountingCommand.setStatus(_A)
+class _WwpLeosTacacsClientGlobalServers_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_P,1),('on',2)))
+_WwpLeosTacacsClientGlobalServers_Type.__name__=_D
+_WwpLeosTacacsClientGlobalServers_Object=MibScalar
+wwpLeosTacacsClientGlobalServers=_WwpLeosTacacsClientGlobalServers_Object((1,3,6,1,4,1,6141,2,60,402,1,1,22),_WwpLeosTacacsClientGlobalServers_Type())
+wwpLeosTacacsClientGlobalServers.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientGlobalServers.setStatus(_J)
+class _WwpLeosTacacsClientSearchMethod_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('priority',1),('cached',2)))
+_WwpLeosTacacsClientSearchMethod_Type.__name__=_D
+_WwpLeosTacacsClientSearchMethod_Object=MibScalar
+wwpLeosTacacsClientSearchMethod=_WwpLeosTacacsClientSearchMethod_Object((1,3,6,1,4,1,6141,2,60,402,1,1,23),_WwpLeosTacacsClientSearchMethod_Type())
+wwpLeosTacacsClientSearchMethod.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientSearchMethod.setStatus(_A)
+class _WwpLeosTacacsClientKeyMinLen_Type(Integer32):defaultValue=8;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(2,64))
+_WwpLeosTacacsClientKeyMinLen_Type.__name__=_D
+_WwpLeosTacacsClientKeyMinLen_Object=MibScalar
+wwpLeosTacacsClientKeyMinLen=_WwpLeosTacacsClientKeyMinLen_Object((1,3,6,1,4,1,6141,2,60,402,1,1,24),_WwpLeosTacacsClientKeyMinLen_Type())
+wwpLeosTacacsClientKeyMinLen.setMaxAccess(_C)
+if mibBuilder.loadTexts:wwpLeosTacacsClientKeyMinLen.setStatus(_A)
+_WwpLeosTacacsClientMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
+wwpLeosTacacsClientMIBNotificationPrefix=_WwpLeosTacacsClientMIBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,6141,2,60,402,2))
+_WwpLeosTacacsClientMIBNotifications_ObjectIdentity=ObjectIdentity
+wwpLeosTacacsClientMIBNotifications=_WwpLeosTacacsClientMIBNotifications_ObjectIdentity((1,3,6,1,4,1,6141,2,60,402,2,0))
+_WwpLeosTacacsClientMIBConformance_ObjectIdentity=ObjectIdentity
+wwpLeosTacacsClientMIBConformance=_WwpLeosTacacsClientMIBConformance_ObjectIdentity((1,3,6,1,4,1,6141,2,60,402,3))
+_WwpLeosTacacsClientMIBCompliances_ObjectIdentity=ObjectIdentity
+wwpLeosTacacsClientMIBCompliances=_WwpLeosTacacsClientMIBCompliances_ObjectIdentity((1,3,6,1,4,1,6141,2,60,402,3,1))
+_WwpLeosTacacsClientMIBGroups_ObjectIdentity=ObjectIdentity
+wwpLeosTacacsClientMIBGroups=_WwpLeosTacacsClientMIBGroups_ObjectIdentity((1,3,6,1,4,1,6141,2,60,402,3,2))
+mibBuilder.exportSymbols(_K,**{'TacacsString':TacacsString,'wwpLeosTacacsClientMIB':wwpLeosTacacsClientMIB,'wwpLeosTacacsClientMIBObjects':wwpLeosTacacsClientMIBObjects,'wwpLeosTacacsClient':wwpLeosTacacsClient,'wwpLeosTacacsAdminState':wwpLeosTacacsAdminState,'wwpLeosTacacsOperState':wwpLeosTacacsOperState,'wwpLeosTacacsClientTimeout':wwpLeosTacacsClientTimeout,'wwpLeosTacacsClientRetries':wwpLeosTacacsClientRetries,'wwpLeosTacacsClientPrivilegeLevelRW':wwpLeosTacacsClientPrivilegeLevelRW,'wwpLeosTacacsClientPrivilegeLevelAdmin':wwpLeosTacacsClientPrivilegeLevelAdmin,'wwpLeosTacacsClientPrivilegeLevelDiag':wwpLeosTacacsClientPrivilegeLevelDiag,'wwpLeosTacacsClientAuthKey':wwpLeosTacacsClientAuthKey,'wwpLeosTacacsAuthenticationAdminState':wwpLeosTacacsAuthenticationAdminState,'wwpLeosTacacsAuthorizationAdminState':wwpLeosTacacsAuthorizationAdminState,'wwpLeosTacacsAccountingAdminState':wwpLeosTacacsAccountingAdminState,'wwpLeosTacacsSyslogAdminState':wwpLeosTacacsSyslogAdminState,'wwpLeosTacacsClientServerTable':wwpLeosTacacsClientServerTable,'wwpLeosTacacsClientServerEntry':wwpLeosTacacsClientServerEntry,_Q:wwpLeosTacacsClientServerIndex,'wwpLeosTacacsClientServerAddr':wwpLeosTacacsClientServerAddr,'wwpLeosTacacsClientServerResolvedAddr':wwpLeosTacacsClientServerResolvedAddr,'wwpLeosTacacsClientServerPriority':wwpLeosTacacsClientServerPriority,'wwpLeosTacacsClientServerAuthPort':wwpLeosTacacsClientServerAuthPort,'wwpLeosTacacsClientServerAccessRequests':wwpLeosTacacsClientServerAccessRequests,'wwpLeosTacacsClientServerAccessRetransmissions':wwpLeosTacacsClientServerAccessRetransmissions,'wwpLeosTacacsClientServerAccessAccepts':wwpLeosTacacsClientServerAccessAccepts,'wwpLeosTacacsClientServerAccessRejects':wwpLeosTacacsClientServerAccessRejects,'wwpLeosTacacsClientServerMalformedAccessResponses':wwpLeosTacacsClientServerMalformedAccessResponses,'wwpLeosTacacsClientServerBadAuthenticators':wwpLeosTacacsClientServerBadAuthenticators,'wwpLeosTacacsClientServerPendingRequests':wwpLeosTacacsClientServerPendingRequests,'wwpLeosTacacsClientServerTimeouts':wwpLeosTacacsClientServerTimeouts,'wwpLeosTacacsClientServerUnknownTypes':wwpLeosTacacsClientServerUnknownTypes,'wwpLeosTacacsClientServerBadHeaderSequence':wwpLeosTacacsClientServerBadHeaderSequence,'wwpLeosTacacsClientServerStatus':wwpLeosTacacsClientServerStatus,'wwpLeosTacacsClientServerApplication':wwpLeosTacacsClientServerApplication,'wwpLeosTacacsClientServerClearStatistics':wwpLeosTacacsClientServerClearStatistics,'wwpLeosTacacsClientGlobalAuthorizationAccessRequests':wwpLeosTacacsClientGlobalAuthorizationAccessRequests,'wwpLeosTacacsClientGlobalAuthorizationAccessRetransmissions':wwpLeosTacacsClientGlobalAuthorizationAccessRetransmissions,'wwpLeosTacacsClientGlobalAuthorizationAccessAccepts':wwpLeosTacacsClientGlobalAuthorizationAccessAccepts,'wwpLeosTacacsClientGlobalAuthorizationAccessRejects':wwpLeosTacacsClientGlobalAuthorizationAccessRejects,'wwpLeosTacacsClientGlobalAuthorizationMalformedAccessResponses':wwpLeosTacacsClientGlobalAuthorizationMalformedAccessResponses,'wwpLeosTacacsClientGlobalAuthorizationBadAuthenticators':wwpLeosTacacsClientGlobalAuthorizationBadAuthenticators,'wwpLeosTacacsClientGlobalAuthorizationTimeouts':wwpLeosTacacsClientGlobalAuthorizationTimeouts,'wwpLeosTacacsClientGlobalAuthorizationUnknownTypes':wwpLeosTacacsClientGlobalAuthorizationUnknownTypes,'wwpLeosTacacsClientGlobalAuthorizationBadHeaderSequence':wwpLeosTacacsClientGlobalAuthorizationBadHeaderSequence,'wwpLeosTacacsClientGlobalAccountingAccessRequests':wwpLeosTacacsClientGlobalAccountingAccessRequests,'wwpLeosTacacsClientGlobalAccountingAccessRetransmissions':wwpLeosTacacsClientGlobalAccountingAccessRetransmissions,'wwpLeosTacacsClientGlobalAccountingAccessAccepts':wwpLeosTacacsClientGlobalAccountingAccessAccepts,'wwpLeosTacacsClientGlobalAccountingAccessRejects':wwpLeosTacacsClientGlobalAccountingAccessRejects,'wwpLeosTacacsClientGlobalAccountingMalformedAccessResponses':wwpLeosTacacsClientGlobalAccountingMalformedAccessResponses,'wwpLeosTacacsClientGlobalAccountingBadAuthenticators':wwpLeosTacacsClientGlobalAccountingBadAuthenticators,'wwpLeosTacacsClientGlobalAccountingTimeouts':wwpLeosTacacsClientGlobalAccountingTimeouts,'wwpLeosTacacsClientGlobalAccountingUnknownTypes':wwpLeosTacacsClientGlobalAccountingUnknownTypes,'wwpLeosTacacsClientGlobalAccountingBadHeaderSequence':wwpLeosTacacsClientGlobalAccountingBadHeaderSequence,'wwpLeosTacacsClientServerResolvedInetAddrType':wwpLeosTacacsClientServerResolvedInetAddrType,'wwpLeosTacacsClientServerResolvedInetAddr':wwpLeosTacacsClientServerResolvedInetAddr,'wwpLeosTacacsClientAuthenticationServerTable':wwpLeosTacacsClientAuthenticationServerTable,'wwpLeosTacacsClientAuthenticationServerEntry':wwpLeosTacacsClientAuthenticationServerEntry,_R:wwpLeosTacacsClientAuthenticationServerIndex,'wwpLeosTacacsClientAuthenticationServerAddr':wwpLeosTacacsClientAuthenticationServerAddr,'wwpLeosTacacsClientAuthenticationServerResolvedAddr':wwpLeosTacacsClientAuthenticationServerResolvedAddr,'wwpLeosTacacsClientAuthenticationServerPriority':wwpLeosTacacsClientAuthenticationServerPriority,'wwpLeosTacacsClientAuthenticationServerAuthPort':wwpLeosTacacsClientAuthenticationServerAuthPort,'wwpLeosTacacsClientAuthenticationServerAccessRequests':wwpLeosTacacsClientAuthenticationServerAccessRequests,'wwpLeosTacacsClientAuthenticationServerAccessRetransmissions':wwpLeosTacacsClientAuthenticationServerAccessRetransmissions,'wwpLeosTacacsClientAuthenticationServerAccessAccepts':wwpLeosTacacsClientAuthenticationServerAccessAccepts,'wwpLeosTacacsClientAuthenticationServerAccessRejects':wwpLeosTacacsClientAuthenticationServerAccessRejects,'wwpLeosTacacsClientAuthenticationServerMalformedAccessResponses':wwpLeosTacacsClientAuthenticationServerMalformedAccessResponses,'wwpLeosTacacsClientAuthenticationServerBadAuthenticators':wwpLeosTacacsClientAuthenticationServerBadAuthenticators,'wwpLeosTacacsClientAuthenticationServerPendingRequests':wwpLeosTacacsClientAuthenticationServerPendingRequests,'wwpLeosTacacsClientAuthenticationServerTimeouts':wwpLeosTacacsClientAuthenticationServerTimeouts,'wwpLeosTacacsClientAuthenticationServerUnknownTypes':wwpLeosTacacsClientAuthenticationServerUnknownTypes,'wwpLeosTacacsClientAuthenticationServerBadHeaderSequence':wwpLeosTacacsClientAuthenticationServerBadHeaderSequence,'wwpLeosTacacsClientAuthenticationServerStatus':wwpLeosTacacsClientAuthenticationServerStatus,'wwpLeosTacacsClientAuthenticationServerApplication':wwpLeosTacacsClientAuthenticationServerApplication,'wwpLeosTacacsClientAuthenticationServerClearStatistics':wwpLeosTacacsClientAuthenticationServerClearStatistics,'wwpLeosTacacsClientAuthenticationServerResolvedInetAddrType':wwpLeosTacacsClientAuthenticationServerResolvedInetAddrType,'wwpLeosTacacsClientAuthenticationServerResolvedInetAddr':wwpLeosTacacsClientAuthenticationServerResolvedInetAddr,'wwpLeosTacacsClientAuthorizationServerTable':wwpLeosTacacsClientAuthorizationServerTable,'wwpLeosTacacsClientAuthorizationServerEntry':wwpLeosTacacsClientAuthorizationServerEntry,_S:wwpLeosTacacsClientAuthorizationServerIndex,'wwpLeosTacacsClientAuthorizationServerAddr':wwpLeosTacacsClientAuthorizationServerAddr,'wwpLeosTacacsClientAuthorizationServerResolvedAddr':wwpLeosTacacsClientAuthorizationServerResolvedAddr,'wwpLeosTacacsClientAuthorizationServerPriority':wwpLeosTacacsClientAuthorizationServerPriority,'wwpLeosTacacsClientAuthorizationServerAuthPort':wwpLeosTacacsClientAuthorizationServerAuthPort,'wwpLeosTacacsClientAuthorizationServerAccessRequests':wwpLeosTacacsClientAuthorizationServerAccessRequests,'wwpLeosTacacsClientAuthorizationServerAccessRetransmissions':wwpLeosTacacsClientAuthorizationServerAccessRetransmissions,'wwpLeosTacacsClientAuthorizationServerAccessAccepts':wwpLeosTacacsClientAuthorizationServerAccessAccepts,'wwpLeosTacacsClientAuthorizationServerAccessRejects':wwpLeosTacacsClientAuthorizationServerAccessRejects,'wwpLeosTacacsClientAuthorizationServerMalformedAccessResponses':wwpLeosTacacsClientAuthorizationServerMalformedAccessResponses,'wwpLeosTacacsClientAuthorizationServerBadAuthenticators':wwpLeosTacacsClientAuthorizationServerBadAuthenticators,'wwpLeosTacacsClientAuthorizationServerPendingRequests':wwpLeosTacacsClientAuthorizationServerPendingRequests,'wwpLeosTacacsClientAuthorizationServerTimeouts':wwpLeosTacacsClientAuthorizationServerTimeouts,'wwpLeosTacacsClientAuthorizationServerUnknownTypes':wwpLeosTacacsClientAuthorizationServerUnknownTypes,'wwpLeosTacacsClientAuthorizationServerBadHeaderSequence':wwpLeosTacacsClientAuthorizationServerBadHeaderSequence,'wwpLeosTacacsClientAuthorizationServerStatus':wwpLeosTacacsClientAuthorizationServerStatus,'wwpLeosTacacsClientAuthorizationServerApplication':wwpLeosTacacsClientAuthorizationServerApplication,'wwpLeosTacacsClientAuthorizationServerClearStatistics':wwpLeosTacacsClientAuthorizationServerClearStatistics,'wwpLeosTacacsClientAuthorizationServerResolvedInetAddrType':wwpLeosTacacsClientAuthorizationServerResolvedInetAddrType,'wwpLeosTacacsClientAuthorizationServerResolvedInetAddr':wwpLeosTacacsClientAuthorizationServerResolvedInetAddr,'wwpLeosTacacsClientAccountingServerTable':wwpLeosTacacsClientAccountingServerTable,'wwpLeosTacacsClientAccountingServerEntry':wwpLeosTacacsClientAccountingServerEntry,_T:wwpLeosTacacsClientAccountingServerIndex,'wwpLeosTacacsClientAccountingServerAddr':wwpLeosTacacsClientAccountingServerAddr,'wwpLeosTacacsClientAccountingServerResolvedAddr':wwpLeosTacacsClientAccountingServerResolvedAddr,'wwpLeosTacacsClientAccountingServerPriority':wwpLeosTacacsClientAccountingServerPriority,'wwpLeosTacacsClientAccountingServerAuthPort':wwpLeosTacacsClientAccountingServerAuthPort,'wwpLeosTacacsClientAccountingServerAccessRequests':wwpLeosTacacsClientAccountingServerAccessRequests,'wwpLeosTacacsClientAccountingServerAccessRetransmissions':wwpLeosTacacsClientAccountingServerAccessRetransmissions,'wwpLeosTacacsClientAccountingServerAccessAccepts':wwpLeosTacacsClientAccountingServerAccessAccepts,'wwpLeosTacacsClientAccountingServerAccessRejects':wwpLeosTacacsClientAccountingServerAccessRejects,'wwpLeosTacacsClientAccountingServerMalformedAccessResponses':wwpLeosTacacsClientAccountingServerMalformedAccessResponses,'wwpLeosTacacsClientAccountingServerBadAuthenticators':wwpLeosTacacsClientAccountingServerBadAuthenticators,'wwpLeosTacacsClientAccountingServerPendingRequests':wwpLeosTacacsClientAccountingServerPendingRequests,'wwpLeosTacacsClientAccountingServerTimeouts':wwpLeosTacacsClientAccountingServerTimeouts,'wwpLeosTacacsClientAccountingServerUnknownTypes':wwpLeosTacacsClientAccountingServerUnknownTypes,'wwpLeosTacacsClientAccountingServerBadHeaderSequence':wwpLeosTacacsClientAccountingServerBadHeaderSequence,'wwpLeosTacacsClientAccountingServerStatus':wwpLeosTacacsClientAccountingServerStatus,'wwpLeosTacacsClientAccountingServerApplication':wwpLeosTacacsClientAccountingServerApplication,'wwpLeosTacacsClientAccountingServerClearStatistics':wwpLeosTacacsClientAccountingServerClearStatistics,'wwpLeosTacacsClientAccountingServerResolvedInetAddrType':wwpLeosTacacsClientAccountingServerResolvedInetAddrType,'wwpLeosTacacsClientAccountingServerResolvedInetAddr':wwpLeosTacacsClientAccountingServerResolvedInetAddr,'wwpLeosTacacsClientAccountingSession':wwpLeosTacacsClientAccountingSession,'wwpLeosTacacsClientAccountingCommand':wwpLeosTacacsClientAccountingCommand,'wwpLeosTacacsClientGlobalServers':wwpLeosTacacsClientGlobalServers,'wwpLeosTacacsClientSearchMethod':wwpLeosTacacsClientSearchMethod,'wwpLeosTacacsClientKeyMinLen':wwpLeosTacacsClientKeyMinLen,'wwpLeosTacacsClientMIBNotificationPrefix':wwpLeosTacacsClientMIBNotificationPrefix,'wwpLeosTacacsClientMIBNotifications':wwpLeosTacacsClientMIBNotifications,'wwpLeosTacacsClientMIBConformance':wwpLeosTacacsClientMIBConformance,'wwpLeosTacacsClientMIBCompliances':wwpLeosTacacsClientMIBCompliances,'wwpLeosTacacsClientMIBGroups':wwpLeosTacacsClientMIBGroups})

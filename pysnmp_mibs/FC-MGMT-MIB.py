@@ -1,373 +1,949 @@
-#
-# PySNMP MIB module FC-MGMT-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/FC-MGMT-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:12:19 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, Integer, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-( ifIndex, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( NotificationGroup, ObjectGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-( TimeTicks, Counter64, Integer32, iso, Gauge32, IpAddress, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Bits, transmission, MibIdentifier, NotificationType, Counter32, Unsigned32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Counter64", "Integer32", "iso", "Gauge32", "IpAddress", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Bits", "transmission", "MibIdentifier", "NotificationType", "Counter32", "Unsigned32")
-( DisplayString, TextualConvention, TruthValue, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
-fcMgmtMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 56)).setRevisions(("2005-04-26 00:00",))
-if mibBuilder.loadTexts: fcMgmtMIB.setLastUpdated('200504260000Z')
-if mibBuilder.loadTexts: fcMgmtMIB.setOrganization('IETF IPS (IP-Storage) Working Group')
-if mibBuilder.loadTexts: fcMgmtMIB.setContactInfo('        Keith McCloghrie\n                        Cisco Systems, Inc.\n                   Tel: +1 408 526-5260\n                E-mail: kzm@cisco.com\n                Postal: 170 West Tasman Drive\n                        San Jose, CA USA 95134\n               ')
-if mibBuilder.loadTexts: fcMgmtMIB.setDescription('This module defines management information specific to\n               Fibre Channel-attached devices.\n\n\n\n\n               Copyright (C) The Internet Society (2005).  This version\n               of this MIB module is part of RFC 4044;  see the RFC\n               itself for full legal notices.')
-fcmgmtObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 56, 1))
-fcmgmtNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 56, 2))
-fcmgmtNotifPrefix = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 56, 2, 0))
-fcmgmtConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 56, 3))
-class FcNameIdOrZero(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),)
-class FcAddressIdOrZero(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(3,3),)
-class FcDomainIdOrZero(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,239)
-
-class FcPortType(Unsigned32, TextualConvention):
-    pass
-
-class FcClasses(Bits, TextualConvention):
-    namedValues = NamedValues(("classF", 0), ("class1", 1), ("class2", 2), ("class3", 3), ("class4", 4), ("class5", 5), ("class6", 6),)
-
-class FcBbCredit(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,32767)
-
-class FcBbCreditModel(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2,))
-    namedValues = NamedValues(("regular", 1), ("alternate", 2),)
-
-class FcDataFieldSize(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(128,2112)
-
-class FcUnitFunctions(Bits, TextualConvention):
-    namedValues = NamedValues(("other", 0), ("hub", 1), ("switch", 2), ("bridge", 3), ("gateway", 4), ("host", 5), ("storageSubsys", 6), ("storageAccessDev", 7), ("nas", 8), ("wdmux", 9), ("storageDevice", 10),)
-
-fcmInstanceTable = MibTable((1, 3, 6, 1, 2, 1, 10, 56, 1, 1), )
-if mibBuilder.loadTexts: fcmInstanceTable.setDescription('Information about the local Fibre Channel management\n            instances.')
-fcmInstanceEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 56, 1, 1, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"))
-if mibBuilder.loadTexts: fcmInstanceEntry.setDescription('A list of attributes for a particular local Fibre Channel\n            management instance.')
-fcmInstanceIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: fcmInstanceIndex.setDescription('An arbitrary integer value that uniquely identifies this\n            instance amongst all local Fibre Channel management\n            instances.\n\n            It is mandatory to keep this value constant between restarts\n            of the agent, and to make every possible effort to keep it\n            constant across restarts (but note, it is unrealistic to\n            expect it to remain constant across all re-configurations of\n            the local system, e.g., across the replacement of all non-\n            volatile storage).')
-fcmInstanceWwn = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 1, 1, 2), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmInstanceWwn.setDescription('If the instance has one (or more) WWN(s), then this object\n            contains that (or one of those) WWN(s).\n\n            If the instance does not have a WWN associated with it, then\n            this object contains the zero-length string.')
-fcmInstanceFunctions = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 1, 1, 3), FcUnitFunctions()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmInstanceFunctions.setDescription('One (or more) Fibre Channel unit functions being performed\n            by this instance.')
-fcmInstancePhysicalIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmInstancePhysicalIndex.setDescription("If this management instance corresponds to a physical\n            component (or to a hierarchy of physical components)\n            identified by the Entity-MIB, then this object's value is\n            the value of the entPhysicalIndex of that component (or of\n            the component at the root of that hierarchy).  If there is\n\n\n\n            no correspondence to a physical component (or no component\n            that has an entPhysicalIndex value), then the value of this\n            object is zero.")
-fcmInstanceSoftwareIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmInstanceSoftwareIndex.setDescription("If this management instance corresponds to an installed\n            software module identified in the Host Resources MIB, then\n            this object's value is the value of the hrSWInstalledIndex\n            of that module.  If there is no correspondence to an\n            installed software module (or no module that has a\n            hrSWInstalledIndex value), then the value of this object is\n            zero.")
-fcmInstanceStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("unknown", 1), ("ok", 2), ("warning", 3), ("failed", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmInstanceStatus.setDescription('Overall status of the Fibre Channel entity/entities managed\n            by this management instance.  The value should reflect the\n            most serious status of such entities.')
-fcmInstanceTextName = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 1, 1, 7), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,79))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcmInstanceTextName.setDescription('A textual name for this management instance and the Fibre\n            Channel entity/entities that it is managing.')
-fcmInstanceDescr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 1, 1, 8), SnmpAdminString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcmInstanceDescr.setDescription('A textual description of this management instance and the\n            Fibre Channel entity/entities that it is managing.')
-fcmInstanceFabricId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 1, 1, 9), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmInstanceFabricId.setDescription('The globally unique Fabric Identifier that identifies the\n            fabric to which the Fibre Channel entity/entities managed by\n            this management instance are connected, or, of which they\n            are a part.  This is typically the Node WWN of the principal\n            switch of a Fibre Channel fabric.  The zero-length string\n            indicates that the fabric identifier is unknown (or not\n            applicable).\n\n            In the event that the Fibre Channel entity/entities managed\n            by this management instance is/are connected to multiple\n            fabrics, then this object records the first (known) one.')
-fcmSwitchTable = MibTable((1, 3, 6, 1, 2, 1, 10, 56, 1, 2), )
-if mibBuilder.loadTexts: fcmSwitchTable.setDescription('A table of information about Fibre Channel switches that\n            are managed by Fibre Channel management instances.  Each\n            Fibre Channel management instance can manage one or more\n            Fibre Channel switches.')
-fcmSwitchEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 56, 1, 2, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"))
-if mibBuilder.loadTexts: fcmSwitchEntry.setDescription('Information about a particular Fibre Channel switch that is\n\n\n\n            managed by the management instance given by\n            fcmInstanceIndex.')
-fcmSwitchIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: fcmSwitchIndex.setDescription('An arbitrary integer that uniquely identifies a Fibre\n            Channel switch amongst those managed by one Fibre Channel\n            management instance.\n\n            It is mandatory to keep this value constant between restarts\n            of the agent, and to make every possible effort to keep it\n            constant across restarts.')
-fcmSwitchDomainId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 2, 1, 2), FcDomainIdOrZero()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcmSwitchDomainId.setDescription('The Domain Id of this switch.  A value of zero indicates\n            that a switch has not (yet) been assigned a Domain Id.')
-fcmSwitchPrincipal = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmSwitchPrincipal.setDescription('An indication of whether this switch is the principal\n            switch within its fabric.')
-fcmSwitchWWN = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 2, 1, 4), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmSwitchWWN.setDescription('The World Wide Name of this switch.')
-fcmPortTable = MibTable((1, 3, 6, 1, 2, 1, 10, 56, 1, 3), )
-if mibBuilder.loadTexts: fcmPortTable.setDescription("Information about Fibre Channel ports.  Each Fibre Channel\n            port is represented by one entry in the IF-MIB's ifTable.")
-fcmPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 56, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: fcmPortEntry.setDescription('Each entry contains information about a specific port.')
-fcmPortInstanceIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortInstanceIndex.setDescription('The value of fcmInstanceIndex by which the Fibre Channel\n            management instance, which manages this port, is identified\n            in the fcmInstanceTable.')
-fcmPortWwn = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 3, 1, 2), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortWwn.setDescription('The World Wide Name of the port, or the zero-length string\n            if the port does not have a WWN.')
-fcmPortNodeWwn = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 3, 1, 3), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortNodeWwn.setDescription('The World Wide Name of the Node that contains this port, or\n            the zero-length string if the port does not have a node\n            WWN.')
-fcmPortAdminType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 3, 1, 4), FcPortType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcmPortAdminType.setDescription('The administratively desired type of this port.')
-fcmPortOperType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 3, 1, 5), FcPortType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortOperType.setDescription('The current operational type of this port.')
-fcmPortFcCapClass = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 3, 1, 6), FcClasses()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortFcCapClass.setDescription('The classes of service capability of this port.')
-fcmPortFcOperClass = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 3, 1, 7), FcClasses()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortFcOperClass.setDescription('The classes of service that are currently operational on\n            this port.  For an FL_Port, this is the union of the classes\n            being supported across all attached NL_Ports.')
-fcmPortTransmitterType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("unknown", 1), ("other", 2), ("shortwave850nm", 3), ("longwave1550nm", 4), ("longwave1310nm", 5), ("electrical", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortTransmitterType.setDescription('The technology of the port transceiver.')
-fcmPortConnectorType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 3, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9,))).clone(namedValues=NamedValues(("unknown", 1), ("other", 2), ("gbic", 3), ("embedded", 4), ("glm", 5), ("gbicSerialId", 6), ("gbicNoSerialId", 7), ("sfpSerialId", 8), ("sfpNoSerialId", 9),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortConnectorType.setDescription("The module type of the port connector.  This object refers\n            to the hardware implementation of the port.  It will be\n            'embedded' if the hardware equivalent to Gigabit interface\n            card (GBIC) is part of the line card and is unremovable.  It\n            will be 'glm' if it's a gigabit link module (GLM).  It will\n            be 'gbicSerialId' if the GBIC serial id can be read, else it\n            will be 'gbicNoSerialId'.  It will be 'sfpSerialId' if the\n            small form factor (SFP) pluggable GBICs serial id can be\n            read, else it will be 'sfpNoSerialId'.")
-fcmPortSerialNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 3, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortSerialNumber.setDescription("The serial number associated with the port (e.g., for a\n            GBIC).  If not applicable, the object's value is a zero-\n            length string.")
-fcmPortPhysicalNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 3, 1, 11), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortPhysicalNumber.setDescription("This is the port's 'Physical Port Number' as defined by\n            GS-3.")
-fcmPortAdminSpeed = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 3, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8,))).clone(namedValues=NamedValues(("auto", 1), ("eighthGbs", 2), ("quarterGbs", 3), ("halfGbs", 4), ("oneGbs", 5), ("twoGbs", 6), ("fourGbs", 7), ("tenGbs", 8),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcmPortAdminSpeed.setDescription("The speed of the interface:\n\n                'auto'        - auto-negotiation\n                'tenGbs'      - 10Gbs\n                'fourGbs'     -  4Gbs\n                'twoGbs'      -  2Gbs\n                'oneGbs'      -  1Gbs\n                'halfGbs'     - 500Mbs\n                'quarterGbs'  - 250Mbs\n                'eighthGbs'   - 125Mbs")
-fcmPortCapProtocols = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 3, 1, 13), Bits().clone(namedValues=NamedValues(("unknown", 0), ("loop", 1), ("fabric", 2), ("scsi", 3), ("tcpIp", 4), ("vi", 5), ("ficon", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortCapProtocols.setDescription('A bit mask specifying the higher level protocols that are\n            capable of running over this port.  Note that for generic\n            Fx_Ports, E_Ports, and B_Ports, this object will indicate\n            all protocols.')
-fcmPortOperProtocols = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 3, 1, 14), Bits().clone(namedValues=NamedValues(("unknown", 0), ("loop", 1), ("fabric", 2), ("scsi", 3), ("tcpIp", 4), ("vi", 5), ("ficon", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortOperProtocols.setDescription("A bit mask specifying the higher level protocols that are\n            currently operational on this port.  For Fx_Ports, E_Ports,\n            and B_Ports, this object will typically have the value\n            'unknown'.")
-fcmPortStatsTable = MibTable((1, 3, 6, 1, 2, 1, 10, 56, 1, 4), )
-if mibBuilder.loadTexts: fcmPortStatsTable.setDescription('A list of statistics for Fibre Channel ports.')
-fcmPortStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1), )
-fcmPortEntry.registerAugmentions(("FC-MGMT-MIB", "fcmPortStatsEntry"))
+_Bf='fcmLinkBasicGroup'
+_Be='fcmSwitchLoginGroup'
+_Bd='fcmSwitchPortGroup'
+_Bc='fcmSwitchBasicGroup'
+_Bb='fcmPortLcStatsGroup'
+_Ba='fcmPortClassFStatsGroup'
+_BZ='fcmPortClass23StatsGroup'
+_BY='fcmPortStatsGroup'
+_BX='fcmPortErrorsGroup'
+_BW='fcmPortBasicGroup'
+_BV='fcmInstanceBasicGroup'
+_BU='fcmLinkEnd2FcAddressId'
+_BT='fcmLinkEnd2UnitType'
+_BS='fcmLinkEnd2PortType'
+_BR='fcmLinkEnd2AgentAddress'
+_BQ='fcmLinkEnd2PortWwn'
+_BP='fcmLinkEnd2PhysPortNumber'
+_BO='fcmLinkEnd2NodeWwn'
+_BN='fcmLinkEnd1PortWwn'
+_BM='fcmLinkEnd1PhysPortNumber'
+_BL='fcmLinkEnd1NodeWwn'
+_BK='fcmFLoginClass3DataFieldSize'
+_BJ='fcmFLoginClass3SeqDelivAgreed'
+_BI='fcmFLoginClass2DataFieldSize'
+_BH='fcmFLoginClass2SeqDelivAgreed'
+_BG='fcmFLoginClassesAgreed'
+_BF='fcmFLoginBbCredit'
+_BE='fcmFLoginBbCreditModel'
+_BD='fcmFLoginNodeWwn'
+_BC='fcmFLoginPortWwn'
+_BB='fcmISPortClassFDataFieldSize'
+_BA='fcmISPortClassFCredit'
+_B9='fcmFxPortCapHoldTimeMin'
+_B8='fcmFxPortCapHoldTimeMax'
+_B7='fcmFxPortCapClass3SeqDeliv'
+_B6='fcmFxPortCapClass2SeqDeliv'
+_B5='fcmFxPortCapDataFieldSizeMin'
+_B4='fcmFxPortCapDataFieldSizeMax'
+_B3='fcmFxPortCapBbCreditMin'
+_B2='fcmFxPortCapBbCreditMax'
+_B1='fcmFxPortHoldTime'
+_B0='fcmFxPortRttov'
+_A_='fcmFxPortEdtov'
+_Az='fcmFxPortRatov'
+_Ay='fcmPortOtherErrors'
+_Ax='fcmPortEncodingDisparityErrors'
+_Aw='fcmPortDelimiterErrors'
+_Av='fcmPortAddressErrors'
+_Au='fcmPortTruncatedFrames'
+_At='fcmPortFrameTooLongs'
+_As='fcmPortInvalidOrderedSets'
+_Ar='fcmPortInvalidCRCs'
+_Aq='fcmPortInvalidTxWords'
+_Ap='fcmPortPrimSeqProtocolErrors'
+_Ao='fcmPortLossofSignals'
+_An='fcmPortLossofSynchs'
+_Am='fcmPortLinkFailures'
+_Al='fcmPortTxOfflineSequences'
+_Ak='fcmPortRxOfflineSequences'
+_Aj='fcmPortLinkResets'
+_Ai='fcmPortTxLinkResets'
+_Ah='fcmPortRxLinkResets'
+_Ag='fcmPortLcClass2TxPrjtFrames'
+_Af='fcmPortLcClass2TxFrjtFrames'
+_Ae='fcmPortLcClass2TxPbsyFrames'
+_Ad='fcmPortLcClass2TxFbsyFrames'
+_Ac='fcmPortLcClass2RxPrjtFrames'
+_Ab='fcmPortLcClass2RxFrjtFrames'
+_Aa='fcmPortLcClass2RxPbsyFrames'
+_AZ='fcmPortLcClass2RxFbsyFrames'
+_AY='fcmPortLcClass3TxOctets'
+_AX='fcmPortLcClass3TxFrames'
+_AW='fcmPortLcClass3RxOctets'
+_AV='fcmPortLcClass3RxFrames'
+_AU='fcmPortLcClass3Discards'
+_AT='fcmPortLcClass2Discards'
+_AS='fcmPortLcClass2TxOctets'
+_AR='fcmPortLcClass2TxFrames'
+_AQ='fcmPortLcClass2RxOctets'
+_AP='fcmPortLcClass2RxFrames'
+_AO='fcmPortLcFullInputBuffers'
+_AN='fcmPortLcBBCreditZeros'
+_AM='fcmPortClassFDiscards'
+_AL='fcmPortClassFTxOctets'
+_AK='fcmPortClassFTxFrames'
+_AJ='fcmPortClassFRxOctets'
+_AI='fcmPortClassFRxFrames'
+_AH='fcmPortClass3Discards'
+_AG='fcmPortClass3TxOctets'
+_AF='fcmPortClass3TxFrames'
+_AE='fcmPortClass3RxOctets'
+_AD='fcmPortClass3RxFrames'
+_AC='fcmPortClass2TxPrjtFrames'
+_AB='fcmPortClass2TxFrjtFrames'
+_AA='fcmPortClass2TxPbsyFrames'
+_A9='fcmPortClass2TxFbsyFrames'
+_A8='fcmPortClass2RxPrjtFrames'
+_A7='fcmPortClass2RxFrjtFrames'
+_A6='fcmPortClass2RxPbsyFrames'
+_A5='fcmPortClass2RxFbsyFrames'
+_A4='fcmPortClass2Discards'
+_A3='fcmPortClass2TxOctets'
+_A2='fcmPortClass2TxFrames'
+_A1='fcmPortClass2RxOctets'
+_A0='fcmPortClass2RxFrames'
+_z='fcmPortFullInputBuffers'
+_y='fcmPortBBCreditZeros'
+_x='fcmPortOperProtocols'
+_w='fcmPortCapProtocols'
+_v='fcmPortAdminSpeed'
+_u='fcmPortPhysicalNumber'
+_t='fcmPortSerialNumber'
+_s='fcmPortConnectorType'
+_r='fcmPortTransmitterType'
+_q='fcmPortFcOperClass'
+_p='fcmPortFcCapClass'
+_o='fcmPortOperType'
+_n='fcmPortAdminType'
+_m='fcmPortNodeWwn'
+_l='fcmPortWwn'
+_k='fcmPortInstanceIndex'
+_j='fcmSwitchWWN'
+_i='fcmSwitchPrincipal'
+_h='fcmSwitchDomainId'
+_g='fcmInstanceFabricId'
+_f='fcmInstanceDescr'
+_e='fcmInstanceTextName'
+_d='fcmInstanceStatus'
+_c='fcmInstanceSoftwareIndex'
+_b='fcmInstancePhysicalIndex'
+_a='fcmInstanceFunctions'
+_Z='fcmInstanceWwn'
+_Y='fcmPortErrorsEntry'
+_X='fcmPortLcStatsEntry'
+_W='fcmPortStatsEntry'
+_V='fcmLinkIndex'
+_U='fcmFLoginNxPortIndex'
+_T='buffers'
+_S='fabric'
+_R='fcmSwitchIndex'
+_Q='SnmpAdminString'
+_P='bytes'
+_O='microseconds'
+_N='milliseconds'
+_M='other'
+_L='Bits'
+_K='not-accessible'
+_J='fcmInstanceIndex'
+_I='unknown'
+_H='ifIndex'
+_G='IF-MIB'
+_F='read-write'
+_E='Unsigned32'
+_D='Integer32'
+_C='read-only'
+_B='FC-MGMT-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ifIndex,=mibBuilder.importSymbols(_G,_H)
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_Q)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI',_L,'Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso','transmission')
+DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
+fcMgmtMIB=ModuleIdentity((1,3,6,1,2,1,10,56))
+if mibBuilder.loadTexts:fcMgmtMIB.setRevisions(('2005-04-26 00:00',))
+class FcNameIdOrZero(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16))
+class FcAddressIdOrZero(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(3,3))
+class FcDomainIdOrZero(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,239))
+class FcPortType(TextualConvention,Unsigned32):status=_A
+class FcClasses(TextualConvention,Bits):status=_A;namedValues=NamedValues(*(('classF',0),('class1',1),('class2',2),('class3',3),('class4',4),('class5',5),('class6',6)))
+class FcBbCredit(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32767))
+class FcBbCreditModel(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('regular',1),('alternate',2)))
+class FcDataFieldSize(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(128,2112))
+class FcUnitFunctions(TextualConvention,Bits):status=_A;namedValues=NamedValues(*((_M,0),('hub',1),('switch',2),('bridge',3),('gateway',4),('host',5),('storageSubsys',6),('storageAccessDev',7),('nas',8),('wdmux',9),('storageDevice',10)))
+_FcmgmtObjects_ObjectIdentity=ObjectIdentity
+fcmgmtObjects=_FcmgmtObjects_ObjectIdentity((1,3,6,1,2,1,10,56,1))
+_FcmInstanceTable_Object=MibTable
+fcmInstanceTable=_FcmInstanceTable_Object((1,3,6,1,2,1,10,56,1,1))
+if mibBuilder.loadTexts:fcmInstanceTable.setStatus(_A)
+_FcmInstanceEntry_Object=MibTableRow
+fcmInstanceEntry=_FcmInstanceEntry_Object((1,3,6,1,2,1,10,56,1,1,1))
+fcmInstanceEntry.setIndexNames((0,_B,_J))
+if mibBuilder.loadTexts:fcmInstanceEntry.setStatus(_A)
+class _FcmInstanceIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_FcmInstanceIndex_Type.__name__=_E
+_FcmInstanceIndex_Object=MibTableColumn
+fcmInstanceIndex=_FcmInstanceIndex_Object((1,3,6,1,2,1,10,56,1,1,1,1),_FcmInstanceIndex_Type())
+fcmInstanceIndex.setMaxAccess(_K)
+if mibBuilder.loadTexts:fcmInstanceIndex.setStatus(_A)
+_FcmInstanceWwn_Type=FcNameIdOrZero
+_FcmInstanceWwn_Object=MibTableColumn
+fcmInstanceWwn=_FcmInstanceWwn_Object((1,3,6,1,2,1,10,56,1,1,1,2),_FcmInstanceWwn_Type())
+fcmInstanceWwn.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmInstanceWwn.setStatus(_A)
+_FcmInstanceFunctions_Type=FcUnitFunctions
+_FcmInstanceFunctions_Object=MibTableColumn
+fcmInstanceFunctions=_FcmInstanceFunctions_Object((1,3,6,1,2,1,10,56,1,1,1,3),_FcmInstanceFunctions_Type())
+fcmInstanceFunctions.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmInstanceFunctions.setStatus(_A)
+class _FcmInstancePhysicalIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_FcmInstancePhysicalIndex_Type.__name__=_D
+_FcmInstancePhysicalIndex_Object=MibTableColumn
+fcmInstancePhysicalIndex=_FcmInstancePhysicalIndex_Object((1,3,6,1,2,1,10,56,1,1,1,4),_FcmInstancePhysicalIndex_Type())
+fcmInstancePhysicalIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmInstancePhysicalIndex.setStatus(_A)
+class _FcmInstanceSoftwareIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_FcmInstanceSoftwareIndex_Type.__name__=_D
+_FcmInstanceSoftwareIndex_Object=MibTableColumn
+fcmInstanceSoftwareIndex=_FcmInstanceSoftwareIndex_Object((1,3,6,1,2,1,10,56,1,1,1,5),_FcmInstanceSoftwareIndex_Type())
+fcmInstanceSoftwareIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmInstanceSoftwareIndex.setStatus(_A)
+class _FcmInstanceStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_I,1),('ok',2),('warning',3),('failed',4)))
+_FcmInstanceStatus_Type.__name__=_D
+_FcmInstanceStatus_Object=MibTableColumn
+fcmInstanceStatus=_FcmInstanceStatus_Object((1,3,6,1,2,1,10,56,1,1,1,6),_FcmInstanceStatus_Type())
+fcmInstanceStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmInstanceStatus.setStatus(_A)
+class _FcmInstanceTextName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,79))
+_FcmInstanceTextName_Type.__name__=_Q
+_FcmInstanceTextName_Object=MibTableColumn
+fcmInstanceTextName=_FcmInstanceTextName_Object((1,3,6,1,2,1,10,56,1,1,1,7),_FcmInstanceTextName_Type())
+fcmInstanceTextName.setMaxAccess(_F)
+if mibBuilder.loadTexts:fcmInstanceTextName.setStatus(_A)
+_FcmInstanceDescr_Type=SnmpAdminString
+_FcmInstanceDescr_Object=MibTableColumn
+fcmInstanceDescr=_FcmInstanceDescr_Object((1,3,6,1,2,1,10,56,1,1,1,8),_FcmInstanceDescr_Type())
+fcmInstanceDescr.setMaxAccess(_F)
+if mibBuilder.loadTexts:fcmInstanceDescr.setStatus(_A)
+_FcmInstanceFabricId_Type=FcNameIdOrZero
+_FcmInstanceFabricId_Object=MibTableColumn
+fcmInstanceFabricId=_FcmInstanceFabricId_Object((1,3,6,1,2,1,10,56,1,1,1,9),_FcmInstanceFabricId_Type())
+fcmInstanceFabricId.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmInstanceFabricId.setStatus(_A)
+_FcmSwitchTable_Object=MibTable
+fcmSwitchTable=_FcmSwitchTable_Object((1,3,6,1,2,1,10,56,1,2))
+if mibBuilder.loadTexts:fcmSwitchTable.setStatus(_A)
+_FcmSwitchEntry_Object=MibTableRow
+fcmSwitchEntry=_FcmSwitchEntry_Object((1,3,6,1,2,1,10,56,1,2,1))
+fcmSwitchEntry.setIndexNames((0,_B,_J),(0,_B,_R))
+if mibBuilder.loadTexts:fcmSwitchEntry.setStatus(_A)
+class _FcmSwitchIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_FcmSwitchIndex_Type.__name__=_E
+_FcmSwitchIndex_Object=MibTableColumn
+fcmSwitchIndex=_FcmSwitchIndex_Object((1,3,6,1,2,1,10,56,1,2,1,1),_FcmSwitchIndex_Type())
+fcmSwitchIndex.setMaxAccess(_K)
+if mibBuilder.loadTexts:fcmSwitchIndex.setStatus(_A)
+_FcmSwitchDomainId_Type=FcDomainIdOrZero
+_FcmSwitchDomainId_Object=MibTableColumn
+fcmSwitchDomainId=_FcmSwitchDomainId_Object((1,3,6,1,2,1,10,56,1,2,1,2),_FcmSwitchDomainId_Type())
+fcmSwitchDomainId.setMaxAccess(_F)
+if mibBuilder.loadTexts:fcmSwitchDomainId.setStatus(_A)
+_FcmSwitchPrincipal_Type=TruthValue
+_FcmSwitchPrincipal_Object=MibTableColumn
+fcmSwitchPrincipal=_FcmSwitchPrincipal_Object((1,3,6,1,2,1,10,56,1,2,1,3),_FcmSwitchPrincipal_Type())
+fcmSwitchPrincipal.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmSwitchPrincipal.setStatus(_A)
+_FcmSwitchWWN_Type=FcNameIdOrZero
+_FcmSwitchWWN_Object=MibTableColumn
+fcmSwitchWWN=_FcmSwitchWWN_Object((1,3,6,1,2,1,10,56,1,2,1,4),_FcmSwitchWWN_Type())
+fcmSwitchWWN.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmSwitchWWN.setStatus(_A)
+_FcmPortTable_Object=MibTable
+fcmPortTable=_FcmPortTable_Object((1,3,6,1,2,1,10,56,1,3))
+if mibBuilder.loadTexts:fcmPortTable.setStatus(_A)
+_FcmPortEntry_Object=MibTableRow
+fcmPortEntry=_FcmPortEntry_Object((1,3,6,1,2,1,10,56,1,3,1))
+fcmPortEntry.setIndexNames((0,_G,_H))
+if mibBuilder.loadTexts:fcmPortEntry.setStatus(_A)
+class _FcmPortInstanceIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_FcmPortInstanceIndex_Type.__name__=_E
+_FcmPortInstanceIndex_Object=MibTableColumn
+fcmPortInstanceIndex=_FcmPortInstanceIndex_Object((1,3,6,1,2,1,10,56,1,3,1,1),_FcmPortInstanceIndex_Type())
+fcmPortInstanceIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortInstanceIndex.setStatus(_A)
+_FcmPortWwn_Type=FcNameIdOrZero
+_FcmPortWwn_Object=MibTableColumn
+fcmPortWwn=_FcmPortWwn_Object((1,3,6,1,2,1,10,56,1,3,1,2),_FcmPortWwn_Type())
+fcmPortWwn.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortWwn.setStatus(_A)
+_FcmPortNodeWwn_Type=FcNameIdOrZero
+_FcmPortNodeWwn_Object=MibTableColumn
+fcmPortNodeWwn=_FcmPortNodeWwn_Object((1,3,6,1,2,1,10,56,1,3,1,3),_FcmPortNodeWwn_Type())
+fcmPortNodeWwn.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortNodeWwn.setStatus(_A)
+_FcmPortAdminType_Type=FcPortType
+_FcmPortAdminType_Object=MibTableColumn
+fcmPortAdminType=_FcmPortAdminType_Object((1,3,6,1,2,1,10,56,1,3,1,4),_FcmPortAdminType_Type())
+fcmPortAdminType.setMaxAccess(_F)
+if mibBuilder.loadTexts:fcmPortAdminType.setStatus(_A)
+_FcmPortOperType_Type=FcPortType
+_FcmPortOperType_Object=MibTableColumn
+fcmPortOperType=_FcmPortOperType_Object((1,3,6,1,2,1,10,56,1,3,1,5),_FcmPortOperType_Type())
+fcmPortOperType.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortOperType.setStatus(_A)
+_FcmPortFcCapClass_Type=FcClasses
+_FcmPortFcCapClass_Object=MibTableColumn
+fcmPortFcCapClass=_FcmPortFcCapClass_Object((1,3,6,1,2,1,10,56,1,3,1,6),_FcmPortFcCapClass_Type())
+fcmPortFcCapClass.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortFcCapClass.setStatus(_A)
+_FcmPortFcOperClass_Type=FcClasses
+_FcmPortFcOperClass_Object=MibTableColumn
+fcmPortFcOperClass=_FcmPortFcOperClass_Object((1,3,6,1,2,1,10,56,1,3,1,7),_FcmPortFcOperClass_Type())
+fcmPortFcOperClass.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortFcOperClass.setStatus(_A)
+class _FcmPortTransmitterType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_I,1),(_M,2),('shortwave850nm',3),('longwave1550nm',4),('longwave1310nm',5),('electrical',6)))
+_FcmPortTransmitterType_Type.__name__=_D
+_FcmPortTransmitterType_Object=MibTableColumn
+fcmPortTransmitterType=_FcmPortTransmitterType_Object((1,3,6,1,2,1,10,56,1,3,1,8),_FcmPortTransmitterType_Type())
+fcmPortTransmitterType.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortTransmitterType.setStatus(_A)
+class _FcmPortConnectorType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*((_I,1),(_M,2),('gbic',3),('embedded',4),('glm',5),('gbicSerialId',6),('gbicNoSerialId',7),('sfpSerialId',8),('sfpNoSerialId',9)))
+_FcmPortConnectorType_Type.__name__=_D
+_FcmPortConnectorType_Object=MibTableColumn
+fcmPortConnectorType=_FcmPortConnectorType_Object((1,3,6,1,2,1,10,56,1,3,1,9),_FcmPortConnectorType_Type())
+fcmPortConnectorType.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortConnectorType.setStatus(_A)
+_FcmPortSerialNumber_Type=SnmpAdminString
+_FcmPortSerialNumber_Object=MibTableColumn
+fcmPortSerialNumber=_FcmPortSerialNumber_Object((1,3,6,1,2,1,10,56,1,3,1,10),_FcmPortSerialNumber_Type())
+fcmPortSerialNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortSerialNumber.setStatus(_A)
+_FcmPortPhysicalNumber_Type=Unsigned32
+_FcmPortPhysicalNumber_Object=MibTableColumn
+fcmPortPhysicalNumber=_FcmPortPhysicalNumber_Object((1,3,6,1,2,1,10,56,1,3,1,11),_FcmPortPhysicalNumber_Type())
+fcmPortPhysicalNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortPhysicalNumber.setStatus(_A)
+class _FcmPortAdminSpeed_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('auto',1),('eighthGbs',2),('quarterGbs',3),('halfGbs',4),('oneGbs',5),('twoGbs',6),('fourGbs',7),('tenGbs',8)))
+_FcmPortAdminSpeed_Type.__name__=_D
+_FcmPortAdminSpeed_Object=MibTableColumn
+fcmPortAdminSpeed=_FcmPortAdminSpeed_Object((1,3,6,1,2,1,10,56,1,3,1,12),_FcmPortAdminSpeed_Type())
+fcmPortAdminSpeed.setMaxAccess(_F)
+if mibBuilder.loadTexts:fcmPortAdminSpeed.setStatus(_A)
+class _FcmPortCapProtocols_Type(Bits):namedValues=NamedValues(*((_I,0),('loop',1),(_S,2),('scsi',3),('tcpIp',4),('vi',5),('ficon',6)))
+_FcmPortCapProtocols_Type.__name__=_L
+_FcmPortCapProtocols_Object=MibTableColumn
+fcmPortCapProtocols=_FcmPortCapProtocols_Object((1,3,6,1,2,1,10,56,1,3,1,13),_FcmPortCapProtocols_Type())
+fcmPortCapProtocols.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortCapProtocols.setStatus(_A)
+class _FcmPortOperProtocols_Type(Bits):namedValues=NamedValues(*((_I,0),('loop',1),(_S,2),('scsi',3),('tcpIp',4),('vi',5),('ficon',6)))
+_FcmPortOperProtocols_Type.__name__=_L
+_FcmPortOperProtocols_Object=MibTableColumn
+fcmPortOperProtocols=_FcmPortOperProtocols_Object((1,3,6,1,2,1,10,56,1,3,1,14),_FcmPortOperProtocols_Type())
+fcmPortOperProtocols.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortOperProtocols.setStatus(_A)
+_FcmPortStatsTable_Object=MibTable
+fcmPortStatsTable=_FcmPortStatsTable_Object((1,3,6,1,2,1,10,56,1,4))
+if mibBuilder.loadTexts:fcmPortStatsTable.setStatus(_A)
+_FcmPortStatsEntry_Object=MibTableRow
+fcmPortStatsEntry=_FcmPortStatsEntry_Object((1,3,6,1,2,1,10,56,1,4,1))
+if mibBuilder.loadTexts:fcmPortStatsEntry.setStatus(_A)
+_FcmPortBBCreditZeros_Type=Counter64
+_FcmPortBBCreditZeros_Object=MibTableColumn
+fcmPortBBCreditZeros=_FcmPortBBCreditZeros_Object((1,3,6,1,2,1,10,56,1,4,1,1),_FcmPortBBCreditZeros_Type())
+fcmPortBBCreditZeros.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortBBCreditZeros.setStatus(_A)
+_FcmPortFullInputBuffers_Type=Counter64
+_FcmPortFullInputBuffers_Object=MibTableColumn
+fcmPortFullInputBuffers=_FcmPortFullInputBuffers_Object((1,3,6,1,2,1,10,56,1,4,1,2),_FcmPortFullInputBuffers_Type())
+fcmPortFullInputBuffers.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortFullInputBuffers.setStatus(_A)
+_FcmPortClass2RxFrames_Type=Counter64
+_FcmPortClass2RxFrames_Object=MibTableColumn
+fcmPortClass2RxFrames=_FcmPortClass2RxFrames_Object((1,3,6,1,2,1,10,56,1,4,1,3),_FcmPortClass2RxFrames_Type())
+fcmPortClass2RxFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass2RxFrames.setStatus(_A)
+_FcmPortClass2RxOctets_Type=Counter64
+_FcmPortClass2RxOctets_Object=MibTableColumn
+fcmPortClass2RxOctets=_FcmPortClass2RxOctets_Object((1,3,6,1,2,1,10,56,1,4,1,4),_FcmPortClass2RxOctets_Type())
+fcmPortClass2RxOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass2RxOctets.setStatus(_A)
+_FcmPortClass2TxFrames_Type=Counter64
+_FcmPortClass2TxFrames_Object=MibTableColumn
+fcmPortClass2TxFrames=_FcmPortClass2TxFrames_Object((1,3,6,1,2,1,10,56,1,4,1,5),_FcmPortClass2TxFrames_Type())
+fcmPortClass2TxFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass2TxFrames.setStatus(_A)
+_FcmPortClass2TxOctets_Type=Counter64
+_FcmPortClass2TxOctets_Object=MibTableColumn
+fcmPortClass2TxOctets=_FcmPortClass2TxOctets_Object((1,3,6,1,2,1,10,56,1,4,1,6),_FcmPortClass2TxOctets_Type())
+fcmPortClass2TxOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass2TxOctets.setStatus(_A)
+_FcmPortClass2Discards_Type=Counter64
+_FcmPortClass2Discards_Object=MibTableColumn
+fcmPortClass2Discards=_FcmPortClass2Discards_Object((1,3,6,1,2,1,10,56,1,4,1,7),_FcmPortClass2Discards_Type())
+fcmPortClass2Discards.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass2Discards.setStatus(_A)
+_FcmPortClass2RxFbsyFrames_Type=Counter64
+_FcmPortClass2RxFbsyFrames_Object=MibTableColumn
+fcmPortClass2RxFbsyFrames=_FcmPortClass2RxFbsyFrames_Object((1,3,6,1,2,1,10,56,1,4,1,8),_FcmPortClass2RxFbsyFrames_Type())
+fcmPortClass2RxFbsyFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass2RxFbsyFrames.setStatus(_A)
+_FcmPortClass2RxPbsyFrames_Type=Counter64
+_FcmPortClass2RxPbsyFrames_Object=MibTableColumn
+fcmPortClass2RxPbsyFrames=_FcmPortClass2RxPbsyFrames_Object((1,3,6,1,2,1,10,56,1,4,1,9),_FcmPortClass2RxPbsyFrames_Type())
+fcmPortClass2RxPbsyFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass2RxPbsyFrames.setStatus(_A)
+_FcmPortClass2RxFrjtFrames_Type=Counter64
+_FcmPortClass2RxFrjtFrames_Object=MibTableColumn
+fcmPortClass2RxFrjtFrames=_FcmPortClass2RxFrjtFrames_Object((1,3,6,1,2,1,10,56,1,4,1,10),_FcmPortClass2RxFrjtFrames_Type())
+fcmPortClass2RxFrjtFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass2RxFrjtFrames.setStatus(_A)
+_FcmPortClass2RxPrjtFrames_Type=Counter64
+_FcmPortClass2RxPrjtFrames_Object=MibTableColumn
+fcmPortClass2RxPrjtFrames=_FcmPortClass2RxPrjtFrames_Object((1,3,6,1,2,1,10,56,1,4,1,11),_FcmPortClass2RxPrjtFrames_Type())
+fcmPortClass2RxPrjtFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass2RxPrjtFrames.setStatus(_A)
+_FcmPortClass2TxFbsyFrames_Type=Counter64
+_FcmPortClass2TxFbsyFrames_Object=MibTableColumn
+fcmPortClass2TxFbsyFrames=_FcmPortClass2TxFbsyFrames_Object((1,3,6,1,2,1,10,56,1,4,1,12),_FcmPortClass2TxFbsyFrames_Type())
+fcmPortClass2TxFbsyFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass2TxFbsyFrames.setStatus(_A)
+_FcmPortClass2TxPbsyFrames_Type=Counter64
+_FcmPortClass2TxPbsyFrames_Object=MibTableColumn
+fcmPortClass2TxPbsyFrames=_FcmPortClass2TxPbsyFrames_Object((1,3,6,1,2,1,10,56,1,4,1,13),_FcmPortClass2TxPbsyFrames_Type())
+fcmPortClass2TxPbsyFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass2TxPbsyFrames.setStatus(_A)
+_FcmPortClass2TxFrjtFrames_Type=Counter64
+_FcmPortClass2TxFrjtFrames_Object=MibTableColumn
+fcmPortClass2TxFrjtFrames=_FcmPortClass2TxFrjtFrames_Object((1,3,6,1,2,1,10,56,1,4,1,14),_FcmPortClass2TxFrjtFrames_Type())
+fcmPortClass2TxFrjtFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass2TxFrjtFrames.setStatus(_A)
+_FcmPortClass2TxPrjtFrames_Type=Counter64
+_FcmPortClass2TxPrjtFrames_Object=MibTableColumn
+fcmPortClass2TxPrjtFrames=_FcmPortClass2TxPrjtFrames_Object((1,3,6,1,2,1,10,56,1,4,1,15),_FcmPortClass2TxPrjtFrames_Type())
+fcmPortClass2TxPrjtFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass2TxPrjtFrames.setStatus(_A)
+_FcmPortClass3RxFrames_Type=Counter64
+_FcmPortClass3RxFrames_Object=MibTableColumn
+fcmPortClass3RxFrames=_FcmPortClass3RxFrames_Object((1,3,6,1,2,1,10,56,1,4,1,16),_FcmPortClass3RxFrames_Type())
+fcmPortClass3RxFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass3RxFrames.setStatus(_A)
+_FcmPortClass3RxOctets_Type=Counter64
+_FcmPortClass3RxOctets_Object=MibTableColumn
+fcmPortClass3RxOctets=_FcmPortClass3RxOctets_Object((1,3,6,1,2,1,10,56,1,4,1,17),_FcmPortClass3RxOctets_Type())
+fcmPortClass3RxOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass3RxOctets.setStatus(_A)
+_FcmPortClass3TxFrames_Type=Counter64
+_FcmPortClass3TxFrames_Object=MibTableColumn
+fcmPortClass3TxFrames=_FcmPortClass3TxFrames_Object((1,3,6,1,2,1,10,56,1,4,1,18),_FcmPortClass3TxFrames_Type())
+fcmPortClass3TxFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass3TxFrames.setStatus(_A)
+_FcmPortClass3TxOctets_Type=Counter64
+_FcmPortClass3TxOctets_Object=MibTableColumn
+fcmPortClass3TxOctets=_FcmPortClass3TxOctets_Object((1,3,6,1,2,1,10,56,1,4,1,19),_FcmPortClass3TxOctets_Type())
+fcmPortClass3TxOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass3TxOctets.setStatus(_A)
+_FcmPortClass3Discards_Type=Counter64
+_FcmPortClass3Discards_Object=MibTableColumn
+fcmPortClass3Discards=_FcmPortClass3Discards_Object((1,3,6,1,2,1,10,56,1,4,1,20),_FcmPortClass3Discards_Type())
+fcmPortClass3Discards.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClass3Discards.setStatus(_A)
+_FcmPortClassFRxFrames_Type=Counter32
+_FcmPortClassFRxFrames_Object=MibTableColumn
+fcmPortClassFRxFrames=_FcmPortClassFRxFrames_Object((1,3,6,1,2,1,10,56,1,4,1,21),_FcmPortClassFRxFrames_Type())
+fcmPortClassFRxFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClassFRxFrames.setStatus(_A)
+_FcmPortClassFRxOctets_Type=Counter32
+_FcmPortClassFRxOctets_Object=MibTableColumn
+fcmPortClassFRxOctets=_FcmPortClassFRxOctets_Object((1,3,6,1,2,1,10,56,1,4,1,22),_FcmPortClassFRxOctets_Type())
+fcmPortClassFRxOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClassFRxOctets.setStatus(_A)
+_FcmPortClassFTxFrames_Type=Counter32
+_FcmPortClassFTxFrames_Object=MibTableColumn
+fcmPortClassFTxFrames=_FcmPortClassFTxFrames_Object((1,3,6,1,2,1,10,56,1,4,1,23),_FcmPortClassFTxFrames_Type())
+fcmPortClassFTxFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClassFTxFrames.setStatus(_A)
+_FcmPortClassFTxOctets_Type=Counter32
+_FcmPortClassFTxOctets_Object=MibTableColumn
+fcmPortClassFTxOctets=_FcmPortClassFTxOctets_Object((1,3,6,1,2,1,10,56,1,4,1,24),_FcmPortClassFTxOctets_Type())
+fcmPortClassFTxOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClassFTxOctets.setStatus(_A)
+_FcmPortClassFDiscards_Type=Counter32
+_FcmPortClassFDiscards_Object=MibTableColumn
+fcmPortClassFDiscards=_FcmPortClassFDiscards_Object((1,3,6,1,2,1,10,56,1,4,1,25),_FcmPortClassFDiscards_Type())
+fcmPortClassFDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortClassFDiscards.setStatus(_A)
+_FcmPortLcStatsTable_Object=MibTable
+fcmPortLcStatsTable=_FcmPortLcStatsTable_Object((1,3,6,1,2,1,10,56,1,5))
+if mibBuilder.loadTexts:fcmPortLcStatsTable.setStatus(_A)
+_FcmPortLcStatsEntry_Object=MibTableRow
+fcmPortLcStatsEntry=_FcmPortLcStatsEntry_Object((1,3,6,1,2,1,10,56,1,5,1))
+if mibBuilder.loadTexts:fcmPortLcStatsEntry.setStatus(_A)
+_FcmPortLcBBCreditZeros_Type=Counter32
+_FcmPortLcBBCreditZeros_Object=MibTableColumn
+fcmPortLcBBCreditZeros=_FcmPortLcBBCreditZeros_Object((1,3,6,1,2,1,10,56,1,5,1,1),_FcmPortLcBBCreditZeros_Type())
+fcmPortLcBBCreditZeros.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcBBCreditZeros.setStatus(_A)
+_FcmPortLcFullInputBuffers_Type=Counter32
+_FcmPortLcFullInputBuffers_Object=MibTableColumn
+fcmPortLcFullInputBuffers=_FcmPortLcFullInputBuffers_Object((1,3,6,1,2,1,10,56,1,5,1,2),_FcmPortLcFullInputBuffers_Type())
+fcmPortLcFullInputBuffers.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcFullInputBuffers.setStatus(_A)
+_FcmPortLcClass2RxFrames_Type=Counter32
+_FcmPortLcClass2RxFrames_Object=MibTableColumn
+fcmPortLcClass2RxFrames=_FcmPortLcClass2RxFrames_Object((1,3,6,1,2,1,10,56,1,5,1,3),_FcmPortLcClass2RxFrames_Type())
+fcmPortLcClass2RxFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass2RxFrames.setStatus(_A)
+_FcmPortLcClass2RxOctets_Type=Counter32
+_FcmPortLcClass2RxOctets_Object=MibTableColumn
+fcmPortLcClass2RxOctets=_FcmPortLcClass2RxOctets_Object((1,3,6,1,2,1,10,56,1,5,1,4),_FcmPortLcClass2RxOctets_Type())
+fcmPortLcClass2RxOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass2RxOctets.setStatus(_A)
+_FcmPortLcClass2TxFrames_Type=Counter32
+_FcmPortLcClass2TxFrames_Object=MibTableColumn
+fcmPortLcClass2TxFrames=_FcmPortLcClass2TxFrames_Object((1,3,6,1,2,1,10,56,1,5,1,5),_FcmPortLcClass2TxFrames_Type())
+fcmPortLcClass2TxFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass2TxFrames.setStatus(_A)
+_FcmPortLcClass2TxOctets_Type=Counter32
+_FcmPortLcClass2TxOctets_Object=MibTableColumn
+fcmPortLcClass2TxOctets=_FcmPortLcClass2TxOctets_Object((1,3,6,1,2,1,10,56,1,5,1,6),_FcmPortLcClass2TxOctets_Type())
+fcmPortLcClass2TxOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass2TxOctets.setStatus(_A)
+_FcmPortLcClass2Discards_Type=Counter32
+_FcmPortLcClass2Discards_Object=MibTableColumn
+fcmPortLcClass2Discards=_FcmPortLcClass2Discards_Object((1,3,6,1,2,1,10,56,1,5,1,7),_FcmPortLcClass2Discards_Type())
+fcmPortLcClass2Discards.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass2Discards.setStatus(_A)
+_FcmPortLcClass2RxFbsyFrames_Type=Counter32
+_FcmPortLcClass2RxFbsyFrames_Object=MibTableColumn
+fcmPortLcClass2RxFbsyFrames=_FcmPortLcClass2RxFbsyFrames_Object((1,3,6,1,2,1,10,56,1,5,1,8),_FcmPortLcClass2RxFbsyFrames_Type())
+fcmPortLcClass2RxFbsyFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass2RxFbsyFrames.setStatus(_A)
+_FcmPortLcClass2RxPbsyFrames_Type=Counter32
+_FcmPortLcClass2RxPbsyFrames_Object=MibTableColumn
+fcmPortLcClass2RxPbsyFrames=_FcmPortLcClass2RxPbsyFrames_Object((1,3,6,1,2,1,10,56,1,5,1,9),_FcmPortLcClass2RxPbsyFrames_Type())
+fcmPortLcClass2RxPbsyFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass2RxPbsyFrames.setStatus(_A)
+_FcmPortLcClass2RxFrjtFrames_Type=Counter32
+_FcmPortLcClass2RxFrjtFrames_Object=MibTableColumn
+fcmPortLcClass2RxFrjtFrames=_FcmPortLcClass2RxFrjtFrames_Object((1,3,6,1,2,1,10,56,1,5,1,10),_FcmPortLcClass2RxFrjtFrames_Type())
+fcmPortLcClass2RxFrjtFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass2RxFrjtFrames.setStatus(_A)
+_FcmPortLcClass2RxPrjtFrames_Type=Counter32
+_FcmPortLcClass2RxPrjtFrames_Object=MibTableColumn
+fcmPortLcClass2RxPrjtFrames=_FcmPortLcClass2RxPrjtFrames_Object((1,3,6,1,2,1,10,56,1,5,1,11),_FcmPortLcClass2RxPrjtFrames_Type())
+fcmPortLcClass2RxPrjtFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass2RxPrjtFrames.setStatus(_A)
+_FcmPortLcClass2TxFbsyFrames_Type=Counter32
+_FcmPortLcClass2TxFbsyFrames_Object=MibTableColumn
+fcmPortLcClass2TxFbsyFrames=_FcmPortLcClass2TxFbsyFrames_Object((1,3,6,1,2,1,10,56,1,5,1,12),_FcmPortLcClass2TxFbsyFrames_Type())
+fcmPortLcClass2TxFbsyFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass2TxFbsyFrames.setStatus(_A)
+_FcmPortLcClass2TxPbsyFrames_Type=Counter32
+_FcmPortLcClass2TxPbsyFrames_Object=MibTableColumn
+fcmPortLcClass2TxPbsyFrames=_FcmPortLcClass2TxPbsyFrames_Object((1,3,6,1,2,1,10,56,1,5,1,13),_FcmPortLcClass2TxPbsyFrames_Type())
+fcmPortLcClass2TxPbsyFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass2TxPbsyFrames.setStatus(_A)
+_FcmPortLcClass2TxFrjtFrames_Type=Counter32
+_FcmPortLcClass2TxFrjtFrames_Object=MibTableColumn
+fcmPortLcClass2TxFrjtFrames=_FcmPortLcClass2TxFrjtFrames_Object((1,3,6,1,2,1,10,56,1,5,1,14),_FcmPortLcClass2TxFrjtFrames_Type())
+fcmPortLcClass2TxFrjtFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass2TxFrjtFrames.setStatus(_A)
+_FcmPortLcClass2TxPrjtFrames_Type=Counter32
+_FcmPortLcClass2TxPrjtFrames_Object=MibTableColumn
+fcmPortLcClass2TxPrjtFrames=_FcmPortLcClass2TxPrjtFrames_Object((1,3,6,1,2,1,10,56,1,5,1,15),_FcmPortLcClass2TxPrjtFrames_Type())
+fcmPortLcClass2TxPrjtFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass2TxPrjtFrames.setStatus(_A)
+_FcmPortLcClass3RxFrames_Type=Counter32
+_FcmPortLcClass3RxFrames_Object=MibTableColumn
+fcmPortLcClass3RxFrames=_FcmPortLcClass3RxFrames_Object((1,3,6,1,2,1,10,56,1,5,1,16),_FcmPortLcClass3RxFrames_Type())
+fcmPortLcClass3RxFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass3RxFrames.setStatus(_A)
+_FcmPortLcClass3RxOctets_Type=Counter32
+_FcmPortLcClass3RxOctets_Object=MibTableColumn
+fcmPortLcClass3RxOctets=_FcmPortLcClass3RxOctets_Object((1,3,6,1,2,1,10,56,1,5,1,17),_FcmPortLcClass3RxOctets_Type())
+fcmPortLcClass3RxOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass3RxOctets.setStatus(_A)
+_FcmPortLcClass3TxFrames_Type=Counter32
+_FcmPortLcClass3TxFrames_Object=MibTableColumn
+fcmPortLcClass3TxFrames=_FcmPortLcClass3TxFrames_Object((1,3,6,1,2,1,10,56,1,5,1,18),_FcmPortLcClass3TxFrames_Type())
+fcmPortLcClass3TxFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass3TxFrames.setStatus(_A)
+_FcmPortLcClass3TxOctets_Type=Counter32
+_FcmPortLcClass3TxOctets_Object=MibTableColumn
+fcmPortLcClass3TxOctets=_FcmPortLcClass3TxOctets_Object((1,3,6,1,2,1,10,56,1,5,1,19),_FcmPortLcClass3TxOctets_Type())
+fcmPortLcClass3TxOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass3TxOctets.setStatus(_A)
+_FcmPortLcClass3Discards_Type=Counter32
+_FcmPortLcClass3Discards_Object=MibTableColumn
+fcmPortLcClass3Discards=_FcmPortLcClass3Discards_Object((1,3,6,1,2,1,10,56,1,5,1,20),_FcmPortLcClass3Discards_Type())
+fcmPortLcClass3Discards.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLcClass3Discards.setStatus(_A)
+_FcmPortErrorsTable_Object=MibTable
+fcmPortErrorsTable=_FcmPortErrorsTable_Object((1,3,6,1,2,1,10,56,1,6))
+if mibBuilder.loadTexts:fcmPortErrorsTable.setStatus(_A)
+_FcmPortErrorsEntry_Object=MibTableRow
+fcmPortErrorsEntry=_FcmPortErrorsEntry_Object((1,3,6,1,2,1,10,56,1,6,1))
+if mibBuilder.loadTexts:fcmPortErrorsEntry.setStatus(_A)
+_FcmPortRxLinkResets_Type=Counter32
+_FcmPortRxLinkResets_Object=MibTableColumn
+fcmPortRxLinkResets=_FcmPortRxLinkResets_Object((1,3,6,1,2,1,10,56,1,6,1,1),_FcmPortRxLinkResets_Type())
+fcmPortRxLinkResets.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortRxLinkResets.setStatus(_A)
+_FcmPortTxLinkResets_Type=Counter32
+_FcmPortTxLinkResets_Object=MibTableColumn
+fcmPortTxLinkResets=_FcmPortTxLinkResets_Object((1,3,6,1,2,1,10,56,1,6,1,2),_FcmPortTxLinkResets_Type())
+fcmPortTxLinkResets.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortTxLinkResets.setStatus(_A)
+_FcmPortLinkResets_Type=Counter32
+_FcmPortLinkResets_Object=MibTableColumn
+fcmPortLinkResets=_FcmPortLinkResets_Object((1,3,6,1,2,1,10,56,1,6,1,3),_FcmPortLinkResets_Type())
+fcmPortLinkResets.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLinkResets.setStatus(_A)
+_FcmPortRxOfflineSequences_Type=Counter32
+_FcmPortRxOfflineSequences_Object=MibTableColumn
+fcmPortRxOfflineSequences=_FcmPortRxOfflineSequences_Object((1,3,6,1,2,1,10,56,1,6,1,4),_FcmPortRxOfflineSequences_Type())
+fcmPortRxOfflineSequences.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortRxOfflineSequences.setStatus(_A)
+_FcmPortTxOfflineSequences_Type=Counter32
+_FcmPortTxOfflineSequences_Object=MibTableColumn
+fcmPortTxOfflineSequences=_FcmPortTxOfflineSequences_Object((1,3,6,1,2,1,10,56,1,6,1,5),_FcmPortTxOfflineSequences_Type())
+fcmPortTxOfflineSequences.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortTxOfflineSequences.setStatus(_A)
+_FcmPortLinkFailures_Type=Counter32
+_FcmPortLinkFailures_Object=MibTableColumn
+fcmPortLinkFailures=_FcmPortLinkFailures_Object((1,3,6,1,2,1,10,56,1,6,1,6),_FcmPortLinkFailures_Type())
+fcmPortLinkFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLinkFailures.setStatus(_A)
+_FcmPortLossofSynchs_Type=Counter32
+_FcmPortLossofSynchs_Object=MibTableColumn
+fcmPortLossofSynchs=_FcmPortLossofSynchs_Object((1,3,6,1,2,1,10,56,1,6,1,7),_FcmPortLossofSynchs_Type())
+fcmPortLossofSynchs.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLossofSynchs.setStatus(_A)
+_FcmPortLossofSignals_Type=Counter32
+_FcmPortLossofSignals_Object=MibTableColumn
+fcmPortLossofSignals=_FcmPortLossofSignals_Object((1,3,6,1,2,1,10,56,1,6,1,8),_FcmPortLossofSignals_Type())
+fcmPortLossofSignals.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortLossofSignals.setStatus(_A)
+_FcmPortPrimSeqProtocolErrors_Type=Counter32
+_FcmPortPrimSeqProtocolErrors_Object=MibTableColumn
+fcmPortPrimSeqProtocolErrors=_FcmPortPrimSeqProtocolErrors_Object((1,3,6,1,2,1,10,56,1,6,1,9),_FcmPortPrimSeqProtocolErrors_Type())
+fcmPortPrimSeqProtocolErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortPrimSeqProtocolErrors.setStatus(_A)
+_FcmPortInvalidTxWords_Type=Counter32
+_FcmPortInvalidTxWords_Object=MibTableColumn
+fcmPortInvalidTxWords=_FcmPortInvalidTxWords_Object((1,3,6,1,2,1,10,56,1,6,1,10),_FcmPortInvalidTxWords_Type())
+fcmPortInvalidTxWords.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortInvalidTxWords.setStatus(_A)
+_FcmPortInvalidCRCs_Type=Counter32
+_FcmPortInvalidCRCs_Object=MibTableColumn
+fcmPortInvalidCRCs=_FcmPortInvalidCRCs_Object((1,3,6,1,2,1,10,56,1,6,1,11),_FcmPortInvalidCRCs_Type())
+fcmPortInvalidCRCs.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortInvalidCRCs.setStatus(_A)
+_FcmPortInvalidOrderedSets_Type=Counter32
+_FcmPortInvalidOrderedSets_Object=MibTableColumn
+fcmPortInvalidOrderedSets=_FcmPortInvalidOrderedSets_Object((1,3,6,1,2,1,10,56,1,6,1,12),_FcmPortInvalidOrderedSets_Type())
+fcmPortInvalidOrderedSets.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortInvalidOrderedSets.setStatus(_A)
+_FcmPortFrameTooLongs_Type=Counter32
+_FcmPortFrameTooLongs_Object=MibTableColumn
+fcmPortFrameTooLongs=_FcmPortFrameTooLongs_Object((1,3,6,1,2,1,10,56,1,6,1,13),_FcmPortFrameTooLongs_Type())
+fcmPortFrameTooLongs.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortFrameTooLongs.setStatus(_A)
+_FcmPortTruncatedFrames_Type=Counter32
+_FcmPortTruncatedFrames_Object=MibTableColumn
+fcmPortTruncatedFrames=_FcmPortTruncatedFrames_Object((1,3,6,1,2,1,10,56,1,6,1,14),_FcmPortTruncatedFrames_Type())
+fcmPortTruncatedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortTruncatedFrames.setStatus(_A)
+_FcmPortAddressErrors_Type=Counter32
+_FcmPortAddressErrors_Object=MibTableColumn
+fcmPortAddressErrors=_FcmPortAddressErrors_Object((1,3,6,1,2,1,10,56,1,6,1,15),_FcmPortAddressErrors_Type())
+fcmPortAddressErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortAddressErrors.setStatus(_A)
+_FcmPortDelimiterErrors_Type=Counter32
+_FcmPortDelimiterErrors_Object=MibTableColumn
+fcmPortDelimiterErrors=_FcmPortDelimiterErrors_Object((1,3,6,1,2,1,10,56,1,6,1,16),_FcmPortDelimiterErrors_Type())
+fcmPortDelimiterErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortDelimiterErrors.setStatus(_A)
+_FcmPortEncodingDisparityErrors_Type=Counter32
+_FcmPortEncodingDisparityErrors_Object=MibTableColumn
+fcmPortEncodingDisparityErrors=_FcmPortEncodingDisparityErrors_Object((1,3,6,1,2,1,10,56,1,6,1,17),_FcmPortEncodingDisparityErrors_Type())
+fcmPortEncodingDisparityErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortEncodingDisparityErrors.setStatus(_A)
+_FcmPortOtherErrors_Type=Counter32
+_FcmPortOtherErrors_Object=MibTableColumn
+fcmPortOtherErrors=_FcmPortOtherErrors_Object((1,3,6,1,2,1,10,56,1,6,1,18),_FcmPortOtherErrors_Type())
+fcmPortOtherErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmPortOtherErrors.setStatus(_A)
+_FcmFxPortTable_Object=MibTable
+fcmFxPortTable=_FcmFxPortTable_Object((1,3,6,1,2,1,10,56,1,7))
+if mibBuilder.loadTexts:fcmFxPortTable.setStatus(_A)
+_FcmFxPortEntry_Object=MibTableRow
+fcmFxPortEntry=_FcmFxPortEntry_Object((1,3,6,1,2,1,10,56,1,7,1))
+fcmFxPortEntry.setIndexNames((0,_G,_H))
+if mibBuilder.loadTexts:fcmFxPortEntry.setStatus(_A)
+_FcmFxPortRatov_Type=Unsigned32
+_FcmFxPortRatov_Object=MibTableColumn
+fcmFxPortRatov=_FcmFxPortRatov_Object((1,3,6,1,2,1,10,56,1,7,1,1),_FcmFxPortRatov_Type())
+fcmFxPortRatov.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFxPortRatov.setStatus(_A)
+if mibBuilder.loadTexts:fcmFxPortRatov.setUnits(_N)
+_FcmFxPortEdtov_Type=Unsigned32
+_FcmFxPortEdtov_Object=MibTableColumn
+fcmFxPortEdtov=_FcmFxPortEdtov_Object((1,3,6,1,2,1,10,56,1,7,1,2),_FcmFxPortEdtov_Type())
+fcmFxPortEdtov.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFxPortEdtov.setStatus(_A)
+if mibBuilder.loadTexts:fcmFxPortEdtov.setUnits(_N)
+_FcmFxPortRttov_Type=Unsigned32
+_FcmFxPortRttov_Object=MibTableColumn
+fcmFxPortRttov=_FcmFxPortRttov_Object((1,3,6,1,2,1,10,56,1,7,1,3),_FcmFxPortRttov_Type())
+fcmFxPortRttov.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFxPortRttov.setStatus(_A)
+if mibBuilder.loadTexts:fcmFxPortRttov.setUnits(_N)
+_FcmFxPortHoldTime_Type=Unsigned32
+_FcmFxPortHoldTime_Object=MibTableColumn
+fcmFxPortHoldTime=_FcmFxPortHoldTime_Object((1,3,6,1,2,1,10,56,1,7,1,4),_FcmFxPortHoldTime_Type())
+fcmFxPortHoldTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFxPortHoldTime.setStatus(_A)
+if mibBuilder.loadTexts:fcmFxPortHoldTime.setUnits(_O)
+_FcmFxPortCapBbCreditMax_Type=FcBbCredit
+_FcmFxPortCapBbCreditMax_Object=MibTableColumn
+fcmFxPortCapBbCreditMax=_FcmFxPortCapBbCreditMax_Object((1,3,6,1,2,1,10,56,1,7,1,5),_FcmFxPortCapBbCreditMax_Type())
+fcmFxPortCapBbCreditMax.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFxPortCapBbCreditMax.setStatus(_A)
+if mibBuilder.loadTexts:fcmFxPortCapBbCreditMax.setUnits(_T)
+_FcmFxPortCapBbCreditMin_Type=FcBbCredit
+_FcmFxPortCapBbCreditMin_Object=MibTableColumn
+fcmFxPortCapBbCreditMin=_FcmFxPortCapBbCreditMin_Object((1,3,6,1,2,1,10,56,1,7,1,6),_FcmFxPortCapBbCreditMin_Type())
+fcmFxPortCapBbCreditMin.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFxPortCapBbCreditMin.setStatus(_A)
+if mibBuilder.loadTexts:fcmFxPortCapBbCreditMin.setUnits(_T)
+_FcmFxPortCapDataFieldSizeMax_Type=FcDataFieldSize
+_FcmFxPortCapDataFieldSizeMax_Object=MibTableColumn
+fcmFxPortCapDataFieldSizeMax=_FcmFxPortCapDataFieldSizeMax_Object((1,3,6,1,2,1,10,56,1,7,1,7),_FcmFxPortCapDataFieldSizeMax_Type())
+fcmFxPortCapDataFieldSizeMax.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFxPortCapDataFieldSizeMax.setStatus(_A)
+if mibBuilder.loadTexts:fcmFxPortCapDataFieldSizeMax.setUnits(_P)
+_FcmFxPortCapDataFieldSizeMin_Type=FcDataFieldSize
+_FcmFxPortCapDataFieldSizeMin_Object=MibTableColumn
+fcmFxPortCapDataFieldSizeMin=_FcmFxPortCapDataFieldSizeMin_Object((1,3,6,1,2,1,10,56,1,7,1,8),_FcmFxPortCapDataFieldSizeMin_Type())
+fcmFxPortCapDataFieldSizeMin.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFxPortCapDataFieldSizeMin.setStatus(_A)
+if mibBuilder.loadTexts:fcmFxPortCapDataFieldSizeMin.setUnits(_P)
+_FcmFxPortCapClass2SeqDeliv_Type=TruthValue
+_FcmFxPortCapClass2SeqDeliv_Object=MibTableColumn
+fcmFxPortCapClass2SeqDeliv=_FcmFxPortCapClass2SeqDeliv_Object((1,3,6,1,2,1,10,56,1,7,1,9),_FcmFxPortCapClass2SeqDeliv_Type())
+fcmFxPortCapClass2SeqDeliv.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFxPortCapClass2SeqDeliv.setStatus(_A)
+_FcmFxPortCapClass3SeqDeliv_Type=TruthValue
+_FcmFxPortCapClass3SeqDeliv_Object=MibTableColumn
+fcmFxPortCapClass3SeqDeliv=_FcmFxPortCapClass3SeqDeliv_Object((1,3,6,1,2,1,10,56,1,7,1,10),_FcmFxPortCapClass3SeqDeliv_Type())
+fcmFxPortCapClass3SeqDeliv.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFxPortCapClass3SeqDeliv.setStatus(_A)
+_FcmFxPortCapHoldTimeMax_Type=Unsigned32
+_FcmFxPortCapHoldTimeMax_Object=MibTableColumn
+fcmFxPortCapHoldTimeMax=_FcmFxPortCapHoldTimeMax_Object((1,3,6,1,2,1,10,56,1,7,1,11),_FcmFxPortCapHoldTimeMax_Type())
+fcmFxPortCapHoldTimeMax.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFxPortCapHoldTimeMax.setStatus(_A)
+if mibBuilder.loadTexts:fcmFxPortCapHoldTimeMax.setUnits(_O)
+_FcmFxPortCapHoldTimeMin_Type=Unsigned32
+_FcmFxPortCapHoldTimeMin_Object=MibTableColumn
+fcmFxPortCapHoldTimeMin=_FcmFxPortCapHoldTimeMin_Object((1,3,6,1,2,1,10,56,1,7,1,12),_FcmFxPortCapHoldTimeMin_Type())
+fcmFxPortCapHoldTimeMin.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFxPortCapHoldTimeMin.setStatus(_A)
+if mibBuilder.loadTexts:fcmFxPortCapHoldTimeMin.setUnits(_O)
+_FcmISPortTable_Object=MibTable
+fcmISPortTable=_FcmISPortTable_Object((1,3,6,1,2,1,10,56,1,8))
+if mibBuilder.loadTexts:fcmISPortTable.setStatus(_A)
+_FcmISPortEntry_Object=MibTableRow
+fcmISPortEntry=_FcmISPortEntry_Object((1,3,6,1,2,1,10,56,1,8,1))
+fcmISPortEntry.setIndexNames((0,_G,_H))
+if mibBuilder.loadTexts:fcmISPortEntry.setStatus(_A)
+_FcmISPortClassFCredit_Type=FcBbCredit
+_FcmISPortClassFCredit_Object=MibTableColumn
+fcmISPortClassFCredit=_FcmISPortClassFCredit_Object((1,3,6,1,2,1,10,56,1,8,1,1),_FcmISPortClassFCredit_Type())
+fcmISPortClassFCredit.setMaxAccess(_F)
+if mibBuilder.loadTexts:fcmISPortClassFCredit.setStatus(_A)
+_FcmISPortClassFDataFieldSize_Type=FcDataFieldSize
+_FcmISPortClassFDataFieldSize_Object=MibTableColumn
+fcmISPortClassFDataFieldSize=_FcmISPortClassFDataFieldSize_Object((1,3,6,1,2,1,10,56,1,8,1,2),_FcmISPortClassFDataFieldSize_Type())
+fcmISPortClassFDataFieldSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmISPortClassFDataFieldSize.setStatus(_A)
+if mibBuilder.loadTexts:fcmISPortClassFDataFieldSize.setUnits(_P)
+_FcmFLoginTable_Object=MibTable
+fcmFLoginTable=_FcmFLoginTable_Object((1,3,6,1,2,1,10,56,1,9))
+if mibBuilder.loadTexts:fcmFLoginTable.setStatus(_A)
+_FcmFLoginEntry_Object=MibTableRow
+fcmFLoginEntry=_FcmFLoginEntry_Object((1,3,6,1,2,1,10,56,1,9,1))
+fcmFLoginEntry.setIndexNames((0,_G,_H),(0,_B,_U))
+if mibBuilder.loadTexts:fcmFLoginEntry.setStatus(_A)
+class _FcmFLoginNxPortIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_FcmFLoginNxPortIndex_Type.__name__=_E
+_FcmFLoginNxPortIndex_Object=MibTableColumn
+fcmFLoginNxPortIndex=_FcmFLoginNxPortIndex_Object((1,3,6,1,2,1,10,56,1,9,1,1),_FcmFLoginNxPortIndex_Type())
+fcmFLoginNxPortIndex.setMaxAccess(_K)
+if mibBuilder.loadTexts:fcmFLoginNxPortIndex.setStatus(_A)
+_FcmFLoginPortWwn_Type=FcNameIdOrZero
+_FcmFLoginPortWwn_Object=MibTableColumn
+fcmFLoginPortWwn=_FcmFLoginPortWwn_Object((1,3,6,1,2,1,10,56,1,9,1,2),_FcmFLoginPortWwn_Type())
+fcmFLoginPortWwn.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFLoginPortWwn.setStatus(_A)
+_FcmFLoginNodeWwn_Type=FcNameIdOrZero
+_FcmFLoginNodeWwn_Object=MibTableColumn
+fcmFLoginNodeWwn=_FcmFLoginNodeWwn_Object((1,3,6,1,2,1,10,56,1,9,1,3),_FcmFLoginNodeWwn_Type())
+fcmFLoginNodeWwn.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFLoginNodeWwn.setStatus(_A)
+_FcmFLoginBbCreditModel_Type=FcBbCreditModel
+_FcmFLoginBbCreditModel_Object=MibTableColumn
+fcmFLoginBbCreditModel=_FcmFLoginBbCreditModel_Object((1,3,6,1,2,1,10,56,1,9,1,4),_FcmFLoginBbCreditModel_Type())
+fcmFLoginBbCreditModel.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFLoginBbCreditModel.setStatus(_A)
+_FcmFLoginBbCredit_Type=FcBbCredit
+_FcmFLoginBbCredit_Object=MibTableColumn
+fcmFLoginBbCredit=_FcmFLoginBbCredit_Object((1,3,6,1,2,1,10,56,1,9,1,5),_FcmFLoginBbCredit_Type())
+fcmFLoginBbCredit.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFLoginBbCredit.setStatus(_A)
+_FcmFLoginClassesAgreed_Type=FcClasses
+_FcmFLoginClassesAgreed_Object=MibTableColumn
+fcmFLoginClassesAgreed=_FcmFLoginClassesAgreed_Object((1,3,6,1,2,1,10,56,1,9,1,6),_FcmFLoginClassesAgreed_Type())
+fcmFLoginClassesAgreed.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFLoginClassesAgreed.setStatus(_A)
+_FcmFLoginClass2SeqDelivAgreed_Type=TruthValue
+_FcmFLoginClass2SeqDelivAgreed_Object=MibTableColumn
+fcmFLoginClass2SeqDelivAgreed=_FcmFLoginClass2SeqDelivAgreed_Object((1,3,6,1,2,1,10,56,1,9,1,7),_FcmFLoginClass2SeqDelivAgreed_Type())
+fcmFLoginClass2SeqDelivAgreed.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFLoginClass2SeqDelivAgreed.setStatus(_A)
+_FcmFLoginClass2DataFieldSize_Type=FcDataFieldSize
+_FcmFLoginClass2DataFieldSize_Object=MibTableColumn
+fcmFLoginClass2DataFieldSize=_FcmFLoginClass2DataFieldSize_Object((1,3,6,1,2,1,10,56,1,9,1,8),_FcmFLoginClass2DataFieldSize_Type())
+fcmFLoginClass2DataFieldSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFLoginClass2DataFieldSize.setStatus(_A)
+_FcmFLoginClass3SeqDelivAgreed_Type=TruthValue
+_FcmFLoginClass3SeqDelivAgreed_Object=MibTableColumn
+fcmFLoginClass3SeqDelivAgreed=_FcmFLoginClass3SeqDelivAgreed_Object((1,3,6,1,2,1,10,56,1,9,1,9),_FcmFLoginClass3SeqDelivAgreed_Type())
+fcmFLoginClass3SeqDelivAgreed.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFLoginClass3SeqDelivAgreed.setStatus(_A)
+_FcmFLoginClass3DataFieldSize_Type=FcDataFieldSize
+_FcmFLoginClass3DataFieldSize_Object=MibTableColumn
+fcmFLoginClass3DataFieldSize=_FcmFLoginClass3DataFieldSize_Object((1,3,6,1,2,1,10,56,1,9,1,10),_FcmFLoginClass3DataFieldSize_Type())
+fcmFLoginClass3DataFieldSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmFLoginClass3DataFieldSize.setStatus(_A)
+_FcmLinkTable_Object=MibTable
+fcmLinkTable=_FcmLinkTable_Object((1,3,6,1,2,1,10,56,1,10))
+if mibBuilder.loadTexts:fcmLinkTable.setStatus(_A)
+_FcmLinkEntry_Object=MibTableRow
+fcmLinkEntry=_FcmLinkEntry_Object((1,3,6,1,2,1,10,56,1,10,1))
+fcmLinkEntry.setIndexNames((0,_B,_J),(0,_B,_V))
+if mibBuilder.loadTexts:fcmLinkEntry.setStatus(_A)
+class _FcmLinkIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_FcmLinkIndex_Type.__name__=_E
+_FcmLinkIndex_Object=MibTableColumn
+fcmLinkIndex=_FcmLinkIndex_Object((1,3,6,1,2,1,10,56,1,10,1,1),_FcmLinkIndex_Type())
+fcmLinkIndex.setMaxAccess(_K)
+if mibBuilder.loadTexts:fcmLinkIndex.setStatus(_A)
+_FcmLinkEnd1NodeWwn_Type=FcNameIdOrZero
+_FcmLinkEnd1NodeWwn_Object=MibTableColumn
+fcmLinkEnd1NodeWwn=_FcmLinkEnd1NodeWwn_Object((1,3,6,1,2,1,10,56,1,10,1,2),_FcmLinkEnd1NodeWwn_Type())
+fcmLinkEnd1NodeWwn.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmLinkEnd1NodeWwn.setStatus(_A)
+_FcmLinkEnd1PhysPortNumber_Type=Unsigned32
+_FcmLinkEnd1PhysPortNumber_Object=MibTableColumn
+fcmLinkEnd1PhysPortNumber=_FcmLinkEnd1PhysPortNumber_Object((1,3,6,1,2,1,10,56,1,10,1,3),_FcmLinkEnd1PhysPortNumber_Type())
+fcmLinkEnd1PhysPortNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmLinkEnd1PhysPortNumber.setStatus(_A)
+_FcmLinkEnd1PortWwn_Type=FcNameIdOrZero
+_FcmLinkEnd1PortWwn_Object=MibTableColumn
+fcmLinkEnd1PortWwn=_FcmLinkEnd1PortWwn_Object((1,3,6,1,2,1,10,56,1,10,1,4),_FcmLinkEnd1PortWwn_Type())
+fcmLinkEnd1PortWwn.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmLinkEnd1PortWwn.setStatus(_A)
+_FcmLinkEnd2NodeWwn_Type=FcNameIdOrZero
+_FcmLinkEnd2NodeWwn_Object=MibTableColumn
+fcmLinkEnd2NodeWwn=_FcmLinkEnd2NodeWwn_Object((1,3,6,1,2,1,10,56,1,10,1,5),_FcmLinkEnd2NodeWwn_Type())
+fcmLinkEnd2NodeWwn.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmLinkEnd2NodeWwn.setStatus(_A)
+_FcmLinkEnd2PhysPortNumber_Type=Unsigned32
+_FcmLinkEnd2PhysPortNumber_Object=MibTableColumn
+fcmLinkEnd2PhysPortNumber=_FcmLinkEnd2PhysPortNumber_Object((1,3,6,1,2,1,10,56,1,10,1,6),_FcmLinkEnd2PhysPortNumber_Type())
+fcmLinkEnd2PhysPortNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmLinkEnd2PhysPortNumber.setStatus(_A)
+_FcmLinkEnd2PortWwn_Type=FcNameIdOrZero
+_FcmLinkEnd2PortWwn_Object=MibTableColumn
+fcmLinkEnd2PortWwn=_FcmLinkEnd2PortWwn_Object((1,3,6,1,2,1,10,56,1,10,1,7),_FcmLinkEnd2PortWwn_Type())
+fcmLinkEnd2PortWwn.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmLinkEnd2PortWwn.setStatus(_A)
+_FcmLinkEnd2AgentAddress_Type=SnmpAdminString
+_FcmLinkEnd2AgentAddress_Object=MibTableColumn
+fcmLinkEnd2AgentAddress=_FcmLinkEnd2AgentAddress_Object((1,3,6,1,2,1,10,56,1,10,1,8),_FcmLinkEnd2AgentAddress_Type())
+fcmLinkEnd2AgentAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmLinkEnd2AgentAddress.setStatus(_A)
+_FcmLinkEnd2PortType_Type=FcPortType
+_FcmLinkEnd2PortType_Object=MibTableColumn
+fcmLinkEnd2PortType=_FcmLinkEnd2PortType_Object((1,3,6,1,2,1,10,56,1,10,1,9),_FcmLinkEnd2PortType_Type())
+fcmLinkEnd2PortType.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmLinkEnd2PortType.setStatus(_A)
+_FcmLinkEnd2UnitType_Type=FcUnitFunctions
+_FcmLinkEnd2UnitType_Object=MibTableColumn
+fcmLinkEnd2UnitType=_FcmLinkEnd2UnitType_Object((1,3,6,1,2,1,10,56,1,10,1,10),_FcmLinkEnd2UnitType_Type())
+fcmLinkEnd2UnitType.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmLinkEnd2UnitType.setStatus(_A)
+_FcmLinkEnd2FcAddressId_Type=FcAddressIdOrZero
+_FcmLinkEnd2FcAddressId_Object=MibTableColumn
+fcmLinkEnd2FcAddressId=_FcmLinkEnd2FcAddressId_Object((1,3,6,1,2,1,10,56,1,10,1,11),_FcmLinkEnd2FcAddressId_Type())
+fcmLinkEnd2FcAddressId.setMaxAccess(_C)
+if mibBuilder.loadTexts:fcmLinkEnd2FcAddressId.setStatus(_A)
+_FcmgmtNotifications_ObjectIdentity=ObjectIdentity
+fcmgmtNotifications=_FcmgmtNotifications_ObjectIdentity((1,3,6,1,2,1,10,56,2))
+_FcmgmtNotifPrefix_ObjectIdentity=ObjectIdentity
+fcmgmtNotifPrefix=_FcmgmtNotifPrefix_ObjectIdentity((1,3,6,1,2,1,10,56,2,0))
+_FcmgmtConformance_ObjectIdentity=ObjectIdentity
+fcmgmtConformance=_FcmgmtConformance_ObjectIdentity((1,3,6,1,2,1,10,56,3))
+_FcmgmtCompliances_ObjectIdentity=ObjectIdentity
+fcmgmtCompliances=_FcmgmtCompliances_ObjectIdentity((1,3,6,1,2,1,10,56,3,1))
+_FcmgmtGroups_ObjectIdentity=ObjectIdentity
+fcmgmtGroups=_FcmgmtGroups_ObjectIdentity((1,3,6,1,2,1,10,56,3,2))
+fcmPortEntry.registerAugmentions((_B,_W))
 fcmPortStatsEntry.setIndexNames(*fcmPortEntry.getIndexNames())
-if mibBuilder.loadTexts: fcmPortStatsEntry.setDescription('An entry containing statistics for a Fibre Channel port.\n            If any counter in this table suffers a discontinuity, the\n            value of ifCounterDiscontinuityTime (defined in the IF-MIB)\n            must be updated.')
-fcmPortBBCreditZeros = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 1), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortBBCreditZeros.setDescription('The number of transitions in/out of the buffer-to-buffer\n            credit zero state.  The other side is not providing any\n            credit.')
-fcmPortFullInputBuffers = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortFullInputBuffers.setDescription('The number of occurrences when all input buffers of a port\n            were full and outbound buffer-to-buffer credit transitioned\n            to zero, i.e., there became no credit to provide to other\n            side.')
-fcmPortClass2RxFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass2RxFrames.setDescription('The number of Class 2 frames received at this port.')
-fcmPortClass2RxOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass2RxOctets.setDescription('The number of octets contained in Class 2 frames received\n            at this port.')
-fcmPortClass2TxFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass2TxFrames.setDescription('The number of Class 2 frames transmitted out of this port.')
-fcmPortClass2TxOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass2TxOctets.setDescription('The number of octets contained in Class 2 frames\n            transmitted out of this port.')
-fcmPortClass2Discards = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass2Discards.setDescription('The number of Class 2 frames that were discarded upon\n            reception at this port.')
-fcmPortClass2RxFbsyFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass2RxFbsyFrames.setDescription('The number of times that F_BSY was returned to this port as\n            a result of a Class 2 frame that could not be delivered to\n            the other end of the link.  This can occur when either the\n            fabric or the destination port is temporarily busy.  Note\n            that this counter will never increment for an F_Port.')
-fcmPortClass2RxPbsyFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass2RxPbsyFrames.setDescription('The number of times that P_BSY was returned to this port as\n            a result of a Class 2 frame that could not be delivered to\n            the other end of the link.  This can occur when the\n\n\n\n            destination port is temporarily busy.')
-fcmPortClass2RxFrjtFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass2RxFrjtFrames.setDescription('The number of times that F_RJT was returned to this port as\n            a result of a Class 2 frame that was rejected by the fabric.\n            Note that this counter will never increment for an F_Port.')
-fcmPortClass2RxPrjtFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass2RxPrjtFrames.setDescription('The number of times that P_RJT was returned to this port as\n            a result of a Class 2 frame that was rejected at the\n            destination N_Port.')
-fcmPortClass2TxFbsyFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass2TxFbsyFrames.setDescription('The number of times that F_BSY was generated by this port\n            as a result of a Class 2 frame that could not be delivered\n            because either the Fabric or the destination port was\n            temporarily busy.  Note that this counter will never\n            increment for an N_Port.')
-fcmPortClass2TxPbsyFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass2TxPbsyFrames.setDescription('The number of times that P_BSY was generated by this port\n            as a result of a Class 2 frame that could not be delivered\n            because the destination port was temporarily busy.  Note\n            that this counter will never increment for an F_Port.')
-fcmPortClass2TxFrjtFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 14), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass2TxFrjtFrames.setDescription('The number of times that F_RJT was generated by this port\n            as a result of a Class 2 frame being rejected by the fabric.\n            Note that this counter will never increment for an N_Port.')
-fcmPortClass2TxPrjtFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 15), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass2TxPrjtFrames.setDescription('The number of times that P_RJT was generated by this port\n            as a result of a Class 2 frame being rejected at the\n            destination N_Port.  Note that this counter will never\n            increment for an F_Port.')
-fcmPortClass3RxFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 16), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass3RxFrames.setDescription('The number of Class 3 frames received at this port.')
-fcmPortClass3RxOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 17), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass3RxOctets.setDescription('The number of octets contained in Class 3 frames received\n            at this port.')
-fcmPortClass3TxFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 18), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass3TxFrames.setDescription('The number of Class 3 frames transmitted out of this port.')
-fcmPortClass3TxOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 19), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass3TxOctets.setDescription('The number of octets contained in Class 3 frames\n            transmitted out of this port.')
-fcmPortClass3Discards = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 20), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClass3Discards.setDescription('The number of Class 3 frames that were discarded upon\n            reception at this port.')
-fcmPortClassFRxFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 21), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClassFRxFrames.setDescription('The number of Class F frames received at this port.')
-fcmPortClassFRxOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 22), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClassFRxOctets.setDescription('The number of octets contained in Class F frames received\n            at this port.')
-fcmPortClassFTxFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 23), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClassFTxFrames.setDescription('The number of Class F frames transmitted out of this port.')
-fcmPortClassFTxOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 24), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClassFTxOctets.setDescription('The number of octets contained in Class F frames\n            transmitted out of this port.')
-fcmPortClassFDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 4, 1, 25), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortClassFDiscards.setDescription('The number of Class F frames that were discarded upon\n            reception at this port.')
-fcmPortLcStatsTable = MibTable((1, 3, 6, 1, 2, 1, 10, 56, 1, 5), )
-if mibBuilder.loadTexts: fcmPortLcStatsTable.setDescription('A list of Counter32-based statistics for systems that do\n            not support Counter64.')
-fcmPortLcStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1), )
-fcmPortEntry.registerAugmentions(("FC-MGMT-MIB", "fcmPortLcStatsEntry"))
+fcmPortEntry.registerAugmentions((_B,_X))
 fcmPortLcStatsEntry.setIndexNames(*fcmPortEntry.getIndexNames())
-if mibBuilder.loadTexts: fcmPortLcStatsEntry.setDescription('An entry containing low-capacity (i.e., based on Counter32)\n            statistics for a Fibre Channel port.  If any counter in this\n            table suffers a discontinuity, the value of\n            ifCounterDiscontinuityTime (defined in the IF-MIB) must be\n            updated.')
-fcmPortLcBBCreditZeros = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcBBCreditZeros.setDescription('The number of transitions in/out of the buffer-to-buffer\n            credit zero state.  The other side is not providing any\n            credit.')
-fcmPortLcFullInputBuffers = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcFullInputBuffers.setDescription('The number of occurrences when all input buffers of a port\n            were full and outbound buffer-to-buffer credit transitioned\n            to zero, i.e., there became no credit to provide to other\n            side.')
-fcmPortLcClass2RxFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass2RxFrames.setDescription('The number of Class 2 frames received at this port.')
-fcmPortLcClass2RxOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass2RxOctets.setDescription('The number of octets contained in Class 2 frames received\n            at this port.')
-fcmPortLcClass2TxFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass2TxFrames.setDescription('The number of Class 2 frames transmitted out of this port.')
-fcmPortLcClass2TxOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass2TxOctets.setDescription('The number of octets contained in Class 2 frames\n            transmitted out of this port.')
-fcmPortLcClass2Discards = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass2Discards.setDescription('The number of Class 2 frames that were discarded upon\n            reception at this port.')
-fcmPortLcClass2RxFbsyFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass2RxFbsyFrames.setDescription('The number of times that F_BSY was returned to this port as\n            a result of a Class 2 frame that could not be delivered to\n            the other end of the link.  This can occur when either the\n            fabric or the destination port is temporarily busy.  Note\n            that this counter will never increment for an F_Port.')
-fcmPortLcClass2RxPbsyFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass2RxPbsyFrames.setDescription('The number of times that P_BSY was returned to this port as\n            a result of a Class 2 frame that could not be delivered to\n            the other end of the link.  This can occur when the\n            destination port is temporarily busy.')
-fcmPortLcClass2RxFrjtFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass2RxFrjtFrames.setDescription('The number of times that F_RJT was returned to this port as\n            a result of a Class 2 frame that was rejected by the fabric.\n            Note that this counter will never increment for an F_Port.')
-fcmPortLcClass2RxPrjtFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass2RxPrjtFrames.setDescription('The number of times that P_RJT was returned to this port as\n            a result of a Class 2 frame that was rejected at the\n            destination N_Port.')
-fcmPortLcClass2TxFbsyFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass2TxFbsyFrames.setDescription('The number of times that F_BSY was generated by this port\n            as a result of a Class 2 frame that could not be delivered\n            because either the Fabric or the destination port was\n            temporarily busy.  Note that this counter will never\n            increment for an N_Port.')
-fcmPortLcClass2TxPbsyFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass2TxPbsyFrames.setDescription('The number of times that P_BSY was generated by this port\n            as a result of a Class 2 frame that could not be delivered\n            because the destination port was temporarily busy.  Note\n            that this counter will never increment for an F_Port.')
-fcmPortLcClass2TxFrjtFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass2TxFrjtFrames.setDescription('The number of times that F_RJT was generated by this port\n            as a result of a Class 2 frame being rejected by the fabric.\n            Note that this counter will never increment for an N_Port.')
-fcmPortLcClass2TxPrjtFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass2TxPrjtFrames.setDescription('The number of times that P_RJT was generated by this port\n            as a result of a Class 2 frame being rejected at the\n            destination N_Port.  Note that this counter will never\n            increment for an F_Port.')
-fcmPortLcClass3RxFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass3RxFrames.setDescription('The number of Class 3 frames received at this port.')
-fcmPortLcClass3RxOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass3RxOctets.setDescription('The number of octets contained in Class 3 frames received\n            at this port.')
-fcmPortLcClass3TxFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass3TxFrames.setDescription('The number of Class 3 frames transmitted out of this port.')
-fcmPortLcClass3TxOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass3TxOctets.setDescription('The number of octets contained in Class 3 frames\n            transmitted out of this port.')
-fcmPortLcClass3Discards = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 5, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLcClass3Discards.setDescription('The number of Class 3 frames that were discarded upon\n            reception at this port.')
-fcmPortErrorsTable = MibTable((1, 3, 6, 1, 2, 1, 10, 56, 1, 6), )
-if mibBuilder.loadTexts: fcmPortErrorsTable.setDescription('Error counters for Fibre Channel ports.')
-fcmPortErrorsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1), )
-fcmPortEntry.registerAugmentions(("FC-MGMT-MIB", "fcmPortErrorsEntry"))
+fcmPortEntry.registerAugmentions((_B,_Y))
 fcmPortErrorsEntry.setIndexNames(*fcmPortEntry.getIndexNames())
-if mibBuilder.loadTexts: fcmPortErrorsEntry.setDescription('Error counters for a Fibre Channel port.  If any counter in\n            this table suffers a discontinuity, the value of\n            ifCounterDiscontinuityTime (defined in the IF-MIB) must be\n            updated.')
-fcmPortRxLinkResets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortRxLinkResets.setDescription('The number of Link Reset (LR) Primitive Sequences\n            received.')
-fcmPortTxLinkResets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortTxLinkResets.setDescription('The number of Link Reset (LR) Primitive Sequences\n            transmitted.')
-fcmPortLinkResets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLinkResets.setDescription('The number of times the reset link protocol was initiated\n            on this port.  This includes the number of Loop\n            Initialization Primitive (LIP) events on an arbitrated loop\n            port.')
-fcmPortRxOfflineSequences = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortRxOfflineSequences.setDescription('The number of Offline (OLS) Primitive Sequences received at\n            this port.')
-fcmPortTxOfflineSequences = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortTxOfflineSequences.setDescription('The number of Offline (OLS) Primitive Sequences transmitted\n            by this port.')
-fcmPortLinkFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLinkFailures.setDescription("The number of link failures.  This count is part of FC-PH's\n            Link Error Status Block (LESB).")
-fcmPortLossofSynchs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLossofSynchs.setDescription("The number of instances of synchronization loss detected at\n            this port.  This count is part of FC-PH's Link Error Status\n            Block (LESB).")
-fcmPortLossofSignals = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortLossofSignals.setDescription("The number of instances of signal loss detected at this\n            port.  This count is part of FC-PH's Link Error Status Block\n            (LESB).")
-fcmPortPrimSeqProtocolErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortPrimSeqProtocolErrors.setDescription("The number of primitive sequence protocol errors detected\n            at this port.  This count is part of FC-PH's Link Error\n            Status Block (LESB).")
-fcmPortInvalidTxWords = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortInvalidTxWords.setDescription("The number of invalid transmission words received at this\n            port.  This count is part of FC-PH's Link Error Status Block\n            (LESB).")
-fcmPortInvalidCRCs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortInvalidCRCs.setDescription("The number of frames received with an invalid CRC.  This\n            count is part of FC-PH's Link Error Status Block (LESB).")
-fcmPortInvalidOrderedSets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortInvalidOrderedSets.setDescription('The number of invalid ordered sets received at this port.')
-fcmPortFrameTooLongs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortFrameTooLongs.setDescription('The number of frames received at this port for which the\n            frame length was greater than what was agreed to in\n            FLOGI/PLOGI.  This could be caused by losing the end of\n            frame delimiter.')
-fcmPortTruncatedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortTruncatedFrames.setDescription('The number of frames received at this port for which the\n\n\n\n            frame length was less than the minimum indicated by the\n            frame header - normally 24 bytes, but it could be more if\n            the DFCTL field indicates an optional header should have\n            been present.')
-fcmPortAddressErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortAddressErrors.setDescription('The number of frames received with unknown addressing; for\n            example, an unknown SID or DID.')
-fcmPortDelimiterErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortDelimiterErrors.setDescription('The number of invalid frame delimiters received at this\n            port.  An example is a frame with a class 2 start and a\n            class 3 at the end.')
-fcmPortEncodingDisparityErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortEncodingDisparityErrors.setDescription('The number of encoding disparity errors received at this\n            port.')
-fcmPortOtherErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 6, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmPortOtherErrors.setDescription('The number of errors that were detected on this port but\n            not counted by any other error counter in this row.')
-fcmFxPortTable = MibTable((1, 3, 6, 1, 2, 1, 10, 56, 1, 7), )
-if mibBuilder.loadTexts: fcmFxPortTable.setDescription('Additional information about Fibre Channel ports that is\n            specific to Fx_Ports.  This table will contain one entry for\n            each fcmPortTable entry that represents an Fx_Port.')
-fcmFxPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 56, 1, 7, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: fcmFxPortEntry.setDescription('Each entry contains information about a specific Fx_Port.')
-fcmFxPortRatov = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 7, 1, 1), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFxPortRatov.setDescription('The Resource_Allocation_Timeout Value configured for this\n            Fx_Port.  This is used as the timeout value for determining\n            when to reuse an Nx_Port resource such as a\n\n\n\n            Recovery_Qualifier.  It represents the Error_Detect_Timeout\n            value (see fcmFxPortEdtov) plus twice the maximum time that\n            a frame may be delayed within the Fabric and still be\n            delivered.')
-fcmFxPortEdtov = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 7, 1, 2), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFxPortEdtov.setDescription('The Error_Detect_Timeout value configured for this Fx_Port.\n            This is used as the timeout value for detecting an error\n            condition.')
-fcmFxPortRttov = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 7, 1, 3), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFxPortRttov.setDescription('The Receiver_Transmitter_Timeout value of this Fx_Port.\n            This is used by the receiver logic to detect a Loss of\n            Synchronization.')
-fcmFxPortHoldTime = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 7, 1, 4), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFxPortHoldTime.setDescription('The maximum time that this Fx_Port shall hold a frame\n            before discarding the frame if it is unable to deliver the\n            frame.  The value 0 means that this Fx_Port does not support\n            this parameter.')
-fcmFxPortCapBbCreditMax = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 7, 1, 5), FcBbCredit()).setUnits('buffers').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFxPortCapBbCreditMax.setDescription('The maximum number of receive buffers that this port is\n            capable of making available for holding frames from attached\n\n\n\n            Nx_Port(s).')
-fcmFxPortCapBbCreditMin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 7, 1, 6), FcBbCredit()).setUnits('buffers').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFxPortCapBbCreditMin.setDescription('The minimum number of receive buffers that this port is\n            capable of making available for holding frames from attached\n            Nx_Port(s).')
-fcmFxPortCapDataFieldSizeMax = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 7, 1, 7), FcDataFieldSize()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFxPortCapDataFieldSizeMax.setDescription('The maximum size in bytes of the Data Field in a frame that\n            this Fx_Port is capable of receiving from an attached\n            Nx_Port.')
-fcmFxPortCapDataFieldSizeMin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 7, 1, 8), FcDataFieldSize()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFxPortCapDataFieldSizeMin.setDescription('The minimum size in bytes of the Data Field in a frame that\n            this Fx_Port is capable of receiving from an attached\n            Nx_Port.')
-fcmFxPortCapClass2SeqDeliv = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 7, 1, 9), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFxPortCapClass2SeqDeliv.setDescription('An indication of whether this Fx_Port is capable of\n            supporting Class 2 Sequential Delivery.')
-fcmFxPortCapClass3SeqDeliv = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 7, 1, 10), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFxPortCapClass3SeqDeliv.setDescription('An indication of whether this Fx_Port is capable of\n            supporting Class 3 Sequential Delivery.')
-fcmFxPortCapHoldTimeMax = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 7, 1, 11), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFxPortCapHoldTimeMax.setDescription('The maximum holding time that this Fx_Port is capable of\n            supporting.')
-fcmFxPortCapHoldTimeMin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 7, 1, 12), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFxPortCapHoldTimeMin.setDescription('The minimum holding time that this Fx_Port is capable of\n            supporting.')
-fcmISPortTable = MibTable((1, 3, 6, 1, 2, 1, 10, 56, 1, 8), )
-if mibBuilder.loadTexts: fcmISPortTable.setDescription('Additional information about E_Ports, B_Ports, and any\n            other type of Fibre Channel port to which inter-switch links\n            can be connected.  This table will contain one entry for\n            each fcmPortTable entry that represents such a port.')
-fcmISPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 56, 1, 8, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: fcmISPortEntry.setDescription('Each entry contains information about a specific port\n            connected to an inter-switch link.')
-fcmISPortClassFCredit = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 8, 1, 1), FcBbCredit()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fcmISPortClassFCredit.setDescription('The maximum number of Class F data frames that can be\n            transmitted by the inter-switch port without receipt of ACK\n            or Link_Response frames.')
-fcmISPortClassFDataFieldSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 8, 1, 2), FcDataFieldSize()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmISPortClassFDataFieldSize.setDescription('The Receive Data Field Size that the inter-switch port has\n            agreed to support for Class F frames to/from this port.  The\n            size specifies the largest Data Field Size for an FT_1\n            frame.')
-fcmFLoginTable = MibTable((1, 3, 6, 1, 2, 1, 10, 56, 1, 9), )
-if mibBuilder.loadTexts: fcmFLoginTable.setDescription('A table that contains one entry for each Nx_Port logged-\n            in/attached to a particular Fx_Port in the switch.  Each\n            entry contains the services parameters established during\n            the most recent Fabric Login, explicit or implicit.  Note\n            that an Fx_Port may have one or more Nx_Ports attached to\n            it.')
-fcmFLoginEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 56, 1, 9, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "FC-MGMT-MIB", "fcmFLoginNxPortIndex"))
-if mibBuilder.loadTexts: fcmFLoginEntry.setDescription('An entry containing service parameters established from a\n            successful Fabric Login.')
-fcmFLoginNxPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 9, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: fcmFLoginNxPortIndex.setDescription('An arbitrary integer that uniquely identifies an Nx_Port\n            amongst all those attached to the Fx_Port indicated by\n            ifIndex.\n\n            After a value of this object is assigned to a particular\n            Nx_Port, that value can be re-used when and only when it is\n            assigned to the same Nx_Port, or, after a reset of the value\n            of the relevant instance of ifCounterDiscontinuityTime.')
-fcmFLoginPortWwn = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 9, 1, 2), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFLoginPortWwn.setDescription('The port name of the attached Nx_Port, or the zero-length\n            string if unknown.')
-fcmFLoginNodeWwn = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 9, 1, 3), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFLoginNodeWwn.setDescription('The node name of the attached Nx_Port, or the zero-length\n            string if unknown.')
-fcmFLoginBbCreditModel = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 9, 1, 4), FcBbCreditModel()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFLoginBbCreditModel.setDescription('The buffer-to-buffer credit model in use by the Fx_Port.')
-fcmFLoginBbCredit = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 9, 1, 5), FcBbCredit()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFLoginBbCredit.setDescription('The number of buffers available for holding frames to be\n\n\n\n            transmitted to the attached Nx_Port.  These buffers are for\n            buffer-to-buffer flow control in the direction from Fx_Port\n            to Nx_Port.')
-fcmFLoginClassesAgreed = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 9, 1, 6), FcClasses()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFLoginClassesAgreed.setDescription('The Classes of Service that the Fx_Port has agreed to\n            support for this Nx_Port.')
-fcmFLoginClass2SeqDelivAgreed = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 9, 1, 7), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFLoginClass2SeqDelivAgreed.setDescription('An indication of whether the Fx_Port has agreed to support\n            Class 2 sequential delivery for this Nx_Port.  This is only\n            meaningful if Class 2 service has been agreed upon.')
-fcmFLoginClass2DataFieldSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 9, 1, 8), FcDataFieldSize()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFLoginClass2DataFieldSize.setDescription('The Receive Data Field Size that the Fx_Port has agreed to\n            support for Class 2 frames to/from this Nx_Port.  The size\n            specifies the largest Data Field Size for an FT_1 frame.\n            This is only meaningful if Class 2 service has been agreed\n            upon.')
-fcmFLoginClass3SeqDelivAgreed = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 9, 1, 9), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFLoginClass3SeqDelivAgreed.setDescription('An indication of whether the Fx_Port has agreed to support\n            Class 3 sequential delivery for this Nx_Port.  This is only\n            meaningful if Class 3 service has been agreed upon.')
-fcmFLoginClass3DataFieldSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 9, 1, 10), FcDataFieldSize()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmFLoginClass3DataFieldSize.setDescription('The Receive Data Field Size that the Fx_Port has agreed to\n            support for Class 3 frames to/from this Nx_Port.  The size\n            specifies the largest Data Field Size for an FT_1 frame.\n            This is only meaningful if Class 3 service has been agreed\n            upon.')
-fcmLinkTable = MibTable((1, 3, 6, 1, 2, 1, 10, 56, 1, 10), )
-if mibBuilder.loadTexts: fcmLinkTable.setDescription("A table containing any Fibre Channel link information that\n            is known to local Fibre Channel managed instances.  One end\n            of such a link is typically at a local port, but the table\n            can also contain information on links for which neither end\n            is a local port.\n\n            If one end of a link terminates locally, then that end is\n            termed 'end1'; the other end is termed 'end2'.")
-fcmLinkEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 56, 1, 10, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmLinkIndex"))
-if mibBuilder.loadTexts: fcmLinkEntry.setDescription("An entry containing information that a particular Fibre\n            Channel managed instance has about a Fibre Channel link.\n\n            The two ends of the link are called 'end1' and 'end2'.")
-fcmLinkIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 10, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: fcmLinkIndex.setDescription('An arbitrary integer that uniquely identifies one link\n            within the set of links about which a particular managed\n            instance has information.')
-fcmLinkEnd1NodeWwn = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 10, 1, 2), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmLinkEnd1NodeWwn.setDescription('The node name of end1, or the zero-length string if\n            unknown.')
-fcmLinkEnd1PhysPortNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 10, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmLinkEnd1PhysPortNumber.setDescription('The physical port number of end1, or zero if unknown.')
-fcmLinkEnd1PortWwn = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 10, 1, 4), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmLinkEnd1PortWwn.setDescription("The port WWN of end1, or the zero-length string if unknown.\n            ('end1' is local if this value is equal to the value of\n            fcmPortWwn in one of the rows of the fcmPortTable.)")
-fcmLinkEnd2NodeWwn = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 10, 1, 5), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmLinkEnd2NodeWwn.setDescription('The node name of end2, or the zero-length string if\n            unknown.')
-fcmLinkEnd2PhysPortNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 10, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmLinkEnd2PhysPortNumber.setDescription('The physical port number of end2, or zero if unknown.')
-fcmLinkEnd2PortWwn = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 10, 1, 7), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmLinkEnd2PortWwn.setDescription('The port WWN of end2, or the zero-length string if\n            unknown.')
-fcmLinkEnd2AgentAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 10, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmLinkEnd2AgentAddress.setDescription('The address of the management agent for the Fibre Channel\n            Interconnect Element or Platform of which end2 is a part.\n            The GS-4 specification provides some information about\n            management agents.  If the address is unknown, the value of\n            this object is the zero-length string.')
-fcmLinkEnd2PortType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 10, 1, 9), FcPortType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmLinkEnd2PortType.setDescription('The port type of end2.')
-fcmLinkEnd2UnitType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 10, 1, 10), FcUnitFunctions()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmLinkEnd2UnitType.setDescription('The type of/function(s) performed by the Fibre Channel\n            Interconnect Element or Platform of which end2 is a part.')
-fcmLinkEnd2FcAddressId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 56, 1, 10, 1, 11), FcAddressIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fcmLinkEnd2FcAddressId.setDescription('The Fibre Channel Address ID of end2, or the zero-length\n            string if unknown.')
-fcmgmtCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 56, 3, 1))
-fcmgmtGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 56, 3, 2))
-fcmgmtCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 56, 3, 1, 1)).setObjects(*(("FC-MGMT-MIB", "fcmInstanceBasicGroup"), ("FC-MGMT-MIB", "fcmPortBasicGroup"), ("FC-MGMT-MIB", "fcmPortErrorsGroup"), ("FC-MGMT-MIB", "fcmPortStatsGroup"), ("FC-MGMT-MIB", "fcmPortClass23StatsGroup"), ("FC-MGMT-MIB", "fcmPortClassFStatsGroup"), ("FC-MGMT-MIB", "fcmPortLcStatsGroup"), ("FC-MGMT-MIB", "fcmSwitchBasicGroup"), ("FC-MGMT-MIB", "fcmSwitchPortGroup"), ("FC-MGMT-MIB", "fcmSwitchLoginGroup"), ("FC-MGMT-MIB", "fcmLinkBasicGroup"),))
-if mibBuilder.loadTexts: fcmgmtCompliance.setDescription('Describes the requirements for compliance to this Fibre\n            Channel Management MIB.')
-fcmInstanceBasicGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 56, 3, 2, 1)).setObjects(*(("FC-MGMT-MIB", "fcmInstanceWwn"), ("FC-MGMT-MIB", "fcmInstanceFunctions"), ("FC-MGMT-MIB", "fcmInstancePhysicalIndex"), ("FC-MGMT-MIB", "fcmInstanceSoftwareIndex"), ("FC-MGMT-MIB", "fcmInstanceStatus"), ("FC-MGMT-MIB", "fcmInstanceTextName"), ("FC-MGMT-MIB", "fcmInstanceDescr"), ("FC-MGMT-MIB", "fcmInstanceFabricId"),))
-if mibBuilder.loadTexts: fcmInstanceBasicGroup.setDescription('Basic information about Fibre Channel managed instances.')
-fcmSwitchBasicGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 56, 3, 2, 2)).setObjects(*(("FC-MGMT-MIB", "fcmSwitchDomainId"), ("FC-MGMT-MIB", "fcmSwitchPrincipal"), ("FC-MGMT-MIB", "fcmSwitchWWN"),))
-if mibBuilder.loadTexts: fcmSwitchBasicGroup.setDescription('Basic information about Fibre Channel switches.')
-fcmPortBasicGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 56, 3, 2, 3)).setObjects(*(("FC-MGMT-MIB", "fcmPortInstanceIndex"), ("FC-MGMT-MIB", "fcmPortWwn"), ("FC-MGMT-MIB", "fcmPortNodeWwn"), ("FC-MGMT-MIB", "fcmPortAdminType"), ("FC-MGMT-MIB", "fcmPortOperType"), ("FC-MGMT-MIB", "fcmPortFcCapClass"), ("FC-MGMT-MIB", "fcmPortFcOperClass"), ("FC-MGMT-MIB", "fcmPortTransmitterType"), ("FC-MGMT-MIB", "fcmPortConnectorType"), ("FC-MGMT-MIB", "fcmPortSerialNumber"), ("FC-MGMT-MIB", "fcmPortPhysicalNumber"), ("FC-MGMT-MIB", "fcmPortAdminSpeed"), ("FC-MGMT-MIB", "fcmPortCapProtocols"), ("FC-MGMT-MIB", "fcmPortOperProtocols"),))
-if mibBuilder.loadTexts: fcmPortBasicGroup.setDescription('Basic information about Fibre Channel ports.')
-fcmPortStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 56, 3, 2, 4)).setObjects(*(("FC-MGMT-MIB", "fcmPortBBCreditZeros"), ("FC-MGMT-MIB", "fcmPortFullInputBuffers"),))
-if mibBuilder.loadTexts: fcmPortStatsGroup.setDescription('Traffic statistics, which are not specific to any one class\n            of service, for Fibre Channel ports.')
-fcmPortClass23StatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 56, 3, 2, 5)).setObjects(*(("FC-MGMT-MIB", "fcmPortClass2RxFrames"), ("FC-MGMT-MIB", "fcmPortClass2RxOctets"), ("FC-MGMT-MIB", "fcmPortClass2TxFrames"), ("FC-MGMT-MIB", "fcmPortClass2TxOctets"), ("FC-MGMT-MIB", "fcmPortClass2Discards"), ("FC-MGMT-MIB", "fcmPortClass2RxFbsyFrames"), ("FC-MGMT-MIB", "fcmPortClass2RxPbsyFrames"), ("FC-MGMT-MIB", "fcmPortClass2RxFrjtFrames"), ("FC-MGMT-MIB", "fcmPortClass2RxPrjtFrames"), ("FC-MGMT-MIB", "fcmPortClass2TxFbsyFrames"), ("FC-MGMT-MIB", "fcmPortClass2TxPbsyFrames"), ("FC-MGMT-MIB", "fcmPortClass2TxFrjtFrames"), ("FC-MGMT-MIB", "fcmPortClass2TxPrjtFrames"), ("FC-MGMT-MIB", "fcmPortClass3RxFrames"), ("FC-MGMT-MIB", "fcmPortClass3RxOctets"), ("FC-MGMT-MIB", "fcmPortClass3TxFrames"), ("FC-MGMT-MIB", "fcmPortClass3TxOctets"), ("FC-MGMT-MIB", "fcmPortClass3Discards"),))
-if mibBuilder.loadTexts: fcmPortClass23StatsGroup.setDescription('Traffic statistics for Class 2 and Class 3 traffic on Fibre\n            Channel ports.')
-fcmPortClassFStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 56, 3, 2, 6)).setObjects(*(("FC-MGMT-MIB", "fcmPortClassFRxFrames"), ("FC-MGMT-MIB", "fcmPortClassFRxOctets"), ("FC-MGMT-MIB", "fcmPortClassFTxFrames"), ("FC-MGMT-MIB", "fcmPortClassFTxOctets"), ("FC-MGMT-MIB", "fcmPortClassFDiscards"),))
-if mibBuilder.loadTexts: fcmPortClassFStatsGroup.setDescription('Traffic statistics for Class F traffic on Fibre Channel\n            ports.')
-fcmPortLcStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 56, 3, 2, 7)).setObjects(*(("FC-MGMT-MIB", "fcmPortLcBBCreditZeros"), ("FC-MGMT-MIB", "fcmPortLcFullInputBuffers"), ("FC-MGMT-MIB", "fcmPortLcClass2RxFrames"), ("FC-MGMT-MIB", "fcmPortLcClass2RxOctets"), ("FC-MGMT-MIB", "fcmPortLcClass2TxFrames"), ("FC-MGMT-MIB", "fcmPortLcClass2TxOctets"), ("FC-MGMT-MIB", "fcmPortLcClass2Discards"), ("FC-MGMT-MIB", "fcmPortLcClass3Discards"), ("FC-MGMT-MIB", "fcmPortLcClass3RxFrames"), ("FC-MGMT-MIB", "fcmPortLcClass3RxOctets"), ("FC-MGMT-MIB", "fcmPortLcClass3TxFrames"), ("FC-MGMT-MIB", "fcmPortLcClass3TxOctets"), ("FC-MGMT-MIB", "fcmPortLcClass2RxFbsyFrames"), ("FC-MGMT-MIB", "fcmPortLcClass2RxPbsyFrames"), ("FC-MGMT-MIB", "fcmPortLcClass2RxFrjtFrames"), ("FC-MGMT-MIB", "fcmPortLcClass2RxPrjtFrames"), ("FC-MGMT-MIB", "fcmPortLcClass2TxFbsyFrames"), ("FC-MGMT-MIB", "fcmPortLcClass2TxPbsyFrames"), ("FC-MGMT-MIB", "fcmPortLcClass2TxFrjtFrames"), ("FC-MGMT-MIB", "fcmPortLcClass2TxPrjtFrames"),))
-if mibBuilder.loadTexts: fcmPortLcStatsGroup.setDescription('Low-capacity (32-bit) statistics for Fibre Channel ports.')
-fcmPortErrorsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 56, 3, 2, 8)).setObjects(*(("FC-MGMT-MIB", "fcmPortRxLinkResets"), ("FC-MGMT-MIB", "fcmPortTxLinkResets"), ("FC-MGMT-MIB", "fcmPortLinkResets"), ("FC-MGMT-MIB", "fcmPortRxOfflineSequences"), ("FC-MGMT-MIB", "fcmPortTxOfflineSequences"), ("FC-MGMT-MIB", "fcmPortLinkFailures"), ("FC-MGMT-MIB", "fcmPortLossofSynchs"), ("FC-MGMT-MIB", "fcmPortLossofSignals"), ("FC-MGMT-MIB", "fcmPortPrimSeqProtocolErrors"), ("FC-MGMT-MIB", "fcmPortInvalidTxWords"), ("FC-MGMT-MIB", "fcmPortInvalidCRCs"), ("FC-MGMT-MIB", "fcmPortInvalidOrderedSets"), ("FC-MGMT-MIB", "fcmPortFrameTooLongs"), ("FC-MGMT-MIB", "fcmPortTruncatedFrames"), ("FC-MGMT-MIB", "fcmPortAddressErrors"), ("FC-MGMT-MIB", "fcmPortDelimiterErrors"), ("FC-MGMT-MIB", "fcmPortEncodingDisparityErrors"), ("FC-MGMT-MIB", "fcmPortOtherErrors"),))
-if mibBuilder.loadTexts: fcmPortErrorsGroup.setDescription('Error statistics for Fibre Channel ports.')
-fcmSwitchPortGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 56, 3, 2, 9)).setObjects(*(("FC-MGMT-MIB", "fcmFxPortRatov"), ("FC-MGMT-MIB", "fcmFxPortEdtov"), ("FC-MGMT-MIB", "fcmFxPortRttov"), ("FC-MGMT-MIB", "fcmFxPortHoldTime"), ("FC-MGMT-MIB", "fcmFxPortCapBbCreditMax"), ("FC-MGMT-MIB", "fcmFxPortCapBbCreditMin"), ("FC-MGMT-MIB", "fcmFxPortCapDataFieldSizeMax"), ("FC-MGMT-MIB", "fcmFxPortCapDataFieldSizeMin"), ("FC-MGMT-MIB", "fcmFxPortCapClass2SeqDeliv"), ("FC-MGMT-MIB", "fcmFxPortCapClass3SeqDeliv"), ("FC-MGMT-MIB", "fcmFxPortCapHoldTimeMax"), ("FC-MGMT-MIB", "fcmFxPortCapHoldTimeMin"), ("FC-MGMT-MIB", "fcmISPortClassFCredit"), ("FC-MGMT-MIB", "fcmISPortClassFDataFieldSize"),))
-if mibBuilder.loadTexts: fcmSwitchPortGroup.setDescription('Information about ports on a Fibre Channel switch.')
-fcmSwitchLoginGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 56, 3, 2, 10)).setObjects(*(("FC-MGMT-MIB", "fcmFLoginPortWwn"), ("FC-MGMT-MIB", "fcmFLoginNodeWwn"), ("FC-MGMT-MIB", "fcmFLoginBbCreditModel"), ("FC-MGMT-MIB", "fcmFLoginBbCredit"), ("FC-MGMT-MIB", "fcmFLoginClassesAgreed"), ("FC-MGMT-MIB", "fcmFLoginClass2SeqDelivAgreed"), ("FC-MGMT-MIB", "fcmFLoginClass2DataFieldSize"), ("FC-MGMT-MIB", "fcmFLoginClass3SeqDelivAgreed"), ("FC-MGMT-MIB", "fcmFLoginClass3DataFieldSize"),))
-if mibBuilder.loadTexts: fcmSwitchLoginGroup.setDescription('Information known to a Fibre Channel switch about\n            attached/logged-in Nx_Ports.')
-fcmLinkBasicGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 56, 3, 2, 11)).setObjects(*(("FC-MGMT-MIB", "fcmLinkEnd1NodeWwn"), ("FC-MGMT-MIB", "fcmLinkEnd1PhysPortNumber"), ("FC-MGMT-MIB", "fcmLinkEnd1PortWwn"), ("FC-MGMT-MIB", "fcmLinkEnd2NodeWwn"), ("FC-MGMT-MIB", "fcmLinkEnd2PhysPortNumber"), ("FC-MGMT-MIB", "fcmLinkEnd2PortWwn"), ("FC-MGMT-MIB", "fcmLinkEnd2AgentAddress"), ("FC-MGMT-MIB", "fcmLinkEnd2PortType"), ("FC-MGMT-MIB", "fcmLinkEnd2UnitType"), ("FC-MGMT-MIB", "fcmLinkEnd2FcAddressId"),))
-if mibBuilder.loadTexts: fcmLinkBasicGroup.setDescription('Information about Fibre Channel links.')
-mibBuilder.exportSymbols("FC-MGMT-MIB", fcmgmtCompliances=fcmgmtCompliances, fcmSwitchDomainId=fcmSwitchDomainId, fcmLinkEnd1NodeWwn=fcmLinkEnd1NodeWwn, fcmFLoginNodeWwn=fcmFLoginNodeWwn, fcmPortClass3RxFrames=fcmPortClass3RxFrames, fcmPortLinkResets=fcmPortLinkResets, fcmFxPortCapClass3SeqDeliv=fcmFxPortCapClass3SeqDeliv, fcmPortLcClass2TxFrjtFrames=fcmPortLcClass2TxFrjtFrames, fcmPortStatsEntry=fcmPortStatsEntry, fcmFxPortCapBbCreditMin=fcmFxPortCapBbCreditMin, fcmISPortTable=fcmISPortTable, fcmPortSerialNumber=fcmPortSerialNumber, fcmPortLcStatsEntry=fcmPortLcStatsEntry, fcmPortClassFRxFrames=fcmPortClassFRxFrames, fcmSwitchWWN=fcmSwitchWWN, fcmSwitchTable=fcmSwitchTable, fcmPortConnectorType=fcmPortConnectorType, fcmPortLcClass2Discards=fcmPortLcClass2Discards, fcmFxPortCapClass2SeqDeliv=fcmFxPortCapClass2SeqDeliv, fcmPortErrorsGroup=fcmPortErrorsGroup, fcmPortTransmitterType=fcmPortTransmitterType, fcmPortClass2RxFrjtFrames=fcmPortClass2RxFrjtFrames, fcmPortLcClass2TxFbsyFrames=fcmPortLcClass2TxFbsyFrames, fcmPortBBCreditZeros=fcmPortBBCreditZeros, fcmLinkEntry=fcmLinkEntry, fcmPortLcClass2TxOctets=fcmPortLcClass2TxOctets, fcmPortLcBBCreditZeros=fcmPortLcBBCreditZeros, fcmFLoginBbCredit=fcmFLoginBbCredit, fcmPortFrameTooLongs=fcmPortFrameTooLongs, fcmLinkTable=fcmLinkTable, fcmPortLcClass2RxFrames=fcmPortLcClass2RxFrames, fcmInstanceTable=fcmInstanceTable, fcmPortErrorsEntry=fcmPortErrorsEntry, fcmLinkEnd2PortWwn=fcmLinkEnd2PortWwn, fcmInstanceStatus=fcmInstanceStatus, fcmPortClass2TxFrames=fcmPortClass2TxFrames, fcmPortLcClass2TxPrjtFrames=fcmPortLcClass2TxPrjtFrames, fcmPortLcClass2TxFrames=fcmPortLcClass2TxFrames, fcmPortInvalidOrderedSets=fcmPortInvalidOrderedSets, fcmPortLcClass2RxPbsyFrames=fcmPortLcClass2RxPbsyFrames, fcmPortInstanceIndex=fcmPortInstanceIndex, fcmSwitchLoginGroup=fcmSwitchLoginGroup, fcmPortNodeWwn=fcmPortNodeWwn, fcmPortCapProtocols=fcmPortCapProtocols, fcmPortBasicGroup=fcmPortBasicGroup, fcmLinkEnd1PortWwn=fcmLinkEnd1PortWwn, fcmPortLinkFailures=fcmPortLinkFailures, fcmFLoginTable=fcmFLoginTable, fcmgmtConformance=fcmgmtConformance, fcmPortFcOperClass=fcmPortFcOperClass, fcmFxPortTable=fcmFxPortTable, fcmPortEncodingDisparityErrors=fcmPortEncodingDisparityErrors, fcmFLoginEntry=fcmFLoginEntry, fcmLinkEnd2UnitType=fcmLinkEnd2UnitType, fcmPortClass2TxPrjtFrames=fcmPortClass2TxPrjtFrames, fcmPortLcClass3TxFrames=fcmPortLcClass3TxFrames, fcmPortLcClass3Discards=fcmPortLcClass3Discards, fcmPortClass2RxPrjtFrames=fcmPortClass2RxPrjtFrames, fcmSwitchBasicGroup=fcmSwitchBasicGroup, fcmInstancePhysicalIndex=fcmInstancePhysicalIndex, fcmPortClass2TxFrjtFrames=fcmPortClass2TxFrjtFrames, fcmPortClassFTxFrames=fcmPortClassFTxFrames, fcmInstanceBasicGroup=fcmInstanceBasicGroup, fcmPortDelimiterErrors=fcmPortDelimiterErrors, fcmPortOperProtocols=fcmPortOperProtocols, fcmFxPortCapHoldTimeMin=fcmFxPortCapHoldTimeMin, fcmInstanceFabricId=fcmInstanceFabricId, fcmPortClassFRxOctets=fcmPortClassFRxOctets, fcmFxPortCapDataFieldSizeMax=fcmFxPortCapDataFieldSizeMax, fcmFLoginClass3SeqDelivAgreed=fcmFLoginClass3SeqDelivAgreed, fcmPortEntry=fcmPortEntry, fcmPortClass2Discards=fcmPortClass2Discards, fcmFLoginClassesAgreed=fcmFLoginClassesAgreed, fcmISPortClassFCredit=fcmISPortClassFCredit, fcmPortLcFullInputBuffers=fcmPortLcFullInputBuffers, fcmPortLcClass2RxPrjtFrames=fcmPortLcClass2RxPrjtFrames, fcmPortLcClass2TxPbsyFrames=fcmPortLcClass2TxPbsyFrames, fcmLinkEnd1PhysPortNumber=fcmLinkEnd1PhysPortNumber, fcmPortLcStatsTable=fcmPortLcStatsTable, fcmInstanceSoftwareIndex=fcmInstanceSoftwareIndex, fcmPortOperType=fcmPortOperType, FcPortType=FcPortType, fcmPortClass2TxFbsyFrames=fcmPortClass2TxFbsyFrames, fcmPortInvalidTxWords=fcmPortInvalidTxWords, fcmPortStatsGroup=fcmPortStatsGroup, fcmLinkEnd2PhysPortNumber=fcmLinkEnd2PhysPortNumber, FcUnitFunctions=FcUnitFunctions, fcmFLoginBbCreditModel=fcmFLoginBbCreditModel, fcmLinkEnd2NodeWwn=fcmLinkEnd2NodeWwn, fcmISPortEntry=fcmISPortEntry, PYSNMP_MODULE_ID=fcMgmtMIB, fcmPortLcClass3RxOctets=fcmPortLcClass3RxOctets, fcmPortAddressErrors=fcmPortAddressErrors, fcmPortLcClass2RxOctets=fcmPortLcClass2RxOctets, fcmPortPrimSeqProtocolErrors=fcmPortPrimSeqProtocolErrors, fcmFLoginPortWwn=fcmFLoginPortWwn, fcmPortStatsTable=fcmPortStatsTable, FcDomainIdOrZero=FcDomainIdOrZero, fcmFxPortCapHoldTimeMax=fcmFxPortCapHoldTimeMax, fcMgmtMIB=fcMgmtMIB, fcmPortLcClass2RxFbsyFrames=fcmPortLcClass2RxFbsyFrames, FcBbCreditModel=FcBbCreditModel, fcmInstanceTextName=fcmInstanceTextName, fcmSwitchPrincipal=fcmSwitchPrincipal, fcmSwitchPortGroup=fcmSwitchPortGroup, fcmFLoginClass2SeqDelivAgreed=fcmFLoginClass2SeqDelivAgreed, fcmInstanceWwn=fcmInstanceWwn, FcClasses=FcClasses, fcmPortAdminType=fcmPortAdminType, fcmgmtCompliance=fcmgmtCompliance, fcmPortErrorsTable=fcmPortErrorsTable, fcmPortLcClass3TxOctets=fcmPortLcClass3TxOctets, fcmPortTable=fcmPortTable, fcmFxPortRttov=fcmFxPortRttov, fcmLinkEnd2FcAddressId=fcmLinkEnd2FcAddressId, FcDataFieldSize=FcDataFieldSize, fcmPortLossofSynchs=fcmPortLossofSynchs, fcmPortOtherErrors=fcmPortOtherErrors, fcmPortClass3RxOctets=fcmPortClass3RxOctets, fcmInstanceEntry=fcmInstanceEntry, fcmPortClass2TxPbsyFrames=fcmPortClass2TxPbsyFrames, fcmLinkBasicGroup=fcmLinkBasicGroup, fcmFxPortRatov=fcmFxPortRatov, fcmPortClass2RxFrames=fcmPortClass2RxFrames, fcmPortRxOfflineSequences=fcmPortRxOfflineSequences, fcmgmtObjects=fcmgmtObjects, fcmPortClass2RxOctets=fcmPortClass2RxOctets, fcmFLoginNxPortIndex=fcmFLoginNxPortIndex, fcmPortClassFTxOctets=fcmPortClassFTxOctets, fcmPortWwn=fcmPortWwn, fcmInstanceFunctions=fcmInstanceFunctions, fcmgmtNotifications=fcmgmtNotifications, fcmLinkEnd2PortType=fcmLinkEnd2PortType, fcmPortPhysicalNumber=fcmPortPhysicalNumber, fcmPortClass3TxOctets=fcmPortClass3TxOctets, fcmPortClassFDiscards=fcmPortClassFDiscards, FcBbCredit=FcBbCredit, fcmLinkEnd2AgentAddress=fcmLinkEnd2AgentAddress, fcmPortClass2RxPbsyFrames=fcmPortClass2RxPbsyFrames, fcmFxPortEntry=fcmFxPortEntry, fcmFLoginClass3DataFieldSize=fcmFLoginClass3DataFieldSize, fcmFxPortCapBbCreditMax=fcmFxPortCapBbCreditMax, fcmgmtNotifPrefix=fcmgmtNotifPrefix, FcNameIdOrZero=FcNameIdOrZero, FcAddressIdOrZero=FcAddressIdOrZero, fcmPortFcCapClass=fcmPortFcCapClass, fcmPortFullInputBuffers=fcmPortFullInputBuffers, fcmPortClass2TxOctets=fcmPortClass2TxOctets, fcmPortLcClass2RxFrjtFrames=fcmPortLcClass2RxFrjtFrames, fcmPortInvalidCRCs=fcmPortInvalidCRCs, fcmInstanceDescr=fcmInstanceDescr, fcmPortClass3Discards=fcmPortClass3Discards, fcmPortLcStatsGroup=fcmPortLcStatsGroup, fcmPortLcClass3RxFrames=fcmPortLcClass3RxFrames, fcmPortClass3TxFrames=fcmPortClass3TxFrames, fcmInstanceIndex=fcmInstanceIndex, fcmFxPortCapDataFieldSizeMin=fcmFxPortCapDataFieldSizeMin, fcmSwitchEntry=fcmSwitchEntry, fcmPortRxLinkResets=fcmPortRxLinkResets, fcmPortAdminSpeed=fcmPortAdminSpeed, fcmPortTxOfflineSequences=fcmPortTxOfflineSequences, fcmgmtGroups=fcmgmtGroups, fcmFLoginClass2DataFieldSize=fcmFLoginClass2DataFieldSize, fcmPortTxLinkResets=fcmPortTxLinkResets, fcmSwitchIndex=fcmSwitchIndex, fcmFxPortEdtov=fcmFxPortEdtov, fcmPortTruncatedFrames=fcmPortTruncatedFrames, fcmPortLossofSignals=fcmPortLossofSignals, fcmPortClass2RxFbsyFrames=fcmPortClass2RxFbsyFrames, fcmFxPortHoldTime=fcmFxPortHoldTime, fcmPortClass23StatsGroup=fcmPortClass23StatsGroup, fcmLinkIndex=fcmLinkIndex, fcmPortClassFStatsGroup=fcmPortClassFStatsGroup, fcmISPortClassFDataFieldSize=fcmISPortClassFDataFieldSize)
+fcmInstanceBasicGroup=ObjectGroup((1,3,6,1,2,1,10,56,3,2,1))
+fcmInstanceBasicGroup.setObjects(*((_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g)))
+if mibBuilder.loadTexts:fcmInstanceBasicGroup.setStatus(_A)
+fcmSwitchBasicGroup=ObjectGroup((1,3,6,1,2,1,10,56,3,2,2))
+fcmSwitchBasicGroup.setObjects(*((_B,_h),(_B,_i),(_B,_j)))
+if mibBuilder.loadTexts:fcmSwitchBasicGroup.setStatus(_A)
+fcmPortBasicGroup=ObjectGroup((1,3,6,1,2,1,10,56,3,2,3))
+fcmPortBasicGroup.setObjects(*((_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x)))
+if mibBuilder.loadTexts:fcmPortBasicGroup.setStatus(_A)
+fcmPortStatsGroup=ObjectGroup((1,3,6,1,2,1,10,56,3,2,4))
+fcmPortStatsGroup.setObjects(*((_B,_y),(_B,_z)))
+if mibBuilder.loadTexts:fcmPortStatsGroup.setStatus(_A)
+fcmPortClass23StatsGroup=ObjectGroup((1,3,6,1,2,1,10,56,3,2,5))
+fcmPortClass23StatsGroup.setObjects(*((_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH)))
+if mibBuilder.loadTexts:fcmPortClass23StatsGroup.setStatus(_A)
+fcmPortClassFStatsGroup=ObjectGroup((1,3,6,1,2,1,10,56,3,2,6))
+fcmPortClassFStatsGroup.setObjects(*((_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM)))
+if mibBuilder.loadTexts:fcmPortClassFStatsGroup.setStatus(_A)
+fcmPortLcStatsGroup=ObjectGroup((1,3,6,1,2,1,10,56,3,2,7))
+fcmPortLcStatsGroup.setObjects(*((_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag)))
+if mibBuilder.loadTexts:fcmPortLcStatsGroup.setStatus(_A)
+fcmPortErrorsGroup=ObjectGroup((1,3,6,1,2,1,10,56,3,2,8))
+fcmPortErrorsGroup.setObjects(*((_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay)))
+if mibBuilder.loadTexts:fcmPortErrorsGroup.setStatus(_A)
+fcmSwitchPortGroup=ObjectGroup((1,3,6,1,2,1,10,56,3,2,9))
+fcmSwitchPortGroup.setObjects(*((_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7),(_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB)))
+if mibBuilder.loadTexts:fcmSwitchPortGroup.setStatus(_A)
+fcmSwitchLoginGroup=ObjectGroup((1,3,6,1,2,1,10,56,3,2,10))
+fcmSwitchLoginGroup.setObjects(*((_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI),(_B,_BJ),(_B,_BK)))
+if mibBuilder.loadTexts:fcmSwitchLoginGroup.setStatus(_A)
+fcmLinkBasicGroup=ObjectGroup((1,3,6,1,2,1,10,56,3,2,11))
+fcmLinkBasicGroup.setObjects(*((_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_BS),(_B,_BT),(_B,_BU)))
+if mibBuilder.loadTexts:fcmLinkBasicGroup.setStatus(_A)
+fcmgmtCompliance=ModuleCompliance((1,3,6,1,2,1,10,56,3,1,1))
+fcmgmtCompliance.setObjects(*((_B,_BV),(_B,_BW),(_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba),(_B,_Bb),(_B,_Bc),(_B,_Bd),(_B,_Be),(_B,_Bf)))
+if mibBuilder.loadTexts:fcmgmtCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'FcNameIdOrZero':FcNameIdOrZero,'FcAddressIdOrZero':FcAddressIdOrZero,'FcDomainIdOrZero':FcDomainIdOrZero,'FcPortType':FcPortType,'FcClasses':FcClasses,'FcBbCredit':FcBbCredit,'FcBbCreditModel':FcBbCreditModel,'FcDataFieldSize':FcDataFieldSize,'FcUnitFunctions':FcUnitFunctions,'fcMgmtMIB':fcMgmtMIB,'fcmgmtObjects':fcmgmtObjects,'fcmInstanceTable':fcmInstanceTable,'fcmInstanceEntry':fcmInstanceEntry,_J:fcmInstanceIndex,_Z:fcmInstanceWwn,_a:fcmInstanceFunctions,_b:fcmInstancePhysicalIndex,_c:fcmInstanceSoftwareIndex,_d:fcmInstanceStatus,_e:fcmInstanceTextName,_f:fcmInstanceDescr,_g:fcmInstanceFabricId,'fcmSwitchTable':fcmSwitchTable,'fcmSwitchEntry':fcmSwitchEntry,_R:fcmSwitchIndex,_h:fcmSwitchDomainId,_i:fcmSwitchPrincipal,_j:fcmSwitchWWN,'fcmPortTable':fcmPortTable,'fcmPortEntry':fcmPortEntry,_k:fcmPortInstanceIndex,_l:fcmPortWwn,_m:fcmPortNodeWwn,_n:fcmPortAdminType,_o:fcmPortOperType,_p:fcmPortFcCapClass,_q:fcmPortFcOperClass,_r:fcmPortTransmitterType,_s:fcmPortConnectorType,_t:fcmPortSerialNumber,_u:fcmPortPhysicalNumber,_v:fcmPortAdminSpeed,_w:fcmPortCapProtocols,_x:fcmPortOperProtocols,'fcmPortStatsTable':fcmPortStatsTable,_W:fcmPortStatsEntry,_y:fcmPortBBCreditZeros,_z:fcmPortFullInputBuffers,_A0:fcmPortClass2RxFrames,_A1:fcmPortClass2RxOctets,_A2:fcmPortClass2TxFrames,_A3:fcmPortClass2TxOctets,_A4:fcmPortClass2Discards,_A5:fcmPortClass2RxFbsyFrames,_A6:fcmPortClass2RxPbsyFrames,_A7:fcmPortClass2RxFrjtFrames,_A8:fcmPortClass2RxPrjtFrames,_A9:fcmPortClass2TxFbsyFrames,_AA:fcmPortClass2TxPbsyFrames,_AB:fcmPortClass2TxFrjtFrames,_AC:fcmPortClass2TxPrjtFrames,_AD:fcmPortClass3RxFrames,_AE:fcmPortClass3RxOctets,_AF:fcmPortClass3TxFrames,_AG:fcmPortClass3TxOctets,_AH:fcmPortClass3Discards,_AI:fcmPortClassFRxFrames,_AJ:fcmPortClassFRxOctets,_AK:fcmPortClassFTxFrames,_AL:fcmPortClassFTxOctets,_AM:fcmPortClassFDiscards,'fcmPortLcStatsTable':fcmPortLcStatsTable,_X:fcmPortLcStatsEntry,_AN:fcmPortLcBBCreditZeros,_AO:fcmPortLcFullInputBuffers,_AP:fcmPortLcClass2RxFrames,_AQ:fcmPortLcClass2RxOctets,_AR:fcmPortLcClass2TxFrames,_AS:fcmPortLcClass2TxOctets,_AT:fcmPortLcClass2Discards,_AZ:fcmPortLcClass2RxFbsyFrames,_Aa:fcmPortLcClass2RxPbsyFrames,_Ab:fcmPortLcClass2RxFrjtFrames,_Ac:fcmPortLcClass2RxPrjtFrames,_Ad:fcmPortLcClass2TxFbsyFrames,_Ae:fcmPortLcClass2TxPbsyFrames,_Af:fcmPortLcClass2TxFrjtFrames,_Ag:fcmPortLcClass2TxPrjtFrames,_AV:fcmPortLcClass3RxFrames,_AW:fcmPortLcClass3RxOctets,_AX:fcmPortLcClass3TxFrames,_AY:fcmPortLcClass3TxOctets,_AU:fcmPortLcClass3Discards,'fcmPortErrorsTable':fcmPortErrorsTable,_Y:fcmPortErrorsEntry,_Ah:fcmPortRxLinkResets,_Ai:fcmPortTxLinkResets,_Aj:fcmPortLinkResets,_Ak:fcmPortRxOfflineSequences,_Al:fcmPortTxOfflineSequences,_Am:fcmPortLinkFailures,_An:fcmPortLossofSynchs,_Ao:fcmPortLossofSignals,_Ap:fcmPortPrimSeqProtocolErrors,_Aq:fcmPortInvalidTxWords,_Ar:fcmPortInvalidCRCs,_As:fcmPortInvalidOrderedSets,_At:fcmPortFrameTooLongs,_Au:fcmPortTruncatedFrames,_Av:fcmPortAddressErrors,_Aw:fcmPortDelimiterErrors,_Ax:fcmPortEncodingDisparityErrors,_Ay:fcmPortOtherErrors,'fcmFxPortTable':fcmFxPortTable,'fcmFxPortEntry':fcmFxPortEntry,_Az:fcmFxPortRatov,_A_:fcmFxPortEdtov,_B0:fcmFxPortRttov,_B1:fcmFxPortHoldTime,_B2:fcmFxPortCapBbCreditMax,_B3:fcmFxPortCapBbCreditMin,_B4:fcmFxPortCapDataFieldSizeMax,_B5:fcmFxPortCapDataFieldSizeMin,_B6:fcmFxPortCapClass2SeqDeliv,_B7:fcmFxPortCapClass3SeqDeliv,_B8:fcmFxPortCapHoldTimeMax,_B9:fcmFxPortCapHoldTimeMin,'fcmISPortTable':fcmISPortTable,'fcmISPortEntry':fcmISPortEntry,_BA:fcmISPortClassFCredit,_BB:fcmISPortClassFDataFieldSize,'fcmFLoginTable':fcmFLoginTable,'fcmFLoginEntry':fcmFLoginEntry,_U:fcmFLoginNxPortIndex,_BC:fcmFLoginPortWwn,_BD:fcmFLoginNodeWwn,_BE:fcmFLoginBbCreditModel,_BF:fcmFLoginBbCredit,_BG:fcmFLoginClassesAgreed,_BH:fcmFLoginClass2SeqDelivAgreed,_BI:fcmFLoginClass2DataFieldSize,_BJ:fcmFLoginClass3SeqDelivAgreed,_BK:fcmFLoginClass3DataFieldSize,'fcmLinkTable':fcmLinkTable,'fcmLinkEntry':fcmLinkEntry,_V:fcmLinkIndex,_BL:fcmLinkEnd1NodeWwn,_BM:fcmLinkEnd1PhysPortNumber,_BN:fcmLinkEnd1PortWwn,_BO:fcmLinkEnd2NodeWwn,_BP:fcmLinkEnd2PhysPortNumber,_BQ:fcmLinkEnd2PortWwn,_BR:fcmLinkEnd2AgentAddress,_BS:fcmLinkEnd2PortType,_BT:fcmLinkEnd2UnitType,_BU:fcmLinkEnd2FcAddressId,'fcmgmtNotifications':fcmgmtNotifications,'fcmgmtNotifPrefix':fcmgmtNotifPrefix,'fcmgmtConformance':fcmgmtConformance,'fcmgmtCompliances':fcmgmtCompliances,'fcmgmtCompliance':fcmgmtCompliance,'fcmgmtGroups':fcmgmtGroups,_BV:fcmInstanceBasicGroup,_Bc:fcmSwitchBasicGroup,_BW:fcmPortBasicGroup,_BY:fcmPortStatsGroup,_BZ:fcmPortClass23StatsGroup,_Ba:fcmPortClassFStatsGroup,_Bb:fcmPortLcStatsGroup,_BX:fcmPortErrorsGroup,_Bd:fcmSwitchPortGroup,_Be:fcmSwitchLoginGroup,_Bf:fcmLinkBasicGroup})

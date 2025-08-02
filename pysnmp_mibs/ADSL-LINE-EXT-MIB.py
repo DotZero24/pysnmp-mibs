@@ -1,183 +1,439 @@
-#
-# PySNMP MIB module ADSL-LINE-EXT-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/ADSL-LINE-EXT-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:04:05 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( adslAtucIntervalEntry, adslLineAlarmConfProfileEntry, adslAtucPerfDataEntry, adslAturIntervalEntry, adslAturPerfDataEntry, adslLineConfProfileEntry, adslMIB, adslLineEntry, ) = mibBuilder.importSymbols("ADSL-LINE-MIB", "adslAtucIntervalEntry", "adslLineAlarmConfProfileEntry", "adslAtucPerfDataEntry", "adslAturIntervalEntry", "adslAturPerfDataEntry", "adslLineConfProfileEntry", "adslMIB", "adslLineEntry")
-( AdslPerfPrevDayCount, AdslPerfCurrDayCount, ) = mibBuilder.importSymbols("ADSL-TC-MIB", "AdslPerfPrevDayCount", "AdslPerfCurrDayCount")
-( ObjectIdentifier, OctetString, Integer, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
-( PerfIntervalCount, PerfCurrentCount, ) = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfIntervalCount", "PerfCurrentCount")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( Counter64, ObjectIdentity, TimeTicks, iso, Integer32, MibIdentifier, Gauge32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Counter32, Unsigned32, NotificationType, ModuleIdentity, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ObjectIdentity", "TimeTicks", "iso", "Integer32", "MibIdentifier", "Gauge32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Counter32", "Unsigned32", "NotificationType", "ModuleIdentity")
-( TextualConvention, DisplayString, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-adslExtMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 94, 3)).setRevisions(("2002-12-10 00:00",))
-if mibBuilder.loadTexts: adslExtMIB.setLastUpdated('200212100000Z')
-if mibBuilder.loadTexts: adslExtMIB.setOrganization('IETF ADSL MIB Working Group')
-if mibBuilder.loadTexts: adslExtMIB.setContactInfo('\n          Faye Ly\n          Pedestal Networks\n          6503 Dumbarton Circle,\n          Fremont, CA 94555\n          Tel: +1 510-578-0158\n          Fax: +1 510-744-5152\n          E-Mail: faye@pedestalnetworks.com\n\n          Gregory Bathrick\n          Nokia Networks\n          2235 Mercury Way,\n          Fax: +1 707-535-7300\n          E-Mail: greg.bathrick@nokia.com\n\n          General Discussion:adslmib@ietf.org\n          To Subscribe: https://www1.ietf.org/mailman/listinfo/adslmib\n          Archive: https://www1.ietf.org/mailman/listinfo/adslmib\n          ')
-if mibBuilder.loadTexts: adslExtMIB.setDescription('Copyright (C) The Internet Society (2002). This version of\n           this MIB module is part of RFC 3440; see the RFC itself for\n           full legal notices.\n\n           This MIB Module is a supplement to the ADSL-LINE-MIB\n           [RFC2662].')
-adslExtMibObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 94, 3, 1))
-class AdslTransmissionModeType(Bits, TextualConvention):
-    namedValues = NamedValues(("ansit1413", 0), ("etsi", 1), ("q9921PotsNonOverlapped", 2), ("q9921PotsOverlapped", 3), ("q9921IsdnNonOverlapped", 4), ("q9921isdnOverlapped", 5), ("q9921tcmIsdnNonOverlapped", 6), ("q9921tcmIsdnOverlapped", 7), ("q9922potsNonOverlapeed", 8), ("q9922potsOverlapped", 9), ("q9922tcmIsdnNonOverlapped", 10), ("q9922tcmIsdnOverlapped", 11), ("q9921tcmIsdnSymmetric", 12),)
-
-adslLineExtTable = MibTable((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 17), )
-if mibBuilder.loadTexts: adslLineExtTable.setDescription("This table is an extension of RFC 2662.  It\n                  contains ADSL line configuration and\n                  monitoring information. This includes the ADSL\n                  line's capabilities and actual ADSL transmission\n                  system.")
-adslLineExtEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 17, 1), )
-adslLineEntry.registerAugmentions(("ADSL-LINE-EXT-MIB", "adslLineExtEntry"))
+_AE='adslExtNotificationsGroup'
+_AD='adslExtAturPhysPerfCounterGroup'
+_AC='adslExtAtucPhysPerfCounterGroup'
+_AB='adslExtLineAlarmConfProfileGroup'
+_AA='adslExtLineConfProfileControlGroup'
+_A9='adslExtLineGroup'
+_A8='adslAturUasLThreshTrap'
+_A7='adslAturSesLThreshTrap'
+_A6='adslAtucUasLThreshTrap'
+_A5='adslAtucSesLThreshTrap'
+_A4='adslAtucFailedFastRThreshTrap'
+_A3='adslAturThreshold15MinUasL'
+_A2='adslAturThreshold15MinSesL'
+_A1='adslAtucThreshold15MinUasL'
+_A0='adslAtucThreshold15MinSesL'
+_z='adslAtucThreshold15MinFailedFastR'
+_y='adslConfProfileLineType'
+_x='adslAturIntervalUasL'
+_w='adslAturIntervalSesL'
+_v='adslAturPerfPrev1DayUasL'
+_u='adslAturPerfPrev1DaySesL'
+_t='adslAturPerfCurr1DayUasL'
+_s='adslAturPerfCurr1DaySesL'
+_r='adslAturPerfStatUasL'
+_q='adslAturPerfStatSesL'
+_p='adslAtucIntervalUasL'
+_o='adslAtucIntervalSesL'
+_n='adslAtucIntervalFailedFastR'
+_m='adslAtucIntervalFastR'
+_l='adslAtucPerfPrev1DayUasL'
+_k='adslAtucPerfPrev1DaySesL'
+_j='adslAtucPerfCurr1DayUasL'
+_i='adslAtucPerfCurr1DaySesL'
+_h='adslAtucPerfStatUasL'
+_g='adslAtucPerfStatSesL'
+_f='adslAtucPerfPrev1DayFailedFastR'
+_e='adslAtucPerfPrev1DayFastR'
+_d='adslAtucPerfCurr1DayFailedFastR'
+_c='adslAtucPerfCurr1DayFastR'
+_b='adslAtucPerfCurr15MinFastR'
+_a='adslAtucPerfStatFailedFastR'
+_Z='adslAtucPerfStatFastR'
+_Y='adslLineGlitePowerState'
+_X='adslLineTransAtucActual'
+_W='adslLineTransAtucConfig'
+_V='adslLineTransAtucCap'
+_U='adslLineConfProfileDualLite'
+_T='adslAlarmConfProfileExtEntry'
+_S='adslConfProfileExtEntry'
+_R='adslAturIntervalExtEntry'
+_Q='adslAturPerfDataExtEntry'
+_P='adslAtucIntervalExtEntry'
+_O='adslAtucPerfDataExtEntry'
+_N='adslLineExtEntry'
+_M='line retrains'
+_L='read-write'
+_K='adslAturPerfCurr15MinUasL'
+_J='adslAturPerfCurr15MinSesL'
+_I='adslAtucPerfCurr15MinUasL'
+_H='adslAtucPerfCurr15MinSesL'
+_G='adslAtucPerfCurr15MinFailedFastR'
+_F='read-create'
+_E='Integer32'
+_D='seconds'
+_C='read-only'
+_B='ADSL-LINE-EXT-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+adslAtucIntervalEntry,adslAtucPerfDataEntry,adslAturIntervalEntry,adslAturPerfDataEntry,adslLineAlarmConfProfileEntry,adslLineConfProfileEntry,adslLineEntry,adslMIB=mibBuilder.importSymbols('ADSL-LINE-MIB','adslAtucIntervalEntry','adslAtucPerfDataEntry','adslAturIntervalEntry','adslAturPerfDataEntry','adslLineAlarmConfProfileEntry','adslLineConfProfileEntry','adslLineEntry','adslMIB')
+AdslPerfCurrDayCount,AdslPerfPrevDayCount=mibBuilder.importSymbols('ADSL-TC-MIB','AdslPerfCurrDayCount','AdslPerfPrevDayCount')
+PerfCurrentCount,PerfIntervalCount=mibBuilder.importSymbols('PerfHist-TC-MIB','PerfCurrentCount','PerfIntervalCount')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+adslExtMIB=ModuleIdentity((1,3,6,1,2,1,10,94,3))
+if mibBuilder.loadTexts:adslExtMIB.setRevisions(('2002-12-10 00:00',))
+class AdslTransmissionModeType(TextualConvention,Bits):status=_A;namedValues=NamedValues(*(('ansit1413',0),('etsi',1),('q9921PotsNonOverlapped',2),('q9921PotsOverlapped',3),('q9921IsdnNonOverlapped',4),('q9921isdnOverlapped',5),('q9921tcmIsdnNonOverlapped',6),('q9921tcmIsdnOverlapped',7),('q9922potsNonOverlapeed',8),('q9922potsOverlapped',9),('q9922tcmIsdnNonOverlapped',10),('q9922tcmIsdnOverlapped',11),('q9921tcmIsdnSymmetric',12)))
+_AdslExtMibObjects_ObjectIdentity=ObjectIdentity
+adslExtMibObjects=_AdslExtMibObjects_ObjectIdentity((1,3,6,1,2,1,10,94,3,1))
+_AdslLineExtTable_Object=MibTable
+adslLineExtTable=_AdslLineExtTable_Object((1,3,6,1,2,1,10,94,3,1,17))
+if mibBuilder.loadTexts:adslLineExtTable.setStatus(_A)
+_AdslLineExtEntry_Object=MibTableRow
+adslLineExtEntry=_AdslLineExtEntry_Object((1,3,6,1,2,1,10,94,3,1,17,1))
+if mibBuilder.loadTexts:adslLineExtEntry.setStatus(_A)
+_AdslLineTransAtucCap_Type=AdslTransmissionModeType
+_AdslLineTransAtucCap_Object=MibTableColumn
+adslLineTransAtucCap=_AdslLineTransAtucCap_Object((1,3,6,1,2,1,10,94,3,1,17,1,1),_AdslLineTransAtucCap_Type())
+adslLineTransAtucCap.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslLineTransAtucCap.setStatus(_A)
+_AdslLineTransAtucConfig_Type=AdslTransmissionModeType
+_AdslLineTransAtucConfig_Object=MibTableColumn
+adslLineTransAtucConfig=_AdslLineTransAtucConfig_Object((1,3,6,1,2,1,10,94,3,1,17,1,2),_AdslLineTransAtucConfig_Type())
+adslLineTransAtucConfig.setMaxAccess(_L)
+if mibBuilder.loadTexts:adslLineTransAtucConfig.setStatus(_A)
+_AdslLineTransAtucActual_Type=AdslTransmissionModeType
+_AdslLineTransAtucActual_Object=MibTableColumn
+adslLineTransAtucActual=_AdslLineTransAtucActual_Object((1,3,6,1,2,1,10,94,3,1,17,1,3),_AdslLineTransAtucActual_Type())
+adslLineTransAtucActual.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslLineTransAtucActual.setStatus(_A)
+class _AdslLineGlitePowerState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('none',1),('l0',2),('l1',3),('l3',4)))
+_AdslLineGlitePowerState_Type.__name__=_E
+_AdslLineGlitePowerState_Object=MibTableColumn
+adslLineGlitePowerState=_AdslLineGlitePowerState_Object((1,3,6,1,2,1,10,94,3,1,17,1,4),_AdslLineGlitePowerState_Type())
+adslLineGlitePowerState.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslLineGlitePowerState.setStatus(_A)
+_AdslLineConfProfileDualLite_Type=SnmpAdminString
+_AdslLineConfProfileDualLite_Object=MibTableColumn
+adslLineConfProfileDualLite=_AdslLineConfProfileDualLite_Object((1,3,6,1,2,1,10,94,3,1,17,1,5),_AdslLineConfProfileDualLite_Type())
+adslLineConfProfileDualLite.setMaxAccess(_L)
+if mibBuilder.loadTexts:adslLineConfProfileDualLite.setStatus(_A)
+_AdslAtucPerfDataExtTable_Object=MibTable
+adslAtucPerfDataExtTable=_AdslAtucPerfDataExtTable_Object((1,3,6,1,2,1,10,94,3,1,18))
+if mibBuilder.loadTexts:adslAtucPerfDataExtTable.setStatus(_A)
+_AdslAtucPerfDataExtEntry_Object=MibTableRow
+adslAtucPerfDataExtEntry=_AdslAtucPerfDataExtEntry_Object((1,3,6,1,2,1,10,94,3,1,18,1))
+if mibBuilder.loadTexts:adslAtucPerfDataExtEntry.setStatus(_A)
+_AdslAtucPerfStatFastR_Type=Counter32
+_AdslAtucPerfStatFastR_Object=MibTableColumn
+adslAtucPerfStatFastR=_AdslAtucPerfStatFastR_Object((1,3,6,1,2,1,10,94,3,1,18,1,1),_AdslAtucPerfStatFastR_Type())
+adslAtucPerfStatFastR.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucPerfStatFastR.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucPerfStatFastR.setUnits(_M)
+_AdslAtucPerfStatFailedFastR_Type=Counter32
+_AdslAtucPerfStatFailedFastR_Object=MibTableColumn
+adslAtucPerfStatFailedFastR=_AdslAtucPerfStatFailedFastR_Object((1,3,6,1,2,1,10,94,3,1,18,1,2),_AdslAtucPerfStatFailedFastR_Type())
+adslAtucPerfStatFailedFastR.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucPerfStatFailedFastR.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucPerfStatFailedFastR.setUnits(_M)
+_AdslAtucPerfStatSesL_Type=Counter32
+_AdslAtucPerfStatSesL_Object=MibTableColumn
+adslAtucPerfStatSesL=_AdslAtucPerfStatSesL_Object((1,3,6,1,2,1,10,94,3,1,18,1,3),_AdslAtucPerfStatSesL_Type())
+adslAtucPerfStatSesL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucPerfStatSesL.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucPerfStatSesL.setUnits(_D)
+_AdslAtucPerfStatUasL_Type=Counter32
+_AdslAtucPerfStatUasL_Object=MibTableColumn
+adslAtucPerfStatUasL=_AdslAtucPerfStatUasL_Object((1,3,6,1,2,1,10,94,3,1,18,1,4),_AdslAtucPerfStatUasL_Type())
+adslAtucPerfStatUasL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucPerfStatUasL.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucPerfStatUasL.setUnits(_D)
+_AdslAtucPerfCurr15MinFastR_Type=PerfCurrentCount
+_AdslAtucPerfCurr15MinFastR_Object=MibTableColumn
+adslAtucPerfCurr15MinFastR=_AdslAtucPerfCurr15MinFastR_Object((1,3,6,1,2,1,10,94,3,1,18,1,5),_AdslAtucPerfCurr15MinFastR_Type())
+adslAtucPerfCurr15MinFastR.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucPerfCurr15MinFastR.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucPerfCurr15MinFastR.setUnits(_D)
+_AdslAtucPerfCurr15MinFailedFastR_Type=PerfCurrentCount
+_AdslAtucPerfCurr15MinFailedFastR_Object=MibTableColumn
+adslAtucPerfCurr15MinFailedFastR=_AdslAtucPerfCurr15MinFailedFastR_Object((1,3,6,1,2,1,10,94,3,1,18,1,6),_AdslAtucPerfCurr15MinFailedFastR_Type())
+adslAtucPerfCurr15MinFailedFastR.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucPerfCurr15MinFailedFastR.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucPerfCurr15MinFailedFastR.setUnits(_D)
+_AdslAtucPerfCurr15MinSesL_Type=PerfCurrentCount
+_AdslAtucPerfCurr15MinSesL_Object=MibTableColumn
+adslAtucPerfCurr15MinSesL=_AdslAtucPerfCurr15MinSesL_Object((1,3,6,1,2,1,10,94,3,1,18,1,7),_AdslAtucPerfCurr15MinSesL_Type())
+adslAtucPerfCurr15MinSesL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucPerfCurr15MinSesL.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucPerfCurr15MinSesL.setUnits(_D)
+_AdslAtucPerfCurr15MinUasL_Type=PerfCurrentCount
+_AdslAtucPerfCurr15MinUasL_Object=MibTableColumn
+adslAtucPerfCurr15MinUasL=_AdslAtucPerfCurr15MinUasL_Object((1,3,6,1,2,1,10,94,3,1,18,1,8),_AdslAtucPerfCurr15MinUasL_Type())
+adslAtucPerfCurr15MinUasL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucPerfCurr15MinUasL.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucPerfCurr15MinUasL.setUnits(_D)
+_AdslAtucPerfCurr1DayFastR_Type=AdslPerfCurrDayCount
+_AdslAtucPerfCurr1DayFastR_Object=MibTableColumn
+adslAtucPerfCurr1DayFastR=_AdslAtucPerfCurr1DayFastR_Object((1,3,6,1,2,1,10,94,3,1,18,1,9),_AdslAtucPerfCurr1DayFastR_Type())
+adslAtucPerfCurr1DayFastR.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucPerfCurr1DayFastR.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucPerfCurr1DayFastR.setUnits(_D)
+_AdslAtucPerfCurr1DayFailedFastR_Type=AdslPerfCurrDayCount
+_AdslAtucPerfCurr1DayFailedFastR_Object=MibTableColumn
+adslAtucPerfCurr1DayFailedFastR=_AdslAtucPerfCurr1DayFailedFastR_Object((1,3,6,1,2,1,10,94,3,1,18,1,10),_AdslAtucPerfCurr1DayFailedFastR_Type())
+adslAtucPerfCurr1DayFailedFastR.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucPerfCurr1DayFailedFastR.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucPerfCurr1DayFailedFastR.setUnits(_D)
+_AdslAtucPerfCurr1DaySesL_Type=AdslPerfCurrDayCount
+_AdslAtucPerfCurr1DaySesL_Object=MibTableColumn
+adslAtucPerfCurr1DaySesL=_AdslAtucPerfCurr1DaySesL_Object((1,3,6,1,2,1,10,94,3,1,18,1,11),_AdslAtucPerfCurr1DaySesL_Type())
+adslAtucPerfCurr1DaySesL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucPerfCurr1DaySesL.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucPerfCurr1DaySesL.setUnits(_D)
+_AdslAtucPerfCurr1DayUasL_Type=AdslPerfCurrDayCount
+_AdslAtucPerfCurr1DayUasL_Object=MibTableColumn
+adslAtucPerfCurr1DayUasL=_AdslAtucPerfCurr1DayUasL_Object((1,3,6,1,2,1,10,94,3,1,18,1,12),_AdslAtucPerfCurr1DayUasL_Type())
+adslAtucPerfCurr1DayUasL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucPerfCurr1DayUasL.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucPerfCurr1DayUasL.setUnits(_D)
+_AdslAtucPerfPrev1DayFastR_Type=AdslPerfPrevDayCount
+_AdslAtucPerfPrev1DayFastR_Object=MibTableColumn
+adslAtucPerfPrev1DayFastR=_AdslAtucPerfPrev1DayFastR_Object((1,3,6,1,2,1,10,94,3,1,18,1,13),_AdslAtucPerfPrev1DayFastR_Type())
+adslAtucPerfPrev1DayFastR.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucPerfPrev1DayFastR.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucPerfPrev1DayFastR.setUnits(_D)
+_AdslAtucPerfPrev1DayFailedFastR_Type=AdslPerfPrevDayCount
+_AdslAtucPerfPrev1DayFailedFastR_Object=MibTableColumn
+adslAtucPerfPrev1DayFailedFastR=_AdslAtucPerfPrev1DayFailedFastR_Object((1,3,6,1,2,1,10,94,3,1,18,1,14),_AdslAtucPerfPrev1DayFailedFastR_Type())
+adslAtucPerfPrev1DayFailedFastR.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucPerfPrev1DayFailedFastR.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucPerfPrev1DayFailedFastR.setUnits(_D)
+_AdslAtucPerfPrev1DaySesL_Type=AdslPerfPrevDayCount
+_AdslAtucPerfPrev1DaySesL_Object=MibTableColumn
+adslAtucPerfPrev1DaySesL=_AdslAtucPerfPrev1DaySesL_Object((1,3,6,1,2,1,10,94,3,1,18,1,15),_AdslAtucPerfPrev1DaySesL_Type())
+adslAtucPerfPrev1DaySesL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucPerfPrev1DaySesL.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucPerfPrev1DaySesL.setUnits(_D)
+_AdslAtucPerfPrev1DayUasL_Type=AdslPerfPrevDayCount
+_AdslAtucPerfPrev1DayUasL_Object=MibTableColumn
+adslAtucPerfPrev1DayUasL=_AdslAtucPerfPrev1DayUasL_Object((1,3,6,1,2,1,10,94,3,1,18,1,16),_AdslAtucPerfPrev1DayUasL_Type())
+adslAtucPerfPrev1DayUasL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucPerfPrev1DayUasL.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucPerfPrev1DayUasL.setUnits(_D)
+_AdslAtucIntervalExtTable_Object=MibTable
+adslAtucIntervalExtTable=_AdslAtucIntervalExtTable_Object((1,3,6,1,2,1,10,94,3,1,19))
+if mibBuilder.loadTexts:adslAtucIntervalExtTable.setStatus(_A)
+_AdslAtucIntervalExtEntry_Object=MibTableRow
+adslAtucIntervalExtEntry=_AdslAtucIntervalExtEntry_Object((1,3,6,1,2,1,10,94,3,1,19,1))
+if mibBuilder.loadTexts:adslAtucIntervalExtEntry.setStatus(_A)
+_AdslAtucIntervalFastR_Type=PerfIntervalCount
+_AdslAtucIntervalFastR_Object=MibTableColumn
+adslAtucIntervalFastR=_AdslAtucIntervalFastR_Object((1,3,6,1,2,1,10,94,3,1,19,1,1),_AdslAtucIntervalFastR_Type())
+adslAtucIntervalFastR.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucIntervalFastR.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucIntervalFastR.setUnits(_D)
+_AdslAtucIntervalFailedFastR_Type=PerfIntervalCount
+_AdslAtucIntervalFailedFastR_Object=MibTableColumn
+adslAtucIntervalFailedFastR=_AdslAtucIntervalFailedFastR_Object((1,3,6,1,2,1,10,94,3,1,19,1,2),_AdslAtucIntervalFailedFastR_Type())
+adslAtucIntervalFailedFastR.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucIntervalFailedFastR.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucIntervalFailedFastR.setUnits(_D)
+_AdslAtucIntervalSesL_Type=PerfIntervalCount
+_AdslAtucIntervalSesL_Object=MibTableColumn
+adslAtucIntervalSesL=_AdslAtucIntervalSesL_Object((1,3,6,1,2,1,10,94,3,1,19,1,3),_AdslAtucIntervalSesL_Type())
+adslAtucIntervalSesL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucIntervalSesL.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucIntervalSesL.setUnits(_D)
+_AdslAtucIntervalUasL_Type=PerfIntervalCount
+_AdslAtucIntervalUasL_Object=MibTableColumn
+adslAtucIntervalUasL=_AdslAtucIntervalUasL_Object((1,3,6,1,2,1,10,94,3,1,19,1,4),_AdslAtucIntervalUasL_Type())
+adslAtucIntervalUasL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAtucIntervalUasL.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucIntervalUasL.setUnits(_D)
+_AdslAturPerfDataExtTable_Object=MibTable
+adslAturPerfDataExtTable=_AdslAturPerfDataExtTable_Object((1,3,6,1,2,1,10,94,3,1,20))
+if mibBuilder.loadTexts:adslAturPerfDataExtTable.setStatus(_A)
+_AdslAturPerfDataExtEntry_Object=MibTableRow
+adslAturPerfDataExtEntry=_AdslAturPerfDataExtEntry_Object((1,3,6,1,2,1,10,94,3,1,20,1))
+if mibBuilder.loadTexts:adslAturPerfDataExtEntry.setStatus(_A)
+_AdslAturPerfStatSesL_Type=Counter32
+_AdslAturPerfStatSesL_Object=MibTableColumn
+adslAturPerfStatSesL=_AdslAturPerfStatSesL_Object((1,3,6,1,2,1,10,94,3,1,20,1,1),_AdslAturPerfStatSesL_Type())
+adslAturPerfStatSesL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAturPerfStatSesL.setStatus(_A)
+if mibBuilder.loadTexts:adslAturPerfStatSesL.setUnits(_D)
+_AdslAturPerfStatUasL_Type=Counter32
+_AdslAturPerfStatUasL_Object=MibTableColumn
+adslAturPerfStatUasL=_AdslAturPerfStatUasL_Object((1,3,6,1,2,1,10,94,3,1,20,1,2),_AdslAturPerfStatUasL_Type())
+adslAturPerfStatUasL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAturPerfStatUasL.setStatus(_A)
+if mibBuilder.loadTexts:adslAturPerfStatUasL.setUnits(_D)
+_AdslAturPerfCurr15MinSesL_Type=PerfCurrentCount
+_AdslAturPerfCurr15MinSesL_Object=MibTableColumn
+adslAturPerfCurr15MinSesL=_AdslAturPerfCurr15MinSesL_Object((1,3,6,1,2,1,10,94,3,1,20,1,3),_AdslAturPerfCurr15MinSesL_Type())
+adslAturPerfCurr15MinSesL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAturPerfCurr15MinSesL.setStatus(_A)
+if mibBuilder.loadTexts:adslAturPerfCurr15MinSesL.setUnits(_D)
+_AdslAturPerfCurr15MinUasL_Type=PerfCurrentCount
+_AdslAturPerfCurr15MinUasL_Object=MibTableColumn
+adslAturPerfCurr15MinUasL=_AdslAturPerfCurr15MinUasL_Object((1,3,6,1,2,1,10,94,3,1,20,1,4),_AdslAturPerfCurr15MinUasL_Type())
+adslAturPerfCurr15MinUasL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAturPerfCurr15MinUasL.setStatus(_A)
+if mibBuilder.loadTexts:adslAturPerfCurr15MinUasL.setUnits(_D)
+_AdslAturPerfCurr1DaySesL_Type=AdslPerfCurrDayCount
+_AdslAturPerfCurr1DaySesL_Object=MibTableColumn
+adslAturPerfCurr1DaySesL=_AdslAturPerfCurr1DaySesL_Object((1,3,6,1,2,1,10,94,3,1,20,1,5),_AdslAturPerfCurr1DaySesL_Type())
+adslAturPerfCurr1DaySesL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAturPerfCurr1DaySesL.setStatus(_A)
+if mibBuilder.loadTexts:adslAturPerfCurr1DaySesL.setUnits(_D)
+_AdslAturPerfCurr1DayUasL_Type=AdslPerfCurrDayCount
+_AdslAturPerfCurr1DayUasL_Object=MibTableColumn
+adslAturPerfCurr1DayUasL=_AdslAturPerfCurr1DayUasL_Object((1,3,6,1,2,1,10,94,3,1,20,1,6),_AdslAturPerfCurr1DayUasL_Type())
+adslAturPerfCurr1DayUasL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAturPerfCurr1DayUasL.setStatus(_A)
+if mibBuilder.loadTexts:adslAturPerfCurr1DayUasL.setUnits(_D)
+_AdslAturPerfPrev1DaySesL_Type=AdslPerfPrevDayCount
+_AdslAturPerfPrev1DaySesL_Object=MibTableColumn
+adslAturPerfPrev1DaySesL=_AdslAturPerfPrev1DaySesL_Object((1,3,6,1,2,1,10,94,3,1,20,1,7),_AdslAturPerfPrev1DaySesL_Type())
+adslAturPerfPrev1DaySesL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAturPerfPrev1DaySesL.setStatus(_A)
+if mibBuilder.loadTexts:adslAturPerfPrev1DaySesL.setUnits(_D)
+_AdslAturPerfPrev1DayUasL_Type=AdslPerfPrevDayCount
+_AdslAturPerfPrev1DayUasL_Object=MibTableColumn
+adslAturPerfPrev1DayUasL=_AdslAturPerfPrev1DayUasL_Object((1,3,6,1,2,1,10,94,3,1,20,1,8),_AdslAturPerfPrev1DayUasL_Type())
+adslAturPerfPrev1DayUasL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAturPerfPrev1DayUasL.setStatus(_A)
+if mibBuilder.loadTexts:adslAturPerfPrev1DayUasL.setUnits(_D)
+_AdslAturIntervalExtTable_Object=MibTable
+adslAturIntervalExtTable=_AdslAturIntervalExtTable_Object((1,3,6,1,2,1,10,94,3,1,21))
+if mibBuilder.loadTexts:adslAturIntervalExtTable.setStatus(_A)
+_AdslAturIntervalExtEntry_Object=MibTableRow
+adslAturIntervalExtEntry=_AdslAturIntervalExtEntry_Object((1,3,6,1,2,1,10,94,3,1,21,1))
+if mibBuilder.loadTexts:adslAturIntervalExtEntry.setStatus(_A)
+_AdslAturIntervalSesL_Type=PerfIntervalCount
+_AdslAturIntervalSesL_Object=MibTableColumn
+adslAturIntervalSesL=_AdslAturIntervalSesL_Object((1,3,6,1,2,1,10,94,3,1,21,1,1),_AdslAturIntervalSesL_Type())
+adslAturIntervalSesL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAturIntervalSesL.setStatus(_A)
+if mibBuilder.loadTexts:adslAturIntervalSesL.setUnits(_D)
+_AdslAturIntervalUasL_Type=PerfIntervalCount
+_AdslAturIntervalUasL_Object=MibTableColumn
+adslAturIntervalUasL=_AdslAturIntervalUasL_Object((1,3,6,1,2,1,10,94,3,1,21,1,2),_AdslAturIntervalUasL_Type())
+adslAturIntervalUasL.setMaxAccess(_C)
+if mibBuilder.loadTexts:adslAturIntervalUasL.setStatus(_A)
+if mibBuilder.loadTexts:adslAturIntervalUasL.setUnits(_D)
+_AdslConfProfileExtTable_Object=MibTable
+adslConfProfileExtTable=_AdslConfProfileExtTable_Object((1,3,6,1,2,1,10,94,3,1,22))
+if mibBuilder.loadTexts:adslConfProfileExtTable.setStatus(_A)
+_AdslConfProfileExtEntry_Object=MibTableRow
+adslConfProfileExtEntry=_AdslConfProfileExtEntry_Object((1,3,6,1,2,1,10,94,3,1,22,1))
+if mibBuilder.loadTexts:adslConfProfileExtEntry.setStatus(_A)
+class _AdslConfProfileLineType_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('noChannel',1),('fastOnly',2),('interleavedOnly',3),('fastOrInterleaved',4),('fastAndInterleaved',5)))
+_AdslConfProfileLineType_Type.__name__=_E
+_AdslConfProfileLineType_Object=MibTableColumn
+adslConfProfileLineType=_AdslConfProfileLineType_Object((1,3,6,1,2,1,10,94,3,1,22,1,1),_AdslConfProfileLineType_Type())
+adslConfProfileLineType.setMaxAccess(_F)
+if mibBuilder.loadTexts:adslConfProfileLineType.setStatus(_A)
+_AdslAlarmConfProfileExtTable_Object=MibTable
+adslAlarmConfProfileExtTable=_AdslAlarmConfProfileExtTable_Object((1,3,6,1,2,1,10,94,3,1,23))
+if mibBuilder.loadTexts:adslAlarmConfProfileExtTable.setStatus(_A)
+_AdslAlarmConfProfileExtEntry_Object=MibTableRow
+adslAlarmConfProfileExtEntry=_AdslAlarmConfProfileExtEntry_Object((1,3,6,1,2,1,10,94,3,1,23,1))
+if mibBuilder.loadTexts:adslAlarmConfProfileExtEntry.setStatus(_A)
+class _AdslAtucThreshold15MinFailedFastR_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,900))
+_AdslAtucThreshold15MinFailedFastR_Type.__name__=_E
+_AdslAtucThreshold15MinFailedFastR_Object=MibTableColumn
+adslAtucThreshold15MinFailedFastR=_AdslAtucThreshold15MinFailedFastR_Object((1,3,6,1,2,1,10,94,3,1,23,1,1),_AdslAtucThreshold15MinFailedFastR_Type())
+adslAtucThreshold15MinFailedFastR.setMaxAccess(_F)
+if mibBuilder.loadTexts:adslAtucThreshold15MinFailedFastR.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucThreshold15MinFailedFastR.setUnits(_D)
+class _AdslAtucThreshold15MinSesL_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,900))
+_AdslAtucThreshold15MinSesL_Type.__name__=_E
+_AdslAtucThreshold15MinSesL_Object=MibTableColumn
+adslAtucThreshold15MinSesL=_AdslAtucThreshold15MinSesL_Object((1,3,6,1,2,1,10,94,3,1,23,1,2),_AdslAtucThreshold15MinSesL_Type())
+adslAtucThreshold15MinSesL.setMaxAccess(_F)
+if mibBuilder.loadTexts:adslAtucThreshold15MinSesL.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucThreshold15MinSesL.setUnits(_D)
+class _AdslAtucThreshold15MinUasL_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,900))
+_AdslAtucThreshold15MinUasL_Type.__name__=_E
+_AdslAtucThreshold15MinUasL_Object=MibTableColumn
+adslAtucThreshold15MinUasL=_AdslAtucThreshold15MinUasL_Object((1,3,6,1,2,1,10,94,3,1,23,1,3),_AdslAtucThreshold15MinUasL_Type())
+adslAtucThreshold15MinUasL.setMaxAccess(_F)
+if mibBuilder.loadTexts:adslAtucThreshold15MinUasL.setStatus(_A)
+if mibBuilder.loadTexts:adslAtucThreshold15MinUasL.setUnits(_D)
+class _AdslAturThreshold15MinSesL_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,900))
+_AdslAturThreshold15MinSesL_Type.__name__=_E
+_AdslAturThreshold15MinSesL_Object=MibTableColumn
+adslAturThreshold15MinSesL=_AdslAturThreshold15MinSesL_Object((1,3,6,1,2,1,10,94,3,1,23,1,4),_AdslAturThreshold15MinSesL_Type())
+adslAturThreshold15MinSesL.setMaxAccess(_F)
+if mibBuilder.loadTexts:adslAturThreshold15MinSesL.setStatus(_A)
+if mibBuilder.loadTexts:adslAturThreshold15MinSesL.setUnits(_D)
+class _AdslAturThreshold15MinUasL_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,900))
+_AdslAturThreshold15MinUasL_Type.__name__=_E
+_AdslAturThreshold15MinUasL_Object=MibTableColumn
+adslAturThreshold15MinUasL=_AdslAturThreshold15MinUasL_Object((1,3,6,1,2,1,10,94,3,1,23,1,5),_AdslAturThreshold15MinUasL_Type())
+adslAturThreshold15MinUasL.setMaxAccess(_F)
+if mibBuilder.loadTexts:adslAturThreshold15MinUasL.setStatus(_A)
+if mibBuilder.loadTexts:adslAturThreshold15MinUasL.setUnits(_D)
+_AdslExtTraps_ObjectIdentity=ObjectIdentity
+adslExtTraps=_AdslExtTraps_ObjectIdentity((1,3,6,1,2,1,10,94,3,1,24))
+_AdslExtAtucTraps_ObjectIdentity=ObjectIdentity
+adslExtAtucTraps=_AdslExtAtucTraps_ObjectIdentity((1,3,6,1,2,1,10,94,3,1,24,1))
+_AdslExtAtucTrapsPrefix_ObjectIdentity=ObjectIdentity
+adslExtAtucTrapsPrefix=_AdslExtAtucTrapsPrefix_ObjectIdentity((1,3,6,1,2,1,10,94,3,1,24,1,0))
+_AdslExtAturTraps_ObjectIdentity=ObjectIdentity
+adslExtAturTraps=_AdslExtAturTraps_ObjectIdentity((1,3,6,1,2,1,10,94,3,1,24,2))
+_AdslExtAturTrapsPrefix_ObjectIdentity=ObjectIdentity
+adslExtAturTrapsPrefix=_AdslExtAturTrapsPrefix_ObjectIdentity((1,3,6,1,2,1,10,94,3,1,24,2,0))
+_AdslExtConformance_ObjectIdentity=ObjectIdentity
+adslExtConformance=_AdslExtConformance_ObjectIdentity((1,3,6,1,2,1,10,94,3,2))
+_AdslExtGroups_ObjectIdentity=ObjectIdentity
+adslExtGroups=_AdslExtGroups_ObjectIdentity((1,3,6,1,2,1,10,94,3,2,1))
+_AdslExtCompliances_ObjectIdentity=ObjectIdentity
+adslExtCompliances=_AdslExtCompliances_ObjectIdentity((1,3,6,1,2,1,10,94,3,2,2))
+adslLineEntry.registerAugmentions((_B,_N))
 adslLineExtEntry.setIndexNames(*adslLineEntry.getIndexNames())
-if mibBuilder.loadTexts: adslLineExtEntry.setDescription('An entry extends the adslLineEntry defined in\n                  [RFC2662].  Each entry corresponds to an ADSL\n                  line.')
-adslLineTransAtucCap = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 17, 1, 1), AdslTransmissionModeType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslLineTransAtucCap.setDescription('The transmission modes, represented by a\n                  bitmask that the ATU-C is capable of\n                  supporting.  The modes available are limited\n                  by the design of the equipment.')
-adslLineTransAtucConfig = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 17, 1, 2), AdslTransmissionModeType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: adslLineTransAtucConfig.setDescription("The transmission modes, represented by a bitmask,\n                  currently enabled by the ATU-C.  The manager can\n                  only set those modes that are supported by the\n\n\n                  ATU-C.  An ATU-C's supported modes are provided by\n                  AdslLineTransAtucCap.")
-adslLineTransAtucActual = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 17, 1, 3), AdslTransmissionModeType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslLineTransAtucActual.setDescription("The actual transmission mode of the ATU-C.\n                  During ADSL line initialization, the ADSL\n                  Transceiver Unit - Remote terminal end (ATU-R)\n                  will determine the mode used for the link.\n                  This value will be limited a single transmission\n                  mode that is a subset of those modes enabled\n                  by the ATU-C and denoted by\n                  adslLineTransAtucConfig. After an initialization\n                  has occurred, its mode is saved as the 'Current'\n                  mode and is persistence should the link go\n                  down. This object returns 0 (i.e. BITS with no\n                  mode bit set) if the mode is not known.")
-adslLineGlitePowerState = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 17, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("none", 1), ("l0", 2), ("l1", 3), ("l3", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslLineGlitePowerState.setDescription('The value of this object specifies the power\n                  state of this interface.  L0 is power on, L1 is\n                  power on but reduced and L3 is power off.  Power\n                  state cannot be configured by an operator but it\n                  can be viewed via the ifOperStatus object for the\n                  managed ADSL interface.  The value of the object\n                  ifOperStatus is set to down(2) if the ADSL\n                  interface is in power state L3 and is set to up(1)\n                  if the ADSL line interface is in power state L0 or\n                  L1. If the object adslLineTransAtucActual is set to\n                  a G.992.2 (G.Lite)-type transmission mode, the\n                  value of this object will be one of the valid power\n                  states: L0(2), L1(3), or L3(4).  Otherwise, its\n\n\n                  value will be none(1).')
-adslLineConfProfileDualLite = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 17, 1, 5), SnmpAdminString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: adslLineConfProfileDualLite.setDescription("This object extends the definition an ADSL line and\n                  associated channels (when applicable) for cases\n                  when it is configured in dual mode, and operating\n                  in a G.Lite-type mode as denoted by\n                  adslLineTransAtucActual.  Dual mode exists when the\n                  object, adslLineTransAtucConfig, is configured with\n                  one or more full-rate modes and one or more G.Lite\n                  modes simultaneously.\n\n                  When 'dynamic' profiles are implemented, the value\n                  of object is equal to the index of the applicable\n                  row in the ADSL Line Configuration Profile Table,\n                  AdslLineConfProfileTable defined in ADSL-MIB\n                  [RFC2662].\n\n                  In the case when dual-mode has not been enabled,\n                  the value of the object will be equal to the value\n                  of the object adslLineConfProfile [RFC2662].\n\n                  When `static' profiles are implemented, in much\n                  like the case of the object,\n                  adslLineConfProfileName [RFC2662], this object's\n                  value will need to algorithmically represent the\n                  characteristics of the line.  In this case, the\n                  value of the line's ifIndex plus a value indicating\n                  the line mode type (e.g., G.Lite, Full-rate) will\n                  be used. Therefore, the profile's name is a string\n                  concatenating the ifIndex and one of the follow\n                  values: Full or Lite. This string will be\n                  fixed-length (i.e., 14) with leading zero(s).  For\n                  example, the profile name for ifIndex that equals\n                  '15' and is a full rate line, it will be\n                  '0000000015Full'.")
-adslAtucPerfDataExtTable = MibTable((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18), )
-if mibBuilder.loadTexts: adslAtucPerfDataExtTable.setDescription('This table extends adslAtucPerfDataTable [RFC2662]\n                  with additional ADSL physical line counter\n                  information such as unavailable seconds-line and\n                  severely errored seconds-line.')
-adslAtucPerfDataExtEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18, 1), )
-adslAtucPerfDataEntry.registerAugmentions(("ADSL-LINE-EXT-MIB", "adslAtucPerfDataExtEntry"))
+adslAtucPerfDataEntry.registerAugmentions((_B,_O))
 adslAtucPerfDataExtEntry.setIndexNames(*adslAtucPerfDataEntry.getIndexNames())
-if mibBuilder.loadTexts: adslAtucPerfDataExtEntry.setDescription('An entry extends the adslAtucPerfDataEntry defined\n                  in [RFC2662].  Each entry corresponds to an ADSL\n                  line.')
-adslAtucPerfStatFastR = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18, 1, 1), Counter32()).setUnits('line retrains').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucPerfStatFastR.setDescription('The value of this object reports the count of\n                  the number of fast line bs since last\n                  agent reset.')
-adslAtucPerfStatFailedFastR = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18, 1, 2), Counter32()).setUnits('line retrains').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucPerfStatFailedFastR.setDescription('The value of this object reports the count of\n                  the number of failed fast line retrains since\n                  last agent reset.')
-adslAtucPerfStatSesL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18, 1, 3), Counter32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucPerfStatSesL.setDescription('The value of this object reports the count of\n                  the number of severely errored seconds-line since\n                  last agent reset.')
-adslAtucPerfStatUasL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18, 1, 4), Counter32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucPerfStatUasL.setDescription('The value of this object reports the count of\n                  the number of unavailable seconds-line since\n                  last agent reset.')
-adslAtucPerfCurr15MinFastR = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18, 1, 5), PerfCurrentCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucPerfCurr15MinFastR.setDescription('For the current 15-minute interval,\n                  adslAtucPerfCurr15MinFastR reports the current\n                  number of seconds during which there have been\n\n\n                  fast retrains.')
-adslAtucPerfCurr15MinFailedFastR = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18, 1, 6), PerfCurrentCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucPerfCurr15MinFailedFastR.setDescription('For the current 15-minute interval,\n                  adslAtucPerfCurr15MinFailedFastR reports the\n                  current number of seconds during which there\n                  have been failed fast retrains.')
-adslAtucPerfCurr15MinSesL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18, 1, 7), PerfCurrentCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucPerfCurr15MinSesL.setDescription('For the current 15-minute interval,\n                  adslAtucPerfCurr15MinSesL reports the current\n                  number of seconds during which there have been\n                  severely errored seconds-line.')
-adslAtucPerfCurr15MinUasL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18, 1, 8), PerfCurrentCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucPerfCurr15MinUasL.setDescription('For the current 15-minute interval,\n                  adslAtucPerfCurr15MinUasL reports the current\n                  number of seconds during which there have been\n                  unavailable seconds-line.')
-adslAtucPerfCurr1DayFastR = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18, 1, 9), AdslPerfCurrDayCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucPerfCurr1DayFastR.setDescription('For the current day as measured by\n                  adslAtucPerfCurr1DayTimeElapsed [RFC2662],\n                  adslAtucPerfCurr1DayFastR reports the number\n                  of seconds during which there have been\n                  fast retrains.')
-adslAtucPerfCurr1DayFailedFastR = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18, 1, 10), AdslPerfCurrDayCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucPerfCurr1DayFailedFastR.setDescription('For the current day as measured by\n                  adslAtucPerfCurr1DayTimeElapsed [RFC2662],\n                  adslAtucPerfCurr1DayFailedFastR reports the\n                  number of seconds during which there have been\n                  failed fast retrains.')
-adslAtucPerfCurr1DaySesL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18, 1, 11), AdslPerfCurrDayCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucPerfCurr1DaySesL.setDescription('For the current day as measured by\n                  adslAtucPerfCurr1DayTimeElapsed [RFC2662],\n                  adslAtucPerfCurr1DaySesL reports the\n                  number of seconds during which there have been\n                  severely errored seconds-line.')
-adslAtucPerfCurr1DayUasL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18, 1, 12), AdslPerfCurrDayCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucPerfCurr1DayUasL.setDescription('For the current day as measured by\n                  adslAtucPerfCurr1DayTimeElapsed [RFC2662],\n                  adslAtucPerfCurr1DayUasL reports the\n                  number of seconds during which there have been\n                  unavailable seconds-line.')
-adslAtucPerfPrev1DayFastR = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18, 1, 13), AdslPerfPrevDayCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucPerfPrev1DayFastR.setDescription('For the previous day, adslAtucPerfPrev1DayFastR\n                  reports the number of seconds during which there\n                  were fast retrains.')
-adslAtucPerfPrev1DayFailedFastR = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18, 1, 14), AdslPerfPrevDayCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucPerfPrev1DayFailedFastR.setDescription('For the previous day,\n                  adslAtucPerfPrev1DayFailedFastR reports the number\n                  of seconds during which there were failed fast\n                  retrains.')
-adslAtucPerfPrev1DaySesL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18, 1, 15), AdslPerfPrevDayCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucPerfPrev1DaySesL.setDescription('For the previous day, adslAtucPerfPrev1DaySesL\n                  reports the number of seconds during which there\n                  were severely errored seconds-line.')
-adslAtucPerfPrev1DayUasL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 18, 1, 16), AdslPerfPrevDayCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucPerfPrev1DayUasL.setDescription('For the previous day, adslAtucPerfPrev1DayUasL\n                  reports the number of seconds during which there\n\n\n                  were unavailable seconds-line.')
-adslAtucIntervalExtTable = MibTable((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 19), )
-if mibBuilder.loadTexts: adslAtucIntervalExtTable.setDescription("This table provides one row for each ATU-C\n                  performance data collection interval for\n                  ADSL physical interfaces whose\n                  IfEntries' ifType is equal to adsl(94).")
-adslAtucIntervalExtEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 19, 1), )
-adslAtucIntervalEntry.registerAugmentions(("ADSL-LINE-EXT-MIB", "adslAtucIntervalExtEntry"))
+adslAtucIntervalEntry.registerAugmentions((_B,_P))
 adslAtucIntervalExtEntry.setIndexNames(*adslAtucIntervalEntry.getIndexNames())
-if mibBuilder.loadTexts: adslAtucIntervalExtEntry.setDescription('An entry in the\n                              adslAtucIntervalExtTable.')
-adslAtucIntervalFastR = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 19, 1, 1), PerfIntervalCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucIntervalFastR.setDescription('For the current interval, adslAtucIntervalFastR\n                  reports the current number of seconds during which\n                  there have been fast retrains.')
-adslAtucIntervalFailedFastR = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 19, 1, 2), PerfIntervalCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucIntervalFailedFastR.setDescription('For the each interval, adslAtucIntervalFailedFastR\n                  reports the number of seconds during which\n                  there have been failed fast retrains.')
-adslAtucIntervalSesL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 19, 1, 3), PerfIntervalCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucIntervalSesL.setDescription('For the each interval, adslAtucIntervalSesL\n                  reports the number of seconds during which\n                  there have been severely errored seconds-line.')
-adslAtucIntervalUasL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 19, 1, 4), PerfIntervalCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAtucIntervalUasL.setDescription('For the each interval, adslAtucIntervalUasL\n                  reports the number of seconds during which\n                  there have been unavailable seconds-line.')
-adslAturPerfDataExtTable = MibTable((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 20), )
-if mibBuilder.loadTexts: adslAturPerfDataExtTable.setDescription('This table contains ADSL physical line counters\n                  not defined in the adslAturPerfDataTable\n                  from the ADSL-LINE-MIB [RFC2662].')
-adslAturPerfDataExtEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 20, 1), )
-adslAturPerfDataEntry.registerAugmentions(("ADSL-LINE-EXT-MIB", "adslAturPerfDataExtEntry"))
+adslAturPerfDataEntry.registerAugmentions((_B,_Q))
 adslAturPerfDataExtEntry.setIndexNames(*adslAturPerfDataEntry.getIndexNames())
-if mibBuilder.loadTexts: adslAturPerfDataExtEntry.setDescription('An entry extends the adslAturPerfDataEntry defined\n                  in [RFC2662].  Each entry corresponds to an ADSL\n                  line.')
-adslAturPerfStatSesL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 20, 1, 1), Counter32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAturPerfStatSesL.setDescription('The value of this object reports the count of\n                  severely errored second-line since the last agent\n                  reset.')
-adslAturPerfStatUasL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 20, 1, 2), Counter32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAturPerfStatUasL.setDescription('The value of this object reports the count of\n                  unavailable seconds-line since the last agent\n                  reset.')
-adslAturPerfCurr15MinSesL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 20, 1, 3), PerfCurrentCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAturPerfCurr15MinSesL.setDescription('For the current 15-minute interval,\n                  adslAturPerfCurr15MinSesL reports the current\n                  number of seconds during which there have been\n                  severely errored seconds-line.')
-adslAturPerfCurr15MinUasL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 20, 1, 4), PerfCurrentCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAturPerfCurr15MinUasL.setDescription('For the current 15-minute interval,\n                  adslAturPerfCurr15MinUasL reports the current\n                  number of seconds during which there have been\n                  available seconds-line.')
-adslAturPerfCurr1DaySesL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 20, 1, 5), AdslPerfCurrDayCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAturPerfCurr1DaySesL.setDescription('For the current day as measured by\n                  adslAturPerfCurr1DayTimeElapsed [RFC2662],\n                  adslAturPerfCurr1DaySesL reports the\n                  number of seconds during which there have been\n                  severely errored seconds-line.')
-adslAturPerfCurr1DayUasL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 20, 1, 6), AdslPerfCurrDayCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAturPerfCurr1DayUasL.setDescription('For the current day as measured by\n                  adslAturPerfCurr1DayTimeElapsed [RFC2662],\n                  adslAturPerfCurr1DayUasL reports the\n                  number of seconds during which there have been\n                  unavailable seconds-line.')
-adslAturPerfPrev1DaySesL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 20, 1, 7), AdslPerfPrevDayCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAturPerfPrev1DaySesL.setDescription('For the previous day, adslAturPerfPrev1DaySesL\n                  reports the number of seconds during which there\n                  were severely errored seconds-line.')
-adslAturPerfPrev1DayUasL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 20, 1, 8), AdslPerfPrevDayCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAturPerfPrev1DayUasL.setDescription('For the previous day, adslAturPerfPrev1DayUasL\n                  reports the number of seconds during which there\n                  were severely errored seconds-line.')
-adslAturIntervalExtTable = MibTable((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 21), )
-if mibBuilder.loadTexts: adslAturIntervalExtTable.setDescription("This table provides one row for each ATU-R\n                  performance data collection interval for\n                  ADSL physical interfaces whose\n                  IfEntries' ifType is equal to adsl(94).")
-adslAturIntervalExtEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 21, 1), )
-adslAturIntervalEntry.registerAugmentions(("ADSL-LINE-EXT-MIB", "adslAturIntervalExtEntry"))
+adslAturIntervalEntry.registerAugmentions((_B,_R))
 adslAturIntervalExtEntry.setIndexNames(*adslAturIntervalEntry.getIndexNames())
-if mibBuilder.loadTexts: adslAturIntervalExtEntry.setDescription('An entry in the\n                              adslAturIntervalExtTable.')
-adslAturIntervalSesL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 21, 1, 1), PerfIntervalCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAturIntervalSesL.setDescription('For the each interval, adslAturIntervalSesL\n                  reports the number of seconds during which\n                  there have been severely errored seconds-line.')
-adslAturIntervalUasL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 21, 1, 2), PerfIntervalCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: adslAturIntervalUasL.setDescription('For the each interval, adslAturIntervalUasL\n                  reports the number of seconds during which\n                  there have been unavailable seconds-line.')
-adslConfProfileExtTable = MibTable((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 22), )
-if mibBuilder.loadTexts: adslConfProfileExtTable.setDescription('The adslConfProfileExtTable extends the ADSL line\n                  profile configuration information in the\n                  adslLineConfProfileTable from the ADSL-LINE-MIB\n                  [RFC2662] by adding the ability to configure the\n                  ADSL physical line mode.')
-adslConfProfileExtEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 22, 1), )
-adslLineConfProfileEntry.registerAugmentions(("ADSL-LINE-EXT-MIB", "adslConfProfileExtEntry"))
+adslLineConfProfileEntry.registerAugmentions((_B,_S))
 adslConfProfileExtEntry.setIndexNames(*adslLineConfProfileEntry.getIndexNames())
-if mibBuilder.loadTexts: adslConfProfileExtEntry.setDescription('An entry extends the adslLineConfProfileEntry\n                  defined in [RFC2662].  Each entry corresponds to an\n                  ADSL line profile.')
-adslConfProfileLineType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 22, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("noChannel", 1), ("fastOnly", 2), ("interleavedOnly", 3), ("fastOrInterleaved", 4), ("fastAndInterleaved", 5),)).clone('fastOnly')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adslConfProfileLineType.setDescription('This object is used to configure the ADSL physical\n                  line mode.  It has following valid values:\n\n                  noChannel(1), when no channels exist.\n                  fastOnly(2), when only fast channel exists.\n                  interleavedOnly(3), when only interleaved channel\n                      exist.\n                  fastOrInterleaved(4), when either fast or\n                      interleaved channels can exist, but only one\n                      at any time.\n                  fastAndInterleaved(5), when both the fast channel\n                      and the interleaved channel exist.\n\n                  In the case when no value has been set, the default\n                  Value is noChannel(1).\n                  ')
-adslAlarmConfProfileExtTable = MibTable((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 23), )
-if mibBuilder.loadTexts: adslAlarmConfProfileExtTable.setDescription('This table extends the\n                  adslLineAlarmConfProfileTable and provides\n                  threshold parameters for all the counters defined\n                  in this MIB module.')
-adslAlarmConfProfileExtEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 23, 1), )
-adslLineAlarmConfProfileEntry.registerAugmentions(("ADSL-LINE-EXT-MIB", "adslAlarmConfProfileExtEntry"))
+adslLineAlarmConfProfileEntry.registerAugmentions((_B,_T))
 adslAlarmConfProfileExtEntry.setIndexNames(*adslLineAlarmConfProfileEntry.getIndexNames())
-if mibBuilder.loadTexts: adslAlarmConfProfileExtEntry.setDescription('An entry extends the adslLineAlarmConfProfileTable\n                  defined in [RFC2662].  Each entry corresponds to\n                  an ADSL alarm profile.')
-adslAtucThreshold15MinFailedFastR = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 23, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,900))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adslAtucThreshold15MinFailedFastR.setDescription("The first time the value of the corresponding\n                  instance of adslAtucPerfCurr15MinFailedFastR\n                  reaches or exceeds this value within a given\n                  15-minute performance data collection period,\n                  an adslAtucFailedFastRThreshTrap  notification\n                  will be generated. The value '0' will disable\n                  the notification. The default value of this\n                  object is '0'.")
-adslAtucThreshold15MinSesL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 23, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,900))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adslAtucThreshold15MinSesL.setDescription("The first time the value of the corresponding\n                  instance of adslAtucPerf15MinSesL reaches or\n                  exceeds this value within a given 15-minute\n                  performance data collection period, an\n                  adslAtucSesLThreshTrap notification will be\n                  generated. The value '0' will disable the\n                  notification.  The default value of this\n                  object is '0'.")
-adslAtucThreshold15MinUasL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 23, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,900))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adslAtucThreshold15MinUasL.setDescription("The first time the value of the corresponding\n                  instance of adslAtucPerf15MinUasL reaches or\n                  exceeds this value within a given 15-minute\n                  performance data collection period, an\n                  adslAtucUasLThreshTrap notification will be\n                  generated. The value '0' will disable the\n                  notification.  The default value of this\n                  object is '0'.")
-adslAturThreshold15MinSesL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 23, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,900))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adslAturThreshold15MinSesL.setDescription("The first time the value of the corresponding\n                  instance of adslAturPerf15MinSesL reaches or\n                  exceeds this value within a given 15-minute\n                  performance data collection period, an\n                  adslAturSesLThreshTrap notification will be\n                  generated. The value '0' will disable the\n                  notification.  The default value of this\n                  object is '0'.")
-adslAturThreshold15MinUasL = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 23, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,900))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: adslAturThreshold15MinUasL.setDescription("The first time the value of the corresponding\n                  instance of adslAturPerf15MinUasL reaches or\n                  exceeds this value within a given 15-minute\n                  performance data collection period, an\n\n\n                  adslAturUasLThreshTrap notification will be\n                  generated. The value '0' will disable the\n                  notification.  The default value of this\n                  object is '0'.")
-adslExtTraps = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 24))
-adslExtAtucTraps = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 24, 1))
-adslExtAtucTrapsPrefix = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 24, 1, 0))
-adslAtucFailedFastRThreshTrap = NotificationType((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 24, 1, 0, 1)).setObjects(*(("ADSL-LINE-EXT-MIB", "adslAtucPerfCurr15MinFailedFastR"),))
-if mibBuilder.loadTexts: adslAtucFailedFastRThreshTrap.setDescription('Failed Fast Retrains 15-minute threshold reached.')
-adslAtucSesLThreshTrap = NotificationType((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 24, 1, 0, 2)).setObjects(*(("ADSL-LINE-EXT-MIB", "adslAtucPerfCurr15MinSesL"),))
-if mibBuilder.loadTexts: adslAtucSesLThreshTrap.setDescription('Severely errored seconds-line 15-minute threshold\n                  reached.')
-adslAtucUasLThreshTrap = NotificationType((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 24, 1, 0, 3)).setObjects(*(("ADSL-LINE-EXT-MIB", "adslAtucPerfCurr15MinUasL"),))
-if mibBuilder.loadTexts: adslAtucUasLThreshTrap.setDescription('Unavailable seconds-line 15-minute threshold\n                  reached.')
-adslExtAturTraps = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 24, 2))
-adslExtAturTrapsPrefix = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 24, 2, 0))
-adslAturSesLThreshTrap = NotificationType((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 24, 2, 0, 1)).setObjects(*(("ADSL-LINE-EXT-MIB", "adslAturPerfCurr15MinSesL"),))
-if mibBuilder.loadTexts: adslAturSesLThreshTrap.setDescription('Severely errored seconds-line 15-minute threshold\n                  reached.')
-adslAturUasLThreshTrap = NotificationType((1, 3, 6, 1, 2, 1, 10, 94, 3, 1, 24, 2, 0, 2)).setObjects(*(("ADSL-LINE-EXT-MIB", "adslAturPerfCurr15MinUasL"),))
-if mibBuilder.loadTexts: adslAturUasLThreshTrap.setDescription('Unavailable seconds-line 15-minute threshold\n                  reached.')
-adslExtConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 94, 3, 2))
-adslExtGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 94, 3, 2, 1))
-adslExtCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 94, 3, 2, 2))
-adslExtLineMibAtucCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 94, 3, 2, 2, 1)).setObjects(*(("ADSL-LINE-EXT-MIB", "adslExtLineGroup"), ("ADSL-LINE-EXT-MIB", "adslExtLineConfProfileControlGroup"), ("ADSL-LINE-EXT-MIB", "adslExtLineAlarmConfProfileGroup"), ("ADSL-LINE-EXT-MIB", "adslExtAtucPhysPerfCounterGroup"), ("ADSL-LINE-EXT-MIB", "adslExtAturPhysPerfCounterGroup"), ("ADSL-LINE-EXT-MIB", "adslExtNotificationsGroup"),))
-if mibBuilder.loadTexts: adslExtLineMibAtucCompliance.setDescription('The compliance statement for SNMP entities which\n                  represent ADSL ATU-C interfaces.')
-adslExtLineGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 94, 3, 2, 1, 1)).setObjects(*(("ADSL-LINE-EXT-MIB", "adslLineConfProfileDualLite"), ("ADSL-LINE-EXT-MIB", "adslLineTransAtucCap"), ("ADSL-LINE-EXT-MIB", "adslLineTransAtucConfig"), ("ADSL-LINE-EXT-MIB", "adslLineTransAtucActual"), ("ADSL-LINE-EXT-MIB", "adslLineGlitePowerState"),))
-if mibBuilder.loadTexts: adslExtLineGroup.setDescription('A collection of objects providing extended\n                 configuration information about an ADSL Line.')
-adslExtAtucPhysPerfCounterGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 94, 3, 2, 1, 2)).setObjects(*(("ADSL-LINE-EXT-MIB", "adslAtucPerfStatFastR"), ("ADSL-LINE-EXT-MIB", "adslAtucPerfStatFailedFastR"), ("ADSL-LINE-EXT-MIB", "adslAtucPerfCurr15MinFastR"), ("ADSL-LINE-EXT-MIB", "adslAtucPerfCurr15MinFailedFastR"), ("ADSL-LINE-EXT-MIB", "adslAtucPerfCurr1DayFastR"), ("ADSL-LINE-EXT-MIB", "adslAtucPerfCurr1DayFailedFastR"), ("ADSL-LINE-EXT-MIB", "adslAtucPerfPrev1DayFastR"), ("ADSL-LINE-EXT-MIB", "adslAtucPerfPrev1DayFailedFastR"), ("ADSL-LINE-EXT-MIB", "adslAtucPerfStatSesL"), ("ADSL-LINE-EXT-MIB", "adslAtucPerfStatUasL"), ("ADSL-LINE-EXT-MIB", "adslAtucPerfCurr15MinSesL"), ("ADSL-LINE-EXT-MIB", "adslAtucPerfCurr15MinUasL"), ("ADSL-LINE-EXT-MIB", "adslAtucPerfCurr1DaySesL"), ("ADSL-LINE-EXT-MIB", "adslAtucPerfCurr1DayUasL"), ("ADSL-LINE-EXT-MIB", "adslAtucPerfPrev1DaySesL"), ("ADSL-LINE-EXT-MIB", "adslAtucPerfPrev1DayUasL"), ("ADSL-LINE-EXT-MIB", "adslAtucIntervalFastR"), ("ADSL-LINE-EXT-MIB", "adslAtucIntervalFailedFastR"), ("ADSL-LINE-EXT-MIB", "adslAtucIntervalSesL"), ("ADSL-LINE-EXT-MIB", "adslAtucIntervalUasL"),))
-if mibBuilder.loadTexts: adslExtAtucPhysPerfCounterGroup.setDescription('A collection of objects providing raw performance\n                 counts on an ADSL Line (ATU-C end).')
-adslExtAturPhysPerfCounterGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 94, 3, 2, 1, 3)).setObjects(*(("ADSL-LINE-EXT-MIB", "adslAturPerfStatSesL"), ("ADSL-LINE-EXT-MIB", "adslAturPerfStatUasL"), ("ADSL-LINE-EXT-MIB", "adslAturPerfCurr15MinSesL"), ("ADSL-LINE-EXT-MIB", "adslAturPerfCurr15MinUasL"), ("ADSL-LINE-EXT-MIB", "adslAturPerfCurr1DaySesL"), ("ADSL-LINE-EXT-MIB", "adslAturPerfCurr1DayUasL"), ("ADSL-LINE-EXT-MIB", "adslAturPerfPrev1DaySesL"), ("ADSL-LINE-EXT-MIB", "adslAturPerfPrev1DayUasL"), ("ADSL-LINE-EXT-MIB", "adslAturIntervalSesL"), ("ADSL-LINE-EXT-MIB", "adslAturIntervalUasL"),))
-if mibBuilder.loadTexts: adslExtAturPhysPerfCounterGroup.setDescription('A collection of objects providing raw performance\n                 counts on an ADSL Line (ATU-C end).')
-adslExtLineConfProfileControlGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 94, 3, 2, 1, 4)).setObjects(*(("ADSL-LINE-EXT-MIB", "adslConfProfileLineType"),))
-if mibBuilder.loadTexts: adslExtLineConfProfileControlGroup.setDescription('A collection of objects providing profile\n                 control for the ADSL system.')
-adslExtLineAlarmConfProfileGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 94, 3, 2, 1, 5)).setObjects(*(("ADSL-LINE-EXT-MIB", "adslAtucThreshold15MinFailedFastR"), ("ADSL-LINE-EXT-MIB", "adslAtucThreshold15MinSesL"), ("ADSL-LINE-EXT-MIB", "adslAtucThreshold15MinUasL"), ("ADSL-LINE-EXT-MIB", "adslAturThreshold15MinSesL"), ("ADSL-LINE-EXT-MIB", "adslAturThreshold15MinUasL"),))
-if mibBuilder.loadTexts: adslExtLineAlarmConfProfileGroup.setDescription('A collection of objects providing alarm profile\n                 control for the ADSL system.')
-adslExtNotificationsGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 10, 94, 3, 2, 1, 6)).setObjects(*(("ADSL-LINE-EXT-MIB", "adslAtucFailedFastRThreshTrap"), ("ADSL-LINE-EXT-MIB", "adslAtucSesLThreshTrap"), ("ADSL-LINE-EXT-MIB", "adslAtucUasLThreshTrap"), ("ADSL-LINE-EXT-MIB", "adslAturSesLThreshTrap"), ("ADSL-LINE-EXT-MIB", "adslAturUasLThreshTrap"),))
-if mibBuilder.loadTexts: adslExtNotificationsGroup.setDescription('The collection of ADSL extension notifications.')
-mibBuilder.exportSymbols("ADSL-LINE-EXT-MIB", adslAtucPerfStatFastR=adslAtucPerfStatFastR, adslLineTransAtucActual=adslLineTransAtucActual, adslAtucPerfStatSesL=adslAtucPerfStatSesL, adslLineExtTable=adslLineExtTable, adslAtucPerfPrev1DaySesL=adslAtucPerfPrev1DaySesL, adslExtAturTrapsPrefix=adslExtAturTrapsPrefix, adslLineTransAtucCap=adslLineTransAtucCap, adslAtucPerfDataExtEntry=adslAtucPerfDataExtEntry, adslAtucThreshold15MinFailedFastR=adslAtucThreshold15MinFailedFastR, adslAtucPerfStatUasL=adslAtucPerfStatUasL, adslExtLineGroup=adslExtLineGroup, adslExtAtucTrapsPrefix=adslExtAtucTrapsPrefix, adslAturPerfCurr15MinUasL=adslAturPerfCurr15MinUasL, adslAtucIntervalSesL=adslAtucIntervalSesL, adslExtLineAlarmConfProfileGroup=adslExtLineAlarmConfProfileGroup, adslAtucPerfCurr1DayFailedFastR=adslAtucPerfCurr1DayFailedFastR, adslAtucPerfCurr15MinUasL=adslAtucPerfCurr15MinUasL, adslAturPerfCurr15MinSesL=adslAturPerfCurr15MinSesL, adslAtucUasLThreshTrap=adslAtucUasLThreshTrap, adslAlarmConfProfileExtEntry=adslAlarmConfProfileExtEntry, adslAtucFailedFastRThreshTrap=adslAtucFailedFastRThreshTrap, adslAturPerfDataExtTable=adslAturPerfDataExtTable, adslAturPerfStatSesL=adslAturPerfStatSesL, adslAturPerfCurr1DaySesL=adslAturPerfCurr1DaySesL, adslExtCompliances=adslExtCompliances, adslAturPerfPrev1DayUasL=adslAturPerfPrev1DayUasL, adslAtucPerfCurr15MinFastR=adslAtucPerfCurr15MinFastR, adslAtucPerfDataExtTable=adslAtucPerfDataExtTable, adslAturPerfPrev1DaySesL=adslAturPerfPrev1DaySesL, adslConfProfileExtEntry=adslConfProfileExtEntry, adslExtMibObjects=adslExtMibObjects, adslExtMIB=adslExtMIB, adslAturPerfCurr1DayUasL=adslAturPerfCurr1DayUasL, adslLineTransAtucConfig=adslLineTransAtucConfig, adslAturIntervalExtTable=adslAturIntervalExtTable, adslAturIntervalSesL=adslAturIntervalSesL, adslExtAturPhysPerfCounterGroup=adslExtAturPhysPerfCounterGroup, adslAtucPerfPrev1DayFastR=adslAtucPerfPrev1DayFastR, adslAtucIntervalExtTable=adslAtucIntervalExtTable, adslExtTraps=adslExtTraps, adslAtucPerfCurr1DayUasL=adslAtucPerfCurr1DayUasL, adslAtucIntervalUasL=adslAtucIntervalUasL, adslAturThreshold15MinSesL=adslAturThreshold15MinSesL, adslExtConformance=adslExtConformance, adslConfProfileExtTable=adslConfProfileExtTable, adslAturIntervalUasL=adslAturIntervalUasL, adslExtAturTraps=adslExtAturTraps, adslLineGlitePowerState=adslLineGlitePowerState, adslConfProfileLineType=adslConfProfileLineType, adslAtucPerfCurr1DayFastR=adslAtucPerfCurr1DayFastR, adslAtucPerfStatFailedFastR=adslAtucPerfStatFailedFastR, adslAtucPerfPrev1DayFailedFastR=adslAtucPerfPrev1DayFailedFastR, adslAtucIntervalExtEntry=adslAtucIntervalExtEntry, adslAtucThreshold15MinUasL=adslAtucThreshold15MinUasL, adslExtGroups=adslExtGroups, adslAturUasLThreshTrap=adslAturUasLThreshTrap, adslAlarmConfProfileExtTable=adslAlarmConfProfileExtTable, adslAturSesLThreshTrap=adslAturSesLThreshTrap, adslAtucPerfCurr15MinSesL=adslAtucPerfCurr15MinSesL, adslLineExtEntry=adslLineExtEntry, adslAtucIntervalFailedFastR=adslAtucIntervalFailedFastR, adslAturPerfStatUasL=adslAturPerfStatUasL, PYSNMP_MODULE_ID=adslExtMIB, AdslTransmissionModeType=AdslTransmissionModeType, adslAtucIntervalFastR=adslAtucIntervalFastR, adslLineConfProfileDualLite=adslLineConfProfileDualLite, adslAtucPerfCurr15MinFailedFastR=adslAtucPerfCurr15MinFailedFastR, adslAtucPerfCurr1DaySesL=adslAtucPerfCurr1DaySesL, adslAturIntervalExtEntry=adslAturIntervalExtEntry, adslAtucThreshold15MinSesL=adslAtucThreshold15MinSesL, adslAturThreshold15MinUasL=adslAturThreshold15MinUasL, adslExtAtucTraps=adslExtAtucTraps, adslAturPerfDataExtEntry=adslAturPerfDataExtEntry, adslExtLineMibAtucCompliance=adslExtLineMibAtucCompliance, adslExtLineConfProfileControlGroup=adslExtLineConfProfileControlGroup, adslAtucPerfPrev1DayUasL=adslAtucPerfPrev1DayUasL, adslExtNotificationsGroup=adslExtNotificationsGroup, adslExtAtucPhysPerfCounterGroup=adslExtAtucPhysPerfCounterGroup, adslAtucSesLThreshTrap=adslAtucSesLThreshTrap)
+adslExtLineGroup=ObjectGroup((1,3,6,1,2,1,10,94,3,2,1,1))
+adslExtLineGroup.setObjects(*((_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y)))
+if mibBuilder.loadTexts:adslExtLineGroup.setStatus(_A)
+adslExtAtucPhysPerfCounterGroup=ObjectGroup((1,3,6,1,2,1,10,94,3,2,1,2))
+adslExtAtucPhysPerfCounterGroup.setObjects(*((_B,_Z),(_B,_a),(_B,_b),(_B,_G),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_H),(_B,_I),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p)))
+if mibBuilder.loadTexts:adslExtAtucPhysPerfCounterGroup.setStatus(_A)
+adslExtAturPhysPerfCounterGroup=ObjectGroup((1,3,6,1,2,1,10,94,3,2,1,3))
+adslExtAturPhysPerfCounterGroup.setObjects(*((_B,_q),(_B,_r),(_B,_J),(_B,_K),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x)))
+if mibBuilder.loadTexts:adslExtAturPhysPerfCounterGroup.setStatus(_A)
+adslExtLineConfProfileControlGroup=ObjectGroup((1,3,6,1,2,1,10,94,3,2,1,4))
+adslExtLineConfProfileControlGroup.setObjects((_B,_y))
+if mibBuilder.loadTexts:adslExtLineConfProfileControlGroup.setStatus(_A)
+adslExtLineAlarmConfProfileGroup=ObjectGroup((1,3,6,1,2,1,10,94,3,2,1,5))
+adslExtLineAlarmConfProfileGroup.setObjects(*((_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3)))
+if mibBuilder.loadTexts:adslExtLineAlarmConfProfileGroup.setStatus(_A)
+adslAtucFailedFastRThreshTrap=NotificationType((1,3,6,1,2,1,10,94,3,1,24,1,0,1))
+adslAtucFailedFastRThreshTrap.setObjects((_B,_G))
+if mibBuilder.loadTexts:adslAtucFailedFastRThreshTrap.setStatus(_A)
+adslAtucSesLThreshTrap=NotificationType((1,3,6,1,2,1,10,94,3,1,24,1,0,2))
+adslAtucSesLThreshTrap.setObjects((_B,_H))
+if mibBuilder.loadTexts:adslAtucSesLThreshTrap.setStatus(_A)
+adslAtucUasLThreshTrap=NotificationType((1,3,6,1,2,1,10,94,3,1,24,1,0,3))
+adslAtucUasLThreshTrap.setObjects((_B,_I))
+if mibBuilder.loadTexts:adslAtucUasLThreshTrap.setStatus(_A)
+adslAturSesLThreshTrap=NotificationType((1,3,6,1,2,1,10,94,3,1,24,2,0,1))
+adslAturSesLThreshTrap.setObjects((_B,_J))
+if mibBuilder.loadTexts:adslAturSesLThreshTrap.setStatus(_A)
+adslAturUasLThreshTrap=NotificationType((1,3,6,1,2,1,10,94,3,1,24,2,0,2))
+adslAturUasLThreshTrap.setObjects((_B,_K))
+if mibBuilder.loadTexts:adslAturUasLThreshTrap.setStatus(_A)
+adslExtNotificationsGroup=NotificationGroup((1,3,6,1,2,1,10,94,3,2,1,6))
+adslExtNotificationsGroup.setObjects(*((_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8)))
+if mibBuilder.loadTexts:adslExtNotificationsGroup.setStatus(_A)
+adslExtLineMibAtucCompliance=ModuleCompliance((1,3,6,1,2,1,10,94,3,2,2,1))
+adslExtLineMibAtucCompliance.setObjects(*((_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE)))
+if mibBuilder.loadTexts:adslExtLineMibAtucCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'AdslTransmissionModeType':AdslTransmissionModeType,'adslExtMIB':adslExtMIB,'adslExtMibObjects':adslExtMibObjects,'adslLineExtTable':adslLineExtTable,_N:adslLineExtEntry,_V:adslLineTransAtucCap,_W:adslLineTransAtucConfig,_X:adslLineTransAtucActual,_Y:adslLineGlitePowerState,_U:adslLineConfProfileDualLite,'adslAtucPerfDataExtTable':adslAtucPerfDataExtTable,_O:adslAtucPerfDataExtEntry,_Z:adslAtucPerfStatFastR,_a:adslAtucPerfStatFailedFastR,_g:adslAtucPerfStatSesL,_h:adslAtucPerfStatUasL,_b:adslAtucPerfCurr15MinFastR,_G:adslAtucPerfCurr15MinFailedFastR,_H:adslAtucPerfCurr15MinSesL,_I:adslAtucPerfCurr15MinUasL,_c:adslAtucPerfCurr1DayFastR,_d:adslAtucPerfCurr1DayFailedFastR,_i:adslAtucPerfCurr1DaySesL,_j:adslAtucPerfCurr1DayUasL,_e:adslAtucPerfPrev1DayFastR,_f:adslAtucPerfPrev1DayFailedFastR,_k:adslAtucPerfPrev1DaySesL,_l:adslAtucPerfPrev1DayUasL,'adslAtucIntervalExtTable':adslAtucIntervalExtTable,_P:adslAtucIntervalExtEntry,_m:adslAtucIntervalFastR,_n:adslAtucIntervalFailedFastR,_o:adslAtucIntervalSesL,_p:adslAtucIntervalUasL,'adslAturPerfDataExtTable':adslAturPerfDataExtTable,_Q:adslAturPerfDataExtEntry,_q:adslAturPerfStatSesL,_r:adslAturPerfStatUasL,_J:adslAturPerfCurr15MinSesL,_K:adslAturPerfCurr15MinUasL,_s:adslAturPerfCurr1DaySesL,_t:adslAturPerfCurr1DayUasL,_u:adslAturPerfPrev1DaySesL,_v:adslAturPerfPrev1DayUasL,'adslAturIntervalExtTable':adslAturIntervalExtTable,_R:adslAturIntervalExtEntry,_w:adslAturIntervalSesL,_x:adslAturIntervalUasL,'adslConfProfileExtTable':adslConfProfileExtTable,_S:adslConfProfileExtEntry,_y:adslConfProfileLineType,'adslAlarmConfProfileExtTable':adslAlarmConfProfileExtTable,_T:adslAlarmConfProfileExtEntry,_z:adslAtucThreshold15MinFailedFastR,_A0:adslAtucThreshold15MinSesL,_A1:adslAtucThreshold15MinUasL,_A2:adslAturThreshold15MinSesL,_A3:adslAturThreshold15MinUasL,'adslExtTraps':adslExtTraps,'adslExtAtucTraps':adslExtAtucTraps,'adslExtAtucTrapsPrefix':adslExtAtucTrapsPrefix,_A4:adslAtucFailedFastRThreshTrap,_A5:adslAtucSesLThreshTrap,_A6:adslAtucUasLThreshTrap,'adslExtAturTraps':adslExtAturTraps,'adslExtAturTrapsPrefix':adslExtAturTrapsPrefix,_A7:adslAturSesLThreshTrap,_A8:adslAturUasLThreshTrap,'adslExtConformance':adslExtConformance,'adslExtGroups':adslExtGroups,_A9:adslExtLineGroup,_AC:adslExtAtucPhysPerfCounterGroup,_AD:adslExtAturPhysPerfCounterGroup,_AA:adslExtLineConfProfileControlGroup,_AB:adslExtLineAlarmConfProfileGroup,_AE:adslExtNotificationsGroup,'adslExtCompliances':adslExtCompliances,'adslExtLineMibAtucCompliance':adslExtLineMibAtucCompliance})

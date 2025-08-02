@@ -1,0 +1,457 @@
+_AK='gb15629dot11wapiBase'
+_AJ='gb15629dot11wapiConfigBKReauthThreshold'
+_AI='gb15629dot11wapiConfigBKLifetime'
+_AH='gb15629dot11wapiStatsWAIMulticastHandshakeFailures'
+_AG='gb15629dot11wapiStatsWAIUnicastHandshakeFailures'
+_AF='gb15629dot11wapiStatsWAICertificateHandshakeFailures'
+_AE='gb15629dot11wapiStatsWAIFormatErrors'
+_AD='gb15629dot11wapiStatsWAITimeoutCounters'
+_AC='gb15629dot11wapiStatsWAIDiscardCounters'
+_AB='gb15629dot11wapiStatsWAIAuthenticationResultFailures'
+_AA='gb15629dot11wapiStatsWAIHMACErrors'
+_A9='gb15629dot11wapiStatsWAISignatureErrors'
+_A8='gb15629dot11wapiStatsWPIMICErrors'
+_A7='gb15629dot11wapiStatsWPIDecryptableErrors'
+_A6='gb15629dot11wapiStatsWPIReplayCounters'
+_A5='gb15629dot11wapiStatsSelectedUnicastCipher'
+_A4='gb15629dot11wapiStatsControlledPortStatus'
+_A3='gb15629dot11wapiStatsVersion'
+_A2='gb15629dot11wapiStatsSTAAddress'
+_A1='gb15629dot11wapiMulticastCipherRequested'
+_A0='gb15629dot11wapiUnicastCipherRequested'
+_z='gb15629dot11wapiAuthenticationSuiteRequested'
+_y='gb15629dot11wapiBKIDUsed'
+_x='gb15629dot11wapiMulticastCipherSelected'
+_w='gb15629dot11wapiUnicastCipherSelected'
+_v='gb15629dot11wapiAuthenticationSuiteSelected'
+_u='gb15629dot11wapiConfigSATimeout'
+_t='gb15629dot11wapiConfigAuthenticationSuiteEnabled'
+_s='gb15629dot11wapiConfigAuthenticationSuite'
+_r='gb15629dot11wapiConfigUnicastCipherSize'
+_q='gb15629dot11wapiConfigUnicastCipherEnabled'
+_p='gb15629dot11wapiConfigUnicastCipher'
+_o='gb15629dot11wapiConfigMulticastCipherSize'
+_n='gb15629dot11wapiConfigUnicastUpdateCount'
+_m='gb15629dot11wapiConfigMulticastUpdateCount'
+_l='gb15629dot11wapiConfigCertificateUpdateCount'
+_k='gb15629dot11wapiConfigPSKPassPhrase'
+_j='gb15629dot11wapiConfigPSKValue'
+_i='gb15629dot11wapiConfigMulticastRekeyStrict'
+_h='gb15629dot11wapiConfigMulticastRekeyPackets'
+_g='gb15629dot11wapiConfigMulticastRekeyTime'
+_f='gb15629dot11wapiConfigMulticastRekeyMethod'
+_e='gb15629dot11wapiConfigMulticastCipher'
+_d='gb15629dot11wapiConfigUnicastRekeyPackets'
+_c='gb15629dot11wapiConfigUnicastRekeyTime'
+_b='gb15629dot11wapiConfigUnicastRekeyMethod'
+_a='gb15629dot11wapiConfigUnicastKeysSupported'
+_Z='gb15629dot11wapiPreauthenticationEnabled'
+_Y='gb15629dot11wapiEnabled'
+_X='gb15629dot11wapiPreauthenticationImplemented'
+_W='gb15629dot11wapiOptionImplemented'
+_V='gb15629dot11wapiControlledPortControl'
+_U='gb15629dot11wapiControlledAuthControl'
+_T='gb15629dot11wapiConfigVersion'
+_S='gb15629dot11wapiStatsIndex'
+_R='gb15629dot11wapiConfigAuthenticationSuiteIndex'
+_Q='gb15629dot11wapiConfigUnicastCipherIndex'
+_P='1000 packets'
+_O='timepacket-Based'
+_N='packetBased'
+_M='timeBased'
+_L='disabled'
+_K='not-accessible'
+_J='Integer32'
+_I='seconds'
+_H='ifIndex'
+_G='IF-MIB'
+_F='OctetString'
+_E='Unsigned32'
+_D='read-write'
+_C='read-only'
+_B='GB15629dot11-WAPI-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ifIndex,=mibBuilder.importSymbols(_G,_H)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_J,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
+DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention','TruthValue')
+gb15629dot11wapiMIB=ModuleIdentity((1,2,156,11235,15629,11,1,1))
+_Member_body_ObjectIdentity=ObjectIdentity
+member_body=_Member_body_ObjectIdentity((1,2))
+_Cn_ObjectIdentity=ObjectIdentity
+cn=_Cn_ObjectIdentity((1,2,156))
+_Bwips_ObjectIdentity=ObjectIdentity
+bwips=_Bwips_ObjectIdentity((1,2,156,11235))
+_Gb15629_ObjectIdentity=ObjectIdentity
+gb15629=_Gb15629_ObjectIdentity((1,2,156,11235,15629))
+_Gb15629_11_ObjectIdentity=ObjectIdentity
+gb15629_11=_Gb15629_11_ObjectIdentity((1,2,156,11235,15629,11))
+_Gb15629_11_mibs_ObjectIdentity=ObjectIdentity
+gb15629_11_mibs=_Gb15629_11_mibs_ObjectIdentity((1,2,156,11235,15629,11,1))
+_WapiMIBObjects_ObjectIdentity=ObjectIdentity
+wapiMIBObjects=_WapiMIBObjects_ObjectIdentity((1,2,156,11235,15629,11,1,1,1))
+_Gb15629dot11wapiConfigTable_Object=MibTable
+gb15629dot11wapiConfigTable=_Gb15629dot11wapiConfigTable_Object((1,2,156,11235,15629,11,1,1,1,1))
+if mibBuilder.loadTexts:gb15629dot11wapiConfigTable.setStatus(_A)
+_Gb15629dot11wapiConfigEntry_Object=MibTableRow
+gb15629dot11wapiConfigEntry=_Gb15629dot11wapiConfigEntry_Object((1,2,156,11235,15629,11,1,1,1,1,1))
+gb15629dot11wapiConfigEntry.setIndexNames((0,_G,_H))
+if mibBuilder.loadTexts:gb15629dot11wapiConfigEntry.setStatus(_A)
+_Gb15629dot11wapiConfigVersion_Type=Integer32
+_Gb15629dot11wapiConfigVersion_Object=MibTableColumn
+gb15629dot11wapiConfigVersion=_Gb15629dot11wapiConfigVersion_Object((1,2,156,11235,15629,11,1,1,1,1,1,1),_Gb15629dot11wapiConfigVersion_Type())
+gb15629dot11wapiConfigVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigVersion.setStatus(_A)
+_Gb15629dot11wapiControlledAuthControl_Type=TruthValue
+_Gb15629dot11wapiControlledAuthControl_Object=MibTableColumn
+gb15629dot11wapiControlledAuthControl=_Gb15629dot11wapiControlledAuthControl_Object((1,2,156,11235,15629,11,1,1,1,1,1,2),_Gb15629dot11wapiControlledAuthControl_Type())
+gb15629dot11wapiControlledAuthControl.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiControlledAuthControl.setStatus(_A)
+_Gb15629dot11wapiControlledPortControl_Type=Integer32
+_Gb15629dot11wapiControlledPortControl_Object=MibTableColumn
+gb15629dot11wapiControlledPortControl=_Gb15629dot11wapiControlledPortControl_Object((1,2,156,11235,15629,11,1,1,1,1,1,3),_Gb15629dot11wapiControlledPortControl_Type())
+gb15629dot11wapiControlledPortControl.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiControlledPortControl.setStatus(_A)
+_Gb15629dot11wapiOptionImplemented_Type=TruthValue
+_Gb15629dot11wapiOptionImplemented_Object=MibTableColumn
+gb15629dot11wapiOptionImplemented=_Gb15629dot11wapiOptionImplemented_Object((1,2,156,11235,15629,11,1,1,1,1,1,4),_Gb15629dot11wapiOptionImplemented_Type())
+gb15629dot11wapiOptionImplemented.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiOptionImplemented.setStatus(_A)
+_Gb15629dot11wapiPreauthenticationImplemented_Type=TruthValue
+_Gb15629dot11wapiPreauthenticationImplemented_Object=MibTableColumn
+gb15629dot11wapiPreauthenticationImplemented=_Gb15629dot11wapiPreauthenticationImplemented_Object((1,2,156,11235,15629,11,1,1,1,1,1,5),_Gb15629dot11wapiPreauthenticationImplemented_Type())
+gb15629dot11wapiPreauthenticationImplemented.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiPreauthenticationImplemented.setStatus(_A)
+_Gb15629dot11wapiEnabled_Type=TruthValue
+_Gb15629dot11wapiEnabled_Object=MibTableColumn
+gb15629dot11wapiEnabled=_Gb15629dot11wapiEnabled_Object((1,2,156,11235,15629,11,1,1,1,1,1,6),_Gb15629dot11wapiEnabled_Type())
+gb15629dot11wapiEnabled.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiEnabled.setStatus(_A)
+_Gb15629dot11wapiPreauthenticationEnabled_Type=TruthValue
+_Gb15629dot11wapiPreauthenticationEnabled_Object=MibTableColumn
+gb15629dot11wapiPreauthenticationEnabled=_Gb15629dot11wapiPreauthenticationEnabled_Object((1,2,156,11235,15629,11,1,1,1,1,1,7),_Gb15629dot11wapiPreauthenticationEnabled_Type())
+gb15629dot11wapiPreauthenticationEnabled.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiPreauthenticationEnabled.setStatus(_A)
+_Gb15629dot11wapiConfigUnicastKeysSupported_Type=Unsigned32
+_Gb15629dot11wapiConfigUnicastKeysSupported_Object=MibTableColumn
+gb15629dot11wapiConfigUnicastKeysSupported=_Gb15629dot11wapiConfigUnicastKeysSupported_Object((1,2,156,11235,15629,11,1,1,1,1,1,8),_Gb15629dot11wapiConfigUnicastKeysSupported_Type())
+gb15629dot11wapiConfigUnicastKeysSupported.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigUnicastKeysSupported.setStatus(_A)
+class _Gb15629dot11wapiConfigUnicastRekeyMethod_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_L,1),(_M,2),(_N,3),(_O,4)))
+_Gb15629dot11wapiConfigUnicastRekeyMethod_Type.__name__=_J
+_Gb15629dot11wapiConfigUnicastRekeyMethod_Object=MibTableColumn
+gb15629dot11wapiConfigUnicastRekeyMethod=_Gb15629dot11wapiConfigUnicastRekeyMethod_Object((1,2,156,11235,15629,11,1,1,1,1,1,9),_Gb15629dot11wapiConfigUnicastRekeyMethod_Type())
+gb15629dot11wapiConfigUnicastRekeyMethod.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigUnicastRekeyMethod.setStatus(_A)
+class _Gb15629dot11wapiConfigUnicastRekeyTime_Type(Unsigned32):defaultValue=86400;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_Gb15629dot11wapiConfigUnicastRekeyTime_Type.__name__=_E
+_Gb15629dot11wapiConfigUnicastRekeyTime_Object=MibTableColumn
+gb15629dot11wapiConfigUnicastRekeyTime=_Gb15629dot11wapiConfigUnicastRekeyTime_Object((1,2,156,11235,15629,11,1,1,1,1,1,10),_Gb15629dot11wapiConfigUnicastRekeyTime_Type())
+gb15629dot11wapiConfigUnicastRekeyTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigUnicastRekeyTime.setStatus(_A)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigUnicastRekeyTime.setUnits(_I)
+class _Gb15629dot11wapiConfigUnicastRekeyPackets_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_Gb15629dot11wapiConfigUnicastRekeyPackets_Type.__name__=_E
+_Gb15629dot11wapiConfigUnicastRekeyPackets_Object=MibTableColumn
+gb15629dot11wapiConfigUnicastRekeyPackets=_Gb15629dot11wapiConfigUnicastRekeyPackets_Object((1,2,156,11235,15629,11,1,1,1,1,1,11),_Gb15629dot11wapiConfigUnicastRekeyPackets_Type())
+gb15629dot11wapiConfigUnicastRekeyPackets.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigUnicastRekeyPackets.setStatus(_A)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigUnicastRekeyPackets.setUnits(_P)
+class _Gb15629dot11wapiConfigMulticastCipher_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
+_Gb15629dot11wapiConfigMulticastCipher_Type.__name__=_F
+_Gb15629dot11wapiConfigMulticastCipher_Object=MibTableColumn
+gb15629dot11wapiConfigMulticastCipher=_Gb15629dot11wapiConfigMulticastCipher_Object((1,2,156,11235,15629,11,1,1,1,1,1,12),_Gb15629dot11wapiConfigMulticastCipher_Type())
+gb15629dot11wapiConfigMulticastCipher.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigMulticastCipher.setStatus(_A)
+class _Gb15629dot11wapiConfigMulticastRekeyMethod_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_L,1),(_M,2),(_N,3),(_O,4)))
+_Gb15629dot11wapiConfigMulticastRekeyMethod_Type.__name__=_J
+_Gb15629dot11wapiConfigMulticastRekeyMethod_Object=MibTableColumn
+gb15629dot11wapiConfigMulticastRekeyMethod=_Gb15629dot11wapiConfigMulticastRekeyMethod_Object((1,2,156,11235,15629,11,1,1,1,1,1,13),_Gb15629dot11wapiConfigMulticastRekeyMethod_Type())
+gb15629dot11wapiConfigMulticastRekeyMethod.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigMulticastRekeyMethod.setStatus(_A)
+class _Gb15629dot11wapiConfigMulticastRekeyTime_Type(Unsigned32):defaultValue=86400;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_Gb15629dot11wapiConfigMulticastRekeyTime_Type.__name__=_E
+_Gb15629dot11wapiConfigMulticastRekeyTime_Object=MibTableColumn
+gb15629dot11wapiConfigMulticastRekeyTime=_Gb15629dot11wapiConfigMulticastRekeyTime_Object((1,2,156,11235,15629,11,1,1,1,1,1,14),_Gb15629dot11wapiConfigMulticastRekeyTime_Type())
+gb15629dot11wapiConfigMulticastRekeyTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigMulticastRekeyTime.setStatus(_A)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigMulticastRekeyTime.setUnits(_I)
+class _Gb15629dot11wapiConfigMulticastRekeyPackets_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_Gb15629dot11wapiConfigMulticastRekeyPackets_Type.__name__=_E
+_Gb15629dot11wapiConfigMulticastRekeyPackets_Object=MibTableColumn
+gb15629dot11wapiConfigMulticastRekeyPackets=_Gb15629dot11wapiConfigMulticastRekeyPackets_Object((1,2,156,11235,15629,11,1,1,1,1,1,15),_Gb15629dot11wapiConfigMulticastRekeyPackets_Type())
+gb15629dot11wapiConfigMulticastRekeyPackets.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigMulticastRekeyPackets.setStatus(_A)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigMulticastRekeyPackets.setUnits(_P)
+_Gb15629dot11wapiConfigMulticastRekeyStrict_Type=TruthValue
+_Gb15629dot11wapiConfigMulticastRekeyStrict_Object=MibTableColumn
+gb15629dot11wapiConfigMulticastRekeyStrict=_Gb15629dot11wapiConfigMulticastRekeyStrict_Object((1,2,156,11235,15629,11,1,1,1,1,1,16),_Gb15629dot11wapiConfigMulticastRekeyStrict_Type())
+gb15629dot11wapiConfigMulticastRekeyStrict.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigMulticastRekeyStrict.setStatus(_A)
+class _Gb15629dot11wapiConfigPSKValue_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(32,32));fixedLength=32
+_Gb15629dot11wapiConfigPSKValue_Type.__name__=_F
+_Gb15629dot11wapiConfigPSKValue_Object=MibTableColumn
+gb15629dot11wapiConfigPSKValue=_Gb15629dot11wapiConfigPSKValue_Object((1,2,156,11235,15629,11,1,1,1,1,1,17),_Gb15629dot11wapiConfigPSKValue_Type())
+gb15629dot11wapiConfigPSKValue.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigPSKValue.setStatus(_A)
+_Gb15629dot11wapiConfigPSKPassPhrase_Type=DisplayString
+_Gb15629dot11wapiConfigPSKPassPhrase_Object=MibTableColumn
+gb15629dot11wapiConfigPSKPassPhrase=_Gb15629dot11wapiConfigPSKPassPhrase_Object((1,2,156,11235,15629,11,1,1,1,1,1,18),_Gb15629dot11wapiConfigPSKPassPhrase_Type())
+gb15629dot11wapiConfigPSKPassPhrase.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigPSKPassPhrase.setStatus(_A)
+class _Gb15629dot11wapiConfigCertificateUpdateCount_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_Gb15629dot11wapiConfigCertificateUpdateCount_Type.__name__=_E
+_Gb15629dot11wapiConfigCertificateUpdateCount_Object=MibTableColumn
+gb15629dot11wapiConfigCertificateUpdateCount=_Gb15629dot11wapiConfigCertificateUpdateCount_Object((1,2,156,11235,15629,11,1,1,1,1,1,19),_Gb15629dot11wapiConfigCertificateUpdateCount_Type())
+gb15629dot11wapiConfigCertificateUpdateCount.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigCertificateUpdateCount.setStatus(_A)
+class _Gb15629dot11wapiConfigMulticastUpdateCount_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_Gb15629dot11wapiConfigMulticastUpdateCount_Type.__name__=_E
+_Gb15629dot11wapiConfigMulticastUpdateCount_Object=MibTableColumn
+gb15629dot11wapiConfigMulticastUpdateCount=_Gb15629dot11wapiConfigMulticastUpdateCount_Object((1,2,156,11235,15629,11,1,1,1,1,1,20),_Gb15629dot11wapiConfigMulticastUpdateCount_Type())
+gb15629dot11wapiConfigMulticastUpdateCount.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigMulticastUpdateCount.setStatus(_A)
+class _Gb15629dot11wapiConfigUnicastUpdateCount_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_Gb15629dot11wapiConfigUnicastUpdateCount_Type.__name__=_E
+_Gb15629dot11wapiConfigUnicastUpdateCount_Object=MibTableColumn
+gb15629dot11wapiConfigUnicastUpdateCount=_Gb15629dot11wapiConfigUnicastUpdateCount_Object((1,2,156,11235,15629,11,1,1,1,1,1,21),_Gb15629dot11wapiConfigUnicastUpdateCount_Type())
+gb15629dot11wapiConfigUnicastUpdateCount.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigUnicastUpdateCount.setStatus(_A)
+class _Gb15629dot11wapiConfigMulticastCipherSize_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_Gb15629dot11wapiConfigMulticastCipherSize_Type.__name__=_E
+_Gb15629dot11wapiConfigMulticastCipherSize_Object=MibTableColumn
+gb15629dot11wapiConfigMulticastCipherSize=_Gb15629dot11wapiConfigMulticastCipherSize_Object((1,2,156,11235,15629,11,1,1,1,1,1,22),_Gb15629dot11wapiConfigMulticastCipherSize_Type())
+gb15629dot11wapiConfigMulticastCipherSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigMulticastCipherSize.setStatus(_A)
+class _Gb15629dot11wapiConfigBKLifetime_Type(Unsigned32):defaultValue=43200;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_Gb15629dot11wapiConfigBKLifetime_Type.__name__=_E
+_Gb15629dot11wapiConfigBKLifetime_Object=MibTableColumn
+gb15629dot11wapiConfigBKLifetime=_Gb15629dot11wapiConfigBKLifetime_Object((1,2,156,11235,15629,11,1,1,1,1,1,23),_Gb15629dot11wapiConfigBKLifetime_Type())
+gb15629dot11wapiConfigBKLifetime.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigBKLifetime.setStatus(_A)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigBKLifetime.setUnits(_I)
+class _Gb15629dot11wapiConfigBKReauthThreshold_Type(Unsigned32):defaultValue=70;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
+_Gb15629dot11wapiConfigBKReauthThreshold_Type.__name__=_E
+_Gb15629dot11wapiConfigBKReauthThreshold_Object=MibTableColumn
+gb15629dot11wapiConfigBKReauthThreshold=_Gb15629dot11wapiConfigBKReauthThreshold_Object((1,2,156,11235,15629,11,1,1,1,1,1,24),_Gb15629dot11wapiConfigBKReauthThreshold_Type())
+gb15629dot11wapiConfigBKReauthThreshold.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigBKReauthThreshold.setStatus(_A)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigBKReauthThreshold.setUnits('percentage')
+class _Gb15629dot11wapiConfigSATimeout_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_Gb15629dot11wapiConfigSATimeout_Type.__name__=_E
+_Gb15629dot11wapiConfigSATimeout_Object=MibTableColumn
+gb15629dot11wapiConfigSATimeout=_Gb15629dot11wapiConfigSATimeout_Object((1,2,156,11235,15629,11,1,1,1,1,1,25),_Gb15629dot11wapiConfigSATimeout_Type())
+gb15629dot11wapiConfigSATimeout.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigSATimeout.setStatus(_A)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigSATimeout.setUnits(_I)
+class _Gb15629dot11wapiAuthenticationSuiteSelected_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
+_Gb15629dot11wapiAuthenticationSuiteSelected_Type.__name__=_F
+_Gb15629dot11wapiAuthenticationSuiteSelected_Object=MibTableColumn
+gb15629dot11wapiAuthenticationSuiteSelected=_Gb15629dot11wapiAuthenticationSuiteSelected_Object((1,2,156,11235,15629,11,1,1,1,1,1,26),_Gb15629dot11wapiAuthenticationSuiteSelected_Type())
+gb15629dot11wapiAuthenticationSuiteSelected.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiAuthenticationSuiteSelected.setStatus(_A)
+class _Gb15629dot11wapiUnicastCipherSelected_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
+_Gb15629dot11wapiUnicastCipherSelected_Type.__name__=_F
+_Gb15629dot11wapiUnicastCipherSelected_Object=MibTableColumn
+gb15629dot11wapiUnicastCipherSelected=_Gb15629dot11wapiUnicastCipherSelected_Object((1,2,156,11235,15629,11,1,1,1,1,1,27),_Gb15629dot11wapiUnicastCipherSelected_Type())
+gb15629dot11wapiUnicastCipherSelected.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiUnicastCipherSelected.setStatus(_A)
+class _Gb15629dot11wapiMulticastCipherSelected_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
+_Gb15629dot11wapiMulticastCipherSelected_Type.__name__=_F
+_Gb15629dot11wapiMulticastCipherSelected_Object=MibTableColumn
+gb15629dot11wapiMulticastCipherSelected=_Gb15629dot11wapiMulticastCipherSelected_Object((1,2,156,11235,15629,11,1,1,1,1,1,28),_Gb15629dot11wapiMulticastCipherSelected_Type())
+gb15629dot11wapiMulticastCipherSelected.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiMulticastCipherSelected.setStatus(_A)
+class _Gb15629dot11wapiBKIDUsed_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
+_Gb15629dot11wapiBKIDUsed_Type.__name__=_F
+_Gb15629dot11wapiBKIDUsed_Object=MibTableColumn
+gb15629dot11wapiBKIDUsed=_Gb15629dot11wapiBKIDUsed_Object((1,2,156,11235,15629,11,1,1,1,1,1,29),_Gb15629dot11wapiBKIDUsed_Type())
+gb15629dot11wapiBKIDUsed.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiBKIDUsed.setStatus(_A)
+class _Gb15629dot11wapiAuthenticationSuiteRequested_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
+_Gb15629dot11wapiAuthenticationSuiteRequested_Type.__name__=_F
+_Gb15629dot11wapiAuthenticationSuiteRequested_Object=MibTableColumn
+gb15629dot11wapiAuthenticationSuiteRequested=_Gb15629dot11wapiAuthenticationSuiteRequested_Object((1,2,156,11235,15629,11,1,1,1,1,1,30),_Gb15629dot11wapiAuthenticationSuiteRequested_Type())
+gb15629dot11wapiAuthenticationSuiteRequested.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiAuthenticationSuiteRequested.setStatus(_A)
+class _Gb15629dot11wapiUnicastCipherRequested_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
+_Gb15629dot11wapiUnicastCipherRequested_Type.__name__=_F
+_Gb15629dot11wapiUnicastCipherRequested_Object=MibTableColumn
+gb15629dot11wapiUnicastCipherRequested=_Gb15629dot11wapiUnicastCipherRequested_Object((1,2,156,11235,15629,11,1,1,1,1,1,31),_Gb15629dot11wapiUnicastCipherRequested_Type())
+gb15629dot11wapiUnicastCipherRequested.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiUnicastCipherRequested.setStatus(_A)
+class _Gb15629dot11wapiMulticastCipherRequested_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
+_Gb15629dot11wapiMulticastCipherRequested_Type.__name__=_F
+_Gb15629dot11wapiMulticastCipherRequested_Object=MibTableColumn
+gb15629dot11wapiMulticastCipherRequested=_Gb15629dot11wapiMulticastCipherRequested_Object((1,2,156,11235,15629,11,1,1,1,1,1,32),_Gb15629dot11wapiMulticastCipherRequested_Type())
+gb15629dot11wapiMulticastCipherRequested.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiMulticastCipherRequested.setStatus(_A)
+_Gb15629dot11wapiConfigUnicastCiphersTable_Object=MibTable
+gb15629dot11wapiConfigUnicastCiphersTable=_Gb15629dot11wapiConfigUnicastCiphersTable_Object((1,2,156,11235,15629,11,1,1,1,2))
+if mibBuilder.loadTexts:gb15629dot11wapiConfigUnicastCiphersTable.setStatus(_A)
+_Gb15629dot11wapiConfigUnicastCiphersEntry_Object=MibTableRow
+gb15629dot11wapiConfigUnicastCiphersEntry=_Gb15629dot11wapiConfigUnicastCiphersEntry_Object((1,2,156,11235,15629,11,1,1,1,2,1))
+gb15629dot11wapiConfigUnicastCiphersEntry.setIndexNames((0,_G,_H),(0,_B,_Q))
+if mibBuilder.loadTexts:gb15629dot11wapiConfigUnicastCiphersEntry.setStatus(_A)
+class _Gb15629dot11wapiConfigUnicastCipherIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_Gb15629dot11wapiConfigUnicastCipherIndex_Type.__name__=_E
+_Gb15629dot11wapiConfigUnicastCipherIndex_Object=MibTableColumn
+gb15629dot11wapiConfigUnicastCipherIndex=_Gb15629dot11wapiConfigUnicastCipherIndex_Object((1,2,156,11235,15629,11,1,1,1,2,1,1),_Gb15629dot11wapiConfigUnicastCipherIndex_Type())
+gb15629dot11wapiConfigUnicastCipherIndex.setMaxAccess(_K)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigUnicastCipherIndex.setStatus(_A)
+class _Gb15629dot11wapiConfigUnicastCipher_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
+_Gb15629dot11wapiConfigUnicastCipher_Type.__name__=_F
+_Gb15629dot11wapiConfigUnicastCipher_Object=MibTableColumn
+gb15629dot11wapiConfigUnicastCipher=_Gb15629dot11wapiConfigUnicastCipher_Object((1,2,156,11235,15629,11,1,1,1,2,1,2),_Gb15629dot11wapiConfigUnicastCipher_Type())
+gb15629dot11wapiConfigUnicastCipher.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigUnicastCipher.setStatus(_A)
+_Gb15629dot11wapiConfigUnicastCipherEnabled_Type=TruthValue
+_Gb15629dot11wapiConfigUnicastCipherEnabled_Object=MibTableColumn
+gb15629dot11wapiConfigUnicastCipherEnabled=_Gb15629dot11wapiConfigUnicastCipherEnabled_Object((1,2,156,11235,15629,11,1,1,1,2,1,3),_Gb15629dot11wapiConfigUnicastCipherEnabled_Type())
+gb15629dot11wapiConfigUnicastCipherEnabled.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigUnicastCipherEnabled.setStatus(_A)
+class _Gb15629dot11wapiConfigUnicastCipherSize_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_Gb15629dot11wapiConfigUnicastCipherSize_Type.__name__=_E
+_Gb15629dot11wapiConfigUnicastCipherSize_Object=MibTableColumn
+gb15629dot11wapiConfigUnicastCipherSize=_Gb15629dot11wapiConfigUnicastCipherSize_Object((1,2,156,11235,15629,11,1,1,1,2,1,4),_Gb15629dot11wapiConfigUnicastCipherSize_Type())
+gb15629dot11wapiConfigUnicastCipherSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigUnicastCipherSize.setStatus(_A)
+_Gb15629dot11wapiConfigAuthenticationSuitesTable_Object=MibTable
+gb15629dot11wapiConfigAuthenticationSuitesTable=_Gb15629dot11wapiConfigAuthenticationSuitesTable_Object((1,2,156,11235,15629,11,1,1,1,3))
+if mibBuilder.loadTexts:gb15629dot11wapiConfigAuthenticationSuitesTable.setStatus(_A)
+_Gb15629dot11wapiConfigAuthenticationSuitesEntry_Object=MibTableRow
+gb15629dot11wapiConfigAuthenticationSuitesEntry=_Gb15629dot11wapiConfigAuthenticationSuitesEntry_Object((1,2,156,11235,15629,11,1,1,1,3,1))
+gb15629dot11wapiConfigAuthenticationSuitesEntry.setIndexNames((0,_B,_R))
+if mibBuilder.loadTexts:gb15629dot11wapiConfigAuthenticationSuitesEntry.setStatus(_A)
+class _Gb15629dot11wapiConfigAuthenticationSuiteIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_Gb15629dot11wapiConfigAuthenticationSuiteIndex_Type.__name__=_E
+_Gb15629dot11wapiConfigAuthenticationSuiteIndex_Object=MibTableColumn
+gb15629dot11wapiConfigAuthenticationSuiteIndex=_Gb15629dot11wapiConfigAuthenticationSuiteIndex_Object((1,2,156,11235,15629,11,1,1,1,3,1,1),_Gb15629dot11wapiConfigAuthenticationSuiteIndex_Type())
+gb15629dot11wapiConfigAuthenticationSuiteIndex.setMaxAccess(_K)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigAuthenticationSuiteIndex.setStatus(_A)
+class _Gb15629dot11wapiConfigAuthenticationSuite_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
+_Gb15629dot11wapiConfigAuthenticationSuite_Type.__name__=_F
+_Gb15629dot11wapiConfigAuthenticationSuite_Object=MibTableColumn
+gb15629dot11wapiConfigAuthenticationSuite=_Gb15629dot11wapiConfigAuthenticationSuite_Object((1,2,156,11235,15629,11,1,1,1,3,1,2),_Gb15629dot11wapiConfigAuthenticationSuite_Type())
+gb15629dot11wapiConfigAuthenticationSuite.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigAuthenticationSuite.setStatus(_A)
+_Gb15629dot11wapiConfigAuthenticationSuiteEnabled_Type=TruthValue
+_Gb15629dot11wapiConfigAuthenticationSuiteEnabled_Object=MibTableColumn
+gb15629dot11wapiConfigAuthenticationSuiteEnabled=_Gb15629dot11wapiConfigAuthenticationSuiteEnabled_Object((1,2,156,11235,15629,11,1,1,1,3,1,3),_Gb15629dot11wapiConfigAuthenticationSuiteEnabled_Type())
+gb15629dot11wapiConfigAuthenticationSuiteEnabled.setMaxAccess(_D)
+if mibBuilder.loadTexts:gb15629dot11wapiConfigAuthenticationSuiteEnabled.setStatus(_A)
+_Gb15629dot11wapiStatsTable_Object=MibTable
+gb15629dot11wapiStatsTable=_Gb15629dot11wapiStatsTable_Object((1,2,156,11235,15629,11,1,1,1,4))
+if mibBuilder.loadTexts:gb15629dot11wapiStatsTable.setStatus(_A)
+_Gb15629dot11wapiStatsEntry_Object=MibTableRow
+gb15629dot11wapiStatsEntry=_Gb15629dot11wapiStatsEntry_Object((1,2,156,11235,15629,11,1,1,1,4,1))
+gb15629dot11wapiStatsEntry.setIndexNames((0,_G,_H),(0,_B,_S))
+if mibBuilder.loadTexts:gb15629dot11wapiStatsEntry.setStatus(_A)
+class _Gb15629dot11wapiStatsIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_Gb15629dot11wapiStatsIndex_Type.__name__=_E
+_Gb15629dot11wapiStatsIndex_Object=MibTableColumn
+gb15629dot11wapiStatsIndex=_Gb15629dot11wapiStatsIndex_Object((1,2,156,11235,15629,11,1,1,1,4,1,1),_Gb15629dot11wapiStatsIndex_Type())
+gb15629dot11wapiStatsIndex.setMaxAccess(_K)
+if mibBuilder.loadTexts:gb15629dot11wapiStatsIndex.setStatus(_A)
+_Gb15629dot11wapiStatsSTAAddress_Type=MacAddress
+_Gb15629dot11wapiStatsSTAAddress_Object=MibTableColumn
+gb15629dot11wapiStatsSTAAddress=_Gb15629dot11wapiStatsSTAAddress_Object((1,2,156,11235,15629,11,1,1,1,4,1,2),_Gb15629dot11wapiStatsSTAAddress_Type())
+gb15629dot11wapiStatsSTAAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiStatsSTAAddress.setStatus(_A)
+class _Gb15629dot11wapiStatsVersion_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_Gb15629dot11wapiStatsVersion_Type.__name__=_E
+_Gb15629dot11wapiStatsVersion_Object=MibTableColumn
+gb15629dot11wapiStatsVersion=_Gb15629dot11wapiStatsVersion_Object((1,2,156,11235,15629,11,1,1,1,4,1,3),_Gb15629dot11wapiStatsVersion_Type())
+gb15629dot11wapiStatsVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiStatsVersion.setStatus(_A)
+_Gb15629dot11wapiStatsControlledPortStatus_Type=TruthValue
+_Gb15629dot11wapiStatsControlledPortStatus_Object=MibTableColumn
+gb15629dot11wapiStatsControlledPortStatus=_Gb15629dot11wapiStatsControlledPortStatus_Object((1,2,156,11235,15629,11,1,1,1,4,1,4),_Gb15629dot11wapiStatsControlledPortStatus_Type())
+gb15629dot11wapiStatsControlledPortStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiStatsControlledPortStatus.setStatus(_A)
+class _Gb15629dot11wapiStatsSelectedUnicastCipher_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
+_Gb15629dot11wapiStatsSelectedUnicastCipher_Type.__name__=_F
+_Gb15629dot11wapiStatsSelectedUnicastCipher_Object=MibTableColumn
+gb15629dot11wapiStatsSelectedUnicastCipher=_Gb15629dot11wapiStatsSelectedUnicastCipher_Object((1,2,156,11235,15629,11,1,1,1,4,1,5),_Gb15629dot11wapiStatsSelectedUnicastCipher_Type())
+gb15629dot11wapiStatsSelectedUnicastCipher.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiStatsSelectedUnicastCipher.setStatus(_A)
+_Gb15629dot11wapiStatsWPIReplayCounters_Type=Counter32
+_Gb15629dot11wapiStatsWPIReplayCounters_Object=MibTableColumn
+gb15629dot11wapiStatsWPIReplayCounters=_Gb15629dot11wapiStatsWPIReplayCounters_Object((1,2,156,11235,15629,11,1,1,1,4,1,6),_Gb15629dot11wapiStatsWPIReplayCounters_Type())
+gb15629dot11wapiStatsWPIReplayCounters.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiStatsWPIReplayCounters.setStatus(_A)
+_Gb15629dot11wapiStatsWPIDecryptableErrors_Type=Counter32
+_Gb15629dot11wapiStatsWPIDecryptableErrors_Object=MibTableColumn
+gb15629dot11wapiStatsWPIDecryptableErrors=_Gb15629dot11wapiStatsWPIDecryptableErrors_Object((1,2,156,11235,15629,11,1,1,1,4,1,7),_Gb15629dot11wapiStatsWPIDecryptableErrors_Type())
+gb15629dot11wapiStatsWPIDecryptableErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiStatsWPIDecryptableErrors.setStatus(_A)
+_Gb15629dot11wapiStatsWPIMICErrors_Type=Counter32
+_Gb15629dot11wapiStatsWPIMICErrors_Object=MibTableColumn
+gb15629dot11wapiStatsWPIMICErrors=_Gb15629dot11wapiStatsWPIMICErrors_Object((1,2,156,11235,15629,11,1,1,1,4,1,8),_Gb15629dot11wapiStatsWPIMICErrors_Type())
+gb15629dot11wapiStatsWPIMICErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiStatsWPIMICErrors.setStatus(_A)
+_Gb15629dot11wapiStatsWAISignatureErrors_Type=Counter32
+_Gb15629dot11wapiStatsWAISignatureErrors_Object=MibTableColumn
+gb15629dot11wapiStatsWAISignatureErrors=_Gb15629dot11wapiStatsWAISignatureErrors_Object((1,2,156,11235,15629,11,1,1,1,4,1,9),_Gb15629dot11wapiStatsWAISignatureErrors_Type())
+gb15629dot11wapiStatsWAISignatureErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiStatsWAISignatureErrors.setStatus(_A)
+_Gb15629dot11wapiStatsWAIHMACErrors_Type=Counter32
+_Gb15629dot11wapiStatsWAIHMACErrors_Object=MibTableColumn
+gb15629dot11wapiStatsWAIHMACErrors=_Gb15629dot11wapiStatsWAIHMACErrors_Object((1,2,156,11235,15629,11,1,1,1,4,1,10),_Gb15629dot11wapiStatsWAIHMACErrors_Type())
+gb15629dot11wapiStatsWAIHMACErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiStatsWAIHMACErrors.setStatus(_A)
+_Gb15629dot11wapiStatsWAIAuthenticationResultFailures_Type=Counter32
+_Gb15629dot11wapiStatsWAIAuthenticationResultFailures_Object=MibTableColumn
+gb15629dot11wapiStatsWAIAuthenticationResultFailures=_Gb15629dot11wapiStatsWAIAuthenticationResultFailures_Object((1,2,156,11235,15629,11,1,1,1,4,1,11),_Gb15629dot11wapiStatsWAIAuthenticationResultFailures_Type())
+gb15629dot11wapiStatsWAIAuthenticationResultFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiStatsWAIAuthenticationResultFailures.setStatus(_A)
+_Gb15629dot11wapiStatsWAIDiscardCounters_Type=Counter32
+_Gb15629dot11wapiStatsWAIDiscardCounters_Object=MibTableColumn
+gb15629dot11wapiStatsWAIDiscardCounters=_Gb15629dot11wapiStatsWAIDiscardCounters_Object((1,2,156,11235,15629,11,1,1,1,4,1,12),_Gb15629dot11wapiStatsWAIDiscardCounters_Type())
+gb15629dot11wapiStatsWAIDiscardCounters.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiStatsWAIDiscardCounters.setStatus(_A)
+_Gb15629dot11wapiStatsWAITimeoutCounters_Type=Counter32
+_Gb15629dot11wapiStatsWAITimeoutCounters_Object=MibTableColumn
+gb15629dot11wapiStatsWAITimeoutCounters=_Gb15629dot11wapiStatsWAITimeoutCounters_Object((1,2,156,11235,15629,11,1,1,1,4,1,13),_Gb15629dot11wapiStatsWAITimeoutCounters_Type())
+gb15629dot11wapiStatsWAITimeoutCounters.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiStatsWAITimeoutCounters.setStatus(_A)
+_Gb15629dot11wapiStatsWAIFormatErrors_Type=Counter32
+_Gb15629dot11wapiStatsWAIFormatErrors_Object=MibTableColumn
+gb15629dot11wapiStatsWAIFormatErrors=_Gb15629dot11wapiStatsWAIFormatErrors_Object((1,2,156,11235,15629,11,1,1,1,4,1,14),_Gb15629dot11wapiStatsWAIFormatErrors_Type())
+gb15629dot11wapiStatsWAIFormatErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiStatsWAIFormatErrors.setStatus(_A)
+_Gb15629dot11wapiStatsWAICertificateHandshakeFailures_Type=Counter32
+_Gb15629dot11wapiStatsWAICertificateHandshakeFailures_Object=MibTableColumn
+gb15629dot11wapiStatsWAICertificateHandshakeFailures=_Gb15629dot11wapiStatsWAICertificateHandshakeFailures_Object((1,2,156,11235,15629,11,1,1,1,4,1,15),_Gb15629dot11wapiStatsWAICertificateHandshakeFailures_Type())
+gb15629dot11wapiStatsWAICertificateHandshakeFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiStatsWAICertificateHandshakeFailures.setStatus(_A)
+_Gb15629dot11wapiStatsWAIUnicastHandshakeFailures_Type=Counter32
+_Gb15629dot11wapiStatsWAIUnicastHandshakeFailures_Object=MibTableColumn
+gb15629dot11wapiStatsWAIUnicastHandshakeFailures=_Gb15629dot11wapiStatsWAIUnicastHandshakeFailures_Object((1,2,156,11235,15629,11,1,1,1,4,1,16),_Gb15629dot11wapiStatsWAIUnicastHandshakeFailures_Type())
+gb15629dot11wapiStatsWAIUnicastHandshakeFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiStatsWAIUnicastHandshakeFailures.setStatus(_A)
+_Gb15629dot11wapiStatsWAIMulticastHandshakeFailures_Type=Counter32
+_Gb15629dot11wapiStatsWAIMulticastHandshakeFailures_Object=MibTableColumn
+gb15629dot11wapiStatsWAIMulticastHandshakeFailures=_Gb15629dot11wapiStatsWAIMulticastHandshakeFailures_Object((1,2,156,11235,15629,11,1,1,1,4,1,17),_Gb15629dot11wapiStatsWAIMulticastHandshakeFailures_Type())
+gb15629dot11wapiStatsWAIMulticastHandshakeFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:gb15629dot11wapiStatsWAIMulticastHandshakeFailures.setStatus(_A)
+_WapiMIBConformance_ObjectIdentity=ObjectIdentity
+wapiMIBConformance=_WapiMIBConformance_ObjectIdentity((1,2,156,11235,15629,11,1,1,2))
+_Gb15629dot11wapiGroups_ObjectIdentity=ObjectIdentity
+gb15629dot11wapiGroups=_Gb15629dot11wapiGroups_ObjectIdentity((1,2,156,11235,15629,11,1,1,2,1))
+_Gb15629wapiCompliances_ObjectIdentity=ObjectIdentity
+gb15629wapiCompliances=_Gb15629wapiCompliances_ObjectIdentity((1,2,156,11235,15629,11,1,1,2,2))
+gb15629dot11wapiBase=ObjectGroup((1,2,156,11235,15629,11,1,1,2,1,1))
+gb15629dot11wapiBase.setObjects(*((_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH)))
+if mibBuilder.loadTexts:gb15629dot11wapiBase.setStatus(_A)
+gb15629dot11wapiBKcachingGroup=ObjectGroup((1,2,156,11235,15629,11,1,1,2,1,2))
+gb15629dot11wapiBKcachingGroup.setObjects(*((_B,_AI),(_B,_AJ)))
+if mibBuilder.loadTexts:gb15629dot11wapiBKcachingGroup.setStatus(_A)
+gb15629dot11wapiCompliance=ModuleCompliance((1,2,156,11235,15629,11,1,1,2,2,1))
+gb15629dot11wapiCompliance.setObjects((_B,_AK))
+if mibBuilder.loadTexts:gb15629dot11wapiCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'member-body':member_body,'cn':cn,'bwips':bwips,'gb15629':gb15629,'gb15629-11':gb15629_11,'gb15629-11-mibs':gb15629_11_mibs,'gb15629dot11wapiMIB':gb15629dot11wapiMIB,'wapiMIBObjects':wapiMIBObjects,'gb15629dot11wapiConfigTable':gb15629dot11wapiConfigTable,'gb15629dot11wapiConfigEntry':gb15629dot11wapiConfigEntry,_T:gb15629dot11wapiConfigVersion,_U:gb15629dot11wapiControlledAuthControl,_V:gb15629dot11wapiControlledPortControl,_W:gb15629dot11wapiOptionImplemented,_X:gb15629dot11wapiPreauthenticationImplemented,_Y:gb15629dot11wapiEnabled,_Z:gb15629dot11wapiPreauthenticationEnabled,_a:gb15629dot11wapiConfigUnicastKeysSupported,_b:gb15629dot11wapiConfigUnicastRekeyMethod,_c:gb15629dot11wapiConfigUnicastRekeyTime,_d:gb15629dot11wapiConfigUnicastRekeyPackets,_e:gb15629dot11wapiConfigMulticastCipher,_f:gb15629dot11wapiConfigMulticastRekeyMethod,_g:gb15629dot11wapiConfigMulticastRekeyTime,_h:gb15629dot11wapiConfigMulticastRekeyPackets,_i:gb15629dot11wapiConfigMulticastRekeyStrict,_j:gb15629dot11wapiConfigPSKValue,_k:gb15629dot11wapiConfigPSKPassPhrase,_l:gb15629dot11wapiConfigCertificateUpdateCount,_m:gb15629dot11wapiConfigMulticastUpdateCount,_n:gb15629dot11wapiConfigUnicastUpdateCount,_o:gb15629dot11wapiConfigMulticastCipherSize,_AI:gb15629dot11wapiConfigBKLifetime,_AJ:gb15629dot11wapiConfigBKReauthThreshold,_u:gb15629dot11wapiConfigSATimeout,_v:gb15629dot11wapiAuthenticationSuiteSelected,_w:gb15629dot11wapiUnicastCipherSelected,_x:gb15629dot11wapiMulticastCipherSelected,_y:gb15629dot11wapiBKIDUsed,_z:gb15629dot11wapiAuthenticationSuiteRequested,_A0:gb15629dot11wapiUnicastCipherRequested,_A1:gb15629dot11wapiMulticastCipherRequested,'gb15629dot11wapiConfigUnicastCiphersTable':gb15629dot11wapiConfigUnicastCiphersTable,'gb15629dot11wapiConfigUnicastCiphersEntry':gb15629dot11wapiConfigUnicastCiphersEntry,_Q:gb15629dot11wapiConfigUnicastCipherIndex,_p:gb15629dot11wapiConfigUnicastCipher,_q:gb15629dot11wapiConfigUnicastCipherEnabled,_r:gb15629dot11wapiConfigUnicastCipherSize,'gb15629dot11wapiConfigAuthenticationSuitesTable':gb15629dot11wapiConfigAuthenticationSuitesTable,'gb15629dot11wapiConfigAuthenticationSuitesEntry':gb15629dot11wapiConfigAuthenticationSuitesEntry,_R:gb15629dot11wapiConfigAuthenticationSuiteIndex,_s:gb15629dot11wapiConfigAuthenticationSuite,_t:gb15629dot11wapiConfigAuthenticationSuiteEnabled,'gb15629dot11wapiStatsTable':gb15629dot11wapiStatsTable,'gb15629dot11wapiStatsEntry':gb15629dot11wapiStatsEntry,_S:gb15629dot11wapiStatsIndex,_A2:gb15629dot11wapiStatsSTAAddress,_A3:gb15629dot11wapiStatsVersion,_A4:gb15629dot11wapiStatsControlledPortStatus,_A5:gb15629dot11wapiStatsSelectedUnicastCipher,_A6:gb15629dot11wapiStatsWPIReplayCounters,_A7:gb15629dot11wapiStatsWPIDecryptableErrors,_A8:gb15629dot11wapiStatsWPIMICErrors,_A9:gb15629dot11wapiStatsWAISignatureErrors,_AA:gb15629dot11wapiStatsWAIHMACErrors,_AB:gb15629dot11wapiStatsWAIAuthenticationResultFailures,_AC:gb15629dot11wapiStatsWAIDiscardCounters,_AD:gb15629dot11wapiStatsWAITimeoutCounters,_AE:gb15629dot11wapiStatsWAIFormatErrors,_AF:gb15629dot11wapiStatsWAICertificateHandshakeFailures,_AG:gb15629dot11wapiStatsWAIUnicastHandshakeFailures,_AH:gb15629dot11wapiStatsWAIMulticastHandshakeFailures,'wapiMIBConformance':wapiMIBConformance,'gb15629dot11wapiGroups':gb15629dot11wapiGroups,_AK:gb15629dot11wapiBase,'gb15629dot11wapiBKcachingGroup':gb15629dot11wapiBKcachingGroup,'gb15629wapiCompliances':gb15629wapiCompliances,'gb15629dot11wapiCompliance':gb15629dot11wapiCompliance})

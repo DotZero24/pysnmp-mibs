@@ -1,0 +1,30 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+mitelIpNetRouter=ModuleIdentity((1,3,6,1,4,1,1027,4,8,1))
+if mibBuilder.loadTexts:mitelIpNetRouter.setRevisions(('2003-03-24 09:27','1999-03-01 00:00'))
+_Mitel_ObjectIdentity=ObjectIdentity
+mitel=_Mitel_ObjectIdentity((1,3,6,1,4,1,1027))
+_MitelProprietary_ObjectIdentity=ObjectIdentity
+mitelProprietary=_MitelProprietary_ObjectIdentity((1,3,6,1,4,1,1027,4))
+_MitelPropIpNetworking_ObjectIdentity=ObjectIdentity
+mitelPropIpNetworking=_MitelPropIpNetworking_ObjectIdentity((1,3,6,1,4,1,1027,4,8))
+_MitelRouterIpGroup_ObjectIdentity=ObjectIdentity
+mitelRouterIpGroup=_MitelRouterIpGroup_ObjectIdentity((1,3,6,1,4,1,1027,4,8,1,1))
+_MitelRouterPppGroup_ObjectIdentity=ObjectIdentity
+mitelRouterPppGroup=_MitelRouterPppGroup_ObjectIdentity((1,3,6,1,4,1,1027,4,8,1,2))
+_MitelRouterDhcpGroup_ObjectIdentity=ObjectIdentity
+mitelRouterDhcpGroup=_MitelRouterDhcpGroup_ObjectIdentity((1,3,6,1,4,1,1027,4,8,1,3))
+_MitelRouterLogicalGroup_ObjectIdentity=ObjectIdentity
+mitelRouterLogicalGroup=_MitelRouterLogicalGroup_ObjectIdentity((1,3,6,1,4,1,1027,4,8,1,4))
+_MitelRouterIpRouterGroup_ObjectIdentity=ObjectIdentity
+mitelRouterIpRouterGroup=_MitelRouterIpRouterGroup_ObjectIdentity((1,3,6,1,4,1,1027,4,8,1,5))
+_MitelRouterRipExtensionGroup_ObjectIdentity=ObjectIdentity
+mitelRouterRipExtensionGroup=_MitelRouterRipExtensionGroup_ObjectIdentity((1,3,6,1,4,1,1027,4,8,1,6))
+_MitelRouterSnmpTrapGroup_ObjectIdentity=ObjectIdentity
+mitelRouterSnmpTrapGroup=_MitelRouterSnmpTrapGroup_ObjectIdentity((1,3,6,1,4,1,1027,4,8,1,7))
+mibBuilder.exportSymbols('MITEL-IPNETROUTER-MIB',**{'mitel':mitel,'mitelProprietary':mitelProprietary,'mitelPropIpNetworking':mitelPropIpNetworking,'mitelIpNetRouter':mitelIpNetRouter,'mitelRouterIpGroup':mitelRouterIpGroup,'mitelRouterPppGroup':mitelRouterPppGroup,'mitelRouterDhcpGroup':mitelRouterDhcpGroup,'mitelRouterLogicalGroup':mitelRouterLogicalGroup,'mitelRouterIpRouterGroup':mitelRouterIpRouterGroup,'mitelRouterRipExtensionGroup':mitelRouterRipExtensionGroup,'mitelRouterSnmpTrapGroup':mitelRouterSnmpTrapGroup})

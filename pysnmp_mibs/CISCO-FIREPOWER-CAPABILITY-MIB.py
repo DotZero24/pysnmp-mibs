@@ -1,0 +1,983 @@
+_V='cfprCapabilityUpdaterFsmTaskInstanceId'
+_U='cfprCapabilityUpdaterFsmStageInstanceId'
+_T='cfprCapabilityUpdaterFsmInstanceId'
+_S='cfprCapabilityUpdaterInstanceId'
+_R='cfprCapabilityUpdateInstanceId'
+_Q='cfprCapabilitySystemLimitsInstanceId'
+_P='cfprCapabilityStorageLimitsInstanceId'
+_O='cfprCapabilityNetworkLimitsInstanceId'
+_N='cfprCapabilityMgmtExtensionFsmTaskInstanceId'
+_M='cfprCapabilityMgmtExtensionFsmStageInstanceId'
+_L='cfprCapabilityMgmtExtensionFsmInstanceId'
+_K='cfprCapabilityMgmtExtensionInstanceId'
+_J='cfprCapabilityFeatureLimitsInstanceId'
+_I='cfprCapabilityEpInstanceId'
+_H='cfprCapabilityCatalogueFsmTaskInstanceId'
+_G='cfprCapabilityCatalogueFsmStageInstanceId'
+_F='cfprCapabilityCatalogueFsmInstanceId'
+_E='cfprCapabilityCatalogueInstanceId'
+_D='not-accessible'
+_C='CISCO-FIREPOWER-CAPABILITY-MIB'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+CfprManagedObjectDn,CfprManagedObjectId,ciscoFirepowerMIBObjects=mibBuilder.importSymbols('CISCO-FIREPOWER-MIB','CfprManagedObjectDn','CfprManagedObjectId','ciscoFirepowerMIBObjects')
+CfprCapabilityAdminState,CfprCapabilityCatalogueFsmCurrentFsm,CfprCapabilityCatalogueFsmStageName,CfprCapabilityCatalogueFsmTaskItem,CfprCapabilityFeatureStatus,CfprCapabilityMgmtExtensionFsmCurrentFsm,CfprCapabilityMgmtExtensionFsmStageName,CfprCapabilityMgmtExtensionFsmTaskItem,CfprCapabilityOperStatus,CfprCapabilityPlatform,CfprCapabilityUpdaterFsmCurrentFsm,CfprCapabilityUpdaterFsmStageName,CfprCapabilityUpdaterFsmTaskItem,CfprConditionRemoteInvRslt,CfprFirmwareTransport,CfprFsmCompletion,CfprFsmFlags,CfprFsmFsmStageStatus=mibBuilder.importSymbols('CISCO-FIREPOWER-TC-MIB','CfprCapabilityAdminState','CfprCapabilityCatalogueFsmCurrentFsm','CfprCapabilityCatalogueFsmStageName','CfprCapabilityCatalogueFsmTaskItem','CfprCapabilityFeatureStatus','CfprCapabilityMgmtExtensionFsmCurrentFsm','CfprCapabilityMgmtExtensionFsmStageName','CfprCapabilityMgmtExtensionFsmTaskItem','CfprCapabilityOperStatus','CfprCapabilityPlatform','CfprCapabilityUpdaterFsmCurrentFsm','CfprCapabilityUpdaterFsmStageName','CfprCapabilityUpdaterFsmTaskItem','CfprConditionRemoteInvRslt','CfprFirmwareTransport','CfprFsmCompletion','CfprFsmFlags','CfprFsmFsmStageStatus')
+ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
+CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
+InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
+cfprCapabilityObjects=ModuleIdentity((1,3,6,1,4,1,9,9,826,1,8))
+_CfprCapabilityCatalogueTable_Object=MibTable
+cfprCapabilityCatalogueTable=_CfprCapabilityCatalogueTable_Object((1,3,6,1,4,1,9,9,826,1,8,1))
+if mibBuilder.loadTexts:cfprCapabilityCatalogueTable.setStatus(_A)
+_CfprCapabilityCatalogueEntry_Object=MibTableRow
+cfprCapabilityCatalogueEntry=_CfprCapabilityCatalogueEntry_Object((1,3,6,1,4,1,9,9,826,1,8,1,1))
+cfprCapabilityCatalogueEntry.setIndexNames((0,_C,_E))
+if mibBuilder.loadTexts:cfprCapabilityCatalogueEntry.setStatus(_A)
+_CfprCapabilityCatalogueInstanceId_Type=CfprManagedObjectId
+_CfprCapabilityCatalogueInstanceId_Object=MibTableColumn
+cfprCapabilityCatalogueInstanceId=_CfprCapabilityCatalogueInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,1),_CfprCapabilityCatalogueInstanceId_Type())
+cfprCapabilityCatalogueInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueInstanceId.setStatus(_A)
+_CfprCapabilityCatalogueDn_Type=CfprManagedObjectDn
+_CfprCapabilityCatalogueDn_Object=MibTableColumn
+cfprCapabilityCatalogueDn=_CfprCapabilityCatalogueDn_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,2),_CfprCapabilityCatalogueDn_Type())
+cfprCapabilityCatalogueDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueDn.setStatus(_A)
+_CfprCapabilityCatalogueRn_Type=SnmpAdminString
+_CfprCapabilityCatalogueRn_Object=MibTableColumn
+cfprCapabilityCatalogueRn=_CfprCapabilityCatalogueRn_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,3),_CfprCapabilityCatalogueRn_Type())
+cfprCapabilityCatalogueRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueRn.setStatus(_A)
+_CfprCapabilityCatalogueFileParseFailures_Type=Gauge32
+_CfprCapabilityCatalogueFileParseFailures_Object=MibTableColumn
+cfprCapabilityCatalogueFileParseFailures=_CfprCapabilityCatalogueFileParseFailures_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,4),_CfprCapabilityCatalogueFileParseFailures_Type())
+cfprCapabilityCatalogueFileParseFailures.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFileParseFailures.setStatus(_A)
+_CfprCapabilityCatalogueFilesParsed_Type=Gauge32
+_CfprCapabilityCatalogueFilesParsed_Object=MibTableColumn
+cfprCapabilityCatalogueFilesParsed=_CfprCapabilityCatalogueFilesParsed_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,5),_CfprCapabilityCatalogueFilesParsed_Type())
+cfprCapabilityCatalogueFilesParsed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFilesParsed.setStatus(_A)
+_CfprCapabilityCatalogueFsmDescr_Type=SnmpAdminString
+_CfprCapabilityCatalogueFsmDescr_Object=MibTableColumn
+cfprCapabilityCatalogueFsmDescr=_CfprCapabilityCatalogueFsmDescr_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,6),_CfprCapabilityCatalogueFsmDescr_Type())
+cfprCapabilityCatalogueFsmDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmDescr.setStatus(_A)
+_CfprCapabilityCatalogueFsmPrev_Type=SnmpAdminString
+_CfprCapabilityCatalogueFsmPrev_Object=MibTableColumn
+cfprCapabilityCatalogueFsmPrev=_CfprCapabilityCatalogueFsmPrev_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,7),_CfprCapabilityCatalogueFsmPrev_Type())
+cfprCapabilityCatalogueFsmPrev.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmPrev.setStatus(_A)
+_CfprCapabilityCatalogueFsmProgr_Type=Gauge32
+_CfprCapabilityCatalogueFsmProgr_Object=MibTableColumn
+cfprCapabilityCatalogueFsmProgr=_CfprCapabilityCatalogueFsmProgr_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,8),_CfprCapabilityCatalogueFsmProgr_Type())
+cfprCapabilityCatalogueFsmProgr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmProgr.setStatus(_A)
+_CfprCapabilityCatalogueFsmRmtInvErrCode_Type=Gauge32
+_CfprCapabilityCatalogueFsmRmtInvErrCode_Object=MibTableColumn
+cfprCapabilityCatalogueFsmRmtInvErrCode=_CfprCapabilityCatalogueFsmRmtInvErrCode_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,9),_CfprCapabilityCatalogueFsmRmtInvErrCode_Type())
+cfprCapabilityCatalogueFsmRmtInvErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmRmtInvErrCode.setStatus(_A)
+_CfprCapabilityCatalogueFsmRmtInvErrDescr_Type=SnmpAdminString
+_CfprCapabilityCatalogueFsmRmtInvErrDescr_Object=MibTableColumn
+cfprCapabilityCatalogueFsmRmtInvErrDescr=_CfprCapabilityCatalogueFsmRmtInvErrDescr_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,10),_CfprCapabilityCatalogueFsmRmtInvErrDescr_Type())
+cfprCapabilityCatalogueFsmRmtInvErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmRmtInvErrDescr.setStatus(_A)
+_CfprCapabilityCatalogueFsmRmtInvRslt_Type=CfprConditionRemoteInvRslt
+_CfprCapabilityCatalogueFsmRmtInvRslt_Object=MibTableColumn
+cfprCapabilityCatalogueFsmRmtInvRslt=_CfprCapabilityCatalogueFsmRmtInvRslt_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,11),_CfprCapabilityCatalogueFsmRmtInvRslt_Type())
+cfprCapabilityCatalogueFsmRmtInvRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmRmtInvRslt.setStatus(_A)
+_CfprCapabilityCatalogueFsmStageDescr_Type=SnmpAdminString
+_CfprCapabilityCatalogueFsmStageDescr_Object=MibTableColumn
+cfprCapabilityCatalogueFsmStageDescr=_CfprCapabilityCatalogueFsmStageDescr_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,12),_CfprCapabilityCatalogueFsmStageDescr_Type())
+cfprCapabilityCatalogueFsmStageDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmStageDescr.setStatus(_A)
+_CfprCapabilityCatalogueFsmStamp_Type=DateAndTime
+_CfprCapabilityCatalogueFsmStamp_Object=MibTableColumn
+cfprCapabilityCatalogueFsmStamp=_CfprCapabilityCatalogueFsmStamp_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,13),_CfprCapabilityCatalogueFsmStamp_Type())
+cfprCapabilityCatalogueFsmStamp.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmStamp.setStatus(_A)
+_CfprCapabilityCatalogueFsmStatus_Type=SnmpAdminString
+_CfprCapabilityCatalogueFsmStatus_Object=MibTableColumn
+cfprCapabilityCatalogueFsmStatus=_CfprCapabilityCatalogueFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,14),_CfprCapabilityCatalogueFsmStatus_Type())
+cfprCapabilityCatalogueFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmStatus.setStatus(_A)
+_CfprCapabilityCatalogueFsmTry_Type=Gauge32
+_CfprCapabilityCatalogueFsmTry_Object=MibTableColumn
+cfprCapabilityCatalogueFsmTry=_CfprCapabilityCatalogueFsmTry_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,15),_CfprCapabilityCatalogueFsmTry_Type())
+cfprCapabilityCatalogueFsmTry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmTry.setStatus(_A)
+_CfprCapabilityCatalogueLoadErrors_Type=Gauge32
+_CfprCapabilityCatalogueLoadErrors_Object=MibTableColumn
+cfprCapabilityCatalogueLoadErrors=_CfprCapabilityCatalogueLoadErrors_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,16),_CfprCapabilityCatalogueLoadErrors_Type())
+cfprCapabilityCatalogueLoadErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueLoadErrors.setStatus(_A)
+_CfprCapabilityCatalogueLoadWarnings_Type=Gauge32
+_CfprCapabilityCatalogueLoadWarnings_Object=MibTableColumn
+cfprCapabilityCatalogueLoadWarnings=_CfprCapabilityCatalogueLoadWarnings_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,17),_CfprCapabilityCatalogueLoadWarnings_Type())
+cfprCapabilityCatalogueLoadWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueLoadWarnings.setStatus(_A)
+_CfprCapabilityCatalogueProviderLoadFailures_Type=Gauge32
+_CfprCapabilityCatalogueProviderLoadFailures_Object=MibTableColumn
+cfprCapabilityCatalogueProviderLoadFailures=_CfprCapabilityCatalogueProviderLoadFailures_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,18),_CfprCapabilityCatalogueProviderLoadFailures_Type())
+cfprCapabilityCatalogueProviderLoadFailures.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueProviderLoadFailures.setStatus(_A)
+_CfprCapabilityCatalogueProvidersLoaded_Type=Gauge32
+_CfprCapabilityCatalogueProvidersLoaded_Object=MibTableColumn
+cfprCapabilityCatalogueProvidersLoaded=_CfprCapabilityCatalogueProvidersLoaded_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,19),_CfprCapabilityCatalogueProvidersLoaded_Type())
+cfprCapabilityCatalogueProvidersLoaded.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueProvidersLoaded.setStatus(_A)
+_CfprCapabilityCatalogueVersion_Type=SnmpAdminString
+_CfprCapabilityCatalogueVersion_Object=MibTableColumn
+cfprCapabilityCatalogueVersion=_CfprCapabilityCatalogueVersion_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,20),_CfprCapabilityCatalogueVersion_Type())
+cfprCapabilityCatalogueVersion.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueVersion.setStatus(_A)
+_CfprCapabilityCatalogueBiosTokenVersion_Type=SnmpAdminString
+_CfprCapabilityCatalogueBiosTokenVersion_Object=MibTableColumn
+cfprCapabilityCatalogueBiosTokenVersion=_CfprCapabilityCatalogueBiosTokenVersion_Object((1,3,6,1,4,1,9,9,826,1,8,1,1,21),_CfprCapabilityCatalogueBiosTokenVersion_Type())
+cfprCapabilityCatalogueBiosTokenVersion.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueBiosTokenVersion.setStatus(_A)
+_CfprCapabilityCatalogueFsmTable_Object=MibTable
+cfprCapabilityCatalogueFsmTable=_CfprCapabilityCatalogueFsmTable_Object((1,3,6,1,4,1,9,9,826,1,8,2))
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmTable.setStatus(_A)
+_CfprCapabilityCatalogueFsmEntry_Object=MibTableRow
+cfprCapabilityCatalogueFsmEntry=_CfprCapabilityCatalogueFsmEntry_Object((1,3,6,1,4,1,9,9,826,1,8,2,1))
+cfprCapabilityCatalogueFsmEntry.setIndexNames((0,_C,_F))
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmEntry.setStatus(_A)
+_CfprCapabilityCatalogueFsmInstanceId_Type=CfprManagedObjectId
+_CfprCapabilityCatalogueFsmInstanceId_Object=MibTableColumn
+cfprCapabilityCatalogueFsmInstanceId=_CfprCapabilityCatalogueFsmInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,2,1,1),_CfprCapabilityCatalogueFsmInstanceId_Type())
+cfprCapabilityCatalogueFsmInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmInstanceId.setStatus(_A)
+_CfprCapabilityCatalogueFsmDn_Type=CfprManagedObjectDn
+_CfprCapabilityCatalogueFsmDn_Object=MibTableColumn
+cfprCapabilityCatalogueFsmDn=_CfprCapabilityCatalogueFsmDn_Object((1,3,6,1,4,1,9,9,826,1,8,2,1,2),_CfprCapabilityCatalogueFsmDn_Type())
+cfprCapabilityCatalogueFsmDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmDn.setStatus(_A)
+_CfprCapabilityCatalogueFsmRn_Type=SnmpAdminString
+_CfprCapabilityCatalogueFsmRn_Object=MibTableColumn
+cfprCapabilityCatalogueFsmRn=_CfprCapabilityCatalogueFsmRn_Object((1,3,6,1,4,1,9,9,826,1,8,2,1,3),_CfprCapabilityCatalogueFsmRn_Type())
+cfprCapabilityCatalogueFsmRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmRn.setStatus(_A)
+_CfprCapabilityCatalogueFsmCompletionTime_Type=DateAndTime
+_CfprCapabilityCatalogueFsmCompletionTime_Object=MibTableColumn
+cfprCapabilityCatalogueFsmCompletionTime=_CfprCapabilityCatalogueFsmCompletionTime_Object((1,3,6,1,4,1,9,9,826,1,8,2,1,4),_CfprCapabilityCatalogueFsmCompletionTime_Type())
+cfprCapabilityCatalogueFsmCompletionTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmCompletionTime.setStatus(_A)
+_CfprCapabilityCatalogueFsmCurrentFsm_Type=CfprCapabilityCatalogueFsmCurrentFsm
+_CfprCapabilityCatalogueFsmCurrentFsm_Object=MibTableColumn
+cfprCapabilityCatalogueFsmCurrentFsm=_CfprCapabilityCatalogueFsmCurrentFsm_Object((1,3,6,1,4,1,9,9,826,1,8,2,1,5),_CfprCapabilityCatalogueFsmCurrentFsm_Type())
+cfprCapabilityCatalogueFsmCurrentFsm.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmCurrentFsm.setStatus(_A)
+_CfprCapabilityCatalogueFsmDescrData_Type=SnmpAdminString
+_CfprCapabilityCatalogueFsmDescrData_Object=MibTableColumn
+cfprCapabilityCatalogueFsmDescrData=_CfprCapabilityCatalogueFsmDescrData_Object((1,3,6,1,4,1,9,9,826,1,8,2,1,6),_CfprCapabilityCatalogueFsmDescrData_Type())
+cfprCapabilityCatalogueFsmDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmDescrData.setStatus(_A)
+_CfprCapabilityCatalogueFsmFsmStatus_Type=CfprFsmFsmStageStatus
+_CfprCapabilityCatalogueFsmFsmStatus_Object=MibTableColumn
+cfprCapabilityCatalogueFsmFsmStatus=_CfprCapabilityCatalogueFsmFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,8,2,1,7),_CfprCapabilityCatalogueFsmFsmStatus_Type())
+cfprCapabilityCatalogueFsmFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmFsmStatus.setStatus(_A)
+_CfprCapabilityCatalogueFsmProgress_Type=Gauge32
+_CfprCapabilityCatalogueFsmProgress_Object=MibTableColumn
+cfprCapabilityCatalogueFsmProgress=_CfprCapabilityCatalogueFsmProgress_Object((1,3,6,1,4,1,9,9,826,1,8,2,1,8),_CfprCapabilityCatalogueFsmProgress_Type())
+cfprCapabilityCatalogueFsmProgress.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmProgress.setStatus(_A)
+_CfprCapabilityCatalogueFsmRmtErrCode_Type=Gauge32
+_CfprCapabilityCatalogueFsmRmtErrCode_Object=MibTableColumn
+cfprCapabilityCatalogueFsmRmtErrCode=_CfprCapabilityCatalogueFsmRmtErrCode_Object((1,3,6,1,4,1,9,9,826,1,8,2,1,9),_CfprCapabilityCatalogueFsmRmtErrCode_Type())
+cfprCapabilityCatalogueFsmRmtErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmRmtErrCode.setStatus(_A)
+_CfprCapabilityCatalogueFsmRmtErrDescr_Type=SnmpAdminString
+_CfprCapabilityCatalogueFsmRmtErrDescr_Object=MibTableColumn
+cfprCapabilityCatalogueFsmRmtErrDescr=_CfprCapabilityCatalogueFsmRmtErrDescr_Object((1,3,6,1,4,1,9,9,826,1,8,2,1,10),_CfprCapabilityCatalogueFsmRmtErrDescr_Type())
+cfprCapabilityCatalogueFsmRmtErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmRmtErrDescr.setStatus(_A)
+_CfprCapabilityCatalogueFsmRmtRslt_Type=CfprConditionRemoteInvRslt
+_CfprCapabilityCatalogueFsmRmtRslt_Object=MibTableColumn
+cfprCapabilityCatalogueFsmRmtRslt=_CfprCapabilityCatalogueFsmRmtRslt_Object((1,3,6,1,4,1,9,9,826,1,8,2,1,11),_CfprCapabilityCatalogueFsmRmtRslt_Type())
+cfprCapabilityCatalogueFsmRmtRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmRmtRslt.setStatus(_A)
+_CfprCapabilityCatalogueFsmStageTable_Object=MibTable
+cfprCapabilityCatalogueFsmStageTable=_CfprCapabilityCatalogueFsmStageTable_Object((1,3,6,1,4,1,9,9,826,1,8,3))
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmStageTable.setStatus(_A)
+_CfprCapabilityCatalogueFsmStageEntry_Object=MibTableRow
+cfprCapabilityCatalogueFsmStageEntry=_CfprCapabilityCatalogueFsmStageEntry_Object((1,3,6,1,4,1,9,9,826,1,8,3,1))
+cfprCapabilityCatalogueFsmStageEntry.setIndexNames((0,_C,_G))
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmStageEntry.setStatus(_A)
+_CfprCapabilityCatalogueFsmStageInstanceId_Type=CfprManagedObjectId
+_CfprCapabilityCatalogueFsmStageInstanceId_Object=MibTableColumn
+cfprCapabilityCatalogueFsmStageInstanceId=_CfprCapabilityCatalogueFsmStageInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,3,1,1),_CfprCapabilityCatalogueFsmStageInstanceId_Type())
+cfprCapabilityCatalogueFsmStageInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmStageInstanceId.setStatus(_A)
+_CfprCapabilityCatalogueFsmStageDn_Type=CfprManagedObjectDn
+_CfprCapabilityCatalogueFsmStageDn_Object=MibTableColumn
+cfprCapabilityCatalogueFsmStageDn=_CfprCapabilityCatalogueFsmStageDn_Object((1,3,6,1,4,1,9,9,826,1,8,3,1,2),_CfprCapabilityCatalogueFsmStageDn_Type())
+cfprCapabilityCatalogueFsmStageDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmStageDn.setStatus(_A)
+_CfprCapabilityCatalogueFsmStageRn_Type=SnmpAdminString
+_CfprCapabilityCatalogueFsmStageRn_Object=MibTableColumn
+cfprCapabilityCatalogueFsmStageRn=_CfprCapabilityCatalogueFsmStageRn_Object((1,3,6,1,4,1,9,9,826,1,8,3,1,3),_CfprCapabilityCatalogueFsmStageRn_Type())
+cfprCapabilityCatalogueFsmStageRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmStageRn.setStatus(_A)
+_CfprCapabilityCatalogueFsmStageDescrData_Type=SnmpAdminString
+_CfprCapabilityCatalogueFsmStageDescrData_Object=MibTableColumn
+cfprCapabilityCatalogueFsmStageDescrData=_CfprCapabilityCatalogueFsmStageDescrData_Object((1,3,6,1,4,1,9,9,826,1,8,3,1,4),_CfprCapabilityCatalogueFsmStageDescrData_Type())
+cfprCapabilityCatalogueFsmStageDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmStageDescrData.setStatus(_A)
+_CfprCapabilityCatalogueFsmStageLastUpdateTime_Type=DateAndTime
+_CfprCapabilityCatalogueFsmStageLastUpdateTime_Object=MibTableColumn
+cfprCapabilityCatalogueFsmStageLastUpdateTime=_CfprCapabilityCatalogueFsmStageLastUpdateTime_Object((1,3,6,1,4,1,9,9,826,1,8,3,1,5),_CfprCapabilityCatalogueFsmStageLastUpdateTime_Type())
+cfprCapabilityCatalogueFsmStageLastUpdateTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmStageLastUpdateTime.setStatus(_A)
+_CfprCapabilityCatalogueFsmStageName_Type=CfprCapabilityCatalogueFsmStageName
+_CfprCapabilityCatalogueFsmStageName_Object=MibTableColumn
+cfprCapabilityCatalogueFsmStageName=_CfprCapabilityCatalogueFsmStageName_Object((1,3,6,1,4,1,9,9,826,1,8,3,1,6),_CfprCapabilityCatalogueFsmStageName_Type())
+cfprCapabilityCatalogueFsmStageName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmStageName.setStatus(_A)
+_CfprCapabilityCatalogueFsmStageOrder_Type=Gauge32
+_CfprCapabilityCatalogueFsmStageOrder_Object=MibTableColumn
+cfprCapabilityCatalogueFsmStageOrder=_CfprCapabilityCatalogueFsmStageOrder_Object((1,3,6,1,4,1,9,9,826,1,8,3,1,7),_CfprCapabilityCatalogueFsmStageOrder_Type())
+cfprCapabilityCatalogueFsmStageOrder.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmStageOrder.setStatus(_A)
+_CfprCapabilityCatalogueFsmStageRetry_Type=Gauge32
+_CfprCapabilityCatalogueFsmStageRetry_Object=MibTableColumn
+cfprCapabilityCatalogueFsmStageRetry=_CfprCapabilityCatalogueFsmStageRetry_Object((1,3,6,1,4,1,9,9,826,1,8,3,1,8),_CfprCapabilityCatalogueFsmStageRetry_Type())
+cfprCapabilityCatalogueFsmStageRetry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmStageRetry.setStatus(_A)
+_CfprCapabilityCatalogueFsmStageStageStatus_Type=CfprFsmFsmStageStatus
+_CfprCapabilityCatalogueFsmStageStageStatus_Object=MibTableColumn
+cfprCapabilityCatalogueFsmStageStageStatus=_CfprCapabilityCatalogueFsmStageStageStatus_Object((1,3,6,1,4,1,9,9,826,1,8,3,1,9),_CfprCapabilityCatalogueFsmStageStageStatus_Type())
+cfprCapabilityCatalogueFsmStageStageStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmStageStageStatus.setStatus(_A)
+_CfprCapabilityCatalogueFsmTaskTable_Object=MibTable
+cfprCapabilityCatalogueFsmTaskTable=_CfprCapabilityCatalogueFsmTaskTable_Object((1,3,6,1,4,1,9,9,826,1,8,4))
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmTaskTable.setStatus(_A)
+_CfprCapabilityCatalogueFsmTaskEntry_Object=MibTableRow
+cfprCapabilityCatalogueFsmTaskEntry=_CfprCapabilityCatalogueFsmTaskEntry_Object((1,3,6,1,4,1,9,9,826,1,8,4,1))
+cfprCapabilityCatalogueFsmTaskEntry.setIndexNames((0,_C,_H))
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmTaskEntry.setStatus(_A)
+_CfprCapabilityCatalogueFsmTaskInstanceId_Type=CfprManagedObjectId
+_CfprCapabilityCatalogueFsmTaskInstanceId_Object=MibTableColumn
+cfprCapabilityCatalogueFsmTaskInstanceId=_CfprCapabilityCatalogueFsmTaskInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,4,1,1),_CfprCapabilityCatalogueFsmTaskInstanceId_Type())
+cfprCapabilityCatalogueFsmTaskInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmTaskInstanceId.setStatus(_A)
+_CfprCapabilityCatalogueFsmTaskDn_Type=CfprManagedObjectDn
+_CfprCapabilityCatalogueFsmTaskDn_Object=MibTableColumn
+cfprCapabilityCatalogueFsmTaskDn=_CfprCapabilityCatalogueFsmTaskDn_Object((1,3,6,1,4,1,9,9,826,1,8,4,1,2),_CfprCapabilityCatalogueFsmTaskDn_Type())
+cfprCapabilityCatalogueFsmTaskDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmTaskDn.setStatus(_A)
+_CfprCapabilityCatalogueFsmTaskRn_Type=SnmpAdminString
+_CfprCapabilityCatalogueFsmTaskRn_Object=MibTableColumn
+cfprCapabilityCatalogueFsmTaskRn=_CfprCapabilityCatalogueFsmTaskRn_Object((1,3,6,1,4,1,9,9,826,1,8,4,1,3),_CfprCapabilityCatalogueFsmTaskRn_Type())
+cfprCapabilityCatalogueFsmTaskRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmTaskRn.setStatus(_A)
+_CfprCapabilityCatalogueFsmTaskCompletion_Type=CfprFsmCompletion
+_CfprCapabilityCatalogueFsmTaskCompletion_Object=MibTableColumn
+cfprCapabilityCatalogueFsmTaskCompletion=_CfprCapabilityCatalogueFsmTaskCompletion_Object((1,3,6,1,4,1,9,9,826,1,8,4,1,4),_CfprCapabilityCatalogueFsmTaskCompletion_Type())
+cfprCapabilityCatalogueFsmTaskCompletion.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmTaskCompletion.setStatus(_A)
+_CfprCapabilityCatalogueFsmTaskFlags_Type=CfprFsmFlags
+_CfprCapabilityCatalogueFsmTaskFlags_Object=MibTableColumn
+cfprCapabilityCatalogueFsmTaskFlags=_CfprCapabilityCatalogueFsmTaskFlags_Object((1,3,6,1,4,1,9,9,826,1,8,4,1,5),_CfprCapabilityCatalogueFsmTaskFlags_Type())
+cfprCapabilityCatalogueFsmTaskFlags.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmTaskFlags.setStatus(_A)
+_CfprCapabilityCatalogueFsmTaskItem_Type=CfprCapabilityCatalogueFsmTaskItem
+_CfprCapabilityCatalogueFsmTaskItem_Object=MibTableColumn
+cfprCapabilityCatalogueFsmTaskItem=_CfprCapabilityCatalogueFsmTaskItem_Object((1,3,6,1,4,1,9,9,826,1,8,4,1,6),_CfprCapabilityCatalogueFsmTaskItem_Type())
+cfprCapabilityCatalogueFsmTaskItem.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmTaskItem.setStatus(_A)
+_CfprCapabilityCatalogueFsmTaskSeqId_Type=Gauge32
+_CfprCapabilityCatalogueFsmTaskSeqId_Object=MibTableColumn
+cfprCapabilityCatalogueFsmTaskSeqId=_CfprCapabilityCatalogueFsmTaskSeqId_Object((1,3,6,1,4,1,9,9,826,1,8,4,1,7),_CfprCapabilityCatalogueFsmTaskSeqId_Type())
+cfprCapabilityCatalogueFsmTaskSeqId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityCatalogueFsmTaskSeqId.setStatus(_A)
+_CfprCapabilityEpTable_Object=MibTable
+cfprCapabilityEpTable=_CfprCapabilityEpTable_Object((1,3,6,1,4,1,9,9,826,1,8,5))
+if mibBuilder.loadTexts:cfprCapabilityEpTable.setStatus(_A)
+_CfprCapabilityEpEntry_Object=MibTableRow
+cfprCapabilityEpEntry=_CfprCapabilityEpEntry_Object((1,3,6,1,4,1,9,9,826,1,8,5,1))
+cfprCapabilityEpEntry.setIndexNames((0,_C,_I))
+if mibBuilder.loadTexts:cfprCapabilityEpEntry.setStatus(_A)
+_CfprCapabilityEpInstanceId_Type=CfprManagedObjectId
+_CfprCapabilityEpInstanceId_Object=MibTableColumn
+cfprCapabilityEpInstanceId=_CfprCapabilityEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,5,1,1),_CfprCapabilityEpInstanceId_Type())
+cfprCapabilityEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilityEpInstanceId.setStatus(_A)
+_CfprCapabilityEpDn_Type=CfprManagedObjectDn
+_CfprCapabilityEpDn_Object=MibTableColumn
+cfprCapabilityEpDn=_CfprCapabilityEpDn_Object((1,3,6,1,4,1,9,9,826,1,8,5,1,2),_CfprCapabilityEpDn_Type())
+cfprCapabilityEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityEpDn.setStatus(_A)
+_CfprCapabilityEpRn_Type=SnmpAdminString
+_CfprCapabilityEpRn_Object=MibTableColumn
+cfprCapabilityEpRn=_CfprCapabilityEpRn_Object((1,3,6,1,4,1,9,9,826,1,8,5,1,3),_CfprCapabilityEpRn_Type())
+cfprCapabilityEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityEpRn.setStatus(_A)
+_CfprCapabilityFeatureLimitsTable_Object=MibTable
+cfprCapabilityFeatureLimitsTable=_CfprCapabilityFeatureLimitsTable_Object((1,3,6,1,4,1,9,9,826,1,8,6))
+if mibBuilder.loadTexts:cfprCapabilityFeatureLimitsTable.setStatus(_A)
+_CfprCapabilityFeatureLimitsEntry_Object=MibTableRow
+cfprCapabilityFeatureLimitsEntry=_CfprCapabilityFeatureLimitsEntry_Object((1,3,6,1,4,1,9,9,826,1,8,6,1))
+cfprCapabilityFeatureLimitsEntry.setIndexNames((0,_C,_J))
+if mibBuilder.loadTexts:cfprCapabilityFeatureLimitsEntry.setStatus(_A)
+_CfprCapabilityFeatureLimitsInstanceId_Type=CfprManagedObjectId
+_CfprCapabilityFeatureLimitsInstanceId_Object=MibTableColumn
+cfprCapabilityFeatureLimitsInstanceId=_CfprCapabilityFeatureLimitsInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,6,1,1),_CfprCapabilityFeatureLimitsInstanceId_Type())
+cfprCapabilityFeatureLimitsInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilityFeatureLimitsInstanceId.setStatus(_A)
+_CfprCapabilityFeatureLimitsDn_Type=CfprManagedObjectDn
+_CfprCapabilityFeatureLimitsDn_Object=MibTableColumn
+cfprCapabilityFeatureLimitsDn=_CfprCapabilityFeatureLimitsDn_Object((1,3,6,1,4,1,9,9,826,1,8,6,1,2),_CfprCapabilityFeatureLimitsDn_Type())
+cfprCapabilityFeatureLimitsDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityFeatureLimitsDn.setStatus(_A)
+_CfprCapabilityFeatureLimitsRn_Type=SnmpAdminString
+_CfprCapabilityFeatureLimitsRn_Object=MibTableColumn
+cfprCapabilityFeatureLimitsRn=_CfprCapabilityFeatureLimitsRn_Object((1,3,6,1,4,1,9,9,826,1,8,6,1,3),_CfprCapabilityFeatureLimitsRn_Type())
+cfprCapabilityFeatureLimitsRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityFeatureLimitsRn.setStatus(_A)
+_CfprCapabilityFeatureLimitsDescr_Type=SnmpAdminString
+_CfprCapabilityFeatureLimitsDescr_Object=MibTableColumn
+cfprCapabilityFeatureLimitsDescr=_CfprCapabilityFeatureLimitsDescr_Object((1,3,6,1,4,1,9,9,826,1,8,6,1,4),_CfprCapabilityFeatureLimitsDescr_Type())
+cfprCapabilityFeatureLimitsDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityFeatureLimitsDescr.setStatus(_A)
+_CfprCapabilityFeatureLimitsFeatureStatus_Type=CfprCapabilityFeatureStatus
+_CfprCapabilityFeatureLimitsFeatureStatus_Object=MibTableColumn
+cfprCapabilityFeatureLimitsFeatureStatus=_CfprCapabilityFeatureLimitsFeatureStatus_Object((1,3,6,1,4,1,9,9,826,1,8,6,1,5),_CfprCapabilityFeatureLimitsFeatureStatus_Type())
+cfprCapabilityFeatureLimitsFeatureStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityFeatureLimitsFeatureStatus.setStatus(_A)
+_CfprCapabilityFeatureLimitsLimit_Type=Gauge32
+_CfprCapabilityFeatureLimitsLimit_Object=MibTableColumn
+cfprCapabilityFeatureLimitsLimit=_CfprCapabilityFeatureLimitsLimit_Object((1,3,6,1,4,1,9,9,826,1,8,6,1,6),_CfprCapabilityFeatureLimitsLimit_Type())
+cfprCapabilityFeatureLimitsLimit.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityFeatureLimitsLimit.setStatus(_A)
+_CfprCapabilityFeatureLimitsName_Type=SnmpAdminString
+_CfprCapabilityFeatureLimitsName_Object=MibTableColumn
+cfprCapabilityFeatureLimitsName=_CfprCapabilityFeatureLimitsName_Object((1,3,6,1,4,1,9,9,826,1,8,6,1,7),_CfprCapabilityFeatureLimitsName_Type())
+cfprCapabilityFeatureLimitsName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityFeatureLimitsName.setStatus(_A)
+_CfprCapabilityFeatureLimitsPlatform_Type=CfprCapabilityPlatform
+_CfprCapabilityFeatureLimitsPlatform_Object=MibTableColumn
+cfprCapabilityFeatureLimitsPlatform=_CfprCapabilityFeatureLimitsPlatform_Object((1,3,6,1,4,1,9,9,826,1,8,6,1,8),_CfprCapabilityFeatureLimitsPlatform_Type())
+cfprCapabilityFeatureLimitsPlatform.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityFeatureLimitsPlatform.setStatus(_A)
+_CfprCapabilityMgmtExtensionTable_Object=MibTable
+cfprCapabilityMgmtExtensionTable=_CfprCapabilityMgmtExtensionTable_Object((1,3,6,1,4,1,9,9,826,1,8,7))
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionTable.setStatus(_A)
+_CfprCapabilityMgmtExtensionEntry_Object=MibTableRow
+cfprCapabilityMgmtExtensionEntry=_CfprCapabilityMgmtExtensionEntry_Object((1,3,6,1,4,1,9,9,826,1,8,7,1))
+cfprCapabilityMgmtExtensionEntry.setIndexNames((0,_C,_K))
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionEntry.setStatus(_A)
+_CfprCapabilityMgmtExtensionInstanceId_Type=CfprManagedObjectId
+_CfprCapabilityMgmtExtensionInstanceId_Object=MibTableColumn
+cfprCapabilityMgmtExtensionInstanceId=_CfprCapabilityMgmtExtensionInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,7,1,1),_CfprCapabilityMgmtExtensionInstanceId_Type())
+cfprCapabilityMgmtExtensionInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionInstanceId.setStatus(_A)
+_CfprCapabilityMgmtExtensionDn_Type=CfprManagedObjectDn
+_CfprCapabilityMgmtExtensionDn_Object=MibTableColumn
+cfprCapabilityMgmtExtensionDn=_CfprCapabilityMgmtExtensionDn_Object((1,3,6,1,4,1,9,9,826,1,8,7,1,2),_CfprCapabilityMgmtExtensionDn_Type())
+cfprCapabilityMgmtExtensionDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionDn.setStatus(_A)
+_CfprCapabilityMgmtExtensionRn_Type=SnmpAdminString
+_CfprCapabilityMgmtExtensionRn_Object=MibTableColumn
+cfprCapabilityMgmtExtensionRn=_CfprCapabilityMgmtExtensionRn_Object((1,3,6,1,4,1,9,9,826,1,8,7,1,3),_CfprCapabilityMgmtExtensionRn_Type())
+cfprCapabilityMgmtExtensionRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionRn.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmDescr_Type=SnmpAdminString
+_CfprCapabilityMgmtExtensionFsmDescr_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmDescr=_CfprCapabilityMgmtExtensionFsmDescr_Object((1,3,6,1,4,1,9,9,826,1,8,7,1,4),_CfprCapabilityMgmtExtensionFsmDescr_Type())
+cfprCapabilityMgmtExtensionFsmDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmDescr.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmPrev_Type=SnmpAdminString
+_CfprCapabilityMgmtExtensionFsmPrev_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmPrev=_CfprCapabilityMgmtExtensionFsmPrev_Object((1,3,6,1,4,1,9,9,826,1,8,7,1,5),_CfprCapabilityMgmtExtensionFsmPrev_Type())
+cfprCapabilityMgmtExtensionFsmPrev.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmPrev.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmProgr_Type=Gauge32
+_CfprCapabilityMgmtExtensionFsmProgr_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmProgr=_CfprCapabilityMgmtExtensionFsmProgr_Object((1,3,6,1,4,1,9,9,826,1,8,7,1,6),_CfprCapabilityMgmtExtensionFsmProgr_Type())
+cfprCapabilityMgmtExtensionFsmProgr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmProgr.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmRmtInvErrCode_Type=Gauge32
+_CfprCapabilityMgmtExtensionFsmRmtInvErrCode_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmRmtInvErrCode=_CfprCapabilityMgmtExtensionFsmRmtInvErrCode_Object((1,3,6,1,4,1,9,9,826,1,8,7,1,7),_CfprCapabilityMgmtExtensionFsmRmtInvErrCode_Type())
+cfprCapabilityMgmtExtensionFsmRmtInvErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmRmtInvErrCode.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmRmtInvErrDescr_Type=SnmpAdminString
+_CfprCapabilityMgmtExtensionFsmRmtInvErrDescr_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmRmtInvErrDescr=_CfprCapabilityMgmtExtensionFsmRmtInvErrDescr_Object((1,3,6,1,4,1,9,9,826,1,8,7,1,8),_CfprCapabilityMgmtExtensionFsmRmtInvErrDescr_Type())
+cfprCapabilityMgmtExtensionFsmRmtInvErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmRmtInvErrDescr.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmRmtInvRslt_Type=CfprConditionRemoteInvRslt
+_CfprCapabilityMgmtExtensionFsmRmtInvRslt_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmRmtInvRslt=_CfprCapabilityMgmtExtensionFsmRmtInvRslt_Object((1,3,6,1,4,1,9,9,826,1,8,7,1,9),_CfprCapabilityMgmtExtensionFsmRmtInvRslt_Type())
+cfprCapabilityMgmtExtensionFsmRmtInvRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmRmtInvRslt.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmStageDescr_Type=SnmpAdminString
+_CfprCapabilityMgmtExtensionFsmStageDescr_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmStageDescr=_CfprCapabilityMgmtExtensionFsmStageDescr_Object((1,3,6,1,4,1,9,9,826,1,8,7,1,10),_CfprCapabilityMgmtExtensionFsmStageDescr_Type())
+cfprCapabilityMgmtExtensionFsmStageDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmStageDescr.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmStamp_Type=DateAndTime
+_CfprCapabilityMgmtExtensionFsmStamp_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmStamp=_CfprCapabilityMgmtExtensionFsmStamp_Object((1,3,6,1,4,1,9,9,826,1,8,7,1,11),_CfprCapabilityMgmtExtensionFsmStamp_Type())
+cfprCapabilityMgmtExtensionFsmStamp.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmStamp.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmStatus_Type=SnmpAdminString
+_CfprCapabilityMgmtExtensionFsmStatus_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmStatus=_CfprCapabilityMgmtExtensionFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,8,7,1,12),_CfprCapabilityMgmtExtensionFsmStatus_Type())
+cfprCapabilityMgmtExtensionFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmStatus.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmTry_Type=Gauge32
+_CfprCapabilityMgmtExtensionFsmTry_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmTry=_CfprCapabilityMgmtExtensionFsmTry_Object((1,3,6,1,4,1,9,9,826,1,8,7,1,13),_CfprCapabilityMgmtExtensionFsmTry_Type())
+cfprCapabilityMgmtExtensionFsmTry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmTry.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmTable_Object=MibTable
+cfprCapabilityMgmtExtensionFsmTable=_CfprCapabilityMgmtExtensionFsmTable_Object((1,3,6,1,4,1,9,9,826,1,8,8))
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmTable.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmEntry_Object=MibTableRow
+cfprCapabilityMgmtExtensionFsmEntry=_CfprCapabilityMgmtExtensionFsmEntry_Object((1,3,6,1,4,1,9,9,826,1,8,8,1))
+cfprCapabilityMgmtExtensionFsmEntry.setIndexNames((0,_C,_L))
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmEntry.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmInstanceId_Type=CfprManagedObjectId
+_CfprCapabilityMgmtExtensionFsmInstanceId_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmInstanceId=_CfprCapabilityMgmtExtensionFsmInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,8,1,1),_CfprCapabilityMgmtExtensionFsmInstanceId_Type())
+cfprCapabilityMgmtExtensionFsmInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmInstanceId.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmDn_Type=CfprManagedObjectDn
+_CfprCapabilityMgmtExtensionFsmDn_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmDn=_CfprCapabilityMgmtExtensionFsmDn_Object((1,3,6,1,4,1,9,9,826,1,8,8,1,2),_CfprCapabilityMgmtExtensionFsmDn_Type())
+cfprCapabilityMgmtExtensionFsmDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmDn.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmRn_Type=SnmpAdminString
+_CfprCapabilityMgmtExtensionFsmRn_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmRn=_CfprCapabilityMgmtExtensionFsmRn_Object((1,3,6,1,4,1,9,9,826,1,8,8,1,3),_CfprCapabilityMgmtExtensionFsmRn_Type())
+cfprCapabilityMgmtExtensionFsmRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmRn.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmCompletionTime_Type=DateAndTime
+_CfprCapabilityMgmtExtensionFsmCompletionTime_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmCompletionTime=_CfprCapabilityMgmtExtensionFsmCompletionTime_Object((1,3,6,1,4,1,9,9,826,1,8,8,1,4),_CfprCapabilityMgmtExtensionFsmCompletionTime_Type())
+cfprCapabilityMgmtExtensionFsmCompletionTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmCompletionTime.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmCurrentFsm_Type=CfprCapabilityMgmtExtensionFsmCurrentFsm
+_CfprCapabilityMgmtExtensionFsmCurrentFsm_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmCurrentFsm=_CfprCapabilityMgmtExtensionFsmCurrentFsm_Object((1,3,6,1,4,1,9,9,826,1,8,8,1,5),_CfprCapabilityMgmtExtensionFsmCurrentFsm_Type())
+cfprCapabilityMgmtExtensionFsmCurrentFsm.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmCurrentFsm.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmDescrData_Type=SnmpAdminString
+_CfprCapabilityMgmtExtensionFsmDescrData_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmDescrData=_CfprCapabilityMgmtExtensionFsmDescrData_Object((1,3,6,1,4,1,9,9,826,1,8,8,1,6),_CfprCapabilityMgmtExtensionFsmDescrData_Type())
+cfprCapabilityMgmtExtensionFsmDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmDescrData.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmFsmStatus_Type=CfprFsmFsmStageStatus
+_CfprCapabilityMgmtExtensionFsmFsmStatus_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmFsmStatus=_CfprCapabilityMgmtExtensionFsmFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,8,8,1,7),_CfprCapabilityMgmtExtensionFsmFsmStatus_Type())
+cfprCapabilityMgmtExtensionFsmFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmFsmStatus.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmProgress_Type=Gauge32
+_CfprCapabilityMgmtExtensionFsmProgress_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmProgress=_CfprCapabilityMgmtExtensionFsmProgress_Object((1,3,6,1,4,1,9,9,826,1,8,8,1,8),_CfprCapabilityMgmtExtensionFsmProgress_Type())
+cfprCapabilityMgmtExtensionFsmProgress.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmProgress.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmRmtErrCode_Type=Gauge32
+_CfprCapabilityMgmtExtensionFsmRmtErrCode_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmRmtErrCode=_CfprCapabilityMgmtExtensionFsmRmtErrCode_Object((1,3,6,1,4,1,9,9,826,1,8,8,1,9),_CfprCapabilityMgmtExtensionFsmRmtErrCode_Type())
+cfprCapabilityMgmtExtensionFsmRmtErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmRmtErrCode.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmRmtErrDescr_Type=SnmpAdminString
+_CfprCapabilityMgmtExtensionFsmRmtErrDescr_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmRmtErrDescr=_CfprCapabilityMgmtExtensionFsmRmtErrDescr_Object((1,3,6,1,4,1,9,9,826,1,8,8,1,10),_CfprCapabilityMgmtExtensionFsmRmtErrDescr_Type())
+cfprCapabilityMgmtExtensionFsmRmtErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmRmtErrDescr.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmRmtRslt_Type=CfprConditionRemoteInvRslt
+_CfprCapabilityMgmtExtensionFsmRmtRslt_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmRmtRslt=_CfprCapabilityMgmtExtensionFsmRmtRslt_Object((1,3,6,1,4,1,9,9,826,1,8,8,1,11),_CfprCapabilityMgmtExtensionFsmRmtRslt_Type())
+cfprCapabilityMgmtExtensionFsmRmtRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmRmtRslt.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmStageTable_Object=MibTable
+cfprCapabilityMgmtExtensionFsmStageTable=_CfprCapabilityMgmtExtensionFsmStageTable_Object((1,3,6,1,4,1,9,9,826,1,8,9))
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmStageTable.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmStageEntry_Object=MibTableRow
+cfprCapabilityMgmtExtensionFsmStageEntry=_CfprCapabilityMgmtExtensionFsmStageEntry_Object((1,3,6,1,4,1,9,9,826,1,8,9,1))
+cfprCapabilityMgmtExtensionFsmStageEntry.setIndexNames((0,_C,_M))
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmStageEntry.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmStageInstanceId_Type=CfprManagedObjectId
+_CfprCapabilityMgmtExtensionFsmStageInstanceId_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmStageInstanceId=_CfprCapabilityMgmtExtensionFsmStageInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,9,1,1),_CfprCapabilityMgmtExtensionFsmStageInstanceId_Type())
+cfprCapabilityMgmtExtensionFsmStageInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmStageInstanceId.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmStageDn_Type=CfprManagedObjectDn
+_CfprCapabilityMgmtExtensionFsmStageDn_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmStageDn=_CfprCapabilityMgmtExtensionFsmStageDn_Object((1,3,6,1,4,1,9,9,826,1,8,9,1,2),_CfprCapabilityMgmtExtensionFsmStageDn_Type())
+cfprCapabilityMgmtExtensionFsmStageDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmStageDn.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmStageRn_Type=SnmpAdminString
+_CfprCapabilityMgmtExtensionFsmStageRn_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmStageRn=_CfprCapabilityMgmtExtensionFsmStageRn_Object((1,3,6,1,4,1,9,9,826,1,8,9,1,3),_CfprCapabilityMgmtExtensionFsmStageRn_Type())
+cfprCapabilityMgmtExtensionFsmStageRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmStageRn.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmStageDescrData_Type=SnmpAdminString
+_CfprCapabilityMgmtExtensionFsmStageDescrData_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmStageDescrData=_CfprCapabilityMgmtExtensionFsmStageDescrData_Object((1,3,6,1,4,1,9,9,826,1,8,9,1,4),_CfprCapabilityMgmtExtensionFsmStageDescrData_Type())
+cfprCapabilityMgmtExtensionFsmStageDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmStageDescrData.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmStageLastUpdateTime_Type=DateAndTime
+_CfprCapabilityMgmtExtensionFsmStageLastUpdateTime_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmStageLastUpdateTime=_CfprCapabilityMgmtExtensionFsmStageLastUpdateTime_Object((1,3,6,1,4,1,9,9,826,1,8,9,1,5),_CfprCapabilityMgmtExtensionFsmStageLastUpdateTime_Type())
+cfprCapabilityMgmtExtensionFsmStageLastUpdateTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmStageLastUpdateTime.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmStageName_Type=CfprCapabilityMgmtExtensionFsmStageName
+_CfprCapabilityMgmtExtensionFsmStageName_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmStageName=_CfprCapabilityMgmtExtensionFsmStageName_Object((1,3,6,1,4,1,9,9,826,1,8,9,1,6),_CfprCapabilityMgmtExtensionFsmStageName_Type())
+cfprCapabilityMgmtExtensionFsmStageName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmStageName.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmStageOrder_Type=Gauge32
+_CfprCapabilityMgmtExtensionFsmStageOrder_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmStageOrder=_CfprCapabilityMgmtExtensionFsmStageOrder_Object((1,3,6,1,4,1,9,9,826,1,8,9,1,7),_CfprCapabilityMgmtExtensionFsmStageOrder_Type())
+cfprCapabilityMgmtExtensionFsmStageOrder.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmStageOrder.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmStageRetry_Type=Gauge32
+_CfprCapabilityMgmtExtensionFsmStageRetry_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmStageRetry=_CfprCapabilityMgmtExtensionFsmStageRetry_Object((1,3,6,1,4,1,9,9,826,1,8,9,1,8),_CfprCapabilityMgmtExtensionFsmStageRetry_Type())
+cfprCapabilityMgmtExtensionFsmStageRetry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmStageRetry.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmStageStageStatus_Type=CfprFsmFsmStageStatus
+_CfprCapabilityMgmtExtensionFsmStageStageStatus_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmStageStageStatus=_CfprCapabilityMgmtExtensionFsmStageStageStatus_Object((1,3,6,1,4,1,9,9,826,1,8,9,1,9),_CfprCapabilityMgmtExtensionFsmStageStageStatus_Type())
+cfprCapabilityMgmtExtensionFsmStageStageStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmStageStageStatus.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmTaskTable_Object=MibTable
+cfprCapabilityMgmtExtensionFsmTaskTable=_CfprCapabilityMgmtExtensionFsmTaskTable_Object((1,3,6,1,4,1,9,9,826,1,8,10))
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmTaskTable.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmTaskEntry_Object=MibTableRow
+cfprCapabilityMgmtExtensionFsmTaskEntry=_CfprCapabilityMgmtExtensionFsmTaskEntry_Object((1,3,6,1,4,1,9,9,826,1,8,10,1))
+cfprCapabilityMgmtExtensionFsmTaskEntry.setIndexNames((0,_C,_N))
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmTaskEntry.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmTaskInstanceId_Type=CfprManagedObjectId
+_CfprCapabilityMgmtExtensionFsmTaskInstanceId_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmTaskInstanceId=_CfprCapabilityMgmtExtensionFsmTaskInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,10,1,1),_CfprCapabilityMgmtExtensionFsmTaskInstanceId_Type())
+cfprCapabilityMgmtExtensionFsmTaskInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmTaskInstanceId.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmTaskDn_Type=CfprManagedObjectDn
+_CfprCapabilityMgmtExtensionFsmTaskDn_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmTaskDn=_CfprCapabilityMgmtExtensionFsmTaskDn_Object((1,3,6,1,4,1,9,9,826,1,8,10,1,2),_CfprCapabilityMgmtExtensionFsmTaskDn_Type())
+cfprCapabilityMgmtExtensionFsmTaskDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmTaskDn.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmTaskRn_Type=SnmpAdminString
+_CfprCapabilityMgmtExtensionFsmTaskRn_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmTaskRn=_CfprCapabilityMgmtExtensionFsmTaskRn_Object((1,3,6,1,4,1,9,9,826,1,8,10,1,3),_CfprCapabilityMgmtExtensionFsmTaskRn_Type())
+cfprCapabilityMgmtExtensionFsmTaskRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmTaskRn.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmTaskCompletion_Type=CfprFsmCompletion
+_CfprCapabilityMgmtExtensionFsmTaskCompletion_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmTaskCompletion=_CfprCapabilityMgmtExtensionFsmTaskCompletion_Object((1,3,6,1,4,1,9,9,826,1,8,10,1,4),_CfprCapabilityMgmtExtensionFsmTaskCompletion_Type())
+cfprCapabilityMgmtExtensionFsmTaskCompletion.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmTaskCompletion.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmTaskFlags_Type=CfprFsmFlags
+_CfprCapabilityMgmtExtensionFsmTaskFlags_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmTaskFlags=_CfprCapabilityMgmtExtensionFsmTaskFlags_Object((1,3,6,1,4,1,9,9,826,1,8,10,1,5),_CfprCapabilityMgmtExtensionFsmTaskFlags_Type())
+cfprCapabilityMgmtExtensionFsmTaskFlags.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmTaskFlags.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmTaskItem_Type=CfprCapabilityMgmtExtensionFsmTaskItem
+_CfprCapabilityMgmtExtensionFsmTaskItem_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmTaskItem=_CfprCapabilityMgmtExtensionFsmTaskItem_Object((1,3,6,1,4,1,9,9,826,1,8,10,1,6),_CfprCapabilityMgmtExtensionFsmTaskItem_Type())
+cfprCapabilityMgmtExtensionFsmTaskItem.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmTaskItem.setStatus(_A)
+_CfprCapabilityMgmtExtensionFsmTaskSeqId_Type=Gauge32
+_CfprCapabilityMgmtExtensionFsmTaskSeqId_Object=MibTableColumn
+cfprCapabilityMgmtExtensionFsmTaskSeqId=_CfprCapabilityMgmtExtensionFsmTaskSeqId_Object((1,3,6,1,4,1,9,9,826,1,8,10,1,7),_CfprCapabilityMgmtExtensionFsmTaskSeqId_Type())
+cfprCapabilityMgmtExtensionFsmTaskSeqId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityMgmtExtensionFsmTaskSeqId.setStatus(_A)
+_CfprCapabilityNetworkLimitsTable_Object=MibTable
+cfprCapabilityNetworkLimitsTable=_CfprCapabilityNetworkLimitsTable_Object((1,3,6,1,4,1,9,9,826,1,8,11))
+if mibBuilder.loadTexts:cfprCapabilityNetworkLimitsTable.setStatus(_A)
+_CfprCapabilityNetworkLimitsEntry_Object=MibTableRow
+cfprCapabilityNetworkLimitsEntry=_CfprCapabilityNetworkLimitsEntry_Object((1,3,6,1,4,1,9,9,826,1,8,11,1))
+cfprCapabilityNetworkLimitsEntry.setIndexNames((0,_C,_O))
+if mibBuilder.loadTexts:cfprCapabilityNetworkLimitsEntry.setStatus(_A)
+_CfprCapabilityNetworkLimitsInstanceId_Type=CfprManagedObjectId
+_CfprCapabilityNetworkLimitsInstanceId_Object=MibTableColumn
+cfprCapabilityNetworkLimitsInstanceId=_CfprCapabilityNetworkLimitsInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,11,1,1),_CfprCapabilityNetworkLimitsInstanceId_Type())
+cfprCapabilityNetworkLimitsInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilityNetworkLimitsInstanceId.setStatus(_A)
+_CfprCapabilityNetworkLimitsDn_Type=CfprManagedObjectDn
+_CfprCapabilityNetworkLimitsDn_Object=MibTableColumn
+cfprCapabilityNetworkLimitsDn=_CfprCapabilityNetworkLimitsDn_Object((1,3,6,1,4,1,9,9,826,1,8,11,1,2),_CfprCapabilityNetworkLimitsDn_Type())
+cfprCapabilityNetworkLimitsDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityNetworkLimitsDn.setStatus(_A)
+_CfprCapabilityNetworkLimitsRn_Type=SnmpAdminString
+_CfprCapabilityNetworkLimitsRn_Object=MibTableColumn
+cfprCapabilityNetworkLimitsRn=_CfprCapabilityNetworkLimitsRn_Object((1,3,6,1,4,1,9,9,826,1,8,11,1,3),_CfprCapabilityNetworkLimitsRn_Type())
+cfprCapabilityNetworkLimitsRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityNetworkLimitsRn.setStatus(_A)
+_CfprCapabilityStorageLimitsTable_Object=MibTable
+cfprCapabilityStorageLimitsTable=_CfprCapabilityStorageLimitsTable_Object((1,3,6,1,4,1,9,9,826,1,8,12))
+if mibBuilder.loadTexts:cfprCapabilityStorageLimitsTable.setStatus(_A)
+_CfprCapabilityStorageLimitsEntry_Object=MibTableRow
+cfprCapabilityStorageLimitsEntry=_CfprCapabilityStorageLimitsEntry_Object((1,3,6,1,4,1,9,9,826,1,8,12,1))
+cfprCapabilityStorageLimitsEntry.setIndexNames((0,_C,_P))
+if mibBuilder.loadTexts:cfprCapabilityStorageLimitsEntry.setStatus(_A)
+_CfprCapabilityStorageLimitsInstanceId_Type=CfprManagedObjectId
+_CfprCapabilityStorageLimitsInstanceId_Object=MibTableColumn
+cfprCapabilityStorageLimitsInstanceId=_CfprCapabilityStorageLimitsInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,12,1,1),_CfprCapabilityStorageLimitsInstanceId_Type())
+cfprCapabilityStorageLimitsInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilityStorageLimitsInstanceId.setStatus(_A)
+_CfprCapabilityStorageLimitsDn_Type=CfprManagedObjectDn
+_CfprCapabilityStorageLimitsDn_Object=MibTableColumn
+cfprCapabilityStorageLimitsDn=_CfprCapabilityStorageLimitsDn_Object((1,3,6,1,4,1,9,9,826,1,8,12,1,2),_CfprCapabilityStorageLimitsDn_Type())
+cfprCapabilityStorageLimitsDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityStorageLimitsDn.setStatus(_A)
+_CfprCapabilityStorageLimitsRn_Type=SnmpAdminString
+_CfprCapabilityStorageLimitsRn_Object=MibTableColumn
+cfprCapabilityStorageLimitsRn=_CfprCapabilityStorageLimitsRn_Object((1,3,6,1,4,1,9,9,826,1,8,12,1,3),_CfprCapabilityStorageLimitsRn_Type())
+cfprCapabilityStorageLimitsRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityStorageLimitsRn.setStatus(_A)
+_CfprCapabilitySystemLimitsTable_Object=MibTable
+cfprCapabilitySystemLimitsTable=_CfprCapabilitySystemLimitsTable_Object((1,3,6,1,4,1,9,9,826,1,8,13))
+if mibBuilder.loadTexts:cfprCapabilitySystemLimitsTable.setStatus(_A)
+_CfprCapabilitySystemLimitsEntry_Object=MibTableRow
+cfprCapabilitySystemLimitsEntry=_CfprCapabilitySystemLimitsEntry_Object((1,3,6,1,4,1,9,9,826,1,8,13,1))
+cfprCapabilitySystemLimitsEntry.setIndexNames((0,_C,_Q))
+if mibBuilder.loadTexts:cfprCapabilitySystemLimitsEntry.setStatus(_A)
+_CfprCapabilitySystemLimitsInstanceId_Type=CfprManagedObjectId
+_CfprCapabilitySystemLimitsInstanceId_Object=MibTableColumn
+cfprCapabilitySystemLimitsInstanceId=_CfprCapabilitySystemLimitsInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,13,1,1),_CfprCapabilitySystemLimitsInstanceId_Type())
+cfprCapabilitySystemLimitsInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilitySystemLimitsInstanceId.setStatus(_A)
+_CfprCapabilitySystemLimitsDn_Type=CfprManagedObjectDn
+_CfprCapabilitySystemLimitsDn_Object=MibTableColumn
+cfprCapabilitySystemLimitsDn=_CfprCapabilitySystemLimitsDn_Object((1,3,6,1,4,1,9,9,826,1,8,13,1,2),_CfprCapabilitySystemLimitsDn_Type())
+cfprCapabilitySystemLimitsDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilitySystemLimitsDn.setStatus(_A)
+_CfprCapabilitySystemLimitsRn_Type=SnmpAdminString
+_CfprCapabilitySystemLimitsRn_Object=MibTableColumn
+cfprCapabilitySystemLimitsRn=_CfprCapabilitySystemLimitsRn_Object((1,3,6,1,4,1,9,9,826,1,8,13,1,3),_CfprCapabilitySystemLimitsRn_Type())
+cfprCapabilitySystemLimitsRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilitySystemLimitsRn.setStatus(_A)
+_CfprCapabilityUpdateTable_Object=MibTable
+cfprCapabilityUpdateTable=_CfprCapabilityUpdateTable_Object((1,3,6,1,4,1,9,9,826,1,8,14))
+if mibBuilder.loadTexts:cfprCapabilityUpdateTable.setStatus(_A)
+_CfprCapabilityUpdateEntry_Object=MibTableRow
+cfprCapabilityUpdateEntry=_CfprCapabilityUpdateEntry_Object((1,3,6,1,4,1,9,9,826,1,8,14,1))
+cfprCapabilityUpdateEntry.setIndexNames((0,_C,_R))
+if mibBuilder.loadTexts:cfprCapabilityUpdateEntry.setStatus(_A)
+_CfprCapabilityUpdateInstanceId_Type=CfprManagedObjectId
+_CfprCapabilityUpdateInstanceId_Object=MibTableColumn
+cfprCapabilityUpdateInstanceId=_CfprCapabilityUpdateInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,14,1,1),_CfprCapabilityUpdateInstanceId_Type())
+cfprCapabilityUpdateInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilityUpdateInstanceId.setStatus(_A)
+_CfprCapabilityUpdateDn_Type=CfprManagedObjectDn
+_CfprCapabilityUpdateDn_Object=MibTableColumn
+cfprCapabilityUpdateDn=_CfprCapabilityUpdateDn_Object((1,3,6,1,4,1,9,9,826,1,8,14,1,2),_CfprCapabilityUpdateDn_Type())
+cfprCapabilityUpdateDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdateDn.setStatus(_A)
+_CfprCapabilityUpdateRn_Type=SnmpAdminString
+_CfprCapabilityUpdateRn_Object=MibTableColumn
+cfprCapabilityUpdateRn=_CfprCapabilityUpdateRn_Object((1,3,6,1,4,1,9,9,826,1,8,14,1,3),_CfprCapabilityUpdateRn_Type())
+cfprCapabilityUpdateRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdateRn.setStatus(_A)
+_CfprCapabilityUpdateImageName_Type=SnmpAdminString
+_CfprCapabilityUpdateImageName_Object=MibTableColumn
+cfprCapabilityUpdateImageName=_CfprCapabilityUpdateImageName_Object((1,3,6,1,4,1,9,9,826,1,8,14,1,4),_CfprCapabilityUpdateImageName_Type())
+cfprCapabilityUpdateImageName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdateImageName.setStatus(_A)
+_CfprCapabilityUpdateUpdateTs_Type=DateAndTime
+_CfprCapabilityUpdateUpdateTs_Object=MibTableColumn
+cfprCapabilityUpdateUpdateTs=_CfprCapabilityUpdateUpdateTs_Object((1,3,6,1,4,1,9,9,826,1,8,14,1,5),_CfprCapabilityUpdateUpdateTs_Type())
+cfprCapabilityUpdateUpdateTs.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdateUpdateTs.setStatus(_A)
+_CfprCapabilityUpdateVersion_Type=SnmpAdminString
+_CfprCapabilityUpdateVersion_Object=MibTableColumn
+cfprCapabilityUpdateVersion=_CfprCapabilityUpdateVersion_Object((1,3,6,1,4,1,9,9,826,1,8,14,1,6),_CfprCapabilityUpdateVersion_Type())
+cfprCapabilityUpdateVersion.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdateVersion.setStatus(_A)
+_CfprCapabilityUpdaterTable_Object=MibTable
+cfprCapabilityUpdaterTable=_CfprCapabilityUpdaterTable_Object((1,3,6,1,4,1,9,9,826,1,8,15))
+if mibBuilder.loadTexts:cfprCapabilityUpdaterTable.setStatus(_A)
+_CfprCapabilityUpdaterEntry_Object=MibTableRow
+cfprCapabilityUpdaterEntry=_CfprCapabilityUpdaterEntry_Object((1,3,6,1,4,1,9,9,826,1,8,15,1))
+cfprCapabilityUpdaterEntry.setIndexNames((0,_C,_S))
+if mibBuilder.loadTexts:cfprCapabilityUpdaterEntry.setStatus(_A)
+_CfprCapabilityUpdaterInstanceId_Type=CfprManagedObjectId
+_CfprCapabilityUpdaterInstanceId_Object=MibTableColumn
+cfprCapabilityUpdaterInstanceId=_CfprCapabilityUpdaterInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,1),_CfprCapabilityUpdaterInstanceId_Type())
+cfprCapabilityUpdaterInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterInstanceId.setStatus(_A)
+_CfprCapabilityUpdaterDn_Type=CfprManagedObjectDn
+_CfprCapabilityUpdaterDn_Object=MibTableColumn
+cfprCapabilityUpdaterDn=_CfprCapabilityUpdaterDn_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,2),_CfprCapabilityUpdaterDn_Type())
+cfprCapabilityUpdaterDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterDn.setStatus(_A)
+_CfprCapabilityUpdaterRn_Type=SnmpAdminString
+_CfprCapabilityUpdaterRn_Object=MibTableColumn
+cfprCapabilityUpdaterRn=_CfprCapabilityUpdaterRn_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,3),_CfprCapabilityUpdaterRn_Type())
+cfprCapabilityUpdaterRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterRn.setStatus(_A)
+_CfprCapabilityUpdaterAdminState_Type=CfprCapabilityAdminState
+_CfprCapabilityUpdaterAdminState_Object=MibTableColumn
+cfprCapabilityUpdaterAdminState=_CfprCapabilityUpdaterAdminState_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,4),_CfprCapabilityUpdaterAdminState_Type())
+cfprCapabilityUpdaterAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterAdminState.setStatus(_A)
+_CfprCapabilityUpdaterFileName_Type=SnmpAdminString
+_CfprCapabilityUpdaterFileName_Object=MibTableColumn
+cfprCapabilityUpdaterFileName=_CfprCapabilityUpdaterFileName_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,5),_CfprCapabilityUpdaterFileName_Type())
+cfprCapabilityUpdaterFileName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFileName.setStatus(_A)
+_CfprCapabilityUpdaterFsmDescr_Type=SnmpAdminString
+_CfprCapabilityUpdaterFsmDescr_Object=MibTableColumn
+cfprCapabilityUpdaterFsmDescr=_CfprCapabilityUpdaterFsmDescr_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,6),_CfprCapabilityUpdaterFsmDescr_Type())
+cfprCapabilityUpdaterFsmDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmDescr.setStatus(_A)
+_CfprCapabilityUpdaterFsmPrev_Type=SnmpAdminString
+_CfprCapabilityUpdaterFsmPrev_Object=MibTableColumn
+cfprCapabilityUpdaterFsmPrev=_CfprCapabilityUpdaterFsmPrev_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,7),_CfprCapabilityUpdaterFsmPrev_Type())
+cfprCapabilityUpdaterFsmPrev.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmPrev.setStatus(_A)
+_CfprCapabilityUpdaterFsmProgr_Type=Gauge32
+_CfprCapabilityUpdaterFsmProgr_Object=MibTableColumn
+cfprCapabilityUpdaterFsmProgr=_CfprCapabilityUpdaterFsmProgr_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,8),_CfprCapabilityUpdaterFsmProgr_Type())
+cfprCapabilityUpdaterFsmProgr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmProgr.setStatus(_A)
+_CfprCapabilityUpdaterFsmRmtInvErrCode_Type=Gauge32
+_CfprCapabilityUpdaterFsmRmtInvErrCode_Object=MibTableColumn
+cfprCapabilityUpdaterFsmRmtInvErrCode=_CfprCapabilityUpdaterFsmRmtInvErrCode_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,9),_CfprCapabilityUpdaterFsmRmtInvErrCode_Type())
+cfprCapabilityUpdaterFsmRmtInvErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmRmtInvErrCode.setStatus(_A)
+_CfprCapabilityUpdaterFsmRmtInvErrDescr_Type=SnmpAdminString
+_CfprCapabilityUpdaterFsmRmtInvErrDescr_Object=MibTableColumn
+cfprCapabilityUpdaterFsmRmtInvErrDescr=_CfprCapabilityUpdaterFsmRmtInvErrDescr_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,10),_CfprCapabilityUpdaterFsmRmtInvErrDescr_Type())
+cfprCapabilityUpdaterFsmRmtInvErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmRmtInvErrDescr.setStatus(_A)
+_CfprCapabilityUpdaterFsmRmtInvRslt_Type=CfprConditionRemoteInvRslt
+_CfprCapabilityUpdaterFsmRmtInvRslt_Object=MibTableColumn
+cfprCapabilityUpdaterFsmRmtInvRslt=_CfprCapabilityUpdaterFsmRmtInvRslt_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,11),_CfprCapabilityUpdaterFsmRmtInvRslt_Type())
+cfprCapabilityUpdaterFsmRmtInvRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmRmtInvRslt.setStatus(_A)
+_CfprCapabilityUpdaterFsmStageDescr_Type=SnmpAdminString
+_CfprCapabilityUpdaterFsmStageDescr_Object=MibTableColumn
+cfprCapabilityUpdaterFsmStageDescr=_CfprCapabilityUpdaterFsmStageDescr_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,12),_CfprCapabilityUpdaterFsmStageDescr_Type())
+cfprCapabilityUpdaterFsmStageDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmStageDescr.setStatus(_A)
+_CfprCapabilityUpdaterFsmStamp_Type=DateAndTime
+_CfprCapabilityUpdaterFsmStamp_Object=MibTableColumn
+cfprCapabilityUpdaterFsmStamp=_CfprCapabilityUpdaterFsmStamp_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,13),_CfprCapabilityUpdaterFsmStamp_Type())
+cfprCapabilityUpdaterFsmStamp.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmStamp.setStatus(_A)
+_CfprCapabilityUpdaterFsmStatus_Type=SnmpAdminString
+_CfprCapabilityUpdaterFsmStatus_Object=MibTableColumn
+cfprCapabilityUpdaterFsmStatus=_CfprCapabilityUpdaterFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,14),_CfprCapabilityUpdaterFsmStatus_Type())
+cfprCapabilityUpdaterFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmStatus.setStatus(_A)
+_CfprCapabilityUpdaterFsmTry_Type=Gauge32
+_CfprCapabilityUpdaterFsmTry_Object=MibTableColumn
+cfprCapabilityUpdaterFsmTry=_CfprCapabilityUpdaterFsmTry_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,15),_CfprCapabilityUpdaterFsmTry_Type())
+cfprCapabilityUpdaterFsmTry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmTry.setStatus(_A)
+_CfprCapabilityUpdaterImageName_Type=SnmpAdminString
+_CfprCapabilityUpdaterImageName_Object=MibTableColumn
+cfprCapabilityUpdaterImageName=_CfprCapabilityUpdaterImageName_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,16),_CfprCapabilityUpdaterImageName_Type())
+cfprCapabilityUpdaterImageName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterImageName.setStatus(_A)
+_CfprCapabilityUpdaterOperState_Type=CfprCapabilityOperStatus
+_CfprCapabilityUpdaterOperState_Object=MibTableColumn
+cfprCapabilityUpdaterOperState=_CfprCapabilityUpdaterOperState_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,17),_CfprCapabilityUpdaterOperState_Type())
+cfprCapabilityUpdaterOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterOperState.setStatus(_A)
+_CfprCapabilityUpdaterProtocol_Type=CfprFirmwareTransport
+_CfprCapabilityUpdaterProtocol_Object=MibTableColumn
+cfprCapabilityUpdaterProtocol=_CfprCapabilityUpdaterProtocol_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,18),_CfprCapabilityUpdaterProtocol_Type())
+cfprCapabilityUpdaterProtocol.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterProtocol.setStatus(_A)
+_CfprCapabilityUpdaterPwd_Type=SnmpAdminString
+_CfprCapabilityUpdaterPwd_Object=MibTableColumn
+cfprCapabilityUpdaterPwd=_CfprCapabilityUpdaterPwd_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,19),_CfprCapabilityUpdaterPwd_Type())
+cfprCapabilityUpdaterPwd.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterPwd.setStatus(_A)
+_CfprCapabilityUpdaterRemotePath_Type=SnmpAdminString
+_CfprCapabilityUpdaterRemotePath_Object=MibTableColumn
+cfprCapabilityUpdaterRemotePath=_CfprCapabilityUpdaterRemotePath_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,20),_CfprCapabilityUpdaterRemotePath_Type())
+cfprCapabilityUpdaterRemotePath.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterRemotePath.setStatus(_A)
+_CfprCapabilityUpdaterServer_Type=SnmpAdminString
+_CfprCapabilityUpdaterServer_Object=MibTableColumn
+cfprCapabilityUpdaterServer=_CfprCapabilityUpdaterServer_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,21),_CfprCapabilityUpdaterServer_Type())
+cfprCapabilityUpdaterServer.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterServer.setStatus(_A)
+_CfprCapabilityUpdaterUser_Type=SnmpAdminString
+_CfprCapabilityUpdaterUser_Object=MibTableColumn
+cfprCapabilityUpdaterUser=_CfprCapabilityUpdaterUser_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,22),_CfprCapabilityUpdaterUser_Type())
+cfprCapabilityUpdaterUser.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterUser.setStatus(_A)
+_CfprCapabilityUpdaterVersion_Type=SnmpAdminString
+_CfprCapabilityUpdaterVersion_Object=MibTableColumn
+cfprCapabilityUpdaterVersion=_CfprCapabilityUpdaterVersion_Object((1,3,6,1,4,1,9,9,826,1,8,15,1,23),_CfprCapabilityUpdaterVersion_Type())
+cfprCapabilityUpdaterVersion.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterVersion.setStatus(_A)
+_CfprCapabilityUpdaterFsmTable_Object=MibTable
+cfprCapabilityUpdaterFsmTable=_CfprCapabilityUpdaterFsmTable_Object((1,3,6,1,4,1,9,9,826,1,8,16))
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmTable.setStatus(_A)
+_CfprCapabilityUpdaterFsmEntry_Object=MibTableRow
+cfprCapabilityUpdaterFsmEntry=_CfprCapabilityUpdaterFsmEntry_Object((1,3,6,1,4,1,9,9,826,1,8,16,1))
+cfprCapabilityUpdaterFsmEntry.setIndexNames((0,_C,_T))
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmEntry.setStatus(_A)
+_CfprCapabilityUpdaterFsmInstanceId_Type=CfprManagedObjectId
+_CfprCapabilityUpdaterFsmInstanceId_Object=MibTableColumn
+cfprCapabilityUpdaterFsmInstanceId=_CfprCapabilityUpdaterFsmInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,16,1,1),_CfprCapabilityUpdaterFsmInstanceId_Type())
+cfprCapabilityUpdaterFsmInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmInstanceId.setStatus(_A)
+_CfprCapabilityUpdaterFsmDn_Type=CfprManagedObjectDn
+_CfprCapabilityUpdaterFsmDn_Object=MibTableColumn
+cfprCapabilityUpdaterFsmDn=_CfprCapabilityUpdaterFsmDn_Object((1,3,6,1,4,1,9,9,826,1,8,16,1,2),_CfprCapabilityUpdaterFsmDn_Type())
+cfprCapabilityUpdaterFsmDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmDn.setStatus(_A)
+_CfprCapabilityUpdaterFsmRn_Type=SnmpAdminString
+_CfprCapabilityUpdaterFsmRn_Object=MibTableColumn
+cfprCapabilityUpdaterFsmRn=_CfprCapabilityUpdaterFsmRn_Object((1,3,6,1,4,1,9,9,826,1,8,16,1,3),_CfprCapabilityUpdaterFsmRn_Type())
+cfprCapabilityUpdaterFsmRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmRn.setStatus(_A)
+_CfprCapabilityUpdaterFsmCompletionTime_Type=DateAndTime
+_CfprCapabilityUpdaterFsmCompletionTime_Object=MibTableColumn
+cfprCapabilityUpdaterFsmCompletionTime=_CfprCapabilityUpdaterFsmCompletionTime_Object((1,3,6,1,4,1,9,9,826,1,8,16,1,4),_CfprCapabilityUpdaterFsmCompletionTime_Type())
+cfprCapabilityUpdaterFsmCompletionTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmCompletionTime.setStatus(_A)
+_CfprCapabilityUpdaterFsmCurrentFsm_Type=CfprCapabilityUpdaterFsmCurrentFsm
+_CfprCapabilityUpdaterFsmCurrentFsm_Object=MibTableColumn
+cfprCapabilityUpdaterFsmCurrentFsm=_CfprCapabilityUpdaterFsmCurrentFsm_Object((1,3,6,1,4,1,9,9,826,1,8,16,1,5),_CfprCapabilityUpdaterFsmCurrentFsm_Type())
+cfprCapabilityUpdaterFsmCurrentFsm.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmCurrentFsm.setStatus(_A)
+_CfprCapabilityUpdaterFsmDescrData_Type=SnmpAdminString
+_CfprCapabilityUpdaterFsmDescrData_Object=MibTableColumn
+cfprCapabilityUpdaterFsmDescrData=_CfprCapabilityUpdaterFsmDescrData_Object((1,3,6,1,4,1,9,9,826,1,8,16,1,6),_CfprCapabilityUpdaterFsmDescrData_Type())
+cfprCapabilityUpdaterFsmDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmDescrData.setStatus(_A)
+_CfprCapabilityUpdaterFsmFsmStatus_Type=CfprFsmFsmStageStatus
+_CfprCapabilityUpdaterFsmFsmStatus_Object=MibTableColumn
+cfprCapabilityUpdaterFsmFsmStatus=_CfprCapabilityUpdaterFsmFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,8,16,1,7),_CfprCapabilityUpdaterFsmFsmStatus_Type())
+cfprCapabilityUpdaterFsmFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmFsmStatus.setStatus(_A)
+_CfprCapabilityUpdaterFsmProgress_Type=Gauge32
+_CfprCapabilityUpdaterFsmProgress_Object=MibTableColumn
+cfprCapabilityUpdaterFsmProgress=_CfprCapabilityUpdaterFsmProgress_Object((1,3,6,1,4,1,9,9,826,1,8,16,1,8),_CfprCapabilityUpdaterFsmProgress_Type())
+cfprCapabilityUpdaterFsmProgress.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmProgress.setStatus(_A)
+_CfprCapabilityUpdaterFsmRmtErrCode_Type=Gauge32
+_CfprCapabilityUpdaterFsmRmtErrCode_Object=MibTableColumn
+cfprCapabilityUpdaterFsmRmtErrCode=_CfprCapabilityUpdaterFsmRmtErrCode_Object((1,3,6,1,4,1,9,9,826,1,8,16,1,9),_CfprCapabilityUpdaterFsmRmtErrCode_Type())
+cfprCapabilityUpdaterFsmRmtErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmRmtErrCode.setStatus(_A)
+_CfprCapabilityUpdaterFsmRmtErrDescr_Type=SnmpAdminString
+_CfprCapabilityUpdaterFsmRmtErrDescr_Object=MibTableColumn
+cfprCapabilityUpdaterFsmRmtErrDescr=_CfprCapabilityUpdaterFsmRmtErrDescr_Object((1,3,6,1,4,1,9,9,826,1,8,16,1,10),_CfprCapabilityUpdaterFsmRmtErrDescr_Type())
+cfprCapabilityUpdaterFsmRmtErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmRmtErrDescr.setStatus(_A)
+_CfprCapabilityUpdaterFsmRmtRslt_Type=CfprConditionRemoteInvRslt
+_CfprCapabilityUpdaterFsmRmtRslt_Object=MibTableColumn
+cfprCapabilityUpdaterFsmRmtRslt=_CfprCapabilityUpdaterFsmRmtRslt_Object((1,3,6,1,4,1,9,9,826,1,8,16,1,11),_CfprCapabilityUpdaterFsmRmtRslt_Type())
+cfprCapabilityUpdaterFsmRmtRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmRmtRslt.setStatus(_A)
+_CfprCapabilityUpdaterFsmStageTable_Object=MibTable
+cfprCapabilityUpdaterFsmStageTable=_CfprCapabilityUpdaterFsmStageTable_Object((1,3,6,1,4,1,9,9,826,1,8,17))
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmStageTable.setStatus(_A)
+_CfprCapabilityUpdaterFsmStageEntry_Object=MibTableRow
+cfprCapabilityUpdaterFsmStageEntry=_CfprCapabilityUpdaterFsmStageEntry_Object((1,3,6,1,4,1,9,9,826,1,8,17,1))
+cfprCapabilityUpdaterFsmStageEntry.setIndexNames((0,_C,_U))
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmStageEntry.setStatus(_A)
+_CfprCapabilityUpdaterFsmStageInstanceId_Type=CfprManagedObjectId
+_CfprCapabilityUpdaterFsmStageInstanceId_Object=MibTableColumn
+cfprCapabilityUpdaterFsmStageInstanceId=_CfprCapabilityUpdaterFsmStageInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,17,1,1),_CfprCapabilityUpdaterFsmStageInstanceId_Type())
+cfprCapabilityUpdaterFsmStageInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmStageInstanceId.setStatus(_A)
+_CfprCapabilityUpdaterFsmStageDn_Type=CfprManagedObjectDn
+_CfprCapabilityUpdaterFsmStageDn_Object=MibTableColumn
+cfprCapabilityUpdaterFsmStageDn=_CfprCapabilityUpdaterFsmStageDn_Object((1,3,6,1,4,1,9,9,826,1,8,17,1,2),_CfprCapabilityUpdaterFsmStageDn_Type())
+cfprCapabilityUpdaterFsmStageDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmStageDn.setStatus(_A)
+_CfprCapabilityUpdaterFsmStageRn_Type=SnmpAdminString
+_CfprCapabilityUpdaterFsmStageRn_Object=MibTableColumn
+cfprCapabilityUpdaterFsmStageRn=_CfprCapabilityUpdaterFsmStageRn_Object((1,3,6,1,4,1,9,9,826,1,8,17,1,3),_CfprCapabilityUpdaterFsmStageRn_Type())
+cfprCapabilityUpdaterFsmStageRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmStageRn.setStatus(_A)
+_CfprCapabilityUpdaterFsmStageDescrData_Type=SnmpAdminString
+_CfprCapabilityUpdaterFsmStageDescrData_Object=MibTableColumn
+cfprCapabilityUpdaterFsmStageDescrData=_CfprCapabilityUpdaterFsmStageDescrData_Object((1,3,6,1,4,1,9,9,826,1,8,17,1,4),_CfprCapabilityUpdaterFsmStageDescrData_Type())
+cfprCapabilityUpdaterFsmStageDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmStageDescrData.setStatus(_A)
+_CfprCapabilityUpdaterFsmStageLastUpdateTime_Type=DateAndTime
+_CfprCapabilityUpdaterFsmStageLastUpdateTime_Object=MibTableColumn
+cfprCapabilityUpdaterFsmStageLastUpdateTime=_CfprCapabilityUpdaterFsmStageLastUpdateTime_Object((1,3,6,1,4,1,9,9,826,1,8,17,1,5),_CfprCapabilityUpdaterFsmStageLastUpdateTime_Type())
+cfprCapabilityUpdaterFsmStageLastUpdateTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmStageLastUpdateTime.setStatus(_A)
+_CfprCapabilityUpdaterFsmStageName_Type=CfprCapabilityUpdaterFsmStageName
+_CfprCapabilityUpdaterFsmStageName_Object=MibTableColumn
+cfprCapabilityUpdaterFsmStageName=_CfprCapabilityUpdaterFsmStageName_Object((1,3,6,1,4,1,9,9,826,1,8,17,1,6),_CfprCapabilityUpdaterFsmStageName_Type())
+cfprCapabilityUpdaterFsmStageName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmStageName.setStatus(_A)
+_CfprCapabilityUpdaterFsmStageOrder_Type=Gauge32
+_CfprCapabilityUpdaterFsmStageOrder_Object=MibTableColumn
+cfprCapabilityUpdaterFsmStageOrder=_CfprCapabilityUpdaterFsmStageOrder_Object((1,3,6,1,4,1,9,9,826,1,8,17,1,7),_CfprCapabilityUpdaterFsmStageOrder_Type())
+cfprCapabilityUpdaterFsmStageOrder.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmStageOrder.setStatus(_A)
+_CfprCapabilityUpdaterFsmStageRetry_Type=Gauge32
+_CfprCapabilityUpdaterFsmStageRetry_Object=MibTableColumn
+cfprCapabilityUpdaterFsmStageRetry=_CfprCapabilityUpdaterFsmStageRetry_Object((1,3,6,1,4,1,9,9,826,1,8,17,1,8),_CfprCapabilityUpdaterFsmStageRetry_Type())
+cfprCapabilityUpdaterFsmStageRetry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmStageRetry.setStatus(_A)
+_CfprCapabilityUpdaterFsmStageStageStatus_Type=CfprFsmFsmStageStatus
+_CfprCapabilityUpdaterFsmStageStageStatus_Object=MibTableColumn
+cfprCapabilityUpdaterFsmStageStageStatus=_CfprCapabilityUpdaterFsmStageStageStatus_Object((1,3,6,1,4,1,9,9,826,1,8,17,1,9),_CfprCapabilityUpdaterFsmStageStageStatus_Type())
+cfprCapabilityUpdaterFsmStageStageStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmStageStageStatus.setStatus(_A)
+_CfprCapabilityUpdaterFsmTaskTable_Object=MibTable
+cfprCapabilityUpdaterFsmTaskTable=_CfprCapabilityUpdaterFsmTaskTable_Object((1,3,6,1,4,1,9,9,826,1,8,18))
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmTaskTable.setStatus(_A)
+_CfprCapabilityUpdaterFsmTaskEntry_Object=MibTableRow
+cfprCapabilityUpdaterFsmTaskEntry=_CfprCapabilityUpdaterFsmTaskEntry_Object((1,3,6,1,4,1,9,9,826,1,8,18,1))
+cfprCapabilityUpdaterFsmTaskEntry.setIndexNames((0,_C,_V))
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmTaskEntry.setStatus(_A)
+_CfprCapabilityUpdaterFsmTaskInstanceId_Type=CfprManagedObjectId
+_CfprCapabilityUpdaterFsmTaskInstanceId_Object=MibTableColumn
+cfprCapabilityUpdaterFsmTaskInstanceId=_CfprCapabilityUpdaterFsmTaskInstanceId_Object((1,3,6,1,4,1,9,9,826,1,8,18,1,1),_CfprCapabilityUpdaterFsmTaskInstanceId_Type())
+cfprCapabilityUpdaterFsmTaskInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmTaskInstanceId.setStatus(_A)
+_CfprCapabilityUpdaterFsmTaskDn_Type=CfprManagedObjectDn
+_CfprCapabilityUpdaterFsmTaskDn_Object=MibTableColumn
+cfprCapabilityUpdaterFsmTaskDn=_CfprCapabilityUpdaterFsmTaskDn_Object((1,3,6,1,4,1,9,9,826,1,8,18,1,2),_CfprCapabilityUpdaterFsmTaskDn_Type())
+cfprCapabilityUpdaterFsmTaskDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmTaskDn.setStatus(_A)
+_CfprCapabilityUpdaterFsmTaskRn_Type=SnmpAdminString
+_CfprCapabilityUpdaterFsmTaskRn_Object=MibTableColumn
+cfprCapabilityUpdaterFsmTaskRn=_CfprCapabilityUpdaterFsmTaskRn_Object((1,3,6,1,4,1,9,9,826,1,8,18,1,3),_CfprCapabilityUpdaterFsmTaskRn_Type())
+cfprCapabilityUpdaterFsmTaskRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmTaskRn.setStatus(_A)
+_CfprCapabilityUpdaterFsmTaskCompletion_Type=CfprFsmCompletion
+_CfprCapabilityUpdaterFsmTaskCompletion_Object=MibTableColumn
+cfprCapabilityUpdaterFsmTaskCompletion=_CfprCapabilityUpdaterFsmTaskCompletion_Object((1,3,6,1,4,1,9,9,826,1,8,18,1,4),_CfprCapabilityUpdaterFsmTaskCompletion_Type())
+cfprCapabilityUpdaterFsmTaskCompletion.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmTaskCompletion.setStatus(_A)
+_CfprCapabilityUpdaterFsmTaskFlags_Type=CfprFsmFlags
+_CfprCapabilityUpdaterFsmTaskFlags_Object=MibTableColumn
+cfprCapabilityUpdaterFsmTaskFlags=_CfprCapabilityUpdaterFsmTaskFlags_Object((1,3,6,1,4,1,9,9,826,1,8,18,1,5),_CfprCapabilityUpdaterFsmTaskFlags_Type())
+cfprCapabilityUpdaterFsmTaskFlags.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmTaskFlags.setStatus(_A)
+_CfprCapabilityUpdaterFsmTaskItem_Type=CfprCapabilityUpdaterFsmTaskItem
+_CfprCapabilityUpdaterFsmTaskItem_Object=MibTableColumn
+cfprCapabilityUpdaterFsmTaskItem=_CfprCapabilityUpdaterFsmTaskItem_Object((1,3,6,1,4,1,9,9,826,1,8,18,1,6),_CfprCapabilityUpdaterFsmTaskItem_Type())
+cfprCapabilityUpdaterFsmTaskItem.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmTaskItem.setStatus(_A)
+_CfprCapabilityUpdaterFsmTaskSeqId_Type=Gauge32
+_CfprCapabilityUpdaterFsmTaskSeqId_Object=MibTableColumn
+cfprCapabilityUpdaterFsmTaskSeqId=_CfprCapabilityUpdaterFsmTaskSeqId_Object((1,3,6,1,4,1,9,9,826,1,8,18,1,7),_CfprCapabilityUpdaterFsmTaskSeqId_Type())
+cfprCapabilityUpdaterFsmTaskSeqId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprCapabilityUpdaterFsmTaskSeqId.setStatus(_A)
+mibBuilder.exportSymbols(_C,**{'cfprCapabilityObjects':cfprCapabilityObjects,'cfprCapabilityCatalogueTable':cfprCapabilityCatalogueTable,'cfprCapabilityCatalogueEntry':cfprCapabilityCatalogueEntry,_E:cfprCapabilityCatalogueInstanceId,'cfprCapabilityCatalogueDn':cfprCapabilityCatalogueDn,'cfprCapabilityCatalogueRn':cfprCapabilityCatalogueRn,'cfprCapabilityCatalogueFileParseFailures':cfprCapabilityCatalogueFileParseFailures,'cfprCapabilityCatalogueFilesParsed':cfprCapabilityCatalogueFilesParsed,'cfprCapabilityCatalogueFsmDescr':cfprCapabilityCatalogueFsmDescr,'cfprCapabilityCatalogueFsmPrev':cfprCapabilityCatalogueFsmPrev,'cfprCapabilityCatalogueFsmProgr':cfprCapabilityCatalogueFsmProgr,'cfprCapabilityCatalogueFsmRmtInvErrCode':cfprCapabilityCatalogueFsmRmtInvErrCode,'cfprCapabilityCatalogueFsmRmtInvErrDescr':cfprCapabilityCatalogueFsmRmtInvErrDescr,'cfprCapabilityCatalogueFsmRmtInvRslt':cfprCapabilityCatalogueFsmRmtInvRslt,'cfprCapabilityCatalogueFsmStageDescr':cfprCapabilityCatalogueFsmStageDescr,'cfprCapabilityCatalogueFsmStamp':cfprCapabilityCatalogueFsmStamp,'cfprCapabilityCatalogueFsmStatus':cfprCapabilityCatalogueFsmStatus,'cfprCapabilityCatalogueFsmTry':cfprCapabilityCatalogueFsmTry,'cfprCapabilityCatalogueLoadErrors':cfprCapabilityCatalogueLoadErrors,'cfprCapabilityCatalogueLoadWarnings':cfprCapabilityCatalogueLoadWarnings,'cfprCapabilityCatalogueProviderLoadFailures':cfprCapabilityCatalogueProviderLoadFailures,'cfprCapabilityCatalogueProvidersLoaded':cfprCapabilityCatalogueProvidersLoaded,'cfprCapabilityCatalogueVersion':cfprCapabilityCatalogueVersion,'cfprCapabilityCatalogueBiosTokenVersion':cfprCapabilityCatalogueBiosTokenVersion,'cfprCapabilityCatalogueFsmTable':cfprCapabilityCatalogueFsmTable,'cfprCapabilityCatalogueFsmEntry':cfprCapabilityCatalogueFsmEntry,_F:cfprCapabilityCatalogueFsmInstanceId,'cfprCapabilityCatalogueFsmDn':cfprCapabilityCatalogueFsmDn,'cfprCapabilityCatalogueFsmRn':cfprCapabilityCatalogueFsmRn,'cfprCapabilityCatalogueFsmCompletionTime':cfprCapabilityCatalogueFsmCompletionTime,'cfprCapabilityCatalogueFsmCurrentFsm':cfprCapabilityCatalogueFsmCurrentFsm,'cfprCapabilityCatalogueFsmDescrData':cfprCapabilityCatalogueFsmDescrData,'cfprCapabilityCatalogueFsmFsmStatus':cfprCapabilityCatalogueFsmFsmStatus,'cfprCapabilityCatalogueFsmProgress':cfprCapabilityCatalogueFsmProgress,'cfprCapabilityCatalogueFsmRmtErrCode':cfprCapabilityCatalogueFsmRmtErrCode,'cfprCapabilityCatalogueFsmRmtErrDescr':cfprCapabilityCatalogueFsmRmtErrDescr,'cfprCapabilityCatalogueFsmRmtRslt':cfprCapabilityCatalogueFsmRmtRslt,'cfprCapabilityCatalogueFsmStageTable':cfprCapabilityCatalogueFsmStageTable,'cfprCapabilityCatalogueFsmStageEntry':cfprCapabilityCatalogueFsmStageEntry,_G:cfprCapabilityCatalogueFsmStageInstanceId,'cfprCapabilityCatalogueFsmStageDn':cfprCapabilityCatalogueFsmStageDn,'cfprCapabilityCatalogueFsmStageRn':cfprCapabilityCatalogueFsmStageRn,'cfprCapabilityCatalogueFsmStageDescrData':cfprCapabilityCatalogueFsmStageDescrData,'cfprCapabilityCatalogueFsmStageLastUpdateTime':cfprCapabilityCatalogueFsmStageLastUpdateTime,'cfprCapabilityCatalogueFsmStageName':cfprCapabilityCatalogueFsmStageName,'cfprCapabilityCatalogueFsmStageOrder':cfprCapabilityCatalogueFsmStageOrder,'cfprCapabilityCatalogueFsmStageRetry':cfprCapabilityCatalogueFsmStageRetry,'cfprCapabilityCatalogueFsmStageStageStatus':cfprCapabilityCatalogueFsmStageStageStatus,'cfprCapabilityCatalogueFsmTaskTable':cfprCapabilityCatalogueFsmTaskTable,'cfprCapabilityCatalogueFsmTaskEntry':cfprCapabilityCatalogueFsmTaskEntry,_H:cfprCapabilityCatalogueFsmTaskInstanceId,'cfprCapabilityCatalogueFsmTaskDn':cfprCapabilityCatalogueFsmTaskDn,'cfprCapabilityCatalogueFsmTaskRn':cfprCapabilityCatalogueFsmTaskRn,'cfprCapabilityCatalogueFsmTaskCompletion':cfprCapabilityCatalogueFsmTaskCompletion,'cfprCapabilityCatalogueFsmTaskFlags':cfprCapabilityCatalogueFsmTaskFlags,'cfprCapabilityCatalogueFsmTaskItem':cfprCapabilityCatalogueFsmTaskItem,'cfprCapabilityCatalogueFsmTaskSeqId':cfprCapabilityCatalogueFsmTaskSeqId,'cfprCapabilityEpTable':cfprCapabilityEpTable,'cfprCapabilityEpEntry':cfprCapabilityEpEntry,_I:cfprCapabilityEpInstanceId,'cfprCapabilityEpDn':cfprCapabilityEpDn,'cfprCapabilityEpRn':cfprCapabilityEpRn,'cfprCapabilityFeatureLimitsTable':cfprCapabilityFeatureLimitsTable,'cfprCapabilityFeatureLimitsEntry':cfprCapabilityFeatureLimitsEntry,_J:cfprCapabilityFeatureLimitsInstanceId,'cfprCapabilityFeatureLimitsDn':cfprCapabilityFeatureLimitsDn,'cfprCapabilityFeatureLimitsRn':cfprCapabilityFeatureLimitsRn,'cfprCapabilityFeatureLimitsDescr':cfprCapabilityFeatureLimitsDescr,'cfprCapabilityFeatureLimitsFeatureStatus':cfprCapabilityFeatureLimitsFeatureStatus,'cfprCapabilityFeatureLimitsLimit':cfprCapabilityFeatureLimitsLimit,'cfprCapabilityFeatureLimitsName':cfprCapabilityFeatureLimitsName,'cfprCapabilityFeatureLimitsPlatform':cfprCapabilityFeatureLimitsPlatform,'cfprCapabilityMgmtExtensionTable':cfprCapabilityMgmtExtensionTable,'cfprCapabilityMgmtExtensionEntry':cfprCapabilityMgmtExtensionEntry,_K:cfprCapabilityMgmtExtensionInstanceId,'cfprCapabilityMgmtExtensionDn':cfprCapabilityMgmtExtensionDn,'cfprCapabilityMgmtExtensionRn':cfprCapabilityMgmtExtensionRn,'cfprCapabilityMgmtExtensionFsmDescr':cfprCapabilityMgmtExtensionFsmDescr,'cfprCapabilityMgmtExtensionFsmPrev':cfprCapabilityMgmtExtensionFsmPrev,'cfprCapabilityMgmtExtensionFsmProgr':cfprCapabilityMgmtExtensionFsmProgr,'cfprCapabilityMgmtExtensionFsmRmtInvErrCode':cfprCapabilityMgmtExtensionFsmRmtInvErrCode,'cfprCapabilityMgmtExtensionFsmRmtInvErrDescr':cfprCapabilityMgmtExtensionFsmRmtInvErrDescr,'cfprCapabilityMgmtExtensionFsmRmtInvRslt':cfprCapabilityMgmtExtensionFsmRmtInvRslt,'cfprCapabilityMgmtExtensionFsmStageDescr':cfprCapabilityMgmtExtensionFsmStageDescr,'cfprCapabilityMgmtExtensionFsmStamp':cfprCapabilityMgmtExtensionFsmStamp,'cfprCapabilityMgmtExtensionFsmStatus':cfprCapabilityMgmtExtensionFsmStatus,'cfprCapabilityMgmtExtensionFsmTry':cfprCapabilityMgmtExtensionFsmTry,'cfprCapabilityMgmtExtensionFsmTable':cfprCapabilityMgmtExtensionFsmTable,'cfprCapabilityMgmtExtensionFsmEntry':cfprCapabilityMgmtExtensionFsmEntry,_L:cfprCapabilityMgmtExtensionFsmInstanceId,'cfprCapabilityMgmtExtensionFsmDn':cfprCapabilityMgmtExtensionFsmDn,'cfprCapabilityMgmtExtensionFsmRn':cfprCapabilityMgmtExtensionFsmRn,'cfprCapabilityMgmtExtensionFsmCompletionTime':cfprCapabilityMgmtExtensionFsmCompletionTime,'cfprCapabilityMgmtExtensionFsmCurrentFsm':cfprCapabilityMgmtExtensionFsmCurrentFsm,'cfprCapabilityMgmtExtensionFsmDescrData':cfprCapabilityMgmtExtensionFsmDescrData,'cfprCapabilityMgmtExtensionFsmFsmStatus':cfprCapabilityMgmtExtensionFsmFsmStatus,'cfprCapabilityMgmtExtensionFsmProgress':cfprCapabilityMgmtExtensionFsmProgress,'cfprCapabilityMgmtExtensionFsmRmtErrCode':cfprCapabilityMgmtExtensionFsmRmtErrCode,'cfprCapabilityMgmtExtensionFsmRmtErrDescr':cfprCapabilityMgmtExtensionFsmRmtErrDescr,'cfprCapabilityMgmtExtensionFsmRmtRslt':cfprCapabilityMgmtExtensionFsmRmtRslt,'cfprCapabilityMgmtExtensionFsmStageTable':cfprCapabilityMgmtExtensionFsmStageTable,'cfprCapabilityMgmtExtensionFsmStageEntry':cfprCapabilityMgmtExtensionFsmStageEntry,_M:cfprCapabilityMgmtExtensionFsmStageInstanceId,'cfprCapabilityMgmtExtensionFsmStageDn':cfprCapabilityMgmtExtensionFsmStageDn,'cfprCapabilityMgmtExtensionFsmStageRn':cfprCapabilityMgmtExtensionFsmStageRn,'cfprCapabilityMgmtExtensionFsmStageDescrData':cfprCapabilityMgmtExtensionFsmStageDescrData,'cfprCapabilityMgmtExtensionFsmStageLastUpdateTime':cfprCapabilityMgmtExtensionFsmStageLastUpdateTime,'cfprCapabilityMgmtExtensionFsmStageName':cfprCapabilityMgmtExtensionFsmStageName,'cfprCapabilityMgmtExtensionFsmStageOrder':cfprCapabilityMgmtExtensionFsmStageOrder,'cfprCapabilityMgmtExtensionFsmStageRetry':cfprCapabilityMgmtExtensionFsmStageRetry,'cfprCapabilityMgmtExtensionFsmStageStageStatus':cfprCapabilityMgmtExtensionFsmStageStageStatus,'cfprCapabilityMgmtExtensionFsmTaskTable':cfprCapabilityMgmtExtensionFsmTaskTable,'cfprCapabilityMgmtExtensionFsmTaskEntry':cfprCapabilityMgmtExtensionFsmTaskEntry,_N:cfprCapabilityMgmtExtensionFsmTaskInstanceId,'cfprCapabilityMgmtExtensionFsmTaskDn':cfprCapabilityMgmtExtensionFsmTaskDn,'cfprCapabilityMgmtExtensionFsmTaskRn':cfprCapabilityMgmtExtensionFsmTaskRn,'cfprCapabilityMgmtExtensionFsmTaskCompletion':cfprCapabilityMgmtExtensionFsmTaskCompletion,'cfprCapabilityMgmtExtensionFsmTaskFlags':cfprCapabilityMgmtExtensionFsmTaskFlags,'cfprCapabilityMgmtExtensionFsmTaskItem':cfprCapabilityMgmtExtensionFsmTaskItem,'cfprCapabilityMgmtExtensionFsmTaskSeqId':cfprCapabilityMgmtExtensionFsmTaskSeqId,'cfprCapabilityNetworkLimitsTable':cfprCapabilityNetworkLimitsTable,'cfprCapabilityNetworkLimitsEntry':cfprCapabilityNetworkLimitsEntry,_O:cfprCapabilityNetworkLimitsInstanceId,'cfprCapabilityNetworkLimitsDn':cfprCapabilityNetworkLimitsDn,'cfprCapabilityNetworkLimitsRn':cfprCapabilityNetworkLimitsRn,'cfprCapabilityStorageLimitsTable':cfprCapabilityStorageLimitsTable,'cfprCapabilityStorageLimitsEntry':cfprCapabilityStorageLimitsEntry,_P:cfprCapabilityStorageLimitsInstanceId,'cfprCapabilityStorageLimitsDn':cfprCapabilityStorageLimitsDn,'cfprCapabilityStorageLimitsRn':cfprCapabilityStorageLimitsRn,'cfprCapabilitySystemLimitsTable':cfprCapabilitySystemLimitsTable,'cfprCapabilitySystemLimitsEntry':cfprCapabilitySystemLimitsEntry,_Q:cfprCapabilitySystemLimitsInstanceId,'cfprCapabilitySystemLimitsDn':cfprCapabilitySystemLimitsDn,'cfprCapabilitySystemLimitsRn':cfprCapabilitySystemLimitsRn,'cfprCapabilityUpdateTable':cfprCapabilityUpdateTable,'cfprCapabilityUpdateEntry':cfprCapabilityUpdateEntry,_R:cfprCapabilityUpdateInstanceId,'cfprCapabilityUpdateDn':cfprCapabilityUpdateDn,'cfprCapabilityUpdateRn':cfprCapabilityUpdateRn,'cfprCapabilityUpdateImageName':cfprCapabilityUpdateImageName,'cfprCapabilityUpdateUpdateTs':cfprCapabilityUpdateUpdateTs,'cfprCapabilityUpdateVersion':cfprCapabilityUpdateVersion,'cfprCapabilityUpdaterTable':cfprCapabilityUpdaterTable,'cfprCapabilityUpdaterEntry':cfprCapabilityUpdaterEntry,_S:cfprCapabilityUpdaterInstanceId,'cfprCapabilityUpdaterDn':cfprCapabilityUpdaterDn,'cfprCapabilityUpdaterRn':cfprCapabilityUpdaterRn,'cfprCapabilityUpdaterAdminState':cfprCapabilityUpdaterAdminState,'cfprCapabilityUpdaterFileName':cfprCapabilityUpdaterFileName,'cfprCapabilityUpdaterFsmDescr':cfprCapabilityUpdaterFsmDescr,'cfprCapabilityUpdaterFsmPrev':cfprCapabilityUpdaterFsmPrev,'cfprCapabilityUpdaterFsmProgr':cfprCapabilityUpdaterFsmProgr,'cfprCapabilityUpdaterFsmRmtInvErrCode':cfprCapabilityUpdaterFsmRmtInvErrCode,'cfprCapabilityUpdaterFsmRmtInvErrDescr':cfprCapabilityUpdaterFsmRmtInvErrDescr,'cfprCapabilityUpdaterFsmRmtInvRslt':cfprCapabilityUpdaterFsmRmtInvRslt,'cfprCapabilityUpdaterFsmStageDescr':cfprCapabilityUpdaterFsmStageDescr,'cfprCapabilityUpdaterFsmStamp':cfprCapabilityUpdaterFsmStamp,'cfprCapabilityUpdaterFsmStatus':cfprCapabilityUpdaterFsmStatus,'cfprCapabilityUpdaterFsmTry':cfprCapabilityUpdaterFsmTry,'cfprCapabilityUpdaterImageName':cfprCapabilityUpdaterImageName,'cfprCapabilityUpdaterOperState':cfprCapabilityUpdaterOperState,'cfprCapabilityUpdaterProtocol':cfprCapabilityUpdaterProtocol,'cfprCapabilityUpdaterPwd':cfprCapabilityUpdaterPwd,'cfprCapabilityUpdaterRemotePath':cfprCapabilityUpdaterRemotePath,'cfprCapabilityUpdaterServer':cfprCapabilityUpdaterServer,'cfprCapabilityUpdaterUser':cfprCapabilityUpdaterUser,'cfprCapabilityUpdaterVersion':cfprCapabilityUpdaterVersion,'cfprCapabilityUpdaterFsmTable':cfprCapabilityUpdaterFsmTable,'cfprCapabilityUpdaterFsmEntry':cfprCapabilityUpdaterFsmEntry,_T:cfprCapabilityUpdaterFsmInstanceId,'cfprCapabilityUpdaterFsmDn':cfprCapabilityUpdaterFsmDn,'cfprCapabilityUpdaterFsmRn':cfprCapabilityUpdaterFsmRn,'cfprCapabilityUpdaterFsmCompletionTime':cfprCapabilityUpdaterFsmCompletionTime,'cfprCapabilityUpdaterFsmCurrentFsm':cfprCapabilityUpdaterFsmCurrentFsm,'cfprCapabilityUpdaterFsmDescrData':cfprCapabilityUpdaterFsmDescrData,'cfprCapabilityUpdaterFsmFsmStatus':cfprCapabilityUpdaterFsmFsmStatus,'cfprCapabilityUpdaterFsmProgress':cfprCapabilityUpdaterFsmProgress,'cfprCapabilityUpdaterFsmRmtErrCode':cfprCapabilityUpdaterFsmRmtErrCode,'cfprCapabilityUpdaterFsmRmtErrDescr':cfprCapabilityUpdaterFsmRmtErrDescr,'cfprCapabilityUpdaterFsmRmtRslt':cfprCapabilityUpdaterFsmRmtRslt,'cfprCapabilityUpdaterFsmStageTable':cfprCapabilityUpdaterFsmStageTable,'cfprCapabilityUpdaterFsmStageEntry':cfprCapabilityUpdaterFsmStageEntry,_U:cfprCapabilityUpdaterFsmStageInstanceId,'cfprCapabilityUpdaterFsmStageDn':cfprCapabilityUpdaterFsmStageDn,'cfprCapabilityUpdaterFsmStageRn':cfprCapabilityUpdaterFsmStageRn,'cfprCapabilityUpdaterFsmStageDescrData':cfprCapabilityUpdaterFsmStageDescrData,'cfprCapabilityUpdaterFsmStageLastUpdateTime':cfprCapabilityUpdaterFsmStageLastUpdateTime,'cfprCapabilityUpdaterFsmStageName':cfprCapabilityUpdaterFsmStageName,'cfprCapabilityUpdaterFsmStageOrder':cfprCapabilityUpdaterFsmStageOrder,'cfprCapabilityUpdaterFsmStageRetry':cfprCapabilityUpdaterFsmStageRetry,'cfprCapabilityUpdaterFsmStageStageStatus':cfprCapabilityUpdaterFsmStageStageStatus,'cfprCapabilityUpdaterFsmTaskTable':cfprCapabilityUpdaterFsmTaskTable,'cfprCapabilityUpdaterFsmTaskEntry':cfprCapabilityUpdaterFsmTaskEntry,_V:cfprCapabilityUpdaterFsmTaskInstanceId,'cfprCapabilityUpdaterFsmTaskDn':cfprCapabilityUpdaterFsmTaskDn,'cfprCapabilityUpdaterFsmTaskRn':cfprCapabilityUpdaterFsmTaskRn,'cfprCapabilityUpdaterFsmTaskCompletion':cfprCapabilityUpdaterFsmTaskCompletion,'cfprCapabilityUpdaterFsmTaskFlags':cfprCapabilityUpdaterFsmTaskFlags,'cfprCapabilityUpdaterFsmTaskItem':cfprCapabilityUpdaterFsmTaskItem,'cfprCapabilityUpdaterFsmTaskSeqId':cfprCapabilityUpdaterFsmTaskSeqId})

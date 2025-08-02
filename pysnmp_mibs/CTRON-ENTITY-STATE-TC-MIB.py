@@ -1,0 +1,18 @@
+_B='unknown'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ctEntityStateTC,=mibBuilder.importSymbols('CTRON-MIB-NAMES','ctEntityStateTC')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+ctEntityStateTc=ModuleIdentity((1,3,6,1,4,1,52,4,2,30,1))
+if mibBuilder.loadTexts:ctEntityStateTc.setRevisions(('2005-01-23 00:00',))
+class EntityAdminState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_B,1),('locked',2),('shuttingDown',3),('unlocked',4)))
+class EntityOperState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_B,1),('disabled',2),('enabled',3),('testing',4)))
+class EntityUsageState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_B,1),('idle',2),('active',3),('busy',4)))
+class EntityAlarmStatus(TextualConvention,Bits):status=_A;namedValues=NamedValues(*((_B,0),('underRepair',1),('critical',2),('major',3),('minor',4),('warning',5),('indeterminate',6)))
+class EntityStandbyStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_B,1),('hotStandby',2),('coldStandby',3),('providingService',4)))
+mibBuilder.exportSymbols('CTRON-ENTITY-STATE-TC-MIB',**{'EntityAdminState':EntityAdminState,'EntityOperState':EntityOperState,'EntityUsageState':EntityUsageState,'EntityAlarmStatus':EntityAlarmStatus,'EntityStandbyStatus':EntityStandbyStatus,'ctEntityStateTc':ctEntityStateTc})

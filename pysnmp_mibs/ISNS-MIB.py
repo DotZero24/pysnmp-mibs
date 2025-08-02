@@ -1,447 +1,1077 @@
-#
-# PySNMP MIB module ISNS-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/ISNS-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:19:11 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, Integer, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-( PhysicalIndex, ) = mibBuilder.importSymbols("ENTITY-MIB", "PhysicalIndex")
-( FcAddressIdOrZero, FcNameIdOrZero, ) = mibBuilder.importSymbols("FC-MGMT-MIB", "FcAddressIdOrZero", "FcNameIdOrZero")
-( InetPortNumber, InetAddressType, InetAddress, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ObjectGroup, ModuleCompliance, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-( mib_2, Integer32, Gauge32, Counter32, Bits, Counter64, TimeTicks, NotificationType, Unsigned32, IpAddress, MibIdentifier, iso, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, ) = mibBuilder.importSymbols("SNMPv2-SMI", "mib-2", "Integer32", "Gauge32", "Counter32", "Bits", "Counter64", "TimeTicks", "NotificationType", "Unsigned32", "IpAddress", "MibIdentifier", "iso", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity")
-( TextualConvention, DisplayString, TruthValue, TimeStamp, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TruthValue", "TimeStamp")
-isnsMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 163)).setRevisions(("2007-07-11 00:00",))
-if mibBuilder.loadTexts: isnsMIB.setLastUpdated('200707110000Z')
-if mibBuilder.loadTexts: isnsMIB.setOrganization('IETF IPS Working Group')
-if mibBuilder.loadTexts: isnsMIB.setContactInfo('\n           Attn: Kevin Gibbons\n                 2Wire, Inc.\n                 1704 Automation Parkway\n                 San Jose, CA 95131\n                 USA\n                 Tel: +1 408-895-1387\n                 Fax: +1 408-428-9590\n                 Email: kgibbons@yahoo.com\n\n                 G.D. Ramkumar\n                 SnapTell, Inc.\n                 2741 Middlefield Rd, Suite 200\n                 Palo Alto, CA 94306\n                 USA\n                 Tel: +1 650-326-7627\n                 Fax: +1 650-326-7620\n                 Email: gramkumar@stanfordalumni.org\n\n                 Scott Kipp\n                 Brocade\n                 4 McDATA Pkwy\n                 Broomfield, CO 80021\n                 USA\n                 Tel: +1 720-558-3452\n                 Fax: +1 720-558-8999\n                 Email: skipp@brocade.com\n                       ')
-if mibBuilder.loadTexts: isnsMIB.setDescription('This module defines management information\n                     specific to internet Storage Name Service\n                     (iSNS) management.\n\n                     Copyright (C) The IETF Trust (2007).\n                     This version of this MIB module is part\n                     of RFC 4939; see the RFC itself for full\n                     legal notices.')
-class IsnsDiscoveryDomainSetId(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(1,4294967295)
-
-class IsnsDdsStatusType(Bits, TextualConvention):
-    namedValues = NamedValues(("reserved0", 0), ("reserved1", 1), ("reserved2", 2), ("reserved3", 3), ("reserved4", 4), ("reserved5", 5), ("reserved6", 6), ("reserved7", 7), ("reserved8", 8), ("reserved9", 9), ("reserved10", 10), ("reserved11", 11), ("reserved12", 12), ("reserved13", 13), ("reserved14", 14), ("reserved15", 15), ("reserved16", 16), ("reserved17", 17), ("reserved18", 18), ("reserved19", 19), ("reserved20", 20), ("reserved21", 21), ("reserved22", 22), ("reserved23", 23), ("reserved24", 24), ("reserved25", 25), ("reserved26", 26), ("reserved27", 27), ("reserved28", 28), ("reserved29", 29), ("reserved30", 30), ("ddsEnabled", 31),)
-
-class IsnsDiscoveryDomainId(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(1,4294967295)
-
-class IsnsDdFeatureType(Bits, TextualConvention):
-    namedValues = NamedValues(("reserved0", 0), ("reserved1", 1), ("reserved2", 2), ("reserved3", 3), ("reserved4", 4), ("reserved5", 5), ("reserved6", 6), ("reserved7", 7), ("reserved8", 8), ("reserved9", 9), ("reserved10", 10), ("reserved11", 11), ("reserved12", 12), ("reserved13", 13), ("reserved14", 14), ("reserved15", 15), ("reserved16", 16), ("reserved17", 17), ("reserved18", 18), ("reserved19", 19), ("reserved20", 20), ("reserved21", 21), ("reserved22", 22), ("reserved23", 23), ("reserved24", 24), ("reserved25", 25), ("reserved26", 26), ("reserved27", 27), ("reserved28", 28), ("reserved29", 29), ("reserved30", 30), ("bootlist", 31),)
-
-class IsnsDdDdsModificationType(Bits, TextualConvention):
-    namedValues = NamedValues(("controlNode", 0), ("targetIscsiNode", 1), ("initiatorIscsiNode", 2), ("targetIfcpNode", 3), ("initiatorIfcpNode", 4),)
-
-class IsnsEntityIndexIdOrZero(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(0,4294967295)
-
-class IsnsPortalGroupIndexId(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(1,4294967295)
-
-class IsnsPortalIndexId(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(1,4294967295)
-
-class IsnsPortalPortTypeId(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2,))
-    namedValues = NamedValues(("udp", 1), ("tcp", 2),)
-
-class IsnsPortalGroupTagIdOrNull(Integer32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(-1,65535)
-
-class IsnsPortalSecurityType(Bits, TextualConvention):
-    namedValues = NamedValues(("reserved0", 0), ("reserved1", 1), ("reserved2", 2), ("reserved3", 3), ("reserved4", 4), ("reserved5", 5), ("reserved6", 6), ("reserved7", 7), ("reserved8", 8), ("reserved9", 9), ("reserved10", 10), ("reserved11", 11), ("reserved12", 12), ("reserved13", 13), ("reserved14", 14), ("reserved15", 15), ("reserved16", 16), ("reserved17", 17), ("reserved18", 18), ("reserved19", 19), ("reserved20", 20), ("reserved21", 21), ("reserved22", 22), ("reserved23", 23), ("reserved24", 24), ("tunnelModePreferred", 25), ("transportModePreferred", 26), ("pfsEnabled", 27), ("agressiveModeEnabled", 28), ("mainModeEnabled", 29), ("ikeIPsecEnabled", 30), ("bitmapVALID", 31),)
-
-class IsnsNodeIndexId(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(1,4294967295)
-
-class IsnsIscsiNodeType(Bits, TextualConvention):
-    namedValues = NamedValues(("reserved0", 0), ("reserved1", 1), ("reserved2", 2), ("reserved3", 3), ("reserved4", 4), ("reserved5", 5), ("reserved6", 6), ("reserved7", 7), ("reserved8", 8), ("reserved9", 9), ("reserved10", 10), ("reserved11", 11), ("reserved12", 12), ("reserved13", 13), ("reserved14", 14), ("reserved15", 15), ("reserved16", 16), ("reserved17", 17), ("reserved18", 18), ("reserved19", 19), ("reserved20", 20), ("reserved21", 21), ("reserved22", 22), ("reserved23", 23), ("reserved24", 24), ("reserved25", 25), ("reserved26", 26), ("reserved27", 27), ("reserved28", 28), ("control", 29), ("initiator", 30), ("target", 31),)
-
-class IsnsFcClassOfServiceType(Bits, TextualConvention):
-    namedValues = NamedValues(("reserved0", 0), ("reserved1", 1), ("reserved2", 2), ("reserved3", 3), ("reserved4", 4), ("reserved5", 5), ("reserved6", 6), ("reserved7", 7), ("reserved8", 8), ("reserved9", 9), ("reserved10", 10), ("reserved11", 11), ("reserved12", 12), ("reserved13", 13), ("reserved14", 14), ("reserved15", 15), ("reserved16", 16), ("reserved17", 17), ("reserved18", 18), ("reserved19", 19), ("reserved20", 20), ("reserved21", 21), ("reserved22", 22), ("reserved23", 23), ("reserved24", 24), ("reserved25", 25), ("reserved26", 26), ("reserved27", 27), ("class3", 28), ("class2", 29),)
-
-class IsnsIscsiScnType(Bits, TextualConvention):
-    namedValues = NamedValues(("reserved0", 0), ("reserved1", 1), ("reserved2", 2), ("reserved3", 3), ("reserved4", 4), ("reserved5", 5), ("reserved6", 6), ("reserved7", 7), ("reserved8", 8), ("reserved9", 9), ("reserved10", 10), ("reserved11", 11), ("reserved12", 12), ("reserved13", 13), ("reserved14", 14), ("reserved15", 15), ("reserved16", 16), ("reserved17", 17), ("reserved18", 18), ("reserved19", 19), ("reserved20", 20), ("reserved21", 21), ("reserved22", 22), ("reserved23", 23), ("initiatorAndSelfOnly", 24), ("targetAndSelfOnly", 25), ("managementRegistrationScn", 26), ("objectRemoved", 27), ("objectAdded", 28), ("objectUpdated", 29), ("ddOrDdsMemberRemoved", 30), ("ddOrDdsMemberAdded", 31),)
-
-class IsnsIfcpScnType(Bits, TextualConvention):
-    namedValues = NamedValues(("reserved0", 0), ("reserved1", 1), ("reserved2", 2), ("reserved3", 3), ("reserved4", 4), ("reserved5", 5), ("reserved6", 6), ("reserved7", 7), ("reserved8", 8), ("reserved9", 9), ("reserved10", 10), ("reserved11", 11), ("reserved12", 12), ("reserved13", 13), ("reserved14", 14), ("reserved15", 15), ("reserved16", 16), ("reserved17", 17), ("reserved18", 18), ("reserved19", 19), ("reserved20", 20), ("reserved21", 21), ("reserved22", 22), ("reserved23", 23), ("initiatorAndSelfOnly", 24), ("targetAndSelfOnly", 25), ("managementRegistrationScn", 26), ("objectRemoved", 27), ("objectAdded", 28), ("objectUpdated", 29), ("ddOrDdsMemberRemoved", 30), ("ddOrDdsMemberAdded", 31),)
-
-class IsnsFcPortRoleType(Bits, TextualConvention):
-    namedValues = NamedValues(("reserved0", 0), ("reserved1", 1), ("reserved2", 2), ("reserved3", 3), ("reserved4", 4), ("reserved5", 5), ("reserved6", 6), ("reserved7", 7), ("reserved8", 8), ("reserved9", 9), ("reserved10", 10), ("reserved11", 11), ("reserved12", 12), ("reserved13", 13), ("reserved14", 14), ("reserved15", 15), ("reserved16", 16), ("reserved17", 17), ("reserved18", 18), ("reserved19", 19), ("reserved20", 20), ("reserved21", 21), ("reserved22", 22), ("reserved23", 23), ("reserved24", 24), ("reserved25", 25), ("reserved26", 26), ("reserved27", 27), ("reserved28", 28), ("control", 29), ("initiator", 30), ("target", 31),)
-
-class IsnsSrvrDiscoveryMethodsType(Bits, TextualConvention):
-    namedValues = NamedValues(("dhcp", 0), ("slp", 1), ("multicastGroupHb", 2), ("broadcastHb", 3), ("cfgdServerList", 4), ("other", 5),)
-
-isnsNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 163, 0))
-isnsObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 163, 1))
-isnsConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 163, 2))
-isnsServerInfo = MibIdentifier((1, 3, 6, 1, 2, 1, 163, 1, 1))
-isnsServerTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 1), )
-if mibBuilder.loadTexts: isnsServerTable.setDescription('This table provides a list of the iSNS Server instances\n    that are managed through the same SNMP context.')
-isnsServerEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1), ).setIndexNames((0, "ISNS-MIB", "isnsServerIndex"))
-if mibBuilder.loadTexts: isnsServerEntry.setDescription('This is a row in the iSNS Server instance table.  The number\n    of rows is dependent on the number of iSNS Server instances\n    that are being managed through the same SNMP context.')
-isnsServerIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: isnsServerIndex.setDescription('This object uniquely identifies the iSNS Server being\n    managed by the SNMP context and is the key for this table.\n    This is an instance index for each iSNS Server being\n    managed.  The value of this object is used elsewhere in\n    the MIB to reference specific iSNS Servers.')
-isnsServerName = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsServerName.setDescription('A non-unique name that can be assigned to the iSNS Server\n    instance.  If not configured, then the string SHALL be\n    zero-length.')
-isnsServerIsnsVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsServerIsnsVersion.setDescription('The iSNS version value as contained in messages received\n    from the current primary server.  The header of each iSNSP\n    message contains the iSNS version of the sender.  If\n    unknown, the reported value is 0.')
-isnsServerVendorInfo = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsServerVendorInfo.setDescription("If this server instance is utilizing the product of a\n    particular 'vendor', then this managed object contains\n    that vendor's name and version.  Otherwise, the\n    string SHALL be zero-length.  The format of the string\n    is as follows: Vendor Name, Vendor Version, Vendor\n    Defined Information.\n\n          Field           Description\n        ---------       ----------------\n       Vendor Name      The name of the vendor (if one exists)\n       Vendor Version   The version of the vendor product\n       Vendor Defined   This follows the second comma in the\n                        string, if one exists, and is vendor\n                        defined\n   ")
-isnsServerPhysicalIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1, 5), PhysicalIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsServerPhysicalIndex.setDescription("An index identifying the network interface for this iSNS\n    Server within a network entity.  This index maps to the\n    entPhysicalIndex of entPhysicalTable table in RFC 4133.  The\n    entPhysicalClass value for the table row must be 'port', as\n    the interface must be able to send and receive data.")
-isnsServerTcpPort = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1, 6), InetPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsServerTcpPort.setDescription('Indicates the TCP port this iSNS instance is accepting\n    iSNSP messages on, generally the iSNS well-known port.\n    The well-known TCP port for iSNSP is 3205.  If TCP is\n    not supported by this server instance, then the value\n    is 0.')
-isnsServerUdpPort = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1, 7), InetPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsServerUdpPort.setDescription('Indicates the UDP port this iSNS instance is accepting\n    iSNSP messages on; generally, the iSNS well-known port.\n    The well-known UDP port for iSNSP is 3205.  If UDP is\n    not supported by this server instance, then the value\n    is 0.')
-isnsServerDiscontinuityTime = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1, 8), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsServerDiscontinuityTime.setDescription('The value of sysUpTime on the most recent occasion that\n    this iSNS server became active or suffered a\n    discontinuity.')
-isnsServerRole = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("notSet", 1), ("server", 2), ("backupServer", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsServerRole.setDescription('The current operational mode of this iSNS Server instance.\n\n          Value             Description\n        ---------         ----------------\n         notSet           The iSNS Server role is not\n                          configured.\n         server           The iSNS Server instance is\n                          an operational iSNS Server.\n         backupServer     The iSNS Server instance is\n\n\n\n                          currently acting as a backup.')
-isnsServerDiscoveryMethodsEnabled = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1, 10), IsnsSrvrDiscoveryMethodsType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsServerDiscoveryMethodsEnabled.setDescription('Indicates the discovery methods currently enabled for\n    this iSNS Server instance.  This allows a client to\n    determine what discovery methods can be used for\n    this iSNS Server.  Additional methods of discovery may\n    also be supported.')
-isnsServerDiscoveryMcGroupType = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1, 11), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsServerDiscoveryMcGroupType.setDescription('The type of Internet address in\n    isnsServerDiscoveryMcGroupAddress.  If the address is\n    specified, then it must be a valid multicast address and the\n    value of this object must be ipv4(1), ipv6(2), ipv4z(3), or\n    ipv6z(4); otherwise, the value of this object is\n    unknown(0), and the value of\n    isnsServerDiscoveryMcGroupAddress is the zero-length string.')
-isnsServerDiscoveryMcGroupAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1, 12), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsServerDiscoveryMcGroupAddress.setDescription('The multicast group that iSNS Heartbeat messages are\n    sent to if multicast-based discovery has been enabled\n    for this server instance.  If not configured, then the\n    string SHALL be zero-length.  The format of this\n    object is specified by isnsServerDiscoveryMcGroupType.')
-isnsServerEsiNonResponseThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(3)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsServerEsiNonResponseThreshold.setDescription('Entity Status Inquiry (ESI) Non-Response Threshold -\n\n\n\n    the number of ESI messages that will be sent without\n    receiving a response before an entity is deregistered\n    from the iSNS database.  A value of 0 indicates\n    Entities will never be deregistered due to non-receipt\n    of ESI messages.')
-isnsServerEnableControlNodeMgtScn = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1, 14), TruthValue().clone('true')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsServerEnableControlNodeMgtScn.setDescription('Indicates if the iSNS Server administrative option to send\n    Management SCNs to Control Nodes is enabled.  Management\n    SCNs are used by Control Nodes to monitor and control an\n    iSNS Server.  If enabled, Control Nodes can register to\n    receive Management SCNs.')
-isnsServerDefaultDdDdsStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("inNoDomain", 1), ("inDefaultDdAndDds", 2),)).clone('inNoDomain')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsServerDefaultDdDdsStatus.setDescription('This indicates the Discovery Domain (DD) and Discovery\n    Domain Set (DDS) membership status for a new device\n    when registered in the iSNS Server instance.  Either the\n    new device will not be in a DD/DDS, or will be placed\n    into a default DD and default DDS.  The default setting\n    is inNoDomain.')
-isnsServerUpdateDdDdsSupported = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1, 16), IsnsDdDdsModificationType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsServerUpdateDdDdsSupported.setDescription('The methods that this iSNS Server instance supports\n    to modify Discovery Domains and Discovery Domain Sets.')
-isnsServerUpdateDdDdsEnabled = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 1, 1, 17), IsnsDdDdsModificationType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsServerUpdateDdDdsEnabled.setDescription('This indicates the methods this server instance currently\n    allows for modifying Discovery Domains and Discovery\n    Domain Sets.')
-isnsNumObjectsTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 2), )
-if mibBuilder.loadTexts: isnsNumObjectsTable.setDescription('Table providing the number of registered objects of each\n    type in the iSNS Server instance.  The number of entries is\n    dependent upon the number of iSNS Server instances being\n    managed.')
-isnsNumObjectsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 2, 1), )
-isnsServerEntry.registerAugmentions(("ISNS-MIB", "isnsNumObjectsEntry"))
+_CB='isnsServerRegIfcpObjGroup'
+_CA='isnsServerIfcpDdsDdObjGroup'
+_C9='isnsServerIfcpPortControlNodeGroup'
+_C8='isnsServerRegIscsiObjGroup'
+_C7='isnsServerIscsiDdsDdObjGroup'
+_C6='isnsServerIscsiControlNodeGroup'
+_C5='isnsServerShutdown'
+_C4='isnsServerStart'
+_C3='isnsRegFcNodePortEntityIndex'
+_C2='isnsRegFcNodeNumFcPorts'
+_C1='isnsRegFcNodeProxyIscsiName'
+_C0='isnsRegFcNodeIPA'
+_B_='isnsRegFcNodeAddress'
+_Bz='isnsRegFcNodeAddressType'
+_By='isnsRegFcNodeSymbolicName'
+_Bx='isnsRegFcPortPpnWwn'
+_Bw='isnsRegFcPortFcNodeWwnn'
+_Bv='isnsRegFcPortRole'
+_Bu='isnsRegFcPortScnTypes'
+_Bt='isnsRegFcPortFc4Features'
+_Bs='isnsRegFcPortFc4Descr'
+_Br='isnsRegFcPortFc4Types'
+_Bq='isnsRegFcPortFcCos'
+_Bp='isnsRegFcPortAddress'
+_Bo='isnsRegFcPortAddressType'
+_Bn='isnsRegFcPortHA'
+_Bm='isnsRegFcPortFabricPortWwn'
+_Bl='isnsRegFcPortSymbolicName'
+_Bk='isnsRegFcPortType'
+_Bj='isnsRegFcPortID'
+_Bi='isnsRegIscsiNodeAuthMethod'
+_Bh='isnsRegIscsiNodeWwnToken'
+_Bg='isnsRegIscsiNodeScnTypes'
+_Bf='isnsRegIscsiNodeAlias'
+_Be='isnsRegIscsiNodeType'
+_Bd='isnsRegIscsiNodeName'
+_Bc='isnsRegPgPGT'
+_Bb='isnsRegPgPortalPort'
+_Ba='isnsRegPgPortalPortType'
+_BZ='isnsRegPgPortalAddress'
+_BY='isnsRegPgPortalAddressType'
+_BX='isnsRegPgPortalPortalIndex'
+_BW='isnsRegPgIscsiName'
+_BV='isnsRegPgIscsiNodeIndex'
+_BU='isnsDdFcPortMemberIsRegistered'
+_BT='isnsDdIscsiMemberIsRegistered'
+_BS='isnsDdIscsiMemberName'
+_BR='isnsDdsMemberSymbolicName'
+_BQ='isnsControlNodeFcPortRcvMgtSCN'
+_BP='isnsControlNodeFcPortIsRegistered'
+_BO='isnsControlNodeIscsiRcvMgtSCN'
+_BN='isnsControlNodeIscsiIsRegistered'
+_BM='isnsControlNodeIscsiNodeName'
+_BL='isnsNumFcNodes'
+_BK='isnsNumFcPorts'
+_BJ='isnsNumIscsiNodes'
+_BI='isnsNumPortalGroups'
+_BH='isnsNumPortals'
+_BG='isnsNumEntities'
+_BF='isnsNumDd'
+_BE='isnsNumDds'
+_BD='isnsServerUpdateDdDdsEnabled'
+_BC='isnsServerUpdateDdDdsSupported'
+_BB='isnsServerDefaultDdDdsStatus'
+_BA='isnsServerEnableControlNodeMgtScn'
+_B9='isnsServerEsiNonResponseThreshold'
+_B8='isnsServerDiscoveryMcGroupAddress'
+_B7='isnsServerDiscoveryMcGroupType'
+_B6='isnsServerDiscoveryMethodsEnabled'
+_B5='isnsServerRole'
+_B4='isnsServerDiscontinuityTime'
+_B3='isnsServerUdpPort'
+_B2='isnsServerTcpPort'
+_B1='isnsServerPhysicalIndex'
+_B0='isnsServerVendorInfo'
+_A_='isnsServerIsnsVersion'
+_Az='isnsServerName'
+_Ay='isnsNumObjectsEntry'
+_Ax='isnsRegIscsiNodeIndex'
+_Aw='isnsRegPgIndex'
+_Av='isnsRegPortalPortalIndex'
+_Au='IsnsEntityIndexIdOrZero'
+_At='isnsDdFcPortMemberPortName'
+_As='isnsDdPortalMemberIndex'
+_Ar='isnsDdIscsiMemberIndex'
+_Aq='isnsDdsMemberDdId'
+_Ap='isnsControlNodeFcPortWwpn'
+_Ao='isnsControlNodeIscsiNodeIndex'
+_An='ddOrDdsMemberAdded'
+_Am='ddOrDdsMemberRemoved'
+_Al='objectUpdated'
+_Ak='objectAdded'
+_Aj='objectRemoved'
+_Ai='managementRegistrationScn'
+_Ah='targetAndSelfOnly'
+_Ag='initiatorAndSelfOnly'
+_Af='initiator'
+_Ae='reserved30'
+_Ad='reserved29'
+_Ac='TruthValue'
+_Ab='isnsServerNotificationGroup'
+_Aa='isnsNotificationsObjGroup'
+_AZ='isnsServerNumObjectsGroup'
+_AY='isnsServerAttributesGroup'
+_AX='isnsRegPortalSecurityInfo'
+_AW='isnsRegPortalScnPort'
+_AV='isnsRegPortalScnPortType'
+_AU='isnsRegPortalEsiPort'
+_AT='isnsRegPortalEsiPortType'
+_AS='isnsRegPortalEsiInterval'
+_AR='isnsRegPortalSymbolicName'
+_AQ='isnsRegPortalPort'
+_AP='isnsRegPortalPortType'
+_AO='isnsRegPortalAddress'
+_AN='isnsRegPortalAddressType'
+_AM='isnsRegEntityRegistrationPeriod'
+_AL='isnsRegEntityVersionMax'
+_AK='isnsRegEntityVersionMin'
+_AJ='isnsRegEntityTimestamp'
+_AI='isnsRegEntityManagementAddress'
+_AH='isnsRegEntityManagementAddressType'
+_AG='isnsRegEntityProtocol'
+_AF='isnsRegEntityEID'
+_AE='isnsDdPortalMemberIsRegistered'
+_AD='isnsDdPortalMemberPort'
+_AC='isnsDdPortalMemberPortType'
+_AB='isnsDdPortalMemberAddress'
+_AA='isnsDdPortalMemberAddressType'
+_A9='isnsDdFeatures'
+_A8='isnsDdSymbolicName'
+_A7='isnsDdsStatus'
+_A6='isnsDdsSymbolicName'
+_A5='isnsRegFcPortWwpn'
+_A4='isnsRegFcNodeWwnn'
+_A3='isnsDdsId'
+_A2='Integer32'
+_A1='isnsUdpPortNotification'
+_A0='isnsTcpPortNotification'
+_z='isnsAddressNotification'
+_y='isnsAddressNotificationType'
+_x='isnsInstanceInfo'
+_w='isnsRegEntityInfoNumFcNodes'
+_v='isnsRegEntityInfoNumFcPorts'
+_u='isnsRegEntityInfoNumIscsiNodes'
+_t='isnsRegEntityInfoNumPortalGroups'
+_s='isnsRegEntityInfoNumPortals'
+_r='reserved28'
+_q='InetPortNumber'
+_p='OctetString'
+_o='accessible-for-notify'
+_n='isnsDdId'
+_m='reserved27'
+_l='reserved26'
+_k='reserved25'
+_j='FcNameIdOrZero'
+_i='reserved24'
+_h='SnmpAdminString'
+_g='isnsRegEntityIndex'
+_f='d'
+_e='reserved23'
+_d='reserved22'
+_c='reserved21'
+_b='reserved20'
+_a='reserved19'
+_Z='reserved18'
+_Y='reserved17'
+_X='reserved16'
+_W='reserved15'
+_V='reserved14'
+_U='reserved13'
+_T='reserved12'
+_S='reserved11'
+_R='reserved10'
+_Q='reserved9'
+_P='reserved8'
+_O='reserved7'
+_N='reserved6'
+_M='reserved5'
+_L='reserved4'
+_K='reserved3'
+_J='reserved2'
+_I='reserved1'
+_H='reserved0'
+_G='Unsigned32'
+_F='not-accessible'
+_E='Gauge32'
+_D='isnsServerIndex'
+_C='read-only'
+_B='current'
+_A='ISNS-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_p,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+PhysicalIndex,=mibBuilder.importSymbols('ENTITY-MIB','PhysicalIndex')
+FcAddressIdOrZero,FcNameIdOrZero=mibBuilder.importSymbols('FC-MGMT-MIB','FcAddressIdOrZero',_j)
+InetAddress,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType',_q)
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_h)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64',_E,_A2,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso','mib-2')
+DisplayString,PhysAddress,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp',_Ac)
+isnsMIB=ModuleIdentity((1,3,6,1,2,1,163))
+if mibBuilder.loadTexts:isnsMIB.setRevisions(('2007-07-11 00:00',))
+class IsnsDiscoveryDomainSetId(TextualConvention,Unsigned32):status=_B;displayHint=_f;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+class IsnsDdsStatusType(TextualConvention,Bits):status=_B;namedValues=NamedValues(*((_H,0),(_I,1),(_J,2),(_K,3),(_L,4),(_M,5),(_N,6),(_O,7),(_P,8),(_Q,9),(_R,10),(_S,11),(_T,12),(_U,13),(_V,14),(_W,15),(_X,16),(_Y,17),(_Z,18),(_a,19),(_b,20),(_c,21),(_d,22),(_e,23),(_i,24),(_k,25),(_l,26),(_m,27),(_r,28),(_Ad,29),(_Ae,30),('ddsEnabled',31)))
+class IsnsDiscoveryDomainId(TextualConvention,Unsigned32):status=_B;displayHint=_f;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+class IsnsDdFeatureType(TextualConvention,Bits):status=_B;namedValues=NamedValues(*((_H,0),(_I,1),(_J,2),(_K,3),(_L,4),(_M,5),(_N,6),(_O,7),(_P,8),(_Q,9),(_R,10),(_S,11),(_T,12),(_U,13),(_V,14),(_W,15),(_X,16),(_Y,17),(_Z,18),(_a,19),(_b,20),(_c,21),(_d,22),(_e,23),(_i,24),(_k,25),(_l,26),(_m,27),(_r,28),(_Ad,29),(_Ae,30),('bootlist',31)))
+class IsnsDdDdsModificationType(TextualConvention,Bits):status=_B;namedValues=NamedValues(*(('controlNode',0),('targetIscsiNode',1),('initiatorIscsiNode',2),('targetIfcpNode',3),('initiatorIfcpNode',4)))
+class IsnsEntityIndexIdOrZero(TextualConvention,Unsigned32):status=_B;displayHint=_f;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+class IsnsPortalGroupIndexId(TextualConvention,Unsigned32):status=_B;displayHint=_f;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+class IsnsPortalIndexId(TextualConvention,Unsigned32):status=_B;displayHint=_f;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+class IsnsPortalPortTypeId(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('udp',1),('tcp',2)))
+class IsnsPortalGroupTagIdOrNull(TextualConvention,Integer32):status=_B;displayHint=_f;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,65535))
+class IsnsPortalSecurityType(TextualConvention,Bits):status=_B;namedValues=NamedValues(*((_H,0),(_I,1),(_J,2),(_K,3),(_L,4),(_M,5),(_N,6),(_O,7),(_P,8),(_Q,9),(_R,10),(_S,11),(_T,12),(_U,13),(_V,14),(_W,15),(_X,16),(_Y,17),(_Z,18),(_a,19),(_b,20),(_c,21),(_d,22),(_e,23),(_i,24),('tunnelModePreferred',25),('transportModePreferred',26),('pfsEnabled',27),('agressiveModeEnabled',28),('mainModeEnabled',29),('ikeIPsecEnabled',30),('bitmapVALID',31)))
+class IsnsNodeIndexId(TextualConvention,Unsigned32):status=_B;displayHint=_f;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+class IsnsIscsiNodeType(TextualConvention,Bits):status=_B;namedValues=NamedValues(*((_H,0),(_I,1),(_J,2),(_K,3),(_L,4),(_M,5),(_N,6),(_O,7),(_P,8),(_Q,9),(_R,10),(_S,11),(_T,12),(_U,13),(_V,14),(_W,15),(_X,16),(_Y,17),(_Z,18),(_a,19),(_b,20),(_c,21),(_d,22),(_e,23),(_i,24),(_k,25),(_l,26),(_m,27),(_r,28),('control',29),(_Af,30),('target',31)))
+class IsnsFcClassOfServiceType(TextualConvention,Bits):status=_B;namedValues=NamedValues(*((_H,0),(_I,1),(_J,2),(_K,3),(_L,4),(_M,5),(_N,6),(_O,7),(_P,8),(_Q,9),(_R,10),(_S,11),(_T,12),(_U,13),(_V,14),(_W,15),(_X,16),(_Y,17),(_Z,18),(_a,19),(_b,20),(_c,21),(_d,22),(_e,23),(_i,24),(_k,25),(_l,26),(_m,27),('class3',28),('class2',29)))
+class IsnsIscsiScnType(TextualConvention,Bits):status=_B;namedValues=NamedValues(*((_H,0),(_I,1),(_J,2),(_K,3),(_L,4),(_M,5),(_N,6),(_O,7),(_P,8),(_Q,9),(_R,10),(_S,11),(_T,12),(_U,13),(_V,14),(_W,15),(_X,16),(_Y,17),(_Z,18),(_a,19),(_b,20),(_c,21),(_d,22),(_e,23),(_Ag,24),(_Ah,25),(_Ai,26),(_Aj,27),(_Ak,28),(_Al,29),(_Am,30),(_An,31)))
+class IsnsIfcpScnType(TextualConvention,Bits):status=_B;namedValues=NamedValues(*((_H,0),(_I,1),(_J,2),(_K,3),(_L,4),(_M,5),(_N,6),(_O,7),(_P,8),(_Q,9),(_R,10),(_S,11),(_T,12),(_U,13),(_V,14),(_W,15),(_X,16),(_Y,17),(_Z,18),(_a,19),(_b,20),(_c,21),(_d,22),(_e,23),(_Ag,24),(_Ah,25),(_Ai,26),(_Aj,27),(_Ak,28),(_Al,29),(_Am,30),(_An,31)))
+class IsnsFcPortRoleType(TextualConvention,Bits):status=_B;namedValues=NamedValues(*((_H,0),(_I,1),(_J,2),(_K,3),(_L,4),(_M,5),(_N,6),(_O,7),(_P,8),(_Q,9),(_R,10),(_S,11),(_T,12),(_U,13),(_V,14),(_W,15),(_X,16),(_Y,17),(_Z,18),(_a,19),(_b,20),(_c,21),(_d,22),(_e,23),(_i,24),(_k,25),(_l,26),(_m,27),(_r,28),('control',29),(_Af,30),('target',31)))
+class IsnsSrvrDiscoveryMethodsType(TextualConvention,Bits):status=_B;namedValues=NamedValues(*(('dhcp',0),('slp',1),('multicastGroupHb',2),('broadcastHb',3),('cfgdServerList',4),('other',5)))
+_IsnsNotifications_ObjectIdentity=ObjectIdentity
+isnsNotifications=_IsnsNotifications_ObjectIdentity((1,3,6,1,2,1,163,0))
+_IsnsObjects_ObjectIdentity=ObjectIdentity
+isnsObjects=_IsnsObjects_ObjectIdentity((1,3,6,1,2,1,163,1))
+_IsnsServerInfo_ObjectIdentity=ObjectIdentity
+isnsServerInfo=_IsnsServerInfo_ObjectIdentity((1,3,6,1,2,1,163,1,1))
+_IsnsServerTable_Object=MibTable
+isnsServerTable=_IsnsServerTable_Object((1,3,6,1,2,1,163,1,1,1))
+if mibBuilder.loadTexts:isnsServerTable.setStatus(_B)
+_IsnsServerEntry_Object=MibTableRow
+isnsServerEntry=_IsnsServerEntry_Object((1,3,6,1,2,1,163,1,1,1,1))
+isnsServerEntry.setIndexNames((0,_A,_D))
+if mibBuilder.loadTexts:isnsServerEntry.setStatus(_B)
+class _IsnsServerIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_IsnsServerIndex_Type.__name__=_G
+_IsnsServerIndex_Object=MibTableColumn
+isnsServerIndex=_IsnsServerIndex_Object((1,3,6,1,2,1,163,1,1,1,1,1),_IsnsServerIndex_Type())
+isnsServerIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:isnsServerIndex.setStatus(_B)
+_IsnsServerName_Type=SnmpAdminString
+_IsnsServerName_Object=MibTableColumn
+isnsServerName=_IsnsServerName_Object((1,3,6,1,2,1,163,1,1,1,1,2),_IsnsServerName_Type())
+isnsServerName.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsServerName.setStatus(_B)
+class _IsnsServerIsnsVersion_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_IsnsServerIsnsVersion_Type.__name__=_G
+_IsnsServerIsnsVersion_Object=MibTableColumn
+isnsServerIsnsVersion=_IsnsServerIsnsVersion_Object((1,3,6,1,2,1,163,1,1,1,1,3),_IsnsServerIsnsVersion_Type())
+isnsServerIsnsVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsServerIsnsVersion.setStatus(_B)
+_IsnsServerVendorInfo_Type=SnmpAdminString
+_IsnsServerVendorInfo_Object=MibTableColumn
+isnsServerVendorInfo=_IsnsServerVendorInfo_Object((1,3,6,1,2,1,163,1,1,1,1,4),_IsnsServerVendorInfo_Type())
+isnsServerVendorInfo.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsServerVendorInfo.setStatus(_B)
+_IsnsServerPhysicalIndex_Type=PhysicalIndex
+_IsnsServerPhysicalIndex_Object=MibTableColumn
+isnsServerPhysicalIndex=_IsnsServerPhysicalIndex_Object((1,3,6,1,2,1,163,1,1,1,1,5),_IsnsServerPhysicalIndex_Type())
+isnsServerPhysicalIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsServerPhysicalIndex.setStatus(_B)
+_IsnsServerTcpPort_Type=InetPortNumber
+_IsnsServerTcpPort_Object=MibTableColumn
+isnsServerTcpPort=_IsnsServerTcpPort_Object((1,3,6,1,2,1,163,1,1,1,1,6),_IsnsServerTcpPort_Type())
+isnsServerTcpPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsServerTcpPort.setStatus(_B)
+_IsnsServerUdpPort_Type=InetPortNumber
+_IsnsServerUdpPort_Object=MibTableColumn
+isnsServerUdpPort=_IsnsServerUdpPort_Object((1,3,6,1,2,1,163,1,1,1,1,7),_IsnsServerUdpPort_Type())
+isnsServerUdpPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsServerUdpPort.setStatus(_B)
+_IsnsServerDiscontinuityTime_Type=TimeStamp
+_IsnsServerDiscontinuityTime_Object=MibTableColumn
+isnsServerDiscontinuityTime=_IsnsServerDiscontinuityTime_Object((1,3,6,1,2,1,163,1,1,1,1,8),_IsnsServerDiscontinuityTime_Type())
+isnsServerDiscontinuityTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsServerDiscontinuityTime.setStatus(_B)
+class _IsnsServerRole_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('notSet',1),('server',2),('backupServer',3)))
+_IsnsServerRole_Type.__name__=_A2
+_IsnsServerRole_Object=MibTableColumn
+isnsServerRole=_IsnsServerRole_Object((1,3,6,1,2,1,163,1,1,1,1,9),_IsnsServerRole_Type())
+isnsServerRole.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsServerRole.setStatus(_B)
+_IsnsServerDiscoveryMethodsEnabled_Type=IsnsSrvrDiscoveryMethodsType
+_IsnsServerDiscoveryMethodsEnabled_Object=MibTableColumn
+isnsServerDiscoveryMethodsEnabled=_IsnsServerDiscoveryMethodsEnabled_Object((1,3,6,1,2,1,163,1,1,1,1,10),_IsnsServerDiscoveryMethodsEnabled_Type())
+isnsServerDiscoveryMethodsEnabled.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsServerDiscoveryMethodsEnabled.setStatus(_B)
+_IsnsServerDiscoveryMcGroupType_Type=InetAddressType
+_IsnsServerDiscoveryMcGroupType_Object=MibTableColumn
+isnsServerDiscoveryMcGroupType=_IsnsServerDiscoveryMcGroupType_Object((1,3,6,1,2,1,163,1,1,1,1,11),_IsnsServerDiscoveryMcGroupType_Type())
+isnsServerDiscoveryMcGroupType.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsServerDiscoveryMcGroupType.setStatus(_B)
+_IsnsServerDiscoveryMcGroupAddress_Type=InetAddress
+_IsnsServerDiscoveryMcGroupAddress_Object=MibTableColumn
+isnsServerDiscoveryMcGroupAddress=_IsnsServerDiscoveryMcGroupAddress_Object((1,3,6,1,2,1,163,1,1,1,1,12),_IsnsServerDiscoveryMcGroupAddress_Type())
+isnsServerDiscoveryMcGroupAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsServerDiscoveryMcGroupAddress.setStatus(_B)
+class _IsnsServerEsiNonResponseThreshold_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_IsnsServerEsiNonResponseThreshold_Type.__name__=_G
+_IsnsServerEsiNonResponseThreshold_Object=MibTableColumn
+isnsServerEsiNonResponseThreshold=_IsnsServerEsiNonResponseThreshold_Object((1,3,6,1,2,1,163,1,1,1,1,13),_IsnsServerEsiNonResponseThreshold_Type())
+isnsServerEsiNonResponseThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsServerEsiNonResponseThreshold.setStatus(_B)
+class _IsnsServerEnableControlNodeMgtScn_Type(TruthValue):defaultValue=1
+_IsnsServerEnableControlNodeMgtScn_Type.__name__=_Ac
+_IsnsServerEnableControlNodeMgtScn_Object=MibTableColumn
+isnsServerEnableControlNodeMgtScn=_IsnsServerEnableControlNodeMgtScn_Object((1,3,6,1,2,1,163,1,1,1,1,14),_IsnsServerEnableControlNodeMgtScn_Type())
+isnsServerEnableControlNodeMgtScn.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsServerEnableControlNodeMgtScn.setStatus(_B)
+class _IsnsServerDefaultDdDdsStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('inNoDomain',1),('inDefaultDdAndDds',2)))
+_IsnsServerDefaultDdDdsStatus_Type.__name__=_A2
+_IsnsServerDefaultDdDdsStatus_Object=MibTableColumn
+isnsServerDefaultDdDdsStatus=_IsnsServerDefaultDdDdsStatus_Object((1,3,6,1,2,1,163,1,1,1,1,15),_IsnsServerDefaultDdDdsStatus_Type())
+isnsServerDefaultDdDdsStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsServerDefaultDdDdsStatus.setStatus(_B)
+_IsnsServerUpdateDdDdsSupported_Type=IsnsDdDdsModificationType
+_IsnsServerUpdateDdDdsSupported_Object=MibTableColumn
+isnsServerUpdateDdDdsSupported=_IsnsServerUpdateDdDdsSupported_Object((1,3,6,1,2,1,163,1,1,1,1,16),_IsnsServerUpdateDdDdsSupported_Type())
+isnsServerUpdateDdDdsSupported.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsServerUpdateDdDdsSupported.setStatus(_B)
+_IsnsServerUpdateDdDdsEnabled_Type=IsnsDdDdsModificationType
+_IsnsServerUpdateDdDdsEnabled_Object=MibTableColumn
+isnsServerUpdateDdDdsEnabled=_IsnsServerUpdateDdDdsEnabled_Object((1,3,6,1,2,1,163,1,1,1,1,17),_IsnsServerUpdateDdDdsEnabled_Type())
+isnsServerUpdateDdDdsEnabled.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsServerUpdateDdDdsEnabled.setStatus(_B)
+_IsnsNumObjectsTable_Object=MibTable
+isnsNumObjectsTable=_IsnsNumObjectsTable_Object((1,3,6,1,2,1,163,1,1,2))
+if mibBuilder.loadTexts:isnsNumObjectsTable.setStatus(_B)
+_IsnsNumObjectsEntry_Object=MibTableRow
+isnsNumObjectsEntry=_IsnsNumObjectsEntry_Object((1,3,6,1,2,1,163,1,1,2,1))
+if mibBuilder.loadTexts:isnsNumObjectsEntry.setStatus(_B)
+class _IsnsNumDds_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_IsnsNumDds_Type.__name__=_E
+_IsnsNumDds_Object=MibTableColumn
+isnsNumDds=_IsnsNumDds_Object((1,3,6,1,2,1,163,1,1,2,1,1),_IsnsNumDds_Type())
+isnsNumDds.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsNumDds.setStatus(_B)
+class _IsnsNumDd_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_IsnsNumDd_Type.__name__=_E
+_IsnsNumDd_Object=MibTableColumn
+isnsNumDd=_IsnsNumDd_Object((1,3,6,1,2,1,163,1,1,2,1,2),_IsnsNumDd_Type())
+isnsNumDd.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsNumDd.setStatus(_B)
+class _IsnsNumEntities_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_IsnsNumEntities_Type.__name__=_E
+_IsnsNumEntities_Object=MibTableColumn
+isnsNumEntities=_IsnsNumEntities_Object((1,3,6,1,2,1,163,1,1,2,1,3),_IsnsNumEntities_Type())
+isnsNumEntities.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsNumEntities.setStatus(_B)
+class _IsnsNumPortals_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_IsnsNumPortals_Type.__name__=_E
+_IsnsNumPortals_Object=MibTableColumn
+isnsNumPortals=_IsnsNumPortals_Object((1,3,6,1,2,1,163,1,1,2,1,4),_IsnsNumPortals_Type())
+isnsNumPortals.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsNumPortals.setStatus(_B)
+class _IsnsNumPortalGroups_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_IsnsNumPortalGroups_Type.__name__=_E
+_IsnsNumPortalGroups_Object=MibTableColumn
+isnsNumPortalGroups=_IsnsNumPortalGroups_Object((1,3,6,1,2,1,163,1,1,2,1,5),_IsnsNumPortalGroups_Type())
+isnsNumPortalGroups.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsNumPortalGroups.setStatus(_B)
+class _IsnsNumIscsiNodes_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_IsnsNumIscsiNodes_Type.__name__=_E
+_IsnsNumIscsiNodes_Object=MibTableColumn
+isnsNumIscsiNodes=_IsnsNumIscsiNodes_Object((1,3,6,1,2,1,163,1,1,2,1,6),_IsnsNumIscsiNodes_Type())
+isnsNumIscsiNodes.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsNumIscsiNodes.setStatus(_B)
+class _IsnsNumFcPorts_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_IsnsNumFcPorts_Type.__name__=_E
+_IsnsNumFcPorts_Object=MibTableColumn
+isnsNumFcPorts=_IsnsNumFcPorts_Object((1,3,6,1,2,1,163,1,1,2,1,7),_IsnsNumFcPorts_Type())
+isnsNumFcPorts.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsNumFcPorts.setStatus(_B)
+class _IsnsNumFcNodes_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_IsnsNumFcNodes_Type.__name__=_E
+_IsnsNumFcNodes_Object=MibTableColumn
+isnsNumFcNodes=_IsnsNumFcNodes_Object((1,3,6,1,2,1,163,1,1,2,1,8),_IsnsNumFcNodes_Type())
+isnsNumFcNodes.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsNumFcNodes.setStatus(_B)
+_IsnsControlNodeInfo_ObjectIdentity=ObjectIdentity
+isnsControlNodeInfo=_IsnsControlNodeInfo_ObjectIdentity((1,3,6,1,2,1,163,1,1,3))
+_IsnsControlNodeIscsiTable_Object=MibTable
+isnsControlNodeIscsiTable=_IsnsControlNodeIscsiTable_Object((1,3,6,1,2,1,163,1,1,3,1))
+if mibBuilder.loadTexts:isnsControlNodeIscsiTable.setStatus(_B)
+_IsnsControlNodeIscsiEntry_Object=MibTableRow
+isnsControlNodeIscsiEntry=_IsnsControlNodeIscsiEntry_Object((1,3,6,1,2,1,163,1,1,3,1,1))
+isnsControlNodeIscsiEntry.setIndexNames((0,_A,_D),(0,_A,_Ao))
+if mibBuilder.loadTexts:isnsControlNodeIscsiEntry.setStatus(_B)
+_IsnsControlNodeIscsiNodeIndex_Type=IsnsNodeIndexId
+_IsnsControlNodeIscsiNodeIndex_Object=MibTableColumn
+isnsControlNodeIscsiNodeIndex=_IsnsControlNodeIscsiNodeIndex_Object((1,3,6,1,2,1,163,1,1,3,1,1,1),_IsnsControlNodeIscsiNodeIndex_Type())
+isnsControlNodeIscsiNodeIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:isnsControlNodeIscsiNodeIndex.setStatus(_B)
+_IsnsControlNodeIscsiNodeName_Type=SnmpAdminString
+_IsnsControlNodeIscsiNodeName_Object=MibTableColumn
+isnsControlNodeIscsiNodeName=_IsnsControlNodeIscsiNodeName_Object((1,3,6,1,2,1,163,1,1,3,1,1,2),_IsnsControlNodeIscsiNodeName_Type())
+isnsControlNodeIscsiNodeName.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsControlNodeIscsiNodeName.setStatus(_B)
+_IsnsControlNodeIscsiIsRegistered_Type=TruthValue
+_IsnsControlNodeIscsiIsRegistered_Object=MibTableColumn
+isnsControlNodeIscsiIsRegistered=_IsnsControlNodeIscsiIsRegistered_Object((1,3,6,1,2,1,163,1,1,3,1,1,3),_IsnsControlNodeIscsiIsRegistered_Type())
+isnsControlNodeIscsiIsRegistered.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsControlNodeIscsiIsRegistered.setStatus(_B)
+_IsnsControlNodeIscsiRcvMgtSCN_Type=TruthValue
+_IsnsControlNodeIscsiRcvMgtSCN_Object=MibTableColumn
+isnsControlNodeIscsiRcvMgtSCN=_IsnsControlNodeIscsiRcvMgtSCN_Object((1,3,6,1,2,1,163,1,1,3,1,1,4),_IsnsControlNodeIscsiRcvMgtSCN_Type())
+isnsControlNodeIscsiRcvMgtSCN.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsControlNodeIscsiRcvMgtSCN.setStatus(_B)
+_IsnsControlNodeFcPortTable_Object=MibTable
+isnsControlNodeFcPortTable=_IsnsControlNodeFcPortTable_Object((1,3,6,1,2,1,163,1,1,3,2))
+if mibBuilder.loadTexts:isnsControlNodeFcPortTable.setStatus(_B)
+_IsnsControlNodeFcPortEntry_Object=MibTableRow
+isnsControlNodeFcPortEntry=_IsnsControlNodeFcPortEntry_Object((1,3,6,1,2,1,163,1,1,3,2,1))
+isnsControlNodeFcPortEntry.setIndexNames((0,_A,_D),(0,_A,_Ap))
+if mibBuilder.loadTexts:isnsControlNodeFcPortEntry.setStatus(_B)
+class _IsnsControlNodeFcPortWwpn_Type(FcNameIdOrZero):subtypeSpec=FcNameIdOrZero.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
+_IsnsControlNodeFcPortWwpn_Type.__name__=_j
+_IsnsControlNodeFcPortWwpn_Object=MibTableColumn
+isnsControlNodeFcPortWwpn=_IsnsControlNodeFcPortWwpn_Object((1,3,6,1,2,1,163,1,1,3,2,1,1),_IsnsControlNodeFcPortWwpn_Type())
+isnsControlNodeFcPortWwpn.setMaxAccess(_F)
+if mibBuilder.loadTexts:isnsControlNodeFcPortWwpn.setStatus(_B)
+_IsnsControlNodeFcPortIsRegistered_Type=TruthValue
+_IsnsControlNodeFcPortIsRegistered_Object=MibTableColumn
+isnsControlNodeFcPortIsRegistered=_IsnsControlNodeFcPortIsRegistered_Object((1,3,6,1,2,1,163,1,1,3,2,1,2),_IsnsControlNodeFcPortIsRegistered_Type())
+isnsControlNodeFcPortIsRegistered.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsControlNodeFcPortIsRegistered.setStatus(_B)
+_IsnsControlNodeFcPortRcvMgtSCN_Type=TruthValue
+_IsnsControlNodeFcPortRcvMgtSCN_Object=MibTableColumn
+isnsControlNodeFcPortRcvMgtSCN=_IsnsControlNodeFcPortRcvMgtSCN_Object((1,3,6,1,2,1,163,1,1,3,2,1,3),_IsnsControlNodeFcPortRcvMgtSCN_Type())
+isnsControlNodeFcPortRcvMgtSCN.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsControlNodeFcPortRcvMgtSCN.setStatus(_B)
+_IsnsDdsInfo_ObjectIdentity=ObjectIdentity
+isnsDdsInfo=_IsnsDdsInfo_ObjectIdentity((1,3,6,1,2,1,163,1,1,4))
+_IsnsDdsTable_Object=MibTable
+isnsDdsTable=_IsnsDdsTable_Object((1,3,6,1,2,1,163,1,1,4,1))
+if mibBuilder.loadTexts:isnsDdsTable.setStatus(_B)
+_IsnsDdsEntry_Object=MibTableRow
+isnsDdsEntry=_IsnsDdsEntry_Object((1,3,6,1,2,1,163,1,1,4,1,1))
+isnsDdsEntry.setIndexNames((0,_A,_D),(0,_A,_A3))
+if mibBuilder.loadTexts:isnsDdsEntry.setStatus(_B)
+_IsnsDdsId_Type=IsnsDiscoveryDomainSetId
+_IsnsDdsId_Object=MibTableColumn
+isnsDdsId=_IsnsDdsId_Object((1,3,6,1,2,1,163,1,1,4,1,1,1),_IsnsDdsId_Type())
+isnsDdsId.setMaxAccess(_F)
+if mibBuilder.loadTexts:isnsDdsId.setStatus(_B)
+_IsnsDdsSymbolicName_Type=SnmpAdminString
+_IsnsDdsSymbolicName_Object=MibTableColumn
+isnsDdsSymbolicName=_IsnsDdsSymbolicName_Object((1,3,6,1,2,1,163,1,1,4,1,1,2),_IsnsDdsSymbolicName_Type())
+isnsDdsSymbolicName.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsDdsSymbolicName.setStatus(_B)
+_IsnsDdsStatus_Type=IsnsDdsStatusType
+_IsnsDdsStatus_Object=MibTableColumn
+isnsDdsStatus=_IsnsDdsStatus_Object((1,3,6,1,2,1,163,1,1,4,1,1,3),_IsnsDdsStatus_Type())
+isnsDdsStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsDdsStatus.setStatus(_B)
+_IsnsDdsMemberTable_Object=MibTable
+isnsDdsMemberTable=_IsnsDdsMemberTable_Object((1,3,6,1,2,1,163,1,1,4,2))
+if mibBuilder.loadTexts:isnsDdsMemberTable.setStatus(_B)
+_IsnsDdsMemberEntry_Object=MibTableRow
+isnsDdsMemberEntry=_IsnsDdsMemberEntry_Object((1,3,6,1,2,1,163,1,1,4,2,1))
+isnsDdsMemberEntry.setIndexNames((0,_A,_D),(0,_A,_A3),(0,_A,_Aq))
+if mibBuilder.loadTexts:isnsDdsMemberEntry.setStatus(_B)
+_IsnsDdsMemberDdId_Type=IsnsDiscoveryDomainId
+_IsnsDdsMemberDdId_Object=MibTableColumn
+isnsDdsMemberDdId=_IsnsDdsMemberDdId_Object((1,3,6,1,2,1,163,1,1,4,2,1,1),_IsnsDdsMemberDdId_Type())
+isnsDdsMemberDdId.setMaxAccess(_F)
+if mibBuilder.loadTexts:isnsDdsMemberDdId.setStatus(_B)
+_IsnsDdsMemberSymbolicName_Type=SnmpAdminString
+_IsnsDdsMemberSymbolicName_Object=MibTableColumn
+isnsDdsMemberSymbolicName=_IsnsDdsMemberSymbolicName_Object((1,3,6,1,2,1,163,1,1,4,2,1,2),_IsnsDdsMemberSymbolicName_Type())
+isnsDdsMemberSymbolicName.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsDdsMemberSymbolicName.setStatus(_B)
+_IsnsDdInfo_ObjectIdentity=ObjectIdentity
+isnsDdInfo=_IsnsDdInfo_ObjectIdentity((1,3,6,1,2,1,163,1,1,5))
+_IsnsDdTable_Object=MibTable
+isnsDdTable=_IsnsDdTable_Object((1,3,6,1,2,1,163,1,1,5,1))
+if mibBuilder.loadTexts:isnsDdTable.setStatus(_B)
+_IsnsDdEntry_Object=MibTableRow
+isnsDdEntry=_IsnsDdEntry_Object((1,3,6,1,2,1,163,1,1,5,1,1))
+isnsDdEntry.setIndexNames((0,_A,_D),(0,_A,_n))
+if mibBuilder.loadTexts:isnsDdEntry.setStatus(_B)
+_IsnsDdId_Type=IsnsDiscoveryDomainId
+_IsnsDdId_Object=MibTableColumn
+isnsDdId=_IsnsDdId_Object((1,3,6,1,2,1,163,1,1,5,1,1,1),_IsnsDdId_Type())
+isnsDdId.setMaxAccess(_F)
+if mibBuilder.loadTexts:isnsDdId.setStatus(_B)
+_IsnsDdSymbolicName_Type=SnmpAdminString
+_IsnsDdSymbolicName_Object=MibTableColumn
+isnsDdSymbolicName=_IsnsDdSymbolicName_Object((1,3,6,1,2,1,163,1,1,5,1,1,2),_IsnsDdSymbolicName_Type())
+isnsDdSymbolicName.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsDdSymbolicName.setStatus(_B)
+_IsnsDdFeatures_Type=IsnsDdFeatureType
+_IsnsDdFeatures_Object=MibTableColumn
+isnsDdFeatures=_IsnsDdFeatures_Object((1,3,6,1,2,1,163,1,1,5,1,1,3),_IsnsDdFeatures_Type())
+isnsDdFeatures.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsDdFeatures.setStatus(_B)
+_IsnsDdIscsiMemberTable_Object=MibTable
+isnsDdIscsiMemberTable=_IsnsDdIscsiMemberTable_Object((1,3,6,1,2,1,163,1,1,5,2))
+if mibBuilder.loadTexts:isnsDdIscsiMemberTable.setStatus(_B)
+_IsnsDdIscsiMemberEntry_Object=MibTableRow
+isnsDdIscsiMemberEntry=_IsnsDdIscsiMemberEntry_Object((1,3,6,1,2,1,163,1,1,5,2,1))
+isnsDdIscsiMemberEntry.setIndexNames((0,_A,_D),(0,_A,_n),(0,_A,_Ar))
+if mibBuilder.loadTexts:isnsDdIscsiMemberEntry.setStatus(_B)
+_IsnsDdIscsiMemberIndex_Type=IsnsNodeIndexId
+_IsnsDdIscsiMemberIndex_Object=MibTableColumn
+isnsDdIscsiMemberIndex=_IsnsDdIscsiMemberIndex_Object((1,3,6,1,2,1,163,1,1,5,2,1,1),_IsnsDdIscsiMemberIndex_Type())
+isnsDdIscsiMemberIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:isnsDdIscsiMemberIndex.setStatus(_B)
+class _IsnsDdIscsiMemberName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,223))
+_IsnsDdIscsiMemberName_Type.__name__=_h
+_IsnsDdIscsiMemberName_Object=MibTableColumn
+isnsDdIscsiMemberName=_IsnsDdIscsiMemberName_Object((1,3,6,1,2,1,163,1,1,5,2,1,2),_IsnsDdIscsiMemberName_Type())
+isnsDdIscsiMemberName.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsDdIscsiMemberName.setStatus(_B)
+_IsnsDdIscsiMemberIsRegistered_Type=TruthValue
+_IsnsDdIscsiMemberIsRegistered_Object=MibTableColumn
+isnsDdIscsiMemberIsRegistered=_IsnsDdIscsiMemberIsRegistered_Object((1,3,6,1,2,1,163,1,1,5,2,1,3),_IsnsDdIscsiMemberIsRegistered_Type())
+isnsDdIscsiMemberIsRegistered.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsDdIscsiMemberIsRegistered.setStatus(_B)
+_IsnsDdPortalMemberTable_Object=MibTable
+isnsDdPortalMemberTable=_IsnsDdPortalMemberTable_Object((1,3,6,1,2,1,163,1,1,5,3))
+if mibBuilder.loadTexts:isnsDdPortalMemberTable.setStatus(_B)
+_IsnsDdPortalMemberEntry_Object=MibTableRow
+isnsDdPortalMemberEntry=_IsnsDdPortalMemberEntry_Object((1,3,6,1,2,1,163,1,1,5,3,1))
+isnsDdPortalMemberEntry.setIndexNames((0,_A,_D),(0,_A,_n),(0,_A,_As))
+if mibBuilder.loadTexts:isnsDdPortalMemberEntry.setStatus(_B)
+_IsnsDdPortalMemberIndex_Type=IsnsPortalIndexId
+_IsnsDdPortalMemberIndex_Object=MibTableColumn
+isnsDdPortalMemberIndex=_IsnsDdPortalMemberIndex_Object((1,3,6,1,2,1,163,1,1,5,3,1,1),_IsnsDdPortalMemberIndex_Type())
+isnsDdPortalMemberIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:isnsDdPortalMemberIndex.setStatus(_B)
+_IsnsDdPortalMemberAddressType_Type=InetAddressType
+_IsnsDdPortalMemberAddressType_Object=MibTableColumn
+isnsDdPortalMemberAddressType=_IsnsDdPortalMemberAddressType_Object((1,3,6,1,2,1,163,1,1,5,3,1,2),_IsnsDdPortalMemberAddressType_Type())
+isnsDdPortalMemberAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsDdPortalMemberAddressType.setStatus(_B)
+_IsnsDdPortalMemberAddress_Type=InetAddress
+_IsnsDdPortalMemberAddress_Object=MibTableColumn
+isnsDdPortalMemberAddress=_IsnsDdPortalMemberAddress_Object((1,3,6,1,2,1,163,1,1,5,3,1,3),_IsnsDdPortalMemberAddress_Type())
+isnsDdPortalMemberAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsDdPortalMemberAddress.setStatus(_B)
+_IsnsDdPortalMemberPortType_Type=IsnsPortalPortTypeId
+_IsnsDdPortalMemberPortType_Object=MibTableColumn
+isnsDdPortalMemberPortType=_IsnsDdPortalMemberPortType_Object((1,3,6,1,2,1,163,1,1,5,3,1,4),_IsnsDdPortalMemberPortType_Type())
+isnsDdPortalMemberPortType.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsDdPortalMemberPortType.setStatus(_B)
+class _IsnsDdPortalMemberPort_Type(InetPortNumber):subtypeSpec=InetPortNumber.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_IsnsDdPortalMemberPort_Type.__name__=_q
+_IsnsDdPortalMemberPort_Object=MibTableColumn
+isnsDdPortalMemberPort=_IsnsDdPortalMemberPort_Object((1,3,6,1,2,1,163,1,1,5,3,1,5),_IsnsDdPortalMemberPort_Type())
+isnsDdPortalMemberPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsDdPortalMemberPort.setStatus(_B)
+_IsnsDdPortalMemberIsRegistered_Type=TruthValue
+_IsnsDdPortalMemberIsRegistered_Object=MibTableColumn
+isnsDdPortalMemberIsRegistered=_IsnsDdPortalMemberIsRegistered_Object((1,3,6,1,2,1,163,1,1,5,3,1,6),_IsnsDdPortalMemberIsRegistered_Type())
+isnsDdPortalMemberIsRegistered.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsDdPortalMemberIsRegistered.setStatus(_B)
+_IsnsDdFcPortMemberTable_Object=MibTable
+isnsDdFcPortMemberTable=_IsnsDdFcPortMemberTable_Object((1,3,6,1,2,1,163,1,1,5,4))
+if mibBuilder.loadTexts:isnsDdFcPortMemberTable.setStatus(_B)
+_IsnsDdFcPortMemberEntry_Object=MibTableRow
+isnsDdFcPortMemberEntry=_IsnsDdFcPortMemberEntry_Object((1,3,6,1,2,1,163,1,1,5,4,1))
+isnsDdFcPortMemberEntry.setIndexNames((0,_A,_D),(0,_A,_n),(0,_A,_At))
+if mibBuilder.loadTexts:isnsDdFcPortMemberEntry.setStatus(_B)
+class _IsnsDdFcPortMemberPortName_Type(FcNameIdOrZero):subtypeSpec=FcNameIdOrZero.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
+_IsnsDdFcPortMemberPortName_Type.__name__=_j
+_IsnsDdFcPortMemberPortName_Object=MibTableColumn
+isnsDdFcPortMemberPortName=_IsnsDdFcPortMemberPortName_Object((1,3,6,1,2,1,163,1,1,5,4,1,1),_IsnsDdFcPortMemberPortName_Type())
+isnsDdFcPortMemberPortName.setMaxAccess(_F)
+if mibBuilder.loadTexts:isnsDdFcPortMemberPortName.setStatus(_B)
+_IsnsDdFcPortMemberIsRegistered_Type=TruthValue
+_IsnsDdFcPortMemberIsRegistered_Object=MibTableColumn
+isnsDdFcPortMemberIsRegistered=_IsnsDdFcPortMemberIsRegistered_Object((1,3,6,1,2,1,163,1,1,5,4,1,2),_IsnsDdFcPortMemberIsRegistered_Type())
+isnsDdFcPortMemberIsRegistered.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsDdFcPortMemberIsRegistered.setStatus(_B)
+_IsnsReg_ObjectIdentity=ObjectIdentity
+isnsReg=_IsnsReg_ObjectIdentity((1,3,6,1,2,1,163,1,1,6))
+_IsnsRegEntityInfo_ObjectIdentity=ObjectIdentity
+isnsRegEntityInfo=_IsnsRegEntityInfo_ObjectIdentity((1,3,6,1,2,1,163,1,1,6,1))
+_IsnsRegEntityTable_Object=MibTable
+isnsRegEntityTable=_IsnsRegEntityTable_Object((1,3,6,1,2,1,163,1,1,6,1,1))
+if mibBuilder.loadTexts:isnsRegEntityTable.setStatus(_B)
+_IsnsRegEntityEntry_Object=MibTableRow
+isnsRegEntityEntry=_IsnsRegEntityEntry_Object((1,3,6,1,2,1,163,1,1,6,1,1,1))
+isnsRegEntityEntry.setIndexNames((0,_A,_D),(0,_A,_g))
+if mibBuilder.loadTexts:isnsRegEntityEntry.setStatus(_B)
+class _IsnsRegEntityIndex_Type(IsnsEntityIndexIdOrZero):subtypeSpec=IsnsEntityIndexIdOrZero.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_IsnsRegEntityIndex_Type.__name__=_Au
+_IsnsRegEntityIndex_Object=MibTableColumn
+isnsRegEntityIndex=_IsnsRegEntityIndex_Object((1,3,6,1,2,1,163,1,1,6,1,1,1,1),_IsnsRegEntityIndex_Type())
+isnsRegEntityIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:isnsRegEntityIndex.setStatus(_B)
+_IsnsRegEntityEID_Type=SnmpAdminString
+_IsnsRegEntityEID_Object=MibTableColumn
+isnsRegEntityEID=_IsnsRegEntityEID_Object((1,3,6,1,2,1,163,1,1,6,1,1,1,2),_IsnsRegEntityEID_Type())
+isnsRegEntityEID.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegEntityEID.setStatus(_B)
+class _IsnsRegEntityProtocol_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_IsnsRegEntityProtocol_Type.__name__=_G
+_IsnsRegEntityProtocol_Object=MibTableColumn
+isnsRegEntityProtocol=_IsnsRegEntityProtocol_Object((1,3,6,1,2,1,163,1,1,6,1,1,1,3),_IsnsRegEntityProtocol_Type())
+isnsRegEntityProtocol.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegEntityProtocol.setStatus(_B)
+_IsnsRegEntityManagementAddressType_Type=InetAddressType
+_IsnsRegEntityManagementAddressType_Object=MibTableColumn
+isnsRegEntityManagementAddressType=_IsnsRegEntityManagementAddressType_Object((1,3,6,1,2,1,163,1,1,6,1,1,1,4),_IsnsRegEntityManagementAddressType_Type())
+isnsRegEntityManagementAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegEntityManagementAddressType.setStatus(_B)
+_IsnsRegEntityManagementAddress_Type=InetAddress
+_IsnsRegEntityManagementAddress_Object=MibTableColumn
+isnsRegEntityManagementAddress=_IsnsRegEntityManagementAddress_Object((1,3,6,1,2,1,163,1,1,6,1,1,1,5),_IsnsRegEntityManagementAddress_Type())
+isnsRegEntityManagementAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegEntityManagementAddress.setStatus(_B)
+_IsnsRegEntityTimestamp_Type=TimeStamp
+_IsnsRegEntityTimestamp_Object=MibTableColumn
+isnsRegEntityTimestamp=_IsnsRegEntityTimestamp_Object((1,3,6,1,2,1,163,1,1,6,1,1,1,6),_IsnsRegEntityTimestamp_Type())
+isnsRegEntityTimestamp.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegEntityTimestamp.setStatus(_B)
+class _IsnsRegEntityVersionMin_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254),ValueRangeConstraint(255,255))
+_IsnsRegEntityVersionMin_Type.__name__=_G
+_IsnsRegEntityVersionMin_Object=MibTableColumn
+isnsRegEntityVersionMin=_IsnsRegEntityVersionMin_Object((1,3,6,1,2,1,163,1,1,6,1,1,1,7),_IsnsRegEntityVersionMin_Type())
+isnsRegEntityVersionMin.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegEntityVersionMin.setStatus(_B)
+class _IsnsRegEntityVersionMax_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254),ValueRangeConstraint(255,255))
+_IsnsRegEntityVersionMax_Type.__name__=_G
+_IsnsRegEntityVersionMax_Object=MibTableColumn
+isnsRegEntityVersionMax=_IsnsRegEntityVersionMax_Object((1,3,6,1,2,1,163,1,1,6,1,1,1,8),_IsnsRegEntityVersionMax_Type())
+isnsRegEntityVersionMax.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegEntityVersionMax.setStatus(_B)
+class _IsnsRegEntityRegistrationPeriod_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_IsnsRegEntityRegistrationPeriod_Type.__name__=_G
+_IsnsRegEntityRegistrationPeriod_Object=MibTableColumn
+isnsRegEntityRegistrationPeriod=_IsnsRegEntityRegistrationPeriod_Object((1,3,6,1,2,1,163,1,1,6,1,1,1,9),_IsnsRegEntityRegistrationPeriod_Type())
+isnsRegEntityRegistrationPeriod.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegEntityRegistrationPeriod.setStatus(_B)
+if mibBuilder.loadTexts:isnsRegEntityRegistrationPeriod.setUnits('seconds')
+_IsnsRegEntityNumObjectsTable_Object=MibTable
+isnsRegEntityNumObjectsTable=_IsnsRegEntityNumObjectsTable_Object((1,3,6,1,2,1,163,1,1,6,1,2))
+if mibBuilder.loadTexts:isnsRegEntityNumObjectsTable.setStatus(_B)
+_IsnsRegEntityNumObjectsEntry_Object=MibTableRow
+isnsRegEntityNumObjectsEntry=_IsnsRegEntityNumObjectsEntry_Object((1,3,6,1,2,1,163,1,1,6,1,2,1))
+isnsRegEntityNumObjectsEntry.setIndexNames((0,_A,_D),(0,_A,_g))
+if mibBuilder.loadTexts:isnsRegEntityNumObjectsEntry.setStatus(_B)
+class _IsnsRegEntityInfoNumPortals_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_IsnsRegEntityInfoNumPortals_Type.__name__=_E
+_IsnsRegEntityInfoNumPortals_Object=MibTableColumn
+isnsRegEntityInfoNumPortals=_IsnsRegEntityInfoNumPortals_Object((1,3,6,1,2,1,163,1,1,6,1,2,1,1),_IsnsRegEntityInfoNumPortals_Type())
+isnsRegEntityInfoNumPortals.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegEntityInfoNumPortals.setStatus(_B)
+class _IsnsRegEntityInfoNumPortalGroups_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_IsnsRegEntityInfoNumPortalGroups_Type.__name__=_E
+_IsnsRegEntityInfoNumPortalGroups_Object=MibTableColumn
+isnsRegEntityInfoNumPortalGroups=_IsnsRegEntityInfoNumPortalGroups_Object((1,3,6,1,2,1,163,1,1,6,1,2,1,2),_IsnsRegEntityInfoNumPortalGroups_Type())
+isnsRegEntityInfoNumPortalGroups.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegEntityInfoNumPortalGroups.setStatus(_B)
+class _IsnsRegEntityInfoNumIscsiNodes_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_IsnsRegEntityInfoNumIscsiNodes_Type.__name__=_E
+_IsnsRegEntityInfoNumIscsiNodes_Object=MibTableColumn
+isnsRegEntityInfoNumIscsiNodes=_IsnsRegEntityInfoNumIscsiNodes_Object((1,3,6,1,2,1,163,1,1,6,1,2,1,3),_IsnsRegEntityInfoNumIscsiNodes_Type())
+isnsRegEntityInfoNumIscsiNodes.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegEntityInfoNumIscsiNodes.setStatus(_B)
+class _IsnsRegEntityInfoNumFcPorts_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_IsnsRegEntityInfoNumFcPorts_Type.__name__=_E
+_IsnsRegEntityInfoNumFcPorts_Object=MibTableColumn
+isnsRegEntityInfoNumFcPorts=_IsnsRegEntityInfoNumFcPorts_Object((1,3,6,1,2,1,163,1,1,6,1,2,1,4),_IsnsRegEntityInfoNumFcPorts_Type())
+isnsRegEntityInfoNumFcPorts.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegEntityInfoNumFcPorts.setStatus(_B)
+class _IsnsRegEntityInfoNumFcNodes_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_IsnsRegEntityInfoNumFcNodes_Type.__name__=_E
+_IsnsRegEntityInfoNumFcNodes_Object=MibTableColumn
+isnsRegEntityInfoNumFcNodes=_IsnsRegEntityInfoNumFcNodes_Object((1,3,6,1,2,1,163,1,1,6,1,2,1,5),_IsnsRegEntityInfoNumFcNodes_Type())
+isnsRegEntityInfoNumFcNodes.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegEntityInfoNumFcNodes.setStatus(_B)
+_IsnsRegPortalInfo_ObjectIdentity=ObjectIdentity
+isnsRegPortalInfo=_IsnsRegPortalInfo_ObjectIdentity((1,3,6,1,2,1,163,1,1,6,2))
+_IsnsRegPortalTable_Object=MibTable
+isnsRegPortalTable=_IsnsRegPortalTable_Object((1,3,6,1,2,1,163,1,1,6,2,1))
+if mibBuilder.loadTexts:isnsRegPortalTable.setStatus(_B)
+_IsnsRegPortalEntry_Object=MibTableRow
+isnsRegPortalEntry=_IsnsRegPortalEntry_Object((1,3,6,1,2,1,163,1,1,6,2,1,1))
+isnsRegPortalEntry.setIndexNames((0,_A,_D),(0,_A,_g),(0,_A,_Av))
+if mibBuilder.loadTexts:isnsRegPortalEntry.setStatus(_B)
+_IsnsRegPortalPortalIndex_Type=IsnsPortalIndexId
+_IsnsRegPortalPortalIndex_Object=MibTableColumn
+isnsRegPortalPortalIndex=_IsnsRegPortalPortalIndex_Object((1,3,6,1,2,1,163,1,1,6,2,1,1,1),_IsnsRegPortalPortalIndex_Type())
+isnsRegPortalPortalIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:isnsRegPortalPortalIndex.setStatus(_B)
+_IsnsRegPortalAddressType_Type=InetAddressType
+_IsnsRegPortalAddressType_Object=MibTableColumn
+isnsRegPortalAddressType=_IsnsRegPortalAddressType_Object((1,3,6,1,2,1,163,1,1,6,2,1,1,2),_IsnsRegPortalAddressType_Type())
+isnsRegPortalAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPortalAddressType.setStatus(_B)
+_IsnsRegPortalAddress_Type=InetAddress
+_IsnsRegPortalAddress_Object=MibTableColumn
+isnsRegPortalAddress=_IsnsRegPortalAddress_Object((1,3,6,1,2,1,163,1,1,6,2,1,1,3),_IsnsRegPortalAddress_Type())
+isnsRegPortalAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPortalAddress.setStatus(_B)
+_IsnsRegPortalPortType_Type=IsnsPortalPortTypeId
+_IsnsRegPortalPortType_Object=MibTableColumn
+isnsRegPortalPortType=_IsnsRegPortalPortType_Object((1,3,6,1,2,1,163,1,1,6,2,1,1,4),_IsnsRegPortalPortType_Type())
+isnsRegPortalPortType.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPortalPortType.setStatus(_B)
+class _IsnsRegPortalPort_Type(InetPortNumber):subtypeSpec=InetPortNumber.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_IsnsRegPortalPort_Type.__name__=_q
+_IsnsRegPortalPort_Object=MibTableColumn
+isnsRegPortalPort=_IsnsRegPortalPort_Object((1,3,6,1,2,1,163,1,1,6,2,1,1,5),_IsnsRegPortalPort_Type())
+isnsRegPortalPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPortalPort.setStatus(_B)
+_IsnsRegPortalSymbolicName_Type=SnmpAdminString
+_IsnsRegPortalSymbolicName_Object=MibTableColumn
+isnsRegPortalSymbolicName=_IsnsRegPortalSymbolicName_Object((1,3,6,1,2,1,163,1,1,6,2,1,1,6),_IsnsRegPortalSymbolicName_Type())
+isnsRegPortalSymbolicName.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPortalSymbolicName.setStatus(_B)
+class _IsnsRegPortalEsiInterval_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_IsnsRegPortalEsiInterval_Type.__name__=_G
+_IsnsRegPortalEsiInterval_Object=MibTableColumn
+isnsRegPortalEsiInterval=_IsnsRegPortalEsiInterval_Object((1,3,6,1,2,1,163,1,1,6,2,1,1,7),_IsnsRegPortalEsiInterval_Type())
+isnsRegPortalEsiInterval.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPortalEsiInterval.setStatus(_B)
+if mibBuilder.loadTexts:isnsRegPortalEsiInterval.setUnits('seconds')
+_IsnsRegPortalEsiPortType_Type=IsnsPortalPortTypeId
+_IsnsRegPortalEsiPortType_Object=MibTableColumn
+isnsRegPortalEsiPortType=_IsnsRegPortalEsiPortType_Object((1,3,6,1,2,1,163,1,1,6,2,1,1,8),_IsnsRegPortalEsiPortType_Type())
+isnsRegPortalEsiPortType.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPortalEsiPortType.setStatus(_B)
+_IsnsRegPortalEsiPort_Type=InetPortNumber
+_IsnsRegPortalEsiPort_Object=MibTableColumn
+isnsRegPortalEsiPort=_IsnsRegPortalEsiPort_Object((1,3,6,1,2,1,163,1,1,6,2,1,1,9),_IsnsRegPortalEsiPort_Type())
+isnsRegPortalEsiPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPortalEsiPort.setStatus(_B)
+_IsnsRegPortalScnPortType_Type=IsnsPortalPortTypeId
+_IsnsRegPortalScnPortType_Object=MibTableColumn
+isnsRegPortalScnPortType=_IsnsRegPortalScnPortType_Object((1,3,6,1,2,1,163,1,1,6,2,1,1,10),_IsnsRegPortalScnPortType_Type())
+isnsRegPortalScnPortType.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPortalScnPortType.setStatus(_B)
+_IsnsRegPortalScnPort_Type=InetPortNumber
+_IsnsRegPortalScnPort_Object=MibTableColumn
+isnsRegPortalScnPort=_IsnsRegPortalScnPort_Object((1,3,6,1,2,1,163,1,1,6,2,1,1,11),_IsnsRegPortalScnPort_Type())
+isnsRegPortalScnPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPortalScnPort.setStatus(_B)
+_IsnsRegPortalSecurityInfo_Type=IsnsPortalSecurityType
+_IsnsRegPortalSecurityInfo_Object=MibTableColumn
+isnsRegPortalSecurityInfo=_IsnsRegPortalSecurityInfo_Object((1,3,6,1,2,1,163,1,1,6,2,1,1,12),_IsnsRegPortalSecurityInfo_Type())
+isnsRegPortalSecurityInfo.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPortalSecurityInfo.setStatus(_B)
+_IsnsRegPortalGroupInfo_ObjectIdentity=ObjectIdentity
+isnsRegPortalGroupInfo=_IsnsRegPortalGroupInfo_ObjectIdentity((1,3,6,1,2,1,163,1,1,6,3))
+_IsnsRegPgTable_Object=MibTable
+isnsRegPgTable=_IsnsRegPgTable_Object((1,3,6,1,2,1,163,1,1,6,3,1))
+if mibBuilder.loadTexts:isnsRegPgTable.setStatus(_B)
+_IsnsRegPgEntry_Object=MibTableRow
+isnsRegPgEntry=_IsnsRegPgEntry_Object((1,3,6,1,2,1,163,1,1,6,3,1,1))
+isnsRegPgEntry.setIndexNames((0,_A,_D),(0,_A,_g),(0,_A,_Aw))
+if mibBuilder.loadTexts:isnsRegPgEntry.setStatus(_B)
+_IsnsRegPgIndex_Type=IsnsPortalGroupIndexId
+_IsnsRegPgIndex_Object=MibTableColumn
+isnsRegPgIndex=_IsnsRegPgIndex_Object((1,3,6,1,2,1,163,1,1,6,3,1,1,1),_IsnsRegPgIndex_Type())
+isnsRegPgIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:isnsRegPgIndex.setStatus(_B)
+_IsnsRegPgIscsiNodeIndex_Type=IsnsNodeIndexId
+_IsnsRegPgIscsiNodeIndex_Object=MibTableColumn
+isnsRegPgIscsiNodeIndex=_IsnsRegPgIscsiNodeIndex_Object((1,3,6,1,2,1,163,1,1,6,3,1,1,2),_IsnsRegPgIscsiNodeIndex_Type())
+isnsRegPgIscsiNodeIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPgIscsiNodeIndex.setStatus(_B)
+class _IsnsRegPgIscsiName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,223))
+_IsnsRegPgIscsiName_Type.__name__=_h
+_IsnsRegPgIscsiName_Object=MibTableColumn
+isnsRegPgIscsiName=_IsnsRegPgIscsiName_Object((1,3,6,1,2,1,163,1,1,6,3,1,1,3),_IsnsRegPgIscsiName_Type())
+isnsRegPgIscsiName.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPgIscsiName.setStatus(_B)
+_IsnsRegPgPortalPortalIndex_Type=IsnsPortalIndexId
+_IsnsRegPgPortalPortalIndex_Object=MibTableColumn
+isnsRegPgPortalPortalIndex=_IsnsRegPgPortalPortalIndex_Object((1,3,6,1,2,1,163,1,1,6,3,1,1,4),_IsnsRegPgPortalPortalIndex_Type())
+isnsRegPgPortalPortalIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPgPortalPortalIndex.setStatus(_B)
+_IsnsRegPgPortalAddressType_Type=InetAddressType
+_IsnsRegPgPortalAddressType_Object=MibTableColumn
+isnsRegPgPortalAddressType=_IsnsRegPgPortalAddressType_Object((1,3,6,1,2,1,163,1,1,6,3,1,1,5),_IsnsRegPgPortalAddressType_Type())
+isnsRegPgPortalAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPgPortalAddressType.setStatus(_B)
+_IsnsRegPgPortalAddress_Type=InetAddress
+_IsnsRegPgPortalAddress_Object=MibTableColumn
+isnsRegPgPortalAddress=_IsnsRegPgPortalAddress_Object((1,3,6,1,2,1,163,1,1,6,3,1,1,6),_IsnsRegPgPortalAddress_Type())
+isnsRegPgPortalAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPgPortalAddress.setStatus(_B)
+_IsnsRegPgPortalPortType_Type=IsnsPortalPortTypeId
+_IsnsRegPgPortalPortType_Object=MibTableColumn
+isnsRegPgPortalPortType=_IsnsRegPgPortalPortType_Object((1,3,6,1,2,1,163,1,1,6,3,1,1,7),_IsnsRegPgPortalPortType_Type())
+isnsRegPgPortalPortType.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPgPortalPortType.setStatus(_B)
+class _IsnsRegPgPortalPort_Type(InetPortNumber):subtypeSpec=InetPortNumber.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_IsnsRegPgPortalPort_Type.__name__=_q
+_IsnsRegPgPortalPort_Object=MibTableColumn
+isnsRegPgPortalPort=_IsnsRegPgPortalPort_Object((1,3,6,1,2,1,163,1,1,6,3,1,1,8),_IsnsRegPgPortalPort_Type())
+isnsRegPgPortalPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPgPortalPort.setStatus(_B)
+_IsnsRegPgPGT_Type=IsnsPortalGroupTagIdOrNull
+_IsnsRegPgPGT_Object=MibTableColumn
+isnsRegPgPGT=_IsnsRegPgPGT_Object((1,3,6,1,2,1,163,1,1,6,3,1,1,9),_IsnsRegPgPGT_Type())
+isnsRegPgPGT.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegPgPGT.setStatus(_B)
+_IsnsRegIscsiNodeInfo_ObjectIdentity=ObjectIdentity
+isnsRegIscsiNodeInfo=_IsnsRegIscsiNodeInfo_ObjectIdentity((1,3,6,1,2,1,163,1,1,6,4))
+_IsnsRegIscsiNodeTable_Object=MibTable
+isnsRegIscsiNodeTable=_IsnsRegIscsiNodeTable_Object((1,3,6,1,2,1,163,1,1,6,4,1))
+if mibBuilder.loadTexts:isnsRegIscsiNodeTable.setStatus(_B)
+_IsnsRegIscsiNodeEntry_Object=MibTableRow
+isnsRegIscsiNodeEntry=_IsnsRegIscsiNodeEntry_Object((1,3,6,1,2,1,163,1,1,6,4,1,1))
+isnsRegIscsiNodeEntry.setIndexNames((0,_A,_D),(0,_A,_g),(0,_A,_Ax))
+if mibBuilder.loadTexts:isnsRegIscsiNodeEntry.setStatus(_B)
+_IsnsRegIscsiNodeIndex_Type=IsnsNodeIndexId
+_IsnsRegIscsiNodeIndex_Object=MibTableColumn
+isnsRegIscsiNodeIndex=_IsnsRegIscsiNodeIndex_Object((1,3,6,1,2,1,163,1,1,6,4,1,1,1),_IsnsRegIscsiNodeIndex_Type())
+isnsRegIscsiNodeIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:isnsRegIscsiNodeIndex.setStatus(_B)
+class _IsnsRegIscsiNodeName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,223))
+_IsnsRegIscsiNodeName_Type.__name__=_h
+_IsnsRegIscsiNodeName_Object=MibTableColumn
+isnsRegIscsiNodeName=_IsnsRegIscsiNodeName_Object((1,3,6,1,2,1,163,1,1,6,4,1,1,2),_IsnsRegIscsiNodeName_Type())
+isnsRegIscsiNodeName.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegIscsiNodeName.setStatus(_B)
+_IsnsRegIscsiNodeType_Type=IsnsIscsiNodeType
+_IsnsRegIscsiNodeType_Object=MibTableColumn
+isnsRegIscsiNodeType=_IsnsRegIscsiNodeType_Object((1,3,6,1,2,1,163,1,1,6,4,1,1,3),_IsnsRegIscsiNodeType_Type())
+isnsRegIscsiNodeType.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegIscsiNodeType.setStatus(_B)
+_IsnsRegIscsiNodeAlias_Type=SnmpAdminString
+_IsnsRegIscsiNodeAlias_Object=MibTableColumn
+isnsRegIscsiNodeAlias=_IsnsRegIscsiNodeAlias_Object((1,3,6,1,2,1,163,1,1,6,4,1,1,4),_IsnsRegIscsiNodeAlias_Type())
+isnsRegIscsiNodeAlias.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegIscsiNodeAlias.setStatus(_B)
+_IsnsRegIscsiNodeScnTypes_Type=IsnsIscsiScnType
+_IsnsRegIscsiNodeScnTypes_Object=MibTableColumn
+isnsRegIscsiNodeScnTypes=_IsnsRegIscsiNodeScnTypes_Object((1,3,6,1,2,1,163,1,1,6,4,1,1,5),_IsnsRegIscsiNodeScnTypes_Type())
+isnsRegIscsiNodeScnTypes.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegIscsiNodeScnTypes.setStatus(_B)
+_IsnsRegIscsiNodeWwnToken_Type=FcNameIdOrZero
+_IsnsRegIscsiNodeWwnToken_Object=MibTableColumn
+isnsRegIscsiNodeWwnToken=_IsnsRegIscsiNodeWwnToken_Object((1,3,6,1,2,1,163,1,1,6,4,1,1,6),_IsnsRegIscsiNodeWwnToken_Type())
+isnsRegIscsiNodeWwnToken.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegIscsiNodeWwnToken.setStatus(_B)
+_IsnsRegIscsiNodeAuthMethod_Type=SnmpAdminString
+_IsnsRegIscsiNodeAuthMethod_Object=MibTableColumn
+isnsRegIscsiNodeAuthMethod=_IsnsRegIscsiNodeAuthMethod_Object((1,3,6,1,2,1,163,1,1,6,4,1,1,7),_IsnsRegIscsiNodeAuthMethod_Type())
+isnsRegIscsiNodeAuthMethod.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegIscsiNodeAuthMethod.setStatus(_B)
+_IsnsRegFcNodeInfo_ObjectIdentity=ObjectIdentity
+isnsRegFcNodeInfo=_IsnsRegFcNodeInfo_ObjectIdentity((1,3,6,1,2,1,163,1,1,6,5))
+_IsnsRegFcNodeTable_Object=MibTable
+isnsRegFcNodeTable=_IsnsRegFcNodeTable_Object((1,3,6,1,2,1,163,1,1,6,5,1))
+if mibBuilder.loadTexts:isnsRegFcNodeTable.setStatus(_B)
+_IsnsRegFcNodeEntry_Object=MibTableRow
+isnsRegFcNodeEntry=_IsnsRegFcNodeEntry_Object((1,3,6,1,2,1,163,1,1,6,5,1,1))
+isnsRegFcNodeEntry.setIndexNames((0,_A,_D),(0,_A,_A4))
+if mibBuilder.loadTexts:isnsRegFcNodeEntry.setStatus(_B)
+class _IsnsRegFcNodeWwnn_Type(FcNameIdOrZero):subtypeSpec=FcNameIdOrZero.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
+_IsnsRegFcNodeWwnn_Type.__name__=_j
+_IsnsRegFcNodeWwnn_Object=MibTableColumn
+isnsRegFcNodeWwnn=_IsnsRegFcNodeWwnn_Object((1,3,6,1,2,1,163,1,1,6,5,1,1,1),_IsnsRegFcNodeWwnn_Type())
+isnsRegFcNodeWwnn.setMaxAccess(_F)
+if mibBuilder.loadTexts:isnsRegFcNodeWwnn.setStatus(_B)
+_IsnsRegFcNodeSymbolicName_Type=SnmpAdminString
+_IsnsRegFcNodeSymbolicName_Object=MibTableColumn
+isnsRegFcNodeSymbolicName=_IsnsRegFcNodeSymbolicName_Object((1,3,6,1,2,1,163,1,1,6,5,1,1,2),_IsnsRegFcNodeSymbolicName_Type())
+isnsRegFcNodeSymbolicName.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcNodeSymbolicName.setStatus(_B)
+_IsnsRegFcNodeAddressType_Type=InetAddressType
+_IsnsRegFcNodeAddressType_Object=MibTableColumn
+isnsRegFcNodeAddressType=_IsnsRegFcNodeAddressType_Object((1,3,6,1,2,1,163,1,1,6,5,1,1,3),_IsnsRegFcNodeAddressType_Type())
+isnsRegFcNodeAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcNodeAddressType.setStatus(_B)
+_IsnsRegFcNodeAddress_Type=InetAddress
+_IsnsRegFcNodeAddress_Object=MibTableColumn
+isnsRegFcNodeAddress=_IsnsRegFcNodeAddress_Object((1,3,6,1,2,1,163,1,1,6,5,1,1,4),_IsnsRegFcNodeAddress_Type())
+isnsRegFcNodeAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcNodeAddress.setStatus(_B)
+class _IsnsRegFcNodeIPA_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
+_IsnsRegFcNodeIPA_Type.__name__=_p
+_IsnsRegFcNodeIPA_Object=MibTableColumn
+isnsRegFcNodeIPA=_IsnsRegFcNodeIPA_Object((1,3,6,1,2,1,163,1,1,6,5,1,1,5),_IsnsRegFcNodeIPA_Type())
+isnsRegFcNodeIPA.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcNodeIPA.setStatus(_B)
+class _IsnsRegFcNodeProxyIscsiName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,223))
+_IsnsRegFcNodeProxyIscsiName_Type.__name__=_h
+_IsnsRegFcNodeProxyIscsiName_Object=MibTableColumn
+isnsRegFcNodeProxyIscsiName=_IsnsRegFcNodeProxyIscsiName_Object((1,3,6,1,2,1,163,1,1,6,5,1,1,6),_IsnsRegFcNodeProxyIscsiName_Type())
+isnsRegFcNodeProxyIscsiName.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcNodeProxyIscsiName.setStatus(_B)
+class _IsnsRegFcNodeNumFcPorts_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_IsnsRegFcNodeNumFcPorts_Type.__name__=_E
+_IsnsRegFcNodeNumFcPorts_Object=MibTableColumn
+isnsRegFcNodeNumFcPorts=_IsnsRegFcNodeNumFcPorts_Object((1,3,6,1,2,1,163,1,1,6,5,1,1,7),_IsnsRegFcNodeNumFcPorts_Type())
+isnsRegFcNodeNumFcPorts.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcNodeNumFcPorts.setStatus(_B)
+_IsnsRegFcPortTable_Object=MibTable
+isnsRegFcPortTable=_IsnsRegFcPortTable_Object((1,3,6,1,2,1,163,1,1,6,5,2))
+if mibBuilder.loadTexts:isnsRegFcPortTable.setStatus(_B)
+_IsnsRegFcPortEntry_Object=MibTableRow
+isnsRegFcPortEntry=_IsnsRegFcPortEntry_Object((1,3,6,1,2,1,163,1,1,6,5,2,1))
+isnsRegFcPortEntry.setIndexNames((0,_A,_D),(0,_A,_g),(0,_A,_A5))
+if mibBuilder.loadTexts:isnsRegFcPortEntry.setStatus(_B)
+class _IsnsRegFcPortWwpn_Type(FcNameIdOrZero):subtypeSpec=FcNameIdOrZero.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
+_IsnsRegFcPortWwpn_Type.__name__=_j
+_IsnsRegFcPortWwpn_Object=MibTableColumn
+isnsRegFcPortWwpn=_IsnsRegFcPortWwpn_Object((1,3,6,1,2,1,163,1,1,6,5,2,1,1),_IsnsRegFcPortWwpn_Type())
+isnsRegFcPortWwpn.setMaxAccess(_F)
+if mibBuilder.loadTexts:isnsRegFcPortWwpn.setStatus(_B)
+_IsnsRegFcPortID_Type=FcAddressIdOrZero
+_IsnsRegFcPortID_Object=MibTableColumn
+isnsRegFcPortID=_IsnsRegFcPortID_Object((1,3,6,1,2,1,163,1,1,6,5,2,1,2),_IsnsRegFcPortID_Type())
+isnsRegFcPortID.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcPortID.setStatus(_B)
+class _IsnsRegFcPortType_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_IsnsRegFcPortType_Type.__name__=_G
+_IsnsRegFcPortType_Object=MibTableColumn
+isnsRegFcPortType=_IsnsRegFcPortType_Object((1,3,6,1,2,1,163,1,1,6,5,2,1,3),_IsnsRegFcPortType_Type())
+isnsRegFcPortType.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcPortType.setStatus(_B)
+_IsnsRegFcPortSymbolicName_Type=SnmpAdminString
+_IsnsRegFcPortSymbolicName_Object=MibTableColumn
+isnsRegFcPortSymbolicName=_IsnsRegFcPortSymbolicName_Object((1,3,6,1,2,1,163,1,1,6,5,2,1,4),_IsnsRegFcPortSymbolicName_Type())
+isnsRegFcPortSymbolicName.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcPortSymbolicName.setStatus(_B)
+_IsnsRegFcPortFabricPortWwn_Type=FcNameIdOrZero
+_IsnsRegFcPortFabricPortWwn_Object=MibTableColumn
+isnsRegFcPortFabricPortWwn=_IsnsRegFcPortFabricPortWwn_Object((1,3,6,1,2,1,163,1,1,6,5,2,1,5),_IsnsRegFcPortFabricPortWwn_Type())
+isnsRegFcPortFabricPortWwn.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcPortFabricPortWwn.setStatus(_B)
+_IsnsRegFcPortHA_Type=FcAddressIdOrZero
+_IsnsRegFcPortHA_Object=MibTableColumn
+isnsRegFcPortHA=_IsnsRegFcPortHA_Object((1,3,6,1,2,1,163,1,1,6,5,2,1,6),_IsnsRegFcPortHA_Type())
+isnsRegFcPortHA.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcPortHA.setStatus(_B)
+_IsnsRegFcPortAddressType_Type=InetAddressType
+_IsnsRegFcPortAddressType_Object=MibTableColumn
+isnsRegFcPortAddressType=_IsnsRegFcPortAddressType_Object((1,3,6,1,2,1,163,1,1,6,5,2,1,7),_IsnsRegFcPortAddressType_Type())
+isnsRegFcPortAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcPortAddressType.setStatus(_B)
+_IsnsRegFcPortAddress_Type=InetAddress
+_IsnsRegFcPortAddress_Object=MibTableColumn
+isnsRegFcPortAddress=_IsnsRegFcPortAddress_Object((1,3,6,1,2,1,163,1,1,6,5,2,1,8),_IsnsRegFcPortAddress_Type())
+isnsRegFcPortAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcPortAddress.setStatus(_B)
+_IsnsRegFcPortFcCos_Type=IsnsFcClassOfServiceType
+_IsnsRegFcPortFcCos_Object=MibTableColumn
+isnsRegFcPortFcCos=_IsnsRegFcPortFcCos_Object((1,3,6,1,2,1,163,1,1,6,5,2,1,9),_IsnsRegFcPortFcCos_Type())
+isnsRegFcPortFcCos.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcPortFcCos.setStatus(_B)
+class _IsnsRegFcPortFc4Types_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(32,32));fixedLength=32
+_IsnsRegFcPortFc4Types_Type.__name__=_p
+_IsnsRegFcPortFc4Types_Object=MibTableColumn
+isnsRegFcPortFc4Types=_IsnsRegFcPortFc4Types_Object((1,3,6,1,2,1,163,1,1,6,5,2,1,10),_IsnsRegFcPortFc4Types_Type())
+isnsRegFcPortFc4Types.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcPortFc4Types.setStatus(_B)
+class _IsnsRegFcPortFc4Descr_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,255))
+_IsnsRegFcPortFc4Descr_Type.__name__=_h
+_IsnsRegFcPortFc4Descr_Object=MibTableColumn
+isnsRegFcPortFc4Descr=_IsnsRegFcPortFc4Descr_Object((1,3,6,1,2,1,163,1,1,6,5,2,1,11),_IsnsRegFcPortFc4Descr_Type())
+isnsRegFcPortFc4Descr.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcPortFc4Descr.setStatus(_B)
+class _IsnsRegFcPortFc4Features_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(128,128));fixedLength=128
+_IsnsRegFcPortFc4Features_Type.__name__=_p
+_IsnsRegFcPortFc4Features_Object=MibTableColumn
+isnsRegFcPortFc4Features=_IsnsRegFcPortFc4Features_Object((1,3,6,1,2,1,163,1,1,6,5,2,1,12),_IsnsRegFcPortFc4Features_Type())
+isnsRegFcPortFc4Features.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcPortFc4Features.setStatus(_B)
+_IsnsRegFcPortScnTypes_Type=IsnsIfcpScnType
+_IsnsRegFcPortScnTypes_Object=MibTableColumn
+isnsRegFcPortScnTypes=_IsnsRegFcPortScnTypes_Object((1,3,6,1,2,1,163,1,1,6,5,2,1,13),_IsnsRegFcPortScnTypes_Type())
+isnsRegFcPortScnTypes.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcPortScnTypes.setStatus(_B)
+_IsnsRegFcPortRole_Type=IsnsFcPortRoleType
+_IsnsRegFcPortRole_Object=MibTableColumn
+isnsRegFcPortRole=_IsnsRegFcPortRole_Object((1,3,6,1,2,1,163,1,1,6,5,2,1,14),_IsnsRegFcPortRole_Type())
+isnsRegFcPortRole.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcPortRole.setStatus(_B)
+_IsnsRegFcPortFcNodeWwnn_Type=FcNameIdOrZero
+_IsnsRegFcPortFcNodeWwnn_Object=MibTableColumn
+isnsRegFcPortFcNodeWwnn=_IsnsRegFcPortFcNodeWwnn_Object((1,3,6,1,2,1,163,1,1,6,5,2,1,15),_IsnsRegFcPortFcNodeWwnn_Type())
+isnsRegFcPortFcNodeWwnn.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcPortFcNodeWwnn.setStatus(_B)
+_IsnsRegFcPortPpnWwn_Type=FcNameIdOrZero
+_IsnsRegFcPortPpnWwn_Object=MibTableColumn
+isnsRegFcPortPpnWwn=_IsnsRegFcPortPpnWwn_Object((1,3,6,1,2,1,163,1,1,6,5,2,1,16),_IsnsRegFcPortPpnWwn_Type())
+isnsRegFcPortPpnWwn.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcPortPpnWwn.setStatus(_B)
+_IsnsRegFcNodePortTable_Object=MibTable
+isnsRegFcNodePortTable=_IsnsRegFcNodePortTable_Object((1,3,6,1,2,1,163,1,1,6,5,3))
+if mibBuilder.loadTexts:isnsRegFcNodePortTable.setStatus(_B)
+_IsnsRegFcNodePortEntry_Object=MibTableRow
+isnsRegFcNodePortEntry=_IsnsRegFcNodePortEntry_Object((1,3,6,1,2,1,163,1,1,6,5,3,1))
+isnsRegFcNodePortEntry.setIndexNames((0,_A,_D),(0,_A,_A4),(0,_A,_A5))
+if mibBuilder.loadTexts:isnsRegFcNodePortEntry.setStatus(_B)
+_IsnsRegFcNodePortEntityIndex_Type=IsnsEntityIndexIdOrZero
+_IsnsRegFcNodePortEntityIndex_Object=MibTableColumn
+isnsRegFcNodePortEntityIndex=_IsnsRegFcNodePortEntityIndex_Object((1,3,6,1,2,1,163,1,1,6,5,3,1,1),_IsnsRegFcNodePortEntityIndex_Type())
+isnsRegFcNodePortEntityIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:isnsRegFcNodePortEntityIndex.setStatus(_B)
+_IsnsNotificationsInfo_ObjectIdentity=ObjectIdentity
+isnsNotificationsInfo=_IsnsNotificationsInfo_ObjectIdentity((1,3,6,1,2,1,163,1,2))
+_IsnsInstanceInfo_Type=SnmpAdminString
+_IsnsInstanceInfo_Object=MibScalar
+isnsInstanceInfo=_IsnsInstanceInfo_Object((1,3,6,1,2,1,163,1,2,1),_IsnsInstanceInfo_Type())
+isnsInstanceInfo.setMaxAccess(_o)
+if mibBuilder.loadTexts:isnsInstanceInfo.setStatus(_B)
+_IsnsAddressNotificationType_Type=InetAddressType
+_IsnsAddressNotificationType_Object=MibScalar
+isnsAddressNotificationType=_IsnsAddressNotificationType_Object((1,3,6,1,2,1,163,1,2,2),_IsnsAddressNotificationType_Type())
+isnsAddressNotificationType.setMaxAccess(_o)
+if mibBuilder.loadTexts:isnsAddressNotificationType.setStatus(_B)
+_IsnsAddressNotification_Type=InetAddress
+_IsnsAddressNotification_Object=MibScalar
+isnsAddressNotification=_IsnsAddressNotification_Object((1,3,6,1,2,1,163,1,2,3),_IsnsAddressNotification_Type())
+isnsAddressNotification.setMaxAccess(_o)
+if mibBuilder.loadTexts:isnsAddressNotification.setStatus(_B)
+_IsnsTcpPortNotification_Type=InetPortNumber
+_IsnsTcpPortNotification_Object=MibScalar
+isnsTcpPortNotification=_IsnsTcpPortNotification_Object((1,3,6,1,2,1,163,1,2,4),_IsnsTcpPortNotification_Type())
+isnsTcpPortNotification.setMaxAccess(_o)
+if mibBuilder.loadTexts:isnsTcpPortNotification.setStatus(_B)
+_IsnsUdpPortNotification_Type=InetPortNumber
+_IsnsUdpPortNotification_Object=MibScalar
+isnsUdpPortNotification=_IsnsUdpPortNotification_Object((1,3,6,1,2,1,163,1,2,5),_IsnsUdpPortNotification_Type())
+isnsUdpPortNotification.setMaxAccess(_o)
+if mibBuilder.loadTexts:isnsUdpPortNotification.setStatus(_B)
+_IsnsConformance_ObjectIdentity=ObjectIdentity
+isnsConformance=_IsnsConformance_ObjectIdentity((1,3,6,1,2,1,163,2))
+_IsnsCompliances_ObjectIdentity=ObjectIdentity
+isnsCompliances=_IsnsCompliances_ObjectIdentity((1,3,6,1,2,1,163,2,1))
+_IsnsGroups_ObjectIdentity=ObjectIdentity
+isnsGroups=_IsnsGroups_ObjectIdentity((1,3,6,1,2,1,163,2,2))
+isnsServerEntry.registerAugmentions((_A,_Ay))
 isnsNumObjectsEntry.setIndexNames(*isnsServerEntry.getIndexNames())
-if mibBuilder.loadTexts: isnsNumObjectsEntry.setDescription('Entry of an iSNS Server instance.')
-isnsNumDds = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 2, 1, 1), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsNumDds.setDescription('The current total number of Discovery Domain Sets\n    in this iSNS instance.  This is the number of rows\n    in the isnsDdsTable.')
-isnsNumDd = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 2, 1, 2), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsNumDd.setDescription('The current total number of Discovery Domains\n    in this iSNS instance.  This is the number of rows in the\n    isnsDdTable.')
-isnsNumEntities = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 2, 1, 3), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsNumEntities.setDescription('The current number of Entities registered in this\n    iSNS Server instance.  This is the number of rows in\n    the isnsRegEntityTable for this instance.')
-isnsNumPortals = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 2, 1, 4), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsNumPortals.setDescription('The current total number of Portals registered in iSNS.\n    This is the number of rows in isnsRegPortalTable.')
-isnsNumPortalGroups = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 2, 1, 5), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsNumPortalGroups.setDescription('The current total number of Portal Groups registered in\n    iSNS.  This is the number of rows in isnsRegPgTable.')
-isnsNumIscsiNodes = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 2, 1, 6), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsNumIscsiNodes.setDescription('The current total number of iSCSI node entries registered\n    in the iSNS.  This is the number rows in\n    isnsRegIscsiNodeTable.')
-isnsNumFcPorts = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 2, 1, 7), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsNumFcPorts.setDescription('The current total number of FC Port entries registered\n    in the iSNS.  This is the number of rows in\n    isnsRegFcPortTable.')
-isnsNumFcNodes = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 2, 1, 8), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsNumFcNodes.setDescription('The current total number of FC node entries registered\n    in the iSNS.  This is the number of rows in\n    isnsRegFcNodeTable.')
-isnsControlNodeInfo = MibIdentifier((1, 3, 6, 1, 2, 1, 163, 1, 1, 3))
-isnsControlNodeIscsiTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 3, 1), )
-if mibBuilder.loadTexts: isnsControlNodeIscsiTable.setDescription('Specified iSCSI Nodes that can register or are registered\n    as control nodes.  The number of rows is dependent on the\n    number of iSCSI Control Nodes.')
-isnsControlNodeIscsiEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 3, 1, 1), ).setIndexNames((0, "ISNS-MIB", "isnsServerIndex"), (0, "ISNS-MIB", "isnsControlNodeIscsiNodeIndex"))
-if mibBuilder.loadTexts: isnsControlNodeIscsiEntry.setDescription('This is an iSCSI Control Node entry for a specific iSNS\n    server instance.')
-isnsControlNodeIscsiNodeIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 3, 1, 1, 1), IsnsNodeIndexId())
-if mibBuilder.loadTexts: isnsControlNodeIscsiNodeIndex.setDescription('The index for the iSCSI storage node authorized to act\n    as a control node.')
-isnsControlNodeIscsiNodeName = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 3, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsControlNodeIscsiNodeName.setDescription('The iSCSI Name of the initiator or target associated with\n    the storage node.  The iSCSI Name cannot be longer than\n    223 bytes.  The iSNS Server internal maximum size is 224\n    bytes to provide NULL termination.  This is the iSCSI Node\n    Name for the storage node authorized and/or acting as a\n    control node.')
-isnsControlNodeIscsiIsRegistered = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 3, 1, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsControlNodeIscsiIsRegistered.setDescription('Indicates whether the control node is currently\n     registered in the iSNS Server instance.')
-isnsControlNodeIscsiRcvMgtSCN = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 3, 1, 1, 4), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsControlNodeIscsiRcvMgtSCN.setDescription('Indicates whether the Control Node has registered to\n     receive Management SCNs.  Management SCNs are sent to\n     a Control Node if they are enabled, as indicated by\n     isnsServerEnableControlNodeMgtScn, and the Control\n     Node has registered for them.')
-isnsControlNodeFcPortTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 3, 2), )
-if mibBuilder.loadTexts: isnsControlNodeFcPortTable.setDescription('Specified FC Ports that can register or are registered as\n    control nodes.  The number of rows is dependent on the\n    number of FC Port Control Nodes.')
-isnsControlNodeFcPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 3, 2, 1), ).setIndexNames((0, "ISNS-MIB", "isnsServerIndex"), (0, "ISNS-MIB", "isnsControlNodeFcPortWwpn"))
-if mibBuilder.loadTexts: isnsControlNodeFcPortEntry.setDescription('FC Port control node entry.')
-isnsControlNodeFcPortWwpn = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 3, 2, 1, 1), FcNameIdOrZero().subtype(subtypeSpec=ValueSizeConstraint(8,8)).setFixedLength(8))
-if mibBuilder.loadTexts: isnsControlNodeFcPortWwpn.setDescription('The FC Port World Wide Port Name that can and/or is acting\n    as a Control Node for the specified iSNS Server.  A zero-\n    length string is not valid for this managed object.\n    This managed object, combined with the isnsServerIndex, is\n    the key for this table.')
-isnsControlNodeFcPortIsRegistered = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 3, 2, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsControlNodeFcPortIsRegistered.setDescription('Indicates whether the control node is currently\n     registered in the iSNS Server instance.')
-isnsControlNodeFcPortRcvMgtSCN = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 3, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsControlNodeFcPortRcvMgtSCN.setDescription('Indicates whether the Control Node has registered to\n     receive Management SCNs.  Management SCNs are sent to\n     a Control Node if they are enabled, as indicated by\n     isnsServerEnableControlNodeMgtScn, and the Control\n     Node has registered for them.')
-isnsDdsInfo = MibIdentifier((1, 3, 6, 1, 2, 1, 163, 1, 1, 4))
-isnsDdsTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 4, 1), )
-if mibBuilder.loadTexts: isnsDdsTable.setDescription('A table containing configuration information for each\n    Discovery Domain Set (DDS) registered in the iSNS Server\n    instance.  The number of rows in the table is dependent\n    on the number of DDSs registered in the specified iSNS\n    server instance.')
-isnsDdsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 4, 1, 1), ).setIndexNames((0, "ISNS-MIB", "isnsServerIndex"), (0, "ISNS-MIB", "isnsDdsId"))
-if mibBuilder.loadTexts: isnsDdsEntry.setDescription('Information on one Discovery Domain Set (DDS) registered\n    in the iSNS Server instance.')
-isnsDdsId = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 4, 1, 1, 1), IsnsDiscoveryDomainSetId())
-if mibBuilder.loadTexts: isnsDdsId.setDescription('The ID that refers to this Discovery Domain Set and\n    index to the table.')
-isnsDdsSymbolicName = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 4, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsDdsSymbolicName.setDescription('The Discovery Domain Set Symbolic Name field contains\n    a unique variable-length description (up to 255 bytes)\n    that is associated with the DDS.  If a Symbolic Name is\n    not provided, then one will be generated by the iSNS\n    server.')
-isnsDdsStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 4, 1, 1, 3), IsnsDdsStatusType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsDdsStatus.setDescription('The status of this Discovery Domain Set (DDS).')
-isnsDdsMemberTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 4, 2), )
-if mibBuilder.loadTexts: isnsDdsMemberTable.setDescription('A table containing Discovery Domains (DDs) that have\n    been assigned to specific Discovery Domain Sets (DDSs).\n    The number of rows in the table is dependent on the\n    number of DD to DDS relationships in the iSNS instance.')
-isnsDdsMemberEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 4, 2, 1), ).setIndexNames((0, "ISNS-MIB", "isnsServerIndex"), (0, "ISNS-MIB", "isnsDdsId"), (0, "ISNS-MIB", "isnsDdsMemberDdId"))
-if mibBuilder.loadTexts: isnsDdsMemberEntry.setDescription('The mapping of one Discovery Domain (DD) to a Discovery\n    Domain Set (DDS).  This indicates the DD is a member of\n    the DDS.')
-isnsDdsMemberDdId = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 4, 2, 1, 1), IsnsDiscoveryDomainId())
-if mibBuilder.loadTexts: isnsDdsMemberDdId.setDescription('The ID that identifies the Discovery Domain\n    that is a member of the Discovery Domain Set.')
-isnsDdsMemberSymbolicName = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 4, 2, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsDdsMemberSymbolicName.setDescription('The Symbolic Name of the Discovery Domain that is a member\n    of this DDS.  This value SHALL be identical to the object\n    isnsDdSymbolicName for the associated DD ID.')
-isnsDdInfo = MibIdentifier((1, 3, 6, 1, 2, 1, 163, 1, 1, 5))
-isnsDdTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 1), )
-if mibBuilder.loadTexts: isnsDdTable.setDescription('A table containing configuration information for each\n    Discovery Domain (DD) registered in the iSNS.  The number\n    of rows in the table is dependent on the number of DDs\n    registered in the iSNS instance.')
-isnsDdEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 1, 1), ).setIndexNames((0, "ISNS-MIB", "isnsServerIndex"), (0, "ISNS-MIB", "isnsDdId"))
-if mibBuilder.loadTexts: isnsDdEntry.setDescription('Information on a Discovery Domain (DD) registered in\n    the iSNS Server instance.')
-isnsDdId = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 1, 1, 1), IsnsDiscoveryDomainId())
-if mibBuilder.loadTexts: isnsDdId.setDescription('The ID that refers to this Discovery Domain, and the\n    index to the table.')
-isnsDdSymbolicName = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsDdSymbolicName.setDescription('The Discovery Domain Symbolic Name field contains a\n    unique variable-length description (up to 255 bytes)\n    that is associated with the DD.')
-isnsDdFeatures = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 1, 1, 3), IsnsDdFeatureType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsDdFeatures.setDescription('This defines the features the Discovery Domain has.')
-isnsDdIscsiMemberTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 2), )
-if mibBuilder.loadTexts: isnsDdIscsiMemberTable.setDescription('A table containing iSCSI node indexes that have been\n    assigned to specific DDs in this iSNS Server instance.  The\n    number of rows in the table is dependent on the number of\n    relationships between iSCSI Nodes and DDs registered in the\n    iSNS instance.')
-isnsDdIscsiMemberEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 2, 1), ).setIndexNames((0, "ISNS-MIB", "isnsServerIndex"), (0, "ISNS-MIB", "isnsDdId"), (0, "ISNS-MIB", "isnsDdIscsiMemberIndex"))
-if mibBuilder.loadTexts: isnsDdIscsiMemberEntry.setDescription('The mapping of one iSCSI Node to a Discovery Domain to\n    indicate membership in the DD.  The indexes are the iSNS\n    server instance, the DD ID of the Discovery Domain, and\n    the iSCSI Node Index of the iSCSI Node.')
-isnsDdIscsiMemberIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 2, 1, 1), IsnsNodeIndexId())
-if mibBuilder.loadTexts: isnsDdIscsiMemberIndex.setDescription('The index for this member iSCSI node entry.')
-isnsDdIscsiMemberName = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 2, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,223))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsDdIscsiMemberName.setDescription('The iSCSI Name associated with the storage node.  The\n    iSCSI Name cannot be longer than 223 bytes.  The iSNS\n    server internal maximum size is 224 bytes to provide\n    NULL termination.  This is the iSCSI Name for the storage\n    node that is a member of the DD.  This value maps 1 to 1\n    to the isnsDdIscsiMemberIndex node index.  The iSCSI Name\n    field is too long to be easily used for an index directly.\n    The node index used for a specific node name is only\n    persistent across iSNS Server reinitializations for nodes\n    that are in a Discovery Domain (DD) or are registered\n    control nodes.  This value is only required during row\n    creation if the storage node is not yet registered in the\n    iSNS Server instance.  If the storage node is not yet\n    registered, then the iSCSI Name MUST be provided with the\n    iSCSI node index during row creation in order to create the\n    1-to-1 mapping.')
-isnsDdIscsiMemberIsRegistered = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsDdIscsiMemberIsRegistered.setDescription('This indicates whether this member of the DD is currently\n    registered in the iSNS Server instance.  iSCSI Storage\n    Node members do not need to be currently registered in\n    order for their iSCSI Name and Index to be added to\n    a DD.')
-isnsDdPortalMemberTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 3), )
-if mibBuilder.loadTexts: isnsDdPortalMemberTable.setDescription('A table containing currently registered and unregistered\n    portal objects that have been explicitly assigned to\n    specific DDs.  Explicit assignment of a portal to a DD\n    is only done when a specific set of portals are preferred\n    for use within a DD.  Otherwise, for iSCSI, the Portal\n    Group Object should be used for identifying which portals\n    provide access to which storage nodes.  The number of rows\n    in the table is dependent on the number of explicit\n    relationships between portals and DDs registered in the\n    iSNS.')
-isnsDdPortalMemberEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 3, 1), ).setIndexNames((0, "ISNS-MIB", "isnsServerIndex"), (0, "ISNS-MIB", "isnsDdId"), (0, "ISNS-MIB", "isnsDdPortalMemberIndex"))
-if mibBuilder.loadTexts: isnsDdPortalMemberEntry.setDescription('Each entry indicates an explicit addition of a portal to a\n    discovery domain.  The explicit addition of an entity portal\n    to a discovery domain indicates the portal is preferred for\n    access to nodes of the entity for this discovery domain.\n    Registered Portal Group objects are used in iSCSI to\n    indicate mapping of portals to nodes across all discovery\n    domains.  Portals that have been explicitly mapped to a\n    discovery domain will be returned as part of a query that\n    is scoped to that discovery domain.  If no portal of an\n    entity has been explicitly mapped to a discovery domain,\n    then all portals of the entity that provide access to a\n    storage node are returned as part of a query.  The table\n    indexes are the server instance, the DD ID of the Discovery\n    Domain, and the Portal Index of the portal.')
-isnsDdPortalMemberIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 3, 1, 1), IsnsPortalIndexId())
-if mibBuilder.loadTexts: isnsDdPortalMemberIndex.setDescription('The index for a portal explicitly contained in the discovery\n    domain.  This managed object, combined with isnsServerIndex\n    and isnsDdId, is the key for this table.')
-isnsDdPortalMemberAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 3, 1, 2), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsDdPortalMemberAddressType.setDescription('The type of Inet address in isnsDdPortalMemberAddress.  If\n    the address is specified, then it must be a valid unicast\n    address and the value of this object must be ipv4(1),\n    ipv6(2), ipv4z(3), or ipv6z(4); otherwise, the value\n    of this object is unknown(0), and the value of\n    isnsDdPortalMemberAddress is the zero-length string.')
-isnsDdPortalMemberAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 3, 1, 3), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsDdPortalMemberAddress.setDescription('The Inet Address for the portal.  The format of this\n    object is specified by isnsDdPortalMemberAddressType.')
-isnsDdPortalMemberPortType = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 3, 1, 4), IsnsPortalPortTypeId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsDdPortalMemberPortType.setDescription('The port type for the portal, either UDP or TCP.')
-isnsDdPortalMemberPort = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 3, 1, 5), InetPortNumber().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsDdPortalMemberPort.setDescription('The port number for the portal.  Whether the portal\n    type is TCP or UDP is indicated by\n    isnsDdPortalMemberPortType.')
-isnsDdPortalMemberIsRegistered = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 3, 1, 6), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsDdPortalMemberIsRegistered.setDescription('This indicates whether this member of the DD is currently\n    registered in the iSNS Server instance.  Portals that are\n    DD members do not need to be currently registered in\n    order for them to be added to a DD.')
-isnsDdFcPortMemberTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 4), )
-if mibBuilder.loadTexts: isnsDdFcPortMemberTable.setDescription('A table containing FC Port World Wide Names (WWN) that\n    have been assigned to specific DDs.  The number of rows\n    in the table is dependent on the number of relationships\n    between FC Ports and DDs registered in the iSNS.')
-isnsDdFcPortMemberEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 4, 1), ).setIndexNames((0, "ISNS-MIB", "isnsServerIndex"), (0, "ISNS-MIB", "isnsDdId"), (0, "ISNS-MIB", "isnsDdFcPortMemberPortName"))
-if mibBuilder.loadTexts: isnsDdFcPortMemberEntry.setDescription('The association of one FC Port with a Discovery Domain.\n    Membership of an FC Port in a Discovery Domain is\n    indicated by creating a row for the appropriate DD ID\n    and FC Port WWN.')
-isnsDdFcPortMemberPortName = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 4, 1, 1), FcNameIdOrZero().subtype(subtypeSpec=ValueSizeConstraint(8,8)).setFixedLength(8))
-if mibBuilder.loadTexts: isnsDdFcPortMemberPortName.setDescription('The Port WWN of the FC Port that is a member of the DD.  The\n    value MUST be a valid FC WWN, as per the FC-GS (Fibre Channel -\n    Generic Services) standard.  This managed object, combined\n    with the isnsServerIndex and isnsDdId are the key for this\n    table.  A zero-length string is not a valid value for this\n    managed object.')
-isnsDdFcPortMemberIsRegistered = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 5, 4, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsDdFcPortMemberIsRegistered.setDescription('This indicates whether this member of the DD is currently\n    registered in the iSNS Server instance.')
-isnsReg = MibIdentifier((1, 3, 6, 1, 2, 1, 163, 1, 1, 6))
-isnsRegEntityInfo = MibIdentifier((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1))
-isnsRegEntityTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 1), )
-if mibBuilder.loadTexts: isnsRegEntityTable.setDescription('A table containing registered Entity objects in each iSNS\n    server instance.  The number of entries in the table is\n    dependent on the number of Entity objects registered in the\n    iSNS Server instances.  All Entity objects are registered in\n    the iSNS using the iSNS protocol.')
-isnsRegEntityEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 1, 1), ).setIndexNames((0, "ISNS-MIB", "isnsServerIndex"), (0, "ISNS-MIB", "isnsRegEntityIndex"))
-if mibBuilder.loadTexts: isnsRegEntityEntry.setDescription('Information on one registered Entity object in an iSNS\n    server instance.')
-isnsRegEntityIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 1, 1, 1), IsnsEntityIndexIdOrZero().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: isnsRegEntityIndex.setDescription('The Entity Index for this entity.  This index is assigned\n    by the iSNS Server when an Entity is initially registered.\n    The Entity Index can be used to represent a registered\n    Entity object in situations where the Entity EID would\n    be too long/unwieldy.  Zero is not a valid value for this\n    object.')
-isnsRegEntityEID = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegEntityEID.setDescription('The EID is a unique registered Entity object identifier, as\n    specified in the iSNS Specification.  This is the iSNS\n    Entity Identifier for the registered Entity object.')
-isnsRegEntityProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegEntityProtocol.setDescription('The block storage protocol supported by this entity, as\n    defined in the iSNS Specification, Section 6.2.2.  The\n    following values are initially assigned.\n\n              Type Value       Entity Type\n              ----------       -----------\n                 1             No Protocol\n                 2             iSCSI\n                 3             iFCP\n               All Others      As assigned by IANA\n\n    The full set of current Block Storage Protocols are\n    specified in the IANA-maintained registry of assigned\n    iSNS parameters.  Please refer to RFC 4171 and the iSNS\n    parameters maintained at IANA.')
-isnsRegEntityManagementAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 1, 1, 4), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegEntityManagementAddressType.setDescription('The type of Inet address in isnsRegEntityManagementAddress.\n    If the address is specified, then it must be a valid unicast\n    address and the value of this object must be ipv4(1),\n    ipv6(2), ipv4z(3), or ipv6z(4); otherwise, the value of\n    this object is unknown(0), and the value of\n    isnsRegEntityManagementAddress is the zero-length string.')
-isnsRegEntityManagementAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 1, 1, 5), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegEntityManagementAddress.setDescription('The iSNS Management IP Address for the registered Entity\n    object.  The format of this object is specified by\n    isnsRegEntityManagementAddressType.')
-isnsRegEntityTimestamp = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 1, 1, 6), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegEntityTimestamp.setDescription('The iSNS Entity Registration Timestamp for the registered\n    Entity object.  This is the most recent date and time that\n    the registered Entity object, and associated registered\n    objects contained in the Entity, were registered or\n    updated.')
-isnsRegEntityVersionMin = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,254),ValueRangeConstraint(255,255),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegEntityVersionMin.setDescription("The minimum version supported for the block storage protocol\n    specified by isnsRegEntityProtocol.  The protocol version\n    specified can be from 1 to 254.  A value of 255 is a wildcard\n    value, indicating no minimum version value has been specified\n    for this Entity.  Entity registrations with an\n    isnsRegEntityProtocol of 'No Protocol' SHALL have an\n    isnsRegEntityVersionMin value of 0.")
-isnsRegEntityVersionMax = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 1, 1, 8), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,254),ValueRangeConstraint(255,255),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegEntityVersionMax.setDescription("The maximum version supported for the block storage protocol\n    specified by isnsRegEntityProtocol.  The protocol version\n    specified can be from 1 to 254.  A value of 255 is a wildcard\n\n\n\n    value, indicating no maximum version value has been specified\n    for this Entity.  Entity registrations with an\n    isnsRegEntityProtocol of 'No Protocol' SHALL have an\n    isnsRegEntityVersionMax value of 0.")
-isnsRegEntityRegistrationPeriod = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 1, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegEntityRegistrationPeriod.setDescription('The iSNS Entity Status Inquiry (ESI) registration period,\n    which indicates the maximum time, in seconds, that the\n    registration will be maintained without receipt of an iSNSP\n    message from the entity.  If the Registration Period is set\n    to 0, then the Entity SHALL NOT be deregistered due to no\n    contact with the entity.')
-isnsRegEntityNumObjectsTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 2), )
-if mibBuilder.loadTexts: isnsRegEntityNumObjectsTable.setDescription('A table containing information on the number of registered\n    objects associated with a registered Entity in the iSNS\n    server instance.  The number of entries in the table is\n    dependent on the number of registered Entity objects in the\n    iSNS.')
-isnsRegEntityNumObjectsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 2, 1), ).setIndexNames((0, "ISNS-MIB", "isnsServerIndex"), (0, "ISNS-MIB", "isnsRegEntityIndex"))
-if mibBuilder.loadTexts: isnsRegEntityNumObjectsEntry.setDescription('Information on the number of registered objects associated\n    with a registered Entity object in an iSNS Server instance.')
-isnsRegEntityInfoNumPortals = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 2, 1, 1), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegEntityInfoNumPortals.setDescription('The number of Portals associated with this Entity.')
-isnsRegEntityInfoNumPortalGroups = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 2, 1, 2), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegEntityInfoNumPortalGroups.setDescription('The number of Portal Groups associated with this Entity.')
-isnsRegEntityInfoNumIscsiNodes = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 2, 1, 3), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegEntityInfoNumIscsiNodes.setDescription('The number of iSCSI Storage Nodes associated with this\n    Entity.')
-isnsRegEntityInfoNumFcPorts = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 2, 1, 4), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegEntityInfoNumFcPorts.setDescription('The number of FC Ports associated with this Entity.')
-isnsRegEntityInfoNumFcNodes = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 1, 2, 1, 5), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegEntityInfoNumFcNodes.setDescription('The number of FC Nodes associated with this Entity.')
-isnsRegPortalInfo = MibIdentifier((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 2))
-isnsRegPortalTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 2, 1), )
-if mibBuilder.loadTexts: isnsRegPortalTable.setDescription('A table containing the registered Portals in the iSNS.\n    The number of entries is dependent on the number of\n    Portals registered in the iSNS.')
-isnsRegPortalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 2, 1, 1), ).setIndexNames((0, "ISNS-MIB", "isnsServerIndex"), (0, "ISNS-MIB", "isnsRegEntityIndex"), (0, "ISNS-MIB", "isnsRegPortalPortalIndex"))
-if mibBuilder.loadTexts: isnsRegPortalEntry.setDescription('Information on one registered Entity Portal in the iSNS.\n    The Entity Index is part of the table index to quickly\n    find Portals that support a specific Entity.')
-isnsRegPortalPortalIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 2, 1, 1, 1), IsnsPortalIndexId())
-if mibBuilder.loadTexts: isnsRegPortalPortalIndex.setDescription('The index for this Entity Portal.')
-isnsRegPortalAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 2, 1, 1, 2), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPortalAddressType.setDescription('The type of Inet address in isnsRegPortalAddress.  If the\n    address is specified, then it must be a valid unicast\n    address and the value of this object must be ipv4(1),\n    ipv6(2), ipv4z(3), or ipv6z(4); otherwise, the value\n    of this object is unknown(0), and the value of\n    isnsRegPortalAddress is the zero-length string.')
-isnsRegPortalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 2, 1, 1, 3), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPortalAddress.setDescription('The Inet Address for this Portal as defined in the iSNS\n    Specification, RFC 4171.  The format of this object is\n    specified by isnsRegPortalAddressType.')
-isnsRegPortalPortType = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 2, 1, 1, 4), IsnsPortalPortTypeId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPortalPortType.setDescription('The port type for this Portal, either UDP or TCP, as\n    defined in the iSNS Specification, RFC 4171.')
-isnsRegPortalPort = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 2, 1, 1, 5), InetPortNumber().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPortalPort.setDescription('The port number for this Portal as defined in the\n    iSNS Specification, RFC 4171.  Whether the Portal type\n    is TCP or UDP is indicated by isnsRegPortalPortType.')
-isnsRegPortalSymbolicName = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 2, 1, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPortalSymbolicName.setDescription('The Symbolic Name for this Portal as defined in the iSNS\n    Specification, RFC 4171.  If not provided, then the string\n    SHALL be zero-length.')
-isnsRegPortalEsiInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 2, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPortalEsiInterval.setDescription('The Entity Status Inquiry (ESI) Interval for this Portal\n    as defined in the iSNS Specification, RFC 4171.  A value of\n    0 indicates that ESI monitoring has not been configured for\n    this Portal.')
-isnsRegPortalEsiPortType = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 2, 1, 1, 8), IsnsPortalPortTypeId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPortalEsiPortType.setDescription('The port type for the ESI Port, either UDP or TCP, as\n    defined in the iSNS Specification, RFC 4171.')
-isnsRegPortalEsiPort = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 2, 1, 1, 9), InetPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPortalEsiPort.setDescription('The TCP or UDP port number used for ESI monitoring.  Whether\n    the port type is TCP or UDP is indicated by\n    isnsRegPortalEsiPortType.  A value of 0 indicates that ESI\n    monitoring is not enabled for this Portal.')
-isnsRegPortalScnPortType = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 2, 1, 1, 10), IsnsPortalPortTypeId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPortalScnPortType.setDescription('The port type for the SCN Port, either UDP or TCP, as\n    defined in the iSNS Specification, RFC 4171.')
-isnsRegPortalScnPort = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 2, 1, 1, 11), InetPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPortalScnPort.setDescription('The TCP or UDP port used to receive SCN messages from the\n    iSNS Server.  Whether the port type is TCP or UDP is\n    indicated by isnsRegPortalScnPortType.  A value of 0\n    indicates that SCN message receipt is not enabled for this\n    Portal.')
-isnsRegPortalSecurityInfo = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 2, 1, 1, 12), IsnsPortalSecurityType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPortalSecurityInfo.setDescription('Indicates security attribute settings for the Portal as\n    registered in the iSNS server.  The bit for bitmapVALID must\n    be set in order for this attribute to contain valid\n    information.  Setting a bit to 1 indicates the\n    feature is enabled.')
-isnsRegPortalGroupInfo = MibIdentifier((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 3))
-isnsRegPgTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 3, 1), )
-if mibBuilder.loadTexts: isnsRegPgTable.setDescription('A table containing the registered Portal Groups (PGs) in\n    the iSNS Server instance.  The number of entries is\n    dependent on the number of Portal Groups registered in\n    the iSNS.')
-isnsRegPgEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 3, 1, 1), ).setIndexNames((0, "ISNS-MIB", "isnsServerIndex"), (0, "ISNS-MIB", "isnsRegEntityIndex"), (0, "ISNS-MIB", "isnsRegPgIndex"))
-if mibBuilder.loadTexts: isnsRegPgEntry.setDescription('Information on one registered Portal Group in the iSNS\n    server instance.  The Entity Index is part of the table\n    index to quickly find Portal Groups that support Portals\n    and iSCSI Storage Nodes in a specific Entity.')
-isnsRegPgIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 3, 1, 1, 1), IsnsPortalGroupIndexId())
-if mibBuilder.loadTexts: isnsRegPgIndex.setDescription('The PG Index for this node.  The index is created by the\n    iSNS Server instance for uniquely identifying registered\n    objects.  The PG object is registered at the same time a\n    Portal or Storage Node is registered using the iSNS\n    protocol.')
-isnsRegPgIscsiNodeIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 3, 1, 1, 2), IsnsNodeIndexId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPgIscsiNodeIndex.setDescription('The index for the iSCSI Node associated with this PG.\n    This index can be used to reference the\n    isnsRegIscsiNodeTable.')
-isnsRegPgIscsiName = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 3, 1, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,223))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPgIscsiName.setDescription('The iSCSI Name of the initiator or target associated with\n    the storage node.  The iSCSI Name cannot be longer than\n    223 bytes.  The iSNS Server internal maximum size is 224\n    bytes to provide NULL termination.  This is the PG iSCSI\n    Name that uniquely identifies the iSCSI Storage Node that\n    is associated with this PG.')
-isnsRegPgPortalPortalIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 3, 1, 1, 4), IsnsPortalIndexId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPgPortalPortalIndex.setDescription('The Portal Index for the Portal associated with this PG.\n    This index can be used to reference the isnsRegPortalTable.')
-isnsRegPgPortalAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 3, 1, 1, 5), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPgPortalAddressType.setDescription('The type of Inet address in isnsRegPgPortalAddress.  If\n    the address is specified, then it must be a valid unicast\n    address and the value of this object must be ipv4(1),\n    ipv6(2), ipv4z(3), or ipv6z(4); otherwise, the value\n    of this object is unknown(0), and the value of\n    isnsRegPgPortalAddress is the zero-length string.')
-isnsRegPgPortalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 3, 1, 1, 6), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPgPortalAddress.setDescription('The Inet Address for the Portal that is associated with\n    the PG.  The format of this object is specified by\n    isnsRegPgPortalAddressType.')
-isnsRegPgPortalPortType = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 3, 1, 1, 7), IsnsPortalPortTypeId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPgPortalPortType.setDescription('The port type, either UDP or TCP, for the Portal that\n    is associated with this registered PG object.')
-isnsRegPgPortalPort = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 3, 1, 1, 8), InetPortNumber().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPgPortalPort.setDescription('The port number for the Portal that is associated with\n    this registered PG object.  Whether the Portal type is\n    TCP or UDP is indicated by isnsRegPgPortalPortType.')
-isnsRegPgPGT = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 3, 1, 1, 9), IsnsPortalGroupTagIdOrNull()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegPgPGT.setDescription('The Portal Group Tag (PGT) for the registered iSCSI Portal\n    Group object in an iSNS Server instance.  This indicates\n    the tag value that the Portal uses for access to the iSCSI\n    Storage Node.  The PGT is used for coordinated access\n    between multiple Portals, as described in the iSCSI\n    Specification, RFC 3720.  A PGT with no association is a\n    NULL value.  The value of -1 indicates a NULL value.')
-isnsRegIscsiNodeInfo = MibIdentifier((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 4))
-isnsRegIscsiNodeTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 4, 1), )
-if mibBuilder.loadTexts: isnsRegIscsiNodeTable.setDescription("A table containing the registered iSCSI Nodes in the iSNS\n    server instance.  Storage devices register using the iSNS\n    protocol.  While a device cannot be registered in an iSNS\n    server using SNMP, an entry can be deleted in order to\n    remove 'stale' entries.  The number of entries is related\n    to the number of iSCSI nodes registered in the iSNS.")
-isnsRegIscsiNodeEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 4, 1, 1), ).setIndexNames((0, "ISNS-MIB", "isnsServerIndex"), (0, "ISNS-MIB", "isnsRegEntityIndex"), (0, "ISNS-MIB", "isnsRegIscsiNodeIndex"))
-if mibBuilder.loadTexts: isnsRegIscsiNodeEntry.setDescription('Information on one iSCSI node that has been registered in\n    the iSNS Server instance.  New rows cannot be added using\n    SNMP.')
-isnsRegIscsiNodeIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 4, 1, 1, 1), IsnsNodeIndexId())
-if mibBuilder.loadTexts: isnsRegIscsiNodeIndex.setDescription('The index for this iSCSI node.')
-isnsRegIscsiNodeName = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 4, 1, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,223))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegIscsiNodeName.setDescription('The iSCSI Name of the initiator or target associated with\n    the storage node.  The iSCSI Name cannot be longer than\n    223 bytes.  The iSNS Server internal maximum size is 224\n    bytes to provide NULL termination.  This is the iSCSI Name\n    that uniquely identifies the initiator, initiator/target,\n    target, or control node in the network.')
-isnsRegIscsiNodeType = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 4, 1, 1, 3), IsnsIscsiNodeType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegIscsiNodeType.setDescription('The Node Type defining the functions of this iSCSI node.')
-isnsRegIscsiNodeAlias = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 4, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegIscsiNodeAlias.setDescription('The Alias name of the iSCSI node.  This is a variable-length\n    text-based description of up to 255 bytes.')
-isnsRegIscsiNodeScnTypes = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 4, 1, 1, 5), IsnsIscsiScnType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegIscsiNodeScnTypes.setDescription('The State Change Notification (SCN) types enabled for this\n    iSCSI node.')
-isnsRegIscsiNodeWwnToken = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 4, 1, 1, 6), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegIscsiNodeWwnToken.setDescription('This contains a globally unique 64-bit integer value that\n    can be used to represent the World Wide Node Name of the\n    iSCSI device in a Fibre Channel fabric.  This identifier is\n    used during the device registration process, and MUST\n    conform to the requirements in RFC 4171.  A zero-length string\n    for this managed object indicates that a Node WWN token has\n    not been assigned.')
-isnsRegIscsiNodeAuthMethod = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 4, 1, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegIscsiNodeAuthMethod.setDescription('This attribute contains a null-terminated string containing\n    UTF-8 text listing the iSCSI authentication methods enabled\n    for this iSCSI Node, in order of preference.  The text\n    values used to identify iSCSI authentication methods are\n    embedded in this string attribute and delineated by a\n    comma.  The text values are identical to those found in\n    RFC 3720 - iSCSI.  Additional vendor-specific text values\n    are also possible.')
-isnsRegFcNodeInfo = MibIdentifier((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5))
-isnsRegFcNodeTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 1), )
-if mibBuilder.loadTexts: isnsRegFcNodeTable.setDescription('A table containing the registered FC Nodes in the iSNS.\n    This supports iFCP as defined in RFC 4172.')
-isnsRegFcNodeEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 1, 1), ).setIndexNames((0, "ISNS-MIB", "isnsServerIndex"), (0, "ISNS-MIB", "isnsRegFcNodeWwnn"))
-if mibBuilder.loadTexts: isnsRegFcNodeEntry.setDescription('Information on one registered FC node that has been\n    registered in the iSNS.')
-isnsRegFcNodeWwnn = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 1, 1, 1), FcNameIdOrZero().subtype(subtypeSpec=ValueSizeConstraint(8,8)).setFixedLength(8))
-if mibBuilder.loadTexts: isnsRegFcNodeWwnn.setDescription('The FC Node World Wide Node Name as defined in the iSNS\n    Specification, RFC 4171.  A zero-length string is not valid\n    for this managed object.')
-isnsRegFcNodeSymbolicName = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcNodeSymbolicName.setDescription('The FC Node Symbolic Name of the node as defined in the\n    iSNS Specification, RFC 4171.  This is a variable-length\n    text-based description.  If not provided, then the string\n    SHALL be zero-length.')
-isnsRegFcNodeAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 1, 1, 3), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcNodeAddressType.setDescription('The type of Inet address in isnsRegFcNodeAddress.  If\n    the address is specified, then it must be a valid unicast\n    address and the value of this object must be ipv4(1),\n    ipv6(2), ipv4z(3), or ipv6z(4); otherwise, the value\n    of this object is unknown(0), and the value of\n    isnsRegFcNodeAddress is the zero-length string.')
-isnsRegFcNodeAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 1, 1, 4), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcNodeAddress.setDescription('The FC Node Inet address of the node as defined in the\n    iSNS Specification, RFC 4171.  The format of this object is\n    specified by isnsRegFcNodeAddressType.')
-isnsRegFcNodeIPA = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(8,8)).setFixedLength(8)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcNodeIPA.setDescription('This managed object identifies the FC Initial Process\n    Associator of the node as defined in the iSNS\n    Specification, RFC 4171.')
-isnsRegFcNodeProxyIscsiName = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 1, 1, 6), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,223))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcNodeProxyIscsiName.setDescription('The iSCSI Name used to represent the FC Node in the IP\n    network.  It is used as a pointer to the matching iSCSI Name\n    entry in the iSNS Server.  Its value is usually registered\n    by an FC-iSCSI gateway connecting the IP network to the\n    fabric containing the FC device.')
-isnsRegFcNodeNumFcPorts = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 1, 1, 7), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcNodeNumFcPorts.setDescription('The number of FC Ports associated with this FC Node.')
-isnsRegFcPortTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2), )
-if mibBuilder.loadTexts: isnsRegFcPortTable.setDescription('Information on registered FC N_Ports in the iSNS.  FC Ports\n    are associated with registered FC Nodes.  This supports\n    iFCP as defined in RFC 4172.')
-isnsRegFcPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2, 1), ).setIndexNames((0, "ISNS-MIB", "isnsServerIndex"), (0, "ISNS-MIB", "isnsRegEntityIndex"), (0, "ISNS-MIB", "isnsRegFcPortWwpn"))
-if mibBuilder.loadTexts: isnsRegFcPortEntry.setDescription('Information on one FC Port that has been registered in\n    iSNS.')
-isnsRegFcPortWwpn = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2, 1, 1), FcNameIdOrZero().subtype(subtypeSpec=ValueSizeConstraint(8,8)).setFixedLength(8))
-if mibBuilder.loadTexts: isnsRegFcPortWwpn.setDescription("The FC Port's World Wide Port Name as defined in the iSNS\n    Specification, RFC 4171.  A zero-length string is not valid\n    for this managed object.")
-isnsRegFcPortID = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2, 1, 2), FcAddressIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcPortID.setDescription("The FC Port's Port ID as defined in the iSNS Specification,\n    RFC 4171.")
-isnsRegFcPortType = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcPortType.setDescription("The FC Port Type as defined in the iSNS Specification,\n    RFC 4171, and the Fibre Channel Generic Services\n    Specification.  Current values are as shown below:\n           unknown      (0),\n           nPort        (1),\n\n\n\n           nlPort       (2),\n           fNlPort      (3),\n           fPort        (129),     -- x'81'\n           flPort       (130),     -- x'82'\n           ePort        (132),     -- x'84'\n           bPort        (133),     -- x'85'\n           mFcpPort     (65297),   -- x'FF11'\n           iFcpPort     (65298),   -- x'FF12'\n           unknownEnd   (65535)\n    The future assignment of any additional values will be\n    documented in a revision of RFC 4171.")
-isnsRegFcPortSymbolicName = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcPortSymbolicName.setDescription('The FC Port Symbolic Name as defined in the iSNS\n    Specification, RFC 4171.  If not provided, then the\n    string SHALL be zero-length.')
-isnsRegFcPortFabricPortWwn = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2, 1, 5), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcPortFabricPortWwn.setDescription('The Fabric Port WWN for this entry as defined in the iSNS\n    Specification, RFC 4171.  A zero-length string for this\n    managed object indicates that the Fabric Port WWN is not\n    known, or has not yet been registered with the iSNS Server.')
-isnsRegFcPortHA = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2, 1, 6), FcAddressIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcPortHA.setDescription('The FC Port Hard Address as defined in the iSNS\n    Specification, RFC 4171.')
-isnsRegFcPortAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2, 1, 7), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcPortAddressType.setDescription('The type of Inet address in isnsRegFcPortAddress.  If\n    the address is specified, then it must be a valid unicast\n    address and the value of this object must be ipv4(1),\n    ipv6(2), ipv4z(3), or ipv6z(4); otherwise, the value\n    of this object is unknown(0), and the value of\n    isnsRegFcPortAddress is the zero-length string.')
-isnsRegFcPortAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2, 1, 8), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcPortAddress.setDescription('The FC Port Inet Address as defined in the iSNS\n    Specification, RFC 4171.  The format of this object is\n    specified by isnsRegFcPortAddressType.')
-isnsRegFcPortFcCos = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2, 1, 9), IsnsFcClassOfServiceType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcPortFcCos.setDescription('The FC Port Class of Service as defined in the iSNS\n    Specification, RFC 4171.')
-isnsRegFcPortFc4Types = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(32,32)).setFixedLength(32)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcPortFc4Types.setDescription('The FC Port FC-4 Types as defined in the iSNS\n    Specification, RFC 4171.')
-isnsRegFcPortFc4Descr = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2, 1, 11), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(4,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcPortFc4Descr.setDescription('The FC Port FC-4 Descriptor as defined in the iSNS\n    Specification, RFC 4171.  The FC-4 Descriptor cannot be\n    longer than 255 bytes.  The iSNS Server internal maximum\n    size is 256 bytes to provide NULL termination.')
-isnsRegFcPortFc4Features = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(128,128)).setFixedLength(128)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcPortFc4Features.setDescription('The FC Port FC-4 Features as defined in the iSNS\n    Specification, RFC 4171.')
-isnsRegFcPortScnTypes = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2, 1, 13), IsnsIfcpScnType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcPortScnTypes.setDescription('The iFCP State Change Notification (SCN) types enabled for\n    the registered object.')
-isnsRegFcPortRole = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2, 1, 14), IsnsFcPortRoleType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcPortRole.setDescription('The FC Port Role defines the role of the registered\n    object.')
-isnsRegFcPortFcNodeWwnn = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2, 1, 15), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcPortFcNodeWwnn.setDescription('The FC Node World Wide Node Name that is associated with\n    this FC Port as defined in the iSNS Specification, RFC 4171.\n    This managed object may contain a zero-length string prior\n    to a device registering this value with the iSNS Server.')
-isnsRegFcPortPpnWwn = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 2, 1, 16), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcPortPpnWwn.setDescription('The Permanent Port Name (PPN) attribute is the FC Port Name WWPN\n    of the first Storage Node registered in the iSNS Database\n    that is associated with a particular FC Device (FC Node).\n    The PPN of all subsequent Storage Node registrations that\n    are associated with that FC Device (FC Node) SHALL be set\n    to the FC Port Name WWPN of the first Storage Node, as\n    defined in the iSNS Specification, RFC 4171.  This managed\n    object may contain a zero-length string prior to a device\n    registering this value with the iSNS Server.')
-isnsRegFcNodePortTable = MibTable((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 3), )
-if mibBuilder.loadTexts: isnsRegFcNodePortTable.setDescription('A table containing the mapping of a registered FC Node and\n    associated registered iFCP Port to the supporting registered\n    Entity object in an iSNS Server instance.')
-isnsRegFcNodePortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 3, 1), ).setIndexNames((0, "ISNS-MIB", "isnsServerIndex"), (0, "ISNS-MIB", "isnsRegFcNodeWwnn"), (0, "ISNS-MIB", "isnsRegFcPortWwpn"))
-if mibBuilder.loadTexts: isnsRegFcNodePortEntry.setDescription('Information on one mapping from an FC Node and iFCP Port to\n    an Entity object registered in an iSNS.')
-isnsRegFcNodePortEntityIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 163, 1, 1, 6, 5, 3, 1, 1), IsnsEntityIndexIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isnsRegFcNodePortEntityIndex.setDescription('The Entity Index for the registered Entity object\n    associated with the FC Port and FC Node.  This managed\n    object may contain the value of zero prior to a device\n    registering this value with the iSNS Server.')
-isnsNotificationsInfo = MibIdentifier((1, 3, 6, 1, 2, 1, 163, 1, 2))
-isnsInstanceInfo = MibScalar((1, 3, 6, 1, 2, 1, 163, 1, 2, 1), SnmpAdminString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: isnsInstanceInfo.setDescription('Textual information about the notification event and the\n    iSNS Server generating the notification.  An example is:\n    iSNS Server Started.')
-isnsAddressNotificationType = MibScalar((1, 3, 6, 1, 2, 1, 163, 1, 2, 2), InetAddressType()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: isnsAddressNotificationType.setDescription('The type of Inet address in isnsAddressNotification.  If\n    the address is specified, then it must be a valid unicast\n    address and the value of this object must be ipv4(1),\n    ipv6(2), ipv4z(3), or ipv6z(4); otherwise, the value\n    of this object is unknown(0), and the value of\n    isnsAddressNotification is the zero-length string.')
-isnsAddressNotification = MibScalar((1, 3, 6, 1, 2, 1, 163, 1, 2, 3), InetAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: isnsAddressNotification.setDescription('Identifies the IP address of the iSNS Server.  The format of\n\n\n\n    this object is specified by isnsAddressNotificationType.\n    The IP address will always be specified in the notification\n    unless an error causes the IP address to not be known.')
-isnsTcpPortNotification = MibScalar((1, 3, 6, 1, 2, 1, 163, 1, 2, 4), InetPortNumber()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: isnsTcpPortNotification.setDescription('Indicates the TCP port the iSNS Server is using,\n    or 0 if TCP-based registrations are not supported.')
-isnsUdpPortNotification = MibScalar((1, 3, 6, 1, 2, 1, 163, 1, 2, 5), InetPortNumber()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: isnsUdpPortNotification.setDescription('Indicates the UDP port the iSNS Server is using,\n    or 0 if UDP-based registrations are not supported.')
-isnsServerStart = NotificationType((1, 3, 6, 1, 2, 1, 163, 0, 1)).setObjects(*(("ISNS-MIB", "isnsInstanceInfo"), ("ISNS-MIB", "isnsAddressNotificationType"), ("ISNS-MIB", "isnsAddressNotification"), ("ISNS-MIB", "isnsTcpPortNotification"), ("ISNS-MIB", "isnsUdpPortNotification"),))
-if mibBuilder.loadTexts: isnsServerStart.setDescription('This notification is sent when an iSNS Server begins\n    operation.  The notification provides the following:\n           isnsInstanceInfo : iSNS Server textual information\n           isnsAddressTypeNotification : iSNS Server address type\n           isnsAddressNotification : iSNS Server address\n           isnsTcpPortNotification : iSNS Server TCP Port\n           isnsUdpPortNotification : iSNS Server UDP Port\n   ')
-isnsServerShutdown = NotificationType((1, 3, 6, 1, 2, 1, 163, 0, 2)).setObjects(*(("ISNS-MIB", "isnsInstanceInfo"), ("ISNS-MIB", "isnsAddressNotificationType"), ("ISNS-MIB", "isnsAddressNotification"), ("ISNS-MIB", "isnsTcpPortNotification"), ("ISNS-MIB", "isnsUdpPortNotification"),))
-if mibBuilder.loadTexts: isnsServerShutdown.setDescription('This notification is sent when an iSNS Server is\n    shutdown.  The notification provides the following:\n           isnsInstanceInfo : iSNS Server textual information\n           isnsAddressTypeNotification : iSNS Server address type\n           isnsAddressNotification : iSNS Server address\n           isnsTcpPortNotification : iSNS Server TCP Port\n           isnsUdpPortNotification : iSNS Server UDP Port\n   ')
-isnsCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 163, 2, 1))
-isnsIscsiServerCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 163, 2, 1, 1)).setObjects(*(("ISNS-MIB", "isnsServerAttributesGroup"), ("ISNS-MIB", "isnsServerIscsiControlNodeGroup"), ("ISNS-MIB", "isnsServerIscsiDdsDdObjGroup"), ("ISNS-MIB", "isnsServerRegIscsiObjGroup"), ("ISNS-MIB", "isnsServerNumObjectsGroup"), ("ISNS-MIB", "isnsNotificationsObjGroup"), ("ISNS-MIB", "isnsServerNotificationGroup"),))
-if mibBuilder.loadTexts: isnsIscsiServerCompliance.setDescription('Initial compliance statement for an iSNS Server\n    providing support to iSCSI clients.')
-isnsIfcpServerCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 163, 2, 1, 2)).setObjects(*(("ISNS-MIB", "isnsServerAttributesGroup"), ("ISNS-MIB", "isnsServerIfcpPortControlNodeGroup"), ("ISNS-MIB", "isnsServerIfcpDdsDdObjGroup"), ("ISNS-MIB", "isnsServerRegIfcpObjGroup"), ("ISNS-MIB", "isnsServerNumObjectsGroup"), ("ISNS-MIB", "isnsNotificationsObjGroup"), ("ISNS-MIB", "isnsServerNotificationGroup"),))
-if mibBuilder.loadTexts: isnsIfcpServerCompliance.setDescription('Initial compliance statement for an iSNS Server\n    providing support to iFCP Clients.')
-isnsGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 163, 2, 2))
-isnsServerAttributesGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 163, 2, 2, 1)).setObjects(*(("ISNS-MIB", "isnsServerName"), ("ISNS-MIB", "isnsServerIsnsVersion"), ("ISNS-MIB", "isnsServerVendorInfo"), ("ISNS-MIB", "isnsServerPhysicalIndex"), ("ISNS-MIB", "isnsServerTcpPort"), ("ISNS-MIB", "isnsServerUdpPort"), ("ISNS-MIB", "isnsServerDiscontinuityTime"), ("ISNS-MIB", "isnsServerRole"), ("ISNS-MIB", "isnsServerDiscoveryMethodsEnabled"), ("ISNS-MIB", "isnsServerDiscoveryMcGroupType"), ("ISNS-MIB", "isnsServerDiscoveryMcGroupAddress"), ("ISNS-MIB", "isnsServerEsiNonResponseThreshold"), ("ISNS-MIB", "isnsServerEnableControlNodeMgtScn"), ("ISNS-MIB", "isnsServerDefaultDdDdsStatus"), ("ISNS-MIB", "isnsServerUpdateDdDdsSupported"), ("ISNS-MIB", "isnsServerUpdateDdDdsEnabled"),))
-if mibBuilder.loadTexts: isnsServerAttributesGroup.setDescription('iSNS Server attributes.')
-isnsServerNumObjectsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 163, 2, 2, 2)).setObjects(*(("ISNS-MIB", "isnsNumDds"), ("ISNS-MIB", "isnsNumDd"), ("ISNS-MIB", "isnsNumEntities"), ("ISNS-MIB", "isnsNumPortals"), ("ISNS-MIB", "isnsNumPortalGroups"), ("ISNS-MIB", "isnsNumIscsiNodes"), ("ISNS-MIB", "isnsNumFcPorts"), ("ISNS-MIB", "isnsNumFcNodes"), ("ISNS-MIB", "isnsRegEntityInfoNumPortals"), ("ISNS-MIB", "isnsRegEntityInfoNumPortalGroups"), ("ISNS-MIB", "isnsRegEntityInfoNumIscsiNodes"), ("ISNS-MIB", "isnsRegEntityInfoNumFcPorts"), ("ISNS-MIB", "isnsRegEntityInfoNumFcNodes"),))
-if mibBuilder.loadTexts: isnsServerNumObjectsGroup.setDescription('Managed objects indicating the number of registered objects\n    in an iSNS Server or the number of registered objects\n    associated with a registered Entity.  These managed objects\n    are optional to implement.')
-isnsServerIscsiControlNodeGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 163, 2, 2, 3)).setObjects(*(("ISNS-MIB", "isnsControlNodeIscsiNodeName"), ("ISNS-MIB", "isnsControlNodeIscsiIsRegistered"), ("ISNS-MIB", "isnsControlNodeIscsiRcvMgtSCN"),))
-if mibBuilder.loadTexts: isnsServerIscsiControlNodeGroup.setDescription('iSNS Server iSCSI control node managed objects.')
-isnsServerIfcpPortControlNodeGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 163, 2, 2, 4)).setObjects(*(("ISNS-MIB", "isnsControlNodeFcPortIsRegistered"), ("ISNS-MIB", "isnsControlNodeFcPortRcvMgtSCN"),))
-if mibBuilder.loadTexts: isnsServerIfcpPortControlNodeGroup.setDescription('iSNS Server iFCP Port control node managed objects.')
-isnsServerIscsiDdsDdObjGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 163, 2, 2, 5)).setObjects(*(("ISNS-MIB", "isnsDdsSymbolicName"), ("ISNS-MIB", "isnsDdsStatus"), ("ISNS-MIB", "isnsDdsMemberSymbolicName"), ("ISNS-MIB", "isnsDdSymbolicName"), ("ISNS-MIB", "isnsDdFeatures"), ("ISNS-MIB", "isnsDdIscsiMemberName"), ("ISNS-MIB", "isnsDdIscsiMemberIsRegistered"), ("ISNS-MIB", "isnsDdPortalMemberAddressType"), ("ISNS-MIB", "isnsDdPortalMemberAddress"), ("ISNS-MIB", "isnsDdPortalMemberPortType"), ("ISNS-MIB", "isnsDdPortalMemberPort"), ("ISNS-MIB", "isnsDdPortalMemberIsRegistered"),))
-if mibBuilder.loadTexts: isnsServerIscsiDdsDdObjGroup.setDescription('iSNS Server DDS and DD managed objects for iSCSI.')
-isnsServerIfcpDdsDdObjGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 163, 2, 2, 6)).setObjects(*(("ISNS-MIB", "isnsDdsSymbolicName"), ("ISNS-MIB", "isnsDdsStatus"), ("ISNS-MIB", "isnsDdSymbolicName"), ("ISNS-MIB", "isnsDdFeatures"), ("ISNS-MIB", "isnsDdPortalMemberAddressType"), ("ISNS-MIB", "isnsDdPortalMemberAddress"), ("ISNS-MIB", "isnsDdPortalMemberPortType"), ("ISNS-MIB", "isnsDdPortalMemberPort"), ("ISNS-MIB", "isnsDdPortalMemberIsRegistered"), ("ISNS-MIB", "isnsDdFcPortMemberIsRegistered"),))
-if mibBuilder.loadTexts: isnsServerIfcpDdsDdObjGroup.setDescription('iSNS Server DDS and DD managed objects for iFCP.')
-isnsServerRegIscsiObjGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 163, 2, 2, 7)).setObjects(*(("ISNS-MIB", "isnsRegEntityEID"), ("ISNS-MIB", "isnsRegEntityProtocol"), ("ISNS-MIB", "isnsRegEntityManagementAddressType"), ("ISNS-MIB", "isnsRegEntityManagementAddress"), ("ISNS-MIB", "isnsRegEntityTimestamp"), ("ISNS-MIB", "isnsRegEntityVersionMin"), ("ISNS-MIB", "isnsRegEntityVersionMax"), ("ISNS-MIB", "isnsRegEntityRegistrationPeriod"), ("ISNS-MIB", "isnsRegEntityInfoNumPortals"), ("ISNS-MIB", "isnsRegEntityInfoNumPortalGroups"), ("ISNS-MIB", "isnsRegEntityInfoNumIscsiNodes"), ("ISNS-MIB", "isnsRegEntityInfoNumFcPorts"), ("ISNS-MIB", "isnsRegEntityInfoNumFcNodes"), ("ISNS-MIB", "isnsRegPortalAddressType"), ("ISNS-MIB", "isnsRegPortalAddress"), ("ISNS-MIB", "isnsRegPortalPortType"), ("ISNS-MIB", "isnsRegPortalPort"), ("ISNS-MIB", "isnsRegPortalSymbolicName"), ("ISNS-MIB", "isnsRegPortalEsiInterval"), ("ISNS-MIB", "isnsRegPortalEsiPortType"), ("ISNS-MIB", "isnsRegPortalEsiPort"), ("ISNS-MIB", "isnsRegPortalScnPortType"), ("ISNS-MIB", "isnsRegPortalScnPort"), ("ISNS-MIB", "isnsRegPortalSecurityInfo"), ("ISNS-MIB", "isnsRegPgIscsiNodeIndex"), ("ISNS-MIB", "isnsRegPgIscsiName"), ("ISNS-MIB", "isnsRegPgPortalPortalIndex"), ("ISNS-MIB", "isnsRegPgPortalAddressType"), ("ISNS-MIB", "isnsRegPgPortalAddress"), ("ISNS-MIB", "isnsRegPgPortalPortType"), ("ISNS-MIB", "isnsRegPgPortalPort"), ("ISNS-MIB", "isnsRegPgPGT"), ("ISNS-MIB", "isnsRegIscsiNodeName"), ("ISNS-MIB", "isnsRegIscsiNodeType"), ("ISNS-MIB", "isnsRegIscsiNodeAlias"), ("ISNS-MIB", "isnsRegIscsiNodeScnTypes"), ("ISNS-MIB", "isnsRegIscsiNodeWwnToken"), ("ISNS-MIB", "isnsRegIscsiNodeAuthMethod"),))
-if mibBuilder.loadTexts: isnsServerRegIscsiObjGroup.setDescription('iSNS Server registered iSCSI managed objects.')
-isnsServerRegIfcpObjGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 163, 2, 2, 8)).setObjects(*(("ISNS-MIB", "isnsRegEntityEID"), ("ISNS-MIB", "isnsRegEntityProtocol"), ("ISNS-MIB", "isnsRegEntityManagementAddressType"), ("ISNS-MIB", "isnsRegEntityManagementAddress"), ("ISNS-MIB", "isnsRegEntityTimestamp"), ("ISNS-MIB", "isnsRegEntityVersionMin"), ("ISNS-MIB", "isnsRegEntityVersionMax"), ("ISNS-MIB", "isnsRegEntityRegistrationPeriod"), ("ISNS-MIB", "isnsRegEntityInfoNumPortals"), ("ISNS-MIB", "isnsRegEntityInfoNumPortalGroups"), ("ISNS-MIB", "isnsRegEntityInfoNumIscsiNodes"), ("ISNS-MIB", "isnsRegEntityInfoNumFcPorts"), ("ISNS-MIB", "isnsRegEntityInfoNumFcNodes"), ("ISNS-MIB", "isnsRegPortalAddressType"), ("ISNS-MIB", "isnsRegPortalAddress"), ("ISNS-MIB", "isnsRegPortalPortType"), ("ISNS-MIB", "isnsRegPortalPort"), ("ISNS-MIB", "isnsRegPortalSymbolicName"), ("ISNS-MIB", "isnsRegPortalEsiInterval"), ("ISNS-MIB", "isnsRegPortalEsiPortType"), ("ISNS-MIB", "isnsRegPortalEsiPort"), ("ISNS-MIB", "isnsRegPortalScnPortType"), ("ISNS-MIB", "isnsRegPortalScnPort"), ("ISNS-MIB", "isnsRegPortalSecurityInfo"), ("ISNS-MIB", "isnsRegFcPortID"), ("ISNS-MIB", "isnsRegFcPortType"), ("ISNS-MIB", "isnsRegFcPortSymbolicName"), ("ISNS-MIB", "isnsRegFcPortFabricPortWwn"), ("ISNS-MIB", "isnsRegFcPortHA"), ("ISNS-MIB", "isnsRegFcPortAddressType"), ("ISNS-MIB", "isnsRegFcPortAddress"), ("ISNS-MIB", "isnsRegFcPortFcCos"), ("ISNS-MIB", "isnsRegFcPortFc4Types"), ("ISNS-MIB", "isnsRegFcPortFc4Descr"), ("ISNS-MIB", "isnsRegFcPortFc4Features"), ("ISNS-MIB", "isnsRegFcPortScnTypes"), ("ISNS-MIB", "isnsRegFcPortRole"), ("ISNS-MIB", "isnsRegFcPortFcNodeWwnn"), ("ISNS-MIB", "isnsRegFcPortPpnWwn"), ("ISNS-MIB", "isnsRegFcNodeSymbolicName"), ("ISNS-MIB", "isnsRegFcNodeAddressType"), ("ISNS-MIB", "isnsRegFcNodeAddress"), ("ISNS-MIB", "isnsRegFcNodeIPA"), ("ISNS-MIB", "isnsRegFcNodeProxyIscsiName"), ("ISNS-MIB", "isnsRegFcNodeNumFcPorts"), ("ISNS-MIB", "isnsRegFcNodePortEntityIndex"),))
-if mibBuilder.loadTexts: isnsServerRegIfcpObjGroup.setDescription('iSNS Server registered iFCP managed objects.')
-isnsNotificationsObjGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 163, 2, 2, 9)).setObjects(*(("ISNS-MIB", "isnsInstanceInfo"), ("ISNS-MIB", "isnsAddressNotificationType"), ("ISNS-MIB", "isnsAddressNotification"), ("ISNS-MIB", "isnsTcpPortNotification"), ("ISNS-MIB", "isnsUdpPortNotification"),))
-if mibBuilder.loadTexts: isnsNotificationsObjGroup.setDescription('iSNS Notification managed objects.')
-isnsServerNotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 163, 2, 2, 10)).setObjects(*(("ISNS-MIB", "isnsServerStart"), ("ISNS-MIB", "isnsServerShutdown"),))
-if mibBuilder.loadTexts: isnsServerNotificationGroup.setDescription('iSNS Server Notification managed objects.')
-mibBuilder.exportSymbols("ISNS-MIB", IsnsDiscoveryDomainSetId=IsnsDiscoveryDomainSetId, isnsRegEntityEID=isnsRegEntityEID, isnsRegEntityInfo=isnsRegEntityInfo, isnsRegFcPortFc4Types=isnsRegFcPortFc4Types, isnsRegEntityVersionMax=isnsRegEntityVersionMax, isnsNumPortalGroups=isnsNumPortalGroups, isnsDdsMemberDdId=isnsDdsMemberDdId, isnsNotificationsInfo=isnsNotificationsInfo, isnsRegPortalEsiInterval=isnsRegPortalEsiInterval, isnsRegEntityManagementAddress=isnsRegEntityManagementAddress, isnsControlNodeIscsiEntry=isnsControlNodeIscsiEntry, IsnsIscsiScnType=IsnsIscsiScnType, isnsRegEntityProtocol=isnsRegEntityProtocol, isnsRegFcPortRole=isnsRegFcPortRole, isnsRegIscsiNodeScnTypes=isnsRegIscsiNodeScnTypes, isnsRegFcPortPpnWwn=isnsRegFcPortPpnWwn, isnsServerIscsiControlNodeGroup=isnsServerIscsiControlNodeGroup, isnsDdIscsiMemberName=isnsDdIscsiMemberName, isnsRegIscsiNodeInfo=isnsRegIscsiNodeInfo, isnsRegFcNodeNumFcPorts=isnsRegFcNodeNumFcPorts, IsnsIscsiNodeType=IsnsIscsiNodeType, isnsRegEntityInfoNumPortalGroups=isnsRegEntityInfoNumPortalGroups, IsnsFcClassOfServiceType=IsnsFcClassOfServiceType, IsnsDiscoveryDomainId=IsnsDiscoveryDomainId, IsnsPortalSecurityType=IsnsPortalSecurityType, isnsServerName=isnsServerName, isnsRegFcPortType=isnsRegFcPortType, isnsDdIscsiMemberTable=isnsDdIscsiMemberTable, isnsRegEntityInfoNumFcPorts=isnsRegEntityInfoNumFcPorts, isnsRegFcNodePortEntityIndex=isnsRegFcNodePortEntityIndex, isnsAddressNotification=isnsAddressNotification, isnsServerUdpPort=isnsServerUdpPort, isnsRegFcPortWwpn=isnsRegFcPortWwpn, isnsIfcpServerCompliance=isnsIfcpServerCompliance, isnsDdsSymbolicName=isnsDdsSymbolicName, isnsServerIfcpDdsDdObjGroup=isnsServerIfcpDdsDdObjGroup, isnsNumDd=isnsNumDd, isnsRegPortalInfo=isnsRegPortalInfo, isnsConformance=isnsConformance, isnsRegFcNodeWwnn=isnsRegFcNodeWwnn, isnsRegEntityRegistrationPeriod=isnsRegEntityRegistrationPeriod, isnsRegFcPortFc4Descr=isnsRegFcPortFc4Descr, isnsRegPgPortalPortalIndex=isnsRegPgPortalPortalIndex, isnsControlNodeIscsiNodeIndex=isnsControlNodeIscsiNodeIndex, isnsRegFcNodeAddressType=isnsRegFcNodeAddressType, isnsDdEntry=isnsDdEntry, isnsAddressNotificationType=isnsAddressNotificationType, isnsRegEntityTable=isnsRegEntityTable, isnsRegPgPortalAddress=isnsRegPgPortalAddress, isnsDdIscsiMemberIndex=isnsDdIscsiMemberIndex, isnsDdPortalMemberAddressType=isnsDdPortalMemberAddressType, isnsRegFcPortFabricPortWwn=isnsRegFcPortFabricPortWwn, isnsServerUpdateDdDdsSupported=isnsServerUpdateDdDdsSupported, isnsNumFcNodes=isnsNumFcNodes, isnsControlNodeFcPortWwpn=isnsControlNodeFcPortWwpn, isnsRegFcPortSymbolicName=isnsRegFcPortSymbolicName, isnsNumEntities=isnsNumEntities, isnsRegPgEntry=isnsRegPgEntry, isnsRegEntityNumObjectsTable=isnsRegEntityNumObjectsTable, IsnsPortalGroupTagIdOrNull=IsnsPortalGroupTagIdOrNull, isnsServerUpdateDdDdsEnabled=isnsServerUpdateDdDdsEnabled, isnsServerNumObjectsGroup=isnsServerNumObjectsGroup, isnsServerStart=isnsServerStart, IsnsSrvrDiscoveryMethodsType=IsnsSrvrDiscoveryMethodsType, isnsServerEsiNonResponseThreshold=isnsServerEsiNonResponseThreshold, isnsServerRegIscsiObjGroup=isnsServerRegIscsiObjGroup, isnsRegFcNodeEntry=isnsRegFcNodeEntry, isnsControlNodeFcPortEntry=isnsControlNodeFcPortEntry, isnsControlNodeFcPortRcvMgtSCN=isnsControlNodeFcPortRcvMgtSCN, isnsDdInfo=isnsDdInfo, isnsRegFcPortFcCos=isnsRegFcPortFcCos, isnsRegPortalScnPort=isnsRegPortalScnPort, isnsRegFcPortFc4Features=isnsRegFcPortFc4Features, isnsControlNodeFcPortTable=isnsControlNodeFcPortTable, isnsRegPgIscsiNodeIndex=isnsRegPgIscsiNodeIndex, isnsRegPortalGroupInfo=isnsRegPortalGroupInfo, isnsControlNodeIscsiNodeName=isnsControlNodeIscsiNodeName, isnsRegEntityVersionMin=isnsRegEntityVersionMin, isnsRegEntityInfoNumIscsiNodes=isnsRegEntityInfoNumIscsiNodes, isnsDdIscsiMemberEntry=isnsDdIscsiMemberEntry, isnsServerDiscoveryMethodsEnabled=isnsServerDiscoveryMethodsEnabled, isnsControlNodeIscsiIsRegistered=isnsControlNodeIscsiIsRegistered, IsnsPortalGroupIndexId=IsnsPortalGroupIndexId, isnsRegPortalAddressType=isnsRegPortalAddressType, isnsServerRegIfcpObjGroup=isnsServerRegIfcpObjGroup, isnsRegIscsiNodeType=isnsRegIscsiNodeType, isnsDdsId=isnsDdsId, isnsDdsTable=isnsDdsTable, IsnsIfcpScnType=IsnsIfcpScnType, IsnsNodeIndexId=IsnsNodeIndexId, isnsNumFcPorts=isnsNumFcPorts, isnsRegPortalEsiPort=isnsRegPortalEsiPort, isnsRegIscsiNodeIndex=isnsRegIscsiNodeIndex, isnsRegPgPortalPort=isnsRegPgPortalPort, PYSNMP_MODULE_ID=isnsMIB, isnsRegIscsiNodeWwnToken=isnsRegIscsiNodeWwnToken, isnsServerAttributesGroup=isnsServerAttributesGroup, isnsServerDiscoveryMcGroupAddress=isnsServerDiscoveryMcGroupAddress, isnsTcpPortNotification=isnsTcpPortNotification, isnsRegFcNodeAddress=isnsRegFcNodeAddress, isnsDdPortalMemberIsRegistered=isnsDdPortalMemberIsRegistered, isnsRegPortalSymbolicName=isnsRegPortalSymbolicName, isnsRegFcNodeInfo=isnsRegFcNodeInfo, isnsRegFcNodePortTable=isnsRegFcNodePortTable, isnsDdsMemberSymbolicName=isnsDdsMemberSymbolicName, isnsRegFcPortID=isnsRegFcPortID, isnsNotifications=isnsNotifications, isnsControlNodeFcPortIsRegistered=isnsControlNodeFcPortIsRegistered, isnsRegFcNodeTable=isnsRegFcNodeTable, isnsDdId=isnsDdId, isnsDdFcPortMemberEntry=isnsDdFcPortMemberEntry, isnsRegEntityIndex=isnsRegEntityIndex, isnsDdsEntry=isnsDdsEntry, isnsRegPortalScnPortType=isnsRegPortalScnPortType, isnsRegPgPGT=isnsRegPgPGT, IsnsDdDdsModificationType=IsnsDdDdsModificationType, isnsObjects=isnsObjects, isnsRegPortalAddress=isnsRegPortalAddress, isnsServerIsnsVersion=isnsServerIsnsVersion, isnsRegPortalPort=isnsRegPortalPort, IsnsDdFeatureType=IsnsDdFeatureType, isnsRegPgIndex=isnsRegPgIndex, isnsRegPgPortalPortType=isnsRegPgPortalPortType, isnsRegPgTable=isnsRegPgTable, isnsServerInfo=isnsServerInfo, isnsRegFcPortEntry=isnsRegFcPortEntry, isnsCompliances=isnsCompliances, isnsRegFcPortScnTypes=isnsRegFcPortScnTypes, isnsServerTable=isnsServerTable, isnsNumObjectsTable=isnsNumObjectsTable, isnsRegFcPortHA=isnsRegFcPortHA, IsnsFcPortRoleType=IsnsFcPortRoleType, isnsRegFcNodeIPA=isnsRegFcNodeIPA, isnsRegPgPortalAddressType=isnsRegPgPortalAddressType, isnsDdsMemberTable=isnsDdsMemberTable, isnsRegEntityTimestamp=isnsRegEntityTimestamp, isnsRegPortalPortType=isnsRegPortalPortType, isnsNumObjectsEntry=isnsNumObjectsEntry, IsnsPortalIndexId=IsnsPortalIndexId, IsnsEntityIndexIdOrZero=IsnsEntityIndexIdOrZero, isnsRegFcNodeSymbolicName=isnsRegFcNodeSymbolicName, isnsServerRole=isnsServerRole, IsnsPortalPortTypeId=IsnsPortalPortTypeId, isnsServerEnableControlNodeMgtScn=isnsServerEnableControlNodeMgtScn, isnsServerTcpPort=isnsServerTcpPort, isnsRegEntityInfoNumPortals=isnsRegEntityInfoNumPortals, isnsDdsMemberEntry=isnsDdsMemberEntry, isnsRegEntityEntry=isnsRegEntityEntry, isnsServerIndex=isnsServerIndex, isnsRegEntityInfoNumFcNodes=isnsRegEntityInfoNumFcNodes, isnsRegIscsiNodeAuthMethod=isnsRegIscsiNodeAuthMethod, isnsUdpPortNotification=isnsUdpPortNotification, isnsServerDiscontinuityTime=isnsServerDiscontinuityTime, isnsDdIscsiMemberIsRegistered=isnsDdIscsiMemberIsRegistered, isnsDdTable=isnsDdTable, isnsServerPhysicalIndex=isnsServerPhysicalIndex, isnsIscsiServerCompliance=isnsIscsiServerCompliance, isnsRegPgIscsiName=isnsRegPgIscsiName, isnsRegIscsiNodeName=isnsRegIscsiNodeName, isnsServerVendorInfo=isnsServerVendorInfo, isnsRegFcNodeProxyIscsiName=isnsRegFcNodeProxyIscsiName, isnsRegFcNodePortEntry=isnsRegFcNodePortEntry, isnsDdPortalMemberPortType=isnsDdPortalMemberPortType, isnsControlNodeInfo=isnsControlNodeInfo, isnsGroups=isnsGroups, isnsRegFcPortAddressType=isnsRegFcPortAddressType, isnsDdFcPortMemberTable=isnsDdFcPortMemberTable, isnsServerIfcpPortControlNodeGroup=isnsServerIfcpPortControlNodeGroup, isnsDdsInfo=isnsDdsInfo, isnsControlNodeIscsiTable=isnsControlNodeIscsiTable, isnsServerNotificationGroup=isnsServerNotificationGroup, isnsDdPortalMemberTable=isnsDdPortalMemberTable, isnsMIB=isnsMIB, isnsNumIscsiNodes=isnsNumIscsiNodes, isnsDdSymbolicName=isnsDdSymbolicName, IsnsDdsStatusType=IsnsDdsStatusType, isnsRegEntityNumObjectsEntry=isnsRegEntityNumObjectsEntry, isnsDdPortalMemberAddress=isnsDdPortalMemberAddress, isnsRegPortalEsiPortType=isnsRegPortalEsiPortType, isnsRegIscsiNodeTable=isnsRegIscsiNodeTable, isnsServerDiscoveryMcGroupType=isnsServerDiscoveryMcGroupType, isnsServerShutdown=isnsServerShutdown, isnsServerIscsiDdsDdObjGroup=isnsServerIscsiDdsDdObjGroup, isnsNotificationsObjGroup=isnsNotificationsObjGroup, isnsDdFcPortMemberPortName=isnsDdFcPortMemberPortName, isnsRegFcPortAddress=isnsRegFcPortAddress, isnsControlNodeIscsiRcvMgtSCN=isnsControlNodeIscsiRcvMgtSCN, isnsDdsStatus=isnsDdsStatus, isnsDdFeatures=isnsDdFeatures, isnsRegPortalSecurityInfo=isnsRegPortalSecurityInfo, isnsRegPortalPortalIndex=isnsRegPortalPortalIndex, isnsInstanceInfo=isnsInstanceInfo, isnsServerDefaultDdDdsStatus=isnsServerDefaultDdDdsStatus, isnsNumDds=isnsNumDds, isnsDdFcPortMemberIsRegistered=isnsDdFcPortMemberIsRegistered, isnsServerEntry=isnsServerEntry, isnsRegFcPortTable=isnsRegFcPortTable, isnsReg=isnsReg, isnsRegIscsiNodeEntry=isnsRegIscsiNodeEntry, isnsDdPortalMemberEntry=isnsDdPortalMemberEntry, isnsRegEntityManagementAddressType=isnsRegEntityManagementAddressType, isnsRegFcPortFcNodeWwnn=isnsRegFcPortFcNodeWwnn, isnsRegPortalEntry=isnsRegPortalEntry, isnsDdPortalMemberPort=isnsDdPortalMemberPort, isnsDdPortalMemberIndex=isnsDdPortalMemberIndex, isnsRegIscsiNodeAlias=isnsRegIscsiNodeAlias, isnsRegPortalTable=isnsRegPortalTable, isnsNumPortals=isnsNumPortals)
+isnsServerAttributesGroup=ObjectGroup((1,3,6,1,2,1,163,2,2,1))
+isnsServerAttributesGroup.setObjects(*((_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD)))
+if mibBuilder.loadTexts:isnsServerAttributesGroup.setStatus(_B)
+isnsServerNumObjectsGroup=ObjectGroup((1,3,6,1,2,1,163,2,2,2))
+isnsServerNumObjectsGroup.setObjects(*((_A,_BE),(_A,_BF),(_A,_BG),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w)))
+if mibBuilder.loadTexts:isnsServerNumObjectsGroup.setStatus(_B)
+isnsServerIscsiControlNodeGroup=ObjectGroup((1,3,6,1,2,1,163,2,2,3))
+isnsServerIscsiControlNodeGroup.setObjects(*((_A,_BM),(_A,_BN),(_A,_BO)))
+if mibBuilder.loadTexts:isnsServerIscsiControlNodeGroup.setStatus(_B)
+isnsServerIfcpPortControlNodeGroup=ObjectGroup((1,3,6,1,2,1,163,2,2,4))
+isnsServerIfcpPortControlNodeGroup.setObjects(*((_A,_BP),(_A,_BQ)))
+if mibBuilder.loadTexts:isnsServerIfcpPortControlNodeGroup.setStatus(_B)
+isnsServerIscsiDdsDdObjGroup=ObjectGroup((1,3,6,1,2,1,163,2,2,5))
+isnsServerIscsiDdsDdObjGroup.setObjects(*((_A,_A6),(_A,_A7),(_A,_BR),(_A,_A8),(_A,_A9),(_A,_BS),(_A,_BT),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE)))
+if mibBuilder.loadTexts:isnsServerIscsiDdsDdObjGroup.setStatus(_B)
+isnsServerIfcpDdsDdObjGroup=ObjectGroup((1,3,6,1,2,1,163,2,2,6))
+isnsServerIfcpDdsDdObjGroup.setObjects(*((_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_BU)))
+if mibBuilder.loadTexts:isnsServerIfcpDdsDdObjGroup.setStatus(_B)
+isnsServerRegIscsiObjGroup=ObjectGroup((1,3,6,1,2,1,163,2,2,7))
+isnsServerRegIscsiObjGroup.setObjects(*((_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi)))
+if mibBuilder.loadTexts:isnsServerRegIscsiObjGroup.setStatus(_B)
+isnsServerRegIfcpObjGroup=ObjectGroup((1,3,6,1,2,1,163,2,2,8))
+isnsServerRegIfcpObjGroup.setObjects(*((_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo),(_A,_Bp),(_A,_Bq),(_A,_Br),(_A,_Bs),(_A,_Bt),(_A,_Bu),(_A,_Bv),(_A,_Bw),(_A,_Bx),(_A,_By),(_A,_Bz),(_A,_B_),(_A,_C0),(_A,_C1),(_A,_C2),(_A,_C3)))
+if mibBuilder.loadTexts:isnsServerRegIfcpObjGroup.setStatus(_B)
+isnsNotificationsObjGroup=ObjectGroup((1,3,6,1,2,1,163,2,2,9))
+isnsNotificationsObjGroup.setObjects(*((_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1)))
+if mibBuilder.loadTexts:isnsNotificationsObjGroup.setStatus(_B)
+isnsServerStart=NotificationType((1,3,6,1,2,1,163,0,1))
+isnsServerStart.setObjects(*((_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1)))
+if mibBuilder.loadTexts:isnsServerStart.setStatus(_B)
+isnsServerShutdown=NotificationType((1,3,6,1,2,1,163,0,2))
+isnsServerShutdown.setObjects(*((_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1)))
+if mibBuilder.loadTexts:isnsServerShutdown.setStatus(_B)
+isnsServerNotificationGroup=NotificationGroup((1,3,6,1,2,1,163,2,2,10))
+isnsServerNotificationGroup.setObjects(*((_A,_C4),(_A,_C5)))
+if mibBuilder.loadTexts:isnsServerNotificationGroup.setStatus(_B)
+isnsIscsiServerCompliance=ModuleCompliance((1,3,6,1,2,1,163,2,1,1))
+isnsIscsiServerCompliance.setObjects(*((_A,_AY),(_A,_C6),(_A,_C7),(_A,_C8),(_A,_AZ),(_A,_Aa),(_A,_Ab)))
+if mibBuilder.loadTexts:isnsIscsiServerCompliance.setStatus(_B)
+isnsIfcpServerCompliance=ModuleCompliance((1,3,6,1,2,1,163,2,1,2))
+isnsIfcpServerCompliance.setObjects(*((_A,_AY),(_A,_C9),(_A,_CA),(_A,_CB),(_A,_AZ),(_A,_Aa),(_A,_Ab)))
+if mibBuilder.loadTexts:isnsIfcpServerCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'IsnsDiscoveryDomainSetId':IsnsDiscoveryDomainSetId,'IsnsDdsStatusType':IsnsDdsStatusType,'IsnsDiscoveryDomainId':IsnsDiscoveryDomainId,'IsnsDdFeatureType':IsnsDdFeatureType,'IsnsDdDdsModificationType':IsnsDdDdsModificationType,_Au:IsnsEntityIndexIdOrZero,'IsnsPortalGroupIndexId':IsnsPortalGroupIndexId,'IsnsPortalIndexId':IsnsPortalIndexId,'IsnsPortalPortTypeId':IsnsPortalPortTypeId,'IsnsPortalGroupTagIdOrNull':IsnsPortalGroupTagIdOrNull,'IsnsPortalSecurityType':IsnsPortalSecurityType,'IsnsNodeIndexId':IsnsNodeIndexId,'IsnsIscsiNodeType':IsnsIscsiNodeType,'IsnsFcClassOfServiceType':IsnsFcClassOfServiceType,'IsnsIscsiScnType':IsnsIscsiScnType,'IsnsIfcpScnType':IsnsIfcpScnType,'IsnsFcPortRoleType':IsnsFcPortRoleType,'IsnsSrvrDiscoveryMethodsType':IsnsSrvrDiscoveryMethodsType,'isnsMIB':isnsMIB,'isnsNotifications':isnsNotifications,_C4:isnsServerStart,_C5:isnsServerShutdown,'isnsObjects':isnsObjects,'isnsServerInfo':isnsServerInfo,'isnsServerTable':isnsServerTable,'isnsServerEntry':isnsServerEntry,_D:isnsServerIndex,_Az:isnsServerName,_A_:isnsServerIsnsVersion,_B0:isnsServerVendorInfo,_B1:isnsServerPhysicalIndex,_B2:isnsServerTcpPort,_B3:isnsServerUdpPort,_B4:isnsServerDiscontinuityTime,_B5:isnsServerRole,_B6:isnsServerDiscoveryMethodsEnabled,_B7:isnsServerDiscoveryMcGroupType,_B8:isnsServerDiscoveryMcGroupAddress,_B9:isnsServerEsiNonResponseThreshold,_BA:isnsServerEnableControlNodeMgtScn,_BB:isnsServerDefaultDdDdsStatus,_BC:isnsServerUpdateDdDdsSupported,_BD:isnsServerUpdateDdDdsEnabled,'isnsNumObjectsTable':isnsNumObjectsTable,_Ay:isnsNumObjectsEntry,_BE:isnsNumDds,_BF:isnsNumDd,_BG:isnsNumEntities,_BH:isnsNumPortals,_BI:isnsNumPortalGroups,_BJ:isnsNumIscsiNodes,_BK:isnsNumFcPorts,_BL:isnsNumFcNodes,'isnsControlNodeInfo':isnsControlNodeInfo,'isnsControlNodeIscsiTable':isnsControlNodeIscsiTable,'isnsControlNodeIscsiEntry':isnsControlNodeIscsiEntry,_Ao:isnsControlNodeIscsiNodeIndex,_BM:isnsControlNodeIscsiNodeName,_BN:isnsControlNodeIscsiIsRegistered,_BO:isnsControlNodeIscsiRcvMgtSCN,'isnsControlNodeFcPortTable':isnsControlNodeFcPortTable,'isnsControlNodeFcPortEntry':isnsControlNodeFcPortEntry,_Ap:isnsControlNodeFcPortWwpn,_BP:isnsControlNodeFcPortIsRegistered,_BQ:isnsControlNodeFcPortRcvMgtSCN,'isnsDdsInfo':isnsDdsInfo,'isnsDdsTable':isnsDdsTable,'isnsDdsEntry':isnsDdsEntry,_A3:isnsDdsId,_A6:isnsDdsSymbolicName,_A7:isnsDdsStatus,'isnsDdsMemberTable':isnsDdsMemberTable,'isnsDdsMemberEntry':isnsDdsMemberEntry,_Aq:isnsDdsMemberDdId,_BR:isnsDdsMemberSymbolicName,'isnsDdInfo':isnsDdInfo,'isnsDdTable':isnsDdTable,'isnsDdEntry':isnsDdEntry,_n:isnsDdId,_A8:isnsDdSymbolicName,_A9:isnsDdFeatures,'isnsDdIscsiMemberTable':isnsDdIscsiMemberTable,'isnsDdIscsiMemberEntry':isnsDdIscsiMemberEntry,_Ar:isnsDdIscsiMemberIndex,_BS:isnsDdIscsiMemberName,_BT:isnsDdIscsiMemberIsRegistered,'isnsDdPortalMemberTable':isnsDdPortalMemberTable,'isnsDdPortalMemberEntry':isnsDdPortalMemberEntry,_As:isnsDdPortalMemberIndex,_AA:isnsDdPortalMemberAddressType,_AB:isnsDdPortalMemberAddress,_AC:isnsDdPortalMemberPortType,_AD:isnsDdPortalMemberPort,_AE:isnsDdPortalMemberIsRegistered,'isnsDdFcPortMemberTable':isnsDdFcPortMemberTable,'isnsDdFcPortMemberEntry':isnsDdFcPortMemberEntry,_At:isnsDdFcPortMemberPortName,_BU:isnsDdFcPortMemberIsRegistered,'isnsReg':isnsReg,'isnsRegEntityInfo':isnsRegEntityInfo,'isnsRegEntityTable':isnsRegEntityTable,'isnsRegEntityEntry':isnsRegEntityEntry,_g:isnsRegEntityIndex,_AF:isnsRegEntityEID,_AG:isnsRegEntityProtocol,_AH:isnsRegEntityManagementAddressType,_AI:isnsRegEntityManagementAddress,_AJ:isnsRegEntityTimestamp,_AK:isnsRegEntityVersionMin,_AL:isnsRegEntityVersionMax,_AM:isnsRegEntityRegistrationPeriod,'isnsRegEntityNumObjectsTable':isnsRegEntityNumObjectsTable,'isnsRegEntityNumObjectsEntry':isnsRegEntityNumObjectsEntry,_s:isnsRegEntityInfoNumPortals,_t:isnsRegEntityInfoNumPortalGroups,_u:isnsRegEntityInfoNumIscsiNodes,_v:isnsRegEntityInfoNumFcPorts,_w:isnsRegEntityInfoNumFcNodes,'isnsRegPortalInfo':isnsRegPortalInfo,'isnsRegPortalTable':isnsRegPortalTable,'isnsRegPortalEntry':isnsRegPortalEntry,_Av:isnsRegPortalPortalIndex,_AN:isnsRegPortalAddressType,_AO:isnsRegPortalAddress,_AP:isnsRegPortalPortType,_AQ:isnsRegPortalPort,_AR:isnsRegPortalSymbolicName,_AS:isnsRegPortalEsiInterval,_AT:isnsRegPortalEsiPortType,_AU:isnsRegPortalEsiPort,_AV:isnsRegPortalScnPortType,_AW:isnsRegPortalScnPort,_AX:isnsRegPortalSecurityInfo,'isnsRegPortalGroupInfo':isnsRegPortalGroupInfo,'isnsRegPgTable':isnsRegPgTable,'isnsRegPgEntry':isnsRegPgEntry,_Aw:isnsRegPgIndex,_BV:isnsRegPgIscsiNodeIndex,_BW:isnsRegPgIscsiName,_BX:isnsRegPgPortalPortalIndex,_BY:isnsRegPgPortalAddressType,_BZ:isnsRegPgPortalAddress,_Ba:isnsRegPgPortalPortType,_Bb:isnsRegPgPortalPort,_Bc:isnsRegPgPGT,'isnsRegIscsiNodeInfo':isnsRegIscsiNodeInfo,'isnsRegIscsiNodeTable':isnsRegIscsiNodeTable,'isnsRegIscsiNodeEntry':isnsRegIscsiNodeEntry,_Ax:isnsRegIscsiNodeIndex,_Bd:isnsRegIscsiNodeName,_Be:isnsRegIscsiNodeType,_Bf:isnsRegIscsiNodeAlias,_Bg:isnsRegIscsiNodeScnTypes,_Bh:isnsRegIscsiNodeWwnToken,_Bi:isnsRegIscsiNodeAuthMethod,'isnsRegFcNodeInfo':isnsRegFcNodeInfo,'isnsRegFcNodeTable':isnsRegFcNodeTable,'isnsRegFcNodeEntry':isnsRegFcNodeEntry,_A4:isnsRegFcNodeWwnn,_By:isnsRegFcNodeSymbolicName,_Bz:isnsRegFcNodeAddressType,_B_:isnsRegFcNodeAddress,_C0:isnsRegFcNodeIPA,_C1:isnsRegFcNodeProxyIscsiName,_C2:isnsRegFcNodeNumFcPorts,'isnsRegFcPortTable':isnsRegFcPortTable,'isnsRegFcPortEntry':isnsRegFcPortEntry,_A5:isnsRegFcPortWwpn,_Bj:isnsRegFcPortID,_Bk:isnsRegFcPortType,_Bl:isnsRegFcPortSymbolicName,_Bm:isnsRegFcPortFabricPortWwn,_Bn:isnsRegFcPortHA,_Bo:isnsRegFcPortAddressType,_Bp:isnsRegFcPortAddress,_Bq:isnsRegFcPortFcCos,_Br:isnsRegFcPortFc4Types,_Bs:isnsRegFcPortFc4Descr,_Bt:isnsRegFcPortFc4Features,_Bu:isnsRegFcPortScnTypes,_Bv:isnsRegFcPortRole,_Bw:isnsRegFcPortFcNodeWwnn,_Bx:isnsRegFcPortPpnWwn,'isnsRegFcNodePortTable':isnsRegFcNodePortTable,'isnsRegFcNodePortEntry':isnsRegFcNodePortEntry,_C3:isnsRegFcNodePortEntityIndex,'isnsNotificationsInfo':isnsNotificationsInfo,_x:isnsInstanceInfo,_y:isnsAddressNotificationType,_z:isnsAddressNotification,_A0:isnsTcpPortNotification,_A1:isnsUdpPortNotification,'isnsConformance':isnsConformance,'isnsCompliances':isnsCompliances,'isnsIscsiServerCompliance':isnsIscsiServerCompliance,'isnsIfcpServerCompliance':isnsIfcpServerCompliance,'isnsGroups':isnsGroups,_AY:isnsServerAttributesGroup,_AZ:isnsServerNumObjectsGroup,_C6:isnsServerIscsiControlNodeGroup,_C9:isnsServerIfcpPortControlNodeGroup,_C7:isnsServerIscsiDdsDdObjGroup,_CA:isnsServerIfcpDdsDdObjGroup,_C8:isnsServerRegIscsiObjGroup,_CB:isnsServerRegIfcpObjGroup,_Aa:isnsNotificationsObjGroup,_Ab:isnsServerNotificationGroup})

@@ -1,0 +1,29 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+tplinkMgmt,=mibBuilder.importSymbols('TPLINK-MIB','tplinkMgmt')
+tplinkEthernetOam=ModuleIdentity((1,3,6,1,4,1,11863,6,60))
+if mibBuilder.loadTexts:tplinkEthernetOam.setRevisions(('2015-07-06 10:30',))
+_TplinkEthernetOamMIBObjects_ObjectIdentity=ObjectIdentity
+tplinkEthernetOamMIBObjects=_TplinkEthernetOamMIBObjects_ObjectIdentity((1,3,6,1,4,1,11863,6,60,1))
+_EthernetOamBasicConfig_ObjectIdentity=ObjectIdentity
+ethernetOamBasicConfig=_EthernetOamBasicConfig_ObjectIdentity((1,3,6,1,4,1,11863,6,60,1,1))
+_EthernetOamLinkMonConfig_ObjectIdentity=ObjectIdentity
+ethernetOamLinkMonConfig=_EthernetOamLinkMonConfig_ObjectIdentity((1,3,6,1,4,1,11863,6,60,1,2))
+_EthernetOamRfiConfig_ObjectIdentity=ObjectIdentity
+ethernetOamRfiConfig=_EthernetOamRfiConfig_ObjectIdentity((1,3,6,1,4,1,11863,6,60,1,3))
+_EthernetOamRmtLbConfig_ObjectIdentity=ObjectIdentity
+ethernetOamRmtLbConfig=_EthernetOamRmtLbConfig_ObjectIdentity((1,3,6,1,4,1,11863,6,60,1,4))
+_EthernetOamDiscoveryInfo_ObjectIdentity=ObjectIdentity
+ethernetOamDiscoveryInfo=_EthernetOamDiscoveryInfo_ObjectIdentity((1,3,6,1,4,1,11863,6,60,1,5))
+_EthernetOamStatistics_ObjectIdentity=ObjectIdentity
+ethernetOamStatistics=_EthernetOamStatistics_ObjectIdentity((1,3,6,1,4,1,11863,6,60,1,6))
+_EthernetOamEventLog_ObjectIdentity=ObjectIdentity
+ethernetOamEventLog=_EthernetOamEventLog_ObjectIdentity((1,3,6,1,4,1,11863,6,60,1,7))
+_TplinkEthernetOamMIBNotifications_ObjectIdentity=ObjectIdentity
+tplinkEthernetOamMIBNotifications=_TplinkEthernetOamMIBNotifications_ObjectIdentity((1,3,6,1,4,1,11863,6,60,2))
+mibBuilder.exportSymbols('TPLINK-ETHERNETOAM-MIB',**{'tplinkEthernetOam':tplinkEthernetOam,'tplinkEthernetOamMIBObjects':tplinkEthernetOamMIBObjects,'ethernetOamBasicConfig':ethernetOamBasicConfig,'ethernetOamLinkMonConfig':ethernetOamLinkMonConfig,'ethernetOamRfiConfig':ethernetOamRfiConfig,'ethernetOamRmtLbConfig':ethernetOamRmtLbConfig,'ethernetOamDiscoveryInfo':ethernetOamDiscoveryInfo,'ethernetOamStatistics':ethernetOamStatistics,'ethernetOamEventLog':ethernetOamEventLog,'tplinkEthernetOamMIBNotifications':tplinkEthernetOamMIBNotifications})

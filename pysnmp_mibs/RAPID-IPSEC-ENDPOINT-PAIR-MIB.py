@@ -1,0 +1,213 @@
+_G='rsIpsecEndpointPairPeerIPToTunnelTunnelID'
+_F='rsIpsecEndpointPairPeerIPToTunnelPeerIP'
+_E='rsIpsecEndpointPairIndex'
+_D='Kbytes'
+_C='RAPID-IPSEC-ENDPOINT-PAIR-MIB'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+rapidstream,=mibBuilder.importSymbols('RAPID-MIB','rapidstream')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+rsIpsecEndpointPairModule=ModuleIdentity((1,3,6,1,4,1,4355,5))
+if mibBuilder.loadTexts:rsIpsecEndpointPairModule.setRevisions(('2000-03-21 12:00','2002-11-01 12:00'))
+_RsIpsecEndpointPairMIB_ObjectIdentity=ObjectIdentity
+rsIpsecEndpointPairMIB=_RsIpsecEndpointPairMIB_ObjectIdentity((1,3,6,1,4,1,4355,5,1))
+if mibBuilder.loadTexts:rsIpsecEndpointPairMIB.setStatus(_A)
+_RsIpsecEndpointPair_ObjectIdentity=ObjectIdentity
+rsIpsecEndpointPair=_RsIpsecEndpointPair_ObjectIdentity((1,3,6,1,4,1,4355,5,1,1))
+if mibBuilder.loadTexts:rsIpsecEndpointPair.setStatus(_A)
+_RsIpsecEndpointPairNum_Type=Unsigned32
+_RsIpsecEndpointPairNum_Object=MibScalar
+rsIpsecEndpointPairNum=_RsIpsecEndpointPairNum_Object((1,3,6,1,4,1,4355,5,1,1,1),_RsIpsecEndpointPairNum_Type())
+rsIpsecEndpointPairNum.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairNum.setStatus(_A)
+_RsIpsecEndpointPairTable_Object=MibTable
+rsIpsecEndpointPairTable=_RsIpsecEndpointPairTable_Object((1,3,6,1,4,1,4355,5,1,1,2))
+if mibBuilder.loadTexts:rsIpsecEndpointPairTable.setStatus(_A)
+_RsIpsecEndpointPairEntry_Object=MibTableRow
+rsIpsecEndpointPairEntry=_RsIpsecEndpointPairEntry_Object((1,3,6,1,4,1,4355,5,1,1,2,1))
+rsIpsecEndpointPairEntry.setIndexNames((0,_C,_E))
+if mibBuilder.loadTexts:rsIpsecEndpointPairEntry.setStatus(_A)
+_RsIpsecEndpointPairIndex_Type=Integer32
+_RsIpsecEndpointPairIndex_Object=MibTableColumn
+rsIpsecEndpointPairIndex=_RsIpsecEndpointPairIndex_Object((1,3,6,1,4,1,4355,5,1,1,2,1,1),_RsIpsecEndpointPairIndex_Type())
+rsIpsecEndpointPairIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairIndex.setStatus(_A)
+_RsIpsecEndpointPairLocalAddr_Type=IpAddress
+_RsIpsecEndpointPairLocalAddr_Object=MibTableColumn
+rsIpsecEndpointPairLocalAddr=_RsIpsecEndpointPairLocalAddr_Object((1,3,6,1,4,1,4355,5,1,1,2,1,2),_RsIpsecEndpointPairLocalAddr_Type())
+rsIpsecEndpointPairLocalAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairLocalAddr.setStatus(_A)
+_RsIpsecEndpointPairPeerAddr_Type=IpAddress
+_RsIpsecEndpointPairPeerAddr_Object=MibTableColumn
+rsIpsecEndpointPairPeerAddr=_RsIpsecEndpointPairPeerAddr_Object((1,3,6,1,4,1,4355,5,1,1,2,1,3),_RsIpsecEndpointPairPeerAddr_Type())
+rsIpsecEndpointPairPeerAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairPeerAddr.setStatus(_A)
+_RsIpsecEndpointPairInSAs_Type=Unsigned32
+_RsIpsecEndpointPairInSAs_Object=MibTableColumn
+rsIpsecEndpointPairInSAs=_RsIpsecEndpointPairInSAs_Object((1,3,6,1,4,1,4355,5,1,1,2,1,4),_RsIpsecEndpointPairInSAs_Type())
+rsIpsecEndpointPairInSAs.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairInSAs.setStatus(_A)
+_RsIpsecEndpointPairOutSAs_Type=Unsigned32
+_RsIpsecEndpointPairOutSAs_Object=MibTableColumn
+rsIpsecEndpointPairOutSAs=_RsIpsecEndpointPairOutSAs_Object((1,3,6,1,4,1,4355,5,1,1,2,1,5),_RsIpsecEndpointPairOutSAs_Type())
+rsIpsecEndpointPairOutSAs.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairOutSAs.setStatus(_A)
+_RsIpsecEndpointPairInAccKbytes_Type=Counter32
+_RsIpsecEndpointPairInAccKbytes_Object=MibTableColumn
+rsIpsecEndpointPairInAccKbytes=_RsIpsecEndpointPairInAccKbytes_Object((1,3,6,1,4,1,4355,5,1,1,2,1,6),_RsIpsecEndpointPairInAccKbytes_Type())
+rsIpsecEndpointPairInAccKbytes.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairInAccKbytes.setStatus(_A)
+if mibBuilder.loadTexts:rsIpsecEndpointPairInAccKbytes.setUnits(_D)
+_RsIpsecEndpointPairOutAccKbytes_Type=Counter32
+_RsIpsecEndpointPairOutAccKbytes_Object=MibTableColumn
+rsIpsecEndpointPairOutAccKbytes=_RsIpsecEndpointPairOutAccKbytes_Object((1,3,6,1,4,1,4355,5,1,1,2,1,7),_RsIpsecEndpointPairOutAccKbytes_Type())
+rsIpsecEndpointPairOutAccKbytes.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairOutAccKbytes.setStatus(_A)
+if mibBuilder.loadTexts:rsIpsecEndpointPairOutAccKbytes.setUnits(_D)
+_RsIpsecEndpointPairInPackets_Type=Counter32
+_RsIpsecEndpointPairInPackets_Object=MibTableColumn
+rsIpsecEndpointPairInPackets=_RsIpsecEndpointPairInPackets_Object((1,3,6,1,4,1,4355,5,1,1,2,1,8),_RsIpsecEndpointPairInPackets_Type())
+rsIpsecEndpointPairInPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairInPackets.setStatus(_A)
+_RsIpsecEndpointPairOutPackets_Type=Counter32
+_RsIpsecEndpointPairOutPackets_Object=MibTableColumn
+rsIpsecEndpointPairOutPackets=_RsIpsecEndpointPairOutPackets_Object((1,3,6,1,4,1,4355,5,1,1,2,1,9),_RsIpsecEndpointPairOutPackets_Type())
+rsIpsecEndpointPairOutPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairOutPackets.setStatus(_A)
+_RsIpsecEndpointPairDecryptErrors_Type=Counter32
+_RsIpsecEndpointPairDecryptErrors_Object=MibTableColumn
+rsIpsecEndpointPairDecryptErrors=_RsIpsecEndpointPairDecryptErrors_Object((1,3,6,1,4,1,4355,5,1,1,2,1,10),_RsIpsecEndpointPairDecryptErrors_Type())
+rsIpsecEndpointPairDecryptErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairDecryptErrors.setStatus(_A)
+_RsIpsecEndpointPairAuthErrors_Type=Counter32
+_RsIpsecEndpointPairAuthErrors_Object=MibTableColumn
+rsIpsecEndpointPairAuthErrors=_RsIpsecEndpointPairAuthErrors_Object((1,3,6,1,4,1,4355,5,1,1,2,1,11),_RsIpsecEndpointPairAuthErrors_Type())
+rsIpsecEndpointPairAuthErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairAuthErrors.setStatus(_A)
+_RsIpsecEndpointPairReplayErrors_Type=Counter32
+_RsIpsecEndpointPairReplayErrors_Object=MibTableColumn
+rsIpsecEndpointPairReplayErrors=_RsIpsecEndpointPairReplayErrors_Object((1,3,6,1,4,1,4355,5,1,1,2,1,12),_RsIpsecEndpointPairReplayErrors_Type())
+rsIpsecEndpointPairReplayErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairReplayErrors.setStatus(_A)
+_RsIpsecEndpointPairPolicyErrors_Type=Counter32
+_RsIpsecEndpointPairPolicyErrors_Object=MibTableColumn
+rsIpsecEndpointPairPolicyErrors=_RsIpsecEndpointPairPolicyErrors_Object((1,3,6,1,4,1,4355,5,1,1,2,1,13),_RsIpsecEndpointPairPolicyErrors_Type())
+rsIpsecEndpointPairPolicyErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairPolicyErrors.setStatus(_A)
+_RsIpsecEndpointPairPadErrors_Type=Counter32
+_RsIpsecEndpointPairPadErrors_Object=MibTableColumn
+rsIpsecEndpointPairPadErrors=_RsIpsecEndpointPairPadErrors_Object((1,3,6,1,4,1,4355,5,1,1,2,1,14),_RsIpsecEndpointPairPadErrors_Type())
+rsIpsecEndpointPairPadErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairPadErrors.setStatus(_A)
+_RsIpsecEndpointPairOtherReceiveErrors_Type=Counter32
+_RsIpsecEndpointPairOtherReceiveErrors_Object=MibTableColumn
+rsIpsecEndpointPairOtherReceiveErrors=_RsIpsecEndpointPairOtherReceiveErrors_Object((1,3,6,1,4,1,4355,5,1,1,2,1,15),_RsIpsecEndpointPairOtherReceiveErrors_Type())
+rsIpsecEndpointPairOtherReceiveErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairOtherReceiveErrors.setStatus(_A)
+_RsIpsecEndpointPairSendErrors_Type=Counter32
+_RsIpsecEndpointPairSendErrors_Object=MibTableColumn
+rsIpsecEndpointPairSendErrors=_RsIpsecEndpointPairSendErrors_Object((1,3,6,1,4,1,4355,5,1,1,2,1,16),_RsIpsecEndpointPairSendErrors_Type())
+rsIpsecEndpointPairSendErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairSendErrors.setStatus(_A)
+_RsIpsecEndpointPairStatistics_ObjectIdentity=ObjectIdentity
+rsIpsecEndpointPairStatistics=_RsIpsecEndpointPairStatistics_ObjectIdentity((1,3,6,1,4,1,4355,5,1,2))
+if mibBuilder.loadTexts:rsIpsecEndpointPairStatistics.setStatus(_A)
+_RsIpsecEndpointPairTotalInSAs_Type=Gauge32
+_RsIpsecEndpointPairTotalInSAs_Object=MibScalar
+rsIpsecEndpointPairTotalInSAs=_RsIpsecEndpointPairTotalInSAs_Object((1,3,6,1,4,1,4355,5,1,2,1),_RsIpsecEndpointPairTotalInSAs_Type())
+rsIpsecEndpointPairTotalInSAs.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairTotalInSAs.setStatus(_A)
+_RsIpsecEndpointPairTotalOutSAs_Type=Gauge32
+_RsIpsecEndpointPairTotalOutSAs_Object=MibScalar
+rsIpsecEndpointPairTotalOutSAs=_RsIpsecEndpointPairTotalOutSAs_Object((1,3,6,1,4,1,4355,5,1,2,2),_RsIpsecEndpointPairTotalOutSAs_Type())
+rsIpsecEndpointPairTotalOutSAs.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairTotalOutSAs.setStatus(_A)
+_RsIpsecEndpointPairTotalInAccKbytes_Type=Counter32
+_RsIpsecEndpointPairTotalInAccKbytes_Object=MibScalar
+rsIpsecEndpointPairTotalInAccKbytes=_RsIpsecEndpointPairTotalInAccKbytes_Object((1,3,6,1,4,1,4355,5,1,2,3),_RsIpsecEndpointPairTotalInAccKbytes_Type())
+rsIpsecEndpointPairTotalInAccKbytes.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairTotalInAccKbytes.setStatus(_A)
+if mibBuilder.loadTexts:rsIpsecEndpointPairTotalInAccKbytes.setUnits(_D)
+_RsIpsecEndpointPairTotalOutAccKbytes_Type=Counter32
+_RsIpsecEndpointPairTotalOutAccKbytes_Object=MibScalar
+rsIpsecEndpointPairTotalOutAccKbytes=_RsIpsecEndpointPairTotalOutAccKbytes_Object((1,3,6,1,4,1,4355,5,1,2,4),_RsIpsecEndpointPairTotalOutAccKbytes_Type())
+rsIpsecEndpointPairTotalOutAccKbytes.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairTotalOutAccKbytes.setStatus(_A)
+_RsIpsecEndpointPairTotalInPackets_Type=Counter32
+_RsIpsecEndpointPairTotalInPackets_Object=MibScalar
+rsIpsecEndpointPairTotalInPackets=_RsIpsecEndpointPairTotalInPackets_Object((1,3,6,1,4,1,4355,5,1,2,5),_RsIpsecEndpointPairTotalInPackets_Type())
+rsIpsecEndpointPairTotalInPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairTotalInPackets.setStatus(_A)
+if mibBuilder.loadTexts:rsIpsecEndpointPairTotalInPackets.setUnits(_D)
+_RsIpsecEndpointPairTotalOutPackets_Type=Counter32
+_RsIpsecEndpointPairTotalOutPackets_Object=MibScalar
+rsIpsecEndpointPairTotalOutPackets=_RsIpsecEndpointPairTotalOutPackets_Object((1,3,6,1,4,1,4355,5,1,2,6),_RsIpsecEndpointPairTotalOutPackets_Type())
+rsIpsecEndpointPairTotalOutPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairTotalOutPackets.setStatus(_A)
+_RsIpsecEndpointPairTotalDecryptErrors_Type=Counter32
+_RsIpsecEndpointPairTotalDecryptErrors_Object=MibScalar
+rsIpsecEndpointPairTotalDecryptErrors=_RsIpsecEndpointPairTotalDecryptErrors_Object((1,3,6,1,4,1,4355,5,1,2,7),_RsIpsecEndpointPairTotalDecryptErrors_Type())
+rsIpsecEndpointPairTotalDecryptErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairTotalDecryptErrors.setStatus(_A)
+_RsIpsecEndpointPairTotalAuthErrors_Type=Counter32
+_RsIpsecEndpointPairTotalAuthErrors_Object=MibScalar
+rsIpsecEndpointPairTotalAuthErrors=_RsIpsecEndpointPairTotalAuthErrors_Object((1,3,6,1,4,1,4355,5,1,2,8),_RsIpsecEndpointPairTotalAuthErrors_Type())
+rsIpsecEndpointPairTotalAuthErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairTotalAuthErrors.setStatus(_A)
+_RsIpsecEndpointPairTotalReplayErrors_Type=Counter32
+_RsIpsecEndpointPairTotalReplayErrors_Object=MibScalar
+rsIpsecEndpointPairTotalReplayErrors=_RsIpsecEndpointPairTotalReplayErrors_Object((1,3,6,1,4,1,4355,5,1,2,9),_RsIpsecEndpointPairTotalReplayErrors_Type())
+rsIpsecEndpointPairTotalReplayErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairTotalReplayErrors.setStatus(_A)
+_RsIpsecEndpointPairTotalPolicyErrors_Type=Counter32
+_RsIpsecEndpointPairTotalPolicyErrors_Object=MibScalar
+rsIpsecEndpointPairTotalPolicyErrors=_RsIpsecEndpointPairTotalPolicyErrors_Object((1,3,6,1,4,1,4355,5,1,2,10),_RsIpsecEndpointPairTotalPolicyErrors_Type())
+rsIpsecEndpointPairTotalPolicyErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairTotalPolicyErrors.setStatus(_A)
+_RsIpsecEndpointPairTotalPadErrors_Type=Counter32
+_RsIpsecEndpointPairTotalPadErrors_Object=MibScalar
+rsIpsecEndpointPairTotalPadErrors=_RsIpsecEndpointPairTotalPadErrors_Object((1,3,6,1,4,1,4355,5,1,2,11),_RsIpsecEndpointPairTotalPadErrors_Type())
+rsIpsecEndpointPairTotalPadErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairTotalPadErrors.setStatus(_A)
+_RsIpsecEndpointPairTotalOtherReceiveErrors_Type=Counter32
+_RsIpsecEndpointPairTotalOtherReceiveErrors_Object=MibScalar
+rsIpsecEndpointPairTotalOtherReceiveErrors=_RsIpsecEndpointPairTotalOtherReceiveErrors_Object((1,3,6,1,4,1,4355,5,1,2,12),_RsIpsecEndpointPairTotalOtherReceiveErrors_Type())
+rsIpsecEndpointPairTotalOtherReceiveErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairTotalOtherReceiveErrors.setStatus(_A)
+_RsIpsecEndpointPairTotalSendErrors_Type=Counter32
+_RsIpsecEndpointPairTotalSendErrors_Object=MibScalar
+rsIpsecEndpointPairTotalSendErrors=_RsIpsecEndpointPairTotalSendErrors_Object((1,3,6,1,4,1,4355,5,1,2,13),_RsIpsecEndpointPairTotalSendErrors_Type())
+rsIpsecEndpointPairTotalSendErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairTotalSendErrors.setStatus(_A)
+_RsIpsecEndpointPairPeerIPToTunnel_ObjectIdentity=ObjectIdentity
+rsIpsecEndpointPairPeerIPToTunnel=_RsIpsecEndpointPairPeerIPToTunnel_ObjectIdentity((1,3,6,1,4,1,4355,5,1,3))
+if mibBuilder.loadTexts:rsIpsecEndpointPairPeerIPToTunnel.setStatus(_A)
+_RsIpsecEndpointPairPeerIPToTunnelNum_Type=Unsigned32
+_RsIpsecEndpointPairPeerIPToTunnelNum_Object=MibScalar
+rsIpsecEndpointPairPeerIPToTunnelNum=_RsIpsecEndpointPairPeerIPToTunnelNum_Object((1,3,6,1,4,1,4355,5,1,3,1),_RsIpsecEndpointPairPeerIPToTunnelNum_Type())
+rsIpsecEndpointPairPeerIPToTunnelNum.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairPeerIPToTunnelNum.setStatus(_A)
+_RsIpsecEndpointPairPeerIPToTunnelTable_Object=MibTable
+rsIpsecEndpointPairPeerIPToTunnelTable=_RsIpsecEndpointPairPeerIPToTunnelTable_Object((1,3,6,1,4,1,4355,5,1,3,2))
+if mibBuilder.loadTexts:rsIpsecEndpointPairPeerIPToTunnelTable.setStatus(_A)
+_RsIpsecEndpointPairPeerIPToTunnelEntry_Object=MibTableRow
+rsIpsecEndpointPairPeerIPToTunnelEntry=_RsIpsecEndpointPairPeerIPToTunnelEntry_Object((1,3,6,1,4,1,4355,5,1,3,2,1))
+rsIpsecEndpointPairPeerIPToTunnelEntry.setIndexNames((0,_C,_F),(0,_C,_G))
+if mibBuilder.loadTexts:rsIpsecEndpointPairPeerIPToTunnelEntry.setStatus(_A)
+_RsIpsecEndpointPairPeerIPToTunnelPeerIP_Type=IpAddress
+_RsIpsecEndpointPairPeerIPToTunnelPeerIP_Object=MibTableColumn
+rsIpsecEndpointPairPeerIPToTunnelPeerIP=_RsIpsecEndpointPairPeerIPToTunnelPeerIP_Object((1,3,6,1,4,1,4355,5,1,3,2,1,1),_RsIpsecEndpointPairPeerIPToTunnelPeerIP_Type())
+rsIpsecEndpointPairPeerIPToTunnelPeerIP.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairPeerIPToTunnelPeerIP.setStatus(_A)
+_RsIpsecEndpointPairPeerIPToTunnelTunnelID_Type=Integer32
+_RsIpsecEndpointPairPeerIPToTunnelTunnelID_Object=MibTableColumn
+rsIpsecEndpointPairPeerIPToTunnelTunnelID=_RsIpsecEndpointPairPeerIPToTunnelTunnelID_Object((1,3,6,1,4,1,4355,5,1,3,2,1,2),_RsIpsecEndpointPairPeerIPToTunnelTunnelID_Type())
+rsIpsecEndpointPairPeerIPToTunnelTunnelID.setMaxAccess(_B)
+if mibBuilder.loadTexts:rsIpsecEndpointPairPeerIPToTunnelTunnelID.setStatus(_A)
+mibBuilder.exportSymbols(_C,**{'rsIpsecEndpointPairModule':rsIpsecEndpointPairModule,'rsIpsecEndpointPairMIB':rsIpsecEndpointPairMIB,'rsIpsecEndpointPair':rsIpsecEndpointPair,'rsIpsecEndpointPairNum':rsIpsecEndpointPairNum,'rsIpsecEndpointPairTable':rsIpsecEndpointPairTable,'rsIpsecEndpointPairEntry':rsIpsecEndpointPairEntry,_E:rsIpsecEndpointPairIndex,'rsIpsecEndpointPairLocalAddr':rsIpsecEndpointPairLocalAddr,'rsIpsecEndpointPairPeerAddr':rsIpsecEndpointPairPeerAddr,'rsIpsecEndpointPairInSAs':rsIpsecEndpointPairInSAs,'rsIpsecEndpointPairOutSAs':rsIpsecEndpointPairOutSAs,'rsIpsecEndpointPairInAccKbytes':rsIpsecEndpointPairInAccKbytes,'rsIpsecEndpointPairOutAccKbytes':rsIpsecEndpointPairOutAccKbytes,'rsIpsecEndpointPairInPackets':rsIpsecEndpointPairInPackets,'rsIpsecEndpointPairOutPackets':rsIpsecEndpointPairOutPackets,'rsIpsecEndpointPairDecryptErrors':rsIpsecEndpointPairDecryptErrors,'rsIpsecEndpointPairAuthErrors':rsIpsecEndpointPairAuthErrors,'rsIpsecEndpointPairReplayErrors':rsIpsecEndpointPairReplayErrors,'rsIpsecEndpointPairPolicyErrors':rsIpsecEndpointPairPolicyErrors,'rsIpsecEndpointPairPadErrors':rsIpsecEndpointPairPadErrors,'rsIpsecEndpointPairOtherReceiveErrors':rsIpsecEndpointPairOtherReceiveErrors,'rsIpsecEndpointPairSendErrors':rsIpsecEndpointPairSendErrors,'rsIpsecEndpointPairStatistics':rsIpsecEndpointPairStatistics,'rsIpsecEndpointPairTotalInSAs':rsIpsecEndpointPairTotalInSAs,'rsIpsecEndpointPairTotalOutSAs':rsIpsecEndpointPairTotalOutSAs,'rsIpsecEndpointPairTotalInAccKbytes':rsIpsecEndpointPairTotalInAccKbytes,'rsIpsecEndpointPairTotalOutAccKbytes':rsIpsecEndpointPairTotalOutAccKbytes,'rsIpsecEndpointPairTotalInPackets':rsIpsecEndpointPairTotalInPackets,'rsIpsecEndpointPairTotalOutPackets':rsIpsecEndpointPairTotalOutPackets,'rsIpsecEndpointPairTotalDecryptErrors':rsIpsecEndpointPairTotalDecryptErrors,'rsIpsecEndpointPairTotalAuthErrors':rsIpsecEndpointPairTotalAuthErrors,'rsIpsecEndpointPairTotalReplayErrors':rsIpsecEndpointPairTotalReplayErrors,'rsIpsecEndpointPairTotalPolicyErrors':rsIpsecEndpointPairTotalPolicyErrors,'rsIpsecEndpointPairTotalPadErrors':rsIpsecEndpointPairTotalPadErrors,'rsIpsecEndpointPairTotalOtherReceiveErrors':rsIpsecEndpointPairTotalOtherReceiveErrors,'rsIpsecEndpointPairTotalSendErrors':rsIpsecEndpointPairTotalSendErrors,'rsIpsecEndpointPairPeerIPToTunnel':rsIpsecEndpointPairPeerIPToTunnel,'rsIpsecEndpointPairPeerIPToTunnelNum':rsIpsecEndpointPairPeerIPToTunnelNum,'rsIpsecEndpointPairPeerIPToTunnelTable':rsIpsecEndpointPairPeerIPToTunnelTable,'rsIpsecEndpointPairPeerIPToTunnelEntry':rsIpsecEndpointPairPeerIPToTunnelEntry,_F:rsIpsecEndpointPairPeerIPToTunnelPeerIP,_G:rsIpsecEndpointPairPeerIPToTunnelTunnelID})

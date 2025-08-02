@@ -1,185 +1,509 @@
-#
-# PySNMP MIB module PKTC-IETF-MTA-MIB (http://pysnmp.sf.net)
-# ASN.1 source file:///home/tt/fixed_mibs/PKTC-IETF-MTA-MIB
-# Produced by pysmi-0.0.2 at Mon Jun 22 22:27:31 2015
-# On host cray platform Linux version 2.6.37.6-smp by user tt
-# Using Python version 2.7.2 (default, Apr  2 2012, 20:32:47) 
-#
-( Integer, ObjectIdentifier, OctetString, ) = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
-( docsBpi2CodeDownloadGroup, ) = mibBuilder.importSymbols("DOCS-BPI2-MIB", "docsBpi2CodeDownloadGroup")
-( docsDevSoftwareGroupV2, ) = mibBuilder.importSymbols("DOCS-CABLE-DEVICE-MIB", "docsDevSoftwareGroupV2")
-( DocsX509ASN1DEREncodedCertificate, ) = mibBuilder.importSymbols("DOCS-IETF-BPI2-MIB", "DocsX509ASN1DEREncodedCertificate")
-( ifPhysAddress, ) = mibBuilder.importSymbols("IF-MIB", "ifPhysAddress")
-( InetAddress, InetAddressType, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( NotificationGroup, ModuleCompliance, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-( sysDescr, ) = mibBuilder.importSymbols("SNMPv2-MIB", "sysDescr")
-( Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, MibIdentifier, mib_2, TimeTicks, Counter64, Unsigned32, NotificationType, ModuleIdentity, Gauge32, iso, ObjectIdentity, Bits, Counter32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "MibIdentifier", "mib-2", "TimeTicks", "Counter64", "Unsigned32", "NotificationType", "ModuleIdentity", "Gauge32", "iso", "ObjectIdentity", "Bits", "Counter32")
-( TruthValue, RowStatus, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention")
-( LongUtf8String, ) = mibBuilder.importSymbols("SYSAPPL-MIB", "LongUtf8String")
-pktcIetfMtaMib = ModuleIdentity((1, 3, 6, 1, 2, 1, 140)).setRevisions(("2006-09-18 00:00",))
-if mibBuilder.loadTexts: pktcIetfMtaMib.setOrganization('IETF IP over Cable Data Network Working Group')
-if mibBuilder.loadTexts: pktcIetfMtaMib.setContactInfo('Eugene Nechamkin\n         Broadcom Corporation,\n         200-13711 International Place,\n\n\n\n         Richmond, BC, V6V 2Z8\n         CANADA\n         Phone: +1 604 233 8500\n         Email: enechamkin@broadcom.com\n\n         Jean-Francois Mule\n         Cable Television Laboratories, Inc.\n         858 Coal Creek Circle\n         Louisville, CO 80027-9750\n         U.S.A.\n         Phone: +1 303 661 9100\n         Email: jf.mule@cablelabs.com\n\n    IETF IPCDN Working Group\n         General Discussion: ipcdn@ietf.org\n         Subscribe: http://www.ietf.org/mailman/listinfo/ipcdn\n         Archive: ftp://ftp.ietf.org/ietf-mail-archive/ipcdn\n         Co-Chair: Jean-Francois Mule, jf.mule@cablelabs.com\n         Co-Chair: Richard Woundy, Richard_Woundy@cable.comcast.com')
-if mibBuilder.loadTexts: pktcIetfMtaMib.setDescription('This MIB module defines the basic management object\n        for the Multimedia Terminal Adapter devices compliant\n        with PacketCable and IPCablecom requirements.\n\n        Copyright (C) The IETF Trust (2006).  This version of\n        this MIB module is part of RFC 4682; see the RFC itself for\n        full legal notices.')
-class PktcMtaDevProvEncryptAlg(TextualConvention, Integer32):
-    subtypeSpec = Integer32.subtypeSpec+SingleValueConstraint(0, 1, 2, 3, 4,)
-    namedValues = NamedValues(("none", 0), ("des64CbcMode", 1), ("t3Des192CbcMode", 2), ("aes128CbcMode", 3), ("aes256CbcMode", 4),)
-
-pktcMtaNotification = MibIdentifier((1, 3, 6, 1, 2, 1, 140, 0))
-pktcMtaMibObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 140, 1))
-pktcMtaDevBase = MibIdentifier((1, 3, 6, 1, 2, 1, 140, 1, 1))
-pktcMtaDevServer = MibIdentifier((1, 3, 6, 1, 2, 1, 140, 1, 2))
-pktcMtaDevSecurity = MibIdentifier((1, 3, 6, 1, 2, 1, 140, 1, 3))
-pktcMtaDevErrors = MibIdentifier((1, 3, 6, 1, 2, 1, 140, 1, 4))
-pktcMtaConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 140, 2))
-pktcMtaDevResetNow = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcMtaDevResetNow.setDescription(" This object controls the MTA software reset.\n          Reading this object always returns 'false'.  Setting this\n          object to 'true' causes the device to reset immediately\n          and the following actions to occur:\n             1.  All connections (if present) are flushed locally.\n             2.  All current actions such as ringing immediately\n                 terminate.\n             3.  Requests for signaling notifications, such as\n                 notification based on digit map recognition, are\n                 flushed.\n             4.  All endpoints are disabled.\n             5.  The provisioning flow is started at step MTA-1.\n          If a value is written into an instance of\n          pktcMtaDevResetNow, the agent MUST NOT retain the supplied\n          value across MTA re-initializations or reboots.")
-pktcMtaDevSerialNumber = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevSerialNumber.setDescription(" This object specifies the manufacturer's serial\n          number of this MTA.  The value of this object MUST be\n          identical to the value specified in DHCP option 43,\n          sub-option 4.  The list of sub-options for DHCP option\n          43 are defined in the PacketCable MTA Device\n          Provisioning Specification.")
-pktcMtaDevSwCurrentVers = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevSwCurrentVers.setDescription(" This object identifies the software version currently\n          operating in the MTA.\n          The MTA MUST return a string descriptive of the current\n          software load.  This object should use the syntax\n          defined by the individual vendor to identify the software\n          version.  The data presented in this object MUST be\n          identical to the software version information contained\n          in the 'sysDescr' MIB object of the MTA.  The value of\n          this object MUST be identical to the value specified in\n          DHCP option 43, sub-option 6.  The list of sub-options for\n          DHCP option 43 are defined in the PacketCable MTA Device\n          Provisioning Specification.")
-pktcMtaDevFQDN = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevFQDN.setDescription(' This object contains the Fully Qualified Domain Name for\n          this MTA.  The MTA FQDN is used to uniquely identify the\n          device to the PacketCable back office elements.')
-pktcMtaDevEndPntCount = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevEndPntCount.setDescription(' This object contains the number of physical endpoints for\n          this MTA.')
-pktcMtaDevEnabled = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 1, 6), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcMtaDevEnabled.setDescription(" This object contains the MTA Admin Status of this device.\n           If this object is set to 'true', the MTA is\n           administratively enabled, and the MTA MUST be able to\n           interact with the PacketCable entities, such as CMS,\n           Provisioning Server, KDC, and other MTAs and MGs on all\n           PacketCable interfaces.\n           If this object is set to 'false', the MTA is\n           administratively disabled, and the MTA MUST perform the\n           following actions for all endpoints:\n               - Shut down all media sessions, if present.\n               - Shut down Network Control Signaling (NCS)\n               signaling by following the Restart in\n               Progress procedures in the PacketCable NCS\n               specification.\n           The MTA must execute all actions required to\n           enable or disable the telephony services for all\n           endpoints immediately upon receipt of an SNMP SET\n           operation.\n\n           Additionally, the MTA MUST maintain the SNMP Interface\n           for management and also the SNMP Key management interface.\n           Also, the MTA MUST NOT continue Kerberized key management\n           with CMSes until this object is set to 'true'.\n           Note: MTAs MUST renew the CMS Kerberos tickets according\n           to the PacketCable Security or IPCablecom Specification.\n           If a value is written into an instance of\n           pktcMtaDevEnabled, the agent MUST NOT retain the supplied\n           value across MTA re-initializations or reboots.")
-pktcMtaDevTypeIdentifier = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevTypeIdentifier.setDescription(' This object provides the MTA device type identifier.  The\n          value of this object must be a copy of the DHCP option 60\n          value exchanged between the MTA and the DHCP server.  The\n          DHCP option 60 value contains an ASCII-encoded string\n          identifying capabilities of the MTA as defined in the\n          PacketCable MTA Device Provisioning Specification.')
-pktcMtaDevProvisioningState = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 1, 8), Integer32().subtype(subtypeSpec=SingleValueConstraint(1, 2, 3, 4, 5, 6, 7,)).clone(namedValues=NamedValues(("pass", 1), ("inProgress", 2), ("failConfigFileError", 3), ("passWithWarnings", 4), ("passWithIncompleteParsing", 5), ("failureInternalError", 6), ("failureOtherReason", 7),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevProvisioningState.setDescription(" This object indicates the completion state of the MTA\n          device provisioning process.\n\n          pass:\n          If the configuration file could be parsed successfully\n          and the MTA is able to reflect the same in its\n          MIB, the MTA MUST return the value 'pass'.\n\n          inProgress:\n          If the MTA is in the process of being provisioned,\n          the MTA MUST return the value 'inProgress'.\n\n          failConfigFileError:\n          If the configuration file was in error due to incorrect\n          values in the mandatory parameters, the MTA MUST reject\n          the configuration file, and the MTA MUST return the value\n\n\n\n          'failConfigFileError'.\n\n          passWithWarnings:\n          If the configuration file had proper values for all the\n          mandatory parameters but has errors in any of the optional\n          parameters (this includes any vendor-specific Object\n          Identifiers (OIDs) that are incorrect or not known\n          to the MTA), the MTA MUST return the value\n          'passWithWarnings'.\n\n          passWithIncompleteParsing:\n          If the configuration file is valid but the MTA cannot\n          reflect the same in its configuration (for example, too\n          many entries caused memory exhaustion), it must accept\n          the CMS configuration entries related, and the MTA MUST\n          return the value 'passWithIncompleteParsing'.\n\n          failureInternalError:\n          If the configuration file cannot be parsed due to an\n          Internal error, the MTA MUST return the value\n          'failureInternalError'.\n\n          failureOtherReason:\n          If the MTA cannot accept the configuration file for any\n          other reason than the ones stated above, the MTA MUST\n          return the value 'failureOtherReason'.\n\n          When a final SNMP INFORM is sent as part of Step 25 of the\n          MTA Provisioning process, this parameter is also included\n          in the final INFORM message.")
-pktcMtaDevHttpAccess = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 1, 9), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevHttpAccess.setDescription(' This object indicates whether the HTTP protocol is\n          supported for the MTA configuration file transfer.')
-pktcMtaDevProvisioningTimer = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,30)).clone(10)).setUnits('minutes').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcMtaDevProvisioningTimer.setDescription(' This object defines the time interval for the provisioning\n          flow to complete.  The MTA MUST finish all provisioning\n          operations starting from the moment when an MTA receives\n          its DHCP ACK and ending at the moment when the MTA\n          downloads its configuration file (e.g., MTA5 to MTA23)\n          within the period of time set by this object.\n          Failure to comply with this condition constitutes\n          a provisioning flow failure.  If the object is set to 0,\n          the MTA MUST ignore the provisioning timer condition.\n          If a value is written into an instance of\n          pktcMtaDevProvisioningTimer, the agent MUST NOT retain the\n          supplied value across MTA re-initializations or reboots.')
-pktcMtaDevProvisioningCounter = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevProvisioningCounter.setDescription('This object counts the number of times the\n            provisioning cycle has looped through step MTA-1.')
-pktcMtaDevErrorOidsTable = MibTable((1, 3, 6, 1, 2, 1, 140, 1, 1, 12), )
-if mibBuilder.loadTexts: pktcMtaDevErrorOidsTable.setDescription(" This table contains the list of configuration errors or\n          warnings the MTA encountered when parsing the\n          configuration file it received from the Provisioning\n          Server.\n          For each error, an entry is created in this table,\n          containing the configuration parameters the MTA rejected\n          and the associated reason (e.g., wrong or unknown OID,\n          inappropriate object values).  If the MTA\n          did not report a provisioning state of 'pass(1)' in\n          the pktcMtaDevProvisioningState object, this table MUST be\n          populated for each error or warning instance.  Even if\n          different parameters share the same error type (e.g., all\n          realm name configuration parameters are invalid), all\n          observed errors or warnings must be reported as\n          different instances.  Errors are placed into the table in\n          no particular order.  The table MUST be cleared each time\n\n\n\n          the MTA reboots.")
-pktcMtaDevErrorOidsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 140, 1, 1, 12, 1), ).setIndexNames((0, "PKTC-IETF-MTA-MIB", "pktcMtaDevErrorOidIndex"))
-if mibBuilder.loadTexts: pktcMtaDevErrorOidsEntry.setDescription(' This entry contains the necessary information the MTA MUST\n          attempt to provide in case of configuration file errors or\n          warnings.')
-pktcMtaDevErrorOidIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 1, 12, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,1024)))
-if mibBuilder.loadTexts: pktcMtaDevErrorOidIndex.setDescription(" This object is the index of the MTA configuration error\n          table.  It is an integer value that starts at value '1'\n          and is incremented for each encountered configuration\n          file error or warning.\n\n          The maximum number of errors or warnings that can be\n          recorded in the pktcMtaDevErrorOidsTable is set to 1024 as\n          a configuration file is usually validated by operators\n          before deployment.  Given the possible number of\n          configuration parameter assignments in the MTA\n          configuration file, 1024 is perceived as a sufficient\n          limit even with future extensions.\n\n          If the number of the errors in the configuration file\n          exceeds 1024, all errors beyond the 1024th one MUST\n          be ignored and not be reflected in the\n          pktcMtaDevErrorOidsTable.")
-pktcMtaDevErrorOid = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 1, 12, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevErrorOid.setDescription(" This object contains a human readable representation\n          (character string) of the OID corresponding to the\n          configuration file parameter that caused the particular\n          error.\n          For example, if the value of the pktcMtaDevEnabled object\n          in the configuration file caused an error, then this\n          object instance will contain the human-readable string of\n          '1.3.6.1.2.1.140.1.1.6.0'.\n          If the MTA generated an error because it was not able\n          to recognize a particular OID, then this object\n          instance would contain an empty value (zero-length\n          string).\n          For example, if the value of an OID in the configuration\n          file was interpreted by the MTA as being 1.2.3.4.5, and if\n          the MTA was not able to recognize this OID as a valid one,\n          this object instance will contain a zero-length string.\n\n          If the number of errors in the configuration file exceeds\n          1024, then for all subsequent errors, the\n          pktcMtaDevErrorOid of the table's 1024th entry MUST\n          contain a human-readable representation of the\n          pktcMtaDevErrorsTooManyErrors object; i.e., the string\n          '1.3.6.1.2.1.140.1.1.4.1.0'.\n          Note that the syntax of this object is SnmpAdminString\n          instead of OBJECT IDENTIFIER because the object value may\n          not be a valid OID due to human or configuration tool\n          encoding errors.")
-pktcMtaDevErrorValue = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 1, 12, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevErrorValue.setDescription(" This object contains the value of the OID corresponding to\n          the configuration file parameter that caused the error.\n          If the MTA cannot recognize the OID of the\n          configuration parameter causing the error, then this\n          object instance contains the OID itself as interpreted\n          by the MTA in human-readable representation.\n          If the MTA can recognize the OID but generate an error due\n          to a wrong value of the parameter, then the object\n\n\n\n          instance contains the erroneous value of the parameter as\n          read from the configuration file.\n          In both cases, the value of this object must be\n          represented in human-readable form as a character string.\n          For example, if the value of the pktcMtaDevEnabled object\n          in the configuration file was 3 (invalid value), then the\n          pktcMtaDevErrorValue object instance will contain the\n          human-readable (string) representation of value '3'.\n          Similarly, if the OID in the configuration file has been\n          interpreted by the MTA as being 1.2.3.4.5 and the MTA\n          cannot recognize this OID as a valid one, then this\n          pktcMtaDevErrorValue object instance will contain human\n          readable (string) representation of value '1.2.3.4.5'.\n\n          If the number of errors in the configuration file exceeds\n          1024, then for all subsequent errors, the\n          pktcMtaDevErrorValue of the table's 1024th entry MUST\n          contain a human-readable representation of the\n          pktcMtaDevErrorsTooManyErrors object; i.e., the string\n          '1.3.6.1.2.1.140.1.1.4.1.0'.")
-pktcMtaDevErrorReason = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 1, 12, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevErrorReason.setDescription(" This object indicates the reason for the error or warning,\n          as per the MTA's interpretation, in human-readable form.\n          For example:\n          'VALUE NOT IN RANGE', 'VALUE DOES NOT MATCH TYPE',\n          'UNSUPPORTED VALUE', 'LAST 4 BITS MUST BE SET TO ZERO',\n          'OUT OF MEMORY - CANNOT STORE'.\n          This object may also contain vendor specific errors for\n          private vendor OIDs and any proprietary error codes or\n          messages that can help diagnose configuration errors.\n\n          If the number of errors in the configuration file exceeds\n          1024, then for all subsequent errors, the\n          pktcMtaDevErrorReason of the table's 1024th entry MUST\n          contain a human-readable string indicating the reason\n          for an error; for example,\n          'Too many errors in the configuration file'.")
-pktcMtaDevDhcpServerAddressType = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 1), InetAddressType().clone('ipv4')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevDhcpServerAddressType.setDescription(' This object contains the Internet address type for the\n          PacketCable DHCP servers specified in MTA MIB.')
-pktcMtaDevServerDhcp1 = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 2), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevServerDhcp1.setDescription(" This object contains the Internet Address of the primary\n          DHCP server the MTA uses during provisioning.\n          The type of this address is determined by the value of\n          the pktcMtaDevDhcpServerAddressType object.\n          When the latter has the value 'ipv4(1)', this object\n          contains the IP address of the primary DHCP\n          server.  It is provided by the CM to the MTA via the DHCP\n          option code 122, sub-option 1, as defined in RFC 3495.\n\n          The behavior of this object when the value of\n          pktcMtaDevDhcpServerAddressType is other than 'ipv4(1)'\n          is not presently specified, but it may be specified\n          in future versions of this MIB module.\n          If this object is of value\n          0.0.0.0, the MTA MUST stop all provisioning\n          attempts, as well as all other activities.\n          If this object is of value 255.255.255.255, it means\n          that there was no preference given for the primary\n          DHCP server, and, the MTA must follow the logic of\n          RFC2131, and the value of DHCP option 122,\n          sub-option 2, must be ignored.")
-pktcMtaDevServerDhcp2 = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 3), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevServerDhcp2.setDescription(" This object contains the Internet Address of the secondary\n          DHCP server the MTA uses during provisioning.\n          The type of this address is determined by the value of\n          the pktcMtaDevDhcpServerAddressType object.\n          When the latter has the value 'ipv4(1)', this object\n          contains the IP address of the secondary DHCP\n          server.  It is provided by the CM to the MTA via the DHCP\n          option code 122, sub-option 2, as defined in RFC 3495.\n\n          The behavior of this object when the value of\n          pktcMtaDevDhcpServerAddressType is other than 'ipv4(1)'\n          is not presently specified, but it may be specified\n          in future versions of this MIB module.\n          If there was no secondary DHCP server provided in DHCP\n          Option 122, sub-option 2, this object must return the value\n          0.0.0.0.")
-pktcMtaDevDnsServerAddressType = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 4), InetAddressType().clone('ipv4')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevDnsServerAddressType.setDescription(' This object contains the Internet address type for the\n          PacketCable DNS servers specified in MTA MIB.')
-pktcMtaDevServerDns1 = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 5), InetAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcMtaDevServerDns1.setDescription(" This object contains the IP Address of the primary\n          DNS server to be used by the MTA.  The type of this address\n          is determined by the value of the\n          pktcMtaDevDnsServerAddressType object.\n          When the latter has the value 'ipv4(1)', this object\n          contains the IP address of the primary DNS server.\n          As defined in RFC 2132, PacketCable-compliant MTAs receive\n          the IP addresses of the DNS Servers in DHCP option 6.\n          The behavior of this object when the value of\n          pktcMtaDevDnsServerAddressType is other than 'ipv4(1)'\n\n\n\n          is not presently specified, but it may be specified\n          in future versions of this MIB module.\n          If a value is written into an instance of\n          pktcMtaDevServerDns1, the agent MUST NOT retain the\n          supplied value across MTA re-initializations or reboots.")
-pktcMtaDevServerDns2 = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 6), InetAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcMtaDevServerDns2.setDescription(" This object contains the IP Address of the secondary\n          DNS server to be used by the MTA.  The type of this address\n          is determined by the value of the\n          pktcMtaDevDnsServerAddressType object.\n          When the latter has the value 'ipv4(1)', this object\n          contains the IP address of the secondary DNS\n          server.  As defined in RFC 2132, PacketCable-compliant MTAs\n          receive the IP addresses of the DNS Servers in DHCP\n          option 6.\n          The behavior of this object when the value of\n          pktcMtaDevDnsServerAddressType is other than 'ipv4(1)'\n          is not presently specified, but it may be specified\n          in future versions of this MIB module.\n          If a value is written into an instance of\n          pktcMtaDevServerDns2, the agent MUST NOT retain the\n          supplied value across MTA re-initializations or reboots.")
-pktcMtaDevTimeServerAddressType = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 7), InetAddressType().clone('ipv4')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevTimeServerAddressType.setDescription(' This object contains the Internet address type for the\n          PacketCable Time servers specified in MTA MIB.')
-pktcMtaDevTimeServer = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 8), InetAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcMtaDevTimeServer.setDescription(" This object contains the Internet Address of the Time\n          Server used by an S-MTA for Time Synchronization.  The type\n          of this address is determined by the value of the\n          pktcMtaDevTimeServerAddressType object.\n          When the latter has the value 'ipv4(1)', this object\n          contains the IP address of the Time Server used for Time\n          Synchronization.\n          In the case of an S-MTA, this object must be\n          populated with a value other than 0.0.0.0 as obtained\n          from DHCP option 4.  The protocol by which the time of day\n          MUST be retrieved is defined in RFC 868.\n          In the case of an E-MTA, this object must contain a\n          value of 0.0.0.0 if the address type is 'ipv4(1)' since\n          an E-MTA does not use the Time Protocol for time\n          synchronization (an E-MTA uses the time retrieved by the\n          DOCSIS cable modem).\n          The behavior of this object when the value of\n          pktcMtaDevTimeServerAddressType is other than 'ipv4(1)'\n          is not presently specified, but it may be specified in\n          future versions of this MIB module.\n          If a value is written into an instance of\n          pktcMtaDevTimeServer, the agent MUST NOT retain the\n          supplied value across MTA re-initializations or reboots.")
-pktcMtaDevConfigFile = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 9), SnmpAdminString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcMtaDevConfigFile.setDescription(" This object specifies the MTA device configuration file\n          information, including the access method, the server name,\n          and the configuration file name.  The value of this object\n          is the Uniform Resource Locator (URL) of the configuration\n          file for TFTP or HTTP download.\n          If this object value is a TFTP URL, it must be formatted\n          as defined in RFC 3617.\n          If this object value is an HTTP URL, it must be formatted\n          as defined in RFC 2616.\n          If the MTA SNMP Enrollment mechanism is used, then the MTA\n          must download the file provided by the Provisioning Server\n\n\n\n          during provisioning via an SNMP SET on this object.\n          If the MTA SNMP Enrollment mechanism is not used, this\n          object MUST contain the URL value corresponding to the\n          'siaddr' and 'file' fields received in the DHCP ACK to\n          locate the configuration file: the 'siaddr' and 'file'\n          fields represent the host and file of the TFTP URL,\n          respectively.  In this case, the MTA MUST return an\n          'inconsistentValue' error in response to SNMP SET\n          operations.\n          The MTA MUST return a zero-length string if the server\n          address (host part of the URL) is unknown.\n          If a value is written into an instance of\n          pktcMtaDevConfigFile, the agent MUST NOT retain the\n          supplied value across MTA re-initializations or reboots.")
-pktcMtaDevSnmpEntity = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 10), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevSnmpEntity.setDescription(' This object contains the FQDN of the SNMP entity of the\n          Provisioning Server.  When the MTA SNMP Enrollment\n          Mechanism is used, this object represents the server that\n          the MTA communicates with, that it receives the\n          configuration file URL from, and that it sends the\n          enrollment notification to.  The SNMP entity is also the\n          destination entity for all the provisioning\n          notifications.  It may be used for post-provisioning\n          SNMP operations.  During the provisioning phase, this\n          SNMP entity FQDN is supplied to the MTA via DHCP option\n          122, sub-option 3, as defined in RFC 3495.  The MTA must\n          resolve the FQDN value before its very first network\n          interaction with the SNMP entity during the provisioning\n          phase.')
-pktcMtaDevProvConfigHash = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 11), OctetString().subtype(subtypeSpec=ValueSizeConstraint(20,20)).setFixedLength(20)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcMtaDevProvConfigHash.setDescription(" This object contains the hash value of the contents of the\n          configuration file.\n          The authentication algorithm is Secure Hashing Algorithm\n          1 (SHA-1), and the length is 160 bits.  The hash\n          calculation MUST follow the requirements defined in the\n          PacketCable Security Specification.  When the MTA SNMP\n          Enrollment mechanism is used, this hash value is\n          calculated and sent to the MTA prior to sending the\n          config file.  This object value is then provided by the\n          Provisioning server via an SNMP SET operation.\n          When the MTA SNMP Enrollment mechanism is not in use, the\n          hash value is provided in the configuration file itself,\n          and it is also calculated by the MTA.  This object value\n          MUST represent the hash value calculated by the MTA.\n          When the MTA SNMP Enrollment mechanism is not in use, the\n          MTA must reject all SNMP SET operations on this object and\n          return an 'inconsistentValue' error.\n          If a value is written into an instance of\n          pktcMtaDevProvConfigHash, the agent MUST NOT retain the\n          supplied value across MTA re-initializations or reboots.")
-pktcMtaDevProvConfigKey = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(32,32)).setFixedLength(32)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcMtaDevProvConfigKey.setDescription(" This object contains the key used to encrypt/decrypt\n          the configuration file when secure SNMPv3 provisioning\n          is used.\n          The value of this object is provided along with the\n          configuration file information (pktcMtaDevConfigFile)\n          and hash (pktcMtaDevProvConfigHash) by the Provisioning\n          Server via SNMP SET once the configuration file has been\n          created, as defined by the PacketCable Security\n          specification.\n\n          The privacy algorithm is defined by the\n          pktcMtaDevProvConfigEncryptAlg MIB object.  The\n          MTA requirements related to the privacy algorithm are\n          defined in the PacketCable Security Specification.\n\n          If this object is set at any other provisioning step than\n          that allowed by the PacketCable MTA Device\n\n\n\n          Provisioning Specification, the MTA SHOULD return\n          an 'inconsistentValue' error.\n          This object must not be used in non secure provisioning\n          mode.  In non-secure provisioning modes, the MTA SHOULD\n          return an 'inconsistentValue' in response to SNMP SET\n          operations, and the MTA SHOULD return a zero-length\n          string in response to SNMP GET operations.\n          If a value is written into an instance of\n          pktcMtaDevProvConfigKey, the agent MUST NOT retain the\n          supplied value across MTA re-initializations or reboots.")
-pktcMtaDevProvConfigEncryptAlg = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 13), PktcMtaDevProvEncryptAlg().clone('des64CbcMode')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcMtaDevProvConfigEncryptAlg.setDescription(' This object defines the encryption algorithm used for\n          privacy protection of the MTA Configuration File content.')
-pktcMtaDevProvSolicitedKeyTimeout = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,180)).clone(3)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcMtaDevProvSolicitedKeyTimeout.setDescription(" This object defines a Kerberos Key Management timer on the\n          MTA.  It is the time period during which the MTA saves the\n          nonce and Server Kerberos Principal Identifier to match an\n          AP Request and its associated AP Reply response from the\n          Provisioning Server.\n          After the timeout has been exceeded, the client discards\n          this (nonce, Server Kerberos Principal Identifier) pair,\n          after which it will no longer accept a matching AP Reply.\n          This timer only applies when the Provisioning Server\n          initiated key management for SNMPv3 (with a\n          Wake Up message).\n          If this object is set to a zero value, the MTA MUST return\n          an 'inconsistentValue' in response to SNMP SET operations.\n          This object should not be used in non-secure provisioning\n          modes.  In non-secure provisioning modes, the MTA MUST\n          return an 'inconsistentValue' in response to SNMP SET\n          operations, and the MTA MUST return a zero value in\n\n\n\n          response to SNMP GET operations.\n          If a value is written into an instance of\n          pktcMtaDevProvSolicitedKeyTimeout, the agent MUST NOT\n          retain the supplied value across MTA re-initializations\n          or reboots.")
-pktcMtaDevProvUnsolicitedKeyMaxTimeout = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,600)).clone(600)).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevProvUnsolicitedKeyMaxTimeout.setDescription(' This object defines the timeout value that applies to\n          an MTA-initiated AP-REQ/REP key management exchange with\n          the Provisioning Server in SNMPv3 provisioning.\n          It is the maximum timeout value, and it may not be exceeded\n          in the exponential back-off algorithm.  If the DHCP option\n\n\n\n          code 122, sub-option 5, is provided to the MTA, it\n          overwrites this value.\n          In non-secure provisioning modes, the MTA MUST\n          return a zero value in response to SNMP GET\n          operations.')
-pktcMtaDevProvUnsolicitedKeyNomTimeout = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 16), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,600)).clone(3)).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevProvUnsolicitedKeyNomTimeout.setDescription(' This object defines the starting value of the timeout\n          for the AP-REQ/REP Backoff and Retry mechanism\n          with exponential timeout in SNMPv3 provisioning.\n          If the DHCP option code 122, sub-option 5, is provided\n          the MTA, it overwrites this value.\n          In non-secure provisioning modes, the MTA MUST\n          return a zero value in response to SNMP GET\n          operations.')
-pktcMtaDevProvUnsolicitedKeyMaxRetries = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 17), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,32)).clone(8)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevProvUnsolicitedKeyMaxRetries.setDescription(" This object contains a retry counter that applies to\n          an MTA-initiated AP-REQ/REP key management exchange with\n          the Provisioning Server in secure SNMPv3 provisioning.\n          It is the maximum number of retries before the MTA stops\n          attempting to establish a Security Association with\n          Provisioning Server.\n          If the DHCP option code 122, sub-option 5, is provided to\n          the MTA, it overwrites this value.\n          If this object is set to a zero value, the MTA MUST return\n          an 'inconsistentValue' in response to SNMP SET operations.\n          In non-secure provisioning modes, the MTA MUST\n          return a zero value in response to SNMP GET\n          operations.")
-pktcMtaDevProvKerbRealmName = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 18), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevProvKerbRealmName.setDescription(' This object contains the name of the associated\n          provisioning Kerberos realm acquired during the MTA4\n          provisioning step (DHCP Ack) for SNMPv3 provisioning.\n          The uppercase ASCII representation of the associated\n          Kerberos realm name MUST be used by both the Manager (SNMP\n          entity) and the MTA.\n          The Kerberos realm name for the Provisioning Server is\n          supplied to the MTA via DHCP option code 122, sub-option 6,\n          as defined in RFC 3495.  In secure SNMP provisioning mode,\n          the value of the Kerberos realm name for the Provisioning\n          Server supplied in the MTA configuration file must match\n          the value supplied in the DHCP option code 122,\n          sub-option 6.  Otherwise, the value of this object must\n          contain the value supplied in DHCP Option 122,\n          sub-option 6.')
-pktcMtaDevProvState = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 2, 19), Integer32().subtype(subtypeSpec=SingleValueConstraint(1, 2, 3, 4,)).clone(namedValues=NamedValues(("operational", 1), ("waitingForSnmpSetInfo", 2), ("waitingForTftpAddrResponse", 3), ("waitingForConfigFile", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevProvState.setDescription(" This object defines the MTA provisioning state.\n          If the state is:\n\n            'operational(1)', the device has completed the loading\n             and processing of the initialization parameters.\n\n            'waitingForSnmpSetInfo(2)', the device is waiting on\n             its configuration file download access information.\n             Note that this state is only reported when the MTA\n\n\n\n             SNMP enrollment mechanism is used.\n\n            'waitingForTftpAddrResponse(3)', the device has sent a\n             DNS request to resolve the server providing the\n             configuration file, and it is awaiting for a response.\n             Note that this state is only reported when the MTA\n             SNMP enrollment mechanism is used.\n\n            'waitingForConfigFile(4)', the device has sent a\n            request via TFTP or HTTP for the download of its\n            configuration file, and it is awaiting for a response or\n            the file download is in progress.")
-pktcMtaDevManufacturerCertificate = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 3, 1), DocsX509ASN1DEREncodedCertificate()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevManufacturerCertificate.setDescription(" This object contains the MTA Manufacturer Certificate.\n          The object value must be the ASN.1 DER encoding of the MTA\n          manufacturer's X.509 public key certificate.  The MTA\n          Manufacturer Certificate is issued to each MTA\n          manufacturer and is installed into each MTA at the time of\n          manufacture or with a secure code download.  The specific\n          requirements related to this certificate are defined in\n          the PacketCable or IPCablecom Security specifications.")
-pktcMtaDevCertificate = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 3, 2), DocsX509ASN1DEREncodedCertificate()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevCertificate.setDescription(" This object contains the MTA Device Certificate.\n          The object value must be the ASN.1 DER encoding of the\n          MTA's X.509 public-key certificate issued by the\n          manufacturer and installed into the MTA at the time of\n\n\n\n          manufacture or with a secure code download.\n          This certificate contains the MTA MAC address.  The\n          specific requirements related to this certificate are\n          defined in the PacketCable or IPCablecom Security\n          specifications.")
-pktcMtaDevCorrelationId = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 3, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevCorrelationId.setDescription(' This object contains a correlation ID, an arbitrary value\n          generated by the MTA that will be exchanged as part of the\n          device capability data to the Provisioning Application.\n          This random value is used as an identifier to correlate\n          related events in the MTA provisioning sequence.\n          This value is intended for use only during the MTA\n          initialization and configuration file download.')
-pktcMtaDevTelephonyRootCertificate = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 3, 4), DocsX509ASN1DEREncodedCertificate()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevTelephonyRootCertificate.setDescription(' This object contains the telephony Service Provider Root\n          certificate.  The object value is the ASN.1 DER encoding of\n          the IP Telephony Service Provider Root X.509 public key\n          certificate.  This certification is stored in the MTA\n          non-volatile memory and can be updated with a secure code\n          download.  This certificate is used to validate the initial\n          AS Reply received by the MTA from the Key Distribution\n          Center (KDC) during the MTA initialization.  The specific\n          requirements related to this certificate are defined in\n          the PacketCable or IPCablecom Security specifications.')
-pktcMtaDevRealmAvailSlot = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 3, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevRealmAvailSlot.setDescription(" This object contains the index number of the first\n          available entry in the realm table (pktcMtaDevRealmTable).\n          If all the entries in the realm table have been assigned,\n          this object contains the value of zero.\n          A management station should create new entries in the\n          realm table, using the following procedure:\n\n          First, issue a management protocol retrieval operation\n          to determine the value of the first available index in the\n          realm table (pktcMtaDevRealmAvailSlot).\n\n          Second, issue a management protocol SET operation\n          to create an instance of the pktcMtaDevRealmStatus\n          object by setting its value to 'createAndWait(5)'.\n\n          Third, if the SET operation succeeded, continue\n          modifying the object instances corresponding to the newly\n          created conceptual row, without fear of collision with\n          other management stations.  When all necessary conceptual\n          columns of the row are properly populated (via SET\n          operations or default values), the management station may\n          SET the pktcMtaDevRealmStatus object to 'active(1)'.")
-pktcMtaDevRealmTable = MibTable((1, 3, 6, 1, 2, 1, 140, 1, 3, 6), )
-if mibBuilder.loadTexts: pktcMtaDevRealmTable.setDescription(' This object contains the realm table.\n          The CMS table (pktcMtaDevCmsTable) and the realm table\n          (pktcMtaDevRealmTable) are used for managing the MTA-CMS\n          Security Associations.  The realm table defines the\n          Kerberos realms for the Application Servers (CMSes and the\n          Provisioning Server).')
-pktcMtaDevRealmEntry = MibTableRow((1, 3, 6, 1, 2, 1, 140, 1, 3, 6, 1), ).setIndexNames((0, "PKTC-IETF-MTA-MIB", "pktcMtaDevRealmIndex"))
-if mibBuilder.loadTexts: pktcMtaDevRealmEntry.setDescription(' This table entry object lists the MTA security parameters\n          for a single Kerberos realm.  The conceptual rows MUST NOT\n          persist across MTA reboots.')
-pktcMtaDevRealmIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 6, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,64)))
-if mibBuilder.loadTexts: pktcMtaDevRealmIndex.setDescription(' This object defines the realm table index.')
-pktcMtaDevRealmName = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 6, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMtaDevRealmName.setDescription(' This object identifies the Kerberos realm name in all\n          capitals.  The MTA MUST prohibit the instantiation of any\n          two rows with identical Kerberos realm names.  The MTA MUST\n          also verify that any search operation involving Kerberos\n          realm names is done using the uppercase ASCII\n          representation of the characters.')
-pktcMtaDevRealmPkinitGracePeriod = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 6, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(15,600)).clone(15)).setUnits('minutes').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMtaDevRealmPkinitGracePeriod.setDescription(' This object contains the PKINIT Grace Period.  For the\n         purpose of key management with Application Servers (CMSes\n\n\n\n         or the Provisioning Server), the MTA must utilize the\n         PKINIT exchange to obtain Application Server tickets.  The\n         MTA may utilize the PKINIT exchange to obtain Ticket\n         Granting Tickets (TGTs), which are then used to obtain\n         Application Server tickets in a TGS exchange.\n         The PKINIT exchange occurs according to the current Ticket\n         Expiration Time (TicketEXP) and on the PKINIT Grace Period\n         (PKINITGP).  The MTA MUST initiate the PKINIT exchange at\n         the time: TicketEXP - PKINITGP.')
-pktcMtaDevRealmTgsGracePeriod = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 6, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,600)).clone(10)).setUnits('minutes').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMtaDevRealmTgsGracePeriod.setDescription(' This object contains the Ticket Granting Server Grace\n          Period (TGSGP).  The Ticket Granting Server (TGS)\n          Request/Reply exchange may be performed by the MTA\n          on demand whenever an Application Server ticket is\n          needed to establish security parameters.  If the MTA\n          possesses a ticket that corresponds to the Provisioning\n          Server or a CMS that currently exists in the CMS table,\n          the MTA MUST initiate the TGS Request/Reply exchange\n          at the time: TicketEXP - TGSGP.')
-pktcMtaDevRealmOrgName = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 6, 1, 5), LongUtf8String()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMtaDevRealmOrgName.setDescription(' This object contains the X.500 organization name attribute\n          as defined in the subject name of the service provider\n          certificate.')
-pktcMtaDevRealmUnsolicitedKeyMaxTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 6, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,600)).clone(100)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMtaDevRealmUnsolicitedKeyMaxTimeout.setDescription(' This object specifies the maximum time the MTA will\n          attempt to perform the exponential back-off algorithm.\n          This timer only applies when the MTA initiated key\n          management.  If the DHCP option code 122, sub-option 4, is\n          provided to the MTA, it overwrites this value.\n\n          Unsolicited key updates are retransmitted according to an\n          exponential back-off mechanism using two timers and a\n          maximum retry counter for AS replies.\n          The initial retransmission timer value is the nominal\n          timer value (pktcMtaDevRealmUnsolicitedKeyNomTimeout).  The\n          retransmissions occur with an exponentially increasing\n          interval that caps at the maximum timeout value\n          (pktcMtaDevRealmUnsolicitedKeyMaxTimeout).\n          Retransmissions stop when the maximum retry counter is\n          reached (pktcMatDevRealmUnsolicitedMaxRetries).\n\n          For example, with values of 3 seconds for the nominal\n          timer, 20 seconds for the maximum timeout, and 5 retries\n          max, retransmission intervals will be 3 s, 6 s,\n          12 s, 20 s, and 20 s, and retransmissions then stop because\n          the maximum number of retries has been reached.')
-pktcMtaDevRealmUnsolicitedKeyNomTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 6, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(100,600000)).clone(3000)).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMtaDevRealmUnsolicitedKeyNomTimeout.setDescription(' This object specifies the initial timeout value\n          for the AS-REQ/AS-REP exponential back-off and retry\n          mechanism.  If the DHCP option code 122, sub-option 4, is\n          provided to the MTA, it overwrites this value.\n          This value should account for the average roundtrip\n          time between the MTA and the KDC, as well as the\n          processing delay on the KDC.\n\n\n\n\n          Unsolicited key updates are retransmitted according to an\n          exponential back-off mechanism using two timers and a\n          maximum retry counter for AS replies.\n          The initial retransmission timer value is the nominal\n          timer value (pktcMtaDevRealmUnsolicitedKeyNomTimeout).  The\n          retransmissions occur with an exponentially increasing\n          interval that caps at the maximum timeout value\n          (pktcMtaDevRealmUnsolicitedKeyMaxTimeout).\n          Retransmissions stop when the maximum retry counter is\n          reached (pktcMatDevRealmUnsolicitedMaxRetries).\n\n          For example, with values of 3 seconds for the nominal\n          timer, 20 seconds for the maximum timeout, and 5 retries\n          max, in retransmission intervals will be 3 s, 6 s,\n          12 s, 20 s, and 20 s; retransmissions then stop because\n          the maximum number of retries has been reached.')
-pktcMtaDevRealmUnsolicitedKeyMaxRetries = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 6, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,1024)).clone(5)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMtaDevRealmUnsolicitedKeyMaxRetries.setDescription(' This object specifies the maximum number of retries the\n          MTA attempts to obtain a ticket from the KDC.\n\n          Unsolicited key updates are retransmitted according to an\n          exponential back-off mechanism using two timers and a\n          maximum retry counter for AS replies.\n          The initial retransmission timer value is the nominal\n          timer value (pktcMtaDevRealmUnsolicitedKeyNomTimeout).  The\n          retransmissions occur with an exponentially increasing\n          interval that caps at the maximum timeout value\n          (pktcMtaDevRealmUnsolicitedKeyMaxTimeout).\n          Retransmissions stop when the maximum retry counter is\n          reached (pktcMatDevRealmUnsolicitedMaxRetries).\n\n          For example, with values of 3 seconds for the nominal\n          timer, 20 seconds for the maximum timeout, and 5 retries\n          max, retransmission intervals will be 3 s, 6 s,\n          12 s, 20 s, and 20 s; retransmissions then stop because\n          the maximum number of retries has been reached.')
-pktcMtaDevRealmStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 6, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMtaDevRealmStatus.setDescription(" This object defines the row status of this realm in the\n          realm table (pktcMtaDevRealmTable).\n\n          An entry in this table is not qualified for activation\n          until the object instances of all corresponding columns\n          have been initialized, either by default values, or via\n          explicit SET operations.  Until all object instances in\n          this row are initialized, the status value for this realm\n          must be 'notReady(3)'.\n          In particular, two columnar objects must be explicitly\n          SET: the realm name (pktcMtaDevRealmName) and the\n          organization name (pktcMtaDevRealmOrgName).  Once these 2\n          objects have been set and the row status is SET to\n          'active(1)', the MTA MUST NOT allow any modification of\n          these 2 object values.\n          The value of this object has no effect on whether other\n          columnar objects in this row can be modified.")
-pktcMtaDevCmsAvailSlot = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 3, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevCmsAvailSlot.setDescription(" This object contains the index number of the first\n          available entry in the CMS table (pktcMtaDevCmsTable).\n          If all the entries in the CMS table have been assigned,\n          this object contains the value of zero.\n          A management station should create new entries in the\n          CMS table, using the following procedure:\n\n          First, issue a management protocol retrieval operation\n          to determine the value of the first available index in the\n          CMS table (pktcMtaDevCmsAvailSlot).\n\n          Second, issue a management protocol SET operation\n          to create an instance of the pktcMtaDevCmsStatus\n          object by setting its value to 'createAndWait(5)'.\n\n          Third, if the SET operation succeeded, continue\n          modifying the object instances corresponding to the newly\n          created conceptual row, without fear of collision with\n          other management stations.  When all necessary conceptual\n          columns of the row are properly populated (via SET\n          operations or default values), the management station may\n          SET the pktcMtaDevCmsStatus object to 'active(1)'.")
-pktcMtaDevCmsTable = MibTable((1, 3, 6, 1, 2, 1, 140, 1, 3, 8), )
-if mibBuilder.loadTexts: pktcMtaDevCmsTable.setDescription(' This object defines the CMS table.\n          The CMS table (pktcMtaDevCmsTable) and the realm table\n          (pktcMtaDevRealmTable) are used for managing security\n          between the MTA and CMSes.  Each CMS table entry defines\n          a CMS the managed MTA is allowed to communicate with\n          and contains security parameters for key management with\n          that CMS.')
-pktcMtaDevCmsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 140, 1, 3, 8, 1), ).setIndexNames((0, "PKTC-IETF-MTA-MIB", "pktcMtaDevCmsIndex"))
-if mibBuilder.loadTexts: pktcMtaDevCmsEntry.setDescription(' This table entry object lists the MTA key management\n          parameters used when establishing Security Associations\n          with a CMS.  The conceptual rows MUST NOT persist across\n          MTA reboots.')
-pktcMtaDevCmsIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 8, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,128)))
-if mibBuilder.loadTexts: pktcMtaDevCmsIndex.setDescription(' This object defines the CMS table index.')
-pktcMtaDevCmsFqdn = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 8, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMtaDevCmsFqdn.setDescription(' This object specifies the CMS FQDN.  The MTA must\n          prohibit the instantiation of any two rows with identical\n          FQDNs.  The MTA must also verify that any search and/or\n          comparison operation involving a CMS FQDN is case\n          insensitive.  The MTA must resolve the CMS FQDN as required\n           by the corresponding PacketCable Specifications.')
-pktcMtaDevCmsKerbRealmName = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 8, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMtaDevCmsKerbRealmName.setDescription(' This object identifies the Kerberos realm name in uppercase\n          characters associated with the CMS defined in this\n\n\n\n          conceptual row.  The object value is a reference\n          point to the corresponding Kerberos realm name in the\n          realm table (pktcMtaDevRealmTable).')
-pktcMtaDevCmsMaxClockSkew = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 8, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,1800)).clone(300)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMtaDevCmsMaxClockSkew.setDescription(' This object specifies the maximum allowable clock skew\n          between the MTA and the CMS defined in this row.')
-pktcMtaDevCmsSolicitedKeyTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 8, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(100,30000)).clone(1000)).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMtaDevCmsSolicitedKeyTimeout.setDescription(' This object defines a Kerberos Key Management timer on the\n          MTA.  It is the time period during which the MTA saves the\n          nonce and Server Kerberos Principal Identifier to match an\n          AP Request and its associated AP Reply response from the\n          CMS.  This timer only applies when the CMS initiated key\n          management (with a Wake Up message or a Rekey message).')
-pktcMtaDevCmsUnsolicitedKeyMaxTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 8, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,600)).clone(600)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMtaDevCmsUnsolicitedKeyMaxTimeout.setDescription(' This object defines the timeout value that only applies\n          to an MTA-initiated key management exchange.  It is the\n          maximum timeout, and it may not be exceeded in the\n          exponential back-off algorithm.')
-pktcMtaDevCmsUnsolicitedKeyNomTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 8, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(100,30000)).clone(500)).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMtaDevCmsUnsolicitedKeyNomTimeout.setDescription(' This object defines the starting value of the timeout\n          for an MTA-initiated key management.  It should account for\n          the average roundtrip time between the MTA and the CMS and\n          the processing time on the CMS.')
-pktcMtaDevCmsUnsolicitedKeyMaxRetries = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 8, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,1024)).clone(5)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMtaDevCmsUnsolicitedKeyMaxRetries.setDescription(' This object contains the maximum number of retries before\n          the MTA stops attempting to establish a Security\n          Association with the CMS.')
-pktcMtaDevCmsIpsecCtrl = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 8, 1, 9), TruthValue().clone('true')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMtaDevCmsIpsecCtrl.setDescription(" This object specifies the MTA IPSec control flag.\n          If the object value is 'true', the MTA must use Kerberos\n          Key Management and IPsec to communicate with this CMS.  If\n          it is 'false', IPSec Signaling Security and Kerberos key\n          management are disabled for this specific CMS.")
-pktcMtaDevCmsStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 140, 1, 3, 8, 1, 10), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMtaDevCmsStatus.setDescription(" This object defines the row status associated with this\n          particular CMS in the CMS table (pktcMtaDevCmsTable).\n\n          An entry in this table is not qualified for activation\n          until the object instances of all corresponding columns\n          have been initialized, either by default values or via\n          explicit SET operations.  Until all object instances in\n          this row are initialized, the status value for this realm\n          must be 'notReady(3)'.\n          In particular, two columnar objects must be SET: the\n          CMS FQDN (pktcMtaDevCmsFqdn) and the Kerberos realm name\n          (pktcMtaDevCmsKerbRealmName).  Once these 2 objects have\n          been set and the row status is SET to 'active(1)', the MTA\n          MUST NOT allow any modification of these 2 object values.\n\n          The value of this object has no effect on\n          whether other columnar objects in this row can be\n          modified.")
-pktcMtaDevResetKrbTickets = MibScalar((1, 3, 6, 1, 2, 1, 140, 1, 3, 9), Bits().clone(namedValues=NamedValues(("invalidateProvOnReboot", 0), ("invalidateAllCmsOnReboot", 1),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcMtaDevResetKrbTickets.setDescription(" This object defines a Kerberos Ticket Control Mask that\n          instructs the MTA to invalidate the specific Application\n\n\n\n          Server Kerberos ticket(s) that are stored locally in the\n          MTA NVRAM (non-volatile or persistent memory).\n          If the MTA does not store Kerberos tickets in NVRAM, it\n          MUST ignore setting of this object and MUST report a BITS\n          value of zero when the object is read.\n          If the MTA supports Kerberos tickets storage in NVRAM, the\n          object value is encoded as follows:\n          - Setting the invalidateProvOnReboot bit (bit 0) to 1\n            means that the MTA MUST invalidate the Kerberos\n            Application Ticket(s) for the Provisioning Application\n            at the next MTA reboot if secure SNMP provisioning mode\n            is used.  In non-secure provisioning modes, the MTA MUST\n            return an 'inconsistentValue' in response to SNMP SET\n            operations with a bit 0 set to 1.\n          - Setting the invalidateAllCmsOnReboot bit (bit 1) to 1\n            means that the MTA MUST invalidate the Kerberos\n            Application Ticket(s) for all CMSes currently assigned\n            to the MTA endpoints.\n          If a value is written into an instance of\n          pktcMtaDevResetKrbTickets, the agent MUST retain the\n          supplied value across an MTA re-initialization or\n          reboot.")
-pktcMtaDevErrorsTooManyErrors = ObjectIdentity((1, 3, 6, 1, 2, 1, 140, 1, 4, 1))
-if mibBuilder.loadTexts: pktcMtaDevErrorsTooManyErrors.setDescription('This object defines the OID corresponding to the error\n         condition when too many errors are encountered in the\n         MTA configuration file during provisioning.')
-pktcMtaDevProvisioningEnrollment = NotificationType((1, 3, 6, 1, 2, 1, 140, 0, 1)).setObjects(*(("PKTC-IETF-MTA-MIB", "sysDescr"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevSwCurrentVers"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevTypeIdentifier"), ("PKTC-IETF-MTA-MIB", "ifPhysAddress"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevCorrelationId"),))
-if mibBuilder.loadTexts: pktcMtaDevProvisioningEnrollment.setDescription(' This INFORM notification is issued by the MTA to initiate\n          the PacketCable provisioning process when the MTA SNMP\n          enrollment mechanism is used.\n          It contains the system description, the current software\n          version, the MTA device type identifier, the MTA MAC\n          address (obtained in the MTA ifTable in the ifPhysAddress\n          object that corresponds to the ifIndex 1), and a\n          correlation ID.')
-pktcMtaDevProvisioningStatus = NotificationType((1, 3, 6, 1, 2, 1, 140, 0, 2)).setObjects(*(("PKTC-IETF-MTA-MIB", "ifPhysAddress"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevCorrelationId"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevProvisioningState"),))
-if mibBuilder.loadTexts: pktcMtaDevProvisioningStatus.setDescription(' This INFORM notification may be issued by the MTA to\n          confirm the completion of the PacketCable provisioning\n          process, and to report its provisioning completion\n          status.\n          It contains the MTA MAC address (obtained in the MTA\n          ifTable in the ifPhysAddress object that corresponds\n          to the ifIndex 1), a correlation ID and the MTA\n          provisioning state as defined in\n          pktcMtaDevProvisioningState.')
-pktcMtaCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 140, 2, 1))
-pktcMtaGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 140, 2, 2))
-pktcMtaBasicCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 140, 2, 1, 1)).setObjects(*(("PKTC-IETF-MTA-MIB", "pktcMtaGroup"), ("PKTC-IETF-MTA-MIB", "pktcMtaNotificationGroup"),))
-if mibBuilder.loadTexts: pktcMtaBasicCompliance.setDescription(' The compliance statement for MTA devices that implement\n          PacketCable or IPCablecom requirements.\n\n          This compliance statement applies to MTA implementations\n          that support PacketCable 1.0 or IPCablecom requirements,\n          which are not IPv6-capable at the time of this\n\n\n\n          RFC publication.')
-pktcMtaGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 140, 2, 2, 1)).setObjects(*(("PKTC-IETF-MTA-MIB", "pktcMtaDevResetNow"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevSerialNumber"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevSwCurrentVers"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevFQDN"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevEndPntCount"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevEnabled"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevProvisioningCounter"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevErrorOid"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevErrorValue"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevErrorReason"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevTypeIdentifier"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevProvisioningState"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevHttpAccess"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevCertificate"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevCorrelationId"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevManufacturerCertificate"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevDhcpServerAddressType"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevDnsServerAddressType"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevTimeServerAddressType"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevProvConfigEncryptAlg"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevServerDhcp1"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevServerDhcp2"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevServerDns1"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevServerDns2"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevTimeServer"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevConfigFile"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevSnmpEntity"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevRealmPkinitGracePeriod"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevRealmTgsGracePeriod"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevRealmAvailSlot"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevRealmName"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevRealmOrgName"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevRealmUnsolicitedKeyMaxTimeout"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevRealmUnsolicitedKeyNomTimeout"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevRealmUnsolicitedKeyMaxRetries"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevRealmStatus"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevCmsAvailSlot"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevCmsFqdn"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevCmsKerbRealmName"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevCmsUnsolicitedKeyMaxTimeout"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevCmsUnsolicitedKeyNomTimeout"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevCmsUnsolicitedKeyMaxRetries"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevCmsSolicitedKeyTimeout"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevCmsMaxClockSkew"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevCmsIpsecCtrl"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevCmsStatus"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevResetKrbTickets"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevProvUnsolicitedKeyMaxTimeout"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevProvUnsolicitedKeyNomTimeout"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevProvUnsolicitedKeyMaxRetries"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevProvKerbRealmName"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevProvSolicitedKeyTimeout"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevProvConfigHash"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevProvConfigKey"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevProvState"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevProvisioningTimer"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevTelephonyRootCertificate"),))
-if mibBuilder.loadTexts: pktcMtaGroup.setDescription(' A collection of objects for managing PacketCable or\n          IPCablecom MTA implementations.')
-pktcMtaNotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 140, 2, 2, 2)).setObjects(*(("PKTC-IETF-MTA-MIB", "pktcMtaDevProvisioningStatus"), ("PKTC-IETF-MTA-MIB", "pktcMtaDevProvisioningEnrollment"),))
-if mibBuilder.loadTexts: pktcMtaNotificationGroup.setDescription(' A collection of notifications dealing with the change of\n          MTA provisioning status.')
-pktcMtaBasicSmtaCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 140, 2, 1, 2)).setObjects(*(("PKTC-IETF-MTA-MIB", "pktcMtaGroup"), ("PKTC-IETF-MTA-MIB", "pktcMtaNotificationGroup"), ("DOCS-CABLE-DEVICE-MIB", "docsDevSoftwareGroupV2"), ("DOCS-IETF-BPI2-MIB", "docsBpi2CodeDownloadGroup"),))
-if mibBuilder.loadTexts: pktcMtaBasicSmtaCompliance.setDescription(' The compliance statement for S-MTA devices\n          that implement PacketCable or IPCablecom requirements.\n\n          This compliance statement applies to S-MTA implementations\n          that support PacketCable or IPCablecom requirements,\n          which are not IPv6-capable at the time of this\n          RFC publication.')
-mibBuilder.exportSymbols("PKTC-IETF-MTA-MIB", pktcMtaDevSerialNumber=pktcMtaDevSerialNumber, pktcMtaDevTelephonyRootCertificate=pktcMtaDevTelephonyRootCertificate, PYSNMP_MODULE_ID=pktcIetfMtaMib, pktcMtaDevRealmUnsolicitedKeyMaxTimeout=pktcMtaDevRealmUnsolicitedKeyMaxTimeout, pktcMtaDevTimeServerAddressType=pktcMtaDevTimeServerAddressType, pktcMtaDevCmsStatus=pktcMtaDevCmsStatus, pktcMtaNotification=pktcMtaNotification, pktcMtaDevServerDhcp1=pktcMtaDevServerDhcp1, pktcMtaDevProvisioningTimer=pktcMtaDevProvisioningTimer, pktcMtaDevCmsAvailSlot=pktcMtaDevCmsAvailSlot, pktcMtaDevRealmEntry=pktcMtaDevRealmEntry, pktcMtaDevRealmName=pktcMtaDevRealmName, pktcMtaCompliances=pktcMtaCompliances, pktcMtaDevCertificate=pktcMtaDevCertificate, pktcMtaDevRealmTable=pktcMtaDevRealmTable, pktcMtaDevRealmAvailSlot=pktcMtaDevRealmAvailSlot, pktcMtaDevEnabled=pktcMtaDevEnabled, pktcMtaDevProvUnsolicitedKeyMaxRetries=pktcMtaDevProvUnsolicitedKeyMaxRetries, pktcMtaDevErrorOidsTable=pktcMtaDevErrorOidsTable, pktcMtaDevErrorOidsEntry=pktcMtaDevErrorOidsEntry, PktcMtaDevProvEncryptAlg=PktcMtaDevProvEncryptAlg, pktcMtaDevServer=pktcMtaDevServer, pktcMtaDevProvSolicitedKeyTimeout=pktcMtaDevProvSolicitedKeyTimeout, pktcMtaDevDnsServerAddressType=pktcMtaDevDnsServerAddressType, pktcMtaDevErrorReason=pktcMtaDevErrorReason, pktcMtaDevTimeServer=pktcMtaDevTimeServer, pktcMtaDevResetNow=pktcMtaDevResetNow, pktcMtaMibObjects=pktcMtaMibObjects, pktcMtaDevCmsUnsolicitedKeyNomTimeout=pktcMtaDevCmsUnsolicitedKeyNomTimeout, pktcMtaDevServerDns1=pktcMtaDevServerDns1, pktcMtaBasicSmtaCompliance=pktcMtaBasicSmtaCompliance, pktcMtaDevProvConfigHash=pktcMtaDevProvConfigHash, pktcMtaDevErrorOidIndex=pktcMtaDevErrorOidIndex, pktcMtaDevErrorOid=pktcMtaDevErrorOid, pktcMtaDevErrors=pktcMtaDevErrors, pktcMtaDevProvConfigEncryptAlg=pktcMtaDevProvConfigEncryptAlg, pktcMtaDevHttpAccess=pktcMtaDevHttpAccess, pktcMtaDevSnmpEntity=pktcMtaDevSnmpEntity, pktcMtaDevProvisioningState=pktcMtaDevProvisioningState, pktcMtaDevCmsUnsolicitedKeyMaxRetries=pktcMtaDevCmsUnsolicitedKeyMaxRetries, pktcMtaDevCmsFqdn=pktcMtaDevCmsFqdn, pktcMtaDevRealmUnsolicitedKeyMaxRetries=pktcMtaDevRealmUnsolicitedKeyMaxRetries, pktcMtaDevCmsKerbRealmName=pktcMtaDevCmsKerbRealmName, pktcMtaDevCorrelationId=pktcMtaDevCorrelationId, pktcMtaDevDhcpServerAddressType=pktcMtaDevDhcpServerAddressType, pktcMtaDevProvUnsolicitedKeyMaxTimeout=pktcMtaDevProvUnsolicitedKeyMaxTimeout, pktcMtaDevErrorValue=pktcMtaDevErrorValue, pktcMtaGroup=pktcMtaGroup, pktcMtaDevServerDns2=pktcMtaDevServerDns2, pktcIetfMtaMib=pktcIetfMtaMib, pktcMtaDevManufacturerCertificate=pktcMtaDevManufacturerCertificate, pktcMtaDevProvUnsolicitedKeyNomTimeout=pktcMtaDevProvUnsolicitedKeyNomTimeout, pktcMtaDevRealmPkinitGracePeriod=pktcMtaDevRealmPkinitGracePeriod, pktcMtaDevConfigFile=pktcMtaDevConfigFile, pktcMtaDevTypeIdentifier=pktcMtaDevTypeIdentifier, pktcMtaDevCmsTable=pktcMtaDevCmsTable, pktcMtaDevResetKrbTickets=pktcMtaDevResetKrbTickets, pktcMtaDevRealmTgsGracePeriod=pktcMtaDevRealmTgsGracePeriod, pktcMtaDevProvisioningEnrollment=pktcMtaDevProvisioningEnrollment, pktcMtaGroups=pktcMtaGroups, pktcMtaDevProvConfigKey=pktcMtaDevProvConfigKey, pktcMtaDevCmsMaxClockSkew=pktcMtaDevCmsMaxClockSkew, pktcMtaDevSecurity=pktcMtaDevSecurity, pktcMtaDevEndPntCount=pktcMtaDevEndPntCount, pktcMtaDevRealmStatus=pktcMtaDevRealmStatus, pktcMtaDevProvisioningStatus=pktcMtaDevProvisioningStatus, pktcMtaDevProvisioningCounter=pktcMtaDevProvisioningCounter, pktcMtaConformance=pktcMtaConformance, pktcMtaDevRealmUnsolicitedKeyNomTimeout=pktcMtaDevRealmUnsolicitedKeyNomTimeout, pktcMtaDevCmsUnsolicitedKeyMaxTimeout=pktcMtaDevCmsUnsolicitedKeyMaxTimeout, pktcMtaDevRealmOrgName=pktcMtaDevRealmOrgName, pktcMtaDevCmsIndex=pktcMtaDevCmsIndex, pktcMtaNotificationGroup=pktcMtaNotificationGroup, pktcMtaDevProvKerbRealmName=pktcMtaDevProvKerbRealmName, pktcMtaDevCmsSolicitedKeyTimeout=pktcMtaDevCmsSolicitedKeyTimeout, pktcMtaDevBase=pktcMtaDevBase, pktcMtaBasicCompliance=pktcMtaBasicCompliance, pktcMtaDevProvState=pktcMtaDevProvState, pktcMtaDevFQDN=pktcMtaDevFQDN, pktcMtaDevSwCurrentVers=pktcMtaDevSwCurrentVers, pktcMtaDevCmsIpsecCtrl=pktcMtaDevCmsIpsecCtrl, pktcMtaDevCmsEntry=pktcMtaDevCmsEntry, pktcMtaDevRealmIndex=pktcMtaDevRealmIndex, pktcMtaDevServerDhcp2=pktcMtaDevServerDhcp2, pktcMtaDevErrorsTooManyErrors=pktcMtaDevErrorsTooManyErrors)
+_AX='pktcMtaDevProvisioningEnrollment'
+_AW='pktcMtaDevProvisioningStatus'
+_AV='pktcMtaDevTelephonyRootCertificate'
+_AU='pktcMtaDevProvisioningTimer'
+_AT='pktcMtaDevProvState'
+_AS='pktcMtaDevProvConfigKey'
+_AR='pktcMtaDevProvConfigHash'
+_AQ='pktcMtaDevProvSolicitedKeyTimeout'
+_AP='pktcMtaDevProvKerbRealmName'
+_AO='pktcMtaDevProvUnsolicitedKeyMaxRetries'
+_AN='pktcMtaDevProvUnsolicitedKeyNomTimeout'
+_AM='pktcMtaDevProvUnsolicitedKeyMaxTimeout'
+_AL='pktcMtaDevResetKrbTickets'
+_AK='pktcMtaDevCmsStatus'
+_AJ='pktcMtaDevCmsIpsecCtrl'
+_AI='pktcMtaDevCmsMaxClockSkew'
+_AH='pktcMtaDevCmsSolicitedKeyTimeout'
+_AG='pktcMtaDevCmsUnsolicitedKeyMaxRetries'
+_AF='pktcMtaDevCmsUnsolicitedKeyNomTimeout'
+_AE='pktcMtaDevCmsUnsolicitedKeyMaxTimeout'
+_AD='pktcMtaDevCmsKerbRealmName'
+_AC='pktcMtaDevCmsFqdn'
+_AB='pktcMtaDevCmsAvailSlot'
+_AA='pktcMtaDevRealmStatus'
+_A9='pktcMtaDevRealmUnsolicitedKeyMaxRetries'
+_A8='pktcMtaDevRealmUnsolicitedKeyNomTimeout'
+_A7='pktcMtaDevRealmUnsolicitedKeyMaxTimeout'
+_A6='pktcMtaDevRealmOrgName'
+_A5='pktcMtaDevRealmName'
+_A4='pktcMtaDevRealmAvailSlot'
+_A3='pktcMtaDevRealmTgsGracePeriod'
+_A2='pktcMtaDevRealmPkinitGracePeriod'
+_A1='pktcMtaDevSnmpEntity'
+_A0='pktcMtaDevConfigFile'
+_z='pktcMtaDevTimeServer'
+_y='pktcMtaDevServerDns2'
+_x='pktcMtaDevServerDns1'
+_w='pktcMtaDevServerDhcp2'
+_v='pktcMtaDevServerDhcp1'
+_u='pktcMtaDevProvConfigEncryptAlg'
+_t='pktcMtaDevTimeServerAddressType'
+_s='pktcMtaDevDnsServerAddressType'
+_r='pktcMtaDevDhcpServerAddressType'
+_q='pktcMtaDevManufacturerCertificate'
+_p='pktcMtaDevCertificate'
+_o='pktcMtaDevHttpAccess'
+_n='pktcMtaDevErrorReason'
+_m='pktcMtaDevErrorValue'
+_l='pktcMtaDevErrorOid'
+_k='pktcMtaDevProvisioningCounter'
+_j='pktcMtaDevEnabled'
+_i='pktcMtaDevEndPntCount'
+_h='pktcMtaDevFQDN'
+_g='pktcMtaDevSerialNumber'
+_f='pktcMtaDevResetNow'
+_e='pktcMtaDevCmsIndex'
+_d='pktcMtaDevRealmIndex'
+_c='PktcMtaDevProvEncryptAlg'
+_b='pktcMtaDevErrorOidIndex'
+_a='TruthValue'
+_Z='sysDescr'
+_Y='SNMPv2-MIB'
+_X='docsBpi2CodeDownloadGroup'
+_W='DOCS-IETF-BPI2-MIB'
+_V='pktcMtaNotificationGroup'
+_U='pktcMtaGroup'
+_T='pktcMtaDevProvisioningState'
+_S='pktcMtaDevTypeIdentifier'
+_R='pktcMtaDevSwCurrentVers'
+_Q='milliseconds'
+_P='not-accessible'
+_O='minutes'
+_N='Integer32'
+_M='ifPhysAddress'
+_L='IF-MIB'
+_K='OctetString'
+_J='pktcMtaDevCorrelationId'
+_I='InetAddressType'
+_H='SnmpAdminString'
+_G='seconds'
+_F='read-write'
+_E='read-create'
+_D='Unsigned32'
+_C='read-only'
+_B='PKTC-IETF-MTA-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_K,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+DocsX509ASN1DEREncodedCertificate,docsBpi2CodeDownloadGroup=mibBuilder.importSymbols(_W,'DocsX509ASN1DEREncodedCertificate',_X)
+ifPhysAddress,=mibBuilder.importSymbols(_L,_M)
+InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress',_I)
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_H)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+sysDescr,=mibBuilder.importSymbols(_Y,_Z)
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_N,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso','mib-2')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_a)
+pktcIetfMtaMib=ModuleIdentity((1,3,6,1,2,1,140))
+if mibBuilder.loadTexts:pktcIetfMtaMib.setRevisions(('2006-09-18 00:00',))
+class PktcMtaDevProvEncryptAlg(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*(('none',0),('des64CbcMode',1),('t3Des192CbcMode',2),('aes128CbcMode',3),('aes256CbcMode',4)))
+_PktcMtaNotification_ObjectIdentity=ObjectIdentity
+pktcMtaNotification=_PktcMtaNotification_ObjectIdentity((1,3,6,1,2,1,140,0))
+_PktcMtaMibObjects_ObjectIdentity=ObjectIdentity
+pktcMtaMibObjects=_PktcMtaMibObjects_ObjectIdentity((1,3,6,1,2,1,140,1))
+_PktcMtaDevBase_ObjectIdentity=ObjectIdentity
+pktcMtaDevBase=_PktcMtaDevBase_ObjectIdentity((1,3,6,1,2,1,140,1,1))
+_PktcMtaDevResetNow_Type=TruthValue
+_PktcMtaDevResetNow_Object=MibScalar
+pktcMtaDevResetNow=_PktcMtaDevResetNow_Object((1,3,6,1,2,1,140,1,1,1),_PktcMtaDevResetNow_Type())
+pktcMtaDevResetNow.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcMtaDevResetNow.setStatus(_A)
+_PktcMtaDevSerialNumber_Type=SnmpAdminString
+_PktcMtaDevSerialNumber_Object=MibScalar
+pktcMtaDevSerialNumber=_PktcMtaDevSerialNumber_Object((1,3,6,1,2,1,140,1,1,2),_PktcMtaDevSerialNumber_Type())
+pktcMtaDevSerialNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevSerialNumber.setStatus(_A)
+_PktcMtaDevSwCurrentVers_Type=SnmpAdminString
+_PktcMtaDevSwCurrentVers_Object=MibScalar
+pktcMtaDevSwCurrentVers=_PktcMtaDevSwCurrentVers_Object((1,3,6,1,2,1,140,1,1,3),_PktcMtaDevSwCurrentVers_Type())
+pktcMtaDevSwCurrentVers.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevSwCurrentVers.setStatus(_A)
+_PktcMtaDevFQDN_Type=SnmpAdminString
+_PktcMtaDevFQDN_Object=MibScalar
+pktcMtaDevFQDN=_PktcMtaDevFQDN_Object((1,3,6,1,2,1,140,1,1,4),_PktcMtaDevFQDN_Type())
+pktcMtaDevFQDN.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevFQDN.setStatus(_A)
+class _PktcMtaDevEndPntCount_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_PktcMtaDevEndPntCount_Type.__name__=_D
+_PktcMtaDevEndPntCount_Object=MibScalar
+pktcMtaDevEndPntCount=_PktcMtaDevEndPntCount_Object((1,3,6,1,2,1,140,1,1,5),_PktcMtaDevEndPntCount_Type())
+pktcMtaDevEndPntCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevEndPntCount.setStatus(_A)
+_PktcMtaDevEnabled_Type=TruthValue
+_PktcMtaDevEnabled_Object=MibScalar
+pktcMtaDevEnabled=_PktcMtaDevEnabled_Object((1,3,6,1,2,1,140,1,1,6),_PktcMtaDevEnabled_Type())
+pktcMtaDevEnabled.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcMtaDevEnabled.setStatus(_A)
+_PktcMtaDevTypeIdentifier_Type=SnmpAdminString
+_PktcMtaDevTypeIdentifier_Object=MibScalar
+pktcMtaDevTypeIdentifier=_PktcMtaDevTypeIdentifier_Object((1,3,6,1,2,1,140,1,1,7),_PktcMtaDevTypeIdentifier_Type())
+pktcMtaDevTypeIdentifier.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevTypeIdentifier.setStatus(_A)
+class _PktcMtaDevProvisioningState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('pass',1),('inProgress',2),('failConfigFileError',3),('passWithWarnings',4),('passWithIncompleteParsing',5),('failureInternalError',6),('failureOtherReason',7)))
+_PktcMtaDevProvisioningState_Type.__name__=_N
+_PktcMtaDevProvisioningState_Object=MibScalar
+pktcMtaDevProvisioningState=_PktcMtaDevProvisioningState_Object((1,3,6,1,2,1,140,1,1,8),_PktcMtaDevProvisioningState_Type())
+pktcMtaDevProvisioningState.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevProvisioningState.setStatus(_A)
+_PktcMtaDevHttpAccess_Type=TruthValue
+_PktcMtaDevHttpAccess_Object=MibScalar
+pktcMtaDevHttpAccess=_PktcMtaDevHttpAccess_Object((1,3,6,1,2,1,140,1,1,9),_PktcMtaDevHttpAccess_Type())
+pktcMtaDevHttpAccess.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevHttpAccess.setStatus(_A)
+class _PktcMtaDevProvisioningTimer_Type(Unsigned32):defaultValue=10;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,30))
+_PktcMtaDevProvisioningTimer_Type.__name__=_D
+_PktcMtaDevProvisioningTimer_Object=MibScalar
+pktcMtaDevProvisioningTimer=_PktcMtaDevProvisioningTimer_Object((1,3,6,1,2,1,140,1,1,10),_PktcMtaDevProvisioningTimer_Type())
+pktcMtaDevProvisioningTimer.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcMtaDevProvisioningTimer.setStatus(_A)
+if mibBuilder.loadTexts:pktcMtaDevProvisioningTimer.setUnits(_O)
+_PktcMtaDevProvisioningCounter_Type=Counter32
+_PktcMtaDevProvisioningCounter_Object=MibScalar
+pktcMtaDevProvisioningCounter=_PktcMtaDevProvisioningCounter_Object((1,3,6,1,2,1,140,1,1,11),_PktcMtaDevProvisioningCounter_Type())
+pktcMtaDevProvisioningCounter.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevProvisioningCounter.setStatus(_A)
+_PktcMtaDevErrorOidsTable_Object=MibTable
+pktcMtaDevErrorOidsTable=_PktcMtaDevErrorOidsTable_Object((1,3,6,1,2,1,140,1,1,12))
+if mibBuilder.loadTexts:pktcMtaDevErrorOidsTable.setStatus(_A)
+_PktcMtaDevErrorOidsEntry_Object=MibTableRow
+pktcMtaDevErrorOidsEntry=_PktcMtaDevErrorOidsEntry_Object((1,3,6,1,2,1,140,1,1,12,1))
+pktcMtaDevErrorOidsEntry.setIndexNames((0,_B,_b))
+if mibBuilder.loadTexts:pktcMtaDevErrorOidsEntry.setStatus(_A)
+class _PktcMtaDevErrorOidIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1024))
+_PktcMtaDevErrorOidIndex_Type.__name__=_D
+_PktcMtaDevErrorOidIndex_Object=MibTableColumn
+pktcMtaDevErrorOidIndex=_PktcMtaDevErrorOidIndex_Object((1,3,6,1,2,1,140,1,1,12,1,1),_PktcMtaDevErrorOidIndex_Type())
+pktcMtaDevErrorOidIndex.setMaxAccess(_P)
+if mibBuilder.loadTexts:pktcMtaDevErrorOidIndex.setStatus(_A)
+_PktcMtaDevErrorOid_Type=SnmpAdminString
+_PktcMtaDevErrorOid_Object=MibTableColumn
+pktcMtaDevErrorOid=_PktcMtaDevErrorOid_Object((1,3,6,1,2,1,140,1,1,12,1,2),_PktcMtaDevErrorOid_Type())
+pktcMtaDevErrorOid.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevErrorOid.setStatus(_A)
+_PktcMtaDevErrorValue_Type=SnmpAdminString
+_PktcMtaDevErrorValue_Object=MibTableColumn
+pktcMtaDevErrorValue=_PktcMtaDevErrorValue_Object((1,3,6,1,2,1,140,1,1,12,1,3),_PktcMtaDevErrorValue_Type())
+pktcMtaDevErrorValue.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevErrorValue.setStatus(_A)
+_PktcMtaDevErrorReason_Type=SnmpAdminString
+_PktcMtaDevErrorReason_Object=MibTableColumn
+pktcMtaDevErrorReason=_PktcMtaDevErrorReason_Object((1,3,6,1,2,1,140,1,1,12,1,4),_PktcMtaDevErrorReason_Type())
+pktcMtaDevErrorReason.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevErrorReason.setStatus(_A)
+_PktcMtaDevServer_ObjectIdentity=ObjectIdentity
+pktcMtaDevServer=_PktcMtaDevServer_ObjectIdentity((1,3,6,1,2,1,140,1,2))
+class _PktcMtaDevDhcpServerAddressType_Type(InetAddressType):defaultValue=1
+_PktcMtaDevDhcpServerAddressType_Type.__name__=_I
+_PktcMtaDevDhcpServerAddressType_Object=MibScalar
+pktcMtaDevDhcpServerAddressType=_PktcMtaDevDhcpServerAddressType_Object((1,3,6,1,2,1,140,1,2,1),_PktcMtaDevDhcpServerAddressType_Type())
+pktcMtaDevDhcpServerAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevDhcpServerAddressType.setStatus(_A)
+_PktcMtaDevServerDhcp1_Type=InetAddress
+_PktcMtaDevServerDhcp1_Object=MibScalar
+pktcMtaDevServerDhcp1=_PktcMtaDevServerDhcp1_Object((1,3,6,1,2,1,140,1,2,2),_PktcMtaDevServerDhcp1_Type())
+pktcMtaDevServerDhcp1.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevServerDhcp1.setStatus(_A)
+_PktcMtaDevServerDhcp2_Type=InetAddress
+_PktcMtaDevServerDhcp2_Object=MibScalar
+pktcMtaDevServerDhcp2=_PktcMtaDevServerDhcp2_Object((1,3,6,1,2,1,140,1,2,3),_PktcMtaDevServerDhcp2_Type())
+pktcMtaDevServerDhcp2.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevServerDhcp2.setStatus(_A)
+class _PktcMtaDevDnsServerAddressType_Type(InetAddressType):defaultValue=1
+_PktcMtaDevDnsServerAddressType_Type.__name__=_I
+_PktcMtaDevDnsServerAddressType_Object=MibScalar
+pktcMtaDevDnsServerAddressType=_PktcMtaDevDnsServerAddressType_Object((1,3,6,1,2,1,140,1,2,4),_PktcMtaDevDnsServerAddressType_Type())
+pktcMtaDevDnsServerAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevDnsServerAddressType.setStatus(_A)
+_PktcMtaDevServerDns1_Type=InetAddress
+_PktcMtaDevServerDns1_Object=MibScalar
+pktcMtaDevServerDns1=_PktcMtaDevServerDns1_Object((1,3,6,1,2,1,140,1,2,5),_PktcMtaDevServerDns1_Type())
+pktcMtaDevServerDns1.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcMtaDevServerDns1.setStatus(_A)
+_PktcMtaDevServerDns2_Type=InetAddress
+_PktcMtaDevServerDns2_Object=MibScalar
+pktcMtaDevServerDns2=_PktcMtaDevServerDns2_Object((1,3,6,1,2,1,140,1,2,6),_PktcMtaDevServerDns2_Type())
+pktcMtaDevServerDns2.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcMtaDevServerDns2.setStatus(_A)
+class _PktcMtaDevTimeServerAddressType_Type(InetAddressType):defaultValue=1
+_PktcMtaDevTimeServerAddressType_Type.__name__=_I
+_PktcMtaDevTimeServerAddressType_Object=MibScalar
+pktcMtaDevTimeServerAddressType=_PktcMtaDevTimeServerAddressType_Object((1,3,6,1,2,1,140,1,2,7),_PktcMtaDevTimeServerAddressType_Type())
+pktcMtaDevTimeServerAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevTimeServerAddressType.setStatus(_A)
+_PktcMtaDevTimeServer_Type=InetAddress
+_PktcMtaDevTimeServer_Object=MibScalar
+pktcMtaDevTimeServer=_PktcMtaDevTimeServer_Object((1,3,6,1,2,1,140,1,2,8),_PktcMtaDevTimeServer_Type())
+pktcMtaDevTimeServer.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcMtaDevTimeServer.setStatus(_A)
+_PktcMtaDevConfigFile_Type=SnmpAdminString
+_PktcMtaDevConfigFile_Object=MibScalar
+pktcMtaDevConfigFile=_PktcMtaDevConfigFile_Object((1,3,6,1,2,1,140,1,2,9),_PktcMtaDevConfigFile_Type())
+pktcMtaDevConfigFile.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcMtaDevConfigFile.setStatus(_A)
+_PktcMtaDevSnmpEntity_Type=SnmpAdminString
+_PktcMtaDevSnmpEntity_Object=MibScalar
+pktcMtaDevSnmpEntity=_PktcMtaDevSnmpEntity_Object((1,3,6,1,2,1,140,1,2,10),_PktcMtaDevSnmpEntity_Type())
+pktcMtaDevSnmpEntity.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevSnmpEntity.setStatus(_A)
+class _PktcMtaDevProvConfigHash_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(20,20));fixedLength=20
+_PktcMtaDevProvConfigHash_Type.__name__=_K
+_PktcMtaDevProvConfigHash_Object=MibScalar
+pktcMtaDevProvConfigHash=_PktcMtaDevProvConfigHash_Object((1,3,6,1,2,1,140,1,2,11),_PktcMtaDevProvConfigHash_Type())
+pktcMtaDevProvConfigHash.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcMtaDevProvConfigHash.setStatus(_A)
+class _PktcMtaDevProvConfigKey_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(32,32));fixedLength=32
+_PktcMtaDevProvConfigKey_Type.__name__=_K
+_PktcMtaDevProvConfigKey_Object=MibScalar
+pktcMtaDevProvConfigKey=_PktcMtaDevProvConfigKey_Object((1,3,6,1,2,1,140,1,2,12),_PktcMtaDevProvConfigKey_Type())
+pktcMtaDevProvConfigKey.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcMtaDevProvConfigKey.setStatus(_A)
+class _PktcMtaDevProvConfigEncryptAlg_Type(PktcMtaDevProvEncryptAlg):defaultValue=1
+_PktcMtaDevProvConfigEncryptAlg_Type.__name__=_c
+_PktcMtaDevProvConfigEncryptAlg_Object=MibScalar
+pktcMtaDevProvConfigEncryptAlg=_PktcMtaDevProvConfigEncryptAlg_Object((1,3,6,1,2,1,140,1,2,13),_PktcMtaDevProvConfigEncryptAlg_Type())
+pktcMtaDevProvConfigEncryptAlg.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcMtaDevProvConfigEncryptAlg.setStatus(_A)
+class _PktcMtaDevProvSolicitedKeyTimeout_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,180))
+_PktcMtaDevProvSolicitedKeyTimeout_Type.__name__=_D
+_PktcMtaDevProvSolicitedKeyTimeout_Object=MibScalar
+pktcMtaDevProvSolicitedKeyTimeout=_PktcMtaDevProvSolicitedKeyTimeout_Object((1,3,6,1,2,1,140,1,2,14),_PktcMtaDevProvSolicitedKeyTimeout_Type())
+pktcMtaDevProvSolicitedKeyTimeout.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcMtaDevProvSolicitedKeyTimeout.setStatus(_A)
+if mibBuilder.loadTexts:pktcMtaDevProvSolicitedKeyTimeout.setUnits(_G)
+class _PktcMtaDevProvUnsolicitedKeyMaxTimeout_Type(Unsigned32):defaultValue=600;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,600))
+_PktcMtaDevProvUnsolicitedKeyMaxTimeout_Type.__name__=_D
+_PktcMtaDevProvUnsolicitedKeyMaxTimeout_Object=MibScalar
+pktcMtaDevProvUnsolicitedKeyMaxTimeout=_PktcMtaDevProvUnsolicitedKeyMaxTimeout_Object((1,3,6,1,2,1,140,1,2,15),_PktcMtaDevProvUnsolicitedKeyMaxTimeout_Type())
+pktcMtaDevProvUnsolicitedKeyMaxTimeout.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevProvUnsolicitedKeyMaxTimeout.setStatus(_A)
+if mibBuilder.loadTexts:pktcMtaDevProvUnsolicitedKeyMaxTimeout.setUnits(_G)
+class _PktcMtaDevProvUnsolicitedKeyNomTimeout_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,600))
+_PktcMtaDevProvUnsolicitedKeyNomTimeout_Type.__name__=_D
+_PktcMtaDevProvUnsolicitedKeyNomTimeout_Object=MibScalar
+pktcMtaDevProvUnsolicitedKeyNomTimeout=_PktcMtaDevProvUnsolicitedKeyNomTimeout_Object((1,3,6,1,2,1,140,1,2,16),_PktcMtaDevProvUnsolicitedKeyNomTimeout_Type())
+pktcMtaDevProvUnsolicitedKeyNomTimeout.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevProvUnsolicitedKeyNomTimeout.setStatus(_A)
+if mibBuilder.loadTexts:pktcMtaDevProvUnsolicitedKeyNomTimeout.setUnits(_G)
+class _PktcMtaDevProvUnsolicitedKeyMaxRetries_Type(Unsigned32):defaultValue=8;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32))
+_PktcMtaDevProvUnsolicitedKeyMaxRetries_Type.__name__=_D
+_PktcMtaDevProvUnsolicitedKeyMaxRetries_Object=MibScalar
+pktcMtaDevProvUnsolicitedKeyMaxRetries=_PktcMtaDevProvUnsolicitedKeyMaxRetries_Object((1,3,6,1,2,1,140,1,2,17),_PktcMtaDevProvUnsolicitedKeyMaxRetries_Type())
+pktcMtaDevProvUnsolicitedKeyMaxRetries.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevProvUnsolicitedKeyMaxRetries.setStatus(_A)
+class _PktcMtaDevProvKerbRealmName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_PktcMtaDevProvKerbRealmName_Type.__name__=_H
+_PktcMtaDevProvKerbRealmName_Object=MibScalar
+pktcMtaDevProvKerbRealmName=_PktcMtaDevProvKerbRealmName_Object((1,3,6,1,2,1,140,1,2,18),_PktcMtaDevProvKerbRealmName_Type())
+pktcMtaDevProvKerbRealmName.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevProvKerbRealmName.setStatus(_A)
+class _PktcMtaDevProvState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('operational',1),('waitingForSnmpSetInfo',2),('waitingForTftpAddrResponse',3),('waitingForConfigFile',4)))
+_PktcMtaDevProvState_Type.__name__=_N
+_PktcMtaDevProvState_Object=MibScalar
+pktcMtaDevProvState=_PktcMtaDevProvState_Object((1,3,6,1,2,1,140,1,2,19),_PktcMtaDevProvState_Type())
+pktcMtaDevProvState.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevProvState.setStatus(_A)
+_PktcMtaDevSecurity_ObjectIdentity=ObjectIdentity
+pktcMtaDevSecurity=_PktcMtaDevSecurity_ObjectIdentity((1,3,6,1,2,1,140,1,3))
+_PktcMtaDevManufacturerCertificate_Type=DocsX509ASN1DEREncodedCertificate
+_PktcMtaDevManufacturerCertificate_Object=MibScalar
+pktcMtaDevManufacturerCertificate=_PktcMtaDevManufacturerCertificate_Object((1,3,6,1,2,1,140,1,3,1),_PktcMtaDevManufacturerCertificate_Type())
+pktcMtaDevManufacturerCertificate.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevManufacturerCertificate.setStatus(_A)
+_PktcMtaDevCertificate_Type=DocsX509ASN1DEREncodedCertificate
+_PktcMtaDevCertificate_Object=MibScalar
+pktcMtaDevCertificate=_PktcMtaDevCertificate_Object((1,3,6,1,2,1,140,1,3,2),_PktcMtaDevCertificate_Type())
+pktcMtaDevCertificate.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevCertificate.setStatus(_A)
+_PktcMtaDevCorrelationId_Type=Unsigned32
+_PktcMtaDevCorrelationId_Object=MibScalar
+pktcMtaDevCorrelationId=_PktcMtaDevCorrelationId_Object((1,3,6,1,2,1,140,1,3,3),_PktcMtaDevCorrelationId_Type())
+pktcMtaDevCorrelationId.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevCorrelationId.setStatus(_A)
+_PktcMtaDevTelephonyRootCertificate_Type=DocsX509ASN1DEREncodedCertificate
+_PktcMtaDevTelephonyRootCertificate_Object=MibScalar
+pktcMtaDevTelephonyRootCertificate=_PktcMtaDevTelephonyRootCertificate_Object((1,3,6,1,2,1,140,1,3,4),_PktcMtaDevTelephonyRootCertificate_Type())
+pktcMtaDevTelephonyRootCertificate.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevTelephonyRootCertificate.setStatus(_A)
+class _PktcMtaDevRealmAvailSlot_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,64))
+_PktcMtaDevRealmAvailSlot_Type.__name__=_D
+_PktcMtaDevRealmAvailSlot_Object=MibScalar
+pktcMtaDevRealmAvailSlot=_PktcMtaDevRealmAvailSlot_Object((1,3,6,1,2,1,140,1,3,5),_PktcMtaDevRealmAvailSlot_Type())
+pktcMtaDevRealmAvailSlot.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevRealmAvailSlot.setStatus(_A)
+_PktcMtaDevRealmTable_Object=MibTable
+pktcMtaDevRealmTable=_PktcMtaDevRealmTable_Object((1,3,6,1,2,1,140,1,3,6))
+if mibBuilder.loadTexts:pktcMtaDevRealmTable.setStatus(_A)
+_PktcMtaDevRealmEntry_Object=MibTableRow
+pktcMtaDevRealmEntry=_PktcMtaDevRealmEntry_Object((1,3,6,1,2,1,140,1,3,6,1))
+pktcMtaDevRealmEntry.setIndexNames((0,_B,_d))
+if mibBuilder.loadTexts:pktcMtaDevRealmEntry.setStatus(_A)
+class _PktcMtaDevRealmIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,64))
+_PktcMtaDevRealmIndex_Type.__name__=_D
+_PktcMtaDevRealmIndex_Object=MibTableColumn
+pktcMtaDevRealmIndex=_PktcMtaDevRealmIndex_Object((1,3,6,1,2,1,140,1,3,6,1,1),_PktcMtaDevRealmIndex_Type())
+pktcMtaDevRealmIndex.setMaxAccess(_P)
+if mibBuilder.loadTexts:pktcMtaDevRealmIndex.setStatus(_A)
+class _PktcMtaDevRealmName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_PktcMtaDevRealmName_Type.__name__=_H
+_PktcMtaDevRealmName_Object=MibTableColumn
+pktcMtaDevRealmName=_PktcMtaDevRealmName_Object((1,3,6,1,2,1,140,1,3,6,1,2),_PktcMtaDevRealmName_Type())
+pktcMtaDevRealmName.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcMtaDevRealmName.setStatus(_A)
+class _PktcMtaDevRealmPkinitGracePeriod_Type(Unsigned32):defaultValue=15;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(15,600))
+_PktcMtaDevRealmPkinitGracePeriod_Type.__name__=_D
+_PktcMtaDevRealmPkinitGracePeriod_Object=MibTableColumn
+pktcMtaDevRealmPkinitGracePeriod=_PktcMtaDevRealmPkinitGracePeriod_Object((1,3,6,1,2,1,140,1,3,6,1,3),_PktcMtaDevRealmPkinitGracePeriod_Type())
+pktcMtaDevRealmPkinitGracePeriod.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcMtaDevRealmPkinitGracePeriod.setStatus(_A)
+if mibBuilder.loadTexts:pktcMtaDevRealmPkinitGracePeriod.setUnits(_O)
+class _PktcMtaDevRealmTgsGracePeriod_Type(Unsigned32):defaultValue=10;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,600))
+_PktcMtaDevRealmTgsGracePeriod_Type.__name__=_D
+_PktcMtaDevRealmTgsGracePeriod_Object=MibTableColumn
+pktcMtaDevRealmTgsGracePeriod=_PktcMtaDevRealmTgsGracePeriod_Object((1,3,6,1,2,1,140,1,3,6,1,4),_PktcMtaDevRealmTgsGracePeriod_Type())
+pktcMtaDevRealmTgsGracePeriod.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcMtaDevRealmTgsGracePeriod.setStatus(_A)
+if mibBuilder.loadTexts:pktcMtaDevRealmTgsGracePeriod.setUnits(_O)
+_PktcMtaDevRealmOrgName_Type=SnmpAdminString
+_PktcMtaDevRealmOrgName_Object=MibTableColumn
+pktcMtaDevRealmOrgName=_PktcMtaDevRealmOrgName_Object((1,3,6,1,2,1,140,1,3,6,1,5),_PktcMtaDevRealmOrgName_Type())
+pktcMtaDevRealmOrgName.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcMtaDevRealmOrgName.setStatus(_A)
+class _PktcMtaDevRealmUnsolicitedKeyMaxTimeout_Type(Unsigned32):defaultValue=100;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,600))
+_PktcMtaDevRealmUnsolicitedKeyMaxTimeout_Type.__name__=_D
+_PktcMtaDevRealmUnsolicitedKeyMaxTimeout_Object=MibTableColumn
+pktcMtaDevRealmUnsolicitedKeyMaxTimeout=_PktcMtaDevRealmUnsolicitedKeyMaxTimeout_Object((1,3,6,1,2,1,140,1,3,6,1,6),_PktcMtaDevRealmUnsolicitedKeyMaxTimeout_Type())
+pktcMtaDevRealmUnsolicitedKeyMaxTimeout.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcMtaDevRealmUnsolicitedKeyMaxTimeout.setStatus(_A)
+if mibBuilder.loadTexts:pktcMtaDevRealmUnsolicitedKeyMaxTimeout.setUnits(_G)
+class _PktcMtaDevRealmUnsolicitedKeyNomTimeout_Type(Unsigned32):defaultValue=3000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,600000))
+_PktcMtaDevRealmUnsolicitedKeyNomTimeout_Type.__name__=_D
+_PktcMtaDevRealmUnsolicitedKeyNomTimeout_Object=MibTableColumn
+pktcMtaDevRealmUnsolicitedKeyNomTimeout=_PktcMtaDevRealmUnsolicitedKeyNomTimeout_Object((1,3,6,1,2,1,140,1,3,6,1,7),_PktcMtaDevRealmUnsolicitedKeyNomTimeout_Type())
+pktcMtaDevRealmUnsolicitedKeyNomTimeout.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcMtaDevRealmUnsolicitedKeyNomTimeout.setStatus(_A)
+if mibBuilder.loadTexts:pktcMtaDevRealmUnsolicitedKeyNomTimeout.setUnits(_Q)
+class _PktcMtaDevRealmUnsolicitedKeyMaxRetries_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1024))
+_PktcMtaDevRealmUnsolicitedKeyMaxRetries_Type.__name__=_D
+_PktcMtaDevRealmUnsolicitedKeyMaxRetries_Object=MibTableColumn
+pktcMtaDevRealmUnsolicitedKeyMaxRetries=_PktcMtaDevRealmUnsolicitedKeyMaxRetries_Object((1,3,6,1,2,1,140,1,3,6,1,8),_PktcMtaDevRealmUnsolicitedKeyMaxRetries_Type())
+pktcMtaDevRealmUnsolicitedKeyMaxRetries.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcMtaDevRealmUnsolicitedKeyMaxRetries.setStatus(_A)
+_PktcMtaDevRealmStatus_Type=RowStatus
+_PktcMtaDevRealmStatus_Object=MibTableColumn
+pktcMtaDevRealmStatus=_PktcMtaDevRealmStatus_Object((1,3,6,1,2,1,140,1,3,6,1,9),_PktcMtaDevRealmStatus_Type())
+pktcMtaDevRealmStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcMtaDevRealmStatus.setStatus(_A)
+class _PktcMtaDevCmsAvailSlot_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
+_PktcMtaDevCmsAvailSlot_Type.__name__=_D
+_PktcMtaDevCmsAvailSlot_Object=MibScalar
+pktcMtaDevCmsAvailSlot=_PktcMtaDevCmsAvailSlot_Object((1,3,6,1,2,1,140,1,3,7),_PktcMtaDevCmsAvailSlot_Type())
+pktcMtaDevCmsAvailSlot.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevCmsAvailSlot.setStatus(_A)
+_PktcMtaDevCmsTable_Object=MibTable
+pktcMtaDevCmsTable=_PktcMtaDevCmsTable_Object((1,3,6,1,2,1,140,1,3,8))
+if mibBuilder.loadTexts:pktcMtaDevCmsTable.setStatus(_A)
+_PktcMtaDevCmsEntry_Object=MibTableRow
+pktcMtaDevCmsEntry=_PktcMtaDevCmsEntry_Object((1,3,6,1,2,1,140,1,3,8,1))
+pktcMtaDevCmsEntry.setIndexNames((0,_B,_e))
+if mibBuilder.loadTexts:pktcMtaDevCmsEntry.setStatus(_A)
+class _PktcMtaDevCmsIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,128))
+_PktcMtaDevCmsIndex_Type.__name__=_D
+_PktcMtaDevCmsIndex_Object=MibTableColumn
+pktcMtaDevCmsIndex=_PktcMtaDevCmsIndex_Object((1,3,6,1,2,1,140,1,3,8,1,1),_PktcMtaDevCmsIndex_Type())
+pktcMtaDevCmsIndex.setMaxAccess(_P)
+if mibBuilder.loadTexts:pktcMtaDevCmsIndex.setStatus(_A)
+class _PktcMtaDevCmsFqdn_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_PktcMtaDevCmsFqdn_Type.__name__=_H
+_PktcMtaDevCmsFqdn_Object=MibTableColumn
+pktcMtaDevCmsFqdn=_PktcMtaDevCmsFqdn_Object((1,3,6,1,2,1,140,1,3,8,1,2),_PktcMtaDevCmsFqdn_Type())
+pktcMtaDevCmsFqdn.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcMtaDevCmsFqdn.setStatus(_A)
+class _PktcMtaDevCmsKerbRealmName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_PktcMtaDevCmsKerbRealmName_Type.__name__=_H
+_PktcMtaDevCmsKerbRealmName_Object=MibTableColumn
+pktcMtaDevCmsKerbRealmName=_PktcMtaDevCmsKerbRealmName_Object((1,3,6,1,2,1,140,1,3,8,1,3),_PktcMtaDevCmsKerbRealmName_Type())
+pktcMtaDevCmsKerbRealmName.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcMtaDevCmsKerbRealmName.setStatus(_A)
+class _PktcMtaDevCmsMaxClockSkew_Type(Unsigned32):defaultValue=300;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1800))
+_PktcMtaDevCmsMaxClockSkew_Type.__name__=_D
+_PktcMtaDevCmsMaxClockSkew_Object=MibTableColumn
+pktcMtaDevCmsMaxClockSkew=_PktcMtaDevCmsMaxClockSkew_Object((1,3,6,1,2,1,140,1,3,8,1,4),_PktcMtaDevCmsMaxClockSkew_Type())
+pktcMtaDevCmsMaxClockSkew.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcMtaDevCmsMaxClockSkew.setStatus(_A)
+if mibBuilder.loadTexts:pktcMtaDevCmsMaxClockSkew.setUnits(_G)
+class _PktcMtaDevCmsSolicitedKeyTimeout_Type(Unsigned32):defaultValue=1000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,30000))
+_PktcMtaDevCmsSolicitedKeyTimeout_Type.__name__=_D
+_PktcMtaDevCmsSolicitedKeyTimeout_Object=MibTableColumn
+pktcMtaDevCmsSolicitedKeyTimeout=_PktcMtaDevCmsSolicitedKeyTimeout_Object((1,3,6,1,2,1,140,1,3,8,1,5),_PktcMtaDevCmsSolicitedKeyTimeout_Type())
+pktcMtaDevCmsSolicitedKeyTimeout.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcMtaDevCmsSolicitedKeyTimeout.setStatus(_A)
+if mibBuilder.loadTexts:pktcMtaDevCmsSolicitedKeyTimeout.setUnits(_Q)
+class _PktcMtaDevCmsUnsolicitedKeyMaxTimeout_Type(Unsigned32):defaultValue=600;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,600))
+_PktcMtaDevCmsUnsolicitedKeyMaxTimeout_Type.__name__=_D
+_PktcMtaDevCmsUnsolicitedKeyMaxTimeout_Object=MibTableColumn
+pktcMtaDevCmsUnsolicitedKeyMaxTimeout=_PktcMtaDevCmsUnsolicitedKeyMaxTimeout_Object((1,3,6,1,2,1,140,1,3,8,1,6),_PktcMtaDevCmsUnsolicitedKeyMaxTimeout_Type())
+pktcMtaDevCmsUnsolicitedKeyMaxTimeout.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcMtaDevCmsUnsolicitedKeyMaxTimeout.setStatus(_A)
+if mibBuilder.loadTexts:pktcMtaDevCmsUnsolicitedKeyMaxTimeout.setUnits(_G)
+class _PktcMtaDevCmsUnsolicitedKeyNomTimeout_Type(Unsigned32):defaultValue=500;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,30000))
+_PktcMtaDevCmsUnsolicitedKeyNomTimeout_Type.__name__=_D
+_PktcMtaDevCmsUnsolicitedKeyNomTimeout_Object=MibTableColumn
+pktcMtaDevCmsUnsolicitedKeyNomTimeout=_PktcMtaDevCmsUnsolicitedKeyNomTimeout_Object((1,3,6,1,2,1,140,1,3,8,1,7),_PktcMtaDevCmsUnsolicitedKeyNomTimeout_Type())
+pktcMtaDevCmsUnsolicitedKeyNomTimeout.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcMtaDevCmsUnsolicitedKeyNomTimeout.setStatus(_A)
+if mibBuilder.loadTexts:pktcMtaDevCmsUnsolicitedKeyNomTimeout.setUnits(_Q)
+class _PktcMtaDevCmsUnsolicitedKeyMaxRetries_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1024))
+_PktcMtaDevCmsUnsolicitedKeyMaxRetries_Type.__name__=_D
+_PktcMtaDevCmsUnsolicitedKeyMaxRetries_Object=MibTableColumn
+pktcMtaDevCmsUnsolicitedKeyMaxRetries=_PktcMtaDevCmsUnsolicitedKeyMaxRetries_Object((1,3,6,1,2,1,140,1,3,8,1,8),_PktcMtaDevCmsUnsolicitedKeyMaxRetries_Type())
+pktcMtaDevCmsUnsolicitedKeyMaxRetries.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcMtaDevCmsUnsolicitedKeyMaxRetries.setStatus(_A)
+class _PktcMtaDevCmsIpsecCtrl_Type(TruthValue):defaultValue=1
+_PktcMtaDevCmsIpsecCtrl_Type.__name__=_a
+_PktcMtaDevCmsIpsecCtrl_Object=MibTableColumn
+pktcMtaDevCmsIpsecCtrl=_PktcMtaDevCmsIpsecCtrl_Object((1,3,6,1,2,1,140,1,3,8,1,9),_PktcMtaDevCmsIpsecCtrl_Type())
+pktcMtaDevCmsIpsecCtrl.setMaxAccess(_C)
+if mibBuilder.loadTexts:pktcMtaDevCmsIpsecCtrl.setStatus(_A)
+_PktcMtaDevCmsStatus_Type=RowStatus
+_PktcMtaDevCmsStatus_Object=MibTableColumn
+pktcMtaDevCmsStatus=_PktcMtaDevCmsStatus_Object((1,3,6,1,2,1,140,1,3,8,1,10),_PktcMtaDevCmsStatus_Type())
+pktcMtaDevCmsStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcMtaDevCmsStatus.setStatus(_A)
+class _PktcMtaDevResetKrbTickets_Type(Bits):defaultBinValue='0';namedValues=NamedValues(*(('invalidateProvOnReboot',0),('invalidateAllCmsOnReboot',1)))
+_PktcMtaDevResetKrbTickets_Type.__name__='Bits'
+_PktcMtaDevResetKrbTickets_Object=MibScalar
+pktcMtaDevResetKrbTickets=_PktcMtaDevResetKrbTickets_Object((1,3,6,1,2,1,140,1,3,9),_PktcMtaDevResetKrbTickets_Type())
+pktcMtaDevResetKrbTickets.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcMtaDevResetKrbTickets.setStatus(_A)
+_PktcMtaDevErrors_ObjectIdentity=ObjectIdentity
+pktcMtaDevErrors=_PktcMtaDevErrors_ObjectIdentity((1,3,6,1,2,1,140,1,4))
+_PktcMtaDevErrorsTooManyErrors_ObjectIdentity=ObjectIdentity
+pktcMtaDevErrorsTooManyErrors=_PktcMtaDevErrorsTooManyErrors_ObjectIdentity((1,3,6,1,2,1,140,1,4,1))
+if mibBuilder.loadTexts:pktcMtaDevErrorsTooManyErrors.setStatus(_A)
+_PktcMtaConformance_ObjectIdentity=ObjectIdentity
+pktcMtaConformance=_PktcMtaConformance_ObjectIdentity((1,3,6,1,2,1,140,2))
+_PktcMtaCompliances_ObjectIdentity=ObjectIdentity
+pktcMtaCompliances=_PktcMtaCompliances_ObjectIdentity((1,3,6,1,2,1,140,2,1))
+_PktcMtaGroups_ObjectIdentity=ObjectIdentity
+pktcMtaGroups=_PktcMtaGroups_ObjectIdentity((1,3,6,1,2,1,140,2,2))
+pktcMtaGroup=ObjectGroup((1,3,6,1,2,1,140,2,2,1))
+pktcMtaGroup.setObjects(*((_B,_f),(_B,_g),(_B,_R),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_S),(_B,_T),(_B,_o),(_B,_p),(_B,_J),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV)))
+if mibBuilder.loadTexts:pktcMtaGroup.setStatus(_A)
+pktcMtaDevProvisioningEnrollment=NotificationType((1,3,6,1,2,1,140,0,1))
+pktcMtaDevProvisioningEnrollment.setObjects(*((_Y,_Z),(_B,_R),(_B,_S),(_L,_M),(_B,_J)))
+if mibBuilder.loadTexts:pktcMtaDevProvisioningEnrollment.setStatus(_A)
+pktcMtaDevProvisioningStatus=NotificationType((1,3,6,1,2,1,140,0,2))
+pktcMtaDevProvisioningStatus.setObjects(*((_L,_M),(_B,_J),(_B,_T)))
+if mibBuilder.loadTexts:pktcMtaDevProvisioningStatus.setStatus(_A)
+pktcMtaNotificationGroup=NotificationGroup((1,3,6,1,2,1,140,2,2,2))
+pktcMtaNotificationGroup.setObjects(*((_B,_AW),(_B,_AX)))
+if mibBuilder.loadTexts:pktcMtaNotificationGroup.setStatus(_A)
+pktcMtaBasicCompliance=ModuleCompliance((1,3,6,1,2,1,140,2,1,1))
+pktcMtaBasicCompliance.setObjects(*((_B,_U),(_B,_V)))
+if mibBuilder.loadTexts:pktcMtaBasicCompliance.setStatus(_A)
+pktcMtaBasicSmtaCompliance=ModuleCompliance((1,3,6,1,2,1,140,2,1,2))
+pktcMtaBasicSmtaCompliance.setObjects(*((_B,_U),(_B,_V),(_W,_X)))
+if mibBuilder.loadTexts:pktcMtaBasicSmtaCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{_c:PktcMtaDevProvEncryptAlg,'pktcIetfMtaMib':pktcIetfMtaMib,'pktcMtaNotification':pktcMtaNotification,_AX:pktcMtaDevProvisioningEnrollment,_AW:pktcMtaDevProvisioningStatus,'pktcMtaMibObjects':pktcMtaMibObjects,'pktcMtaDevBase':pktcMtaDevBase,_f:pktcMtaDevResetNow,_g:pktcMtaDevSerialNumber,_R:pktcMtaDevSwCurrentVers,_h:pktcMtaDevFQDN,_i:pktcMtaDevEndPntCount,_j:pktcMtaDevEnabled,_S:pktcMtaDevTypeIdentifier,_T:pktcMtaDevProvisioningState,_o:pktcMtaDevHttpAccess,_AU:pktcMtaDevProvisioningTimer,_k:pktcMtaDevProvisioningCounter,'pktcMtaDevErrorOidsTable':pktcMtaDevErrorOidsTable,'pktcMtaDevErrorOidsEntry':pktcMtaDevErrorOidsEntry,_b:pktcMtaDevErrorOidIndex,_l:pktcMtaDevErrorOid,_m:pktcMtaDevErrorValue,_n:pktcMtaDevErrorReason,'pktcMtaDevServer':pktcMtaDevServer,_r:pktcMtaDevDhcpServerAddressType,_v:pktcMtaDevServerDhcp1,_w:pktcMtaDevServerDhcp2,_s:pktcMtaDevDnsServerAddressType,_x:pktcMtaDevServerDns1,_y:pktcMtaDevServerDns2,_t:pktcMtaDevTimeServerAddressType,_z:pktcMtaDevTimeServer,_A0:pktcMtaDevConfigFile,_A1:pktcMtaDevSnmpEntity,_AR:pktcMtaDevProvConfigHash,_AS:pktcMtaDevProvConfigKey,_u:pktcMtaDevProvConfigEncryptAlg,_AQ:pktcMtaDevProvSolicitedKeyTimeout,_AM:pktcMtaDevProvUnsolicitedKeyMaxTimeout,_AN:pktcMtaDevProvUnsolicitedKeyNomTimeout,_AO:pktcMtaDevProvUnsolicitedKeyMaxRetries,_AP:pktcMtaDevProvKerbRealmName,_AT:pktcMtaDevProvState,'pktcMtaDevSecurity':pktcMtaDevSecurity,_q:pktcMtaDevManufacturerCertificate,_p:pktcMtaDevCertificate,_J:pktcMtaDevCorrelationId,_AV:pktcMtaDevTelephonyRootCertificate,_A4:pktcMtaDevRealmAvailSlot,'pktcMtaDevRealmTable':pktcMtaDevRealmTable,'pktcMtaDevRealmEntry':pktcMtaDevRealmEntry,_d:pktcMtaDevRealmIndex,_A5:pktcMtaDevRealmName,_A2:pktcMtaDevRealmPkinitGracePeriod,_A3:pktcMtaDevRealmTgsGracePeriod,_A6:pktcMtaDevRealmOrgName,_A7:pktcMtaDevRealmUnsolicitedKeyMaxTimeout,_A8:pktcMtaDevRealmUnsolicitedKeyNomTimeout,_A9:pktcMtaDevRealmUnsolicitedKeyMaxRetries,_AA:pktcMtaDevRealmStatus,_AB:pktcMtaDevCmsAvailSlot,'pktcMtaDevCmsTable':pktcMtaDevCmsTable,'pktcMtaDevCmsEntry':pktcMtaDevCmsEntry,_e:pktcMtaDevCmsIndex,_AC:pktcMtaDevCmsFqdn,_AD:pktcMtaDevCmsKerbRealmName,_AI:pktcMtaDevCmsMaxClockSkew,_AH:pktcMtaDevCmsSolicitedKeyTimeout,_AE:pktcMtaDevCmsUnsolicitedKeyMaxTimeout,_AF:pktcMtaDevCmsUnsolicitedKeyNomTimeout,_AG:pktcMtaDevCmsUnsolicitedKeyMaxRetries,_AJ:pktcMtaDevCmsIpsecCtrl,_AK:pktcMtaDevCmsStatus,_AL:pktcMtaDevResetKrbTickets,'pktcMtaDevErrors':pktcMtaDevErrors,'pktcMtaDevErrorsTooManyErrors':pktcMtaDevErrorsTooManyErrors,'pktcMtaConformance':pktcMtaConformance,'pktcMtaCompliances':pktcMtaCompliances,'pktcMtaBasicCompliance':pktcMtaBasicCompliance,'pktcMtaBasicSmtaCompliance':pktcMtaBasicSmtaCompliance,'pktcMtaGroups':pktcMtaGroups,_U:pktcMtaGroup,_V:pktcMtaNotificationGroup})

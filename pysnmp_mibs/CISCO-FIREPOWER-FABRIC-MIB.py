@@ -1,0 +1,10976 @@
+_BM='cfprFabricSubIfInstanceId'
+_BL='cfprFabricInnerVlanMgrInstanceId'
+_BK='cfprFabricSspLanMonCloudInstanceId'
+_BJ='cfprFabricSspEthMonSrcPhyEpInstanceId'
+_BI='cfprFabricSspEthMonSrcPhyAggrEpInstanceId'
+_BH='cfprFabricSspEthMonSrcAppLinksEpInstanceId'
+_BG='cfprFabricSspEthMonSrcAppEpInstanceId'
+_BF='cfprFabricSspEthMonFilterEpInstanceId'
+_BE='cfprFabricSspEthMonInstanceId'
+_BD='cfprFabricZoneIdUniverseInstanceId'
+_BC='cfprFabricVsanMembershipInstanceId'
+_BB='cfprFabricVsanEpInstanceId'
+_BA='cfprFabricVsanInstanceId'
+_B9='cfprFabricVnetEpSyncEpFsmTaskInstanceId'
+_B8='cfprFabricVnetEpSyncEpFsmStageInstanceId'
+_B7='cfprFabricVnetEpSyncEpFsmInstanceId'
+_B6='cfprFabricVnetEpSyncEpInstanceId'
+_B5='cfprFabricVlanReqInstanceId'
+_B4='cfprFabricVlanPermitInstanceId'
+_B3='cfprFabricVlanGroupReqInstanceId'
+_B2='cfprFabricVlanEpInstanceId'
+_B1='cfprFabricVlanInstanceId'
+_B0='cfprFabricVConProfileInstanceId'
+_A_='cfprFabricVConInstanceId'
+_Az='cfprFabricUdldPolicyInstanceId'
+_Ay='cfprFabricUdldLinkPolicyInstanceId'
+_Ax='cfprFabricSwSubGroupInstanceId'
+_Aw='cfprFabricSwChPhEpInstanceId'
+_Av='cfprFabricSubGroupInstanceId'
+_Au='cfprFabricSanPinTargetInstanceId'
+_At='cfprFabricSanPinGroupInstanceId'
+_As='cfprFabricSanMonCloudInstanceId'
+_Ar='cfprFabricSanCloudFsmTaskInstanceId'
+_Aq='cfprFabricSanCloudFsmStageInstanceId'
+_Ap='cfprFabricSanCloudFsmInstanceId'
+_Ao='cfprFabricSanCloudInstanceId'
+_An='cfprFabricPooledVlanInstanceId'
+_Am='cfprFabricPoolableVlanInstanceId'
+_Al='cfprFabricPathEpInstanceId'
+_Ak='cfprFabricPathConnInstanceId'
+_Aj='cfprFabricPathInstanceId'
+_Ai='cfprFabricOrgVlanPolicyInstanceId'
+_Ah='cfprFabricNetflowTimeoutPolicyInstanceId'
+_Ag='cfprFabricNetflowMonitorRefInstanceId'
+_Af='cfprFabricNetflowMonitorInstanceId'
+_Ae='cfprFabricNetflowMonSrcRefInstanceId'
+_Ad='cfprFabricNetflowMonSrcEpInstanceId'
+_Ac='cfprFabricNetflowMonSessionInstanceId'
+_Ab='cfprFabricNetflowMonExporterRefInstanceId'
+_Aa='cfprFabricNetflowMonExporterInstanceId'
+_AZ='cfprFabricNetflowIPv4AddrInstanceId'
+_AY='cfprFabricNetflowCollectorInstanceId'
+_AX='cfprFabricNetGroupInstanceId'
+_AW='cfprFabricMulticastPolicyInstanceId'
+_AV='cfprFabricLocaleInstanceId'
+_AU='cfprFabricLastAckedSlotInstanceId'
+_AT='cfprFabricLanPinTargetInstanceId'
+_AS='cfprFabricLanPinGroupInstanceId'
+_AR='cfprFabricLanMonCloudInstanceId'
+_AQ='cfprFabricLanCloudFsmTaskInstanceId'
+_AP='cfprFabricLanCloudFsmStageInstanceId'
+_AO='cfprFabricLanCloudFsmInstanceId'
+_AN='cfprFabricLanCloudInstanceId'
+_AM='cfprFabricLanAccessMgrInstanceId'
+_AL='cfprFabricLacpPolicyInstanceId'
+_AK='cfprFabricIfInstanceId'
+_AJ='cfprFabricFlowMonExporterProfileInstanceId'
+_AI='cfprFabricFlowMonDefinitionInstanceId'
+_AH='cfprFabricFcoeVsanPortEpInstanceId'
+_AG='cfprFabricFcoeVsanPcInstanceId'
+_AF='cfprFabricFcoeSanPcEpInstanceId'
+_AE='cfprFabricFcoeSanPcInstanceId'
+_AD='cfprFabricFcoeSanEpInstanceId'
+_AC='cfprFabricFcoeEstcEpInstanceId'
+_AB='cfprFabricFcVsanPortEpInstanceId'
+_AA='cfprFabricFcVsanPcInstanceId'
+_A9='cfprFabricFcSanPcEpInstanceId'
+_A8='cfprFabricFcSanPcInstanceId'
+_A7='cfprFabricFcSanEpInstanceId'
+_A6='cfprFabricFcSanInstanceId'
+_A5='cfprFabricFcMonSrcRefInstanceId'
+_A4='cfprFabricFcMonSrcEpInstanceId'
+_A3='cfprFabricFcMonSanInstanceId'
+_A2='cfprFabricFcMonFiltRefInstanceId'
+_A1='cfprFabricFcMonFiltEpInstanceId'
+_A0='cfprFabricFcMonDestEpInstanceId'
+_z='cfprFabricFcMonInstanceId'
+_y='cfprFabricFcEstcEpInstanceId'
+_x='cfprFabricFcEstcCloudInstanceId'
+_w='cfprFabricFcEstcInstanceId'
+_v='cfprFabricEthVlanPortEpInstanceId'
+_u='cfprFabricEthVlanPcInstanceId'
+_t='cfprFabricEthTargetEpInstanceId'
+_s='cfprFabricEthMonSrcRefInstanceId'
+_r='cfprFabricEthMonSrcEpInstanceId'
+_q='cfprFabricEthMonLanInstanceId'
+_p='cfprFabricEthMonFiltRefInstanceId'
+_o='cfprFabricEthMonFiltEpInstanceId'
+_n='cfprFabricEthMonDestEpInstanceId'
+_m='cfprFabricEthMonInstanceId'
+_l='cfprFabricEthLinkProfileInstanceId'
+_k='cfprFabricEthLanPcEpInstanceId'
+_j='cfprFabricEthLanPcInstanceId'
+_i='cfprFabricEthLanFlowMonitoringInstanceId'
+_h='cfprFabricEthLanEpInstanceId'
+_g='cfprFabricEthLanInstanceId'
+_f='cfprFabricEthFlowMonLanInstanceId'
+_e='cfprFabricEthEstcPcEpInstanceId'
+_d='cfprFabricEthEstcPcInstanceId'
+_c='cfprFabricEthEstcEpInstanceId'
+_b='cfprFabricEthEstcCloudInstanceId'
+_a='cfprFabricEthEstcInstanceId'
+_Z='cfprFabricEpMgrFsmTaskInstanceId'
+_Y='cfprFabricEpMgrFsmStageInstanceId'
+_X='cfprFabricEpMgrFsmInstanceId'
+_W='cfprFabricEpMgrInstanceId'
+_V='cfprFabricEpInstanceId'
+_U='cfprFabricDceSwSrvPcEpInstanceId'
+_T='cfprFabricDceSwSrvPcInstanceId'
+_S='cfprFabricDceSwSrvEpInstanceId'
+_R='cfprFabricDceSwSrvInstanceId'
+_Q='cfprFabricDceSrvInstanceId'
+_P='cfprFabricComputeSlotEpFsmTaskInstanceId'
+_O='cfprFabricComputeSlotEpFsmStageInstanceId'
+_N='cfprFabricComputeSlotEpFsmInstanceId'
+_M='cfprFabricComputeSlotEpInstanceId'
+_L='cfprFabricComputePhEpInstanceId'
+_K='cfprFabricChassisEpInstanceId'
+_J='cfprFabricChangedObjectRefInstanceId'
+_I='cfprFabricCdpLinkPolicyInstanceId'
+_H='cfprFabricCablingSwInstanceId'
+_G='cfprFabricCablingInstanceId'
+_F='cfprFabricBreakoutInstanceId'
+_E='cfprFabricBHVlanInstanceId'
+_D='not-accessible'
+_C='CISCO-FIREPOWER-FABRIC-MIB'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+CfprManagedObjectDn,CfprManagedObjectId,ciscoFirepowerMIBObjects=mibBuilder.importSymbols('CISCO-FIREPOWER-MIB','CfprManagedObjectDn','CfprManagedObjectId','ciscoFirepowerMIBObjects')
+CfprComputeDecommissionState,CfprComputeDiscovery,CfprConditionRemoteInvRslt,CfprEquipmentBoardAggregationRole,CfprEquipmentConnectionStatus,CfprEquipmentEthPortSpeedCap,CfprEquipmentFabricEpType,CfprEquipmentSlotStatus,CfprFabricADceSwSrvEpTransport,CfprFabricAEthEstcEpIfRole,CfprFabricAEthEstcEpTransport,CfprFabricAEthEstcEpType,CfprFabricAEthLanEpTransport,CfprFabricAFcEstcEpTransport,CfprFabricAFcEstcEpType,CfprFabricAFcSanEpTransport,CfprFabricAFcoeEstcEpIfRole,CfprFabricAFcoeEstcEpTransport,CfprFabricAFcoeEstcEpType,CfprFabricAFcoeSanEpTransport,CfprFabricAVlanAssocPrimaryVlanSwitchId,CfprFabricAVlanSharing,CfprFabricAVlanTransport,CfprFabricAVlanType,CfprFabricAVsanTransport,CfprFabricAVsanType,CfprFabricAccessType,CfprFabricAdminState,CfprFabricAllowedVlanType,CfprFabricBHVlanSwitchId,CfprFabricBladeLifeCycle,CfprFabricBreakoutPortId,CfprFabricBreakoutSlotId,CfprFabricBreakoutType,CfprFabricCIoEpAdminState,CfprFabricCIoEpIfType,CfprFabricCdpLinkPolicyAdminState,CfprFabricCloudType,CfprFabricComputeEpIfRole,CfprFabricComputeEpType,CfprFabricComputePhEpAdminState,CfprFabricComputeSlotEpFsmCurrentFsm,CfprFabricComputeSlotEpFsmStageName,CfprFabricComputeSlotEpFsmTaskItem,CfprFabricComputeSlotEpSlotId,CfprFabricConfMode,CfprFabricConfState,CfprFabricConfigState,CfprFabricDceSwSrvEpPortId,CfprFabricDceSwSrvEpSlotId,CfprFabricDceSwSrvPcAdminState,CfprFabricDceSwSrvPcEpPortId,CfprFabricDceSwSrvPcEpSlotId,CfprFabricDceSwSrvPcPortId,CfprFabricDceSwSrvPcTransport,CfprFabricDefaultZoningState,CfprFabricDirection,CfprFabricEpMgrFsmCurrentFsm,CfprFabricEpMgrFsmStageName,CfprFabricEpMgrFsmTaskFlags,CfprFabricEpMgrFsmTaskItem,CfprFabricEstcEpIfRole,CfprFabricEstcPcIfRole,CfprFabricEstcPcType,CfprFabricEthCdpPolicyProtocol,CfprFabricEthEstcEpPortId,CfprFabricEthEstcEpPrio,CfprFabricEthEstcEpSlotId,CfprFabricEthEstcEpTransport,CfprFabricEthEstcEpType,CfprFabricEthEstcOperPortMode,CfprFabricEthEstcPcEpPortId,CfprFabricEthEstcPcEpSlotId,CfprFabricEthEstcPcTransport,CfprFabricEthEstcPortMode,CfprFabricEthEstcTransport,CfprFabricEthEstcType,CfprFabricEthFlowMonLanTransport,CfprFabricEthFlowMonLanType,CfprFabricEthFlowMonSourceType,CfprFabricEthFlowMonSrcRefType,CfprFabricEthLanEpAdminState,CfprFabricEthLanEpInlineState,CfprFabricEthLanEpVlanStatus,CfprFabricEthLanFlowMonCollectorTransport,CfprFabricEthLanFlowMonExporterTransport,CfprFabricEthLanFlowMonSrcEpTransport,CfprFabricEthLanFlowMonTransport,CfprFabricEthLanFlowMonitorTransport,CfprFabricEthLanFlowMonitoringType,CfprFabricEthLanPcAdminState,CfprFabricEthLanPcInlineState,CfprFabricEthLanPcLacpDetach,CfprFabricEthLanPcTransport,CfprFabricEthLanPcVlanStatus,CfprFabricEthLanTransport,CfprFabricEthLinkPolicyType,CfprFabricEthMonDestEpAdminSpeed,CfprFabricEthMonDestEpIfRole,CfprFabricEthMonDestEpPortId,CfprFabricEthMonDestEpSlotId,CfprFabricEthMonDestEpType,CfprFabricEthMonFiltEpType,CfprFabricEthMonFiltRefType,CfprFabricEthMonLanTransport,CfprFabricEthMonLanType,CfprFabricEthMonSrcEpType,CfprFabricEthMonSrcRefType,CfprFabricEthMonTransport,CfprFabricEthMonType,CfprFabricEthPcProtocol,CfprFabricEthSourceType,CfprFabricEthTargetEpTransport,CfprFabricEthUdldPolicyProtocol,CfprFabricEthVlanPcTransport,CfprFabricExternalEpAdminState,CfprFabricExternalEpLocale,CfprFabricExternalLocale,CfprFabricExternalPcLocale,CfprFabricFcEstcEpPortId,CfprFabricFcEstcEpSlotId,CfprFabricFcEstcTransport,CfprFabricFcEstcType,CfprFabricFcMonDestEpAdminSpeed,CfprFabricFcMonDestEpIfRole,CfprFabricFcMonDestEpPortId,CfprFabricFcMonDestEpSlotId,CfprFabricFcMonDestEpType,CfprFabricFcMonFiltEpType,CfprFabricFcMonFiltRefType,CfprFabricFcMonSanTransport,CfprFabricFcMonSanType,CfprFabricFcMonSrcEpType,CfprFabricFcMonSrcRefType,CfprFabricFcMonTransport,CfprFabricFcMonType,CfprFabricFcSanEpPortId,CfprFabricFcSanEpSlotId,CfprFabricFcSanPcEpPortId,CfprFabricFcSanPcEpSlotId,CfprFabricFcSanPcTransport,CfprFabricFcSanTransport,CfprFabricFcSanUplinkTrunking,CfprFabricFcSourceType,CfprFabricFcVsanPcTransport,CfprFabricFcVsanPortEpPortId,CfprFabricFcVsanPortEpSlotId,CfprFabricFcZoneSharingMode,CfprFabricFcoeEstcEpPortId,CfprFabricFcoeEstcEpSlotId,CfprFabricFcoeSanEpPortId,CfprFabricFcoeSanEpSlotId,CfprFabricFcoeSanPcEpPortId,CfprFabricFcoeSanPcEpSlotId,CfprFabricFcoeSanPcTransport,CfprFabricFcoeVsanPcTransport,CfprFabricFcoeVsanPortEpPortId,CfprFabricFcoeVsanPortEpSlotId,CfprFabricFillPattern,CfprFabricFlowMonCollectorLocale,CfprFabricFlowMonDefType,CfprFabricFlowMonIpv4Keys,CfprFabricFlowMonIpv6Keys,CfprFabricFlowMonKeyType,CfprFabricFlowMonL2Keys,CfprFabricFlowMonNonKeys,CfprFabricFlowMonitoringCategoryAdminState,CfprFabricInternalDceSrvTransport,CfprFabricInternalDceSrvType,CfprFabricInternalEpAdminState,CfprFabricInternalEpLocale,CfprFabricInternalLocale,CfprFabricInternalPcLocale,CfprFabricLacpMode,CfprFabricLacpRate,CfprFabricLacpSuspend,CfprFabricLanCloudFsmCurrentFsm,CfprFabricLanCloudFsmStageName,CfprFabricLanCloudFsmTaskItem,CfprFabricLanCloudVlanCompression,CfprFabricLanEpIfRole,CfprFabricLanEpType,CfprFabricLanFlowMonCollectorType,CfprFabricLanFlowMonExporterType,CfprFabricLanFlowMonSrcEpType,CfprFabricLanFlowMonType,CfprFabricLanFlowMonitorType,CfprFabricLanPcIfRole,CfprFabricLanPcType,CfprFabricLanType,CfprFabricLifeCycle,CfprFabricMemberStatus,CfprFabricMembershipStatus,CfprFabricMonAdminState,CfprFabricMonOperState,CfprFabricMonOperStateReason,CfprFabricNFExporterVersion,CfprFabricNFTransport,CfprFabricNetGroupSwitchId,CfprFabricNetGroupType,CfprFabricNetflowCollectorFlowProtocol,CfprFabricNetflowConfigIssues,CfprFabricNetflowMonExporterProtocol,CfprFabricNetflowMonSessionAdminState,CfprFabricNetflowMonSessionProtocol,CfprFabricNetflowMonSrcEpProtocol,CfprFabricNetflowMonSrcRefProtocol,CfprFabricNetflowMonitorFlowMonProtocol,CfprFabricOperState,CfprFabricOwner,CfprFabricPIoEpIfType,CfprFabricPIoEpOperState,CfprFabricPIoEpPortId,CfprFabricPIoEpSlotId,CfprFabricPathEpIfType,CfprFabricPathEpLocale,CfprFabricPcConfigStatus,CfprFabricPcMode,CfprFabricPcModeState,CfprFabricPktCaptureAppSlotId,CfprFabricPoolMemberConfigIssues,CfprFabricQosPrio,CfprFabricQuerierType,CfprFabricRecoveryAction,CfprFabricReqIssues,CfprFabricSSAPortType,CfprFabricSSASubPortType,CfprFabricSanCloudFsmCurrentFsm,CfprFabricSanCloudFsmStageName,CfprFabricSanCloudFsmTaskItem,CfprFabricSanEpIfRole,CfprFabricSanEpType,CfprFabricSanPcIfRole,CfprFabricSanPcType,CfprFabricSanType,CfprFabricSlotAdminState,CfprFabricSnoopingType,CfprFabricSpannedCluster,CfprFabricSspEthMonAppendFlag,CfprFabricSspEthMonDelAllSessEnabledState,CfprFabricSspLanMonCloudDelAllSess,CfprFabricSspMonAdminState,CfprFabricSspMonDelPcap,CfprFabricSspMonOperState,CfprFabricSspMonOperStateReason,CfprFabricStatus,CfprFabricSubGroupAggrPortId,CfprFabricSubGroupConfigState,CfprFabricSubGroupSlotId,CfprFabricSwChEpIfRole,CfprFabricSwChEpType,CfprFabricSwChPhEpAdminState,CfprFabricSwSrvEpIfRole,CfprFabricSwSrvEpType,CfprFabricSwSrvPcIfRole,CfprFabricSwSrvPcType,CfprFabricSwSubGroupAggrPortId,CfprFabricSwSubGroupConfigState,CfprFabricSwSubGroupSlotId,CfprFabricSwitchingMode,CfprFabricTargetEpType,CfprFabricTargetStatus,CfprFabricTrafficDirection,CfprFabricUdldLinkPolicyAdminState,CfprFabricUdldLinkPolicyMode,CfprFabricUdldOperState,CfprFabricVConInstType,CfprFabricVConMappingScheme,CfprFabricVConPlacementPref,CfprFabricVConSelectPref,CfprFabricVConSharePref,CfprFabricVConTransportPref,CfprFabricVlanAssocPrimaryVlanState,CfprFabricVlanCompType,CfprFabricVlanConfigIssues,CfprFabricVlanOperState,CfprFabricVlanOverlapState,CfprFabricVlanSwitchId,CfprFabricVnetEpIfRole,CfprFabricVnetEpLocale,CfprFabricVnetEpPolicyOwner,CfprFabricVnetEpSyncEpFsmCurrentFsm,CfprFabricVnetEpSyncEpFsmStageName,CfprFabricVnetEpSyncEpFsmTaskItem,CfprFabricVsanOperState,CfprFabricVsanSwitchId,CfprFabricWarnings,CfprFabricZoningState,CfprFsmCompletion,CfprFsmFlags,CfprFsmFsmStageStatus,CfprLicenseState,CfprLsOperState,CfprNetworkConnectionType,CfprNetworkLocale,CfprNetworkPortOperState,CfprNetworkPortRole,CfprNetworkSide,CfprNetworkSwitchId,CfprNetworkTransport,CfprNetworkVnetEpIfType,CfprNhTpHashType,CfprPolicyPolicyOwner,CfprPoolPoolAssignmentOrder,CfprPortDuplex,CfprPortEthAdminSpeed,CfprPortEthSpeed,CfprPortSpeed,CfprQosPriority,CfprSwPktCaptureLifeCycle=mibBuilder.importSymbols('CISCO-FIREPOWER-TC-MIB','CfprComputeDecommissionState','CfprComputeDiscovery','CfprConditionRemoteInvRslt','CfprEquipmentBoardAggregationRole','CfprEquipmentConnectionStatus','CfprEquipmentEthPortSpeedCap','CfprEquipmentFabricEpType','CfprEquipmentSlotStatus','CfprFabricADceSwSrvEpTransport','CfprFabricAEthEstcEpIfRole','CfprFabricAEthEstcEpTransport','CfprFabricAEthEstcEpType','CfprFabricAEthLanEpTransport','CfprFabricAFcEstcEpTransport','CfprFabricAFcEstcEpType','CfprFabricAFcSanEpTransport','CfprFabricAFcoeEstcEpIfRole','CfprFabricAFcoeEstcEpTransport','CfprFabricAFcoeEstcEpType','CfprFabricAFcoeSanEpTransport','CfprFabricAVlanAssocPrimaryVlanSwitchId','CfprFabricAVlanSharing','CfprFabricAVlanTransport','CfprFabricAVlanType','CfprFabricAVsanTransport','CfprFabricAVsanType','CfprFabricAccessType','CfprFabricAdminState','CfprFabricAllowedVlanType','CfprFabricBHVlanSwitchId','CfprFabricBladeLifeCycle','CfprFabricBreakoutPortId','CfprFabricBreakoutSlotId','CfprFabricBreakoutType','CfprFabricCIoEpAdminState','CfprFabricCIoEpIfType','CfprFabricCdpLinkPolicyAdminState','CfprFabricCloudType','CfprFabricComputeEpIfRole','CfprFabricComputeEpType','CfprFabricComputePhEpAdminState','CfprFabricComputeSlotEpFsmCurrentFsm','CfprFabricComputeSlotEpFsmStageName','CfprFabricComputeSlotEpFsmTaskItem','CfprFabricComputeSlotEpSlotId','CfprFabricConfMode','CfprFabricConfState','CfprFabricConfigState','CfprFabricDceSwSrvEpPortId','CfprFabricDceSwSrvEpSlotId','CfprFabricDceSwSrvPcAdminState','CfprFabricDceSwSrvPcEpPortId','CfprFabricDceSwSrvPcEpSlotId','CfprFabricDceSwSrvPcPortId','CfprFabricDceSwSrvPcTransport','CfprFabricDefaultZoningState','CfprFabricDirection','CfprFabricEpMgrFsmCurrentFsm','CfprFabricEpMgrFsmStageName','CfprFabricEpMgrFsmTaskFlags','CfprFabricEpMgrFsmTaskItem','CfprFabricEstcEpIfRole','CfprFabricEstcPcIfRole','CfprFabricEstcPcType','CfprFabricEthCdpPolicyProtocol','CfprFabricEthEstcEpPortId','CfprFabricEthEstcEpPrio','CfprFabricEthEstcEpSlotId','CfprFabricEthEstcEpTransport','CfprFabricEthEstcEpType','CfprFabricEthEstcOperPortMode','CfprFabricEthEstcPcEpPortId','CfprFabricEthEstcPcEpSlotId','CfprFabricEthEstcPcTransport','CfprFabricEthEstcPortMode','CfprFabricEthEstcTransport','CfprFabricEthEstcType','CfprFabricEthFlowMonLanTransport','CfprFabricEthFlowMonLanType','CfprFabricEthFlowMonSourceType','CfprFabricEthFlowMonSrcRefType','CfprFabricEthLanEpAdminState','CfprFabricEthLanEpInlineState','CfprFabricEthLanEpVlanStatus','CfprFabricEthLanFlowMonCollectorTransport','CfprFabricEthLanFlowMonExporterTransport','CfprFabricEthLanFlowMonSrcEpTransport','CfprFabricEthLanFlowMonTransport','CfprFabricEthLanFlowMonitorTransport','CfprFabricEthLanFlowMonitoringType','CfprFabricEthLanPcAdminState','CfprFabricEthLanPcInlineState','CfprFabricEthLanPcLacpDetach','CfprFabricEthLanPcTransport','CfprFabricEthLanPcVlanStatus','CfprFabricEthLanTransport','CfprFabricEthLinkPolicyType','CfprFabricEthMonDestEpAdminSpeed','CfprFabricEthMonDestEpIfRole','CfprFabricEthMonDestEpPortId','CfprFabricEthMonDestEpSlotId','CfprFabricEthMonDestEpType','CfprFabricEthMonFiltEpType','CfprFabricEthMonFiltRefType','CfprFabricEthMonLanTransport','CfprFabricEthMonLanType','CfprFabricEthMonSrcEpType','CfprFabricEthMonSrcRefType','CfprFabricEthMonTransport','CfprFabricEthMonType','CfprFabricEthPcProtocol','CfprFabricEthSourceType','CfprFabricEthTargetEpTransport','CfprFabricEthUdldPolicyProtocol','CfprFabricEthVlanPcTransport','CfprFabricExternalEpAdminState','CfprFabricExternalEpLocale','CfprFabricExternalLocale','CfprFabricExternalPcLocale','CfprFabricFcEstcEpPortId','CfprFabricFcEstcEpSlotId','CfprFabricFcEstcTransport','CfprFabricFcEstcType','CfprFabricFcMonDestEpAdminSpeed','CfprFabricFcMonDestEpIfRole','CfprFabricFcMonDestEpPortId','CfprFabricFcMonDestEpSlotId','CfprFabricFcMonDestEpType','CfprFabricFcMonFiltEpType','CfprFabricFcMonFiltRefType','CfprFabricFcMonSanTransport','CfprFabricFcMonSanType','CfprFabricFcMonSrcEpType','CfprFabricFcMonSrcRefType','CfprFabricFcMonTransport','CfprFabricFcMonType','CfprFabricFcSanEpPortId','CfprFabricFcSanEpSlotId','CfprFabricFcSanPcEpPortId','CfprFabricFcSanPcEpSlotId','CfprFabricFcSanPcTransport','CfprFabricFcSanTransport','CfprFabricFcSanUplinkTrunking','CfprFabricFcSourceType','CfprFabricFcVsanPcTransport','CfprFabricFcVsanPortEpPortId','CfprFabricFcVsanPortEpSlotId','CfprFabricFcZoneSharingMode','CfprFabricFcoeEstcEpPortId','CfprFabricFcoeEstcEpSlotId','CfprFabricFcoeSanEpPortId','CfprFabricFcoeSanEpSlotId','CfprFabricFcoeSanPcEpPortId','CfprFabricFcoeSanPcEpSlotId','CfprFabricFcoeSanPcTransport','CfprFabricFcoeVsanPcTransport','CfprFabricFcoeVsanPortEpPortId','CfprFabricFcoeVsanPortEpSlotId','CfprFabricFillPattern','CfprFabricFlowMonCollectorLocale','CfprFabricFlowMonDefType','CfprFabricFlowMonIpv4Keys','CfprFabricFlowMonIpv6Keys','CfprFabricFlowMonKeyType','CfprFabricFlowMonL2Keys','CfprFabricFlowMonNonKeys','CfprFabricFlowMonitoringCategoryAdminState','CfprFabricInternalDceSrvTransport','CfprFabricInternalDceSrvType','CfprFabricInternalEpAdminState','CfprFabricInternalEpLocale','CfprFabricInternalLocale','CfprFabricInternalPcLocale','CfprFabricLacpMode','CfprFabricLacpRate','CfprFabricLacpSuspend','CfprFabricLanCloudFsmCurrentFsm','CfprFabricLanCloudFsmStageName','CfprFabricLanCloudFsmTaskItem','CfprFabricLanCloudVlanCompression','CfprFabricLanEpIfRole','CfprFabricLanEpType','CfprFabricLanFlowMonCollectorType','CfprFabricLanFlowMonExporterType','CfprFabricLanFlowMonSrcEpType','CfprFabricLanFlowMonType','CfprFabricLanFlowMonitorType','CfprFabricLanPcIfRole','CfprFabricLanPcType','CfprFabricLanType','CfprFabricLifeCycle','CfprFabricMemberStatus','CfprFabricMembershipStatus','CfprFabricMonAdminState','CfprFabricMonOperState','CfprFabricMonOperStateReason','CfprFabricNFExporterVersion','CfprFabricNFTransport','CfprFabricNetGroupSwitchId','CfprFabricNetGroupType','CfprFabricNetflowCollectorFlowProtocol','CfprFabricNetflowConfigIssues','CfprFabricNetflowMonExporterProtocol','CfprFabricNetflowMonSessionAdminState','CfprFabricNetflowMonSessionProtocol','CfprFabricNetflowMonSrcEpProtocol','CfprFabricNetflowMonSrcRefProtocol','CfprFabricNetflowMonitorFlowMonProtocol','CfprFabricOperState','CfprFabricOwner','CfprFabricPIoEpIfType','CfprFabricPIoEpOperState','CfprFabricPIoEpPortId','CfprFabricPIoEpSlotId','CfprFabricPathEpIfType','CfprFabricPathEpLocale','CfprFabricPcConfigStatus','CfprFabricPcMode','CfprFabricPcModeState','CfprFabricPktCaptureAppSlotId','CfprFabricPoolMemberConfigIssues','CfprFabricQosPrio','CfprFabricQuerierType','CfprFabricRecoveryAction','CfprFabricReqIssues','CfprFabricSSAPortType','CfprFabricSSASubPortType','CfprFabricSanCloudFsmCurrentFsm','CfprFabricSanCloudFsmStageName','CfprFabricSanCloudFsmTaskItem','CfprFabricSanEpIfRole','CfprFabricSanEpType','CfprFabricSanPcIfRole','CfprFabricSanPcType','CfprFabricSanType','CfprFabricSlotAdminState','CfprFabricSnoopingType','CfprFabricSpannedCluster','CfprFabricSspEthMonAppendFlag','CfprFabricSspEthMonDelAllSessEnabledState','CfprFabricSspLanMonCloudDelAllSess','CfprFabricSspMonAdminState','CfprFabricSspMonDelPcap','CfprFabricSspMonOperState','CfprFabricSspMonOperStateReason','CfprFabricStatus','CfprFabricSubGroupAggrPortId','CfprFabricSubGroupConfigState','CfprFabricSubGroupSlotId','CfprFabricSwChEpIfRole','CfprFabricSwChEpType','CfprFabricSwChPhEpAdminState','CfprFabricSwSrvEpIfRole','CfprFabricSwSrvEpType','CfprFabricSwSrvPcIfRole','CfprFabricSwSrvPcType','CfprFabricSwSubGroupAggrPortId','CfprFabricSwSubGroupConfigState','CfprFabricSwSubGroupSlotId','CfprFabricSwitchingMode','CfprFabricTargetEpType','CfprFabricTargetStatus','CfprFabricTrafficDirection','CfprFabricUdldLinkPolicyAdminState','CfprFabricUdldLinkPolicyMode','CfprFabricUdldOperState','CfprFabricVConInstType','CfprFabricVConMappingScheme','CfprFabricVConPlacementPref','CfprFabricVConSelectPref','CfprFabricVConSharePref','CfprFabricVConTransportPref','CfprFabricVlanAssocPrimaryVlanState','CfprFabricVlanCompType','CfprFabricVlanConfigIssues','CfprFabricVlanOperState','CfprFabricVlanOverlapState','CfprFabricVlanSwitchId','CfprFabricVnetEpIfRole','CfprFabricVnetEpLocale','CfprFabricVnetEpPolicyOwner','CfprFabricVnetEpSyncEpFsmCurrentFsm','CfprFabricVnetEpSyncEpFsmStageName','CfprFabricVnetEpSyncEpFsmTaskItem','CfprFabricVsanOperState','CfprFabricVsanSwitchId','CfprFabricWarnings','CfprFabricZoningState','CfprFsmCompletion','CfprFsmFlags','CfprFsmFsmStageStatus','CfprLicenseState','CfprLsOperState','CfprNetworkConnectionType','CfprNetworkLocale','CfprNetworkPortOperState','CfprNetworkPortRole','CfprNetworkSide','CfprNetworkSwitchId','CfprNetworkTransport','CfprNetworkVnetEpIfType','CfprNhTpHashType','CfprPolicyPolicyOwner','CfprPoolPoolAssignmentOrder','CfprPortDuplex','CfprPortEthAdminSpeed','CfprPortEthSpeed','CfprPortSpeed','CfprQosPriority','CfprSwPktCaptureLifeCycle')
+ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
+CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
+InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
+cfprFabricObjects=ModuleIdentity((1,3,6,1,4,1,9,9,826,1,26))
+_CfprFabricBHVlanTable_Object=MibTable
+cfprFabricBHVlanTable=_CfprFabricBHVlanTable_Object((1,3,6,1,4,1,9,9,826,1,26,1))
+if mibBuilder.loadTexts:cfprFabricBHVlanTable.setStatus(_A)
+_CfprFabricBHVlanEntry_Object=MibTableRow
+cfprFabricBHVlanEntry=_CfprFabricBHVlanEntry_Object((1,3,6,1,4,1,9,9,826,1,26,1,1))
+cfprFabricBHVlanEntry.setIndexNames((0,_C,_E))
+if mibBuilder.loadTexts:cfprFabricBHVlanEntry.setStatus(_A)
+_CfprFabricBHVlanInstanceId_Type=CfprManagedObjectId
+_CfprFabricBHVlanInstanceId_Object=MibTableColumn
+cfprFabricBHVlanInstanceId=_CfprFabricBHVlanInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,1),_CfprFabricBHVlanInstanceId_Type())
+cfprFabricBHVlanInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricBHVlanInstanceId.setStatus(_A)
+_CfprFabricBHVlanDn_Type=CfprManagedObjectDn
+_CfprFabricBHVlanDn_Object=MibTableColumn
+cfprFabricBHVlanDn=_CfprFabricBHVlanDn_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,2),_CfprFabricBHVlanDn_Type())
+cfprFabricBHVlanDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanDn.setStatus(_A)
+_CfprFabricBHVlanRn_Type=SnmpAdminString
+_CfprFabricBHVlanRn_Object=MibTableColumn
+cfprFabricBHVlanRn=_CfprFabricBHVlanRn_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,3),_CfprFabricBHVlanRn_Type())
+cfprFabricBHVlanRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanRn.setStatus(_A)
+_CfprFabricBHVlanAssocPrimaryVlanState_Type=CfprFabricVlanAssocPrimaryVlanState
+_CfprFabricBHVlanAssocPrimaryVlanState_Object=MibTableColumn
+cfprFabricBHVlanAssocPrimaryVlanState=_CfprFabricBHVlanAssocPrimaryVlanState_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,4),_CfprFabricBHVlanAssocPrimaryVlanState_Type())
+cfprFabricBHVlanAssocPrimaryVlanState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanAssocPrimaryVlanState.setStatus(_A)
+_CfprFabricBHVlanAssocPrimaryVlanSwitchId_Type=CfprFabricAVlanAssocPrimaryVlanSwitchId
+_CfprFabricBHVlanAssocPrimaryVlanSwitchId_Object=MibTableColumn
+cfprFabricBHVlanAssocPrimaryVlanSwitchId=_CfprFabricBHVlanAssocPrimaryVlanSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,5),_CfprFabricBHVlanAssocPrimaryVlanSwitchId_Type())
+cfprFabricBHVlanAssocPrimaryVlanSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanAssocPrimaryVlanSwitchId.setStatus(_A)
+_CfprFabricBHVlanEpDn_Type=SnmpAdminString
+_CfprFabricBHVlanEpDn_Object=MibTableColumn
+cfprFabricBHVlanEpDn=_CfprFabricBHVlanEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,6),_CfprFabricBHVlanEpDn_Type())
+cfprFabricBHVlanEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanEpDn.setStatus(_A)
+_CfprFabricBHVlanId_Type=Gauge32
+_CfprFabricBHVlanId_Object=MibTableColumn
+cfprFabricBHVlanId=_CfprFabricBHVlanId_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,7),_CfprFabricBHVlanId_Type())
+cfprFabricBHVlanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanId.setStatus(_A)
+_CfprFabricBHVlanIfRole_Type=CfprFabricVnetEpIfRole
+_CfprFabricBHVlanIfRole_Object=MibTableColumn
+cfprFabricBHVlanIfRole=_CfprFabricBHVlanIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,8),_CfprFabricBHVlanIfRole_Type())
+cfprFabricBHVlanIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanIfRole.setStatus(_A)
+_CfprFabricBHVlanIfType_Type=CfprNetworkVnetEpIfType
+_CfprFabricBHVlanIfType_Object=MibTableColumn
+cfprFabricBHVlanIfType=_CfprFabricBHVlanIfType_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,9),_CfprFabricBHVlanIfType_Type())
+cfprFabricBHVlanIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanIfType.setStatus(_A)
+_CfprFabricBHVlanLocale_Type=CfprFabricVnetEpLocale
+_CfprFabricBHVlanLocale_Object=MibTableColumn
+cfprFabricBHVlanLocale=_CfprFabricBHVlanLocale_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,10),_CfprFabricBHVlanLocale_Type())
+cfprFabricBHVlanLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanLocale.setStatus(_A)
+_CfprFabricBHVlanName_Type=SnmpAdminString
+_CfprFabricBHVlanName_Object=MibTableColumn
+cfprFabricBHVlanName=_CfprFabricBHVlanName_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,11),_CfprFabricBHVlanName_Type())
+cfprFabricBHVlanName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanName.setStatus(_A)
+_CfprFabricBHVlanOperState_Type=CfprFabricVlanOperState
+_CfprFabricBHVlanOperState_Object=MibTableColumn
+cfprFabricBHVlanOperState=_CfprFabricBHVlanOperState_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,12),_CfprFabricBHVlanOperState_Type())
+cfprFabricBHVlanOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanOperState.setStatus(_A)
+_CfprFabricBHVlanOverlapStateForA_Type=CfprFabricVlanOverlapState
+_CfprFabricBHVlanOverlapStateForA_Object=MibTableColumn
+cfprFabricBHVlanOverlapStateForA=_CfprFabricBHVlanOverlapStateForA_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,13),_CfprFabricBHVlanOverlapStateForA_Type())
+cfprFabricBHVlanOverlapStateForA.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanOverlapStateForA.setStatus(_A)
+_CfprFabricBHVlanOverlapStateForB_Type=CfprFabricVlanOverlapState
+_CfprFabricBHVlanOverlapStateForB_Object=MibTableColumn
+cfprFabricBHVlanOverlapStateForB=_CfprFabricBHVlanOverlapStateForB_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,14),_CfprFabricBHVlanOverlapStateForB_Type())
+cfprFabricBHVlanOverlapStateForB.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanOverlapStateForB.setStatus(_A)
+_CfprFabricBHVlanPeerDn_Type=SnmpAdminString
+_CfprFabricBHVlanPeerDn_Object=MibTableColumn
+cfprFabricBHVlanPeerDn=_CfprFabricBHVlanPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,15),_CfprFabricBHVlanPeerDn_Type())
+cfprFabricBHVlanPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanPeerDn.setStatus(_A)
+_CfprFabricBHVlanPolicyOwner_Type=CfprFabricVnetEpPolicyOwner
+_CfprFabricBHVlanPolicyOwner_Object=MibTableColumn
+cfprFabricBHVlanPolicyOwner=_CfprFabricBHVlanPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,16),_CfprFabricBHVlanPolicyOwner_Type())
+cfprFabricBHVlanPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanPolicyOwner.setStatus(_A)
+_CfprFabricBHVlanPubNwDn_Type=SnmpAdminString
+_CfprFabricBHVlanPubNwDn_Object=MibTableColumn
+cfprFabricBHVlanPubNwDn=_CfprFabricBHVlanPubNwDn_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,17),_CfprFabricBHVlanPubNwDn_Type())
+cfprFabricBHVlanPubNwDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanPubNwDn.setStatus(_A)
+_CfprFabricBHVlanPubNwId_Type=Gauge32
+_CfprFabricBHVlanPubNwId_Object=MibTableColumn
+cfprFabricBHVlanPubNwId=_CfprFabricBHVlanPubNwId_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,18),_CfprFabricBHVlanPubNwId_Type())
+cfprFabricBHVlanPubNwId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanPubNwId.setStatus(_A)
+_CfprFabricBHVlanPubNwName_Type=SnmpAdminString
+_CfprFabricBHVlanPubNwName_Object=MibTableColumn
+cfprFabricBHVlanPubNwName=_CfprFabricBHVlanPubNwName_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,19),_CfprFabricBHVlanPubNwName_Type())
+cfprFabricBHVlanPubNwName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanPubNwName.setStatus(_A)
+_CfprFabricBHVlanSharing_Type=CfprFabricAVlanSharing
+_CfprFabricBHVlanSharing_Object=MibTableColumn
+cfprFabricBHVlanSharing=_CfprFabricBHVlanSharing_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,20),_CfprFabricBHVlanSharing_Type())
+cfprFabricBHVlanSharing.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanSharing.setStatus(_A)
+_CfprFabricBHVlanSwitchId_Type=CfprFabricBHVlanSwitchId
+_CfprFabricBHVlanSwitchId_Object=MibTableColumn
+cfprFabricBHVlanSwitchId=_CfprFabricBHVlanSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,21),_CfprFabricBHVlanSwitchId_Type())
+cfprFabricBHVlanSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanSwitchId.setStatus(_A)
+_CfprFabricBHVlanTransport_Type=CfprFabricAVlanTransport
+_CfprFabricBHVlanTransport_Object=MibTableColumn
+cfprFabricBHVlanTransport=_CfprFabricBHVlanTransport_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,22),_CfprFabricBHVlanTransport_Type())
+cfprFabricBHVlanTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanTransport.setStatus(_A)
+_CfprFabricBHVlanType_Type=CfprFabricAVlanType
+_CfprFabricBHVlanType_Object=MibTableColumn
+cfprFabricBHVlanType=_CfprFabricBHVlanType_Object((1,3,6,1,4,1,9,9,826,1,26,1,1,23),_CfprFabricBHVlanType_Type())
+cfprFabricBHVlanType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBHVlanType.setStatus(_A)
+_CfprFabricBreakoutTable_Object=MibTable
+cfprFabricBreakoutTable=_CfprFabricBreakoutTable_Object((1,3,6,1,4,1,9,9,826,1,26,2))
+if mibBuilder.loadTexts:cfprFabricBreakoutTable.setStatus(_A)
+_CfprFabricBreakoutEntry_Object=MibTableRow
+cfprFabricBreakoutEntry=_CfprFabricBreakoutEntry_Object((1,3,6,1,4,1,9,9,826,1,26,2,1))
+cfprFabricBreakoutEntry.setIndexNames((0,_C,_F))
+if mibBuilder.loadTexts:cfprFabricBreakoutEntry.setStatus(_A)
+_CfprFabricBreakoutInstanceId_Type=CfprManagedObjectId
+_CfprFabricBreakoutInstanceId_Object=MibTableColumn
+cfprFabricBreakoutInstanceId=_CfprFabricBreakoutInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,2,1,1),_CfprFabricBreakoutInstanceId_Type())
+cfprFabricBreakoutInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricBreakoutInstanceId.setStatus(_A)
+_CfprFabricBreakoutDn_Type=CfprManagedObjectDn
+_CfprFabricBreakoutDn_Object=MibTableColumn
+cfprFabricBreakoutDn=_CfprFabricBreakoutDn_Object((1,3,6,1,4,1,9,9,826,1,26,2,1,2),_CfprFabricBreakoutDn_Type())
+cfprFabricBreakoutDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBreakoutDn.setStatus(_A)
+_CfprFabricBreakoutRn_Type=SnmpAdminString
+_CfprFabricBreakoutRn_Object=MibTableColumn
+cfprFabricBreakoutRn=_CfprFabricBreakoutRn_Object((1,3,6,1,4,1,9,9,826,1,26,2,1,3),_CfprFabricBreakoutRn_Type())
+cfprFabricBreakoutRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBreakoutRn.setStatus(_A)
+_CfprFabricBreakoutBreakoutType_Type=CfprFabricBreakoutType
+_CfprFabricBreakoutBreakoutType_Object=MibTableColumn
+cfprFabricBreakoutBreakoutType=_CfprFabricBreakoutBreakoutType_Object((1,3,6,1,4,1,9,9,826,1,26,2,1,4),_CfprFabricBreakoutBreakoutType_Type())
+cfprFabricBreakoutBreakoutType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBreakoutBreakoutType.setStatus(_A)
+_CfprFabricBreakoutPortId_Type=CfprFabricBreakoutPortId
+_CfprFabricBreakoutPortId_Object=MibTableColumn
+cfprFabricBreakoutPortId=_CfprFabricBreakoutPortId_Object((1,3,6,1,4,1,9,9,826,1,26,2,1,5),_CfprFabricBreakoutPortId_Type())
+cfprFabricBreakoutPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBreakoutPortId.setStatus(_A)
+_CfprFabricBreakoutSlotId_Type=CfprFabricBreakoutSlotId
+_CfprFabricBreakoutSlotId_Object=MibTableColumn
+cfprFabricBreakoutSlotId=_CfprFabricBreakoutSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,2,1,6),_CfprFabricBreakoutSlotId_Type())
+cfprFabricBreakoutSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricBreakoutSlotId.setStatus(_A)
+_CfprFabricCablingTable_Object=MibTable
+cfprFabricCablingTable=_CfprFabricCablingTable_Object((1,3,6,1,4,1,9,9,826,1,26,3))
+if mibBuilder.loadTexts:cfprFabricCablingTable.setStatus(_A)
+_CfprFabricCablingEntry_Object=MibTableRow
+cfprFabricCablingEntry=_CfprFabricCablingEntry_Object((1,3,6,1,4,1,9,9,826,1,26,3,1))
+cfprFabricCablingEntry.setIndexNames((0,_C,_G))
+if mibBuilder.loadTexts:cfprFabricCablingEntry.setStatus(_A)
+_CfprFabricCablingInstanceId_Type=CfprManagedObjectId
+_CfprFabricCablingInstanceId_Object=MibTableColumn
+cfprFabricCablingInstanceId=_CfprFabricCablingInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,3,1,1),_CfprFabricCablingInstanceId_Type())
+cfprFabricCablingInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricCablingInstanceId.setStatus(_A)
+_CfprFabricCablingDn_Type=CfprManagedObjectDn
+_CfprFabricCablingDn_Object=MibTableColumn
+cfprFabricCablingDn=_CfprFabricCablingDn_Object((1,3,6,1,4,1,9,9,826,1,26,3,1,2),_CfprFabricCablingDn_Type())
+cfprFabricCablingDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCablingDn.setStatus(_A)
+_CfprFabricCablingRn_Type=SnmpAdminString
+_CfprFabricCablingRn_Object=MibTableColumn
+cfprFabricCablingRn=_CfprFabricCablingRn_Object((1,3,6,1,4,1,9,9,826,1,26,3,1,3),_CfprFabricCablingRn_Type())
+cfprFabricCablingRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCablingRn.setStatus(_A)
+_CfprFabricCablingSwTable_Object=MibTable
+cfprFabricCablingSwTable=_CfprFabricCablingSwTable_Object((1,3,6,1,4,1,9,9,826,1,26,4))
+if mibBuilder.loadTexts:cfprFabricCablingSwTable.setStatus(_A)
+_CfprFabricCablingSwEntry_Object=MibTableRow
+cfprFabricCablingSwEntry=_CfprFabricCablingSwEntry_Object((1,3,6,1,4,1,9,9,826,1,26,4,1))
+cfprFabricCablingSwEntry.setIndexNames((0,_C,_H))
+if mibBuilder.loadTexts:cfprFabricCablingSwEntry.setStatus(_A)
+_CfprFabricCablingSwInstanceId_Type=CfprManagedObjectId
+_CfprFabricCablingSwInstanceId_Object=MibTableColumn
+cfprFabricCablingSwInstanceId=_CfprFabricCablingSwInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,4,1,1),_CfprFabricCablingSwInstanceId_Type())
+cfprFabricCablingSwInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricCablingSwInstanceId.setStatus(_A)
+_CfprFabricCablingSwDn_Type=CfprManagedObjectDn
+_CfprFabricCablingSwDn_Object=MibTableColumn
+cfprFabricCablingSwDn=_CfprFabricCablingSwDn_Object((1,3,6,1,4,1,9,9,826,1,26,4,1,2),_CfprFabricCablingSwDn_Type())
+cfprFabricCablingSwDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCablingSwDn.setStatus(_A)
+_CfprFabricCablingSwRn_Type=SnmpAdminString
+_CfprFabricCablingSwRn_Object=MibTableColumn
+cfprFabricCablingSwRn=_CfprFabricCablingSwRn_Object((1,3,6,1,4,1,9,9,826,1,26,4,1,3),_CfprFabricCablingSwRn_Type())
+cfprFabricCablingSwRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCablingSwRn.setStatus(_A)
+_CfprFabricCablingSwId_Type=CfprNetworkSwitchId
+_CfprFabricCablingSwId_Object=MibTableColumn
+cfprFabricCablingSwId=_CfprFabricCablingSwId_Object((1,3,6,1,4,1,9,9,826,1,26,4,1,4),_CfprFabricCablingSwId_Type())
+cfprFabricCablingSwId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCablingSwId.setStatus(_A)
+_CfprFabricCablingSwLocale_Type=CfprFabricExternalLocale
+_CfprFabricCablingSwLocale_Object=MibTableColumn
+cfprFabricCablingSwLocale=_CfprFabricCablingSwLocale_Object((1,3,6,1,4,1,9,9,826,1,26,4,1,5),_CfprFabricCablingSwLocale_Type())
+cfprFabricCablingSwLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCablingSwLocale.setStatus(_A)
+_CfprFabricCablingSwName_Type=SnmpAdminString
+_CfprFabricCablingSwName_Object=MibTableColumn
+cfprFabricCablingSwName=_CfprFabricCablingSwName_Object((1,3,6,1,4,1,9,9,826,1,26,4,1,6),_CfprFabricCablingSwName_Type())
+cfprFabricCablingSwName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCablingSwName.setStatus(_A)
+_CfprFabricCablingSwTransport_Type=CfprNetworkTransport
+_CfprFabricCablingSwTransport_Object=MibTableColumn
+cfprFabricCablingSwTransport=_CfprFabricCablingSwTransport_Object((1,3,6,1,4,1,9,9,826,1,26,4,1,7),_CfprFabricCablingSwTransport_Type())
+cfprFabricCablingSwTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCablingSwTransport.setStatus(_A)
+_CfprFabricCablingSwType_Type=CfprNetworkConnectionType
+_CfprFabricCablingSwType_Object=MibTableColumn
+cfprFabricCablingSwType=_CfprFabricCablingSwType_Object((1,3,6,1,4,1,9,9,826,1,26,4,1,8),_CfprFabricCablingSwType_Type())
+cfprFabricCablingSwType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCablingSwType.setStatus(_A)
+_CfprFabricCdpLinkPolicyTable_Object=MibTable
+cfprFabricCdpLinkPolicyTable=_CfprFabricCdpLinkPolicyTable_Object((1,3,6,1,4,1,9,9,826,1,26,5))
+if mibBuilder.loadTexts:cfprFabricCdpLinkPolicyTable.setStatus(_A)
+_CfprFabricCdpLinkPolicyEntry_Object=MibTableRow
+cfprFabricCdpLinkPolicyEntry=_CfprFabricCdpLinkPolicyEntry_Object((1,3,6,1,4,1,9,9,826,1,26,5,1))
+cfprFabricCdpLinkPolicyEntry.setIndexNames((0,_C,_I))
+if mibBuilder.loadTexts:cfprFabricCdpLinkPolicyEntry.setStatus(_A)
+_CfprFabricCdpLinkPolicyInstanceId_Type=CfprManagedObjectId
+_CfprFabricCdpLinkPolicyInstanceId_Object=MibTableColumn
+cfprFabricCdpLinkPolicyInstanceId=_CfprFabricCdpLinkPolicyInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,5,1,1),_CfprFabricCdpLinkPolicyInstanceId_Type())
+cfprFabricCdpLinkPolicyInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricCdpLinkPolicyInstanceId.setStatus(_A)
+_CfprFabricCdpLinkPolicyDn_Type=CfprManagedObjectDn
+_CfprFabricCdpLinkPolicyDn_Object=MibTableColumn
+cfprFabricCdpLinkPolicyDn=_CfprFabricCdpLinkPolicyDn_Object((1,3,6,1,4,1,9,9,826,1,26,5,1,2),_CfprFabricCdpLinkPolicyDn_Type())
+cfprFabricCdpLinkPolicyDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCdpLinkPolicyDn.setStatus(_A)
+_CfprFabricCdpLinkPolicyRn_Type=SnmpAdminString
+_CfprFabricCdpLinkPolicyRn_Object=MibTableColumn
+cfprFabricCdpLinkPolicyRn=_CfprFabricCdpLinkPolicyRn_Object((1,3,6,1,4,1,9,9,826,1,26,5,1,3),_CfprFabricCdpLinkPolicyRn_Type())
+cfprFabricCdpLinkPolicyRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCdpLinkPolicyRn.setStatus(_A)
+_CfprFabricCdpLinkPolicyAdminState_Type=CfprFabricCdpLinkPolicyAdminState
+_CfprFabricCdpLinkPolicyAdminState_Object=MibTableColumn
+cfprFabricCdpLinkPolicyAdminState=_CfprFabricCdpLinkPolicyAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,5,1,4),_CfprFabricCdpLinkPolicyAdminState_Type())
+cfprFabricCdpLinkPolicyAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCdpLinkPolicyAdminState.setStatus(_A)
+_CfprFabricCdpLinkPolicyDescr_Type=SnmpAdminString
+_CfprFabricCdpLinkPolicyDescr_Object=MibTableColumn
+cfprFabricCdpLinkPolicyDescr=_CfprFabricCdpLinkPolicyDescr_Object((1,3,6,1,4,1,9,9,826,1,26,5,1,5),_CfprFabricCdpLinkPolicyDescr_Type())
+cfprFabricCdpLinkPolicyDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCdpLinkPolicyDescr.setStatus(_A)
+_CfprFabricCdpLinkPolicyIntId_Type=SnmpAdminString
+_CfprFabricCdpLinkPolicyIntId_Object=MibTableColumn
+cfprFabricCdpLinkPolicyIntId=_CfprFabricCdpLinkPolicyIntId_Object((1,3,6,1,4,1,9,9,826,1,26,5,1,6),_CfprFabricCdpLinkPolicyIntId_Type())
+cfprFabricCdpLinkPolicyIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCdpLinkPolicyIntId.setStatus(_A)
+_CfprFabricCdpLinkPolicyName_Type=SnmpAdminString
+_CfprFabricCdpLinkPolicyName_Object=MibTableColumn
+cfprFabricCdpLinkPolicyName=_CfprFabricCdpLinkPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,5,1,7),_CfprFabricCdpLinkPolicyName_Type())
+cfprFabricCdpLinkPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCdpLinkPolicyName.setStatus(_A)
+_CfprFabricCdpLinkPolicyPolicyLevel_Type=Gauge32
+_CfprFabricCdpLinkPolicyPolicyLevel_Object=MibTableColumn
+cfprFabricCdpLinkPolicyPolicyLevel=_CfprFabricCdpLinkPolicyPolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,26,5,1,8),_CfprFabricCdpLinkPolicyPolicyLevel_Type())
+cfprFabricCdpLinkPolicyPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCdpLinkPolicyPolicyLevel.setStatus(_A)
+_CfprFabricCdpLinkPolicyPolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprFabricCdpLinkPolicyPolicyOwner_Object=MibTableColumn
+cfprFabricCdpLinkPolicyPolicyOwner=_CfprFabricCdpLinkPolicyPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,5,1,9),_CfprFabricCdpLinkPolicyPolicyOwner_Type())
+cfprFabricCdpLinkPolicyPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCdpLinkPolicyPolicyOwner.setStatus(_A)
+_CfprFabricCdpLinkPolicyProtocol_Type=CfprFabricEthCdpPolicyProtocol
+_CfprFabricCdpLinkPolicyProtocol_Object=MibTableColumn
+cfprFabricCdpLinkPolicyProtocol=_CfprFabricCdpLinkPolicyProtocol_Object((1,3,6,1,4,1,9,9,826,1,26,5,1,10),_CfprFabricCdpLinkPolicyProtocol_Type())
+cfprFabricCdpLinkPolicyProtocol.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCdpLinkPolicyProtocol.setStatus(_A)
+_CfprFabricCdpLinkPolicyType_Type=CfprFabricEthLinkPolicyType
+_CfprFabricCdpLinkPolicyType_Object=MibTableColumn
+cfprFabricCdpLinkPolicyType=_CfprFabricCdpLinkPolicyType_Object((1,3,6,1,4,1,9,9,826,1,26,5,1,11),_CfprFabricCdpLinkPolicyType_Type())
+cfprFabricCdpLinkPolicyType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricCdpLinkPolicyType.setStatus(_A)
+_CfprFabricChangedObjectRefTable_Object=MibTable
+cfprFabricChangedObjectRefTable=_CfprFabricChangedObjectRefTable_Object((1,3,6,1,4,1,9,9,826,1,26,6))
+if mibBuilder.loadTexts:cfprFabricChangedObjectRefTable.setStatus(_A)
+_CfprFabricChangedObjectRefEntry_Object=MibTableRow
+cfprFabricChangedObjectRefEntry=_CfprFabricChangedObjectRefEntry_Object((1,3,6,1,4,1,9,9,826,1,26,6,1))
+cfprFabricChangedObjectRefEntry.setIndexNames((0,_C,_J))
+if mibBuilder.loadTexts:cfprFabricChangedObjectRefEntry.setStatus(_A)
+_CfprFabricChangedObjectRefInstanceId_Type=CfprManagedObjectId
+_CfprFabricChangedObjectRefInstanceId_Object=MibTableColumn
+cfprFabricChangedObjectRefInstanceId=_CfprFabricChangedObjectRefInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,6,1,1),_CfprFabricChangedObjectRefInstanceId_Type())
+cfprFabricChangedObjectRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricChangedObjectRefInstanceId.setStatus(_A)
+_CfprFabricChangedObjectRefDn_Type=CfprManagedObjectDn
+_CfprFabricChangedObjectRefDn_Object=MibTableColumn
+cfprFabricChangedObjectRefDn=_CfprFabricChangedObjectRefDn_Object((1,3,6,1,4,1,9,9,826,1,26,6,1,2),_CfprFabricChangedObjectRefDn_Type())
+cfprFabricChangedObjectRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChangedObjectRefDn.setStatus(_A)
+_CfprFabricChangedObjectRefRn_Type=SnmpAdminString
+_CfprFabricChangedObjectRefRn_Object=MibTableColumn
+cfprFabricChangedObjectRefRn=_CfprFabricChangedObjectRefRn_Object((1,3,6,1,4,1,9,9,826,1,26,6,1,3),_CfprFabricChangedObjectRefRn_Type())
+cfprFabricChangedObjectRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChangedObjectRefRn.setStatus(_A)
+_CfprFabricChangedObjectRefCentraleVnetEpDn_Type=SnmpAdminString
+_CfprFabricChangedObjectRefCentraleVnetEpDn_Object=MibTableColumn
+cfprFabricChangedObjectRefCentraleVnetEpDn=_CfprFabricChangedObjectRefCentraleVnetEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,6,1,4),_CfprFabricChangedObjectRefCentraleVnetEpDn_Type())
+cfprFabricChangedObjectRefCentraleVnetEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChangedObjectRefCentraleVnetEpDn.setStatus(_A)
+_CfprFabricChangedObjectRefId_Type=Gauge32
+_CfprFabricChangedObjectRefId_Object=MibTableColumn
+cfprFabricChangedObjectRefId=_CfprFabricChangedObjectRefId_Object((1,3,6,1,4,1,9,9,826,1,26,6,1,5),_CfprFabricChangedObjectRefId_Type())
+cfprFabricChangedObjectRefId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChangedObjectRefId.setStatus(_A)
+_CfprFabricChangedObjectRefOldCentraleVnetEpDn_Type=SnmpAdminString
+_CfprFabricChangedObjectRefOldCentraleVnetEpDn_Object=MibTableColumn
+cfprFabricChangedObjectRefOldCentraleVnetEpDn=_CfprFabricChangedObjectRefOldCentraleVnetEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,6,1,6),_CfprFabricChangedObjectRefOldCentraleVnetEpDn_Type())
+cfprFabricChangedObjectRefOldCentraleVnetEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChangedObjectRefOldCentraleVnetEpDn.setStatus(_A)
+_CfprFabricChangedObjectRefRefObjStatus_Type=CfprFabricStatus
+_CfprFabricChangedObjectRefRefObjStatus_Object=MibTableColumn
+cfprFabricChangedObjectRefRefObjStatus=_CfprFabricChangedObjectRefRefObjStatus_Object((1,3,6,1,4,1,9,9,826,1,26,6,1,7),_CfprFabricChangedObjectRefRefObjStatus_Type())
+cfprFabricChangedObjectRefRefObjStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChangedObjectRefRefObjStatus.setStatus(_A)
+_CfprFabricChangedObjectRefFprmVnetEpDn_Type=SnmpAdminString
+_CfprFabricChangedObjectRefFprmVnetEpDn_Object=MibTableColumn
+cfprFabricChangedObjectRefFprmVnetEpDn=_CfprFabricChangedObjectRefFprmVnetEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,6,1,8),_CfprFabricChangedObjectRefFprmVnetEpDn_Type())
+cfprFabricChangedObjectRefFprmVnetEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChangedObjectRefFprmVnetEpDn.setStatus(_A)
+_CfprFabricChassisEpTable_Object=MibTable
+cfprFabricChassisEpTable=_CfprFabricChassisEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,7))
+if mibBuilder.loadTexts:cfprFabricChassisEpTable.setStatus(_A)
+_CfprFabricChassisEpEntry_Object=MibTableRow
+cfprFabricChassisEpEntry=_CfprFabricChassisEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,7,1))
+cfprFabricChassisEpEntry.setIndexNames((0,_C,_K))
+if mibBuilder.loadTexts:cfprFabricChassisEpEntry.setStatus(_A)
+_CfprFabricChassisEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricChassisEpInstanceId_Object=MibTableColumn
+cfprFabricChassisEpInstanceId=_CfprFabricChassisEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,1),_CfprFabricChassisEpInstanceId_Type())
+cfprFabricChassisEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricChassisEpInstanceId.setStatus(_A)
+_CfprFabricChassisEpDn_Type=CfprManagedObjectDn
+_CfprFabricChassisEpDn_Object=MibTableColumn
+cfprFabricChassisEpDn=_CfprFabricChassisEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,2),_CfprFabricChassisEpDn_Type())
+cfprFabricChassisEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpDn.setStatus(_A)
+_CfprFabricChassisEpRn_Type=SnmpAdminString
+_CfprFabricChassisEpRn_Object=MibTableColumn
+cfprFabricChassisEpRn=_CfprFabricChassisEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,3),_CfprFabricChassisEpRn_Type())
+cfprFabricChassisEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpRn.setStatus(_A)
+_CfprFabricChassisEpAdminState_Type=CfprFabricInternalEpAdminState
+_CfprFabricChassisEpAdminState_Object=MibTableColumn
+cfprFabricChassisEpAdminState=_CfprFabricChassisEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,4),_CfprFabricChassisEpAdminState_Type())
+cfprFabricChassisEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpAdminState.setStatus(_A)
+_CfprFabricChassisEpAggrPortId_Type=Gauge32
+_CfprFabricChassisEpAggrPortId_Object=MibTableColumn
+cfprFabricChassisEpAggrPortId=_CfprFabricChassisEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,5),_CfprFabricChassisEpAggrPortId_Type())
+cfprFabricChassisEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpAggrPortId.setStatus(_A)
+_CfprFabricChassisEpChassisDn_Type=SnmpAdminString
+_CfprFabricChassisEpChassisDn_Object=MibTableColumn
+cfprFabricChassisEpChassisDn=_CfprFabricChassisEpChassisDn_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,6),_CfprFabricChassisEpChassisDn_Type())
+cfprFabricChassisEpChassisDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpChassisDn.setStatus(_A)
+_CfprFabricChassisEpChassisId_Type=Gauge32
+_CfprFabricChassisEpChassisId_Object=MibTableColumn
+cfprFabricChassisEpChassisId=_CfprFabricChassisEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,7),_CfprFabricChassisEpChassisId_Type())
+cfprFabricChassisEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpChassisId.setStatus(_A)
+_CfprFabricChassisEpEpDn_Type=SnmpAdminString
+_CfprFabricChassisEpEpDn_Object=MibTableColumn
+cfprFabricChassisEpEpDn=_CfprFabricChassisEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,8),_CfprFabricChassisEpEpDn_Type())
+cfprFabricChassisEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpEpDn.setStatus(_A)
+_CfprFabricChassisEpFltAggr_Type=Unsigned64
+_CfprFabricChassisEpFltAggr_Object=MibTableColumn
+cfprFabricChassisEpFltAggr=_CfprFabricChassisEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,9),_CfprFabricChassisEpFltAggr_Type())
+cfprFabricChassisEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpFltAggr.setStatus(_A)
+_CfprFabricChassisEpIfRole_Type=CfprFabricComputeEpIfRole
+_CfprFabricChassisEpIfRole_Object=MibTableColumn
+cfprFabricChassisEpIfRole=_CfprFabricChassisEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,10),_CfprFabricChassisEpIfRole_Type())
+cfprFabricChassisEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpIfRole.setStatus(_A)
+_CfprFabricChassisEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricChassisEpIfType_Object=MibTableColumn
+cfprFabricChassisEpIfType=_CfprFabricChassisEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,11),_CfprFabricChassisEpIfType_Type())
+cfprFabricChassisEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpIfType.setStatus(_A)
+_CfprFabricChassisEpLicGP_Type=Unsigned64
+_CfprFabricChassisEpLicGP_Object=MibTableColumn
+cfprFabricChassisEpLicGP=_CfprFabricChassisEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,12),_CfprFabricChassisEpLicGP_Type())
+cfprFabricChassisEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpLicGP.setStatus(_A)
+_CfprFabricChassisEpLicState_Type=CfprLicenseState
+_CfprFabricChassisEpLicState_Object=MibTableColumn
+cfprFabricChassisEpLicState=_CfprFabricChassisEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,13),_CfprFabricChassisEpLicState_Type())
+cfprFabricChassisEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpLicState.setStatus(_A)
+_CfprFabricChassisEpLocale_Type=CfprFabricInternalEpLocale
+_CfprFabricChassisEpLocale_Object=MibTableColumn
+cfprFabricChassisEpLocale=_CfprFabricChassisEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,14),_CfprFabricChassisEpLocale_Type())
+cfprFabricChassisEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpLocale.setStatus(_A)
+_CfprFabricChassisEpModel_Type=SnmpAdminString
+_CfprFabricChassisEpModel_Object=MibTableColumn
+cfprFabricChassisEpModel=_CfprFabricChassisEpModel_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,15),_CfprFabricChassisEpModel_Type())
+cfprFabricChassisEpModel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpModel.setStatus(_A)
+_CfprFabricChassisEpName_Type=SnmpAdminString
+_CfprFabricChassisEpName_Object=MibTableColumn
+cfprFabricChassisEpName=_CfprFabricChassisEpName_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,16),_CfprFabricChassisEpName_Type())
+cfprFabricChassisEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpName.setStatus(_A)
+_CfprFabricChassisEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricChassisEpOperState_Object=MibTableColumn
+cfprFabricChassisEpOperState=_CfprFabricChassisEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,17),_CfprFabricChassisEpOperState_Type())
+cfprFabricChassisEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpOperState.setStatus(_A)
+_CfprFabricChassisEpOperStateReason_Type=SnmpAdminString
+_CfprFabricChassisEpOperStateReason_Object=MibTableColumn
+cfprFabricChassisEpOperStateReason=_CfprFabricChassisEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,18),_CfprFabricChassisEpOperStateReason_Type())
+cfprFabricChassisEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpOperStateReason.setStatus(_A)
+_CfprFabricChassisEpPeerAggrPortId_Type=Gauge32
+_CfprFabricChassisEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricChassisEpPeerAggrPortId=_CfprFabricChassisEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,19),_CfprFabricChassisEpPeerAggrPortId_Type())
+cfprFabricChassisEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpPeerAggrPortId.setStatus(_A)
+_CfprFabricChassisEpPeerChassisId_Type=Gauge32
+_CfprFabricChassisEpPeerChassisId_Object=MibTableColumn
+cfprFabricChassisEpPeerChassisId=_CfprFabricChassisEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,20),_CfprFabricChassisEpPeerChassisId_Type())
+cfprFabricChassisEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpPeerChassisId.setStatus(_A)
+_CfprFabricChassisEpPeerDn_Type=SnmpAdminString
+_CfprFabricChassisEpPeerDn_Object=MibTableColumn
+cfprFabricChassisEpPeerDn=_CfprFabricChassisEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,21),_CfprFabricChassisEpPeerDn_Type())
+cfprFabricChassisEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpPeerDn.setStatus(_A)
+_CfprFabricChassisEpPeerPortId_Type=Gauge32
+_CfprFabricChassisEpPeerPortId_Object=MibTableColumn
+cfprFabricChassisEpPeerPortId=_CfprFabricChassisEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,22),_CfprFabricChassisEpPeerPortId_Type())
+cfprFabricChassisEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpPeerPortId.setStatus(_A)
+_CfprFabricChassisEpPeerSlotId_Type=Gauge32
+_CfprFabricChassisEpPeerSlotId_Object=MibTableColumn
+cfprFabricChassisEpPeerSlotId=_CfprFabricChassisEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,23),_CfprFabricChassisEpPeerSlotId_Type())
+cfprFabricChassisEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpPeerSlotId.setStatus(_A)
+_CfprFabricChassisEpPortId_Type=CfprFabricPIoEpPortId
+_CfprFabricChassisEpPortId_Object=MibTableColumn
+cfprFabricChassisEpPortId=_CfprFabricChassisEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,24),_CfprFabricChassisEpPortId_Type())
+cfprFabricChassisEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpPortId.setStatus(_A)
+_CfprFabricChassisEpRevision_Type=SnmpAdminString
+_CfprFabricChassisEpRevision_Object=MibTableColumn
+cfprFabricChassisEpRevision=_CfprFabricChassisEpRevision_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,25),_CfprFabricChassisEpRevision_Type())
+cfprFabricChassisEpRevision.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpRevision.setStatus(_A)
+_CfprFabricChassisEpSerial_Type=SnmpAdminString
+_CfprFabricChassisEpSerial_Object=MibTableColumn
+cfprFabricChassisEpSerial=_CfprFabricChassisEpSerial_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,26),_CfprFabricChassisEpSerial_Type())
+cfprFabricChassisEpSerial.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpSerial.setStatus(_A)
+_CfprFabricChassisEpSlotId_Type=CfprFabricPIoEpSlotId
+_CfprFabricChassisEpSlotId_Object=MibTableColumn
+cfprFabricChassisEpSlotId=_CfprFabricChassisEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,27),_CfprFabricChassisEpSlotId_Type())
+cfprFabricChassisEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpSlotId.setStatus(_A)
+_CfprFabricChassisEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricChassisEpSwitchId_Object=MibTableColumn
+cfprFabricChassisEpSwitchId=_CfprFabricChassisEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,28),_CfprFabricChassisEpSwitchId_Type())
+cfprFabricChassisEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpSwitchId.setStatus(_A)
+_CfprFabricChassisEpTransport_Type=CfprNetworkTransport
+_CfprFabricChassisEpTransport_Object=MibTableColumn
+cfprFabricChassisEpTransport=_CfprFabricChassisEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,29),_CfprFabricChassisEpTransport_Type())
+cfprFabricChassisEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpTransport.setStatus(_A)
+_CfprFabricChassisEpType_Type=CfprFabricComputeEpType
+_CfprFabricChassisEpType_Object=MibTableColumn
+cfprFabricChassisEpType=_CfprFabricChassisEpType_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,30),_CfprFabricChassisEpType_Type())
+cfprFabricChassisEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpType.setStatus(_A)
+_CfprFabricChassisEpVendor_Type=SnmpAdminString
+_CfprFabricChassisEpVendor_Object=MibTableColumn
+cfprFabricChassisEpVendor=_CfprFabricChassisEpVendor_Object((1,3,6,1,4,1,9,9,826,1,26,7,1,31),_CfprFabricChassisEpVendor_Type())
+cfprFabricChassisEpVendor.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricChassisEpVendor.setStatus(_A)
+_CfprFabricComputePhEpTable_Object=MibTable
+cfprFabricComputePhEpTable=_CfprFabricComputePhEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,8))
+if mibBuilder.loadTexts:cfprFabricComputePhEpTable.setStatus(_A)
+_CfprFabricComputePhEpEntry_Object=MibTableRow
+cfprFabricComputePhEpEntry=_CfprFabricComputePhEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,8,1))
+cfprFabricComputePhEpEntry.setIndexNames((0,_C,_L))
+if mibBuilder.loadTexts:cfprFabricComputePhEpEntry.setStatus(_A)
+_CfprFabricComputePhEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricComputePhEpInstanceId_Object=MibTableColumn
+cfprFabricComputePhEpInstanceId=_CfprFabricComputePhEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,1),_CfprFabricComputePhEpInstanceId_Type())
+cfprFabricComputePhEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricComputePhEpInstanceId.setStatus(_A)
+_CfprFabricComputePhEpDn_Type=CfprManagedObjectDn
+_CfprFabricComputePhEpDn_Object=MibTableColumn
+cfprFabricComputePhEpDn=_CfprFabricComputePhEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,2),_CfprFabricComputePhEpDn_Type())
+cfprFabricComputePhEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpDn.setStatus(_A)
+_CfprFabricComputePhEpRn_Type=SnmpAdminString
+_CfprFabricComputePhEpRn_Object=MibTableColumn
+cfprFabricComputePhEpRn=_CfprFabricComputePhEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,3),_CfprFabricComputePhEpRn_Type())
+cfprFabricComputePhEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpRn.setStatus(_A)
+_CfprFabricComputePhEpAdminState_Type=CfprFabricComputePhEpAdminState
+_CfprFabricComputePhEpAdminState_Object=MibTableColumn
+cfprFabricComputePhEpAdminState=_CfprFabricComputePhEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,4),_CfprFabricComputePhEpAdminState_Type())
+cfprFabricComputePhEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpAdminState.setStatus(_A)
+_CfprFabricComputePhEpAggrPortId_Type=Gauge32
+_CfprFabricComputePhEpAggrPortId_Object=MibTableColumn
+cfprFabricComputePhEpAggrPortId=_CfprFabricComputePhEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,5),_CfprFabricComputePhEpAggrPortId_Type())
+cfprFabricComputePhEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpAggrPortId.setStatus(_A)
+_CfprFabricComputePhEpBoardAggregationRole_Type=CfprEquipmentBoardAggregationRole
+_CfprFabricComputePhEpBoardAggregationRole_Object=MibTableColumn
+cfprFabricComputePhEpBoardAggregationRole=_CfprFabricComputePhEpBoardAggregationRole_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,6),_CfprFabricComputePhEpBoardAggregationRole_Type())
+cfprFabricComputePhEpBoardAggregationRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpBoardAggregationRole.setStatus(_A)
+_CfprFabricComputePhEpChassisId_Type=Gauge32
+_CfprFabricComputePhEpChassisId_Object=MibTableColumn
+cfprFabricComputePhEpChassisId=_CfprFabricComputePhEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,7),_CfprFabricComputePhEpChassisId_Type())
+cfprFabricComputePhEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpChassisId.setStatus(_A)
+_CfprFabricComputePhEpCheckpointTrigTs_Type=Unsigned64
+_CfprFabricComputePhEpCheckpointTrigTs_Object=MibTableColumn
+cfprFabricComputePhEpCheckpointTrigTs=_CfprFabricComputePhEpCheckpointTrigTs_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,8),_CfprFabricComputePhEpCheckpointTrigTs_Type())
+cfprFabricComputePhEpCheckpointTrigTs.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpCheckpointTrigTs.setStatus(_A)
+_CfprFabricComputePhEpDeepCheckpointTrigTs_Type=Unsigned64
+_CfprFabricComputePhEpDeepCheckpointTrigTs_Object=MibTableColumn
+cfprFabricComputePhEpDeepCheckpointTrigTs=_CfprFabricComputePhEpDeepCheckpointTrigTs_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,9),_CfprFabricComputePhEpDeepCheckpointTrigTs_Type())
+cfprFabricComputePhEpDeepCheckpointTrigTs.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpDeepCheckpointTrigTs.setStatus(_A)
+_CfprFabricComputePhEpDiscTrigTs_Type=Unsigned64
+_CfprFabricComputePhEpDiscTrigTs_Object=MibTableColumn
+cfprFabricComputePhEpDiscTrigTs=_CfprFabricComputePhEpDiscTrigTs_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,10),_CfprFabricComputePhEpDiscTrigTs_Type())
+cfprFabricComputePhEpDiscTrigTs.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpDiscTrigTs.setStatus(_A)
+_CfprFabricComputePhEpEpDn_Type=SnmpAdminString
+_CfprFabricComputePhEpEpDn_Object=MibTableColumn
+cfprFabricComputePhEpEpDn=_CfprFabricComputePhEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,11),_CfprFabricComputePhEpEpDn_Type())
+cfprFabricComputePhEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpEpDn.setStatus(_A)
+_CfprFabricComputePhEpEqType_Type=CfprEquipmentFabricEpType
+_CfprFabricComputePhEpEqType_Object=MibTableColumn
+cfprFabricComputePhEpEqType=_CfprFabricComputePhEpEqType_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,12),_CfprFabricComputePhEpEqType_Type())
+cfprFabricComputePhEpEqType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpEqType.setStatus(_A)
+_CfprFabricComputePhEpFltAggr_Type=Unsigned64
+_CfprFabricComputePhEpFltAggr_Object=MibTableColumn
+cfprFabricComputePhEpFltAggr=_CfprFabricComputePhEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,13),_CfprFabricComputePhEpFltAggr_Type())
+cfprFabricComputePhEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpFltAggr.setStatus(_A)
+_CfprFabricComputePhEpIfRole_Type=CfprFabricComputeEpIfRole
+_CfprFabricComputePhEpIfRole_Object=MibTableColumn
+cfprFabricComputePhEpIfRole=_CfprFabricComputePhEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,14),_CfprFabricComputePhEpIfRole_Type())
+cfprFabricComputePhEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpIfRole.setStatus(_A)
+_CfprFabricComputePhEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricComputePhEpIfType_Object=MibTableColumn
+cfprFabricComputePhEpIfType=_CfprFabricComputePhEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,15),_CfprFabricComputePhEpIfType_Type())
+cfprFabricComputePhEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpIfType.setStatus(_A)
+_CfprFabricComputePhEpLc_Type=CfprFabricBladeLifeCycle
+_CfprFabricComputePhEpLc_Object=MibTableColumn
+cfprFabricComputePhEpLc=_CfprFabricComputePhEpLc_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,16),_CfprFabricComputePhEpLc_Type())
+cfprFabricComputePhEpLc.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpLc.setStatus(_A)
+_CfprFabricComputePhEpLicGP_Type=Unsigned64
+_CfprFabricComputePhEpLicGP_Object=MibTableColumn
+cfprFabricComputePhEpLicGP=_CfprFabricComputePhEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,17),_CfprFabricComputePhEpLicGP_Type())
+cfprFabricComputePhEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpLicGP.setStatus(_A)
+_CfprFabricComputePhEpLicState_Type=CfprLicenseState
+_CfprFabricComputePhEpLicState_Object=MibTableColumn
+cfprFabricComputePhEpLicState=_CfprFabricComputePhEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,18),_CfprFabricComputePhEpLicState_Type())
+cfprFabricComputePhEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpLicState.setStatus(_A)
+_CfprFabricComputePhEpLocale_Type=CfprFabricInternalEpLocale
+_CfprFabricComputePhEpLocale_Object=MibTableColumn
+cfprFabricComputePhEpLocale=_CfprFabricComputePhEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,19),_CfprFabricComputePhEpLocale_Type())
+cfprFabricComputePhEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpLocale.setStatus(_A)
+_CfprFabricComputePhEpModel_Type=SnmpAdminString
+_CfprFabricComputePhEpModel_Object=MibTableColumn
+cfprFabricComputePhEpModel=_CfprFabricComputePhEpModel_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,20),_CfprFabricComputePhEpModel_Type())
+cfprFabricComputePhEpModel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpModel.setStatus(_A)
+_CfprFabricComputePhEpName_Type=SnmpAdminString
+_CfprFabricComputePhEpName_Object=MibTableColumn
+cfprFabricComputePhEpName=_CfprFabricComputePhEpName_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,21),_CfprFabricComputePhEpName_Type())
+cfprFabricComputePhEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpName.setStatus(_A)
+_CfprFabricComputePhEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricComputePhEpOperState_Object=MibTableColumn
+cfprFabricComputePhEpOperState=_CfprFabricComputePhEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,22),_CfprFabricComputePhEpOperState_Type())
+cfprFabricComputePhEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpOperState.setStatus(_A)
+_CfprFabricComputePhEpOperStateReason_Type=SnmpAdminString
+_CfprFabricComputePhEpOperStateReason_Object=MibTableColumn
+cfprFabricComputePhEpOperStateReason=_CfprFabricComputePhEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,23),_CfprFabricComputePhEpOperStateReason_Type())
+cfprFabricComputePhEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpOperStateReason.setStatus(_A)
+_CfprFabricComputePhEpPeerAggrPortId_Type=Gauge32
+_CfprFabricComputePhEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricComputePhEpPeerAggrPortId=_CfprFabricComputePhEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,24),_CfprFabricComputePhEpPeerAggrPortId_Type())
+cfprFabricComputePhEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpPeerAggrPortId.setStatus(_A)
+_CfprFabricComputePhEpPeerChassisId_Type=Gauge32
+_CfprFabricComputePhEpPeerChassisId_Object=MibTableColumn
+cfprFabricComputePhEpPeerChassisId=_CfprFabricComputePhEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,25),_CfprFabricComputePhEpPeerChassisId_Type())
+cfprFabricComputePhEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpPeerChassisId.setStatus(_A)
+_CfprFabricComputePhEpPeerDn_Type=SnmpAdminString
+_CfprFabricComputePhEpPeerDn_Object=MibTableColumn
+cfprFabricComputePhEpPeerDn=_CfprFabricComputePhEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,26),_CfprFabricComputePhEpPeerDn_Type())
+cfprFabricComputePhEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpPeerDn.setStatus(_A)
+_CfprFabricComputePhEpPeerPortId_Type=Gauge32
+_CfprFabricComputePhEpPeerPortId_Object=MibTableColumn
+cfprFabricComputePhEpPeerPortId=_CfprFabricComputePhEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,27),_CfprFabricComputePhEpPeerPortId_Type())
+cfprFabricComputePhEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpPeerPortId.setStatus(_A)
+_CfprFabricComputePhEpPeerSlotId_Type=Gauge32
+_CfprFabricComputePhEpPeerSlotId_Object=MibTableColumn
+cfprFabricComputePhEpPeerSlotId=_CfprFabricComputePhEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,28),_CfprFabricComputePhEpPeerSlotId_Type())
+cfprFabricComputePhEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpPeerSlotId.setStatus(_A)
+_CfprFabricComputePhEpPortId_Type=CfprFabricPIoEpPortId
+_CfprFabricComputePhEpPortId_Object=MibTableColumn
+cfprFabricComputePhEpPortId=_CfprFabricComputePhEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,29),_CfprFabricComputePhEpPortId_Type())
+cfprFabricComputePhEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpPortId.setStatus(_A)
+_CfprFabricComputePhEpProfileDn_Type=SnmpAdminString
+_CfprFabricComputePhEpProfileDn_Object=MibTableColumn
+cfprFabricComputePhEpProfileDn=_CfprFabricComputePhEpProfileDn_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,30),_CfprFabricComputePhEpProfileDn_Type())
+cfprFabricComputePhEpProfileDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpProfileDn.setStatus(_A)
+_CfprFabricComputePhEpRevision_Type=SnmpAdminString
+_CfprFabricComputePhEpRevision_Object=MibTableColumn
+cfprFabricComputePhEpRevision=_CfprFabricComputePhEpRevision_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,31),_CfprFabricComputePhEpRevision_Type())
+cfprFabricComputePhEpRevision.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpRevision.setStatus(_A)
+_CfprFabricComputePhEpSerial_Type=SnmpAdminString
+_CfprFabricComputePhEpSerial_Object=MibTableColumn
+cfprFabricComputePhEpSerial=_CfprFabricComputePhEpSerial_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,32),_CfprFabricComputePhEpSerial_Type())
+cfprFabricComputePhEpSerial.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpSerial.setStatus(_A)
+_CfprFabricComputePhEpSlotId_Type=CfprFabricPIoEpSlotId
+_CfprFabricComputePhEpSlotId_Object=MibTableColumn
+cfprFabricComputePhEpSlotId=_CfprFabricComputePhEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,33),_CfprFabricComputePhEpSlotId_Type())
+cfprFabricComputePhEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpSlotId.setStatus(_A)
+_CfprFabricComputePhEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricComputePhEpSwitchId_Object=MibTableColumn
+cfprFabricComputePhEpSwitchId=_CfprFabricComputePhEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,34),_CfprFabricComputePhEpSwitchId_Type())
+cfprFabricComputePhEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpSwitchId.setStatus(_A)
+_CfprFabricComputePhEpTransport_Type=CfprNetworkTransport
+_CfprFabricComputePhEpTransport_Object=MibTableColumn
+cfprFabricComputePhEpTransport=_CfprFabricComputePhEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,35),_CfprFabricComputePhEpTransport_Type())
+cfprFabricComputePhEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpTransport.setStatus(_A)
+_CfprFabricComputePhEpType_Type=CfprFabricComputeEpType
+_CfprFabricComputePhEpType_Object=MibTableColumn
+cfprFabricComputePhEpType=_CfprFabricComputePhEpType_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,36),_CfprFabricComputePhEpType_Type())
+cfprFabricComputePhEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpType.setStatus(_A)
+_CfprFabricComputePhEpVendor_Type=SnmpAdminString
+_CfprFabricComputePhEpVendor_Object=MibTableColumn
+cfprFabricComputePhEpVendor=_CfprFabricComputePhEpVendor_Object((1,3,6,1,4,1,9,9,826,1,26,8,1,37),_CfprFabricComputePhEpVendor_Type())
+cfprFabricComputePhEpVendor.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputePhEpVendor.setStatus(_A)
+_CfprFabricComputeSlotEpTable_Object=MibTable
+cfprFabricComputeSlotEpTable=_CfprFabricComputeSlotEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,9))
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpTable.setStatus(_A)
+_CfprFabricComputeSlotEpEntry_Object=MibTableRow
+cfprFabricComputeSlotEpEntry=_CfprFabricComputeSlotEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,9,1))
+cfprFabricComputeSlotEpEntry.setIndexNames((0,_C,_M))
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpEntry.setStatus(_A)
+_CfprFabricComputeSlotEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricComputeSlotEpInstanceId_Object=MibTableColumn
+cfprFabricComputeSlotEpInstanceId=_CfprFabricComputeSlotEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,1),_CfprFabricComputeSlotEpInstanceId_Type())
+cfprFabricComputeSlotEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpInstanceId.setStatus(_A)
+_CfprFabricComputeSlotEpDn_Type=CfprManagedObjectDn
+_CfprFabricComputeSlotEpDn_Object=MibTableColumn
+cfprFabricComputeSlotEpDn=_CfprFabricComputeSlotEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,2),_CfprFabricComputeSlotEpDn_Type())
+cfprFabricComputeSlotEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpDn.setStatus(_A)
+_CfprFabricComputeSlotEpRn_Type=SnmpAdminString
+_CfprFabricComputeSlotEpRn_Object=MibTableColumn
+cfprFabricComputeSlotEpRn=_CfprFabricComputeSlotEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,3),_CfprFabricComputeSlotEpRn_Type())
+cfprFabricComputeSlotEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpRn.setStatus(_A)
+_CfprFabricComputeSlotEpAdminState_Type=CfprFabricSlotAdminState
+_CfprFabricComputeSlotEpAdminState_Object=MibTableColumn
+cfprFabricComputeSlotEpAdminState=_CfprFabricComputeSlotEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,4),_CfprFabricComputeSlotEpAdminState_Type())
+cfprFabricComputeSlotEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpAdminState.setStatus(_A)
+_CfprFabricComputeSlotEpAggrPortId_Type=Gauge32
+_CfprFabricComputeSlotEpAggrPortId_Object=MibTableColumn
+cfprFabricComputeSlotEpAggrPortId=_CfprFabricComputeSlotEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,5),_CfprFabricComputeSlotEpAggrPortId_Type())
+cfprFabricComputeSlotEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpAggrPortId.setStatus(_A)
+_CfprFabricComputeSlotEpBoardAggregationRole_Type=CfprEquipmentBoardAggregationRole
+_CfprFabricComputeSlotEpBoardAggregationRole_Object=MibTableColumn
+cfprFabricComputeSlotEpBoardAggregationRole=_CfprFabricComputeSlotEpBoardAggregationRole_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,6),_CfprFabricComputeSlotEpBoardAggregationRole_Type())
+cfprFabricComputeSlotEpBoardAggregationRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpBoardAggregationRole.setStatus(_A)
+_CfprFabricComputeSlotEpChassisId_Type=Gauge32
+_CfprFabricComputeSlotEpChassisId_Object=MibTableColumn
+cfprFabricComputeSlotEpChassisId=_CfprFabricComputeSlotEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,7),_CfprFabricComputeSlotEpChassisId_Type())
+cfprFabricComputeSlotEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpChassisId.setStatus(_A)
+_CfprFabricComputeSlotEpConnPath_Type=CfprEquipmentConnectionStatus
+_CfprFabricComputeSlotEpConnPath_Object=MibTableColumn
+cfprFabricComputeSlotEpConnPath=_CfprFabricComputeSlotEpConnPath_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,8),_CfprFabricComputeSlotEpConnPath_Type())
+cfprFabricComputeSlotEpConnPath.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpConnPath.setStatus(_A)
+_CfprFabricComputeSlotEpConnStatus_Type=CfprEquipmentConnectionStatus
+_CfprFabricComputeSlotEpConnStatus_Object=MibTableColumn
+cfprFabricComputeSlotEpConnStatus=_CfprFabricComputeSlotEpConnStatus_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,9),_CfprFabricComputeSlotEpConnStatus_Type())
+cfprFabricComputeSlotEpConnStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpConnStatus.setStatus(_A)
+_CfprFabricComputeSlotEpDiscovery_Type=CfprComputeDiscovery
+_CfprFabricComputeSlotEpDiscovery_Object=MibTableColumn
+cfprFabricComputeSlotEpDiscovery=_CfprFabricComputeSlotEpDiscovery_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,10),_CfprFabricComputeSlotEpDiscovery_Type())
+cfprFabricComputeSlotEpDiscovery.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpDiscovery.setStatus(_A)
+_CfprFabricComputeSlotEpEpDn_Type=SnmpAdminString
+_CfprFabricComputeSlotEpEpDn_Object=MibTableColumn
+cfprFabricComputeSlotEpEpDn=_CfprFabricComputeSlotEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,11),_CfprFabricComputeSlotEpEpDn_Type())
+cfprFabricComputeSlotEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpEpDn.setStatus(_A)
+_CfprFabricComputeSlotEpFactoryResetFlag_Type=TruthValue
+_CfprFabricComputeSlotEpFactoryResetFlag_Object=MibTableColumn
+cfprFabricComputeSlotEpFactoryResetFlag=_CfprFabricComputeSlotEpFactoryResetFlag_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,12),_CfprFabricComputeSlotEpFactoryResetFlag_Type())
+cfprFabricComputeSlotEpFactoryResetFlag.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFactoryResetFlag.setStatus(_A)
+_CfprFabricComputeSlotEpFltAggr_Type=Unsigned64
+_CfprFabricComputeSlotEpFltAggr_Object=MibTableColumn
+cfprFabricComputeSlotEpFltAggr=_CfprFabricComputeSlotEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,13),_CfprFabricComputeSlotEpFltAggr_Type())
+cfprFabricComputeSlotEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFltAggr.setStatus(_A)
+_CfprFabricComputeSlotEpFruIdentTrigTs_Type=Unsigned64
+_CfprFabricComputeSlotEpFruIdentTrigTs_Object=MibTableColumn
+cfprFabricComputeSlotEpFruIdentTrigTs=_CfprFabricComputeSlotEpFruIdentTrigTs_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,14),_CfprFabricComputeSlotEpFruIdentTrigTs_Type())
+cfprFabricComputeSlotEpFruIdentTrigTs.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFruIdentTrigTs.setStatus(_A)
+_CfprFabricComputeSlotEpFsmDescr_Type=SnmpAdminString
+_CfprFabricComputeSlotEpFsmDescr_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmDescr=_CfprFabricComputeSlotEpFsmDescr_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,15),_CfprFabricComputeSlotEpFsmDescr_Type())
+cfprFabricComputeSlotEpFsmDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmDescr.setStatus(_A)
+_CfprFabricComputeSlotEpFsmPrev_Type=SnmpAdminString
+_CfprFabricComputeSlotEpFsmPrev_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmPrev=_CfprFabricComputeSlotEpFsmPrev_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,16),_CfprFabricComputeSlotEpFsmPrev_Type())
+cfprFabricComputeSlotEpFsmPrev.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmPrev.setStatus(_A)
+_CfprFabricComputeSlotEpFsmProgr_Type=Gauge32
+_CfprFabricComputeSlotEpFsmProgr_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmProgr=_CfprFabricComputeSlotEpFsmProgr_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,17),_CfprFabricComputeSlotEpFsmProgr_Type())
+cfprFabricComputeSlotEpFsmProgr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmProgr.setStatus(_A)
+_CfprFabricComputeSlotEpFsmRmtInvErrCode_Type=Gauge32
+_CfprFabricComputeSlotEpFsmRmtInvErrCode_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmRmtInvErrCode=_CfprFabricComputeSlotEpFsmRmtInvErrCode_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,18),_CfprFabricComputeSlotEpFsmRmtInvErrCode_Type())
+cfprFabricComputeSlotEpFsmRmtInvErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmRmtInvErrCode.setStatus(_A)
+_CfprFabricComputeSlotEpFsmRmtInvErrDescr_Type=SnmpAdminString
+_CfprFabricComputeSlotEpFsmRmtInvErrDescr_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmRmtInvErrDescr=_CfprFabricComputeSlotEpFsmRmtInvErrDescr_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,19),_CfprFabricComputeSlotEpFsmRmtInvErrDescr_Type())
+cfprFabricComputeSlotEpFsmRmtInvErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmRmtInvErrDescr.setStatus(_A)
+_CfprFabricComputeSlotEpFsmRmtInvRslt_Type=CfprConditionRemoteInvRslt
+_CfprFabricComputeSlotEpFsmRmtInvRslt_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmRmtInvRslt=_CfprFabricComputeSlotEpFsmRmtInvRslt_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,20),_CfprFabricComputeSlotEpFsmRmtInvRslt_Type())
+cfprFabricComputeSlotEpFsmRmtInvRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmRmtInvRslt.setStatus(_A)
+_CfprFabricComputeSlotEpFsmStageDescr_Type=SnmpAdminString
+_CfprFabricComputeSlotEpFsmStageDescr_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmStageDescr=_CfprFabricComputeSlotEpFsmStageDescr_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,21),_CfprFabricComputeSlotEpFsmStageDescr_Type())
+cfprFabricComputeSlotEpFsmStageDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmStageDescr.setStatus(_A)
+_CfprFabricComputeSlotEpFsmStamp_Type=DateAndTime
+_CfprFabricComputeSlotEpFsmStamp_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmStamp=_CfprFabricComputeSlotEpFsmStamp_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,22),_CfprFabricComputeSlotEpFsmStamp_Type())
+cfprFabricComputeSlotEpFsmStamp.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmStamp.setStatus(_A)
+_CfprFabricComputeSlotEpFsmStatus_Type=SnmpAdminString
+_CfprFabricComputeSlotEpFsmStatus_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmStatus=_CfprFabricComputeSlotEpFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,23),_CfprFabricComputeSlotEpFsmStatus_Type())
+cfprFabricComputeSlotEpFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmStatus.setStatus(_A)
+_CfprFabricComputeSlotEpFsmTry_Type=Gauge32
+_CfprFabricComputeSlotEpFsmTry_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmTry=_CfprFabricComputeSlotEpFsmTry_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,24),_CfprFabricComputeSlotEpFsmTry_Type())
+cfprFabricComputeSlotEpFsmTry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmTry.setStatus(_A)
+_CfprFabricComputeSlotEpIfRole_Type=CfprFabricComputeEpIfRole
+_CfprFabricComputeSlotEpIfRole_Object=MibTableColumn
+cfprFabricComputeSlotEpIfRole=_CfprFabricComputeSlotEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,25),_CfprFabricComputeSlotEpIfRole_Type())
+cfprFabricComputeSlotEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpIfRole.setStatus(_A)
+_CfprFabricComputeSlotEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricComputeSlotEpIfType_Object=MibTableColumn
+cfprFabricComputeSlotEpIfType=_CfprFabricComputeSlotEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,26),_CfprFabricComputeSlotEpIfType_Type())
+cfprFabricComputeSlotEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpIfType.setStatus(_A)
+_CfprFabricComputeSlotEpLcTs_Type=DateAndTime
+_CfprFabricComputeSlotEpLcTs_Object=MibTableColumn
+cfprFabricComputeSlotEpLcTs=_CfprFabricComputeSlotEpLcTs_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,27),_CfprFabricComputeSlotEpLcTs_Type())
+cfprFabricComputeSlotEpLcTs.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpLcTs.setStatus(_A)
+_CfprFabricComputeSlotEpLicGP_Type=Unsigned64
+_CfprFabricComputeSlotEpLicGP_Object=MibTableColumn
+cfprFabricComputeSlotEpLicGP=_CfprFabricComputeSlotEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,28),_CfprFabricComputeSlotEpLicGP_Type())
+cfprFabricComputeSlotEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpLicGP.setStatus(_A)
+_CfprFabricComputeSlotEpLicState_Type=CfprLicenseState
+_CfprFabricComputeSlotEpLicState_Object=MibTableColumn
+cfprFabricComputeSlotEpLicState=_CfprFabricComputeSlotEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,29),_CfprFabricComputeSlotEpLicState_Type())
+cfprFabricComputeSlotEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpLicState.setStatus(_A)
+_CfprFabricComputeSlotEpLocale_Type=CfprFabricInternalEpLocale
+_CfprFabricComputeSlotEpLocale_Object=MibTableColumn
+cfprFabricComputeSlotEpLocale=_CfprFabricComputeSlotEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,30),_CfprFabricComputeSlotEpLocale_Type())
+cfprFabricComputeSlotEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpLocale.setStatus(_A)
+_CfprFabricComputeSlotEpManagingInst_Type=CfprNetworkSwitchId
+_CfprFabricComputeSlotEpManagingInst_Object=MibTableColumn
+cfprFabricComputeSlotEpManagingInst=_CfprFabricComputeSlotEpManagingInst_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,31),_CfprFabricComputeSlotEpManagingInst_Type())
+cfprFabricComputeSlotEpManagingInst.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpManagingInst.setStatus(_A)
+_CfprFabricComputeSlotEpModel_Type=SnmpAdminString
+_CfprFabricComputeSlotEpModel_Object=MibTableColumn
+cfprFabricComputeSlotEpModel=_CfprFabricComputeSlotEpModel_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,32),_CfprFabricComputeSlotEpModel_Type())
+cfprFabricComputeSlotEpModel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpModel.setStatus(_A)
+_CfprFabricComputeSlotEpName_Type=SnmpAdminString
+_CfprFabricComputeSlotEpName_Object=MibTableColumn
+cfprFabricComputeSlotEpName=_CfprFabricComputeSlotEpName_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,33),_CfprFabricComputeSlotEpName_Type())
+cfprFabricComputeSlotEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpName.setStatus(_A)
+_CfprFabricComputeSlotEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricComputeSlotEpOperState_Object=MibTableColumn
+cfprFabricComputeSlotEpOperState=_CfprFabricComputeSlotEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,34),_CfprFabricComputeSlotEpOperState_Type())
+cfprFabricComputeSlotEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpOperState.setStatus(_A)
+_CfprFabricComputeSlotEpOperStateReason_Type=SnmpAdminString
+_CfprFabricComputeSlotEpOperStateReason_Object=MibTableColumn
+cfprFabricComputeSlotEpOperStateReason=_CfprFabricComputeSlotEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,35),_CfprFabricComputeSlotEpOperStateReason_Type())
+cfprFabricComputeSlotEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpOperStateReason.setStatus(_A)
+_CfprFabricComputeSlotEpPeerAggrPortId_Type=Gauge32
+_CfprFabricComputeSlotEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricComputeSlotEpPeerAggrPortId=_CfprFabricComputeSlotEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,36),_CfprFabricComputeSlotEpPeerAggrPortId_Type())
+cfprFabricComputeSlotEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpPeerAggrPortId.setStatus(_A)
+_CfprFabricComputeSlotEpPeerChassisId_Type=Gauge32
+_CfprFabricComputeSlotEpPeerChassisId_Object=MibTableColumn
+cfprFabricComputeSlotEpPeerChassisId=_CfprFabricComputeSlotEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,37),_CfprFabricComputeSlotEpPeerChassisId_Type())
+cfprFabricComputeSlotEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpPeerChassisId.setStatus(_A)
+_CfprFabricComputeSlotEpPeerDn_Type=SnmpAdminString
+_CfprFabricComputeSlotEpPeerDn_Object=MibTableColumn
+cfprFabricComputeSlotEpPeerDn=_CfprFabricComputeSlotEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,38),_CfprFabricComputeSlotEpPeerDn_Type())
+cfprFabricComputeSlotEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpPeerDn.setStatus(_A)
+_CfprFabricComputeSlotEpPeerPortId_Type=Gauge32
+_CfprFabricComputeSlotEpPeerPortId_Object=MibTableColumn
+cfprFabricComputeSlotEpPeerPortId=_CfprFabricComputeSlotEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,39),_CfprFabricComputeSlotEpPeerPortId_Type())
+cfprFabricComputeSlotEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpPeerPortId.setStatus(_A)
+_CfprFabricComputeSlotEpPeerSlotEpDn_Type=SnmpAdminString
+_CfprFabricComputeSlotEpPeerSlotEpDn_Object=MibTableColumn
+cfprFabricComputeSlotEpPeerSlotEpDn=_CfprFabricComputeSlotEpPeerSlotEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,40),_CfprFabricComputeSlotEpPeerSlotEpDn_Type())
+cfprFabricComputeSlotEpPeerSlotEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpPeerSlotEpDn.setStatus(_A)
+_CfprFabricComputeSlotEpPeerSlotId_Type=Gauge32
+_CfprFabricComputeSlotEpPeerSlotId_Object=MibTableColumn
+cfprFabricComputeSlotEpPeerSlotId=_CfprFabricComputeSlotEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,41),_CfprFabricComputeSlotEpPeerSlotId_Type())
+cfprFabricComputeSlotEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpPeerSlotId.setStatus(_A)
+_CfprFabricComputeSlotEpPortId_Type=CfprFabricPIoEpPortId
+_CfprFabricComputeSlotEpPortId_Object=MibTableColumn
+cfprFabricComputeSlotEpPortId=_CfprFabricComputeSlotEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,42),_CfprFabricComputeSlotEpPortId_Type())
+cfprFabricComputeSlotEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpPortId.setStatus(_A)
+_CfprFabricComputeSlotEpPresence_Type=CfprEquipmentSlotStatus
+_CfprFabricComputeSlotEpPresence_Object=MibTableColumn
+cfprFabricComputeSlotEpPresence=_CfprFabricComputeSlotEpPresence_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,43),_CfprFabricComputeSlotEpPresence_Type())
+cfprFabricComputeSlotEpPresence.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpPresence.setStatus(_A)
+_CfprFabricComputeSlotEpPresencePath_Type=CfprEquipmentConnectionStatus
+_CfprFabricComputeSlotEpPresencePath_Object=MibTableColumn
+cfprFabricComputeSlotEpPresencePath=_CfprFabricComputeSlotEpPresencePath_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,44),_CfprFabricComputeSlotEpPresencePath_Type())
+cfprFabricComputeSlotEpPresencePath.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpPresencePath.setStatus(_A)
+_CfprFabricComputeSlotEpRevision_Type=SnmpAdminString
+_CfprFabricComputeSlotEpRevision_Object=MibTableColumn
+cfprFabricComputeSlotEpRevision=_CfprFabricComputeSlotEpRevision_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,45),_CfprFabricComputeSlotEpRevision_Type())
+cfprFabricComputeSlotEpRevision.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpRevision.setStatus(_A)
+_CfprFabricComputeSlotEpSerial_Type=SnmpAdminString
+_CfprFabricComputeSlotEpSerial_Object=MibTableColumn
+cfprFabricComputeSlotEpSerial=_CfprFabricComputeSlotEpSerial_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,46),_CfprFabricComputeSlotEpSerial_Type())
+cfprFabricComputeSlotEpSerial.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpSerial.setStatus(_A)
+_CfprFabricComputeSlotEpSlotId_Type=CfprFabricComputeSlotEpSlotId
+_CfprFabricComputeSlotEpSlotId_Object=MibTableColumn
+cfprFabricComputeSlotEpSlotId=_CfprFabricComputeSlotEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,47),_CfprFabricComputeSlotEpSlotId_Type())
+cfprFabricComputeSlotEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpSlotId.setStatus(_A)
+_CfprFabricComputeSlotEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricComputeSlotEpSwitchId_Object=MibTableColumn
+cfprFabricComputeSlotEpSwitchId=_CfprFabricComputeSlotEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,48),_CfprFabricComputeSlotEpSwitchId_Type())
+cfprFabricComputeSlotEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpSwitchId.setStatus(_A)
+_CfprFabricComputeSlotEpTransport_Type=CfprNetworkTransport
+_CfprFabricComputeSlotEpTransport_Object=MibTableColumn
+cfprFabricComputeSlotEpTransport=_CfprFabricComputeSlotEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,49),_CfprFabricComputeSlotEpTransport_Type())
+cfprFabricComputeSlotEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpTransport.setStatus(_A)
+_CfprFabricComputeSlotEpType_Type=CfprFabricComputeEpType
+_CfprFabricComputeSlotEpType_Object=MibTableColumn
+cfprFabricComputeSlotEpType=_CfprFabricComputeSlotEpType_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,50),_CfprFabricComputeSlotEpType_Type())
+cfprFabricComputeSlotEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpType.setStatus(_A)
+_CfprFabricComputeSlotEpVendor_Type=SnmpAdminString
+_CfprFabricComputeSlotEpVendor_Object=MibTableColumn
+cfprFabricComputeSlotEpVendor=_CfprFabricComputeSlotEpVendor_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,51),_CfprFabricComputeSlotEpVendor_Type())
+cfprFabricComputeSlotEpVendor.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpVendor.setStatus(_A)
+_CfprFabricComputeSlotEpBladeState_Type=CfprLsOperState
+_CfprFabricComputeSlotEpBladeState_Object=MibTableColumn
+cfprFabricComputeSlotEpBladeState=_CfprFabricComputeSlotEpBladeState_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,52),_CfprFabricComputeSlotEpBladeState_Type())
+cfprFabricComputeSlotEpBladeState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpBladeState.setStatus(_A)
+_CfprFabricComputeSlotEpDecommissionSecure_Type=CfprComputeDecommissionState
+_CfprFabricComputeSlotEpDecommissionSecure_Object=MibTableColumn
+cfprFabricComputeSlotEpDecommissionSecure=_CfprFabricComputeSlotEpDecommissionSecure_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,53),_CfprFabricComputeSlotEpDecommissionSecure_Type())
+cfprFabricComputeSlotEpDecommissionSecure.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpDecommissionSecure.setStatus(_A)
+_CfprFabricComputeSlotEpFailReason_Type=SnmpAdminString
+_CfprFabricComputeSlotEpFailReason_Object=MibTableColumn
+cfprFabricComputeSlotEpFailReason=_CfprFabricComputeSlotEpFailReason_Object((1,3,6,1,4,1,9,9,826,1,26,9,1,54),_CfprFabricComputeSlotEpFailReason_Type())
+cfprFabricComputeSlotEpFailReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFailReason.setStatus(_A)
+_CfprFabricComputeSlotEpFsmTable_Object=MibTable
+cfprFabricComputeSlotEpFsmTable=_CfprFabricComputeSlotEpFsmTable_Object((1,3,6,1,4,1,9,9,826,1,26,10))
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmTable.setStatus(_A)
+_CfprFabricComputeSlotEpFsmEntry_Object=MibTableRow
+cfprFabricComputeSlotEpFsmEntry=_CfprFabricComputeSlotEpFsmEntry_Object((1,3,6,1,4,1,9,9,826,1,26,10,1))
+cfprFabricComputeSlotEpFsmEntry.setIndexNames((0,_C,_N))
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmEntry.setStatus(_A)
+_CfprFabricComputeSlotEpFsmInstanceId_Type=CfprManagedObjectId
+_CfprFabricComputeSlotEpFsmInstanceId_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmInstanceId=_CfprFabricComputeSlotEpFsmInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,10,1,1),_CfprFabricComputeSlotEpFsmInstanceId_Type())
+cfprFabricComputeSlotEpFsmInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmInstanceId.setStatus(_A)
+_CfprFabricComputeSlotEpFsmDn_Type=CfprManagedObjectDn
+_CfprFabricComputeSlotEpFsmDn_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmDn=_CfprFabricComputeSlotEpFsmDn_Object((1,3,6,1,4,1,9,9,826,1,26,10,1,2),_CfprFabricComputeSlotEpFsmDn_Type())
+cfprFabricComputeSlotEpFsmDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmDn.setStatus(_A)
+_CfprFabricComputeSlotEpFsmRn_Type=SnmpAdminString
+_CfprFabricComputeSlotEpFsmRn_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmRn=_CfprFabricComputeSlotEpFsmRn_Object((1,3,6,1,4,1,9,9,826,1,26,10,1,3),_CfprFabricComputeSlotEpFsmRn_Type())
+cfprFabricComputeSlotEpFsmRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmRn.setStatus(_A)
+_CfprFabricComputeSlotEpFsmCompletionTime_Type=DateAndTime
+_CfprFabricComputeSlotEpFsmCompletionTime_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmCompletionTime=_CfprFabricComputeSlotEpFsmCompletionTime_Object((1,3,6,1,4,1,9,9,826,1,26,10,1,4),_CfprFabricComputeSlotEpFsmCompletionTime_Type())
+cfprFabricComputeSlotEpFsmCompletionTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmCompletionTime.setStatus(_A)
+_CfprFabricComputeSlotEpFsmCurrentFsm_Type=CfprFabricComputeSlotEpFsmCurrentFsm
+_CfprFabricComputeSlotEpFsmCurrentFsm_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmCurrentFsm=_CfprFabricComputeSlotEpFsmCurrentFsm_Object((1,3,6,1,4,1,9,9,826,1,26,10,1,5),_CfprFabricComputeSlotEpFsmCurrentFsm_Type())
+cfprFabricComputeSlotEpFsmCurrentFsm.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmCurrentFsm.setStatus(_A)
+_CfprFabricComputeSlotEpFsmDescrData_Type=SnmpAdminString
+_CfprFabricComputeSlotEpFsmDescrData_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmDescrData=_CfprFabricComputeSlotEpFsmDescrData_Object((1,3,6,1,4,1,9,9,826,1,26,10,1,6),_CfprFabricComputeSlotEpFsmDescrData_Type())
+cfprFabricComputeSlotEpFsmDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmDescrData.setStatus(_A)
+_CfprFabricComputeSlotEpFsmFsmStatus_Type=CfprFsmFsmStageStatus
+_CfprFabricComputeSlotEpFsmFsmStatus_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmFsmStatus=_CfprFabricComputeSlotEpFsmFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,26,10,1,7),_CfprFabricComputeSlotEpFsmFsmStatus_Type())
+cfprFabricComputeSlotEpFsmFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmFsmStatus.setStatus(_A)
+_CfprFabricComputeSlotEpFsmProgress_Type=Gauge32
+_CfprFabricComputeSlotEpFsmProgress_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmProgress=_CfprFabricComputeSlotEpFsmProgress_Object((1,3,6,1,4,1,9,9,826,1,26,10,1,8),_CfprFabricComputeSlotEpFsmProgress_Type())
+cfprFabricComputeSlotEpFsmProgress.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmProgress.setStatus(_A)
+_CfprFabricComputeSlotEpFsmRmtErrCode_Type=Gauge32
+_CfprFabricComputeSlotEpFsmRmtErrCode_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmRmtErrCode=_CfprFabricComputeSlotEpFsmRmtErrCode_Object((1,3,6,1,4,1,9,9,826,1,26,10,1,9),_CfprFabricComputeSlotEpFsmRmtErrCode_Type())
+cfprFabricComputeSlotEpFsmRmtErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmRmtErrCode.setStatus(_A)
+_CfprFabricComputeSlotEpFsmRmtErrDescr_Type=SnmpAdminString
+_CfprFabricComputeSlotEpFsmRmtErrDescr_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmRmtErrDescr=_CfprFabricComputeSlotEpFsmRmtErrDescr_Object((1,3,6,1,4,1,9,9,826,1,26,10,1,10),_CfprFabricComputeSlotEpFsmRmtErrDescr_Type())
+cfprFabricComputeSlotEpFsmRmtErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmRmtErrDescr.setStatus(_A)
+_CfprFabricComputeSlotEpFsmRmtRslt_Type=CfprConditionRemoteInvRslt
+_CfprFabricComputeSlotEpFsmRmtRslt_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmRmtRslt=_CfprFabricComputeSlotEpFsmRmtRslt_Object((1,3,6,1,4,1,9,9,826,1,26,10,1,11),_CfprFabricComputeSlotEpFsmRmtRslt_Type())
+cfprFabricComputeSlotEpFsmRmtRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmRmtRslt.setStatus(_A)
+_CfprFabricComputeSlotEpFsmStageTable_Object=MibTable
+cfprFabricComputeSlotEpFsmStageTable=_CfprFabricComputeSlotEpFsmStageTable_Object((1,3,6,1,4,1,9,9,826,1,26,11))
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmStageTable.setStatus(_A)
+_CfprFabricComputeSlotEpFsmStageEntry_Object=MibTableRow
+cfprFabricComputeSlotEpFsmStageEntry=_CfprFabricComputeSlotEpFsmStageEntry_Object((1,3,6,1,4,1,9,9,826,1,26,11,1))
+cfprFabricComputeSlotEpFsmStageEntry.setIndexNames((0,_C,_O))
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmStageEntry.setStatus(_A)
+_CfprFabricComputeSlotEpFsmStageInstanceId_Type=CfprManagedObjectId
+_CfprFabricComputeSlotEpFsmStageInstanceId_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmStageInstanceId=_CfprFabricComputeSlotEpFsmStageInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,11,1,1),_CfprFabricComputeSlotEpFsmStageInstanceId_Type())
+cfprFabricComputeSlotEpFsmStageInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmStageInstanceId.setStatus(_A)
+_CfprFabricComputeSlotEpFsmStageDn_Type=CfprManagedObjectDn
+_CfprFabricComputeSlotEpFsmStageDn_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmStageDn=_CfprFabricComputeSlotEpFsmStageDn_Object((1,3,6,1,4,1,9,9,826,1,26,11,1,2),_CfprFabricComputeSlotEpFsmStageDn_Type())
+cfprFabricComputeSlotEpFsmStageDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmStageDn.setStatus(_A)
+_CfprFabricComputeSlotEpFsmStageRn_Type=SnmpAdminString
+_CfprFabricComputeSlotEpFsmStageRn_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmStageRn=_CfprFabricComputeSlotEpFsmStageRn_Object((1,3,6,1,4,1,9,9,826,1,26,11,1,3),_CfprFabricComputeSlotEpFsmStageRn_Type())
+cfprFabricComputeSlotEpFsmStageRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmStageRn.setStatus(_A)
+_CfprFabricComputeSlotEpFsmStageDescrData_Type=SnmpAdminString
+_CfprFabricComputeSlotEpFsmStageDescrData_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmStageDescrData=_CfprFabricComputeSlotEpFsmStageDescrData_Object((1,3,6,1,4,1,9,9,826,1,26,11,1,4),_CfprFabricComputeSlotEpFsmStageDescrData_Type())
+cfprFabricComputeSlotEpFsmStageDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmStageDescrData.setStatus(_A)
+_CfprFabricComputeSlotEpFsmStageLastUpdateTime_Type=DateAndTime
+_CfprFabricComputeSlotEpFsmStageLastUpdateTime_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmStageLastUpdateTime=_CfprFabricComputeSlotEpFsmStageLastUpdateTime_Object((1,3,6,1,4,1,9,9,826,1,26,11,1,5),_CfprFabricComputeSlotEpFsmStageLastUpdateTime_Type())
+cfprFabricComputeSlotEpFsmStageLastUpdateTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmStageLastUpdateTime.setStatus(_A)
+_CfprFabricComputeSlotEpFsmStageName_Type=CfprFabricComputeSlotEpFsmStageName
+_CfprFabricComputeSlotEpFsmStageName_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmStageName=_CfprFabricComputeSlotEpFsmStageName_Object((1,3,6,1,4,1,9,9,826,1,26,11,1,6),_CfprFabricComputeSlotEpFsmStageName_Type())
+cfprFabricComputeSlotEpFsmStageName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmStageName.setStatus(_A)
+_CfprFabricComputeSlotEpFsmStageOrder_Type=Gauge32
+_CfprFabricComputeSlotEpFsmStageOrder_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmStageOrder=_CfprFabricComputeSlotEpFsmStageOrder_Object((1,3,6,1,4,1,9,9,826,1,26,11,1,7),_CfprFabricComputeSlotEpFsmStageOrder_Type())
+cfprFabricComputeSlotEpFsmStageOrder.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmStageOrder.setStatus(_A)
+_CfprFabricComputeSlotEpFsmStageRetry_Type=Gauge32
+_CfprFabricComputeSlotEpFsmStageRetry_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmStageRetry=_CfprFabricComputeSlotEpFsmStageRetry_Object((1,3,6,1,4,1,9,9,826,1,26,11,1,8),_CfprFabricComputeSlotEpFsmStageRetry_Type())
+cfprFabricComputeSlotEpFsmStageRetry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmStageRetry.setStatus(_A)
+_CfprFabricComputeSlotEpFsmStageStageStatus_Type=CfprFsmFsmStageStatus
+_CfprFabricComputeSlotEpFsmStageStageStatus_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmStageStageStatus=_CfprFabricComputeSlotEpFsmStageStageStatus_Object((1,3,6,1,4,1,9,9,826,1,26,11,1,9),_CfprFabricComputeSlotEpFsmStageStageStatus_Type())
+cfprFabricComputeSlotEpFsmStageStageStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmStageStageStatus.setStatus(_A)
+_CfprFabricComputeSlotEpFsmTaskTable_Object=MibTable
+cfprFabricComputeSlotEpFsmTaskTable=_CfprFabricComputeSlotEpFsmTaskTable_Object((1,3,6,1,4,1,9,9,826,1,26,12))
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmTaskTable.setStatus(_A)
+_CfprFabricComputeSlotEpFsmTaskEntry_Object=MibTableRow
+cfprFabricComputeSlotEpFsmTaskEntry=_CfprFabricComputeSlotEpFsmTaskEntry_Object((1,3,6,1,4,1,9,9,826,1,26,12,1))
+cfprFabricComputeSlotEpFsmTaskEntry.setIndexNames((0,_C,_P))
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmTaskEntry.setStatus(_A)
+_CfprFabricComputeSlotEpFsmTaskInstanceId_Type=CfprManagedObjectId
+_CfprFabricComputeSlotEpFsmTaskInstanceId_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmTaskInstanceId=_CfprFabricComputeSlotEpFsmTaskInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,12,1,1),_CfprFabricComputeSlotEpFsmTaskInstanceId_Type())
+cfprFabricComputeSlotEpFsmTaskInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmTaskInstanceId.setStatus(_A)
+_CfprFabricComputeSlotEpFsmTaskDn_Type=CfprManagedObjectDn
+_CfprFabricComputeSlotEpFsmTaskDn_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmTaskDn=_CfprFabricComputeSlotEpFsmTaskDn_Object((1,3,6,1,4,1,9,9,826,1,26,12,1,2),_CfprFabricComputeSlotEpFsmTaskDn_Type())
+cfprFabricComputeSlotEpFsmTaskDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmTaskDn.setStatus(_A)
+_CfprFabricComputeSlotEpFsmTaskRn_Type=SnmpAdminString
+_CfprFabricComputeSlotEpFsmTaskRn_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmTaskRn=_CfprFabricComputeSlotEpFsmTaskRn_Object((1,3,6,1,4,1,9,9,826,1,26,12,1,3),_CfprFabricComputeSlotEpFsmTaskRn_Type())
+cfprFabricComputeSlotEpFsmTaskRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmTaskRn.setStatus(_A)
+_CfprFabricComputeSlotEpFsmTaskCompletion_Type=CfprFsmCompletion
+_CfprFabricComputeSlotEpFsmTaskCompletion_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmTaskCompletion=_CfprFabricComputeSlotEpFsmTaskCompletion_Object((1,3,6,1,4,1,9,9,826,1,26,12,1,4),_CfprFabricComputeSlotEpFsmTaskCompletion_Type())
+cfprFabricComputeSlotEpFsmTaskCompletion.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmTaskCompletion.setStatus(_A)
+_CfprFabricComputeSlotEpFsmTaskFlags_Type=CfprFsmFlags
+_CfprFabricComputeSlotEpFsmTaskFlags_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmTaskFlags=_CfprFabricComputeSlotEpFsmTaskFlags_Object((1,3,6,1,4,1,9,9,826,1,26,12,1,5),_CfprFabricComputeSlotEpFsmTaskFlags_Type())
+cfprFabricComputeSlotEpFsmTaskFlags.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmTaskFlags.setStatus(_A)
+_CfprFabricComputeSlotEpFsmTaskItem_Type=CfprFabricComputeSlotEpFsmTaskItem
+_CfprFabricComputeSlotEpFsmTaskItem_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmTaskItem=_CfprFabricComputeSlotEpFsmTaskItem_Object((1,3,6,1,4,1,9,9,826,1,26,12,1,6),_CfprFabricComputeSlotEpFsmTaskItem_Type())
+cfprFabricComputeSlotEpFsmTaskItem.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmTaskItem.setStatus(_A)
+_CfprFabricComputeSlotEpFsmTaskSeqId_Type=Gauge32
+_CfprFabricComputeSlotEpFsmTaskSeqId_Object=MibTableColumn
+cfprFabricComputeSlotEpFsmTaskSeqId=_CfprFabricComputeSlotEpFsmTaskSeqId_Object((1,3,6,1,4,1,9,9,826,1,26,12,1,7),_CfprFabricComputeSlotEpFsmTaskSeqId_Type())
+cfprFabricComputeSlotEpFsmTaskSeqId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricComputeSlotEpFsmTaskSeqId.setStatus(_A)
+_CfprFabricDceSrvTable_Object=MibTable
+cfprFabricDceSrvTable=_CfprFabricDceSrvTable_Object((1,3,6,1,4,1,9,9,826,1,26,13))
+if mibBuilder.loadTexts:cfprFabricDceSrvTable.setStatus(_A)
+_CfprFabricDceSrvEntry_Object=MibTableRow
+cfprFabricDceSrvEntry=_CfprFabricDceSrvEntry_Object((1,3,6,1,4,1,9,9,826,1,26,13,1))
+cfprFabricDceSrvEntry.setIndexNames((0,_C,_Q))
+if mibBuilder.loadTexts:cfprFabricDceSrvEntry.setStatus(_A)
+_CfprFabricDceSrvInstanceId_Type=CfprManagedObjectId
+_CfprFabricDceSrvInstanceId_Object=MibTableColumn
+cfprFabricDceSrvInstanceId=_CfprFabricDceSrvInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,13,1,1),_CfprFabricDceSrvInstanceId_Type())
+cfprFabricDceSrvInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricDceSrvInstanceId.setStatus(_A)
+_CfprFabricDceSrvDn_Type=CfprManagedObjectDn
+_CfprFabricDceSrvDn_Object=MibTableColumn
+cfprFabricDceSrvDn=_CfprFabricDceSrvDn_Object((1,3,6,1,4,1,9,9,826,1,26,13,1,2),_CfprFabricDceSrvDn_Type())
+cfprFabricDceSrvDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSrvDn.setStatus(_A)
+_CfprFabricDceSrvRn_Type=SnmpAdminString
+_CfprFabricDceSrvRn_Object=MibTableColumn
+cfprFabricDceSrvRn=_CfprFabricDceSrvRn_Object((1,3,6,1,4,1,9,9,826,1,26,13,1,3),_CfprFabricDceSrvRn_Type())
+cfprFabricDceSrvRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSrvRn.setStatus(_A)
+_CfprFabricDceSrvId_Type=CfprNetworkSwitchId
+_CfprFabricDceSrvId_Object=MibTableColumn
+cfprFabricDceSrvId=_CfprFabricDceSrvId_Object((1,3,6,1,4,1,9,9,826,1,26,13,1,4),_CfprFabricDceSrvId_Type())
+cfprFabricDceSrvId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSrvId.setStatus(_A)
+_CfprFabricDceSrvLocale_Type=CfprFabricInternalLocale
+_CfprFabricDceSrvLocale_Object=MibTableColumn
+cfprFabricDceSrvLocale=_CfprFabricDceSrvLocale_Object((1,3,6,1,4,1,9,9,826,1,26,13,1,5),_CfprFabricDceSrvLocale_Type())
+cfprFabricDceSrvLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSrvLocale.setStatus(_A)
+_CfprFabricDceSrvName_Type=SnmpAdminString
+_CfprFabricDceSrvName_Object=MibTableColumn
+cfprFabricDceSrvName=_CfprFabricDceSrvName_Object((1,3,6,1,4,1,9,9,826,1,26,13,1,6),_CfprFabricDceSrvName_Type())
+cfprFabricDceSrvName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSrvName.setStatus(_A)
+_CfprFabricDceSrvTransport_Type=CfprFabricInternalDceSrvTransport
+_CfprFabricDceSrvTransport_Object=MibTableColumn
+cfprFabricDceSrvTransport=_CfprFabricDceSrvTransport_Object((1,3,6,1,4,1,9,9,826,1,26,13,1,7),_CfprFabricDceSrvTransport_Type())
+cfprFabricDceSrvTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSrvTransport.setStatus(_A)
+_CfprFabricDceSrvType_Type=CfprFabricInternalDceSrvType
+_CfprFabricDceSrvType_Object=MibTableColumn
+cfprFabricDceSrvType=_CfprFabricDceSrvType_Object((1,3,6,1,4,1,9,9,826,1,26,13,1,8),_CfprFabricDceSrvType_Type())
+cfprFabricDceSrvType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSrvType.setStatus(_A)
+_CfprFabricDceSwSrvTable_Object=MibTable
+cfprFabricDceSwSrvTable=_CfprFabricDceSwSrvTable_Object((1,3,6,1,4,1,9,9,826,1,26,14))
+if mibBuilder.loadTexts:cfprFabricDceSwSrvTable.setStatus(_A)
+_CfprFabricDceSwSrvEntry_Object=MibTableRow
+cfprFabricDceSwSrvEntry=_CfprFabricDceSwSrvEntry_Object((1,3,6,1,4,1,9,9,826,1,26,14,1))
+cfprFabricDceSwSrvEntry.setIndexNames((0,_C,_R))
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEntry.setStatus(_A)
+_CfprFabricDceSwSrvInstanceId_Type=CfprManagedObjectId
+_CfprFabricDceSwSrvInstanceId_Object=MibTableColumn
+cfprFabricDceSwSrvInstanceId=_CfprFabricDceSwSrvInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,14,1,1),_CfprFabricDceSwSrvInstanceId_Type())
+cfprFabricDceSwSrvInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvInstanceId.setStatus(_A)
+_CfprFabricDceSwSrvDn_Type=CfprManagedObjectDn
+_CfprFabricDceSwSrvDn_Object=MibTableColumn
+cfprFabricDceSwSrvDn=_CfprFabricDceSwSrvDn_Object((1,3,6,1,4,1,9,9,826,1,26,14,1,2),_CfprFabricDceSwSrvDn_Type())
+cfprFabricDceSwSrvDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvDn.setStatus(_A)
+_CfprFabricDceSwSrvRn_Type=SnmpAdminString
+_CfprFabricDceSwSrvRn_Object=MibTableColumn
+cfprFabricDceSwSrvRn=_CfprFabricDceSwSrvRn_Object((1,3,6,1,4,1,9,9,826,1,26,14,1,3),_CfprFabricDceSwSrvRn_Type())
+cfprFabricDceSwSrvRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvRn.setStatus(_A)
+_CfprFabricDceSwSrvId_Type=CfprNetworkSwitchId
+_CfprFabricDceSwSrvId_Object=MibTableColumn
+cfprFabricDceSwSrvId=_CfprFabricDceSwSrvId_Object((1,3,6,1,4,1,9,9,826,1,26,14,1,4),_CfprFabricDceSwSrvId_Type())
+cfprFabricDceSwSrvId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvId.setStatus(_A)
+_CfprFabricDceSwSrvLocale_Type=CfprFabricInternalLocale
+_CfprFabricDceSwSrvLocale_Object=MibTableColumn
+cfprFabricDceSwSrvLocale=_CfprFabricDceSwSrvLocale_Object((1,3,6,1,4,1,9,9,826,1,26,14,1,5),_CfprFabricDceSwSrvLocale_Type())
+cfprFabricDceSwSrvLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvLocale.setStatus(_A)
+_CfprFabricDceSwSrvName_Type=SnmpAdminString
+_CfprFabricDceSwSrvName_Object=MibTableColumn
+cfprFabricDceSwSrvName=_CfprFabricDceSwSrvName_Object((1,3,6,1,4,1,9,9,826,1,26,14,1,6),_CfprFabricDceSwSrvName_Type())
+cfprFabricDceSwSrvName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvName.setStatus(_A)
+_CfprFabricDceSwSrvTransport_Type=CfprFabricInternalDceSrvTransport
+_CfprFabricDceSwSrvTransport_Object=MibTableColumn
+cfprFabricDceSwSrvTransport=_CfprFabricDceSwSrvTransport_Object((1,3,6,1,4,1,9,9,826,1,26,14,1,7),_CfprFabricDceSwSrvTransport_Type())
+cfprFabricDceSwSrvTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvTransport.setStatus(_A)
+_CfprFabricDceSwSrvType_Type=CfprFabricInternalDceSrvType
+_CfprFabricDceSwSrvType_Object=MibTableColumn
+cfprFabricDceSwSrvType=_CfprFabricDceSwSrvType_Object((1,3,6,1,4,1,9,9,826,1,26,14,1,8),_CfprFabricDceSwSrvType_Type())
+cfprFabricDceSwSrvType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvType.setStatus(_A)
+_CfprFabricDceSwSrvEpTable_Object=MibTable
+cfprFabricDceSwSrvEpTable=_CfprFabricDceSwSrvEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,15))
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpTable.setStatus(_A)
+_CfprFabricDceSwSrvEpEntry_Object=MibTableRow
+cfprFabricDceSwSrvEpEntry=_CfprFabricDceSwSrvEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,15,1))
+cfprFabricDceSwSrvEpEntry.setIndexNames((0,_C,_S))
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpEntry.setStatus(_A)
+_CfprFabricDceSwSrvEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricDceSwSrvEpInstanceId_Object=MibTableColumn
+cfprFabricDceSwSrvEpInstanceId=_CfprFabricDceSwSrvEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,1),_CfprFabricDceSwSrvEpInstanceId_Type())
+cfprFabricDceSwSrvEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpInstanceId.setStatus(_A)
+_CfprFabricDceSwSrvEpDn_Type=CfprManagedObjectDn
+_CfprFabricDceSwSrvEpDn_Object=MibTableColumn
+cfprFabricDceSwSrvEpDn=_CfprFabricDceSwSrvEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,2),_CfprFabricDceSwSrvEpDn_Type())
+cfprFabricDceSwSrvEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpDn.setStatus(_A)
+_CfprFabricDceSwSrvEpRn_Type=SnmpAdminString
+_CfprFabricDceSwSrvEpRn_Object=MibTableColumn
+cfprFabricDceSwSrvEpRn=_CfprFabricDceSwSrvEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,3),_CfprFabricDceSwSrvEpRn_Type())
+cfprFabricDceSwSrvEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpRn.setStatus(_A)
+_CfprFabricDceSwSrvEpAdminState_Type=CfprFabricInternalEpAdminState
+_CfprFabricDceSwSrvEpAdminState_Object=MibTableColumn
+cfprFabricDceSwSrvEpAdminState=_CfprFabricDceSwSrvEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,4),_CfprFabricDceSwSrvEpAdminState_Type())
+cfprFabricDceSwSrvEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpAdminState.setStatus(_A)
+_CfprFabricDceSwSrvEpAggrPortId_Type=Gauge32
+_CfprFabricDceSwSrvEpAggrPortId_Object=MibTableColumn
+cfprFabricDceSwSrvEpAggrPortId=_CfprFabricDceSwSrvEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,5),_CfprFabricDceSwSrvEpAggrPortId_Type())
+cfprFabricDceSwSrvEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpAggrPortId.setStatus(_A)
+_CfprFabricDceSwSrvEpChassisId_Type=Gauge32
+_CfprFabricDceSwSrvEpChassisId_Object=MibTableColumn
+cfprFabricDceSwSrvEpChassisId=_CfprFabricDceSwSrvEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,6),_CfprFabricDceSwSrvEpChassisId_Type())
+cfprFabricDceSwSrvEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpChassisId.setStatus(_A)
+_CfprFabricDceSwSrvEpEpDn_Type=SnmpAdminString
+_CfprFabricDceSwSrvEpEpDn_Object=MibTableColumn
+cfprFabricDceSwSrvEpEpDn=_CfprFabricDceSwSrvEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,7),_CfprFabricDceSwSrvEpEpDn_Type())
+cfprFabricDceSwSrvEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpEpDn.setStatus(_A)
+_CfprFabricDceSwSrvEpFltAggr_Type=Unsigned64
+_CfprFabricDceSwSrvEpFltAggr_Object=MibTableColumn
+cfprFabricDceSwSrvEpFltAggr=_CfprFabricDceSwSrvEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,8),_CfprFabricDceSwSrvEpFltAggr_Type())
+cfprFabricDceSwSrvEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpFltAggr.setStatus(_A)
+_CfprFabricDceSwSrvEpIfRole_Type=CfprFabricSwSrvEpIfRole
+_CfprFabricDceSwSrvEpIfRole_Object=MibTableColumn
+cfprFabricDceSwSrvEpIfRole=_CfprFabricDceSwSrvEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,9),_CfprFabricDceSwSrvEpIfRole_Type())
+cfprFabricDceSwSrvEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpIfRole.setStatus(_A)
+_CfprFabricDceSwSrvEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricDceSwSrvEpIfType_Object=MibTableColumn
+cfprFabricDceSwSrvEpIfType=_CfprFabricDceSwSrvEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,10),_CfprFabricDceSwSrvEpIfType_Type())
+cfprFabricDceSwSrvEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpIfType.setStatus(_A)
+_CfprFabricDceSwSrvEpLicGP_Type=Unsigned64
+_CfprFabricDceSwSrvEpLicGP_Object=MibTableColumn
+cfprFabricDceSwSrvEpLicGP=_CfprFabricDceSwSrvEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,11),_CfprFabricDceSwSrvEpLicGP_Type())
+cfprFabricDceSwSrvEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpLicGP.setStatus(_A)
+_CfprFabricDceSwSrvEpLicState_Type=CfprLicenseState
+_CfprFabricDceSwSrvEpLicState_Object=MibTableColumn
+cfprFabricDceSwSrvEpLicState=_CfprFabricDceSwSrvEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,12),_CfprFabricDceSwSrvEpLicState_Type())
+cfprFabricDceSwSrvEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpLicState.setStatus(_A)
+_CfprFabricDceSwSrvEpLocale_Type=CfprFabricInternalEpLocale
+_CfprFabricDceSwSrvEpLocale_Object=MibTableColumn
+cfprFabricDceSwSrvEpLocale=_CfprFabricDceSwSrvEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,13),_CfprFabricDceSwSrvEpLocale_Type())
+cfprFabricDceSwSrvEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpLocale.setStatus(_A)
+_CfprFabricDceSwSrvEpName_Type=SnmpAdminString
+_CfprFabricDceSwSrvEpName_Object=MibTableColumn
+cfprFabricDceSwSrvEpName=_CfprFabricDceSwSrvEpName_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,14),_CfprFabricDceSwSrvEpName_Type())
+cfprFabricDceSwSrvEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpName.setStatus(_A)
+_CfprFabricDceSwSrvEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricDceSwSrvEpOperState_Object=MibTableColumn
+cfprFabricDceSwSrvEpOperState=_CfprFabricDceSwSrvEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,15),_CfprFabricDceSwSrvEpOperState_Type())
+cfprFabricDceSwSrvEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpOperState.setStatus(_A)
+_CfprFabricDceSwSrvEpOperStateReason_Type=SnmpAdminString
+_CfprFabricDceSwSrvEpOperStateReason_Object=MibTableColumn
+cfprFabricDceSwSrvEpOperStateReason=_CfprFabricDceSwSrvEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,16),_CfprFabricDceSwSrvEpOperStateReason_Type())
+cfprFabricDceSwSrvEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpOperStateReason.setStatus(_A)
+_CfprFabricDceSwSrvEpPeerAggrPortId_Type=Gauge32
+_CfprFabricDceSwSrvEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricDceSwSrvEpPeerAggrPortId=_CfprFabricDceSwSrvEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,17),_CfprFabricDceSwSrvEpPeerAggrPortId_Type())
+cfprFabricDceSwSrvEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpPeerAggrPortId.setStatus(_A)
+_CfprFabricDceSwSrvEpPeerChassisId_Type=Gauge32
+_CfprFabricDceSwSrvEpPeerChassisId_Object=MibTableColumn
+cfprFabricDceSwSrvEpPeerChassisId=_CfprFabricDceSwSrvEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,18),_CfprFabricDceSwSrvEpPeerChassisId_Type())
+cfprFabricDceSwSrvEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpPeerChassisId.setStatus(_A)
+_CfprFabricDceSwSrvEpPeerDn_Type=SnmpAdminString
+_CfprFabricDceSwSrvEpPeerDn_Object=MibTableColumn
+cfprFabricDceSwSrvEpPeerDn=_CfprFabricDceSwSrvEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,19),_CfprFabricDceSwSrvEpPeerDn_Type())
+cfprFabricDceSwSrvEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpPeerDn.setStatus(_A)
+_CfprFabricDceSwSrvEpPeerPortId_Type=Gauge32
+_CfprFabricDceSwSrvEpPeerPortId_Object=MibTableColumn
+cfprFabricDceSwSrvEpPeerPortId=_CfprFabricDceSwSrvEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,20),_CfprFabricDceSwSrvEpPeerPortId_Type())
+cfprFabricDceSwSrvEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpPeerPortId.setStatus(_A)
+_CfprFabricDceSwSrvEpPeerSlotId_Type=Gauge32
+_CfprFabricDceSwSrvEpPeerSlotId_Object=MibTableColumn
+cfprFabricDceSwSrvEpPeerSlotId=_CfprFabricDceSwSrvEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,21),_CfprFabricDceSwSrvEpPeerSlotId_Type())
+cfprFabricDceSwSrvEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpPeerSlotId.setStatus(_A)
+_CfprFabricDceSwSrvEpPortId_Type=CfprFabricDceSwSrvEpPortId
+_CfprFabricDceSwSrvEpPortId_Object=MibTableColumn
+cfprFabricDceSwSrvEpPortId=_CfprFabricDceSwSrvEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,22),_CfprFabricDceSwSrvEpPortId_Type())
+cfprFabricDceSwSrvEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpPortId.setStatus(_A)
+_CfprFabricDceSwSrvEpSlotId_Type=CfprFabricDceSwSrvEpSlotId
+_CfprFabricDceSwSrvEpSlotId_Object=MibTableColumn
+cfprFabricDceSwSrvEpSlotId=_CfprFabricDceSwSrvEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,23),_CfprFabricDceSwSrvEpSlotId_Type())
+cfprFabricDceSwSrvEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpSlotId.setStatus(_A)
+_CfprFabricDceSwSrvEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricDceSwSrvEpSwitchId_Object=MibTableColumn
+cfprFabricDceSwSrvEpSwitchId=_CfprFabricDceSwSrvEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,24),_CfprFabricDceSwSrvEpSwitchId_Type())
+cfprFabricDceSwSrvEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpSwitchId.setStatus(_A)
+_CfprFabricDceSwSrvEpTransport_Type=CfprFabricADceSwSrvEpTransport
+_CfprFabricDceSwSrvEpTransport_Object=MibTableColumn
+cfprFabricDceSwSrvEpTransport=_CfprFabricDceSwSrvEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,25),_CfprFabricDceSwSrvEpTransport_Type())
+cfprFabricDceSwSrvEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpTransport.setStatus(_A)
+_CfprFabricDceSwSrvEpType_Type=CfprFabricSwSrvEpType
+_CfprFabricDceSwSrvEpType_Object=MibTableColumn
+cfprFabricDceSwSrvEpType=_CfprFabricDceSwSrvEpType_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,26),_CfprFabricDceSwSrvEpType_Type())
+cfprFabricDceSwSrvEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpType.setStatus(_A)
+_CfprFabricDceSwSrvEpUsrLbl_Type=SnmpAdminString
+_CfprFabricDceSwSrvEpUsrLbl_Object=MibTableColumn
+cfprFabricDceSwSrvEpUsrLbl=_CfprFabricDceSwSrvEpUsrLbl_Object((1,3,6,1,4,1,9,9,826,1,26,15,1,27),_CfprFabricDceSwSrvEpUsrLbl_Type())
+cfprFabricDceSwSrvEpUsrLbl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvEpUsrLbl.setStatus(_A)
+_CfprFabricDceSwSrvPcTable_Object=MibTable
+cfprFabricDceSwSrvPcTable=_CfprFabricDceSwSrvPcTable_Object((1,3,6,1,4,1,9,9,826,1,26,16))
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcTable.setStatus(_A)
+_CfprFabricDceSwSrvPcEntry_Object=MibTableRow
+cfprFabricDceSwSrvPcEntry=_CfprFabricDceSwSrvPcEntry_Object((1,3,6,1,4,1,9,9,826,1,26,16,1))
+cfprFabricDceSwSrvPcEntry.setIndexNames((0,_C,_T))
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEntry.setStatus(_A)
+_CfprFabricDceSwSrvPcInstanceId_Type=CfprManagedObjectId
+_CfprFabricDceSwSrvPcInstanceId_Object=MibTableColumn
+cfprFabricDceSwSrvPcInstanceId=_CfprFabricDceSwSrvPcInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,1),_CfprFabricDceSwSrvPcInstanceId_Type())
+cfprFabricDceSwSrvPcInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcInstanceId.setStatus(_A)
+_CfprFabricDceSwSrvPcDn_Type=CfprManagedObjectDn
+_CfprFabricDceSwSrvPcDn_Object=MibTableColumn
+cfprFabricDceSwSrvPcDn=_CfprFabricDceSwSrvPcDn_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,2),_CfprFabricDceSwSrvPcDn_Type())
+cfprFabricDceSwSrvPcDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcDn.setStatus(_A)
+_CfprFabricDceSwSrvPcRn_Type=SnmpAdminString
+_CfprFabricDceSwSrvPcRn_Object=MibTableColumn
+cfprFabricDceSwSrvPcRn=_CfprFabricDceSwSrvPcRn_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,3),_CfprFabricDceSwSrvPcRn_Type())
+cfprFabricDceSwSrvPcRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcRn.setStatus(_A)
+_CfprFabricDceSwSrvPcAdminState_Type=CfprFabricDceSwSrvPcAdminState
+_CfprFabricDceSwSrvPcAdminState_Object=MibTableColumn
+cfprFabricDceSwSrvPcAdminState=_CfprFabricDceSwSrvPcAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,4),_CfprFabricDceSwSrvPcAdminState_Type())
+cfprFabricDceSwSrvPcAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcAdminState.setStatus(_A)
+_CfprFabricDceSwSrvPcChassisId_Type=Gauge32
+_CfprFabricDceSwSrvPcChassisId_Object=MibTableColumn
+cfprFabricDceSwSrvPcChassisId=_CfprFabricDceSwSrvPcChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,5),_CfprFabricDceSwSrvPcChassisId_Type())
+cfprFabricDceSwSrvPcChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcChassisId.setStatus(_A)
+_CfprFabricDceSwSrvPcDescr_Type=SnmpAdminString
+_CfprFabricDceSwSrvPcDescr_Object=MibTableColumn
+cfprFabricDceSwSrvPcDescr=_CfprFabricDceSwSrvPcDescr_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,6),_CfprFabricDceSwSrvPcDescr_Type())
+cfprFabricDceSwSrvPcDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcDescr.setStatus(_A)
+_CfprFabricDceSwSrvPcEpDn_Type=SnmpAdminString
+_CfprFabricDceSwSrvPcEpDn_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpDn=_CfprFabricDceSwSrvPcEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,7),_CfprFabricDceSwSrvPcEpDn_Type())
+cfprFabricDceSwSrvPcEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpDn.setStatus(_A)
+_CfprFabricDceSwSrvPcFltAggr_Type=Unsigned64
+_CfprFabricDceSwSrvPcFltAggr_Object=MibTableColumn
+cfprFabricDceSwSrvPcFltAggr=_CfprFabricDceSwSrvPcFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,8),_CfprFabricDceSwSrvPcFltAggr_Type())
+cfprFabricDceSwSrvPcFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcFltAggr.setStatus(_A)
+_CfprFabricDceSwSrvPcIfRole_Type=CfprFabricSwSrvPcIfRole
+_CfprFabricDceSwSrvPcIfRole_Object=MibTableColumn
+cfprFabricDceSwSrvPcIfRole=_CfprFabricDceSwSrvPcIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,9),_CfprFabricDceSwSrvPcIfRole_Type())
+cfprFabricDceSwSrvPcIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcIfRole.setStatus(_A)
+_CfprFabricDceSwSrvPcIfType_Type=CfprFabricCIoEpIfType
+_CfprFabricDceSwSrvPcIfType_Object=MibTableColumn
+cfprFabricDceSwSrvPcIfType=_CfprFabricDceSwSrvPcIfType_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,10),_CfprFabricDceSwSrvPcIfType_Type())
+cfprFabricDceSwSrvPcIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcIfType.setStatus(_A)
+_CfprFabricDceSwSrvPcLocale_Type=CfprFabricInternalPcLocale
+_CfprFabricDceSwSrvPcLocale_Object=MibTableColumn
+cfprFabricDceSwSrvPcLocale=_CfprFabricDceSwSrvPcLocale_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,11),_CfprFabricDceSwSrvPcLocale_Type())
+cfprFabricDceSwSrvPcLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcLocale.setStatus(_A)
+_CfprFabricDceSwSrvPcName_Type=SnmpAdminString
+_CfprFabricDceSwSrvPcName_Object=MibTableColumn
+cfprFabricDceSwSrvPcName=_CfprFabricDceSwSrvPcName_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,12),_CfprFabricDceSwSrvPcName_Type())
+cfprFabricDceSwSrvPcName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcName.setStatus(_A)
+_CfprFabricDceSwSrvPcOperSpeed_Type=CfprPortEthSpeed
+_CfprFabricDceSwSrvPcOperSpeed_Object=MibTableColumn
+cfprFabricDceSwSrvPcOperSpeed=_CfprFabricDceSwSrvPcOperSpeed_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,13),_CfprFabricDceSwSrvPcOperSpeed_Type())
+cfprFabricDceSwSrvPcOperSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcOperSpeed.setStatus(_A)
+_CfprFabricDceSwSrvPcOperState_Type=CfprNetworkPortOperState
+_CfprFabricDceSwSrvPcOperState_Object=MibTableColumn
+cfprFabricDceSwSrvPcOperState=_CfprFabricDceSwSrvPcOperState_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,14),_CfprFabricDceSwSrvPcOperState_Type())
+cfprFabricDceSwSrvPcOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcOperState.setStatus(_A)
+_CfprFabricDceSwSrvPcPeerDn_Type=SnmpAdminString
+_CfprFabricDceSwSrvPcPeerDn_Object=MibTableColumn
+cfprFabricDceSwSrvPcPeerDn=_CfprFabricDceSwSrvPcPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,15),_CfprFabricDceSwSrvPcPeerDn_Type())
+cfprFabricDceSwSrvPcPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcPeerDn.setStatus(_A)
+_CfprFabricDceSwSrvPcPortId_Type=CfprFabricDceSwSrvPcPortId
+_CfprFabricDceSwSrvPcPortId_Object=MibTableColumn
+cfprFabricDceSwSrvPcPortId=_CfprFabricDceSwSrvPcPortId_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,16),_CfprFabricDceSwSrvPcPortId_Type())
+cfprFabricDceSwSrvPcPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcPortId.setStatus(_A)
+_CfprFabricDceSwSrvPcStateQual_Type=SnmpAdminString
+_CfprFabricDceSwSrvPcStateQual_Object=MibTableColumn
+cfprFabricDceSwSrvPcStateQual=_CfprFabricDceSwSrvPcStateQual_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,17),_CfprFabricDceSwSrvPcStateQual_Type())
+cfprFabricDceSwSrvPcStateQual.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcStateQual.setStatus(_A)
+_CfprFabricDceSwSrvPcSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricDceSwSrvPcSwitchId_Object=MibTableColumn
+cfprFabricDceSwSrvPcSwitchId=_CfprFabricDceSwSrvPcSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,18),_CfprFabricDceSwSrvPcSwitchId_Type())
+cfprFabricDceSwSrvPcSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcSwitchId.setStatus(_A)
+_CfprFabricDceSwSrvPcTransport_Type=CfprFabricDceSwSrvPcTransport
+_CfprFabricDceSwSrvPcTransport_Object=MibTableColumn
+cfprFabricDceSwSrvPcTransport=_CfprFabricDceSwSrvPcTransport_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,19),_CfprFabricDceSwSrvPcTransport_Type())
+cfprFabricDceSwSrvPcTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcTransport.setStatus(_A)
+_CfprFabricDceSwSrvPcType_Type=CfprFabricSwSrvPcType
+_CfprFabricDceSwSrvPcType_Object=MibTableColumn
+cfprFabricDceSwSrvPcType=_CfprFabricDceSwSrvPcType_Object((1,3,6,1,4,1,9,9,826,1,26,16,1,20),_CfprFabricDceSwSrvPcType_Type())
+cfprFabricDceSwSrvPcType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcType.setStatus(_A)
+_CfprFabricDceSwSrvPcEpTable_Object=MibTable
+cfprFabricDceSwSrvPcEpTable=_CfprFabricDceSwSrvPcEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,17))
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpTable.setStatus(_A)
+_CfprFabricDceSwSrvPcEpEntry_Object=MibTableRow
+cfprFabricDceSwSrvPcEpEntry=_CfprFabricDceSwSrvPcEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,17,1))
+cfprFabricDceSwSrvPcEpEntry.setIndexNames((0,_C,_U))
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpEntry.setStatus(_A)
+_CfprFabricDceSwSrvPcEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricDceSwSrvPcEpInstanceId_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpInstanceId=_CfprFabricDceSwSrvPcEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,1),_CfprFabricDceSwSrvPcEpInstanceId_Type())
+cfprFabricDceSwSrvPcEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpInstanceId.setStatus(_A)
+_CfprFabricDceSwSrvPcEpDnData_Type=CfprManagedObjectDn
+_CfprFabricDceSwSrvPcEpDnData_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpDnData=_CfprFabricDceSwSrvPcEpDnData_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,2),_CfprFabricDceSwSrvPcEpDnData_Type())
+cfprFabricDceSwSrvPcEpDnData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpDnData.setStatus(_A)
+_CfprFabricDceSwSrvPcEpRn_Type=SnmpAdminString
+_CfprFabricDceSwSrvPcEpRn_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpRn=_CfprFabricDceSwSrvPcEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,3),_CfprFabricDceSwSrvPcEpRn_Type())
+cfprFabricDceSwSrvPcEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpRn.setStatus(_A)
+_CfprFabricDceSwSrvPcEpAdminState_Type=CfprFabricInternalEpAdminState
+_CfprFabricDceSwSrvPcEpAdminState_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpAdminState=_CfprFabricDceSwSrvPcEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,4),_CfprFabricDceSwSrvPcEpAdminState_Type())
+cfprFabricDceSwSrvPcEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpAdminState.setStatus(_A)
+_CfprFabricDceSwSrvPcEpAggrPortId_Type=Gauge32
+_CfprFabricDceSwSrvPcEpAggrPortId_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpAggrPortId=_CfprFabricDceSwSrvPcEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,5),_CfprFabricDceSwSrvPcEpAggrPortId_Type())
+cfprFabricDceSwSrvPcEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpAggrPortId.setStatus(_A)
+_CfprFabricDceSwSrvPcEpChassisId_Type=Gauge32
+_CfprFabricDceSwSrvPcEpChassisId_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpChassisId=_CfprFabricDceSwSrvPcEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,6),_CfprFabricDceSwSrvPcEpChassisId_Type())
+cfprFabricDceSwSrvPcEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpChassisId.setStatus(_A)
+_CfprFabricDceSwSrvPcEpEpDn_Type=SnmpAdminString
+_CfprFabricDceSwSrvPcEpEpDn_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpEpDn=_CfprFabricDceSwSrvPcEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,7),_CfprFabricDceSwSrvPcEpEpDn_Type())
+cfprFabricDceSwSrvPcEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpEpDn.setStatus(_A)
+_CfprFabricDceSwSrvPcEpFltAggr_Type=Unsigned64
+_CfprFabricDceSwSrvPcEpFltAggr_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpFltAggr=_CfprFabricDceSwSrvPcEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,8),_CfprFabricDceSwSrvPcEpFltAggr_Type())
+cfprFabricDceSwSrvPcEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpFltAggr.setStatus(_A)
+_CfprFabricDceSwSrvPcEpIfRole_Type=CfprFabricSwSrvEpIfRole
+_CfprFabricDceSwSrvPcEpIfRole_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpIfRole=_CfprFabricDceSwSrvPcEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,9),_CfprFabricDceSwSrvPcEpIfRole_Type())
+cfprFabricDceSwSrvPcEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpIfRole.setStatus(_A)
+_CfprFabricDceSwSrvPcEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricDceSwSrvPcEpIfType_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpIfType=_CfprFabricDceSwSrvPcEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,10),_CfprFabricDceSwSrvPcEpIfType_Type())
+cfprFabricDceSwSrvPcEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpIfType.setStatus(_A)
+_CfprFabricDceSwSrvPcEpLicGP_Type=Unsigned64
+_CfprFabricDceSwSrvPcEpLicGP_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpLicGP=_CfprFabricDceSwSrvPcEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,11),_CfprFabricDceSwSrvPcEpLicGP_Type())
+cfprFabricDceSwSrvPcEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpLicGP.setStatus(_A)
+_CfprFabricDceSwSrvPcEpLicState_Type=CfprLicenseState
+_CfprFabricDceSwSrvPcEpLicState_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpLicState=_CfprFabricDceSwSrvPcEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,12),_CfprFabricDceSwSrvPcEpLicState_Type())
+cfprFabricDceSwSrvPcEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpLicState.setStatus(_A)
+_CfprFabricDceSwSrvPcEpLocale_Type=CfprFabricInternalEpLocale
+_CfprFabricDceSwSrvPcEpLocale_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpLocale=_CfprFabricDceSwSrvPcEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,13),_CfprFabricDceSwSrvPcEpLocale_Type())
+cfprFabricDceSwSrvPcEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpLocale.setStatus(_A)
+_CfprFabricDceSwSrvPcEpMembership_Type=CfprFabricMembershipStatus
+_CfprFabricDceSwSrvPcEpMembership_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpMembership=_CfprFabricDceSwSrvPcEpMembership_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,14),_CfprFabricDceSwSrvPcEpMembership_Type())
+cfprFabricDceSwSrvPcEpMembership.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpMembership.setStatus(_A)
+_CfprFabricDceSwSrvPcEpName_Type=SnmpAdminString
+_CfprFabricDceSwSrvPcEpName_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpName=_CfprFabricDceSwSrvPcEpName_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,15),_CfprFabricDceSwSrvPcEpName_Type())
+cfprFabricDceSwSrvPcEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpName.setStatus(_A)
+_CfprFabricDceSwSrvPcEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricDceSwSrvPcEpOperState_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpOperState=_CfprFabricDceSwSrvPcEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,16),_CfprFabricDceSwSrvPcEpOperState_Type())
+cfprFabricDceSwSrvPcEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpOperState.setStatus(_A)
+_CfprFabricDceSwSrvPcEpOperStateReason_Type=SnmpAdminString
+_CfprFabricDceSwSrvPcEpOperStateReason_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpOperStateReason=_CfprFabricDceSwSrvPcEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,17),_CfprFabricDceSwSrvPcEpOperStateReason_Type())
+cfprFabricDceSwSrvPcEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpOperStateReason.setStatus(_A)
+_CfprFabricDceSwSrvPcEpPeerAggrPortId_Type=Gauge32
+_CfprFabricDceSwSrvPcEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpPeerAggrPortId=_CfprFabricDceSwSrvPcEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,18),_CfprFabricDceSwSrvPcEpPeerAggrPortId_Type())
+cfprFabricDceSwSrvPcEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpPeerAggrPortId.setStatus(_A)
+_CfprFabricDceSwSrvPcEpPeerChassisId_Type=Gauge32
+_CfprFabricDceSwSrvPcEpPeerChassisId_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpPeerChassisId=_CfprFabricDceSwSrvPcEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,19),_CfprFabricDceSwSrvPcEpPeerChassisId_Type())
+cfprFabricDceSwSrvPcEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpPeerChassisId.setStatus(_A)
+_CfprFabricDceSwSrvPcEpPeerDn_Type=SnmpAdminString
+_CfprFabricDceSwSrvPcEpPeerDn_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpPeerDn=_CfprFabricDceSwSrvPcEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,20),_CfprFabricDceSwSrvPcEpPeerDn_Type())
+cfprFabricDceSwSrvPcEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpPeerDn.setStatus(_A)
+_CfprFabricDceSwSrvPcEpPeerPortId_Type=Gauge32
+_CfprFabricDceSwSrvPcEpPeerPortId_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpPeerPortId=_CfprFabricDceSwSrvPcEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,21),_CfprFabricDceSwSrvPcEpPeerPortId_Type())
+cfprFabricDceSwSrvPcEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpPeerPortId.setStatus(_A)
+_CfprFabricDceSwSrvPcEpPeerSlotId_Type=Gauge32
+_CfprFabricDceSwSrvPcEpPeerSlotId_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpPeerSlotId=_CfprFabricDceSwSrvPcEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,22),_CfprFabricDceSwSrvPcEpPeerSlotId_Type())
+cfprFabricDceSwSrvPcEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpPeerSlotId.setStatus(_A)
+_CfprFabricDceSwSrvPcEpPortId_Type=CfprFabricDceSwSrvPcEpPortId
+_CfprFabricDceSwSrvPcEpPortId_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpPortId=_CfprFabricDceSwSrvPcEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,23),_CfprFabricDceSwSrvPcEpPortId_Type())
+cfprFabricDceSwSrvPcEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpPortId.setStatus(_A)
+_CfprFabricDceSwSrvPcEpSlotId_Type=CfprFabricDceSwSrvPcEpSlotId
+_CfprFabricDceSwSrvPcEpSlotId_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpSlotId=_CfprFabricDceSwSrvPcEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,24),_CfprFabricDceSwSrvPcEpSlotId_Type())
+cfprFabricDceSwSrvPcEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpSlotId.setStatus(_A)
+_CfprFabricDceSwSrvPcEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricDceSwSrvPcEpSwitchId_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpSwitchId=_CfprFabricDceSwSrvPcEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,25),_CfprFabricDceSwSrvPcEpSwitchId_Type())
+cfprFabricDceSwSrvPcEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpSwitchId.setStatus(_A)
+_CfprFabricDceSwSrvPcEpTransport_Type=CfprFabricADceSwSrvEpTransport
+_CfprFabricDceSwSrvPcEpTransport_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpTransport=_CfprFabricDceSwSrvPcEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,26),_CfprFabricDceSwSrvPcEpTransport_Type())
+cfprFabricDceSwSrvPcEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpTransport.setStatus(_A)
+_CfprFabricDceSwSrvPcEpType_Type=CfprFabricSwSrvEpType
+_CfprFabricDceSwSrvPcEpType_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpType=_CfprFabricDceSwSrvPcEpType_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,27),_CfprFabricDceSwSrvPcEpType_Type())
+cfprFabricDceSwSrvPcEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpType.setStatus(_A)
+_CfprFabricDceSwSrvPcEpUsrLbl_Type=SnmpAdminString
+_CfprFabricDceSwSrvPcEpUsrLbl_Object=MibTableColumn
+cfprFabricDceSwSrvPcEpUsrLbl=_CfprFabricDceSwSrvPcEpUsrLbl_Object((1,3,6,1,4,1,9,9,826,1,26,17,1,28),_CfprFabricDceSwSrvPcEpUsrLbl_Type())
+cfprFabricDceSwSrvPcEpUsrLbl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricDceSwSrvPcEpUsrLbl.setStatus(_A)
+_CfprFabricEpTable_Object=MibTable
+cfprFabricEpTable=_CfprFabricEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,18))
+if mibBuilder.loadTexts:cfprFabricEpTable.setStatus(_A)
+_CfprFabricEpEntry_Object=MibTableRow
+cfprFabricEpEntry=_CfprFabricEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,18,1))
+cfprFabricEpEntry.setIndexNames((0,_C,_V))
+if mibBuilder.loadTexts:cfprFabricEpEntry.setStatus(_A)
+_CfprFabricEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricEpInstanceId_Object=MibTableColumn
+cfprFabricEpInstanceId=_CfprFabricEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,18,1,1),_CfprFabricEpInstanceId_Type())
+cfprFabricEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEpInstanceId.setStatus(_A)
+_CfprFabricEpDn_Type=CfprManagedObjectDn
+_CfprFabricEpDn_Object=MibTableColumn
+cfprFabricEpDn=_CfprFabricEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,18,1,2),_CfprFabricEpDn_Type())
+cfprFabricEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpDn.setStatus(_A)
+_CfprFabricEpRn_Type=SnmpAdminString
+_CfprFabricEpRn_Object=MibTableColumn
+cfprFabricEpRn=_CfprFabricEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,18,1,3),_CfprFabricEpRn_Type())
+cfprFabricEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpRn.setStatus(_A)
+_CfprFabricEpMgrTable_Object=MibTable
+cfprFabricEpMgrTable=_CfprFabricEpMgrTable_Object((1,3,6,1,4,1,9,9,826,1,26,19))
+if mibBuilder.loadTexts:cfprFabricEpMgrTable.setStatus(_A)
+_CfprFabricEpMgrEntry_Object=MibTableRow
+cfprFabricEpMgrEntry=_CfprFabricEpMgrEntry_Object((1,3,6,1,4,1,9,9,826,1,26,19,1))
+cfprFabricEpMgrEntry.setIndexNames((0,_C,_W))
+if mibBuilder.loadTexts:cfprFabricEpMgrEntry.setStatus(_A)
+_CfprFabricEpMgrInstanceId_Type=CfprManagedObjectId
+_CfprFabricEpMgrInstanceId_Object=MibTableColumn
+cfprFabricEpMgrInstanceId=_CfprFabricEpMgrInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,1),_CfprFabricEpMgrInstanceId_Type())
+cfprFabricEpMgrInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEpMgrInstanceId.setStatus(_A)
+_CfprFabricEpMgrDn_Type=CfprManagedObjectDn
+_CfprFabricEpMgrDn_Object=MibTableColumn
+cfprFabricEpMgrDn=_CfprFabricEpMgrDn_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,2),_CfprFabricEpMgrDn_Type())
+cfprFabricEpMgrDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrDn.setStatus(_A)
+_CfprFabricEpMgrRn_Type=SnmpAdminString
+_CfprFabricEpMgrRn_Object=MibTableColumn
+cfprFabricEpMgrRn=_CfprFabricEpMgrRn_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,3),_CfprFabricEpMgrRn_Type())
+cfprFabricEpMgrRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrRn.setStatus(_A)
+_CfprFabricEpMgrConfMode_Type=CfprFabricConfMode
+_CfprFabricEpMgrConfMode_Object=MibTableColumn
+cfprFabricEpMgrConfMode=_CfprFabricEpMgrConfMode_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,4),_CfprFabricEpMgrConfMode_Type())
+cfprFabricEpMgrConfMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrConfMode.setStatus(_A)
+_CfprFabricEpMgrConfQual_Type=SnmpAdminString
+_CfprFabricEpMgrConfQual_Object=MibTableColumn
+cfprFabricEpMgrConfQual=_CfprFabricEpMgrConfQual_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,5),_CfprFabricEpMgrConfQual_Type())
+cfprFabricEpMgrConfQual.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrConfQual.setStatus(_A)
+_CfprFabricEpMgrConfState_Type=CfprFabricConfState
+_CfprFabricEpMgrConfState_Object=MibTableColumn
+cfprFabricEpMgrConfState=_CfprFabricEpMgrConfState_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,6),_CfprFabricEpMgrConfState_Type())
+cfprFabricEpMgrConfState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrConfState.setStatus(_A)
+_CfprFabricEpMgrFltAggr_Type=Unsigned64
+_CfprFabricEpMgrFltAggr_Object=MibTableColumn
+cfprFabricEpMgrFltAggr=_CfprFabricEpMgrFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,7),_CfprFabricEpMgrFltAggr_Type())
+cfprFabricEpMgrFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFltAggr.setStatus(_A)
+_CfprFabricEpMgrFsmDescr_Type=SnmpAdminString
+_CfprFabricEpMgrFsmDescr_Object=MibTableColumn
+cfprFabricEpMgrFsmDescr=_CfprFabricEpMgrFsmDescr_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,8),_CfprFabricEpMgrFsmDescr_Type())
+cfprFabricEpMgrFsmDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmDescr.setStatus(_A)
+_CfprFabricEpMgrFsmFlags_Type=SnmpAdminString
+_CfprFabricEpMgrFsmFlags_Object=MibTableColumn
+cfprFabricEpMgrFsmFlags=_CfprFabricEpMgrFsmFlags_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,9),_CfprFabricEpMgrFsmFlags_Type())
+cfprFabricEpMgrFsmFlags.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmFlags.setStatus(_A)
+_CfprFabricEpMgrFsmPrev_Type=SnmpAdminString
+_CfprFabricEpMgrFsmPrev_Object=MibTableColumn
+cfprFabricEpMgrFsmPrev=_CfprFabricEpMgrFsmPrev_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,10),_CfprFabricEpMgrFsmPrev_Type())
+cfprFabricEpMgrFsmPrev.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmPrev.setStatus(_A)
+_CfprFabricEpMgrFsmProgr_Type=Gauge32
+_CfprFabricEpMgrFsmProgr_Object=MibTableColumn
+cfprFabricEpMgrFsmProgr=_CfprFabricEpMgrFsmProgr_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,11),_CfprFabricEpMgrFsmProgr_Type())
+cfprFabricEpMgrFsmProgr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmProgr.setStatus(_A)
+_CfprFabricEpMgrFsmRmtInvErrCode_Type=Gauge32
+_CfprFabricEpMgrFsmRmtInvErrCode_Object=MibTableColumn
+cfprFabricEpMgrFsmRmtInvErrCode=_CfprFabricEpMgrFsmRmtInvErrCode_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,12),_CfprFabricEpMgrFsmRmtInvErrCode_Type())
+cfprFabricEpMgrFsmRmtInvErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmRmtInvErrCode.setStatus(_A)
+_CfprFabricEpMgrFsmRmtInvErrDescr_Type=SnmpAdminString
+_CfprFabricEpMgrFsmRmtInvErrDescr_Object=MibTableColumn
+cfprFabricEpMgrFsmRmtInvErrDescr=_CfprFabricEpMgrFsmRmtInvErrDescr_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,13),_CfprFabricEpMgrFsmRmtInvErrDescr_Type())
+cfprFabricEpMgrFsmRmtInvErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmRmtInvErrDescr.setStatus(_A)
+_CfprFabricEpMgrFsmRmtInvRslt_Type=CfprConditionRemoteInvRslt
+_CfprFabricEpMgrFsmRmtInvRslt_Object=MibTableColumn
+cfprFabricEpMgrFsmRmtInvRslt=_CfprFabricEpMgrFsmRmtInvRslt_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,14),_CfprFabricEpMgrFsmRmtInvRslt_Type())
+cfprFabricEpMgrFsmRmtInvRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmRmtInvRslt.setStatus(_A)
+_CfprFabricEpMgrFsmStageDescr_Type=SnmpAdminString
+_CfprFabricEpMgrFsmStageDescr_Object=MibTableColumn
+cfprFabricEpMgrFsmStageDescr=_CfprFabricEpMgrFsmStageDescr_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,15),_CfprFabricEpMgrFsmStageDescr_Type())
+cfprFabricEpMgrFsmStageDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmStageDescr.setStatus(_A)
+_CfprFabricEpMgrFsmStamp_Type=DateAndTime
+_CfprFabricEpMgrFsmStamp_Object=MibTableColumn
+cfprFabricEpMgrFsmStamp=_CfprFabricEpMgrFsmStamp_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,16),_CfprFabricEpMgrFsmStamp_Type())
+cfprFabricEpMgrFsmStamp.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmStamp.setStatus(_A)
+_CfprFabricEpMgrFsmStatus_Type=SnmpAdminString
+_CfprFabricEpMgrFsmStatus_Object=MibTableColumn
+cfprFabricEpMgrFsmStatus=_CfprFabricEpMgrFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,17),_CfprFabricEpMgrFsmStatus_Type())
+cfprFabricEpMgrFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmStatus.setStatus(_A)
+_CfprFabricEpMgrFsmTry_Type=Gauge32
+_CfprFabricEpMgrFsmTry_Object=MibTableColumn
+cfprFabricEpMgrFsmTry=_CfprFabricEpMgrFsmTry_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,18),_CfprFabricEpMgrFsmTry_Type())
+cfprFabricEpMgrFsmTry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmTry.setStatus(_A)
+_CfprFabricEpMgrId_Type=CfprNetworkSwitchId
+_CfprFabricEpMgrId_Object=MibTableColumn
+cfprFabricEpMgrId=_CfprFabricEpMgrId_Object((1,3,6,1,4,1,9,9,826,1,26,19,1,19),_CfprFabricEpMgrId_Type())
+cfprFabricEpMgrId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrId.setStatus(_A)
+_CfprFabricEpMgrFsmTable_Object=MibTable
+cfprFabricEpMgrFsmTable=_CfprFabricEpMgrFsmTable_Object((1,3,6,1,4,1,9,9,826,1,26,20))
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmTable.setStatus(_A)
+_CfprFabricEpMgrFsmEntry_Object=MibTableRow
+cfprFabricEpMgrFsmEntry=_CfprFabricEpMgrFsmEntry_Object((1,3,6,1,4,1,9,9,826,1,26,20,1))
+cfprFabricEpMgrFsmEntry.setIndexNames((0,_C,_X))
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmEntry.setStatus(_A)
+_CfprFabricEpMgrFsmInstanceId_Type=CfprManagedObjectId
+_CfprFabricEpMgrFsmInstanceId_Object=MibTableColumn
+cfprFabricEpMgrFsmInstanceId=_CfprFabricEpMgrFsmInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,20,1,1),_CfprFabricEpMgrFsmInstanceId_Type())
+cfprFabricEpMgrFsmInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmInstanceId.setStatus(_A)
+_CfprFabricEpMgrFsmDn_Type=CfprManagedObjectDn
+_CfprFabricEpMgrFsmDn_Object=MibTableColumn
+cfprFabricEpMgrFsmDn=_CfprFabricEpMgrFsmDn_Object((1,3,6,1,4,1,9,9,826,1,26,20,1,2),_CfprFabricEpMgrFsmDn_Type())
+cfprFabricEpMgrFsmDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmDn.setStatus(_A)
+_CfprFabricEpMgrFsmRn_Type=SnmpAdminString
+_CfprFabricEpMgrFsmRn_Object=MibTableColumn
+cfprFabricEpMgrFsmRn=_CfprFabricEpMgrFsmRn_Object((1,3,6,1,4,1,9,9,826,1,26,20,1,3),_CfprFabricEpMgrFsmRn_Type())
+cfprFabricEpMgrFsmRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmRn.setStatus(_A)
+_CfprFabricEpMgrFsmCompletionTime_Type=DateAndTime
+_CfprFabricEpMgrFsmCompletionTime_Object=MibTableColumn
+cfprFabricEpMgrFsmCompletionTime=_CfprFabricEpMgrFsmCompletionTime_Object((1,3,6,1,4,1,9,9,826,1,26,20,1,4),_CfprFabricEpMgrFsmCompletionTime_Type())
+cfprFabricEpMgrFsmCompletionTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmCompletionTime.setStatus(_A)
+_CfprFabricEpMgrFsmCurrentFsm_Type=CfprFabricEpMgrFsmCurrentFsm
+_CfprFabricEpMgrFsmCurrentFsm_Object=MibTableColumn
+cfprFabricEpMgrFsmCurrentFsm=_CfprFabricEpMgrFsmCurrentFsm_Object((1,3,6,1,4,1,9,9,826,1,26,20,1,5),_CfprFabricEpMgrFsmCurrentFsm_Type())
+cfprFabricEpMgrFsmCurrentFsm.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmCurrentFsm.setStatus(_A)
+_CfprFabricEpMgrFsmDescrData_Type=SnmpAdminString
+_CfprFabricEpMgrFsmDescrData_Object=MibTableColumn
+cfprFabricEpMgrFsmDescrData=_CfprFabricEpMgrFsmDescrData_Object((1,3,6,1,4,1,9,9,826,1,26,20,1,6),_CfprFabricEpMgrFsmDescrData_Type())
+cfprFabricEpMgrFsmDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmDescrData.setStatus(_A)
+_CfprFabricEpMgrFsmFsmStatus_Type=CfprFsmFsmStageStatus
+_CfprFabricEpMgrFsmFsmStatus_Object=MibTableColumn
+cfprFabricEpMgrFsmFsmStatus=_CfprFabricEpMgrFsmFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,26,20,1,7),_CfprFabricEpMgrFsmFsmStatus_Type())
+cfprFabricEpMgrFsmFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmFsmStatus.setStatus(_A)
+_CfprFabricEpMgrFsmProgress_Type=Gauge32
+_CfprFabricEpMgrFsmProgress_Object=MibTableColumn
+cfprFabricEpMgrFsmProgress=_CfprFabricEpMgrFsmProgress_Object((1,3,6,1,4,1,9,9,826,1,26,20,1,8),_CfprFabricEpMgrFsmProgress_Type())
+cfprFabricEpMgrFsmProgress.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmProgress.setStatus(_A)
+_CfprFabricEpMgrFsmRmtErrCode_Type=Gauge32
+_CfprFabricEpMgrFsmRmtErrCode_Object=MibTableColumn
+cfprFabricEpMgrFsmRmtErrCode=_CfprFabricEpMgrFsmRmtErrCode_Object((1,3,6,1,4,1,9,9,826,1,26,20,1,9),_CfprFabricEpMgrFsmRmtErrCode_Type())
+cfprFabricEpMgrFsmRmtErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmRmtErrCode.setStatus(_A)
+_CfprFabricEpMgrFsmRmtErrDescr_Type=SnmpAdminString
+_CfprFabricEpMgrFsmRmtErrDescr_Object=MibTableColumn
+cfprFabricEpMgrFsmRmtErrDescr=_CfprFabricEpMgrFsmRmtErrDescr_Object((1,3,6,1,4,1,9,9,826,1,26,20,1,10),_CfprFabricEpMgrFsmRmtErrDescr_Type())
+cfprFabricEpMgrFsmRmtErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmRmtErrDescr.setStatus(_A)
+_CfprFabricEpMgrFsmRmtRslt_Type=CfprConditionRemoteInvRslt
+_CfprFabricEpMgrFsmRmtRslt_Object=MibTableColumn
+cfprFabricEpMgrFsmRmtRslt=_CfprFabricEpMgrFsmRmtRslt_Object((1,3,6,1,4,1,9,9,826,1,26,20,1,11),_CfprFabricEpMgrFsmRmtRslt_Type())
+cfprFabricEpMgrFsmRmtRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmRmtRslt.setStatus(_A)
+_CfprFabricEpMgrFsmStageTable_Object=MibTable
+cfprFabricEpMgrFsmStageTable=_CfprFabricEpMgrFsmStageTable_Object((1,3,6,1,4,1,9,9,826,1,26,21))
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmStageTable.setStatus(_A)
+_CfprFabricEpMgrFsmStageEntry_Object=MibTableRow
+cfprFabricEpMgrFsmStageEntry=_CfprFabricEpMgrFsmStageEntry_Object((1,3,6,1,4,1,9,9,826,1,26,21,1))
+cfprFabricEpMgrFsmStageEntry.setIndexNames((0,_C,_Y))
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmStageEntry.setStatus(_A)
+_CfprFabricEpMgrFsmStageInstanceId_Type=CfprManagedObjectId
+_CfprFabricEpMgrFsmStageInstanceId_Object=MibTableColumn
+cfprFabricEpMgrFsmStageInstanceId=_CfprFabricEpMgrFsmStageInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,21,1,1),_CfprFabricEpMgrFsmStageInstanceId_Type())
+cfprFabricEpMgrFsmStageInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmStageInstanceId.setStatus(_A)
+_CfprFabricEpMgrFsmStageDn_Type=CfprManagedObjectDn
+_CfprFabricEpMgrFsmStageDn_Object=MibTableColumn
+cfprFabricEpMgrFsmStageDn=_CfprFabricEpMgrFsmStageDn_Object((1,3,6,1,4,1,9,9,826,1,26,21,1,2),_CfprFabricEpMgrFsmStageDn_Type())
+cfprFabricEpMgrFsmStageDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmStageDn.setStatus(_A)
+_CfprFabricEpMgrFsmStageRn_Type=SnmpAdminString
+_CfprFabricEpMgrFsmStageRn_Object=MibTableColumn
+cfprFabricEpMgrFsmStageRn=_CfprFabricEpMgrFsmStageRn_Object((1,3,6,1,4,1,9,9,826,1,26,21,1,3),_CfprFabricEpMgrFsmStageRn_Type())
+cfprFabricEpMgrFsmStageRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmStageRn.setStatus(_A)
+_CfprFabricEpMgrFsmStageDescrData_Type=SnmpAdminString
+_CfprFabricEpMgrFsmStageDescrData_Object=MibTableColumn
+cfprFabricEpMgrFsmStageDescrData=_CfprFabricEpMgrFsmStageDescrData_Object((1,3,6,1,4,1,9,9,826,1,26,21,1,4),_CfprFabricEpMgrFsmStageDescrData_Type())
+cfprFabricEpMgrFsmStageDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmStageDescrData.setStatus(_A)
+_CfprFabricEpMgrFsmStageLastUpdateTime_Type=DateAndTime
+_CfprFabricEpMgrFsmStageLastUpdateTime_Object=MibTableColumn
+cfprFabricEpMgrFsmStageLastUpdateTime=_CfprFabricEpMgrFsmStageLastUpdateTime_Object((1,3,6,1,4,1,9,9,826,1,26,21,1,5),_CfprFabricEpMgrFsmStageLastUpdateTime_Type())
+cfprFabricEpMgrFsmStageLastUpdateTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmStageLastUpdateTime.setStatus(_A)
+_CfprFabricEpMgrFsmStageName_Type=CfprFabricEpMgrFsmStageName
+_CfprFabricEpMgrFsmStageName_Object=MibTableColumn
+cfprFabricEpMgrFsmStageName=_CfprFabricEpMgrFsmStageName_Object((1,3,6,1,4,1,9,9,826,1,26,21,1,6),_CfprFabricEpMgrFsmStageName_Type())
+cfprFabricEpMgrFsmStageName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmStageName.setStatus(_A)
+_CfprFabricEpMgrFsmStageOrder_Type=Gauge32
+_CfprFabricEpMgrFsmStageOrder_Object=MibTableColumn
+cfprFabricEpMgrFsmStageOrder=_CfprFabricEpMgrFsmStageOrder_Object((1,3,6,1,4,1,9,9,826,1,26,21,1,7),_CfprFabricEpMgrFsmStageOrder_Type())
+cfprFabricEpMgrFsmStageOrder.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmStageOrder.setStatus(_A)
+_CfprFabricEpMgrFsmStageRetry_Type=Gauge32
+_CfprFabricEpMgrFsmStageRetry_Object=MibTableColumn
+cfprFabricEpMgrFsmStageRetry=_CfprFabricEpMgrFsmStageRetry_Object((1,3,6,1,4,1,9,9,826,1,26,21,1,8),_CfprFabricEpMgrFsmStageRetry_Type())
+cfprFabricEpMgrFsmStageRetry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmStageRetry.setStatus(_A)
+_CfprFabricEpMgrFsmStageStageStatus_Type=CfprFsmFsmStageStatus
+_CfprFabricEpMgrFsmStageStageStatus_Object=MibTableColumn
+cfprFabricEpMgrFsmStageStageStatus=_CfprFabricEpMgrFsmStageStageStatus_Object((1,3,6,1,4,1,9,9,826,1,26,21,1,9),_CfprFabricEpMgrFsmStageStageStatus_Type())
+cfprFabricEpMgrFsmStageStageStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmStageStageStatus.setStatus(_A)
+_CfprFabricEpMgrFsmTaskTable_Object=MibTable
+cfprFabricEpMgrFsmTaskTable=_CfprFabricEpMgrFsmTaskTable_Object((1,3,6,1,4,1,9,9,826,1,26,22))
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmTaskTable.setStatus(_A)
+_CfprFabricEpMgrFsmTaskEntry_Object=MibTableRow
+cfprFabricEpMgrFsmTaskEntry=_CfprFabricEpMgrFsmTaskEntry_Object((1,3,6,1,4,1,9,9,826,1,26,22,1))
+cfprFabricEpMgrFsmTaskEntry.setIndexNames((0,_C,_Z))
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmTaskEntry.setStatus(_A)
+_CfprFabricEpMgrFsmTaskInstanceId_Type=CfprManagedObjectId
+_CfprFabricEpMgrFsmTaskInstanceId_Object=MibTableColumn
+cfprFabricEpMgrFsmTaskInstanceId=_CfprFabricEpMgrFsmTaskInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,22,1,1),_CfprFabricEpMgrFsmTaskInstanceId_Type())
+cfprFabricEpMgrFsmTaskInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmTaskInstanceId.setStatus(_A)
+_CfprFabricEpMgrFsmTaskDn_Type=CfprManagedObjectDn
+_CfprFabricEpMgrFsmTaskDn_Object=MibTableColumn
+cfprFabricEpMgrFsmTaskDn=_CfprFabricEpMgrFsmTaskDn_Object((1,3,6,1,4,1,9,9,826,1,26,22,1,2),_CfprFabricEpMgrFsmTaskDn_Type())
+cfprFabricEpMgrFsmTaskDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmTaskDn.setStatus(_A)
+_CfprFabricEpMgrFsmTaskRn_Type=SnmpAdminString
+_CfprFabricEpMgrFsmTaskRn_Object=MibTableColumn
+cfprFabricEpMgrFsmTaskRn=_CfprFabricEpMgrFsmTaskRn_Object((1,3,6,1,4,1,9,9,826,1,26,22,1,3),_CfprFabricEpMgrFsmTaskRn_Type())
+cfprFabricEpMgrFsmTaskRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmTaskRn.setStatus(_A)
+_CfprFabricEpMgrFsmTaskCompletion_Type=CfprFsmCompletion
+_CfprFabricEpMgrFsmTaskCompletion_Object=MibTableColumn
+cfprFabricEpMgrFsmTaskCompletion=_CfprFabricEpMgrFsmTaskCompletion_Object((1,3,6,1,4,1,9,9,826,1,26,22,1,4),_CfprFabricEpMgrFsmTaskCompletion_Type())
+cfprFabricEpMgrFsmTaskCompletion.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmTaskCompletion.setStatus(_A)
+_CfprFabricEpMgrFsmTaskFlags_Type=CfprFabricEpMgrFsmTaskFlags
+_CfprFabricEpMgrFsmTaskFlags_Object=MibTableColumn
+cfprFabricEpMgrFsmTaskFlags=_CfprFabricEpMgrFsmTaskFlags_Object((1,3,6,1,4,1,9,9,826,1,26,22,1,5),_CfprFabricEpMgrFsmTaskFlags_Type())
+cfprFabricEpMgrFsmTaskFlags.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmTaskFlags.setStatus(_A)
+_CfprFabricEpMgrFsmTaskItem_Type=CfprFabricEpMgrFsmTaskItem
+_CfprFabricEpMgrFsmTaskItem_Object=MibTableColumn
+cfprFabricEpMgrFsmTaskItem=_CfprFabricEpMgrFsmTaskItem_Object((1,3,6,1,4,1,9,9,826,1,26,22,1,6),_CfprFabricEpMgrFsmTaskItem_Type())
+cfprFabricEpMgrFsmTaskItem.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmTaskItem.setStatus(_A)
+_CfprFabricEpMgrFsmTaskSeqId_Type=Gauge32
+_CfprFabricEpMgrFsmTaskSeqId_Object=MibTableColumn
+cfprFabricEpMgrFsmTaskSeqId=_CfprFabricEpMgrFsmTaskSeqId_Object((1,3,6,1,4,1,9,9,826,1,26,22,1,7),_CfprFabricEpMgrFsmTaskSeqId_Type())
+cfprFabricEpMgrFsmTaskSeqId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEpMgrFsmTaskSeqId.setStatus(_A)
+_CfprFabricEthEstcTable_Object=MibTable
+cfprFabricEthEstcTable=_CfprFabricEthEstcTable_Object((1,3,6,1,4,1,9,9,826,1,26,23))
+if mibBuilder.loadTexts:cfprFabricEthEstcTable.setStatus(_A)
+_CfprFabricEthEstcEntry_Object=MibTableRow
+cfprFabricEthEstcEntry=_CfprFabricEthEstcEntry_Object((1,3,6,1,4,1,9,9,826,1,26,23,1))
+cfprFabricEthEstcEntry.setIndexNames((0,_C,_a))
+if mibBuilder.loadTexts:cfprFabricEthEstcEntry.setStatus(_A)
+_CfprFabricEthEstcInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthEstcInstanceId_Object=MibTableColumn
+cfprFabricEthEstcInstanceId=_CfprFabricEthEstcInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,23,1,1),_CfprFabricEthEstcInstanceId_Type())
+cfprFabricEthEstcInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthEstcInstanceId.setStatus(_A)
+_CfprFabricEthEstcDn_Type=CfprManagedObjectDn
+_CfprFabricEthEstcDn_Object=MibTableColumn
+cfprFabricEthEstcDn=_CfprFabricEthEstcDn_Object((1,3,6,1,4,1,9,9,826,1,26,23,1,2),_CfprFabricEthEstcDn_Type())
+cfprFabricEthEstcDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcDn.setStatus(_A)
+_CfprFabricEthEstcRn_Type=SnmpAdminString
+_CfprFabricEthEstcRn_Object=MibTableColumn
+cfprFabricEthEstcRn=_CfprFabricEthEstcRn_Object((1,3,6,1,4,1,9,9,826,1,26,23,1,3),_CfprFabricEthEstcRn_Type())
+cfprFabricEthEstcRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcRn.setStatus(_A)
+_CfprFabricEthEstcId_Type=CfprNetworkSwitchId
+_CfprFabricEthEstcId_Object=MibTableColumn
+cfprFabricEthEstcId=_CfprFabricEthEstcId_Object((1,3,6,1,4,1,9,9,826,1,26,23,1,4),_CfprFabricEthEstcId_Type())
+cfprFabricEthEstcId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcId.setStatus(_A)
+_CfprFabricEthEstcLocale_Type=CfprFabricExternalLocale
+_CfprFabricEthEstcLocale_Object=MibTableColumn
+cfprFabricEthEstcLocale=_CfprFabricEthEstcLocale_Object((1,3,6,1,4,1,9,9,826,1,26,23,1,5),_CfprFabricEthEstcLocale_Type())
+cfprFabricEthEstcLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcLocale.setStatus(_A)
+_CfprFabricEthEstcName_Type=SnmpAdminString
+_CfprFabricEthEstcName_Object=MibTableColumn
+cfprFabricEthEstcName=_CfprFabricEthEstcName_Object((1,3,6,1,4,1,9,9,826,1,26,23,1,6),_CfprFabricEthEstcName_Type())
+cfprFabricEthEstcName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcName.setStatus(_A)
+_CfprFabricEthEstcTransport_Type=CfprFabricEthEstcTransport
+_CfprFabricEthEstcTransport_Object=MibTableColumn
+cfprFabricEthEstcTransport=_CfprFabricEthEstcTransport_Object((1,3,6,1,4,1,9,9,826,1,26,23,1,7),_CfprFabricEthEstcTransport_Type())
+cfprFabricEthEstcTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcTransport.setStatus(_A)
+_CfprFabricEthEstcType_Type=CfprFabricEthEstcType
+_CfprFabricEthEstcType_Object=MibTableColumn
+cfprFabricEthEstcType=_CfprFabricEthEstcType_Object((1,3,6,1,4,1,9,9,826,1,26,23,1,8),_CfprFabricEthEstcType_Type())
+cfprFabricEthEstcType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcType.setStatus(_A)
+_CfprFabricEthEstcCloudTable_Object=MibTable
+cfprFabricEthEstcCloudTable=_CfprFabricEthEstcCloudTable_Object((1,3,6,1,4,1,9,9,826,1,26,24))
+if mibBuilder.loadTexts:cfprFabricEthEstcCloudTable.setStatus(_A)
+_CfprFabricEthEstcCloudEntry_Object=MibTableRow
+cfprFabricEthEstcCloudEntry=_CfprFabricEthEstcCloudEntry_Object((1,3,6,1,4,1,9,9,826,1,26,24,1))
+cfprFabricEthEstcCloudEntry.setIndexNames((0,_C,_b))
+if mibBuilder.loadTexts:cfprFabricEthEstcCloudEntry.setStatus(_A)
+_CfprFabricEthEstcCloudInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthEstcCloudInstanceId_Object=MibTableColumn
+cfprFabricEthEstcCloudInstanceId=_CfprFabricEthEstcCloudInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,24,1,1),_CfprFabricEthEstcCloudInstanceId_Type())
+cfprFabricEthEstcCloudInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthEstcCloudInstanceId.setStatus(_A)
+_CfprFabricEthEstcCloudDn_Type=CfprManagedObjectDn
+_CfprFabricEthEstcCloudDn_Object=MibTableColumn
+cfprFabricEthEstcCloudDn=_CfprFabricEthEstcCloudDn_Object((1,3,6,1,4,1,9,9,826,1,26,24,1,2),_CfprFabricEthEstcCloudDn_Type())
+cfprFabricEthEstcCloudDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcCloudDn.setStatus(_A)
+_CfprFabricEthEstcCloudRn_Type=SnmpAdminString
+_CfprFabricEthEstcCloudRn_Object=MibTableColumn
+cfprFabricEthEstcCloudRn=_CfprFabricEthEstcCloudRn_Object((1,3,6,1,4,1,9,9,826,1,26,24,1,3),_CfprFabricEthEstcCloudRn_Type())
+cfprFabricEthEstcCloudRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcCloudRn.setStatus(_A)
+_CfprFabricEthEstcEpTable_Object=MibTable
+cfprFabricEthEstcEpTable=_CfprFabricEthEstcEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,25))
+if mibBuilder.loadTexts:cfprFabricEthEstcEpTable.setStatus(_A)
+_CfprFabricEthEstcEpEntry_Object=MibTableRow
+cfprFabricEthEstcEpEntry=_CfprFabricEthEstcEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,25,1))
+cfprFabricEthEstcEpEntry.setIndexNames((0,_C,_c))
+if mibBuilder.loadTexts:cfprFabricEthEstcEpEntry.setStatus(_A)
+_CfprFabricEthEstcEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthEstcEpInstanceId_Object=MibTableColumn
+cfprFabricEthEstcEpInstanceId=_CfprFabricEthEstcEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,1),_CfprFabricEthEstcEpInstanceId_Type())
+cfprFabricEthEstcEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpInstanceId.setStatus(_A)
+_CfprFabricEthEstcEpDn_Type=CfprManagedObjectDn
+_CfprFabricEthEstcEpDn_Object=MibTableColumn
+cfprFabricEthEstcEpDn=_CfprFabricEthEstcEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,2),_CfprFabricEthEstcEpDn_Type())
+cfprFabricEthEstcEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpDn.setStatus(_A)
+_CfprFabricEthEstcEpRn_Type=SnmpAdminString
+_CfprFabricEthEstcEpRn_Object=MibTableColumn
+cfprFabricEthEstcEpRn=_CfprFabricEthEstcEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,3),_CfprFabricEthEstcEpRn_Type())
+cfprFabricEthEstcEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpRn.setStatus(_A)
+_CfprFabricEthEstcEpAdminSpeed_Type=CfprPortEthSpeed
+_CfprFabricEthEstcEpAdminSpeed_Object=MibTableColumn
+cfprFabricEthEstcEpAdminSpeed=_CfprFabricEthEstcEpAdminSpeed_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,4),_CfprFabricEthEstcEpAdminSpeed_Type())
+cfprFabricEthEstcEpAdminSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpAdminSpeed.setStatus(_A)
+_CfprFabricEthEstcEpAdminState_Type=CfprFabricExternalEpAdminState
+_CfprFabricEthEstcEpAdminState_Object=MibTableColumn
+cfprFabricEthEstcEpAdminState=_CfprFabricEthEstcEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,5),_CfprFabricEthEstcEpAdminState_Type())
+cfprFabricEthEstcEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpAdminState.setStatus(_A)
+_CfprFabricEthEstcEpAggrPortId_Type=Gauge32
+_CfprFabricEthEstcEpAggrPortId_Object=MibTableColumn
+cfprFabricEthEstcEpAggrPortId=_CfprFabricEthEstcEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,6),_CfprFabricEthEstcEpAggrPortId_Type())
+cfprFabricEthEstcEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpAggrPortId.setStatus(_A)
+_CfprFabricEthEstcEpChassisId_Type=Gauge32
+_CfprFabricEthEstcEpChassisId_Object=MibTableColumn
+cfprFabricEthEstcEpChassisId=_CfprFabricEthEstcEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,7),_CfprFabricEthEstcEpChassisId_Type())
+cfprFabricEthEstcEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpChassisId.setStatus(_A)
+_CfprFabricEthEstcEpConfigState_Type=CfprFabricConfigState
+_CfprFabricEthEstcEpConfigState_Object=MibTableColumn
+cfprFabricEthEstcEpConfigState=_CfprFabricEthEstcEpConfigState_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,8),_CfprFabricEthEstcEpConfigState_Type())
+cfprFabricEthEstcEpConfigState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpConfigState.setStatus(_A)
+_CfprFabricEthEstcEpEpDn_Type=SnmpAdminString
+_CfprFabricEthEstcEpEpDn_Object=MibTableColumn
+cfprFabricEthEstcEpEpDn=_CfprFabricEthEstcEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,9),_CfprFabricEthEstcEpEpDn_Type())
+cfprFabricEthEstcEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpEpDn.setStatus(_A)
+_CfprFabricEthEstcEpFlowCtrlPolicy_Type=SnmpAdminString
+_CfprFabricEthEstcEpFlowCtrlPolicy_Object=MibTableColumn
+cfprFabricEthEstcEpFlowCtrlPolicy=_CfprFabricEthEstcEpFlowCtrlPolicy_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,10),_CfprFabricEthEstcEpFlowCtrlPolicy_Type())
+cfprFabricEthEstcEpFlowCtrlPolicy.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpFlowCtrlPolicy.setStatus(_A)
+_CfprFabricEthEstcEpFltAggr_Type=Unsigned64
+_CfprFabricEthEstcEpFltAggr_Object=MibTableColumn
+cfprFabricEthEstcEpFltAggr=_CfprFabricEthEstcEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,11),_CfprFabricEthEstcEpFltAggr_Type())
+cfprFabricEthEstcEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpFltAggr.setStatus(_A)
+_CfprFabricEthEstcEpIfRole_Type=CfprFabricAEthEstcEpIfRole
+_CfprFabricEthEstcEpIfRole_Object=MibTableColumn
+cfprFabricEthEstcEpIfRole=_CfprFabricEthEstcEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,12),_CfprFabricEthEstcEpIfRole_Type())
+cfprFabricEthEstcEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpIfRole.setStatus(_A)
+_CfprFabricEthEstcEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricEthEstcEpIfType_Object=MibTableColumn
+cfprFabricEthEstcEpIfType=_CfprFabricEthEstcEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,13),_CfprFabricEthEstcEpIfType_Type())
+cfprFabricEthEstcEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpIfType.setStatus(_A)
+_CfprFabricEthEstcEpLicGP_Type=Unsigned64
+_CfprFabricEthEstcEpLicGP_Object=MibTableColumn
+cfprFabricEthEstcEpLicGP=_CfprFabricEthEstcEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,14),_CfprFabricEthEstcEpLicGP_Type())
+cfprFabricEthEstcEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpLicGP.setStatus(_A)
+_CfprFabricEthEstcEpLicState_Type=CfprLicenseState
+_CfprFabricEthEstcEpLicState_Object=MibTableColumn
+cfprFabricEthEstcEpLicState=_CfprFabricEthEstcEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,15),_CfprFabricEthEstcEpLicState_Type())
+cfprFabricEthEstcEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpLicState.setStatus(_A)
+_CfprFabricEthEstcEpLocale_Type=CfprFabricExternalEpLocale
+_CfprFabricEthEstcEpLocale_Object=MibTableColumn
+cfprFabricEthEstcEpLocale=_CfprFabricEthEstcEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,16),_CfprFabricEthEstcEpLocale_Type())
+cfprFabricEthEstcEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpLocale.setStatus(_A)
+_CfprFabricEthEstcEpName_Type=SnmpAdminString
+_CfprFabricEthEstcEpName_Object=MibTableColumn
+cfprFabricEthEstcEpName=_CfprFabricEthEstcEpName_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,17),_CfprFabricEthEstcEpName_Type())
+cfprFabricEthEstcEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpName.setStatus(_A)
+_CfprFabricEthEstcEpNwCtrlPolicyName_Type=SnmpAdminString
+_CfprFabricEthEstcEpNwCtrlPolicyName_Object=MibTableColumn
+cfprFabricEthEstcEpNwCtrlPolicyName=_CfprFabricEthEstcEpNwCtrlPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,18),_CfprFabricEthEstcEpNwCtrlPolicyName_Type())
+cfprFabricEthEstcEpNwCtrlPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpNwCtrlPolicyName.setStatus(_A)
+_CfprFabricEthEstcEpOperNwCtrlPolicyName_Type=SnmpAdminString
+_CfprFabricEthEstcEpOperNwCtrlPolicyName_Object=MibTableColumn
+cfprFabricEthEstcEpOperNwCtrlPolicyName=_CfprFabricEthEstcEpOperNwCtrlPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,19),_CfprFabricEthEstcEpOperNwCtrlPolicyName_Type())
+cfprFabricEthEstcEpOperNwCtrlPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpOperNwCtrlPolicyName.setStatus(_A)
+_CfprFabricEthEstcEpOperPortMode_Type=CfprFabricEthEstcOperPortMode
+_CfprFabricEthEstcEpOperPortMode_Object=MibTableColumn
+cfprFabricEthEstcEpOperPortMode=_CfprFabricEthEstcEpOperPortMode_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,20),_CfprFabricEthEstcEpOperPortMode_Type())
+cfprFabricEthEstcEpOperPortMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpOperPortMode.setStatus(_A)
+_CfprFabricEthEstcEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricEthEstcEpOperState_Object=MibTableColumn
+cfprFabricEthEstcEpOperState=_CfprFabricEthEstcEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,21),_CfprFabricEthEstcEpOperState_Type())
+cfprFabricEthEstcEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpOperState.setStatus(_A)
+_CfprFabricEthEstcEpOperStateReason_Type=SnmpAdminString
+_CfprFabricEthEstcEpOperStateReason_Object=MibTableColumn
+cfprFabricEthEstcEpOperStateReason=_CfprFabricEthEstcEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,22),_CfprFabricEthEstcEpOperStateReason_Type())
+cfprFabricEthEstcEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpOperStateReason.setStatus(_A)
+_CfprFabricEthEstcEpPeerAggrPortId_Type=Gauge32
+_CfprFabricEthEstcEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricEthEstcEpPeerAggrPortId=_CfprFabricEthEstcEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,23),_CfprFabricEthEstcEpPeerAggrPortId_Type())
+cfprFabricEthEstcEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpPeerAggrPortId.setStatus(_A)
+_CfprFabricEthEstcEpPeerChassisId_Type=Gauge32
+_CfprFabricEthEstcEpPeerChassisId_Object=MibTableColumn
+cfprFabricEthEstcEpPeerChassisId=_CfprFabricEthEstcEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,24),_CfprFabricEthEstcEpPeerChassisId_Type())
+cfprFabricEthEstcEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpPeerChassisId.setStatus(_A)
+_CfprFabricEthEstcEpPeerDn_Type=SnmpAdminString
+_CfprFabricEthEstcEpPeerDn_Object=MibTableColumn
+cfprFabricEthEstcEpPeerDn=_CfprFabricEthEstcEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,25),_CfprFabricEthEstcEpPeerDn_Type())
+cfprFabricEthEstcEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpPeerDn.setStatus(_A)
+_CfprFabricEthEstcEpPeerPortId_Type=Gauge32
+_CfprFabricEthEstcEpPeerPortId_Object=MibTableColumn
+cfprFabricEthEstcEpPeerPortId=_CfprFabricEthEstcEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,26),_CfprFabricEthEstcEpPeerPortId_Type())
+cfprFabricEthEstcEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpPeerPortId.setStatus(_A)
+_CfprFabricEthEstcEpPeerSlotId_Type=Gauge32
+_CfprFabricEthEstcEpPeerSlotId_Object=MibTableColumn
+cfprFabricEthEstcEpPeerSlotId=_CfprFabricEthEstcEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,27),_CfprFabricEthEstcEpPeerSlotId_Type())
+cfprFabricEthEstcEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpPeerSlotId.setStatus(_A)
+_CfprFabricEthEstcEpPinGroupName_Type=SnmpAdminString
+_CfprFabricEthEstcEpPinGroupName_Object=MibTableColumn
+cfprFabricEthEstcEpPinGroupName=_CfprFabricEthEstcEpPinGroupName_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,28),_CfprFabricEthEstcEpPinGroupName_Type())
+cfprFabricEthEstcEpPinGroupName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpPinGroupName.setStatus(_A)
+_CfprFabricEthEstcEpPortId_Type=CfprFabricEthEstcEpPortId
+_CfprFabricEthEstcEpPortId_Object=MibTableColumn
+cfprFabricEthEstcEpPortId=_CfprFabricEthEstcEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,29),_CfprFabricEthEstcEpPortId_Type())
+cfprFabricEthEstcEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpPortId.setStatus(_A)
+_CfprFabricEthEstcEpPortMode_Type=CfprFabricEthEstcPortMode
+_CfprFabricEthEstcEpPortMode_Object=MibTableColumn
+cfprFabricEthEstcEpPortMode=_CfprFabricEthEstcEpPortMode_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,30),_CfprFabricEthEstcEpPortMode_Type())
+cfprFabricEthEstcEpPortMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpPortMode.setStatus(_A)
+_CfprFabricEthEstcEpPrio_Type=CfprFabricEthEstcEpPrio
+_CfprFabricEthEstcEpPrio_Object=MibTableColumn
+cfprFabricEthEstcEpPrio=_CfprFabricEthEstcEpPrio_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,31),_CfprFabricEthEstcEpPrio_Type())
+cfprFabricEthEstcEpPrio.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpPrio.setStatus(_A)
+_CfprFabricEthEstcEpSlotId_Type=CfprFabricEthEstcEpSlotId
+_CfprFabricEthEstcEpSlotId_Object=MibTableColumn
+cfprFabricEthEstcEpSlotId=_CfprFabricEthEstcEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,32),_CfprFabricEthEstcEpSlotId_Type())
+cfprFabricEthEstcEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpSlotId.setStatus(_A)
+_CfprFabricEthEstcEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricEthEstcEpSwitchId_Object=MibTableColumn
+cfprFabricEthEstcEpSwitchId=_CfprFabricEthEstcEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,33),_CfprFabricEthEstcEpSwitchId_Type())
+cfprFabricEthEstcEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpSwitchId.setStatus(_A)
+_CfprFabricEthEstcEpTransport_Type=CfprFabricEthEstcEpTransport
+_CfprFabricEthEstcEpTransport_Object=MibTableColumn
+cfprFabricEthEstcEpTransport=_CfprFabricEthEstcEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,34),_CfprFabricEthEstcEpTransport_Type())
+cfprFabricEthEstcEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpTransport.setStatus(_A)
+_CfprFabricEthEstcEpType_Type=CfprFabricEthEstcEpType
+_CfprFabricEthEstcEpType_Object=MibTableColumn
+cfprFabricEthEstcEpType=_CfprFabricEthEstcEpType_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,35),_CfprFabricEthEstcEpType_Type())
+cfprFabricEthEstcEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpType.setStatus(_A)
+_CfprFabricEthEstcEpUsrLbl_Type=SnmpAdminString
+_CfprFabricEthEstcEpUsrLbl_Object=MibTableColumn
+cfprFabricEthEstcEpUsrLbl=_CfprFabricEthEstcEpUsrLbl_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,36),_CfprFabricEthEstcEpUsrLbl_Type())
+cfprFabricEthEstcEpUsrLbl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpUsrLbl.setStatus(_A)
+_CfprFabricEthEstcEpWarnings_Type=CfprFabricWarnings
+_CfprFabricEthEstcEpWarnings_Object=MibTableColumn
+cfprFabricEthEstcEpWarnings=_CfprFabricEthEstcEpWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,25,1,37),_CfprFabricEthEstcEpWarnings_Type())
+cfprFabricEthEstcEpWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcEpWarnings.setStatus(_A)
+_CfprFabricEthEstcPcTable_Object=MibTable
+cfprFabricEthEstcPcTable=_CfprFabricEthEstcPcTable_Object((1,3,6,1,4,1,9,9,826,1,26,26))
+if mibBuilder.loadTexts:cfprFabricEthEstcPcTable.setStatus(_A)
+_CfprFabricEthEstcPcEntry_Object=MibTableRow
+cfprFabricEthEstcPcEntry=_CfprFabricEthEstcPcEntry_Object((1,3,6,1,4,1,9,9,826,1,26,26,1))
+cfprFabricEthEstcPcEntry.setIndexNames((0,_C,_d))
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEntry.setStatus(_A)
+_CfprFabricEthEstcPcInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthEstcPcInstanceId_Object=MibTableColumn
+cfprFabricEthEstcPcInstanceId=_CfprFabricEthEstcPcInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,1),_CfprFabricEthEstcPcInstanceId_Type())
+cfprFabricEthEstcPcInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcInstanceId.setStatus(_A)
+_CfprFabricEthEstcPcDn_Type=CfprManagedObjectDn
+_CfprFabricEthEstcPcDn_Object=MibTableColumn
+cfprFabricEthEstcPcDn=_CfprFabricEthEstcPcDn_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,2),_CfprFabricEthEstcPcDn_Type())
+cfprFabricEthEstcPcDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcDn.setStatus(_A)
+_CfprFabricEthEstcPcRn_Type=SnmpAdminString
+_CfprFabricEthEstcPcRn_Object=MibTableColumn
+cfprFabricEthEstcPcRn=_CfprFabricEthEstcPcRn_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,3),_CfprFabricEthEstcPcRn_Type())
+cfprFabricEthEstcPcRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcRn.setStatus(_A)
+_CfprFabricEthEstcPcAdminSpeed_Type=CfprPortEthAdminSpeed
+_CfprFabricEthEstcPcAdminSpeed_Object=MibTableColumn
+cfprFabricEthEstcPcAdminSpeed=_CfprFabricEthEstcPcAdminSpeed_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,4),_CfprFabricEthEstcPcAdminSpeed_Type())
+cfprFabricEthEstcPcAdminSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcAdminSpeed.setStatus(_A)
+_CfprFabricEthEstcPcAdminState_Type=CfprFabricCIoEpAdminState
+_CfprFabricEthEstcPcAdminState_Object=MibTableColumn
+cfprFabricEthEstcPcAdminState=_CfprFabricEthEstcPcAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,5),_CfprFabricEthEstcPcAdminState_Type())
+cfprFabricEthEstcPcAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcAdminState.setStatus(_A)
+_CfprFabricEthEstcPcDescr_Type=SnmpAdminString
+_CfprFabricEthEstcPcDescr_Object=MibTableColumn
+cfprFabricEthEstcPcDescr=_CfprFabricEthEstcPcDescr_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,6),_CfprFabricEthEstcPcDescr_Type())
+cfprFabricEthEstcPcDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcDescr.setStatus(_A)
+_CfprFabricEthEstcPcEpDn_Type=SnmpAdminString
+_CfprFabricEthEstcPcEpDn_Object=MibTableColumn
+cfprFabricEthEstcPcEpDn=_CfprFabricEthEstcPcEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,7),_CfprFabricEthEstcPcEpDn_Type())
+cfprFabricEthEstcPcEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpDn.setStatus(_A)
+_CfprFabricEthEstcPcFlowCtrlPolicy_Type=SnmpAdminString
+_CfprFabricEthEstcPcFlowCtrlPolicy_Object=MibTableColumn
+cfprFabricEthEstcPcFlowCtrlPolicy=_CfprFabricEthEstcPcFlowCtrlPolicy_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,8),_CfprFabricEthEstcPcFlowCtrlPolicy_Type())
+cfprFabricEthEstcPcFlowCtrlPolicy.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcFlowCtrlPolicy.setStatus(_A)
+_CfprFabricEthEstcPcFltAggr_Type=Unsigned64
+_CfprFabricEthEstcPcFltAggr_Object=MibTableColumn
+cfprFabricEthEstcPcFltAggr=_CfprFabricEthEstcPcFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,9),_CfprFabricEthEstcPcFltAggr_Type())
+cfprFabricEthEstcPcFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcFltAggr.setStatus(_A)
+_CfprFabricEthEstcPcIfRole_Type=CfprFabricEstcPcIfRole
+_CfprFabricEthEstcPcIfRole_Object=MibTableColumn
+cfprFabricEthEstcPcIfRole=_CfprFabricEthEstcPcIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,10),_CfprFabricEthEstcPcIfRole_Type())
+cfprFabricEthEstcPcIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcIfRole.setStatus(_A)
+_CfprFabricEthEstcPcIfType_Type=CfprFabricCIoEpIfType
+_CfprFabricEthEstcPcIfType_Object=MibTableColumn
+cfprFabricEthEstcPcIfType=_CfprFabricEthEstcPcIfType_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,11),_CfprFabricEthEstcPcIfType_Type())
+cfprFabricEthEstcPcIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcIfType.setStatus(_A)
+_CfprFabricEthEstcPcLacpPolicyName_Type=SnmpAdminString
+_CfprFabricEthEstcPcLacpPolicyName_Object=MibTableColumn
+cfprFabricEthEstcPcLacpPolicyName=_CfprFabricEthEstcPcLacpPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,12),_CfprFabricEthEstcPcLacpPolicyName_Type())
+cfprFabricEthEstcPcLacpPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcLacpPolicyName.setStatus(_A)
+_CfprFabricEthEstcPcLocale_Type=CfprFabricExternalPcLocale
+_CfprFabricEthEstcPcLocale_Object=MibTableColumn
+cfprFabricEthEstcPcLocale=_CfprFabricEthEstcPcLocale_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,13),_CfprFabricEthEstcPcLocale_Type())
+cfprFabricEthEstcPcLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcLocale.setStatus(_A)
+_CfprFabricEthEstcPcName_Type=SnmpAdminString
+_CfprFabricEthEstcPcName_Object=MibTableColumn
+cfprFabricEthEstcPcName=_CfprFabricEthEstcPcName_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,14),_CfprFabricEthEstcPcName_Type())
+cfprFabricEthEstcPcName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcName.setStatus(_A)
+_CfprFabricEthEstcPcNwCtrlPolicyName_Type=SnmpAdminString
+_CfprFabricEthEstcPcNwCtrlPolicyName_Object=MibTableColumn
+cfprFabricEthEstcPcNwCtrlPolicyName=_CfprFabricEthEstcPcNwCtrlPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,15),_CfprFabricEthEstcPcNwCtrlPolicyName_Type())
+cfprFabricEthEstcPcNwCtrlPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcNwCtrlPolicyName.setStatus(_A)
+_CfprFabricEthEstcPcOperLacpPolicyName_Type=SnmpAdminString
+_CfprFabricEthEstcPcOperLacpPolicyName_Object=MibTableColumn
+cfprFabricEthEstcPcOperLacpPolicyName=_CfprFabricEthEstcPcOperLacpPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,16),_CfprFabricEthEstcPcOperLacpPolicyName_Type())
+cfprFabricEthEstcPcOperLacpPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcOperLacpPolicyName.setStatus(_A)
+_CfprFabricEthEstcPcOperNwCtrlPolicyName_Type=SnmpAdminString
+_CfprFabricEthEstcPcOperNwCtrlPolicyName_Object=MibTableColumn
+cfprFabricEthEstcPcOperNwCtrlPolicyName=_CfprFabricEthEstcPcOperNwCtrlPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,17),_CfprFabricEthEstcPcOperNwCtrlPolicyName_Type())
+cfprFabricEthEstcPcOperNwCtrlPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcOperNwCtrlPolicyName.setStatus(_A)
+_CfprFabricEthEstcPcOperSpeed_Type=CfprPortEthSpeed
+_CfprFabricEthEstcPcOperSpeed_Object=MibTableColumn
+cfprFabricEthEstcPcOperSpeed=_CfprFabricEthEstcPcOperSpeed_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,18),_CfprFabricEthEstcPcOperSpeed_Type())
+cfprFabricEthEstcPcOperSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcOperSpeed.setStatus(_A)
+_CfprFabricEthEstcPcOperState_Type=CfprNetworkPortOperState
+_CfprFabricEthEstcPcOperState_Object=MibTableColumn
+cfprFabricEthEstcPcOperState=_CfprFabricEthEstcPcOperState_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,19),_CfprFabricEthEstcPcOperState_Type())
+cfprFabricEthEstcPcOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcOperState.setStatus(_A)
+_CfprFabricEthEstcPcPeerDn_Type=SnmpAdminString
+_CfprFabricEthEstcPcPeerDn_Object=MibTableColumn
+cfprFabricEthEstcPcPeerDn=_CfprFabricEthEstcPcPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,20),_CfprFabricEthEstcPcPeerDn_Type())
+cfprFabricEthEstcPcPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcPeerDn.setStatus(_A)
+_CfprFabricEthEstcPcPinGroupName_Type=SnmpAdminString
+_CfprFabricEthEstcPcPinGroupName_Object=MibTableColumn
+cfprFabricEthEstcPcPinGroupName=_CfprFabricEthEstcPcPinGroupName_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,21),_CfprFabricEthEstcPcPinGroupName_Type())
+cfprFabricEthEstcPcPinGroupName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcPinGroupName.setStatus(_A)
+_CfprFabricEthEstcPcPortId_Type=Gauge32
+_CfprFabricEthEstcPcPortId_Object=MibTableColumn
+cfprFabricEthEstcPcPortId=_CfprFabricEthEstcPcPortId_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,22),_CfprFabricEthEstcPcPortId_Type())
+cfprFabricEthEstcPcPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcPortId.setStatus(_A)
+_CfprFabricEthEstcPcPortMode_Type=CfprFabricEthEstcPortMode
+_CfprFabricEthEstcPcPortMode_Object=MibTableColumn
+cfprFabricEthEstcPcPortMode=_CfprFabricEthEstcPcPortMode_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,23),_CfprFabricEthEstcPcPortMode_Type())
+cfprFabricEthEstcPcPortMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcPortMode.setStatus(_A)
+_CfprFabricEthEstcPcPrio_Type=CfprQosPriority
+_CfprFabricEthEstcPcPrio_Object=MibTableColumn
+cfprFabricEthEstcPcPrio=_CfprFabricEthEstcPcPrio_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,24),_CfprFabricEthEstcPcPrio_Type())
+cfprFabricEthEstcPcPrio.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcPrio.setStatus(_A)
+_CfprFabricEthEstcPcProtocol_Type=CfprFabricEthPcProtocol
+_CfprFabricEthEstcPcProtocol_Object=MibTableColumn
+cfprFabricEthEstcPcProtocol=_CfprFabricEthEstcPcProtocol_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,25),_CfprFabricEthEstcPcProtocol_Type())
+cfprFabricEthEstcPcProtocol.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcProtocol.setStatus(_A)
+_CfprFabricEthEstcPcStateQual_Type=SnmpAdminString
+_CfprFabricEthEstcPcStateQual_Object=MibTableColumn
+cfprFabricEthEstcPcStateQual=_CfprFabricEthEstcPcStateQual_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,26),_CfprFabricEthEstcPcStateQual_Type())
+cfprFabricEthEstcPcStateQual.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcStateQual.setStatus(_A)
+_CfprFabricEthEstcPcSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricEthEstcPcSwitchId_Object=MibTableColumn
+cfprFabricEthEstcPcSwitchId=_CfprFabricEthEstcPcSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,27),_CfprFabricEthEstcPcSwitchId_Type())
+cfprFabricEthEstcPcSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcSwitchId.setStatus(_A)
+_CfprFabricEthEstcPcTransport_Type=CfprFabricEthEstcPcTransport
+_CfprFabricEthEstcPcTransport_Object=MibTableColumn
+cfprFabricEthEstcPcTransport=_CfprFabricEthEstcPcTransport_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,28),_CfprFabricEthEstcPcTransport_Type())
+cfprFabricEthEstcPcTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcTransport.setStatus(_A)
+_CfprFabricEthEstcPcType_Type=CfprFabricEstcPcType
+_CfprFabricEthEstcPcType_Object=MibTableColumn
+cfprFabricEthEstcPcType=_CfprFabricEthEstcPcType_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,29),_CfprFabricEthEstcPcType_Type())
+cfprFabricEthEstcPcType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcType.setStatus(_A)
+_CfprFabricEthEstcPcWarnings_Type=CfprFabricWarnings
+_CfprFabricEthEstcPcWarnings_Object=MibTableColumn
+cfprFabricEthEstcPcWarnings=_CfprFabricEthEstcPcWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,26,1,30),_CfprFabricEthEstcPcWarnings_Type())
+cfprFabricEthEstcPcWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcWarnings.setStatus(_A)
+_CfprFabricEthEstcPcEpTable_Object=MibTable
+cfprFabricEthEstcPcEpTable=_CfprFabricEthEstcPcEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,27))
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpTable.setStatus(_A)
+_CfprFabricEthEstcPcEpEntry_Object=MibTableRow
+cfprFabricEthEstcPcEpEntry=_CfprFabricEthEstcPcEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,27,1))
+cfprFabricEthEstcPcEpEntry.setIndexNames((0,_C,_e))
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpEntry.setStatus(_A)
+_CfprFabricEthEstcPcEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthEstcPcEpInstanceId_Object=MibTableColumn
+cfprFabricEthEstcPcEpInstanceId=_CfprFabricEthEstcPcEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,1),_CfprFabricEthEstcPcEpInstanceId_Type())
+cfprFabricEthEstcPcEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpInstanceId.setStatus(_A)
+_CfprFabricEthEstcPcEpDnData_Type=CfprManagedObjectDn
+_CfprFabricEthEstcPcEpDnData_Object=MibTableColumn
+cfprFabricEthEstcPcEpDnData=_CfprFabricEthEstcPcEpDnData_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,2),_CfprFabricEthEstcPcEpDnData_Type())
+cfprFabricEthEstcPcEpDnData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpDnData.setStatus(_A)
+_CfprFabricEthEstcPcEpRn_Type=SnmpAdminString
+_CfprFabricEthEstcPcEpRn_Object=MibTableColumn
+cfprFabricEthEstcPcEpRn=_CfprFabricEthEstcPcEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,3),_CfprFabricEthEstcPcEpRn_Type())
+cfprFabricEthEstcPcEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpRn.setStatus(_A)
+_CfprFabricEthEstcPcEpAdminSpeed_Type=CfprPortSpeed
+_CfprFabricEthEstcPcEpAdminSpeed_Object=MibTableColumn
+cfprFabricEthEstcPcEpAdminSpeed=_CfprFabricEthEstcPcEpAdminSpeed_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,4),_CfprFabricEthEstcPcEpAdminSpeed_Type())
+cfprFabricEthEstcPcEpAdminSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpAdminSpeed.setStatus(_A)
+_CfprFabricEthEstcPcEpAdminState_Type=CfprFabricExternalEpAdminState
+_CfprFabricEthEstcPcEpAdminState_Object=MibTableColumn
+cfprFabricEthEstcPcEpAdminState=_CfprFabricEthEstcPcEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,5),_CfprFabricEthEstcPcEpAdminState_Type())
+cfprFabricEthEstcPcEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpAdminState.setStatus(_A)
+_CfprFabricEthEstcPcEpAggrPortId_Type=Gauge32
+_CfprFabricEthEstcPcEpAggrPortId_Object=MibTableColumn
+cfprFabricEthEstcPcEpAggrPortId=_CfprFabricEthEstcPcEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,6),_CfprFabricEthEstcPcEpAggrPortId_Type())
+cfprFabricEthEstcPcEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpAggrPortId.setStatus(_A)
+_CfprFabricEthEstcPcEpChassisId_Type=Gauge32
+_CfprFabricEthEstcPcEpChassisId_Object=MibTableColumn
+cfprFabricEthEstcPcEpChassisId=_CfprFabricEthEstcPcEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,7),_CfprFabricEthEstcPcEpChassisId_Type())
+cfprFabricEthEstcPcEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpChassisId.setStatus(_A)
+_CfprFabricEthEstcPcEpConfigState_Type=CfprFabricConfigState
+_CfprFabricEthEstcPcEpConfigState_Object=MibTableColumn
+cfprFabricEthEstcPcEpConfigState=_CfprFabricEthEstcPcEpConfigState_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,8),_CfprFabricEthEstcPcEpConfigState_Type())
+cfprFabricEthEstcPcEpConfigState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpConfigState.setStatus(_A)
+_CfprFabricEthEstcPcEpEpDn_Type=SnmpAdminString
+_CfprFabricEthEstcPcEpEpDn_Object=MibTableColumn
+cfprFabricEthEstcPcEpEpDn=_CfprFabricEthEstcPcEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,9),_CfprFabricEthEstcPcEpEpDn_Type())
+cfprFabricEthEstcPcEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpEpDn.setStatus(_A)
+_CfprFabricEthEstcPcEpFltAggr_Type=Unsigned64
+_CfprFabricEthEstcPcEpFltAggr_Object=MibTableColumn
+cfprFabricEthEstcPcEpFltAggr=_CfprFabricEthEstcPcEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,10),_CfprFabricEthEstcPcEpFltAggr_Type())
+cfprFabricEthEstcPcEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpFltAggr.setStatus(_A)
+_CfprFabricEthEstcPcEpIfRole_Type=CfprFabricAEthEstcEpIfRole
+_CfprFabricEthEstcPcEpIfRole_Object=MibTableColumn
+cfprFabricEthEstcPcEpIfRole=_CfprFabricEthEstcPcEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,11),_CfprFabricEthEstcPcEpIfRole_Type())
+cfprFabricEthEstcPcEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpIfRole.setStatus(_A)
+_CfprFabricEthEstcPcEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricEthEstcPcEpIfType_Object=MibTableColumn
+cfprFabricEthEstcPcEpIfType=_CfprFabricEthEstcPcEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,12),_CfprFabricEthEstcPcEpIfType_Type())
+cfprFabricEthEstcPcEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpIfType.setStatus(_A)
+_CfprFabricEthEstcPcEpLicGP_Type=Unsigned64
+_CfprFabricEthEstcPcEpLicGP_Object=MibTableColumn
+cfprFabricEthEstcPcEpLicGP=_CfprFabricEthEstcPcEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,13),_CfprFabricEthEstcPcEpLicGP_Type())
+cfprFabricEthEstcPcEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpLicGP.setStatus(_A)
+_CfprFabricEthEstcPcEpLicState_Type=CfprLicenseState
+_CfprFabricEthEstcPcEpLicState_Object=MibTableColumn
+cfprFabricEthEstcPcEpLicState=_CfprFabricEthEstcPcEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,14),_CfprFabricEthEstcPcEpLicState_Type())
+cfprFabricEthEstcPcEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpLicState.setStatus(_A)
+_CfprFabricEthEstcPcEpLocale_Type=CfprFabricExternalEpLocale
+_CfprFabricEthEstcPcEpLocale_Object=MibTableColumn
+cfprFabricEthEstcPcEpLocale=_CfprFabricEthEstcPcEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,15),_CfprFabricEthEstcPcEpLocale_Type())
+cfprFabricEthEstcPcEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpLocale.setStatus(_A)
+_CfprFabricEthEstcPcEpMembership_Type=CfprFabricMembershipStatus
+_CfprFabricEthEstcPcEpMembership_Object=MibTableColumn
+cfprFabricEthEstcPcEpMembership=_CfprFabricEthEstcPcEpMembership_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,16),_CfprFabricEthEstcPcEpMembership_Type())
+cfprFabricEthEstcPcEpMembership.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpMembership.setStatus(_A)
+_CfprFabricEthEstcPcEpName_Type=SnmpAdminString
+_CfprFabricEthEstcPcEpName_Object=MibTableColumn
+cfprFabricEthEstcPcEpName=_CfprFabricEthEstcPcEpName_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,17),_CfprFabricEthEstcPcEpName_Type())
+cfprFabricEthEstcPcEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpName.setStatus(_A)
+_CfprFabricEthEstcPcEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricEthEstcPcEpOperState_Object=MibTableColumn
+cfprFabricEthEstcPcEpOperState=_CfprFabricEthEstcPcEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,18),_CfprFabricEthEstcPcEpOperState_Type())
+cfprFabricEthEstcPcEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpOperState.setStatus(_A)
+_CfprFabricEthEstcPcEpOperStateReason_Type=SnmpAdminString
+_CfprFabricEthEstcPcEpOperStateReason_Object=MibTableColumn
+cfprFabricEthEstcPcEpOperStateReason=_CfprFabricEthEstcPcEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,19),_CfprFabricEthEstcPcEpOperStateReason_Type())
+cfprFabricEthEstcPcEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpOperStateReason.setStatus(_A)
+_CfprFabricEthEstcPcEpPeerAggrPortId_Type=Gauge32
+_CfprFabricEthEstcPcEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricEthEstcPcEpPeerAggrPortId=_CfprFabricEthEstcPcEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,20),_CfprFabricEthEstcPcEpPeerAggrPortId_Type())
+cfprFabricEthEstcPcEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpPeerAggrPortId.setStatus(_A)
+_CfprFabricEthEstcPcEpPeerChassisId_Type=Gauge32
+_CfprFabricEthEstcPcEpPeerChassisId_Object=MibTableColumn
+cfprFabricEthEstcPcEpPeerChassisId=_CfprFabricEthEstcPcEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,21),_CfprFabricEthEstcPcEpPeerChassisId_Type())
+cfprFabricEthEstcPcEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpPeerChassisId.setStatus(_A)
+_CfprFabricEthEstcPcEpPeerDn_Type=SnmpAdminString
+_CfprFabricEthEstcPcEpPeerDn_Object=MibTableColumn
+cfprFabricEthEstcPcEpPeerDn=_CfprFabricEthEstcPcEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,22),_CfprFabricEthEstcPcEpPeerDn_Type())
+cfprFabricEthEstcPcEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpPeerDn.setStatus(_A)
+_CfprFabricEthEstcPcEpPeerPortId_Type=Gauge32
+_CfprFabricEthEstcPcEpPeerPortId_Object=MibTableColumn
+cfprFabricEthEstcPcEpPeerPortId=_CfprFabricEthEstcPcEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,23),_CfprFabricEthEstcPcEpPeerPortId_Type())
+cfprFabricEthEstcPcEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpPeerPortId.setStatus(_A)
+_CfprFabricEthEstcPcEpPeerSlotId_Type=Gauge32
+_CfprFabricEthEstcPcEpPeerSlotId_Object=MibTableColumn
+cfprFabricEthEstcPcEpPeerSlotId=_CfprFabricEthEstcPcEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,24),_CfprFabricEthEstcPcEpPeerSlotId_Type())
+cfprFabricEthEstcPcEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpPeerSlotId.setStatus(_A)
+_CfprFabricEthEstcPcEpPortId_Type=CfprFabricEthEstcPcEpPortId
+_CfprFabricEthEstcPcEpPortId_Object=MibTableColumn
+cfprFabricEthEstcPcEpPortId=_CfprFabricEthEstcPcEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,25),_CfprFabricEthEstcPcEpPortId_Type())
+cfprFabricEthEstcPcEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpPortId.setStatus(_A)
+_CfprFabricEthEstcPcEpSlotId_Type=CfprFabricEthEstcPcEpSlotId
+_CfprFabricEthEstcPcEpSlotId_Object=MibTableColumn
+cfprFabricEthEstcPcEpSlotId=_CfprFabricEthEstcPcEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,26),_CfprFabricEthEstcPcEpSlotId_Type())
+cfprFabricEthEstcPcEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpSlotId.setStatus(_A)
+_CfprFabricEthEstcPcEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricEthEstcPcEpSwitchId_Object=MibTableColumn
+cfprFabricEthEstcPcEpSwitchId=_CfprFabricEthEstcPcEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,27),_CfprFabricEthEstcPcEpSwitchId_Type())
+cfprFabricEthEstcPcEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpSwitchId.setStatus(_A)
+_CfprFabricEthEstcPcEpTransport_Type=CfprFabricAEthEstcEpTransport
+_CfprFabricEthEstcPcEpTransport_Object=MibTableColumn
+cfprFabricEthEstcPcEpTransport=_CfprFabricEthEstcPcEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,28),_CfprFabricEthEstcPcEpTransport_Type())
+cfprFabricEthEstcPcEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpTransport.setStatus(_A)
+_CfprFabricEthEstcPcEpType_Type=CfprFabricAEthEstcEpType
+_CfprFabricEthEstcPcEpType_Object=MibTableColumn
+cfprFabricEthEstcPcEpType=_CfprFabricEthEstcPcEpType_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,29),_CfprFabricEthEstcPcEpType_Type())
+cfprFabricEthEstcPcEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpType.setStatus(_A)
+_CfprFabricEthEstcPcEpUsrLbl_Type=SnmpAdminString
+_CfprFabricEthEstcPcEpUsrLbl_Object=MibTableColumn
+cfprFabricEthEstcPcEpUsrLbl=_CfprFabricEthEstcPcEpUsrLbl_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,30),_CfprFabricEthEstcPcEpUsrLbl_Type())
+cfprFabricEthEstcPcEpUsrLbl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpUsrLbl.setStatus(_A)
+_CfprFabricEthEstcPcEpWarnings_Type=CfprFabricWarnings
+_CfprFabricEthEstcPcEpWarnings_Object=MibTableColumn
+cfprFabricEthEstcPcEpWarnings=_CfprFabricEthEstcPcEpWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,27,1,31),_CfprFabricEthEstcPcEpWarnings_Type())
+cfprFabricEthEstcPcEpWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthEstcPcEpWarnings.setStatus(_A)
+_CfprFabricEthFlowMonLanTable_Object=MibTable
+cfprFabricEthFlowMonLanTable=_CfprFabricEthFlowMonLanTable_Object((1,3,6,1,4,1,9,9,826,1,26,28))
+if mibBuilder.loadTexts:cfprFabricEthFlowMonLanTable.setStatus(_A)
+_CfprFabricEthFlowMonLanEntry_Object=MibTableRow
+cfprFabricEthFlowMonLanEntry=_CfprFabricEthFlowMonLanEntry_Object((1,3,6,1,4,1,9,9,826,1,26,28,1))
+cfprFabricEthFlowMonLanEntry.setIndexNames((0,_C,_f))
+if mibBuilder.loadTexts:cfprFabricEthFlowMonLanEntry.setStatus(_A)
+_CfprFabricEthFlowMonLanInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthFlowMonLanInstanceId_Object=MibTableColumn
+cfprFabricEthFlowMonLanInstanceId=_CfprFabricEthFlowMonLanInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,28,1,1),_CfprFabricEthFlowMonLanInstanceId_Type())
+cfprFabricEthFlowMonLanInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthFlowMonLanInstanceId.setStatus(_A)
+_CfprFabricEthFlowMonLanDn_Type=CfprManagedObjectDn
+_CfprFabricEthFlowMonLanDn_Object=MibTableColumn
+cfprFabricEthFlowMonLanDn=_CfprFabricEthFlowMonLanDn_Object((1,3,6,1,4,1,9,9,826,1,26,28,1,2),_CfprFabricEthFlowMonLanDn_Type())
+cfprFabricEthFlowMonLanDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthFlowMonLanDn.setStatus(_A)
+_CfprFabricEthFlowMonLanRn_Type=SnmpAdminString
+_CfprFabricEthFlowMonLanRn_Object=MibTableColumn
+cfprFabricEthFlowMonLanRn=_CfprFabricEthFlowMonLanRn_Object((1,3,6,1,4,1,9,9,826,1,26,28,1,3),_CfprFabricEthFlowMonLanRn_Type())
+cfprFabricEthFlowMonLanRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthFlowMonLanRn.setStatus(_A)
+_CfprFabricEthFlowMonLanExporterSourceMac_Type=MacAddress
+_CfprFabricEthFlowMonLanExporterSourceMac_Object=MibTableColumn
+cfprFabricEthFlowMonLanExporterSourceMac=_CfprFabricEthFlowMonLanExporterSourceMac_Object((1,3,6,1,4,1,9,9,826,1,26,28,1,4),_CfprFabricEthFlowMonLanExporterSourceMac_Type())
+cfprFabricEthFlowMonLanExporterSourceMac.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthFlowMonLanExporterSourceMac.setStatus(_A)
+_CfprFabricEthFlowMonLanId_Type=CfprNetworkSwitchId
+_CfprFabricEthFlowMonLanId_Object=MibTableColumn
+cfprFabricEthFlowMonLanId=_CfprFabricEthFlowMonLanId_Object((1,3,6,1,4,1,9,9,826,1,26,28,1,5),_CfprFabricEthFlowMonLanId_Type())
+cfprFabricEthFlowMonLanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthFlowMonLanId.setStatus(_A)
+_CfprFabricEthFlowMonLanLocale_Type=CfprFabricExternalLocale
+_CfprFabricEthFlowMonLanLocale_Object=MibTableColumn
+cfprFabricEthFlowMonLanLocale=_CfprFabricEthFlowMonLanLocale_Object((1,3,6,1,4,1,9,9,826,1,26,28,1,6),_CfprFabricEthFlowMonLanLocale_Type())
+cfprFabricEthFlowMonLanLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthFlowMonLanLocale.setStatus(_A)
+_CfprFabricEthFlowMonLanName_Type=SnmpAdminString
+_CfprFabricEthFlowMonLanName_Object=MibTableColumn
+cfprFabricEthFlowMonLanName=_CfprFabricEthFlowMonLanName_Object((1,3,6,1,4,1,9,9,826,1,26,28,1,7),_CfprFabricEthFlowMonLanName_Type())
+cfprFabricEthFlowMonLanName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthFlowMonLanName.setStatus(_A)
+_CfprFabricEthFlowMonLanTransport_Type=CfprFabricEthFlowMonLanTransport
+_CfprFabricEthFlowMonLanTransport_Object=MibTableColumn
+cfprFabricEthFlowMonLanTransport=_CfprFabricEthFlowMonLanTransport_Object((1,3,6,1,4,1,9,9,826,1,26,28,1,8),_CfprFabricEthFlowMonLanTransport_Type())
+cfprFabricEthFlowMonLanTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthFlowMonLanTransport.setStatus(_A)
+_CfprFabricEthFlowMonLanType_Type=CfprFabricEthFlowMonLanType
+_CfprFabricEthFlowMonLanType_Object=MibTableColumn
+cfprFabricEthFlowMonLanType=_CfprFabricEthFlowMonLanType_Object((1,3,6,1,4,1,9,9,826,1,26,28,1,9),_CfprFabricEthFlowMonLanType_Type())
+cfprFabricEthFlowMonLanType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthFlowMonLanType.setStatus(_A)
+_CfprFabricEthLanTable_Object=MibTable
+cfprFabricEthLanTable=_CfprFabricEthLanTable_Object((1,3,6,1,4,1,9,9,826,1,26,29))
+if mibBuilder.loadTexts:cfprFabricEthLanTable.setStatus(_A)
+_CfprFabricEthLanEntry_Object=MibTableRow
+cfprFabricEthLanEntry=_CfprFabricEthLanEntry_Object((1,3,6,1,4,1,9,9,826,1,26,29,1))
+cfprFabricEthLanEntry.setIndexNames((0,_C,_g))
+if mibBuilder.loadTexts:cfprFabricEthLanEntry.setStatus(_A)
+_CfprFabricEthLanInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthLanInstanceId_Object=MibTableColumn
+cfprFabricEthLanInstanceId=_CfprFabricEthLanInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,29,1,1),_CfprFabricEthLanInstanceId_Type())
+cfprFabricEthLanInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthLanInstanceId.setStatus(_A)
+_CfprFabricEthLanDn_Type=CfprManagedObjectDn
+_CfprFabricEthLanDn_Object=MibTableColumn
+cfprFabricEthLanDn=_CfprFabricEthLanDn_Object((1,3,6,1,4,1,9,9,826,1,26,29,1,2),_CfprFabricEthLanDn_Type())
+cfprFabricEthLanDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanDn.setStatus(_A)
+_CfprFabricEthLanRn_Type=SnmpAdminString
+_CfprFabricEthLanRn_Object=MibTableColumn
+cfprFabricEthLanRn=_CfprFabricEthLanRn_Object((1,3,6,1,4,1,9,9,826,1,26,29,1,3),_CfprFabricEthLanRn_Type())
+cfprFabricEthLanRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanRn.setStatus(_A)
+_CfprFabricEthLanId_Type=CfprNetworkSwitchId
+_CfprFabricEthLanId_Object=MibTableColumn
+cfprFabricEthLanId=_CfprFabricEthLanId_Object((1,3,6,1,4,1,9,9,826,1,26,29,1,4),_CfprFabricEthLanId_Type())
+cfprFabricEthLanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanId.setStatus(_A)
+_CfprFabricEthLanLocale_Type=CfprFabricExternalLocale
+_CfprFabricEthLanLocale_Object=MibTableColumn
+cfprFabricEthLanLocale=_CfprFabricEthLanLocale_Object((1,3,6,1,4,1,9,9,826,1,26,29,1,5),_CfprFabricEthLanLocale_Type())
+cfprFabricEthLanLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanLocale.setStatus(_A)
+_CfprFabricEthLanName_Type=SnmpAdminString
+_CfprFabricEthLanName_Object=MibTableColumn
+cfprFabricEthLanName=_CfprFabricEthLanName_Object((1,3,6,1,4,1,9,9,826,1,26,29,1,6),_CfprFabricEthLanName_Type())
+cfprFabricEthLanName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanName.setStatus(_A)
+_CfprFabricEthLanTransport_Type=CfprFabricEthLanTransport
+_CfprFabricEthLanTransport_Object=MibTableColumn
+cfprFabricEthLanTransport=_CfprFabricEthLanTransport_Object((1,3,6,1,4,1,9,9,826,1,26,29,1,7),_CfprFabricEthLanTransport_Type())
+cfprFabricEthLanTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanTransport.setStatus(_A)
+_CfprFabricEthLanType_Type=CfprFabricLanType
+_CfprFabricEthLanType_Object=MibTableColumn
+cfprFabricEthLanType=_CfprFabricEthLanType_Object((1,3,6,1,4,1,9,9,826,1,26,29,1,8),_CfprFabricEthLanType_Type())
+cfprFabricEthLanType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanType.setStatus(_A)
+_CfprFabricEthLanEpTable_Object=MibTable
+cfprFabricEthLanEpTable=_CfprFabricEthLanEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,30))
+if mibBuilder.loadTexts:cfprFabricEthLanEpTable.setStatus(_A)
+_CfprFabricEthLanEpEntry_Object=MibTableRow
+cfprFabricEthLanEpEntry=_CfprFabricEthLanEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,30,1))
+cfprFabricEthLanEpEntry.setIndexNames((0,_C,_h))
+if mibBuilder.loadTexts:cfprFabricEthLanEpEntry.setStatus(_A)
+_CfprFabricEthLanEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthLanEpInstanceId_Object=MibTableColumn
+cfprFabricEthLanEpInstanceId=_CfprFabricEthLanEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,1),_CfprFabricEthLanEpInstanceId_Type())
+cfprFabricEthLanEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthLanEpInstanceId.setStatus(_A)
+_CfprFabricEthLanEpDn_Type=CfprManagedObjectDn
+_CfprFabricEthLanEpDn_Object=MibTableColumn
+cfprFabricEthLanEpDn=_CfprFabricEthLanEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,2),_CfprFabricEthLanEpDn_Type())
+cfprFabricEthLanEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpDn.setStatus(_A)
+_CfprFabricEthLanEpRn_Type=SnmpAdminString
+_CfprFabricEthLanEpRn_Object=MibTableColumn
+cfprFabricEthLanEpRn=_CfprFabricEthLanEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,3),_CfprFabricEthLanEpRn_Type())
+cfprFabricEthLanEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpRn.setStatus(_A)
+_CfprFabricEthLanEpAdminSpeed_Type=CfprPortEthSpeed
+_CfprFabricEthLanEpAdminSpeed_Object=MibTableColumn
+cfprFabricEthLanEpAdminSpeed=_CfprFabricEthLanEpAdminSpeed_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,4),_CfprFabricEthLanEpAdminSpeed_Type())
+cfprFabricEthLanEpAdminSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpAdminSpeed.setStatus(_A)
+_CfprFabricEthLanEpAdminState_Type=CfprFabricEthLanEpAdminState
+_CfprFabricEthLanEpAdminState_Object=MibTableColumn
+cfprFabricEthLanEpAdminState=_CfprFabricEthLanEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,5),_CfprFabricEthLanEpAdminState_Type())
+cfprFabricEthLanEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpAdminState.setStatus(_A)
+_CfprFabricEthLanEpAggrPortId_Type=Gauge32
+_CfprFabricEthLanEpAggrPortId_Object=MibTableColumn
+cfprFabricEthLanEpAggrPortId=_CfprFabricEthLanEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,6),_CfprFabricEthLanEpAggrPortId_Type())
+cfprFabricEthLanEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpAggrPortId.setStatus(_A)
+_CfprFabricEthLanEpChassisId_Type=Gauge32
+_CfprFabricEthLanEpChassisId_Object=MibTableColumn
+cfprFabricEthLanEpChassisId=_CfprFabricEthLanEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,7),_CfprFabricEthLanEpChassisId_Type())
+cfprFabricEthLanEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpChassisId.setStatus(_A)
+_CfprFabricEthLanEpDtagVlan_Type=Gauge32
+_CfprFabricEthLanEpDtagVlan_Object=MibTableColumn
+cfprFabricEthLanEpDtagVlan=_CfprFabricEthLanEpDtagVlan_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,8),_CfprFabricEthLanEpDtagVlan_Type())
+cfprFabricEthLanEpDtagVlan.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpDtagVlan.setStatus(_A)
+_CfprFabricEthLanEpEpDn_Type=SnmpAdminString
+_CfprFabricEthLanEpEpDn_Object=MibTableColumn
+cfprFabricEthLanEpEpDn=_CfprFabricEthLanEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,9),_CfprFabricEthLanEpEpDn_Type())
+cfprFabricEthLanEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpEpDn.setStatus(_A)
+_CfprFabricEthLanEpEthLinkProfileName_Type=SnmpAdminString
+_CfprFabricEthLanEpEthLinkProfileName_Object=MibTableColumn
+cfprFabricEthLanEpEthLinkProfileName=_CfprFabricEthLanEpEthLinkProfileName_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,10),_CfprFabricEthLanEpEthLinkProfileName_Type())
+cfprFabricEthLanEpEthLinkProfileName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpEthLinkProfileName.setStatus(_A)
+_CfprFabricEthLanEpFlowCtrlPolicy_Type=SnmpAdminString
+_CfprFabricEthLanEpFlowCtrlPolicy_Object=MibTableColumn
+cfprFabricEthLanEpFlowCtrlPolicy=_CfprFabricEthLanEpFlowCtrlPolicy_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,11),_CfprFabricEthLanEpFlowCtrlPolicy_Type())
+cfprFabricEthLanEpFlowCtrlPolicy.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpFlowCtrlPolicy.setStatus(_A)
+_CfprFabricEthLanEpFltAggr_Type=Unsigned64
+_CfprFabricEthLanEpFltAggr_Object=MibTableColumn
+cfprFabricEthLanEpFltAggr=_CfprFabricEthLanEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,12),_CfprFabricEthLanEpFltAggr_Type())
+cfprFabricEthLanEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpFltAggr.setStatus(_A)
+_CfprFabricEthLanEpIfRole_Type=CfprFabricLanEpIfRole
+_CfprFabricEthLanEpIfRole_Object=MibTableColumn
+cfprFabricEthLanEpIfRole=_CfprFabricEthLanEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,13),_CfprFabricEthLanEpIfRole_Type())
+cfprFabricEthLanEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpIfRole.setStatus(_A)
+_CfprFabricEthLanEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricEthLanEpIfType_Object=MibTableColumn
+cfprFabricEthLanEpIfType=_CfprFabricEthLanEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,14),_CfprFabricEthLanEpIfType_Type())
+cfprFabricEthLanEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpIfType.setStatus(_A)
+_CfprFabricEthLanEpLicGP_Type=Unsigned64
+_CfprFabricEthLanEpLicGP_Object=MibTableColumn
+cfprFabricEthLanEpLicGP=_CfprFabricEthLanEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,15),_CfprFabricEthLanEpLicGP_Type())
+cfprFabricEthLanEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpLicGP.setStatus(_A)
+_CfprFabricEthLanEpLicState_Type=CfprLicenseState
+_CfprFabricEthLanEpLicState_Object=MibTableColumn
+cfprFabricEthLanEpLicState=_CfprFabricEthLanEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,16),_CfprFabricEthLanEpLicState_Type())
+cfprFabricEthLanEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpLicState.setStatus(_A)
+_CfprFabricEthLanEpLocale_Type=CfprFabricExternalEpLocale
+_CfprFabricEthLanEpLocale_Object=MibTableColumn
+cfprFabricEthLanEpLocale=_CfprFabricEthLanEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,17),_CfprFabricEthLanEpLocale_Type())
+cfprFabricEthLanEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpLocale.setStatus(_A)
+_CfprFabricEthLanEpName_Type=SnmpAdminString
+_CfprFabricEthLanEpName_Object=MibTableColumn
+cfprFabricEthLanEpName=_CfprFabricEthLanEpName_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,19),_CfprFabricEthLanEpName_Type())
+cfprFabricEthLanEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpName.setStatus(_A)
+_CfprFabricEthLanEpOperEthLinkProfileName_Type=SnmpAdminString
+_CfprFabricEthLanEpOperEthLinkProfileName_Object=MibTableColumn
+cfprFabricEthLanEpOperEthLinkProfileName=_CfprFabricEthLanEpOperEthLinkProfileName_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,20),_CfprFabricEthLanEpOperEthLinkProfileName_Type())
+cfprFabricEthLanEpOperEthLinkProfileName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpOperEthLinkProfileName.setStatus(_A)
+_CfprFabricEthLanEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricEthLanEpOperState_Object=MibTableColumn
+cfprFabricEthLanEpOperState=_CfprFabricEthLanEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,21),_CfprFabricEthLanEpOperState_Type())
+cfprFabricEthLanEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpOperState.setStatus(_A)
+_CfprFabricEthLanEpOperStateReason_Type=SnmpAdminString
+_CfprFabricEthLanEpOperStateReason_Object=MibTableColumn
+cfprFabricEthLanEpOperStateReason=_CfprFabricEthLanEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,22),_CfprFabricEthLanEpOperStateReason_Type())
+cfprFabricEthLanEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpOperStateReason.setStatus(_A)
+_CfprFabricEthLanEpOverlappingVlans_Type=SnmpAdminString
+_CfprFabricEthLanEpOverlappingVlans_Object=MibTableColumn
+cfprFabricEthLanEpOverlappingVlans=_CfprFabricEthLanEpOverlappingVlans_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,23),_CfprFabricEthLanEpOverlappingVlans_Type())
+cfprFabricEthLanEpOverlappingVlans.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpOverlappingVlans.setStatus(_A)
+_CfprFabricEthLanEpPeerAggrPortId_Type=Gauge32
+_CfprFabricEthLanEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricEthLanEpPeerAggrPortId=_CfprFabricEthLanEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,24),_CfprFabricEthLanEpPeerAggrPortId_Type())
+cfprFabricEthLanEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpPeerAggrPortId.setStatus(_A)
+_CfprFabricEthLanEpPeerChassisId_Type=Gauge32
+_CfprFabricEthLanEpPeerChassisId_Object=MibTableColumn
+cfprFabricEthLanEpPeerChassisId=_CfprFabricEthLanEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,25),_CfprFabricEthLanEpPeerChassisId_Type())
+cfprFabricEthLanEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpPeerChassisId.setStatus(_A)
+_CfprFabricEthLanEpPeerDn_Type=SnmpAdminString
+_CfprFabricEthLanEpPeerDn_Object=MibTableColumn
+cfprFabricEthLanEpPeerDn=_CfprFabricEthLanEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,26),_CfprFabricEthLanEpPeerDn_Type())
+cfprFabricEthLanEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpPeerDn.setStatus(_A)
+_CfprFabricEthLanEpPeerPortId_Type=Gauge32
+_CfprFabricEthLanEpPeerPortId_Object=MibTableColumn
+cfprFabricEthLanEpPeerPortId=_CfprFabricEthLanEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,27),_CfprFabricEthLanEpPeerPortId_Type())
+cfprFabricEthLanEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpPeerPortId.setStatus(_A)
+_CfprFabricEthLanEpPeerSlotId_Type=Gauge32
+_CfprFabricEthLanEpPeerSlotId_Object=MibTableColumn
+cfprFabricEthLanEpPeerSlotId=_CfprFabricEthLanEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,28),_CfprFabricEthLanEpPeerSlotId_Type())
+cfprFabricEthLanEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpPeerSlotId.setStatus(_A)
+_CfprFabricEthLanEpPortId_Type=Gauge32
+_CfprFabricEthLanEpPortId_Object=MibTableColumn
+cfprFabricEthLanEpPortId=_CfprFabricEthLanEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,29),_CfprFabricEthLanEpPortId_Type())
+cfprFabricEthLanEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpPortId.setStatus(_A)
+_CfprFabricEthLanEpSlotId_Type=Gauge32
+_CfprFabricEthLanEpSlotId_Object=MibTableColumn
+cfprFabricEthLanEpSlotId=_CfprFabricEthLanEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,30),_CfprFabricEthLanEpSlotId_Type())
+cfprFabricEthLanEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpSlotId.setStatus(_A)
+_CfprFabricEthLanEpSsaPortType_Type=CfprFabricSSAPortType
+_CfprFabricEthLanEpSsaPortType_Object=MibTableColumn
+cfprFabricEthLanEpSsaPortType=_CfprFabricEthLanEpSsaPortType_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,31),_CfprFabricEthLanEpSsaPortType_Type())
+cfprFabricEthLanEpSsaPortType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpSsaPortType.setStatus(_A)
+_CfprFabricEthLanEpSsaVlanId_Type=Gauge32
+_CfprFabricEthLanEpSsaVlanId_Object=MibTableColumn
+cfprFabricEthLanEpSsaVlanId=_CfprFabricEthLanEpSsaVlanId_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,32),_CfprFabricEthLanEpSsaVlanId_Type())
+cfprFabricEthLanEpSsaVlanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpSsaVlanId.setStatus(_A)
+_CfprFabricEthLanEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricEthLanEpSwitchId_Object=MibTableColumn
+cfprFabricEthLanEpSwitchId=_CfprFabricEthLanEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,33),_CfprFabricEthLanEpSwitchId_Type())
+cfprFabricEthLanEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpSwitchId.setStatus(_A)
+_CfprFabricEthLanEpTransport_Type=CfprFabricAEthLanEpTransport
+_CfprFabricEthLanEpTransport_Object=MibTableColumn
+cfprFabricEthLanEpTransport=_CfprFabricEthLanEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,34),_CfprFabricEthLanEpTransport_Type())
+cfprFabricEthLanEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpTransport.setStatus(_A)
+_CfprFabricEthLanEpType_Type=CfprFabricLanEpType
+_CfprFabricEthLanEpType_Object=MibTableColumn
+cfprFabricEthLanEpType=_CfprFabricEthLanEpType_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,35),_CfprFabricEthLanEpType_Type())
+cfprFabricEthLanEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpType.setStatus(_A)
+_CfprFabricEthLanEpUdldOperState_Type=CfprFabricUdldOperState
+_CfprFabricEthLanEpUdldOperState_Object=MibTableColumn
+cfprFabricEthLanEpUdldOperState=_CfprFabricEthLanEpUdldOperState_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,36),_CfprFabricEthLanEpUdldOperState_Type())
+cfprFabricEthLanEpUdldOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpUdldOperState.setStatus(_A)
+_CfprFabricEthLanEpUsrLbl_Type=SnmpAdminString
+_CfprFabricEthLanEpUsrLbl_Object=MibTableColumn
+cfprFabricEthLanEpUsrLbl=_CfprFabricEthLanEpUsrLbl_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,37),_CfprFabricEthLanEpUsrLbl_Type())
+cfprFabricEthLanEpUsrLbl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpUsrLbl.setStatus(_A)
+_CfprFabricEthLanEpVlanStatus_Type=CfprFabricEthLanEpVlanStatus
+_CfprFabricEthLanEpVlanStatus_Object=MibTableColumn
+cfprFabricEthLanEpVlanStatus=_CfprFabricEthLanEpVlanStatus_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,38),_CfprFabricEthLanEpVlanStatus_Type())
+cfprFabricEthLanEpVlanStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpVlanStatus.setStatus(_A)
+_CfprFabricEthLanEpWarnings_Type=CfprFabricWarnings
+_CfprFabricEthLanEpWarnings_Object=MibTableColumn
+cfprFabricEthLanEpWarnings=_CfprFabricEthLanEpWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,39),_CfprFabricEthLanEpWarnings_Type())
+cfprFabricEthLanEpWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpWarnings.setStatus(_A)
+_CfprFabricEthLanEpAdminDuplex_Type=CfprPortDuplex
+_CfprFabricEthLanEpAdminDuplex_Object=MibTableColumn
+cfprFabricEthLanEpAdminDuplex=_CfprFabricEthLanEpAdminDuplex_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,40),_CfprFabricEthLanEpAdminDuplex_Type())
+cfprFabricEthLanEpAdminDuplex.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpAdminDuplex.setStatus(_A)
+_CfprFabricEthLanEpAllowSharing_Type=TruthValue
+_CfprFabricEthLanEpAllowSharing_Object=MibTableColumn
+cfprFabricEthLanEpAllowSharing=_CfprFabricEthLanEpAllowSharing_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,41),_CfprFabricEthLanEpAllowSharing_Type())
+cfprFabricEthLanEpAllowSharing.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpAllowSharing.setStatus(_A)
+_CfprFabricEthLanEpAllowedVlan_Type=CfprFabricAllowedVlanType
+_CfprFabricEthLanEpAllowedVlan_Object=MibTableColumn
+cfprFabricEthLanEpAllowedVlan=_CfprFabricEthLanEpAllowedVlan_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,42),_CfprFabricEthLanEpAllowedVlan_Type())
+cfprFabricEthLanEpAllowedVlan.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpAllowedVlan.setStatus(_A)
+_CfprFabricEthLanEpAutoNeg_Type=TruthValue
+_CfprFabricEthLanEpAutoNeg_Object=MibTableColumn
+cfprFabricEthLanEpAutoNeg=_CfprFabricEthLanEpAutoNeg_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,43),_CfprFabricEthLanEpAutoNeg_Type())
+cfprFabricEthLanEpAutoNeg.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpAutoNeg.setStatus(_A)
+_CfprFabricEthLanEpDescr_Type=SnmpAdminString
+_CfprFabricEthLanEpDescr_Object=MibTableColumn
+cfprFabricEthLanEpDescr=_CfprFabricEthLanEpDescr_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,44),_CfprFabricEthLanEpDescr_Type())
+cfprFabricEthLanEpDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpDescr.setStatus(_A)
+_CfprFabricEthLanEpHashAlg_Type=CfprNhTpHashType
+_CfprFabricEthLanEpHashAlg_Object=MibTableColumn
+cfprFabricEthLanEpHashAlg=_CfprFabricEthLanEpHashAlg_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,45),_CfprFabricEthLanEpHashAlg_Type())
+cfprFabricEthLanEpHashAlg.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpHashAlg.setStatus(_A)
+_CfprFabricEthLanEpInlinePeerDn_Type=SnmpAdminString
+_CfprFabricEthLanEpInlinePeerDn_Object=MibTableColumn
+cfprFabricEthLanEpInlinePeerDn=_CfprFabricEthLanEpInlinePeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,46),_CfprFabricEthLanEpInlinePeerDn_Type())
+cfprFabricEthLanEpInlinePeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpInlinePeerDn.setStatus(_A)
+_CfprFabricEthLanEpInlinePeerName_Type=SnmpAdminString
+_CfprFabricEthLanEpInlinePeerName_Object=MibTableColumn
+cfprFabricEthLanEpInlinePeerName=_CfprFabricEthLanEpInlinePeerName_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,47),_CfprFabricEthLanEpInlinePeerName_Type())
+cfprFabricEthLanEpInlinePeerName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpInlinePeerName.setStatus(_A)
+_CfprFabricEthLanEpInlineState_Type=CfprFabricEthLanEpInlineState
+_CfprFabricEthLanEpInlineState_Object=MibTableColumn
+cfprFabricEthLanEpInlineState=_CfprFabricEthLanEpInlineState_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,48),_CfprFabricEthLanEpInlineState_Type())
+cfprFabricEthLanEpInlineState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpInlineState.setStatus(_A)
+_CfprFabricEthLanEpQosPrio_Type=CfprFabricQosPrio
+_CfprFabricEthLanEpQosPrio_Object=MibTableColumn
+cfprFabricEthLanEpQosPrio=_CfprFabricEthLanEpQosPrio_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,49),_CfprFabricEthLanEpQosPrio_Type())
+cfprFabricEthLanEpQosPrio.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpQosPrio.setStatus(_A)
+_CfprFabricEthLanEpSpeedCap_Type=CfprEquipmentEthPortSpeedCap
+_CfprFabricEthLanEpSpeedCap_Object=MibTableColumn
+cfprFabricEthLanEpSpeedCap=_CfprFabricEthLanEpSpeedCap_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,50),_CfprFabricEthLanEpSpeedCap_Type())
+cfprFabricEthLanEpSpeedCap.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpSpeedCap.setStatus(_A)
+_CfprFabricEthLanEpNwCtrlPolicyName_Type=SnmpAdminString
+_CfprFabricEthLanEpNwCtrlPolicyName_Object=MibTableColumn
+cfprFabricEthLanEpNwCtrlPolicyName=_CfprFabricEthLanEpNwCtrlPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,51),_CfprFabricEthLanEpNwCtrlPolicyName_Type())
+cfprFabricEthLanEpNwCtrlPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpNwCtrlPolicyName.setStatus(_A)
+_CfprFabricEthLanEpOperNwCtrlPolicyName_Type=SnmpAdminString
+_CfprFabricEthLanEpOperNwCtrlPolicyName_Object=MibTableColumn
+cfprFabricEthLanEpOperNwCtrlPolicyName=_CfprFabricEthLanEpOperNwCtrlPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,52),_CfprFabricEthLanEpOperNwCtrlPolicyName_Type())
+cfprFabricEthLanEpOperNwCtrlPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpOperNwCtrlPolicyName.setStatus(_A)
+_CfprFabricEthLanEpAllowAneg_Type=TruthValue
+_CfprFabricEthLanEpAllowAneg_Object=MibTableColumn
+cfprFabricEthLanEpAllowAneg=_CfprFabricEthLanEpAllowAneg_Object((1,3,6,1,4,1,9,9,826,1,26,30,1,53),_CfprFabricEthLanEpAllowAneg_Type())
+cfprFabricEthLanEpAllowAneg.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanEpAllowAneg.setStatus(_A)
+_CfprFabricEthLanFlowMonitoringTable_Object=MibTable
+cfprFabricEthLanFlowMonitoringTable=_CfprFabricEthLanFlowMonitoringTable_Object((1,3,6,1,4,1,9,9,826,1,26,31))
+if mibBuilder.loadTexts:cfprFabricEthLanFlowMonitoringTable.setStatus(_A)
+_CfprFabricEthLanFlowMonitoringEntry_Object=MibTableRow
+cfprFabricEthLanFlowMonitoringEntry=_CfprFabricEthLanFlowMonitoringEntry_Object((1,3,6,1,4,1,9,9,826,1,26,31,1))
+cfprFabricEthLanFlowMonitoringEntry.setIndexNames((0,_C,_i))
+if mibBuilder.loadTexts:cfprFabricEthLanFlowMonitoringEntry.setStatus(_A)
+_CfprFabricEthLanFlowMonitoringInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthLanFlowMonitoringInstanceId_Object=MibTableColumn
+cfprFabricEthLanFlowMonitoringInstanceId=_CfprFabricEthLanFlowMonitoringInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,31,1,1),_CfprFabricEthLanFlowMonitoringInstanceId_Type())
+cfprFabricEthLanFlowMonitoringInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthLanFlowMonitoringInstanceId.setStatus(_A)
+_CfprFabricEthLanFlowMonitoringDn_Type=CfprManagedObjectDn
+_CfprFabricEthLanFlowMonitoringDn_Object=MibTableColumn
+cfprFabricEthLanFlowMonitoringDn=_CfprFabricEthLanFlowMonitoringDn_Object((1,3,6,1,4,1,9,9,826,1,26,31,1,2),_CfprFabricEthLanFlowMonitoringDn_Type())
+cfprFabricEthLanFlowMonitoringDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanFlowMonitoringDn.setStatus(_A)
+_CfprFabricEthLanFlowMonitoringRn_Type=SnmpAdminString
+_CfprFabricEthLanFlowMonitoringRn_Object=MibTableColumn
+cfprFabricEthLanFlowMonitoringRn=_CfprFabricEthLanFlowMonitoringRn_Object((1,3,6,1,4,1,9,9,826,1,26,31,1,3),_CfprFabricEthLanFlowMonitoringRn_Type())
+cfprFabricEthLanFlowMonitoringRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanFlowMonitoringRn.setStatus(_A)
+_CfprFabricEthLanFlowMonitoringAdminState_Type=CfprFabricFlowMonitoringCategoryAdminState
+_CfprFabricEthLanFlowMonitoringAdminState_Object=MibTableColumn
+cfprFabricEthLanFlowMonitoringAdminState=_CfprFabricEthLanFlowMonitoringAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,31,1,4),_CfprFabricEthLanFlowMonitoringAdminState_Type())
+cfprFabricEthLanFlowMonitoringAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanFlowMonitoringAdminState.setStatus(_A)
+_CfprFabricEthLanFlowMonitoringType_Type=CfprFabricEthLanFlowMonitoringType
+_CfprFabricEthLanFlowMonitoringType_Object=MibTableColumn
+cfprFabricEthLanFlowMonitoringType=_CfprFabricEthLanFlowMonitoringType_Object((1,3,6,1,4,1,9,9,826,1,26,31,1,5),_CfprFabricEthLanFlowMonitoringType_Type())
+cfprFabricEthLanFlowMonitoringType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanFlowMonitoringType.setStatus(_A)
+_CfprFabricEthLanPcTable_Object=MibTable
+cfprFabricEthLanPcTable=_CfprFabricEthLanPcTable_Object((1,3,6,1,4,1,9,9,826,1,26,32))
+if mibBuilder.loadTexts:cfprFabricEthLanPcTable.setStatus(_A)
+_CfprFabricEthLanPcEntry_Object=MibTableRow
+cfprFabricEthLanPcEntry=_CfprFabricEthLanPcEntry_Object((1,3,6,1,4,1,9,9,826,1,26,32,1))
+cfprFabricEthLanPcEntry.setIndexNames((0,_C,_j))
+if mibBuilder.loadTexts:cfprFabricEthLanPcEntry.setStatus(_A)
+_CfprFabricEthLanPcInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthLanPcInstanceId_Object=MibTableColumn
+cfprFabricEthLanPcInstanceId=_CfprFabricEthLanPcInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,1),_CfprFabricEthLanPcInstanceId_Type())
+cfprFabricEthLanPcInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthLanPcInstanceId.setStatus(_A)
+_CfprFabricEthLanPcDn_Type=CfprManagedObjectDn
+_CfprFabricEthLanPcDn_Object=MibTableColumn
+cfprFabricEthLanPcDn=_CfprFabricEthLanPcDn_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,2),_CfprFabricEthLanPcDn_Type())
+cfprFabricEthLanPcDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcDn.setStatus(_A)
+_CfprFabricEthLanPcRn_Type=SnmpAdminString
+_CfprFabricEthLanPcRn_Object=MibTableColumn
+cfprFabricEthLanPcRn=_CfprFabricEthLanPcRn_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,3),_CfprFabricEthLanPcRn_Type())
+cfprFabricEthLanPcRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcRn.setStatus(_A)
+_CfprFabricEthLanPcAdminSpeed_Type=CfprPortEthSpeed
+_CfprFabricEthLanPcAdminSpeed_Object=MibTableColumn
+cfprFabricEthLanPcAdminSpeed=_CfprFabricEthLanPcAdminSpeed_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,4),_CfprFabricEthLanPcAdminSpeed_Type())
+cfprFabricEthLanPcAdminSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcAdminSpeed.setStatus(_A)
+_CfprFabricEthLanPcAdminState_Type=CfprFabricEthLanPcAdminState
+_CfprFabricEthLanPcAdminState_Object=MibTableColumn
+cfprFabricEthLanPcAdminState=_CfprFabricEthLanPcAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,5),_CfprFabricEthLanPcAdminState_Type())
+cfprFabricEthLanPcAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcAdminState.setStatus(_A)
+_CfprFabricEthLanPcBandwidth_Type=Gauge32
+_CfprFabricEthLanPcBandwidth_Object=MibTableColumn
+cfprFabricEthLanPcBandwidth=_CfprFabricEthLanPcBandwidth_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,6),_CfprFabricEthLanPcBandwidth_Type())
+cfprFabricEthLanPcBandwidth.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcBandwidth.setStatus(_A)
+_CfprFabricEthLanPcClusterName_Type=SnmpAdminString
+_CfprFabricEthLanPcClusterName_Object=MibTableColumn
+cfprFabricEthLanPcClusterName=_CfprFabricEthLanPcClusterName_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,7),_CfprFabricEthLanPcClusterName_Type())
+cfprFabricEthLanPcClusterName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcClusterName.setStatus(_A)
+_CfprFabricEthLanPcDescr_Type=SnmpAdminString
+_CfprFabricEthLanPcDescr_Object=MibTableColumn
+cfprFabricEthLanPcDescr=_CfprFabricEthLanPcDescr_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,8),_CfprFabricEthLanPcDescr_Type())
+cfprFabricEthLanPcDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcDescr.setStatus(_A)
+_CfprFabricEthLanPcDtagVlan_Type=Gauge32
+_CfprFabricEthLanPcDtagVlan_Object=MibTableColumn
+cfprFabricEthLanPcDtagVlan=_CfprFabricEthLanPcDtagVlan_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,9),_CfprFabricEthLanPcDtagVlan_Type())
+cfprFabricEthLanPcDtagVlan.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcDtagVlan.setStatus(_A)
+_CfprFabricEthLanPcEpDn_Type=SnmpAdminString
+_CfprFabricEthLanPcEpDn_Object=MibTableColumn
+cfprFabricEthLanPcEpDn=_CfprFabricEthLanPcEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,10),_CfprFabricEthLanPcEpDn_Type())
+cfprFabricEthLanPcEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpDn.setStatus(_A)
+_CfprFabricEthLanPcFlowCtrlPolicy_Type=SnmpAdminString
+_CfprFabricEthLanPcFlowCtrlPolicy_Object=MibTableColumn
+cfprFabricEthLanPcFlowCtrlPolicy=_CfprFabricEthLanPcFlowCtrlPolicy_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,11),_CfprFabricEthLanPcFlowCtrlPolicy_Type())
+cfprFabricEthLanPcFlowCtrlPolicy.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcFlowCtrlPolicy.setStatus(_A)
+_CfprFabricEthLanPcFltAggr_Type=Unsigned64
+_CfprFabricEthLanPcFltAggr_Object=MibTableColumn
+cfprFabricEthLanPcFltAggr=_CfprFabricEthLanPcFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,12),_CfprFabricEthLanPcFltAggr_Type())
+cfprFabricEthLanPcFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcFltAggr.setStatus(_A)
+_CfprFabricEthLanPcIfRole_Type=CfprFabricLanPcIfRole
+_CfprFabricEthLanPcIfRole_Object=MibTableColumn
+cfprFabricEthLanPcIfRole=_CfprFabricEthLanPcIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,13),_CfprFabricEthLanPcIfRole_Type())
+cfprFabricEthLanPcIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcIfRole.setStatus(_A)
+_CfprFabricEthLanPcIfType_Type=CfprFabricCIoEpIfType
+_CfprFabricEthLanPcIfType_Object=MibTableColumn
+cfprFabricEthLanPcIfType=_CfprFabricEthLanPcIfType_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,14),_CfprFabricEthLanPcIfType_Type())
+cfprFabricEthLanPcIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcIfType.setStatus(_A)
+_CfprFabricEthLanPcLacpPolicyName_Type=SnmpAdminString
+_CfprFabricEthLanPcLacpPolicyName_Object=MibTableColumn
+cfprFabricEthLanPcLacpPolicyName=_CfprFabricEthLanPcLacpPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,15),_CfprFabricEthLanPcLacpPolicyName_Type())
+cfprFabricEthLanPcLacpPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcLacpPolicyName.setStatus(_A)
+_CfprFabricEthLanPcLocale_Type=CfprFabricExternalPcLocale
+_CfprFabricEthLanPcLocale_Object=MibTableColumn
+cfprFabricEthLanPcLocale=_CfprFabricEthLanPcLocale_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,16),_CfprFabricEthLanPcLocale_Type())
+cfprFabricEthLanPcLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcLocale.setStatus(_A)
+_CfprFabricEthLanPcName_Type=SnmpAdminString
+_CfprFabricEthLanPcName_Object=MibTableColumn
+cfprFabricEthLanPcName=_CfprFabricEthLanPcName_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,18),_CfprFabricEthLanPcName_Type())
+cfprFabricEthLanPcName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcName.setStatus(_A)
+_CfprFabricEthLanPcOperLacpPolicyName_Type=SnmpAdminString
+_CfprFabricEthLanPcOperLacpPolicyName_Object=MibTableColumn
+cfprFabricEthLanPcOperLacpPolicyName=_CfprFabricEthLanPcOperLacpPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,19),_CfprFabricEthLanPcOperLacpPolicyName_Type())
+cfprFabricEthLanPcOperLacpPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcOperLacpPolicyName.setStatus(_A)
+_CfprFabricEthLanPcOperSpeed_Type=CfprPortEthSpeed
+_CfprFabricEthLanPcOperSpeed_Object=MibTableColumn
+cfprFabricEthLanPcOperSpeed=_CfprFabricEthLanPcOperSpeed_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,20),_CfprFabricEthLanPcOperSpeed_Type())
+cfprFabricEthLanPcOperSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcOperSpeed.setStatus(_A)
+_CfprFabricEthLanPcOperState_Type=CfprNetworkPortOperState
+_CfprFabricEthLanPcOperState_Object=MibTableColumn
+cfprFabricEthLanPcOperState=_CfprFabricEthLanPcOperState_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,21),_CfprFabricEthLanPcOperState_Type())
+cfprFabricEthLanPcOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcOperState.setStatus(_A)
+_CfprFabricEthLanPcOverlappingVlans_Type=SnmpAdminString
+_CfprFabricEthLanPcOverlappingVlans_Object=MibTableColumn
+cfprFabricEthLanPcOverlappingVlans=_CfprFabricEthLanPcOverlappingVlans_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,22),_CfprFabricEthLanPcOverlappingVlans_Type())
+cfprFabricEthLanPcOverlappingVlans.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcOverlappingVlans.setStatus(_A)
+_CfprFabricEthLanPcPeerDn_Type=SnmpAdminString
+_CfprFabricEthLanPcPeerDn_Object=MibTableColumn
+cfprFabricEthLanPcPeerDn=_CfprFabricEthLanPcPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,23),_CfprFabricEthLanPcPeerDn_Type())
+cfprFabricEthLanPcPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcPeerDn.setStatus(_A)
+_CfprFabricEthLanPcPortId_Type=Gauge32
+_CfprFabricEthLanPcPortId_Object=MibTableColumn
+cfprFabricEthLanPcPortId=_CfprFabricEthLanPcPortId_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,24),_CfprFabricEthLanPcPortId_Type())
+cfprFabricEthLanPcPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcPortId.setStatus(_A)
+_CfprFabricEthLanPcSpannedCluster_Type=CfprFabricSpannedCluster
+_CfprFabricEthLanPcSpannedCluster_Object=MibTableColumn
+cfprFabricEthLanPcSpannedCluster=_CfprFabricEthLanPcSpannedCluster_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,25),_CfprFabricEthLanPcSpannedCluster_Type())
+cfprFabricEthLanPcSpannedCluster.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcSpannedCluster.setStatus(_A)
+_CfprFabricEthLanPcSsaPortType_Type=CfprFabricSSAPortType
+_CfprFabricEthLanPcSsaPortType_Object=MibTableColumn
+cfprFabricEthLanPcSsaPortType=_CfprFabricEthLanPcSsaPortType_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,26),_CfprFabricEthLanPcSsaPortType_Type())
+cfprFabricEthLanPcSsaPortType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcSsaPortType.setStatus(_A)
+_CfprFabricEthLanPcSsaVlanId_Type=Gauge32
+_CfprFabricEthLanPcSsaVlanId_Object=MibTableColumn
+cfprFabricEthLanPcSsaVlanId=_CfprFabricEthLanPcSsaVlanId_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,27),_CfprFabricEthLanPcSsaVlanId_Type())
+cfprFabricEthLanPcSsaVlanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcSsaVlanId.setStatus(_A)
+_CfprFabricEthLanPcStateQual_Type=SnmpAdminString
+_CfprFabricEthLanPcStateQual_Object=MibTableColumn
+cfprFabricEthLanPcStateQual=_CfprFabricEthLanPcStateQual_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,28),_CfprFabricEthLanPcStateQual_Type())
+cfprFabricEthLanPcStateQual.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcStateQual.setStatus(_A)
+_CfprFabricEthLanPcSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricEthLanPcSwitchId_Object=MibTableColumn
+cfprFabricEthLanPcSwitchId=_CfprFabricEthLanPcSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,29),_CfprFabricEthLanPcSwitchId_Type())
+cfprFabricEthLanPcSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcSwitchId.setStatus(_A)
+_CfprFabricEthLanPcTransport_Type=CfprFabricEthLanPcTransport
+_CfprFabricEthLanPcTransport_Object=MibTableColumn
+cfprFabricEthLanPcTransport=_CfprFabricEthLanPcTransport_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,30),_CfprFabricEthLanPcTransport_Type())
+cfprFabricEthLanPcTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcTransport.setStatus(_A)
+_CfprFabricEthLanPcType_Type=CfprFabricLanPcType
+_CfprFabricEthLanPcType_Object=MibTableColumn
+cfprFabricEthLanPcType=_CfprFabricEthLanPcType_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,31),_CfprFabricEthLanPcType_Type())
+cfprFabricEthLanPcType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcType.setStatus(_A)
+_CfprFabricEthLanPcVlanStatus_Type=CfprFabricEthLanPcVlanStatus
+_CfprFabricEthLanPcVlanStatus_Object=MibTableColumn
+cfprFabricEthLanPcVlanStatus=_CfprFabricEthLanPcVlanStatus_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,32),_CfprFabricEthLanPcVlanStatus_Type())
+cfprFabricEthLanPcVlanStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcVlanStatus.setStatus(_A)
+_CfprFabricEthLanPcWarnings_Type=CfprFabricWarnings
+_CfprFabricEthLanPcWarnings_Object=MibTableColumn
+cfprFabricEthLanPcWarnings=_CfprFabricEthLanPcWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,33),_CfprFabricEthLanPcWarnings_Type())
+cfprFabricEthLanPcWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcWarnings.setStatus(_A)
+_CfprFabricEthLanPcCluChassisId_Type=Gauge32
+_CfprFabricEthLanPcCluChassisId_Object=MibTableColumn
+cfprFabricEthLanPcCluChassisId=_CfprFabricEthLanPcCluChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,34),_CfprFabricEthLanPcCluChassisId_Type())
+cfprFabricEthLanPcCluChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcCluChassisId.setStatus(_A)
+_CfprFabricEthLanPcLacpDetach_Type=CfprFabricEthLanPcLacpDetach
+_CfprFabricEthLanPcLacpDetach_Object=MibTableColumn
+cfprFabricEthLanPcLacpDetach=_CfprFabricEthLanPcLacpDetach_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,35),_CfprFabricEthLanPcLacpDetach_Type())
+cfprFabricEthLanPcLacpDetach.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcLacpDetach.setStatus(_A)
+_CfprFabricEthLanPcAdminDuplex_Type=CfprPortDuplex
+_CfprFabricEthLanPcAdminDuplex_Object=MibTableColumn
+cfprFabricEthLanPcAdminDuplex=_CfprFabricEthLanPcAdminDuplex_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,36),_CfprFabricEthLanPcAdminDuplex_Type())
+cfprFabricEthLanPcAdminDuplex.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcAdminDuplex.setStatus(_A)
+_CfprFabricEthLanPcAllowSharing_Type=TruthValue
+_CfprFabricEthLanPcAllowSharing_Object=MibTableColumn
+cfprFabricEthLanPcAllowSharing=_CfprFabricEthLanPcAllowSharing_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,37),_CfprFabricEthLanPcAllowSharing_Type())
+cfprFabricEthLanPcAllowSharing.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcAllowSharing.setStatus(_A)
+_CfprFabricEthLanPcAllowedVlan_Type=CfprFabricAllowedVlanType
+_CfprFabricEthLanPcAllowedVlan_Object=MibTableColumn
+cfprFabricEthLanPcAllowedVlan=_CfprFabricEthLanPcAllowedVlan_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,38),_CfprFabricEthLanPcAllowedVlan_Type())
+cfprFabricEthLanPcAllowedVlan.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcAllowedVlan.setStatus(_A)
+_CfprFabricEthLanPcAutoNeg_Type=TruthValue
+_CfprFabricEthLanPcAutoNeg_Object=MibTableColumn
+cfprFabricEthLanPcAutoNeg=_CfprFabricEthLanPcAutoNeg_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,39),_CfprFabricEthLanPcAutoNeg_Type())
+cfprFabricEthLanPcAutoNeg.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcAutoNeg.setStatus(_A)
+_CfprFabricEthLanPcHashAlg_Type=CfprNhTpHashType
+_CfprFabricEthLanPcHashAlg_Object=MibTableColumn
+cfprFabricEthLanPcHashAlg=_CfprFabricEthLanPcHashAlg_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,40),_CfprFabricEthLanPcHashAlg_Type())
+cfprFabricEthLanPcHashAlg.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcHashAlg.setStatus(_A)
+_CfprFabricEthLanPcInlinePeerDn_Type=SnmpAdminString
+_CfprFabricEthLanPcInlinePeerDn_Object=MibTableColumn
+cfprFabricEthLanPcInlinePeerDn=_CfprFabricEthLanPcInlinePeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,41),_CfprFabricEthLanPcInlinePeerDn_Type())
+cfprFabricEthLanPcInlinePeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcInlinePeerDn.setStatus(_A)
+_CfprFabricEthLanPcInlinePeerName_Type=SnmpAdminString
+_CfprFabricEthLanPcInlinePeerName_Object=MibTableColumn
+cfprFabricEthLanPcInlinePeerName=_CfprFabricEthLanPcInlinePeerName_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,42),_CfprFabricEthLanPcInlinePeerName_Type())
+cfprFabricEthLanPcInlinePeerName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcInlinePeerName.setStatus(_A)
+_CfprFabricEthLanPcInlineState_Type=CfprFabricEthLanPcInlineState
+_CfprFabricEthLanPcInlineState_Object=MibTableColumn
+cfprFabricEthLanPcInlineState=_CfprFabricEthLanPcInlineState_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,43),_CfprFabricEthLanPcInlineState_Type())
+cfprFabricEthLanPcInlineState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcInlineState.setStatus(_A)
+_CfprFabricEthLanPcLacpMode_Type=CfprFabricLacpMode
+_CfprFabricEthLanPcLacpMode_Object=MibTableColumn
+cfprFabricEthLanPcLacpMode=_CfprFabricEthLanPcLacpMode_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,44),_CfprFabricEthLanPcLacpMode_Type())
+cfprFabricEthLanPcLacpMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcLacpMode.setStatus(_A)
+_CfprFabricEthLanPcPcMode_Type=CfprFabricPcMode
+_CfprFabricEthLanPcPcMode_Object=MibTableColumn
+cfprFabricEthLanPcPcMode=_CfprFabricEthLanPcPcMode_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,45),_CfprFabricEthLanPcPcMode_Type())
+cfprFabricEthLanPcPcMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcPcMode.setStatus(_A)
+_CfprFabricEthLanPcPcModeState_Type=CfprFabricPcModeState
+_CfprFabricEthLanPcPcModeState_Object=MibTableColumn
+cfprFabricEthLanPcPcModeState=_CfprFabricEthLanPcPcModeState_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,46),_CfprFabricEthLanPcPcModeState_Type())
+cfprFabricEthLanPcPcModeState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcPcModeState.setStatus(_A)
+_CfprFabricEthLanPcQosPrio_Type=CfprFabricQosPrio
+_CfprFabricEthLanPcQosPrio_Object=MibTableColumn
+cfprFabricEthLanPcQosPrio=_CfprFabricEthLanPcQosPrio_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,47),_CfprFabricEthLanPcQosPrio_Type())
+cfprFabricEthLanPcQosPrio.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcQosPrio.setStatus(_A)
+_CfprFabricEthLanPcSpeedCap_Type=CfprEquipmentEthPortSpeedCap
+_CfprFabricEthLanPcSpeedCap_Object=MibTableColumn
+cfprFabricEthLanPcSpeedCap=_CfprFabricEthLanPcSpeedCap_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,48),_CfprFabricEthLanPcSpeedCap_Type())
+cfprFabricEthLanPcSpeedCap.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcSpeedCap.setStatus(_A)
+_CfprFabricEthLanPcNwCtrlPolicyName_Type=SnmpAdminString
+_CfprFabricEthLanPcNwCtrlPolicyName_Object=MibTableColumn
+cfprFabricEthLanPcNwCtrlPolicyName=_CfprFabricEthLanPcNwCtrlPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,49),_CfprFabricEthLanPcNwCtrlPolicyName_Type())
+cfprFabricEthLanPcNwCtrlPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcNwCtrlPolicyName.setStatus(_A)
+_CfprFabricEthLanPcOperNwCtrlPolicyName_Type=SnmpAdminString
+_CfprFabricEthLanPcOperNwCtrlPolicyName_Object=MibTableColumn
+cfprFabricEthLanPcOperNwCtrlPolicyName=_CfprFabricEthLanPcOperNwCtrlPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,32,1,50),_CfprFabricEthLanPcOperNwCtrlPolicyName_Type())
+cfprFabricEthLanPcOperNwCtrlPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcOperNwCtrlPolicyName.setStatus(_A)
+_CfprFabricEthLanPcEpTable_Object=MibTable
+cfprFabricEthLanPcEpTable=_CfprFabricEthLanPcEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,33))
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpTable.setStatus(_A)
+_CfprFabricEthLanPcEpEntry_Object=MibTableRow
+cfprFabricEthLanPcEpEntry=_CfprFabricEthLanPcEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,33,1))
+cfprFabricEthLanPcEpEntry.setIndexNames((0,_C,_k))
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpEntry.setStatus(_A)
+_CfprFabricEthLanPcEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthLanPcEpInstanceId_Object=MibTableColumn
+cfprFabricEthLanPcEpInstanceId=_CfprFabricEthLanPcEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,1),_CfprFabricEthLanPcEpInstanceId_Type())
+cfprFabricEthLanPcEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpInstanceId.setStatus(_A)
+_CfprFabricEthLanPcEpDnData_Type=CfprManagedObjectDn
+_CfprFabricEthLanPcEpDnData_Object=MibTableColumn
+cfprFabricEthLanPcEpDnData=_CfprFabricEthLanPcEpDnData_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,2),_CfprFabricEthLanPcEpDnData_Type())
+cfprFabricEthLanPcEpDnData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpDnData.setStatus(_A)
+_CfprFabricEthLanPcEpRn_Type=SnmpAdminString
+_CfprFabricEthLanPcEpRn_Object=MibTableColumn
+cfprFabricEthLanPcEpRn=_CfprFabricEthLanPcEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,3),_CfprFabricEthLanPcEpRn_Type())
+cfprFabricEthLanPcEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpRn.setStatus(_A)
+_CfprFabricEthLanPcEpAdminState_Type=CfprFabricExternalEpAdminState
+_CfprFabricEthLanPcEpAdminState_Object=MibTableColumn
+cfprFabricEthLanPcEpAdminState=_CfprFabricEthLanPcEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,4),_CfprFabricEthLanPcEpAdminState_Type())
+cfprFabricEthLanPcEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpAdminState.setStatus(_A)
+_CfprFabricEthLanPcEpAggrPortId_Type=Gauge32
+_CfprFabricEthLanPcEpAggrPortId_Object=MibTableColumn
+cfprFabricEthLanPcEpAggrPortId=_CfprFabricEthLanPcEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,5),_CfprFabricEthLanPcEpAggrPortId_Type())
+cfprFabricEthLanPcEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpAggrPortId.setStatus(_A)
+_CfprFabricEthLanPcEpChassisId_Type=Gauge32
+_CfprFabricEthLanPcEpChassisId_Object=MibTableColumn
+cfprFabricEthLanPcEpChassisId=_CfprFabricEthLanPcEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,6),_CfprFabricEthLanPcEpChassisId_Type())
+cfprFabricEthLanPcEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpChassisId.setStatus(_A)
+_CfprFabricEthLanPcEpEpDn_Type=SnmpAdminString
+_CfprFabricEthLanPcEpEpDn_Object=MibTableColumn
+cfprFabricEthLanPcEpEpDn=_CfprFabricEthLanPcEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,7),_CfprFabricEthLanPcEpEpDn_Type())
+cfprFabricEthLanPcEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpEpDn.setStatus(_A)
+_CfprFabricEthLanPcEpEthLinkProfileName_Type=SnmpAdminString
+_CfprFabricEthLanPcEpEthLinkProfileName_Object=MibTableColumn
+cfprFabricEthLanPcEpEthLinkProfileName=_CfprFabricEthLanPcEpEthLinkProfileName_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,8),_CfprFabricEthLanPcEpEthLinkProfileName_Type())
+cfprFabricEthLanPcEpEthLinkProfileName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpEthLinkProfileName.setStatus(_A)
+_CfprFabricEthLanPcEpFltAggr_Type=Unsigned64
+_CfprFabricEthLanPcEpFltAggr_Object=MibTableColumn
+cfprFabricEthLanPcEpFltAggr=_CfprFabricEthLanPcEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,9),_CfprFabricEthLanPcEpFltAggr_Type())
+cfprFabricEthLanPcEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpFltAggr.setStatus(_A)
+_CfprFabricEthLanPcEpIfRole_Type=CfprFabricLanEpIfRole
+_CfprFabricEthLanPcEpIfRole_Object=MibTableColumn
+cfprFabricEthLanPcEpIfRole=_CfprFabricEthLanPcEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,10),_CfprFabricEthLanPcEpIfRole_Type())
+cfprFabricEthLanPcEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpIfRole.setStatus(_A)
+_CfprFabricEthLanPcEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricEthLanPcEpIfType_Object=MibTableColumn
+cfprFabricEthLanPcEpIfType=_CfprFabricEthLanPcEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,11),_CfprFabricEthLanPcEpIfType_Type())
+cfprFabricEthLanPcEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpIfType.setStatus(_A)
+_CfprFabricEthLanPcEpLicGP_Type=Unsigned64
+_CfprFabricEthLanPcEpLicGP_Object=MibTableColumn
+cfprFabricEthLanPcEpLicGP=_CfprFabricEthLanPcEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,12),_CfprFabricEthLanPcEpLicGP_Type())
+cfprFabricEthLanPcEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpLicGP.setStatus(_A)
+_CfprFabricEthLanPcEpLicState_Type=CfprLicenseState
+_CfprFabricEthLanPcEpLicState_Object=MibTableColumn
+cfprFabricEthLanPcEpLicState=_CfprFabricEthLanPcEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,13),_CfprFabricEthLanPcEpLicState_Type())
+cfprFabricEthLanPcEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpLicState.setStatus(_A)
+_CfprFabricEthLanPcEpLocale_Type=CfprFabricExternalEpLocale
+_CfprFabricEthLanPcEpLocale_Object=MibTableColumn
+cfprFabricEthLanPcEpLocale=_CfprFabricEthLanPcEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,14),_CfprFabricEthLanPcEpLocale_Type())
+cfprFabricEthLanPcEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpLocale.setStatus(_A)
+_CfprFabricEthLanPcEpMembership_Type=CfprFabricMembershipStatus
+_CfprFabricEthLanPcEpMembership_Object=MibTableColumn
+cfprFabricEthLanPcEpMembership=_CfprFabricEthLanPcEpMembership_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,15),_CfprFabricEthLanPcEpMembership_Type())
+cfprFabricEthLanPcEpMembership.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpMembership.setStatus(_A)
+_CfprFabricEthLanPcEpName_Type=SnmpAdminString
+_CfprFabricEthLanPcEpName_Object=MibTableColumn
+cfprFabricEthLanPcEpName=_CfprFabricEthLanPcEpName_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,16),_CfprFabricEthLanPcEpName_Type())
+cfprFabricEthLanPcEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpName.setStatus(_A)
+_CfprFabricEthLanPcEpOperEthLinkProfileName_Type=SnmpAdminString
+_CfprFabricEthLanPcEpOperEthLinkProfileName_Object=MibTableColumn
+cfprFabricEthLanPcEpOperEthLinkProfileName=_CfprFabricEthLanPcEpOperEthLinkProfileName_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,17),_CfprFabricEthLanPcEpOperEthLinkProfileName_Type())
+cfprFabricEthLanPcEpOperEthLinkProfileName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpOperEthLinkProfileName.setStatus(_A)
+_CfprFabricEthLanPcEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricEthLanPcEpOperState_Object=MibTableColumn
+cfprFabricEthLanPcEpOperState=_CfprFabricEthLanPcEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,18),_CfprFabricEthLanPcEpOperState_Type())
+cfprFabricEthLanPcEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpOperState.setStatus(_A)
+_CfprFabricEthLanPcEpOperStateReason_Type=SnmpAdminString
+_CfprFabricEthLanPcEpOperStateReason_Object=MibTableColumn
+cfprFabricEthLanPcEpOperStateReason=_CfprFabricEthLanPcEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,19),_CfprFabricEthLanPcEpOperStateReason_Type())
+cfprFabricEthLanPcEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpOperStateReason.setStatus(_A)
+_CfprFabricEthLanPcEpPeerAggrPortId_Type=Gauge32
+_CfprFabricEthLanPcEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricEthLanPcEpPeerAggrPortId=_CfprFabricEthLanPcEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,20),_CfprFabricEthLanPcEpPeerAggrPortId_Type())
+cfprFabricEthLanPcEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpPeerAggrPortId.setStatus(_A)
+_CfprFabricEthLanPcEpPeerChassisId_Type=Gauge32
+_CfprFabricEthLanPcEpPeerChassisId_Object=MibTableColumn
+cfprFabricEthLanPcEpPeerChassisId=_CfprFabricEthLanPcEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,21),_CfprFabricEthLanPcEpPeerChassisId_Type())
+cfprFabricEthLanPcEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpPeerChassisId.setStatus(_A)
+_CfprFabricEthLanPcEpPeerDn_Type=SnmpAdminString
+_CfprFabricEthLanPcEpPeerDn_Object=MibTableColumn
+cfprFabricEthLanPcEpPeerDn=_CfprFabricEthLanPcEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,22),_CfprFabricEthLanPcEpPeerDn_Type())
+cfprFabricEthLanPcEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpPeerDn.setStatus(_A)
+_CfprFabricEthLanPcEpPeerPortId_Type=Gauge32
+_CfprFabricEthLanPcEpPeerPortId_Object=MibTableColumn
+cfprFabricEthLanPcEpPeerPortId=_CfprFabricEthLanPcEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,23),_CfprFabricEthLanPcEpPeerPortId_Type())
+cfprFabricEthLanPcEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpPeerPortId.setStatus(_A)
+_CfprFabricEthLanPcEpPeerSlotId_Type=Gauge32
+_CfprFabricEthLanPcEpPeerSlotId_Object=MibTableColumn
+cfprFabricEthLanPcEpPeerSlotId=_CfprFabricEthLanPcEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,24),_CfprFabricEthLanPcEpPeerSlotId_Type())
+cfprFabricEthLanPcEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpPeerSlotId.setStatus(_A)
+_CfprFabricEthLanPcEpPortId_Type=Gauge32
+_CfprFabricEthLanPcEpPortId_Object=MibTableColumn
+cfprFabricEthLanPcEpPortId=_CfprFabricEthLanPcEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,25),_CfprFabricEthLanPcEpPortId_Type())
+cfprFabricEthLanPcEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpPortId.setStatus(_A)
+_CfprFabricEthLanPcEpSlotId_Type=Gauge32
+_CfprFabricEthLanPcEpSlotId_Object=MibTableColumn
+cfprFabricEthLanPcEpSlotId=_CfprFabricEthLanPcEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,26),_CfprFabricEthLanPcEpSlotId_Type())
+cfprFabricEthLanPcEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpSlotId.setStatus(_A)
+_CfprFabricEthLanPcEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricEthLanPcEpSwitchId_Object=MibTableColumn
+cfprFabricEthLanPcEpSwitchId=_CfprFabricEthLanPcEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,27),_CfprFabricEthLanPcEpSwitchId_Type())
+cfprFabricEthLanPcEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpSwitchId.setStatus(_A)
+_CfprFabricEthLanPcEpTransport_Type=CfprFabricAEthLanEpTransport
+_CfprFabricEthLanPcEpTransport_Object=MibTableColumn
+cfprFabricEthLanPcEpTransport=_CfprFabricEthLanPcEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,28),_CfprFabricEthLanPcEpTransport_Type())
+cfprFabricEthLanPcEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpTransport.setStatus(_A)
+_CfprFabricEthLanPcEpType_Type=CfprFabricLanEpType
+_CfprFabricEthLanPcEpType_Object=MibTableColumn
+cfprFabricEthLanPcEpType=_CfprFabricEthLanPcEpType_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,29),_CfprFabricEthLanPcEpType_Type())
+cfprFabricEthLanPcEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpType.setStatus(_A)
+_CfprFabricEthLanPcEpUdldOperState_Type=CfprFabricUdldOperState
+_CfprFabricEthLanPcEpUdldOperState_Object=MibTableColumn
+cfprFabricEthLanPcEpUdldOperState=_CfprFabricEthLanPcEpUdldOperState_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,30),_CfprFabricEthLanPcEpUdldOperState_Type())
+cfprFabricEthLanPcEpUdldOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpUdldOperState.setStatus(_A)
+_CfprFabricEthLanPcEpWarnings_Type=CfprFabricWarnings
+_CfprFabricEthLanPcEpWarnings_Object=MibTableColumn
+cfprFabricEthLanPcEpWarnings=_CfprFabricEthLanPcEpWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,31),_CfprFabricEthLanPcEpWarnings_Type())
+cfprFabricEthLanPcEpWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpWarnings.setStatus(_A)
+_CfprFabricEthLanPcEpDescr_Type=SnmpAdminString
+_CfprFabricEthLanPcEpDescr_Object=MibTableColumn
+cfprFabricEthLanPcEpDescr=_CfprFabricEthLanPcEpDescr_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,32),_CfprFabricEthLanPcEpDescr_Type())
+cfprFabricEthLanPcEpDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpDescr.setStatus(_A)
+_CfprFabricEthLanPcEpSpeedCap_Type=CfprEquipmentEthPortSpeedCap
+_CfprFabricEthLanPcEpSpeedCap_Object=MibTableColumn
+cfprFabricEthLanPcEpSpeedCap=_CfprFabricEthLanPcEpSpeedCap_Object((1,3,6,1,4,1,9,9,826,1,26,33,1,33),_CfprFabricEthLanPcEpSpeedCap_Type())
+cfprFabricEthLanPcEpSpeedCap.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLanPcEpSpeedCap.setStatus(_A)
+_CfprFabricEthLinkProfileTable_Object=MibTable
+cfprFabricEthLinkProfileTable=_CfprFabricEthLinkProfileTable_Object((1,3,6,1,4,1,9,9,826,1,26,34))
+if mibBuilder.loadTexts:cfprFabricEthLinkProfileTable.setStatus(_A)
+_CfprFabricEthLinkProfileEntry_Object=MibTableRow
+cfprFabricEthLinkProfileEntry=_CfprFabricEthLinkProfileEntry_Object((1,3,6,1,4,1,9,9,826,1,26,34,1))
+cfprFabricEthLinkProfileEntry.setIndexNames((0,_C,_l))
+if mibBuilder.loadTexts:cfprFabricEthLinkProfileEntry.setStatus(_A)
+_CfprFabricEthLinkProfileInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthLinkProfileInstanceId_Object=MibTableColumn
+cfprFabricEthLinkProfileInstanceId=_CfprFabricEthLinkProfileInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,34,1,1),_CfprFabricEthLinkProfileInstanceId_Type())
+cfprFabricEthLinkProfileInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthLinkProfileInstanceId.setStatus(_A)
+_CfprFabricEthLinkProfileDn_Type=CfprManagedObjectDn
+_CfprFabricEthLinkProfileDn_Object=MibTableColumn
+cfprFabricEthLinkProfileDn=_CfprFabricEthLinkProfileDn_Object((1,3,6,1,4,1,9,9,826,1,26,34,1,2),_CfprFabricEthLinkProfileDn_Type())
+cfprFabricEthLinkProfileDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLinkProfileDn.setStatus(_A)
+_CfprFabricEthLinkProfileRn_Type=SnmpAdminString
+_CfprFabricEthLinkProfileRn_Object=MibTableColumn
+cfprFabricEthLinkProfileRn=_CfprFabricEthLinkProfileRn_Object((1,3,6,1,4,1,9,9,826,1,26,34,1,3),_CfprFabricEthLinkProfileRn_Type())
+cfprFabricEthLinkProfileRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLinkProfileRn.setStatus(_A)
+_CfprFabricEthLinkProfileCdpLinkPolicyName_Type=SnmpAdminString
+_CfprFabricEthLinkProfileCdpLinkPolicyName_Object=MibTableColumn
+cfprFabricEthLinkProfileCdpLinkPolicyName=_CfprFabricEthLinkProfileCdpLinkPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,34,1,4),_CfprFabricEthLinkProfileCdpLinkPolicyName_Type())
+cfprFabricEthLinkProfileCdpLinkPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLinkProfileCdpLinkPolicyName.setStatus(_A)
+_CfprFabricEthLinkProfileDescr_Type=SnmpAdminString
+_CfprFabricEthLinkProfileDescr_Object=MibTableColumn
+cfprFabricEthLinkProfileDescr=_CfprFabricEthLinkProfileDescr_Object((1,3,6,1,4,1,9,9,826,1,26,34,1,5),_CfprFabricEthLinkProfileDescr_Type())
+cfprFabricEthLinkProfileDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLinkProfileDescr.setStatus(_A)
+_CfprFabricEthLinkProfileIntId_Type=SnmpAdminString
+_CfprFabricEthLinkProfileIntId_Object=MibTableColumn
+cfprFabricEthLinkProfileIntId=_CfprFabricEthLinkProfileIntId_Object((1,3,6,1,4,1,9,9,826,1,26,34,1,6),_CfprFabricEthLinkProfileIntId_Type())
+cfprFabricEthLinkProfileIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLinkProfileIntId.setStatus(_A)
+_CfprFabricEthLinkProfileName_Type=SnmpAdminString
+_CfprFabricEthLinkProfileName_Object=MibTableColumn
+cfprFabricEthLinkProfileName=_CfprFabricEthLinkProfileName_Object((1,3,6,1,4,1,9,9,826,1,26,34,1,7),_CfprFabricEthLinkProfileName_Type())
+cfprFabricEthLinkProfileName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLinkProfileName.setStatus(_A)
+_CfprFabricEthLinkProfileOperCdpLinkPolicyName_Type=SnmpAdminString
+_CfprFabricEthLinkProfileOperCdpLinkPolicyName_Object=MibTableColumn
+cfprFabricEthLinkProfileOperCdpLinkPolicyName=_CfprFabricEthLinkProfileOperCdpLinkPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,34,1,8),_CfprFabricEthLinkProfileOperCdpLinkPolicyName_Type())
+cfprFabricEthLinkProfileOperCdpLinkPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLinkProfileOperCdpLinkPolicyName.setStatus(_A)
+_CfprFabricEthLinkProfileOperUdldLinkPolicyName_Type=SnmpAdminString
+_CfprFabricEthLinkProfileOperUdldLinkPolicyName_Object=MibTableColumn
+cfprFabricEthLinkProfileOperUdldLinkPolicyName=_CfprFabricEthLinkProfileOperUdldLinkPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,34,1,9),_CfprFabricEthLinkProfileOperUdldLinkPolicyName_Type())
+cfprFabricEthLinkProfileOperUdldLinkPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLinkProfileOperUdldLinkPolicyName.setStatus(_A)
+_CfprFabricEthLinkProfilePolicyLevel_Type=Gauge32
+_CfprFabricEthLinkProfilePolicyLevel_Object=MibTableColumn
+cfprFabricEthLinkProfilePolicyLevel=_CfprFabricEthLinkProfilePolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,26,34,1,10),_CfprFabricEthLinkProfilePolicyLevel_Type())
+cfprFabricEthLinkProfilePolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLinkProfilePolicyLevel.setStatus(_A)
+_CfprFabricEthLinkProfilePolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprFabricEthLinkProfilePolicyOwner_Object=MibTableColumn
+cfprFabricEthLinkProfilePolicyOwner=_CfprFabricEthLinkProfilePolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,34,1,11),_CfprFabricEthLinkProfilePolicyOwner_Type())
+cfprFabricEthLinkProfilePolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLinkProfilePolicyOwner.setStatus(_A)
+_CfprFabricEthLinkProfileUdldLinkPolicyName_Type=SnmpAdminString
+_CfprFabricEthLinkProfileUdldLinkPolicyName_Object=MibTableColumn
+cfprFabricEthLinkProfileUdldLinkPolicyName=_CfprFabricEthLinkProfileUdldLinkPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,34,1,12),_CfprFabricEthLinkProfileUdldLinkPolicyName_Type())
+cfprFabricEthLinkProfileUdldLinkPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthLinkProfileUdldLinkPolicyName.setStatus(_A)
+_CfprFabricEthMonTable_Object=MibTable
+cfprFabricEthMonTable=_CfprFabricEthMonTable_Object((1,3,6,1,4,1,9,9,826,1,26,35))
+if mibBuilder.loadTexts:cfprFabricEthMonTable.setStatus(_A)
+_CfprFabricEthMonEntry_Object=MibTableRow
+cfprFabricEthMonEntry=_CfprFabricEthMonEntry_Object((1,3,6,1,4,1,9,9,826,1,26,35,1))
+cfprFabricEthMonEntry.setIndexNames((0,_C,_m))
+if mibBuilder.loadTexts:cfprFabricEthMonEntry.setStatus(_A)
+_CfprFabricEthMonInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthMonInstanceId_Object=MibTableColumn
+cfprFabricEthMonInstanceId=_CfprFabricEthMonInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,35,1,1),_CfprFabricEthMonInstanceId_Type())
+cfprFabricEthMonInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthMonInstanceId.setStatus(_A)
+_CfprFabricEthMonDn_Type=CfprManagedObjectDn
+_CfprFabricEthMonDn_Object=MibTableColumn
+cfprFabricEthMonDn=_CfprFabricEthMonDn_Object((1,3,6,1,4,1,9,9,826,1,26,35,1,2),_CfprFabricEthMonDn_Type())
+cfprFabricEthMonDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDn.setStatus(_A)
+_CfprFabricEthMonRn_Type=SnmpAdminString
+_CfprFabricEthMonRn_Object=MibTableColumn
+cfprFabricEthMonRn=_CfprFabricEthMonRn_Object((1,3,6,1,4,1,9,9,826,1,26,35,1,3),_CfprFabricEthMonRn_Type())
+cfprFabricEthMonRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonRn.setStatus(_A)
+_CfprFabricEthMonAdminState_Type=CfprFabricMonAdminState
+_CfprFabricEthMonAdminState_Object=MibTableColumn
+cfprFabricEthMonAdminState=_CfprFabricEthMonAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,35,1,4),_CfprFabricEthMonAdminState_Type())
+cfprFabricEthMonAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonAdminState.setStatus(_A)
+_CfprFabricEthMonConfigFailReason_Type=SnmpAdminString
+_CfprFabricEthMonConfigFailReason_Object=MibTableColumn
+cfprFabricEthMonConfigFailReason=_CfprFabricEthMonConfigFailReason_Object((1,3,6,1,4,1,9,9,826,1,26,35,1,5),_CfprFabricEthMonConfigFailReason_Type())
+cfprFabricEthMonConfigFailReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonConfigFailReason.setStatus(_A)
+_CfprFabricEthMonId_Type=CfprNetworkSwitchId
+_CfprFabricEthMonId_Object=MibTableColumn
+cfprFabricEthMonId=_CfprFabricEthMonId_Object((1,3,6,1,4,1,9,9,826,1,26,35,1,6),_CfprFabricEthMonId_Type())
+cfprFabricEthMonId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonId.setStatus(_A)
+_CfprFabricEthMonIsConfigSuccess_Type=TruthValue
+_CfprFabricEthMonIsConfigSuccess_Object=MibTableColumn
+cfprFabricEthMonIsConfigSuccess=_CfprFabricEthMonIsConfigSuccess_Object((1,3,6,1,4,1,9,9,826,1,26,35,1,7),_CfprFabricEthMonIsConfigSuccess_Type())
+cfprFabricEthMonIsConfigSuccess.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonIsConfigSuccess.setStatus(_A)
+_CfprFabricEthMonLocale_Type=CfprFabricExternalLocale
+_CfprFabricEthMonLocale_Object=MibTableColumn
+cfprFabricEthMonLocale=_CfprFabricEthMonLocale_Object((1,3,6,1,4,1,9,9,826,1,26,35,1,8),_CfprFabricEthMonLocale_Type())
+cfprFabricEthMonLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonLocale.setStatus(_A)
+_CfprFabricEthMonName_Type=SnmpAdminString
+_CfprFabricEthMonName_Object=MibTableColumn
+cfprFabricEthMonName=_CfprFabricEthMonName_Object((1,3,6,1,4,1,9,9,826,1,26,35,1,9),_CfprFabricEthMonName_Type())
+cfprFabricEthMonName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonName.setStatus(_A)
+_CfprFabricEthMonOperState_Type=CfprFabricMonOperState
+_CfprFabricEthMonOperState_Object=MibTableColumn
+cfprFabricEthMonOperState=_CfprFabricEthMonOperState_Object((1,3,6,1,4,1,9,9,826,1,26,35,1,10),_CfprFabricEthMonOperState_Type())
+cfprFabricEthMonOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonOperState.setStatus(_A)
+_CfprFabricEthMonOperStateReason_Type=CfprFabricMonOperStateReason
+_CfprFabricEthMonOperStateReason_Object=MibTableColumn
+cfprFabricEthMonOperStateReason=_CfprFabricEthMonOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,35,1,11),_CfprFabricEthMonOperStateReason_Type())
+cfprFabricEthMonOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonOperStateReason.setStatus(_A)
+_CfprFabricEthMonPeerDn_Type=SnmpAdminString
+_CfprFabricEthMonPeerDn_Object=MibTableColumn
+cfprFabricEthMonPeerDn=_CfprFabricEthMonPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,35,1,12),_CfprFabricEthMonPeerDn_Type())
+cfprFabricEthMonPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonPeerDn.setStatus(_A)
+_CfprFabricEthMonSession_Type=Gauge32
+_CfprFabricEthMonSession_Object=MibTableColumn
+cfprFabricEthMonSession=_CfprFabricEthMonSession_Object((1,3,6,1,4,1,9,9,826,1,26,35,1,13),_CfprFabricEthMonSession_Type())
+cfprFabricEthMonSession.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonSession.setStatus(_A)
+_CfprFabricEthMonTransport_Type=CfprFabricEthMonTransport
+_CfprFabricEthMonTransport_Object=MibTableColumn
+cfprFabricEthMonTransport=_CfprFabricEthMonTransport_Object((1,3,6,1,4,1,9,9,826,1,26,35,1,14),_CfprFabricEthMonTransport_Type())
+cfprFabricEthMonTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonTransport.setStatus(_A)
+_CfprFabricEthMonType_Type=CfprFabricEthMonType
+_CfprFabricEthMonType_Object=MibTableColumn
+cfprFabricEthMonType=_CfprFabricEthMonType_Object((1,3,6,1,4,1,9,9,826,1,26,35,1,15),_CfprFabricEthMonType_Type())
+cfprFabricEthMonType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonType.setStatus(_A)
+_CfprFabricEthMonDestEpTable_Object=MibTable
+cfprFabricEthMonDestEpTable=_CfprFabricEthMonDestEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,36))
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpTable.setStatus(_A)
+_CfprFabricEthMonDestEpEntry_Object=MibTableRow
+cfprFabricEthMonDestEpEntry=_CfprFabricEthMonDestEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,36,1))
+cfprFabricEthMonDestEpEntry.setIndexNames((0,_C,_n))
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpEntry.setStatus(_A)
+_CfprFabricEthMonDestEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthMonDestEpInstanceId_Object=MibTableColumn
+cfprFabricEthMonDestEpInstanceId=_CfprFabricEthMonDestEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,1),_CfprFabricEthMonDestEpInstanceId_Type())
+cfprFabricEthMonDestEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpInstanceId.setStatus(_A)
+_CfprFabricEthMonDestEpDn_Type=CfprManagedObjectDn
+_CfprFabricEthMonDestEpDn_Object=MibTableColumn
+cfprFabricEthMonDestEpDn=_CfprFabricEthMonDestEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,2),_CfprFabricEthMonDestEpDn_Type())
+cfprFabricEthMonDestEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpDn.setStatus(_A)
+_CfprFabricEthMonDestEpRn_Type=SnmpAdminString
+_CfprFabricEthMonDestEpRn_Object=MibTableColumn
+cfprFabricEthMonDestEpRn=_CfprFabricEthMonDestEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,3),_CfprFabricEthMonDestEpRn_Type())
+cfprFabricEthMonDestEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpRn.setStatus(_A)
+_CfprFabricEthMonDestEpAdminSpeed_Type=CfprFabricEthMonDestEpAdminSpeed
+_CfprFabricEthMonDestEpAdminSpeed_Object=MibTableColumn
+cfprFabricEthMonDestEpAdminSpeed=_CfprFabricEthMonDestEpAdminSpeed_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,4),_CfprFabricEthMonDestEpAdminSpeed_Type())
+cfprFabricEthMonDestEpAdminSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpAdminSpeed.setStatus(_A)
+_CfprFabricEthMonDestEpAdminState_Type=CfprFabricExternalEpAdminState
+_CfprFabricEthMonDestEpAdminState_Object=MibTableColumn
+cfprFabricEthMonDestEpAdminState=_CfprFabricEthMonDestEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,5),_CfprFabricEthMonDestEpAdminState_Type())
+cfprFabricEthMonDestEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpAdminState.setStatus(_A)
+_CfprFabricEthMonDestEpAggrPortId_Type=Gauge32
+_CfprFabricEthMonDestEpAggrPortId_Object=MibTableColumn
+cfprFabricEthMonDestEpAggrPortId=_CfprFabricEthMonDestEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,6),_CfprFabricEthMonDestEpAggrPortId_Type())
+cfprFabricEthMonDestEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpAggrPortId.setStatus(_A)
+_CfprFabricEthMonDestEpChassisId_Type=Gauge32
+_CfprFabricEthMonDestEpChassisId_Object=MibTableColumn
+cfprFabricEthMonDestEpChassisId=_CfprFabricEthMonDestEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,7),_CfprFabricEthMonDestEpChassisId_Type())
+cfprFabricEthMonDestEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpChassisId.setStatus(_A)
+_CfprFabricEthMonDestEpEpDn_Type=SnmpAdminString
+_CfprFabricEthMonDestEpEpDn_Object=MibTableColumn
+cfprFabricEthMonDestEpEpDn=_CfprFabricEthMonDestEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,8),_CfprFabricEthMonDestEpEpDn_Type())
+cfprFabricEthMonDestEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpEpDn.setStatus(_A)
+_CfprFabricEthMonDestEpFltAggr_Type=Unsigned64
+_CfprFabricEthMonDestEpFltAggr_Object=MibTableColumn
+cfprFabricEthMonDestEpFltAggr=_CfprFabricEthMonDestEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,9),_CfprFabricEthMonDestEpFltAggr_Type())
+cfprFabricEthMonDestEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpFltAggr.setStatus(_A)
+_CfprFabricEthMonDestEpIfRole_Type=CfprFabricEthMonDestEpIfRole
+_CfprFabricEthMonDestEpIfRole_Object=MibTableColumn
+cfprFabricEthMonDestEpIfRole=_CfprFabricEthMonDestEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,10),_CfprFabricEthMonDestEpIfRole_Type())
+cfprFabricEthMonDestEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpIfRole.setStatus(_A)
+_CfprFabricEthMonDestEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricEthMonDestEpIfType_Object=MibTableColumn
+cfprFabricEthMonDestEpIfType=_CfprFabricEthMonDestEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,11),_CfprFabricEthMonDestEpIfType_Type())
+cfprFabricEthMonDestEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpIfType.setStatus(_A)
+_CfprFabricEthMonDestEpLicGP_Type=Unsigned64
+_CfprFabricEthMonDestEpLicGP_Object=MibTableColumn
+cfprFabricEthMonDestEpLicGP=_CfprFabricEthMonDestEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,12),_CfprFabricEthMonDestEpLicGP_Type())
+cfprFabricEthMonDestEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpLicGP.setStatus(_A)
+_CfprFabricEthMonDestEpLicState_Type=CfprLicenseState
+_CfprFabricEthMonDestEpLicState_Object=MibTableColumn
+cfprFabricEthMonDestEpLicState=_CfprFabricEthMonDestEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,13),_CfprFabricEthMonDestEpLicState_Type())
+cfprFabricEthMonDestEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpLicState.setStatus(_A)
+_CfprFabricEthMonDestEpLocale_Type=CfprFabricExternalEpLocale
+_CfprFabricEthMonDestEpLocale_Object=MibTableColumn
+cfprFabricEthMonDestEpLocale=_CfprFabricEthMonDestEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,14),_CfprFabricEthMonDestEpLocale_Type())
+cfprFabricEthMonDestEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpLocale.setStatus(_A)
+_CfprFabricEthMonDestEpName_Type=SnmpAdminString
+_CfprFabricEthMonDestEpName_Object=MibTableColumn
+cfprFabricEthMonDestEpName=_CfprFabricEthMonDestEpName_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,15),_CfprFabricEthMonDestEpName_Type())
+cfprFabricEthMonDestEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpName.setStatus(_A)
+_CfprFabricEthMonDestEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricEthMonDestEpOperState_Object=MibTableColumn
+cfprFabricEthMonDestEpOperState=_CfprFabricEthMonDestEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,16),_CfprFabricEthMonDestEpOperState_Type())
+cfprFabricEthMonDestEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpOperState.setStatus(_A)
+_CfprFabricEthMonDestEpOperStateReason_Type=SnmpAdminString
+_CfprFabricEthMonDestEpOperStateReason_Object=MibTableColumn
+cfprFabricEthMonDestEpOperStateReason=_CfprFabricEthMonDestEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,17),_CfprFabricEthMonDestEpOperStateReason_Type())
+cfprFabricEthMonDestEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpOperStateReason.setStatus(_A)
+_CfprFabricEthMonDestEpPeerAggrPortId_Type=Gauge32
+_CfprFabricEthMonDestEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricEthMonDestEpPeerAggrPortId=_CfprFabricEthMonDestEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,18),_CfprFabricEthMonDestEpPeerAggrPortId_Type())
+cfprFabricEthMonDestEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpPeerAggrPortId.setStatus(_A)
+_CfprFabricEthMonDestEpPeerChassisId_Type=Gauge32
+_CfprFabricEthMonDestEpPeerChassisId_Object=MibTableColumn
+cfprFabricEthMonDestEpPeerChassisId=_CfprFabricEthMonDestEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,19),_CfprFabricEthMonDestEpPeerChassisId_Type())
+cfprFabricEthMonDestEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpPeerChassisId.setStatus(_A)
+_CfprFabricEthMonDestEpPeerDn_Type=SnmpAdminString
+_CfprFabricEthMonDestEpPeerDn_Object=MibTableColumn
+cfprFabricEthMonDestEpPeerDn=_CfprFabricEthMonDestEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,20),_CfprFabricEthMonDestEpPeerDn_Type())
+cfprFabricEthMonDestEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpPeerDn.setStatus(_A)
+_CfprFabricEthMonDestEpPeerPortId_Type=Gauge32
+_CfprFabricEthMonDestEpPeerPortId_Object=MibTableColumn
+cfprFabricEthMonDestEpPeerPortId=_CfprFabricEthMonDestEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,21),_CfprFabricEthMonDestEpPeerPortId_Type())
+cfprFabricEthMonDestEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpPeerPortId.setStatus(_A)
+_CfprFabricEthMonDestEpPeerSlotId_Type=Gauge32
+_CfprFabricEthMonDestEpPeerSlotId_Object=MibTableColumn
+cfprFabricEthMonDestEpPeerSlotId=_CfprFabricEthMonDestEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,22),_CfprFabricEthMonDestEpPeerSlotId_Type())
+cfprFabricEthMonDestEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpPeerSlotId.setStatus(_A)
+_CfprFabricEthMonDestEpPortId_Type=CfprFabricEthMonDestEpPortId
+_CfprFabricEthMonDestEpPortId_Object=MibTableColumn
+cfprFabricEthMonDestEpPortId=_CfprFabricEthMonDestEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,23),_CfprFabricEthMonDestEpPortId_Type())
+cfprFabricEthMonDestEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpPortId.setStatus(_A)
+_CfprFabricEthMonDestEpSlotId_Type=CfprFabricEthMonDestEpSlotId
+_CfprFabricEthMonDestEpSlotId_Object=MibTableColumn
+cfprFabricEthMonDestEpSlotId=_CfprFabricEthMonDestEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,24),_CfprFabricEthMonDestEpSlotId_Type())
+cfprFabricEthMonDestEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpSlotId.setStatus(_A)
+_CfprFabricEthMonDestEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricEthMonDestEpSwitchId_Object=MibTableColumn
+cfprFabricEthMonDestEpSwitchId=_CfprFabricEthMonDestEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,25),_CfprFabricEthMonDestEpSwitchId_Type())
+cfprFabricEthMonDestEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpSwitchId.setStatus(_A)
+_CfprFabricEthMonDestEpTransport_Type=CfprNetworkTransport
+_CfprFabricEthMonDestEpTransport_Object=MibTableColumn
+cfprFabricEthMonDestEpTransport=_CfprFabricEthMonDestEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,26),_CfprFabricEthMonDestEpTransport_Type())
+cfprFabricEthMonDestEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpTransport.setStatus(_A)
+_CfprFabricEthMonDestEpType_Type=CfprFabricEthMonDestEpType
+_CfprFabricEthMonDestEpType_Object=MibTableColumn
+cfprFabricEthMonDestEpType=_CfprFabricEthMonDestEpType_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,27),_CfprFabricEthMonDestEpType_Type())
+cfprFabricEthMonDestEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpType.setStatus(_A)
+_CfprFabricEthMonDestEpWarnings_Type=CfprFabricWarnings
+_CfprFabricEthMonDestEpWarnings_Object=MibTableColumn
+cfprFabricEthMonDestEpWarnings=_CfprFabricEthMonDestEpWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,36,1,28),_CfprFabricEthMonDestEpWarnings_Type())
+cfprFabricEthMonDestEpWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonDestEpWarnings.setStatus(_A)
+_CfprFabricEthMonFiltEpTable_Object=MibTable
+cfprFabricEthMonFiltEpTable=_CfprFabricEthMonFiltEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,37))
+if mibBuilder.loadTexts:cfprFabricEthMonFiltEpTable.setStatus(_A)
+_CfprFabricEthMonFiltEpEntry_Object=MibTableRow
+cfprFabricEthMonFiltEpEntry=_CfprFabricEthMonFiltEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,37,1))
+cfprFabricEthMonFiltEpEntry.setIndexNames((0,_C,_o))
+if mibBuilder.loadTexts:cfprFabricEthMonFiltEpEntry.setStatus(_A)
+_CfprFabricEthMonFiltEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthMonFiltEpInstanceId_Object=MibTableColumn
+cfprFabricEthMonFiltEpInstanceId=_CfprFabricEthMonFiltEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,37,1,1),_CfprFabricEthMonFiltEpInstanceId_Type())
+cfprFabricEthMonFiltEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthMonFiltEpInstanceId.setStatus(_A)
+_CfprFabricEthMonFiltEpDn_Type=CfprManagedObjectDn
+_CfprFabricEthMonFiltEpDn_Object=MibTableColumn
+cfprFabricEthMonFiltEpDn=_CfprFabricEthMonFiltEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,37,1,2),_CfprFabricEthMonFiltEpDn_Type())
+cfprFabricEthMonFiltEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonFiltEpDn.setStatus(_A)
+_CfprFabricEthMonFiltEpRn_Type=SnmpAdminString
+_CfprFabricEthMonFiltEpRn_Object=MibTableColumn
+cfprFabricEthMonFiltEpRn=_CfprFabricEthMonFiltEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,37,1,3),_CfprFabricEthMonFiltEpRn_Type())
+cfprFabricEthMonFiltEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonFiltEpRn.setStatus(_A)
+_CfprFabricEthMonFiltEpName_Type=SnmpAdminString
+_CfprFabricEthMonFiltEpName_Object=MibTableColumn
+cfprFabricEthMonFiltEpName=_CfprFabricEthMonFiltEpName_Object((1,3,6,1,4,1,9,9,826,1,26,37,1,4),_CfprFabricEthMonFiltEpName_Type())
+cfprFabricEthMonFiltEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonFiltEpName.setStatus(_A)
+_CfprFabricEthMonFiltEpSession_Type=Gauge32
+_CfprFabricEthMonFiltEpSession_Object=MibTableColumn
+cfprFabricEthMonFiltEpSession=_CfprFabricEthMonFiltEpSession_Object((1,3,6,1,4,1,9,9,826,1,26,37,1,5),_CfprFabricEthMonFiltEpSession_Type())
+cfprFabricEthMonFiltEpSession.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonFiltEpSession.setStatus(_A)
+_CfprFabricEthMonFiltEpType_Type=CfprFabricEthMonFiltEpType
+_CfprFabricEthMonFiltEpType_Object=MibTableColumn
+cfprFabricEthMonFiltEpType=_CfprFabricEthMonFiltEpType_Object((1,3,6,1,4,1,9,9,826,1,26,37,1,6),_CfprFabricEthMonFiltEpType_Type())
+cfprFabricEthMonFiltEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonFiltEpType.setStatus(_A)
+_CfprFabricEthMonFiltRefTable_Object=MibTable
+cfprFabricEthMonFiltRefTable=_CfprFabricEthMonFiltRefTable_Object((1,3,6,1,4,1,9,9,826,1,26,38))
+if mibBuilder.loadTexts:cfprFabricEthMonFiltRefTable.setStatus(_A)
+_CfprFabricEthMonFiltRefEntry_Object=MibTableRow
+cfprFabricEthMonFiltRefEntry=_CfprFabricEthMonFiltRefEntry_Object((1,3,6,1,4,1,9,9,826,1,26,38,1))
+cfprFabricEthMonFiltRefEntry.setIndexNames((0,_C,_p))
+if mibBuilder.loadTexts:cfprFabricEthMonFiltRefEntry.setStatus(_A)
+_CfprFabricEthMonFiltRefInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthMonFiltRefInstanceId_Object=MibTableColumn
+cfprFabricEthMonFiltRefInstanceId=_CfprFabricEthMonFiltRefInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,38,1,1),_CfprFabricEthMonFiltRefInstanceId_Type())
+cfprFabricEthMonFiltRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthMonFiltRefInstanceId.setStatus(_A)
+_CfprFabricEthMonFiltRefDn_Type=CfprManagedObjectDn
+_CfprFabricEthMonFiltRefDn_Object=MibTableColumn
+cfprFabricEthMonFiltRefDn=_CfprFabricEthMonFiltRefDn_Object((1,3,6,1,4,1,9,9,826,1,26,38,1,2),_CfprFabricEthMonFiltRefDn_Type())
+cfprFabricEthMonFiltRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonFiltRefDn.setStatus(_A)
+_CfprFabricEthMonFiltRefRn_Type=SnmpAdminString
+_CfprFabricEthMonFiltRefRn_Object=MibTableColumn
+cfprFabricEthMonFiltRefRn=_CfprFabricEthMonFiltRefRn_Object((1,3,6,1,4,1,9,9,826,1,26,38,1,3),_CfprFabricEthMonFiltRefRn_Type())
+cfprFabricEthMonFiltRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonFiltRefRn.setStatus(_A)
+_CfprFabricEthMonFiltRefSrcFiltDn_Type=SnmpAdminString
+_CfprFabricEthMonFiltRefSrcFiltDn_Object=MibTableColumn
+cfprFabricEthMonFiltRefSrcFiltDn=_CfprFabricEthMonFiltRefSrcFiltDn_Object((1,3,6,1,4,1,9,9,826,1,26,38,1,4),_CfprFabricEthMonFiltRefSrcFiltDn_Type())
+cfprFabricEthMonFiltRefSrcFiltDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonFiltRefSrcFiltDn.setStatus(_A)
+_CfprFabricEthMonFiltRefType_Type=CfprFabricEthMonFiltRefType
+_CfprFabricEthMonFiltRefType_Object=MibTableColumn
+cfprFabricEthMonFiltRefType=_CfprFabricEthMonFiltRefType_Object((1,3,6,1,4,1,9,9,826,1,26,38,1,5),_CfprFabricEthMonFiltRefType_Type())
+cfprFabricEthMonFiltRefType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonFiltRefType.setStatus(_A)
+_CfprFabricEthMonLanTable_Object=MibTable
+cfprFabricEthMonLanTable=_CfprFabricEthMonLanTable_Object((1,3,6,1,4,1,9,9,826,1,26,39))
+if mibBuilder.loadTexts:cfprFabricEthMonLanTable.setStatus(_A)
+_CfprFabricEthMonLanEntry_Object=MibTableRow
+cfprFabricEthMonLanEntry=_CfprFabricEthMonLanEntry_Object((1,3,6,1,4,1,9,9,826,1,26,39,1))
+cfprFabricEthMonLanEntry.setIndexNames((0,_C,_q))
+if mibBuilder.loadTexts:cfprFabricEthMonLanEntry.setStatus(_A)
+_CfprFabricEthMonLanInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthMonLanInstanceId_Object=MibTableColumn
+cfprFabricEthMonLanInstanceId=_CfprFabricEthMonLanInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,39,1,1),_CfprFabricEthMonLanInstanceId_Type())
+cfprFabricEthMonLanInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthMonLanInstanceId.setStatus(_A)
+_CfprFabricEthMonLanDn_Type=CfprManagedObjectDn
+_CfprFabricEthMonLanDn_Object=MibTableColumn
+cfprFabricEthMonLanDn=_CfprFabricEthMonLanDn_Object((1,3,6,1,4,1,9,9,826,1,26,39,1,2),_CfprFabricEthMonLanDn_Type())
+cfprFabricEthMonLanDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonLanDn.setStatus(_A)
+_CfprFabricEthMonLanRn_Type=SnmpAdminString
+_CfprFabricEthMonLanRn_Object=MibTableColumn
+cfprFabricEthMonLanRn=_CfprFabricEthMonLanRn_Object((1,3,6,1,4,1,9,9,826,1,26,39,1,3),_CfprFabricEthMonLanRn_Type())
+cfprFabricEthMonLanRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonLanRn.setStatus(_A)
+_CfprFabricEthMonLanId_Type=CfprNetworkSwitchId
+_CfprFabricEthMonLanId_Object=MibTableColumn
+cfprFabricEthMonLanId=_CfprFabricEthMonLanId_Object((1,3,6,1,4,1,9,9,826,1,26,39,1,4),_CfprFabricEthMonLanId_Type())
+cfprFabricEthMonLanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonLanId.setStatus(_A)
+_CfprFabricEthMonLanLocale_Type=CfprFabricExternalLocale
+_CfprFabricEthMonLanLocale_Object=MibTableColumn
+cfprFabricEthMonLanLocale=_CfprFabricEthMonLanLocale_Object((1,3,6,1,4,1,9,9,826,1,26,39,1,5),_CfprFabricEthMonLanLocale_Type())
+cfprFabricEthMonLanLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonLanLocale.setStatus(_A)
+_CfprFabricEthMonLanName_Type=SnmpAdminString
+_CfprFabricEthMonLanName_Object=MibTableColumn
+cfprFabricEthMonLanName=_CfprFabricEthMonLanName_Object((1,3,6,1,4,1,9,9,826,1,26,39,1,6),_CfprFabricEthMonLanName_Type())
+cfprFabricEthMonLanName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonLanName.setStatus(_A)
+_CfprFabricEthMonLanTransport_Type=CfprFabricEthMonLanTransport
+_CfprFabricEthMonLanTransport_Object=MibTableColumn
+cfprFabricEthMonLanTransport=_CfprFabricEthMonLanTransport_Object((1,3,6,1,4,1,9,9,826,1,26,39,1,7),_CfprFabricEthMonLanTransport_Type())
+cfprFabricEthMonLanTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonLanTransport.setStatus(_A)
+_CfprFabricEthMonLanType_Type=CfprFabricEthMonLanType
+_CfprFabricEthMonLanType_Object=MibTableColumn
+cfprFabricEthMonLanType=_CfprFabricEthMonLanType_Object((1,3,6,1,4,1,9,9,826,1,26,39,1,8),_CfprFabricEthMonLanType_Type())
+cfprFabricEthMonLanType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonLanType.setStatus(_A)
+_CfprFabricEthMonSrcEpTable_Object=MibTable
+cfprFabricEthMonSrcEpTable=_CfprFabricEthMonSrcEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,40))
+if mibBuilder.loadTexts:cfprFabricEthMonSrcEpTable.setStatus(_A)
+_CfprFabricEthMonSrcEpEntry_Object=MibTableRow
+cfprFabricEthMonSrcEpEntry=_CfprFabricEthMonSrcEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,40,1))
+cfprFabricEthMonSrcEpEntry.setIndexNames((0,_C,_r))
+if mibBuilder.loadTexts:cfprFabricEthMonSrcEpEntry.setStatus(_A)
+_CfprFabricEthMonSrcEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthMonSrcEpInstanceId_Object=MibTableColumn
+cfprFabricEthMonSrcEpInstanceId=_CfprFabricEthMonSrcEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,40,1,1),_CfprFabricEthMonSrcEpInstanceId_Type())
+cfprFabricEthMonSrcEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthMonSrcEpInstanceId.setStatus(_A)
+_CfprFabricEthMonSrcEpDn_Type=CfprManagedObjectDn
+_CfprFabricEthMonSrcEpDn_Object=MibTableColumn
+cfprFabricEthMonSrcEpDn=_CfprFabricEthMonSrcEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,40,1,2),_CfprFabricEthMonSrcEpDn_Type())
+cfprFabricEthMonSrcEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonSrcEpDn.setStatus(_A)
+_CfprFabricEthMonSrcEpRn_Type=SnmpAdminString
+_CfprFabricEthMonSrcEpRn_Object=MibTableColumn
+cfprFabricEthMonSrcEpRn=_CfprFabricEthMonSrcEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,40,1,3),_CfprFabricEthMonSrcEpRn_Type())
+cfprFabricEthMonSrcEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonSrcEpRn.setStatus(_A)
+_CfprFabricEthMonSrcEpDirection_Type=CfprFabricTrafficDirection
+_CfprFabricEthMonSrcEpDirection_Object=MibTableColumn
+cfprFabricEthMonSrcEpDirection=_CfprFabricEthMonSrcEpDirection_Object((1,3,6,1,4,1,9,9,826,1,26,40,1,4),_CfprFabricEthMonSrcEpDirection_Type())
+cfprFabricEthMonSrcEpDirection.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonSrcEpDirection.setStatus(_A)
+_CfprFabricEthMonSrcEpName_Type=SnmpAdminString
+_CfprFabricEthMonSrcEpName_Object=MibTableColumn
+cfprFabricEthMonSrcEpName=_CfprFabricEthMonSrcEpName_Object((1,3,6,1,4,1,9,9,826,1,26,40,1,5),_CfprFabricEthMonSrcEpName_Type())
+cfprFabricEthMonSrcEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonSrcEpName.setStatus(_A)
+_CfprFabricEthMonSrcEpSession_Type=Gauge32
+_CfprFabricEthMonSrcEpSession_Object=MibTableColumn
+cfprFabricEthMonSrcEpSession=_CfprFabricEthMonSrcEpSession_Object((1,3,6,1,4,1,9,9,826,1,26,40,1,6),_CfprFabricEthMonSrcEpSession_Type())
+cfprFabricEthMonSrcEpSession.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonSrcEpSession.setStatus(_A)
+_CfprFabricEthMonSrcEpTransport_Type=CfprNetworkTransport
+_CfprFabricEthMonSrcEpTransport_Object=MibTableColumn
+cfprFabricEthMonSrcEpTransport=_CfprFabricEthMonSrcEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,40,1,7),_CfprFabricEthMonSrcEpTransport_Type())
+cfprFabricEthMonSrcEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonSrcEpTransport.setStatus(_A)
+_CfprFabricEthMonSrcEpType_Type=CfprFabricEthMonSrcEpType
+_CfprFabricEthMonSrcEpType_Object=MibTableColumn
+cfprFabricEthMonSrcEpType=_CfprFabricEthMonSrcEpType_Object((1,3,6,1,4,1,9,9,826,1,26,40,1,8),_CfprFabricEthMonSrcEpType_Type())
+cfprFabricEthMonSrcEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonSrcEpType.setStatus(_A)
+_CfprFabricEthMonSrcRefTable_Object=MibTable
+cfprFabricEthMonSrcRefTable=_CfprFabricEthMonSrcRefTable_Object((1,3,6,1,4,1,9,9,826,1,26,41))
+if mibBuilder.loadTexts:cfprFabricEthMonSrcRefTable.setStatus(_A)
+_CfprFabricEthMonSrcRefEntry_Object=MibTableRow
+cfprFabricEthMonSrcRefEntry=_CfprFabricEthMonSrcRefEntry_Object((1,3,6,1,4,1,9,9,826,1,26,41,1))
+cfprFabricEthMonSrcRefEntry.setIndexNames((0,_C,_s))
+if mibBuilder.loadTexts:cfprFabricEthMonSrcRefEntry.setStatus(_A)
+_CfprFabricEthMonSrcRefInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthMonSrcRefInstanceId_Object=MibTableColumn
+cfprFabricEthMonSrcRefInstanceId=_CfprFabricEthMonSrcRefInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,41,1,1),_CfprFabricEthMonSrcRefInstanceId_Type())
+cfprFabricEthMonSrcRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthMonSrcRefInstanceId.setStatus(_A)
+_CfprFabricEthMonSrcRefDn_Type=CfprManagedObjectDn
+_CfprFabricEthMonSrcRefDn_Object=MibTableColumn
+cfprFabricEthMonSrcRefDn=_CfprFabricEthMonSrcRefDn_Object((1,3,6,1,4,1,9,9,826,1,26,41,1,2),_CfprFabricEthMonSrcRefDn_Type())
+cfprFabricEthMonSrcRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonSrcRefDn.setStatus(_A)
+_CfprFabricEthMonSrcRefRn_Type=SnmpAdminString
+_CfprFabricEthMonSrcRefRn_Object=MibTableColumn
+cfprFabricEthMonSrcRefRn=_CfprFabricEthMonSrcRefRn_Object((1,3,6,1,4,1,9,9,826,1,26,41,1,3),_CfprFabricEthMonSrcRefRn_Type())
+cfprFabricEthMonSrcRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonSrcRefRn.setStatus(_A)
+_CfprFabricEthMonSrcRefId_Type=Unsigned64
+_CfprFabricEthMonSrcRefId_Object=MibTableColumn
+cfprFabricEthMonSrcRefId=_CfprFabricEthMonSrcRefId_Object((1,3,6,1,4,1,9,9,826,1,26,41,1,4),_CfprFabricEthMonSrcRefId_Type())
+cfprFabricEthMonSrcRefId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonSrcRefId.setStatus(_A)
+_CfprFabricEthMonSrcRefSourceDn_Type=SnmpAdminString
+_CfprFabricEthMonSrcRefSourceDn_Object=MibTableColumn
+cfprFabricEthMonSrcRefSourceDn=_CfprFabricEthMonSrcRefSourceDn_Object((1,3,6,1,4,1,9,9,826,1,26,41,1,5),_CfprFabricEthMonSrcRefSourceDn_Type())
+cfprFabricEthMonSrcRefSourceDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonSrcRefSourceDn.setStatus(_A)
+_CfprFabricEthMonSrcRefSourceType_Type=CfprFabricEthSourceType
+_CfprFabricEthMonSrcRefSourceType_Object=MibTableColumn
+cfprFabricEthMonSrcRefSourceType=_CfprFabricEthMonSrcRefSourceType_Object((1,3,6,1,4,1,9,9,826,1,26,41,1,6),_CfprFabricEthMonSrcRefSourceType_Type())
+cfprFabricEthMonSrcRefSourceType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonSrcRefSourceType.setStatus(_A)
+_CfprFabricEthMonSrcRefType_Type=CfprFabricEthMonSrcRefType
+_CfprFabricEthMonSrcRefType_Object=MibTableColumn
+cfprFabricEthMonSrcRefType=_CfprFabricEthMonSrcRefType_Object((1,3,6,1,4,1,9,9,826,1,26,41,1,7),_CfprFabricEthMonSrcRefType_Type())
+cfprFabricEthMonSrcRefType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthMonSrcRefType.setStatus(_A)
+_CfprFabricEthTargetEpTable_Object=MibTable
+cfprFabricEthTargetEpTable=_CfprFabricEthTargetEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,42))
+if mibBuilder.loadTexts:cfprFabricEthTargetEpTable.setStatus(_A)
+_CfprFabricEthTargetEpEntry_Object=MibTableRow
+cfprFabricEthTargetEpEntry=_CfprFabricEthTargetEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,42,1))
+cfprFabricEthTargetEpEntry.setIndexNames((0,_C,_t))
+if mibBuilder.loadTexts:cfprFabricEthTargetEpEntry.setStatus(_A)
+_CfprFabricEthTargetEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthTargetEpInstanceId_Object=MibTableColumn
+cfprFabricEthTargetEpInstanceId=_CfprFabricEthTargetEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,1),_CfprFabricEthTargetEpInstanceId_Type())
+cfprFabricEthTargetEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpInstanceId.setStatus(_A)
+_CfprFabricEthTargetEpDn_Type=CfprManagedObjectDn
+_CfprFabricEthTargetEpDn_Object=MibTableColumn
+cfprFabricEthTargetEpDn=_CfprFabricEthTargetEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,2),_CfprFabricEthTargetEpDn_Type())
+cfprFabricEthTargetEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpDn.setStatus(_A)
+_CfprFabricEthTargetEpRn_Type=SnmpAdminString
+_CfprFabricEthTargetEpRn_Object=MibTableColumn
+cfprFabricEthTargetEpRn=_CfprFabricEthTargetEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,3),_CfprFabricEthTargetEpRn_Type())
+cfprFabricEthTargetEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpRn.setStatus(_A)
+_CfprFabricEthTargetEpAdminState_Type=CfprFabricExternalEpAdminState
+_CfprFabricEthTargetEpAdminState_Object=MibTableColumn
+cfprFabricEthTargetEpAdminState=_CfprFabricEthTargetEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,4),_CfprFabricEthTargetEpAdminState_Type())
+cfprFabricEthTargetEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpAdminState.setStatus(_A)
+_CfprFabricEthTargetEpAggrPortId_Type=Gauge32
+_CfprFabricEthTargetEpAggrPortId_Object=MibTableColumn
+cfprFabricEthTargetEpAggrPortId=_CfprFabricEthTargetEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,5),_CfprFabricEthTargetEpAggrPortId_Type())
+cfprFabricEthTargetEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpAggrPortId.setStatus(_A)
+_CfprFabricEthTargetEpChassisId_Type=Gauge32
+_CfprFabricEthTargetEpChassisId_Object=MibTableColumn
+cfprFabricEthTargetEpChassisId=_CfprFabricEthTargetEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,6),_CfprFabricEthTargetEpChassisId_Type())
+cfprFabricEthTargetEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpChassisId.setStatus(_A)
+_CfprFabricEthTargetEpEpDn_Type=SnmpAdminString
+_CfprFabricEthTargetEpEpDn_Object=MibTableColumn
+cfprFabricEthTargetEpEpDn=_CfprFabricEthTargetEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,7),_CfprFabricEthTargetEpEpDn_Type())
+cfprFabricEthTargetEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpEpDn.setStatus(_A)
+_CfprFabricEthTargetEpFltAggr_Type=Unsigned64
+_CfprFabricEthTargetEpFltAggr_Object=MibTableColumn
+cfprFabricEthTargetEpFltAggr=_CfprFabricEthTargetEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,8),_CfprFabricEthTargetEpFltAggr_Type())
+cfprFabricEthTargetEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpFltAggr.setStatus(_A)
+_CfprFabricEthTargetEpIfRole_Type=CfprNetworkPortRole
+_CfprFabricEthTargetEpIfRole_Object=MibTableColumn
+cfprFabricEthTargetEpIfRole=_CfprFabricEthTargetEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,9),_CfprFabricEthTargetEpIfRole_Type())
+cfprFabricEthTargetEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpIfRole.setStatus(_A)
+_CfprFabricEthTargetEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricEthTargetEpIfType_Object=MibTableColumn
+cfprFabricEthTargetEpIfType=_CfprFabricEthTargetEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,10),_CfprFabricEthTargetEpIfType_Type())
+cfprFabricEthTargetEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpIfType.setStatus(_A)
+_CfprFabricEthTargetEpLicGP_Type=Unsigned64
+_CfprFabricEthTargetEpLicGP_Object=MibTableColumn
+cfprFabricEthTargetEpLicGP=_CfprFabricEthTargetEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,11),_CfprFabricEthTargetEpLicGP_Type())
+cfprFabricEthTargetEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpLicGP.setStatus(_A)
+_CfprFabricEthTargetEpLicState_Type=CfprLicenseState
+_CfprFabricEthTargetEpLicState_Object=MibTableColumn
+cfprFabricEthTargetEpLicState=_CfprFabricEthTargetEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,12),_CfprFabricEthTargetEpLicState_Type())
+cfprFabricEthTargetEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpLicState.setStatus(_A)
+_CfprFabricEthTargetEpLocale_Type=CfprFabricExternalEpLocale
+_CfprFabricEthTargetEpLocale_Object=MibTableColumn
+cfprFabricEthTargetEpLocale=_CfprFabricEthTargetEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,13),_CfprFabricEthTargetEpLocale_Type())
+cfprFabricEthTargetEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpLocale.setStatus(_A)
+_CfprFabricEthTargetEpMacAddress_Type=MacAddress
+_CfprFabricEthTargetEpMacAddress_Object=MibTableColumn
+cfprFabricEthTargetEpMacAddress=_CfprFabricEthTargetEpMacAddress_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,14),_CfprFabricEthTargetEpMacAddress_Type())
+cfprFabricEthTargetEpMacAddress.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpMacAddress.setStatus(_A)
+_CfprFabricEthTargetEpName_Type=SnmpAdminString
+_CfprFabricEthTargetEpName_Object=MibTableColumn
+cfprFabricEthTargetEpName=_CfprFabricEthTargetEpName_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,15),_CfprFabricEthTargetEpName_Type())
+cfprFabricEthTargetEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpName.setStatus(_A)
+_CfprFabricEthTargetEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricEthTargetEpOperState_Object=MibTableColumn
+cfprFabricEthTargetEpOperState=_CfprFabricEthTargetEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,16),_CfprFabricEthTargetEpOperState_Type())
+cfprFabricEthTargetEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpOperState.setStatus(_A)
+_CfprFabricEthTargetEpOperStateReason_Type=SnmpAdminString
+_CfprFabricEthTargetEpOperStateReason_Object=MibTableColumn
+cfprFabricEthTargetEpOperStateReason=_CfprFabricEthTargetEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,17),_CfprFabricEthTargetEpOperStateReason_Type())
+cfprFabricEthTargetEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpOperStateReason.setStatus(_A)
+_CfprFabricEthTargetEpPeerAggrPortId_Type=Gauge32
+_CfprFabricEthTargetEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricEthTargetEpPeerAggrPortId=_CfprFabricEthTargetEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,18),_CfprFabricEthTargetEpPeerAggrPortId_Type())
+cfprFabricEthTargetEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpPeerAggrPortId.setStatus(_A)
+_CfprFabricEthTargetEpPeerChassisId_Type=Gauge32
+_CfprFabricEthTargetEpPeerChassisId_Object=MibTableColumn
+cfprFabricEthTargetEpPeerChassisId=_CfprFabricEthTargetEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,19),_CfprFabricEthTargetEpPeerChassisId_Type())
+cfprFabricEthTargetEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpPeerChassisId.setStatus(_A)
+_CfprFabricEthTargetEpPeerDn_Type=SnmpAdminString
+_CfprFabricEthTargetEpPeerDn_Object=MibTableColumn
+cfprFabricEthTargetEpPeerDn=_CfprFabricEthTargetEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,20),_CfprFabricEthTargetEpPeerDn_Type())
+cfprFabricEthTargetEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpPeerDn.setStatus(_A)
+_CfprFabricEthTargetEpPeerPortId_Type=Gauge32
+_CfprFabricEthTargetEpPeerPortId_Object=MibTableColumn
+cfprFabricEthTargetEpPeerPortId=_CfprFabricEthTargetEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,21),_CfprFabricEthTargetEpPeerPortId_Type())
+cfprFabricEthTargetEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpPeerPortId.setStatus(_A)
+_CfprFabricEthTargetEpPeerSlotId_Type=Gauge32
+_CfprFabricEthTargetEpPeerSlotId_Object=MibTableColumn
+cfprFabricEthTargetEpPeerSlotId=_CfprFabricEthTargetEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,22),_CfprFabricEthTargetEpPeerSlotId_Type())
+cfprFabricEthTargetEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpPeerSlotId.setStatus(_A)
+_CfprFabricEthTargetEpPortId_Type=CfprFabricPIoEpPortId
+_CfprFabricEthTargetEpPortId_Object=MibTableColumn
+cfprFabricEthTargetEpPortId=_CfprFabricEthTargetEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,23),_CfprFabricEthTargetEpPortId_Type())
+cfprFabricEthTargetEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpPortId.setStatus(_A)
+_CfprFabricEthTargetEpSlotId_Type=CfprFabricPIoEpSlotId
+_CfprFabricEthTargetEpSlotId_Object=MibTableColumn
+cfprFabricEthTargetEpSlotId=_CfprFabricEthTargetEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,24),_CfprFabricEthTargetEpSlotId_Type())
+cfprFabricEthTargetEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpSlotId.setStatus(_A)
+_CfprFabricEthTargetEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricEthTargetEpSwitchId_Object=MibTableColumn
+cfprFabricEthTargetEpSwitchId=_CfprFabricEthTargetEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,25),_CfprFabricEthTargetEpSwitchId_Type())
+cfprFabricEthTargetEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpSwitchId.setStatus(_A)
+_CfprFabricEthTargetEpTransport_Type=CfprFabricEthTargetEpTransport
+_CfprFabricEthTargetEpTransport_Object=MibTableColumn
+cfprFabricEthTargetEpTransport=_CfprFabricEthTargetEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,26),_CfprFabricEthTargetEpTransport_Type())
+cfprFabricEthTargetEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpTransport.setStatus(_A)
+_CfprFabricEthTargetEpType_Type=CfprFabricTargetEpType
+_CfprFabricEthTargetEpType_Object=MibTableColumn
+cfprFabricEthTargetEpType=_CfprFabricEthTargetEpType_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,27),_CfprFabricEthTargetEpType_Type())
+cfprFabricEthTargetEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpType.setStatus(_A)
+_CfprFabricEthTargetEpWarnings_Type=CfprFabricWarnings
+_CfprFabricEthTargetEpWarnings_Object=MibTableColumn
+cfprFabricEthTargetEpWarnings=_CfprFabricEthTargetEpWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,42,1,28),_CfprFabricEthTargetEpWarnings_Type())
+cfprFabricEthTargetEpWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthTargetEpWarnings.setStatus(_A)
+_CfprFabricEthVlanPcTable_Object=MibTable
+cfprFabricEthVlanPcTable=_CfprFabricEthVlanPcTable_Object((1,3,6,1,4,1,9,9,826,1,26,43))
+if mibBuilder.loadTexts:cfprFabricEthVlanPcTable.setStatus(_A)
+_CfprFabricEthVlanPcEntry_Object=MibTableRow
+cfprFabricEthVlanPcEntry=_CfprFabricEthVlanPcEntry_Object((1,3,6,1,4,1,9,9,826,1,26,43,1))
+cfprFabricEthVlanPcEntry.setIndexNames((0,_C,_u))
+if mibBuilder.loadTexts:cfprFabricEthVlanPcEntry.setStatus(_A)
+_CfprFabricEthVlanPcInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthVlanPcInstanceId_Object=MibTableColumn
+cfprFabricEthVlanPcInstanceId=_CfprFabricEthVlanPcInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,1),_CfprFabricEthVlanPcInstanceId_Type())
+cfprFabricEthVlanPcInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcInstanceId.setStatus(_A)
+_CfprFabricEthVlanPcDn_Type=CfprManagedObjectDn
+_CfprFabricEthVlanPcDn_Object=MibTableColumn
+cfprFabricEthVlanPcDn=_CfprFabricEthVlanPcDn_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,2),_CfprFabricEthVlanPcDn_Type())
+cfprFabricEthVlanPcDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcDn.setStatus(_A)
+_CfprFabricEthVlanPcRn_Type=SnmpAdminString
+_CfprFabricEthVlanPcRn_Object=MibTableColumn
+cfprFabricEthVlanPcRn=_CfprFabricEthVlanPcRn_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,3),_CfprFabricEthVlanPcRn_Type())
+cfprFabricEthVlanPcRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcRn.setStatus(_A)
+_CfprFabricEthVlanPcAdminSpeed_Type=CfprPortEthAdminSpeed
+_CfprFabricEthVlanPcAdminSpeed_Object=MibTableColumn
+cfprFabricEthVlanPcAdminSpeed=_CfprFabricEthVlanPcAdminSpeed_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,4),_CfprFabricEthVlanPcAdminSpeed_Type())
+cfprFabricEthVlanPcAdminSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcAdminSpeed.setStatus(_A)
+_CfprFabricEthVlanPcAdminState_Type=CfprFabricCIoEpAdminState
+_CfprFabricEthVlanPcAdminState_Object=MibTableColumn
+cfprFabricEthVlanPcAdminState=_CfprFabricEthVlanPcAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,5),_CfprFabricEthVlanPcAdminState_Type())
+cfprFabricEthVlanPcAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcAdminState.setStatus(_A)
+_CfprFabricEthVlanPcDescr_Type=SnmpAdminString
+_CfprFabricEthVlanPcDescr_Object=MibTableColumn
+cfprFabricEthVlanPcDescr=_CfprFabricEthVlanPcDescr_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,6),_CfprFabricEthVlanPcDescr_Type())
+cfprFabricEthVlanPcDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcDescr.setStatus(_A)
+_CfprFabricEthVlanPcEpDn_Type=SnmpAdminString
+_CfprFabricEthVlanPcEpDn_Object=MibTableColumn
+cfprFabricEthVlanPcEpDn=_CfprFabricEthVlanPcEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,7),_CfprFabricEthVlanPcEpDn_Type())
+cfprFabricEthVlanPcEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcEpDn.setStatus(_A)
+_CfprFabricEthVlanPcFltAggr_Type=Unsigned64
+_CfprFabricEthVlanPcFltAggr_Object=MibTableColumn
+cfprFabricEthVlanPcFltAggr=_CfprFabricEthVlanPcFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,8),_CfprFabricEthVlanPcFltAggr_Type())
+cfprFabricEthVlanPcFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcFltAggr.setStatus(_A)
+_CfprFabricEthVlanPcIfRole_Type=CfprFabricEstcPcIfRole
+_CfprFabricEthVlanPcIfRole_Object=MibTableColumn
+cfprFabricEthVlanPcIfRole=_CfprFabricEthVlanPcIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,9),_CfprFabricEthVlanPcIfRole_Type())
+cfprFabricEthVlanPcIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcIfRole.setStatus(_A)
+_CfprFabricEthVlanPcIfType_Type=CfprFabricCIoEpIfType
+_CfprFabricEthVlanPcIfType_Object=MibTableColumn
+cfprFabricEthVlanPcIfType=_CfprFabricEthVlanPcIfType_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,10),_CfprFabricEthVlanPcIfType_Type())
+cfprFabricEthVlanPcIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcIfType.setStatus(_A)
+_CfprFabricEthVlanPcIsNative_Type=TruthValue
+_CfprFabricEthVlanPcIsNative_Object=MibTableColumn
+cfprFabricEthVlanPcIsNative=_CfprFabricEthVlanPcIsNative_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,11),_CfprFabricEthVlanPcIsNative_Type())
+cfprFabricEthVlanPcIsNative.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcIsNative.setStatus(_A)
+_CfprFabricEthVlanPcLocale_Type=CfprFabricExternalPcLocale
+_CfprFabricEthVlanPcLocale_Object=MibTableColumn
+cfprFabricEthVlanPcLocale=_CfprFabricEthVlanPcLocale_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,12),_CfprFabricEthVlanPcLocale_Type())
+cfprFabricEthVlanPcLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcLocale.setStatus(_A)
+_CfprFabricEthVlanPcName_Type=SnmpAdminString
+_CfprFabricEthVlanPcName_Object=MibTableColumn
+cfprFabricEthVlanPcName=_CfprFabricEthVlanPcName_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,13),_CfprFabricEthVlanPcName_Type())
+cfprFabricEthVlanPcName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcName.setStatus(_A)
+_CfprFabricEthVlanPcOperSpeed_Type=CfprPortEthSpeed
+_CfprFabricEthVlanPcOperSpeed_Object=MibTableColumn
+cfprFabricEthVlanPcOperSpeed=_CfprFabricEthVlanPcOperSpeed_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,14),_CfprFabricEthVlanPcOperSpeed_Type())
+cfprFabricEthVlanPcOperSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcOperSpeed.setStatus(_A)
+_CfprFabricEthVlanPcOperState_Type=CfprNetworkPortOperState
+_CfprFabricEthVlanPcOperState_Object=MibTableColumn
+cfprFabricEthVlanPcOperState=_CfprFabricEthVlanPcOperState_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,15),_CfprFabricEthVlanPcOperState_Type())
+cfprFabricEthVlanPcOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcOperState.setStatus(_A)
+_CfprFabricEthVlanPcPeerDn_Type=SnmpAdminString
+_CfprFabricEthVlanPcPeerDn_Object=MibTableColumn
+cfprFabricEthVlanPcPeerDn=_CfprFabricEthVlanPcPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,16),_CfprFabricEthVlanPcPeerDn_Type())
+cfprFabricEthVlanPcPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcPeerDn.setStatus(_A)
+_CfprFabricEthVlanPcPortId_Type=Gauge32
+_CfprFabricEthVlanPcPortId_Object=MibTableColumn
+cfprFabricEthVlanPcPortId=_CfprFabricEthVlanPcPortId_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,17),_CfprFabricEthVlanPcPortId_Type())
+cfprFabricEthVlanPcPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcPortId.setStatus(_A)
+_CfprFabricEthVlanPcStateQual_Type=SnmpAdminString
+_CfprFabricEthVlanPcStateQual_Object=MibTableColumn
+cfprFabricEthVlanPcStateQual=_CfprFabricEthVlanPcStateQual_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,18),_CfprFabricEthVlanPcStateQual_Type())
+cfprFabricEthVlanPcStateQual.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcStateQual.setStatus(_A)
+_CfprFabricEthVlanPcSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricEthVlanPcSwitchId_Object=MibTableColumn
+cfprFabricEthVlanPcSwitchId=_CfprFabricEthVlanPcSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,19),_CfprFabricEthVlanPcSwitchId_Type())
+cfprFabricEthVlanPcSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcSwitchId.setStatus(_A)
+_CfprFabricEthVlanPcTransport_Type=CfprFabricEthVlanPcTransport
+_CfprFabricEthVlanPcTransport_Object=MibTableColumn
+cfprFabricEthVlanPcTransport=_CfprFabricEthVlanPcTransport_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,20),_CfprFabricEthVlanPcTransport_Type())
+cfprFabricEthVlanPcTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcTransport.setStatus(_A)
+_CfprFabricEthVlanPcType_Type=CfprFabricEstcPcType
+_CfprFabricEthVlanPcType_Object=MibTableColumn
+cfprFabricEthVlanPcType=_CfprFabricEthVlanPcType_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,21),_CfprFabricEthVlanPcType_Type())
+cfprFabricEthVlanPcType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcType.setStatus(_A)
+_CfprFabricEthVlanPcWarnings_Type=CfprFabricWarnings
+_CfprFabricEthVlanPcWarnings_Object=MibTableColumn
+cfprFabricEthVlanPcWarnings=_CfprFabricEthVlanPcWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,43,1,22),_CfprFabricEthVlanPcWarnings_Type())
+cfprFabricEthVlanPcWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPcWarnings.setStatus(_A)
+_CfprFabricEthVlanPortEpTable_Object=MibTable
+cfprFabricEthVlanPortEpTable=_CfprFabricEthVlanPortEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,44))
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpTable.setStatus(_A)
+_CfprFabricEthVlanPortEpEntry_Object=MibTableRow
+cfprFabricEthVlanPortEpEntry=_CfprFabricEthVlanPortEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,44,1))
+cfprFabricEthVlanPortEpEntry.setIndexNames((0,_C,_v))
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpEntry.setStatus(_A)
+_CfprFabricEthVlanPortEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricEthVlanPortEpInstanceId_Object=MibTableColumn
+cfprFabricEthVlanPortEpInstanceId=_CfprFabricEthVlanPortEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,1),_CfprFabricEthVlanPortEpInstanceId_Type())
+cfprFabricEthVlanPortEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpInstanceId.setStatus(_A)
+_CfprFabricEthVlanPortEpDn_Type=CfprManagedObjectDn
+_CfprFabricEthVlanPortEpDn_Object=MibTableColumn
+cfprFabricEthVlanPortEpDn=_CfprFabricEthVlanPortEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,2),_CfprFabricEthVlanPortEpDn_Type())
+cfprFabricEthVlanPortEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpDn.setStatus(_A)
+_CfprFabricEthVlanPortEpRn_Type=SnmpAdminString
+_CfprFabricEthVlanPortEpRn_Object=MibTableColumn
+cfprFabricEthVlanPortEpRn=_CfprFabricEthVlanPortEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,3),_CfprFabricEthVlanPortEpRn_Type())
+cfprFabricEthVlanPortEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpRn.setStatus(_A)
+_CfprFabricEthVlanPortEpAdminState_Type=CfprFabricExternalEpAdminState
+_CfprFabricEthVlanPortEpAdminState_Object=MibTableColumn
+cfprFabricEthVlanPortEpAdminState=_CfprFabricEthVlanPortEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,4),_CfprFabricEthVlanPortEpAdminState_Type())
+cfprFabricEthVlanPortEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpAdminState.setStatus(_A)
+_CfprFabricEthVlanPortEpAggrPortId_Type=Gauge32
+_CfprFabricEthVlanPortEpAggrPortId_Object=MibTableColumn
+cfprFabricEthVlanPortEpAggrPortId=_CfprFabricEthVlanPortEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,5),_CfprFabricEthVlanPortEpAggrPortId_Type())
+cfprFabricEthVlanPortEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpAggrPortId.setStatus(_A)
+_CfprFabricEthVlanPortEpChassisId_Type=Gauge32
+_CfprFabricEthVlanPortEpChassisId_Object=MibTableColumn
+cfprFabricEthVlanPortEpChassisId=_CfprFabricEthVlanPortEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,6),_CfprFabricEthVlanPortEpChassisId_Type())
+cfprFabricEthVlanPortEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpChassisId.setStatus(_A)
+_CfprFabricEthVlanPortEpEpDn_Type=SnmpAdminString
+_CfprFabricEthVlanPortEpEpDn_Object=MibTableColumn
+cfprFabricEthVlanPortEpEpDn=_CfprFabricEthVlanPortEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,7),_CfprFabricEthVlanPortEpEpDn_Type())
+cfprFabricEthVlanPortEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpEpDn.setStatus(_A)
+_CfprFabricEthVlanPortEpFltAggr_Type=Unsigned64
+_CfprFabricEthVlanPortEpFltAggr_Object=MibTableColumn
+cfprFabricEthVlanPortEpFltAggr=_CfprFabricEthVlanPortEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,8),_CfprFabricEthVlanPortEpFltAggr_Type())
+cfprFabricEthVlanPortEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpFltAggr.setStatus(_A)
+_CfprFabricEthVlanPortEpIfRole_Type=CfprFabricLanEpIfRole
+_CfprFabricEthVlanPortEpIfRole_Object=MibTableColumn
+cfprFabricEthVlanPortEpIfRole=_CfprFabricEthVlanPortEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,9),_CfprFabricEthVlanPortEpIfRole_Type())
+cfprFabricEthVlanPortEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpIfRole.setStatus(_A)
+_CfprFabricEthVlanPortEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricEthVlanPortEpIfType_Object=MibTableColumn
+cfprFabricEthVlanPortEpIfType=_CfprFabricEthVlanPortEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,10),_CfprFabricEthVlanPortEpIfType_Type())
+cfprFabricEthVlanPortEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpIfType.setStatus(_A)
+_CfprFabricEthVlanPortEpIsNative_Type=TruthValue
+_CfprFabricEthVlanPortEpIsNative_Object=MibTableColumn
+cfprFabricEthVlanPortEpIsNative=_CfprFabricEthVlanPortEpIsNative_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,11),_CfprFabricEthVlanPortEpIsNative_Type())
+cfprFabricEthVlanPortEpIsNative.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpIsNative.setStatus(_A)
+_CfprFabricEthVlanPortEpLicGP_Type=Unsigned64
+_CfprFabricEthVlanPortEpLicGP_Object=MibTableColumn
+cfprFabricEthVlanPortEpLicGP=_CfprFabricEthVlanPortEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,12),_CfprFabricEthVlanPortEpLicGP_Type())
+cfprFabricEthVlanPortEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpLicGP.setStatus(_A)
+_CfprFabricEthVlanPortEpLicState_Type=CfprLicenseState
+_CfprFabricEthVlanPortEpLicState_Object=MibTableColumn
+cfprFabricEthVlanPortEpLicState=_CfprFabricEthVlanPortEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,13),_CfprFabricEthVlanPortEpLicState_Type())
+cfprFabricEthVlanPortEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpLicState.setStatus(_A)
+_CfprFabricEthVlanPortEpLocale_Type=CfprFabricExternalEpLocale
+_CfprFabricEthVlanPortEpLocale_Object=MibTableColumn
+cfprFabricEthVlanPortEpLocale=_CfprFabricEthVlanPortEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,14),_CfprFabricEthVlanPortEpLocale_Type())
+cfprFabricEthVlanPortEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpLocale.setStatus(_A)
+_CfprFabricEthVlanPortEpName_Type=SnmpAdminString
+_CfprFabricEthVlanPortEpName_Object=MibTableColumn
+cfprFabricEthVlanPortEpName=_CfprFabricEthVlanPortEpName_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,15),_CfprFabricEthVlanPortEpName_Type())
+cfprFabricEthVlanPortEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpName.setStatus(_A)
+_CfprFabricEthVlanPortEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricEthVlanPortEpOperState_Object=MibTableColumn
+cfprFabricEthVlanPortEpOperState=_CfprFabricEthVlanPortEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,16),_CfprFabricEthVlanPortEpOperState_Type())
+cfprFabricEthVlanPortEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpOperState.setStatus(_A)
+_CfprFabricEthVlanPortEpOperStateReason_Type=SnmpAdminString
+_CfprFabricEthVlanPortEpOperStateReason_Object=MibTableColumn
+cfprFabricEthVlanPortEpOperStateReason=_CfprFabricEthVlanPortEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,17),_CfprFabricEthVlanPortEpOperStateReason_Type())
+cfprFabricEthVlanPortEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpOperStateReason.setStatus(_A)
+_CfprFabricEthVlanPortEpPeerAggrPortId_Type=Gauge32
+_CfprFabricEthVlanPortEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricEthVlanPortEpPeerAggrPortId=_CfprFabricEthVlanPortEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,18),_CfprFabricEthVlanPortEpPeerAggrPortId_Type())
+cfprFabricEthVlanPortEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpPeerAggrPortId.setStatus(_A)
+_CfprFabricEthVlanPortEpPeerChassisId_Type=Gauge32
+_CfprFabricEthVlanPortEpPeerChassisId_Object=MibTableColumn
+cfprFabricEthVlanPortEpPeerChassisId=_CfprFabricEthVlanPortEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,19),_CfprFabricEthVlanPortEpPeerChassisId_Type())
+cfprFabricEthVlanPortEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpPeerChassisId.setStatus(_A)
+_CfprFabricEthVlanPortEpPeerDn_Type=SnmpAdminString
+_CfprFabricEthVlanPortEpPeerDn_Object=MibTableColumn
+cfprFabricEthVlanPortEpPeerDn=_CfprFabricEthVlanPortEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,20),_CfprFabricEthVlanPortEpPeerDn_Type())
+cfprFabricEthVlanPortEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpPeerDn.setStatus(_A)
+_CfprFabricEthVlanPortEpPeerPortId_Type=Gauge32
+_CfprFabricEthVlanPortEpPeerPortId_Object=MibTableColumn
+cfprFabricEthVlanPortEpPeerPortId=_CfprFabricEthVlanPortEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,21),_CfprFabricEthVlanPortEpPeerPortId_Type())
+cfprFabricEthVlanPortEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpPeerPortId.setStatus(_A)
+_CfprFabricEthVlanPortEpPeerSlotId_Type=Gauge32
+_CfprFabricEthVlanPortEpPeerSlotId_Object=MibTableColumn
+cfprFabricEthVlanPortEpPeerSlotId=_CfprFabricEthVlanPortEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,22),_CfprFabricEthVlanPortEpPeerSlotId_Type())
+cfprFabricEthVlanPortEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpPeerSlotId.setStatus(_A)
+_CfprFabricEthVlanPortEpPortId_Type=Gauge32
+_CfprFabricEthVlanPortEpPortId_Object=MibTableColumn
+cfprFabricEthVlanPortEpPortId=_CfprFabricEthVlanPortEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,23),_CfprFabricEthVlanPortEpPortId_Type())
+cfprFabricEthVlanPortEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpPortId.setStatus(_A)
+_CfprFabricEthVlanPortEpSlotId_Type=Gauge32
+_CfprFabricEthVlanPortEpSlotId_Object=MibTableColumn
+cfprFabricEthVlanPortEpSlotId=_CfprFabricEthVlanPortEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,24),_CfprFabricEthVlanPortEpSlotId_Type())
+cfprFabricEthVlanPortEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpSlotId.setStatus(_A)
+_CfprFabricEthVlanPortEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricEthVlanPortEpSwitchId_Object=MibTableColumn
+cfprFabricEthVlanPortEpSwitchId=_CfprFabricEthVlanPortEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,25),_CfprFabricEthVlanPortEpSwitchId_Type())
+cfprFabricEthVlanPortEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpSwitchId.setStatus(_A)
+_CfprFabricEthVlanPortEpTransport_Type=CfprFabricAEthLanEpTransport
+_CfprFabricEthVlanPortEpTransport_Object=MibTableColumn
+cfprFabricEthVlanPortEpTransport=_CfprFabricEthVlanPortEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,26),_CfprFabricEthVlanPortEpTransport_Type())
+cfprFabricEthVlanPortEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpTransport.setStatus(_A)
+_CfprFabricEthVlanPortEpType_Type=CfprFabricLanEpType
+_CfprFabricEthVlanPortEpType_Object=MibTableColumn
+cfprFabricEthVlanPortEpType=_CfprFabricEthVlanPortEpType_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,27),_CfprFabricEthVlanPortEpType_Type())
+cfprFabricEthVlanPortEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpType.setStatus(_A)
+_CfprFabricEthVlanPortEpWarnings_Type=CfprFabricWarnings
+_CfprFabricEthVlanPortEpWarnings_Object=MibTableColumn
+cfprFabricEthVlanPortEpWarnings=_CfprFabricEthVlanPortEpWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,44,1,28),_CfprFabricEthVlanPortEpWarnings_Type())
+cfprFabricEthVlanPortEpWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricEthVlanPortEpWarnings.setStatus(_A)
+_CfprFabricFcEstcTable_Object=MibTable
+cfprFabricFcEstcTable=_CfprFabricFcEstcTable_Object((1,3,6,1,4,1,9,9,826,1,26,45))
+if mibBuilder.loadTexts:cfprFabricFcEstcTable.setStatus(_A)
+_CfprFabricFcEstcEntry_Object=MibTableRow
+cfprFabricFcEstcEntry=_CfprFabricFcEstcEntry_Object((1,3,6,1,4,1,9,9,826,1,26,45,1))
+cfprFabricFcEstcEntry.setIndexNames((0,_C,_w))
+if mibBuilder.loadTexts:cfprFabricFcEstcEntry.setStatus(_A)
+_CfprFabricFcEstcInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcEstcInstanceId_Object=MibTableColumn
+cfprFabricFcEstcInstanceId=_CfprFabricFcEstcInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,45,1,1),_CfprFabricFcEstcInstanceId_Type())
+cfprFabricFcEstcInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcEstcInstanceId.setStatus(_A)
+_CfprFabricFcEstcDn_Type=CfprManagedObjectDn
+_CfprFabricFcEstcDn_Object=MibTableColumn
+cfprFabricFcEstcDn=_CfprFabricFcEstcDn_Object((1,3,6,1,4,1,9,9,826,1,26,45,1,2),_CfprFabricFcEstcDn_Type())
+cfprFabricFcEstcDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcDn.setStatus(_A)
+_CfprFabricFcEstcRn_Type=SnmpAdminString
+_CfprFabricFcEstcRn_Object=MibTableColumn
+cfprFabricFcEstcRn=_CfprFabricFcEstcRn_Object((1,3,6,1,4,1,9,9,826,1,26,45,1,3),_CfprFabricFcEstcRn_Type())
+cfprFabricFcEstcRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcRn.setStatus(_A)
+_CfprFabricFcEstcId_Type=CfprNetworkSwitchId
+_CfprFabricFcEstcId_Object=MibTableColumn
+cfprFabricFcEstcId=_CfprFabricFcEstcId_Object((1,3,6,1,4,1,9,9,826,1,26,45,1,4),_CfprFabricFcEstcId_Type())
+cfprFabricFcEstcId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcId.setStatus(_A)
+_CfprFabricFcEstcLocale_Type=CfprFabricExternalLocale
+_CfprFabricFcEstcLocale_Object=MibTableColumn
+cfprFabricFcEstcLocale=_CfprFabricFcEstcLocale_Object((1,3,6,1,4,1,9,9,826,1,26,45,1,5),_CfprFabricFcEstcLocale_Type())
+cfprFabricFcEstcLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcLocale.setStatus(_A)
+_CfprFabricFcEstcName_Type=SnmpAdminString
+_CfprFabricFcEstcName_Object=MibTableColumn
+cfprFabricFcEstcName=_CfprFabricFcEstcName_Object((1,3,6,1,4,1,9,9,826,1,26,45,1,6),_CfprFabricFcEstcName_Type())
+cfprFabricFcEstcName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcName.setStatus(_A)
+_CfprFabricFcEstcTransport_Type=CfprFabricFcEstcTransport
+_CfprFabricFcEstcTransport_Object=MibTableColumn
+cfprFabricFcEstcTransport=_CfprFabricFcEstcTransport_Object((1,3,6,1,4,1,9,9,826,1,26,45,1,7),_CfprFabricFcEstcTransport_Type())
+cfprFabricFcEstcTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcTransport.setStatus(_A)
+_CfprFabricFcEstcType_Type=CfprFabricFcEstcType
+_CfprFabricFcEstcType_Object=MibTableColumn
+cfprFabricFcEstcType=_CfprFabricFcEstcType_Object((1,3,6,1,4,1,9,9,826,1,26,45,1,8),_CfprFabricFcEstcType_Type())
+cfprFabricFcEstcType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcType.setStatus(_A)
+_CfprFabricFcEstcCloudTable_Object=MibTable
+cfprFabricFcEstcCloudTable=_CfprFabricFcEstcCloudTable_Object((1,3,6,1,4,1,9,9,826,1,26,46))
+if mibBuilder.loadTexts:cfprFabricFcEstcCloudTable.setStatus(_A)
+_CfprFabricFcEstcCloudEntry_Object=MibTableRow
+cfprFabricFcEstcCloudEntry=_CfprFabricFcEstcCloudEntry_Object((1,3,6,1,4,1,9,9,826,1,26,46,1))
+cfprFabricFcEstcCloudEntry.setIndexNames((0,_C,_x))
+if mibBuilder.loadTexts:cfprFabricFcEstcCloudEntry.setStatus(_A)
+_CfprFabricFcEstcCloudInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcEstcCloudInstanceId_Object=MibTableColumn
+cfprFabricFcEstcCloudInstanceId=_CfprFabricFcEstcCloudInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,46,1,1),_CfprFabricFcEstcCloudInstanceId_Type())
+cfprFabricFcEstcCloudInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcEstcCloudInstanceId.setStatus(_A)
+_CfprFabricFcEstcCloudDn_Type=CfprManagedObjectDn
+_CfprFabricFcEstcCloudDn_Object=MibTableColumn
+cfprFabricFcEstcCloudDn=_CfprFabricFcEstcCloudDn_Object((1,3,6,1,4,1,9,9,826,1,26,46,1,2),_CfprFabricFcEstcCloudDn_Type())
+cfprFabricFcEstcCloudDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcCloudDn.setStatus(_A)
+_CfprFabricFcEstcCloudRn_Type=SnmpAdminString
+_CfprFabricFcEstcCloudRn_Object=MibTableColumn
+cfprFabricFcEstcCloudRn=_CfprFabricFcEstcCloudRn_Object((1,3,6,1,4,1,9,9,826,1,26,46,1,3),_CfprFabricFcEstcCloudRn_Type())
+cfprFabricFcEstcCloudRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcCloudRn.setStatus(_A)
+_CfprFabricFcEstcEpTable_Object=MibTable
+cfprFabricFcEstcEpTable=_CfprFabricFcEstcEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,47))
+if mibBuilder.loadTexts:cfprFabricFcEstcEpTable.setStatus(_A)
+_CfprFabricFcEstcEpEntry_Object=MibTableRow
+cfprFabricFcEstcEpEntry=_CfprFabricFcEstcEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,47,1))
+cfprFabricFcEstcEpEntry.setIndexNames((0,_C,_y))
+if mibBuilder.loadTexts:cfprFabricFcEstcEpEntry.setStatus(_A)
+_CfprFabricFcEstcEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcEstcEpInstanceId_Object=MibTableColumn
+cfprFabricFcEstcEpInstanceId=_CfprFabricFcEstcEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,1),_CfprFabricFcEstcEpInstanceId_Type())
+cfprFabricFcEstcEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpInstanceId.setStatus(_A)
+_CfprFabricFcEstcEpDn_Type=CfprManagedObjectDn
+_CfprFabricFcEstcEpDn_Object=MibTableColumn
+cfprFabricFcEstcEpDn=_CfprFabricFcEstcEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,2),_CfprFabricFcEstcEpDn_Type())
+cfprFabricFcEstcEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpDn.setStatus(_A)
+_CfprFabricFcEstcEpRn_Type=SnmpAdminString
+_CfprFabricFcEstcEpRn_Object=MibTableColumn
+cfprFabricFcEstcEpRn=_CfprFabricFcEstcEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,3),_CfprFabricFcEstcEpRn_Type())
+cfprFabricFcEstcEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpRn.setStatus(_A)
+_CfprFabricFcEstcEpAdminState_Type=CfprFabricExternalEpAdminState
+_CfprFabricFcEstcEpAdminState_Object=MibTableColumn
+cfprFabricFcEstcEpAdminState=_CfprFabricFcEstcEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,4),_CfprFabricFcEstcEpAdminState_Type())
+cfprFabricFcEstcEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpAdminState.setStatus(_A)
+_CfprFabricFcEstcEpAggrPortId_Type=Gauge32
+_CfprFabricFcEstcEpAggrPortId_Object=MibTableColumn
+cfprFabricFcEstcEpAggrPortId=_CfprFabricFcEstcEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,5),_CfprFabricFcEstcEpAggrPortId_Type())
+cfprFabricFcEstcEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpAggrPortId.setStatus(_A)
+_CfprFabricFcEstcEpChassisId_Type=Gauge32
+_CfprFabricFcEstcEpChassisId_Object=MibTableColumn
+cfprFabricFcEstcEpChassisId=_CfprFabricFcEstcEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,6),_CfprFabricFcEstcEpChassisId_Type())
+cfprFabricFcEstcEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpChassisId.setStatus(_A)
+_CfprFabricFcEstcEpConfigState_Type=CfprFabricConfigState
+_CfprFabricFcEstcEpConfigState_Object=MibTableColumn
+cfprFabricFcEstcEpConfigState=_CfprFabricFcEstcEpConfigState_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,7),_CfprFabricFcEstcEpConfigState_Type())
+cfprFabricFcEstcEpConfigState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpConfigState.setStatus(_A)
+_CfprFabricFcEstcEpEpDn_Type=SnmpAdminString
+_CfprFabricFcEstcEpEpDn_Object=MibTableColumn
+cfprFabricFcEstcEpEpDn=_CfprFabricFcEstcEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,8),_CfprFabricFcEstcEpEpDn_Type())
+cfprFabricFcEstcEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpEpDn.setStatus(_A)
+_CfprFabricFcEstcEpFillPattern_Type=CfprFabricFillPattern
+_CfprFabricFcEstcEpFillPattern_Object=MibTableColumn
+cfprFabricFcEstcEpFillPattern=_CfprFabricFcEstcEpFillPattern_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,9),_CfprFabricFcEstcEpFillPattern_Type())
+cfprFabricFcEstcEpFillPattern.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpFillPattern.setStatus(_A)
+_CfprFabricFcEstcEpFltAggr_Type=Unsigned64
+_CfprFabricFcEstcEpFltAggr_Object=MibTableColumn
+cfprFabricFcEstcEpFltAggr=_CfprFabricFcEstcEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,10),_CfprFabricFcEstcEpFltAggr_Type())
+cfprFabricFcEstcEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpFltAggr.setStatus(_A)
+_CfprFabricFcEstcEpIfRole_Type=CfprFabricEstcEpIfRole
+_CfprFabricFcEstcEpIfRole_Object=MibTableColumn
+cfprFabricFcEstcEpIfRole=_CfprFabricFcEstcEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,11),_CfprFabricFcEstcEpIfRole_Type())
+cfprFabricFcEstcEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpIfRole.setStatus(_A)
+_CfprFabricFcEstcEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricFcEstcEpIfType_Object=MibTableColumn
+cfprFabricFcEstcEpIfType=_CfprFabricFcEstcEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,12),_CfprFabricFcEstcEpIfType_Type())
+cfprFabricFcEstcEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpIfType.setStatus(_A)
+_CfprFabricFcEstcEpLicGP_Type=Unsigned64
+_CfprFabricFcEstcEpLicGP_Object=MibTableColumn
+cfprFabricFcEstcEpLicGP=_CfprFabricFcEstcEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,13),_CfprFabricFcEstcEpLicGP_Type())
+cfprFabricFcEstcEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpLicGP.setStatus(_A)
+_CfprFabricFcEstcEpLicState_Type=CfprLicenseState
+_CfprFabricFcEstcEpLicState_Object=MibTableColumn
+cfprFabricFcEstcEpLicState=_CfprFabricFcEstcEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,14),_CfprFabricFcEstcEpLicState_Type())
+cfprFabricFcEstcEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpLicState.setStatus(_A)
+_CfprFabricFcEstcEpLocale_Type=CfprFabricExternalEpLocale
+_CfprFabricFcEstcEpLocale_Object=MibTableColumn
+cfprFabricFcEstcEpLocale=_CfprFabricFcEstcEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,15),_CfprFabricFcEstcEpLocale_Type())
+cfprFabricFcEstcEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpLocale.setStatus(_A)
+_CfprFabricFcEstcEpName_Type=SnmpAdminString
+_CfprFabricFcEstcEpName_Object=MibTableColumn
+cfprFabricFcEstcEpName=_CfprFabricFcEstcEpName_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,16),_CfprFabricFcEstcEpName_Type())
+cfprFabricFcEstcEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpName.setStatus(_A)
+_CfprFabricFcEstcEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricFcEstcEpOperState_Object=MibTableColumn
+cfprFabricFcEstcEpOperState=_CfprFabricFcEstcEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,17),_CfprFabricFcEstcEpOperState_Type())
+cfprFabricFcEstcEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpOperState.setStatus(_A)
+_CfprFabricFcEstcEpOperStateReason_Type=SnmpAdminString
+_CfprFabricFcEstcEpOperStateReason_Object=MibTableColumn
+cfprFabricFcEstcEpOperStateReason=_CfprFabricFcEstcEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,18),_CfprFabricFcEstcEpOperStateReason_Type())
+cfprFabricFcEstcEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpOperStateReason.setStatus(_A)
+_CfprFabricFcEstcEpPeerAggrPortId_Type=Gauge32
+_CfprFabricFcEstcEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricFcEstcEpPeerAggrPortId=_CfprFabricFcEstcEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,19),_CfprFabricFcEstcEpPeerAggrPortId_Type())
+cfprFabricFcEstcEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpPeerAggrPortId.setStatus(_A)
+_CfprFabricFcEstcEpPeerChassisId_Type=Gauge32
+_CfprFabricFcEstcEpPeerChassisId_Object=MibTableColumn
+cfprFabricFcEstcEpPeerChassisId=_CfprFabricFcEstcEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,20),_CfprFabricFcEstcEpPeerChassisId_Type())
+cfprFabricFcEstcEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpPeerChassisId.setStatus(_A)
+_CfprFabricFcEstcEpPeerDn_Type=SnmpAdminString
+_CfprFabricFcEstcEpPeerDn_Object=MibTableColumn
+cfprFabricFcEstcEpPeerDn=_CfprFabricFcEstcEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,21),_CfprFabricFcEstcEpPeerDn_Type())
+cfprFabricFcEstcEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpPeerDn.setStatus(_A)
+_CfprFabricFcEstcEpPeerPortId_Type=Gauge32
+_CfprFabricFcEstcEpPeerPortId_Object=MibTableColumn
+cfprFabricFcEstcEpPeerPortId=_CfprFabricFcEstcEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,22),_CfprFabricFcEstcEpPeerPortId_Type())
+cfprFabricFcEstcEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpPeerPortId.setStatus(_A)
+_CfprFabricFcEstcEpPeerSlotId_Type=Gauge32
+_CfprFabricFcEstcEpPeerSlotId_Object=MibTableColumn
+cfprFabricFcEstcEpPeerSlotId=_CfprFabricFcEstcEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,23),_CfprFabricFcEstcEpPeerSlotId_Type())
+cfprFabricFcEstcEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpPeerSlotId.setStatus(_A)
+_CfprFabricFcEstcEpPortId_Type=CfprFabricFcEstcEpPortId
+_CfprFabricFcEstcEpPortId_Object=MibTableColumn
+cfprFabricFcEstcEpPortId=_CfprFabricFcEstcEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,24),_CfprFabricFcEstcEpPortId_Type())
+cfprFabricFcEstcEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpPortId.setStatus(_A)
+_CfprFabricFcEstcEpSlotId_Type=CfprFabricFcEstcEpSlotId
+_CfprFabricFcEstcEpSlotId_Object=MibTableColumn
+cfprFabricFcEstcEpSlotId=_CfprFabricFcEstcEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,25),_CfprFabricFcEstcEpSlotId_Type())
+cfprFabricFcEstcEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpSlotId.setStatus(_A)
+_CfprFabricFcEstcEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricFcEstcEpSwitchId_Object=MibTableColumn
+cfprFabricFcEstcEpSwitchId=_CfprFabricFcEstcEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,26),_CfprFabricFcEstcEpSwitchId_Type())
+cfprFabricFcEstcEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpSwitchId.setStatus(_A)
+_CfprFabricFcEstcEpTransport_Type=CfprFabricAFcEstcEpTransport
+_CfprFabricFcEstcEpTransport_Object=MibTableColumn
+cfprFabricFcEstcEpTransport=_CfprFabricFcEstcEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,27),_CfprFabricFcEstcEpTransport_Type())
+cfprFabricFcEstcEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpTransport.setStatus(_A)
+_CfprFabricFcEstcEpType_Type=CfprFabricAFcEstcEpType
+_CfprFabricFcEstcEpType_Object=MibTableColumn
+cfprFabricFcEstcEpType=_CfprFabricFcEstcEpType_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,28),_CfprFabricFcEstcEpType_Type())
+cfprFabricFcEstcEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpType.setStatus(_A)
+_CfprFabricFcEstcEpUsrLbl_Type=SnmpAdminString
+_CfprFabricFcEstcEpUsrLbl_Object=MibTableColumn
+cfprFabricFcEstcEpUsrLbl=_CfprFabricFcEstcEpUsrLbl_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,29),_CfprFabricFcEstcEpUsrLbl_Type())
+cfprFabricFcEstcEpUsrLbl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpUsrLbl.setStatus(_A)
+_CfprFabricFcEstcEpWarnings_Type=CfprFabricWarnings
+_CfprFabricFcEstcEpWarnings_Object=MibTableColumn
+cfprFabricFcEstcEpWarnings=_CfprFabricFcEstcEpWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,47,1,30),_CfprFabricFcEstcEpWarnings_Type())
+cfprFabricFcEstcEpWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcEstcEpWarnings.setStatus(_A)
+_CfprFabricFcMonTable_Object=MibTable
+cfprFabricFcMonTable=_CfprFabricFcMonTable_Object((1,3,6,1,4,1,9,9,826,1,26,48))
+if mibBuilder.loadTexts:cfprFabricFcMonTable.setStatus(_A)
+_CfprFabricFcMonEntry_Object=MibTableRow
+cfprFabricFcMonEntry=_CfprFabricFcMonEntry_Object((1,3,6,1,4,1,9,9,826,1,26,48,1))
+cfprFabricFcMonEntry.setIndexNames((0,_C,_z))
+if mibBuilder.loadTexts:cfprFabricFcMonEntry.setStatus(_A)
+_CfprFabricFcMonInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcMonInstanceId_Object=MibTableColumn
+cfprFabricFcMonInstanceId=_CfprFabricFcMonInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,48,1,1),_CfprFabricFcMonInstanceId_Type())
+cfprFabricFcMonInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcMonInstanceId.setStatus(_A)
+_CfprFabricFcMonDn_Type=CfprManagedObjectDn
+_CfprFabricFcMonDn_Object=MibTableColumn
+cfprFabricFcMonDn=_CfprFabricFcMonDn_Object((1,3,6,1,4,1,9,9,826,1,26,48,1,2),_CfprFabricFcMonDn_Type())
+cfprFabricFcMonDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDn.setStatus(_A)
+_CfprFabricFcMonRn_Type=SnmpAdminString
+_CfprFabricFcMonRn_Object=MibTableColumn
+cfprFabricFcMonRn=_CfprFabricFcMonRn_Object((1,3,6,1,4,1,9,9,826,1,26,48,1,3),_CfprFabricFcMonRn_Type())
+cfprFabricFcMonRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonRn.setStatus(_A)
+_CfprFabricFcMonAdminState_Type=CfprFabricMonAdminState
+_CfprFabricFcMonAdminState_Object=MibTableColumn
+cfprFabricFcMonAdminState=_CfprFabricFcMonAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,48,1,4),_CfprFabricFcMonAdminState_Type())
+cfprFabricFcMonAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonAdminState.setStatus(_A)
+_CfprFabricFcMonConfigFailReason_Type=SnmpAdminString
+_CfprFabricFcMonConfigFailReason_Object=MibTableColumn
+cfprFabricFcMonConfigFailReason=_CfprFabricFcMonConfigFailReason_Object((1,3,6,1,4,1,9,9,826,1,26,48,1,5),_CfprFabricFcMonConfigFailReason_Type())
+cfprFabricFcMonConfigFailReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonConfigFailReason.setStatus(_A)
+_CfprFabricFcMonId_Type=CfprNetworkSwitchId
+_CfprFabricFcMonId_Object=MibTableColumn
+cfprFabricFcMonId=_CfprFabricFcMonId_Object((1,3,6,1,4,1,9,9,826,1,26,48,1,6),_CfprFabricFcMonId_Type())
+cfprFabricFcMonId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonId.setStatus(_A)
+_CfprFabricFcMonIsConfigSuccess_Type=TruthValue
+_CfprFabricFcMonIsConfigSuccess_Object=MibTableColumn
+cfprFabricFcMonIsConfigSuccess=_CfprFabricFcMonIsConfigSuccess_Object((1,3,6,1,4,1,9,9,826,1,26,48,1,7),_CfprFabricFcMonIsConfigSuccess_Type())
+cfprFabricFcMonIsConfigSuccess.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonIsConfigSuccess.setStatus(_A)
+_CfprFabricFcMonLocale_Type=CfprFabricExternalLocale
+_CfprFabricFcMonLocale_Object=MibTableColumn
+cfprFabricFcMonLocale=_CfprFabricFcMonLocale_Object((1,3,6,1,4,1,9,9,826,1,26,48,1,8),_CfprFabricFcMonLocale_Type())
+cfprFabricFcMonLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonLocale.setStatus(_A)
+_CfprFabricFcMonName_Type=SnmpAdminString
+_CfprFabricFcMonName_Object=MibTableColumn
+cfprFabricFcMonName=_CfprFabricFcMonName_Object((1,3,6,1,4,1,9,9,826,1,26,48,1,9),_CfprFabricFcMonName_Type())
+cfprFabricFcMonName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonName.setStatus(_A)
+_CfprFabricFcMonOperState_Type=CfprFabricMonOperState
+_CfprFabricFcMonOperState_Object=MibTableColumn
+cfprFabricFcMonOperState=_CfprFabricFcMonOperState_Object((1,3,6,1,4,1,9,9,826,1,26,48,1,10),_CfprFabricFcMonOperState_Type())
+cfprFabricFcMonOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonOperState.setStatus(_A)
+_CfprFabricFcMonOperStateReason_Type=CfprFabricMonOperStateReason
+_CfprFabricFcMonOperStateReason_Object=MibTableColumn
+cfprFabricFcMonOperStateReason=_CfprFabricFcMonOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,48,1,11),_CfprFabricFcMonOperStateReason_Type())
+cfprFabricFcMonOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonOperStateReason.setStatus(_A)
+_CfprFabricFcMonPeerDn_Type=SnmpAdminString
+_CfprFabricFcMonPeerDn_Object=MibTableColumn
+cfprFabricFcMonPeerDn=_CfprFabricFcMonPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,48,1,12),_CfprFabricFcMonPeerDn_Type())
+cfprFabricFcMonPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonPeerDn.setStatus(_A)
+_CfprFabricFcMonSession_Type=Gauge32
+_CfprFabricFcMonSession_Object=MibTableColumn
+cfprFabricFcMonSession=_CfprFabricFcMonSession_Object((1,3,6,1,4,1,9,9,826,1,26,48,1,13),_CfprFabricFcMonSession_Type())
+cfprFabricFcMonSession.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSession.setStatus(_A)
+_CfprFabricFcMonTransport_Type=CfprFabricFcMonTransport
+_CfprFabricFcMonTransport_Object=MibTableColumn
+cfprFabricFcMonTransport=_CfprFabricFcMonTransport_Object((1,3,6,1,4,1,9,9,826,1,26,48,1,14),_CfprFabricFcMonTransport_Type())
+cfprFabricFcMonTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonTransport.setStatus(_A)
+_CfprFabricFcMonType_Type=CfprFabricFcMonType
+_CfprFabricFcMonType_Object=MibTableColumn
+cfprFabricFcMonType=_CfprFabricFcMonType_Object((1,3,6,1,4,1,9,9,826,1,26,48,1,15),_CfprFabricFcMonType_Type())
+cfprFabricFcMonType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonType.setStatus(_A)
+_CfprFabricFcMonDestEpTable_Object=MibTable
+cfprFabricFcMonDestEpTable=_CfprFabricFcMonDestEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,49))
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpTable.setStatus(_A)
+_CfprFabricFcMonDestEpEntry_Object=MibTableRow
+cfprFabricFcMonDestEpEntry=_CfprFabricFcMonDestEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,49,1))
+cfprFabricFcMonDestEpEntry.setIndexNames((0,_C,_A0))
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpEntry.setStatus(_A)
+_CfprFabricFcMonDestEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcMonDestEpInstanceId_Object=MibTableColumn
+cfprFabricFcMonDestEpInstanceId=_CfprFabricFcMonDestEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,1),_CfprFabricFcMonDestEpInstanceId_Type())
+cfprFabricFcMonDestEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpInstanceId.setStatus(_A)
+_CfprFabricFcMonDestEpDn_Type=CfprManagedObjectDn
+_CfprFabricFcMonDestEpDn_Object=MibTableColumn
+cfprFabricFcMonDestEpDn=_CfprFabricFcMonDestEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,2),_CfprFabricFcMonDestEpDn_Type())
+cfprFabricFcMonDestEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpDn.setStatus(_A)
+_CfprFabricFcMonDestEpRn_Type=SnmpAdminString
+_CfprFabricFcMonDestEpRn_Object=MibTableColumn
+cfprFabricFcMonDestEpRn=_CfprFabricFcMonDestEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,3),_CfprFabricFcMonDestEpRn_Type())
+cfprFabricFcMonDestEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpRn.setStatus(_A)
+_CfprFabricFcMonDestEpAdminSpeed_Type=CfprFabricFcMonDestEpAdminSpeed
+_CfprFabricFcMonDestEpAdminSpeed_Object=MibTableColumn
+cfprFabricFcMonDestEpAdminSpeed=_CfprFabricFcMonDestEpAdminSpeed_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,4),_CfprFabricFcMonDestEpAdminSpeed_Type())
+cfprFabricFcMonDestEpAdminSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpAdminSpeed.setStatus(_A)
+_CfprFabricFcMonDestEpAdminState_Type=CfprFabricExternalEpAdminState
+_CfprFabricFcMonDestEpAdminState_Object=MibTableColumn
+cfprFabricFcMonDestEpAdminState=_CfprFabricFcMonDestEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,5),_CfprFabricFcMonDestEpAdminState_Type())
+cfprFabricFcMonDestEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpAdminState.setStatus(_A)
+_CfprFabricFcMonDestEpAggrPortId_Type=Gauge32
+_CfprFabricFcMonDestEpAggrPortId_Object=MibTableColumn
+cfprFabricFcMonDestEpAggrPortId=_CfprFabricFcMonDestEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,6),_CfprFabricFcMonDestEpAggrPortId_Type())
+cfprFabricFcMonDestEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpAggrPortId.setStatus(_A)
+_CfprFabricFcMonDestEpChassisId_Type=Gauge32
+_CfprFabricFcMonDestEpChassisId_Object=MibTableColumn
+cfprFabricFcMonDestEpChassisId=_CfprFabricFcMonDestEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,7),_CfprFabricFcMonDestEpChassisId_Type())
+cfprFabricFcMonDestEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpChassisId.setStatus(_A)
+_CfprFabricFcMonDestEpEpDn_Type=SnmpAdminString
+_CfprFabricFcMonDestEpEpDn_Object=MibTableColumn
+cfprFabricFcMonDestEpEpDn=_CfprFabricFcMonDestEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,8),_CfprFabricFcMonDestEpEpDn_Type())
+cfprFabricFcMonDestEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpEpDn.setStatus(_A)
+_CfprFabricFcMonDestEpFltAggr_Type=Unsigned64
+_CfprFabricFcMonDestEpFltAggr_Object=MibTableColumn
+cfprFabricFcMonDestEpFltAggr=_CfprFabricFcMonDestEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,9),_CfprFabricFcMonDestEpFltAggr_Type())
+cfprFabricFcMonDestEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpFltAggr.setStatus(_A)
+_CfprFabricFcMonDestEpIfRole_Type=CfprFabricFcMonDestEpIfRole
+_CfprFabricFcMonDestEpIfRole_Object=MibTableColumn
+cfprFabricFcMonDestEpIfRole=_CfprFabricFcMonDestEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,10),_CfprFabricFcMonDestEpIfRole_Type())
+cfprFabricFcMonDestEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpIfRole.setStatus(_A)
+_CfprFabricFcMonDestEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricFcMonDestEpIfType_Object=MibTableColumn
+cfprFabricFcMonDestEpIfType=_CfprFabricFcMonDestEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,11),_CfprFabricFcMonDestEpIfType_Type())
+cfprFabricFcMonDestEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpIfType.setStatus(_A)
+_CfprFabricFcMonDestEpLicGP_Type=Unsigned64
+_CfprFabricFcMonDestEpLicGP_Object=MibTableColumn
+cfprFabricFcMonDestEpLicGP=_CfprFabricFcMonDestEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,12),_CfprFabricFcMonDestEpLicGP_Type())
+cfprFabricFcMonDestEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpLicGP.setStatus(_A)
+_CfprFabricFcMonDestEpLicState_Type=CfprLicenseState
+_CfprFabricFcMonDestEpLicState_Object=MibTableColumn
+cfprFabricFcMonDestEpLicState=_CfprFabricFcMonDestEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,13),_CfprFabricFcMonDestEpLicState_Type())
+cfprFabricFcMonDestEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpLicState.setStatus(_A)
+_CfprFabricFcMonDestEpLocale_Type=CfprFabricExternalEpLocale
+_CfprFabricFcMonDestEpLocale_Object=MibTableColumn
+cfprFabricFcMonDestEpLocale=_CfprFabricFcMonDestEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,14),_CfprFabricFcMonDestEpLocale_Type())
+cfprFabricFcMonDestEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpLocale.setStatus(_A)
+_CfprFabricFcMonDestEpName_Type=SnmpAdminString
+_CfprFabricFcMonDestEpName_Object=MibTableColumn
+cfprFabricFcMonDestEpName=_CfprFabricFcMonDestEpName_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,15),_CfprFabricFcMonDestEpName_Type())
+cfprFabricFcMonDestEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpName.setStatus(_A)
+_CfprFabricFcMonDestEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricFcMonDestEpOperState_Object=MibTableColumn
+cfprFabricFcMonDestEpOperState=_CfprFabricFcMonDestEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,16),_CfprFabricFcMonDestEpOperState_Type())
+cfprFabricFcMonDestEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpOperState.setStatus(_A)
+_CfprFabricFcMonDestEpOperStateReason_Type=SnmpAdminString
+_CfprFabricFcMonDestEpOperStateReason_Object=MibTableColumn
+cfprFabricFcMonDestEpOperStateReason=_CfprFabricFcMonDestEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,17),_CfprFabricFcMonDestEpOperStateReason_Type())
+cfprFabricFcMonDestEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpOperStateReason.setStatus(_A)
+_CfprFabricFcMonDestEpPeerAggrPortId_Type=Gauge32
+_CfprFabricFcMonDestEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricFcMonDestEpPeerAggrPortId=_CfprFabricFcMonDestEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,18),_CfprFabricFcMonDestEpPeerAggrPortId_Type())
+cfprFabricFcMonDestEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpPeerAggrPortId.setStatus(_A)
+_CfprFabricFcMonDestEpPeerChassisId_Type=Gauge32
+_CfprFabricFcMonDestEpPeerChassisId_Object=MibTableColumn
+cfprFabricFcMonDestEpPeerChassisId=_CfprFabricFcMonDestEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,19),_CfprFabricFcMonDestEpPeerChassisId_Type())
+cfprFabricFcMonDestEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpPeerChassisId.setStatus(_A)
+_CfprFabricFcMonDestEpPeerDn_Type=SnmpAdminString
+_CfprFabricFcMonDestEpPeerDn_Object=MibTableColumn
+cfprFabricFcMonDestEpPeerDn=_CfprFabricFcMonDestEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,20),_CfprFabricFcMonDestEpPeerDn_Type())
+cfprFabricFcMonDestEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpPeerDn.setStatus(_A)
+_CfprFabricFcMonDestEpPeerPortId_Type=Gauge32
+_CfprFabricFcMonDestEpPeerPortId_Object=MibTableColumn
+cfprFabricFcMonDestEpPeerPortId=_CfprFabricFcMonDestEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,21),_CfprFabricFcMonDestEpPeerPortId_Type())
+cfprFabricFcMonDestEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpPeerPortId.setStatus(_A)
+_CfprFabricFcMonDestEpPeerSlotId_Type=Gauge32
+_CfprFabricFcMonDestEpPeerSlotId_Object=MibTableColumn
+cfprFabricFcMonDestEpPeerSlotId=_CfprFabricFcMonDestEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,22),_CfprFabricFcMonDestEpPeerSlotId_Type())
+cfprFabricFcMonDestEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpPeerSlotId.setStatus(_A)
+_CfprFabricFcMonDestEpPortId_Type=CfprFabricFcMonDestEpPortId
+_CfprFabricFcMonDestEpPortId_Object=MibTableColumn
+cfprFabricFcMonDestEpPortId=_CfprFabricFcMonDestEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,23),_CfprFabricFcMonDestEpPortId_Type())
+cfprFabricFcMonDestEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpPortId.setStatus(_A)
+_CfprFabricFcMonDestEpSlotId_Type=CfprFabricFcMonDestEpSlotId
+_CfprFabricFcMonDestEpSlotId_Object=MibTableColumn
+cfprFabricFcMonDestEpSlotId=_CfprFabricFcMonDestEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,24),_CfprFabricFcMonDestEpSlotId_Type())
+cfprFabricFcMonDestEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpSlotId.setStatus(_A)
+_CfprFabricFcMonDestEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricFcMonDestEpSwitchId_Object=MibTableColumn
+cfprFabricFcMonDestEpSwitchId=_CfprFabricFcMonDestEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,25),_CfprFabricFcMonDestEpSwitchId_Type())
+cfprFabricFcMonDestEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpSwitchId.setStatus(_A)
+_CfprFabricFcMonDestEpTransport_Type=CfprNetworkTransport
+_CfprFabricFcMonDestEpTransport_Object=MibTableColumn
+cfprFabricFcMonDestEpTransport=_CfprFabricFcMonDestEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,26),_CfprFabricFcMonDestEpTransport_Type())
+cfprFabricFcMonDestEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpTransport.setStatus(_A)
+_CfprFabricFcMonDestEpType_Type=CfprFabricFcMonDestEpType
+_CfprFabricFcMonDestEpType_Object=MibTableColumn
+cfprFabricFcMonDestEpType=_CfprFabricFcMonDestEpType_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,27),_CfprFabricFcMonDestEpType_Type())
+cfprFabricFcMonDestEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpType.setStatus(_A)
+_CfprFabricFcMonDestEpWarnings_Type=CfprFabricWarnings
+_CfprFabricFcMonDestEpWarnings_Object=MibTableColumn
+cfprFabricFcMonDestEpWarnings=_CfprFabricFcMonDestEpWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,49,1,28),_CfprFabricFcMonDestEpWarnings_Type())
+cfprFabricFcMonDestEpWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonDestEpWarnings.setStatus(_A)
+_CfprFabricFcMonFiltEpTable_Object=MibTable
+cfprFabricFcMonFiltEpTable=_CfprFabricFcMonFiltEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,50))
+if mibBuilder.loadTexts:cfprFabricFcMonFiltEpTable.setStatus(_A)
+_CfprFabricFcMonFiltEpEntry_Object=MibTableRow
+cfprFabricFcMonFiltEpEntry=_CfprFabricFcMonFiltEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,50,1))
+cfprFabricFcMonFiltEpEntry.setIndexNames((0,_C,_A1))
+if mibBuilder.loadTexts:cfprFabricFcMonFiltEpEntry.setStatus(_A)
+_CfprFabricFcMonFiltEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcMonFiltEpInstanceId_Object=MibTableColumn
+cfprFabricFcMonFiltEpInstanceId=_CfprFabricFcMonFiltEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,50,1,1),_CfprFabricFcMonFiltEpInstanceId_Type())
+cfprFabricFcMonFiltEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcMonFiltEpInstanceId.setStatus(_A)
+_CfprFabricFcMonFiltEpDn_Type=CfprManagedObjectDn
+_CfprFabricFcMonFiltEpDn_Object=MibTableColumn
+cfprFabricFcMonFiltEpDn=_CfprFabricFcMonFiltEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,50,1,2),_CfprFabricFcMonFiltEpDn_Type())
+cfprFabricFcMonFiltEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonFiltEpDn.setStatus(_A)
+_CfprFabricFcMonFiltEpRn_Type=SnmpAdminString
+_CfprFabricFcMonFiltEpRn_Object=MibTableColumn
+cfprFabricFcMonFiltEpRn=_CfprFabricFcMonFiltEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,50,1,3),_CfprFabricFcMonFiltEpRn_Type())
+cfprFabricFcMonFiltEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonFiltEpRn.setStatus(_A)
+_CfprFabricFcMonFiltEpName_Type=SnmpAdminString
+_CfprFabricFcMonFiltEpName_Object=MibTableColumn
+cfprFabricFcMonFiltEpName=_CfprFabricFcMonFiltEpName_Object((1,3,6,1,4,1,9,9,826,1,26,50,1,4),_CfprFabricFcMonFiltEpName_Type())
+cfprFabricFcMonFiltEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonFiltEpName.setStatus(_A)
+_CfprFabricFcMonFiltEpSession_Type=Gauge32
+_CfprFabricFcMonFiltEpSession_Object=MibTableColumn
+cfprFabricFcMonFiltEpSession=_CfprFabricFcMonFiltEpSession_Object((1,3,6,1,4,1,9,9,826,1,26,50,1,5),_CfprFabricFcMonFiltEpSession_Type())
+cfprFabricFcMonFiltEpSession.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonFiltEpSession.setStatus(_A)
+_CfprFabricFcMonFiltEpType_Type=CfprFabricFcMonFiltEpType
+_CfprFabricFcMonFiltEpType_Object=MibTableColumn
+cfprFabricFcMonFiltEpType=_CfprFabricFcMonFiltEpType_Object((1,3,6,1,4,1,9,9,826,1,26,50,1,6),_CfprFabricFcMonFiltEpType_Type())
+cfprFabricFcMonFiltEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonFiltEpType.setStatus(_A)
+_CfprFabricFcMonFiltRefTable_Object=MibTable
+cfprFabricFcMonFiltRefTable=_CfprFabricFcMonFiltRefTable_Object((1,3,6,1,4,1,9,9,826,1,26,51))
+if mibBuilder.loadTexts:cfprFabricFcMonFiltRefTable.setStatus(_A)
+_CfprFabricFcMonFiltRefEntry_Object=MibTableRow
+cfprFabricFcMonFiltRefEntry=_CfprFabricFcMonFiltRefEntry_Object((1,3,6,1,4,1,9,9,826,1,26,51,1))
+cfprFabricFcMonFiltRefEntry.setIndexNames((0,_C,_A2))
+if mibBuilder.loadTexts:cfprFabricFcMonFiltRefEntry.setStatus(_A)
+_CfprFabricFcMonFiltRefInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcMonFiltRefInstanceId_Object=MibTableColumn
+cfprFabricFcMonFiltRefInstanceId=_CfprFabricFcMonFiltRefInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,51,1,1),_CfprFabricFcMonFiltRefInstanceId_Type())
+cfprFabricFcMonFiltRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcMonFiltRefInstanceId.setStatus(_A)
+_CfprFabricFcMonFiltRefDn_Type=CfprManagedObjectDn
+_CfprFabricFcMonFiltRefDn_Object=MibTableColumn
+cfprFabricFcMonFiltRefDn=_CfprFabricFcMonFiltRefDn_Object((1,3,6,1,4,1,9,9,826,1,26,51,1,2),_CfprFabricFcMonFiltRefDn_Type())
+cfprFabricFcMonFiltRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonFiltRefDn.setStatus(_A)
+_CfprFabricFcMonFiltRefRn_Type=SnmpAdminString
+_CfprFabricFcMonFiltRefRn_Object=MibTableColumn
+cfprFabricFcMonFiltRefRn=_CfprFabricFcMonFiltRefRn_Object((1,3,6,1,4,1,9,9,826,1,26,51,1,3),_CfprFabricFcMonFiltRefRn_Type())
+cfprFabricFcMonFiltRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonFiltRefRn.setStatus(_A)
+_CfprFabricFcMonFiltRefSrcFiltDn_Type=SnmpAdminString
+_CfprFabricFcMonFiltRefSrcFiltDn_Object=MibTableColumn
+cfprFabricFcMonFiltRefSrcFiltDn=_CfprFabricFcMonFiltRefSrcFiltDn_Object((1,3,6,1,4,1,9,9,826,1,26,51,1,4),_CfprFabricFcMonFiltRefSrcFiltDn_Type())
+cfprFabricFcMonFiltRefSrcFiltDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonFiltRefSrcFiltDn.setStatus(_A)
+_CfprFabricFcMonFiltRefType_Type=CfprFabricFcMonFiltRefType
+_CfprFabricFcMonFiltRefType_Object=MibTableColumn
+cfprFabricFcMonFiltRefType=_CfprFabricFcMonFiltRefType_Object((1,3,6,1,4,1,9,9,826,1,26,51,1,5),_CfprFabricFcMonFiltRefType_Type())
+cfprFabricFcMonFiltRefType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonFiltRefType.setStatus(_A)
+_CfprFabricFcMonSanTable_Object=MibTable
+cfprFabricFcMonSanTable=_CfprFabricFcMonSanTable_Object((1,3,6,1,4,1,9,9,826,1,26,52))
+if mibBuilder.loadTexts:cfprFabricFcMonSanTable.setStatus(_A)
+_CfprFabricFcMonSanEntry_Object=MibTableRow
+cfprFabricFcMonSanEntry=_CfprFabricFcMonSanEntry_Object((1,3,6,1,4,1,9,9,826,1,26,52,1))
+cfprFabricFcMonSanEntry.setIndexNames((0,_C,_A3))
+if mibBuilder.loadTexts:cfprFabricFcMonSanEntry.setStatus(_A)
+_CfprFabricFcMonSanInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcMonSanInstanceId_Object=MibTableColumn
+cfprFabricFcMonSanInstanceId=_CfprFabricFcMonSanInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,52,1,1),_CfprFabricFcMonSanInstanceId_Type())
+cfprFabricFcMonSanInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcMonSanInstanceId.setStatus(_A)
+_CfprFabricFcMonSanDn_Type=CfprManagedObjectDn
+_CfprFabricFcMonSanDn_Object=MibTableColumn
+cfprFabricFcMonSanDn=_CfprFabricFcMonSanDn_Object((1,3,6,1,4,1,9,9,826,1,26,52,1,2),_CfprFabricFcMonSanDn_Type())
+cfprFabricFcMonSanDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSanDn.setStatus(_A)
+_CfprFabricFcMonSanRn_Type=SnmpAdminString
+_CfprFabricFcMonSanRn_Object=MibTableColumn
+cfprFabricFcMonSanRn=_CfprFabricFcMonSanRn_Object((1,3,6,1,4,1,9,9,826,1,26,52,1,3),_CfprFabricFcMonSanRn_Type())
+cfprFabricFcMonSanRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSanRn.setStatus(_A)
+_CfprFabricFcMonSanId_Type=CfprNetworkSwitchId
+_CfprFabricFcMonSanId_Object=MibTableColumn
+cfprFabricFcMonSanId=_CfprFabricFcMonSanId_Object((1,3,6,1,4,1,9,9,826,1,26,52,1,4),_CfprFabricFcMonSanId_Type())
+cfprFabricFcMonSanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSanId.setStatus(_A)
+_CfprFabricFcMonSanLocale_Type=CfprFabricExternalLocale
+_CfprFabricFcMonSanLocale_Object=MibTableColumn
+cfprFabricFcMonSanLocale=_CfprFabricFcMonSanLocale_Object((1,3,6,1,4,1,9,9,826,1,26,52,1,5),_CfprFabricFcMonSanLocale_Type())
+cfprFabricFcMonSanLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSanLocale.setStatus(_A)
+_CfprFabricFcMonSanName_Type=SnmpAdminString
+_CfprFabricFcMonSanName_Object=MibTableColumn
+cfprFabricFcMonSanName=_CfprFabricFcMonSanName_Object((1,3,6,1,4,1,9,9,826,1,26,52,1,6),_CfprFabricFcMonSanName_Type())
+cfprFabricFcMonSanName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSanName.setStatus(_A)
+_CfprFabricFcMonSanTransport_Type=CfprFabricFcMonSanTransport
+_CfprFabricFcMonSanTransport_Object=MibTableColumn
+cfprFabricFcMonSanTransport=_CfprFabricFcMonSanTransport_Object((1,3,6,1,4,1,9,9,826,1,26,52,1,7),_CfprFabricFcMonSanTransport_Type())
+cfprFabricFcMonSanTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSanTransport.setStatus(_A)
+_CfprFabricFcMonSanType_Type=CfprFabricFcMonSanType
+_CfprFabricFcMonSanType_Object=MibTableColumn
+cfprFabricFcMonSanType=_CfprFabricFcMonSanType_Object((1,3,6,1,4,1,9,9,826,1,26,52,1,8),_CfprFabricFcMonSanType_Type())
+cfprFabricFcMonSanType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSanType.setStatus(_A)
+_CfprFabricFcMonSrcEpTable_Object=MibTable
+cfprFabricFcMonSrcEpTable=_CfprFabricFcMonSrcEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,53))
+if mibBuilder.loadTexts:cfprFabricFcMonSrcEpTable.setStatus(_A)
+_CfprFabricFcMonSrcEpEntry_Object=MibTableRow
+cfprFabricFcMonSrcEpEntry=_CfprFabricFcMonSrcEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,53,1))
+cfprFabricFcMonSrcEpEntry.setIndexNames((0,_C,_A4))
+if mibBuilder.loadTexts:cfprFabricFcMonSrcEpEntry.setStatus(_A)
+_CfprFabricFcMonSrcEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcMonSrcEpInstanceId_Object=MibTableColumn
+cfprFabricFcMonSrcEpInstanceId=_CfprFabricFcMonSrcEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,53,1,1),_CfprFabricFcMonSrcEpInstanceId_Type())
+cfprFabricFcMonSrcEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcMonSrcEpInstanceId.setStatus(_A)
+_CfprFabricFcMonSrcEpDn_Type=CfprManagedObjectDn
+_CfprFabricFcMonSrcEpDn_Object=MibTableColumn
+cfprFabricFcMonSrcEpDn=_CfprFabricFcMonSrcEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,53,1,2),_CfprFabricFcMonSrcEpDn_Type())
+cfprFabricFcMonSrcEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSrcEpDn.setStatus(_A)
+_CfprFabricFcMonSrcEpRn_Type=SnmpAdminString
+_CfprFabricFcMonSrcEpRn_Object=MibTableColumn
+cfprFabricFcMonSrcEpRn=_CfprFabricFcMonSrcEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,53,1,3),_CfprFabricFcMonSrcEpRn_Type())
+cfprFabricFcMonSrcEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSrcEpRn.setStatus(_A)
+_CfprFabricFcMonSrcEpDirection_Type=CfprFabricTrafficDirection
+_CfprFabricFcMonSrcEpDirection_Object=MibTableColumn
+cfprFabricFcMonSrcEpDirection=_CfprFabricFcMonSrcEpDirection_Object((1,3,6,1,4,1,9,9,826,1,26,53,1,4),_CfprFabricFcMonSrcEpDirection_Type())
+cfprFabricFcMonSrcEpDirection.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSrcEpDirection.setStatus(_A)
+_CfprFabricFcMonSrcEpName_Type=SnmpAdminString
+_CfprFabricFcMonSrcEpName_Object=MibTableColumn
+cfprFabricFcMonSrcEpName=_CfprFabricFcMonSrcEpName_Object((1,3,6,1,4,1,9,9,826,1,26,53,1,5),_CfprFabricFcMonSrcEpName_Type())
+cfprFabricFcMonSrcEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSrcEpName.setStatus(_A)
+_CfprFabricFcMonSrcEpSession_Type=Gauge32
+_CfprFabricFcMonSrcEpSession_Object=MibTableColumn
+cfprFabricFcMonSrcEpSession=_CfprFabricFcMonSrcEpSession_Object((1,3,6,1,4,1,9,9,826,1,26,53,1,6),_CfprFabricFcMonSrcEpSession_Type())
+cfprFabricFcMonSrcEpSession.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSrcEpSession.setStatus(_A)
+_CfprFabricFcMonSrcEpTransport_Type=CfprNetworkTransport
+_CfprFabricFcMonSrcEpTransport_Object=MibTableColumn
+cfprFabricFcMonSrcEpTransport=_CfprFabricFcMonSrcEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,53,1,7),_CfprFabricFcMonSrcEpTransport_Type())
+cfprFabricFcMonSrcEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSrcEpTransport.setStatus(_A)
+_CfprFabricFcMonSrcEpType_Type=CfprFabricFcMonSrcEpType
+_CfprFabricFcMonSrcEpType_Object=MibTableColumn
+cfprFabricFcMonSrcEpType=_CfprFabricFcMonSrcEpType_Object((1,3,6,1,4,1,9,9,826,1,26,53,1,8),_CfprFabricFcMonSrcEpType_Type())
+cfprFabricFcMonSrcEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSrcEpType.setStatus(_A)
+_CfprFabricFcMonSrcRefTable_Object=MibTable
+cfprFabricFcMonSrcRefTable=_CfprFabricFcMonSrcRefTable_Object((1,3,6,1,4,1,9,9,826,1,26,54))
+if mibBuilder.loadTexts:cfprFabricFcMonSrcRefTable.setStatus(_A)
+_CfprFabricFcMonSrcRefEntry_Object=MibTableRow
+cfprFabricFcMonSrcRefEntry=_CfprFabricFcMonSrcRefEntry_Object((1,3,6,1,4,1,9,9,826,1,26,54,1))
+cfprFabricFcMonSrcRefEntry.setIndexNames((0,_C,_A5))
+if mibBuilder.loadTexts:cfprFabricFcMonSrcRefEntry.setStatus(_A)
+_CfprFabricFcMonSrcRefInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcMonSrcRefInstanceId_Object=MibTableColumn
+cfprFabricFcMonSrcRefInstanceId=_CfprFabricFcMonSrcRefInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,54,1,1),_CfprFabricFcMonSrcRefInstanceId_Type())
+cfprFabricFcMonSrcRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcMonSrcRefInstanceId.setStatus(_A)
+_CfprFabricFcMonSrcRefDn_Type=CfprManagedObjectDn
+_CfprFabricFcMonSrcRefDn_Object=MibTableColumn
+cfprFabricFcMonSrcRefDn=_CfprFabricFcMonSrcRefDn_Object((1,3,6,1,4,1,9,9,826,1,26,54,1,2),_CfprFabricFcMonSrcRefDn_Type())
+cfprFabricFcMonSrcRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSrcRefDn.setStatus(_A)
+_CfprFabricFcMonSrcRefRn_Type=SnmpAdminString
+_CfprFabricFcMonSrcRefRn_Object=MibTableColumn
+cfprFabricFcMonSrcRefRn=_CfprFabricFcMonSrcRefRn_Object((1,3,6,1,4,1,9,9,826,1,26,54,1,3),_CfprFabricFcMonSrcRefRn_Type())
+cfprFabricFcMonSrcRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSrcRefRn.setStatus(_A)
+_CfprFabricFcMonSrcRefId_Type=Unsigned64
+_CfprFabricFcMonSrcRefId_Object=MibTableColumn
+cfprFabricFcMonSrcRefId=_CfprFabricFcMonSrcRefId_Object((1,3,6,1,4,1,9,9,826,1,26,54,1,4),_CfprFabricFcMonSrcRefId_Type())
+cfprFabricFcMonSrcRefId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSrcRefId.setStatus(_A)
+_CfprFabricFcMonSrcRefSourceDn_Type=SnmpAdminString
+_CfprFabricFcMonSrcRefSourceDn_Object=MibTableColumn
+cfprFabricFcMonSrcRefSourceDn=_CfprFabricFcMonSrcRefSourceDn_Object((1,3,6,1,4,1,9,9,826,1,26,54,1,5),_CfprFabricFcMonSrcRefSourceDn_Type())
+cfprFabricFcMonSrcRefSourceDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSrcRefSourceDn.setStatus(_A)
+_CfprFabricFcMonSrcRefSourceType_Type=CfprFabricFcSourceType
+_CfprFabricFcMonSrcRefSourceType_Object=MibTableColumn
+cfprFabricFcMonSrcRefSourceType=_CfprFabricFcMonSrcRefSourceType_Object((1,3,6,1,4,1,9,9,826,1,26,54,1,6),_CfprFabricFcMonSrcRefSourceType_Type())
+cfprFabricFcMonSrcRefSourceType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSrcRefSourceType.setStatus(_A)
+_CfprFabricFcMonSrcRefType_Type=CfprFabricFcMonSrcRefType
+_CfprFabricFcMonSrcRefType_Object=MibTableColumn
+cfprFabricFcMonSrcRefType=_CfprFabricFcMonSrcRefType_Object((1,3,6,1,4,1,9,9,826,1,26,54,1,7),_CfprFabricFcMonSrcRefType_Type())
+cfprFabricFcMonSrcRefType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcMonSrcRefType.setStatus(_A)
+_CfprFabricFcSanTable_Object=MibTable
+cfprFabricFcSanTable=_CfprFabricFcSanTable_Object((1,3,6,1,4,1,9,9,826,1,26,55))
+if mibBuilder.loadTexts:cfprFabricFcSanTable.setStatus(_A)
+_CfprFabricFcSanEntry_Object=MibTableRow
+cfprFabricFcSanEntry=_CfprFabricFcSanEntry_Object((1,3,6,1,4,1,9,9,826,1,26,55,1))
+cfprFabricFcSanEntry.setIndexNames((0,_C,_A6))
+if mibBuilder.loadTexts:cfprFabricFcSanEntry.setStatus(_A)
+_CfprFabricFcSanInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcSanInstanceId_Object=MibTableColumn
+cfprFabricFcSanInstanceId=_CfprFabricFcSanInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,55,1,1),_CfprFabricFcSanInstanceId_Type())
+cfprFabricFcSanInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcSanInstanceId.setStatus(_A)
+_CfprFabricFcSanDn_Type=CfprManagedObjectDn
+_CfprFabricFcSanDn_Object=MibTableColumn
+cfprFabricFcSanDn=_CfprFabricFcSanDn_Object((1,3,6,1,4,1,9,9,826,1,26,55,1,2),_CfprFabricFcSanDn_Type())
+cfprFabricFcSanDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanDn.setStatus(_A)
+_CfprFabricFcSanRn_Type=SnmpAdminString
+_CfprFabricFcSanRn_Object=MibTableColumn
+cfprFabricFcSanRn=_CfprFabricFcSanRn_Object((1,3,6,1,4,1,9,9,826,1,26,55,1,3),_CfprFabricFcSanRn_Type())
+cfprFabricFcSanRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanRn.setStatus(_A)
+_CfprFabricFcSanId_Type=CfprNetworkSwitchId
+_CfprFabricFcSanId_Object=MibTableColumn
+cfprFabricFcSanId=_CfprFabricFcSanId_Object((1,3,6,1,4,1,9,9,826,1,26,55,1,4),_CfprFabricFcSanId_Type())
+cfprFabricFcSanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanId.setStatus(_A)
+_CfprFabricFcSanLocale_Type=CfprFabricExternalLocale
+_CfprFabricFcSanLocale_Object=MibTableColumn
+cfprFabricFcSanLocale=_CfprFabricFcSanLocale_Object((1,3,6,1,4,1,9,9,826,1,26,55,1,5),_CfprFabricFcSanLocale_Type())
+cfprFabricFcSanLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanLocale.setStatus(_A)
+_CfprFabricFcSanName_Type=SnmpAdminString
+_CfprFabricFcSanName_Object=MibTableColumn
+cfprFabricFcSanName=_CfprFabricFcSanName_Object((1,3,6,1,4,1,9,9,826,1,26,55,1,6),_CfprFabricFcSanName_Type())
+cfprFabricFcSanName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanName.setStatus(_A)
+_CfprFabricFcSanTransport_Type=CfprFabricFcSanTransport
+_CfprFabricFcSanTransport_Object=MibTableColumn
+cfprFabricFcSanTransport=_CfprFabricFcSanTransport_Object((1,3,6,1,4,1,9,9,826,1,26,55,1,7),_CfprFabricFcSanTransport_Type())
+cfprFabricFcSanTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanTransport.setStatus(_A)
+_CfprFabricFcSanType_Type=CfprFabricSanType
+_CfprFabricFcSanType_Object=MibTableColumn
+cfprFabricFcSanType=_CfprFabricFcSanType_Object((1,3,6,1,4,1,9,9,826,1,26,55,1,8),_CfprFabricFcSanType_Type())
+cfprFabricFcSanType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanType.setStatus(_A)
+_CfprFabricFcSanUplinkTrunking_Type=CfprFabricFcSanUplinkTrunking
+_CfprFabricFcSanUplinkTrunking_Object=MibTableColumn
+cfprFabricFcSanUplinkTrunking=_CfprFabricFcSanUplinkTrunking_Object((1,3,6,1,4,1,9,9,826,1,26,55,1,9),_CfprFabricFcSanUplinkTrunking_Type())
+cfprFabricFcSanUplinkTrunking.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanUplinkTrunking.setStatus(_A)
+_CfprFabricFcSanEpTable_Object=MibTable
+cfprFabricFcSanEpTable=_CfprFabricFcSanEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,56))
+if mibBuilder.loadTexts:cfprFabricFcSanEpTable.setStatus(_A)
+_CfprFabricFcSanEpEntry_Object=MibTableRow
+cfprFabricFcSanEpEntry=_CfprFabricFcSanEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,56,1))
+cfprFabricFcSanEpEntry.setIndexNames((0,_C,_A7))
+if mibBuilder.loadTexts:cfprFabricFcSanEpEntry.setStatus(_A)
+_CfprFabricFcSanEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcSanEpInstanceId_Object=MibTableColumn
+cfprFabricFcSanEpInstanceId=_CfprFabricFcSanEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,1),_CfprFabricFcSanEpInstanceId_Type())
+cfprFabricFcSanEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcSanEpInstanceId.setStatus(_A)
+_CfprFabricFcSanEpDn_Type=CfprManagedObjectDn
+_CfprFabricFcSanEpDn_Object=MibTableColumn
+cfprFabricFcSanEpDn=_CfprFabricFcSanEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,2),_CfprFabricFcSanEpDn_Type())
+cfprFabricFcSanEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpDn.setStatus(_A)
+_CfprFabricFcSanEpRn_Type=SnmpAdminString
+_CfprFabricFcSanEpRn_Object=MibTableColumn
+cfprFabricFcSanEpRn=_CfprFabricFcSanEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,3),_CfprFabricFcSanEpRn_Type())
+cfprFabricFcSanEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpRn.setStatus(_A)
+_CfprFabricFcSanEpAdminState_Type=CfprFabricExternalEpAdminState
+_CfprFabricFcSanEpAdminState_Object=MibTableColumn
+cfprFabricFcSanEpAdminState=_CfprFabricFcSanEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,4),_CfprFabricFcSanEpAdminState_Type())
+cfprFabricFcSanEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpAdminState.setStatus(_A)
+_CfprFabricFcSanEpAggrPortId_Type=Gauge32
+_CfprFabricFcSanEpAggrPortId_Object=MibTableColumn
+cfprFabricFcSanEpAggrPortId=_CfprFabricFcSanEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,5),_CfprFabricFcSanEpAggrPortId_Type())
+cfprFabricFcSanEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpAggrPortId.setStatus(_A)
+_CfprFabricFcSanEpChassisId_Type=Gauge32
+_CfprFabricFcSanEpChassisId_Object=MibTableColumn
+cfprFabricFcSanEpChassisId=_CfprFabricFcSanEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,6),_CfprFabricFcSanEpChassisId_Type())
+cfprFabricFcSanEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpChassisId.setStatus(_A)
+_CfprFabricFcSanEpEpDn_Type=SnmpAdminString
+_CfprFabricFcSanEpEpDn_Object=MibTableColumn
+cfprFabricFcSanEpEpDn=_CfprFabricFcSanEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,7),_CfprFabricFcSanEpEpDn_Type())
+cfprFabricFcSanEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpEpDn.setStatus(_A)
+_CfprFabricFcSanEpFillPattern_Type=CfprFabricFillPattern
+_CfprFabricFcSanEpFillPattern_Object=MibTableColumn
+cfprFabricFcSanEpFillPattern=_CfprFabricFcSanEpFillPattern_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,8),_CfprFabricFcSanEpFillPattern_Type())
+cfprFabricFcSanEpFillPattern.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpFillPattern.setStatus(_A)
+_CfprFabricFcSanEpFltAggr_Type=Unsigned64
+_CfprFabricFcSanEpFltAggr_Object=MibTableColumn
+cfprFabricFcSanEpFltAggr=_CfprFabricFcSanEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,9),_CfprFabricFcSanEpFltAggr_Type())
+cfprFabricFcSanEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpFltAggr.setStatus(_A)
+_CfprFabricFcSanEpIfRole_Type=CfprFabricSanEpIfRole
+_CfprFabricFcSanEpIfRole_Object=MibTableColumn
+cfprFabricFcSanEpIfRole=_CfprFabricFcSanEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,10),_CfprFabricFcSanEpIfRole_Type())
+cfprFabricFcSanEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpIfRole.setStatus(_A)
+_CfprFabricFcSanEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricFcSanEpIfType_Object=MibTableColumn
+cfprFabricFcSanEpIfType=_CfprFabricFcSanEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,11),_CfprFabricFcSanEpIfType_Type())
+cfprFabricFcSanEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpIfType.setStatus(_A)
+_CfprFabricFcSanEpLicGP_Type=Unsigned64
+_CfprFabricFcSanEpLicGP_Object=MibTableColumn
+cfprFabricFcSanEpLicGP=_CfprFabricFcSanEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,12),_CfprFabricFcSanEpLicGP_Type())
+cfprFabricFcSanEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpLicGP.setStatus(_A)
+_CfprFabricFcSanEpLicState_Type=CfprLicenseState
+_CfprFabricFcSanEpLicState_Object=MibTableColumn
+cfprFabricFcSanEpLicState=_CfprFabricFcSanEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,13),_CfprFabricFcSanEpLicState_Type())
+cfprFabricFcSanEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpLicState.setStatus(_A)
+_CfprFabricFcSanEpLocale_Type=CfprFabricExternalEpLocale
+_CfprFabricFcSanEpLocale_Object=MibTableColumn
+cfprFabricFcSanEpLocale=_CfprFabricFcSanEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,14),_CfprFabricFcSanEpLocale_Type())
+cfprFabricFcSanEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpLocale.setStatus(_A)
+_CfprFabricFcSanEpName_Type=SnmpAdminString
+_CfprFabricFcSanEpName_Object=MibTableColumn
+cfprFabricFcSanEpName=_CfprFabricFcSanEpName_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,15),_CfprFabricFcSanEpName_Type())
+cfprFabricFcSanEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpName.setStatus(_A)
+_CfprFabricFcSanEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricFcSanEpOperState_Object=MibTableColumn
+cfprFabricFcSanEpOperState=_CfprFabricFcSanEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,16),_CfprFabricFcSanEpOperState_Type())
+cfprFabricFcSanEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpOperState.setStatus(_A)
+_CfprFabricFcSanEpOperStateReason_Type=SnmpAdminString
+_CfprFabricFcSanEpOperStateReason_Object=MibTableColumn
+cfprFabricFcSanEpOperStateReason=_CfprFabricFcSanEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,17),_CfprFabricFcSanEpOperStateReason_Type())
+cfprFabricFcSanEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpOperStateReason.setStatus(_A)
+_CfprFabricFcSanEpPeerAggrPortId_Type=Gauge32
+_CfprFabricFcSanEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricFcSanEpPeerAggrPortId=_CfprFabricFcSanEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,18),_CfprFabricFcSanEpPeerAggrPortId_Type())
+cfprFabricFcSanEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpPeerAggrPortId.setStatus(_A)
+_CfprFabricFcSanEpPeerChassisId_Type=Gauge32
+_CfprFabricFcSanEpPeerChassisId_Object=MibTableColumn
+cfprFabricFcSanEpPeerChassisId=_CfprFabricFcSanEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,19),_CfprFabricFcSanEpPeerChassisId_Type())
+cfprFabricFcSanEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpPeerChassisId.setStatus(_A)
+_CfprFabricFcSanEpPeerDn_Type=SnmpAdminString
+_CfprFabricFcSanEpPeerDn_Object=MibTableColumn
+cfprFabricFcSanEpPeerDn=_CfprFabricFcSanEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,20),_CfprFabricFcSanEpPeerDn_Type())
+cfprFabricFcSanEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpPeerDn.setStatus(_A)
+_CfprFabricFcSanEpPeerPortId_Type=Gauge32
+_CfprFabricFcSanEpPeerPortId_Object=MibTableColumn
+cfprFabricFcSanEpPeerPortId=_CfprFabricFcSanEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,21),_CfprFabricFcSanEpPeerPortId_Type())
+cfprFabricFcSanEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpPeerPortId.setStatus(_A)
+_CfprFabricFcSanEpPeerSlotId_Type=Gauge32
+_CfprFabricFcSanEpPeerSlotId_Object=MibTableColumn
+cfprFabricFcSanEpPeerSlotId=_CfprFabricFcSanEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,22),_CfprFabricFcSanEpPeerSlotId_Type())
+cfprFabricFcSanEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpPeerSlotId.setStatus(_A)
+_CfprFabricFcSanEpPortId_Type=CfprFabricFcSanEpPortId
+_CfprFabricFcSanEpPortId_Object=MibTableColumn
+cfprFabricFcSanEpPortId=_CfprFabricFcSanEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,23),_CfprFabricFcSanEpPortId_Type())
+cfprFabricFcSanEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpPortId.setStatus(_A)
+_CfprFabricFcSanEpSlotId_Type=CfprFabricFcSanEpSlotId
+_CfprFabricFcSanEpSlotId_Object=MibTableColumn
+cfprFabricFcSanEpSlotId=_CfprFabricFcSanEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,24),_CfprFabricFcSanEpSlotId_Type())
+cfprFabricFcSanEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpSlotId.setStatus(_A)
+_CfprFabricFcSanEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricFcSanEpSwitchId_Object=MibTableColumn
+cfprFabricFcSanEpSwitchId=_CfprFabricFcSanEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,25),_CfprFabricFcSanEpSwitchId_Type())
+cfprFabricFcSanEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpSwitchId.setStatus(_A)
+_CfprFabricFcSanEpTransport_Type=CfprFabricAFcSanEpTransport
+_CfprFabricFcSanEpTransport_Object=MibTableColumn
+cfprFabricFcSanEpTransport=_CfprFabricFcSanEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,26),_CfprFabricFcSanEpTransport_Type())
+cfprFabricFcSanEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpTransport.setStatus(_A)
+_CfprFabricFcSanEpType_Type=CfprFabricSanEpType
+_CfprFabricFcSanEpType_Object=MibTableColumn
+cfprFabricFcSanEpType=_CfprFabricFcSanEpType_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,27),_CfprFabricFcSanEpType_Type())
+cfprFabricFcSanEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpType.setStatus(_A)
+_CfprFabricFcSanEpUsrLbl_Type=SnmpAdminString
+_CfprFabricFcSanEpUsrLbl_Object=MibTableColumn
+cfprFabricFcSanEpUsrLbl=_CfprFabricFcSanEpUsrLbl_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,28),_CfprFabricFcSanEpUsrLbl_Type())
+cfprFabricFcSanEpUsrLbl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpUsrLbl.setStatus(_A)
+_CfprFabricFcSanEpWarnings_Type=CfprFabricWarnings
+_CfprFabricFcSanEpWarnings_Object=MibTableColumn
+cfprFabricFcSanEpWarnings=_CfprFabricFcSanEpWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,56,1,29),_CfprFabricFcSanEpWarnings_Type())
+cfprFabricFcSanEpWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanEpWarnings.setStatus(_A)
+_CfprFabricFcSanPcTable_Object=MibTable
+cfprFabricFcSanPcTable=_CfprFabricFcSanPcTable_Object((1,3,6,1,4,1,9,9,826,1,26,57))
+if mibBuilder.loadTexts:cfprFabricFcSanPcTable.setStatus(_A)
+_CfprFabricFcSanPcEntry_Object=MibTableRow
+cfprFabricFcSanPcEntry=_CfprFabricFcSanPcEntry_Object((1,3,6,1,4,1,9,9,826,1,26,57,1))
+cfprFabricFcSanPcEntry.setIndexNames((0,_C,_A8))
+if mibBuilder.loadTexts:cfprFabricFcSanPcEntry.setStatus(_A)
+_CfprFabricFcSanPcInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcSanPcInstanceId_Object=MibTableColumn
+cfprFabricFcSanPcInstanceId=_CfprFabricFcSanPcInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,1),_CfprFabricFcSanPcInstanceId_Type())
+cfprFabricFcSanPcInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcSanPcInstanceId.setStatus(_A)
+_CfprFabricFcSanPcDn_Type=CfprManagedObjectDn
+_CfprFabricFcSanPcDn_Object=MibTableColumn
+cfprFabricFcSanPcDn=_CfprFabricFcSanPcDn_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,2),_CfprFabricFcSanPcDn_Type())
+cfprFabricFcSanPcDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcDn.setStatus(_A)
+_CfprFabricFcSanPcRn_Type=SnmpAdminString
+_CfprFabricFcSanPcRn_Object=MibTableColumn
+cfprFabricFcSanPcRn=_CfprFabricFcSanPcRn_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,3),_CfprFabricFcSanPcRn_Type())
+cfprFabricFcSanPcRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcRn.setStatus(_A)
+_CfprFabricFcSanPcAdminSpeed_Type=CfprPortSpeed
+_CfprFabricFcSanPcAdminSpeed_Object=MibTableColumn
+cfprFabricFcSanPcAdminSpeed=_CfprFabricFcSanPcAdminSpeed_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,4),_CfprFabricFcSanPcAdminSpeed_Type())
+cfprFabricFcSanPcAdminSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcAdminSpeed.setStatus(_A)
+_CfprFabricFcSanPcAdminState_Type=CfprFabricCIoEpAdminState
+_CfprFabricFcSanPcAdminState_Object=MibTableColumn
+cfprFabricFcSanPcAdminState=_CfprFabricFcSanPcAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,5),_CfprFabricFcSanPcAdminState_Type())
+cfprFabricFcSanPcAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcAdminState.setStatus(_A)
+_CfprFabricFcSanPcConfigState_Type=CfprFabricConfigState
+_CfprFabricFcSanPcConfigState_Object=MibTableColumn
+cfprFabricFcSanPcConfigState=_CfprFabricFcSanPcConfigState_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,6),_CfprFabricFcSanPcConfigState_Type())
+cfprFabricFcSanPcConfigState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcConfigState.setStatus(_A)
+_CfprFabricFcSanPcConfigStatus_Type=CfprFabricPcConfigStatus
+_CfprFabricFcSanPcConfigStatus_Object=MibTableColumn
+cfprFabricFcSanPcConfigStatus=_CfprFabricFcSanPcConfigStatus_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,7),_CfprFabricFcSanPcConfigStatus_Type())
+cfprFabricFcSanPcConfigStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcConfigStatus.setStatus(_A)
+_CfprFabricFcSanPcDescr_Type=SnmpAdminString
+_CfprFabricFcSanPcDescr_Object=MibTableColumn
+cfprFabricFcSanPcDescr=_CfprFabricFcSanPcDescr_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,8),_CfprFabricFcSanPcDescr_Type())
+cfprFabricFcSanPcDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcDescr.setStatus(_A)
+_CfprFabricFcSanPcEpDn_Type=SnmpAdminString
+_CfprFabricFcSanPcEpDn_Object=MibTableColumn
+cfprFabricFcSanPcEpDn=_CfprFabricFcSanPcEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,9),_CfprFabricFcSanPcEpDn_Type())
+cfprFabricFcSanPcEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpDn.setStatus(_A)
+_CfprFabricFcSanPcFltAggr_Type=Unsigned64
+_CfprFabricFcSanPcFltAggr_Object=MibTableColumn
+cfprFabricFcSanPcFltAggr=_CfprFabricFcSanPcFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,10),_CfprFabricFcSanPcFltAggr_Type())
+cfprFabricFcSanPcFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcFltAggr.setStatus(_A)
+_CfprFabricFcSanPcIfRole_Type=CfprFabricSanPcIfRole
+_CfprFabricFcSanPcIfRole_Object=MibTableColumn
+cfprFabricFcSanPcIfRole=_CfprFabricFcSanPcIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,11),_CfprFabricFcSanPcIfRole_Type())
+cfprFabricFcSanPcIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcIfRole.setStatus(_A)
+_CfprFabricFcSanPcIfType_Type=CfprFabricCIoEpIfType
+_CfprFabricFcSanPcIfType_Object=MibTableColumn
+cfprFabricFcSanPcIfType=_CfprFabricFcSanPcIfType_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,12),_CfprFabricFcSanPcIfType_Type())
+cfprFabricFcSanPcIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcIfType.setStatus(_A)
+_CfprFabricFcSanPcLocale_Type=CfprFabricExternalPcLocale
+_CfprFabricFcSanPcLocale_Object=MibTableColumn
+cfprFabricFcSanPcLocale=_CfprFabricFcSanPcLocale_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,13),_CfprFabricFcSanPcLocale_Type())
+cfprFabricFcSanPcLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcLocale.setStatus(_A)
+_CfprFabricFcSanPcName_Type=SnmpAdminString
+_CfprFabricFcSanPcName_Object=MibTableColumn
+cfprFabricFcSanPcName=_CfprFabricFcSanPcName_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,14),_CfprFabricFcSanPcName_Type())
+cfprFabricFcSanPcName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcName.setStatus(_A)
+_CfprFabricFcSanPcOperSpeed_Type=Gauge32
+_CfprFabricFcSanPcOperSpeed_Object=MibTableColumn
+cfprFabricFcSanPcOperSpeed=_CfprFabricFcSanPcOperSpeed_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,15),_CfprFabricFcSanPcOperSpeed_Type())
+cfprFabricFcSanPcOperSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcOperSpeed.setStatus(_A)
+_CfprFabricFcSanPcOperState_Type=CfprNetworkPortOperState
+_CfprFabricFcSanPcOperState_Object=MibTableColumn
+cfprFabricFcSanPcOperState=_CfprFabricFcSanPcOperState_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,16),_CfprFabricFcSanPcOperState_Type())
+cfprFabricFcSanPcOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcOperState.setStatus(_A)
+_CfprFabricFcSanPcPeerDn_Type=SnmpAdminString
+_CfprFabricFcSanPcPeerDn_Object=MibTableColumn
+cfprFabricFcSanPcPeerDn=_CfprFabricFcSanPcPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,17),_CfprFabricFcSanPcPeerDn_Type())
+cfprFabricFcSanPcPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcPeerDn.setStatus(_A)
+_CfprFabricFcSanPcPortId_Type=Gauge32
+_CfprFabricFcSanPcPortId_Object=MibTableColumn
+cfprFabricFcSanPcPortId=_CfprFabricFcSanPcPortId_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,18),_CfprFabricFcSanPcPortId_Type())
+cfprFabricFcSanPcPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcPortId.setStatus(_A)
+_CfprFabricFcSanPcStateQual_Type=SnmpAdminString
+_CfprFabricFcSanPcStateQual_Object=MibTableColumn
+cfprFabricFcSanPcStateQual=_CfprFabricFcSanPcStateQual_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,19),_CfprFabricFcSanPcStateQual_Type())
+cfprFabricFcSanPcStateQual.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcStateQual.setStatus(_A)
+_CfprFabricFcSanPcSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricFcSanPcSwitchId_Object=MibTableColumn
+cfprFabricFcSanPcSwitchId=_CfprFabricFcSanPcSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,20),_CfprFabricFcSanPcSwitchId_Type())
+cfprFabricFcSanPcSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcSwitchId.setStatus(_A)
+_CfprFabricFcSanPcTransport_Type=CfprFabricFcSanPcTransport
+_CfprFabricFcSanPcTransport_Object=MibTableColumn
+cfprFabricFcSanPcTransport=_CfprFabricFcSanPcTransport_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,21),_CfprFabricFcSanPcTransport_Type())
+cfprFabricFcSanPcTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcTransport.setStatus(_A)
+_CfprFabricFcSanPcType_Type=CfprFabricSanPcType
+_CfprFabricFcSanPcType_Object=MibTableColumn
+cfprFabricFcSanPcType=_CfprFabricFcSanPcType_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,22),_CfprFabricFcSanPcType_Type())
+cfprFabricFcSanPcType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcType.setStatus(_A)
+_CfprFabricFcSanPcWarnings_Type=CfprFabricWarnings
+_CfprFabricFcSanPcWarnings_Object=MibTableColumn
+cfprFabricFcSanPcWarnings=_CfprFabricFcSanPcWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,57,1,23),_CfprFabricFcSanPcWarnings_Type())
+cfprFabricFcSanPcWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcWarnings.setStatus(_A)
+_CfprFabricFcSanPcEpTable_Object=MibTable
+cfprFabricFcSanPcEpTable=_CfprFabricFcSanPcEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,58))
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpTable.setStatus(_A)
+_CfprFabricFcSanPcEpEntry_Object=MibTableRow
+cfprFabricFcSanPcEpEntry=_CfprFabricFcSanPcEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,58,1))
+cfprFabricFcSanPcEpEntry.setIndexNames((0,_C,_A9))
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpEntry.setStatus(_A)
+_CfprFabricFcSanPcEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcSanPcEpInstanceId_Object=MibTableColumn
+cfprFabricFcSanPcEpInstanceId=_CfprFabricFcSanPcEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,1),_CfprFabricFcSanPcEpInstanceId_Type())
+cfprFabricFcSanPcEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpInstanceId.setStatus(_A)
+_CfprFabricFcSanPcEpDnData_Type=CfprManagedObjectDn
+_CfprFabricFcSanPcEpDnData_Object=MibTableColumn
+cfprFabricFcSanPcEpDnData=_CfprFabricFcSanPcEpDnData_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,2),_CfprFabricFcSanPcEpDnData_Type())
+cfprFabricFcSanPcEpDnData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpDnData.setStatus(_A)
+_CfprFabricFcSanPcEpRn_Type=SnmpAdminString
+_CfprFabricFcSanPcEpRn_Object=MibTableColumn
+cfprFabricFcSanPcEpRn=_CfprFabricFcSanPcEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,3),_CfprFabricFcSanPcEpRn_Type())
+cfprFabricFcSanPcEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpRn.setStatus(_A)
+_CfprFabricFcSanPcEpAdminSpeed_Type=CfprPortSpeed
+_CfprFabricFcSanPcEpAdminSpeed_Object=MibTableColumn
+cfprFabricFcSanPcEpAdminSpeed=_CfprFabricFcSanPcEpAdminSpeed_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,4),_CfprFabricFcSanPcEpAdminSpeed_Type())
+cfprFabricFcSanPcEpAdminSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpAdminSpeed.setStatus(_A)
+_CfprFabricFcSanPcEpAdminState_Type=CfprFabricExternalEpAdminState
+_CfprFabricFcSanPcEpAdminState_Object=MibTableColumn
+cfprFabricFcSanPcEpAdminState=_CfprFabricFcSanPcEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,5),_CfprFabricFcSanPcEpAdminState_Type())
+cfprFabricFcSanPcEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpAdminState.setStatus(_A)
+_CfprFabricFcSanPcEpAggrPortId_Type=Gauge32
+_CfprFabricFcSanPcEpAggrPortId_Object=MibTableColumn
+cfprFabricFcSanPcEpAggrPortId=_CfprFabricFcSanPcEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,6),_CfprFabricFcSanPcEpAggrPortId_Type())
+cfprFabricFcSanPcEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpAggrPortId.setStatus(_A)
+_CfprFabricFcSanPcEpChassisId_Type=Gauge32
+_CfprFabricFcSanPcEpChassisId_Object=MibTableColumn
+cfprFabricFcSanPcEpChassisId=_CfprFabricFcSanPcEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,7),_CfprFabricFcSanPcEpChassisId_Type())
+cfprFabricFcSanPcEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpChassisId.setStatus(_A)
+_CfprFabricFcSanPcEpEpDn_Type=SnmpAdminString
+_CfprFabricFcSanPcEpEpDn_Object=MibTableColumn
+cfprFabricFcSanPcEpEpDn=_CfprFabricFcSanPcEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,8),_CfprFabricFcSanPcEpEpDn_Type())
+cfprFabricFcSanPcEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpEpDn.setStatus(_A)
+_CfprFabricFcSanPcEpFillPattern_Type=CfprFabricFillPattern
+_CfprFabricFcSanPcEpFillPattern_Object=MibTableColumn
+cfprFabricFcSanPcEpFillPattern=_CfprFabricFcSanPcEpFillPattern_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,9),_CfprFabricFcSanPcEpFillPattern_Type())
+cfprFabricFcSanPcEpFillPattern.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpFillPattern.setStatus(_A)
+_CfprFabricFcSanPcEpFltAggr_Type=Unsigned64
+_CfprFabricFcSanPcEpFltAggr_Object=MibTableColumn
+cfprFabricFcSanPcEpFltAggr=_CfprFabricFcSanPcEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,10),_CfprFabricFcSanPcEpFltAggr_Type())
+cfprFabricFcSanPcEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpFltAggr.setStatus(_A)
+_CfprFabricFcSanPcEpIfRole_Type=CfprFabricSanEpIfRole
+_CfprFabricFcSanPcEpIfRole_Object=MibTableColumn
+cfprFabricFcSanPcEpIfRole=_CfprFabricFcSanPcEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,11),_CfprFabricFcSanPcEpIfRole_Type())
+cfprFabricFcSanPcEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpIfRole.setStatus(_A)
+_CfprFabricFcSanPcEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricFcSanPcEpIfType_Object=MibTableColumn
+cfprFabricFcSanPcEpIfType=_CfprFabricFcSanPcEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,12),_CfprFabricFcSanPcEpIfType_Type())
+cfprFabricFcSanPcEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpIfType.setStatus(_A)
+_CfprFabricFcSanPcEpLicGP_Type=Unsigned64
+_CfprFabricFcSanPcEpLicGP_Object=MibTableColumn
+cfprFabricFcSanPcEpLicGP=_CfprFabricFcSanPcEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,13),_CfprFabricFcSanPcEpLicGP_Type())
+cfprFabricFcSanPcEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpLicGP.setStatus(_A)
+_CfprFabricFcSanPcEpLicState_Type=CfprLicenseState
+_CfprFabricFcSanPcEpLicState_Object=MibTableColumn
+cfprFabricFcSanPcEpLicState=_CfprFabricFcSanPcEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,14),_CfprFabricFcSanPcEpLicState_Type())
+cfprFabricFcSanPcEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpLicState.setStatus(_A)
+_CfprFabricFcSanPcEpLocale_Type=CfprFabricExternalEpLocale
+_CfprFabricFcSanPcEpLocale_Object=MibTableColumn
+cfprFabricFcSanPcEpLocale=_CfprFabricFcSanPcEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,15),_CfprFabricFcSanPcEpLocale_Type())
+cfprFabricFcSanPcEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpLocale.setStatus(_A)
+_CfprFabricFcSanPcEpMembership_Type=CfprFabricMembershipStatus
+_CfprFabricFcSanPcEpMembership_Object=MibTableColumn
+cfprFabricFcSanPcEpMembership=_CfprFabricFcSanPcEpMembership_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,16),_CfprFabricFcSanPcEpMembership_Type())
+cfprFabricFcSanPcEpMembership.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpMembership.setStatus(_A)
+_CfprFabricFcSanPcEpName_Type=SnmpAdminString
+_CfprFabricFcSanPcEpName_Object=MibTableColumn
+cfprFabricFcSanPcEpName=_CfprFabricFcSanPcEpName_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,17),_CfprFabricFcSanPcEpName_Type())
+cfprFabricFcSanPcEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpName.setStatus(_A)
+_CfprFabricFcSanPcEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricFcSanPcEpOperState_Object=MibTableColumn
+cfprFabricFcSanPcEpOperState=_CfprFabricFcSanPcEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,18),_CfprFabricFcSanPcEpOperState_Type())
+cfprFabricFcSanPcEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpOperState.setStatus(_A)
+_CfprFabricFcSanPcEpOperStateReason_Type=SnmpAdminString
+_CfprFabricFcSanPcEpOperStateReason_Object=MibTableColumn
+cfprFabricFcSanPcEpOperStateReason=_CfprFabricFcSanPcEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,19),_CfprFabricFcSanPcEpOperStateReason_Type())
+cfprFabricFcSanPcEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpOperStateReason.setStatus(_A)
+_CfprFabricFcSanPcEpPeerAggrPortId_Type=Gauge32
+_CfprFabricFcSanPcEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricFcSanPcEpPeerAggrPortId=_CfprFabricFcSanPcEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,20),_CfprFabricFcSanPcEpPeerAggrPortId_Type())
+cfprFabricFcSanPcEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpPeerAggrPortId.setStatus(_A)
+_CfprFabricFcSanPcEpPeerChassisId_Type=Gauge32
+_CfprFabricFcSanPcEpPeerChassisId_Object=MibTableColumn
+cfprFabricFcSanPcEpPeerChassisId=_CfprFabricFcSanPcEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,21),_CfprFabricFcSanPcEpPeerChassisId_Type())
+cfprFabricFcSanPcEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpPeerChassisId.setStatus(_A)
+_CfprFabricFcSanPcEpPeerDn_Type=SnmpAdminString
+_CfprFabricFcSanPcEpPeerDn_Object=MibTableColumn
+cfprFabricFcSanPcEpPeerDn=_CfprFabricFcSanPcEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,22),_CfprFabricFcSanPcEpPeerDn_Type())
+cfprFabricFcSanPcEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpPeerDn.setStatus(_A)
+_CfprFabricFcSanPcEpPeerPortId_Type=Gauge32
+_CfprFabricFcSanPcEpPeerPortId_Object=MibTableColumn
+cfprFabricFcSanPcEpPeerPortId=_CfprFabricFcSanPcEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,23),_CfprFabricFcSanPcEpPeerPortId_Type())
+cfprFabricFcSanPcEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpPeerPortId.setStatus(_A)
+_CfprFabricFcSanPcEpPeerSlotId_Type=Gauge32
+_CfprFabricFcSanPcEpPeerSlotId_Object=MibTableColumn
+cfprFabricFcSanPcEpPeerSlotId=_CfprFabricFcSanPcEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,24),_CfprFabricFcSanPcEpPeerSlotId_Type())
+cfprFabricFcSanPcEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpPeerSlotId.setStatus(_A)
+_CfprFabricFcSanPcEpPortId_Type=CfprFabricFcSanPcEpPortId
+_CfprFabricFcSanPcEpPortId_Object=MibTableColumn
+cfprFabricFcSanPcEpPortId=_CfprFabricFcSanPcEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,25),_CfprFabricFcSanPcEpPortId_Type())
+cfprFabricFcSanPcEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpPortId.setStatus(_A)
+_CfprFabricFcSanPcEpSlotId_Type=CfprFabricFcSanPcEpSlotId
+_CfprFabricFcSanPcEpSlotId_Object=MibTableColumn
+cfprFabricFcSanPcEpSlotId=_CfprFabricFcSanPcEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,26),_CfprFabricFcSanPcEpSlotId_Type())
+cfprFabricFcSanPcEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpSlotId.setStatus(_A)
+_CfprFabricFcSanPcEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricFcSanPcEpSwitchId_Object=MibTableColumn
+cfprFabricFcSanPcEpSwitchId=_CfprFabricFcSanPcEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,27),_CfprFabricFcSanPcEpSwitchId_Type())
+cfprFabricFcSanPcEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpSwitchId.setStatus(_A)
+_CfprFabricFcSanPcEpTransport_Type=CfprFabricAFcSanEpTransport
+_CfprFabricFcSanPcEpTransport_Object=MibTableColumn
+cfprFabricFcSanPcEpTransport=_CfprFabricFcSanPcEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,28),_CfprFabricFcSanPcEpTransport_Type())
+cfprFabricFcSanPcEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpTransport.setStatus(_A)
+_CfprFabricFcSanPcEpType_Type=CfprFabricSanEpType
+_CfprFabricFcSanPcEpType_Object=MibTableColumn
+cfprFabricFcSanPcEpType=_CfprFabricFcSanPcEpType_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,29),_CfprFabricFcSanPcEpType_Type())
+cfprFabricFcSanPcEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpType.setStatus(_A)
+_CfprFabricFcSanPcEpWarnings_Type=CfprFabricWarnings
+_CfprFabricFcSanPcEpWarnings_Object=MibTableColumn
+cfprFabricFcSanPcEpWarnings=_CfprFabricFcSanPcEpWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,58,1,30),_CfprFabricFcSanPcEpWarnings_Type())
+cfprFabricFcSanPcEpWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcSanPcEpWarnings.setStatus(_A)
+_CfprFabricFcVsanPcTable_Object=MibTable
+cfprFabricFcVsanPcTable=_CfprFabricFcVsanPcTable_Object((1,3,6,1,4,1,9,9,826,1,26,59))
+if mibBuilder.loadTexts:cfprFabricFcVsanPcTable.setStatus(_A)
+_CfprFabricFcVsanPcEntry_Object=MibTableRow
+cfprFabricFcVsanPcEntry=_CfprFabricFcVsanPcEntry_Object((1,3,6,1,4,1,9,9,826,1,26,59,1))
+cfprFabricFcVsanPcEntry.setIndexNames((0,_C,_AA))
+if mibBuilder.loadTexts:cfprFabricFcVsanPcEntry.setStatus(_A)
+_CfprFabricFcVsanPcInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcVsanPcInstanceId_Object=MibTableColumn
+cfprFabricFcVsanPcInstanceId=_CfprFabricFcVsanPcInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,1),_CfprFabricFcVsanPcInstanceId_Type())
+cfprFabricFcVsanPcInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcInstanceId.setStatus(_A)
+_CfprFabricFcVsanPcDn_Type=CfprManagedObjectDn
+_CfprFabricFcVsanPcDn_Object=MibTableColumn
+cfprFabricFcVsanPcDn=_CfprFabricFcVsanPcDn_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,2),_CfprFabricFcVsanPcDn_Type())
+cfprFabricFcVsanPcDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcDn.setStatus(_A)
+_CfprFabricFcVsanPcRn_Type=SnmpAdminString
+_CfprFabricFcVsanPcRn_Object=MibTableColumn
+cfprFabricFcVsanPcRn=_CfprFabricFcVsanPcRn_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,3),_CfprFabricFcVsanPcRn_Type())
+cfprFabricFcVsanPcRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcRn.setStatus(_A)
+_CfprFabricFcVsanPcAdminState_Type=CfprFabricCIoEpAdminState
+_CfprFabricFcVsanPcAdminState_Object=MibTableColumn
+cfprFabricFcVsanPcAdminState=_CfprFabricFcVsanPcAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,4),_CfprFabricFcVsanPcAdminState_Type())
+cfprFabricFcVsanPcAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcAdminState.setStatus(_A)
+_CfprFabricFcVsanPcDescr_Type=SnmpAdminString
+_CfprFabricFcVsanPcDescr_Object=MibTableColumn
+cfprFabricFcVsanPcDescr=_CfprFabricFcVsanPcDescr_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,5),_CfprFabricFcVsanPcDescr_Type())
+cfprFabricFcVsanPcDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcDescr.setStatus(_A)
+_CfprFabricFcVsanPcEpDn_Type=SnmpAdminString
+_CfprFabricFcVsanPcEpDn_Object=MibTableColumn
+cfprFabricFcVsanPcEpDn=_CfprFabricFcVsanPcEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,6),_CfprFabricFcVsanPcEpDn_Type())
+cfprFabricFcVsanPcEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcEpDn.setStatus(_A)
+_CfprFabricFcVsanPcFltAggr_Type=Unsigned64
+_CfprFabricFcVsanPcFltAggr_Object=MibTableColumn
+cfprFabricFcVsanPcFltAggr=_CfprFabricFcVsanPcFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,7),_CfprFabricFcVsanPcFltAggr_Type())
+cfprFabricFcVsanPcFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcFltAggr.setStatus(_A)
+_CfprFabricFcVsanPcIfRole_Type=CfprFabricSanPcIfRole
+_CfprFabricFcVsanPcIfRole_Object=MibTableColumn
+cfprFabricFcVsanPcIfRole=_CfprFabricFcVsanPcIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,8),_CfprFabricFcVsanPcIfRole_Type())
+cfprFabricFcVsanPcIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcIfRole.setStatus(_A)
+_CfprFabricFcVsanPcIfType_Type=CfprFabricCIoEpIfType
+_CfprFabricFcVsanPcIfType_Object=MibTableColumn
+cfprFabricFcVsanPcIfType=_CfprFabricFcVsanPcIfType_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,9),_CfprFabricFcVsanPcIfType_Type())
+cfprFabricFcVsanPcIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcIfType.setStatus(_A)
+_CfprFabricFcVsanPcLocale_Type=CfprFabricExternalPcLocale
+_CfprFabricFcVsanPcLocale_Object=MibTableColumn
+cfprFabricFcVsanPcLocale=_CfprFabricFcVsanPcLocale_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,10),_CfprFabricFcVsanPcLocale_Type())
+cfprFabricFcVsanPcLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcLocale.setStatus(_A)
+_CfprFabricFcVsanPcName_Type=SnmpAdminString
+_CfprFabricFcVsanPcName_Object=MibTableColumn
+cfprFabricFcVsanPcName=_CfprFabricFcVsanPcName_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,11),_CfprFabricFcVsanPcName_Type())
+cfprFabricFcVsanPcName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcName.setStatus(_A)
+_CfprFabricFcVsanPcOperState_Type=CfprNetworkPortOperState
+_CfprFabricFcVsanPcOperState_Object=MibTableColumn
+cfprFabricFcVsanPcOperState=_CfprFabricFcVsanPcOperState_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,12),_CfprFabricFcVsanPcOperState_Type())
+cfprFabricFcVsanPcOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcOperState.setStatus(_A)
+_CfprFabricFcVsanPcPeerDn_Type=SnmpAdminString
+_CfprFabricFcVsanPcPeerDn_Object=MibTableColumn
+cfprFabricFcVsanPcPeerDn=_CfprFabricFcVsanPcPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,13),_CfprFabricFcVsanPcPeerDn_Type())
+cfprFabricFcVsanPcPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcPeerDn.setStatus(_A)
+_CfprFabricFcVsanPcPortId_Type=Gauge32
+_CfprFabricFcVsanPcPortId_Object=MibTableColumn
+cfprFabricFcVsanPcPortId=_CfprFabricFcVsanPcPortId_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,14),_CfprFabricFcVsanPcPortId_Type())
+cfprFabricFcVsanPcPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcPortId.setStatus(_A)
+_CfprFabricFcVsanPcStateQual_Type=SnmpAdminString
+_CfprFabricFcVsanPcStateQual_Object=MibTableColumn
+cfprFabricFcVsanPcStateQual=_CfprFabricFcVsanPcStateQual_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,15),_CfprFabricFcVsanPcStateQual_Type())
+cfprFabricFcVsanPcStateQual.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcStateQual.setStatus(_A)
+_CfprFabricFcVsanPcSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricFcVsanPcSwitchId_Object=MibTableColumn
+cfprFabricFcVsanPcSwitchId=_CfprFabricFcVsanPcSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,16),_CfprFabricFcVsanPcSwitchId_Type())
+cfprFabricFcVsanPcSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcSwitchId.setStatus(_A)
+_CfprFabricFcVsanPcTransport_Type=CfprFabricFcVsanPcTransport
+_CfprFabricFcVsanPcTransport_Object=MibTableColumn
+cfprFabricFcVsanPcTransport=_CfprFabricFcVsanPcTransport_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,17),_CfprFabricFcVsanPcTransport_Type())
+cfprFabricFcVsanPcTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcTransport.setStatus(_A)
+_CfprFabricFcVsanPcType_Type=CfprFabricSanPcType
+_CfprFabricFcVsanPcType_Object=MibTableColumn
+cfprFabricFcVsanPcType=_CfprFabricFcVsanPcType_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,18),_CfprFabricFcVsanPcType_Type())
+cfprFabricFcVsanPcType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcType.setStatus(_A)
+_CfprFabricFcVsanPcWarnings_Type=CfprFabricWarnings
+_CfprFabricFcVsanPcWarnings_Object=MibTableColumn
+cfprFabricFcVsanPcWarnings=_CfprFabricFcVsanPcWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,59,1,19),_CfprFabricFcVsanPcWarnings_Type())
+cfprFabricFcVsanPcWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPcWarnings.setStatus(_A)
+_CfprFabricFcVsanPortEpTable_Object=MibTable
+cfprFabricFcVsanPortEpTable=_CfprFabricFcVsanPortEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,60))
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpTable.setStatus(_A)
+_CfprFabricFcVsanPortEpEntry_Object=MibTableRow
+cfprFabricFcVsanPortEpEntry=_CfprFabricFcVsanPortEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,60,1))
+cfprFabricFcVsanPortEpEntry.setIndexNames((0,_C,_AB))
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpEntry.setStatus(_A)
+_CfprFabricFcVsanPortEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcVsanPortEpInstanceId_Object=MibTableColumn
+cfprFabricFcVsanPortEpInstanceId=_CfprFabricFcVsanPortEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,1),_CfprFabricFcVsanPortEpInstanceId_Type())
+cfprFabricFcVsanPortEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpInstanceId.setStatus(_A)
+_CfprFabricFcVsanPortEpDn_Type=CfprManagedObjectDn
+_CfprFabricFcVsanPortEpDn_Object=MibTableColumn
+cfprFabricFcVsanPortEpDn=_CfprFabricFcVsanPortEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,2),_CfprFabricFcVsanPortEpDn_Type())
+cfprFabricFcVsanPortEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpDn.setStatus(_A)
+_CfprFabricFcVsanPortEpRn_Type=SnmpAdminString
+_CfprFabricFcVsanPortEpRn_Object=MibTableColumn
+cfprFabricFcVsanPortEpRn=_CfprFabricFcVsanPortEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,3),_CfprFabricFcVsanPortEpRn_Type())
+cfprFabricFcVsanPortEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpRn.setStatus(_A)
+_CfprFabricFcVsanPortEpAdminState_Type=CfprFabricExternalEpAdminState
+_CfprFabricFcVsanPortEpAdminState_Object=MibTableColumn
+cfprFabricFcVsanPortEpAdminState=_CfprFabricFcVsanPortEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,4),_CfprFabricFcVsanPortEpAdminState_Type())
+cfprFabricFcVsanPortEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpAdminState.setStatus(_A)
+_CfprFabricFcVsanPortEpAggrPortId_Type=Gauge32
+_CfprFabricFcVsanPortEpAggrPortId_Object=MibTableColumn
+cfprFabricFcVsanPortEpAggrPortId=_CfprFabricFcVsanPortEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,5),_CfprFabricFcVsanPortEpAggrPortId_Type())
+cfprFabricFcVsanPortEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpAggrPortId.setStatus(_A)
+_CfprFabricFcVsanPortEpChassisId_Type=Gauge32
+_CfprFabricFcVsanPortEpChassisId_Object=MibTableColumn
+cfprFabricFcVsanPortEpChassisId=_CfprFabricFcVsanPortEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,6),_CfprFabricFcVsanPortEpChassisId_Type())
+cfprFabricFcVsanPortEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpChassisId.setStatus(_A)
+_CfprFabricFcVsanPortEpEpDn_Type=SnmpAdminString
+_CfprFabricFcVsanPortEpEpDn_Object=MibTableColumn
+cfprFabricFcVsanPortEpEpDn=_CfprFabricFcVsanPortEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,7),_CfprFabricFcVsanPortEpEpDn_Type())
+cfprFabricFcVsanPortEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpEpDn.setStatus(_A)
+_CfprFabricFcVsanPortEpFltAggr_Type=Unsigned64
+_CfprFabricFcVsanPortEpFltAggr_Object=MibTableColumn
+cfprFabricFcVsanPortEpFltAggr=_CfprFabricFcVsanPortEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,8),_CfprFabricFcVsanPortEpFltAggr_Type())
+cfprFabricFcVsanPortEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpFltAggr.setStatus(_A)
+_CfprFabricFcVsanPortEpIfRole_Type=CfprFabricSanEpIfRole
+_CfprFabricFcVsanPortEpIfRole_Object=MibTableColumn
+cfprFabricFcVsanPortEpIfRole=_CfprFabricFcVsanPortEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,9),_CfprFabricFcVsanPortEpIfRole_Type())
+cfprFabricFcVsanPortEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpIfRole.setStatus(_A)
+_CfprFabricFcVsanPortEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricFcVsanPortEpIfType_Object=MibTableColumn
+cfprFabricFcVsanPortEpIfType=_CfprFabricFcVsanPortEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,10),_CfprFabricFcVsanPortEpIfType_Type())
+cfprFabricFcVsanPortEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpIfType.setStatus(_A)
+_CfprFabricFcVsanPortEpLicGP_Type=Unsigned64
+_CfprFabricFcVsanPortEpLicGP_Object=MibTableColumn
+cfprFabricFcVsanPortEpLicGP=_CfprFabricFcVsanPortEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,11),_CfprFabricFcVsanPortEpLicGP_Type())
+cfprFabricFcVsanPortEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpLicGP.setStatus(_A)
+_CfprFabricFcVsanPortEpLicState_Type=CfprLicenseState
+_CfprFabricFcVsanPortEpLicState_Object=MibTableColumn
+cfprFabricFcVsanPortEpLicState=_CfprFabricFcVsanPortEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,12),_CfprFabricFcVsanPortEpLicState_Type())
+cfprFabricFcVsanPortEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpLicState.setStatus(_A)
+_CfprFabricFcVsanPortEpLocale_Type=CfprFabricExternalEpLocale
+_CfprFabricFcVsanPortEpLocale_Object=MibTableColumn
+cfprFabricFcVsanPortEpLocale=_CfprFabricFcVsanPortEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,13),_CfprFabricFcVsanPortEpLocale_Type())
+cfprFabricFcVsanPortEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpLocale.setStatus(_A)
+_CfprFabricFcVsanPortEpName_Type=SnmpAdminString
+_CfprFabricFcVsanPortEpName_Object=MibTableColumn
+cfprFabricFcVsanPortEpName=_CfprFabricFcVsanPortEpName_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,14),_CfprFabricFcVsanPortEpName_Type())
+cfprFabricFcVsanPortEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpName.setStatus(_A)
+_CfprFabricFcVsanPortEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricFcVsanPortEpOperState_Object=MibTableColumn
+cfprFabricFcVsanPortEpOperState=_CfprFabricFcVsanPortEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,15),_CfprFabricFcVsanPortEpOperState_Type())
+cfprFabricFcVsanPortEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpOperState.setStatus(_A)
+_CfprFabricFcVsanPortEpOperStateReason_Type=SnmpAdminString
+_CfprFabricFcVsanPortEpOperStateReason_Object=MibTableColumn
+cfprFabricFcVsanPortEpOperStateReason=_CfprFabricFcVsanPortEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,16),_CfprFabricFcVsanPortEpOperStateReason_Type())
+cfprFabricFcVsanPortEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpOperStateReason.setStatus(_A)
+_CfprFabricFcVsanPortEpPeerAggrPortId_Type=Gauge32
+_CfprFabricFcVsanPortEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricFcVsanPortEpPeerAggrPortId=_CfprFabricFcVsanPortEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,17),_CfprFabricFcVsanPortEpPeerAggrPortId_Type())
+cfprFabricFcVsanPortEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpPeerAggrPortId.setStatus(_A)
+_CfprFabricFcVsanPortEpPeerChassisId_Type=Gauge32
+_CfprFabricFcVsanPortEpPeerChassisId_Object=MibTableColumn
+cfprFabricFcVsanPortEpPeerChassisId=_CfprFabricFcVsanPortEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,18),_CfprFabricFcVsanPortEpPeerChassisId_Type())
+cfprFabricFcVsanPortEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpPeerChassisId.setStatus(_A)
+_CfprFabricFcVsanPortEpPeerDn_Type=SnmpAdminString
+_CfprFabricFcVsanPortEpPeerDn_Object=MibTableColumn
+cfprFabricFcVsanPortEpPeerDn=_CfprFabricFcVsanPortEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,19),_CfprFabricFcVsanPortEpPeerDn_Type())
+cfprFabricFcVsanPortEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpPeerDn.setStatus(_A)
+_CfprFabricFcVsanPortEpPeerPortId_Type=Gauge32
+_CfprFabricFcVsanPortEpPeerPortId_Object=MibTableColumn
+cfprFabricFcVsanPortEpPeerPortId=_CfprFabricFcVsanPortEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,20),_CfprFabricFcVsanPortEpPeerPortId_Type())
+cfprFabricFcVsanPortEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpPeerPortId.setStatus(_A)
+_CfprFabricFcVsanPortEpPeerSlotId_Type=Gauge32
+_CfprFabricFcVsanPortEpPeerSlotId_Object=MibTableColumn
+cfprFabricFcVsanPortEpPeerSlotId=_CfprFabricFcVsanPortEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,21),_CfprFabricFcVsanPortEpPeerSlotId_Type())
+cfprFabricFcVsanPortEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpPeerSlotId.setStatus(_A)
+_CfprFabricFcVsanPortEpPortId_Type=CfprFabricFcVsanPortEpPortId
+_CfprFabricFcVsanPortEpPortId_Object=MibTableColumn
+cfprFabricFcVsanPortEpPortId=_CfprFabricFcVsanPortEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,22),_CfprFabricFcVsanPortEpPortId_Type())
+cfprFabricFcVsanPortEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpPortId.setStatus(_A)
+_CfprFabricFcVsanPortEpSlotId_Type=CfprFabricFcVsanPortEpSlotId
+_CfprFabricFcVsanPortEpSlotId_Object=MibTableColumn
+cfprFabricFcVsanPortEpSlotId=_CfprFabricFcVsanPortEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,23),_CfprFabricFcVsanPortEpSlotId_Type())
+cfprFabricFcVsanPortEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpSlotId.setStatus(_A)
+_CfprFabricFcVsanPortEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricFcVsanPortEpSwitchId_Object=MibTableColumn
+cfprFabricFcVsanPortEpSwitchId=_CfprFabricFcVsanPortEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,24),_CfprFabricFcVsanPortEpSwitchId_Type())
+cfprFabricFcVsanPortEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpSwitchId.setStatus(_A)
+_CfprFabricFcVsanPortEpTransport_Type=CfprFabricAFcSanEpTransport
+_CfprFabricFcVsanPortEpTransport_Object=MibTableColumn
+cfprFabricFcVsanPortEpTransport=_CfprFabricFcVsanPortEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,25),_CfprFabricFcVsanPortEpTransport_Type())
+cfprFabricFcVsanPortEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpTransport.setStatus(_A)
+_CfprFabricFcVsanPortEpType_Type=CfprFabricSanEpType
+_CfprFabricFcVsanPortEpType_Object=MibTableColumn
+cfprFabricFcVsanPortEpType=_CfprFabricFcVsanPortEpType_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,26),_CfprFabricFcVsanPortEpType_Type())
+cfprFabricFcVsanPortEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpType.setStatus(_A)
+_CfprFabricFcVsanPortEpWarnings_Type=CfprFabricWarnings
+_CfprFabricFcVsanPortEpWarnings_Object=MibTableColumn
+cfprFabricFcVsanPortEpWarnings=_CfprFabricFcVsanPortEpWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,60,1,27),_CfprFabricFcVsanPortEpWarnings_Type())
+cfprFabricFcVsanPortEpWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcVsanPortEpWarnings.setStatus(_A)
+_CfprFabricFcoeEstcEpTable_Object=MibTable
+cfprFabricFcoeEstcEpTable=_CfprFabricFcoeEstcEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,61))
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpTable.setStatus(_A)
+_CfprFabricFcoeEstcEpEntry_Object=MibTableRow
+cfprFabricFcoeEstcEpEntry=_CfprFabricFcoeEstcEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,61,1))
+cfprFabricFcoeEstcEpEntry.setIndexNames((0,_C,_AC))
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpEntry.setStatus(_A)
+_CfprFabricFcoeEstcEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcoeEstcEpInstanceId_Object=MibTableColumn
+cfprFabricFcoeEstcEpInstanceId=_CfprFabricFcoeEstcEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,1),_CfprFabricFcoeEstcEpInstanceId_Type())
+cfprFabricFcoeEstcEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpInstanceId.setStatus(_A)
+_CfprFabricFcoeEstcEpDn_Type=CfprManagedObjectDn
+_CfprFabricFcoeEstcEpDn_Object=MibTableColumn
+cfprFabricFcoeEstcEpDn=_CfprFabricFcoeEstcEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,2),_CfprFabricFcoeEstcEpDn_Type())
+cfprFabricFcoeEstcEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpDn.setStatus(_A)
+_CfprFabricFcoeEstcEpRn_Type=SnmpAdminString
+_CfprFabricFcoeEstcEpRn_Object=MibTableColumn
+cfprFabricFcoeEstcEpRn=_CfprFabricFcoeEstcEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,3),_CfprFabricFcoeEstcEpRn_Type())
+cfprFabricFcoeEstcEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpRn.setStatus(_A)
+_CfprFabricFcoeEstcEpAdminState_Type=CfprFabricExternalEpAdminState
+_CfprFabricFcoeEstcEpAdminState_Object=MibTableColumn
+cfprFabricFcoeEstcEpAdminState=_CfprFabricFcoeEstcEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,4),_CfprFabricFcoeEstcEpAdminState_Type())
+cfprFabricFcoeEstcEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpAdminState.setStatus(_A)
+_CfprFabricFcoeEstcEpAggrPortId_Type=Gauge32
+_CfprFabricFcoeEstcEpAggrPortId_Object=MibTableColumn
+cfprFabricFcoeEstcEpAggrPortId=_CfprFabricFcoeEstcEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,5),_CfprFabricFcoeEstcEpAggrPortId_Type())
+cfprFabricFcoeEstcEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpAggrPortId.setStatus(_A)
+_CfprFabricFcoeEstcEpChassisId_Type=Gauge32
+_CfprFabricFcoeEstcEpChassisId_Object=MibTableColumn
+cfprFabricFcoeEstcEpChassisId=_CfprFabricFcoeEstcEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,6),_CfprFabricFcoeEstcEpChassisId_Type())
+cfprFabricFcoeEstcEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpChassisId.setStatus(_A)
+_CfprFabricFcoeEstcEpConfigState_Type=CfprFabricConfigState
+_CfprFabricFcoeEstcEpConfigState_Object=MibTableColumn
+cfprFabricFcoeEstcEpConfigState=_CfprFabricFcoeEstcEpConfigState_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,7),_CfprFabricFcoeEstcEpConfigState_Type())
+cfprFabricFcoeEstcEpConfigState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpConfigState.setStatus(_A)
+_CfprFabricFcoeEstcEpEpDn_Type=SnmpAdminString
+_CfprFabricFcoeEstcEpEpDn_Object=MibTableColumn
+cfprFabricFcoeEstcEpEpDn=_CfprFabricFcoeEstcEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,8),_CfprFabricFcoeEstcEpEpDn_Type())
+cfprFabricFcoeEstcEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpEpDn.setStatus(_A)
+_CfprFabricFcoeEstcEpFcoeState_Type=CfprFabricOperState
+_CfprFabricFcoeEstcEpFcoeState_Object=MibTableColumn
+cfprFabricFcoeEstcEpFcoeState=_CfprFabricFcoeEstcEpFcoeState_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,9),_CfprFabricFcoeEstcEpFcoeState_Type())
+cfprFabricFcoeEstcEpFcoeState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpFcoeState.setStatus(_A)
+_CfprFabricFcoeEstcEpFcoeStateReason_Type=SnmpAdminString
+_CfprFabricFcoeEstcEpFcoeStateReason_Object=MibTableColumn
+cfprFabricFcoeEstcEpFcoeStateReason=_CfprFabricFcoeEstcEpFcoeStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,10),_CfprFabricFcoeEstcEpFcoeStateReason_Type())
+cfprFabricFcoeEstcEpFcoeStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpFcoeStateReason.setStatus(_A)
+_CfprFabricFcoeEstcEpFltAggr_Type=Unsigned64
+_CfprFabricFcoeEstcEpFltAggr_Object=MibTableColumn
+cfprFabricFcoeEstcEpFltAggr=_CfprFabricFcoeEstcEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,11),_CfprFabricFcoeEstcEpFltAggr_Type())
+cfprFabricFcoeEstcEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpFltAggr.setStatus(_A)
+_CfprFabricFcoeEstcEpIfRole_Type=CfprFabricAFcoeEstcEpIfRole
+_CfprFabricFcoeEstcEpIfRole_Object=MibTableColumn
+cfprFabricFcoeEstcEpIfRole=_CfprFabricFcoeEstcEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,12),_CfprFabricFcoeEstcEpIfRole_Type())
+cfprFabricFcoeEstcEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpIfRole.setStatus(_A)
+_CfprFabricFcoeEstcEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricFcoeEstcEpIfType_Object=MibTableColumn
+cfprFabricFcoeEstcEpIfType=_CfprFabricFcoeEstcEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,13),_CfprFabricFcoeEstcEpIfType_Type())
+cfprFabricFcoeEstcEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpIfType.setStatus(_A)
+_CfprFabricFcoeEstcEpLicGP_Type=Unsigned64
+_CfprFabricFcoeEstcEpLicGP_Object=MibTableColumn
+cfprFabricFcoeEstcEpLicGP=_CfprFabricFcoeEstcEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,14),_CfprFabricFcoeEstcEpLicGP_Type())
+cfprFabricFcoeEstcEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpLicGP.setStatus(_A)
+_CfprFabricFcoeEstcEpLicState_Type=CfprLicenseState
+_CfprFabricFcoeEstcEpLicState_Object=MibTableColumn
+cfprFabricFcoeEstcEpLicState=_CfprFabricFcoeEstcEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,15),_CfprFabricFcoeEstcEpLicState_Type())
+cfprFabricFcoeEstcEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpLicState.setStatus(_A)
+_CfprFabricFcoeEstcEpLocale_Type=CfprFabricExternalEpLocale
+_CfprFabricFcoeEstcEpLocale_Object=MibTableColumn
+cfprFabricFcoeEstcEpLocale=_CfprFabricFcoeEstcEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,16),_CfprFabricFcoeEstcEpLocale_Type())
+cfprFabricFcoeEstcEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpLocale.setStatus(_A)
+_CfprFabricFcoeEstcEpName_Type=SnmpAdminString
+_CfprFabricFcoeEstcEpName_Object=MibTableColumn
+cfprFabricFcoeEstcEpName=_CfprFabricFcoeEstcEpName_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,17),_CfprFabricFcoeEstcEpName_Type())
+cfprFabricFcoeEstcEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpName.setStatus(_A)
+_CfprFabricFcoeEstcEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricFcoeEstcEpOperState_Object=MibTableColumn
+cfprFabricFcoeEstcEpOperState=_CfprFabricFcoeEstcEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,18),_CfprFabricFcoeEstcEpOperState_Type())
+cfprFabricFcoeEstcEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpOperState.setStatus(_A)
+_CfprFabricFcoeEstcEpOperStateReason_Type=SnmpAdminString
+_CfprFabricFcoeEstcEpOperStateReason_Object=MibTableColumn
+cfprFabricFcoeEstcEpOperStateReason=_CfprFabricFcoeEstcEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,19),_CfprFabricFcoeEstcEpOperStateReason_Type())
+cfprFabricFcoeEstcEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpOperStateReason.setStatus(_A)
+_CfprFabricFcoeEstcEpPeerAggrPortId_Type=Gauge32
+_CfprFabricFcoeEstcEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricFcoeEstcEpPeerAggrPortId=_CfprFabricFcoeEstcEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,20),_CfprFabricFcoeEstcEpPeerAggrPortId_Type())
+cfprFabricFcoeEstcEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpPeerAggrPortId.setStatus(_A)
+_CfprFabricFcoeEstcEpPeerChassisId_Type=Gauge32
+_CfprFabricFcoeEstcEpPeerChassisId_Object=MibTableColumn
+cfprFabricFcoeEstcEpPeerChassisId=_CfprFabricFcoeEstcEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,21),_CfprFabricFcoeEstcEpPeerChassisId_Type())
+cfprFabricFcoeEstcEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpPeerChassisId.setStatus(_A)
+_CfprFabricFcoeEstcEpPeerDn_Type=SnmpAdminString
+_CfprFabricFcoeEstcEpPeerDn_Object=MibTableColumn
+cfprFabricFcoeEstcEpPeerDn=_CfprFabricFcoeEstcEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,22),_CfprFabricFcoeEstcEpPeerDn_Type())
+cfprFabricFcoeEstcEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpPeerDn.setStatus(_A)
+_CfprFabricFcoeEstcEpPeerPortId_Type=Gauge32
+_CfprFabricFcoeEstcEpPeerPortId_Object=MibTableColumn
+cfprFabricFcoeEstcEpPeerPortId=_CfprFabricFcoeEstcEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,23),_CfprFabricFcoeEstcEpPeerPortId_Type())
+cfprFabricFcoeEstcEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpPeerPortId.setStatus(_A)
+_CfprFabricFcoeEstcEpPeerSlotId_Type=Gauge32
+_CfprFabricFcoeEstcEpPeerSlotId_Object=MibTableColumn
+cfprFabricFcoeEstcEpPeerSlotId=_CfprFabricFcoeEstcEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,24),_CfprFabricFcoeEstcEpPeerSlotId_Type())
+cfprFabricFcoeEstcEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpPeerSlotId.setStatus(_A)
+_CfprFabricFcoeEstcEpPortId_Type=CfprFabricFcoeEstcEpPortId
+_CfprFabricFcoeEstcEpPortId_Object=MibTableColumn
+cfprFabricFcoeEstcEpPortId=_CfprFabricFcoeEstcEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,25),_CfprFabricFcoeEstcEpPortId_Type())
+cfprFabricFcoeEstcEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpPortId.setStatus(_A)
+_CfprFabricFcoeEstcEpSlotId_Type=CfprFabricFcoeEstcEpSlotId
+_CfprFabricFcoeEstcEpSlotId_Object=MibTableColumn
+cfprFabricFcoeEstcEpSlotId=_CfprFabricFcoeEstcEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,26),_CfprFabricFcoeEstcEpSlotId_Type())
+cfprFabricFcoeEstcEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpSlotId.setStatus(_A)
+_CfprFabricFcoeEstcEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricFcoeEstcEpSwitchId_Object=MibTableColumn
+cfprFabricFcoeEstcEpSwitchId=_CfprFabricFcoeEstcEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,27),_CfprFabricFcoeEstcEpSwitchId_Type())
+cfprFabricFcoeEstcEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpSwitchId.setStatus(_A)
+_CfprFabricFcoeEstcEpTransport_Type=CfprFabricAFcoeEstcEpTransport
+_CfprFabricFcoeEstcEpTransport_Object=MibTableColumn
+cfprFabricFcoeEstcEpTransport=_CfprFabricFcoeEstcEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,28),_CfprFabricFcoeEstcEpTransport_Type())
+cfprFabricFcoeEstcEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpTransport.setStatus(_A)
+_CfprFabricFcoeEstcEpType_Type=CfprFabricAFcoeEstcEpType
+_CfprFabricFcoeEstcEpType_Object=MibTableColumn
+cfprFabricFcoeEstcEpType=_CfprFabricFcoeEstcEpType_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,29),_CfprFabricFcoeEstcEpType_Type())
+cfprFabricFcoeEstcEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpType.setStatus(_A)
+_CfprFabricFcoeEstcEpUsrLbl_Type=SnmpAdminString
+_CfprFabricFcoeEstcEpUsrLbl_Object=MibTableColumn
+cfprFabricFcoeEstcEpUsrLbl=_CfprFabricFcoeEstcEpUsrLbl_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,30),_CfprFabricFcoeEstcEpUsrLbl_Type())
+cfprFabricFcoeEstcEpUsrLbl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpUsrLbl.setStatus(_A)
+_CfprFabricFcoeEstcEpWarnings_Type=CfprFabricWarnings
+_CfprFabricFcoeEstcEpWarnings_Object=MibTableColumn
+cfprFabricFcoeEstcEpWarnings=_CfprFabricFcoeEstcEpWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,61,1,31),_CfprFabricFcoeEstcEpWarnings_Type())
+cfprFabricFcoeEstcEpWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeEstcEpWarnings.setStatus(_A)
+_CfprFabricFcoeSanEpTable_Object=MibTable
+cfprFabricFcoeSanEpTable=_CfprFabricFcoeSanEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,62))
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpTable.setStatus(_A)
+_CfprFabricFcoeSanEpEntry_Object=MibTableRow
+cfprFabricFcoeSanEpEntry=_CfprFabricFcoeSanEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,62,1))
+cfprFabricFcoeSanEpEntry.setIndexNames((0,_C,_AD))
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpEntry.setStatus(_A)
+_CfprFabricFcoeSanEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcoeSanEpInstanceId_Object=MibTableColumn
+cfprFabricFcoeSanEpInstanceId=_CfprFabricFcoeSanEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,1),_CfprFabricFcoeSanEpInstanceId_Type())
+cfprFabricFcoeSanEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpInstanceId.setStatus(_A)
+_CfprFabricFcoeSanEpDn_Type=CfprManagedObjectDn
+_CfprFabricFcoeSanEpDn_Object=MibTableColumn
+cfprFabricFcoeSanEpDn=_CfprFabricFcoeSanEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,2),_CfprFabricFcoeSanEpDn_Type())
+cfprFabricFcoeSanEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpDn.setStatus(_A)
+_CfprFabricFcoeSanEpRn_Type=SnmpAdminString
+_CfprFabricFcoeSanEpRn_Object=MibTableColumn
+cfprFabricFcoeSanEpRn=_CfprFabricFcoeSanEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,3),_CfprFabricFcoeSanEpRn_Type())
+cfprFabricFcoeSanEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpRn.setStatus(_A)
+_CfprFabricFcoeSanEpAdminState_Type=CfprFabricExternalEpAdminState
+_CfprFabricFcoeSanEpAdminState_Object=MibTableColumn
+cfprFabricFcoeSanEpAdminState=_CfprFabricFcoeSanEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,4),_CfprFabricFcoeSanEpAdminState_Type())
+cfprFabricFcoeSanEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpAdminState.setStatus(_A)
+_CfprFabricFcoeSanEpAggrPortId_Type=Gauge32
+_CfprFabricFcoeSanEpAggrPortId_Object=MibTableColumn
+cfprFabricFcoeSanEpAggrPortId=_CfprFabricFcoeSanEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,5),_CfprFabricFcoeSanEpAggrPortId_Type())
+cfprFabricFcoeSanEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpAggrPortId.setStatus(_A)
+_CfprFabricFcoeSanEpChassisId_Type=Gauge32
+_CfprFabricFcoeSanEpChassisId_Object=MibTableColumn
+cfprFabricFcoeSanEpChassisId=_CfprFabricFcoeSanEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,6),_CfprFabricFcoeSanEpChassisId_Type())
+cfprFabricFcoeSanEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpChassisId.setStatus(_A)
+_CfprFabricFcoeSanEpConfigState_Type=CfprFabricConfigState
+_CfprFabricFcoeSanEpConfigState_Object=MibTableColumn
+cfprFabricFcoeSanEpConfigState=_CfprFabricFcoeSanEpConfigState_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,7),_CfprFabricFcoeSanEpConfigState_Type())
+cfprFabricFcoeSanEpConfigState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpConfigState.setStatus(_A)
+_CfprFabricFcoeSanEpEpDn_Type=SnmpAdminString
+_CfprFabricFcoeSanEpEpDn_Object=MibTableColumn
+cfprFabricFcoeSanEpEpDn=_CfprFabricFcoeSanEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,8),_CfprFabricFcoeSanEpEpDn_Type())
+cfprFabricFcoeSanEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpEpDn.setStatus(_A)
+_CfprFabricFcoeSanEpEthLinkProfileName_Type=SnmpAdminString
+_CfprFabricFcoeSanEpEthLinkProfileName_Object=MibTableColumn
+cfprFabricFcoeSanEpEthLinkProfileName=_CfprFabricFcoeSanEpEthLinkProfileName_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,9),_CfprFabricFcoeSanEpEthLinkProfileName_Type())
+cfprFabricFcoeSanEpEthLinkProfileName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpEthLinkProfileName.setStatus(_A)
+_CfprFabricFcoeSanEpFcoeState_Type=CfprNetworkPortOperState
+_CfprFabricFcoeSanEpFcoeState_Object=MibTableColumn
+cfprFabricFcoeSanEpFcoeState=_CfprFabricFcoeSanEpFcoeState_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,10),_CfprFabricFcoeSanEpFcoeState_Type())
+cfprFabricFcoeSanEpFcoeState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpFcoeState.setStatus(_A)
+_CfprFabricFcoeSanEpFcoeStateReason_Type=SnmpAdminString
+_CfprFabricFcoeSanEpFcoeStateReason_Object=MibTableColumn
+cfprFabricFcoeSanEpFcoeStateReason=_CfprFabricFcoeSanEpFcoeStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,11),_CfprFabricFcoeSanEpFcoeStateReason_Type())
+cfprFabricFcoeSanEpFcoeStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpFcoeStateReason.setStatus(_A)
+_CfprFabricFcoeSanEpFltAggr_Type=Unsigned64
+_CfprFabricFcoeSanEpFltAggr_Object=MibTableColumn
+cfprFabricFcoeSanEpFltAggr=_CfprFabricFcoeSanEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,12),_CfprFabricFcoeSanEpFltAggr_Type())
+cfprFabricFcoeSanEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpFltAggr.setStatus(_A)
+_CfprFabricFcoeSanEpIfRole_Type=CfprFabricSanEpIfRole
+_CfprFabricFcoeSanEpIfRole_Object=MibTableColumn
+cfprFabricFcoeSanEpIfRole=_CfprFabricFcoeSanEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,13),_CfprFabricFcoeSanEpIfRole_Type())
+cfprFabricFcoeSanEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpIfRole.setStatus(_A)
+_CfprFabricFcoeSanEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricFcoeSanEpIfType_Object=MibTableColumn
+cfprFabricFcoeSanEpIfType=_CfprFabricFcoeSanEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,14),_CfprFabricFcoeSanEpIfType_Type())
+cfprFabricFcoeSanEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpIfType.setStatus(_A)
+_CfprFabricFcoeSanEpLicGP_Type=Unsigned64
+_CfprFabricFcoeSanEpLicGP_Object=MibTableColumn
+cfprFabricFcoeSanEpLicGP=_CfprFabricFcoeSanEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,15),_CfprFabricFcoeSanEpLicGP_Type())
+cfprFabricFcoeSanEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpLicGP.setStatus(_A)
+_CfprFabricFcoeSanEpLicState_Type=CfprLicenseState
+_CfprFabricFcoeSanEpLicState_Object=MibTableColumn
+cfprFabricFcoeSanEpLicState=_CfprFabricFcoeSanEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,16),_CfprFabricFcoeSanEpLicState_Type())
+cfprFabricFcoeSanEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpLicState.setStatus(_A)
+_CfprFabricFcoeSanEpLocale_Type=CfprFabricExternalEpLocale
+_CfprFabricFcoeSanEpLocale_Object=MibTableColumn
+cfprFabricFcoeSanEpLocale=_CfprFabricFcoeSanEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,17),_CfprFabricFcoeSanEpLocale_Type())
+cfprFabricFcoeSanEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpLocale.setStatus(_A)
+_CfprFabricFcoeSanEpName_Type=SnmpAdminString
+_CfprFabricFcoeSanEpName_Object=MibTableColumn
+cfprFabricFcoeSanEpName=_CfprFabricFcoeSanEpName_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,18),_CfprFabricFcoeSanEpName_Type())
+cfprFabricFcoeSanEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpName.setStatus(_A)
+_CfprFabricFcoeSanEpOperEthLinkProfileName_Type=SnmpAdminString
+_CfprFabricFcoeSanEpOperEthLinkProfileName_Object=MibTableColumn
+cfprFabricFcoeSanEpOperEthLinkProfileName=_CfprFabricFcoeSanEpOperEthLinkProfileName_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,19),_CfprFabricFcoeSanEpOperEthLinkProfileName_Type())
+cfprFabricFcoeSanEpOperEthLinkProfileName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpOperEthLinkProfileName.setStatus(_A)
+_CfprFabricFcoeSanEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricFcoeSanEpOperState_Object=MibTableColumn
+cfprFabricFcoeSanEpOperState=_CfprFabricFcoeSanEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,20),_CfprFabricFcoeSanEpOperState_Type())
+cfprFabricFcoeSanEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpOperState.setStatus(_A)
+_CfprFabricFcoeSanEpOperStateReason_Type=SnmpAdminString
+_CfprFabricFcoeSanEpOperStateReason_Object=MibTableColumn
+cfprFabricFcoeSanEpOperStateReason=_CfprFabricFcoeSanEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,21),_CfprFabricFcoeSanEpOperStateReason_Type())
+cfprFabricFcoeSanEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpOperStateReason.setStatus(_A)
+_CfprFabricFcoeSanEpPeerAggrPortId_Type=Gauge32
+_CfprFabricFcoeSanEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricFcoeSanEpPeerAggrPortId=_CfprFabricFcoeSanEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,22),_CfprFabricFcoeSanEpPeerAggrPortId_Type())
+cfprFabricFcoeSanEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpPeerAggrPortId.setStatus(_A)
+_CfprFabricFcoeSanEpPeerChassisId_Type=Gauge32
+_CfprFabricFcoeSanEpPeerChassisId_Object=MibTableColumn
+cfprFabricFcoeSanEpPeerChassisId=_CfprFabricFcoeSanEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,23),_CfprFabricFcoeSanEpPeerChassisId_Type())
+cfprFabricFcoeSanEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpPeerChassisId.setStatus(_A)
+_CfprFabricFcoeSanEpPeerDn_Type=SnmpAdminString
+_CfprFabricFcoeSanEpPeerDn_Object=MibTableColumn
+cfprFabricFcoeSanEpPeerDn=_CfprFabricFcoeSanEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,24),_CfprFabricFcoeSanEpPeerDn_Type())
+cfprFabricFcoeSanEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpPeerDn.setStatus(_A)
+_CfprFabricFcoeSanEpPeerPortId_Type=Gauge32
+_CfprFabricFcoeSanEpPeerPortId_Object=MibTableColumn
+cfprFabricFcoeSanEpPeerPortId=_CfprFabricFcoeSanEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,25),_CfprFabricFcoeSanEpPeerPortId_Type())
+cfprFabricFcoeSanEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpPeerPortId.setStatus(_A)
+_CfprFabricFcoeSanEpPeerSlotId_Type=Gauge32
+_CfprFabricFcoeSanEpPeerSlotId_Object=MibTableColumn
+cfprFabricFcoeSanEpPeerSlotId=_CfprFabricFcoeSanEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,26),_CfprFabricFcoeSanEpPeerSlotId_Type())
+cfprFabricFcoeSanEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpPeerSlotId.setStatus(_A)
+_CfprFabricFcoeSanEpPortId_Type=CfprFabricFcoeSanEpPortId
+_CfprFabricFcoeSanEpPortId_Object=MibTableColumn
+cfprFabricFcoeSanEpPortId=_CfprFabricFcoeSanEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,27),_CfprFabricFcoeSanEpPortId_Type())
+cfprFabricFcoeSanEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpPortId.setStatus(_A)
+_CfprFabricFcoeSanEpSlotId_Type=CfprFabricFcoeSanEpSlotId
+_CfprFabricFcoeSanEpSlotId_Object=MibTableColumn
+cfprFabricFcoeSanEpSlotId=_CfprFabricFcoeSanEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,28),_CfprFabricFcoeSanEpSlotId_Type())
+cfprFabricFcoeSanEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpSlotId.setStatus(_A)
+_CfprFabricFcoeSanEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricFcoeSanEpSwitchId_Object=MibTableColumn
+cfprFabricFcoeSanEpSwitchId=_CfprFabricFcoeSanEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,29),_CfprFabricFcoeSanEpSwitchId_Type())
+cfprFabricFcoeSanEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpSwitchId.setStatus(_A)
+_CfprFabricFcoeSanEpTransport_Type=CfprFabricAFcoeSanEpTransport
+_CfprFabricFcoeSanEpTransport_Object=MibTableColumn
+cfprFabricFcoeSanEpTransport=_CfprFabricFcoeSanEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,30),_CfprFabricFcoeSanEpTransport_Type())
+cfprFabricFcoeSanEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpTransport.setStatus(_A)
+_CfprFabricFcoeSanEpType_Type=CfprFabricSanEpType
+_CfprFabricFcoeSanEpType_Object=MibTableColumn
+cfprFabricFcoeSanEpType=_CfprFabricFcoeSanEpType_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,31),_CfprFabricFcoeSanEpType_Type())
+cfprFabricFcoeSanEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpType.setStatus(_A)
+_CfprFabricFcoeSanEpUdldOperState_Type=CfprFabricUdldOperState
+_CfprFabricFcoeSanEpUdldOperState_Object=MibTableColumn
+cfprFabricFcoeSanEpUdldOperState=_CfprFabricFcoeSanEpUdldOperState_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,32),_CfprFabricFcoeSanEpUdldOperState_Type())
+cfprFabricFcoeSanEpUdldOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpUdldOperState.setStatus(_A)
+_CfprFabricFcoeSanEpUsrLbl_Type=SnmpAdminString
+_CfprFabricFcoeSanEpUsrLbl_Object=MibTableColumn
+cfprFabricFcoeSanEpUsrLbl=_CfprFabricFcoeSanEpUsrLbl_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,33),_CfprFabricFcoeSanEpUsrLbl_Type())
+cfprFabricFcoeSanEpUsrLbl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpUsrLbl.setStatus(_A)
+_CfprFabricFcoeSanEpWarnings_Type=CfprFabricWarnings
+_CfprFabricFcoeSanEpWarnings_Object=MibTableColumn
+cfprFabricFcoeSanEpWarnings=_CfprFabricFcoeSanEpWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,62,1,34),_CfprFabricFcoeSanEpWarnings_Type())
+cfprFabricFcoeSanEpWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanEpWarnings.setStatus(_A)
+_CfprFabricFcoeSanPcTable_Object=MibTable
+cfprFabricFcoeSanPcTable=_CfprFabricFcoeSanPcTable_Object((1,3,6,1,4,1,9,9,826,1,26,63))
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcTable.setStatus(_A)
+_CfprFabricFcoeSanPcEntry_Object=MibTableRow
+cfprFabricFcoeSanPcEntry=_CfprFabricFcoeSanPcEntry_Object((1,3,6,1,4,1,9,9,826,1,26,63,1))
+cfprFabricFcoeSanPcEntry.setIndexNames((0,_C,_AE))
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEntry.setStatus(_A)
+_CfprFabricFcoeSanPcInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcoeSanPcInstanceId_Object=MibTableColumn
+cfprFabricFcoeSanPcInstanceId=_CfprFabricFcoeSanPcInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,1),_CfprFabricFcoeSanPcInstanceId_Type())
+cfprFabricFcoeSanPcInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcInstanceId.setStatus(_A)
+_CfprFabricFcoeSanPcDn_Type=CfprManagedObjectDn
+_CfprFabricFcoeSanPcDn_Object=MibTableColumn
+cfprFabricFcoeSanPcDn=_CfprFabricFcoeSanPcDn_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,2),_CfprFabricFcoeSanPcDn_Type())
+cfprFabricFcoeSanPcDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcDn.setStatus(_A)
+_CfprFabricFcoeSanPcRn_Type=SnmpAdminString
+_CfprFabricFcoeSanPcRn_Object=MibTableColumn
+cfprFabricFcoeSanPcRn=_CfprFabricFcoeSanPcRn_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,3),_CfprFabricFcoeSanPcRn_Type())
+cfprFabricFcoeSanPcRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcRn.setStatus(_A)
+_CfprFabricFcoeSanPcAdminState_Type=CfprFabricCIoEpAdminState
+_CfprFabricFcoeSanPcAdminState_Object=MibTableColumn
+cfprFabricFcoeSanPcAdminState=_CfprFabricFcoeSanPcAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,4),_CfprFabricFcoeSanPcAdminState_Type())
+cfprFabricFcoeSanPcAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcAdminState.setStatus(_A)
+_CfprFabricFcoeSanPcConfigState_Type=CfprFabricConfigState
+_CfprFabricFcoeSanPcConfigState_Object=MibTableColumn
+cfprFabricFcoeSanPcConfigState=_CfprFabricFcoeSanPcConfigState_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,5),_CfprFabricFcoeSanPcConfigState_Type())
+cfprFabricFcoeSanPcConfigState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcConfigState.setStatus(_A)
+_CfprFabricFcoeSanPcDescr_Type=SnmpAdminString
+_CfprFabricFcoeSanPcDescr_Object=MibTableColumn
+cfprFabricFcoeSanPcDescr=_CfprFabricFcoeSanPcDescr_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,6),_CfprFabricFcoeSanPcDescr_Type())
+cfprFabricFcoeSanPcDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcDescr.setStatus(_A)
+_CfprFabricFcoeSanPcEpDn_Type=SnmpAdminString
+_CfprFabricFcoeSanPcEpDn_Object=MibTableColumn
+cfprFabricFcoeSanPcEpDn=_CfprFabricFcoeSanPcEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,7),_CfprFabricFcoeSanPcEpDn_Type())
+cfprFabricFcoeSanPcEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpDn.setStatus(_A)
+_CfprFabricFcoeSanPcFcoeState_Type=CfprNetworkPortOperState
+_CfprFabricFcoeSanPcFcoeState_Object=MibTableColumn
+cfprFabricFcoeSanPcFcoeState=_CfprFabricFcoeSanPcFcoeState_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,8),_CfprFabricFcoeSanPcFcoeState_Type())
+cfprFabricFcoeSanPcFcoeState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcFcoeState.setStatus(_A)
+_CfprFabricFcoeSanPcFcoeStateReason_Type=SnmpAdminString
+_CfprFabricFcoeSanPcFcoeStateReason_Object=MibTableColumn
+cfprFabricFcoeSanPcFcoeStateReason=_CfprFabricFcoeSanPcFcoeStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,9),_CfprFabricFcoeSanPcFcoeStateReason_Type())
+cfprFabricFcoeSanPcFcoeStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcFcoeStateReason.setStatus(_A)
+_CfprFabricFcoeSanPcFltAggr_Type=Unsigned64
+_CfprFabricFcoeSanPcFltAggr_Object=MibTableColumn
+cfprFabricFcoeSanPcFltAggr=_CfprFabricFcoeSanPcFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,10),_CfprFabricFcoeSanPcFltAggr_Type())
+cfprFabricFcoeSanPcFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcFltAggr.setStatus(_A)
+_CfprFabricFcoeSanPcIfRole_Type=CfprFabricSanPcIfRole
+_CfprFabricFcoeSanPcIfRole_Object=MibTableColumn
+cfprFabricFcoeSanPcIfRole=_CfprFabricFcoeSanPcIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,11),_CfprFabricFcoeSanPcIfRole_Type())
+cfprFabricFcoeSanPcIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcIfRole.setStatus(_A)
+_CfprFabricFcoeSanPcIfType_Type=CfprFabricCIoEpIfType
+_CfprFabricFcoeSanPcIfType_Object=MibTableColumn
+cfprFabricFcoeSanPcIfType=_CfprFabricFcoeSanPcIfType_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,12),_CfprFabricFcoeSanPcIfType_Type())
+cfprFabricFcoeSanPcIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcIfType.setStatus(_A)
+_CfprFabricFcoeSanPcLacpPolicyName_Type=SnmpAdminString
+_CfprFabricFcoeSanPcLacpPolicyName_Object=MibTableColumn
+cfprFabricFcoeSanPcLacpPolicyName=_CfprFabricFcoeSanPcLacpPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,13),_CfprFabricFcoeSanPcLacpPolicyName_Type())
+cfprFabricFcoeSanPcLacpPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcLacpPolicyName.setStatus(_A)
+_CfprFabricFcoeSanPcLocale_Type=CfprFabricExternalPcLocale
+_CfprFabricFcoeSanPcLocale_Object=MibTableColumn
+cfprFabricFcoeSanPcLocale=_CfprFabricFcoeSanPcLocale_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,14),_CfprFabricFcoeSanPcLocale_Type())
+cfprFabricFcoeSanPcLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcLocale.setStatus(_A)
+_CfprFabricFcoeSanPcName_Type=SnmpAdminString
+_CfprFabricFcoeSanPcName_Object=MibTableColumn
+cfprFabricFcoeSanPcName=_CfprFabricFcoeSanPcName_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,15),_CfprFabricFcoeSanPcName_Type())
+cfprFabricFcoeSanPcName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcName.setStatus(_A)
+_CfprFabricFcoeSanPcOperLacpPolicyName_Type=SnmpAdminString
+_CfprFabricFcoeSanPcOperLacpPolicyName_Object=MibTableColumn
+cfprFabricFcoeSanPcOperLacpPolicyName=_CfprFabricFcoeSanPcOperLacpPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,16),_CfprFabricFcoeSanPcOperLacpPolicyName_Type())
+cfprFabricFcoeSanPcOperLacpPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcOperLacpPolicyName.setStatus(_A)
+_CfprFabricFcoeSanPcOperState_Type=CfprNetworkPortOperState
+_CfprFabricFcoeSanPcOperState_Object=MibTableColumn
+cfprFabricFcoeSanPcOperState=_CfprFabricFcoeSanPcOperState_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,17),_CfprFabricFcoeSanPcOperState_Type())
+cfprFabricFcoeSanPcOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcOperState.setStatus(_A)
+_CfprFabricFcoeSanPcPeerDn_Type=SnmpAdminString
+_CfprFabricFcoeSanPcPeerDn_Object=MibTableColumn
+cfprFabricFcoeSanPcPeerDn=_CfprFabricFcoeSanPcPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,18),_CfprFabricFcoeSanPcPeerDn_Type())
+cfprFabricFcoeSanPcPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcPeerDn.setStatus(_A)
+_CfprFabricFcoeSanPcPortId_Type=Gauge32
+_CfprFabricFcoeSanPcPortId_Object=MibTableColumn
+cfprFabricFcoeSanPcPortId=_CfprFabricFcoeSanPcPortId_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,19),_CfprFabricFcoeSanPcPortId_Type())
+cfprFabricFcoeSanPcPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcPortId.setStatus(_A)
+_CfprFabricFcoeSanPcStateQual_Type=SnmpAdminString
+_CfprFabricFcoeSanPcStateQual_Object=MibTableColumn
+cfprFabricFcoeSanPcStateQual=_CfprFabricFcoeSanPcStateQual_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,20),_CfprFabricFcoeSanPcStateQual_Type())
+cfprFabricFcoeSanPcStateQual.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcStateQual.setStatus(_A)
+_CfprFabricFcoeSanPcSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricFcoeSanPcSwitchId_Object=MibTableColumn
+cfprFabricFcoeSanPcSwitchId=_CfprFabricFcoeSanPcSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,21),_CfprFabricFcoeSanPcSwitchId_Type())
+cfprFabricFcoeSanPcSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcSwitchId.setStatus(_A)
+_CfprFabricFcoeSanPcTransport_Type=CfprFabricFcoeSanPcTransport
+_CfprFabricFcoeSanPcTransport_Object=MibTableColumn
+cfprFabricFcoeSanPcTransport=_CfprFabricFcoeSanPcTransport_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,22),_CfprFabricFcoeSanPcTransport_Type())
+cfprFabricFcoeSanPcTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcTransport.setStatus(_A)
+_CfprFabricFcoeSanPcType_Type=CfprFabricSanPcType
+_CfprFabricFcoeSanPcType_Object=MibTableColumn
+cfprFabricFcoeSanPcType=_CfprFabricFcoeSanPcType_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,23),_CfprFabricFcoeSanPcType_Type())
+cfprFabricFcoeSanPcType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcType.setStatus(_A)
+_CfprFabricFcoeSanPcWarnings_Type=CfprFabricWarnings
+_CfprFabricFcoeSanPcWarnings_Object=MibTableColumn
+cfprFabricFcoeSanPcWarnings=_CfprFabricFcoeSanPcWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,63,1,24),_CfprFabricFcoeSanPcWarnings_Type())
+cfprFabricFcoeSanPcWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcWarnings.setStatus(_A)
+_CfprFabricFcoeSanPcEpTable_Object=MibTable
+cfprFabricFcoeSanPcEpTable=_CfprFabricFcoeSanPcEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,64))
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpTable.setStatus(_A)
+_CfprFabricFcoeSanPcEpEntry_Object=MibTableRow
+cfprFabricFcoeSanPcEpEntry=_CfprFabricFcoeSanPcEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,64,1))
+cfprFabricFcoeSanPcEpEntry.setIndexNames((0,_C,_AF))
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpEntry.setStatus(_A)
+_CfprFabricFcoeSanPcEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcoeSanPcEpInstanceId_Object=MibTableColumn
+cfprFabricFcoeSanPcEpInstanceId=_CfprFabricFcoeSanPcEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,1),_CfprFabricFcoeSanPcEpInstanceId_Type())
+cfprFabricFcoeSanPcEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpInstanceId.setStatus(_A)
+_CfprFabricFcoeSanPcEpDnData_Type=CfprManagedObjectDn
+_CfprFabricFcoeSanPcEpDnData_Object=MibTableColumn
+cfprFabricFcoeSanPcEpDnData=_CfprFabricFcoeSanPcEpDnData_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,2),_CfprFabricFcoeSanPcEpDnData_Type())
+cfprFabricFcoeSanPcEpDnData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpDnData.setStatus(_A)
+_CfprFabricFcoeSanPcEpRn_Type=SnmpAdminString
+_CfprFabricFcoeSanPcEpRn_Object=MibTableColumn
+cfprFabricFcoeSanPcEpRn=_CfprFabricFcoeSanPcEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,3),_CfprFabricFcoeSanPcEpRn_Type())
+cfprFabricFcoeSanPcEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpRn.setStatus(_A)
+_CfprFabricFcoeSanPcEpAdminState_Type=CfprFabricExternalEpAdminState
+_CfprFabricFcoeSanPcEpAdminState_Object=MibTableColumn
+cfprFabricFcoeSanPcEpAdminState=_CfprFabricFcoeSanPcEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,4),_CfprFabricFcoeSanPcEpAdminState_Type())
+cfprFabricFcoeSanPcEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpAdminState.setStatus(_A)
+_CfprFabricFcoeSanPcEpAggrPortId_Type=Gauge32
+_CfprFabricFcoeSanPcEpAggrPortId_Object=MibTableColumn
+cfprFabricFcoeSanPcEpAggrPortId=_CfprFabricFcoeSanPcEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,5),_CfprFabricFcoeSanPcEpAggrPortId_Type())
+cfprFabricFcoeSanPcEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpAggrPortId.setStatus(_A)
+_CfprFabricFcoeSanPcEpChassisId_Type=Gauge32
+_CfprFabricFcoeSanPcEpChassisId_Object=MibTableColumn
+cfprFabricFcoeSanPcEpChassisId=_CfprFabricFcoeSanPcEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,6),_CfprFabricFcoeSanPcEpChassisId_Type())
+cfprFabricFcoeSanPcEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpChassisId.setStatus(_A)
+_CfprFabricFcoeSanPcEpEpDn_Type=SnmpAdminString
+_CfprFabricFcoeSanPcEpEpDn_Object=MibTableColumn
+cfprFabricFcoeSanPcEpEpDn=_CfprFabricFcoeSanPcEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,7),_CfprFabricFcoeSanPcEpEpDn_Type())
+cfprFabricFcoeSanPcEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpEpDn.setStatus(_A)
+_CfprFabricFcoeSanPcEpEthLinkProfileName_Type=SnmpAdminString
+_CfprFabricFcoeSanPcEpEthLinkProfileName_Object=MibTableColumn
+cfprFabricFcoeSanPcEpEthLinkProfileName=_CfprFabricFcoeSanPcEpEthLinkProfileName_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,8),_CfprFabricFcoeSanPcEpEthLinkProfileName_Type())
+cfprFabricFcoeSanPcEpEthLinkProfileName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpEthLinkProfileName.setStatus(_A)
+_CfprFabricFcoeSanPcEpFltAggr_Type=Unsigned64
+_CfprFabricFcoeSanPcEpFltAggr_Object=MibTableColumn
+cfprFabricFcoeSanPcEpFltAggr=_CfprFabricFcoeSanPcEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,9),_CfprFabricFcoeSanPcEpFltAggr_Type())
+cfprFabricFcoeSanPcEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpFltAggr.setStatus(_A)
+_CfprFabricFcoeSanPcEpIfRole_Type=CfprFabricSanEpIfRole
+_CfprFabricFcoeSanPcEpIfRole_Object=MibTableColumn
+cfprFabricFcoeSanPcEpIfRole=_CfprFabricFcoeSanPcEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,10),_CfprFabricFcoeSanPcEpIfRole_Type())
+cfprFabricFcoeSanPcEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpIfRole.setStatus(_A)
+_CfprFabricFcoeSanPcEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricFcoeSanPcEpIfType_Object=MibTableColumn
+cfprFabricFcoeSanPcEpIfType=_CfprFabricFcoeSanPcEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,11),_CfprFabricFcoeSanPcEpIfType_Type())
+cfprFabricFcoeSanPcEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpIfType.setStatus(_A)
+_CfprFabricFcoeSanPcEpLicGP_Type=Unsigned64
+_CfprFabricFcoeSanPcEpLicGP_Object=MibTableColumn
+cfprFabricFcoeSanPcEpLicGP=_CfprFabricFcoeSanPcEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,12),_CfprFabricFcoeSanPcEpLicGP_Type())
+cfprFabricFcoeSanPcEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpLicGP.setStatus(_A)
+_CfprFabricFcoeSanPcEpLicState_Type=CfprLicenseState
+_CfprFabricFcoeSanPcEpLicState_Object=MibTableColumn
+cfprFabricFcoeSanPcEpLicState=_CfprFabricFcoeSanPcEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,13),_CfprFabricFcoeSanPcEpLicState_Type())
+cfprFabricFcoeSanPcEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpLicState.setStatus(_A)
+_CfprFabricFcoeSanPcEpLocale_Type=CfprFabricExternalEpLocale
+_CfprFabricFcoeSanPcEpLocale_Object=MibTableColumn
+cfprFabricFcoeSanPcEpLocale=_CfprFabricFcoeSanPcEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,14),_CfprFabricFcoeSanPcEpLocale_Type())
+cfprFabricFcoeSanPcEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpLocale.setStatus(_A)
+_CfprFabricFcoeSanPcEpMembership_Type=CfprFabricMembershipStatus
+_CfprFabricFcoeSanPcEpMembership_Object=MibTableColumn
+cfprFabricFcoeSanPcEpMembership=_CfprFabricFcoeSanPcEpMembership_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,15),_CfprFabricFcoeSanPcEpMembership_Type())
+cfprFabricFcoeSanPcEpMembership.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpMembership.setStatus(_A)
+_CfprFabricFcoeSanPcEpName_Type=SnmpAdminString
+_CfprFabricFcoeSanPcEpName_Object=MibTableColumn
+cfprFabricFcoeSanPcEpName=_CfprFabricFcoeSanPcEpName_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,16),_CfprFabricFcoeSanPcEpName_Type())
+cfprFabricFcoeSanPcEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpName.setStatus(_A)
+_CfprFabricFcoeSanPcEpOperEthLinkProfileName_Type=SnmpAdminString
+_CfprFabricFcoeSanPcEpOperEthLinkProfileName_Object=MibTableColumn
+cfprFabricFcoeSanPcEpOperEthLinkProfileName=_CfprFabricFcoeSanPcEpOperEthLinkProfileName_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,17),_CfprFabricFcoeSanPcEpOperEthLinkProfileName_Type())
+cfprFabricFcoeSanPcEpOperEthLinkProfileName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpOperEthLinkProfileName.setStatus(_A)
+_CfprFabricFcoeSanPcEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricFcoeSanPcEpOperState_Object=MibTableColumn
+cfprFabricFcoeSanPcEpOperState=_CfprFabricFcoeSanPcEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,18),_CfprFabricFcoeSanPcEpOperState_Type())
+cfprFabricFcoeSanPcEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpOperState.setStatus(_A)
+_CfprFabricFcoeSanPcEpOperStateReason_Type=SnmpAdminString
+_CfprFabricFcoeSanPcEpOperStateReason_Object=MibTableColumn
+cfprFabricFcoeSanPcEpOperStateReason=_CfprFabricFcoeSanPcEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,19),_CfprFabricFcoeSanPcEpOperStateReason_Type())
+cfprFabricFcoeSanPcEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpOperStateReason.setStatus(_A)
+_CfprFabricFcoeSanPcEpPeerAggrPortId_Type=Gauge32
+_CfprFabricFcoeSanPcEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricFcoeSanPcEpPeerAggrPortId=_CfprFabricFcoeSanPcEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,20),_CfprFabricFcoeSanPcEpPeerAggrPortId_Type())
+cfprFabricFcoeSanPcEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpPeerAggrPortId.setStatus(_A)
+_CfprFabricFcoeSanPcEpPeerChassisId_Type=Gauge32
+_CfprFabricFcoeSanPcEpPeerChassisId_Object=MibTableColumn
+cfprFabricFcoeSanPcEpPeerChassisId=_CfprFabricFcoeSanPcEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,21),_CfprFabricFcoeSanPcEpPeerChassisId_Type())
+cfprFabricFcoeSanPcEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpPeerChassisId.setStatus(_A)
+_CfprFabricFcoeSanPcEpPeerDn_Type=SnmpAdminString
+_CfprFabricFcoeSanPcEpPeerDn_Object=MibTableColumn
+cfprFabricFcoeSanPcEpPeerDn=_CfprFabricFcoeSanPcEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,22),_CfprFabricFcoeSanPcEpPeerDn_Type())
+cfprFabricFcoeSanPcEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpPeerDn.setStatus(_A)
+_CfprFabricFcoeSanPcEpPeerPortId_Type=Gauge32
+_CfprFabricFcoeSanPcEpPeerPortId_Object=MibTableColumn
+cfprFabricFcoeSanPcEpPeerPortId=_CfprFabricFcoeSanPcEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,23),_CfprFabricFcoeSanPcEpPeerPortId_Type())
+cfprFabricFcoeSanPcEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpPeerPortId.setStatus(_A)
+_CfprFabricFcoeSanPcEpPeerSlotId_Type=Gauge32
+_CfprFabricFcoeSanPcEpPeerSlotId_Object=MibTableColumn
+cfprFabricFcoeSanPcEpPeerSlotId=_CfprFabricFcoeSanPcEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,24),_CfprFabricFcoeSanPcEpPeerSlotId_Type())
+cfprFabricFcoeSanPcEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpPeerSlotId.setStatus(_A)
+_CfprFabricFcoeSanPcEpPortId_Type=CfprFabricFcoeSanPcEpPortId
+_CfprFabricFcoeSanPcEpPortId_Object=MibTableColumn
+cfprFabricFcoeSanPcEpPortId=_CfprFabricFcoeSanPcEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,25),_CfprFabricFcoeSanPcEpPortId_Type())
+cfprFabricFcoeSanPcEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpPortId.setStatus(_A)
+_CfprFabricFcoeSanPcEpSlotId_Type=CfprFabricFcoeSanPcEpSlotId
+_CfprFabricFcoeSanPcEpSlotId_Object=MibTableColumn
+cfprFabricFcoeSanPcEpSlotId=_CfprFabricFcoeSanPcEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,26),_CfprFabricFcoeSanPcEpSlotId_Type())
+cfprFabricFcoeSanPcEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpSlotId.setStatus(_A)
+_CfprFabricFcoeSanPcEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricFcoeSanPcEpSwitchId_Object=MibTableColumn
+cfprFabricFcoeSanPcEpSwitchId=_CfprFabricFcoeSanPcEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,27),_CfprFabricFcoeSanPcEpSwitchId_Type())
+cfprFabricFcoeSanPcEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpSwitchId.setStatus(_A)
+_CfprFabricFcoeSanPcEpTransport_Type=CfprFabricAFcoeSanEpTransport
+_CfprFabricFcoeSanPcEpTransport_Object=MibTableColumn
+cfprFabricFcoeSanPcEpTransport=_CfprFabricFcoeSanPcEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,28),_CfprFabricFcoeSanPcEpTransport_Type())
+cfprFabricFcoeSanPcEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpTransport.setStatus(_A)
+_CfprFabricFcoeSanPcEpType_Type=CfprFabricSanEpType
+_CfprFabricFcoeSanPcEpType_Object=MibTableColumn
+cfprFabricFcoeSanPcEpType=_CfprFabricFcoeSanPcEpType_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,29),_CfprFabricFcoeSanPcEpType_Type())
+cfprFabricFcoeSanPcEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpType.setStatus(_A)
+_CfprFabricFcoeSanPcEpUdldOperState_Type=CfprFabricUdldOperState
+_CfprFabricFcoeSanPcEpUdldOperState_Object=MibTableColumn
+cfprFabricFcoeSanPcEpUdldOperState=_CfprFabricFcoeSanPcEpUdldOperState_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,30),_CfprFabricFcoeSanPcEpUdldOperState_Type())
+cfprFabricFcoeSanPcEpUdldOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpUdldOperState.setStatus(_A)
+_CfprFabricFcoeSanPcEpWarnings_Type=CfprFabricWarnings
+_CfprFabricFcoeSanPcEpWarnings_Object=MibTableColumn
+cfprFabricFcoeSanPcEpWarnings=_CfprFabricFcoeSanPcEpWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,64,1,31),_CfprFabricFcoeSanPcEpWarnings_Type())
+cfprFabricFcoeSanPcEpWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeSanPcEpWarnings.setStatus(_A)
+_CfprFabricFcoeVsanPcTable_Object=MibTable
+cfprFabricFcoeVsanPcTable=_CfprFabricFcoeVsanPcTable_Object((1,3,6,1,4,1,9,9,826,1,26,65))
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcTable.setStatus(_A)
+_CfprFabricFcoeVsanPcEntry_Object=MibTableRow
+cfprFabricFcoeVsanPcEntry=_CfprFabricFcoeVsanPcEntry_Object((1,3,6,1,4,1,9,9,826,1,26,65,1))
+cfprFabricFcoeVsanPcEntry.setIndexNames((0,_C,_AG))
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcEntry.setStatus(_A)
+_CfprFabricFcoeVsanPcInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcoeVsanPcInstanceId_Object=MibTableColumn
+cfprFabricFcoeVsanPcInstanceId=_CfprFabricFcoeVsanPcInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,1),_CfprFabricFcoeVsanPcInstanceId_Type())
+cfprFabricFcoeVsanPcInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcInstanceId.setStatus(_A)
+_CfprFabricFcoeVsanPcDn_Type=CfprManagedObjectDn
+_CfprFabricFcoeVsanPcDn_Object=MibTableColumn
+cfprFabricFcoeVsanPcDn=_CfprFabricFcoeVsanPcDn_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,2),_CfprFabricFcoeVsanPcDn_Type())
+cfprFabricFcoeVsanPcDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcDn.setStatus(_A)
+_CfprFabricFcoeVsanPcRn_Type=SnmpAdminString
+_CfprFabricFcoeVsanPcRn_Object=MibTableColumn
+cfprFabricFcoeVsanPcRn=_CfprFabricFcoeVsanPcRn_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,3),_CfprFabricFcoeVsanPcRn_Type())
+cfprFabricFcoeVsanPcRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcRn.setStatus(_A)
+_CfprFabricFcoeVsanPcAdminState_Type=CfprFabricCIoEpAdminState
+_CfprFabricFcoeVsanPcAdminState_Object=MibTableColumn
+cfprFabricFcoeVsanPcAdminState=_CfprFabricFcoeVsanPcAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,4),_CfprFabricFcoeVsanPcAdminState_Type())
+cfprFabricFcoeVsanPcAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcAdminState.setStatus(_A)
+_CfprFabricFcoeVsanPcDescr_Type=SnmpAdminString
+_CfprFabricFcoeVsanPcDescr_Object=MibTableColumn
+cfprFabricFcoeVsanPcDescr=_CfprFabricFcoeVsanPcDescr_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,5),_CfprFabricFcoeVsanPcDescr_Type())
+cfprFabricFcoeVsanPcDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcDescr.setStatus(_A)
+_CfprFabricFcoeVsanPcEpDn_Type=SnmpAdminString
+_CfprFabricFcoeVsanPcEpDn_Object=MibTableColumn
+cfprFabricFcoeVsanPcEpDn=_CfprFabricFcoeVsanPcEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,6),_CfprFabricFcoeVsanPcEpDn_Type())
+cfprFabricFcoeVsanPcEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcEpDn.setStatus(_A)
+_CfprFabricFcoeVsanPcFltAggr_Type=Unsigned64
+_CfprFabricFcoeVsanPcFltAggr_Object=MibTableColumn
+cfprFabricFcoeVsanPcFltAggr=_CfprFabricFcoeVsanPcFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,7),_CfprFabricFcoeVsanPcFltAggr_Type())
+cfprFabricFcoeVsanPcFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcFltAggr.setStatus(_A)
+_CfprFabricFcoeVsanPcIfRole_Type=CfprFabricSanPcIfRole
+_CfprFabricFcoeVsanPcIfRole_Object=MibTableColumn
+cfprFabricFcoeVsanPcIfRole=_CfprFabricFcoeVsanPcIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,8),_CfprFabricFcoeVsanPcIfRole_Type())
+cfprFabricFcoeVsanPcIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcIfRole.setStatus(_A)
+_CfprFabricFcoeVsanPcIfType_Type=CfprFabricCIoEpIfType
+_CfprFabricFcoeVsanPcIfType_Object=MibTableColumn
+cfprFabricFcoeVsanPcIfType=_CfprFabricFcoeVsanPcIfType_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,9),_CfprFabricFcoeVsanPcIfType_Type())
+cfprFabricFcoeVsanPcIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcIfType.setStatus(_A)
+_CfprFabricFcoeVsanPcLocale_Type=CfprFabricExternalPcLocale
+_CfprFabricFcoeVsanPcLocale_Object=MibTableColumn
+cfprFabricFcoeVsanPcLocale=_CfprFabricFcoeVsanPcLocale_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,10),_CfprFabricFcoeVsanPcLocale_Type())
+cfprFabricFcoeVsanPcLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcLocale.setStatus(_A)
+_CfprFabricFcoeVsanPcName_Type=SnmpAdminString
+_CfprFabricFcoeVsanPcName_Object=MibTableColumn
+cfprFabricFcoeVsanPcName=_CfprFabricFcoeVsanPcName_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,11),_CfprFabricFcoeVsanPcName_Type())
+cfprFabricFcoeVsanPcName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcName.setStatus(_A)
+_CfprFabricFcoeVsanPcOperState_Type=CfprNetworkPortOperState
+_CfprFabricFcoeVsanPcOperState_Object=MibTableColumn
+cfprFabricFcoeVsanPcOperState=_CfprFabricFcoeVsanPcOperState_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,12),_CfprFabricFcoeVsanPcOperState_Type())
+cfprFabricFcoeVsanPcOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcOperState.setStatus(_A)
+_CfprFabricFcoeVsanPcPeerDn_Type=SnmpAdminString
+_CfprFabricFcoeVsanPcPeerDn_Object=MibTableColumn
+cfprFabricFcoeVsanPcPeerDn=_CfprFabricFcoeVsanPcPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,13),_CfprFabricFcoeVsanPcPeerDn_Type())
+cfprFabricFcoeVsanPcPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcPeerDn.setStatus(_A)
+_CfprFabricFcoeVsanPcPortId_Type=Gauge32
+_CfprFabricFcoeVsanPcPortId_Object=MibTableColumn
+cfprFabricFcoeVsanPcPortId=_CfprFabricFcoeVsanPcPortId_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,14),_CfprFabricFcoeVsanPcPortId_Type())
+cfprFabricFcoeVsanPcPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcPortId.setStatus(_A)
+_CfprFabricFcoeVsanPcStateQual_Type=SnmpAdminString
+_CfprFabricFcoeVsanPcStateQual_Object=MibTableColumn
+cfprFabricFcoeVsanPcStateQual=_CfprFabricFcoeVsanPcStateQual_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,15),_CfprFabricFcoeVsanPcStateQual_Type())
+cfprFabricFcoeVsanPcStateQual.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcStateQual.setStatus(_A)
+_CfprFabricFcoeVsanPcSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricFcoeVsanPcSwitchId_Object=MibTableColumn
+cfprFabricFcoeVsanPcSwitchId=_CfprFabricFcoeVsanPcSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,16),_CfprFabricFcoeVsanPcSwitchId_Type())
+cfprFabricFcoeVsanPcSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcSwitchId.setStatus(_A)
+_CfprFabricFcoeVsanPcTransport_Type=CfprFabricFcoeVsanPcTransport
+_CfprFabricFcoeVsanPcTransport_Object=MibTableColumn
+cfprFabricFcoeVsanPcTransport=_CfprFabricFcoeVsanPcTransport_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,17),_CfprFabricFcoeVsanPcTransport_Type())
+cfprFabricFcoeVsanPcTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcTransport.setStatus(_A)
+_CfprFabricFcoeVsanPcType_Type=CfprFabricSanPcType
+_CfprFabricFcoeVsanPcType_Object=MibTableColumn
+cfprFabricFcoeVsanPcType=_CfprFabricFcoeVsanPcType_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,18),_CfprFabricFcoeVsanPcType_Type())
+cfprFabricFcoeVsanPcType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcType.setStatus(_A)
+_CfprFabricFcoeVsanPcWarnings_Type=CfprFabricWarnings
+_CfprFabricFcoeVsanPcWarnings_Object=MibTableColumn
+cfprFabricFcoeVsanPcWarnings=_CfprFabricFcoeVsanPcWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,65,1,19),_CfprFabricFcoeVsanPcWarnings_Type())
+cfprFabricFcoeVsanPcWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPcWarnings.setStatus(_A)
+_CfprFabricFcoeVsanPortEpTable_Object=MibTable
+cfprFabricFcoeVsanPortEpTable=_CfprFabricFcoeVsanPortEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,66))
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpTable.setStatus(_A)
+_CfprFabricFcoeVsanPortEpEntry_Object=MibTableRow
+cfprFabricFcoeVsanPortEpEntry=_CfprFabricFcoeVsanPortEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,66,1))
+cfprFabricFcoeVsanPortEpEntry.setIndexNames((0,_C,_AH))
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpEntry.setStatus(_A)
+_CfprFabricFcoeVsanPortEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricFcoeVsanPortEpInstanceId_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpInstanceId=_CfprFabricFcoeVsanPortEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,1),_CfprFabricFcoeVsanPortEpInstanceId_Type())
+cfprFabricFcoeVsanPortEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpInstanceId.setStatus(_A)
+_CfprFabricFcoeVsanPortEpDn_Type=CfprManagedObjectDn
+_CfprFabricFcoeVsanPortEpDn_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpDn=_CfprFabricFcoeVsanPortEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,2),_CfprFabricFcoeVsanPortEpDn_Type())
+cfprFabricFcoeVsanPortEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpDn.setStatus(_A)
+_CfprFabricFcoeVsanPortEpRn_Type=SnmpAdminString
+_CfprFabricFcoeVsanPortEpRn_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpRn=_CfprFabricFcoeVsanPortEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,3),_CfprFabricFcoeVsanPortEpRn_Type())
+cfprFabricFcoeVsanPortEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpRn.setStatus(_A)
+_CfprFabricFcoeVsanPortEpAdminState_Type=CfprFabricExternalEpAdminState
+_CfprFabricFcoeVsanPortEpAdminState_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpAdminState=_CfprFabricFcoeVsanPortEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,4),_CfprFabricFcoeVsanPortEpAdminState_Type())
+cfprFabricFcoeVsanPortEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpAdminState.setStatus(_A)
+_CfprFabricFcoeVsanPortEpAggrPortId_Type=Gauge32
+_CfprFabricFcoeVsanPortEpAggrPortId_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpAggrPortId=_CfprFabricFcoeVsanPortEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,5),_CfprFabricFcoeVsanPortEpAggrPortId_Type())
+cfprFabricFcoeVsanPortEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpAggrPortId.setStatus(_A)
+_CfprFabricFcoeVsanPortEpChassisId_Type=Gauge32
+_CfprFabricFcoeVsanPortEpChassisId_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpChassisId=_CfprFabricFcoeVsanPortEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,6),_CfprFabricFcoeVsanPortEpChassisId_Type())
+cfprFabricFcoeVsanPortEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpChassisId.setStatus(_A)
+_CfprFabricFcoeVsanPortEpEpDn_Type=SnmpAdminString
+_CfprFabricFcoeVsanPortEpEpDn_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpEpDn=_CfprFabricFcoeVsanPortEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,7),_CfprFabricFcoeVsanPortEpEpDn_Type())
+cfprFabricFcoeVsanPortEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpEpDn.setStatus(_A)
+_CfprFabricFcoeVsanPortEpFltAggr_Type=Unsigned64
+_CfprFabricFcoeVsanPortEpFltAggr_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpFltAggr=_CfprFabricFcoeVsanPortEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,8),_CfprFabricFcoeVsanPortEpFltAggr_Type())
+cfprFabricFcoeVsanPortEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpFltAggr.setStatus(_A)
+_CfprFabricFcoeVsanPortEpIfRole_Type=CfprFabricSanEpIfRole
+_CfprFabricFcoeVsanPortEpIfRole_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpIfRole=_CfprFabricFcoeVsanPortEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,9),_CfprFabricFcoeVsanPortEpIfRole_Type())
+cfprFabricFcoeVsanPortEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpIfRole.setStatus(_A)
+_CfprFabricFcoeVsanPortEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricFcoeVsanPortEpIfType_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpIfType=_CfprFabricFcoeVsanPortEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,10),_CfprFabricFcoeVsanPortEpIfType_Type())
+cfprFabricFcoeVsanPortEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpIfType.setStatus(_A)
+_CfprFabricFcoeVsanPortEpLicGP_Type=Unsigned64
+_CfprFabricFcoeVsanPortEpLicGP_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpLicGP=_CfprFabricFcoeVsanPortEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,11),_CfprFabricFcoeVsanPortEpLicGP_Type())
+cfprFabricFcoeVsanPortEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpLicGP.setStatus(_A)
+_CfprFabricFcoeVsanPortEpLicState_Type=CfprLicenseState
+_CfprFabricFcoeVsanPortEpLicState_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpLicState=_CfprFabricFcoeVsanPortEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,12),_CfprFabricFcoeVsanPortEpLicState_Type())
+cfprFabricFcoeVsanPortEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpLicState.setStatus(_A)
+_CfprFabricFcoeVsanPortEpLocale_Type=CfprFabricExternalEpLocale
+_CfprFabricFcoeVsanPortEpLocale_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpLocale=_CfprFabricFcoeVsanPortEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,13),_CfprFabricFcoeVsanPortEpLocale_Type())
+cfprFabricFcoeVsanPortEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpLocale.setStatus(_A)
+_CfprFabricFcoeVsanPortEpName_Type=SnmpAdminString
+_CfprFabricFcoeVsanPortEpName_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpName=_CfprFabricFcoeVsanPortEpName_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,14),_CfprFabricFcoeVsanPortEpName_Type())
+cfprFabricFcoeVsanPortEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpName.setStatus(_A)
+_CfprFabricFcoeVsanPortEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricFcoeVsanPortEpOperState_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpOperState=_CfprFabricFcoeVsanPortEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,15),_CfprFabricFcoeVsanPortEpOperState_Type())
+cfprFabricFcoeVsanPortEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpOperState.setStatus(_A)
+_CfprFabricFcoeVsanPortEpOperStateReason_Type=SnmpAdminString
+_CfprFabricFcoeVsanPortEpOperStateReason_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpOperStateReason=_CfprFabricFcoeVsanPortEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,16),_CfprFabricFcoeVsanPortEpOperStateReason_Type())
+cfprFabricFcoeVsanPortEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpOperStateReason.setStatus(_A)
+_CfprFabricFcoeVsanPortEpPeerAggrPortId_Type=Gauge32
+_CfprFabricFcoeVsanPortEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpPeerAggrPortId=_CfprFabricFcoeVsanPortEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,17),_CfprFabricFcoeVsanPortEpPeerAggrPortId_Type())
+cfprFabricFcoeVsanPortEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpPeerAggrPortId.setStatus(_A)
+_CfprFabricFcoeVsanPortEpPeerChassisId_Type=Gauge32
+_CfprFabricFcoeVsanPortEpPeerChassisId_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpPeerChassisId=_CfprFabricFcoeVsanPortEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,18),_CfprFabricFcoeVsanPortEpPeerChassisId_Type())
+cfprFabricFcoeVsanPortEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpPeerChassisId.setStatus(_A)
+_CfprFabricFcoeVsanPortEpPeerDn_Type=SnmpAdminString
+_CfprFabricFcoeVsanPortEpPeerDn_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpPeerDn=_CfprFabricFcoeVsanPortEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,19),_CfprFabricFcoeVsanPortEpPeerDn_Type())
+cfprFabricFcoeVsanPortEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpPeerDn.setStatus(_A)
+_CfprFabricFcoeVsanPortEpPeerPortId_Type=Gauge32
+_CfprFabricFcoeVsanPortEpPeerPortId_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpPeerPortId=_CfprFabricFcoeVsanPortEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,20),_CfprFabricFcoeVsanPortEpPeerPortId_Type())
+cfprFabricFcoeVsanPortEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpPeerPortId.setStatus(_A)
+_CfprFabricFcoeVsanPortEpPeerSlotId_Type=Gauge32
+_CfprFabricFcoeVsanPortEpPeerSlotId_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpPeerSlotId=_CfprFabricFcoeVsanPortEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,21),_CfprFabricFcoeVsanPortEpPeerSlotId_Type())
+cfprFabricFcoeVsanPortEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpPeerSlotId.setStatus(_A)
+_CfprFabricFcoeVsanPortEpPortId_Type=CfprFabricFcoeVsanPortEpPortId
+_CfprFabricFcoeVsanPortEpPortId_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpPortId=_CfprFabricFcoeVsanPortEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,22),_CfprFabricFcoeVsanPortEpPortId_Type())
+cfprFabricFcoeVsanPortEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpPortId.setStatus(_A)
+_CfprFabricFcoeVsanPortEpSlotId_Type=CfprFabricFcoeVsanPortEpSlotId
+_CfprFabricFcoeVsanPortEpSlotId_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpSlotId=_CfprFabricFcoeVsanPortEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,23),_CfprFabricFcoeVsanPortEpSlotId_Type())
+cfprFabricFcoeVsanPortEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpSlotId.setStatus(_A)
+_CfprFabricFcoeVsanPortEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricFcoeVsanPortEpSwitchId_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpSwitchId=_CfprFabricFcoeVsanPortEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,24),_CfprFabricFcoeVsanPortEpSwitchId_Type())
+cfprFabricFcoeVsanPortEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpSwitchId.setStatus(_A)
+_CfprFabricFcoeVsanPortEpTransport_Type=CfprFabricAFcSanEpTransport
+_CfprFabricFcoeVsanPortEpTransport_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpTransport=_CfprFabricFcoeVsanPortEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,25),_CfprFabricFcoeVsanPortEpTransport_Type())
+cfprFabricFcoeVsanPortEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpTransport.setStatus(_A)
+_CfprFabricFcoeVsanPortEpType_Type=CfprFabricSanEpType
+_CfprFabricFcoeVsanPortEpType_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpType=_CfprFabricFcoeVsanPortEpType_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,26),_CfprFabricFcoeVsanPortEpType_Type())
+cfprFabricFcoeVsanPortEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpType.setStatus(_A)
+_CfprFabricFcoeVsanPortEpWarnings_Type=CfprFabricWarnings
+_CfprFabricFcoeVsanPortEpWarnings_Object=MibTableColumn
+cfprFabricFcoeVsanPortEpWarnings=_CfprFabricFcoeVsanPortEpWarnings_Object((1,3,6,1,4,1,9,9,826,1,26,66,1,27),_CfprFabricFcoeVsanPortEpWarnings_Type())
+cfprFabricFcoeVsanPortEpWarnings.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFcoeVsanPortEpWarnings.setStatus(_A)
+_CfprFabricFlowMonDefinitionTable_Object=MibTable
+cfprFabricFlowMonDefinitionTable=_CfprFabricFlowMonDefinitionTable_Object((1,3,6,1,4,1,9,9,826,1,26,67))
+if mibBuilder.loadTexts:cfprFabricFlowMonDefinitionTable.setStatus(_A)
+_CfprFabricFlowMonDefinitionEntry_Object=MibTableRow
+cfprFabricFlowMonDefinitionEntry=_CfprFabricFlowMonDefinitionEntry_Object((1,3,6,1,4,1,9,9,826,1,26,67,1))
+cfprFabricFlowMonDefinitionEntry.setIndexNames((0,_C,_AI))
+if mibBuilder.loadTexts:cfprFabricFlowMonDefinitionEntry.setStatus(_A)
+_CfprFabricFlowMonDefinitionInstanceId_Type=CfprManagedObjectId
+_CfprFabricFlowMonDefinitionInstanceId_Object=MibTableColumn
+cfprFabricFlowMonDefinitionInstanceId=_CfprFabricFlowMonDefinitionInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,67,1,1),_CfprFabricFlowMonDefinitionInstanceId_Type())
+cfprFabricFlowMonDefinitionInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFlowMonDefinitionInstanceId.setStatus(_A)
+_CfprFabricFlowMonDefinitionDn_Type=CfprManagedObjectDn
+_CfprFabricFlowMonDefinitionDn_Object=MibTableColumn
+cfprFabricFlowMonDefinitionDn=_CfprFabricFlowMonDefinitionDn_Object((1,3,6,1,4,1,9,9,826,1,26,67,1,2),_CfprFabricFlowMonDefinitionDn_Type())
+cfprFabricFlowMonDefinitionDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonDefinitionDn.setStatus(_A)
+_CfprFabricFlowMonDefinitionRn_Type=SnmpAdminString
+_CfprFabricFlowMonDefinitionRn_Object=MibTableColumn
+cfprFabricFlowMonDefinitionRn=_CfprFabricFlowMonDefinitionRn_Object((1,3,6,1,4,1,9,9,826,1,26,67,1,3),_CfprFabricFlowMonDefinitionRn_Type())
+cfprFabricFlowMonDefinitionRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonDefinitionRn.setStatus(_A)
+_CfprFabricFlowMonDefinitionDescr_Type=SnmpAdminString
+_CfprFabricFlowMonDefinitionDescr_Object=MibTableColumn
+cfprFabricFlowMonDefinitionDescr=_CfprFabricFlowMonDefinitionDescr_Object((1,3,6,1,4,1,9,9,826,1,26,67,1,4),_CfprFabricFlowMonDefinitionDescr_Type())
+cfprFabricFlowMonDefinitionDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonDefinitionDescr.setStatus(_A)
+_CfprFabricFlowMonDefinitionIntId_Type=SnmpAdminString
+_CfprFabricFlowMonDefinitionIntId_Object=MibTableColumn
+cfprFabricFlowMonDefinitionIntId=_CfprFabricFlowMonDefinitionIntId_Object((1,3,6,1,4,1,9,9,826,1,26,67,1,5),_CfprFabricFlowMonDefinitionIntId_Type())
+cfprFabricFlowMonDefinitionIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonDefinitionIntId.setStatus(_A)
+_CfprFabricFlowMonDefinitionIpv4keys_Type=CfprFabricFlowMonIpv4Keys
+_CfprFabricFlowMonDefinitionIpv4keys_Object=MibTableColumn
+cfprFabricFlowMonDefinitionIpv4keys=_CfprFabricFlowMonDefinitionIpv4keys_Object((1,3,6,1,4,1,9,9,826,1,26,67,1,6),_CfprFabricFlowMonDefinitionIpv4keys_Type())
+cfprFabricFlowMonDefinitionIpv4keys.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonDefinitionIpv4keys.setStatus(_A)
+_CfprFabricFlowMonDefinitionIpv6keys_Type=CfprFabricFlowMonIpv6Keys
+_CfprFabricFlowMonDefinitionIpv6keys_Object=MibTableColumn
+cfprFabricFlowMonDefinitionIpv6keys=_CfprFabricFlowMonDefinitionIpv6keys_Object((1,3,6,1,4,1,9,9,826,1,26,67,1,7),_CfprFabricFlowMonDefinitionIpv6keys_Type())
+cfprFabricFlowMonDefinitionIpv6keys.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonDefinitionIpv6keys.setStatus(_A)
+_CfprFabricFlowMonDefinitionKeyType_Type=CfprFabricFlowMonKeyType
+_CfprFabricFlowMonDefinitionKeyType_Object=MibTableColumn
+cfprFabricFlowMonDefinitionKeyType=_CfprFabricFlowMonDefinitionKeyType_Object((1,3,6,1,4,1,9,9,826,1,26,67,1,8),_CfprFabricFlowMonDefinitionKeyType_Type())
+cfprFabricFlowMonDefinitionKeyType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonDefinitionKeyType.setStatus(_A)
+_CfprFabricFlowMonDefinitionL2keys_Type=CfprFabricFlowMonL2Keys
+_CfprFabricFlowMonDefinitionL2keys_Object=MibTableColumn
+cfprFabricFlowMonDefinitionL2keys=_CfprFabricFlowMonDefinitionL2keys_Object((1,3,6,1,4,1,9,9,826,1,26,67,1,9),_CfprFabricFlowMonDefinitionL2keys_Type())
+cfprFabricFlowMonDefinitionL2keys.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonDefinitionL2keys.setStatus(_A)
+_CfprFabricFlowMonDefinitionName_Type=SnmpAdminString
+_CfprFabricFlowMonDefinitionName_Object=MibTableColumn
+cfprFabricFlowMonDefinitionName=_CfprFabricFlowMonDefinitionName_Object((1,3,6,1,4,1,9,9,826,1,26,67,1,10),_CfprFabricFlowMonDefinitionName_Type())
+cfprFabricFlowMonDefinitionName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonDefinitionName.setStatus(_A)
+_CfprFabricFlowMonDefinitionNonkeys_Type=CfprFabricFlowMonNonKeys
+_CfprFabricFlowMonDefinitionNonkeys_Object=MibTableColumn
+cfprFabricFlowMonDefinitionNonkeys=_CfprFabricFlowMonDefinitionNonkeys_Object((1,3,6,1,4,1,9,9,826,1,26,67,1,11),_CfprFabricFlowMonDefinitionNonkeys_Type())
+cfprFabricFlowMonDefinitionNonkeys.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonDefinitionNonkeys.setStatus(_A)
+_CfprFabricFlowMonDefinitionPolicyLevel_Type=Gauge32
+_CfprFabricFlowMonDefinitionPolicyLevel_Object=MibTableColumn
+cfprFabricFlowMonDefinitionPolicyLevel=_CfprFabricFlowMonDefinitionPolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,26,67,1,12),_CfprFabricFlowMonDefinitionPolicyLevel_Type())
+cfprFabricFlowMonDefinitionPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonDefinitionPolicyLevel.setStatus(_A)
+_CfprFabricFlowMonDefinitionPolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprFabricFlowMonDefinitionPolicyOwner_Object=MibTableColumn
+cfprFabricFlowMonDefinitionPolicyOwner=_CfprFabricFlowMonDefinitionPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,67,1,13),_CfprFabricFlowMonDefinitionPolicyOwner_Type())
+cfprFabricFlowMonDefinitionPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonDefinitionPolicyOwner.setStatus(_A)
+_CfprFabricFlowMonDefinitionRecordType_Type=CfprFabricFlowMonDefType
+_CfprFabricFlowMonDefinitionRecordType_Object=MibTableColumn
+cfprFabricFlowMonDefinitionRecordType=_CfprFabricFlowMonDefinitionRecordType_Object((1,3,6,1,4,1,9,9,826,1,26,67,1,14),_CfprFabricFlowMonDefinitionRecordType_Type())
+cfprFabricFlowMonDefinitionRecordType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonDefinitionRecordType.setStatus(_A)
+_CfprFabricFlowMonExporterProfileTable_Object=MibTable
+cfprFabricFlowMonExporterProfileTable=_CfprFabricFlowMonExporterProfileTable_Object((1,3,6,1,4,1,9,9,826,1,26,68))
+if mibBuilder.loadTexts:cfprFabricFlowMonExporterProfileTable.setStatus(_A)
+_CfprFabricFlowMonExporterProfileEntry_Object=MibTableRow
+cfprFabricFlowMonExporterProfileEntry=_CfprFabricFlowMonExporterProfileEntry_Object((1,3,6,1,4,1,9,9,826,1,26,68,1))
+cfprFabricFlowMonExporterProfileEntry.setIndexNames((0,_C,_AJ))
+if mibBuilder.loadTexts:cfprFabricFlowMonExporterProfileEntry.setStatus(_A)
+_CfprFabricFlowMonExporterProfileInstanceId_Type=CfprManagedObjectId
+_CfprFabricFlowMonExporterProfileInstanceId_Object=MibTableColumn
+cfprFabricFlowMonExporterProfileInstanceId=_CfprFabricFlowMonExporterProfileInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,68,1,1),_CfprFabricFlowMonExporterProfileInstanceId_Type())
+cfprFabricFlowMonExporterProfileInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricFlowMonExporterProfileInstanceId.setStatus(_A)
+_CfprFabricFlowMonExporterProfileDn_Type=CfprManagedObjectDn
+_CfprFabricFlowMonExporterProfileDn_Object=MibTableColumn
+cfprFabricFlowMonExporterProfileDn=_CfprFabricFlowMonExporterProfileDn_Object((1,3,6,1,4,1,9,9,826,1,26,68,1,2),_CfprFabricFlowMonExporterProfileDn_Type())
+cfprFabricFlowMonExporterProfileDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonExporterProfileDn.setStatus(_A)
+_CfprFabricFlowMonExporterProfileRn_Type=SnmpAdminString
+_CfprFabricFlowMonExporterProfileRn_Object=MibTableColumn
+cfprFabricFlowMonExporterProfileRn=_CfprFabricFlowMonExporterProfileRn_Object((1,3,6,1,4,1,9,9,826,1,26,68,1,3),_CfprFabricFlowMonExporterProfileRn_Type())
+cfprFabricFlowMonExporterProfileRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonExporterProfileRn.setStatus(_A)
+_CfprFabricFlowMonExporterProfileDescr_Type=SnmpAdminString
+_CfprFabricFlowMonExporterProfileDescr_Object=MibTableColumn
+cfprFabricFlowMonExporterProfileDescr=_CfprFabricFlowMonExporterProfileDescr_Object((1,3,6,1,4,1,9,9,826,1,26,68,1,4),_CfprFabricFlowMonExporterProfileDescr_Type())
+cfprFabricFlowMonExporterProfileDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonExporterProfileDescr.setStatus(_A)
+_CfprFabricFlowMonExporterProfileIntId_Type=SnmpAdminString
+_CfprFabricFlowMonExporterProfileIntId_Object=MibTableColumn
+cfprFabricFlowMonExporterProfileIntId=_CfprFabricFlowMonExporterProfileIntId_Object((1,3,6,1,4,1,9,9,826,1,26,68,1,5),_CfprFabricFlowMonExporterProfileIntId_Type())
+cfprFabricFlowMonExporterProfileIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonExporterProfileIntId.setStatus(_A)
+_CfprFabricFlowMonExporterProfileName_Type=SnmpAdminString
+_CfprFabricFlowMonExporterProfileName_Object=MibTableColumn
+cfprFabricFlowMonExporterProfileName=_CfprFabricFlowMonExporterProfileName_Object((1,3,6,1,4,1,9,9,826,1,26,68,1,6),_CfprFabricFlowMonExporterProfileName_Type())
+cfprFabricFlowMonExporterProfileName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonExporterProfileName.setStatus(_A)
+_CfprFabricFlowMonExporterProfilePolicyLevel_Type=Gauge32
+_CfprFabricFlowMonExporterProfilePolicyLevel_Object=MibTableColumn
+cfprFabricFlowMonExporterProfilePolicyLevel=_CfprFabricFlowMonExporterProfilePolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,26,68,1,7),_CfprFabricFlowMonExporterProfilePolicyLevel_Type())
+cfprFabricFlowMonExporterProfilePolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonExporterProfilePolicyLevel.setStatus(_A)
+_CfprFabricFlowMonExporterProfilePolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprFabricFlowMonExporterProfilePolicyOwner_Object=MibTableColumn
+cfprFabricFlowMonExporterProfilePolicyOwner=_CfprFabricFlowMonExporterProfilePolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,68,1,8),_CfprFabricFlowMonExporterProfilePolicyOwner_Type())
+cfprFabricFlowMonExporterProfilePolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricFlowMonExporterProfilePolicyOwner.setStatus(_A)
+_CfprFabricIfTable_Object=MibTable
+cfprFabricIfTable=_CfprFabricIfTable_Object((1,3,6,1,4,1,9,9,826,1,26,69))
+if mibBuilder.loadTexts:cfprFabricIfTable.setStatus(_A)
+_CfprFabricIfEntry_Object=MibTableRow
+cfprFabricIfEntry=_CfprFabricIfEntry_Object((1,3,6,1,4,1,9,9,826,1,26,69,1))
+cfprFabricIfEntry.setIndexNames((0,_C,_AK))
+if mibBuilder.loadTexts:cfprFabricIfEntry.setStatus(_A)
+_CfprFabricIfInstanceId_Type=CfprManagedObjectId
+_CfprFabricIfInstanceId_Object=MibTableColumn
+cfprFabricIfInstanceId=_CfprFabricIfInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,69,1,1),_CfprFabricIfInstanceId_Type())
+cfprFabricIfInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricIfInstanceId.setStatus(_A)
+_CfprFabricIfDn_Type=CfprManagedObjectDn
+_CfprFabricIfDn_Object=MibTableColumn
+cfprFabricIfDn=_CfprFabricIfDn_Object((1,3,6,1,4,1,9,9,826,1,26,69,1,2),_CfprFabricIfDn_Type())
+cfprFabricIfDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricIfDn.setStatus(_A)
+_CfprFabricIfRn_Type=SnmpAdminString
+_CfprFabricIfRn_Object=MibTableColumn
+cfprFabricIfRn=_CfprFabricIfRn_Object((1,3,6,1,4,1,9,9,826,1,26,69,1,3),_CfprFabricIfRn_Type())
+cfprFabricIfRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricIfRn.setStatus(_A)
+_CfprFabricIfAddr_Type=InetAddressIPv4
+_CfprFabricIfAddr_Object=MibTableColumn
+cfprFabricIfAddr=_CfprFabricIfAddr_Object((1,3,6,1,4,1,9,9,826,1,26,69,1,4),_CfprFabricIfAddr_Type())
+cfprFabricIfAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricIfAddr.setStatus(_A)
+_CfprFabricIfId_Type=CfprNetworkSwitchId
+_CfprFabricIfId_Object=MibTableColumn
+cfprFabricIfId=_CfprFabricIfId_Object((1,3,6,1,4,1,9,9,826,1,26,69,1,5),_CfprFabricIfId_Type())
+cfprFabricIfId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricIfId.setStatus(_A)
+_CfprFabricLacpPolicyTable_Object=MibTable
+cfprFabricLacpPolicyTable=_CfprFabricLacpPolicyTable_Object((1,3,6,1,4,1,9,9,826,1,26,70))
+if mibBuilder.loadTexts:cfprFabricLacpPolicyTable.setStatus(_A)
+_CfprFabricLacpPolicyEntry_Object=MibTableRow
+cfprFabricLacpPolicyEntry=_CfprFabricLacpPolicyEntry_Object((1,3,6,1,4,1,9,9,826,1,26,70,1))
+cfprFabricLacpPolicyEntry.setIndexNames((0,_C,_AL))
+if mibBuilder.loadTexts:cfprFabricLacpPolicyEntry.setStatus(_A)
+_CfprFabricLacpPolicyInstanceId_Type=CfprManagedObjectId
+_CfprFabricLacpPolicyInstanceId_Object=MibTableColumn
+cfprFabricLacpPolicyInstanceId=_CfprFabricLacpPolicyInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,70,1,1),_CfprFabricLacpPolicyInstanceId_Type())
+cfprFabricLacpPolicyInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricLacpPolicyInstanceId.setStatus(_A)
+_CfprFabricLacpPolicyDn_Type=CfprManagedObjectDn
+_CfprFabricLacpPolicyDn_Object=MibTableColumn
+cfprFabricLacpPolicyDn=_CfprFabricLacpPolicyDn_Object((1,3,6,1,4,1,9,9,826,1,26,70,1,2),_CfprFabricLacpPolicyDn_Type())
+cfprFabricLacpPolicyDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLacpPolicyDn.setStatus(_A)
+_CfprFabricLacpPolicyRn_Type=SnmpAdminString
+_CfprFabricLacpPolicyRn_Object=MibTableColumn
+cfprFabricLacpPolicyRn=_CfprFabricLacpPolicyRn_Object((1,3,6,1,4,1,9,9,826,1,26,70,1,3),_CfprFabricLacpPolicyRn_Type())
+cfprFabricLacpPolicyRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLacpPolicyRn.setStatus(_A)
+_CfprFabricLacpPolicyDescr_Type=SnmpAdminString
+_CfprFabricLacpPolicyDescr_Object=MibTableColumn
+cfprFabricLacpPolicyDescr=_CfprFabricLacpPolicyDescr_Object((1,3,6,1,4,1,9,9,826,1,26,70,1,4),_CfprFabricLacpPolicyDescr_Type())
+cfprFabricLacpPolicyDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLacpPolicyDescr.setStatus(_A)
+_CfprFabricLacpPolicyFastTimer_Type=CfprFabricLacpRate
+_CfprFabricLacpPolicyFastTimer_Object=MibTableColumn
+cfprFabricLacpPolicyFastTimer=_CfprFabricLacpPolicyFastTimer_Object((1,3,6,1,4,1,9,9,826,1,26,70,1,5),_CfprFabricLacpPolicyFastTimer_Type())
+cfprFabricLacpPolicyFastTimer.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLacpPolicyFastTimer.setStatus(_A)
+_CfprFabricLacpPolicyIntId_Type=SnmpAdminString
+_CfprFabricLacpPolicyIntId_Object=MibTableColumn
+cfprFabricLacpPolicyIntId=_CfprFabricLacpPolicyIntId_Object((1,3,6,1,4,1,9,9,826,1,26,70,1,6),_CfprFabricLacpPolicyIntId_Type())
+cfprFabricLacpPolicyIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLacpPolicyIntId.setStatus(_A)
+_CfprFabricLacpPolicyName_Type=SnmpAdminString
+_CfprFabricLacpPolicyName_Object=MibTableColumn
+cfprFabricLacpPolicyName=_CfprFabricLacpPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,70,1,7),_CfprFabricLacpPolicyName_Type())
+cfprFabricLacpPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLacpPolicyName.setStatus(_A)
+_CfprFabricLacpPolicyPolicyLevel_Type=Gauge32
+_CfprFabricLacpPolicyPolicyLevel_Object=MibTableColumn
+cfprFabricLacpPolicyPolicyLevel=_CfprFabricLacpPolicyPolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,26,70,1,8),_CfprFabricLacpPolicyPolicyLevel_Type())
+cfprFabricLacpPolicyPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLacpPolicyPolicyLevel.setStatus(_A)
+_CfprFabricLacpPolicyPolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprFabricLacpPolicyPolicyOwner_Object=MibTableColumn
+cfprFabricLacpPolicyPolicyOwner=_CfprFabricLacpPolicyPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,70,1,9),_CfprFabricLacpPolicyPolicyOwner_Type())
+cfprFabricLacpPolicyPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLacpPolicyPolicyOwner.setStatus(_A)
+_CfprFabricLacpPolicySuspendIndividual_Type=CfprFabricLacpSuspend
+_CfprFabricLacpPolicySuspendIndividual_Object=MibTableColumn
+cfprFabricLacpPolicySuspendIndividual=_CfprFabricLacpPolicySuspendIndividual_Object((1,3,6,1,4,1,9,9,826,1,26,70,1,10),_CfprFabricLacpPolicySuspendIndividual_Type())
+cfprFabricLacpPolicySuspendIndividual.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLacpPolicySuspendIndividual.setStatus(_A)
+_CfprFabricLanAccessMgrTable_Object=MibTable
+cfprFabricLanAccessMgrTable=_CfprFabricLanAccessMgrTable_Object((1,3,6,1,4,1,9,9,826,1,26,71))
+if mibBuilder.loadTexts:cfprFabricLanAccessMgrTable.setStatus(_A)
+_CfprFabricLanAccessMgrEntry_Object=MibTableRow
+cfprFabricLanAccessMgrEntry=_CfprFabricLanAccessMgrEntry_Object((1,3,6,1,4,1,9,9,826,1,26,71,1))
+cfprFabricLanAccessMgrEntry.setIndexNames((0,_C,_AM))
+if mibBuilder.loadTexts:cfprFabricLanAccessMgrEntry.setStatus(_A)
+_CfprFabricLanAccessMgrInstanceId_Type=CfprManagedObjectId
+_CfprFabricLanAccessMgrInstanceId_Object=MibTableColumn
+cfprFabricLanAccessMgrInstanceId=_CfprFabricLanAccessMgrInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,71,1,1),_CfprFabricLanAccessMgrInstanceId_Type())
+cfprFabricLanAccessMgrInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricLanAccessMgrInstanceId.setStatus(_A)
+_CfprFabricLanAccessMgrDn_Type=CfprManagedObjectDn
+_CfprFabricLanAccessMgrDn_Object=MibTableColumn
+cfprFabricLanAccessMgrDn=_CfprFabricLanAccessMgrDn_Object((1,3,6,1,4,1,9,9,826,1,26,71,1,2),_CfprFabricLanAccessMgrDn_Type())
+cfprFabricLanAccessMgrDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanAccessMgrDn.setStatus(_A)
+_CfprFabricLanAccessMgrRn_Type=SnmpAdminString
+_CfprFabricLanAccessMgrRn_Object=MibTableColumn
+cfprFabricLanAccessMgrRn=_CfprFabricLanAccessMgrRn_Object((1,3,6,1,4,1,9,9,826,1,26,71,1,3),_CfprFabricLanAccessMgrRn_Type())
+cfprFabricLanAccessMgrRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanAccessMgrRn.setStatus(_A)
+_CfprFabricLanCloudTable_Object=MibTable
+cfprFabricLanCloudTable=_CfprFabricLanCloudTable_Object((1,3,6,1,4,1,9,9,826,1,26,72))
+if mibBuilder.loadTexts:cfprFabricLanCloudTable.setStatus(_A)
+_CfprFabricLanCloudEntry_Object=MibTableRow
+cfprFabricLanCloudEntry=_CfprFabricLanCloudEntry_Object((1,3,6,1,4,1,9,9,826,1,26,72,1))
+cfprFabricLanCloudEntry.setIndexNames((0,_C,_AN))
+if mibBuilder.loadTexts:cfprFabricLanCloudEntry.setStatus(_A)
+_CfprFabricLanCloudInstanceId_Type=CfprManagedObjectId
+_CfprFabricLanCloudInstanceId_Object=MibTableColumn
+cfprFabricLanCloudInstanceId=_CfprFabricLanCloudInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,72,1,1),_CfprFabricLanCloudInstanceId_Type())
+cfprFabricLanCloudInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricLanCloudInstanceId.setStatus(_A)
+_CfprFabricLanCloudDn_Type=CfprManagedObjectDn
+_CfprFabricLanCloudDn_Object=MibTableColumn
+cfprFabricLanCloudDn=_CfprFabricLanCloudDn_Object((1,3,6,1,4,1,9,9,826,1,26,72,1,2),_CfprFabricLanCloudDn_Type())
+cfprFabricLanCloudDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudDn.setStatus(_A)
+_CfprFabricLanCloudRn_Type=SnmpAdminString
+_CfprFabricLanCloudRn_Object=MibTableColumn
+cfprFabricLanCloudRn=_CfprFabricLanCloudRn_Object((1,3,6,1,4,1,9,9,826,1,26,72,1,3),_CfprFabricLanCloudRn_Type())
+cfprFabricLanCloudRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudRn.setStatus(_A)
+_CfprFabricLanCloudFsmDescr_Type=SnmpAdminString
+_CfprFabricLanCloudFsmDescr_Object=MibTableColumn
+cfprFabricLanCloudFsmDescr=_CfprFabricLanCloudFsmDescr_Object((1,3,6,1,4,1,9,9,826,1,26,72,1,4),_CfprFabricLanCloudFsmDescr_Type())
+cfprFabricLanCloudFsmDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmDescr.setStatus(_A)
+_CfprFabricLanCloudFsmPrev_Type=SnmpAdminString
+_CfprFabricLanCloudFsmPrev_Object=MibTableColumn
+cfprFabricLanCloudFsmPrev=_CfprFabricLanCloudFsmPrev_Object((1,3,6,1,4,1,9,9,826,1,26,72,1,5),_CfprFabricLanCloudFsmPrev_Type())
+cfprFabricLanCloudFsmPrev.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmPrev.setStatus(_A)
+_CfprFabricLanCloudFsmProgr_Type=Gauge32
+_CfprFabricLanCloudFsmProgr_Object=MibTableColumn
+cfprFabricLanCloudFsmProgr=_CfprFabricLanCloudFsmProgr_Object((1,3,6,1,4,1,9,9,826,1,26,72,1,6),_CfprFabricLanCloudFsmProgr_Type())
+cfprFabricLanCloudFsmProgr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmProgr.setStatus(_A)
+_CfprFabricLanCloudFsmRmtInvErrCode_Type=Gauge32
+_CfprFabricLanCloudFsmRmtInvErrCode_Object=MibTableColumn
+cfprFabricLanCloudFsmRmtInvErrCode=_CfprFabricLanCloudFsmRmtInvErrCode_Object((1,3,6,1,4,1,9,9,826,1,26,72,1,7),_CfprFabricLanCloudFsmRmtInvErrCode_Type())
+cfprFabricLanCloudFsmRmtInvErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmRmtInvErrCode.setStatus(_A)
+_CfprFabricLanCloudFsmRmtInvErrDescr_Type=SnmpAdminString
+_CfprFabricLanCloudFsmRmtInvErrDescr_Object=MibTableColumn
+cfprFabricLanCloudFsmRmtInvErrDescr=_CfprFabricLanCloudFsmRmtInvErrDescr_Object((1,3,6,1,4,1,9,9,826,1,26,72,1,8),_CfprFabricLanCloudFsmRmtInvErrDescr_Type())
+cfprFabricLanCloudFsmRmtInvErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmRmtInvErrDescr.setStatus(_A)
+_CfprFabricLanCloudFsmRmtInvRslt_Type=CfprConditionRemoteInvRslt
+_CfprFabricLanCloudFsmRmtInvRslt_Object=MibTableColumn
+cfprFabricLanCloudFsmRmtInvRslt=_CfprFabricLanCloudFsmRmtInvRslt_Object((1,3,6,1,4,1,9,9,826,1,26,72,1,9),_CfprFabricLanCloudFsmRmtInvRslt_Type())
+cfprFabricLanCloudFsmRmtInvRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmRmtInvRslt.setStatus(_A)
+_CfprFabricLanCloudFsmStageDescr_Type=SnmpAdminString
+_CfprFabricLanCloudFsmStageDescr_Object=MibTableColumn
+cfprFabricLanCloudFsmStageDescr=_CfprFabricLanCloudFsmStageDescr_Object((1,3,6,1,4,1,9,9,826,1,26,72,1,10),_CfprFabricLanCloudFsmStageDescr_Type())
+cfprFabricLanCloudFsmStageDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmStageDescr.setStatus(_A)
+_CfprFabricLanCloudFsmStamp_Type=DateAndTime
+_CfprFabricLanCloudFsmStamp_Object=MibTableColumn
+cfprFabricLanCloudFsmStamp=_CfprFabricLanCloudFsmStamp_Object((1,3,6,1,4,1,9,9,826,1,26,72,1,11),_CfprFabricLanCloudFsmStamp_Type())
+cfprFabricLanCloudFsmStamp.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmStamp.setStatus(_A)
+_CfprFabricLanCloudFsmStatus_Type=SnmpAdminString
+_CfprFabricLanCloudFsmStatus_Object=MibTableColumn
+cfprFabricLanCloudFsmStatus=_CfprFabricLanCloudFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,26,72,1,12),_CfprFabricLanCloudFsmStatus_Type())
+cfprFabricLanCloudFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmStatus.setStatus(_A)
+_CfprFabricLanCloudFsmTry_Type=Gauge32
+_CfprFabricLanCloudFsmTry_Object=MibTableColumn
+cfprFabricLanCloudFsmTry=_CfprFabricLanCloudFsmTry_Object((1,3,6,1,4,1,9,9,826,1,26,72,1,13),_CfprFabricLanCloudFsmTry_Type())
+cfprFabricLanCloudFsmTry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmTry.setStatus(_A)
+_CfprFabricLanCloudMacAging_Type=TimeIntervalSec
+_CfprFabricLanCloudMacAging_Object=MibTableColumn
+cfprFabricLanCloudMacAging=_CfprFabricLanCloudMacAging_Object((1,3,6,1,4,1,9,9,826,1,26,72,1,14),_CfprFabricLanCloudMacAging_Type())
+cfprFabricLanCloudMacAging.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudMacAging.setStatus(_A)
+_CfprFabricLanCloudMode_Type=CfprFabricSwitchingMode
+_CfprFabricLanCloudMode_Object=MibTableColumn
+cfprFabricLanCloudMode=_CfprFabricLanCloudMode_Object((1,3,6,1,4,1,9,9,826,1,26,72,1,15),_CfprFabricLanCloudMode_Type())
+cfprFabricLanCloudMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudMode.setStatus(_A)
+_CfprFabricLanCloudVlanCompression_Type=CfprFabricLanCloudVlanCompression
+_CfprFabricLanCloudVlanCompression_Object=MibTableColumn
+cfprFabricLanCloudVlanCompression=_CfprFabricLanCloudVlanCompression_Object((1,3,6,1,4,1,9,9,826,1,26,72,1,16),_CfprFabricLanCloudVlanCompression_Type())
+cfprFabricLanCloudVlanCompression.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudVlanCompression.setStatus(_A)
+_CfprFabricLanCloudFsmTable_Object=MibTable
+cfprFabricLanCloudFsmTable=_CfprFabricLanCloudFsmTable_Object((1,3,6,1,4,1,9,9,826,1,26,73))
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmTable.setStatus(_A)
+_CfprFabricLanCloudFsmEntry_Object=MibTableRow
+cfprFabricLanCloudFsmEntry=_CfprFabricLanCloudFsmEntry_Object((1,3,6,1,4,1,9,9,826,1,26,73,1))
+cfprFabricLanCloudFsmEntry.setIndexNames((0,_C,_AO))
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmEntry.setStatus(_A)
+_CfprFabricLanCloudFsmInstanceId_Type=CfprManagedObjectId
+_CfprFabricLanCloudFsmInstanceId_Object=MibTableColumn
+cfprFabricLanCloudFsmInstanceId=_CfprFabricLanCloudFsmInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,73,1,1),_CfprFabricLanCloudFsmInstanceId_Type())
+cfprFabricLanCloudFsmInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmInstanceId.setStatus(_A)
+_CfprFabricLanCloudFsmDn_Type=CfprManagedObjectDn
+_CfprFabricLanCloudFsmDn_Object=MibTableColumn
+cfprFabricLanCloudFsmDn=_CfprFabricLanCloudFsmDn_Object((1,3,6,1,4,1,9,9,826,1,26,73,1,2),_CfprFabricLanCloudFsmDn_Type())
+cfprFabricLanCloudFsmDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmDn.setStatus(_A)
+_CfprFabricLanCloudFsmRn_Type=SnmpAdminString
+_CfprFabricLanCloudFsmRn_Object=MibTableColumn
+cfprFabricLanCloudFsmRn=_CfprFabricLanCloudFsmRn_Object((1,3,6,1,4,1,9,9,826,1,26,73,1,3),_CfprFabricLanCloudFsmRn_Type())
+cfprFabricLanCloudFsmRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmRn.setStatus(_A)
+_CfprFabricLanCloudFsmCompletionTime_Type=DateAndTime
+_CfprFabricLanCloudFsmCompletionTime_Object=MibTableColumn
+cfprFabricLanCloudFsmCompletionTime=_CfprFabricLanCloudFsmCompletionTime_Object((1,3,6,1,4,1,9,9,826,1,26,73,1,4),_CfprFabricLanCloudFsmCompletionTime_Type())
+cfprFabricLanCloudFsmCompletionTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmCompletionTime.setStatus(_A)
+_CfprFabricLanCloudFsmCurrentFsm_Type=CfprFabricLanCloudFsmCurrentFsm
+_CfprFabricLanCloudFsmCurrentFsm_Object=MibTableColumn
+cfprFabricLanCloudFsmCurrentFsm=_CfprFabricLanCloudFsmCurrentFsm_Object((1,3,6,1,4,1,9,9,826,1,26,73,1,5),_CfprFabricLanCloudFsmCurrentFsm_Type())
+cfprFabricLanCloudFsmCurrentFsm.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmCurrentFsm.setStatus(_A)
+_CfprFabricLanCloudFsmDescrData_Type=SnmpAdminString
+_CfprFabricLanCloudFsmDescrData_Object=MibTableColumn
+cfprFabricLanCloudFsmDescrData=_CfprFabricLanCloudFsmDescrData_Object((1,3,6,1,4,1,9,9,826,1,26,73,1,6),_CfprFabricLanCloudFsmDescrData_Type())
+cfprFabricLanCloudFsmDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmDescrData.setStatus(_A)
+_CfprFabricLanCloudFsmFsmStatus_Type=CfprFsmFsmStageStatus
+_CfprFabricLanCloudFsmFsmStatus_Object=MibTableColumn
+cfprFabricLanCloudFsmFsmStatus=_CfprFabricLanCloudFsmFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,26,73,1,7),_CfprFabricLanCloudFsmFsmStatus_Type())
+cfprFabricLanCloudFsmFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmFsmStatus.setStatus(_A)
+_CfprFabricLanCloudFsmProgress_Type=Gauge32
+_CfprFabricLanCloudFsmProgress_Object=MibTableColumn
+cfprFabricLanCloudFsmProgress=_CfprFabricLanCloudFsmProgress_Object((1,3,6,1,4,1,9,9,826,1,26,73,1,8),_CfprFabricLanCloudFsmProgress_Type())
+cfprFabricLanCloudFsmProgress.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmProgress.setStatus(_A)
+_CfprFabricLanCloudFsmRmtErrCode_Type=Gauge32
+_CfprFabricLanCloudFsmRmtErrCode_Object=MibTableColumn
+cfprFabricLanCloudFsmRmtErrCode=_CfprFabricLanCloudFsmRmtErrCode_Object((1,3,6,1,4,1,9,9,826,1,26,73,1,9),_CfprFabricLanCloudFsmRmtErrCode_Type())
+cfprFabricLanCloudFsmRmtErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmRmtErrCode.setStatus(_A)
+_CfprFabricLanCloudFsmRmtErrDescr_Type=SnmpAdminString
+_CfprFabricLanCloudFsmRmtErrDescr_Object=MibTableColumn
+cfprFabricLanCloudFsmRmtErrDescr=_CfprFabricLanCloudFsmRmtErrDescr_Object((1,3,6,1,4,1,9,9,826,1,26,73,1,10),_CfprFabricLanCloudFsmRmtErrDescr_Type())
+cfprFabricLanCloudFsmRmtErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmRmtErrDescr.setStatus(_A)
+_CfprFabricLanCloudFsmRmtRslt_Type=CfprConditionRemoteInvRslt
+_CfprFabricLanCloudFsmRmtRslt_Object=MibTableColumn
+cfprFabricLanCloudFsmRmtRslt=_CfprFabricLanCloudFsmRmtRslt_Object((1,3,6,1,4,1,9,9,826,1,26,73,1,11),_CfprFabricLanCloudFsmRmtRslt_Type())
+cfprFabricLanCloudFsmRmtRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmRmtRslt.setStatus(_A)
+_CfprFabricLanCloudFsmStageTable_Object=MibTable
+cfprFabricLanCloudFsmStageTable=_CfprFabricLanCloudFsmStageTable_Object((1,3,6,1,4,1,9,9,826,1,26,74))
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmStageTable.setStatus(_A)
+_CfprFabricLanCloudFsmStageEntry_Object=MibTableRow
+cfprFabricLanCloudFsmStageEntry=_CfprFabricLanCloudFsmStageEntry_Object((1,3,6,1,4,1,9,9,826,1,26,74,1))
+cfprFabricLanCloudFsmStageEntry.setIndexNames((0,_C,_AP))
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmStageEntry.setStatus(_A)
+_CfprFabricLanCloudFsmStageInstanceId_Type=CfprManagedObjectId
+_CfprFabricLanCloudFsmStageInstanceId_Object=MibTableColumn
+cfprFabricLanCloudFsmStageInstanceId=_CfprFabricLanCloudFsmStageInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,74,1,1),_CfprFabricLanCloudFsmStageInstanceId_Type())
+cfprFabricLanCloudFsmStageInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmStageInstanceId.setStatus(_A)
+_CfprFabricLanCloudFsmStageDn_Type=CfprManagedObjectDn
+_CfprFabricLanCloudFsmStageDn_Object=MibTableColumn
+cfprFabricLanCloudFsmStageDn=_CfprFabricLanCloudFsmStageDn_Object((1,3,6,1,4,1,9,9,826,1,26,74,1,2),_CfprFabricLanCloudFsmStageDn_Type())
+cfprFabricLanCloudFsmStageDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmStageDn.setStatus(_A)
+_CfprFabricLanCloudFsmStageRn_Type=SnmpAdminString
+_CfprFabricLanCloudFsmStageRn_Object=MibTableColumn
+cfprFabricLanCloudFsmStageRn=_CfprFabricLanCloudFsmStageRn_Object((1,3,6,1,4,1,9,9,826,1,26,74,1,3),_CfprFabricLanCloudFsmStageRn_Type())
+cfprFabricLanCloudFsmStageRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmStageRn.setStatus(_A)
+_CfprFabricLanCloudFsmStageDescrData_Type=SnmpAdminString
+_CfprFabricLanCloudFsmStageDescrData_Object=MibTableColumn
+cfprFabricLanCloudFsmStageDescrData=_CfprFabricLanCloudFsmStageDescrData_Object((1,3,6,1,4,1,9,9,826,1,26,74,1,4),_CfprFabricLanCloudFsmStageDescrData_Type())
+cfprFabricLanCloudFsmStageDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmStageDescrData.setStatus(_A)
+_CfprFabricLanCloudFsmStageLastUpdateTime_Type=DateAndTime
+_CfprFabricLanCloudFsmStageLastUpdateTime_Object=MibTableColumn
+cfprFabricLanCloudFsmStageLastUpdateTime=_CfprFabricLanCloudFsmStageLastUpdateTime_Object((1,3,6,1,4,1,9,9,826,1,26,74,1,5),_CfprFabricLanCloudFsmStageLastUpdateTime_Type())
+cfprFabricLanCloudFsmStageLastUpdateTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmStageLastUpdateTime.setStatus(_A)
+_CfprFabricLanCloudFsmStageName_Type=CfprFabricLanCloudFsmStageName
+_CfprFabricLanCloudFsmStageName_Object=MibTableColumn
+cfprFabricLanCloudFsmStageName=_CfprFabricLanCloudFsmStageName_Object((1,3,6,1,4,1,9,9,826,1,26,74,1,6),_CfprFabricLanCloudFsmStageName_Type())
+cfprFabricLanCloudFsmStageName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmStageName.setStatus(_A)
+_CfprFabricLanCloudFsmStageOrder_Type=Gauge32
+_CfprFabricLanCloudFsmStageOrder_Object=MibTableColumn
+cfprFabricLanCloudFsmStageOrder=_CfprFabricLanCloudFsmStageOrder_Object((1,3,6,1,4,1,9,9,826,1,26,74,1,7),_CfprFabricLanCloudFsmStageOrder_Type())
+cfprFabricLanCloudFsmStageOrder.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmStageOrder.setStatus(_A)
+_CfprFabricLanCloudFsmStageRetry_Type=Gauge32
+_CfprFabricLanCloudFsmStageRetry_Object=MibTableColumn
+cfprFabricLanCloudFsmStageRetry=_CfprFabricLanCloudFsmStageRetry_Object((1,3,6,1,4,1,9,9,826,1,26,74,1,8),_CfprFabricLanCloudFsmStageRetry_Type())
+cfprFabricLanCloudFsmStageRetry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmStageRetry.setStatus(_A)
+_CfprFabricLanCloudFsmStageStageStatus_Type=CfprFsmFsmStageStatus
+_CfprFabricLanCloudFsmStageStageStatus_Object=MibTableColumn
+cfprFabricLanCloudFsmStageStageStatus=_CfprFabricLanCloudFsmStageStageStatus_Object((1,3,6,1,4,1,9,9,826,1,26,74,1,9),_CfprFabricLanCloudFsmStageStageStatus_Type())
+cfprFabricLanCloudFsmStageStageStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmStageStageStatus.setStatus(_A)
+_CfprFabricLanCloudFsmTaskTable_Object=MibTable
+cfprFabricLanCloudFsmTaskTable=_CfprFabricLanCloudFsmTaskTable_Object((1,3,6,1,4,1,9,9,826,1,26,75))
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmTaskTable.setStatus(_A)
+_CfprFabricLanCloudFsmTaskEntry_Object=MibTableRow
+cfprFabricLanCloudFsmTaskEntry=_CfprFabricLanCloudFsmTaskEntry_Object((1,3,6,1,4,1,9,9,826,1,26,75,1))
+cfprFabricLanCloudFsmTaskEntry.setIndexNames((0,_C,_AQ))
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmTaskEntry.setStatus(_A)
+_CfprFabricLanCloudFsmTaskInstanceId_Type=CfprManagedObjectId
+_CfprFabricLanCloudFsmTaskInstanceId_Object=MibTableColumn
+cfprFabricLanCloudFsmTaskInstanceId=_CfprFabricLanCloudFsmTaskInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,75,1,1),_CfprFabricLanCloudFsmTaskInstanceId_Type())
+cfprFabricLanCloudFsmTaskInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmTaskInstanceId.setStatus(_A)
+_CfprFabricLanCloudFsmTaskDn_Type=CfprManagedObjectDn
+_CfprFabricLanCloudFsmTaskDn_Object=MibTableColumn
+cfprFabricLanCloudFsmTaskDn=_CfprFabricLanCloudFsmTaskDn_Object((1,3,6,1,4,1,9,9,826,1,26,75,1,2),_CfprFabricLanCloudFsmTaskDn_Type())
+cfprFabricLanCloudFsmTaskDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmTaskDn.setStatus(_A)
+_CfprFabricLanCloudFsmTaskRn_Type=SnmpAdminString
+_CfprFabricLanCloudFsmTaskRn_Object=MibTableColumn
+cfprFabricLanCloudFsmTaskRn=_CfprFabricLanCloudFsmTaskRn_Object((1,3,6,1,4,1,9,9,826,1,26,75,1,3),_CfprFabricLanCloudFsmTaskRn_Type())
+cfprFabricLanCloudFsmTaskRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmTaskRn.setStatus(_A)
+_CfprFabricLanCloudFsmTaskCompletion_Type=CfprFsmCompletion
+_CfprFabricLanCloudFsmTaskCompletion_Object=MibTableColumn
+cfprFabricLanCloudFsmTaskCompletion=_CfprFabricLanCloudFsmTaskCompletion_Object((1,3,6,1,4,1,9,9,826,1,26,75,1,4),_CfprFabricLanCloudFsmTaskCompletion_Type())
+cfprFabricLanCloudFsmTaskCompletion.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmTaskCompletion.setStatus(_A)
+_CfprFabricLanCloudFsmTaskFlags_Type=CfprFsmFlags
+_CfprFabricLanCloudFsmTaskFlags_Object=MibTableColumn
+cfprFabricLanCloudFsmTaskFlags=_CfprFabricLanCloudFsmTaskFlags_Object((1,3,6,1,4,1,9,9,826,1,26,75,1,5),_CfprFabricLanCloudFsmTaskFlags_Type())
+cfprFabricLanCloudFsmTaskFlags.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmTaskFlags.setStatus(_A)
+_CfprFabricLanCloudFsmTaskItem_Type=CfprFabricLanCloudFsmTaskItem
+_CfprFabricLanCloudFsmTaskItem_Object=MibTableColumn
+cfprFabricLanCloudFsmTaskItem=_CfprFabricLanCloudFsmTaskItem_Object((1,3,6,1,4,1,9,9,826,1,26,75,1,6),_CfprFabricLanCloudFsmTaskItem_Type())
+cfprFabricLanCloudFsmTaskItem.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmTaskItem.setStatus(_A)
+_CfprFabricLanCloudFsmTaskSeqId_Type=Gauge32
+_CfprFabricLanCloudFsmTaskSeqId_Object=MibTableColumn
+cfprFabricLanCloudFsmTaskSeqId=_CfprFabricLanCloudFsmTaskSeqId_Object((1,3,6,1,4,1,9,9,826,1,26,75,1,7),_CfprFabricLanCloudFsmTaskSeqId_Type())
+cfprFabricLanCloudFsmTaskSeqId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanCloudFsmTaskSeqId.setStatus(_A)
+_CfprFabricLanMonCloudTable_Object=MibTable
+cfprFabricLanMonCloudTable=_CfprFabricLanMonCloudTable_Object((1,3,6,1,4,1,9,9,826,1,26,76))
+if mibBuilder.loadTexts:cfprFabricLanMonCloudTable.setStatus(_A)
+_CfprFabricLanMonCloudEntry_Object=MibTableRow
+cfprFabricLanMonCloudEntry=_CfprFabricLanMonCloudEntry_Object((1,3,6,1,4,1,9,9,826,1,26,76,1))
+cfprFabricLanMonCloudEntry.setIndexNames((0,_C,_AR))
+if mibBuilder.loadTexts:cfprFabricLanMonCloudEntry.setStatus(_A)
+_CfprFabricLanMonCloudInstanceId_Type=CfprManagedObjectId
+_CfprFabricLanMonCloudInstanceId_Object=MibTableColumn
+cfprFabricLanMonCloudInstanceId=_CfprFabricLanMonCloudInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,76,1,1),_CfprFabricLanMonCloudInstanceId_Type())
+cfprFabricLanMonCloudInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricLanMonCloudInstanceId.setStatus(_A)
+_CfprFabricLanMonCloudDn_Type=CfprManagedObjectDn
+_CfprFabricLanMonCloudDn_Object=MibTableColumn
+cfprFabricLanMonCloudDn=_CfprFabricLanMonCloudDn_Object((1,3,6,1,4,1,9,9,826,1,26,76,1,2),_CfprFabricLanMonCloudDn_Type())
+cfprFabricLanMonCloudDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanMonCloudDn.setStatus(_A)
+_CfprFabricLanMonCloudRn_Type=SnmpAdminString
+_CfprFabricLanMonCloudRn_Object=MibTableColumn
+cfprFabricLanMonCloudRn=_CfprFabricLanMonCloudRn_Object((1,3,6,1,4,1,9,9,826,1,26,76,1,3),_CfprFabricLanMonCloudRn_Type())
+cfprFabricLanMonCloudRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanMonCloudRn.setStatus(_A)
+_CfprFabricLanMonCloudMode_Type=CfprFabricSwitchingMode
+_CfprFabricLanMonCloudMode_Object=MibTableColumn
+cfprFabricLanMonCloudMode=_CfprFabricLanMonCloudMode_Object((1,3,6,1,4,1,9,9,826,1,26,76,1,4),_CfprFabricLanMonCloudMode_Type())
+cfprFabricLanMonCloudMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanMonCloudMode.setStatus(_A)
+_CfprFabricLanPinGroupTable_Object=MibTable
+cfprFabricLanPinGroupTable=_CfprFabricLanPinGroupTable_Object((1,3,6,1,4,1,9,9,826,1,26,77))
+if mibBuilder.loadTexts:cfprFabricLanPinGroupTable.setStatus(_A)
+_CfprFabricLanPinGroupEntry_Object=MibTableRow
+cfprFabricLanPinGroupEntry=_CfprFabricLanPinGroupEntry_Object((1,3,6,1,4,1,9,9,826,1,26,77,1))
+cfprFabricLanPinGroupEntry.setIndexNames((0,_C,_AS))
+if mibBuilder.loadTexts:cfprFabricLanPinGroupEntry.setStatus(_A)
+_CfprFabricLanPinGroupInstanceId_Type=CfprManagedObjectId
+_CfprFabricLanPinGroupInstanceId_Object=MibTableColumn
+cfprFabricLanPinGroupInstanceId=_CfprFabricLanPinGroupInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,77,1,1),_CfprFabricLanPinGroupInstanceId_Type())
+cfprFabricLanPinGroupInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricLanPinGroupInstanceId.setStatus(_A)
+_CfprFabricLanPinGroupDn_Type=CfprManagedObjectDn
+_CfprFabricLanPinGroupDn_Object=MibTableColumn
+cfprFabricLanPinGroupDn=_CfprFabricLanPinGroupDn_Object((1,3,6,1,4,1,9,9,826,1,26,77,1,2),_CfprFabricLanPinGroupDn_Type())
+cfprFabricLanPinGroupDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanPinGroupDn.setStatus(_A)
+_CfprFabricLanPinGroupRn_Type=SnmpAdminString
+_CfprFabricLanPinGroupRn_Object=MibTableColumn
+cfprFabricLanPinGroupRn=_CfprFabricLanPinGroupRn_Object((1,3,6,1,4,1,9,9,826,1,26,77,1,3),_CfprFabricLanPinGroupRn_Type())
+cfprFabricLanPinGroupRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanPinGroupRn.setStatus(_A)
+_CfprFabricLanPinGroupDescr_Type=SnmpAdminString
+_CfprFabricLanPinGroupDescr_Object=MibTableColumn
+cfprFabricLanPinGroupDescr=_CfprFabricLanPinGroupDescr_Object((1,3,6,1,4,1,9,9,826,1,26,77,1,4),_CfprFabricLanPinGroupDescr_Type())
+cfprFabricLanPinGroupDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanPinGroupDescr.setStatus(_A)
+_CfprFabricLanPinGroupIntId_Type=SnmpAdminString
+_CfprFabricLanPinGroupIntId_Object=MibTableColumn
+cfprFabricLanPinGroupIntId=_CfprFabricLanPinGroupIntId_Object((1,3,6,1,4,1,9,9,826,1,26,77,1,5),_CfprFabricLanPinGroupIntId_Type())
+cfprFabricLanPinGroupIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanPinGroupIntId.setStatus(_A)
+_CfprFabricLanPinGroupName_Type=SnmpAdminString
+_CfprFabricLanPinGroupName_Object=MibTableColumn
+cfprFabricLanPinGroupName=_CfprFabricLanPinGroupName_Object((1,3,6,1,4,1,9,9,826,1,26,77,1,6),_CfprFabricLanPinGroupName_Type())
+cfprFabricLanPinGroupName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanPinGroupName.setStatus(_A)
+_CfprFabricLanPinGroupPolicyLevel_Type=Gauge32
+_CfprFabricLanPinGroupPolicyLevel_Object=MibTableColumn
+cfprFabricLanPinGroupPolicyLevel=_CfprFabricLanPinGroupPolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,26,77,1,7),_CfprFabricLanPinGroupPolicyLevel_Type())
+cfprFabricLanPinGroupPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanPinGroupPolicyLevel.setStatus(_A)
+_CfprFabricLanPinGroupPolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprFabricLanPinGroupPolicyOwner_Object=MibTableColumn
+cfprFabricLanPinGroupPolicyOwner=_CfprFabricLanPinGroupPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,77,1,8),_CfprFabricLanPinGroupPolicyOwner_Type())
+cfprFabricLanPinGroupPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanPinGroupPolicyOwner.setStatus(_A)
+_CfprFabricLanPinGroupSize_Type=Gauge32
+_CfprFabricLanPinGroupSize_Object=MibTableColumn
+cfprFabricLanPinGroupSize=_CfprFabricLanPinGroupSize_Object((1,3,6,1,4,1,9,9,826,1,26,77,1,9),_CfprFabricLanPinGroupSize_Type())
+cfprFabricLanPinGroupSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanPinGroupSize.setStatus(_A)
+_CfprFabricLanPinTargetTable_Object=MibTable
+cfprFabricLanPinTargetTable=_CfprFabricLanPinTargetTable_Object((1,3,6,1,4,1,9,9,826,1,26,78))
+if mibBuilder.loadTexts:cfprFabricLanPinTargetTable.setStatus(_A)
+_CfprFabricLanPinTargetEntry_Object=MibTableRow
+cfprFabricLanPinTargetEntry=_CfprFabricLanPinTargetEntry_Object((1,3,6,1,4,1,9,9,826,1,26,78,1))
+cfprFabricLanPinTargetEntry.setIndexNames((0,_C,_AT))
+if mibBuilder.loadTexts:cfprFabricLanPinTargetEntry.setStatus(_A)
+_CfprFabricLanPinTargetInstanceId_Type=CfprManagedObjectId
+_CfprFabricLanPinTargetInstanceId_Object=MibTableColumn
+cfprFabricLanPinTargetInstanceId=_CfprFabricLanPinTargetInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,78,1,1),_CfprFabricLanPinTargetInstanceId_Type())
+cfprFabricLanPinTargetInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricLanPinTargetInstanceId.setStatus(_A)
+_CfprFabricLanPinTargetDn_Type=CfprManagedObjectDn
+_CfprFabricLanPinTargetDn_Object=MibTableColumn
+cfprFabricLanPinTargetDn=_CfprFabricLanPinTargetDn_Object((1,3,6,1,4,1,9,9,826,1,26,78,1,2),_CfprFabricLanPinTargetDn_Type())
+cfprFabricLanPinTargetDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanPinTargetDn.setStatus(_A)
+_CfprFabricLanPinTargetRn_Type=SnmpAdminString
+_CfprFabricLanPinTargetRn_Object=MibTableColumn
+cfprFabricLanPinTargetRn=_CfprFabricLanPinTargetRn_Object((1,3,6,1,4,1,9,9,826,1,26,78,1,3),_CfprFabricLanPinTargetRn_Type())
+cfprFabricLanPinTargetRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanPinTargetRn.setStatus(_A)
+_CfprFabricLanPinTargetEpDn_Type=SnmpAdminString
+_CfprFabricLanPinTargetEpDn_Object=MibTableColumn
+cfprFabricLanPinTargetEpDn=_CfprFabricLanPinTargetEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,78,1,4),_CfprFabricLanPinTargetEpDn_Type())
+cfprFabricLanPinTargetEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanPinTargetEpDn.setStatus(_A)
+_CfprFabricLanPinTargetFabricId_Type=SnmpAdminString
+_CfprFabricLanPinTargetFabricId_Object=MibTableColumn
+cfprFabricLanPinTargetFabricId=_CfprFabricLanPinTargetFabricId_Object((1,3,6,1,4,1,9,9,826,1,26,78,1,5),_CfprFabricLanPinTargetFabricId_Type())
+cfprFabricLanPinTargetFabricId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanPinTargetFabricId.setStatus(_A)
+_CfprFabricLanPinTargetTargetStatus_Type=CfprFabricTargetStatus
+_CfprFabricLanPinTargetTargetStatus_Object=MibTableColumn
+cfprFabricLanPinTargetTargetStatus=_CfprFabricLanPinTargetTargetStatus_Object((1,3,6,1,4,1,9,9,826,1,26,78,1,6),_CfprFabricLanPinTargetTargetStatus_Type())
+cfprFabricLanPinTargetTargetStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLanPinTargetTargetStatus.setStatus(_A)
+_CfprFabricLastAckedSlotTable_Object=MibTable
+cfprFabricLastAckedSlotTable=_CfprFabricLastAckedSlotTable_Object((1,3,6,1,4,1,9,9,826,1,26,79))
+if mibBuilder.loadTexts:cfprFabricLastAckedSlotTable.setStatus(_A)
+_CfprFabricLastAckedSlotEntry_Object=MibTableRow
+cfprFabricLastAckedSlotEntry=_CfprFabricLastAckedSlotEntry_Object((1,3,6,1,4,1,9,9,826,1,26,79,1))
+cfprFabricLastAckedSlotEntry.setIndexNames((0,_C,_AU))
+if mibBuilder.loadTexts:cfprFabricLastAckedSlotEntry.setStatus(_A)
+_CfprFabricLastAckedSlotInstanceId_Type=CfprManagedObjectId
+_CfprFabricLastAckedSlotInstanceId_Object=MibTableColumn
+cfprFabricLastAckedSlotInstanceId=_CfprFabricLastAckedSlotInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,79,1,1),_CfprFabricLastAckedSlotInstanceId_Type())
+cfprFabricLastAckedSlotInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricLastAckedSlotInstanceId.setStatus(_A)
+_CfprFabricLastAckedSlotDn_Type=CfprManagedObjectDn
+_CfprFabricLastAckedSlotDn_Object=MibTableColumn
+cfprFabricLastAckedSlotDn=_CfprFabricLastAckedSlotDn_Object((1,3,6,1,4,1,9,9,826,1,26,79,1,2),_CfprFabricLastAckedSlotDn_Type())
+cfprFabricLastAckedSlotDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLastAckedSlotDn.setStatus(_A)
+_CfprFabricLastAckedSlotRn_Type=SnmpAdminString
+_CfprFabricLastAckedSlotRn_Object=MibTableColumn
+cfprFabricLastAckedSlotRn=_CfprFabricLastAckedSlotRn_Object((1,3,6,1,4,1,9,9,826,1,26,79,1,3),_CfprFabricLastAckedSlotRn_Type())
+cfprFabricLastAckedSlotRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLastAckedSlotRn.setStatus(_A)
+_CfprFabricLastAckedSlotBoardAggregationRole_Type=CfprEquipmentBoardAggregationRole
+_CfprFabricLastAckedSlotBoardAggregationRole_Object=MibTableColumn
+cfprFabricLastAckedSlotBoardAggregationRole=_CfprFabricLastAckedSlotBoardAggregationRole_Object((1,3,6,1,4,1,9,9,826,1,26,79,1,4),_CfprFabricLastAckedSlotBoardAggregationRole_Type())
+cfprFabricLastAckedSlotBoardAggregationRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLastAckedSlotBoardAggregationRole.setStatus(_A)
+_CfprFabricLastAckedSlotChassisId_Type=Gauge32
+_CfprFabricLastAckedSlotChassisId_Object=MibTableColumn
+cfprFabricLastAckedSlotChassisId=_CfprFabricLastAckedSlotChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,79,1,5),_CfprFabricLastAckedSlotChassisId_Type())
+cfprFabricLastAckedSlotChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLastAckedSlotChassisId.setStatus(_A)
+_CfprFabricLastAckedSlotSlotId_Type=Gauge32
+_CfprFabricLastAckedSlotSlotId_Object=MibTableColumn
+cfprFabricLastAckedSlotSlotId=_CfprFabricLastAckedSlotSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,79,1,6),_CfprFabricLastAckedSlotSlotId_Type())
+cfprFabricLastAckedSlotSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLastAckedSlotSlotId.setStatus(_A)
+_CfprFabricLastAckedSlotSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricLastAckedSlotSwitchId_Object=MibTableColumn
+cfprFabricLastAckedSlotSwitchId=_CfprFabricLastAckedSlotSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,79,1,7),_CfprFabricLastAckedSlotSwitchId_Type())
+cfprFabricLastAckedSlotSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLastAckedSlotSwitchId.setStatus(_A)
+_CfprFabricLocaleTable_Object=MibTable
+cfprFabricLocaleTable=_CfprFabricLocaleTable_Object((1,3,6,1,4,1,9,9,826,1,26,80))
+if mibBuilder.loadTexts:cfprFabricLocaleTable.setStatus(_A)
+_CfprFabricLocaleEntry_Object=MibTableRow
+cfprFabricLocaleEntry=_CfprFabricLocaleEntry_Object((1,3,6,1,4,1,9,9,826,1,26,80,1))
+cfprFabricLocaleEntry.setIndexNames((0,_C,_AV))
+if mibBuilder.loadTexts:cfprFabricLocaleEntry.setStatus(_A)
+_CfprFabricLocaleInstanceId_Type=CfprManagedObjectId
+_CfprFabricLocaleInstanceId_Object=MibTableColumn
+cfprFabricLocaleInstanceId=_CfprFabricLocaleInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,80,1,1),_CfprFabricLocaleInstanceId_Type())
+cfprFabricLocaleInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricLocaleInstanceId.setStatus(_A)
+_CfprFabricLocaleDn_Type=CfprManagedObjectDn
+_CfprFabricLocaleDn_Object=MibTableColumn
+cfprFabricLocaleDn=_CfprFabricLocaleDn_Object((1,3,6,1,4,1,9,9,826,1,26,80,1,2),_CfprFabricLocaleDn_Type())
+cfprFabricLocaleDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLocaleDn.setStatus(_A)
+_CfprFabricLocaleRn_Type=SnmpAdminString
+_CfprFabricLocaleRn_Object=MibTableColumn
+cfprFabricLocaleRn=_CfprFabricLocaleRn_Object((1,3,6,1,4,1,9,9,826,1,26,80,1,3),_CfprFabricLocaleRn_Type())
+cfprFabricLocaleRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLocaleRn.setStatus(_A)
+_CfprFabricLocaleCType_Type=Gauge32
+_CfprFabricLocaleCType_Object=MibTableColumn
+cfprFabricLocaleCType=_CfprFabricLocaleCType_Object((1,3,6,1,4,1,9,9,826,1,26,80,1,4),_CfprFabricLocaleCType_Type())
+cfprFabricLocaleCType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLocaleCType.setStatus(_A)
+_CfprFabricLocaleChassisId_Type=Gauge32
+_CfprFabricLocaleChassisId_Object=MibTableColumn
+cfprFabricLocaleChassisId=_CfprFabricLocaleChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,80,1,5),_CfprFabricLocaleChassisId_Type())
+cfprFabricLocaleChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLocaleChassisId.setStatus(_A)
+_CfprFabricLocaleLocale_Type=CfprNetworkLocale
+_CfprFabricLocaleLocale_Object=MibTableColumn
+cfprFabricLocaleLocale=_CfprFabricLocaleLocale_Object((1,3,6,1,4,1,9,9,826,1,26,80,1,6),_CfprFabricLocaleLocale_Type())
+cfprFabricLocaleLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLocaleLocale.setStatus(_A)
+_CfprFabricLocaleName_Type=SnmpAdminString
+_CfprFabricLocaleName_Object=MibTableColumn
+cfprFabricLocaleName=_CfprFabricLocaleName_Object((1,3,6,1,4,1,9,9,826,1,26,80,1,7),_CfprFabricLocaleName_Type())
+cfprFabricLocaleName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLocaleName.setStatus(_A)
+_CfprFabricLocaleSide_Type=CfprNetworkSide
+_CfprFabricLocaleSide_Object=MibTableColumn
+cfprFabricLocaleSide=_CfprFabricLocaleSide_Object((1,3,6,1,4,1,9,9,826,1,26,80,1,8),_CfprFabricLocaleSide_Type())
+cfprFabricLocaleSide.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLocaleSide.setStatus(_A)
+_CfprFabricLocaleSlotId_Type=Gauge32
+_CfprFabricLocaleSlotId_Object=MibTableColumn
+cfprFabricLocaleSlotId=_CfprFabricLocaleSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,80,1,9),_CfprFabricLocaleSlotId_Type())
+cfprFabricLocaleSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLocaleSlotId.setStatus(_A)
+_CfprFabricLocaleSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricLocaleSwitchId_Object=MibTableColumn
+cfprFabricLocaleSwitchId=_CfprFabricLocaleSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,80,1,10),_CfprFabricLocaleSwitchId_Type())
+cfprFabricLocaleSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLocaleSwitchId.setStatus(_A)
+_CfprFabricLocaleTransport_Type=CfprNetworkTransport
+_CfprFabricLocaleTransport_Object=MibTableColumn
+cfprFabricLocaleTransport=_CfprFabricLocaleTransport_Object((1,3,6,1,4,1,9,9,826,1,26,80,1,11),_CfprFabricLocaleTransport_Type())
+cfprFabricLocaleTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLocaleTransport.setStatus(_A)
+_CfprFabricLocaleType_Type=CfprNetworkConnectionType
+_CfprFabricLocaleType_Object=MibTableColumn
+cfprFabricLocaleType=_CfprFabricLocaleType_Object((1,3,6,1,4,1,9,9,826,1,26,80,1,12),_CfprFabricLocaleType_Type())
+cfprFabricLocaleType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricLocaleType.setStatus(_A)
+_CfprFabricMulticastPolicyTable_Object=MibTable
+cfprFabricMulticastPolicyTable=_CfprFabricMulticastPolicyTable_Object((1,3,6,1,4,1,9,9,826,1,26,81))
+if mibBuilder.loadTexts:cfprFabricMulticastPolicyTable.setStatus(_A)
+_CfprFabricMulticastPolicyEntry_Object=MibTableRow
+cfprFabricMulticastPolicyEntry=_CfprFabricMulticastPolicyEntry_Object((1,3,6,1,4,1,9,9,826,1,26,81,1))
+cfprFabricMulticastPolicyEntry.setIndexNames((0,_C,_AW))
+if mibBuilder.loadTexts:cfprFabricMulticastPolicyEntry.setStatus(_A)
+_CfprFabricMulticastPolicyInstanceId_Type=CfprManagedObjectId
+_CfprFabricMulticastPolicyInstanceId_Object=MibTableColumn
+cfprFabricMulticastPolicyInstanceId=_CfprFabricMulticastPolicyInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,81,1,1),_CfprFabricMulticastPolicyInstanceId_Type())
+cfprFabricMulticastPolicyInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricMulticastPolicyInstanceId.setStatus(_A)
+_CfprFabricMulticastPolicyDn_Type=CfprManagedObjectDn
+_CfprFabricMulticastPolicyDn_Object=MibTableColumn
+cfprFabricMulticastPolicyDn=_CfprFabricMulticastPolicyDn_Object((1,3,6,1,4,1,9,9,826,1,26,81,1,2),_CfprFabricMulticastPolicyDn_Type())
+cfprFabricMulticastPolicyDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricMulticastPolicyDn.setStatus(_A)
+_CfprFabricMulticastPolicyRn_Type=SnmpAdminString
+_CfprFabricMulticastPolicyRn_Object=MibTableColumn
+cfprFabricMulticastPolicyRn=_CfprFabricMulticastPolicyRn_Object((1,3,6,1,4,1,9,9,826,1,26,81,1,3),_CfprFabricMulticastPolicyRn_Type())
+cfprFabricMulticastPolicyRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricMulticastPolicyRn.setStatus(_A)
+_CfprFabricMulticastPolicyDescr_Type=SnmpAdminString
+_CfprFabricMulticastPolicyDescr_Object=MibTableColumn
+cfprFabricMulticastPolicyDescr=_CfprFabricMulticastPolicyDescr_Object((1,3,6,1,4,1,9,9,826,1,26,81,1,4),_CfprFabricMulticastPolicyDescr_Type())
+cfprFabricMulticastPolicyDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricMulticastPolicyDescr.setStatus(_A)
+_CfprFabricMulticastPolicyIntId_Type=SnmpAdminString
+_CfprFabricMulticastPolicyIntId_Object=MibTableColumn
+cfprFabricMulticastPolicyIntId=_CfprFabricMulticastPolicyIntId_Object((1,3,6,1,4,1,9,9,826,1,26,81,1,5),_CfprFabricMulticastPolicyIntId_Type())
+cfprFabricMulticastPolicyIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricMulticastPolicyIntId.setStatus(_A)
+_CfprFabricMulticastPolicyName_Type=SnmpAdminString
+_CfprFabricMulticastPolicyName_Object=MibTableColumn
+cfprFabricMulticastPolicyName=_CfprFabricMulticastPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,81,1,6),_CfprFabricMulticastPolicyName_Type())
+cfprFabricMulticastPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricMulticastPolicyName.setStatus(_A)
+_CfprFabricMulticastPolicyPolicyLevel_Type=Gauge32
+_CfprFabricMulticastPolicyPolicyLevel_Object=MibTableColumn
+cfprFabricMulticastPolicyPolicyLevel=_CfprFabricMulticastPolicyPolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,26,81,1,7),_CfprFabricMulticastPolicyPolicyLevel_Type())
+cfprFabricMulticastPolicyPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricMulticastPolicyPolicyLevel.setStatus(_A)
+_CfprFabricMulticastPolicyPolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprFabricMulticastPolicyPolicyOwner_Object=MibTableColumn
+cfprFabricMulticastPolicyPolicyOwner=_CfprFabricMulticastPolicyPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,81,1,8),_CfprFabricMulticastPolicyPolicyOwner_Type())
+cfprFabricMulticastPolicyPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricMulticastPolicyPolicyOwner.setStatus(_A)
+_CfprFabricMulticastPolicyQuerierIpAddr_Type=InetAddressIPv4
+_CfprFabricMulticastPolicyQuerierIpAddr_Object=MibTableColumn
+cfprFabricMulticastPolicyQuerierIpAddr=_CfprFabricMulticastPolicyQuerierIpAddr_Object((1,3,6,1,4,1,9,9,826,1,26,81,1,9),_CfprFabricMulticastPolicyQuerierIpAddr_Type())
+cfprFabricMulticastPolicyQuerierIpAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricMulticastPolicyQuerierIpAddr.setStatus(_A)
+_CfprFabricMulticastPolicyQuerierState_Type=CfprFabricQuerierType
+_CfprFabricMulticastPolicyQuerierState_Object=MibTableColumn
+cfprFabricMulticastPolicyQuerierState=_CfprFabricMulticastPolicyQuerierState_Object((1,3,6,1,4,1,9,9,826,1,26,81,1,10),_CfprFabricMulticastPolicyQuerierState_Type())
+cfprFabricMulticastPolicyQuerierState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricMulticastPolicyQuerierState.setStatus(_A)
+_CfprFabricMulticastPolicySnoopingState_Type=CfprFabricSnoopingType
+_CfprFabricMulticastPolicySnoopingState_Object=MibTableColumn
+cfprFabricMulticastPolicySnoopingState=_CfprFabricMulticastPolicySnoopingState_Object((1,3,6,1,4,1,9,9,826,1,26,81,1,11),_CfprFabricMulticastPolicySnoopingState_Type())
+cfprFabricMulticastPolicySnoopingState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricMulticastPolicySnoopingState.setStatus(_A)
+_CfprFabricNetGroupTable_Object=MibTable
+cfprFabricNetGroupTable=_CfprFabricNetGroupTable_Object((1,3,6,1,4,1,9,9,826,1,26,82))
+if mibBuilder.loadTexts:cfprFabricNetGroupTable.setStatus(_A)
+_CfprFabricNetGroupEntry_Object=MibTableRow
+cfprFabricNetGroupEntry=_CfprFabricNetGroupEntry_Object((1,3,6,1,4,1,9,9,826,1,26,82,1))
+cfprFabricNetGroupEntry.setIndexNames((0,_C,_AX))
+if mibBuilder.loadTexts:cfprFabricNetGroupEntry.setStatus(_A)
+_CfprFabricNetGroupInstanceId_Type=CfprManagedObjectId
+_CfprFabricNetGroupInstanceId_Object=MibTableColumn
+cfprFabricNetGroupInstanceId=_CfprFabricNetGroupInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,1),_CfprFabricNetGroupInstanceId_Type())
+cfprFabricNetGroupInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricNetGroupInstanceId.setStatus(_A)
+_CfprFabricNetGroupDn_Type=CfprManagedObjectDn
+_CfprFabricNetGroupDn_Object=MibTableColumn
+cfprFabricNetGroupDn=_CfprFabricNetGroupDn_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,2),_CfprFabricNetGroupDn_Type())
+cfprFabricNetGroupDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetGroupDn.setStatus(_A)
+_CfprFabricNetGroupRn_Type=SnmpAdminString
+_CfprFabricNetGroupRn_Object=MibTableColumn
+cfprFabricNetGroupRn=_CfprFabricNetGroupRn_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,3),_CfprFabricNetGroupRn_Type())
+cfprFabricNetGroupRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetGroupRn.setStatus(_A)
+_CfprFabricNetGroupAssigned_Type=Gauge32
+_CfprFabricNetGroupAssigned_Object=MibTableColumn
+cfprFabricNetGroupAssigned=_CfprFabricNetGroupAssigned_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,4),_CfprFabricNetGroupAssigned_Type())
+cfprFabricNetGroupAssigned.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetGroupAssigned.setStatus(_A)
+_CfprFabricNetGroupAssignmentOrder_Type=CfprPoolPoolAssignmentOrder
+_CfprFabricNetGroupAssignmentOrder_Object=MibTableColumn
+cfprFabricNetGroupAssignmentOrder=_CfprFabricNetGroupAssignmentOrder_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,5),_CfprFabricNetGroupAssignmentOrder_Type())
+cfprFabricNetGroupAssignmentOrder.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetGroupAssignmentOrder.setStatus(_A)
+_CfprFabricNetGroupDescr_Type=SnmpAdminString
+_CfprFabricNetGroupDescr_Object=MibTableColumn
+cfprFabricNetGroupDescr=_CfprFabricNetGroupDescr_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,6),_CfprFabricNetGroupDescr_Type())
+cfprFabricNetGroupDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetGroupDescr.setStatus(_A)
+_CfprFabricNetGroupId_Type=Gauge32
+_CfprFabricNetGroupId_Object=MibTableColumn
+cfprFabricNetGroupId=_CfprFabricNetGroupId_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,7),_CfprFabricNetGroupId_Type())
+cfprFabricNetGroupId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetGroupId.setStatus(_A)
+_CfprFabricNetGroupIntId_Type=SnmpAdminString
+_CfprFabricNetGroupIntId_Object=MibTableColumn
+cfprFabricNetGroupIntId=_CfprFabricNetGroupIntId_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,8),_CfprFabricNetGroupIntId_Type())
+cfprFabricNetGroupIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetGroupIntId.setStatus(_A)
+_CfprFabricNetGroupName_Type=SnmpAdminString
+_CfprFabricNetGroupName_Object=MibTableColumn
+cfprFabricNetGroupName=_CfprFabricNetGroupName_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,9),_CfprFabricNetGroupName_Type())
+cfprFabricNetGroupName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetGroupName.setStatus(_A)
+_CfprFabricNetGroupNativeNet_Type=SnmpAdminString
+_CfprFabricNetGroupNativeNet_Object=MibTableColumn
+cfprFabricNetGroupNativeNet=_CfprFabricNetGroupNativeNet_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,10),_CfprFabricNetGroupNativeNet_Type())
+cfprFabricNetGroupNativeNet.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetGroupNativeNet.setStatus(_A)
+_CfprFabricNetGroupNativeNetDn_Type=SnmpAdminString
+_CfprFabricNetGroupNativeNetDn_Object=MibTableColumn
+cfprFabricNetGroupNativeNetDn=_CfprFabricNetGroupNativeNetDn_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,11),_CfprFabricNetGroupNativeNetDn_Type())
+cfprFabricNetGroupNativeNetDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetGroupNativeNetDn.setStatus(_A)
+_CfprFabricNetGroupOwner_Type=CfprFabricOwner
+_CfprFabricNetGroupOwner_Object=MibTableColumn
+cfprFabricNetGroupOwner=_CfprFabricNetGroupOwner_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,12),_CfprFabricNetGroupOwner_Type())
+cfprFabricNetGroupOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetGroupOwner.setStatus(_A)
+_CfprFabricNetGroupPeerDn_Type=SnmpAdminString
+_CfprFabricNetGroupPeerDn_Object=MibTableColumn
+cfprFabricNetGroupPeerDn=_CfprFabricNetGroupPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,13),_CfprFabricNetGroupPeerDn_Type())
+cfprFabricNetGroupPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetGroupPeerDn.setStatus(_A)
+_CfprFabricNetGroupPolicyLevel_Type=Gauge32
+_CfprFabricNetGroupPolicyLevel_Object=MibTableColumn
+cfprFabricNetGroupPolicyLevel=_CfprFabricNetGroupPolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,14),_CfprFabricNetGroupPolicyLevel_Type())
+cfprFabricNetGroupPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetGroupPolicyLevel.setStatus(_A)
+_CfprFabricNetGroupPolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprFabricNetGroupPolicyOwner_Object=MibTableColumn
+cfprFabricNetGroupPolicyOwner=_CfprFabricNetGroupPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,15),_CfprFabricNetGroupPolicyOwner_Type())
+cfprFabricNetGroupPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetGroupPolicyOwner.setStatus(_A)
+_CfprFabricNetGroupSize_Type=Gauge32
+_CfprFabricNetGroupSize_Object=MibTableColumn
+cfprFabricNetGroupSize=_CfprFabricNetGroupSize_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,16),_CfprFabricNetGroupSize_Type())
+cfprFabricNetGroupSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetGroupSize.setStatus(_A)
+_CfprFabricNetGroupSwitchId_Type=CfprFabricNetGroupSwitchId
+_CfprFabricNetGroupSwitchId_Object=MibTableColumn
+cfprFabricNetGroupSwitchId=_CfprFabricNetGroupSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,17),_CfprFabricNetGroupSwitchId_Type())
+cfprFabricNetGroupSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetGroupSwitchId.setStatus(_A)
+_CfprFabricNetGroupType_Type=CfprFabricNetGroupType
+_CfprFabricNetGroupType_Object=MibTableColumn
+cfprFabricNetGroupType=_CfprFabricNetGroupType_Object((1,3,6,1,4,1,9,9,826,1,26,82,1,18),_CfprFabricNetGroupType_Type())
+cfprFabricNetGroupType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetGroupType.setStatus(_A)
+_CfprFabricNetflowCollectorTable_Object=MibTable
+cfprFabricNetflowCollectorTable=_CfprFabricNetflowCollectorTable_Object((1,3,6,1,4,1,9,9,826,1,26,83))
+if mibBuilder.loadTexts:cfprFabricNetflowCollectorTable.setStatus(_A)
+_CfprFabricNetflowCollectorEntry_Object=MibTableRow
+cfprFabricNetflowCollectorEntry=_CfprFabricNetflowCollectorEntry_Object((1,3,6,1,4,1,9,9,826,1,26,83,1))
+cfprFabricNetflowCollectorEntry.setIndexNames((0,_C,_AY))
+if mibBuilder.loadTexts:cfprFabricNetflowCollectorEntry.setStatus(_A)
+_CfprFabricNetflowCollectorInstanceId_Type=CfprManagedObjectId
+_CfprFabricNetflowCollectorInstanceId_Object=MibTableColumn
+cfprFabricNetflowCollectorInstanceId=_CfprFabricNetflowCollectorInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,83,1,1),_CfprFabricNetflowCollectorInstanceId_Type())
+cfprFabricNetflowCollectorInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricNetflowCollectorInstanceId.setStatus(_A)
+_CfprFabricNetflowCollectorDn_Type=CfprManagedObjectDn
+_CfprFabricNetflowCollectorDn_Object=MibTableColumn
+cfprFabricNetflowCollectorDn=_CfprFabricNetflowCollectorDn_Object((1,3,6,1,4,1,9,9,826,1,26,83,1,2),_CfprFabricNetflowCollectorDn_Type())
+cfprFabricNetflowCollectorDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowCollectorDn.setStatus(_A)
+_CfprFabricNetflowCollectorRn_Type=SnmpAdminString
+_CfprFabricNetflowCollectorRn_Object=MibTableColumn
+cfprFabricNetflowCollectorRn=_CfprFabricNetflowCollectorRn_Object((1,3,6,1,4,1,9,9,826,1,26,83,1,3),_CfprFabricNetflowCollectorRn_Type())
+cfprFabricNetflowCollectorRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowCollectorRn.setStatus(_A)
+_CfprFabricNetflowCollectorDescr_Type=SnmpAdminString
+_CfprFabricNetflowCollectorDescr_Object=MibTableColumn
+cfprFabricNetflowCollectorDescr=_CfprFabricNetflowCollectorDescr_Object((1,3,6,1,4,1,9,9,826,1,26,83,1,4),_CfprFabricNetflowCollectorDescr_Type())
+cfprFabricNetflowCollectorDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowCollectorDescr.setStatus(_A)
+_CfprFabricNetflowCollectorFlowProtocol_Type=CfprFabricNetflowCollectorFlowProtocol
+_CfprFabricNetflowCollectorFlowProtocol_Object=MibTableColumn
+cfprFabricNetflowCollectorFlowProtocol=_CfprFabricNetflowCollectorFlowProtocol_Object((1,3,6,1,4,1,9,9,826,1,26,83,1,5),_CfprFabricNetflowCollectorFlowProtocol_Type())
+cfprFabricNetflowCollectorFlowProtocol.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowCollectorFlowProtocol.setStatus(_A)
+_CfprFabricNetflowCollectorId_Type=CfprNetworkSwitchId
+_CfprFabricNetflowCollectorId_Object=MibTableColumn
+cfprFabricNetflowCollectorId=_CfprFabricNetflowCollectorId_Object((1,3,6,1,4,1,9,9,826,1,26,83,1,6),_CfprFabricNetflowCollectorId_Type())
+cfprFabricNetflowCollectorId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowCollectorId.setStatus(_A)
+_CfprFabricNetflowCollectorLocale_Type=CfprFabricFlowMonCollectorLocale
+_CfprFabricNetflowCollectorLocale_Object=MibTableColumn
+cfprFabricNetflowCollectorLocale=_CfprFabricNetflowCollectorLocale_Object((1,3,6,1,4,1,9,9,826,1,26,83,1,7),_CfprFabricNetflowCollectorLocale_Type())
+cfprFabricNetflowCollectorLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowCollectorLocale.setStatus(_A)
+_CfprFabricNetflowCollectorName_Type=SnmpAdminString
+_CfprFabricNetflowCollectorName_Object=MibTableColumn
+cfprFabricNetflowCollectorName=_CfprFabricNetflowCollectorName_Object((1,3,6,1,4,1,9,9,826,1,26,83,1,8),_CfprFabricNetflowCollectorName_Type())
+cfprFabricNetflowCollectorName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowCollectorName.setStatus(_A)
+_CfprFabricNetflowCollectorPort_Type=Gauge32
+_CfprFabricNetflowCollectorPort_Object=MibTableColumn
+cfprFabricNetflowCollectorPort=_CfprFabricNetflowCollectorPort_Object((1,3,6,1,4,1,9,9,826,1,26,83,1,9),_CfprFabricNetflowCollectorPort_Type())
+cfprFabricNetflowCollectorPort.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowCollectorPort.setStatus(_A)
+_CfprFabricNetflowCollectorSourceVlan_Type=SnmpAdminString
+_CfprFabricNetflowCollectorSourceVlan_Object=MibTableColumn
+cfprFabricNetflowCollectorSourceVlan=_CfprFabricNetflowCollectorSourceVlan_Object((1,3,6,1,4,1,9,9,826,1,26,83,1,10),_CfprFabricNetflowCollectorSourceVlan_Type())
+cfprFabricNetflowCollectorSourceVlan.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowCollectorSourceVlan.setStatus(_A)
+_CfprFabricNetflowCollectorSourceVlanDn_Type=SnmpAdminString
+_CfprFabricNetflowCollectorSourceVlanDn_Object=MibTableColumn
+cfprFabricNetflowCollectorSourceVlanDn=_CfprFabricNetflowCollectorSourceVlanDn_Object((1,3,6,1,4,1,9,9,826,1,26,83,1,11),_CfprFabricNetflowCollectorSourceVlanDn_Type())
+cfprFabricNetflowCollectorSourceVlanDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowCollectorSourceVlanDn.setStatus(_A)
+_CfprFabricNetflowCollectorTransport_Type=CfprFabricEthLanFlowMonCollectorTransport
+_CfprFabricNetflowCollectorTransport_Object=MibTableColumn
+cfprFabricNetflowCollectorTransport=_CfprFabricNetflowCollectorTransport_Object((1,3,6,1,4,1,9,9,826,1,26,83,1,12),_CfprFabricNetflowCollectorTransport_Type())
+cfprFabricNetflowCollectorTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowCollectorTransport.setStatus(_A)
+_CfprFabricNetflowCollectorType_Type=CfprFabricLanFlowMonCollectorType
+_CfprFabricNetflowCollectorType_Object=MibTableColumn
+cfprFabricNetflowCollectorType=_CfprFabricNetflowCollectorType_Object((1,3,6,1,4,1,9,9,826,1,26,83,1,13),_CfprFabricNetflowCollectorType_Type())
+cfprFabricNetflowCollectorType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowCollectorType.setStatus(_A)
+_CfprFabricNetflowIPv4AddrTable_Object=MibTable
+cfprFabricNetflowIPv4AddrTable=_CfprFabricNetflowIPv4AddrTable_Object((1,3,6,1,4,1,9,9,826,1,26,84))
+if mibBuilder.loadTexts:cfprFabricNetflowIPv4AddrTable.setStatus(_A)
+_CfprFabricNetflowIPv4AddrEntry_Object=MibTableRow
+cfprFabricNetflowIPv4AddrEntry=_CfprFabricNetflowIPv4AddrEntry_Object((1,3,6,1,4,1,9,9,826,1,26,84,1))
+cfprFabricNetflowIPv4AddrEntry.setIndexNames((0,_C,_AZ))
+if mibBuilder.loadTexts:cfprFabricNetflowIPv4AddrEntry.setStatus(_A)
+_CfprFabricNetflowIPv4AddrInstanceId_Type=CfprManagedObjectId
+_CfprFabricNetflowIPv4AddrInstanceId_Object=MibTableColumn
+cfprFabricNetflowIPv4AddrInstanceId=_CfprFabricNetflowIPv4AddrInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,84,1,1),_CfprFabricNetflowIPv4AddrInstanceId_Type())
+cfprFabricNetflowIPv4AddrInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricNetflowIPv4AddrInstanceId.setStatus(_A)
+_CfprFabricNetflowIPv4AddrDn_Type=CfprManagedObjectDn
+_CfprFabricNetflowIPv4AddrDn_Object=MibTableColumn
+cfprFabricNetflowIPv4AddrDn=_CfprFabricNetflowIPv4AddrDn_Object((1,3,6,1,4,1,9,9,826,1,26,84,1,2),_CfprFabricNetflowIPv4AddrDn_Type())
+cfprFabricNetflowIPv4AddrDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowIPv4AddrDn.setStatus(_A)
+_CfprFabricNetflowIPv4AddrRn_Type=SnmpAdminString
+_CfprFabricNetflowIPv4AddrRn_Object=MibTableColumn
+cfprFabricNetflowIPv4AddrRn=_CfprFabricNetflowIPv4AddrRn_Object((1,3,6,1,4,1,9,9,826,1,26,84,1,3),_CfprFabricNetflowIPv4AddrRn_Type())
+cfprFabricNetflowIPv4AddrRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowIPv4AddrRn.setStatus(_A)
+_CfprFabricNetflowIPv4AddrAddr_Type=InetAddressIPv4
+_CfprFabricNetflowIPv4AddrAddr_Object=MibTableColumn
+cfprFabricNetflowIPv4AddrAddr=_CfprFabricNetflowIPv4AddrAddr_Object((1,3,6,1,4,1,9,9,826,1,26,84,1,4),_CfprFabricNetflowIPv4AddrAddr_Type())
+cfprFabricNetflowIPv4AddrAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowIPv4AddrAddr.setStatus(_A)
+_CfprFabricNetflowIPv4AddrDefGw_Type=InetAddressIPv4
+_CfprFabricNetflowIPv4AddrDefGw_Object=MibTableColumn
+cfprFabricNetflowIPv4AddrDefGw=_CfprFabricNetflowIPv4AddrDefGw_Object((1,3,6,1,4,1,9,9,826,1,26,84,1,5),_CfprFabricNetflowIPv4AddrDefGw_Type())
+cfprFabricNetflowIPv4AddrDefGw.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowIPv4AddrDefGw.setStatus(_A)
+_CfprFabricNetflowIPv4AddrFabricId_Type=CfprNetworkSwitchId
+_CfprFabricNetflowIPv4AddrFabricId_Object=MibTableColumn
+cfprFabricNetflowIPv4AddrFabricId=_CfprFabricNetflowIPv4AddrFabricId_Object((1,3,6,1,4,1,9,9,826,1,26,84,1,6),_CfprFabricNetflowIPv4AddrFabricId_Type())
+cfprFabricNetflowIPv4AddrFabricId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowIPv4AddrFabricId.setStatus(_A)
+_CfprFabricNetflowIPv4AddrSubnet_Type=InetAddressIPv4
+_CfprFabricNetflowIPv4AddrSubnet_Object=MibTableColumn
+cfprFabricNetflowIPv4AddrSubnet=_CfprFabricNetflowIPv4AddrSubnet_Object((1,3,6,1,4,1,9,9,826,1,26,84,1,7),_CfprFabricNetflowIPv4AddrSubnet_Type())
+cfprFabricNetflowIPv4AddrSubnet.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowIPv4AddrSubnet.setStatus(_A)
+_CfprFabricNetflowMonExporterTable_Object=MibTable
+cfprFabricNetflowMonExporterTable=_CfprFabricNetflowMonExporterTable_Object((1,3,6,1,4,1,9,9,826,1,26,85))
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterTable.setStatus(_A)
+_CfprFabricNetflowMonExporterEntry_Object=MibTableRow
+cfprFabricNetflowMonExporterEntry=_CfprFabricNetflowMonExporterEntry_Object((1,3,6,1,4,1,9,9,826,1,26,85,1))
+cfprFabricNetflowMonExporterEntry.setIndexNames((0,_C,_Aa))
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterEntry.setStatus(_A)
+_CfprFabricNetflowMonExporterInstanceId_Type=CfprManagedObjectId
+_CfprFabricNetflowMonExporterInstanceId_Object=MibTableColumn
+cfprFabricNetflowMonExporterInstanceId=_CfprFabricNetflowMonExporterInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,1),_CfprFabricNetflowMonExporterInstanceId_Type())
+cfprFabricNetflowMonExporterInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterInstanceId.setStatus(_A)
+_CfprFabricNetflowMonExporterDn_Type=CfprManagedObjectDn
+_CfprFabricNetflowMonExporterDn_Object=MibTableColumn
+cfprFabricNetflowMonExporterDn=_CfprFabricNetflowMonExporterDn_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,2),_CfprFabricNetflowMonExporterDn_Type())
+cfprFabricNetflowMonExporterDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterDn.setStatus(_A)
+_CfprFabricNetflowMonExporterRn_Type=SnmpAdminString
+_CfprFabricNetflowMonExporterRn_Object=MibTableColumn
+cfprFabricNetflowMonExporterRn=_CfprFabricNetflowMonExporterRn_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,3),_CfprFabricNetflowMonExporterRn_Type())
+cfprFabricNetflowMonExporterRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterRn.setStatus(_A)
+_CfprFabricNetflowMonExporterDescr_Type=SnmpAdminString
+_CfprFabricNetflowMonExporterDescr_Object=MibTableColumn
+cfprFabricNetflowMonExporterDescr=_CfprFabricNetflowMonExporterDescr_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,4),_CfprFabricNetflowMonExporterDescr_Type())
+cfprFabricNetflowMonExporterDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterDescr.setStatus(_A)
+_CfprFabricNetflowMonExporterDscp_Type=Gauge32
+_CfprFabricNetflowMonExporterDscp_Object=MibTableColumn
+cfprFabricNetflowMonExporterDscp=_CfprFabricNetflowMonExporterDscp_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,5),_CfprFabricNetflowMonExporterDscp_Type())
+cfprFabricNetflowMonExporterDscp.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterDscp.setStatus(_A)
+_CfprFabricNetflowMonExporterExportInternal_Type=Gauge32
+_CfprFabricNetflowMonExporterExportInternal_Object=MibTableColumn
+cfprFabricNetflowMonExporterExportInternal=_CfprFabricNetflowMonExporterExportInternal_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,6),_CfprFabricNetflowMonExporterExportInternal_Type())
+cfprFabricNetflowMonExporterExportInternal.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterExportInternal.setStatus(_A)
+_CfprFabricNetflowMonExporterExporterStatsTimeout_Type=Gauge32
+_CfprFabricNetflowMonExporterExporterStatsTimeout_Object=MibTableColumn
+cfprFabricNetflowMonExporterExporterStatsTimeout=_CfprFabricNetflowMonExporterExporterStatsTimeout_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,7),_CfprFabricNetflowMonExporterExporterStatsTimeout_Type())
+cfprFabricNetflowMonExporterExporterStatsTimeout.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterExporterStatsTimeout.setStatus(_A)
+_CfprFabricNetflowMonExporterFlowExpProfile_Type=SnmpAdminString
+_CfprFabricNetflowMonExporterFlowExpProfile_Object=MibTableColumn
+cfprFabricNetflowMonExporterFlowExpProfile=_CfprFabricNetflowMonExporterFlowExpProfile_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,8),_CfprFabricNetflowMonExporterFlowExpProfile_Type())
+cfprFabricNetflowMonExporterFlowExpProfile.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterFlowExpProfile.setStatus(_A)
+_CfprFabricNetflowMonExporterFlowMonCollector_Type=SnmpAdminString
+_CfprFabricNetflowMonExporterFlowMonCollector_Object=MibTableColumn
+cfprFabricNetflowMonExporterFlowMonCollector=_CfprFabricNetflowMonExporterFlowMonCollector_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,9),_CfprFabricNetflowMonExporterFlowMonCollector_Type())
+cfprFabricNetflowMonExporterFlowMonCollector.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterFlowMonCollector.setStatus(_A)
+_CfprFabricNetflowMonExporterIntId_Type=SnmpAdminString
+_CfprFabricNetflowMonExporterIntId_Object=MibTableColumn
+cfprFabricNetflowMonExporterIntId=_CfprFabricNetflowMonExporterIntId_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,10),_CfprFabricNetflowMonExporterIntId_Type())
+cfprFabricNetflowMonExporterIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterIntId.setStatus(_A)
+_CfprFabricNetflowMonExporterInterfaceTableTimeout_Type=Gauge32
+_CfprFabricNetflowMonExporterInterfaceTableTimeout_Object=MibTableColumn
+cfprFabricNetflowMonExporterInterfaceTableTimeout=_CfprFabricNetflowMonExporterInterfaceTableTimeout_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,11),_CfprFabricNetflowMonExporterInterfaceTableTimeout_Type())
+cfprFabricNetflowMonExporterInterfaceTableTimeout.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterInterfaceTableTimeout.setStatus(_A)
+_CfprFabricNetflowMonExporterName_Type=SnmpAdminString
+_CfprFabricNetflowMonExporterName_Object=MibTableColumn
+cfprFabricNetflowMonExporterName=_CfprFabricNetflowMonExporterName_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,12),_CfprFabricNetflowMonExporterName_Type())
+cfprFabricNetflowMonExporterName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterName.setStatus(_A)
+_CfprFabricNetflowMonExporterOperFlowExpProfile_Type=SnmpAdminString
+_CfprFabricNetflowMonExporterOperFlowExpProfile_Object=MibTableColumn
+cfprFabricNetflowMonExporterOperFlowExpProfile=_CfprFabricNetflowMonExporterOperFlowExpProfile_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,13),_CfprFabricNetflowMonExporterOperFlowExpProfile_Type())
+cfprFabricNetflowMonExporterOperFlowExpProfile.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterOperFlowExpProfile.setStatus(_A)
+_CfprFabricNetflowMonExporterPolicyLevel_Type=Gauge32
+_CfprFabricNetflowMonExporterPolicyLevel_Object=MibTableColumn
+cfprFabricNetflowMonExporterPolicyLevel=_CfprFabricNetflowMonExporterPolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,14),_CfprFabricNetflowMonExporterPolicyLevel_Type())
+cfprFabricNetflowMonExporterPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterPolicyLevel.setStatus(_A)
+_CfprFabricNetflowMonExporterPolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprFabricNetflowMonExporterPolicyOwner_Object=MibTableColumn
+cfprFabricNetflowMonExporterPolicyOwner=_CfprFabricNetflowMonExporterPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,15),_CfprFabricNetflowMonExporterPolicyOwner_Type())
+cfprFabricNetflowMonExporterPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterPolicyOwner.setStatus(_A)
+_CfprFabricNetflowMonExporterProtocol_Type=CfprFabricNetflowMonExporterProtocol
+_CfprFabricNetflowMonExporterProtocol_Object=MibTableColumn
+cfprFabricNetflowMonExporterProtocol=_CfprFabricNetflowMonExporterProtocol_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,16),_CfprFabricNetflowMonExporterProtocol_Type())
+cfprFabricNetflowMonExporterProtocol.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterProtocol.setStatus(_A)
+_CfprFabricNetflowMonExporterTemplateDataTimeout_Type=Gauge32
+_CfprFabricNetflowMonExporterTemplateDataTimeout_Object=MibTableColumn
+cfprFabricNetflowMonExporterTemplateDataTimeout=_CfprFabricNetflowMonExporterTemplateDataTimeout_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,17),_CfprFabricNetflowMonExporterTemplateDataTimeout_Type())
+cfprFabricNetflowMonExporterTemplateDataTimeout.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterTemplateDataTimeout.setStatus(_A)
+_CfprFabricNetflowMonExporterTransport_Type=CfprFabricEthLanFlowMonExporterTransport
+_CfprFabricNetflowMonExporterTransport_Object=MibTableColumn
+cfprFabricNetflowMonExporterTransport=_CfprFabricNetflowMonExporterTransport_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,18),_CfprFabricNetflowMonExporterTransport_Type())
+cfprFabricNetflowMonExporterTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterTransport.setStatus(_A)
+_CfprFabricNetflowMonExporterTransportProtocol_Type=CfprFabricNFTransport
+_CfprFabricNetflowMonExporterTransportProtocol_Object=MibTableColumn
+cfprFabricNetflowMonExporterTransportProtocol=_CfprFabricNetflowMonExporterTransportProtocol_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,19),_CfprFabricNetflowMonExporterTransportProtocol_Type())
+cfprFabricNetflowMonExporterTransportProtocol.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterTransportProtocol.setStatus(_A)
+_CfprFabricNetflowMonExporterType_Type=CfprFabricLanFlowMonExporterType
+_CfprFabricNetflowMonExporterType_Object=MibTableColumn
+cfprFabricNetflowMonExporterType=_CfprFabricNetflowMonExporterType_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,20),_CfprFabricNetflowMonExporterType_Type())
+cfprFabricNetflowMonExporterType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterType.setStatus(_A)
+_CfprFabricNetflowMonExporterVersion_Type=CfprFabricNFExporterVersion
+_CfprFabricNetflowMonExporterVersion_Object=MibTableColumn
+cfprFabricNetflowMonExporterVersion=_CfprFabricNetflowMonExporterVersion_Object((1,3,6,1,4,1,9,9,826,1,26,85,1,21),_CfprFabricNetflowMonExporterVersion_Type())
+cfprFabricNetflowMonExporterVersion.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterVersion.setStatus(_A)
+_CfprFabricNetflowMonExporterRefTable_Object=MibTable
+cfprFabricNetflowMonExporterRefTable=_CfprFabricNetflowMonExporterRefTable_Object((1,3,6,1,4,1,9,9,826,1,26,86))
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterRefTable.setStatus(_A)
+_CfprFabricNetflowMonExporterRefEntry_Object=MibTableRow
+cfprFabricNetflowMonExporterRefEntry=_CfprFabricNetflowMonExporterRefEntry_Object((1,3,6,1,4,1,9,9,826,1,26,86,1))
+cfprFabricNetflowMonExporterRefEntry.setIndexNames((0,_C,_Ab))
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterRefEntry.setStatus(_A)
+_CfprFabricNetflowMonExporterRefInstanceId_Type=CfprManagedObjectId
+_CfprFabricNetflowMonExporterRefInstanceId_Object=MibTableColumn
+cfprFabricNetflowMonExporterRefInstanceId=_CfprFabricNetflowMonExporterRefInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,86,1,1),_CfprFabricNetflowMonExporterRefInstanceId_Type())
+cfprFabricNetflowMonExporterRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterRefInstanceId.setStatus(_A)
+_CfprFabricNetflowMonExporterRefDn_Type=CfprManagedObjectDn
+_CfprFabricNetflowMonExporterRefDn_Object=MibTableColumn
+cfprFabricNetflowMonExporterRefDn=_CfprFabricNetflowMonExporterRefDn_Object((1,3,6,1,4,1,9,9,826,1,26,86,1,2),_CfprFabricNetflowMonExporterRefDn_Type())
+cfprFabricNetflowMonExporterRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterRefDn.setStatus(_A)
+_CfprFabricNetflowMonExporterRefRn_Type=SnmpAdminString
+_CfprFabricNetflowMonExporterRefRn_Object=MibTableColumn
+cfprFabricNetflowMonExporterRefRn=_CfprFabricNetflowMonExporterRefRn_Object((1,3,6,1,4,1,9,9,826,1,26,86,1,3),_CfprFabricNetflowMonExporterRefRn_Type())
+cfprFabricNetflowMonExporterRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterRefRn.setStatus(_A)
+_CfprFabricNetflowMonExporterRefIndex_Type=Gauge32
+_CfprFabricNetflowMonExporterRefIndex_Object=MibTableColumn
+cfprFabricNetflowMonExporterRefIndex=_CfprFabricNetflowMonExporterRefIndex_Object((1,3,6,1,4,1,9,9,826,1,26,86,1,4),_CfprFabricNetflowMonExporterRefIndex_Type())
+cfprFabricNetflowMonExporterRefIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterRefIndex.setStatus(_A)
+_CfprFabricNetflowMonExporterRefNfMonExporterName_Type=SnmpAdminString
+_CfprFabricNetflowMonExporterRefNfMonExporterName_Object=MibTableColumn
+cfprFabricNetflowMonExporterRefNfMonExporterName=_CfprFabricNetflowMonExporterRefNfMonExporterName_Object((1,3,6,1,4,1,9,9,826,1,26,86,1,5),_CfprFabricNetflowMonExporterRefNfMonExporterName_Type())
+cfprFabricNetflowMonExporterRefNfMonExporterName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterRefNfMonExporterName.setStatus(_A)
+_CfprFabricNetflowMonExporterRefOperNfMonExporterName_Type=SnmpAdminString
+_CfprFabricNetflowMonExporterRefOperNfMonExporterName_Object=MibTableColumn
+cfprFabricNetflowMonExporterRefOperNfMonExporterName=_CfprFabricNetflowMonExporterRefOperNfMonExporterName_Object((1,3,6,1,4,1,9,9,826,1,26,86,1,6),_CfprFabricNetflowMonExporterRefOperNfMonExporterName_Type())
+cfprFabricNetflowMonExporterRefOperNfMonExporterName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterRefOperNfMonExporterName.setStatus(_A)
+_CfprFabricNetflowMonExporterRefSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricNetflowMonExporterRefSwitchId_Object=MibTableColumn
+cfprFabricNetflowMonExporterRefSwitchId=_CfprFabricNetflowMonExporterRefSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,86,1,7),_CfprFabricNetflowMonExporterRefSwitchId_Type())
+cfprFabricNetflowMonExporterRefSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonExporterRefSwitchId.setStatus(_A)
+_CfprFabricNetflowMonSessionTable_Object=MibTable
+cfprFabricNetflowMonSessionTable=_CfprFabricNetflowMonSessionTable_Object((1,3,6,1,4,1,9,9,826,1,26,87))
+if mibBuilder.loadTexts:cfprFabricNetflowMonSessionTable.setStatus(_A)
+_CfprFabricNetflowMonSessionEntry_Object=MibTableRow
+cfprFabricNetflowMonSessionEntry=_CfprFabricNetflowMonSessionEntry_Object((1,3,6,1,4,1,9,9,826,1,26,87,1))
+cfprFabricNetflowMonSessionEntry.setIndexNames((0,_C,_Ac))
+if mibBuilder.loadTexts:cfprFabricNetflowMonSessionEntry.setStatus(_A)
+_CfprFabricNetflowMonSessionInstanceId_Type=CfprManagedObjectId
+_CfprFabricNetflowMonSessionInstanceId_Object=MibTableColumn
+cfprFabricNetflowMonSessionInstanceId=_CfprFabricNetflowMonSessionInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,87,1,1),_CfprFabricNetflowMonSessionInstanceId_Type())
+cfprFabricNetflowMonSessionInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSessionInstanceId.setStatus(_A)
+_CfprFabricNetflowMonSessionDn_Type=CfprManagedObjectDn
+_CfprFabricNetflowMonSessionDn_Object=MibTableColumn
+cfprFabricNetflowMonSessionDn=_CfprFabricNetflowMonSessionDn_Object((1,3,6,1,4,1,9,9,826,1,26,87,1,2),_CfprFabricNetflowMonSessionDn_Type())
+cfprFabricNetflowMonSessionDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSessionDn.setStatus(_A)
+_CfprFabricNetflowMonSessionRn_Type=SnmpAdminString
+_CfprFabricNetflowMonSessionRn_Object=MibTableColumn
+cfprFabricNetflowMonSessionRn=_CfprFabricNetflowMonSessionRn_Object((1,3,6,1,4,1,9,9,826,1,26,87,1,3),_CfprFabricNetflowMonSessionRn_Type())
+cfprFabricNetflowMonSessionRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSessionRn.setStatus(_A)
+_CfprFabricNetflowMonSessionAdminState_Type=CfprFabricNetflowMonSessionAdminState
+_CfprFabricNetflowMonSessionAdminState_Object=MibTableColumn
+cfprFabricNetflowMonSessionAdminState=_CfprFabricNetflowMonSessionAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,87,1,4),_CfprFabricNetflowMonSessionAdminState_Type())
+cfprFabricNetflowMonSessionAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSessionAdminState.setStatus(_A)
+_CfprFabricNetflowMonSessionConfigFailReason_Type=SnmpAdminString
+_CfprFabricNetflowMonSessionConfigFailReason_Object=MibTableColumn
+cfprFabricNetflowMonSessionConfigFailReason=_CfprFabricNetflowMonSessionConfigFailReason_Object((1,3,6,1,4,1,9,9,826,1,26,87,1,5),_CfprFabricNetflowMonSessionConfigFailReason_Type())
+cfprFabricNetflowMonSessionConfigFailReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSessionConfigFailReason.setStatus(_A)
+_CfprFabricNetflowMonSessionConfigQualifier_Type=CfprFabricNetflowConfigIssues
+_CfprFabricNetflowMonSessionConfigQualifier_Object=MibTableColumn
+cfprFabricNetflowMonSessionConfigQualifier=_CfprFabricNetflowMonSessionConfigQualifier_Object((1,3,6,1,4,1,9,9,826,1,26,87,1,6),_CfprFabricNetflowMonSessionConfigQualifier_Type())
+cfprFabricNetflowMonSessionConfigQualifier.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSessionConfigQualifier.setStatus(_A)
+_CfprFabricNetflowMonSessionDescr_Type=SnmpAdminString
+_CfprFabricNetflowMonSessionDescr_Object=MibTableColumn
+cfprFabricNetflowMonSessionDescr=_CfprFabricNetflowMonSessionDescr_Object((1,3,6,1,4,1,9,9,826,1,26,87,1,7),_CfprFabricNetflowMonSessionDescr_Type())
+cfprFabricNetflowMonSessionDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSessionDescr.setStatus(_A)
+_CfprFabricNetflowMonSessionId_Type=CfprNetworkSwitchId
+_CfprFabricNetflowMonSessionId_Object=MibTableColumn
+cfprFabricNetflowMonSessionId=_CfprFabricNetflowMonSessionId_Object((1,3,6,1,4,1,9,9,826,1,26,87,1,8),_CfprFabricNetflowMonSessionId_Type())
+cfprFabricNetflowMonSessionId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSessionId.setStatus(_A)
+_CfprFabricNetflowMonSessionIsConfigSuccess_Type=TruthValue
+_CfprFabricNetflowMonSessionIsConfigSuccess_Object=MibTableColumn
+cfprFabricNetflowMonSessionIsConfigSuccess=_CfprFabricNetflowMonSessionIsConfigSuccess_Object((1,3,6,1,4,1,9,9,826,1,26,87,1,9),_CfprFabricNetflowMonSessionIsConfigSuccess_Type())
+cfprFabricNetflowMonSessionIsConfigSuccess.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSessionIsConfigSuccess.setStatus(_A)
+_CfprFabricNetflowMonSessionLocale_Type=CfprFabricExternalLocale
+_CfprFabricNetflowMonSessionLocale_Object=MibTableColumn
+cfprFabricNetflowMonSessionLocale=_CfprFabricNetflowMonSessionLocale_Object((1,3,6,1,4,1,9,9,826,1,26,87,1,10),_CfprFabricNetflowMonSessionLocale_Type())
+cfprFabricNetflowMonSessionLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSessionLocale.setStatus(_A)
+_CfprFabricNetflowMonSessionName_Type=SnmpAdminString
+_CfprFabricNetflowMonSessionName_Object=MibTableColumn
+cfprFabricNetflowMonSessionName=_CfprFabricNetflowMonSessionName_Object((1,3,6,1,4,1,9,9,826,1,26,87,1,11),_CfprFabricNetflowMonSessionName_Type())
+cfprFabricNetflowMonSessionName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSessionName.setStatus(_A)
+_CfprFabricNetflowMonSessionProtocol_Type=CfprFabricNetflowMonSessionProtocol
+_CfprFabricNetflowMonSessionProtocol_Object=MibTableColumn
+cfprFabricNetflowMonSessionProtocol=_CfprFabricNetflowMonSessionProtocol_Object((1,3,6,1,4,1,9,9,826,1,26,87,1,12),_CfprFabricNetflowMonSessionProtocol_Type())
+cfprFabricNetflowMonSessionProtocol.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSessionProtocol.setStatus(_A)
+_CfprFabricNetflowMonSessionSession_Type=Gauge32
+_CfprFabricNetflowMonSessionSession_Object=MibTableColumn
+cfprFabricNetflowMonSessionSession=_CfprFabricNetflowMonSessionSession_Object((1,3,6,1,4,1,9,9,826,1,26,87,1,13),_CfprFabricNetflowMonSessionSession_Type())
+cfprFabricNetflowMonSessionSession.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSessionSession.setStatus(_A)
+_CfprFabricNetflowMonSessionTransport_Type=CfprFabricEthLanFlowMonTransport
+_CfprFabricNetflowMonSessionTransport_Object=MibTableColumn
+cfprFabricNetflowMonSessionTransport=_CfprFabricNetflowMonSessionTransport_Object((1,3,6,1,4,1,9,9,826,1,26,87,1,14),_CfprFabricNetflowMonSessionTransport_Type())
+cfprFabricNetflowMonSessionTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSessionTransport.setStatus(_A)
+_CfprFabricNetflowMonSessionType_Type=CfprFabricLanFlowMonType
+_CfprFabricNetflowMonSessionType_Object=MibTableColumn
+cfprFabricNetflowMonSessionType=_CfprFabricNetflowMonSessionType_Object((1,3,6,1,4,1,9,9,826,1,26,87,1,15),_CfprFabricNetflowMonSessionType_Type())
+cfprFabricNetflowMonSessionType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSessionType.setStatus(_A)
+_CfprFabricNetflowMonSrcEpTable_Object=MibTable
+cfprFabricNetflowMonSrcEpTable=_CfprFabricNetflowMonSrcEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,88))
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcEpTable.setStatus(_A)
+_CfprFabricNetflowMonSrcEpEntry_Object=MibTableRow
+cfprFabricNetflowMonSrcEpEntry=_CfprFabricNetflowMonSrcEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,88,1))
+cfprFabricNetflowMonSrcEpEntry.setIndexNames((0,_C,_Ad))
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcEpEntry.setStatus(_A)
+_CfprFabricNetflowMonSrcEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricNetflowMonSrcEpInstanceId_Object=MibTableColumn
+cfprFabricNetflowMonSrcEpInstanceId=_CfprFabricNetflowMonSrcEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,88,1,1),_CfprFabricNetflowMonSrcEpInstanceId_Type())
+cfprFabricNetflowMonSrcEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcEpInstanceId.setStatus(_A)
+_CfprFabricNetflowMonSrcEpDn_Type=CfprManagedObjectDn
+_CfprFabricNetflowMonSrcEpDn_Object=MibTableColumn
+cfprFabricNetflowMonSrcEpDn=_CfprFabricNetflowMonSrcEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,88,1,2),_CfprFabricNetflowMonSrcEpDn_Type())
+cfprFabricNetflowMonSrcEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcEpDn.setStatus(_A)
+_CfprFabricNetflowMonSrcEpRn_Type=SnmpAdminString
+_CfprFabricNetflowMonSrcEpRn_Object=MibTableColumn
+cfprFabricNetflowMonSrcEpRn=_CfprFabricNetflowMonSrcEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,88,1,3),_CfprFabricNetflowMonSrcEpRn_Type())
+cfprFabricNetflowMonSrcEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcEpRn.setStatus(_A)
+_CfprFabricNetflowMonSrcEpName_Type=SnmpAdminString
+_CfprFabricNetflowMonSrcEpName_Object=MibTableColumn
+cfprFabricNetflowMonSrcEpName=_CfprFabricNetflowMonSrcEpName_Object((1,3,6,1,4,1,9,9,826,1,26,88,1,4),_CfprFabricNetflowMonSrcEpName_Type())
+cfprFabricNetflowMonSrcEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcEpName.setStatus(_A)
+_CfprFabricNetflowMonSrcEpProtocol_Type=CfprFabricNetflowMonSrcEpProtocol
+_CfprFabricNetflowMonSrcEpProtocol_Object=MibTableColumn
+cfprFabricNetflowMonSrcEpProtocol=_CfprFabricNetflowMonSrcEpProtocol_Object((1,3,6,1,4,1,9,9,826,1,26,88,1,5),_CfprFabricNetflowMonSrcEpProtocol_Type())
+cfprFabricNetflowMonSrcEpProtocol.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcEpProtocol.setStatus(_A)
+_CfprFabricNetflowMonSrcEpSession_Type=Gauge32
+_CfprFabricNetflowMonSrcEpSession_Object=MibTableColumn
+cfprFabricNetflowMonSrcEpSession=_CfprFabricNetflowMonSrcEpSession_Object((1,3,6,1,4,1,9,9,826,1,26,88,1,6),_CfprFabricNetflowMonSrcEpSession_Type())
+cfprFabricNetflowMonSrcEpSession.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcEpSession.setStatus(_A)
+_CfprFabricNetflowMonSrcEpTransport_Type=CfprFabricEthLanFlowMonSrcEpTransport
+_CfprFabricNetflowMonSrcEpTransport_Object=MibTableColumn
+cfprFabricNetflowMonSrcEpTransport=_CfprFabricNetflowMonSrcEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,88,1,7),_CfprFabricNetflowMonSrcEpTransport_Type())
+cfprFabricNetflowMonSrcEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcEpTransport.setStatus(_A)
+_CfprFabricNetflowMonSrcEpType_Type=CfprFabricLanFlowMonSrcEpType
+_CfprFabricNetflowMonSrcEpType_Object=MibTableColumn
+cfprFabricNetflowMonSrcEpType=_CfprFabricNetflowMonSrcEpType_Object((1,3,6,1,4,1,9,9,826,1,26,88,1,8),_CfprFabricNetflowMonSrcEpType_Type())
+cfprFabricNetflowMonSrcEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcEpType.setStatus(_A)
+_CfprFabricNetflowMonSrcRefTable_Object=MibTable
+cfprFabricNetflowMonSrcRefTable=_CfprFabricNetflowMonSrcRefTable_Object((1,3,6,1,4,1,9,9,826,1,26,89))
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcRefTable.setStatus(_A)
+_CfprFabricNetflowMonSrcRefEntry_Object=MibTableRow
+cfprFabricNetflowMonSrcRefEntry=_CfprFabricNetflowMonSrcRefEntry_Object((1,3,6,1,4,1,9,9,826,1,26,89,1))
+cfprFabricNetflowMonSrcRefEntry.setIndexNames((0,_C,_Ae))
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcRefEntry.setStatus(_A)
+_CfprFabricNetflowMonSrcRefInstanceId_Type=CfprManagedObjectId
+_CfprFabricNetflowMonSrcRefInstanceId_Object=MibTableColumn
+cfprFabricNetflowMonSrcRefInstanceId=_CfprFabricNetflowMonSrcRefInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,89,1,1),_CfprFabricNetflowMonSrcRefInstanceId_Type())
+cfprFabricNetflowMonSrcRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcRefInstanceId.setStatus(_A)
+_CfprFabricNetflowMonSrcRefDn_Type=CfprManagedObjectDn
+_CfprFabricNetflowMonSrcRefDn_Object=MibTableColumn
+cfprFabricNetflowMonSrcRefDn=_CfprFabricNetflowMonSrcRefDn_Object((1,3,6,1,4,1,9,9,826,1,26,89,1,2),_CfprFabricNetflowMonSrcRefDn_Type())
+cfprFabricNetflowMonSrcRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcRefDn.setStatus(_A)
+_CfprFabricNetflowMonSrcRefRn_Type=SnmpAdminString
+_CfprFabricNetflowMonSrcRefRn_Object=MibTableColumn
+cfprFabricNetflowMonSrcRefRn=_CfprFabricNetflowMonSrcRefRn_Object((1,3,6,1,4,1,9,9,826,1,26,89,1,3),_CfprFabricNetflowMonSrcRefRn_Type())
+cfprFabricNetflowMonSrcRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcRefRn.setStatus(_A)
+_CfprFabricNetflowMonSrcRefId_Type=Unsigned64
+_CfprFabricNetflowMonSrcRefId_Object=MibTableColumn
+cfprFabricNetflowMonSrcRefId=_CfprFabricNetflowMonSrcRefId_Object((1,3,6,1,4,1,9,9,826,1,26,89,1,4),_CfprFabricNetflowMonSrcRefId_Type())
+cfprFabricNetflowMonSrcRefId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcRefId.setStatus(_A)
+_CfprFabricNetflowMonSrcRefProtocol_Type=CfprFabricNetflowMonSrcRefProtocol
+_CfprFabricNetflowMonSrcRefProtocol_Object=MibTableColumn
+cfprFabricNetflowMonSrcRefProtocol=_CfprFabricNetflowMonSrcRefProtocol_Object((1,3,6,1,4,1,9,9,826,1,26,89,1,5),_CfprFabricNetflowMonSrcRefProtocol_Type())
+cfprFabricNetflowMonSrcRefProtocol.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcRefProtocol.setStatus(_A)
+_CfprFabricNetflowMonSrcRefSourceDn_Type=SnmpAdminString
+_CfprFabricNetflowMonSrcRefSourceDn_Object=MibTableColumn
+cfprFabricNetflowMonSrcRefSourceDn=_CfprFabricNetflowMonSrcRefSourceDn_Object((1,3,6,1,4,1,9,9,826,1,26,89,1,6),_CfprFabricNetflowMonSrcRefSourceDn_Type())
+cfprFabricNetflowMonSrcRefSourceDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcRefSourceDn.setStatus(_A)
+_CfprFabricNetflowMonSrcRefSourceType_Type=CfprFabricEthFlowMonSourceType
+_CfprFabricNetflowMonSrcRefSourceType_Object=MibTableColumn
+cfprFabricNetflowMonSrcRefSourceType=_CfprFabricNetflowMonSrcRefSourceType_Object((1,3,6,1,4,1,9,9,826,1,26,89,1,7),_CfprFabricNetflowMonSrcRefSourceType_Type())
+cfprFabricNetflowMonSrcRefSourceType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcRefSourceType.setStatus(_A)
+_CfprFabricNetflowMonSrcRefType_Type=CfprFabricEthFlowMonSrcRefType
+_CfprFabricNetflowMonSrcRefType_Object=MibTableColumn
+cfprFabricNetflowMonSrcRefType=_CfprFabricNetflowMonSrcRefType_Object((1,3,6,1,4,1,9,9,826,1,26,89,1,8),_CfprFabricNetflowMonSrcRefType_Type())
+cfprFabricNetflowMonSrcRefType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonSrcRefType.setStatus(_A)
+_CfprFabricNetflowMonitorTable_Object=MibTable
+cfprFabricNetflowMonitorTable=_CfprFabricNetflowMonitorTable_Object((1,3,6,1,4,1,9,9,826,1,26,90))
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorTable.setStatus(_A)
+_CfprFabricNetflowMonitorEntry_Object=MibTableRow
+cfprFabricNetflowMonitorEntry=_CfprFabricNetflowMonitorEntry_Object((1,3,6,1,4,1,9,9,826,1,26,90,1))
+cfprFabricNetflowMonitorEntry.setIndexNames((0,_C,_Af))
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorEntry.setStatus(_A)
+_CfprFabricNetflowMonitorInstanceId_Type=CfprManagedObjectId
+_CfprFabricNetflowMonitorInstanceId_Object=MibTableColumn
+cfprFabricNetflowMonitorInstanceId=_CfprFabricNetflowMonitorInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,90,1,1),_CfprFabricNetflowMonitorInstanceId_Type())
+cfprFabricNetflowMonitorInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorInstanceId.setStatus(_A)
+_CfprFabricNetflowMonitorDn_Type=CfprManagedObjectDn
+_CfprFabricNetflowMonitorDn_Object=MibTableColumn
+cfprFabricNetflowMonitorDn=_CfprFabricNetflowMonitorDn_Object((1,3,6,1,4,1,9,9,826,1,26,90,1,2),_CfprFabricNetflowMonitorDn_Type())
+cfprFabricNetflowMonitorDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorDn.setStatus(_A)
+_CfprFabricNetflowMonitorRn_Type=SnmpAdminString
+_CfprFabricNetflowMonitorRn_Object=MibTableColumn
+cfprFabricNetflowMonitorRn=_CfprFabricNetflowMonitorRn_Object((1,3,6,1,4,1,9,9,826,1,26,90,1,3),_CfprFabricNetflowMonitorRn_Type())
+cfprFabricNetflowMonitorRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorRn.setStatus(_A)
+_CfprFabricNetflowMonitorDescr_Type=SnmpAdminString
+_CfprFabricNetflowMonitorDescr_Object=MibTableColumn
+cfprFabricNetflowMonitorDescr=_CfprFabricNetflowMonitorDescr_Object((1,3,6,1,4,1,9,9,826,1,26,90,1,4),_CfprFabricNetflowMonitorDescr_Type())
+cfprFabricNetflowMonitorDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorDescr.setStatus(_A)
+_CfprFabricNetflowMonitorFlowMonProtocol_Type=CfprFabricNetflowMonitorFlowMonProtocol
+_CfprFabricNetflowMonitorFlowMonProtocol_Object=MibTableColumn
+cfprFabricNetflowMonitorFlowMonProtocol=_CfprFabricNetflowMonitorFlowMonProtocol_Object((1,3,6,1,4,1,9,9,826,1,26,90,1,5),_CfprFabricNetflowMonitorFlowMonProtocol_Type())
+cfprFabricNetflowMonitorFlowMonProtocol.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorFlowMonProtocol.setStatus(_A)
+_CfprFabricNetflowMonitorFlowMonRecordDef_Type=SnmpAdminString
+_CfprFabricNetflowMonitorFlowMonRecordDef_Object=MibTableColumn
+cfprFabricNetflowMonitorFlowMonRecordDef=_CfprFabricNetflowMonitorFlowMonRecordDef_Object((1,3,6,1,4,1,9,9,826,1,26,90,1,6),_CfprFabricNetflowMonitorFlowMonRecordDef_Type())
+cfprFabricNetflowMonitorFlowMonRecordDef.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorFlowMonRecordDef.setStatus(_A)
+_CfprFabricNetflowMonitorFlowTimeoutPolicy_Type=SnmpAdminString
+_CfprFabricNetflowMonitorFlowTimeoutPolicy_Object=MibTableColumn
+cfprFabricNetflowMonitorFlowTimeoutPolicy=_CfprFabricNetflowMonitorFlowTimeoutPolicy_Object((1,3,6,1,4,1,9,9,826,1,26,90,1,7),_CfprFabricNetflowMonitorFlowTimeoutPolicy_Type())
+cfprFabricNetflowMonitorFlowTimeoutPolicy.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorFlowTimeoutPolicy.setStatus(_A)
+_CfprFabricNetflowMonitorIntId_Type=SnmpAdminString
+_CfprFabricNetflowMonitorIntId_Object=MibTableColumn
+cfprFabricNetflowMonitorIntId=_CfprFabricNetflowMonitorIntId_Object((1,3,6,1,4,1,9,9,826,1,26,90,1,8),_CfprFabricNetflowMonitorIntId_Type())
+cfprFabricNetflowMonitorIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorIntId.setStatus(_A)
+_CfprFabricNetflowMonitorName_Type=SnmpAdminString
+_CfprFabricNetflowMonitorName_Object=MibTableColumn
+cfprFabricNetflowMonitorName=_CfprFabricNetflowMonitorName_Object((1,3,6,1,4,1,9,9,826,1,26,90,1,9),_CfprFabricNetflowMonitorName_Type())
+cfprFabricNetflowMonitorName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorName.setStatus(_A)
+_CfprFabricNetflowMonitorOperFlowMonRecordDef_Type=SnmpAdminString
+_CfprFabricNetflowMonitorOperFlowMonRecordDef_Object=MibTableColumn
+cfprFabricNetflowMonitorOperFlowMonRecordDef=_CfprFabricNetflowMonitorOperFlowMonRecordDef_Object((1,3,6,1,4,1,9,9,826,1,26,90,1,10),_CfprFabricNetflowMonitorOperFlowMonRecordDef_Type())
+cfprFabricNetflowMonitorOperFlowMonRecordDef.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorOperFlowMonRecordDef.setStatus(_A)
+_CfprFabricNetflowMonitorOperFlowTimeoutPolicy_Type=SnmpAdminString
+_CfprFabricNetflowMonitorOperFlowTimeoutPolicy_Object=MibTableColumn
+cfprFabricNetflowMonitorOperFlowTimeoutPolicy=_CfprFabricNetflowMonitorOperFlowTimeoutPolicy_Object((1,3,6,1,4,1,9,9,826,1,26,90,1,11),_CfprFabricNetflowMonitorOperFlowTimeoutPolicy_Type())
+cfprFabricNetflowMonitorOperFlowTimeoutPolicy.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorOperFlowTimeoutPolicy.setStatus(_A)
+_CfprFabricNetflowMonitorPolicyLevel_Type=Gauge32
+_CfprFabricNetflowMonitorPolicyLevel_Object=MibTableColumn
+cfprFabricNetflowMonitorPolicyLevel=_CfprFabricNetflowMonitorPolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,26,90,1,12),_CfprFabricNetflowMonitorPolicyLevel_Type())
+cfprFabricNetflowMonitorPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorPolicyLevel.setStatus(_A)
+_CfprFabricNetflowMonitorPolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprFabricNetflowMonitorPolicyOwner_Object=MibTableColumn
+cfprFabricNetflowMonitorPolicyOwner=_CfprFabricNetflowMonitorPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,90,1,13),_CfprFabricNetflowMonitorPolicyOwner_Type())
+cfprFabricNetflowMonitorPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorPolicyOwner.setStatus(_A)
+_CfprFabricNetflowMonitorTransport_Type=CfprFabricEthLanFlowMonitorTransport
+_CfprFabricNetflowMonitorTransport_Object=MibTableColumn
+cfprFabricNetflowMonitorTransport=_CfprFabricNetflowMonitorTransport_Object((1,3,6,1,4,1,9,9,826,1,26,90,1,14),_CfprFabricNetflowMonitorTransport_Type())
+cfprFabricNetflowMonitorTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorTransport.setStatus(_A)
+_CfprFabricNetflowMonitorType_Type=CfprFabricLanFlowMonitorType
+_CfprFabricNetflowMonitorType_Object=MibTableColumn
+cfprFabricNetflowMonitorType=_CfprFabricNetflowMonitorType_Object((1,3,6,1,4,1,9,9,826,1,26,90,1,15),_CfprFabricNetflowMonitorType_Type())
+cfprFabricNetflowMonitorType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorType.setStatus(_A)
+_CfprFabricNetflowMonitorRefTable_Object=MibTable
+cfprFabricNetflowMonitorRefTable=_CfprFabricNetflowMonitorRefTable_Object((1,3,6,1,4,1,9,9,826,1,26,91))
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorRefTable.setStatus(_A)
+_CfprFabricNetflowMonitorRefEntry_Object=MibTableRow
+cfprFabricNetflowMonitorRefEntry=_CfprFabricNetflowMonitorRefEntry_Object((1,3,6,1,4,1,9,9,826,1,26,91,1))
+cfprFabricNetflowMonitorRefEntry.setIndexNames((0,_C,_Ag))
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorRefEntry.setStatus(_A)
+_CfprFabricNetflowMonitorRefInstanceId_Type=CfprManagedObjectId
+_CfprFabricNetflowMonitorRefInstanceId_Object=MibTableColumn
+cfprFabricNetflowMonitorRefInstanceId=_CfprFabricNetflowMonitorRefInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,91,1,1),_CfprFabricNetflowMonitorRefInstanceId_Type())
+cfprFabricNetflowMonitorRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorRefInstanceId.setStatus(_A)
+_CfprFabricNetflowMonitorRefDn_Type=CfprManagedObjectDn
+_CfprFabricNetflowMonitorRefDn_Object=MibTableColumn
+cfprFabricNetflowMonitorRefDn=_CfprFabricNetflowMonitorRefDn_Object((1,3,6,1,4,1,9,9,826,1,26,91,1,2),_CfprFabricNetflowMonitorRefDn_Type())
+cfprFabricNetflowMonitorRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorRefDn.setStatus(_A)
+_CfprFabricNetflowMonitorRefRn_Type=SnmpAdminString
+_CfprFabricNetflowMonitorRefRn_Object=MibTableColumn
+cfprFabricNetflowMonitorRefRn=_CfprFabricNetflowMonitorRefRn_Object((1,3,6,1,4,1,9,9,826,1,26,91,1,3),_CfprFabricNetflowMonitorRefRn_Type())
+cfprFabricNetflowMonitorRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorRefRn.setStatus(_A)
+_CfprFabricNetflowMonitorRefDirection_Type=CfprFabricDirection
+_CfprFabricNetflowMonitorRefDirection_Object=MibTableColumn
+cfprFabricNetflowMonitorRefDirection=_CfprFabricNetflowMonitorRefDirection_Object((1,3,6,1,4,1,9,9,826,1,26,91,1,4),_CfprFabricNetflowMonitorRefDirection_Type())
+cfprFabricNetflowMonitorRefDirection.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorRefDirection.setStatus(_A)
+_CfprFabricNetflowMonitorRefIndex_Type=Gauge32
+_CfprFabricNetflowMonitorRefIndex_Object=MibTableColumn
+cfprFabricNetflowMonitorRefIndex=_CfprFabricNetflowMonitorRefIndex_Object((1,3,6,1,4,1,9,9,826,1,26,91,1,5),_CfprFabricNetflowMonitorRefIndex_Type())
+cfprFabricNetflowMonitorRefIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorRefIndex.setStatus(_A)
+_CfprFabricNetflowMonitorRefNfMonitorName_Type=SnmpAdminString
+_CfprFabricNetflowMonitorRefNfMonitorName_Object=MibTableColumn
+cfprFabricNetflowMonitorRefNfMonitorName=_CfprFabricNetflowMonitorRefNfMonitorName_Object((1,3,6,1,4,1,9,9,826,1,26,91,1,6),_CfprFabricNetflowMonitorRefNfMonitorName_Type())
+cfprFabricNetflowMonitorRefNfMonitorName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorRefNfMonitorName.setStatus(_A)
+_CfprFabricNetflowMonitorRefOperNfMonitorName_Type=SnmpAdminString
+_CfprFabricNetflowMonitorRefOperNfMonitorName_Object=MibTableColumn
+cfprFabricNetflowMonitorRefOperNfMonitorName=_CfprFabricNetflowMonitorRefOperNfMonitorName_Object((1,3,6,1,4,1,9,9,826,1,26,91,1,7),_CfprFabricNetflowMonitorRefOperNfMonitorName_Type())
+cfprFabricNetflowMonitorRefOperNfMonitorName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorRefOperNfMonitorName.setStatus(_A)
+_CfprFabricNetflowMonitorRefSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricNetflowMonitorRefSwitchId_Object=MibTableColumn
+cfprFabricNetflowMonitorRefSwitchId=_CfprFabricNetflowMonitorRefSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,91,1,8),_CfprFabricNetflowMonitorRefSwitchId_Type())
+cfprFabricNetflowMonitorRefSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowMonitorRefSwitchId.setStatus(_A)
+_CfprFabricNetflowTimeoutPolicyTable_Object=MibTable
+cfprFabricNetflowTimeoutPolicyTable=_CfprFabricNetflowTimeoutPolicyTable_Object((1,3,6,1,4,1,9,9,826,1,26,92))
+if mibBuilder.loadTexts:cfprFabricNetflowTimeoutPolicyTable.setStatus(_A)
+_CfprFabricNetflowTimeoutPolicyEntry_Object=MibTableRow
+cfprFabricNetflowTimeoutPolicyEntry=_CfprFabricNetflowTimeoutPolicyEntry_Object((1,3,6,1,4,1,9,9,826,1,26,92,1))
+cfprFabricNetflowTimeoutPolicyEntry.setIndexNames((0,_C,_Ah))
+if mibBuilder.loadTexts:cfprFabricNetflowTimeoutPolicyEntry.setStatus(_A)
+_CfprFabricNetflowTimeoutPolicyInstanceId_Type=CfprManagedObjectId
+_CfprFabricNetflowTimeoutPolicyInstanceId_Object=MibTableColumn
+cfprFabricNetflowTimeoutPolicyInstanceId=_CfprFabricNetflowTimeoutPolicyInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,92,1,1),_CfprFabricNetflowTimeoutPolicyInstanceId_Type())
+cfprFabricNetflowTimeoutPolicyInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricNetflowTimeoutPolicyInstanceId.setStatus(_A)
+_CfprFabricNetflowTimeoutPolicyDn_Type=CfprManagedObjectDn
+_CfprFabricNetflowTimeoutPolicyDn_Object=MibTableColumn
+cfprFabricNetflowTimeoutPolicyDn=_CfprFabricNetflowTimeoutPolicyDn_Object((1,3,6,1,4,1,9,9,826,1,26,92,1,2),_CfprFabricNetflowTimeoutPolicyDn_Type())
+cfprFabricNetflowTimeoutPolicyDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowTimeoutPolicyDn.setStatus(_A)
+_CfprFabricNetflowTimeoutPolicyRn_Type=SnmpAdminString
+_CfprFabricNetflowTimeoutPolicyRn_Object=MibTableColumn
+cfprFabricNetflowTimeoutPolicyRn=_CfprFabricNetflowTimeoutPolicyRn_Object((1,3,6,1,4,1,9,9,826,1,26,92,1,3),_CfprFabricNetflowTimeoutPolicyRn_Type())
+cfprFabricNetflowTimeoutPolicyRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowTimeoutPolicyRn.setStatus(_A)
+_CfprFabricNetflowTimeoutPolicyActiveTimeout_Type=Gauge32
+_CfprFabricNetflowTimeoutPolicyActiveTimeout_Object=MibTableColumn
+cfprFabricNetflowTimeoutPolicyActiveTimeout=_CfprFabricNetflowTimeoutPolicyActiveTimeout_Object((1,3,6,1,4,1,9,9,826,1,26,92,1,4),_CfprFabricNetflowTimeoutPolicyActiveTimeout_Type())
+cfprFabricNetflowTimeoutPolicyActiveTimeout.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowTimeoutPolicyActiveTimeout.setStatus(_A)
+_CfprFabricNetflowTimeoutPolicyDescr_Type=SnmpAdminString
+_CfprFabricNetflowTimeoutPolicyDescr_Object=MibTableColumn
+cfprFabricNetflowTimeoutPolicyDescr=_CfprFabricNetflowTimeoutPolicyDescr_Object((1,3,6,1,4,1,9,9,826,1,26,92,1,5),_CfprFabricNetflowTimeoutPolicyDescr_Type())
+cfprFabricNetflowTimeoutPolicyDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowTimeoutPolicyDescr.setStatus(_A)
+_CfprFabricNetflowTimeoutPolicyInactiveTimeout_Type=Gauge32
+_CfprFabricNetflowTimeoutPolicyInactiveTimeout_Object=MibTableColumn
+cfprFabricNetflowTimeoutPolicyInactiveTimeout=_CfprFabricNetflowTimeoutPolicyInactiveTimeout_Object((1,3,6,1,4,1,9,9,826,1,26,92,1,6),_CfprFabricNetflowTimeoutPolicyInactiveTimeout_Type())
+cfprFabricNetflowTimeoutPolicyInactiveTimeout.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowTimeoutPolicyInactiveTimeout.setStatus(_A)
+_CfprFabricNetflowTimeoutPolicyIntId_Type=SnmpAdminString
+_CfprFabricNetflowTimeoutPolicyIntId_Object=MibTableColumn
+cfprFabricNetflowTimeoutPolicyIntId=_CfprFabricNetflowTimeoutPolicyIntId_Object((1,3,6,1,4,1,9,9,826,1,26,92,1,7),_CfprFabricNetflowTimeoutPolicyIntId_Type())
+cfprFabricNetflowTimeoutPolicyIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowTimeoutPolicyIntId.setStatus(_A)
+_CfprFabricNetflowTimeoutPolicyName_Type=SnmpAdminString
+_CfprFabricNetflowTimeoutPolicyName_Object=MibTableColumn
+cfprFabricNetflowTimeoutPolicyName=_CfprFabricNetflowTimeoutPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,92,1,8),_CfprFabricNetflowTimeoutPolicyName_Type())
+cfprFabricNetflowTimeoutPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowTimeoutPolicyName.setStatus(_A)
+_CfprFabricNetflowTimeoutPolicyPolicyLevel_Type=Gauge32
+_CfprFabricNetflowTimeoutPolicyPolicyLevel_Object=MibTableColumn
+cfprFabricNetflowTimeoutPolicyPolicyLevel=_CfprFabricNetflowTimeoutPolicyPolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,26,92,1,9),_CfprFabricNetflowTimeoutPolicyPolicyLevel_Type())
+cfprFabricNetflowTimeoutPolicyPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowTimeoutPolicyPolicyLevel.setStatus(_A)
+_CfprFabricNetflowTimeoutPolicyPolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprFabricNetflowTimeoutPolicyPolicyOwner_Object=MibTableColumn
+cfprFabricNetflowTimeoutPolicyPolicyOwner=_CfprFabricNetflowTimeoutPolicyPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,92,1,10),_CfprFabricNetflowTimeoutPolicyPolicyOwner_Type())
+cfprFabricNetflowTimeoutPolicyPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricNetflowTimeoutPolicyPolicyOwner.setStatus(_A)
+_CfprFabricOrgVlanPolicyTable_Object=MibTable
+cfprFabricOrgVlanPolicyTable=_CfprFabricOrgVlanPolicyTable_Object((1,3,6,1,4,1,9,9,826,1,26,93))
+if mibBuilder.loadTexts:cfprFabricOrgVlanPolicyTable.setStatus(_A)
+_CfprFabricOrgVlanPolicyEntry_Object=MibTableRow
+cfprFabricOrgVlanPolicyEntry=_CfprFabricOrgVlanPolicyEntry_Object((1,3,6,1,4,1,9,9,826,1,26,93,1))
+cfprFabricOrgVlanPolicyEntry.setIndexNames((0,_C,_Ai))
+if mibBuilder.loadTexts:cfprFabricOrgVlanPolicyEntry.setStatus(_A)
+_CfprFabricOrgVlanPolicyInstanceId_Type=CfprManagedObjectId
+_CfprFabricOrgVlanPolicyInstanceId_Object=MibTableColumn
+cfprFabricOrgVlanPolicyInstanceId=_CfprFabricOrgVlanPolicyInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,93,1,1),_CfprFabricOrgVlanPolicyInstanceId_Type())
+cfprFabricOrgVlanPolicyInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricOrgVlanPolicyInstanceId.setStatus(_A)
+_CfprFabricOrgVlanPolicyDn_Type=CfprManagedObjectDn
+_CfprFabricOrgVlanPolicyDn_Object=MibTableColumn
+cfprFabricOrgVlanPolicyDn=_CfprFabricOrgVlanPolicyDn_Object((1,3,6,1,4,1,9,9,826,1,26,93,1,2),_CfprFabricOrgVlanPolicyDn_Type())
+cfprFabricOrgVlanPolicyDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricOrgVlanPolicyDn.setStatus(_A)
+_CfprFabricOrgVlanPolicyRn_Type=SnmpAdminString
+_CfprFabricOrgVlanPolicyRn_Object=MibTableColumn
+cfprFabricOrgVlanPolicyRn=_CfprFabricOrgVlanPolicyRn_Object((1,3,6,1,4,1,9,9,826,1,26,93,1,3),_CfprFabricOrgVlanPolicyRn_Type())
+cfprFabricOrgVlanPolicyRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricOrgVlanPolicyRn.setStatus(_A)
+_CfprFabricOrgVlanPolicyAdminState_Type=CfprFabricAdminState
+_CfprFabricOrgVlanPolicyAdminState_Object=MibTableColumn
+cfprFabricOrgVlanPolicyAdminState=_CfprFabricOrgVlanPolicyAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,93,1,4),_CfprFabricOrgVlanPolicyAdminState_Type())
+cfprFabricOrgVlanPolicyAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricOrgVlanPolicyAdminState.setStatus(_A)
+_CfprFabricOrgVlanPolicyName_Type=SnmpAdminString
+_CfprFabricOrgVlanPolicyName_Object=MibTableColumn
+cfprFabricOrgVlanPolicyName=_CfprFabricOrgVlanPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,93,1,5),_CfprFabricOrgVlanPolicyName_Type())
+cfprFabricOrgVlanPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricOrgVlanPolicyName.setStatus(_A)
+_CfprFabricPathTable_Object=MibTable
+cfprFabricPathTable=_CfprFabricPathTable_Object((1,3,6,1,4,1,9,9,826,1,26,94))
+if mibBuilder.loadTexts:cfprFabricPathTable.setStatus(_A)
+_CfprFabricPathEntry_Object=MibTableRow
+cfprFabricPathEntry=_CfprFabricPathEntry_Object((1,3,6,1,4,1,9,9,826,1,26,94,1))
+cfprFabricPathEntry.setIndexNames((0,_C,_Aj))
+if mibBuilder.loadTexts:cfprFabricPathEntry.setStatus(_A)
+_CfprFabricPathInstanceId_Type=CfprManagedObjectId
+_CfprFabricPathInstanceId_Object=MibTableColumn
+cfprFabricPathInstanceId=_CfprFabricPathInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,94,1,1),_CfprFabricPathInstanceId_Type())
+cfprFabricPathInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricPathInstanceId.setStatus(_A)
+_CfprFabricPathDn_Type=CfprManagedObjectDn
+_CfprFabricPathDn_Object=MibTableColumn
+cfprFabricPathDn=_CfprFabricPathDn_Object((1,3,6,1,4,1,9,9,826,1,26,94,1,2),_CfprFabricPathDn_Type())
+cfprFabricPathDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathDn.setStatus(_A)
+_CfprFabricPathRn_Type=SnmpAdminString
+_CfprFabricPathRn_Object=MibTableColumn
+cfprFabricPathRn=_CfprFabricPathRn_Object((1,3,6,1,4,1,9,9,826,1,26,94,1,3),_CfprFabricPathRn_Type())
+cfprFabricPathRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathRn.setStatus(_A)
+_CfprFabricPathCType_Type=Gauge32
+_CfprFabricPathCType_Object=MibTableColumn
+cfprFabricPathCType=_CfprFabricPathCType_Object((1,3,6,1,4,1,9,9,826,1,26,94,1,4),_CfprFabricPathCType_Type())
+cfprFabricPathCType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathCType.setStatus(_A)
+_CfprFabricPathChassisId_Type=Gauge32
+_CfprFabricPathChassisId_Object=MibTableColumn
+cfprFabricPathChassisId=_CfprFabricPathChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,94,1,5),_CfprFabricPathChassisId_Type())
+cfprFabricPathChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathChassisId.setStatus(_A)
+_CfprFabricPathEnacp_Type=Gauge32
+_CfprFabricPathEnacp_Object=MibTableColumn
+cfprFabricPathEnacp=_CfprFabricPathEnacp_Object((1,3,6,1,4,1,9,9,826,1,26,94,1,6),_CfprFabricPathEnacp_Type())
+cfprFabricPathEnacp.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEnacp.setStatus(_A)
+_CfprFabricPathId_Type=Gauge32
+_CfprFabricPathId_Object=MibTableColumn
+cfprFabricPathId=_CfprFabricPathId_Object((1,3,6,1,4,1,9,9,826,1,26,94,1,7),_CfprFabricPathId_Type())
+cfprFabricPathId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathId.setStatus(_A)
+_CfprFabricPathLocale_Type=CfprNetworkLocale
+_CfprFabricPathLocale_Object=MibTableColumn
+cfprFabricPathLocale=_CfprFabricPathLocale_Object((1,3,6,1,4,1,9,9,826,1,26,94,1,8),_CfprFabricPathLocale_Type())
+cfprFabricPathLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathLocale.setStatus(_A)
+_CfprFabricPathName_Type=SnmpAdminString
+_CfprFabricPathName_Object=MibTableColumn
+cfprFabricPathName=_CfprFabricPathName_Object((1,3,6,1,4,1,9,9,826,1,26,94,1,9),_CfprFabricPathName_Type())
+cfprFabricPathName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathName.setStatus(_A)
+_CfprFabricPathNsSize_Type=Gauge32
+_CfprFabricPathNsSize_Object=MibTableColumn
+cfprFabricPathNsSize=_CfprFabricPathNsSize_Object((1,3,6,1,4,1,9,9,826,1,26,94,1,10),_CfprFabricPathNsSize_Type())
+cfprFabricPathNsSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathNsSize.setStatus(_A)
+_CfprFabricPathSide_Type=CfprNetworkSide
+_CfprFabricPathSide_Object=MibTableColumn
+cfprFabricPathSide=_CfprFabricPathSide_Object((1,3,6,1,4,1,9,9,826,1,26,94,1,11),_CfprFabricPathSide_Type())
+cfprFabricPathSide.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathSide.setStatus(_A)
+_CfprFabricPathSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricPathSwitchId_Object=MibTableColumn
+cfprFabricPathSwitchId=_CfprFabricPathSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,94,1,12),_CfprFabricPathSwitchId_Type())
+cfprFabricPathSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathSwitchId.setStatus(_A)
+_CfprFabricPathTransport_Type=CfprNetworkTransport
+_CfprFabricPathTransport_Object=MibTableColumn
+cfprFabricPathTransport=_CfprFabricPathTransport_Object((1,3,6,1,4,1,9,9,826,1,26,94,1,13),_CfprFabricPathTransport_Type())
+cfprFabricPathTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathTransport.setStatus(_A)
+_CfprFabricPathType_Type=CfprNetworkConnectionType
+_CfprFabricPathType_Object=MibTableColumn
+cfprFabricPathType=_CfprFabricPathType_Object((1,3,6,1,4,1,9,9,826,1,26,94,1,14),_CfprFabricPathType_Type())
+cfprFabricPathType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathType.setStatus(_A)
+_CfprFabricPathConnTable_Object=MibTable
+cfprFabricPathConnTable=_CfprFabricPathConnTable_Object((1,3,6,1,4,1,9,9,826,1,26,95))
+if mibBuilder.loadTexts:cfprFabricPathConnTable.setStatus(_A)
+_CfprFabricPathConnEntry_Object=MibTableRow
+cfprFabricPathConnEntry=_CfprFabricPathConnEntry_Object((1,3,6,1,4,1,9,9,826,1,26,95,1))
+cfprFabricPathConnEntry.setIndexNames((0,_C,_Ak))
+if mibBuilder.loadTexts:cfprFabricPathConnEntry.setStatus(_A)
+_CfprFabricPathConnInstanceId_Type=CfprManagedObjectId
+_CfprFabricPathConnInstanceId_Object=MibTableColumn
+cfprFabricPathConnInstanceId=_CfprFabricPathConnInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,95,1,1),_CfprFabricPathConnInstanceId_Type())
+cfprFabricPathConnInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricPathConnInstanceId.setStatus(_A)
+_CfprFabricPathConnDn_Type=CfprManagedObjectDn
+_CfprFabricPathConnDn_Object=MibTableColumn
+cfprFabricPathConnDn=_CfprFabricPathConnDn_Object((1,3,6,1,4,1,9,9,826,1,26,95,1,2),_CfprFabricPathConnDn_Type())
+cfprFabricPathConnDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathConnDn.setStatus(_A)
+_CfprFabricPathConnRn_Type=SnmpAdminString
+_CfprFabricPathConnRn_Object=MibTableColumn
+cfprFabricPathConnRn=_CfprFabricPathConnRn_Object((1,3,6,1,4,1,9,9,826,1,26,95,1,3),_CfprFabricPathConnRn_Type())
+cfprFabricPathConnRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathConnRn.setStatus(_A)
+_CfprFabricPathConnCType_Type=Gauge32
+_CfprFabricPathConnCType_Object=MibTableColumn
+cfprFabricPathConnCType=_CfprFabricPathConnCType_Object((1,3,6,1,4,1,9,9,826,1,26,95,1,4),_CfprFabricPathConnCType_Type())
+cfprFabricPathConnCType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathConnCType.setStatus(_A)
+_CfprFabricPathConnLocale_Type=CfprNetworkLocale
+_CfprFabricPathConnLocale_Object=MibTableColumn
+cfprFabricPathConnLocale=_CfprFabricPathConnLocale_Object((1,3,6,1,4,1,9,9,826,1,26,95,1,5),_CfprFabricPathConnLocale_Type())
+cfprFabricPathConnLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathConnLocale.setStatus(_A)
+_CfprFabricPathConnName_Type=SnmpAdminString
+_CfprFabricPathConnName_Object=MibTableColumn
+cfprFabricPathConnName=_CfprFabricPathConnName_Object((1,3,6,1,4,1,9,9,826,1,26,95,1,6),_CfprFabricPathConnName_Type())
+cfprFabricPathConnName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathConnName.setStatus(_A)
+_CfprFabricPathConnTransport_Type=CfprNetworkTransport
+_CfprFabricPathConnTransport_Object=MibTableColumn
+cfprFabricPathConnTransport=_CfprFabricPathConnTransport_Object((1,3,6,1,4,1,9,9,826,1,26,95,1,7),_CfprFabricPathConnTransport_Type())
+cfprFabricPathConnTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathConnTransport.setStatus(_A)
+_CfprFabricPathConnType_Type=CfprNetworkConnectionType
+_CfprFabricPathConnType_Object=MibTableColumn
+cfprFabricPathConnType=_CfprFabricPathConnType_Object((1,3,6,1,4,1,9,9,826,1,26,95,1,8),_CfprFabricPathConnType_Type())
+cfprFabricPathConnType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathConnType.setStatus(_A)
+_CfprFabricPathEpTable_Object=MibTable
+cfprFabricPathEpTable=_CfprFabricPathEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,96))
+if mibBuilder.loadTexts:cfprFabricPathEpTable.setStatus(_A)
+_CfprFabricPathEpEntry_Object=MibTableRow
+cfprFabricPathEpEntry=_CfprFabricPathEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,96,1))
+cfprFabricPathEpEntry.setIndexNames((0,_C,_Al))
+if mibBuilder.loadTexts:cfprFabricPathEpEntry.setStatus(_A)
+_CfprFabricPathEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricPathEpInstanceId_Object=MibTableColumn
+cfprFabricPathEpInstanceId=_CfprFabricPathEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,1),_CfprFabricPathEpInstanceId_Type())
+cfprFabricPathEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricPathEpInstanceId.setStatus(_A)
+_CfprFabricPathEpDn_Type=CfprManagedObjectDn
+_CfprFabricPathEpDn_Object=MibTableColumn
+cfprFabricPathEpDn=_CfprFabricPathEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,2),_CfprFabricPathEpDn_Type())
+cfprFabricPathEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpDn.setStatus(_A)
+_CfprFabricPathEpRn_Type=SnmpAdminString
+_CfprFabricPathEpRn_Object=MibTableColumn
+cfprFabricPathEpRn=_CfprFabricPathEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,3),_CfprFabricPathEpRn_Type())
+cfprFabricPathEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpRn.setStatus(_A)
+_CfprFabricPathEpAggrPortId_Type=Gauge32
+_CfprFabricPathEpAggrPortId_Object=MibTableColumn
+cfprFabricPathEpAggrPortId=_CfprFabricPathEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,4),_CfprFabricPathEpAggrPortId_Type())
+cfprFabricPathEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpAggrPortId.setStatus(_A)
+_CfprFabricPathEpCType_Type=Gauge32
+_CfprFabricPathEpCType_Object=MibTableColumn
+cfprFabricPathEpCType=_CfprFabricPathEpCType_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,5),_CfprFabricPathEpCType_Type())
+cfprFabricPathEpCType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpCType.setStatus(_A)
+_CfprFabricPathEpChassisId_Type=Gauge32
+_CfprFabricPathEpChassisId_Object=MibTableColumn
+cfprFabricPathEpChassisId=_CfprFabricPathEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,6),_CfprFabricPathEpChassisId_Type())
+cfprFabricPathEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpChassisId.setStatus(_A)
+_CfprFabricPathEpDiagLldpTransmit_Type=TruthValue
+_CfprFabricPathEpDiagLldpTransmit_Object=MibTableColumn
+cfprFabricPathEpDiagLldpTransmit=_CfprFabricPathEpDiagLldpTransmit_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,7),_CfprFabricPathEpDiagLldpTransmit_Type())
+cfprFabricPathEpDiagLldpTransmit.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpDiagLldpTransmit.setStatus(_A)
+_CfprFabricPathEpEpDn_Type=SnmpAdminString
+_CfprFabricPathEpEpDn_Object=MibTableColumn
+cfprFabricPathEpEpDn=_CfprFabricPathEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,8),_CfprFabricPathEpEpDn_Type())
+cfprFabricPathEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpEpDn.setStatus(_A)
+_CfprFabricPathEpIfRole_Type=CfprNetworkPortRole
+_CfprFabricPathEpIfRole_Object=MibTableColumn
+cfprFabricPathEpIfRole=_CfprFabricPathEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,9),_CfprFabricPathEpIfRole_Type())
+cfprFabricPathEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpIfRole.setStatus(_A)
+_CfprFabricPathEpIfType_Type=CfprFabricPathEpIfType
+_CfprFabricPathEpIfType_Object=MibTableColumn
+cfprFabricPathEpIfType=_CfprFabricPathEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,10),_CfprFabricPathEpIfType_Type())
+cfprFabricPathEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpIfType.setStatus(_A)
+_CfprFabricPathEpLocale_Type=CfprFabricPathEpLocale
+_CfprFabricPathEpLocale_Object=MibTableColumn
+cfprFabricPathEpLocale=_CfprFabricPathEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,11),_CfprFabricPathEpLocale_Type())
+cfprFabricPathEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpLocale.setStatus(_A)
+_CfprFabricPathEpName_Type=SnmpAdminString
+_CfprFabricPathEpName_Object=MibTableColumn
+cfprFabricPathEpName=_CfprFabricPathEpName_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,12),_CfprFabricPathEpName_Type())
+cfprFabricPathEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpName.setStatus(_A)
+_CfprFabricPathEpPeerAggrPortId_Type=Gauge32
+_CfprFabricPathEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricPathEpPeerAggrPortId=_CfprFabricPathEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,13),_CfprFabricPathEpPeerAggrPortId_Type())
+cfprFabricPathEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpPeerAggrPortId.setStatus(_A)
+_CfprFabricPathEpPeerChassisId_Type=Gauge32
+_CfprFabricPathEpPeerChassisId_Object=MibTableColumn
+cfprFabricPathEpPeerChassisId=_CfprFabricPathEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,14),_CfprFabricPathEpPeerChassisId_Type())
+cfprFabricPathEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpPeerChassisId.setStatus(_A)
+_CfprFabricPathEpPeerDn_Type=SnmpAdminString
+_CfprFabricPathEpPeerDn_Object=MibTableColumn
+cfprFabricPathEpPeerDn=_CfprFabricPathEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,15),_CfprFabricPathEpPeerDn_Type())
+cfprFabricPathEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpPeerDn.setStatus(_A)
+_CfprFabricPathEpPeerMac_Type=MacAddress
+_CfprFabricPathEpPeerMac_Object=MibTableColumn
+cfprFabricPathEpPeerMac=_CfprFabricPathEpPeerMac_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,16),_CfprFabricPathEpPeerMac_Type())
+cfprFabricPathEpPeerMac.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpPeerMac.setStatus(_A)
+_CfprFabricPathEpPeerPortId_Type=Gauge32
+_CfprFabricPathEpPeerPortId_Object=MibTableColumn
+cfprFabricPathEpPeerPortId=_CfprFabricPathEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,17),_CfprFabricPathEpPeerPortId_Type())
+cfprFabricPathEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpPeerPortId.setStatus(_A)
+_CfprFabricPathEpPeerSlotId_Type=Gauge32
+_CfprFabricPathEpPeerSlotId_Object=MibTableColumn
+cfprFabricPathEpPeerSlotId=_CfprFabricPathEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,18),_CfprFabricPathEpPeerSlotId_Type())
+cfprFabricPathEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpPeerSlotId.setStatus(_A)
+_CfprFabricPathEpPortId_Type=Gauge32
+_CfprFabricPathEpPortId_Object=MibTableColumn
+cfprFabricPathEpPortId=_CfprFabricPathEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,19),_CfprFabricPathEpPortId_Type())
+cfprFabricPathEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpPortId.setStatus(_A)
+_CfprFabricPathEpSide_Type=CfprNetworkSide
+_CfprFabricPathEpSide_Object=MibTableColumn
+cfprFabricPathEpSide=_CfprFabricPathEpSide_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,20),_CfprFabricPathEpSide_Type())
+cfprFabricPathEpSide.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpSide.setStatus(_A)
+_CfprFabricPathEpSlotId_Type=Gauge32
+_CfprFabricPathEpSlotId_Object=MibTableColumn
+cfprFabricPathEpSlotId=_CfprFabricPathEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,21),_CfprFabricPathEpSlotId_Type())
+cfprFabricPathEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpSlotId.setStatus(_A)
+_CfprFabricPathEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricPathEpSwitchId_Object=MibTableColumn
+cfprFabricPathEpSwitchId=_CfprFabricPathEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,22),_CfprFabricPathEpSwitchId_Type())
+cfprFabricPathEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpSwitchId.setStatus(_A)
+_CfprFabricPathEpTransport_Type=CfprNetworkTransport
+_CfprFabricPathEpTransport_Object=MibTableColumn
+cfprFabricPathEpTransport=_CfprFabricPathEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,23),_CfprFabricPathEpTransport_Type())
+cfprFabricPathEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpTransport.setStatus(_A)
+_CfprFabricPathEpType_Type=CfprNetworkConnectionType
+_CfprFabricPathEpType_Object=MibTableColumn
+cfprFabricPathEpType=_CfprFabricPathEpType_Object((1,3,6,1,4,1,9,9,826,1,26,96,1,24),_CfprFabricPathEpType_Type())
+cfprFabricPathEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPathEpType.setStatus(_A)
+_CfprFabricPoolableVlanTable_Object=MibTable
+cfprFabricPoolableVlanTable=_CfprFabricPoolableVlanTable_Object((1,3,6,1,4,1,9,9,826,1,26,97))
+if mibBuilder.loadTexts:cfprFabricPoolableVlanTable.setStatus(_A)
+_CfprFabricPoolableVlanEntry_Object=MibTableRow
+cfprFabricPoolableVlanEntry=_CfprFabricPoolableVlanEntry_Object((1,3,6,1,4,1,9,9,826,1,26,97,1))
+cfprFabricPoolableVlanEntry.setIndexNames((0,_C,_Am))
+if mibBuilder.loadTexts:cfprFabricPoolableVlanEntry.setStatus(_A)
+_CfprFabricPoolableVlanInstanceId_Type=CfprManagedObjectId
+_CfprFabricPoolableVlanInstanceId_Object=MibTableColumn
+cfprFabricPoolableVlanInstanceId=_CfprFabricPoolableVlanInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,97,1,1),_CfprFabricPoolableVlanInstanceId_Type())
+cfprFabricPoolableVlanInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricPoolableVlanInstanceId.setStatus(_A)
+_CfprFabricPoolableVlanDn_Type=CfprManagedObjectDn
+_CfprFabricPoolableVlanDn_Object=MibTableColumn
+cfprFabricPoolableVlanDn=_CfprFabricPoolableVlanDn_Object((1,3,6,1,4,1,9,9,826,1,26,97,1,2),_CfprFabricPoolableVlanDn_Type())
+cfprFabricPoolableVlanDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPoolableVlanDn.setStatus(_A)
+_CfprFabricPoolableVlanRn_Type=SnmpAdminString
+_CfprFabricPoolableVlanRn_Object=MibTableColumn
+cfprFabricPoolableVlanRn=_CfprFabricPoolableVlanRn_Object((1,3,6,1,4,1,9,9,826,1,26,97,1,3),_CfprFabricPoolableVlanRn_Type())
+cfprFabricPoolableVlanRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPoolableVlanRn.setStatus(_A)
+_CfprFabricPoolableVlanId_Type=Unsigned64
+_CfprFabricPoolableVlanId_Object=MibTableColumn
+cfprFabricPoolableVlanId=_CfprFabricPoolableVlanId_Object((1,3,6,1,4,1,9,9,826,1,26,97,1,4),_CfprFabricPoolableVlanId_Type())
+cfprFabricPoolableVlanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPoolableVlanId.setStatus(_A)
+_CfprFabricPoolableVlanPoolDn_Type=SnmpAdminString
+_CfprFabricPoolableVlanPoolDn_Object=MibTableColumn
+cfprFabricPoolableVlanPoolDn=_CfprFabricPoolableVlanPoolDn_Object((1,3,6,1,4,1,9,9,826,1,26,97,1,5),_CfprFabricPoolableVlanPoolDn_Type())
+cfprFabricPoolableVlanPoolDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPoolableVlanPoolDn.setStatus(_A)
+_CfprFabricPooledVlanTable_Object=MibTable
+cfprFabricPooledVlanTable=_CfprFabricPooledVlanTable_Object((1,3,6,1,4,1,9,9,826,1,26,98))
+if mibBuilder.loadTexts:cfprFabricPooledVlanTable.setStatus(_A)
+_CfprFabricPooledVlanEntry_Object=MibTableRow
+cfprFabricPooledVlanEntry=_CfprFabricPooledVlanEntry_Object((1,3,6,1,4,1,9,9,826,1,26,98,1))
+cfprFabricPooledVlanEntry.setIndexNames((0,_C,_An))
+if mibBuilder.loadTexts:cfprFabricPooledVlanEntry.setStatus(_A)
+_CfprFabricPooledVlanInstanceId_Type=CfprManagedObjectId
+_CfprFabricPooledVlanInstanceId_Object=MibTableColumn
+cfprFabricPooledVlanInstanceId=_CfprFabricPooledVlanInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,98,1,1),_CfprFabricPooledVlanInstanceId_Type())
+cfprFabricPooledVlanInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricPooledVlanInstanceId.setStatus(_A)
+_CfprFabricPooledVlanDn_Type=CfprManagedObjectDn
+_CfprFabricPooledVlanDn_Object=MibTableColumn
+cfprFabricPooledVlanDn=_CfprFabricPooledVlanDn_Object((1,3,6,1,4,1,9,9,826,1,26,98,1,2),_CfprFabricPooledVlanDn_Type())
+cfprFabricPooledVlanDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPooledVlanDn.setStatus(_A)
+_CfprFabricPooledVlanRn_Type=SnmpAdminString
+_CfprFabricPooledVlanRn_Object=MibTableColumn
+cfprFabricPooledVlanRn=_CfprFabricPooledVlanRn_Object((1,3,6,1,4,1,9,9,826,1,26,98,1,3),_CfprFabricPooledVlanRn_Type())
+cfprFabricPooledVlanRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPooledVlanRn.setStatus(_A)
+_CfprFabricPooledVlanAssigned_Type=TruthValue
+_CfprFabricPooledVlanAssigned_Object=MibTableColumn
+cfprFabricPooledVlanAssigned=_CfprFabricPooledVlanAssigned_Object((1,3,6,1,4,1,9,9,826,1,26,98,1,4),_CfprFabricPooledVlanAssigned_Type())
+cfprFabricPooledVlanAssigned.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPooledVlanAssigned.setStatus(_A)
+_CfprFabricPooledVlanAssignedToDn_Type=SnmpAdminString
+_CfprFabricPooledVlanAssignedToDn_Object=MibTableColumn
+cfprFabricPooledVlanAssignedToDn=_CfprFabricPooledVlanAssignedToDn_Object((1,3,6,1,4,1,9,9,826,1,26,98,1,5),_CfprFabricPooledVlanAssignedToDn_Type())
+cfprFabricPooledVlanAssignedToDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPooledVlanAssignedToDn.setStatus(_A)
+_CfprFabricPooledVlanConfigIssues_Type=CfprFabricPoolMemberConfigIssues
+_CfprFabricPooledVlanConfigIssues_Object=MibTableColumn
+cfprFabricPooledVlanConfigIssues=_CfprFabricPooledVlanConfigIssues_Object((1,3,6,1,4,1,9,9,826,1,26,98,1,6),_CfprFabricPooledVlanConfigIssues_Type())
+cfprFabricPooledVlanConfigIssues.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPooledVlanConfigIssues.setStatus(_A)
+_CfprFabricPooledVlanName_Type=SnmpAdminString
+_CfprFabricPooledVlanName_Object=MibTableColumn
+cfprFabricPooledVlanName=_CfprFabricPooledVlanName_Object((1,3,6,1,4,1,9,9,826,1,26,98,1,7),_CfprFabricPooledVlanName_Type())
+cfprFabricPooledVlanName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPooledVlanName.setStatus(_A)
+_CfprFabricPooledVlanPeerDn_Type=SnmpAdminString
+_CfprFabricPooledVlanPeerDn_Object=MibTableColumn
+cfprFabricPooledVlanPeerDn=_CfprFabricPooledVlanPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,98,1,8),_CfprFabricPooledVlanPeerDn_Type())
+cfprFabricPooledVlanPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPooledVlanPeerDn.setStatus(_A)
+_CfprFabricPooledVlanPoolableDn_Type=SnmpAdminString
+_CfprFabricPooledVlanPoolableDn_Object=MibTableColumn
+cfprFabricPooledVlanPoolableDn=_CfprFabricPooledVlanPoolableDn_Object((1,3,6,1,4,1,9,9,826,1,26,98,1,9),_CfprFabricPooledVlanPoolableDn_Type())
+cfprFabricPooledVlanPoolableDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPooledVlanPoolableDn.setStatus(_A)
+_CfprFabricPooledVlanPrevAssignedToDn_Type=SnmpAdminString
+_CfprFabricPooledVlanPrevAssignedToDn_Object=MibTableColumn
+cfprFabricPooledVlanPrevAssignedToDn=_CfprFabricPooledVlanPrevAssignedToDn_Object((1,3,6,1,4,1,9,9,826,1,26,98,1,10),_CfprFabricPooledVlanPrevAssignedToDn_Type())
+cfprFabricPooledVlanPrevAssignedToDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricPooledVlanPrevAssignedToDn.setStatus(_A)
+_CfprFabricSanCloudTable_Object=MibTable
+cfprFabricSanCloudTable=_CfprFabricSanCloudTable_Object((1,3,6,1,4,1,9,9,826,1,26,99))
+if mibBuilder.loadTexts:cfprFabricSanCloudTable.setStatus(_A)
+_CfprFabricSanCloudEntry_Object=MibTableRow
+cfprFabricSanCloudEntry=_CfprFabricSanCloudEntry_Object((1,3,6,1,4,1,9,9,826,1,26,99,1))
+cfprFabricSanCloudEntry.setIndexNames((0,_C,_Ao))
+if mibBuilder.loadTexts:cfprFabricSanCloudEntry.setStatus(_A)
+_CfprFabricSanCloudInstanceId_Type=CfprManagedObjectId
+_CfprFabricSanCloudInstanceId_Object=MibTableColumn
+cfprFabricSanCloudInstanceId=_CfprFabricSanCloudInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,99,1,1),_CfprFabricSanCloudInstanceId_Type())
+cfprFabricSanCloudInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSanCloudInstanceId.setStatus(_A)
+_CfprFabricSanCloudDn_Type=CfprManagedObjectDn
+_CfprFabricSanCloudDn_Object=MibTableColumn
+cfprFabricSanCloudDn=_CfprFabricSanCloudDn_Object((1,3,6,1,4,1,9,9,826,1,26,99,1,2),_CfprFabricSanCloudDn_Type())
+cfprFabricSanCloudDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudDn.setStatus(_A)
+_CfprFabricSanCloudRn_Type=SnmpAdminString
+_CfprFabricSanCloudRn_Object=MibTableColumn
+cfprFabricSanCloudRn=_CfprFabricSanCloudRn_Object((1,3,6,1,4,1,9,9,826,1,26,99,1,3),_CfprFabricSanCloudRn_Type())
+cfprFabricSanCloudRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudRn.setStatus(_A)
+_CfprFabricSanCloudFsmDescr_Type=SnmpAdminString
+_CfprFabricSanCloudFsmDescr_Object=MibTableColumn
+cfprFabricSanCloudFsmDescr=_CfprFabricSanCloudFsmDescr_Object((1,3,6,1,4,1,9,9,826,1,26,99,1,4),_CfprFabricSanCloudFsmDescr_Type())
+cfprFabricSanCloudFsmDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmDescr.setStatus(_A)
+_CfprFabricSanCloudFsmPrev_Type=SnmpAdminString
+_CfprFabricSanCloudFsmPrev_Object=MibTableColumn
+cfprFabricSanCloudFsmPrev=_CfprFabricSanCloudFsmPrev_Object((1,3,6,1,4,1,9,9,826,1,26,99,1,5),_CfprFabricSanCloudFsmPrev_Type())
+cfprFabricSanCloudFsmPrev.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmPrev.setStatus(_A)
+_CfprFabricSanCloudFsmProgr_Type=Gauge32
+_CfprFabricSanCloudFsmProgr_Object=MibTableColumn
+cfprFabricSanCloudFsmProgr=_CfprFabricSanCloudFsmProgr_Object((1,3,6,1,4,1,9,9,826,1,26,99,1,6),_CfprFabricSanCloudFsmProgr_Type())
+cfprFabricSanCloudFsmProgr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmProgr.setStatus(_A)
+_CfprFabricSanCloudFsmRmtInvErrCode_Type=Gauge32
+_CfprFabricSanCloudFsmRmtInvErrCode_Object=MibTableColumn
+cfprFabricSanCloudFsmRmtInvErrCode=_CfprFabricSanCloudFsmRmtInvErrCode_Object((1,3,6,1,4,1,9,9,826,1,26,99,1,7),_CfprFabricSanCloudFsmRmtInvErrCode_Type())
+cfprFabricSanCloudFsmRmtInvErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmRmtInvErrCode.setStatus(_A)
+_CfprFabricSanCloudFsmRmtInvErrDescr_Type=SnmpAdminString
+_CfprFabricSanCloudFsmRmtInvErrDescr_Object=MibTableColumn
+cfprFabricSanCloudFsmRmtInvErrDescr=_CfprFabricSanCloudFsmRmtInvErrDescr_Object((1,3,6,1,4,1,9,9,826,1,26,99,1,8),_CfprFabricSanCloudFsmRmtInvErrDescr_Type())
+cfprFabricSanCloudFsmRmtInvErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmRmtInvErrDescr.setStatus(_A)
+_CfprFabricSanCloudFsmRmtInvRslt_Type=CfprConditionRemoteInvRslt
+_CfprFabricSanCloudFsmRmtInvRslt_Object=MibTableColumn
+cfprFabricSanCloudFsmRmtInvRslt=_CfprFabricSanCloudFsmRmtInvRslt_Object((1,3,6,1,4,1,9,9,826,1,26,99,1,9),_CfprFabricSanCloudFsmRmtInvRslt_Type())
+cfprFabricSanCloudFsmRmtInvRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmRmtInvRslt.setStatus(_A)
+_CfprFabricSanCloudFsmStageDescr_Type=SnmpAdminString
+_CfprFabricSanCloudFsmStageDescr_Object=MibTableColumn
+cfprFabricSanCloudFsmStageDescr=_CfprFabricSanCloudFsmStageDescr_Object((1,3,6,1,4,1,9,9,826,1,26,99,1,10),_CfprFabricSanCloudFsmStageDescr_Type())
+cfprFabricSanCloudFsmStageDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmStageDescr.setStatus(_A)
+_CfprFabricSanCloudFsmStamp_Type=DateAndTime
+_CfprFabricSanCloudFsmStamp_Object=MibTableColumn
+cfprFabricSanCloudFsmStamp=_CfprFabricSanCloudFsmStamp_Object((1,3,6,1,4,1,9,9,826,1,26,99,1,11),_CfprFabricSanCloudFsmStamp_Type())
+cfprFabricSanCloudFsmStamp.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmStamp.setStatus(_A)
+_CfprFabricSanCloudFsmStatus_Type=SnmpAdminString
+_CfprFabricSanCloudFsmStatus_Object=MibTableColumn
+cfprFabricSanCloudFsmStatus=_CfprFabricSanCloudFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,26,99,1,12),_CfprFabricSanCloudFsmStatus_Type())
+cfprFabricSanCloudFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmStatus.setStatus(_A)
+_CfprFabricSanCloudFsmTry_Type=Gauge32
+_CfprFabricSanCloudFsmTry_Object=MibTableColumn
+cfprFabricSanCloudFsmTry=_CfprFabricSanCloudFsmTry_Object((1,3,6,1,4,1,9,9,826,1,26,99,1,13),_CfprFabricSanCloudFsmTry_Type())
+cfprFabricSanCloudFsmTry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmTry.setStatus(_A)
+_CfprFabricSanCloudMode_Type=CfprFabricSwitchingMode
+_CfprFabricSanCloudMode_Object=MibTableColumn
+cfprFabricSanCloudMode=_CfprFabricSanCloudMode_Object((1,3,6,1,4,1,9,9,826,1,26,99,1,14),_CfprFabricSanCloudMode_Type())
+cfprFabricSanCloudMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudMode.setStatus(_A)
+_CfprFabricSanCloudFsmTable_Object=MibTable
+cfprFabricSanCloudFsmTable=_CfprFabricSanCloudFsmTable_Object((1,3,6,1,4,1,9,9,826,1,26,100))
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmTable.setStatus(_A)
+_CfprFabricSanCloudFsmEntry_Object=MibTableRow
+cfprFabricSanCloudFsmEntry=_CfprFabricSanCloudFsmEntry_Object((1,3,6,1,4,1,9,9,826,1,26,100,1))
+cfprFabricSanCloudFsmEntry.setIndexNames((0,_C,_Ap))
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmEntry.setStatus(_A)
+_CfprFabricSanCloudFsmInstanceId_Type=CfprManagedObjectId
+_CfprFabricSanCloudFsmInstanceId_Object=MibTableColumn
+cfprFabricSanCloudFsmInstanceId=_CfprFabricSanCloudFsmInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,100,1,1),_CfprFabricSanCloudFsmInstanceId_Type())
+cfprFabricSanCloudFsmInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmInstanceId.setStatus(_A)
+_CfprFabricSanCloudFsmDn_Type=CfprManagedObjectDn
+_CfprFabricSanCloudFsmDn_Object=MibTableColumn
+cfprFabricSanCloudFsmDn=_CfprFabricSanCloudFsmDn_Object((1,3,6,1,4,1,9,9,826,1,26,100,1,2),_CfprFabricSanCloudFsmDn_Type())
+cfprFabricSanCloudFsmDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmDn.setStatus(_A)
+_CfprFabricSanCloudFsmRn_Type=SnmpAdminString
+_CfprFabricSanCloudFsmRn_Object=MibTableColumn
+cfprFabricSanCloudFsmRn=_CfprFabricSanCloudFsmRn_Object((1,3,6,1,4,1,9,9,826,1,26,100,1,3),_CfprFabricSanCloudFsmRn_Type())
+cfprFabricSanCloudFsmRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmRn.setStatus(_A)
+_CfprFabricSanCloudFsmCompletionTime_Type=DateAndTime
+_CfprFabricSanCloudFsmCompletionTime_Object=MibTableColumn
+cfprFabricSanCloudFsmCompletionTime=_CfprFabricSanCloudFsmCompletionTime_Object((1,3,6,1,4,1,9,9,826,1,26,100,1,4),_CfprFabricSanCloudFsmCompletionTime_Type())
+cfprFabricSanCloudFsmCompletionTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmCompletionTime.setStatus(_A)
+_CfprFabricSanCloudFsmCurrentFsm_Type=CfprFabricSanCloudFsmCurrentFsm
+_CfprFabricSanCloudFsmCurrentFsm_Object=MibTableColumn
+cfprFabricSanCloudFsmCurrentFsm=_CfprFabricSanCloudFsmCurrentFsm_Object((1,3,6,1,4,1,9,9,826,1,26,100,1,5),_CfprFabricSanCloudFsmCurrentFsm_Type())
+cfprFabricSanCloudFsmCurrentFsm.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmCurrentFsm.setStatus(_A)
+_CfprFabricSanCloudFsmDescrData_Type=SnmpAdminString
+_CfprFabricSanCloudFsmDescrData_Object=MibTableColumn
+cfprFabricSanCloudFsmDescrData=_CfprFabricSanCloudFsmDescrData_Object((1,3,6,1,4,1,9,9,826,1,26,100,1,6),_CfprFabricSanCloudFsmDescrData_Type())
+cfprFabricSanCloudFsmDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmDescrData.setStatus(_A)
+_CfprFabricSanCloudFsmFsmStatus_Type=CfprFsmFsmStageStatus
+_CfprFabricSanCloudFsmFsmStatus_Object=MibTableColumn
+cfprFabricSanCloudFsmFsmStatus=_CfprFabricSanCloudFsmFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,26,100,1,7),_CfprFabricSanCloudFsmFsmStatus_Type())
+cfprFabricSanCloudFsmFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmFsmStatus.setStatus(_A)
+_CfprFabricSanCloudFsmProgress_Type=Gauge32
+_CfprFabricSanCloudFsmProgress_Object=MibTableColumn
+cfprFabricSanCloudFsmProgress=_CfprFabricSanCloudFsmProgress_Object((1,3,6,1,4,1,9,9,826,1,26,100,1,8),_CfprFabricSanCloudFsmProgress_Type())
+cfprFabricSanCloudFsmProgress.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmProgress.setStatus(_A)
+_CfprFabricSanCloudFsmRmtErrCode_Type=Gauge32
+_CfprFabricSanCloudFsmRmtErrCode_Object=MibTableColumn
+cfprFabricSanCloudFsmRmtErrCode=_CfprFabricSanCloudFsmRmtErrCode_Object((1,3,6,1,4,1,9,9,826,1,26,100,1,9),_CfprFabricSanCloudFsmRmtErrCode_Type())
+cfprFabricSanCloudFsmRmtErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmRmtErrCode.setStatus(_A)
+_CfprFabricSanCloudFsmRmtErrDescr_Type=SnmpAdminString
+_CfprFabricSanCloudFsmRmtErrDescr_Object=MibTableColumn
+cfprFabricSanCloudFsmRmtErrDescr=_CfprFabricSanCloudFsmRmtErrDescr_Object((1,3,6,1,4,1,9,9,826,1,26,100,1,10),_CfprFabricSanCloudFsmRmtErrDescr_Type())
+cfprFabricSanCloudFsmRmtErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmRmtErrDescr.setStatus(_A)
+_CfprFabricSanCloudFsmRmtRslt_Type=CfprConditionRemoteInvRslt
+_CfprFabricSanCloudFsmRmtRslt_Object=MibTableColumn
+cfprFabricSanCloudFsmRmtRslt=_CfprFabricSanCloudFsmRmtRslt_Object((1,3,6,1,4,1,9,9,826,1,26,100,1,11),_CfprFabricSanCloudFsmRmtRslt_Type())
+cfprFabricSanCloudFsmRmtRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmRmtRslt.setStatus(_A)
+_CfprFabricSanCloudFsmStageTable_Object=MibTable
+cfprFabricSanCloudFsmStageTable=_CfprFabricSanCloudFsmStageTable_Object((1,3,6,1,4,1,9,9,826,1,26,101))
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmStageTable.setStatus(_A)
+_CfprFabricSanCloudFsmStageEntry_Object=MibTableRow
+cfprFabricSanCloudFsmStageEntry=_CfprFabricSanCloudFsmStageEntry_Object((1,3,6,1,4,1,9,9,826,1,26,101,1))
+cfprFabricSanCloudFsmStageEntry.setIndexNames((0,_C,_Aq))
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmStageEntry.setStatus(_A)
+_CfprFabricSanCloudFsmStageInstanceId_Type=CfprManagedObjectId
+_CfprFabricSanCloudFsmStageInstanceId_Object=MibTableColumn
+cfprFabricSanCloudFsmStageInstanceId=_CfprFabricSanCloudFsmStageInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,101,1,1),_CfprFabricSanCloudFsmStageInstanceId_Type())
+cfprFabricSanCloudFsmStageInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmStageInstanceId.setStatus(_A)
+_CfprFabricSanCloudFsmStageDn_Type=CfprManagedObjectDn
+_CfprFabricSanCloudFsmStageDn_Object=MibTableColumn
+cfprFabricSanCloudFsmStageDn=_CfprFabricSanCloudFsmStageDn_Object((1,3,6,1,4,1,9,9,826,1,26,101,1,2),_CfprFabricSanCloudFsmStageDn_Type())
+cfprFabricSanCloudFsmStageDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmStageDn.setStatus(_A)
+_CfprFabricSanCloudFsmStageRn_Type=SnmpAdminString
+_CfprFabricSanCloudFsmStageRn_Object=MibTableColumn
+cfprFabricSanCloudFsmStageRn=_CfprFabricSanCloudFsmStageRn_Object((1,3,6,1,4,1,9,9,826,1,26,101,1,3),_CfprFabricSanCloudFsmStageRn_Type())
+cfprFabricSanCloudFsmStageRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmStageRn.setStatus(_A)
+_CfprFabricSanCloudFsmStageDescrData_Type=SnmpAdminString
+_CfprFabricSanCloudFsmStageDescrData_Object=MibTableColumn
+cfprFabricSanCloudFsmStageDescrData=_CfprFabricSanCloudFsmStageDescrData_Object((1,3,6,1,4,1,9,9,826,1,26,101,1,4),_CfprFabricSanCloudFsmStageDescrData_Type())
+cfprFabricSanCloudFsmStageDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmStageDescrData.setStatus(_A)
+_CfprFabricSanCloudFsmStageLastUpdateTime_Type=DateAndTime
+_CfprFabricSanCloudFsmStageLastUpdateTime_Object=MibTableColumn
+cfprFabricSanCloudFsmStageLastUpdateTime=_CfprFabricSanCloudFsmStageLastUpdateTime_Object((1,3,6,1,4,1,9,9,826,1,26,101,1,5),_CfprFabricSanCloudFsmStageLastUpdateTime_Type())
+cfprFabricSanCloudFsmStageLastUpdateTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmStageLastUpdateTime.setStatus(_A)
+_CfprFabricSanCloudFsmStageName_Type=CfprFabricSanCloudFsmStageName
+_CfprFabricSanCloudFsmStageName_Object=MibTableColumn
+cfprFabricSanCloudFsmStageName=_CfprFabricSanCloudFsmStageName_Object((1,3,6,1,4,1,9,9,826,1,26,101,1,6),_CfprFabricSanCloudFsmStageName_Type())
+cfprFabricSanCloudFsmStageName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmStageName.setStatus(_A)
+_CfprFabricSanCloudFsmStageOrder_Type=Gauge32
+_CfprFabricSanCloudFsmStageOrder_Object=MibTableColumn
+cfprFabricSanCloudFsmStageOrder=_CfprFabricSanCloudFsmStageOrder_Object((1,3,6,1,4,1,9,9,826,1,26,101,1,7),_CfprFabricSanCloudFsmStageOrder_Type())
+cfprFabricSanCloudFsmStageOrder.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmStageOrder.setStatus(_A)
+_CfprFabricSanCloudFsmStageRetry_Type=Gauge32
+_CfprFabricSanCloudFsmStageRetry_Object=MibTableColumn
+cfprFabricSanCloudFsmStageRetry=_CfprFabricSanCloudFsmStageRetry_Object((1,3,6,1,4,1,9,9,826,1,26,101,1,8),_CfprFabricSanCloudFsmStageRetry_Type())
+cfprFabricSanCloudFsmStageRetry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmStageRetry.setStatus(_A)
+_CfprFabricSanCloudFsmStageStageStatus_Type=CfprFsmFsmStageStatus
+_CfprFabricSanCloudFsmStageStageStatus_Object=MibTableColumn
+cfprFabricSanCloudFsmStageStageStatus=_CfprFabricSanCloudFsmStageStageStatus_Object((1,3,6,1,4,1,9,9,826,1,26,101,1,9),_CfprFabricSanCloudFsmStageStageStatus_Type())
+cfprFabricSanCloudFsmStageStageStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmStageStageStatus.setStatus(_A)
+_CfprFabricSanCloudFsmTaskTable_Object=MibTable
+cfprFabricSanCloudFsmTaskTable=_CfprFabricSanCloudFsmTaskTable_Object((1,3,6,1,4,1,9,9,826,1,26,102))
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmTaskTable.setStatus(_A)
+_CfprFabricSanCloudFsmTaskEntry_Object=MibTableRow
+cfprFabricSanCloudFsmTaskEntry=_CfprFabricSanCloudFsmTaskEntry_Object((1,3,6,1,4,1,9,9,826,1,26,102,1))
+cfprFabricSanCloudFsmTaskEntry.setIndexNames((0,_C,_Ar))
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmTaskEntry.setStatus(_A)
+_CfprFabricSanCloudFsmTaskInstanceId_Type=CfprManagedObjectId
+_CfprFabricSanCloudFsmTaskInstanceId_Object=MibTableColumn
+cfprFabricSanCloudFsmTaskInstanceId=_CfprFabricSanCloudFsmTaskInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,102,1,1),_CfprFabricSanCloudFsmTaskInstanceId_Type())
+cfprFabricSanCloudFsmTaskInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmTaskInstanceId.setStatus(_A)
+_CfprFabricSanCloudFsmTaskDn_Type=CfprManagedObjectDn
+_CfprFabricSanCloudFsmTaskDn_Object=MibTableColumn
+cfprFabricSanCloudFsmTaskDn=_CfprFabricSanCloudFsmTaskDn_Object((1,3,6,1,4,1,9,9,826,1,26,102,1,2),_CfprFabricSanCloudFsmTaskDn_Type())
+cfprFabricSanCloudFsmTaskDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmTaskDn.setStatus(_A)
+_CfprFabricSanCloudFsmTaskRn_Type=SnmpAdminString
+_CfprFabricSanCloudFsmTaskRn_Object=MibTableColumn
+cfprFabricSanCloudFsmTaskRn=_CfprFabricSanCloudFsmTaskRn_Object((1,3,6,1,4,1,9,9,826,1,26,102,1,3),_CfprFabricSanCloudFsmTaskRn_Type())
+cfprFabricSanCloudFsmTaskRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmTaskRn.setStatus(_A)
+_CfprFabricSanCloudFsmTaskCompletion_Type=CfprFsmCompletion
+_CfprFabricSanCloudFsmTaskCompletion_Object=MibTableColumn
+cfprFabricSanCloudFsmTaskCompletion=_CfprFabricSanCloudFsmTaskCompletion_Object((1,3,6,1,4,1,9,9,826,1,26,102,1,4),_CfprFabricSanCloudFsmTaskCompletion_Type())
+cfprFabricSanCloudFsmTaskCompletion.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmTaskCompletion.setStatus(_A)
+_CfprFabricSanCloudFsmTaskFlags_Type=CfprFsmFlags
+_CfprFabricSanCloudFsmTaskFlags_Object=MibTableColumn
+cfprFabricSanCloudFsmTaskFlags=_CfprFabricSanCloudFsmTaskFlags_Object((1,3,6,1,4,1,9,9,826,1,26,102,1,5),_CfprFabricSanCloudFsmTaskFlags_Type())
+cfprFabricSanCloudFsmTaskFlags.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmTaskFlags.setStatus(_A)
+_CfprFabricSanCloudFsmTaskItem_Type=CfprFabricSanCloudFsmTaskItem
+_CfprFabricSanCloudFsmTaskItem_Object=MibTableColumn
+cfprFabricSanCloudFsmTaskItem=_CfprFabricSanCloudFsmTaskItem_Object((1,3,6,1,4,1,9,9,826,1,26,102,1,6),_CfprFabricSanCloudFsmTaskItem_Type())
+cfprFabricSanCloudFsmTaskItem.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmTaskItem.setStatus(_A)
+_CfprFabricSanCloudFsmTaskSeqId_Type=Gauge32
+_CfprFabricSanCloudFsmTaskSeqId_Object=MibTableColumn
+cfprFabricSanCloudFsmTaskSeqId=_CfprFabricSanCloudFsmTaskSeqId_Object((1,3,6,1,4,1,9,9,826,1,26,102,1,7),_CfprFabricSanCloudFsmTaskSeqId_Type())
+cfprFabricSanCloudFsmTaskSeqId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanCloudFsmTaskSeqId.setStatus(_A)
+_CfprFabricSanMonCloudTable_Object=MibTable
+cfprFabricSanMonCloudTable=_CfprFabricSanMonCloudTable_Object((1,3,6,1,4,1,9,9,826,1,26,103))
+if mibBuilder.loadTexts:cfprFabricSanMonCloudTable.setStatus(_A)
+_CfprFabricSanMonCloudEntry_Object=MibTableRow
+cfprFabricSanMonCloudEntry=_CfprFabricSanMonCloudEntry_Object((1,3,6,1,4,1,9,9,826,1,26,103,1))
+cfprFabricSanMonCloudEntry.setIndexNames((0,_C,_As))
+if mibBuilder.loadTexts:cfprFabricSanMonCloudEntry.setStatus(_A)
+_CfprFabricSanMonCloudInstanceId_Type=CfprManagedObjectId
+_CfprFabricSanMonCloudInstanceId_Object=MibTableColumn
+cfprFabricSanMonCloudInstanceId=_CfprFabricSanMonCloudInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,103,1,1),_CfprFabricSanMonCloudInstanceId_Type())
+cfprFabricSanMonCloudInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSanMonCloudInstanceId.setStatus(_A)
+_CfprFabricSanMonCloudDn_Type=CfprManagedObjectDn
+_CfprFabricSanMonCloudDn_Object=MibTableColumn
+cfprFabricSanMonCloudDn=_CfprFabricSanMonCloudDn_Object((1,3,6,1,4,1,9,9,826,1,26,103,1,2),_CfprFabricSanMonCloudDn_Type())
+cfprFabricSanMonCloudDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanMonCloudDn.setStatus(_A)
+_CfprFabricSanMonCloudRn_Type=SnmpAdminString
+_CfprFabricSanMonCloudRn_Object=MibTableColumn
+cfprFabricSanMonCloudRn=_CfprFabricSanMonCloudRn_Object((1,3,6,1,4,1,9,9,826,1,26,103,1,3),_CfprFabricSanMonCloudRn_Type())
+cfprFabricSanMonCloudRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanMonCloudRn.setStatus(_A)
+_CfprFabricSanMonCloudMode_Type=CfprFabricSwitchingMode
+_CfprFabricSanMonCloudMode_Object=MibTableColumn
+cfprFabricSanMonCloudMode=_CfprFabricSanMonCloudMode_Object((1,3,6,1,4,1,9,9,826,1,26,103,1,4),_CfprFabricSanMonCloudMode_Type())
+cfprFabricSanMonCloudMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanMonCloudMode.setStatus(_A)
+_CfprFabricSanPinGroupTable_Object=MibTable
+cfprFabricSanPinGroupTable=_CfprFabricSanPinGroupTable_Object((1,3,6,1,4,1,9,9,826,1,26,104))
+if mibBuilder.loadTexts:cfprFabricSanPinGroupTable.setStatus(_A)
+_CfprFabricSanPinGroupEntry_Object=MibTableRow
+cfprFabricSanPinGroupEntry=_CfprFabricSanPinGroupEntry_Object((1,3,6,1,4,1,9,9,826,1,26,104,1))
+cfprFabricSanPinGroupEntry.setIndexNames((0,_C,_At))
+if mibBuilder.loadTexts:cfprFabricSanPinGroupEntry.setStatus(_A)
+_CfprFabricSanPinGroupInstanceId_Type=CfprManagedObjectId
+_CfprFabricSanPinGroupInstanceId_Object=MibTableColumn
+cfprFabricSanPinGroupInstanceId=_CfprFabricSanPinGroupInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,104,1,1),_CfprFabricSanPinGroupInstanceId_Type())
+cfprFabricSanPinGroupInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSanPinGroupInstanceId.setStatus(_A)
+_CfprFabricSanPinGroupDn_Type=CfprManagedObjectDn
+_CfprFabricSanPinGroupDn_Object=MibTableColumn
+cfprFabricSanPinGroupDn=_CfprFabricSanPinGroupDn_Object((1,3,6,1,4,1,9,9,826,1,26,104,1,2),_CfprFabricSanPinGroupDn_Type())
+cfprFabricSanPinGroupDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanPinGroupDn.setStatus(_A)
+_CfprFabricSanPinGroupRn_Type=SnmpAdminString
+_CfprFabricSanPinGroupRn_Object=MibTableColumn
+cfprFabricSanPinGroupRn=_CfprFabricSanPinGroupRn_Object((1,3,6,1,4,1,9,9,826,1,26,104,1,3),_CfprFabricSanPinGroupRn_Type())
+cfprFabricSanPinGroupRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanPinGroupRn.setStatus(_A)
+_CfprFabricSanPinGroupDescr_Type=SnmpAdminString
+_CfprFabricSanPinGroupDescr_Object=MibTableColumn
+cfprFabricSanPinGroupDescr=_CfprFabricSanPinGroupDescr_Object((1,3,6,1,4,1,9,9,826,1,26,104,1,4),_CfprFabricSanPinGroupDescr_Type())
+cfprFabricSanPinGroupDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanPinGroupDescr.setStatus(_A)
+_CfprFabricSanPinGroupIntId_Type=SnmpAdminString
+_CfprFabricSanPinGroupIntId_Object=MibTableColumn
+cfprFabricSanPinGroupIntId=_CfprFabricSanPinGroupIntId_Object((1,3,6,1,4,1,9,9,826,1,26,104,1,5),_CfprFabricSanPinGroupIntId_Type())
+cfprFabricSanPinGroupIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanPinGroupIntId.setStatus(_A)
+_CfprFabricSanPinGroupName_Type=SnmpAdminString
+_CfprFabricSanPinGroupName_Object=MibTableColumn
+cfprFabricSanPinGroupName=_CfprFabricSanPinGroupName_Object((1,3,6,1,4,1,9,9,826,1,26,104,1,6),_CfprFabricSanPinGroupName_Type())
+cfprFabricSanPinGroupName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanPinGroupName.setStatus(_A)
+_CfprFabricSanPinGroupPolicyLevel_Type=Gauge32
+_CfprFabricSanPinGroupPolicyLevel_Object=MibTableColumn
+cfprFabricSanPinGroupPolicyLevel=_CfprFabricSanPinGroupPolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,26,104,1,7),_CfprFabricSanPinGroupPolicyLevel_Type())
+cfprFabricSanPinGroupPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanPinGroupPolicyLevel.setStatus(_A)
+_CfprFabricSanPinGroupPolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprFabricSanPinGroupPolicyOwner_Object=MibTableColumn
+cfprFabricSanPinGroupPolicyOwner=_CfprFabricSanPinGroupPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,104,1,8),_CfprFabricSanPinGroupPolicyOwner_Type())
+cfprFabricSanPinGroupPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanPinGroupPolicyOwner.setStatus(_A)
+_CfprFabricSanPinGroupSize_Type=Gauge32
+_CfprFabricSanPinGroupSize_Object=MibTableColumn
+cfprFabricSanPinGroupSize=_CfprFabricSanPinGroupSize_Object((1,3,6,1,4,1,9,9,826,1,26,104,1,9),_CfprFabricSanPinGroupSize_Type())
+cfprFabricSanPinGroupSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanPinGroupSize.setStatus(_A)
+_CfprFabricSanPinTargetTable_Object=MibTable
+cfprFabricSanPinTargetTable=_CfprFabricSanPinTargetTable_Object((1,3,6,1,4,1,9,9,826,1,26,105))
+if mibBuilder.loadTexts:cfprFabricSanPinTargetTable.setStatus(_A)
+_CfprFabricSanPinTargetEntry_Object=MibTableRow
+cfprFabricSanPinTargetEntry=_CfprFabricSanPinTargetEntry_Object((1,3,6,1,4,1,9,9,826,1,26,105,1))
+cfprFabricSanPinTargetEntry.setIndexNames((0,_C,_Au))
+if mibBuilder.loadTexts:cfprFabricSanPinTargetEntry.setStatus(_A)
+_CfprFabricSanPinTargetInstanceId_Type=CfprManagedObjectId
+_CfprFabricSanPinTargetInstanceId_Object=MibTableColumn
+cfprFabricSanPinTargetInstanceId=_CfprFabricSanPinTargetInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,105,1,1),_CfprFabricSanPinTargetInstanceId_Type())
+cfprFabricSanPinTargetInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSanPinTargetInstanceId.setStatus(_A)
+_CfprFabricSanPinTargetDn_Type=CfprManagedObjectDn
+_CfprFabricSanPinTargetDn_Object=MibTableColumn
+cfprFabricSanPinTargetDn=_CfprFabricSanPinTargetDn_Object((1,3,6,1,4,1,9,9,826,1,26,105,1,2),_CfprFabricSanPinTargetDn_Type())
+cfprFabricSanPinTargetDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanPinTargetDn.setStatus(_A)
+_CfprFabricSanPinTargetRn_Type=SnmpAdminString
+_CfprFabricSanPinTargetRn_Object=MibTableColumn
+cfprFabricSanPinTargetRn=_CfprFabricSanPinTargetRn_Object((1,3,6,1,4,1,9,9,826,1,26,105,1,3),_CfprFabricSanPinTargetRn_Type())
+cfprFabricSanPinTargetRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanPinTargetRn.setStatus(_A)
+_CfprFabricSanPinTargetEpDn_Type=SnmpAdminString
+_CfprFabricSanPinTargetEpDn_Object=MibTableColumn
+cfprFabricSanPinTargetEpDn=_CfprFabricSanPinTargetEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,105,1,4),_CfprFabricSanPinTargetEpDn_Type())
+cfprFabricSanPinTargetEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanPinTargetEpDn.setStatus(_A)
+_CfprFabricSanPinTargetFabricId_Type=SnmpAdminString
+_CfprFabricSanPinTargetFabricId_Object=MibTableColumn
+cfprFabricSanPinTargetFabricId=_CfprFabricSanPinTargetFabricId_Object((1,3,6,1,4,1,9,9,826,1,26,105,1,5),_CfprFabricSanPinTargetFabricId_Type())
+cfprFabricSanPinTargetFabricId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanPinTargetFabricId.setStatus(_A)
+_CfprFabricSanPinTargetTargetStatus_Type=CfprFabricTargetStatus
+_CfprFabricSanPinTargetTargetStatus_Object=MibTableColumn
+cfprFabricSanPinTargetTargetStatus=_CfprFabricSanPinTargetTargetStatus_Object((1,3,6,1,4,1,9,9,826,1,26,105,1,6),_CfprFabricSanPinTargetTargetStatus_Type())
+cfprFabricSanPinTargetTargetStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSanPinTargetTargetStatus.setStatus(_A)
+_CfprFabricSubGroupTable_Object=MibTable
+cfprFabricSubGroupTable=_CfprFabricSubGroupTable_Object((1,3,6,1,4,1,9,9,826,1,26,106))
+if mibBuilder.loadTexts:cfprFabricSubGroupTable.setStatus(_A)
+_CfprFabricSubGroupEntry_Object=MibTableRow
+cfprFabricSubGroupEntry=_CfprFabricSubGroupEntry_Object((1,3,6,1,4,1,9,9,826,1,26,106,1))
+cfprFabricSubGroupEntry.setIndexNames((0,_C,_Av))
+if mibBuilder.loadTexts:cfprFabricSubGroupEntry.setStatus(_A)
+_CfprFabricSubGroupInstanceId_Type=CfprManagedObjectId
+_CfprFabricSubGroupInstanceId_Object=MibTableColumn
+cfprFabricSubGroupInstanceId=_CfprFabricSubGroupInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,106,1,1),_CfprFabricSubGroupInstanceId_Type())
+cfprFabricSubGroupInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSubGroupInstanceId.setStatus(_A)
+_CfprFabricSubGroupDn_Type=CfprManagedObjectDn
+_CfprFabricSubGroupDn_Object=MibTableColumn
+cfprFabricSubGroupDn=_CfprFabricSubGroupDn_Object((1,3,6,1,4,1,9,9,826,1,26,106,1,2),_CfprFabricSubGroupDn_Type())
+cfprFabricSubGroupDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubGroupDn.setStatus(_A)
+_CfprFabricSubGroupRn_Type=SnmpAdminString
+_CfprFabricSubGroupRn_Object=MibTableColumn
+cfprFabricSubGroupRn=_CfprFabricSubGroupRn_Object((1,3,6,1,4,1,9,9,826,1,26,106,1,3),_CfprFabricSubGroupRn_Type())
+cfprFabricSubGroupRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubGroupRn.setStatus(_A)
+_CfprFabricSubGroupAggrPortId_Type=CfprFabricSubGroupAggrPortId
+_CfprFabricSubGroupAggrPortId_Object=MibTableColumn
+cfprFabricSubGroupAggrPortId=_CfprFabricSubGroupAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,106,1,4),_CfprFabricSubGroupAggrPortId_Type())
+cfprFabricSubGroupAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubGroupAggrPortId.setStatus(_A)
+_CfprFabricSubGroupConfigState_Type=CfprFabricSubGroupConfigState
+_CfprFabricSubGroupConfigState_Object=MibTableColumn
+cfprFabricSubGroupConfigState=_CfprFabricSubGroupConfigState_Object((1,3,6,1,4,1,9,9,826,1,26,106,1,5),_CfprFabricSubGroupConfigState_Type())
+cfprFabricSubGroupConfigState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubGroupConfigState.setStatus(_A)
+_CfprFabricSubGroupLicGP_Type=Unsigned64
+_CfprFabricSubGroupLicGP_Object=MibTableColumn
+cfprFabricSubGroupLicGP=_CfprFabricSubGroupLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,106,1,6),_CfprFabricSubGroupLicGP_Type())
+cfprFabricSubGroupLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubGroupLicGP.setStatus(_A)
+_CfprFabricSubGroupLicState_Type=CfprLicenseState
+_CfprFabricSubGroupLicState_Object=MibTableColumn
+cfprFabricSubGroupLicState=_CfprFabricSubGroupLicState_Object((1,3,6,1,4,1,9,9,826,1,26,106,1,7),_CfprFabricSubGroupLicState_Type())
+cfprFabricSubGroupLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubGroupLicState.setStatus(_A)
+_CfprFabricSubGroupLocale_Type=CfprNetworkLocale
+_CfprFabricSubGroupLocale_Object=MibTableColumn
+cfprFabricSubGroupLocale=_CfprFabricSubGroupLocale_Object((1,3,6,1,4,1,9,9,826,1,26,106,1,8),_CfprFabricSubGroupLocale_Type())
+cfprFabricSubGroupLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubGroupLocale.setStatus(_A)
+_CfprFabricSubGroupName_Type=SnmpAdminString
+_CfprFabricSubGroupName_Object=MibTableColumn
+cfprFabricSubGroupName=_CfprFabricSubGroupName_Object((1,3,6,1,4,1,9,9,826,1,26,106,1,9),_CfprFabricSubGroupName_Type())
+cfprFabricSubGroupName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubGroupName.setStatus(_A)
+_CfprFabricSubGroupSlotId_Type=CfprFabricSubGroupSlotId
+_CfprFabricSubGroupSlotId_Object=MibTableColumn
+cfprFabricSubGroupSlotId=_CfprFabricSubGroupSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,106,1,10),_CfprFabricSubGroupSlotId_Type())
+cfprFabricSubGroupSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubGroupSlotId.setStatus(_A)
+_CfprFabricSubGroupSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricSubGroupSwitchId_Object=MibTableColumn
+cfprFabricSubGroupSwitchId=_CfprFabricSubGroupSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,106,1,11),_CfprFabricSubGroupSwitchId_Type())
+cfprFabricSubGroupSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubGroupSwitchId.setStatus(_A)
+_CfprFabricSubGroupTransport_Type=CfprNetworkTransport
+_CfprFabricSubGroupTransport_Object=MibTableColumn
+cfprFabricSubGroupTransport=_CfprFabricSubGroupTransport_Object((1,3,6,1,4,1,9,9,826,1,26,106,1,12),_CfprFabricSubGroupTransport_Type())
+cfprFabricSubGroupTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubGroupTransport.setStatus(_A)
+_CfprFabricSubGroupType_Type=CfprNetworkConnectionType
+_CfprFabricSubGroupType_Object=MibTableColumn
+cfprFabricSubGroupType=_CfprFabricSubGroupType_Object((1,3,6,1,4,1,9,9,826,1,26,106,1,13),_CfprFabricSubGroupType_Type())
+cfprFabricSubGroupType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubGroupType.setStatus(_A)
+_CfprFabricSwChPhEpTable_Object=MibTable
+cfprFabricSwChPhEpTable=_CfprFabricSwChPhEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,107))
+if mibBuilder.loadTexts:cfprFabricSwChPhEpTable.setStatus(_A)
+_CfprFabricSwChPhEpEntry_Object=MibTableRow
+cfprFabricSwChPhEpEntry=_CfprFabricSwChPhEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,107,1))
+cfprFabricSwChPhEpEntry.setIndexNames((0,_C,_Aw))
+if mibBuilder.loadTexts:cfprFabricSwChPhEpEntry.setStatus(_A)
+_CfprFabricSwChPhEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricSwChPhEpInstanceId_Object=MibTableColumn
+cfprFabricSwChPhEpInstanceId=_CfprFabricSwChPhEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,1),_CfprFabricSwChPhEpInstanceId_Type())
+cfprFabricSwChPhEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpInstanceId.setStatus(_A)
+_CfprFabricSwChPhEpDn_Type=CfprManagedObjectDn
+_CfprFabricSwChPhEpDn_Object=MibTableColumn
+cfprFabricSwChPhEpDn=_CfprFabricSwChPhEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,2),_CfprFabricSwChPhEpDn_Type())
+cfprFabricSwChPhEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpDn.setStatus(_A)
+_CfprFabricSwChPhEpRn_Type=SnmpAdminString
+_CfprFabricSwChPhEpRn_Object=MibTableColumn
+cfprFabricSwChPhEpRn=_CfprFabricSwChPhEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,3),_CfprFabricSwChPhEpRn_Type())
+cfprFabricSwChPhEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpRn.setStatus(_A)
+_CfprFabricSwChPhEpAdminState_Type=CfprFabricSwChPhEpAdminState
+_CfprFabricSwChPhEpAdminState_Object=MibTableColumn
+cfprFabricSwChPhEpAdminState=_CfprFabricSwChPhEpAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,4),_CfprFabricSwChPhEpAdminState_Type())
+cfprFabricSwChPhEpAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpAdminState.setStatus(_A)
+_CfprFabricSwChPhEpAggrPortId_Type=Gauge32
+_CfprFabricSwChPhEpAggrPortId_Object=MibTableColumn
+cfprFabricSwChPhEpAggrPortId=_CfprFabricSwChPhEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,5),_CfprFabricSwChPhEpAggrPortId_Type())
+cfprFabricSwChPhEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpAggrPortId.setStatus(_A)
+_CfprFabricSwChPhEpChassisId_Type=Gauge32
+_CfprFabricSwChPhEpChassisId_Object=MibTableColumn
+cfprFabricSwChPhEpChassisId=_CfprFabricSwChPhEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,6),_CfprFabricSwChPhEpChassisId_Type())
+cfprFabricSwChPhEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpChassisId.setStatus(_A)
+_CfprFabricSwChPhEpEpDn_Type=SnmpAdminString
+_CfprFabricSwChPhEpEpDn_Object=MibTableColumn
+cfprFabricSwChPhEpEpDn=_CfprFabricSwChPhEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,7),_CfprFabricSwChPhEpEpDn_Type())
+cfprFabricSwChPhEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpEpDn.setStatus(_A)
+_CfprFabricSwChPhEpEqType_Type=CfprEquipmentFabricEpType
+_CfprFabricSwChPhEpEqType_Object=MibTableColumn
+cfprFabricSwChPhEpEqType=_CfprFabricSwChPhEpEqType_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,8),_CfprFabricSwChPhEpEqType_Type())
+cfprFabricSwChPhEpEqType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpEqType.setStatus(_A)
+_CfprFabricSwChPhEpFltAggr_Type=Unsigned64
+_CfprFabricSwChPhEpFltAggr_Object=MibTableColumn
+cfprFabricSwChPhEpFltAggr=_CfprFabricSwChPhEpFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,9),_CfprFabricSwChPhEpFltAggr_Type())
+cfprFabricSwChPhEpFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpFltAggr.setStatus(_A)
+_CfprFabricSwChPhEpIfRole_Type=CfprFabricSwChEpIfRole
+_CfprFabricSwChPhEpIfRole_Object=MibTableColumn
+cfprFabricSwChPhEpIfRole=_CfprFabricSwChPhEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,10),_CfprFabricSwChPhEpIfRole_Type())
+cfprFabricSwChPhEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpIfRole.setStatus(_A)
+_CfprFabricSwChPhEpIfType_Type=CfprFabricPIoEpIfType
+_CfprFabricSwChPhEpIfType_Object=MibTableColumn
+cfprFabricSwChPhEpIfType=_CfprFabricSwChPhEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,11),_CfprFabricSwChPhEpIfType_Type())
+cfprFabricSwChPhEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpIfType.setStatus(_A)
+_CfprFabricSwChPhEpLc_Type=CfprFabricLifeCycle
+_CfprFabricSwChPhEpLc_Object=MibTableColumn
+cfprFabricSwChPhEpLc=_CfprFabricSwChPhEpLc_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,12),_CfprFabricSwChPhEpLc_Type())
+cfprFabricSwChPhEpLc.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpLc.setStatus(_A)
+_CfprFabricSwChPhEpLicGP_Type=Unsigned64
+_CfprFabricSwChPhEpLicGP_Object=MibTableColumn
+cfprFabricSwChPhEpLicGP=_CfprFabricSwChPhEpLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,13),_CfprFabricSwChPhEpLicGP_Type())
+cfprFabricSwChPhEpLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpLicGP.setStatus(_A)
+_CfprFabricSwChPhEpLicState_Type=CfprLicenseState
+_CfprFabricSwChPhEpLicState_Object=MibTableColumn
+cfprFabricSwChPhEpLicState=_CfprFabricSwChPhEpLicState_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,14),_CfprFabricSwChPhEpLicState_Type())
+cfprFabricSwChPhEpLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpLicState.setStatus(_A)
+_CfprFabricSwChPhEpLocale_Type=CfprFabricInternalEpLocale
+_CfprFabricSwChPhEpLocale_Object=MibTableColumn
+cfprFabricSwChPhEpLocale=_CfprFabricSwChPhEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,15),_CfprFabricSwChPhEpLocale_Type())
+cfprFabricSwChPhEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpLocale.setStatus(_A)
+_CfprFabricSwChPhEpModel_Type=SnmpAdminString
+_CfprFabricSwChPhEpModel_Object=MibTableColumn
+cfprFabricSwChPhEpModel=_CfprFabricSwChPhEpModel_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,16),_CfprFabricSwChPhEpModel_Type())
+cfprFabricSwChPhEpModel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpModel.setStatus(_A)
+_CfprFabricSwChPhEpName_Type=SnmpAdminString
+_CfprFabricSwChPhEpName_Object=MibTableColumn
+cfprFabricSwChPhEpName=_CfprFabricSwChPhEpName_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,17),_CfprFabricSwChPhEpName_Type())
+cfprFabricSwChPhEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpName.setStatus(_A)
+_CfprFabricSwChPhEpOperState_Type=CfprFabricPIoEpOperState
+_CfprFabricSwChPhEpOperState_Object=MibTableColumn
+cfprFabricSwChPhEpOperState=_CfprFabricSwChPhEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,18),_CfprFabricSwChPhEpOperState_Type())
+cfprFabricSwChPhEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpOperState.setStatus(_A)
+_CfprFabricSwChPhEpOperStateReason_Type=SnmpAdminString
+_CfprFabricSwChPhEpOperStateReason_Object=MibTableColumn
+cfprFabricSwChPhEpOperStateReason=_CfprFabricSwChPhEpOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,19),_CfprFabricSwChPhEpOperStateReason_Type())
+cfprFabricSwChPhEpOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpOperStateReason.setStatus(_A)
+_CfprFabricSwChPhEpPeerAggrPortId_Type=Gauge32
+_CfprFabricSwChPhEpPeerAggrPortId_Object=MibTableColumn
+cfprFabricSwChPhEpPeerAggrPortId=_CfprFabricSwChPhEpPeerAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,20),_CfprFabricSwChPhEpPeerAggrPortId_Type())
+cfprFabricSwChPhEpPeerAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpPeerAggrPortId.setStatus(_A)
+_CfprFabricSwChPhEpPeerChassisId_Type=Gauge32
+_CfprFabricSwChPhEpPeerChassisId_Object=MibTableColumn
+cfprFabricSwChPhEpPeerChassisId=_CfprFabricSwChPhEpPeerChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,21),_CfprFabricSwChPhEpPeerChassisId_Type())
+cfprFabricSwChPhEpPeerChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpPeerChassisId.setStatus(_A)
+_CfprFabricSwChPhEpPeerDn_Type=SnmpAdminString
+_CfprFabricSwChPhEpPeerDn_Object=MibTableColumn
+cfprFabricSwChPhEpPeerDn=_CfprFabricSwChPhEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,22),_CfprFabricSwChPhEpPeerDn_Type())
+cfprFabricSwChPhEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpPeerDn.setStatus(_A)
+_CfprFabricSwChPhEpPeerPortId_Type=Gauge32
+_CfprFabricSwChPhEpPeerPortId_Object=MibTableColumn
+cfprFabricSwChPhEpPeerPortId=_CfprFabricSwChPhEpPeerPortId_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,23),_CfprFabricSwChPhEpPeerPortId_Type())
+cfprFabricSwChPhEpPeerPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpPeerPortId.setStatus(_A)
+_CfprFabricSwChPhEpPeerSlotId_Type=Gauge32
+_CfprFabricSwChPhEpPeerSlotId_Object=MibTableColumn
+cfprFabricSwChPhEpPeerSlotId=_CfprFabricSwChPhEpPeerSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,24),_CfprFabricSwChPhEpPeerSlotId_Type())
+cfprFabricSwChPhEpPeerSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpPeerSlotId.setStatus(_A)
+_CfprFabricSwChPhEpPortId_Type=CfprFabricPIoEpPortId
+_CfprFabricSwChPhEpPortId_Object=MibTableColumn
+cfprFabricSwChPhEpPortId=_CfprFabricSwChPhEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,25),_CfprFabricSwChPhEpPortId_Type())
+cfprFabricSwChPhEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpPortId.setStatus(_A)
+_CfprFabricSwChPhEpRevision_Type=SnmpAdminString
+_CfprFabricSwChPhEpRevision_Object=MibTableColumn
+cfprFabricSwChPhEpRevision=_CfprFabricSwChPhEpRevision_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,26),_CfprFabricSwChPhEpRevision_Type())
+cfprFabricSwChPhEpRevision.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpRevision.setStatus(_A)
+_CfprFabricSwChPhEpSerial_Type=SnmpAdminString
+_CfprFabricSwChPhEpSerial_Object=MibTableColumn
+cfprFabricSwChPhEpSerial=_CfprFabricSwChPhEpSerial_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,27),_CfprFabricSwChPhEpSerial_Type())
+cfprFabricSwChPhEpSerial.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpSerial.setStatus(_A)
+_CfprFabricSwChPhEpSlotId_Type=CfprFabricPIoEpSlotId
+_CfprFabricSwChPhEpSlotId_Object=MibTableColumn
+cfprFabricSwChPhEpSlotId=_CfprFabricSwChPhEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,28),_CfprFabricSwChPhEpSlotId_Type())
+cfprFabricSwChPhEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpSlotId.setStatus(_A)
+_CfprFabricSwChPhEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricSwChPhEpSwitchId_Object=MibTableColumn
+cfprFabricSwChPhEpSwitchId=_CfprFabricSwChPhEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,29),_CfprFabricSwChPhEpSwitchId_Type())
+cfprFabricSwChPhEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpSwitchId.setStatus(_A)
+_CfprFabricSwChPhEpTransport_Type=CfprNetworkTransport
+_CfprFabricSwChPhEpTransport_Object=MibTableColumn
+cfprFabricSwChPhEpTransport=_CfprFabricSwChPhEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,30),_CfprFabricSwChPhEpTransport_Type())
+cfprFabricSwChPhEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpTransport.setStatus(_A)
+_CfprFabricSwChPhEpType_Type=CfprFabricSwChEpType
+_CfprFabricSwChPhEpType_Object=MibTableColumn
+cfprFabricSwChPhEpType=_CfprFabricSwChPhEpType_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,31),_CfprFabricSwChPhEpType_Type())
+cfprFabricSwChPhEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpType.setStatus(_A)
+_CfprFabricSwChPhEpVendor_Type=SnmpAdminString
+_CfprFabricSwChPhEpVendor_Object=MibTableColumn
+cfprFabricSwChPhEpVendor=_CfprFabricSwChPhEpVendor_Object((1,3,6,1,4,1,9,9,826,1,26,107,1,32),_CfprFabricSwChPhEpVendor_Type())
+cfprFabricSwChPhEpVendor.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwChPhEpVendor.setStatus(_A)
+_CfprFabricSwSubGroupTable_Object=MibTable
+cfprFabricSwSubGroupTable=_CfprFabricSwSubGroupTable_Object((1,3,6,1,4,1,9,9,826,1,26,108))
+if mibBuilder.loadTexts:cfprFabricSwSubGroupTable.setStatus(_A)
+_CfprFabricSwSubGroupEntry_Object=MibTableRow
+cfprFabricSwSubGroupEntry=_CfprFabricSwSubGroupEntry_Object((1,3,6,1,4,1,9,9,826,1,26,108,1))
+cfprFabricSwSubGroupEntry.setIndexNames((0,_C,_Ax))
+if mibBuilder.loadTexts:cfprFabricSwSubGroupEntry.setStatus(_A)
+_CfprFabricSwSubGroupInstanceId_Type=CfprManagedObjectId
+_CfprFabricSwSubGroupInstanceId_Object=MibTableColumn
+cfprFabricSwSubGroupInstanceId=_CfprFabricSwSubGroupInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,108,1,1),_CfprFabricSwSubGroupInstanceId_Type())
+cfprFabricSwSubGroupInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSwSubGroupInstanceId.setStatus(_A)
+_CfprFabricSwSubGroupDn_Type=CfprManagedObjectDn
+_CfprFabricSwSubGroupDn_Object=MibTableColumn
+cfprFabricSwSubGroupDn=_CfprFabricSwSubGroupDn_Object((1,3,6,1,4,1,9,9,826,1,26,108,1,2),_CfprFabricSwSubGroupDn_Type())
+cfprFabricSwSubGroupDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwSubGroupDn.setStatus(_A)
+_CfprFabricSwSubGroupRn_Type=SnmpAdminString
+_CfprFabricSwSubGroupRn_Object=MibTableColumn
+cfprFabricSwSubGroupRn=_CfprFabricSwSubGroupRn_Object((1,3,6,1,4,1,9,9,826,1,26,108,1,3),_CfprFabricSwSubGroupRn_Type())
+cfprFabricSwSubGroupRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwSubGroupRn.setStatus(_A)
+_CfprFabricSwSubGroupAggrPortId_Type=CfprFabricSwSubGroupAggrPortId
+_CfprFabricSwSubGroupAggrPortId_Object=MibTableColumn
+cfprFabricSwSubGroupAggrPortId=_CfprFabricSwSubGroupAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,108,1,4),_CfprFabricSwSubGroupAggrPortId_Type())
+cfprFabricSwSubGroupAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwSubGroupAggrPortId.setStatus(_A)
+_CfprFabricSwSubGroupConfigState_Type=CfprFabricSwSubGroupConfigState
+_CfprFabricSwSubGroupConfigState_Object=MibTableColumn
+cfprFabricSwSubGroupConfigState=_CfprFabricSwSubGroupConfigState_Object((1,3,6,1,4,1,9,9,826,1,26,108,1,5),_CfprFabricSwSubGroupConfigState_Type())
+cfprFabricSwSubGroupConfigState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwSubGroupConfigState.setStatus(_A)
+_CfprFabricSwSubGroupLicGP_Type=Unsigned64
+_CfprFabricSwSubGroupLicGP_Object=MibTableColumn
+cfprFabricSwSubGroupLicGP=_CfprFabricSwSubGroupLicGP_Object((1,3,6,1,4,1,9,9,826,1,26,108,1,6),_CfprFabricSwSubGroupLicGP_Type())
+cfprFabricSwSubGroupLicGP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwSubGroupLicGP.setStatus(_A)
+_CfprFabricSwSubGroupLicState_Type=CfprLicenseState
+_CfprFabricSwSubGroupLicState_Object=MibTableColumn
+cfprFabricSwSubGroupLicState=_CfprFabricSwSubGroupLicState_Object((1,3,6,1,4,1,9,9,826,1,26,108,1,7),_CfprFabricSwSubGroupLicState_Type())
+cfprFabricSwSubGroupLicState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwSubGroupLicState.setStatus(_A)
+_CfprFabricSwSubGroupLocale_Type=CfprNetworkLocale
+_CfprFabricSwSubGroupLocale_Object=MibTableColumn
+cfprFabricSwSubGroupLocale=_CfprFabricSwSubGroupLocale_Object((1,3,6,1,4,1,9,9,826,1,26,108,1,8),_CfprFabricSwSubGroupLocale_Type())
+cfprFabricSwSubGroupLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwSubGroupLocale.setStatus(_A)
+_CfprFabricSwSubGroupName_Type=SnmpAdminString
+_CfprFabricSwSubGroupName_Object=MibTableColumn
+cfprFabricSwSubGroupName=_CfprFabricSwSubGroupName_Object((1,3,6,1,4,1,9,9,826,1,26,108,1,9),_CfprFabricSwSubGroupName_Type())
+cfprFabricSwSubGroupName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwSubGroupName.setStatus(_A)
+_CfprFabricSwSubGroupSlotId_Type=CfprFabricSwSubGroupSlotId
+_CfprFabricSwSubGroupSlotId_Object=MibTableColumn
+cfprFabricSwSubGroupSlotId=_CfprFabricSwSubGroupSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,108,1,10),_CfprFabricSwSubGroupSlotId_Type())
+cfprFabricSwSubGroupSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwSubGroupSlotId.setStatus(_A)
+_CfprFabricSwSubGroupSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricSwSubGroupSwitchId_Object=MibTableColumn
+cfprFabricSwSubGroupSwitchId=_CfprFabricSwSubGroupSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,108,1,11),_CfprFabricSwSubGroupSwitchId_Type())
+cfprFabricSwSubGroupSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwSubGroupSwitchId.setStatus(_A)
+_CfprFabricSwSubGroupTransport_Type=CfprNetworkTransport
+_CfprFabricSwSubGroupTransport_Object=MibTableColumn
+cfprFabricSwSubGroupTransport=_CfprFabricSwSubGroupTransport_Object((1,3,6,1,4,1,9,9,826,1,26,108,1,12),_CfprFabricSwSubGroupTransport_Type())
+cfprFabricSwSubGroupTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwSubGroupTransport.setStatus(_A)
+_CfprFabricSwSubGroupType_Type=CfprNetworkConnectionType
+_CfprFabricSwSubGroupType_Object=MibTableColumn
+cfprFabricSwSubGroupType=_CfprFabricSwSubGroupType_Object((1,3,6,1,4,1,9,9,826,1,26,108,1,13),_CfprFabricSwSubGroupType_Type())
+cfprFabricSwSubGroupType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSwSubGroupType.setStatus(_A)
+_CfprFabricUdldLinkPolicyTable_Object=MibTable
+cfprFabricUdldLinkPolicyTable=_CfprFabricUdldLinkPolicyTable_Object((1,3,6,1,4,1,9,9,826,1,26,109))
+if mibBuilder.loadTexts:cfprFabricUdldLinkPolicyTable.setStatus(_A)
+_CfprFabricUdldLinkPolicyEntry_Object=MibTableRow
+cfprFabricUdldLinkPolicyEntry=_CfprFabricUdldLinkPolicyEntry_Object((1,3,6,1,4,1,9,9,826,1,26,109,1))
+cfprFabricUdldLinkPolicyEntry.setIndexNames((0,_C,_Ay))
+if mibBuilder.loadTexts:cfprFabricUdldLinkPolicyEntry.setStatus(_A)
+_CfprFabricUdldLinkPolicyInstanceId_Type=CfprManagedObjectId
+_CfprFabricUdldLinkPolicyInstanceId_Object=MibTableColumn
+cfprFabricUdldLinkPolicyInstanceId=_CfprFabricUdldLinkPolicyInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,109,1,1),_CfprFabricUdldLinkPolicyInstanceId_Type())
+cfprFabricUdldLinkPolicyInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricUdldLinkPolicyInstanceId.setStatus(_A)
+_CfprFabricUdldLinkPolicyDn_Type=CfprManagedObjectDn
+_CfprFabricUdldLinkPolicyDn_Object=MibTableColumn
+cfprFabricUdldLinkPolicyDn=_CfprFabricUdldLinkPolicyDn_Object((1,3,6,1,4,1,9,9,826,1,26,109,1,2),_CfprFabricUdldLinkPolicyDn_Type())
+cfprFabricUdldLinkPolicyDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldLinkPolicyDn.setStatus(_A)
+_CfprFabricUdldLinkPolicyRn_Type=SnmpAdminString
+_CfprFabricUdldLinkPolicyRn_Object=MibTableColumn
+cfprFabricUdldLinkPolicyRn=_CfprFabricUdldLinkPolicyRn_Object((1,3,6,1,4,1,9,9,826,1,26,109,1,3),_CfprFabricUdldLinkPolicyRn_Type())
+cfprFabricUdldLinkPolicyRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldLinkPolicyRn.setStatus(_A)
+_CfprFabricUdldLinkPolicyAdminState_Type=CfprFabricUdldLinkPolicyAdminState
+_CfprFabricUdldLinkPolicyAdminState_Object=MibTableColumn
+cfprFabricUdldLinkPolicyAdminState=_CfprFabricUdldLinkPolicyAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,109,1,4),_CfprFabricUdldLinkPolicyAdminState_Type())
+cfprFabricUdldLinkPolicyAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldLinkPolicyAdminState.setStatus(_A)
+_CfprFabricUdldLinkPolicyDescr_Type=SnmpAdminString
+_CfprFabricUdldLinkPolicyDescr_Object=MibTableColumn
+cfprFabricUdldLinkPolicyDescr=_CfprFabricUdldLinkPolicyDescr_Object((1,3,6,1,4,1,9,9,826,1,26,109,1,5),_CfprFabricUdldLinkPolicyDescr_Type())
+cfprFabricUdldLinkPolicyDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldLinkPolicyDescr.setStatus(_A)
+_CfprFabricUdldLinkPolicyIntId_Type=SnmpAdminString
+_CfprFabricUdldLinkPolicyIntId_Object=MibTableColumn
+cfprFabricUdldLinkPolicyIntId=_CfprFabricUdldLinkPolicyIntId_Object((1,3,6,1,4,1,9,9,826,1,26,109,1,6),_CfprFabricUdldLinkPolicyIntId_Type())
+cfprFabricUdldLinkPolicyIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldLinkPolicyIntId.setStatus(_A)
+_CfprFabricUdldLinkPolicyMode_Type=CfprFabricUdldLinkPolicyMode
+_CfprFabricUdldLinkPolicyMode_Object=MibTableColumn
+cfprFabricUdldLinkPolicyMode=_CfprFabricUdldLinkPolicyMode_Object((1,3,6,1,4,1,9,9,826,1,26,109,1,7),_CfprFabricUdldLinkPolicyMode_Type())
+cfprFabricUdldLinkPolicyMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldLinkPolicyMode.setStatus(_A)
+_CfprFabricUdldLinkPolicyName_Type=SnmpAdminString
+_CfprFabricUdldLinkPolicyName_Object=MibTableColumn
+cfprFabricUdldLinkPolicyName=_CfprFabricUdldLinkPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,109,1,8),_CfprFabricUdldLinkPolicyName_Type())
+cfprFabricUdldLinkPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldLinkPolicyName.setStatus(_A)
+_CfprFabricUdldLinkPolicyPolicyLevel_Type=Gauge32
+_CfprFabricUdldLinkPolicyPolicyLevel_Object=MibTableColumn
+cfprFabricUdldLinkPolicyPolicyLevel=_CfprFabricUdldLinkPolicyPolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,26,109,1,9),_CfprFabricUdldLinkPolicyPolicyLevel_Type())
+cfprFabricUdldLinkPolicyPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldLinkPolicyPolicyLevel.setStatus(_A)
+_CfprFabricUdldLinkPolicyPolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprFabricUdldLinkPolicyPolicyOwner_Object=MibTableColumn
+cfprFabricUdldLinkPolicyPolicyOwner=_CfprFabricUdldLinkPolicyPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,109,1,10),_CfprFabricUdldLinkPolicyPolicyOwner_Type())
+cfprFabricUdldLinkPolicyPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldLinkPolicyPolicyOwner.setStatus(_A)
+_CfprFabricUdldLinkPolicyProtocol_Type=CfprFabricEthUdldPolicyProtocol
+_CfprFabricUdldLinkPolicyProtocol_Object=MibTableColumn
+cfprFabricUdldLinkPolicyProtocol=_CfprFabricUdldLinkPolicyProtocol_Object((1,3,6,1,4,1,9,9,826,1,26,109,1,11),_CfprFabricUdldLinkPolicyProtocol_Type())
+cfprFabricUdldLinkPolicyProtocol.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldLinkPolicyProtocol.setStatus(_A)
+_CfprFabricUdldLinkPolicyType_Type=CfprFabricEthLinkPolicyType
+_CfprFabricUdldLinkPolicyType_Object=MibTableColumn
+cfprFabricUdldLinkPolicyType=_CfprFabricUdldLinkPolicyType_Object((1,3,6,1,4,1,9,9,826,1,26,109,1,12),_CfprFabricUdldLinkPolicyType_Type())
+cfprFabricUdldLinkPolicyType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldLinkPolicyType.setStatus(_A)
+_CfprFabricUdldPolicyTable_Object=MibTable
+cfprFabricUdldPolicyTable=_CfprFabricUdldPolicyTable_Object((1,3,6,1,4,1,9,9,826,1,26,110))
+if mibBuilder.loadTexts:cfprFabricUdldPolicyTable.setStatus(_A)
+_CfprFabricUdldPolicyEntry_Object=MibTableRow
+cfprFabricUdldPolicyEntry=_CfprFabricUdldPolicyEntry_Object((1,3,6,1,4,1,9,9,826,1,26,110,1))
+cfprFabricUdldPolicyEntry.setIndexNames((0,_C,_Az))
+if mibBuilder.loadTexts:cfprFabricUdldPolicyEntry.setStatus(_A)
+_CfprFabricUdldPolicyInstanceId_Type=CfprManagedObjectId
+_CfprFabricUdldPolicyInstanceId_Object=MibTableColumn
+cfprFabricUdldPolicyInstanceId=_CfprFabricUdldPolicyInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,110,1,1),_CfprFabricUdldPolicyInstanceId_Type())
+cfprFabricUdldPolicyInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricUdldPolicyInstanceId.setStatus(_A)
+_CfprFabricUdldPolicyDn_Type=CfprManagedObjectDn
+_CfprFabricUdldPolicyDn_Object=MibTableColumn
+cfprFabricUdldPolicyDn=_CfprFabricUdldPolicyDn_Object((1,3,6,1,4,1,9,9,826,1,26,110,1,2),_CfprFabricUdldPolicyDn_Type())
+cfprFabricUdldPolicyDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldPolicyDn.setStatus(_A)
+_CfprFabricUdldPolicyRn_Type=SnmpAdminString
+_CfprFabricUdldPolicyRn_Object=MibTableColumn
+cfprFabricUdldPolicyRn=_CfprFabricUdldPolicyRn_Object((1,3,6,1,4,1,9,9,826,1,26,110,1,3),_CfprFabricUdldPolicyRn_Type())
+cfprFabricUdldPolicyRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldPolicyRn.setStatus(_A)
+_CfprFabricUdldPolicyDescr_Type=SnmpAdminString
+_CfprFabricUdldPolicyDescr_Object=MibTableColumn
+cfprFabricUdldPolicyDescr=_CfprFabricUdldPolicyDescr_Object((1,3,6,1,4,1,9,9,826,1,26,110,1,4),_CfprFabricUdldPolicyDescr_Type())
+cfprFabricUdldPolicyDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldPolicyDescr.setStatus(_A)
+_CfprFabricUdldPolicyIntId_Type=SnmpAdminString
+_CfprFabricUdldPolicyIntId_Object=MibTableColumn
+cfprFabricUdldPolicyIntId=_CfprFabricUdldPolicyIntId_Object((1,3,6,1,4,1,9,9,826,1,26,110,1,5),_CfprFabricUdldPolicyIntId_Type())
+cfprFabricUdldPolicyIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldPolicyIntId.setStatus(_A)
+_CfprFabricUdldPolicyMsgInterval_Type=Gauge32
+_CfprFabricUdldPolicyMsgInterval_Object=MibTableColumn
+cfprFabricUdldPolicyMsgInterval=_CfprFabricUdldPolicyMsgInterval_Object((1,3,6,1,4,1,9,9,826,1,26,110,1,6),_CfprFabricUdldPolicyMsgInterval_Type())
+cfprFabricUdldPolicyMsgInterval.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldPolicyMsgInterval.setStatus(_A)
+_CfprFabricUdldPolicyName_Type=SnmpAdminString
+_CfprFabricUdldPolicyName_Object=MibTableColumn
+cfprFabricUdldPolicyName=_CfprFabricUdldPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,110,1,7),_CfprFabricUdldPolicyName_Type())
+cfprFabricUdldPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldPolicyName.setStatus(_A)
+_CfprFabricUdldPolicyPolicyLevel_Type=Gauge32
+_CfprFabricUdldPolicyPolicyLevel_Object=MibTableColumn
+cfprFabricUdldPolicyPolicyLevel=_CfprFabricUdldPolicyPolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,26,110,1,8),_CfprFabricUdldPolicyPolicyLevel_Type())
+cfprFabricUdldPolicyPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldPolicyPolicyLevel.setStatus(_A)
+_CfprFabricUdldPolicyPolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprFabricUdldPolicyPolicyOwner_Object=MibTableColumn
+cfprFabricUdldPolicyPolicyOwner=_CfprFabricUdldPolicyPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,110,1,9),_CfprFabricUdldPolicyPolicyOwner_Type())
+cfprFabricUdldPolicyPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldPolicyPolicyOwner.setStatus(_A)
+_CfprFabricUdldPolicyRecoveryAction_Type=CfprFabricRecoveryAction
+_CfprFabricUdldPolicyRecoveryAction_Object=MibTableColumn
+cfprFabricUdldPolicyRecoveryAction=_CfprFabricUdldPolicyRecoveryAction_Object((1,3,6,1,4,1,9,9,826,1,26,110,1,10),_CfprFabricUdldPolicyRecoveryAction_Type())
+cfprFabricUdldPolicyRecoveryAction.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricUdldPolicyRecoveryAction.setStatus(_A)
+_CfprFabricVConTable_Object=MibTable
+cfprFabricVConTable=_CfprFabricVConTable_Object((1,3,6,1,4,1,9,9,826,1,26,111))
+if mibBuilder.loadTexts:cfprFabricVConTable.setStatus(_A)
+_CfprFabricVConEntry_Object=MibTableRow
+cfprFabricVConEntry=_CfprFabricVConEntry_Object((1,3,6,1,4,1,9,9,826,1,26,111,1))
+cfprFabricVConEntry.setIndexNames((0,_C,_A_))
+if mibBuilder.loadTexts:cfprFabricVConEntry.setStatus(_A)
+_CfprFabricVConInstanceId_Type=CfprManagedObjectId
+_CfprFabricVConInstanceId_Object=MibTableColumn
+cfprFabricVConInstanceId=_CfprFabricVConInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,111,1,1),_CfprFabricVConInstanceId_Type())
+cfprFabricVConInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricVConInstanceId.setStatus(_A)
+_CfprFabricVConDn_Type=CfprManagedObjectDn
+_CfprFabricVConDn_Object=MibTableColumn
+cfprFabricVConDn=_CfprFabricVConDn_Object((1,3,6,1,4,1,9,9,826,1,26,111,1,2),_CfprFabricVConDn_Type())
+cfprFabricVConDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConDn.setStatus(_A)
+_CfprFabricVConRn_Type=SnmpAdminString
+_CfprFabricVConRn_Object=MibTableColumn
+cfprFabricVConRn=_CfprFabricVConRn_Object((1,3,6,1,4,1,9,9,826,1,26,111,1,3),_CfprFabricVConRn_Type())
+cfprFabricVConRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConRn.setStatus(_A)
+_CfprFabricVConEquipmentDn_Type=SnmpAdminString
+_CfprFabricVConEquipmentDn_Object=MibTableColumn
+cfprFabricVConEquipmentDn=_CfprFabricVConEquipmentDn_Object((1,3,6,1,4,1,9,9,826,1,26,111,1,4),_CfprFabricVConEquipmentDn_Type())
+cfprFabricVConEquipmentDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConEquipmentDn.setStatus(_A)
+_CfprFabricVConFabric_Type=SnmpAdminString
+_CfprFabricVConFabric_Object=MibTableColumn
+cfprFabricVConFabric=_CfprFabricVConFabric_Object((1,3,6,1,4,1,9,9,826,1,26,111,1,5),_CfprFabricVConFabric_Type())
+cfprFabricVConFabric.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConFabric.setStatus(_A)
+_CfprFabricVConId_Type=SnmpAdminString
+_CfprFabricVConId_Object=MibTableColumn
+cfprFabricVConId=_CfprFabricVConId_Object((1,3,6,1,4,1,9,9,826,1,26,111,1,6),_CfprFabricVConId_Type())
+cfprFabricVConId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConId.setStatus(_A)
+_CfprFabricVConInstType_Type=CfprFabricVConInstType
+_CfprFabricVConInstType_Object=MibTableColumn
+cfprFabricVConInstType=_CfprFabricVConInstType_Object((1,3,6,1,4,1,9,9,826,1,26,111,1,7),_CfprFabricVConInstType_Type())
+cfprFabricVConInstType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConInstType.setStatus(_A)
+_CfprFabricVConPlacement_Type=CfprFabricVConPlacementPref
+_CfprFabricVConPlacement_Object=MibTableColumn
+cfprFabricVConPlacement=_CfprFabricVConPlacement_Object((1,3,6,1,4,1,9,9,826,1,26,111,1,8),_CfprFabricVConPlacement_Type())
+cfprFabricVConPlacement.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConPlacement.setStatus(_A)
+_CfprFabricVConSelect_Type=CfprFabricVConSelectPref
+_CfprFabricVConSelect_Object=MibTableColumn
+cfprFabricVConSelect=_CfprFabricVConSelect_Object((1,3,6,1,4,1,9,9,826,1,26,111,1,9),_CfprFabricVConSelect_Type())
+cfprFabricVConSelect.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConSelect.setStatus(_A)
+_CfprFabricVConShare_Type=CfprFabricVConSharePref
+_CfprFabricVConShare_Object=MibTableColumn
+cfprFabricVConShare=_CfprFabricVConShare_Object((1,3,6,1,4,1,9,9,826,1,26,111,1,10),_CfprFabricVConShare_Type())
+cfprFabricVConShare.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConShare.setStatus(_A)
+_CfprFabricVConTransport_Type=CfprFabricVConTransportPref
+_CfprFabricVConTransport_Object=MibTableColumn
+cfprFabricVConTransport=_CfprFabricVConTransport_Object((1,3,6,1,4,1,9,9,826,1,26,111,1,11),_CfprFabricVConTransport_Type())
+cfprFabricVConTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConTransport.setStatus(_A)
+_CfprFabricVConProfileTable_Object=MibTable
+cfprFabricVConProfileTable=_CfprFabricVConProfileTable_Object((1,3,6,1,4,1,9,9,826,1,26,112))
+if mibBuilder.loadTexts:cfprFabricVConProfileTable.setStatus(_A)
+_CfprFabricVConProfileEntry_Object=MibTableRow
+cfprFabricVConProfileEntry=_CfprFabricVConProfileEntry_Object((1,3,6,1,4,1,9,9,826,1,26,112,1))
+cfprFabricVConProfileEntry.setIndexNames((0,_C,_B0))
+if mibBuilder.loadTexts:cfprFabricVConProfileEntry.setStatus(_A)
+_CfprFabricVConProfileInstanceId_Type=CfprManagedObjectId
+_CfprFabricVConProfileInstanceId_Object=MibTableColumn
+cfprFabricVConProfileInstanceId=_CfprFabricVConProfileInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,112,1,1),_CfprFabricVConProfileInstanceId_Type())
+cfprFabricVConProfileInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricVConProfileInstanceId.setStatus(_A)
+_CfprFabricVConProfileDn_Type=CfprManagedObjectDn
+_CfprFabricVConProfileDn_Object=MibTableColumn
+cfprFabricVConProfileDn=_CfprFabricVConProfileDn_Object((1,3,6,1,4,1,9,9,826,1,26,112,1,2),_CfprFabricVConProfileDn_Type())
+cfprFabricVConProfileDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConProfileDn.setStatus(_A)
+_CfprFabricVConProfileRn_Type=SnmpAdminString
+_CfprFabricVConProfileRn_Object=MibTableColumn
+cfprFabricVConProfileRn=_CfprFabricVConProfileRn_Object((1,3,6,1,4,1,9,9,826,1,26,112,1,3),_CfprFabricVConProfileRn_Type())
+cfprFabricVConProfileRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConProfileRn.setStatus(_A)
+_CfprFabricVConProfileDescr_Type=SnmpAdminString
+_CfprFabricVConProfileDescr_Object=MibTableColumn
+cfprFabricVConProfileDescr=_CfprFabricVConProfileDescr_Object((1,3,6,1,4,1,9,9,826,1,26,112,1,4),_CfprFabricVConProfileDescr_Type())
+cfprFabricVConProfileDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConProfileDescr.setStatus(_A)
+_CfprFabricVConProfileIntId_Type=SnmpAdminString
+_CfprFabricVConProfileIntId_Object=MibTableColumn
+cfprFabricVConProfileIntId=_CfprFabricVConProfileIntId_Object((1,3,6,1,4,1,9,9,826,1,26,112,1,5),_CfprFabricVConProfileIntId_Type())
+cfprFabricVConProfileIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConProfileIntId.setStatus(_A)
+_CfprFabricVConProfileMezzMapping_Type=CfprFabricVConMappingScheme
+_CfprFabricVConProfileMezzMapping_Object=MibTableColumn
+cfprFabricVConProfileMezzMapping=_CfprFabricVConProfileMezzMapping_Object((1,3,6,1,4,1,9,9,826,1,26,112,1,6),_CfprFabricVConProfileMezzMapping_Type())
+cfprFabricVConProfileMezzMapping.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConProfileMezzMapping.setStatus(_A)
+_CfprFabricVConProfileName_Type=SnmpAdminString
+_CfprFabricVConProfileName_Object=MibTableColumn
+cfprFabricVConProfileName=_CfprFabricVConProfileName_Object((1,3,6,1,4,1,9,9,826,1,26,112,1,7),_CfprFabricVConProfileName_Type())
+cfprFabricVConProfileName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConProfileName.setStatus(_A)
+_CfprFabricVConProfilePolicyLevel_Type=Gauge32
+_CfprFabricVConProfilePolicyLevel_Object=MibTableColumn
+cfprFabricVConProfilePolicyLevel=_CfprFabricVConProfilePolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,26,112,1,8),_CfprFabricVConProfilePolicyLevel_Type())
+cfprFabricVConProfilePolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConProfilePolicyLevel.setStatus(_A)
+_CfprFabricVConProfilePolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprFabricVConProfilePolicyOwner_Object=MibTableColumn
+cfprFabricVConProfilePolicyOwner=_CfprFabricVConProfilePolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,112,1,9),_CfprFabricVConProfilePolicyOwner_Type())
+cfprFabricVConProfilePolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVConProfilePolicyOwner.setStatus(_A)
+_CfprFabricVlanTable_Object=MibTable
+cfprFabricVlanTable=_CfprFabricVlanTable_Object((1,3,6,1,4,1,9,9,826,1,26,113))
+if mibBuilder.loadTexts:cfprFabricVlanTable.setStatus(_A)
+_CfprFabricVlanEntry_Object=MibTableRow
+cfprFabricVlanEntry=_CfprFabricVlanEntry_Object((1,3,6,1,4,1,9,9,826,1,26,113,1))
+cfprFabricVlanEntry.setIndexNames((0,_C,_B1))
+if mibBuilder.loadTexts:cfprFabricVlanEntry.setStatus(_A)
+_CfprFabricVlanInstanceId_Type=CfprManagedObjectId
+_CfprFabricVlanInstanceId_Object=MibTableColumn
+cfprFabricVlanInstanceId=_CfprFabricVlanInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,1),_CfprFabricVlanInstanceId_Type())
+cfprFabricVlanInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricVlanInstanceId.setStatus(_A)
+_CfprFabricVlanDn_Type=CfprManagedObjectDn
+_CfprFabricVlanDn_Object=MibTableColumn
+cfprFabricVlanDn=_CfprFabricVlanDn_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,2),_CfprFabricVlanDn_Type())
+cfprFabricVlanDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanDn.setStatus(_A)
+_CfprFabricVlanRn_Type=SnmpAdminString
+_CfprFabricVlanRn_Object=MibTableColumn
+cfprFabricVlanRn=_CfprFabricVlanRn_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,3),_CfprFabricVlanRn_Type())
+cfprFabricVlanRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanRn.setStatus(_A)
+_CfprFabricVlanAssocPrimaryVlanState_Type=CfprFabricVlanAssocPrimaryVlanState
+_CfprFabricVlanAssocPrimaryVlanState_Object=MibTableColumn
+cfprFabricVlanAssocPrimaryVlanState=_CfprFabricVlanAssocPrimaryVlanState_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,4),_CfprFabricVlanAssocPrimaryVlanState_Type())
+cfprFabricVlanAssocPrimaryVlanState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanAssocPrimaryVlanState.setStatus(_A)
+_CfprFabricVlanAssocPrimaryVlanSwitchId_Type=CfprFabricAVlanAssocPrimaryVlanSwitchId
+_CfprFabricVlanAssocPrimaryVlanSwitchId_Object=MibTableColumn
+cfprFabricVlanAssocPrimaryVlanSwitchId=_CfprFabricVlanAssocPrimaryVlanSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,5),_CfprFabricVlanAssocPrimaryVlanSwitchId_Type())
+cfprFabricVlanAssocPrimaryVlanSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanAssocPrimaryVlanSwitchId.setStatus(_A)
+_CfprFabricVlanCloud_Type=CfprFabricCloudType
+_CfprFabricVlanCloud_Object=MibTableColumn
+cfprFabricVlanCloud=_CfprFabricVlanCloud_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,6),_CfprFabricVlanCloud_Type())
+cfprFabricVlanCloud.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanCloud.setStatus(_A)
+_CfprFabricVlanCompressionType_Type=CfprFabricVlanCompType
+_CfprFabricVlanCompressionType_Object=MibTableColumn
+cfprFabricVlanCompressionType=_CfprFabricVlanCompressionType_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,7),_CfprFabricVlanCompressionType_Type())
+cfprFabricVlanCompressionType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanCompressionType.setStatus(_A)
+_CfprFabricVlanConfigIssues_Type=CfprFabricVlanConfigIssues
+_CfprFabricVlanConfigIssues_Object=MibTableColumn
+cfprFabricVlanConfigIssues=_CfprFabricVlanConfigIssues_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,8),_CfprFabricVlanConfigIssues_Type())
+cfprFabricVlanConfigIssues.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanConfigIssues.setStatus(_A)
+_CfprFabricVlanDefaultNet_Type=TruthValue
+_CfprFabricVlanDefaultNet_Object=MibTableColumn
+cfprFabricVlanDefaultNet=_CfprFabricVlanDefaultNet_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,9),_CfprFabricVlanDefaultNet_Type())
+cfprFabricVlanDefaultNet.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanDefaultNet.setStatus(_A)
+_CfprFabricVlanEpDn_Type=SnmpAdminString
+_CfprFabricVlanEpDn_Object=MibTableColumn
+cfprFabricVlanEpDn=_CfprFabricVlanEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,10),_CfprFabricVlanEpDn_Type())
+cfprFabricVlanEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpDn.setStatus(_A)
+_CfprFabricVlanFltAggr_Type=Unsigned64
+_CfprFabricVlanFltAggr_Object=MibTableColumn
+cfprFabricVlanFltAggr=_CfprFabricVlanFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,11),_CfprFabricVlanFltAggr_Type())
+cfprFabricVlanFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanFltAggr.setStatus(_A)
+_CfprFabricVlanGlobal_Type=Unsigned64
+_CfprFabricVlanGlobal_Object=MibTableColumn
+cfprFabricVlanGlobal=_CfprFabricVlanGlobal_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,12),_CfprFabricVlanGlobal_Type())
+cfprFabricVlanGlobal.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanGlobal.setStatus(_A)
+_CfprFabricVlanId_Type=Gauge32
+_CfprFabricVlanId_Object=MibTableColumn
+cfprFabricVlanId=_CfprFabricVlanId_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,13),_CfprFabricVlanId_Type())
+cfprFabricVlanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanId.setStatus(_A)
+_CfprFabricVlanIfRole_Type=CfprFabricVnetEpIfRole
+_CfprFabricVlanIfRole_Object=MibTableColumn
+cfprFabricVlanIfRole=_CfprFabricVlanIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,14),_CfprFabricVlanIfRole_Type())
+cfprFabricVlanIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanIfRole.setStatus(_A)
+_CfprFabricVlanIfType_Type=CfprNetworkVnetEpIfType
+_CfprFabricVlanIfType_Object=MibTableColumn
+cfprFabricVlanIfType=_CfprFabricVlanIfType_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,15),_CfprFabricVlanIfType_Type())
+cfprFabricVlanIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanIfType.setStatus(_A)
+_CfprFabricVlanLocal_Type=Unsigned64
+_CfprFabricVlanLocal_Object=MibTableColumn
+cfprFabricVlanLocal=_CfprFabricVlanLocal_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,16),_CfprFabricVlanLocal_Type())
+cfprFabricVlanLocal.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanLocal.setStatus(_A)
+_CfprFabricVlanLocale_Type=CfprFabricVnetEpLocale
+_CfprFabricVlanLocale_Object=MibTableColumn
+cfprFabricVlanLocale=_CfprFabricVlanLocale_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,17),_CfprFabricVlanLocale_Type())
+cfprFabricVlanLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanLocale.setStatus(_A)
+_CfprFabricVlanMcastPolicyName_Type=SnmpAdminString
+_CfprFabricVlanMcastPolicyName_Object=MibTableColumn
+cfprFabricVlanMcastPolicyName=_CfprFabricVlanMcastPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,18),_CfprFabricVlanMcastPolicyName_Type())
+cfprFabricVlanMcastPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanMcastPolicyName.setStatus(_A)
+_CfprFabricVlanName_Type=SnmpAdminString
+_CfprFabricVlanName_Object=MibTableColumn
+cfprFabricVlanName=_CfprFabricVlanName_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,19),_CfprFabricVlanName_Type())
+cfprFabricVlanName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanName.setStatus(_A)
+_CfprFabricVlanOperMcastPolicyName_Type=SnmpAdminString
+_CfprFabricVlanOperMcastPolicyName_Object=MibTableColumn
+cfprFabricVlanOperMcastPolicyName=_CfprFabricVlanOperMcastPolicyName_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,20),_CfprFabricVlanOperMcastPolicyName_Type())
+cfprFabricVlanOperMcastPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanOperMcastPolicyName.setStatus(_A)
+_CfprFabricVlanOperState_Type=CfprFabricVlanOperState
+_CfprFabricVlanOperState_Object=MibTableColumn
+cfprFabricVlanOperState=_CfprFabricVlanOperState_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,21),_CfprFabricVlanOperState_Type())
+cfprFabricVlanOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanOperState.setStatus(_A)
+_CfprFabricVlanOverlapStateForA_Type=CfprFabricVlanOverlapState
+_CfprFabricVlanOverlapStateForA_Object=MibTableColumn
+cfprFabricVlanOverlapStateForA=_CfprFabricVlanOverlapStateForA_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,22),_CfprFabricVlanOverlapStateForA_Type())
+cfprFabricVlanOverlapStateForA.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanOverlapStateForA.setStatus(_A)
+_CfprFabricVlanOverlapStateForB_Type=CfprFabricVlanOverlapState
+_CfprFabricVlanOverlapStateForB_Object=MibTableColumn
+cfprFabricVlanOverlapStateForB=_CfprFabricVlanOverlapStateForB_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,23),_CfprFabricVlanOverlapStateForB_Type())
+cfprFabricVlanOverlapStateForB.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanOverlapStateForB.setStatus(_A)
+_CfprFabricVlanPeerDn_Type=SnmpAdminString
+_CfprFabricVlanPeerDn_Object=MibTableColumn
+cfprFabricVlanPeerDn=_CfprFabricVlanPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,24),_CfprFabricVlanPeerDn_Type())
+cfprFabricVlanPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanPeerDn.setStatus(_A)
+_CfprFabricVlanPolicyOwner_Type=CfprFabricVnetEpPolicyOwner
+_CfprFabricVlanPolicyOwner_Object=MibTableColumn
+cfprFabricVlanPolicyOwner=_CfprFabricVlanPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,25),_CfprFabricVlanPolicyOwner_Type())
+cfprFabricVlanPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanPolicyOwner.setStatus(_A)
+_CfprFabricVlanPubNwDn_Type=SnmpAdminString
+_CfprFabricVlanPubNwDn_Object=MibTableColumn
+cfprFabricVlanPubNwDn=_CfprFabricVlanPubNwDn_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,26),_CfprFabricVlanPubNwDn_Type())
+cfprFabricVlanPubNwDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanPubNwDn.setStatus(_A)
+_CfprFabricVlanPubNwId_Type=Gauge32
+_CfprFabricVlanPubNwId_Object=MibTableColumn
+cfprFabricVlanPubNwId=_CfprFabricVlanPubNwId_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,27),_CfprFabricVlanPubNwId_Type())
+cfprFabricVlanPubNwId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanPubNwId.setStatus(_A)
+_CfprFabricVlanPubNwName_Type=SnmpAdminString
+_CfprFabricVlanPubNwName_Object=MibTableColumn
+cfprFabricVlanPubNwName=_CfprFabricVlanPubNwName_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,28),_CfprFabricVlanPubNwName_Type())
+cfprFabricVlanPubNwName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanPubNwName.setStatus(_A)
+_CfprFabricVlanSharing_Type=CfprFabricAVlanSharing
+_CfprFabricVlanSharing_Object=MibTableColumn
+cfprFabricVlanSharing=_CfprFabricVlanSharing_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,29),_CfprFabricVlanSharing_Type())
+cfprFabricVlanSharing.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanSharing.setStatus(_A)
+_CfprFabricVlanSwitchId_Type=CfprFabricVlanSwitchId
+_CfprFabricVlanSwitchId_Object=MibTableColumn
+cfprFabricVlanSwitchId=_CfprFabricVlanSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,30),_CfprFabricVlanSwitchId_Type())
+cfprFabricVlanSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanSwitchId.setStatus(_A)
+_CfprFabricVlanTransport_Type=CfprFabricAVlanTransport
+_CfprFabricVlanTransport_Object=MibTableColumn
+cfprFabricVlanTransport=_CfprFabricVlanTransport_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,31),_CfprFabricVlanTransport_Type())
+cfprFabricVlanTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanTransport.setStatus(_A)
+_CfprFabricVlanType_Type=CfprFabricAVlanType
+_CfprFabricVlanType_Object=MibTableColumn
+cfprFabricVlanType=_CfprFabricVlanType_Object((1,3,6,1,4,1,9,9,826,1,26,113,1,32),_CfprFabricVlanType_Type())
+cfprFabricVlanType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanType.setStatus(_A)
+_CfprFabricVlanEpTable_Object=MibTable
+cfprFabricVlanEpTable=_CfprFabricVlanEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,114))
+if mibBuilder.loadTexts:cfprFabricVlanEpTable.setStatus(_A)
+_CfprFabricVlanEpEntry_Object=MibTableRow
+cfprFabricVlanEpEntry=_CfprFabricVlanEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,114,1))
+cfprFabricVlanEpEntry.setIndexNames((0,_C,_B2))
+if mibBuilder.loadTexts:cfprFabricVlanEpEntry.setStatus(_A)
+_CfprFabricVlanEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricVlanEpInstanceId_Object=MibTableColumn
+cfprFabricVlanEpInstanceId=_CfprFabricVlanEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,1),_CfprFabricVlanEpInstanceId_Type())
+cfprFabricVlanEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricVlanEpInstanceId.setStatus(_A)
+_CfprFabricVlanEpDnData_Type=CfprManagedObjectDn
+_CfprFabricVlanEpDnData_Object=MibTableColumn
+cfprFabricVlanEpDnData=_CfprFabricVlanEpDnData_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,2),_CfprFabricVlanEpDnData_Type())
+cfprFabricVlanEpDnData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpDnData.setStatus(_A)
+_CfprFabricVlanEpRn_Type=SnmpAdminString
+_CfprFabricVlanEpRn_Object=MibTableColumn
+cfprFabricVlanEpRn=_CfprFabricVlanEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,3),_CfprFabricVlanEpRn_Type())
+cfprFabricVlanEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpRn.setStatus(_A)
+_CfprFabricVlanEpAssocPrimaryVlanState_Type=CfprFabricVlanAssocPrimaryVlanState
+_CfprFabricVlanEpAssocPrimaryVlanState_Object=MibTableColumn
+cfprFabricVlanEpAssocPrimaryVlanState=_CfprFabricVlanEpAssocPrimaryVlanState_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,4),_CfprFabricVlanEpAssocPrimaryVlanState_Type())
+cfprFabricVlanEpAssocPrimaryVlanState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpAssocPrimaryVlanState.setStatus(_A)
+_CfprFabricVlanEpAssocPrimaryVlanSwitchId_Type=CfprFabricAVlanAssocPrimaryVlanSwitchId
+_CfprFabricVlanEpAssocPrimaryVlanSwitchId_Object=MibTableColumn
+cfprFabricVlanEpAssocPrimaryVlanSwitchId=_CfprFabricVlanEpAssocPrimaryVlanSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,5),_CfprFabricVlanEpAssocPrimaryVlanSwitchId_Type())
+cfprFabricVlanEpAssocPrimaryVlanSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpAssocPrimaryVlanSwitchId.setStatus(_A)
+_CfprFabricVlanEpEpDn_Type=SnmpAdminString
+_CfprFabricVlanEpEpDn_Object=MibTableColumn
+cfprFabricVlanEpEpDn=_CfprFabricVlanEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,6),_CfprFabricVlanEpEpDn_Type())
+cfprFabricVlanEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpEpDn.setStatus(_A)
+_CfprFabricVlanEpId_Type=Gauge32
+_CfprFabricVlanEpId_Object=MibTableColumn
+cfprFabricVlanEpId=_CfprFabricVlanEpId_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,7),_CfprFabricVlanEpId_Type())
+cfprFabricVlanEpId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpId.setStatus(_A)
+_CfprFabricVlanEpIfRole_Type=CfprFabricVnetEpIfRole
+_CfprFabricVlanEpIfRole_Object=MibTableColumn
+cfprFabricVlanEpIfRole=_CfprFabricVlanEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,8),_CfprFabricVlanEpIfRole_Type())
+cfprFabricVlanEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpIfRole.setStatus(_A)
+_CfprFabricVlanEpIfType_Type=CfprNetworkVnetEpIfType
+_CfprFabricVlanEpIfType_Object=MibTableColumn
+cfprFabricVlanEpIfType=_CfprFabricVlanEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,9),_CfprFabricVlanEpIfType_Type())
+cfprFabricVlanEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpIfType.setStatus(_A)
+_CfprFabricVlanEpIsNative_Type=TruthValue
+_CfprFabricVlanEpIsNative_Object=MibTableColumn
+cfprFabricVlanEpIsNative=_CfprFabricVlanEpIsNative_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,10),_CfprFabricVlanEpIsNative_Type())
+cfprFabricVlanEpIsNative.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpIsNative.setStatus(_A)
+_CfprFabricVlanEpLocale_Type=CfprFabricVnetEpLocale
+_CfprFabricVlanEpLocale_Object=MibTableColumn
+cfprFabricVlanEpLocale=_CfprFabricVlanEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,11),_CfprFabricVlanEpLocale_Type())
+cfprFabricVlanEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpLocale.setStatus(_A)
+_CfprFabricVlanEpName_Type=SnmpAdminString
+_CfprFabricVlanEpName_Object=MibTableColumn
+cfprFabricVlanEpName=_CfprFabricVlanEpName_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,12),_CfprFabricVlanEpName_Type())
+cfprFabricVlanEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpName.setStatus(_A)
+_CfprFabricVlanEpOperState_Type=CfprFabricVlanOperState
+_CfprFabricVlanEpOperState_Object=MibTableColumn
+cfprFabricVlanEpOperState=_CfprFabricVlanEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,13),_CfprFabricVlanEpOperState_Type())
+cfprFabricVlanEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpOperState.setStatus(_A)
+_CfprFabricVlanEpOverlapStateForA_Type=CfprFabricVlanOverlapState
+_CfprFabricVlanEpOverlapStateForA_Object=MibTableColumn
+cfprFabricVlanEpOverlapStateForA=_CfprFabricVlanEpOverlapStateForA_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,14),_CfprFabricVlanEpOverlapStateForA_Type())
+cfprFabricVlanEpOverlapStateForA.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpOverlapStateForA.setStatus(_A)
+_CfprFabricVlanEpOverlapStateForB_Type=CfprFabricVlanOverlapState
+_CfprFabricVlanEpOverlapStateForB_Object=MibTableColumn
+cfprFabricVlanEpOverlapStateForB=_CfprFabricVlanEpOverlapStateForB_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,15),_CfprFabricVlanEpOverlapStateForB_Type())
+cfprFabricVlanEpOverlapStateForB.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpOverlapStateForB.setStatus(_A)
+_CfprFabricVlanEpPeerDn_Type=SnmpAdminString
+_CfprFabricVlanEpPeerDn_Object=MibTableColumn
+cfprFabricVlanEpPeerDn=_CfprFabricVlanEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,16),_CfprFabricVlanEpPeerDn_Type())
+cfprFabricVlanEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpPeerDn.setStatus(_A)
+_CfprFabricVlanEpPolicyOwner_Type=CfprFabricVnetEpPolicyOwner
+_CfprFabricVlanEpPolicyOwner_Object=MibTableColumn
+cfprFabricVlanEpPolicyOwner=_CfprFabricVlanEpPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,17),_CfprFabricVlanEpPolicyOwner_Type())
+cfprFabricVlanEpPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpPolicyOwner.setStatus(_A)
+_CfprFabricVlanEpPubNwDn_Type=SnmpAdminString
+_CfprFabricVlanEpPubNwDn_Object=MibTableColumn
+cfprFabricVlanEpPubNwDn=_CfprFabricVlanEpPubNwDn_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,18),_CfprFabricVlanEpPubNwDn_Type())
+cfprFabricVlanEpPubNwDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpPubNwDn.setStatus(_A)
+_CfprFabricVlanEpPubNwId_Type=Gauge32
+_CfprFabricVlanEpPubNwId_Object=MibTableColumn
+cfprFabricVlanEpPubNwId=_CfprFabricVlanEpPubNwId_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,19),_CfprFabricVlanEpPubNwId_Type())
+cfprFabricVlanEpPubNwId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpPubNwId.setStatus(_A)
+_CfprFabricVlanEpPubNwName_Type=SnmpAdminString
+_CfprFabricVlanEpPubNwName_Object=MibTableColumn
+cfprFabricVlanEpPubNwName=_CfprFabricVlanEpPubNwName_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,20),_CfprFabricVlanEpPubNwName_Type())
+cfprFabricVlanEpPubNwName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpPubNwName.setStatus(_A)
+_CfprFabricVlanEpSharing_Type=CfprFabricAVlanSharing
+_CfprFabricVlanEpSharing_Object=MibTableColumn
+cfprFabricVlanEpSharing=_CfprFabricVlanEpSharing_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,21),_CfprFabricVlanEpSharing_Type())
+cfprFabricVlanEpSharing.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpSharing.setStatus(_A)
+_CfprFabricVlanEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricVlanEpSwitchId_Object=MibTableColumn
+cfprFabricVlanEpSwitchId=_CfprFabricVlanEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,22),_CfprFabricVlanEpSwitchId_Type())
+cfprFabricVlanEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpSwitchId.setStatus(_A)
+_CfprFabricVlanEpTransport_Type=CfprFabricAVlanTransport
+_CfprFabricVlanEpTransport_Object=MibTableColumn
+cfprFabricVlanEpTransport=_CfprFabricVlanEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,23),_CfprFabricVlanEpTransport_Type())
+cfprFabricVlanEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpTransport.setStatus(_A)
+_CfprFabricVlanEpType_Type=CfprFabricAVlanType
+_CfprFabricVlanEpType_Object=MibTableColumn
+cfprFabricVlanEpType=_CfprFabricVlanEpType_Object((1,3,6,1,4,1,9,9,826,1,26,114,1,24),_CfprFabricVlanEpType_Type())
+cfprFabricVlanEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanEpType.setStatus(_A)
+_CfprFabricVlanGroupReqTable_Object=MibTable
+cfprFabricVlanGroupReqTable=_CfprFabricVlanGroupReqTable_Object((1,3,6,1,4,1,9,9,826,1,26,115))
+if mibBuilder.loadTexts:cfprFabricVlanGroupReqTable.setStatus(_A)
+_CfprFabricVlanGroupReqEntry_Object=MibTableRow
+cfprFabricVlanGroupReqEntry=_CfprFabricVlanGroupReqEntry_Object((1,3,6,1,4,1,9,9,826,1,26,115,1))
+cfprFabricVlanGroupReqEntry.setIndexNames((0,_C,_B3))
+if mibBuilder.loadTexts:cfprFabricVlanGroupReqEntry.setStatus(_A)
+_CfprFabricVlanGroupReqInstanceId_Type=CfprManagedObjectId
+_CfprFabricVlanGroupReqInstanceId_Object=MibTableColumn
+cfprFabricVlanGroupReqInstanceId=_CfprFabricVlanGroupReqInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,115,1,1),_CfprFabricVlanGroupReqInstanceId_Type())
+cfprFabricVlanGroupReqInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricVlanGroupReqInstanceId.setStatus(_A)
+_CfprFabricVlanGroupReqDn_Type=CfprManagedObjectDn
+_CfprFabricVlanGroupReqDn_Object=MibTableColumn
+cfprFabricVlanGroupReqDn=_CfprFabricVlanGroupReqDn_Object((1,3,6,1,4,1,9,9,826,1,26,115,1,2),_CfprFabricVlanGroupReqDn_Type())
+cfprFabricVlanGroupReqDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanGroupReqDn.setStatus(_A)
+_CfprFabricVlanGroupReqRn_Type=SnmpAdminString
+_CfprFabricVlanGroupReqRn_Object=MibTableColumn
+cfprFabricVlanGroupReqRn=_CfprFabricVlanGroupReqRn_Object((1,3,6,1,4,1,9,9,826,1,26,115,1,3),_CfprFabricVlanGroupReqRn_Type())
+cfprFabricVlanGroupReqRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanGroupReqRn.setStatus(_A)
+_CfprFabricVlanGroupReqConfigIssues_Type=CfprFabricReqIssues
+_CfprFabricVlanGroupReqConfigIssues_Object=MibTableColumn
+cfprFabricVlanGroupReqConfigIssues=_CfprFabricVlanGroupReqConfigIssues_Object((1,3,6,1,4,1,9,9,826,1,26,115,1,4),_CfprFabricVlanGroupReqConfigIssues_Type())
+cfprFabricVlanGroupReqConfigIssues.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanGroupReqConfigIssues.setStatus(_A)
+_CfprFabricVlanGroupReqName_Type=SnmpAdminString
+_CfprFabricVlanGroupReqName_Object=MibTableColumn
+cfprFabricVlanGroupReqName=_CfprFabricVlanGroupReqName_Object((1,3,6,1,4,1,9,9,826,1,26,115,1,5),_CfprFabricVlanGroupReqName_Type())
+cfprFabricVlanGroupReqName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanGroupReqName.setStatus(_A)
+_CfprFabricVlanGroupReqType_Type=CfprFabricAccessType
+_CfprFabricVlanGroupReqType_Object=MibTableColumn
+cfprFabricVlanGroupReqType=_CfprFabricVlanGroupReqType_Object((1,3,6,1,4,1,9,9,826,1,26,115,1,6),_CfprFabricVlanGroupReqType_Type())
+cfprFabricVlanGroupReqType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanGroupReqType.setStatus(_A)
+_CfprFabricVlanPermitTable_Object=MibTable
+cfprFabricVlanPermitTable=_CfprFabricVlanPermitTable_Object((1,3,6,1,4,1,9,9,826,1,26,116))
+if mibBuilder.loadTexts:cfprFabricVlanPermitTable.setStatus(_A)
+_CfprFabricVlanPermitEntry_Object=MibTableRow
+cfprFabricVlanPermitEntry=_CfprFabricVlanPermitEntry_Object((1,3,6,1,4,1,9,9,826,1,26,116,1))
+cfprFabricVlanPermitEntry.setIndexNames((0,_C,_B4))
+if mibBuilder.loadTexts:cfprFabricVlanPermitEntry.setStatus(_A)
+_CfprFabricVlanPermitInstanceId_Type=CfprManagedObjectId
+_CfprFabricVlanPermitInstanceId_Object=MibTableColumn
+cfprFabricVlanPermitInstanceId=_CfprFabricVlanPermitInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,116,1,1),_CfprFabricVlanPermitInstanceId_Type())
+cfprFabricVlanPermitInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricVlanPermitInstanceId.setStatus(_A)
+_CfprFabricVlanPermitDn_Type=CfprManagedObjectDn
+_CfprFabricVlanPermitDn_Object=MibTableColumn
+cfprFabricVlanPermitDn=_CfprFabricVlanPermitDn_Object((1,3,6,1,4,1,9,9,826,1,26,116,1,2),_CfprFabricVlanPermitDn_Type())
+cfprFabricVlanPermitDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanPermitDn.setStatus(_A)
+_CfprFabricVlanPermitRn_Type=SnmpAdminString
+_CfprFabricVlanPermitRn_Object=MibTableColumn
+cfprFabricVlanPermitRn=_CfprFabricVlanPermitRn_Object((1,3,6,1,4,1,9,9,826,1,26,116,1,3),_CfprFabricVlanPermitRn_Type())
+cfprFabricVlanPermitRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanPermitRn.setStatus(_A)
+_CfprFabricVlanPermitCloud_Type=CfprFabricCloudType
+_CfprFabricVlanPermitCloud_Object=MibTableColumn
+cfprFabricVlanPermitCloud=_CfprFabricVlanPermitCloud_Object((1,3,6,1,4,1,9,9,826,1,26,116,1,4),_CfprFabricVlanPermitCloud_Type())
+cfprFabricVlanPermitCloud.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanPermitCloud.setStatus(_A)
+_CfprFabricVlanPermitName_Type=SnmpAdminString
+_CfprFabricVlanPermitName_Object=MibTableColumn
+cfprFabricVlanPermitName=_CfprFabricVlanPermitName_Object((1,3,6,1,4,1,9,9,826,1,26,116,1,5),_CfprFabricVlanPermitName_Type())
+cfprFabricVlanPermitName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanPermitName.setStatus(_A)
+_CfprFabricVlanPermitSwitchId_Type=SnmpAdminString
+_CfprFabricVlanPermitSwitchId_Object=MibTableColumn
+cfprFabricVlanPermitSwitchId=_CfprFabricVlanPermitSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,116,1,6),_CfprFabricVlanPermitSwitchId_Type())
+cfprFabricVlanPermitSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanPermitSwitchId.setStatus(_A)
+_CfprFabricVlanReqTable_Object=MibTable
+cfprFabricVlanReqTable=_CfprFabricVlanReqTable_Object((1,3,6,1,4,1,9,9,826,1,26,117))
+if mibBuilder.loadTexts:cfprFabricVlanReqTable.setStatus(_A)
+_CfprFabricVlanReqEntry_Object=MibTableRow
+cfprFabricVlanReqEntry=_CfprFabricVlanReqEntry_Object((1,3,6,1,4,1,9,9,826,1,26,117,1))
+cfprFabricVlanReqEntry.setIndexNames((0,_C,_B5))
+if mibBuilder.loadTexts:cfprFabricVlanReqEntry.setStatus(_A)
+_CfprFabricVlanReqInstanceId_Type=CfprManagedObjectId
+_CfprFabricVlanReqInstanceId_Object=MibTableColumn
+cfprFabricVlanReqInstanceId=_CfprFabricVlanReqInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,117,1,1),_CfprFabricVlanReqInstanceId_Type())
+cfprFabricVlanReqInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricVlanReqInstanceId.setStatus(_A)
+_CfprFabricVlanReqDn_Type=CfprManagedObjectDn
+_CfprFabricVlanReqDn_Object=MibTableColumn
+cfprFabricVlanReqDn=_CfprFabricVlanReqDn_Object((1,3,6,1,4,1,9,9,826,1,26,117,1,2),_CfprFabricVlanReqDn_Type())
+cfprFabricVlanReqDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanReqDn.setStatus(_A)
+_CfprFabricVlanReqRn_Type=SnmpAdminString
+_CfprFabricVlanReqRn_Object=MibTableColumn
+cfprFabricVlanReqRn=_CfprFabricVlanReqRn_Object((1,3,6,1,4,1,9,9,826,1,26,117,1,3),_CfprFabricVlanReqRn_Type())
+cfprFabricVlanReqRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanReqRn.setStatus(_A)
+_CfprFabricVlanReqConfigIssues_Type=CfprFabricReqIssues
+_CfprFabricVlanReqConfigIssues_Object=MibTableColumn
+cfprFabricVlanReqConfigIssues=_CfprFabricVlanReqConfigIssues_Object((1,3,6,1,4,1,9,9,826,1,26,117,1,4),_CfprFabricVlanReqConfigIssues_Type())
+cfprFabricVlanReqConfigIssues.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanReqConfigIssues.setStatus(_A)
+_CfprFabricVlanReqName_Type=SnmpAdminString
+_CfprFabricVlanReqName_Object=MibTableColumn
+cfprFabricVlanReqName=_CfprFabricVlanReqName_Object((1,3,6,1,4,1,9,9,826,1,26,117,1,5),_CfprFabricVlanReqName_Type())
+cfprFabricVlanReqName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanReqName.setStatus(_A)
+_CfprFabricVlanReqType_Type=CfprFabricAccessType
+_CfprFabricVlanReqType_Object=MibTableColumn
+cfprFabricVlanReqType=_CfprFabricVlanReqType_Object((1,3,6,1,4,1,9,9,826,1,26,117,1,6),_CfprFabricVlanReqType_Type())
+cfprFabricVlanReqType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVlanReqType.setStatus(_A)
+_CfprFabricVnetEpSyncEpTable_Object=MibTable
+cfprFabricVnetEpSyncEpTable=_CfprFabricVnetEpSyncEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,118))
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpTable.setStatus(_A)
+_CfprFabricVnetEpSyncEpEntry_Object=MibTableRow
+cfprFabricVnetEpSyncEpEntry=_CfprFabricVnetEpSyncEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,118,1))
+cfprFabricVnetEpSyncEpEntry.setIndexNames((0,_C,_B6))
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpEntry.setStatus(_A)
+_CfprFabricVnetEpSyncEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricVnetEpSyncEpInstanceId_Object=MibTableColumn
+cfprFabricVnetEpSyncEpInstanceId=_CfprFabricVnetEpSyncEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,118,1,1),_CfprFabricVnetEpSyncEpInstanceId_Type())
+cfprFabricVnetEpSyncEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpInstanceId.setStatus(_A)
+_CfprFabricVnetEpSyncEpDn_Type=CfprManagedObjectDn
+_CfprFabricVnetEpSyncEpDn_Object=MibTableColumn
+cfprFabricVnetEpSyncEpDn=_CfprFabricVnetEpSyncEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,118,1,2),_CfprFabricVnetEpSyncEpDn_Type())
+cfprFabricVnetEpSyncEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpDn.setStatus(_A)
+_CfprFabricVnetEpSyncEpRn_Type=SnmpAdminString
+_CfprFabricVnetEpSyncEpRn_Object=MibTableColumn
+cfprFabricVnetEpSyncEpRn=_CfprFabricVnetEpSyncEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,118,1,3),_CfprFabricVnetEpSyncEpRn_Type())
+cfprFabricVnetEpSyncEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpRn.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmDescr_Type=SnmpAdminString
+_CfprFabricVnetEpSyncEpFsmDescr_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmDescr=_CfprFabricVnetEpSyncEpFsmDescr_Object((1,3,6,1,4,1,9,9,826,1,26,118,1,4),_CfprFabricVnetEpSyncEpFsmDescr_Type())
+cfprFabricVnetEpSyncEpFsmDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmDescr.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmPrev_Type=SnmpAdminString
+_CfprFabricVnetEpSyncEpFsmPrev_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmPrev=_CfprFabricVnetEpSyncEpFsmPrev_Object((1,3,6,1,4,1,9,9,826,1,26,118,1,5),_CfprFabricVnetEpSyncEpFsmPrev_Type())
+cfprFabricVnetEpSyncEpFsmPrev.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmPrev.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmProgr_Type=Gauge32
+_CfprFabricVnetEpSyncEpFsmProgr_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmProgr=_CfprFabricVnetEpSyncEpFsmProgr_Object((1,3,6,1,4,1,9,9,826,1,26,118,1,6),_CfprFabricVnetEpSyncEpFsmProgr_Type())
+cfprFabricVnetEpSyncEpFsmProgr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmProgr.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmRmtInvErrCode_Type=Gauge32
+_CfprFabricVnetEpSyncEpFsmRmtInvErrCode_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmRmtInvErrCode=_CfprFabricVnetEpSyncEpFsmRmtInvErrCode_Object((1,3,6,1,4,1,9,9,826,1,26,118,1,7),_CfprFabricVnetEpSyncEpFsmRmtInvErrCode_Type())
+cfprFabricVnetEpSyncEpFsmRmtInvErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmRmtInvErrCode.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmRmtInvErrDescr_Type=SnmpAdminString
+_CfprFabricVnetEpSyncEpFsmRmtInvErrDescr_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmRmtInvErrDescr=_CfprFabricVnetEpSyncEpFsmRmtInvErrDescr_Object((1,3,6,1,4,1,9,9,826,1,26,118,1,8),_CfprFabricVnetEpSyncEpFsmRmtInvErrDescr_Type())
+cfprFabricVnetEpSyncEpFsmRmtInvErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmRmtInvErrDescr.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmRmtInvRslt_Type=CfprConditionRemoteInvRslt
+_CfprFabricVnetEpSyncEpFsmRmtInvRslt_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmRmtInvRslt=_CfprFabricVnetEpSyncEpFsmRmtInvRslt_Object((1,3,6,1,4,1,9,9,826,1,26,118,1,9),_CfprFabricVnetEpSyncEpFsmRmtInvRslt_Type())
+cfprFabricVnetEpSyncEpFsmRmtInvRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmRmtInvRslt.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmStageDescr_Type=SnmpAdminString
+_CfprFabricVnetEpSyncEpFsmStageDescr_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmStageDescr=_CfprFabricVnetEpSyncEpFsmStageDescr_Object((1,3,6,1,4,1,9,9,826,1,26,118,1,10),_CfprFabricVnetEpSyncEpFsmStageDescr_Type())
+cfprFabricVnetEpSyncEpFsmStageDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmStageDescr.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmStamp_Type=DateAndTime
+_CfprFabricVnetEpSyncEpFsmStamp_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmStamp=_CfprFabricVnetEpSyncEpFsmStamp_Object((1,3,6,1,4,1,9,9,826,1,26,118,1,11),_CfprFabricVnetEpSyncEpFsmStamp_Type())
+cfprFabricVnetEpSyncEpFsmStamp.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmStamp.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmStatus_Type=SnmpAdminString
+_CfprFabricVnetEpSyncEpFsmStatus_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmStatus=_CfprFabricVnetEpSyncEpFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,26,118,1,12),_CfprFabricVnetEpSyncEpFsmStatus_Type())
+cfprFabricVnetEpSyncEpFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmStatus.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmTry_Type=Gauge32
+_CfprFabricVnetEpSyncEpFsmTry_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmTry=_CfprFabricVnetEpSyncEpFsmTry_Object((1,3,6,1,4,1,9,9,826,1,26,118,1,13),_CfprFabricVnetEpSyncEpFsmTry_Type())
+cfprFabricVnetEpSyncEpFsmTry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmTry.setStatus(_A)
+_CfprFabricVnetEpSyncEpGenNumSync_Type=Gauge32
+_CfprFabricVnetEpSyncEpGenNumSync_Object=MibTableColumn
+cfprFabricVnetEpSyncEpGenNumSync=_CfprFabricVnetEpSyncEpGenNumSync_Object((1,3,6,1,4,1,9,9,826,1,26,118,1,14),_CfprFabricVnetEpSyncEpGenNumSync_Type())
+cfprFabricVnetEpSyncEpGenNumSync.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpGenNumSync.setStatus(_A)
+_CfprFabricVnetEpSyncEpId_Type=Gauge32
+_CfprFabricVnetEpSyncEpId_Object=MibTableColumn
+cfprFabricVnetEpSyncEpId=_CfprFabricVnetEpSyncEpId_Object((1,3,6,1,4,1,9,9,826,1,26,118,1,15),_CfprFabricVnetEpSyncEpId_Type())
+cfprFabricVnetEpSyncEpId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpId.setStatus(_A)
+_CfprFabricVnetEpSyncEpIsChangedObjectUpdate_Type=TruthValue
+_CfprFabricVnetEpSyncEpIsChangedObjectUpdate_Object=MibTableColumn
+cfprFabricVnetEpSyncEpIsChangedObjectUpdate=_CfprFabricVnetEpSyncEpIsChangedObjectUpdate_Object((1,3,6,1,4,1,9,9,826,1,26,118,1,16),_CfprFabricVnetEpSyncEpIsChangedObjectUpdate_Type())
+cfprFabricVnetEpSyncEpIsChangedObjectUpdate.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpIsChangedObjectUpdate.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmTable_Object=MibTable
+cfprFabricVnetEpSyncEpFsmTable=_CfprFabricVnetEpSyncEpFsmTable_Object((1,3,6,1,4,1,9,9,826,1,26,119))
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmTable.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmEntry_Object=MibTableRow
+cfprFabricVnetEpSyncEpFsmEntry=_CfprFabricVnetEpSyncEpFsmEntry_Object((1,3,6,1,4,1,9,9,826,1,26,119,1))
+cfprFabricVnetEpSyncEpFsmEntry.setIndexNames((0,_C,_B7))
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmEntry.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmInstanceId_Type=CfprManagedObjectId
+_CfprFabricVnetEpSyncEpFsmInstanceId_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmInstanceId=_CfprFabricVnetEpSyncEpFsmInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,119,1,1),_CfprFabricVnetEpSyncEpFsmInstanceId_Type())
+cfprFabricVnetEpSyncEpFsmInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmInstanceId.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmDn_Type=CfprManagedObjectDn
+_CfprFabricVnetEpSyncEpFsmDn_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmDn=_CfprFabricVnetEpSyncEpFsmDn_Object((1,3,6,1,4,1,9,9,826,1,26,119,1,2),_CfprFabricVnetEpSyncEpFsmDn_Type())
+cfprFabricVnetEpSyncEpFsmDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmDn.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmRn_Type=SnmpAdminString
+_CfprFabricVnetEpSyncEpFsmRn_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmRn=_CfprFabricVnetEpSyncEpFsmRn_Object((1,3,6,1,4,1,9,9,826,1,26,119,1,3),_CfprFabricVnetEpSyncEpFsmRn_Type())
+cfprFabricVnetEpSyncEpFsmRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmRn.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmCompletionTime_Type=DateAndTime
+_CfprFabricVnetEpSyncEpFsmCompletionTime_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmCompletionTime=_CfprFabricVnetEpSyncEpFsmCompletionTime_Object((1,3,6,1,4,1,9,9,826,1,26,119,1,4),_CfprFabricVnetEpSyncEpFsmCompletionTime_Type())
+cfprFabricVnetEpSyncEpFsmCompletionTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmCompletionTime.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmCurrentFsm_Type=CfprFabricVnetEpSyncEpFsmCurrentFsm
+_CfprFabricVnetEpSyncEpFsmCurrentFsm_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmCurrentFsm=_CfprFabricVnetEpSyncEpFsmCurrentFsm_Object((1,3,6,1,4,1,9,9,826,1,26,119,1,5),_CfprFabricVnetEpSyncEpFsmCurrentFsm_Type())
+cfprFabricVnetEpSyncEpFsmCurrentFsm.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmCurrentFsm.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmDescrData_Type=SnmpAdminString
+_CfprFabricVnetEpSyncEpFsmDescrData_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmDescrData=_CfprFabricVnetEpSyncEpFsmDescrData_Object((1,3,6,1,4,1,9,9,826,1,26,119,1,6),_CfprFabricVnetEpSyncEpFsmDescrData_Type())
+cfprFabricVnetEpSyncEpFsmDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmDescrData.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmFsmStatus_Type=CfprFsmFsmStageStatus
+_CfprFabricVnetEpSyncEpFsmFsmStatus_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmFsmStatus=_CfprFabricVnetEpSyncEpFsmFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,26,119,1,7),_CfprFabricVnetEpSyncEpFsmFsmStatus_Type())
+cfprFabricVnetEpSyncEpFsmFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmFsmStatus.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmProgress_Type=Gauge32
+_CfprFabricVnetEpSyncEpFsmProgress_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmProgress=_CfprFabricVnetEpSyncEpFsmProgress_Object((1,3,6,1,4,1,9,9,826,1,26,119,1,8),_CfprFabricVnetEpSyncEpFsmProgress_Type())
+cfprFabricVnetEpSyncEpFsmProgress.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmProgress.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmRmtErrCode_Type=Gauge32
+_CfprFabricVnetEpSyncEpFsmRmtErrCode_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmRmtErrCode=_CfprFabricVnetEpSyncEpFsmRmtErrCode_Object((1,3,6,1,4,1,9,9,826,1,26,119,1,9),_CfprFabricVnetEpSyncEpFsmRmtErrCode_Type())
+cfprFabricVnetEpSyncEpFsmRmtErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmRmtErrCode.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmRmtErrDescr_Type=SnmpAdminString
+_CfprFabricVnetEpSyncEpFsmRmtErrDescr_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmRmtErrDescr=_CfprFabricVnetEpSyncEpFsmRmtErrDescr_Object((1,3,6,1,4,1,9,9,826,1,26,119,1,10),_CfprFabricVnetEpSyncEpFsmRmtErrDescr_Type())
+cfprFabricVnetEpSyncEpFsmRmtErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmRmtErrDescr.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmRmtRslt_Type=CfprConditionRemoteInvRslt
+_CfprFabricVnetEpSyncEpFsmRmtRslt_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmRmtRslt=_CfprFabricVnetEpSyncEpFsmRmtRslt_Object((1,3,6,1,4,1,9,9,826,1,26,119,1,11),_CfprFabricVnetEpSyncEpFsmRmtRslt_Type())
+cfprFabricVnetEpSyncEpFsmRmtRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmRmtRslt.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmStageTable_Object=MibTable
+cfprFabricVnetEpSyncEpFsmStageTable=_CfprFabricVnetEpSyncEpFsmStageTable_Object((1,3,6,1,4,1,9,9,826,1,26,120))
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmStageTable.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmStageEntry_Object=MibTableRow
+cfprFabricVnetEpSyncEpFsmStageEntry=_CfprFabricVnetEpSyncEpFsmStageEntry_Object((1,3,6,1,4,1,9,9,826,1,26,120,1))
+cfprFabricVnetEpSyncEpFsmStageEntry.setIndexNames((0,_C,_B8))
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmStageEntry.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmStageInstanceId_Type=CfprManagedObjectId
+_CfprFabricVnetEpSyncEpFsmStageInstanceId_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmStageInstanceId=_CfprFabricVnetEpSyncEpFsmStageInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,120,1,1),_CfprFabricVnetEpSyncEpFsmStageInstanceId_Type())
+cfprFabricVnetEpSyncEpFsmStageInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmStageInstanceId.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmStageDn_Type=CfprManagedObjectDn
+_CfprFabricVnetEpSyncEpFsmStageDn_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmStageDn=_CfprFabricVnetEpSyncEpFsmStageDn_Object((1,3,6,1,4,1,9,9,826,1,26,120,1,2),_CfprFabricVnetEpSyncEpFsmStageDn_Type())
+cfprFabricVnetEpSyncEpFsmStageDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmStageDn.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmStageRn_Type=SnmpAdminString
+_CfprFabricVnetEpSyncEpFsmStageRn_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmStageRn=_CfprFabricVnetEpSyncEpFsmStageRn_Object((1,3,6,1,4,1,9,9,826,1,26,120,1,3),_CfprFabricVnetEpSyncEpFsmStageRn_Type())
+cfprFabricVnetEpSyncEpFsmStageRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmStageRn.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmStageDescrData_Type=SnmpAdminString
+_CfprFabricVnetEpSyncEpFsmStageDescrData_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmStageDescrData=_CfprFabricVnetEpSyncEpFsmStageDescrData_Object((1,3,6,1,4,1,9,9,826,1,26,120,1,4),_CfprFabricVnetEpSyncEpFsmStageDescrData_Type())
+cfprFabricVnetEpSyncEpFsmStageDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmStageDescrData.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmStageLastUpdateTime_Type=DateAndTime
+_CfprFabricVnetEpSyncEpFsmStageLastUpdateTime_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmStageLastUpdateTime=_CfprFabricVnetEpSyncEpFsmStageLastUpdateTime_Object((1,3,6,1,4,1,9,9,826,1,26,120,1,5),_CfprFabricVnetEpSyncEpFsmStageLastUpdateTime_Type())
+cfprFabricVnetEpSyncEpFsmStageLastUpdateTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmStageLastUpdateTime.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmStageName_Type=CfprFabricVnetEpSyncEpFsmStageName
+_CfprFabricVnetEpSyncEpFsmStageName_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmStageName=_CfprFabricVnetEpSyncEpFsmStageName_Object((1,3,6,1,4,1,9,9,826,1,26,120,1,6),_CfprFabricVnetEpSyncEpFsmStageName_Type())
+cfprFabricVnetEpSyncEpFsmStageName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmStageName.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmStageOrder_Type=Gauge32
+_CfprFabricVnetEpSyncEpFsmStageOrder_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmStageOrder=_CfprFabricVnetEpSyncEpFsmStageOrder_Object((1,3,6,1,4,1,9,9,826,1,26,120,1,7),_CfprFabricVnetEpSyncEpFsmStageOrder_Type())
+cfprFabricVnetEpSyncEpFsmStageOrder.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmStageOrder.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmStageRetry_Type=Gauge32
+_CfprFabricVnetEpSyncEpFsmStageRetry_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmStageRetry=_CfprFabricVnetEpSyncEpFsmStageRetry_Object((1,3,6,1,4,1,9,9,826,1,26,120,1,8),_CfprFabricVnetEpSyncEpFsmStageRetry_Type())
+cfprFabricVnetEpSyncEpFsmStageRetry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmStageRetry.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmStageStageStatus_Type=CfprFsmFsmStageStatus
+_CfprFabricVnetEpSyncEpFsmStageStageStatus_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmStageStageStatus=_CfprFabricVnetEpSyncEpFsmStageStageStatus_Object((1,3,6,1,4,1,9,9,826,1,26,120,1,9),_CfprFabricVnetEpSyncEpFsmStageStageStatus_Type())
+cfprFabricVnetEpSyncEpFsmStageStageStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmStageStageStatus.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmTaskTable_Object=MibTable
+cfprFabricVnetEpSyncEpFsmTaskTable=_CfprFabricVnetEpSyncEpFsmTaskTable_Object((1,3,6,1,4,1,9,9,826,1,26,121))
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmTaskTable.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmTaskEntry_Object=MibTableRow
+cfprFabricVnetEpSyncEpFsmTaskEntry=_CfprFabricVnetEpSyncEpFsmTaskEntry_Object((1,3,6,1,4,1,9,9,826,1,26,121,1))
+cfprFabricVnetEpSyncEpFsmTaskEntry.setIndexNames((0,_C,_B9))
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmTaskEntry.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmTaskInstanceId_Type=CfprManagedObjectId
+_CfprFabricVnetEpSyncEpFsmTaskInstanceId_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmTaskInstanceId=_CfprFabricVnetEpSyncEpFsmTaskInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,121,1,1),_CfprFabricVnetEpSyncEpFsmTaskInstanceId_Type())
+cfprFabricVnetEpSyncEpFsmTaskInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmTaskInstanceId.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmTaskDn_Type=CfprManagedObjectDn
+_CfprFabricVnetEpSyncEpFsmTaskDn_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmTaskDn=_CfprFabricVnetEpSyncEpFsmTaskDn_Object((1,3,6,1,4,1,9,9,826,1,26,121,1,2),_CfprFabricVnetEpSyncEpFsmTaskDn_Type())
+cfprFabricVnetEpSyncEpFsmTaskDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmTaskDn.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmTaskRn_Type=SnmpAdminString
+_CfprFabricVnetEpSyncEpFsmTaskRn_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmTaskRn=_CfprFabricVnetEpSyncEpFsmTaskRn_Object((1,3,6,1,4,1,9,9,826,1,26,121,1,3),_CfprFabricVnetEpSyncEpFsmTaskRn_Type())
+cfprFabricVnetEpSyncEpFsmTaskRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmTaskRn.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmTaskCompletion_Type=CfprFsmCompletion
+_CfprFabricVnetEpSyncEpFsmTaskCompletion_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmTaskCompletion=_CfprFabricVnetEpSyncEpFsmTaskCompletion_Object((1,3,6,1,4,1,9,9,826,1,26,121,1,4),_CfprFabricVnetEpSyncEpFsmTaskCompletion_Type())
+cfprFabricVnetEpSyncEpFsmTaskCompletion.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmTaskCompletion.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmTaskFlags_Type=CfprFsmFlags
+_CfprFabricVnetEpSyncEpFsmTaskFlags_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmTaskFlags=_CfprFabricVnetEpSyncEpFsmTaskFlags_Object((1,3,6,1,4,1,9,9,826,1,26,121,1,5),_CfprFabricVnetEpSyncEpFsmTaskFlags_Type())
+cfprFabricVnetEpSyncEpFsmTaskFlags.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmTaskFlags.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmTaskItem_Type=CfprFabricVnetEpSyncEpFsmTaskItem
+_CfprFabricVnetEpSyncEpFsmTaskItem_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmTaskItem=_CfprFabricVnetEpSyncEpFsmTaskItem_Object((1,3,6,1,4,1,9,9,826,1,26,121,1,6),_CfprFabricVnetEpSyncEpFsmTaskItem_Type())
+cfprFabricVnetEpSyncEpFsmTaskItem.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmTaskItem.setStatus(_A)
+_CfprFabricVnetEpSyncEpFsmTaskSeqId_Type=Gauge32
+_CfprFabricVnetEpSyncEpFsmTaskSeqId_Object=MibTableColumn
+cfprFabricVnetEpSyncEpFsmTaskSeqId=_CfprFabricVnetEpSyncEpFsmTaskSeqId_Object((1,3,6,1,4,1,9,9,826,1,26,121,1,7),_CfprFabricVnetEpSyncEpFsmTaskSeqId_Type())
+cfprFabricVnetEpSyncEpFsmTaskSeqId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVnetEpSyncEpFsmTaskSeqId.setStatus(_A)
+_CfprFabricVsanTable_Object=MibTable
+cfprFabricVsanTable=_CfprFabricVsanTable_Object((1,3,6,1,4,1,9,9,826,1,26,122))
+if mibBuilder.loadTexts:cfprFabricVsanTable.setStatus(_A)
+_CfprFabricVsanEntry_Object=MibTableRow
+cfprFabricVsanEntry=_CfprFabricVsanEntry_Object((1,3,6,1,4,1,9,9,826,1,26,122,1))
+cfprFabricVsanEntry.setIndexNames((0,_C,_BA))
+if mibBuilder.loadTexts:cfprFabricVsanEntry.setStatus(_A)
+_CfprFabricVsanInstanceId_Type=CfprManagedObjectId
+_CfprFabricVsanInstanceId_Object=MibTableColumn
+cfprFabricVsanInstanceId=_CfprFabricVsanInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,1),_CfprFabricVsanInstanceId_Type())
+cfprFabricVsanInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricVsanInstanceId.setStatus(_A)
+_CfprFabricVsanDn_Type=CfprManagedObjectDn
+_CfprFabricVsanDn_Object=MibTableColumn
+cfprFabricVsanDn=_CfprFabricVsanDn_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,2),_CfprFabricVsanDn_Type())
+cfprFabricVsanDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanDn.setStatus(_A)
+_CfprFabricVsanRn_Type=SnmpAdminString
+_CfprFabricVsanRn_Object=MibTableColumn
+cfprFabricVsanRn=_CfprFabricVsanRn_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,3),_CfprFabricVsanRn_Type())
+cfprFabricVsanRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanRn.setStatus(_A)
+_CfprFabricVsanDefaultZoning_Type=CfprFabricDefaultZoningState
+_CfprFabricVsanDefaultZoning_Object=MibTableColumn
+cfprFabricVsanDefaultZoning=_CfprFabricVsanDefaultZoning_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,4),_CfprFabricVsanDefaultZoning_Type())
+cfprFabricVsanDefaultZoning.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanDefaultZoning.setStatus(_A)
+_CfprFabricVsanEpDn_Type=SnmpAdminString
+_CfprFabricVsanEpDn_Object=MibTableColumn
+cfprFabricVsanEpDn=_CfprFabricVsanEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,5),_CfprFabricVsanEpDn_Type())
+cfprFabricVsanEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanEpDn.setStatus(_A)
+_CfprFabricVsanFcZoneSharingMode_Type=CfprFabricFcZoneSharingMode
+_CfprFabricVsanFcZoneSharingMode_Object=MibTableColumn
+cfprFabricVsanFcZoneSharingMode=_CfprFabricVsanFcZoneSharingMode_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,6),_CfprFabricVsanFcZoneSharingMode_Type())
+cfprFabricVsanFcZoneSharingMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanFcZoneSharingMode.setStatus(_A)
+_CfprFabricVsanFcoeVlan_Type=Gauge32
+_CfprFabricVsanFcoeVlan_Object=MibTableColumn
+cfprFabricVsanFcoeVlan=_CfprFabricVsanFcoeVlan_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,7),_CfprFabricVsanFcoeVlan_Type())
+cfprFabricVsanFcoeVlan.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanFcoeVlan.setStatus(_A)
+_CfprFabricVsanFltAggr_Type=Unsigned64
+_CfprFabricVsanFltAggr_Object=MibTableColumn
+cfprFabricVsanFltAggr=_CfprFabricVsanFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,8),_CfprFabricVsanFltAggr_Type())
+cfprFabricVsanFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanFltAggr.setStatus(_A)
+_CfprFabricVsanGlobal_Type=Unsigned64
+_CfprFabricVsanGlobal_Object=MibTableColumn
+cfprFabricVsanGlobal=_CfprFabricVsanGlobal_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,9),_CfprFabricVsanGlobal_Type())
+cfprFabricVsanGlobal.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanGlobal.setStatus(_A)
+_CfprFabricVsanId_Type=Gauge32
+_CfprFabricVsanId_Object=MibTableColumn
+cfprFabricVsanId=_CfprFabricVsanId_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,10),_CfprFabricVsanId_Type())
+cfprFabricVsanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanId.setStatus(_A)
+_CfprFabricVsanIfRole_Type=CfprFabricVnetEpIfRole
+_CfprFabricVsanIfRole_Object=MibTableColumn
+cfprFabricVsanIfRole=_CfprFabricVsanIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,11),_CfprFabricVsanIfRole_Type())
+cfprFabricVsanIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanIfRole.setStatus(_A)
+_CfprFabricVsanIfType_Type=CfprNetworkVnetEpIfType
+_CfprFabricVsanIfType_Object=MibTableColumn
+cfprFabricVsanIfType=_CfprFabricVsanIfType_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,12),_CfprFabricVsanIfType_Type())
+cfprFabricVsanIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanIfType.setStatus(_A)
+_CfprFabricVsanLocal_Type=Unsigned64
+_CfprFabricVsanLocal_Object=MibTableColumn
+cfprFabricVsanLocal=_CfprFabricVsanLocal_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,13),_CfprFabricVsanLocal_Type())
+cfprFabricVsanLocal.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanLocal.setStatus(_A)
+_CfprFabricVsanLocale_Type=CfprFabricVnetEpLocale
+_CfprFabricVsanLocale_Object=MibTableColumn
+cfprFabricVsanLocale=_CfprFabricVsanLocale_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,14),_CfprFabricVsanLocale_Type())
+cfprFabricVsanLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanLocale.setStatus(_A)
+_CfprFabricVsanName_Type=SnmpAdminString
+_CfprFabricVsanName_Object=MibTableColumn
+cfprFabricVsanName=_CfprFabricVsanName_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,15),_CfprFabricVsanName_Type())
+cfprFabricVsanName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanName.setStatus(_A)
+_CfprFabricVsanOperState_Type=CfprFabricVsanOperState
+_CfprFabricVsanOperState_Object=MibTableColumn
+cfprFabricVsanOperState=_CfprFabricVsanOperState_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,16),_CfprFabricVsanOperState_Type())
+cfprFabricVsanOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanOperState.setStatus(_A)
+_CfprFabricVsanPeerDn_Type=SnmpAdminString
+_CfprFabricVsanPeerDn_Object=MibTableColumn
+cfprFabricVsanPeerDn=_CfprFabricVsanPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,17),_CfprFabricVsanPeerDn_Type())
+cfprFabricVsanPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanPeerDn.setStatus(_A)
+_CfprFabricVsanPolicyOwner_Type=CfprFabricVnetEpPolicyOwner
+_CfprFabricVsanPolicyOwner_Object=MibTableColumn
+cfprFabricVsanPolicyOwner=_CfprFabricVsanPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,18),_CfprFabricVsanPolicyOwner_Type())
+cfprFabricVsanPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanPolicyOwner.setStatus(_A)
+_CfprFabricVsanSwitchId_Type=CfprFabricVsanSwitchId
+_CfprFabricVsanSwitchId_Object=MibTableColumn
+cfprFabricVsanSwitchId=_CfprFabricVsanSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,19),_CfprFabricVsanSwitchId_Type())
+cfprFabricVsanSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanSwitchId.setStatus(_A)
+_CfprFabricVsanTransport_Type=CfprFabricAVsanTransport
+_CfprFabricVsanTransport_Object=MibTableColumn
+cfprFabricVsanTransport=_CfprFabricVsanTransport_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,20),_CfprFabricVsanTransport_Type())
+cfprFabricVsanTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanTransport.setStatus(_A)
+_CfprFabricVsanType_Type=CfprFabricAVsanType
+_CfprFabricVsanType_Object=MibTableColumn
+cfprFabricVsanType=_CfprFabricVsanType_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,21),_CfprFabricVsanType_Type())
+cfprFabricVsanType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanType.setStatus(_A)
+_CfprFabricVsanZoningState_Type=CfprFabricZoningState
+_CfprFabricVsanZoningState_Object=MibTableColumn
+cfprFabricVsanZoningState=_CfprFabricVsanZoningState_Object((1,3,6,1,4,1,9,9,826,1,26,122,1,22),_CfprFabricVsanZoningState_Type())
+cfprFabricVsanZoningState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanZoningState.setStatus(_A)
+_CfprFabricVsanEpTable_Object=MibTable
+cfprFabricVsanEpTable=_CfprFabricVsanEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,123))
+if mibBuilder.loadTexts:cfprFabricVsanEpTable.setStatus(_A)
+_CfprFabricVsanEpEntry_Object=MibTableRow
+cfprFabricVsanEpEntry=_CfprFabricVsanEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,123,1))
+cfprFabricVsanEpEntry.setIndexNames((0,_C,_BB))
+if mibBuilder.loadTexts:cfprFabricVsanEpEntry.setStatus(_A)
+_CfprFabricVsanEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricVsanEpInstanceId_Object=MibTableColumn
+cfprFabricVsanEpInstanceId=_CfprFabricVsanEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,123,1,1),_CfprFabricVsanEpInstanceId_Type())
+cfprFabricVsanEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricVsanEpInstanceId.setStatus(_A)
+_CfprFabricVsanEpDnData_Type=CfprManagedObjectDn
+_CfprFabricVsanEpDnData_Object=MibTableColumn
+cfprFabricVsanEpDnData=_CfprFabricVsanEpDnData_Object((1,3,6,1,4,1,9,9,826,1,26,123,1,2),_CfprFabricVsanEpDnData_Type())
+cfprFabricVsanEpDnData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanEpDnData.setStatus(_A)
+_CfprFabricVsanEpRn_Type=SnmpAdminString
+_CfprFabricVsanEpRn_Object=MibTableColumn
+cfprFabricVsanEpRn=_CfprFabricVsanEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,123,1,3),_CfprFabricVsanEpRn_Type())
+cfprFabricVsanEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanEpRn.setStatus(_A)
+_CfprFabricVsanEpEpDn_Type=SnmpAdminString
+_CfprFabricVsanEpEpDn_Object=MibTableColumn
+cfprFabricVsanEpEpDn=_CfprFabricVsanEpEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,123,1,4),_CfprFabricVsanEpEpDn_Type())
+cfprFabricVsanEpEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanEpEpDn.setStatus(_A)
+_CfprFabricVsanEpFcoeVlan_Type=Gauge32
+_CfprFabricVsanEpFcoeVlan_Object=MibTableColumn
+cfprFabricVsanEpFcoeVlan=_CfprFabricVsanEpFcoeVlan_Object((1,3,6,1,4,1,9,9,826,1,26,123,1,5),_CfprFabricVsanEpFcoeVlan_Type())
+cfprFabricVsanEpFcoeVlan.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanEpFcoeVlan.setStatus(_A)
+_CfprFabricVsanEpId_Type=Gauge32
+_CfprFabricVsanEpId_Object=MibTableColumn
+cfprFabricVsanEpId=_CfprFabricVsanEpId_Object((1,3,6,1,4,1,9,9,826,1,26,123,1,6),_CfprFabricVsanEpId_Type())
+cfprFabricVsanEpId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanEpId.setStatus(_A)
+_CfprFabricVsanEpIfRole_Type=CfprFabricVnetEpIfRole
+_CfprFabricVsanEpIfRole_Object=MibTableColumn
+cfprFabricVsanEpIfRole=_CfprFabricVsanEpIfRole_Object((1,3,6,1,4,1,9,9,826,1,26,123,1,7),_CfprFabricVsanEpIfRole_Type())
+cfprFabricVsanEpIfRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanEpIfRole.setStatus(_A)
+_CfprFabricVsanEpIfType_Type=CfprNetworkVnetEpIfType
+_CfprFabricVsanEpIfType_Object=MibTableColumn
+cfprFabricVsanEpIfType=_CfprFabricVsanEpIfType_Object((1,3,6,1,4,1,9,9,826,1,26,123,1,8),_CfprFabricVsanEpIfType_Type())
+cfprFabricVsanEpIfType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanEpIfType.setStatus(_A)
+_CfprFabricVsanEpLocale_Type=CfprFabricVnetEpLocale
+_CfprFabricVsanEpLocale_Object=MibTableColumn
+cfprFabricVsanEpLocale=_CfprFabricVsanEpLocale_Object((1,3,6,1,4,1,9,9,826,1,26,123,1,9),_CfprFabricVsanEpLocale_Type())
+cfprFabricVsanEpLocale.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanEpLocale.setStatus(_A)
+_CfprFabricVsanEpName_Type=SnmpAdminString
+_CfprFabricVsanEpName_Object=MibTableColumn
+cfprFabricVsanEpName=_CfprFabricVsanEpName_Object((1,3,6,1,4,1,9,9,826,1,26,123,1,10),_CfprFabricVsanEpName_Type())
+cfprFabricVsanEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanEpName.setStatus(_A)
+_CfprFabricVsanEpOperState_Type=CfprFabricVsanOperState
+_CfprFabricVsanEpOperState_Object=MibTableColumn
+cfprFabricVsanEpOperState=_CfprFabricVsanEpOperState_Object((1,3,6,1,4,1,9,9,826,1,26,123,1,11),_CfprFabricVsanEpOperState_Type())
+cfprFabricVsanEpOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanEpOperState.setStatus(_A)
+_CfprFabricVsanEpPeerDn_Type=SnmpAdminString
+_CfprFabricVsanEpPeerDn_Object=MibTableColumn
+cfprFabricVsanEpPeerDn=_CfprFabricVsanEpPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,123,1,12),_CfprFabricVsanEpPeerDn_Type())
+cfprFabricVsanEpPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanEpPeerDn.setStatus(_A)
+_CfprFabricVsanEpPolicyOwner_Type=CfprFabricVnetEpPolicyOwner
+_CfprFabricVsanEpPolicyOwner_Object=MibTableColumn
+cfprFabricVsanEpPolicyOwner=_CfprFabricVsanEpPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,26,123,1,13),_CfprFabricVsanEpPolicyOwner_Type())
+cfprFabricVsanEpPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanEpPolicyOwner.setStatus(_A)
+_CfprFabricVsanEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricVsanEpSwitchId_Object=MibTableColumn
+cfprFabricVsanEpSwitchId=_CfprFabricVsanEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,123,1,14),_CfprFabricVsanEpSwitchId_Type())
+cfprFabricVsanEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanEpSwitchId.setStatus(_A)
+_CfprFabricVsanEpTransport_Type=CfprFabricAVsanTransport
+_CfprFabricVsanEpTransport_Object=MibTableColumn
+cfprFabricVsanEpTransport=_CfprFabricVsanEpTransport_Object((1,3,6,1,4,1,9,9,826,1,26,123,1,15),_CfprFabricVsanEpTransport_Type())
+cfprFabricVsanEpTransport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanEpTransport.setStatus(_A)
+_CfprFabricVsanEpType_Type=CfprFabricAVsanType
+_CfprFabricVsanEpType_Object=MibTableColumn
+cfprFabricVsanEpType=_CfprFabricVsanEpType_Object((1,3,6,1,4,1,9,9,826,1,26,123,1,16),_CfprFabricVsanEpType_Type())
+cfprFabricVsanEpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanEpType.setStatus(_A)
+_CfprFabricVsanEpZoningState_Type=CfprFabricZoningState
+_CfprFabricVsanEpZoningState_Object=MibTableColumn
+cfprFabricVsanEpZoningState=_CfprFabricVsanEpZoningState_Object((1,3,6,1,4,1,9,9,826,1,26,123,1,17),_CfprFabricVsanEpZoningState_Type())
+cfprFabricVsanEpZoningState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanEpZoningState.setStatus(_A)
+_CfprFabricVsanMembershipTable_Object=MibTable
+cfprFabricVsanMembershipTable=_CfprFabricVsanMembershipTable_Object((1,3,6,1,4,1,9,9,826,1,26,124))
+if mibBuilder.loadTexts:cfprFabricVsanMembershipTable.setStatus(_A)
+_CfprFabricVsanMembershipEntry_Object=MibTableRow
+cfprFabricVsanMembershipEntry=_CfprFabricVsanMembershipEntry_Object((1,3,6,1,4,1,9,9,826,1,26,124,1))
+cfprFabricVsanMembershipEntry.setIndexNames((0,_C,_BC))
+if mibBuilder.loadTexts:cfprFabricVsanMembershipEntry.setStatus(_A)
+_CfprFabricVsanMembershipInstanceId_Type=CfprManagedObjectId
+_CfprFabricVsanMembershipInstanceId_Object=MibTableColumn
+cfprFabricVsanMembershipInstanceId=_CfprFabricVsanMembershipInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,124,1,1),_CfprFabricVsanMembershipInstanceId_Type())
+cfprFabricVsanMembershipInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricVsanMembershipInstanceId.setStatus(_A)
+_CfprFabricVsanMembershipDn_Type=CfprManagedObjectDn
+_CfprFabricVsanMembershipDn_Object=MibTableColumn
+cfprFabricVsanMembershipDn=_CfprFabricVsanMembershipDn_Object((1,3,6,1,4,1,9,9,826,1,26,124,1,2),_CfprFabricVsanMembershipDn_Type())
+cfprFabricVsanMembershipDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanMembershipDn.setStatus(_A)
+_CfprFabricVsanMembershipRn_Type=SnmpAdminString
+_CfprFabricVsanMembershipRn_Object=MibTableColumn
+cfprFabricVsanMembershipRn=_CfprFabricVsanMembershipRn_Object((1,3,6,1,4,1,9,9,826,1,26,124,1,3),_CfprFabricVsanMembershipRn_Type())
+cfprFabricVsanMembershipRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanMembershipRn.setStatus(_A)
+_CfprFabricVsanMembershipMemberStatus_Type=CfprFabricMemberStatus
+_CfprFabricVsanMembershipMemberStatus_Object=MibTableColumn
+cfprFabricVsanMembershipMemberStatus=_CfprFabricVsanMembershipMemberStatus_Object((1,3,6,1,4,1,9,9,826,1,26,124,1,4),_CfprFabricVsanMembershipMemberStatus_Type())
+cfprFabricVsanMembershipMemberStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanMembershipMemberStatus.setStatus(_A)
+_CfprFabricVsanMembershipParentAdminState_Type=CfprFabricAdminState
+_CfprFabricVsanMembershipParentAdminState_Object=MibTableColumn
+cfprFabricVsanMembershipParentAdminState=_CfprFabricVsanMembershipParentAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,124,1,5),_CfprFabricVsanMembershipParentAdminState_Type())
+cfprFabricVsanMembershipParentAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanMembershipParentAdminState.setStatus(_A)
+_CfprFabricVsanMembershipStateQual_Type=SnmpAdminString
+_CfprFabricVsanMembershipStateQual_Object=MibTableColumn
+cfprFabricVsanMembershipStateQual=_CfprFabricVsanMembershipStateQual_Object((1,3,6,1,4,1,9,9,826,1,26,124,1,6),_CfprFabricVsanMembershipStateQual_Type())
+cfprFabricVsanMembershipStateQual.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanMembershipStateQual.setStatus(_A)
+_CfprFabricVsanMembershipVsanId_Type=Gauge32
+_CfprFabricVsanMembershipVsanId_Object=MibTableColumn
+cfprFabricVsanMembershipVsanId=_CfprFabricVsanMembershipVsanId_Object((1,3,6,1,4,1,9,9,826,1,26,124,1,7),_CfprFabricVsanMembershipVsanId_Type())
+cfprFabricVsanMembershipVsanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricVsanMembershipVsanId.setStatus(_A)
+_CfprFabricZoneIdUniverseTable_Object=MibTable
+cfprFabricZoneIdUniverseTable=_CfprFabricZoneIdUniverseTable_Object((1,3,6,1,4,1,9,9,826,1,26,125))
+if mibBuilder.loadTexts:cfprFabricZoneIdUniverseTable.setStatus(_A)
+_CfprFabricZoneIdUniverseEntry_Object=MibTableRow
+cfprFabricZoneIdUniverseEntry=_CfprFabricZoneIdUniverseEntry_Object((1,3,6,1,4,1,9,9,826,1,26,125,1))
+cfprFabricZoneIdUniverseEntry.setIndexNames((0,_C,_BD))
+if mibBuilder.loadTexts:cfprFabricZoneIdUniverseEntry.setStatus(_A)
+_CfprFabricZoneIdUniverseInstanceId_Type=CfprManagedObjectId
+_CfprFabricZoneIdUniverseInstanceId_Object=MibTableColumn
+cfprFabricZoneIdUniverseInstanceId=_CfprFabricZoneIdUniverseInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,125,1,1),_CfprFabricZoneIdUniverseInstanceId_Type())
+cfprFabricZoneIdUniverseInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricZoneIdUniverseInstanceId.setStatus(_A)
+_CfprFabricZoneIdUniverseDn_Type=CfprManagedObjectDn
+_CfprFabricZoneIdUniverseDn_Object=MibTableColumn
+cfprFabricZoneIdUniverseDn=_CfprFabricZoneIdUniverseDn_Object((1,3,6,1,4,1,9,9,826,1,26,125,1,2),_CfprFabricZoneIdUniverseDn_Type())
+cfprFabricZoneIdUniverseDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricZoneIdUniverseDn.setStatus(_A)
+_CfprFabricZoneIdUniverseRn_Type=SnmpAdminString
+_CfprFabricZoneIdUniverseRn_Object=MibTableColumn
+cfprFabricZoneIdUniverseRn=_CfprFabricZoneIdUniverseRn_Object((1,3,6,1,4,1,9,9,826,1,26,125,1,3),_CfprFabricZoneIdUniverseRn_Type())
+cfprFabricZoneIdUniverseRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricZoneIdUniverseRn.setStatus(_A)
+_CfprFabricSspEthMonTable_Object=MibTable
+cfprFabricSspEthMonTable=_CfprFabricSspEthMonTable_Object((1,3,6,1,4,1,9,9,826,1,26,126))
+if mibBuilder.loadTexts:cfprFabricSspEthMonTable.setStatus(_A)
+_CfprFabricSspEthMonEntry_Object=MibTableRow
+cfprFabricSspEthMonEntry=_CfprFabricSspEthMonEntry_Object((1,3,6,1,4,1,9,9,826,1,26,126,1))
+cfprFabricSspEthMonEntry.setIndexNames((0,_C,_BE))
+if mibBuilder.loadTexts:cfprFabricSspEthMonEntry.setStatus(_A)
+_CfprFabricSspEthMonInstanceId_Type=CfprManagedObjectId
+_CfprFabricSspEthMonInstanceId_Object=MibTableColumn
+cfprFabricSspEthMonInstanceId=_CfprFabricSspEthMonInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,1),_CfprFabricSspEthMonInstanceId_Type())
+cfprFabricSspEthMonInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSspEthMonInstanceId.setStatus(_A)
+_CfprFabricSspEthMonDn_Type=CfprManagedObjectDn
+_CfprFabricSspEthMonDn_Object=MibTableColumn
+cfprFabricSspEthMonDn=_CfprFabricSspEthMonDn_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,2),_CfprFabricSspEthMonDn_Type())
+cfprFabricSspEthMonDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonDn.setStatus(_A)
+_CfprFabricSspEthMonRn_Type=SnmpAdminString
+_CfprFabricSspEthMonRn_Object=MibTableColumn
+cfprFabricSspEthMonRn=_CfprFabricSspEthMonRn_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,3),_CfprFabricSspEthMonRn_Type())
+cfprFabricSspEthMonRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonRn.setStatus(_A)
+_CfprFabricSspEthMonAdminState_Type=CfprFabricSspMonAdminState
+_CfprFabricSspEthMonAdminState_Object=MibTableColumn
+cfprFabricSspEthMonAdminState=_CfprFabricSspEthMonAdminState_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,4),_CfprFabricSspEthMonAdminState_Type())
+cfprFabricSspEthMonAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonAdminState.setStatus(_A)
+_CfprFabricSspEthMonAppendFlag_Type=CfprFabricSspEthMonAppendFlag
+_CfprFabricSspEthMonAppendFlag_Object=MibTableColumn
+cfprFabricSspEthMonAppendFlag=_CfprFabricSspEthMonAppendFlag_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,5),_CfprFabricSspEthMonAppendFlag_Type())
+cfprFabricSspEthMonAppendFlag.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonAppendFlag.setStatus(_A)
+_CfprFabricSspEthMonConfigFailReason_Type=SnmpAdminString
+_CfprFabricSspEthMonConfigFailReason_Object=MibTableColumn
+cfprFabricSspEthMonConfigFailReason=_CfprFabricSspEthMonConfigFailReason_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,6),_CfprFabricSspEthMonConfigFailReason_Type())
+cfprFabricSspEthMonConfigFailReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonConfigFailReason.setStatus(_A)
+_CfprFabricSspEthMonDelPcap_Type=CfprFabricSspMonDelPcap
+_CfprFabricSspEthMonDelPcap_Object=MibTableColumn
+cfprFabricSspEthMonDelPcap=_CfprFabricSspEthMonDelPcap_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,7),_CfprFabricSspEthMonDelPcap_Type())
+cfprFabricSspEthMonDelPcap.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonDelPcap.setStatus(_A)
+_CfprFabricSspEthMonId_Type=CfprNetworkSwitchId
+_CfprFabricSspEthMonId_Object=MibTableColumn
+cfprFabricSspEthMonId=_CfprFabricSspEthMonId_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,8),_CfprFabricSspEthMonId_Type())
+cfprFabricSspEthMonId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonId.setStatus(_A)
+_CfprFabricSspEthMonIsConfigSuccess_Type=TruthValue
+_CfprFabricSspEthMonIsConfigSuccess_Object=MibTableColumn
+cfprFabricSspEthMonIsConfigSuccess=_CfprFabricSspEthMonIsConfigSuccess_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,9),_CfprFabricSspEthMonIsConfigSuccess_Type())
+cfprFabricSspEthMonIsConfigSuccess.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonIsConfigSuccess.setStatus(_A)
+_CfprFabricSspEthMonName_Type=SnmpAdminString
+_CfprFabricSspEthMonName_Object=MibTableColumn
+cfprFabricSspEthMonName=_CfprFabricSspEthMonName_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,10),_CfprFabricSspEthMonName_Type())
+cfprFabricSspEthMonName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonName.setStatus(_A)
+_CfprFabricSspEthMonOperState_Type=CfprFabricSspMonOperState
+_CfprFabricSspEthMonOperState_Object=MibTableColumn
+cfprFabricSspEthMonOperState=_CfprFabricSspEthMonOperState_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,11),_CfprFabricSspEthMonOperState_Type())
+cfprFabricSspEthMonOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonOperState.setStatus(_A)
+_CfprFabricSspEthMonOperStateReason_Type=CfprFabricSspMonOperStateReason
+_CfprFabricSspEthMonOperStateReason_Object=MibTableColumn
+cfprFabricSspEthMonOperStateReason=_CfprFabricSspEthMonOperStateReason_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,12),_CfprFabricSspEthMonOperStateReason_Type())
+cfprFabricSspEthMonOperStateReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonOperStateReason.setStatus(_A)
+_CfprFabricSspEthMonPeerDn_Type=SnmpAdminString
+_CfprFabricSspEthMonPeerDn_Object=MibTableColumn
+cfprFabricSspEthMonPeerDn=_CfprFabricSspEthMonPeerDn_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,13),_CfprFabricSspEthMonPeerDn_Type())
+cfprFabricSspEthMonPeerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonPeerDn.setStatus(_A)
+_CfprFabricSspEthMonSession_Type=Gauge32
+_CfprFabricSspEthMonSession_Object=MibTableColumn
+cfprFabricSspEthMonSession=_CfprFabricSspEthMonSession_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,14),_CfprFabricSspEthMonSession_Type())
+cfprFabricSspEthMonSession.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSession.setStatus(_A)
+_CfprFabricSspEthMonSessionMemUsage_Type=Gauge32
+_CfprFabricSspEthMonSessionMemUsage_Object=MibTableColumn
+cfprFabricSspEthMonSessionMemUsage=_CfprFabricSspEthMonSessionMemUsage_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,15),_CfprFabricSspEthMonSessionMemUsage_Type())
+cfprFabricSspEthMonSessionMemUsage.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSessionMemUsage.setStatus(_A)
+_CfprFabricSspEthMonSourceConfigured_Type=Gauge32
+_CfprFabricSspEthMonSourceConfigured_Object=MibTableColumn
+cfprFabricSspEthMonSourceConfigured=_CfprFabricSspEthMonSourceConfigured_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,16),_CfprFabricSspEthMonSourceConfigured_Type())
+cfprFabricSspEthMonSourceConfigured.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSourceConfigured.setStatus(_A)
+_CfprFabricSspEthMonDelAllSessEnabledState_Type=CfprFabricSspEthMonDelAllSessEnabledState
+_CfprFabricSspEthMonDelAllSessEnabledState_Object=MibTableColumn
+cfprFabricSspEthMonDelAllSessEnabledState=_CfprFabricSspEthMonDelAllSessEnabledState_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,17),_CfprFabricSspEthMonDelAllSessEnabledState_Type())
+cfprFabricSspEthMonDelAllSessEnabledState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonDelAllSessEnabledState.setStatus(_A)
+_CfprFabricSspEthMonDropCount_Type=Unsigned64
+_CfprFabricSspEthMonDropCount_Object=MibTableColumn
+cfprFabricSspEthMonDropCount=_CfprFabricSspEthMonDropCount_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,18),_CfprFabricSspEthMonDropCount_Type())
+cfprFabricSspEthMonDropCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonDropCount.setStatus(_A)
+_CfprFabricSspEthMonErrorCode_Type=SnmpAdminString
+_CfprFabricSspEthMonErrorCode_Object=MibTableColumn
+cfprFabricSspEthMonErrorCode=_CfprFabricSspEthMonErrorCode_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,19),_CfprFabricSspEthMonErrorCode_Type())
+cfprFabricSspEthMonErrorCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonErrorCode.setStatus(_A)
+_CfprFabricSspEthMonIsConfiguredByAG_Type=TruthValue
+_CfprFabricSspEthMonIsConfiguredByAG_Object=MibTableColumn
+cfprFabricSspEthMonIsConfiguredByAG=_CfprFabricSspEthMonIsConfiguredByAG_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,20),_CfprFabricSspEthMonIsConfiguredByAG_Type())
+cfprFabricSspEthMonIsConfiguredByAG.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonIsConfiguredByAG.setStatus(_A)
+_CfprFabricSspEthMonReBoot_Type=SnmpAdminString
+_CfprFabricSspEthMonReBoot_Object=MibTableColumn
+cfprFabricSspEthMonReBoot=_CfprFabricSspEthMonReBoot_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,21),_CfprFabricSspEthMonReBoot_Type())
+cfprFabricSspEthMonReBoot.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonReBoot.setStatus(_A)
+_CfprFabricSspEthMonSessionPcapSnapLen_Type=Gauge32
+_CfprFabricSspEthMonSessionPcapSnapLen_Object=MibTableColumn
+cfprFabricSspEthMonSessionPcapSnapLen=_CfprFabricSspEthMonSessionPcapSnapLen_Object((1,3,6,1,4,1,9,9,826,1,26,126,1,22),_CfprFabricSspEthMonSessionPcapSnapLen_Type())
+cfprFabricSspEthMonSessionPcapSnapLen.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSessionPcapSnapLen.setStatus(_A)
+_CfprFabricSspEthMonFilterEpTable_Object=MibTable
+cfprFabricSspEthMonFilterEpTable=_CfprFabricSspEthMonFilterEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,127))
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpTable.setStatus(_A)
+_CfprFabricSspEthMonFilterEpEntry_Object=MibTableRow
+cfprFabricSspEthMonFilterEpEntry=_CfprFabricSspEthMonFilterEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,127,1))
+cfprFabricSspEthMonFilterEpEntry.setIndexNames((0,_C,_BF))
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpEntry.setStatus(_A)
+_CfprFabricSspEthMonFilterEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricSspEthMonFilterEpInstanceId_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpInstanceId=_CfprFabricSspEthMonFilterEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,1),_CfprFabricSspEthMonFilterEpInstanceId_Type())
+cfprFabricSspEthMonFilterEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpInstanceId.setStatus(_A)
+_CfprFabricSspEthMonFilterEpDn_Type=CfprManagedObjectDn
+_CfprFabricSspEthMonFilterEpDn_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpDn=_CfprFabricSspEthMonFilterEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,2),_CfprFabricSspEthMonFilterEpDn_Type())
+cfprFabricSspEthMonFilterEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpDn.setStatus(_A)
+_CfprFabricSspEthMonFilterEpRn_Type=SnmpAdminString
+_CfprFabricSspEthMonFilterEpRn_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpRn=_CfprFabricSspEthMonFilterEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,3),_CfprFabricSspEthMonFilterEpRn_Type())
+cfprFabricSspEthMonFilterEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpRn.setStatus(_A)
+_CfprFabricSspEthMonFilterEpDestIp_Type=InetAddressIPv4
+_CfprFabricSspEthMonFilterEpDestIp_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpDestIp=_CfprFabricSspEthMonFilterEpDestIp_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,4),_CfprFabricSspEthMonFilterEpDestIp_Type())
+cfprFabricSspEthMonFilterEpDestIp.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpDestIp.setStatus(_A)
+_CfprFabricSspEthMonFilterEpDestMAC_Type=MacAddress
+_CfprFabricSspEthMonFilterEpDestMAC_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpDestMAC=_CfprFabricSspEthMonFilterEpDestMAC_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,5),_CfprFabricSspEthMonFilterEpDestMAC_Type())
+cfprFabricSspEthMonFilterEpDestMAC.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpDestMAC.setStatus(_A)
+_CfprFabricSspEthMonFilterEpDestPort_Type=Gauge32
+_CfprFabricSspEthMonFilterEpDestPort_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpDestPort=_CfprFabricSspEthMonFilterEpDestPort_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,6),_CfprFabricSspEthMonFilterEpDestPort_Type())
+cfprFabricSspEthMonFilterEpDestPort.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpDestPort.setStatus(_A)
+_CfprFabricSspEthMonFilterEpEthertype_Type=Gauge32
+_CfprFabricSspEthMonFilterEpEthertype_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpEthertype=_CfprFabricSspEthMonFilterEpEthertype_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,7),_CfprFabricSspEthMonFilterEpEthertype_Type())
+cfprFabricSspEthMonFilterEpEthertype.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpEthertype.setStatus(_A)
+_CfprFabricSspEthMonFilterEpIvlan_Type=Gauge32
+_CfprFabricSspEthMonFilterEpIvlan_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpIvlan=_CfprFabricSspEthMonFilterEpIvlan_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,8),_CfprFabricSspEthMonFilterEpIvlan_Type())
+cfprFabricSspEthMonFilterEpIvlan.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpIvlan.setStatus(_A)
+_CfprFabricSspEthMonFilterEpNameId_Type=SnmpAdminString
+_CfprFabricSspEthMonFilterEpNameId_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpNameId=_CfprFabricSspEthMonFilterEpNameId_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,9),_CfprFabricSspEthMonFilterEpNameId_Type())
+cfprFabricSspEthMonFilterEpNameId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpNameId.setStatus(_A)
+_CfprFabricSspEthMonFilterEpOvlan_Type=Gauge32
+_CfprFabricSspEthMonFilterEpOvlan_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpOvlan=_CfprFabricSspEthMonFilterEpOvlan_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,10),_CfprFabricSspEthMonFilterEpOvlan_Type())
+cfprFabricSspEthMonFilterEpOvlan.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpOvlan.setStatus(_A)
+_CfprFabricSspEthMonFilterEpProtocol_Type=Gauge32
+_CfprFabricSspEthMonFilterEpProtocol_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpProtocol=_CfprFabricSspEthMonFilterEpProtocol_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,11),_CfprFabricSspEthMonFilterEpProtocol_Type())
+cfprFabricSspEthMonFilterEpProtocol.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpProtocol.setStatus(_A)
+_CfprFabricSspEthMonFilterEpSrcIp_Type=InetAddressIPv4
+_CfprFabricSspEthMonFilterEpSrcIp_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpSrcIp=_CfprFabricSspEthMonFilterEpSrcIp_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,12),_CfprFabricSspEthMonFilterEpSrcIp_Type())
+cfprFabricSspEthMonFilterEpSrcIp.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpSrcIp.setStatus(_A)
+_CfprFabricSspEthMonFilterEpSrcMAC_Type=MacAddress
+_CfprFabricSspEthMonFilterEpSrcMAC_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpSrcMAC=_CfprFabricSspEthMonFilterEpSrcMAC_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,13),_CfprFabricSspEthMonFilterEpSrcMAC_Type())
+cfprFabricSspEthMonFilterEpSrcMAC.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpSrcMAC.setStatus(_A)
+_CfprFabricSspEthMonFilterEpSrcPort_Type=Gauge32
+_CfprFabricSspEthMonFilterEpSrcPort_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpSrcPort=_CfprFabricSspEthMonFilterEpSrcPort_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,14),_CfprFabricSspEthMonFilterEpSrcPort_Type())
+cfprFabricSspEthMonFilterEpSrcPort.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpSrcPort.setStatus(_A)
+_CfprFabricSspEthMonFilterEpDestIpv6_Type=InetAddressIPv6
+_CfprFabricSspEthMonFilterEpDestIpv6_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpDestIpv6=_CfprFabricSspEthMonFilterEpDestIpv6_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,15),_CfprFabricSspEthMonFilterEpDestIpv6_Type())
+cfprFabricSspEthMonFilterEpDestIpv6.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpDestIpv6.setStatus(_A)
+_CfprFabricSspEthMonFilterEpEcmpId_Type=Gauge32
+_CfprFabricSspEthMonFilterEpEcmpId_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpEcmpId=_CfprFabricSspEthMonFilterEpEcmpId_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,16),_CfprFabricSspEthMonFilterEpEcmpId_Type())
+cfprFabricSspEthMonFilterEpEcmpId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpEcmpId.setStatus(_A)
+_CfprFabricSspEthMonFilterEpSrcIpv6_Type=InetAddressIPv6
+_CfprFabricSspEthMonFilterEpSrcIpv6_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpSrcIpv6=_CfprFabricSspEthMonFilterEpSrcIpv6_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,17),_CfprFabricSspEthMonFilterEpSrcIpv6_Type())
+cfprFabricSspEthMonFilterEpSrcIpv6.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpSrcIpv6.setStatus(_A)
+_CfprFabricSspEthMonFilterEpSubvlan_Type=Gauge32
+_CfprFabricSspEthMonFilterEpSubvlan_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpSubvlan=_CfprFabricSspEthMonFilterEpSubvlan_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,18),_CfprFabricSspEthMonFilterEpSubvlan_Type())
+cfprFabricSspEthMonFilterEpSubvlan.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpSubvlan.setStatus(_A)
+_CfprFabricSspEthMonFilterEpVifId_Type=Gauge32
+_CfprFabricSspEthMonFilterEpVifId_Object=MibTableColumn
+cfprFabricSspEthMonFilterEpVifId=_CfprFabricSspEthMonFilterEpVifId_Object((1,3,6,1,4,1,9,9,826,1,26,127,1,19),_CfprFabricSspEthMonFilterEpVifId_Type())
+cfprFabricSspEthMonFilterEpVifId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonFilterEpVifId.setStatus(_A)
+_CfprFabricSspEthMonSrcAppEpTable_Object=MibTable
+cfprFabricSspEthMonSrcAppEpTable=_CfprFabricSspEthMonSrcAppEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,128))
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppEpTable.setStatus(_A)
+_CfprFabricSspEthMonSrcAppEpEntry_Object=MibTableRow
+cfprFabricSspEthMonSrcAppEpEntry=_CfprFabricSspEthMonSrcAppEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,128,1))
+cfprFabricSspEthMonSrcAppEpEntry.setIndexNames((0,_C,_BG))
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppEpEntry.setStatus(_A)
+_CfprFabricSspEthMonSrcAppEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricSspEthMonSrcAppEpInstanceId_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppEpInstanceId=_CfprFabricSspEthMonSrcAppEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,128,1,1),_CfprFabricSspEthMonSrcAppEpInstanceId_Type())
+cfprFabricSspEthMonSrcAppEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppEpInstanceId.setStatus(_A)
+_CfprFabricSspEthMonSrcAppEpDn_Type=CfprManagedObjectDn
+_CfprFabricSspEthMonSrcAppEpDn_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppEpDn=_CfprFabricSspEthMonSrcAppEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,128,1,2),_CfprFabricSspEthMonSrcAppEpDn_Type())
+cfprFabricSspEthMonSrcAppEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppEpDn.setStatus(_A)
+_CfprFabricSspEthMonSrcAppEpRn_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcAppEpRn_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppEpRn=_CfprFabricSspEthMonSrcAppEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,128,1,3),_CfprFabricSspEthMonSrcAppEpRn_Type())
+cfprFabricSspEthMonSrcAppEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppEpRn.setStatus(_A)
+_CfprFabricSspEthMonSrcAppEpAppName_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcAppEpAppName_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppEpAppName=_CfprFabricSspEthMonSrcAppEpAppName_Object((1,3,6,1,4,1,9,9,826,1,26,128,1,4),_CfprFabricSspEthMonSrcAppEpAppName_Type())
+cfprFabricSspEthMonSrcAppEpAppName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppEpAppName.setStatus(_A)
+_CfprFabricSspEthMonSrcAppEpFilter_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcAppEpFilter_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppEpFilter=_CfprFabricSspEthMonSrcAppEpFilter_Object((1,3,6,1,4,1,9,9,826,1,26,128,1,5),_CfprFabricSspEthMonSrcAppEpFilter_Type())
+cfprFabricSspEthMonSrcAppEpFilter.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppEpFilter.setStatus(_A)
+_CfprFabricSspEthMonSrcAppEpLinkName_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcAppEpLinkName_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppEpLinkName=_CfprFabricSspEthMonSrcAppEpLinkName_Object((1,3,6,1,4,1,9,9,826,1,26,128,1,6),_CfprFabricSspEthMonSrcAppEpLinkName_Type())
+cfprFabricSspEthMonSrcAppEpLinkName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppEpLinkName.setStatus(_A)
+_CfprFabricSspEthMonSrcAppEpPcapfile_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcAppEpPcapfile_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppEpPcapfile=_CfprFabricSspEthMonSrcAppEpPcapfile_Object((1,3,6,1,4,1,9,9,826,1,26,128,1,7),_CfprFabricSspEthMonSrcAppEpPcapfile_Type())
+cfprFabricSspEthMonSrcAppEpPcapfile.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppEpPcapfile.setStatus(_A)
+_CfprFabricSspEthMonSrcAppEpPcapfilename_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcAppEpPcapfilename_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppEpPcapfilename=_CfprFabricSspEthMonSrcAppEpPcapfilename_Object((1,3,6,1,4,1,9,9,826,1,26,128,1,8),_CfprFabricSspEthMonSrcAppEpPcapfilename_Type())
+cfprFabricSspEthMonSrcAppEpPcapfilename.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppEpPcapfilename.setStatus(_A)
+_CfprFabricSspEthMonSrcAppEpPcapsize_Type=Gauge32
+_CfprFabricSspEthMonSrcAppEpPcapsize_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppEpPcapsize=_CfprFabricSspEthMonSrcAppEpPcapsize_Object((1,3,6,1,4,1,9,9,826,1,26,128,1,9),_CfprFabricSspEthMonSrcAppEpPcapsize_Type())
+cfprFabricSspEthMonSrcAppEpPcapsize.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppEpPcapsize.setStatus(_A)
+_CfprFabricSspEthMonSrcAppEpPortName_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcAppEpPortName_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppEpPortName=_CfprFabricSspEthMonSrcAppEpPortName_Object((1,3,6,1,4,1,9,9,826,1,26,128,1,10),_CfprFabricSspEthMonSrcAppEpPortName_Type())
+cfprFabricSspEthMonSrcAppEpPortName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppEpPortName.setStatus(_A)
+_CfprFabricSspEthMonSrcAppEpSlotId_Type=CfprFabricPktCaptureAppSlotId
+_CfprFabricSspEthMonSrcAppEpSlotId_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppEpSlotId=_CfprFabricSspEthMonSrcAppEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,128,1,11),_CfprFabricSspEthMonSrcAppEpSlotId_Type())
+cfprFabricSspEthMonSrcAppEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppEpSlotId.setStatus(_A)
+_CfprFabricSspEthMonSrcAppEpAppInstance_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcAppEpAppInstance_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppEpAppInstance=_CfprFabricSspEthMonSrcAppEpAppInstance_Object((1,3,6,1,4,1,9,9,826,1,26,128,1,12),_CfprFabricSspEthMonSrcAppEpAppInstance_Type())
+cfprFabricSspEthMonSrcAppEpAppInstance.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppEpAppInstance.setStatus(_A)
+_CfprFabricSspEthMonSrcAppEpSubInterface_Type=Gauge32
+_CfprFabricSspEthMonSrcAppEpSubInterface_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppEpSubInterface=_CfprFabricSspEthMonSrcAppEpSubInterface_Object((1,3,6,1,4,1,9,9,826,1,26,128,1,13),_CfprFabricSspEthMonSrcAppEpSubInterface_Type())
+cfprFabricSspEthMonSrcAppEpSubInterface.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppEpSubInterface.setStatus(_A)
+_CfprFabricSspEthMonSrcAppEpExternalLduLinkDn_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcAppEpExternalLduLinkDn_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppEpExternalLduLinkDn=_CfprFabricSspEthMonSrcAppEpExternalLduLinkDn_Object((1,3,6,1,4,1,9,9,826,1,26,128,1,14),_CfprFabricSspEthMonSrcAppEpExternalLduLinkDn_Type())
+cfprFabricSspEthMonSrcAppEpExternalLduLinkDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppEpExternalLduLinkDn.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpTable_Object=MibTable
+cfprFabricSspEthMonSrcAppLinksEpTable=_CfprFabricSspEthMonSrcAppLinksEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,129))
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpTable.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpEntry_Object=MibTableRow
+cfprFabricSspEthMonSrcAppLinksEpEntry=_CfprFabricSspEthMonSrcAppLinksEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,129,1))
+cfprFabricSspEthMonSrcAppLinksEpEntry.setIndexNames((0,_C,_BH))
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpEntry.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricSspEthMonSrcAppLinksEpInstanceId_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppLinksEpInstanceId=_CfprFabricSspEthMonSrcAppLinksEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,129,1,1),_CfprFabricSspEthMonSrcAppLinksEpInstanceId_Type())
+cfprFabricSspEthMonSrcAppLinksEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpInstanceId.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpDn_Type=CfprManagedObjectDn
+_CfprFabricSspEthMonSrcAppLinksEpDn_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppLinksEpDn=_CfprFabricSspEthMonSrcAppLinksEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,129,1,2),_CfprFabricSspEthMonSrcAppLinksEpDn_Type())
+cfprFabricSspEthMonSrcAppLinksEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpDn.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpRn_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcAppLinksEpRn_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppLinksEpRn=_CfprFabricSspEthMonSrcAppLinksEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,129,1,3),_CfprFabricSspEthMonSrcAppLinksEpRn_Type())
+cfprFabricSspEthMonSrcAppLinksEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpRn.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpChassisId_Type=Gauge32
+_CfprFabricSspEthMonSrcAppLinksEpChassisId_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppLinksEpChassisId=_CfprFabricSspEthMonSrcAppLinksEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,129,1,4),_CfprFabricSspEthMonSrcAppLinksEpChassisId_Type())
+cfprFabricSspEthMonSrcAppLinksEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpChassisId.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpEqAggrPortId_Type=Gauge32
+_CfprFabricSspEthMonSrcAppLinksEpEqAggrPortId_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppLinksEpEqAggrPortId=_CfprFabricSspEthMonSrcAppLinksEpEqAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,129,1,5),_CfprFabricSspEthMonSrcAppLinksEpEqAggrPortId_Type())
+cfprFabricSspEthMonSrcAppLinksEpEqAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpEqAggrPortId.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpEqPortId_Type=Gauge32
+_CfprFabricSspEthMonSrcAppLinksEpEqPortId_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppLinksEpEqPortId=_CfprFabricSspEthMonSrcAppLinksEpEqPortId_Object((1,3,6,1,4,1,9,9,826,1,26,129,1,6),_CfprFabricSspEthMonSrcAppLinksEpEqPortId_Type())
+cfprFabricSspEthMonSrcAppLinksEpEqPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpEqPortId.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpEqSlotId_Type=Gauge32
+_CfprFabricSspEthMonSrcAppLinksEpEqSlotId_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppLinksEpEqSlotId=_CfprFabricSspEthMonSrcAppLinksEpEqSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,129,1,7),_CfprFabricSspEthMonSrcAppLinksEpEqSlotId_Type())
+cfprFabricSspEthMonSrcAppLinksEpEqSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpEqSlotId.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpFilter_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcAppLinksEpFilter_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppLinksEpFilter=_CfprFabricSspEthMonSrcAppLinksEpFilter_Object((1,3,6,1,4,1,9,9,826,1,26,129,1,8),_CfprFabricSspEthMonSrcAppLinksEpFilter_Type())
+cfprFabricSspEthMonSrcAppLinksEpFilter.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpFilter.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpFilterDn_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcAppLinksEpFilterDn_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppLinksEpFilterDn=_CfprFabricSspEthMonSrcAppLinksEpFilterDn_Object((1,3,6,1,4,1,9,9,826,1,26,129,1,9),_CfprFabricSspEthMonSrcAppLinksEpFilterDn_Type())
+cfprFabricSspEthMonSrcAppLinksEpFilterDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpFilterDn.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpLifeCycle_Type=CfprSwPktCaptureLifeCycle
+_CfprFabricSspEthMonSrcAppLinksEpLifeCycle_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppLinksEpLifeCycle=_CfprFabricSspEthMonSrcAppLinksEpLifeCycle_Object((1,3,6,1,4,1,9,9,826,1,26,129,1,10),_CfprFabricSspEthMonSrcAppLinksEpLifeCycle_Type())
+cfprFabricSspEthMonSrcAppLinksEpLifeCycle.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpLifeCycle.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpName_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcAppLinksEpName_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppLinksEpName=_CfprFabricSspEthMonSrcAppLinksEpName_Object((1,3,6,1,4,1,9,9,826,1,26,129,1,11),_CfprFabricSspEthMonSrcAppLinksEpName_Type())
+cfprFabricSspEthMonSrcAppLinksEpName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpName.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpPcapfile_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcAppLinksEpPcapfile_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppLinksEpPcapfile=_CfprFabricSspEthMonSrcAppLinksEpPcapfile_Object((1,3,6,1,4,1,9,9,826,1,26,129,1,12),_CfprFabricSspEthMonSrcAppLinksEpPcapfile_Type())
+cfprFabricSspEthMonSrcAppLinksEpPcapfile.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpPcapfile.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpPcapfilename_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcAppLinksEpPcapfilename_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppLinksEpPcapfilename=_CfprFabricSspEthMonSrcAppLinksEpPcapfilename_Object((1,3,6,1,4,1,9,9,826,1,26,129,1,13),_CfprFabricSspEthMonSrcAppLinksEpPcapfilename_Type())
+cfprFabricSspEthMonSrcAppLinksEpPcapfilename.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpPcapfilename.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpPcapsize_Type=Gauge32
+_CfprFabricSspEthMonSrcAppLinksEpPcapsize_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppLinksEpPcapsize=_CfprFabricSspEthMonSrcAppLinksEpPcapsize_Object((1,3,6,1,4,1,9,9,826,1,26,129,1,14),_CfprFabricSspEthMonSrcAppLinksEpPcapsize_Type())
+cfprFabricSspEthMonSrcAppLinksEpPcapsize.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpPcapsize.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricSspEthMonSrcAppLinksEpSwitchId_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppLinksEpSwitchId=_CfprFabricSspEthMonSrcAppLinksEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,129,1,15),_CfprFabricSspEthMonSrcAppLinksEpSwitchId_Type())
+cfprFabricSspEthMonSrcAppLinksEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpSwitchId.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpVlan_Type=Gauge32
+_CfprFabricSspEthMonSrcAppLinksEpVlan_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppLinksEpVlan=_CfprFabricSspEthMonSrcAppLinksEpVlan_Object((1,3,6,1,4,1,9,9,826,1,26,129,1,16),_CfprFabricSspEthMonSrcAppLinksEpVlan_Type())
+cfprFabricSspEthMonSrcAppLinksEpVlan.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpVlan.setStatus(_A)
+_CfprFabricSspEthMonSrcAppLinksEpVifId_Type=Gauge32
+_CfprFabricSspEthMonSrcAppLinksEpVifId_Object=MibTableColumn
+cfprFabricSspEthMonSrcAppLinksEpVifId=_CfprFabricSspEthMonSrcAppLinksEpVifId_Object((1,3,6,1,4,1,9,9,826,1,26,129,1,17),_CfprFabricSspEthMonSrcAppLinksEpVifId_Type())
+cfprFabricSspEthMonSrcAppLinksEpVifId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcAppLinksEpVifId.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpTable_Object=MibTable
+cfprFabricSspEthMonSrcPhyAggrEpTable=_CfprFabricSspEthMonSrcPhyAggrEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,130))
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpTable.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpEntry_Object=MibTableRow
+cfprFabricSspEthMonSrcPhyAggrEpEntry=_CfprFabricSspEthMonSrcPhyAggrEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,130,1))
+cfprFabricSspEthMonSrcPhyAggrEpEntry.setIndexNames((0,_C,_BI))
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpEntry.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricSspEthMonSrcPhyAggrEpInstanceId_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyAggrEpInstanceId=_CfprFabricSspEthMonSrcPhyAggrEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,130,1,1),_CfprFabricSspEthMonSrcPhyAggrEpInstanceId_Type())
+cfprFabricSspEthMonSrcPhyAggrEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpInstanceId.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpDn_Type=CfprManagedObjectDn
+_CfprFabricSspEthMonSrcPhyAggrEpDn_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyAggrEpDn=_CfprFabricSspEthMonSrcPhyAggrEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,130,1,2),_CfprFabricSspEthMonSrcPhyAggrEpDn_Type())
+cfprFabricSspEthMonSrcPhyAggrEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpDn.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpRn_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcPhyAggrEpRn_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyAggrEpRn=_CfprFabricSspEthMonSrcPhyAggrEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,130,1,3),_CfprFabricSspEthMonSrcPhyAggrEpRn_Type())
+cfprFabricSspEthMonSrcPhyAggrEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpRn.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpAggrPortId_Type=Gauge32
+_CfprFabricSspEthMonSrcPhyAggrEpAggrPortId_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyAggrEpAggrPortId=_CfprFabricSspEthMonSrcPhyAggrEpAggrPortId_Object((1,3,6,1,4,1,9,9,826,1,26,130,1,4),_CfprFabricSspEthMonSrcPhyAggrEpAggrPortId_Type())
+cfprFabricSspEthMonSrcPhyAggrEpAggrPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpAggrPortId.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpBreakoutPortId_Type=Gauge32
+_CfprFabricSspEthMonSrcPhyAggrEpBreakoutPortId_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyAggrEpBreakoutPortId=_CfprFabricSspEthMonSrcPhyAggrEpBreakoutPortId_Object((1,3,6,1,4,1,9,9,826,1,26,130,1,5),_CfprFabricSspEthMonSrcPhyAggrEpBreakoutPortId_Type())
+cfprFabricSspEthMonSrcPhyAggrEpBreakoutPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpBreakoutPortId.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpChassisId_Type=Gauge32
+_CfprFabricSspEthMonSrcPhyAggrEpChassisId_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyAggrEpChassisId=_CfprFabricSspEthMonSrcPhyAggrEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,130,1,6),_CfprFabricSspEthMonSrcPhyAggrEpChassisId_Type())
+cfprFabricSspEthMonSrcPhyAggrEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpChassisId.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpFilter_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcPhyAggrEpFilter_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyAggrEpFilter=_CfprFabricSspEthMonSrcPhyAggrEpFilter_Object((1,3,6,1,4,1,9,9,826,1,26,130,1,7),_CfprFabricSspEthMonSrcPhyAggrEpFilter_Type())
+cfprFabricSspEthMonSrcPhyAggrEpFilter.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpFilter.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpPcapfile_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcPhyAggrEpPcapfile_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyAggrEpPcapfile=_CfprFabricSspEthMonSrcPhyAggrEpPcapfile_Object((1,3,6,1,4,1,9,9,826,1,26,130,1,8),_CfprFabricSspEthMonSrcPhyAggrEpPcapfile_Type())
+cfprFabricSspEthMonSrcPhyAggrEpPcapfile.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpPcapfile.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpPcapfilename_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcPhyAggrEpPcapfilename_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyAggrEpPcapfilename=_CfprFabricSspEthMonSrcPhyAggrEpPcapfilename_Object((1,3,6,1,4,1,9,9,826,1,26,130,1,9),_CfprFabricSspEthMonSrcPhyAggrEpPcapfilename_Type())
+cfprFabricSspEthMonSrcPhyAggrEpPcapfilename.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpPcapfilename.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpPcapsize_Type=Gauge32
+_CfprFabricSspEthMonSrcPhyAggrEpPcapsize_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyAggrEpPcapsize=_CfprFabricSspEthMonSrcPhyAggrEpPcapsize_Object((1,3,6,1,4,1,9,9,826,1,26,130,1,10),_CfprFabricSspEthMonSrcPhyAggrEpPcapsize_Type())
+cfprFabricSspEthMonSrcPhyAggrEpPcapsize.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpPcapsize.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpSlotId_Type=Gauge32
+_CfprFabricSspEthMonSrcPhyAggrEpSlotId_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyAggrEpSlotId=_CfprFabricSspEthMonSrcPhyAggrEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,130,1,11),_CfprFabricSspEthMonSrcPhyAggrEpSlotId_Type())
+cfprFabricSspEthMonSrcPhyAggrEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpSlotId.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricSspEthMonSrcPhyAggrEpSwitchId_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyAggrEpSwitchId=_CfprFabricSspEthMonSrcPhyAggrEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,130,1,12),_CfprFabricSspEthMonSrcPhyAggrEpSwitchId_Type())
+cfprFabricSspEthMonSrcPhyAggrEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpSwitchId.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpAppInstance_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcPhyAggrEpAppInstance_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyAggrEpAppInstance=_CfprFabricSspEthMonSrcPhyAggrEpAppInstance_Object((1,3,6,1,4,1,9,9,826,1,26,130,1,13),_CfprFabricSspEthMonSrcPhyAggrEpAppInstance_Type())
+cfprFabricSspEthMonSrcPhyAggrEpAppInstance.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpAppInstance.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpAppName_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcPhyAggrEpAppName_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyAggrEpAppName=_CfprFabricSspEthMonSrcPhyAggrEpAppName_Object((1,3,6,1,4,1,9,9,826,1,26,130,1,14),_CfprFabricSspEthMonSrcPhyAggrEpAppName_Type())
+cfprFabricSspEthMonSrcPhyAggrEpAppName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpAppName.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpSubInterface_Type=Gauge32
+_CfprFabricSspEthMonSrcPhyAggrEpSubInterface_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyAggrEpSubInterface=_CfprFabricSspEthMonSrcPhyAggrEpSubInterface_Object((1,3,6,1,4,1,9,9,826,1,26,130,1,15),_CfprFabricSspEthMonSrcPhyAggrEpSubInterface_Type())
+cfprFabricSspEthMonSrcPhyAggrEpSubInterface.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpSubInterface.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyAggrEpEcmpId_Type=Gauge32
+_CfprFabricSspEthMonSrcPhyAggrEpEcmpId_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyAggrEpEcmpId=_CfprFabricSspEthMonSrcPhyAggrEpEcmpId_Object((1,3,6,1,4,1,9,9,826,1,26,130,1,16),_CfprFabricSspEthMonSrcPhyAggrEpEcmpId_Type())
+cfprFabricSspEthMonSrcPhyAggrEpEcmpId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyAggrEpEcmpId.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyEpTable_Object=MibTable
+cfprFabricSspEthMonSrcPhyEpTable=_CfprFabricSspEthMonSrcPhyEpTable_Object((1,3,6,1,4,1,9,9,826,1,26,131))
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyEpTable.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyEpEntry_Object=MibTableRow
+cfprFabricSspEthMonSrcPhyEpEntry=_CfprFabricSspEthMonSrcPhyEpEntry_Object((1,3,6,1,4,1,9,9,826,1,26,131,1))
+cfprFabricSspEthMonSrcPhyEpEntry.setIndexNames((0,_C,_BJ))
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyEpEntry.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyEpInstanceId_Type=CfprManagedObjectId
+_CfprFabricSspEthMonSrcPhyEpInstanceId_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyEpInstanceId=_CfprFabricSspEthMonSrcPhyEpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,131,1,1),_CfprFabricSspEthMonSrcPhyEpInstanceId_Type())
+cfprFabricSspEthMonSrcPhyEpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyEpInstanceId.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyEpDn_Type=CfprManagedObjectDn
+_CfprFabricSspEthMonSrcPhyEpDn_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyEpDn=_CfprFabricSspEthMonSrcPhyEpDn_Object((1,3,6,1,4,1,9,9,826,1,26,131,1,2),_CfprFabricSspEthMonSrcPhyEpDn_Type())
+cfprFabricSspEthMonSrcPhyEpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyEpDn.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyEpRn_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcPhyEpRn_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyEpRn=_CfprFabricSspEthMonSrcPhyEpRn_Object((1,3,6,1,4,1,9,9,826,1,26,131,1,3),_CfprFabricSspEthMonSrcPhyEpRn_Type())
+cfprFabricSspEthMonSrcPhyEpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyEpRn.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyEpChassisId_Type=Gauge32
+_CfprFabricSspEthMonSrcPhyEpChassisId_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyEpChassisId=_CfprFabricSspEthMonSrcPhyEpChassisId_Object((1,3,6,1,4,1,9,9,826,1,26,131,1,4),_CfprFabricSspEthMonSrcPhyEpChassisId_Type())
+cfprFabricSspEthMonSrcPhyEpChassisId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyEpChassisId.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyEpFilter_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcPhyEpFilter_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyEpFilter=_CfprFabricSspEthMonSrcPhyEpFilter_Object((1,3,6,1,4,1,9,9,826,1,26,131,1,5),_CfprFabricSspEthMonSrcPhyEpFilter_Type())
+cfprFabricSspEthMonSrcPhyEpFilter.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyEpFilter.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyEpPcapfile_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcPhyEpPcapfile_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyEpPcapfile=_CfprFabricSspEthMonSrcPhyEpPcapfile_Object((1,3,6,1,4,1,9,9,826,1,26,131,1,6),_CfprFabricSspEthMonSrcPhyEpPcapfile_Type())
+cfprFabricSspEthMonSrcPhyEpPcapfile.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyEpPcapfile.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyEpPcapfilename_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcPhyEpPcapfilename_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyEpPcapfilename=_CfprFabricSspEthMonSrcPhyEpPcapfilename_Object((1,3,6,1,4,1,9,9,826,1,26,131,1,7),_CfprFabricSspEthMonSrcPhyEpPcapfilename_Type())
+cfprFabricSspEthMonSrcPhyEpPcapfilename.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyEpPcapfilename.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyEpPcapsize_Type=Gauge32
+_CfprFabricSspEthMonSrcPhyEpPcapsize_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyEpPcapsize=_CfprFabricSspEthMonSrcPhyEpPcapsize_Object((1,3,6,1,4,1,9,9,826,1,26,131,1,8),_CfprFabricSspEthMonSrcPhyEpPcapsize_Type())
+cfprFabricSspEthMonSrcPhyEpPcapsize.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyEpPcapsize.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyEpPortId_Type=Gauge32
+_CfprFabricSspEthMonSrcPhyEpPortId_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyEpPortId=_CfprFabricSspEthMonSrcPhyEpPortId_Object((1,3,6,1,4,1,9,9,826,1,26,131,1,9),_CfprFabricSspEthMonSrcPhyEpPortId_Type())
+cfprFabricSspEthMonSrcPhyEpPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyEpPortId.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyEpSlotId_Type=Gauge32
+_CfprFabricSspEthMonSrcPhyEpSlotId_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyEpSlotId=_CfprFabricSspEthMonSrcPhyEpSlotId_Object((1,3,6,1,4,1,9,9,826,1,26,131,1,10),_CfprFabricSspEthMonSrcPhyEpSlotId_Type())
+cfprFabricSspEthMonSrcPhyEpSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyEpSlotId.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyEpSwitchId_Type=CfprNetworkSwitchId
+_CfprFabricSspEthMonSrcPhyEpSwitchId_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyEpSwitchId=_CfprFabricSspEthMonSrcPhyEpSwitchId_Object((1,3,6,1,4,1,9,9,826,1,26,131,1,11),_CfprFabricSspEthMonSrcPhyEpSwitchId_Type())
+cfprFabricSspEthMonSrcPhyEpSwitchId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyEpSwitchId.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyEpAppInstance_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcPhyEpAppInstance_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyEpAppInstance=_CfprFabricSspEthMonSrcPhyEpAppInstance_Object((1,3,6,1,4,1,9,9,826,1,26,131,1,12),_CfprFabricSspEthMonSrcPhyEpAppInstance_Type())
+cfprFabricSspEthMonSrcPhyEpAppInstance.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyEpAppInstance.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyEpAppName_Type=SnmpAdminString
+_CfprFabricSspEthMonSrcPhyEpAppName_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyEpAppName=_CfprFabricSspEthMonSrcPhyEpAppName_Object((1,3,6,1,4,1,9,9,826,1,26,131,1,13),_CfprFabricSspEthMonSrcPhyEpAppName_Type())
+cfprFabricSspEthMonSrcPhyEpAppName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyEpAppName.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyEpSubInterface_Type=Gauge32
+_CfprFabricSspEthMonSrcPhyEpSubInterface_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyEpSubInterface=_CfprFabricSspEthMonSrcPhyEpSubInterface_Object((1,3,6,1,4,1,9,9,826,1,26,131,1,14),_CfprFabricSspEthMonSrcPhyEpSubInterface_Type())
+cfprFabricSspEthMonSrcPhyEpSubInterface.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyEpSubInterface.setStatus(_A)
+_CfprFabricSspEthMonSrcPhyEpEcmpId_Type=Gauge32
+_CfprFabricSspEthMonSrcPhyEpEcmpId_Object=MibTableColumn
+cfprFabricSspEthMonSrcPhyEpEcmpId=_CfprFabricSspEthMonSrcPhyEpEcmpId_Object((1,3,6,1,4,1,9,9,826,1,26,131,1,15),_CfprFabricSspEthMonSrcPhyEpEcmpId_Type())
+cfprFabricSspEthMonSrcPhyEpEcmpId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspEthMonSrcPhyEpEcmpId.setStatus(_A)
+_CfprFabricSspLanMonCloudTable_Object=MibTable
+cfprFabricSspLanMonCloudTable=_CfprFabricSspLanMonCloudTable_Object((1,3,6,1,4,1,9,9,826,1,26,132))
+if mibBuilder.loadTexts:cfprFabricSspLanMonCloudTable.setStatus(_A)
+_CfprFabricSspLanMonCloudEntry_Object=MibTableRow
+cfprFabricSspLanMonCloudEntry=_CfprFabricSspLanMonCloudEntry_Object((1,3,6,1,4,1,9,9,826,1,26,132,1))
+cfprFabricSspLanMonCloudEntry.setIndexNames((0,_C,_BK))
+if mibBuilder.loadTexts:cfprFabricSspLanMonCloudEntry.setStatus(_A)
+_CfprFabricSspLanMonCloudInstanceId_Type=CfprManagedObjectId
+_CfprFabricSspLanMonCloudInstanceId_Object=MibTableColumn
+cfprFabricSspLanMonCloudInstanceId=_CfprFabricSspLanMonCloudInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,132,1,1),_CfprFabricSspLanMonCloudInstanceId_Type())
+cfprFabricSspLanMonCloudInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSspLanMonCloudInstanceId.setStatus(_A)
+_CfprFabricSspLanMonCloudDn_Type=CfprManagedObjectDn
+_CfprFabricSspLanMonCloudDn_Object=MibTableColumn
+cfprFabricSspLanMonCloudDn=_CfprFabricSspLanMonCloudDn_Object((1,3,6,1,4,1,9,9,826,1,26,132,1,2),_CfprFabricSspLanMonCloudDn_Type())
+cfprFabricSspLanMonCloudDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspLanMonCloudDn.setStatus(_A)
+_CfprFabricSspLanMonCloudRn_Type=SnmpAdminString
+_CfprFabricSspLanMonCloudRn_Object=MibTableColumn
+cfprFabricSspLanMonCloudRn=_CfprFabricSspLanMonCloudRn_Object((1,3,6,1,4,1,9,9,826,1,26,132,1,3),_CfprFabricSspLanMonCloudRn_Type())
+cfprFabricSspLanMonCloudRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspLanMonCloudRn.setStatus(_A)
+_CfprFabricSspLanMonCloudMode_Type=CfprFabricSwitchingMode
+_CfprFabricSspLanMonCloudMode_Object=MibTableColumn
+cfprFabricSspLanMonCloudMode=_CfprFabricSspLanMonCloudMode_Object((1,3,6,1,4,1,9,9,826,1,26,132,1,4),_CfprFabricSspLanMonCloudMode_Type())
+cfprFabricSspLanMonCloudMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspLanMonCloudMode.setStatus(_A)
+_CfprFabricSspLanMonCloudDelAllSess_Type=CfprFabricSspLanMonCloudDelAllSess
+_CfprFabricSspLanMonCloudDelAllSess_Object=MibTableColumn
+cfprFabricSspLanMonCloudDelAllSess=_CfprFabricSspLanMonCloudDelAllSess_Object((1,3,6,1,4,1,9,9,826,1,26,132,1,5),_CfprFabricSspLanMonCloudDelAllSess_Type())
+cfprFabricSspLanMonCloudDelAllSess.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSspLanMonCloudDelAllSess.setStatus(_A)
+_CfprFabricInnerVlanMgrTable_Object=MibTable
+cfprFabricInnerVlanMgrTable=_CfprFabricInnerVlanMgrTable_Object((1,3,6,1,4,1,9,9,826,1,26,133))
+if mibBuilder.loadTexts:cfprFabricInnerVlanMgrTable.setStatus(_A)
+_CfprFabricInnerVlanMgrEntry_Object=MibTableRow
+cfprFabricInnerVlanMgrEntry=_CfprFabricInnerVlanMgrEntry_Object((1,3,6,1,4,1,9,9,826,1,26,133,1))
+cfprFabricInnerVlanMgrEntry.setIndexNames((0,_C,_BL))
+if mibBuilder.loadTexts:cfprFabricInnerVlanMgrEntry.setStatus(_A)
+_CfprFabricInnerVlanMgrInstanceId_Type=CfprManagedObjectId
+_CfprFabricInnerVlanMgrInstanceId_Object=MibTableColumn
+cfprFabricInnerVlanMgrInstanceId=_CfprFabricInnerVlanMgrInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,133,1,1),_CfprFabricInnerVlanMgrInstanceId_Type())
+cfprFabricInnerVlanMgrInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricInnerVlanMgrInstanceId.setStatus(_A)
+_CfprFabricInnerVlanMgrDn_Type=CfprManagedObjectDn
+_CfprFabricInnerVlanMgrDn_Object=MibTableColumn
+cfprFabricInnerVlanMgrDn=_CfprFabricInnerVlanMgrDn_Object((1,3,6,1,4,1,9,9,826,1,26,133,1,2),_CfprFabricInnerVlanMgrDn_Type())
+cfprFabricInnerVlanMgrDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricInnerVlanMgrDn.setStatus(_A)
+_CfprFabricInnerVlanMgrRn_Type=SnmpAdminString
+_CfprFabricInnerVlanMgrRn_Object=MibTableColumn
+cfprFabricInnerVlanMgrRn=_CfprFabricInnerVlanMgrRn_Object((1,3,6,1,4,1,9,9,826,1,26,133,1,3),_CfprFabricInnerVlanMgrRn_Type())
+cfprFabricInnerVlanMgrRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricInnerVlanMgrRn.setStatus(_A)
+_CfprFabricInnerVlanMgrFltAggr_Type=Unsigned64
+_CfprFabricInnerVlanMgrFltAggr_Object=MibTableColumn
+cfprFabricInnerVlanMgrFltAggr=_CfprFabricInnerVlanMgrFltAggr_Object((1,3,6,1,4,1,9,9,826,1,26,133,1,4),_CfprFabricInnerVlanMgrFltAggr_Type())
+cfprFabricInnerVlanMgrFltAggr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricInnerVlanMgrFltAggr.setStatus(_A)
+_CfprFabricInnerVlanMgrId_Type=CfprNetworkSwitchId
+_CfprFabricInnerVlanMgrId_Object=MibTableColumn
+cfprFabricInnerVlanMgrId=_CfprFabricInnerVlanMgrId_Object((1,3,6,1,4,1,9,9,826,1,26,133,1,5),_CfprFabricInnerVlanMgrId_Type())
+cfprFabricInnerVlanMgrId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricInnerVlanMgrId.setStatus(_A)
+_CfprFabricSubIfTable_Object=MibTable
+cfprFabricSubIfTable=_CfprFabricSubIfTable_Object((1,3,6,1,4,1,9,9,826,1,26,134))
+if mibBuilder.loadTexts:cfprFabricSubIfTable.setStatus(_A)
+_CfprFabricSubIfEntry_Object=MibTableRow
+cfprFabricSubIfEntry=_CfprFabricSubIfEntry_Object((1,3,6,1,4,1,9,9,826,1,26,134,1))
+cfprFabricSubIfEntry.setIndexNames((0,_C,_BM))
+if mibBuilder.loadTexts:cfprFabricSubIfEntry.setStatus(_A)
+_CfprFabricSubIfInstanceId_Type=CfprManagedObjectId
+_CfprFabricSubIfInstanceId_Object=MibTableColumn
+cfprFabricSubIfInstanceId=_CfprFabricSubIfInstanceId_Object((1,3,6,1,4,1,9,9,826,1,26,134,1,1),_CfprFabricSubIfInstanceId_Type())
+cfprFabricSubIfInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprFabricSubIfInstanceId.setStatus(_A)
+_CfprFabricSubIfDn_Type=CfprManagedObjectDn
+_CfprFabricSubIfDn_Object=MibTableColumn
+cfprFabricSubIfDn=_CfprFabricSubIfDn_Object((1,3,6,1,4,1,9,9,826,1,26,134,1,2),_CfprFabricSubIfDn_Type())
+cfprFabricSubIfDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubIfDn.setStatus(_A)
+_CfprFabricSubIfRn_Type=SnmpAdminString
+_CfprFabricSubIfRn_Object=MibTableColumn
+cfprFabricSubIfRn=_CfprFabricSubIfRn_Object((1,3,6,1,4,1,9,9,826,1,26,134,1,3),_CfprFabricSubIfRn_Type())
+cfprFabricSubIfRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubIfRn.setStatus(_A)
+_CfprFabricSubIfAllowSharing_Type=TruthValue
+_CfprFabricSubIfAllowSharing_Object=MibTableColumn
+cfprFabricSubIfAllowSharing=_CfprFabricSubIfAllowSharing_Object((1,3,6,1,4,1,9,9,826,1,26,134,1,4),_CfprFabricSubIfAllowSharing_Type())
+cfprFabricSubIfAllowSharing.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubIfAllowSharing.setStatus(_A)
+_CfprFabricSubIfDescr_Type=SnmpAdminString
+_CfprFabricSubIfDescr_Object=MibTableColumn
+cfprFabricSubIfDescr=_CfprFabricSubIfDescr_Object((1,3,6,1,4,1,9,9,826,1,26,134,1,5),_CfprFabricSubIfDescr_Type())
+cfprFabricSubIfDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubIfDescr.setStatus(_A)
+_CfprFabricSubIfIfName_Type=SnmpAdminString
+_CfprFabricSubIfIfName_Object=MibTableColumn
+cfprFabricSubIfIfName=_CfprFabricSubIfIfName_Object((1,3,6,1,4,1,9,9,826,1,26,134,1,6),_CfprFabricSubIfIfName_Type())
+cfprFabricSubIfIfName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubIfIfName.setStatus(_A)
+_CfprFabricSubIfSsaPortType_Type=CfprFabricSSASubPortType
+_CfprFabricSubIfSsaPortType_Object=MibTableColumn
+cfprFabricSubIfSsaPortType=_CfprFabricSubIfSsaPortType_Object((1,3,6,1,4,1,9,9,826,1,26,134,1,7),_CfprFabricSubIfSsaPortType_Type())
+cfprFabricSubIfSsaPortType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubIfSsaPortType.setStatus(_A)
+_CfprFabricSubIfSubId_Type=Gauge32
+_CfprFabricSubIfSubId_Object=MibTableColumn
+cfprFabricSubIfSubId=_CfprFabricSubIfSubId_Object((1,3,6,1,4,1,9,9,826,1,26,134,1,8),_CfprFabricSubIfSubId_Type())
+cfprFabricSubIfSubId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubIfSubId.setStatus(_A)
+_CfprFabricSubIfVlanId_Type=Integer32
+_CfprFabricSubIfVlanId_Object=MibTableColumn
+cfprFabricSubIfVlanId=_CfprFabricSubIfVlanId_Object((1,3,6,1,4,1,9,9,826,1,26,134,1,9),_CfprFabricSubIfVlanId_Type())
+cfprFabricSubIfVlanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprFabricSubIfVlanId.setStatus(_A)
+mibBuilder.exportSymbols(_C,**{'cfprFabricObjects':cfprFabricObjects,'cfprFabricBHVlanTable':cfprFabricBHVlanTable,'cfprFabricBHVlanEntry':cfprFabricBHVlanEntry,_E:cfprFabricBHVlanInstanceId,'cfprFabricBHVlanDn':cfprFabricBHVlanDn,'cfprFabricBHVlanRn':cfprFabricBHVlanRn,'cfprFabricBHVlanAssocPrimaryVlanState':cfprFabricBHVlanAssocPrimaryVlanState,'cfprFabricBHVlanAssocPrimaryVlanSwitchId':cfprFabricBHVlanAssocPrimaryVlanSwitchId,'cfprFabricBHVlanEpDn':cfprFabricBHVlanEpDn,'cfprFabricBHVlanId':cfprFabricBHVlanId,'cfprFabricBHVlanIfRole':cfprFabricBHVlanIfRole,'cfprFabricBHVlanIfType':cfprFabricBHVlanIfType,'cfprFabricBHVlanLocale':cfprFabricBHVlanLocale,'cfprFabricBHVlanName':cfprFabricBHVlanName,'cfprFabricBHVlanOperState':cfprFabricBHVlanOperState,'cfprFabricBHVlanOverlapStateForA':cfprFabricBHVlanOverlapStateForA,'cfprFabricBHVlanOverlapStateForB':cfprFabricBHVlanOverlapStateForB,'cfprFabricBHVlanPeerDn':cfprFabricBHVlanPeerDn,'cfprFabricBHVlanPolicyOwner':cfprFabricBHVlanPolicyOwner,'cfprFabricBHVlanPubNwDn':cfprFabricBHVlanPubNwDn,'cfprFabricBHVlanPubNwId':cfprFabricBHVlanPubNwId,'cfprFabricBHVlanPubNwName':cfprFabricBHVlanPubNwName,'cfprFabricBHVlanSharing':cfprFabricBHVlanSharing,'cfprFabricBHVlanSwitchId':cfprFabricBHVlanSwitchId,'cfprFabricBHVlanTransport':cfprFabricBHVlanTransport,'cfprFabricBHVlanType':cfprFabricBHVlanType,'cfprFabricBreakoutTable':cfprFabricBreakoutTable,'cfprFabricBreakoutEntry':cfprFabricBreakoutEntry,_F:cfprFabricBreakoutInstanceId,'cfprFabricBreakoutDn':cfprFabricBreakoutDn,'cfprFabricBreakoutRn':cfprFabricBreakoutRn,'cfprFabricBreakoutBreakoutType':cfprFabricBreakoutBreakoutType,'cfprFabricBreakoutPortId':cfprFabricBreakoutPortId,'cfprFabricBreakoutSlotId':cfprFabricBreakoutSlotId,'cfprFabricCablingTable':cfprFabricCablingTable,'cfprFabricCablingEntry':cfprFabricCablingEntry,_G:cfprFabricCablingInstanceId,'cfprFabricCablingDn':cfprFabricCablingDn,'cfprFabricCablingRn':cfprFabricCablingRn,'cfprFabricCablingSwTable':cfprFabricCablingSwTable,'cfprFabricCablingSwEntry':cfprFabricCablingSwEntry,_H:cfprFabricCablingSwInstanceId,'cfprFabricCablingSwDn':cfprFabricCablingSwDn,'cfprFabricCablingSwRn':cfprFabricCablingSwRn,'cfprFabricCablingSwId':cfprFabricCablingSwId,'cfprFabricCablingSwLocale':cfprFabricCablingSwLocale,'cfprFabricCablingSwName':cfprFabricCablingSwName,'cfprFabricCablingSwTransport':cfprFabricCablingSwTransport,'cfprFabricCablingSwType':cfprFabricCablingSwType,'cfprFabricCdpLinkPolicyTable':cfprFabricCdpLinkPolicyTable,'cfprFabricCdpLinkPolicyEntry':cfprFabricCdpLinkPolicyEntry,_I:cfprFabricCdpLinkPolicyInstanceId,'cfprFabricCdpLinkPolicyDn':cfprFabricCdpLinkPolicyDn,'cfprFabricCdpLinkPolicyRn':cfprFabricCdpLinkPolicyRn,'cfprFabricCdpLinkPolicyAdminState':cfprFabricCdpLinkPolicyAdminState,'cfprFabricCdpLinkPolicyDescr':cfprFabricCdpLinkPolicyDescr,'cfprFabricCdpLinkPolicyIntId':cfprFabricCdpLinkPolicyIntId,'cfprFabricCdpLinkPolicyName':cfprFabricCdpLinkPolicyName,'cfprFabricCdpLinkPolicyPolicyLevel':cfprFabricCdpLinkPolicyPolicyLevel,'cfprFabricCdpLinkPolicyPolicyOwner':cfprFabricCdpLinkPolicyPolicyOwner,'cfprFabricCdpLinkPolicyProtocol':cfprFabricCdpLinkPolicyProtocol,'cfprFabricCdpLinkPolicyType':cfprFabricCdpLinkPolicyType,'cfprFabricChangedObjectRefTable':cfprFabricChangedObjectRefTable,'cfprFabricChangedObjectRefEntry':cfprFabricChangedObjectRefEntry,_J:cfprFabricChangedObjectRefInstanceId,'cfprFabricChangedObjectRefDn':cfprFabricChangedObjectRefDn,'cfprFabricChangedObjectRefRn':cfprFabricChangedObjectRefRn,'cfprFabricChangedObjectRefCentraleVnetEpDn':cfprFabricChangedObjectRefCentraleVnetEpDn,'cfprFabricChangedObjectRefId':cfprFabricChangedObjectRefId,'cfprFabricChangedObjectRefOldCentraleVnetEpDn':cfprFabricChangedObjectRefOldCentraleVnetEpDn,'cfprFabricChangedObjectRefRefObjStatus':cfprFabricChangedObjectRefRefObjStatus,'cfprFabricChangedObjectRefFprmVnetEpDn':cfprFabricChangedObjectRefFprmVnetEpDn,'cfprFabricChassisEpTable':cfprFabricChassisEpTable,'cfprFabricChassisEpEntry':cfprFabricChassisEpEntry,_K:cfprFabricChassisEpInstanceId,'cfprFabricChassisEpDn':cfprFabricChassisEpDn,'cfprFabricChassisEpRn':cfprFabricChassisEpRn,'cfprFabricChassisEpAdminState':cfprFabricChassisEpAdminState,'cfprFabricChassisEpAggrPortId':cfprFabricChassisEpAggrPortId,'cfprFabricChassisEpChassisDn':cfprFabricChassisEpChassisDn,'cfprFabricChassisEpChassisId':cfprFabricChassisEpChassisId,'cfprFabricChassisEpEpDn':cfprFabricChassisEpEpDn,'cfprFabricChassisEpFltAggr':cfprFabricChassisEpFltAggr,'cfprFabricChassisEpIfRole':cfprFabricChassisEpIfRole,'cfprFabricChassisEpIfType':cfprFabricChassisEpIfType,'cfprFabricChassisEpLicGP':cfprFabricChassisEpLicGP,'cfprFabricChassisEpLicState':cfprFabricChassisEpLicState,'cfprFabricChassisEpLocale':cfprFabricChassisEpLocale,'cfprFabricChassisEpModel':cfprFabricChassisEpModel,'cfprFabricChassisEpName':cfprFabricChassisEpName,'cfprFabricChassisEpOperState':cfprFabricChassisEpOperState,'cfprFabricChassisEpOperStateReason':cfprFabricChassisEpOperStateReason,'cfprFabricChassisEpPeerAggrPortId':cfprFabricChassisEpPeerAggrPortId,'cfprFabricChassisEpPeerChassisId':cfprFabricChassisEpPeerChassisId,'cfprFabricChassisEpPeerDn':cfprFabricChassisEpPeerDn,'cfprFabricChassisEpPeerPortId':cfprFabricChassisEpPeerPortId,'cfprFabricChassisEpPeerSlotId':cfprFabricChassisEpPeerSlotId,'cfprFabricChassisEpPortId':cfprFabricChassisEpPortId,'cfprFabricChassisEpRevision':cfprFabricChassisEpRevision,'cfprFabricChassisEpSerial':cfprFabricChassisEpSerial,'cfprFabricChassisEpSlotId':cfprFabricChassisEpSlotId,'cfprFabricChassisEpSwitchId':cfprFabricChassisEpSwitchId,'cfprFabricChassisEpTransport':cfprFabricChassisEpTransport,'cfprFabricChassisEpType':cfprFabricChassisEpType,'cfprFabricChassisEpVendor':cfprFabricChassisEpVendor,'cfprFabricComputePhEpTable':cfprFabricComputePhEpTable,'cfprFabricComputePhEpEntry':cfprFabricComputePhEpEntry,_L:cfprFabricComputePhEpInstanceId,'cfprFabricComputePhEpDn':cfprFabricComputePhEpDn,'cfprFabricComputePhEpRn':cfprFabricComputePhEpRn,'cfprFabricComputePhEpAdminState':cfprFabricComputePhEpAdminState,'cfprFabricComputePhEpAggrPortId':cfprFabricComputePhEpAggrPortId,'cfprFabricComputePhEpBoardAggregationRole':cfprFabricComputePhEpBoardAggregationRole,'cfprFabricComputePhEpChassisId':cfprFabricComputePhEpChassisId,'cfprFabricComputePhEpCheckpointTrigTs':cfprFabricComputePhEpCheckpointTrigTs,'cfprFabricComputePhEpDeepCheckpointTrigTs':cfprFabricComputePhEpDeepCheckpointTrigTs,'cfprFabricComputePhEpDiscTrigTs':cfprFabricComputePhEpDiscTrigTs,'cfprFabricComputePhEpEpDn':cfprFabricComputePhEpEpDn,'cfprFabricComputePhEpEqType':cfprFabricComputePhEpEqType,'cfprFabricComputePhEpFltAggr':cfprFabricComputePhEpFltAggr,'cfprFabricComputePhEpIfRole':cfprFabricComputePhEpIfRole,'cfprFabricComputePhEpIfType':cfprFabricComputePhEpIfType,'cfprFabricComputePhEpLc':cfprFabricComputePhEpLc,'cfprFabricComputePhEpLicGP':cfprFabricComputePhEpLicGP,'cfprFabricComputePhEpLicState':cfprFabricComputePhEpLicState,'cfprFabricComputePhEpLocale':cfprFabricComputePhEpLocale,'cfprFabricComputePhEpModel':cfprFabricComputePhEpModel,'cfprFabricComputePhEpName':cfprFabricComputePhEpName,'cfprFabricComputePhEpOperState':cfprFabricComputePhEpOperState,'cfprFabricComputePhEpOperStateReason':cfprFabricComputePhEpOperStateReason,'cfprFabricComputePhEpPeerAggrPortId':cfprFabricComputePhEpPeerAggrPortId,'cfprFabricComputePhEpPeerChassisId':cfprFabricComputePhEpPeerChassisId,'cfprFabricComputePhEpPeerDn':cfprFabricComputePhEpPeerDn,'cfprFabricComputePhEpPeerPortId':cfprFabricComputePhEpPeerPortId,'cfprFabricComputePhEpPeerSlotId':cfprFabricComputePhEpPeerSlotId,'cfprFabricComputePhEpPortId':cfprFabricComputePhEpPortId,'cfprFabricComputePhEpProfileDn':cfprFabricComputePhEpProfileDn,'cfprFabricComputePhEpRevision':cfprFabricComputePhEpRevision,'cfprFabricComputePhEpSerial':cfprFabricComputePhEpSerial,'cfprFabricComputePhEpSlotId':cfprFabricComputePhEpSlotId,'cfprFabricComputePhEpSwitchId':cfprFabricComputePhEpSwitchId,'cfprFabricComputePhEpTransport':cfprFabricComputePhEpTransport,'cfprFabricComputePhEpType':cfprFabricComputePhEpType,'cfprFabricComputePhEpVendor':cfprFabricComputePhEpVendor,'cfprFabricComputeSlotEpTable':cfprFabricComputeSlotEpTable,'cfprFabricComputeSlotEpEntry':cfprFabricComputeSlotEpEntry,_M:cfprFabricComputeSlotEpInstanceId,'cfprFabricComputeSlotEpDn':cfprFabricComputeSlotEpDn,'cfprFabricComputeSlotEpRn':cfprFabricComputeSlotEpRn,'cfprFabricComputeSlotEpAdminState':cfprFabricComputeSlotEpAdminState,'cfprFabricComputeSlotEpAggrPortId':cfprFabricComputeSlotEpAggrPortId,'cfprFabricComputeSlotEpBoardAggregationRole':cfprFabricComputeSlotEpBoardAggregationRole,'cfprFabricComputeSlotEpChassisId':cfprFabricComputeSlotEpChassisId,'cfprFabricComputeSlotEpConnPath':cfprFabricComputeSlotEpConnPath,'cfprFabricComputeSlotEpConnStatus':cfprFabricComputeSlotEpConnStatus,'cfprFabricComputeSlotEpDiscovery':cfprFabricComputeSlotEpDiscovery,'cfprFabricComputeSlotEpEpDn':cfprFabricComputeSlotEpEpDn,'cfprFabricComputeSlotEpFactoryResetFlag':cfprFabricComputeSlotEpFactoryResetFlag,'cfprFabricComputeSlotEpFltAggr':cfprFabricComputeSlotEpFltAggr,'cfprFabricComputeSlotEpFruIdentTrigTs':cfprFabricComputeSlotEpFruIdentTrigTs,'cfprFabricComputeSlotEpFsmDescr':cfprFabricComputeSlotEpFsmDescr,'cfprFabricComputeSlotEpFsmPrev':cfprFabricComputeSlotEpFsmPrev,'cfprFabricComputeSlotEpFsmProgr':cfprFabricComputeSlotEpFsmProgr,'cfprFabricComputeSlotEpFsmRmtInvErrCode':cfprFabricComputeSlotEpFsmRmtInvErrCode,'cfprFabricComputeSlotEpFsmRmtInvErrDescr':cfprFabricComputeSlotEpFsmRmtInvErrDescr,'cfprFabricComputeSlotEpFsmRmtInvRslt':cfprFabricComputeSlotEpFsmRmtInvRslt,'cfprFabricComputeSlotEpFsmStageDescr':cfprFabricComputeSlotEpFsmStageDescr,'cfprFabricComputeSlotEpFsmStamp':cfprFabricComputeSlotEpFsmStamp,'cfprFabricComputeSlotEpFsmStatus':cfprFabricComputeSlotEpFsmStatus,'cfprFabricComputeSlotEpFsmTry':cfprFabricComputeSlotEpFsmTry,'cfprFabricComputeSlotEpIfRole':cfprFabricComputeSlotEpIfRole,'cfprFabricComputeSlotEpIfType':cfprFabricComputeSlotEpIfType,'cfprFabricComputeSlotEpLcTs':cfprFabricComputeSlotEpLcTs,'cfprFabricComputeSlotEpLicGP':cfprFabricComputeSlotEpLicGP,'cfprFabricComputeSlotEpLicState':cfprFabricComputeSlotEpLicState,'cfprFabricComputeSlotEpLocale':cfprFabricComputeSlotEpLocale,'cfprFabricComputeSlotEpManagingInst':cfprFabricComputeSlotEpManagingInst,'cfprFabricComputeSlotEpModel':cfprFabricComputeSlotEpModel,'cfprFabricComputeSlotEpName':cfprFabricComputeSlotEpName,'cfprFabricComputeSlotEpOperState':cfprFabricComputeSlotEpOperState,'cfprFabricComputeSlotEpOperStateReason':cfprFabricComputeSlotEpOperStateReason,'cfprFabricComputeSlotEpPeerAggrPortId':cfprFabricComputeSlotEpPeerAggrPortId,'cfprFabricComputeSlotEpPeerChassisId':cfprFabricComputeSlotEpPeerChassisId,'cfprFabricComputeSlotEpPeerDn':cfprFabricComputeSlotEpPeerDn,'cfprFabricComputeSlotEpPeerPortId':cfprFabricComputeSlotEpPeerPortId,'cfprFabricComputeSlotEpPeerSlotEpDn':cfprFabricComputeSlotEpPeerSlotEpDn,'cfprFabricComputeSlotEpPeerSlotId':cfprFabricComputeSlotEpPeerSlotId,'cfprFabricComputeSlotEpPortId':cfprFabricComputeSlotEpPortId,'cfprFabricComputeSlotEpPresence':cfprFabricComputeSlotEpPresence,'cfprFabricComputeSlotEpPresencePath':cfprFabricComputeSlotEpPresencePath,'cfprFabricComputeSlotEpRevision':cfprFabricComputeSlotEpRevision,'cfprFabricComputeSlotEpSerial':cfprFabricComputeSlotEpSerial,'cfprFabricComputeSlotEpSlotId':cfprFabricComputeSlotEpSlotId,'cfprFabricComputeSlotEpSwitchId':cfprFabricComputeSlotEpSwitchId,'cfprFabricComputeSlotEpTransport':cfprFabricComputeSlotEpTransport,'cfprFabricComputeSlotEpType':cfprFabricComputeSlotEpType,'cfprFabricComputeSlotEpVendor':cfprFabricComputeSlotEpVendor,'cfprFabricComputeSlotEpBladeState':cfprFabricComputeSlotEpBladeState,'cfprFabricComputeSlotEpDecommissionSecure':cfprFabricComputeSlotEpDecommissionSecure,'cfprFabricComputeSlotEpFailReason':cfprFabricComputeSlotEpFailReason,'cfprFabricComputeSlotEpFsmTable':cfprFabricComputeSlotEpFsmTable,'cfprFabricComputeSlotEpFsmEntry':cfprFabricComputeSlotEpFsmEntry,_N:cfprFabricComputeSlotEpFsmInstanceId,'cfprFabricComputeSlotEpFsmDn':cfprFabricComputeSlotEpFsmDn,'cfprFabricComputeSlotEpFsmRn':cfprFabricComputeSlotEpFsmRn,'cfprFabricComputeSlotEpFsmCompletionTime':cfprFabricComputeSlotEpFsmCompletionTime,'cfprFabricComputeSlotEpFsmCurrentFsm':cfprFabricComputeSlotEpFsmCurrentFsm,'cfprFabricComputeSlotEpFsmDescrData':cfprFabricComputeSlotEpFsmDescrData,'cfprFabricComputeSlotEpFsmFsmStatus':cfprFabricComputeSlotEpFsmFsmStatus,'cfprFabricComputeSlotEpFsmProgress':cfprFabricComputeSlotEpFsmProgress,'cfprFabricComputeSlotEpFsmRmtErrCode':cfprFabricComputeSlotEpFsmRmtErrCode,'cfprFabricComputeSlotEpFsmRmtErrDescr':cfprFabricComputeSlotEpFsmRmtErrDescr,'cfprFabricComputeSlotEpFsmRmtRslt':cfprFabricComputeSlotEpFsmRmtRslt,'cfprFabricComputeSlotEpFsmStageTable':cfprFabricComputeSlotEpFsmStageTable,'cfprFabricComputeSlotEpFsmStageEntry':cfprFabricComputeSlotEpFsmStageEntry,_O:cfprFabricComputeSlotEpFsmStageInstanceId,'cfprFabricComputeSlotEpFsmStageDn':cfprFabricComputeSlotEpFsmStageDn,'cfprFabricComputeSlotEpFsmStageRn':cfprFabricComputeSlotEpFsmStageRn,'cfprFabricComputeSlotEpFsmStageDescrData':cfprFabricComputeSlotEpFsmStageDescrData,'cfprFabricComputeSlotEpFsmStageLastUpdateTime':cfprFabricComputeSlotEpFsmStageLastUpdateTime,'cfprFabricComputeSlotEpFsmStageName':cfprFabricComputeSlotEpFsmStageName,'cfprFabricComputeSlotEpFsmStageOrder':cfprFabricComputeSlotEpFsmStageOrder,'cfprFabricComputeSlotEpFsmStageRetry':cfprFabricComputeSlotEpFsmStageRetry,'cfprFabricComputeSlotEpFsmStageStageStatus':cfprFabricComputeSlotEpFsmStageStageStatus,'cfprFabricComputeSlotEpFsmTaskTable':cfprFabricComputeSlotEpFsmTaskTable,'cfprFabricComputeSlotEpFsmTaskEntry':cfprFabricComputeSlotEpFsmTaskEntry,_P:cfprFabricComputeSlotEpFsmTaskInstanceId,'cfprFabricComputeSlotEpFsmTaskDn':cfprFabricComputeSlotEpFsmTaskDn,'cfprFabricComputeSlotEpFsmTaskRn':cfprFabricComputeSlotEpFsmTaskRn,'cfprFabricComputeSlotEpFsmTaskCompletion':cfprFabricComputeSlotEpFsmTaskCompletion,'cfprFabricComputeSlotEpFsmTaskFlags':cfprFabricComputeSlotEpFsmTaskFlags,'cfprFabricComputeSlotEpFsmTaskItem':cfprFabricComputeSlotEpFsmTaskItem,'cfprFabricComputeSlotEpFsmTaskSeqId':cfprFabricComputeSlotEpFsmTaskSeqId,'cfprFabricDceSrvTable':cfprFabricDceSrvTable,'cfprFabricDceSrvEntry':cfprFabricDceSrvEntry,_Q:cfprFabricDceSrvInstanceId,'cfprFabricDceSrvDn':cfprFabricDceSrvDn,'cfprFabricDceSrvRn':cfprFabricDceSrvRn,'cfprFabricDceSrvId':cfprFabricDceSrvId,'cfprFabricDceSrvLocale':cfprFabricDceSrvLocale,'cfprFabricDceSrvName':cfprFabricDceSrvName,'cfprFabricDceSrvTransport':cfprFabricDceSrvTransport,'cfprFabricDceSrvType':cfprFabricDceSrvType,'cfprFabricDceSwSrvTable':cfprFabricDceSwSrvTable,'cfprFabricDceSwSrvEntry':cfprFabricDceSwSrvEntry,_R:cfprFabricDceSwSrvInstanceId,'cfprFabricDceSwSrvDn':cfprFabricDceSwSrvDn,'cfprFabricDceSwSrvRn':cfprFabricDceSwSrvRn,'cfprFabricDceSwSrvId':cfprFabricDceSwSrvId,'cfprFabricDceSwSrvLocale':cfprFabricDceSwSrvLocale,'cfprFabricDceSwSrvName':cfprFabricDceSwSrvName,'cfprFabricDceSwSrvTransport':cfprFabricDceSwSrvTransport,'cfprFabricDceSwSrvType':cfprFabricDceSwSrvType,'cfprFabricDceSwSrvEpTable':cfprFabricDceSwSrvEpTable,'cfprFabricDceSwSrvEpEntry':cfprFabricDceSwSrvEpEntry,_S:cfprFabricDceSwSrvEpInstanceId,'cfprFabricDceSwSrvEpDn':cfprFabricDceSwSrvEpDn,'cfprFabricDceSwSrvEpRn':cfprFabricDceSwSrvEpRn,'cfprFabricDceSwSrvEpAdminState':cfprFabricDceSwSrvEpAdminState,'cfprFabricDceSwSrvEpAggrPortId':cfprFabricDceSwSrvEpAggrPortId,'cfprFabricDceSwSrvEpChassisId':cfprFabricDceSwSrvEpChassisId,'cfprFabricDceSwSrvEpEpDn':cfprFabricDceSwSrvEpEpDn,'cfprFabricDceSwSrvEpFltAggr':cfprFabricDceSwSrvEpFltAggr,'cfprFabricDceSwSrvEpIfRole':cfprFabricDceSwSrvEpIfRole,'cfprFabricDceSwSrvEpIfType':cfprFabricDceSwSrvEpIfType,'cfprFabricDceSwSrvEpLicGP':cfprFabricDceSwSrvEpLicGP,'cfprFabricDceSwSrvEpLicState':cfprFabricDceSwSrvEpLicState,'cfprFabricDceSwSrvEpLocale':cfprFabricDceSwSrvEpLocale,'cfprFabricDceSwSrvEpName':cfprFabricDceSwSrvEpName,'cfprFabricDceSwSrvEpOperState':cfprFabricDceSwSrvEpOperState,'cfprFabricDceSwSrvEpOperStateReason':cfprFabricDceSwSrvEpOperStateReason,'cfprFabricDceSwSrvEpPeerAggrPortId':cfprFabricDceSwSrvEpPeerAggrPortId,'cfprFabricDceSwSrvEpPeerChassisId':cfprFabricDceSwSrvEpPeerChassisId,'cfprFabricDceSwSrvEpPeerDn':cfprFabricDceSwSrvEpPeerDn,'cfprFabricDceSwSrvEpPeerPortId':cfprFabricDceSwSrvEpPeerPortId,'cfprFabricDceSwSrvEpPeerSlotId':cfprFabricDceSwSrvEpPeerSlotId,'cfprFabricDceSwSrvEpPortId':cfprFabricDceSwSrvEpPortId,'cfprFabricDceSwSrvEpSlotId':cfprFabricDceSwSrvEpSlotId,'cfprFabricDceSwSrvEpSwitchId':cfprFabricDceSwSrvEpSwitchId,'cfprFabricDceSwSrvEpTransport':cfprFabricDceSwSrvEpTransport,'cfprFabricDceSwSrvEpType':cfprFabricDceSwSrvEpType,'cfprFabricDceSwSrvEpUsrLbl':cfprFabricDceSwSrvEpUsrLbl,'cfprFabricDceSwSrvPcTable':cfprFabricDceSwSrvPcTable,'cfprFabricDceSwSrvPcEntry':cfprFabricDceSwSrvPcEntry,_T:cfprFabricDceSwSrvPcInstanceId,'cfprFabricDceSwSrvPcDn':cfprFabricDceSwSrvPcDn,'cfprFabricDceSwSrvPcRn':cfprFabricDceSwSrvPcRn,'cfprFabricDceSwSrvPcAdminState':cfprFabricDceSwSrvPcAdminState,'cfprFabricDceSwSrvPcChassisId':cfprFabricDceSwSrvPcChassisId,'cfprFabricDceSwSrvPcDescr':cfprFabricDceSwSrvPcDescr,'cfprFabricDceSwSrvPcEpDn':cfprFabricDceSwSrvPcEpDn,'cfprFabricDceSwSrvPcFltAggr':cfprFabricDceSwSrvPcFltAggr,'cfprFabricDceSwSrvPcIfRole':cfprFabricDceSwSrvPcIfRole,'cfprFabricDceSwSrvPcIfType':cfprFabricDceSwSrvPcIfType,'cfprFabricDceSwSrvPcLocale':cfprFabricDceSwSrvPcLocale,'cfprFabricDceSwSrvPcName':cfprFabricDceSwSrvPcName,'cfprFabricDceSwSrvPcOperSpeed':cfprFabricDceSwSrvPcOperSpeed,'cfprFabricDceSwSrvPcOperState':cfprFabricDceSwSrvPcOperState,'cfprFabricDceSwSrvPcPeerDn':cfprFabricDceSwSrvPcPeerDn,'cfprFabricDceSwSrvPcPortId':cfprFabricDceSwSrvPcPortId,'cfprFabricDceSwSrvPcStateQual':cfprFabricDceSwSrvPcStateQual,'cfprFabricDceSwSrvPcSwitchId':cfprFabricDceSwSrvPcSwitchId,'cfprFabricDceSwSrvPcTransport':cfprFabricDceSwSrvPcTransport,'cfprFabricDceSwSrvPcType':cfprFabricDceSwSrvPcType,'cfprFabricDceSwSrvPcEpTable':cfprFabricDceSwSrvPcEpTable,'cfprFabricDceSwSrvPcEpEntry':cfprFabricDceSwSrvPcEpEntry,_U:cfprFabricDceSwSrvPcEpInstanceId,'cfprFabricDceSwSrvPcEpDnData':cfprFabricDceSwSrvPcEpDnData,'cfprFabricDceSwSrvPcEpRn':cfprFabricDceSwSrvPcEpRn,'cfprFabricDceSwSrvPcEpAdminState':cfprFabricDceSwSrvPcEpAdminState,'cfprFabricDceSwSrvPcEpAggrPortId':cfprFabricDceSwSrvPcEpAggrPortId,'cfprFabricDceSwSrvPcEpChassisId':cfprFabricDceSwSrvPcEpChassisId,'cfprFabricDceSwSrvPcEpEpDn':cfprFabricDceSwSrvPcEpEpDn,'cfprFabricDceSwSrvPcEpFltAggr':cfprFabricDceSwSrvPcEpFltAggr,'cfprFabricDceSwSrvPcEpIfRole':cfprFabricDceSwSrvPcEpIfRole,'cfprFabricDceSwSrvPcEpIfType':cfprFabricDceSwSrvPcEpIfType,'cfprFabricDceSwSrvPcEpLicGP':cfprFabricDceSwSrvPcEpLicGP,'cfprFabricDceSwSrvPcEpLicState':cfprFabricDceSwSrvPcEpLicState,'cfprFabricDceSwSrvPcEpLocale':cfprFabricDceSwSrvPcEpLocale,'cfprFabricDceSwSrvPcEpMembership':cfprFabricDceSwSrvPcEpMembership,'cfprFabricDceSwSrvPcEpName':cfprFabricDceSwSrvPcEpName,'cfprFabricDceSwSrvPcEpOperState':cfprFabricDceSwSrvPcEpOperState,'cfprFabricDceSwSrvPcEpOperStateReason':cfprFabricDceSwSrvPcEpOperStateReason,'cfprFabricDceSwSrvPcEpPeerAggrPortId':cfprFabricDceSwSrvPcEpPeerAggrPortId,'cfprFabricDceSwSrvPcEpPeerChassisId':cfprFabricDceSwSrvPcEpPeerChassisId,'cfprFabricDceSwSrvPcEpPeerDn':cfprFabricDceSwSrvPcEpPeerDn,'cfprFabricDceSwSrvPcEpPeerPortId':cfprFabricDceSwSrvPcEpPeerPortId,'cfprFabricDceSwSrvPcEpPeerSlotId':cfprFabricDceSwSrvPcEpPeerSlotId,'cfprFabricDceSwSrvPcEpPortId':cfprFabricDceSwSrvPcEpPortId,'cfprFabricDceSwSrvPcEpSlotId':cfprFabricDceSwSrvPcEpSlotId,'cfprFabricDceSwSrvPcEpSwitchId':cfprFabricDceSwSrvPcEpSwitchId,'cfprFabricDceSwSrvPcEpTransport':cfprFabricDceSwSrvPcEpTransport,'cfprFabricDceSwSrvPcEpType':cfprFabricDceSwSrvPcEpType,'cfprFabricDceSwSrvPcEpUsrLbl':cfprFabricDceSwSrvPcEpUsrLbl,'cfprFabricEpTable':cfprFabricEpTable,'cfprFabricEpEntry':cfprFabricEpEntry,_V:cfprFabricEpInstanceId,'cfprFabricEpDn':cfprFabricEpDn,'cfprFabricEpRn':cfprFabricEpRn,'cfprFabricEpMgrTable':cfprFabricEpMgrTable,'cfprFabricEpMgrEntry':cfprFabricEpMgrEntry,_W:cfprFabricEpMgrInstanceId,'cfprFabricEpMgrDn':cfprFabricEpMgrDn,'cfprFabricEpMgrRn':cfprFabricEpMgrRn,'cfprFabricEpMgrConfMode':cfprFabricEpMgrConfMode,'cfprFabricEpMgrConfQual':cfprFabricEpMgrConfQual,'cfprFabricEpMgrConfState':cfprFabricEpMgrConfState,'cfprFabricEpMgrFltAggr':cfprFabricEpMgrFltAggr,'cfprFabricEpMgrFsmDescr':cfprFabricEpMgrFsmDescr,'cfprFabricEpMgrFsmFlags':cfprFabricEpMgrFsmFlags,'cfprFabricEpMgrFsmPrev':cfprFabricEpMgrFsmPrev,'cfprFabricEpMgrFsmProgr':cfprFabricEpMgrFsmProgr,'cfprFabricEpMgrFsmRmtInvErrCode':cfprFabricEpMgrFsmRmtInvErrCode,'cfprFabricEpMgrFsmRmtInvErrDescr':cfprFabricEpMgrFsmRmtInvErrDescr,'cfprFabricEpMgrFsmRmtInvRslt':cfprFabricEpMgrFsmRmtInvRslt,'cfprFabricEpMgrFsmStageDescr':cfprFabricEpMgrFsmStageDescr,'cfprFabricEpMgrFsmStamp':cfprFabricEpMgrFsmStamp,'cfprFabricEpMgrFsmStatus':cfprFabricEpMgrFsmStatus,'cfprFabricEpMgrFsmTry':cfprFabricEpMgrFsmTry,'cfprFabricEpMgrId':cfprFabricEpMgrId,'cfprFabricEpMgrFsmTable':cfprFabricEpMgrFsmTable,'cfprFabricEpMgrFsmEntry':cfprFabricEpMgrFsmEntry,_X:cfprFabricEpMgrFsmInstanceId,'cfprFabricEpMgrFsmDn':cfprFabricEpMgrFsmDn,'cfprFabricEpMgrFsmRn':cfprFabricEpMgrFsmRn,'cfprFabricEpMgrFsmCompletionTime':cfprFabricEpMgrFsmCompletionTime,'cfprFabricEpMgrFsmCurrentFsm':cfprFabricEpMgrFsmCurrentFsm,'cfprFabricEpMgrFsmDescrData':cfprFabricEpMgrFsmDescrData,'cfprFabricEpMgrFsmFsmStatus':cfprFabricEpMgrFsmFsmStatus,'cfprFabricEpMgrFsmProgress':cfprFabricEpMgrFsmProgress,'cfprFabricEpMgrFsmRmtErrCode':cfprFabricEpMgrFsmRmtErrCode,'cfprFabricEpMgrFsmRmtErrDescr':cfprFabricEpMgrFsmRmtErrDescr,'cfprFabricEpMgrFsmRmtRslt':cfprFabricEpMgrFsmRmtRslt,'cfprFabricEpMgrFsmStageTable':cfprFabricEpMgrFsmStageTable,'cfprFabricEpMgrFsmStageEntry':cfprFabricEpMgrFsmStageEntry,_Y:cfprFabricEpMgrFsmStageInstanceId,'cfprFabricEpMgrFsmStageDn':cfprFabricEpMgrFsmStageDn,'cfprFabricEpMgrFsmStageRn':cfprFabricEpMgrFsmStageRn,'cfprFabricEpMgrFsmStageDescrData':cfprFabricEpMgrFsmStageDescrData,'cfprFabricEpMgrFsmStageLastUpdateTime':cfprFabricEpMgrFsmStageLastUpdateTime,'cfprFabricEpMgrFsmStageName':cfprFabricEpMgrFsmStageName,'cfprFabricEpMgrFsmStageOrder':cfprFabricEpMgrFsmStageOrder,'cfprFabricEpMgrFsmStageRetry':cfprFabricEpMgrFsmStageRetry,'cfprFabricEpMgrFsmStageStageStatus':cfprFabricEpMgrFsmStageStageStatus,'cfprFabricEpMgrFsmTaskTable':cfprFabricEpMgrFsmTaskTable,'cfprFabricEpMgrFsmTaskEntry':cfprFabricEpMgrFsmTaskEntry,_Z:cfprFabricEpMgrFsmTaskInstanceId,'cfprFabricEpMgrFsmTaskDn':cfprFabricEpMgrFsmTaskDn,'cfprFabricEpMgrFsmTaskRn':cfprFabricEpMgrFsmTaskRn,'cfprFabricEpMgrFsmTaskCompletion':cfprFabricEpMgrFsmTaskCompletion,'cfprFabricEpMgrFsmTaskFlags':cfprFabricEpMgrFsmTaskFlags,'cfprFabricEpMgrFsmTaskItem':cfprFabricEpMgrFsmTaskItem,'cfprFabricEpMgrFsmTaskSeqId':cfprFabricEpMgrFsmTaskSeqId,'cfprFabricEthEstcTable':cfprFabricEthEstcTable,'cfprFabricEthEstcEntry':cfprFabricEthEstcEntry,_a:cfprFabricEthEstcInstanceId,'cfprFabricEthEstcDn':cfprFabricEthEstcDn,'cfprFabricEthEstcRn':cfprFabricEthEstcRn,'cfprFabricEthEstcId':cfprFabricEthEstcId,'cfprFabricEthEstcLocale':cfprFabricEthEstcLocale,'cfprFabricEthEstcName':cfprFabricEthEstcName,'cfprFabricEthEstcTransport':cfprFabricEthEstcTransport,'cfprFabricEthEstcType':cfprFabricEthEstcType,'cfprFabricEthEstcCloudTable':cfprFabricEthEstcCloudTable,'cfprFabricEthEstcCloudEntry':cfprFabricEthEstcCloudEntry,_b:cfprFabricEthEstcCloudInstanceId,'cfprFabricEthEstcCloudDn':cfprFabricEthEstcCloudDn,'cfprFabricEthEstcCloudRn':cfprFabricEthEstcCloudRn,'cfprFabricEthEstcEpTable':cfprFabricEthEstcEpTable,'cfprFabricEthEstcEpEntry':cfprFabricEthEstcEpEntry,_c:cfprFabricEthEstcEpInstanceId,'cfprFabricEthEstcEpDn':cfprFabricEthEstcEpDn,'cfprFabricEthEstcEpRn':cfprFabricEthEstcEpRn,'cfprFabricEthEstcEpAdminSpeed':cfprFabricEthEstcEpAdminSpeed,'cfprFabricEthEstcEpAdminState':cfprFabricEthEstcEpAdminState,'cfprFabricEthEstcEpAggrPortId':cfprFabricEthEstcEpAggrPortId,'cfprFabricEthEstcEpChassisId':cfprFabricEthEstcEpChassisId,'cfprFabricEthEstcEpConfigState':cfprFabricEthEstcEpConfigState,'cfprFabricEthEstcEpEpDn':cfprFabricEthEstcEpEpDn,'cfprFabricEthEstcEpFlowCtrlPolicy':cfprFabricEthEstcEpFlowCtrlPolicy,'cfprFabricEthEstcEpFltAggr':cfprFabricEthEstcEpFltAggr,'cfprFabricEthEstcEpIfRole':cfprFabricEthEstcEpIfRole,'cfprFabricEthEstcEpIfType':cfprFabricEthEstcEpIfType,'cfprFabricEthEstcEpLicGP':cfprFabricEthEstcEpLicGP,'cfprFabricEthEstcEpLicState':cfprFabricEthEstcEpLicState,'cfprFabricEthEstcEpLocale':cfprFabricEthEstcEpLocale,'cfprFabricEthEstcEpName':cfprFabricEthEstcEpName,'cfprFabricEthEstcEpNwCtrlPolicyName':cfprFabricEthEstcEpNwCtrlPolicyName,'cfprFabricEthEstcEpOperNwCtrlPolicyName':cfprFabricEthEstcEpOperNwCtrlPolicyName,'cfprFabricEthEstcEpOperPortMode':cfprFabricEthEstcEpOperPortMode,'cfprFabricEthEstcEpOperState':cfprFabricEthEstcEpOperState,'cfprFabricEthEstcEpOperStateReason':cfprFabricEthEstcEpOperStateReason,'cfprFabricEthEstcEpPeerAggrPortId':cfprFabricEthEstcEpPeerAggrPortId,'cfprFabricEthEstcEpPeerChassisId':cfprFabricEthEstcEpPeerChassisId,'cfprFabricEthEstcEpPeerDn':cfprFabricEthEstcEpPeerDn,'cfprFabricEthEstcEpPeerPortId':cfprFabricEthEstcEpPeerPortId,'cfprFabricEthEstcEpPeerSlotId':cfprFabricEthEstcEpPeerSlotId,'cfprFabricEthEstcEpPinGroupName':cfprFabricEthEstcEpPinGroupName,'cfprFabricEthEstcEpPortId':cfprFabricEthEstcEpPortId,'cfprFabricEthEstcEpPortMode':cfprFabricEthEstcEpPortMode,'cfprFabricEthEstcEpPrio':cfprFabricEthEstcEpPrio,'cfprFabricEthEstcEpSlotId':cfprFabricEthEstcEpSlotId,'cfprFabricEthEstcEpSwitchId':cfprFabricEthEstcEpSwitchId,'cfprFabricEthEstcEpTransport':cfprFabricEthEstcEpTransport,'cfprFabricEthEstcEpType':cfprFabricEthEstcEpType,'cfprFabricEthEstcEpUsrLbl':cfprFabricEthEstcEpUsrLbl,'cfprFabricEthEstcEpWarnings':cfprFabricEthEstcEpWarnings,'cfprFabricEthEstcPcTable':cfprFabricEthEstcPcTable,'cfprFabricEthEstcPcEntry':cfprFabricEthEstcPcEntry,_d:cfprFabricEthEstcPcInstanceId,'cfprFabricEthEstcPcDn':cfprFabricEthEstcPcDn,'cfprFabricEthEstcPcRn':cfprFabricEthEstcPcRn,'cfprFabricEthEstcPcAdminSpeed':cfprFabricEthEstcPcAdminSpeed,'cfprFabricEthEstcPcAdminState':cfprFabricEthEstcPcAdminState,'cfprFabricEthEstcPcDescr':cfprFabricEthEstcPcDescr,'cfprFabricEthEstcPcEpDn':cfprFabricEthEstcPcEpDn,'cfprFabricEthEstcPcFlowCtrlPolicy':cfprFabricEthEstcPcFlowCtrlPolicy,'cfprFabricEthEstcPcFltAggr':cfprFabricEthEstcPcFltAggr,'cfprFabricEthEstcPcIfRole':cfprFabricEthEstcPcIfRole,'cfprFabricEthEstcPcIfType':cfprFabricEthEstcPcIfType,'cfprFabricEthEstcPcLacpPolicyName':cfprFabricEthEstcPcLacpPolicyName,'cfprFabricEthEstcPcLocale':cfprFabricEthEstcPcLocale,'cfprFabricEthEstcPcName':cfprFabricEthEstcPcName,'cfprFabricEthEstcPcNwCtrlPolicyName':cfprFabricEthEstcPcNwCtrlPolicyName,'cfprFabricEthEstcPcOperLacpPolicyName':cfprFabricEthEstcPcOperLacpPolicyName,'cfprFabricEthEstcPcOperNwCtrlPolicyName':cfprFabricEthEstcPcOperNwCtrlPolicyName,'cfprFabricEthEstcPcOperSpeed':cfprFabricEthEstcPcOperSpeed,'cfprFabricEthEstcPcOperState':cfprFabricEthEstcPcOperState,'cfprFabricEthEstcPcPeerDn':cfprFabricEthEstcPcPeerDn,'cfprFabricEthEstcPcPinGroupName':cfprFabricEthEstcPcPinGroupName,'cfprFabricEthEstcPcPortId':cfprFabricEthEstcPcPortId,'cfprFabricEthEstcPcPortMode':cfprFabricEthEstcPcPortMode,'cfprFabricEthEstcPcPrio':cfprFabricEthEstcPcPrio,'cfprFabricEthEstcPcProtocol':cfprFabricEthEstcPcProtocol,'cfprFabricEthEstcPcStateQual':cfprFabricEthEstcPcStateQual,'cfprFabricEthEstcPcSwitchId':cfprFabricEthEstcPcSwitchId,'cfprFabricEthEstcPcTransport':cfprFabricEthEstcPcTransport,'cfprFabricEthEstcPcType':cfprFabricEthEstcPcType,'cfprFabricEthEstcPcWarnings':cfprFabricEthEstcPcWarnings,'cfprFabricEthEstcPcEpTable':cfprFabricEthEstcPcEpTable,'cfprFabricEthEstcPcEpEntry':cfprFabricEthEstcPcEpEntry,_e:cfprFabricEthEstcPcEpInstanceId,'cfprFabricEthEstcPcEpDnData':cfprFabricEthEstcPcEpDnData,'cfprFabricEthEstcPcEpRn':cfprFabricEthEstcPcEpRn,'cfprFabricEthEstcPcEpAdminSpeed':cfprFabricEthEstcPcEpAdminSpeed,'cfprFabricEthEstcPcEpAdminState':cfprFabricEthEstcPcEpAdminState,'cfprFabricEthEstcPcEpAggrPortId':cfprFabricEthEstcPcEpAggrPortId,'cfprFabricEthEstcPcEpChassisId':cfprFabricEthEstcPcEpChassisId,'cfprFabricEthEstcPcEpConfigState':cfprFabricEthEstcPcEpConfigState,'cfprFabricEthEstcPcEpEpDn':cfprFabricEthEstcPcEpEpDn,'cfprFabricEthEstcPcEpFltAggr':cfprFabricEthEstcPcEpFltAggr,'cfprFabricEthEstcPcEpIfRole':cfprFabricEthEstcPcEpIfRole,'cfprFabricEthEstcPcEpIfType':cfprFabricEthEstcPcEpIfType,'cfprFabricEthEstcPcEpLicGP':cfprFabricEthEstcPcEpLicGP,'cfprFabricEthEstcPcEpLicState':cfprFabricEthEstcPcEpLicState,'cfprFabricEthEstcPcEpLocale':cfprFabricEthEstcPcEpLocale,'cfprFabricEthEstcPcEpMembership':cfprFabricEthEstcPcEpMembership,'cfprFabricEthEstcPcEpName':cfprFabricEthEstcPcEpName,'cfprFabricEthEstcPcEpOperState':cfprFabricEthEstcPcEpOperState,'cfprFabricEthEstcPcEpOperStateReason':cfprFabricEthEstcPcEpOperStateReason,'cfprFabricEthEstcPcEpPeerAggrPortId':cfprFabricEthEstcPcEpPeerAggrPortId,'cfprFabricEthEstcPcEpPeerChassisId':cfprFabricEthEstcPcEpPeerChassisId,'cfprFabricEthEstcPcEpPeerDn':cfprFabricEthEstcPcEpPeerDn,'cfprFabricEthEstcPcEpPeerPortId':cfprFabricEthEstcPcEpPeerPortId,'cfprFabricEthEstcPcEpPeerSlotId':cfprFabricEthEstcPcEpPeerSlotId,'cfprFabricEthEstcPcEpPortId':cfprFabricEthEstcPcEpPortId,'cfprFabricEthEstcPcEpSlotId':cfprFabricEthEstcPcEpSlotId,'cfprFabricEthEstcPcEpSwitchId':cfprFabricEthEstcPcEpSwitchId,'cfprFabricEthEstcPcEpTransport':cfprFabricEthEstcPcEpTransport,'cfprFabricEthEstcPcEpType':cfprFabricEthEstcPcEpType,'cfprFabricEthEstcPcEpUsrLbl':cfprFabricEthEstcPcEpUsrLbl,'cfprFabricEthEstcPcEpWarnings':cfprFabricEthEstcPcEpWarnings,'cfprFabricEthFlowMonLanTable':cfprFabricEthFlowMonLanTable,'cfprFabricEthFlowMonLanEntry':cfprFabricEthFlowMonLanEntry,_f:cfprFabricEthFlowMonLanInstanceId,'cfprFabricEthFlowMonLanDn':cfprFabricEthFlowMonLanDn,'cfprFabricEthFlowMonLanRn':cfprFabricEthFlowMonLanRn,'cfprFabricEthFlowMonLanExporterSourceMac':cfprFabricEthFlowMonLanExporterSourceMac,'cfprFabricEthFlowMonLanId':cfprFabricEthFlowMonLanId,'cfprFabricEthFlowMonLanLocale':cfprFabricEthFlowMonLanLocale,'cfprFabricEthFlowMonLanName':cfprFabricEthFlowMonLanName,'cfprFabricEthFlowMonLanTransport':cfprFabricEthFlowMonLanTransport,'cfprFabricEthFlowMonLanType':cfprFabricEthFlowMonLanType,'cfprFabricEthLanTable':cfprFabricEthLanTable,'cfprFabricEthLanEntry':cfprFabricEthLanEntry,_g:cfprFabricEthLanInstanceId,'cfprFabricEthLanDn':cfprFabricEthLanDn,'cfprFabricEthLanRn':cfprFabricEthLanRn,'cfprFabricEthLanId':cfprFabricEthLanId,'cfprFabricEthLanLocale':cfprFabricEthLanLocale,'cfprFabricEthLanName':cfprFabricEthLanName,'cfprFabricEthLanTransport':cfprFabricEthLanTransport,'cfprFabricEthLanType':cfprFabricEthLanType,'cfprFabricEthLanEpTable':cfprFabricEthLanEpTable,'cfprFabricEthLanEpEntry':cfprFabricEthLanEpEntry,_h:cfprFabricEthLanEpInstanceId,'cfprFabricEthLanEpDn':cfprFabricEthLanEpDn,'cfprFabricEthLanEpRn':cfprFabricEthLanEpRn,'cfprFabricEthLanEpAdminSpeed':cfprFabricEthLanEpAdminSpeed,'cfprFabricEthLanEpAdminState':cfprFabricEthLanEpAdminState,'cfprFabricEthLanEpAggrPortId':cfprFabricEthLanEpAggrPortId,'cfprFabricEthLanEpChassisId':cfprFabricEthLanEpChassisId,'cfprFabricEthLanEpDtagVlan':cfprFabricEthLanEpDtagVlan,'cfprFabricEthLanEpEpDn':cfprFabricEthLanEpEpDn,'cfprFabricEthLanEpEthLinkProfileName':cfprFabricEthLanEpEthLinkProfileName,'cfprFabricEthLanEpFlowCtrlPolicy':cfprFabricEthLanEpFlowCtrlPolicy,'cfprFabricEthLanEpFltAggr':cfprFabricEthLanEpFltAggr,'cfprFabricEthLanEpIfRole':cfprFabricEthLanEpIfRole,'cfprFabricEthLanEpIfType':cfprFabricEthLanEpIfType,'cfprFabricEthLanEpLicGP':cfprFabricEthLanEpLicGP,'cfprFabricEthLanEpLicState':cfprFabricEthLanEpLicState,'cfprFabricEthLanEpLocale':cfprFabricEthLanEpLocale,'cfprFabricEthLanEpName':cfprFabricEthLanEpName,'cfprFabricEthLanEpOperEthLinkProfileName':cfprFabricEthLanEpOperEthLinkProfileName,'cfprFabricEthLanEpOperState':cfprFabricEthLanEpOperState,'cfprFabricEthLanEpOperStateReason':cfprFabricEthLanEpOperStateReason,'cfprFabricEthLanEpOverlappingVlans':cfprFabricEthLanEpOverlappingVlans,'cfprFabricEthLanEpPeerAggrPortId':cfprFabricEthLanEpPeerAggrPortId,'cfprFabricEthLanEpPeerChassisId':cfprFabricEthLanEpPeerChassisId,'cfprFabricEthLanEpPeerDn':cfprFabricEthLanEpPeerDn,'cfprFabricEthLanEpPeerPortId':cfprFabricEthLanEpPeerPortId,'cfprFabricEthLanEpPeerSlotId':cfprFabricEthLanEpPeerSlotId,'cfprFabricEthLanEpPortId':cfprFabricEthLanEpPortId,'cfprFabricEthLanEpSlotId':cfprFabricEthLanEpSlotId,'cfprFabricEthLanEpSsaPortType':cfprFabricEthLanEpSsaPortType,'cfprFabricEthLanEpSsaVlanId':cfprFabricEthLanEpSsaVlanId,'cfprFabricEthLanEpSwitchId':cfprFabricEthLanEpSwitchId,'cfprFabricEthLanEpTransport':cfprFabricEthLanEpTransport,'cfprFabricEthLanEpType':cfprFabricEthLanEpType,'cfprFabricEthLanEpUdldOperState':cfprFabricEthLanEpUdldOperState,'cfprFabricEthLanEpUsrLbl':cfprFabricEthLanEpUsrLbl,'cfprFabricEthLanEpVlanStatus':cfprFabricEthLanEpVlanStatus,'cfprFabricEthLanEpWarnings':cfprFabricEthLanEpWarnings,'cfprFabricEthLanEpAdminDuplex':cfprFabricEthLanEpAdminDuplex,'cfprFabricEthLanEpAllowSharing':cfprFabricEthLanEpAllowSharing,'cfprFabricEthLanEpAllowedVlan':cfprFabricEthLanEpAllowedVlan,'cfprFabricEthLanEpAutoNeg':cfprFabricEthLanEpAutoNeg,'cfprFabricEthLanEpDescr':cfprFabricEthLanEpDescr,'cfprFabricEthLanEpHashAlg':cfprFabricEthLanEpHashAlg,'cfprFabricEthLanEpInlinePeerDn':cfprFabricEthLanEpInlinePeerDn,'cfprFabricEthLanEpInlinePeerName':cfprFabricEthLanEpInlinePeerName,'cfprFabricEthLanEpInlineState':cfprFabricEthLanEpInlineState,'cfprFabricEthLanEpQosPrio':cfprFabricEthLanEpQosPrio,'cfprFabricEthLanEpSpeedCap':cfprFabricEthLanEpSpeedCap,'cfprFabricEthLanEpNwCtrlPolicyName':cfprFabricEthLanEpNwCtrlPolicyName,'cfprFabricEthLanEpOperNwCtrlPolicyName':cfprFabricEthLanEpOperNwCtrlPolicyName,'cfprFabricEthLanEpAllowAneg':cfprFabricEthLanEpAllowAneg,'cfprFabricEthLanFlowMonitoringTable':cfprFabricEthLanFlowMonitoringTable,'cfprFabricEthLanFlowMonitoringEntry':cfprFabricEthLanFlowMonitoringEntry,_i:cfprFabricEthLanFlowMonitoringInstanceId,'cfprFabricEthLanFlowMonitoringDn':cfprFabricEthLanFlowMonitoringDn,'cfprFabricEthLanFlowMonitoringRn':cfprFabricEthLanFlowMonitoringRn,'cfprFabricEthLanFlowMonitoringAdminState':cfprFabricEthLanFlowMonitoringAdminState,'cfprFabricEthLanFlowMonitoringType':cfprFabricEthLanFlowMonitoringType,'cfprFabricEthLanPcTable':cfprFabricEthLanPcTable,'cfprFabricEthLanPcEntry':cfprFabricEthLanPcEntry,_j:cfprFabricEthLanPcInstanceId,'cfprFabricEthLanPcDn':cfprFabricEthLanPcDn,'cfprFabricEthLanPcRn':cfprFabricEthLanPcRn,'cfprFabricEthLanPcAdminSpeed':cfprFabricEthLanPcAdminSpeed,'cfprFabricEthLanPcAdminState':cfprFabricEthLanPcAdminState,'cfprFabricEthLanPcBandwidth':cfprFabricEthLanPcBandwidth,'cfprFabricEthLanPcClusterName':cfprFabricEthLanPcClusterName,'cfprFabricEthLanPcDescr':cfprFabricEthLanPcDescr,'cfprFabricEthLanPcDtagVlan':cfprFabricEthLanPcDtagVlan,'cfprFabricEthLanPcEpDn':cfprFabricEthLanPcEpDn,'cfprFabricEthLanPcFlowCtrlPolicy':cfprFabricEthLanPcFlowCtrlPolicy,'cfprFabricEthLanPcFltAggr':cfprFabricEthLanPcFltAggr,'cfprFabricEthLanPcIfRole':cfprFabricEthLanPcIfRole,'cfprFabricEthLanPcIfType':cfprFabricEthLanPcIfType,'cfprFabricEthLanPcLacpPolicyName':cfprFabricEthLanPcLacpPolicyName,'cfprFabricEthLanPcLocale':cfprFabricEthLanPcLocale,'cfprFabricEthLanPcName':cfprFabricEthLanPcName,'cfprFabricEthLanPcOperLacpPolicyName':cfprFabricEthLanPcOperLacpPolicyName,'cfprFabricEthLanPcOperSpeed':cfprFabricEthLanPcOperSpeed,'cfprFabricEthLanPcOperState':cfprFabricEthLanPcOperState,'cfprFabricEthLanPcOverlappingVlans':cfprFabricEthLanPcOverlappingVlans,'cfprFabricEthLanPcPeerDn':cfprFabricEthLanPcPeerDn,'cfprFabricEthLanPcPortId':cfprFabricEthLanPcPortId,'cfprFabricEthLanPcSpannedCluster':cfprFabricEthLanPcSpannedCluster,'cfprFabricEthLanPcSsaPortType':cfprFabricEthLanPcSsaPortType,'cfprFabricEthLanPcSsaVlanId':cfprFabricEthLanPcSsaVlanId,'cfprFabricEthLanPcStateQual':cfprFabricEthLanPcStateQual,'cfprFabricEthLanPcSwitchId':cfprFabricEthLanPcSwitchId,'cfprFabricEthLanPcTransport':cfprFabricEthLanPcTransport,'cfprFabricEthLanPcType':cfprFabricEthLanPcType,'cfprFabricEthLanPcVlanStatus':cfprFabricEthLanPcVlanStatus,'cfprFabricEthLanPcWarnings':cfprFabricEthLanPcWarnings,'cfprFabricEthLanPcCluChassisId':cfprFabricEthLanPcCluChassisId,'cfprFabricEthLanPcLacpDetach':cfprFabricEthLanPcLacpDetach,'cfprFabricEthLanPcAdminDuplex':cfprFabricEthLanPcAdminDuplex,'cfprFabricEthLanPcAllowSharing':cfprFabricEthLanPcAllowSharing,'cfprFabricEthLanPcAllowedVlan':cfprFabricEthLanPcAllowedVlan,'cfprFabricEthLanPcAutoNeg':cfprFabricEthLanPcAutoNeg,'cfprFabricEthLanPcHashAlg':cfprFabricEthLanPcHashAlg,'cfprFabricEthLanPcInlinePeerDn':cfprFabricEthLanPcInlinePeerDn,'cfprFabricEthLanPcInlinePeerName':cfprFabricEthLanPcInlinePeerName,'cfprFabricEthLanPcInlineState':cfprFabricEthLanPcInlineState,'cfprFabricEthLanPcLacpMode':cfprFabricEthLanPcLacpMode,'cfprFabricEthLanPcPcMode':cfprFabricEthLanPcPcMode,'cfprFabricEthLanPcPcModeState':cfprFabricEthLanPcPcModeState,'cfprFabricEthLanPcQosPrio':cfprFabricEthLanPcQosPrio,'cfprFabricEthLanPcSpeedCap':cfprFabricEthLanPcSpeedCap,'cfprFabricEthLanPcNwCtrlPolicyName':cfprFabricEthLanPcNwCtrlPolicyName,'cfprFabricEthLanPcOperNwCtrlPolicyName':cfprFabricEthLanPcOperNwCtrlPolicyName,'cfprFabricEthLanPcEpTable':cfprFabricEthLanPcEpTable,'cfprFabricEthLanPcEpEntry':cfprFabricEthLanPcEpEntry,_k:cfprFabricEthLanPcEpInstanceId,'cfprFabricEthLanPcEpDnData':cfprFabricEthLanPcEpDnData,'cfprFabricEthLanPcEpRn':cfprFabricEthLanPcEpRn,'cfprFabricEthLanPcEpAdminState':cfprFabricEthLanPcEpAdminState,'cfprFabricEthLanPcEpAggrPortId':cfprFabricEthLanPcEpAggrPortId,'cfprFabricEthLanPcEpChassisId':cfprFabricEthLanPcEpChassisId,'cfprFabricEthLanPcEpEpDn':cfprFabricEthLanPcEpEpDn,'cfprFabricEthLanPcEpEthLinkProfileName':cfprFabricEthLanPcEpEthLinkProfileName,'cfprFabricEthLanPcEpFltAggr':cfprFabricEthLanPcEpFltAggr,'cfprFabricEthLanPcEpIfRole':cfprFabricEthLanPcEpIfRole,'cfprFabricEthLanPcEpIfType':cfprFabricEthLanPcEpIfType,'cfprFabricEthLanPcEpLicGP':cfprFabricEthLanPcEpLicGP,'cfprFabricEthLanPcEpLicState':cfprFabricEthLanPcEpLicState,'cfprFabricEthLanPcEpLocale':cfprFabricEthLanPcEpLocale,'cfprFabricEthLanPcEpMembership':cfprFabricEthLanPcEpMembership,'cfprFabricEthLanPcEpName':cfprFabricEthLanPcEpName,'cfprFabricEthLanPcEpOperEthLinkProfileName':cfprFabricEthLanPcEpOperEthLinkProfileName,'cfprFabricEthLanPcEpOperState':cfprFabricEthLanPcEpOperState,'cfprFabricEthLanPcEpOperStateReason':cfprFabricEthLanPcEpOperStateReason,'cfprFabricEthLanPcEpPeerAggrPortId':cfprFabricEthLanPcEpPeerAggrPortId,'cfprFabricEthLanPcEpPeerChassisId':cfprFabricEthLanPcEpPeerChassisId,'cfprFabricEthLanPcEpPeerDn':cfprFabricEthLanPcEpPeerDn,'cfprFabricEthLanPcEpPeerPortId':cfprFabricEthLanPcEpPeerPortId,'cfprFabricEthLanPcEpPeerSlotId':cfprFabricEthLanPcEpPeerSlotId,'cfprFabricEthLanPcEpPortId':cfprFabricEthLanPcEpPortId,'cfprFabricEthLanPcEpSlotId':cfprFabricEthLanPcEpSlotId,'cfprFabricEthLanPcEpSwitchId':cfprFabricEthLanPcEpSwitchId,'cfprFabricEthLanPcEpTransport':cfprFabricEthLanPcEpTransport,'cfprFabricEthLanPcEpType':cfprFabricEthLanPcEpType,'cfprFabricEthLanPcEpUdldOperState':cfprFabricEthLanPcEpUdldOperState,'cfprFabricEthLanPcEpWarnings':cfprFabricEthLanPcEpWarnings,'cfprFabricEthLanPcEpDescr':cfprFabricEthLanPcEpDescr,'cfprFabricEthLanPcEpSpeedCap':cfprFabricEthLanPcEpSpeedCap,'cfprFabricEthLinkProfileTable':cfprFabricEthLinkProfileTable,'cfprFabricEthLinkProfileEntry':cfprFabricEthLinkProfileEntry,_l:cfprFabricEthLinkProfileInstanceId,'cfprFabricEthLinkProfileDn':cfprFabricEthLinkProfileDn,'cfprFabricEthLinkProfileRn':cfprFabricEthLinkProfileRn,'cfprFabricEthLinkProfileCdpLinkPolicyName':cfprFabricEthLinkProfileCdpLinkPolicyName,'cfprFabricEthLinkProfileDescr':cfprFabricEthLinkProfileDescr,'cfprFabricEthLinkProfileIntId':cfprFabricEthLinkProfileIntId,'cfprFabricEthLinkProfileName':cfprFabricEthLinkProfileName,'cfprFabricEthLinkProfileOperCdpLinkPolicyName':cfprFabricEthLinkProfileOperCdpLinkPolicyName,'cfprFabricEthLinkProfileOperUdldLinkPolicyName':cfprFabricEthLinkProfileOperUdldLinkPolicyName,'cfprFabricEthLinkProfilePolicyLevel':cfprFabricEthLinkProfilePolicyLevel,'cfprFabricEthLinkProfilePolicyOwner':cfprFabricEthLinkProfilePolicyOwner,'cfprFabricEthLinkProfileUdldLinkPolicyName':cfprFabricEthLinkProfileUdldLinkPolicyName,'cfprFabricEthMonTable':cfprFabricEthMonTable,'cfprFabricEthMonEntry':cfprFabricEthMonEntry,_m:cfprFabricEthMonInstanceId,'cfprFabricEthMonDn':cfprFabricEthMonDn,'cfprFabricEthMonRn':cfprFabricEthMonRn,'cfprFabricEthMonAdminState':cfprFabricEthMonAdminState,'cfprFabricEthMonConfigFailReason':cfprFabricEthMonConfigFailReason,'cfprFabricEthMonId':cfprFabricEthMonId,'cfprFabricEthMonIsConfigSuccess':cfprFabricEthMonIsConfigSuccess,'cfprFabricEthMonLocale':cfprFabricEthMonLocale,'cfprFabricEthMonName':cfprFabricEthMonName,'cfprFabricEthMonOperState':cfprFabricEthMonOperState,'cfprFabricEthMonOperStateReason':cfprFabricEthMonOperStateReason,'cfprFabricEthMonPeerDn':cfprFabricEthMonPeerDn,'cfprFabricEthMonSession':cfprFabricEthMonSession,'cfprFabricEthMonTransport':cfprFabricEthMonTransport,'cfprFabricEthMonType':cfprFabricEthMonType,'cfprFabricEthMonDestEpTable':cfprFabricEthMonDestEpTable,'cfprFabricEthMonDestEpEntry':cfprFabricEthMonDestEpEntry,_n:cfprFabricEthMonDestEpInstanceId,'cfprFabricEthMonDestEpDn':cfprFabricEthMonDestEpDn,'cfprFabricEthMonDestEpRn':cfprFabricEthMonDestEpRn,'cfprFabricEthMonDestEpAdminSpeed':cfprFabricEthMonDestEpAdminSpeed,'cfprFabricEthMonDestEpAdminState':cfprFabricEthMonDestEpAdminState,'cfprFabricEthMonDestEpAggrPortId':cfprFabricEthMonDestEpAggrPortId,'cfprFabricEthMonDestEpChassisId':cfprFabricEthMonDestEpChassisId,'cfprFabricEthMonDestEpEpDn':cfprFabricEthMonDestEpEpDn,'cfprFabricEthMonDestEpFltAggr':cfprFabricEthMonDestEpFltAggr,'cfprFabricEthMonDestEpIfRole':cfprFabricEthMonDestEpIfRole,'cfprFabricEthMonDestEpIfType':cfprFabricEthMonDestEpIfType,'cfprFabricEthMonDestEpLicGP':cfprFabricEthMonDestEpLicGP,'cfprFabricEthMonDestEpLicState':cfprFabricEthMonDestEpLicState,'cfprFabricEthMonDestEpLocale':cfprFabricEthMonDestEpLocale,'cfprFabricEthMonDestEpName':cfprFabricEthMonDestEpName,'cfprFabricEthMonDestEpOperState':cfprFabricEthMonDestEpOperState,'cfprFabricEthMonDestEpOperStateReason':cfprFabricEthMonDestEpOperStateReason,'cfprFabricEthMonDestEpPeerAggrPortId':cfprFabricEthMonDestEpPeerAggrPortId,'cfprFabricEthMonDestEpPeerChassisId':cfprFabricEthMonDestEpPeerChassisId,'cfprFabricEthMonDestEpPeerDn':cfprFabricEthMonDestEpPeerDn,'cfprFabricEthMonDestEpPeerPortId':cfprFabricEthMonDestEpPeerPortId,'cfprFabricEthMonDestEpPeerSlotId':cfprFabricEthMonDestEpPeerSlotId,'cfprFabricEthMonDestEpPortId':cfprFabricEthMonDestEpPortId,'cfprFabricEthMonDestEpSlotId':cfprFabricEthMonDestEpSlotId,'cfprFabricEthMonDestEpSwitchId':cfprFabricEthMonDestEpSwitchId,'cfprFabricEthMonDestEpTransport':cfprFabricEthMonDestEpTransport,'cfprFabricEthMonDestEpType':cfprFabricEthMonDestEpType,'cfprFabricEthMonDestEpWarnings':cfprFabricEthMonDestEpWarnings,'cfprFabricEthMonFiltEpTable':cfprFabricEthMonFiltEpTable,'cfprFabricEthMonFiltEpEntry':cfprFabricEthMonFiltEpEntry,_o:cfprFabricEthMonFiltEpInstanceId,'cfprFabricEthMonFiltEpDn':cfprFabricEthMonFiltEpDn,'cfprFabricEthMonFiltEpRn':cfprFabricEthMonFiltEpRn,'cfprFabricEthMonFiltEpName':cfprFabricEthMonFiltEpName,'cfprFabricEthMonFiltEpSession':cfprFabricEthMonFiltEpSession,'cfprFabricEthMonFiltEpType':cfprFabricEthMonFiltEpType,'cfprFabricEthMonFiltRefTable':cfprFabricEthMonFiltRefTable,'cfprFabricEthMonFiltRefEntry':cfprFabricEthMonFiltRefEntry,_p:cfprFabricEthMonFiltRefInstanceId,'cfprFabricEthMonFiltRefDn':cfprFabricEthMonFiltRefDn,'cfprFabricEthMonFiltRefRn':cfprFabricEthMonFiltRefRn,'cfprFabricEthMonFiltRefSrcFiltDn':cfprFabricEthMonFiltRefSrcFiltDn,'cfprFabricEthMonFiltRefType':cfprFabricEthMonFiltRefType,'cfprFabricEthMonLanTable':cfprFabricEthMonLanTable,'cfprFabricEthMonLanEntry':cfprFabricEthMonLanEntry,_q:cfprFabricEthMonLanInstanceId,'cfprFabricEthMonLanDn':cfprFabricEthMonLanDn,'cfprFabricEthMonLanRn':cfprFabricEthMonLanRn,'cfprFabricEthMonLanId':cfprFabricEthMonLanId,'cfprFabricEthMonLanLocale':cfprFabricEthMonLanLocale,'cfprFabricEthMonLanName':cfprFabricEthMonLanName,'cfprFabricEthMonLanTransport':cfprFabricEthMonLanTransport,'cfprFabricEthMonLanType':cfprFabricEthMonLanType,'cfprFabricEthMonSrcEpTable':cfprFabricEthMonSrcEpTable,'cfprFabricEthMonSrcEpEntry':cfprFabricEthMonSrcEpEntry,_r:cfprFabricEthMonSrcEpInstanceId,'cfprFabricEthMonSrcEpDn':cfprFabricEthMonSrcEpDn,'cfprFabricEthMonSrcEpRn':cfprFabricEthMonSrcEpRn,'cfprFabricEthMonSrcEpDirection':cfprFabricEthMonSrcEpDirection,'cfprFabricEthMonSrcEpName':cfprFabricEthMonSrcEpName,'cfprFabricEthMonSrcEpSession':cfprFabricEthMonSrcEpSession,'cfprFabricEthMonSrcEpTransport':cfprFabricEthMonSrcEpTransport,'cfprFabricEthMonSrcEpType':cfprFabricEthMonSrcEpType,'cfprFabricEthMonSrcRefTable':cfprFabricEthMonSrcRefTable,'cfprFabricEthMonSrcRefEntry':cfprFabricEthMonSrcRefEntry,_s:cfprFabricEthMonSrcRefInstanceId,'cfprFabricEthMonSrcRefDn':cfprFabricEthMonSrcRefDn,'cfprFabricEthMonSrcRefRn':cfprFabricEthMonSrcRefRn,'cfprFabricEthMonSrcRefId':cfprFabricEthMonSrcRefId,'cfprFabricEthMonSrcRefSourceDn':cfprFabricEthMonSrcRefSourceDn,'cfprFabricEthMonSrcRefSourceType':cfprFabricEthMonSrcRefSourceType,'cfprFabricEthMonSrcRefType':cfprFabricEthMonSrcRefType,'cfprFabricEthTargetEpTable':cfprFabricEthTargetEpTable,'cfprFabricEthTargetEpEntry':cfprFabricEthTargetEpEntry,_t:cfprFabricEthTargetEpInstanceId,'cfprFabricEthTargetEpDn':cfprFabricEthTargetEpDn,'cfprFabricEthTargetEpRn':cfprFabricEthTargetEpRn,'cfprFabricEthTargetEpAdminState':cfprFabricEthTargetEpAdminState,'cfprFabricEthTargetEpAggrPortId':cfprFabricEthTargetEpAggrPortId,'cfprFabricEthTargetEpChassisId':cfprFabricEthTargetEpChassisId,'cfprFabricEthTargetEpEpDn':cfprFabricEthTargetEpEpDn,'cfprFabricEthTargetEpFltAggr':cfprFabricEthTargetEpFltAggr,'cfprFabricEthTargetEpIfRole':cfprFabricEthTargetEpIfRole,'cfprFabricEthTargetEpIfType':cfprFabricEthTargetEpIfType,'cfprFabricEthTargetEpLicGP':cfprFabricEthTargetEpLicGP,'cfprFabricEthTargetEpLicState':cfprFabricEthTargetEpLicState,'cfprFabricEthTargetEpLocale':cfprFabricEthTargetEpLocale,'cfprFabricEthTargetEpMacAddress':cfprFabricEthTargetEpMacAddress,'cfprFabricEthTargetEpName':cfprFabricEthTargetEpName,'cfprFabricEthTargetEpOperState':cfprFabricEthTargetEpOperState,'cfprFabricEthTargetEpOperStateReason':cfprFabricEthTargetEpOperStateReason,'cfprFabricEthTargetEpPeerAggrPortId':cfprFabricEthTargetEpPeerAggrPortId,'cfprFabricEthTargetEpPeerChassisId':cfprFabricEthTargetEpPeerChassisId,'cfprFabricEthTargetEpPeerDn':cfprFabricEthTargetEpPeerDn,'cfprFabricEthTargetEpPeerPortId':cfprFabricEthTargetEpPeerPortId,'cfprFabricEthTargetEpPeerSlotId':cfprFabricEthTargetEpPeerSlotId,'cfprFabricEthTargetEpPortId':cfprFabricEthTargetEpPortId,'cfprFabricEthTargetEpSlotId':cfprFabricEthTargetEpSlotId,'cfprFabricEthTargetEpSwitchId':cfprFabricEthTargetEpSwitchId,'cfprFabricEthTargetEpTransport':cfprFabricEthTargetEpTransport,'cfprFabricEthTargetEpType':cfprFabricEthTargetEpType,'cfprFabricEthTargetEpWarnings':cfprFabricEthTargetEpWarnings,'cfprFabricEthVlanPcTable':cfprFabricEthVlanPcTable,'cfprFabricEthVlanPcEntry':cfprFabricEthVlanPcEntry,_u:cfprFabricEthVlanPcInstanceId,'cfprFabricEthVlanPcDn':cfprFabricEthVlanPcDn,'cfprFabricEthVlanPcRn':cfprFabricEthVlanPcRn,'cfprFabricEthVlanPcAdminSpeed':cfprFabricEthVlanPcAdminSpeed,'cfprFabricEthVlanPcAdminState':cfprFabricEthVlanPcAdminState,'cfprFabricEthVlanPcDescr':cfprFabricEthVlanPcDescr,'cfprFabricEthVlanPcEpDn':cfprFabricEthVlanPcEpDn,'cfprFabricEthVlanPcFltAggr':cfprFabricEthVlanPcFltAggr,'cfprFabricEthVlanPcIfRole':cfprFabricEthVlanPcIfRole,'cfprFabricEthVlanPcIfType':cfprFabricEthVlanPcIfType,'cfprFabricEthVlanPcIsNative':cfprFabricEthVlanPcIsNative,'cfprFabricEthVlanPcLocale':cfprFabricEthVlanPcLocale,'cfprFabricEthVlanPcName':cfprFabricEthVlanPcName,'cfprFabricEthVlanPcOperSpeed':cfprFabricEthVlanPcOperSpeed,'cfprFabricEthVlanPcOperState':cfprFabricEthVlanPcOperState,'cfprFabricEthVlanPcPeerDn':cfprFabricEthVlanPcPeerDn,'cfprFabricEthVlanPcPortId':cfprFabricEthVlanPcPortId,'cfprFabricEthVlanPcStateQual':cfprFabricEthVlanPcStateQual,'cfprFabricEthVlanPcSwitchId':cfprFabricEthVlanPcSwitchId,'cfprFabricEthVlanPcTransport':cfprFabricEthVlanPcTransport,'cfprFabricEthVlanPcType':cfprFabricEthVlanPcType,'cfprFabricEthVlanPcWarnings':cfprFabricEthVlanPcWarnings,'cfprFabricEthVlanPortEpTable':cfprFabricEthVlanPortEpTable,'cfprFabricEthVlanPortEpEntry':cfprFabricEthVlanPortEpEntry,_v:cfprFabricEthVlanPortEpInstanceId,'cfprFabricEthVlanPortEpDn':cfprFabricEthVlanPortEpDn,'cfprFabricEthVlanPortEpRn':cfprFabricEthVlanPortEpRn,'cfprFabricEthVlanPortEpAdminState':cfprFabricEthVlanPortEpAdminState,'cfprFabricEthVlanPortEpAggrPortId':cfprFabricEthVlanPortEpAggrPortId,'cfprFabricEthVlanPortEpChassisId':cfprFabricEthVlanPortEpChassisId,'cfprFabricEthVlanPortEpEpDn':cfprFabricEthVlanPortEpEpDn,'cfprFabricEthVlanPortEpFltAggr':cfprFabricEthVlanPortEpFltAggr,'cfprFabricEthVlanPortEpIfRole':cfprFabricEthVlanPortEpIfRole,'cfprFabricEthVlanPortEpIfType':cfprFabricEthVlanPortEpIfType,'cfprFabricEthVlanPortEpIsNative':cfprFabricEthVlanPortEpIsNative,'cfprFabricEthVlanPortEpLicGP':cfprFabricEthVlanPortEpLicGP,'cfprFabricEthVlanPortEpLicState':cfprFabricEthVlanPortEpLicState,'cfprFabricEthVlanPortEpLocale':cfprFabricEthVlanPortEpLocale,'cfprFabricEthVlanPortEpName':cfprFabricEthVlanPortEpName,'cfprFabricEthVlanPortEpOperState':cfprFabricEthVlanPortEpOperState,'cfprFabricEthVlanPortEpOperStateReason':cfprFabricEthVlanPortEpOperStateReason,'cfprFabricEthVlanPortEpPeerAggrPortId':cfprFabricEthVlanPortEpPeerAggrPortId,'cfprFabricEthVlanPortEpPeerChassisId':cfprFabricEthVlanPortEpPeerChassisId,'cfprFabricEthVlanPortEpPeerDn':cfprFabricEthVlanPortEpPeerDn,'cfprFabricEthVlanPortEpPeerPortId':cfprFabricEthVlanPortEpPeerPortId,'cfprFabricEthVlanPortEpPeerSlotId':cfprFabricEthVlanPortEpPeerSlotId,'cfprFabricEthVlanPortEpPortId':cfprFabricEthVlanPortEpPortId,'cfprFabricEthVlanPortEpSlotId':cfprFabricEthVlanPortEpSlotId,'cfprFabricEthVlanPortEpSwitchId':cfprFabricEthVlanPortEpSwitchId,'cfprFabricEthVlanPortEpTransport':cfprFabricEthVlanPortEpTransport,'cfprFabricEthVlanPortEpType':cfprFabricEthVlanPortEpType,'cfprFabricEthVlanPortEpWarnings':cfprFabricEthVlanPortEpWarnings,'cfprFabricFcEstcTable':cfprFabricFcEstcTable,'cfprFabricFcEstcEntry':cfprFabricFcEstcEntry,_w:cfprFabricFcEstcInstanceId,'cfprFabricFcEstcDn':cfprFabricFcEstcDn,'cfprFabricFcEstcRn':cfprFabricFcEstcRn,'cfprFabricFcEstcId':cfprFabricFcEstcId,'cfprFabricFcEstcLocale':cfprFabricFcEstcLocale,'cfprFabricFcEstcName':cfprFabricFcEstcName,'cfprFabricFcEstcTransport':cfprFabricFcEstcTransport,'cfprFabricFcEstcType':cfprFabricFcEstcType,'cfprFabricFcEstcCloudTable':cfprFabricFcEstcCloudTable,'cfprFabricFcEstcCloudEntry':cfprFabricFcEstcCloudEntry,_x:cfprFabricFcEstcCloudInstanceId,'cfprFabricFcEstcCloudDn':cfprFabricFcEstcCloudDn,'cfprFabricFcEstcCloudRn':cfprFabricFcEstcCloudRn,'cfprFabricFcEstcEpTable':cfprFabricFcEstcEpTable,'cfprFabricFcEstcEpEntry':cfprFabricFcEstcEpEntry,_y:cfprFabricFcEstcEpInstanceId,'cfprFabricFcEstcEpDn':cfprFabricFcEstcEpDn,'cfprFabricFcEstcEpRn':cfprFabricFcEstcEpRn,'cfprFabricFcEstcEpAdminState':cfprFabricFcEstcEpAdminState,'cfprFabricFcEstcEpAggrPortId':cfprFabricFcEstcEpAggrPortId,'cfprFabricFcEstcEpChassisId':cfprFabricFcEstcEpChassisId,'cfprFabricFcEstcEpConfigState':cfprFabricFcEstcEpConfigState,'cfprFabricFcEstcEpEpDn':cfprFabricFcEstcEpEpDn,'cfprFabricFcEstcEpFillPattern':cfprFabricFcEstcEpFillPattern,'cfprFabricFcEstcEpFltAggr':cfprFabricFcEstcEpFltAggr,'cfprFabricFcEstcEpIfRole':cfprFabricFcEstcEpIfRole,'cfprFabricFcEstcEpIfType':cfprFabricFcEstcEpIfType,'cfprFabricFcEstcEpLicGP':cfprFabricFcEstcEpLicGP,'cfprFabricFcEstcEpLicState':cfprFabricFcEstcEpLicState,'cfprFabricFcEstcEpLocale':cfprFabricFcEstcEpLocale,'cfprFabricFcEstcEpName':cfprFabricFcEstcEpName,'cfprFabricFcEstcEpOperState':cfprFabricFcEstcEpOperState,'cfprFabricFcEstcEpOperStateReason':cfprFabricFcEstcEpOperStateReason,'cfprFabricFcEstcEpPeerAggrPortId':cfprFabricFcEstcEpPeerAggrPortId,'cfprFabricFcEstcEpPeerChassisId':cfprFabricFcEstcEpPeerChassisId,'cfprFabricFcEstcEpPeerDn':cfprFabricFcEstcEpPeerDn,'cfprFabricFcEstcEpPeerPortId':cfprFabricFcEstcEpPeerPortId,'cfprFabricFcEstcEpPeerSlotId':cfprFabricFcEstcEpPeerSlotId,'cfprFabricFcEstcEpPortId':cfprFabricFcEstcEpPortId,'cfprFabricFcEstcEpSlotId':cfprFabricFcEstcEpSlotId,'cfprFabricFcEstcEpSwitchId':cfprFabricFcEstcEpSwitchId,'cfprFabricFcEstcEpTransport':cfprFabricFcEstcEpTransport,'cfprFabricFcEstcEpType':cfprFabricFcEstcEpType,'cfprFabricFcEstcEpUsrLbl':cfprFabricFcEstcEpUsrLbl,'cfprFabricFcEstcEpWarnings':cfprFabricFcEstcEpWarnings,'cfprFabricFcMonTable':cfprFabricFcMonTable,'cfprFabricFcMonEntry':cfprFabricFcMonEntry,_z:cfprFabricFcMonInstanceId,'cfprFabricFcMonDn':cfprFabricFcMonDn,'cfprFabricFcMonRn':cfprFabricFcMonRn,'cfprFabricFcMonAdminState':cfprFabricFcMonAdminState,'cfprFabricFcMonConfigFailReason':cfprFabricFcMonConfigFailReason,'cfprFabricFcMonId':cfprFabricFcMonId,'cfprFabricFcMonIsConfigSuccess':cfprFabricFcMonIsConfigSuccess,'cfprFabricFcMonLocale':cfprFabricFcMonLocale,'cfprFabricFcMonName':cfprFabricFcMonName,'cfprFabricFcMonOperState':cfprFabricFcMonOperState,'cfprFabricFcMonOperStateReason':cfprFabricFcMonOperStateReason,'cfprFabricFcMonPeerDn':cfprFabricFcMonPeerDn,'cfprFabricFcMonSession':cfprFabricFcMonSession,'cfprFabricFcMonTransport':cfprFabricFcMonTransport,'cfprFabricFcMonType':cfprFabricFcMonType,'cfprFabricFcMonDestEpTable':cfprFabricFcMonDestEpTable,'cfprFabricFcMonDestEpEntry':cfprFabricFcMonDestEpEntry,_A0:cfprFabricFcMonDestEpInstanceId,'cfprFabricFcMonDestEpDn':cfprFabricFcMonDestEpDn,'cfprFabricFcMonDestEpRn':cfprFabricFcMonDestEpRn,'cfprFabricFcMonDestEpAdminSpeed':cfprFabricFcMonDestEpAdminSpeed,'cfprFabricFcMonDestEpAdminState':cfprFabricFcMonDestEpAdminState,'cfprFabricFcMonDestEpAggrPortId':cfprFabricFcMonDestEpAggrPortId,'cfprFabricFcMonDestEpChassisId':cfprFabricFcMonDestEpChassisId,'cfprFabricFcMonDestEpEpDn':cfprFabricFcMonDestEpEpDn,'cfprFabricFcMonDestEpFltAggr':cfprFabricFcMonDestEpFltAggr,'cfprFabricFcMonDestEpIfRole':cfprFabricFcMonDestEpIfRole,'cfprFabricFcMonDestEpIfType':cfprFabricFcMonDestEpIfType,'cfprFabricFcMonDestEpLicGP':cfprFabricFcMonDestEpLicGP,'cfprFabricFcMonDestEpLicState':cfprFabricFcMonDestEpLicState,'cfprFabricFcMonDestEpLocale':cfprFabricFcMonDestEpLocale,'cfprFabricFcMonDestEpName':cfprFabricFcMonDestEpName,'cfprFabricFcMonDestEpOperState':cfprFabricFcMonDestEpOperState,'cfprFabricFcMonDestEpOperStateReason':cfprFabricFcMonDestEpOperStateReason,'cfprFabricFcMonDestEpPeerAggrPortId':cfprFabricFcMonDestEpPeerAggrPortId,'cfprFabricFcMonDestEpPeerChassisId':cfprFabricFcMonDestEpPeerChassisId,'cfprFabricFcMonDestEpPeerDn':cfprFabricFcMonDestEpPeerDn,'cfprFabricFcMonDestEpPeerPortId':cfprFabricFcMonDestEpPeerPortId,'cfprFabricFcMonDestEpPeerSlotId':cfprFabricFcMonDestEpPeerSlotId,'cfprFabricFcMonDestEpPortId':cfprFabricFcMonDestEpPortId,'cfprFabricFcMonDestEpSlotId':cfprFabricFcMonDestEpSlotId,'cfprFabricFcMonDestEpSwitchId':cfprFabricFcMonDestEpSwitchId,'cfprFabricFcMonDestEpTransport':cfprFabricFcMonDestEpTransport,'cfprFabricFcMonDestEpType':cfprFabricFcMonDestEpType,'cfprFabricFcMonDestEpWarnings':cfprFabricFcMonDestEpWarnings,'cfprFabricFcMonFiltEpTable':cfprFabricFcMonFiltEpTable,'cfprFabricFcMonFiltEpEntry':cfprFabricFcMonFiltEpEntry,_A1:cfprFabricFcMonFiltEpInstanceId,'cfprFabricFcMonFiltEpDn':cfprFabricFcMonFiltEpDn,'cfprFabricFcMonFiltEpRn':cfprFabricFcMonFiltEpRn,'cfprFabricFcMonFiltEpName':cfprFabricFcMonFiltEpName,'cfprFabricFcMonFiltEpSession':cfprFabricFcMonFiltEpSession,'cfprFabricFcMonFiltEpType':cfprFabricFcMonFiltEpType,'cfprFabricFcMonFiltRefTable':cfprFabricFcMonFiltRefTable,'cfprFabricFcMonFiltRefEntry':cfprFabricFcMonFiltRefEntry,_A2:cfprFabricFcMonFiltRefInstanceId,'cfprFabricFcMonFiltRefDn':cfprFabricFcMonFiltRefDn,'cfprFabricFcMonFiltRefRn':cfprFabricFcMonFiltRefRn,'cfprFabricFcMonFiltRefSrcFiltDn':cfprFabricFcMonFiltRefSrcFiltDn,'cfprFabricFcMonFiltRefType':cfprFabricFcMonFiltRefType,'cfprFabricFcMonSanTable':cfprFabricFcMonSanTable,'cfprFabricFcMonSanEntry':cfprFabricFcMonSanEntry,_A3:cfprFabricFcMonSanInstanceId,'cfprFabricFcMonSanDn':cfprFabricFcMonSanDn,'cfprFabricFcMonSanRn':cfprFabricFcMonSanRn,'cfprFabricFcMonSanId':cfprFabricFcMonSanId,'cfprFabricFcMonSanLocale':cfprFabricFcMonSanLocale,'cfprFabricFcMonSanName':cfprFabricFcMonSanName,'cfprFabricFcMonSanTransport':cfprFabricFcMonSanTransport,'cfprFabricFcMonSanType':cfprFabricFcMonSanType,'cfprFabricFcMonSrcEpTable':cfprFabricFcMonSrcEpTable,'cfprFabricFcMonSrcEpEntry':cfprFabricFcMonSrcEpEntry,_A4:cfprFabricFcMonSrcEpInstanceId,'cfprFabricFcMonSrcEpDn':cfprFabricFcMonSrcEpDn,'cfprFabricFcMonSrcEpRn':cfprFabricFcMonSrcEpRn,'cfprFabricFcMonSrcEpDirection':cfprFabricFcMonSrcEpDirection,'cfprFabricFcMonSrcEpName':cfprFabricFcMonSrcEpName,'cfprFabricFcMonSrcEpSession':cfprFabricFcMonSrcEpSession,'cfprFabricFcMonSrcEpTransport':cfprFabricFcMonSrcEpTransport,'cfprFabricFcMonSrcEpType':cfprFabricFcMonSrcEpType,'cfprFabricFcMonSrcRefTable':cfprFabricFcMonSrcRefTable,'cfprFabricFcMonSrcRefEntry':cfprFabricFcMonSrcRefEntry,_A5:cfprFabricFcMonSrcRefInstanceId,'cfprFabricFcMonSrcRefDn':cfprFabricFcMonSrcRefDn,'cfprFabricFcMonSrcRefRn':cfprFabricFcMonSrcRefRn,'cfprFabricFcMonSrcRefId':cfprFabricFcMonSrcRefId,'cfprFabricFcMonSrcRefSourceDn':cfprFabricFcMonSrcRefSourceDn,'cfprFabricFcMonSrcRefSourceType':cfprFabricFcMonSrcRefSourceType,'cfprFabricFcMonSrcRefType':cfprFabricFcMonSrcRefType,'cfprFabricFcSanTable':cfprFabricFcSanTable,'cfprFabricFcSanEntry':cfprFabricFcSanEntry,_A6:cfprFabricFcSanInstanceId,'cfprFabricFcSanDn':cfprFabricFcSanDn,'cfprFabricFcSanRn':cfprFabricFcSanRn,'cfprFabricFcSanId':cfprFabricFcSanId,'cfprFabricFcSanLocale':cfprFabricFcSanLocale,'cfprFabricFcSanName':cfprFabricFcSanName,'cfprFabricFcSanTransport':cfprFabricFcSanTransport,'cfprFabricFcSanType':cfprFabricFcSanType,'cfprFabricFcSanUplinkTrunking':cfprFabricFcSanUplinkTrunking,'cfprFabricFcSanEpTable':cfprFabricFcSanEpTable,'cfprFabricFcSanEpEntry':cfprFabricFcSanEpEntry,_A7:cfprFabricFcSanEpInstanceId,'cfprFabricFcSanEpDn':cfprFabricFcSanEpDn,'cfprFabricFcSanEpRn':cfprFabricFcSanEpRn,'cfprFabricFcSanEpAdminState':cfprFabricFcSanEpAdminState,'cfprFabricFcSanEpAggrPortId':cfprFabricFcSanEpAggrPortId,'cfprFabricFcSanEpChassisId':cfprFabricFcSanEpChassisId,'cfprFabricFcSanEpEpDn':cfprFabricFcSanEpEpDn,'cfprFabricFcSanEpFillPattern':cfprFabricFcSanEpFillPattern,'cfprFabricFcSanEpFltAggr':cfprFabricFcSanEpFltAggr,'cfprFabricFcSanEpIfRole':cfprFabricFcSanEpIfRole,'cfprFabricFcSanEpIfType':cfprFabricFcSanEpIfType,'cfprFabricFcSanEpLicGP':cfprFabricFcSanEpLicGP,'cfprFabricFcSanEpLicState':cfprFabricFcSanEpLicState,'cfprFabricFcSanEpLocale':cfprFabricFcSanEpLocale,'cfprFabricFcSanEpName':cfprFabricFcSanEpName,'cfprFabricFcSanEpOperState':cfprFabricFcSanEpOperState,'cfprFabricFcSanEpOperStateReason':cfprFabricFcSanEpOperStateReason,'cfprFabricFcSanEpPeerAggrPortId':cfprFabricFcSanEpPeerAggrPortId,'cfprFabricFcSanEpPeerChassisId':cfprFabricFcSanEpPeerChassisId,'cfprFabricFcSanEpPeerDn':cfprFabricFcSanEpPeerDn,'cfprFabricFcSanEpPeerPortId':cfprFabricFcSanEpPeerPortId,'cfprFabricFcSanEpPeerSlotId':cfprFabricFcSanEpPeerSlotId,'cfprFabricFcSanEpPortId':cfprFabricFcSanEpPortId,'cfprFabricFcSanEpSlotId':cfprFabricFcSanEpSlotId,'cfprFabricFcSanEpSwitchId':cfprFabricFcSanEpSwitchId,'cfprFabricFcSanEpTransport':cfprFabricFcSanEpTransport,'cfprFabricFcSanEpType':cfprFabricFcSanEpType,'cfprFabricFcSanEpUsrLbl':cfprFabricFcSanEpUsrLbl,'cfprFabricFcSanEpWarnings':cfprFabricFcSanEpWarnings,'cfprFabricFcSanPcTable':cfprFabricFcSanPcTable,'cfprFabricFcSanPcEntry':cfprFabricFcSanPcEntry,_A8:cfprFabricFcSanPcInstanceId,'cfprFabricFcSanPcDn':cfprFabricFcSanPcDn,'cfprFabricFcSanPcRn':cfprFabricFcSanPcRn,'cfprFabricFcSanPcAdminSpeed':cfprFabricFcSanPcAdminSpeed,'cfprFabricFcSanPcAdminState':cfprFabricFcSanPcAdminState,'cfprFabricFcSanPcConfigState':cfprFabricFcSanPcConfigState,'cfprFabricFcSanPcConfigStatus':cfprFabricFcSanPcConfigStatus,'cfprFabricFcSanPcDescr':cfprFabricFcSanPcDescr,'cfprFabricFcSanPcEpDn':cfprFabricFcSanPcEpDn,'cfprFabricFcSanPcFltAggr':cfprFabricFcSanPcFltAggr,'cfprFabricFcSanPcIfRole':cfprFabricFcSanPcIfRole,'cfprFabricFcSanPcIfType':cfprFabricFcSanPcIfType,'cfprFabricFcSanPcLocale':cfprFabricFcSanPcLocale,'cfprFabricFcSanPcName':cfprFabricFcSanPcName,'cfprFabricFcSanPcOperSpeed':cfprFabricFcSanPcOperSpeed,'cfprFabricFcSanPcOperState':cfprFabricFcSanPcOperState,'cfprFabricFcSanPcPeerDn':cfprFabricFcSanPcPeerDn,'cfprFabricFcSanPcPortId':cfprFabricFcSanPcPortId,'cfprFabricFcSanPcStateQual':cfprFabricFcSanPcStateQual,'cfprFabricFcSanPcSwitchId':cfprFabricFcSanPcSwitchId,'cfprFabricFcSanPcTransport':cfprFabricFcSanPcTransport,'cfprFabricFcSanPcType':cfprFabricFcSanPcType,'cfprFabricFcSanPcWarnings':cfprFabricFcSanPcWarnings,'cfprFabricFcSanPcEpTable':cfprFabricFcSanPcEpTable,'cfprFabricFcSanPcEpEntry':cfprFabricFcSanPcEpEntry,_A9:cfprFabricFcSanPcEpInstanceId,'cfprFabricFcSanPcEpDnData':cfprFabricFcSanPcEpDnData,'cfprFabricFcSanPcEpRn':cfprFabricFcSanPcEpRn,'cfprFabricFcSanPcEpAdminSpeed':cfprFabricFcSanPcEpAdminSpeed,'cfprFabricFcSanPcEpAdminState':cfprFabricFcSanPcEpAdminState,'cfprFabricFcSanPcEpAggrPortId':cfprFabricFcSanPcEpAggrPortId,'cfprFabricFcSanPcEpChassisId':cfprFabricFcSanPcEpChassisId,'cfprFabricFcSanPcEpEpDn':cfprFabricFcSanPcEpEpDn,'cfprFabricFcSanPcEpFillPattern':cfprFabricFcSanPcEpFillPattern,'cfprFabricFcSanPcEpFltAggr':cfprFabricFcSanPcEpFltAggr,'cfprFabricFcSanPcEpIfRole':cfprFabricFcSanPcEpIfRole,'cfprFabricFcSanPcEpIfType':cfprFabricFcSanPcEpIfType,'cfprFabricFcSanPcEpLicGP':cfprFabricFcSanPcEpLicGP,'cfprFabricFcSanPcEpLicState':cfprFabricFcSanPcEpLicState,'cfprFabricFcSanPcEpLocale':cfprFabricFcSanPcEpLocale,'cfprFabricFcSanPcEpMembership':cfprFabricFcSanPcEpMembership,'cfprFabricFcSanPcEpName':cfprFabricFcSanPcEpName,'cfprFabricFcSanPcEpOperState':cfprFabricFcSanPcEpOperState,'cfprFabricFcSanPcEpOperStateReason':cfprFabricFcSanPcEpOperStateReason,'cfprFabricFcSanPcEpPeerAggrPortId':cfprFabricFcSanPcEpPeerAggrPortId,'cfprFabricFcSanPcEpPeerChassisId':cfprFabricFcSanPcEpPeerChassisId,'cfprFabricFcSanPcEpPeerDn':cfprFabricFcSanPcEpPeerDn,'cfprFabricFcSanPcEpPeerPortId':cfprFabricFcSanPcEpPeerPortId,'cfprFabricFcSanPcEpPeerSlotId':cfprFabricFcSanPcEpPeerSlotId,'cfprFabricFcSanPcEpPortId':cfprFabricFcSanPcEpPortId,'cfprFabricFcSanPcEpSlotId':cfprFabricFcSanPcEpSlotId,'cfprFabricFcSanPcEpSwitchId':cfprFabricFcSanPcEpSwitchId,'cfprFabricFcSanPcEpTransport':cfprFabricFcSanPcEpTransport,'cfprFabricFcSanPcEpType':cfprFabricFcSanPcEpType,'cfprFabricFcSanPcEpWarnings':cfprFabricFcSanPcEpWarnings,'cfprFabricFcVsanPcTable':cfprFabricFcVsanPcTable,'cfprFabricFcVsanPcEntry':cfprFabricFcVsanPcEntry,_AA:cfprFabricFcVsanPcInstanceId,'cfprFabricFcVsanPcDn':cfprFabricFcVsanPcDn,'cfprFabricFcVsanPcRn':cfprFabricFcVsanPcRn,'cfprFabricFcVsanPcAdminState':cfprFabricFcVsanPcAdminState,'cfprFabricFcVsanPcDescr':cfprFabricFcVsanPcDescr,'cfprFabricFcVsanPcEpDn':cfprFabricFcVsanPcEpDn,'cfprFabricFcVsanPcFltAggr':cfprFabricFcVsanPcFltAggr,'cfprFabricFcVsanPcIfRole':cfprFabricFcVsanPcIfRole,'cfprFabricFcVsanPcIfType':cfprFabricFcVsanPcIfType,'cfprFabricFcVsanPcLocale':cfprFabricFcVsanPcLocale,'cfprFabricFcVsanPcName':cfprFabricFcVsanPcName,'cfprFabricFcVsanPcOperState':cfprFabricFcVsanPcOperState,'cfprFabricFcVsanPcPeerDn':cfprFabricFcVsanPcPeerDn,'cfprFabricFcVsanPcPortId':cfprFabricFcVsanPcPortId,'cfprFabricFcVsanPcStateQual':cfprFabricFcVsanPcStateQual,'cfprFabricFcVsanPcSwitchId':cfprFabricFcVsanPcSwitchId,'cfprFabricFcVsanPcTransport':cfprFabricFcVsanPcTransport,'cfprFabricFcVsanPcType':cfprFabricFcVsanPcType,'cfprFabricFcVsanPcWarnings':cfprFabricFcVsanPcWarnings,'cfprFabricFcVsanPortEpTable':cfprFabricFcVsanPortEpTable,'cfprFabricFcVsanPortEpEntry':cfprFabricFcVsanPortEpEntry,_AB:cfprFabricFcVsanPortEpInstanceId,'cfprFabricFcVsanPortEpDn':cfprFabricFcVsanPortEpDn,'cfprFabricFcVsanPortEpRn':cfprFabricFcVsanPortEpRn,'cfprFabricFcVsanPortEpAdminState':cfprFabricFcVsanPortEpAdminState,'cfprFabricFcVsanPortEpAggrPortId':cfprFabricFcVsanPortEpAggrPortId,'cfprFabricFcVsanPortEpChassisId':cfprFabricFcVsanPortEpChassisId,'cfprFabricFcVsanPortEpEpDn':cfprFabricFcVsanPortEpEpDn,'cfprFabricFcVsanPortEpFltAggr':cfprFabricFcVsanPortEpFltAggr,'cfprFabricFcVsanPortEpIfRole':cfprFabricFcVsanPortEpIfRole,'cfprFabricFcVsanPortEpIfType':cfprFabricFcVsanPortEpIfType,'cfprFabricFcVsanPortEpLicGP':cfprFabricFcVsanPortEpLicGP,'cfprFabricFcVsanPortEpLicState':cfprFabricFcVsanPortEpLicState,'cfprFabricFcVsanPortEpLocale':cfprFabricFcVsanPortEpLocale,'cfprFabricFcVsanPortEpName':cfprFabricFcVsanPortEpName,'cfprFabricFcVsanPortEpOperState':cfprFabricFcVsanPortEpOperState,'cfprFabricFcVsanPortEpOperStateReason':cfprFabricFcVsanPortEpOperStateReason,'cfprFabricFcVsanPortEpPeerAggrPortId':cfprFabricFcVsanPortEpPeerAggrPortId,'cfprFabricFcVsanPortEpPeerChassisId':cfprFabricFcVsanPortEpPeerChassisId,'cfprFabricFcVsanPortEpPeerDn':cfprFabricFcVsanPortEpPeerDn,'cfprFabricFcVsanPortEpPeerPortId':cfprFabricFcVsanPortEpPeerPortId,'cfprFabricFcVsanPortEpPeerSlotId':cfprFabricFcVsanPortEpPeerSlotId,'cfprFabricFcVsanPortEpPortId':cfprFabricFcVsanPortEpPortId,'cfprFabricFcVsanPortEpSlotId':cfprFabricFcVsanPortEpSlotId,'cfprFabricFcVsanPortEpSwitchId':cfprFabricFcVsanPortEpSwitchId,'cfprFabricFcVsanPortEpTransport':cfprFabricFcVsanPortEpTransport,'cfprFabricFcVsanPortEpType':cfprFabricFcVsanPortEpType,'cfprFabricFcVsanPortEpWarnings':cfprFabricFcVsanPortEpWarnings,'cfprFabricFcoeEstcEpTable':cfprFabricFcoeEstcEpTable,'cfprFabricFcoeEstcEpEntry':cfprFabricFcoeEstcEpEntry,_AC:cfprFabricFcoeEstcEpInstanceId,'cfprFabricFcoeEstcEpDn':cfprFabricFcoeEstcEpDn,'cfprFabricFcoeEstcEpRn':cfprFabricFcoeEstcEpRn,'cfprFabricFcoeEstcEpAdminState':cfprFabricFcoeEstcEpAdminState,'cfprFabricFcoeEstcEpAggrPortId':cfprFabricFcoeEstcEpAggrPortId,'cfprFabricFcoeEstcEpChassisId':cfprFabricFcoeEstcEpChassisId,'cfprFabricFcoeEstcEpConfigState':cfprFabricFcoeEstcEpConfigState,'cfprFabricFcoeEstcEpEpDn':cfprFabricFcoeEstcEpEpDn,'cfprFabricFcoeEstcEpFcoeState':cfprFabricFcoeEstcEpFcoeState,'cfprFabricFcoeEstcEpFcoeStateReason':cfprFabricFcoeEstcEpFcoeStateReason,'cfprFabricFcoeEstcEpFltAggr':cfprFabricFcoeEstcEpFltAggr,'cfprFabricFcoeEstcEpIfRole':cfprFabricFcoeEstcEpIfRole,'cfprFabricFcoeEstcEpIfType':cfprFabricFcoeEstcEpIfType,'cfprFabricFcoeEstcEpLicGP':cfprFabricFcoeEstcEpLicGP,'cfprFabricFcoeEstcEpLicState':cfprFabricFcoeEstcEpLicState,'cfprFabricFcoeEstcEpLocale':cfprFabricFcoeEstcEpLocale,'cfprFabricFcoeEstcEpName':cfprFabricFcoeEstcEpName,'cfprFabricFcoeEstcEpOperState':cfprFabricFcoeEstcEpOperState,'cfprFabricFcoeEstcEpOperStateReason':cfprFabricFcoeEstcEpOperStateReason,'cfprFabricFcoeEstcEpPeerAggrPortId':cfprFabricFcoeEstcEpPeerAggrPortId,'cfprFabricFcoeEstcEpPeerChassisId':cfprFabricFcoeEstcEpPeerChassisId,'cfprFabricFcoeEstcEpPeerDn':cfprFabricFcoeEstcEpPeerDn,'cfprFabricFcoeEstcEpPeerPortId':cfprFabricFcoeEstcEpPeerPortId,'cfprFabricFcoeEstcEpPeerSlotId':cfprFabricFcoeEstcEpPeerSlotId,'cfprFabricFcoeEstcEpPortId':cfprFabricFcoeEstcEpPortId,'cfprFabricFcoeEstcEpSlotId':cfprFabricFcoeEstcEpSlotId,'cfprFabricFcoeEstcEpSwitchId':cfprFabricFcoeEstcEpSwitchId,'cfprFabricFcoeEstcEpTransport':cfprFabricFcoeEstcEpTransport,'cfprFabricFcoeEstcEpType':cfprFabricFcoeEstcEpType,'cfprFabricFcoeEstcEpUsrLbl':cfprFabricFcoeEstcEpUsrLbl,'cfprFabricFcoeEstcEpWarnings':cfprFabricFcoeEstcEpWarnings,'cfprFabricFcoeSanEpTable':cfprFabricFcoeSanEpTable,'cfprFabricFcoeSanEpEntry':cfprFabricFcoeSanEpEntry,_AD:cfprFabricFcoeSanEpInstanceId,'cfprFabricFcoeSanEpDn':cfprFabricFcoeSanEpDn,'cfprFabricFcoeSanEpRn':cfprFabricFcoeSanEpRn,'cfprFabricFcoeSanEpAdminState':cfprFabricFcoeSanEpAdminState,'cfprFabricFcoeSanEpAggrPortId':cfprFabricFcoeSanEpAggrPortId,'cfprFabricFcoeSanEpChassisId':cfprFabricFcoeSanEpChassisId,'cfprFabricFcoeSanEpConfigState':cfprFabricFcoeSanEpConfigState,'cfprFabricFcoeSanEpEpDn':cfprFabricFcoeSanEpEpDn,'cfprFabricFcoeSanEpEthLinkProfileName':cfprFabricFcoeSanEpEthLinkProfileName,'cfprFabricFcoeSanEpFcoeState':cfprFabricFcoeSanEpFcoeState,'cfprFabricFcoeSanEpFcoeStateReason':cfprFabricFcoeSanEpFcoeStateReason,'cfprFabricFcoeSanEpFltAggr':cfprFabricFcoeSanEpFltAggr,'cfprFabricFcoeSanEpIfRole':cfprFabricFcoeSanEpIfRole,'cfprFabricFcoeSanEpIfType':cfprFabricFcoeSanEpIfType,'cfprFabricFcoeSanEpLicGP':cfprFabricFcoeSanEpLicGP,'cfprFabricFcoeSanEpLicState':cfprFabricFcoeSanEpLicState,'cfprFabricFcoeSanEpLocale':cfprFabricFcoeSanEpLocale,'cfprFabricFcoeSanEpName':cfprFabricFcoeSanEpName,'cfprFabricFcoeSanEpOperEthLinkProfileName':cfprFabricFcoeSanEpOperEthLinkProfileName,'cfprFabricFcoeSanEpOperState':cfprFabricFcoeSanEpOperState,'cfprFabricFcoeSanEpOperStateReason':cfprFabricFcoeSanEpOperStateReason,'cfprFabricFcoeSanEpPeerAggrPortId':cfprFabricFcoeSanEpPeerAggrPortId,'cfprFabricFcoeSanEpPeerChassisId':cfprFabricFcoeSanEpPeerChassisId,'cfprFabricFcoeSanEpPeerDn':cfprFabricFcoeSanEpPeerDn,'cfprFabricFcoeSanEpPeerPortId':cfprFabricFcoeSanEpPeerPortId,'cfprFabricFcoeSanEpPeerSlotId':cfprFabricFcoeSanEpPeerSlotId,'cfprFabricFcoeSanEpPortId':cfprFabricFcoeSanEpPortId,'cfprFabricFcoeSanEpSlotId':cfprFabricFcoeSanEpSlotId,'cfprFabricFcoeSanEpSwitchId':cfprFabricFcoeSanEpSwitchId,'cfprFabricFcoeSanEpTransport':cfprFabricFcoeSanEpTransport,'cfprFabricFcoeSanEpType':cfprFabricFcoeSanEpType,'cfprFabricFcoeSanEpUdldOperState':cfprFabricFcoeSanEpUdldOperState,'cfprFabricFcoeSanEpUsrLbl':cfprFabricFcoeSanEpUsrLbl,'cfprFabricFcoeSanEpWarnings':cfprFabricFcoeSanEpWarnings,'cfprFabricFcoeSanPcTable':cfprFabricFcoeSanPcTable,'cfprFabricFcoeSanPcEntry':cfprFabricFcoeSanPcEntry,_AE:cfprFabricFcoeSanPcInstanceId,'cfprFabricFcoeSanPcDn':cfprFabricFcoeSanPcDn,'cfprFabricFcoeSanPcRn':cfprFabricFcoeSanPcRn,'cfprFabricFcoeSanPcAdminState':cfprFabricFcoeSanPcAdminState,'cfprFabricFcoeSanPcConfigState':cfprFabricFcoeSanPcConfigState,'cfprFabricFcoeSanPcDescr':cfprFabricFcoeSanPcDescr,'cfprFabricFcoeSanPcEpDn':cfprFabricFcoeSanPcEpDn,'cfprFabricFcoeSanPcFcoeState':cfprFabricFcoeSanPcFcoeState,'cfprFabricFcoeSanPcFcoeStateReason':cfprFabricFcoeSanPcFcoeStateReason,'cfprFabricFcoeSanPcFltAggr':cfprFabricFcoeSanPcFltAggr,'cfprFabricFcoeSanPcIfRole':cfprFabricFcoeSanPcIfRole,'cfprFabricFcoeSanPcIfType':cfprFabricFcoeSanPcIfType,'cfprFabricFcoeSanPcLacpPolicyName':cfprFabricFcoeSanPcLacpPolicyName,'cfprFabricFcoeSanPcLocale':cfprFabricFcoeSanPcLocale,'cfprFabricFcoeSanPcName':cfprFabricFcoeSanPcName,'cfprFabricFcoeSanPcOperLacpPolicyName':cfprFabricFcoeSanPcOperLacpPolicyName,'cfprFabricFcoeSanPcOperState':cfprFabricFcoeSanPcOperState,'cfprFabricFcoeSanPcPeerDn':cfprFabricFcoeSanPcPeerDn,'cfprFabricFcoeSanPcPortId':cfprFabricFcoeSanPcPortId,'cfprFabricFcoeSanPcStateQual':cfprFabricFcoeSanPcStateQual,'cfprFabricFcoeSanPcSwitchId':cfprFabricFcoeSanPcSwitchId,'cfprFabricFcoeSanPcTransport':cfprFabricFcoeSanPcTransport,'cfprFabricFcoeSanPcType':cfprFabricFcoeSanPcType,'cfprFabricFcoeSanPcWarnings':cfprFabricFcoeSanPcWarnings,'cfprFabricFcoeSanPcEpTable':cfprFabricFcoeSanPcEpTable,'cfprFabricFcoeSanPcEpEntry':cfprFabricFcoeSanPcEpEntry,_AF:cfprFabricFcoeSanPcEpInstanceId,'cfprFabricFcoeSanPcEpDnData':cfprFabricFcoeSanPcEpDnData,'cfprFabricFcoeSanPcEpRn':cfprFabricFcoeSanPcEpRn,'cfprFabricFcoeSanPcEpAdminState':cfprFabricFcoeSanPcEpAdminState,'cfprFabricFcoeSanPcEpAggrPortId':cfprFabricFcoeSanPcEpAggrPortId,'cfprFabricFcoeSanPcEpChassisId':cfprFabricFcoeSanPcEpChassisId,'cfprFabricFcoeSanPcEpEpDn':cfprFabricFcoeSanPcEpEpDn,'cfprFabricFcoeSanPcEpEthLinkProfileName':cfprFabricFcoeSanPcEpEthLinkProfileName,'cfprFabricFcoeSanPcEpFltAggr':cfprFabricFcoeSanPcEpFltAggr,'cfprFabricFcoeSanPcEpIfRole':cfprFabricFcoeSanPcEpIfRole,'cfprFabricFcoeSanPcEpIfType':cfprFabricFcoeSanPcEpIfType,'cfprFabricFcoeSanPcEpLicGP':cfprFabricFcoeSanPcEpLicGP,'cfprFabricFcoeSanPcEpLicState':cfprFabricFcoeSanPcEpLicState,'cfprFabricFcoeSanPcEpLocale':cfprFabricFcoeSanPcEpLocale,'cfprFabricFcoeSanPcEpMembership':cfprFabricFcoeSanPcEpMembership,'cfprFabricFcoeSanPcEpName':cfprFabricFcoeSanPcEpName,'cfprFabricFcoeSanPcEpOperEthLinkProfileName':cfprFabricFcoeSanPcEpOperEthLinkProfileName,'cfprFabricFcoeSanPcEpOperState':cfprFabricFcoeSanPcEpOperState,'cfprFabricFcoeSanPcEpOperStateReason':cfprFabricFcoeSanPcEpOperStateReason,'cfprFabricFcoeSanPcEpPeerAggrPortId':cfprFabricFcoeSanPcEpPeerAggrPortId,'cfprFabricFcoeSanPcEpPeerChassisId':cfprFabricFcoeSanPcEpPeerChassisId,'cfprFabricFcoeSanPcEpPeerDn':cfprFabricFcoeSanPcEpPeerDn,'cfprFabricFcoeSanPcEpPeerPortId':cfprFabricFcoeSanPcEpPeerPortId,'cfprFabricFcoeSanPcEpPeerSlotId':cfprFabricFcoeSanPcEpPeerSlotId,'cfprFabricFcoeSanPcEpPortId':cfprFabricFcoeSanPcEpPortId,'cfprFabricFcoeSanPcEpSlotId':cfprFabricFcoeSanPcEpSlotId,'cfprFabricFcoeSanPcEpSwitchId':cfprFabricFcoeSanPcEpSwitchId,'cfprFabricFcoeSanPcEpTransport':cfprFabricFcoeSanPcEpTransport,'cfprFabricFcoeSanPcEpType':cfprFabricFcoeSanPcEpType,'cfprFabricFcoeSanPcEpUdldOperState':cfprFabricFcoeSanPcEpUdldOperState,'cfprFabricFcoeSanPcEpWarnings':cfprFabricFcoeSanPcEpWarnings,'cfprFabricFcoeVsanPcTable':cfprFabricFcoeVsanPcTable,'cfprFabricFcoeVsanPcEntry':cfprFabricFcoeVsanPcEntry,_AG:cfprFabricFcoeVsanPcInstanceId,'cfprFabricFcoeVsanPcDn':cfprFabricFcoeVsanPcDn,'cfprFabricFcoeVsanPcRn':cfprFabricFcoeVsanPcRn,'cfprFabricFcoeVsanPcAdminState':cfprFabricFcoeVsanPcAdminState,'cfprFabricFcoeVsanPcDescr':cfprFabricFcoeVsanPcDescr,'cfprFabricFcoeVsanPcEpDn':cfprFabricFcoeVsanPcEpDn,'cfprFabricFcoeVsanPcFltAggr':cfprFabricFcoeVsanPcFltAggr,'cfprFabricFcoeVsanPcIfRole':cfprFabricFcoeVsanPcIfRole,'cfprFabricFcoeVsanPcIfType':cfprFabricFcoeVsanPcIfType,'cfprFabricFcoeVsanPcLocale':cfprFabricFcoeVsanPcLocale,'cfprFabricFcoeVsanPcName':cfprFabricFcoeVsanPcName,'cfprFabricFcoeVsanPcOperState':cfprFabricFcoeVsanPcOperState,'cfprFabricFcoeVsanPcPeerDn':cfprFabricFcoeVsanPcPeerDn,'cfprFabricFcoeVsanPcPortId':cfprFabricFcoeVsanPcPortId,'cfprFabricFcoeVsanPcStateQual':cfprFabricFcoeVsanPcStateQual,'cfprFabricFcoeVsanPcSwitchId':cfprFabricFcoeVsanPcSwitchId,'cfprFabricFcoeVsanPcTransport':cfprFabricFcoeVsanPcTransport,'cfprFabricFcoeVsanPcType':cfprFabricFcoeVsanPcType,'cfprFabricFcoeVsanPcWarnings':cfprFabricFcoeVsanPcWarnings,'cfprFabricFcoeVsanPortEpTable':cfprFabricFcoeVsanPortEpTable,'cfprFabricFcoeVsanPortEpEntry':cfprFabricFcoeVsanPortEpEntry,_AH:cfprFabricFcoeVsanPortEpInstanceId,'cfprFabricFcoeVsanPortEpDn':cfprFabricFcoeVsanPortEpDn,'cfprFabricFcoeVsanPortEpRn':cfprFabricFcoeVsanPortEpRn,'cfprFabricFcoeVsanPortEpAdminState':cfprFabricFcoeVsanPortEpAdminState,'cfprFabricFcoeVsanPortEpAggrPortId':cfprFabricFcoeVsanPortEpAggrPortId,'cfprFabricFcoeVsanPortEpChassisId':cfprFabricFcoeVsanPortEpChassisId,'cfprFabricFcoeVsanPortEpEpDn':cfprFabricFcoeVsanPortEpEpDn,'cfprFabricFcoeVsanPortEpFltAggr':cfprFabricFcoeVsanPortEpFltAggr,'cfprFabricFcoeVsanPortEpIfRole':cfprFabricFcoeVsanPortEpIfRole,'cfprFabricFcoeVsanPortEpIfType':cfprFabricFcoeVsanPortEpIfType,'cfprFabricFcoeVsanPortEpLicGP':cfprFabricFcoeVsanPortEpLicGP,'cfprFabricFcoeVsanPortEpLicState':cfprFabricFcoeVsanPortEpLicState,'cfprFabricFcoeVsanPortEpLocale':cfprFabricFcoeVsanPortEpLocale,'cfprFabricFcoeVsanPortEpName':cfprFabricFcoeVsanPortEpName,'cfprFabricFcoeVsanPortEpOperState':cfprFabricFcoeVsanPortEpOperState,'cfprFabricFcoeVsanPortEpOperStateReason':cfprFabricFcoeVsanPortEpOperStateReason,'cfprFabricFcoeVsanPortEpPeerAggrPortId':cfprFabricFcoeVsanPortEpPeerAggrPortId,'cfprFabricFcoeVsanPortEpPeerChassisId':cfprFabricFcoeVsanPortEpPeerChassisId,'cfprFabricFcoeVsanPortEpPeerDn':cfprFabricFcoeVsanPortEpPeerDn,'cfprFabricFcoeVsanPortEpPeerPortId':cfprFabricFcoeVsanPortEpPeerPortId,'cfprFabricFcoeVsanPortEpPeerSlotId':cfprFabricFcoeVsanPortEpPeerSlotId,'cfprFabricFcoeVsanPortEpPortId':cfprFabricFcoeVsanPortEpPortId,'cfprFabricFcoeVsanPortEpSlotId':cfprFabricFcoeVsanPortEpSlotId,'cfprFabricFcoeVsanPortEpSwitchId':cfprFabricFcoeVsanPortEpSwitchId,'cfprFabricFcoeVsanPortEpTransport':cfprFabricFcoeVsanPortEpTransport,'cfprFabricFcoeVsanPortEpType':cfprFabricFcoeVsanPortEpType,'cfprFabricFcoeVsanPortEpWarnings':cfprFabricFcoeVsanPortEpWarnings,'cfprFabricFlowMonDefinitionTable':cfprFabricFlowMonDefinitionTable,'cfprFabricFlowMonDefinitionEntry':cfprFabricFlowMonDefinitionEntry,_AI:cfprFabricFlowMonDefinitionInstanceId,'cfprFabricFlowMonDefinitionDn':cfprFabricFlowMonDefinitionDn,'cfprFabricFlowMonDefinitionRn':cfprFabricFlowMonDefinitionRn,'cfprFabricFlowMonDefinitionDescr':cfprFabricFlowMonDefinitionDescr,'cfprFabricFlowMonDefinitionIntId':cfprFabricFlowMonDefinitionIntId,'cfprFabricFlowMonDefinitionIpv4keys':cfprFabricFlowMonDefinitionIpv4keys,'cfprFabricFlowMonDefinitionIpv6keys':cfprFabricFlowMonDefinitionIpv6keys,'cfprFabricFlowMonDefinitionKeyType':cfprFabricFlowMonDefinitionKeyType,'cfprFabricFlowMonDefinitionL2keys':cfprFabricFlowMonDefinitionL2keys,'cfprFabricFlowMonDefinitionName':cfprFabricFlowMonDefinitionName,'cfprFabricFlowMonDefinitionNonkeys':cfprFabricFlowMonDefinitionNonkeys,'cfprFabricFlowMonDefinitionPolicyLevel':cfprFabricFlowMonDefinitionPolicyLevel,'cfprFabricFlowMonDefinitionPolicyOwner':cfprFabricFlowMonDefinitionPolicyOwner,'cfprFabricFlowMonDefinitionRecordType':cfprFabricFlowMonDefinitionRecordType,'cfprFabricFlowMonExporterProfileTable':cfprFabricFlowMonExporterProfileTable,'cfprFabricFlowMonExporterProfileEntry':cfprFabricFlowMonExporterProfileEntry,_AJ:cfprFabricFlowMonExporterProfileInstanceId,'cfprFabricFlowMonExporterProfileDn':cfprFabricFlowMonExporterProfileDn,'cfprFabricFlowMonExporterProfileRn':cfprFabricFlowMonExporterProfileRn,'cfprFabricFlowMonExporterProfileDescr':cfprFabricFlowMonExporterProfileDescr,'cfprFabricFlowMonExporterProfileIntId':cfprFabricFlowMonExporterProfileIntId,'cfprFabricFlowMonExporterProfileName':cfprFabricFlowMonExporterProfileName,'cfprFabricFlowMonExporterProfilePolicyLevel':cfprFabricFlowMonExporterProfilePolicyLevel,'cfprFabricFlowMonExporterProfilePolicyOwner':cfprFabricFlowMonExporterProfilePolicyOwner,'cfprFabricIfTable':cfprFabricIfTable,'cfprFabricIfEntry':cfprFabricIfEntry,_AK:cfprFabricIfInstanceId,'cfprFabricIfDn':cfprFabricIfDn,'cfprFabricIfRn':cfprFabricIfRn,'cfprFabricIfAddr':cfprFabricIfAddr,'cfprFabricIfId':cfprFabricIfId,'cfprFabricLacpPolicyTable':cfprFabricLacpPolicyTable,'cfprFabricLacpPolicyEntry':cfprFabricLacpPolicyEntry,_AL:cfprFabricLacpPolicyInstanceId,'cfprFabricLacpPolicyDn':cfprFabricLacpPolicyDn,'cfprFabricLacpPolicyRn':cfprFabricLacpPolicyRn,'cfprFabricLacpPolicyDescr':cfprFabricLacpPolicyDescr,'cfprFabricLacpPolicyFastTimer':cfprFabricLacpPolicyFastTimer,'cfprFabricLacpPolicyIntId':cfprFabricLacpPolicyIntId,'cfprFabricLacpPolicyName':cfprFabricLacpPolicyName,'cfprFabricLacpPolicyPolicyLevel':cfprFabricLacpPolicyPolicyLevel,'cfprFabricLacpPolicyPolicyOwner':cfprFabricLacpPolicyPolicyOwner,'cfprFabricLacpPolicySuspendIndividual':cfprFabricLacpPolicySuspendIndividual,'cfprFabricLanAccessMgrTable':cfprFabricLanAccessMgrTable,'cfprFabricLanAccessMgrEntry':cfprFabricLanAccessMgrEntry,_AM:cfprFabricLanAccessMgrInstanceId,'cfprFabricLanAccessMgrDn':cfprFabricLanAccessMgrDn,'cfprFabricLanAccessMgrRn':cfprFabricLanAccessMgrRn,'cfprFabricLanCloudTable':cfprFabricLanCloudTable,'cfprFabricLanCloudEntry':cfprFabricLanCloudEntry,_AN:cfprFabricLanCloudInstanceId,'cfprFabricLanCloudDn':cfprFabricLanCloudDn,'cfprFabricLanCloudRn':cfprFabricLanCloudRn,'cfprFabricLanCloudFsmDescr':cfprFabricLanCloudFsmDescr,'cfprFabricLanCloudFsmPrev':cfprFabricLanCloudFsmPrev,'cfprFabricLanCloudFsmProgr':cfprFabricLanCloudFsmProgr,'cfprFabricLanCloudFsmRmtInvErrCode':cfprFabricLanCloudFsmRmtInvErrCode,'cfprFabricLanCloudFsmRmtInvErrDescr':cfprFabricLanCloudFsmRmtInvErrDescr,'cfprFabricLanCloudFsmRmtInvRslt':cfprFabricLanCloudFsmRmtInvRslt,'cfprFabricLanCloudFsmStageDescr':cfprFabricLanCloudFsmStageDescr,'cfprFabricLanCloudFsmStamp':cfprFabricLanCloudFsmStamp,'cfprFabricLanCloudFsmStatus':cfprFabricLanCloudFsmStatus,'cfprFabricLanCloudFsmTry':cfprFabricLanCloudFsmTry,'cfprFabricLanCloudMacAging':cfprFabricLanCloudMacAging,'cfprFabricLanCloudMode':cfprFabricLanCloudMode,'cfprFabricLanCloudVlanCompression':cfprFabricLanCloudVlanCompression,'cfprFabricLanCloudFsmTable':cfprFabricLanCloudFsmTable,'cfprFabricLanCloudFsmEntry':cfprFabricLanCloudFsmEntry,_AO:cfprFabricLanCloudFsmInstanceId,'cfprFabricLanCloudFsmDn':cfprFabricLanCloudFsmDn,'cfprFabricLanCloudFsmRn':cfprFabricLanCloudFsmRn,'cfprFabricLanCloudFsmCompletionTime':cfprFabricLanCloudFsmCompletionTime,'cfprFabricLanCloudFsmCurrentFsm':cfprFabricLanCloudFsmCurrentFsm,'cfprFabricLanCloudFsmDescrData':cfprFabricLanCloudFsmDescrData,'cfprFabricLanCloudFsmFsmStatus':cfprFabricLanCloudFsmFsmStatus,'cfprFabricLanCloudFsmProgress':cfprFabricLanCloudFsmProgress,'cfprFabricLanCloudFsmRmtErrCode':cfprFabricLanCloudFsmRmtErrCode,'cfprFabricLanCloudFsmRmtErrDescr':cfprFabricLanCloudFsmRmtErrDescr,'cfprFabricLanCloudFsmRmtRslt':cfprFabricLanCloudFsmRmtRslt,'cfprFabricLanCloudFsmStageTable':cfprFabricLanCloudFsmStageTable,'cfprFabricLanCloudFsmStageEntry':cfprFabricLanCloudFsmStageEntry,_AP:cfprFabricLanCloudFsmStageInstanceId,'cfprFabricLanCloudFsmStageDn':cfprFabricLanCloudFsmStageDn,'cfprFabricLanCloudFsmStageRn':cfprFabricLanCloudFsmStageRn,'cfprFabricLanCloudFsmStageDescrData':cfprFabricLanCloudFsmStageDescrData,'cfprFabricLanCloudFsmStageLastUpdateTime':cfprFabricLanCloudFsmStageLastUpdateTime,'cfprFabricLanCloudFsmStageName':cfprFabricLanCloudFsmStageName,'cfprFabricLanCloudFsmStageOrder':cfprFabricLanCloudFsmStageOrder,'cfprFabricLanCloudFsmStageRetry':cfprFabricLanCloudFsmStageRetry,'cfprFabricLanCloudFsmStageStageStatus':cfprFabricLanCloudFsmStageStageStatus,'cfprFabricLanCloudFsmTaskTable':cfprFabricLanCloudFsmTaskTable,'cfprFabricLanCloudFsmTaskEntry':cfprFabricLanCloudFsmTaskEntry,_AQ:cfprFabricLanCloudFsmTaskInstanceId,'cfprFabricLanCloudFsmTaskDn':cfprFabricLanCloudFsmTaskDn,'cfprFabricLanCloudFsmTaskRn':cfprFabricLanCloudFsmTaskRn,'cfprFabricLanCloudFsmTaskCompletion':cfprFabricLanCloudFsmTaskCompletion,'cfprFabricLanCloudFsmTaskFlags':cfprFabricLanCloudFsmTaskFlags,'cfprFabricLanCloudFsmTaskItem':cfprFabricLanCloudFsmTaskItem,'cfprFabricLanCloudFsmTaskSeqId':cfprFabricLanCloudFsmTaskSeqId,'cfprFabricLanMonCloudTable':cfprFabricLanMonCloudTable,'cfprFabricLanMonCloudEntry':cfprFabricLanMonCloudEntry,_AR:cfprFabricLanMonCloudInstanceId,'cfprFabricLanMonCloudDn':cfprFabricLanMonCloudDn,'cfprFabricLanMonCloudRn':cfprFabricLanMonCloudRn,'cfprFabricLanMonCloudMode':cfprFabricLanMonCloudMode,'cfprFabricLanPinGroupTable':cfprFabricLanPinGroupTable,'cfprFabricLanPinGroupEntry':cfprFabricLanPinGroupEntry,_AS:cfprFabricLanPinGroupInstanceId,'cfprFabricLanPinGroupDn':cfprFabricLanPinGroupDn,'cfprFabricLanPinGroupRn':cfprFabricLanPinGroupRn,'cfprFabricLanPinGroupDescr':cfprFabricLanPinGroupDescr,'cfprFabricLanPinGroupIntId':cfprFabricLanPinGroupIntId,'cfprFabricLanPinGroupName':cfprFabricLanPinGroupName,'cfprFabricLanPinGroupPolicyLevel':cfprFabricLanPinGroupPolicyLevel,'cfprFabricLanPinGroupPolicyOwner':cfprFabricLanPinGroupPolicyOwner,'cfprFabricLanPinGroupSize':cfprFabricLanPinGroupSize,'cfprFabricLanPinTargetTable':cfprFabricLanPinTargetTable,'cfprFabricLanPinTargetEntry':cfprFabricLanPinTargetEntry,_AT:cfprFabricLanPinTargetInstanceId,'cfprFabricLanPinTargetDn':cfprFabricLanPinTargetDn,'cfprFabricLanPinTargetRn':cfprFabricLanPinTargetRn,'cfprFabricLanPinTargetEpDn':cfprFabricLanPinTargetEpDn,'cfprFabricLanPinTargetFabricId':cfprFabricLanPinTargetFabricId,'cfprFabricLanPinTargetTargetStatus':cfprFabricLanPinTargetTargetStatus,'cfprFabricLastAckedSlotTable':cfprFabricLastAckedSlotTable,'cfprFabricLastAckedSlotEntry':cfprFabricLastAckedSlotEntry,_AU:cfprFabricLastAckedSlotInstanceId,'cfprFabricLastAckedSlotDn':cfprFabricLastAckedSlotDn,'cfprFabricLastAckedSlotRn':cfprFabricLastAckedSlotRn,'cfprFabricLastAckedSlotBoardAggregationRole':cfprFabricLastAckedSlotBoardAggregationRole,'cfprFabricLastAckedSlotChassisId':cfprFabricLastAckedSlotChassisId,'cfprFabricLastAckedSlotSlotId':cfprFabricLastAckedSlotSlotId,'cfprFabricLastAckedSlotSwitchId':cfprFabricLastAckedSlotSwitchId,'cfprFabricLocaleTable':cfprFabricLocaleTable,'cfprFabricLocaleEntry':cfprFabricLocaleEntry,_AV:cfprFabricLocaleInstanceId,'cfprFabricLocaleDn':cfprFabricLocaleDn,'cfprFabricLocaleRn':cfprFabricLocaleRn,'cfprFabricLocaleCType':cfprFabricLocaleCType,'cfprFabricLocaleChassisId':cfprFabricLocaleChassisId,'cfprFabricLocaleLocale':cfprFabricLocaleLocale,'cfprFabricLocaleName':cfprFabricLocaleName,'cfprFabricLocaleSide':cfprFabricLocaleSide,'cfprFabricLocaleSlotId':cfprFabricLocaleSlotId,'cfprFabricLocaleSwitchId':cfprFabricLocaleSwitchId,'cfprFabricLocaleTransport':cfprFabricLocaleTransport,'cfprFabricLocaleType':cfprFabricLocaleType,'cfprFabricMulticastPolicyTable':cfprFabricMulticastPolicyTable,'cfprFabricMulticastPolicyEntry':cfprFabricMulticastPolicyEntry,_AW:cfprFabricMulticastPolicyInstanceId,'cfprFabricMulticastPolicyDn':cfprFabricMulticastPolicyDn,'cfprFabricMulticastPolicyRn':cfprFabricMulticastPolicyRn,'cfprFabricMulticastPolicyDescr':cfprFabricMulticastPolicyDescr,'cfprFabricMulticastPolicyIntId':cfprFabricMulticastPolicyIntId,'cfprFabricMulticastPolicyName':cfprFabricMulticastPolicyName,'cfprFabricMulticastPolicyPolicyLevel':cfprFabricMulticastPolicyPolicyLevel,'cfprFabricMulticastPolicyPolicyOwner':cfprFabricMulticastPolicyPolicyOwner,'cfprFabricMulticastPolicyQuerierIpAddr':cfprFabricMulticastPolicyQuerierIpAddr,'cfprFabricMulticastPolicyQuerierState':cfprFabricMulticastPolicyQuerierState,'cfprFabricMulticastPolicySnoopingState':cfprFabricMulticastPolicySnoopingState,'cfprFabricNetGroupTable':cfprFabricNetGroupTable,'cfprFabricNetGroupEntry':cfprFabricNetGroupEntry,_AX:cfprFabricNetGroupInstanceId,'cfprFabricNetGroupDn':cfprFabricNetGroupDn,'cfprFabricNetGroupRn':cfprFabricNetGroupRn,'cfprFabricNetGroupAssigned':cfprFabricNetGroupAssigned,'cfprFabricNetGroupAssignmentOrder':cfprFabricNetGroupAssignmentOrder,'cfprFabricNetGroupDescr':cfprFabricNetGroupDescr,'cfprFabricNetGroupId':cfprFabricNetGroupId,'cfprFabricNetGroupIntId':cfprFabricNetGroupIntId,'cfprFabricNetGroupName':cfprFabricNetGroupName,'cfprFabricNetGroupNativeNet':cfprFabricNetGroupNativeNet,'cfprFabricNetGroupNativeNetDn':cfprFabricNetGroupNativeNetDn,'cfprFabricNetGroupOwner':cfprFabricNetGroupOwner,'cfprFabricNetGroupPeerDn':cfprFabricNetGroupPeerDn,'cfprFabricNetGroupPolicyLevel':cfprFabricNetGroupPolicyLevel,'cfprFabricNetGroupPolicyOwner':cfprFabricNetGroupPolicyOwner,'cfprFabricNetGroupSize':cfprFabricNetGroupSize,'cfprFabricNetGroupSwitchId':cfprFabricNetGroupSwitchId,'cfprFabricNetGroupType':cfprFabricNetGroupType,'cfprFabricNetflowCollectorTable':cfprFabricNetflowCollectorTable,'cfprFabricNetflowCollectorEntry':cfprFabricNetflowCollectorEntry,_AY:cfprFabricNetflowCollectorInstanceId,'cfprFabricNetflowCollectorDn':cfprFabricNetflowCollectorDn,'cfprFabricNetflowCollectorRn':cfprFabricNetflowCollectorRn,'cfprFabricNetflowCollectorDescr':cfprFabricNetflowCollectorDescr,'cfprFabricNetflowCollectorFlowProtocol':cfprFabricNetflowCollectorFlowProtocol,'cfprFabricNetflowCollectorId':cfprFabricNetflowCollectorId,'cfprFabricNetflowCollectorLocale':cfprFabricNetflowCollectorLocale,'cfprFabricNetflowCollectorName':cfprFabricNetflowCollectorName,'cfprFabricNetflowCollectorPort':cfprFabricNetflowCollectorPort,'cfprFabricNetflowCollectorSourceVlan':cfprFabricNetflowCollectorSourceVlan,'cfprFabricNetflowCollectorSourceVlanDn':cfprFabricNetflowCollectorSourceVlanDn,'cfprFabricNetflowCollectorTransport':cfprFabricNetflowCollectorTransport,'cfprFabricNetflowCollectorType':cfprFabricNetflowCollectorType,'cfprFabricNetflowIPv4AddrTable':cfprFabricNetflowIPv4AddrTable,'cfprFabricNetflowIPv4AddrEntry':cfprFabricNetflowIPv4AddrEntry,_AZ:cfprFabricNetflowIPv4AddrInstanceId,'cfprFabricNetflowIPv4AddrDn':cfprFabricNetflowIPv4AddrDn,'cfprFabricNetflowIPv4AddrRn':cfprFabricNetflowIPv4AddrRn,'cfprFabricNetflowIPv4AddrAddr':cfprFabricNetflowIPv4AddrAddr,'cfprFabricNetflowIPv4AddrDefGw':cfprFabricNetflowIPv4AddrDefGw,'cfprFabricNetflowIPv4AddrFabricId':cfprFabricNetflowIPv4AddrFabricId,'cfprFabricNetflowIPv4AddrSubnet':cfprFabricNetflowIPv4AddrSubnet,'cfprFabricNetflowMonExporterTable':cfprFabricNetflowMonExporterTable,'cfprFabricNetflowMonExporterEntry':cfprFabricNetflowMonExporterEntry,_Aa:cfprFabricNetflowMonExporterInstanceId,'cfprFabricNetflowMonExporterDn':cfprFabricNetflowMonExporterDn,'cfprFabricNetflowMonExporterRn':cfprFabricNetflowMonExporterRn,'cfprFabricNetflowMonExporterDescr':cfprFabricNetflowMonExporterDescr,'cfprFabricNetflowMonExporterDscp':cfprFabricNetflowMonExporterDscp,'cfprFabricNetflowMonExporterExportInternal':cfprFabricNetflowMonExporterExportInternal,'cfprFabricNetflowMonExporterExporterStatsTimeout':cfprFabricNetflowMonExporterExporterStatsTimeout,'cfprFabricNetflowMonExporterFlowExpProfile':cfprFabricNetflowMonExporterFlowExpProfile,'cfprFabricNetflowMonExporterFlowMonCollector':cfprFabricNetflowMonExporterFlowMonCollector,'cfprFabricNetflowMonExporterIntId':cfprFabricNetflowMonExporterIntId,'cfprFabricNetflowMonExporterInterfaceTableTimeout':cfprFabricNetflowMonExporterInterfaceTableTimeout,'cfprFabricNetflowMonExporterName':cfprFabricNetflowMonExporterName,'cfprFabricNetflowMonExporterOperFlowExpProfile':cfprFabricNetflowMonExporterOperFlowExpProfile,'cfprFabricNetflowMonExporterPolicyLevel':cfprFabricNetflowMonExporterPolicyLevel,'cfprFabricNetflowMonExporterPolicyOwner':cfprFabricNetflowMonExporterPolicyOwner,'cfprFabricNetflowMonExporterProtocol':cfprFabricNetflowMonExporterProtocol,'cfprFabricNetflowMonExporterTemplateDataTimeout':cfprFabricNetflowMonExporterTemplateDataTimeout,'cfprFabricNetflowMonExporterTransport':cfprFabricNetflowMonExporterTransport,'cfprFabricNetflowMonExporterTransportProtocol':cfprFabricNetflowMonExporterTransportProtocol,'cfprFabricNetflowMonExporterType':cfprFabricNetflowMonExporterType,'cfprFabricNetflowMonExporterVersion':cfprFabricNetflowMonExporterVersion,'cfprFabricNetflowMonExporterRefTable':cfprFabricNetflowMonExporterRefTable,'cfprFabricNetflowMonExporterRefEntry':cfprFabricNetflowMonExporterRefEntry,_Ab:cfprFabricNetflowMonExporterRefInstanceId,'cfprFabricNetflowMonExporterRefDn':cfprFabricNetflowMonExporterRefDn,'cfprFabricNetflowMonExporterRefRn':cfprFabricNetflowMonExporterRefRn,'cfprFabricNetflowMonExporterRefIndex':cfprFabricNetflowMonExporterRefIndex,'cfprFabricNetflowMonExporterRefNfMonExporterName':cfprFabricNetflowMonExporterRefNfMonExporterName,'cfprFabricNetflowMonExporterRefOperNfMonExporterName':cfprFabricNetflowMonExporterRefOperNfMonExporterName,'cfprFabricNetflowMonExporterRefSwitchId':cfprFabricNetflowMonExporterRefSwitchId,'cfprFabricNetflowMonSessionTable':cfprFabricNetflowMonSessionTable,'cfprFabricNetflowMonSessionEntry':cfprFabricNetflowMonSessionEntry,_Ac:cfprFabricNetflowMonSessionInstanceId,'cfprFabricNetflowMonSessionDn':cfprFabricNetflowMonSessionDn,'cfprFabricNetflowMonSessionRn':cfprFabricNetflowMonSessionRn,'cfprFabricNetflowMonSessionAdminState':cfprFabricNetflowMonSessionAdminState,'cfprFabricNetflowMonSessionConfigFailReason':cfprFabricNetflowMonSessionConfigFailReason,'cfprFabricNetflowMonSessionConfigQualifier':cfprFabricNetflowMonSessionConfigQualifier,'cfprFabricNetflowMonSessionDescr':cfprFabricNetflowMonSessionDescr,'cfprFabricNetflowMonSessionId':cfprFabricNetflowMonSessionId,'cfprFabricNetflowMonSessionIsConfigSuccess':cfprFabricNetflowMonSessionIsConfigSuccess,'cfprFabricNetflowMonSessionLocale':cfprFabricNetflowMonSessionLocale,'cfprFabricNetflowMonSessionName':cfprFabricNetflowMonSessionName,'cfprFabricNetflowMonSessionProtocol':cfprFabricNetflowMonSessionProtocol,'cfprFabricNetflowMonSessionSession':cfprFabricNetflowMonSessionSession,'cfprFabricNetflowMonSessionTransport':cfprFabricNetflowMonSessionTransport,'cfprFabricNetflowMonSessionType':cfprFabricNetflowMonSessionType,'cfprFabricNetflowMonSrcEpTable':cfprFabricNetflowMonSrcEpTable,'cfprFabricNetflowMonSrcEpEntry':cfprFabricNetflowMonSrcEpEntry,_Ad:cfprFabricNetflowMonSrcEpInstanceId,'cfprFabricNetflowMonSrcEpDn':cfprFabricNetflowMonSrcEpDn,'cfprFabricNetflowMonSrcEpRn':cfprFabricNetflowMonSrcEpRn,'cfprFabricNetflowMonSrcEpName':cfprFabricNetflowMonSrcEpName,'cfprFabricNetflowMonSrcEpProtocol':cfprFabricNetflowMonSrcEpProtocol,'cfprFabricNetflowMonSrcEpSession':cfprFabricNetflowMonSrcEpSession,'cfprFabricNetflowMonSrcEpTransport':cfprFabricNetflowMonSrcEpTransport,'cfprFabricNetflowMonSrcEpType':cfprFabricNetflowMonSrcEpType,'cfprFabricNetflowMonSrcRefTable':cfprFabricNetflowMonSrcRefTable,'cfprFabricNetflowMonSrcRefEntry':cfprFabricNetflowMonSrcRefEntry,_Ae:cfprFabricNetflowMonSrcRefInstanceId,'cfprFabricNetflowMonSrcRefDn':cfprFabricNetflowMonSrcRefDn,'cfprFabricNetflowMonSrcRefRn':cfprFabricNetflowMonSrcRefRn,'cfprFabricNetflowMonSrcRefId':cfprFabricNetflowMonSrcRefId,'cfprFabricNetflowMonSrcRefProtocol':cfprFabricNetflowMonSrcRefProtocol,'cfprFabricNetflowMonSrcRefSourceDn':cfprFabricNetflowMonSrcRefSourceDn,'cfprFabricNetflowMonSrcRefSourceType':cfprFabricNetflowMonSrcRefSourceType,'cfprFabricNetflowMonSrcRefType':cfprFabricNetflowMonSrcRefType,'cfprFabricNetflowMonitorTable':cfprFabricNetflowMonitorTable,'cfprFabricNetflowMonitorEntry':cfprFabricNetflowMonitorEntry,_Af:cfprFabricNetflowMonitorInstanceId,'cfprFabricNetflowMonitorDn':cfprFabricNetflowMonitorDn,'cfprFabricNetflowMonitorRn':cfprFabricNetflowMonitorRn,'cfprFabricNetflowMonitorDescr':cfprFabricNetflowMonitorDescr,'cfprFabricNetflowMonitorFlowMonProtocol':cfprFabricNetflowMonitorFlowMonProtocol,'cfprFabricNetflowMonitorFlowMonRecordDef':cfprFabricNetflowMonitorFlowMonRecordDef,'cfprFabricNetflowMonitorFlowTimeoutPolicy':cfprFabricNetflowMonitorFlowTimeoutPolicy,'cfprFabricNetflowMonitorIntId':cfprFabricNetflowMonitorIntId,'cfprFabricNetflowMonitorName':cfprFabricNetflowMonitorName,'cfprFabricNetflowMonitorOperFlowMonRecordDef':cfprFabricNetflowMonitorOperFlowMonRecordDef,'cfprFabricNetflowMonitorOperFlowTimeoutPolicy':cfprFabricNetflowMonitorOperFlowTimeoutPolicy,'cfprFabricNetflowMonitorPolicyLevel':cfprFabricNetflowMonitorPolicyLevel,'cfprFabricNetflowMonitorPolicyOwner':cfprFabricNetflowMonitorPolicyOwner,'cfprFabricNetflowMonitorTransport':cfprFabricNetflowMonitorTransport,'cfprFabricNetflowMonitorType':cfprFabricNetflowMonitorType,'cfprFabricNetflowMonitorRefTable':cfprFabricNetflowMonitorRefTable,'cfprFabricNetflowMonitorRefEntry':cfprFabricNetflowMonitorRefEntry,_Ag:cfprFabricNetflowMonitorRefInstanceId,'cfprFabricNetflowMonitorRefDn':cfprFabricNetflowMonitorRefDn,'cfprFabricNetflowMonitorRefRn':cfprFabricNetflowMonitorRefRn,'cfprFabricNetflowMonitorRefDirection':cfprFabricNetflowMonitorRefDirection,'cfprFabricNetflowMonitorRefIndex':cfprFabricNetflowMonitorRefIndex,'cfprFabricNetflowMonitorRefNfMonitorName':cfprFabricNetflowMonitorRefNfMonitorName,'cfprFabricNetflowMonitorRefOperNfMonitorName':cfprFabricNetflowMonitorRefOperNfMonitorName,'cfprFabricNetflowMonitorRefSwitchId':cfprFabricNetflowMonitorRefSwitchId,'cfprFabricNetflowTimeoutPolicyTable':cfprFabricNetflowTimeoutPolicyTable,'cfprFabricNetflowTimeoutPolicyEntry':cfprFabricNetflowTimeoutPolicyEntry,_Ah:cfprFabricNetflowTimeoutPolicyInstanceId,'cfprFabricNetflowTimeoutPolicyDn':cfprFabricNetflowTimeoutPolicyDn,'cfprFabricNetflowTimeoutPolicyRn':cfprFabricNetflowTimeoutPolicyRn,'cfprFabricNetflowTimeoutPolicyActiveTimeout':cfprFabricNetflowTimeoutPolicyActiveTimeout,'cfprFabricNetflowTimeoutPolicyDescr':cfprFabricNetflowTimeoutPolicyDescr,'cfprFabricNetflowTimeoutPolicyInactiveTimeout':cfprFabricNetflowTimeoutPolicyInactiveTimeout,'cfprFabricNetflowTimeoutPolicyIntId':cfprFabricNetflowTimeoutPolicyIntId,'cfprFabricNetflowTimeoutPolicyName':cfprFabricNetflowTimeoutPolicyName,'cfprFabricNetflowTimeoutPolicyPolicyLevel':cfprFabricNetflowTimeoutPolicyPolicyLevel,'cfprFabricNetflowTimeoutPolicyPolicyOwner':cfprFabricNetflowTimeoutPolicyPolicyOwner,'cfprFabricOrgVlanPolicyTable':cfprFabricOrgVlanPolicyTable,'cfprFabricOrgVlanPolicyEntry':cfprFabricOrgVlanPolicyEntry,_Ai:cfprFabricOrgVlanPolicyInstanceId,'cfprFabricOrgVlanPolicyDn':cfprFabricOrgVlanPolicyDn,'cfprFabricOrgVlanPolicyRn':cfprFabricOrgVlanPolicyRn,'cfprFabricOrgVlanPolicyAdminState':cfprFabricOrgVlanPolicyAdminState,'cfprFabricOrgVlanPolicyName':cfprFabricOrgVlanPolicyName,'cfprFabricPathTable':cfprFabricPathTable,'cfprFabricPathEntry':cfprFabricPathEntry,_Aj:cfprFabricPathInstanceId,'cfprFabricPathDn':cfprFabricPathDn,'cfprFabricPathRn':cfprFabricPathRn,'cfprFabricPathCType':cfprFabricPathCType,'cfprFabricPathChassisId':cfprFabricPathChassisId,'cfprFabricPathEnacp':cfprFabricPathEnacp,'cfprFabricPathId':cfprFabricPathId,'cfprFabricPathLocale':cfprFabricPathLocale,'cfprFabricPathName':cfprFabricPathName,'cfprFabricPathNsSize':cfprFabricPathNsSize,'cfprFabricPathSide':cfprFabricPathSide,'cfprFabricPathSwitchId':cfprFabricPathSwitchId,'cfprFabricPathTransport':cfprFabricPathTransport,'cfprFabricPathType':cfprFabricPathType,'cfprFabricPathConnTable':cfprFabricPathConnTable,'cfprFabricPathConnEntry':cfprFabricPathConnEntry,_Ak:cfprFabricPathConnInstanceId,'cfprFabricPathConnDn':cfprFabricPathConnDn,'cfprFabricPathConnRn':cfprFabricPathConnRn,'cfprFabricPathConnCType':cfprFabricPathConnCType,'cfprFabricPathConnLocale':cfprFabricPathConnLocale,'cfprFabricPathConnName':cfprFabricPathConnName,'cfprFabricPathConnTransport':cfprFabricPathConnTransport,'cfprFabricPathConnType':cfprFabricPathConnType,'cfprFabricPathEpTable':cfprFabricPathEpTable,'cfprFabricPathEpEntry':cfprFabricPathEpEntry,_Al:cfprFabricPathEpInstanceId,'cfprFabricPathEpDn':cfprFabricPathEpDn,'cfprFabricPathEpRn':cfprFabricPathEpRn,'cfprFabricPathEpAggrPortId':cfprFabricPathEpAggrPortId,'cfprFabricPathEpCType':cfprFabricPathEpCType,'cfprFabricPathEpChassisId':cfprFabricPathEpChassisId,'cfprFabricPathEpDiagLldpTransmit':cfprFabricPathEpDiagLldpTransmit,'cfprFabricPathEpEpDn':cfprFabricPathEpEpDn,'cfprFabricPathEpIfRole':cfprFabricPathEpIfRole,'cfprFabricPathEpIfType':cfprFabricPathEpIfType,'cfprFabricPathEpLocale':cfprFabricPathEpLocale,'cfprFabricPathEpName':cfprFabricPathEpName,'cfprFabricPathEpPeerAggrPortId':cfprFabricPathEpPeerAggrPortId,'cfprFabricPathEpPeerChassisId':cfprFabricPathEpPeerChassisId,'cfprFabricPathEpPeerDn':cfprFabricPathEpPeerDn,'cfprFabricPathEpPeerMac':cfprFabricPathEpPeerMac,'cfprFabricPathEpPeerPortId':cfprFabricPathEpPeerPortId,'cfprFabricPathEpPeerSlotId':cfprFabricPathEpPeerSlotId,'cfprFabricPathEpPortId':cfprFabricPathEpPortId,'cfprFabricPathEpSide':cfprFabricPathEpSide,'cfprFabricPathEpSlotId':cfprFabricPathEpSlotId,'cfprFabricPathEpSwitchId':cfprFabricPathEpSwitchId,'cfprFabricPathEpTransport':cfprFabricPathEpTransport,'cfprFabricPathEpType':cfprFabricPathEpType,'cfprFabricPoolableVlanTable':cfprFabricPoolableVlanTable,'cfprFabricPoolableVlanEntry':cfprFabricPoolableVlanEntry,_Am:cfprFabricPoolableVlanInstanceId,'cfprFabricPoolableVlanDn':cfprFabricPoolableVlanDn,'cfprFabricPoolableVlanRn':cfprFabricPoolableVlanRn,'cfprFabricPoolableVlanId':cfprFabricPoolableVlanId,'cfprFabricPoolableVlanPoolDn':cfprFabricPoolableVlanPoolDn,'cfprFabricPooledVlanTable':cfprFabricPooledVlanTable,'cfprFabricPooledVlanEntry':cfprFabricPooledVlanEntry,_An:cfprFabricPooledVlanInstanceId,'cfprFabricPooledVlanDn':cfprFabricPooledVlanDn,'cfprFabricPooledVlanRn':cfprFabricPooledVlanRn,'cfprFabricPooledVlanAssigned':cfprFabricPooledVlanAssigned,'cfprFabricPooledVlanAssignedToDn':cfprFabricPooledVlanAssignedToDn,'cfprFabricPooledVlanConfigIssues':cfprFabricPooledVlanConfigIssues,'cfprFabricPooledVlanName':cfprFabricPooledVlanName,'cfprFabricPooledVlanPeerDn':cfprFabricPooledVlanPeerDn,'cfprFabricPooledVlanPoolableDn':cfprFabricPooledVlanPoolableDn,'cfprFabricPooledVlanPrevAssignedToDn':cfprFabricPooledVlanPrevAssignedToDn,'cfprFabricSanCloudTable':cfprFabricSanCloudTable,'cfprFabricSanCloudEntry':cfprFabricSanCloudEntry,_Ao:cfprFabricSanCloudInstanceId,'cfprFabricSanCloudDn':cfprFabricSanCloudDn,'cfprFabricSanCloudRn':cfprFabricSanCloudRn,'cfprFabricSanCloudFsmDescr':cfprFabricSanCloudFsmDescr,'cfprFabricSanCloudFsmPrev':cfprFabricSanCloudFsmPrev,'cfprFabricSanCloudFsmProgr':cfprFabricSanCloudFsmProgr,'cfprFabricSanCloudFsmRmtInvErrCode':cfprFabricSanCloudFsmRmtInvErrCode,'cfprFabricSanCloudFsmRmtInvErrDescr':cfprFabricSanCloudFsmRmtInvErrDescr,'cfprFabricSanCloudFsmRmtInvRslt':cfprFabricSanCloudFsmRmtInvRslt,'cfprFabricSanCloudFsmStageDescr':cfprFabricSanCloudFsmStageDescr,'cfprFabricSanCloudFsmStamp':cfprFabricSanCloudFsmStamp,'cfprFabricSanCloudFsmStatus':cfprFabricSanCloudFsmStatus,'cfprFabricSanCloudFsmTry':cfprFabricSanCloudFsmTry,'cfprFabricSanCloudMode':cfprFabricSanCloudMode,'cfprFabricSanCloudFsmTable':cfprFabricSanCloudFsmTable,'cfprFabricSanCloudFsmEntry':cfprFabricSanCloudFsmEntry,_Ap:cfprFabricSanCloudFsmInstanceId,'cfprFabricSanCloudFsmDn':cfprFabricSanCloudFsmDn,'cfprFabricSanCloudFsmRn':cfprFabricSanCloudFsmRn,'cfprFabricSanCloudFsmCompletionTime':cfprFabricSanCloudFsmCompletionTime,'cfprFabricSanCloudFsmCurrentFsm':cfprFabricSanCloudFsmCurrentFsm,'cfprFabricSanCloudFsmDescrData':cfprFabricSanCloudFsmDescrData,'cfprFabricSanCloudFsmFsmStatus':cfprFabricSanCloudFsmFsmStatus,'cfprFabricSanCloudFsmProgress':cfprFabricSanCloudFsmProgress,'cfprFabricSanCloudFsmRmtErrCode':cfprFabricSanCloudFsmRmtErrCode,'cfprFabricSanCloudFsmRmtErrDescr':cfprFabricSanCloudFsmRmtErrDescr,'cfprFabricSanCloudFsmRmtRslt':cfprFabricSanCloudFsmRmtRslt,'cfprFabricSanCloudFsmStageTable':cfprFabricSanCloudFsmStageTable,'cfprFabricSanCloudFsmStageEntry':cfprFabricSanCloudFsmStageEntry,_Aq:cfprFabricSanCloudFsmStageInstanceId,'cfprFabricSanCloudFsmStageDn':cfprFabricSanCloudFsmStageDn,'cfprFabricSanCloudFsmStageRn':cfprFabricSanCloudFsmStageRn,'cfprFabricSanCloudFsmStageDescrData':cfprFabricSanCloudFsmStageDescrData,'cfprFabricSanCloudFsmStageLastUpdateTime':cfprFabricSanCloudFsmStageLastUpdateTime,'cfprFabricSanCloudFsmStageName':cfprFabricSanCloudFsmStageName,'cfprFabricSanCloudFsmStageOrder':cfprFabricSanCloudFsmStageOrder,'cfprFabricSanCloudFsmStageRetry':cfprFabricSanCloudFsmStageRetry,'cfprFabricSanCloudFsmStageStageStatus':cfprFabricSanCloudFsmStageStageStatus,'cfprFabricSanCloudFsmTaskTable':cfprFabricSanCloudFsmTaskTable,'cfprFabricSanCloudFsmTaskEntry':cfprFabricSanCloudFsmTaskEntry,_Ar:cfprFabricSanCloudFsmTaskInstanceId,'cfprFabricSanCloudFsmTaskDn':cfprFabricSanCloudFsmTaskDn,'cfprFabricSanCloudFsmTaskRn':cfprFabricSanCloudFsmTaskRn,'cfprFabricSanCloudFsmTaskCompletion':cfprFabricSanCloudFsmTaskCompletion,'cfprFabricSanCloudFsmTaskFlags':cfprFabricSanCloudFsmTaskFlags,'cfprFabricSanCloudFsmTaskItem':cfprFabricSanCloudFsmTaskItem,'cfprFabricSanCloudFsmTaskSeqId':cfprFabricSanCloudFsmTaskSeqId,'cfprFabricSanMonCloudTable':cfprFabricSanMonCloudTable,'cfprFabricSanMonCloudEntry':cfprFabricSanMonCloudEntry,_As:cfprFabricSanMonCloudInstanceId,'cfprFabricSanMonCloudDn':cfprFabricSanMonCloudDn,'cfprFabricSanMonCloudRn':cfprFabricSanMonCloudRn,'cfprFabricSanMonCloudMode':cfprFabricSanMonCloudMode,'cfprFabricSanPinGroupTable':cfprFabricSanPinGroupTable,'cfprFabricSanPinGroupEntry':cfprFabricSanPinGroupEntry,_At:cfprFabricSanPinGroupInstanceId,'cfprFabricSanPinGroupDn':cfprFabricSanPinGroupDn,'cfprFabricSanPinGroupRn':cfprFabricSanPinGroupRn,'cfprFabricSanPinGroupDescr':cfprFabricSanPinGroupDescr,'cfprFabricSanPinGroupIntId':cfprFabricSanPinGroupIntId,'cfprFabricSanPinGroupName':cfprFabricSanPinGroupName,'cfprFabricSanPinGroupPolicyLevel':cfprFabricSanPinGroupPolicyLevel,'cfprFabricSanPinGroupPolicyOwner':cfprFabricSanPinGroupPolicyOwner,'cfprFabricSanPinGroupSize':cfprFabricSanPinGroupSize,'cfprFabricSanPinTargetTable':cfprFabricSanPinTargetTable,'cfprFabricSanPinTargetEntry':cfprFabricSanPinTargetEntry,_Au:cfprFabricSanPinTargetInstanceId,'cfprFabricSanPinTargetDn':cfprFabricSanPinTargetDn,'cfprFabricSanPinTargetRn':cfprFabricSanPinTargetRn,'cfprFabricSanPinTargetEpDn':cfprFabricSanPinTargetEpDn,'cfprFabricSanPinTargetFabricId':cfprFabricSanPinTargetFabricId,'cfprFabricSanPinTargetTargetStatus':cfprFabricSanPinTargetTargetStatus,'cfprFabricSubGroupTable':cfprFabricSubGroupTable,'cfprFabricSubGroupEntry':cfprFabricSubGroupEntry,_Av:cfprFabricSubGroupInstanceId,'cfprFabricSubGroupDn':cfprFabricSubGroupDn,'cfprFabricSubGroupRn':cfprFabricSubGroupRn,'cfprFabricSubGroupAggrPortId':cfprFabricSubGroupAggrPortId,'cfprFabricSubGroupConfigState':cfprFabricSubGroupConfigState,'cfprFabricSubGroupLicGP':cfprFabricSubGroupLicGP,'cfprFabricSubGroupLicState':cfprFabricSubGroupLicState,'cfprFabricSubGroupLocale':cfprFabricSubGroupLocale,'cfprFabricSubGroupName':cfprFabricSubGroupName,'cfprFabricSubGroupSlotId':cfprFabricSubGroupSlotId,'cfprFabricSubGroupSwitchId':cfprFabricSubGroupSwitchId,'cfprFabricSubGroupTransport':cfprFabricSubGroupTransport,'cfprFabricSubGroupType':cfprFabricSubGroupType,'cfprFabricSwChPhEpTable':cfprFabricSwChPhEpTable,'cfprFabricSwChPhEpEntry':cfprFabricSwChPhEpEntry,_Aw:cfprFabricSwChPhEpInstanceId,'cfprFabricSwChPhEpDn':cfprFabricSwChPhEpDn,'cfprFabricSwChPhEpRn':cfprFabricSwChPhEpRn,'cfprFabricSwChPhEpAdminState':cfprFabricSwChPhEpAdminState,'cfprFabricSwChPhEpAggrPortId':cfprFabricSwChPhEpAggrPortId,'cfprFabricSwChPhEpChassisId':cfprFabricSwChPhEpChassisId,'cfprFabricSwChPhEpEpDn':cfprFabricSwChPhEpEpDn,'cfprFabricSwChPhEpEqType':cfprFabricSwChPhEpEqType,'cfprFabricSwChPhEpFltAggr':cfprFabricSwChPhEpFltAggr,'cfprFabricSwChPhEpIfRole':cfprFabricSwChPhEpIfRole,'cfprFabricSwChPhEpIfType':cfprFabricSwChPhEpIfType,'cfprFabricSwChPhEpLc':cfprFabricSwChPhEpLc,'cfprFabricSwChPhEpLicGP':cfprFabricSwChPhEpLicGP,'cfprFabricSwChPhEpLicState':cfprFabricSwChPhEpLicState,'cfprFabricSwChPhEpLocale':cfprFabricSwChPhEpLocale,'cfprFabricSwChPhEpModel':cfprFabricSwChPhEpModel,'cfprFabricSwChPhEpName':cfprFabricSwChPhEpName,'cfprFabricSwChPhEpOperState':cfprFabricSwChPhEpOperState,'cfprFabricSwChPhEpOperStateReason':cfprFabricSwChPhEpOperStateReason,'cfprFabricSwChPhEpPeerAggrPortId':cfprFabricSwChPhEpPeerAggrPortId,'cfprFabricSwChPhEpPeerChassisId':cfprFabricSwChPhEpPeerChassisId,'cfprFabricSwChPhEpPeerDn':cfprFabricSwChPhEpPeerDn,'cfprFabricSwChPhEpPeerPortId':cfprFabricSwChPhEpPeerPortId,'cfprFabricSwChPhEpPeerSlotId':cfprFabricSwChPhEpPeerSlotId,'cfprFabricSwChPhEpPortId':cfprFabricSwChPhEpPortId,'cfprFabricSwChPhEpRevision':cfprFabricSwChPhEpRevision,'cfprFabricSwChPhEpSerial':cfprFabricSwChPhEpSerial,'cfprFabricSwChPhEpSlotId':cfprFabricSwChPhEpSlotId,'cfprFabricSwChPhEpSwitchId':cfprFabricSwChPhEpSwitchId,'cfprFabricSwChPhEpTransport':cfprFabricSwChPhEpTransport,'cfprFabricSwChPhEpType':cfprFabricSwChPhEpType,'cfprFabricSwChPhEpVendor':cfprFabricSwChPhEpVendor,'cfprFabricSwSubGroupTable':cfprFabricSwSubGroupTable,'cfprFabricSwSubGroupEntry':cfprFabricSwSubGroupEntry,_Ax:cfprFabricSwSubGroupInstanceId,'cfprFabricSwSubGroupDn':cfprFabricSwSubGroupDn,'cfprFabricSwSubGroupRn':cfprFabricSwSubGroupRn,'cfprFabricSwSubGroupAggrPortId':cfprFabricSwSubGroupAggrPortId,'cfprFabricSwSubGroupConfigState':cfprFabricSwSubGroupConfigState,'cfprFabricSwSubGroupLicGP':cfprFabricSwSubGroupLicGP,'cfprFabricSwSubGroupLicState':cfprFabricSwSubGroupLicState,'cfprFabricSwSubGroupLocale':cfprFabricSwSubGroupLocale,'cfprFabricSwSubGroupName':cfprFabricSwSubGroupName,'cfprFabricSwSubGroupSlotId':cfprFabricSwSubGroupSlotId,'cfprFabricSwSubGroupSwitchId':cfprFabricSwSubGroupSwitchId,'cfprFabricSwSubGroupTransport':cfprFabricSwSubGroupTransport,'cfprFabricSwSubGroupType':cfprFabricSwSubGroupType,'cfprFabricUdldLinkPolicyTable':cfprFabricUdldLinkPolicyTable,'cfprFabricUdldLinkPolicyEntry':cfprFabricUdldLinkPolicyEntry,_Ay:cfprFabricUdldLinkPolicyInstanceId,'cfprFabricUdldLinkPolicyDn':cfprFabricUdldLinkPolicyDn,'cfprFabricUdldLinkPolicyRn':cfprFabricUdldLinkPolicyRn,'cfprFabricUdldLinkPolicyAdminState':cfprFabricUdldLinkPolicyAdminState,'cfprFabricUdldLinkPolicyDescr':cfprFabricUdldLinkPolicyDescr,'cfprFabricUdldLinkPolicyIntId':cfprFabricUdldLinkPolicyIntId,'cfprFabricUdldLinkPolicyMode':cfprFabricUdldLinkPolicyMode,'cfprFabricUdldLinkPolicyName':cfprFabricUdldLinkPolicyName,'cfprFabricUdldLinkPolicyPolicyLevel':cfprFabricUdldLinkPolicyPolicyLevel,'cfprFabricUdldLinkPolicyPolicyOwner':cfprFabricUdldLinkPolicyPolicyOwner,'cfprFabricUdldLinkPolicyProtocol':cfprFabricUdldLinkPolicyProtocol,'cfprFabricUdldLinkPolicyType':cfprFabricUdldLinkPolicyType,'cfprFabricUdldPolicyTable':cfprFabricUdldPolicyTable,'cfprFabricUdldPolicyEntry':cfprFabricUdldPolicyEntry,_Az:cfprFabricUdldPolicyInstanceId,'cfprFabricUdldPolicyDn':cfprFabricUdldPolicyDn,'cfprFabricUdldPolicyRn':cfprFabricUdldPolicyRn,'cfprFabricUdldPolicyDescr':cfprFabricUdldPolicyDescr,'cfprFabricUdldPolicyIntId':cfprFabricUdldPolicyIntId,'cfprFabricUdldPolicyMsgInterval':cfprFabricUdldPolicyMsgInterval,'cfprFabricUdldPolicyName':cfprFabricUdldPolicyName,'cfprFabricUdldPolicyPolicyLevel':cfprFabricUdldPolicyPolicyLevel,'cfprFabricUdldPolicyPolicyOwner':cfprFabricUdldPolicyPolicyOwner,'cfprFabricUdldPolicyRecoveryAction':cfprFabricUdldPolicyRecoveryAction,'cfprFabricVConTable':cfprFabricVConTable,'cfprFabricVConEntry':cfprFabricVConEntry,_A_:cfprFabricVConInstanceId,'cfprFabricVConDn':cfprFabricVConDn,'cfprFabricVConRn':cfprFabricVConRn,'cfprFabricVConEquipmentDn':cfprFabricVConEquipmentDn,'cfprFabricVConFabric':cfprFabricVConFabric,'cfprFabricVConId':cfprFabricVConId,'cfprFabricVConInstType':cfprFabricVConInstType,'cfprFabricVConPlacement':cfprFabricVConPlacement,'cfprFabricVConSelect':cfprFabricVConSelect,'cfprFabricVConShare':cfprFabricVConShare,'cfprFabricVConTransport':cfprFabricVConTransport,'cfprFabricVConProfileTable':cfprFabricVConProfileTable,'cfprFabricVConProfileEntry':cfprFabricVConProfileEntry,_B0:cfprFabricVConProfileInstanceId,'cfprFabricVConProfileDn':cfprFabricVConProfileDn,'cfprFabricVConProfileRn':cfprFabricVConProfileRn,'cfprFabricVConProfileDescr':cfprFabricVConProfileDescr,'cfprFabricVConProfileIntId':cfprFabricVConProfileIntId,'cfprFabricVConProfileMezzMapping':cfprFabricVConProfileMezzMapping,'cfprFabricVConProfileName':cfprFabricVConProfileName,'cfprFabricVConProfilePolicyLevel':cfprFabricVConProfilePolicyLevel,'cfprFabricVConProfilePolicyOwner':cfprFabricVConProfilePolicyOwner,'cfprFabricVlanTable':cfprFabricVlanTable,'cfprFabricVlanEntry':cfprFabricVlanEntry,_B1:cfprFabricVlanInstanceId,'cfprFabricVlanDn':cfprFabricVlanDn,'cfprFabricVlanRn':cfprFabricVlanRn,'cfprFabricVlanAssocPrimaryVlanState':cfprFabricVlanAssocPrimaryVlanState,'cfprFabricVlanAssocPrimaryVlanSwitchId':cfprFabricVlanAssocPrimaryVlanSwitchId,'cfprFabricVlanCloud':cfprFabricVlanCloud,'cfprFabricVlanCompressionType':cfprFabricVlanCompressionType,'cfprFabricVlanConfigIssues':cfprFabricVlanConfigIssues,'cfprFabricVlanDefaultNet':cfprFabricVlanDefaultNet,'cfprFabricVlanEpDn':cfprFabricVlanEpDn,'cfprFabricVlanFltAggr':cfprFabricVlanFltAggr,'cfprFabricVlanGlobal':cfprFabricVlanGlobal,'cfprFabricVlanId':cfprFabricVlanId,'cfprFabricVlanIfRole':cfprFabricVlanIfRole,'cfprFabricVlanIfType':cfprFabricVlanIfType,'cfprFabricVlanLocal':cfprFabricVlanLocal,'cfprFabricVlanLocale':cfprFabricVlanLocale,'cfprFabricVlanMcastPolicyName':cfprFabricVlanMcastPolicyName,'cfprFabricVlanName':cfprFabricVlanName,'cfprFabricVlanOperMcastPolicyName':cfprFabricVlanOperMcastPolicyName,'cfprFabricVlanOperState':cfprFabricVlanOperState,'cfprFabricVlanOverlapStateForA':cfprFabricVlanOverlapStateForA,'cfprFabricVlanOverlapStateForB':cfprFabricVlanOverlapStateForB,'cfprFabricVlanPeerDn':cfprFabricVlanPeerDn,'cfprFabricVlanPolicyOwner':cfprFabricVlanPolicyOwner,'cfprFabricVlanPubNwDn':cfprFabricVlanPubNwDn,'cfprFabricVlanPubNwId':cfprFabricVlanPubNwId,'cfprFabricVlanPubNwName':cfprFabricVlanPubNwName,'cfprFabricVlanSharing':cfprFabricVlanSharing,'cfprFabricVlanSwitchId':cfprFabricVlanSwitchId,'cfprFabricVlanTransport':cfprFabricVlanTransport,'cfprFabricVlanType':cfprFabricVlanType,'cfprFabricVlanEpTable':cfprFabricVlanEpTable,'cfprFabricVlanEpEntry':cfprFabricVlanEpEntry,_B2:cfprFabricVlanEpInstanceId,'cfprFabricVlanEpDnData':cfprFabricVlanEpDnData,'cfprFabricVlanEpRn':cfprFabricVlanEpRn,'cfprFabricVlanEpAssocPrimaryVlanState':cfprFabricVlanEpAssocPrimaryVlanState,'cfprFabricVlanEpAssocPrimaryVlanSwitchId':cfprFabricVlanEpAssocPrimaryVlanSwitchId,'cfprFabricVlanEpEpDn':cfprFabricVlanEpEpDn,'cfprFabricVlanEpId':cfprFabricVlanEpId,'cfprFabricVlanEpIfRole':cfprFabricVlanEpIfRole,'cfprFabricVlanEpIfType':cfprFabricVlanEpIfType,'cfprFabricVlanEpIsNative':cfprFabricVlanEpIsNative,'cfprFabricVlanEpLocale':cfprFabricVlanEpLocale,'cfprFabricVlanEpName':cfprFabricVlanEpName,'cfprFabricVlanEpOperState':cfprFabricVlanEpOperState,'cfprFabricVlanEpOverlapStateForA':cfprFabricVlanEpOverlapStateForA,'cfprFabricVlanEpOverlapStateForB':cfprFabricVlanEpOverlapStateForB,'cfprFabricVlanEpPeerDn':cfprFabricVlanEpPeerDn,'cfprFabricVlanEpPolicyOwner':cfprFabricVlanEpPolicyOwner,'cfprFabricVlanEpPubNwDn':cfprFabricVlanEpPubNwDn,'cfprFabricVlanEpPubNwId':cfprFabricVlanEpPubNwId,'cfprFabricVlanEpPubNwName':cfprFabricVlanEpPubNwName,'cfprFabricVlanEpSharing':cfprFabricVlanEpSharing,'cfprFabricVlanEpSwitchId':cfprFabricVlanEpSwitchId,'cfprFabricVlanEpTransport':cfprFabricVlanEpTransport,'cfprFabricVlanEpType':cfprFabricVlanEpType,'cfprFabricVlanGroupReqTable':cfprFabricVlanGroupReqTable,'cfprFabricVlanGroupReqEntry':cfprFabricVlanGroupReqEntry,_B3:cfprFabricVlanGroupReqInstanceId,'cfprFabricVlanGroupReqDn':cfprFabricVlanGroupReqDn,'cfprFabricVlanGroupReqRn':cfprFabricVlanGroupReqRn,'cfprFabricVlanGroupReqConfigIssues':cfprFabricVlanGroupReqConfigIssues,'cfprFabricVlanGroupReqName':cfprFabricVlanGroupReqName,'cfprFabricVlanGroupReqType':cfprFabricVlanGroupReqType,'cfprFabricVlanPermitTable':cfprFabricVlanPermitTable,'cfprFabricVlanPermitEntry':cfprFabricVlanPermitEntry,_B4:cfprFabricVlanPermitInstanceId,'cfprFabricVlanPermitDn':cfprFabricVlanPermitDn,'cfprFabricVlanPermitRn':cfprFabricVlanPermitRn,'cfprFabricVlanPermitCloud':cfprFabricVlanPermitCloud,'cfprFabricVlanPermitName':cfprFabricVlanPermitName,'cfprFabricVlanPermitSwitchId':cfprFabricVlanPermitSwitchId,'cfprFabricVlanReqTable':cfprFabricVlanReqTable,'cfprFabricVlanReqEntry':cfprFabricVlanReqEntry,_B5:cfprFabricVlanReqInstanceId,'cfprFabricVlanReqDn':cfprFabricVlanReqDn,'cfprFabricVlanReqRn':cfprFabricVlanReqRn,'cfprFabricVlanReqConfigIssues':cfprFabricVlanReqConfigIssues,'cfprFabricVlanReqName':cfprFabricVlanReqName,'cfprFabricVlanReqType':cfprFabricVlanReqType,'cfprFabricVnetEpSyncEpTable':cfprFabricVnetEpSyncEpTable,'cfprFabricVnetEpSyncEpEntry':cfprFabricVnetEpSyncEpEntry,_B6:cfprFabricVnetEpSyncEpInstanceId,'cfprFabricVnetEpSyncEpDn':cfprFabricVnetEpSyncEpDn,'cfprFabricVnetEpSyncEpRn':cfprFabricVnetEpSyncEpRn,'cfprFabricVnetEpSyncEpFsmDescr':cfprFabricVnetEpSyncEpFsmDescr,'cfprFabricVnetEpSyncEpFsmPrev':cfprFabricVnetEpSyncEpFsmPrev,'cfprFabricVnetEpSyncEpFsmProgr':cfprFabricVnetEpSyncEpFsmProgr,'cfprFabricVnetEpSyncEpFsmRmtInvErrCode':cfprFabricVnetEpSyncEpFsmRmtInvErrCode,'cfprFabricVnetEpSyncEpFsmRmtInvErrDescr':cfprFabricVnetEpSyncEpFsmRmtInvErrDescr,'cfprFabricVnetEpSyncEpFsmRmtInvRslt':cfprFabricVnetEpSyncEpFsmRmtInvRslt,'cfprFabricVnetEpSyncEpFsmStageDescr':cfprFabricVnetEpSyncEpFsmStageDescr,'cfprFabricVnetEpSyncEpFsmStamp':cfprFabricVnetEpSyncEpFsmStamp,'cfprFabricVnetEpSyncEpFsmStatus':cfprFabricVnetEpSyncEpFsmStatus,'cfprFabricVnetEpSyncEpFsmTry':cfprFabricVnetEpSyncEpFsmTry,'cfprFabricVnetEpSyncEpGenNumSync':cfprFabricVnetEpSyncEpGenNumSync,'cfprFabricVnetEpSyncEpId':cfprFabricVnetEpSyncEpId,'cfprFabricVnetEpSyncEpIsChangedObjectUpdate':cfprFabricVnetEpSyncEpIsChangedObjectUpdate,'cfprFabricVnetEpSyncEpFsmTable':cfprFabricVnetEpSyncEpFsmTable,'cfprFabricVnetEpSyncEpFsmEntry':cfprFabricVnetEpSyncEpFsmEntry,_B7:cfprFabricVnetEpSyncEpFsmInstanceId,'cfprFabricVnetEpSyncEpFsmDn':cfprFabricVnetEpSyncEpFsmDn,'cfprFabricVnetEpSyncEpFsmRn':cfprFabricVnetEpSyncEpFsmRn,'cfprFabricVnetEpSyncEpFsmCompletionTime':cfprFabricVnetEpSyncEpFsmCompletionTime,'cfprFabricVnetEpSyncEpFsmCurrentFsm':cfprFabricVnetEpSyncEpFsmCurrentFsm,'cfprFabricVnetEpSyncEpFsmDescrData':cfprFabricVnetEpSyncEpFsmDescrData,'cfprFabricVnetEpSyncEpFsmFsmStatus':cfprFabricVnetEpSyncEpFsmFsmStatus,'cfprFabricVnetEpSyncEpFsmProgress':cfprFabricVnetEpSyncEpFsmProgress,'cfprFabricVnetEpSyncEpFsmRmtErrCode':cfprFabricVnetEpSyncEpFsmRmtErrCode,'cfprFabricVnetEpSyncEpFsmRmtErrDescr':cfprFabricVnetEpSyncEpFsmRmtErrDescr,'cfprFabricVnetEpSyncEpFsmRmtRslt':cfprFabricVnetEpSyncEpFsmRmtRslt,'cfprFabricVnetEpSyncEpFsmStageTable':cfprFabricVnetEpSyncEpFsmStageTable,'cfprFabricVnetEpSyncEpFsmStageEntry':cfprFabricVnetEpSyncEpFsmStageEntry,_B8:cfprFabricVnetEpSyncEpFsmStageInstanceId,'cfprFabricVnetEpSyncEpFsmStageDn':cfprFabricVnetEpSyncEpFsmStageDn,'cfprFabricVnetEpSyncEpFsmStageRn':cfprFabricVnetEpSyncEpFsmStageRn,'cfprFabricVnetEpSyncEpFsmStageDescrData':cfprFabricVnetEpSyncEpFsmStageDescrData,'cfprFabricVnetEpSyncEpFsmStageLastUpdateTime':cfprFabricVnetEpSyncEpFsmStageLastUpdateTime,'cfprFabricVnetEpSyncEpFsmStageName':cfprFabricVnetEpSyncEpFsmStageName,'cfprFabricVnetEpSyncEpFsmStageOrder':cfprFabricVnetEpSyncEpFsmStageOrder,'cfprFabricVnetEpSyncEpFsmStageRetry':cfprFabricVnetEpSyncEpFsmStageRetry,'cfprFabricVnetEpSyncEpFsmStageStageStatus':cfprFabricVnetEpSyncEpFsmStageStageStatus,'cfprFabricVnetEpSyncEpFsmTaskTable':cfprFabricVnetEpSyncEpFsmTaskTable,'cfprFabricVnetEpSyncEpFsmTaskEntry':cfprFabricVnetEpSyncEpFsmTaskEntry,_B9:cfprFabricVnetEpSyncEpFsmTaskInstanceId,'cfprFabricVnetEpSyncEpFsmTaskDn':cfprFabricVnetEpSyncEpFsmTaskDn,'cfprFabricVnetEpSyncEpFsmTaskRn':cfprFabricVnetEpSyncEpFsmTaskRn,'cfprFabricVnetEpSyncEpFsmTaskCompletion':cfprFabricVnetEpSyncEpFsmTaskCompletion,'cfprFabricVnetEpSyncEpFsmTaskFlags':cfprFabricVnetEpSyncEpFsmTaskFlags,'cfprFabricVnetEpSyncEpFsmTaskItem':cfprFabricVnetEpSyncEpFsmTaskItem,'cfprFabricVnetEpSyncEpFsmTaskSeqId':cfprFabricVnetEpSyncEpFsmTaskSeqId,'cfprFabricVsanTable':cfprFabricVsanTable,'cfprFabricVsanEntry':cfprFabricVsanEntry,_BA:cfprFabricVsanInstanceId,'cfprFabricVsanDn':cfprFabricVsanDn,'cfprFabricVsanRn':cfprFabricVsanRn,'cfprFabricVsanDefaultZoning':cfprFabricVsanDefaultZoning,'cfprFabricVsanEpDn':cfprFabricVsanEpDn,'cfprFabricVsanFcZoneSharingMode':cfprFabricVsanFcZoneSharingMode,'cfprFabricVsanFcoeVlan':cfprFabricVsanFcoeVlan,'cfprFabricVsanFltAggr':cfprFabricVsanFltAggr,'cfprFabricVsanGlobal':cfprFabricVsanGlobal,'cfprFabricVsanId':cfprFabricVsanId,'cfprFabricVsanIfRole':cfprFabricVsanIfRole,'cfprFabricVsanIfType':cfprFabricVsanIfType,'cfprFabricVsanLocal':cfprFabricVsanLocal,'cfprFabricVsanLocale':cfprFabricVsanLocale,'cfprFabricVsanName':cfprFabricVsanName,'cfprFabricVsanOperState':cfprFabricVsanOperState,'cfprFabricVsanPeerDn':cfprFabricVsanPeerDn,'cfprFabricVsanPolicyOwner':cfprFabricVsanPolicyOwner,'cfprFabricVsanSwitchId':cfprFabricVsanSwitchId,'cfprFabricVsanTransport':cfprFabricVsanTransport,'cfprFabricVsanType':cfprFabricVsanType,'cfprFabricVsanZoningState':cfprFabricVsanZoningState,'cfprFabricVsanEpTable':cfprFabricVsanEpTable,'cfprFabricVsanEpEntry':cfprFabricVsanEpEntry,_BB:cfprFabricVsanEpInstanceId,'cfprFabricVsanEpDnData':cfprFabricVsanEpDnData,'cfprFabricVsanEpRn':cfprFabricVsanEpRn,'cfprFabricVsanEpEpDn':cfprFabricVsanEpEpDn,'cfprFabricVsanEpFcoeVlan':cfprFabricVsanEpFcoeVlan,'cfprFabricVsanEpId':cfprFabricVsanEpId,'cfprFabricVsanEpIfRole':cfprFabricVsanEpIfRole,'cfprFabricVsanEpIfType':cfprFabricVsanEpIfType,'cfprFabricVsanEpLocale':cfprFabricVsanEpLocale,'cfprFabricVsanEpName':cfprFabricVsanEpName,'cfprFabricVsanEpOperState':cfprFabricVsanEpOperState,'cfprFabricVsanEpPeerDn':cfprFabricVsanEpPeerDn,'cfprFabricVsanEpPolicyOwner':cfprFabricVsanEpPolicyOwner,'cfprFabricVsanEpSwitchId':cfprFabricVsanEpSwitchId,'cfprFabricVsanEpTransport':cfprFabricVsanEpTransport,'cfprFabricVsanEpType':cfprFabricVsanEpType,'cfprFabricVsanEpZoningState':cfprFabricVsanEpZoningState,'cfprFabricVsanMembershipTable':cfprFabricVsanMembershipTable,'cfprFabricVsanMembershipEntry':cfprFabricVsanMembershipEntry,_BC:cfprFabricVsanMembershipInstanceId,'cfprFabricVsanMembershipDn':cfprFabricVsanMembershipDn,'cfprFabricVsanMembershipRn':cfprFabricVsanMembershipRn,'cfprFabricVsanMembershipMemberStatus':cfprFabricVsanMembershipMemberStatus,'cfprFabricVsanMembershipParentAdminState':cfprFabricVsanMembershipParentAdminState,'cfprFabricVsanMembershipStateQual':cfprFabricVsanMembershipStateQual,'cfprFabricVsanMembershipVsanId':cfprFabricVsanMembershipVsanId,'cfprFabricZoneIdUniverseTable':cfprFabricZoneIdUniverseTable,'cfprFabricZoneIdUniverseEntry':cfprFabricZoneIdUniverseEntry,_BD:cfprFabricZoneIdUniverseInstanceId,'cfprFabricZoneIdUniverseDn':cfprFabricZoneIdUniverseDn,'cfprFabricZoneIdUniverseRn':cfprFabricZoneIdUniverseRn,'cfprFabricSspEthMonTable':cfprFabricSspEthMonTable,'cfprFabricSspEthMonEntry':cfprFabricSspEthMonEntry,_BE:cfprFabricSspEthMonInstanceId,'cfprFabricSspEthMonDn':cfprFabricSspEthMonDn,'cfprFabricSspEthMonRn':cfprFabricSspEthMonRn,'cfprFabricSspEthMonAdminState':cfprFabricSspEthMonAdminState,'cfprFabricSspEthMonAppendFlag':cfprFabricSspEthMonAppendFlag,'cfprFabricSspEthMonConfigFailReason':cfprFabricSspEthMonConfigFailReason,'cfprFabricSspEthMonDelPcap':cfprFabricSspEthMonDelPcap,'cfprFabricSspEthMonId':cfprFabricSspEthMonId,'cfprFabricSspEthMonIsConfigSuccess':cfprFabricSspEthMonIsConfigSuccess,'cfprFabricSspEthMonName':cfprFabricSspEthMonName,'cfprFabricSspEthMonOperState':cfprFabricSspEthMonOperState,'cfprFabricSspEthMonOperStateReason':cfprFabricSspEthMonOperStateReason,'cfprFabricSspEthMonPeerDn':cfprFabricSspEthMonPeerDn,'cfprFabricSspEthMonSession':cfprFabricSspEthMonSession,'cfprFabricSspEthMonSessionMemUsage':cfprFabricSspEthMonSessionMemUsage,'cfprFabricSspEthMonSourceConfigured':cfprFabricSspEthMonSourceConfigured,'cfprFabricSspEthMonDelAllSessEnabledState':cfprFabricSspEthMonDelAllSessEnabledState,'cfprFabricSspEthMonDropCount':cfprFabricSspEthMonDropCount,'cfprFabricSspEthMonErrorCode':cfprFabricSspEthMonErrorCode,'cfprFabricSspEthMonIsConfiguredByAG':cfprFabricSspEthMonIsConfiguredByAG,'cfprFabricSspEthMonReBoot':cfprFabricSspEthMonReBoot,'cfprFabricSspEthMonSessionPcapSnapLen':cfprFabricSspEthMonSessionPcapSnapLen,'cfprFabricSspEthMonFilterEpTable':cfprFabricSspEthMonFilterEpTable,'cfprFabricSspEthMonFilterEpEntry':cfprFabricSspEthMonFilterEpEntry,_BF:cfprFabricSspEthMonFilterEpInstanceId,'cfprFabricSspEthMonFilterEpDn':cfprFabricSspEthMonFilterEpDn,'cfprFabricSspEthMonFilterEpRn':cfprFabricSspEthMonFilterEpRn,'cfprFabricSspEthMonFilterEpDestIp':cfprFabricSspEthMonFilterEpDestIp,'cfprFabricSspEthMonFilterEpDestMAC':cfprFabricSspEthMonFilterEpDestMAC,'cfprFabricSspEthMonFilterEpDestPort':cfprFabricSspEthMonFilterEpDestPort,'cfprFabricSspEthMonFilterEpEthertype':cfprFabricSspEthMonFilterEpEthertype,'cfprFabricSspEthMonFilterEpIvlan':cfprFabricSspEthMonFilterEpIvlan,'cfprFabricSspEthMonFilterEpNameId':cfprFabricSspEthMonFilterEpNameId,'cfprFabricSspEthMonFilterEpOvlan':cfprFabricSspEthMonFilterEpOvlan,'cfprFabricSspEthMonFilterEpProtocol':cfprFabricSspEthMonFilterEpProtocol,'cfprFabricSspEthMonFilterEpSrcIp':cfprFabricSspEthMonFilterEpSrcIp,'cfprFabricSspEthMonFilterEpSrcMAC':cfprFabricSspEthMonFilterEpSrcMAC,'cfprFabricSspEthMonFilterEpSrcPort':cfprFabricSspEthMonFilterEpSrcPort,'cfprFabricSspEthMonFilterEpDestIpv6':cfprFabricSspEthMonFilterEpDestIpv6,'cfprFabricSspEthMonFilterEpEcmpId':cfprFabricSspEthMonFilterEpEcmpId,'cfprFabricSspEthMonFilterEpSrcIpv6':cfprFabricSspEthMonFilterEpSrcIpv6,'cfprFabricSspEthMonFilterEpSubvlan':cfprFabricSspEthMonFilterEpSubvlan,'cfprFabricSspEthMonFilterEpVifId':cfprFabricSspEthMonFilterEpVifId,'cfprFabricSspEthMonSrcAppEpTable':cfprFabricSspEthMonSrcAppEpTable,'cfprFabricSspEthMonSrcAppEpEntry':cfprFabricSspEthMonSrcAppEpEntry,_BG:cfprFabricSspEthMonSrcAppEpInstanceId,'cfprFabricSspEthMonSrcAppEpDn':cfprFabricSspEthMonSrcAppEpDn,'cfprFabricSspEthMonSrcAppEpRn':cfprFabricSspEthMonSrcAppEpRn,'cfprFabricSspEthMonSrcAppEpAppName':cfprFabricSspEthMonSrcAppEpAppName,'cfprFabricSspEthMonSrcAppEpFilter':cfprFabricSspEthMonSrcAppEpFilter,'cfprFabricSspEthMonSrcAppEpLinkName':cfprFabricSspEthMonSrcAppEpLinkName,'cfprFabricSspEthMonSrcAppEpPcapfile':cfprFabricSspEthMonSrcAppEpPcapfile,'cfprFabricSspEthMonSrcAppEpPcapfilename':cfprFabricSspEthMonSrcAppEpPcapfilename,'cfprFabricSspEthMonSrcAppEpPcapsize':cfprFabricSspEthMonSrcAppEpPcapsize,'cfprFabricSspEthMonSrcAppEpPortName':cfprFabricSspEthMonSrcAppEpPortName,'cfprFabricSspEthMonSrcAppEpSlotId':cfprFabricSspEthMonSrcAppEpSlotId,'cfprFabricSspEthMonSrcAppEpAppInstance':cfprFabricSspEthMonSrcAppEpAppInstance,'cfprFabricSspEthMonSrcAppEpSubInterface':cfprFabricSspEthMonSrcAppEpSubInterface,'cfprFabricSspEthMonSrcAppEpExternalLduLinkDn':cfprFabricSspEthMonSrcAppEpExternalLduLinkDn,'cfprFabricSspEthMonSrcAppLinksEpTable':cfprFabricSspEthMonSrcAppLinksEpTable,'cfprFabricSspEthMonSrcAppLinksEpEntry':cfprFabricSspEthMonSrcAppLinksEpEntry,_BH:cfprFabricSspEthMonSrcAppLinksEpInstanceId,'cfprFabricSspEthMonSrcAppLinksEpDn':cfprFabricSspEthMonSrcAppLinksEpDn,'cfprFabricSspEthMonSrcAppLinksEpRn':cfprFabricSspEthMonSrcAppLinksEpRn,'cfprFabricSspEthMonSrcAppLinksEpChassisId':cfprFabricSspEthMonSrcAppLinksEpChassisId,'cfprFabricSspEthMonSrcAppLinksEpEqAggrPortId':cfprFabricSspEthMonSrcAppLinksEpEqAggrPortId,'cfprFabricSspEthMonSrcAppLinksEpEqPortId':cfprFabricSspEthMonSrcAppLinksEpEqPortId,'cfprFabricSspEthMonSrcAppLinksEpEqSlotId':cfprFabricSspEthMonSrcAppLinksEpEqSlotId,'cfprFabricSspEthMonSrcAppLinksEpFilter':cfprFabricSspEthMonSrcAppLinksEpFilter,'cfprFabricSspEthMonSrcAppLinksEpFilterDn':cfprFabricSspEthMonSrcAppLinksEpFilterDn,'cfprFabricSspEthMonSrcAppLinksEpLifeCycle':cfprFabricSspEthMonSrcAppLinksEpLifeCycle,'cfprFabricSspEthMonSrcAppLinksEpName':cfprFabricSspEthMonSrcAppLinksEpName,'cfprFabricSspEthMonSrcAppLinksEpPcapfile':cfprFabricSspEthMonSrcAppLinksEpPcapfile,'cfprFabricSspEthMonSrcAppLinksEpPcapfilename':cfprFabricSspEthMonSrcAppLinksEpPcapfilename,'cfprFabricSspEthMonSrcAppLinksEpPcapsize':cfprFabricSspEthMonSrcAppLinksEpPcapsize,'cfprFabricSspEthMonSrcAppLinksEpSwitchId':cfprFabricSspEthMonSrcAppLinksEpSwitchId,'cfprFabricSspEthMonSrcAppLinksEpVlan':cfprFabricSspEthMonSrcAppLinksEpVlan,'cfprFabricSspEthMonSrcAppLinksEpVifId':cfprFabricSspEthMonSrcAppLinksEpVifId,'cfprFabricSspEthMonSrcPhyAggrEpTable':cfprFabricSspEthMonSrcPhyAggrEpTable,'cfprFabricSspEthMonSrcPhyAggrEpEntry':cfprFabricSspEthMonSrcPhyAggrEpEntry,_BI:cfprFabricSspEthMonSrcPhyAggrEpInstanceId,'cfprFabricSspEthMonSrcPhyAggrEpDn':cfprFabricSspEthMonSrcPhyAggrEpDn,'cfprFabricSspEthMonSrcPhyAggrEpRn':cfprFabricSspEthMonSrcPhyAggrEpRn,'cfprFabricSspEthMonSrcPhyAggrEpAggrPortId':cfprFabricSspEthMonSrcPhyAggrEpAggrPortId,'cfprFabricSspEthMonSrcPhyAggrEpBreakoutPortId':cfprFabricSspEthMonSrcPhyAggrEpBreakoutPortId,'cfprFabricSspEthMonSrcPhyAggrEpChassisId':cfprFabricSspEthMonSrcPhyAggrEpChassisId,'cfprFabricSspEthMonSrcPhyAggrEpFilter':cfprFabricSspEthMonSrcPhyAggrEpFilter,'cfprFabricSspEthMonSrcPhyAggrEpPcapfile':cfprFabricSspEthMonSrcPhyAggrEpPcapfile,'cfprFabricSspEthMonSrcPhyAggrEpPcapfilename':cfprFabricSspEthMonSrcPhyAggrEpPcapfilename,'cfprFabricSspEthMonSrcPhyAggrEpPcapsize':cfprFabricSspEthMonSrcPhyAggrEpPcapsize,'cfprFabricSspEthMonSrcPhyAggrEpSlotId':cfprFabricSspEthMonSrcPhyAggrEpSlotId,'cfprFabricSspEthMonSrcPhyAggrEpSwitchId':cfprFabricSspEthMonSrcPhyAggrEpSwitchId,'cfprFabricSspEthMonSrcPhyAggrEpAppInstance':cfprFabricSspEthMonSrcPhyAggrEpAppInstance,'cfprFabricSspEthMonSrcPhyAggrEpAppName':cfprFabricSspEthMonSrcPhyAggrEpAppName,'cfprFabricSspEthMonSrcPhyAggrEpSubInterface':cfprFabricSspEthMonSrcPhyAggrEpSubInterface,'cfprFabricSspEthMonSrcPhyAggrEpEcmpId':cfprFabricSspEthMonSrcPhyAggrEpEcmpId,'cfprFabricSspEthMonSrcPhyEpTable':cfprFabricSspEthMonSrcPhyEpTable,'cfprFabricSspEthMonSrcPhyEpEntry':cfprFabricSspEthMonSrcPhyEpEntry,_BJ:cfprFabricSspEthMonSrcPhyEpInstanceId,'cfprFabricSspEthMonSrcPhyEpDn':cfprFabricSspEthMonSrcPhyEpDn,'cfprFabricSspEthMonSrcPhyEpRn':cfprFabricSspEthMonSrcPhyEpRn,'cfprFabricSspEthMonSrcPhyEpChassisId':cfprFabricSspEthMonSrcPhyEpChassisId,'cfprFabricSspEthMonSrcPhyEpFilter':cfprFabricSspEthMonSrcPhyEpFilter,'cfprFabricSspEthMonSrcPhyEpPcapfile':cfprFabricSspEthMonSrcPhyEpPcapfile,'cfprFabricSspEthMonSrcPhyEpPcapfilename':cfprFabricSspEthMonSrcPhyEpPcapfilename,'cfprFabricSspEthMonSrcPhyEpPcapsize':cfprFabricSspEthMonSrcPhyEpPcapsize,'cfprFabricSspEthMonSrcPhyEpPortId':cfprFabricSspEthMonSrcPhyEpPortId,'cfprFabricSspEthMonSrcPhyEpSlotId':cfprFabricSspEthMonSrcPhyEpSlotId,'cfprFabricSspEthMonSrcPhyEpSwitchId':cfprFabricSspEthMonSrcPhyEpSwitchId,'cfprFabricSspEthMonSrcPhyEpAppInstance':cfprFabricSspEthMonSrcPhyEpAppInstance,'cfprFabricSspEthMonSrcPhyEpAppName':cfprFabricSspEthMonSrcPhyEpAppName,'cfprFabricSspEthMonSrcPhyEpSubInterface':cfprFabricSspEthMonSrcPhyEpSubInterface,'cfprFabricSspEthMonSrcPhyEpEcmpId':cfprFabricSspEthMonSrcPhyEpEcmpId,'cfprFabricSspLanMonCloudTable':cfprFabricSspLanMonCloudTable,'cfprFabricSspLanMonCloudEntry':cfprFabricSspLanMonCloudEntry,_BK:cfprFabricSspLanMonCloudInstanceId,'cfprFabricSspLanMonCloudDn':cfprFabricSspLanMonCloudDn,'cfprFabricSspLanMonCloudRn':cfprFabricSspLanMonCloudRn,'cfprFabricSspLanMonCloudMode':cfprFabricSspLanMonCloudMode,'cfprFabricSspLanMonCloudDelAllSess':cfprFabricSspLanMonCloudDelAllSess,'cfprFabricInnerVlanMgrTable':cfprFabricInnerVlanMgrTable,'cfprFabricInnerVlanMgrEntry':cfprFabricInnerVlanMgrEntry,_BL:cfprFabricInnerVlanMgrInstanceId,'cfprFabricInnerVlanMgrDn':cfprFabricInnerVlanMgrDn,'cfprFabricInnerVlanMgrRn':cfprFabricInnerVlanMgrRn,'cfprFabricInnerVlanMgrFltAggr':cfprFabricInnerVlanMgrFltAggr,'cfprFabricInnerVlanMgrId':cfprFabricInnerVlanMgrId,'cfprFabricSubIfTable':cfprFabricSubIfTable,'cfprFabricSubIfEntry':cfprFabricSubIfEntry,_BM:cfprFabricSubIfInstanceId,'cfprFabricSubIfDn':cfprFabricSubIfDn,'cfprFabricSubIfRn':cfprFabricSubIfRn,'cfprFabricSubIfAllowSharing':cfprFabricSubIfAllowSharing,'cfprFabricSubIfDescr':cfprFabricSubIfDescr,'cfprFabricSubIfIfName':cfprFabricSubIfIfName,'cfprFabricSubIfSsaPortType':cfprFabricSubIfSsaPortType,'cfprFabricSubIfSubId':cfprFabricSubIfSubId,'cfprFabricSubIfVlanId':cfprFabricSubIfVlanId})

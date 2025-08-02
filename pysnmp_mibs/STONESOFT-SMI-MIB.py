@@ -1,0 +1,34 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+stonesoftSmiMibModule=ModuleIdentity((1,3,6,1,4,1,1369,3,2))
+if mibBuilder.loadTexts:stonesoftSmiMibModule.setRevisions(('2004-06-16 00:00',))
+_Stonesoft_ObjectIdentity=ObjectIdentity
+stonesoft=_Stonesoft_ObjectIdentity((1,3,6,1,4,1,1369))
+_StonesoftModules_ObjectIdentity=ObjectIdentity
+stonesoftModules=_StonesoftModules_ObjectIdentity((1,3,6,1,4,1,1369,3))
+_StonesoftExperimental_ObjectIdentity=ObjectIdentity
+stonesoftExperimental=_StonesoftExperimental_ObjectIdentity((1,3,6,1,4,1,1369,4))
+_StonesoftProducts_ObjectIdentity=ObjectIdentity
+stonesoftProducts=_StonesoftProducts_ObjectIdentity((1,3,6,1,4,1,1369,5))
+_StonesoftLoadBalancer_ObjectIdentity=ObjectIdentity
+stonesoftLoadBalancer=_StonesoftLoadBalancer_ObjectIdentity((1,3,6,1,4,1,1369,5,1))
+_StonesoftFirewall_ObjectIdentity=ObjectIdentity
+stonesoftFirewall=_StonesoftFirewall_ObjectIdentity((1,3,6,1,4,1,1369,5,2))
+_StonesoftVPN_ObjectIdentity=ObjectIdentity
+stonesoftVPN=_StonesoftVPN_ObjectIdentity((1,3,6,1,4,1,1369,5,3))
+_StonesoftIDS_ObjectIdentity=ObjectIdentity
+stonesoftIDS=_StonesoftIDS_ObjectIdentity((1,3,6,1,4,1,1369,5,4))
+_StonesoftIPS_ObjectIdentity=ObjectIdentity
+stonesoftIPS=_StonesoftIPS_ObjectIdentity((1,3,6,1,4,1,1369,5,5))
+_StonesoftGeneric_ObjectIdentity=ObjectIdentity
+stonesoftGeneric=_StonesoftGeneric_ObjectIdentity((1,3,6,1,4,1,1369,6))
+_StonesoftNetworkNode_ObjectIdentity=ObjectIdentity
+stonesoftNetworkNode=_StonesoftNetworkNode_ObjectIdentity((1,3,6,1,4,1,1369,6,1))
+_StonesoftCluster_ObjectIdentity=ObjectIdentity
+stonesoftCluster=_StonesoftCluster_ObjectIdentity((1,3,6,1,4,1,1369,6,2))
+mibBuilder.exportSymbols('STONESOFT-SMI-MIB',**{'stonesoft':stonesoft,'stonesoftModules':stonesoftModules,'stonesoftSmiMibModule':stonesoftSmiMibModule,'stonesoftExperimental':stonesoftExperimental,'stonesoftProducts':stonesoftProducts,'stonesoftLoadBalancer':stonesoftLoadBalancer,'stonesoftFirewall':stonesoftFirewall,'stonesoftVPN':stonesoftVPN,'stonesoftIDS':stonesoftIDS,'stonesoftIPS':stonesoftIPS,'stonesoftGeneric':stonesoftGeneric,'stonesoftNetworkNode':stonesoftNetworkNode,'stonesoftCluster':stonesoftCluster})

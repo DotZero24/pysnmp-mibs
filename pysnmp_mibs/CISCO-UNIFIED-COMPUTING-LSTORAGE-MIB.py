@@ -1,0 +1,1156 @@
+_b='cucsLstorageSecurityInstanceId'
+_a='cucsLstorageRemoteDefInstanceId'
+_Z='cucsLstorageRemoteInstanceId'
+_Y='cucsLstorageLoginInstanceId'
+_X='cucsLstorageLocalDefInstanceId'
+_W='cucsLstorageLocalInstanceId'
+_V='cucsLstorageDriveSecurityInstanceId'
+_U='cucsLstorageDiskZoningPolicyInstanceId'
+_T='cucsLstorageDiskZoningConfigDefInstanceId'
+_S='cucsLstorageDiskSlotInstanceId'
+_R='cucsLstorageControllerRefInstanceId'
+_Q='cucsLstorageControllerQualifierInstanceId'
+_P='cucsLstorageControllerModeConfigInstanceId'
+_O='cucsLstorageControllerDefInstanceId'
+_N='cucsLstorageVirtualDriveDefInstanceId'
+_M='cucsLstorageProfileDefInstanceId'
+_L='cucsLstorageProfileBindingInstanceId'
+_K='cucsLstorageProfileInstanceId'
+_J='cucsLstorageLocalDiskRefInstanceId'
+_I='cucsLstorageLocalDiskConfigRefInstanceId'
+_H='cucsLstorageDiskGroupQualifierInstanceId'
+_G='cucsLstorageDiskGroupConfigPolicyInstanceId'
+_F='cucsLstorageDiskGroupConfigDefInstanceId'
+_E='cucsLstorageDasScsiLunInstanceId'
+_D='not-accessible'
+_C='CISCO-UNIFIED-COMPUTING-LSTORAGE-MIB'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
+CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
+CucsManagedObjectDn,CucsManagedObjectId,ciscoUnifiedComputingMIBObjects=mibBuilder.importSymbols('CISCO-UNIFIED-COMPUTING-MIB','CucsManagedObjectDn','CucsManagedObjectId','ciscoUnifiedComputingMIBObjects')
+CucsLsConfigIssues,CucsLstorageAdminState,CucsLstorageAutoDeploy,CucsLstorageAvailability,CucsLstorageBootDevice,CucsLstorageConfigIssues,CucsLstorageConfigState,CucsLstorageControllerQualifierControllerType,CucsLstorageControllerRefControllerId,CucsLstorageControllerRefControllerType,CucsLstorageControllerRefServerId,CucsLstorageDasScsiLunStorageClass,CucsLstorageDiskSlotOwnership,CucsLstorageLunMapType,CucsLstorageVirtualDriveDefAccessPolicy,CucsLstorageVirtualDriveDefDriveCache,CucsLstorageVirtualDriveDefIoPolicy,CucsLstorageVirtualDriveDefReadPolicy,CucsLstorageVirtualDriveDefStripSize,CucsLstorageVirtualDriveDefWriteCachePolicy,CucsPolicyPolicyOwner,CucsStorageControllerId,CucsStorageDiskRole,CucsStorageLocalDiskMode,CucsStorageLunType,CucsStoragePDriveConfig,CucsStorageTechnologyConfig,CucsStorageUnitOperState=mibBuilder.importSymbols('CISCO-UNIFIED-COMPUTING-TC-MIB','CucsLsConfigIssues','CucsLstorageAdminState','CucsLstorageAutoDeploy','CucsLstorageAvailability','CucsLstorageBootDevice','CucsLstorageConfigIssues','CucsLstorageConfigState','CucsLstorageControllerQualifierControllerType','CucsLstorageControllerRefControllerId','CucsLstorageControllerRefControllerType','CucsLstorageControllerRefServerId','CucsLstorageDasScsiLunStorageClass','CucsLstorageDiskSlotOwnership','CucsLstorageLunMapType','CucsLstorageVirtualDriveDefAccessPolicy','CucsLstorageVirtualDriveDefDriveCache','CucsLstorageVirtualDriveDefIoPolicy','CucsLstorageVirtualDriveDefReadPolicy','CucsLstorageVirtualDriveDefStripSize','CucsLstorageVirtualDriveDefWriteCachePolicy','CucsPolicyPolicyOwner','CucsStorageControllerId','CucsStorageDiskRole','CucsStorageLocalDiskMode','CucsStorageLunType','CucsStoragePDriveConfig','CucsStorageTechnologyConfig','CucsStorageUnitOperState')
+InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
+cucsLstorageObjects=ModuleIdentity((1,3,6,1,4,1,9,9,719,1,79))
+_CucsLstorageDasScsiLunTable_Object=MibTable
+cucsLstorageDasScsiLunTable=_CucsLstorageDasScsiLunTable_Object((1,3,6,1,4,1,9,9,719,1,79,14))
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunTable.setStatus(_A)
+_CucsLstorageDasScsiLunEntry_Object=MibTableRow
+cucsLstorageDasScsiLunEntry=_CucsLstorageDasScsiLunEntry_Object((1,3,6,1,4,1,9,9,719,1,79,14,1))
+cucsLstorageDasScsiLunEntry.setIndexNames((0,_C,_E))
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunEntry.setStatus(_A)
+_CucsLstorageDasScsiLunInstanceId_Type=CucsManagedObjectId
+_CucsLstorageDasScsiLunInstanceId_Object=MibTableColumn
+cucsLstorageDasScsiLunInstanceId=_CucsLstorageDasScsiLunInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,1),_CucsLstorageDasScsiLunInstanceId_Type())
+cucsLstorageDasScsiLunInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunInstanceId.setStatus(_A)
+_CucsLstorageDasScsiLunDn_Type=CucsManagedObjectDn
+_CucsLstorageDasScsiLunDn_Object=MibTableColumn
+cucsLstorageDasScsiLunDn=_CucsLstorageDasScsiLunDn_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,2),_CucsLstorageDasScsiLunDn_Type())
+cucsLstorageDasScsiLunDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunDn.setStatus(_A)
+_CucsLstorageDasScsiLunRn_Type=SnmpAdminString
+_CucsLstorageDasScsiLunRn_Object=MibTableColumn
+cucsLstorageDasScsiLunRn=_CucsLstorageDasScsiLunRn_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,3),_CucsLstorageDasScsiLunRn_Type())
+cucsLstorageDasScsiLunRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunRn.setStatus(_A)
+_CucsLstorageDasScsiLunAdminState_Type=CucsLstorageAdminState
+_CucsLstorageDasScsiLunAdminState_Object=MibTableColumn
+cucsLstorageDasScsiLunAdminState=_CucsLstorageDasScsiLunAdminState_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,4),_CucsLstorageDasScsiLunAdminState_Type())
+cucsLstorageDasScsiLunAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunAdminState.setStatus(_A)
+_CucsLstorageDasScsiLunAutoDeploy_Type=CucsLstorageAutoDeploy
+_CucsLstorageDasScsiLunAutoDeploy_Object=MibTableColumn
+cucsLstorageDasScsiLunAutoDeploy=_CucsLstorageDasScsiLunAutoDeploy_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,5),_CucsLstorageDasScsiLunAutoDeploy_Type())
+cucsLstorageDasScsiLunAutoDeploy.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunAutoDeploy.setStatus(_A)
+_CucsLstorageDasScsiLunBootDev_Type=CucsLstorageBootDevice
+_CucsLstorageDasScsiLunBootDev_Object=MibTableColumn
+cucsLstorageDasScsiLunBootDev=_CucsLstorageDasScsiLunBootDev_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,6),_CucsLstorageDasScsiLunBootDev_Type())
+cucsLstorageDasScsiLunBootDev.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunBootDev.setStatus(_A)
+_CucsLstorageDasScsiLunConfigQualifier_Type=CucsLstorageConfigIssues
+_CucsLstorageDasScsiLunConfigQualifier_Object=MibTableColumn
+cucsLstorageDasScsiLunConfigQualifier=_CucsLstorageDasScsiLunConfigQualifier_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,7),_CucsLstorageDasScsiLunConfigQualifier_Type())
+cucsLstorageDasScsiLunConfigQualifier.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunConfigQualifier.setStatus(_A)
+_CucsLstorageDasScsiLunConfigState_Type=CucsLstorageConfigState
+_CucsLstorageDasScsiLunConfigState_Object=MibTableColumn
+cucsLstorageDasScsiLunConfigState=_CucsLstorageDasScsiLunConfigState_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,8),_CucsLstorageDasScsiLunConfigState_Type())
+cucsLstorageDasScsiLunConfigState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunConfigState.setStatus(_A)
+_CucsLstorageDasScsiLunExpandToAvail_Type=TruthValue
+_CucsLstorageDasScsiLunExpandToAvail_Object=MibTableColumn
+cucsLstorageDasScsiLunExpandToAvail=_CucsLstorageDasScsiLunExpandToAvail_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,9),_CucsLstorageDasScsiLunExpandToAvail_Type())
+cucsLstorageDasScsiLunExpandToAvail.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunExpandToAvail.setStatus(_A)
+_CucsLstorageDasScsiLunLocalDiskPolicyName_Type=SnmpAdminString
+_CucsLstorageDasScsiLunLocalDiskPolicyName_Object=MibTableColumn
+cucsLstorageDasScsiLunLocalDiskPolicyName=_CucsLstorageDasScsiLunLocalDiskPolicyName_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,10),_CucsLstorageDasScsiLunLocalDiskPolicyName_Type())
+cucsLstorageDasScsiLunLocalDiskPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunLocalDiskPolicyName.setStatus(_A)
+_CucsLstorageDasScsiLunLunDn_Type=SnmpAdminString
+_CucsLstorageDasScsiLunLunDn_Object=MibTableColumn
+cucsLstorageDasScsiLunLunDn=_CucsLstorageDasScsiLunLunDn_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,11),_CucsLstorageDasScsiLunLunDn_Type())
+cucsLstorageDasScsiLunLunDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunLunDn.setStatus(_A)
+_CucsLstorageDasScsiLunLunMapType_Type=CucsLstorageLunMapType
+_CucsLstorageDasScsiLunLunMapType_Object=MibTableColumn
+cucsLstorageDasScsiLunLunMapType=_CucsLstorageDasScsiLunLunMapType_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,12),_CucsLstorageDasScsiLunLunMapType_Type())
+cucsLstorageDasScsiLunLunMapType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunLunMapType.setStatus(_A)
+_CucsLstorageDasScsiLunName_Type=SnmpAdminString
+_CucsLstorageDasScsiLunName_Object=MibTableColumn
+cucsLstorageDasScsiLunName=_CucsLstorageDasScsiLunName_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,13),_CucsLstorageDasScsiLunName_Type())
+cucsLstorageDasScsiLunName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunName.setStatus(_A)
+_CucsLstorageDasScsiLunOperLocalDiskPolicyName_Type=SnmpAdminString
+_CucsLstorageDasScsiLunOperLocalDiskPolicyName_Object=MibTableColumn
+cucsLstorageDasScsiLunOperLocalDiskPolicyName=_CucsLstorageDasScsiLunOperLocalDiskPolicyName_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,14),_CucsLstorageDasScsiLunOperLocalDiskPolicyName_Type())
+cucsLstorageDasScsiLunOperLocalDiskPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunOperLocalDiskPolicyName.setStatus(_A)
+_CucsLstorageDasScsiLunOperState_Type=CucsStorageUnitOperState
+_CucsLstorageDasScsiLunOperState_Object=MibTableColumn
+cucsLstorageDasScsiLunOperState=_CucsLstorageDasScsiLunOperState_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,15),_CucsLstorageDasScsiLunOperState_Type())
+cucsLstorageDasScsiLunOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunOperState.setStatus(_A)
+_CucsLstorageDasScsiLunOrder_Type=Gauge32
+_CucsLstorageDasScsiLunOrder_Object=MibTableColumn
+cucsLstorageDasScsiLunOrder=_CucsLstorageDasScsiLunOrder_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,16),_CucsLstorageDasScsiLunOrder_Type())
+cucsLstorageDasScsiLunOrder.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunOrder.setStatus(_A)
+_CucsLstorageDasScsiLunSize_Type=Unsigned64
+_CucsLstorageDasScsiLunSize_Object=MibTableColumn
+cucsLstorageDasScsiLunSize=_CucsLstorageDasScsiLunSize_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,17),_CucsLstorageDasScsiLunSize_Type())
+cucsLstorageDasScsiLunSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunSize.setStatus(_A)
+_CucsLstorageDasScsiLunStorageClass_Type=CucsLstorageDasScsiLunStorageClass
+_CucsLstorageDasScsiLunStorageClass_Object=MibTableColumn
+cucsLstorageDasScsiLunStorageClass=_CucsLstorageDasScsiLunStorageClass_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,18),_CucsLstorageDasScsiLunStorageClass_Type())
+cucsLstorageDasScsiLunStorageClass.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunStorageClass.setStatus(_A)
+_CucsLstorageDasScsiLunDeferredNaming_Type=TruthValue
+_CucsLstorageDasScsiLunDeferredNaming_Object=MibTableColumn
+cucsLstorageDasScsiLunDeferredNaming=_CucsLstorageDasScsiLunDeferredNaming_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,19),_CucsLstorageDasScsiLunDeferredNaming_Type())
+cucsLstorageDasScsiLunDeferredNaming.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunDeferredNaming.setStatus(_A)
+_CucsLstorageDasScsiLunFractionalSize_Type=Unsigned64
+_CucsLstorageDasScsiLunFractionalSize_Object=MibTableColumn
+cucsLstorageDasScsiLunFractionalSize=_CucsLstorageDasScsiLunFractionalSize_Object((1,3,6,1,4,1,9,9,719,1,79,14,1,21),_CucsLstorageDasScsiLunFractionalSize_Type())
+cucsLstorageDasScsiLunFractionalSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDasScsiLunFractionalSize.setStatus(_A)
+_CucsLstorageDiskGroupConfigDefTable_Object=MibTable
+cucsLstorageDiskGroupConfigDefTable=_CucsLstorageDiskGroupConfigDefTable_Object((1,3,6,1,4,1,9,9,719,1,79,15))
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigDefTable.setStatus(_A)
+_CucsLstorageDiskGroupConfigDefEntry_Object=MibTableRow
+cucsLstorageDiskGroupConfigDefEntry=_CucsLstorageDiskGroupConfigDefEntry_Object((1,3,6,1,4,1,9,9,719,1,79,15,1))
+cucsLstorageDiskGroupConfigDefEntry.setIndexNames((0,_C,_F))
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigDefEntry.setStatus(_A)
+_CucsLstorageDiskGroupConfigDefInstanceId_Type=CucsManagedObjectId
+_CucsLstorageDiskGroupConfigDefInstanceId_Object=MibTableColumn
+cucsLstorageDiskGroupConfigDefInstanceId=_CucsLstorageDiskGroupConfigDefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,15,1,1),_CucsLstorageDiskGroupConfigDefInstanceId_Type())
+cucsLstorageDiskGroupConfigDefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigDefInstanceId.setStatus(_A)
+_CucsLstorageDiskGroupConfigDefDn_Type=CucsManagedObjectDn
+_CucsLstorageDiskGroupConfigDefDn_Object=MibTableColumn
+cucsLstorageDiskGroupConfigDefDn=_CucsLstorageDiskGroupConfigDefDn_Object((1,3,6,1,4,1,9,9,719,1,79,15,1,2),_CucsLstorageDiskGroupConfigDefDn_Type())
+cucsLstorageDiskGroupConfigDefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigDefDn.setStatus(_A)
+_CucsLstorageDiskGroupConfigDefRn_Type=SnmpAdminString
+_CucsLstorageDiskGroupConfigDefRn_Object=MibTableColumn
+cucsLstorageDiskGroupConfigDefRn=_CucsLstorageDiskGroupConfigDefRn_Object((1,3,6,1,4,1,9,9,719,1,79,15,1,3),_CucsLstorageDiskGroupConfigDefRn_Type())
+cucsLstorageDiskGroupConfigDefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigDefRn.setStatus(_A)
+_CucsLstorageDiskGroupConfigDefDescr_Type=SnmpAdminString
+_CucsLstorageDiskGroupConfigDefDescr_Object=MibTableColumn
+cucsLstorageDiskGroupConfigDefDescr=_CucsLstorageDiskGroupConfigDefDescr_Object((1,3,6,1,4,1,9,9,719,1,79,15,1,4),_CucsLstorageDiskGroupConfigDefDescr_Type())
+cucsLstorageDiskGroupConfigDefDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigDefDescr.setStatus(_A)
+_CucsLstorageDiskGroupConfigDefIntId_Type=SnmpAdminString
+_CucsLstorageDiskGroupConfigDefIntId_Object=MibTableColumn
+cucsLstorageDiskGroupConfigDefIntId=_CucsLstorageDiskGroupConfigDefIntId_Object((1,3,6,1,4,1,9,9,719,1,79,15,1,5),_CucsLstorageDiskGroupConfigDefIntId_Type())
+cucsLstorageDiskGroupConfigDefIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigDefIntId.setStatus(_A)
+_CucsLstorageDiskGroupConfigDefName_Type=SnmpAdminString
+_CucsLstorageDiskGroupConfigDefName_Object=MibTableColumn
+cucsLstorageDiskGroupConfigDefName=_CucsLstorageDiskGroupConfigDefName_Object((1,3,6,1,4,1,9,9,719,1,79,15,1,6),_CucsLstorageDiskGroupConfigDefName_Type())
+cucsLstorageDiskGroupConfigDefName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigDefName.setStatus(_A)
+_CucsLstorageDiskGroupConfigDefPolicyLevel_Type=Gauge32
+_CucsLstorageDiskGroupConfigDefPolicyLevel_Object=MibTableColumn
+cucsLstorageDiskGroupConfigDefPolicyLevel=_CucsLstorageDiskGroupConfigDefPolicyLevel_Object((1,3,6,1,4,1,9,9,719,1,79,15,1,7),_CucsLstorageDiskGroupConfigDefPolicyLevel_Type())
+cucsLstorageDiskGroupConfigDefPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigDefPolicyLevel.setStatus(_A)
+_CucsLstorageDiskGroupConfigDefPolicyOwner_Type=CucsPolicyPolicyOwner
+_CucsLstorageDiskGroupConfigDefPolicyOwner_Object=MibTableColumn
+cucsLstorageDiskGroupConfigDefPolicyOwner=_CucsLstorageDiskGroupConfigDefPolicyOwner_Object((1,3,6,1,4,1,9,9,719,1,79,15,1,8),_CucsLstorageDiskGroupConfigDefPolicyOwner_Type())
+cucsLstorageDiskGroupConfigDefPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigDefPolicyOwner.setStatus(_A)
+_CucsLstorageDiskGroupConfigDefRaidLevel_Type=CucsStorageLunType
+_CucsLstorageDiskGroupConfigDefRaidLevel_Object=MibTableColumn
+cucsLstorageDiskGroupConfigDefRaidLevel=_CucsLstorageDiskGroupConfigDefRaidLevel_Object((1,3,6,1,4,1,9,9,719,1,79,15,1,9),_CucsLstorageDiskGroupConfigDefRaidLevel_Type())
+cucsLstorageDiskGroupConfigDefRaidLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigDefRaidLevel.setStatus(_A)
+_CucsLstorageDiskGroupConfigPolicyTable_Object=MibTable
+cucsLstorageDiskGroupConfigPolicyTable=_CucsLstorageDiskGroupConfigPolicyTable_Object((1,3,6,1,4,1,9,9,719,1,79,16))
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigPolicyTable.setStatus(_A)
+_CucsLstorageDiskGroupConfigPolicyEntry_Object=MibTableRow
+cucsLstorageDiskGroupConfigPolicyEntry=_CucsLstorageDiskGroupConfigPolicyEntry_Object((1,3,6,1,4,1,9,9,719,1,79,16,1))
+cucsLstorageDiskGroupConfigPolicyEntry.setIndexNames((0,_C,_G))
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigPolicyEntry.setStatus(_A)
+_CucsLstorageDiskGroupConfigPolicyInstanceId_Type=CucsManagedObjectId
+_CucsLstorageDiskGroupConfigPolicyInstanceId_Object=MibTableColumn
+cucsLstorageDiskGroupConfigPolicyInstanceId=_CucsLstorageDiskGroupConfigPolicyInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,16,1,1),_CucsLstorageDiskGroupConfigPolicyInstanceId_Type())
+cucsLstorageDiskGroupConfigPolicyInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigPolicyInstanceId.setStatus(_A)
+_CucsLstorageDiskGroupConfigPolicyDn_Type=CucsManagedObjectDn
+_CucsLstorageDiskGroupConfigPolicyDn_Object=MibTableColumn
+cucsLstorageDiskGroupConfigPolicyDn=_CucsLstorageDiskGroupConfigPolicyDn_Object((1,3,6,1,4,1,9,9,719,1,79,16,1,2),_CucsLstorageDiskGroupConfigPolicyDn_Type())
+cucsLstorageDiskGroupConfigPolicyDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigPolicyDn.setStatus(_A)
+_CucsLstorageDiskGroupConfigPolicyRn_Type=SnmpAdminString
+_CucsLstorageDiskGroupConfigPolicyRn_Object=MibTableColumn
+cucsLstorageDiskGroupConfigPolicyRn=_CucsLstorageDiskGroupConfigPolicyRn_Object((1,3,6,1,4,1,9,9,719,1,79,16,1,3),_CucsLstorageDiskGroupConfigPolicyRn_Type())
+cucsLstorageDiskGroupConfigPolicyRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigPolicyRn.setStatus(_A)
+_CucsLstorageDiskGroupConfigPolicyDescr_Type=SnmpAdminString
+_CucsLstorageDiskGroupConfigPolicyDescr_Object=MibTableColumn
+cucsLstorageDiskGroupConfigPolicyDescr=_CucsLstorageDiskGroupConfigPolicyDescr_Object((1,3,6,1,4,1,9,9,719,1,79,16,1,4),_CucsLstorageDiskGroupConfigPolicyDescr_Type())
+cucsLstorageDiskGroupConfigPolicyDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigPolicyDescr.setStatus(_A)
+_CucsLstorageDiskGroupConfigPolicyIntId_Type=SnmpAdminString
+_CucsLstorageDiskGroupConfigPolicyIntId_Object=MibTableColumn
+cucsLstorageDiskGroupConfigPolicyIntId=_CucsLstorageDiskGroupConfigPolicyIntId_Object((1,3,6,1,4,1,9,9,719,1,79,16,1,5),_CucsLstorageDiskGroupConfigPolicyIntId_Type())
+cucsLstorageDiskGroupConfigPolicyIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigPolicyIntId.setStatus(_A)
+_CucsLstorageDiskGroupConfigPolicyName_Type=SnmpAdminString
+_CucsLstorageDiskGroupConfigPolicyName_Object=MibTableColumn
+cucsLstorageDiskGroupConfigPolicyName=_CucsLstorageDiskGroupConfigPolicyName_Object((1,3,6,1,4,1,9,9,719,1,79,16,1,6),_CucsLstorageDiskGroupConfigPolicyName_Type())
+cucsLstorageDiskGroupConfigPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigPolicyName.setStatus(_A)
+_CucsLstorageDiskGroupConfigPolicyPolicyLevel_Type=Gauge32
+_CucsLstorageDiskGroupConfigPolicyPolicyLevel_Object=MibTableColumn
+cucsLstorageDiskGroupConfigPolicyPolicyLevel=_CucsLstorageDiskGroupConfigPolicyPolicyLevel_Object((1,3,6,1,4,1,9,9,719,1,79,16,1,7),_CucsLstorageDiskGroupConfigPolicyPolicyLevel_Type())
+cucsLstorageDiskGroupConfigPolicyPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigPolicyPolicyLevel.setStatus(_A)
+_CucsLstorageDiskGroupConfigPolicyPolicyOwner_Type=CucsPolicyPolicyOwner
+_CucsLstorageDiskGroupConfigPolicyPolicyOwner_Object=MibTableColumn
+cucsLstorageDiskGroupConfigPolicyPolicyOwner=_CucsLstorageDiskGroupConfigPolicyPolicyOwner_Object((1,3,6,1,4,1,9,9,719,1,79,16,1,8),_CucsLstorageDiskGroupConfigPolicyPolicyOwner_Type())
+cucsLstorageDiskGroupConfigPolicyPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigPolicyPolicyOwner.setStatus(_A)
+_CucsLstorageDiskGroupConfigPolicyRaidLevel_Type=CucsStorageLunType
+_CucsLstorageDiskGroupConfigPolicyRaidLevel_Object=MibTableColumn
+cucsLstorageDiskGroupConfigPolicyRaidLevel=_CucsLstorageDiskGroupConfigPolicyRaidLevel_Object((1,3,6,1,4,1,9,9,719,1,79,16,1,9),_CucsLstorageDiskGroupConfigPolicyRaidLevel_Type())
+cucsLstorageDiskGroupConfigPolicyRaidLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupConfigPolicyRaidLevel.setStatus(_A)
+_CucsLstorageDiskGroupQualifierTable_Object=MibTable
+cucsLstorageDiskGroupQualifierTable=_CucsLstorageDiskGroupQualifierTable_Object((1,3,6,1,4,1,9,9,719,1,79,17))
+if mibBuilder.loadTexts:cucsLstorageDiskGroupQualifierTable.setStatus(_A)
+_CucsLstorageDiskGroupQualifierEntry_Object=MibTableRow
+cucsLstorageDiskGroupQualifierEntry=_CucsLstorageDiskGroupQualifierEntry_Object((1,3,6,1,4,1,9,9,719,1,79,17,1))
+cucsLstorageDiskGroupQualifierEntry.setIndexNames((0,_C,_H))
+if mibBuilder.loadTexts:cucsLstorageDiskGroupQualifierEntry.setStatus(_A)
+_CucsLstorageDiskGroupQualifierInstanceId_Type=CucsManagedObjectId
+_CucsLstorageDiskGroupQualifierInstanceId_Object=MibTableColumn
+cucsLstorageDiskGroupQualifierInstanceId=_CucsLstorageDiskGroupQualifierInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,17,1,1),_CucsLstorageDiskGroupQualifierInstanceId_Type())
+cucsLstorageDiskGroupQualifierInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupQualifierInstanceId.setStatus(_A)
+_CucsLstorageDiskGroupQualifierDn_Type=CucsManagedObjectDn
+_CucsLstorageDiskGroupQualifierDn_Object=MibTableColumn
+cucsLstorageDiskGroupQualifierDn=_CucsLstorageDiskGroupQualifierDn_Object((1,3,6,1,4,1,9,9,719,1,79,17,1,2),_CucsLstorageDiskGroupQualifierDn_Type())
+cucsLstorageDiskGroupQualifierDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupQualifierDn.setStatus(_A)
+_CucsLstorageDiskGroupQualifierRn_Type=SnmpAdminString
+_CucsLstorageDiskGroupQualifierRn_Object=MibTableColumn
+cucsLstorageDiskGroupQualifierRn=_CucsLstorageDiskGroupQualifierRn_Object((1,3,6,1,4,1,9,9,719,1,79,17,1,3),_CucsLstorageDiskGroupQualifierRn_Type())
+cucsLstorageDiskGroupQualifierRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupQualifierRn.setStatus(_A)
+_CucsLstorageDiskGroupQualifierDriveType_Type=CucsStorageTechnologyConfig
+_CucsLstorageDiskGroupQualifierDriveType_Object=MibTableColumn
+cucsLstorageDiskGroupQualifierDriveType=_CucsLstorageDiskGroupQualifierDriveType_Object((1,3,6,1,4,1,9,9,719,1,79,17,1,4),_CucsLstorageDiskGroupQualifierDriveType_Type())
+cucsLstorageDiskGroupQualifierDriveType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupQualifierDriveType.setStatus(_A)
+_CucsLstorageDiskGroupQualifierMinDriveSize_Type=Unsigned64
+_CucsLstorageDiskGroupQualifierMinDriveSize_Object=MibTableColumn
+cucsLstorageDiskGroupQualifierMinDriveSize=_CucsLstorageDiskGroupQualifierMinDriveSize_Object((1,3,6,1,4,1,9,9,719,1,79,17,1,5),_CucsLstorageDiskGroupQualifierMinDriveSize_Type())
+cucsLstorageDiskGroupQualifierMinDriveSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupQualifierMinDriveSize.setStatus(_A)
+_CucsLstorageDiskGroupQualifierNumDedHotSpares_Type=Gauge32
+_CucsLstorageDiskGroupQualifierNumDedHotSpares_Object=MibTableColumn
+cucsLstorageDiskGroupQualifierNumDedHotSpares=_CucsLstorageDiskGroupQualifierNumDedHotSpares_Object((1,3,6,1,4,1,9,9,719,1,79,17,1,6),_CucsLstorageDiskGroupQualifierNumDedHotSpares_Type())
+cucsLstorageDiskGroupQualifierNumDedHotSpares.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupQualifierNumDedHotSpares.setStatus(_A)
+_CucsLstorageDiskGroupQualifierNumDrives_Type=Gauge32
+_CucsLstorageDiskGroupQualifierNumDrives_Object=MibTableColumn
+cucsLstorageDiskGroupQualifierNumDrives=_CucsLstorageDiskGroupQualifierNumDrives_Object((1,3,6,1,4,1,9,9,719,1,79,17,1,7),_CucsLstorageDiskGroupQualifierNumDrives_Type())
+cucsLstorageDiskGroupQualifierNumDrives.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupQualifierNumDrives.setStatus(_A)
+_CucsLstorageDiskGroupQualifierNumGlobHotSpares_Type=Gauge32
+_CucsLstorageDiskGroupQualifierNumGlobHotSpares_Object=MibTableColumn
+cucsLstorageDiskGroupQualifierNumGlobHotSpares=_CucsLstorageDiskGroupQualifierNumGlobHotSpares_Object((1,3,6,1,4,1,9,9,719,1,79,17,1,8),_CucsLstorageDiskGroupQualifierNumGlobHotSpares_Type())
+cucsLstorageDiskGroupQualifierNumGlobHotSpares.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupQualifierNumGlobHotSpares.setStatus(_A)
+_CucsLstorageDiskGroupQualifierUseRemainingDisks_Type=TruthValue
+_CucsLstorageDiskGroupQualifierUseRemainingDisks_Object=MibTableColumn
+cucsLstorageDiskGroupQualifierUseRemainingDisks=_CucsLstorageDiskGroupQualifierUseRemainingDisks_Object((1,3,6,1,4,1,9,9,719,1,79,17,1,9),_CucsLstorageDiskGroupQualifierUseRemainingDisks_Type())
+cucsLstorageDiskGroupQualifierUseRemainingDisks.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupQualifierUseRemainingDisks.setStatus(_A)
+_CucsLstorageDiskGroupQualifierUseJbodDisks_Type=CucsStoragePDriveConfig
+_CucsLstorageDiskGroupQualifierUseJbodDisks_Object=MibTableColumn
+cucsLstorageDiskGroupQualifierUseJbodDisks=_CucsLstorageDiskGroupQualifierUseJbodDisks_Object((1,3,6,1,4,1,9,9,719,1,79,17,1,10),_CucsLstorageDiskGroupQualifierUseJbodDisks_Type())
+cucsLstorageDiskGroupQualifierUseJbodDisks.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskGroupQualifierUseJbodDisks.setStatus(_A)
+_CucsLstorageLocalDiskConfigRefTable_Object=MibTable
+cucsLstorageLocalDiskConfigRefTable=_CucsLstorageLocalDiskConfigRefTable_Object((1,3,6,1,4,1,9,9,719,1,79,21))
+if mibBuilder.loadTexts:cucsLstorageLocalDiskConfigRefTable.setStatus(_A)
+_CucsLstorageLocalDiskConfigRefEntry_Object=MibTableRow
+cucsLstorageLocalDiskConfigRefEntry=_CucsLstorageLocalDiskConfigRefEntry_Object((1,3,6,1,4,1,9,9,719,1,79,21,1))
+cucsLstorageLocalDiskConfigRefEntry.setIndexNames((0,_C,_I))
+if mibBuilder.loadTexts:cucsLstorageLocalDiskConfigRefEntry.setStatus(_A)
+_CucsLstorageLocalDiskConfigRefInstanceId_Type=CucsManagedObjectId
+_CucsLstorageLocalDiskConfigRefInstanceId_Object=MibTableColumn
+cucsLstorageLocalDiskConfigRefInstanceId=_CucsLstorageLocalDiskConfigRefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,21,1,1),_CucsLstorageLocalDiskConfigRefInstanceId_Type())
+cucsLstorageLocalDiskConfigRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageLocalDiskConfigRefInstanceId.setStatus(_A)
+_CucsLstorageLocalDiskConfigRefDn_Type=CucsManagedObjectDn
+_CucsLstorageLocalDiskConfigRefDn_Object=MibTableColumn
+cucsLstorageLocalDiskConfigRefDn=_CucsLstorageLocalDiskConfigRefDn_Object((1,3,6,1,4,1,9,9,719,1,79,21,1,2),_CucsLstorageLocalDiskConfigRefDn_Type())
+cucsLstorageLocalDiskConfigRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLocalDiskConfigRefDn.setStatus(_A)
+_CucsLstorageLocalDiskConfigRefRn_Type=SnmpAdminString
+_CucsLstorageLocalDiskConfigRefRn_Object=MibTableColumn
+cucsLstorageLocalDiskConfigRefRn=_CucsLstorageLocalDiskConfigRefRn_Object((1,3,6,1,4,1,9,9,719,1,79,21,1,3),_CucsLstorageLocalDiskConfigRefRn_Type())
+cucsLstorageLocalDiskConfigRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLocalDiskConfigRefRn.setStatus(_A)
+_CucsLstorageLocalDiskConfigRefRole_Type=CucsStorageDiskRole
+_CucsLstorageLocalDiskConfigRefRole_Object=MibTableColumn
+cucsLstorageLocalDiskConfigRefRole=_CucsLstorageLocalDiskConfigRefRole_Object((1,3,6,1,4,1,9,9,719,1,79,21,1,4),_CucsLstorageLocalDiskConfigRefRole_Type())
+cucsLstorageLocalDiskConfigRefRole.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLocalDiskConfigRefRole.setStatus(_A)
+_CucsLstorageLocalDiskConfigRefSlotNum_Type=Gauge32
+_CucsLstorageLocalDiskConfigRefSlotNum_Object=MibTableColumn
+cucsLstorageLocalDiskConfigRefSlotNum=_CucsLstorageLocalDiskConfigRefSlotNum_Object((1,3,6,1,4,1,9,9,719,1,79,21,1,5),_CucsLstorageLocalDiskConfigRefSlotNum_Type())
+cucsLstorageLocalDiskConfigRefSlotNum.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLocalDiskConfigRefSlotNum.setStatus(_A)
+_CucsLstorageLocalDiskConfigRefSpanId_Type=Gauge32
+_CucsLstorageLocalDiskConfigRefSpanId_Object=MibTableColumn
+cucsLstorageLocalDiskConfigRefSpanId=_CucsLstorageLocalDiskConfigRefSpanId_Object((1,3,6,1,4,1,9,9,719,1,79,21,1,6),_CucsLstorageLocalDiskConfigRefSpanId_Type())
+cucsLstorageLocalDiskConfigRefSpanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLocalDiskConfigRefSpanId.setStatus(_A)
+_CucsLstorageLocalDiskRefTable_Object=MibTable
+cucsLstorageLocalDiskRefTable=_CucsLstorageLocalDiskRefTable_Object((1,3,6,1,4,1,9,9,719,1,79,22))
+if mibBuilder.loadTexts:cucsLstorageLocalDiskRefTable.setStatus(_A)
+_CucsLstorageLocalDiskRefEntry_Object=MibTableRow
+cucsLstorageLocalDiskRefEntry=_CucsLstorageLocalDiskRefEntry_Object((1,3,6,1,4,1,9,9,719,1,79,22,1))
+cucsLstorageLocalDiskRefEntry.setIndexNames((0,_C,_J))
+if mibBuilder.loadTexts:cucsLstorageLocalDiskRefEntry.setStatus(_A)
+_CucsLstorageLocalDiskRefInstanceId_Type=CucsManagedObjectId
+_CucsLstorageLocalDiskRefInstanceId_Object=MibTableColumn
+cucsLstorageLocalDiskRefInstanceId=_CucsLstorageLocalDiskRefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,22,1,1),_CucsLstorageLocalDiskRefInstanceId_Type())
+cucsLstorageLocalDiskRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageLocalDiskRefInstanceId.setStatus(_A)
+_CucsLstorageLocalDiskRefDn_Type=CucsManagedObjectDn
+_CucsLstorageLocalDiskRefDn_Object=MibTableColumn
+cucsLstorageLocalDiskRefDn=_CucsLstorageLocalDiskRefDn_Object((1,3,6,1,4,1,9,9,719,1,79,22,1,2),_CucsLstorageLocalDiskRefDn_Type())
+cucsLstorageLocalDiskRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLocalDiskRefDn.setStatus(_A)
+_CucsLstorageLocalDiskRefRn_Type=SnmpAdminString
+_CucsLstorageLocalDiskRefRn_Object=MibTableColumn
+cucsLstorageLocalDiskRefRn=_CucsLstorageLocalDiskRefRn_Object((1,3,6,1,4,1,9,9,719,1,79,22,1,3),_CucsLstorageLocalDiskRefRn_Type())
+cucsLstorageLocalDiskRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLocalDiskRefRn.setStatus(_A)
+_CucsLstorageLocalDiskRefEnclosureId_Type=Gauge32
+_CucsLstorageLocalDiskRefEnclosureId_Object=MibTableColumn
+cucsLstorageLocalDiskRefEnclosureId=_CucsLstorageLocalDiskRefEnclosureId_Object((1,3,6,1,4,1,9,9,719,1,79,22,1,4),_CucsLstorageLocalDiskRefEnclosureId_Type())
+cucsLstorageLocalDiskRefEnclosureId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLocalDiskRefEnclosureId.setStatus(_A)
+_CucsLstorageLocalDiskRefSlotId_Type=Gauge32
+_CucsLstorageLocalDiskRefSlotId_Object=MibTableColumn
+cucsLstorageLocalDiskRefSlotId=_CucsLstorageLocalDiskRefSlotId_Object((1,3,6,1,4,1,9,9,719,1,79,22,1,5),_CucsLstorageLocalDiskRefSlotId_Type())
+cucsLstorageLocalDiskRefSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLocalDiskRefSlotId.setStatus(_A)
+_CucsLstorageProfileTable_Object=MibTable
+cucsLstorageProfileTable=_CucsLstorageProfileTable_Object((1,3,6,1,4,1,9,9,719,1,79,37))
+if mibBuilder.loadTexts:cucsLstorageProfileTable.setStatus(_A)
+_CucsLstorageProfileEntry_Object=MibTableRow
+cucsLstorageProfileEntry=_CucsLstorageProfileEntry_Object((1,3,6,1,4,1,9,9,719,1,79,37,1))
+cucsLstorageProfileEntry.setIndexNames((0,_C,_K))
+if mibBuilder.loadTexts:cucsLstorageProfileEntry.setStatus(_A)
+_CucsLstorageProfileInstanceId_Type=CucsManagedObjectId
+_CucsLstorageProfileInstanceId_Object=MibTableColumn
+cucsLstorageProfileInstanceId=_CucsLstorageProfileInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,37,1,1),_CucsLstorageProfileInstanceId_Type())
+cucsLstorageProfileInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageProfileInstanceId.setStatus(_A)
+_CucsLstorageProfileDn_Type=CucsManagedObjectDn
+_CucsLstorageProfileDn_Object=MibTableColumn
+cucsLstorageProfileDn=_CucsLstorageProfileDn_Object((1,3,6,1,4,1,9,9,719,1,79,37,1,2),_CucsLstorageProfileDn_Type())
+cucsLstorageProfileDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileDn.setStatus(_A)
+_CucsLstorageProfileRn_Type=SnmpAdminString
+_CucsLstorageProfileRn_Object=MibTableColumn
+cucsLstorageProfileRn=_CucsLstorageProfileRn_Object((1,3,6,1,4,1,9,9,719,1,79,37,1,3),_CucsLstorageProfileRn_Type())
+cucsLstorageProfileRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileRn.setStatus(_A)
+_CucsLstorageProfileAssignedToDn_Type=SnmpAdminString
+_CucsLstorageProfileAssignedToDn_Object=MibTableColumn
+cucsLstorageProfileAssignedToDn=_CucsLstorageProfileAssignedToDn_Object((1,3,6,1,4,1,9,9,719,1,79,37,1,4),_CucsLstorageProfileAssignedToDn_Type())
+cucsLstorageProfileAssignedToDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileAssignedToDn.setStatus(_A)
+_CucsLstorageProfileAvailability_Type=CucsLstorageAvailability
+_CucsLstorageProfileAvailability_Object=MibTableColumn
+cucsLstorageProfileAvailability=_CucsLstorageProfileAvailability_Object((1,3,6,1,4,1,9,9,719,1,79,37,1,5),_CucsLstorageProfileAvailability_Type())
+cucsLstorageProfileAvailability.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileAvailability.setStatus(_A)
+_CucsLstorageProfileDescr_Type=SnmpAdminString
+_CucsLstorageProfileDescr_Object=MibTableColumn
+cucsLstorageProfileDescr=_CucsLstorageProfileDescr_Object((1,3,6,1,4,1,9,9,719,1,79,37,1,6),_CucsLstorageProfileDescr_Type())
+cucsLstorageProfileDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileDescr.setStatus(_A)
+_CucsLstorageProfileIntId_Type=SnmpAdminString
+_CucsLstorageProfileIntId_Object=MibTableColumn
+cucsLstorageProfileIntId=_CucsLstorageProfileIntId_Object((1,3,6,1,4,1,9,9,719,1,79,37,1,7),_CucsLstorageProfileIntId_Type())
+cucsLstorageProfileIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileIntId.setStatus(_A)
+_CucsLstorageProfileName_Type=SnmpAdminString
+_CucsLstorageProfileName_Object=MibTableColumn
+cucsLstorageProfileName=_CucsLstorageProfileName_Object((1,3,6,1,4,1,9,9,719,1,79,37,1,8),_CucsLstorageProfileName_Type())
+cucsLstorageProfileName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileName.setStatus(_A)
+_CucsLstorageProfilePolicyLevel_Type=Gauge32
+_CucsLstorageProfilePolicyLevel_Object=MibTableColumn
+cucsLstorageProfilePolicyLevel=_CucsLstorageProfilePolicyLevel_Object((1,3,6,1,4,1,9,9,719,1,79,37,1,9),_CucsLstorageProfilePolicyLevel_Type())
+cucsLstorageProfilePolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfilePolicyLevel.setStatus(_A)
+_CucsLstorageProfilePolicyOwner_Type=CucsPolicyPolicyOwner
+_CucsLstorageProfilePolicyOwner_Object=MibTableColumn
+cucsLstorageProfilePolicyOwner=_CucsLstorageProfilePolicyOwner_Object((1,3,6,1,4,1,9,9,719,1,79,37,1,10),_CucsLstorageProfilePolicyOwner_Type())
+cucsLstorageProfilePolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfilePolicyOwner.setStatus(_A)
+_CucsLstorageProfileBindingTable_Object=MibTable
+cucsLstorageProfileBindingTable=_CucsLstorageProfileBindingTable_Object((1,3,6,1,4,1,9,9,719,1,79,38))
+if mibBuilder.loadTexts:cucsLstorageProfileBindingTable.setStatus(_A)
+_CucsLstorageProfileBindingEntry_Object=MibTableRow
+cucsLstorageProfileBindingEntry=_CucsLstorageProfileBindingEntry_Object((1,3,6,1,4,1,9,9,719,1,79,38,1))
+cucsLstorageProfileBindingEntry.setIndexNames((0,_C,_L))
+if mibBuilder.loadTexts:cucsLstorageProfileBindingEntry.setStatus(_A)
+_CucsLstorageProfileBindingInstanceId_Type=CucsManagedObjectId
+_CucsLstorageProfileBindingInstanceId_Object=MibTableColumn
+cucsLstorageProfileBindingInstanceId=_CucsLstorageProfileBindingInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,38,1,1),_CucsLstorageProfileBindingInstanceId_Type())
+cucsLstorageProfileBindingInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageProfileBindingInstanceId.setStatus(_A)
+_CucsLstorageProfileBindingDn_Type=CucsManagedObjectDn
+_CucsLstorageProfileBindingDn_Object=MibTableColumn
+cucsLstorageProfileBindingDn=_CucsLstorageProfileBindingDn_Object((1,3,6,1,4,1,9,9,719,1,79,38,1,2),_CucsLstorageProfileBindingDn_Type())
+cucsLstorageProfileBindingDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileBindingDn.setStatus(_A)
+_CucsLstorageProfileBindingRn_Type=SnmpAdminString
+_CucsLstorageProfileBindingRn_Object=MibTableColumn
+cucsLstorageProfileBindingRn=_CucsLstorageProfileBindingRn_Object((1,3,6,1,4,1,9,9,719,1,79,38,1,3),_CucsLstorageProfileBindingRn_Type())
+cucsLstorageProfileBindingRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileBindingRn.setStatus(_A)
+_CucsLstorageProfileBindingAssignedToDn_Type=SnmpAdminString
+_CucsLstorageProfileBindingAssignedToDn_Object=MibTableColumn
+cucsLstorageProfileBindingAssignedToDn=_CucsLstorageProfileBindingAssignedToDn_Object((1,3,6,1,4,1,9,9,719,1,79,38,1,4),_CucsLstorageProfileBindingAssignedToDn_Type())
+cucsLstorageProfileBindingAssignedToDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileBindingAssignedToDn.setStatus(_A)
+_CucsLstorageProfileBindingIssues_Type=CucsLsConfigIssues
+_CucsLstorageProfileBindingIssues_Object=MibTableColumn
+cucsLstorageProfileBindingIssues=_CucsLstorageProfileBindingIssues_Object((1,3,6,1,4,1,9,9,719,1,79,38,1,5),_CucsLstorageProfileBindingIssues_Type())
+cucsLstorageProfileBindingIssues.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileBindingIssues.setStatus(_A)
+_CucsLstorageProfileBindingName_Type=SnmpAdminString
+_CucsLstorageProfileBindingName_Object=MibTableColumn
+cucsLstorageProfileBindingName=_CucsLstorageProfileBindingName_Object((1,3,6,1,4,1,9,9,719,1,79,38,1,6),_CucsLstorageProfileBindingName_Type())
+cucsLstorageProfileBindingName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileBindingName.setStatus(_A)
+_CucsLstorageProfileBindingOperStorageProfileName_Type=SnmpAdminString
+_CucsLstorageProfileBindingOperStorageProfileName_Object=MibTableColumn
+cucsLstorageProfileBindingOperStorageProfileName=_CucsLstorageProfileBindingOperStorageProfileName_Object((1,3,6,1,4,1,9,9,719,1,79,38,1,7),_CucsLstorageProfileBindingOperStorageProfileName_Type())
+cucsLstorageProfileBindingOperStorageProfileName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileBindingOperStorageProfileName.setStatus(_A)
+_CucsLstorageProfileBindingStorageProfileName_Type=SnmpAdminString
+_CucsLstorageProfileBindingStorageProfileName_Object=MibTableColumn
+cucsLstorageProfileBindingStorageProfileName=_CucsLstorageProfileBindingStorageProfileName_Object((1,3,6,1,4,1,9,9,719,1,79,38,1,8),_CucsLstorageProfileBindingStorageProfileName_Type())
+cucsLstorageProfileBindingStorageProfileName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileBindingStorageProfileName.setStatus(_A)
+_CucsLstorageProfileDefTable_Object=MibTable
+cucsLstorageProfileDefTable=_CucsLstorageProfileDefTable_Object((1,3,6,1,4,1,9,9,719,1,79,39))
+if mibBuilder.loadTexts:cucsLstorageProfileDefTable.setStatus(_A)
+_CucsLstorageProfileDefEntry_Object=MibTableRow
+cucsLstorageProfileDefEntry=_CucsLstorageProfileDefEntry_Object((1,3,6,1,4,1,9,9,719,1,79,39,1))
+cucsLstorageProfileDefEntry.setIndexNames((0,_C,_M))
+if mibBuilder.loadTexts:cucsLstorageProfileDefEntry.setStatus(_A)
+_CucsLstorageProfileDefInstanceId_Type=CucsManagedObjectId
+_CucsLstorageProfileDefInstanceId_Object=MibTableColumn
+cucsLstorageProfileDefInstanceId=_CucsLstorageProfileDefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,39,1,1),_CucsLstorageProfileDefInstanceId_Type())
+cucsLstorageProfileDefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageProfileDefInstanceId.setStatus(_A)
+_CucsLstorageProfileDefDn_Type=CucsManagedObjectDn
+_CucsLstorageProfileDefDn_Object=MibTableColumn
+cucsLstorageProfileDefDn=_CucsLstorageProfileDefDn_Object((1,3,6,1,4,1,9,9,719,1,79,39,1,2),_CucsLstorageProfileDefDn_Type())
+cucsLstorageProfileDefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileDefDn.setStatus(_A)
+_CucsLstorageProfileDefRn_Type=SnmpAdminString
+_CucsLstorageProfileDefRn_Object=MibTableColumn
+cucsLstorageProfileDefRn=_CucsLstorageProfileDefRn_Object((1,3,6,1,4,1,9,9,719,1,79,39,1,3),_CucsLstorageProfileDefRn_Type())
+cucsLstorageProfileDefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileDefRn.setStatus(_A)
+_CucsLstorageProfileDefAssignedToDn_Type=SnmpAdminString
+_CucsLstorageProfileDefAssignedToDn_Object=MibTableColumn
+cucsLstorageProfileDefAssignedToDn=_CucsLstorageProfileDefAssignedToDn_Object((1,3,6,1,4,1,9,9,719,1,79,39,1,4),_CucsLstorageProfileDefAssignedToDn_Type())
+cucsLstorageProfileDefAssignedToDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileDefAssignedToDn.setStatus(_A)
+_CucsLstorageProfileDefAvailability_Type=CucsLstorageAvailability
+_CucsLstorageProfileDefAvailability_Object=MibTableColumn
+cucsLstorageProfileDefAvailability=_CucsLstorageProfileDefAvailability_Object((1,3,6,1,4,1,9,9,719,1,79,39,1,5),_CucsLstorageProfileDefAvailability_Type())
+cucsLstorageProfileDefAvailability.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileDefAvailability.setStatus(_A)
+_CucsLstorageProfileDefDescr_Type=SnmpAdminString
+_CucsLstorageProfileDefDescr_Object=MibTableColumn
+cucsLstorageProfileDefDescr=_CucsLstorageProfileDefDescr_Object((1,3,6,1,4,1,9,9,719,1,79,39,1,6),_CucsLstorageProfileDefDescr_Type())
+cucsLstorageProfileDefDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileDefDescr.setStatus(_A)
+_CucsLstorageProfileDefIntId_Type=SnmpAdminString
+_CucsLstorageProfileDefIntId_Object=MibTableColumn
+cucsLstorageProfileDefIntId=_CucsLstorageProfileDefIntId_Object((1,3,6,1,4,1,9,9,719,1,79,39,1,7),_CucsLstorageProfileDefIntId_Type())
+cucsLstorageProfileDefIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileDefIntId.setStatus(_A)
+_CucsLstorageProfileDefName_Type=SnmpAdminString
+_CucsLstorageProfileDefName_Object=MibTableColumn
+cucsLstorageProfileDefName=_CucsLstorageProfileDefName_Object((1,3,6,1,4,1,9,9,719,1,79,39,1,8),_CucsLstorageProfileDefName_Type())
+cucsLstorageProfileDefName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileDefName.setStatus(_A)
+_CucsLstorageProfileDefPolicyLevel_Type=Gauge32
+_CucsLstorageProfileDefPolicyLevel_Object=MibTableColumn
+cucsLstorageProfileDefPolicyLevel=_CucsLstorageProfileDefPolicyLevel_Object((1,3,6,1,4,1,9,9,719,1,79,39,1,9),_CucsLstorageProfileDefPolicyLevel_Type())
+cucsLstorageProfileDefPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileDefPolicyLevel.setStatus(_A)
+_CucsLstorageProfileDefPolicyOwner_Type=CucsPolicyPolicyOwner
+_CucsLstorageProfileDefPolicyOwner_Object=MibTableColumn
+cucsLstorageProfileDefPolicyOwner=_CucsLstorageProfileDefPolicyOwner_Object((1,3,6,1,4,1,9,9,719,1,79,39,1,10),_CucsLstorageProfileDefPolicyOwner_Type())
+cucsLstorageProfileDefPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageProfileDefPolicyOwner.setStatus(_A)
+_CucsLstorageVirtualDriveDefTable_Object=MibTable
+cucsLstorageVirtualDriveDefTable=_CucsLstorageVirtualDriveDefTable_Object((1,3,6,1,4,1,9,9,719,1,79,49))
+if mibBuilder.loadTexts:cucsLstorageVirtualDriveDefTable.setStatus(_A)
+_CucsLstorageVirtualDriveDefEntry_Object=MibTableRow
+cucsLstorageVirtualDriveDefEntry=_CucsLstorageVirtualDriveDefEntry_Object((1,3,6,1,4,1,9,9,719,1,79,49,1))
+cucsLstorageVirtualDriveDefEntry.setIndexNames((0,_C,_N))
+if mibBuilder.loadTexts:cucsLstorageVirtualDriveDefEntry.setStatus(_A)
+_CucsLstorageVirtualDriveDefInstanceId_Type=CucsManagedObjectId
+_CucsLstorageVirtualDriveDefInstanceId_Object=MibTableColumn
+cucsLstorageVirtualDriveDefInstanceId=_CucsLstorageVirtualDriveDefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,49,1,1),_CucsLstorageVirtualDriveDefInstanceId_Type())
+cucsLstorageVirtualDriveDefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageVirtualDriveDefInstanceId.setStatus(_A)
+_CucsLstorageVirtualDriveDefDn_Type=CucsManagedObjectDn
+_CucsLstorageVirtualDriveDefDn_Object=MibTableColumn
+cucsLstorageVirtualDriveDefDn=_CucsLstorageVirtualDriveDefDn_Object((1,3,6,1,4,1,9,9,719,1,79,49,1,2),_CucsLstorageVirtualDriveDefDn_Type())
+cucsLstorageVirtualDriveDefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageVirtualDriveDefDn.setStatus(_A)
+_CucsLstorageVirtualDriveDefRn_Type=SnmpAdminString
+_CucsLstorageVirtualDriveDefRn_Object=MibTableColumn
+cucsLstorageVirtualDriveDefRn=_CucsLstorageVirtualDriveDefRn_Object((1,3,6,1,4,1,9,9,719,1,79,49,1,3),_CucsLstorageVirtualDriveDefRn_Type())
+cucsLstorageVirtualDriveDefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageVirtualDriveDefRn.setStatus(_A)
+_CucsLstorageVirtualDriveDefAccessPolicy_Type=CucsLstorageVirtualDriveDefAccessPolicy
+_CucsLstorageVirtualDriveDefAccessPolicy_Object=MibTableColumn
+cucsLstorageVirtualDriveDefAccessPolicy=_CucsLstorageVirtualDriveDefAccessPolicy_Object((1,3,6,1,4,1,9,9,719,1,79,49,1,4),_CucsLstorageVirtualDriveDefAccessPolicy_Type())
+cucsLstorageVirtualDriveDefAccessPolicy.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageVirtualDriveDefAccessPolicy.setStatus(_A)
+_CucsLstorageVirtualDriveDefDriveCache_Type=CucsLstorageVirtualDriveDefDriveCache
+_CucsLstorageVirtualDriveDefDriveCache_Object=MibTableColumn
+cucsLstorageVirtualDriveDefDriveCache=_CucsLstorageVirtualDriveDefDriveCache_Object((1,3,6,1,4,1,9,9,719,1,79,49,1,5),_CucsLstorageVirtualDriveDefDriveCache_Type())
+cucsLstorageVirtualDriveDefDriveCache.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageVirtualDriveDefDriveCache.setStatus(_A)
+_CucsLstorageVirtualDriveDefIoPolicy_Type=CucsLstorageVirtualDriveDefIoPolicy
+_CucsLstorageVirtualDriveDefIoPolicy_Object=MibTableColumn
+cucsLstorageVirtualDriveDefIoPolicy=_CucsLstorageVirtualDriveDefIoPolicy_Object((1,3,6,1,4,1,9,9,719,1,79,49,1,6),_CucsLstorageVirtualDriveDefIoPolicy_Type())
+cucsLstorageVirtualDriveDefIoPolicy.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageVirtualDriveDefIoPolicy.setStatus(_A)
+_CucsLstorageVirtualDriveDefReadPolicy_Type=CucsLstorageVirtualDriveDefReadPolicy
+_CucsLstorageVirtualDriveDefReadPolicy_Object=MibTableColumn
+cucsLstorageVirtualDriveDefReadPolicy=_CucsLstorageVirtualDriveDefReadPolicy_Object((1,3,6,1,4,1,9,9,719,1,79,49,1,7),_CucsLstorageVirtualDriveDefReadPolicy_Type())
+cucsLstorageVirtualDriveDefReadPolicy.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageVirtualDriveDefReadPolicy.setStatus(_A)
+_CucsLstorageVirtualDriveDefStripSize_Type=CucsLstorageVirtualDriveDefStripSize
+_CucsLstorageVirtualDriveDefStripSize_Object=MibTableColumn
+cucsLstorageVirtualDriveDefStripSize=_CucsLstorageVirtualDriveDefStripSize_Object((1,3,6,1,4,1,9,9,719,1,79,49,1,8),_CucsLstorageVirtualDriveDefStripSize_Type())
+cucsLstorageVirtualDriveDefStripSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageVirtualDriveDefStripSize.setStatus(_A)
+_CucsLstorageVirtualDriveDefWriteCachePolicy_Type=CucsLstorageVirtualDriveDefWriteCachePolicy
+_CucsLstorageVirtualDriveDefWriteCachePolicy_Object=MibTableColumn
+cucsLstorageVirtualDriveDefWriteCachePolicy=_CucsLstorageVirtualDriveDefWriteCachePolicy_Object((1,3,6,1,4,1,9,9,719,1,79,49,1,9),_CucsLstorageVirtualDriveDefWriteCachePolicy_Type())
+cucsLstorageVirtualDriveDefWriteCachePolicy.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageVirtualDriveDefWriteCachePolicy.setStatus(_A)
+_CucsLstorageVirtualDriveDefSecurity_Type=TruthValue
+_CucsLstorageVirtualDriveDefSecurity_Object=MibTableColumn
+cucsLstorageVirtualDriveDefSecurity=_CucsLstorageVirtualDriveDefSecurity_Object((1,3,6,1,4,1,9,9,719,1,79,49,1,10),_CucsLstorageVirtualDriveDefSecurity_Type())
+cucsLstorageVirtualDriveDefSecurity.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageVirtualDriveDefSecurity.setStatus(_A)
+_CucsLstorageControllerDefTable_Object=MibTable
+cucsLstorageControllerDefTable=_CucsLstorageControllerDefTable_Object((1,3,6,1,4,1,9,9,719,1,79,52))
+if mibBuilder.loadTexts:cucsLstorageControllerDefTable.setStatus(_A)
+_CucsLstorageControllerDefEntry_Object=MibTableRow
+cucsLstorageControllerDefEntry=_CucsLstorageControllerDefEntry_Object((1,3,6,1,4,1,9,9,719,1,79,52,1))
+cucsLstorageControllerDefEntry.setIndexNames((0,_C,_O))
+if mibBuilder.loadTexts:cucsLstorageControllerDefEntry.setStatus(_A)
+_CucsLstorageControllerDefInstanceId_Type=CucsManagedObjectId
+_CucsLstorageControllerDefInstanceId_Object=MibTableColumn
+cucsLstorageControllerDefInstanceId=_CucsLstorageControllerDefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,52,1,1),_CucsLstorageControllerDefInstanceId_Type())
+cucsLstorageControllerDefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageControllerDefInstanceId.setStatus(_A)
+_CucsLstorageControllerDefDn_Type=CucsManagedObjectDn
+_CucsLstorageControllerDefDn_Object=MibTableColumn
+cucsLstorageControllerDefDn=_CucsLstorageControllerDefDn_Object((1,3,6,1,4,1,9,9,719,1,79,52,1,2),_CucsLstorageControllerDefDn_Type())
+cucsLstorageControllerDefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerDefDn.setStatus(_A)
+_CucsLstorageControllerDefRn_Type=SnmpAdminString
+_CucsLstorageControllerDefRn_Object=MibTableColumn
+cucsLstorageControllerDefRn=_CucsLstorageControllerDefRn_Object((1,3,6,1,4,1,9,9,719,1,79,52,1,3),_CucsLstorageControllerDefRn_Type())
+cucsLstorageControllerDefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerDefRn.setStatus(_A)
+_CucsLstorageControllerDefAdminState_Type=CucsLstorageAdminState
+_CucsLstorageControllerDefAdminState_Object=MibTableColumn
+cucsLstorageControllerDefAdminState=_CucsLstorageControllerDefAdminState_Object((1,3,6,1,4,1,9,9,719,1,79,52,1,4),_CucsLstorageControllerDefAdminState_Type())
+cucsLstorageControllerDefAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerDefAdminState.setStatus(_A)
+_CucsLstorageControllerDefConfigQualifier_Type=CucsLstorageConfigIssues
+_CucsLstorageControllerDefConfigQualifier_Object=MibTableColumn
+cucsLstorageControllerDefConfigQualifier=_CucsLstorageControllerDefConfigQualifier_Object((1,3,6,1,4,1,9,9,719,1,79,52,1,5),_CucsLstorageControllerDefConfigQualifier_Type())
+cucsLstorageControllerDefConfigQualifier.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerDefConfigQualifier.setStatus(_A)
+_CucsLstorageControllerDefConfigState_Type=CucsLstorageConfigState
+_CucsLstorageControllerDefConfigState_Object=MibTableColumn
+cucsLstorageControllerDefConfigState=_CucsLstorageControllerDefConfigState_Object((1,3,6,1,4,1,9,9,719,1,79,52,1,6),_CucsLstorageControllerDefConfigState_Type())
+cucsLstorageControllerDefConfigState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerDefConfigState.setStatus(_A)
+_CucsLstorageControllerDefName_Type=SnmpAdminString
+_CucsLstorageControllerDefName_Object=MibTableColumn
+cucsLstorageControllerDefName=_CucsLstorageControllerDefName_Object((1,3,6,1,4,1,9,9,719,1,79,52,1,7),_CucsLstorageControllerDefName_Type())
+cucsLstorageControllerDefName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerDefName.setStatus(_A)
+_CucsLstorageControllerDefOperState_Type=CucsStorageUnitOperState
+_CucsLstorageControllerDefOperState_Object=MibTableColumn
+cucsLstorageControllerDefOperState=_CucsLstorageControllerDefOperState_Object((1,3,6,1,4,1,9,9,719,1,79,52,1,8),_CucsLstorageControllerDefOperState_Type())
+cucsLstorageControllerDefOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerDefOperState.setStatus(_A)
+_CucsLstorageControllerModeConfigTable_Object=MibTable
+cucsLstorageControllerModeConfigTable=_CucsLstorageControllerModeConfigTable_Object((1,3,6,1,4,1,9,9,719,1,79,53))
+if mibBuilder.loadTexts:cucsLstorageControllerModeConfigTable.setStatus(_A)
+_CucsLstorageControllerModeConfigEntry_Object=MibTableRow
+cucsLstorageControllerModeConfigEntry=_CucsLstorageControllerModeConfigEntry_Object((1,3,6,1,4,1,9,9,719,1,79,53,1))
+cucsLstorageControllerModeConfigEntry.setIndexNames((0,_C,_P))
+if mibBuilder.loadTexts:cucsLstorageControllerModeConfigEntry.setStatus(_A)
+_CucsLstorageControllerModeConfigInstanceId_Type=CucsManagedObjectId
+_CucsLstorageControllerModeConfigInstanceId_Object=MibTableColumn
+cucsLstorageControllerModeConfigInstanceId=_CucsLstorageControllerModeConfigInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,53,1,1),_CucsLstorageControllerModeConfigInstanceId_Type())
+cucsLstorageControllerModeConfigInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageControllerModeConfigInstanceId.setStatus(_A)
+_CucsLstorageControllerModeConfigDn_Type=CucsManagedObjectDn
+_CucsLstorageControllerModeConfigDn_Object=MibTableColumn
+cucsLstorageControllerModeConfigDn=_CucsLstorageControllerModeConfigDn_Object((1,3,6,1,4,1,9,9,719,1,79,53,1,2),_CucsLstorageControllerModeConfigDn_Type())
+cucsLstorageControllerModeConfigDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerModeConfigDn.setStatus(_A)
+_CucsLstorageControllerModeConfigRn_Type=SnmpAdminString
+_CucsLstorageControllerModeConfigRn_Object=MibTableColumn
+cucsLstorageControllerModeConfigRn=_CucsLstorageControllerModeConfigRn_Object((1,3,6,1,4,1,9,9,719,1,79,53,1,3),_CucsLstorageControllerModeConfigRn_Type())
+cucsLstorageControllerModeConfigRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerModeConfigRn.setStatus(_A)
+_CucsLstorageControllerModeConfigProtectConfig_Type=TruthValue
+_CucsLstorageControllerModeConfigProtectConfig_Object=MibTableColumn
+cucsLstorageControllerModeConfigProtectConfig=_CucsLstorageControllerModeConfigProtectConfig_Object((1,3,6,1,4,1,9,9,719,1,79,53,1,4),_CucsLstorageControllerModeConfigProtectConfig_Type())
+cucsLstorageControllerModeConfigProtectConfig.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerModeConfigProtectConfig.setStatus(_A)
+_CucsLstorageControllerModeConfigRaidMode_Type=CucsStorageLocalDiskMode
+_CucsLstorageControllerModeConfigRaidMode_Object=MibTableColumn
+cucsLstorageControllerModeConfigRaidMode=_CucsLstorageControllerModeConfigRaidMode_Object((1,3,6,1,4,1,9,9,719,1,79,53,1,5),_CucsLstorageControllerModeConfigRaidMode_Type())
+cucsLstorageControllerModeConfigRaidMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerModeConfigRaidMode.setStatus(_A)
+_CucsLstorageControllerQualifierTable_Object=MibTable
+cucsLstorageControllerQualifierTable=_CucsLstorageControllerQualifierTable_Object((1,3,6,1,4,1,9,9,719,1,79,54))
+if mibBuilder.loadTexts:cucsLstorageControllerQualifierTable.setStatus(_A)
+_CucsLstorageControllerQualifierEntry_Object=MibTableRow
+cucsLstorageControllerQualifierEntry=_CucsLstorageControllerQualifierEntry_Object((1,3,6,1,4,1,9,9,719,1,79,54,1))
+cucsLstorageControllerQualifierEntry.setIndexNames((0,_C,_Q))
+if mibBuilder.loadTexts:cucsLstorageControllerQualifierEntry.setStatus(_A)
+_CucsLstorageControllerQualifierInstanceId_Type=CucsManagedObjectId
+_CucsLstorageControllerQualifierInstanceId_Object=MibTableColumn
+cucsLstorageControllerQualifierInstanceId=_CucsLstorageControllerQualifierInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,54,1,1),_CucsLstorageControllerQualifierInstanceId_Type())
+cucsLstorageControllerQualifierInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageControllerQualifierInstanceId.setStatus(_A)
+_CucsLstorageControllerQualifierDn_Type=CucsManagedObjectDn
+_CucsLstorageControllerQualifierDn_Object=MibTableColumn
+cucsLstorageControllerQualifierDn=_CucsLstorageControllerQualifierDn_Object((1,3,6,1,4,1,9,9,719,1,79,54,1,2),_CucsLstorageControllerQualifierDn_Type())
+cucsLstorageControllerQualifierDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerQualifierDn.setStatus(_A)
+_CucsLstorageControllerQualifierRn_Type=SnmpAdminString
+_CucsLstorageControllerQualifierRn_Object=MibTableColumn
+cucsLstorageControllerQualifierRn=_CucsLstorageControllerQualifierRn_Object((1,3,6,1,4,1,9,9,719,1,79,54,1,3),_CucsLstorageControllerQualifierRn_Type())
+cucsLstorageControllerQualifierRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerQualifierRn.setStatus(_A)
+_CucsLstorageControllerQualifierControllerId_Type=CucsStorageControllerId
+_CucsLstorageControllerQualifierControllerId_Object=MibTableColumn
+cucsLstorageControllerQualifierControllerId=_CucsLstorageControllerQualifierControllerId_Object((1,3,6,1,4,1,9,9,719,1,79,54,1,4),_CucsLstorageControllerQualifierControllerId_Type())
+cucsLstorageControllerQualifierControllerId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerQualifierControllerId.setStatus(_A)
+_CucsLstorageControllerQualifierControllerType_Type=CucsLstorageControllerQualifierControllerType
+_CucsLstorageControllerQualifierControllerType_Object=MibTableColumn
+cucsLstorageControllerQualifierControllerType=_CucsLstorageControllerQualifierControllerType_Object((1,3,6,1,4,1,9,9,719,1,79,54,1,5),_CucsLstorageControllerQualifierControllerType_Type())
+cucsLstorageControllerQualifierControllerType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerQualifierControllerType.setStatus(_A)
+_CucsLstorageControllerRefTable_Object=MibTable
+cucsLstorageControllerRefTable=_CucsLstorageControllerRefTable_Object((1,3,6,1,4,1,9,9,719,1,79,57))
+if mibBuilder.loadTexts:cucsLstorageControllerRefTable.setStatus(_A)
+_CucsLstorageControllerRefEntry_Object=MibTableRow
+cucsLstorageControllerRefEntry=_CucsLstorageControllerRefEntry_Object((1,3,6,1,4,1,9,9,719,1,79,57,1))
+cucsLstorageControllerRefEntry.setIndexNames((0,_C,_R))
+if mibBuilder.loadTexts:cucsLstorageControllerRefEntry.setStatus(_A)
+_CucsLstorageControllerRefInstanceId_Type=CucsManagedObjectId
+_CucsLstorageControllerRefInstanceId_Object=MibTableColumn
+cucsLstorageControllerRefInstanceId=_CucsLstorageControllerRefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,57,1,1),_CucsLstorageControllerRefInstanceId_Type())
+cucsLstorageControllerRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageControllerRefInstanceId.setStatus(_A)
+_CucsLstorageControllerRefDn_Type=CucsManagedObjectDn
+_CucsLstorageControllerRefDn_Object=MibTableColumn
+cucsLstorageControllerRefDn=_CucsLstorageControllerRefDn_Object((1,3,6,1,4,1,9,9,719,1,79,57,1,2),_CucsLstorageControllerRefDn_Type())
+cucsLstorageControllerRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerRefDn.setStatus(_A)
+_CucsLstorageControllerRefRn_Type=SnmpAdminString
+_CucsLstorageControllerRefRn_Object=MibTableColumn
+cucsLstorageControllerRefRn=_CucsLstorageControllerRefRn_Object((1,3,6,1,4,1,9,9,719,1,79,57,1,3),_CucsLstorageControllerRefRn_Type())
+cucsLstorageControllerRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerRefRn.setStatus(_A)
+_CucsLstorageControllerRefControllerId_Type=CucsLstorageControllerRefControllerId
+_CucsLstorageControllerRefControllerId_Object=MibTableColumn
+cucsLstorageControllerRefControllerId=_CucsLstorageControllerRefControllerId_Object((1,3,6,1,4,1,9,9,719,1,79,57,1,4),_CucsLstorageControllerRefControllerId_Type())
+cucsLstorageControllerRefControllerId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerRefControllerId.setStatus(_A)
+_CucsLstorageControllerRefControllerType_Type=CucsLstorageControllerRefControllerType
+_CucsLstorageControllerRefControllerType_Object=MibTableColumn
+cucsLstorageControllerRefControllerType=_CucsLstorageControllerRefControllerType_Object((1,3,6,1,4,1,9,9,719,1,79,57,1,5),_CucsLstorageControllerRefControllerType_Type())
+cucsLstorageControllerRefControllerType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerRefControllerType.setStatus(_A)
+_CucsLstorageControllerRefServerId_Type=CucsLstorageControllerRefServerId
+_CucsLstorageControllerRefServerId_Object=MibTableColumn
+cucsLstorageControllerRefServerId=_CucsLstorageControllerRefServerId_Object((1,3,6,1,4,1,9,9,719,1,79,57,1,6),_CucsLstorageControllerRefServerId_Type())
+cucsLstorageControllerRefServerId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageControllerRefServerId.setStatus(_A)
+_CucsLstorageDiskSlotTable_Object=MibTable
+cucsLstorageDiskSlotTable=_CucsLstorageDiskSlotTable_Object((1,3,6,1,4,1,9,9,719,1,79,58))
+if mibBuilder.loadTexts:cucsLstorageDiskSlotTable.setStatus(_A)
+_CucsLstorageDiskSlotEntry_Object=MibTableRow
+cucsLstorageDiskSlotEntry=_CucsLstorageDiskSlotEntry_Object((1,3,6,1,4,1,9,9,719,1,79,58,1))
+cucsLstorageDiskSlotEntry.setIndexNames((0,_C,_S))
+if mibBuilder.loadTexts:cucsLstorageDiskSlotEntry.setStatus(_A)
+_CucsLstorageDiskSlotInstanceId_Type=CucsManagedObjectId
+_CucsLstorageDiskSlotInstanceId_Object=MibTableColumn
+cucsLstorageDiskSlotInstanceId=_CucsLstorageDiskSlotInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,58,1,1),_CucsLstorageDiskSlotInstanceId_Type())
+cucsLstorageDiskSlotInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageDiskSlotInstanceId.setStatus(_A)
+_CucsLstorageDiskSlotDn_Type=CucsManagedObjectDn
+_CucsLstorageDiskSlotDn_Object=MibTableColumn
+cucsLstorageDiskSlotDn=_CucsLstorageDiskSlotDn_Object((1,3,6,1,4,1,9,9,719,1,79,58,1,2),_CucsLstorageDiskSlotDn_Type())
+cucsLstorageDiskSlotDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskSlotDn.setStatus(_A)
+_CucsLstorageDiskSlotRn_Type=SnmpAdminString
+_CucsLstorageDiskSlotRn_Object=MibTableColumn
+cucsLstorageDiskSlotRn=_CucsLstorageDiskSlotRn_Object((1,3,6,1,4,1,9,9,719,1,79,58,1,3),_CucsLstorageDiskSlotRn_Type())
+cucsLstorageDiskSlotRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskSlotRn.setStatus(_A)
+_CucsLstorageDiskSlotId_Type=Gauge32
+_CucsLstorageDiskSlotId_Object=MibTableColumn
+cucsLstorageDiskSlotId=_CucsLstorageDiskSlotId_Object((1,3,6,1,4,1,9,9,719,1,79,58,1,4),_CucsLstorageDiskSlotId_Type())
+cucsLstorageDiskSlotId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskSlotId.setStatus(_A)
+_CucsLstorageDiskSlotOwnership_Type=CucsLstorageDiskSlotOwnership
+_CucsLstorageDiskSlotOwnership_Object=MibTableColumn
+cucsLstorageDiskSlotOwnership=_CucsLstorageDiskSlotOwnership_Object((1,3,6,1,4,1,9,9,719,1,79,58,1,5),_CucsLstorageDiskSlotOwnership_Type())
+cucsLstorageDiskSlotOwnership.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskSlotOwnership.setStatus(_A)
+_CucsLstorageDiskZoningConfigDefTable_Object=MibTable
+cucsLstorageDiskZoningConfigDefTable=_CucsLstorageDiskZoningConfigDefTable_Object((1,3,6,1,4,1,9,9,719,1,79,59))
+if mibBuilder.loadTexts:cucsLstorageDiskZoningConfigDefTable.setStatus(_A)
+_CucsLstorageDiskZoningConfigDefEntry_Object=MibTableRow
+cucsLstorageDiskZoningConfigDefEntry=_CucsLstorageDiskZoningConfigDefEntry_Object((1,3,6,1,4,1,9,9,719,1,79,59,1))
+cucsLstorageDiskZoningConfigDefEntry.setIndexNames((0,_C,_T))
+if mibBuilder.loadTexts:cucsLstorageDiskZoningConfigDefEntry.setStatus(_A)
+_CucsLstorageDiskZoningConfigDefInstanceId_Type=CucsManagedObjectId
+_CucsLstorageDiskZoningConfigDefInstanceId_Object=MibTableColumn
+cucsLstorageDiskZoningConfigDefInstanceId=_CucsLstorageDiskZoningConfigDefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,59,1,1),_CucsLstorageDiskZoningConfigDefInstanceId_Type())
+cucsLstorageDiskZoningConfigDefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningConfigDefInstanceId.setStatus(_A)
+_CucsLstorageDiskZoningConfigDefDn_Type=CucsManagedObjectDn
+_CucsLstorageDiskZoningConfigDefDn_Object=MibTableColumn
+cucsLstorageDiskZoningConfigDefDn=_CucsLstorageDiskZoningConfigDefDn_Object((1,3,6,1,4,1,9,9,719,1,79,59,1,2),_CucsLstorageDiskZoningConfigDefDn_Type())
+cucsLstorageDiskZoningConfigDefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningConfigDefDn.setStatus(_A)
+_CucsLstorageDiskZoningConfigDefRn_Type=SnmpAdminString
+_CucsLstorageDiskZoningConfigDefRn_Object=MibTableColumn
+cucsLstorageDiskZoningConfigDefRn=_CucsLstorageDiskZoningConfigDefRn_Object((1,3,6,1,4,1,9,9,719,1,79,59,1,3),_CucsLstorageDiskZoningConfigDefRn_Type())
+cucsLstorageDiskZoningConfigDefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningConfigDefRn.setStatus(_A)
+_CucsLstorageDiskZoningConfigDefDescr_Type=SnmpAdminString
+_CucsLstorageDiskZoningConfigDefDescr_Object=MibTableColumn
+cucsLstorageDiskZoningConfigDefDescr=_CucsLstorageDiskZoningConfigDefDescr_Object((1,3,6,1,4,1,9,9,719,1,79,59,1,4),_CucsLstorageDiskZoningConfigDefDescr_Type())
+cucsLstorageDiskZoningConfigDefDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningConfigDefDescr.setStatus(_A)
+_CucsLstorageDiskZoningConfigDefIntId_Type=SnmpAdminString
+_CucsLstorageDiskZoningConfigDefIntId_Object=MibTableColumn
+cucsLstorageDiskZoningConfigDefIntId=_CucsLstorageDiskZoningConfigDefIntId_Object((1,3,6,1,4,1,9,9,719,1,79,59,1,5),_CucsLstorageDiskZoningConfigDefIntId_Type())
+cucsLstorageDiskZoningConfigDefIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningConfigDefIntId.setStatus(_A)
+_CucsLstorageDiskZoningConfigDefName_Type=SnmpAdminString
+_CucsLstorageDiskZoningConfigDefName_Object=MibTableColumn
+cucsLstorageDiskZoningConfigDefName=_CucsLstorageDiskZoningConfigDefName_Object((1,3,6,1,4,1,9,9,719,1,79,59,1,6),_CucsLstorageDiskZoningConfigDefName_Type())
+cucsLstorageDiskZoningConfigDefName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningConfigDefName.setStatus(_A)
+_CucsLstorageDiskZoningConfigDefPolicyLevel_Type=Gauge32
+_CucsLstorageDiskZoningConfigDefPolicyLevel_Object=MibTableColumn
+cucsLstorageDiskZoningConfigDefPolicyLevel=_CucsLstorageDiskZoningConfigDefPolicyLevel_Object((1,3,6,1,4,1,9,9,719,1,79,59,1,7),_CucsLstorageDiskZoningConfigDefPolicyLevel_Type())
+cucsLstorageDiskZoningConfigDefPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningConfigDefPolicyLevel.setStatus(_A)
+_CucsLstorageDiskZoningConfigDefPolicyOwner_Type=CucsPolicyPolicyOwner
+_CucsLstorageDiskZoningConfigDefPolicyOwner_Object=MibTableColumn
+cucsLstorageDiskZoningConfigDefPolicyOwner=_CucsLstorageDiskZoningConfigDefPolicyOwner_Object((1,3,6,1,4,1,9,9,719,1,79,59,1,8),_CucsLstorageDiskZoningConfigDefPolicyOwner_Type())
+cucsLstorageDiskZoningConfigDefPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningConfigDefPolicyOwner.setStatus(_A)
+_CucsLstorageDiskZoningConfigDefPreserveConfig_Type=TruthValue
+_CucsLstorageDiskZoningConfigDefPreserveConfig_Object=MibTableColumn
+cucsLstorageDiskZoningConfigDefPreserveConfig=_CucsLstorageDiskZoningConfigDefPreserveConfig_Object((1,3,6,1,4,1,9,9,719,1,79,59,1,9),_CucsLstorageDiskZoningConfigDefPreserveConfig_Type())
+cucsLstorageDiskZoningConfigDefPreserveConfig.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningConfigDefPreserveConfig.setStatus(_A)
+_CucsLstorageDiskZoningPolicyTable_Object=MibTable
+cucsLstorageDiskZoningPolicyTable=_CucsLstorageDiskZoningPolicyTable_Object((1,3,6,1,4,1,9,9,719,1,79,60))
+if mibBuilder.loadTexts:cucsLstorageDiskZoningPolicyTable.setStatus(_A)
+_CucsLstorageDiskZoningPolicyEntry_Object=MibTableRow
+cucsLstorageDiskZoningPolicyEntry=_CucsLstorageDiskZoningPolicyEntry_Object((1,3,6,1,4,1,9,9,719,1,79,60,1))
+cucsLstorageDiskZoningPolicyEntry.setIndexNames((0,_C,_U))
+if mibBuilder.loadTexts:cucsLstorageDiskZoningPolicyEntry.setStatus(_A)
+_CucsLstorageDiskZoningPolicyInstanceId_Type=CucsManagedObjectId
+_CucsLstorageDiskZoningPolicyInstanceId_Object=MibTableColumn
+cucsLstorageDiskZoningPolicyInstanceId=_CucsLstorageDiskZoningPolicyInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,60,1,1),_CucsLstorageDiskZoningPolicyInstanceId_Type())
+cucsLstorageDiskZoningPolicyInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningPolicyInstanceId.setStatus(_A)
+_CucsLstorageDiskZoningPolicyDn_Type=CucsManagedObjectDn
+_CucsLstorageDiskZoningPolicyDn_Object=MibTableColumn
+cucsLstorageDiskZoningPolicyDn=_CucsLstorageDiskZoningPolicyDn_Object((1,3,6,1,4,1,9,9,719,1,79,60,1,2),_CucsLstorageDiskZoningPolicyDn_Type())
+cucsLstorageDiskZoningPolicyDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningPolicyDn.setStatus(_A)
+_CucsLstorageDiskZoningPolicyRn_Type=SnmpAdminString
+_CucsLstorageDiskZoningPolicyRn_Object=MibTableColumn
+cucsLstorageDiskZoningPolicyRn=_CucsLstorageDiskZoningPolicyRn_Object((1,3,6,1,4,1,9,9,719,1,79,60,1,3),_CucsLstorageDiskZoningPolicyRn_Type())
+cucsLstorageDiskZoningPolicyRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningPolicyRn.setStatus(_A)
+_CucsLstorageDiskZoningPolicyDescr_Type=SnmpAdminString
+_CucsLstorageDiskZoningPolicyDescr_Object=MibTableColumn
+cucsLstorageDiskZoningPolicyDescr=_CucsLstorageDiskZoningPolicyDescr_Object((1,3,6,1,4,1,9,9,719,1,79,60,1,4),_CucsLstorageDiskZoningPolicyDescr_Type())
+cucsLstorageDiskZoningPolicyDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningPolicyDescr.setStatus(_A)
+_CucsLstorageDiskZoningPolicyIntId_Type=SnmpAdminString
+_CucsLstorageDiskZoningPolicyIntId_Object=MibTableColumn
+cucsLstorageDiskZoningPolicyIntId=_CucsLstorageDiskZoningPolicyIntId_Object((1,3,6,1,4,1,9,9,719,1,79,60,1,5),_CucsLstorageDiskZoningPolicyIntId_Type())
+cucsLstorageDiskZoningPolicyIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningPolicyIntId.setStatus(_A)
+_CucsLstorageDiskZoningPolicyName_Type=SnmpAdminString
+_CucsLstorageDiskZoningPolicyName_Object=MibTableColumn
+cucsLstorageDiskZoningPolicyName=_CucsLstorageDiskZoningPolicyName_Object((1,3,6,1,4,1,9,9,719,1,79,60,1,6),_CucsLstorageDiskZoningPolicyName_Type())
+cucsLstorageDiskZoningPolicyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningPolicyName.setStatus(_A)
+_CucsLstorageDiskZoningPolicyPolicyLevel_Type=Gauge32
+_CucsLstorageDiskZoningPolicyPolicyLevel_Object=MibTableColumn
+cucsLstorageDiskZoningPolicyPolicyLevel=_CucsLstorageDiskZoningPolicyPolicyLevel_Object((1,3,6,1,4,1,9,9,719,1,79,60,1,7),_CucsLstorageDiskZoningPolicyPolicyLevel_Type())
+cucsLstorageDiskZoningPolicyPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningPolicyPolicyLevel.setStatus(_A)
+_CucsLstorageDiskZoningPolicyPolicyOwner_Type=CucsPolicyPolicyOwner
+_CucsLstorageDiskZoningPolicyPolicyOwner_Object=MibTableColumn
+cucsLstorageDiskZoningPolicyPolicyOwner=_CucsLstorageDiskZoningPolicyPolicyOwner_Object((1,3,6,1,4,1,9,9,719,1,79,60,1,8),_CucsLstorageDiskZoningPolicyPolicyOwner_Type())
+cucsLstorageDiskZoningPolicyPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningPolicyPolicyOwner.setStatus(_A)
+_CucsLstorageDiskZoningPolicyPreserveConfig_Type=TruthValue
+_CucsLstorageDiskZoningPolicyPreserveConfig_Object=MibTableColumn
+cucsLstorageDiskZoningPolicyPreserveConfig=_CucsLstorageDiskZoningPolicyPreserveConfig_Object((1,3,6,1,4,1,9,9,719,1,79,60,1,9),_CucsLstorageDiskZoningPolicyPreserveConfig_Type())
+cucsLstorageDiskZoningPolicyPreserveConfig.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDiskZoningPolicyPreserveConfig.setStatus(_A)
+_CucsLstorageDriveSecurityTable_Object=MibTable
+cucsLstorageDriveSecurityTable=_CucsLstorageDriveSecurityTable_Object((1,3,6,1,4,1,9,9,719,1,79,61))
+if mibBuilder.loadTexts:cucsLstorageDriveSecurityTable.setStatus(_A)
+_CucsLstorageDriveSecurityEntry_Object=MibTableRow
+cucsLstorageDriveSecurityEntry=_CucsLstorageDriveSecurityEntry_Object((1,3,6,1,4,1,9,9,719,1,79,61,1))
+cucsLstorageDriveSecurityEntry.setIndexNames((0,_C,_V))
+if mibBuilder.loadTexts:cucsLstorageDriveSecurityEntry.setStatus(_A)
+_CucsLstorageDriveSecurityInstanceId_Type=CucsManagedObjectId
+_CucsLstorageDriveSecurityInstanceId_Object=MibTableColumn
+cucsLstorageDriveSecurityInstanceId=_CucsLstorageDriveSecurityInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,61,1,1),_CucsLstorageDriveSecurityInstanceId_Type())
+cucsLstorageDriveSecurityInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageDriveSecurityInstanceId.setStatus(_A)
+_CucsLstorageDriveSecurityDn_Type=CucsManagedObjectDn
+_CucsLstorageDriveSecurityDn_Object=MibTableColumn
+cucsLstorageDriveSecurityDn=_CucsLstorageDriveSecurityDn_Object((1,3,6,1,4,1,9,9,719,1,79,61,1,2),_CucsLstorageDriveSecurityDn_Type())
+cucsLstorageDriveSecurityDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDriveSecurityDn.setStatus(_A)
+_CucsLstorageDriveSecurityRn_Type=SnmpAdminString
+_CucsLstorageDriveSecurityRn_Object=MibTableColumn
+cucsLstorageDriveSecurityRn=_CucsLstorageDriveSecurityRn_Object((1,3,6,1,4,1,9,9,719,1,79,61,1,3),_CucsLstorageDriveSecurityRn_Type())
+cucsLstorageDriveSecurityRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageDriveSecurityRn.setStatus(_A)
+_CucsLstorageLocalTable_Object=MibTable
+cucsLstorageLocalTable=_CucsLstorageLocalTable_Object((1,3,6,1,4,1,9,9,719,1,79,62))
+if mibBuilder.loadTexts:cucsLstorageLocalTable.setStatus(_A)
+_CucsLstorageLocalEntry_Object=MibTableRow
+cucsLstorageLocalEntry=_CucsLstorageLocalEntry_Object((1,3,6,1,4,1,9,9,719,1,79,62,1))
+cucsLstorageLocalEntry.setIndexNames((0,_C,_W))
+if mibBuilder.loadTexts:cucsLstorageLocalEntry.setStatus(_A)
+_CucsLstorageLocalInstanceId_Type=CucsManagedObjectId
+_CucsLstorageLocalInstanceId_Object=MibTableColumn
+cucsLstorageLocalInstanceId=_CucsLstorageLocalInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,62,1,1),_CucsLstorageLocalInstanceId_Type())
+cucsLstorageLocalInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageLocalInstanceId.setStatus(_A)
+_CucsLstorageLocalDn_Type=CucsManagedObjectDn
+_CucsLstorageLocalDn_Object=MibTableColumn
+cucsLstorageLocalDn=_CucsLstorageLocalDn_Object((1,3,6,1,4,1,9,9,719,1,79,62,1,2),_CucsLstorageLocalDn_Type())
+cucsLstorageLocalDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLocalDn.setStatus(_A)
+_CucsLstorageLocalRn_Type=SnmpAdminString
+_CucsLstorageLocalRn_Object=MibTableColumn
+cucsLstorageLocalRn=_CucsLstorageLocalRn_Object((1,3,6,1,4,1,9,9,719,1,79,62,1,3),_CucsLstorageLocalRn_Type())
+cucsLstorageLocalRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLocalRn.setStatus(_A)
+_CucsLstorageLocalDeployedSecurityKey_Type=SnmpAdminString
+_CucsLstorageLocalDeployedSecurityKey_Object=MibTableColumn
+cucsLstorageLocalDeployedSecurityKey=_CucsLstorageLocalDeployedSecurityKey_Object((1,3,6,1,4,1,9,9,719,1,79,62,1,4),_CucsLstorageLocalDeployedSecurityKey_Type())
+cucsLstorageLocalDeployedSecurityKey.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLocalDeployedSecurityKey.setStatus(_A)
+_CucsLstorageLocalSecurityKey_Type=SnmpAdminString
+_CucsLstorageLocalSecurityKey_Object=MibTableColumn
+cucsLstorageLocalSecurityKey=_CucsLstorageLocalSecurityKey_Object((1,3,6,1,4,1,9,9,719,1,79,62,1,5),_CucsLstorageLocalSecurityKey_Type())
+cucsLstorageLocalSecurityKey.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLocalSecurityKey.setStatus(_A)
+_CucsLstorageLocalDefTable_Object=MibTable
+cucsLstorageLocalDefTable=_CucsLstorageLocalDefTable_Object((1,3,6,1,4,1,9,9,719,1,79,63))
+if mibBuilder.loadTexts:cucsLstorageLocalDefTable.setStatus(_A)
+_CucsLstorageLocalDefEntry_Object=MibTableRow
+cucsLstorageLocalDefEntry=_CucsLstorageLocalDefEntry_Object((1,3,6,1,4,1,9,9,719,1,79,63,1))
+cucsLstorageLocalDefEntry.setIndexNames((0,_C,_X))
+if mibBuilder.loadTexts:cucsLstorageLocalDefEntry.setStatus(_A)
+_CucsLstorageLocalDefInstanceId_Type=CucsManagedObjectId
+_CucsLstorageLocalDefInstanceId_Object=MibTableColumn
+cucsLstorageLocalDefInstanceId=_CucsLstorageLocalDefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,63,1,1),_CucsLstorageLocalDefInstanceId_Type())
+cucsLstorageLocalDefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageLocalDefInstanceId.setStatus(_A)
+_CucsLstorageLocalDefDn_Type=CucsManagedObjectDn
+_CucsLstorageLocalDefDn_Object=MibTableColumn
+cucsLstorageLocalDefDn=_CucsLstorageLocalDefDn_Object((1,3,6,1,4,1,9,9,719,1,79,63,1,2),_CucsLstorageLocalDefDn_Type())
+cucsLstorageLocalDefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLocalDefDn.setStatus(_A)
+_CucsLstorageLocalDefRn_Type=SnmpAdminString
+_CucsLstorageLocalDefRn_Object=MibTableColumn
+cucsLstorageLocalDefRn=_CucsLstorageLocalDefRn_Object((1,3,6,1,4,1,9,9,719,1,79,63,1,3),_CucsLstorageLocalDefRn_Type())
+cucsLstorageLocalDefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLocalDefRn.setStatus(_A)
+_CucsLstorageLocalDefDeployedSecurityKey_Type=SnmpAdminString
+_CucsLstorageLocalDefDeployedSecurityKey_Object=MibTableColumn
+cucsLstorageLocalDefDeployedSecurityKey=_CucsLstorageLocalDefDeployedSecurityKey_Object((1,3,6,1,4,1,9,9,719,1,79,63,1,4),_CucsLstorageLocalDefDeployedSecurityKey_Type())
+cucsLstorageLocalDefDeployedSecurityKey.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLocalDefDeployedSecurityKey.setStatus(_A)
+_CucsLstorageLocalDefSecurityKey_Type=SnmpAdminString
+_CucsLstorageLocalDefSecurityKey_Object=MibTableColumn
+cucsLstorageLocalDefSecurityKey=_CucsLstorageLocalDefSecurityKey_Object((1,3,6,1,4,1,9,9,719,1,79,63,1,5),_CucsLstorageLocalDefSecurityKey_Type())
+cucsLstorageLocalDefSecurityKey.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLocalDefSecurityKey.setStatus(_A)
+_CucsLstorageLoginTable_Object=MibTable
+cucsLstorageLoginTable=_CucsLstorageLoginTable_Object((1,3,6,1,4,1,9,9,719,1,79,64))
+if mibBuilder.loadTexts:cucsLstorageLoginTable.setStatus(_A)
+_CucsLstorageLoginEntry_Object=MibTableRow
+cucsLstorageLoginEntry=_CucsLstorageLoginEntry_Object((1,3,6,1,4,1,9,9,719,1,79,64,1))
+cucsLstorageLoginEntry.setIndexNames((0,_C,_Y))
+if mibBuilder.loadTexts:cucsLstorageLoginEntry.setStatus(_A)
+_CucsLstorageLoginInstanceId_Type=CucsManagedObjectId
+_CucsLstorageLoginInstanceId_Object=MibTableColumn
+cucsLstorageLoginInstanceId=_CucsLstorageLoginInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,64,1,1),_CucsLstorageLoginInstanceId_Type())
+cucsLstorageLoginInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageLoginInstanceId.setStatus(_A)
+_CucsLstorageLoginDn_Type=CucsManagedObjectDn
+_CucsLstorageLoginDn_Object=MibTableColumn
+cucsLstorageLoginDn=_CucsLstorageLoginDn_Object((1,3,6,1,4,1,9,9,719,1,79,64,1,2),_CucsLstorageLoginDn_Type())
+cucsLstorageLoginDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLoginDn.setStatus(_A)
+_CucsLstorageLoginRn_Type=SnmpAdminString
+_CucsLstorageLoginRn_Object=MibTableColumn
+cucsLstorageLoginRn=_CucsLstorageLoginRn_Object((1,3,6,1,4,1,9,9,719,1,79,64,1,3),_CucsLstorageLoginRn_Type())
+cucsLstorageLoginRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLoginRn.setStatus(_A)
+_CucsLstorageLoginPassword_Type=SnmpAdminString
+_CucsLstorageLoginPassword_Object=MibTableColumn
+cucsLstorageLoginPassword=_CucsLstorageLoginPassword_Object((1,3,6,1,4,1,9,9,719,1,79,64,1,4),_CucsLstorageLoginPassword_Type())
+cucsLstorageLoginPassword.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLoginPassword.setStatus(_A)
+_CucsLstorageLoginPwdSet_Type=TruthValue
+_CucsLstorageLoginPwdSet_Object=MibTableColumn
+cucsLstorageLoginPwdSet=_CucsLstorageLoginPwdSet_Object((1,3,6,1,4,1,9,9,719,1,79,64,1,5),_CucsLstorageLoginPwdSet_Type())
+cucsLstorageLoginPwdSet.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLoginPwdSet.setStatus(_A)
+_CucsLstorageLoginUserName_Type=SnmpAdminString
+_CucsLstorageLoginUserName_Object=MibTableColumn
+cucsLstorageLoginUserName=_CucsLstorageLoginUserName_Object((1,3,6,1,4,1,9,9,719,1,79,64,1,6),_CucsLstorageLoginUserName_Type())
+cucsLstorageLoginUserName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageLoginUserName.setStatus(_A)
+_CucsLstorageRemoteTable_Object=MibTable
+cucsLstorageRemoteTable=_CucsLstorageRemoteTable_Object((1,3,6,1,4,1,9,9,719,1,79,65))
+if mibBuilder.loadTexts:cucsLstorageRemoteTable.setStatus(_A)
+_CucsLstorageRemoteEntry_Object=MibTableRow
+cucsLstorageRemoteEntry=_CucsLstorageRemoteEntry_Object((1,3,6,1,4,1,9,9,719,1,79,65,1))
+cucsLstorageRemoteEntry.setIndexNames((0,_C,_Z))
+if mibBuilder.loadTexts:cucsLstorageRemoteEntry.setStatus(_A)
+_CucsLstorageRemoteInstanceId_Type=CucsManagedObjectId
+_CucsLstorageRemoteInstanceId_Object=MibTableColumn
+cucsLstorageRemoteInstanceId=_CucsLstorageRemoteInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,65,1,1),_CucsLstorageRemoteInstanceId_Type())
+cucsLstorageRemoteInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageRemoteInstanceId.setStatus(_A)
+_CucsLstorageRemoteDn_Type=CucsManagedObjectDn
+_CucsLstorageRemoteDn_Object=MibTableColumn
+cucsLstorageRemoteDn=_CucsLstorageRemoteDn_Object((1,3,6,1,4,1,9,9,719,1,79,65,1,2),_CucsLstorageRemoteDn_Type())
+cucsLstorageRemoteDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageRemoteDn.setStatus(_A)
+_CucsLstorageRemoteRn_Type=SnmpAdminString
+_CucsLstorageRemoteRn_Object=MibTableColumn
+cucsLstorageRemoteRn=_CucsLstorageRemoteRn_Object((1,3,6,1,4,1,9,9,719,1,79,65,1,3),_CucsLstorageRemoteRn_Type())
+cucsLstorageRemoteRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageRemoteRn.setStatus(_A)
+_CucsLstorageRemoteDeployedSecurityKey_Type=SnmpAdminString
+_CucsLstorageRemoteDeployedSecurityKey_Object=MibTableColumn
+cucsLstorageRemoteDeployedSecurityKey=_CucsLstorageRemoteDeployedSecurityKey_Object((1,3,6,1,4,1,9,9,719,1,79,65,1,4),_CucsLstorageRemoteDeployedSecurityKey_Type())
+cucsLstorageRemoteDeployedSecurityKey.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageRemoteDeployedSecurityKey.setStatus(_A)
+_CucsLstorageRemotePort_Type=Gauge32
+_CucsLstorageRemotePort_Object=MibTableColumn
+cucsLstorageRemotePort=_CucsLstorageRemotePort_Object((1,3,6,1,4,1,9,9,719,1,79,65,1,5),_CucsLstorageRemotePort_Type())
+cucsLstorageRemotePort.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageRemotePort.setStatus(_A)
+_CucsLstorageRemotePrimaryServer_Type=SnmpAdminString
+_CucsLstorageRemotePrimaryServer_Object=MibTableColumn
+cucsLstorageRemotePrimaryServer=_CucsLstorageRemotePrimaryServer_Object((1,3,6,1,4,1,9,9,719,1,79,65,1,6),_CucsLstorageRemotePrimaryServer_Type())
+cucsLstorageRemotePrimaryServer.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageRemotePrimaryServer.setStatus(_A)
+_CucsLstorageRemoteSecondaryServer_Type=SnmpAdminString
+_CucsLstorageRemoteSecondaryServer_Object=MibTableColumn
+cucsLstorageRemoteSecondaryServer=_CucsLstorageRemoteSecondaryServer_Object((1,3,6,1,4,1,9,9,719,1,79,65,1,7),_CucsLstorageRemoteSecondaryServer_Type())
+cucsLstorageRemoteSecondaryServer.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageRemoteSecondaryServer.setStatus(_A)
+_CucsLstorageRemoteServerCert_Type=SnmpAdminString
+_CucsLstorageRemoteServerCert_Object=MibTableColumn
+cucsLstorageRemoteServerCert=_CucsLstorageRemoteServerCert_Object((1,3,6,1,4,1,9,9,719,1,79,65,1,8),_CucsLstorageRemoteServerCert_Type())
+cucsLstorageRemoteServerCert.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageRemoteServerCert.setStatus(_A)
+_CucsLstorageRemoteTimeout_Type=Gauge32
+_CucsLstorageRemoteTimeout_Object=MibTableColumn
+cucsLstorageRemoteTimeout=_CucsLstorageRemoteTimeout_Object((1,3,6,1,4,1,9,9,719,1,79,65,1,9),_CucsLstorageRemoteTimeout_Type())
+cucsLstorageRemoteTimeout.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageRemoteTimeout.setStatus(_A)
+_CucsLstorageRemoteDefTable_Object=MibTable
+cucsLstorageRemoteDefTable=_CucsLstorageRemoteDefTable_Object((1,3,6,1,4,1,9,9,719,1,79,66))
+if mibBuilder.loadTexts:cucsLstorageRemoteDefTable.setStatus(_A)
+_CucsLstorageRemoteDefEntry_Object=MibTableRow
+cucsLstorageRemoteDefEntry=_CucsLstorageRemoteDefEntry_Object((1,3,6,1,4,1,9,9,719,1,79,66,1))
+cucsLstorageRemoteDefEntry.setIndexNames((0,_C,_a))
+if mibBuilder.loadTexts:cucsLstorageRemoteDefEntry.setStatus(_A)
+_CucsLstorageRemoteDefInstanceId_Type=CucsManagedObjectId
+_CucsLstorageRemoteDefInstanceId_Object=MibTableColumn
+cucsLstorageRemoteDefInstanceId=_CucsLstorageRemoteDefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,66,1,1),_CucsLstorageRemoteDefInstanceId_Type())
+cucsLstorageRemoteDefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageRemoteDefInstanceId.setStatus(_A)
+_CucsLstorageRemoteDefDn_Type=CucsManagedObjectDn
+_CucsLstorageRemoteDefDn_Object=MibTableColumn
+cucsLstorageRemoteDefDn=_CucsLstorageRemoteDefDn_Object((1,3,6,1,4,1,9,9,719,1,79,66,1,2),_CucsLstorageRemoteDefDn_Type())
+cucsLstorageRemoteDefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageRemoteDefDn.setStatus(_A)
+_CucsLstorageRemoteDefRn_Type=SnmpAdminString
+_CucsLstorageRemoteDefRn_Object=MibTableColumn
+cucsLstorageRemoteDefRn=_CucsLstorageRemoteDefRn_Object((1,3,6,1,4,1,9,9,719,1,79,66,1,3),_CucsLstorageRemoteDefRn_Type())
+cucsLstorageRemoteDefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageRemoteDefRn.setStatus(_A)
+_CucsLstorageRemoteDefDeployedSecurityKey_Type=SnmpAdminString
+_CucsLstorageRemoteDefDeployedSecurityKey_Object=MibTableColumn
+cucsLstorageRemoteDefDeployedSecurityKey=_CucsLstorageRemoteDefDeployedSecurityKey_Object((1,3,6,1,4,1,9,9,719,1,79,66,1,4),_CucsLstorageRemoteDefDeployedSecurityKey_Type())
+cucsLstorageRemoteDefDeployedSecurityKey.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageRemoteDefDeployedSecurityKey.setStatus(_A)
+_CucsLstorageRemoteDefPort_Type=Gauge32
+_CucsLstorageRemoteDefPort_Object=MibTableColumn
+cucsLstorageRemoteDefPort=_CucsLstorageRemoteDefPort_Object((1,3,6,1,4,1,9,9,719,1,79,66,1,5),_CucsLstorageRemoteDefPort_Type())
+cucsLstorageRemoteDefPort.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageRemoteDefPort.setStatus(_A)
+_CucsLstorageRemoteDefPrimaryServer_Type=SnmpAdminString
+_CucsLstorageRemoteDefPrimaryServer_Object=MibTableColumn
+cucsLstorageRemoteDefPrimaryServer=_CucsLstorageRemoteDefPrimaryServer_Object((1,3,6,1,4,1,9,9,719,1,79,66,1,6),_CucsLstorageRemoteDefPrimaryServer_Type())
+cucsLstorageRemoteDefPrimaryServer.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageRemoteDefPrimaryServer.setStatus(_A)
+_CucsLstorageRemoteDefSecondaryServer_Type=SnmpAdminString
+_CucsLstorageRemoteDefSecondaryServer_Object=MibTableColumn
+cucsLstorageRemoteDefSecondaryServer=_CucsLstorageRemoteDefSecondaryServer_Object((1,3,6,1,4,1,9,9,719,1,79,66,1,7),_CucsLstorageRemoteDefSecondaryServer_Type())
+cucsLstorageRemoteDefSecondaryServer.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageRemoteDefSecondaryServer.setStatus(_A)
+_CucsLstorageRemoteDefServerCert_Type=SnmpAdminString
+_CucsLstorageRemoteDefServerCert_Object=MibTableColumn
+cucsLstorageRemoteDefServerCert=_CucsLstorageRemoteDefServerCert_Object((1,3,6,1,4,1,9,9,719,1,79,66,1,8),_CucsLstorageRemoteDefServerCert_Type())
+cucsLstorageRemoteDefServerCert.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageRemoteDefServerCert.setStatus(_A)
+_CucsLstorageRemoteDefTimeout_Type=Gauge32
+_CucsLstorageRemoteDefTimeout_Object=MibTableColumn
+cucsLstorageRemoteDefTimeout=_CucsLstorageRemoteDefTimeout_Object((1,3,6,1,4,1,9,9,719,1,79,66,1,9),_CucsLstorageRemoteDefTimeout_Type())
+cucsLstorageRemoteDefTimeout.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageRemoteDefTimeout.setStatus(_A)
+_CucsLstorageSecurityTable_Object=MibTable
+cucsLstorageSecurityTable=_CucsLstorageSecurityTable_Object((1,3,6,1,4,1,9,9,719,1,79,67))
+if mibBuilder.loadTexts:cucsLstorageSecurityTable.setStatus(_A)
+_CucsLstorageSecurityEntry_Object=MibTableRow
+cucsLstorageSecurityEntry=_CucsLstorageSecurityEntry_Object((1,3,6,1,4,1,9,9,719,1,79,67,1))
+cucsLstorageSecurityEntry.setIndexNames((0,_C,_b))
+if mibBuilder.loadTexts:cucsLstorageSecurityEntry.setStatus(_A)
+_CucsLstorageSecurityInstanceId_Type=CucsManagedObjectId
+_CucsLstorageSecurityInstanceId_Object=MibTableColumn
+cucsLstorageSecurityInstanceId=_CucsLstorageSecurityInstanceId_Object((1,3,6,1,4,1,9,9,719,1,79,67,1,1),_CucsLstorageSecurityInstanceId_Type())
+cucsLstorageSecurityInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsLstorageSecurityInstanceId.setStatus(_A)
+_CucsLstorageSecurityDn_Type=CucsManagedObjectDn
+_CucsLstorageSecurityDn_Object=MibTableColumn
+cucsLstorageSecurityDn=_CucsLstorageSecurityDn_Object((1,3,6,1,4,1,9,9,719,1,79,67,1,2),_CucsLstorageSecurityDn_Type())
+cucsLstorageSecurityDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageSecurityDn.setStatus(_A)
+_CucsLstorageSecurityRn_Type=SnmpAdminString
+_CucsLstorageSecurityRn_Object=MibTableColumn
+cucsLstorageSecurityRn=_CucsLstorageSecurityRn_Object((1,3,6,1,4,1,9,9,719,1,79,67,1,3),_CucsLstorageSecurityRn_Type())
+cucsLstorageSecurityRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageSecurityRn.setStatus(_A)
+_CucsLstorageSecurityAdminState_Type=CucsLstorageAdminState
+_CucsLstorageSecurityAdminState_Object=MibTableColumn
+cucsLstorageSecurityAdminState=_CucsLstorageSecurityAdminState_Object((1,3,6,1,4,1,9,9,719,1,79,67,1,4),_CucsLstorageSecurityAdminState_Type())
+cucsLstorageSecurityAdminState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageSecurityAdminState.setStatus(_A)
+_CucsLstorageSecurityConfigQualifier_Type=CucsLstorageConfigIssues
+_CucsLstorageSecurityConfigQualifier_Object=MibTableColumn
+cucsLstorageSecurityConfigQualifier=_CucsLstorageSecurityConfigQualifier_Object((1,3,6,1,4,1,9,9,719,1,79,67,1,5),_CucsLstorageSecurityConfigQualifier_Type())
+cucsLstorageSecurityConfigQualifier.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageSecurityConfigQualifier.setStatus(_A)
+_CucsLstorageSecurityConfigState_Type=CucsLstorageConfigState
+_CucsLstorageSecurityConfigState_Object=MibTableColumn
+cucsLstorageSecurityConfigState=_CucsLstorageSecurityConfigState_Object((1,3,6,1,4,1,9,9,719,1,79,67,1,6),_CucsLstorageSecurityConfigState_Type())
+cucsLstorageSecurityConfigState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageSecurityConfigState.setStatus(_A)
+_CucsLstorageSecurityName_Type=SnmpAdminString
+_CucsLstorageSecurityName_Object=MibTableColumn
+cucsLstorageSecurityName=_CucsLstorageSecurityName_Object((1,3,6,1,4,1,9,9,719,1,79,67,1,7),_CucsLstorageSecurityName_Type())
+cucsLstorageSecurityName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageSecurityName.setStatus(_A)
+_CucsLstorageSecurityOperState_Type=CucsStorageUnitOperState
+_CucsLstorageSecurityOperState_Object=MibTableColumn
+cucsLstorageSecurityOperState=_CucsLstorageSecurityOperState_Object((1,3,6,1,4,1,9,9,719,1,79,67,1,8),_CucsLstorageSecurityOperState_Type())
+cucsLstorageSecurityOperState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsLstorageSecurityOperState.setStatus(_A)
+mibBuilder.exportSymbols(_C,**{'cucsLstorageObjects':cucsLstorageObjects,'cucsLstorageDasScsiLunTable':cucsLstorageDasScsiLunTable,'cucsLstorageDasScsiLunEntry':cucsLstorageDasScsiLunEntry,_E:cucsLstorageDasScsiLunInstanceId,'cucsLstorageDasScsiLunDn':cucsLstorageDasScsiLunDn,'cucsLstorageDasScsiLunRn':cucsLstorageDasScsiLunRn,'cucsLstorageDasScsiLunAdminState':cucsLstorageDasScsiLunAdminState,'cucsLstorageDasScsiLunAutoDeploy':cucsLstorageDasScsiLunAutoDeploy,'cucsLstorageDasScsiLunBootDev':cucsLstorageDasScsiLunBootDev,'cucsLstorageDasScsiLunConfigQualifier':cucsLstorageDasScsiLunConfigQualifier,'cucsLstorageDasScsiLunConfigState':cucsLstorageDasScsiLunConfigState,'cucsLstorageDasScsiLunExpandToAvail':cucsLstorageDasScsiLunExpandToAvail,'cucsLstorageDasScsiLunLocalDiskPolicyName':cucsLstorageDasScsiLunLocalDiskPolicyName,'cucsLstorageDasScsiLunLunDn':cucsLstorageDasScsiLunLunDn,'cucsLstorageDasScsiLunLunMapType':cucsLstorageDasScsiLunLunMapType,'cucsLstorageDasScsiLunName':cucsLstorageDasScsiLunName,'cucsLstorageDasScsiLunOperLocalDiskPolicyName':cucsLstorageDasScsiLunOperLocalDiskPolicyName,'cucsLstorageDasScsiLunOperState':cucsLstorageDasScsiLunOperState,'cucsLstorageDasScsiLunOrder':cucsLstorageDasScsiLunOrder,'cucsLstorageDasScsiLunSize':cucsLstorageDasScsiLunSize,'cucsLstorageDasScsiLunStorageClass':cucsLstorageDasScsiLunStorageClass,'cucsLstorageDasScsiLunDeferredNaming':cucsLstorageDasScsiLunDeferredNaming,'cucsLstorageDasScsiLunFractionalSize':cucsLstorageDasScsiLunFractionalSize,'cucsLstorageDiskGroupConfigDefTable':cucsLstorageDiskGroupConfigDefTable,'cucsLstorageDiskGroupConfigDefEntry':cucsLstorageDiskGroupConfigDefEntry,_F:cucsLstorageDiskGroupConfigDefInstanceId,'cucsLstorageDiskGroupConfigDefDn':cucsLstorageDiskGroupConfigDefDn,'cucsLstorageDiskGroupConfigDefRn':cucsLstorageDiskGroupConfigDefRn,'cucsLstorageDiskGroupConfigDefDescr':cucsLstorageDiskGroupConfigDefDescr,'cucsLstorageDiskGroupConfigDefIntId':cucsLstorageDiskGroupConfigDefIntId,'cucsLstorageDiskGroupConfigDefName':cucsLstorageDiskGroupConfigDefName,'cucsLstorageDiskGroupConfigDefPolicyLevel':cucsLstorageDiskGroupConfigDefPolicyLevel,'cucsLstorageDiskGroupConfigDefPolicyOwner':cucsLstorageDiskGroupConfigDefPolicyOwner,'cucsLstorageDiskGroupConfigDefRaidLevel':cucsLstorageDiskGroupConfigDefRaidLevel,'cucsLstorageDiskGroupConfigPolicyTable':cucsLstorageDiskGroupConfigPolicyTable,'cucsLstorageDiskGroupConfigPolicyEntry':cucsLstorageDiskGroupConfigPolicyEntry,_G:cucsLstorageDiskGroupConfigPolicyInstanceId,'cucsLstorageDiskGroupConfigPolicyDn':cucsLstorageDiskGroupConfigPolicyDn,'cucsLstorageDiskGroupConfigPolicyRn':cucsLstorageDiskGroupConfigPolicyRn,'cucsLstorageDiskGroupConfigPolicyDescr':cucsLstorageDiskGroupConfigPolicyDescr,'cucsLstorageDiskGroupConfigPolicyIntId':cucsLstorageDiskGroupConfigPolicyIntId,'cucsLstorageDiskGroupConfigPolicyName':cucsLstorageDiskGroupConfigPolicyName,'cucsLstorageDiskGroupConfigPolicyPolicyLevel':cucsLstorageDiskGroupConfigPolicyPolicyLevel,'cucsLstorageDiskGroupConfigPolicyPolicyOwner':cucsLstorageDiskGroupConfigPolicyPolicyOwner,'cucsLstorageDiskGroupConfigPolicyRaidLevel':cucsLstorageDiskGroupConfigPolicyRaidLevel,'cucsLstorageDiskGroupQualifierTable':cucsLstorageDiskGroupQualifierTable,'cucsLstorageDiskGroupQualifierEntry':cucsLstorageDiskGroupQualifierEntry,_H:cucsLstorageDiskGroupQualifierInstanceId,'cucsLstorageDiskGroupQualifierDn':cucsLstorageDiskGroupQualifierDn,'cucsLstorageDiskGroupQualifierRn':cucsLstorageDiskGroupQualifierRn,'cucsLstorageDiskGroupQualifierDriveType':cucsLstorageDiskGroupQualifierDriveType,'cucsLstorageDiskGroupQualifierMinDriveSize':cucsLstorageDiskGroupQualifierMinDriveSize,'cucsLstorageDiskGroupQualifierNumDedHotSpares':cucsLstorageDiskGroupQualifierNumDedHotSpares,'cucsLstorageDiskGroupQualifierNumDrives':cucsLstorageDiskGroupQualifierNumDrives,'cucsLstorageDiskGroupQualifierNumGlobHotSpares':cucsLstorageDiskGroupQualifierNumGlobHotSpares,'cucsLstorageDiskGroupQualifierUseRemainingDisks':cucsLstorageDiskGroupQualifierUseRemainingDisks,'cucsLstorageDiskGroupQualifierUseJbodDisks':cucsLstorageDiskGroupQualifierUseJbodDisks,'cucsLstorageLocalDiskConfigRefTable':cucsLstorageLocalDiskConfigRefTable,'cucsLstorageLocalDiskConfigRefEntry':cucsLstorageLocalDiskConfigRefEntry,_I:cucsLstorageLocalDiskConfigRefInstanceId,'cucsLstorageLocalDiskConfigRefDn':cucsLstorageLocalDiskConfigRefDn,'cucsLstorageLocalDiskConfigRefRn':cucsLstorageLocalDiskConfigRefRn,'cucsLstorageLocalDiskConfigRefRole':cucsLstorageLocalDiskConfigRefRole,'cucsLstorageLocalDiskConfigRefSlotNum':cucsLstorageLocalDiskConfigRefSlotNum,'cucsLstorageLocalDiskConfigRefSpanId':cucsLstorageLocalDiskConfigRefSpanId,'cucsLstorageLocalDiskRefTable':cucsLstorageLocalDiskRefTable,'cucsLstorageLocalDiskRefEntry':cucsLstorageLocalDiskRefEntry,_J:cucsLstorageLocalDiskRefInstanceId,'cucsLstorageLocalDiskRefDn':cucsLstorageLocalDiskRefDn,'cucsLstorageLocalDiskRefRn':cucsLstorageLocalDiskRefRn,'cucsLstorageLocalDiskRefEnclosureId':cucsLstorageLocalDiskRefEnclosureId,'cucsLstorageLocalDiskRefSlotId':cucsLstorageLocalDiskRefSlotId,'cucsLstorageProfileTable':cucsLstorageProfileTable,'cucsLstorageProfileEntry':cucsLstorageProfileEntry,_K:cucsLstorageProfileInstanceId,'cucsLstorageProfileDn':cucsLstorageProfileDn,'cucsLstorageProfileRn':cucsLstorageProfileRn,'cucsLstorageProfileAssignedToDn':cucsLstorageProfileAssignedToDn,'cucsLstorageProfileAvailability':cucsLstorageProfileAvailability,'cucsLstorageProfileDescr':cucsLstorageProfileDescr,'cucsLstorageProfileIntId':cucsLstorageProfileIntId,'cucsLstorageProfileName':cucsLstorageProfileName,'cucsLstorageProfilePolicyLevel':cucsLstorageProfilePolicyLevel,'cucsLstorageProfilePolicyOwner':cucsLstorageProfilePolicyOwner,'cucsLstorageProfileBindingTable':cucsLstorageProfileBindingTable,'cucsLstorageProfileBindingEntry':cucsLstorageProfileBindingEntry,_L:cucsLstorageProfileBindingInstanceId,'cucsLstorageProfileBindingDn':cucsLstorageProfileBindingDn,'cucsLstorageProfileBindingRn':cucsLstorageProfileBindingRn,'cucsLstorageProfileBindingAssignedToDn':cucsLstorageProfileBindingAssignedToDn,'cucsLstorageProfileBindingIssues':cucsLstorageProfileBindingIssues,'cucsLstorageProfileBindingName':cucsLstorageProfileBindingName,'cucsLstorageProfileBindingOperStorageProfileName':cucsLstorageProfileBindingOperStorageProfileName,'cucsLstorageProfileBindingStorageProfileName':cucsLstorageProfileBindingStorageProfileName,'cucsLstorageProfileDefTable':cucsLstorageProfileDefTable,'cucsLstorageProfileDefEntry':cucsLstorageProfileDefEntry,_M:cucsLstorageProfileDefInstanceId,'cucsLstorageProfileDefDn':cucsLstorageProfileDefDn,'cucsLstorageProfileDefRn':cucsLstorageProfileDefRn,'cucsLstorageProfileDefAssignedToDn':cucsLstorageProfileDefAssignedToDn,'cucsLstorageProfileDefAvailability':cucsLstorageProfileDefAvailability,'cucsLstorageProfileDefDescr':cucsLstorageProfileDefDescr,'cucsLstorageProfileDefIntId':cucsLstorageProfileDefIntId,'cucsLstorageProfileDefName':cucsLstorageProfileDefName,'cucsLstorageProfileDefPolicyLevel':cucsLstorageProfileDefPolicyLevel,'cucsLstorageProfileDefPolicyOwner':cucsLstorageProfileDefPolicyOwner,'cucsLstorageVirtualDriveDefTable':cucsLstorageVirtualDriveDefTable,'cucsLstorageVirtualDriveDefEntry':cucsLstorageVirtualDriveDefEntry,_N:cucsLstorageVirtualDriveDefInstanceId,'cucsLstorageVirtualDriveDefDn':cucsLstorageVirtualDriveDefDn,'cucsLstorageVirtualDriveDefRn':cucsLstorageVirtualDriveDefRn,'cucsLstorageVirtualDriveDefAccessPolicy':cucsLstorageVirtualDriveDefAccessPolicy,'cucsLstorageVirtualDriveDefDriveCache':cucsLstorageVirtualDriveDefDriveCache,'cucsLstorageVirtualDriveDefIoPolicy':cucsLstorageVirtualDriveDefIoPolicy,'cucsLstorageVirtualDriveDefReadPolicy':cucsLstorageVirtualDriveDefReadPolicy,'cucsLstorageVirtualDriveDefStripSize':cucsLstorageVirtualDriveDefStripSize,'cucsLstorageVirtualDriveDefWriteCachePolicy':cucsLstorageVirtualDriveDefWriteCachePolicy,'cucsLstorageVirtualDriveDefSecurity':cucsLstorageVirtualDriveDefSecurity,'cucsLstorageControllerDefTable':cucsLstorageControllerDefTable,'cucsLstorageControllerDefEntry':cucsLstorageControllerDefEntry,_O:cucsLstorageControllerDefInstanceId,'cucsLstorageControllerDefDn':cucsLstorageControllerDefDn,'cucsLstorageControllerDefRn':cucsLstorageControllerDefRn,'cucsLstorageControllerDefAdminState':cucsLstorageControllerDefAdminState,'cucsLstorageControllerDefConfigQualifier':cucsLstorageControllerDefConfigQualifier,'cucsLstorageControllerDefConfigState':cucsLstorageControllerDefConfigState,'cucsLstorageControllerDefName':cucsLstorageControllerDefName,'cucsLstorageControllerDefOperState':cucsLstorageControllerDefOperState,'cucsLstorageControllerModeConfigTable':cucsLstorageControllerModeConfigTable,'cucsLstorageControllerModeConfigEntry':cucsLstorageControllerModeConfigEntry,_P:cucsLstorageControllerModeConfigInstanceId,'cucsLstorageControllerModeConfigDn':cucsLstorageControllerModeConfigDn,'cucsLstorageControllerModeConfigRn':cucsLstorageControllerModeConfigRn,'cucsLstorageControllerModeConfigProtectConfig':cucsLstorageControllerModeConfigProtectConfig,'cucsLstorageControllerModeConfigRaidMode':cucsLstorageControllerModeConfigRaidMode,'cucsLstorageControllerQualifierTable':cucsLstorageControllerQualifierTable,'cucsLstorageControllerQualifierEntry':cucsLstorageControllerQualifierEntry,_Q:cucsLstorageControllerQualifierInstanceId,'cucsLstorageControllerQualifierDn':cucsLstorageControllerQualifierDn,'cucsLstorageControllerQualifierRn':cucsLstorageControllerQualifierRn,'cucsLstorageControllerQualifierControllerId':cucsLstorageControllerQualifierControllerId,'cucsLstorageControllerQualifierControllerType':cucsLstorageControllerQualifierControllerType,'cucsLstorageControllerRefTable':cucsLstorageControllerRefTable,'cucsLstorageControllerRefEntry':cucsLstorageControllerRefEntry,_R:cucsLstorageControllerRefInstanceId,'cucsLstorageControllerRefDn':cucsLstorageControllerRefDn,'cucsLstorageControllerRefRn':cucsLstorageControllerRefRn,'cucsLstorageControllerRefControllerId':cucsLstorageControllerRefControllerId,'cucsLstorageControllerRefControllerType':cucsLstorageControllerRefControllerType,'cucsLstorageControllerRefServerId':cucsLstorageControllerRefServerId,'cucsLstorageDiskSlotTable':cucsLstorageDiskSlotTable,'cucsLstorageDiskSlotEntry':cucsLstorageDiskSlotEntry,_S:cucsLstorageDiskSlotInstanceId,'cucsLstorageDiskSlotDn':cucsLstorageDiskSlotDn,'cucsLstorageDiskSlotRn':cucsLstorageDiskSlotRn,'cucsLstorageDiskSlotId':cucsLstorageDiskSlotId,'cucsLstorageDiskSlotOwnership':cucsLstorageDiskSlotOwnership,'cucsLstorageDiskZoningConfigDefTable':cucsLstorageDiskZoningConfigDefTable,'cucsLstorageDiskZoningConfigDefEntry':cucsLstorageDiskZoningConfigDefEntry,_T:cucsLstorageDiskZoningConfigDefInstanceId,'cucsLstorageDiskZoningConfigDefDn':cucsLstorageDiskZoningConfigDefDn,'cucsLstorageDiskZoningConfigDefRn':cucsLstorageDiskZoningConfigDefRn,'cucsLstorageDiskZoningConfigDefDescr':cucsLstorageDiskZoningConfigDefDescr,'cucsLstorageDiskZoningConfigDefIntId':cucsLstorageDiskZoningConfigDefIntId,'cucsLstorageDiskZoningConfigDefName':cucsLstorageDiskZoningConfigDefName,'cucsLstorageDiskZoningConfigDefPolicyLevel':cucsLstorageDiskZoningConfigDefPolicyLevel,'cucsLstorageDiskZoningConfigDefPolicyOwner':cucsLstorageDiskZoningConfigDefPolicyOwner,'cucsLstorageDiskZoningConfigDefPreserveConfig':cucsLstorageDiskZoningConfigDefPreserveConfig,'cucsLstorageDiskZoningPolicyTable':cucsLstorageDiskZoningPolicyTable,'cucsLstorageDiskZoningPolicyEntry':cucsLstorageDiskZoningPolicyEntry,_U:cucsLstorageDiskZoningPolicyInstanceId,'cucsLstorageDiskZoningPolicyDn':cucsLstorageDiskZoningPolicyDn,'cucsLstorageDiskZoningPolicyRn':cucsLstorageDiskZoningPolicyRn,'cucsLstorageDiskZoningPolicyDescr':cucsLstorageDiskZoningPolicyDescr,'cucsLstorageDiskZoningPolicyIntId':cucsLstorageDiskZoningPolicyIntId,'cucsLstorageDiskZoningPolicyName':cucsLstorageDiskZoningPolicyName,'cucsLstorageDiskZoningPolicyPolicyLevel':cucsLstorageDiskZoningPolicyPolicyLevel,'cucsLstorageDiskZoningPolicyPolicyOwner':cucsLstorageDiskZoningPolicyPolicyOwner,'cucsLstorageDiskZoningPolicyPreserveConfig':cucsLstorageDiskZoningPolicyPreserveConfig,'cucsLstorageDriveSecurityTable':cucsLstorageDriveSecurityTable,'cucsLstorageDriveSecurityEntry':cucsLstorageDriveSecurityEntry,_V:cucsLstorageDriveSecurityInstanceId,'cucsLstorageDriveSecurityDn':cucsLstorageDriveSecurityDn,'cucsLstorageDriveSecurityRn':cucsLstorageDriveSecurityRn,'cucsLstorageLocalTable':cucsLstorageLocalTable,'cucsLstorageLocalEntry':cucsLstorageLocalEntry,_W:cucsLstorageLocalInstanceId,'cucsLstorageLocalDn':cucsLstorageLocalDn,'cucsLstorageLocalRn':cucsLstorageLocalRn,'cucsLstorageLocalDeployedSecurityKey':cucsLstorageLocalDeployedSecurityKey,'cucsLstorageLocalSecurityKey':cucsLstorageLocalSecurityKey,'cucsLstorageLocalDefTable':cucsLstorageLocalDefTable,'cucsLstorageLocalDefEntry':cucsLstorageLocalDefEntry,_X:cucsLstorageLocalDefInstanceId,'cucsLstorageLocalDefDn':cucsLstorageLocalDefDn,'cucsLstorageLocalDefRn':cucsLstorageLocalDefRn,'cucsLstorageLocalDefDeployedSecurityKey':cucsLstorageLocalDefDeployedSecurityKey,'cucsLstorageLocalDefSecurityKey':cucsLstorageLocalDefSecurityKey,'cucsLstorageLoginTable':cucsLstorageLoginTable,'cucsLstorageLoginEntry':cucsLstorageLoginEntry,_Y:cucsLstorageLoginInstanceId,'cucsLstorageLoginDn':cucsLstorageLoginDn,'cucsLstorageLoginRn':cucsLstorageLoginRn,'cucsLstorageLoginPassword':cucsLstorageLoginPassword,'cucsLstorageLoginPwdSet':cucsLstorageLoginPwdSet,'cucsLstorageLoginUserName':cucsLstorageLoginUserName,'cucsLstorageRemoteTable':cucsLstorageRemoteTable,'cucsLstorageRemoteEntry':cucsLstorageRemoteEntry,_Z:cucsLstorageRemoteInstanceId,'cucsLstorageRemoteDn':cucsLstorageRemoteDn,'cucsLstorageRemoteRn':cucsLstorageRemoteRn,'cucsLstorageRemoteDeployedSecurityKey':cucsLstorageRemoteDeployedSecurityKey,'cucsLstorageRemotePort':cucsLstorageRemotePort,'cucsLstorageRemotePrimaryServer':cucsLstorageRemotePrimaryServer,'cucsLstorageRemoteSecondaryServer':cucsLstorageRemoteSecondaryServer,'cucsLstorageRemoteServerCert':cucsLstorageRemoteServerCert,'cucsLstorageRemoteTimeout':cucsLstorageRemoteTimeout,'cucsLstorageRemoteDefTable':cucsLstorageRemoteDefTable,'cucsLstorageRemoteDefEntry':cucsLstorageRemoteDefEntry,_a:cucsLstorageRemoteDefInstanceId,'cucsLstorageRemoteDefDn':cucsLstorageRemoteDefDn,'cucsLstorageRemoteDefRn':cucsLstorageRemoteDefRn,'cucsLstorageRemoteDefDeployedSecurityKey':cucsLstorageRemoteDefDeployedSecurityKey,'cucsLstorageRemoteDefPort':cucsLstorageRemoteDefPort,'cucsLstorageRemoteDefPrimaryServer':cucsLstorageRemoteDefPrimaryServer,'cucsLstorageRemoteDefSecondaryServer':cucsLstorageRemoteDefSecondaryServer,'cucsLstorageRemoteDefServerCert':cucsLstorageRemoteDefServerCert,'cucsLstorageRemoteDefTimeout':cucsLstorageRemoteDefTimeout,'cucsLstorageSecurityTable':cucsLstorageSecurityTable,'cucsLstorageSecurityEntry':cucsLstorageSecurityEntry,_b:cucsLstorageSecurityInstanceId,'cucsLstorageSecurityDn':cucsLstorageSecurityDn,'cucsLstorageSecurityRn':cucsLstorageSecurityRn,'cucsLstorageSecurityAdminState':cucsLstorageSecurityAdminState,'cucsLstorageSecurityConfigQualifier':cucsLstorageSecurityConfigQualifier,'cucsLstorageSecurityConfigState':cucsLstorageSecurityConfigState,'cucsLstorageSecurityName':cucsLstorageSecurityName,'cucsLstorageSecurityOperState':cucsLstorageSecurityOperState})

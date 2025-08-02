@@ -1,0 +1,329 @@
+_L='brcdDot1xAuthMacSessionAuthMac'
+_K='BRCD-DOT1X-MIB'
+_J='InetAddressType'
+_I='seconds'
+_H='EnabledStatus'
+_G='ifIndex'
+_F='IF-MIB'
+_E='Integer32'
+_D='Unsigned32'
+_C='read-write'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ifIndex,=mibBuilder.importSymbols(_F,_G)
+InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress',_J)
+EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB',_H)
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso')
+DisplayString,MacAddress,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention')
+brcdDot1xAuth=ModuleIdentity((1,3,6,1,4,1,1991,1,1,3,38))
+if mibBuilder.loadTexts:brcdDot1xAuth.setRevisions(('2010-09-30 00:00','2017-08-07 00:00'))
+class VlanId(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
+_BrcdDot1xAuthGlobalConfigGroup_ObjectIdentity=ObjectIdentity
+brcdDot1xAuthGlobalConfigGroup=_BrcdDot1xAuthGlobalConfigGroup_ObjectIdentity((1,3,6,1,4,1,1991,1,1,3,38,1))
+class _BrcdDot1xAuthGlobalConfigQuietperiod_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_BrcdDot1xAuthGlobalConfigQuietperiod_Type.__name__=_D
+_BrcdDot1xAuthGlobalConfigQuietperiod_Object=MibScalar
+brcdDot1xAuthGlobalConfigQuietperiod=_BrcdDot1xAuthGlobalConfigQuietperiod_Object((1,3,6,1,4,1,1991,1,1,3,38,1,1),_BrcdDot1xAuthGlobalConfigQuietperiod_Type())
+brcdDot1xAuthGlobalConfigQuietperiod.setMaxAccess(_C)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigQuietperiod.setStatus(_A)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigQuietperiod.setUnits(_I)
+class _BrcdDot1xAuthGlobalConfigTxPeriod_Type(Unsigned32):defaultValue=30;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_BrcdDot1xAuthGlobalConfigTxPeriod_Type.__name__=_D
+_BrcdDot1xAuthGlobalConfigTxPeriod_Object=MibScalar
+brcdDot1xAuthGlobalConfigTxPeriod=_BrcdDot1xAuthGlobalConfigTxPeriod_Object((1,3,6,1,4,1,1991,1,1,3,38,1,2),_BrcdDot1xAuthGlobalConfigTxPeriod_Type())
+brcdDot1xAuthGlobalConfigTxPeriod.setMaxAccess(_C)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigTxPeriod.setStatus(_A)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigTxPeriod.setUnits(_I)
+class _BrcdDot1xAuthGlobalConfigSuppTimeOut_Type(Unsigned32):defaultValue=30;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_BrcdDot1xAuthGlobalConfigSuppTimeOut_Type.__name__=_D
+_BrcdDot1xAuthGlobalConfigSuppTimeOut_Object=MibScalar
+brcdDot1xAuthGlobalConfigSuppTimeOut=_BrcdDot1xAuthGlobalConfigSuppTimeOut_Object((1,3,6,1,4,1,1991,1,1,3,38,1,3),_BrcdDot1xAuthGlobalConfigSuppTimeOut_Type())
+brcdDot1xAuthGlobalConfigSuppTimeOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigSuppTimeOut.setStatus(_A)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigSuppTimeOut.setUnits(_I)
+class _BrcdDot1xAuthGlobalConfigAuthServerTimeOut_Type(Unsigned32):defaultValue=30;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_BrcdDot1xAuthGlobalConfigAuthServerTimeOut_Type.__name__=_D
+_BrcdDot1xAuthGlobalConfigAuthServerTimeOut_Object=MibScalar
+brcdDot1xAuthGlobalConfigAuthServerTimeOut=_BrcdDot1xAuthGlobalConfigAuthServerTimeOut_Object((1,3,6,1,4,1,1991,1,1,3,38,1,4),_BrcdDot1xAuthGlobalConfigAuthServerTimeOut_Type())
+brcdDot1xAuthGlobalConfigAuthServerTimeOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigAuthServerTimeOut.setStatus(_A)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigAuthServerTimeOut.setUnits(_I)
+class _BrcdDot1xAuthGlobalConfigMaxReq_Type(Unsigned32):defaultValue=2
+_BrcdDot1xAuthGlobalConfigMaxReq_Type.__name__=_D
+_BrcdDot1xAuthGlobalConfigMaxReq_Object=MibScalar
+brcdDot1xAuthGlobalConfigMaxReq=_BrcdDot1xAuthGlobalConfigMaxReq_Object((1,3,6,1,4,1,1991,1,1,3,38,1,5),_BrcdDot1xAuthGlobalConfigMaxReq_Type())
+brcdDot1xAuthGlobalConfigMaxReq.setMaxAccess(_C)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigMaxReq.setStatus(_A)
+class _BrcdDot1xAuthGlobalConfigReAuthMax_Type(Unsigned32):defaultValue=2
+_BrcdDot1xAuthGlobalConfigReAuthMax_Type.__name__=_D
+_BrcdDot1xAuthGlobalConfigReAuthMax_Object=MibScalar
+brcdDot1xAuthGlobalConfigReAuthMax=_BrcdDot1xAuthGlobalConfigReAuthMax_Object((1,3,6,1,4,1,1991,1,1,3,38,1,6),_BrcdDot1xAuthGlobalConfigReAuthMax_Type())
+brcdDot1xAuthGlobalConfigReAuthMax.setMaxAccess(_C)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigReAuthMax.setStatus(_A)
+class _BrcdDot1xAuthGlobalConfigReAuthPeriod_Type(Unsigned32):defaultValue=3600;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_BrcdDot1xAuthGlobalConfigReAuthPeriod_Type.__name__=_D
+_BrcdDot1xAuthGlobalConfigReAuthPeriod_Object=MibScalar
+brcdDot1xAuthGlobalConfigReAuthPeriod=_BrcdDot1xAuthGlobalConfigReAuthPeriod_Object((1,3,6,1,4,1,1991,1,1,3,38,1,7),_BrcdDot1xAuthGlobalConfigReAuthPeriod_Type())
+brcdDot1xAuthGlobalConfigReAuthPeriod.setMaxAccess(_C)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigReAuthPeriod.setStatus(_A)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigReAuthPeriod.setUnits(_I)
+_BrcdDot1xAuthGlobalConfigProtocolVersion_Type=Unsigned32
+_BrcdDot1xAuthGlobalConfigProtocolVersion_Object=MibScalar
+brcdDot1xAuthGlobalConfigProtocolVersion=_BrcdDot1xAuthGlobalConfigProtocolVersion_Object((1,3,6,1,4,1,1991,1,1,3,38,1,8),_BrcdDot1xAuthGlobalConfigProtocolVersion_Type())
+brcdDot1xAuthGlobalConfigProtocolVersion.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigProtocolVersion.setStatus(_A)
+_BrcdDot1xAuthGlobalConfigTotalPortsEnabled_Type=Unsigned32
+_BrcdDot1xAuthGlobalConfigTotalPortsEnabled_Object=MibScalar
+brcdDot1xAuthGlobalConfigTotalPortsEnabled=_BrcdDot1xAuthGlobalConfigTotalPortsEnabled_Object((1,3,6,1,4,1,1991,1,1,3,38,1,9),_BrcdDot1xAuthGlobalConfigTotalPortsEnabled_Type())
+brcdDot1xAuthGlobalConfigTotalPortsEnabled.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigTotalPortsEnabled.setStatus(_A)
+class _BrcdDot1xAuthGlobalConfigReauthStatus_Type(EnabledStatus):defaultValue=2
+_BrcdDot1xAuthGlobalConfigReauthStatus_Type.__name__=_H
+_BrcdDot1xAuthGlobalConfigReauthStatus_Object=MibScalar
+brcdDot1xAuthGlobalConfigReauthStatus=_BrcdDot1xAuthGlobalConfigReauthStatus_Object((1,3,6,1,4,1,1991,1,1,3,38,1,10),_BrcdDot1xAuthGlobalConfigReauthStatus_Type())
+brcdDot1xAuthGlobalConfigReauthStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigReauthStatus.setStatus(_A)
+_BrcdDot1xAuthGlobalConfigMacSessionMaxAge_Type=Unsigned32
+_BrcdDot1xAuthGlobalConfigMacSessionMaxAge_Object=MibScalar
+brcdDot1xAuthGlobalConfigMacSessionMaxAge=_BrcdDot1xAuthGlobalConfigMacSessionMaxAge_Object((1,3,6,1,4,1,1991,1,1,3,38,1,11),_BrcdDot1xAuthGlobalConfigMacSessionMaxAge_Type())
+brcdDot1xAuthGlobalConfigMacSessionMaxAge.setMaxAccess(_C)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigMacSessionMaxAge.setStatus(_A)
+class _BrcdDot1xAuthGlobalConfigNoAgingDeniedSessions_Type(EnabledStatus):defaultValue=2
+_BrcdDot1xAuthGlobalConfigNoAgingDeniedSessions_Type.__name__=_H
+_BrcdDot1xAuthGlobalConfigNoAgingDeniedSessions_Object=MibScalar
+brcdDot1xAuthGlobalConfigNoAgingDeniedSessions=_BrcdDot1xAuthGlobalConfigNoAgingDeniedSessions_Object((1,3,6,1,4,1,1991,1,1,3,38,1,12),_BrcdDot1xAuthGlobalConfigNoAgingDeniedSessions_Type())
+brcdDot1xAuthGlobalConfigNoAgingDeniedSessions.setMaxAccess(_C)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigNoAgingDeniedSessions.setStatus(_A)
+class _BrcdDot1xAuthGlobalConfigNoAgingPermittedSessions_Type(EnabledStatus):defaultValue=2
+_BrcdDot1xAuthGlobalConfigNoAgingPermittedSessions_Type.__name__=_H
+_BrcdDot1xAuthGlobalConfigNoAgingPermittedSessions_Object=MibScalar
+brcdDot1xAuthGlobalConfigNoAgingPermittedSessions=_BrcdDot1xAuthGlobalConfigNoAgingPermittedSessions_Object((1,3,6,1,4,1,1991,1,1,3,38,1,13),_BrcdDot1xAuthGlobalConfigNoAgingPermittedSessions_Type())
+brcdDot1xAuthGlobalConfigNoAgingPermittedSessions.setMaxAccess(_C)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigNoAgingPermittedSessions.setStatus(_A)
+class _BrcdDot1xAuthGlobalConfigAuthFailAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('blockTraffic',1),('restrictedVlan',2)))
+_BrcdDot1xAuthGlobalConfigAuthFailAction_Type.__name__=_E
+_BrcdDot1xAuthGlobalConfigAuthFailAction_Object=MibScalar
+brcdDot1xAuthGlobalConfigAuthFailAction=_BrcdDot1xAuthGlobalConfigAuthFailAction_Object((1,3,6,1,4,1,1991,1,1,3,38,1,14),_BrcdDot1xAuthGlobalConfigAuthFailAction_Type())
+brcdDot1xAuthGlobalConfigAuthFailAction.setMaxAccess(_C)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalConfigAuthFailAction.setStatus(_A)
+_BrcdDot1xAuthPortStatistics_ObjectIdentity=ObjectIdentity
+brcdDot1xAuthPortStatistics=_BrcdDot1xAuthPortStatistics_ObjectIdentity((1,3,6,1,4,1,1991,1,1,3,38,2))
+_BrcdDot1xAuthPortStatTable_Object=MibTable
+brcdDot1xAuthPortStatTable=_BrcdDot1xAuthPortStatTable_Object((1,3,6,1,4,1,1991,1,1,3,38,2,1))
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatTable.setStatus(_A)
+_BrcdDot1xAuthPortStatEntry_Object=MibTableRow
+brcdDot1xAuthPortStatEntry=_BrcdDot1xAuthPortStatEntry_Object((1,3,6,1,4,1,1991,1,1,3,38,2,1,1))
+brcdDot1xAuthPortStatEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatEntry.setStatus(_A)
+_BrcdDot1xAuthPortStatRxEAPFrames_Type=Counter32
+_BrcdDot1xAuthPortStatRxEAPFrames_Object=MibTableColumn
+brcdDot1xAuthPortStatRxEAPFrames=_BrcdDot1xAuthPortStatRxEAPFrames_Object((1,3,6,1,4,1,1991,1,1,3,38,2,1,1,1),_BrcdDot1xAuthPortStatRxEAPFrames_Type())
+brcdDot1xAuthPortStatRxEAPFrames.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatRxEAPFrames.setStatus(_A)
+_BrcdDot1xAuthPortStatTxEAPFrames_Type=Counter32
+_BrcdDot1xAuthPortStatTxEAPFrames_Object=MibTableColumn
+brcdDot1xAuthPortStatTxEAPFrames=_BrcdDot1xAuthPortStatTxEAPFrames_Object((1,3,6,1,4,1,1991,1,1,3,38,2,1,1,2),_BrcdDot1xAuthPortStatTxEAPFrames_Type())
+brcdDot1xAuthPortStatTxEAPFrames.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatTxEAPFrames.setStatus(_A)
+_BrcdDot1xAuthPortStatRxEAPStartFrames_Type=Counter32
+_BrcdDot1xAuthPortStatRxEAPStartFrames_Object=MibTableColumn
+brcdDot1xAuthPortStatRxEAPStartFrames=_BrcdDot1xAuthPortStatRxEAPStartFrames_Object((1,3,6,1,4,1,1991,1,1,3,38,2,1,1,3),_BrcdDot1xAuthPortStatRxEAPStartFrames_Type())
+brcdDot1xAuthPortStatRxEAPStartFrames.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatRxEAPStartFrames.setStatus(_A)
+_BrcdDot1xAuthPortStatRxEAPLogOffFrames_Type=Counter32
+_BrcdDot1xAuthPortStatRxEAPLogOffFrames_Object=MibTableColumn
+brcdDot1xAuthPortStatRxEAPLogOffFrames=_BrcdDot1xAuthPortStatRxEAPLogOffFrames_Object((1,3,6,1,4,1,1991,1,1,3,38,2,1,1,4),_BrcdDot1xAuthPortStatRxEAPLogOffFrames_Type())
+brcdDot1xAuthPortStatRxEAPLogOffFrames.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatRxEAPLogOffFrames.setStatus(_A)
+_BrcdDot1xAuthPortStatRxEAPRespIdFrames_Type=Counter32
+_BrcdDot1xAuthPortStatRxEAPRespIdFrames_Object=MibTableColumn
+brcdDot1xAuthPortStatRxEAPRespIdFrames=_BrcdDot1xAuthPortStatRxEAPRespIdFrames_Object((1,3,6,1,4,1,1991,1,1,3,38,2,1,1,5),_BrcdDot1xAuthPortStatRxEAPRespIdFrames_Type())
+brcdDot1xAuthPortStatRxEAPRespIdFrames.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatRxEAPRespIdFrames.setStatus(_A)
+_BrcdDot1xAuthPortStatTxEAPReqIdFrames_Type=Counter32
+_BrcdDot1xAuthPortStatTxEAPReqIdFrames_Object=MibTableColumn
+brcdDot1xAuthPortStatTxEAPReqIdFrames=_BrcdDot1xAuthPortStatTxEAPReqIdFrames_Object((1,3,6,1,4,1,1991,1,1,3,38,2,1,1,6),_BrcdDot1xAuthPortStatTxEAPReqIdFrames_Type())
+brcdDot1xAuthPortStatTxEAPReqIdFrames.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatTxEAPReqIdFrames.setStatus(_A)
+_BrcdDot1xAuthPortStatRxEAPInvalidFrames_Type=Counter32
+_BrcdDot1xAuthPortStatRxEAPInvalidFrames_Object=MibTableColumn
+brcdDot1xAuthPortStatRxEAPInvalidFrames=_BrcdDot1xAuthPortStatRxEAPInvalidFrames_Object((1,3,6,1,4,1,1991,1,1,3,38,2,1,1,7),_BrcdDot1xAuthPortStatRxEAPInvalidFrames_Type())
+brcdDot1xAuthPortStatRxEAPInvalidFrames.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatRxEAPInvalidFrames.setStatus(_A)
+_BrcdDot1xAuthPortStatEAPLastFrameVersionRx_Type=Unsigned32
+_BrcdDot1xAuthPortStatEAPLastFrameVersionRx_Object=MibTableColumn
+brcdDot1xAuthPortStatEAPLastFrameVersionRx=_BrcdDot1xAuthPortStatEAPLastFrameVersionRx_Object((1,3,6,1,4,1,1991,1,1,3,38,2,1,1,8),_BrcdDot1xAuthPortStatEAPLastFrameVersionRx_Type())
+brcdDot1xAuthPortStatEAPLastFrameVersionRx.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatEAPLastFrameVersionRx.setStatus(_A)
+_BrcdDot1xAuthPortStatRxEAPRespOrIdFrames_Type=Counter32
+_BrcdDot1xAuthPortStatRxEAPRespOrIdFrames_Object=MibTableColumn
+brcdDot1xAuthPortStatRxEAPRespOrIdFrames=_BrcdDot1xAuthPortStatRxEAPRespOrIdFrames_Object((1,3,6,1,4,1,1991,1,1,3,38,2,1,1,9),_BrcdDot1xAuthPortStatRxEAPRespOrIdFrames_Type())
+brcdDot1xAuthPortStatRxEAPRespOrIdFrames.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatRxEAPRespOrIdFrames.setStatus(_A)
+_BrcdDot1xAuthPortStatRxLengthErrorFrame_Type=Integer32
+_BrcdDot1xAuthPortStatRxLengthErrorFrame_Object=MibTableColumn
+brcdDot1xAuthPortStatRxLengthErrorFrame=_BrcdDot1xAuthPortStatRxLengthErrorFrame_Object((1,3,6,1,4,1,1991,1,1,3,38,2,1,1,10),_BrcdDot1xAuthPortStatRxLengthErrorFrame_Type())
+brcdDot1xAuthPortStatRxLengthErrorFrame.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatRxLengthErrorFrame.setStatus(_A)
+_BrcdDot1xAuthPortStatTxRequestFrames_Type=Counter32
+_BrcdDot1xAuthPortStatTxRequestFrames_Object=MibTableColumn
+brcdDot1xAuthPortStatTxRequestFrames=_BrcdDot1xAuthPortStatTxRequestFrames_Object((1,3,6,1,4,1,1991,1,1,3,38,2,1,1,11),_BrcdDot1xAuthPortStatTxRequestFrames_Type())
+brcdDot1xAuthPortStatTxRequestFrames.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatTxRequestFrames.setStatus(_A)
+_BrcdDot1xAuthPortStatLastEAPFrameSource_Type=MacAddress
+_BrcdDot1xAuthPortStatLastEAPFrameSource_Object=MibTableColumn
+brcdDot1xAuthPortStatLastEAPFrameSource=_BrcdDot1xAuthPortStatLastEAPFrameSource_Object((1,3,6,1,4,1,1991,1,1,3,38,2,1,1,12),_BrcdDot1xAuthPortStatLastEAPFrameSource_Type())
+brcdDot1xAuthPortStatLastEAPFrameSource.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatLastEAPFrameSource.setStatus(_A)
+_BrcdDot1xAuthPortConfig_ObjectIdentity=ObjectIdentity
+brcdDot1xAuthPortConfig=_BrcdDot1xAuthPortConfig_ObjectIdentity((1,3,6,1,4,1,1991,1,1,3,38,3))
+_BrcdDot1xAuthPortConfigTable_Object=MibTable
+brcdDot1xAuthPortConfigTable=_BrcdDot1xAuthPortConfigTable_Object((1,3,6,1,4,1,1991,1,1,3,38,3,1))
+if mibBuilder.loadTexts:brcdDot1xAuthPortConfigTable.setStatus(_A)
+_BrcdDot1xAuthPortConfigEntry_Object=MibTableRow
+brcdDot1xAuthPortConfigEntry=_BrcdDot1xAuthPortConfigEntry_Object((1,3,6,1,4,1,1991,1,1,3,38,3,1,1))
+brcdDot1xAuthPortConfigEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:brcdDot1xAuthPortConfigEntry.setStatus(_A)
+class _BrcdDot1xAuthPortConfigPortControl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('forceUnauthorized',1),('controlauto',2),('forceAuthorized',3)))
+_BrcdDot1xAuthPortConfigPortControl_Type.__name__=_E
+_BrcdDot1xAuthPortConfigPortControl_Object=MibTableColumn
+brcdDot1xAuthPortConfigPortControl=_BrcdDot1xAuthPortConfigPortControl_Object((1,3,6,1,4,1,1991,1,1,3,38,3,1,1,1),_BrcdDot1xAuthPortConfigPortControl_Type())
+brcdDot1xAuthPortConfigPortControl.setMaxAccess(_C)
+if mibBuilder.loadTexts:brcdDot1xAuthPortConfigPortControl.setStatus(_A)
+_BrcdDot1xAuthPortConfigFilterStrictSec_Type=EnabledStatus
+_BrcdDot1xAuthPortConfigFilterStrictSec_Object=MibTableColumn
+brcdDot1xAuthPortConfigFilterStrictSec=_BrcdDot1xAuthPortConfigFilterStrictSec_Object((1,3,6,1,4,1,1991,1,1,3,38,3,1,1,2),_BrcdDot1xAuthPortConfigFilterStrictSec_Type())
+brcdDot1xAuthPortConfigFilterStrictSec.setMaxAccess(_C)
+if mibBuilder.loadTexts:brcdDot1xAuthPortConfigFilterStrictSec.setStatus(_A)
+_BrcdDot1xAuthPortConfigDot1xOnPort_Type=EnabledStatus
+_BrcdDot1xAuthPortConfigDot1xOnPort_Object=MibTableColumn
+brcdDot1xAuthPortConfigDot1xOnPort=_BrcdDot1xAuthPortConfigDot1xOnPort_Object((1,3,6,1,4,1,1991,1,1,3,38,3,1,1,3),_BrcdDot1xAuthPortConfigDot1xOnPort_Type())
+brcdDot1xAuthPortConfigDot1xOnPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:brcdDot1xAuthPortConfigDot1xOnPort.setStatus(_A)
+_BrcdDot1xAuthPortState_ObjectIdentity=ObjectIdentity
+brcdDot1xAuthPortState=_BrcdDot1xAuthPortState_ObjectIdentity((1,3,6,1,4,1,1991,1,1,3,38,4))
+_BrcdDot1xAuthPortStateTable_Object=MibTable
+brcdDot1xAuthPortStateTable=_BrcdDot1xAuthPortStateTable_Object((1,3,6,1,4,1,1991,1,1,3,38,4,1))
+if mibBuilder.loadTexts:brcdDot1xAuthPortStateTable.setStatus(_A)
+_BrcdDot1xAuthPortStateEntry_Object=MibTableRow
+brcdDot1xAuthPortStateEntry=_BrcdDot1xAuthPortStateEntry_Object((1,3,6,1,4,1,1991,1,1,3,38,4,1,1))
+brcdDot1xAuthPortStateEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:brcdDot1xAuthPortStateEntry.setStatus(_A)
+_BrcdDot1xAuthPortStateMacSessions_Type=Unsigned32
+_BrcdDot1xAuthPortStateMacSessions_Object=MibTableColumn
+brcdDot1xAuthPortStateMacSessions=_BrcdDot1xAuthPortStateMacSessions_Object((1,3,6,1,4,1,1991,1,1,3,38,4,1,1,1),_BrcdDot1xAuthPortStateMacSessions_Type())
+brcdDot1xAuthPortStateMacSessions.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStateMacSessions.setStatus(_A)
+_BrcdDot1xAuthPortStateAuthMacSessions_Type=Unsigned32
+_BrcdDot1xAuthPortStateAuthMacSessions_Object=MibTableColumn
+brcdDot1xAuthPortStateAuthMacSessions=_BrcdDot1xAuthPortStateAuthMacSessions_Object((1,3,6,1,4,1,1991,1,1,3,38,4,1,1,2),_BrcdDot1xAuthPortStateAuthMacSessions_Type())
+brcdDot1xAuthPortStateAuthMacSessions.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStateAuthMacSessions.setStatus(_A)
+_BrcdDot1xAuthPortStateOriginalPVID_Type=Unsigned32
+_BrcdDot1xAuthPortStateOriginalPVID_Object=MibTableColumn
+brcdDot1xAuthPortStateOriginalPVID=_BrcdDot1xAuthPortStateOriginalPVID_Object((1,3,6,1,4,1,1991,1,1,3,38,4,1,1,3),_BrcdDot1xAuthPortStateOriginalPVID_Type())
+brcdDot1xAuthPortStateOriginalPVID.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStateOriginalPVID.setStatus(_A)
+_BrcdDot1xAuthPortStatePVIDMacTotal_Type=Unsigned32
+_BrcdDot1xAuthPortStatePVIDMacTotal_Object=MibTableColumn
+brcdDot1xAuthPortStatePVIDMacTotal=_BrcdDot1xAuthPortStatePVIDMacTotal_Object((1,3,6,1,4,1,1991,1,1,3,38,4,1,1,4),_BrcdDot1xAuthPortStatePVIDMacTotal_Type())
+brcdDot1xAuthPortStatePVIDMacTotal.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatePVIDMacTotal.setStatus(_A)
+_BrcdDot1xAuthPortStatePVIDMacAuthorized_Type=Unsigned32
+_BrcdDot1xAuthPortStatePVIDMacAuthorized_Object=MibTableColumn
+brcdDot1xAuthPortStatePVIDMacAuthorized=_BrcdDot1xAuthPortStatePVIDMacAuthorized_Object((1,3,6,1,4,1,1991,1,1,3,38,4,1,1,5),_BrcdDot1xAuthPortStatePVIDMacAuthorized_Type())
+brcdDot1xAuthPortStatePVIDMacAuthorized.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatePVIDMacAuthorized.setStatus(_A)
+class _BrcdDot1xAuthPortStatePortVlanState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('radius',1),('restricted',2),('normal',3)))
+_BrcdDot1xAuthPortStatePortVlanState_Type.__name__=_E
+_BrcdDot1xAuthPortStatePortVlanState_Object=MibTableColumn
+brcdDot1xAuthPortStatePortVlanState=_BrcdDot1xAuthPortStatePortVlanState_Object((1,3,6,1,4,1,1991,1,1,3,38,4,1,1,6),_BrcdDot1xAuthPortStatePortVlanState_Type())
+brcdDot1xAuthPortStatePortVlanState.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatePortVlanState.setStatus(_A)
+_BrcdDot1xAuthPortStatePVID_Type=Unsigned32
+_BrcdDot1xAuthPortStatePVID_Object=MibTableColumn
+brcdDot1xAuthPortStatePVID=_BrcdDot1xAuthPortStatePVID_Object((1,3,6,1,4,1,1991,1,1,3,38,4,1,1,7),_BrcdDot1xAuthPortStatePVID_Type())
+brcdDot1xAuthPortStatePVID.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStatePVID.setStatus(_A)
+_BrcdDot1xAuthPortStateRestrictPVID_Type=Unsigned32
+_BrcdDot1xAuthPortStateRestrictPVID_Object=MibTableColumn
+brcdDot1xAuthPortStateRestrictPVID=_BrcdDot1xAuthPortStateRestrictPVID_Object((1,3,6,1,4,1,1991,1,1,3,38,4,1,1,8),_BrcdDot1xAuthPortStateRestrictPVID_Type())
+brcdDot1xAuthPortStateRestrictPVID.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStateRestrictPVID.setStatus(_A)
+_BrcdDot1xAuthPortStateRadiusAssignPVID_Type=Unsigned32
+_BrcdDot1xAuthPortStateRadiusAssignPVID_Object=MibTableColumn
+brcdDot1xAuthPortStateRadiusAssignPVID=_BrcdDot1xAuthPortStateRadiusAssignPVID_Object((1,3,6,1,4,1,1991,1,1,3,38,4,1,1,9),_BrcdDot1xAuthPortStateRadiusAssignPVID_Type())
+brcdDot1xAuthPortStateRadiusAssignPVID.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthPortStateRadiusAssignPVID.setStatus(_A)
+_BrcdDot1xAuthMacSession_ObjectIdentity=ObjectIdentity
+brcdDot1xAuthMacSession=_BrcdDot1xAuthMacSession_ObjectIdentity((1,3,6,1,4,1,1991,1,1,3,38,5))
+_BrcdDot1xAuthMacSessionTable_Object=MibTable
+brcdDot1xAuthMacSessionTable=_BrcdDot1xAuthMacSessionTable_Object((1,3,6,1,4,1,1991,1,1,3,38,5,1))
+if mibBuilder.loadTexts:brcdDot1xAuthMacSessionTable.setStatus(_A)
+_BrcdDot1xAuthMacSessionEntry_Object=MibTableRow
+brcdDot1xAuthMacSessionEntry=_BrcdDot1xAuthMacSessionEntry_Object((1,3,6,1,4,1,1991,1,1,3,38,5,1,1))
+brcdDot1xAuthMacSessionEntry.setIndexNames((0,_F,_G),(0,_K,_L))
+if mibBuilder.loadTexts:brcdDot1xAuthMacSessionEntry.setStatus(_A)
+_BrcdDot1xAuthMacSessionAuthMac_Type=MacAddress
+_BrcdDot1xAuthMacSessionAuthMac_Object=MibTableColumn
+brcdDot1xAuthMacSessionAuthMac=_BrcdDot1xAuthMacSessionAuthMac_Object((1,3,6,1,4,1,1991,1,1,3,38,5,1,1,1),_BrcdDot1xAuthMacSessionAuthMac_Type())
+brcdDot1xAuthMacSessionAuthMac.setMaxAccess('not-accessible')
+if mibBuilder.loadTexts:brcdDot1xAuthMacSessionAuthMac.setStatus(_A)
+_BrcdDot1xAuthMacSessionUserName_Type=SnmpAdminString
+_BrcdDot1xAuthMacSessionUserName_Object=MibTableColumn
+brcdDot1xAuthMacSessionUserName=_BrcdDot1xAuthMacSessionUserName_Object((1,3,6,1,4,1,1991,1,1,3,38,5,1,1,2),_BrcdDot1xAuthMacSessionUserName_Type())
+brcdDot1xAuthMacSessionUserName.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthMacSessionUserName.setStatus(_A)
+_BrcdDot1xAuthMacSessionIncomingVlanId_Type=VlanId
+_BrcdDot1xAuthMacSessionIncomingVlanId_Object=MibTableColumn
+brcdDot1xAuthMacSessionIncomingVlanId=_BrcdDot1xAuthMacSessionIncomingVlanId_Object((1,3,6,1,4,1,1991,1,1,3,38,5,1,1,3),_BrcdDot1xAuthMacSessionIncomingVlanId_Type())
+brcdDot1xAuthMacSessionIncomingVlanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthMacSessionIncomingVlanId.setStatus(_A)
+_BrcdDot1xAuthMacSessionCurrentVlanId_Type=VlanId
+_BrcdDot1xAuthMacSessionCurrentVlanId_Object=MibTableColumn
+brcdDot1xAuthMacSessionCurrentVlanId=_BrcdDot1xAuthMacSessionCurrentVlanId_Object((1,3,6,1,4,1,1991,1,1,3,38,5,1,1,4),_BrcdDot1xAuthMacSessionCurrentVlanId_Type())
+brcdDot1xAuthMacSessionCurrentVlanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthMacSessionCurrentVlanId.setStatus(_A)
+class _BrcdDot1xAuthMacSessionAccessStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('permit',1),('blocked',2),('restrict',3),('init',4)))
+_BrcdDot1xAuthMacSessionAccessStatus_Type.__name__=_E
+_BrcdDot1xAuthMacSessionAccessStatus_Object=MibTableColumn
+brcdDot1xAuthMacSessionAccessStatus=_BrcdDot1xAuthMacSessionAccessStatus_Object((1,3,6,1,4,1,1991,1,1,3,38,5,1,1,5),_BrcdDot1xAuthMacSessionAccessStatus_Type())
+brcdDot1xAuthMacSessionAccessStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthMacSessionAccessStatus.setStatus(_A)
+_BrcdDot1xAuthMacSessionMaxAge_Type=Unsigned32
+_BrcdDot1xAuthMacSessionMaxAge_Object=MibTableColumn
+brcdDot1xAuthMacSessionMaxAge=_BrcdDot1xAuthMacSessionMaxAge_Object((1,3,6,1,4,1,1991,1,1,3,38,5,1,1,6),_BrcdDot1xAuthMacSessionMaxAge_Type())
+brcdDot1xAuthMacSessionMaxAge.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthMacSessionMaxAge.setStatus(_A)
+class _BrcdDot1xAuthMacSessionAddrType_Type(InetAddressType):defaultValue=1
+_BrcdDot1xAuthMacSessionAddrType_Type.__name__=_J
+_BrcdDot1xAuthMacSessionAddrType_Object=MibTableColumn
+brcdDot1xAuthMacSessionAddrType=_BrcdDot1xAuthMacSessionAddrType_Object((1,3,6,1,4,1,1991,1,1,3,38,5,1,1,7),_BrcdDot1xAuthMacSessionAddrType_Type())
+brcdDot1xAuthMacSessionAddrType.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthMacSessionAddrType.setStatus(_A)
+_BrcdDot1xAuthMacSessionIpAddr_Type=InetAddress
+_BrcdDot1xAuthMacSessionIpAddr_Object=MibTableColumn
+brcdDot1xAuthMacSessionIpAddr=_BrcdDot1xAuthMacSessionIpAddr_Object((1,3,6,1,4,1,1991,1,1,3,38,5,1,1,8),_BrcdDot1xAuthMacSessionIpAddr_Type())
+brcdDot1xAuthMacSessionIpAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthMacSessionIpAddr.setStatus(_A)
+class _BrcdDot1xAuthMacSessionAging_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('software',1),('hardware',2),('ena',3),('notapplicable',4)))
+_BrcdDot1xAuthMacSessionAging_Type.__name__=_E
+_BrcdDot1xAuthMacSessionAging_Object=MibTableColumn
+brcdDot1xAuthMacSessionAging=_BrcdDot1xAuthMacSessionAging_Object((1,3,6,1,4,1,1991,1,1,3,38,5,1,1,9),_BrcdDot1xAuthMacSessionAging_Type())
+brcdDot1xAuthMacSessionAging.setMaxAccess(_B)
+if mibBuilder.loadTexts:brcdDot1xAuthMacSessionAging.setStatus(_A)
+_BrcdDot1xAuthGlobalAdminGroup_ObjectIdentity=ObjectIdentity
+brcdDot1xAuthGlobalAdminGroup=_BrcdDot1xAuthGlobalAdminGroup_ObjectIdentity((1,3,6,1,4,1,1991,1,1,3,38,6))
+class _BrcdDot1xAuthGlobalAdminConfigStatus_Type(EnabledStatus):defaultValue=2
+_BrcdDot1xAuthGlobalAdminConfigStatus_Type.__name__=_H
+_BrcdDot1xAuthGlobalAdminConfigStatus_Object=MibScalar
+brcdDot1xAuthGlobalAdminConfigStatus=_BrcdDot1xAuthGlobalAdminConfigStatus_Object((1,3,6,1,4,1,1991,1,1,3,38,6,1),_BrcdDot1xAuthGlobalAdminConfigStatus_Type())
+brcdDot1xAuthGlobalAdminConfigStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:brcdDot1xAuthGlobalAdminConfigStatus.setStatus(_A)
+mibBuilder.exportSymbols(_K,**{'VlanId':VlanId,'brcdDot1xAuth':brcdDot1xAuth,'brcdDot1xAuthGlobalConfigGroup':brcdDot1xAuthGlobalConfigGroup,'brcdDot1xAuthGlobalConfigQuietperiod':brcdDot1xAuthGlobalConfigQuietperiod,'brcdDot1xAuthGlobalConfigTxPeriod':brcdDot1xAuthGlobalConfigTxPeriod,'brcdDot1xAuthGlobalConfigSuppTimeOut':brcdDot1xAuthGlobalConfigSuppTimeOut,'brcdDot1xAuthGlobalConfigAuthServerTimeOut':brcdDot1xAuthGlobalConfigAuthServerTimeOut,'brcdDot1xAuthGlobalConfigMaxReq':brcdDot1xAuthGlobalConfigMaxReq,'brcdDot1xAuthGlobalConfigReAuthMax':brcdDot1xAuthGlobalConfigReAuthMax,'brcdDot1xAuthGlobalConfigReAuthPeriod':brcdDot1xAuthGlobalConfigReAuthPeriod,'brcdDot1xAuthGlobalConfigProtocolVersion':brcdDot1xAuthGlobalConfigProtocolVersion,'brcdDot1xAuthGlobalConfigTotalPortsEnabled':brcdDot1xAuthGlobalConfigTotalPortsEnabled,'brcdDot1xAuthGlobalConfigReauthStatus':brcdDot1xAuthGlobalConfigReauthStatus,'brcdDot1xAuthGlobalConfigMacSessionMaxAge':brcdDot1xAuthGlobalConfigMacSessionMaxAge,'brcdDot1xAuthGlobalConfigNoAgingDeniedSessions':brcdDot1xAuthGlobalConfigNoAgingDeniedSessions,'brcdDot1xAuthGlobalConfigNoAgingPermittedSessions':brcdDot1xAuthGlobalConfigNoAgingPermittedSessions,'brcdDot1xAuthGlobalConfigAuthFailAction':brcdDot1xAuthGlobalConfigAuthFailAction,'brcdDot1xAuthPortStatistics':brcdDot1xAuthPortStatistics,'brcdDot1xAuthPortStatTable':brcdDot1xAuthPortStatTable,'brcdDot1xAuthPortStatEntry':brcdDot1xAuthPortStatEntry,'brcdDot1xAuthPortStatRxEAPFrames':brcdDot1xAuthPortStatRxEAPFrames,'brcdDot1xAuthPortStatTxEAPFrames':brcdDot1xAuthPortStatTxEAPFrames,'brcdDot1xAuthPortStatRxEAPStartFrames':brcdDot1xAuthPortStatRxEAPStartFrames,'brcdDot1xAuthPortStatRxEAPLogOffFrames':brcdDot1xAuthPortStatRxEAPLogOffFrames,'brcdDot1xAuthPortStatRxEAPRespIdFrames':brcdDot1xAuthPortStatRxEAPRespIdFrames,'brcdDot1xAuthPortStatTxEAPReqIdFrames':brcdDot1xAuthPortStatTxEAPReqIdFrames,'brcdDot1xAuthPortStatRxEAPInvalidFrames':brcdDot1xAuthPortStatRxEAPInvalidFrames,'brcdDot1xAuthPortStatEAPLastFrameVersionRx':brcdDot1xAuthPortStatEAPLastFrameVersionRx,'brcdDot1xAuthPortStatRxEAPRespOrIdFrames':brcdDot1xAuthPortStatRxEAPRespOrIdFrames,'brcdDot1xAuthPortStatRxLengthErrorFrame':brcdDot1xAuthPortStatRxLengthErrorFrame,'brcdDot1xAuthPortStatTxRequestFrames':brcdDot1xAuthPortStatTxRequestFrames,'brcdDot1xAuthPortStatLastEAPFrameSource':brcdDot1xAuthPortStatLastEAPFrameSource,'brcdDot1xAuthPortConfig':brcdDot1xAuthPortConfig,'brcdDot1xAuthPortConfigTable':brcdDot1xAuthPortConfigTable,'brcdDot1xAuthPortConfigEntry':brcdDot1xAuthPortConfigEntry,'brcdDot1xAuthPortConfigPortControl':brcdDot1xAuthPortConfigPortControl,'brcdDot1xAuthPortConfigFilterStrictSec':brcdDot1xAuthPortConfigFilterStrictSec,'brcdDot1xAuthPortConfigDot1xOnPort':brcdDot1xAuthPortConfigDot1xOnPort,'brcdDot1xAuthPortState':brcdDot1xAuthPortState,'brcdDot1xAuthPortStateTable':brcdDot1xAuthPortStateTable,'brcdDot1xAuthPortStateEntry':brcdDot1xAuthPortStateEntry,'brcdDot1xAuthPortStateMacSessions':brcdDot1xAuthPortStateMacSessions,'brcdDot1xAuthPortStateAuthMacSessions':brcdDot1xAuthPortStateAuthMacSessions,'brcdDot1xAuthPortStateOriginalPVID':brcdDot1xAuthPortStateOriginalPVID,'brcdDot1xAuthPortStatePVIDMacTotal':brcdDot1xAuthPortStatePVIDMacTotal,'brcdDot1xAuthPortStatePVIDMacAuthorized':brcdDot1xAuthPortStatePVIDMacAuthorized,'brcdDot1xAuthPortStatePortVlanState':brcdDot1xAuthPortStatePortVlanState,'brcdDot1xAuthPortStatePVID':brcdDot1xAuthPortStatePVID,'brcdDot1xAuthPortStateRestrictPVID':brcdDot1xAuthPortStateRestrictPVID,'brcdDot1xAuthPortStateRadiusAssignPVID':brcdDot1xAuthPortStateRadiusAssignPVID,'brcdDot1xAuthMacSession':brcdDot1xAuthMacSession,'brcdDot1xAuthMacSessionTable':brcdDot1xAuthMacSessionTable,'brcdDot1xAuthMacSessionEntry':brcdDot1xAuthMacSessionEntry,_L:brcdDot1xAuthMacSessionAuthMac,'brcdDot1xAuthMacSessionUserName':brcdDot1xAuthMacSessionUserName,'brcdDot1xAuthMacSessionIncomingVlanId':brcdDot1xAuthMacSessionIncomingVlanId,'brcdDot1xAuthMacSessionCurrentVlanId':brcdDot1xAuthMacSessionCurrentVlanId,'brcdDot1xAuthMacSessionAccessStatus':brcdDot1xAuthMacSessionAccessStatus,'brcdDot1xAuthMacSessionMaxAge':brcdDot1xAuthMacSessionMaxAge,'brcdDot1xAuthMacSessionAddrType':brcdDot1xAuthMacSessionAddrType,'brcdDot1xAuthMacSessionIpAddr':brcdDot1xAuthMacSessionIpAddr,'brcdDot1xAuthMacSessionAging':brcdDot1xAuthMacSessionAging,'brcdDot1xAuthGlobalAdminGroup':brcdDot1xAuthGlobalAdminGroup,'brcdDot1xAuthGlobalAdminConfigStatus':brcdDot1xAuthGlobalAdminConfigStatus})

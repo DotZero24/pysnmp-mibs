@@ -1,0 +1,84 @@
+_F='flooding'
+_E='drop'
+_D='Integer32'
+_C='OctetString'
+_B='current'
+_A='read-write'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_C,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
+zyxelMulticast=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,54))
+_ZyxelMulticastSetup_ObjectIdentity=ObjectIdentity
+zyxelMulticastSetup=_ZyxelMulticastSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,54,1))
+class _ZyMulticastUnknownMulticastFrameForwarding_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_F,1),(_E,2),('drop-vlan',3)))
+_ZyMulticastUnknownMulticastFrameForwarding_Type.__name__=_D
+_ZyMulticastUnknownMulticastFrameForwarding_Object=MibScalar
+zyMulticastUnknownMulticastFrameForwarding=_ZyMulticastUnknownMulticastFrameForwarding_Object((1,3,6,1,4,1,890,1,15,3,54,1,1),_ZyMulticastUnknownMulticastFrameForwarding_Type())
+zyMulticastUnknownMulticastFrameForwarding.setMaxAccess(_A)
+if mibBuilder.loadTexts:zyMulticastUnknownMulticastFrameForwarding.setStatus(_B)
+class _ZyMulticastReservedMulticastFrameForwarding_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_F,1),(_E,2)))
+_ZyMulticastReservedMulticastFrameForwarding_Type.__name__=_D
+_ZyMulticastReservedMulticastFrameForwarding_Object=MibScalar
+zyMulticastReservedMulticastFrameForwarding=_ZyMulticastReservedMulticastFrameForwarding_Object((1,3,6,1,4,1,890,1,15,3,54,1,2),_ZyMulticastReservedMulticastFrameForwarding_Type())
+zyMulticastReservedMulticastFrameForwarding.setMaxAccess(_A)
+if mibBuilder.loadTexts:zyMulticastReservedMulticastFrameForwarding.setStatus(_B)
+class _ZyMulticastUnknownMulticastFrameDropVlan1k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
+_ZyMulticastUnknownMulticastFrameDropVlan1k_Type.__name__=_C
+_ZyMulticastUnknownMulticastFrameDropVlan1k_Object=MibScalar
+zyMulticastUnknownMulticastFrameDropVlan1k=_ZyMulticastUnknownMulticastFrameDropVlan1k_Object((1,3,6,1,4,1,890,1,15,3,54,1,3),_ZyMulticastUnknownMulticastFrameDropVlan1k_Type())
+zyMulticastUnknownMulticastFrameDropVlan1k.setMaxAccess(_A)
+if mibBuilder.loadTexts:zyMulticastUnknownMulticastFrameDropVlan1k.setStatus(_B)
+class _ZyMulticastUnknownMulticastFrameDropVlan2k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
+_ZyMulticastUnknownMulticastFrameDropVlan2k_Type.__name__=_C
+_ZyMulticastUnknownMulticastFrameDropVlan2k_Object=MibScalar
+zyMulticastUnknownMulticastFrameDropVlan2k=_ZyMulticastUnknownMulticastFrameDropVlan2k_Object((1,3,6,1,4,1,890,1,15,3,54,1,4),_ZyMulticastUnknownMulticastFrameDropVlan2k_Type())
+zyMulticastUnknownMulticastFrameDropVlan2k.setMaxAccess(_A)
+if mibBuilder.loadTexts:zyMulticastUnknownMulticastFrameDropVlan2k.setStatus(_B)
+class _ZyMulticastUnknownMulticastFrameDropVlan3k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
+_ZyMulticastUnknownMulticastFrameDropVlan3k_Type.__name__=_C
+_ZyMulticastUnknownMulticastFrameDropVlan3k_Object=MibScalar
+zyMulticastUnknownMulticastFrameDropVlan3k=_ZyMulticastUnknownMulticastFrameDropVlan3k_Object((1,3,6,1,4,1,890,1,15,3,54,1,5),_ZyMulticastUnknownMulticastFrameDropVlan3k_Type())
+zyMulticastUnknownMulticastFrameDropVlan3k.setMaxAccess(_A)
+if mibBuilder.loadTexts:zyMulticastUnknownMulticastFrameDropVlan3k.setStatus(_B)
+class _ZyMulticastUnknownMulticastFrameDropVlan4k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
+_ZyMulticastUnknownMulticastFrameDropVlan4k_Type.__name__=_C
+_ZyMulticastUnknownMulticastFrameDropVlan4k_Object=MibScalar
+zyMulticastUnknownMulticastFrameDropVlan4k=_ZyMulticastUnknownMulticastFrameDropVlan4k_Object((1,3,6,1,4,1,890,1,15,3,54,1,6),_ZyMulticastUnknownMulticastFrameDropVlan4k_Type())
+zyMulticastUnknownMulticastFrameDropVlan4k.setMaxAccess(_A)
+if mibBuilder.loadTexts:zyMulticastUnknownMulticastFrameDropVlan4k.setStatus(_B)
+class _ZyMulticastUnknownMulticastFrameToQuerierPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_E,1),('forwarding',2),('forwarding-vlan',3)))
+_ZyMulticastUnknownMulticastFrameToQuerierPort_Type.__name__=_D
+_ZyMulticastUnknownMulticastFrameToQuerierPort_Object=MibScalar
+zyMulticastUnknownMulticastFrameToQuerierPort=_ZyMulticastUnknownMulticastFrameToQuerierPort_Object((1,3,6,1,4,1,890,1,15,3,54,1,7),_ZyMulticastUnknownMulticastFrameToQuerierPort_Type())
+zyMulticastUnknownMulticastFrameToQuerierPort.setMaxAccess(_A)
+if mibBuilder.loadTexts:zyMulticastUnknownMulticastFrameToQuerierPort.setStatus(_B)
+class _ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan1k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
+_ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan1k_Type.__name__=_C
+_ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan1k_Object=MibScalar
+zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan1k=_ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan1k_Object((1,3,6,1,4,1,890,1,15,3,54,1,8),_ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan1k_Type())
+zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan1k.setMaxAccess(_A)
+if mibBuilder.loadTexts:zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan1k.setStatus(_B)
+class _ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan2k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
+_ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan2k_Type.__name__=_C
+_ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan2k_Object=MibScalar
+zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan2k=_ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan2k_Object((1,3,6,1,4,1,890,1,15,3,54,1,9),_ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan2k_Type())
+zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan2k.setMaxAccess(_A)
+if mibBuilder.loadTexts:zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan2k.setStatus(_B)
+class _ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan3k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
+_ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan3k_Type.__name__=_C
+_ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan3k_Object=MibScalar
+zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan3k=_ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan3k_Object((1,3,6,1,4,1,890,1,15,3,54,1,10),_ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan3k_Type())
+zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan3k.setMaxAccess(_A)
+if mibBuilder.loadTexts:zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan3k.setStatus(_B)
+class _ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan4k_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
+_ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan4k_Type.__name__=_C
+_ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan4k_Object=MibScalar
+zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan4k=_ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan4k_Object((1,3,6,1,4,1,890,1,15,3,54,1,11),_ZyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan4k_Type())
+zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan4k.setMaxAccess(_A)
+if mibBuilder.loadTexts:zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan4k.setStatus(_B)
+mibBuilder.exportSymbols('ZYXEL-MULTICAST-MIB',**{'zyxelMulticast':zyxelMulticast,'zyxelMulticastSetup':zyxelMulticastSetup,'zyMulticastUnknownMulticastFrameForwarding':zyMulticastUnknownMulticastFrameForwarding,'zyMulticastReservedMulticastFrameForwarding':zyMulticastReservedMulticastFrameForwarding,'zyMulticastUnknownMulticastFrameDropVlan1k':zyMulticastUnknownMulticastFrameDropVlan1k,'zyMulticastUnknownMulticastFrameDropVlan2k':zyMulticastUnknownMulticastFrameDropVlan2k,'zyMulticastUnknownMulticastFrameDropVlan3k':zyMulticastUnknownMulticastFrameDropVlan3k,'zyMulticastUnknownMulticastFrameDropVlan4k':zyMulticastUnknownMulticastFrameDropVlan4k,'zyMulticastUnknownMulticastFrameToQuerierPort':zyMulticastUnknownMulticastFrameToQuerierPort,'zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan1k':zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan1k,'zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan2k':zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan2k,'zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan3k':zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan3k,'zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan4k':zyMulticastUnknownMulticastFrameToQuerierPortForwardingVlan4k})

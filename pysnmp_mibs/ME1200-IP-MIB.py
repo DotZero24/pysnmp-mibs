@@ -1,0 +1,2069 @@
+_EL='me1200IpControlInterfaceDhcpClientInfoGroup'
+_EK='me1200IpControlGlobalsInfoGroup'
+_EJ='me1200IpStatisticsInterfaceIpv6InfoGroup'
+_EI='me1200IpStatisticsInterfaceIpv4InfoGroup'
+_EH='me1200IpStatisticsInterfaceLinkInfoGroup'
+_EG='me1200IpStatisticsGlobalsIpv6InfoGroup'
+_EF='me1200IpStatisticsGlobalsIpv4InfoGroup'
+_EE='me1200IpStatusRoutesIpv6InfoGroup'
+_ED='me1200IpStatusRoutesIpv4InfoGroup'
+_EC='me1200IpStatusInterfaceIpv6InfoGroup'
+_EB='me1200IpStatusInterfaceDhcpClientV4InfoGroup'
+_EA='me1200IpStatusInterfaceIpv4InfoGroup'
+_E9='me1200IpStatusInterfaceLinkInfoGroup'
+_E8='me1200IpStatusGlobalsIpv6NeighbourInfoGroup'
+_E7='me1200IpStatusGlobalsIpv4NeighbourInfoGroup'
+_E6='me1200IpConfigInterfacesRoutesIpv6RowEditorInfoGroup'
+_E5='me1200IpConfigInterfacesRoutesIpv6TableInfoGroup'
+_E4='me1200IpConfigInterfacesRoutesIpv4RowEditorInfoGroup'
+_E3='me1200IpConfigInterfacesRoutesIpv4TableInfoGroup'
+_E2='me1200IpConfigInterfacesIpv4TableInfoGroup'
+_E1='me1200IpConfigInterfacesTableRowEditorInfoGroup'
+_E0='me1200IpConfigInterfacesTableInfoGroup'
+_D_='me1200IpConfigInterfacesIpv6TableInfoGroup'
+_Dz='me1200IpConfigGlobalsMainInfoGroup'
+_Dy='me1200IpCapabilitiesInfoGroup'
+_Dx='me1200IpControlInterfaceDhcpClientRestart'
+_Dw='me1200IpControlGlobalsIpv6SystemStatisticsClear'
+_Dv='me1200IpControlGlobalsIpv4SystemStatisticsClear'
+_Du='me1200IpControlGlobalsIpv6NeighbourTableClear'
+_Dt='me1200IpControlGlobalsIpv4NeighbourTableClear'
+_Ds='me1200IpStatisticsInterfaceIpv6RefreshRate'
+_Dr='me1200IpStatisticsInterfaceIpv6DiscontinuityTime'
+_Dq='me1200IpStatisticsInterfaceIpv6HCOutBcastPkts'
+_Dp='me1200IpStatisticsInterfaceIpv6OutBcastPkts'
+_Do='me1200IpStatisticsInterfaceIpv6HCInBcastPkts'
+_Dn='me1200IpStatisticsInterfaceIpv6InBcastPkts'
+_Dm='me1200IpStatisticsInterfaceIpv6HCOutMcastOctets'
+_Dl='me1200IpStatisticsInterfaceIpv6OutMcastOctets'
+_Dk='me1200IpStatisticsInterfaceIpv6HCOutMcastPkts'
+_Dj='me1200IpStatisticsInterfaceIpv6OutMcastPkts'
+_Di='me1200IpStatisticsInterfaceIpv6HCInMcastOctets'
+_Dh='me1200IpStatisticsInterfaceIpv6InMcastOctets'
+_Dg='me1200IpStatisticsInterfaceIpv6HCInMcastPkts'
+_Df='me1200IpStatisticsInterfaceIpv6InMcastPkts'
+_De='me1200IpStatisticsInterfaceIpv6HCOutOctets'
+_Dd='me1200IpStatisticsInterfaceIpv6OutOctets'
+_Dc='me1200IpStatisticsInterfaceIpv6HCOutTransmits'
+_Db='me1200IpStatisticsInterfaceIpv6OutTransmits'
+_Da='me1200IpStatisticsInterfaceIpv6OutFragCreates'
+_DZ='me1200IpStatisticsInterfaceIpv6OutFragFails'
+_DY='me1200IpStatisticsInterfaceIpv6OutFragOKs'
+_DX='me1200IpStatisticsInterfaceIpv6OutFragReqds'
+_DW='me1200IpStatisticsInterfaceIpv6OutDiscards'
+_DV='me1200IpStatisticsInterfaceIpv6HCOutForwDatagrams'
+_DU='me1200IpStatisticsInterfaceIpv6OutForwDatagrams'
+_DT='me1200IpStatisticsInterfaceIpv6OutNoRoutes'
+_DS='me1200IpStatisticsInterfaceIpv6HCOutRequests'
+_DR='me1200IpStatisticsInterfaceIpv6OutRequests'
+_DQ='me1200IpStatisticsInterfaceIpv6HCInDelivers'
+_DP='me1200IpStatisticsInterfaceIpv6InDelivers'
+_DO='me1200IpStatisticsInterfaceIpv6InDiscards'
+_DN='me1200IpStatisticsInterfaceIpv6ReasmFails'
+_DM='me1200IpStatisticsInterfaceIpv6ReasmOKs'
+_DL='me1200IpStatisticsInterfaceIpv6ReasmReqds'
+_DK='me1200IpStatisticsInterfaceIpv6HCInForwDatagrams'
+_DJ='me1200IpStatisticsInterfaceIpv6InForwDatagrams'
+_DI='me1200IpStatisticsInterfaceIpv6InTruncatedPkts'
+_DH='me1200IpStatisticsInterfaceIpv6InUnknownProtos'
+_DG='me1200IpStatisticsInterfaceIpv6InAddrErrors'
+_DF='me1200IpStatisticsInterfaceIpv6InNoRoutes'
+_DE='me1200IpStatisticsInterfaceIpv6InHdrErrors'
+_DD='me1200IpStatisticsInterfaceIpv6HCInOctets'
+_DC='me1200IpStatisticsInterfaceIpv6InOctets'
+_DB='me1200IpStatisticsInterfaceIpv6HCInReceives'
+_DA='me1200IpStatisticsInterfaceIpv6InReceives'
+_D9='me1200IpStatisticsInterfaceIpv4RefreshRate'
+_D8='me1200IpStatisticsInterfaceIpv4DiscontinuityTime'
+_D7='me1200IpStatisticsInterfaceIpv4HCOutBcastPkts'
+_D6='me1200IpStatisticsInterfaceIpv4OutBcastPkts'
+_D5='me1200IpStatisticsInterfaceIpv4HCInBcastPkts'
+_D4='me1200IpStatisticsInterfaceIpv4InBcastPkts'
+_D3='me1200IpStatisticsInterfaceIpv4HCOutMcastOctets'
+_D2='me1200IpStatisticsInterfaceIpv4OutMcastOctets'
+_D1='me1200IpStatisticsInterfaceIpv4HCOutMcastPkts'
+_D0='me1200IpStatisticsInterfaceIpv4OutMcastPkts'
+_C_='me1200IpStatisticsInterfaceIpv4HCInMcastOctets'
+_Cz='me1200IpStatisticsInterfaceIpv4InMcastOctets'
+_Cy='me1200IpStatisticsInterfaceIpv4HCInMcastPkts'
+_Cx='me1200IpStatisticsInterfaceIpv4InMcastPkts'
+_Cw='me1200IpStatisticsInterfaceIpv4HCOutOctets'
+_Cv='me1200IpStatisticsInterfaceIpv4OutOctets'
+_Cu='me1200IpStatisticsInterfaceIpv4HCOutTransmits'
+_Ct='me1200IpStatisticsInterfaceIpv4OutTransmits'
+_Cs='me1200IpStatisticsInterfaceIpv4OutFragCreates'
+_Cr='me1200IpStatisticsInterfaceIpv4OutFragFails'
+_Cq='me1200IpStatisticsInterfaceIpv4OutFragOKs'
+_Cp='me1200IpStatisticsInterfaceIpv4OutFragReqds'
+_Co='me1200IpStatisticsInterfaceIpv4OutDiscards'
+_Cn='me1200IpStatisticsInterfaceIpv4HCOutForwDatagrams'
+_Cm='me1200IpStatisticsInterfaceIpv4OutForwDatagrams'
+_Cl='me1200IpStatisticsInterfaceIpv4OutNoRoutes'
+_Ck='me1200IpStatisticsInterfaceIpv4HCOutRequests'
+_Cj='me1200IpStatisticsInterfaceIpv4OutRequests'
+_Ci='me1200IpStatisticsInterfaceIpv4HCInDelivers'
+_Ch='me1200IpStatisticsInterfaceIpv4InDelivers'
+_Cg='me1200IpStatisticsInterfaceIpv4InDiscards'
+_Cf='me1200IpStatisticsInterfaceIpv4ReasmFails'
+_Ce='me1200IpStatisticsInterfaceIpv4ReasmOKs'
+_Cd='me1200IpStatisticsInterfaceIpv4ReasmReqds'
+_Cc='me1200IpStatisticsInterfaceIpv4HCInForwDatagrams'
+_Cb='me1200IpStatisticsInterfaceIpv4InForwDatagrams'
+_Ca='me1200IpStatisticsInterfaceIpv4InTruncatedPkts'
+_CZ='me1200IpStatisticsInterfaceIpv4InUnknownProtos'
+_CY='me1200IpStatisticsInterfaceIpv4InAddrErrors'
+_CX='me1200IpStatisticsInterfaceIpv4InNoRoutes'
+_CW='me1200IpStatisticsInterfaceIpv4InHdrErrors'
+_CV='me1200IpStatisticsInterfaceIpv4HCInOctets'
+_CU='me1200IpStatisticsInterfaceIpv4InOctets'
+_CT='me1200IpStatisticsInterfaceIpv4HCInReceives'
+_CS='me1200IpStatisticsInterfaceIpv4InReceives'
+_CR='me1200IpStatisticsInterfaceLinkOutBroadcasts'
+_CQ='me1200IpStatisticsInterfaceLinkInBroadcasts'
+_CP='me1200IpStatisticsInterfaceLinkOutMulticasts'
+_CO='me1200IpStatisticsInterfaceLinkInMulticasts'
+_CN='me1200IpStatisticsInterfaceLinkOutBytes'
+_CM='me1200IpStatisticsInterfaceLinkInBytes'
+_CL='me1200IpStatisticsInterfaceLinkOutPackets'
+_CK='me1200IpStatisticsInterfaceLinkInPackets'
+_CJ='me1200IpStatisticsGlobalsIpv6RefreshRate'
+_CI='me1200IpStatisticsGlobalsIpv6DiscontinuityTime'
+_CH='me1200IpStatisticsGlobalsIpv6HCOutBcastPkts'
+_CG='me1200IpStatisticsGlobalsIpv6OutBcastPkts'
+_CF='me1200IpStatisticsGlobalsIpv6HCInBcastPkts'
+_CE='me1200IpStatisticsGlobalsIpv6InBcastPkts'
+_CD='me1200IpStatisticsGlobalsIpv6HCOutMcastOctets'
+_CC='me1200IpStatisticsGlobalsIpv6OutMcastOctets'
+_CB='me1200IpStatisticsGlobalsIpv6HCOutMcastPkts'
+_CA='me1200IpStatisticsGlobalsIpv6OutMcastPkts'
+_C9='me1200IpStatisticsGlobalsIpv6HCInMcastOctets'
+_C8='me1200IpStatisticsGlobalsIpv6InMcastOctets'
+_C7='me1200IpStatisticsGlobalsIpv6HCInMcastPkts'
+_C6='me1200IpStatisticsGlobalsIpv6InMcastPkts'
+_C5='me1200IpStatisticsGlobalsIpv6HCOutOctets'
+_C4='me1200IpStatisticsGlobalsIpv6OutOctets'
+_C3='me1200IpStatisticsGlobalsIpv6HCOutTransmits'
+_C2='me1200IpStatisticsGlobalsIpv6OutTransmits'
+_C1='me1200IpStatisticsGlobalsIpv6OutFragCreates'
+_C0='me1200IpStatisticsGlobalsIpv6OutFragFails'
+_B_='me1200IpStatisticsGlobalsIpv6OutFragOKs'
+_Bz='me1200IpStatisticsGlobalsIpv6OutFragReqds'
+_By='me1200IpStatisticsGlobalsIpv6OutDiscards'
+_Bx='me1200IpStatisticsGlobalsIpv6HCOutForwDatagrams'
+_Bw='me1200IpStatisticsGlobalsIpv6OutForwDatagrams'
+_Bv='me1200IpStatisticsGlobalsIpv6OutNoRoutes'
+_Bu='me1200IpStatisticsGlobalsIpv6HCOutRequests'
+_Bt='me1200IpStatisticsGlobalsIpv6OutRequests'
+_Bs='me1200IpStatisticsGlobalsIpv6HCInDelivers'
+_Br='me1200IpStatisticsGlobalsIpv6InDelivers'
+_Bq='me1200IpStatisticsGlobalsIpv6InDiscards'
+_Bp='me1200IpStatisticsGlobalsIpv6ReasmFails'
+_Bo='me1200IpStatisticsGlobalsIpv6ReasmOKs'
+_Bn='me1200IpStatisticsGlobalsIpv6ReasmReqds'
+_Bm='me1200IpStatisticsGlobalsIpv6HCInForwDatagrams'
+_Bl='me1200IpStatisticsGlobalsIpv6InForwDatagrams'
+_Bk='me1200IpStatisticsGlobalsIpv6InTruncatedPkts'
+_Bj='me1200IpStatisticsGlobalsIpv6InUnknownProtos'
+_Bi='me1200IpStatisticsGlobalsIpv6InAddrErrors'
+_Bh='me1200IpStatisticsGlobalsIpv6InNoRoutes'
+_Bg='me1200IpStatisticsGlobalsIpv6InHdrErrors'
+_Bf='me1200IpStatisticsGlobalsIpv6HCInOctets'
+_Be='me1200IpStatisticsGlobalsIpv6InOctets'
+_Bd='me1200IpStatisticsGlobalsIpv6HCInReceives'
+_Bc='me1200IpStatisticsGlobalsIpv6InReceives'
+_Bb='me1200IpStatisticsGlobalsIpv4RefreshRate'
+_Ba='me1200IpStatisticsGlobalsIpv4DiscontinuityTime'
+_BZ='me1200IpStatisticsGlobalsIpv4HCOutBcastPkts'
+_BY='me1200IpStatisticsGlobalsIpv4OutBcastPkts'
+_BX='me1200IpStatisticsGlobalsIpv4HCInBcastPkts'
+_BW='me1200IpStatisticsGlobalsIpv4InBcastPkts'
+_BV='me1200IpStatisticsGlobalsIpv4HCOutMcastOctets'
+_BU='me1200IpStatisticsGlobalsIpv4OutMcastOctets'
+_BT='me1200IpStatisticsGlobalsIpv4HCOutMcastPkts'
+_BS='me1200IpStatisticsGlobalsIpv4OutMcastPkts'
+_BR='me1200IpStatisticsGlobalsIpv4HCInMcastOctets'
+_BQ='me1200IpStatisticsGlobalsIpv4InMcastOctets'
+_BP='me1200IpStatisticsGlobalsIpv4HCInMcastPkts'
+_BO='me1200IpStatisticsGlobalsIpv4InMcastPkts'
+_BN='me1200IpStatisticsGlobalsIpv4HCOutOctets'
+_BM='me1200IpStatisticsGlobalsIpv4OutOctets'
+_BL='me1200IpStatisticsGlobalsIpv4HCOutTransmits'
+_BK='me1200IpStatisticsGlobalsIpv4OutTransmits'
+_BJ='me1200IpStatisticsGlobalsIpv4OutFragCreates'
+_BI='me1200IpStatisticsGlobalsIpv4OutFragFails'
+_BH='me1200IpStatisticsGlobalsIpv4OutFragOKs'
+_BG='me1200IpStatisticsGlobalsIpv4OutFragReqds'
+_BF='me1200IpStatisticsGlobalsIpv4OutDiscards'
+_BE='me1200IpStatisticsGlobalsIpv4HCOutForwDatagrams'
+_BD='me1200IpStatisticsGlobalsIpv4OutForwDatagrams'
+_BC='me1200IpStatisticsGlobalsIpv4OutNoRoutes'
+_BB='me1200IpStatisticsGlobalsIpv4HCOutRequests'
+_BA='me1200IpStatisticsGlobalsIpv4OutRequests'
+_B9='me1200IpStatisticsGlobalsIpv4HCInDelivers'
+_B8='me1200IpStatisticsGlobalsIpv4InDelivers'
+_B7='me1200IpStatisticsGlobalsIpv4InDiscards'
+_B6='me1200IpStatisticsGlobalsIpv4ReasmFails'
+_B5='me1200IpStatisticsGlobalsIpv4ReasmOKs'
+_B4='me1200IpStatisticsGlobalsIpv4ReasmReqds'
+_B3='me1200IpStatisticsGlobalsIpv4HCInForwDatagrams'
+_B2='me1200IpStatisticsGlobalsIpv4InForwDatagrams'
+_B1='me1200IpStatisticsGlobalsIpv4InTruncatedPkts'
+_B0='me1200IpStatisticsGlobalsIpv4InUnknownProtos'
+_A_='me1200IpStatisticsGlobalsIpv4InAddrErrors'
+_Az='me1200IpStatisticsGlobalsIpv4InNoRoutes'
+_Ay='me1200IpStatisticsGlobalsIpv4InHdrErrors'
+_Ax='me1200IpStatisticsGlobalsIpv4HCInOctets'
+_Aw='me1200IpStatisticsGlobalsIpv4InOctets'
+_Av='me1200IpStatisticsGlobalsIpv4HCInReceives'
+_Au='me1200IpStatisticsGlobalsIpv4InReceives'
+_At='me1200IpStatusRoutesIpv6OwnerDynamic'
+_As='me1200IpStatusRoutesIpv6OwnerDhcp'
+_Ar='me1200IpStatusRoutesIpv6OwnerConf'
+_Aq='me1200IpStatusRoutesIpv6FlagGateway'
+_Ap='me1200IpStatusRoutesIpv6FlagHost'
+_Ao='me1200IpStatusRoutesIpv6FlagUp'
+_An='me1200IpStatusRoutesIpv6DerivedNextHopInterface'
+_Am='me1200IpStatusRoutesIpv4OwnerDynamic'
+_Al='me1200IpStatusRoutesIpv4OwnerDhcp'
+_Ak='me1200IpStatusRoutesIpv4OwnerConf'
+_Aj='me1200IpStatusRoutesIpv4FlagGateway'
+_Ai='me1200IpStatusRoutesIpv4FlagHost'
+_Ah='me1200IpStatusRoutesIpv4FlagUp'
+_Ag='me1200IpStatusRoutesIpv4DerivedNextHopInterface'
+_Af='me1200IpStatusInterfaceIpv6Autoconf'
+_Ae='me1200IpStatusInterfaceIpv6Nodad'
+_Ad='me1200IpStatusInterfaceIpv6Detached'
+_Ac='me1200IpStatusInterfaceIpv6Duplicated'
+_Ab='me1200IpStatusInterfaceIpv6Tentative'
+_Aa='me1200IpStatusInterfaceIpv6Prefix'
+_AZ='me1200IpStatusInterfaceIpv6Address'
+_AY='me1200IpStatusInterfaceDhcpClientV4ServerIp'
+_AX='me1200IpStatusInterfaceDhcpClientV4State'
+_AW='me1200IpStatusInterfaceIpv4ArpRetransmitTime'
+_AV='me1200IpStatusInterfaceIpv4ReasmMaxSize'
+_AU='me1200IpStatusInterfaceIpv4Broadcast'
+_AT='me1200IpStatusInterfaceIpv4Prefix'
+_AS='me1200IpStatusInterfaceIpv4Address'
+_AR='me1200IpStatusInterfaceLinkMulticast'
+_AQ='me1200IpStatusInterfaceLinkPromisc'
+_AP='me1200IpStatusInterfaceLinkNoarp'
+_AO='me1200IpStatusInterfaceLinkRunning'
+_AN='me1200IpStatusInterfaceLinkLoopback'
+_AM='me1200IpStatusInterfaceLinkBroadcast'
+_AL='me1200IpStatusInterfaceLinkUp'
+_AK='me1200IpStatusInterfaceLinkMacAddress'
+_AJ='me1200IpStatusInterfaceLinkMtu'
+_AI='me1200IpStatusInterfaceLinkOsInterfaceIndex'
+_AH='me1200IpStatusGlobalsIpv6NeighbourInterface'
+_AG='me1200IpStatusGlobalsIpv6NeighbourMacAddress'
+_AF='me1200IpStatusGlobalsIpv4NeighbourInterface'
+_AE='me1200IpStatusGlobalsIpv4NeighbourMacAddress'
+_AD='me1200IpConfigInterfacesRoutesIpv6RowEditorAction'
+_AC='me1200IpConfigInterfacesRoutesIpv6RowEditorNextHopInterface'
+_AB='me1200IpConfigInterfacesRoutesIpv6RowEditorNextHop'
+_AA='me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkPrefixSize'
+_A9='me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkAddress'
+_A8='me1200IpConfigInterfacesRoutesIpv6Action'
+_A7='me1200IpConfigInterfacesRoutesIpv4RowEditorAction'
+_A6='me1200IpConfigInterfacesRoutesIpv4RowEditorNextHop'
+_A5='me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkPrefixSize'
+_A4='me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkAddress'
+_A3='me1200IpConfigInterfacesRoutesIpv4Action'
+_A2='me1200IpConfigInterfacesIpv4DhcpClientFallbackTimeout'
+_A1='me1200IpConfigInterfacesIpv4PrefixSize'
+_A0='me1200IpConfigInterfacesIpv4Ipv4Address'
+_z='me1200IpConfigInterfacesIpv4EnableDhcpClient'
+_y='me1200IpConfigInterfacesIpv4Active'
+_x='me1200IpConfigInterfacesTableRowEditorAction'
+_w='me1200IpConfigInterfacesTableRowEditorIfIndex'
+_v='me1200IpConfigInterfacesAction'
+_u='me1200IpConfigInterfacesIpv6PrefixSize'
+_t='me1200IpConfigInterfacesIpv6Ipv6Address'
+_s='me1200IpConfigInterfacesIpv6Active'
+_r='me1200IpConfigGlobalsMainEnableRouting'
+_q='me1200IpCapabilitiesNumberOfLpmHardwareEntries'
+_p='me1200IpCapabilitiesMaxNumberOfStaticRoutes'
+_o='me1200IpCapabilitiesMaxNumberOfIpInterfaces'
+_n='me1200IpCapabilitiesHasIpv6UnicastHwRoutingCapabilities'
+_m='me1200IpCapabilitiesHasIpv6UnicastRoutingCapabilities'
+_l='me1200IpCapabilitiesHasIpv4UnicastHwRoutingCapabilities'
+_k='me1200IpCapabilitiesHasIpv4UnicastRoutingCapabilities'
+_j='me1200IpCapabilitiesHasIpv6HostCapabilities'
+_i='me1200IpCapabilitiesHasIpv4HostCapabilities'
+_h='me1200IpControlInterfaceDhcpClientIfIndex'
+_g='me1200IpStatisticsInterfaceIpv6IfIndex'
+_f='me1200IpStatisticsInterfaceIpv4IfIndex'
+_e='me1200IpStatisticsInterfaceLinkIfIndex'
+_d='me1200IpStatusRoutesIpv6NextHopInterface'
+_c='me1200IpStatusRoutesIpv6NextHop'
+_b='me1200IpStatusRoutesIpv6NetworkPrefixSize'
+_a='me1200IpStatusRoutesIpv6NetworkAddress'
+_Z='me1200IpStatusRoutesIpv4NextHop'
+_Y='me1200IpStatusRoutesIpv4NetworkPrefixSize'
+_X='me1200IpStatusRoutesIpv4NetworkAddress'
+_W='me1200IpStatusInterfaceIpv6IfIndex'
+_V='me1200IpStatusInterfaceDhcpClientV4IfIndex'
+_U='me1200IpStatusInterfaceIpv4IfIndex'
+_T='me1200IpStatusInterfaceLinkIfIndex'
+_S='me1200IpStatusGlobalsIpv6NeighbourInterfaceQuery'
+_R='me1200IpStatusGlobalsIpv6NeighbourIpAddress'
+_Q='me1200IpStatusGlobalsIpv4NeighbourIpv4'
+_P='me1200IpConfigInterfacesRoutesIpv6NextHopInterface'
+_O='me1200IpConfigInterfacesRoutesIpv6NextHop'
+_N='me1200IpConfigInterfacesRoutesIpv6NetworkPrefixSize'
+_M='me1200IpConfigInterfacesRoutesIpv6NetworkAddress'
+_L='me1200IpConfigInterfacesRoutesIpv4NextHop'
+_K='me1200IpConfigInterfacesRoutesIpv4NetworkPrefixSize'
+_J='me1200IpConfigInterfacesRoutesIpv4NetworkAddress'
+_I='me1200IpConfigInterfacesIpv4IfIndex'
+_H='me1200IpConfigInterfacesIfIndex'
+_G='me1200IpConfigInterfacesIpv6IfIndex'
+_F='Integer32'
+_E='not-accessible'
+_D='read-write'
+_C='read-only'
+_B='ME1200-IP-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+me1200SwitchMgmt,=mibBuilder.importSymbols('CISCOME1200-MIB','me1200SwitchMgmt')
+InetAddressIPv6,=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv6')
+ME1200InterfaceIndex,ME1200RowEditorState,ME1200Unsigned8=mibBuilder.importSymbols('ME1200-TC','ME1200InterfaceIndex','ME1200RowEditorState','ME1200Unsigned8')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention','TruthValue')
+me1200IpMIB=ModuleIdentity((1,3,6,1,4,1,9,9,815,1,102))
+if mibBuilder.loadTexts:me1200IpMIB.setRevisions(('2014-10-21 00:00','2014-03-11 00:00','2014-02-18 00:00','2014-01-29 00:00','2013-11-26 00:00'))
+class ME1200DhcpClientState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('stopped',0),('init',1),('selecting',2),('requesting',3),('rebinding',4),('bound',5),('renewing',6),('fallback',7),('arpCheck',8)))
+_Me1200IpMIBObjects_ObjectIdentity=ObjectIdentity
+me1200IpMIBObjects=_Me1200IpMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1))
+_Me1200IpCapabilities_ObjectIdentity=ObjectIdentity
+me1200IpCapabilities=_Me1200IpCapabilities_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,1))
+_Me1200IpCapabilitiesHasIpv4HostCapabilities_Type=TruthValue
+_Me1200IpCapabilitiesHasIpv4HostCapabilities_Object=MibScalar
+me1200IpCapabilitiesHasIpv4HostCapabilities=_Me1200IpCapabilitiesHasIpv4HostCapabilities_Object((1,3,6,1,4,1,9,9,815,1,102,1,1,1),_Me1200IpCapabilitiesHasIpv4HostCapabilities_Type())
+me1200IpCapabilitiesHasIpv4HostCapabilities.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpCapabilitiesHasIpv4HostCapabilities.setStatus(_A)
+_Me1200IpCapabilitiesHasIpv6HostCapabilities_Type=TruthValue
+_Me1200IpCapabilitiesHasIpv6HostCapabilities_Object=MibScalar
+me1200IpCapabilitiesHasIpv6HostCapabilities=_Me1200IpCapabilitiesHasIpv6HostCapabilities_Object((1,3,6,1,4,1,9,9,815,1,102,1,1,2),_Me1200IpCapabilitiesHasIpv6HostCapabilities_Type())
+me1200IpCapabilitiesHasIpv6HostCapabilities.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpCapabilitiesHasIpv6HostCapabilities.setStatus(_A)
+_Me1200IpCapabilitiesHasIpv4UnicastRoutingCapabilities_Type=TruthValue
+_Me1200IpCapabilitiesHasIpv4UnicastRoutingCapabilities_Object=MibScalar
+me1200IpCapabilitiesHasIpv4UnicastRoutingCapabilities=_Me1200IpCapabilitiesHasIpv4UnicastRoutingCapabilities_Object((1,3,6,1,4,1,9,9,815,1,102,1,1,3),_Me1200IpCapabilitiesHasIpv4UnicastRoutingCapabilities_Type())
+me1200IpCapabilitiesHasIpv4UnicastRoutingCapabilities.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpCapabilitiesHasIpv4UnicastRoutingCapabilities.setStatus(_A)
+_Me1200IpCapabilitiesHasIpv4UnicastHwRoutingCapabilities_Type=TruthValue
+_Me1200IpCapabilitiesHasIpv4UnicastHwRoutingCapabilities_Object=MibScalar
+me1200IpCapabilitiesHasIpv4UnicastHwRoutingCapabilities=_Me1200IpCapabilitiesHasIpv4UnicastHwRoutingCapabilities_Object((1,3,6,1,4,1,9,9,815,1,102,1,1,4),_Me1200IpCapabilitiesHasIpv4UnicastHwRoutingCapabilities_Type())
+me1200IpCapabilitiesHasIpv4UnicastHwRoutingCapabilities.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpCapabilitiesHasIpv4UnicastHwRoutingCapabilities.setStatus(_A)
+_Me1200IpCapabilitiesHasIpv6UnicastRoutingCapabilities_Type=TruthValue
+_Me1200IpCapabilitiesHasIpv6UnicastRoutingCapabilities_Object=MibScalar
+me1200IpCapabilitiesHasIpv6UnicastRoutingCapabilities=_Me1200IpCapabilitiesHasIpv6UnicastRoutingCapabilities_Object((1,3,6,1,4,1,9,9,815,1,102,1,1,5),_Me1200IpCapabilitiesHasIpv6UnicastRoutingCapabilities_Type())
+me1200IpCapabilitiesHasIpv6UnicastRoutingCapabilities.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpCapabilitiesHasIpv6UnicastRoutingCapabilities.setStatus(_A)
+_Me1200IpCapabilitiesHasIpv6UnicastHwRoutingCapabilities_Type=TruthValue
+_Me1200IpCapabilitiesHasIpv6UnicastHwRoutingCapabilities_Object=MibScalar
+me1200IpCapabilitiesHasIpv6UnicastHwRoutingCapabilities=_Me1200IpCapabilitiesHasIpv6UnicastHwRoutingCapabilities_Object((1,3,6,1,4,1,9,9,815,1,102,1,1,6),_Me1200IpCapabilitiesHasIpv6UnicastHwRoutingCapabilities_Type())
+me1200IpCapabilitiesHasIpv6UnicastHwRoutingCapabilities.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpCapabilitiesHasIpv6UnicastHwRoutingCapabilities.setStatus(_A)
+_Me1200IpCapabilitiesMaxNumberOfIpInterfaces_Type=Unsigned32
+_Me1200IpCapabilitiesMaxNumberOfIpInterfaces_Object=MibScalar
+me1200IpCapabilitiesMaxNumberOfIpInterfaces=_Me1200IpCapabilitiesMaxNumberOfIpInterfaces_Object((1,3,6,1,4,1,9,9,815,1,102,1,1,7),_Me1200IpCapabilitiesMaxNumberOfIpInterfaces_Type())
+me1200IpCapabilitiesMaxNumberOfIpInterfaces.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpCapabilitiesMaxNumberOfIpInterfaces.setStatus(_A)
+_Me1200IpCapabilitiesMaxNumberOfStaticRoutes_Type=Unsigned32
+_Me1200IpCapabilitiesMaxNumberOfStaticRoutes_Object=MibScalar
+me1200IpCapabilitiesMaxNumberOfStaticRoutes=_Me1200IpCapabilitiesMaxNumberOfStaticRoutes_Object((1,3,6,1,4,1,9,9,815,1,102,1,1,8),_Me1200IpCapabilitiesMaxNumberOfStaticRoutes_Type())
+me1200IpCapabilitiesMaxNumberOfStaticRoutes.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpCapabilitiesMaxNumberOfStaticRoutes.setStatus(_A)
+_Me1200IpCapabilitiesNumberOfLpmHardwareEntries_Type=Unsigned32
+_Me1200IpCapabilitiesNumberOfLpmHardwareEntries_Object=MibScalar
+me1200IpCapabilitiesNumberOfLpmHardwareEntries=_Me1200IpCapabilitiesNumberOfLpmHardwareEntries_Object((1,3,6,1,4,1,9,9,815,1,102,1,1,9),_Me1200IpCapabilitiesNumberOfLpmHardwareEntries_Type())
+me1200IpCapabilitiesNumberOfLpmHardwareEntries.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpCapabilitiesNumberOfLpmHardwareEntries.setStatus(_A)
+_Me1200IpConfig_ObjectIdentity=ObjectIdentity
+me1200IpConfig=_Me1200IpConfig_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,2))
+_Me1200IpConfigGlobals_ObjectIdentity=ObjectIdentity
+me1200IpConfigGlobals=_Me1200IpConfigGlobals_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,2,1))
+_Me1200IpConfigGlobalsMain_ObjectIdentity=ObjectIdentity
+me1200IpConfigGlobalsMain=_Me1200IpConfigGlobalsMain_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,2,1,1))
+_Me1200IpConfigGlobalsMainEnableRouting_Type=TruthValue
+_Me1200IpConfigGlobalsMainEnableRouting_Object=MibScalar
+me1200IpConfigGlobalsMainEnableRouting=_Me1200IpConfigGlobalsMainEnableRouting_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,1,1,1),_Me1200IpConfigGlobalsMainEnableRouting_Type())
+me1200IpConfigGlobalsMainEnableRouting.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigGlobalsMainEnableRouting.setStatus(_A)
+_Me1200IpConfigInterfacesIpv6Table_Object=MibTable
+me1200IpConfigInterfacesIpv6Table=_Me1200IpConfigInterfacesIpv6Table_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,1,4))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesIpv6Table.setStatus(_A)
+_Me1200IpConfigInterfacesIpv6Entry_Object=MibTableRow
+me1200IpConfigInterfacesIpv6Entry=_Me1200IpConfigInterfacesIpv6Entry_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,1,4,1))
+me1200IpConfigInterfacesIpv6Entry.setIndexNames((0,_B,_G))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesIpv6Entry.setStatus(_A)
+_Me1200IpConfigInterfacesIpv6IfIndex_Type=ME1200InterfaceIndex
+_Me1200IpConfigInterfacesIpv6IfIndex_Object=MibTableColumn
+me1200IpConfigInterfacesIpv6IfIndex=_Me1200IpConfigInterfacesIpv6IfIndex_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,1,4,1,1),_Me1200IpConfigInterfacesIpv6IfIndex_Type())
+me1200IpConfigInterfacesIpv6IfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesIpv6IfIndex.setStatus(_A)
+_Me1200IpConfigInterfacesIpv6Active_Type=TruthValue
+_Me1200IpConfigInterfacesIpv6Active_Object=MibTableColumn
+me1200IpConfigInterfacesIpv6Active=_Me1200IpConfigInterfacesIpv6Active_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,1,4,1,2),_Me1200IpConfigInterfacesIpv6Active_Type())
+me1200IpConfigInterfacesIpv6Active.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesIpv6Active.setStatus(_A)
+_Me1200IpConfigInterfacesIpv6Ipv6Address_Type=InetAddressIPv6
+_Me1200IpConfigInterfacesIpv6Ipv6Address_Object=MibTableColumn
+me1200IpConfigInterfacesIpv6Ipv6Address=_Me1200IpConfigInterfacesIpv6Ipv6Address_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,1,4,1,3),_Me1200IpConfigInterfacesIpv6Ipv6Address_Type())
+me1200IpConfigInterfacesIpv6Ipv6Address.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesIpv6Ipv6Address.setStatus(_A)
+_Me1200IpConfigInterfacesIpv6PrefixSize_Type=Unsigned32
+_Me1200IpConfigInterfacesIpv6PrefixSize_Object=MibTableColumn
+me1200IpConfigInterfacesIpv6PrefixSize=_Me1200IpConfigInterfacesIpv6PrefixSize_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,1,4,1,4),_Me1200IpConfigInterfacesIpv6PrefixSize_Type())
+me1200IpConfigInterfacesIpv6PrefixSize.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesIpv6PrefixSize.setStatus(_A)
+_Me1200IpConfigInterfaces_ObjectIdentity=ObjectIdentity
+me1200IpConfigInterfaces=_Me1200IpConfigInterfaces_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,2,2))
+_Me1200IpConfigInterfacesTable_Object=MibTable
+me1200IpConfigInterfacesTable=_Me1200IpConfigInterfacesTable_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,2,1))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesTable.setStatus(_A)
+_Me1200IpConfigInterfacesEntry_Object=MibTableRow
+me1200IpConfigInterfacesEntry=_Me1200IpConfigInterfacesEntry_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,2,1,1))
+me1200IpConfigInterfacesEntry.setIndexNames((0,_B,_H))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesEntry.setStatus(_A)
+_Me1200IpConfigInterfacesIfIndex_Type=ME1200InterfaceIndex
+_Me1200IpConfigInterfacesIfIndex_Object=MibTableColumn
+me1200IpConfigInterfacesIfIndex=_Me1200IpConfigInterfacesIfIndex_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,2,1,1,1),_Me1200IpConfigInterfacesIfIndex_Type())
+me1200IpConfigInterfacesIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesIfIndex.setStatus(_A)
+_Me1200IpConfigInterfacesAction_Type=ME1200RowEditorState
+_Me1200IpConfigInterfacesAction_Object=MibTableColumn
+me1200IpConfigInterfacesAction=_Me1200IpConfigInterfacesAction_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,2,1,1,100),_Me1200IpConfigInterfacesAction_Type())
+me1200IpConfigInterfacesAction.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesAction.setStatus(_A)
+_Me1200IpConfigInterfacesTableRowEditor_ObjectIdentity=ObjectIdentity
+me1200IpConfigInterfacesTableRowEditor=_Me1200IpConfigInterfacesTableRowEditor_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,2,2,2))
+_Me1200IpConfigInterfacesTableRowEditorIfIndex_Type=ME1200InterfaceIndex
+_Me1200IpConfigInterfacesTableRowEditorIfIndex_Object=MibScalar
+me1200IpConfigInterfacesTableRowEditorIfIndex=_Me1200IpConfigInterfacesTableRowEditorIfIndex_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,2,2,1),_Me1200IpConfigInterfacesTableRowEditorIfIndex_Type())
+me1200IpConfigInterfacesTableRowEditorIfIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesTableRowEditorIfIndex.setStatus(_A)
+_Me1200IpConfigInterfacesTableRowEditorAction_Type=ME1200RowEditorState
+_Me1200IpConfigInterfacesTableRowEditorAction_Object=MibScalar
+me1200IpConfigInterfacesTableRowEditorAction=_Me1200IpConfigInterfacesTableRowEditorAction_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,2,2,100),_Me1200IpConfigInterfacesTableRowEditorAction_Type())
+me1200IpConfigInterfacesTableRowEditorAction.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesTableRowEditorAction.setStatus(_A)
+_Me1200IpConfigInterfacesIpv4Table_Object=MibTable
+me1200IpConfigInterfacesIpv4Table=_Me1200IpConfigInterfacesIpv4Table_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,2,3))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesIpv4Table.setStatus(_A)
+_Me1200IpConfigInterfacesIpv4Entry_Object=MibTableRow
+me1200IpConfigInterfacesIpv4Entry=_Me1200IpConfigInterfacesIpv4Entry_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,2,3,1))
+me1200IpConfigInterfacesIpv4Entry.setIndexNames((0,_B,_I))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesIpv4Entry.setStatus(_A)
+_Me1200IpConfigInterfacesIpv4IfIndex_Type=ME1200InterfaceIndex
+_Me1200IpConfigInterfacesIpv4IfIndex_Object=MibTableColumn
+me1200IpConfigInterfacesIpv4IfIndex=_Me1200IpConfigInterfacesIpv4IfIndex_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,2,3,1,1),_Me1200IpConfigInterfacesIpv4IfIndex_Type())
+me1200IpConfigInterfacesIpv4IfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesIpv4IfIndex.setStatus(_A)
+_Me1200IpConfigInterfacesIpv4Active_Type=TruthValue
+_Me1200IpConfigInterfacesIpv4Active_Object=MibTableColumn
+me1200IpConfigInterfacesIpv4Active=_Me1200IpConfigInterfacesIpv4Active_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,2,3,1,2),_Me1200IpConfigInterfacesIpv4Active_Type())
+me1200IpConfigInterfacesIpv4Active.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesIpv4Active.setStatus(_A)
+_Me1200IpConfigInterfacesIpv4EnableDhcpClient_Type=TruthValue
+_Me1200IpConfigInterfacesIpv4EnableDhcpClient_Object=MibTableColumn
+me1200IpConfigInterfacesIpv4EnableDhcpClient=_Me1200IpConfigInterfacesIpv4EnableDhcpClient_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,2,3,1,3),_Me1200IpConfigInterfacesIpv4EnableDhcpClient_Type())
+me1200IpConfigInterfacesIpv4EnableDhcpClient.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesIpv4EnableDhcpClient.setStatus(_A)
+_Me1200IpConfigInterfacesIpv4Ipv4Address_Type=IpAddress
+_Me1200IpConfigInterfacesIpv4Ipv4Address_Object=MibTableColumn
+me1200IpConfigInterfacesIpv4Ipv4Address=_Me1200IpConfigInterfacesIpv4Ipv4Address_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,2,3,1,4),_Me1200IpConfigInterfacesIpv4Ipv4Address_Type())
+me1200IpConfigInterfacesIpv4Ipv4Address.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesIpv4Ipv4Address.setStatus(_A)
+_Me1200IpConfigInterfacesIpv4PrefixSize_Type=Unsigned32
+_Me1200IpConfigInterfacesIpv4PrefixSize_Object=MibTableColumn
+me1200IpConfigInterfacesIpv4PrefixSize=_Me1200IpConfigInterfacesIpv4PrefixSize_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,2,3,1,5),_Me1200IpConfigInterfacesIpv4PrefixSize_Type())
+me1200IpConfigInterfacesIpv4PrefixSize.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesIpv4PrefixSize.setStatus(_A)
+_Me1200IpConfigInterfacesIpv4DhcpClientFallbackTimeout_Type=Unsigned32
+_Me1200IpConfigInterfacesIpv4DhcpClientFallbackTimeout_Object=MibTableColumn
+me1200IpConfigInterfacesIpv4DhcpClientFallbackTimeout=_Me1200IpConfigInterfacesIpv4DhcpClientFallbackTimeout_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,2,3,1,6),_Me1200IpConfigInterfacesIpv4DhcpClientFallbackTimeout_Type())
+me1200IpConfigInterfacesIpv4DhcpClientFallbackTimeout.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesIpv4DhcpClientFallbackTimeout.setStatus(_A)
+_Me1200IpConfigRoutes_ObjectIdentity=ObjectIdentity
+me1200IpConfigRoutes=_Me1200IpConfigRoutes_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,2,3))
+_Me1200IpConfigInterfacesRoutesIpv4Table_Object=MibTable
+me1200IpConfigInterfacesRoutesIpv4Table=_Me1200IpConfigInterfacesRoutesIpv4Table_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,1))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv4Table.setStatus(_A)
+_Me1200IpConfigInterfacesRoutesIpv4Entry_Object=MibTableRow
+me1200IpConfigInterfacesRoutesIpv4Entry=_Me1200IpConfigInterfacesRoutesIpv4Entry_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,1,1))
+me1200IpConfigInterfacesRoutesIpv4Entry.setIndexNames((0,_B,_J),(0,_B,_K),(0,_B,_L))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv4Entry.setStatus(_A)
+_Me1200IpConfigInterfacesRoutesIpv4NetworkAddress_Type=IpAddress
+_Me1200IpConfigInterfacesRoutesIpv4NetworkAddress_Object=MibTableColumn
+me1200IpConfigInterfacesRoutesIpv4NetworkAddress=_Me1200IpConfigInterfacesRoutesIpv4NetworkAddress_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,1,1,1),_Me1200IpConfigInterfacesRoutesIpv4NetworkAddress_Type())
+me1200IpConfigInterfacesRoutesIpv4NetworkAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv4NetworkAddress.setStatus(_A)
+class _Me1200IpConfigInterfacesRoutesIpv4NetworkPrefixSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_Me1200IpConfigInterfacesRoutesIpv4NetworkPrefixSize_Type.__name__=_F
+_Me1200IpConfigInterfacesRoutesIpv4NetworkPrefixSize_Object=MibTableColumn
+me1200IpConfigInterfacesRoutesIpv4NetworkPrefixSize=_Me1200IpConfigInterfacesRoutesIpv4NetworkPrefixSize_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,1,1,2),_Me1200IpConfigInterfacesRoutesIpv4NetworkPrefixSize_Type())
+me1200IpConfigInterfacesRoutesIpv4NetworkPrefixSize.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv4NetworkPrefixSize.setStatus(_A)
+_Me1200IpConfigInterfacesRoutesIpv4NextHop_Type=IpAddress
+_Me1200IpConfigInterfacesRoutesIpv4NextHop_Object=MibTableColumn
+me1200IpConfigInterfacesRoutesIpv4NextHop=_Me1200IpConfigInterfacesRoutesIpv4NextHop_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,1,1,3),_Me1200IpConfigInterfacesRoutesIpv4NextHop_Type())
+me1200IpConfigInterfacesRoutesIpv4NextHop.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv4NextHop.setStatus(_A)
+_Me1200IpConfigInterfacesRoutesIpv4Action_Type=ME1200RowEditorState
+_Me1200IpConfigInterfacesRoutesIpv4Action_Object=MibTableColumn
+me1200IpConfigInterfacesRoutesIpv4Action=_Me1200IpConfigInterfacesRoutesIpv4Action_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,1,1,100),_Me1200IpConfigInterfacesRoutesIpv4Action_Type())
+me1200IpConfigInterfacesRoutesIpv4Action.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv4Action.setStatus(_A)
+_Me1200IpConfigInterfacesRoutesIpv4RowEditor_ObjectIdentity=ObjectIdentity
+me1200IpConfigInterfacesRoutesIpv4RowEditor=_Me1200IpConfigInterfacesRoutesIpv4RowEditor_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,2,3,2))
+_Me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkAddress_Type=IpAddress
+_Me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkAddress_Object=MibScalar
+me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkAddress=_Me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkAddress_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,2,1),_Me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkAddress_Type())
+me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkAddress.setStatus(_A)
+class _Me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkPrefixSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_Me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkPrefixSize_Type.__name__=_F
+_Me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkPrefixSize_Object=MibScalar
+me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkPrefixSize=_Me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkPrefixSize_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,2,2),_Me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkPrefixSize_Type())
+me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkPrefixSize.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkPrefixSize.setStatus(_A)
+_Me1200IpConfigInterfacesRoutesIpv4RowEditorNextHop_Type=IpAddress
+_Me1200IpConfigInterfacesRoutesIpv4RowEditorNextHop_Object=MibScalar
+me1200IpConfigInterfacesRoutesIpv4RowEditorNextHop=_Me1200IpConfigInterfacesRoutesIpv4RowEditorNextHop_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,2,3),_Me1200IpConfigInterfacesRoutesIpv4RowEditorNextHop_Type())
+me1200IpConfigInterfacesRoutesIpv4RowEditorNextHop.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv4RowEditorNextHop.setStatus(_A)
+_Me1200IpConfigInterfacesRoutesIpv4RowEditorAction_Type=ME1200RowEditorState
+_Me1200IpConfigInterfacesRoutesIpv4RowEditorAction_Object=MibScalar
+me1200IpConfigInterfacesRoutesIpv4RowEditorAction=_Me1200IpConfigInterfacesRoutesIpv4RowEditorAction_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,2,100),_Me1200IpConfigInterfacesRoutesIpv4RowEditorAction_Type())
+me1200IpConfigInterfacesRoutesIpv4RowEditorAction.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv4RowEditorAction.setStatus(_A)
+_Me1200IpConfigInterfacesRoutesIpv6Table_Object=MibTable
+me1200IpConfigInterfacesRoutesIpv6Table=_Me1200IpConfigInterfacesRoutesIpv6Table_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,3))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv6Table.setStatus(_A)
+_Me1200IpConfigInterfacesRoutesIpv6Entry_Object=MibTableRow
+me1200IpConfigInterfacesRoutesIpv6Entry=_Me1200IpConfigInterfacesRoutesIpv6Entry_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,3,1))
+me1200IpConfigInterfacesRoutesIpv6Entry.setIndexNames((0,_B,_M),(0,_B,_N),(0,_B,_O),(0,_B,_P))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv6Entry.setStatus(_A)
+_Me1200IpConfigInterfacesRoutesIpv6NetworkAddress_Type=InetAddressIPv6
+_Me1200IpConfigInterfacesRoutesIpv6NetworkAddress_Object=MibTableColumn
+me1200IpConfigInterfacesRoutesIpv6NetworkAddress=_Me1200IpConfigInterfacesRoutesIpv6NetworkAddress_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,3,1,1),_Me1200IpConfigInterfacesRoutesIpv6NetworkAddress_Type())
+me1200IpConfigInterfacesRoutesIpv6NetworkAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv6NetworkAddress.setStatus(_A)
+class _Me1200IpConfigInterfacesRoutesIpv6NetworkPrefixSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_Me1200IpConfigInterfacesRoutesIpv6NetworkPrefixSize_Type.__name__=_F
+_Me1200IpConfigInterfacesRoutesIpv6NetworkPrefixSize_Object=MibTableColumn
+me1200IpConfigInterfacesRoutesIpv6NetworkPrefixSize=_Me1200IpConfigInterfacesRoutesIpv6NetworkPrefixSize_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,3,1,2),_Me1200IpConfigInterfacesRoutesIpv6NetworkPrefixSize_Type())
+me1200IpConfigInterfacesRoutesIpv6NetworkPrefixSize.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv6NetworkPrefixSize.setStatus(_A)
+_Me1200IpConfigInterfacesRoutesIpv6NextHop_Type=InetAddressIPv6
+_Me1200IpConfigInterfacesRoutesIpv6NextHop_Object=MibTableColumn
+me1200IpConfigInterfacesRoutesIpv6NextHop=_Me1200IpConfigInterfacesRoutesIpv6NextHop_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,3,1,3),_Me1200IpConfigInterfacesRoutesIpv6NextHop_Type())
+me1200IpConfigInterfacesRoutesIpv6NextHop.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv6NextHop.setStatus(_A)
+_Me1200IpConfigInterfacesRoutesIpv6NextHopInterface_Type=ME1200InterfaceIndex
+_Me1200IpConfigInterfacesRoutesIpv6NextHopInterface_Object=MibTableColumn
+me1200IpConfigInterfacesRoutesIpv6NextHopInterface=_Me1200IpConfigInterfacesRoutesIpv6NextHopInterface_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,3,1,4),_Me1200IpConfigInterfacesRoutesIpv6NextHopInterface_Type())
+me1200IpConfigInterfacesRoutesIpv6NextHopInterface.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv6NextHopInterface.setStatus(_A)
+_Me1200IpConfigInterfacesRoutesIpv6Action_Type=ME1200RowEditorState
+_Me1200IpConfigInterfacesRoutesIpv6Action_Object=MibTableColumn
+me1200IpConfigInterfacesRoutesIpv6Action=_Me1200IpConfigInterfacesRoutesIpv6Action_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,3,1,100),_Me1200IpConfigInterfacesRoutesIpv6Action_Type())
+me1200IpConfigInterfacesRoutesIpv6Action.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv6Action.setStatus(_A)
+_Me1200IpConfigInterfacesRoutesIpv6RowEditor_ObjectIdentity=ObjectIdentity
+me1200IpConfigInterfacesRoutesIpv6RowEditor=_Me1200IpConfigInterfacesRoutesIpv6RowEditor_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,2,3,4))
+_Me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkAddress_Type=InetAddressIPv6
+_Me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkAddress_Object=MibScalar
+me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkAddress=_Me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkAddress_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,4,1),_Me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkAddress_Type())
+me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkAddress.setStatus(_A)
+class _Me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkPrefixSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_Me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkPrefixSize_Type.__name__=_F
+_Me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkPrefixSize_Object=MibScalar
+me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkPrefixSize=_Me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkPrefixSize_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,4,2),_Me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkPrefixSize_Type())
+me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkPrefixSize.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkPrefixSize.setStatus(_A)
+_Me1200IpConfigInterfacesRoutesIpv6RowEditorNextHop_Type=InetAddressIPv6
+_Me1200IpConfigInterfacesRoutesIpv6RowEditorNextHop_Object=MibScalar
+me1200IpConfigInterfacesRoutesIpv6RowEditorNextHop=_Me1200IpConfigInterfacesRoutesIpv6RowEditorNextHop_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,4,3),_Me1200IpConfigInterfacesRoutesIpv6RowEditorNextHop_Type())
+me1200IpConfigInterfacesRoutesIpv6RowEditorNextHop.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv6RowEditorNextHop.setStatus(_A)
+_Me1200IpConfigInterfacesRoutesIpv6RowEditorNextHopInterface_Type=ME1200InterfaceIndex
+_Me1200IpConfigInterfacesRoutesIpv6RowEditorNextHopInterface_Object=MibScalar
+me1200IpConfigInterfacesRoutesIpv6RowEditorNextHopInterface=_Me1200IpConfigInterfacesRoutesIpv6RowEditorNextHopInterface_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,4,4),_Me1200IpConfigInterfacesRoutesIpv6RowEditorNextHopInterface_Type())
+me1200IpConfigInterfacesRoutesIpv6RowEditorNextHopInterface.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv6RowEditorNextHopInterface.setStatus(_A)
+_Me1200IpConfigInterfacesRoutesIpv6RowEditorAction_Type=ME1200RowEditorState
+_Me1200IpConfigInterfacesRoutesIpv6RowEditorAction_Object=MibScalar
+me1200IpConfigInterfacesRoutesIpv6RowEditorAction=_Me1200IpConfigInterfacesRoutesIpv6RowEditorAction_Object((1,3,6,1,4,1,9,9,815,1,102,1,2,3,4,100),_Me1200IpConfigInterfacesRoutesIpv6RowEditorAction_Type())
+me1200IpConfigInterfacesRoutesIpv6RowEditorAction.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv6RowEditorAction.setStatus(_A)
+_Me1200IpStatus_ObjectIdentity=ObjectIdentity
+me1200IpStatus=_Me1200IpStatus_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,3))
+_Me1200IpStatusGlobals_ObjectIdentity=ObjectIdentity
+me1200IpStatusGlobals=_Me1200IpStatusGlobals_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,3,1))
+_Me1200IpStatusGlobalsIpv4NeighbourTable_Object=MibTable
+me1200IpStatusGlobalsIpv4NeighbourTable=_Me1200IpStatusGlobalsIpv4NeighbourTable_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,1,1))
+if mibBuilder.loadTexts:me1200IpStatusGlobalsIpv4NeighbourTable.setStatus(_A)
+_Me1200IpStatusGlobalsIpv4NeighbourEntry_Object=MibTableRow
+me1200IpStatusGlobalsIpv4NeighbourEntry=_Me1200IpStatusGlobalsIpv4NeighbourEntry_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,1,1,1))
+me1200IpStatusGlobalsIpv4NeighbourEntry.setIndexNames((0,_B,_Q))
+if mibBuilder.loadTexts:me1200IpStatusGlobalsIpv4NeighbourEntry.setStatus(_A)
+_Me1200IpStatusGlobalsIpv4NeighbourIpv4_Type=IpAddress
+_Me1200IpStatusGlobalsIpv4NeighbourIpv4_Object=MibTableColumn
+me1200IpStatusGlobalsIpv4NeighbourIpv4=_Me1200IpStatusGlobalsIpv4NeighbourIpv4_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,1,1,1,1),_Me1200IpStatusGlobalsIpv4NeighbourIpv4_Type())
+me1200IpStatusGlobalsIpv4NeighbourIpv4.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpStatusGlobalsIpv4NeighbourIpv4.setStatus(_A)
+_Me1200IpStatusGlobalsIpv4NeighbourMacAddress_Type=MacAddress
+_Me1200IpStatusGlobalsIpv4NeighbourMacAddress_Object=MibTableColumn
+me1200IpStatusGlobalsIpv4NeighbourMacAddress=_Me1200IpStatusGlobalsIpv4NeighbourMacAddress_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,1,1,1,2),_Me1200IpStatusGlobalsIpv4NeighbourMacAddress_Type())
+me1200IpStatusGlobalsIpv4NeighbourMacAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusGlobalsIpv4NeighbourMacAddress.setStatus(_A)
+_Me1200IpStatusGlobalsIpv4NeighbourInterface_Type=Unsigned32
+_Me1200IpStatusGlobalsIpv4NeighbourInterface_Object=MibTableColumn
+me1200IpStatusGlobalsIpv4NeighbourInterface=_Me1200IpStatusGlobalsIpv4NeighbourInterface_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,1,1,1,3),_Me1200IpStatusGlobalsIpv4NeighbourInterface_Type())
+me1200IpStatusGlobalsIpv4NeighbourInterface.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusGlobalsIpv4NeighbourInterface.setStatus(_A)
+_Me1200IpStatusGlobalsIpv6NeighbourTable_Object=MibTable
+me1200IpStatusGlobalsIpv6NeighbourTable=_Me1200IpStatusGlobalsIpv6NeighbourTable_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,1,2))
+if mibBuilder.loadTexts:me1200IpStatusGlobalsIpv6NeighbourTable.setStatus(_A)
+_Me1200IpStatusGlobalsIpv6NeighbourEntry_Object=MibTableRow
+me1200IpStatusGlobalsIpv6NeighbourEntry=_Me1200IpStatusGlobalsIpv6NeighbourEntry_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,1,2,1))
+me1200IpStatusGlobalsIpv6NeighbourEntry.setIndexNames((0,_B,_R),(0,_B,_S))
+if mibBuilder.loadTexts:me1200IpStatusGlobalsIpv6NeighbourEntry.setStatus(_A)
+_Me1200IpStatusGlobalsIpv6NeighbourIpAddress_Type=InetAddressIPv6
+_Me1200IpStatusGlobalsIpv6NeighbourIpAddress_Object=MibTableColumn
+me1200IpStatusGlobalsIpv6NeighbourIpAddress=_Me1200IpStatusGlobalsIpv6NeighbourIpAddress_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,1,2,1,1),_Me1200IpStatusGlobalsIpv6NeighbourIpAddress_Type())
+me1200IpStatusGlobalsIpv6NeighbourIpAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpStatusGlobalsIpv6NeighbourIpAddress.setStatus(_A)
+class _Me1200IpStatusGlobalsIpv6NeighbourInterfaceQuery_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_Me1200IpStatusGlobalsIpv6NeighbourInterfaceQuery_Type.__name__=_F
+_Me1200IpStatusGlobalsIpv6NeighbourInterfaceQuery_Object=MibTableColumn
+me1200IpStatusGlobalsIpv6NeighbourInterfaceQuery=_Me1200IpStatusGlobalsIpv6NeighbourInterfaceQuery_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,1,2,1,2),_Me1200IpStatusGlobalsIpv6NeighbourInterfaceQuery_Type())
+me1200IpStatusGlobalsIpv6NeighbourInterfaceQuery.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpStatusGlobalsIpv6NeighbourInterfaceQuery.setStatus(_A)
+_Me1200IpStatusGlobalsIpv6NeighbourMacAddress_Type=MacAddress
+_Me1200IpStatusGlobalsIpv6NeighbourMacAddress_Object=MibTableColumn
+me1200IpStatusGlobalsIpv6NeighbourMacAddress=_Me1200IpStatusGlobalsIpv6NeighbourMacAddress_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,1,2,1,3),_Me1200IpStatusGlobalsIpv6NeighbourMacAddress_Type())
+me1200IpStatusGlobalsIpv6NeighbourMacAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusGlobalsIpv6NeighbourMacAddress.setStatus(_A)
+_Me1200IpStatusGlobalsIpv6NeighbourInterface_Type=Unsigned32
+_Me1200IpStatusGlobalsIpv6NeighbourInterface_Object=MibTableColumn
+me1200IpStatusGlobalsIpv6NeighbourInterface=_Me1200IpStatusGlobalsIpv6NeighbourInterface_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,1,2,1,4),_Me1200IpStatusGlobalsIpv6NeighbourInterface_Type())
+me1200IpStatusGlobalsIpv6NeighbourInterface.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusGlobalsIpv6NeighbourInterface.setStatus(_A)
+_Me1200IpStatusInterfaces_ObjectIdentity=ObjectIdentity
+me1200IpStatusInterfaces=_Me1200IpStatusInterfaces_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,3,2))
+_Me1200IpStatusInterfaceLinkTable_Object=MibTable
+me1200IpStatusInterfaceLinkTable=_Me1200IpStatusInterfaceLinkTable_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,1))
+if mibBuilder.loadTexts:me1200IpStatusInterfaceLinkTable.setStatus(_A)
+_Me1200IpStatusInterfaceLinkEntry_Object=MibTableRow
+me1200IpStatusInterfaceLinkEntry=_Me1200IpStatusInterfaceLinkEntry_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,1,1))
+me1200IpStatusInterfaceLinkEntry.setIndexNames((0,_B,_T))
+if mibBuilder.loadTexts:me1200IpStatusInterfaceLinkEntry.setStatus(_A)
+_Me1200IpStatusInterfaceLinkIfIndex_Type=ME1200InterfaceIndex
+_Me1200IpStatusInterfaceLinkIfIndex_Object=MibTableColumn
+me1200IpStatusInterfaceLinkIfIndex=_Me1200IpStatusInterfaceLinkIfIndex_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,1,1,1),_Me1200IpStatusInterfaceLinkIfIndex_Type())
+me1200IpStatusInterfaceLinkIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceLinkIfIndex.setStatus(_A)
+_Me1200IpStatusInterfaceLinkOsInterfaceIndex_Type=Unsigned32
+_Me1200IpStatusInterfaceLinkOsInterfaceIndex_Object=MibTableColumn
+me1200IpStatusInterfaceLinkOsInterfaceIndex=_Me1200IpStatusInterfaceLinkOsInterfaceIndex_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,1,1,2),_Me1200IpStatusInterfaceLinkOsInterfaceIndex_Type())
+me1200IpStatusInterfaceLinkOsInterfaceIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceLinkOsInterfaceIndex.setStatus(_A)
+_Me1200IpStatusInterfaceLinkMtu_Type=Unsigned32
+_Me1200IpStatusInterfaceLinkMtu_Object=MibTableColumn
+me1200IpStatusInterfaceLinkMtu=_Me1200IpStatusInterfaceLinkMtu_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,1,1,3),_Me1200IpStatusInterfaceLinkMtu_Type())
+me1200IpStatusInterfaceLinkMtu.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceLinkMtu.setStatus(_A)
+_Me1200IpStatusInterfaceLinkMacAddress_Type=MacAddress
+_Me1200IpStatusInterfaceLinkMacAddress_Object=MibTableColumn
+me1200IpStatusInterfaceLinkMacAddress=_Me1200IpStatusInterfaceLinkMacAddress_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,1,1,4),_Me1200IpStatusInterfaceLinkMacAddress_Type())
+me1200IpStatusInterfaceLinkMacAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceLinkMacAddress.setStatus(_A)
+_Me1200IpStatusInterfaceLinkUp_Type=TruthValue
+_Me1200IpStatusInterfaceLinkUp_Object=MibTableColumn
+me1200IpStatusInterfaceLinkUp=_Me1200IpStatusInterfaceLinkUp_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,1,1,5),_Me1200IpStatusInterfaceLinkUp_Type())
+me1200IpStatusInterfaceLinkUp.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceLinkUp.setStatus(_A)
+_Me1200IpStatusInterfaceLinkBroadcast_Type=TruthValue
+_Me1200IpStatusInterfaceLinkBroadcast_Object=MibTableColumn
+me1200IpStatusInterfaceLinkBroadcast=_Me1200IpStatusInterfaceLinkBroadcast_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,1,1,6),_Me1200IpStatusInterfaceLinkBroadcast_Type())
+me1200IpStatusInterfaceLinkBroadcast.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceLinkBroadcast.setStatus(_A)
+_Me1200IpStatusInterfaceLinkLoopback_Type=TruthValue
+_Me1200IpStatusInterfaceLinkLoopback_Object=MibTableColumn
+me1200IpStatusInterfaceLinkLoopback=_Me1200IpStatusInterfaceLinkLoopback_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,1,1,7),_Me1200IpStatusInterfaceLinkLoopback_Type())
+me1200IpStatusInterfaceLinkLoopback.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceLinkLoopback.setStatus(_A)
+_Me1200IpStatusInterfaceLinkRunning_Type=TruthValue
+_Me1200IpStatusInterfaceLinkRunning_Object=MibTableColumn
+me1200IpStatusInterfaceLinkRunning=_Me1200IpStatusInterfaceLinkRunning_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,1,1,8),_Me1200IpStatusInterfaceLinkRunning_Type())
+me1200IpStatusInterfaceLinkRunning.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceLinkRunning.setStatus(_A)
+_Me1200IpStatusInterfaceLinkNoarp_Type=TruthValue
+_Me1200IpStatusInterfaceLinkNoarp_Object=MibTableColumn
+me1200IpStatusInterfaceLinkNoarp=_Me1200IpStatusInterfaceLinkNoarp_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,1,1,9),_Me1200IpStatusInterfaceLinkNoarp_Type())
+me1200IpStatusInterfaceLinkNoarp.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceLinkNoarp.setStatus(_A)
+_Me1200IpStatusInterfaceLinkPromisc_Type=TruthValue
+_Me1200IpStatusInterfaceLinkPromisc_Object=MibTableColumn
+me1200IpStatusInterfaceLinkPromisc=_Me1200IpStatusInterfaceLinkPromisc_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,1,1,10),_Me1200IpStatusInterfaceLinkPromisc_Type())
+me1200IpStatusInterfaceLinkPromisc.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceLinkPromisc.setStatus(_A)
+_Me1200IpStatusInterfaceLinkMulticast_Type=TruthValue
+_Me1200IpStatusInterfaceLinkMulticast_Object=MibTableColumn
+me1200IpStatusInterfaceLinkMulticast=_Me1200IpStatusInterfaceLinkMulticast_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,1,1,11),_Me1200IpStatusInterfaceLinkMulticast_Type())
+me1200IpStatusInterfaceLinkMulticast.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceLinkMulticast.setStatus(_A)
+_Me1200IpStatusInterfaceIpv4Table_Object=MibTable
+me1200IpStatusInterfaceIpv4Table=_Me1200IpStatusInterfaceIpv4Table_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,2))
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv4Table.setStatus(_A)
+_Me1200IpStatusInterfaceIpv4Entry_Object=MibTableRow
+me1200IpStatusInterfaceIpv4Entry=_Me1200IpStatusInterfaceIpv4Entry_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,2,1))
+me1200IpStatusInterfaceIpv4Entry.setIndexNames((0,_B,_U))
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv4Entry.setStatus(_A)
+_Me1200IpStatusInterfaceIpv4IfIndex_Type=ME1200InterfaceIndex
+_Me1200IpStatusInterfaceIpv4IfIndex_Object=MibTableColumn
+me1200IpStatusInterfaceIpv4IfIndex=_Me1200IpStatusInterfaceIpv4IfIndex_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,2,1,1),_Me1200IpStatusInterfaceIpv4IfIndex_Type())
+me1200IpStatusInterfaceIpv4IfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv4IfIndex.setStatus(_A)
+_Me1200IpStatusInterfaceIpv4Address_Type=IpAddress
+_Me1200IpStatusInterfaceIpv4Address_Object=MibTableColumn
+me1200IpStatusInterfaceIpv4Address=_Me1200IpStatusInterfaceIpv4Address_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,2,1,2),_Me1200IpStatusInterfaceIpv4Address_Type())
+me1200IpStatusInterfaceIpv4Address.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv4Address.setStatus(_A)
+_Me1200IpStatusInterfaceIpv4Prefix_Type=Unsigned32
+_Me1200IpStatusInterfaceIpv4Prefix_Object=MibTableColumn
+me1200IpStatusInterfaceIpv4Prefix=_Me1200IpStatusInterfaceIpv4Prefix_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,2,1,3),_Me1200IpStatusInterfaceIpv4Prefix_Type())
+me1200IpStatusInterfaceIpv4Prefix.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv4Prefix.setStatus(_A)
+_Me1200IpStatusInterfaceIpv4Broadcast_Type=Unsigned32
+_Me1200IpStatusInterfaceIpv4Broadcast_Object=MibTableColumn
+me1200IpStatusInterfaceIpv4Broadcast=_Me1200IpStatusInterfaceIpv4Broadcast_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,2,1,4),_Me1200IpStatusInterfaceIpv4Broadcast_Type())
+me1200IpStatusInterfaceIpv4Broadcast.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv4Broadcast.setStatus(_A)
+_Me1200IpStatusInterfaceIpv4ReasmMaxSize_Type=Unsigned32
+_Me1200IpStatusInterfaceIpv4ReasmMaxSize_Object=MibTableColumn
+me1200IpStatusInterfaceIpv4ReasmMaxSize=_Me1200IpStatusInterfaceIpv4ReasmMaxSize_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,2,1,5),_Me1200IpStatusInterfaceIpv4ReasmMaxSize_Type())
+me1200IpStatusInterfaceIpv4ReasmMaxSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv4ReasmMaxSize.setStatus(_A)
+_Me1200IpStatusInterfaceIpv4ArpRetransmitTime_Type=Unsigned32
+_Me1200IpStatusInterfaceIpv4ArpRetransmitTime_Object=MibTableColumn
+me1200IpStatusInterfaceIpv4ArpRetransmitTime=_Me1200IpStatusInterfaceIpv4ArpRetransmitTime_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,2,1,6),_Me1200IpStatusInterfaceIpv4ArpRetransmitTime_Type())
+me1200IpStatusInterfaceIpv4ArpRetransmitTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv4ArpRetransmitTime.setStatus(_A)
+_Me1200IpStatusInterfaceDhcpClientV4Table_Object=MibTable
+me1200IpStatusInterfaceDhcpClientV4Table=_Me1200IpStatusInterfaceDhcpClientV4Table_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,3))
+if mibBuilder.loadTexts:me1200IpStatusInterfaceDhcpClientV4Table.setStatus(_A)
+_Me1200IpStatusInterfaceDhcpClientV4Entry_Object=MibTableRow
+me1200IpStatusInterfaceDhcpClientV4Entry=_Me1200IpStatusInterfaceDhcpClientV4Entry_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,3,1))
+me1200IpStatusInterfaceDhcpClientV4Entry.setIndexNames((0,_B,_V))
+if mibBuilder.loadTexts:me1200IpStatusInterfaceDhcpClientV4Entry.setStatus(_A)
+_Me1200IpStatusInterfaceDhcpClientV4IfIndex_Type=ME1200InterfaceIndex
+_Me1200IpStatusInterfaceDhcpClientV4IfIndex_Object=MibTableColumn
+me1200IpStatusInterfaceDhcpClientV4IfIndex=_Me1200IpStatusInterfaceDhcpClientV4IfIndex_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,3,1,1),_Me1200IpStatusInterfaceDhcpClientV4IfIndex_Type())
+me1200IpStatusInterfaceDhcpClientV4IfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceDhcpClientV4IfIndex.setStatus(_A)
+_Me1200IpStatusInterfaceDhcpClientV4State_Type=ME1200DhcpClientState
+_Me1200IpStatusInterfaceDhcpClientV4State_Object=MibTableColumn
+me1200IpStatusInterfaceDhcpClientV4State=_Me1200IpStatusInterfaceDhcpClientV4State_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,3,1,2),_Me1200IpStatusInterfaceDhcpClientV4State_Type())
+me1200IpStatusInterfaceDhcpClientV4State.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceDhcpClientV4State.setStatus(_A)
+_Me1200IpStatusInterfaceDhcpClientV4ServerIp_Type=Unsigned32
+_Me1200IpStatusInterfaceDhcpClientV4ServerIp_Object=MibTableColumn
+me1200IpStatusInterfaceDhcpClientV4ServerIp=_Me1200IpStatusInterfaceDhcpClientV4ServerIp_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,3,1,3),_Me1200IpStatusInterfaceDhcpClientV4ServerIp_Type())
+me1200IpStatusInterfaceDhcpClientV4ServerIp.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceDhcpClientV4ServerIp.setStatus(_A)
+_Me1200IpStatusInterfaceIpv6Table_Object=MibTable
+me1200IpStatusInterfaceIpv6Table=_Me1200IpStatusInterfaceIpv6Table_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,4))
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv6Table.setStatus(_A)
+_Me1200IpStatusInterfaceIpv6Entry_Object=MibTableRow
+me1200IpStatusInterfaceIpv6Entry=_Me1200IpStatusInterfaceIpv6Entry_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,4,1))
+me1200IpStatusInterfaceIpv6Entry.setIndexNames((0,_B,_W))
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv6Entry.setStatus(_A)
+_Me1200IpStatusInterfaceIpv6IfIndex_Type=ME1200InterfaceIndex
+_Me1200IpStatusInterfaceIpv6IfIndex_Object=MibTableColumn
+me1200IpStatusInterfaceIpv6IfIndex=_Me1200IpStatusInterfaceIpv6IfIndex_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,4,1,1),_Me1200IpStatusInterfaceIpv6IfIndex_Type())
+me1200IpStatusInterfaceIpv6IfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv6IfIndex.setStatus(_A)
+_Me1200IpStatusInterfaceIpv6Address_Type=InetAddressIPv6
+_Me1200IpStatusInterfaceIpv6Address_Object=MibTableColumn
+me1200IpStatusInterfaceIpv6Address=_Me1200IpStatusInterfaceIpv6Address_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,4,1,2),_Me1200IpStatusInterfaceIpv6Address_Type())
+me1200IpStatusInterfaceIpv6Address.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv6Address.setStatus(_A)
+_Me1200IpStatusInterfaceIpv6Prefix_Type=Unsigned32
+_Me1200IpStatusInterfaceIpv6Prefix_Object=MibTableColumn
+me1200IpStatusInterfaceIpv6Prefix=_Me1200IpStatusInterfaceIpv6Prefix_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,4,1,3),_Me1200IpStatusInterfaceIpv6Prefix_Type())
+me1200IpStatusInterfaceIpv6Prefix.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv6Prefix.setStatus(_A)
+_Me1200IpStatusInterfaceIpv6Tentative_Type=TruthValue
+_Me1200IpStatusInterfaceIpv6Tentative_Object=MibTableColumn
+me1200IpStatusInterfaceIpv6Tentative=_Me1200IpStatusInterfaceIpv6Tentative_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,4,1,4),_Me1200IpStatusInterfaceIpv6Tentative_Type())
+me1200IpStatusInterfaceIpv6Tentative.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv6Tentative.setStatus(_A)
+_Me1200IpStatusInterfaceIpv6Duplicated_Type=TruthValue
+_Me1200IpStatusInterfaceIpv6Duplicated_Object=MibTableColumn
+me1200IpStatusInterfaceIpv6Duplicated=_Me1200IpStatusInterfaceIpv6Duplicated_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,4,1,5),_Me1200IpStatusInterfaceIpv6Duplicated_Type())
+me1200IpStatusInterfaceIpv6Duplicated.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv6Duplicated.setStatus(_A)
+_Me1200IpStatusInterfaceIpv6Detached_Type=TruthValue
+_Me1200IpStatusInterfaceIpv6Detached_Object=MibTableColumn
+me1200IpStatusInterfaceIpv6Detached=_Me1200IpStatusInterfaceIpv6Detached_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,4,1,6),_Me1200IpStatusInterfaceIpv6Detached_Type())
+me1200IpStatusInterfaceIpv6Detached.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv6Detached.setStatus(_A)
+_Me1200IpStatusInterfaceIpv6Nodad_Type=TruthValue
+_Me1200IpStatusInterfaceIpv6Nodad_Object=MibTableColumn
+me1200IpStatusInterfaceIpv6Nodad=_Me1200IpStatusInterfaceIpv6Nodad_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,4,1,7),_Me1200IpStatusInterfaceIpv6Nodad_Type())
+me1200IpStatusInterfaceIpv6Nodad.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv6Nodad.setStatus(_A)
+_Me1200IpStatusInterfaceIpv6Autoconf_Type=TruthValue
+_Me1200IpStatusInterfaceIpv6Autoconf_Object=MibTableColumn
+me1200IpStatusInterfaceIpv6Autoconf=_Me1200IpStatusInterfaceIpv6Autoconf_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,2,4,1,8),_Me1200IpStatusInterfaceIpv6Autoconf_Type())
+me1200IpStatusInterfaceIpv6Autoconf.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv6Autoconf.setStatus(_A)
+_Me1200IpStatusRoutes_ObjectIdentity=ObjectIdentity
+me1200IpStatusRoutes=_Me1200IpStatusRoutes_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,3,3))
+_Me1200IpStatusRoutesIpv4Table_Object=MibTable
+me1200IpStatusRoutesIpv4Table=_Me1200IpStatusRoutesIpv4Table_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,1))
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv4Table.setStatus(_A)
+_Me1200IpStatusRoutesIpv4Entry_Object=MibTableRow
+me1200IpStatusRoutesIpv4Entry=_Me1200IpStatusRoutesIpv4Entry_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,1,1))
+me1200IpStatusRoutesIpv4Entry.setIndexNames((0,_B,_X),(0,_B,_Y),(0,_B,_Z))
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv4Entry.setStatus(_A)
+_Me1200IpStatusRoutesIpv4NetworkAddress_Type=IpAddress
+_Me1200IpStatusRoutesIpv4NetworkAddress_Object=MibTableColumn
+me1200IpStatusRoutesIpv4NetworkAddress=_Me1200IpStatusRoutesIpv4NetworkAddress_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,1,1,1),_Me1200IpStatusRoutesIpv4NetworkAddress_Type())
+me1200IpStatusRoutesIpv4NetworkAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv4NetworkAddress.setStatus(_A)
+class _Me1200IpStatusRoutesIpv4NetworkPrefixSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_Me1200IpStatusRoutesIpv4NetworkPrefixSize_Type.__name__=_F
+_Me1200IpStatusRoutesIpv4NetworkPrefixSize_Object=MibTableColumn
+me1200IpStatusRoutesIpv4NetworkPrefixSize=_Me1200IpStatusRoutesIpv4NetworkPrefixSize_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,1,1,2),_Me1200IpStatusRoutesIpv4NetworkPrefixSize_Type())
+me1200IpStatusRoutesIpv4NetworkPrefixSize.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv4NetworkPrefixSize.setStatus(_A)
+_Me1200IpStatusRoutesIpv4NextHop_Type=IpAddress
+_Me1200IpStatusRoutesIpv4NextHop_Object=MibTableColumn
+me1200IpStatusRoutesIpv4NextHop=_Me1200IpStatusRoutesIpv4NextHop_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,1,1,3),_Me1200IpStatusRoutesIpv4NextHop_Type())
+me1200IpStatusRoutesIpv4NextHop.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv4NextHop.setStatus(_A)
+_Me1200IpStatusRoutesIpv4DerivedNextHopInterface_Type=ME1200InterfaceIndex
+_Me1200IpStatusRoutesIpv4DerivedNextHopInterface_Object=MibTableColumn
+me1200IpStatusRoutesIpv4DerivedNextHopInterface=_Me1200IpStatusRoutesIpv4DerivedNextHopInterface_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,1,1,4),_Me1200IpStatusRoutesIpv4DerivedNextHopInterface_Type())
+me1200IpStatusRoutesIpv4DerivedNextHopInterface.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv4DerivedNextHopInterface.setStatus(_A)
+_Me1200IpStatusRoutesIpv4FlagUp_Type=TruthValue
+_Me1200IpStatusRoutesIpv4FlagUp_Object=MibTableColumn
+me1200IpStatusRoutesIpv4FlagUp=_Me1200IpStatusRoutesIpv4FlagUp_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,1,1,35),_Me1200IpStatusRoutesIpv4FlagUp_Type())
+me1200IpStatusRoutesIpv4FlagUp.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv4FlagUp.setStatus(_A)
+_Me1200IpStatusRoutesIpv4FlagHost_Type=TruthValue
+_Me1200IpStatusRoutesIpv4FlagHost_Object=MibTableColumn
+me1200IpStatusRoutesIpv4FlagHost=_Me1200IpStatusRoutesIpv4FlagHost_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,1,1,36),_Me1200IpStatusRoutesIpv4FlagHost_Type())
+me1200IpStatusRoutesIpv4FlagHost.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv4FlagHost.setStatus(_A)
+_Me1200IpStatusRoutesIpv4FlagGateway_Type=TruthValue
+_Me1200IpStatusRoutesIpv4FlagGateway_Object=MibTableColumn
+me1200IpStatusRoutesIpv4FlagGateway=_Me1200IpStatusRoutesIpv4FlagGateway_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,1,1,37),_Me1200IpStatusRoutesIpv4FlagGateway_Type())
+me1200IpStatusRoutesIpv4FlagGateway.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv4FlagGateway.setStatus(_A)
+_Me1200IpStatusRoutesIpv4OwnerConf_Type=TruthValue
+_Me1200IpStatusRoutesIpv4OwnerConf_Object=MibTableColumn
+me1200IpStatusRoutesIpv4OwnerConf=_Me1200IpStatusRoutesIpv4OwnerConf_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,1,1,67),_Me1200IpStatusRoutesIpv4OwnerConf_Type())
+me1200IpStatusRoutesIpv4OwnerConf.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv4OwnerConf.setStatus(_A)
+_Me1200IpStatusRoutesIpv4OwnerDhcp_Type=TruthValue
+_Me1200IpStatusRoutesIpv4OwnerDhcp_Object=MibTableColumn
+me1200IpStatusRoutesIpv4OwnerDhcp=_Me1200IpStatusRoutesIpv4OwnerDhcp_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,1,1,68),_Me1200IpStatusRoutesIpv4OwnerDhcp_Type())
+me1200IpStatusRoutesIpv4OwnerDhcp.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv4OwnerDhcp.setStatus(_A)
+_Me1200IpStatusRoutesIpv4OwnerDynamic_Type=TruthValue
+_Me1200IpStatusRoutesIpv4OwnerDynamic_Object=MibTableColumn
+me1200IpStatusRoutesIpv4OwnerDynamic=_Me1200IpStatusRoutesIpv4OwnerDynamic_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,1,1,69),_Me1200IpStatusRoutesIpv4OwnerDynamic_Type())
+me1200IpStatusRoutesIpv4OwnerDynamic.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv4OwnerDynamic.setStatus(_A)
+_Me1200IpStatusRoutesIpv6Table_Object=MibTable
+me1200IpStatusRoutesIpv6Table=_Me1200IpStatusRoutesIpv6Table_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,2))
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv6Table.setStatus(_A)
+_Me1200IpStatusRoutesIpv6Entry_Object=MibTableRow
+me1200IpStatusRoutesIpv6Entry=_Me1200IpStatusRoutesIpv6Entry_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,2,1))
+me1200IpStatusRoutesIpv6Entry.setIndexNames((0,_B,_a),(0,_B,_b),(0,_B,_c),(0,_B,_d))
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv6Entry.setStatus(_A)
+_Me1200IpStatusRoutesIpv6NetworkAddress_Type=InetAddressIPv6
+_Me1200IpStatusRoutesIpv6NetworkAddress_Object=MibTableColumn
+me1200IpStatusRoutesIpv6NetworkAddress=_Me1200IpStatusRoutesIpv6NetworkAddress_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,2,1,1),_Me1200IpStatusRoutesIpv6NetworkAddress_Type())
+me1200IpStatusRoutesIpv6NetworkAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv6NetworkAddress.setStatus(_A)
+class _Me1200IpStatusRoutesIpv6NetworkPrefixSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_Me1200IpStatusRoutesIpv6NetworkPrefixSize_Type.__name__=_F
+_Me1200IpStatusRoutesIpv6NetworkPrefixSize_Object=MibTableColumn
+me1200IpStatusRoutesIpv6NetworkPrefixSize=_Me1200IpStatusRoutesIpv6NetworkPrefixSize_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,2,1,2),_Me1200IpStatusRoutesIpv6NetworkPrefixSize_Type())
+me1200IpStatusRoutesIpv6NetworkPrefixSize.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv6NetworkPrefixSize.setStatus(_A)
+_Me1200IpStatusRoutesIpv6NextHop_Type=InetAddressIPv6
+_Me1200IpStatusRoutesIpv6NextHop_Object=MibTableColumn
+me1200IpStatusRoutesIpv6NextHop=_Me1200IpStatusRoutesIpv6NextHop_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,2,1,3),_Me1200IpStatusRoutesIpv6NextHop_Type())
+me1200IpStatusRoutesIpv6NextHop.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv6NextHop.setStatus(_A)
+_Me1200IpStatusRoutesIpv6NextHopInterface_Type=ME1200InterfaceIndex
+_Me1200IpStatusRoutesIpv6NextHopInterface_Object=MibTableColumn
+me1200IpStatusRoutesIpv6NextHopInterface=_Me1200IpStatusRoutesIpv6NextHopInterface_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,2,1,4),_Me1200IpStatusRoutesIpv6NextHopInterface_Type())
+me1200IpStatusRoutesIpv6NextHopInterface.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv6NextHopInterface.setStatus(_A)
+_Me1200IpStatusRoutesIpv6DerivedNextHopInterface_Type=ME1200InterfaceIndex
+_Me1200IpStatusRoutesIpv6DerivedNextHopInterface_Object=MibTableColumn
+me1200IpStatusRoutesIpv6DerivedNextHopInterface=_Me1200IpStatusRoutesIpv6DerivedNextHopInterface_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,2,1,5),_Me1200IpStatusRoutesIpv6DerivedNextHopInterface_Type())
+me1200IpStatusRoutesIpv6DerivedNextHopInterface.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv6DerivedNextHopInterface.setStatus(_A)
+_Me1200IpStatusRoutesIpv6FlagUp_Type=TruthValue
+_Me1200IpStatusRoutesIpv6FlagUp_Object=MibTableColumn
+me1200IpStatusRoutesIpv6FlagUp=_Me1200IpStatusRoutesIpv6FlagUp_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,2,1,36),_Me1200IpStatusRoutesIpv6FlagUp_Type())
+me1200IpStatusRoutesIpv6FlagUp.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv6FlagUp.setStatus(_A)
+_Me1200IpStatusRoutesIpv6FlagHost_Type=TruthValue
+_Me1200IpStatusRoutesIpv6FlagHost_Object=MibTableColumn
+me1200IpStatusRoutesIpv6FlagHost=_Me1200IpStatusRoutesIpv6FlagHost_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,2,1,37),_Me1200IpStatusRoutesIpv6FlagHost_Type())
+me1200IpStatusRoutesIpv6FlagHost.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv6FlagHost.setStatus(_A)
+_Me1200IpStatusRoutesIpv6FlagGateway_Type=TruthValue
+_Me1200IpStatusRoutesIpv6FlagGateway_Object=MibTableColumn
+me1200IpStatusRoutesIpv6FlagGateway=_Me1200IpStatusRoutesIpv6FlagGateway_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,2,1,38),_Me1200IpStatusRoutesIpv6FlagGateway_Type())
+me1200IpStatusRoutesIpv6FlagGateway.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv6FlagGateway.setStatus(_A)
+_Me1200IpStatusRoutesIpv6OwnerConf_Type=TruthValue
+_Me1200IpStatusRoutesIpv6OwnerConf_Object=MibTableColumn
+me1200IpStatusRoutesIpv6OwnerConf=_Me1200IpStatusRoutesIpv6OwnerConf_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,2,1,68),_Me1200IpStatusRoutesIpv6OwnerConf_Type())
+me1200IpStatusRoutesIpv6OwnerConf.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv6OwnerConf.setStatus(_A)
+_Me1200IpStatusRoutesIpv6OwnerDhcp_Type=TruthValue
+_Me1200IpStatusRoutesIpv6OwnerDhcp_Object=MibTableColumn
+me1200IpStatusRoutesIpv6OwnerDhcp=_Me1200IpStatusRoutesIpv6OwnerDhcp_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,2,1,69),_Me1200IpStatusRoutesIpv6OwnerDhcp_Type())
+me1200IpStatusRoutesIpv6OwnerDhcp.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv6OwnerDhcp.setStatus(_A)
+_Me1200IpStatusRoutesIpv6OwnerDynamic_Type=TruthValue
+_Me1200IpStatusRoutesIpv6OwnerDynamic_Object=MibTableColumn
+me1200IpStatusRoutesIpv6OwnerDynamic=_Me1200IpStatusRoutesIpv6OwnerDynamic_Object((1,3,6,1,4,1,9,9,815,1,102,1,3,3,2,1,70),_Me1200IpStatusRoutesIpv6OwnerDynamic_Type())
+me1200IpStatusRoutesIpv6OwnerDynamic.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv6OwnerDynamic.setStatus(_A)
+_Me1200IpStatistics_ObjectIdentity=ObjectIdentity
+me1200IpStatistics=_Me1200IpStatistics_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,4))
+_Me1200IpStatisticsGlobals_ObjectIdentity=ObjectIdentity
+me1200IpStatisticsGlobals=_Me1200IpStatisticsGlobals_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,4,1))
+_Me1200IpStatisticsGlobalsIpv4_ObjectIdentity=ObjectIdentity
+me1200IpStatisticsGlobalsIpv4=_Me1200IpStatisticsGlobalsIpv4_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1))
+_Me1200IpStatisticsGlobalsIpv4InReceives_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4InReceives_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4InReceives=_Me1200IpStatisticsGlobalsIpv4InReceives_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,1),_Me1200IpStatisticsGlobalsIpv4InReceives_Type())
+me1200IpStatisticsGlobalsIpv4InReceives.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4InReceives.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4HCInReceives_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv4HCInReceives_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4HCInReceives=_Me1200IpStatisticsGlobalsIpv4HCInReceives_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,2),_Me1200IpStatisticsGlobalsIpv4HCInReceives_Type())
+me1200IpStatisticsGlobalsIpv4HCInReceives.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4HCInReceives.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4InOctets_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4InOctets_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4InOctets=_Me1200IpStatisticsGlobalsIpv4InOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,3),_Me1200IpStatisticsGlobalsIpv4InOctets_Type())
+me1200IpStatisticsGlobalsIpv4InOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4InOctets.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4HCInOctets_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv4HCInOctets_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4HCInOctets=_Me1200IpStatisticsGlobalsIpv4HCInOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,4),_Me1200IpStatisticsGlobalsIpv4HCInOctets_Type())
+me1200IpStatisticsGlobalsIpv4HCInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4HCInOctets.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4InHdrErrors_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4InHdrErrors_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4InHdrErrors=_Me1200IpStatisticsGlobalsIpv4InHdrErrors_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,5),_Me1200IpStatisticsGlobalsIpv4InHdrErrors_Type())
+me1200IpStatisticsGlobalsIpv4InHdrErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4InHdrErrors.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4InNoRoutes_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4InNoRoutes_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4InNoRoutes=_Me1200IpStatisticsGlobalsIpv4InNoRoutes_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,6),_Me1200IpStatisticsGlobalsIpv4InNoRoutes_Type())
+me1200IpStatisticsGlobalsIpv4InNoRoutes.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4InNoRoutes.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4InAddrErrors_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4InAddrErrors_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4InAddrErrors=_Me1200IpStatisticsGlobalsIpv4InAddrErrors_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,7),_Me1200IpStatisticsGlobalsIpv4InAddrErrors_Type())
+me1200IpStatisticsGlobalsIpv4InAddrErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4InAddrErrors.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4InUnknownProtos_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4InUnknownProtos_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4InUnknownProtos=_Me1200IpStatisticsGlobalsIpv4InUnknownProtos_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,8),_Me1200IpStatisticsGlobalsIpv4InUnknownProtos_Type())
+me1200IpStatisticsGlobalsIpv4InUnknownProtos.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4InUnknownProtos.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4InTruncatedPkts_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4InTruncatedPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4InTruncatedPkts=_Me1200IpStatisticsGlobalsIpv4InTruncatedPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,9),_Me1200IpStatisticsGlobalsIpv4InTruncatedPkts_Type())
+me1200IpStatisticsGlobalsIpv4InTruncatedPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4InTruncatedPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4InForwDatagrams_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4InForwDatagrams_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4InForwDatagrams=_Me1200IpStatisticsGlobalsIpv4InForwDatagrams_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,10),_Me1200IpStatisticsGlobalsIpv4InForwDatagrams_Type())
+me1200IpStatisticsGlobalsIpv4InForwDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4InForwDatagrams.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4HCInForwDatagrams_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv4HCInForwDatagrams_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4HCInForwDatagrams=_Me1200IpStatisticsGlobalsIpv4HCInForwDatagrams_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,11),_Me1200IpStatisticsGlobalsIpv4HCInForwDatagrams_Type())
+me1200IpStatisticsGlobalsIpv4HCInForwDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4HCInForwDatagrams.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4ReasmReqds_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4ReasmReqds_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4ReasmReqds=_Me1200IpStatisticsGlobalsIpv4ReasmReqds_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,12),_Me1200IpStatisticsGlobalsIpv4ReasmReqds_Type())
+me1200IpStatisticsGlobalsIpv4ReasmReqds.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4ReasmReqds.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4ReasmOKs_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4ReasmOKs_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4ReasmOKs=_Me1200IpStatisticsGlobalsIpv4ReasmOKs_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,13),_Me1200IpStatisticsGlobalsIpv4ReasmOKs_Type())
+me1200IpStatisticsGlobalsIpv4ReasmOKs.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4ReasmOKs.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4ReasmFails_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4ReasmFails_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4ReasmFails=_Me1200IpStatisticsGlobalsIpv4ReasmFails_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,14),_Me1200IpStatisticsGlobalsIpv4ReasmFails_Type())
+me1200IpStatisticsGlobalsIpv4ReasmFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4ReasmFails.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4InDiscards_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4InDiscards_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4InDiscards=_Me1200IpStatisticsGlobalsIpv4InDiscards_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,15),_Me1200IpStatisticsGlobalsIpv4InDiscards_Type())
+me1200IpStatisticsGlobalsIpv4InDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4InDiscards.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4InDelivers_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4InDelivers_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4InDelivers=_Me1200IpStatisticsGlobalsIpv4InDelivers_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,16),_Me1200IpStatisticsGlobalsIpv4InDelivers_Type())
+me1200IpStatisticsGlobalsIpv4InDelivers.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4InDelivers.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4HCInDelivers_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv4HCInDelivers_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4HCInDelivers=_Me1200IpStatisticsGlobalsIpv4HCInDelivers_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,17),_Me1200IpStatisticsGlobalsIpv4HCInDelivers_Type())
+me1200IpStatisticsGlobalsIpv4HCInDelivers.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4HCInDelivers.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4OutRequests_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4OutRequests_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4OutRequests=_Me1200IpStatisticsGlobalsIpv4OutRequests_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,18),_Me1200IpStatisticsGlobalsIpv4OutRequests_Type())
+me1200IpStatisticsGlobalsIpv4OutRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4OutRequests.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4HCOutRequests_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv4HCOutRequests_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4HCOutRequests=_Me1200IpStatisticsGlobalsIpv4HCOutRequests_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,19),_Me1200IpStatisticsGlobalsIpv4HCOutRequests_Type())
+me1200IpStatisticsGlobalsIpv4HCOutRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4HCOutRequests.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4OutNoRoutes_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4OutNoRoutes_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4OutNoRoutes=_Me1200IpStatisticsGlobalsIpv4OutNoRoutes_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,20),_Me1200IpStatisticsGlobalsIpv4OutNoRoutes_Type())
+me1200IpStatisticsGlobalsIpv4OutNoRoutes.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4OutNoRoutes.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4OutForwDatagrams_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4OutForwDatagrams_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4OutForwDatagrams=_Me1200IpStatisticsGlobalsIpv4OutForwDatagrams_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,21),_Me1200IpStatisticsGlobalsIpv4OutForwDatagrams_Type())
+me1200IpStatisticsGlobalsIpv4OutForwDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4OutForwDatagrams.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4HCOutForwDatagrams_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv4HCOutForwDatagrams_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4HCOutForwDatagrams=_Me1200IpStatisticsGlobalsIpv4HCOutForwDatagrams_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,22),_Me1200IpStatisticsGlobalsIpv4HCOutForwDatagrams_Type())
+me1200IpStatisticsGlobalsIpv4HCOutForwDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4HCOutForwDatagrams.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4OutDiscards_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4OutDiscards_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4OutDiscards=_Me1200IpStatisticsGlobalsIpv4OutDiscards_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,23),_Me1200IpStatisticsGlobalsIpv4OutDiscards_Type())
+me1200IpStatisticsGlobalsIpv4OutDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4OutDiscards.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4OutFragReqds_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4OutFragReqds_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4OutFragReqds=_Me1200IpStatisticsGlobalsIpv4OutFragReqds_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,24),_Me1200IpStatisticsGlobalsIpv4OutFragReqds_Type())
+me1200IpStatisticsGlobalsIpv4OutFragReqds.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4OutFragReqds.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4OutFragOKs_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4OutFragOKs_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4OutFragOKs=_Me1200IpStatisticsGlobalsIpv4OutFragOKs_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,25),_Me1200IpStatisticsGlobalsIpv4OutFragOKs_Type())
+me1200IpStatisticsGlobalsIpv4OutFragOKs.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4OutFragOKs.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4OutFragFails_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4OutFragFails_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4OutFragFails=_Me1200IpStatisticsGlobalsIpv4OutFragFails_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,26),_Me1200IpStatisticsGlobalsIpv4OutFragFails_Type())
+me1200IpStatisticsGlobalsIpv4OutFragFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4OutFragFails.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4OutFragCreates_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4OutFragCreates_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4OutFragCreates=_Me1200IpStatisticsGlobalsIpv4OutFragCreates_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,27),_Me1200IpStatisticsGlobalsIpv4OutFragCreates_Type())
+me1200IpStatisticsGlobalsIpv4OutFragCreates.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4OutFragCreates.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4OutTransmits_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4OutTransmits_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4OutTransmits=_Me1200IpStatisticsGlobalsIpv4OutTransmits_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,28),_Me1200IpStatisticsGlobalsIpv4OutTransmits_Type())
+me1200IpStatisticsGlobalsIpv4OutTransmits.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4OutTransmits.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4HCOutTransmits_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv4HCOutTransmits_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4HCOutTransmits=_Me1200IpStatisticsGlobalsIpv4HCOutTransmits_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,29),_Me1200IpStatisticsGlobalsIpv4HCOutTransmits_Type())
+me1200IpStatisticsGlobalsIpv4HCOutTransmits.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4HCOutTransmits.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4OutOctets_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4OutOctets_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4OutOctets=_Me1200IpStatisticsGlobalsIpv4OutOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,30),_Me1200IpStatisticsGlobalsIpv4OutOctets_Type())
+me1200IpStatisticsGlobalsIpv4OutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4OutOctets.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4HCOutOctets_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv4HCOutOctets_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4HCOutOctets=_Me1200IpStatisticsGlobalsIpv4HCOutOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,31),_Me1200IpStatisticsGlobalsIpv4HCOutOctets_Type())
+me1200IpStatisticsGlobalsIpv4HCOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4HCOutOctets.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4InMcastPkts_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4InMcastPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4InMcastPkts=_Me1200IpStatisticsGlobalsIpv4InMcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,32),_Me1200IpStatisticsGlobalsIpv4InMcastPkts_Type())
+me1200IpStatisticsGlobalsIpv4InMcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4InMcastPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4HCInMcastPkts_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv4HCInMcastPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4HCInMcastPkts=_Me1200IpStatisticsGlobalsIpv4HCInMcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,33),_Me1200IpStatisticsGlobalsIpv4HCInMcastPkts_Type())
+me1200IpStatisticsGlobalsIpv4HCInMcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4HCInMcastPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4InMcastOctets_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4InMcastOctets_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4InMcastOctets=_Me1200IpStatisticsGlobalsIpv4InMcastOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,34),_Me1200IpStatisticsGlobalsIpv4InMcastOctets_Type())
+me1200IpStatisticsGlobalsIpv4InMcastOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4InMcastOctets.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4HCInMcastOctets_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv4HCInMcastOctets_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4HCInMcastOctets=_Me1200IpStatisticsGlobalsIpv4HCInMcastOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,35),_Me1200IpStatisticsGlobalsIpv4HCInMcastOctets_Type())
+me1200IpStatisticsGlobalsIpv4HCInMcastOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4HCInMcastOctets.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4OutMcastPkts_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4OutMcastPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4OutMcastPkts=_Me1200IpStatisticsGlobalsIpv4OutMcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,36),_Me1200IpStatisticsGlobalsIpv4OutMcastPkts_Type())
+me1200IpStatisticsGlobalsIpv4OutMcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4OutMcastPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4HCOutMcastPkts_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv4HCOutMcastPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4HCOutMcastPkts=_Me1200IpStatisticsGlobalsIpv4HCOutMcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,37),_Me1200IpStatisticsGlobalsIpv4HCOutMcastPkts_Type())
+me1200IpStatisticsGlobalsIpv4HCOutMcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4HCOutMcastPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4OutMcastOctets_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4OutMcastOctets_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4OutMcastOctets=_Me1200IpStatisticsGlobalsIpv4OutMcastOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,38),_Me1200IpStatisticsGlobalsIpv4OutMcastOctets_Type())
+me1200IpStatisticsGlobalsIpv4OutMcastOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4OutMcastOctets.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4HCOutMcastOctets_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv4HCOutMcastOctets_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4HCOutMcastOctets=_Me1200IpStatisticsGlobalsIpv4HCOutMcastOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,39),_Me1200IpStatisticsGlobalsIpv4HCOutMcastOctets_Type())
+me1200IpStatisticsGlobalsIpv4HCOutMcastOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4HCOutMcastOctets.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4InBcastPkts_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4InBcastPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4InBcastPkts=_Me1200IpStatisticsGlobalsIpv4InBcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,40),_Me1200IpStatisticsGlobalsIpv4InBcastPkts_Type())
+me1200IpStatisticsGlobalsIpv4InBcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4InBcastPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4HCInBcastPkts_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv4HCInBcastPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4HCInBcastPkts=_Me1200IpStatisticsGlobalsIpv4HCInBcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,41),_Me1200IpStatisticsGlobalsIpv4HCInBcastPkts_Type())
+me1200IpStatisticsGlobalsIpv4HCInBcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4HCInBcastPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4OutBcastPkts_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4OutBcastPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4OutBcastPkts=_Me1200IpStatisticsGlobalsIpv4OutBcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,42),_Me1200IpStatisticsGlobalsIpv4OutBcastPkts_Type())
+me1200IpStatisticsGlobalsIpv4OutBcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4OutBcastPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4HCOutBcastPkts_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv4HCOutBcastPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4HCOutBcastPkts=_Me1200IpStatisticsGlobalsIpv4HCOutBcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,43),_Me1200IpStatisticsGlobalsIpv4HCOutBcastPkts_Type())
+me1200IpStatisticsGlobalsIpv4HCOutBcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4HCOutBcastPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4DiscontinuityTime_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv4DiscontinuityTime_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4DiscontinuityTime=_Me1200IpStatisticsGlobalsIpv4DiscontinuityTime_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,44),_Me1200IpStatisticsGlobalsIpv4DiscontinuityTime_Type())
+me1200IpStatisticsGlobalsIpv4DiscontinuityTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4DiscontinuityTime.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv4RefreshRate_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv4RefreshRate_Object=MibScalar
+me1200IpStatisticsGlobalsIpv4RefreshRate=_Me1200IpStatisticsGlobalsIpv4RefreshRate_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,1,45),_Me1200IpStatisticsGlobalsIpv4RefreshRate_Type())
+me1200IpStatisticsGlobalsIpv4RefreshRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4RefreshRate.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6_ObjectIdentity=ObjectIdentity
+me1200IpStatisticsGlobalsIpv6=_Me1200IpStatisticsGlobalsIpv6_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2))
+_Me1200IpStatisticsGlobalsIpv6InReceives_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6InReceives_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6InReceives=_Me1200IpStatisticsGlobalsIpv6InReceives_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,1),_Me1200IpStatisticsGlobalsIpv6InReceives_Type())
+me1200IpStatisticsGlobalsIpv6InReceives.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6InReceives.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6HCInReceives_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv6HCInReceives_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6HCInReceives=_Me1200IpStatisticsGlobalsIpv6HCInReceives_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,2),_Me1200IpStatisticsGlobalsIpv6HCInReceives_Type())
+me1200IpStatisticsGlobalsIpv6HCInReceives.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6HCInReceives.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6InOctets_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6InOctets_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6InOctets=_Me1200IpStatisticsGlobalsIpv6InOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,3),_Me1200IpStatisticsGlobalsIpv6InOctets_Type())
+me1200IpStatisticsGlobalsIpv6InOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6InOctets.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6HCInOctets_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv6HCInOctets_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6HCInOctets=_Me1200IpStatisticsGlobalsIpv6HCInOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,4),_Me1200IpStatisticsGlobalsIpv6HCInOctets_Type())
+me1200IpStatisticsGlobalsIpv6HCInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6HCInOctets.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6InHdrErrors_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6InHdrErrors_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6InHdrErrors=_Me1200IpStatisticsGlobalsIpv6InHdrErrors_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,5),_Me1200IpStatisticsGlobalsIpv6InHdrErrors_Type())
+me1200IpStatisticsGlobalsIpv6InHdrErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6InHdrErrors.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6InNoRoutes_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6InNoRoutes_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6InNoRoutes=_Me1200IpStatisticsGlobalsIpv6InNoRoutes_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,6),_Me1200IpStatisticsGlobalsIpv6InNoRoutes_Type())
+me1200IpStatisticsGlobalsIpv6InNoRoutes.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6InNoRoutes.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6InAddrErrors_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6InAddrErrors_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6InAddrErrors=_Me1200IpStatisticsGlobalsIpv6InAddrErrors_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,7),_Me1200IpStatisticsGlobalsIpv6InAddrErrors_Type())
+me1200IpStatisticsGlobalsIpv6InAddrErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6InAddrErrors.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6InUnknownProtos_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6InUnknownProtos_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6InUnknownProtos=_Me1200IpStatisticsGlobalsIpv6InUnknownProtos_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,8),_Me1200IpStatisticsGlobalsIpv6InUnknownProtos_Type())
+me1200IpStatisticsGlobalsIpv6InUnknownProtos.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6InUnknownProtos.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6InTruncatedPkts_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6InTruncatedPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6InTruncatedPkts=_Me1200IpStatisticsGlobalsIpv6InTruncatedPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,9),_Me1200IpStatisticsGlobalsIpv6InTruncatedPkts_Type())
+me1200IpStatisticsGlobalsIpv6InTruncatedPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6InTruncatedPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6InForwDatagrams_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6InForwDatagrams_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6InForwDatagrams=_Me1200IpStatisticsGlobalsIpv6InForwDatagrams_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,10),_Me1200IpStatisticsGlobalsIpv6InForwDatagrams_Type())
+me1200IpStatisticsGlobalsIpv6InForwDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6InForwDatagrams.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6HCInForwDatagrams_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv6HCInForwDatagrams_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6HCInForwDatagrams=_Me1200IpStatisticsGlobalsIpv6HCInForwDatagrams_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,11),_Me1200IpStatisticsGlobalsIpv6HCInForwDatagrams_Type())
+me1200IpStatisticsGlobalsIpv6HCInForwDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6HCInForwDatagrams.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6ReasmReqds_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6ReasmReqds_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6ReasmReqds=_Me1200IpStatisticsGlobalsIpv6ReasmReqds_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,12),_Me1200IpStatisticsGlobalsIpv6ReasmReqds_Type())
+me1200IpStatisticsGlobalsIpv6ReasmReqds.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6ReasmReqds.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6ReasmOKs_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6ReasmOKs_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6ReasmOKs=_Me1200IpStatisticsGlobalsIpv6ReasmOKs_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,13),_Me1200IpStatisticsGlobalsIpv6ReasmOKs_Type())
+me1200IpStatisticsGlobalsIpv6ReasmOKs.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6ReasmOKs.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6ReasmFails_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6ReasmFails_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6ReasmFails=_Me1200IpStatisticsGlobalsIpv6ReasmFails_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,14),_Me1200IpStatisticsGlobalsIpv6ReasmFails_Type())
+me1200IpStatisticsGlobalsIpv6ReasmFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6ReasmFails.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6InDiscards_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6InDiscards_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6InDiscards=_Me1200IpStatisticsGlobalsIpv6InDiscards_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,15),_Me1200IpStatisticsGlobalsIpv6InDiscards_Type())
+me1200IpStatisticsGlobalsIpv6InDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6InDiscards.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6InDelivers_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6InDelivers_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6InDelivers=_Me1200IpStatisticsGlobalsIpv6InDelivers_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,16),_Me1200IpStatisticsGlobalsIpv6InDelivers_Type())
+me1200IpStatisticsGlobalsIpv6InDelivers.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6InDelivers.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6HCInDelivers_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv6HCInDelivers_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6HCInDelivers=_Me1200IpStatisticsGlobalsIpv6HCInDelivers_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,17),_Me1200IpStatisticsGlobalsIpv6HCInDelivers_Type())
+me1200IpStatisticsGlobalsIpv6HCInDelivers.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6HCInDelivers.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6OutRequests_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6OutRequests_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6OutRequests=_Me1200IpStatisticsGlobalsIpv6OutRequests_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,18),_Me1200IpStatisticsGlobalsIpv6OutRequests_Type())
+me1200IpStatisticsGlobalsIpv6OutRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6OutRequests.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6HCOutRequests_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv6HCOutRequests_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6HCOutRequests=_Me1200IpStatisticsGlobalsIpv6HCOutRequests_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,19),_Me1200IpStatisticsGlobalsIpv6HCOutRequests_Type())
+me1200IpStatisticsGlobalsIpv6HCOutRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6HCOutRequests.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6OutNoRoutes_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6OutNoRoutes_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6OutNoRoutes=_Me1200IpStatisticsGlobalsIpv6OutNoRoutes_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,20),_Me1200IpStatisticsGlobalsIpv6OutNoRoutes_Type())
+me1200IpStatisticsGlobalsIpv6OutNoRoutes.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6OutNoRoutes.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6OutForwDatagrams_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6OutForwDatagrams_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6OutForwDatagrams=_Me1200IpStatisticsGlobalsIpv6OutForwDatagrams_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,21),_Me1200IpStatisticsGlobalsIpv6OutForwDatagrams_Type())
+me1200IpStatisticsGlobalsIpv6OutForwDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6OutForwDatagrams.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6HCOutForwDatagrams_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv6HCOutForwDatagrams_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6HCOutForwDatagrams=_Me1200IpStatisticsGlobalsIpv6HCOutForwDatagrams_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,22),_Me1200IpStatisticsGlobalsIpv6HCOutForwDatagrams_Type())
+me1200IpStatisticsGlobalsIpv6HCOutForwDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6HCOutForwDatagrams.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6OutDiscards_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6OutDiscards_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6OutDiscards=_Me1200IpStatisticsGlobalsIpv6OutDiscards_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,23),_Me1200IpStatisticsGlobalsIpv6OutDiscards_Type())
+me1200IpStatisticsGlobalsIpv6OutDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6OutDiscards.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6OutFragReqds_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6OutFragReqds_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6OutFragReqds=_Me1200IpStatisticsGlobalsIpv6OutFragReqds_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,24),_Me1200IpStatisticsGlobalsIpv6OutFragReqds_Type())
+me1200IpStatisticsGlobalsIpv6OutFragReqds.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6OutFragReqds.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6OutFragOKs_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6OutFragOKs_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6OutFragOKs=_Me1200IpStatisticsGlobalsIpv6OutFragOKs_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,25),_Me1200IpStatisticsGlobalsIpv6OutFragOKs_Type())
+me1200IpStatisticsGlobalsIpv6OutFragOKs.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6OutFragOKs.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6OutFragFails_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6OutFragFails_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6OutFragFails=_Me1200IpStatisticsGlobalsIpv6OutFragFails_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,26),_Me1200IpStatisticsGlobalsIpv6OutFragFails_Type())
+me1200IpStatisticsGlobalsIpv6OutFragFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6OutFragFails.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6OutFragCreates_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6OutFragCreates_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6OutFragCreates=_Me1200IpStatisticsGlobalsIpv6OutFragCreates_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,27),_Me1200IpStatisticsGlobalsIpv6OutFragCreates_Type())
+me1200IpStatisticsGlobalsIpv6OutFragCreates.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6OutFragCreates.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6OutTransmits_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6OutTransmits_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6OutTransmits=_Me1200IpStatisticsGlobalsIpv6OutTransmits_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,28),_Me1200IpStatisticsGlobalsIpv6OutTransmits_Type())
+me1200IpStatisticsGlobalsIpv6OutTransmits.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6OutTransmits.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6HCOutTransmits_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv6HCOutTransmits_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6HCOutTransmits=_Me1200IpStatisticsGlobalsIpv6HCOutTransmits_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,29),_Me1200IpStatisticsGlobalsIpv6HCOutTransmits_Type())
+me1200IpStatisticsGlobalsIpv6HCOutTransmits.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6HCOutTransmits.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6OutOctets_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6OutOctets_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6OutOctets=_Me1200IpStatisticsGlobalsIpv6OutOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,30),_Me1200IpStatisticsGlobalsIpv6OutOctets_Type())
+me1200IpStatisticsGlobalsIpv6OutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6OutOctets.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6HCOutOctets_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv6HCOutOctets_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6HCOutOctets=_Me1200IpStatisticsGlobalsIpv6HCOutOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,31),_Me1200IpStatisticsGlobalsIpv6HCOutOctets_Type())
+me1200IpStatisticsGlobalsIpv6HCOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6HCOutOctets.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6InMcastPkts_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6InMcastPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6InMcastPkts=_Me1200IpStatisticsGlobalsIpv6InMcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,32),_Me1200IpStatisticsGlobalsIpv6InMcastPkts_Type())
+me1200IpStatisticsGlobalsIpv6InMcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6InMcastPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6HCInMcastPkts_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv6HCInMcastPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6HCInMcastPkts=_Me1200IpStatisticsGlobalsIpv6HCInMcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,33),_Me1200IpStatisticsGlobalsIpv6HCInMcastPkts_Type())
+me1200IpStatisticsGlobalsIpv6HCInMcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6HCInMcastPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6InMcastOctets_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6InMcastOctets_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6InMcastOctets=_Me1200IpStatisticsGlobalsIpv6InMcastOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,34),_Me1200IpStatisticsGlobalsIpv6InMcastOctets_Type())
+me1200IpStatisticsGlobalsIpv6InMcastOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6InMcastOctets.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6HCInMcastOctets_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv6HCInMcastOctets_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6HCInMcastOctets=_Me1200IpStatisticsGlobalsIpv6HCInMcastOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,35),_Me1200IpStatisticsGlobalsIpv6HCInMcastOctets_Type())
+me1200IpStatisticsGlobalsIpv6HCInMcastOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6HCInMcastOctets.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6OutMcastPkts_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6OutMcastPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6OutMcastPkts=_Me1200IpStatisticsGlobalsIpv6OutMcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,36),_Me1200IpStatisticsGlobalsIpv6OutMcastPkts_Type())
+me1200IpStatisticsGlobalsIpv6OutMcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6OutMcastPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6HCOutMcastPkts_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv6HCOutMcastPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6HCOutMcastPkts=_Me1200IpStatisticsGlobalsIpv6HCOutMcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,37),_Me1200IpStatisticsGlobalsIpv6HCOutMcastPkts_Type())
+me1200IpStatisticsGlobalsIpv6HCOutMcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6HCOutMcastPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6OutMcastOctets_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6OutMcastOctets_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6OutMcastOctets=_Me1200IpStatisticsGlobalsIpv6OutMcastOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,38),_Me1200IpStatisticsGlobalsIpv6OutMcastOctets_Type())
+me1200IpStatisticsGlobalsIpv6OutMcastOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6OutMcastOctets.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6HCOutMcastOctets_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv6HCOutMcastOctets_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6HCOutMcastOctets=_Me1200IpStatisticsGlobalsIpv6HCOutMcastOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,39),_Me1200IpStatisticsGlobalsIpv6HCOutMcastOctets_Type())
+me1200IpStatisticsGlobalsIpv6HCOutMcastOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6HCOutMcastOctets.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6InBcastPkts_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6InBcastPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6InBcastPkts=_Me1200IpStatisticsGlobalsIpv6InBcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,40),_Me1200IpStatisticsGlobalsIpv6InBcastPkts_Type())
+me1200IpStatisticsGlobalsIpv6InBcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6InBcastPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6HCInBcastPkts_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv6HCInBcastPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6HCInBcastPkts=_Me1200IpStatisticsGlobalsIpv6HCInBcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,41),_Me1200IpStatisticsGlobalsIpv6HCInBcastPkts_Type())
+me1200IpStatisticsGlobalsIpv6HCInBcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6HCInBcastPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6OutBcastPkts_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6OutBcastPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6OutBcastPkts=_Me1200IpStatisticsGlobalsIpv6OutBcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,42),_Me1200IpStatisticsGlobalsIpv6OutBcastPkts_Type())
+me1200IpStatisticsGlobalsIpv6OutBcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6OutBcastPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6HCOutBcastPkts_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv6HCOutBcastPkts_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6HCOutBcastPkts=_Me1200IpStatisticsGlobalsIpv6HCOutBcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,43),_Me1200IpStatisticsGlobalsIpv6HCOutBcastPkts_Type())
+me1200IpStatisticsGlobalsIpv6HCOutBcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6HCOutBcastPkts.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6DiscontinuityTime_Type=Counter64
+_Me1200IpStatisticsGlobalsIpv6DiscontinuityTime_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6DiscontinuityTime=_Me1200IpStatisticsGlobalsIpv6DiscontinuityTime_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,44),_Me1200IpStatisticsGlobalsIpv6DiscontinuityTime_Type())
+me1200IpStatisticsGlobalsIpv6DiscontinuityTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6DiscontinuityTime.setStatus(_A)
+_Me1200IpStatisticsGlobalsIpv6RefreshRate_Type=Unsigned32
+_Me1200IpStatisticsGlobalsIpv6RefreshRate_Object=MibScalar
+me1200IpStatisticsGlobalsIpv6RefreshRate=_Me1200IpStatisticsGlobalsIpv6RefreshRate_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,1,2,45),_Me1200IpStatisticsGlobalsIpv6RefreshRate_Type())
+me1200IpStatisticsGlobalsIpv6RefreshRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6RefreshRate.setStatus(_A)
+_Me1200IpStatisticsInterfaces_ObjectIdentity=ObjectIdentity
+me1200IpStatisticsInterfaces=_Me1200IpStatisticsInterfaces_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,4,2))
+_Me1200IpStatisticsInterfaceLinkTable_Object=MibTable
+me1200IpStatisticsInterfaceLinkTable=_Me1200IpStatisticsInterfaceLinkTable_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,1))
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceLinkTable.setStatus(_A)
+_Me1200IpStatisticsInterfaceLinkEntry_Object=MibTableRow
+me1200IpStatisticsInterfaceLinkEntry=_Me1200IpStatisticsInterfaceLinkEntry_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,1,1))
+me1200IpStatisticsInterfaceLinkEntry.setIndexNames((0,_B,_e))
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceLinkEntry.setStatus(_A)
+_Me1200IpStatisticsInterfaceLinkIfIndex_Type=ME1200InterfaceIndex
+_Me1200IpStatisticsInterfaceLinkIfIndex_Object=MibTableColumn
+me1200IpStatisticsInterfaceLinkIfIndex=_Me1200IpStatisticsInterfaceLinkIfIndex_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,1,1,1),_Me1200IpStatisticsInterfaceLinkIfIndex_Type())
+me1200IpStatisticsInterfaceLinkIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceLinkIfIndex.setStatus(_A)
+_Me1200IpStatisticsInterfaceLinkInPackets_Type=Counter64
+_Me1200IpStatisticsInterfaceLinkInPackets_Object=MibTableColumn
+me1200IpStatisticsInterfaceLinkInPackets=_Me1200IpStatisticsInterfaceLinkInPackets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,1,1,2),_Me1200IpStatisticsInterfaceLinkInPackets_Type())
+me1200IpStatisticsInterfaceLinkInPackets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceLinkInPackets.setStatus(_A)
+_Me1200IpStatisticsInterfaceLinkOutPackets_Type=Counter64
+_Me1200IpStatisticsInterfaceLinkOutPackets_Object=MibTableColumn
+me1200IpStatisticsInterfaceLinkOutPackets=_Me1200IpStatisticsInterfaceLinkOutPackets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,1,1,3),_Me1200IpStatisticsInterfaceLinkOutPackets_Type())
+me1200IpStatisticsInterfaceLinkOutPackets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceLinkOutPackets.setStatus(_A)
+_Me1200IpStatisticsInterfaceLinkInBytes_Type=Counter64
+_Me1200IpStatisticsInterfaceLinkInBytes_Object=MibTableColumn
+me1200IpStatisticsInterfaceLinkInBytes=_Me1200IpStatisticsInterfaceLinkInBytes_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,1,1,4),_Me1200IpStatisticsInterfaceLinkInBytes_Type())
+me1200IpStatisticsInterfaceLinkInBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceLinkInBytes.setStatus(_A)
+_Me1200IpStatisticsInterfaceLinkOutBytes_Type=Counter64
+_Me1200IpStatisticsInterfaceLinkOutBytes_Object=MibTableColumn
+me1200IpStatisticsInterfaceLinkOutBytes=_Me1200IpStatisticsInterfaceLinkOutBytes_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,1,1,5),_Me1200IpStatisticsInterfaceLinkOutBytes_Type())
+me1200IpStatisticsInterfaceLinkOutBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceLinkOutBytes.setStatus(_A)
+_Me1200IpStatisticsInterfaceLinkInMulticasts_Type=Counter64
+_Me1200IpStatisticsInterfaceLinkInMulticasts_Object=MibTableColumn
+me1200IpStatisticsInterfaceLinkInMulticasts=_Me1200IpStatisticsInterfaceLinkInMulticasts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,1,1,6),_Me1200IpStatisticsInterfaceLinkInMulticasts_Type())
+me1200IpStatisticsInterfaceLinkInMulticasts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceLinkInMulticasts.setStatus(_A)
+_Me1200IpStatisticsInterfaceLinkOutMulticasts_Type=Counter64
+_Me1200IpStatisticsInterfaceLinkOutMulticasts_Object=MibTableColumn
+me1200IpStatisticsInterfaceLinkOutMulticasts=_Me1200IpStatisticsInterfaceLinkOutMulticasts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,1,1,7),_Me1200IpStatisticsInterfaceLinkOutMulticasts_Type())
+me1200IpStatisticsInterfaceLinkOutMulticasts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceLinkOutMulticasts.setStatus(_A)
+_Me1200IpStatisticsInterfaceLinkInBroadcasts_Type=Counter64
+_Me1200IpStatisticsInterfaceLinkInBroadcasts_Object=MibTableColumn
+me1200IpStatisticsInterfaceLinkInBroadcasts=_Me1200IpStatisticsInterfaceLinkInBroadcasts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,1,1,8),_Me1200IpStatisticsInterfaceLinkInBroadcasts_Type())
+me1200IpStatisticsInterfaceLinkInBroadcasts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceLinkInBroadcasts.setStatus(_A)
+_Me1200IpStatisticsInterfaceLinkOutBroadcasts_Type=Counter64
+_Me1200IpStatisticsInterfaceLinkOutBroadcasts_Object=MibTableColumn
+me1200IpStatisticsInterfaceLinkOutBroadcasts=_Me1200IpStatisticsInterfaceLinkOutBroadcasts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,1,1,9),_Me1200IpStatisticsInterfaceLinkOutBroadcasts_Type())
+me1200IpStatisticsInterfaceLinkOutBroadcasts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceLinkOutBroadcasts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4Table_Object=MibTable
+me1200IpStatisticsInterfaceIpv4Table=_Me1200IpStatisticsInterfaceIpv4Table_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2))
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4Table.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4Entry_Object=MibTableRow
+me1200IpStatisticsInterfaceIpv4Entry=_Me1200IpStatisticsInterfaceIpv4Entry_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1))
+me1200IpStatisticsInterfaceIpv4Entry.setIndexNames((0,_B,_f))
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4Entry.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4IfIndex_Type=ME1200InterfaceIndex
+_Me1200IpStatisticsInterfaceIpv4IfIndex_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4IfIndex=_Me1200IpStatisticsInterfaceIpv4IfIndex_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,1),_Me1200IpStatisticsInterfaceIpv4IfIndex_Type())
+me1200IpStatisticsInterfaceIpv4IfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4IfIndex.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4InReceives_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4InReceives_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4InReceives=_Me1200IpStatisticsInterfaceIpv4InReceives_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,2),_Me1200IpStatisticsInterfaceIpv4InReceives_Type())
+me1200IpStatisticsInterfaceIpv4InReceives.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4InReceives.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4HCInReceives_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv4HCInReceives_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4HCInReceives=_Me1200IpStatisticsInterfaceIpv4HCInReceives_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,3),_Me1200IpStatisticsInterfaceIpv4HCInReceives_Type())
+me1200IpStatisticsInterfaceIpv4HCInReceives.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4HCInReceives.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4InOctets_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4InOctets_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4InOctets=_Me1200IpStatisticsInterfaceIpv4InOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,4),_Me1200IpStatisticsInterfaceIpv4InOctets_Type())
+me1200IpStatisticsInterfaceIpv4InOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4InOctets.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4HCInOctets_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv4HCInOctets_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4HCInOctets=_Me1200IpStatisticsInterfaceIpv4HCInOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,5),_Me1200IpStatisticsInterfaceIpv4HCInOctets_Type())
+me1200IpStatisticsInterfaceIpv4HCInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4HCInOctets.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4InHdrErrors_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4InHdrErrors_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4InHdrErrors=_Me1200IpStatisticsInterfaceIpv4InHdrErrors_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,6),_Me1200IpStatisticsInterfaceIpv4InHdrErrors_Type())
+me1200IpStatisticsInterfaceIpv4InHdrErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4InHdrErrors.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4InNoRoutes_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4InNoRoutes_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4InNoRoutes=_Me1200IpStatisticsInterfaceIpv4InNoRoutes_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,7),_Me1200IpStatisticsInterfaceIpv4InNoRoutes_Type())
+me1200IpStatisticsInterfaceIpv4InNoRoutes.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4InNoRoutes.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4InAddrErrors_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4InAddrErrors_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4InAddrErrors=_Me1200IpStatisticsInterfaceIpv4InAddrErrors_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,8),_Me1200IpStatisticsInterfaceIpv4InAddrErrors_Type())
+me1200IpStatisticsInterfaceIpv4InAddrErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4InAddrErrors.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4InUnknownProtos_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4InUnknownProtos_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4InUnknownProtos=_Me1200IpStatisticsInterfaceIpv4InUnknownProtos_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,9),_Me1200IpStatisticsInterfaceIpv4InUnknownProtos_Type())
+me1200IpStatisticsInterfaceIpv4InUnknownProtos.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4InUnknownProtos.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4InTruncatedPkts_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4InTruncatedPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4InTruncatedPkts=_Me1200IpStatisticsInterfaceIpv4InTruncatedPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,10),_Me1200IpStatisticsInterfaceIpv4InTruncatedPkts_Type())
+me1200IpStatisticsInterfaceIpv4InTruncatedPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4InTruncatedPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4InForwDatagrams_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4InForwDatagrams_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4InForwDatagrams=_Me1200IpStatisticsInterfaceIpv4InForwDatagrams_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,11),_Me1200IpStatisticsInterfaceIpv4InForwDatagrams_Type())
+me1200IpStatisticsInterfaceIpv4InForwDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4InForwDatagrams.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4HCInForwDatagrams_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv4HCInForwDatagrams_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4HCInForwDatagrams=_Me1200IpStatisticsInterfaceIpv4HCInForwDatagrams_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,12),_Me1200IpStatisticsInterfaceIpv4HCInForwDatagrams_Type())
+me1200IpStatisticsInterfaceIpv4HCInForwDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4HCInForwDatagrams.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4ReasmReqds_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4ReasmReqds_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4ReasmReqds=_Me1200IpStatisticsInterfaceIpv4ReasmReqds_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,13),_Me1200IpStatisticsInterfaceIpv4ReasmReqds_Type())
+me1200IpStatisticsInterfaceIpv4ReasmReqds.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4ReasmReqds.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4ReasmOKs_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4ReasmOKs_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4ReasmOKs=_Me1200IpStatisticsInterfaceIpv4ReasmOKs_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,14),_Me1200IpStatisticsInterfaceIpv4ReasmOKs_Type())
+me1200IpStatisticsInterfaceIpv4ReasmOKs.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4ReasmOKs.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4ReasmFails_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4ReasmFails_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4ReasmFails=_Me1200IpStatisticsInterfaceIpv4ReasmFails_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,15),_Me1200IpStatisticsInterfaceIpv4ReasmFails_Type())
+me1200IpStatisticsInterfaceIpv4ReasmFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4ReasmFails.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4InDiscards_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4InDiscards_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4InDiscards=_Me1200IpStatisticsInterfaceIpv4InDiscards_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,16),_Me1200IpStatisticsInterfaceIpv4InDiscards_Type())
+me1200IpStatisticsInterfaceIpv4InDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4InDiscards.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4InDelivers_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4InDelivers_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4InDelivers=_Me1200IpStatisticsInterfaceIpv4InDelivers_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,17),_Me1200IpStatisticsInterfaceIpv4InDelivers_Type())
+me1200IpStatisticsInterfaceIpv4InDelivers.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4InDelivers.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4HCInDelivers_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv4HCInDelivers_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4HCInDelivers=_Me1200IpStatisticsInterfaceIpv4HCInDelivers_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,18),_Me1200IpStatisticsInterfaceIpv4HCInDelivers_Type())
+me1200IpStatisticsInterfaceIpv4HCInDelivers.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4HCInDelivers.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4OutRequests_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4OutRequests_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4OutRequests=_Me1200IpStatisticsInterfaceIpv4OutRequests_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,19),_Me1200IpStatisticsInterfaceIpv4OutRequests_Type())
+me1200IpStatisticsInterfaceIpv4OutRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4OutRequests.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4HCOutRequests_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv4HCOutRequests_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4HCOutRequests=_Me1200IpStatisticsInterfaceIpv4HCOutRequests_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,20),_Me1200IpStatisticsInterfaceIpv4HCOutRequests_Type())
+me1200IpStatisticsInterfaceIpv4HCOutRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4HCOutRequests.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4OutNoRoutes_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4OutNoRoutes_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4OutNoRoutes=_Me1200IpStatisticsInterfaceIpv4OutNoRoutes_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,21),_Me1200IpStatisticsInterfaceIpv4OutNoRoutes_Type())
+me1200IpStatisticsInterfaceIpv4OutNoRoutes.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4OutNoRoutes.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4OutForwDatagrams_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4OutForwDatagrams_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4OutForwDatagrams=_Me1200IpStatisticsInterfaceIpv4OutForwDatagrams_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,22),_Me1200IpStatisticsInterfaceIpv4OutForwDatagrams_Type())
+me1200IpStatisticsInterfaceIpv4OutForwDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4OutForwDatagrams.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4HCOutForwDatagrams_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv4HCOutForwDatagrams_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4HCOutForwDatagrams=_Me1200IpStatisticsInterfaceIpv4HCOutForwDatagrams_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,23),_Me1200IpStatisticsInterfaceIpv4HCOutForwDatagrams_Type())
+me1200IpStatisticsInterfaceIpv4HCOutForwDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4HCOutForwDatagrams.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4OutDiscards_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4OutDiscards_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4OutDiscards=_Me1200IpStatisticsInterfaceIpv4OutDiscards_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,24),_Me1200IpStatisticsInterfaceIpv4OutDiscards_Type())
+me1200IpStatisticsInterfaceIpv4OutDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4OutDiscards.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4OutFragReqds_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4OutFragReqds_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4OutFragReqds=_Me1200IpStatisticsInterfaceIpv4OutFragReqds_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,25),_Me1200IpStatisticsInterfaceIpv4OutFragReqds_Type())
+me1200IpStatisticsInterfaceIpv4OutFragReqds.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4OutFragReqds.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4OutFragOKs_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4OutFragOKs_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4OutFragOKs=_Me1200IpStatisticsInterfaceIpv4OutFragOKs_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,26),_Me1200IpStatisticsInterfaceIpv4OutFragOKs_Type())
+me1200IpStatisticsInterfaceIpv4OutFragOKs.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4OutFragOKs.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4OutFragFails_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4OutFragFails_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4OutFragFails=_Me1200IpStatisticsInterfaceIpv4OutFragFails_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,27),_Me1200IpStatisticsInterfaceIpv4OutFragFails_Type())
+me1200IpStatisticsInterfaceIpv4OutFragFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4OutFragFails.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4OutFragCreates_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4OutFragCreates_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4OutFragCreates=_Me1200IpStatisticsInterfaceIpv4OutFragCreates_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,28),_Me1200IpStatisticsInterfaceIpv4OutFragCreates_Type())
+me1200IpStatisticsInterfaceIpv4OutFragCreates.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4OutFragCreates.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4OutTransmits_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4OutTransmits_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4OutTransmits=_Me1200IpStatisticsInterfaceIpv4OutTransmits_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,29),_Me1200IpStatisticsInterfaceIpv4OutTransmits_Type())
+me1200IpStatisticsInterfaceIpv4OutTransmits.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4OutTransmits.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4HCOutTransmits_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv4HCOutTransmits_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4HCOutTransmits=_Me1200IpStatisticsInterfaceIpv4HCOutTransmits_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,30),_Me1200IpStatisticsInterfaceIpv4HCOutTransmits_Type())
+me1200IpStatisticsInterfaceIpv4HCOutTransmits.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4HCOutTransmits.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4OutOctets_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4OutOctets_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4OutOctets=_Me1200IpStatisticsInterfaceIpv4OutOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,31),_Me1200IpStatisticsInterfaceIpv4OutOctets_Type())
+me1200IpStatisticsInterfaceIpv4OutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4OutOctets.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4HCOutOctets_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv4HCOutOctets_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4HCOutOctets=_Me1200IpStatisticsInterfaceIpv4HCOutOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,32),_Me1200IpStatisticsInterfaceIpv4HCOutOctets_Type())
+me1200IpStatisticsInterfaceIpv4HCOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4HCOutOctets.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4InMcastPkts_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4InMcastPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4InMcastPkts=_Me1200IpStatisticsInterfaceIpv4InMcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,33),_Me1200IpStatisticsInterfaceIpv4InMcastPkts_Type())
+me1200IpStatisticsInterfaceIpv4InMcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4InMcastPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4HCInMcastPkts_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv4HCInMcastPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4HCInMcastPkts=_Me1200IpStatisticsInterfaceIpv4HCInMcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,34),_Me1200IpStatisticsInterfaceIpv4HCInMcastPkts_Type())
+me1200IpStatisticsInterfaceIpv4HCInMcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4HCInMcastPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4InMcastOctets_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4InMcastOctets_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4InMcastOctets=_Me1200IpStatisticsInterfaceIpv4InMcastOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,35),_Me1200IpStatisticsInterfaceIpv4InMcastOctets_Type())
+me1200IpStatisticsInterfaceIpv4InMcastOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4InMcastOctets.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4HCInMcastOctets_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv4HCInMcastOctets_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4HCInMcastOctets=_Me1200IpStatisticsInterfaceIpv4HCInMcastOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,36),_Me1200IpStatisticsInterfaceIpv4HCInMcastOctets_Type())
+me1200IpStatisticsInterfaceIpv4HCInMcastOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4HCInMcastOctets.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4OutMcastPkts_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4OutMcastPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4OutMcastPkts=_Me1200IpStatisticsInterfaceIpv4OutMcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,37),_Me1200IpStatisticsInterfaceIpv4OutMcastPkts_Type())
+me1200IpStatisticsInterfaceIpv4OutMcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4OutMcastPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4HCOutMcastPkts_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv4HCOutMcastPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4HCOutMcastPkts=_Me1200IpStatisticsInterfaceIpv4HCOutMcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,38),_Me1200IpStatisticsInterfaceIpv4HCOutMcastPkts_Type())
+me1200IpStatisticsInterfaceIpv4HCOutMcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4HCOutMcastPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4OutMcastOctets_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4OutMcastOctets_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4OutMcastOctets=_Me1200IpStatisticsInterfaceIpv4OutMcastOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,39),_Me1200IpStatisticsInterfaceIpv4OutMcastOctets_Type())
+me1200IpStatisticsInterfaceIpv4OutMcastOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4OutMcastOctets.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4HCOutMcastOctets_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv4HCOutMcastOctets_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4HCOutMcastOctets=_Me1200IpStatisticsInterfaceIpv4HCOutMcastOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,40),_Me1200IpStatisticsInterfaceIpv4HCOutMcastOctets_Type())
+me1200IpStatisticsInterfaceIpv4HCOutMcastOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4HCOutMcastOctets.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4InBcastPkts_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4InBcastPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4InBcastPkts=_Me1200IpStatisticsInterfaceIpv4InBcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,41),_Me1200IpStatisticsInterfaceIpv4InBcastPkts_Type())
+me1200IpStatisticsInterfaceIpv4InBcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4InBcastPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4HCInBcastPkts_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv4HCInBcastPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4HCInBcastPkts=_Me1200IpStatisticsInterfaceIpv4HCInBcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,42),_Me1200IpStatisticsInterfaceIpv4HCInBcastPkts_Type())
+me1200IpStatisticsInterfaceIpv4HCInBcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4HCInBcastPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4OutBcastPkts_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4OutBcastPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4OutBcastPkts=_Me1200IpStatisticsInterfaceIpv4OutBcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,43),_Me1200IpStatisticsInterfaceIpv4OutBcastPkts_Type())
+me1200IpStatisticsInterfaceIpv4OutBcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4OutBcastPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4HCOutBcastPkts_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv4HCOutBcastPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4HCOutBcastPkts=_Me1200IpStatisticsInterfaceIpv4HCOutBcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,44),_Me1200IpStatisticsInterfaceIpv4HCOutBcastPkts_Type())
+me1200IpStatisticsInterfaceIpv4HCOutBcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4HCOutBcastPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4DiscontinuityTime_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv4DiscontinuityTime_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4DiscontinuityTime=_Me1200IpStatisticsInterfaceIpv4DiscontinuityTime_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,45),_Me1200IpStatisticsInterfaceIpv4DiscontinuityTime_Type())
+me1200IpStatisticsInterfaceIpv4DiscontinuityTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4DiscontinuityTime.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv4RefreshRate_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv4RefreshRate_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv4RefreshRate=_Me1200IpStatisticsInterfaceIpv4RefreshRate_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,2,1,46),_Me1200IpStatisticsInterfaceIpv4RefreshRate_Type())
+me1200IpStatisticsInterfaceIpv4RefreshRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4RefreshRate.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6Table_Object=MibTable
+me1200IpStatisticsInterfaceIpv6Table=_Me1200IpStatisticsInterfaceIpv6Table_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3))
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6Table.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6Entry_Object=MibTableRow
+me1200IpStatisticsInterfaceIpv6Entry=_Me1200IpStatisticsInterfaceIpv6Entry_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1))
+me1200IpStatisticsInterfaceIpv6Entry.setIndexNames((0,_B,_g))
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6Entry.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6IfIndex_Type=ME1200InterfaceIndex
+_Me1200IpStatisticsInterfaceIpv6IfIndex_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6IfIndex=_Me1200IpStatisticsInterfaceIpv6IfIndex_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,1),_Me1200IpStatisticsInterfaceIpv6IfIndex_Type())
+me1200IpStatisticsInterfaceIpv6IfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6IfIndex.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6InReceives_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6InReceives_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6InReceives=_Me1200IpStatisticsInterfaceIpv6InReceives_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,2),_Me1200IpStatisticsInterfaceIpv6InReceives_Type())
+me1200IpStatisticsInterfaceIpv6InReceives.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6InReceives.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6HCInReceives_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv6HCInReceives_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6HCInReceives=_Me1200IpStatisticsInterfaceIpv6HCInReceives_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,3),_Me1200IpStatisticsInterfaceIpv6HCInReceives_Type())
+me1200IpStatisticsInterfaceIpv6HCInReceives.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6HCInReceives.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6InOctets_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6InOctets_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6InOctets=_Me1200IpStatisticsInterfaceIpv6InOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,4),_Me1200IpStatisticsInterfaceIpv6InOctets_Type())
+me1200IpStatisticsInterfaceIpv6InOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6InOctets.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6HCInOctets_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv6HCInOctets_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6HCInOctets=_Me1200IpStatisticsInterfaceIpv6HCInOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,5),_Me1200IpStatisticsInterfaceIpv6HCInOctets_Type())
+me1200IpStatisticsInterfaceIpv6HCInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6HCInOctets.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6InHdrErrors_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6InHdrErrors_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6InHdrErrors=_Me1200IpStatisticsInterfaceIpv6InHdrErrors_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,6),_Me1200IpStatisticsInterfaceIpv6InHdrErrors_Type())
+me1200IpStatisticsInterfaceIpv6InHdrErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6InHdrErrors.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6InNoRoutes_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6InNoRoutes_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6InNoRoutes=_Me1200IpStatisticsInterfaceIpv6InNoRoutes_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,7),_Me1200IpStatisticsInterfaceIpv6InNoRoutes_Type())
+me1200IpStatisticsInterfaceIpv6InNoRoutes.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6InNoRoutes.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6InAddrErrors_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6InAddrErrors_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6InAddrErrors=_Me1200IpStatisticsInterfaceIpv6InAddrErrors_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,8),_Me1200IpStatisticsInterfaceIpv6InAddrErrors_Type())
+me1200IpStatisticsInterfaceIpv6InAddrErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6InAddrErrors.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6InUnknownProtos_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6InUnknownProtos_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6InUnknownProtos=_Me1200IpStatisticsInterfaceIpv6InUnknownProtos_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,9),_Me1200IpStatisticsInterfaceIpv6InUnknownProtos_Type())
+me1200IpStatisticsInterfaceIpv6InUnknownProtos.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6InUnknownProtos.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6InTruncatedPkts_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6InTruncatedPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6InTruncatedPkts=_Me1200IpStatisticsInterfaceIpv6InTruncatedPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,10),_Me1200IpStatisticsInterfaceIpv6InTruncatedPkts_Type())
+me1200IpStatisticsInterfaceIpv6InTruncatedPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6InTruncatedPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6InForwDatagrams_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6InForwDatagrams_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6InForwDatagrams=_Me1200IpStatisticsInterfaceIpv6InForwDatagrams_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,11),_Me1200IpStatisticsInterfaceIpv6InForwDatagrams_Type())
+me1200IpStatisticsInterfaceIpv6InForwDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6InForwDatagrams.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6HCInForwDatagrams_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv6HCInForwDatagrams_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6HCInForwDatagrams=_Me1200IpStatisticsInterfaceIpv6HCInForwDatagrams_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,12),_Me1200IpStatisticsInterfaceIpv6HCInForwDatagrams_Type())
+me1200IpStatisticsInterfaceIpv6HCInForwDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6HCInForwDatagrams.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6ReasmReqds_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6ReasmReqds_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6ReasmReqds=_Me1200IpStatisticsInterfaceIpv6ReasmReqds_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,13),_Me1200IpStatisticsInterfaceIpv6ReasmReqds_Type())
+me1200IpStatisticsInterfaceIpv6ReasmReqds.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6ReasmReqds.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6ReasmOKs_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6ReasmOKs_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6ReasmOKs=_Me1200IpStatisticsInterfaceIpv6ReasmOKs_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,14),_Me1200IpStatisticsInterfaceIpv6ReasmOKs_Type())
+me1200IpStatisticsInterfaceIpv6ReasmOKs.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6ReasmOKs.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6ReasmFails_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6ReasmFails_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6ReasmFails=_Me1200IpStatisticsInterfaceIpv6ReasmFails_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,15),_Me1200IpStatisticsInterfaceIpv6ReasmFails_Type())
+me1200IpStatisticsInterfaceIpv6ReasmFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6ReasmFails.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6InDiscards_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6InDiscards_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6InDiscards=_Me1200IpStatisticsInterfaceIpv6InDiscards_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,16),_Me1200IpStatisticsInterfaceIpv6InDiscards_Type())
+me1200IpStatisticsInterfaceIpv6InDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6InDiscards.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6InDelivers_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6InDelivers_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6InDelivers=_Me1200IpStatisticsInterfaceIpv6InDelivers_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,17),_Me1200IpStatisticsInterfaceIpv6InDelivers_Type())
+me1200IpStatisticsInterfaceIpv6InDelivers.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6InDelivers.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6HCInDelivers_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv6HCInDelivers_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6HCInDelivers=_Me1200IpStatisticsInterfaceIpv6HCInDelivers_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,18),_Me1200IpStatisticsInterfaceIpv6HCInDelivers_Type())
+me1200IpStatisticsInterfaceIpv6HCInDelivers.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6HCInDelivers.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6OutRequests_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6OutRequests_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6OutRequests=_Me1200IpStatisticsInterfaceIpv6OutRequests_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,19),_Me1200IpStatisticsInterfaceIpv6OutRequests_Type())
+me1200IpStatisticsInterfaceIpv6OutRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6OutRequests.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6HCOutRequests_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv6HCOutRequests_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6HCOutRequests=_Me1200IpStatisticsInterfaceIpv6HCOutRequests_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,20),_Me1200IpStatisticsInterfaceIpv6HCOutRequests_Type())
+me1200IpStatisticsInterfaceIpv6HCOutRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6HCOutRequests.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6OutNoRoutes_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6OutNoRoutes_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6OutNoRoutes=_Me1200IpStatisticsInterfaceIpv6OutNoRoutes_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,21),_Me1200IpStatisticsInterfaceIpv6OutNoRoutes_Type())
+me1200IpStatisticsInterfaceIpv6OutNoRoutes.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6OutNoRoutes.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6OutForwDatagrams_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6OutForwDatagrams_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6OutForwDatagrams=_Me1200IpStatisticsInterfaceIpv6OutForwDatagrams_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,22),_Me1200IpStatisticsInterfaceIpv6OutForwDatagrams_Type())
+me1200IpStatisticsInterfaceIpv6OutForwDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6OutForwDatagrams.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6HCOutForwDatagrams_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv6HCOutForwDatagrams_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6HCOutForwDatagrams=_Me1200IpStatisticsInterfaceIpv6HCOutForwDatagrams_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,23),_Me1200IpStatisticsInterfaceIpv6HCOutForwDatagrams_Type())
+me1200IpStatisticsInterfaceIpv6HCOutForwDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6HCOutForwDatagrams.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6OutDiscards_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6OutDiscards_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6OutDiscards=_Me1200IpStatisticsInterfaceIpv6OutDiscards_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,24),_Me1200IpStatisticsInterfaceIpv6OutDiscards_Type())
+me1200IpStatisticsInterfaceIpv6OutDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6OutDiscards.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6OutFragReqds_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6OutFragReqds_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6OutFragReqds=_Me1200IpStatisticsInterfaceIpv6OutFragReqds_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,25),_Me1200IpStatisticsInterfaceIpv6OutFragReqds_Type())
+me1200IpStatisticsInterfaceIpv6OutFragReqds.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6OutFragReqds.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6OutFragOKs_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6OutFragOKs_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6OutFragOKs=_Me1200IpStatisticsInterfaceIpv6OutFragOKs_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,26),_Me1200IpStatisticsInterfaceIpv6OutFragOKs_Type())
+me1200IpStatisticsInterfaceIpv6OutFragOKs.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6OutFragOKs.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6OutFragFails_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6OutFragFails_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6OutFragFails=_Me1200IpStatisticsInterfaceIpv6OutFragFails_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,27),_Me1200IpStatisticsInterfaceIpv6OutFragFails_Type())
+me1200IpStatisticsInterfaceIpv6OutFragFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6OutFragFails.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6OutFragCreates_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6OutFragCreates_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6OutFragCreates=_Me1200IpStatisticsInterfaceIpv6OutFragCreates_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,28),_Me1200IpStatisticsInterfaceIpv6OutFragCreates_Type())
+me1200IpStatisticsInterfaceIpv6OutFragCreates.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6OutFragCreates.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6OutTransmits_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6OutTransmits_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6OutTransmits=_Me1200IpStatisticsInterfaceIpv6OutTransmits_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,29),_Me1200IpStatisticsInterfaceIpv6OutTransmits_Type())
+me1200IpStatisticsInterfaceIpv6OutTransmits.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6OutTransmits.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6HCOutTransmits_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv6HCOutTransmits_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6HCOutTransmits=_Me1200IpStatisticsInterfaceIpv6HCOutTransmits_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,30),_Me1200IpStatisticsInterfaceIpv6HCOutTransmits_Type())
+me1200IpStatisticsInterfaceIpv6HCOutTransmits.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6HCOutTransmits.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6OutOctets_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6OutOctets_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6OutOctets=_Me1200IpStatisticsInterfaceIpv6OutOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,31),_Me1200IpStatisticsInterfaceIpv6OutOctets_Type())
+me1200IpStatisticsInterfaceIpv6OutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6OutOctets.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6HCOutOctets_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv6HCOutOctets_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6HCOutOctets=_Me1200IpStatisticsInterfaceIpv6HCOutOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,32),_Me1200IpStatisticsInterfaceIpv6HCOutOctets_Type())
+me1200IpStatisticsInterfaceIpv6HCOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6HCOutOctets.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6InMcastPkts_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6InMcastPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6InMcastPkts=_Me1200IpStatisticsInterfaceIpv6InMcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,33),_Me1200IpStatisticsInterfaceIpv6InMcastPkts_Type())
+me1200IpStatisticsInterfaceIpv6InMcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6InMcastPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6HCInMcastPkts_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv6HCInMcastPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6HCInMcastPkts=_Me1200IpStatisticsInterfaceIpv6HCInMcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,34),_Me1200IpStatisticsInterfaceIpv6HCInMcastPkts_Type())
+me1200IpStatisticsInterfaceIpv6HCInMcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6HCInMcastPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6InMcastOctets_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6InMcastOctets_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6InMcastOctets=_Me1200IpStatisticsInterfaceIpv6InMcastOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,35),_Me1200IpStatisticsInterfaceIpv6InMcastOctets_Type())
+me1200IpStatisticsInterfaceIpv6InMcastOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6InMcastOctets.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6HCInMcastOctets_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv6HCInMcastOctets_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6HCInMcastOctets=_Me1200IpStatisticsInterfaceIpv6HCInMcastOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,36),_Me1200IpStatisticsInterfaceIpv6HCInMcastOctets_Type())
+me1200IpStatisticsInterfaceIpv6HCInMcastOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6HCInMcastOctets.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6OutMcastPkts_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6OutMcastPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6OutMcastPkts=_Me1200IpStatisticsInterfaceIpv6OutMcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,37),_Me1200IpStatisticsInterfaceIpv6OutMcastPkts_Type())
+me1200IpStatisticsInterfaceIpv6OutMcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6OutMcastPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6HCOutMcastPkts_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv6HCOutMcastPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6HCOutMcastPkts=_Me1200IpStatisticsInterfaceIpv6HCOutMcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,38),_Me1200IpStatisticsInterfaceIpv6HCOutMcastPkts_Type())
+me1200IpStatisticsInterfaceIpv6HCOutMcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6HCOutMcastPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6OutMcastOctets_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6OutMcastOctets_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6OutMcastOctets=_Me1200IpStatisticsInterfaceIpv6OutMcastOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,39),_Me1200IpStatisticsInterfaceIpv6OutMcastOctets_Type())
+me1200IpStatisticsInterfaceIpv6OutMcastOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6OutMcastOctets.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6HCOutMcastOctets_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv6HCOutMcastOctets_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6HCOutMcastOctets=_Me1200IpStatisticsInterfaceIpv6HCOutMcastOctets_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,40),_Me1200IpStatisticsInterfaceIpv6HCOutMcastOctets_Type())
+me1200IpStatisticsInterfaceIpv6HCOutMcastOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6HCOutMcastOctets.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6InBcastPkts_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6InBcastPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6InBcastPkts=_Me1200IpStatisticsInterfaceIpv6InBcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,41),_Me1200IpStatisticsInterfaceIpv6InBcastPkts_Type())
+me1200IpStatisticsInterfaceIpv6InBcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6InBcastPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6HCInBcastPkts_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv6HCInBcastPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6HCInBcastPkts=_Me1200IpStatisticsInterfaceIpv6HCInBcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,42),_Me1200IpStatisticsInterfaceIpv6HCInBcastPkts_Type())
+me1200IpStatisticsInterfaceIpv6HCInBcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6HCInBcastPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6OutBcastPkts_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6OutBcastPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6OutBcastPkts=_Me1200IpStatisticsInterfaceIpv6OutBcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,43),_Me1200IpStatisticsInterfaceIpv6OutBcastPkts_Type())
+me1200IpStatisticsInterfaceIpv6OutBcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6OutBcastPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6HCOutBcastPkts_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv6HCOutBcastPkts_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6HCOutBcastPkts=_Me1200IpStatisticsInterfaceIpv6HCOutBcastPkts_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,44),_Me1200IpStatisticsInterfaceIpv6HCOutBcastPkts_Type())
+me1200IpStatisticsInterfaceIpv6HCOutBcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6HCOutBcastPkts.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6DiscontinuityTime_Type=Counter64
+_Me1200IpStatisticsInterfaceIpv6DiscontinuityTime_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6DiscontinuityTime=_Me1200IpStatisticsInterfaceIpv6DiscontinuityTime_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,45),_Me1200IpStatisticsInterfaceIpv6DiscontinuityTime_Type())
+me1200IpStatisticsInterfaceIpv6DiscontinuityTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6DiscontinuityTime.setStatus(_A)
+_Me1200IpStatisticsInterfaceIpv6RefreshRate_Type=Unsigned32
+_Me1200IpStatisticsInterfaceIpv6RefreshRate_Object=MibTableColumn
+me1200IpStatisticsInterfaceIpv6RefreshRate=_Me1200IpStatisticsInterfaceIpv6RefreshRate_Object((1,3,6,1,4,1,9,9,815,1,102,1,4,2,3,1,46),_Me1200IpStatisticsInterfaceIpv6RefreshRate_Type())
+me1200IpStatisticsInterfaceIpv6RefreshRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6RefreshRate.setStatus(_A)
+_Me1200IpControl_ObjectIdentity=ObjectIdentity
+me1200IpControl=_Me1200IpControl_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,5))
+_Me1200IpControlGlobals_ObjectIdentity=ObjectIdentity
+me1200IpControlGlobals=_Me1200IpControlGlobals_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,5,1))
+_Me1200IpControlGlobalsIpv4NeighbourTableClear_Type=TruthValue
+_Me1200IpControlGlobalsIpv4NeighbourTableClear_Object=MibScalar
+me1200IpControlGlobalsIpv4NeighbourTableClear=_Me1200IpControlGlobalsIpv4NeighbourTableClear_Object((1,3,6,1,4,1,9,9,815,1,102,1,5,1,1),_Me1200IpControlGlobalsIpv4NeighbourTableClear_Type())
+me1200IpControlGlobalsIpv4NeighbourTableClear.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpControlGlobalsIpv4NeighbourTableClear.setStatus(_A)
+_Me1200IpControlGlobalsIpv6NeighbourTableClear_Type=TruthValue
+_Me1200IpControlGlobalsIpv6NeighbourTableClear_Object=MibScalar
+me1200IpControlGlobalsIpv6NeighbourTableClear=_Me1200IpControlGlobalsIpv6NeighbourTableClear_Object((1,3,6,1,4,1,9,9,815,1,102,1,5,1,2),_Me1200IpControlGlobalsIpv6NeighbourTableClear_Type())
+me1200IpControlGlobalsIpv6NeighbourTableClear.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpControlGlobalsIpv6NeighbourTableClear.setStatus(_A)
+_Me1200IpControlGlobalsIpv4SystemStatisticsClear_Type=ME1200Unsigned8
+_Me1200IpControlGlobalsIpv4SystemStatisticsClear_Object=MibScalar
+me1200IpControlGlobalsIpv4SystemStatisticsClear=_Me1200IpControlGlobalsIpv4SystemStatisticsClear_Object((1,3,6,1,4,1,9,9,815,1,102,1,5,1,3),_Me1200IpControlGlobalsIpv4SystemStatisticsClear_Type())
+me1200IpControlGlobalsIpv4SystemStatisticsClear.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpControlGlobalsIpv4SystemStatisticsClear.setStatus(_A)
+_Me1200IpControlGlobalsIpv6SystemStatisticsClear_Type=ME1200Unsigned8
+_Me1200IpControlGlobalsIpv6SystemStatisticsClear_Object=MibScalar
+me1200IpControlGlobalsIpv6SystemStatisticsClear=_Me1200IpControlGlobalsIpv6SystemStatisticsClear_Object((1,3,6,1,4,1,9,9,815,1,102,1,5,1,4),_Me1200IpControlGlobalsIpv6SystemStatisticsClear_Type())
+me1200IpControlGlobalsIpv6SystemStatisticsClear.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpControlGlobalsIpv6SystemStatisticsClear.setStatus(_A)
+_Me1200IpControlInterface_ObjectIdentity=ObjectIdentity
+me1200IpControlInterface=_Me1200IpControlInterface_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,1,5,2))
+_Me1200IpControlInterfaceDhcpClientTable_Object=MibTable
+me1200IpControlInterfaceDhcpClientTable=_Me1200IpControlInterfaceDhcpClientTable_Object((1,3,6,1,4,1,9,9,815,1,102,1,5,2,1))
+if mibBuilder.loadTexts:me1200IpControlInterfaceDhcpClientTable.setStatus(_A)
+_Me1200IpControlInterfaceDhcpClientEntry_Object=MibTableRow
+me1200IpControlInterfaceDhcpClientEntry=_Me1200IpControlInterfaceDhcpClientEntry_Object((1,3,6,1,4,1,9,9,815,1,102,1,5,2,1,1))
+me1200IpControlInterfaceDhcpClientEntry.setIndexNames((0,_B,_h))
+if mibBuilder.loadTexts:me1200IpControlInterfaceDhcpClientEntry.setStatus(_A)
+_Me1200IpControlInterfaceDhcpClientIfIndex_Type=ME1200InterfaceIndex
+_Me1200IpControlInterfaceDhcpClientIfIndex_Object=MibTableColumn
+me1200IpControlInterfaceDhcpClientIfIndex=_Me1200IpControlInterfaceDhcpClientIfIndex_Object((1,3,6,1,4,1,9,9,815,1,102,1,5,2,1,1,1),_Me1200IpControlInterfaceDhcpClientIfIndex_Type())
+me1200IpControlInterfaceDhcpClientIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpControlInterfaceDhcpClientIfIndex.setStatus(_A)
+_Me1200IpControlInterfaceDhcpClientRestart_Type=TruthValue
+_Me1200IpControlInterfaceDhcpClientRestart_Object=MibTableColumn
+me1200IpControlInterfaceDhcpClientRestart=_Me1200IpControlInterfaceDhcpClientRestart_Object((1,3,6,1,4,1,9,9,815,1,102,1,5,2,1,1,2),_Me1200IpControlInterfaceDhcpClientRestart_Type())
+me1200IpControlInterfaceDhcpClientRestart.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpControlInterfaceDhcpClientRestart.setStatus(_A)
+_Me1200IpMIBConformance_ObjectIdentity=ObjectIdentity
+me1200IpMIBConformance=_Me1200IpMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,2))
+_Me1200IpMIBCompliances_ObjectIdentity=ObjectIdentity
+me1200IpMIBCompliances=_Me1200IpMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,2,1))
+_Me1200IpMIBGroups_ObjectIdentity=ObjectIdentity
+me1200IpMIBGroups=_Me1200IpMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,102,2,2))
+me1200IpCapabilitiesInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,1))
+me1200IpCapabilitiesInfoGroup.setObjects(*((_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q)))
+if mibBuilder.loadTexts:me1200IpCapabilitiesInfoGroup.setStatus(_A)
+me1200IpConfigGlobalsMainInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,2))
+me1200IpConfigGlobalsMainInfoGroup.setObjects((_B,_r))
+if mibBuilder.loadTexts:me1200IpConfigGlobalsMainInfoGroup.setStatus(_A)
+me1200IpConfigInterfacesIpv6TableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,3))
+me1200IpConfigInterfacesIpv6TableInfoGroup.setObjects(*((_B,_s),(_B,_t),(_B,_u)))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesIpv6TableInfoGroup.setStatus(_A)
+me1200IpConfigInterfacesTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,4))
+me1200IpConfigInterfacesTableInfoGroup.setObjects((_B,_v))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesTableInfoGroup.setStatus(_A)
+me1200IpConfigInterfacesTableRowEditorInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,5))
+me1200IpConfigInterfacesTableRowEditorInfoGroup.setObjects(*((_B,_w),(_B,_x)))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesTableRowEditorInfoGroup.setStatus(_A)
+me1200IpConfigInterfacesIpv4TableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,6))
+me1200IpConfigInterfacesIpv4TableInfoGroup.setObjects(*((_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2)))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesIpv4TableInfoGroup.setStatus(_A)
+me1200IpConfigInterfacesRoutesIpv4TableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,7))
+me1200IpConfigInterfacesRoutesIpv4TableInfoGroup.setObjects((_B,_A3))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv4TableInfoGroup.setStatus(_A)
+me1200IpConfigInterfacesRoutesIpv4RowEditorInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,8))
+me1200IpConfigInterfacesRoutesIpv4RowEditorInfoGroup.setObjects(*((_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7)))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv4RowEditorInfoGroup.setStatus(_A)
+me1200IpConfigInterfacesRoutesIpv6TableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,9))
+me1200IpConfigInterfacesRoutesIpv6TableInfoGroup.setObjects((_B,_A8))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv6TableInfoGroup.setStatus(_A)
+me1200IpConfigInterfacesRoutesIpv6RowEditorInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,10))
+me1200IpConfigInterfacesRoutesIpv6RowEditorInfoGroup.setObjects(*((_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD)))
+if mibBuilder.loadTexts:me1200IpConfigInterfacesRoutesIpv6RowEditorInfoGroup.setStatus(_A)
+me1200IpStatusGlobalsIpv4NeighbourInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,11))
+me1200IpStatusGlobalsIpv4NeighbourInfoGroup.setObjects(*((_B,_AE),(_B,_AF)))
+if mibBuilder.loadTexts:me1200IpStatusGlobalsIpv4NeighbourInfoGroup.setStatus(_A)
+me1200IpStatusGlobalsIpv6NeighbourInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,12))
+me1200IpStatusGlobalsIpv6NeighbourInfoGroup.setObjects(*((_B,_AG),(_B,_AH)))
+if mibBuilder.loadTexts:me1200IpStatusGlobalsIpv6NeighbourInfoGroup.setStatus(_A)
+me1200IpStatusInterfaceLinkInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,13))
+me1200IpStatusInterfaceLinkInfoGroup.setObjects(*((_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR)))
+if mibBuilder.loadTexts:me1200IpStatusInterfaceLinkInfoGroup.setStatus(_A)
+me1200IpStatusInterfaceIpv4InfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,14))
+me1200IpStatusInterfaceIpv4InfoGroup.setObjects(*((_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW)))
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv4InfoGroup.setStatus(_A)
+me1200IpStatusInterfaceDhcpClientV4InfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,15))
+me1200IpStatusInterfaceDhcpClientV4InfoGroup.setObjects(*((_B,_AX),(_B,_AY)))
+if mibBuilder.loadTexts:me1200IpStatusInterfaceDhcpClientV4InfoGroup.setStatus(_A)
+me1200IpStatusInterfaceIpv6InfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,16))
+me1200IpStatusInterfaceIpv6InfoGroup.setObjects(*((_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af)))
+if mibBuilder.loadTexts:me1200IpStatusInterfaceIpv6InfoGroup.setStatus(_A)
+me1200IpStatusRoutesIpv4InfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,17))
+me1200IpStatusRoutesIpv4InfoGroup.setObjects(*((_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am)))
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv4InfoGroup.setStatus(_A)
+me1200IpStatusRoutesIpv6InfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,18))
+me1200IpStatusRoutesIpv6InfoGroup.setObjects(*((_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At)))
+if mibBuilder.loadTexts:me1200IpStatusRoutesIpv6InfoGroup.setStatus(_A)
+me1200IpStatisticsGlobalsIpv4InfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,19))
+me1200IpStatisticsGlobalsIpv4InfoGroup.setObjects(*((_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7),(_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI),(_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_BS),(_B,_BT),(_B,_BU),(_B,_BV),(_B,_BW),(_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba),(_B,_Bb)))
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv4InfoGroup.setStatus(_A)
+me1200IpStatisticsGlobalsIpv6InfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,20))
+me1200IpStatisticsGlobalsIpv6InfoGroup.setObjects(*((_B,_Bc),(_B,_Bd),(_B,_Be),(_B,_Bf),(_B,_Bg),(_B,_Bh),(_B,_Bi),(_B,_Bj),(_B,_Bk),(_B,_Bl),(_B,_Bm),(_B,_Bn),(_B,_Bo),(_B,_Bp),(_B,_Bq),(_B,_Br),(_B,_Bs),(_B,_Bt),(_B,_Bu),(_B,_Bv),(_B,_Bw),(_B,_Bx),(_B,_By),(_B,_Bz),(_B,_B_),(_B,_C0),(_B,_C1),(_B,_C2),(_B,_C3),(_B,_C4),(_B,_C5),(_B,_C6),(_B,_C7),(_B,_C8),(_B,_C9),(_B,_CA),(_B,_CB),(_B,_CC),(_B,_CD),(_B,_CE),(_B,_CF),(_B,_CG),(_B,_CH),(_B,_CI),(_B,_CJ)))
+if mibBuilder.loadTexts:me1200IpStatisticsGlobalsIpv6InfoGroup.setStatus(_A)
+me1200IpStatisticsInterfaceLinkInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,21))
+me1200IpStatisticsInterfaceLinkInfoGroup.setObjects(*((_B,_CK),(_B,_CL),(_B,_CM),(_B,_CN),(_B,_CO),(_B,_CP),(_B,_CQ),(_B,_CR)))
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceLinkInfoGroup.setStatus(_A)
+me1200IpStatisticsInterfaceIpv4InfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,22))
+me1200IpStatisticsInterfaceIpv4InfoGroup.setObjects(*((_B,_CS),(_B,_CT),(_B,_CU),(_B,_CV),(_B,_CW),(_B,_CX),(_B,_CY),(_B,_CZ),(_B,_Ca),(_B,_Cb),(_B,_Cc),(_B,_Cd),(_B,_Ce),(_B,_Cf),(_B,_Cg),(_B,_Ch),(_B,_Ci),(_B,_Cj),(_B,_Ck),(_B,_Cl),(_B,_Cm),(_B,_Cn),(_B,_Co),(_B,_Cp),(_B,_Cq),(_B,_Cr),(_B,_Cs),(_B,_Ct),(_B,_Cu),(_B,_Cv),(_B,_Cw),(_B,_Cx),(_B,_Cy),(_B,_Cz),(_B,_C_),(_B,_D0),(_B,_D1),(_B,_D2),(_B,_D3),(_B,_D4),(_B,_D5),(_B,_D6),(_B,_D7),(_B,_D8),(_B,_D9)))
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv4InfoGroup.setStatus(_A)
+me1200IpStatisticsInterfaceIpv6InfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,23))
+me1200IpStatisticsInterfaceIpv6InfoGroup.setObjects(*((_B,_DA),(_B,_DB),(_B,_DC),(_B,_DD),(_B,_DE),(_B,_DF),(_B,_DG),(_B,_DH),(_B,_DI),(_B,_DJ),(_B,_DK),(_B,_DL),(_B,_DM),(_B,_DN),(_B,_DO),(_B,_DP),(_B,_DQ),(_B,_DR),(_B,_DS),(_B,_DT),(_B,_DU),(_B,_DV),(_B,_DW),(_B,_DX),(_B,_DY),(_B,_DZ),(_B,_Da),(_B,_Db),(_B,_Dc),(_B,_Dd),(_B,_De),(_B,_Df),(_B,_Dg),(_B,_Dh),(_B,_Di),(_B,_Dj),(_B,_Dk),(_B,_Dl),(_B,_Dm),(_B,_Dn),(_B,_Do),(_B,_Dp),(_B,_Dq),(_B,_Dr),(_B,_Ds)))
+if mibBuilder.loadTexts:me1200IpStatisticsInterfaceIpv6InfoGroup.setStatus(_A)
+me1200IpControlGlobalsInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,24))
+me1200IpControlGlobalsInfoGroup.setObjects(*((_B,_Dt),(_B,_Du),(_B,_Dv),(_B,_Dw)))
+if mibBuilder.loadTexts:me1200IpControlGlobalsInfoGroup.setStatus(_A)
+me1200IpControlInterfaceDhcpClientInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,102,2,2,25))
+me1200IpControlInterfaceDhcpClientInfoGroup.setObjects((_B,_Dx))
+if mibBuilder.loadTexts:me1200IpControlInterfaceDhcpClientInfoGroup.setStatus(_A)
+me1200IpMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,815,1,102,2,1,1))
+me1200IpMIBCompliance.setObjects(*((_B,_Dy),(_B,_Dz),(_B,_D_),(_B,_E0),(_B,_E1),(_B,_E2),(_B,_E3),(_B,_E4),(_B,_E5),(_B,_E6),(_B,_E7),(_B,_E8),(_B,_E9),(_B,_EA),(_B,_EB),(_B,_EC),(_B,_ED),(_B,_EE),(_B,_EF),(_B,_EG),(_B,_EH),(_B,_EI),(_B,_EJ),(_B,_EK),(_B,_EL)))
+if mibBuilder.loadTexts:me1200IpMIBCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'ME1200DhcpClientState':ME1200DhcpClientState,'me1200IpMIB':me1200IpMIB,'me1200IpMIBObjects':me1200IpMIBObjects,'me1200IpCapabilities':me1200IpCapabilities,_i:me1200IpCapabilitiesHasIpv4HostCapabilities,_j:me1200IpCapabilitiesHasIpv6HostCapabilities,_k:me1200IpCapabilitiesHasIpv4UnicastRoutingCapabilities,_l:me1200IpCapabilitiesHasIpv4UnicastHwRoutingCapabilities,_m:me1200IpCapabilitiesHasIpv6UnicastRoutingCapabilities,_n:me1200IpCapabilitiesHasIpv6UnicastHwRoutingCapabilities,_o:me1200IpCapabilitiesMaxNumberOfIpInterfaces,_p:me1200IpCapabilitiesMaxNumberOfStaticRoutes,_q:me1200IpCapabilitiesNumberOfLpmHardwareEntries,'me1200IpConfig':me1200IpConfig,'me1200IpConfigGlobals':me1200IpConfigGlobals,'me1200IpConfigGlobalsMain':me1200IpConfigGlobalsMain,_r:me1200IpConfigGlobalsMainEnableRouting,'me1200IpConfigInterfacesIpv6Table':me1200IpConfigInterfacesIpv6Table,'me1200IpConfigInterfacesIpv6Entry':me1200IpConfigInterfacesIpv6Entry,_G:me1200IpConfigInterfacesIpv6IfIndex,_s:me1200IpConfigInterfacesIpv6Active,_t:me1200IpConfigInterfacesIpv6Ipv6Address,_u:me1200IpConfigInterfacesIpv6PrefixSize,'me1200IpConfigInterfaces':me1200IpConfigInterfaces,'me1200IpConfigInterfacesTable':me1200IpConfigInterfacesTable,'me1200IpConfigInterfacesEntry':me1200IpConfigInterfacesEntry,_H:me1200IpConfigInterfacesIfIndex,_v:me1200IpConfigInterfacesAction,'me1200IpConfigInterfacesTableRowEditor':me1200IpConfigInterfacesTableRowEditor,_w:me1200IpConfigInterfacesTableRowEditorIfIndex,_x:me1200IpConfigInterfacesTableRowEditorAction,'me1200IpConfigInterfacesIpv4Table':me1200IpConfigInterfacesIpv4Table,'me1200IpConfigInterfacesIpv4Entry':me1200IpConfigInterfacesIpv4Entry,_I:me1200IpConfigInterfacesIpv4IfIndex,_y:me1200IpConfigInterfacesIpv4Active,_z:me1200IpConfigInterfacesIpv4EnableDhcpClient,_A0:me1200IpConfigInterfacesIpv4Ipv4Address,_A1:me1200IpConfigInterfacesIpv4PrefixSize,_A2:me1200IpConfigInterfacesIpv4DhcpClientFallbackTimeout,'me1200IpConfigRoutes':me1200IpConfigRoutes,'me1200IpConfigInterfacesRoutesIpv4Table':me1200IpConfigInterfacesRoutesIpv4Table,'me1200IpConfigInterfacesRoutesIpv4Entry':me1200IpConfigInterfacesRoutesIpv4Entry,_J:me1200IpConfigInterfacesRoutesIpv4NetworkAddress,_K:me1200IpConfigInterfacesRoutesIpv4NetworkPrefixSize,_L:me1200IpConfigInterfacesRoutesIpv4NextHop,_A3:me1200IpConfigInterfacesRoutesIpv4Action,'me1200IpConfigInterfacesRoutesIpv4RowEditor':me1200IpConfigInterfacesRoutesIpv4RowEditor,_A4:me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkAddress,_A5:me1200IpConfigInterfacesRoutesIpv4RowEditorNetworkPrefixSize,_A6:me1200IpConfigInterfacesRoutesIpv4RowEditorNextHop,_A7:me1200IpConfigInterfacesRoutesIpv4RowEditorAction,'me1200IpConfigInterfacesRoutesIpv6Table':me1200IpConfigInterfacesRoutesIpv6Table,'me1200IpConfigInterfacesRoutesIpv6Entry':me1200IpConfigInterfacesRoutesIpv6Entry,_M:me1200IpConfigInterfacesRoutesIpv6NetworkAddress,_N:me1200IpConfigInterfacesRoutesIpv6NetworkPrefixSize,_O:me1200IpConfigInterfacesRoutesIpv6NextHop,_P:me1200IpConfigInterfacesRoutesIpv6NextHopInterface,_A8:me1200IpConfigInterfacesRoutesIpv6Action,'me1200IpConfigInterfacesRoutesIpv6RowEditor':me1200IpConfigInterfacesRoutesIpv6RowEditor,_A9:me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkAddress,_AA:me1200IpConfigInterfacesRoutesIpv6RowEditorNetworkPrefixSize,_AB:me1200IpConfigInterfacesRoutesIpv6RowEditorNextHop,_AC:me1200IpConfigInterfacesRoutesIpv6RowEditorNextHopInterface,_AD:me1200IpConfigInterfacesRoutesIpv6RowEditorAction,'me1200IpStatus':me1200IpStatus,'me1200IpStatusGlobals':me1200IpStatusGlobals,'me1200IpStatusGlobalsIpv4NeighbourTable':me1200IpStatusGlobalsIpv4NeighbourTable,'me1200IpStatusGlobalsIpv4NeighbourEntry':me1200IpStatusGlobalsIpv4NeighbourEntry,_Q:me1200IpStatusGlobalsIpv4NeighbourIpv4,_AE:me1200IpStatusGlobalsIpv4NeighbourMacAddress,_AF:me1200IpStatusGlobalsIpv4NeighbourInterface,'me1200IpStatusGlobalsIpv6NeighbourTable':me1200IpStatusGlobalsIpv6NeighbourTable,'me1200IpStatusGlobalsIpv6NeighbourEntry':me1200IpStatusGlobalsIpv6NeighbourEntry,_R:me1200IpStatusGlobalsIpv6NeighbourIpAddress,_S:me1200IpStatusGlobalsIpv6NeighbourInterfaceQuery,_AG:me1200IpStatusGlobalsIpv6NeighbourMacAddress,_AH:me1200IpStatusGlobalsIpv6NeighbourInterface,'me1200IpStatusInterfaces':me1200IpStatusInterfaces,'me1200IpStatusInterfaceLinkTable':me1200IpStatusInterfaceLinkTable,'me1200IpStatusInterfaceLinkEntry':me1200IpStatusInterfaceLinkEntry,_T:me1200IpStatusInterfaceLinkIfIndex,_AI:me1200IpStatusInterfaceLinkOsInterfaceIndex,_AJ:me1200IpStatusInterfaceLinkMtu,_AK:me1200IpStatusInterfaceLinkMacAddress,_AL:me1200IpStatusInterfaceLinkUp,_AM:me1200IpStatusInterfaceLinkBroadcast,_AN:me1200IpStatusInterfaceLinkLoopback,_AO:me1200IpStatusInterfaceLinkRunning,_AP:me1200IpStatusInterfaceLinkNoarp,_AQ:me1200IpStatusInterfaceLinkPromisc,_AR:me1200IpStatusInterfaceLinkMulticast,'me1200IpStatusInterfaceIpv4Table':me1200IpStatusInterfaceIpv4Table,'me1200IpStatusInterfaceIpv4Entry':me1200IpStatusInterfaceIpv4Entry,_U:me1200IpStatusInterfaceIpv4IfIndex,_AS:me1200IpStatusInterfaceIpv4Address,_AT:me1200IpStatusInterfaceIpv4Prefix,_AU:me1200IpStatusInterfaceIpv4Broadcast,_AV:me1200IpStatusInterfaceIpv4ReasmMaxSize,_AW:me1200IpStatusInterfaceIpv4ArpRetransmitTime,'me1200IpStatusInterfaceDhcpClientV4Table':me1200IpStatusInterfaceDhcpClientV4Table,'me1200IpStatusInterfaceDhcpClientV4Entry':me1200IpStatusInterfaceDhcpClientV4Entry,_V:me1200IpStatusInterfaceDhcpClientV4IfIndex,_AX:me1200IpStatusInterfaceDhcpClientV4State,_AY:me1200IpStatusInterfaceDhcpClientV4ServerIp,'me1200IpStatusInterfaceIpv6Table':me1200IpStatusInterfaceIpv6Table,'me1200IpStatusInterfaceIpv6Entry':me1200IpStatusInterfaceIpv6Entry,_W:me1200IpStatusInterfaceIpv6IfIndex,_AZ:me1200IpStatusInterfaceIpv6Address,_Aa:me1200IpStatusInterfaceIpv6Prefix,_Ab:me1200IpStatusInterfaceIpv6Tentative,_Ac:me1200IpStatusInterfaceIpv6Duplicated,_Ad:me1200IpStatusInterfaceIpv6Detached,_Ae:me1200IpStatusInterfaceIpv6Nodad,_Af:me1200IpStatusInterfaceIpv6Autoconf,'me1200IpStatusRoutes':me1200IpStatusRoutes,'me1200IpStatusRoutesIpv4Table':me1200IpStatusRoutesIpv4Table,'me1200IpStatusRoutesIpv4Entry':me1200IpStatusRoutesIpv4Entry,_X:me1200IpStatusRoutesIpv4NetworkAddress,_Y:me1200IpStatusRoutesIpv4NetworkPrefixSize,_Z:me1200IpStatusRoutesIpv4NextHop,_Ag:me1200IpStatusRoutesIpv4DerivedNextHopInterface,_Ah:me1200IpStatusRoutesIpv4FlagUp,_Ai:me1200IpStatusRoutesIpv4FlagHost,_Aj:me1200IpStatusRoutesIpv4FlagGateway,_Ak:me1200IpStatusRoutesIpv4OwnerConf,_Al:me1200IpStatusRoutesIpv4OwnerDhcp,_Am:me1200IpStatusRoutesIpv4OwnerDynamic,'me1200IpStatusRoutesIpv6Table':me1200IpStatusRoutesIpv6Table,'me1200IpStatusRoutesIpv6Entry':me1200IpStatusRoutesIpv6Entry,_a:me1200IpStatusRoutesIpv6NetworkAddress,_b:me1200IpStatusRoutesIpv6NetworkPrefixSize,_c:me1200IpStatusRoutesIpv6NextHop,_d:me1200IpStatusRoutesIpv6NextHopInterface,_An:me1200IpStatusRoutesIpv6DerivedNextHopInterface,_Ao:me1200IpStatusRoutesIpv6FlagUp,_Ap:me1200IpStatusRoutesIpv6FlagHost,_Aq:me1200IpStatusRoutesIpv6FlagGateway,_Ar:me1200IpStatusRoutesIpv6OwnerConf,_As:me1200IpStatusRoutesIpv6OwnerDhcp,_At:me1200IpStatusRoutesIpv6OwnerDynamic,'me1200IpStatistics':me1200IpStatistics,'me1200IpStatisticsGlobals':me1200IpStatisticsGlobals,'me1200IpStatisticsGlobalsIpv4':me1200IpStatisticsGlobalsIpv4,_Au:me1200IpStatisticsGlobalsIpv4InReceives,_Av:me1200IpStatisticsGlobalsIpv4HCInReceives,_Aw:me1200IpStatisticsGlobalsIpv4InOctets,_Ax:me1200IpStatisticsGlobalsIpv4HCInOctets,_Ay:me1200IpStatisticsGlobalsIpv4InHdrErrors,_Az:me1200IpStatisticsGlobalsIpv4InNoRoutes,_A_:me1200IpStatisticsGlobalsIpv4InAddrErrors,_B0:me1200IpStatisticsGlobalsIpv4InUnknownProtos,_B1:me1200IpStatisticsGlobalsIpv4InTruncatedPkts,_B2:me1200IpStatisticsGlobalsIpv4InForwDatagrams,_B3:me1200IpStatisticsGlobalsIpv4HCInForwDatagrams,_B4:me1200IpStatisticsGlobalsIpv4ReasmReqds,_B5:me1200IpStatisticsGlobalsIpv4ReasmOKs,_B6:me1200IpStatisticsGlobalsIpv4ReasmFails,_B7:me1200IpStatisticsGlobalsIpv4InDiscards,_B8:me1200IpStatisticsGlobalsIpv4InDelivers,_B9:me1200IpStatisticsGlobalsIpv4HCInDelivers,_BA:me1200IpStatisticsGlobalsIpv4OutRequests,_BB:me1200IpStatisticsGlobalsIpv4HCOutRequests,_BC:me1200IpStatisticsGlobalsIpv4OutNoRoutes,_BD:me1200IpStatisticsGlobalsIpv4OutForwDatagrams,_BE:me1200IpStatisticsGlobalsIpv4HCOutForwDatagrams,_BF:me1200IpStatisticsGlobalsIpv4OutDiscards,_BG:me1200IpStatisticsGlobalsIpv4OutFragReqds,_BH:me1200IpStatisticsGlobalsIpv4OutFragOKs,_BI:me1200IpStatisticsGlobalsIpv4OutFragFails,_BJ:me1200IpStatisticsGlobalsIpv4OutFragCreates,_BK:me1200IpStatisticsGlobalsIpv4OutTransmits,_BL:me1200IpStatisticsGlobalsIpv4HCOutTransmits,_BM:me1200IpStatisticsGlobalsIpv4OutOctets,_BN:me1200IpStatisticsGlobalsIpv4HCOutOctets,_BO:me1200IpStatisticsGlobalsIpv4InMcastPkts,_BP:me1200IpStatisticsGlobalsIpv4HCInMcastPkts,_BQ:me1200IpStatisticsGlobalsIpv4InMcastOctets,_BR:me1200IpStatisticsGlobalsIpv4HCInMcastOctets,_BS:me1200IpStatisticsGlobalsIpv4OutMcastPkts,_BT:me1200IpStatisticsGlobalsIpv4HCOutMcastPkts,_BU:me1200IpStatisticsGlobalsIpv4OutMcastOctets,_BV:me1200IpStatisticsGlobalsIpv4HCOutMcastOctets,_BW:me1200IpStatisticsGlobalsIpv4InBcastPkts,_BX:me1200IpStatisticsGlobalsIpv4HCInBcastPkts,_BY:me1200IpStatisticsGlobalsIpv4OutBcastPkts,_BZ:me1200IpStatisticsGlobalsIpv4HCOutBcastPkts,_Ba:me1200IpStatisticsGlobalsIpv4DiscontinuityTime,_Bb:me1200IpStatisticsGlobalsIpv4RefreshRate,'me1200IpStatisticsGlobalsIpv6':me1200IpStatisticsGlobalsIpv6,_Bc:me1200IpStatisticsGlobalsIpv6InReceives,_Bd:me1200IpStatisticsGlobalsIpv6HCInReceives,_Be:me1200IpStatisticsGlobalsIpv6InOctets,_Bf:me1200IpStatisticsGlobalsIpv6HCInOctets,_Bg:me1200IpStatisticsGlobalsIpv6InHdrErrors,_Bh:me1200IpStatisticsGlobalsIpv6InNoRoutes,_Bi:me1200IpStatisticsGlobalsIpv6InAddrErrors,_Bj:me1200IpStatisticsGlobalsIpv6InUnknownProtos,_Bk:me1200IpStatisticsGlobalsIpv6InTruncatedPkts,_Bl:me1200IpStatisticsGlobalsIpv6InForwDatagrams,_Bm:me1200IpStatisticsGlobalsIpv6HCInForwDatagrams,_Bn:me1200IpStatisticsGlobalsIpv6ReasmReqds,_Bo:me1200IpStatisticsGlobalsIpv6ReasmOKs,_Bp:me1200IpStatisticsGlobalsIpv6ReasmFails,_Bq:me1200IpStatisticsGlobalsIpv6InDiscards,_Br:me1200IpStatisticsGlobalsIpv6InDelivers,_Bs:me1200IpStatisticsGlobalsIpv6HCInDelivers,_Bt:me1200IpStatisticsGlobalsIpv6OutRequests,_Bu:me1200IpStatisticsGlobalsIpv6HCOutRequests,_Bv:me1200IpStatisticsGlobalsIpv6OutNoRoutes,_Bw:me1200IpStatisticsGlobalsIpv6OutForwDatagrams,_Bx:me1200IpStatisticsGlobalsIpv6HCOutForwDatagrams,_By:me1200IpStatisticsGlobalsIpv6OutDiscards,_Bz:me1200IpStatisticsGlobalsIpv6OutFragReqds,_B_:me1200IpStatisticsGlobalsIpv6OutFragOKs,_C0:me1200IpStatisticsGlobalsIpv6OutFragFails,_C1:me1200IpStatisticsGlobalsIpv6OutFragCreates,_C2:me1200IpStatisticsGlobalsIpv6OutTransmits,_C3:me1200IpStatisticsGlobalsIpv6HCOutTransmits,_C4:me1200IpStatisticsGlobalsIpv6OutOctets,_C5:me1200IpStatisticsGlobalsIpv6HCOutOctets,_C6:me1200IpStatisticsGlobalsIpv6InMcastPkts,_C7:me1200IpStatisticsGlobalsIpv6HCInMcastPkts,_C8:me1200IpStatisticsGlobalsIpv6InMcastOctets,_C9:me1200IpStatisticsGlobalsIpv6HCInMcastOctets,_CA:me1200IpStatisticsGlobalsIpv6OutMcastPkts,_CB:me1200IpStatisticsGlobalsIpv6HCOutMcastPkts,_CC:me1200IpStatisticsGlobalsIpv6OutMcastOctets,_CD:me1200IpStatisticsGlobalsIpv6HCOutMcastOctets,_CE:me1200IpStatisticsGlobalsIpv6InBcastPkts,_CF:me1200IpStatisticsGlobalsIpv6HCInBcastPkts,_CG:me1200IpStatisticsGlobalsIpv6OutBcastPkts,_CH:me1200IpStatisticsGlobalsIpv6HCOutBcastPkts,_CI:me1200IpStatisticsGlobalsIpv6DiscontinuityTime,_CJ:me1200IpStatisticsGlobalsIpv6RefreshRate,'me1200IpStatisticsInterfaces':me1200IpStatisticsInterfaces,'me1200IpStatisticsInterfaceLinkTable':me1200IpStatisticsInterfaceLinkTable,'me1200IpStatisticsInterfaceLinkEntry':me1200IpStatisticsInterfaceLinkEntry,_e:me1200IpStatisticsInterfaceLinkIfIndex,_CK:me1200IpStatisticsInterfaceLinkInPackets,_CL:me1200IpStatisticsInterfaceLinkOutPackets,_CM:me1200IpStatisticsInterfaceLinkInBytes,_CN:me1200IpStatisticsInterfaceLinkOutBytes,_CO:me1200IpStatisticsInterfaceLinkInMulticasts,_CP:me1200IpStatisticsInterfaceLinkOutMulticasts,_CQ:me1200IpStatisticsInterfaceLinkInBroadcasts,_CR:me1200IpStatisticsInterfaceLinkOutBroadcasts,'me1200IpStatisticsInterfaceIpv4Table':me1200IpStatisticsInterfaceIpv4Table,'me1200IpStatisticsInterfaceIpv4Entry':me1200IpStatisticsInterfaceIpv4Entry,_f:me1200IpStatisticsInterfaceIpv4IfIndex,_CS:me1200IpStatisticsInterfaceIpv4InReceives,_CT:me1200IpStatisticsInterfaceIpv4HCInReceives,_CU:me1200IpStatisticsInterfaceIpv4InOctets,_CV:me1200IpStatisticsInterfaceIpv4HCInOctets,_CW:me1200IpStatisticsInterfaceIpv4InHdrErrors,_CX:me1200IpStatisticsInterfaceIpv4InNoRoutes,_CY:me1200IpStatisticsInterfaceIpv4InAddrErrors,_CZ:me1200IpStatisticsInterfaceIpv4InUnknownProtos,_Ca:me1200IpStatisticsInterfaceIpv4InTruncatedPkts,_Cb:me1200IpStatisticsInterfaceIpv4InForwDatagrams,_Cc:me1200IpStatisticsInterfaceIpv4HCInForwDatagrams,_Cd:me1200IpStatisticsInterfaceIpv4ReasmReqds,_Ce:me1200IpStatisticsInterfaceIpv4ReasmOKs,_Cf:me1200IpStatisticsInterfaceIpv4ReasmFails,_Cg:me1200IpStatisticsInterfaceIpv4InDiscards,_Ch:me1200IpStatisticsInterfaceIpv4InDelivers,_Ci:me1200IpStatisticsInterfaceIpv4HCInDelivers,_Cj:me1200IpStatisticsInterfaceIpv4OutRequests,_Ck:me1200IpStatisticsInterfaceIpv4HCOutRequests,_Cl:me1200IpStatisticsInterfaceIpv4OutNoRoutes,_Cm:me1200IpStatisticsInterfaceIpv4OutForwDatagrams,_Cn:me1200IpStatisticsInterfaceIpv4HCOutForwDatagrams,_Co:me1200IpStatisticsInterfaceIpv4OutDiscards,_Cp:me1200IpStatisticsInterfaceIpv4OutFragReqds,_Cq:me1200IpStatisticsInterfaceIpv4OutFragOKs,_Cr:me1200IpStatisticsInterfaceIpv4OutFragFails,_Cs:me1200IpStatisticsInterfaceIpv4OutFragCreates,_Ct:me1200IpStatisticsInterfaceIpv4OutTransmits,_Cu:me1200IpStatisticsInterfaceIpv4HCOutTransmits,_Cv:me1200IpStatisticsInterfaceIpv4OutOctets,_Cw:me1200IpStatisticsInterfaceIpv4HCOutOctets,_Cx:me1200IpStatisticsInterfaceIpv4InMcastPkts,_Cy:me1200IpStatisticsInterfaceIpv4HCInMcastPkts,_Cz:me1200IpStatisticsInterfaceIpv4InMcastOctets,_C_:me1200IpStatisticsInterfaceIpv4HCInMcastOctets,_D0:me1200IpStatisticsInterfaceIpv4OutMcastPkts,_D1:me1200IpStatisticsInterfaceIpv4HCOutMcastPkts,_D2:me1200IpStatisticsInterfaceIpv4OutMcastOctets,_D3:me1200IpStatisticsInterfaceIpv4HCOutMcastOctets,_D4:me1200IpStatisticsInterfaceIpv4InBcastPkts,_D5:me1200IpStatisticsInterfaceIpv4HCInBcastPkts,_D6:me1200IpStatisticsInterfaceIpv4OutBcastPkts,_D7:me1200IpStatisticsInterfaceIpv4HCOutBcastPkts,_D8:me1200IpStatisticsInterfaceIpv4DiscontinuityTime,_D9:me1200IpStatisticsInterfaceIpv4RefreshRate,'me1200IpStatisticsInterfaceIpv6Table':me1200IpStatisticsInterfaceIpv6Table,'me1200IpStatisticsInterfaceIpv6Entry':me1200IpStatisticsInterfaceIpv6Entry,_g:me1200IpStatisticsInterfaceIpv6IfIndex,_DA:me1200IpStatisticsInterfaceIpv6InReceives,_DB:me1200IpStatisticsInterfaceIpv6HCInReceives,_DC:me1200IpStatisticsInterfaceIpv6InOctets,_DD:me1200IpStatisticsInterfaceIpv6HCInOctets,_DE:me1200IpStatisticsInterfaceIpv6InHdrErrors,_DF:me1200IpStatisticsInterfaceIpv6InNoRoutes,_DG:me1200IpStatisticsInterfaceIpv6InAddrErrors,_DH:me1200IpStatisticsInterfaceIpv6InUnknownProtos,_DI:me1200IpStatisticsInterfaceIpv6InTruncatedPkts,_DJ:me1200IpStatisticsInterfaceIpv6InForwDatagrams,_DK:me1200IpStatisticsInterfaceIpv6HCInForwDatagrams,_DL:me1200IpStatisticsInterfaceIpv6ReasmReqds,_DM:me1200IpStatisticsInterfaceIpv6ReasmOKs,_DN:me1200IpStatisticsInterfaceIpv6ReasmFails,_DO:me1200IpStatisticsInterfaceIpv6InDiscards,_DP:me1200IpStatisticsInterfaceIpv6InDelivers,_DQ:me1200IpStatisticsInterfaceIpv6HCInDelivers,_DR:me1200IpStatisticsInterfaceIpv6OutRequests,_DS:me1200IpStatisticsInterfaceIpv6HCOutRequests,_DT:me1200IpStatisticsInterfaceIpv6OutNoRoutes,_DU:me1200IpStatisticsInterfaceIpv6OutForwDatagrams,_DV:me1200IpStatisticsInterfaceIpv6HCOutForwDatagrams,_DW:me1200IpStatisticsInterfaceIpv6OutDiscards,_DX:me1200IpStatisticsInterfaceIpv6OutFragReqds,_DY:me1200IpStatisticsInterfaceIpv6OutFragOKs,_DZ:me1200IpStatisticsInterfaceIpv6OutFragFails,_Da:me1200IpStatisticsInterfaceIpv6OutFragCreates,_Db:me1200IpStatisticsInterfaceIpv6OutTransmits,_Dc:me1200IpStatisticsInterfaceIpv6HCOutTransmits,_Dd:me1200IpStatisticsInterfaceIpv6OutOctets,_De:me1200IpStatisticsInterfaceIpv6HCOutOctets,_Df:me1200IpStatisticsInterfaceIpv6InMcastPkts,_Dg:me1200IpStatisticsInterfaceIpv6HCInMcastPkts,_Dh:me1200IpStatisticsInterfaceIpv6InMcastOctets,_Di:me1200IpStatisticsInterfaceIpv6HCInMcastOctets,_Dj:me1200IpStatisticsInterfaceIpv6OutMcastPkts,_Dk:me1200IpStatisticsInterfaceIpv6HCOutMcastPkts,_Dl:me1200IpStatisticsInterfaceIpv6OutMcastOctets,_Dm:me1200IpStatisticsInterfaceIpv6HCOutMcastOctets,_Dn:me1200IpStatisticsInterfaceIpv6InBcastPkts,_Do:me1200IpStatisticsInterfaceIpv6HCInBcastPkts,_Dp:me1200IpStatisticsInterfaceIpv6OutBcastPkts,_Dq:me1200IpStatisticsInterfaceIpv6HCOutBcastPkts,_Dr:me1200IpStatisticsInterfaceIpv6DiscontinuityTime,_Ds:me1200IpStatisticsInterfaceIpv6RefreshRate,'me1200IpControl':me1200IpControl,'me1200IpControlGlobals':me1200IpControlGlobals,_Dt:me1200IpControlGlobalsIpv4NeighbourTableClear,_Du:me1200IpControlGlobalsIpv6NeighbourTableClear,_Dv:me1200IpControlGlobalsIpv4SystemStatisticsClear,_Dw:me1200IpControlGlobalsIpv6SystemStatisticsClear,'me1200IpControlInterface':me1200IpControlInterface,'me1200IpControlInterfaceDhcpClientTable':me1200IpControlInterfaceDhcpClientTable,'me1200IpControlInterfaceDhcpClientEntry':me1200IpControlInterfaceDhcpClientEntry,_h:me1200IpControlInterfaceDhcpClientIfIndex,_Dx:me1200IpControlInterfaceDhcpClientRestart,'me1200IpMIBConformance':me1200IpMIBConformance,'me1200IpMIBCompliances':me1200IpMIBCompliances,'me1200IpMIBCompliance':me1200IpMIBCompliance,'me1200IpMIBGroups':me1200IpMIBGroups,_Dy:me1200IpCapabilitiesInfoGroup,_Dz:me1200IpConfigGlobalsMainInfoGroup,_D_:me1200IpConfigInterfacesIpv6TableInfoGroup,_E0:me1200IpConfigInterfacesTableInfoGroup,_E1:me1200IpConfigInterfacesTableRowEditorInfoGroup,_E2:me1200IpConfigInterfacesIpv4TableInfoGroup,_E3:me1200IpConfigInterfacesRoutesIpv4TableInfoGroup,_E4:me1200IpConfigInterfacesRoutesIpv4RowEditorInfoGroup,_E5:me1200IpConfigInterfacesRoutesIpv6TableInfoGroup,_E6:me1200IpConfigInterfacesRoutesIpv6RowEditorInfoGroup,_E7:me1200IpStatusGlobalsIpv4NeighbourInfoGroup,_E8:me1200IpStatusGlobalsIpv6NeighbourInfoGroup,_E9:me1200IpStatusInterfaceLinkInfoGroup,_EA:me1200IpStatusInterfaceIpv4InfoGroup,_EB:me1200IpStatusInterfaceDhcpClientV4InfoGroup,_EC:me1200IpStatusInterfaceIpv6InfoGroup,_ED:me1200IpStatusRoutesIpv4InfoGroup,_EE:me1200IpStatusRoutesIpv6InfoGroup,_EF:me1200IpStatisticsGlobalsIpv4InfoGroup,_EG:me1200IpStatisticsGlobalsIpv6InfoGroup,_EH:me1200IpStatisticsInterfaceLinkInfoGroup,_EI:me1200IpStatisticsInterfaceIpv4InfoGroup,_EJ:me1200IpStatisticsInterfaceIpv6InfoGroup,_EK:me1200IpControlGlobalsInfoGroup,_EL:me1200IpControlInterfaceDhcpClientInfoGroup})

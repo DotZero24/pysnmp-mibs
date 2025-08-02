@@ -1,69 +1,151 @@
-#
-# PySNMP MIB module T11-FC-ROUTE-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/T11-FC-ROUTE-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:30:21 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, OctetString, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
-( FcAddressIdOrZero, fcmInstanceIndex, FcDomainIdOrZero, fcmSwitchIndex, ) = mibBuilder.importSymbols("FC-MGMT-MIB", "FcAddressIdOrZero", "fcmInstanceIndex", "FcDomainIdOrZero", "fcmSwitchIndex")
-( InterfaceIndex, InterfaceIndexOrZero, ) = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex", "InterfaceIndexOrZero")
-( ObjectGroup, ModuleCompliance, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-( MibIdentifier, iso, Unsigned32, TimeTicks, NotificationType, Integer32, IpAddress, mib_2, Bits, Counter64, Counter32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, ObjectIdentity, ) = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "iso", "Unsigned32", "TimeTicks", "NotificationType", "Integer32", "IpAddress", "mib-2", "Bits", "Counter64", "Counter32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "ObjectIdentity")
-( RowStatus, TextualConvention, TimeStamp, DisplayString, StorageType, ) = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "TimeStamp", "DisplayString", "StorageType")
-( T11FabricIndex, ) = mibBuilder.importSymbols("T11-TC-MIB", "T11FabricIndex")
-t11FcRouteMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 144)).setRevisions(("2006-08-14 00:00",))
-if mibBuilder.loadTexts: t11FcRouteMIB.setLastUpdated('200608140000Z')
-if mibBuilder.loadTexts: t11FcRouteMIB.setOrganization('T11')
-if mibBuilder.loadTexts: t11FcRouteMIB.setContactInfo('     Claudio DeSanti\n                    Cisco Systems, Inc.\n                    170 West Tasman Drive\n                    San Jose, CA 95134 USA\n                    EMail: cds@cisco.com\n\n\n                    Keith McCloghrie\n                    Cisco Systems, Inc.\n                    170 West Tasman Drive\n                    San Jose, CA USA 95134\n                    Email: kzm@cisco.com')
-if mibBuilder.loadTexts: t11FcRouteMIB.setDescription('The MIB module for configuring and displaying Fibre\n           Channel Route Information.\n\n           Copyright (C) The Internet Society (2006).  This version\n           of this MIB module is part of RFC 4625;  see the RFC\n           itself for full legal notices.')
-t11FcRouteNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 144, 0))
-t11FcRouteObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 144, 1))
-t11FcRouteConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 144, 2))
-t11FcRouteFabricTable = MibTable((1, 3, 6, 1, 2, 1, 144, 1, 1), )
-if mibBuilder.loadTexts: t11FcRouteFabricTable.setDescription('The table containing Fibre Channel Routing information\n           that is specific to a Fabric.')
-t11FcRouteFabricEntry = MibTableRow((1, 3, 6, 1, 2, 1, 144, 1, 1, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-ROUTE-MIB", "t11FcRouteFabricIndex"))
-if mibBuilder.loadTexts: t11FcRouteFabricEntry.setDescription('Each entry contains routing information specific to a\n           particular Fabric on a particular switch (identified by\n           values of fcmInstanceIndex and fcmSwitchIndex).')
-t11FcRouteFabricIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 144, 1, 1, 1, 1), T11FabricIndex())
-if mibBuilder.loadTexts: t11FcRouteFabricIndex.setDescription('A unique index value that uniquely identifies a\n           particular Fabric.\n\n           In a Fabric conformant to FC-SW-3, only a single Fabric\n\n\n\n           can operate within a physical infrastructure, and thus\n           the value of this Fabric Index will always be 1.\n\n           In a Fabric conformant to FC-SW-4, multiple Virtual Fabrics\n           can operate within one (or more) physical infrastructures.\n           In such a case, index value is used to uniquely identify a\n           particular Fabric within a physical infrastructure.')
-t11FcRouteFabricLastChange = MibTableColumn((1, 3, 6, 1, 2, 1, 144, 1, 1, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRouteFabricLastChange.setDescription('The value of sysUpTime at the most recent time when any\n           corresponding row in the t11FcRouteTable was created,\n           modified, or deleted.  A corresponding row in the\n           t11FcRouteTable is for the same management instance,\n           the same switch, and same Fabric as the row in this table.\n\n           If no change has occurred since the last restart of the\n           management system, then the value of this object is 0.')
-t11FcRouteTable = MibTable((1, 3, 6, 1, 2, 1, 144, 1, 2), )
-if mibBuilder.loadTexts: t11FcRouteTable.setDescription("The Fibre Channel Routing tables for the\n           locally managed switches.  This table lists all the\n           routes that are configured in and/or computed by any\n           local switch for any Fabric.\n\n           Such routes are used by a switch to forward frames (of user\n           data) on a Fabric.  The conceptual process is based on\n           extracting the Destination Fibre Channel Address Identifier\n           (D_ID) out of a received frame (of user data) and comparing\n           it to each entry of this table that is applicable to the\n           given switch and Fabric.  Such comparison consists of first\n           performing a logical-AND of the extracted D_ID with a mask\n           (the value of t11FcRouteDestMask) and second comparing the\n           result of that 'AND' operation to the value of\n           t11FcRouteDestAddrId.  A similar comparison is made of the\n           Source Fibre Channel Address Identifier (S_ID) of a frame\n\n\n\n           against the t11FcRouteSrcAddrId and t11FcRouteSrcMask values\n           of an entry.  If an entry's value of t11FcRouteInInterface\n           is non-zero, then a further comparison determines if the\n           frame was received on the appropriate interface.  If all of\n           these comparisons for a particular entry are successful,\n           then that entry represents a potential route for forwarding\n           the received frame.\n\n           For entries configured by a user, t11FcRouteProto has\n           the value 'netmgmt'; only entries of this type can be\n           deleted by the user.")
-t11FcRouteEntry = MibTableRow((1, 3, 6, 1, 2, 1, 144, 1, 2, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-ROUTE-MIB", "t11FcRouteFabricIndex"), (0, "T11-FC-ROUTE-MIB", "t11FcRouteDestAddrId"), (0, "T11-FC-ROUTE-MIB", "t11FcRouteDestMask"), (0, "T11-FC-ROUTE-MIB", "t11FcRouteSrcAddrId"), (0, "T11-FC-ROUTE-MIB", "t11FcRouteSrcMask"), (0, "T11-FC-ROUTE-MIB", "t11FcRouteInInterface"), (0, "T11-FC-ROUTE-MIB", "t11FcRouteProto"), (0, "T11-FC-ROUTE-MIB", "t11FcRouteOutInterface"))
-if mibBuilder.loadTexts: t11FcRouteEntry.setDescription('Each entry contains a route to a particular destination,\n           possibly from a particular subset of source addresses,\n           on a particular Fabric via a particular output interface\n           and learned in a particular manner.')
-t11FcRouteDestAddrId = MibTableColumn((1, 3, 6, 1, 2, 1, 144, 1, 2, 1, 1), FcAddressIdOrZero().subtype(subtypeSpec=ValueSizeConstraint(3,3)).setFixedLength(3))
-if mibBuilder.loadTexts: t11FcRouteDestAddrId.setDescription('The destination Fibre Channel Address Identifier of\n           this route.  A zero-length string for this field is\n           not allowed.')
-t11FcRouteDestMask = MibTableColumn((1, 3, 6, 1, 2, 1, 144, 1, 2, 1, 2), FcAddressIdOrZero())
-if mibBuilder.loadTexts: t11FcRouteDestMask.setDescription("The mask to be logical-ANDed with a destination\n           Fibre Channel Address Identifier before it is compared\n           to the value in the t11FcRouteDestAddrId field.\n           Allowed values are 255.255.255, 255.255.0, or 255.0.0.\n           FSPF's definition generates routes to a Domain_ID,\n           so the mask for all FSPF-generated routes is 255.0.0.\n           The zero-length value has the same meaning as 0.0.0.")
-t11FcRouteSrcAddrId = MibTableColumn((1, 3, 6, 1, 2, 1, 144, 1, 2, 1, 3), FcAddressIdOrZero())
-if mibBuilder.loadTexts: t11FcRouteSrcAddrId.setDescription('The source Fibre Channel Address Identifier of this\n           route.  Note that if this object and the corresponding\n           instance of t11FcRouteSrcMask both have a value of 0.0.0,\n           then this route matches all source addresses.  The\n           zero-length value has the same meaning as 0.0.0.')
-t11FcRouteSrcMask = MibTableColumn((1, 3, 6, 1, 2, 1, 144, 1, 2, 1, 4), FcAddressIdOrZero())
-if mibBuilder.loadTexts: t11FcRouteSrcMask.setDescription('The mask to be logical-ANDed with a source\n           Fibre Channel Address Identifier before it is compared\n           to the value in the t11FcRouteSrcAddrId field.  Allowed\n           values are 255.255.255, 255.255.0, 255.0.0, or 0.0.0.\n           The zero-length value has the same meaning as 0.0.0.')
-t11FcRouteInInterface = MibTableColumn((1, 3, 6, 1, 2, 1, 144, 1, 2, 1, 5), InterfaceIndexOrZero())
-if mibBuilder.loadTexts: t11FcRouteInInterface.setDescription('If the value of this object is non-zero, it is the\n           value of ifIndex that identifies the local\n           Fibre Channel interface through which a frame\n           must have been received in order to match with\n           this entry.  If the value of this object is zero,\n           the matching does not require that the frame be\n           received on any specific interface.')
-t11FcRouteProto = MibTableColumn((1, 3, 6, 1, 2, 1, 144, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("other", 1), ("local", 2), ("netmgmt", 3), ("fspf", 4),)))
-if mibBuilder.loadTexts: t11FcRouteProto.setDescription('The mechanism via which this route was learned:\n                other(1)  - not specified\n                local(2)  - local interface\n                netmgmt(3)- static route\n                fspf(4)   - Fibre Shortest Path First\n           ')
-t11FcRouteOutInterface = MibTableColumn((1, 3, 6, 1, 2, 1, 144, 1, 2, 1, 7), InterfaceIndex())
-if mibBuilder.loadTexts: t11FcRouteOutInterface.setDescription('The value of ifIndex that identifies the local\n           Fibre Channel interface through which the next hop\n           of this route is to be reached.')
-t11FcRouteDomainId = MibTableColumn((1, 3, 6, 1, 2, 1, 144, 1, 2, 1, 8), FcDomainIdOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: t11FcRouteDomainId.setDescription("The domain_ID of next hop switch.\n\n           This object can have a value of zero if the value\n\n\n\n           of t11FcRouteProto is 'local'.")
-t11FcRouteMetric = MibTableColumn((1, 3, 6, 1, 2, 1, 144, 1, 2, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65536))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: t11FcRouteMetric.setDescription('The routing metric for this route.\n\n           The use of this object is dependent on t11FcRouteProto.')
-t11FcRouteType = MibTableColumn((1, 3, 6, 1, 2, 1, 144, 1, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("local", 1), ("remote", 2),)).clone('local')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: t11FcRouteType.setDescription('The type of route.\n\n           local(1)  - a route for which the next Fibre Channel\n                       port is the final destination;\n           remote(2) - a route for which the next Fibre Channel\n                      port is not the final destination.')
-t11FcRouteIfDown = MibTableColumn((1, 3, 6, 1, 2, 1, 144, 1, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("remove", 1), ("retain", 2),)).clone('retain')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: t11FcRouteIfDown.setDescription("The value of this object indicates what happens to\n           this route when the output interface (given by the\n           corresponding value of t11FcRouteOutInterface) is\n           operationally 'down'.  If this object's value is 'retain',\n           the route is to be retained in this table.  If this\n           object's value is 'remove', the route is to be removed\n           from this table.")
-t11FcRouteStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 144, 1, 2, 1, 12), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: t11FcRouteStorageType.setDescription("The storage type for this conceptual row.\n           Conceptual rows having the value 'permanent' need not\n           allow write-access to any columnar objects in the row.")
-t11FcRouteRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 144, 1, 2, 1, 13), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: t11FcRouteRowStatus.setDescription("The status of this conceptual row.\n           The only rows that can be deleted by setting this object to\n           'destroy' are those for which t11FcRouteProto has the value\n           'netmgmt'.")
-t11FcRouteCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 144, 2, 1))
-t11FcRouteGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 144, 2, 2))
-t11FcRouteCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 144, 2, 1, 1)).setObjects(*(("T11-FC-ROUTE-MIB", "t11FcRouteGroup"),))
-if mibBuilder.loadTexts: t11FcRouteCompliance.setDescription("The compliance statement for entities that\n           implement the T11-FC-ROUTE-MIB.\n--\n-- Note: The next four OBJECT clauses are for auxiliary objects, and the\n-- SMIv2 does not permit inclusion of objects that are not accessible\n-- in an OBJECT clause (see Sections 3.1 & 5.4.3 in STD 58, RFC 2580).\n-- Thus, these four clauses cannot be included below in the normal\n-- location for OBJECT clauses.\n--\n--      OBJECT     t11FcRouteSrcAddrId\n--      SYNTAX     FcAddressIdOrZero (SIZE (0))\n--      DESCRIPTION\n--             'Support is not required for routes that\n--             match only a subset of possible source\n\n\n\n--             addresses.'\n--\n--      OBJECT     t11FcRouteSrcMask\n--      SYNTAX     FcAddressIdOrZero (SIZE (0))\n--      DESCRIPTION\n--             'Support is not required for routes that\n--             match only a subset of possible source\n--             addresses.'\n--\n--      OBJECT     t11FcRouteDestMask\n--      DESCRIPTION\n--             'Support is mandatory only for FSPF-generated\n--             routes.  Since FSPF's definition generates\n--             routes to a Domain_ID, the mask for all\n--             FSPF-generated routes is 255.0.0.  Thus,\n--             support is only required for 255.0.0.'\n--\n--      OBJECT     t11FcRouteInInterface\n--      SYNTAX     InterfaceIndexOrZero (0)\n--      DESCRIPTION\n--             'Support for routes specific to particular\n--             source interfaces is not required.'\n          ")
-t11FcRouteGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 144, 2, 2, 1)).setObjects(*(("T11-FC-ROUTE-MIB", "t11FcRouteFabricLastChange"), ("T11-FC-ROUTE-MIB", "t11FcRouteDomainId"), ("T11-FC-ROUTE-MIB", "t11FcRouteMetric"), ("T11-FC-ROUTE-MIB", "t11FcRouteType"), ("T11-FC-ROUTE-MIB", "t11FcRouteIfDown"), ("T11-FC-ROUTE-MIB", "t11FcRouteStorageType"), ("T11-FC-ROUTE-MIB", "t11FcRouteRowStatus"),))
-if mibBuilder.loadTexts: t11FcRouteGroup.setDescription('A collection of objects for displaying and configuring\n           routes.')
-mibBuilder.exportSymbols("T11-FC-ROUTE-MIB", t11FcRouteTable=t11FcRouteTable, PYSNMP_MODULE_ID=t11FcRouteMIB, t11FcRouteCompliances=t11FcRouteCompliances, t11FcRouteGroup=t11FcRouteGroup, t11FcRouteIfDown=t11FcRouteIfDown, t11FcRouteDestAddrId=t11FcRouteDestAddrId, t11FcRouteGroups=t11FcRouteGroups, t11FcRouteFabricIndex=t11FcRouteFabricIndex, t11FcRouteObjects=t11FcRouteObjects, t11FcRouteProto=t11FcRouteProto, t11FcRouteDomainId=t11FcRouteDomainId, t11FcRouteMIB=t11FcRouteMIB, t11FcRouteConformance=t11FcRouteConformance, t11FcRouteInInterface=t11FcRouteInInterface, t11FcRouteOutInterface=t11FcRouteOutInterface, t11FcRouteCompliance=t11FcRouteCompliance, t11FcRouteNotifications=t11FcRouteNotifications, t11FcRouteEntry=t11FcRouteEntry, t11FcRouteDestMask=t11FcRouteDestMask, t11FcRouteMetric=t11FcRouteMetric, t11FcRouteStorageType=t11FcRouteStorageType, t11FcRouteFabricTable=t11FcRouteFabricTable, t11FcRouteType=t11FcRouteType, t11FcRouteSrcMask=t11FcRouteSrcMask, t11FcRouteRowStatus=t11FcRouteRowStatus, t11FcRouteFabricLastChange=t11FcRouteFabricLastChange, t11FcRouteSrcAddrId=t11FcRouteSrcAddrId, t11FcRouteFabricEntry=t11FcRouteFabricEntry)
+_a='t11FcRouteGroup'
+_Z='t11FcRouteRowStatus'
+_Y='t11FcRouteStorageType'
+_X='t11FcRouteIfDown'
+_W='t11FcRouteType'
+_V='t11FcRouteMetric'
+_U='t11FcRouteDomainId'
+_T='t11FcRouteFabricLastChange'
+_S='t11FcRouteOutInterface'
+_R='t11FcRouteProto'
+_Q='t11FcRouteInInterface'
+_P='t11FcRouteSrcMask'
+_O='t11FcRouteSrcAddrId'
+_N='t11FcRouteDestMask'
+_M='t11FcRouteDestAddrId'
+_L='StorageType'
+_K='Unsigned32'
+_J='FcAddressIdOrZero'
+_I='t11FcRouteFabricIndex'
+_H='fcmSwitchIndex'
+_G='fcmInstanceIndex'
+_F='Integer32'
+_E='FC-MGMT-MIB'
+_D='read-create'
+_C='not-accessible'
+_B='T11-FC-ROUTE-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+FcAddressIdOrZero,FcDomainIdOrZero,fcmInstanceIndex,fcmSwitchIndex=mibBuilder.importSymbols(_E,_J,'FcDomainIdOrZero',_G,_H)
+InterfaceIndex,InterfaceIndexOrZero=mibBuilder.importSymbols('IF-MIB','InterfaceIndex','InterfaceIndexOrZero')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_K,'iso','mib-2')
+DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_L,'TextualConvention','TimeStamp')
+T11FabricIndex,=mibBuilder.importSymbols('T11-TC-MIB','T11FabricIndex')
+t11FcRouteMIB=ModuleIdentity((1,3,6,1,2,1,144))
+if mibBuilder.loadTexts:t11FcRouteMIB.setRevisions(('2006-08-14 00:00',))
+_T11FcRouteNotifications_ObjectIdentity=ObjectIdentity
+t11FcRouteNotifications=_T11FcRouteNotifications_ObjectIdentity((1,3,6,1,2,1,144,0))
+_T11FcRouteObjects_ObjectIdentity=ObjectIdentity
+t11FcRouteObjects=_T11FcRouteObjects_ObjectIdentity((1,3,6,1,2,1,144,1))
+_T11FcRouteFabricTable_Object=MibTable
+t11FcRouteFabricTable=_T11FcRouteFabricTable_Object((1,3,6,1,2,1,144,1,1))
+if mibBuilder.loadTexts:t11FcRouteFabricTable.setStatus(_A)
+_T11FcRouteFabricEntry_Object=MibTableRow
+t11FcRouteFabricEntry=_T11FcRouteFabricEntry_Object((1,3,6,1,2,1,144,1,1,1))
+t11FcRouteFabricEntry.setIndexNames((0,_E,_G),(0,_E,_H),(0,_B,_I))
+if mibBuilder.loadTexts:t11FcRouteFabricEntry.setStatus(_A)
+_T11FcRouteFabricIndex_Type=T11FabricIndex
+_T11FcRouteFabricIndex_Object=MibTableColumn
+t11FcRouteFabricIndex=_T11FcRouteFabricIndex_Object((1,3,6,1,2,1,144,1,1,1,1),_T11FcRouteFabricIndex_Type())
+t11FcRouteFabricIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRouteFabricIndex.setStatus(_A)
+_T11FcRouteFabricLastChange_Type=TimeStamp
+_T11FcRouteFabricLastChange_Object=MibTableColumn
+t11FcRouteFabricLastChange=_T11FcRouteFabricLastChange_Object((1,3,6,1,2,1,144,1,1,1,2),_T11FcRouteFabricLastChange_Type())
+t11FcRouteFabricLastChange.setMaxAccess('read-only')
+if mibBuilder.loadTexts:t11FcRouteFabricLastChange.setStatus(_A)
+_T11FcRouteTable_Object=MibTable
+t11FcRouteTable=_T11FcRouteTable_Object((1,3,6,1,2,1,144,1,2))
+if mibBuilder.loadTexts:t11FcRouteTable.setStatus(_A)
+_T11FcRouteEntry_Object=MibTableRow
+t11FcRouteEntry=_T11FcRouteEntry_Object((1,3,6,1,2,1,144,1,2,1))
+t11FcRouteEntry.setIndexNames((0,_E,_G),(0,_E,_H),(0,_B,_I),(0,_B,_M),(0,_B,_N),(0,_B,_O),(0,_B,_P),(0,_B,_Q),(0,_B,_R),(0,_B,_S))
+if mibBuilder.loadTexts:t11FcRouteEntry.setStatus(_A)
+class _T11FcRouteDestAddrId_Type(FcAddressIdOrZero):subtypeSpec=FcAddressIdOrZero.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,3));fixedLength=3
+_T11FcRouteDestAddrId_Type.__name__=_J
+_T11FcRouteDestAddrId_Object=MibTableColumn
+t11FcRouteDestAddrId=_T11FcRouteDestAddrId_Object((1,3,6,1,2,1,144,1,2,1,1),_T11FcRouteDestAddrId_Type())
+t11FcRouteDestAddrId.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRouteDestAddrId.setStatus(_A)
+_T11FcRouteDestMask_Type=FcAddressIdOrZero
+_T11FcRouteDestMask_Object=MibTableColumn
+t11FcRouteDestMask=_T11FcRouteDestMask_Object((1,3,6,1,2,1,144,1,2,1,2),_T11FcRouteDestMask_Type())
+t11FcRouteDestMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRouteDestMask.setStatus(_A)
+_T11FcRouteSrcAddrId_Type=FcAddressIdOrZero
+_T11FcRouteSrcAddrId_Object=MibTableColumn
+t11FcRouteSrcAddrId=_T11FcRouteSrcAddrId_Object((1,3,6,1,2,1,144,1,2,1,3),_T11FcRouteSrcAddrId_Type())
+t11FcRouteSrcAddrId.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRouteSrcAddrId.setStatus(_A)
+_T11FcRouteSrcMask_Type=FcAddressIdOrZero
+_T11FcRouteSrcMask_Object=MibTableColumn
+t11FcRouteSrcMask=_T11FcRouteSrcMask_Object((1,3,6,1,2,1,144,1,2,1,4),_T11FcRouteSrcMask_Type())
+t11FcRouteSrcMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRouteSrcMask.setStatus(_A)
+_T11FcRouteInInterface_Type=InterfaceIndexOrZero
+_T11FcRouteInInterface_Object=MibTableColumn
+t11FcRouteInInterface=_T11FcRouteInInterface_Object((1,3,6,1,2,1,144,1,2,1,5),_T11FcRouteInInterface_Type())
+t11FcRouteInInterface.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRouteInInterface.setStatus(_A)
+class _T11FcRouteProto_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('other',1),('local',2),('netmgmt',3),('fspf',4)))
+_T11FcRouteProto_Type.__name__=_F
+_T11FcRouteProto_Object=MibTableColumn
+t11FcRouteProto=_T11FcRouteProto_Object((1,3,6,1,2,1,144,1,2,1,6),_T11FcRouteProto_Type())
+t11FcRouteProto.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRouteProto.setStatus(_A)
+_T11FcRouteOutInterface_Type=InterfaceIndex
+_T11FcRouteOutInterface_Object=MibTableColumn
+t11FcRouteOutInterface=_T11FcRouteOutInterface_Object((1,3,6,1,2,1,144,1,2,1,7),_T11FcRouteOutInterface_Type())
+t11FcRouteOutInterface.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRouteOutInterface.setStatus(_A)
+_T11FcRouteDomainId_Type=FcDomainIdOrZero
+_T11FcRouteDomainId_Object=MibTableColumn
+t11FcRouteDomainId=_T11FcRouteDomainId_Object((1,3,6,1,2,1,144,1,2,1,8),_T11FcRouteDomainId_Type())
+t11FcRouteDomainId.setMaxAccess(_D)
+if mibBuilder.loadTexts:t11FcRouteDomainId.setStatus(_A)
+class _T11FcRouteMetric_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65536))
+_T11FcRouteMetric_Type.__name__=_K
+_T11FcRouteMetric_Object=MibTableColumn
+t11FcRouteMetric=_T11FcRouteMetric_Object((1,3,6,1,2,1,144,1,2,1,9),_T11FcRouteMetric_Type())
+t11FcRouteMetric.setMaxAccess(_D)
+if mibBuilder.loadTexts:t11FcRouteMetric.setStatus(_A)
+class _T11FcRouteType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('local',1),('remote',2)))
+_T11FcRouteType_Type.__name__=_F
+_T11FcRouteType_Object=MibTableColumn
+t11FcRouteType=_T11FcRouteType_Object((1,3,6,1,2,1,144,1,2,1,10),_T11FcRouteType_Type())
+t11FcRouteType.setMaxAccess(_D)
+if mibBuilder.loadTexts:t11FcRouteType.setStatus(_A)
+class _T11FcRouteIfDown_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('remove',1),('retain',2)))
+_T11FcRouteIfDown_Type.__name__=_F
+_T11FcRouteIfDown_Object=MibTableColumn
+t11FcRouteIfDown=_T11FcRouteIfDown_Object((1,3,6,1,2,1,144,1,2,1,11),_T11FcRouteIfDown_Type())
+t11FcRouteIfDown.setMaxAccess(_D)
+if mibBuilder.loadTexts:t11FcRouteIfDown.setStatus(_A)
+class _T11FcRouteStorageType_Type(StorageType):defaultValue=3
+_T11FcRouteStorageType_Type.__name__=_L
+_T11FcRouteStorageType_Object=MibTableColumn
+t11FcRouteStorageType=_T11FcRouteStorageType_Object((1,3,6,1,2,1,144,1,2,1,12),_T11FcRouteStorageType_Type())
+t11FcRouteStorageType.setMaxAccess(_D)
+if mibBuilder.loadTexts:t11FcRouteStorageType.setStatus(_A)
+_T11FcRouteRowStatus_Type=RowStatus
+_T11FcRouteRowStatus_Object=MibTableColumn
+t11FcRouteRowStatus=_T11FcRouteRowStatus_Object((1,3,6,1,2,1,144,1,2,1,13),_T11FcRouteRowStatus_Type())
+t11FcRouteRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:t11FcRouteRowStatus.setStatus(_A)
+_T11FcRouteConformance_ObjectIdentity=ObjectIdentity
+t11FcRouteConformance=_T11FcRouteConformance_ObjectIdentity((1,3,6,1,2,1,144,2))
+_T11FcRouteCompliances_ObjectIdentity=ObjectIdentity
+t11FcRouteCompliances=_T11FcRouteCompliances_ObjectIdentity((1,3,6,1,2,1,144,2,1))
+_T11FcRouteGroups_ObjectIdentity=ObjectIdentity
+t11FcRouteGroups=_T11FcRouteGroups_ObjectIdentity((1,3,6,1,2,1,144,2,2))
+t11FcRouteGroup=ObjectGroup((1,3,6,1,2,1,144,2,2,1))
+t11FcRouteGroup.setObjects(*((_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z)))
+if mibBuilder.loadTexts:t11FcRouteGroup.setStatus(_A)
+t11FcRouteCompliance=ModuleCompliance((1,3,6,1,2,1,144,2,1,1))
+t11FcRouteCompliance.setObjects((_B,_a))
+if mibBuilder.loadTexts:t11FcRouteCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'t11FcRouteMIB':t11FcRouteMIB,'t11FcRouteNotifications':t11FcRouteNotifications,'t11FcRouteObjects':t11FcRouteObjects,'t11FcRouteFabricTable':t11FcRouteFabricTable,'t11FcRouteFabricEntry':t11FcRouteFabricEntry,_I:t11FcRouteFabricIndex,_T:t11FcRouteFabricLastChange,'t11FcRouteTable':t11FcRouteTable,'t11FcRouteEntry':t11FcRouteEntry,_M:t11FcRouteDestAddrId,_N:t11FcRouteDestMask,_O:t11FcRouteSrcAddrId,_P:t11FcRouteSrcMask,_Q:t11FcRouteInInterface,_R:t11FcRouteProto,_S:t11FcRouteOutInterface,_U:t11FcRouteDomainId,_V:t11FcRouteMetric,_W:t11FcRouteType,_X:t11FcRouteIfDown,_Y:t11FcRouteStorageType,_Z:t11FcRouteRowStatus,'t11FcRouteConformance':t11FcRouteConformance,'t11FcRouteCompliances':t11FcRouteCompliances,'t11FcRouteCompliance':t11FcRouteCompliance,'t11FcRouteGroups':t11FcRouteGroups,_a:t11FcRouteGroup})

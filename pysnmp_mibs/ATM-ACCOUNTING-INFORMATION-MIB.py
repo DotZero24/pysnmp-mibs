@@ -1,95 +1,202 @@
-#
-# PySNMP MIB module ATM-ACCOUNTING-INFORMATION-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/ATM-ACCOUNTING-INFORMATION-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:06:19 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, OctetString, Integer, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
-( ciscoExperiment, ) = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
-( ModuleCompliance, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-( iso, Gauge32, Counter32, ObjectIdentity, Counter64, Unsigned32, IpAddress, ModuleIdentity, Bits, TimeTicks, MibIdentifier, NotificationType, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, ) = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Gauge32", "Counter32", "ObjectIdentity", "Counter64", "Unsigned32", "IpAddress", "ModuleIdentity", "Bits", "TimeTicks", "MibIdentifier", "NotificationType", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-( DisplayString, TextualConvention, DateAndTime, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "DateAndTime")
-atmAccountingInformationMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 18)).setRevisions(("1997-11-05 00:00",))
-if mibBuilder.loadTexts: atmAccountingInformationMIB.setLastUpdated('9711050000Z')
-if mibBuilder.loadTexts: atmAccountingInformationMIB.setOrganization('IETF AToM MIB Working Group')
-if mibBuilder.loadTexts: atmAccountingInformationMIB.setContactInfo('\n                  Keith McCloghrie\n                  Cisco Systems, Inc.\n                  170 West Tasman Drive,\n                  San Jose CA 95134-1706.\n                  Phone: +1 408 526 5260\n                  Email: kzm@cisco.com')
-if mibBuilder.loadTexts: atmAccountingInformationMIB.setDescription('The MIB module for identifying items of accounting\n            information which are applicable to ATM connections.')
-atmAcctngMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 18, 1))
-class AtmAddr(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(8,8),ValueSizeConstraint(20,20),)
-atmAcctngDataObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1))
-if mibBuilder.loadTexts: atmAcctngDataObjects.setDescription('This identifier defines a subtree under which various\n            objects are defined such that a set of objects to be\n            collected as ATM accounting data can be specified as a\n            (subtree, list) tuple using this identifier as the subtree.')
-atmAcctngConnectionType = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,))).clone(namedValues=NamedValues(("pvc", 1), ("pvp", 2), ("svcIncoming", 3), ("svcOutgoing", 4), ("svpIncoming", 5), ("svpOutgoing", 6), ("spvcInitiator", 7), ("spvcTarget", 8), ("spvpInitiator", 9), ("spvpTarget", 10),)))
-if mibBuilder.loadTexts: atmAcctngConnectionType.setDescription('The type of connection.')
-atmAcctngCastType = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("p2p", 1), ("p2mp", 2),)))
-if mibBuilder.loadTexts: atmAcctngCastType.setDescription('An indication of whether the connection is point-to-point\n            or point-to-multipoint.')
-atmAcctngIfName = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 3), DisplayString())
-if mibBuilder.loadTexts: atmAcctngIfName.setDescription('A textual name for the interface on which the data for the\n            connection was collected.  If the local SNMP agent supports\n            the object ifName, the value of this object must be\n            identical that of ifName in the conceptual row of the\n            ifTable corresponding to this interface.')
-atmAcctngIfAlias = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 4), DisplayString())
-if mibBuilder.loadTexts: atmAcctngIfAlias.setDescription("The 'alias' name for the interface as specified by a\n            network manager, e.g., via a management set operation to\n            modify the relevant instance of the ifAlias object.  Note\n            that in contrast to ifIndex, ifAlias provides a non-volatile\n            'handle' for the interface, the value of which is retained\n            across agent reboots.")
-atmAcctngVpi = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4095)))
-if mibBuilder.loadTexts: atmAcctngVpi.setDescription('The VPI used for the connection.')
-atmAcctngVci = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)))
-if mibBuilder.loadTexts: atmAcctngVci.setDescription('The VCI used for the connection.')
-atmAcctngCallingParty = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 7), AtmAddr())
-if mibBuilder.loadTexts: atmAcctngCallingParty.setDescription("The connection's calling party.  If unknown (e.g., for a\n            PVC), then the value of this object is the zero-length\n            string.")
-atmAcctngCalledParty = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 8), AtmAddr())
-if mibBuilder.loadTexts: atmAcctngCalledParty.setDescription("The connection's called party.  If unknown (e.g., for a\n            PVC), then the value of this object is the zero-length\n            string.")
-atmAcctngCallReference = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,3)))
-if mibBuilder.loadTexts: atmAcctngCallReference.setDescription("The connection's call reference value (e.g., from Q.2931).\n            If unknown (e.g., for a PVC), then the value of this object\n            is the zero-length string.")
-atmAcctngStartTime = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 10), DateAndTime())
-if mibBuilder.loadTexts: atmAcctngStartTime.setDescription('The time when the connection was established.')
-atmAcctngCollectionTime = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 11), DateAndTime())
-if mibBuilder.loadTexts: atmAcctngCollectionTime.setDescription('The time at which the data in this record was collected.')
-atmAcctngCollectMode = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("onRelease", 1), ("periodically", 2), ("onCommand", 3),)))
-if mibBuilder.loadTexts: atmAcctngCollectMode.setDescription('The reason why this connection data was collected.')
-atmAcctngReleaseCause = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 13), Integer32())
-if mibBuilder.loadTexts: atmAcctngReleaseCause.setDescription('If the connection data was collected because of the release\n\n            of an SVC, then this is the cause code in the Release\n            message for the connection; otherwise, this object has the\n            value zero.')
-atmAcctngServiceCategory = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7,))).clone(namedValues=NamedValues(("other", 1), ("cbr", 2), ("vbrRt", 3), ("vbrNrt", 4), ("abr", 5), ("ubr", 6), ("unknown", 7),)))
-if mibBuilder.loadTexts: atmAcctngServiceCategory.setDescription("The connection's service category.")
-atmAcctngTransmittedCells = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 15), Counter64())
-if mibBuilder.loadTexts: atmAcctngTransmittedCells.setDescription('The number of cells, including OAM cells, transmitted by\n            this switch on this connection.')
-atmAcctngTransmittedClp0Cells = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 16), Counter64())
-if mibBuilder.loadTexts: atmAcctngTransmittedClp0Cells.setDescription('The number of cells with CLP=0, including OAM cells,\n            transmitted by this switch on this connection.')
-atmAcctngReceivedCells = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 17), Counter64())
-if mibBuilder.loadTexts: atmAcctngReceivedCells.setDescription('The number of cells, including OAM cells, received by this\n            switch on this connection.')
-atmAcctngReceivedClp0Cells = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 18), Counter64())
-if mibBuilder.loadTexts: atmAcctngReceivedClp0Cells.setDescription('The number of cells with CLP=0, including OAM cells,\n            received by this switch on this connection.')
-atmAcctngTransmitTrafficDescriptorType = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 19), ObjectIdentifier())
-if mibBuilder.loadTexts: atmAcctngTransmitTrafficDescriptorType.setDescription('The traffic descriptor type (as defined in RFC 1695 and its\n            successors) in the direction in which the switch transmits\n            cells on the connection.')
-atmAcctngTransmitTrafficDescriptorParam1 = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647)))
-if mibBuilder.loadTexts: atmAcctngTransmitTrafficDescriptorParam1.setDescription('The first traffic descriptor parameter in the direction in\n            which this switch transmits cells on this connection.\n            Interpretation of this parameter is dependent on the value\n            of atmAcctngTransmitTrafficDescriptorType.')
-atmAcctngTransmitTrafficDescriptorParam2 = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647)))
-if mibBuilder.loadTexts: atmAcctngTransmitTrafficDescriptorParam2.setDescription('The second traffic descriptor parameter in the direction in\n            which this switch transmits cells on this connection.\n            Interpretation of this parameter is dependent on the value\n            of atmAcctngTransmitTrafficDescriptorType.')
-atmAcctngTransmitTrafficDescriptorParam3 = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 22), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647)))
-if mibBuilder.loadTexts: atmAcctngTransmitTrafficDescriptorParam3.setDescription('The third traffic descriptor parameter in the direction in\n            which this switch transmits cells on this connection.\n            Interpretation of this parameter is dependent on the value\n            of atmAcctngTransmitTrafficDescriptorType.')
-atmAcctngTransmitTrafficDescriptorParam4 = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 23), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647)))
-if mibBuilder.loadTexts: atmAcctngTransmitTrafficDescriptorParam4.setDescription('The fourth traffic descriptor parameter in the direction in\n            which this switch transmits cells on this connection.\n            Interpretation of this parameter is dependent on the value\n            of atmAcctngTransmitTrafficDescriptorType.')
-atmAcctngTransmitTrafficDescriptorParam5 = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 24), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647)))
-if mibBuilder.loadTexts: atmAcctngTransmitTrafficDescriptorParam5.setDescription('The fifth traffic descriptor parameter in the direction in\n            which this switch transmits cells on this connection.\n            Interpretation of this parameter is dependent on the value\n            of atmAcctngTransmitTrafficDescriptorType.')
-atmAcctngReceiveTrafficDescriptorType = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 25), ObjectIdentifier())
-if mibBuilder.loadTexts: atmAcctngReceiveTrafficDescriptorType.setDescription('The traffic descriptor type (as defined in RFC 1695 and its\n            successors) in the direction in which this switch receives\n            cells on this connection.')
-atmAcctngReceiveTrafficDescriptorParam1 = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 26), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647)))
-if mibBuilder.loadTexts: atmAcctngReceiveTrafficDescriptorParam1.setDescription('The first traffic descriptor parameter in the direction in\n            which this switch receives cells on this connection.\n            Interpretation of this parameter is dependent on the value\n            of atmAcctngReceiveTrafficDescriptorType.')
-atmAcctngReceiveTrafficDescriptorParam2 = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 27), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647)))
-if mibBuilder.loadTexts: atmAcctngReceiveTrafficDescriptorParam2.setDescription('The second traffic descriptor parameter in the direction in\n            which this switch receives cells on this connection.\n            Interpretation of this parameter is dependent on the value\n            of atmAcctngReceiveTrafficDescriptorType.')
-atmAcctngReceiveTrafficDescriptorParam3 = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 28), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647)))
-if mibBuilder.loadTexts: atmAcctngReceiveTrafficDescriptorParam3.setDescription('The third traffic descriptor parameter in the direction in\n            which this switch receives cells on this connection.\n            Interpretation of this parameter is dependent on the value\n            of atmAcctngReceiveTrafficDescriptorType.')
-atmAcctngReceiveTrafficDescriptorParam4 = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 29), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647)))
-if mibBuilder.loadTexts: atmAcctngReceiveTrafficDescriptorParam4.setDescription('The fourth traffic descriptor parameter in the direction in\n            which this switch receives cells on this connection.\n            Interpretation of this parameter is dependent on the value\n            of atmAcctngReceiveTrafficDescriptorType.')
-atmAcctngReceiveTrafficDescriptorParam5 = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 30), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647)))
-if mibBuilder.loadTexts: atmAcctngReceiveTrafficDescriptorParam5.setDescription('The fifth traffic descriptor parameter in the direction in\n            which this switch receives cells on this connection.\n            Interpretation of this parameter is dependent on the value\n            of atmAcctngReceiveTrafficDescriptorType.')
-atmAcctngCallingPartySubAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 31), AtmAddr())
-if mibBuilder.loadTexts: atmAcctngCallingPartySubAddress.setDescription("The connection's calling party sub-address.  If the\n            connection has no calling party sub-address, or it's value\n            is unknown, then the value of this object is the zero-length\n            string.")
-atmAcctngCalledPartySubAddress = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 32), AtmAddr())
-if mibBuilder.loadTexts: atmAcctngCalledPartySubAddress.setDescription("The connection's called party sub-address.  If the\n            connection has no called party sub-address, or it's value is\n            unknown, then the value of this object is the zero-length\n            string.")
-atmAcctngRecordCrc16 = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 33), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2,2)).setFixedLength(2))
-if mibBuilder.loadTexts: atmAcctngRecordCrc16.setDescription("The value of the CRC-16 checksum (as defined by ISO 3309\n            (HDLC) and/or ITU X.25) calculated over the accounting\n            record containing this object.\n\n            While the mechanism for calculating/encoding the checksum\n            value is specific to the method of encoding the accounting\n            record, an accounting record containing this object is\n            typically generated by initializing the value of this object\n            to the all-zeros string ('0000'H), with the location of\n            these zeros being saved.  After generating the record, the\n            checksum is calculated over the whole connection record and\n            then the all-zeros value is overwritten (at the saved\n            location) by the calculated value of the checksum.")
-atmAcctngTransmittedPeakCells = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 34), Integer32())
-if mibBuilder.loadTexts: atmAcctngTransmittedPeakCells.setDescription("The number of cells transmitted on the connection within\n              the peak 5-second sub-interval, where the peak sub-interval\n              is the one having the highest value of any sub-interval in\n              the current/completing accounting period.  One accounting\n              period ends and the next starts at the time of each\n              'periodic' collection of accounting information.  A value\n              of '-1' indicates that no peak value is available.")
-atmAcctngReceivedPeakCells = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 18, 1, 1, 35), Integer32())
-if mibBuilder.loadTexts: atmAcctngReceivedPeakCells.setDescription("The number of cells received on the connection within\n              the peak 5-second sub-interval, where the peak sub-interval\n              is the one having the highest value of any sub-interval in\n              the current/completing accounting period.  One accounting\n              period ends and the next starts at the time of each\n              'periodic' collection of accounting information.  A value\n              of '-1' indicates that no peak value is available.")
-mibBuilder.exportSymbols("ATM-ACCOUNTING-INFORMATION-MIB", atmAcctngMIBObjects=atmAcctngMIBObjects, atmAcctngReceiveTrafficDescriptorParam5=atmAcctngReceiveTrafficDescriptorParam5, atmAcctngTransmitTrafficDescriptorParam1=atmAcctngTransmitTrafficDescriptorParam1, atmAccountingInformationMIB=atmAccountingInformationMIB, atmAcctngTransmitTrafficDescriptorType=atmAcctngTransmitTrafficDescriptorType, atmAcctngReceivedPeakCells=atmAcctngReceivedPeakCells, atmAcctngTransmitTrafficDescriptorParam5=atmAcctngTransmitTrafficDescriptorParam5, atmAcctngVpi=atmAcctngVpi, atmAcctngTransmitTrafficDescriptorParam2=atmAcctngTransmitTrafficDescriptorParam2, atmAcctngCallingPartySubAddress=atmAcctngCallingPartySubAddress, atmAcctngReceiveTrafficDescriptorType=atmAcctngReceiveTrafficDescriptorType, atmAcctngReceiveTrafficDescriptorParam1=atmAcctngReceiveTrafficDescriptorParam1, atmAcctngTransmittedPeakCells=atmAcctngTransmittedPeakCells, atmAcctngIfAlias=atmAcctngIfAlias, atmAcctngTransmitTrafficDescriptorParam4=atmAcctngTransmitTrafficDescriptorParam4, atmAcctngCollectMode=atmAcctngCollectMode, atmAcctngVci=atmAcctngVci, atmAcctngRecordCrc16=atmAcctngRecordCrc16, atmAcctngReceivedCells=atmAcctngReceivedCells, atmAcctngReleaseCause=atmAcctngReleaseCause, atmAcctngReceiveTrafficDescriptorParam2=atmAcctngReceiveTrafficDescriptorParam2, atmAcctngTransmittedClp0Cells=atmAcctngTransmittedClp0Cells, atmAcctngReceiveTrafficDescriptorParam4=atmAcctngReceiveTrafficDescriptorParam4, atmAcctngCalledPartySubAddress=atmAcctngCalledPartySubAddress, atmAcctngCallingParty=atmAcctngCallingParty, atmAcctngReceiveTrafficDescriptorParam3=atmAcctngReceiveTrafficDescriptorParam3, atmAcctngCollectionTime=atmAcctngCollectionTime, atmAcctngStartTime=atmAcctngStartTime, atmAcctngConnectionType=atmAcctngConnectionType, atmAcctngIfName=atmAcctngIfName, atmAcctngCallReference=atmAcctngCallReference, atmAcctngTransmitTrafficDescriptorParam3=atmAcctngTransmitTrafficDescriptorParam3, atmAcctngDataObjects=atmAcctngDataObjects, atmAcctngCastType=atmAcctngCastType, atmAcctngReceivedClp0Cells=atmAcctngReceivedClp0Cells, PYSNMP_MODULE_ID=atmAccountingInformationMIB, AtmAddr=AtmAddr, atmAcctngCalledParty=atmAcctngCalledParty, atmAcctngServiceCategory=atmAcctngServiceCategory, atmAcctngTransmittedCells=atmAcctngTransmittedCells)
+_D='OctetString'
+_C='Integer32'
+_B='not-accessible'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+AtmAddr,=mibBuilder.importSymbols('ATM-TC-MIB','AtmAddr')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention')
+atmAccountingInformationMIB=ModuleIdentity((1,3,6,1,2,1,59))
+_AtmAcctngMIBObjects_ObjectIdentity=ObjectIdentity
+atmAcctngMIBObjects=_AtmAcctngMIBObjects_ObjectIdentity((1,3,6,1,2,1,59,1))
+_AtmAcctngDataObjects_ObjectIdentity=ObjectIdentity
+atmAcctngDataObjects=_AtmAcctngDataObjects_ObjectIdentity((1,3,6,1,2,1,59,1,1))
+if mibBuilder.loadTexts:atmAcctngDataObjects.setStatus(_A)
+class _AtmAcctngConnectionType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*(('pvc',1),('pvp',2),('svcIncoming',3),('svcOutgoing',4),('svpIncoming',5),('svpOutgoing',6),('spvcInitiator',7),('spvcTarget',8),('spvpInitiator',9),('spvpTarget',10)))
+_AtmAcctngConnectionType_Type.__name__=_C
+_AtmAcctngConnectionType_Object=MibScalar
+atmAcctngConnectionType=_AtmAcctngConnectionType_Object((1,3,6,1,2,1,59,1,1,1),_AtmAcctngConnectionType_Type())
+atmAcctngConnectionType.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngConnectionType.setStatus(_A)
+class _AtmAcctngCastType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('p2p',1),('p2mp',2)))
+_AtmAcctngCastType_Type.__name__=_C
+_AtmAcctngCastType_Object=MibScalar
+atmAcctngCastType=_AtmAcctngCastType_Object((1,3,6,1,2,1,59,1,1,2),_AtmAcctngCastType_Type())
+atmAcctngCastType.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngCastType.setStatus(_A)
+_AtmAcctngIfName_Type=DisplayString
+_AtmAcctngIfName_Object=MibScalar
+atmAcctngIfName=_AtmAcctngIfName_Object((1,3,6,1,2,1,59,1,1,3),_AtmAcctngIfName_Type())
+atmAcctngIfName.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngIfName.setStatus(_A)
+_AtmAcctngIfAlias_Type=DisplayString
+_AtmAcctngIfAlias_Object=MibScalar
+atmAcctngIfAlias=_AtmAcctngIfAlias_Object((1,3,6,1,2,1,59,1,1,4),_AtmAcctngIfAlias_Type())
+atmAcctngIfAlias.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngIfAlias.setStatus(_A)
+class _AtmAcctngVpi_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
+_AtmAcctngVpi_Type.__name__=_C
+_AtmAcctngVpi_Object=MibScalar
+atmAcctngVpi=_AtmAcctngVpi_Object((1,3,6,1,2,1,59,1,1,5),_AtmAcctngVpi_Type())
+atmAcctngVpi.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngVpi.setStatus(_A)
+class _AtmAcctngVci_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_AtmAcctngVci_Type.__name__=_C
+_AtmAcctngVci_Object=MibScalar
+atmAcctngVci=_AtmAcctngVci_Object((1,3,6,1,2,1,59,1,1,6),_AtmAcctngVci_Type())
+atmAcctngVci.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngVci.setStatus(_A)
+_AtmAcctngCallingParty_Type=AtmAddr
+_AtmAcctngCallingParty_Object=MibScalar
+atmAcctngCallingParty=_AtmAcctngCallingParty_Object((1,3,6,1,2,1,59,1,1,7),_AtmAcctngCallingParty_Type())
+atmAcctngCallingParty.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngCallingParty.setStatus(_A)
+_AtmAcctngCalledParty_Type=AtmAddr
+_AtmAcctngCalledParty_Object=MibScalar
+atmAcctngCalledParty=_AtmAcctngCalledParty_Object((1,3,6,1,2,1,59,1,1,8),_AtmAcctngCalledParty_Type())
+atmAcctngCalledParty.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngCalledParty.setStatus(_A)
+class _AtmAcctngCallReference_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,3))
+_AtmAcctngCallReference_Type.__name__=_D
+_AtmAcctngCallReference_Object=MibScalar
+atmAcctngCallReference=_AtmAcctngCallReference_Object((1,3,6,1,2,1,59,1,1,9),_AtmAcctngCallReference_Type())
+atmAcctngCallReference.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngCallReference.setStatus(_A)
+_AtmAcctngStartTime_Type=DateAndTime
+_AtmAcctngStartTime_Object=MibScalar
+atmAcctngStartTime=_AtmAcctngStartTime_Object((1,3,6,1,2,1,59,1,1,10),_AtmAcctngStartTime_Type())
+atmAcctngStartTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngStartTime.setStatus(_A)
+_AtmAcctngCollectionTime_Type=DateAndTime
+_AtmAcctngCollectionTime_Object=MibScalar
+atmAcctngCollectionTime=_AtmAcctngCollectionTime_Object((1,3,6,1,2,1,59,1,1,11),_AtmAcctngCollectionTime_Type())
+atmAcctngCollectionTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngCollectionTime.setStatus(_A)
+class _AtmAcctngCollectMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('onRelease',1),('periodically',2),('onCommand',3)))
+_AtmAcctngCollectMode_Type.__name__=_C
+_AtmAcctngCollectMode_Object=MibScalar
+atmAcctngCollectMode=_AtmAcctngCollectMode_Object((1,3,6,1,2,1,59,1,1,12),_AtmAcctngCollectMode_Type())
+atmAcctngCollectMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngCollectMode.setStatus(_A)
+_AtmAcctngReleaseCause_Type=Integer32
+_AtmAcctngReleaseCause_Object=MibScalar
+atmAcctngReleaseCause=_AtmAcctngReleaseCause_Object((1,3,6,1,2,1,59,1,1,13),_AtmAcctngReleaseCause_Type())
+atmAcctngReleaseCause.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngReleaseCause.setStatus(_A)
+class _AtmAcctngServiceCategory_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('other',1),('cbr',2),('vbrRt',3),('vbrNrt',4),('abr',5),('ubr',6),('unknown',7)))
+_AtmAcctngServiceCategory_Type.__name__=_C
+_AtmAcctngServiceCategory_Object=MibScalar
+atmAcctngServiceCategory=_AtmAcctngServiceCategory_Object((1,3,6,1,2,1,59,1,1,14),_AtmAcctngServiceCategory_Type())
+atmAcctngServiceCategory.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngServiceCategory.setStatus(_A)
+_AtmAcctngTransmittedCells_Type=Counter64
+_AtmAcctngTransmittedCells_Object=MibScalar
+atmAcctngTransmittedCells=_AtmAcctngTransmittedCells_Object((1,3,6,1,2,1,59,1,1,15),_AtmAcctngTransmittedCells_Type())
+atmAcctngTransmittedCells.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngTransmittedCells.setStatus(_A)
+_AtmAcctngTransmittedClp0Cells_Type=Counter64
+_AtmAcctngTransmittedClp0Cells_Object=MibScalar
+atmAcctngTransmittedClp0Cells=_AtmAcctngTransmittedClp0Cells_Object((1,3,6,1,2,1,59,1,1,16),_AtmAcctngTransmittedClp0Cells_Type())
+atmAcctngTransmittedClp0Cells.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngTransmittedClp0Cells.setStatus(_A)
+_AtmAcctngReceivedCells_Type=Counter64
+_AtmAcctngReceivedCells_Object=MibScalar
+atmAcctngReceivedCells=_AtmAcctngReceivedCells_Object((1,3,6,1,2,1,59,1,1,17),_AtmAcctngReceivedCells_Type())
+atmAcctngReceivedCells.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngReceivedCells.setStatus(_A)
+_AtmAcctngReceivedClp0Cells_Type=Counter64
+_AtmAcctngReceivedClp0Cells_Object=MibScalar
+atmAcctngReceivedClp0Cells=_AtmAcctngReceivedClp0Cells_Object((1,3,6,1,2,1,59,1,1,18),_AtmAcctngReceivedClp0Cells_Type())
+atmAcctngReceivedClp0Cells.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngReceivedClp0Cells.setStatus(_A)
+_AtmAcctngTransmitTrafficDescriptorType_Type=ObjectIdentifier
+_AtmAcctngTransmitTrafficDescriptorType_Object=MibScalar
+atmAcctngTransmitTrafficDescriptorType=_AtmAcctngTransmitTrafficDescriptorType_Object((1,3,6,1,2,1,59,1,1,19),_AtmAcctngTransmitTrafficDescriptorType_Type())
+atmAcctngTransmitTrafficDescriptorType.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngTransmitTrafficDescriptorType.setStatus(_A)
+class _AtmAcctngTransmitTrafficDescriptorParam1_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_AtmAcctngTransmitTrafficDescriptorParam1_Type.__name__=_C
+_AtmAcctngTransmitTrafficDescriptorParam1_Object=MibScalar
+atmAcctngTransmitTrafficDescriptorParam1=_AtmAcctngTransmitTrafficDescriptorParam1_Object((1,3,6,1,2,1,59,1,1,20),_AtmAcctngTransmitTrafficDescriptorParam1_Type())
+atmAcctngTransmitTrafficDescriptorParam1.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngTransmitTrafficDescriptorParam1.setStatus(_A)
+class _AtmAcctngTransmitTrafficDescriptorParam2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_AtmAcctngTransmitTrafficDescriptorParam2_Type.__name__=_C
+_AtmAcctngTransmitTrafficDescriptorParam2_Object=MibScalar
+atmAcctngTransmitTrafficDescriptorParam2=_AtmAcctngTransmitTrafficDescriptorParam2_Object((1,3,6,1,2,1,59,1,1,21),_AtmAcctngTransmitTrafficDescriptorParam2_Type())
+atmAcctngTransmitTrafficDescriptorParam2.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngTransmitTrafficDescriptorParam2.setStatus(_A)
+class _AtmAcctngTransmitTrafficDescriptorParam3_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_AtmAcctngTransmitTrafficDescriptorParam3_Type.__name__=_C
+_AtmAcctngTransmitTrafficDescriptorParam3_Object=MibScalar
+atmAcctngTransmitTrafficDescriptorParam3=_AtmAcctngTransmitTrafficDescriptorParam3_Object((1,3,6,1,2,1,59,1,1,22),_AtmAcctngTransmitTrafficDescriptorParam3_Type())
+atmAcctngTransmitTrafficDescriptorParam3.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngTransmitTrafficDescriptorParam3.setStatus(_A)
+class _AtmAcctngTransmitTrafficDescriptorParam4_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_AtmAcctngTransmitTrafficDescriptorParam4_Type.__name__=_C
+_AtmAcctngTransmitTrafficDescriptorParam4_Object=MibScalar
+atmAcctngTransmitTrafficDescriptorParam4=_AtmAcctngTransmitTrafficDescriptorParam4_Object((1,3,6,1,2,1,59,1,1,23),_AtmAcctngTransmitTrafficDescriptorParam4_Type())
+atmAcctngTransmitTrafficDescriptorParam4.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngTransmitTrafficDescriptorParam4.setStatus(_A)
+class _AtmAcctngTransmitTrafficDescriptorParam5_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_AtmAcctngTransmitTrafficDescriptorParam5_Type.__name__=_C
+_AtmAcctngTransmitTrafficDescriptorParam5_Object=MibScalar
+atmAcctngTransmitTrafficDescriptorParam5=_AtmAcctngTransmitTrafficDescriptorParam5_Object((1,3,6,1,2,1,59,1,1,24),_AtmAcctngTransmitTrafficDescriptorParam5_Type())
+atmAcctngTransmitTrafficDescriptorParam5.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngTransmitTrafficDescriptorParam5.setStatus(_A)
+_AtmAcctngReceiveTrafficDescriptorType_Type=ObjectIdentifier
+_AtmAcctngReceiveTrafficDescriptorType_Object=MibScalar
+atmAcctngReceiveTrafficDescriptorType=_AtmAcctngReceiveTrafficDescriptorType_Object((1,3,6,1,2,1,59,1,1,25),_AtmAcctngReceiveTrafficDescriptorType_Type())
+atmAcctngReceiveTrafficDescriptorType.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngReceiveTrafficDescriptorType.setStatus(_A)
+class _AtmAcctngReceiveTrafficDescriptorParam1_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_AtmAcctngReceiveTrafficDescriptorParam1_Type.__name__=_C
+_AtmAcctngReceiveTrafficDescriptorParam1_Object=MibScalar
+atmAcctngReceiveTrafficDescriptorParam1=_AtmAcctngReceiveTrafficDescriptorParam1_Object((1,3,6,1,2,1,59,1,1,26),_AtmAcctngReceiveTrafficDescriptorParam1_Type())
+atmAcctngReceiveTrafficDescriptorParam1.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngReceiveTrafficDescriptorParam1.setStatus(_A)
+class _AtmAcctngReceiveTrafficDescriptorParam2_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_AtmAcctngReceiveTrafficDescriptorParam2_Type.__name__=_C
+_AtmAcctngReceiveTrafficDescriptorParam2_Object=MibScalar
+atmAcctngReceiveTrafficDescriptorParam2=_AtmAcctngReceiveTrafficDescriptorParam2_Object((1,3,6,1,2,1,59,1,1,27),_AtmAcctngReceiveTrafficDescriptorParam2_Type())
+atmAcctngReceiveTrafficDescriptorParam2.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngReceiveTrafficDescriptorParam2.setStatus(_A)
+class _AtmAcctngReceiveTrafficDescriptorParam3_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_AtmAcctngReceiveTrafficDescriptorParam3_Type.__name__=_C
+_AtmAcctngReceiveTrafficDescriptorParam3_Object=MibScalar
+atmAcctngReceiveTrafficDescriptorParam3=_AtmAcctngReceiveTrafficDescriptorParam3_Object((1,3,6,1,2,1,59,1,1,28),_AtmAcctngReceiveTrafficDescriptorParam3_Type())
+atmAcctngReceiveTrafficDescriptorParam3.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngReceiveTrafficDescriptorParam3.setStatus(_A)
+class _AtmAcctngReceiveTrafficDescriptorParam4_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_AtmAcctngReceiveTrafficDescriptorParam4_Type.__name__=_C
+_AtmAcctngReceiveTrafficDescriptorParam4_Object=MibScalar
+atmAcctngReceiveTrafficDescriptorParam4=_AtmAcctngReceiveTrafficDescriptorParam4_Object((1,3,6,1,2,1,59,1,1,29),_AtmAcctngReceiveTrafficDescriptorParam4_Type())
+atmAcctngReceiveTrafficDescriptorParam4.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngReceiveTrafficDescriptorParam4.setStatus(_A)
+class _AtmAcctngReceiveTrafficDescriptorParam5_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_AtmAcctngReceiveTrafficDescriptorParam5_Type.__name__=_C
+_AtmAcctngReceiveTrafficDescriptorParam5_Object=MibScalar
+atmAcctngReceiveTrafficDescriptorParam5=_AtmAcctngReceiveTrafficDescriptorParam5_Object((1,3,6,1,2,1,59,1,1,30),_AtmAcctngReceiveTrafficDescriptorParam5_Type())
+atmAcctngReceiveTrafficDescriptorParam5.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngReceiveTrafficDescriptorParam5.setStatus(_A)
+_AtmAcctngCallingPartySubAddress_Type=AtmAddr
+_AtmAcctngCallingPartySubAddress_Object=MibScalar
+atmAcctngCallingPartySubAddress=_AtmAcctngCallingPartySubAddress_Object((1,3,6,1,2,1,59,1,1,31),_AtmAcctngCallingPartySubAddress_Type())
+atmAcctngCallingPartySubAddress.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngCallingPartySubAddress.setStatus(_A)
+_AtmAcctngCalledPartySubAddress_Type=AtmAddr
+_AtmAcctngCalledPartySubAddress_Object=MibScalar
+atmAcctngCalledPartySubAddress=_AtmAcctngCalledPartySubAddress_Object((1,3,6,1,2,1,59,1,1,32),_AtmAcctngCalledPartySubAddress_Type())
+atmAcctngCalledPartySubAddress.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngCalledPartySubAddress.setStatus(_A)
+class _AtmAcctngRecordCrc16_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
+_AtmAcctngRecordCrc16_Type.__name__=_D
+_AtmAcctngRecordCrc16_Object=MibScalar
+atmAcctngRecordCrc16=_AtmAcctngRecordCrc16_Object((1,3,6,1,2,1,59,1,1,33),_AtmAcctngRecordCrc16_Type())
+atmAcctngRecordCrc16.setMaxAccess(_B)
+if mibBuilder.loadTexts:atmAcctngRecordCrc16.setStatus(_A)
+mibBuilder.exportSymbols('ATM-ACCOUNTING-INFORMATION-MIB',**{'atmAccountingInformationMIB':atmAccountingInformationMIB,'atmAcctngMIBObjects':atmAcctngMIBObjects,'atmAcctngDataObjects':atmAcctngDataObjects,'atmAcctngConnectionType':atmAcctngConnectionType,'atmAcctngCastType':atmAcctngCastType,'atmAcctngIfName':atmAcctngIfName,'atmAcctngIfAlias':atmAcctngIfAlias,'atmAcctngVpi':atmAcctngVpi,'atmAcctngVci':atmAcctngVci,'atmAcctngCallingParty':atmAcctngCallingParty,'atmAcctngCalledParty':atmAcctngCalledParty,'atmAcctngCallReference':atmAcctngCallReference,'atmAcctngStartTime':atmAcctngStartTime,'atmAcctngCollectionTime':atmAcctngCollectionTime,'atmAcctngCollectMode':atmAcctngCollectMode,'atmAcctngReleaseCause':atmAcctngReleaseCause,'atmAcctngServiceCategory':atmAcctngServiceCategory,'atmAcctngTransmittedCells':atmAcctngTransmittedCells,'atmAcctngTransmittedClp0Cells':atmAcctngTransmittedClp0Cells,'atmAcctngReceivedCells':atmAcctngReceivedCells,'atmAcctngReceivedClp0Cells':atmAcctngReceivedClp0Cells,'atmAcctngTransmitTrafficDescriptorType':atmAcctngTransmitTrafficDescriptorType,'atmAcctngTransmitTrafficDescriptorParam1':atmAcctngTransmitTrafficDescriptorParam1,'atmAcctngTransmitTrafficDescriptorParam2':atmAcctngTransmitTrafficDescriptorParam2,'atmAcctngTransmitTrafficDescriptorParam3':atmAcctngTransmitTrafficDescriptorParam3,'atmAcctngTransmitTrafficDescriptorParam4':atmAcctngTransmitTrafficDescriptorParam4,'atmAcctngTransmitTrafficDescriptorParam5':atmAcctngTransmitTrafficDescriptorParam5,'atmAcctngReceiveTrafficDescriptorType':atmAcctngReceiveTrafficDescriptorType,'atmAcctngReceiveTrafficDescriptorParam1':atmAcctngReceiveTrafficDescriptorParam1,'atmAcctngReceiveTrafficDescriptorParam2':atmAcctngReceiveTrafficDescriptorParam2,'atmAcctngReceiveTrafficDescriptorParam3':atmAcctngReceiveTrafficDescriptorParam3,'atmAcctngReceiveTrafficDescriptorParam4':atmAcctngReceiveTrafficDescriptorParam4,'atmAcctngReceiveTrafficDescriptorParam5':atmAcctngReceiveTrafficDescriptorParam5,'atmAcctngCallingPartySubAddress':atmAcctngCallingPartySubAddress,'atmAcctngCalledPartySubAddress':atmAcctngCalledPartySubAddress,'atmAcctngRecordCrc16':atmAcctngRecordCrc16})

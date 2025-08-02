@@ -1,0 +1,3037 @@
+_AW='cfprBiosTokenSettingsInstanceId'
+_AV='cfprBiosTokenParamInstanceId'
+_AU='cfprBiosTokenFeatureGroupInstanceId'
+_AT='cfprBiosVfVGAPriorityInstanceId'
+_AS='cfprBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId'
+_AR='cfprBiosVfUSBPortConfigurationInstanceId'
+_AQ='cfprBiosVfUSBFrontPanelAccessLockInstanceId'
+_AP='cfprBiosVfUSBConfigurationInstanceId'
+_AO='cfprBiosVfUSBBootConfigInstanceId'
+_AN='cfprBiosVfUEFIOSUseLegacyVideoInstanceId'
+_AM='cfprBiosVfFPRMBootOrderRuleControlInstanceId'
+_AL='cfprBiosVfFPRMBootModeControlInstanceId'
+_AK='cfprBiosVfTPMSupportInstanceId'
+_AJ='cfprBiosVfSriovConfigInstanceId'
+_AI='cfprBiosVfSparingModeInstanceId'
+_AH='cfprBiosVfSerialPortAEnableInstanceId'
+_AG='cfprBiosVfSelectMemoryRASConfigurationInstanceId'
+_AF='cfprBiosVfScrubPoliciesInstanceId'
+_AE='cfprBiosVfResumeOnACPowerLossInstanceId'
+_AD='cfprBiosVfQuietBootInstanceId'
+_AC='cfprBiosVfQPILinkFrequencySelectInstanceId'
+_AB='cfprBiosVfProcessorPrefetchConfigInstanceId'
+_AA='cfprBiosVfProcessorEnergyConfigurationInstanceId'
+_A9='cfprBiosVfProcessorCStateInstanceId'
+_A8='cfprBiosVfProcessorC7ReportInstanceId'
+_A7='cfprBiosVfProcessorC6ReportInstanceId'
+_A6='cfprBiosVfProcessorC3ReportInstanceId'
+_A5='cfprBiosVfProcessorC1EInstanceId'
+_A4='cfprBiosVfPackageCStateLimitInstanceId'
+_A3='cfprBiosVfPSTATECoordinationInstanceId'
+_A2='cfprBiosVfPOSTErrorPauseInstanceId'
+_A1='cfprBiosVfPCISlotOptionROMEnableInstanceId'
+_A0='cfprBiosVfPCISlotLinkSpeedInstanceId'
+_z='cfprBiosVfOptionROMLoadInstanceId'
+_y='cfprBiosVfOptionROMEnableInstanceId'
+_x='cfprBiosVfOnboardStorageInstanceId'
+_w='cfprBiosVfOnboardSATAControllerInstanceId'
+_v='cfprBiosVfOSBootWatchdogTimerTimeoutInstanceId'
+_u='cfprBiosVfOSBootWatchdogTimerPolicyInstanceId'
+_t='cfprBiosVfOSBootWatchdogTimerInstanceId'
+_s='cfprBiosVfNUMAOptimizedInstanceId'
+_r='cfprBiosVfMirroringModeInstanceId'
+_q='cfprBiosVfMemoryMappedIOAbove4GBInstanceId'
+_p='cfprBiosVfMaximumMemoryBelow4GBInstanceId'
+_o='cfprBiosVfMaxVariableMTRRSettingInstanceId'
+_n='cfprBiosVfLvDIMMSupportInstanceId'
+_m='cfprBiosVfLocalX2ApicInstanceId'
+_l='cfprBiosVfInterleaveConfigurationInstanceId'
+_k='cfprBiosVfIntelVirtualizationTechnologyInstanceId'
+_j='cfprBiosVfIntelVTForDirectedIOInstanceId'
+_i='cfprBiosVfIntelTurboBoostTechInstanceId'
+_h='cfprBiosVfIntelHyperThreadingTechInstanceId'
+_g='cfprBiosVfIntelEntrySASRAIDModuleInstanceId'
+_f='cfprBiosVfFrontPanelLockoutInstanceId'
+_e='cfprBiosVfFrequencyFloorOverrideInstanceId'
+_d='cfprBiosVfFRB2TimerInstanceId'
+_c='cfprBiosVfExecuteDisableBitInstanceId'
+_b='cfprBiosVfEnhancedIntelSpeedStepTechInstanceId'
+_a='cfprBiosVfDramRefreshRateInstanceId'
+_Z='cfprBiosVfDirectCacheAccessInstanceId'
+_Y='cfprBiosVfDRAMClockThrottlingInstanceId'
+_X='cfprBiosVfCoreMultiProcessingInstanceId'
+_W='cfprBiosVfConsoleRedirectionInstanceId'
+_V='cfprBiosVfCPUPerformanceInstanceId'
+_U='cfprBiosVfBootOptionRetryInstanceId'
+_T='cfprBiosVfAssertNMIOnSERRInstanceId'
+_S='cfprBiosVfAssertNMIOnPERRInstanceId'
+_R='cfprBiosVfAltitudeInstanceId'
+_Q='cfprBiosVfAllUSBDevicesInstanceId'
+_P='cfprBiosVfACPI10SupportInstanceId'
+_O='cfprBiosVProfileInstanceId'
+_N='cfprBiosVIdentityParamsInstanceId'
+_M='cfprBiosUnitInstanceId'
+_L='cfprBiosSettingsInstanceId'
+_K='cfprBiosSettingRefInstanceId'
+_J='cfprBiosRefInstanceId'
+_I='cfprBiosParameterRefInstanceId'
+_H='cfprBiosFeatureRefInstanceId'
+_G='cfprBiosBootDevGrpInstanceId'
+_F='cfprBiosBootDevInstanceId'
+_E='cfprBiosBOTInstanceId'
+_D='not-accessible'
+_C='CISCO-FIREPOWER-BIOS-MIB'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+CfprManagedObjectDn,CfprManagedObjectId,ciscoFirepowerMIBObjects=mibBuilder.importSymbols('CISCO-FIREPOWER-MIB','CfprManagedObjectDn','CfprManagedObjectId','ciscoFirepowerMIBObjects')
+CfprBiosBootDevErrorCode,CfprBiosBootDevGrpType,CfprBiosBootDevOrder,CfprBiosDefaultAction,CfprBiosSupportedAction,CfprBiosVfACPI10SupportVpACPI10Support,CfprBiosVfAllUSBDevicesVpAllUSBDevices,CfprBiosVfAltitudeVpAltitude,CfprBiosVfAssertNMIOnPERRVpAssertNMIOnPERR,CfprBiosVfAssertNMIOnSERRVpAssertNMIOnSERR,CfprBiosVfBootOptionRetryVpBootOptionRetry,CfprBiosVfCPUPerformanceVpCPUPerformance,CfprBiosVfConsoleRedirectionVpBaudRate,CfprBiosVfConsoleRedirectionVpConsoleRedirection,CfprBiosVfConsoleRedirectionVpFlowControl,CfprBiosVfConsoleRedirectionVpLegacyOSRedirection,CfprBiosVfConsoleRedirectionVpPuttyKeyPad,CfprBiosVfConsoleRedirectionVpTerminalType,CfprBiosVfCoreMultiProcessingVpCoreMultiProcessing,CfprBiosVfDRAMClockThrottlingVpDRAMClockThrottling,CfprBiosVfDirectCacheAccessVpDirectCacheAccess,CfprBiosVfDramRefreshRateVpDramRefreshRate,CfprBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech,CfprBiosVfExecuteDisableBitVpExecuteDisableBit,CfprBiosVfFPRMBootModeControlVpUEFIBootMode,CfprBiosVfFPRMBootOrderRuleControlVpFPRMBootOrderRule,CfprBiosVfFRB2TimerVpFRB2Timer,CfprBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride,CfprBiosVfFrontPanelLockoutVpFrontPanelLockout,CfprBiosVfIntelEntrySASRAIDModuleVpSASRAID,CfprBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule,CfprBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech,CfprBiosVfIntelTurboBoostTechVpIntelTurboBoostTech,CfprBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport,CfprBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport,CfprBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping,CfprBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport,CfprBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO,CfprBiosVfIntelVirtualizationTechnologyVpIntelVirtTechnology,CfprBiosVfInterleaveConfigurationVpChannelInterleaving,CfprBiosVfInterleaveConfigurationVpMemoryInterleaving,CfprBiosVfInterleaveConfigurationVpRankInterleaving,CfprBiosVfLocalX2ApicVpLocalX2Apic,CfprBiosVfLvDIMMSupportVpLvDDRMode,CfprBiosVfMaxVariableMTRRSettingVpProcessorMtrr,CfprBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB,CfprBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB,CfprBiosVfMirroringModeVpMirroringMode,CfprBiosVfNUMAOptimizedVpNUMAOptimized,CfprBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy,CfprBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout,CfprBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer,CfprBiosVfOnboardSATAControllerVpOnboardSATAController,CfprBiosVfOnboardSATAControllerVpSATAMode,CfprBiosVfOnboardStorageVpOnboardSCUStorageSupport,CfprBiosVfOptionROMEnableVpState,CfprBiosVfOptionROMLoadVpLoad,CfprBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed,CfprBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed,CfprBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed,CfprBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed,CfprBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed,CfprBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed,CfprBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed,CfprBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed,CfprBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed,CfprBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed,CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM,CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM,CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM,CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM,CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM,CfprBiosVfPCISlotOptionROMEnableVpSlot10State,CfprBiosVfPCISlotOptionROMEnableVpSlot1State,CfprBiosVfPCISlotOptionROMEnableVpSlot2State,CfprBiosVfPCISlotOptionROMEnableVpSlot3State,CfprBiosVfPCISlotOptionROMEnableVpSlot4State,CfprBiosVfPCISlotOptionROMEnableVpSlot5State,CfprBiosVfPCISlotOptionROMEnableVpSlot6State,CfprBiosVfPCISlotOptionROMEnableVpSlot7State,CfprBiosVfPCISlotOptionROMEnableVpSlot8State,CfprBiosVfPCISlotOptionROMEnableVpSlot9State,CfprBiosVfPCISlotOptionROMEnableVpSlotMezzState,CfprBiosVfPOSTErrorPauseVpPOSTErrorPause,CfprBiosVfPSTATECoordinationVpPSTATECoordination,CfprBiosVfPackageCStateLimitVpPackageCStateLimit,CfprBiosVfProcessorC1EVpProcessorC1E,CfprBiosVfProcessorC3ReportVpProcessorC3Report,CfprBiosVfProcessorC6ReportVpProcessorC6Report,CfprBiosVfProcessorC7ReportVpProcessorC7Report,CfprBiosVfProcessorCStateVpProcessorCState,CfprBiosVfProcessorEnergyConfigurationVpEnergyPerformance,CfprBiosVfProcessorEnergyConfigurationVpPowerTechnology,CfprBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher,CfprBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher,CfprBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch,CfprBiosVfProcessorPrefetchConfigVpHardwarePrefetcher,CfprBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect,CfprBiosVfQuietBootVpQuietBoot,CfprBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss,CfprBiosVfScrubPoliciesVpDemandScrub,CfprBiosVfScrubPoliciesVpPatrolScrub,CfprBiosVfSelectMemoryRASConfigurationVpSelectMemoryRASConf,CfprBiosVfSerialPortAEnableVpSerialPortAEnable,CfprBiosVfSparingModeVpSparingMode,CfprBiosVfSriovConfigVpSriov,CfprBiosVfTPMSupportVpTPMSupport,CfprBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo,CfprBiosVfUSBBootConfigVpLegacyUSBSupport,CfprBiosVfUSBBootConfigVpMakeDeviceNonBootable,CfprBiosVfUSBConfigurationVpLegacyUSBSupport,CfprBiosVfUSBConfigurationVpXHCIMode,CfprBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock,CfprBiosVfUSBPortConfigurationVpPort6064Emulation,CfprBiosVfUSBPortConfigurationVpUSBPortFront,CfprBiosVfUSBPortConfigurationVpUSBPortInternal,CfprBiosVfUSBPortConfigurationVpUSBPortKVM,CfprBiosVfUSBPortConfigurationVpUSBPortRear,CfprBiosVfUSBPortConfigurationVpUSBPortSDCard,CfprBiosVfUSBPortConfigurationVpUSBPortVMedia,CfprBiosVfUSBSysIdlePowerOptimizingSettingVpUSBIdlePowerOptimize,CfprBiosVfVGAPriorityVpVGAPriority,CfprPolicyPolicyOwner=mibBuilder.importSymbols('CISCO-FIREPOWER-TC-MIB','CfprBiosBootDevErrorCode','CfprBiosBootDevGrpType','CfprBiosBootDevOrder','CfprBiosDefaultAction','CfprBiosSupportedAction','CfprBiosVfACPI10SupportVpACPI10Support','CfprBiosVfAllUSBDevicesVpAllUSBDevices','CfprBiosVfAltitudeVpAltitude','CfprBiosVfAssertNMIOnPERRVpAssertNMIOnPERR','CfprBiosVfAssertNMIOnSERRVpAssertNMIOnSERR','CfprBiosVfBootOptionRetryVpBootOptionRetry','CfprBiosVfCPUPerformanceVpCPUPerformance','CfprBiosVfConsoleRedirectionVpBaudRate','CfprBiosVfConsoleRedirectionVpConsoleRedirection','CfprBiosVfConsoleRedirectionVpFlowControl','CfprBiosVfConsoleRedirectionVpLegacyOSRedirection','CfprBiosVfConsoleRedirectionVpPuttyKeyPad','CfprBiosVfConsoleRedirectionVpTerminalType','CfprBiosVfCoreMultiProcessingVpCoreMultiProcessing','CfprBiosVfDRAMClockThrottlingVpDRAMClockThrottling','CfprBiosVfDirectCacheAccessVpDirectCacheAccess','CfprBiosVfDramRefreshRateVpDramRefreshRate','CfprBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech','CfprBiosVfExecuteDisableBitVpExecuteDisableBit','CfprBiosVfFPRMBootModeControlVpUEFIBootMode','CfprBiosVfFPRMBootOrderRuleControlVpFPRMBootOrderRule','CfprBiosVfFRB2TimerVpFRB2Timer','CfprBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride','CfprBiosVfFrontPanelLockoutVpFrontPanelLockout','CfprBiosVfIntelEntrySASRAIDModuleVpSASRAID','CfprBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule','CfprBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech','CfprBiosVfIntelTurboBoostTechVpIntelTurboBoostTech','CfprBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport','CfprBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport','CfprBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping','CfprBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport','CfprBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO','CfprBiosVfIntelVirtualizationTechnologyVpIntelVirtTechnology','CfprBiosVfInterleaveConfigurationVpChannelInterleaving','CfprBiosVfInterleaveConfigurationVpMemoryInterleaving','CfprBiosVfInterleaveConfigurationVpRankInterleaving','CfprBiosVfLocalX2ApicVpLocalX2Apic','CfprBiosVfLvDIMMSupportVpLvDDRMode','CfprBiosVfMaxVariableMTRRSettingVpProcessorMtrr','CfprBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB','CfprBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB','CfprBiosVfMirroringModeVpMirroringMode','CfprBiosVfNUMAOptimizedVpNUMAOptimized','CfprBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy','CfprBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout','CfprBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer','CfprBiosVfOnboardSATAControllerVpOnboardSATAController','CfprBiosVfOnboardSATAControllerVpSATAMode','CfprBiosVfOnboardStorageVpOnboardSCUStorageSupport','CfprBiosVfOptionROMEnableVpState','CfprBiosVfOptionROMLoadVpLoad','CfprBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed','CfprBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed','CfprBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed','CfprBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed','CfprBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed','CfprBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed','CfprBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed','CfprBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed','CfprBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed','CfprBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed','CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM','CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM','CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM','CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM','CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM','CfprBiosVfPCISlotOptionROMEnableVpSlot10State','CfprBiosVfPCISlotOptionROMEnableVpSlot1State','CfprBiosVfPCISlotOptionROMEnableVpSlot2State','CfprBiosVfPCISlotOptionROMEnableVpSlot3State','CfprBiosVfPCISlotOptionROMEnableVpSlot4State','CfprBiosVfPCISlotOptionROMEnableVpSlot5State','CfprBiosVfPCISlotOptionROMEnableVpSlot6State','CfprBiosVfPCISlotOptionROMEnableVpSlot7State','CfprBiosVfPCISlotOptionROMEnableVpSlot8State','CfprBiosVfPCISlotOptionROMEnableVpSlot9State','CfprBiosVfPCISlotOptionROMEnableVpSlotMezzState','CfprBiosVfPOSTErrorPauseVpPOSTErrorPause','CfprBiosVfPSTATECoordinationVpPSTATECoordination','CfprBiosVfPackageCStateLimitVpPackageCStateLimit','CfprBiosVfProcessorC1EVpProcessorC1E','CfprBiosVfProcessorC3ReportVpProcessorC3Report','CfprBiosVfProcessorC6ReportVpProcessorC6Report','CfprBiosVfProcessorC7ReportVpProcessorC7Report','CfprBiosVfProcessorCStateVpProcessorCState','CfprBiosVfProcessorEnergyConfigurationVpEnergyPerformance','CfprBiosVfProcessorEnergyConfigurationVpPowerTechnology','CfprBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher','CfprBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher','CfprBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch','CfprBiosVfProcessorPrefetchConfigVpHardwarePrefetcher','CfprBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect','CfprBiosVfQuietBootVpQuietBoot','CfprBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss','CfprBiosVfScrubPoliciesVpDemandScrub','CfprBiosVfScrubPoliciesVpPatrolScrub','CfprBiosVfSelectMemoryRASConfigurationVpSelectMemoryRASConf','CfprBiosVfSerialPortAEnableVpSerialPortAEnable','CfprBiosVfSparingModeVpSparingMode','CfprBiosVfSriovConfigVpSriov','CfprBiosVfTPMSupportVpTPMSupport','CfprBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo','CfprBiosVfUSBBootConfigVpLegacyUSBSupport','CfprBiosVfUSBBootConfigVpMakeDeviceNonBootable','CfprBiosVfUSBConfigurationVpLegacyUSBSupport','CfprBiosVfUSBConfigurationVpXHCIMode','CfprBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock','CfprBiosVfUSBPortConfigurationVpPort6064Emulation','CfprBiosVfUSBPortConfigurationVpUSBPortFront','CfprBiosVfUSBPortConfigurationVpUSBPortInternal','CfprBiosVfUSBPortConfigurationVpUSBPortKVM','CfprBiosVfUSBPortConfigurationVpUSBPortRear','CfprBiosVfUSBPortConfigurationVpUSBPortSDCard','CfprBiosVfUSBPortConfigurationVpUSBPortVMedia','CfprBiosVfUSBSysIdlePowerOptimizingSettingVpUSBIdlePowerOptimize','CfprBiosVfVGAPriorityVpVGAPriority','CfprPolicyPolicyOwner')
+ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
+CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
+InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
+cfprBiosObjects=ModuleIdentity((1,3,6,1,4,1,9,9,826,1,5))
+_CfprBiosBOTTable_Object=MibTable
+cfprBiosBOTTable=_CfprBiosBOTTable_Object((1,3,6,1,4,1,9,9,826,1,5,1))
+if mibBuilder.loadTexts:cfprBiosBOTTable.setStatus(_A)
+_CfprBiosBOTEntry_Object=MibTableRow
+cfprBiosBOTEntry=_CfprBiosBOTEntry_Object((1,3,6,1,4,1,9,9,826,1,5,1,1))
+cfprBiosBOTEntry.setIndexNames((0,_C,_E))
+if mibBuilder.loadTexts:cfprBiosBOTEntry.setStatus(_A)
+_CfprBiosBOTInstanceId_Type=CfprManagedObjectId
+_CfprBiosBOTInstanceId_Object=MibTableColumn
+cfprBiosBOTInstanceId=_CfprBiosBOTInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,1,1,1),_CfprBiosBOTInstanceId_Type())
+cfprBiosBOTInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosBOTInstanceId.setStatus(_A)
+_CfprBiosBOTDn_Type=CfprManagedObjectDn
+_CfprBiosBOTDn_Object=MibTableColumn
+cfprBiosBOTDn=_CfprBiosBOTDn_Object((1,3,6,1,4,1,9,9,826,1,5,1,1,2),_CfprBiosBOTDn_Type())
+cfprBiosBOTDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosBOTDn.setStatus(_A)
+_CfprBiosBOTRn_Type=SnmpAdminString
+_CfprBiosBOTRn_Object=MibTableColumn
+cfprBiosBOTRn=_CfprBiosBOTRn_Object((1,3,6,1,4,1,9,9,826,1,5,1,1,3),_CfprBiosBOTRn_Type())
+cfprBiosBOTRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosBOTRn.setStatus(_A)
+_CfprBiosBOTLastUpdate_Type=DateAndTime
+_CfprBiosBOTLastUpdate_Object=MibTableColumn
+cfprBiosBOTLastUpdate=_CfprBiosBOTLastUpdate_Object((1,3,6,1,4,1,9,9,826,1,5,1,1,4),_CfprBiosBOTLastUpdate_Type())
+cfprBiosBOTLastUpdate.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosBOTLastUpdate.setStatus(_A)
+_CfprBiosBootDevTable_Object=MibTable
+cfprBiosBootDevTable=_CfprBiosBootDevTable_Object((1,3,6,1,4,1,9,9,826,1,5,2))
+if mibBuilder.loadTexts:cfprBiosBootDevTable.setStatus(_A)
+_CfprBiosBootDevEntry_Object=MibTableRow
+cfprBiosBootDevEntry=_CfprBiosBootDevEntry_Object((1,3,6,1,4,1,9,9,826,1,5,2,1))
+cfprBiosBootDevEntry.setIndexNames((0,_C,_F))
+if mibBuilder.loadTexts:cfprBiosBootDevEntry.setStatus(_A)
+_CfprBiosBootDevInstanceId_Type=CfprManagedObjectId
+_CfprBiosBootDevInstanceId_Object=MibTableColumn
+cfprBiosBootDevInstanceId=_CfprBiosBootDevInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,2,1,1),_CfprBiosBootDevInstanceId_Type())
+cfprBiosBootDevInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosBootDevInstanceId.setStatus(_A)
+_CfprBiosBootDevDn_Type=CfprManagedObjectDn
+_CfprBiosBootDevDn_Object=MibTableColumn
+cfprBiosBootDevDn=_CfprBiosBootDevDn_Object((1,3,6,1,4,1,9,9,826,1,5,2,1,2),_CfprBiosBootDevDn_Type())
+cfprBiosBootDevDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosBootDevDn.setStatus(_A)
+_CfprBiosBootDevRn_Type=SnmpAdminString
+_CfprBiosBootDevRn_Object=MibTableColumn
+cfprBiosBootDevRn=_CfprBiosBootDevRn_Object((1,3,6,1,4,1,9,9,826,1,5,2,1,3),_CfprBiosBootDevRn_Type())
+cfprBiosBootDevRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosBootDevRn.setStatus(_A)
+_CfprBiosBootDevDescr_Type=SnmpAdminString
+_CfprBiosBootDevDescr_Object=MibTableColumn
+cfprBiosBootDevDescr=_CfprBiosBootDevDescr_Object((1,3,6,1,4,1,9,9,826,1,5,2,1,4),_CfprBiosBootDevDescr_Type())
+cfprBiosBootDevDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosBootDevDescr.setStatus(_A)
+_CfprBiosBootDevDeviceName_Type=SnmpAdminString
+_CfprBiosBootDevDeviceName_Object=MibTableColumn
+cfprBiosBootDevDeviceName=_CfprBiosBootDevDeviceName_Object((1,3,6,1,4,1,9,9,826,1,5,2,1,5),_CfprBiosBootDevDeviceName_Type())
+cfprBiosBootDevDeviceName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosBootDevDeviceName.setStatus(_A)
+_CfprBiosBootDevErrValue_Type=CfprBiosBootDevErrorCode
+_CfprBiosBootDevErrValue_Object=MibTableColumn
+cfprBiosBootDevErrValue=_CfprBiosBootDevErrValue_Object((1,3,6,1,4,1,9,9,826,1,5,2,1,6),_CfprBiosBootDevErrValue_Type())
+cfprBiosBootDevErrValue.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosBootDevErrValue.setStatus(_A)
+_CfprBiosBootDevOrder_Type=CfprBiosBootDevOrder
+_CfprBiosBootDevOrder_Object=MibTableColumn
+cfprBiosBootDevOrder=_CfprBiosBootDevOrder_Object((1,3,6,1,4,1,9,9,826,1,5,2,1,7),_CfprBiosBootDevOrder_Type())
+cfprBiosBootDevOrder.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosBootDevOrder.setStatus(_A)
+_CfprBiosBootDevGrpTable_Object=MibTable
+cfprBiosBootDevGrpTable=_CfprBiosBootDevGrpTable_Object((1,3,6,1,4,1,9,9,826,1,5,3))
+if mibBuilder.loadTexts:cfprBiosBootDevGrpTable.setStatus(_A)
+_CfprBiosBootDevGrpEntry_Object=MibTableRow
+cfprBiosBootDevGrpEntry=_CfprBiosBootDevGrpEntry_Object((1,3,6,1,4,1,9,9,826,1,5,3,1))
+cfprBiosBootDevGrpEntry.setIndexNames((0,_C,_G))
+if mibBuilder.loadTexts:cfprBiosBootDevGrpEntry.setStatus(_A)
+_CfprBiosBootDevGrpInstanceId_Type=CfprManagedObjectId
+_CfprBiosBootDevGrpInstanceId_Object=MibTableColumn
+cfprBiosBootDevGrpInstanceId=_CfprBiosBootDevGrpInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,3,1,1),_CfprBiosBootDevGrpInstanceId_Type())
+cfprBiosBootDevGrpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosBootDevGrpInstanceId.setStatus(_A)
+_CfprBiosBootDevGrpDn_Type=CfprManagedObjectDn
+_CfprBiosBootDevGrpDn_Object=MibTableColumn
+cfprBiosBootDevGrpDn=_CfprBiosBootDevGrpDn_Object((1,3,6,1,4,1,9,9,826,1,5,3,1,2),_CfprBiosBootDevGrpDn_Type())
+cfprBiosBootDevGrpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosBootDevGrpDn.setStatus(_A)
+_CfprBiosBootDevGrpRn_Type=SnmpAdminString
+_CfprBiosBootDevGrpRn_Object=MibTableColumn
+cfprBiosBootDevGrpRn=_CfprBiosBootDevGrpRn_Object((1,3,6,1,4,1,9,9,826,1,5,3,1,3),_CfprBiosBootDevGrpRn_Type())
+cfprBiosBootDevGrpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosBootDevGrpRn.setStatus(_A)
+_CfprBiosBootDevGrpDescr_Type=SnmpAdminString
+_CfprBiosBootDevGrpDescr_Object=MibTableColumn
+cfprBiosBootDevGrpDescr=_CfprBiosBootDevGrpDescr_Object((1,3,6,1,4,1,9,9,826,1,5,3,1,4),_CfprBiosBootDevGrpDescr_Type())
+cfprBiosBootDevGrpDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosBootDevGrpDescr.setStatus(_A)
+_CfprBiosBootDevGrpDeviceName_Type=SnmpAdminString
+_CfprBiosBootDevGrpDeviceName_Object=MibTableColumn
+cfprBiosBootDevGrpDeviceName=_CfprBiosBootDevGrpDeviceName_Object((1,3,6,1,4,1,9,9,826,1,5,3,1,5),_CfprBiosBootDevGrpDeviceName_Type())
+cfprBiosBootDevGrpDeviceName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosBootDevGrpDeviceName.setStatus(_A)
+_CfprBiosBootDevGrpErrVal_Type=CfprBiosBootDevErrorCode
+_CfprBiosBootDevGrpErrVal_Object=MibTableColumn
+cfprBiosBootDevGrpErrVal=_CfprBiosBootDevGrpErrVal_Object((1,3,6,1,4,1,9,9,826,1,5,3,1,6),_CfprBiosBootDevGrpErrVal_Type())
+cfprBiosBootDevGrpErrVal.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosBootDevGrpErrVal.setStatus(_A)
+_CfprBiosBootDevGrpOrder_Type=CfprBiosBootDevOrder
+_CfprBiosBootDevGrpOrder_Object=MibTableColumn
+cfprBiosBootDevGrpOrder=_CfprBiosBootDevGrpOrder_Object((1,3,6,1,4,1,9,9,826,1,5,3,1,7),_CfprBiosBootDevGrpOrder_Type())
+cfprBiosBootDevGrpOrder.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosBootDevGrpOrder.setStatus(_A)
+_CfprBiosBootDevGrpType_Type=CfprBiosBootDevGrpType
+_CfprBiosBootDevGrpType_Object=MibTableColumn
+cfprBiosBootDevGrpType=_CfprBiosBootDevGrpType_Object((1,3,6,1,4,1,9,9,826,1,5,3,1,8),_CfprBiosBootDevGrpType_Type())
+cfprBiosBootDevGrpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosBootDevGrpType.setStatus(_A)
+_CfprBiosFeatureRefTable_Object=MibTable
+cfprBiosFeatureRefTable=_CfprBiosFeatureRefTable_Object((1,3,6,1,4,1,9,9,826,1,5,4))
+if mibBuilder.loadTexts:cfprBiosFeatureRefTable.setStatus(_A)
+_CfprBiosFeatureRefEntry_Object=MibTableRow
+cfprBiosFeatureRefEntry=_CfprBiosFeatureRefEntry_Object((1,3,6,1,4,1,9,9,826,1,5,4,1))
+cfprBiosFeatureRefEntry.setIndexNames((0,_C,_H))
+if mibBuilder.loadTexts:cfprBiosFeatureRefEntry.setStatus(_A)
+_CfprBiosFeatureRefInstanceId_Type=CfprManagedObjectId
+_CfprBiosFeatureRefInstanceId_Object=MibTableColumn
+cfprBiosFeatureRefInstanceId=_CfprBiosFeatureRefInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,4,1,1),_CfprBiosFeatureRefInstanceId_Type())
+cfprBiosFeatureRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosFeatureRefInstanceId.setStatus(_A)
+_CfprBiosFeatureRefDn_Type=CfprManagedObjectDn
+_CfprBiosFeatureRefDn_Object=MibTableColumn
+cfprBiosFeatureRefDn=_CfprBiosFeatureRefDn_Object((1,3,6,1,4,1,9,9,826,1,5,4,1,2),_CfprBiosFeatureRefDn_Type())
+cfprBiosFeatureRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosFeatureRefDn.setStatus(_A)
+_CfprBiosFeatureRefRn_Type=SnmpAdminString
+_CfprBiosFeatureRefRn_Object=MibTableColumn
+cfprBiosFeatureRefRn=_CfprBiosFeatureRefRn_Object((1,3,6,1,4,1,9,9,826,1,5,4,1,3),_CfprBiosFeatureRefRn_Type())
+cfprBiosFeatureRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosFeatureRefRn.setStatus(_A)
+_CfprBiosFeatureRefFtrMoClassName_Type=SnmpAdminString
+_CfprBiosFeatureRefFtrMoClassName_Object=MibTableColumn
+cfprBiosFeatureRefFtrMoClassName=_CfprBiosFeatureRefFtrMoClassName_Object((1,3,6,1,4,1,9,9,826,1,5,4,1,4),_CfprBiosFeatureRefFtrMoClassName_Type())
+cfprBiosFeatureRefFtrMoClassName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosFeatureRefFtrMoClassName.setStatus(_A)
+_CfprBiosFeatureRefIsSupported_Type=CfprBiosSupportedAction
+_CfprBiosFeatureRefIsSupported_Object=MibTableColumn
+cfprBiosFeatureRefIsSupported=_CfprBiosFeatureRefIsSupported_Object((1,3,6,1,4,1,9,9,826,1,5,4,1,5),_CfprBiosFeatureRefIsSupported_Type())
+cfprBiosFeatureRefIsSupported.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosFeatureRefIsSupported.setStatus(_A)
+_CfprBiosFeatureRefName_Type=SnmpAdminString
+_CfprBiosFeatureRefName_Object=MibTableColumn
+cfprBiosFeatureRefName=_CfprBiosFeatureRefName_Object((1,3,6,1,4,1,9,9,826,1,5,4,1,6),_CfprBiosFeatureRefName_Type())
+cfprBiosFeatureRefName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosFeatureRefName.setStatus(_A)
+_CfprBiosParameterRefTable_Object=MibTable
+cfprBiosParameterRefTable=_CfprBiosParameterRefTable_Object((1,3,6,1,4,1,9,9,826,1,5,5))
+if mibBuilder.loadTexts:cfprBiosParameterRefTable.setStatus(_A)
+_CfprBiosParameterRefEntry_Object=MibTableRow
+cfprBiosParameterRefEntry=_CfprBiosParameterRefEntry_Object((1,3,6,1,4,1,9,9,826,1,5,5,1))
+cfprBiosParameterRefEntry.setIndexNames((0,_C,_I))
+if mibBuilder.loadTexts:cfprBiosParameterRefEntry.setStatus(_A)
+_CfprBiosParameterRefInstanceId_Type=CfprManagedObjectId
+_CfprBiosParameterRefInstanceId_Object=MibTableColumn
+cfprBiosParameterRefInstanceId=_CfprBiosParameterRefInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,5,1,1),_CfprBiosParameterRefInstanceId_Type())
+cfprBiosParameterRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosParameterRefInstanceId.setStatus(_A)
+_CfprBiosParameterRefDn_Type=CfprManagedObjectDn
+_CfprBiosParameterRefDn_Object=MibTableColumn
+cfprBiosParameterRefDn=_CfprBiosParameterRefDn_Object((1,3,6,1,4,1,9,9,826,1,5,5,1,2),_CfprBiosParameterRefDn_Type())
+cfprBiosParameterRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosParameterRefDn.setStatus(_A)
+_CfprBiosParameterRefRn_Type=SnmpAdminString
+_CfprBiosParameterRefRn_Object=MibTableColumn
+cfprBiosParameterRefRn=_CfprBiosParameterRefRn_Object((1,3,6,1,4,1,9,9,826,1,5,5,1,3),_CfprBiosParameterRefRn_Type())
+cfprBiosParameterRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosParameterRefRn.setStatus(_A)
+_CfprBiosParameterRefIsSupported_Type=CfprBiosSupportedAction
+_CfprBiosParameterRefIsSupported_Object=MibTableColumn
+cfprBiosParameterRefIsSupported=_CfprBiosParameterRefIsSupported_Object((1,3,6,1,4,1,9,9,826,1,5,5,1,4),_CfprBiosParameterRefIsSupported_Type())
+cfprBiosParameterRefIsSupported.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosParameterRefIsSupported.setStatus(_A)
+_CfprBiosParameterRefName_Type=SnmpAdminString
+_CfprBiosParameterRefName_Object=MibTableColumn
+cfprBiosParameterRefName=_CfprBiosParameterRefName_Object((1,3,6,1,4,1,9,9,826,1,5,5,1,5),_CfprBiosParameterRefName_Type())
+cfprBiosParameterRefName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosParameterRefName.setStatus(_A)
+_CfprBiosParameterRefPropertyName_Type=SnmpAdminString
+_CfprBiosParameterRefPropertyName_Object=MibTableColumn
+cfprBiosParameterRefPropertyName=_CfprBiosParameterRefPropertyName_Object((1,3,6,1,4,1,9,9,826,1,5,5,1,6),_CfprBiosParameterRefPropertyName_Type())
+cfprBiosParameterRefPropertyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosParameterRefPropertyName.setStatus(_A)
+_CfprBiosRefTable_Object=MibTable
+cfprBiosRefTable=_CfprBiosRefTable_Object((1,3,6,1,4,1,9,9,826,1,5,6))
+if mibBuilder.loadTexts:cfprBiosRefTable.setStatus(_A)
+_CfprBiosRefEntry_Object=MibTableRow
+cfprBiosRefEntry=_CfprBiosRefEntry_Object((1,3,6,1,4,1,9,9,826,1,5,6,1))
+cfprBiosRefEntry.setIndexNames((0,_C,_J))
+if mibBuilder.loadTexts:cfprBiosRefEntry.setStatus(_A)
+_CfprBiosRefInstanceId_Type=CfprManagedObjectId
+_CfprBiosRefInstanceId_Object=MibTableColumn
+cfprBiosRefInstanceId=_CfprBiosRefInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,6,1,1),_CfprBiosRefInstanceId_Type())
+cfprBiosRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosRefInstanceId.setStatus(_A)
+_CfprBiosRefDn_Type=CfprManagedObjectDn
+_CfprBiosRefDn_Object=MibTableColumn
+cfprBiosRefDn=_CfprBiosRefDn_Object((1,3,6,1,4,1,9,9,826,1,5,6,1,2),_CfprBiosRefDn_Type())
+cfprBiosRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosRefDn.setStatus(_A)
+_CfprBiosRefRn_Type=SnmpAdminString
+_CfprBiosRefRn_Object=MibTableColumn
+cfprBiosRefRn=_CfprBiosRefRn_Object((1,3,6,1,4,1,9,9,826,1,5,6,1,3),_CfprBiosRefRn_Type())
+cfprBiosRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosRefRn.setStatus(_A)
+_CfprBiosRefIsSupported_Type=CfprBiosSupportedAction
+_CfprBiosRefIsSupported_Object=MibTableColumn
+cfprBiosRefIsSupported=_CfprBiosRefIsSupported_Object((1,3,6,1,4,1,9,9,826,1,5,6,1,4),_CfprBiosRefIsSupported_Type())
+cfprBiosRefIsSupported.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosRefIsSupported.setStatus(_A)
+_CfprBiosSettingRefTable_Object=MibTable
+cfprBiosSettingRefTable=_CfprBiosSettingRefTable_Object((1,3,6,1,4,1,9,9,826,1,5,7))
+if mibBuilder.loadTexts:cfprBiosSettingRefTable.setStatus(_A)
+_CfprBiosSettingRefEntry_Object=MibTableRow
+cfprBiosSettingRefEntry=_CfprBiosSettingRefEntry_Object((1,3,6,1,4,1,9,9,826,1,5,7,1))
+cfprBiosSettingRefEntry.setIndexNames((0,_C,_K))
+if mibBuilder.loadTexts:cfprBiosSettingRefEntry.setStatus(_A)
+_CfprBiosSettingRefInstanceId_Type=CfprManagedObjectId
+_CfprBiosSettingRefInstanceId_Object=MibTableColumn
+cfprBiosSettingRefInstanceId=_CfprBiosSettingRefInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,7,1,1),_CfprBiosSettingRefInstanceId_Type())
+cfprBiosSettingRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosSettingRefInstanceId.setStatus(_A)
+_CfprBiosSettingRefDn_Type=CfprManagedObjectDn
+_CfprBiosSettingRefDn_Object=MibTableColumn
+cfprBiosSettingRefDn=_CfprBiosSettingRefDn_Object((1,3,6,1,4,1,9,9,826,1,5,7,1,2),_CfprBiosSettingRefDn_Type())
+cfprBiosSettingRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosSettingRefDn.setStatus(_A)
+_CfprBiosSettingRefRn_Type=SnmpAdminString
+_CfprBiosSettingRefRn_Object=MibTableColumn
+cfprBiosSettingRefRn=_CfprBiosSettingRefRn_Object((1,3,6,1,4,1,9,9,826,1,5,7,1,3),_CfprBiosSettingRefRn_Type())
+cfprBiosSettingRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosSettingRefRn.setStatus(_A)
+_CfprBiosSettingRefConstantName_Type=SnmpAdminString
+_CfprBiosSettingRefConstantName_Object=MibTableColumn
+cfprBiosSettingRefConstantName=_CfprBiosSettingRefConstantName_Object((1,3,6,1,4,1,9,9,826,1,5,7,1,4),_CfprBiosSettingRefConstantName_Type())
+cfprBiosSettingRefConstantName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosSettingRefConstantName.setStatus(_A)
+_CfprBiosSettingRefIsDefault_Type=CfprBiosDefaultAction
+_CfprBiosSettingRefIsDefault_Object=MibTableColumn
+cfprBiosSettingRefIsDefault=_CfprBiosSettingRefIsDefault_Object((1,3,6,1,4,1,9,9,826,1,5,7,1,5),_CfprBiosSettingRefIsDefault_Type())
+cfprBiosSettingRefIsDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosSettingRefIsDefault.setStatus(_A)
+_CfprBiosSettingRefIsSupported_Type=CfprBiosSupportedAction
+_CfprBiosSettingRefIsSupported_Object=MibTableColumn
+cfprBiosSettingRefIsSupported=_CfprBiosSettingRefIsSupported_Object((1,3,6,1,4,1,9,9,826,1,5,7,1,6),_CfprBiosSettingRefIsSupported_Type())
+cfprBiosSettingRefIsSupported.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosSettingRefIsSupported.setStatus(_A)
+_CfprBiosSettingRefName_Type=SnmpAdminString
+_CfprBiosSettingRefName_Object=MibTableColumn
+cfprBiosSettingRefName=_CfprBiosSettingRefName_Object((1,3,6,1,4,1,9,9,826,1,5,7,1,7),_CfprBiosSettingRefName_Type())
+cfprBiosSettingRefName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosSettingRefName.setStatus(_A)
+_CfprBiosSettingsTable_Object=MibTable
+cfprBiosSettingsTable=_CfprBiosSettingsTable_Object((1,3,6,1,4,1,9,9,826,1,5,8))
+if mibBuilder.loadTexts:cfprBiosSettingsTable.setStatus(_A)
+_CfprBiosSettingsEntry_Object=MibTableRow
+cfprBiosSettingsEntry=_CfprBiosSettingsEntry_Object((1,3,6,1,4,1,9,9,826,1,5,8,1))
+cfprBiosSettingsEntry.setIndexNames((0,_C,_L))
+if mibBuilder.loadTexts:cfprBiosSettingsEntry.setStatus(_A)
+_CfprBiosSettingsInstanceId_Type=CfprManagedObjectId
+_CfprBiosSettingsInstanceId_Object=MibTableColumn
+cfprBiosSettingsInstanceId=_CfprBiosSettingsInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,8,1,1),_CfprBiosSettingsInstanceId_Type())
+cfprBiosSettingsInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosSettingsInstanceId.setStatus(_A)
+_CfprBiosSettingsDn_Type=CfprManagedObjectDn
+_CfprBiosSettingsDn_Object=MibTableColumn
+cfprBiosSettingsDn=_CfprBiosSettingsDn_Object((1,3,6,1,4,1,9,9,826,1,5,8,1,2),_CfprBiosSettingsDn_Type())
+cfprBiosSettingsDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosSettingsDn.setStatus(_A)
+_CfprBiosSettingsRn_Type=SnmpAdminString
+_CfprBiosSettingsRn_Object=MibTableColumn
+cfprBiosSettingsRn=_CfprBiosSettingsRn_Object((1,3,6,1,4,1,9,9,826,1,5,8,1,3),_CfprBiosSettingsRn_Type())
+cfprBiosSettingsRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosSettingsRn.setStatus(_A)
+_CfprBiosUnitTable_Object=MibTable
+cfprBiosUnitTable=_CfprBiosUnitTable_Object((1,3,6,1,4,1,9,9,826,1,5,9))
+if mibBuilder.loadTexts:cfprBiosUnitTable.setStatus(_A)
+_CfprBiosUnitEntry_Object=MibTableRow
+cfprBiosUnitEntry=_CfprBiosUnitEntry_Object((1,3,6,1,4,1,9,9,826,1,5,9,1))
+cfprBiosUnitEntry.setIndexNames((0,_C,_M))
+if mibBuilder.loadTexts:cfprBiosUnitEntry.setStatus(_A)
+_CfprBiosUnitInstanceId_Type=CfprManagedObjectId
+_CfprBiosUnitInstanceId_Object=MibTableColumn
+cfprBiosUnitInstanceId=_CfprBiosUnitInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,9,1,1),_CfprBiosUnitInstanceId_Type())
+cfprBiosUnitInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosUnitInstanceId.setStatus(_A)
+_CfprBiosUnitDn_Type=CfprManagedObjectDn
+_CfprBiosUnitDn_Object=MibTableColumn
+cfprBiosUnitDn=_CfprBiosUnitDn_Object((1,3,6,1,4,1,9,9,826,1,5,9,1,2),_CfprBiosUnitDn_Type())
+cfprBiosUnitDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosUnitDn.setStatus(_A)
+_CfprBiosUnitRn_Type=SnmpAdminString
+_CfprBiosUnitRn_Object=MibTableColumn
+cfprBiosUnitRn=_CfprBiosUnitRn_Object((1,3,6,1,4,1,9,9,826,1,5,9,1,3),_CfprBiosUnitRn_Type())
+cfprBiosUnitRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosUnitRn.setStatus(_A)
+_CfprBiosUnitInitSeq_Type=SnmpAdminString
+_CfprBiosUnitInitSeq_Object=MibTableColumn
+cfprBiosUnitInitSeq=_CfprBiosUnitInitSeq_Object((1,3,6,1,4,1,9,9,826,1,5,9,1,4),_CfprBiosUnitInitSeq_Type())
+cfprBiosUnitInitSeq.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosUnitInitSeq.setStatus(_A)
+_CfprBiosUnitInitTs_Type=DateAndTime
+_CfprBiosUnitInitTs_Object=MibTableColumn
+cfprBiosUnitInitTs=_CfprBiosUnitInitTs_Object((1,3,6,1,4,1,9,9,826,1,5,9,1,5),_CfprBiosUnitInitTs_Type())
+cfprBiosUnitInitTs.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosUnitInitTs.setStatus(_A)
+_CfprBiosUnitModel_Type=SnmpAdminString
+_CfprBiosUnitModel_Object=MibTableColumn
+cfprBiosUnitModel=_CfprBiosUnitModel_Object((1,3,6,1,4,1,9,9,826,1,5,9,1,6),_CfprBiosUnitModel_Type())
+cfprBiosUnitModel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosUnitModel.setStatus(_A)
+_CfprBiosUnitRevision_Type=SnmpAdminString
+_CfprBiosUnitRevision_Object=MibTableColumn
+cfprBiosUnitRevision=_CfprBiosUnitRevision_Object((1,3,6,1,4,1,9,9,826,1,5,9,1,7),_CfprBiosUnitRevision_Type())
+cfprBiosUnitRevision.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosUnitRevision.setStatus(_A)
+_CfprBiosUnitSerial_Type=SnmpAdminString
+_CfprBiosUnitSerial_Object=MibTableColumn
+cfprBiosUnitSerial=_CfprBiosUnitSerial_Object((1,3,6,1,4,1,9,9,826,1,5,9,1,8),_CfprBiosUnitSerial_Type())
+cfprBiosUnitSerial.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosUnitSerial.setStatus(_A)
+_CfprBiosUnitVendor_Type=SnmpAdminString
+_CfprBiosUnitVendor_Object=MibTableColumn
+cfprBiosUnitVendor=_CfprBiosUnitVendor_Object((1,3,6,1,4,1,9,9,826,1,5,9,1,9),_CfprBiosUnitVendor_Type())
+cfprBiosUnitVendor.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosUnitVendor.setStatus(_A)
+_CfprBiosVIdentityParamsTable_Object=MibTable
+cfprBiosVIdentityParamsTable=_CfprBiosVIdentityParamsTable_Object((1,3,6,1,4,1,9,9,826,1,5,10))
+if mibBuilder.loadTexts:cfprBiosVIdentityParamsTable.setStatus(_A)
+_CfprBiosVIdentityParamsEntry_Object=MibTableRow
+cfprBiosVIdentityParamsEntry=_CfprBiosVIdentityParamsEntry_Object((1,3,6,1,4,1,9,9,826,1,5,10,1))
+cfprBiosVIdentityParamsEntry.setIndexNames((0,_C,_N))
+if mibBuilder.loadTexts:cfprBiosVIdentityParamsEntry.setStatus(_A)
+_CfprBiosVIdentityParamsInstanceId_Type=CfprManagedObjectId
+_CfprBiosVIdentityParamsInstanceId_Object=MibTableColumn
+cfprBiosVIdentityParamsInstanceId=_CfprBiosVIdentityParamsInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,10,1,1),_CfprBiosVIdentityParamsInstanceId_Type())
+cfprBiosVIdentityParamsInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVIdentityParamsInstanceId.setStatus(_A)
+_CfprBiosVIdentityParamsDn_Type=CfprManagedObjectDn
+_CfprBiosVIdentityParamsDn_Object=MibTableColumn
+cfprBiosVIdentityParamsDn=_CfprBiosVIdentityParamsDn_Object((1,3,6,1,4,1,9,9,826,1,5,10,1,2),_CfprBiosVIdentityParamsDn_Type())
+cfprBiosVIdentityParamsDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVIdentityParamsDn.setStatus(_A)
+_CfprBiosVIdentityParamsRn_Type=SnmpAdminString
+_CfprBiosVIdentityParamsRn_Object=MibTableColumn
+cfprBiosVIdentityParamsRn=_CfprBiosVIdentityParamsRn_Object((1,3,6,1,4,1,9,9,826,1,5,10,1,3),_CfprBiosVIdentityParamsRn_Type())
+cfprBiosVIdentityParamsRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVIdentityParamsRn.setStatus(_A)
+_CfprBiosVIdentityParamsLsServerName_Type=SnmpAdminString
+_CfprBiosVIdentityParamsLsServerName_Object=MibTableColumn
+cfprBiosVIdentityParamsLsServerName=_CfprBiosVIdentityParamsLsServerName_Object((1,3,6,1,4,1,9,9,826,1,5,10,1,4),_CfprBiosVIdentityParamsLsServerName_Type())
+cfprBiosVIdentityParamsLsServerName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVIdentityParamsLsServerName.setStatus(_A)
+_CfprBiosVIdentityParamsLsServerTmplName_Type=SnmpAdminString
+_CfprBiosVIdentityParamsLsServerTmplName_Object=MibTableColumn
+cfprBiosVIdentityParamsLsServerTmplName=_CfprBiosVIdentityParamsLsServerTmplName_Object((1,3,6,1,4,1,9,9,826,1,5,10,1,5),_CfprBiosVIdentityParamsLsServerTmplName_Type())
+cfprBiosVIdentityParamsLsServerTmplName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVIdentityParamsLsServerTmplName.setStatus(_A)
+_CfprBiosVIdentityParamsSysName_Type=SnmpAdminString
+_CfprBiosVIdentityParamsSysName_Object=MibTableColumn
+cfprBiosVIdentityParamsSysName=_CfprBiosVIdentityParamsSysName_Object((1,3,6,1,4,1,9,9,826,1,5,10,1,6),_CfprBiosVIdentityParamsSysName_Type())
+cfprBiosVIdentityParamsSysName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVIdentityParamsSysName.setStatus(_A)
+_CfprBiosVProfileTable_Object=MibTable
+cfprBiosVProfileTable=_CfprBiosVProfileTable_Object((1,3,6,1,4,1,9,9,826,1,5,11))
+if mibBuilder.loadTexts:cfprBiosVProfileTable.setStatus(_A)
+_CfprBiosVProfileEntry_Object=MibTableRow
+cfprBiosVProfileEntry=_CfprBiosVProfileEntry_Object((1,3,6,1,4,1,9,9,826,1,5,11,1))
+cfprBiosVProfileEntry.setIndexNames((0,_C,_O))
+if mibBuilder.loadTexts:cfprBiosVProfileEntry.setStatus(_A)
+_CfprBiosVProfileInstanceId_Type=CfprManagedObjectId
+_CfprBiosVProfileInstanceId_Object=MibTableColumn
+cfprBiosVProfileInstanceId=_CfprBiosVProfileInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,11,1,1),_CfprBiosVProfileInstanceId_Type())
+cfprBiosVProfileInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVProfileInstanceId.setStatus(_A)
+_CfprBiosVProfileDn_Type=CfprManagedObjectDn
+_CfprBiosVProfileDn_Object=MibTableColumn
+cfprBiosVProfileDn=_CfprBiosVProfileDn_Object((1,3,6,1,4,1,9,9,826,1,5,11,1,2),_CfprBiosVProfileDn_Type())
+cfprBiosVProfileDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVProfileDn.setStatus(_A)
+_CfprBiosVProfileRn_Type=SnmpAdminString
+_CfprBiosVProfileRn_Object=MibTableColumn
+cfprBiosVProfileRn=_CfprBiosVProfileRn_Object((1,3,6,1,4,1,9,9,826,1,5,11,1,3),_CfprBiosVProfileRn_Type())
+cfprBiosVProfileRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVProfileRn.setStatus(_A)
+_CfprBiosVProfileDescr_Type=SnmpAdminString
+_CfprBiosVProfileDescr_Object=MibTableColumn
+cfprBiosVProfileDescr=_CfprBiosVProfileDescr_Object((1,3,6,1,4,1,9,9,826,1,5,11,1,4),_CfprBiosVProfileDescr_Type())
+cfprBiosVProfileDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVProfileDescr.setStatus(_A)
+_CfprBiosVProfileIntId_Type=SnmpAdminString
+_CfprBiosVProfileIntId_Object=MibTableColumn
+cfprBiosVProfileIntId=_CfprBiosVProfileIntId_Object((1,3,6,1,4,1,9,9,826,1,5,11,1,5),_CfprBiosVProfileIntId_Type())
+cfprBiosVProfileIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVProfileIntId.setStatus(_A)
+_CfprBiosVProfileName_Type=SnmpAdminString
+_CfprBiosVProfileName_Object=MibTableColumn
+cfprBiosVProfileName=_CfprBiosVProfileName_Object((1,3,6,1,4,1,9,9,826,1,5,11,1,6),_CfprBiosVProfileName_Type())
+cfprBiosVProfileName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVProfileName.setStatus(_A)
+_CfprBiosVProfilePolicyLevel_Type=Gauge32
+_CfprBiosVProfilePolicyLevel_Object=MibTableColumn
+cfprBiosVProfilePolicyLevel=_CfprBiosVProfilePolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,5,11,1,7),_CfprBiosVProfilePolicyLevel_Type())
+cfprBiosVProfilePolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVProfilePolicyLevel.setStatus(_A)
+_CfprBiosVProfilePolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprBiosVProfilePolicyOwner_Object=MibTableColumn
+cfprBiosVProfilePolicyOwner=_CfprBiosVProfilePolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,5,11,1,8),_CfprBiosVProfilePolicyOwner_Type())
+cfprBiosVProfilePolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVProfilePolicyOwner.setStatus(_A)
+_CfprBiosVProfileRebootOnUpdate_Type=TruthValue
+_CfprBiosVProfileRebootOnUpdate_Object=MibTableColumn
+cfprBiosVProfileRebootOnUpdate=_CfprBiosVProfileRebootOnUpdate_Object((1,3,6,1,4,1,9,9,826,1,5,11,1,9),_CfprBiosVProfileRebootOnUpdate_Type())
+cfprBiosVProfileRebootOnUpdate.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVProfileRebootOnUpdate.setStatus(_A)
+_CfprBiosVfACPI10SupportTable_Object=MibTable
+cfprBiosVfACPI10SupportTable=_CfprBiosVfACPI10SupportTable_Object((1,3,6,1,4,1,9,9,826,1,5,12))
+if mibBuilder.loadTexts:cfprBiosVfACPI10SupportTable.setStatus(_A)
+_CfprBiosVfACPI10SupportEntry_Object=MibTableRow
+cfprBiosVfACPI10SupportEntry=_CfprBiosVfACPI10SupportEntry_Object((1,3,6,1,4,1,9,9,826,1,5,12,1))
+cfprBiosVfACPI10SupportEntry.setIndexNames((0,_C,_P))
+if mibBuilder.loadTexts:cfprBiosVfACPI10SupportEntry.setStatus(_A)
+_CfprBiosVfACPI10SupportInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfACPI10SupportInstanceId_Object=MibTableColumn
+cfprBiosVfACPI10SupportInstanceId=_CfprBiosVfACPI10SupportInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,12,1,1),_CfprBiosVfACPI10SupportInstanceId_Type())
+cfprBiosVfACPI10SupportInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfACPI10SupportInstanceId.setStatus(_A)
+_CfprBiosVfACPI10SupportDn_Type=CfprManagedObjectDn
+_CfprBiosVfACPI10SupportDn_Object=MibTableColumn
+cfprBiosVfACPI10SupportDn=_CfprBiosVfACPI10SupportDn_Object((1,3,6,1,4,1,9,9,826,1,5,12,1,2),_CfprBiosVfACPI10SupportDn_Type())
+cfprBiosVfACPI10SupportDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfACPI10SupportDn.setStatus(_A)
+_CfprBiosVfACPI10SupportRn_Type=SnmpAdminString
+_CfprBiosVfACPI10SupportRn_Object=MibTableColumn
+cfprBiosVfACPI10SupportRn=_CfprBiosVfACPI10SupportRn_Object((1,3,6,1,4,1,9,9,826,1,5,12,1,3),_CfprBiosVfACPI10SupportRn_Type())
+cfprBiosVfACPI10SupportRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfACPI10SupportRn.setStatus(_A)
+_CfprBiosVfACPI10SupportVpACPI10Support_Type=CfprBiosVfACPI10SupportVpACPI10Support
+_CfprBiosVfACPI10SupportVpACPI10Support_Object=MibTableColumn
+cfprBiosVfACPI10SupportVpACPI10Support=_CfprBiosVfACPI10SupportVpACPI10Support_Object((1,3,6,1,4,1,9,9,826,1,5,12,1,4),_CfprBiosVfACPI10SupportVpACPI10Support_Type())
+cfprBiosVfACPI10SupportVpACPI10Support.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfACPI10SupportVpACPI10Support.setStatus(_A)
+_CfprBiosVfACPI10SupportSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfACPI10SupportSupportedByDefault_Object=MibTableColumn
+cfprBiosVfACPI10SupportSupportedByDefault=_CfprBiosVfACPI10SupportSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,12,1,5),_CfprBiosVfACPI10SupportSupportedByDefault_Type())
+cfprBiosVfACPI10SupportSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfACPI10SupportSupportedByDefault.setStatus(_A)
+_CfprBiosVfAllUSBDevicesTable_Object=MibTable
+cfprBiosVfAllUSBDevicesTable=_CfprBiosVfAllUSBDevicesTable_Object((1,3,6,1,4,1,9,9,826,1,5,13))
+if mibBuilder.loadTexts:cfprBiosVfAllUSBDevicesTable.setStatus(_A)
+_CfprBiosVfAllUSBDevicesEntry_Object=MibTableRow
+cfprBiosVfAllUSBDevicesEntry=_CfprBiosVfAllUSBDevicesEntry_Object((1,3,6,1,4,1,9,9,826,1,5,13,1))
+cfprBiosVfAllUSBDevicesEntry.setIndexNames((0,_C,_Q))
+if mibBuilder.loadTexts:cfprBiosVfAllUSBDevicesEntry.setStatus(_A)
+_CfprBiosVfAllUSBDevicesInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfAllUSBDevicesInstanceId_Object=MibTableColumn
+cfprBiosVfAllUSBDevicesInstanceId=_CfprBiosVfAllUSBDevicesInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,13,1,1),_CfprBiosVfAllUSBDevicesInstanceId_Type())
+cfprBiosVfAllUSBDevicesInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfAllUSBDevicesInstanceId.setStatus(_A)
+_CfprBiosVfAllUSBDevicesDn_Type=CfprManagedObjectDn
+_CfprBiosVfAllUSBDevicesDn_Object=MibTableColumn
+cfprBiosVfAllUSBDevicesDn=_CfprBiosVfAllUSBDevicesDn_Object((1,3,6,1,4,1,9,9,826,1,5,13,1,2),_CfprBiosVfAllUSBDevicesDn_Type())
+cfprBiosVfAllUSBDevicesDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfAllUSBDevicesDn.setStatus(_A)
+_CfprBiosVfAllUSBDevicesRn_Type=SnmpAdminString
+_CfprBiosVfAllUSBDevicesRn_Object=MibTableColumn
+cfprBiosVfAllUSBDevicesRn=_CfprBiosVfAllUSBDevicesRn_Object((1,3,6,1,4,1,9,9,826,1,5,13,1,3),_CfprBiosVfAllUSBDevicesRn_Type())
+cfprBiosVfAllUSBDevicesRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfAllUSBDevicesRn.setStatus(_A)
+_CfprBiosVfAllUSBDevicesVpAllUSBDevices_Type=CfprBiosVfAllUSBDevicesVpAllUSBDevices
+_CfprBiosVfAllUSBDevicesVpAllUSBDevices_Object=MibTableColumn
+cfprBiosVfAllUSBDevicesVpAllUSBDevices=_CfprBiosVfAllUSBDevicesVpAllUSBDevices_Object((1,3,6,1,4,1,9,9,826,1,5,13,1,4),_CfprBiosVfAllUSBDevicesVpAllUSBDevices_Type())
+cfprBiosVfAllUSBDevicesVpAllUSBDevices.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfAllUSBDevicesVpAllUSBDevices.setStatus(_A)
+_CfprBiosVfAllUSBDevicesSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfAllUSBDevicesSupportedByDefault_Object=MibTableColumn
+cfprBiosVfAllUSBDevicesSupportedByDefault=_CfprBiosVfAllUSBDevicesSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,13,1,5),_CfprBiosVfAllUSBDevicesSupportedByDefault_Type())
+cfprBiosVfAllUSBDevicesSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfAllUSBDevicesSupportedByDefault.setStatus(_A)
+_CfprBiosVfAltitudeTable_Object=MibTable
+cfprBiosVfAltitudeTable=_CfprBiosVfAltitudeTable_Object((1,3,6,1,4,1,9,9,826,1,5,14))
+if mibBuilder.loadTexts:cfprBiosVfAltitudeTable.setStatus(_A)
+_CfprBiosVfAltitudeEntry_Object=MibTableRow
+cfprBiosVfAltitudeEntry=_CfprBiosVfAltitudeEntry_Object((1,3,6,1,4,1,9,9,826,1,5,14,1))
+cfprBiosVfAltitudeEntry.setIndexNames((0,_C,_R))
+if mibBuilder.loadTexts:cfprBiosVfAltitudeEntry.setStatus(_A)
+_CfprBiosVfAltitudeInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfAltitudeInstanceId_Object=MibTableColumn
+cfprBiosVfAltitudeInstanceId=_CfprBiosVfAltitudeInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,14,1,1),_CfprBiosVfAltitudeInstanceId_Type())
+cfprBiosVfAltitudeInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfAltitudeInstanceId.setStatus(_A)
+_CfprBiosVfAltitudeDn_Type=CfprManagedObjectDn
+_CfprBiosVfAltitudeDn_Object=MibTableColumn
+cfprBiosVfAltitudeDn=_CfprBiosVfAltitudeDn_Object((1,3,6,1,4,1,9,9,826,1,5,14,1,2),_CfprBiosVfAltitudeDn_Type())
+cfprBiosVfAltitudeDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfAltitudeDn.setStatus(_A)
+_CfprBiosVfAltitudeRn_Type=SnmpAdminString
+_CfprBiosVfAltitudeRn_Object=MibTableColumn
+cfprBiosVfAltitudeRn=_CfprBiosVfAltitudeRn_Object((1,3,6,1,4,1,9,9,826,1,5,14,1,3),_CfprBiosVfAltitudeRn_Type())
+cfprBiosVfAltitudeRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfAltitudeRn.setStatus(_A)
+_CfprBiosVfAltitudeVpAltitude_Type=CfprBiosVfAltitudeVpAltitude
+_CfprBiosVfAltitudeVpAltitude_Object=MibTableColumn
+cfprBiosVfAltitudeVpAltitude=_CfprBiosVfAltitudeVpAltitude_Object((1,3,6,1,4,1,9,9,826,1,5,14,1,4),_CfprBiosVfAltitudeVpAltitude_Type())
+cfprBiosVfAltitudeVpAltitude.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfAltitudeVpAltitude.setStatus(_A)
+_CfprBiosVfAltitudeSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfAltitudeSupportedByDefault_Object=MibTableColumn
+cfprBiosVfAltitudeSupportedByDefault=_CfprBiosVfAltitudeSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,14,1,5),_CfprBiosVfAltitudeSupportedByDefault_Type())
+cfprBiosVfAltitudeSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfAltitudeSupportedByDefault.setStatus(_A)
+_CfprBiosVfAssertNMIOnPERRTable_Object=MibTable
+cfprBiosVfAssertNMIOnPERRTable=_CfprBiosVfAssertNMIOnPERRTable_Object((1,3,6,1,4,1,9,9,826,1,5,15))
+if mibBuilder.loadTexts:cfprBiosVfAssertNMIOnPERRTable.setStatus(_A)
+_CfprBiosVfAssertNMIOnPERREntry_Object=MibTableRow
+cfprBiosVfAssertNMIOnPERREntry=_CfprBiosVfAssertNMIOnPERREntry_Object((1,3,6,1,4,1,9,9,826,1,5,15,1))
+cfprBiosVfAssertNMIOnPERREntry.setIndexNames((0,_C,_S))
+if mibBuilder.loadTexts:cfprBiosVfAssertNMIOnPERREntry.setStatus(_A)
+_CfprBiosVfAssertNMIOnPERRInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfAssertNMIOnPERRInstanceId_Object=MibTableColumn
+cfprBiosVfAssertNMIOnPERRInstanceId=_CfprBiosVfAssertNMIOnPERRInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,15,1,1),_CfprBiosVfAssertNMIOnPERRInstanceId_Type())
+cfprBiosVfAssertNMIOnPERRInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfAssertNMIOnPERRInstanceId.setStatus(_A)
+_CfprBiosVfAssertNMIOnPERRDn_Type=CfprManagedObjectDn
+_CfprBiosVfAssertNMIOnPERRDn_Object=MibTableColumn
+cfprBiosVfAssertNMIOnPERRDn=_CfprBiosVfAssertNMIOnPERRDn_Object((1,3,6,1,4,1,9,9,826,1,5,15,1,2),_CfprBiosVfAssertNMIOnPERRDn_Type())
+cfprBiosVfAssertNMIOnPERRDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfAssertNMIOnPERRDn.setStatus(_A)
+_CfprBiosVfAssertNMIOnPERRRn_Type=SnmpAdminString
+_CfprBiosVfAssertNMIOnPERRRn_Object=MibTableColumn
+cfprBiosVfAssertNMIOnPERRRn=_CfprBiosVfAssertNMIOnPERRRn_Object((1,3,6,1,4,1,9,9,826,1,5,15,1,3),_CfprBiosVfAssertNMIOnPERRRn_Type())
+cfprBiosVfAssertNMIOnPERRRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfAssertNMIOnPERRRn.setStatus(_A)
+_CfprBiosVfAssertNMIOnPERRVpAssertNMIOnPERR_Type=CfprBiosVfAssertNMIOnPERRVpAssertNMIOnPERR
+_CfprBiosVfAssertNMIOnPERRVpAssertNMIOnPERR_Object=MibTableColumn
+cfprBiosVfAssertNMIOnPERRVpAssertNMIOnPERR=_CfprBiosVfAssertNMIOnPERRVpAssertNMIOnPERR_Object((1,3,6,1,4,1,9,9,826,1,5,15,1,4),_CfprBiosVfAssertNMIOnPERRVpAssertNMIOnPERR_Type())
+cfprBiosVfAssertNMIOnPERRVpAssertNMIOnPERR.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfAssertNMIOnPERRVpAssertNMIOnPERR.setStatus(_A)
+_CfprBiosVfAssertNMIOnPERRSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfAssertNMIOnPERRSupportedByDefault_Object=MibTableColumn
+cfprBiosVfAssertNMIOnPERRSupportedByDefault=_CfprBiosVfAssertNMIOnPERRSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,15,1,5),_CfprBiosVfAssertNMIOnPERRSupportedByDefault_Type())
+cfprBiosVfAssertNMIOnPERRSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfAssertNMIOnPERRSupportedByDefault.setStatus(_A)
+_CfprBiosVfAssertNMIOnSERRTable_Object=MibTable
+cfprBiosVfAssertNMIOnSERRTable=_CfprBiosVfAssertNMIOnSERRTable_Object((1,3,6,1,4,1,9,9,826,1,5,16))
+if mibBuilder.loadTexts:cfprBiosVfAssertNMIOnSERRTable.setStatus(_A)
+_CfprBiosVfAssertNMIOnSERREntry_Object=MibTableRow
+cfprBiosVfAssertNMIOnSERREntry=_CfprBiosVfAssertNMIOnSERREntry_Object((1,3,6,1,4,1,9,9,826,1,5,16,1))
+cfprBiosVfAssertNMIOnSERREntry.setIndexNames((0,_C,_T))
+if mibBuilder.loadTexts:cfprBiosVfAssertNMIOnSERREntry.setStatus(_A)
+_CfprBiosVfAssertNMIOnSERRInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfAssertNMIOnSERRInstanceId_Object=MibTableColumn
+cfprBiosVfAssertNMIOnSERRInstanceId=_CfprBiosVfAssertNMIOnSERRInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,16,1,1),_CfprBiosVfAssertNMIOnSERRInstanceId_Type())
+cfprBiosVfAssertNMIOnSERRInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfAssertNMIOnSERRInstanceId.setStatus(_A)
+_CfprBiosVfAssertNMIOnSERRDn_Type=CfprManagedObjectDn
+_CfprBiosVfAssertNMIOnSERRDn_Object=MibTableColumn
+cfprBiosVfAssertNMIOnSERRDn=_CfprBiosVfAssertNMIOnSERRDn_Object((1,3,6,1,4,1,9,9,826,1,5,16,1,2),_CfprBiosVfAssertNMIOnSERRDn_Type())
+cfprBiosVfAssertNMIOnSERRDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfAssertNMIOnSERRDn.setStatus(_A)
+_CfprBiosVfAssertNMIOnSERRRn_Type=SnmpAdminString
+_CfprBiosVfAssertNMIOnSERRRn_Object=MibTableColumn
+cfprBiosVfAssertNMIOnSERRRn=_CfprBiosVfAssertNMIOnSERRRn_Object((1,3,6,1,4,1,9,9,826,1,5,16,1,3),_CfprBiosVfAssertNMIOnSERRRn_Type())
+cfprBiosVfAssertNMIOnSERRRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfAssertNMIOnSERRRn.setStatus(_A)
+_CfprBiosVfAssertNMIOnSERRVpAssertNMIOnSERR_Type=CfprBiosVfAssertNMIOnSERRVpAssertNMIOnSERR
+_CfprBiosVfAssertNMIOnSERRVpAssertNMIOnSERR_Object=MibTableColumn
+cfprBiosVfAssertNMIOnSERRVpAssertNMIOnSERR=_CfprBiosVfAssertNMIOnSERRVpAssertNMIOnSERR_Object((1,3,6,1,4,1,9,9,826,1,5,16,1,4),_CfprBiosVfAssertNMIOnSERRVpAssertNMIOnSERR_Type())
+cfprBiosVfAssertNMIOnSERRVpAssertNMIOnSERR.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfAssertNMIOnSERRVpAssertNMIOnSERR.setStatus(_A)
+_CfprBiosVfAssertNMIOnSERRSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfAssertNMIOnSERRSupportedByDefault_Object=MibTableColumn
+cfprBiosVfAssertNMIOnSERRSupportedByDefault=_CfprBiosVfAssertNMIOnSERRSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,16,1,5),_CfprBiosVfAssertNMIOnSERRSupportedByDefault_Type())
+cfprBiosVfAssertNMIOnSERRSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfAssertNMIOnSERRSupportedByDefault.setStatus(_A)
+_CfprBiosVfBootOptionRetryTable_Object=MibTable
+cfprBiosVfBootOptionRetryTable=_CfprBiosVfBootOptionRetryTable_Object((1,3,6,1,4,1,9,9,826,1,5,17))
+if mibBuilder.loadTexts:cfprBiosVfBootOptionRetryTable.setStatus(_A)
+_CfprBiosVfBootOptionRetryEntry_Object=MibTableRow
+cfprBiosVfBootOptionRetryEntry=_CfprBiosVfBootOptionRetryEntry_Object((1,3,6,1,4,1,9,9,826,1,5,17,1))
+cfprBiosVfBootOptionRetryEntry.setIndexNames((0,_C,_U))
+if mibBuilder.loadTexts:cfprBiosVfBootOptionRetryEntry.setStatus(_A)
+_CfprBiosVfBootOptionRetryInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfBootOptionRetryInstanceId_Object=MibTableColumn
+cfprBiosVfBootOptionRetryInstanceId=_CfprBiosVfBootOptionRetryInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,17,1,1),_CfprBiosVfBootOptionRetryInstanceId_Type())
+cfprBiosVfBootOptionRetryInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfBootOptionRetryInstanceId.setStatus(_A)
+_CfprBiosVfBootOptionRetryDn_Type=CfprManagedObjectDn
+_CfprBiosVfBootOptionRetryDn_Object=MibTableColumn
+cfprBiosVfBootOptionRetryDn=_CfprBiosVfBootOptionRetryDn_Object((1,3,6,1,4,1,9,9,826,1,5,17,1,2),_CfprBiosVfBootOptionRetryDn_Type())
+cfprBiosVfBootOptionRetryDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfBootOptionRetryDn.setStatus(_A)
+_CfprBiosVfBootOptionRetryRn_Type=SnmpAdminString
+_CfprBiosVfBootOptionRetryRn_Object=MibTableColumn
+cfprBiosVfBootOptionRetryRn=_CfprBiosVfBootOptionRetryRn_Object((1,3,6,1,4,1,9,9,826,1,5,17,1,3),_CfprBiosVfBootOptionRetryRn_Type())
+cfprBiosVfBootOptionRetryRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfBootOptionRetryRn.setStatus(_A)
+_CfprBiosVfBootOptionRetryVpBootOptionRetry_Type=CfprBiosVfBootOptionRetryVpBootOptionRetry
+_CfprBiosVfBootOptionRetryVpBootOptionRetry_Object=MibTableColumn
+cfprBiosVfBootOptionRetryVpBootOptionRetry=_CfprBiosVfBootOptionRetryVpBootOptionRetry_Object((1,3,6,1,4,1,9,9,826,1,5,17,1,4),_CfprBiosVfBootOptionRetryVpBootOptionRetry_Type())
+cfprBiosVfBootOptionRetryVpBootOptionRetry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfBootOptionRetryVpBootOptionRetry.setStatus(_A)
+_CfprBiosVfBootOptionRetrySupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfBootOptionRetrySupportedByDefault_Object=MibTableColumn
+cfprBiosVfBootOptionRetrySupportedByDefault=_CfprBiosVfBootOptionRetrySupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,17,1,5),_CfprBiosVfBootOptionRetrySupportedByDefault_Type())
+cfprBiosVfBootOptionRetrySupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfBootOptionRetrySupportedByDefault.setStatus(_A)
+_CfprBiosVfCPUPerformanceTable_Object=MibTable
+cfprBiosVfCPUPerformanceTable=_CfprBiosVfCPUPerformanceTable_Object((1,3,6,1,4,1,9,9,826,1,5,18))
+if mibBuilder.loadTexts:cfprBiosVfCPUPerformanceTable.setStatus(_A)
+_CfprBiosVfCPUPerformanceEntry_Object=MibTableRow
+cfprBiosVfCPUPerformanceEntry=_CfprBiosVfCPUPerformanceEntry_Object((1,3,6,1,4,1,9,9,826,1,5,18,1))
+cfprBiosVfCPUPerformanceEntry.setIndexNames((0,_C,_V))
+if mibBuilder.loadTexts:cfprBiosVfCPUPerformanceEntry.setStatus(_A)
+_CfprBiosVfCPUPerformanceInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfCPUPerformanceInstanceId_Object=MibTableColumn
+cfprBiosVfCPUPerformanceInstanceId=_CfprBiosVfCPUPerformanceInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,18,1,1),_CfprBiosVfCPUPerformanceInstanceId_Type())
+cfprBiosVfCPUPerformanceInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfCPUPerformanceInstanceId.setStatus(_A)
+_CfprBiosVfCPUPerformanceDn_Type=CfprManagedObjectDn
+_CfprBiosVfCPUPerformanceDn_Object=MibTableColumn
+cfprBiosVfCPUPerformanceDn=_CfprBiosVfCPUPerformanceDn_Object((1,3,6,1,4,1,9,9,826,1,5,18,1,2),_CfprBiosVfCPUPerformanceDn_Type())
+cfprBiosVfCPUPerformanceDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfCPUPerformanceDn.setStatus(_A)
+_CfprBiosVfCPUPerformanceRn_Type=SnmpAdminString
+_CfprBiosVfCPUPerformanceRn_Object=MibTableColumn
+cfprBiosVfCPUPerformanceRn=_CfprBiosVfCPUPerformanceRn_Object((1,3,6,1,4,1,9,9,826,1,5,18,1,3),_CfprBiosVfCPUPerformanceRn_Type())
+cfprBiosVfCPUPerformanceRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfCPUPerformanceRn.setStatus(_A)
+_CfprBiosVfCPUPerformanceVpCPUPerformance_Type=CfprBiosVfCPUPerformanceVpCPUPerformance
+_CfprBiosVfCPUPerformanceVpCPUPerformance_Object=MibTableColumn
+cfprBiosVfCPUPerformanceVpCPUPerformance=_CfprBiosVfCPUPerformanceVpCPUPerformance_Object((1,3,6,1,4,1,9,9,826,1,5,18,1,4),_CfprBiosVfCPUPerformanceVpCPUPerformance_Type())
+cfprBiosVfCPUPerformanceVpCPUPerformance.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfCPUPerformanceVpCPUPerformance.setStatus(_A)
+_CfprBiosVfCPUPerformanceSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfCPUPerformanceSupportedByDefault_Object=MibTableColumn
+cfprBiosVfCPUPerformanceSupportedByDefault=_CfprBiosVfCPUPerformanceSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,18,1,5),_CfprBiosVfCPUPerformanceSupportedByDefault_Type())
+cfprBiosVfCPUPerformanceSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfCPUPerformanceSupportedByDefault.setStatus(_A)
+_CfprBiosVfConsoleRedirectionTable_Object=MibTable
+cfprBiosVfConsoleRedirectionTable=_CfprBiosVfConsoleRedirectionTable_Object((1,3,6,1,4,1,9,9,826,1,5,19))
+if mibBuilder.loadTexts:cfprBiosVfConsoleRedirectionTable.setStatus(_A)
+_CfprBiosVfConsoleRedirectionEntry_Object=MibTableRow
+cfprBiosVfConsoleRedirectionEntry=_CfprBiosVfConsoleRedirectionEntry_Object((1,3,6,1,4,1,9,9,826,1,5,19,1))
+cfprBiosVfConsoleRedirectionEntry.setIndexNames((0,_C,_W))
+if mibBuilder.loadTexts:cfprBiosVfConsoleRedirectionEntry.setStatus(_A)
+_CfprBiosVfConsoleRedirectionInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfConsoleRedirectionInstanceId_Object=MibTableColumn
+cfprBiosVfConsoleRedirectionInstanceId=_CfprBiosVfConsoleRedirectionInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,19,1,1),_CfprBiosVfConsoleRedirectionInstanceId_Type())
+cfprBiosVfConsoleRedirectionInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfConsoleRedirectionInstanceId.setStatus(_A)
+_CfprBiosVfConsoleRedirectionDn_Type=CfprManagedObjectDn
+_CfprBiosVfConsoleRedirectionDn_Object=MibTableColumn
+cfprBiosVfConsoleRedirectionDn=_CfprBiosVfConsoleRedirectionDn_Object((1,3,6,1,4,1,9,9,826,1,5,19,1,2),_CfprBiosVfConsoleRedirectionDn_Type())
+cfprBiosVfConsoleRedirectionDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfConsoleRedirectionDn.setStatus(_A)
+_CfprBiosVfConsoleRedirectionRn_Type=SnmpAdminString
+_CfprBiosVfConsoleRedirectionRn_Object=MibTableColumn
+cfprBiosVfConsoleRedirectionRn=_CfprBiosVfConsoleRedirectionRn_Object((1,3,6,1,4,1,9,9,826,1,5,19,1,3),_CfprBiosVfConsoleRedirectionRn_Type())
+cfprBiosVfConsoleRedirectionRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfConsoleRedirectionRn.setStatus(_A)
+_CfprBiosVfConsoleRedirectionVpBaudRate_Type=CfprBiosVfConsoleRedirectionVpBaudRate
+_CfprBiosVfConsoleRedirectionVpBaudRate_Object=MibTableColumn
+cfprBiosVfConsoleRedirectionVpBaudRate=_CfprBiosVfConsoleRedirectionVpBaudRate_Object((1,3,6,1,4,1,9,9,826,1,5,19,1,4),_CfprBiosVfConsoleRedirectionVpBaudRate_Type())
+cfprBiosVfConsoleRedirectionVpBaudRate.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfConsoleRedirectionVpBaudRate.setStatus(_A)
+_CfprBiosVfConsoleRedirectionVpConsoleRedirection_Type=CfprBiosVfConsoleRedirectionVpConsoleRedirection
+_CfprBiosVfConsoleRedirectionVpConsoleRedirection_Object=MibTableColumn
+cfprBiosVfConsoleRedirectionVpConsoleRedirection=_CfprBiosVfConsoleRedirectionVpConsoleRedirection_Object((1,3,6,1,4,1,9,9,826,1,5,19,1,5),_CfprBiosVfConsoleRedirectionVpConsoleRedirection_Type())
+cfprBiosVfConsoleRedirectionVpConsoleRedirection.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfConsoleRedirectionVpConsoleRedirection.setStatus(_A)
+_CfprBiosVfConsoleRedirectionVpFlowControl_Type=CfprBiosVfConsoleRedirectionVpFlowControl
+_CfprBiosVfConsoleRedirectionVpFlowControl_Object=MibTableColumn
+cfprBiosVfConsoleRedirectionVpFlowControl=_CfprBiosVfConsoleRedirectionVpFlowControl_Object((1,3,6,1,4,1,9,9,826,1,5,19,1,6),_CfprBiosVfConsoleRedirectionVpFlowControl_Type())
+cfprBiosVfConsoleRedirectionVpFlowControl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfConsoleRedirectionVpFlowControl.setStatus(_A)
+_CfprBiosVfConsoleRedirectionVpLegacyOSRedirection_Type=CfprBiosVfConsoleRedirectionVpLegacyOSRedirection
+_CfprBiosVfConsoleRedirectionVpLegacyOSRedirection_Object=MibTableColumn
+cfprBiosVfConsoleRedirectionVpLegacyOSRedirection=_CfprBiosVfConsoleRedirectionVpLegacyOSRedirection_Object((1,3,6,1,4,1,9,9,826,1,5,19,1,7),_CfprBiosVfConsoleRedirectionVpLegacyOSRedirection_Type())
+cfprBiosVfConsoleRedirectionVpLegacyOSRedirection.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfConsoleRedirectionVpLegacyOSRedirection.setStatus(_A)
+_CfprBiosVfConsoleRedirectionVpPuttyKeyPad_Type=CfprBiosVfConsoleRedirectionVpPuttyKeyPad
+_CfprBiosVfConsoleRedirectionVpPuttyKeyPad_Object=MibTableColumn
+cfprBiosVfConsoleRedirectionVpPuttyKeyPad=_CfprBiosVfConsoleRedirectionVpPuttyKeyPad_Object((1,3,6,1,4,1,9,9,826,1,5,19,1,8),_CfprBiosVfConsoleRedirectionVpPuttyKeyPad_Type())
+cfprBiosVfConsoleRedirectionVpPuttyKeyPad.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfConsoleRedirectionVpPuttyKeyPad.setStatus(_A)
+_CfprBiosVfConsoleRedirectionVpTerminalType_Type=CfprBiosVfConsoleRedirectionVpTerminalType
+_CfprBiosVfConsoleRedirectionVpTerminalType_Object=MibTableColumn
+cfprBiosVfConsoleRedirectionVpTerminalType=_CfprBiosVfConsoleRedirectionVpTerminalType_Object((1,3,6,1,4,1,9,9,826,1,5,19,1,9),_CfprBiosVfConsoleRedirectionVpTerminalType_Type())
+cfprBiosVfConsoleRedirectionVpTerminalType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfConsoleRedirectionVpTerminalType.setStatus(_A)
+_CfprBiosVfConsoleRedirectionSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfConsoleRedirectionSupportedByDefault_Object=MibTableColumn
+cfprBiosVfConsoleRedirectionSupportedByDefault=_CfprBiosVfConsoleRedirectionSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,19,1,10),_CfprBiosVfConsoleRedirectionSupportedByDefault_Type())
+cfprBiosVfConsoleRedirectionSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfConsoleRedirectionSupportedByDefault.setStatus(_A)
+_CfprBiosVfCoreMultiProcessingTable_Object=MibTable
+cfprBiosVfCoreMultiProcessingTable=_CfprBiosVfCoreMultiProcessingTable_Object((1,3,6,1,4,1,9,9,826,1,5,20))
+if mibBuilder.loadTexts:cfprBiosVfCoreMultiProcessingTable.setStatus(_A)
+_CfprBiosVfCoreMultiProcessingEntry_Object=MibTableRow
+cfprBiosVfCoreMultiProcessingEntry=_CfprBiosVfCoreMultiProcessingEntry_Object((1,3,6,1,4,1,9,9,826,1,5,20,1))
+cfprBiosVfCoreMultiProcessingEntry.setIndexNames((0,_C,_X))
+if mibBuilder.loadTexts:cfprBiosVfCoreMultiProcessingEntry.setStatus(_A)
+_CfprBiosVfCoreMultiProcessingInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfCoreMultiProcessingInstanceId_Object=MibTableColumn
+cfprBiosVfCoreMultiProcessingInstanceId=_CfprBiosVfCoreMultiProcessingInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,20,1,1),_CfprBiosVfCoreMultiProcessingInstanceId_Type())
+cfprBiosVfCoreMultiProcessingInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfCoreMultiProcessingInstanceId.setStatus(_A)
+_CfprBiosVfCoreMultiProcessingDn_Type=CfprManagedObjectDn
+_CfprBiosVfCoreMultiProcessingDn_Object=MibTableColumn
+cfprBiosVfCoreMultiProcessingDn=_CfprBiosVfCoreMultiProcessingDn_Object((1,3,6,1,4,1,9,9,826,1,5,20,1,2),_CfprBiosVfCoreMultiProcessingDn_Type())
+cfprBiosVfCoreMultiProcessingDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfCoreMultiProcessingDn.setStatus(_A)
+_CfprBiosVfCoreMultiProcessingRn_Type=SnmpAdminString
+_CfprBiosVfCoreMultiProcessingRn_Object=MibTableColumn
+cfprBiosVfCoreMultiProcessingRn=_CfprBiosVfCoreMultiProcessingRn_Object((1,3,6,1,4,1,9,9,826,1,5,20,1,3),_CfprBiosVfCoreMultiProcessingRn_Type())
+cfprBiosVfCoreMultiProcessingRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfCoreMultiProcessingRn.setStatus(_A)
+_CfprBiosVfCoreMultiProcessingVpCoreMultiProcessing_Type=CfprBiosVfCoreMultiProcessingVpCoreMultiProcessing
+_CfprBiosVfCoreMultiProcessingVpCoreMultiProcessing_Object=MibTableColumn
+cfprBiosVfCoreMultiProcessingVpCoreMultiProcessing=_CfprBiosVfCoreMultiProcessingVpCoreMultiProcessing_Object((1,3,6,1,4,1,9,9,826,1,5,20,1,4),_CfprBiosVfCoreMultiProcessingVpCoreMultiProcessing_Type())
+cfprBiosVfCoreMultiProcessingVpCoreMultiProcessing.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfCoreMultiProcessingVpCoreMultiProcessing.setStatus(_A)
+_CfprBiosVfCoreMultiProcessingSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfCoreMultiProcessingSupportedByDefault_Object=MibTableColumn
+cfprBiosVfCoreMultiProcessingSupportedByDefault=_CfprBiosVfCoreMultiProcessingSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,20,1,5),_CfprBiosVfCoreMultiProcessingSupportedByDefault_Type())
+cfprBiosVfCoreMultiProcessingSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfCoreMultiProcessingSupportedByDefault.setStatus(_A)
+_CfprBiosVfDRAMClockThrottlingTable_Object=MibTable
+cfprBiosVfDRAMClockThrottlingTable=_CfprBiosVfDRAMClockThrottlingTable_Object((1,3,6,1,4,1,9,9,826,1,5,21))
+if mibBuilder.loadTexts:cfprBiosVfDRAMClockThrottlingTable.setStatus(_A)
+_CfprBiosVfDRAMClockThrottlingEntry_Object=MibTableRow
+cfprBiosVfDRAMClockThrottlingEntry=_CfprBiosVfDRAMClockThrottlingEntry_Object((1,3,6,1,4,1,9,9,826,1,5,21,1))
+cfprBiosVfDRAMClockThrottlingEntry.setIndexNames((0,_C,_Y))
+if mibBuilder.loadTexts:cfprBiosVfDRAMClockThrottlingEntry.setStatus(_A)
+_CfprBiosVfDRAMClockThrottlingInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfDRAMClockThrottlingInstanceId_Object=MibTableColumn
+cfprBiosVfDRAMClockThrottlingInstanceId=_CfprBiosVfDRAMClockThrottlingInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,21,1,1),_CfprBiosVfDRAMClockThrottlingInstanceId_Type())
+cfprBiosVfDRAMClockThrottlingInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfDRAMClockThrottlingInstanceId.setStatus(_A)
+_CfprBiosVfDRAMClockThrottlingDn_Type=CfprManagedObjectDn
+_CfprBiosVfDRAMClockThrottlingDn_Object=MibTableColumn
+cfprBiosVfDRAMClockThrottlingDn=_CfprBiosVfDRAMClockThrottlingDn_Object((1,3,6,1,4,1,9,9,826,1,5,21,1,2),_CfprBiosVfDRAMClockThrottlingDn_Type())
+cfprBiosVfDRAMClockThrottlingDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfDRAMClockThrottlingDn.setStatus(_A)
+_CfprBiosVfDRAMClockThrottlingRn_Type=SnmpAdminString
+_CfprBiosVfDRAMClockThrottlingRn_Object=MibTableColumn
+cfprBiosVfDRAMClockThrottlingRn=_CfprBiosVfDRAMClockThrottlingRn_Object((1,3,6,1,4,1,9,9,826,1,5,21,1,3),_CfprBiosVfDRAMClockThrottlingRn_Type())
+cfprBiosVfDRAMClockThrottlingRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfDRAMClockThrottlingRn.setStatus(_A)
+_CfprBiosVfDRAMClockThrottlingVpDRAMClockThrottling_Type=CfprBiosVfDRAMClockThrottlingVpDRAMClockThrottling
+_CfprBiosVfDRAMClockThrottlingVpDRAMClockThrottling_Object=MibTableColumn
+cfprBiosVfDRAMClockThrottlingVpDRAMClockThrottling=_CfprBiosVfDRAMClockThrottlingVpDRAMClockThrottling_Object((1,3,6,1,4,1,9,9,826,1,5,21,1,4),_CfprBiosVfDRAMClockThrottlingVpDRAMClockThrottling_Type())
+cfprBiosVfDRAMClockThrottlingVpDRAMClockThrottling.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfDRAMClockThrottlingVpDRAMClockThrottling.setStatus(_A)
+_CfprBiosVfDRAMClockThrottlingSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfDRAMClockThrottlingSupportedByDefault_Object=MibTableColumn
+cfprBiosVfDRAMClockThrottlingSupportedByDefault=_CfprBiosVfDRAMClockThrottlingSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,21,1,5),_CfprBiosVfDRAMClockThrottlingSupportedByDefault_Type())
+cfprBiosVfDRAMClockThrottlingSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfDRAMClockThrottlingSupportedByDefault.setStatus(_A)
+_CfprBiosVfDirectCacheAccessTable_Object=MibTable
+cfprBiosVfDirectCacheAccessTable=_CfprBiosVfDirectCacheAccessTable_Object((1,3,6,1,4,1,9,9,826,1,5,22))
+if mibBuilder.loadTexts:cfprBiosVfDirectCacheAccessTable.setStatus(_A)
+_CfprBiosVfDirectCacheAccessEntry_Object=MibTableRow
+cfprBiosVfDirectCacheAccessEntry=_CfprBiosVfDirectCacheAccessEntry_Object((1,3,6,1,4,1,9,9,826,1,5,22,1))
+cfprBiosVfDirectCacheAccessEntry.setIndexNames((0,_C,_Z))
+if mibBuilder.loadTexts:cfprBiosVfDirectCacheAccessEntry.setStatus(_A)
+_CfprBiosVfDirectCacheAccessInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfDirectCacheAccessInstanceId_Object=MibTableColumn
+cfprBiosVfDirectCacheAccessInstanceId=_CfprBiosVfDirectCacheAccessInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,22,1,1),_CfprBiosVfDirectCacheAccessInstanceId_Type())
+cfprBiosVfDirectCacheAccessInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfDirectCacheAccessInstanceId.setStatus(_A)
+_CfprBiosVfDirectCacheAccessDn_Type=CfprManagedObjectDn
+_CfprBiosVfDirectCacheAccessDn_Object=MibTableColumn
+cfprBiosVfDirectCacheAccessDn=_CfprBiosVfDirectCacheAccessDn_Object((1,3,6,1,4,1,9,9,826,1,5,22,1,2),_CfprBiosVfDirectCacheAccessDn_Type())
+cfprBiosVfDirectCacheAccessDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfDirectCacheAccessDn.setStatus(_A)
+_CfprBiosVfDirectCacheAccessRn_Type=SnmpAdminString
+_CfprBiosVfDirectCacheAccessRn_Object=MibTableColumn
+cfprBiosVfDirectCacheAccessRn=_CfprBiosVfDirectCacheAccessRn_Object((1,3,6,1,4,1,9,9,826,1,5,22,1,3),_CfprBiosVfDirectCacheAccessRn_Type())
+cfprBiosVfDirectCacheAccessRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfDirectCacheAccessRn.setStatus(_A)
+_CfprBiosVfDirectCacheAccessVpDirectCacheAccess_Type=CfprBiosVfDirectCacheAccessVpDirectCacheAccess
+_CfprBiosVfDirectCacheAccessVpDirectCacheAccess_Object=MibTableColumn
+cfprBiosVfDirectCacheAccessVpDirectCacheAccess=_CfprBiosVfDirectCacheAccessVpDirectCacheAccess_Object((1,3,6,1,4,1,9,9,826,1,5,22,1,4),_CfprBiosVfDirectCacheAccessVpDirectCacheAccess_Type())
+cfprBiosVfDirectCacheAccessVpDirectCacheAccess.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfDirectCacheAccessVpDirectCacheAccess.setStatus(_A)
+_CfprBiosVfDirectCacheAccessSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfDirectCacheAccessSupportedByDefault_Object=MibTableColumn
+cfprBiosVfDirectCacheAccessSupportedByDefault=_CfprBiosVfDirectCacheAccessSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,22,1,5),_CfprBiosVfDirectCacheAccessSupportedByDefault_Type())
+cfprBiosVfDirectCacheAccessSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfDirectCacheAccessSupportedByDefault.setStatus(_A)
+_CfprBiosVfDramRefreshRateTable_Object=MibTable
+cfprBiosVfDramRefreshRateTable=_CfprBiosVfDramRefreshRateTable_Object((1,3,6,1,4,1,9,9,826,1,5,23))
+if mibBuilder.loadTexts:cfprBiosVfDramRefreshRateTable.setStatus(_A)
+_CfprBiosVfDramRefreshRateEntry_Object=MibTableRow
+cfprBiosVfDramRefreshRateEntry=_CfprBiosVfDramRefreshRateEntry_Object((1,3,6,1,4,1,9,9,826,1,5,23,1))
+cfprBiosVfDramRefreshRateEntry.setIndexNames((0,_C,_a))
+if mibBuilder.loadTexts:cfprBiosVfDramRefreshRateEntry.setStatus(_A)
+_CfprBiosVfDramRefreshRateInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfDramRefreshRateInstanceId_Object=MibTableColumn
+cfprBiosVfDramRefreshRateInstanceId=_CfprBiosVfDramRefreshRateInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,23,1,1),_CfprBiosVfDramRefreshRateInstanceId_Type())
+cfprBiosVfDramRefreshRateInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfDramRefreshRateInstanceId.setStatus(_A)
+_CfprBiosVfDramRefreshRateDn_Type=CfprManagedObjectDn
+_CfprBiosVfDramRefreshRateDn_Object=MibTableColumn
+cfprBiosVfDramRefreshRateDn=_CfprBiosVfDramRefreshRateDn_Object((1,3,6,1,4,1,9,9,826,1,5,23,1,2),_CfprBiosVfDramRefreshRateDn_Type())
+cfprBiosVfDramRefreshRateDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfDramRefreshRateDn.setStatus(_A)
+_CfprBiosVfDramRefreshRateRn_Type=SnmpAdminString
+_CfprBiosVfDramRefreshRateRn_Object=MibTableColumn
+cfprBiosVfDramRefreshRateRn=_CfprBiosVfDramRefreshRateRn_Object((1,3,6,1,4,1,9,9,826,1,5,23,1,3),_CfprBiosVfDramRefreshRateRn_Type())
+cfprBiosVfDramRefreshRateRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfDramRefreshRateRn.setStatus(_A)
+_CfprBiosVfDramRefreshRateVpDramRefreshRate_Type=CfprBiosVfDramRefreshRateVpDramRefreshRate
+_CfprBiosVfDramRefreshRateVpDramRefreshRate_Object=MibTableColumn
+cfprBiosVfDramRefreshRateVpDramRefreshRate=_CfprBiosVfDramRefreshRateVpDramRefreshRate_Object((1,3,6,1,4,1,9,9,826,1,5,23,1,4),_CfprBiosVfDramRefreshRateVpDramRefreshRate_Type())
+cfprBiosVfDramRefreshRateVpDramRefreshRate.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfDramRefreshRateVpDramRefreshRate.setStatus(_A)
+_CfprBiosVfDramRefreshRateSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfDramRefreshRateSupportedByDefault_Object=MibTableColumn
+cfprBiosVfDramRefreshRateSupportedByDefault=_CfprBiosVfDramRefreshRateSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,23,1,5),_CfprBiosVfDramRefreshRateSupportedByDefault_Type())
+cfprBiosVfDramRefreshRateSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfDramRefreshRateSupportedByDefault.setStatus(_A)
+_CfprBiosVfEnhancedIntelSpeedStepTechTable_Object=MibTable
+cfprBiosVfEnhancedIntelSpeedStepTechTable=_CfprBiosVfEnhancedIntelSpeedStepTechTable_Object((1,3,6,1,4,1,9,9,826,1,5,24))
+if mibBuilder.loadTexts:cfprBiosVfEnhancedIntelSpeedStepTechTable.setStatus(_A)
+_CfprBiosVfEnhancedIntelSpeedStepTechEntry_Object=MibTableRow
+cfprBiosVfEnhancedIntelSpeedStepTechEntry=_CfprBiosVfEnhancedIntelSpeedStepTechEntry_Object((1,3,6,1,4,1,9,9,826,1,5,24,1))
+cfprBiosVfEnhancedIntelSpeedStepTechEntry.setIndexNames((0,_C,_b))
+if mibBuilder.loadTexts:cfprBiosVfEnhancedIntelSpeedStepTechEntry.setStatus(_A)
+_CfprBiosVfEnhancedIntelSpeedStepTechInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfEnhancedIntelSpeedStepTechInstanceId_Object=MibTableColumn
+cfprBiosVfEnhancedIntelSpeedStepTechInstanceId=_CfprBiosVfEnhancedIntelSpeedStepTechInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,24,1,1),_CfprBiosVfEnhancedIntelSpeedStepTechInstanceId_Type())
+cfprBiosVfEnhancedIntelSpeedStepTechInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfEnhancedIntelSpeedStepTechInstanceId.setStatus(_A)
+_CfprBiosVfEnhancedIntelSpeedStepTechDn_Type=CfprManagedObjectDn
+_CfprBiosVfEnhancedIntelSpeedStepTechDn_Object=MibTableColumn
+cfprBiosVfEnhancedIntelSpeedStepTechDn=_CfprBiosVfEnhancedIntelSpeedStepTechDn_Object((1,3,6,1,4,1,9,9,826,1,5,24,1,2),_CfprBiosVfEnhancedIntelSpeedStepTechDn_Type())
+cfprBiosVfEnhancedIntelSpeedStepTechDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfEnhancedIntelSpeedStepTechDn.setStatus(_A)
+_CfprBiosVfEnhancedIntelSpeedStepTechRn_Type=SnmpAdminString
+_CfprBiosVfEnhancedIntelSpeedStepTechRn_Object=MibTableColumn
+cfprBiosVfEnhancedIntelSpeedStepTechRn=_CfprBiosVfEnhancedIntelSpeedStepTechRn_Object((1,3,6,1,4,1,9,9,826,1,5,24,1,3),_CfprBiosVfEnhancedIntelSpeedStepTechRn_Type())
+cfprBiosVfEnhancedIntelSpeedStepTechRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfEnhancedIntelSpeedStepTechRn.setStatus(_A)
+_CfprBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech_Type=CfprBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech
+_CfprBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech_Object=MibTableColumn
+cfprBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech=_CfprBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech_Object((1,3,6,1,4,1,9,9,826,1,5,24,1,4),_CfprBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech_Type())
+cfprBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech.setStatus(_A)
+_CfprBiosVfEnhancedIntelSpeedStepTechSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfEnhancedIntelSpeedStepTechSupportedByDefault_Object=MibTableColumn
+cfprBiosVfEnhancedIntelSpeedStepTechSupportedByDefault=_CfprBiosVfEnhancedIntelSpeedStepTechSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,24,1,5),_CfprBiosVfEnhancedIntelSpeedStepTechSupportedByDefault_Type())
+cfprBiosVfEnhancedIntelSpeedStepTechSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfEnhancedIntelSpeedStepTechSupportedByDefault.setStatus(_A)
+_CfprBiosVfExecuteDisableBitTable_Object=MibTable
+cfprBiosVfExecuteDisableBitTable=_CfprBiosVfExecuteDisableBitTable_Object((1,3,6,1,4,1,9,9,826,1,5,25))
+if mibBuilder.loadTexts:cfprBiosVfExecuteDisableBitTable.setStatus(_A)
+_CfprBiosVfExecuteDisableBitEntry_Object=MibTableRow
+cfprBiosVfExecuteDisableBitEntry=_CfprBiosVfExecuteDisableBitEntry_Object((1,3,6,1,4,1,9,9,826,1,5,25,1))
+cfprBiosVfExecuteDisableBitEntry.setIndexNames((0,_C,_c))
+if mibBuilder.loadTexts:cfprBiosVfExecuteDisableBitEntry.setStatus(_A)
+_CfprBiosVfExecuteDisableBitInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfExecuteDisableBitInstanceId_Object=MibTableColumn
+cfprBiosVfExecuteDisableBitInstanceId=_CfprBiosVfExecuteDisableBitInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,25,1,1),_CfprBiosVfExecuteDisableBitInstanceId_Type())
+cfprBiosVfExecuteDisableBitInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfExecuteDisableBitInstanceId.setStatus(_A)
+_CfprBiosVfExecuteDisableBitDn_Type=CfprManagedObjectDn
+_CfprBiosVfExecuteDisableBitDn_Object=MibTableColumn
+cfprBiosVfExecuteDisableBitDn=_CfprBiosVfExecuteDisableBitDn_Object((1,3,6,1,4,1,9,9,826,1,5,25,1,2),_CfprBiosVfExecuteDisableBitDn_Type())
+cfprBiosVfExecuteDisableBitDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfExecuteDisableBitDn.setStatus(_A)
+_CfprBiosVfExecuteDisableBitRn_Type=SnmpAdminString
+_CfprBiosVfExecuteDisableBitRn_Object=MibTableColumn
+cfprBiosVfExecuteDisableBitRn=_CfprBiosVfExecuteDisableBitRn_Object((1,3,6,1,4,1,9,9,826,1,5,25,1,3),_CfprBiosVfExecuteDisableBitRn_Type())
+cfprBiosVfExecuteDisableBitRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfExecuteDisableBitRn.setStatus(_A)
+_CfprBiosVfExecuteDisableBitVpExecuteDisableBit_Type=CfprBiosVfExecuteDisableBitVpExecuteDisableBit
+_CfprBiosVfExecuteDisableBitVpExecuteDisableBit_Object=MibTableColumn
+cfprBiosVfExecuteDisableBitVpExecuteDisableBit=_CfprBiosVfExecuteDisableBitVpExecuteDisableBit_Object((1,3,6,1,4,1,9,9,826,1,5,25,1,4),_CfprBiosVfExecuteDisableBitVpExecuteDisableBit_Type())
+cfprBiosVfExecuteDisableBitVpExecuteDisableBit.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfExecuteDisableBitVpExecuteDisableBit.setStatus(_A)
+_CfprBiosVfExecuteDisableBitSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfExecuteDisableBitSupportedByDefault_Object=MibTableColumn
+cfprBiosVfExecuteDisableBitSupportedByDefault=_CfprBiosVfExecuteDisableBitSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,25,1,5),_CfprBiosVfExecuteDisableBitSupportedByDefault_Type())
+cfprBiosVfExecuteDisableBitSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfExecuteDisableBitSupportedByDefault.setStatus(_A)
+_CfprBiosVfFRB2TimerTable_Object=MibTable
+cfprBiosVfFRB2TimerTable=_CfprBiosVfFRB2TimerTable_Object((1,3,6,1,4,1,9,9,826,1,5,26))
+if mibBuilder.loadTexts:cfprBiosVfFRB2TimerTable.setStatus(_A)
+_CfprBiosVfFRB2TimerEntry_Object=MibTableRow
+cfprBiosVfFRB2TimerEntry=_CfprBiosVfFRB2TimerEntry_Object((1,3,6,1,4,1,9,9,826,1,5,26,1))
+cfprBiosVfFRB2TimerEntry.setIndexNames((0,_C,_d))
+if mibBuilder.loadTexts:cfprBiosVfFRB2TimerEntry.setStatus(_A)
+_CfprBiosVfFRB2TimerInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfFRB2TimerInstanceId_Object=MibTableColumn
+cfprBiosVfFRB2TimerInstanceId=_CfprBiosVfFRB2TimerInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,26,1,1),_CfprBiosVfFRB2TimerInstanceId_Type())
+cfprBiosVfFRB2TimerInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfFRB2TimerInstanceId.setStatus(_A)
+_CfprBiosVfFRB2TimerDn_Type=CfprManagedObjectDn
+_CfprBiosVfFRB2TimerDn_Object=MibTableColumn
+cfprBiosVfFRB2TimerDn=_CfprBiosVfFRB2TimerDn_Object((1,3,6,1,4,1,9,9,826,1,5,26,1,2),_CfprBiosVfFRB2TimerDn_Type())
+cfprBiosVfFRB2TimerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFRB2TimerDn.setStatus(_A)
+_CfprBiosVfFRB2TimerRn_Type=SnmpAdminString
+_CfprBiosVfFRB2TimerRn_Object=MibTableColumn
+cfprBiosVfFRB2TimerRn=_CfprBiosVfFRB2TimerRn_Object((1,3,6,1,4,1,9,9,826,1,5,26,1,3),_CfprBiosVfFRB2TimerRn_Type())
+cfprBiosVfFRB2TimerRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFRB2TimerRn.setStatus(_A)
+_CfprBiosVfFRB2TimerVpFRB2Timer_Type=CfprBiosVfFRB2TimerVpFRB2Timer
+_CfprBiosVfFRB2TimerVpFRB2Timer_Object=MibTableColumn
+cfprBiosVfFRB2TimerVpFRB2Timer=_CfprBiosVfFRB2TimerVpFRB2Timer_Object((1,3,6,1,4,1,9,9,826,1,5,26,1,4),_CfprBiosVfFRB2TimerVpFRB2Timer_Type())
+cfprBiosVfFRB2TimerVpFRB2Timer.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFRB2TimerVpFRB2Timer.setStatus(_A)
+_CfprBiosVfFRB2TimerSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfFRB2TimerSupportedByDefault_Object=MibTableColumn
+cfprBiosVfFRB2TimerSupportedByDefault=_CfprBiosVfFRB2TimerSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,26,1,5),_CfprBiosVfFRB2TimerSupportedByDefault_Type())
+cfprBiosVfFRB2TimerSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFRB2TimerSupportedByDefault.setStatus(_A)
+_CfprBiosVfFrequencyFloorOverrideTable_Object=MibTable
+cfprBiosVfFrequencyFloorOverrideTable=_CfprBiosVfFrequencyFloorOverrideTable_Object((1,3,6,1,4,1,9,9,826,1,5,27))
+if mibBuilder.loadTexts:cfprBiosVfFrequencyFloorOverrideTable.setStatus(_A)
+_CfprBiosVfFrequencyFloorOverrideEntry_Object=MibTableRow
+cfprBiosVfFrequencyFloorOverrideEntry=_CfprBiosVfFrequencyFloorOverrideEntry_Object((1,3,6,1,4,1,9,9,826,1,5,27,1))
+cfprBiosVfFrequencyFloorOverrideEntry.setIndexNames((0,_C,_e))
+if mibBuilder.loadTexts:cfprBiosVfFrequencyFloorOverrideEntry.setStatus(_A)
+_CfprBiosVfFrequencyFloorOverrideInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfFrequencyFloorOverrideInstanceId_Object=MibTableColumn
+cfprBiosVfFrequencyFloorOverrideInstanceId=_CfprBiosVfFrequencyFloorOverrideInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,27,1,1),_CfprBiosVfFrequencyFloorOverrideInstanceId_Type())
+cfprBiosVfFrequencyFloorOverrideInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfFrequencyFloorOverrideInstanceId.setStatus(_A)
+_CfprBiosVfFrequencyFloorOverrideDn_Type=CfprManagedObjectDn
+_CfprBiosVfFrequencyFloorOverrideDn_Object=MibTableColumn
+cfprBiosVfFrequencyFloorOverrideDn=_CfprBiosVfFrequencyFloorOverrideDn_Object((1,3,6,1,4,1,9,9,826,1,5,27,1,2),_CfprBiosVfFrequencyFloorOverrideDn_Type())
+cfprBiosVfFrequencyFloorOverrideDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFrequencyFloorOverrideDn.setStatus(_A)
+_CfprBiosVfFrequencyFloorOverrideRn_Type=SnmpAdminString
+_CfprBiosVfFrequencyFloorOverrideRn_Object=MibTableColumn
+cfprBiosVfFrequencyFloorOverrideRn=_CfprBiosVfFrequencyFloorOverrideRn_Object((1,3,6,1,4,1,9,9,826,1,5,27,1,3),_CfprBiosVfFrequencyFloorOverrideRn_Type())
+cfprBiosVfFrequencyFloorOverrideRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFrequencyFloorOverrideRn.setStatus(_A)
+_CfprBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride_Type=CfprBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride
+_CfprBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride_Object=MibTableColumn
+cfprBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride=_CfprBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride_Object((1,3,6,1,4,1,9,9,826,1,5,27,1,4),_CfprBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride_Type())
+cfprBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride.setStatus(_A)
+_CfprBiosVfFrequencyFloorOverrideSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfFrequencyFloorOverrideSupportedByDefault_Object=MibTableColumn
+cfprBiosVfFrequencyFloorOverrideSupportedByDefault=_CfprBiosVfFrequencyFloorOverrideSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,27,1,5),_CfprBiosVfFrequencyFloorOverrideSupportedByDefault_Type())
+cfprBiosVfFrequencyFloorOverrideSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFrequencyFloorOverrideSupportedByDefault.setStatus(_A)
+_CfprBiosVfFrontPanelLockoutTable_Object=MibTable
+cfprBiosVfFrontPanelLockoutTable=_CfprBiosVfFrontPanelLockoutTable_Object((1,3,6,1,4,1,9,9,826,1,5,28))
+if mibBuilder.loadTexts:cfprBiosVfFrontPanelLockoutTable.setStatus(_A)
+_CfprBiosVfFrontPanelLockoutEntry_Object=MibTableRow
+cfprBiosVfFrontPanelLockoutEntry=_CfprBiosVfFrontPanelLockoutEntry_Object((1,3,6,1,4,1,9,9,826,1,5,28,1))
+cfprBiosVfFrontPanelLockoutEntry.setIndexNames((0,_C,_f))
+if mibBuilder.loadTexts:cfprBiosVfFrontPanelLockoutEntry.setStatus(_A)
+_CfprBiosVfFrontPanelLockoutInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfFrontPanelLockoutInstanceId_Object=MibTableColumn
+cfprBiosVfFrontPanelLockoutInstanceId=_CfprBiosVfFrontPanelLockoutInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,28,1,1),_CfprBiosVfFrontPanelLockoutInstanceId_Type())
+cfprBiosVfFrontPanelLockoutInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfFrontPanelLockoutInstanceId.setStatus(_A)
+_CfprBiosVfFrontPanelLockoutDn_Type=CfprManagedObjectDn
+_CfprBiosVfFrontPanelLockoutDn_Object=MibTableColumn
+cfprBiosVfFrontPanelLockoutDn=_CfprBiosVfFrontPanelLockoutDn_Object((1,3,6,1,4,1,9,9,826,1,5,28,1,2),_CfprBiosVfFrontPanelLockoutDn_Type())
+cfprBiosVfFrontPanelLockoutDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFrontPanelLockoutDn.setStatus(_A)
+_CfprBiosVfFrontPanelLockoutRn_Type=SnmpAdminString
+_CfprBiosVfFrontPanelLockoutRn_Object=MibTableColumn
+cfprBiosVfFrontPanelLockoutRn=_CfprBiosVfFrontPanelLockoutRn_Object((1,3,6,1,4,1,9,9,826,1,5,28,1,3),_CfprBiosVfFrontPanelLockoutRn_Type())
+cfprBiosVfFrontPanelLockoutRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFrontPanelLockoutRn.setStatus(_A)
+_CfprBiosVfFrontPanelLockoutVpFrontPanelLockout_Type=CfprBiosVfFrontPanelLockoutVpFrontPanelLockout
+_CfprBiosVfFrontPanelLockoutVpFrontPanelLockout_Object=MibTableColumn
+cfprBiosVfFrontPanelLockoutVpFrontPanelLockout=_CfprBiosVfFrontPanelLockoutVpFrontPanelLockout_Object((1,3,6,1,4,1,9,9,826,1,5,28,1,4),_CfprBiosVfFrontPanelLockoutVpFrontPanelLockout_Type())
+cfprBiosVfFrontPanelLockoutVpFrontPanelLockout.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFrontPanelLockoutVpFrontPanelLockout.setStatus(_A)
+_CfprBiosVfFrontPanelLockoutSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfFrontPanelLockoutSupportedByDefault_Object=MibTableColumn
+cfprBiosVfFrontPanelLockoutSupportedByDefault=_CfprBiosVfFrontPanelLockoutSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,28,1,5),_CfprBiosVfFrontPanelLockoutSupportedByDefault_Type())
+cfprBiosVfFrontPanelLockoutSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFrontPanelLockoutSupportedByDefault.setStatus(_A)
+_CfprBiosVfIntelEntrySASRAIDModuleTable_Object=MibTable
+cfprBiosVfIntelEntrySASRAIDModuleTable=_CfprBiosVfIntelEntrySASRAIDModuleTable_Object((1,3,6,1,4,1,9,9,826,1,5,29))
+if mibBuilder.loadTexts:cfprBiosVfIntelEntrySASRAIDModuleTable.setStatus(_A)
+_CfprBiosVfIntelEntrySASRAIDModuleEntry_Object=MibTableRow
+cfprBiosVfIntelEntrySASRAIDModuleEntry=_CfprBiosVfIntelEntrySASRAIDModuleEntry_Object((1,3,6,1,4,1,9,9,826,1,5,29,1))
+cfprBiosVfIntelEntrySASRAIDModuleEntry.setIndexNames((0,_C,_g))
+if mibBuilder.loadTexts:cfprBiosVfIntelEntrySASRAIDModuleEntry.setStatus(_A)
+_CfprBiosVfIntelEntrySASRAIDModuleInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfIntelEntrySASRAIDModuleInstanceId_Object=MibTableColumn
+cfprBiosVfIntelEntrySASRAIDModuleInstanceId=_CfprBiosVfIntelEntrySASRAIDModuleInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,29,1,1),_CfprBiosVfIntelEntrySASRAIDModuleInstanceId_Type())
+cfprBiosVfIntelEntrySASRAIDModuleInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfIntelEntrySASRAIDModuleInstanceId.setStatus(_A)
+_CfprBiosVfIntelEntrySASRAIDModuleDn_Type=CfprManagedObjectDn
+_CfprBiosVfIntelEntrySASRAIDModuleDn_Object=MibTableColumn
+cfprBiosVfIntelEntrySASRAIDModuleDn=_CfprBiosVfIntelEntrySASRAIDModuleDn_Object((1,3,6,1,4,1,9,9,826,1,5,29,1,2),_CfprBiosVfIntelEntrySASRAIDModuleDn_Type())
+cfprBiosVfIntelEntrySASRAIDModuleDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelEntrySASRAIDModuleDn.setStatus(_A)
+_CfprBiosVfIntelEntrySASRAIDModuleRn_Type=SnmpAdminString
+_CfprBiosVfIntelEntrySASRAIDModuleRn_Object=MibTableColumn
+cfprBiosVfIntelEntrySASRAIDModuleRn=_CfprBiosVfIntelEntrySASRAIDModuleRn_Object((1,3,6,1,4,1,9,9,826,1,5,29,1,3),_CfprBiosVfIntelEntrySASRAIDModuleRn_Type())
+cfprBiosVfIntelEntrySASRAIDModuleRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelEntrySASRAIDModuleRn.setStatus(_A)
+_CfprBiosVfIntelEntrySASRAIDModuleVpSASRAID_Type=CfprBiosVfIntelEntrySASRAIDModuleVpSASRAID
+_CfprBiosVfIntelEntrySASRAIDModuleVpSASRAID_Object=MibTableColumn
+cfprBiosVfIntelEntrySASRAIDModuleVpSASRAID=_CfprBiosVfIntelEntrySASRAIDModuleVpSASRAID_Object((1,3,6,1,4,1,9,9,826,1,5,29,1,4),_CfprBiosVfIntelEntrySASRAIDModuleVpSASRAID_Type())
+cfprBiosVfIntelEntrySASRAIDModuleVpSASRAID.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelEntrySASRAIDModuleVpSASRAID.setStatus(_A)
+_CfprBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule_Type=CfprBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule
+_CfprBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule_Object=MibTableColumn
+cfprBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule=_CfprBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule_Object((1,3,6,1,4,1,9,9,826,1,5,29,1,5),_CfprBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule_Type())
+cfprBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule.setStatus(_A)
+_CfprBiosVfIntelEntrySASRAIDModuleSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfIntelEntrySASRAIDModuleSupportedByDefault_Object=MibTableColumn
+cfprBiosVfIntelEntrySASRAIDModuleSupportedByDefault=_CfprBiosVfIntelEntrySASRAIDModuleSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,29,1,6),_CfprBiosVfIntelEntrySASRAIDModuleSupportedByDefault_Type())
+cfprBiosVfIntelEntrySASRAIDModuleSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelEntrySASRAIDModuleSupportedByDefault.setStatus(_A)
+_CfprBiosVfIntelHyperThreadingTechTable_Object=MibTable
+cfprBiosVfIntelHyperThreadingTechTable=_CfprBiosVfIntelHyperThreadingTechTable_Object((1,3,6,1,4,1,9,9,826,1,5,30))
+if mibBuilder.loadTexts:cfprBiosVfIntelHyperThreadingTechTable.setStatus(_A)
+_CfprBiosVfIntelHyperThreadingTechEntry_Object=MibTableRow
+cfprBiosVfIntelHyperThreadingTechEntry=_CfprBiosVfIntelHyperThreadingTechEntry_Object((1,3,6,1,4,1,9,9,826,1,5,30,1))
+cfprBiosVfIntelHyperThreadingTechEntry.setIndexNames((0,_C,_h))
+if mibBuilder.loadTexts:cfprBiosVfIntelHyperThreadingTechEntry.setStatus(_A)
+_CfprBiosVfIntelHyperThreadingTechInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfIntelHyperThreadingTechInstanceId_Object=MibTableColumn
+cfprBiosVfIntelHyperThreadingTechInstanceId=_CfprBiosVfIntelHyperThreadingTechInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,30,1,1),_CfprBiosVfIntelHyperThreadingTechInstanceId_Type())
+cfprBiosVfIntelHyperThreadingTechInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfIntelHyperThreadingTechInstanceId.setStatus(_A)
+_CfprBiosVfIntelHyperThreadingTechDn_Type=CfprManagedObjectDn
+_CfprBiosVfIntelHyperThreadingTechDn_Object=MibTableColumn
+cfprBiosVfIntelHyperThreadingTechDn=_CfprBiosVfIntelHyperThreadingTechDn_Object((1,3,6,1,4,1,9,9,826,1,5,30,1,2),_CfprBiosVfIntelHyperThreadingTechDn_Type())
+cfprBiosVfIntelHyperThreadingTechDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelHyperThreadingTechDn.setStatus(_A)
+_CfprBiosVfIntelHyperThreadingTechRn_Type=SnmpAdminString
+_CfprBiosVfIntelHyperThreadingTechRn_Object=MibTableColumn
+cfprBiosVfIntelHyperThreadingTechRn=_CfprBiosVfIntelHyperThreadingTechRn_Object((1,3,6,1,4,1,9,9,826,1,5,30,1,3),_CfprBiosVfIntelHyperThreadingTechRn_Type())
+cfprBiosVfIntelHyperThreadingTechRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelHyperThreadingTechRn.setStatus(_A)
+_CfprBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech_Type=CfprBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech
+_CfprBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech_Object=MibTableColumn
+cfprBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech=_CfprBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech_Object((1,3,6,1,4,1,9,9,826,1,5,30,1,4),_CfprBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech_Type())
+cfprBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech.setStatus(_A)
+_CfprBiosVfIntelHyperThreadingTechSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfIntelHyperThreadingTechSupportedByDefault_Object=MibTableColumn
+cfprBiosVfIntelHyperThreadingTechSupportedByDefault=_CfprBiosVfIntelHyperThreadingTechSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,30,1,5),_CfprBiosVfIntelHyperThreadingTechSupportedByDefault_Type())
+cfprBiosVfIntelHyperThreadingTechSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelHyperThreadingTechSupportedByDefault.setStatus(_A)
+_CfprBiosVfIntelTurboBoostTechTable_Object=MibTable
+cfprBiosVfIntelTurboBoostTechTable=_CfprBiosVfIntelTurboBoostTechTable_Object((1,3,6,1,4,1,9,9,826,1,5,31))
+if mibBuilder.loadTexts:cfprBiosVfIntelTurboBoostTechTable.setStatus(_A)
+_CfprBiosVfIntelTurboBoostTechEntry_Object=MibTableRow
+cfprBiosVfIntelTurboBoostTechEntry=_CfprBiosVfIntelTurboBoostTechEntry_Object((1,3,6,1,4,1,9,9,826,1,5,31,1))
+cfprBiosVfIntelTurboBoostTechEntry.setIndexNames((0,_C,_i))
+if mibBuilder.loadTexts:cfprBiosVfIntelTurboBoostTechEntry.setStatus(_A)
+_CfprBiosVfIntelTurboBoostTechInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfIntelTurboBoostTechInstanceId_Object=MibTableColumn
+cfprBiosVfIntelTurboBoostTechInstanceId=_CfprBiosVfIntelTurboBoostTechInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,31,1,1),_CfprBiosVfIntelTurboBoostTechInstanceId_Type())
+cfprBiosVfIntelTurboBoostTechInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfIntelTurboBoostTechInstanceId.setStatus(_A)
+_CfprBiosVfIntelTurboBoostTechDn_Type=CfprManagedObjectDn
+_CfprBiosVfIntelTurboBoostTechDn_Object=MibTableColumn
+cfprBiosVfIntelTurboBoostTechDn=_CfprBiosVfIntelTurboBoostTechDn_Object((1,3,6,1,4,1,9,9,826,1,5,31,1,2),_CfprBiosVfIntelTurboBoostTechDn_Type())
+cfprBiosVfIntelTurboBoostTechDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelTurboBoostTechDn.setStatus(_A)
+_CfprBiosVfIntelTurboBoostTechRn_Type=SnmpAdminString
+_CfprBiosVfIntelTurboBoostTechRn_Object=MibTableColumn
+cfprBiosVfIntelTurboBoostTechRn=_CfprBiosVfIntelTurboBoostTechRn_Object((1,3,6,1,4,1,9,9,826,1,5,31,1,3),_CfprBiosVfIntelTurboBoostTechRn_Type())
+cfprBiosVfIntelTurboBoostTechRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelTurboBoostTechRn.setStatus(_A)
+_CfprBiosVfIntelTurboBoostTechVpIntelTurboBoostTech_Type=CfprBiosVfIntelTurboBoostTechVpIntelTurboBoostTech
+_CfprBiosVfIntelTurboBoostTechVpIntelTurboBoostTech_Object=MibTableColumn
+cfprBiosVfIntelTurboBoostTechVpIntelTurboBoostTech=_CfprBiosVfIntelTurboBoostTechVpIntelTurboBoostTech_Object((1,3,6,1,4,1,9,9,826,1,5,31,1,4),_CfprBiosVfIntelTurboBoostTechVpIntelTurboBoostTech_Type())
+cfprBiosVfIntelTurboBoostTechVpIntelTurboBoostTech.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelTurboBoostTechVpIntelTurboBoostTech.setStatus(_A)
+_CfprBiosVfIntelTurboBoostTechSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfIntelTurboBoostTechSupportedByDefault_Object=MibTableColumn
+cfprBiosVfIntelTurboBoostTechSupportedByDefault=_CfprBiosVfIntelTurboBoostTechSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,31,1,5),_CfprBiosVfIntelTurboBoostTechSupportedByDefault_Type())
+cfprBiosVfIntelTurboBoostTechSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelTurboBoostTechSupportedByDefault.setStatus(_A)
+_CfprBiosVfIntelVTForDirectedIOTable_Object=MibTable
+cfprBiosVfIntelVTForDirectedIOTable=_CfprBiosVfIntelVTForDirectedIOTable_Object((1,3,6,1,4,1,9,9,826,1,5,32))
+if mibBuilder.loadTexts:cfprBiosVfIntelVTForDirectedIOTable.setStatus(_A)
+_CfprBiosVfIntelVTForDirectedIOEntry_Object=MibTableRow
+cfprBiosVfIntelVTForDirectedIOEntry=_CfprBiosVfIntelVTForDirectedIOEntry_Object((1,3,6,1,4,1,9,9,826,1,5,32,1))
+cfprBiosVfIntelVTForDirectedIOEntry.setIndexNames((0,_C,_j))
+if mibBuilder.loadTexts:cfprBiosVfIntelVTForDirectedIOEntry.setStatus(_A)
+_CfprBiosVfIntelVTForDirectedIOInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfIntelVTForDirectedIOInstanceId_Object=MibTableColumn
+cfprBiosVfIntelVTForDirectedIOInstanceId=_CfprBiosVfIntelVTForDirectedIOInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,32,1,1),_CfprBiosVfIntelVTForDirectedIOInstanceId_Type())
+cfprBiosVfIntelVTForDirectedIOInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfIntelVTForDirectedIOInstanceId.setStatus(_A)
+_CfprBiosVfIntelVTForDirectedIODn_Type=CfprManagedObjectDn
+_CfprBiosVfIntelVTForDirectedIODn_Object=MibTableColumn
+cfprBiosVfIntelVTForDirectedIODn=_CfprBiosVfIntelVTForDirectedIODn_Object((1,3,6,1,4,1,9,9,826,1,5,32,1,2),_CfprBiosVfIntelVTForDirectedIODn_Type())
+cfprBiosVfIntelVTForDirectedIODn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelVTForDirectedIODn.setStatus(_A)
+_CfprBiosVfIntelVTForDirectedIORn_Type=SnmpAdminString
+_CfprBiosVfIntelVTForDirectedIORn_Object=MibTableColumn
+cfprBiosVfIntelVTForDirectedIORn=_CfprBiosVfIntelVTForDirectedIORn_Object((1,3,6,1,4,1,9,9,826,1,5,32,1,3),_CfprBiosVfIntelVTForDirectedIORn_Type())
+cfprBiosVfIntelVTForDirectedIORn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelVTForDirectedIORn.setStatus(_A)
+_CfprBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport_Type=CfprBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport
+_CfprBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport_Object=MibTableColumn
+cfprBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport=_CfprBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport_Object((1,3,6,1,4,1,9,9,826,1,5,32,1,4),_CfprBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport_Type())
+cfprBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport.setStatus(_A)
+_CfprBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport_Type=CfprBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport
+_CfprBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport_Object=MibTableColumn
+cfprBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport=_CfprBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport_Object((1,3,6,1,4,1,9,9,826,1,5,32,1,5),_CfprBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport_Type())
+cfprBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport.setStatus(_A)
+_CfprBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping_Type=CfprBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping
+_CfprBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping_Object=MibTableColumn
+cfprBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping=_CfprBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping_Object((1,3,6,1,4,1,9,9,826,1,5,32,1,6),_CfprBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping_Type())
+cfprBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping.setStatus(_A)
+_CfprBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport_Type=CfprBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport
+_CfprBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport_Object=MibTableColumn
+cfprBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport=_CfprBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport_Object((1,3,6,1,4,1,9,9,826,1,5,32,1,7),_CfprBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport_Type())
+cfprBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport.setStatus(_A)
+_CfprBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO_Type=CfprBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO
+_CfprBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO_Object=MibTableColumn
+cfprBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO=_CfprBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO_Object((1,3,6,1,4,1,9,9,826,1,5,32,1,8),_CfprBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO_Type())
+cfprBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO.setStatus(_A)
+_CfprBiosVfIntelVTForDirectedIOSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfIntelVTForDirectedIOSupportedByDefault_Object=MibTableColumn
+cfprBiosVfIntelVTForDirectedIOSupportedByDefault=_CfprBiosVfIntelVTForDirectedIOSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,32,1,9),_CfprBiosVfIntelVTForDirectedIOSupportedByDefault_Type())
+cfprBiosVfIntelVTForDirectedIOSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelVTForDirectedIOSupportedByDefault.setStatus(_A)
+_CfprBiosVfIntelVirtualizationTechnologyTable_Object=MibTable
+cfprBiosVfIntelVirtualizationTechnologyTable=_CfprBiosVfIntelVirtualizationTechnologyTable_Object((1,3,6,1,4,1,9,9,826,1,5,33))
+if mibBuilder.loadTexts:cfprBiosVfIntelVirtualizationTechnologyTable.setStatus(_A)
+_CfprBiosVfIntelVirtualizationTechnologyEntry_Object=MibTableRow
+cfprBiosVfIntelVirtualizationTechnologyEntry=_CfprBiosVfIntelVirtualizationTechnologyEntry_Object((1,3,6,1,4,1,9,9,826,1,5,33,1))
+cfprBiosVfIntelVirtualizationTechnologyEntry.setIndexNames((0,_C,_k))
+if mibBuilder.loadTexts:cfprBiosVfIntelVirtualizationTechnologyEntry.setStatus(_A)
+_CfprBiosVfIntelVirtualizationTechnologyInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfIntelVirtualizationTechnologyInstanceId_Object=MibTableColumn
+cfprBiosVfIntelVirtualizationTechnologyInstanceId=_CfprBiosVfIntelVirtualizationTechnologyInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,33,1,1),_CfprBiosVfIntelVirtualizationTechnologyInstanceId_Type())
+cfprBiosVfIntelVirtualizationTechnologyInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfIntelVirtualizationTechnologyInstanceId.setStatus(_A)
+_CfprBiosVfIntelVirtualizationTechnologyDn_Type=CfprManagedObjectDn
+_CfprBiosVfIntelVirtualizationTechnologyDn_Object=MibTableColumn
+cfprBiosVfIntelVirtualizationTechnologyDn=_CfprBiosVfIntelVirtualizationTechnologyDn_Object((1,3,6,1,4,1,9,9,826,1,5,33,1,2),_CfprBiosVfIntelVirtualizationTechnologyDn_Type())
+cfprBiosVfIntelVirtualizationTechnologyDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelVirtualizationTechnologyDn.setStatus(_A)
+_CfprBiosVfIntelVirtualizationTechnologyRn_Type=SnmpAdminString
+_CfprBiosVfIntelVirtualizationTechnologyRn_Object=MibTableColumn
+cfprBiosVfIntelVirtualizationTechnologyRn=_CfprBiosVfIntelVirtualizationTechnologyRn_Object((1,3,6,1,4,1,9,9,826,1,5,33,1,3),_CfprBiosVfIntelVirtualizationTechnologyRn_Type())
+cfprBiosVfIntelVirtualizationTechnologyRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelVirtualizationTechnologyRn.setStatus(_A)
+_CfprBiosVfIntelVirtualizationTechnologyVpIntelVirtualizationTechnology_Type=CfprBiosVfIntelVirtualizationTechnologyVpIntelVirtTechnology
+_CfprBiosVfIntelVirtualizationTechnologyVpIntelVirtualizationTechnology_Object=MibTableColumn
+cfprBiosVfIntelVirtualizationTechnologyVpIntelVirtualizationTechnology=_CfprBiosVfIntelVirtualizationTechnologyVpIntelVirtualizationTechnology_Object((1,3,6,1,4,1,9,9,826,1,5,33,1,4),_CfprBiosVfIntelVirtualizationTechnologyVpIntelVirtualizationTechnology_Type())
+cfprBiosVfIntelVirtualizationTechnologyVpIntelVirtualizationTechnology.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelVirtualizationTechnologyVpIntelVirtualizationTechnology.setStatus(_A)
+_CfprBiosVfIntelVirtualizationTechnologySupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfIntelVirtualizationTechnologySupportedByDefault_Object=MibTableColumn
+cfprBiosVfIntelVirtualizationTechnologySupportedByDefault=_CfprBiosVfIntelVirtualizationTechnologySupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,33,1,5),_CfprBiosVfIntelVirtualizationTechnologySupportedByDefault_Type())
+cfprBiosVfIntelVirtualizationTechnologySupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfIntelVirtualizationTechnologySupportedByDefault.setStatus(_A)
+_CfprBiosVfInterleaveConfigurationTable_Object=MibTable
+cfprBiosVfInterleaveConfigurationTable=_CfprBiosVfInterleaveConfigurationTable_Object((1,3,6,1,4,1,9,9,826,1,5,34))
+if mibBuilder.loadTexts:cfprBiosVfInterleaveConfigurationTable.setStatus(_A)
+_CfprBiosVfInterleaveConfigurationEntry_Object=MibTableRow
+cfprBiosVfInterleaveConfigurationEntry=_CfprBiosVfInterleaveConfigurationEntry_Object((1,3,6,1,4,1,9,9,826,1,5,34,1))
+cfprBiosVfInterleaveConfigurationEntry.setIndexNames((0,_C,_l))
+if mibBuilder.loadTexts:cfprBiosVfInterleaveConfigurationEntry.setStatus(_A)
+_CfprBiosVfInterleaveConfigurationInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfInterleaveConfigurationInstanceId_Object=MibTableColumn
+cfprBiosVfInterleaveConfigurationInstanceId=_CfprBiosVfInterleaveConfigurationInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,34,1,1),_CfprBiosVfInterleaveConfigurationInstanceId_Type())
+cfprBiosVfInterleaveConfigurationInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfInterleaveConfigurationInstanceId.setStatus(_A)
+_CfprBiosVfInterleaveConfigurationDn_Type=CfprManagedObjectDn
+_CfprBiosVfInterleaveConfigurationDn_Object=MibTableColumn
+cfprBiosVfInterleaveConfigurationDn=_CfprBiosVfInterleaveConfigurationDn_Object((1,3,6,1,4,1,9,9,826,1,5,34,1,2),_CfprBiosVfInterleaveConfigurationDn_Type())
+cfprBiosVfInterleaveConfigurationDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfInterleaveConfigurationDn.setStatus(_A)
+_CfprBiosVfInterleaveConfigurationRn_Type=SnmpAdminString
+_CfprBiosVfInterleaveConfigurationRn_Object=MibTableColumn
+cfprBiosVfInterleaveConfigurationRn=_CfprBiosVfInterleaveConfigurationRn_Object((1,3,6,1,4,1,9,9,826,1,5,34,1,3),_CfprBiosVfInterleaveConfigurationRn_Type())
+cfprBiosVfInterleaveConfigurationRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfInterleaveConfigurationRn.setStatus(_A)
+_CfprBiosVfInterleaveConfigurationVpChannelInterleaving_Type=CfprBiosVfInterleaveConfigurationVpChannelInterleaving
+_CfprBiosVfInterleaveConfigurationVpChannelInterleaving_Object=MibTableColumn
+cfprBiosVfInterleaveConfigurationVpChannelInterleaving=_CfprBiosVfInterleaveConfigurationVpChannelInterleaving_Object((1,3,6,1,4,1,9,9,826,1,5,34,1,4),_CfprBiosVfInterleaveConfigurationVpChannelInterleaving_Type())
+cfprBiosVfInterleaveConfigurationVpChannelInterleaving.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfInterleaveConfigurationVpChannelInterleaving.setStatus(_A)
+_CfprBiosVfInterleaveConfigurationVpMemoryInterleaving_Type=CfprBiosVfInterleaveConfigurationVpMemoryInterleaving
+_CfprBiosVfInterleaveConfigurationVpMemoryInterleaving_Object=MibTableColumn
+cfprBiosVfInterleaveConfigurationVpMemoryInterleaving=_CfprBiosVfInterleaveConfigurationVpMemoryInterleaving_Object((1,3,6,1,4,1,9,9,826,1,5,34,1,5),_CfprBiosVfInterleaveConfigurationVpMemoryInterleaving_Type())
+cfprBiosVfInterleaveConfigurationVpMemoryInterleaving.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfInterleaveConfigurationVpMemoryInterleaving.setStatus(_A)
+_CfprBiosVfInterleaveConfigurationVpRankInterleaving_Type=CfprBiosVfInterleaveConfigurationVpRankInterleaving
+_CfprBiosVfInterleaveConfigurationVpRankInterleaving_Object=MibTableColumn
+cfprBiosVfInterleaveConfigurationVpRankInterleaving=_CfprBiosVfInterleaveConfigurationVpRankInterleaving_Object((1,3,6,1,4,1,9,9,826,1,5,34,1,6),_CfprBiosVfInterleaveConfigurationVpRankInterleaving_Type())
+cfprBiosVfInterleaveConfigurationVpRankInterleaving.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfInterleaveConfigurationVpRankInterleaving.setStatus(_A)
+_CfprBiosVfInterleaveConfigurationSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfInterleaveConfigurationSupportedByDefault_Object=MibTableColumn
+cfprBiosVfInterleaveConfigurationSupportedByDefault=_CfprBiosVfInterleaveConfigurationSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,34,1,7),_CfprBiosVfInterleaveConfigurationSupportedByDefault_Type())
+cfprBiosVfInterleaveConfigurationSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfInterleaveConfigurationSupportedByDefault.setStatus(_A)
+_CfprBiosVfLocalX2ApicTable_Object=MibTable
+cfprBiosVfLocalX2ApicTable=_CfprBiosVfLocalX2ApicTable_Object((1,3,6,1,4,1,9,9,826,1,5,35))
+if mibBuilder.loadTexts:cfprBiosVfLocalX2ApicTable.setStatus(_A)
+_CfprBiosVfLocalX2ApicEntry_Object=MibTableRow
+cfprBiosVfLocalX2ApicEntry=_CfprBiosVfLocalX2ApicEntry_Object((1,3,6,1,4,1,9,9,826,1,5,35,1))
+cfprBiosVfLocalX2ApicEntry.setIndexNames((0,_C,_m))
+if mibBuilder.loadTexts:cfprBiosVfLocalX2ApicEntry.setStatus(_A)
+_CfprBiosVfLocalX2ApicInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfLocalX2ApicInstanceId_Object=MibTableColumn
+cfprBiosVfLocalX2ApicInstanceId=_CfprBiosVfLocalX2ApicInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,35,1,1),_CfprBiosVfLocalX2ApicInstanceId_Type())
+cfprBiosVfLocalX2ApicInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfLocalX2ApicInstanceId.setStatus(_A)
+_CfprBiosVfLocalX2ApicDn_Type=CfprManagedObjectDn
+_CfprBiosVfLocalX2ApicDn_Object=MibTableColumn
+cfprBiosVfLocalX2ApicDn=_CfprBiosVfLocalX2ApicDn_Object((1,3,6,1,4,1,9,9,826,1,5,35,1,2),_CfprBiosVfLocalX2ApicDn_Type())
+cfprBiosVfLocalX2ApicDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfLocalX2ApicDn.setStatus(_A)
+_CfprBiosVfLocalX2ApicRn_Type=SnmpAdminString
+_CfprBiosVfLocalX2ApicRn_Object=MibTableColumn
+cfprBiosVfLocalX2ApicRn=_CfprBiosVfLocalX2ApicRn_Object((1,3,6,1,4,1,9,9,826,1,5,35,1,3),_CfprBiosVfLocalX2ApicRn_Type())
+cfprBiosVfLocalX2ApicRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfLocalX2ApicRn.setStatus(_A)
+_CfprBiosVfLocalX2ApicVpLocalX2Apic_Type=CfprBiosVfLocalX2ApicVpLocalX2Apic
+_CfprBiosVfLocalX2ApicVpLocalX2Apic_Object=MibTableColumn
+cfprBiosVfLocalX2ApicVpLocalX2Apic=_CfprBiosVfLocalX2ApicVpLocalX2Apic_Object((1,3,6,1,4,1,9,9,826,1,5,35,1,4),_CfprBiosVfLocalX2ApicVpLocalX2Apic_Type())
+cfprBiosVfLocalX2ApicVpLocalX2Apic.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfLocalX2ApicVpLocalX2Apic.setStatus(_A)
+_CfprBiosVfLocalX2ApicSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfLocalX2ApicSupportedByDefault_Object=MibTableColumn
+cfprBiosVfLocalX2ApicSupportedByDefault=_CfprBiosVfLocalX2ApicSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,35,1,5),_CfprBiosVfLocalX2ApicSupportedByDefault_Type())
+cfprBiosVfLocalX2ApicSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfLocalX2ApicSupportedByDefault.setStatus(_A)
+_CfprBiosVfLvDIMMSupportTable_Object=MibTable
+cfprBiosVfLvDIMMSupportTable=_CfprBiosVfLvDIMMSupportTable_Object((1,3,6,1,4,1,9,9,826,1,5,36))
+if mibBuilder.loadTexts:cfprBiosVfLvDIMMSupportTable.setStatus(_A)
+_CfprBiosVfLvDIMMSupportEntry_Object=MibTableRow
+cfprBiosVfLvDIMMSupportEntry=_CfprBiosVfLvDIMMSupportEntry_Object((1,3,6,1,4,1,9,9,826,1,5,36,1))
+cfprBiosVfLvDIMMSupportEntry.setIndexNames((0,_C,_n))
+if mibBuilder.loadTexts:cfprBiosVfLvDIMMSupportEntry.setStatus(_A)
+_CfprBiosVfLvDIMMSupportInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfLvDIMMSupportInstanceId_Object=MibTableColumn
+cfprBiosVfLvDIMMSupportInstanceId=_CfprBiosVfLvDIMMSupportInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,36,1,1),_CfprBiosVfLvDIMMSupportInstanceId_Type())
+cfprBiosVfLvDIMMSupportInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfLvDIMMSupportInstanceId.setStatus(_A)
+_CfprBiosVfLvDIMMSupportDn_Type=CfprManagedObjectDn
+_CfprBiosVfLvDIMMSupportDn_Object=MibTableColumn
+cfprBiosVfLvDIMMSupportDn=_CfprBiosVfLvDIMMSupportDn_Object((1,3,6,1,4,1,9,9,826,1,5,36,1,2),_CfprBiosVfLvDIMMSupportDn_Type())
+cfprBiosVfLvDIMMSupportDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfLvDIMMSupportDn.setStatus(_A)
+_CfprBiosVfLvDIMMSupportRn_Type=SnmpAdminString
+_CfprBiosVfLvDIMMSupportRn_Object=MibTableColumn
+cfprBiosVfLvDIMMSupportRn=_CfprBiosVfLvDIMMSupportRn_Object((1,3,6,1,4,1,9,9,826,1,5,36,1,3),_CfprBiosVfLvDIMMSupportRn_Type())
+cfprBiosVfLvDIMMSupportRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfLvDIMMSupportRn.setStatus(_A)
+_CfprBiosVfLvDIMMSupportVpLvDDRMode_Type=CfprBiosVfLvDIMMSupportVpLvDDRMode
+_CfprBiosVfLvDIMMSupportVpLvDDRMode_Object=MibTableColumn
+cfprBiosVfLvDIMMSupportVpLvDDRMode=_CfprBiosVfLvDIMMSupportVpLvDDRMode_Object((1,3,6,1,4,1,9,9,826,1,5,36,1,4),_CfprBiosVfLvDIMMSupportVpLvDDRMode_Type())
+cfprBiosVfLvDIMMSupportVpLvDDRMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfLvDIMMSupportVpLvDDRMode.setStatus(_A)
+_CfprBiosVfLvDIMMSupportSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfLvDIMMSupportSupportedByDefault_Object=MibTableColumn
+cfprBiosVfLvDIMMSupportSupportedByDefault=_CfprBiosVfLvDIMMSupportSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,36,1,5),_CfprBiosVfLvDIMMSupportSupportedByDefault_Type())
+cfprBiosVfLvDIMMSupportSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfLvDIMMSupportSupportedByDefault.setStatus(_A)
+_CfprBiosVfMaxVariableMTRRSettingTable_Object=MibTable
+cfprBiosVfMaxVariableMTRRSettingTable=_CfprBiosVfMaxVariableMTRRSettingTable_Object((1,3,6,1,4,1,9,9,826,1,5,37))
+if mibBuilder.loadTexts:cfprBiosVfMaxVariableMTRRSettingTable.setStatus(_A)
+_CfprBiosVfMaxVariableMTRRSettingEntry_Object=MibTableRow
+cfprBiosVfMaxVariableMTRRSettingEntry=_CfprBiosVfMaxVariableMTRRSettingEntry_Object((1,3,6,1,4,1,9,9,826,1,5,37,1))
+cfprBiosVfMaxVariableMTRRSettingEntry.setIndexNames((0,_C,_o))
+if mibBuilder.loadTexts:cfprBiosVfMaxVariableMTRRSettingEntry.setStatus(_A)
+_CfprBiosVfMaxVariableMTRRSettingInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfMaxVariableMTRRSettingInstanceId_Object=MibTableColumn
+cfprBiosVfMaxVariableMTRRSettingInstanceId=_CfprBiosVfMaxVariableMTRRSettingInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,37,1,1),_CfprBiosVfMaxVariableMTRRSettingInstanceId_Type())
+cfprBiosVfMaxVariableMTRRSettingInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfMaxVariableMTRRSettingInstanceId.setStatus(_A)
+_CfprBiosVfMaxVariableMTRRSettingDn_Type=CfprManagedObjectDn
+_CfprBiosVfMaxVariableMTRRSettingDn_Object=MibTableColumn
+cfprBiosVfMaxVariableMTRRSettingDn=_CfprBiosVfMaxVariableMTRRSettingDn_Object((1,3,6,1,4,1,9,9,826,1,5,37,1,2),_CfprBiosVfMaxVariableMTRRSettingDn_Type())
+cfprBiosVfMaxVariableMTRRSettingDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfMaxVariableMTRRSettingDn.setStatus(_A)
+_CfprBiosVfMaxVariableMTRRSettingRn_Type=SnmpAdminString
+_CfprBiosVfMaxVariableMTRRSettingRn_Object=MibTableColumn
+cfprBiosVfMaxVariableMTRRSettingRn=_CfprBiosVfMaxVariableMTRRSettingRn_Object((1,3,6,1,4,1,9,9,826,1,5,37,1,3),_CfprBiosVfMaxVariableMTRRSettingRn_Type())
+cfprBiosVfMaxVariableMTRRSettingRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfMaxVariableMTRRSettingRn.setStatus(_A)
+_CfprBiosVfMaxVariableMTRRSettingVpProcessorMtrr_Type=CfprBiosVfMaxVariableMTRRSettingVpProcessorMtrr
+_CfprBiosVfMaxVariableMTRRSettingVpProcessorMtrr_Object=MibTableColumn
+cfprBiosVfMaxVariableMTRRSettingVpProcessorMtrr=_CfprBiosVfMaxVariableMTRRSettingVpProcessorMtrr_Object((1,3,6,1,4,1,9,9,826,1,5,37,1,4),_CfprBiosVfMaxVariableMTRRSettingVpProcessorMtrr_Type())
+cfprBiosVfMaxVariableMTRRSettingVpProcessorMtrr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfMaxVariableMTRRSettingVpProcessorMtrr.setStatus(_A)
+_CfprBiosVfMaxVariableMTRRSettingSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfMaxVariableMTRRSettingSupportedByDefault_Object=MibTableColumn
+cfprBiosVfMaxVariableMTRRSettingSupportedByDefault=_CfprBiosVfMaxVariableMTRRSettingSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,37,1,5),_CfprBiosVfMaxVariableMTRRSettingSupportedByDefault_Type())
+cfprBiosVfMaxVariableMTRRSettingSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfMaxVariableMTRRSettingSupportedByDefault.setStatus(_A)
+_CfprBiosVfMaximumMemoryBelow4GBTable_Object=MibTable
+cfprBiosVfMaximumMemoryBelow4GBTable=_CfprBiosVfMaximumMemoryBelow4GBTable_Object((1,3,6,1,4,1,9,9,826,1,5,38))
+if mibBuilder.loadTexts:cfprBiosVfMaximumMemoryBelow4GBTable.setStatus(_A)
+_CfprBiosVfMaximumMemoryBelow4GBEntry_Object=MibTableRow
+cfprBiosVfMaximumMemoryBelow4GBEntry=_CfprBiosVfMaximumMemoryBelow4GBEntry_Object((1,3,6,1,4,1,9,9,826,1,5,38,1))
+cfprBiosVfMaximumMemoryBelow4GBEntry.setIndexNames((0,_C,_p))
+if mibBuilder.loadTexts:cfprBiosVfMaximumMemoryBelow4GBEntry.setStatus(_A)
+_CfprBiosVfMaximumMemoryBelow4GBInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfMaximumMemoryBelow4GBInstanceId_Object=MibTableColumn
+cfprBiosVfMaximumMemoryBelow4GBInstanceId=_CfprBiosVfMaximumMemoryBelow4GBInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,38,1,1),_CfprBiosVfMaximumMemoryBelow4GBInstanceId_Type())
+cfprBiosVfMaximumMemoryBelow4GBInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfMaximumMemoryBelow4GBInstanceId.setStatus(_A)
+_CfprBiosVfMaximumMemoryBelow4GBDn_Type=CfprManagedObjectDn
+_CfprBiosVfMaximumMemoryBelow4GBDn_Object=MibTableColumn
+cfprBiosVfMaximumMemoryBelow4GBDn=_CfprBiosVfMaximumMemoryBelow4GBDn_Object((1,3,6,1,4,1,9,9,826,1,5,38,1,2),_CfprBiosVfMaximumMemoryBelow4GBDn_Type())
+cfprBiosVfMaximumMemoryBelow4GBDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfMaximumMemoryBelow4GBDn.setStatus(_A)
+_CfprBiosVfMaximumMemoryBelow4GBRn_Type=SnmpAdminString
+_CfprBiosVfMaximumMemoryBelow4GBRn_Object=MibTableColumn
+cfprBiosVfMaximumMemoryBelow4GBRn=_CfprBiosVfMaximumMemoryBelow4GBRn_Object((1,3,6,1,4,1,9,9,826,1,5,38,1,3),_CfprBiosVfMaximumMemoryBelow4GBRn_Type())
+cfprBiosVfMaximumMemoryBelow4GBRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfMaximumMemoryBelow4GBRn.setStatus(_A)
+_CfprBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB_Type=CfprBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB
+_CfprBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB_Object=MibTableColumn
+cfprBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB=_CfprBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB_Object((1,3,6,1,4,1,9,9,826,1,5,38,1,4),_CfprBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB_Type())
+cfprBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB.setStatus(_A)
+_CfprBiosVfMaximumMemoryBelow4GBSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfMaximumMemoryBelow4GBSupportedByDefault_Object=MibTableColumn
+cfprBiosVfMaximumMemoryBelow4GBSupportedByDefault=_CfprBiosVfMaximumMemoryBelow4GBSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,38,1,5),_CfprBiosVfMaximumMemoryBelow4GBSupportedByDefault_Type())
+cfprBiosVfMaximumMemoryBelow4GBSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfMaximumMemoryBelow4GBSupportedByDefault.setStatus(_A)
+_CfprBiosVfMemoryMappedIOAbove4GBTable_Object=MibTable
+cfprBiosVfMemoryMappedIOAbove4GBTable=_CfprBiosVfMemoryMappedIOAbove4GBTable_Object((1,3,6,1,4,1,9,9,826,1,5,39))
+if mibBuilder.loadTexts:cfprBiosVfMemoryMappedIOAbove4GBTable.setStatus(_A)
+_CfprBiosVfMemoryMappedIOAbove4GBEntry_Object=MibTableRow
+cfprBiosVfMemoryMappedIOAbove4GBEntry=_CfprBiosVfMemoryMappedIOAbove4GBEntry_Object((1,3,6,1,4,1,9,9,826,1,5,39,1))
+cfprBiosVfMemoryMappedIOAbove4GBEntry.setIndexNames((0,_C,_q))
+if mibBuilder.loadTexts:cfprBiosVfMemoryMappedIOAbove4GBEntry.setStatus(_A)
+_CfprBiosVfMemoryMappedIOAbove4GBInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfMemoryMappedIOAbove4GBInstanceId_Object=MibTableColumn
+cfprBiosVfMemoryMappedIOAbove4GBInstanceId=_CfprBiosVfMemoryMappedIOAbove4GBInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,39,1,1),_CfprBiosVfMemoryMappedIOAbove4GBInstanceId_Type())
+cfprBiosVfMemoryMappedIOAbove4GBInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfMemoryMappedIOAbove4GBInstanceId.setStatus(_A)
+_CfprBiosVfMemoryMappedIOAbove4GBDn_Type=CfprManagedObjectDn
+_CfprBiosVfMemoryMappedIOAbove4GBDn_Object=MibTableColumn
+cfprBiosVfMemoryMappedIOAbove4GBDn=_CfprBiosVfMemoryMappedIOAbove4GBDn_Object((1,3,6,1,4,1,9,9,826,1,5,39,1,2),_CfprBiosVfMemoryMappedIOAbove4GBDn_Type())
+cfprBiosVfMemoryMappedIOAbove4GBDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfMemoryMappedIOAbove4GBDn.setStatus(_A)
+_CfprBiosVfMemoryMappedIOAbove4GBRn_Type=SnmpAdminString
+_CfprBiosVfMemoryMappedIOAbove4GBRn_Object=MibTableColumn
+cfprBiosVfMemoryMappedIOAbove4GBRn=_CfprBiosVfMemoryMappedIOAbove4GBRn_Object((1,3,6,1,4,1,9,9,826,1,5,39,1,3),_CfprBiosVfMemoryMappedIOAbove4GBRn_Type())
+cfprBiosVfMemoryMappedIOAbove4GBRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfMemoryMappedIOAbove4GBRn.setStatus(_A)
+_CfprBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB_Type=CfprBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB
+_CfprBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB_Object=MibTableColumn
+cfprBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB=_CfprBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB_Object((1,3,6,1,4,1,9,9,826,1,5,39,1,4),_CfprBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB_Type())
+cfprBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB.setStatus(_A)
+_CfprBiosVfMemoryMappedIOAbove4GBSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfMemoryMappedIOAbove4GBSupportedByDefault_Object=MibTableColumn
+cfprBiosVfMemoryMappedIOAbove4GBSupportedByDefault=_CfprBiosVfMemoryMappedIOAbove4GBSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,39,1,5),_CfprBiosVfMemoryMappedIOAbove4GBSupportedByDefault_Type())
+cfprBiosVfMemoryMappedIOAbove4GBSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfMemoryMappedIOAbove4GBSupportedByDefault.setStatus(_A)
+_CfprBiosVfMirroringModeTable_Object=MibTable
+cfprBiosVfMirroringModeTable=_CfprBiosVfMirroringModeTable_Object((1,3,6,1,4,1,9,9,826,1,5,40))
+if mibBuilder.loadTexts:cfprBiosVfMirroringModeTable.setStatus(_A)
+_CfprBiosVfMirroringModeEntry_Object=MibTableRow
+cfprBiosVfMirroringModeEntry=_CfprBiosVfMirroringModeEntry_Object((1,3,6,1,4,1,9,9,826,1,5,40,1))
+cfprBiosVfMirroringModeEntry.setIndexNames((0,_C,_r))
+if mibBuilder.loadTexts:cfprBiosVfMirroringModeEntry.setStatus(_A)
+_CfprBiosVfMirroringModeInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfMirroringModeInstanceId_Object=MibTableColumn
+cfprBiosVfMirroringModeInstanceId=_CfprBiosVfMirroringModeInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,40,1,1),_CfprBiosVfMirroringModeInstanceId_Type())
+cfprBiosVfMirroringModeInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfMirroringModeInstanceId.setStatus(_A)
+_CfprBiosVfMirroringModeDn_Type=CfprManagedObjectDn
+_CfprBiosVfMirroringModeDn_Object=MibTableColumn
+cfprBiosVfMirroringModeDn=_CfprBiosVfMirroringModeDn_Object((1,3,6,1,4,1,9,9,826,1,5,40,1,2),_CfprBiosVfMirroringModeDn_Type())
+cfprBiosVfMirroringModeDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfMirroringModeDn.setStatus(_A)
+_CfprBiosVfMirroringModeRn_Type=SnmpAdminString
+_CfprBiosVfMirroringModeRn_Object=MibTableColumn
+cfprBiosVfMirroringModeRn=_CfprBiosVfMirroringModeRn_Object((1,3,6,1,4,1,9,9,826,1,5,40,1,3),_CfprBiosVfMirroringModeRn_Type())
+cfprBiosVfMirroringModeRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfMirroringModeRn.setStatus(_A)
+_CfprBiosVfMirroringModeVpMirroringMode_Type=CfprBiosVfMirroringModeVpMirroringMode
+_CfprBiosVfMirroringModeVpMirroringMode_Object=MibTableColumn
+cfprBiosVfMirroringModeVpMirroringMode=_CfprBiosVfMirroringModeVpMirroringMode_Object((1,3,6,1,4,1,9,9,826,1,5,40,1,4),_CfprBiosVfMirroringModeVpMirroringMode_Type())
+cfprBiosVfMirroringModeVpMirroringMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfMirroringModeVpMirroringMode.setStatus(_A)
+_CfprBiosVfMirroringModeSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfMirroringModeSupportedByDefault_Object=MibTableColumn
+cfprBiosVfMirroringModeSupportedByDefault=_CfprBiosVfMirroringModeSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,40,1,5),_CfprBiosVfMirroringModeSupportedByDefault_Type())
+cfprBiosVfMirroringModeSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfMirroringModeSupportedByDefault.setStatus(_A)
+_CfprBiosVfNUMAOptimizedTable_Object=MibTable
+cfprBiosVfNUMAOptimizedTable=_CfprBiosVfNUMAOptimizedTable_Object((1,3,6,1,4,1,9,9,826,1,5,41))
+if mibBuilder.loadTexts:cfprBiosVfNUMAOptimizedTable.setStatus(_A)
+_CfprBiosVfNUMAOptimizedEntry_Object=MibTableRow
+cfprBiosVfNUMAOptimizedEntry=_CfprBiosVfNUMAOptimizedEntry_Object((1,3,6,1,4,1,9,9,826,1,5,41,1))
+cfprBiosVfNUMAOptimizedEntry.setIndexNames((0,_C,_s))
+if mibBuilder.loadTexts:cfprBiosVfNUMAOptimizedEntry.setStatus(_A)
+_CfprBiosVfNUMAOptimizedInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfNUMAOptimizedInstanceId_Object=MibTableColumn
+cfprBiosVfNUMAOptimizedInstanceId=_CfprBiosVfNUMAOptimizedInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,41,1,1),_CfprBiosVfNUMAOptimizedInstanceId_Type())
+cfprBiosVfNUMAOptimizedInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfNUMAOptimizedInstanceId.setStatus(_A)
+_CfprBiosVfNUMAOptimizedDn_Type=CfprManagedObjectDn
+_CfprBiosVfNUMAOptimizedDn_Object=MibTableColumn
+cfprBiosVfNUMAOptimizedDn=_CfprBiosVfNUMAOptimizedDn_Object((1,3,6,1,4,1,9,9,826,1,5,41,1,2),_CfprBiosVfNUMAOptimizedDn_Type())
+cfprBiosVfNUMAOptimizedDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfNUMAOptimizedDn.setStatus(_A)
+_CfprBiosVfNUMAOptimizedRn_Type=SnmpAdminString
+_CfprBiosVfNUMAOptimizedRn_Object=MibTableColumn
+cfprBiosVfNUMAOptimizedRn=_CfprBiosVfNUMAOptimizedRn_Object((1,3,6,1,4,1,9,9,826,1,5,41,1,3),_CfprBiosVfNUMAOptimizedRn_Type())
+cfprBiosVfNUMAOptimizedRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfNUMAOptimizedRn.setStatus(_A)
+_CfprBiosVfNUMAOptimizedVpNUMAOptimized_Type=CfprBiosVfNUMAOptimizedVpNUMAOptimized
+_CfprBiosVfNUMAOptimizedVpNUMAOptimized_Object=MibTableColumn
+cfprBiosVfNUMAOptimizedVpNUMAOptimized=_CfprBiosVfNUMAOptimizedVpNUMAOptimized_Object((1,3,6,1,4,1,9,9,826,1,5,41,1,4),_CfprBiosVfNUMAOptimizedVpNUMAOptimized_Type())
+cfprBiosVfNUMAOptimizedVpNUMAOptimized.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfNUMAOptimizedVpNUMAOptimized.setStatus(_A)
+_CfprBiosVfNUMAOptimizedSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfNUMAOptimizedSupportedByDefault_Object=MibTableColumn
+cfprBiosVfNUMAOptimizedSupportedByDefault=_CfprBiosVfNUMAOptimizedSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,41,1,5),_CfprBiosVfNUMAOptimizedSupportedByDefault_Type())
+cfprBiosVfNUMAOptimizedSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfNUMAOptimizedSupportedByDefault.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerTable_Object=MibTable
+cfprBiosVfOSBootWatchdogTimerTable=_CfprBiosVfOSBootWatchdogTimerTable_Object((1,3,6,1,4,1,9,9,826,1,5,42))
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerTable.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerEntry_Object=MibTableRow
+cfprBiosVfOSBootWatchdogTimerEntry=_CfprBiosVfOSBootWatchdogTimerEntry_Object((1,3,6,1,4,1,9,9,826,1,5,42,1))
+cfprBiosVfOSBootWatchdogTimerEntry.setIndexNames((0,_C,_t))
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerEntry.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfOSBootWatchdogTimerInstanceId_Object=MibTableColumn
+cfprBiosVfOSBootWatchdogTimerInstanceId=_CfprBiosVfOSBootWatchdogTimerInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,42,1,1),_CfprBiosVfOSBootWatchdogTimerInstanceId_Type())
+cfprBiosVfOSBootWatchdogTimerInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerInstanceId.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerDn_Type=CfprManagedObjectDn
+_CfprBiosVfOSBootWatchdogTimerDn_Object=MibTableColumn
+cfprBiosVfOSBootWatchdogTimerDn=_CfprBiosVfOSBootWatchdogTimerDn_Object((1,3,6,1,4,1,9,9,826,1,5,42,1,2),_CfprBiosVfOSBootWatchdogTimerDn_Type())
+cfprBiosVfOSBootWatchdogTimerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerDn.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerRn_Type=SnmpAdminString
+_CfprBiosVfOSBootWatchdogTimerRn_Object=MibTableColumn
+cfprBiosVfOSBootWatchdogTimerRn=_CfprBiosVfOSBootWatchdogTimerRn_Object((1,3,6,1,4,1,9,9,826,1,5,42,1,3),_CfprBiosVfOSBootWatchdogTimerRn_Type())
+cfprBiosVfOSBootWatchdogTimerRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerRn.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer_Type=CfprBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer
+_CfprBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer_Object=MibTableColumn
+cfprBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer=_CfprBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer_Object((1,3,6,1,4,1,9,9,826,1,5,42,1,4),_CfprBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer_Type())
+cfprBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfOSBootWatchdogTimerSupportedByDefault_Object=MibTableColumn
+cfprBiosVfOSBootWatchdogTimerSupportedByDefault=_CfprBiosVfOSBootWatchdogTimerSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,42,1,5),_CfprBiosVfOSBootWatchdogTimerSupportedByDefault_Type())
+cfprBiosVfOSBootWatchdogTimerSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerSupportedByDefault.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerPolicyTable_Object=MibTable
+cfprBiosVfOSBootWatchdogTimerPolicyTable=_CfprBiosVfOSBootWatchdogTimerPolicyTable_Object((1,3,6,1,4,1,9,9,826,1,5,43))
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerPolicyTable.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerPolicyEntry_Object=MibTableRow
+cfprBiosVfOSBootWatchdogTimerPolicyEntry=_CfprBiosVfOSBootWatchdogTimerPolicyEntry_Object((1,3,6,1,4,1,9,9,826,1,5,43,1))
+cfprBiosVfOSBootWatchdogTimerPolicyEntry.setIndexNames((0,_C,_u))
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerPolicyEntry.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerPolicyInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfOSBootWatchdogTimerPolicyInstanceId_Object=MibTableColumn
+cfprBiosVfOSBootWatchdogTimerPolicyInstanceId=_CfprBiosVfOSBootWatchdogTimerPolicyInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,43,1,1),_CfprBiosVfOSBootWatchdogTimerPolicyInstanceId_Type())
+cfprBiosVfOSBootWatchdogTimerPolicyInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerPolicyInstanceId.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerPolicyDn_Type=CfprManagedObjectDn
+_CfprBiosVfOSBootWatchdogTimerPolicyDn_Object=MibTableColumn
+cfprBiosVfOSBootWatchdogTimerPolicyDn=_CfprBiosVfOSBootWatchdogTimerPolicyDn_Object((1,3,6,1,4,1,9,9,826,1,5,43,1,2),_CfprBiosVfOSBootWatchdogTimerPolicyDn_Type())
+cfprBiosVfOSBootWatchdogTimerPolicyDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerPolicyDn.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerPolicyRn_Type=SnmpAdminString
+_CfprBiosVfOSBootWatchdogTimerPolicyRn_Object=MibTableColumn
+cfprBiosVfOSBootWatchdogTimerPolicyRn=_CfprBiosVfOSBootWatchdogTimerPolicyRn_Object((1,3,6,1,4,1,9,9,826,1,5,43,1,3),_CfprBiosVfOSBootWatchdogTimerPolicyRn_Type())
+cfprBiosVfOSBootWatchdogTimerPolicyRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerPolicyRn.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy_Type=CfprBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy
+_CfprBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy_Object=MibTableColumn
+cfprBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy=_CfprBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy_Object((1,3,6,1,4,1,9,9,826,1,5,43,1,4),_CfprBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy_Type())
+cfprBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerPolicySupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfOSBootWatchdogTimerPolicySupportedByDefault_Object=MibTableColumn
+cfprBiosVfOSBootWatchdogTimerPolicySupportedByDefault=_CfprBiosVfOSBootWatchdogTimerPolicySupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,43,1,5),_CfprBiosVfOSBootWatchdogTimerPolicySupportedByDefault_Type())
+cfprBiosVfOSBootWatchdogTimerPolicySupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerPolicySupportedByDefault.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerTimeoutTable_Object=MibTable
+cfprBiosVfOSBootWatchdogTimerTimeoutTable=_CfprBiosVfOSBootWatchdogTimerTimeoutTable_Object((1,3,6,1,4,1,9,9,826,1,5,44))
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerTimeoutTable.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerTimeoutEntry_Object=MibTableRow
+cfprBiosVfOSBootWatchdogTimerTimeoutEntry=_CfprBiosVfOSBootWatchdogTimerTimeoutEntry_Object((1,3,6,1,4,1,9,9,826,1,5,44,1))
+cfprBiosVfOSBootWatchdogTimerTimeoutEntry.setIndexNames((0,_C,_v))
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerTimeoutEntry.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerTimeoutInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfOSBootWatchdogTimerTimeoutInstanceId_Object=MibTableColumn
+cfprBiosVfOSBootWatchdogTimerTimeoutInstanceId=_CfprBiosVfOSBootWatchdogTimerTimeoutInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,44,1,1),_CfprBiosVfOSBootWatchdogTimerTimeoutInstanceId_Type())
+cfprBiosVfOSBootWatchdogTimerTimeoutInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerTimeoutInstanceId.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerTimeoutDn_Type=CfprManagedObjectDn
+_CfprBiosVfOSBootWatchdogTimerTimeoutDn_Object=MibTableColumn
+cfprBiosVfOSBootWatchdogTimerTimeoutDn=_CfprBiosVfOSBootWatchdogTimerTimeoutDn_Object((1,3,6,1,4,1,9,9,826,1,5,44,1,2),_CfprBiosVfOSBootWatchdogTimerTimeoutDn_Type())
+cfprBiosVfOSBootWatchdogTimerTimeoutDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerTimeoutDn.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerTimeoutRn_Type=SnmpAdminString
+_CfprBiosVfOSBootWatchdogTimerTimeoutRn_Object=MibTableColumn
+cfprBiosVfOSBootWatchdogTimerTimeoutRn=_CfprBiosVfOSBootWatchdogTimerTimeoutRn_Object((1,3,6,1,4,1,9,9,826,1,5,44,1,3),_CfprBiosVfOSBootWatchdogTimerTimeoutRn_Type())
+cfprBiosVfOSBootWatchdogTimerTimeoutRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerTimeoutRn.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout_Type=CfprBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout
+_CfprBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout_Object=MibTableColumn
+cfprBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout=_CfprBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout_Object((1,3,6,1,4,1,9,9,826,1,5,44,1,4),_CfprBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout_Type())
+cfprBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout.setStatus(_A)
+_CfprBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault_Object=MibTableColumn
+cfprBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault=_CfprBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,44,1,5),_CfprBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault_Type())
+cfprBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault.setStatus(_A)
+_CfprBiosVfOnboardSATAControllerTable_Object=MibTable
+cfprBiosVfOnboardSATAControllerTable=_CfprBiosVfOnboardSATAControllerTable_Object((1,3,6,1,4,1,9,9,826,1,5,45))
+if mibBuilder.loadTexts:cfprBiosVfOnboardSATAControllerTable.setStatus(_A)
+_CfprBiosVfOnboardSATAControllerEntry_Object=MibTableRow
+cfprBiosVfOnboardSATAControllerEntry=_CfprBiosVfOnboardSATAControllerEntry_Object((1,3,6,1,4,1,9,9,826,1,5,45,1))
+cfprBiosVfOnboardSATAControllerEntry.setIndexNames((0,_C,_w))
+if mibBuilder.loadTexts:cfprBiosVfOnboardSATAControllerEntry.setStatus(_A)
+_CfprBiosVfOnboardSATAControllerInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfOnboardSATAControllerInstanceId_Object=MibTableColumn
+cfprBiosVfOnboardSATAControllerInstanceId=_CfprBiosVfOnboardSATAControllerInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,45,1,1),_CfprBiosVfOnboardSATAControllerInstanceId_Type())
+cfprBiosVfOnboardSATAControllerInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfOnboardSATAControllerInstanceId.setStatus(_A)
+_CfprBiosVfOnboardSATAControllerDn_Type=CfprManagedObjectDn
+_CfprBiosVfOnboardSATAControllerDn_Object=MibTableColumn
+cfprBiosVfOnboardSATAControllerDn=_CfprBiosVfOnboardSATAControllerDn_Object((1,3,6,1,4,1,9,9,826,1,5,45,1,2),_CfprBiosVfOnboardSATAControllerDn_Type())
+cfprBiosVfOnboardSATAControllerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOnboardSATAControllerDn.setStatus(_A)
+_CfprBiosVfOnboardSATAControllerRn_Type=SnmpAdminString
+_CfprBiosVfOnboardSATAControllerRn_Object=MibTableColumn
+cfprBiosVfOnboardSATAControllerRn=_CfprBiosVfOnboardSATAControllerRn_Object((1,3,6,1,4,1,9,9,826,1,5,45,1,3),_CfprBiosVfOnboardSATAControllerRn_Type())
+cfprBiosVfOnboardSATAControllerRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOnboardSATAControllerRn.setStatus(_A)
+_CfprBiosVfOnboardSATAControllerVpOnboardSATAController_Type=CfprBiosVfOnboardSATAControllerVpOnboardSATAController
+_CfprBiosVfOnboardSATAControllerVpOnboardSATAController_Object=MibTableColumn
+cfprBiosVfOnboardSATAControllerVpOnboardSATAController=_CfprBiosVfOnboardSATAControllerVpOnboardSATAController_Object((1,3,6,1,4,1,9,9,826,1,5,45,1,4),_CfprBiosVfOnboardSATAControllerVpOnboardSATAController_Type())
+cfprBiosVfOnboardSATAControllerVpOnboardSATAController.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOnboardSATAControllerVpOnboardSATAController.setStatus(_A)
+_CfprBiosVfOnboardSATAControllerVpSATAMode_Type=CfprBiosVfOnboardSATAControllerVpSATAMode
+_CfprBiosVfOnboardSATAControllerVpSATAMode_Object=MibTableColumn
+cfprBiosVfOnboardSATAControllerVpSATAMode=_CfprBiosVfOnboardSATAControllerVpSATAMode_Object((1,3,6,1,4,1,9,9,826,1,5,45,1,5),_CfprBiosVfOnboardSATAControllerVpSATAMode_Type())
+cfprBiosVfOnboardSATAControllerVpSATAMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOnboardSATAControllerVpSATAMode.setStatus(_A)
+_CfprBiosVfOnboardSATAControllerSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfOnboardSATAControllerSupportedByDefault_Object=MibTableColumn
+cfprBiosVfOnboardSATAControllerSupportedByDefault=_CfprBiosVfOnboardSATAControllerSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,45,1,6),_CfprBiosVfOnboardSATAControllerSupportedByDefault_Type())
+cfprBiosVfOnboardSATAControllerSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOnboardSATAControllerSupportedByDefault.setStatus(_A)
+_CfprBiosVfOnboardStorageTable_Object=MibTable
+cfprBiosVfOnboardStorageTable=_CfprBiosVfOnboardStorageTable_Object((1,3,6,1,4,1,9,9,826,1,5,46))
+if mibBuilder.loadTexts:cfprBiosVfOnboardStorageTable.setStatus(_A)
+_CfprBiosVfOnboardStorageEntry_Object=MibTableRow
+cfprBiosVfOnboardStorageEntry=_CfprBiosVfOnboardStorageEntry_Object((1,3,6,1,4,1,9,9,826,1,5,46,1))
+cfprBiosVfOnboardStorageEntry.setIndexNames((0,_C,_x))
+if mibBuilder.loadTexts:cfprBiosVfOnboardStorageEntry.setStatus(_A)
+_CfprBiosVfOnboardStorageInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfOnboardStorageInstanceId_Object=MibTableColumn
+cfprBiosVfOnboardStorageInstanceId=_CfprBiosVfOnboardStorageInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,46,1,1),_CfprBiosVfOnboardStorageInstanceId_Type())
+cfprBiosVfOnboardStorageInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfOnboardStorageInstanceId.setStatus(_A)
+_CfprBiosVfOnboardStorageDn_Type=CfprManagedObjectDn
+_CfprBiosVfOnboardStorageDn_Object=MibTableColumn
+cfprBiosVfOnboardStorageDn=_CfprBiosVfOnboardStorageDn_Object((1,3,6,1,4,1,9,9,826,1,5,46,1,2),_CfprBiosVfOnboardStorageDn_Type())
+cfprBiosVfOnboardStorageDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOnboardStorageDn.setStatus(_A)
+_CfprBiosVfOnboardStorageRn_Type=SnmpAdminString
+_CfprBiosVfOnboardStorageRn_Object=MibTableColumn
+cfprBiosVfOnboardStorageRn=_CfprBiosVfOnboardStorageRn_Object((1,3,6,1,4,1,9,9,826,1,5,46,1,3),_CfprBiosVfOnboardStorageRn_Type())
+cfprBiosVfOnboardStorageRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOnboardStorageRn.setStatus(_A)
+_CfprBiosVfOnboardStorageVpOnboardSCUStorageSupport_Type=CfprBiosVfOnboardStorageVpOnboardSCUStorageSupport
+_CfprBiosVfOnboardStorageVpOnboardSCUStorageSupport_Object=MibTableColumn
+cfprBiosVfOnboardStorageVpOnboardSCUStorageSupport=_CfprBiosVfOnboardStorageVpOnboardSCUStorageSupport_Object((1,3,6,1,4,1,9,9,826,1,5,46,1,4),_CfprBiosVfOnboardStorageVpOnboardSCUStorageSupport_Type())
+cfprBiosVfOnboardStorageVpOnboardSCUStorageSupport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOnboardStorageVpOnboardSCUStorageSupport.setStatus(_A)
+_CfprBiosVfOnboardStorageSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfOnboardStorageSupportedByDefault_Object=MibTableColumn
+cfprBiosVfOnboardStorageSupportedByDefault=_CfprBiosVfOnboardStorageSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,46,1,5),_CfprBiosVfOnboardStorageSupportedByDefault_Type())
+cfprBiosVfOnboardStorageSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOnboardStorageSupportedByDefault.setStatus(_A)
+_CfprBiosVfOptionROMEnableTable_Object=MibTable
+cfprBiosVfOptionROMEnableTable=_CfprBiosVfOptionROMEnableTable_Object((1,3,6,1,4,1,9,9,826,1,5,47))
+if mibBuilder.loadTexts:cfprBiosVfOptionROMEnableTable.setStatus(_A)
+_CfprBiosVfOptionROMEnableEntry_Object=MibTableRow
+cfprBiosVfOptionROMEnableEntry=_CfprBiosVfOptionROMEnableEntry_Object((1,3,6,1,4,1,9,9,826,1,5,47,1))
+cfprBiosVfOptionROMEnableEntry.setIndexNames((0,_C,_y))
+if mibBuilder.loadTexts:cfprBiosVfOptionROMEnableEntry.setStatus(_A)
+_CfprBiosVfOptionROMEnableInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfOptionROMEnableInstanceId_Object=MibTableColumn
+cfprBiosVfOptionROMEnableInstanceId=_CfprBiosVfOptionROMEnableInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,47,1,1),_CfprBiosVfOptionROMEnableInstanceId_Type())
+cfprBiosVfOptionROMEnableInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfOptionROMEnableInstanceId.setStatus(_A)
+_CfprBiosVfOptionROMEnableDn_Type=CfprManagedObjectDn
+_CfprBiosVfOptionROMEnableDn_Object=MibTableColumn
+cfprBiosVfOptionROMEnableDn=_CfprBiosVfOptionROMEnableDn_Object((1,3,6,1,4,1,9,9,826,1,5,47,1,2),_CfprBiosVfOptionROMEnableDn_Type())
+cfprBiosVfOptionROMEnableDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOptionROMEnableDn.setStatus(_A)
+_CfprBiosVfOptionROMEnableRn_Type=SnmpAdminString
+_CfprBiosVfOptionROMEnableRn_Object=MibTableColumn
+cfprBiosVfOptionROMEnableRn=_CfprBiosVfOptionROMEnableRn_Object((1,3,6,1,4,1,9,9,826,1,5,47,1,3),_CfprBiosVfOptionROMEnableRn_Type())
+cfprBiosVfOptionROMEnableRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOptionROMEnableRn.setStatus(_A)
+_CfprBiosVfOptionROMEnableVpState_Type=CfprBiosVfOptionROMEnableVpState
+_CfprBiosVfOptionROMEnableVpState_Object=MibTableColumn
+cfprBiosVfOptionROMEnableVpState=_CfprBiosVfOptionROMEnableVpState_Object((1,3,6,1,4,1,9,9,826,1,5,47,1,4),_CfprBiosVfOptionROMEnableVpState_Type())
+cfprBiosVfOptionROMEnableVpState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOptionROMEnableVpState.setStatus(_A)
+_CfprBiosVfOptionROMEnableSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfOptionROMEnableSupportedByDefault_Object=MibTableColumn
+cfprBiosVfOptionROMEnableSupportedByDefault=_CfprBiosVfOptionROMEnableSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,47,1,5),_CfprBiosVfOptionROMEnableSupportedByDefault_Type())
+cfprBiosVfOptionROMEnableSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOptionROMEnableSupportedByDefault.setStatus(_A)
+_CfprBiosVfOptionROMLoadTable_Object=MibTable
+cfprBiosVfOptionROMLoadTable=_CfprBiosVfOptionROMLoadTable_Object((1,3,6,1,4,1,9,9,826,1,5,48))
+if mibBuilder.loadTexts:cfprBiosVfOptionROMLoadTable.setStatus(_A)
+_CfprBiosVfOptionROMLoadEntry_Object=MibTableRow
+cfprBiosVfOptionROMLoadEntry=_CfprBiosVfOptionROMLoadEntry_Object((1,3,6,1,4,1,9,9,826,1,5,48,1))
+cfprBiosVfOptionROMLoadEntry.setIndexNames((0,_C,_z))
+if mibBuilder.loadTexts:cfprBiosVfOptionROMLoadEntry.setStatus(_A)
+_CfprBiosVfOptionROMLoadInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfOptionROMLoadInstanceId_Object=MibTableColumn
+cfprBiosVfOptionROMLoadInstanceId=_CfprBiosVfOptionROMLoadInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,48,1,1),_CfprBiosVfOptionROMLoadInstanceId_Type())
+cfprBiosVfOptionROMLoadInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfOptionROMLoadInstanceId.setStatus(_A)
+_CfprBiosVfOptionROMLoadDn_Type=CfprManagedObjectDn
+_CfprBiosVfOptionROMLoadDn_Object=MibTableColumn
+cfprBiosVfOptionROMLoadDn=_CfprBiosVfOptionROMLoadDn_Object((1,3,6,1,4,1,9,9,826,1,5,48,1,2),_CfprBiosVfOptionROMLoadDn_Type())
+cfprBiosVfOptionROMLoadDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOptionROMLoadDn.setStatus(_A)
+_CfprBiosVfOptionROMLoadRn_Type=SnmpAdminString
+_CfprBiosVfOptionROMLoadRn_Object=MibTableColumn
+cfprBiosVfOptionROMLoadRn=_CfprBiosVfOptionROMLoadRn_Object((1,3,6,1,4,1,9,9,826,1,5,48,1,3),_CfprBiosVfOptionROMLoadRn_Type())
+cfprBiosVfOptionROMLoadRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOptionROMLoadRn.setStatus(_A)
+_CfprBiosVfOptionROMLoadVpLoad_Type=CfprBiosVfOptionROMLoadVpLoad
+_CfprBiosVfOptionROMLoadVpLoad_Object=MibTableColumn
+cfprBiosVfOptionROMLoadVpLoad=_CfprBiosVfOptionROMLoadVpLoad_Object((1,3,6,1,4,1,9,9,826,1,5,48,1,4),_CfprBiosVfOptionROMLoadVpLoad_Type())
+cfprBiosVfOptionROMLoadVpLoad.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOptionROMLoadVpLoad.setStatus(_A)
+_CfprBiosVfOptionROMLoadSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfOptionROMLoadSupportedByDefault_Object=MibTableColumn
+cfprBiosVfOptionROMLoadSupportedByDefault=_CfprBiosVfOptionROMLoadSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,48,1,5),_CfprBiosVfOptionROMLoadSupportedByDefault_Type())
+cfprBiosVfOptionROMLoadSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfOptionROMLoadSupportedByDefault.setStatus(_A)
+_CfprBiosVfPCISlotLinkSpeedTable_Object=MibTable
+cfprBiosVfPCISlotLinkSpeedTable=_CfprBiosVfPCISlotLinkSpeedTable_Object((1,3,6,1,4,1,9,9,826,1,5,49))
+if mibBuilder.loadTexts:cfprBiosVfPCISlotLinkSpeedTable.setStatus(_A)
+_CfprBiosVfPCISlotLinkSpeedEntry_Object=MibTableRow
+cfprBiosVfPCISlotLinkSpeedEntry=_CfprBiosVfPCISlotLinkSpeedEntry_Object((1,3,6,1,4,1,9,9,826,1,5,49,1))
+cfprBiosVfPCISlotLinkSpeedEntry.setIndexNames((0,_C,_A0))
+if mibBuilder.loadTexts:cfprBiosVfPCISlotLinkSpeedEntry.setStatus(_A)
+_CfprBiosVfPCISlotLinkSpeedInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfPCISlotLinkSpeedInstanceId_Object=MibTableColumn
+cfprBiosVfPCISlotLinkSpeedInstanceId=_CfprBiosVfPCISlotLinkSpeedInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,49,1,1),_CfprBiosVfPCISlotLinkSpeedInstanceId_Type())
+cfprBiosVfPCISlotLinkSpeedInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotLinkSpeedInstanceId.setStatus(_A)
+_CfprBiosVfPCISlotLinkSpeedDn_Type=CfprManagedObjectDn
+_CfprBiosVfPCISlotLinkSpeedDn_Object=MibTableColumn
+cfprBiosVfPCISlotLinkSpeedDn=_CfprBiosVfPCISlotLinkSpeedDn_Object((1,3,6,1,4,1,9,9,826,1,5,49,1,2),_CfprBiosVfPCISlotLinkSpeedDn_Type())
+cfprBiosVfPCISlotLinkSpeedDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotLinkSpeedDn.setStatus(_A)
+_CfprBiosVfPCISlotLinkSpeedRn_Type=SnmpAdminString
+_CfprBiosVfPCISlotLinkSpeedRn_Object=MibTableColumn
+cfprBiosVfPCISlotLinkSpeedRn=_CfprBiosVfPCISlotLinkSpeedRn_Object((1,3,6,1,4,1,9,9,826,1,5,49,1,3),_CfprBiosVfPCISlotLinkSpeedRn_Type())
+cfprBiosVfPCISlotLinkSpeedRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotLinkSpeedRn.setStatus(_A)
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed_Type=CfprBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed_Object=MibTableColumn
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed=_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed_Object((1,3,6,1,4,1,9,9,826,1,5,49,1,4),_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed_Type())
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed.setStatus(_A)
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed_Type=CfprBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed_Object=MibTableColumn
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed=_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed_Object((1,3,6,1,4,1,9,9,826,1,5,49,1,5),_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed_Type())
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed.setStatus(_A)
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed_Type=CfprBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed_Object=MibTableColumn
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed=_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed_Object((1,3,6,1,4,1,9,9,826,1,5,49,1,6),_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed_Type())
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed.setStatus(_A)
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed_Type=CfprBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed_Object=MibTableColumn
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed=_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed_Object((1,3,6,1,4,1,9,9,826,1,5,49,1,7),_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed_Type())
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed.setStatus(_A)
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed_Type=CfprBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed_Object=MibTableColumn
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed=_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed_Object((1,3,6,1,4,1,9,9,826,1,5,49,1,8),_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed_Type())
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed.setStatus(_A)
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed_Type=CfprBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed_Object=MibTableColumn
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed=_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed_Object((1,3,6,1,4,1,9,9,826,1,5,49,1,9),_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed_Type())
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed.setStatus(_A)
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed_Type=CfprBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed_Object=MibTableColumn
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed=_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed_Object((1,3,6,1,4,1,9,9,826,1,5,49,1,10),_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed_Type())
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed.setStatus(_A)
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed_Type=CfprBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed_Object=MibTableColumn
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed=_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed_Object((1,3,6,1,4,1,9,9,826,1,5,49,1,11),_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed_Type())
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed.setStatus(_A)
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed_Type=CfprBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed_Object=MibTableColumn
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed=_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed_Object((1,3,6,1,4,1,9,9,826,1,5,49,1,12),_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed_Type())
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed.setStatus(_A)
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed_Type=CfprBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed
+_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed_Object=MibTableColumn
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed=_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed_Object((1,3,6,1,4,1,9,9,826,1,5,49,1,13),_CfprBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed_Type())
+cfprBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed.setStatus(_A)
+_CfprBiosVfPCISlotLinkSpeedSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfPCISlotLinkSpeedSupportedByDefault_Object=MibTableColumn
+cfprBiosVfPCISlotLinkSpeedSupportedByDefault=_CfprBiosVfPCISlotLinkSpeedSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,49,1,14),_CfprBiosVfPCISlotLinkSpeedSupportedByDefault_Type())
+cfprBiosVfPCISlotLinkSpeedSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotLinkSpeedSupportedByDefault.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableTable_Object=MibTable
+cfprBiosVfPCISlotOptionROMEnableTable=_CfprBiosVfPCISlotOptionROMEnableTable_Object((1,3,6,1,4,1,9,9,826,1,5,50))
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableTable.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableEntry_Object=MibTableRow
+cfprBiosVfPCISlotOptionROMEnableEntry=_CfprBiosVfPCISlotOptionROMEnableEntry_Object((1,3,6,1,4,1,9,9,826,1,5,50,1))
+cfprBiosVfPCISlotOptionROMEnableEntry.setIndexNames((0,_C,_A1))
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableEntry.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfPCISlotOptionROMEnableInstanceId_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableInstanceId=_CfprBiosVfPCISlotOptionROMEnableInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,1),_CfprBiosVfPCISlotOptionROMEnableInstanceId_Type())
+cfprBiosVfPCISlotOptionROMEnableInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableInstanceId.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableDn_Type=CfprManagedObjectDn
+_CfprBiosVfPCISlotOptionROMEnableDn_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableDn=_CfprBiosVfPCISlotOptionROMEnableDn_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,2),_CfprBiosVfPCISlotOptionROMEnableDn_Type())
+cfprBiosVfPCISlotOptionROMEnableDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableDn.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableRn_Type=SnmpAdminString
+_CfprBiosVfPCISlotOptionROMEnableRn_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableRn=_CfprBiosVfPCISlotOptionROMEnableRn_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,3),_CfprBiosVfPCISlotOptionROMEnableRn_Type())
+cfprBiosVfPCISlotOptionROMEnableRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableRn.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM_Type=CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM
+_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM=_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,4),_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM_Type())
+cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM_Type=CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM
+_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM=_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,5),_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM_Type())
+cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM_Type=CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM
+_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM=_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,6),_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM_Type())
+cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM_Type=CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM
+_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM=_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,7),_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM_Type())
+cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM_Type=CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM
+_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM=_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,8),_CfprBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM_Type())
+cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableVpSlot10State_Type=CfprBiosVfPCISlotOptionROMEnableVpSlot10State
+_CfprBiosVfPCISlotOptionROMEnableVpSlot10State_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableVpSlot10State=_CfprBiosVfPCISlotOptionROMEnableVpSlot10State_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,9),_CfprBiosVfPCISlotOptionROMEnableVpSlot10State_Type())
+cfprBiosVfPCISlotOptionROMEnableVpSlot10State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableVpSlot10State.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableVpSlot1State_Type=CfprBiosVfPCISlotOptionROMEnableVpSlot1State
+_CfprBiosVfPCISlotOptionROMEnableVpSlot1State_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableVpSlot1State=_CfprBiosVfPCISlotOptionROMEnableVpSlot1State_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,10),_CfprBiosVfPCISlotOptionROMEnableVpSlot1State_Type())
+cfprBiosVfPCISlotOptionROMEnableVpSlot1State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableVpSlot1State.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableVpSlot2State_Type=CfprBiosVfPCISlotOptionROMEnableVpSlot2State
+_CfprBiosVfPCISlotOptionROMEnableVpSlot2State_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableVpSlot2State=_CfprBiosVfPCISlotOptionROMEnableVpSlot2State_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,11),_CfprBiosVfPCISlotOptionROMEnableVpSlot2State_Type())
+cfprBiosVfPCISlotOptionROMEnableVpSlot2State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableVpSlot2State.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableVpSlot3State_Type=CfprBiosVfPCISlotOptionROMEnableVpSlot3State
+_CfprBiosVfPCISlotOptionROMEnableVpSlot3State_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableVpSlot3State=_CfprBiosVfPCISlotOptionROMEnableVpSlot3State_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,12),_CfprBiosVfPCISlotOptionROMEnableVpSlot3State_Type())
+cfprBiosVfPCISlotOptionROMEnableVpSlot3State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableVpSlot3State.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableVpSlot4State_Type=CfprBiosVfPCISlotOptionROMEnableVpSlot4State
+_CfprBiosVfPCISlotOptionROMEnableVpSlot4State_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableVpSlot4State=_CfprBiosVfPCISlotOptionROMEnableVpSlot4State_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,13),_CfprBiosVfPCISlotOptionROMEnableVpSlot4State_Type())
+cfprBiosVfPCISlotOptionROMEnableVpSlot4State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableVpSlot4State.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableVpSlot5State_Type=CfprBiosVfPCISlotOptionROMEnableVpSlot5State
+_CfprBiosVfPCISlotOptionROMEnableVpSlot5State_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableVpSlot5State=_CfprBiosVfPCISlotOptionROMEnableVpSlot5State_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,14),_CfprBiosVfPCISlotOptionROMEnableVpSlot5State_Type())
+cfprBiosVfPCISlotOptionROMEnableVpSlot5State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableVpSlot5State.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableVpSlot6State_Type=CfprBiosVfPCISlotOptionROMEnableVpSlot6State
+_CfprBiosVfPCISlotOptionROMEnableVpSlot6State_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableVpSlot6State=_CfprBiosVfPCISlotOptionROMEnableVpSlot6State_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,15),_CfprBiosVfPCISlotOptionROMEnableVpSlot6State_Type())
+cfprBiosVfPCISlotOptionROMEnableVpSlot6State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableVpSlot6State.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableVpSlot7State_Type=CfprBiosVfPCISlotOptionROMEnableVpSlot7State
+_CfprBiosVfPCISlotOptionROMEnableVpSlot7State_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableVpSlot7State=_CfprBiosVfPCISlotOptionROMEnableVpSlot7State_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,16),_CfprBiosVfPCISlotOptionROMEnableVpSlot7State_Type())
+cfprBiosVfPCISlotOptionROMEnableVpSlot7State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableVpSlot7State.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableVpSlot8State_Type=CfprBiosVfPCISlotOptionROMEnableVpSlot8State
+_CfprBiosVfPCISlotOptionROMEnableVpSlot8State_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableVpSlot8State=_CfprBiosVfPCISlotOptionROMEnableVpSlot8State_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,17),_CfprBiosVfPCISlotOptionROMEnableVpSlot8State_Type())
+cfprBiosVfPCISlotOptionROMEnableVpSlot8State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableVpSlot8State.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableVpSlot9State_Type=CfprBiosVfPCISlotOptionROMEnableVpSlot9State
+_CfprBiosVfPCISlotOptionROMEnableVpSlot9State_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableVpSlot9State=_CfprBiosVfPCISlotOptionROMEnableVpSlot9State_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,18),_CfprBiosVfPCISlotOptionROMEnableVpSlot9State_Type())
+cfprBiosVfPCISlotOptionROMEnableVpSlot9State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableVpSlot9State.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableVpSlotMezzState_Type=CfprBiosVfPCISlotOptionROMEnableVpSlotMezzState
+_CfprBiosVfPCISlotOptionROMEnableVpSlotMezzState_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableVpSlotMezzState=_CfprBiosVfPCISlotOptionROMEnableVpSlotMezzState_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,19),_CfprBiosVfPCISlotOptionROMEnableVpSlotMezzState_Type())
+cfprBiosVfPCISlotOptionROMEnableVpSlotMezzState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableVpSlotMezzState.setStatus(_A)
+_CfprBiosVfPCISlotOptionROMEnableSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfPCISlotOptionROMEnableSupportedByDefault_Object=MibTableColumn
+cfprBiosVfPCISlotOptionROMEnableSupportedByDefault=_CfprBiosVfPCISlotOptionROMEnableSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,50,1,20),_CfprBiosVfPCISlotOptionROMEnableSupportedByDefault_Type())
+cfprBiosVfPCISlotOptionROMEnableSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPCISlotOptionROMEnableSupportedByDefault.setStatus(_A)
+_CfprBiosVfPOSTErrorPauseTable_Object=MibTable
+cfprBiosVfPOSTErrorPauseTable=_CfprBiosVfPOSTErrorPauseTable_Object((1,3,6,1,4,1,9,9,826,1,5,51))
+if mibBuilder.loadTexts:cfprBiosVfPOSTErrorPauseTable.setStatus(_A)
+_CfprBiosVfPOSTErrorPauseEntry_Object=MibTableRow
+cfprBiosVfPOSTErrorPauseEntry=_CfprBiosVfPOSTErrorPauseEntry_Object((1,3,6,1,4,1,9,9,826,1,5,51,1))
+cfprBiosVfPOSTErrorPauseEntry.setIndexNames((0,_C,_A2))
+if mibBuilder.loadTexts:cfprBiosVfPOSTErrorPauseEntry.setStatus(_A)
+_CfprBiosVfPOSTErrorPauseInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfPOSTErrorPauseInstanceId_Object=MibTableColumn
+cfprBiosVfPOSTErrorPauseInstanceId=_CfprBiosVfPOSTErrorPauseInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,51,1,1),_CfprBiosVfPOSTErrorPauseInstanceId_Type())
+cfprBiosVfPOSTErrorPauseInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfPOSTErrorPauseInstanceId.setStatus(_A)
+_CfprBiosVfPOSTErrorPauseDn_Type=CfprManagedObjectDn
+_CfprBiosVfPOSTErrorPauseDn_Object=MibTableColumn
+cfprBiosVfPOSTErrorPauseDn=_CfprBiosVfPOSTErrorPauseDn_Object((1,3,6,1,4,1,9,9,826,1,5,51,1,2),_CfprBiosVfPOSTErrorPauseDn_Type())
+cfprBiosVfPOSTErrorPauseDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPOSTErrorPauseDn.setStatus(_A)
+_CfprBiosVfPOSTErrorPauseRn_Type=SnmpAdminString
+_CfprBiosVfPOSTErrorPauseRn_Object=MibTableColumn
+cfprBiosVfPOSTErrorPauseRn=_CfprBiosVfPOSTErrorPauseRn_Object((1,3,6,1,4,1,9,9,826,1,5,51,1,3),_CfprBiosVfPOSTErrorPauseRn_Type())
+cfprBiosVfPOSTErrorPauseRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPOSTErrorPauseRn.setStatus(_A)
+_CfprBiosVfPOSTErrorPauseVpPOSTErrorPause_Type=CfprBiosVfPOSTErrorPauseVpPOSTErrorPause
+_CfprBiosVfPOSTErrorPauseVpPOSTErrorPause_Object=MibTableColumn
+cfprBiosVfPOSTErrorPauseVpPOSTErrorPause=_CfprBiosVfPOSTErrorPauseVpPOSTErrorPause_Object((1,3,6,1,4,1,9,9,826,1,5,51,1,4),_CfprBiosVfPOSTErrorPauseVpPOSTErrorPause_Type())
+cfprBiosVfPOSTErrorPauseVpPOSTErrorPause.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPOSTErrorPauseVpPOSTErrorPause.setStatus(_A)
+_CfprBiosVfPOSTErrorPauseSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfPOSTErrorPauseSupportedByDefault_Object=MibTableColumn
+cfprBiosVfPOSTErrorPauseSupportedByDefault=_CfprBiosVfPOSTErrorPauseSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,51,1,5),_CfprBiosVfPOSTErrorPauseSupportedByDefault_Type())
+cfprBiosVfPOSTErrorPauseSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPOSTErrorPauseSupportedByDefault.setStatus(_A)
+_CfprBiosVfPSTATECoordinationTable_Object=MibTable
+cfprBiosVfPSTATECoordinationTable=_CfprBiosVfPSTATECoordinationTable_Object((1,3,6,1,4,1,9,9,826,1,5,52))
+if mibBuilder.loadTexts:cfprBiosVfPSTATECoordinationTable.setStatus(_A)
+_CfprBiosVfPSTATECoordinationEntry_Object=MibTableRow
+cfprBiosVfPSTATECoordinationEntry=_CfprBiosVfPSTATECoordinationEntry_Object((1,3,6,1,4,1,9,9,826,1,5,52,1))
+cfprBiosVfPSTATECoordinationEntry.setIndexNames((0,_C,_A3))
+if mibBuilder.loadTexts:cfprBiosVfPSTATECoordinationEntry.setStatus(_A)
+_CfprBiosVfPSTATECoordinationInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfPSTATECoordinationInstanceId_Object=MibTableColumn
+cfprBiosVfPSTATECoordinationInstanceId=_CfprBiosVfPSTATECoordinationInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,52,1,1),_CfprBiosVfPSTATECoordinationInstanceId_Type())
+cfprBiosVfPSTATECoordinationInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfPSTATECoordinationInstanceId.setStatus(_A)
+_CfprBiosVfPSTATECoordinationDn_Type=CfprManagedObjectDn
+_CfprBiosVfPSTATECoordinationDn_Object=MibTableColumn
+cfprBiosVfPSTATECoordinationDn=_CfprBiosVfPSTATECoordinationDn_Object((1,3,6,1,4,1,9,9,826,1,5,52,1,2),_CfprBiosVfPSTATECoordinationDn_Type())
+cfprBiosVfPSTATECoordinationDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPSTATECoordinationDn.setStatus(_A)
+_CfprBiosVfPSTATECoordinationRn_Type=SnmpAdminString
+_CfprBiosVfPSTATECoordinationRn_Object=MibTableColumn
+cfprBiosVfPSTATECoordinationRn=_CfprBiosVfPSTATECoordinationRn_Object((1,3,6,1,4,1,9,9,826,1,5,52,1,3),_CfprBiosVfPSTATECoordinationRn_Type())
+cfprBiosVfPSTATECoordinationRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPSTATECoordinationRn.setStatus(_A)
+_CfprBiosVfPSTATECoordinationVpPSTATECoordination_Type=CfprBiosVfPSTATECoordinationVpPSTATECoordination
+_CfprBiosVfPSTATECoordinationVpPSTATECoordination_Object=MibTableColumn
+cfprBiosVfPSTATECoordinationVpPSTATECoordination=_CfprBiosVfPSTATECoordinationVpPSTATECoordination_Object((1,3,6,1,4,1,9,9,826,1,5,52,1,4),_CfprBiosVfPSTATECoordinationVpPSTATECoordination_Type())
+cfprBiosVfPSTATECoordinationVpPSTATECoordination.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPSTATECoordinationVpPSTATECoordination.setStatus(_A)
+_CfprBiosVfPSTATECoordinationSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfPSTATECoordinationSupportedByDefault_Object=MibTableColumn
+cfprBiosVfPSTATECoordinationSupportedByDefault=_CfprBiosVfPSTATECoordinationSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,52,1,5),_CfprBiosVfPSTATECoordinationSupportedByDefault_Type())
+cfprBiosVfPSTATECoordinationSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPSTATECoordinationSupportedByDefault.setStatus(_A)
+_CfprBiosVfPackageCStateLimitTable_Object=MibTable
+cfprBiosVfPackageCStateLimitTable=_CfprBiosVfPackageCStateLimitTable_Object((1,3,6,1,4,1,9,9,826,1,5,53))
+if mibBuilder.loadTexts:cfprBiosVfPackageCStateLimitTable.setStatus(_A)
+_CfprBiosVfPackageCStateLimitEntry_Object=MibTableRow
+cfprBiosVfPackageCStateLimitEntry=_CfprBiosVfPackageCStateLimitEntry_Object((1,3,6,1,4,1,9,9,826,1,5,53,1))
+cfprBiosVfPackageCStateLimitEntry.setIndexNames((0,_C,_A4))
+if mibBuilder.loadTexts:cfprBiosVfPackageCStateLimitEntry.setStatus(_A)
+_CfprBiosVfPackageCStateLimitInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfPackageCStateLimitInstanceId_Object=MibTableColumn
+cfprBiosVfPackageCStateLimitInstanceId=_CfprBiosVfPackageCStateLimitInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,53,1,1),_CfprBiosVfPackageCStateLimitInstanceId_Type())
+cfprBiosVfPackageCStateLimitInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfPackageCStateLimitInstanceId.setStatus(_A)
+_CfprBiosVfPackageCStateLimitDn_Type=CfprManagedObjectDn
+_CfprBiosVfPackageCStateLimitDn_Object=MibTableColumn
+cfprBiosVfPackageCStateLimitDn=_CfprBiosVfPackageCStateLimitDn_Object((1,3,6,1,4,1,9,9,826,1,5,53,1,2),_CfprBiosVfPackageCStateLimitDn_Type())
+cfprBiosVfPackageCStateLimitDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPackageCStateLimitDn.setStatus(_A)
+_CfprBiosVfPackageCStateLimitRn_Type=SnmpAdminString
+_CfprBiosVfPackageCStateLimitRn_Object=MibTableColumn
+cfprBiosVfPackageCStateLimitRn=_CfprBiosVfPackageCStateLimitRn_Object((1,3,6,1,4,1,9,9,826,1,5,53,1,3),_CfprBiosVfPackageCStateLimitRn_Type())
+cfprBiosVfPackageCStateLimitRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPackageCStateLimitRn.setStatus(_A)
+_CfprBiosVfPackageCStateLimitVpPackageCStateLimit_Type=CfprBiosVfPackageCStateLimitVpPackageCStateLimit
+_CfprBiosVfPackageCStateLimitVpPackageCStateLimit_Object=MibTableColumn
+cfprBiosVfPackageCStateLimitVpPackageCStateLimit=_CfprBiosVfPackageCStateLimitVpPackageCStateLimit_Object((1,3,6,1,4,1,9,9,826,1,5,53,1,4),_CfprBiosVfPackageCStateLimitVpPackageCStateLimit_Type())
+cfprBiosVfPackageCStateLimitVpPackageCStateLimit.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPackageCStateLimitVpPackageCStateLimit.setStatus(_A)
+_CfprBiosVfPackageCStateLimitSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfPackageCStateLimitSupportedByDefault_Object=MibTableColumn
+cfprBiosVfPackageCStateLimitSupportedByDefault=_CfprBiosVfPackageCStateLimitSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,53,1,5),_CfprBiosVfPackageCStateLimitSupportedByDefault_Type())
+cfprBiosVfPackageCStateLimitSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfPackageCStateLimitSupportedByDefault.setStatus(_A)
+_CfprBiosVfProcessorC1ETable_Object=MibTable
+cfprBiosVfProcessorC1ETable=_CfprBiosVfProcessorC1ETable_Object((1,3,6,1,4,1,9,9,826,1,5,54))
+if mibBuilder.loadTexts:cfprBiosVfProcessorC1ETable.setStatus(_A)
+_CfprBiosVfProcessorC1EEntry_Object=MibTableRow
+cfprBiosVfProcessorC1EEntry=_CfprBiosVfProcessorC1EEntry_Object((1,3,6,1,4,1,9,9,826,1,5,54,1))
+cfprBiosVfProcessorC1EEntry.setIndexNames((0,_C,_A5))
+if mibBuilder.loadTexts:cfprBiosVfProcessorC1EEntry.setStatus(_A)
+_CfprBiosVfProcessorC1EInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfProcessorC1EInstanceId_Object=MibTableColumn
+cfprBiosVfProcessorC1EInstanceId=_CfprBiosVfProcessorC1EInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,54,1,1),_CfprBiosVfProcessorC1EInstanceId_Type())
+cfprBiosVfProcessorC1EInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC1EInstanceId.setStatus(_A)
+_CfprBiosVfProcessorC1EDn_Type=CfprManagedObjectDn
+_CfprBiosVfProcessorC1EDn_Object=MibTableColumn
+cfprBiosVfProcessorC1EDn=_CfprBiosVfProcessorC1EDn_Object((1,3,6,1,4,1,9,9,826,1,5,54,1,2),_CfprBiosVfProcessorC1EDn_Type())
+cfprBiosVfProcessorC1EDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC1EDn.setStatus(_A)
+_CfprBiosVfProcessorC1ERn_Type=SnmpAdminString
+_CfprBiosVfProcessorC1ERn_Object=MibTableColumn
+cfprBiosVfProcessorC1ERn=_CfprBiosVfProcessorC1ERn_Object((1,3,6,1,4,1,9,9,826,1,5,54,1,3),_CfprBiosVfProcessorC1ERn_Type())
+cfprBiosVfProcessorC1ERn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC1ERn.setStatus(_A)
+_CfprBiosVfProcessorC1EVpProcessorC1E_Type=CfprBiosVfProcessorC1EVpProcessorC1E
+_CfprBiosVfProcessorC1EVpProcessorC1E_Object=MibTableColumn
+cfprBiosVfProcessorC1EVpProcessorC1E=_CfprBiosVfProcessorC1EVpProcessorC1E_Object((1,3,6,1,4,1,9,9,826,1,5,54,1,4),_CfprBiosVfProcessorC1EVpProcessorC1E_Type())
+cfprBiosVfProcessorC1EVpProcessorC1E.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC1EVpProcessorC1E.setStatus(_A)
+_CfprBiosVfProcessorC1ESupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfProcessorC1ESupportedByDefault_Object=MibTableColumn
+cfprBiosVfProcessorC1ESupportedByDefault=_CfprBiosVfProcessorC1ESupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,54,1,5),_CfprBiosVfProcessorC1ESupportedByDefault_Type())
+cfprBiosVfProcessorC1ESupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC1ESupportedByDefault.setStatus(_A)
+_CfprBiosVfProcessorC3ReportTable_Object=MibTable
+cfprBiosVfProcessorC3ReportTable=_CfprBiosVfProcessorC3ReportTable_Object((1,3,6,1,4,1,9,9,826,1,5,55))
+if mibBuilder.loadTexts:cfprBiosVfProcessorC3ReportTable.setStatus(_A)
+_CfprBiosVfProcessorC3ReportEntry_Object=MibTableRow
+cfprBiosVfProcessorC3ReportEntry=_CfprBiosVfProcessorC3ReportEntry_Object((1,3,6,1,4,1,9,9,826,1,5,55,1))
+cfprBiosVfProcessorC3ReportEntry.setIndexNames((0,_C,_A6))
+if mibBuilder.loadTexts:cfprBiosVfProcessorC3ReportEntry.setStatus(_A)
+_CfprBiosVfProcessorC3ReportInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfProcessorC3ReportInstanceId_Object=MibTableColumn
+cfprBiosVfProcessorC3ReportInstanceId=_CfprBiosVfProcessorC3ReportInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,55,1,1),_CfprBiosVfProcessorC3ReportInstanceId_Type())
+cfprBiosVfProcessorC3ReportInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC3ReportInstanceId.setStatus(_A)
+_CfprBiosVfProcessorC3ReportDn_Type=CfprManagedObjectDn
+_CfprBiosVfProcessorC3ReportDn_Object=MibTableColumn
+cfprBiosVfProcessorC3ReportDn=_CfprBiosVfProcessorC3ReportDn_Object((1,3,6,1,4,1,9,9,826,1,5,55,1,2),_CfprBiosVfProcessorC3ReportDn_Type())
+cfprBiosVfProcessorC3ReportDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC3ReportDn.setStatus(_A)
+_CfprBiosVfProcessorC3ReportRn_Type=SnmpAdminString
+_CfprBiosVfProcessorC3ReportRn_Object=MibTableColumn
+cfprBiosVfProcessorC3ReportRn=_CfprBiosVfProcessorC3ReportRn_Object((1,3,6,1,4,1,9,9,826,1,5,55,1,3),_CfprBiosVfProcessorC3ReportRn_Type())
+cfprBiosVfProcessorC3ReportRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC3ReportRn.setStatus(_A)
+_CfprBiosVfProcessorC3ReportVpProcessorC3Report_Type=CfprBiosVfProcessorC3ReportVpProcessorC3Report
+_CfprBiosVfProcessorC3ReportVpProcessorC3Report_Object=MibTableColumn
+cfprBiosVfProcessorC3ReportVpProcessorC3Report=_CfprBiosVfProcessorC3ReportVpProcessorC3Report_Object((1,3,6,1,4,1,9,9,826,1,5,55,1,4),_CfprBiosVfProcessorC3ReportVpProcessorC3Report_Type())
+cfprBiosVfProcessorC3ReportVpProcessorC3Report.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC3ReportVpProcessorC3Report.setStatus(_A)
+_CfprBiosVfProcessorC3ReportSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfProcessorC3ReportSupportedByDefault_Object=MibTableColumn
+cfprBiosVfProcessorC3ReportSupportedByDefault=_CfprBiosVfProcessorC3ReportSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,55,1,5),_CfprBiosVfProcessorC3ReportSupportedByDefault_Type())
+cfprBiosVfProcessorC3ReportSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC3ReportSupportedByDefault.setStatus(_A)
+_CfprBiosVfProcessorC6ReportTable_Object=MibTable
+cfprBiosVfProcessorC6ReportTable=_CfprBiosVfProcessorC6ReportTable_Object((1,3,6,1,4,1,9,9,826,1,5,56))
+if mibBuilder.loadTexts:cfprBiosVfProcessorC6ReportTable.setStatus(_A)
+_CfprBiosVfProcessorC6ReportEntry_Object=MibTableRow
+cfprBiosVfProcessorC6ReportEntry=_CfprBiosVfProcessorC6ReportEntry_Object((1,3,6,1,4,1,9,9,826,1,5,56,1))
+cfprBiosVfProcessorC6ReportEntry.setIndexNames((0,_C,_A7))
+if mibBuilder.loadTexts:cfprBiosVfProcessorC6ReportEntry.setStatus(_A)
+_CfprBiosVfProcessorC6ReportInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfProcessorC6ReportInstanceId_Object=MibTableColumn
+cfprBiosVfProcessorC6ReportInstanceId=_CfprBiosVfProcessorC6ReportInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,56,1,1),_CfprBiosVfProcessorC6ReportInstanceId_Type())
+cfprBiosVfProcessorC6ReportInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC6ReportInstanceId.setStatus(_A)
+_CfprBiosVfProcessorC6ReportDn_Type=CfprManagedObjectDn
+_CfprBiosVfProcessorC6ReportDn_Object=MibTableColumn
+cfprBiosVfProcessorC6ReportDn=_CfprBiosVfProcessorC6ReportDn_Object((1,3,6,1,4,1,9,9,826,1,5,56,1,2),_CfprBiosVfProcessorC6ReportDn_Type())
+cfprBiosVfProcessorC6ReportDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC6ReportDn.setStatus(_A)
+_CfprBiosVfProcessorC6ReportRn_Type=SnmpAdminString
+_CfprBiosVfProcessorC6ReportRn_Object=MibTableColumn
+cfprBiosVfProcessorC6ReportRn=_CfprBiosVfProcessorC6ReportRn_Object((1,3,6,1,4,1,9,9,826,1,5,56,1,3),_CfprBiosVfProcessorC6ReportRn_Type())
+cfprBiosVfProcessorC6ReportRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC6ReportRn.setStatus(_A)
+_CfprBiosVfProcessorC6ReportVpProcessorC6Report_Type=CfprBiosVfProcessorC6ReportVpProcessorC6Report
+_CfprBiosVfProcessorC6ReportVpProcessorC6Report_Object=MibTableColumn
+cfprBiosVfProcessorC6ReportVpProcessorC6Report=_CfprBiosVfProcessorC6ReportVpProcessorC6Report_Object((1,3,6,1,4,1,9,9,826,1,5,56,1,4),_CfprBiosVfProcessorC6ReportVpProcessorC6Report_Type())
+cfprBiosVfProcessorC6ReportVpProcessorC6Report.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC6ReportVpProcessorC6Report.setStatus(_A)
+_CfprBiosVfProcessorC6ReportSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfProcessorC6ReportSupportedByDefault_Object=MibTableColumn
+cfprBiosVfProcessorC6ReportSupportedByDefault=_CfprBiosVfProcessorC6ReportSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,56,1,5),_CfprBiosVfProcessorC6ReportSupportedByDefault_Type())
+cfprBiosVfProcessorC6ReportSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC6ReportSupportedByDefault.setStatus(_A)
+_CfprBiosVfProcessorC7ReportTable_Object=MibTable
+cfprBiosVfProcessorC7ReportTable=_CfprBiosVfProcessorC7ReportTable_Object((1,3,6,1,4,1,9,9,826,1,5,57))
+if mibBuilder.loadTexts:cfprBiosVfProcessorC7ReportTable.setStatus(_A)
+_CfprBiosVfProcessorC7ReportEntry_Object=MibTableRow
+cfprBiosVfProcessorC7ReportEntry=_CfprBiosVfProcessorC7ReportEntry_Object((1,3,6,1,4,1,9,9,826,1,5,57,1))
+cfprBiosVfProcessorC7ReportEntry.setIndexNames((0,_C,_A8))
+if mibBuilder.loadTexts:cfprBiosVfProcessorC7ReportEntry.setStatus(_A)
+_CfprBiosVfProcessorC7ReportInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfProcessorC7ReportInstanceId_Object=MibTableColumn
+cfprBiosVfProcessorC7ReportInstanceId=_CfprBiosVfProcessorC7ReportInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,57,1,1),_CfprBiosVfProcessorC7ReportInstanceId_Type())
+cfprBiosVfProcessorC7ReportInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC7ReportInstanceId.setStatus(_A)
+_CfprBiosVfProcessorC7ReportDn_Type=CfprManagedObjectDn
+_CfprBiosVfProcessorC7ReportDn_Object=MibTableColumn
+cfprBiosVfProcessorC7ReportDn=_CfprBiosVfProcessorC7ReportDn_Object((1,3,6,1,4,1,9,9,826,1,5,57,1,2),_CfprBiosVfProcessorC7ReportDn_Type())
+cfprBiosVfProcessorC7ReportDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC7ReportDn.setStatus(_A)
+_CfprBiosVfProcessorC7ReportRn_Type=SnmpAdminString
+_CfprBiosVfProcessorC7ReportRn_Object=MibTableColumn
+cfprBiosVfProcessorC7ReportRn=_CfprBiosVfProcessorC7ReportRn_Object((1,3,6,1,4,1,9,9,826,1,5,57,1,3),_CfprBiosVfProcessorC7ReportRn_Type())
+cfprBiosVfProcessorC7ReportRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC7ReportRn.setStatus(_A)
+_CfprBiosVfProcessorC7ReportVpProcessorC7Report_Type=CfprBiosVfProcessorC7ReportVpProcessorC7Report
+_CfprBiosVfProcessorC7ReportVpProcessorC7Report_Object=MibTableColumn
+cfprBiosVfProcessorC7ReportVpProcessorC7Report=_CfprBiosVfProcessorC7ReportVpProcessorC7Report_Object((1,3,6,1,4,1,9,9,826,1,5,57,1,4),_CfprBiosVfProcessorC7ReportVpProcessorC7Report_Type())
+cfprBiosVfProcessorC7ReportVpProcessorC7Report.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC7ReportVpProcessorC7Report.setStatus(_A)
+_CfprBiosVfProcessorC7ReportSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfProcessorC7ReportSupportedByDefault_Object=MibTableColumn
+cfprBiosVfProcessorC7ReportSupportedByDefault=_CfprBiosVfProcessorC7ReportSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,57,1,5),_CfprBiosVfProcessorC7ReportSupportedByDefault_Type())
+cfprBiosVfProcessorC7ReportSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorC7ReportSupportedByDefault.setStatus(_A)
+_CfprBiosVfProcessorCStateTable_Object=MibTable
+cfprBiosVfProcessorCStateTable=_CfprBiosVfProcessorCStateTable_Object((1,3,6,1,4,1,9,9,826,1,5,58))
+if mibBuilder.loadTexts:cfprBiosVfProcessorCStateTable.setStatus(_A)
+_CfprBiosVfProcessorCStateEntry_Object=MibTableRow
+cfprBiosVfProcessorCStateEntry=_CfprBiosVfProcessorCStateEntry_Object((1,3,6,1,4,1,9,9,826,1,5,58,1))
+cfprBiosVfProcessorCStateEntry.setIndexNames((0,_C,_A9))
+if mibBuilder.loadTexts:cfprBiosVfProcessorCStateEntry.setStatus(_A)
+_CfprBiosVfProcessorCStateInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfProcessorCStateInstanceId_Object=MibTableColumn
+cfprBiosVfProcessorCStateInstanceId=_CfprBiosVfProcessorCStateInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,58,1,1),_CfprBiosVfProcessorCStateInstanceId_Type())
+cfprBiosVfProcessorCStateInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfProcessorCStateInstanceId.setStatus(_A)
+_CfprBiosVfProcessorCStateDn_Type=CfprManagedObjectDn
+_CfprBiosVfProcessorCStateDn_Object=MibTableColumn
+cfprBiosVfProcessorCStateDn=_CfprBiosVfProcessorCStateDn_Object((1,3,6,1,4,1,9,9,826,1,5,58,1,2),_CfprBiosVfProcessorCStateDn_Type())
+cfprBiosVfProcessorCStateDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorCStateDn.setStatus(_A)
+_CfprBiosVfProcessorCStateRn_Type=SnmpAdminString
+_CfprBiosVfProcessorCStateRn_Object=MibTableColumn
+cfprBiosVfProcessorCStateRn=_CfprBiosVfProcessorCStateRn_Object((1,3,6,1,4,1,9,9,826,1,5,58,1,3),_CfprBiosVfProcessorCStateRn_Type())
+cfprBiosVfProcessorCStateRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorCStateRn.setStatus(_A)
+_CfprBiosVfProcessorCStateVpProcessorCState_Type=CfprBiosVfProcessorCStateVpProcessorCState
+_CfprBiosVfProcessorCStateVpProcessorCState_Object=MibTableColumn
+cfprBiosVfProcessorCStateVpProcessorCState=_CfprBiosVfProcessorCStateVpProcessorCState_Object((1,3,6,1,4,1,9,9,826,1,5,58,1,4),_CfprBiosVfProcessorCStateVpProcessorCState_Type())
+cfprBiosVfProcessorCStateVpProcessorCState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorCStateVpProcessorCState.setStatus(_A)
+_CfprBiosVfProcessorCStateSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfProcessorCStateSupportedByDefault_Object=MibTableColumn
+cfprBiosVfProcessorCStateSupportedByDefault=_CfprBiosVfProcessorCStateSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,58,1,5),_CfprBiosVfProcessorCStateSupportedByDefault_Type())
+cfprBiosVfProcessorCStateSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorCStateSupportedByDefault.setStatus(_A)
+_CfprBiosVfProcessorEnergyConfigurationTable_Object=MibTable
+cfprBiosVfProcessorEnergyConfigurationTable=_CfprBiosVfProcessorEnergyConfigurationTable_Object((1,3,6,1,4,1,9,9,826,1,5,59))
+if mibBuilder.loadTexts:cfprBiosVfProcessorEnergyConfigurationTable.setStatus(_A)
+_CfprBiosVfProcessorEnergyConfigurationEntry_Object=MibTableRow
+cfprBiosVfProcessorEnergyConfigurationEntry=_CfprBiosVfProcessorEnergyConfigurationEntry_Object((1,3,6,1,4,1,9,9,826,1,5,59,1))
+cfprBiosVfProcessorEnergyConfigurationEntry.setIndexNames((0,_C,_AA))
+if mibBuilder.loadTexts:cfprBiosVfProcessorEnergyConfigurationEntry.setStatus(_A)
+_CfprBiosVfProcessorEnergyConfigurationInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfProcessorEnergyConfigurationInstanceId_Object=MibTableColumn
+cfprBiosVfProcessorEnergyConfigurationInstanceId=_CfprBiosVfProcessorEnergyConfigurationInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,59,1,1),_CfprBiosVfProcessorEnergyConfigurationInstanceId_Type())
+cfprBiosVfProcessorEnergyConfigurationInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfProcessorEnergyConfigurationInstanceId.setStatus(_A)
+_CfprBiosVfProcessorEnergyConfigurationDn_Type=CfprManagedObjectDn
+_CfprBiosVfProcessorEnergyConfigurationDn_Object=MibTableColumn
+cfprBiosVfProcessorEnergyConfigurationDn=_CfprBiosVfProcessorEnergyConfigurationDn_Object((1,3,6,1,4,1,9,9,826,1,5,59,1,2),_CfprBiosVfProcessorEnergyConfigurationDn_Type())
+cfprBiosVfProcessorEnergyConfigurationDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorEnergyConfigurationDn.setStatus(_A)
+_CfprBiosVfProcessorEnergyConfigurationRn_Type=SnmpAdminString
+_CfprBiosVfProcessorEnergyConfigurationRn_Object=MibTableColumn
+cfprBiosVfProcessorEnergyConfigurationRn=_CfprBiosVfProcessorEnergyConfigurationRn_Object((1,3,6,1,4,1,9,9,826,1,5,59,1,3),_CfprBiosVfProcessorEnergyConfigurationRn_Type())
+cfprBiosVfProcessorEnergyConfigurationRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorEnergyConfigurationRn.setStatus(_A)
+_CfprBiosVfProcessorEnergyConfigurationVpEnergyPerformance_Type=CfprBiosVfProcessorEnergyConfigurationVpEnergyPerformance
+_CfprBiosVfProcessorEnergyConfigurationVpEnergyPerformance_Object=MibTableColumn
+cfprBiosVfProcessorEnergyConfigurationVpEnergyPerformance=_CfprBiosVfProcessorEnergyConfigurationVpEnergyPerformance_Object((1,3,6,1,4,1,9,9,826,1,5,59,1,4),_CfprBiosVfProcessorEnergyConfigurationVpEnergyPerformance_Type())
+cfprBiosVfProcessorEnergyConfigurationVpEnergyPerformance.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorEnergyConfigurationVpEnergyPerformance.setStatus(_A)
+_CfprBiosVfProcessorEnergyConfigurationVpPowerTechnology_Type=CfprBiosVfProcessorEnergyConfigurationVpPowerTechnology
+_CfprBiosVfProcessorEnergyConfigurationVpPowerTechnology_Object=MibTableColumn
+cfprBiosVfProcessorEnergyConfigurationVpPowerTechnology=_CfprBiosVfProcessorEnergyConfigurationVpPowerTechnology_Object((1,3,6,1,4,1,9,9,826,1,5,59,1,5),_CfprBiosVfProcessorEnergyConfigurationVpPowerTechnology_Type())
+cfprBiosVfProcessorEnergyConfigurationVpPowerTechnology.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorEnergyConfigurationVpPowerTechnology.setStatus(_A)
+_CfprBiosVfProcessorEnergyConfigurationSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfProcessorEnergyConfigurationSupportedByDefault_Object=MibTableColumn
+cfprBiosVfProcessorEnergyConfigurationSupportedByDefault=_CfprBiosVfProcessorEnergyConfigurationSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,59,1,6),_CfprBiosVfProcessorEnergyConfigurationSupportedByDefault_Type())
+cfprBiosVfProcessorEnergyConfigurationSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorEnergyConfigurationSupportedByDefault.setStatus(_A)
+_CfprBiosVfProcessorPrefetchConfigTable_Object=MibTable
+cfprBiosVfProcessorPrefetchConfigTable=_CfprBiosVfProcessorPrefetchConfigTable_Object((1,3,6,1,4,1,9,9,826,1,5,60))
+if mibBuilder.loadTexts:cfprBiosVfProcessorPrefetchConfigTable.setStatus(_A)
+_CfprBiosVfProcessorPrefetchConfigEntry_Object=MibTableRow
+cfprBiosVfProcessorPrefetchConfigEntry=_CfprBiosVfProcessorPrefetchConfigEntry_Object((1,3,6,1,4,1,9,9,826,1,5,60,1))
+cfprBiosVfProcessorPrefetchConfigEntry.setIndexNames((0,_C,_AB))
+if mibBuilder.loadTexts:cfprBiosVfProcessorPrefetchConfigEntry.setStatus(_A)
+_CfprBiosVfProcessorPrefetchConfigInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfProcessorPrefetchConfigInstanceId_Object=MibTableColumn
+cfprBiosVfProcessorPrefetchConfigInstanceId=_CfprBiosVfProcessorPrefetchConfigInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,60,1,1),_CfprBiosVfProcessorPrefetchConfigInstanceId_Type())
+cfprBiosVfProcessorPrefetchConfigInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfProcessorPrefetchConfigInstanceId.setStatus(_A)
+_CfprBiosVfProcessorPrefetchConfigDn_Type=CfprManagedObjectDn
+_CfprBiosVfProcessorPrefetchConfigDn_Object=MibTableColumn
+cfprBiosVfProcessorPrefetchConfigDn=_CfprBiosVfProcessorPrefetchConfigDn_Object((1,3,6,1,4,1,9,9,826,1,5,60,1,2),_CfprBiosVfProcessorPrefetchConfigDn_Type())
+cfprBiosVfProcessorPrefetchConfigDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorPrefetchConfigDn.setStatus(_A)
+_CfprBiosVfProcessorPrefetchConfigRn_Type=SnmpAdminString
+_CfprBiosVfProcessorPrefetchConfigRn_Object=MibTableColumn
+cfprBiosVfProcessorPrefetchConfigRn=_CfprBiosVfProcessorPrefetchConfigRn_Object((1,3,6,1,4,1,9,9,826,1,5,60,1,3),_CfprBiosVfProcessorPrefetchConfigRn_Type())
+cfprBiosVfProcessorPrefetchConfigRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorPrefetchConfigRn.setStatus(_A)
+_CfprBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher_Type=CfprBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher
+_CfprBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher_Object=MibTableColumn
+cfprBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher=_CfprBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher_Object((1,3,6,1,4,1,9,9,826,1,5,60,1,4),_CfprBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher_Type())
+cfprBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher.setStatus(_A)
+_CfprBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher_Type=CfprBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher
+_CfprBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher_Object=MibTableColumn
+cfprBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher=_CfprBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher_Object((1,3,6,1,4,1,9,9,826,1,5,60,1,5),_CfprBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher_Type())
+cfprBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher.setStatus(_A)
+_CfprBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch_Type=CfprBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch
+_CfprBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch_Object=MibTableColumn
+cfprBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch=_CfprBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch_Object((1,3,6,1,4,1,9,9,826,1,5,60,1,6),_CfprBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch_Type())
+cfprBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch.setStatus(_A)
+_CfprBiosVfProcessorPrefetchConfigVpHardwarePrefetcher_Type=CfprBiosVfProcessorPrefetchConfigVpHardwarePrefetcher
+_CfprBiosVfProcessorPrefetchConfigVpHardwarePrefetcher_Object=MibTableColumn
+cfprBiosVfProcessorPrefetchConfigVpHardwarePrefetcher=_CfprBiosVfProcessorPrefetchConfigVpHardwarePrefetcher_Object((1,3,6,1,4,1,9,9,826,1,5,60,1,7),_CfprBiosVfProcessorPrefetchConfigVpHardwarePrefetcher_Type())
+cfprBiosVfProcessorPrefetchConfigVpHardwarePrefetcher.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorPrefetchConfigVpHardwarePrefetcher.setStatus(_A)
+_CfprBiosVfProcessorPrefetchConfigSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfProcessorPrefetchConfigSupportedByDefault_Object=MibTableColumn
+cfprBiosVfProcessorPrefetchConfigSupportedByDefault=_CfprBiosVfProcessorPrefetchConfigSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,60,1,8),_CfprBiosVfProcessorPrefetchConfigSupportedByDefault_Type())
+cfprBiosVfProcessorPrefetchConfigSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfProcessorPrefetchConfigSupportedByDefault.setStatus(_A)
+_CfprBiosVfQPILinkFrequencySelectTable_Object=MibTable
+cfprBiosVfQPILinkFrequencySelectTable=_CfprBiosVfQPILinkFrequencySelectTable_Object((1,3,6,1,4,1,9,9,826,1,5,61))
+if mibBuilder.loadTexts:cfprBiosVfQPILinkFrequencySelectTable.setStatus(_A)
+_CfprBiosVfQPILinkFrequencySelectEntry_Object=MibTableRow
+cfprBiosVfQPILinkFrequencySelectEntry=_CfprBiosVfQPILinkFrequencySelectEntry_Object((1,3,6,1,4,1,9,9,826,1,5,61,1))
+cfprBiosVfQPILinkFrequencySelectEntry.setIndexNames((0,_C,_AC))
+if mibBuilder.loadTexts:cfprBiosVfQPILinkFrequencySelectEntry.setStatus(_A)
+_CfprBiosVfQPILinkFrequencySelectInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfQPILinkFrequencySelectInstanceId_Object=MibTableColumn
+cfprBiosVfQPILinkFrequencySelectInstanceId=_CfprBiosVfQPILinkFrequencySelectInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,61,1,1),_CfprBiosVfQPILinkFrequencySelectInstanceId_Type())
+cfprBiosVfQPILinkFrequencySelectInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfQPILinkFrequencySelectInstanceId.setStatus(_A)
+_CfprBiosVfQPILinkFrequencySelectDn_Type=CfprManagedObjectDn
+_CfprBiosVfQPILinkFrequencySelectDn_Object=MibTableColumn
+cfprBiosVfQPILinkFrequencySelectDn=_CfprBiosVfQPILinkFrequencySelectDn_Object((1,3,6,1,4,1,9,9,826,1,5,61,1,2),_CfprBiosVfQPILinkFrequencySelectDn_Type())
+cfprBiosVfQPILinkFrequencySelectDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfQPILinkFrequencySelectDn.setStatus(_A)
+_CfprBiosVfQPILinkFrequencySelectRn_Type=SnmpAdminString
+_CfprBiosVfQPILinkFrequencySelectRn_Object=MibTableColumn
+cfprBiosVfQPILinkFrequencySelectRn=_CfprBiosVfQPILinkFrequencySelectRn_Object((1,3,6,1,4,1,9,9,826,1,5,61,1,3),_CfprBiosVfQPILinkFrequencySelectRn_Type())
+cfprBiosVfQPILinkFrequencySelectRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfQPILinkFrequencySelectRn.setStatus(_A)
+_CfprBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect_Type=CfprBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect
+_CfprBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect_Object=MibTableColumn
+cfprBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect=_CfprBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect_Object((1,3,6,1,4,1,9,9,826,1,5,61,1,4),_CfprBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect_Type())
+cfprBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect.setStatus(_A)
+_CfprBiosVfQPILinkFrequencySelectSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfQPILinkFrequencySelectSupportedByDefault_Object=MibTableColumn
+cfprBiosVfQPILinkFrequencySelectSupportedByDefault=_CfprBiosVfQPILinkFrequencySelectSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,61,1,5),_CfprBiosVfQPILinkFrequencySelectSupportedByDefault_Type())
+cfprBiosVfQPILinkFrequencySelectSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfQPILinkFrequencySelectSupportedByDefault.setStatus(_A)
+_CfprBiosVfQuietBootTable_Object=MibTable
+cfprBiosVfQuietBootTable=_CfprBiosVfQuietBootTable_Object((1,3,6,1,4,1,9,9,826,1,5,62))
+if mibBuilder.loadTexts:cfprBiosVfQuietBootTable.setStatus(_A)
+_CfprBiosVfQuietBootEntry_Object=MibTableRow
+cfprBiosVfQuietBootEntry=_CfprBiosVfQuietBootEntry_Object((1,3,6,1,4,1,9,9,826,1,5,62,1))
+cfprBiosVfQuietBootEntry.setIndexNames((0,_C,_AD))
+if mibBuilder.loadTexts:cfprBiosVfQuietBootEntry.setStatus(_A)
+_CfprBiosVfQuietBootInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfQuietBootInstanceId_Object=MibTableColumn
+cfprBiosVfQuietBootInstanceId=_CfprBiosVfQuietBootInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,62,1,1),_CfprBiosVfQuietBootInstanceId_Type())
+cfprBiosVfQuietBootInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfQuietBootInstanceId.setStatus(_A)
+_CfprBiosVfQuietBootDn_Type=CfprManagedObjectDn
+_CfprBiosVfQuietBootDn_Object=MibTableColumn
+cfprBiosVfQuietBootDn=_CfprBiosVfQuietBootDn_Object((1,3,6,1,4,1,9,9,826,1,5,62,1,2),_CfprBiosVfQuietBootDn_Type())
+cfprBiosVfQuietBootDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfQuietBootDn.setStatus(_A)
+_CfprBiosVfQuietBootRn_Type=SnmpAdminString
+_CfprBiosVfQuietBootRn_Object=MibTableColumn
+cfprBiosVfQuietBootRn=_CfprBiosVfQuietBootRn_Object((1,3,6,1,4,1,9,9,826,1,5,62,1,3),_CfprBiosVfQuietBootRn_Type())
+cfprBiosVfQuietBootRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfQuietBootRn.setStatus(_A)
+_CfprBiosVfQuietBootVpQuietBoot_Type=CfprBiosVfQuietBootVpQuietBoot
+_CfprBiosVfQuietBootVpQuietBoot_Object=MibTableColumn
+cfprBiosVfQuietBootVpQuietBoot=_CfprBiosVfQuietBootVpQuietBoot_Object((1,3,6,1,4,1,9,9,826,1,5,62,1,4),_CfprBiosVfQuietBootVpQuietBoot_Type())
+cfprBiosVfQuietBootVpQuietBoot.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfQuietBootVpQuietBoot.setStatus(_A)
+_CfprBiosVfQuietBootSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfQuietBootSupportedByDefault_Object=MibTableColumn
+cfprBiosVfQuietBootSupportedByDefault=_CfprBiosVfQuietBootSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,62,1,5),_CfprBiosVfQuietBootSupportedByDefault_Type())
+cfprBiosVfQuietBootSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfQuietBootSupportedByDefault.setStatus(_A)
+_CfprBiosVfResumeOnACPowerLossTable_Object=MibTable
+cfprBiosVfResumeOnACPowerLossTable=_CfprBiosVfResumeOnACPowerLossTable_Object((1,3,6,1,4,1,9,9,826,1,5,63))
+if mibBuilder.loadTexts:cfprBiosVfResumeOnACPowerLossTable.setStatus(_A)
+_CfprBiosVfResumeOnACPowerLossEntry_Object=MibTableRow
+cfprBiosVfResumeOnACPowerLossEntry=_CfprBiosVfResumeOnACPowerLossEntry_Object((1,3,6,1,4,1,9,9,826,1,5,63,1))
+cfprBiosVfResumeOnACPowerLossEntry.setIndexNames((0,_C,_AE))
+if mibBuilder.loadTexts:cfprBiosVfResumeOnACPowerLossEntry.setStatus(_A)
+_CfprBiosVfResumeOnACPowerLossInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfResumeOnACPowerLossInstanceId_Object=MibTableColumn
+cfprBiosVfResumeOnACPowerLossInstanceId=_CfprBiosVfResumeOnACPowerLossInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,63,1,1),_CfprBiosVfResumeOnACPowerLossInstanceId_Type())
+cfprBiosVfResumeOnACPowerLossInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfResumeOnACPowerLossInstanceId.setStatus(_A)
+_CfprBiosVfResumeOnACPowerLossDn_Type=CfprManagedObjectDn
+_CfprBiosVfResumeOnACPowerLossDn_Object=MibTableColumn
+cfprBiosVfResumeOnACPowerLossDn=_CfprBiosVfResumeOnACPowerLossDn_Object((1,3,6,1,4,1,9,9,826,1,5,63,1,2),_CfprBiosVfResumeOnACPowerLossDn_Type())
+cfprBiosVfResumeOnACPowerLossDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfResumeOnACPowerLossDn.setStatus(_A)
+_CfprBiosVfResumeOnACPowerLossRn_Type=SnmpAdminString
+_CfprBiosVfResumeOnACPowerLossRn_Object=MibTableColumn
+cfprBiosVfResumeOnACPowerLossRn=_CfprBiosVfResumeOnACPowerLossRn_Object((1,3,6,1,4,1,9,9,826,1,5,63,1,3),_CfprBiosVfResumeOnACPowerLossRn_Type())
+cfprBiosVfResumeOnACPowerLossRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfResumeOnACPowerLossRn.setStatus(_A)
+_CfprBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss_Type=CfprBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss
+_CfprBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss_Object=MibTableColumn
+cfprBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss=_CfprBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss_Object((1,3,6,1,4,1,9,9,826,1,5,63,1,4),_CfprBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss_Type())
+cfprBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss.setStatus(_A)
+_CfprBiosVfResumeOnACPowerLossSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfResumeOnACPowerLossSupportedByDefault_Object=MibTableColumn
+cfprBiosVfResumeOnACPowerLossSupportedByDefault=_CfprBiosVfResumeOnACPowerLossSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,63,1,5),_CfprBiosVfResumeOnACPowerLossSupportedByDefault_Type())
+cfprBiosVfResumeOnACPowerLossSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfResumeOnACPowerLossSupportedByDefault.setStatus(_A)
+_CfprBiosVfScrubPoliciesTable_Object=MibTable
+cfprBiosVfScrubPoliciesTable=_CfprBiosVfScrubPoliciesTable_Object((1,3,6,1,4,1,9,9,826,1,5,64))
+if mibBuilder.loadTexts:cfprBiosVfScrubPoliciesTable.setStatus(_A)
+_CfprBiosVfScrubPoliciesEntry_Object=MibTableRow
+cfprBiosVfScrubPoliciesEntry=_CfprBiosVfScrubPoliciesEntry_Object((1,3,6,1,4,1,9,9,826,1,5,64,1))
+cfprBiosVfScrubPoliciesEntry.setIndexNames((0,_C,_AF))
+if mibBuilder.loadTexts:cfprBiosVfScrubPoliciesEntry.setStatus(_A)
+_CfprBiosVfScrubPoliciesInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfScrubPoliciesInstanceId_Object=MibTableColumn
+cfprBiosVfScrubPoliciesInstanceId=_CfprBiosVfScrubPoliciesInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,64,1,1),_CfprBiosVfScrubPoliciesInstanceId_Type())
+cfprBiosVfScrubPoliciesInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfScrubPoliciesInstanceId.setStatus(_A)
+_CfprBiosVfScrubPoliciesDn_Type=CfprManagedObjectDn
+_CfprBiosVfScrubPoliciesDn_Object=MibTableColumn
+cfprBiosVfScrubPoliciesDn=_CfprBiosVfScrubPoliciesDn_Object((1,3,6,1,4,1,9,9,826,1,5,64,1,2),_CfprBiosVfScrubPoliciesDn_Type())
+cfprBiosVfScrubPoliciesDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfScrubPoliciesDn.setStatus(_A)
+_CfprBiosVfScrubPoliciesRn_Type=SnmpAdminString
+_CfprBiosVfScrubPoliciesRn_Object=MibTableColumn
+cfprBiosVfScrubPoliciesRn=_CfprBiosVfScrubPoliciesRn_Object((1,3,6,1,4,1,9,9,826,1,5,64,1,3),_CfprBiosVfScrubPoliciesRn_Type())
+cfprBiosVfScrubPoliciesRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfScrubPoliciesRn.setStatus(_A)
+_CfprBiosVfScrubPoliciesVpDemandScrub_Type=CfprBiosVfScrubPoliciesVpDemandScrub
+_CfprBiosVfScrubPoliciesVpDemandScrub_Object=MibTableColumn
+cfprBiosVfScrubPoliciesVpDemandScrub=_CfprBiosVfScrubPoliciesVpDemandScrub_Object((1,3,6,1,4,1,9,9,826,1,5,64,1,4),_CfprBiosVfScrubPoliciesVpDemandScrub_Type())
+cfprBiosVfScrubPoliciesVpDemandScrub.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfScrubPoliciesVpDemandScrub.setStatus(_A)
+_CfprBiosVfScrubPoliciesVpPatrolScrub_Type=CfprBiosVfScrubPoliciesVpPatrolScrub
+_CfprBiosVfScrubPoliciesVpPatrolScrub_Object=MibTableColumn
+cfprBiosVfScrubPoliciesVpPatrolScrub=_CfprBiosVfScrubPoliciesVpPatrolScrub_Object((1,3,6,1,4,1,9,9,826,1,5,64,1,5),_CfprBiosVfScrubPoliciesVpPatrolScrub_Type())
+cfprBiosVfScrubPoliciesVpPatrolScrub.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfScrubPoliciesVpPatrolScrub.setStatus(_A)
+_CfprBiosVfScrubPoliciesSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfScrubPoliciesSupportedByDefault_Object=MibTableColumn
+cfprBiosVfScrubPoliciesSupportedByDefault=_CfprBiosVfScrubPoliciesSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,64,1,6),_CfprBiosVfScrubPoliciesSupportedByDefault_Type())
+cfprBiosVfScrubPoliciesSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfScrubPoliciesSupportedByDefault.setStatus(_A)
+_CfprBiosVfSelectMemoryRASConfigurationTable_Object=MibTable
+cfprBiosVfSelectMemoryRASConfigurationTable=_CfprBiosVfSelectMemoryRASConfigurationTable_Object((1,3,6,1,4,1,9,9,826,1,5,65))
+if mibBuilder.loadTexts:cfprBiosVfSelectMemoryRASConfigurationTable.setStatus(_A)
+_CfprBiosVfSelectMemoryRASConfigurationEntry_Object=MibTableRow
+cfprBiosVfSelectMemoryRASConfigurationEntry=_CfprBiosVfSelectMemoryRASConfigurationEntry_Object((1,3,6,1,4,1,9,9,826,1,5,65,1))
+cfprBiosVfSelectMemoryRASConfigurationEntry.setIndexNames((0,_C,_AG))
+if mibBuilder.loadTexts:cfprBiosVfSelectMemoryRASConfigurationEntry.setStatus(_A)
+_CfprBiosVfSelectMemoryRASConfigurationInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfSelectMemoryRASConfigurationInstanceId_Object=MibTableColumn
+cfprBiosVfSelectMemoryRASConfigurationInstanceId=_CfprBiosVfSelectMemoryRASConfigurationInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,65,1,1),_CfprBiosVfSelectMemoryRASConfigurationInstanceId_Type())
+cfprBiosVfSelectMemoryRASConfigurationInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfSelectMemoryRASConfigurationInstanceId.setStatus(_A)
+_CfprBiosVfSelectMemoryRASConfigurationDn_Type=CfprManagedObjectDn
+_CfprBiosVfSelectMemoryRASConfigurationDn_Object=MibTableColumn
+cfprBiosVfSelectMemoryRASConfigurationDn=_CfprBiosVfSelectMemoryRASConfigurationDn_Object((1,3,6,1,4,1,9,9,826,1,5,65,1,2),_CfprBiosVfSelectMemoryRASConfigurationDn_Type())
+cfprBiosVfSelectMemoryRASConfigurationDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfSelectMemoryRASConfigurationDn.setStatus(_A)
+_CfprBiosVfSelectMemoryRASConfigurationRn_Type=SnmpAdminString
+_CfprBiosVfSelectMemoryRASConfigurationRn_Object=MibTableColumn
+cfprBiosVfSelectMemoryRASConfigurationRn=_CfprBiosVfSelectMemoryRASConfigurationRn_Object((1,3,6,1,4,1,9,9,826,1,5,65,1,3),_CfprBiosVfSelectMemoryRASConfigurationRn_Type())
+cfprBiosVfSelectMemoryRASConfigurationRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfSelectMemoryRASConfigurationRn.setStatus(_A)
+_CfprBiosVfSelectMemoryRASConfigurationVpSelectMemoryRASConfiguration_Type=CfprBiosVfSelectMemoryRASConfigurationVpSelectMemoryRASConf
+_CfprBiosVfSelectMemoryRASConfigurationVpSelectMemoryRASConfiguration_Object=MibTableColumn
+cfprBiosVfSelectMemoryRASConfigurationVpSelectMemoryRASConfiguration=_CfprBiosVfSelectMemoryRASConfigurationVpSelectMemoryRASConfiguration_Object((1,3,6,1,4,1,9,9,826,1,5,65,1,4),_CfprBiosVfSelectMemoryRASConfigurationVpSelectMemoryRASConfiguration_Type())
+cfprBiosVfSelectMemoryRASConfigurationVpSelectMemoryRASConfiguration.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfSelectMemoryRASConfigurationVpSelectMemoryRASConfiguration.setStatus(_A)
+_CfprBiosVfSelectMemoryRASConfigurationSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfSelectMemoryRASConfigurationSupportedByDefault_Object=MibTableColumn
+cfprBiosVfSelectMemoryRASConfigurationSupportedByDefault=_CfprBiosVfSelectMemoryRASConfigurationSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,65,1,5),_CfprBiosVfSelectMemoryRASConfigurationSupportedByDefault_Type())
+cfprBiosVfSelectMemoryRASConfigurationSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfSelectMemoryRASConfigurationSupportedByDefault.setStatus(_A)
+_CfprBiosVfSerialPortAEnableTable_Object=MibTable
+cfprBiosVfSerialPortAEnableTable=_CfprBiosVfSerialPortAEnableTable_Object((1,3,6,1,4,1,9,9,826,1,5,66))
+if mibBuilder.loadTexts:cfprBiosVfSerialPortAEnableTable.setStatus(_A)
+_CfprBiosVfSerialPortAEnableEntry_Object=MibTableRow
+cfprBiosVfSerialPortAEnableEntry=_CfprBiosVfSerialPortAEnableEntry_Object((1,3,6,1,4,1,9,9,826,1,5,66,1))
+cfprBiosVfSerialPortAEnableEntry.setIndexNames((0,_C,_AH))
+if mibBuilder.loadTexts:cfprBiosVfSerialPortAEnableEntry.setStatus(_A)
+_CfprBiosVfSerialPortAEnableInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfSerialPortAEnableInstanceId_Object=MibTableColumn
+cfprBiosVfSerialPortAEnableInstanceId=_CfprBiosVfSerialPortAEnableInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,66,1,1),_CfprBiosVfSerialPortAEnableInstanceId_Type())
+cfprBiosVfSerialPortAEnableInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfSerialPortAEnableInstanceId.setStatus(_A)
+_CfprBiosVfSerialPortAEnableDn_Type=CfprManagedObjectDn
+_CfprBiosVfSerialPortAEnableDn_Object=MibTableColumn
+cfprBiosVfSerialPortAEnableDn=_CfprBiosVfSerialPortAEnableDn_Object((1,3,6,1,4,1,9,9,826,1,5,66,1,2),_CfprBiosVfSerialPortAEnableDn_Type())
+cfprBiosVfSerialPortAEnableDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfSerialPortAEnableDn.setStatus(_A)
+_CfprBiosVfSerialPortAEnableRn_Type=SnmpAdminString
+_CfprBiosVfSerialPortAEnableRn_Object=MibTableColumn
+cfprBiosVfSerialPortAEnableRn=_CfprBiosVfSerialPortAEnableRn_Object((1,3,6,1,4,1,9,9,826,1,5,66,1,3),_CfprBiosVfSerialPortAEnableRn_Type())
+cfprBiosVfSerialPortAEnableRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfSerialPortAEnableRn.setStatus(_A)
+_CfprBiosVfSerialPortAEnableVpSerialPortAEnable_Type=CfprBiosVfSerialPortAEnableVpSerialPortAEnable
+_CfprBiosVfSerialPortAEnableVpSerialPortAEnable_Object=MibTableColumn
+cfprBiosVfSerialPortAEnableVpSerialPortAEnable=_CfprBiosVfSerialPortAEnableVpSerialPortAEnable_Object((1,3,6,1,4,1,9,9,826,1,5,66,1,4),_CfprBiosVfSerialPortAEnableVpSerialPortAEnable_Type())
+cfprBiosVfSerialPortAEnableVpSerialPortAEnable.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfSerialPortAEnableVpSerialPortAEnable.setStatus(_A)
+_CfprBiosVfSerialPortAEnableSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfSerialPortAEnableSupportedByDefault_Object=MibTableColumn
+cfprBiosVfSerialPortAEnableSupportedByDefault=_CfprBiosVfSerialPortAEnableSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,66,1,5),_CfprBiosVfSerialPortAEnableSupportedByDefault_Type())
+cfprBiosVfSerialPortAEnableSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfSerialPortAEnableSupportedByDefault.setStatus(_A)
+_CfprBiosVfSparingModeTable_Object=MibTable
+cfprBiosVfSparingModeTable=_CfprBiosVfSparingModeTable_Object((1,3,6,1,4,1,9,9,826,1,5,67))
+if mibBuilder.loadTexts:cfprBiosVfSparingModeTable.setStatus(_A)
+_CfprBiosVfSparingModeEntry_Object=MibTableRow
+cfprBiosVfSparingModeEntry=_CfprBiosVfSparingModeEntry_Object((1,3,6,1,4,1,9,9,826,1,5,67,1))
+cfprBiosVfSparingModeEntry.setIndexNames((0,_C,_AI))
+if mibBuilder.loadTexts:cfprBiosVfSparingModeEntry.setStatus(_A)
+_CfprBiosVfSparingModeInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfSparingModeInstanceId_Object=MibTableColumn
+cfprBiosVfSparingModeInstanceId=_CfprBiosVfSparingModeInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,67,1,1),_CfprBiosVfSparingModeInstanceId_Type())
+cfprBiosVfSparingModeInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfSparingModeInstanceId.setStatus(_A)
+_CfprBiosVfSparingModeDn_Type=CfprManagedObjectDn
+_CfprBiosVfSparingModeDn_Object=MibTableColumn
+cfprBiosVfSparingModeDn=_CfprBiosVfSparingModeDn_Object((1,3,6,1,4,1,9,9,826,1,5,67,1,2),_CfprBiosVfSparingModeDn_Type())
+cfprBiosVfSparingModeDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfSparingModeDn.setStatus(_A)
+_CfprBiosVfSparingModeRn_Type=SnmpAdminString
+_CfprBiosVfSparingModeRn_Object=MibTableColumn
+cfprBiosVfSparingModeRn=_CfprBiosVfSparingModeRn_Object((1,3,6,1,4,1,9,9,826,1,5,67,1,3),_CfprBiosVfSparingModeRn_Type())
+cfprBiosVfSparingModeRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfSparingModeRn.setStatus(_A)
+_CfprBiosVfSparingModeVpSparingMode_Type=CfprBiosVfSparingModeVpSparingMode
+_CfprBiosVfSparingModeVpSparingMode_Object=MibTableColumn
+cfprBiosVfSparingModeVpSparingMode=_CfprBiosVfSparingModeVpSparingMode_Object((1,3,6,1,4,1,9,9,826,1,5,67,1,4),_CfprBiosVfSparingModeVpSparingMode_Type())
+cfprBiosVfSparingModeVpSparingMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfSparingModeVpSparingMode.setStatus(_A)
+_CfprBiosVfSparingModeSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfSparingModeSupportedByDefault_Object=MibTableColumn
+cfprBiosVfSparingModeSupportedByDefault=_CfprBiosVfSparingModeSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,67,1,5),_CfprBiosVfSparingModeSupportedByDefault_Type())
+cfprBiosVfSparingModeSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfSparingModeSupportedByDefault.setStatus(_A)
+_CfprBiosVfSriovConfigTable_Object=MibTable
+cfprBiosVfSriovConfigTable=_CfprBiosVfSriovConfigTable_Object((1,3,6,1,4,1,9,9,826,1,5,68))
+if mibBuilder.loadTexts:cfprBiosVfSriovConfigTable.setStatus(_A)
+_CfprBiosVfSriovConfigEntry_Object=MibTableRow
+cfprBiosVfSriovConfigEntry=_CfprBiosVfSriovConfigEntry_Object((1,3,6,1,4,1,9,9,826,1,5,68,1))
+cfprBiosVfSriovConfigEntry.setIndexNames((0,_C,_AJ))
+if mibBuilder.loadTexts:cfprBiosVfSriovConfigEntry.setStatus(_A)
+_CfprBiosVfSriovConfigInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfSriovConfigInstanceId_Object=MibTableColumn
+cfprBiosVfSriovConfigInstanceId=_CfprBiosVfSriovConfigInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,68,1,1),_CfprBiosVfSriovConfigInstanceId_Type())
+cfprBiosVfSriovConfigInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfSriovConfigInstanceId.setStatus(_A)
+_CfprBiosVfSriovConfigDn_Type=CfprManagedObjectDn
+_CfprBiosVfSriovConfigDn_Object=MibTableColumn
+cfprBiosVfSriovConfigDn=_CfprBiosVfSriovConfigDn_Object((1,3,6,1,4,1,9,9,826,1,5,68,1,2),_CfprBiosVfSriovConfigDn_Type())
+cfprBiosVfSriovConfigDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfSriovConfigDn.setStatus(_A)
+_CfprBiosVfSriovConfigRn_Type=SnmpAdminString
+_CfprBiosVfSriovConfigRn_Object=MibTableColumn
+cfprBiosVfSriovConfigRn=_CfprBiosVfSriovConfigRn_Object((1,3,6,1,4,1,9,9,826,1,5,68,1,3),_CfprBiosVfSriovConfigRn_Type())
+cfprBiosVfSriovConfigRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfSriovConfigRn.setStatus(_A)
+_CfprBiosVfSriovConfigVpSriov_Type=CfprBiosVfSriovConfigVpSriov
+_CfprBiosVfSriovConfigVpSriov_Object=MibTableColumn
+cfprBiosVfSriovConfigVpSriov=_CfprBiosVfSriovConfigVpSriov_Object((1,3,6,1,4,1,9,9,826,1,5,68,1,4),_CfprBiosVfSriovConfigVpSriov_Type())
+cfprBiosVfSriovConfigVpSriov.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfSriovConfigVpSriov.setStatus(_A)
+_CfprBiosVfSriovConfigSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfSriovConfigSupportedByDefault_Object=MibTableColumn
+cfprBiosVfSriovConfigSupportedByDefault=_CfprBiosVfSriovConfigSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,68,1,5),_CfprBiosVfSriovConfigSupportedByDefault_Type())
+cfprBiosVfSriovConfigSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfSriovConfigSupportedByDefault.setStatus(_A)
+_CfprBiosVfTPMSupportTable_Object=MibTable
+cfprBiosVfTPMSupportTable=_CfprBiosVfTPMSupportTable_Object((1,3,6,1,4,1,9,9,826,1,5,69))
+if mibBuilder.loadTexts:cfprBiosVfTPMSupportTable.setStatus(_A)
+_CfprBiosVfTPMSupportEntry_Object=MibTableRow
+cfprBiosVfTPMSupportEntry=_CfprBiosVfTPMSupportEntry_Object((1,3,6,1,4,1,9,9,826,1,5,69,1))
+cfprBiosVfTPMSupportEntry.setIndexNames((0,_C,_AK))
+if mibBuilder.loadTexts:cfprBiosVfTPMSupportEntry.setStatus(_A)
+_CfprBiosVfTPMSupportInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfTPMSupportInstanceId_Object=MibTableColumn
+cfprBiosVfTPMSupportInstanceId=_CfprBiosVfTPMSupportInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,69,1,1),_CfprBiosVfTPMSupportInstanceId_Type())
+cfprBiosVfTPMSupportInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfTPMSupportInstanceId.setStatus(_A)
+_CfprBiosVfTPMSupportDn_Type=CfprManagedObjectDn
+_CfprBiosVfTPMSupportDn_Object=MibTableColumn
+cfprBiosVfTPMSupportDn=_CfprBiosVfTPMSupportDn_Object((1,3,6,1,4,1,9,9,826,1,5,69,1,2),_CfprBiosVfTPMSupportDn_Type())
+cfprBiosVfTPMSupportDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfTPMSupportDn.setStatus(_A)
+_CfprBiosVfTPMSupportRn_Type=SnmpAdminString
+_CfprBiosVfTPMSupportRn_Object=MibTableColumn
+cfprBiosVfTPMSupportRn=_CfprBiosVfTPMSupportRn_Object((1,3,6,1,4,1,9,9,826,1,5,69,1,3),_CfprBiosVfTPMSupportRn_Type())
+cfprBiosVfTPMSupportRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfTPMSupportRn.setStatus(_A)
+_CfprBiosVfTPMSupportVpTPMSupport_Type=CfprBiosVfTPMSupportVpTPMSupport
+_CfprBiosVfTPMSupportVpTPMSupport_Object=MibTableColumn
+cfprBiosVfTPMSupportVpTPMSupport=_CfprBiosVfTPMSupportVpTPMSupport_Object((1,3,6,1,4,1,9,9,826,1,5,69,1,4),_CfprBiosVfTPMSupportVpTPMSupport_Type())
+cfprBiosVfTPMSupportVpTPMSupport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfTPMSupportVpTPMSupport.setStatus(_A)
+_CfprBiosVfTPMSupportSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfTPMSupportSupportedByDefault_Object=MibTableColumn
+cfprBiosVfTPMSupportSupportedByDefault=_CfprBiosVfTPMSupportSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,69,1,5),_CfprBiosVfTPMSupportSupportedByDefault_Type())
+cfprBiosVfTPMSupportSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfTPMSupportSupportedByDefault.setStatus(_A)
+_CfprBiosVfFPRMBootModeControlTable_Object=MibTable
+cfprBiosVfFPRMBootModeControlTable=_CfprBiosVfFPRMBootModeControlTable_Object((1,3,6,1,4,1,9,9,826,1,5,70))
+if mibBuilder.loadTexts:cfprBiosVfFPRMBootModeControlTable.setStatus(_A)
+_CfprBiosVfFPRMBootModeControlEntry_Object=MibTableRow
+cfprBiosVfFPRMBootModeControlEntry=_CfprBiosVfFPRMBootModeControlEntry_Object((1,3,6,1,4,1,9,9,826,1,5,70,1))
+cfprBiosVfFPRMBootModeControlEntry.setIndexNames((0,_C,_AL))
+if mibBuilder.loadTexts:cfprBiosVfFPRMBootModeControlEntry.setStatus(_A)
+_CfprBiosVfFPRMBootModeControlInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfFPRMBootModeControlInstanceId_Object=MibTableColumn
+cfprBiosVfFPRMBootModeControlInstanceId=_CfprBiosVfFPRMBootModeControlInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,70,1,1),_CfprBiosVfFPRMBootModeControlInstanceId_Type())
+cfprBiosVfFPRMBootModeControlInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfFPRMBootModeControlInstanceId.setStatus(_A)
+_CfprBiosVfFPRMBootModeControlDn_Type=CfprManagedObjectDn
+_CfprBiosVfFPRMBootModeControlDn_Object=MibTableColumn
+cfprBiosVfFPRMBootModeControlDn=_CfprBiosVfFPRMBootModeControlDn_Object((1,3,6,1,4,1,9,9,826,1,5,70,1,2),_CfprBiosVfFPRMBootModeControlDn_Type())
+cfprBiosVfFPRMBootModeControlDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFPRMBootModeControlDn.setStatus(_A)
+_CfprBiosVfFPRMBootModeControlRn_Type=SnmpAdminString
+_CfprBiosVfFPRMBootModeControlRn_Object=MibTableColumn
+cfprBiosVfFPRMBootModeControlRn=_CfprBiosVfFPRMBootModeControlRn_Object((1,3,6,1,4,1,9,9,826,1,5,70,1,3),_CfprBiosVfFPRMBootModeControlRn_Type())
+cfprBiosVfFPRMBootModeControlRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFPRMBootModeControlRn.setStatus(_A)
+_CfprBiosVfFPRMBootModeControlVpUEFIBootMode_Type=CfprBiosVfFPRMBootModeControlVpUEFIBootMode
+_CfprBiosVfFPRMBootModeControlVpUEFIBootMode_Object=MibTableColumn
+cfprBiosVfFPRMBootModeControlVpUEFIBootMode=_CfprBiosVfFPRMBootModeControlVpUEFIBootMode_Object((1,3,6,1,4,1,9,9,826,1,5,70,1,4),_CfprBiosVfFPRMBootModeControlVpUEFIBootMode_Type())
+cfprBiosVfFPRMBootModeControlVpUEFIBootMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFPRMBootModeControlVpUEFIBootMode.setStatus(_A)
+_CfprBiosVfFPRMBootModeControlSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfFPRMBootModeControlSupportedByDefault_Object=MibTableColumn
+cfprBiosVfFPRMBootModeControlSupportedByDefault=_CfprBiosVfFPRMBootModeControlSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,70,1,5),_CfprBiosVfFPRMBootModeControlSupportedByDefault_Type())
+cfprBiosVfFPRMBootModeControlSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFPRMBootModeControlSupportedByDefault.setStatus(_A)
+_CfprBiosVfFPRMBootOrderRuleControlTable_Object=MibTable
+cfprBiosVfFPRMBootOrderRuleControlTable=_CfprBiosVfFPRMBootOrderRuleControlTable_Object((1,3,6,1,4,1,9,9,826,1,5,71))
+if mibBuilder.loadTexts:cfprBiosVfFPRMBootOrderRuleControlTable.setStatus(_A)
+_CfprBiosVfFPRMBootOrderRuleControlEntry_Object=MibTableRow
+cfprBiosVfFPRMBootOrderRuleControlEntry=_CfprBiosVfFPRMBootOrderRuleControlEntry_Object((1,3,6,1,4,1,9,9,826,1,5,71,1))
+cfprBiosVfFPRMBootOrderRuleControlEntry.setIndexNames((0,_C,_AM))
+if mibBuilder.loadTexts:cfprBiosVfFPRMBootOrderRuleControlEntry.setStatus(_A)
+_CfprBiosVfFPRMBootOrderRuleControlInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfFPRMBootOrderRuleControlInstanceId_Object=MibTableColumn
+cfprBiosVfFPRMBootOrderRuleControlInstanceId=_CfprBiosVfFPRMBootOrderRuleControlInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,71,1,1),_CfprBiosVfFPRMBootOrderRuleControlInstanceId_Type())
+cfprBiosVfFPRMBootOrderRuleControlInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfFPRMBootOrderRuleControlInstanceId.setStatus(_A)
+_CfprBiosVfFPRMBootOrderRuleControlDn_Type=CfprManagedObjectDn
+_CfprBiosVfFPRMBootOrderRuleControlDn_Object=MibTableColumn
+cfprBiosVfFPRMBootOrderRuleControlDn=_CfprBiosVfFPRMBootOrderRuleControlDn_Object((1,3,6,1,4,1,9,9,826,1,5,71,1,2),_CfprBiosVfFPRMBootOrderRuleControlDn_Type())
+cfprBiosVfFPRMBootOrderRuleControlDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFPRMBootOrderRuleControlDn.setStatus(_A)
+_CfprBiosVfFPRMBootOrderRuleControlRn_Type=SnmpAdminString
+_CfprBiosVfFPRMBootOrderRuleControlRn_Object=MibTableColumn
+cfprBiosVfFPRMBootOrderRuleControlRn=_CfprBiosVfFPRMBootOrderRuleControlRn_Object((1,3,6,1,4,1,9,9,826,1,5,71,1,3),_CfprBiosVfFPRMBootOrderRuleControlRn_Type())
+cfprBiosVfFPRMBootOrderRuleControlRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFPRMBootOrderRuleControlRn.setStatus(_A)
+_CfprBiosVfFPRMBootOrderRuleControlVpFPRMBootOrderRule_Type=CfprBiosVfFPRMBootOrderRuleControlVpFPRMBootOrderRule
+_CfprBiosVfFPRMBootOrderRuleControlVpFPRMBootOrderRule_Object=MibTableColumn
+cfprBiosVfFPRMBootOrderRuleControlVpFPRMBootOrderRule=_CfprBiosVfFPRMBootOrderRuleControlVpFPRMBootOrderRule_Object((1,3,6,1,4,1,9,9,826,1,5,71,1,4),_CfprBiosVfFPRMBootOrderRuleControlVpFPRMBootOrderRule_Type())
+cfprBiosVfFPRMBootOrderRuleControlVpFPRMBootOrderRule.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFPRMBootOrderRuleControlVpFPRMBootOrderRule.setStatus(_A)
+_CfprBiosVfFPRMBootOrderRuleControlSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfFPRMBootOrderRuleControlSupportedByDefault_Object=MibTableColumn
+cfprBiosVfFPRMBootOrderRuleControlSupportedByDefault=_CfprBiosVfFPRMBootOrderRuleControlSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,71,1,5),_CfprBiosVfFPRMBootOrderRuleControlSupportedByDefault_Type())
+cfprBiosVfFPRMBootOrderRuleControlSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfFPRMBootOrderRuleControlSupportedByDefault.setStatus(_A)
+_CfprBiosVfUEFIOSUseLegacyVideoTable_Object=MibTable
+cfprBiosVfUEFIOSUseLegacyVideoTable=_CfprBiosVfUEFIOSUseLegacyVideoTable_Object((1,3,6,1,4,1,9,9,826,1,5,72))
+if mibBuilder.loadTexts:cfprBiosVfUEFIOSUseLegacyVideoTable.setStatus(_A)
+_CfprBiosVfUEFIOSUseLegacyVideoEntry_Object=MibTableRow
+cfprBiosVfUEFIOSUseLegacyVideoEntry=_CfprBiosVfUEFIOSUseLegacyVideoEntry_Object((1,3,6,1,4,1,9,9,826,1,5,72,1))
+cfprBiosVfUEFIOSUseLegacyVideoEntry.setIndexNames((0,_C,_AN))
+if mibBuilder.loadTexts:cfprBiosVfUEFIOSUseLegacyVideoEntry.setStatus(_A)
+_CfprBiosVfUEFIOSUseLegacyVideoInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfUEFIOSUseLegacyVideoInstanceId_Object=MibTableColumn
+cfprBiosVfUEFIOSUseLegacyVideoInstanceId=_CfprBiosVfUEFIOSUseLegacyVideoInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,72,1,1),_CfprBiosVfUEFIOSUseLegacyVideoInstanceId_Type())
+cfprBiosVfUEFIOSUseLegacyVideoInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfUEFIOSUseLegacyVideoInstanceId.setStatus(_A)
+_CfprBiosVfUEFIOSUseLegacyVideoDn_Type=CfprManagedObjectDn
+_CfprBiosVfUEFIOSUseLegacyVideoDn_Object=MibTableColumn
+cfprBiosVfUEFIOSUseLegacyVideoDn=_CfprBiosVfUEFIOSUseLegacyVideoDn_Object((1,3,6,1,4,1,9,9,826,1,5,72,1,2),_CfprBiosVfUEFIOSUseLegacyVideoDn_Type())
+cfprBiosVfUEFIOSUseLegacyVideoDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUEFIOSUseLegacyVideoDn.setStatus(_A)
+_CfprBiosVfUEFIOSUseLegacyVideoRn_Type=SnmpAdminString
+_CfprBiosVfUEFIOSUseLegacyVideoRn_Object=MibTableColumn
+cfprBiosVfUEFIOSUseLegacyVideoRn=_CfprBiosVfUEFIOSUseLegacyVideoRn_Object((1,3,6,1,4,1,9,9,826,1,5,72,1,3),_CfprBiosVfUEFIOSUseLegacyVideoRn_Type())
+cfprBiosVfUEFIOSUseLegacyVideoRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUEFIOSUseLegacyVideoRn.setStatus(_A)
+_CfprBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo_Type=CfprBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo
+_CfprBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo_Object=MibTableColumn
+cfprBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo=_CfprBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo_Object((1,3,6,1,4,1,9,9,826,1,5,72,1,4),_CfprBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo_Type())
+cfprBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo.setStatus(_A)
+_CfprBiosVfUEFIOSUseLegacyVideoSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfUEFIOSUseLegacyVideoSupportedByDefault_Object=MibTableColumn
+cfprBiosVfUEFIOSUseLegacyVideoSupportedByDefault=_CfprBiosVfUEFIOSUseLegacyVideoSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,72,1,5),_CfprBiosVfUEFIOSUseLegacyVideoSupportedByDefault_Type())
+cfprBiosVfUEFIOSUseLegacyVideoSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUEFIOSUseLegacyVideoSupportedByDefault.setStatus(_A)
+_CfprBiosVfUSBBootConfigTable_Object=MibTable
+cfprBiosVfUSBBootConfigTable=_CfprBiosVfUSBBootConfigTable_Object((1,3,6,1,4,1,9,9,826,1,5,73))
+if mibBuilder.loadTexts:cfprBiosVfUSBBootConfigTable.setStatus(_A)
+_CfprBiosVfUSBBootConfigEntry_Object=MibTableRow
+cfprBiosVfUSBBootConfigEntry=_CfprBiosVfUSBBootConfigEntry_Object((1,3,6,1,4,1,9,9,826,1,5,73,1))
+cfprBiosVfUSBBootConfigEntry.setIndexNames((0,_C,_AO))
+if mibBuilder.loadTexts:cfprBiosVfUSBBootConfigEntry.setStatus(_A)
+_CfprBiosVfUSBBootConfigInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfUSBBootConfigInstanceId_Object=MibTableColumn
+cfprBiosVfUSBBootConfigInstanceId=_CfprBiosVfUSBBootConfigInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,73,1,1),_CfprBiosVfUSBBootConfigInstanceId_Type())
+cfprBiosVfUSBBootConfigInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfUSBBootConfigInstanceId.setStatus(_A)
+_CfprBiosVfUSBBootConfigDn_Type=CfprManagedObjectDn
+_CfprBiosVfUSBBootConfigDn_Object=MibTableColumn
+cfprBiosVfUSBBootConfigDn=_CfprBiosVfUSBBootConfigDn_Object((1,3,6,1,4,1,9,9,826,1,5,73,1,2),_CfprBiosVfUSBBootConfigDn_Type())
+cfprBiosVfUSBBootConfigDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBBootConfigDn.setStatus(_A)
+_CfprBiosVfUSBBootConfigRn_Type=SnmpAdminString
+_CfprBiosVfUSBBootConfigRn_Object=MibTableColumn
+cfprBiosVfUSBBootConfigRn=_CfprBiosVfUSBBootConfigRn_Object((1,3,6,1,4,1,9,9,826,1,5,73,1,3),_CfprBiosVfUSBBootConfigRn_Type())
+cfprBiosVfUSBBootConfigRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBBootConfigRn.setStatus(_A)
+_CfprBiosVfUSBBootConfigVpLegacyUSBSupport_Type=CfprBiosVfUSBBootConfigVpLegacyUSBSupport
+_CfprBiosVfUSBBootConfigVpLegacyUSBSupport_Object=MibTableColumn
+cfprBiosVfUSBBootConfigVpLegacyUSBSupport=_CfprBiosVfUSBBootConfigVpLegacyUSBSupport_Object((1,3,6,1,4,1,9,9,826,1,5,73,1,4),_CfprBiosVfUSBBootConfigVpLegacyUSBSupport_Type())
+cfprBiosVfUSBBootConfigVpLegacyUSBSupport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBBootConfigVpLegacyUSBSupport.setStatus(_A)
+_CfprBiosVfUSBBootConfigVpMakeDeviceNonBootable_Type=CfprBiosVfUSBBootConfigVpMakeDeviceNonBootable
+_CfprBiosVfUSBBootConfigVpMakeDeviceNonBootable_Object=MibTableColumn
+cfprBiosVfUSBBootConfigVpMakeDeviceNonBootable=_CfprBiosVfUSBBootConfigVpMakeDeviceNonBootable_Object((1,3,6,1,4,1,9,9,826,1,5,73,1,5),_CfprBiosVfUSBBootConfigVpMakeDeviceNonBootable_Type())
+cfprBiosVfUSBBootConfigVpMakeDeviceNonBootable.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBBootConfigVpMakeDeviceNonBootable.setStatus(_A)
+_CfprBiosVfUSBBootConfigSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfUSBBootConfigSupportedByDefault_Object=MibTableColumn
+cfprBiosVfUSBBootConfigSupportedByDefault=_CfprBiosVfUSBBootConfigSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,73,1,6),_CfprBiosVfUSBBootConfigSupportedByDefault_Type())
+cfprBiosVfUSBBootConfigSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBBootConfigSupportedByDefault.setStatus(_A)
+_CfprBiosVfUSBConfigurationTable_Object=MibTable
+cfprBiosVfUSBConfigurationTable=_CfprBiosVfUSBConfigurationTable_Object((1,3,6,1,4,1,9,9,826,1,5,74))
+if mibBuilder.loadTexts:cfprBiosVfUSBConfigurationTable.setStatus(_A)
+_CfprBiosVfUSBConfigurationEntry_Object=MibTableRow
+cfprBiosVfUSBConfigurationEntry=_CfprBiosVfUSBConfigurationEntry_Object((1,3,6,1,4,1,9,9,826,1,5,74,1))
+cfprBiosVfUSBConfigurationEntry.setIndexNames((0,_C,_AP))
+if mibBuilder.loadTexts:cfprBiosVfUSBConfigurationEntry.setStatus(_A)
+_CfprBiosVfUSBConfigurationInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfUSBConfigurationInstanceId_Object=MibTableColumn
+cfprBiosVfUSBConfigurationInstanceId=_CfprBiosVfUSBConfigurationInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,74,1,1),_CfprBiosVfUSBConfigurationInstanceId_Type())
+cfprBiosVfUSBConfigurationInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfUSBConfigurationInstanceId.setStatus(_A)
+_CfprBiosVfUSBConfigurationDn_Type=CfprManagedObjectDn
+_CfprBiosVfUSBConfigurationDn_Object=MibTableColumn
+cfprBiosVfUSBConfigurationDn=_CfprBiosVfUSBConfigurationDn_Object((1,3,6,1,4,1,9,9,826,1,5,74,1,2),_CfprBiosVfUSBConfigurationDn_Type())
+cfprBiosVfUSBConfigurationDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBConfigurationDn.setStatus(_A)
+_CfprBiosVfUSBConfigurationRn_Type=SnmpAdminString
+_CfprBiosVfUSBConfigurationRn_Object=MibTableColumn
+cfprBiosVfUSBConfigurationRn=_CfprBiosVfUSBConfigurationRn_Object((1,3,6,1,4,1,9,9,826,1,5,74,1,3),_CfprBiosVfUSBConfigurationRn_Type())
+cfprBiosVfUSBConfigurationRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBConfigurationRn.setStatus(_A)
+_CfprBiosVfUSBConfigurationVpLegacyUSBSupport_Type=CfprBiosVfUSBConfigurationVpLegacyUSBSupport
+_CfprBiosVfUSBConfigurationVpLegacyUSBSupport_Object=MibTableColumn
+cfprBiosVfUSBConfigurationVpLegacyUSBSupport=_CfprBiosVfUSBConfigurationVpLegacyUSBSupport_Object((1,3,6,1,4,1,9,9,826,1,5,74,1,4),_CfprBiosVfUSBConfigurationVpLegacyUSBSupport_Type())
+cfprBiosVfUSBConfigurationVpLegacyUSBSupport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBConfigurationVpLegacyUSBSupport.setStatus(_A)
+_CfprBiosVfUSBConfigurationVpXHCIMode_Type=CfprBiosVfUSBConfigurationVpXHCIMode
+_CfprBiosVfUSBConfigurationVpXHCIMode_Object=MibTableColumn
+cfprBiosVfUSBConfigurationVpXHCIMode=_CfprBiosVfUSBConfigurationVpXHCIMode_Object((1,3,6,1,4,1,9,9,826,1,5,74,1,5),_CfprBiosVfUSBConfigurationVpXHCIMode_Type())
+cfprBiosVfUSBConfigurationVpXHCIMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBConfigurationVpXHCIMode.setStatus(_A)
+_CfprBiosVfUSBConfigurationSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfUSBConfigurationSupportedByDefault_Object=MibTableColumn
+cfprBiosVfUSBConfigurationSupportedByDefault=_CfprBiosVfUSBConfigurationSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,74,1,6),_CfprBiosVfUSBConfigurationSupportedByDefault_Type())
+cfprBiosVfUSBConfigurationSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBConfigurationSupportedByDefault.setStatus(_A)
+_CfprBiosVfUSBFrontPanelAccessLockTable_Object=MibTable
+cfprBiosVfUSBFrontPanelAccessLockTable=_CfprBiosVfUSBFrontPanelAccessLockTable_Object((1,3,6,1,4,1,9,9,826,1,5,75))
+if mibBuilder.loadTexts:cfprBiosVfUSBFrontPanelAccessLockTable.setStatus(_A)
+_CfprBiosVfUSBFrontPanelAccessLockEntry_Object=MibTableRow
+cfprBiosVfUSBFrontPanelAccessLockEntry=_CfprBiosVfUSBFrontPanelAccessLockEntry_Object((1,3,6,1,4,1,9,9,826,1,5,75,1))
+cfprBiosVfUSBFrontPanelAccessLockEntry.setIndexNames((0,_C,_AQ))
+if mibBuilder.loadTexts:cfprBiosVfUSBFrontPanelAccessLockEntry.setStatus(_A)
+_CfprBiosVfUSBFrontPanelAccessLockInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfUSBFrontPanelAccessLockInstanceId_Object=MibTableColumn
+cfprBiosVfUSBFrontPanelAccessLockInstanceId=_CfprBiosVfUSBFrontPanelAccessLockInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,75,1,1),_CfprBiosVfUSBFrontPanelAccessLockInstanceId_Type())
+cfprBiosVfUSBFrontPanelAccessLockInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfUSBFrontPanelAccessLockInstanceId.setStatus(_A)
+_CfprBiosVfUSBFrontPanelAccessLockDn_Type=CfprManagedObjectDn
+_CfprBiosVfUSBFrontPanelAccessLockDn_Object=MibTableColumn
+cfprBiosVfUSBFrontPanelAccessLockDn=_CfprBiosVfUSBFrontPanelAccessLockDn_Object((1,3,6,1,4,1,9,9,826,1,5,75,1,2),_CfprBiosVfUSBFrontPanelAccessLockDn_Type())
+cfprBiosVfUSBFrontPanelAccessLockDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBFrontPanelAccessLockDn.setStatus(_A)
+_CfprBiosVfUSBFrontPanelAccessLockRn_Type=SnmpAdminString
+_CfprBiosVfUSBFrontPanelAccessLockRn_Object=MibTableColumn
+cfprBiosVfUSBFrontPanelAccessLockRn=_CfprBiosVfUSBFrontPanelAccessLockRn_Object((1,3,6,1,4,1,9,9,826,1,5,75,1,3),_CfprBiosVfUSBFrontPanelAccessLockRn_Type())
+cfprBiosVfUSBFrontPanelAccessLockRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBFrontPanelAccessLockRn.setStatus(_A)
+_CfprBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock_Type=CfprBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock
+_CfprBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock_Object=MibTableColumn
+cfprBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock=_CfprBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock_Object((1,3,6,1,4,1,9,9,826,1,5,75,1,4),_CfprBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock_Type())
+cfprBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock.setStatus(_A)
+_CfprBiosVfUSBFrontPanelAccessLockSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfUSBFrontPanelAccessLockSupportedByDefault_Object=MibTableColumn
+cfprBiosVfUSBFrontPanelAccessLockSupportedByDefault=_CfprBiosVfUSBFrontPanelAccessLockSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,75,1,5),_CfprBiosVfUSBFrontPanelAccessLockSupportedByDefault_Type())
+cfprBiosVfUSBFrontPanelAccessLockSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBFrontPanelAccessLockSupportedByDefault.setStatus(_A)
+_CfprBiosVfUSBPortConfigurationTable_Object=MibTable
+cfprBiosVfUSBPortConfigurationTable=_CfprBiosVfUSBPortConfigurationTable_Object((1,3,6,1,4,1,9,9,826,1,5,76))
+if mibBuilder.loadTexts:cfprBiosVfUSBPortConfigurationTable.setStatus(_A)
+_CfprBiosVfUSBPortConfigurationEntry_Object=MibTableRow
+cfprBiosVfUSBPortConfigurationEntry=_CfprBiosVfUSBPortConfigurationEntry_Object((1,3,6,1,4,1,9,9,826,1,5,76,1))
+cfprBiosVfUSBPortConfigurationEntry.setIndexNames((0,_C,_AR))
+if mibBuilder.loadTexts:cfprBiosVfUSBPortConfigurationEntry.setStatus(_A)
+_CfprBiosVfUSBPortConfigurationInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfUSBPortConfigurationInstanceId_Object=MibTableColumn
+cfprBiosVfUSBPortConfigurationInstanceId=_CfprBiosVfUSBPortConfigurationInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,76,1,1),_CfprBiosVfUSBPortConfigurationInstanceId_Type())
+cfprBiosVfUSBPortConfigurationInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfUSBPortConfigurationInstanceId.setStatus(_A)
+_CfprBiosVfUSBPortConfigurationDn_Type=CfprManagedObjectDn
+_CfprBiosVfUSBPortConfigurationDn_Object=MibTableColumn
+cfprBiosVfUSBPortConfigurationDn=_CfprBiosVfUSBPortConfigurationDn_Object((1,3,6,1,4,1,9,9,826,1,5,76,1,2),_CfprBiosVfUSBPortConfigurationDn_Type())
+cfprBiosVfUSBPortConfigurationDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBPortConfigurationDn.setStatus(_A)
+_CfprBiosVfUSBPortConfigurationRn_Type=SnmpAdminString
+_CfprBiosVfUSBPortConfigurationRn_Object=MibTableColumn
+cfprBiosVfUSBPortConfigurationRn=_CfprBiosVfUSBPortConfigurationRn_Object((1,3,6,1,4,1,9,9,826,1,5,76,1,3),_CfprBiosVfUSBPortConfigurationRn_Type())
+cfprBiosVfUSBPortConfigurationRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBPortConfigurationRn.setStatus(_A)
+_CfprBiosVfUSBPortConfigurationVpPort6064Emulation_Type=CfprBiosVfUSBPortConfigurationVpPort6064Emulation
+_CfprBiosVfUSBPortConfigurationVpPort6064Emulation_Object=MibTableColumn
+cfprBiosVfUSBPortConfigurationVpPort6064Emulation=_CfprBiosVfUSBPortConfigurationVpPort6064Emulation_Object((1,3,6,1,4,1,9,9,826,1,5,76,1,4),_CfprBiosVfUSBPortConfigurationVpPort6064Emulation_Type())
+cfprBiosVfUSBPortConfigurationVpPort6064Emulation.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBPortConfigurationVpPort6064Emulation.setStatus(_A)
+_CfprBiosVfUSBPortConfigurationVpUSBPortFront_Type=CfprBiosVfUSBPortConfigurationVpUSBPortFront
+_CfprBiosVfUSBPortConfigurationVpUSBPortFront_Object=MibTableColumn
+cfprBiosVfUSBPortConfigurationVpUSBPortFront=_CfprBiosVfUSBPortConfigurationVpUSBPortFront_Object((1,3,6,1,4,1,9,9,826,1,5,76,1,5),_CfprBiosVfUSBPortConfigurationVpUSBPortFront_Type())
+cfprBiosVfUSBPortConfigurationVpUSBPortFront.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBPortConfigurationVpUSBPortFront.setStatus(_A)
+_CfprBiosVfUSBPortConfigurationVpUSBPortInternal_Type=CfprBiosVfUSBPortConfigurationVpUSBPortInternal
+_CfprBiosVfUSBPortConfigurationVpUSBPortInternal_Object=MibTableColumn
+cfprBiosVfUSBPortConfigurationVpUSBPortInternal=_CfprBiosVfUSBPortConfigurationVpUSBPortInternal_Object((1,3,6,1,4,1,9,9,826,1,5,76,1,6),_CfprBiosVfUSBPortConfigurationVpUSBPortInternal_Type())
+cfprBiosVfUSBPortConfigurationVpUSBPortInternal.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBPortConfigurationVpUSBPortInternal.setStatus(_A)
+_CfprBiosVfUSBPortConfigurationVpUSBPortKVM_Type=CfprBiosVfUSBPortConfigurationVpUSBPortKVM
+_CfprBiosVfUSBPortConfigurationVpUSBPortKVM_Object=MibTableColumn
+cfprBiosVfUSBPortConfigurationVpUSBPortKVM=_CfprBiosVfUSBPortConfigurationVpUSBPortKVM_Object((1,3,6,1,4,1,9,9,826,1,5,76,1,7),_CfprBiosVfUSBPortConfigurationVpUSBPortKVM_Type())
+cfprBiosVfUSBPortConfigurationVpUSBPortKVM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBPortConfigurationVpUSBPortKVM.setStatus(_A)
+_CfprBiosVfUSBPortConfigurationVpUSBPortRear_Type=CfprBiosVfUSBPortConfigurationVpUSBPortRear
+_CfprBiosVfUSBPortConfigurationVpUSBPortRear_Object=MibTableColumn
+cfprBiosVfUSBPortConfigurationVpUSBPortRear=_CfprBiosVfUSBPortConfigurationVpUSBPortRear_Object((1,3,6,1,4,1,9,9,826,1,5,76,1,8),_CfprBiosVfUSBPortConfigurationVpUSBPortRear_Type())
+cfprBiosVfUSBPortConfigurationVpUSBPortRear.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBPortConfigurationVpUSBPortRear.setStatus(_A)
+_CfprBiosVfUSBPortConfigurationVpUSBPortSDCard_Type=CfprBiosVfUSBPortConfigurationVpUSBPortSDCard
+_CfprBiosVfUSBPortConfigurationVpUSBPortSDCard_Object=MibTableColumn
+cfprBiosVfUSBPortConfigurationVpUSBPortSDCard=_CfprBiosVfUSBPortConfigurationVpUSBPortSDCard_Object((1,3,6,1,4,1,9,9,826,1,5,76,1,9),_CfprBiosVfUSBPortConfigurationVpUSBPortSDCard_Type())
+cfprBiosVfUSBPortConfigurationVpUSBPortSDCard.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBPortConfigurationVpUSBPortSDCard.setStatus(_A)
+_CfprBiosVfUSBPortConfigurationVpUSBPortVMedia_Type=CfprBiosVfUSBPortConfigurationVpUSBPortVMedia
+_CfprBiosVfUSBPortConfigurationVpUSBPortVMedia_Object=MibTableColumn
+cfprBiosVfUSBPortConfigurationVpUSBPortVMedia=_CfprBiosVfUSBPortConfigurationVpUSBPortVMedia_Object((1,3,6,1,4,1,9,9,826,1,5,76,1,10),_CfprBiosVfUSBPortConfigurationVpUSBPortVMedia_Type())
+cfprBiosVfUSBPortConfigurationVpUSBPortVMedia.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBPortConfigurationVpUSBPortVMedia.setStatus(_A)
+_CfprBiosVfUSBPortConfigurationSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfUSBPortConfigurationSupportedByDefault_Object=MibTableColumn
+cfprBiosVfUSBPortConfigurationSupportedByDefault=_CfprBiosVfUSBPortConfigurationSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,76,1,11),_CfprBiosVfUSBPortConfigurationSupportedByDefault_Type())
+cfprBiosVfUSBPortConfigurationSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBPortConfigurationSupportedByDefault.setStatus(_A)
+_CfprBiosVfUSBSystemIdlePowerOptimizingSettingTable_Object=MibTable
+cfprBiosVfUSBSystemIdlePowerOptimizingSettingTable=_CfprBiosVfUSBSystemIdlePowerOptimizingSettingTable_Object((1,3,6,1,4,1,9,9,826,1,5,77))
+if mibBuilder.loadTexts:cfprBiosVfUSBSystemIdlePowerOptimizingSettingTable.setStatus(_A)
+_CfprBiosVfUSBSystemIdlePowerOptimizingSettingEntry_Object=MibTableRow
+cfprBiosVfUSBSystemIdlePowerOptimizingSettingEntry=_CfprBiosVfUSBSystemIdlePowerOptimizingSettingEntry_Object((1,3,6,1,4,1,9,9,826,1,5,77,1))
+cfprBiosVfUSBSystemIdlePowerOptimizingSettingEntry.setIndexNames((0,_C,_AS))
+if mibBuilder.loadTexts:cfprBiosVfUSBSystemIdlePowerOptimizingSettingEntry.setStatus(_A)
+_CfprBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId_Object=MibTableColumn
+cfprBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId=_CfprBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,77,1,1),_CfprBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId_Type())
+cfprBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId.setStatus(_A)
+_CfprBiosVfUSBSystemIdlePowerOptimizingSettingDn_Type=CfprManagedObjectDn
+_CfprBiosVfUSBSystemIdlePowerOptimizingSettingDn_Object=MibTableColumn
+cfprBiosVfUSBSystemIdlePowerOptimizingSettingDn=_CfprBiosVfUSBSystemIdlePowerOptimizingSettingDn_Object((1,3,6,1,4,1,9,9,826,1,5,77,1,2),_CfprBiosVfUSBSystemIdlePowerOptimizingSettingDn_Type())
+cfprBiosVfUSBSystemIdlePowerOptimizingSettingDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBSystemIdlePowerOptimizingSettingDn.setStatus(_A)
+_CfprBiosVfUSBSystemIdlePowerOptimizingSettingRn_Type=SnmpAdminString
+_CfprBiosVfUSBSystemIdlePowerOptimizingSettingRn_Object=MibTableColumn
+cfprBiosVfUSBSystemIdlePowerOptimizingSettingRn=_CfprBiosVfUSBSystemIdlePowerOptimizingSettingRn_Object((1,3,6,1,4,1,9,9,826,1,5,77,1,3),_CfprBiosVfUSBSystemIdlePowerOptimizingSettingRn_Type())
+cfprBiosVfUSBSystemIdlePowerOptimizingSettingRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBSystemIdlePowerOptimizingSettingRn.setStatus(_A)
+_CfprBiosVfUSBSystemIdlePowerOptimizingSettingVpUSBIdlePowerOptimizing_Type=CfprBiosVfUSBSysIdlePowerOptimizingSettingVpUSBIdlePowerOptimize
+_CfprBiosVfUSBSystemIdlePowerOptimizingSettingVpUSBIdlePowerOptimizing_Object=MibTableColumn
+cfprBiosVfUSBSystemIdlePowerOptimizingSettingVpUSBIdlePowerOptimizing=_CfprBiosVfUSBSystemIdlePowerOptimizingSettingVpUSBIdlePowerOptimizing_Object((1,3,6,1,4,1,9,9,826,1,5,77,1,4),_CfprBiosVfUSBSystemIdlePowerOptimizingSettingVpUSBIdlePowerOptimizing_Type())
+cfprBiosVfUSBSystemIdlePowerOptimizingSettingVpUSBIdlePowerOptimizing.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBSystemIdlePowerOptimizingSettingVpUSBIdlePowerOptimizing.setStatus(_A)
+_CfprBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault_Object=MibTableColumn
+cfprBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault=_CfprBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,77,1,5),_CfprBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault_Type())
+cfprBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault.setStatus(_A)
+_CfprBiosVfVGAPriorityTable_Object=MibTable
+cfprBiosVfVGAPriorityTable=_CfprBiosVfVGAPriorityTable_Object((1,3,6,1,4,1,9,9,826,1,5,78))
+if mibBuilder.loadTexts:cfprBiosVfVGAPriorityTable.setStatus(_A)
+_CfprBiosVfVGAPriorityEntry_Object=MibTableRow
+cfprBiosVfVGAPriorityEntry=_CfprBiosVfVGAPriorityEntry_Object((1,3,6,1,4,1,9,9,826,1,5,78,1))
+cfprBiosVfVGAPriorityEntry.setIndexNames((0,_C,_AT))
+if mibBuilder.loadTexts:cfprBiosVfVGAPriorityEntry.setStatus(_A)
+_CfprBiosVfVGAPriorityInstanceId_Type=CfprManagedObjectId
+_CfprBiosVfVGAPriorityInstanceId_Object=MibTableColumn
+cfprBiosVfVGAPriorityInstanceId=_CfprBiosVfVGAPriorityInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,78,1,1),_CfprBiosVfVGAPriorityInstanceId_Type())
+cfprBiosVfVGAPriorityInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosVfVGAPriorityInstanceId.setStatus(_A)
+_CfprBiosVfVGAPriorityDn_Type=CfprManagedObjectDn
+_CfprBiosVfVGAPriorityDn_Object=MibTableColumn
+cfprBiosVfVGAPriorityDn=_CfprBiosVfVGAPriorityDn_Object((1,3,6,1,4,1,9,9,826,1,5,78,1,2),_CfprBiosVfVGAPriorityDn_Type())
+cfprBiosVfVGAPriorityDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfVGAPriorityDn.setStatus(_A)
+_CfprBiosVfVGAPriorityRn_Type=SnmpAdminString
+_CfprBiosVfVGAPriorityRn_Object=MibTableColumn
+cfprBiosVfVGAPriorityRn=_CfprBiosVfVGAPriorityRn_Object((1,3,6,1,4,1,9,9,826,1,5,78,1,3),_CfprBiosVfVGAPriorityRn_Type())
+cfprBiosVfVGAPriorityRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfVGAPriorityRn.setStatus(_A)
+_CfprBiosVfVGAPriorityVpVGAPriority_Type=CfprBiosVfVGAPriorityVpVGAPriority
+_CfprBiosVfVGAPriorityVpVGAPriority_Object=MibTableColumn
+cfprBiosVfVGAPriorityVpVGAPriority=_CfprBiosVfVGAPriorityVpVGAPriority_Object((1,3,6,1,4,1,9,9,826,1,5,78,1,4),_CfprBiosVfVGAPriorityVpVGAPriority_Type())
+cfprBiosVfVGAPriorityVpVGAPriority.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfVGAPriorityVpVGAPriority.setStatus(_A)
+_CfprBiosVfVGAPrioritySupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosVfVGAPrioritySupportedByDefault_Object=MibTableColumn
+cfprBiosVfVGAPrioritySupportedByDefault=_CfprBiosVfVGAPrioritySupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,78,1,5),_CfprBiosVfVGAPrioritySupportedByDefault_Type())
+cfprBiosVfVGAPrioritySupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosVfVGAPrioritySupportedByDefault.setStatus(_A)
+_CfprBiosTokenFeatureGroupTable_Object=MibTable
+cfprBiosTokenFeatureGroupTable=_CfprBiosTokenFeatureGroupTable_Object((1,3,6,1,4,1,9,9,826,1,5,79))
+if mibBuilder.loadTexts:cfprBiosTokenFeatureGroupTable.setStatus(_A)
+_CfprBiosTokenFeatureGroupEntry_Object=MibTableRow
+cfprBiosTokenFeatureGroupEntry=_CfprBiosTokenFeatureGroupEntry_Object((1,3,6,1,4,1,9,9,826,1,5,79,1))
+cfprBiosTokenFeatureGroupEntry.setIndexNames((0,_C,_AU))
+if mibBuilder.loadTexts:cfprBiosTokenFeatureGroupEntry.setStatus(_A)
+_CfprBiosTokenFeatureGroupInstanceId_Type=CfprManagedObjectId
+_CfprBiosTokenFeatureGroupInstanceId_Object=MibTableColumn
+cfprBiosTokenFeatureGroupInstanceId=_CfprBiosTokenFeatureGroupInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,79,1,1),_CfprBiosTokenFeatureGroupInstanceId_Type())
+cfprBiosTokenFeatureGroupInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosTokenFeatureGroupInstanceId.setStatus(_A)
+_CfprBiosTokenFeatureGroupDn_Type=CfprManagedObjectDn
+_CfprBiosTokenFeatureGroupDn_Object=MibTableColumn
+cfprBiosTokenFeatureGroupDn=_CfprBiosTokenFeatureGroupDn_Object((1,3,6,1,4,1,9,9,826,1,5,79,1,2),_CfprBiosTokenFeatureGroupDn_Type())
+cfprBiosTokenFeatureGroupDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosTokenFeatureGroupDn.setStatus(_A)
+_CfprBiosTokenFeatureGroupRn_Type=SnmpAdminString
+_CfprBiosTokenFeatureGroupRn_Object=MibTableColumn
+cfprBiosTokenFeatureGroupRn=_CfprBiosTokenFeatureGroupRn_Object((1,3,6,1,4,1,9,9,826,1,5,79,1,3),_CfprBiosTokenFeatureGroupRn_Type())
+cfprBiosTokenFeatureGroupRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosTokenFeatureGroupRn.setStatus(_A)
+_CfprBiosTokenFeatureGroupName_Type=SnmpAdminString
+_CfprBiosTokenFeatureGroupName_Object=MibTableColumn
+cfprBiosTokenFeatureGroupName=_CfprBiosTokenFeatureGroupName_Object((1,3,6,1,4,1,9,9,826,1,5,79,1,4),_CfprBiosTokenFeatureGroupName_Type())
+cfprBiosTokenFeatureGroupName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosTokenFeatureGroupName.setStatus(_A)
+_CfprBiosTokenFeatureGroupSupportedByDefault_Type=CfprBiosSupportedAction
+_CfprBiosTokenFeatureGroupSupportedByDefault_Object=MibTableColumn
+cfprBiosTokenFeatureGroupSupportedByDefault=_CfprBiosTokenFeatureGroupSupportedByDefault_Object((1,3,6,1,4,1,9,9,826,1,5,79,1,5),_CfprBiosTokenFeatureGroupSupportedByDefault_Type())
+cfprBiosTokenFeatureGroupSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosTokenFeatureGroupSupportedByDefault.setStatus(_A)
+_CfprBiosTokenParamTable_Object=MibTable
+cfprBiosTokenParamTable=_CfprBiosTokenParamTable_Object((1,3,6,1,4,1,9,9,826,1,5,80))
+if mibBuilder.loadTexts:cfprBiosTokenParamTable.setStatus(_A)
+_CfprBiosTokenParamEntry_Object=MibTableRow
+cfprBiosTokenParamEntry=_CfprBiosTokenParamEntry_Object((1,3,6,1,4,1,9,9,826,1,5,80,1))
+cfprBiosTokenParamEntry.setIndexNames((0,_C,_AV))
+if mibBuilder.loadTexts:cfprBiosTokenParamEntry.setStatus(_A)
+_CfprBiosTokenParamInstanceId_Type=CfprManagedObjectId
+_CfprBiosTokenParamInstanceId_Object=MibTableColumn
+cfprBiosTokenParamInstanceId=_CfprBiosTokenParamInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,80,1,1),_CfprBiosTokenParamInstanceId_Type())
+cfprBiosTokenParamInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosTokenParamInstanceId.setStatus(_A)
+_CfprBiosTokenParamDn_Type=CfprManagedObjectDn
+_CfprBiosTokenParamDn_Object=MibTableColumn
+cfprBiosTokenParamDn=_CfprBiosTokenParamDn_Object((1,3,6,1,4,1,9,9,826,1,5,80,1,2),_CfprBiosTokenParamDn_Type())
+cfprBiosTokenParamDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosTokenParamDn.setStatus(_A)
+_CfprBiosTokenParamRn_Type=SnmpAdminString
+_CfprBiosTokenParamRn_Object=MibTableColumn
+cfprBiosTokenParamRn=_CfprBiosTokenParamRn_Object((1,3,6,1,4,1,9,9,826,1,5,80,1,3),_CfprBiosTokenParamRn_Type())
+cfprBiosTokenParamRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosTokenParamRn.setStatus(_A)
+_CfprBiosTokenParamLegacyPropId_Type=SnmpAdminString
+_CfprBiosTokenParamLegacyPropId_Object=MibTableColumn
+cfprBiosTokenParamLegacyPropId=_CfprBiosTokenParamLegacyPropId_Object((1,3,6,1,4,1,9,9,826,1,5,80,1,4),_CfprBiosTokenParamLegacyPropId_Type())
+cfprBiosTokenParamLegacyPropId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosTokenParamLegacyPropId.setStatus(_A)
+_CfprBiosTokenParamParamName_Type=SnmpAdminString
+_CfprBiosTokenParamParamName_Object=MibTableColumn
+cfprBiosTokenParamParamName=_CfprBiosTokenParamParamName_Object((1,3,6,1,4,1,9,9,826,1,5,80,1,5),_CfprBiosTokenParamParamName_Type())
+cfprBiosTokenParamParamName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosTokenParamParamName.setStatus(_A)
+_CfprBiosTokenParamTargetTokenName_Type=SnmpAdminString
+_CfprBiosTokenParamTargetTokenName_Object=MibTableColumn
+cfprBiosTokenParamTargetTokenName=_CfprBiosTokenParamTargetTokenName_Object((1,3,6,1,4,1,9,9,826,1,5,80,1,6),_CfprBiosTokenParamTargetTokenName_Type())
+cfprBiosTokenParamTargetTokenName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosTokenParamTargetTokenName.setStatus(_A)
+_CfprBiosTokenParamUiGroupName_Type=SnmpAdminString
+_CfprBiosTokenParamUiGroupName_Object=MibTableColumn
+cfprBiosTokenParamUiGroupName=_CfprBiosTokenParamUiGroupName_Object((1,3,6,1,4,1,9,9,826,1,5,80,1,7),_CfprBiosTokenParamUiGroupName_Type())
+cfprBiosTokenParamUiGroupName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosTokenParamUiGroupName.setStatus(_A)
+_CfprBiosTokenSettingsTable_Object=MibTable
+cfprBiosTokenSettingsTable=_CfprBiosTokenSettingsTable_Object((1,3,6,1,4,1,9,9,826,1,5,81))
+if mibBuilder.loadTexts:cfprBiosTokenSettingsTable.setStatus(_A)
+_CfprBiosTokenSettingsEntry_Object=MibTableRow
+cfprBiosTokenSettingsEntry=_CfprBiosTokenSettingsEntry_Object((1,3,6,1,4,1,9,9,826,1,5,81,1))
+cfprBiosTokenSettingsEntry.setIndexNames((0,_C,_AW))
+if mibBuilder.loadTexts:cfprBiosTokenSettingsEntry.setStatus(_A)
+_CfprBiosTokenSettingsInstanceId_Type=CfprManagedObjectId
+_CfprBiosTokenSettingsInstanceId_Object=MibTableColumn
+cfprBiosTokenSettingsInstanceId=_CfprBiosTokenSettingsInstanceId_Object((1,3,6,1,4,1,9,9,826,1,5,81,1,1),_CfprBiosTokenSettingsInstanceId_Type())
+cfprBiosTokenSettingsInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprBiosTokenSettingsInstanceId.setStatus(_A)
+_CfprBiosTokenSettingsDn_Type=CfprManagedObjectDn
+_CfprBiosTokenSettingsDn_Object=MibTableColumn
+cfprBiosTokenSettingsDn=_CfprBiosTokenSettingsDn_Object((1,3,6,1,4,1,9,9,826,1,5,81,1,2),_CfprBiosTokenSettingsDn_Type())
+cfprBiosTokenSettingsDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosTokenSettingsDn.setStatus(_A)
+_CfprBiosTokenSettingsRn_Type=SnmpAdminString
+_CfprBiosTokenSettingsRn_Object=MibTableColumn
+cfprBiosTokenSettingsRn=_CfprBiosTokenSettingsRn_Object((1,3,6,1,4,1,9,9,826,1,5,81,1,3),_CfprBiosTokenSettingsRn_Type())
+cfprBiosTokenSettingsRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosTokenSettingsRn.setStatus(_A)
+_CfprBiosTokenSettingsBiosRetSettingName_Type=SnmpAdminString
+_CfprBiosTokenSettingsBiosRetSettingName_Object=MibTableColumn
+cfprBiosTokenSettingsBiosRetSettingName=_CfprBiosTokenSettingsBiosRetSettingName_Object((1,3,6,1,4,1,9,9,826,1,5,81,1,4),_CfprBiosTokenSettingsBiosRetSettingName_Type())
+cfprBiosTokenSettingsBiosRetSettingName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosTokenSettingsBiosRetSettingName.setStatus(_A)
+_CfprBiosTokenSettingsIsAssigned_Type=TruthValue
+_CfprBiosTokenSettingsIsAssigned_Object=MibTableColumn
+cfprBiosTokenSettingsIsAssigned=_CfprBiosTokenSettingsIsAssigned_Object((1,3,6,1,4,1,9,9,826,1,5,81,1,5),_CfprBiosTokenSettingsIsAssigned_Type())
+cfprBiosTokenSettingsIsAssigned.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosTokenSettingsIsAssigned.setStatus(_A)
+_CfprBiosTokenSettingsLegacyPropVal_Type=SnmpAdminString
+_CfprBiosTokenSettingsLegacyPropVal_Object=MibTableColumn
+cfprBiosTokenSettingsLegacyPropVal=_CfprBiosTokenSettingsLegacyPropVal_Object((1,3,6,1,4,1,9,9,826,1,5,81,1,6),_CfprBiosTokenSettingsLegacyPropVal_Type())
+cfprBiosTokenSettingsLegacyPropVal.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosTokenSettingsLegacyPropVal.setStatus(_A)
+_CfprBiosTokenSettingsSettingsMoRn_Type=SnmpAdminString
+_CfprBiosTokenSettingsSettingsMoRn_Object=MibTableColumn
+cfprBiosTokenSettingsSettingsMoRn=_CfprBiosTokenSettingsSettingsMoRn_Object((1,3,6,1,4,1,9,9,826,1,5,81,1,7),_CfprBiosTokenSettingsSettingsMoRn_Type())
+cfprBiosTokenSettingsSettingsMoRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosTokenSettingsSettingsMoRn.setStatus(_A)
+_CfprBiosTokenSettingsTargetTokenValue_Type=SnmpAdminString
+_CfprBiosTokenSettingsTargetTokenValue_Object=MibTableColumn
+cfprBiosTokenSettingsTargetTokenValue=_CfprBiosTokenSettingsTargetTokenValue_Object((1,3,6,1,4,1,9,9,826,1,5,81,1,8),_CfprBiosTokenSettingsTargetTokenValue_Type())
+cfprBiosTokenSettingsTargetTokenValue.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprBiosTokenSettingsTargetTokenValue.setStatus(_A)
+mibBuilder.exportSymbols(_C,**{'cfprBiosObjects':cfprBiosObjects,'cfprBiosBOTTable':cfprBiosBOTTable,'cfprBiosBOTEntry':cfprBiosBOTEntry,_E:cfprBiosBOTInstanceId,'cfprBiosBOTDn':cfprBiosBOTDn,'cfprBiosBOTRn':cfprBiosBOTRn,'cfprBiosBOTLastUpdate':cfprBiosBOTLastUpdate,'cfprBiosBootDevTable':cfprBiosBootDevTable,'cfprBiosBootDevEntry':cfprBiosBootDevEntry,_F:cfprBiosBootDevInstanceId,'cfprBiosBootDevDn':cfprBiosBootDevDn,'cfprBiosBootDevRn':cfprBiosBootDevRn,'cfprBiosBootDevDescr':cfprBiosBootDevDescr,'cfprBiosBootDevDeviceName':cfprBiosBootDevDeviceName,'cfprBiosBootDevErrValue':cfprBiosBootDevErrValue,'cfprBiosBootDevOrder':cfprBiosBootDevOrder,'cfprBiosBootDevGrpTable':cfprBiosBootDevGrpTable,'cfprBiosBootDevGrpEntry':cfprBiosBootDevGrpEntry,_G:cfprBiosBootDevGrpInstanceId,'cfprBiosBootDevGrpDn':cfprBiosBootDevGrpDn,'cfprBiosBootDevGrpRn':cfprBiosBootDevGrpRn,'cfprBiosBootDevGrpDescr':cfprBiosBootDevGrpDescr,'cfprBiosBootDevGrpDeviceName':cfprBiosBootDevGrpDeviceName,'cfprBiosBootDevGrpErrVal':cfprBiosBootDevGrpErrVal,'cfprBiosBootDevGrpOrder':cfprBiosBootDevGrpOrder,'cfprBiosBootDevGrpType':cfprBiosBootDevGrpType,'cfprBiosFeatureRefTable':cfprBiosFeatureRefTable,'cfprBiosFeatureRefEntry':cfprBiosFeatureRefEntry,_H:cfprBiosFeatureRefInstanceId,'cfprBiosFeatureRefDn':cfprBiosFeatureRefDn,'cfprBiosFeatureRefRn':cfprBiosFeatureRefRn,'cfprBiosFeatureRefFtrMoClassName':cfprBiosFeatureRefFtrMoClassName,'cfprBiosFeatureRefIsSupported':cfprBiosFeatureRefIsSupported,'cfprBiosFeatureRefName':cfprBiosFeatureRefName,'cfprBiosParameterRefTable':cfprBiosParameterRefTable,'cfprBiosParameterRefEntry':cfprBiosParameterRefEntry,_I:cfprBiosParameterRefInstanceId,'cfprBiosParameterRefDn':cfprBiosParameterRefDn,'cfprBiosParameterRefRn':cfprBiosParameterRefRn,'cfprBiosParameterRefIsSupported':cfprBiosParameterRefIsSupported,'cfprBiosParameterRefName':cfprBiosParameterRefName,'cfprBiosParameterRefPropertyName':cfprBiosParameterRefPropertyName,'cfprBiosRefTable':cfprBiosRefTable,'cfprBiosRefEntry':cfprBiosRefEntry,_J:cfprBiosRefInstanceId,'cfprBiosRefDn':cfprBiosRefDn,'cfprBiosRefRn':cfprBiosRefRn,'cfprBiosRefIsSupported':cfprBiosRefIsSupported,'cfprBiosSettingRefTable':cfprBiosSettingRefTable,'cfprBiosSettingRefEntry':cfprBiosSettingRefEntry,_K:cfprBiosSettingRefInstanceId,'cfprBiosSettingRefDn':cfprBiosSettingRefDn,'cfprBiosSettingRefRn':cfprBiosSettingRefRn,'cfprBiosSettingRefConstantName':cfprBiosSettingRefConstantName,'cfprBiosSettingRefIsDefault':cfprBiosSettingRefIsDefault,'cfprBiosSettingRefIsSupported':cfprBiosSettingRefIsSupported,'cfprBiosSettingRefName':cfprBiosSettingRefName,'cfprBiosSettingsTable':cfprBiosSettingsTable,'cfprBiosSettingsEntry':cfprBiosSettingsEntry,_L:cfprBiosSettingsInstanceId,'cfprBiosSettingsDn':cfprBiosSettingsDn,'cfprBiosSettingsRn':cfprBiosSettingsRn,'cfprBiosUnitTable':cfprBiosUnitTable,'cfprBiosUnitEntry':cfprBiosUnitEntry,_M:cfprBiosUnitInstanceId,'cfprBiosUnitDn':cfprBiosUnitDn,'cfprBiosUnitRn':cfprBiosUnitRn,'cfprBiosUnitInitSeq':cfprBiosUnitInitSeq,'cfprBiosUnitInitTs':cfprBiosUnitInitTs,'cfprBiosUnitModel':cfprBiosUnitModel,'cfprBiosUnitRevision':cfprBiosUnitRevision,'cfprBiosUnitSerial':cfprBiosUnitSerial,'cfprBiosUnitVendor':cfprBiosUnitVendor,'cfprBiosVIdentityParamsTable':cfprBiosVIdentityParamsTable,'cfprBiosVIdentityParamsEntry':cfprBiosVIdentityParamsEntry,_N:cfprBiosVIdentityParamsInstanceId,'cfprBiosVIdentityParamsDn':cfprBiosVIdentityParamsDn,'cfprBiosVIdentityParamsRn':cfprBiosVIdentityParamsRn,'cfprBiosVIdentityParamsLsServerName':cfprBiosVIdentityParamsLsServerName,'cfprBiosVIdentityParamsLsServerTmplName':cfprBiosVIdentityParamsLsServerTmplName,'cfprBiosVIdentityParamsSysName':cfprBiosVIdentityParamsSysName,'cfprBiosVProfileTable':cfprBiosVProfileTable,'cfprBiosVProfileEntry':cfprBiosVProfileEntry,_O:cfprBiosVProfileInstanceId,'cfprBiosVProfileDn':cfprBiosVProfileDn,'cfprBiosVProfileRn':cfprBiosVProfileRn,'cfprBiosVProfileDescr':cfprBiosVProfileDescr,'cfprBiosVProfileIntId':cfprBiosVProfileIntId,'cfprBiosVProfileName':cfprBiosVProfileName,'cfprBiosVProfilePolicyLevel':cfprBiosVProfilePolicyLevel,'cfprBiosVProfilePolicyOwner':cfprBiosVProfilePolicyOwner,'cfprBiosVProfileRebootOnUpdate':cfprBiosVProfileRebootOnUpdate,'cfprBiosVfACPI10SupportTable':cfprBiosVfACPI10SupportTable,'cfprBiosVfACPI10SupportEntry':cfprBiosVfACPI10SupportEntry,_P:cfprBiosVfACPI10SupportInstanceId,'cfprBiosVfACPI10SupportDn':cfprBiosVfACPI10SupportDn,'cfprBiosVfACPI10SupportRn':cfprBiosVfACPI10SupportRn,'cfprBiosVfACPI10SupportVpACPI10Support':cfprBiosVfACPI10SupportVpACPI10Support,'cfprBiosVfACPI10SupportSupportedByDefault':cfprBiosVfACPI10SupportSupportedByDefault,'cfprBiosVfAllUSBDevicesTable':cfprBiosVfAllUSBDevicesTable,'cfprBiosVfAllUSBDevicesEntry':cfprBiosVfAllUSBDevicesEntry,_Q:cfprBiosVfAllUSBDevicesInstanceId,'cfprBiosVfAllUSBDevicesDn':cfprBiosVfAllUSBDevicesDn,'cfprBiosVfAllUSBDevicesRn':cfprBiosVfAllUSBDevicesRn,'cfprBiosVfAllUSBDevicesVpAllUSBDevices':cfprBiosVfAllUSBDevicesVpAllUSBDevices,'cfprBiosVfAllUSBDevicesSupportedByDefault':cfprBiosVfAllUSBDevicesSupportedByDefault,'cfprBiosVfAltitudeTable':cfprBiosVfAltitudeTable,'cfprBiosVfAltitudeEntry':cfprBiosVfAltitudeEntry,_R:cfprBiosVfAltitudeInstanceId,'cfprBiosVfAltitudeDn':cfprBiosVfAltitudeDn,'cfprBiosVfAltitudeRn':cfprBiosVfAltitudeRn,'cfprBiosVfAltitudeVpAltitude':cfprBiosVfAltitudeVpAltitude,'cfprBiosVfAltitudeSupportedByDefault':cfprBiosVfAltitudeSupportedByDefault,'cfprBiosVfAssertNMIOnPERRTable':cfprBiosVfAssertNMIOnPERRTable,'cfprBiosVfAssertNMIOnPERREntry':cfprBiosVfAssertNMIOnPERREntry,_S:cfprBiosVfAssertNMIOnPERRInstanceId,'cfprBiosVfAssertNMIOnPERRDn':cfprBiosVfAssertNMIOnPERRDn,'cfprBiosVfAssertNMIOnPERRRn':cfprBiosVfAssertNMIOnPERRRn,'cfprBiosVfAssertNMIOnPERRVpAssertNMIOnPERR':cfprBiosVfAssertNMIOnPERRVpAssertNMIOnPERR,'cfprBiosVfAssertNMIOnPERRSupportedByDefault':cfprBiosVfAssertNMIOnPERRSupportedByDefault,'cfprBiosVfAssertNMIOnSERRTable':cfprBiosVfAssertNMIOnSERRTable,'cfprBiosVfAssertNMIOnSERREntry':cfprBiosVfAssertNMIOnSERREntry,_T:cfprBiosVfAssertNMIOnSERRInstanceId,'cfprBiosVfAssertNMIOnSERRDn':cfprBiosVfAssertNMIOnSERRDn,'cfprBiosVfAssertNMIOnSERRRn':cfprBiosVfAssertNMIOnSERRRn,'cfprBiosVfAssertNMIOnSERRVpAssertNMIOnSERR':cfprBiosVfAssertNMIOnSERRVpAssertNMIOnSERR,'cfprBiosVfAssertNMIOnSERRSupportedByDefault':cfprBiosVfAssertNMIOnSERRSupportedByDefault,'cfprBiosVfBootOptionRetryTable':cfprBiosVfBootOptionRetryTable,'cfprBiosVfBootOptionRetryEntry':cfprBiosVfBootOptionRetryEntry,_U:cfprBiosVfBootOptionRetryInstanceId,'cfprBiosVfBootOptionRetryDn':cfprBiosVfBootOptionRetryDn,'cfprBiosVfBootOptionRetryRn':cfprBiosVfBootOptionRetryRn,'cfprBiosVfBootOptionRetryVpBootOptionRetry':cfprBiosVfBootOptionRetryVpBootOptionRetry,'cfprBiosVfBootOptionRetrySupportedByDefault':cfprBiosVfBootOptionRetrySupportedByDefault,'cfprBiosVfCPUPerformanceTable':cfprBiosVfCPUPerformanceTable,'cfprBiosVfCPUPerformanceEntry':cfprBiosVfCPUPerformanceEntry,_V:cfprBiosVfCPUPerformanceInstanceId,'cfprBiosVfCPUPerformanceDn':cfprBiosVfCPUPerformanceDn,'cfprBiosVfCPUPerformanceRn':cfprBiosVfCPUPerformanceRn,'cfprBiosVfCPUPerformanceVpCPUPerformance':cfprBiosVfCPUPerformanceVpCPUPerformance,'cfprBiosVfCPUPerformanceSupportedByDefault':cfprBiosVfCPUPerformanceSupportedByDefault,'cfprBiosVfConsoleRedirectionTable':cfprBiosVfConsoleRedirectionTable,'cfprBiosVfConsoleRedirectionEntry':cfprBiosVfConsoleRedirectionEntry,_W:cfprBiosVfConsoleRedirectionInstanceId,'cfprBiosVfConsoleRedirectionDn':cfprBiosVfConsoleRedirectionDn,'cfprBiosVfConsoleRedirectionRn':cfprBiosVfConsoleRedirectionRn,'cfprBiosVfConsoleRedirectionVpBaudRate':cfprBiosVfConsoleRedirectionVpBaudRate,'cfprBiosVfConsoleRedirectionVpConsoleRedirection':cfprBiosVfConsoleRedirectionVpConsoleRedirection,'cfprBiosVfConsoleRedirectionVpFlowControl':cfprBiosVfConsoleRedirectionVpFlowControl,'cfprBiosVfConsoleRedirectionVpLegacyOSRedirection':cfprBiosVfConsoleRedirectionVpLegacyOSRedirection,'cfprBiosVfConsoleRedirectionVpPuttyKeyPad':cfprBiosVfConsoleRedirectionVpPuttyKeyPad,'cfprBiosVfConsoleRedirectionVpTerminalType':cfprBiosVfConsoleRedirectionVpTerminalType,'cfprBiosVfConsoleRedirectionSupportedByDefault':cfprBiosVfConsoleRedirectionSupportedByDefault,'cfprBiosVfCoreMultiProcessingTable':cfprBiosVfCoreMultiProcessingTable,'cfprBiosVfCoreMultiProcessingEntry':cfprBiosVfCoreMultiProcessingEntry,_X:cfprBiosVfCoreMultiProcessingInstanceId,'cfprBiosVfCoreMultiProcessingDn':cfprBiosVfCoreMultiProcessingDn,'cfprBiosVfCoreMultiProcessingRn':cfprBiosVfCoreMultiProcessingRn,'cfprBiosVfCoreMultiProcessingVpCoreMultiProcessing':cfprBiosVfCoreMultiProcessingVpCoreMultiProcessing,'cfprBiosVfCoreMultiProcessingSupportedByDefault':cfprBiosVfCoreMultiProcessingSupportedByDefault,'cfprBiosVfDRAMClockThrottlingTable':cfprBiosVfDRAMClockThrottlingTable,'cfprBiosVfDRAMClockThrottlingEntry':cfprBiosVfDRAMClockThrottlingEntry,_Y:cfprBiosVfDRAMClockThrottlingInstanceId,'cfprBiosVfDRAMClockThrottlingDn':cfprBiosVfDRAMClockThrottlingDn,'cfprBiosVfDRAMClockThrottlingRn':cfprBiosVfDRAMClockThrottlingRn,'cfprBiosVfDRAMClockThrottlingVpDRAMClockThrottling':cfprBiosVfDRAMClockThrottlingVpDRAMClockThrottling,'cfprBiosVfDRAMClockThrottlingSupportedByDefault':cfprBiosVfDRAMClockThrottlingSupportedByDefault,'cfprBiosVfDirectCacheAccessTable':cfprBiosVfDirectCacheAccessTable,'cfprBiosVfDirectCacheAccessEntry':cfprBiosVfDirectCacheAccessEntry,_Z:cfprBiosVfDirectCacheAccessInstanceId,'cfprBiosVfDirectCacheAccessDn':cfprBiosVfDirectCacheAccessDn,'cfprBiosVfDirectCacheAccessRn':cfprBiosVfDirectCacheAccessRn,'cfprBiosVfDirectCacheAccessVpDirectCacheAccess':cfprBiosVfDirectCacheAccessVpDirectCacheAccess,'cfprBiosVfDirectCacheAccessSupportedByDefault':cfprBiosVfDirectCacheAccessSupportedByDefault,'cfprBiosVfDramRefreshRateTable':cfprBiosVfDramRefreshRateTable,'cfprBiosVfDramRefreshRateEntry':cfprBiosVfDramRefreshRateEntry,_a:cfprBiosVfDramRefreshRateInstanceId,'cfprBiosVfDramRefreshRateDn':cfprBiosVfDramRefreshRateDn,'cfprBiosVfDramRefreshRateRn':cfprBiosVfDramRefreshRateRn,'cfprBiosVfDramRefreshRateVpDramRefreshRate':cfprBiosVfDramRefreshRateVpDramRefreshRate,'cfprBiosVfDramRefreshRateSupportedByDefault':cfprBiosVfDramRefreshRateSupportedByDefault,'cfprBiosVfEnhancedIntelSpeedStepTechTable':cfprBiosVfEnhancedIntelSpeedStepTechTable,'cfprBiosVfEnhancedIntelSpeedStepTechEntry':cfprBiosVfEnhancedIntelSpeedStepTechEntry,_b:cfprBiosVfEnhancedIntelSpeedStepTechInstanceId,'cfprBiosVfEnhancedIntelSpeedStepTechDn':cfprBiosVfEnhancedIntelSpeedStepTechDn,'cfprBiosVfEnhancedIntelSpeedStepTechRn':cfprBiosVfEnhancedIntelSpeedStepTechRn,'cfprBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech':cfprBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech,'cfprBiosVfEnhancedIntelSpeedStepTechSupportedByDefault':cfprBiosVfEnhancedIntelSpeedStepTechSupportedByDefault,'cfprBiosVfExecuteDisableBitTable':cfprBiosVfExecuteDisableBitTable,'cfprBiosVfExecuteDisableBitEntry':cfprBiosVfExecuteDisableBitEntry,_c:cfprBiosVfExecuteDisableBitInstanceId,'cfprBiosVfExecuteDisableBitDn':cfprBiosVfExecuteDisableBitDn,'cfprBiosVfExecuteDisableBitRn':cfprBiosVfExecuteDisableBitRn,'cfprBiosVfExecuteDisableBitVpExecuteDisableBit':cfprBiosVfExecuteDisableBitVpExecuteDisableBit,'cfprBiosVfExecuteDisableBitSupportedByDefault':cfprBiosVfExecuteDisableBitSupportedByDefault,'cfprBiosVfFRB2TimerTable':cfprBiosVfFRB2TimerTable,'cfprBiosVfFRB2TimerEntry':cfprBiosVfFRB2TimerEntry,_d:cfprBiosVfFRB2TimerInstanceId,'cfprBiosVfFRB2TimerDn':cfprBiosVfFRB2TimerDn,'cfprBiosVfFRB2TimerRn':cfprBiosVfFRB2TimerRn,'cfprBiosVfFRB2TimerVpFRB2Timer':cfprBiosVfFRB2TimerVpFRB2Timer,'cfprBiosVfFRB2TimerSupportedByDefault':cfprBiosVfFRB2TimerSupportedByDefault,'cfprBiosVfFrequencyFloorOverrideTable':cfprBiosVfFrequencyFloorOverrideTable,'cfprBiosVfFrequencyFloorOverrideEntry':cfprBiosVfFrequencyFloorOverrideEntry,_e:cfprBiosVfFrequencyFloorOverrideInstanceId,'cfprBiosVfFrequencyFloorOverrideDn':cfprBiosVfFrequencyFloorOverrideDn,'cfprBiosVfFrequencyFloorOverrideRn':cfprBiosVfFrequencyFloorOverrideRn,'cfprBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride':cfprBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride,'cfprBiosVfFrequencyFloorOverrideSupportedByDefault':cfprBiosVfFrequencyFloorOverrideSupportedByDefault,'cfprBiosVfFrontPanelLockoutTable':cfprBiosVfFrontPanelLockoutTable,'cfprBiosVfFrontPanelLockoutEntry':cfprBiosVfFrontPanelLockoutEntry,_f:cfprBiosVfFrontPanelLockoutInstanceId,'cfprBiosVfFrontPanelLockoutDn':cfprBiosVfFrontPanelLockoutDn,'cfprBiosVfFrontPanelLockoutRn':cfprBiosVfFrontPanelLockoutRn,'cfprBiosVfFrontPanelLockoutVpFrontPanelLockout':cfprBiosVfFrontPanelLockoutVpFrontPanelLockout,'cfprBiosVfFrontPanelLockoutSupportedByDefault':cfprBiosVfFrontPanelLockoutSupportedByDefault,'cfprBiosVfIntelEntrySASRAIDModuleTable':cfprBiosVfIntelEntrySASRAIDModuleTable,'cfprBiosVfIntelEntrySASRAIDModuleEntry':cfprBiosVfIntelEntrySASRAIDModuleEntry,_g:cfprBiosVfIntelEntrySASRAIDModuleInstanceId,'cfprBiosVfIntelEntrySASRAIDModuleDn':cfprBiosVfIntelEntrySASRAIDModuleDn,'cfprBiosVfIntelEntrySASRAIDModuleRn':cfprBiosVfIntelEntrySASRAIDModuleRn,'cfprBiosVfIntelEntrySASRAIDModuleVpSASRAID':cfprBiosVfIntelEntrySASRAIDModuleVpSASRAID,'cfprBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule':cfprBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule,'cfprBiosVfIntelEntrySASRAIDModuleSupportedByDefault':cfprBiosVfIntelEntrySASRAIDModuleSupportedByDefault,'cfprBiosVfIntelHyperThreadingTechTable':cfprBiosVfIntelHyperThreadingTechTable,'cfprBiosVfIntelHyperThreadingTechEntry':cfprBiosVfIntelHyperThreadingTechEntry,_h:cfprBiosVfIntelHyperThreadingTechInstanceId,'cfprBiosVfIntelHyperThreadingTechDn':cfprBiosVfIntelHyperThreadingTechDn,'cfprBiosVfIntelHyperThreadingTechRn':cfprBiosVfIntelHyperThreadingTechRn,'cfprBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech':cfprBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech,'cfprBiosVfIntelHyperThreadingTechSupportedByDefault':cfprBiosVfIntelHyperThreadingTechSupportedByDefault,'cfprBiosVfIntelTurboBoostTechTable':cfprBiosVfIntelTurboBoostTechTable,'cfprBiosVfIntelTurboBoostTechEntry':cfprBiosVfIntelTurboBoostTechEntry,_i:cfprBiosVfIntelTurboBoostTechInstanceId,'cfprBiosVfIntelTurboBoostTechDn':cfprBiosVfIntelTurboBoostTechDn,'cfprBiosVfIntelTurboBoostTechRn':cfprBiosVfIntelTurboBoostTechRn,'cfprBiosVfIntelTurboBoostTechVpIntelTurboBoostTech':cfprBiosVfIntelTurboBoostTechVpIntelTurboBoostTech,'cfprBiosVfIntelTurboBoostTechSupportedByDefault':cfprBiosVfIntelTurboBoostTechSupportedByDefault,'cfprBiosVfIntelVTForDirectedIOTable':cfprBiosVfIntelVTForDirectedIOTable,'cfprBiosVfIntelVTForDirectedIOEntry':cfprBiosVfIntelVTForDirectedIOEntry,_j:cfprBiosVfIntelVTForDirectedIOInstanceId,'cfprBiosVfIntelVTForDirectedIODn':cfprBiosVfIntelVTForDirectedIODn,'cfprBiosVfIntelVTForDirectedIORn':cfprBiosVfIntelVTForDirectedIORn,'cfprBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport':cfprBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport,'cfprBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport':cfprBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport,'cfprBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping':cfprBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping,'cfprBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport':cfprBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport,'cfprBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO':cfprBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO,'cfprBiosVfIntelVTForDirectedIOSupportedByDefault':cfprBiosVfIntelVTForDirectedIOSupportedByDefault,'cfprBiosVfIntelVirtualizationTechnologyTable':cfprBiosVfIntelVirtualizationTechnologyTable,'cfprBiosVfIntelVirtualizationTechnologyEntry':cfprBiosVfIntelVirtualizationTechnologyEntry,_k:cfprBiosVfIntelVirtualizationTechnologyInstanceId,'cfprBiosVfIntelVirtualizationTechnologyDn':cfprBiosVfIntelVirtualizationTechnologyDn,'cfprBiosVfIntelVirtualizationTechnologyRn':cfprBiosVfIntelVirtualizationTechnologyRn,'cfprBiosVfIntelVirtualizationTechnologyVpIntelVirtualizationTechnology':cfprBiosVfIntelVirtualizationTechnologyVpIntelVirtualizationTechnology,'cfprBiosVfIntelVirtualizationTechnologySupportedByDefault':cfprBiosVfIntelVirtualizationTechnologySupportedByDefault,'cfprBiosVfInterleaveConfigurationTable':cfprBiosVfInterleaveConfigurationTable,'cfprBiosVfInterleaveConfigurationEntry':cfprBiosVfInterleaveConfigurationEntry,_l:cfprBiosVfInterleaveConfigurationInstanceId,'cfprBiosVfInterleaveConfigurationDn':cfprBiosVfInterleaveConfigurationDn,'cfprBiosVfInterleaveConfigurationRn':cfprBiosVfInterleaveConfigurationRn,'cfprBiosVfInterleaveConfigurationVpChannelInterleaving':cfprBiosVfInterleaveConfigurationVpChannelInterleaving,'cfprBiosVfInterleaveConfigurationVpMemoryInterleaving':cfprBiosVfInterleaveConfigurationVpMemoryInterleaving,'cfprBiosVfInterleaveConfigurationVpRankInterleaving':cfprBiosVfInterleaveConfigurationVpRankInterleaving,'cfprBiosVfInterleaveConfigurationSupportedByDefault':cfprBiosVfInterleaveConfigurationSupportedByDefault,'cfprBiosVfLocalX2ApicTable':cfprBiosVfLocalX2ApicTable,'cfprBiosVfLocalX2ApicEntry':cfprBiosVfLocalX2ApicEntry,_m:cfprBiosVfLocalX2ApicInstanceId,'cfprBiosVfLocalX2ApicDn':cfprBiosVfLocalX2ApicDn,'cfprBiosVfLocalX2ApicRn':cfprBiosVfLocalX2ApicRn,'cfprBiosVfLocalX2ApicVpLocalX2Apic':cfprBiosVfLocalX2ApicVpLocalX2Apic,'cfprBiosVfLocalX2ApicSupportedByDefault':cfprBiosVfLocalX2ApicSupportedByDefault,'cfprBiosVfLvDIMMSupportTable':cfprBiosVfLvDIMMSupportTable,'cfprBiosVfLvDIMMSupportEntry':cfprBiosVfLvDIMMSupportEntry,_n:cfprBiosVfLvDIMMSupportInstanceId,'cfprBiosVfLvDIMMSupportDn':cfprBiosVfLvDIMMSupportDn,'cfprBiosVfLvDIMMSupportRn':cfprBiosVfLvDIMMSupportRn,'cfprBiosVfLvDIMMSupportVpLvDDRMode':cfprBiosVfLvDIMMSupportVpLvDDRMode,'cfprBiosVfLvDIMMSupportSupportedByDefault':cfprBiosVfLvDIMMSupportSupportedByDefault,'cfprBiosVfMaxVariableMTRRSettingTable':cfprBiosVfMaxVariableMTRRSettingTable,'cfprBiosVfMaxVariableMTRRSettingEntry':cfprBiosVfMaxVariableMTRRSettingEntry,_o:cfprBiosVfMaxVariableMTRRSettingInstanceId,'cfprBiosVfMaxVariableMTRRSettingDn':cfprBiosVfMaxVariableMTRRSettingDn,'cfprBiosVfMaxVariableMTRRSettingRn':cfprBiosVfMaxVariableMTRRSettingRn,'cfprBiosVfMaxVariableMTRRSettingVpProcessorMtrr':cfprBiosVfMaxVariableMTRRSettingVpProcessorMtrr,'cfprBiosVfMaxVariableMTRRSettingSupportedByDefault':cfprBiosVfMaxVariableMTRRSettingSupportedByDefault,'cfprBiosVfMaximumMemoryBelow4GBTable':cfprBiosVfMaximumMemoryBelow4GBTable,'cfprBiosVfMaximumMemoryBelow4GBEntry':cfprBiosVfMaximumMemoryBelow4GBEntry,_p:cfprBiosVfMaximumMemoryBelow4GBInstanceId,'cfprBiosVfMaximumMemoryBelow4GBDn':cfprBiosVfMaximumMemoryBelow4GBDn,'cfprBiosVfMaximumMemoryBelow4GBRn':cfprBiosVfMaximumMemoryBelow4GBRn,'cfprBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB':cfprBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB,'cfprBiosVfMaximumMemoryBelow4GBSupportedByDefault':cfprBiosVfMaximumMemoryBelow4GBSupportedByDefault,'cfprBiosVfMemoryMappedIOAbove4GBTable':cfprBiosVfMemoryMappedIOAbove4GBTable,'cfprBiosVfMemoryMappedIOAbove4GBEntry':cfprBiosVfMemoryMappedIOAbove4GBEntry,_q:cfprBiosVfMemoryMappedIOAbove4GBInstanceId,'cfprBiosVfMemoryMappedIOAbove4GBDn':cfprBiosVfMemoryMappedIOAbove4GBDn,'cfprBiosVfMemoryMappedIOAbove4GBRn':cfprBiosVfMemoryMappedIOAbove4GBRn,'cfprBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB':cfprBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB,'cfprBiosVfMemoryMappedIOAbove4GBSupportedByDefault':cfprBiosVfMemoryMappedIOAbove4GBSupportedByDefault,'cfprBiosVfMirroringModeTable':cfprBiosVfMirroringModeTable,'cfprBiosVfMirroringModeEntry':cfprBiosVfMirroringModeEntry,_r:cfprBiosVfMirroringModeInstanceId,'cfprBiosVfMirroringModeDn':cfprBiosVfMirroringModeDn,'cfprBiosVfMirroringModeRn':cfprBiosVfMirroringModeRn,'cfprBiosVfMirroringModeVpMirroringMode':cfprBiosVfMirroringModeVpMirroringMode,'cfprBiosVfMirroringModeSupportedByDefault':cfprBiosVfMirroringModeSupportedByDefault,'cfprBiosVfNUMAOptimizedTable':cfprBiosVfNUMAOptimizedTable,'cfprBiosVfNUMAOptimizedEntry':cfprBiosVfNUMAOptimizedEntry,_s:cfprBiosVfNUMAOptimizedInstanceId,'cfprBiosVfNUMAOptimizedDn':cfprBiosVfNUMAOptimizedDn,'cfprBiosVfNUMAOptimizedRn':cfprBiosVfNUMAOptimizedRn,'cfprBiosVfNUMAOptimizedVpNUMAOptimized':cfprBiosVfNUMAOptimizedVpNUMAOptimized,'cfprBiosVfNUMAOptimizedSupportedByDefault':cfprBiosVfNUMAOptimizedSupportedByDefault,'cfprBiosVfOSBootWatchdogTimerTable':cfprBiosVfOSBootWatchdogTimerTable,'cfprBiosVfOSBootWatchdogTimerEntry':cfprBiosVfOSBootWatchdogTimerEntry,_t:cfprBiosVfOSBootWatchdogTimerInstanceId,'cfprBiosVfOSBootWatchdogTimerDn':cfprBiosVfOSBootWatchdogTimerDn,'cfprBiosVfOSBootWatchdogTimerRn':cfprBiosVfOSBootWatchdogTimerRn,'cfprBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer':cfprBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer,'cfprBiosVfOSBootWatchdogTimerSupportedByDefault':cfprBiosVfOSBootWatchdogTimerSupportedByDefault,'cfprBiosVfOSBootWatchdogTimerPolicyTable':cfprBiosVfOSBootWatchdogTimerPolicyTable,'cfprBiosVfOSBootWatchdogTimerPolicyEntry':cfprBiosVfOSBootWatchdogTimerPolicyEntry,_u:cfprBiosVfOSBootWatchdogTimerPolicyInstanceId,'cfprBiosVfOSBootWatchdogTimerPolicyDn':cfprBiosVfOSBootWatchdogTimerPolicyDn,'cfprBiosVfOSBootWatchdogTimerPolicyRn':cfprBiosVfOSBootWatchdogTimerPolicyRn,'cfprBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy':cfprBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy,'cfprBiosVfOSBootWatchdogTimerPolicySupportedByDefault':cfprBiosVfOSBootWatchdogTimerPolicySupportedByDefault,'cfprBiosVfOSBootWatchdogTimerTimeoutTable':cfprBiosVfOSBootWatchdogTimerTimeoutTable,'cfprBiosVfOSBootWatchdogTimerTimeoutEntry':cfprBiosVfOSBootWatchdogTimerTimeoutEntry,_v:cfprBiosVfOSBootWatchdogTimerTimeoutInstanceId,'cfprBiosVfOSBootWatchdogTimerTimeoutDn':cfprBiosVfOSBootWatchdogTimerTimeoutDn,'cfprBiosVfOSBootWatchdogTimerTimeoutRn':cfprBiosVfOSBootWatchdogTimerTimeoutRn,'cfprBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout':cfprBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout,'cfprBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault':cfprBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault,'cfprBiosVfOnboardSATAControllerTable':cfprBiosVfOnboardSATAControllerTable,'cfprBiosVfOnboardSATAControllerEntry':cfprBiosVfOnboardSATAControllerEntry,_w:cfprBiosVfOnboardSATAControllerInstanceId,'cfprBiosVfOnboardSATAControllerDn':cfprBiosVfOnboardSATAControllerDn,'cfprBiosVfOnboardSATAControllerRn':cfprBiosVfOnboardSATAControllerRn,'cfprBiosVfOnboardSATAControllerVpOnboardSATAController':cfprBiosVfOnboardSATAControllerVpOnboardSATAController,'cfprBiosVfOnboardSATAControllerVpSATAMode':cfprBiosVfOnboardSATAControllerVpSATAMode,'cfprBiosVfOnboardSATAControllerSupportedByDefault':cfprBiosVfOnboardSATAControllerSupportedByDefault,'cfprBiosVfOnboardStorageTable':cfprBiosVfOnboardStorageTable,'cfprBiosVfOnboardStorageEntry':cfprBiosVfOnboardStorageEntry,_x:cfprBiosVfOnboardStorageInstanceId,'cfprBiosVfOnboardStorageDn':cfprBiosVfOnboardStorageDn,'cfprBiosVfOnboardStorageRn':cfprBiosVfOnboardStorageRn,'cfprBiosVfOnboardStorageVpOnboardSCUStorageSupport':cfprBiosVfOnboardStorageVpOnboardSCUStorageSupport,'cfprBiosVfOnboardStorageSupportedByDefault':cfprBiosVfOnboardStorageSupportedByDefault,'cfprBiosVfOptionROMEnableTable':cfprBiosVfOptionROMEnableTable,'cfprBiosVfOptionROMEnableEntry':cfprBiosVfOptionROMEnableEntry,_y:cfprBiosVfOptionROMEnableInstanceId,'cfprBiosVfOptionROMEnableDn':cfprBiosVfOptionROMEnableDn,'cfprBiosVfOptionROMEnableRn':cfprBiosVfOptionROMEnableRn,'cfprBiosVfOptionROMEnableVpState':cfprBiosVfOptionROMEnableVpState,'cfprBiosVfOptionROMEnableSupportedByDefault':cfprBiosVfOptionROMEnableSupportedByDefault,'cfprBiosVfOptionROMLoadTable':cfprBiosVfOptionROMLoadTable,'cfprBiosVfOptionROMLoadEntry':cfprBiosVfOptionROMLoadEntry,_z:cfprBiosVfOptionROMLoadInstanceId,'cfprBiosVfOptionROMLoadDn':cfprBiosVfOptionROMLoadDn,'cfprBiosVfOptionROMLoadRn':cfprBiosVfOptionROMLoadRn,'cfprBiosVfOptionROMLoadVpLoad':cfprBiosVfOptionROMLoadVpLoad,'cfprBiosVfOptionROMLoadSupportedByDefault':cfprBiosVfOptionROMLoadSupportedByDefault,'cfprBiosVfPCISlotLinkSpeedTable':cfprBiosVfPCISlotLinkSpeedTable,'cfprBiosVfPCISlotLinkSpeedEntry':cfprBiosVfPCISlotLinkSpeedEntry,_A0:cfprBiosVfPCISlotLinkSpeedInstanceId,'cfprBiosVfPCISlotLinkSpeedDn':cfprBiosVfPCISlotLinkSpeedDn,'cfprBiosVfPCISlotLinkSpeedRn':cfprBiosVfPCISlotLinkSpeedRn,'cfprBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed':cfprBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed,'cfprBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed':cfprBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed,'cfprBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed':cfprBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed,'cfprBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed':cfprBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed,'cfprBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed':cfprBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed,'cfprBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed':cfprBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed,'cfprBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed':cfprBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed,'cfprBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed':cfprBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed,'cfprBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed':cfprBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed,'cfprBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed':cfprBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed,'cfprBiosVfPCISlotLinkSpeedSupportedByDefault':cfprBiosVfPCISlotLinkSpeedSupportedByDefault,'cfprBiosVfPCISlotOptionROMEnableTable':cfprBiosVfPCISlotOptionROMEnableTable,'cfprBiosVfPCISlotOptionROMEnableEntry':cfprBiosVfPCISlotOptionROMEnableEntry,_A1:cfprBiosVfPCISlotOptionROMEnableInstanceId,'cfprBiosVfPCISlotOptionROMEnableDn':cfprBiosVfPCISlotOptionROMEnableDn,'cfprBiosVfPCISlotOptionROMEnableRn':cfprBiosVfPCISlotOptionROMEnableRn,'cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM':cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM,'cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM':cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM,'cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM':cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM,'cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM':cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM,'cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM':cfprBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM,'cfprBiosVfPCISlotOptionROMEnableVpSlot10State':cfprBiosVfPCISlotOptionROMEnableVpSlot10State,'cfprBiosVfPCISlotOptionROMEnableVpSlot1State':cfprBiosVfPCISlotOptionROMEnableVpSlot1State,'cfprBiosVfPCISlotOptionROMEnableVpSlot2State':cfprBiosVfPCISlotOptionROMEnableVpSlot2State,'cfprBiosVfPCISlotOptionROMEnableVpSlot3State':cfprBiosVfPCISlotOptionROMEnableVpSlot3State,'cfprBiosVfPCISlotOptionROMEnableVpSlot4State':cfprBiosVfPCISlotOptionROMEnableVpSlot4State,'cfprBiosVfPCISlotOptionROMEnableVpSlot5State':cfprBiosVfPCISlotOptionROMEnableVpSlot5State,'cfprBiosVfPCISlotOptionROMEnableVpSlot6State':cfprBiosVfPCISlotOptionROMEnableVpSlot6State,'cfprBiosVfPCISlotOptionROMEnableVpSlot7State':cfprBiosVfPCISlotOptionROMEnableVpSlot7State,'cfprBiosVfPCISlotOptionROMEnableVpSlot8State':cfprBiosVfPCISlotOptionROMEnableVpSlot8State,'cfprBiosVfPCISlotOptionROMEnableVpSlot9State':cfprBiosVfPCISlotOptionROMEnableVpSlot9State,'cfprBiosVfPCISlotOptionROMEnableVpSlotMezzState':cfprBiosVfPCISlotOptionROMEnableVpSlotMezzState,'cfprBiosVfPCISlotOptionROMEnableSupportedByDefault':cfprBiosVfPCISlotOptionROMEnableSupportedByDefault,'cfprBiosVfPOSTErrorPauseTable':cfprBiosVfPOSTErrorPauseTable,'cfprBiosVfPOSTErrorPauseEntry':cfprBiosVfPOSTErrorPauseEntry,_A2:cfprBiosVfPOSTErrorPauseInstanceId,'cfprBiosVfPOSTErrorPauseDn':cfprBiosVfPOSTErrorPauseDn,'cfprBiosVfPOSTErrorPauseRn':cfprBiosVfPOSTErrorPauseRn,'cfprBiosVfPOSTErrorPauseVpPOSTErrorPause':cfprBiosVfPOSTErrorPauseVpPOSTErrorPause,'cfprBiosVfPOSTErrorPauseSupportedByDefault':cfprBiosVfPOSTErrorPauseSupportedByDefault,'cfprBiosVfPSTATECoordinationTable':cfprBiosVfPSTATECoordinationTable,'cfprBiosVfPSTATECoordinationEntry':cfprBiosVfPSTATECoordinationEntry,_A3:cfprBiosVfPSTATECoordinationInstanceId,'cfprBiosVfPSTATECoordinationDn':cfprBiosVfPSTATECoordinationDn,'cfprBiosVfPSTATECoordinationRn':cfprBiosVfPSTATECoordinationRn,'cfprBiosVfPSTATECoordinationVpPSTATECoordination':cfprBiosVfPSTATECoordinationVpPSTATECoordination,'cfprBiosVfPSTATECoordinationSupportedByDefault':cfprBiosVfPSTATECoordinationSupportedByDefault,'cfprBiosVfPackageCStateLimitTable':cfprBiosVfPackageCStateLimitTable,'cfprBiosVfPackageCStateLimitEntry':cfprBiosVfPackageCStateLimitEntry,_A4:cfprBiosVfPackageCStateLimitInstanceId,'cfprBiosVfPackageCStateLimitDn':cfprBiosVfPackageCStateLimitDn,'cfprBiosVfPackageCStateLimitRn':cfprBiosVfPackageCStateLimitRn,'cfprBiosVfPackageCStateLimitVpPackageCStateLimit':cfprBiosVfPackageCStateLimitVpPackageCStateLimit,'cfprBiosVfPackageCStateLimitSupportedByDefault':cfprBiosVfPackageCStateLimitSupportedByDefault,'cfprBiosVfProcessorC1ETable':cfprBiosVfProcessorC1ETable,'cfprBiosVfProcessorC1EEntry':cfprBiosVfProcessorC1EEntry,_A5:cfprBiosVfProcessorC1EInstanceId,'cfprBiosVfProcessorC1EDn':cfprBiosVfProcessorC1EDn,'cfprBiosVfProcessorC1ERn':cfprBiosVfProcessorC1ERn,'cfprBiosVfProcessorC1EVpProcessorC1E':cfprBiosVfProcessorC1EVpProcessorC1E,'cfprBiosVfProcessorC1ESupportedByDefault':cfprBiosVfProcessorC1ESupportedByDefault,'cfprBiosVfProcessorC3ReportTable':cfprBiosVfProcessorC3ReportTable,'cfprBiosVfProcessorC3ReportEntry':cfprBiosVfProcessorC3ReportEntry,_A6:cfprBiosVfProcessorC3ReportInstanceId,'cfprBiosVfProcessorC3ReportDn':cfprBiosVfProcessorC3ReportDn,'cfprBiosVfProcessorC3ReportRn':cfprBiosVfProcessorC3ReportRn,'cfprBiosVfProcessorC3ReportVpProcessorC3Report':cfprBiosVfProcessorC3ReportVpProcessorC3Report,'cfprBiosVfProcessorC3ReportSupportedByDefault':cfprBiosVfProcessorC3ReportSupportedByDefault,'cfprBiosVfProcessorC6ReportTable':cfprBiosVfProcessorC6ReportTable,'cfprBiosVfProcessorC6ReportEntry':cfprBiosVfProcessorC6ReportEntry,_A7:cfprBiosVfProcessorC6ReportInstanceId,'cfprBiosVfProcessorC6ReportDn':cfprBiosVfProcessorC6ReportDn,'cfprBiosVfProcessorC6ReportRn':cfprBiosVfProcessorC6ReportRn,'cfprBiosVfProcessorC6ReportVpProcessorC6Report':cfprBiosVfProcessorC6ReportVpProcessorC6Report,'cfprBiosVfProcessorC6ReportSupportedByDefault':cfprBiosVfProcessorC6ReportSupportedByDefault,'cfprBiosVfProcessorC7ReportTable':cfprBiosVfProcessorC7ReportTable,'cfprBiosVfProcessorC7ReportEntry':cfprBiosVfProcessorC7ReportEntry,_A8:cfprBiosVfProcessorC7ReportInstanceId,'cfprBiosVfProcessorC7ReportDn':cfprBiosVfProcessorC7ReportDn,'cfprBiosVfProcessorC7ReportRn':cfprBiosVfProcessorC7ReportRn,'cfprBiosVfProcessorC7ReportVpProcessorC7Report':cfprBiosVfProcessorC7ReportVpProcessorC7Report,'cfprBiosVfProcessorC7ReportSupportedByDefault':cfprBiosVfProcessorC7ReportSupportedByDefault,'cfprBiosVfProcessorCStateTable':cfprBiosVfProcessorCStateTable,'cfprBiosVfProcessorCStateEntry':cfprBiosVfProcessorCStateEntry,_A9:cfprBiosVfProcessorCStateInstanceId,'cfprBiosVfProcessorCStateDn':cfprBiosVfProcessorCStateDn,'cfprBiosVfProcessorCStateRn':cfprBiosVfProcessorCStateRn,'cfprBiosVfProcessorCStateVpProcessorCState':cfprBiosVfProcessorCStateVpProcessorCState,'cfprBiosVfProcessorCStateSupportedByDefault':cfprBiosVfProcessorCStateSupportedByDefault,'cfprBiosVfProcessorEnergyConfigurationTable':cfprBiosVfProcessorEnergyConfigurationTable,'cfprBiosVfProcessorEnergyConfigurationEntry':cfprBiosVfProcessorEnergyConfigurationEntry,_AA:cfprBiosVfProcessorEnergyConfigurationInstanceId,'cfprBiosVfProcessorEnergyConfigurationDn':cfprBiosVfProcessorEnergyConfigurationDn,'cfprBiosVfProcessorEnergyConfigurationRn':cfprBiosVfProcessorEnergyConfigurationRn,'cfprBiosVfProcessorEnergyConfigurationVpEnergyPerformance':cfprBiosVfProcessorEnergyConfigurationVpEnergyPerformance,'cfprBiosVfProcessorEnergyConfigurationVpPowerTechnology':cfprBiosVfProcessorEnergyConfigurationVpPowerTechnology,'cfprBiosVfProcessorEnergyConfigurationSupportedByDefault':cfprBiosVfProcessorEnergyConfigurationSupportedByDefault,'cfprBiosVfProcessorPrefetchConfigTable':cfprBiosVfProcessorPrefetchConfigTable,'cfprBiosVfProcessorPrefetchConfigEntry':cfprBiosVfProcessorPrefetchConfigEntry,_AB:cfprBiosVfProcessorPrefetchConfigInstanceId,'cfprBiosVfProcessorPrefetchConfigDn':cfprBiosVfProcessorPrefetchConfigDn,'cfprBiosVfProcessorPrefetchConfigRn':cfprBiosVfProcessorPrefetchConfigRn,'cfprBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher':cfprBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher,'cfprBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher':cfprBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher,'cfprBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch':cfprBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch,'cfprBiosVfProcessorPrefetchConfigVpHardwarePrefetcher':cfprBiosVfProcessorPrefetchConfigVpHardwarePrefetcher,'cfprBiosVfProcessorPrefetchConfigSupportedByDefault':cfprBiosVfProcessorPrefetchConfigSupportedByDefault,'cfprBiosVfQPILinkFrequencySelectTable':cfprBiosVfQPILinkFrequencySelectTable,'cfprBiosVfQPILinkFrequencySelectEntry':cfprBiosVfQPILinkFrequencySelectEntry,_AC:cfprBiosVfQPILinkFrequencySelectInstanceId,'cfprBiosVfQPILinkFrequencySelectDn':cfprBiosVfQPILinkFrequencySelectDn,'cfprBiosVfQPILinkFrequencySelectRn':cfprBiosVfQPILinkFrequencySelectRn,'cfprBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect':cfprBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect,'cfprBiosVfQPILinkFrequencySelectSupportedByDefault':cfprBiosVfQPILinkFrequencySelectSupportedByDefault,'cfprBiosVfQuietBootTable':cfprBiosVfQuietBootTable,'cfprBiosVfQuietBootEntry':cfprBiosVfQuietBootEntry,_AD:cfprBiosVfQuietBootInstanceId,'cfprBiosVfQuietBootDn':cfprBiosVfQuietBootDn,'cfprBiosVfQuietBootRn':cfprBiosVfQuietBootRn,'cfprBiosVfQuietBootVpQuietBoot':cfprBiosVfQuietBootVpQuietBoot,'cfprBiosVfQuietBootSupportedByDefault':cfprBiosVfQuietBootSupportedByDefault,'cfprBiosVfResumeOnACPowerLossTable':cfprBiosVfResumeOnACPowerLossTable,'cfprBiosVfResumeOnACPowerLossEntry':cfprBiosVfResumeOnACPowerLossEntry,_AE:cfprBiosVfResumeOnACPowerLossInstanceId,'cfprBiosVfResumeOnACPowerLossDn':cfprBiosVfResumeOnACPowerLossDn,'cfprBiosVfResumeOnACPowerLossRn':cfprBiosVfResumeOnACPowerLossRn,'cfprBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss':cfprBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss,'cfprBiosVfResumeOnACPowerLossSupportedByDefault':cfprBiosVfResumeOnACPowerLossSupportedByDefault,'cfprBiosVfScrubPoliciesTable':cfprBiosVfScrubPoliciesTable,'cfprBiosVfScrubPoliciesEntry':cfprBiosVfScrubPoliciesEntry,_AF:cfprBiosVfScrubPoliciesInstanceId,'cfprBiosVfScrubPoliciesDn':cfprBiosVfScrubPoliciesDn,'cfprBiosVfScrubPoliciesRn':cfprBiosVfScrubPoliciesRn,'cfprBiosVfScrubPoliciesVpDemandScrub':cfprBiosVfScrubPoliciesVpDemandScrub,'cfprBiosVfScrubPoliciesVpPatrolScrub':cfprBiosVfScrubPoliciesVpPatrolScrub,'cfprBiosVfScrubPoliciesSupportedByDefault':cfprBiosVfScrubPoliciesSupportedByDefault,'cfprBiosVfSelectMemoryRASConfigurationTable':cfprBiosVfSelectMemoryRASConfigurationTable,'cfprBiosVfSelectMemoryRASConfigurationEntry':cfprBiosVfSelectMemoryRASConfigurationEntry,_AG:cfprBiosVfSelectMemoryRASConfigurationInstanceId,'cfprBiosVfSelectMemoryRASConfigurationDn':cfprBiosVfSelectMemoryRASConfigurationDn,'cfprBiosVfSelectMemoryRASConfigurationRn':cfprBiosVfSelectMemoryRASConfigurationRn,'cfprBiosVfSelectMemoryRASConfigurationVpSelectMemoryRASConfiguration':cfprBiosVfSelectMemoryRASConfigurationVpSelectMemoryRASConfiguration,'cfprBiosVfSelectMemoryRASConfigurationSupportedByDefault':cfprBiosVfSelectMemoryRASConfigurationSupportedByDefault,'cfprBiosVfSerialPortAEnableTable':cfprBiosVfSerialPortAEnableTable,'cfprBiosVfSerialPortAEnableEntry':cfprBiosVfSerialPortAEnableEntry,_AH:cfprBiosVfSerialPortAEnableInstanceId,'cfprBiosVfSerialPortAEnableDn':cfprBiosVfSerialPortAEnableDn,'cfprBiosVfSerialPortAEnableRn':cfprBiosVfSerialPortAEnableRn,'cfprBiosVfSerialPortAEnableVpSerialPortAEnable':cfprBiosVfSerialPortAEnableVpSerialPortAEnable,'cfprBiosVfSerialPortAEnableSupportedByDefault':cfprBiosVfSerialPortAEnableSupportedByDefault,'cfprBiosVfSparingModeTable':cfprBiosVfSparingModeTable,'cfprBiosVfSparingModeEntry':cfprBiosVfSparingModeEntry,_AI:cfprBiosVfSparingModeInstanceId,'cfprBiosVfSparingModeDn':cfprBiosVfSparingModeDn,'cfprBiosVfSparingModeRn':cfprBiosVfSparingModeRn,'cfprBiosVfSparingModeVpSparingMode':cfprBiosVfSparingModeVpSparingMode,'cfprBiosVfSparingModeSupportedByDefault':cfprBiosVfSparingModeSupportedByDefault,'cfprBiosVfSriovConfigTable':cfprBiosVfSriovConfigTable,'cfprBiosVfSriovConfigEntry':cfprBiosVfSriovConfigEntry,_AJ:cfprBiosVfSriovConfigInstanceId,'cfprBiosVfSriovConfigDn':cfprBiosVfSriovConfigDn,'cfprBiosVfSriovConfigRn':cfprBiosVfSriovConfigRn,'cfprBiosVfSriovConfigVpSriov':cfprBiosVfSriovConfigVpSriov,'cfprBiosVfSriovConfigSupportedByDefault':cfprBiosVfSriovConfigSupportedByDefault,'cfprBiosVfTPMSupportTable':cfprBiosVfTPMSupportTable,'cfprBiosVfTPMSupportEntry':cfprBiosVfTPMSupportEntry,_AK:cfprBiosVfTPMSupportInstanceId,'cfprBiosVfTPMSupportDn':cfprBiosVfTPMSupportDn,'cfprBiosVfTPMSupportRn':cfprBiosVfTPMSupportRn,'cfprBiosVfTPMSupportVpTPMSupport':cfprBiosVfTPMSupportVpTPMSupport,'cfprBiosVfTPMSupportSupportedByDefault':cfprBiosVfTPMSupportSupportedByDefault,'cfprBiosVfFPRMBootModeControlTable':cfprBiosVfFPRMBootModeControlTable,'cfprBiosVfFPRMBootModeControlEntry':cfprBiosVfFPRMBootModeControlEntry,_AL:cfprBiosVfFPRMBootModeControlInstanceId,'cfprBiosVfFPRMBootModeControlDn':cfprBiosVfFPRMBootModeControlDn,'cfprBiosVfFPRMBootModeControlRn':cfprBiosVfFPRMBootModeControlRn,'cfprBiosVfFPRMBootModeControlVpUEFIBootMode':cfprBiosVfFPRMBootModeControlVpUEFIBootMode,'cfprBiosVfFPRMBootModeControlSupportedByDefault':cfprBiosVfFPRMBootModeControlSupportedByDefault,'cfprBiosVfFPRMBootOrderRuleControlTable':cfprBiosVfFPRMBootOrderRuleControlTable,'cfprBiosVfFPRMBootOrderRuleControlEntry':cfprBiosVfFPRMBootOrderRuleControlEntry,_AM:cfprBiosVfFPRMBootOrderRuleControlInstanceId,'cfprBiosVfFPRMBootOrderRuleControlDn':cfprBiosVfFPRMBootOrderRuleControlDn,'cfprBiosVfFPRMBootOrderRuleControlRn':cfprBiosVfFPRMBootOrderRuleControlRn,'cfprBiosVfFPRMBootOrderRuleControlVpFPRMBootOrderRule':cfprBiosVfFPRMBootOrderRuleControlVpFPRMBootOrderRule,'cfprBiosVfFPRMBootOrderRuleControlSupportedByDefault':cfprBiosVfFPRMBootOrderRuleControlSupportedByDefault,'cfprBiosVfUEFIOSUseLegacyVideoTable':cfprBiosVfUEFIOSUseLegacyVideoTable,'cfprBiosVfUEFIOSUseLegacyVideoEntry':cfprBiosVfUEFIOSUseLegacyVideoEntry,_AN:cfprBiosVfUEFIOSUseLegacyVideoInstanceId,'cfprBiosVfUEFIOSUseLegacyVideoDn':cfprBiosVfUEFIOSUseLegacyVideoDn,'cfprBiosVfUEFIOSUseLegacyVideoRn':cfprBiosVfUEFIOSUseLegacyVideoRn,'cfprBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo':cfprBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo,'cfprBiosVfUEFIOSUseLegacyVideoSupportedByDefault':cfprBiosVfUEFIOSUseLegacyVideoSupportedByDefault,'cfprBiosVfUSBBootConfigTable':cfprBiosVfUSBBootConfigTable,'cfprBiosVfUSBBootConfigEntry':cfprBiosVfUSBBootConfigEntry,_AO:cfprBiosVfUSBBootConfigInstanceId,'cfprBiosVfUSBBootConfigDn':cfprBiosVfUSBBootConfigDn,'cfprBiosVfUSBBootConfigRn':cfprBiosVfUSBBootConfigRn,'cfprBiosVfUSBBootConfigVpLegacyUSBSupport':cfprBiosVfUSBBootConfigVpLegacyUSBSupport,'cfprBiosVfUSBBootConfigVpMakeDeviceNonBootable':cfprBiosVfUSBBootConfigVpMakeDeviceNonBootable,'cfprBiosVfUSBBootConfigSupportedByDefault':cfprBiosVfUSBBootConfigSupportedByDefault,'cfprBiosVfUSBConfigurationTable':cfprBiosVfUSBConfigurationTable,'cfprBiosVfUSBConfigurationEntry':cfprBiosVfUSBConfigurationEntry,_AP:cfprBiosVfUSBConfigurationInstanceId,'cfprBiosVfUSBConfigurationDn':cfprBiosVfUSBConfigurationDn,'cfprBiosVfUSBConfigurationRn':cfprBiosVfUSBConfigurationRn,'cfprBiosVfUSBConfigurationVpLegacyUSBSupport':cfprBiosVfUSBConfigurationVpLegacyUSBSupport,'cfprBiosVfUSBConfigurationVpXHCIMode':cfprBiosVfUSBConfigurationVpXHCIMode,'cfprBiosVfUSBConfigurationSupportedByDefault':cfprBiosVfUSBConfigurationSupportedByDefault,'cfprBiosVfUSBFrontPanelAccessLockTable':cfprBiosVfUSBFrontPanelAccessLockTable,'cfprBiosVfUSBFrontPanelAccessLockEntry':cfprBiosVfUSBFrontPanelAccessLockEntry,_AQ:cfprBiosVfUSBFrontPanelAccessLockInstanceId,'cfprBiosVfUSBFrontPanelAccessLockDn':cfprBiosVfUSBFrontPanelAccessLockDn,'cfprBiosVfUSBFrontPanelAccessLockRn':cfprBiosVfUSBFrontPanelAccessLockRn,'cfprBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock':cfprBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock,'cfprBiosVfUSBFrontPanelAccessLockSupportedByDefault':cfprBiosVfUSBFrontPanelAccessLockSupportedByDefault,'cfprBiosVfUSBPortConfigurationTable':cfprBiosVfUSBPortConfigurationTable,'cfprBiosVfUSBPortConfigurationEntry':cfprBiosVfUSBPortConfigurationEntry,_AR:cfprBiosVfUSBPortConfigurationInstanceId,'cfprBiosVfUSBPortConfigurationDn':cfprBiosVfUSBPortConfigurationDn,'cfprBiosVfUSBPortConfigurationRn':cfprBiosVfUSBPortConfigurationRn,'cfprBiosVfUSBPortConfigurationVpPort6064Emulation':cfprBiosVfUSBPortConfigurationVpPort6064Emulation,'cfprBiosVfUSBPortConfigurationVpUSBPortFront':cfprBiosVfUSBPortConfigurationVpUSBPortFront,'cfprBiosVfUSBPortConfigurationVpUSBPortInternal':cfprBiosVfUSBPortConfigurationVpUSBPortInternal,'cfprBiosVfUSBPortConfigurationVpUSBPortKVM':cfprBiosVfUSBPortConfigurationVpUSBPortKVM,'cfprBiosVfUSBPortConfigurationVpUSBPortRear':cfprBiosVfUSBPortConfigurationVpUSBPortRear,'cfprBiosVfUSBPortConfigurationVpUSBPortSDCard':cfprBiosVfUSBPortConfigurationVpUSBPortSDCard,'cfprBiosVfUSBPortConfigurationVpUSBPortVMedia':cfprBiosVfUSBPortConfigurationVpUSBPortVMedia,'cfprBiosVfUSBPortConfigurationSupportedByDefault':cfprBiosVfUSBPortConfigurationSupportedByDefault,'cfprBiosVfUSBSystemIdlePowerOptimizingSettingTable':cfprBiosVfUSBSystemIdlePowerOptimizingSettingTable,'cfprBiosVfUSBSystemIdlePowerOptimizingSettingEntry':cfprBiosVfUSBSystemIdlePowerOptimizingSettingEntry,_AS:cfprBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId,'cfprBiosVfUSBSystemIdlePowerOptimizingSettingDn':cfprBiosVfUSBSystemIdlePowerOptimizingSettingDn,'cfprBiosVfUSBSystemIdlePowerOptimizingSettingRn':cfprBiosVfUSBSystemIdlePowerOptimizingSettingRn,'cfprBiosVfUSBSystemIdlePowerOptimizingSettingVpUSBIdlePowerOptimizing':cfprBiosVfUSBSystemIdlePowerOptimizingSettingVpUSBIdlePowerOptimizing,'cfprBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault':cfprBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault,'cfprBiosVfVGAPriorityTable':cfprBiosVfVGAPriorityTable,'cfprBiosVfVGAPriorityEntry':cfprBiosVfVGAPriorityEntry,_AT:cfprBiosVfVGAPriorityInstanceId,'cfprBiosVfVGAPriorityDn':cfprBiosVfVGAPriorityDn,'cfprBiosVfVGAPriorityRn':cfprBiosVfVGAPriorityRn,'cfprBiosVfVGAPriorityVpVGAPriority':cfprBiosVfVGAPriorityVpVGAPriority,'cfprBiosVfVGAPrioritySupportedByDefault':cfprBiosVfVGAPrioritySupportedByDefault,'cfprBiosTokenFeatureGroupTable':cfprBiosTokenFeatureGroupTable,'cfprBiosTokenFeatureGroupEntry':cfprBiosTokenFeatureGroupEntry,_AU:cfprBiosTokenFeatureGroupInstanceId,'cfprBiosTokenFeatureGroupDn':cfprBiosTokenFeatureGroupDn,'cfprBiosTokenFeatureGroupRn':cfprBiosTokenFeatureGroupRn,'cfprBiosTokenFeatureGroupName':cfprBiosTokenFeatureGroupName,'cfprBiosTokenFeatureGroupSupportedByDefault':cfprBiosTokenFeatureGroupSupportedByDefault,'cfprBiosTokenParamTable':cfprBiosTokenParamTable,'cfprBiosTokenParamEntry':cfprBiosTokenParamEntry,_AV:cfprBiosTokenParamInstanceId,'cfprBiosTokenParamDn':cfprBiosTokenParamDn,'cfprBiosTokenParamRn':cfprBiosTokenParamRn,'cfprBiosTokenParamLegacyPropId':cfprBiosTokenParamLegacyPropId,'cfprBiosTokenParamParamName':cfprBiosTokenParamParamName,'cfprBiosTokenParamTargetTokenName':cfprBiosTokenParamTargetTokenName,'cfprBiosTokenParamUiGroupName':cfprBiosTokenParamUiGroupName,'cfprBiosTokenSettingsTable':cfprBiosTokenSettingsTable,'cfprBiosTokenSettingsEntry':cfprBiosTokenSettingsEntry,_AW:cfprBiosTokenSettingsInstanceId,'cfprBiosTokenSettingsDn':cfprBiosTokenSettingsDn,'cfprBiosTokenSettingsRn':cfprBiosTokenSettingsRn,'cfprBiosTokenSettingsBiosRetSettingName':cfprBiosTokenSettingsBiosRetSettingName,'cfprBiosTokenSettingsIsAssigned':cfprBiosTokenSettingsIsAssigned,'cfprBiosTokenSettingsLegacyPropVal':cfprBiosTokenSettingsLegacyPropVal,'cfprBiosTokenSettingsSettingsMoRn':cfprBiosTokenSettingsSettingsMoRn,'cfprBiosTokenSettingsTargetTokenValue':cfprBiosTokenSettingsTargetTokenValue})

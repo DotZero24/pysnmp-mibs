@@ -1,192 +1,542 @@
-#
-# PySNMP MIB module DIAL-CONTROL-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/DIAL-CONTROL-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:07:23 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, OctetString, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
-( IANAifType, ) = mibBuilder.importSymbols("IANAifType-MIB", "IANAifType")
-( ifIndex, InterfaceIndex, ifOperStatus, InterfaceIndexOrZero, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex", "ifOperStatus", "InterfaceIndexOrZero")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( Counter64, IpAddress, Gauge32, MibIdentifier, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Integer32, iso, NotificationType, Counter32, TimeTicks, ObjectIdentity, transmission, ModuleIdentity, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "IpAddress", "Gauge32", "MibIdentifier", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Integer32", "iso", "NotificationType", "Counter32", "TimeTicks", "ObjectIdentity", "transmission", "ModuleIdentity")
-( RowStatus, TimeStamp, DisplayString, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TimeStamp", "DisplayString", "TextualConvention")
-dialControlMib = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 21))
-if mibBuilder.loadTexts: dialControlMib.setLastUpdated('9609231544Z')
-if mibBuilder.loadTexts: dialControlMib.setOrganization('IETF ISDN Working Group')
-if mibBuilder.loadTexts: dialControlMib.setContactInfo('        Guenter Roeck\n             Postal: cisco Systems\n                     170 West Tasman Drive\n                     San Jose, CA 95134\n                     U.S.A.\n             Phone:  +1 408 527 3143\n             E-mail: groeck@cisco.com')
-if mibBuilder.loadTexts: dialControlMib.setDescription('The MIB module to describe peer information for\n             demand access and possibly other kinds of interfaces.')
-class AbsoluteCounter32(Gauge32, TextualConvention):
-    pass
-
-dialControlMibObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 21, 1))
-dialCtlConfiguration = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 21, 1, 1))
-dialCtlAcceptMode = MibScalar((1, 3, 6, 1, 2, 1, 10, 21, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("acceptNone", 1), ("acceptAll", 2), ("acceptKnown", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dialCtlAcceptMode.setDescription('The security level for acceptance of incoming calls.\n             acceptNone(1)  - incoming calls will not be accepted\n             acceptAll(2)   - incoming calls will be accepted,\n                              even if there is no matching entry\n                              in the dialCtlPeerCfgTable\n             acceptKnown(3) - incoming calls will be accepted only\n                              if there is a matching entry in the\n                              dialCtlPeerCfgTable\n            ')
-dialCtlTrapEnable = MibScalar((1, 3, 6, 1, 2, 1, 10, 21, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),)).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dialCtlTrapEnable.setDescription('This object indicates whether dialCtlPeerCallInformation\n             and dialCtlPeerCallSetup traps should be generated for\n             all peers. If the value of this object is enabled(1),\n             traps will be generated for all peers. If the value\n             of this object is disabled(2), traps will be generated\n             only for peers having dialCtlPeerCfgTrapEnable set\n             to enabled(1).')
-dialCtlPeer = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 21, 1, 2))
-dialCtlPeerCfgTable = MibTable((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1), )
-if mibBuilder.loadTexts: dialCtlPeerCfgTable.setDescription('The list of peers from which the managed device\n             will accept calls or to which it will place them.')
-dialCtlPeerCfgEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1), ).setIndexNames((0, "DIAL-CONTROL-MIB", "dialCtlPeerCfgId"), (0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: dialCtlPeerCfgEntry.setDescription('Configuration data for a single Peer. This entry is\n             effectively permanent, and contains information\n             to identify the peer, how to connect to the peer,\n             how to identify the peer and its permissions.\n             The value of dialCtlPeerCfgOriginateAddress must be\n             specified before a new row in this table can become\n             active(1). Any writeable parameters in an existing entry\n             can be modified while the entry is active. The modification\n             will take effect when the peer in question will be\n             called the next time.\n             An entry in this table can only be created if the\n             associated ifEntry already exists.')
-dialCtlPeerCfgId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: dialCtlPeerCfgId.setDescription('This object identifies a single peer. There may\n             be several entries in this table for one peer,\n             defining different ways of reaching this peer.\n             Thus, there may be several entries in this table\n             with the same value of dialCtlPeerCfgId.\n             Multiple entries for one peer may be used to support\n             multilink as well as backup lines.\n             A single peer will be identified by a unique value\n             of this object. Several entries for one peer MUST\n             have the same value of dialCtlPeerCfgId, but different\n             ifEntries and thus different values of ifIndex.')
-dialCtlPeerCfgIfType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 2), IANAifType().clone('other')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgIfType.setDescription('The interface type to be used for calling this peer.\n             In case of ISDN, the value of isdn(63) is to be used.')
-dialCtlPeerCfgLowerIf = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 3), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgLowerIf.setDescription('ifIndex value of an interface the peer will have to be\n             called on. For example, on an ISDN interface, this can be\n             the ifIndex value of a D channel or the ifIndex value of a\n             B channel, whatever is appropriate for a given peer.\n             As an example, for Basic Rate leased lines it will be\n             necessary to specify a B channel ifIndex, while for\n\n\n\n\n             semi-permanent connections the D channel ifIndex has\n             to be specified.\n             If the interface can be dynamically assigned, this object\n             has a value of zero.')
-dialCtlPeerCfgOriginateAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 4), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgOriginateAddress.setDescription("Call Address at which the peer will be called.\n             Think of this as the set of characters following 'ATDT '\n             or the 'phone number' included in a D channel call request.\n\n             The structure of this information will be switch type\n             specific. If there is no address information required\n             for reaching the peer, i.e., for leased lines,\n             this object will be a zero length string.")
-dialCtlPeerCfgAnswerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 5), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgAnswerAddress.setDescription('Calling Party Number information element, as for example\n             passed in an ISDN SETUP message by a PBX or switch,\n             for incoming calls.\n             This address can be used to identify the peer.\n             If this address is either unknown or identical\n             to dialCtlPeerCfgOriginateAddress, this object will be\n             a zero length string.')
-dialCtlPeerCfgSubAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 6), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgSubAddress.setDescription('Subaddress at which the peer will be called.\n             If the subaddress is undefined for the given media or\n             unused, this is a zero length string.')
-dialCtlPeerCfgClosedUserGroup = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 7), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgClosedUserGroup.setDescription('Closed User Group at which the peer will be called.\n             If the Closed User Group is undefined for the given media\n             or unused, this is a zero length string.')
-dialCtlPeerCfgSpeed = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgSpeed.setDescription('The desired information transfer speed in bits/second\n             when calling this peer.\n             The detailed media specific information, e.g. information\n             type and information transfer rate for ISDN circuits,\n             has to be extracted from this object.\n             If the transfer speed to be used is unknown or the default\n             speed for this type of interfaces, the value of this object\n             may be zero.')
-dialCtlPeerCfgInfoType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,))).clone(namedValues=NamedValues(("other", 1), ("speech", 2), ("unrestrictedDigital", 3), ("unrestrictedDigital56", 4), ("restrictedDigital", 5), ("audio31", 6), ("audio7", 7), ("video", 8), ("packetSwitched", 9), ("fax", 10),)).clone('other')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgInfoType.setDescription('The Information Transfer Capability to be used when\n             calling this peer.\n\n             speech(2) refers to a non-data connection, whereas\n             audio31(6) and audio7(7) refer to data mode\n             connections.')
-dialCtlPeerCfgPermission = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("originate", 1), ("answer", 2), ("both", 3), ("callback", 4), ("none", 5),)).clone('both')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgPermission.setDescription("Applicable permissions. callback(4) either rejects the\n             call and then calls back, or uses the 'Reverse charging'\n             information element if it is available.\n             Note that callback(4) is supposed to control charging, not\n             security, and applies to callback prior to accepting a\n             call. Callback for security reasons can be handled using\n             PPP callback.")
-dialCtlPeerCfgInactivityTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgInactivityTimer.setDescription('The connection will be automatically disconnected\n             if no longer carrying useful data for a time\n             period, in seconds, specified in this object.\n             Useful data in this context refers to forwarding\n             packets, including routing information; it\n             excludes the encapsulator maintenance frames.\n             A value of zero means the connection will not be\n             automatically taken down due to inactivity,\n             which implies that it is a dedicated circuit.')
-dialCtlPeerCfgMinDuration = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgMinDuration.setDescription('Minimum duration of a call in seconds, starting from the\n             time the call is connected until the call is disconnected.\n             This is to accomplish the fact that in most countries\n             charging applies to units of time, which should be matched\n             as closely as possible.')
-dialCtlPeerCfgMaxDuration = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgMaxDuration.setDescription("Maximum call duration in seconds. Zero means 'unlimited'.")
-dialCtlPeerCfgCarrierDelay = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgCarrierDelay.setDescription('The call timeout time in seconds. The default value\n             of zero means that the call timeout as specified for\n             the media in question will apply.')
-dialCtlPeerCfgCallRetries = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgCallRetries.setDescription('The number of calls to a non-responding address\n             that may be made. A retry count of zero means\n             there is no bound. The intent is to bound\n             the number of successive calls to an address\n             which is inaccessible, or which refuses those calls.\n\n             Some countries regulate the number of call retries\n             to a given peer that can be made.')
-dialCtlPeerCfgRetryDelay = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgRetryDelay.setDescription('The time in seconds between call retries if a peer\n             cannot be reached.\n             A value of zero means that call retries may be done\n             without any delay.')
-dialCtlPeerCfgFailureDelay = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgFailureDelay.setDescription('The time in seconds after which call attempts are\n             to be placed again after a peer has been noticed\n             to be unreachable, i.e. after dialCtlPeerCfgCallRetries\n             unsuccessful call attempts.\n             A value of zero means that a peer will not be called\n             again after dialCtlPeerCfgCallRetries unsuccessful call\n             attempts.')
-dialCtlPeerCfgTrapEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),)).clone('disabled')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgTrapEnable.setDescription('This object indicates whether dialCtlPeerCallInformation\n             and dialCtlPeerCallSetup traps should be generated for\n             this peer.')
-dialCtlPeerCfgStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 1, 1, 19), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dialCtlPeerCfgStatus.setDescription('Status of one row in this table.')
-dialCtlPeerStatsTable = MibTable((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 2), )
-if mibBuilder.loadTexts: dialCtlPeerStatsTable.setDescription('Statistics information for each peer entry.\n             There will be one entry in this table for each entry\n             in the dialCtlPeerCfgTable.')
-dialCtlPeerStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 2, 1), )
-dialCtlPeerCfgEntry.registerAugmentions(("DIAL-CONTROL-MIB", "dialCtlPeerStatsEntry"))
+_Am='callNotificationsGroup'
+_Al='callHistoryGroup'
+_Ak='callActiveGroup'
+_Aj='dialControlGroup'
+_Ai='dialCtlPeerCallSetup'
+_Ah='dialCtlPeerCallInformation'
+_Ag='callHistoryReceiveBytes'
+_Af='callHistoryReceivePackets'
+_Ae='callHistoryTransmitBytes'
+_Ad='callHistoryTransmitPackets'
+_Ac='callHistoryChargedUnits'
+_Ab='callHistoryDisconnectText'
+_Aa='callHistoryRetainTimer'
+_AZ='callHistoryTableMaxLength'
+_AY='callActiveReceiveBytes'
+_AX='callActiveReceivePackets'
+_AW='callActiveTransmitBytes'
+_AV='callActiveTransmitPackets'
+_AU='callActiveChargedUnits'
+_AT='callActiveCallState'
+_AS='callActiveConnectTime'
+_AR='dialCtlPeerStatsLastSetupTime'
+_AQ='dialCtlPeerStatsLastDisconnectText'
+_AP='dialCtlPeerStatsLastDisconnectCause'
+_AO='dialCtlPeerStatsRefuseCalls'
+_AN='dialCtlPeerStatsAcceptCalls'
+_AM='dialCtlPeerStatsFailCalls'
+_AL='dialCtlPeerStatsSuccessCalls'
+_AK='dialCtlPeerStatsChargedUnits'
+_AJ='dialCtlPeerStatsConnectTime'
+_AI='dialCtlPeerCfgStatus'
+_AH='dialCtlPeerCfgTrapEnable'
+_AG='dialCtlPeerCfgFailureDelay'
+_AF='dialCtlPeerCfgRetryDelay'
+_AE='dialCtlPeerCfgCallRetries'
+_AD='dialCtlPeerCfgCarrierDelay'
+_AC='dialCtlPeerCfgMaxDuration'
+_AB='dialCtlPeerCfgMinDuration'
+_AA='dialCtlPeerCfgInactivityTimer'
+_A9='dialCtlPeerCfgPermission'
+_A8='dialCtlPeerCfgInfoType'
+_A7='dialCtlPeerCfgSpeed'
+_A6='dialCtlPeerCfgClosedUserGroup'
+_A5='dialCtlPeerCfgSubAddress'
+_A4='dialCtlPeerCfgAnswerAddress'
+_A3='dialCtlPeerCfgOriginateAddress'
+_A2='dialCtlPeerCfgLowerIf'
+_A1='dialCtlPeerCfgIfType'
+_A0='dialCtlTrapEnable'
+_z='dialCtlAcceptMode'
+_y='dialCtlPeerStatsEntry'
+_x='dialCtlPeerCfgId'
+_w='disabled'
+_v='enabled'
+_u='ifIndex'
+_t='InterfaceIndexOrZero'
+_s='IANAifType'
+_r='callHistoryInfoType'
+_q='callHistoryCallOrigin'
+_p='callHistoryDisconnectTime'
+_o='callHistoryConnectTime'
+_n='callHistoryDisconnectCause'
+_m='callHistoryLogicalIfIndex'
+_l='callHistoryPeerIfIndex'
+_k='callHistoryPeerId'
+_j='callHistoryPeerSubAddress'
+_i='callHistoryPeerAddress'
+_h='callActiveInfoType'
+_g='callActiveCallOrigin'
+_f='callActiveLogicalIfIndex'
+_e='callActivePeerIfIndex'
+_d='callActivePeerId'
+_c='callActivePeerSubAddress'
+_b='callActivePeerAddress'
+_a='callActiveIndex'
+_Z='callActiveSetupTime'
+_Y='callback'
+_X='answer'
+_W='originate'
+_V='fax'
+_U='packetSwitched'
+_T='video'
+_S='audio7'
+_R='audio31'
+_Q='restrictedDigital'
+_P='unrestrictedDigital56'
+_O='unrestrictedDigital'
+_N='speech'
+_M='other'
+_L='not-accessible'
+_K='ifOperStatus'
+_J='OctetString'
+_I='read-write'
+_H='DisplayString'
+_G='IF-MIB'
+_F='seconds'
+_E='read-create'
+_D='Integer32'
+_C='read-only'
+_B='current'
+_A='DIAL-CONTROL-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_J,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+IANAifType,=mibBuilder.importSymbols('IANAifType-MIB',_s)
+InterfaceIndex,InterfaceIndexOrZero,ifIndex,ifOperStatus=mibBuilder.importSymbols(_G,'InterfaceIndex',_t,_u,_K)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','transmission')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC',_H,'PhysAddress','RowStatus','TextualConvention','TimeStamp')
+dialControlMib=ModuleIdentity((1,3,6,1,2,1,10,21))
+class AbsoluteCounter32(TextualConvention,Unsigned32):status=_B
+_DialControlMibObjects_ObjectIdentity=ObjectIdentity
+dialControlMibObjects=_DialControlMibObjects_ObjectIdentity((1,3,6,1,2,1,10,21,1))
+_DialCtlConfiguration_ObjectIdentity=ObjectIdentity
+dialCtlConfiguration=_DialCtlConfiguration_ObjectIdentity((1,3,6,1,2,1,10,21,1,1))
+class _DialCtlAcceptMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('acceptNone',1),('acceptAll',2),('acceptKnown',3)))
+_DialCtlAcceptMode_Type.__name__=_D
+_DialCtlAcceptMode_Object=MibScalar
+dialCtlAcceptMode=_DialCtlAcceptMode_Object((1,3,6,1,2,1,10,21,1,1,1),_DialCtlAcceptMode_Type())
+dialCtlAcceptMode.setMaxAccess(_I)
+if mibBuilder.loadTexts:dialCtlAcceptMode.setStatus(_B)
+class _DialCtlTrapEnable_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_v,1),(_w,2)))
+_DialCtlTrapEnable_Type.__name__=_D
+_DialCtlTrapEnable_Object=MibScalar
+dialCtlTrapEnable=_DialCtlTrapEnable_Object((1,3,6,1,2,1,10,21,1,1,2),_DialCtlTrapEnable_Type())
+dialCtlTrapEnable.setMaxAccess(_I)
+if mibBuilder.loadTexts:dialCtlTrapEnable.setStatus(_B)
+_DialCtlPeer_ObjectIdentity=ObjectIdentity
+dialCtlPeer=_DialCtlPeer_ObjectIdentity((1,3,6,1,2,1,10,21,1,2))
+_DialCtlPeerCfgTable_Object=MibTable
+dialCtlPeerCfgTable=_DialCtlPeerCfgTable_Object((1,3,6,1,2,1,10,21,1,2,1))
+if mibBuilder.loadTexts:dialCtlPeerCfgTable.setStatus(_B)
+_DialCtlPeerCfgEntry_Object=MibTableRow
+dialCtlPeerCfgEntry=_DialCtlPeerCfgEntry_Object((1,3,6,1,2,1,10,21,1,2,1,1))
+dialCtlPeerCfgEntry.setIndexNames((0,_A,_x),(0,_G,_u))
+if mibBuilder.loadTexts:dialCtlPeerCfgEntry.setStatus(_B)
+class _DialCtlPeerCfgId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_DialCtlPeerCfgId_Type.__name__=_D
+_DialCtlPeerCfgId_Object=MibTableColumn
+dialCtlPeerCfgId=_DialCtlPeerCfgId_Object((1,3,6,1,2,1,10,21,1,2,1,1,1),_DialCtlPeerCfgId_Type())
+dialCtlPeerCfgId.setMaxAccess(_L)
+if mibBuilder.loadTexts:dialCtlPeerCfgId.setStatus(_B)
+class _DialCtlPeerCfgIfType_Type(IANAifType):defaultValue=1
+_DialCtlPeerCfgIfType_Type.__name__=_s
+_DialCtlPeerCfgIfType_Object=MibTableColumn
+dialCtlPeerCfgIfType=_DialCtlPeerCfgIfType_Object((1,3,6,1,2,1,10,21,1,2,1,1,2),_DialCtlPeerCfgIfType_Type())
+dialCtlPeerCfgIfType.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgIfType.setStatus(_B)
+class _DialCtlPeerCfgLowerIf_Type(InterfaceIndexOrZero):defaultValue=0
+_DialCtlPeerCfgLowerIf_Type.__name__=_t
+_DialCtlPeerCfgLowerIf_Object=MibTableColumn
+dialCtlPeerCfgLowerIf=_DialCtlPeerCfgLowerIf_Object((1,3,6,1,2,1,10,21,1,2,1,1,3),_DialCtlPeerCfgLowerIf_Type())
+dialCtlPeerCfgLowerIf.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgLowerIf.setStatus(_B)
+_DialCtlPeerCfgOriginateAddress_Type=DisplayString
+_DialCtlPeerCfgOriginateAddress_Object=MibTableColumn
+dialCtlPeerCfgOriginateAddress=_DialCtlPeerCfgOriginateAddress_Object((1,3,6,1,2,1,10,21,1,2,1,1,4),_DialCtlPeerCfgOriginateAddress_Type())
+dialCtlPeerCfgOriginateAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgOriginateAddress.setStatus(_B)
+class _DialCtlPeerCfgAnswerAddress_Type(DisplayString):defaultValue=OctetString('')
+_DialCtlPeerCfgAnswerAddress_Type.__name__=_H
+_DialCtlPeerCfgAnswerAddress_Object=MibTableColumn
+dialCtlPeerCfgAnswerAddress=_DialCtlPeerCfgAnswerAddress_Object((1,3,6,1,2,1,10,21,1,2,1,1,5),_DialCtlPeerCfgAnswerAddress_Type())
+dialCtlPeerCfgAnswerAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgAnswerAddress.setStatus(_B)
+class _DialCtlPeerCfgSubAddress_Type(DisplayString):defaultValue=OctetString('')
+_DialCtlPeerCfgSubAddress_Type.__name__=_H
+_DialCtlPeerCfgSubAddress_Object=MibTableColumn
+dialCtlPeerCfgSubAddress=_DialCtlPeerCfgSubAddress_Object((1,3,6,1,2,1,10,21,1,2,1,1,6),_DialCtlPeerCfgSubAddress_Type())
+dialCtlPeerCfgSubAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgSubAddress.setStatus(_B)
+class _DialCtlPeerCfgClosedUserGroup_Type(DisplayString):defaultValue=OctetString('')
+_DialCtlPeerCfgClosedUserGroup_Type.__name__=_H
+_DialCtlPeerCfgClosedUserGroup_Object=MibTableColumn
+dialCtlPeerCfgClosedUserGroup=_DialCtlPeerCfgClosedUserGroup_Object((1,3,6,1,2,1,10,21,1,2,1,1,7),_DialCtlPeerCfgClosedUserGroup_Type())
+dialCtlPeerCfgClosedUserGroup.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgClosedUserGroup.setStatus(_B)
+class _DialCtlPeerCfgSpeed_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_DialCtlPeerCfgSpeed_Type.__name__=_D
+_DialCtlPeerCfgSpeed_Object=MibTableColumn
+dialCtlPeerCfgSpeed=_DialCtlPeerCfgSpeed_Object((1,3,6,1,2,1,10,21,1,2,1,1,8),_DialCtlPeerCfgSpeed_Type())
+dialCtlPeerCfgSpeed.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgSpeed.setStatus(_B)
+class _DialCtlPeerCfgInfoType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_M,1),(_N,2),(_O,3),(_P,4),(_Q,5),(_R,6),(_S,7),(_T,8),(_U,9),(_V,10)))
+_DialCtlPeerCfgInfoType_Type.__name__=_D
+_DialCtlPeerCfgInfoType_Object=MibTableColumn
+dialCtlPeerCfgInfoType=_DialCtlPeerCfgInfoType_Object((1,3,6,1,2,1,10,21,1,2,1,1,9),_DialCtlPeerCfgInfoType_Type())
+dialCtlPeerCfgInfoType.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgInfoType.setStatus(_B)
+class _DialCtlPeerCfgPermission_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_W,1),(_X,2),('both',3),(_Y,4),('none',5)))
+_DialCtlPeerCfgPermission_Type.__name__=_D
+_DialCtlPeerCfgPermission_Object=MibTableColumn
+dialCtlPeerCfgPermission=_DialCtlPeerCfgPermission_Object((1,3,6,1,2,1,10,21,1,2,1,1,10),_DialCtlPeerCfgPermission_Type())
+dialCtlPeerCfgPermission.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgPermission.setStatus(_B)
+class _DialCtlPeerCfgInactivityTimer_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_DialCtlPeerCfgInactivityTimer_Type.__name__=_D
+_DialCtlPeerCfgInactivityTimer_Object=MibTableColumn
+dialCtlPeerCfgInactivityTimer=_DialCtlPeerCfgInactivityTimer_Object((1,3,6,1,2,1,10,21,1,2,1,1,11),_DialCtlPeerCfgInactivityTimer_Type())
+dialCtlPeerCfgInactivityTimer.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgInactivityTimer.setStatus(_B)
+if mibBuilder.loadTexts:dialCtlPeerCfgInactivityTimer.setUnits(_F)
+class _DialCtlPeerCfgMinDuration_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_DialCtlPeerCfgMinDuration_Type.__name__=_D
+_DialCtlPeerCfgMinDuration_Object=MibTableColumn
+dialCtlPeerCfgMinDuration=_DialCtlPeerCfgMinDuration_Object((1,3,6,1,2,1,10,21,1,2,1,1,12),_DialCtlPeerCfgMinDuration_Type())
+dialCtlPeerCfgMinDuration.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgMinDuration.setStatus(_B)
+class _DialCtlPeerCfgMaxDuration_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_DialCtlPeerCfgMaxDuration_Type.__name__=_D
+_DialCtlPeerCfgMaxDuration_Object=MibTableColumn
+dialCtlPeerCfgMaxDuration=_DialCtlPeerCfgMaxDuration_Object((1,3,6,1,2,1,10,21,1,2,1,1,13),_DialCtlPeerCfgMaxDuration_Type())
+dialCtlPeerCfgMaxDuration.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgMaxDuration.setStatus(_B)
+class _DialCtlPeerCfgCarrierDelay_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_DialCtlPeerCfgCarrierDelay_Type.__name__=_D
+_DialCtlPeerCfgCarrierDelay_Object=MibTableColumn
+dialCtlPeerCfgCarrierDelay=_DialCtlPeerCfgCarrierDelay_Object((1,3,6,1,2,1,10,21,1,2,1,1,14),_DialCtlPeerCfgCarrierDelay_Type())
+dialCtlPeerCfgCarrierDelay.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgCarrierDelay.setStatus(_B)
+if mibBuilder.loadTexts:dialCtlPeerCfgCarrierDelay.setUnits(_F)
+class _DialCtlPeerCfgCallRetries_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_DialCtlPeerCfgCallRetries_Type.__name__=_D
+_DialCtlPeerCfgCallRetries_Object=MibTableColumn
+dialCtlPeerCfgCallRetries=_DialCtlPeerCfgCallRetries_Object((1,3,6,1,2,1,10,21,1,2,1,1,15),_DialCtlPeerCfgCallRetries_Type())
+dialCtlPeerCfgCallRetries.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgCallRetries.setStatus(_B)
+class _DialCtlPeerCfgRetryDelay_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_DialCtlPeerCfgRetryDelay_Type.__name__=_D
+_DialCtlPeerCfgRetryDelay_Object=MibTableColumn
+dialCtlPeerCfgRetryDelay=_DialCtlPeerCfgRetryDelay_Object((1,3,6,1,2,1,10,21,1,2,1,1,16),_DialCtlPeerCfgRetryDelay_Type())
+dialCtlPeerCfgRetryDelay.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgRetryDelay.setStatus(_B)
+if mibBuilder.loadTexts:dialCtlPeerCfgRetryDelay.setUnits(_F)
+class _DialCtlPeerCfgFailureDelay_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_DialCtlPeerCfgFailureDelay_Type.__name__=_D
+_DialCtlPeerCfgFailureDelay_Object=MibTableColumn
+dialCtlPeerCfgFailureDelay=_DialCtlPeerCfgFailureDelay_Object((1,3,6,1,2,1,10,21,1,2,1,1,17),_DialCtlPeerCfgFailureDelay_Type())
+dialCtlPeerCfgFailureDelay.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgFailureDelay.setStatus(_B)
+if mibBuilder.loadTexts:dialCtlPeerCfgFailureDelay.setUnits(_F)
+class _DialCtlPeerCfgTrapEnable_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_v,1),(_w,2)))
+_DialCtlPeerCfgTrapEnable_Type.__name__=_D
+_DialCtlPeerCfgTrapEnable_Object=MibTableColumn
+dialCtlPeerCfgTrapEnable=_DialCtlPeerCfgTrapEnable_Object((1,3,6,1,2,1,10,21,1,2,1,1,18),_DialCtlPeerCfgTrapEnable_Type())
+dialCtlPeerCfgTrapEnable.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgTrapEnable.setStatus(_B)
+_DialCtlPeerCfgStatus_Type=RowStatus
+_DialCtlPeerCfgStatus_Object=MibTableColumn
+dialCtlPeerCfgStatus=_DialCtlPeerCfgStatus_Object((1,3,6,1,2,1,10,21,1,2,1,1,19),_DialCtlPeerCfgStatus_Type())
+dialCtlPeerCfgStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:dialCtlPeerCfgStatus.setStatus(_B)
+_DialCtlPeerStatsTable_Object=MibTable
+dialCtlPeerStatsTable=_DialCtlPeerStatsTable_Object((1,3,6,1,2,1,10,21,1,2,2))
+if mibBuilder.loadTexts:dialCtlPeerStatsTable.setStatus(_B)
+_DialCtlPeerStatsEntry_Object=MibTableRow
+dialCtlPeerStatsEntry=_DialCtlPeerStatsEntry_Object((1,3,6,1,2,1,10,21,1,2,2,1))
+if mibBuilder.loadTexts:dialCtlPeerStatsEntry.setStatus(_B)
+_DialCtlPeerStatsConnectTime_Type=AbsoluteCounter32
+_DialCtlPeerStatsConnectTime_Object=MibTableColumn
+dialCtlPeerStatsConnectTime=_DialCtlPeerStatsConnectTime_Object((1,3,6,1,2,1,10,21,1,2,2,1,1),_DialCtlPeerStatsConnectTime_Type())
+dialCtlPeerStatsConnectTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:dialCtlPeerStatsConnectTime.setStatus(_B)
+if mibBuilder.loadTexts:dialCtlPeerStatsConnectTime.setUnits(_F)
+_DialCtlPeerStatsChargedUnits_Type=AbsoluteCounter32
+_DialCtlPeerStatsChargedUnits_Object=MibTableColumn
+dialCtlPeerStatsChargedUnits=_DialCtlPeerStatsChargedUnits_Object((1,3,6,1,2,1,10,21,1,2,2,1,2),_DialCtlPeerStatsChargedUnits_Type())
+dialCtlPeerStatsChargedUnits.setMaxAccess(_C)
+if mibBuilder.loadTexts:dialCtlPeerStatsChargedUnits.setStatus(_B)
+_DialCtlPeerStatsSuccessCalls_Type=AbsoluteCounter32
+_DialCtlPeerStatsSuccessCalls_Object=MibTableColumn
+dialCtlPeerStatsSuccessCalls=_DialCtlPeerStatsSuccessCalls_Object((1,3,6,1,2,1,10,21,1,2,2,1,3),_DialCtlPeerStatsSuccessCalls_Type())
+dialCtlPeerStatsSuccessCalls.setMaxAccess(_C)
+if mibBuilder.loadTexts:dialCtlPeerStatsSuccessCalls.setStatus(_B)
+_DialCtlPeerStatsFailCalls_Type=AbsoluteCounter32
+_DialCtlPeerStatsFailCalls_Object=MibTableColumn
+dialCtlPeerStatsFailCalls=_DialCtlPeerStatsFailCalls_Object((1,3,6,1,2,1,10,21,1,2,2,1,4),_DialCtlPeerStatsFailCalls_Type())
+dialCtlPeerStatsFailCalls.setMaxAccess(_C)
+if mibBuilder.loadTexts:dialCtlPeerStatsFailCalls.setStatus(_B)
+_DialCtlPeerStatsAcceptCalls_Type=AbsoluteCounter32
+_DialCtlPeerStatsAcceptCalls_Object=MibTableColumn
+dialCtlPeerStatsAcceptCalls=_DialCtlPeerStatsAcceptCalls_Object((1,3,6,1,2,1,10,21,1,2,2,1,5),_DialCtlPeerStatsAcceptCalls_Type())
+dialCtlPeerStatsAcceptCalls.setMaxAccess(_C)
+if mibBuilder.loadTexts:dialCtlPeerStatsAcceptCalls.setStatus(_B)
+_DialCtlPeerStatsRefuseCalls_Type=AbsoluteCounter32
+_DialCtlPeerStatsRefuseCalls_Object=MibTableColumn
+dialCtlPeerStatsRefuseCalls=_DialCtlPeerStatsRefuseCalls_Object((1,3,6,1,2,1,10,21,1,2,2,1,6),_DialCtlPeerStatsRefuseCalls_Type())
+dialCtlPeerStatsRefuseCalls.setMaxAccess(_C)
+if mibBuilder.loadTexts:dialCtlPeerStatsRefuseCalls.setStatus(_B)
+class _DialCtlPeerStatsLastDisconnectCause_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,4))
+_DialCtlPeerStatsLastDisconnectCause_Type.__name__=_J
+_DialCtlPeerStatsLastDisconnectCause_Object=MibTableColumn
+dialCtlPeerStatsLastDisconnectCause=_DialCtlPeerStatsLastDisconnectCause_Object((1,3,6,1,2,1,10,21,1,2,2,1,7),_DialCtlPeerStatsLastDisconnectCause_Type())
+dialCtlPeerStatsLastDisconnectCause.setMaxAccess(_C)
+if mibBuilder.loadTexts:dialCtlPeerStatsLastDisconnectCause.setStatus(_B)
+_DialCtlPeerStatsLastDisconnectText_Type=DisplayString
+_DialCtlPeerStatsLastDisconnectText_Object=MibTableColumn
+dialCtlPeerStatsLastDisconnectText=_DialCtlPeerStatsLastDisconnectText_Object((1,3,6,1,2,1,10,21,1,2,2,1,8),_DialCtlPeerStatsLastDisconnectText_Type())
+dialCtlPeerStatsLastDisconnectText.setMaxAccess(_C)
+if mibBuilder.loadTexts:dialCtlPeerStatsLastDisconnectText.setStatus(_B)
+_DialCtlPeerStatsLastSetupTime_Type=TimeStamp
+_DialCtlPeerStatsLastSetupTime_Object=MibTableColumn
+dialCtlPeerStatsLastSetupTime=_DialCtlPeerStatsLastSetupTime_Object((1,3,6,1,2,1,10,21,1,2,2,1,9),_DialCtlPeerStatsLastSetupTime_Type())
+dialCtlPeerStatsLastSetupTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:dialCtlPeerStatsLastSetupTime.setStatus(_B)
+_CallActive_ObjectIdentity=ObjectIdentity
+callActive=_CallActive_ObjectIdentity((1,3,6,1,2,1,10,21,1,3))
+_CallActiveTable_Object=MibTable
+callActiveTable=_CallActiveTable_Object((1,3,6,1,2,1,10,21,1,3,1))
+if mibBuilder.loadTexts:callActiveTable.setStatus(_B)
+_CallActiveEntry_Object=MibTableRow
+callActiveEntry=_CallActiveEntry_Object((1,3,6,1,2,1,10,21,1,3,1,1))
+callActiveEntry.setIndexNames((0,_A,_Z),(0,_A,_a))
+if mibBuilder.loadTexts:callActiveEntry.setStatus(_B)
+_CallActiveSetupTime_Type=TimeStamp
+_CallActiveSetupTime_Object=MibTableColumn
+callActiveSetupTime=_CallActiveSetupTime_Object((1,3,6,1,2,1,10,21,1,3,1,1,1),_CallActiveSetupTime_Type())
+callActiveSetupTime.setMaxAccess(_L)
+if mibBuilder.loadTexts:callActiveSetupTime.setStatus(_B)
+class _CallActiveIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_CallActiveIndex_Type.__name__=_D
+_CallActiveIndex_Object=MibTableColumn
+callActiveIndex=_CallActiveIndex_Object((1,3,6,1,2,1,10,21,1,3,1,1,2),_CallActiveIndex_Type())
+callActiveIndex.setMaxAccess(_L)
+if mibBuilder.loadTexts:callActiveIndex.setStatus(_B)
+_CallActivePeerAddress_Type=DisplayString
+_CallActivePeerAddress_Object=MibTableColumn
+callActivePeerAddress=_CallActivePeerAddress_Object((1,3,6,1,2,1,10,21,1,3,1,1,3),_CallActivePeerAddress_Type())
+callActivePeerAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:callActivePeerAddress.setStatus(_B)
+_CallActivePeerSubAddress_Type=DisplayString
+_CallActivePeerSubAddress_Object=MibTableColumn
+callActivePeerSubAddress=_CallActivePeerSubAddress_Object((1,3,6,1,2,1,10,21,1,3,1,1,4),_CallActivePeerSubAddress_Type())
+callActivePeerSubAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:callActivePeerSubAddress.setStatus(_B)
+class _CallActivePeerId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_CallActivePeerId_Type.__name__=_D
+_CallActivePeerId_Object=MibTableColumn
+callActivePeerId=_CallActivePeerId_Object((1,3,6,1,2,1,10,21,1,3,1,1,5),_CallActivePeerId_Type())
+callActivePeerId.setMaxAccess(_C)
+if mibBuilder.loadTexts:callActivePeerId.setStatus(_B)
+class _CallActivePeerIfIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_CallActivePeerIfIndex_Type.__name__=_D
+_CallActivePeerIfIndex_Object=MibTableColumn
+callActivePeerIfIndex=_CallActivePeerIfIndex_Object((1,3,6,1,2,1,10,21,1,3,1,1,6),_CallActivePeerIfIndex_Type())
+callActivePeerIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:callActivePeerIfIndex.setStatus(_B)
+_CallActiveLogicalIfIndex_Type=InterfaceIndexOrZero
+_CallActiveLogicalIfIndex_Object=MibTableColumn
+callActiveLogicalIfIndex=_CallActiveLogicalIfIndex_Object((1,3,6,1,2,1,10,21,1,3,1,1,7),_CallActiveLogicalIfIndex_Type())
+callActiveLogicalIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:callActiveLogicalIfIndex.setStatus(_B)
+_CallActiveConnectTime_Type=TimeStamp
+_CallActiveConnectTime_Object=MibTableColumn
+callActiveConnectTime=_CallActiveConnectTime_Object((1,3,6,1,2,1,10,21,1,3,1,1,8),_CallActiveConnectTime_Type())
+callActiveConnectTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:callActiveConnectTime.setStatus(_B)
+class _CallActiveCallState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('unknown',1),('connecting',2),('connected',3),('active',4)))
+_CallActiveCallState_Type.__name__=_D
+_CallActiveCallState_Object=MibTableColumn
+callActiveCallState=_CallActiveCallState_Object((1,3,6,1,2,1,10,21,1,3,1,1,9),_CallActiveCallState_Type())
+callActiveCallState.setMaxAccess(_C)
+if mibBuilder.loadTexts:callActiveCallState.setStatus(_B)
+class _CallActiveCallOrigin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_W,1),(_X,2),(_Y,3)))
+_CallActiveCallOrigin_Type.__name__=_D
+_CallActiveCallOrigin_Object=MibTableColumn
+callActiveCallOrigin=_CallActiveCallOrigin_Object((1,3,6,1,2,1,10,21,1,3,1,1,10),_CallActiveCallOrigin_Type())
+callActiveCallOrigin.setMaxAccess(_C)
+if mibBuilder.loadTexts:callActiveCallOrigin.setStatus(_B)
+_CallActiveChargedUnits_Type=AbsoluteCounter32
+_CallActiveChargedUnits_Object=MibTableColumn
+callActiveChargedUnits=_CallActiveChargedUnits_Object((1,3,6,1,2,1,10,21,1,3,1,1,11),_CallActiveChargedUnits_Type())
+callActiveChargedUnits.setMaxAccess(_C)
+if mibBuilder.loadTexts:callActiveChargedUnits.setStatus(_B)
+class _CallActiveInfoType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_M,1),(_N,2),(_O,3),(_P,4),(_Q,5),(_R,6),(_S,7),(_T,8),(_U,9),(_V,10)))
+_CallActiveInfoType_Type.__name__=_D
+_CallActiveInfoType_Object=MibTableColumn
+callActiveInfoType=_CallActiveInfoType_Object((1,3,6,1,2,1,10,21,1,3,1,1,12),_CallActiveInfoType_Type())
+callActiveInfoType.setMaxAccess(_C)
+if mibBuilder.loadTexts:callActiveInfoType.setStatus(_B)
+_CallActiveTransmitPackets_Type=AbsoluteCounter32
+_CallActiveTransmitPackets_Object=MibTableColumn
+callActiveTransmitPackets=_CallActiveTransmitPackets_Object((1,3,6,1,2,1,10,21,1,3,1,1,13),_CallActiveTransmitPackets_Type())
+callActiveTransmitPackets.setMaxAccess(_C)
+if mibBuilder.loadTexts:callActiveTransmitPackets.setStatus(_B)
+_CallActiveTransmitBytes_Type=AbsoluteCounter32
+_CallActiveTransmitBytes_Object=MibTableColumn
+callActiveTransmitBytes=_CallActiveTransmitBytes_Object((1,3,6,1,2,1,10,21,1,3,1,1,14),_CallActiveTransmitBytes_Type())
+callActiveTransmitBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:callActiveTransmitBytes.setStatus(_B)
+_CallActiveReceivePackets_Type=AbsoluteCounter32
+_CallActiveReceivePackets_Object=MibTableColumn
+callActiveReceivePackets=_CallActiveReceivePackets_Object((1,3,6,1,2,1,10,21,1,3,1,1,15),_CallActiveReceivePackets_Type())
+callActiveReceivePackets.setMaxAccess(_C)
+if mibBuilder.loadTexts:callActiveReceivePackets.setStatus(_B)
+_CallActiveReceiveBytes_Type=AbsoluteCounter32
+_CallActiveReceiveBytes_Object=MibTableColumn
+callActiveReceiveBytes=_CallActiveReceiveBytes_Object((1,3,6,1,2,1,10,21,1,3,1,1,16),_CallActiveReceiveBytes_Type())
+callActiveReceiveBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:callActiveReceiveBytes.setStatus(_B)
+_CallHistory_ObjectIdentity=ObjectIdentity
+callHistory=_CallHistory_ObjectIdentity((1,3,6,1,2,1,10,21,1,4))
+class _CallHistoryTableMaxLength_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_CallHistoryTableMaxLength_Type.__name__=_D
+_CallHistoryTableMaxLength_Object=MibScalar
+callHistoryTableMaxLength=_CallHistoryTableMaxLength_Object((1,3,6,1,2,1,10,21,1,4,1),_CallHistoryTableMaxLength_Type())
+callHistoryTableMaxLength.setMaxAccess(_I)
+if mibBuilder.loadTexts:callHistoryTableMaxLength.setStatus(_B)
+class _CallHistoryRetainTimer_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_CallHistoryRetainTimer_Type.__name__=_D
+_CallHistoryRetainTimer_Object=MibScalar
+callHistoryRetainTimer=_CallHistoryRetainTimer_Object((1,3,6,1,2,1,10,21,1,4,2),_CallHistoryRetainTimer_Type())
+callHistoryRetainTimer.setMaxAccess(_I)
+if mibBuilder.loadTexts:callHistoryRetainTimer.setStatus(_B)
+if mibBuilder.loadTexts:callHistoryRetainTimer.setUnits('minutes')
+_CallHistoryTable_Object=MibTable
+callHistoryTable=_CallHistoryTable_Object((1,3,6,1,2,1,10,21,1,4,3))
+if mibBuilder.loadTexts:callHistoryTable.setStatus(_B)
+_CallHistoryEntry_Object=MibTableRow
+callHistoryEntry=_CallHistoryEntry_Object((1,3,6,1,2,1,10,21,1,4,3,1))
+callHistoryEntry.setIndexNames((0,_A,_Z),(0,_A,_a))
+if mibBuilder.loadTexts:callHistoryEntry.setStatus(_B)
+_CallHistoryPeerAddress_Type=DisplayString
+_CallHistoryPeerAddress_Object=MibTableColumn
+callHistoryPeerAddress=_CallHistoryPeerAddress_Object((1,3,6,1,2,1,10,21,1,4,3,1,1),_CallHistoryPeerAddress_Type())
+callHistoryPeerAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:callHistoryPeerAddress.setStatus(_B)
+_CallHistoryPeerSubAddress_Type=DisplayString
+_CallHistoryPeerSubAddress_Object=MibTableColumn
+callHistoryPeerSubAddress=_CallHistoryPeerSubAddress_Object((1,3,6,1,2,1,10,21,1,4,3,1,2),_CallHistoryPeerSubAddress_Type())
+callHistoryPeerSubAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:callHistoryPeerSubAddress.setStatus(_B)
+class _CallHistoryPeerId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_CallHistoryPeerId_Type.__name__=_D
+_CallHistoryPeerId_Object=MibTableColumn
+callHistoryPeerId=_CallHistoryPeerId_Object((1,3,6,1,2,1,10,21,1,4,3,1,3),_CallHistoryPeerId_Type())
+callHistoryPeerId.setMaxAccess(_C)
+if mibBuilder.loadTexts:callHistoryPeerId.setStatus(_B)
+class _CallHistoryPeerIfIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_CallHistoryPeerIfIndex_Type.__name__=_D
+_CallHistoryPeerIfIndex_Object=MibTableColumn
+callHistoryPeerIfIndex=_CallHistoryPeerIfIndex_Object((1,3,6,1,2,1,10,21,1,4,3,1,4),_CallHistoryPeerIfIndex_Type())
+callHistoryPeerIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:callHistoryPeerIfIndex.setStatus(_B)
+_CallHistoryLogicalIfIndex_Type=InterfaceIndex
+_CallHistoryLogicalIfIndex_Object=MibTableColumn
+callHistoryLogicalIfIndex=_CallHistoryLogicalIfIndex_Object((1,3,6,1,2,1,10,21,1,4,3,1,5),_CallHistoryLogicalIfIndex_Type())
+callHistoryLogicalIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:callHistoryLogicalIfIndex.setStatus(_B)
+class _CallHistoryDisconnectCause_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,4))
+_CallHistoryDisconnectCause_Type.__name__=_J
+_CallHistoryDisconnectCause_Object=MibTableColumn
+callHistoryDisconnectCause=_CallHistoryDisconnectCause_Object((1,3,6,1,2,1,10,21,1,4,3,1,6),_CallHistoryDisconnectCause_Type())
+callHistoryDisconnectCause.setMaxAccess(_C)
+if mibBuilder.loadTexts:callHistoryDisconnectCause.setStatus(_B)
+_CallHistoryDisconnectText_Type=DisplayString
+_CallHistoryDisconnectText_Object=MibTableColumn
+callHistoryDisconnectText=_CallHistoryDisconnectText_Object((1,3,6,1,2,1,10,21,1,4,3,1,7),_CallHistoryDisconnectText_Type())
+callHistoryDisconnectText.setMaxAccess(_C)
+if mibBuilder.loadTexts:callHistoryDisconnectText.setStatus(_B)
+_CallHistoryConnectTime_Type=TimeStamp
+_CallHistoryConnectTime_Object=MibTableColumn
+callHistoryConnectTime=_CallHistoryConnectTime_Object((1,3,6,1,2,1,10,21,1,4,3,1,8),_CallHistoryConnectTime_Type())
+callHistoryConnectTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:callHistoryConnectTime.setStatus(_B)
+_CallHistoryDisconnectTime_Type=TimeStamp
+_CallHistoryDisconnectTime_Object=MibTableColumn
+callHistoryDisconnectTime=_CallHistoryDisconnectTime_Object((1,3,6,1,2,1,10,21,1,4,3,1,9),_CallHistoryDisconnectTime_Type())
+callHistoryDisconnectTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:callHistoryDisconnectTime.setStatus(_B)
+class _CallHistoryCallOrigin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_W,1),(_X,2),(_Y,3)))
+_CallHistoryCallOrigin_Type.__name__=_D
+_CallHistoryCallOrigin_Object=MibTableColumn
+callHistoryCallOrigin=_CallHistoryCallOrigin_Object((1,3,6,1,2,1,10,21,1,4,3,1,10),_CallHistoryCallOrigin_Type())
+callHistoryCallOrigin.setMaxAccess(_C)
+if mibBuilder.loadTexts:callHistoryCallOrigin.setStatus(_B)
+_CallHistoryChargedUnits_Type=AbsoluteCounter32
+_CallHistoryChargedUnits_Object=MibTableColumn
+callHistoryChargedUnits=_CallHistoryChargedUnits_Object((1,3,6,1,2,1,10,21,1,4,3,1,11),_CallHistoryChargedUnits_Type())
+callHistoryChargedUnits.setMaxAccess(_C)
+if mibBuilder.loadTexts:callHistoryChargedUnits.setStatus(_B)
+class _CallHistoryInfoType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_M,1),(_N,2),(_O,3),(_P,4),(_Q,5),(_R,6),(_S,7),(_T,8),(_U,9),(_V,10)))
+_CallHistoryInfoType_Type.__name__=_D
+_CallHistoryInfoType_Object=MibTableColumn
+callHistoryInfoType=_CallHistoryInfoType_Object((1,3,6,1,2,1,10,21,1,4,3,1,12),_CallHistoryInfoType_Type())
+callHistoryInfoType.setMaxAccess(_C)
+if mibBuilder.loadTexts:callHistoryInfoType.setStatus(_B)
+_CallHistoryTransmitPackets_Type=AbsoluteCounter32
+_CallHistoryTransmitPackets_Object=MibTableColumn
+callHistoryTransmitPackets=_CallHistoryTransmitPackets_Object((1,3,6,1,2,1,10,21,1,4,3,1,13),_CallHistoryTransmitPackets_Type())
+callHistoryTransmitPackets.setMaxAccess(_C)
+if mibBuilder.loadTexts:callHistoryTransmitPackets.setStatus(_B)
+_CallHistoryTransmitBytes_Type=AbsoluteCounter32
+_CallHistoryTransmitBytes_Object=MibTableColumn
+callHistoryTransmitBytes=_CallHistoryTransmitBytes_Object((1,3,6,1,2,1,10,21,1,4,3,1,14),_CallHistoryTransmitBytes_Type())
+callHistoryTransmitBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:callHistoryTransmitBytes.setStatus(_B)
+_CallHistoryReceivePackets_Type=AbsoluteCounter32
+_CallHistoryReceivePackets_Object=MibTableColumn
+callHistoryReceivePackets=_CallHistoryReceivePackets_Object((1,3,6,1,2,1,10,21,1,4,3,1,15),_CallHistoryReceivePackets_Type())
+callHistoryReceivePackets.setMaxAccess(_C)
+if mibBuilder.loadTexts:callHistoryReceivePackets.setStatus(_B)
+_CallHistoryReceiveBytes_Type=AbsoluteCounter32
+_CallHistoryReceiveBytes_Object=MibTableColumn
+callHistoryReceiveBytes=_CallHistoryReceiveBytes_Object((1,3,6,1,2,1,10,21,1,4,3,1,16),_CallHistoryReceiveBytes_Type())
+callHistoryReceiveBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:callHistoryReceiveBytes.setStatus(_B)
+_DialControlMibTrapPrefix_ObjectIdentity=ObjectIdentity
+dialControlMibTrapPrefix=_DialControlMibTrapPrefix_ObjectIdentity((1,3,6,1,2,1,10,21,2))
+_DialControlMibTraps_ObjectIdentity=ObjectIdentity
+dialControlMibTraps=_DialControlMibTraps_ObjectIdentity((1,3,6,1,2,1,10,21,2,0))
+_DialControlMibConformance_ObjectIdentity=ObjectIdentity
+dialControlMibConformance=_DialControlMibConformance_ObjectIdentity((1,3,6,1,2,1,10,21,3))
+_DialControlMibCompliances_ObjectIdentity=ObjectIdentity
+dialControlMibCompliances=_DialControlMibCompliances_ObjectIdentity((1,3,6,1,2,1,10,21,3,1))
+_DialControlMibGroups_ObjectIdentity=ObjectIdentity
+dialControlMibGroups=_DialControlMibGroups_ObjectIdentity((1,3,6,1,2,1,10,21,3,2))
+dialCtlPeerCfgEntry.registerAugmentions((_A,_y))
 dialCtlPeerStatsEntry.setIndexNames(*dialCtlPeerCfgEntry.getIndexNames())
-if mibBuilder.loadTexts: dialCtlPeerStatsEntry.setDescription('Statistics information for a single Peer. This entry\n             is effectively permanent, and contains information\n             describing the last call attempt as well as supplying\n             statistical information.')
-dialCtlPeerStatsConnectTime = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 2, 1, 1), AbsoluteCounter32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dialCtlPeerStatsConnectTime.setDescription('Accumulated connect time to the peer since system startup.\n             This is the total connect time, i.e. the connect time\n             for outgoing calls plus the time for incoming calls.')
-dialCtlPeerStatsChargedUnits = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 2, 1, 2), AbsoluteCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dialCtlPeerStatsChargedUnits.setDescription("The total number of charging units applying to this\n             peer since system startup.\n             Only the charging units applying to the local interface,\n             i.e. for originated calls or for calls with 'Reverse\n             charging' being active, will be counted here.")
-dialCtlPeerStatsSuccessCalls = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 2, 1, 3), AbsoluteCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dialCtlPeerStatsSuccessCalls.setDescription('Number of completed calls to this peer.')
-dialCtlPeerStatsFailCalls = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 2, 1, 4), AbsoluteCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dialCtlPeerStatsFailCalls.setDescription('Number of failed call attempts to this peer since system\n             startup.')
-dialCtlPeerStatsAcceptCalls = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 2, 1, 5), AbsoluteCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dialCtlPeerStatsAcceptCalls.setDescription('Number of calls from this peer accepted since system\n             startup.')
-dialCtlPeerStatsRefuseCalls = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 2, 1, 6), AbsoluteCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dialCtlPeerStatsRefuseCalls.setDescription('Number of calls from this peer refused since system\n             startup.')
-dialCtlPeerStatsLastDisconnectCause = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 2, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,4))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dialCtlPeerStatsLastDisconnectCause.setDescription('The encoded network cause value associated with the last\n             call.\n             This object will be updated whenever a call is started\n             or cleared.\n             The value of this object will depend on the interface type\n             as well as on the protocol and protocol version being\n             used on this interface. Some references for possible cause\n             values are given below.')
-dialCtlPeerStatsLastDisconnectText = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 2, 1, 8), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dialCtlPeerStatsLastDisconnectText.setDescription('ASCII text describing the reason for the last call\n             termination.\n\n             This object exists because it would be impossible for\n             a management station to store all possible cause values\n             for all types of interfaces. It should be used only if\n             a management station is unable to decode the value of\n             dialCtlPeerStatsLastDisconnectCause.\n\n             This object will be updated whenever a call is started\n             or cleared.')
-dialCtlPeerStatsLastSetupTime = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 2, 2, 1, 9), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dialCtlPeerStatsLastSetupTime.setDescription('The value of sysUpTime when the last call to this peer\n             was started.\n             For ISDN media, this will be the time when the setup\n             message was received from or sent to the network.\n             This object will be updated whenever a call is started\n             or cleared.')
-callActive = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 21, 1, 3))
-callActiveTable = MibTable((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1), )
-if mibBuilder.loadTexts: callActiveTable.setDescription('A table containing information about active\n             calls to a specific destination.')
-callActiveEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1, 1), ).setIndexNames((0, "DIAL-CONTROL-MIB", "callActiveSetupTime"), (0, "DIAL-CONTROL-MIB", "callActiveIndex"))
-if mibBuilder.loadTexts: callActiveEntry.setDescription('The information regarding a single active Connection.\n             An entry in this table will be created when a call is\n             started. An entry in this table will be deleted when\n             an active call clears.')
-callActiveSetupTime = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1, 1, 1), TimeStamp())
-if mibBuilder.loadTexts: callActiveSetupTime.setDescription('The value of sysUpTime when the call associated to this\n             entry was started. This will be useful for an NMS to\n             retrieve all calls after a specific time. Also, this object\n             can be useful in finding large delays between the time the\n             call was started and the time the call was connected.\n             For ISDN media, this will be the time when the setup\n             message was received from or sent to the network.')
-callActiveIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: callActiveIndex.setDescription('Small index variable to distinguish calls that start in\n             the same hundredth of a second.')
-callActivePeerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callActivePeerAddress.setDescription('The number this call is connected to. If the number is\n             not available, then it will have a length of zero.')
-callActivePeerSubAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callActivePeerSubAddress.setDescription('The subaddress this call is connected to. If the subaddress\n             is undefined or not available, this will be a zero length\n             string.')
-callActivePeerId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callActivePeerId.setDescription('This is the Id value of the peer table entry\n             to which this call was made. If a peer table entry\n             for this call does not exist or is unknown, the value\n             of this object will be zero.')
-callActivePeerIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callActivePeerIfIndex.setDescription('This is the ifIndex value of the peer table entry\n             to which this call was made. If a peer table entry\n             for this call does not exist or is unknown, the value\n             of this object will be zero.')
-callActiveLogicalIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1, 1, 7), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callActiveLogicalIfIndex.setDescription('This is the ifIndex value of the logical interface through\n             which this call was made. For ISDN media, this would be\n             the ifIndex of the B channel which was used for this call.\n             If the ifIndex value is unknown, the value of this object\n             will be zero.')
-callActiveConnectTime = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1, 1, 8), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callActiveConnectTime.setDescription('The value of sysUpTime when the call was connected.\n             If the call is not connected, this object will have a\n             value of zero.')
-callActiveCallState = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("unknown", 1), ("connecting", 2), ("connected", 3), ("active", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callActiveCallState.setDescription('The current call state.\n             unknown(1)     - The call state is unknown.\n             connecting(2)  - A connection attempt (outgoing call)\n                              is being made.\n             connected(3)   - An incoming call is in the process\n                              of validation.\n             active(4)      - The call is active.\n            ')
-callActiveCallOrigin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("originate", 1), ("answer", 2), ("callback", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callActiveCallOrigin.setDescription('The call origin.')
-callActiveChargedUnits = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1, 1, 11), AbsoluteCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callActiveChargedUnits.setDescription('The number of charged units for this connection.\n             For incoming calls or if charging information is\n             not supplied by the switch, the value of this object\n             will be zero.')
-callActiveInfoType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,))).clone(namedValues=NamedValues(("other", 1), ("speech", 2), ("unrestrictedDigital", 3), ("unrestrictedDigital56", 4), ("restrictedDigital", 5), ("audio31", 6), ("audio7", 7), ("video", 8), ("packetSwitched", 9), ("fax", 10),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callActiveInfoType.setDescription('The information type for this call.')
-callActiveTransmitPackets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1, 1, 13), AbsoluteCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callActiveTransmitPackets.setDescription('The number of packets which were transmitted for this\n             call.')
-callActiveTransmitBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1, 1, 14), AbsoluteCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callActiveTransmitBytes.setDescription('The number of bytes which were transmitted for this\n             call.')
-callActiveReceivePackets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1, 1, 15), AbsoluteCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callActiveReceivePackets.setDescription('The number of packets which were received for this\n             call.')
-callActiveReceiveBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 3, 1, 1, 16), AbsoluteCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callActiveReceiveBytes.setDescription('The number of bytes which were received for this call.')
-callHistory = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 21, 1, 4))
-callHistoryTableMaxLength = MibScalar((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: callHistoryTableMaxLength.setDescription('The upper limit on the number of entries that the\n             callHistoryTable may contain.  A value of 0\n             will prevent any history from being retained. When\n             this table is full, the oldest entry will be deleted\n             and the new one will be created.')
-callHistoryRetainTimer = MibScalar((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setUnits('minutes').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: callHistoryRetainTimer.setDescription('The minimum amount of time that an callHistoryEntry\n             will be maintained before being deleted. A value of\n             0 will prevent any history from being retained in the\n             callHistoryTable, but will neither prevent callCompletion\n             traps being generated nor affect other tables.')
-callHistoryTable = MibTable((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3), )
-if mibBuilder.loadTexts: callHistoryTable.setDescription('A table containing information about specific\n             calls to a specific destination.')
-callHistoryEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3, 1), ).setIndexNames((0, "DIAL-CONTROL-MIB", "callActiveSetupTime"), (0, "DIAL-CONTROL-MIB", "callActiveIndex"))
-if mibBuilder.loadTexts: callHistoryEntry.setDescription('The information regarding a single Connection.')
-callHistoryPeerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callHistoryPeerAddress.setDescription('The number this call was connected to. If the number is\n             not available, then it will have a length of zero.')
-callHistoryPeerSubAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callHistoryPeerSubAddress.setDescription('The subaddress this call was connected to. If the subaddress\n             is undefined or not available, this will be a zero length\n             string.')
-callHistoryPeerId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callHistoryPeerId.setDescription('This is the Id value of the peer table entry\n             to which this call was made. If a peer table entry\n             for this call does not exist, the value of this object\n             will be zero.')
-callHistoryPeerIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callHistoryPeerIfIndex.setDescription('This is the ifIndex value of the peer table entry\n             to which this call was made. If a peer table entry\n             for this call does not exist, the value of this object\n             will be zero.')
-callHistoryLogicalIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3, 1, 5), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callHistoryLogicalIfIndex.setDescription('This is the ifIndex value of the logical interface through\n             which this call was made. For ISDN media, this would be\n             the ifIndex of the B channel which was used for this call.')
-callHistoryDisconnectCause = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,4))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callHistoryDisconnectCause.setDescription('The encoded network cause value associated with this call.\n\n             The value of this object will depend on the interface type\n             as well as on the protocol and protocol version being\n             used on this interface. Some references for possible cause\n             values are given below.')
-callHistoryDisconnectText = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callHistoryDisconnectText.setDescription('ASCII text describing the reason for call termination.\n\n             This object exists because it would be impossible for\n             a management station to store all possible cause values\n             for all types of interfaces. It should be used only if\n             a management station is unable to decode the value of\n             dialCtlPeerStatsLastDisconnectCause.')
-callHistoryConnectTime = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3, 1, 8), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callHistoryConnectTime.setDescription('The value of sysUpTime when the call was connected.')
-callHistoryDisconnectTime = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3, 1, 9), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callHistoryDisconnectTime.setDescription('The value of sysUpTime when the call was disconnected.')
-callHistoryCallOrigin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("originate", 1), ("answer", 2), ("callback", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callHistoryCallOrigin.setDescription('The call origin.')
-callHistoryChargedUnits = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3, 1, 11), AbsoluteCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callHistoryChargedUnits.setDescription('The number of charged units for this connection.\n             For incoming calls or if charging information is\n             not supplied by the switch, the value of this object\n             will be zero.')
-callHistoryInfoType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,))).clone(namedValues=NamedValues(("other", 1), ("speech", 2), ("unrestrictedDigital", 3), ("unrestrictedDigital56", 4), ("restrictedDigital", 5), ("audio31", 6), ("audio7", 7), ("video", 8), ("packetSwitched", 9), ("fax", 10),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callHistoryInfoType.setDescription('The information type for this call.')
-callHistoryTransmitPackets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3, 1, 13), AbsoluteCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callHistoryTransmitPackets.setDescription('The number of packets which were transmitted while this\n             call was active.')
-callHistoryTransmitBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3, 1, 14), AbsoluteCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callHistoryTransmitBytes.setDescription('The number of bytes which were transmitted while this\n             call was active.')
-callHistoryReceivePackets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3, 1, 15), AbsoluteCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callHistoryReceivePackets.setDescription('The number of packets which were received while this\n             call was active.')
-callHistoryReceiveBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 21, 1, 4, 3, 1, 16), AbsoluteCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: callHistoryReceiveBytes.setDescription('The number of bytes which were received while this\n             call was active.')
-dialControlMibTrapPrefix = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 21, 2))
-dialControlMibTraps = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 21, 2, 0))
-dialCtlPeerCallInformation = NotificationType((1, 3, 6, 1, 2, 1, 10, 21, 2, 0, 1)).setObjects(*(("DIAL-CONTROL-MIB", "callHistoryPeerId"), ("DIAL-CONTROL-MIB", "callHistoryPeerIfIndex"), ("DIAL-CONTROL-MIB", "callHistoryLogicalIfIndex"), ("DIAL-CONTROL-MIB", "ifOperStatus"), ("DIAL-CONTROL-MIB", "callHistoryPeerAddress"), ("DIAL-CONTROL-MIB", "callHistoryPeerSubAddress"), ("DIAL-CONTROL-MIB", "callHistoryDisconnectCause"), ("DIAL-CONTROL-MIB", "callHistoryConnectTime"), ("DIAL-CONTROL-MIB", "callHistoryDisconnectTime"), ("DIAL-CONTROL-MIB", "callHistoryInfoType"), ("DIAL-CONTROL-MIB", "callHistoryCallOrigin"),))
-if mibBuilder.loadTexts: dialCtlPeerCallInformation.setDescription('This trap/inform is sent to the manager whenever\n             a successful call clears, or a failed call attempt\n             is determined to have ultimately failed. In the\n             event that call retry is active, then this is after\n             all retry attempts have failed. However, only one such\n             trap is sent in between successful call attempts;\n             subsequent call attempts result in no trap.\n             ifOperStatus will return the operational status of the\n             virtual interface associated with the peer to whom\n             this call was made to.')
-dialCtlPeerCallSetup = NotificationType((1, 3, 6, 1, 2, 1, 10, 21, 2, 0, 2)).setObjects(*(("DIAL-CONTROL-MIB", "callActivePeerId"), ("DIAL-CONTROL-MIB", "callActivePeerIfIndex"), ("DIAL-CONTROL-MIB", "callActiveLogicalIfIndex"), ("DIAL-CONTROL-MIB", "ifOperStatus"), ("DIAL-CONTROL-MIB", "callActivePeerAddress"), ("DIAL-CONTROL-MIB", "callActivePeerSubAddress"), ("DIAL-CONTROL-MIB", "callActiveInfoType"), ("DIAL-CONTROL-MIB", "callActiveCallOrigin"),))
-if mibBuilder.loadTexts: dialCtlPeerCallSetup.setDescription('This trap/inform is sent to the manager whenever\n             a call setup message is received or sent.\n             ifOperStatus will return the operational status of the\n             virtual interface associated with the peer to whom\n             this call was made to.')
-dialControlMibConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 21, 3))
-dialControlMibCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 21, 3, 1))
-dialControlMibGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 21, 3, 2))
-dialControlMibCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 21, 3, 1, 1)).setObjects(*(("DIAL-CONTROL-MIB", "dialControlGroup"), ("DIAL-CONTROL-MIB", "callActiveGroup"), ("DIAL-CONTROL-MIB", "callHistoryGroup"),))
-if mibBuilder.loadTexts: dialControlMibCompliance.setDescription('The compliance statement for entities which\n             implement the DIAL CONTROL MIB')
-dialControlGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 21, 3, 2, 1)).setObjects(*(("DIAL-CONTROL-MIB", "dialCtlAcceptMode"), ("DIAL-CONTROL-MIB", "dialCtlTrapEnable"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgIfType"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgLowerIf"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgOriginateAddress"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgAnswerAddress"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgSubAddress"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgClosedUserGroup"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgSpeed"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgInfoType"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgPermission"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgInactivityTimer"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgMinDuration"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgMaxDuration"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgCarrierDelay"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgCallRetries"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgRetryDelay"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgFailureDelay"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgTrapEnable"), ("DIAL-CONTROL-MIB", "dialCtlPeerCfgStatus"), ("DIAL-CONTROL-MIB", "dialCtlPeerStatsConnectTime"), ("DIAL-CONTROL-MIB", "dialCtlPeerStatsChargedUnits"), ("DIAL-CONTROL-MIB", "dialCtlPeerStatsSuccessCalls"), ("DIAL-CONTROL-MIB", "dialCtlPeerStatsFailCalls"), ("DIAL-CONTROL-MIB", "dialCtlPeerStatsAcceptCalls"), ("DIAL-CONTROL-MIB", "dialCtlPeerStatsRefuseCalls"), ("DIAL-CONTROL-MIB", "dialCtlPeerStatsLastDisconnectCause"), ("DIAL-CONTROL-MIB", "dialCtlPeerStatsLastDisconnectText"), ("DIAL-CONTROL-MIB", "dialCtlPeerStatsLastSetupTime"),))
-if mibBuilder.loadTexts: dialControlGroup.setDescription('A collection of objects providing the DIAL CONTROL\n             capability.')
-callActiveGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 21, 3, 2, 2)).setObjects(*(("DIAL-CONTROL-MIB", "callActivePeerAddress"), ("DIAL-CONTROL-MIB", "callActivePeerSubAddress"), ("DIAL-CONTROL-MIB", "callActivePeerId"), ("DIAL-CONTROL-MIB", "callActivePeerIfIndex"), ("DIAL-CONTROL-MIB", "callActiveLogicalIfIndex"), ("DIAL-CONTROL-MIB", "callActiveConnectTime"), ("DIAL-CONTROL-MIB", "callActiveCallState"), ("DIAL-CONTROL-MIB", "callActiveCallOrigin"), ("DIAL-CONTROL-MIB", "callActiveChargedUnits"), ("DIAL-CONTROL-MIB", "callActiveInfoType"), ("DIAL-CONTROL-MIB", "callActiveTransmitPackets"), ("DIAL-CONTROL-MIB", "callActiveTransmitBytes"), ("DIAL-CONTROL-MIB", "callActiveReceivePackets"), ("DIAL-CONTROL-MIB", "callActiveReceiveBytes"),))
-if mibBuilder.loadTexts: callActiveGroup.setDescription('A collection of objects providing the active call\n             capability.')
-callHistoryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 21, 3, 2, 3)).setObjects(*(("DIAL-CONTROL-MIB", "callHistoryTableMaxLength"), ("DIAL-CONTROL-MIB", "callHistoryRetainTimer"), ("DIAL-CONTROL-MIB", "callHistoryPeerAddress"), ("DIAL-CONTROL-MIB", "callHistoryPeerSubAddress"), ("DIAL-CONTROL-MIB", "callHistoryPeerId"), ("DIAL-CONTROL-MIB", "callHistoryPeerIfIndex"), ("DIAL-CONTROL-MIB", "callHistoryLogicalIfIndex"), ("DIAL-CONTROL-MIB", "callHistoryDisconnectCause"), ("DIAL-CONTROL-MIB", "callHistoryDisconnectText"), ("DIAL-CONTROL-MIB", "callHistoryConnectTime"), ("DIAL-CONTROL-MIB", "callHistoryDisconnectTime"), ("DIAL-CONTROL-MIB", "callHistoryCallOrigin"), ("DIAL-CONTROL-MIB", "callHistoryChargedUnits"), ("DIAL-CONTROL-MIB", "callHistoryInfoType"), ("DIAL-CONTROL-MIB", "callHistoryTransmitPackets"), ("DIAL-CONTROL-MIB", "callHistoryTransmitBytes"), ("DIAL-CONTROL-MIB", "callHistoryReceivePackets"), ("DIAL-CONTROL-MIB", "callHistoryReceiveBytes"),))
-if mibBuilder.loadTexts: callHistoryGroup.setDescription('A collection of objects providing the Call History\n             capability.')
-mibBuilder.exportSymbols("DIAL-CONTROL-MIB", dialCtlPeerStatsAcceptCalls=dialCtlPeerStatsAcceptCalls, dialCtlPeerStatsSuccessCalls=dialCtlPeerStatsSuccessCalls, callActiveGroup=callActiveGroup, callHistoryConnectTime=callHistoryConnectTime, dialCtlPeer=dialCtlPeer, callHistoryTransmitBytes=callHistoryTransmitBytes, callHistoryDisconnectCause=callHistoryDisconnectCause, dialCtlPeerCfgEntry=dialCtlPeerCfgEntry, dialCtlPeerStatsLastDisconnectCause=dialCtlPeerStatsLastDisconnectCause, dialCtlPeerCallSetup=dialCtlPeerCallSetup, callHistoryRetainTimer=callHistoryRetainTimer, callActiveSetupTime=callActiveSetupTime, callHistory=callHistory, dialCtlPeerStatsLastDisconnectText=dialCtlPeerStatsLastDisconnectText, callActiveReceiveBytes=callActiveReceiveBytes, dialCtlPeerStatsLastSetupTime=dialCtlPeerStatsLastSetupTime, callActivePeerAddress=callActivePeerAddress, callActiveInfoType=callActiveInfoType, dialCtlPeerCfgIfType=dialCtlPeerCfgIfType, dialCtlConfiguration=dialCtlConfiguration, dialControlMibTraps=dialControlMibTraps, callHistoryTransmitPackets=callHistoryTransmitPackets, dialCtlPeerCfgInfoType=dialCtlPeerCfgInfoType, dialCtlPeerStatsRefuseCalls=dialCtlPeerStatsRefuseCalls, dialCtlPeerStatsConnectTime=dialCtlPeerStatsConnectTime, callActivePeerId=callActivePeerId, callHistoryChargedUnits=callHistoryChargedUnits, callActiveLogicalIfIndex=callActiveLogicalIfIndex, callHistoryTable=callHistoryTable, dialCtlPeerCfgAnswerAddress=dialCtlPeerCfgAnswerAddress, dialCtlPeerCfgClosedUserGroup=dialCtlPeerCfgClosedUserGroup, callActiveIndex=callActiveIndex, callActiveEntry=callActiveEntry, callActivePeerIfIndex=callActivePeerIfIndex, callHistoryDisconnectTime=callHistoryDisconnectTime, callActiveReceivePackets=callActiveReceivePackets, dialControlMibObjects=dialControlMibObjects, callHistoryTableMaxLength=callHistoryTableMaxLength, callActiveCallOrigin=callActiveCallOrigin, dialControlGroup=dialControlGroup, callHistoryReceiveBytes=callHistoryReceiveBytes, dialCtlPeerCfgInactivityTimer=dialCtlPeerCfgInactivityTimer, PYSNMP_MODULE_ID=dialControlMib, dialCtlPeerCfgSpeed=dialCtlPeerCfgSpeed, dialCtlTrapEnable=dialCtlTrapEnable, callHistoryPeerSubAddress=callHistoryPeerSubAddress, callHistoryPeerId=callHistoryPeerId, callActiveConnectTime=callActiveConnectTime, dialCtlPeerStatsFailCalls=dialCtlPeerStatsFailCalls, dialCtlPeerCfgId=dialCtlPeerCfgId, dialCtlPeerCfgCallRetries=dialCtlPeerCfgCallRetries, callActive=callActive, dialCtlPeerStatsTable=dialCtlPeerStatsTable, callHistoryPeerAddress=callHistoryPeerAddress, dialCtlPeerCfgRetryDelay=dialCtlPeerCfgRetryDelay, callHistoryDisconnectText=callHistoryDisconnectText, dialCtlPeerCfgLowerIf=dialCtlPeerCfgLowerIf, callActiveTable=callActiveTable, dialCtlPeerCfgMinDuration=dialCtlPeerCfgMinDuration, dialCtlPeerCfgCarrierDelay=dialCtlPeerCfgCarrierDelay, dialControlMibTrapPrefix=dialControlMibTrapPrefix, dialControlMibCompliance=dialControlMibCompliance, dialCtlPeerCfgSubAddress=dialCtlPeerCfgSubAddress, callHistoryReceivePackets=callHistoryReceivePackets, callActiveTransmitBytes=callActiveTransmitBytes, callHistoryLogicalIfIndex=callHistoryLogicalIfIndex, callActiveChargedUnits=callActiveChargedUnits, callActiveTransmitPackets=callActiveTransmitPackets, callHistoryGroup=callHistoryGroup, callHistoryCallOrigin=callHistoryCallOrigin, dialCtlPeerCfgMaxDuration=dialCtlPeerCfgMaxDuration, dialControlMib=dialControlMib, dialCtlPeerCallInformation=dialCtlPeerCallInformation, AbsoluteCounter32=AbsoluteCounter32, callHistoryEntry=callHistoryEntry, callHistoryInfoType=callHistoryInfoType, dialControlMibCompliances=dialControlMibCompliances, callHistoryPeerIfIndex=callHistoryPeerIfIndex, callActiveCallState=callActiveCallState, dialControlMibConformance=dialControlMibConformance, dialCtlPeerCfgFailureDelay=dialCtlPeerCfgFailureDelay, dialCtlPeerStatsEntry=dialCtlPeerStatsEntry, dialCtlPeerStatsChargedUnits=dialCtlPeerStatsChargedUnits, callActivePeerSubAddress=callActivePeerSubAddress, dialCtlAcceptMode=dialCtlAcceptMode, dialCtlPeerCfgTrapEnable=dialCtlPeerCfgTrapEnable, dialCtlPeerCfgTable=dialCtlPeerCfgTable, dialCtlPeerCfgStatus=dialCtlPeerCfgStatus, dialCtlPeerCfgOriginateAddress=dialCtlPeerCfgOriginateAddress, dialCtlPeerCfgPermission=dialCtlPeerCfgPermission, dialControlMibGroups=dialControlMibGroups)
+dialControlGroup=ObjectGroup((1,3,6,1,2,1,10,21,3,2,1))
+dialControlGroup.setObjects(*((_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR)))
+if mibBuilder.loadTexts:dialControlGroup.setStatus(_B)
+callActiveGroup=ObjectGroup((1,3,6,1,2,1,10,21,3,2,2))
+callActiveGroup.setObjects(*((_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_AS),(_A,_AT),(_A,_g),(_A,_AU),(_A,_h),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY)))
+if mibBuilder.loadTexts:callActiveGroup.setStatus(_B)
+callHistoryGroup=ObjectGroup((1,3,6,1,2,1,10,21,3,2,3))
+callHistoryGroup.setObjects(*((_A,_AZ),(_A,_Aa),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_Ab),(_A,_o),(_A,_p),(_A,_q),(_A,_Ac),(_A,_r),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag)))
+if mibBuilder.loadTexts:callHistoryGroup.setStatus(_B)
+dialCtlPeerCallInformation=NotificationType((1,3,6,1,2,1,10,21,2,0,1))
+dialCtlPeerCallInformation.setObjects(*((_A,_k),(_A,_l),(_A,_m),(_G,_K),(_A,_i),(_A,_j),(_A,_n),(_A,_o),(_A,_p),(_A,_r),(_A,_q)))
+if mibBuilder.loadTexts:dialCtlPeerCallInformation.setStatus(_B)
+dialCtlPeerCallSetup=NotificationType((1,3,6,1,2,1,10,21,2,0,2))
+dialCtlPeerCallSetup.setObjects(*((_A,_d),(_A,_e),(_A,_f),(_G,_K),(_A,_b),(_A,_c),(_A,_h),(_A,_g)))
+if mibBuilder.loadTexts:dialCtlPeerCallSetup.setStatus(_B)
+callNotificationsGroup=NotificationGroup((1,3,6,1,2,1,10,21,3,2,4))
+callNotificationsGroup.setObjects(*((_A,_Ah),(_A,_Ai)))
+if mibBuilder.loadTexts:callNotificationsGroup.setStatus(_B)
+dialControlMibCompliance=ModuleCompliance((1,3,6,1,2,1,10,21,3,1,1))
+dialControlMibCompliance.setObjects(*((_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am)))
+if mibBuilder.loadTexts:dialControlMibCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'AbsoluteCounter32':AbsoluteCounter32,'dialControlMib':dialControlMib,'dialControlMibObjects':dialControlMibObjects,'dialCtlConfiguration':dialCtlConfiguration,_z:dialCtlAcceptMode,_A0:dialCtlTrapEnable,'dialCtlPeer':dialCtlPeer,'dialCtlPeerCfgTable':dialCtlPeerCfgTable,'dialCtlPeerCfgEntry':dialCtlPeerCfgEntry,_x:dialCtlPeerCfgId,_A1:dialCtlPeerCfgIfType,_A2:dialCtlPeerCfgLowerIf,_A3:dialCtlPeerCfgOriginateAddress,_A4:dialCtlPeerCfgAnswerAddress,_A5:dialCtlPeerCfgSubAddress,_A6:dialCtlPeerCfgClosedUserGroup,_A7:dialCtlPeerCfgSpeed,_A8:dialCtlPeerCfgInfoType,_A9:dialCtlPeerCfgPermission,_AA:dialCtlPeerCfgInactivityTimer,_AB:dialCtlPeerCfgMinDuration,_AC:dialCtlPeerCfgMaxDuration,_AD:dialCtlPeerCfgCarrierDelay,_AE:dialCtlPeerCfgCallRetries,_AF:dialCtlPeerCfgRetryDelay,_AG:dialCtlPeerCfgFailureDelay,_AH:dialCtlPeerCfgTrapEnable,_AI:dialCtlPeerCfgStatus,'dialCtlPeerStatsTable':dialCtlPeerStatsTable,_y:dialCtlPeerStatsEntry,_AJ:dialCtlPeerStatsConnectTime,_AK:dialCtlPeerStatsChargedUnits,_AL:dialCtlPeerStatsSuccessCalls,_AM:dialCtlPeerStatsFailCalls,_AN:dialCtlPeerStatsAcceptCalls,_AO:dialCtlPeerStatsRefuseCalls,_AP:dialCtlPeerStatsLastDisconnectCause,_AQ:dialCtlPeerStatsLastDisconnectText,_AR:dialCtlPeerStatsLastSetupTime,'callActive':callActive,'callActiveTable':callActiveTable,'callActiveEntry':callActiveEntry,_Z:callActiveSetupTime,_a:callActiveIndex,_b:callActivePeerAddress,_c:callActivePeerSubAddress,_d:callActivePeerId,_e:callActivePeerIfIndex,_f:callActiveLogicalIfIndex,_AS:callActiveConnectTime,_AT:callActiveCallState,_g:callActiveCallOrigin,_AU:callActiveChargedUnits,_h:callActiveInfoType,_AV:callActiveTransmitPackets,_AW:callActiveTransmitBytes,_AX:callActiveReceivePackets,_AY:callActiveReceiveBytes,'callHistory':callHistory,_AZ:callHistoryTableMaxLength,_Aa:callHistoryRetainTimer,'callHistoryTable':callHistoryTable,'callHistoryEntry':callHistoryEntry,_i:callHistoryPeerAddress,_j:callHistoryPeerSubAddress,_k:callHistoryPeerId,_l:callHistoryPeerIfIndex,_m:callHistoryLogicalIfIndex,_n:callHistoryDisconnectCause,_Ab:callHistoryDisconnectText,_o:callHistoryConnectTime,_p:callHistoryDisconnectTime,_q:callHistoryCallOrigin,_Ac:callHistoryChargedUnits,_r:callHistoryInfoType,_Ad:callHistoryTransmitPackets,_Ae:callHistoryTransmitBytes,_Af:callHistoryReceivePackets,_Ag:callHistoryReceiveBytes,'dialControlMibTrapPrefix':dialControlMibTrapPrefix,'dialControlMibTraps':dialControlMibTraps,_Ah:dialCtlPeerCallInformation,_Ai:dialCtlPeerCallSetup,'dialControlMibConformance':dialControlMibConformance,'dialControlMibCompliances':dialControlMibCompliances,'dialControlMibCompliance':dialControlMibCompliance,'dialControlMibGroups':dialControlMibGroups,_Aj:dialControlGroup,_Ak:callActiveGroup,_Al:callHistoryGroup,_Am:callNotificationsGroup})

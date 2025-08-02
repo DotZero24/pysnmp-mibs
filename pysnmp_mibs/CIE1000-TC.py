@@ -1,0 +1,48 @@
+_H='broadcast'
+_G='multicast'
+_F='unicast'
+_E='specific'
+_D='255a'
+_C='any'
+_B='d'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+class CIE1000Integer8(TextualConvention,Integer32):status=_A;displayHint=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-128,127))
+class CIE1000Integer16(TextualConvention,Integer32):status=_A;displayHint=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-32768,32767))
+class CIE1000Integer64(TextualConvention,OctetString):status=_A;displayHint='8x';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
+class CIE1000Unsigned8(TextualConvention,Gauge32):status=_A;displayHint=_B;subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+class CIE1000Unsigned16(TextualConvention,Gauge32):status=_A;displayHint=_B;subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+class CIE1000Unsigned64(TextualConvention,OctetString):status=_A;displayHint='8x';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
+class CIE1000TimeStamp(TextualConvention,OctetString):status=_A;displayHint='8x';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
+class CIE1000EtherType(TextualConvention,Gauge32):status=_A;displayHint='2x';subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+class CIE1000InterfaceIndex(TextualConvention,Integer32):status=_A;displayHint=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+class CIE1000RowEditorState(TextualConvention,Gauge32):status=_A;displayHint=_B
+class CIE1000Percent(TextualConvention,Gauge32):status=_A;displayHint=_B;subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
+class CIE1000PortList(TextualConvention,OctetString):status=_A;displayHint='128x';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,128))
+class CIE1000Vlan(TextualConvention,Gauge32):status=_A;displayHint=_B;subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4095))
+class CIE1000VlanOrZero(TextualConvention,Gauge32):status=_A;displayHint=_B;subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
+class CIE1000VlanListQuarter(TextualConvention,OctetString):status=_A;displayHint='128x';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(128,128));fixedLength=128
+class CIE1000DisplayString(TextualConvention,OctetString):status=_A;displayHint=_D;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+class CIE1000InetAddress(TextualConvention,OctetString):status=_A;displayHint=_D;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,253))
+class CIE1000IpAddress(TextualConvention,OctetString):status=_A;displayHint=_D;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,46))
+class CIE1000VclProtoEncap(TextualConvention,OctetString):status=_A;displayHint='6x';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,6))
+class CIE1000BitType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_C,0),('zero',1),('one',2)))
+class CIE1000DestMacType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_C,0),(_F,1),(_G,2),(_H,3)))
+class CIE1000VcapKeyType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('normal',0),('doubleTag',1),('ipAddr',2),('macIpAddr',3)))
+class CIE1000VlanTagPriority(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14)));namedValues=NamedValues(*((_C,0),('value0',1),('value1',2),('value2',3),('value3',4),('value4',5),('value5',6),('value6',7),('value7',8),('range0to1',9),('range2to3',10),('range4to5',11),('range6to7',12),('range0to3',13),('range4to7',14)))
+class CIE1000VlanTagType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*((_C,0),('untagged',1),('tagged',2),('cTagged',3),('sTagged',4)))
+class CIE1000ASRType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_C,0),(_E,1),('range',2)))
+class CIE1000AdvDestMacType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4)));namedValues=NamedValues(*((_C,0),(_F,1),(_G,2),(_H,3),(_E,4)))
+class CIE1000ASType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_C,0),(_E,1)))
+class CIE1000SfpTransceiver(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,7,8,9,10,11,12,13,14)));namedValues=NamedValues(*(('none',0),('notSupported',1),('sfp100FX',2),('sfp1000BaseT',7),('sfp1000BaseCx',8),('sfp1000BaseSx',9),('sfp1000BaseLx',10),('sfp1000BaseX',11),('sfp2G5',12),('sfp5G',13),('sfp10G',14)))
+class CIE1000MepDmTimeUnit(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('microSeconds',0),('nanoSeconds',1)))
+class CIE1000MepInstanceDirection(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('down',0),('up',1)))
+class CIE1000MepTxRate(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7)));namedValues=NamedValues(*(('invalid',0),('frames300PerSecond',1),('frames100PerSecond',2),('frames10PerSecond',3),('frames1PerSecond',4),('frames6PerMinute',5),('frames1PerMinute',6),('frames6PerHour',7)))
+class CIE1000PortStatusSpeed(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7)));namedValues=NamedValues(*(('undefined',0),('speed10M',1),('speed100M',2),('speed1G',3),('speed2G5',4),('speed5G',5),('speed10G',6),('speed12G',7)))
+mibBuilder.exportSymbols('CIE1000-TC',**{'CIE1000Integer8':CIE1000Integer8,'CIE1000Integer16':CIE1000Integer16,'CIE1000Integer64':CIE1000Integer64,'CIE1000Unsigned8':CIE1000Unsigned8,'CIE1000Unsigned16':CIE1000Unsigned16,'CIE1000Unsigned64':CIE1000Unsigned64,'CIE1000TimeStamp':CIE1000TimeStamp,'CIE1000EtherType':CIE1000EtherType,'CIE1000InterfaceIndex':CIE1000InterfaceIndex,'CIE1000RowEditorState':CIE1000RowEditorState,'CIE1000Percent':CIE1000Percent,'CIE1000PortList':CIE1000PortList,'CIE1000Vlan':CIE1000Vlan,'CIE1000VlanOrZero':CIE1000VlanOrZero,'CIE1000VlanListQuarter':CIE1000VlanListQuarter,'CIE1000DisplayString':CIE1000DisplayString,'CIE1000InetAddress':CIE1000InetAddress,'CIE1000IpAddress':CIE1000IpAddress,'CIE1000VclProtoEncap':CIE1000VclProtoEncap,'CIE1000BitType':CIE1000BitType,'CIE1000DestMacType':CIE1000DestMacType,'CIE1000VcapKeyType':CIE1000VcapKeyType,'CIE1000VlanTagPriority':CIE1000VlanTagPriority,'CIE1000VlanTagType':CIE1000VlanTagType,'CIE1000ASRType':CIE1000ASRType,'CIE1000AdvDestMacType':CIE1000AdvDestMacType,'CIE1000ASType':CIE1000ASType,'CIE1000SfpTransceiver':CIE1000SfpTransceiver,'CIE1000MepDmTimeUnit':CIE1000MepDmTimeUnit,'CIE1000MepInstanceDirection':CIE1000MepInstanceDirection,'CIE1000MepTxRate':CIE1000MepTxRate,'CIE1000PortStatusSpeed':CIE1000PortStatusSpeed})

@@ -1,0 +1,20 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+adIdentityShared,adShared=mibBuilder.importSymbols('ADTRAN-MIB','adIdentityShared','adShared')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+adGENMINIDSLAMID=ModuleIdentity((1,3,6,1,4,1,664,6,10000,61))
+_AdGenMiniDslam_ObjectIdentity=ObjectIdentity
+adGenMiniDslam=_AdGenMiniDslam_ObjectIdentity((1,3,6,1,4,1,664,5,61))
+_AdTAMiniDslam2g_ObjectIdentity=ObjectIdentity
+adTAMiniDslam2g=_AdTAMiniDslam2g_ObjectIdentity((1,3,6,1,4,1,664,5,61,1))
+_AdTAMiniDslam2gmg_ObjectIdentity=ObjectIdentity
+adTAMiniDslam2gmg=_AdTAMiniDslam2gmg_ObjectIdentity((1,3,6,1,4,1,664,5,61,1,1))
+_AdGenBondingID_ObjectIdentity=ObjectIdentity
+adGenBondingID=_AdGenBondingID_ObjectIdentity((1,3,6,1,4,1,664,6,10000,61,4))
+_AdTAMiniDslam3gID_ObjectIdentity=ObjectIdentity
+adTAMiniDslam3gID=_AdTAMiniDslam3gID_ObjectIdentity((1,3,6,1,4,1,664,6,10000,61,5))
+mibBuilder.exportSymbols('ADTRAN-GENMINIDSLAM-MIB',**{'adGenMiniDslam':adGenMiniDslam,'adTAMiniDslam2g':adTAMiniDslam2g,'adTAMiniDslam2gmg':adTAMiniDslam2gmg,'adGENMINIDSLAMID':adGENMINIDSLAMID,'adGenBondingID':adGenBondingID,'adTAMiniDslam3gID':adTAMiniDslam3gID})

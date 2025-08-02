@@ -1,0 +1,383 @@
+_V='extremeApsProtocolErrorPortNumber'
+_U='extremeApsProtocolErrorGroupNumber'
+_T='extremeApsLineErrorPortNumber'
+_S='extremeApsLineErrorGroupNumber'
+_R='extremeApsProtectPortPortNumber'
+_Q='extremeApsProtectPortGroupNumber'
+_P='extremeApsGroupGroupNumber'
+_O='extremeApsProtectPortConfigPortNumber'
+_N='extremeApsProtectPortConfigGroupNumber'
+_M='protection'
+_L='working'
+_K='extremeApsPortConfigPortNumber'
+_J='extremeApsPortConfigGroupNumber'
+_I='unidirectional'
+_H='bidirectional'
+_G='extremeApsGroupConfigGroupNumber'
+_F='DisplayString'
+_E='OctetString'
+_D='EXTREME-POS-MIB'
+_C='Integer32'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+PortList,extremeAgent=mibBuilder.importSymbols('EXTREME-BASE-MIB','PortList','extremeAgent')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_F,'PhysAddress','TextualConvention','TruthValue')
+extremePOSMib=ModuleIdentity((1,3,6,1,4,1,1916,1,20))
+_ExtremeAps_ObjectIdentity=ObjectIdentity
+extremeAps=_ExtremeAps_ObjectIdentity((1,3,6,1,4,1,1916,1,20,1))
+_ExtremeApsConfig_ObjectIdentity=ObjectIdentity
+extremeApsConfig=_ExtremeApsConfig_ObjectIdentity((1,3,6,1,4,1,1916,1,20,1,1))
+_ExtremeApsConfigEnabled_Type=TruthValue
+_ExtremeApsConfigEnabled_Object=MibScalar
+extremeApsConfigEnabled=_ExtremeApsConfigEnabled_Object((1,3,6,1,4,1,1916,1,20,1,1,1),_ExtremeApsConfigEnabled_Type())
+extremeApsConfigEnabled.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsConfigEnabled.setStatus(_A)
+_ExtremeApsGroupConfigTable_Object=MibTable
+extremeApsGroupConfigTable=_ExtremeApsGroupConfigTable_Object((1,3,6,1,4,1,1916,1,20,1,1,2))
+if mibBuilder.loadTexts:extremeApsGroupConfigTable.setStatus(_A)
+_ExtremeApsGroupConfigEntry_Object=MibTableRow
+extremeApsGroupConfigEntry=_ExtremeApsGroupConfigEntry_Object((1,3,6,1,4,1,1916,1,20,1,1,2,1))
+extremeApsGroupConfigEntry.setIndexNames((0,_D,_G))
+if mibBuilder.loadTexts:extremeApsGroupConfigEntry.setStatus(_A)
+class _ExtremeApsGroupConfigGroupNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_ExtremeApsGroupConfigGroupNumber_Type.__name__=_C
+_ExtremeApsGroupConfigGroupNumber_Object=MibTableColumn
+extremeApsGroupConfigGroupNumber=_ExtremeApsGroupConfigGroupNumber_Object((1,3,6,1,4,1,1916,1,20,1,1,2,1,1),_ExtremeApsGroupConfigGroupNumber_Type())
+extremeApsGroupConfigGroupNumber.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsGroupConfigGroupNumber.setStatus(_A)
+class _ExtremeApsGroupConfigRevertMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('revertive',1),('nonRevertive',2)))
+_ExtremeApsGroupConfigRevertMode_Type.__name__=_C
+_ExtremeApsGroupConfigRevertMode_Object=MibTableColumn
+extremeApsGroupConfigRevertMode=_ExtremeApsGroupConfigRevertMode_Object((1,3,6,1,4,1,1916,1,20,1,1,2,1,2),_ExtremeApsGroupConfigRevertMode_Type())
+extremeApsGroupConfigRevertMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsGroupConfigRevertMode.setStatus(_A)
+class _ExtremeApsGroupConfigRevertMinutes_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,12))
+_ExtremeApsGroupConfigRevertMinutes_Type.__name__=_C
+_ExtremeApsGroupConfigRevertMinutes_Object=MibTableColumn
+extremeApsGroupConfigRevertMinutes=_ExtremeApsGroupConfigRevertMinutes_Object((1,3,6,1,4,1,1916,1,20,1,1,2,1,3),_ExtremeApsGroupConfigRevertMinutes_Type())
+extremeApsGroupConfigRevertMinutes.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsGroupConfigRevertMinutes.setStatus(_A)
+class _ExtremeApsGroupConfigDirection_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_I,2)))
+_ExtremeApsGroupConfigDirection_Type.__name__=_C
+_ExtremeApsGroupConfigDirection_Object=MibTableColumn
+extremeApsGroupConfigDirection=_ExtremeApsGroupConfigDirection_Object((1,3,6,1,4,1,1916,1,20,1,1,2,1,4),_ExtremeApsGroupConfigDirection_Type())
+extremeApsGroupConfigDirection.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsGroupConfigDirection.setStatus(_A)
+_ExtremeApsGroupConfigTimerInterval_Type=Integer32
+_ExtremeApsGroupConfigTimerInterval_Object=MibTableColumn
+extremeApsGroupConfigTimerInterval=_ExtremeApsGroupConfigTimerInterval_Object((1,3,6,1,4,1,1916,1,20,1,1,2,1,5),_ExtremeApsGroupConfigTimerInterval_Type())
+extremeApsGroupConfigTimerInterval.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsGroupConfigTimerInterval.setStatus(_A)
+_ExtremeApsGroupConfigTimerMisses_Type=Integer32
+_ExtremeApsGroupConfigTimerMisses_Object=MibTableColumn
+extremeApsGroupConfigTimerMisses=_ExtremeApsGroupConfigTimerMisses_Object((1,3,6,1,4,1,1916,1,20,1,1,2,1,6),_ExtremeApsGroupConfigTimerMisses_Type())
+extremeApsGroupConfigTimerMisses.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsGroupConfigTimerMisses.setStatus(_A)
+_ExtremeApsGroupConfigAuthenticate_Type=TruthValue
+_ExtremeApsGroupConfigAuthenticate_Object=MibTableColumn
+extremeApsGroupConfigAuthenticate=_ExtremeApsGroupConfigAuthenticate_Object((1,3,6,1,4,1,1916,1,20,1,1,2,1,7),_ExtremeApsGroupConfigAuthenticate_Type())
+extremeApsGroupConfigAuthenticate.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsGroupConfigAuthenticate.setStatus(_A)
+class _ExtremeApsGroupConfigAuthString_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_ExtremeApsGroupConfigAuthString_Type.__name__=_F
+_ExtremeApsGroupConfigAuthString_Object=MibTableColumn
+extremeApsGroupConfigAuthString=_ExtremeApsGroupConfigAuthString_Object((1,3,6,1,4,1,1916,1,20,1,1,2,1,8),_ExtremeApsGroupConfigAuthString_Type())
+extremeApsGroupConfigAuthString.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsGroupConfigAuthString.setStatus(_A)
+_ExtremeApsPortConfigTable_Object=MibTable
+extremeApsPortConfigTable=_ExtremeApsPortConfigTable_Object((1,3,6,1,4,1,1916,1,20,1,1,3))
+if mibBuilder.loadTexts:extremeApsPortConfigTable.setStatus(_A)
+_ExtremeApsPortConfigEntry_Object=MibTableRow
+extremeApsPortConfigEntry=_ExtremeApsPortConfigEntry_Object((1,3,6,1,4,1,1916,1,20,1,1,3,1))
+extremeApsPortConfigEntry.setIndexNames((0,_D,_J),(0,_D,_K))
+if mibBuilder.loadTexts:extremeApsPortConfigEntry.setStatus(_A)
+class _ExtremeApsPortConfigGroupNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_ExtremeApsPortConfigGroupNumber_Type.__name__=_C
+_ExtremeApsPortConfigGroupNumber_Object=MibTableColumn
+extremeApsPortConfigGroupNumber=_ExtremeApsPortConfigGroupNumber_Object((1,3,6,1,4,1,1916,1,20,1,1,3,1,1),_ExtremeApsPortConfigGroupNumber_Type())
+extremeApsPortConfigGroupNumber.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsPortConfigGroupNumber.setStatus(_A)
+_ExtremeApsPortConfigPortNumber_Type=Integer32
+_ExtremeApsPortConfigPortNumber_Object=MibTableColumn
+extremeApsPortConfigPortNumber=_ExtremeApsPortConfigPortNumber_Object((1,3,6,1,4,1,1916,1,20,1,1,3,1,2),_ExtremeApsPortConfigPortNumber_Type())
+extremeApsPortConfigPortNumber.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsPortConfigPortNumber.setStatus(_A)
+class _ExtremeApsPortConfigPortType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_L,1),(_M,2)))
+_ExtremeApsPortConfigPortType_Type.__name__=_C
+_ExtremeApsPortConfigPortType_Object=MibTableColumn
+extremeApsPortConfigPortType=_ExtremeApsPortConfigPortType_Object((1,3,6,1,4,1,1916,1,20,1,1,3,1,3),_ExtremeApsPortConfigPortType_Type())
+extremeApsPortConfigPortType.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsPortConfigPortType.setStatus(_A)
+_ExtremeApsProtectPortConfigTable_Object=MibTable
+extremeApsProtectPortConfigTable=_ExtremeApsProtectPortConfigTable_Object((1,3,6,1,4,1,1916,1,20,1,1,4))
+if mibBuilder.loadTexts:extremeApsProtectPortConfigTable.setStatus(_A)
+_ExtremeApsProtectPortConfigEntry_Object=MibTableRow
+extremeApsProtectPortConfigEntry=_ExtremeApsProtectPortConfigEntry_Object((1,3,6,1,4,1,1916,1,20,1,1,4,1))
+extremeApsProtectPortConfigEntry.setIndexNames((0,_D,_N),(0,_D,_O))
+if mibBuilder.loadTexts:extremeApsProtectPortConfigEntry.setStatus(_A)
+class _ExtremeApsProtectPortConfigGroupNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_ExtremeApsProtectPortConfigGroupNumber_Type.__name__=_C
+_ExtremeApsProtectPortConfigGroupNumber_Object=MibTableColumn
+extremeApsProtectPortConfigGroupNumber=_ExtremeApsProtectPortConfigGroupNumber_Object((1,3,6,1,4,1,1916,1,20,1,1,4,1,1),_ExtremeApsProtectPortConfigGroupNumber_Type())
+extremeApsProtectPortConfigGroupNumber.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtectPortConfigGroupNumber.setStatus(_A)
+_ExtremeApsProtectPortConfigPortNumber_Type=Integer32
+_ExtremeApsProtectPortConfigPortNumber_Object=MibTableColumn
+extremeApsProtectPortConfigPortNumber=_ExtremeApsProtectPortConfigPortNumber_Object((1,3,6,1,4,1,1916,1,20,1,1,4,1,2),_ExtremeApsProtectPortConfigPortNumber_Type())
+extremeApsProtectPortConfigPortNumber.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtectPortConfigPortNumber.setStatus(_A)
+_ExtremeApsProtectPortConfigWorkingIpAddr_Type=IpAddress
+_ExtremeApsProtectPortConfigWorkingIpAddr_Object=MibTableColumn
+extremeApsProtectPortConfigWorkingIpAddr=_ExtremeApsProtectPortConfigWorkingIpAddr_Object((1,3,6,1,4,1,1916,1,20,1,1,4,1,3),_ExtremeApsProtectPortConfigWorkingIpAddr_Type())
+extremeApsProtectPortConfigWorkingIpAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtectPortConfigWorkingIpAddr.setStatus(_A)
+_ExtremeApsStatus_ObjectIdentity=ObjectIdentity
+extremeApsStatus=_ExtremeApsStatus_ObjectIdentity((1,3,6,1,4,1,1916,1,20,1,2))
+_ExtremeApsGroupTable_Object=MibTable
+extremeApsGroupTable=_ExtremeApsGroupTable_Object((1,3,6,1,4,1,1916,1,20,1,2,1))
+if mibBuilder.loadTexts:extremeApsGroupTable.setStatus(_A)
+_ExtremeApsGroupEntry_Object=MibTableRow
+extremeApsGroupEntry=_ExtremeApsGroupEntry_Object((1,3,6,1,4,1,1916,1,20,1,2,1,1))
+extremeApsGroupEntry.setIndexNames((0,_D,_P))
+if mibBuilder.loadTexts:extremeApsGroupEntry.setStatus(_A)
+class _ExtremeApsGroupGroupNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_ExtremeApsGroupGroupNumber_Type.__name__=_C
+_ExtremeApsGroupGroupNumber_Object=MibTableColumn
+extremeApsGroupGroupNumber=_ExtremeApsGroupGroupNumber_Object((1,3,6,1,4,1,1916,1,20,1,2,1,1,1),_ExtremeApsGroupGroupNumber_Type())
+extremeApsGroupGroupNumber.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsGroupGroupNumber.setStatus(_A)
+class _ExtremeApsGroupActivePort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_L,1),(_M,2)))
+_ExtremeApsGroupActivePort_Type.__name__=_C
+_ExtremeApsGroupActivePort_Object=MibTableColumn
+extremeApsGroupActivePort=_ExtremeApsGroupActivePort_Object((1,3,6,1,4,1,1916,1,20,1,2,1,1,2),_ExtremeApsGroupActivePort_Type())
+extremeApsGroupActivePort.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsGroupActivePort.setStatus(_A)
+class _ExtremeApsGroupEffectiveDirection_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_I,2)))
+_ExtremeApsGroupEffectiveDirection_Type.__name__=_C
+_ExtremeApsGroupEffectiveDirection_Object=MibTableColumn
+extremeApsGroupEffectiveDirection=_ExtremeApsGroupEffectiveDirection_Object((1,3,6,1,4,1,1916,1,20,1,2,1,1,3),_ExtremeApsGroupEffectiveDirection_Type())
+extremeApsGroupEffectiveDirection.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsGroupEffectiveDirection.setStatus(_A)
+class _ExtremeApsGroupPeerProtoStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('established',1),('closed',2)))
+_ExtremeApsGroupPeerProtoStatus_Type.__name__=_C
+_ExtremeApsGroupPeerProtoStatus_Object=MibTableColumn
+extremeApsGroupPeerProtoStatus=_ExtremeApsGroupPeerProtoStatus_Object((1,3,6,1,4,1,1916,1,20,1,2,1,1,4),_ExtremeApsGroupPeerProtoStatus_Type())
+extremeApsGroupPeerProtoStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsGroupPeerProtoStatus.setStatus(_A)
+_ExtremeApsProtectPortTable_Object=MibTable
+extremeApsProtectPortTable=_ExtremeApsProtectPortTable_Object((1,3,6,1,4,1,1916,1,20,1,2,2))
+if mibBuilder.loadTexts:extremeApsProtectPortTable.setStatus(_A)
+_ExtremeApsProtectPortEntry_Object=MibTableRow
+extremeApsProtectPortEntry=_ExtremeApsProtectPortEntry_Object((1,3,6,1,4,1,1916,1,20,1,2,2,1))
+extremeApsProtectPortEntry.setIndexNames((0,_D,_Q),(0,_D,_R))
+if mibBuilder.loadTexts:extremeApsProtectPortEntry.setStatus(_A)
+class _ExtremeApsProtectPortGroupNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_ExtremeApsProtectPortGroupNumber_Type.__name__=_C
+_ExtremeApsProtectPortGroupNumber_Object=MibTableColumn
+extremeApsProtectPortGroupNumber=_ExtremeApsProtectPortGroupNumber_Object((1,3,6,1,4,1,1916,1,20,1,2,2,1,1),_ExtremeApsProtectPortGroupNumber_Type())
+extremeApsProtectPortGroupNumber.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtectPortGroupNumber.setStatus(_A)
+_ExtremeApsProtectPortPortNumber_Type=Integer32
+_ExtremeApsProtectPortPortNumber_Object=MibTableColumn
+extremeApsProtectPortPortNumber=_ExtremeApsProtectPortPortNumber_Object((1,3,6,1,4,1,1916,1,20,1,2,2,1,2),_ExtremeApsProtectPortPortNumber_Type())
+extremeApsProtectPortPortNumber.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtectPortPortNumber.setStatus(_A)
+class _ExtremeApsProtectPortTransmitK1_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_ExtremeApsProtectPortTransmitK1_Type.__name__=_E
+_ExtremeApsProtectPortTransmitK1_Object=MibTableColumn
+extremeApsProtectPortTransmitK1=_ExtremeApsProtectPortTransmitK1_Object((1,3,6,1,4,1,1916,1,20,1,2,2,1,3),_ExtremeApsProtectPortTransmitK1_Type())
+extremeApsProtectPortTransmitK1.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtectPortTransmitK1.setStatus(_A)
+class _ExtremeApsProtectPortTransmitK2_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_ExtremeApsProtectPortTransmitK2_Type.__name__=_E
+_ExtremeApsProtectPortTransmitK2_Object=MibTableColumn
+extremeApsProtectPortTransmitK2=_ExtremeApsProtectPortTransmitK2_Object((1,3,6,1,4,1,1916,1,20,1,2,2,1,4),_ExtremeApsProtectPortTransmitK2_Type())
+extremeApsProtectPortTransmitK2.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtectPortTransmitK2.setStatus(_A)
+class _ExtremeApsProtectPortReceiveK1_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_ExtremeApsProtectPortReceiveK1_Type.__name__=_E
+_ExtremeApsProtectPortReceiveK1_Object=MibTableColumn
+extremeApsProtectPortReceiveK1=_ExtremeApsProtectPortReceiveK1_Object((1,3,6,1,4,1,1916,1,20,1,2,2,1,5),_ExtremeApsProtectPortReceiveK1_Type())
+extremeApsProtectPortReceiveK1.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtectPortReceiveK1.setStatus(_A)
+class _ExtremeApsProtectPortReceiveK2_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_ExtremeApsProtectPortReceiveK2_Type.__name__=_E
+_ExtremeApsProtectPortReceiveK2_Object=MibTableColumn
+extremeApsProtectPortReceiveK2=_ExtremeApsProtectPortReceiveK2_Object((1,3,6,1,4,1,1916,1,20,1,2,2,1,6),_ExtremeApsProtectPortReceiveK2_Type())
+extremeApsProtectPortReceiveK2.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtectPortReceiveK2.setStatus(_A)
+_ExtremeApsProtectPortSwitchInitByWorking_Type=Integer32
+_ExtremeApsProtectPortSwitchInitByWorking_Object=MibTableColumn
+extremeApsProtectPortSwitchInitByWorking=_ExtremeApsProtectPortSwitchInitByWorking_Object((1,3,6,1,4,1,1916,1,20,1,2,2,1,7),_ExtremeApsProtectPortSwitchInitByWorking_Type())
+extremeApsProtectPortSwitchInitByWorking.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtectPortSwitchInitByWorking.setStatus(_A)
+_ExtremeApsProtectPortSwitchInitByProtect_Type=Integer32
+_ExtremeApsProtectPortSwitchInitByProtect_Object=MibTableColumn
+extremeApsProtectPortSwitchInitByProtect=_ExtremeApsProtectPortSwitchInitByProtect_Object((1,3,6,1,4,1,1916,1,20,1,2,2,1,8),_ExtremeApsProtectPortSwitchInitByProtect_Type())
+extremeApsProtectPortSwitchInitByProtect.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtectPortSwitchInitByProtect.setStatus(_A)
+_ExtremeApsProtectPortSwitchInitByADM_Type=Integer32
+_ExtremeApsProtectPortSwitchInitByADM_Object=MibTableColumn
+extremeApsProtectPortSwitchInitByADM=_ExtremeApsProtectPortSwitchInitByADM_Object((1,3,6,1,4,1,1916,1,20,1,2,2,1,9),_ExtremeApsProtectPortSwitchInitByADM_Type())
+extremeApsProtectPortSwitchInitByADM.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtectPortSwitchInitByADM.setStatus(_A)
+_ExtremeApsProtectPortSwitchInitByCmd_Type=Integer32
+_ExtremeApsProtectPortSwitchInitByCmd_Object=MibTableColumn
+extremeApsProtectPortSwitchInitByCmd=_ExtremeApsProtectPortSwitchInitByCmd_Object((1,3,6,1,4,1,1916,1,20,1,2,2,1,10),_ExtremeApsProtectPortSwitchInitByCmd_Type())
+extremeApsProtectPortSwitchInitByCmd.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtectPortSwitchInitByCmd.setStatus(_A)
+_ExtremeApsProtectPortSuccessfulSwitches_Type=Integer32
+_ExtremeApsProtectPortSuccessfulSwitches_Object=MibTableColumn
+extremeApsProtectPortSuccessfulSwitches=_ExtremeApsProtectPortSuccessfulSwitches_Object((1,3,6,1,4,1,1916,1,20,1,2,2,1,11),_ExtremeApsProtectPortSuccessfulSwitches_Type())
+extremeApsProtectPortSuccessfulSwitches.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtectPortSuccessfulSwitches.setStatus(_A)
+_ExtremeApsProtectPortHelloProtFails_Type=Integer32
+_ExtremeApsProtectPortHelloProtFails_Object=MibTableColumn
+extremeApsProtectPortHelloProtFails=_ExtremeApsProtectPortHelloProtFails_Object((1,3,6,1,4,1,1916,1,20,1,2,2,1,12),_ExtremeApsProtectPortHelloProtFails_Type())
+extremeApsProtectPortHelloProtFails.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtectPortHelloProtFails.setStatus(_A)
+_ExtremeApsErrors_ObjectIdentity=ObjectIdentity
+extremeApsErrors=_ExtremeApsErrors_ObjectIdentity((1,3,6,1,4,1,1916,1,20,1,3))
+_ExtremeApsLineErrorTable_Object=MibTable
+extremeApsLineErrorTable=_ExtremeApsLineErrorTable_Object((1,3,6,1,4,1,1916,1,20,1,3,1))
+if mibBuilder.loadTexts:extremeApsLineErrorTable.setStatus(_A)
+_ExtremeApsLineErrorEntry_Object=MibTableRow
+extremeApsLineErrorEntry=_ExtremeApsLineErrorEntry_Object((1,3,6,1,4,1,1916,1,20,1,3,1,1))
+extremeApsLineErrorEntry.setIndexNames((0,_D,_S),(0,_D,_T))
+if mibBuilder.loadTexts:extremeApsLineErrorEntry.setStatus(_A)
+class _ExtremeApsLineErrorGroupNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_ExtremeApsLineErrorGroupNumber_Type.__name__=_C
+_ExtremeApsLineErrorGroupNumber_Object=MibTableColumn
+extremeApsLineErrorGroupNumber=_ExtremeApsLineErrorGroupNumber_Object((1,3,6,1,4,1,1916,1,20,1,3,1,1,1),_ExtremeApsLineErrorGroupNumber_Type())
+extremeApsLineErrorGroupNumber.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsLineErrorGroupNumber.setStatus(_A)
+_ExtremeApsLineErrorPortNumber_Type=Integer32
+_ExtremeApsLineErrorPortNumber_Object=MibTableColumn
+extremeApsLineErrorPortNumber=_ExtremeApsLineErrorPortNumber_Object((1,3,6,1,4,1,1916,1,20,1,3,1,1,2),_ExtremeApsLineErrorPortNumber_Type())
+extremeApsLineErrorPortNumber.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsLineErrorPortNumber.setStatus(_A)
+_ExtremeApsLineErrorSignalDegradeActive_Type=TruthValue
+_ExtremeApsLineErrorSignalDegradeActive_Object=MibTableColumn
+extremeApsLineErrorSignalDegradeActive=_ExtremeApsLineErrorSignalDegradeActive_Object((1,3,6,1,4,1,1916,1,20,1,3,1,1,3),_ExtremeApsLineErrorSignalDegradeActive_Type())
+extremeApsLineErrorSignalDegradeActive.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsLineErrorSignalDegradeActive.setStatus(_A)
+_ExtremeApsLineErrorBERSignalDegradeActive_Type=TruthValue
+_ExtremeApsLineErrorBERSignalDegradeActive_Object=MibTableColumn
+extremeApsLineErrorBERSignalDegradeActive=_ExtremeApsLineErrorBERSignalDegradeActive_Object((1,3,6,1,4,1,1916,1,20,1,3,1,1,4),_ExtremeApsLineErrorBERSignalDegradeActive_Type())
+extremeApsLineErrorBERSignalDegradeActive.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsLineErrorBERSignalDegradeActive.setStatus(_A)
+_ExtremeApsLineErrorSignalFailActive_Type=TruthValue
+_ExtremeApsLineErrorSignalFailActive_Object=MibTableColumn
+extremeApsLineErrorSignalFailActive=_ExtremeApsLineErrorSignalFailActive_Object((1,3,6,1,4,1,1916,1,20,1,3,1,1,5),_ExtremeApsLineErrorSignalFailActive_Type())
+extremeApsLineErrorSignalFailActive.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsLineErrorSignalFailActive.setStatus(_A)
+_ExtremeApsLineErrorBERSignalFailActive_Type=TruthValue
+_ExtremeApsLineErrorBERSignalFailActive_Object=MibTableColumn
+extremeApsLineErrorBERSignalFailActive=_ExtremeApsLineErrorBERSignalFailActive_Object((1,3,6,1,4,1,1916,1,20,1,3,1,1,6),_ExtremeApsLineErrorBERSignalFailActive_Type())
+extremeApsLineErrorBERSignalFailActive.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsLineErrorBERSignalFailActive.setStatus(_A)
+_ExtremeApsLineErrorSignalDegrades_Type=Integer32
+_ExtremeApsLineErrorSignalDegrades_Object=MibTableColumn
+extremeApsLineErrorSignalDegrades=_ExtremeApsLineErrorSignalDegrades_Object((1,3,6,1,4,1,1916,1,20,1,3,1,1,7),_ExtremeApsLineErrorSignalDegrades_Type())
+extremeApsLineErrorSignalDegrades.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsLineErrorSignalDegrades.setStatus(_A)
+_ExtremeApsLineErrorBERSignalDegrades_Type=Integer32
+_ExtremeApsLineErrorBERSignalDegrades_Object=MibTableColumn
+extremeApsLineErrorBERSignalDegrades=_ExtremeApsLineErrorBERSignalDegrades_Object((1,3,6,1,4,1,1916,1,20,1,3,1,1,8),_ExtremeApsLineErrorBERSignalDegrades_Type())
+extremeApsLineErrorBERSignalDegrades.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsLineErrorBERSignalDegrades.setStatus(_A)
+_ExtremeApsLineErrorSignalFails_Type=Integer32
+_ExtremeApsLineErrorSignalFails_Object=MibTableColumn
+extremeApsLineErrorSignalFails=_ExtremeApsLineErrorSignalFails_Object((1,3,6,1,4,1,1916,1,20,1,3,1,1,9),_ExtremeApsLineErrorSignalFails_Type())
+extremeApsLineErrorSignalFails.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsLineErrorSignalFails.setStatus(_A)
+_ExtremeApsLineErrorBERSignalFails_Type=Integer32
+_ExtremeApsLineErrorBERSignalFails_Object=MibTableColumn
+extremeApsLineErrorBERSignalFails=_ExtremeApsLineErrorBERSignalFails_Object((1,3,6,1,4,1,1916,1,20,1,3,1,1,10),_ExtremeApsLineErrorBERSignalFails_Type())
+extremeApsLineErrorBERSignalFails.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsLineErrorBERSignalFails.setStatus(_A)
+_ExtremeApsProtocolErrorTable_Object=MibTable
+extremeApsProtocolErrorTable=_ExtremeApsProtocolErrorTable_Object((1,3,6,1,4,1,1916,1,20,1,3,2))
+if mibBuilder.loadTexts:extremeApsProtocolErrorTable.setStatus(_A)
+_ExtremeApsProtocolErrorEntry_Object=MibTableRow
+extremeApsProtocolErrorEntry=_ExtremeApsProtocolErrorEntry_Object((1,3,6,1,4,1,1916,1,20,1,3,2,1))
+extremeApsProtocolErrorEntry.setIndexNames((0,_D,_U),(0,_D,_V))
+if mibBuilder.loadTexts:extremeApsProtocolErrorEntry.setStatus(_A)
+class _ExtremeApsProtocolErrorGroupNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_ExtremeApsProtocolErrorGroupNumber_Type.__name__=_C
+_ExtremeApsProtocolErrorGroupNumber_Object=MibTableColumn
+extremeApsProtocolErrorGroupNumber=_ExtremeApsProtocolErrorGroupNumber_Object((1,3,6,1,4,1,1916,1,20,1,3,2,1,1),_ExtremeApsProtocolErrorGroupNumber_Type())
+extremeApsProtocolErrorGroupNumber.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtocolErrorGroupNumber.setStatus(_A)
+_ExtremeApsProtocolErrorPortNumber_Type=Integer32
+_ExtremeApsProtocolErrorPortNumber_Object=MibTableColumn
+extremeApsProtocolErrorPortNumber=_ExtremeApsProtocolErrorPortNumber_Object((1,3,6,1,4,1,1916,1,20,1,3,2,1,2),_ExtremeApsProtocolErrorPortNumber_Type())
+extremeApsProtocolErrorPortNumber.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtocolErrorPortNumber.setStatus(_A)
+_ExtremeApsProtocolErrorModeMismatchDefect_Type=TruthValue
+_ExtremeApsProtocolErrorModeMismatchDefect_Object=MibTableColumn
+extremeApsProtocolErrorModeMismatchDefect=_ExtremeApsProtocolErrorModeMismatchDefect_Object((1,3,6,1,4,1,1916,1,20,1,3,2,1,3),_ExtremeApsProtocolErrorModeMismatchDefect_Type())
+extremeApsProtocolErrorModeMismatchDefect.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtocolErrorModeMismatchDefect.setStatus(_A)
+_ExtremeApsProtocolErrorProtSwitchByteDefect_Type=TruthValue
+_ExtremeApsProtocolErrorProtSwitchByteDefect_Object=MibTableColumn
+extremeApsProtocolErrorProtSwitchByteDefect=_ExtremeApsProtocolErrorProtSwitchByteDefect_Object((1,3,6,1,4,1,1916,1,20,1,3,2,1,4),_ExtremeApsProtocolErrorProtSwitchByteDefect_Type())
+extremeApsProtocolErrorProtSwitchByteDefect.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtocolErrorProtSwitchByteDefect.setStatus(_A)
+_ExtremeApsProtocolErrorChannelMismatchDefect_Type=TruthValue
+_ExtremeApsProtocolErrorChannelMismatchDefect_Object=MibTableColumn
+extremeApsProtocolErrorChannelMismatchDefect=_ExtremeApsProtocolErrorChannelMismatchDefect_Object((1,3,6,1,4,1,1916,1,20,1,3,2,1,5),_ExtremeApsProtocolErrorChannelMismatchDefect_Type())
+extremeApsProtocolErrorChannelMismatchDefect.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtocolErrorChannelMismatchDefect.setStatus(_A)
+_ExtremeApsProtocolErrorFarEndProtectDefect_Type=TruthValue
+_ExtremeApsProtocolErrorFarEndProtectDefect_Object=MibTableColumn
+extremeApsProtocolErrorFarEndProtectDefect=_ExtremeApsProtocolErrorFarEndProtectDefect_Object((1,3,6,1,4,1,1916,1,20,1,3,2,1,6),_ExtremeApsProtocolErrorFarEndProtectDefect_Type())
+extremeApsProtocolErrorFarEndProtectDefect.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtocolErrorFarEndProtectDefect.setStatus(_A)
+_ExtremeApsProtocolErrorModeMismatchFailure_Type=TruthValue
+_ExtremeApsProtocolErrorModeMismatchFailure_Object=MibTableColumn
+extremeApsProtocolErrorModeMismatchFailure=_ExtremeApsProtocolErrorModeMismatchFailure_Object((1,3,6,1,4,1,1916,1,20,1,3,2,1,7),_ExtremeApsProtocolErrorModeMismatchFailure_Type())
+extremeApsProtocolErrorModeMismatchFailure.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtocolErrorModeMismatchFailure.setStatus(_A)
+_ExtremeApsProtocolErrorProtSwitchByteFailure_Type=TruthValue
+_ExtremeApsProtocolErrorProtSwitchByteFailure_Object=MibTableColumn
+extremeApsProtocolErrorProtSwitchByteFailure=_ExtremeApsProtocolErrorProtSwitchByteFailure_Object((1,3,6,1,4,1,1916,1,20,1,3,2,1,8),_ExtremeApsProtocolErrorProtSwitchByteFailure_Type())
+extremeApsProtocolErrorProtSwitchByteFailure.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtocolErrorProtSwitchByteFailure.setStatus(_A)
+_ExtremeApsProtocolErrorChannelMismatchFailure_Type=TruthValue
+_ExtremeApsProtocolErrorChannelMismatchFailure_Object=MibTableColumn
+extremeApsProtocolErrorChannelMismatchFailure=_ExtremeApsProtocolErrorChannelMismatchFailure_Object((1,3,6,1,4,1,1916,1,20,1,3,2,1,9),_ExtremeApsProtocolErrorChannelMismatchFailure_Type())
+extremeApsProtocolErrorChannelMismatchFailure.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtocolErrorChannelMismatchFailure.setStatus(_A)
+_ExtremeApsProtocolErrorFarEndProtectFailure_Type=TruthValue
+_ExtremeApsProtocolErrorFarEndProtectFailure_Object=MibTableColumn
+extremeApsProtocolErrorFarEndProtectFailure=_ExtremeApsProtocolErrorFarEndProtectFailure_Object((1,3,6,1,4,1,1916,1,20,1,3,2,1,10),_ExtremeApsProtocolErrorFarEndProtectFailure_Type())
+extremeApsProtocolErrorFarEndProtectFailure.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtocolErrorFarEndProtectFailure.setStatus(_A)
+_ExtremeApsProtocolErrorModeMismatchNumFails_Type=Integer32
+_ExtremeApsProtocolErrorModeMismatchNumFails_Object=MibTableColumn
+extremeApsProtocolErrorModeMismatchNumFails=_ExtremeApsProtocolErrorModeMismatchNumFails_Object((1,3,6,1,4,1,1916,1,20,1,3,2,1,11),_ExtremeApsProtocolErrorModeMismatchNumFails_Type())
+extremeApsProtocolErrorModeMismatchNumFails.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtocolErrorModeMismatchNumFails.setStatus(_A)
+_ExtremeApsProtocolErrorProtSwitchByteNumFails_Type=Integer32
+_ExtremeApsProtocolErrorProtSwitchByteNumFails_Object=MibTableColumn
+extremeApsProtocolErrorProtSwitchByteNumFails=_ExtremeApsProtocolErrorProtSwitchByteNumFails_Object((1,3,6,1,4,1,1916,1,20,1,3,2,1,12),_ExtremeApsProtocolErrorProtSwitchByteNumFails_Type())
+extremeApsProtocolErrorProtSwitchByteNumFails.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtocolErrorProtSwitchByteNumFails.setStatus(_A)
+_ExtremeApsProtocolErrorChannelMismatchNumFails_Type=Integer32
+_ExtremeApsProtocolErrorChannelMismatchNumFails_Object=MibTableColumn
+extremeApsProtocolErrorChannelMismatchNumFails=_ExtremeApsProtocolErrorChannelMismatchNumFails_Object((1,3,6,1,4,1,1916,1,20,1,3,2,1,13),_ExtremeApsProtocolErrorChannelMismatchNumFails_Type())
+extremeApsProtocolErrorChannelMismatchNumFails.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtocolErrorChannelMismatchNumFails.setStatus(_A)
+_ExtremeApsProtocolErrorFarEndProtectNumFails_Type=Integer32
+_ExtremeApsProtocolErrorFarEndProtectNumFails_Object=MibTableColumn
+extremeApsProtocolErrorFarEndProtectNumFails=_ExtremeApsProtocolErrorFarEndProtectNumFails_Object((1,3,6,1,4,1,1916,1,20,1,3,2,1,14),_ExtremeApsProtocolErrorFarEndProtectNumFails_Type())
+extremeApsProtocolErrorFarEndProtectNumFails.setMaxAccess(_B)
+if mibBuilder.loadTexts:extremeApsProtocolErrorFarEndProtectNumFails.setStatus(_A)
+mibBuilder.exportSymbols(_D,**{'extremePOSMib':extremePOSMib,'extremeAps':extremeAps,'extremeApsConfig':extremeApsConfig,'extremeApsConfigEnabled':extremeApsConfigEnabled,'extremeApsGroupConfigTable':extremeApsGroupConfigTable,'extremeApsGroupConfigEntry':extremeApsGroupConfigEntry,_G:extremeApsGroupConfigGroupNumber,'extremeApsGroupConfigRevertMode':extremeApsGroupConfigRevertMode,'extremeApsGroupConfigRevertMinutes':extremeApsGroupConfigRevertMinutes,'extremeApsGroupConfigDirection':extremeApsGroupConfigDirection,'extremeApsGroupConfigTimerInterval':extremeApsGroupConfigTimerInterval,'extremeApsGroupConfigTimerMisses':extremeApsGroupConfigTimerMisses,'extremeApsGroupConfigAuthenticate':extremeApsGroupConfigAuthenticate,'extremeApsGroupConfigAuthString':extremeApsGroupConfigAuthString,'extremeApsPortConfigTable':extremeApsPortConfigTable,'extremeApsPortConfigEntry':extremeApsPortConfigEntry,_J:extremeApsPortConfigGroupNumber,_K:extremeApsPortConfigPortNumber,'extremeApsPortConfigPortType':extremeApsPortConfigPortType,'extremeApsProtectPortConfigTable':extremeApsProtectPortConfigTable,'extremeApsProtectPortConfigEntry':extremeApsProtectPortConfigEntry,_N:extremeApsProtectPortConfigGroupNumber,_O:extremeApsProtectPortConfigPortNumber,'extremeApsProtectPortConfigWorkingIpAddr':extremeApsProtectPortConfigWorkingIpAddr,'extremeApsStatus':extremeApsStatus,'extremeApsGroupTable':extremeApsGroupTable,'extremeApsGroupEntry':extremeApsGroupEntry,_P:extremeApsGroupGroupNumber,'extremeApsGroupActivePort':extremeApsGroupActivePort,'extremeApsGroupEffectiveDirection':extremeApsGroupEffectiveDirection,'extremeApsGroupPeerProtoStatus':extremeApsGroupPeerProtoStatus,'extremeApsProtectPortTable':extremeApsProtectPortTable,'extremeApsProtectPortEntry':extremeApsProtectPortEntry,_Q:extremeApsProtectPortGroupNumber,_R:extremeApsProtectPortPortNumber,'extremeApsProtectPortTransmitK1':extremeApsProtectPortTransmitK1,'extremeApsProtectPortTransmitK2':extremeApsProtectPortTransmitK2,'extremeApsProtectPortReceiveK1':extremeApsProtectPortReceiveK1,'extremeApsProtectPortReceiveK2':extremeApsProtectPortReceiveK2,'extremeApsProtectPortSwitchInitByWorking':extremeApsProtectPortSwitchInitByWorking,'extremeApsProtectPortSwitchInitByProtect':extremeApsProtectPortSwitchInitByProtect,'extremeApsProtectPortSwitchInitByADM':extremeApsProtectPortSwitchInitByADM,'extremeApsProtectPortSwitchInitByCmd':extremeApsProtectPortSwitchInitByCmd,'extremeApsProtectPortSuccessfulSwitches':extremeApsProtectPortSuccessfulSwitches,'extremeApsProtectPortHelloProtFails':extremeApsProtectPortHelloProtFails,'extremeApsErrors':extremeApsErrors,'extremeApsLineErrorTable':extremeApsLineErrorTable,'extremeApsLineErrorEntry':extremeApsLineErrorEntry,_S:extremeApsLineErrorGroupNumber,_T:extremeApsLineErrorPortNumber,'extremeApsLineErrorSignalDegradeActive':extremeApsLineErrorSignalDegradeActive,'extremeApsLineErrorBERSignalDegradeActive':extremeApsLineErrorBERSignalDegradeActive,'extremeApsLineErrorSignalFailActive':extremeApsLineErrorSignalFailActive,'extremeApsLineErrorBERSignalFailActive':extremeApsLineErrorBERSignalFailActive,'extremeApsLineErrorSignalDegrades':extremeApsLineErrorSignalDegrades,'extremeApsLineErrorBERSignalDegrades':extremeApsLineErrorBERSignalDegrades,'extremeApsLineErrorSignalFails':extremeApsLineErrorSignalFails,'extremeApsLineErrorBERSignalFails':extremeApsLineErrorBERSignalFails,'extremeApsProtocolErrorTable':extremeApsProtocolErrorTable,'extremeApsProtocolErrorEntry':extremeApsProtocolErrorEntry,_U:extremeApsProtocolErrorGroupNumber,_V:extremeApsProtocolErrorPortNumber,'extremeApsProtocolErrorModeMismatchDefect':extremeApsProtocolErrorModeMismatchDefect,'extremeApsProtocolErrorProtSwitchByteDefect':extremeApsProtocolErrorProtSwitchByteDefect,'extremeApsProtocolErrorChannelMismatchDefect':extremeApsProtocolErrorChannelMismatchDefect,'extremeApsProtocolErrorFarEndProtectDefect':extremeApsProtocolErrorFarEndProtectDefect,'extremeApsProtocolErrorModeMismatchFailure':extremeApsProtocolErrorModeMismatchFailure,'extremeApsProtocolErrorProtSwitchByteFailure':extremeApsProtocolErrorProtSwitchByteFailure,'extremeApsProtocolErrorChannelMismatchFailure':extremeApsProtocolErrorChannelMismatchFailure,'extremeApsProtocolErrorFarEndProtectFailure':extremeApsProtocolErrorFarEndProtectFailure,'extremeApsProtocolErrorModeMismatchNumFails':extremeApsProtocolErrorModeMismatchNumFails,'extremeApsProtocolErrorProtSwitchByteNumFails':extremeApsProtocolErrorProtSwitchByteNumFails,'extremeApsProtocolErrorChannelMismatchNumFails':extremeApsProtocolErrorChannelMismatchNumFails,'extremeApsProtocolErrorFarEndProtectNumFails':extremeApsProtocolErrorFarEndProtectNumFails})

@@ -1,131 +1,330 @@
-#
-# PySNMP MIB module RS-232-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/RS-232-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:27:20 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-( InterfaceIndex, ) = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-( NotificationGroup, ObjectGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-( Unsigned32, Bits, TimeTicks, Counter64, NotificationType, Integer32, MibIdentifier, Gauge32, ObjectIdentity, transmission, IpAddress, ModuleIdentity, Counter32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Bits", "TimeTicks", "Counter64", "NotificationType", "Integer32", "MibIdentifier", "Gauge32", "ObjectIdentity", "transmission", "IpAddress", "ModuleIdentity", "Counter32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-( TextualConvention, DisplayString, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-rs232 = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 33))
-if mibBuilder.loadTexts: rs232.setLastUpdated('9405261700Z')
-if mibBuilder.loadTexts: rs232.setOrganization('IETF Character MIB Working Group')
-if mibBuilder.loadTexts: rs232.setContactInfo('        Bob Stewart\n                Postal: Xyplex, Inc.\n                        295 Foster Street\n                        Littleton, MA 01460\n\n                   Tel: 508-952-4816\n                   Fax: 508-952-4887\n                E-mail: rlstewart@eng.xyplex.com')
-if mibBuilder.loadTexts: rs232.setDescription('The MIB module for RS-232-like hardware devices.')
-rs232Number = MibScalar((1, 3, 6, 1, 2, 1, 10, 33, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232Number.setDescription('The number of ports (regardless of their current\n           state) in the RS-232-like general port table.')
-rs232PortTable = MibTable((1, 3, 6, 1, 2, 1, 10, 33, 2), )
-if mibBuilder.loadTexts: rs232PortTable.setDescription('A list of port entries.  The number of entries is\n           given by the value of rs232Number.')
-rs232PortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 33, 2, 1), ).setIndexNames((0, "RS-232-MIB", "rs232PortIndex"))
-if mibBuilder.loadTexts: rs232PortEntry.setDescription('Status and parameter values for a port.')
-rs232PortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 2, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232PortIndex.setDescription('The value of ifIndex for the port.  By convention\n           and if possible, hardware port numbers map directly\n           to external connectors.  The value for each port must\n           remain constant at least from one re-initialization\n           of the network management agent to the next.')
-rs232PortType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("other", 1), ("rs232", 2), ("rs422", 3), ("rs423", 4), ("v35", 5), ("x21", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232PortType.setDescription("The port's hardware type.")
-rs232PortInSigNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 2, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232PortInSigNumber.setDescription('The number of input signals for the port in the\n           input signal table (rs232PortInSigTable).  The table\n           contains entries only for those signals the software\n           can detect and that are useful to observe.')
-rs232PortOutSigNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232PortOutSigNumber.setDescription('The number of output signals for the port in the\n           output signal table (rs232PortOutSigTable).  The\n           table contains entries only for those signals the\n           software can assert and that are useful to observe.')
-rs232PortInSpeed = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 2, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rs232PortInSpeed.setDescription("The port's input speed in bits per second.  Note that\n           non-standard values, such as 9612, are probably not allowed\n           on most implementations.")
-rs232PortOutSpeed = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 2, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rs232PortOutSpeed.setDescription("The port's output speed in bits per second.  Note that\n           non-standard values, such as 9612, are probably not allowed\n           on most implementations.")
-rs232PortInFlowType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("none", 1), ("ctsRts", 2), ("dsrDtr", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rs232PortInFlowType.setDescription("The port's type of input flow control.  'none'\n           indicates no flow control at this level.\n           'ctsRts' and 'dsrDtr' indicate use of the indicated\n           hardware signals.")
-rs232PortOutFlowType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("none", 1), ("ctsRts", 2), ("dsrDtr", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rs232PortOutFlowType.setDescription("The port's type of output flow control.  'none'\n           indicates no flow control at this level.\n           'ctsRts' and 'dsrDtr' indicate use of the indicated\n           hardware signals.")
-rs232AsyncPortTable = MibTable((1, 3, 6, 1, 2, 1, 10, 33, 3), )
-if mibBuilder.loadTexts: rs232AsyncPortTable.setDescription('A list of asynchronous port entries.  Entries need\n           not exist for synchronous ports.')
-rs232AsyncPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 33, 3, 1), ).setIndexNames((0, "RS-232-MIB", "rs232AsyncPortIndex"))
-if mibBuilder.loadTexts: rs232AsyncPortEntry.setDescription('Status and parameter values for an asynchronous\n           port.')
-rs232AsyncPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 3, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232AsyncPortIndex.setDescription('A unique value for each port.  Its value is the\n           same as rs232PortIndex for the port.')
-rs232AsyncPortBits = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5,8))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rs232AsyncPortBits.setDescription("The port's number of bits in a character.")
-rs232AsyncPortStopBits = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("one", 1), ("two", 2), ("oneAndHalf", 3), ("dynamic", 4),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rs232AsyncPortStopBits.setDescription("The port's number of stop bits.")
-rs232AsyncPortParity = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("none", 1), ("odd", 2), ("even", 3), ("mark", 4), ("space", 5),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rs232AsyncPortParity.setDescription("The port's sense of a character parity bit.")
-rs232AsyncPortAutobaud = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rs232AsyncPortAutobaud.setDescription("A control for the port's ability to automatically\n           sense input speed.\n\n           When rs232PortAutoBaud is 'enabled', a port may\n           autobaud to values different from the set values for\n           speed, parity, and character size.  As a result a\n           network management system may temporarily observe\n           values different from what was previously set.")
-rs232AsyncPortParityErrs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 3, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232AsyncPortParityErrs.setDescription("Total number of characters with a parity error,\n           input from the port since system re-initialization\n           and while the port state was 'up' or 'test'.")
-rs232AsyncPortFramingErrs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 3, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232AsyncPortFramingErrs.setDescription("Total number of characters with a framing error,\n           input from the port since system re-initialization\n           and while the port state was 'up' or 'test'.")
-rs232AsyncPortOverrunErrs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 3, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232AsyncPortOverrunErrs.setDescription("Total number of characters with an overrun error,\n           input from the port since system re-initialization\n           and while the port state was 'up' or 'test'.")
-rs232SyncPortTable = MibTable((1, 3, 6, 1, 2, 1, 10, 33, 4), )
-if mibBuilder.loadTexts: rs232SyncPortTable.setDescription('A list of asynchronous port entries.  Entries need\n           not exist for synchronous ports.')
-rs232SyncPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 33, 4, 1), ).setIndexNames((0, "RS-232-MIB", "rs232SyncPortIndex"))
-if mibBuilder.loadTexts: rs232SyncPortEntry.setDescription('Status and parameter values for a synchronous\n           port.')
-rs232SyncPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 4, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232SyncPortIndex.setDescription('A unique value for each port.  Its value is the\n           same as rs232PortIndex for the port.')
-rs232SyncPortClockSource = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("internal", 1), ("external", 2), ("split", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rs232SyncPortClockSource.setDescription("Source of the port's bit rate clock. 'split' means\n           the tranmit clock is internal and the receive clock\n           is external.")
-rs232SyncPortFrameCheckErrs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 4, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232SyncPortFrameCheckErrs.setDescription("Total number of frames with an invalid frame check\n           sequence, input from the port since system\n           re-initialization and while the port state was 'up'\n           or 'test'.")
-rs232SyncPortTransmitUnderrunErrs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 4, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232SyncPortTransmitUnderrunErrs.setDescription("Total number of frames that failed to be\n           transmitted on the port since system\n           re-initialization and while the port state was 'up'\n           or 'test' because data was not available to the\n           transmitter in time.")
-rs232SyncPortReceiveOverrunErrs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 4, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232SyncPortReceiveOverrunErrs.setDescription("Total number of frames that failed to be received\n           on the port since system re-initialization and while\n           the port state was 'up' or 'test' because the\n           receiver did not accept the data in time.")
-rs232SyncPortInterruptedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 4, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232SyncPortInterruptedFrames.setDescription("Total number of frames that failed to be received\n           or transmitted on the port due to loss of modem\n           signals since system re-initialization and while the\n           port state was 'up' or 'test'.")
-rs232SyncPortAbortedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 4, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232SyncPortAbortedFrames.setDescription("Number of frames aborted on the port due to\n           receiving an abort sequence since system\n           re-initialization and while the port state was 'up'\n           or 'test'.")
-rs232SyncPortRole = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 4, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("dte", 1), ("dce", 2),)).clone('dce')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rs232SyncPortRole.setDescription('The role the device is playing that is using this port.\n              dte    means the device is performing the role of\n                     data terminal equipment\n              dce    means the device is performing the role of\n                     data circuit-terminating equipment.')
-rs232SyncPortEncoding = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 4, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("nrz", 1), ("nrzi", 2),)).clone('nrz')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rs232SyncPortEncoding.setDescription('The bit stream encoding technique that is in effect\n            for this port.\n              nrz    for Non-Return to Zero encoding\n              nrzi   for Non-Return to Zero Inverted encoding.')
-rs232SyncPortRTSControl = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 4, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("controlled", 1), ("constant", 2),)).clone('constant')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rs232SyncPortRTSControl.setDescription("The method used to control the Request To Send (RTS)\n            signal.\n\n              controlled  when the DTE is asserts RTS each time\n                          data needs to be transmitted and drops\n                          RTS at some point after data\n                          transmission begins.\n\n                          If rs232SyncPortRole is 'dte', the\n                          RTS is an output signal. The device\n                          will issue a RTS and wait for a CTS\n                          from the DCE before starting to\n                          transmit.\n\n                          If rs232SyncPortRole is 'dce', the\n                          RTS is an input signal. The device\n                          will issue a CTS only after having\n                          received RTS and waiting the\n                          rs232SyncPortRTSCTSDelay interval.\n\n              constant    when the DTE constantly asserts RTS.")
-rs232SyncPortRTSCTSDelay = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 4, 1, 11), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rs232SyncPortRTSCTSDelay.setDescription('The interval (in milliseconds) that the DCE must wait\n            after it sees RTS asserted before asserting CTS.  This\n            object exists in support of older synchronous devices\n            that cannot recognize CTS within a certain interval\n            after it asserts RTS.')
-rs232SyncPortMode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 4, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("fdx", 1), ("hdx", 2), ("simplex-receive", 3), ("simplex-send", 4),)).clone('fdx')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rs232SyncPortMode.setDescription('The mode of operation of the port with respect to the\n            direction and simultaneity of data transfer.\n              fdx              when frames on the data link can be\n                               transmitted and received at the same\n                               time\n\n              hdx              when frames can either be received\n                               from the data link or transmitted\n                               onto the data link but not at the\n                               same time.\n\n              simplex-receive  when frames can only be received on\n                               this data link.\n\n              simplex-send     when frames can only be sent on this\n                               data link.')
-rs232SyncPortIdlePattern = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 4, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("mark", 1), ("space", 2),)).clone('space')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rs232SyncPortIdlePattern.setDescription('The bit pattern used to indicate an idle line.')
-rs232SyncPortMinFlags = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 4, 1, 14), Integer32().clone(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rs232SyncPortMinFlags.setDescription('The minimum number of flag patterns this port needs in\n            order to recognize the end of one frame and the start\n            of the next.  Plausible values are 1 and 2.')
-rs232InSigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 33, 5), )
-if mibBuilder.loadTexts: rs232InSigTable.setDescription('A list of port input control signal entries\n           implemented and visible to the software on the port,\n           and useful to monitor.')
-rs232InSigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 33, 5, 1), ).setIndexNames((0, "RS-232-MIB", "rs232InSigPortIndex"), (0, "RS-232-MIB", "rs232InSigName"))
-if mibBuilder.loadTexts: rs232InSigEntry.setDescription('Input control signal status for a hardware port.')
-rs232InSigPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 5, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232InSigPortIndex.setDescription('The value of rs232PortIndex for the port to which\n           this entry belongs.')
-rs232InSigName = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,))).clone(namedValues=NamedValues(("rts", 1), ("cts", 2), ("dsr", 3), ("dtr", 4), ("ri", 5), ("dcd", 6), ("sq", 7), ("srs", 8), ("srts", 9), ("scts", 10), ("sdcd", 11),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232InSigName.setDescription('Identification of a hardware signal, as follows:\n\n               rts    Request to Send\n               cts    Clear to Send\n               dsr    Data Set Ready\n               dtr    Data Terminal Ready\n               ri     Ring Indicator\n               dcd    Received Line Signal Detector\n               sq     Signal Quality Detector\n               srs    Data Signaling Rate Selector\n               srts   Secondary Request to Send\n               scts   Secondary Clear to Send\n               sdcd   Secondary Received Line Signal Detector\n           ')
-rs232InSigState = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 5, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("none", 1), ("on", 2), ("off", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232InSigState.setDescription('The current signal state.')
-rs232InSigChanges = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 5, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232InSigChanges.setDescription("The number of times the signal has changed from\n           'on' to 'off' or from 'off' to 'on'.")
-rs232OutSigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 33, 6), )
-if mibBuilder.loadTexts: rs232OutSigTable.setDescription('A list of port output control signal entries\n           implemented and visible to the software on the port,\n           and useful to monitor.')
-rs232OutSigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 33, 6, 1), ).setIndexNames((0, "RS-232-MIB", "rs232OutSigPortIndex"), (0, "RS-232-MIB", "rs232OutSigName"))
-if mibBuilder.loadTexts: rs232OutSigEntry.setDescription('Output control signal status for a hardware port.')
-rs232OutSigPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 6, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232OutSigPortIndex.setDescription('The value of rs232PortIndex for the port to which\n           this entry belongs.')
-rs232OutSigName = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,))).clone(namedValues=NamedValues(("rts", 1), ("cts", 2), ("dsr", 3), ("dtr", 4), ("ri", 5), ("dcd", 6), ("sq", 7), ("srs", 8), ("srts", 9), ("scts", 10), ("sdcd", 11),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232OutSigName.setDescription('Identification of a hardware signal, as follows:\n\n               rts    Request to Send\n               cts    Clear to Send\n               dsr    Data Set Ready\n               dtr    Data Terminal Ready\n               ri     Ring Indicator\n               dcd    Received Line Signal Detector\n               sq     Signal Quality Detector\n               srs    Data Signaling Rate Selector\n               srts   Secondary Request to Send\n               scts   Secondary Clear to Send\n               sdcd   Secondary Received Line Signal Detector\n           ')
-rs232OutSigState = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("none", 1), ("on", 2), ("off", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232OutSigState.setDescription('The current signal state.')
-rs232OutSigChanges = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 33, 6, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rs232OutSigChanges.setDescription("The number of times the signal has changed from\n           'on' to 'off' or from 'off' to 'on'.")
-rs232Conformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 33, 7))
-rs232Groups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 33, 7, 1))
-rs232Compliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 33, 7, 2))
-rs232Compliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 33, 7, 2, 1)).setObjects(*(("RS-232-MIB", "rs232Group"), ("RS-232-MIB", "rs232AsyncGroup"), ("RS-232-MIB", "rs232SyncGroup"),))
-if mibBuilder.loadTexts: rs232Compliance.setDescription('The compliance statement for SNMPv2 entities\n               which have RS-232-like hardware interfaces.')
-rs232Group = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 33, 7, 1, 1)).setObjects(*(("RS-232-MIB", "rs232Number"), ("RS-232-MIB", "rs232PortIndex"), ("RS-232-MIB", "rs232PortType"), ("RS-232-MIB", "rs232PortInSigNumber"), ("RS-232-MIB", "rs232PortOutSigNumber"), ("RS-232-MIB", "rs232PortInSpeed"), ("RS-232-MIB", "rs232PortOutSpeed"), ("RS-232-MIB", "rs232PortInFlowType"), ("RS-232-MIB", "rs232PortOutFlowType"), ("RS-232-MIB", "rs232InSigPortIndex"), ("RS-232-MIB", "rs232InSigName"), ("RS-232-MIB", "rs232InSigState"), ("RS-232-MIB", "rs232InSigChanges"), ("RS-232-MIB", "rs232OutSigPortIndex"), ("RS-232-MIB", "rs232OutSigName"), ("RS-232-MIB", "rs232OutSigState"), ("RS-232-MIB", "rs232OutSigChanges"),))
-if mibBuilder.loadTexts: rs232Group.setDescription('A collection of objects providing information\n                applicable to all RS-232-like interfaces.')
-rs232AsyncGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 33, 7, 1, 2)).setObjects(*(("RS-232-MIB", "rs232AsyncPortIndex"), ("RS-232-MIB", "rs232AsyncPortBits"), ("RS-232-MIB", "rs232AsyncPortStopBits"), ("RS-232-MIB", "rs232AsyncPortParity"), ("RS-232-MIB", "rs232AsyncPortAutobaud"), ("RS-232-MIB", "rs232AsyncPortParityErrs"), ("RS-232-MIB", "rs232AsyncPortFramingErrs"), ("RS-232-MIB", "rs232AsyncPortOverrunErrs"),))
-if mibBuilder.loadTexts: rs232AsyncGroup.setDescription('A collection of objects providing information\n                applicable to asynchronous RS-232-like interfaces.')
-rs232SyncGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 33, 7, 1, 3)).setObjects(*(("RS-232-MIB", "rs232SyncPortIndex"), ("RS-232-MIB", "rs232SyncPortClockSource"), ("RS-232-MIB", "rs232SyncPortFrameCheckErrs"), ("RS-232-MIB", "rs232SyncPortTransmitUnderrunErrs"), ("RS-232-MIB", "rs232SyncPortReceiveOverrunErrs"), ("RS-232-MIB", "rs232SyncPortInterruptedFrames"), ("RS-232-MIB", "rs232SyncPortAbortedFrames"),))
-if mibBuilder.loadTexts: rs232SyncGroup.setDescription('A collection of objects providing information\n                applicable to synchronous RS-232-like interfaces.')
-rs232SyncSDLCGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 33, 7, 1, 4)).setObjects(*(("RS-232-MIB", "rs232SyncPortRole"), ("RS-232-MIB", "rs232SyncPortEncoding"), ("RS-232-MIB", "rs232SyncPortRTSControl"), ("RS-232-MIB", "rs232SyncPortRTSCTSDelay"), ("RS-232-MIB", "rs232SyncPortMode"), ("RS-232-MIB", "rs232SyncPortIdlePattern"), ("RS-232-MIB", "rs232SyncPortMinFlags"),))
-if mibBuilder.loadTexts: rs232SyncSDLCGroup.setDescription('A collection of objects providing information\n                applicable to synchronous RS-232-like interfaces\n                running SDLC.')
-mibBuilder.exportSymbols("RS-232-MIB", rs232OutSigState=rs232OutSigState, rs232SyncPortReceiveOverrunErrs=rs232SyncPortReceiveOverrunErrs, rs232PortInSigNumber=rs232PortInSigNumber, rs232AsyncPortParity=rs232AsyncPortParity, rs232AsyncPortStopBits=rs232AsyncPortStopBits, rs232SyncPortRTSControl=rs232SyncPortRTSControl, rs232SyncPortMinFlags=rs232SyncPortMinFlags, rs232Group=rs232Group, rs232SyncGroup=rs232SyncGroup, rs232AsyncPortIndex=rs232AsyncPortIndex, rs232InSigChanges=rs232InSigChanges, rs232InSigEntry=rs232InSigEntry, rs232AsyncPortBits=rs232AsyncPortBits, rs232PortInFlowType=rs232PortInFlowType, rs232AsyncPortOverrunErrs=rs232AsyncPortOverrunErrs, rs232OutSigName=rs232OutSigName, rs232Compliance=rs232Compliance, rs232SyncPortClockSource=rs232SyncPortClockSource, rs232SyncPortTable=rs232SyncPortTable, rs232SyncPortEncoding=rs232SyncPortEncoding, rs232InSigName=rs232InSigName, rs232Groups=rs232Groups, rs232SyncPortAbortedFrames=rs232SyncPortAbortedFrames, rs232AsyncPortTable=rs232AsyncPortTable, rs232Compliances=rs232Compliances, rs232SyncPortIdlePattern=rs232SyncPortIdlePattern, rs232PortInSpeed=rs232PortInSpeed, rs232InSigState=rs232InSigState, rs232SyncPortInterruptedFrames=rs232SyncPortInterruptedFrames, rs232SyncPortRole=rs232SyncPortRole, rs232SyncPortIndex=rs232SyncPortIndex, rs232PortTable=rs232PortTable, rs232SyncSDLCGroup=rs232SyncSDLCGroup, rs232OutSigPortIndex=rs232OutSigPortIndex, rs232AsyncPortParityErrs=rs232AsyncPortParityErrs, rs232AsyncPortEntry=rs232AsyncPortEntry, rs232SyncPortFrameCheckErrs=rs232SyncPortFrameCheckErrs, rs232PortOutSpeed=rs232PortOutSpeed, rs232PortEntry=rs232PortEntry, rs232InSigTable=rs232InSigTable, rs232OutSigEntry=rs232OutSigEntry, rs232Number=rs232Number, rs232InSigPortIndex=rs232InSigPortIndex, rs232AsyncPortAutobaud=rs232AsyncPortAutobaud, rs232PortOutSigNumber=rs232PortOutSigNumber, rs232=rs232, rs232PortType=rs232PortType, rs232PortIndex=rs232PortIndex, rs232SyncPortTransmitUnderrunErrs=rs232SyncPortTransmitUnderrunErrs, rs232SyncPortRTSCTSDelay=rs232SyncPortRTSCTSDelay, rs232OutSigChanges=rs232OutSigChanges, rs232AsyncPortFramingErrs=rs232AsyncPortFramingErrs, rs232SyncPortMode=rs232SyncPortMode, rs232SyncPortEntry=rs232SyncPortEntry, PYSNMP_MODULE_ID=rs232, rs232Conformance=rs232Conformance, rs232PortOutFlowType=rs232PortOutFlowType, rs232OutSigTable=rs232OutSigTable, rs232AsyncGroup=rs232AsyncGroup)
+_x='rs232SyncGroup'
+_w='rs232AsyncGroup'
+_v='rs232Group'
+_u='rs232SyncPortMinFlags'
+_t='rs232SyncPortIdlePattern'
+_s='rs232SyncPortMode'
+_r='rs232SyncPortRTSCTSDelay'
+_q='rs232SyncPortRTSControl'
+_p='rs232SyncPortEncoding'
+_o='rs232SyncPortRole'
+_n='rs232SyncPortAbortedFrames'
+_m='rs232SyncPortInterruptedFrames'
+_l='rs232SyncPortReceiveOverrunErrs'
+_k='rs232SyncPortTransmitUnderrunErrs'
+_j='rs232SyncPortFrameCheckErrs'
+_i='rs232SyncPortClockSource'
+_h='rs232AsyncPortOverrunErrs'
+_g='rs232AsyncPortFramingErrs'
+_f='rs232AsyncPortParityErrs'
+_e='rs232AsyncPortAutobaud'
+_d='rs232AsyncPortParity'
+_c='rs232AsyncPortStopBits'
+_b='rs232AsyncPortBits'
+_a='rs232OutSigChanges'
+_Z='rs232OutSigState'
+_Y='rs232InSigChanges'
+_X='rs232InSigState'
+_W='rs232PortOutFlowType'
+_V='rs232PortInFlowType'
+_U='rs232PortOutSpeed'
+_T='rs232PortInSpeed'
+_S='rs232PortOutSigNumber'
+_R='rs232PortInSigNumber'
+_Q='rs232PortType'
+_P='rs232Number'
+_O='dsrDtr'
+_N='ctsRts'
+_M='rs232OutSigName'
+_L='rs232OutSigPortIndex'
+_K='rs232InSigName'
+_J='rs232InSigPortIndex'
+_I='rs232SyncPortIndex'
+_H='rs232AsyncPortIndex'
+_G='rs232PortIndex'
+_F='none'
+_E='read-write'
+_D='Integer32'
+_C='read-only'
+_B='RS-232-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','transmission')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+rs232=ModuleIdentity((1,3,6,1,2,1,10,33))
+_Rs232Number_Type=Integer32
+_Rs232Number_Object=MibScalar
+rs232Number=_Rs232Number_Object((1,3,6,1,2,1,10,33,1),_Rs232Number_Type())
+rs232Number.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232Number.setStatus(_A)
+_Rs232PortTable_Object=MibTable
+rs232PortTable=_Rs232PortTable_Object((1,3,6,1,2,1,10,33,2))
+if mibBuilder.loadTexts:rs232PortTable.setStatus(_A)
+_Rs232PortEntry_Object=MibTableRow
+rs232PortEntry=_Rs232PortEntry_Object((1,3,6,1,2,1,10,33,2,1))
+rs232PortEntry.setIndexNames((0,_B,_G))
+if mibBuilder.loadTexts:rs232PortEntry.setStatus(_A)
+_Rs232PortIndex_Type=InterfaceIndex
+_Rs232PortIndex_Object=MibTableColumn
+rs232PortIndex=_Rs232PortIndex_Object((1,3,6,1,2,1,10,33,2,1,1),_Rs232PortIndex_Type())
+rs232PortIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232PortIndex.setStatus(_A)
+class _Rs232PortType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('other',1),('rs232',2),('rs422',3),('rs423',4),('v35',5),('x21',6)))
+_Rs232PortType_Type.__name__=_D
+_Rs232PortType_Object=MibTableColumn
+rs232PortType=_Rs232PortType_Object((1,3,6,1,2,1,10,33,2,1,2),_Rs232PortType_Type())
+rs232PortType.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232PortType.setStatus(_A)
+_Rs232PortInSigNumber_Type=Integer32
+_Rs232PortInSigNumber_Object=MibTableColumn
+rs232PortInSigNumber=_Rs232PortInSigNumber_Object((1,3,6,1,2,1,10,33,2,1,3),_Rs232PortInSigNumber_Type())
+rs232PortInSigNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232PortInSigNumber.setStatus(_A)
+_Rs232PortOutSigNumber_Type=Integer32
+_Rs232PortOutSigNumber_Object=MibTableColumn
+rs232PortOutSigNumber=_Rs232PortOutSigNumber_Object((1,3,6,1,2,1,10,33,2,1,4),_Rs232PortOutSigNumber_Type())
+rs232PortOutSigNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232PortOutSigNumber.setStatus(_A)
+_Rs232PortInSpeed_Type=Integer32
+_Rs232PortInSpeed_Object=MibTableColumn
+rs232PortInSpeed=_Rs232PortInSpeed_Object((1,3,6,1,2,1,10,33,2,1,5),_Rs232PortInSpeed_Type())
+rs232PortInSpeed.setMaxAccess(_E)
+if mibBuilder.loadTexts:rs232PortInSpeed.setStatus(_A)
+_Rs232PortOutSpeed_Type=Integer32
+_Rs232PortOutSpeed_Object=MibTableColumn
+rs232PortOutSpeed=_Rs232PortOutSpeed_Object((1,3,6,1,2,1,10,33,2,1,6),_Rs232PortOutSpeed_Type())
+rs232PortOutSpeed.setMaxAccess(_E)
+if mibBuilder.loadTexts:rs232PortOutSpeed.setStatus(_A)
+class _Rs232PortInFlowType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_F,1),(_N,2),(_O,3)))
+_Rs232PortInFlowType_Type.__name__=_D
+_Rs232PortInFlowType_Object=MibTableColumn
+rs232PortInFlowType=_Rs232PortInFlowType_Object((1,3,6,1,2,1,10,33,2,1,7),_Rs232PortInFlowType_Type())
+rs232PortInFlowType.setMaxAccess(_E)
+if mibBuilder.loadTexts:rs232PortInFlowType.setStatus(_A)
+class _Rs232PortOutFlowType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_F,1),(_N,2),(_O,3)))
+_Rs232PortOutFlowType_Type.__name__=_D
+_Rs232PortOutFlowType_Object=MibTableColumn
+rs232PortOutFlowType=_Rs232PortOutFlowType_Object((1,3,6,1,2,1,10,33,2,1,8),_Rs232PortOutFlowType_Type())
+rs232PortOutFlowType.setMaxAccess(_E)
+if mibBuilder.loadTexts:rs232PortOutFlowType.setStatus(_A)
+_Rs232AsyncPortTable_Object=MibTable
+rs232AsyncPortTable=_Rs232AsyncPortTable_Object((1,3,6,1,2,1,10,33,3))
+if mibBuilder.loadTexts:rs232AsyncPortTable.setStatus(_A)
+_Rs232AsyncPortEntry_Object=MibTableRow
+rs232AsyncPortEntry=_Rs232AsyncPortEntry_Object((1,3,6,1,2,1,10,33,3,1))
+rs232AsyncPortEntry.setIndexNames((0,_B,_H))
+if mibBuilder.loadTexts:rs232AsyncPortEntry.setStatus(_A)
+_Rs232AsyncPortIndex_Type=InterfaceIndex
+_Rs232AsyncPortIndex_Object=MibTableColumn
+rs232AsyncPortIndex=_Rs232AsyncPortIndex_Object((1,3,6,1,2,1,10,33,3,1,1),_Rs232AsyncPortIndex_Type())
+rs232AsyncPortIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232AsyncPortIndex.setStatus(_A)
+class _Rs232AsyncPortBits_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,8))
+_Rs232AsyncPortBits_Type.__name__=_D
+_Rs232AsyncPortBits_Object=MibTableColumn
+rs232AsyncPortBits=_Rs232AsyncPortBits_Object((1,3,6,1,2,1,10,33,3,1,2),_Rs232AsyncPortBits_Type())
+rs232AsyncPortBits.setMaxAccess(_E)
+if mibBuilder.loadTexts:rs232AsyncPortBits.setStatus(_A)
+class _Rs232AsyncPortStopBits_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('one',1),('two',2),('oneAndHalf',3),('dynamic',4)))
+_Rs232AsyncPortStopBits_Type.__name__=_D
+_Rs232AsyncPortStopBits_Object=MibTableColumn
+rs232AsyncPortStopBits=_Rs232AsyncPortStopBits_Object((1,3,6,1,2,1,10,33,3,1,3),_Rs232AsyncPortStopBits_Type())
+rs232AsyncPortStopBits.setMaxAccess(_E)
+if mibBuilder.loadTexts:rs232AsyncPortStopBits.setStatus(_A)
+class _Rs232AsyncPortParity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_F,1),('odd',2),('even',3),('mark',4),('space',5)))
+_Rs232AsyncPortParity_Type.__name__=_D
+_Rs232AsyncPortParity_Object=MibTableColumn
+rs232AsyncPortParity=_Rs232AsyncPortParity_Object((1,3,6,1,2,1,10,33,3,1,4),_Rs232AsyncPortParity_Type())
+rs232AsyncPortParity.setMaxAccess(_E)
+if mibBuilder.loadTexts:rs232AsyncPortParity.setStatus(_A)
+class _Rs232AsyncPortAutobaud_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
+_Rs232AsyncPortAutobaud_Type.__name__=_D
+_Rs232AsyncPortAutobaud_Object=MibTableColumn
+rs232AsyncPortAutobaud=_Rs232AsyncPortAutobaud_Object((1,3,6,1,2,1,10,33,3,1,5),_Rs232AsyncPortAutobaud_Type())
+rs232AsyncPortAutobaud.setMaxAccess(_E)
+if mibBuilder.loadTexts:rs232AsyncPortAutobaud.setStatus(_A)
+_Rs232AsyncPortParityErrs_Type=Counter32
+_Rs232AsyncPortParityErrs_Object=MibTableColumn
+rs232AsyncPortParityErrs=_Rs232AsyncPortParityErrs_Object((1,3,6,1,2,1,10,33,3,1,6),_Rs232AsyncPortParityErrs_Type())
+rs232AsyncPortParityErrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232AsyncPortParityErrs.setStatus(_A)
+_Rs232AsyncPortFramingErrs_Type=Counter32
+_Rs232AsyncPortFramingErrs_Object=MibTableColumn
+rs232AsyncPortFramingErrs=_Rs232AsyncPortFramingErrs_Object((1,3,6,1,2,1,10,33,3,1,7),_Rs232AsyncPortFramingErrs_Type())
+rs232AsyncPortFramingErrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232AsyncPortFramingErrs.setStatus(_A)
+_Rs232AsyncPortOverrunErrs_Type=Counter32
+_Rs232AsyncPortOverrunErrs_Object=MibTableColumn
+rs232AsyncPortOverrunErrs=_Rs232AsyncPortOverrunErrs_Object((1,3,6,1,2,1,10,33,3,1,8),_Rs232AsyncPortOverrunErrs_Type())
+rs232AsyncPortOverrunErrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232AsyncPortOverrunErrs.setStatus(_A)
+_Rs232SyncPortTable_Object=MibTable
+rs232SyncPortTable=_Rs232SyncPortTable_Object((1,3,6,1,2,1,10,33,4))
+if mibBuilder.loadTexts:rs232SyncPortTable.setStatus(_A)
+_Rs232SyncPortEntry_Object=MibTableRow
+rs232SyncPortEntry=_Rs232SyncPortEntry_Object((1,3,6,1,2,1,10,33,4,1))
+rs232SyncPortEntry.setIndexNames((0,_B,_I))
+if mibBuilder.loadTexts:rs232SyncPortEntry.setStatus(_A)
+_Rs232SyncPortIndex_Type=InterfaceIndex
+_Rs232SyncPortIndex_Object=MibTableColumn
+rs232SyncPortIndex=_Rs232SyncPortIndex_Object((1,3,6,1,2,1,10,33,4,1,1),_Rs232SyncPortIndex_Type())
+rs232SyncPortIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232SyncPortIndex.setStatus(_A)
+class _Rs232SyncPortClockSource_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('internal',1),('external',2),('split',3)))
+_Rs232SyncPortClockSource_Type.__name__=_D
+_Rs232SyncPortClockSource_Object=MibTableColumn
+rs232SyncPortClockSource=_Rs232SyncPortClockSource_Object((1,3,6,1,2,1,10,33,4,1,2),_Rs232SyncPortClockSource_Type())
+rs232SyncPortClockSource.setMaxAccess(_E)
+if mibBuilder.loadTexts:rs232SyncPortClockSource.setStatus(_A)
+_Rs232SyncPortFrameCheckErrs_Type=Counter32
+_Rs232SyncPortFrameCheckErrs_Object=MibTableColumn
+rs232SyncPortFrameCheckErrs=_Rs232SyncPortFrameCheckErrs_Object((1,3,6,1,2,1,10,33,4,1,3),_Rs232SyncPortFrameCheckErrs_Type())
+rs232SyncPortFrameCheckErrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232SyncPortFrameCheckErrs.setStatus(_A)
+_Rs232SyncPortTransmitUnderrunErrs_Type=Counter32
+_Rs232SyncPortTransmitUnderrunErrs_Object=MibTableColumn
+rs232SyncPortTransmitUnderrunErrs=_Rs232SyncPortTransmitUnderrunErrs_Object((1,3,6,1,2,1,10,33,4,1,4),_Rs232SyncPortTransmitUnderrunErrs_Type())
+rs232SyncPortTransmitUnderrunErrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232SyncPortTransmitUnderrunErrs.setStatus(_A)
+_Rs232SyncPortReceiveOverrunErrs_Type=Counter32
+_Rs232SyncPortReceiveOverrunErrs_Object=MibTableColumn
+rs232SyncPortReceiveOverrunErrs=_Rs232SyncPortReceiveOverrunErrs_Object((1,3,6,1,2,1,10,33,4,1,5),_Rs232SyncPortReceiveOverrunErrs_Type())
+rs232SyncPortReceiveOverrunErrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232SyncPortReceiveOverrunErrs.setStatus(_A)
+_Rs232SyncPortInterruptedFrames_Type=Counter32
+_Rs232SyncPortInterruptedFrames_Object=MibTableColumn
+rs232SyncPortInterruptedFrames=_Rs232SyncPortInterruptedFrames_Object((1,3,6,1,2,1,10,33,4,1,6),_Rs232SyncPortInterruptedFrames_Type())
+rs232SyncPortInterruptedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232SyncPortInterruptedFrames.setStatus(_A)
+_Rs232SyncPortAbortedFrames_Type=Counter32
+_Rs232SyncPortAbortedFrames_Object=MibTableColumn
+rs232SyncPortAbortedFrames=_Rs232SyncPortAbortedFrames_Object((1,3,6,1,2,1,10,33,4,1,7),_Rs232SyncPortAbortedFrames_Type())
+rs232SyncPortAbortedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232SyncPortAbortedFrames.setStatus(_A)
+class _Rs232SyncPortRole_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('dte',1),('dce',2)))
+_Rs232SyncPortRole_Type.__name__=_D
+_Rs232SyncPortRole_Object=MibTableColumn
+rs232SyncPortRole=_Rs232SyncPortRole_Object((1,3,6,1,2,1,10,33,4,1,8),_Rs232SyncPortRole_Type())
+rs232SyncPortRole.setMaxAccess(_E)
+if mibBuilder.loadTexts:rs232SyncPortRole.setStatus(_A)
+class _Rs232SyncPortEncoding_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('nrz',1),('nrzi',2)))
+_Rs232SyncPortEncoding_Type.__name__=_D
+_Rs232SyncPortEncoding_Object=MibTableColumn
+rs232SyncPortEncoding=_Rs232SyncPortEncoding_Object((1,3,6,1,2,1,10,33,4,1,9),_Rs232SyncPortEncoding_Type())
+rs232SyncPortEncoding.setMaxAccess(_E)
+if mibBuilder.loadTexts:rs232SyncPortEncoding.setStatus(_A)
+class _Rs232SyncPortRTSControl_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('controlled',1),('constant',2)))
+_Rs232SyncPortRTSControl_Type.__name__=_D
+_Rs232SyncPortRTSControl_Object=MibTableColumn
+rs232SyncPortRTSControl=_Rs232SyncPortRTSControl_Object((1,3,6,1,2,1,10,33,4,1,10),_Rs232SyncPortRTSControl_Type())
+rs232SyncPortRTSControl.setMaxAccess(_E)
+if mibBuilder.loadTexts:rs232SyncPortRTSControl.setStatus(_A)
+class _Rs232SyncPortRTSCTSDelay_Type(Integer32):defaultValue=0
+_Rs232SyncPortRTSCTSDelay_Type.__name__=_D
+_Rs232SyncPortRTSCTSDelay_Object=MibTableColumn
+rs232SyncPortRTSCTSDelay=_Rs232SyncPortRTSCTSDelay_Object((1,3,6,1,2,1,10,33,4,1,11),_Rs232SyncPortRTSCTSDelay_Type())
+rs232SyncPortRTSCTSDelay.setMaxAccess(_E)
+if mibBuilder.loadTexts:rs232SyncPortRTSCTSDelay.setStatus(_A)
+class _Rs232SyncPortMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('fdx',1),('hdx',2),('simplex-receive',3),('simplex-send',4)))
+_Rs232SyncPortMode_Type.__name__=_D
+_Rs232SyncPortMode_Object=MibTableColumn
+rs232SyncPortMode=_Rs232SyncPortMode_Object((1,3,6,1,2,1,10,33,4,1,12),_Rs232SyncPortMode_Type())
+rs232SyncPortMode.setMaxAccess(_E)
+if mibBuilder.loadTexts:rs232SyncPortMode.setStatus(_A)
+class _Rs232SyncPortIdlePattern_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('mark',1),('space',2)))
+_Rs232SyncPortIdlePattern_Type.__name__=_D
+_Rs232SyncPortIdlePattern_Object=MibTableColumn
+rs232SyncPortIdlePattern=_Rs232SyncPortIdlePattern_Object((1,3,6,1,2,1,10,33,4,1,13),_Rs232SyncPortIdlePattern_Type())
+rs232SyncPortIdlePattern.setMaxAccess(_E)
+if mibBuilder.loadTexts:rs232SyncPortIdlePattern.setStatus(_A)
+class _Rs232SyncPortMinFlags_Type(Integer32):defaultValue=2
+_Rs232SyncPortMinFlags_Type.__name__=_D
+_Rs232SyncPortMinFlags_Object=MibTableColumn
+rs232SyncPortMinFlags=_Rs232SyncPortMinFlags_Object((1,3,6,1,2,1,10,33,4,1,14),_Rs232SyncPortMinFlags_Type())
+rs232SyncPortMinFlags.setMaxAccess(_E)
+if mibBuilder.loadTexts:rs232SyncPortMinFlags.setStatus(_A)
+_Rs232InSigTable_Object=MibTable
+rs232InSigTable=_Rs232InSigTable_Object((1,3,6,1,2,1,10,33,5))
+if mibBuilder.loadTexts:rs232InSigTable.setStatus(_A)
+_Rs232InSigEntry_Object=MibTableRow
+rs232InSigEntry=_Rs232InSigEntry_Object((1,3,6,1,2,1,10,33,5,1))
+rs232InSigEntry.setIndexNames((0,_B,_J),(0,_B,_K))
+if mibBuilder.loadTexts:rs232InSigEntry.setStatus(_A)
+_Rs232InSigPortIndex_Type=InterfaceIndex
+_Rs232InSigPortIndex_Object=MibTableColumn
+rs232InSigPortIndex=_Rs232InSigPortIndex_Object((1,3,6,1,2,1,10,33,5,1,1),_Rs232InSigPortIndex_Type())
+rs232InSigPortIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232InSigPortIndex.setStatus(_A)
+class _Rs232InSigName_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('rts',1),('cts',2),('dsr',3),('dtr',4),('ri',5),('dcd',6),('sq',7),('srs',8),('srts',9),('scts',10),('sdcd',11)))
+_Rs232InSigName_Type.__name__=_D
+_Rs232InSigName_Object=MibTableColumn
+rs232InSigName=_Rs232InSigName_Object((1,3,6,1,2,1,10,33,5,1,2),_Rs232InSigName_Type())
+rs232InSigName.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232InSigName.setStatus(_A)
+class _Rs232InSigState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_F,1),('on',2),('off',3)))
+_Rs232InSigState_Type.__name__=_D
+_Rs232InSigState_Object=MibTableColumn
+rs232InSigState=_Rs232InSigState_Object((1,3,6,1,2,1,10,33,5,1,3),_Rs232InSigState_Type())
+rs232InSigState.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232InSigState.setStatus(_A)
+_Rs232InSigChanges_Type=Counter32
+_Rs232InSigChanges_Object=MibTableColumn
+rs232InSigChanges=_Rs232InSigChanges_Object((1,3,6,1,2,1,10,33,5,1,4),_Rs232InSigChanges_Type())
+rs232InSigChanges.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232InSigChanges.setStatus(_A)
+_Rs232OutSigTable_Object=MibTable
+rs232OutSigTable=_Rs232OutSigTable_Object((1,3,6,1,2,1,10,33,6))
+if mibBuilder.loadTexts:rs232OutSigTable.setStatus(_A)
+_Rs232OutSigEntry_Object=MibTableRow
+rs232OutSigEntry=_Rs232OutSigEntry_Object((1,3,6,1,2,1,10,33,6,1))
+rs232OutSigEntry.setIndexNames((0,_B,_L),(0,_B,_M))
+if mibBuilder.loadTexts:rs232OutSigEntry.setStatus(_A)
+_Rs232OutSigPortIndex_Type=InterfaceIndex
+_Rs232OutSigPortIndex_Object=MibTableColumn
+rs232OutSigPortIndex=_Rs232OutSigPortIndex_Object((1,3,6,1,2,1,10,33,6,1,1),_Rs232OutSigPortIndex_Type())
+rs232OutSigPortIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232OutSigPortIndex.setStatus(_A)
+class _Rs232OutSigName_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('rts',1),('cts',2),('dsr',3),('dtr',4),('ri',5),('dcd',6),('sq',7),('srs',8),('srts',9),('scts',10),('sdcd',11)))
+_Rs232OutSigName_Type.__name__=_D
+_Rs232OutSigName_Object=MibTableColumn
+rs232OutSigName=_Rs232OutSigName_Object((1,3,6,1,2,1,10,33,6,1,2),_Rs232OutSigName_Type())
+rs232OutSigName.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232OutSigName.setStatus(_A)
+class _Rs232OutSigState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_F,1),('on',2),('off',3)))
+_Rs232OutSigState_Type.__name__=_D
+_Rs232OutSigState_Object=MibTableColumn
+rs232OutSigState=_Rs232OutSigState_Object((1,3,6,1,2,1,10,33,6,1,3),_Rs232OutSigState_Type())
+rs232OutSigState.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232OutSigState.setStatus(_A)
+_Rs232OutSigChanges_Type=Counter32
+_Rs232OutSigChanges_Object=MibTableColumn
+rs232OutSigChanges=_Rs232OutSigChanges_Object((1,3,6,1,2,1,10,33,6,1,4),_Rs232OutSigChanges_Type())
+rs232OutSigChanges.setMaxAccess(_C)
+if mibBuilder.loadTexts:rs232OutSigChanges.setStatus(_A)
+_Rs232Conformance_ObjectIdentity=ObjectIdentity
+rs232Conformance=_Rs232Conformance_ObjectIdentity((1,3,6,1,2,1,10,33,7))
+_Rs232Groups_ObjectIdentity=ObjectIdentity
+rs232Groups=_Rs232Groups_ObjectIdentity((1,3,6,1,2,1,10,33,7,1))
+_Rs232Compliances_ObjectIdentity=ObjectIdentity
+rs232Compliances=_Rs232Compliances_ObjectIdentity((1,3,6,1,2,1,10,33,7,2))
+rs232Group=ObjectGroup((1,3,6,1,2,1,10,33,7,1,1))
+rs232Group.setObjects(*((_B,_P),(_B,_G),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_J),(_B,_K),(_B,_X),(_B,_Y),(_B,_L),(_B,_M),(_B,_Z),(_B,_a)))
+if mibBuilder.loadTexts:rs232Group.setStatus(_A)
+rs232AsyncGroup=ObjectGroup((1,3,6,1,2,1,10,33,7,1,2))
+rs232AsyncGroup.setObjects(*((_B,_H),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h)))
+if mibBuilder.loadTexts:rs232AsyncGroup.setStatus(_A)
+rs232SyncGroup=ObjectGroup((1,3,6,1,2,1,10,33,7,1,3))
+rs232SyncGroup.setObjects(*((_B,_I),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n)))
+if mibBuilder.loadTexts:rs232SyncGroup.setStatus(_A)
+rs232SyncSDLCGroup=ObjectGroup((1,3,6,1,2,1,10,33,7,1,4))
+rs232SyncSDLCGroup.setObjects(*((_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u)))
+if mibBuilder.loadTexts:rs232SyncSDLCGroup.setStatus(_A)
+rs232Compliance=ModuleCompliance((1,3,6,1,2,1,10,33,7,2,1))
+rs232Compliance.setObjects(*((_B,_v),(_B,_w),(_B,_x)))
+if mibBuilder.loadTexts:rs232Compliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'rs232':rs232,_P:rs232Number,'rs232PortTable':rs232PortTable,'rs232PortEntry':rs232PortEntry,_G:rs232PortIndex,_Q:rs232PortType,_R:rs232PortInSigNumber,_S:rs232PortOutSigNumber,_T:rs232PortInSpeed,_U:rs232PortOutSpeed,_V:rs232PortInFlowType,_W:rs232PortOutFlowType,'rs232AsyncPortTable':rs232AsyncPortTable,'rs232AsyncPortEntry':rs232AsyncPortEntry,_H:rs232AsyncPortIndex,_b:rs232AsyncPortBits,_c:rs232AsyncPortStopBits,_d:rs232AsyncPortParity,_e:rs232AsyncPortAutobaud,_f:rs232AsyncPortParityErrs,_g:rs232AsyncPortFramingErrs,_h:rs232AsyncPortOverrunErrs,'rs232SyncPortTable':rs232SyncPortTable,'rs232SyncPortEntry':rs232SyncPortEntry,_I:rs232SyncPortIndex,_i:rs232SyncPortClockSource,_j:rs232SyncPortFrameCheckErrs,_k:rs232SyncPortTransmitUnderrunErrs,_l:rs232SyncPortReceiveOverrunErrs,_m:rs232SyncPortInterruptedFrames,_n:rs232SyncPortAbortedFrames,_o:rs232SyncPortRole,_p:rs232SyncPortEncoding,_q:rs232SyncPortRTSControl,_r:rs232SyncPortRTSCTSDelay,_s:rs232SyncPortMode,_t:rs232SyncPortIdlePattern,_u:rs232SyncPortMinFlags,'rs232InSigTable':rs232InSigTable,'rs232InSigEntry':rs232InSigEntry,_J:rs232InSigPortIndex,_K:rs232InSigName,_X:rs232InSigState,_Y:rs232InSigChanges,'rs232OutSigTable':rs232OutSigTable,'rs232OutSigEntry':rs232OutSigEntry,_L:rs232OutSigPortIndex,_M:rs232OutSigName,_Z:rs232OutSigState,_a:rs232OutSigChanges,'rs232Conformance':rs232Conformance,'rs232Groups':rs232Groups,_v:rs232Group,_w:rs232AsyncGroup,_x:rs232SyncGroup,'rs232SyncSDLCGroup':rs232SyncSDLCGroup,'rs232Compliances':rs232Compliances,'rs232Compliance':rs232Compliance})

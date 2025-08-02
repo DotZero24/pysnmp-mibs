@@ -1,0 +1,720 @@
+_c='histTemp'
+_b='NotificationType'
+_a='re2Int'
+_Z='re1Int'
+_Y='bin3AlarmInt'
+_X='bin3Int'
+_W='bin2AlarmInt'
+_V='bin2Int'
+_U='bin1AlarmInt'
+_T='bin1Int'
+_S='pressAlarm2Int'
+_R='compValAlarm2Int'
+_Q='humAlarm2Int'
+_P='tempAlarm2Int'
+_O='pressAlarm1Int'
+_N='compValAlarm1Int'
+_M='humAlarm1Int'
+_L='tempAlarm1Int'
+_K='press'
+_J='compVal'
+_I='hum'
+_H='temp'
+_G='DisplayString'
+_F='messageString'
+_E='sensorName'
+_D='Integer32'
+_C='read-only'
+_B='mandatory'
+_A='H7531-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier',_b,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_b,'TimeTicks','Unsigned32','enterprises','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_G,'PhysAddress','TextualConvention')
+class DisplayString(OctetString):0
+_Comet_ObjectIdentity=ObjectIdentity
+comet=_Comet_ObjectIdentity((1,3,6,1,4,1,22626))
+_Products_ObjectIdentity=ObjectIdentity
+products=_Products_ObjectIdentity((1,3,6,1,4,1,22626,1))
+_H7531_ObjectIdentity=ObjectIdentity
+h7531=_H7531_ObjectIdentity((1,3,6,1,4,1,22626,1,2))
+_Values_ObjectIdentity=ObjectIdentity
+values=_Values_ObjectIdentity((1,3,6,1,4,1,22626,1,2,1))
+class _Temp_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_Temp_Type.__name__=_G
+_Temp_Object=MibScalar
+temp=_Temp_Object((1,3,6,1,4,1,22626,1,2,1,1),_Temp_Type())
+temp.setMaxAccess(_C)
+if mibBuilder.loadTexts:temp.setStatus(_B)
+class _Hum_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_Hum_Type.__name__=_G
+_Hum_Object=MibScalar
+hum=_Hum_Object((1,3,6,1,4,1,22626,1,2,1,2),_Hum_Type())
+hum.setMaxAccess(_C)
+if mibBuilder.loadTexts:hum.setStatus(_B)
+class _CompVal_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_CompVal_Type.__name__=_G
+_CompVal_Object=MibScalar
+compVal=_CompVal_Object((1,3,6,1,4,1,22626,1,2,1,3),_CompVal_Type())
+compVal.setMaxAccess(_C)
+if mibBuilder.loadTexts:compVal.setStatus(_B)
+class _Press_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_Press_Type.__name__=_G
+_Press_Object=MibScalar
+press=_Press_Object((1,3,6,1,4,1,22626,1,2,1,4),_Press_Type())
+press.setMaxAccess(_C)
+if mibBuilder.loadTexts:press.setStatus(_B)
+class _Bin1_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_Bin1_Type.__name__=_G
+_Bin1_Object=MibScalar
+bin1=_Bin1_Object((1,3,6,1,4,1,22626,1,2,1,5),_Bin1_Type())
+bin1.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin1.setStatus(_B)
+class _Bin2_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_Bin2_Type.__name__=_G
+_Bin2_Object=MibScalar
+bin2=_Bin2_Object((1,3,6,1,4,1,22626,1,2,1,6),_Bin2_Type())
+bin2.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin2.setStatus(_B)
+class _Bin3_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_Bin3_Type.__name__=_G
+_Bin3_Object=MibScalar
+bin3=_Bin3_Object((1,3,6,1,4,1,22626,1,2,1,7),_Bin3_Type())
+bin3.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin3.setStatus(_B)
+class _Re1_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_Re1_Type.__name__=_G
+_Re1_Object=MibScalar
+re1=_Re1_Object((1,3,6,1,4,1,22626,1,2,1,8),_Re1_Type())
+re1.setMaxAccess(_C)
+if mibBuilder.loadTexts:re1.setStatus(_B)
+class _Re2_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_Re2_Type.__name__=_G
+_Re2_Object=MibScalar
+re2=_Re2_Object((1,3,6,1,4,1,22626,1,2,1,9),_Re2_Type())
+re2.setMaxAccess(_C)
+if mibBuilder.loadTexts:re2.setStatus(_B)
+class _TempAlarm1_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_TempAlarm1_Type.__name__=_G
+_TempAlarm1_Object=MibScalar
+tempAlarm1=_TempAlarm1_Object((1,3,6,1,4,1,22626,1,2,1,10),_TempAlarm1_Type())
+tempAlarm1.setMaxAccess(_C)
+if mibBuilder.loadTexts:tempAlarm1.setStatus(_B)
+class _HumAlarm1_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_HumAlarm1_Type.__name__=_G
+_HumAlarm1_Object=MibScalar
+humAlarm1=_HumAlarm1_Object((1,3,6,1,4,1,22626,1,2,1,11),_HumAlarm1_Type())
+humAlarm1.setMaxAccess(_C)
+if mibBuilder.loadTexts:humAlarm1.setStatus(_B)
+class _CompValAlarm1_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_CompValAlarm1_Type.__name__=_G
+_CompValAlarm1_Object=MibScalar
+compValAlarm1=_CompValAlarm1_Object((1,3,6,1,4,1,22626,1,2,1,12),_CompValAlarm1_Type())
+compValAlarm1.setMaxAccess(_C)
+if mibBuilder.loadTexts:compValAlarm1.setStatus(_B)
+class _PressAlarm1_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_PressAlarm1_Type.__name__=_G
+_PressAlarm1_Object=MibScalar
+pressAlarm1=_PressAlarm1_Object((1,3,6,1,4,1,22626,1,2,1,13),_PressAlarm1_Type())
+pressAlarm1.setMaxAccess(_C)
+if mibBuilder.loadTexts:pressAlarm1.setStatus(_B)
+class _TempAlarm2_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_TempAlarm2_Type.__name__=_G
+_TempAlarm2_Object=MibScalar
+tempAlarm2=_TempAlarm2_Object((1,3,6,1,4,1,22626,1,2,1,14),_TempAlarm2_Type())
+tempAlarm2.setMaxAccess(_C)
+if mibBuilder.loadTexts:tempAlarm2.setStatus(_B)
+class _HumAlarm2_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_HumAlarm2_Type.__name__=_G
+_HumAlarm2_Object=MibScalar
+humAlarm2=_HumAlarm2_Object((1,3,6,1,4,1,22626,1,2,1,15),_HumAlarm2_Type())
+humAlarm2.setMaxAccess(_C)
+if mibBuilder.loadTexts:humAlarm2.setStatus(_B)
+class _CompValAlarm2_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_CompValAlarm2_Type.__name__=_G
+_CompValAlarm2_Object=MibScalar
+compValAlarm2=_CompValAlarm2_Object((1,3,6,1,4,1,22626,1,2,1,16),_CompValAlarm2_Type())
+compValAlarm2.setMaxAccess(_C)
+if mibBuilder.loadTexts:compValAlarm2.setStatus(_B)
+class _PressAlarm2_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_PressAlarm2_Type.__name__=_G
+_PressAlarm2_Object=MibScalar
+pressAlarm2=_PressAlarm2_Object((1,3,6,1,4,1,22626,1,2,1,17),_PressAlarm2_Type())
+pressAlarm2.setMaxAccess(_C)
+if mibBuilder.loadTexts:pressAlarm2.setStatus(_B)
+class _Bin1Alarm_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_Bin1Alarm_Type.__name__=_G
+_Bin1Alarm_Object=MibScalar
+bin1Alarm=_Bin1Alarm_Object((1,3,6,1,4,1,22626,1,2,1,18),_Bin1Alarm_Type())
+bin1Alarm.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin1Alarm.setStatus(_B)
+class _Bin2Alarm_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_Bin2Alarm_Type.__name__=_G
+_Bin2Alarm_Object=MibScalar
+bin2Alarm=_Bin2Alarm_Object((1,3,6,1,4,1,22626,1,2,1,19),_Bin2Alarm_Type())
+bin2Alarm.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin2Alarm.setStatus(_B)
+class _Bin3Alarm_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_Bin3Alarm_Type.__name__=_G
+_Bin3Alarm_Object=MibScalar
+bin3Alarm=_Bin3Alarm_Object((1,3,6,1,4,1,22626,1,2,1,20),_Bin3Alarm_Type())
+bin3Alarm.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin3Alarm.setStatus(_B)
+class _TempUnit_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_TempUnit_Type.__name__=_G
+_TempUnit_Object=MibScalar
+tempUnit=_TempUnit_Object((1,3,6,1,4,1,22626,1,2,1,21),_TempUnit_Type())
+tempUnit.setMaxAccess(_C)
+if mibBuilder.loadTexts:tempUnit.setStatus(_B)
+class _HumUnit_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_HumUnit_Type.__name__=_G
+_HumUnit_Object=MibScalar
+humUnit=_HumUnit_Object((1,3,6,1,4,1,22626,1,2,1,22),_HumUnit_Type())
+humUnit.setMaxAccess(_C)
+if mibBuilder.loadTexts:humUnit.setStatus(_B)
+class _CompValUnit_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_CompValUnit_Type.__name__=_G
+_CompValUnit_Object=MibScalar
+compValUnit=_CompValUnit_Object((1,3,6,1,4,1,22626,1,2,1,23),_CompValUnit_Type())
+compValUnit.setMaxAccess(_C)
+if mibBuilder.loadTexts:compValUnit.setStatus(_B)
+class _PressUnit_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_PressUnit_Type.__name__=_G
+_PressUnit_Object=MibScalar
+pressUnit=_PressUnit_Object((1,3,6,1,4,1,22626,1,2,1,24),_PressUnit_Type())
+pressUnit.setMaxAccess(_C)
+if mibBuilder.loadTexts:pressUnit.setStatus(_B)
+__pysmi_global_ObjectIdentity=ObjectIdentity
+_pysmi_global=__pysmi_global_ObjectIdentity((1,3,6,1,4,1,22626,1,2,2))
+class _SensorName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,68))
+_SensorName_Type.__name__=_G
+_SensorName_Object=MibScalar
+sensorName=_SensorName_Object((1,3,6,1,4,1,22626,1,2,2,1),_SensorName_Type())
+sensorName.setMaxAccess(_C)
+if mibBuilder.loadTexts:sensorName.setStatus(_B)
+class _SerialNumber_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_SerialNumber_Type.__name__=_G
+_SerialNumber_Object=MibScalar
+serialNumber=_SerialNumber_Object((1,3,6,1,4,1,22626,1,2,2,2),_SerialNumber_Type())
+serialNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:serialNumber.setStatus(_B)
+class _DeviceType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65534))
+_DeviceType_Type.__name__=_D
+_DeviceType_Object=MibScalar
+deviceType=_DeviceType_Object((1,3,6,1,4,1,22626,1,2,2,3),_DeviceType_Type())
+deviceType.setMaxAccess(_C)
+if mibBuilder.loadTexts:deviceType.setStatus(_B)
+_ValuesInt_ObjectIdentity=ObjectIdentity
+valuesInt=_ValuesInt_ObjectIdentity((1,3,6,1,4,1,22626,1,2,3))
+class _TempInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
+_TempInt_Type.__name__=_D
+_TempInt_Object=MibScalar
+tempInt=_TempInt_Object((1,3,6,1,4,1,22626,1,2,3,1),_TempInt_Type())
+tempInt.setMaxAccess(_C)
+if mibBuilder.loadTexts:tempInt.setStatus(_B)
+class _HumInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
+_HumInt_Type.__name__=_D
+_HumInt_Object=MibScalar
+humInt=_HumInt_Object((1,3,6,1,4,1,22626,1,2,3,2),_HumInt_Type())
+humInt.setMaxAccess(_C)
+if mibBuilder.loadTexts:humInt.setStatus(_B)
+class _CompValInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
+_CompValInt_Type.__name__=_D
+_CompValInt_Object=MibScalar
+compValInt=_CompValInt_Object((1,3,6,1,4,1,22626,1,2,3,3),_CompValInt_Type())
+compValInt.setMaxAccess(_C)
+if mibBuilder.loadTexts:compValInt.setStatus(_B)
+class _PressInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
+_PressInt_Type.__name__=_D
+_PressInt_Object=MibScalar
+pressInt=_PressInt_Object((1,3,6,1,4,1,22626,1,2,3,4),_PressInt_Type())
+pressInt.setMaxAccess(_C)
+if mibBuilder.loadTexts:pressInt.setStatus(_B)
+class _Bin1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
+_Bin1Int_Type.__name__=_D
+_Bin1Int_Object=MibScalar
+bin1Int=_Bin1Int_Object((1,3,6,1,4,1,22626,1,2,3,5),_Bin1Int_Type())
+bin1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin1Int.setStatus(_B)
+class _Bin2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
+_Bin2Int_Type.__name__=_D
+_Bin2Int_Object=MibScalar
+bin2Int=_Bin2Int_Object((1,3,6,1,4,1,22626,1,2,3,6),_Bin2Int_Type())
+bin2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin2Int.setStatus(_B)
+class _Bin3Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
+_Bin3Int_Type.__name__=_D
+_Bin3Int_Object=MibScalar
+bin3Int=_Bin3Int_Object((1,3,6,1,4,1,22626,1,2,3,7),_Bin3Int_Type())
+bin3Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin3Int.setStatus(_B)
+class _Re1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
+_Re1Int_Type.__name__=_D
+_Re1Int_Object=MibScalar
+re1Int=_Re1Int_Object((1,3,6,1,4,1,22626,1,2,3,8),_Re1Int_Type())
+re1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:re1Int.setStatus(_B)
+class _Re2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
+_Re2Int_Type.__name__=_D
+_Re2Int_Object=MibScalar
+re2Int=_Re2Int_Object((1,3,6,1,4,1,22626,1,2,3,9),_Re2Int_Type())
+re2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:re2Int.setStatus(_B)
+class _TempAlarm1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
+_TempAlarm1Int_Type.__name__=_D
+_TempAlarm1Int_Object=MibScalar
+tempAlarm1Int=_TempAlarm1Int_Object((1,3,6,1,4,1,22626,1,2,3,10),_TempAlarm1Int_Type())
+tempAlarm1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:tempAlarm1Int.setStatus(_B)
+class _HumAlarm1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
+_HumAlarm1Int_Type.__name__=_D
+_HumAlarm1Int_Object=MibScalar
+humAlarm1Int=_HumAlarm1Int_Object((1,3,6,1,4,1,22626,1,2,3,11),_HumAlarm1Int_Type())
+humAlarm1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:humAlarm1Int.setStatus(_B)
+class _CompValAlarm1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
+_CompValAlarm1Int_Type.__name__=_D
+_CompValAlarm1Int_Object=MibScalar
+compValAlarm1Int=_CompValAlarm1Int_Object((1,3,6,1,4,1,22626,1,2,3,12),_CompValAlarm1Int_Type())
+compValAlarm1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:compValAlarm1Int.setStatus(_B)
+class _PressAlarm1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
+_PressAlarm1Int_Type.__name__=_D
+_PressAlarm1Int_Object=MibScalar
+pressAlarm1Int=_PressAlarm1Int_Object((1,3,6,1,4,1,22626,1,2,3,13),_PressAlarm1Int_Type())
+pressAlarm1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:pressAlarm1Int.setStatus(_B)
+class _TempAlarm2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
+_TempAlarm2Int_Type.__name__=_D
+_TempAlarm2Int_Object=MibScalar
+tempAlarm2Int=_TempAlarm2Int_Object((1,3,6,1,4,1,22626,1,2,3,14),_TempAlarm2Int_Type())
+tempAlarm2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:tempAlarm2Int.setStatus(_B)
+class _HumAlarm2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
+_HumAlarm2Int_Type.__name__=_D
+_HumAlarm2Int_Object=MibScalar
+humAlarm2Int=_HumAlarm2Int_Object((1,3,6,1,4,1,22626,1,2,3,15),_HumAlarm2Int_Type())
+humAlarm2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:humAlarm2Int.setStatus(_B)
+class _CompValAlarm2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
+_CompValAlarm2Int_Type.__name__=_D
+_CompValAlarm2Int_Object=MibScalar
+compValAlarm2Int=_CompValAlarm2Int_Object((1,3,6,1,4,1,22626,1,2,3,16),_CompValAlarm2Int_Type())
+compValAlarm2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:compValAlarm2Int.setStatus(_B)
+class _PressAlarm2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
+_PressAlarm2Int_Type.__name__=_D
+_PressAlarm2Int_Object=MibScalar
+pressAlarm2Int=_PressAlarm2Int_Object((1,3,6,1,4,1,22626,1,2,3,17),_PressAlarm2Int_Type())
+pressAlarm2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:pressAlarm2Int.setStatus(_B)
+class _Bin1AlarmInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
+_Bin1AlarmInt_Type.__name__=_D
+_Bin1AlarmInt_Object=MibScalar
+bin1AlarmInt=_Bin1AlarmInt_Object((1,3,6,1,4,1,22626,1,2,3,18),_Bin1AlarmInt_Type())
+bin1AlarmInt.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin1AlarmInt.setStatus(_B)
+class _Bin2AlarmInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
+_Bin2AlarmInt_Type.__name__=_D
+_Bin2AlarmInt_Object=MibScalar
+bin2AlarmInt=_Bin2AlarmInt_Object((1,3,6,1,4,1,22626,1,2,3,19),_Bin2AlarmInt_Type())
+bin2AlarmInt.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin2AlarmInt.setStatus(_B)
+class _Bin3AlarmInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1))
+_Bin3AlarmInt_Type.__name__=_D
+_Bin3AlarmInt_Object=MibScalar
+bin3AlarmInt=_Bin3AlarmInt_Object((1,3,6,1,4,1,22626,1,2,3,20),_Bin3AlarmInt_Type())
+bin3AlarmInt.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin3AlarmInt.setStatus(_B)
+_Settings_ObjectIdentity=ObjectIdentity
+settings=_Settings_ObjectIdentity((1,3,6,1,4,1,22626,1,2,4))
+class _TempLim1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
+_TempLim1Int_Type.__name__=_D
+_TempLim1Int_Object=MibScalar
+tempLim1Int=_TempLim1Int_Object((1,3,6,1,4,1,22626,1,2,4,1),_TempLim1Int_Type())
+tempLim1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:tempLim1Int.setStatus(_B)
+class _HumLim1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
+_HumLim1Int_Type.__name__=_D
+_HumLim1Int_Object=MibScalar
+humLim1Int=_HumLim1Int_Object((1,3,6,1,4,1,22626,1,2,4,2),_HumLim1Int_Type())
+humLim1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:humLim1Int.setStatus(_B)
+class _CompValLim1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
+_CompValLim1Int_Type.__name__=_D
+_CompValLim1Int_Object=MibScalar
+compValLim1Int=_CompValLim1Int_Object((1,3,6,1,4,1,22626,1,2,4,3),_CompValLim1Int_Type())
+compValLim1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:compValLim1Int.setStatus(_B)
+class _PressLim1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
+_PressLim1Int_Type.__name__=_D
+_PressLim1Int_Object=MibScalar
+pressLim1Int=_PressLim1Int_Object((1,3,6,1,4,1,22626,1,2,4,4),_PressLim1Int_Type())
+pressLim1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:pressLim1Int.setStatus(_B)
+class _TempLim2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
+_TempLim2Int_Type.__name__=_D
+_TempLim2Int_Object=MibScalar
+tempLim2Int=_TempLim2Int_Object((1,3,6,1,4,1,22626,1,2,4,5),_TempLim2Int_Type())
+tempLim2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:tempLim2Int.setStatus(_B)
+class _HumLim2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
+_HumLim2Int_Type.__name__=_D
+_HumLim2Int_Object=MibScalar
+humLim2Int=_HumLim2Int_Object((1,3,6,1,4,1,22626,1,2,4,6),_HumLim2Int_Type())
+humLim2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:humLim2Int.setStatus(_B)
+class _CompValLim2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
+_CompValLim2Int_Type.__name__=_D
+_CompValLim2Int_Object=MibScalar
+compValLim2Int=_CompValLim2Int_Object((1,3,6,1,4,1,22626,1,2,4,7),_CompValLim2Int_Type())
+compValLim2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:compValLim2Int.setStatus(_B)
+class _PressLim2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
+_PressLim2Int_Type.__name__=_D
+_PressLim2Int_Object=MibScalar
+pressLim2Int=_PressLim2Int_Object((1,3,6,1,4,1,22626,1,2,4,8),_PressLim2Int_Type())
+pressLim2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:pressLim2Int.setStatus(_B)
+class _TempHyst1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
+_TempHyst1Int_Type.__name__=_D
+_TempHyst1Int_Object=MibScalar
+tempHyst1Int=_TempHyst1Int_Object((1,3,6,1,4,1,22626,1,2,4,9),_TempHyst1Int_Type())
+tempHyst1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:tempHyst1Int.setStatus(_B)
+class _HumHyst1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
+_HumHyst1Int_Type.__name__=_D
+_HumHyst1Int_Object=MibScalar
+humHyst1Int=_HumHyst1Int_Object((1,3,6,1,4,1,22626,1,2,4,10),_HumHyst1Int_Type())
+humHyst1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:humHyst1Int.setStatus(_B)
+class _CompValHyst1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
+_CompValHyst1Int_Type.__name__=_D
+_CompValHyst1Int_Object=MibScalar
+compValHyst1Int=_CompValHyst1Int_Object((1,3,6,1,4,1,22626,1,2,4,11),_CompValHyst1Int_Type())
+compValHyst1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:compValHyst1Int.setStatus(_B)
+class _PressHyst1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
+_PressHyst1Int_Type.__name__=_D
+_PressHyst1Int_Object=MibScalar
+pressHyst1Int=_PressHyst1Int_Object((1,3,6,1,4,1,22626,1,2,4,12),_PressHyst1Int_Type())
+pressHyst1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:pressHyst1Int.setStatus(_B)
+class _TempHyst2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
+_TempHyst2Int_Type.__name__=_D
+_TempHyst2Int_Object=MibScalar
+tempHyst2Int=_TempHyst2Int_Object((1,3,6,1,4,1,22626,1,2,4,13),_TempHyst2Int_Type())
+tempHyst2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:tempHyst2Int.setStatus(_B)
+class _HumHyst2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
+_HumHyst2Int_Type.__name__=_D
+_HumHyst2Int_Object=MibScalar
+humHyst2Int=_HumHyst2Int_Object((1,3,6,1,4,1,22626,1,2,4,14),_HumHyst2Int_Type())
+humHyst2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:humHyst2Int.setStatus(_B)
+class _CompValHyst2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
+_CompValHyst2Int_Type.__name__=_D
+_CompValHyst2Int_Object=MibScalar
+compValHyst2Int=_CompValHyst2Int_Object((1,3,6,1,4,1,22626,1,2,4,15),_CompValHyst2Int_Type())
+compValHyst2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:compValHyst2Int.setStatus(_B)
+class _PressHyst2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
+_PressHyst2Int_Type.__name__=_D
+_PressHyst2Int_Object=MibScalar
+pressHyst2Int=_PressHyst2Int_Object((1,3,6,1,4,1,22626,1,2,4,16),_PressHyst2Int_Type())
+pressHyst2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:pressHyst2Int.setStatus(_B)
+class _TempDelay1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,30000))
+_TempDelay1Int_Type.__name__=_D
+_TempDelay1Int_Object=MibScalar
+tempDelay1Int=_TempDelay1Int_Object((1,3,6,1,4,1,22626,1,2,4,17),_TempDelay1Int_Type())
+tempDelay1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:tempDelay1Int.setStatus(_B)
+class _HumDelay1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,30000))
+_HumDelay1Int_Type.__name__=_D
+_HumDelay1Int_Object=MibScalar
+humDelay1Int=_HumDelay1Int_Object((1,3,6,1,4,1,22626,1,2,4,18),_HumDelay1Int_Type())
+humDelay1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:humDelay1Int.setStatus(_B)
+class _CompValDelay1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,30000))
+_CompValDelay1Int_Type.__name__=_D
+_CompValDelay1Int_Object=MibScalar
+compValDelay1Int=_CompValDelay1Int_Object((1,3,6,1,4,1,22626,1,2,4,19),_CompValDelay1Int_Type())
+compValDelay1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:compValDelay1Int.setStatus(_B)
+class _PressDelay1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,30000))
+_PressDelay1Int_Type.__name__=_D
+_PressDelay1Int_Object=MibScalar
+pressDelay1Int=_PressDelay1Int_Object((1,3,6,1,4,1,22626,1,2,4,20),_PressDelay1Int_Type())
+pressDelay1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:pressDelay1Int.setStatus(_B)
+class _TempDelay2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,30000))
+_TempDelay2Int_Type.__name__=_D
+_TempDelay2Int_Object=MibScalar
+tempDelay2Int=_TempDelay2Int_Object((1,3,6,1,4,1,22626,1,2,4,21),_TempDelay2Int_Type())
+tempDelay2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:tempDelay2Int.setStatus(_B)
+class _HumDelay2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,30000))
+_HumDelay2Int_Type.__name__=_D
+_HumDelay2Int_Object=MibScalar
+humDelay2Int=_HumDelay2Int_Object((1,3,6,1,4,1,22626,1,2,4,22),_HumDelay2Int_Type())
+humDelay2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:humDelay2Int.setStatus(_B)
+class _CompValDelay2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,30000))
+_CompValDelay2Int_Type.__name__=_D
+_CompValDelay2Int_Object=MibScalar
+compValDelay2Int=_CompValDelay2Int_Object((1,3,6,1,4,1,22626,1,2,4,23),_CompValDelay2Int_Type())
+compValDelay2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:compValDelay2Int.setStatus(_B)
+class _PressDelay2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,30000))
+_PressDelay2Int_Type.__name__=_D
+_PressDelay2Int_Object=MibScalar
+pressDelay2Int=_PressDelay2Int_Object((1,3,6,1,4,1,22626,1,2,4,24),_PressDelay2Int_Type())
+pressDelay2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:pressDelay2Int.setStatus(_B)
+class _TempType1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
+_TempType1Int_Type.__name__=_D
+_TempType1Int_Object=MibScalar
+tempType1Int=_TempType1Int_Object((1,3,6,1,4,1,22626,1,2,4,25),_TempType1Int_Type())
+tempType1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:tempType1Int.setStatus(_B)
+class _HumType1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
+_HumType1Int_Type.__name__=_D
+_HumType1Int_Object=MibScalar
+humType1Int=_HumType1Int_Object((1,3,6,1,4,1,22626,1,2,4,26),_HumType1Int_Type())
+humType1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:humType1Int.setStatus(_B)
+class _CompValType1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
+_CompValType1Int_Type.__name__=_D
+_CompValType1Int_Object=MibScalar
+compValType1Int=_CompValType1Int_Object((1,3,6,1,4,1,22626,1,2,4,27),_CompValType1Int_Type())
+compValType1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:compValType1Int.setStatus(_B)
+class _PressType1Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
+_PressType1Int_Type.__name__=_D
+_PressType1Int_Object=MibScalar
+pressType1Int=_PressType1Int_Object((1,3,6,1,4,1,22626,1,2,4,28),_PressType1Int_Type())
+pressType1Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:pressType1Int.setStatus(_B)
+class _TempType2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
+_TempType2Int_Type.__name__=_D
+_TempType2Int_Object=MibScalar
+tempType2Int=_TempType2Int_Object((1,3,6,1,4,1,22626,1,2,4,29),_TempType2Int_Type())
+tempType2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:tempType2Int.setStatus(_B)
+class _HumType2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
+_HumType2Int_Type.__name__=_D
+_HumType2Int_Object=MibScalar
+humType2Int=_HumType2Int_Object((1,3,6,1,4,1,22626,1,2,4,30),_HumType2Int_Type())
+humType2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:humType2Int.setStatus(_B)
+class _CompValType2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
+_CompValType2Int_Type.__name__=_D
+_CompValType2Int_Object=MibScalar
+compValType2Int=_CompValType2Int_Object((1,3,6,1,4,1,22626,1,2,4,31),_CompValType2Int_Type())
+compValType2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:compValType2Int.setStatus(_B)
+class _PressType2Int_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
+_PressType2Int_Type.__name__=_D
+_PressType2Int_Object=MibScalar
+pressType2Int=_PressType2Int_Object((1,3,6,1,4,1,22626,1,2,4,32),_PressType2Int_Type())
+pressType2Int.setMaxAccess(_C)
+if mibBuilder.loadTexts:pressType2Int.setStatus(_B)
+class _Bin1DelayInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,30000))
+_Bin1DelayInt_Type.__name__=_D
+_Bin1DelayInt_Object=MibScalar
+bin1DelayInt=_Bin1DelayInt_Object((1,3,6,1,4,1,22626,1,2,4,33),_Bin1DelayInt_Type())
+bin1DelayInt.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin1DelayInt.setStatus(_B)
+class _Bin2DelayInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,30000))
+_Bin2DelayInt_Type.__name__=_D
+_Bin2DelayInt_Object=MibScalar
+bin2DelayInt=_Bin2DelayInt_Object((1,3,6,1,4,1,22626,1,2,4,34),_Bin2DelayInt_Type())
+bin2DelayInt.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin2DelayInt.setStatus(_B)
+class _Bin3DelayInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,30000))
+_Bin3DelayInt_Type.__name__=_D
+_Bin3DelayInt_Object=MibScalar
+bin3DelayInt=_Bin3DelayInt_Object((1,3,6,1,4,1,22626,1,2,4,35),_Bin3DelayInt_Type())
+bin3DelayInt.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin3DelayInt.setStatus(_B)
+class _Bin1TypeInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
+_Bin1TypeInt_Type.__name__=_D
+_Bin1TypeInt_Object=MibScalar
+bin1TypeInt=_Bin1TypeInt_Object((1,3,6,1,4,1,22626,1,2,4,36),_Bin1TypeInt_Type())
+bin1TypeInt.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin1TypeInt.setStatus(_B)
+class _Bin2TypeInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
+_Bin2TypeInt_Type.__name__=_D
+_Bin2TypeInt_Object=MibScalar
+bin2TypeInt=_Bin2TypeInt_Object((1,3,6,1,4,1,22626,1,2,4,37),_Bin2TypeInt_Type())
+bin2TypeInt.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin2TypeInt.setStatus(_B)
+class _Bin3TypeInt_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2))
+_Bin3TypeInt_Type.__name__=_D
+_Bin3TypeInt_Object=MibScalar
+bin3TypeInt=_Bin3TypeInt_Object((1,3,6,1,4,1,22626,1,2,4,38),_Bin3TypeInt_Type())
+bin3TypeInt.setMaxAccess(_C)
+if mibBuilder.loadTexts:bin3TypeInt.setStatus(_B)
+_Traps_ObjectIdentity=ObjectIdentity
+traps=_Traps_ObjectIdentity((1,3,6,1,4,1,22626,1,2,5))
+class _MessageString_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_MessageString_Type.__name__=_G
+_MessageString_Object=MibScalar
+messageString=_MessageString_Object((1,3,6,1,4,1,22626,1,2,5,1),_MessageString_Type())
+messageString.setMaxAccess(_C)
+if mibBuilder.loadTexts:messageString.setStatus(_B)
+_Tables_ObjectIdentity=ObjectIdentity
+tables=_Tables_ObjectIdentity((1,3,6,1,4,1,22626,1,2,6))
+_HistoryTable_Object=MibTable
+historyTable=_HistoryTable_Object((1,3,6,1,4,1,22626,1,2,6,1))
+if mibBuilder.loadTexts:historyTable.setStatus(_B)
+_HistoryEntry_Object=MibTableRow
+historyEntry=_HistoryEntry_Object((1,3,6,1,4,1,22626,1,2,6,1,1))
+historyEntry.setIndexNames((0,_A,_c))
+if mibBuilder.loadTexts:historyEntry.setStatus('optional')
+class _HistTemp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
+_HistTemp_Type.__name__=_D
+_HistTemp_Object=MibTableColumn
+histTemp=_HistTemp_Object((1,3,6,1,4,1,22626,1,2,6,1,1,1),_HistTemp_Type())
+histTemp.setMaxAccess(_C)
+if mibBuilder.loadTexts:histTemp.setStatus(_B)
+class _HistHum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
+_HistHum_Type.__name__=_D
+_HistHum_Object=MibTableColumn
+histHum=_HistHum_Object((1,3,6,1,4,1,22626,1,2,6,1,1,2),_HistHum_Type())
+histHum.setMaxAccess(_C)
+if mibBuilder.loadTexts:histHum.setStatus(_B)
+class _HistCompVal_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
+_HistCompVal_Type.__name__=_D
+_HistCompVal_Object=MibTableColumn
+histCompVal=_HistCompVal_Object((1,3,6,1,4,1,22626,1,2,6,1,1,3),_HistCompVal_Type())
+histCompVal.setMaxAccess(_C)
+if mibBuilder.loadTexts:histCompVal.setStatus(_B)
+class _HistPress_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-5000,20000))
+_HistPress_Type.__name__=_D
+_HistPress_Object=MibTableColumn
+histPress=_HistPress_Object((1,3,6,1,4,1,22626,1,2,6,1,1,4),_HistPress_Type())
+histPress.setMaxAccess(_C)
+if mibBuilder.loadTexts:histPress.setStatus(_B)
+trapTest=NotificationType((1,3,6,1,4,1,22626,0,0))
+trapTest.setObjects(*((_A,_E),(_A,_F)))
+if mibBuilder.loadTexts:trapTest.setStatus('')
+trapNTPError=NotificationType((1,3,6,1,4,1,22626,0,1))
+trapNTPError.setObjects(*((_A,_E),(_A,_F)))
+if mibBuilder.loadTexts:trapNTPError.setStatus('')
+trapEmailErrLogin=NotificationType((1,3,6,1,4,1,22626,0,2))
+trapEmailErrLogin.setObjects(*((_A,_E),(_A,_F)))
+if mibBuilder.loadTexts:trapEmailErrLogin.setStatus('')
+trapEmailErrAuth=NotificationType((1,3,6,1,4,1,22626,0,3))
+trapEmailErrAuth.setObjects(*((_A,_E),(_A,_F)))
+if mibBuilder.loadTexts:trapEmailErrAuth.setStatus('')
+trapEmailErrSome=NotificationType((1,3,6,1,4,1,22626,0,4))
+trapEmailErrSome.setObjects(*((_A,_E),(_A,_F)))
+if mibBuilder.loadTexts:trapEmailErrSome.setStatus('')
+trapEmailErrSocket=NotificationType((1,3,6,1,4,1,22626,0,5))
+trapEmailErrSocket.setObjects(*((_A,_E),(_A,_F)))
+if mibBuilder.loadTexts:trapEmailErrSocket.setStatus('')
+trapEmailErrDNS=NotificationType((1,3,6,1,4,1,22626,0,6))
+trapEmailErrDNS.setObjects(*((_A,_E),(_A,_F)))
+if mibBuilder.loadTexts:trapEmailErrDNS.setStatus('')
+trapSOAPErrFile=NotificationType((1,3,6,1,4,1,22626,0,7))
+trapSOAPErrFile.setObjects(*((_A,_E),(_A,_F)))
+if mibBuilder.loadTexts:trapSOAPErrFile.setStatus('')
+trapSOAPErrDNS=NotificationType((1,3,6,1,4,1,22626,0,8))
+trapSOAPErrDNS.setObjects(*((_A,_E),(_A,_F)))
+if mibBuilder.loadTexts:trapSOAPErrDNS.setStatus('')
+trapSOAPErrSocket=NotificationType((1,3,6,1,4,1,22626,0,9))
+trapSOAPErrSocket.setObjects(*((_A,_E),(_A,_F)))
+if mibBuilder.loadTexts:trapSOAPErrSocket.setStatus('')
+trapSOAPErrDelivery=NotificationType((1,3,6,1,4,1,22626,0,10))
+trapSOAPErrDelivery.setObjects(*((_A,_E),(_A,_F)))
+if mibBuilder.loadTexts:trapSOAPErrDelivery.setStatus('')
+trapTempAlarm1=NotificationType((1,3,6,1,4,1,22626,0,11))
+trapTempAlarm1.setObjects(*((_A,_E),(_A,_F),(_A,_H),(_A,_L)))
+if mibBuilder.loadTexts:trapTempAlarm1.setStatus('')
+trapHumAlarm1=NotificationType((1,3,6,1,4,1,22626,0,12))
+trapHumAlarm1.setObjects(*((_A,_E),(_A,_F),(_A,_I),(_A,_M)))
+if mibBuilder.loadTexts:trapHumAlarm1.setStatus('')
+trapCompValAlarm1=NotificationType((1,3,6,1,4,1,22626,0,13))
+trapCompValAlarm1.setObjects(*((_A,_E),(_A,_F),(_A,_J),(_A,_N)))
+if mibBuilder.loadTexts:trapCompValAlarm1.setStatus('')
+trapPressAlarm1=NotificationType((1,3,6,1,4,1,22626,0,14))
+trapPressAlarm1.setObjects(*((_A,_E),(_A,_F),(_A,_K),(_A,_O)))
+if mibBuilder.loadTexts:trapPressAlarm1.setStatus('')
+trapTempAlarm2=NotificationType((1,3,6,1,4,1,22626,0,21))
+trapTempAlarm2.setObjects(*((_A,_E),(_A,_F),(_A,_H),(_A,_P)))
+if mibBuilder.loadTexts:trapTempAlarm2.setStatus('')
+trapHumAlarm2=NotificationType((1,3,6,1,4,1,22626,0,22))
+trapHumAlarm2.setObjects(*((_A,_E),(_A,_F),(_A,_I),(_A,_Q)))
+if mibBuilder.loadTexts:trapHumAlarm2.setStatus('')
+trapCompValAlarm2=NotificationType((1,3,6,1,4,1,22626,0,23))
+trapCompValAlarm2.setObjects(*((_A,_E),(_A,_F),(_A,_J),(_A,_R)))
+if mibBuilder.loadTexts:trapCompValAlarm2.setStatus('')
+trapPressAlarm2=NotificationType((1,3,6,1,4,1,22626,0,24))
+trapPressAlarm2.setObjects(*((_A,_E),(_A,_F),(_A,_K),(_A,_S)))
+if mibBuilder.loadTexts:trapPressAlarm2.setStatus('')
+trapTempClrAlarm1=NotificationType((1,3,6,1,4,1,22626,0,31))
+trapTempClrAlarm1.setObjects(*((_A,_E),(_A,_F),(_A,_H),(_A,_L)))
+if mibBuilder.loadTexts:trapTempClrAlarm1.setStatus('')
+trapHumClrAlarm1=NotificationType((1,3,6,1,4,1,22626,0,32))
+trapHumClrAlarm1.setObjects(*((_A,_E),(_A,_F),(_A,_I),(_A,_M)))
+if mibBuilder.loadTexts:trapHumClrAlarm1.setStatus('')
+trapCompValClrAlarm1=NotificationType((1,3,6,1,4,1,22626,0,33))
+trapCompValClrAlarm1.setObjects(*((_A,_E),(_A,_F),(_A,_J),(_A,_N)))
+if mibBuilder.loadTexts:trapCompValClrAlarm1.setStatus('')
+trapPressClrAlarm1=NotificationType((1,3,6,1,4,1,22626,0,34))
+trapPressClrAlarm1.setObjects(*((_A,_E),(_A,_F),(_A,_K),(_A,_O)))
+if mibBuilder.loadTexts:trapPressClrAlarm1.setStatus('')
+trapTempClrAlarm2=NotificationType((1,3,6,1,4,1,22626,0,41))
+trapTempClrAlarm2.setObjects(*((_A,_E),(_A,_F),(_A,_H),(_A,_P)))
+if mibBuilder.loadTexts:trapTempClrAlarm2.setStatus('')
+trapHumClrAlarm2=NotificationType((1,3,6,1,4,1,22626,0,42))
+trapHumClrAlarm2.setObjects(*((_A,_E),(_A,_F),(_A,_I),(_A,_Q)))
+if mibBuilder.loadTexts:trapHumClrAlarm2.setStatus('')
+trapCompValClrAlarm2=NotificationType((1,3,6,1,4,1,22626,0,43))
+trapCompValClrAlarm2.setObjects(*((_A,_E),(_A,_F),(_A,_J),(_A,_R)))
+if mibBuilder.loadTexts:trapCompValClrAlarm2.setStatus('')
+trapPressClrAlarm2=NotificationType((1,3,6,1,4,1,22626,0,44))
+trapPressClrAlarm2.setObjects(*((_A,_E),(_A,_F),(_A,_K),(_A,_S)))
+if mibBuilder.loadTexts:trapPressClrAlarm2.setStatus('')
+trapBin1Alarm=NotificationType((1,3,6,1,4,1,22626,0,51))
+trapBin1Alarm.setObjects(*((_A,_E),(_A,_F),(_A,_T),(_A,_U)))
+if mibBuilder.loadTexts:trapBin1Alarm.setStatus('')
+trapBin2Alarm=NotificationType((1,3,6,1,4,1,22626,0,52))
+trapBin2Alarm.setObjects(*((_A,_E),(_A,_F),(_A,_V),(_A,_W)))
+if mibBuilder.loadTexts:trapBin2Alarm.setStatus('')
+trapBin3Alarm=NotificationType((1,3,6,1,4,1,22626,0,53))
+trapBin3Alarm.setObjects(*((_A,_E),(_A,_F),(_A,_X),(_A,_Y)))
+if mibBuilder.loadTexts:trapBin3Alarm.setStatus('')
+trapBin1ClrAlarm=NotificationType((1,3,6,1,4,1,22626,0,61))
+trapBin1ClrAlarm.setObjects(*((_A,_E),(_A,_F),(_A,_T),(_A,_U)))
+if mibBuilder.loadTexts:trapBin1ClrAlarm.setStatus('')
+trapBin2ClrAlarm=NotificationType((1,3,6,1,4,1,22626,0,62))
+trapBin2ClrAlarm.setObjects(*((_A,_E),(_A,_F),(_A,_V),(_A,_W)))
+if mibBuilder.loadTexts:trapBin2ClrAlarm.setStatus('')
+trapBin3ClrAlarm=NotificationType((1,3,6,1,4,1,22626,0,63))
+trapBin3ClrAlarm.setObjects(*((_A,_E),(_A,_F),(_A,_X),(_A,_Y)))
+if mibBuilder.loadTexts:trapBin3ClrAlarm.setStatus('')
+trapRelay1Closed=NotificationType((1,3,6,1,4,1,22626,0,70))
+trapRelay1Closed.setObjects(*((_A,_E),(_A,_F),(_A,_Z)))
+if mibBuilder.loadTexts:trapRelay1Closed.setStatus('')
+trapRelay2Closed=NotificationType((1,3,6,1,4,1,22626,0,71))
+trapRelay2Closed.setObjects(*((_A,_E),(_A,_F),(_A,_a)))
+if mibBuilder.loadTexts:trapRelay2Closed.setStatus('')
+trapRelay1Open=NotificationType((1,3,6,1,4,1,22626,0,72))
+trapRelay1Open.setObjects(*((_A,_E),(_A,_F),(_A,_Z)))
+if mibBuilder.loadTexts:trapRelay1Open.setStatus('')
+trapRelay2Open=NotificationType((1,3,6,1,4,1,22626,0,73))
+trapRelay2Open.setObjects(*((_A,_E),(_A,_F),(_A,_a)))
+if mibBuilder.loadTexts:trapRelay2Open.setStatus('')
+trapAcousticActivated=NotificationType((1,3,6,1,4,1,22626,0,74))
+trapAcousticActivated.setObjects(*((_A,_E),(_A,_F)))
+if mibBuilder.loadTexts:trapAcousticActivated.setStatus('')
+trapAcousticDeactivated=NotificationType((1,3,6,1,4,1,22626,0,75))
+trapAcousticDeactivated.setObjects(*((_A,_E),(_A,_F)))
+if mibBuilder.loadTexts:trapAcousticDeactivated.setStatus('')
+mibBuilder.exportSymbols(_A,**{_G:DisplayString,'comet':comet,'trapTest':trapTest,'trapNTPError':trapNTPError,'trapEmailErrLogin':trapEmailErrLogin,'trapEmailErrAuth':trapEmailErrAuth,'trapEmailErrSome':trapEmailErrSome,'trapEmailErrSocket':trapEmailErrSocket,'trapEmailErrDNS':trapEmailErrDNS,'trapSOAPErrFile':trapSOAPErrFile,'trapSOAPErrDNS':trapSOAPErrDNS,'trapSOAPErrSocket':trapSOAPErrSocket,'trapSOAPErrDelivery':trapSOAPErrDelivery,'trapTempAlarm1':trapTempAlarm1,'trapHumAlarm1':trapHumAlarm1,'trapCompValAlarm1':trapCompValAlarm1,'trapPressAlarm1':trapPressAlarm1,'trapTempAlarm2':trapTempAlarm2,'trapHumAlarm2':trapHumAlarm2,'trapCompValAlarm2':trapCompValAlarm2,'trapPressAlarm2':trapPressAlarm2,'trapTempClrAlarm1':trapTempClrAlarm1,'trapHumClrAlarm1':trapHumClrAlarm1,'trapCompValClrAlarm1':trapCompValClrAlarm1,'trapPressClrAlarm1':trapPressClrAlarm1,'trapTempClrAlarm2':trapTempClrAlarm2,'trapHumClrAlarm2':trapHumClrAlarm2,'trapCompValClrAlarm2':trapCompValClrAlarm2,'trapPressClrAlarm2':trapPressClrAlarm2,'trapBin1Alarm':trapBin1Alarm,'trapBin2Alarm':trapBin2Alarm,'trapBin3Alarm':trapBin3Alarm,'trapBin1ClrAlarm':trapBin1ClrAlarm,'trapBin2ClrAlarm':trapBin2ClrAlarm,'trapBin3ClrAlarm':trapBin3ClrAlarm,'trapRelay1Closed':trapRelay1Closed,'trapRelay2Closed':trapRelay2Closed,'trapRelay1Open':trapRelay1Open,'trapRelay2Open':trapRelay2Open,'trapAcousticActivated':trapAcousticActivated,'trapAcousticDeactivated':trapAcousticDeactivated,'products':products,'h7531':h7531,'values':values,_H:temp,_I:hum,_J:compVal,_K:press,'bin1':bin1,'bin2':bin2,'bin3':bin3,'re1':re1,'re2':re2,'tempAlarm1':tempAlarm1,'humAlarm1':humAlarm1,'compValAlarm1':compValAlarm1,'pressAlarm1':pressAlarm1,'tempAlarm2':tempAlarm2,'humAlarm2':humAlarm2,'compValAlarm2':compValAlarm2,'pressAlarm2':pressAlarm2,'bin1Alarm':bin1Alarm,'bin2Alarm':bin2Alarm,'bin3Alarm':bin3Alarm,'tempUnit':tempUnit,'humUnit':humUnit,'compValUnit':compValUnit,'pressUnit':pressUnit,'global':_pysmi_global,_E:sensorName,'serialNumber':serialNumber,'deviceType':deviceType,'valuesInt':valuesInt,'tempInt':tempInt,'humInt':humInt,'compValInt':compValInt,'pressInt':pressInt,_T:bin1Int,_V:bin2Int,_X:bin3Int,_Z:re1Int,_a:re2Int,_L:tempAlarm1Int,_M:humAlarm1Int,_N:compValAlarm1Int,_O:pressAlarm1Int,_P:tempAlarm2Int,_Q:humAlarm2Int,_R:compValAlarm2Int,_S:pressAlarm2Int,_U:bin1AlarmInt,_W:bin2AlarmInt,_Y:bin3AlarmInt,'settings':settings,'tempLim1Int':tempLim1Int,'humLim1Int':humLim1Int,'compValLim1Int':compValLim1Int,'pressLim1Int':pressLim1Int,'tempLim2Int':tempLim2Int,'humLim2Int':humLim2Int,'compValLim2Int':compValLim2Int,'pressLim2Int':pressLim2Int,'tempHyst1Int':tempHyst1Int,'humHyst1Int':humHyst1Int,'compValHyst1Int':compValHyst1Int,'pressHyst1Int':pressHyst1Int,'tempHyst2Int':tempHyst2Int,'humHyst2Int':humHyst2Int,'compValHyst2Int':compValHyst2Int,'pressHyst2Int':pressHyst2Int,'tempDelay1Int':tempDelay1Int,'humDelay1Int':humDelay1Int,'compValDelay1Int':compValDelay1Int,'pressDelay1Int':pressDelay1Int,'tempDelay2Int':tempDelay2Int,'humDelay2Int':humDelay2Int,'compValDelay2Int':compValDelay2Int,'pressDelay2Int':pressDelay2Int,'tempType1Int':tempType1Int,'humType1Int':humType1Int,'compValType1Int':compValType1Int,'pressType1Int':pressType1Int,'tempType2Int':tempType2Int,'humType2Int':humType2Int,'compValType2Int':compValType2Int,'pressType2Int':pressType2Int,'bin1DelayInt':bin1DelayInt,'bin2DelayInt':bin2DelayInt,'bin3DelayInt':bin3DelayInt,'bin1TypeInt':bin1TypeInt,'bin2TypeInt':bin2TypeInt,'bin3TypeInt':bin3TypeInt,'traps':traps,_F:messageString,'tables':tables,'historyTable':historyTable,'historyEntry':historyEntry,_c:histTemp,'histHum':histHum,'histCompVal':histCompVal,'histPress':histPress})

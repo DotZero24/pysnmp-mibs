@@ -1,129 +1,289 @@
-#
-# PySNMP MIB module SIP-SERVER-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/SIP-SERVER-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:28:12 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, Integer, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-( InetAddressType, InetAddress, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-( applIndex, ) = mibBuilder.importSymbols("NETWORK-SERVICES-MIB", "applIndex")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( NotificationGroup, ModuleCompliance, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-( Gauge32, iso, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Integer32, NotificationType, MibIdentifier, ModuleIdentity, Counter64, TimeTicks, IpAddress, Bits, Counter32, mib_2, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "iso", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Integer32", "NotificationType", "MibIdentifier", "ModuleIdentity", "Counter64", "TimeTicks", "IpAddress", "Bits", "Counter32", "mib-2")
-( TextualConvention, TimeStamp, TruthValue, DisplayString, DateAndTime, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "TruthValue", "DisplayString", "DateAndTime")
-sipServerMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 151)).setRevisions(("2007-04-20 00:00",))
-if mibBuilder.loadTexts: sipServerMIB.setLastUpdated('200704200000Z')
-if mibBuilder.loadTexts: sipServerMIB.setOrganization('IETF Session Initiation Protocol\n                    Working Group')
-if mibBuilder.loadTexts: sipServerMIB.setContactInfo('SIP WG email: sip@ietf.org\n\n           Co-editor: Kevin Lingle\n                      Cisco Systems, Inc.\n              postal: 7025 Kit Creek Road\n                      P.O. Box 14987\n                      Research Triangle Park, NC 27709\n                      USA\n             email:   klingle@cisco.com\n             phone:   +1 919 476 2029\n\n           Co-editor: Joon Maeng\n               email: jmaeng@austin.rr.com\n\n           Co-editor: Jean-Francois Mule\n                      CableLabs\n              postal: 858 Coal Creek Circle\n                      Louisville, CO 80027\n                      USA\n               email: jf.mule@cablelabs.com\n               phone: +1 303 661 9100\n\n           Co-editor: Dave Walker\n               email: drwalker@rogers.com\n          ')
-if mibBuilder.loadTexts: sipServerMIB.setDescription('Session Initiation Protocol (SIP) Server MIB module.  SIP is an\n        application-layer signaling protocol for creating, modifying,\n        and terminating multimedia sessions with one or more\n        participants.  These sessions include Internet multimedia\n        conferences and Internet telephone calls.  SIP is defined in\n        RFC 3261 (June 2002).\n\n        This MIB is defined for the management of SIP Proxy, Redirect,\n        and Registrar Servers.\n\n        A Proxy Server acts as both a client and a server.  It accepts\n        requests from other clients, either responding to them or\n        passing them on to other servers, possibly after modification.\n\n        A Redirect Server accepts requests from clients and returns\n        zero or more addresses to that client.  Unlike a User Agent\n        Server, it does not accept calls.\n\n        A Registrar is a server that accepts REGISTER requests.  A\n        Registrar is typically co-located with a Proxy or Redirect\n        Server.\n\n        Copyright (C) The IETF Trust (2007).  This version of\n        this MIB module is part of RFC 4780; see the RFC itself for\n        full legal notices.')
-sipServerMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 151, 1))
-sipServerMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 151, 2))
-sipServerCfg = MibIdentifier((1, 3, 6, 1, 2, 1, 151, 1, 1))
-sipServerCfgTable = MibTable((1, 3, 6, 1, 2, 1, 151, 1, 1, 1), )
-if mibBuilder.loadTexts: sipServerCfgTable.setDescription('This table contains configuration objects applicable to SIP\n        Redirect and Proxy Servers.')
-sipServerCfgEntry = MibTableRow((1, 3, 6, 1, 2, 1, 151, 1, 1, 1, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"))
-if mibBuilder.loadTexts: sipServerCfgEntry.setDescription('A row of common configuration.\n\n        Each row represents those objects for a particular SIP server\n        present in this system.  applIndex is used to uniquely identify\n        these instances of SIP servers and correlate them through\n        the common framework of the NETWORK-SERVICES-MIB (RFC 2788).\n        The same value of applIndex used in the corresponding\n        SIP-COMMON-MIB is used here.')
-sipServerCfgHostAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 1, 1, 1, 1), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerCfgHostAddressType.setDescription('The type of Internet address by which the SIP server is\n        reachable.')
-sipServerCfgHostAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 1, 1, 1, 2), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerCfgHostAddress.setDescription('This is the host portion of a SIP URI that is assigned to the\n        SIP server.  It MAY contain a fully qualified domain name or\n        an IP address.  The length of the value will depend on the type\n        of address specified.  The type of address given by this object\n        is controlled by sipServerCfgHostAddressType.')
-sipServerProxyCfg = MibIdentifier((1, 3, 6, 1, 2, 1, 151, 1, 3))
-sipServerProxyStats = MibIdentifier((1, 3, 6, 1, 2, 1, 151, 1, 4))
-sipServerProxyCfgTable = MibTable((1, 3, 6, 1, 2, 1, 151, 1, 3, 1), )
-if mibBuilder.loadTexts: sipServerProxyCfgTable.setDescription('This table contains configuration objects applicable to SIP\n        Proxy Servers.')
-sipServerProxyCfgEntry = MibTableRow((1, 3, 6, 1, 2, 1, 151, 1, 3, 1, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"))
-if mibBuilder.loadTexts: sipServerProxyCfgEntry.setDescription('A row of common proxy configuration.\n\n        Each row represents those objects for a particular SIP server\n        present in this system.  applIndex is used to uniquely identify\n        these instances of SIP servers and correlate them through the\n        common framework of the NETWORK-SERVICES-MIB (RFC 2788).  The\n        same value of applIndex used in the corresponding\n        SIP-COMMON-MIB is used here.')
-sipServerCfgProxyStatefulness = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("stateless", 1), ("transactionStateful", 2), ("callStateful", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerCfgProxyStatefulness.setDescription("This object reflects the default mode of operation for the\n        Proxy Server entity.\n\n        A stateless proxy is a logical entity that does not maintain\n        the client or server transaction state machines when it\n        processes requests.  A stateless proxy forwards every request it\n        receives downstream and every response it receives upstream.  If\n        the value of this object is stateless(1), the proxy defaults to\n        stateless operations.\n\n        A transaction stateful proxy, or simply a 'stateful proxy', is\n        a logical entity that maintains the client and server\n        transaction state machines during the processing of a request.\n        A (transaction) stateful proxy is not the same as a call\n        stateful proxy.  If the value of this object is\n        transactionStateful(2), the proxy is stateful on a transaction\n        basis.\n\n        A call stateful proxy is a logical entity if it retains state\n        for a dialog from the initiating INVITE to the terminating BYE\n        request.  A call stateful proxy is always transaction stateful,\n        but the converse is not necessarily true.  If the value of this\n        object is callStateful(3), the proxy is call stateful.")
-sipServerCfgProxyRecursion = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 3, 1, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerCfgProxyRecursion.setDescription("This object reflects whether or not the Proxy performs a\n        recursive search on the Contacts provided in 3xx redirects.\n\n        If the value of this object is 'true', a recursive search is\n        performed.  If the value is 'false', no search is performed,\n        and the 3xx response is sent upstream towards the source of\n        the request.")
-sipServerCfgProxyRecordRoute = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 3, 1, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerCfgProxyRecordRoute.setDescription("This object reflects whether or not the proxy adds itself to\n        the Record-Route header as a default action.  This header is\n        used to list the proxies that insist on being in the signaling\n        path for subsequent requests related to the call leg.\n\n        If the value of this object is 'true', the proxy adds itself to\n        the end of the Record-Route header, creating the header if\n        required.  If the value is 'false', the proxy does not add\n        itself to the Record-Route header.")
-sipServerCfgProxyAuthMethod = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 3, 1, 1, 4), Bits().clone(namedValues=NamedValues(("none", 0), ("tls", 1), ("digest", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerCfgProxyAuthMethod.setDescription('This object reflects the authentication methods that MAY be\n        used to authenticate request originators.\n\n        bit 0  no authentication is performed\n        bit 1  TLS is used\n        bit 2  HTTP Digest is used.')
-sipServerCfgProxyAuthDefaultRealm = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 3, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerCfgProxyAuthDefaultRealm.setDescription('This object reflects the default realm value used in\n        Proxy-Authenticate headers.  Note that this MAY need to be\n        stored per user, in which case, this default value is ignored.\n       ')
-sipServerProxyStatsTable = MibTable((1, 3, 6, 1, 2, 1, 151, 1, 4, 1), )
-if mibBuilder.loadTexts: sipServerProxyStatsTable.setDescription('This table contains the statistics objects applicable to all\n        SIP Proxy Servers in this system.')
-sipServerProxyStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 151, 1, 4, 1, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"))
-if mibBuilder.loadTexts: sipServerProxyStatsEntry.setDescription('A row of summary statistics.\n\n        Each row represents those objects for a particular SIP server\n        present in this system.  applIndex is used to uniquely identify\n        these instances of SIP servers and correlate them through the\n        common framework of the NETWORK-SERVICES-MIB (RFC 2788).  The\n        same value of applIndex used in the corresponding\n        SIP-COMMON-MIB is used here.')
-sipServerProxyStatProxyReqFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 4, 1, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerProxyStatProxyReqFailures.setDescription('This object contains the number of occurrences of unsupported\n        options being specified in received Proxy-Require headers.\n        Such occurrences result in a 420 Bad Extension status code\n        being returned.\n\n        Discontinuities in the value of this counter can occur at\n        re-initialization of the SIP entity or service.  A Management\n        Station can detect discontinuities in this counter by\n\n        monitoring the sipServerProxyStatsDisconTime object in the same\n        row.')
-sipServerProxyStatsDisconTime = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 4, 1, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerProxyStatsDisconTime.setDescription('The value of the sysUpTime object when the counters for the server\n     statistics objects in this row last experienced a discontinuity.')
-sipServerRegCfg = MibIdentifier((1, 3, 6, 1, 2, 1, 151, 1, 5))
-sipServerRegStats = MibIdentifier((1, 3, 6, 1, 2, 1, 151, 1, 6))
-sipServerRegCfgTable = MibTable((1, 3, 6, 1, 2, 1, 151, 1, 5, 1), )
-if mibBuilder.loadTexts: sipServerRegCfgTable.setDescription('This table contains configuration objects applicable to SIP\n        Registrars.')
-sipServerRegCfgEntry = MibTableRow((1, 3, 6, 1, 2, 1, 151, 1, 5, 1, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"))
-if mibBuilder.loadTexts: sipServerRegCfgEntry.setDescription('A row of common Registrar configuration.\n\n        Each row represents those objects for a particular SIP server\n        present in this system.  applIndex is used to uniquely identify\n        these instances of SIP servers and correlate them through the\n        common framework of the NETWORK-SERVICES-MIB (RFC 2788).  The\n        same value of applIndex used in the corresponding\n        SIP-COMMON-MIB is used here.')
-sipServerRegMaxContactExpiryDuration = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 5, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerRegMaxContactExpiryDuration.setDescription('This object reflects the maximum expiry that may be requested\n        by a User Agent for a particular Contact.  User Agents can\n        specify expiry using either an Expiry header in a REGISTER\n        request, or using an Expires parameter in a Contact header in\n        a REGISTER request.  If the value requested by the User Agent\n        is greater than the value of this object, then the contact\n        information is given the duration specified by this object, and\n        that duration is indicated to the User Agent in the response.')
-sipServerRegMaxUsers = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 5, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerRegMaxUsers.setDescription('This object reflects the maximum number of users that the\n        Registrar supports.  The current number of users is reflected\n        by sipServerRegCurrentUsers.')
-sipServerRegCurrentUsers = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 5, 1, 1, 3), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerRegCurrentUsers.setDescription('This object reflects the number of users currently registered\n        with the Registrar.')
-sipServerRegDfltRegActiveInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 5, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295))).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerRegDfltRegActiveInterval.setDescription("This object reflects the default time interval the Registrar\n        considers registrations to be active.  The value is used to\n        compute the Expires header in the REGISTER response.  If a user\n        agent requests a time interval shorter than specified by this\n        object, the Registrar SHOULD honor that request.  If a Contact\n        entry does not have an 'expires' parameter, the value of the\n        Expires header field is used instead.  If a Contact entry has no\n        'expires' parameter and no Expires header field is present,\n        the value of this object is used as the default value.")
-sipServerRegUserTable = MibTable((1, 3, 6, 1, 2, 1, 151, 1, 5, 2), )
-if mibBuilder.loadTexts: sipServerRegUserTable.setDescription('This table contains information on all users registered to each\n        Registrar in this system.')
-sipServerRegUserEntry = MibTableRow((1, 3, 6, 1, 2, 1, 151, 1, 5, 2, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"), (0, "SIP-SERVER-MIB", "sipServerRegUserIndex"))
-if mibBuilder.loadTexts: sipServerRegUserEntry.setDescription('This entry contains information for a single user registered to\n        this Registrar.\n\n        Each row represents those objects for a particular SIP server\n        present in this system.  applIndex is used to uniquely identify\n        these instances of SIP servers and correlate them through the\n        common framework of the NETWORK-SERVICES-MIB (RFC 2788).  The\n        same value of applIndex used in the corresponding\n        SIP-COMMON-MIB is used here.')
-sipServerRegUserIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 5, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: sipServerRegUserIndex.setDescription('This object uniquely identifies a conceptual row in the table.')
-sipServerRegUserUri = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 5, 2, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerRegUserUri.setDescription("This object contains the user's address-of-record.  It is the\n        main form by which the Registrar knows the user.  The format is\n        typically 'user@domain'.  It is contained in the To header for\n        all REGISTER requests.")
-sipServerRegUserAuthenticationFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 5, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerRegUserAuthenticationFailures.setDescription('This object contains a count of the number of times the user\n        has failed authentication.\n\n        Discontinuities in the value of this counter can occur due to\n        successful user authentications and at re-initialization of\n        the SIP entity or service.  A Management Station can detect\n        discontinuities in this counter by monitoring the\n        sipServerRegUserDisconTime object in the same row.')
-sipServerRegUserDisconTime = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 5, 2, 1, 4), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerRegUserDisconTime.setDescription('The value of the sysUpTime object when the counters for the\n        user registration statistics objects in this row last\n        experienced a discontinuity.')
-sipServerRegContactTable = MibTable((1, 3, 6, 1, 2, 1, 151, 1, 5, 3), )
-if mibBuilder.loadTexts: sipServerRegContactTable.setDescription('This table contains information on every location where a\n        registered user (specified by sipServerRegUserIndex) wishes to\n        be found (i.e., the user has provided contact information to\n        each SIP Registrar in this system).')
-sipServerRegContactEntry = MibTableRow((1, 3, 6, 1, 2, 1, 151, 1, 5, 3, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"), (0, "SIP-SERVER-MIB", "sipServerRegUserIndex"), (0, "SIP-SERVER-MIB", "sipServerRegContactIndex"))
-if mibBuilder.loadTexts: sipServerRegContactEntry.setDescription('This entry contains information for a single Contact.  Multiple\n        contacts may exist for a single user.\n\n        Each row represents those objects for a particular SIP server\n        present in this system.  applIndex is used to uniquely identify\n        these instances of SIP servers and correlate them through the\n        common framework of the NETWORK-SERVICES-MIB (RFC 2788).  The\n        same value of applIndex used in the corresponding\n        SIP-COMMON-MIB is used here.')
-sipServerRegContactIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 5, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: sipServerRegContactIndex.setDescription('Along with the sipServerRegUserIndex, this object uniquely\n        identifies a conceptual row in the table.')
-sipServerRegContactDisplayName = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 5, 3, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerRegContactDisplayName.setDescription("This object contains the display name for the Contact.  For\n        example, 'Santa at Home', or 'Santa on his Sled', corresponding\n        to contact URIs of sip:BigGuy@example.com or\n        sip:sclaus817@example.com, respectively.")
-sipServerRegContactURI = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 5, 3, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerRegContactURI.setDescription('This object contains either a SIP URI where the user can be\n        contacted.  This URI is normally returned to a client from a\n        Redirect Server, or is used as the RequestURI in a SIP request\n        line for requests forwarded by a proxy.')
-sipServerRegContactLastUpdated = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 5, 3, 1, 4), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerRegContactLastUpdated.setDescription('This object indicates the time when this contact information\n        was accepted.  If the contact information is updated via a\n        subsequent REGISTER of the same information, this object is\n        also updated.')
-sipServerRegContactExpiry = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 5, 3, 1, 5), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerRegContactExpiry.setDescription('This object contains the date and time when the contact\n        information will no longer be valid.  Such times may be\n        specified by the user at registration (i.e., Expires header or\n        expiry parameter in the Contact information), or a system\n        default can be applied.')
-sipServerRegContactPreference = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 5, 3, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerRegContactPreference.setDescription("This object indicates a relative preference for the particular\n        Contact header field value compared to other bindings for this\n        address-of-record.  A registering user may provide this\n        preference as a 'qvalue' parameter in the Contact header.\n\n        The format of this item is a decimal number between 0 and 1\n        (for example 0.9).  Higher values indicate locations preferred\n        by the user.")
-sipServerRegStatsTable = MibTable((1, 3, 6, 1, 2, 1, 151, 1, 6, 1), )
-if mibBuilder.loadTexts: sipServerRegStatsTable.setDescription('This table contains the summary statistics objects applicable\n        to all SIP Registrars in this system.')
-sipServerRegStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 151, 1, 6, 1, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"))
-if mibBuilder.loadTexts: sipServerRegStatsEntry.setDescription('A row of summary statistics.\n\n        Each row represents those objects for a particular SIP server\n        present in this system.  applIndex is used to uniquely identify\n        these instances of SIP servers and correlate them through the\n        common framework of the NETWORK-SERVICES-MIB (RFC 2788).  The\n        same value of applIndex used in the corresponding\n        SIP-COMMON-MIB is used here.')
-sipServerRegStatsAcceptedRegs = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 6, 1, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerRegStatsAcceptedRegs.setDescription('This object contains a count of the number of REGISTER requests\n        that have been accepted (status code 200) by the Registrar.\n        This includes additions of new contact information, refreshing\n        contact information, as well as requests for deletion of\n        contact information.\n\n        Discontinuities in the value of this counter can occur at\n        re-initialization of the SIP entity or service.  A Management\n        Station can detect discontinuities in this counter by\n        monitoring the sipServerRegStatsDisconTime object in the same\n        row.')
-sipServerRegStatsRejectedRegs = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 6, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerRegStatsRejectedRegs.setDescription('This object contains a count of the number REGISTER requests\n        that have been rejected by the Registrar.\n\n        Discontinuities in the value of this counter can occur at\n        re-initialization of the SIP entity or service.  A Management\n        Station can detect discontinuities in this counter by\n        monitoring the sipServerRegStatsDisconTime object in the same\n        row.')
-sipServerRegStatsDisconTime = MibTableColumn((1, 3, 6, 1, 2, 1, 151, 1, 6, 1, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipServerRegStatsDisconTime.setDescription('The value of the sysUpTime object when the counters for the\n        registrar statistics objects in this row last experienced a\n        discontinuity.')
-sipServerMIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 151, 2, 1))
-sipServerMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 151, 2, 2))
-sipServerProxyServerCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 151, 2, 1, 1)).setObjects(*(("SIP-SERVER-MIB", "sipServerConfigGroup"), ("SIP-SERVER-MIB", "sipServerProxyConfigGroup"), ("SIP-SERVER-MIB", "sipServerProxyStatsGroup"),))
-if mibBuilder.loadTexts: sipServerProxyServerCompliance.setDescription('The compliance statement for SIP entities acting as Proxy\n        Servers.')
-sipRedirectServerCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 151, 2, 1, 2)).setObjects(*(("SIP-SERVER-MIB", "sipServerConfigGroup"),))
-if mibBuilder.loadTexts: sipRedirectServerCompliance.setDescription('The compliance statement for SIP entities acting as Redirect\n        Servers.')
-sipServerRegistrarServerCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 151, 2, 1, 3)).setObjects(*(("SIP-SERVER-MIB", "sipServerConfigGroup"), ("SIP-SERVER-MIB", "sipServerRegistrarConfigGroup"), ("SIP-SERVER-MIB", "sipServerRegistrarStatsGroup"), ("SIP-SERVER-MIB", "sipServerRegistrarUsersGroup"),))
-if mibBuilder.loadTexts: sipServerRegistrarServerCompliance.setDescription('The compliance statement for SIP entities acting as\n        Registrars.')
-sipServerConfigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 151, 2, 2, 1)).setObjects(*(("SIP-SERVER-MIB", "sipServerCfgHostAddressType"), ("SIP-SERVER-MIB", "sipServerCfgHostAddress"),))
-if mibBuilder.loadTexts: sipServerConfigGroup.setDescription('A collection of objects providing configuration common to SIP\n        Proxy and Redirect servers.')
-sipServerProxyConfigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 151, 2, 2, 2)).setObjects(*(("SIP-SERVER-MIB", "sipServerCfgProxyStatefulness"), ("SIP-SERVER-MIB", "sipServerCfgProxyRecursion"), ("SIP-SERVER-MIB", "sipServerCfgProxyRecordRoute"), ("SIP-SERVER-MIB", "sipServerCfgProxyAuthMethod"), ("SIP-SERVER-MIB", "sipServerCfgProxyAuthDefaultRealm"),))
-if mibBuilder.loadTexts: sipServerProxyConfigGroup.setDescription('A collection of objects providing configuration for SIP Proxy\n        servers.')
-sipServerProxyStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 151, 2, 2, 3)).setObjects(*(("SIP-SERVER-MIB", "sipServerProxyStatProxyReqFailures"), ("SIP-SERVER-MIB", "sipServerProxyStatsDisconTime"),))
-if mibBuilder.loadTexts: sipServerProxyStatsGroup.setDescription('A collection of objects providing statistics for SIP Proxy\n        servers.')
-sipServerRegistrarConfigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 151, 2, 2, 4)).setObjects(*(("SIP-SERVER-MIB", "sipServerRegMaxContactExpiryDuration"), ("SIP-SERVER-MIB", "sipServerRegMaxUsers"), ("SIP-SERVER-MIB", "sipServerRegCurrentUsers"), ("SIP-SERVER-MIB", "sipServerRegDfltRegActiveInterval"),))
-if mibBuilder.loadTexts: sipServerRegistrarConfigGroup.setDescription('A collection of objects providing configuration for SIP\n        Registrars.')
-sipServerRegistrarStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 151, 2, 2, 5)).setObjects(*(("SIP-SERVER-MIB", "sipServerRegStatsAcceptedRegs"), ("SIP-SERVER-MIB", "sipServerRegStatsRejectedRegs"), ("SIP-SERVER-MIB", "sipServerRegStatsDisconTime"),))
-if mibBuilder.loadTexts: sipServerRegistrarStatsGroup.setDescription('A collection of objects providing statistics for SIP\n        Registrars.')
-sipServerRegistrarUsersGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 151, 2, 2, 6)).setObjects(*(("SIP-SERVER-MIB", "sipServerRegUserUri"), ("SIP-SERVER-MIB", "sipServerRegUserAuthenticationFailures"), ("SIP-SERVER-MIB", "sipServerRegUserDisconTime"), ("SIP-SERVER-MIB", "sipServerRegContactDisplayName"), ("SIP-SERVER-MIB", "sipServerRegContactURI"), ("SIP-SERVER-MIB", "sipServerRegContactLastUpdated"), ("SIP-SERVER-MIB", "sipServerRegContactExpiry"), ("SIP-SERVER-MIB", "sipServerRegContactPreference"),))
-if mibBuilder.loadTexts: sipServerRegistrarUsersGroup.setDescription('A collection of objects related to registered users.')
-mibBuilder.exportSymbols("SIP-SERVER-MIB", sipServerRegUserDisconTime=sipServerRegUserDisconTime, sipServerRegStatsAcceptedRegs=sipServerRegStatsAcceptedRegs, sipServerRegUserEntry=sipServerRegUserEntry, sipRedirectServerCompliance=sipRedirectServerCompliance, sipServerRegStatsTable=sipServerRegStatsTable, sipServerProxyConfigGroup=sipServerProxyConfigGroup, sipServerCfgProxyRecordRoute=sipServerCfgProxyRecordRoute, sipServerRegMaxUsers=sipServerRegMaxUsers, sipServerRegStats=sipServerRegStats, sipServerRegUserTable=sipServerRegUserTable, sipServerRegStatsRejectedRegs=sipServerRegStatsRejectedRegs, sipServerProxyServerCompliance=sipServerProxyServerCompliance, sipServerProxyStatProxyReqFailures=sipServerProxyStatProxyReqFailures, sipServerRegMaxContactExpiryDuration=sipServerRegMaxContactExpiryDuration, sipServerRegContactEntry=sipServerRegContactEntry, sipServerProxyCfgTable=sipServerProxyCfgTable, sipServerMIBCompliances=sipServerMIBCompliances, PYSNMP_MODULE_ID=sipServerMIB, sipServerRegContactTable=sipServerRegContactTable, sipServerRegCfg=sipServerRegCfg, sipServerRegContactExpiry=sipServerRegContactExpiry, sipServerCfgHostAddressType=sipServerCfgHostAddressType, sipServerRegCurrentUsers=sipServerRegCurrentUsers, sipServerRegUserIndex=sipServerRegUserIndex, sipServerRegistrarUsersGroup=sipServerRegistrarUsersGroup, sipServerRegUserUri=sipServerRegUserUri, sipServerRegistrarServerCompliance=sipServerRegistrarServerCompliance, sipServerRegistrarStatsGroup=sipServerRegistrarStatsGroup, sipServerRegContactIndex=sipServerRegContactIndex, sipServerRegistrarConfigGroup=sipServerRegistrarConfigGroup, sipServerCfgTable=sipServerCfgTable, sipServerCfg=sipServerCfg, sipServerRegStatsEntry=sipServerRegStatsEntry, sipServerRegContactDisplayName=sipServerRegContactDisplayName, sipServerProxyCfgEntry=sipServerProxyCfgEntry, sipServerMIB=sipServerMIB, sipServerCfgProxyAuthDefaultRealm=sipServerCfgProxyAuthDefaultRealm, sipServerProxyStatsDisconTime=sipServerProxyStatsDisconTime, sipServerRegContactURI=sipServerRegContactURI, sipServerRegContactLastUpdated=sipServerRegContactLastUpdated, sipServerMIBObjects=sipServerMIBObjects, sipServerCfgHostAddress=sipServerCfgHostAddress, sipServerRegStatsDisconTime=sipServerRegStatsDisconTime, sipServerMIBGroups=sipServerMIBGroups, sipServerProxyStats=sipServerProxyStats, sipServerConfigGroup=sipServerConfigGroup, sipServerCfgProxyStatefulness=sipServerCfgProxyStatefulness, sipServerCfgProxyAuthMethod=sipServerCfgProxyAuthMethod, sipServerRegContactPreference=sipServerRegContactPreference, sipServerRegCfgEntry=sipServerRegCfgEntry, sipServerProxyCfg=sipServerProxyCfg, sipServerRegDfltRegActiveInterval=sipServerRegDfltRegActiveInterval, sipServerMIBConformance=sipServerMIBConformance, sipServerCfgEntry=sipServerCfgEntry, sipServerProxyStatsGroup=sipServerProxyStatsGroup, sipServerRegCfgTable=sipServerRegCfgTable, sipServerProxyStatsTable=sipServerProxyStatsTable, sipServerCfgProxyRecursion=sipServerCfgProxyRecursion, sipServerProxyStatsEntry=sipServerProxyStatsEntry, sipServerRegUserAuthenticationFailures=sipServerRegUserAuthenticationFailures)
+_p='sipServerRegistrarUsersGroup'
+_o='sipServerRegistrarStatsGroup'
+_n='sipServerRegistrarConfigGroup'
+_m='sipServerProxyStatsGroup'
+_l='sipServerProxyConfigGroup'
+_k='sipServerRegContactPreference'
+_j='sipServerRegContactExpiry'
+_i='sipServerRegContactLastUpdated'
+_h='sipServerRegContactURI'
+_g='sipServerRegContactDisplayName'
+_f='sipServerRegUserDisconTime'
+_e='sipServerRegUserAuthenticationFailures'
+_d='sipServerRegUserUri'
+_c='sipServerRegStatsDisconTime'
+_b='sipServerRegStatsRejectedRegs'
+_a='sipServerRegStatsAcceptedRegs'
+_Z='sipServerRegDfltRegActiveInterval'
+_Y='sipServerRegCurrentUsers'
+_X='sipServerRegMaxUsers'
+_W='sipServerRegMaxContactExpiryDuration'
+_V='sipServerProxyStatsDisconTime'
+_U='sipServerProxyStatProxyReqFailures'
+_T='sipServerCfgProxyAuthDefaultRealm'
+_S='sipServerCfgProxyAuthMethod'
+_R='sipServerCfgProxyRecordRoute'
+_Q='sipServerCfgProxyRecursion'
+_P='sipServerCfgProxyStatefulness'
+_O='sipServerCfgHostAddress'
+_N='sipServerCfgHostAddressType'
+_M='sipServerRegContactIndex'
+_L='not-accessible'
+_K='seconds'
+_J='Integer32'
+_I='Gauge32'
+_H='sipServerRegUserIndex'
+_G='sipServerConfigGroup'
+_F='Unsigned32'
+_E='applIndex'
+_D='NETWORK-SERVICES-MIB'
+_C='read-only'
+_B='SIP-SERVER-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
+applIndex,=mibBuilder.importSymbols(_D,_E)
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64',_I,_J,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'iso','mib-2')
+DateAndTime,DisplayString,PhysAddress,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention','TimeStamp','TruthValue')
+sipServerMIB=ModuleIdentity((1,3,6,1,2,1,151))
+if mibBuilder.loadTexts:sipServerMIB.setRevisions(('2007-04-20 00:00',))
+_SipServerMIBObjects_ObjectIdentity=ObjectIdentity
+sipServerMIBObjects=_SipServerMIBObjects_ObjectIdentity((1,3,6,1,2,1,151,1))
+_SipServerCfg_ObjectIdentity=ObjectIdentity
+sipServerCfg=_SipServerCfg_ObjectIdentity((1,3,6,1,2,1,151,1,1))
+_SipServerCfgTable_Object=MibTable
+sipServerCfgTable=_SipServerCfgTable_Object((1,3,6,1,2,1,151,1,1,1))
+if mibBuilder.loadTexts:sipServerCfgTable.setStatus(_A)
+_SipServerCfgEntry_Object=MibTableRow
+sipServerCfgEntry=_SipServerCfgEntry_Object((1,3,6,1,2,1,151,1,1,1,1))
+sipServerCfgEntry.setIndexNames((0,_D,_E))
+if mibBuilder.loadTexts:sipServerCfgEntry.setStatus(_A)
+_SipServerCfgHostAddressType_Type=InetAddressType
+_SipServerCfgHostAddressType_Object=MibTableColumn
+sipServerCfgHostAddressType=_SipServerCfgHostAddressType_Object((1,3,6,1,2,1,151,1,1,1,1,1),_SipServerCfgHostAddressType_Type())
+sipServerCfgHostAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerCfgHostAddressType.setStatus(_A)
+_SipServerCfgHostAddress_Type=InetAddress
+_SipServerCfgHostAddress_Object=MibTableColumn
+sipServerCfgHostAddress=_SipServerCfgHostAddress_Object((1,3,6,1,2,1,151,1,1,1,1,2),_SipServerCfgHostAddress_Type())
+sipServerCfgHostAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerCfgHostAddress.setStatus(_A)
+_SipServerProxyCfg_ObjectIdentity=ObjectIdentity
+sipServerProxyCfg=_SipServerProxyCfg_ObjectIdentity((1,3,6,1,2,1,151,1,3))
+_SipServerProxyCfgTable_Object=MibTable
+sipServerProxyCfgTable=_SipServerProxyCfgTable_Object((1,3,6,1,2,1,151,1,3,1))
+if mibBuilder.loadTexts:sipServerProxyCfgTable.setStatus(_A)
+_SipServerProxyCfgEntry_Object=MibTableRow
+sipServerProxyCfgEntry=_SipServerProxyCfgEntry_Object((1,3,6,1,2,1,151,1,3,1,1))
+sipServerProxyCfgEntry.setIndexNames((0,_D,_E))
+if mibBuilder.loadTexts:sipServerProxyCfgEntry.setStatus(_A)
+class _SipServerCfgProxyStatefulness_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('stateless',1),('transactionStateful',2),('callStateful',3)))
+_SipServerCfgProxyStatefulness_Type.__name__=_J
+_SipServerCfgProxyStatefulness_Object=MibTableColumn
+sipServerCfgProxyStatefulness=_SipServerCfgProxyStatefulness_Object((1,3,6,1,2,1,151,1,3,1,1,1),_SipServerCfgProxyStatefulness_Type())
+sipServerCfgProxyStatefulness.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerCfgProxyStatefulness.setStatus(_A)
+_SipServerCfgProxyRecursion_Type=TruthValue
+_SipServerCfgProxyRecursion_Object=MibTableColumn
+sipServerCfgProxyRecursion=_SipServerCfgProxyRecursion_Object((1,3,6,1,2,1,151,1,3,1,1,2),_SipServerCfgProxyRecursion_Type())
+sipServerCfgProxyRecursion.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerCfgProxyRecursion.setStatus(_A)
+_SipServerCfgProxyRecordRoute_Type=TruthValue
+_SipServerCfgProxyRecordRoute_Object=MibTableColumn
+sipServerCfgProxyRecordRoute=_SipServerCfgProxyRecordRoute_Object((1,3,6,1,2,1,151,1,3,1,1,3),_SipServerCfgProxyRecordRoute_Type())
+sipServerCfgProxyRecordRoute.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerCfgProxyRecordRoute.setStatus(_A)
+class _SipServerCfgProxyAuthMethod_Type(Bits):namedValues=NamedValues(*(('none',0),('tls',1),('digest',2)))
+_SipServerCfgProxyAuthMethod_Type.__name__='Bits'
+_SipServerCfgProxyAuthMethod_Object=MibTableColumn
+sipServerCfgProxyAuthMethod=_SipServerCfgProxyAuthMethod_Object((1,3,6,1,2,1,151,1,3,1,1,4),_SipServerCfgProxyAuthMethod_Type())
+sipServerCfgProxyAuthMethod.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerCfgProxyAuthMethod.setStatus(_A)
+_SipServerCfgProxyAuthDefaultRealm_Type=SnmpAdminString
+_SipServerCfgProxyAuthDefaultRealm_Object=MibTableColumn
+sipServerCfgProxyAuthDefaultRealm=_SipServerCfgProxyAuthDefaultRealm_Object((1,3,6,1,2,1,151,1,3,1,1,5),_SipServerCfgProxyAuthDefaultRealm_Type())
+sipServerCfgProxyAuthDefaultRealm.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerCfgProxyAuthDefaultRealm.setStatus(_A)
+_SipServerProxyStats_ObjectIdentity=ObjectIdentity
+sipServerProxyStats=_SipServerProxyStats_ObjectIdentity((1,3,6,1,2,1,151,1,4))
+_SipServerProxyStatsTable_Object=MibTable
+sipServerProxyStatsTable=_SipServerProxyStatsTable_Object((1,3,6,1,2,1,151,1,4,1))
+if mibBuilder.loadTexts:sipServerProxyStatsTable.setStatus(_A)
+_SipServerProxyStatsEntry_Object=MibTableRow
+sipServerProxyStatsEntry=_SipServerProxyStatsEntry_Object((1,3,6,1,2,1,151,1,4,1,1))
+sipServerProxyStatsEntry.setIndexNames((0,_D,_E))
+if mibBuilder.loadTexts:sipServerProxyStatsEntry.setStatus(_A)
+_SipServerProxyStatProxyReqFailures_Type=Counter32
+_SipServerProxyStatProxyReqFailures_Object=MibTableColumn
+sipServerProxyStatProxyReqFailures=_SipServerProxyStatProxyReqFailures_Object((1,3,6,1,2,1,151,1,4,1,1,1),_SipServerProxyStatProxyReqFailures_Type())
+sipServerProxyStatProxyReqFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerProxyStatProxyReqFailures.setStatus(_A)
+_SipServerProxyStatsDisconTime_Type=TimeStamp
+_SipServerProxyStatsDisconTime_Object=MibTableColumn
+sipServerProxyStatsDisconTime=_SipServerProxyStatsDisconTime_Object((1,3,6,1,2,1,151,1,4,1,1,2),_SipServerProxyStatsDisconTime_Type())
+sipServerProxyStatsDisconTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerProxyStatsDisconTime.setStatus(_A)
+_SipServerRegCfg_ObjectIdentity=ObjectIdentity
+sipServerRegCfg=_SipServerRegCfg_ObjectIdentity((1,3,6,1,2,1,151,1,5))
+_SipServerRegCfgTable_Object=MibTable
+sipServerRegCfgTable=_SipServerRegCfgTable_Object((1,3,6,1,2,1,151,1,5,1))
+if mibBuilder.loadTexts:sipServerRegCfgTable.setStatus(_A)
+_SipServerRegCfgEntry_Object=MibTableRow
+sipServerRegCfgEntry=_SipServerRegCfgEntry_Object((1,3,6,1,2,1,151,1,5,1,1))
+sipServerRegCfgEntry.setIndexNames((0,_D,_E))
+if mibBuilder.loadTexts:sipServerRegCfgEntry.setStatus(_A)
+class _SipServerRegMaxContactExpiryDuration_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_SipServerRegMaxContactExpiryDuration_Type.__name__=_F
+_SipServerRegMaxContactExpiryDuration_Object=MibTableColumn
+sipServerRegMaxContactExpiryDuration=_SipServerRegMaxContactExpiryDuration_Object((1,3,6,1,2,1,151,1,5,1,1,1),_SipServerRegMaxContactExpiryDuration_Type())
+sipServerRegMaxContactExpiryDuration.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerRegMaxContactExpiryDuration.setStatus(_A)
+if mibBuilder.loadTexts:sipServerRegMaxContactExpiryDuration.setUnits(_K)
+class _SipServerRegMaxUsers_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_SipServerRegMaxUsers_Type.__name__=_F
+_SipServerRegMaxUsers_Object=MibTableColumn
+sipServerRegMaxUsers=_SipServerRegMaxUsers_Object((1,3,6,1,2,1,151,1,5,1,1,2),_SipServerRegMaxUsers_Type())
+sipServerRegMaxUsers.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerRegMaxUsers.setStatus(_A)
+class _SipServerRegCurrentUsers_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_SipServerRegCurrentUsers_Type.__name__=_I
+_SipServerRegCurrentUsers_Object=MibTableColumn
+sipServerRegCurrentUsers=_SipServerRegCurrentUsers_Object((1,3,6,1,2,1,151,1,5,1,1,3),_SipServerRegCurrentUsers_Type())
+sipServerRegCurrentUsers.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerRegCurrentUsers.setStatus(_A)
+class _SipServerRegDfltRegActiveInterval_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_SipServerRegDfltRegActiveInterval_Type.__name__=_F
+_SipServerRegDfltRegActiveInterval_Object=MibTableColumn
+sipServerRegDfltRegActiveInterval=_SipServerRegDfltRegActiveInterval_Object((1,3,6,1,2,1,151,1,5,1,1,4),_SipServerRegDfltRegActiveInterval_Type())
+sipServerRegDfltRegActiveInterval.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerRegDfltRegActiveInterval.setStatus(_A)
+if mibBuilder.loadTexts:sipServerRegDfltRegActiveInterval.setUnits(_K)
+_SipServerRegUserTable_Object=MibTable
+sipServerRegUserTable=_SipServerRegUserTable_Object((1,3,6,1,2,1,151,1,5,2))
+if mibBuilder.loadTexts:sipServerRegUserTable.setStatus(_A)
+_SipServerRegUserEntry_Object=MibTableRow
+sipServerRegUserEntry=_SipServerRegUserEntry_Object((1,3,6,1,2,1,151,1,5,2,1))
+sipServerRegUserEntry.setIndexNames((0,_D,_E),(0,_B,_H))
+if mibBuilder.loadTexts:sipServerRegUserEntry.setStatus(_A)
+class _SipServerRegUserIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_SipServerRegUserIndex_Type.__name__=_F
+_SipServerRegUserIndex_Object=MibTableColumn
+sipServerRegUserIndex=_SipServerRegUserIndex_Object((1,3,6,1,2,1,151,1,5,2,1,1),_SipServerRegUserIndex_Type())
+sipServerRegUserIndex.setMaxAccess(_L)
+if mibBuilder.loadTexts:sipServerRegUserIndex.setStatus(_A)
+_SipServerRegUserUri_Type=SnmpAdminString
+_SipServerRegUserUri_Object=MibTableColumn
+sipServerRegUserUri=_SipServerRegUserUri_Object((1,3,6,1,2,1,151,1,5,2,1,2),_SipServerRegUserUri_Type())
+sipServerRegUserUri.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerRegUserUri.setStatus(_A)
+_SipServerRegUserAuthenticationFailures_Type=Counter32
+_SipServerRegUserAuthenticationFailures_Object=MibTableColumn
+sipServerRegUserAuthenticationFailures=_SipServerRegUserAuthenticationFailures_Object((1,3,6,1,2,1,151,1,5,2,1,3),_SipServerRegUserAuthenticationFailures_Type())
+sipServerRegUserAuthenticationFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerRegUserAuthenticationFailures.setStatus(_A)
+_SipServerRegUserDisconTime_Type=TimeStamp
+_SipServerRegUserDisconTime_Object=MibTableColumn
+sipServerRegUserDisconTime=_SipServerRegUserDisconTime_Object((1,3,6,1,2,1,151,1,5,2,1,4),_SipServerRegUserDisconTime_Type())
+sipServerRegUserDisconTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerRegUserDisconTime.setStatus(_A)
+_SipServerRegContactTable_Object=MibTable
+sipServerRegContactTable=_SipServerRegContactTable_Object((1,3,6,1,2,1,151,1,5,3))
+if mibBuilder.loadTexts:sipServerRegContactTable.setStatus(_A)
+_SipServerRegContactEntry_Object=MibTableRow
+sipServerRegContactEntry=_SipServerRegContactEntry_Object((1,3,6,1,2,1,151,1,5,3,1))
+sipServerRegContactEntry.setIndexNames((0,_D,_E),(0,_B,_H),(0,_B,_M))
+if mibBuilder.loadTexts:sipServerRegContactEntry.setStatus(_A)
+class _SipServerRegContactIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_SipServerRegContactIndex_Type.__name__=_F
+_SipServerRegContactIndex_Object=MibTableColumn
+sipServerRegContactIndex=_SipServerRegContactIndex_Object((1,3,6,1,2,1,151,1,5,3,1,1),_SipServerRegContactIndex_Type())
+sipServerRegContactIndex.setMaxAccess(_L)
+if mibBuilder.loadTexts:sipServerRegContactIndex.setStatus(_A)
+_SipServerRegContactDisplayName_Type=SnmpAdminString
+_SipServerRegContactDisplayName_Object=MibTableColumn
+sipServerRegContactDisplayName=_SipServerRegContactDisplayName_Object((1,3,6,1,2,1,151,1,5,3,1,2),_SipServerRegContactDisplayName_Type())
+sipServerRegContactDisplayName.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerRegContactDisplayName.setStatus(_A)
+_SipServerRegContactURI_Type=SnmpAdminString
+_SipServerRegContactURI_Object=MibTableColumn
+sipServerRegContactURI=_SipServerRegContactURI_Object((1,3,6,1,2,1,151,1,5,3,1,3),_SipServerRegContactURI_Type())
+sipServerRegContactURI.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerRegContactURI.setStatus(_A)
+_SipServerRegContactLastUpdated_Type=TimeStamp
+_SipServerRegContactLastUpdated_Object=MibTableColumn
+sipServerRegContactLastUpdated=_SipServerRegContactLastUpdated_Object((1,3,6,1,2,1,151,1,5,3,1,4),_SipServerRegContactLastUpdated_Type())
+sipServerRegContactLastUpdated.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerRegContactLastUpdated.setStatus(_A)
+_SipServerRegContactExpiry_Type=DateAndTime
+_SipServerRegContactExpiry_Object=MibTableColumn
+sipServerRegContactExpiry=_SipServerRegContactExpiry_Object((1,3,6,1,2,1,151,1,5,3,1,5),_SipServerRegContactExpiry_Type())
+sipServerRegContactExpiry.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerRegContactExpiry.setStatus(_A)
+_SipServerRegContactPreference_Type=SnmpAdminString
+_SipServerRegContactPreference_Object=MibTableColumn
+sipServerRegContactPreference=_SipServerRegContactPreference_Object((1,3,6,1,2,1,151,1,5,3,1,6),_SipServerRegContactPreference_Type())
+sipServerRegContactPreference.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerRegContactPreference.setStatus(_A)
+_SipServerRegStats_ObjectIdentity=ObjectIdentity
+sipServerRegStats=_SipServerRegStats_ObjectIdentity((1,3,6,1,2,1,151,1,6))
+_SipServerRegStatsTable_Object=MibTable
+sipServerRegStatsTable=_SipServerRegStatsTable_Object((1,3,6,1,2,1,151,1,6,1))
+if mibBuilder.loadTexts:sipServerRegStatsTable.setStatus(_A)
+_SipServerRegStatsEntry_Object=MibTableRow
+sipServerRegStatsEntry=_SipServerRegStatsEntry_Object((1,3,6,1,2,1,151,1,6,1,1))
+sipServerRegStatsEntry.setIndexNames((0,_D,_E))
+if mibBuilder.loadTexts:sipServerRegStatsEntry.setStatus(_A)
+_SipServerRegStatsAcceptedRegs_Type=Counter32
+_SipServerRegStatsAcceptedRegs_Object=MibTableColumn
+sipServerRegStatsAcceptedRegs=_SipServerRegStatsAcceptedRegs_Object((1,3,6,1,2,1,151,1,6,1,1,1),_SipServerRegStatsAcceptedRegs_Type())
+sipServerRegStatsAcceptedRegs.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerRegStatsAcceptedRegs.setStatus(_A)
+_SipServerRegStatsRejectedRegs_Type=Counter32
+_SipServerRegStatsRejectedRegs_Object=MibTableColumn
+sipServerRegStatsRejectedRegs=_SipServerRegStatsRejectedRegs_Object((1,3,6,1,2,1,151,1,6,1,1,2),_SipServerRegStatsRejectedRegs_Type())
+sipServerRegStatsRejectedRegs.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerRegStatsRejectedRegs.setStatus(_A)
+_SipServerRegStatsDisconTime_Type=TimeStamp
+_SipServerRegStatsDisconTime_Object=MibTableColumn
+sipServerRegStatsDisconTime=_SipServerRegStatsDisconTime_Object((1,3,6,1,2,1,151,1,6,1,1,3),_SipServerRegStatsDisconTime_Type())
+sipServerRegStatsDisconTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipServerRegStatsDisconTime.setStatus(_A)
+_SipServerMIBConformance_ObjectIdentity=ObjectIdentity
+sipServerMIBConformance=_SipServerMIBConformance_ObjectIdentity((1,3,6,1,2,1,151,2))
+_SipServerMIBCompliances_ObjectIdentity=ObjectIdentity
+sipServerMIBCompliances=_SipServerMIBCompliances_ObjectIdentity((1,3,6,1,2,1,151,2,1))
+_SipServerMIBGroups_ObjectIdentity=ObjectIdentity
+sipServerMIBGroups=_SipServerMIBGroups_ObjectIdentity((1,3,6,1,2,1,151,2,2))
+sipServerConfigGroup=ObjectGroup((1,3,6,1,2,1,151,2,2,1))
+sipServerConfigGroup.setObjects(*((_B,_N),(_B,_O)))
+if mibBuilder.loadTexts:sipServerConfigGroup.setStatus(_A)
+sipServerProxyConfigGroup=ObjectGroup((1,3,6,1,2,1,151,2,2,2))
+sipServerProxyConfigGroup.setObjects(*((_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T)))
+if mibBuilder.loadTexts:sipServerProxyConfigGroup.setStatus(_A)
+sipServerProxyStatsGroup=ObjectGroup((1,3,6,1,2,1,151,2,2,3))
+sipServerProxyStatsGroup.setObjects(*((_B,_U),(_B,_V)))
+if mibBuilder.loadTexts:sipServerProxyStatsGroup.setStatus(_A)
+sipServerRegistrarConfigGroup=ObjectGroup((1,3,6,1,2,1,151,2,2,4))
+sipServerRegistrarConfigGroup.setObjects(*((_B,_W),(_B,_X),(_B,_Y),(_B,_Z)))
+if mibBuilder.loadTexts:sipServerRegistrarConfigGroup.setStatus(_A)
+sipServerRegistrarStatsGroup=ObjectGroup((1,3,6,1,2,1,151,2,2,5))
+sipServerRegistrarStatsGroup.setObjects(*((_B,_a),(_B,_b),(_B,_c)))
+if mibBuilder.loadTexts:sipServerRegistrarStatsGroup.setStatus(_A)
+sipServerRegistrarUsersGroup=ObjectGroup((1,3,6,1,2,1,151,2,2,6))
+sipServerRegistrarUsersGroup.setObjects(*((_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k)))
+if mibBuilder.loadTexts:sipServerRegistrarUsersGroup.setStatus(_A)
+sipServerProxyServerCompliance=ModuleCompliance((1,3,6,1,2,1,151,2,1,1))
+sipServerProxyServerCompliance.setObjects(*((_B,_G),(_B,_l),(_B,_m)))
+if mibBuilder.loadTexts:sipServerProxyServerCompliance.setStatus(_A)
+sipRedirectServerCompliance=ModuleCompliance((1,3,6,1,2,1,151,2,1,2))
+sipRedirectServerCompliance.setObjects((_B,_G))
+if mibBuilder.loadTexts:sipRedirectServerCompliance.setStatus(_A)
+sipServerRegistrarServerCompliance=ModuleCompliance((1,3,6,1,2,1,151,2,1,3))
+sipServerRegistrarServerCompliance.setObjects(*((_B,_G),(_B,_n),(_B,_o),(_B,_p)))
+if mibBuilder.loadTexts:sipServerRegistrarServerCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'sipServerMIB':sipServerMIB,'sipServerMIBObjects':sipServerMIBObjects,'sipServerCfg':sipServerCfg,'sipServerCfgTable':sipServerCfgTable,'sipServerCfgEntry':sipServerCfgEntry,_N:sipServerCfgHostAddressType,_O:sipServerCfgHostAddress,'sipServerProxyCfg':sipServerProxyCfg,'sipServerProxyCfgTable':sipServerProxyCfgTable,'sipServerProxyCfgEntry':sipServerProxyCfgEntry,_P:sipServerCfgProxyStatefulness,_Q:sipServerCfgProxyRecursion,_R:sipServerCfgProxyRecordRoute,_S:sipServerCfgProxyAuthMethod,_T:sipServerCfgProxyAuthDefaultRealm,'sipServerProxyStats':sipServerProxyStats,'sipServerProxyStatsTable':sipServerProxyStatsTable,'sipServerProxyStatsEntry':sipServerProxyStatsEntry,_U:sipServerProxyStatProxyReqFailures,_V:sipServerProxyStatsDisconTime,'sipServerRegCfg':sipServerRegCfg,'sipServerRegCfgTable':sipServerRegCfgTable,'sipServerRegCfgEntry':sipServerRegCfgEntry,_W:sipServerRegMaxContactExpiryDuration,_X:sipServerRegMaxUsers,_Y:sipServerRegCurrentUsers,_Z:sipServerRegDfltRegActiveInterval,'sipServerRegUserTable':sipServerRegUserTable,'sipServerRegUserEntry':sipServerRegUserEntry,_H:sipServerRegUserIndex,_d:sipServerRegUserUri,_e:sipServerRegUserAuthenticationFailures,_f:sipServerRegUserDisconTime,'sipServerRegContactTable':sipServerRegContactTable,'sipServerRegContactEntry':sipServerRegContactEntry,_M:sipServerRegContactIndex,_g:sipServerRegContactDisplayName,_h:sipServerRegContactURI,_i:sipServerRegContactLastUpdated,_j:sipServerRegContactExpiry,_k:sipServerRegContactPreference,'sipServerRegStats':sipServerRegStats,'sipServerRegStatsTable':sipServerRegStatsTable,'sipServerRegStatsEntry':sipServerRegStatsEntry,_a:sipServerRegStatsAcceptedRegs,_b:sipServerRegStatsRejectedRegs,_c:sipServerRegStatsDisconTime,'sipServerMIBConformance':sipServerMIBConformance,'sipServerMIBCompliances':sipServerMIBCompliances,'sipServerProxyServerCompliance':sipServerProxyServerCompliance,'sipRedirectServerCompliance':sipRedirectServerCompliance,'sipServerRegistrarServerCompliance':sipServerRegistrarServerCompliance,'sipServerMIBGroups':sipServerMIBGroups,_G:sipServerConfigGroup,_l:sipServerProxyConfigGroup,_m:sipServerProxyStatsGroup,_n:sipServerRegistrarConfigGroup,_o:sipServerRegistrarStatsGroup,_p:sipServerRegistrarUsersGroup})

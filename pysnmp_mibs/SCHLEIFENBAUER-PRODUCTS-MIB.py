@@ -1,0 +1,15 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+schleifenbauerModules,schleifenbauerProducts=mibBuilder.importSymbols('SCHLEIFENBAUER-SMI','schleifenbauerModules','schleifenbauerProducts')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+schleifenbauerProductsMIB=ModuleIdentity((1,3,6,1,4,1,31034,13,2))
+if mibBuilder.loadTexts:schleifenbauerProductsMIB.setRevisions(('2015-10-23 00:00',))
+_Hpdu_ObjectIdentity=ObjectIdentity
+hpdu=_Hpdu_ObjectIdentity((1,3,6,1,4,1,31034,11,1))
+_Dpm3_ObjectIdentity=ObjectIdentity
+dpm3=_Dpm3_ObjectIdentity((1,3,6,1,4,1,31034,11,2))
+mibBuilder.exportSymbols('SCHLEIFENBAUER-PRODUCTS-MIB',**{'hpdu':hpdu,'dpm3':dpm3,'schleifenbauerProductsMIB':schleifenbauerProductsMIB})

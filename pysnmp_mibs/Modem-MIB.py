@@ -1,253 +1,551 @@
-#
-# PySNMP MIB module Modem-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/Modem-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:20:28 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, Integer, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
-( NotificationGroup, ModuleCompliance, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-( Bits, TimeTicks, ModuleIdentity, Gauge32, Counter32, mib_2, Integer32, iso, Counter64, Unsigned32, IpAddress, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, MibIdentifier, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "TimeTicks", "ModuleIdentity", "Gauge32", "Counter32", "mib-2", "Integer32", "iso", "Counter64", "Unsigned32", "IpAddress", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "MibIdentifier")
-( DisplayString, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-mdmMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 38, 1))
-if mibBuilder.loadTexts: mdmMIB.setLastUpdated('9406120000Z')
-if mibBuilder.loadTexts: mdmMIB.setOrganization('IETF Modem Management Working Group')
-if mibBuilder.loadTexts: mdmMIB.setContactInfo('        Steven Waldbusser\n             Postal: Carnegie Mellon University\n                     5000 Forbes Ave\n                     Pittsburgh, PA, 15213\n                     US\n\n                Tel: +1 412 268 6628\n                Fax: +1 412 268 4987\n             E-mail: waldbusser@cmu.edu')
-if mibBuilder.loadTexts: mdmMIB.setDescription('The MIB module for management of dial-up modems.')
-mdmMib = MibIdentifier((1, 3, 6, 1, 2, 1, 38))
-mdmMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 38, 1, 1))
-mdmConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 38, 1, 2))
-mdmCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 38, 1, 2, 1))
-mdmGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 38, 1, 2, 2))
-mdmIDGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 38, 1, 2, 2, 1)).setObjects(*(("Modem-MIB", "mdmIDManufacturerOID"), ("Modem-MIB", "mdmIDProductDetails"),))
-if mibBuilder.loadTexts: mdmIDGroup.setDescription('A collection of objects that identify the manufacturer and\n            model information for a modem.')
-mdmLineInterfaceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 38, 1, 2, 2, 2)).setObjects(*(("Modem-MIB", "mdmLineCarrierLossTime"), ("Modem-MIB", "mdmLineState"), ("Modem-MIB", "mdmLineCapabilitiesID"), ("Modem-MIB", "mdmLineCapabilitiesEnableRequested"), ("Modem-MIB", "mdmLineCapabilitiesEnableGranted"),))
-if mibBuilder.loadTexts: mdmLineInterfaceGroup.setDescription("A collection of objects that describe the configuration and\n            state of the modem's line interface.")
-mdmDTEInterfaceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 38, 1, 2, 2, 3)).setObjects(*(("Modem-MIB", "mdmDTEActionDTROnToOff"), ("Modem-MIB", "mdmDTEActionDTROffToOn"), ("Modem-MIB", "mdmDTESyncTimingSource"), ("Modem-MIB", "mdmDTESyncAsyncMode"), ("Modem-MIB", "mdmDTEInactivityTimeout"),))
-if mibBuilder.loadTexts: mdmDTEInterfaceGroup.setDescription("A collection of objects that describe the configuration and\n            state of the modem's DTE interface.")
-mdmCallControlGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 38, 1, 2, 2, 4)).setObjects(*(("Modem-MIB", "mdmCCRingsBeforeAnswer"), ("Modem-MIB", "mdmCCCallSetUpFailTimer"), ("Modem-MIB", "mdmCCResultCodeEnable"), ("Modem-MIB", "mdmCCEscapeAction"), ("Modem-MIB", "mdmCCCallDuration"), ("Modem-MIB", "mdmCCConnectionFailReason"), ("Modem-MIB", "mdmCCStoredDialString"),))
-if mibBuilder.loadTexts: mdmCallControlGroup.setDescription('A collection of objects that describe the configuration of\n            call control capabilities on the modem and the status of\n            calls placed with this modem.')
-mdmErrorControlGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 38, 1, 2, 2, 5)).setObjects(*(("Modem-MIB", "mdmECErrorControlUsed"),))
-if mibBuilder.loadTexts: mdmErrorControlGroup.setDescription('A collection of objects that describe the configuration and\n            state of error control on a modem.')
-mdmDataCompressionGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 38, 1, 2, 2, 6)).setObjects(*(("Modem-MIB", "mdmDCCompressionTypeUsed"),))
-if mibBuilder.loadTexts: mdmDataCompressionGroup.setDescription('A collection of objects that describe the configuration and\n            state of data compression on a modem.')
-mdmSignalConvertorGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 38, 1, 2, 2, 7)).setObjects(*(("Modem-MIB", "mdmSCCurrentLineReceiveRate"), ("Modem-MIB", "mdmSCCurrentLineTransmitRate"), ("Modem-MIB", "mdmSCInitialLineReceiveRate"), ("Modem-MIB", "mdmSCInitialLineTransmitRate"), ("Modem-MIB", "mdmSCModulationSchemeUsed"),))
-if mibBuilder.loadTexts: mdmSignalConvertorGroup.setDescription('A collection of objects that describe the configuration and\n            state of error control on a modem.')
-mdmStatisticsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 38, 1, 2, 2, 8)).setObjects(*(("Modem-MIB", "mdmStatsRingNoAnswers"), ("Modem-MIB", "mdmStatsIncomingConnectionFailures"), ("Modem-MIB", "mdmStatsIncomingConnectionCompletions"), ("Modem-MIB", "mdmStatsFailedDialAttempts"), ("Modem-MIB", "mdmStatsOutgoingConnectionFailures"), ("Modem-MIB", "mdmStatsOutgoingConnectionCompletions"), ("Modem-MIB", "mdmStatsRetrains"), ("Modem-MIB", "mdmStats2400OrLessConnections"), ("Modem-MIB", "mdmStats2400To14400Connections"), ("Modem-MIB", "mdmStatsGreaterThan14400Connections"), ("Modem-MIB", "mdmStatsErrorControlledConnections"), ("Modem-MIB", "mdmStatsCompressedConnections"), ("Modem-MIB", "mdmStatsCompressionEfficiency"), ("Modem-MIB", "mdmStatsSentOctets"), ("Modem-MIB", "mdmStatsReceivedOctets"), ("Modem-MIB", "mdmStatsSentDataFrames"), ("Modem-MIB", "mdmStatsReceivedDataFrames"), ("Modem-MIB", "mdmStatsResentFrames"), ("Modem-MIB", "mdmStatsErrorFrames"),))
-if mibBuilder.loadTexts: mdmStatisticsGroup.setDescription('A collection of objects that describe the state of calls on\n            this modem.')
-mdmNumber = MibScalar((1, 3, 6, 1, 2, 1, 38, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmNumber.setDescription('The number of modem rows in the modem table.  This value\n            defines the maximum value of the mdmIndex object.')
-mdmIDTable = MibTable((1, 3, 6, 1, 2, 1, 38, 1, 1, 2), )
-if mibBuilder.loadTexts: mdmIDTable.setDescription('The base table for the modems managed by this MIB.  The\n            mdmLineTable, mdmDTEInterfaceTable, mdmCallControlTable, and\n            mdmStatsTable all augment the rows defined in this table.')
-mdmIDEntry = MibTableRow((1, 3, 6, 1, 2, 1, 38, 1, 1, 2, 1), ).setIndexNames((0, "Modem-MIB", "mdmIndex"))
-if mibBuilder.loadTexts: mdmIDEntry.setDescription('Entries in this table are created only by the agent. One\n\n            entry exists for each modem managed by the agent.')
-mdmIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: mdmIndex.setDescription('A unique number for each modem that ranges from 1 to\n            mdmNumber.  The value must remain constant at least from one\n            re-initialization of the network management agent to the\n            next.')
-mdmIDManufacturerOID = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 2, 1, 2), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmIDManufacturerOID.setDescription('This value is intended to identify the manufacturer, model,\n            and version of this modem.  This may be used to identify the\n            existance of enterprise-specific functions and behaviours.')
-mdmIDProductDetails = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,79))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmIDProductDetails.setDescription("A textual description of this device, including the\n            manufacturer's name, modem model name, hardware revision,\n            firmware revision, and optionally, its serial number.  The\n            exact format of this description is defined by the vendor.\n            This description may only contain characters from the NVT\n            ASCII character set.")
-mdmLineTable = MibTable((1, 3, 6, 1, 2, 1, 38, 1, 1, 3), )
-if mibBuilder.loadTexts: mdmLineTable.setDescription('The modem Line Table augments the modem ID table.')
-mdmLineEntry = MibTableRow((1, 3, 6, 1, 2, 1, 38, 1, 1, 3, 1), )
-mdmIDEntry.registerAugmentions(("Modem-MIB", "mdmLineEntry"))
+_AM='mdmDataCompressionGroup'
+_AL='mdmErrorControlGroup'
+_AK='mdmStatisticsGroup'
+_AJ='mdmSignalConvertorGroup'
+_AI='mdmCallControlGroup'
+_AH='mdmDTEInterfaceGroup'
+_AG='mdmLineInterfaceGroup'
+_AF='mdmIDGroup'
+_AE='mdmStatsErrorFrames'
+_AD='mdmStatsResentFrames'
+_AC='mdmStatsReceivedDataFrames'
+_AB='mdmStatsSentDataFrames'
+_AA='mdmStatsReceivedOctets'
+_A9='mdmStatsSentOctets'
+_A8='mdmStatsCompressionEfficiency'
+_A7='mdmStatsCompressedConnections'
+_A6='mdmStatsErrorControlledConnections'
+_A5='mdmStatsGreaterThan14400Connections'
+_A4='mdmStats2400To14400Connections'
+_A3='mdmStats2400OrLessConnections'
+_A2='mdmStatsRetrains'
+_A1='mdmStatsOutgoingConnectionCompletions'
+_A0='mdmStatsOutgoingConnectionFailures'
+_z='mdmStatsFailedDialAttempts'
+_y='mdmStatsIncomingConnectionCompletions'
+_x='mdmStatsIncomingConnectionFailures'
+_w='mdmStatsRingNoAnswers'
+_v='mdmSCModulationSchemeUsed'
+_u='mdmSCInitialLineTransmitRate'
+_t='mdmSCInitialLineReceiveRate'
+_s='mdmSCCurrentLineTransmitRate'
+_r='mdmSCCurrentLineReceiveRate'
+_q='mdmDCCompressionTypeUsed'
+_p='mdmECErrorControlUsed'
+_o='mdmCCStoredDialString'
+_n='mdmCCConnectionFailReason'
+_m='mdmCCCallDuration'
+_l='mdmCCEscapeAction'
+_k='mdmCCResultCodeEnable'
+_j='mdmCCCallSetUpFailTimer'
+_i='mdmCCRingsBeforeAnswer'
+_h='mdmDTEInactivityTimeout'
+_g='mdmDTESyncAsyncMode'
+_f='mdmDTESyncTimingSource'
+_e='mdmDTEActionDTROffToOn'
+_d='mdmDTEActionDTROnToOff'
+_c='mdmLineCapabilitiesEnableGranted'
+_b='mdmLineCapabilitiesEnableRequested'
+_a='mdmLineCapabilitiesID'
+_Z='mdmLineState'
+_Y='mdmLineCarrierLossTime'
+_X='mdmIDProductDetails'
+_W='mdmIDManufacturerOID'
+_V='mdmStatsEntry'
+_U='mdmSCEntry'
+_T='mdmDCEntry'
+_S='mdmECEntry'
+_R='mdmCallControlEntry'
+_Q='mdmDTEInterfaceEntry'
+_P='mdmLineEntry'
+_O='mdmCCStoredDialStringIndex'
+_N='ignore'
+_M='preferred'
+_L='optional'
+_K='mdmLineCapabilitiesIndex'
+_J='unknown'
+_I='disabled'
+_H='not-accessible'
+_G='DisplayString'
+_F='mdmIndex'
+_E='read-write'
+_D='Integer32'
+_C='read-only'
+_B='Modem-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_G,'PhysAddress','TextualConvention')
+mdmMIB=ModuleIdentity((1,3,6,1,2,1,38,1))
+_MdmMib_ObjectIdentity=ObjectIdentity
+mdmMib=_MdmMib_ObjectIdentity((1,3,6,1,2,1,38))
+_MdmMIBObjects_ObjectIdentity=ObjectIdentity
+mdmMIBObjects=_MdmMIBObjects_ObjectIdentity((1,3,6,1,2,1,38,1,1))
+_MdmNumber_Type=Integer32
+_MdmNumber_Object=MibScalar
+mdmNumber=_MdmNumber_Object((1,3,6,1,2,1,38,1,1,1),_MdmNumber_Type())
+mdmNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmNumber.setStatus(_A)
+_MdmIDTable_Object=MibTable
+mdmIDTable=_MdmIDTable_Object((1,3,6,1,2,1,38,1,1,2))
+if mibBuilder.loadTexts:mdmIDTable.setStatus(_A)
+_MdmIDEntry_Object=MibTableRow
+mdmIDEntry=_MdmIDEntry_Object((1,3,6,1,2,1,38,1,1,2,1))
+mdmIDEntry.setIndexNames((0,_B,_F))
+if mibBuilder.loadTexts:mdmIDEntry.setStatus(_A)
+class _MdmIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_MdmIndex_Type.__name__=_D
+_MdmIndex_Object=MibTableColumn
+mdmIndex=_MdmIndex_Object((1,3,6,1,2,1,38,1,1,2,1,1),_MdmIndex_Type())
+mdmIndex.setMaxAccess(_H)
+if mibBuilder.loadTexts:mdmIndex.setStatus(_A)
+_MdmIDManufacturerOID_Type=ObjectIdentifier
+_MdmIDManufacturerOID_Object=MibTableColumn
+mdmIDManufacturerOID=_MdmIDManufacturerOID_Object((1,3,6,1,2,1,38,1,1,2,1,2),_MdmIDManufacturerOID_Type())
+mdmIDManufacturerOID.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmIDManufacturerOID.setStatus(_A)
+class _MdmIDProductDetails_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,79))
+_MdmIDProductDetails_Type.__name__=_G
+_MdmIDProductDetails_Object=MibTableColumn
+mdmIDProductDetails=_MdmIDProductDetails_Object((1,3,6,1,2,1,38,1,1,2,1,3),_MdmIDProductDetails_Type())
+mdmIDProductDetails.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmIDProductDetails.setStatus(_A)
+_MdmLineTable_Object=MibTable
+mdmLineTable=_MdmLineTable_Object((1,3,6,1,2,1,38,1,1,3))
+if mibBuilder.loadTexts:mdmLineTable.setStatus(_A)
+_MdmLineEntry_Object=MibTableRow
+mdmLineEntry=_MdmLineEntry_Object((1,3,6,1,2,1,38,1,1,3,1))
+if mibBuilder.loadTexts:mdmLineEntry.setStatus(_A)
+class _MdmLineCarrierLossTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_MdmLineCarrierLossTime_Type.__name__=_D
+_MdmLineCarrierLossTime_Object=MibTableColumn
+mdmLineCarrierLossTime=_MdmLineCarrierLossTime_Object((1,3,6,1,2,1,38,1,1,3,1,1),_MdmLineCarrierLossTime_Type())
+mdmLineCarrierLossTime.setMaxAccess(_E)
+if mibBuilder.loadTexts:mdmLineCarrierLossTime.setStatus(_A)
+class _MdmLineState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_J,1),('onHook',2),('offHook',3),('connected',4),('busiedOut',5),('reset',6)))
+_MdmLineState_Type.__name__=_D
+_MdmLineState_Object=MibTableColumn
+mdmLineState=_MdmLineState_Object((1,3,6,1,2,1,38,1,1,3,1,2),_MdmLineState_Type())
+mdmLineState.setMaxAccess(_E)
+if mibBuilder.loadTexts:mdmLineState.setStatus(_A)
+_MdmLineCapabilitiesTable_Object=MibTable
+mdmLineCapabilitiesTable=_MdmLineCapabilitiesTable_Object((1,3,6,1,2,1,38,1,1,4))
+if mibBuilder.loadTexts:mdmLineCapabilitiesTable.setStatus(_A)
+_MdmLineCapabilitiesEntry_Object=MibTableRow
+mdmLineCapabilitiesEntry=_MdmLineCapabilitiesEntry_Object((1,3,6,1,2,1,38,1,1,4,1))
+mdmLineCapabilitiesEntry.setIndexNames((0,_B,_F),(0,_B,_K))
+if mibBuilder.loadTexts:mdmLineCapabilitiesEntry.setStatus(_A)
+_MdmLineCapabilitiesIndex_Type=Integer32
+_MdmLineCapabilitiesIndex_Object=MibTableColumn
+mdmLineCapabilitiesIndex=_MdmLineCapabilitiesIndex_Object((1,3,6,1,2,1,38,1,1,4,1,1),_MdmLineCapabilitiesIndex_Type())
+mdmLineCapabilitiesIndex.setMaxAccess(_H)
+if mibBuilder.loadTexts:mdmLineCapabilitiesIndex.setStatus(_A)
+_MdmLineCapabilitiesID_Type=ObjectIdentifier
+_MdmLineCapabilitiesID_Object=MibTableColumn
+mdmLineCapabilitiesID=_MdmLineCapabilitiesID_Object((1,3,6,1,2,1,38,1,1,4,1,2),_MdmLineCapabilitiesID_Type())
+mdmLineCapabilitiesID.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmLineCapabilitiesID.setStatus(_A)
+class _MdmLineCapabilitiesEnableRequested_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),(_L,2),(_M,3)))
+_MdmLineCapabilitiesEnableRequested_Type.__name__=_D
+_MdmLineCapabilitiesEnableRequested_Object=MibTableColumn
+mdmLineCapabilitiesEnableRequested=_MdmLineCapabilitiesEnableRequested_Object((1,3,6,1,2,1,38,1,1,4,1,3),_MdmLineCapabilitiesEnableRequested_Type())
+mdmLineCapabilitiesEnableRequested.setMaxAccess(_E)
+if mibBuilder.loadTexts:mdmLineCapabilitiesEnableRequested.setStatus(_A)
+class _MdmLineCapabilitiesEnableGranted_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),(_L,2),(_M,3)))
+_MdmLineCapabilitiesEnableGranted_Type.__name__=_D
+_MdmLineCapabilitiesEnableGranted_Object=MibTableColumn
+mdmLineCapabilitiesEnableGranted=_MdmLineCapabilitiesEnableGranted_Object((1,3,6,1,2,1,38,1,1,4,1,4),_MdmLineCapabilitiesEnableGranted_Type())
+mdmLineCapabilitiesEnableGranted.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmLineCapabilitiesEnableGranted.setStatus(_A)
+_MdmLineCapabilities_ObjectIdentity=ObjectIdentity
+mdmLineCapabilities=_MdmLineCapabilities_ObjectIdentity((1,3,6,1,2,1,38,1,1,5))
+_MdmLineCapabilitiesV21_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesV21=_MdmLineCapabilitiesV21_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,1))
+if mibBuilder.loadTexts:mdmLineCapabilitiesV21.setStatus(_A)
+_MdmLineCapabilitiesV22_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesV22=_MdmLineCapabilitiesV22_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,2))
+if mibBuilder.loadTexts:mdmLineCapabilitiesV22.setStatus(_A)
+_MdmLineCapabilitiesV22bis_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesV22bis=_MdmLineCapabilitiesV22bis_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,3))
+if mibBuilder.loadTexts:mdmLineCapabilitiesV22bis.setStatus(_A)
+_MdmLineCapabilitiesV23CC_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesV23CC=_MdmLineCapabilitiesV23CC_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,4))
+if mibBuilder.loadTexts:mdmLineCapabilitiesV23CC.setStatus(_A)
+_MdmLineCapabilitiesV23SC_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesV23SC=_MdmLineCapabilitiesV23SC_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,5))
+if mibBuilder.loadTexts:mdmLineCapabilitiesV23SC.setStatus(_A)
+_MdmLineCapabilitiesV25bis_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesV25bis=_MdmLineCapabilitiesV25bis_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,6))
+if mibBuilder.loadTexts:mdmLineCapabilitiesV25bis.setStatus(_A)
+_MdmLineCapabilitiesV26bis_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesV26bis=_MdmLineCapabilitiesV26bis_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,7))
+if mibBuilder.loadTexts:mdmLineCapabilitiesV26bis.setStatus(_A)
+_MdmLineCapabilitiesV26ter_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesV26ter=_MdmLineCapabilitiesV26ter_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,8))
+if mibBuilder.loadTexts:mdmLineCapabilitiesV26ter.setStatus(_A)
+_MdmLineCapabilitiesV27ter_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesV27ter=_MdmLineCapabilitiesV27ter_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,9))
+if mibBuilder.loadTexts:mdmLineCapabilitiesV27ter.setStatus(_A)
+_MdmLineCapabilitiesV32_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesV32=_MdmLineCapabilitiesV32_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,10))
+if mibBuilder.loadTexts:mdmLineCapabilitiesV32.setStatus(_A)
+_MdmLineCapabilitiesV32bis_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesV32bis=_MdmLineCapabilitiesV32bis_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,11))
+if mibBuilder.loadTexts:mdmLineCapabilitiesV32bis.setStatus(_A)
+_MdmLineCapabilitiesV32terbo_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesV32terbo=_MdmLineCapabilitiesV32terbo_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,12))
+if mibBuilder.loadTexts:mdmLineCapabilitiesV32terbo.setStatus(_A)
+_MdmLineCapabilitiesVFC_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesVFC=_MdmLineCapabilitiesVFC_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,13))
+if mibBuilder.loadTexts:mdmLineCapabilitiesVFC.setStatus(_A)
+_MdmLineCapabilitiesV34_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesV34=_MdmLineCapabilitiesV34_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,14))
+if mibBuilder.loadTexts:mdmLineCapabilitiesV34.setStatus(_A)
+_MdmLineCapabilitiesV42_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesV42=_MdmLineCapabilitiesV42_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,15))
+if mibBuilder.loadTexts:mdmLineCapabilitiesV42.setStatus(_A)
+_MdmLineCapabilitiesV42bis_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesV42bis=_MdmLineCapabilitiesV42bis_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,16))
+if mibBuilder.loadTexts:mdmLineCapabilitiesV42bis.setStatus(_A)
+_MdmLineCapabilitiesMNP1_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesMNP1=_MdmLineCapabilitiesMNP1_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,17))
+if mibBuilder.loadTexts:mdmLineCapabilitiesMNP1.setStatus(_A)
+_MdmLineCapabilitiesMNP2_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesMNP2=_MdmLineCapabilitiesMNP2_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,18))
+if mibBuilder.loadTexts:mdmLineCapabilitiesMNP2.setStatus(_A)
+_MdmLineCapabilitiesMNP3_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesMNP3=_MdmLineCapabilitiesMNP3_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,19))
+if mibBuilder.loadTexts:mdmLineCapabilitiesMNP3.setStatus(_A)
+_MdmLineCapabilitiesMNP4_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesMNP4=_MdmLineCapabilitiesMNP4_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,20))
+if mibBuilder.loadTexts:mdmLineCapabilitiesMNP4.setStatus(_A)
+_MdmLineCapabilitiesMNP5_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesMNP5=_MdmLineCapabilitiesMNP5_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,21))
+if mibBuilder.loadTexts:mdmLineCapabilitiesMNP5.setStatus(_A)
+_MdmLineCapabilitiesMNP6_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesMNP6=_MdmLineCapabilitiesMNP6_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,22))
+if mibBuilder.loadTexts:mdmLineCapabilitiesMNP6.setStatus(_A)
+_MdmLineCapabilitiesMNP7_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesMNP7=_MdmLineCapabilitiesMNP7_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,23))
+if mibBuilder.loadTexts:mdmLineCapabilitiesMNP7.setStatus(_A)
+_MdmLineCapabilitiesMNP8_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesMNP8=_MdmLineCapabilitiesMNP8_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,24))
+if mibBuilder.loadTexts:mdmLineCapabilitiesMNP8.setStatus(_A)
+_MdmLineCapabilitiesMNP9_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesMNP9=_MdmLineCapabilitiesMNP9_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,25))
+if mibBuilder.loadTexts:mdmLineCapabilitiesMNP9.setStatus(_A)
+_MdmLineCapabilitiesMNP10_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesMNP10=_MdmLineCapabilitiesMNP10_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,26))
+if mibBuilder.loadTexts:mdmLineCapabilitiesMNP10.setStatus(_A)
+_MdmLineCapabilitiesV29_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesV29=_MdmLineCapabilitiesV29_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,27))
+if mibBuilder.loadTexts:mdmLineCapabilitiesV29.setStatus(_A)
+_MdmLineCapabilitiesV33_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesV33=_MdmLineCapabilitiesV33_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,28))
+if mibBuilder.loadTexts:mdmLineCapabilitiesV33.setStatus(_A)
+_MdmLineCapabilitiesBell208_ObjectIdentity=ObjectIdentity
+mdmLineCapabilitiesBell208=_MdmLineCapabilitiesBell208_ObjectIdentity((1,3,6,1,2,1,38,1,1,5,29))
+if mibBuilder.loadTexts:mdmLineCapabilitiesBell208.setStatus(_A)
+_MdmDTEInterfaceTable_Object=MibTable
+mdmDTEInterfaceTable=_MdmDTEInterfaceTable_Object((1,3,6,1,2,1,38,1,1,6))
+if mibBuilder.loadTexts:mdmDTEInterfaceTable.setStatus(_A)
+_MdmDTEInterfaceEntry_Object=MibTableRow
+mdmDTEInterfaceEntry=_MdmDTEInterfaceEntry_Object((1,3,6,1,2,1,38,1,1,6,1))
+if mibBuilder.loadTexts:mdmDTEInterfaceEntry.setStatus(_A)
+class _MdmDTEActionDTROnToOff_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_N,1),('escapeToCommandMode',2),('disconnectCall',3),('resetModem',4)))
+_MdmDTEActionDTROnToOff_Type.__name__=_D
+_MdmDTEActionDTROnToOff_Object=MibTableColumn
+mdmDTEActionDTROnToOff=_MdmDTEActionDTROnToOff_Object((1,3,6,1,2,1,38,1,1,6,1,1),_MdmDTEActionDTROnToOff_Type())
+mdmDTEActionDTROnToOff.setMaxAccess(_E)
+if mibBuilder.loadTexts:mdmDTEActionDTROnToOff.setStatus(_A)
+class _MdmDTEActionDTROffToOn_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_N,1),('enableDial',2),('autoAnswerEnable',3),('establishConnection',4)))
+_MdmDTEActionDTROffToOn_Type.__name__=_D
+_MdmDTEActionDTROffToOn_Object=MibTableColumn
+mdmDTEActionDTROffToOn=_MdmDTEActionDTROffToOn_Object((1,3,6,1,2,1,38,1,1,6,1,2),_MdmDTEActionDTROffToOn_Type())
+mdmDTEActionDTROffToOn.setMaxAccess(_E)
+if mibBuilder.loadTexts:mdmDTEActionDTROffToOn.setStatus(_A)
+class _MdmDTESyncTimingSource_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('internal',1),('external',2),('loopback',3),('network',4)))
+_MdmDTESyncTimingSource_Type.__name__=_D
+_MdmDTESyncTimingSource_Object=MibTableColumn
+mdmDTESyncTimingSource=_MdmDTESyncTimingSource_Object((1,3,6,1,2,1,38,1,1,6,1,3),_MdmDTESyncTimingSource_Type())
+mdmDTESyncTimingSource.setMaxAccess(_E)
+if mibBuilder.loadTexts:mdmDTESyncTimingSource.setStatus(_A)
+class _MdmDTESyncAsyncMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('async',1),('sync',2),('syncAfterDial',3)))
+_MdmDTESyncAsyncMode_Type.__name__=_D
+_MdmDTESyncAsyncMode_Object=MibTableColumn
+mdmDTESyncAsyncMode=_MdmDTESyncAsyncMode_Object((1,3,6,1,2,1,38,1,1,6,1,4),_MdmDTESyncAsyncMode_Type())
+mdmDTESyncAsyncMode.setMaxAccess(_E)
+if mibBuilder.loadTexts:mdmDTESyncAsyncMode.setStatus(_A)
+class _MdmDTEInactivityTimeout_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_MdmDTEInactivityTimeout_Type.__name__=_D
+_MdmDTEInactivityTimeout_Object=MibTableColumn
+mdmDTEInactivityTimeout=_MdmDTEInactivityTimeout_Object((1,3,6,1,2,1,38,1,1,6,1,5),_MdmDTEInactivityTimeout_Type())
+mdmDTEInactivityTimeout.setMaxAccess(_E)
+if mibBuilder.loadTexts:mdmDTEInactivityTimeout.setStatus(_A)
+_MdmCallControlTable_Object=MibTable
+mdmCallControlTable=_MdmCallControlTable_Object((1,3,6,1,2,1,38,1,1,7))
+if mibBuilder.loadTexts:mdmCallControlTable.setStatus(_A)
+_MdmCallControlEntry_Object=MibTableRow
+mdmCallControlEntry=_MdmCallControlEntry_Object((1,3,6,1,2,1,38,1,1,7,1))
+if mibBuilder.loadTexts:mdmCallControlEntry.setStatus(_A)
+class _MdmCCRingsBeforeAnswer_Type(Integer32):defaultValue=1
+_MdmCCRingsBeforeAnswer_Type.__name__=_D
+_MdmCCRingsBeforeAnswer_Object=MibTableColumn
+mdmCCRingsBeforeAnswer=_MdmCCRingsBeforeAnswer_Object((1,3,6,1,2,1,38,1,1,7,1,1),_MdmCCRingsBeforeAnswer_Type())
+mdmCCRingsBeforeAnswer.setMaxAccess(_E)
+if mibBuilder.loadTexts:mdmCCRingsBeforeAnswer.setStatus(_A)
+class _MdmCCCallSetUpFailTimer_Type(Integer32):defaultValue=30;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_MdmCCCallSetUpFailTimer_Type.__name__=_D
+_MdmCCCallSetUpFailTimer_Object=MibTableColumn
+mdmCCCallSetUpFailTimer=_MdmCCCallSetUpFailTimer_Object((1,3,6,1,2,1,38,1,1,7,1,2),_MdmCCCallSetUpFailTimer_Type())
+mdmCCCallSetUpFailTimer.setMaxAccess(_E)
+if mibBuilder.loadTexts:mdmCCCallSetUpFailTimer.setStatus(_A)
+class _MdmCCResultCodeEnable_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),('numericEnabled',2),('verboseEnabled',3)))
+_MdmCCResultCodeEnable_Type.__name__=_D
+_MdmCCResultCodeEnable_Object=MibTableColumn
+mdmCCResultCodeEnable=_MdmCCResultCodeEnable_Object((1,3,6,1,2,1,38,1,1,7,1,3),_MdmCCResultCodeEnable_Type())
+mdmCCResultCodeEnable.setMaxAccess(_E)
+if mibBuilder.loadTexts:mdmCCResultCodeEnable.setStatus(_A)
+class _MdmCCEscapeAction_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('ignoreEscape',1),('hangUp',2),('enterCommandMode',3)))
+_MdmCCEscapeAction_Type.__name__=_D
+_MdmCCEscapeAction_Object=MibTableColumn
+mdmCCEscapeAction=_MdmCCEscapeAction_Object((1,3,6,1,2,1,38,1,1,7,1,4),_MdmCCEscapeAction_Type())
+mdmCCEscapeAction.setMaxAccess(_E)
+if mibBuilder.loadTexts:mdmCCEscapeAction.setStatus(_A)
+_MdmCCCallDuration_Type=Integer32
+_MdmCCCallDuration_Object=MibTableColumn
+mdmCCCallDuration=_MdmCCCallDuration_Object((1,3,6,1,2,1,38,1,1,7,1,5),_MdmCCCallDuration_Type())
+mdmCCCallDuration.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmCCCallDuration.setStatus(_A)
+class _MdmCCConnectionFailReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,10,11,20,30,31,32,33,40,41,42)));namedValues=NamedValues(*((_J,1),('other',2),('managementCommand',3),('inactivityTimeout',4),('mnpIncompatibility',5),('protocolError',6),('powerLoss',10),('equipmentFailure',11),('dtrDrop',20),('noDialTone',30),('lineBusy',31),('noAnswer',32),('voiceDetected',33),('carrierLost',40),('trainingFailed',41),('faxDetected',42)))
+_MdmCCConnectionFailReason_Type.__name__=_D
+_MdmCCConnectionFailReason_Object=MibTableColumn
+mdmCCConnectionFailReason=_MdmCCConnectionFailReason_Object((1,3,6,1,2,1,38,1,1,7,1,6),_MdmCCConnectionFailReason_Type())
+mdmCCConnectionFailReason.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmCCConnectionFailReason.setStatus(_A)
+_MdmCCStoredDialStringTable_Object=MibTable
+mdmCCStoredDialStringTable=_MdmCCStoredDialStringTable_Object((1,3,6,1,2,1,38,1,1,8))
+if mibBuilder.loadTexts:mdmCCStoredDialStringTable.setStatus(_A)
+_MdmCCStoredDialStringEntry_Object=MibTableRow
+mdmCCStoredDialStringEntry=_MdmCCStoredDialStringEntry_Object((1,3,6,1,2,1,38,1,1,8,1))
+mdmCCStoredDialStringEntry.setIndexNames((0,_B,_F),(0,_B,_O))
+if mibBuilder.loadTexts:mdmCCStoredDialStringEntry.setStatus(_A)
+class _MdmCCStoredDialStringIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_MdmCCStoredDialStringIndex_Type.__name__=_D
+_MdmCCStoredDialStringIndex_Object=MibTableColumn
+mdmCCStoredDialStringIndex=_MdmCCStoredDialStringIndex_Object((1,3,6,1,2,1,38,1,1,8,1,1),_MdmCCStoredDialStringIndex_Type())
+mdmCCStoredDialStringIndex.setMaxAccess(_H)
+if mibBuilder.loadTexts:mdmCCStoredDialStringIndex.setStatus(_A)
+class _MdmCCStoredDialString_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
+_MdmCCStoredDialString_Type.__name__=_G
+_MdmCCStoredDialString_Object=MibTableColumn
+mdmCCStoredDialString=_MdmCCStoredDialString_Object((1,3,6,1,2,1,38,1,1,8,1,2),_MdmCCStoredDialString_Type())
+mdmCCStoredDialString.setMaxAccess(_E)
+if mibBuilder.loadTexts:mdmCCStoredDialString.setStatus(_A)
+_MdmECTable_Object=MibTable
+mdmECTable=_MdmECTable_Object((1,3,6,1,2,1,38,1,1,9))
+if mibBuilder.loadTexts:mdmECTable.setStatus(_A)
+_MdmECEntry_Object=MibTableRow
+mdmECEntry=_MdmECEntry_Object((1,3,6,1,2,1,38,1,1,9,1))
+if mibBuilder.loadTexts:mdmECEntry.setStatus(_A)
+_MdmECErrorControlUsed_Type=ObjectIdentifier
+_MdmECErrorControlUsed_Object=MibTableColumn
+mdmECErrorControlUsed=_MdmECErrorControlUsed_Object((1,3,6,1,2,1,38,1,1,9,1,1),_MdmECErrorControlUsed_Type())
+mdmECErrorControlUsed.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmECErrorControlUsed.setStatus(_A)
+_MdmDCTable_Object=MibTable
+mdmDCTable=_MdmDCTable_Object((1,3,6,1,2,1,38,1,1,10))
+if mibBuilder.loadTexts:mdmDCTable.setStatus(_A)
+_MdmDCEntry_Object=MibTableRow
+mdmDCEntry=_MdmDCEntry_Object((1,3,6,1,2,1,38,1,1,10,1))
+if mibBuilder.loadTexts:mdmDCEntry.setStatus(_A)
+_MdmDCCompressionTypeUsed_Type=ObjectIdentifier
+_MdmDCCompressionTypeUsed_Object=MibTableColumn
+mdmDCCompressionTypeUsed=_MdmDCCompressionTypeUsed_Object((1,3,6,1,2,1,38,1,1,10,1,1),_MdmDCCompressionTypeUsed_Type())
+mdmDCCompressionTypeUsed.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmDCCompressionTypeUsed.setStatus(_A)
+_MdmSCTable_Object=MibTable
+mdmSCTable=_MdmSCTable_Object((1,3,6,1,2,1,38,1,1,11))
+if mibBuilder.loadTexts:mdmSCTable.setStatus(_A)
+_MdmSCEntry_Object=MibTableRow
+mdmSCEntry=_MdmSCEntry_Object((1,3,6,1,2,1,38,1,1,11,1))
+if mibBuilder.loadTexts:mdmSCEntry.setStatus(_A)
+_MdmSCCurrentLineTransmitRate_Type=Integer32
+_MdmSCCurrentLineTransmitRate_Object=MibTableColumn
+mdmSCCurrentLineTransmitRate=_MdmSCCurrentLineTransmitRate_Object((1,3,6,1,2,1,38,1,1,11,1,1),_MdmSCCurrentLineTransmitRate_Type())
+mdmSCCurrentLineTransmitRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmSCCurrentLineTransmitRate.setStatus(_A)
+_MdmSCCurrentLineReceiveRate_Type=Integer32
+_MdmSCCurrentLineReceiveRate_Object=MibTableColumn
+mdmSCCurrentLineReceiveRate=_MdmSCCurrentLineReceiveRate_Object((1,3,6,1,2,1,38,1,1,11,1,2),_MdmSCCurrentLineReceiveRate_Type())
+mdmSCCurrentLineReceiveRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmSCCurrentLineReceiveRate.setStatus(_A)
+_MdmSCInitialLineTransmitRate_Type=Integer32
+_MdmSCInitialLineTransmitRate_Object=MibTableColumn
+mdmSCInitialLineTransmitRate=_MdmSCInitialLineTransmitRate_Object((1,3,6,1,2,1,38,1,1,11,1,3),_MdmSCInitialLineTransmitRate_Type())
+mdmSCInitialLineTransmitRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmSCInitialLineTransmitRate.setStatus(_A)
+_MdmSCInitialLineReceiveRate_Type=Integer32
+_MdmSCInitialLineReceiveRate_Object=MibTableColumn
+mdmSCInitialLineReceiveRate=_MdmSCInitialLineReceiveRate_Object((1,3,6,1,2,1,38,1,1,11,1,4),_MdmSCInitialLineReceiveRate_Type())
+mdmSCInitialLineReceiveRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmSCInitialLineReceiveRate.setStatus(_A)
+_MdmSCModulationSchemeUsed_Type=ObjectIdentifier
+_MdmSCModulationSchemeUsed_Object=MibTableColumn
+mdmSCModulationSchemeUsed=_MdmSCModulationSchemeUsed_Object((1,3,6,1,2,1,38,1,1,11,1,5),_MdmSCModulationSchemeUsed_Type())
+mdmSCModulationSchemeUsed.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmSCModulationSchemeUsed.setStatus(_A)
+_MdmStatsTable_Object=MibTable
+mdmStatsTable=_MdmStatsTable_Object((1,3,6,1,2,1,38,1,1,12))
+if mibBuilder.loadTexts:mdmStatsTable.setStatus(_A)
+_MdmStatsEntry_Object=MibTableRow
+mdmStatsEntry=_MdmStatsEntry_Object((1,3,6,1,2,1,38,1,1,12,1))
+if mibBuilder.loadTexts:mdmStatsEntry.setStatus(_A)
+_MdmStatsRingNoAnswers_Type=Counter32
+_MdmStatsRingNoAnswers_Object=MibTableColumn
+mdmStatsRingNoAnswers=_MdmStatsRingNoAnswers_Object((1,3,6,1,2,1,38,1,1,12,1,1),_MdmStatsRingNoAnswers_Type())
+mdmStatsRingNoAnswers.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStatsRingNoAnswers.setStatus(_A)
+_MdmStatsIncomingConnectionFailures_Type=Counter32
+_MdmStatsIncomingConnectionFailures_Object=MibTableColumn
+mdmStatsIncomingConnectionFailures=_MdmStatsIncomingConnectionFailures_Object((1,3,6,1,2,1,38,1,1,12,1,2),_MdmStatsIncomingConnectionFailures_Type())
+mdmStatsIncomingConnectionFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStatsIncomingConnectionFailures.setStatus(_A)
+_MdmStatsIncomingConnectionCompletions_Type=Counter32
+_MdmStatsIncomingConnectionCompletions_Object=MibTableColumn
+mdmStatsIncomingConnectionCompletions=_MdmStatsIncomingConnectionCompletions_Object((1,3,6,1,2,1,38,1,1,12,1,3),_MdmStatsIncomingConnectionCompletions_Type())
+mdmStatsIncomingConnectionCompletions.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStatsIncomingConnectionCompletions.setStatus(_A)
+_MdmStatsFailedDialAttempts_Type=Counter32
+_MdmStatsFailedDialAttempts_Object=MibTableColumn
+mdmStatsFailedDialAttempts=_MdmStatsFailedDialAttempts_Object((1,3,6,1,2,1,38,1,1,12,1,4),_MdmStatsFailedDialAttempts_Type())
+mdmStatsFailedDialAttempts.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStatsFailedDialAttempts.setStatus(_A)
+_MdmStatsOutgoingConnectionFailures_Type=Counter32
+_MdmStatsOutgoingConnectionFailures_Object=MibTableColumn
+mdmStatsOutgoingConnectionFailures=_MdmStatsOutgoingConnectionFailures_Object((1,3,6,1,2,1,38,1,1,12,1,5),_MdmStatsOutgoingConnectionFailures_Type())
+mdmStatsOutgoingConnectionFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStatsOutgoingConnectionFailures.setStatus(_A)
+_MdmStatsOutgoingConnectionCompletions_Type=Counter32
+_MdmStatsOutgoingConnectionCompletions_Object=MibTableColumn
+mdmStatsOutgoingConnectionCompletions=_MdmStatsOutgoingConnectionCompletions_Object((1,3,6,1,2,1,38,1,1,12,1,6),_MdmStatsOutgoingConnectionCompletions_Type())
+mdmStatsOutgoingConnectionCompletions.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStatsOutgoingConnectionCompletions.setStatus(_A)
+_MdmStatsRetrains_Type=Counter32
+_MdmStatsRetrains_Object=MibTableColumn
+mdmStatsRetrains=_MdmStatsRetrains_Object((1,3,6,1,2,1,38,1,1,12,1,7),_MdmStatsRetrains_Type())
+mdmStatsRetrains.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStatsRetrains.setStatus(_A)
+_MdmStats2400OrLessConnections_Type=Counter32
+_MdmStats2400OrLessConnections_Object=MibTableColumn
+mdmStats2400OrLessConnections=_MdmStats2400OrLessConnections_Object((1,3,6,1,2,1,38,1,1,12,1,8),_MdmStats2400OrLessConnections_Type())
+mdmStats2400OrLessConnections.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStats2400OrLessConnections.setStatus(_A)
+_MdmStats2400To14400Connections_Type=Counter32
+_MdmStats2400To14400Connections_Object=MibTableColumn
+mdmStats2400To14400Connections=_MdmStats2400To14400Connections_Object((1,3,6,1,2,1,38,1,1,12,1,9),_MdmStats2400To14400Connections_Type())
+mdmStats2400To14400Connections.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStats2400To14400Connections.setStatus(_A)
+_MdmStatsGreaterThan14400Connections_Type=Counter32
+_MdmStatsGreaterThan14400Connections_Object=MibTableColumn
+mdmStatsGreaterThan14400Connections=_MdmStatsGreaterThan14400Connections_Object((1,3,6,1,2,1,38,1,1,12,1,10),_MdmStatsGreaterThan14400Connections_Type())
+mdmStatsGreaterThan14400Connections.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStatsGreaterThan14400Connections.setStatus(_A)
+_MdmStatsErrorControlledConnections_Type=Counter32
+_MdmStatsErrorControlledConnections_Object=MibTableColumn
+mdmStatsErrorControlledConnections=_MdmStatsErrorControlledConnections_Object((1,3,6,1,2,1,38,1,1,12,1,11),_MdmStatsErrorControlledConnections_Type())
+mdmStatsErrorControlledConnections.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStatsErrorControlledConnections.setStatus(_A)
+_MdmStatsCompressedConnections_Type=Counter32
+_MdmStatsCompressedConnections_Object=MibTableColumn
+mdmStatsCompressedConnections=_MdmStatsCompressedConnections_Object((1,3,6,1,2,1,38,1,1,12,1,12),_MdmStatsCompressedConnections_Type())
+mdmStatsCompressedConnections.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStatsCompressedConnections.setStatus(_A)
+class _MdmStatsCompressionEfficiency_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_MdmStatsCompressionEfficiency_Type.__name__=_D
+_MdmStatsCompressionEfficiency_Object=MibTableColumn
+mdmStatsCompressionEfficiency=_MdmStatsCompressionEfficiency_Object((1,3,6,1,2,1,38,1,1,12,1,13),_MdmStatsCompressionEfficiency_Type())
+mdmStatsCompressionEfficiency.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStatsCompressionEfficiency.setStatus(_A)
+_MdmStatsSentOctets_Type=Counter32
+_MdmStatsSentOctets_Object=MibTableColumn
+mdmStatsSentOctets=_MdmStatsSentOctets_Object((1,3,6,1,2,1,38,1,1,12,1,14),_MdmStatsSentOctets_Type())
+mdmStatsSentOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStatsSentOctets.setStatus(_A)
+_MdmStatsReceivedOctets_Type=Counter32
+_MdmStatsReceivedOctets_Object=MibTableColumn
+mdmStatsReceivedOctets=_MdmStatsReceivedOctets_Object((1,3,6,1,2,1,38,1,1,12,1,15),_MdmStatsReceivedOctets_Type())
+mdmStatsReceivedOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStatsReceivedOctets.setStatus(_A)
+_MdmStatsSentDataFrames_Type=Counter32
+_MdmStatsSentDataFrames_Object=MibTableColumn
+mdmStatsSentDataFrames=_MdmStatsSentDataFrames_Object((1,3,6,1,2,1,38,1,1,12,1,16),_MdmStatsSentDataFrames_Type())
+mdmStatsSentDataFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStatsSentDataFrames.setStatus(_A)
+_MdmStatsReceivedDataFrames_Type=Counter32
+_MdmStatsReceivedDataFrames_Object=MibTableColumn
+mdmStatsReceivedDataFrames=_MdmStatsReceivedDataFrames_Object((1,3,6,1,2,1,38,1,1,12,1,17),_MdmStatsReceivedDataFrames_Type())
+mdmStatsReceivedDataFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStatsReceivedDataFrames.setStatus(_A)
+_MdmStatsResentFrames_Type=Counter32
+_MdmStatsResentFrames_Object=MibTableColumn
+mdmStatsResentFrames=_MdmStatsResentFrames_Object((1,3,6,1,2,1,38,1,1,12,1,18),_MdmStatsResentFrames_Type())
+mdmStatsResentFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStatsResentFrames.setStatus(_A)
+_MdmStatsErrorFrames_Type=Counter32
+_MdmStatsErrorFrames_Object=MibTableColumn
+mdmStatsErrorFrames=_MdmStatsErrorFrames_Object((1,3,6,1,2,1,38,1,1,12,1,19),_MdmStatsErrorFrames_Type())
+mdmStatsErrorFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:mdmStatsErrorFrames.setStatus(_A)
+_MdmConformance_ObjectIdentity=ObjectIdentity
+mdmConformance=_MdmConformance_ObjectIdentity((1,3,6,1,2,1,38,1,2))
+_MdmCompliances_ObjectIdentity=ObjectIdentity
+mdmCompliances=_MdmCompliances_ObjectIdentity((1,3,6,1,2,1,38,1,2,1))
+_MdmGroups_ObjectIdentity=ObjectIdentity
+mdmGroups=_MdmGroups_ObjectIdentity((1,3,6,1,2,1,38,1,2,2))
+mdmIDEntry.registerAugmentions((_B,_P))
 mdmLineEntry.setIndexNames(*mdmIDEntry.getIndexNames())
-if mibBuilder.loadTexts: mdmLineEntry.setDescription('Entries in this table are created only by the agent. One\n            entry exists for each modem managed by the agent.')
-mdmLineCarrierLossTime = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mdmLineCarrierLossTime.setDescription("Duration in 10ths of a second the modem waits after loss of\n            carrier before hanging up.  If this value is set to `255',\n            the modem will not hang up upon loss of carrier.  This\n            allows the modem to distinguish between a momentary lapse in\n            line quality and a true disconnect and can be useful to tune\n            the tolerance of the modem to lines of poor quality.")
-mdmLineState = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("unknown", 1), ("onHook", 2), ("offHook", 3), ("connected", 4), ("busiedOut", 5), ("reset", 6),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mdmLineState.setDescription("Allows the inspection and alteration of the state of the\n            modem.  Management commands may change the state to `on-\n            hook', `busied-out', or `reset' from any state.  No other\n            alterations are permitted from the management protocol.\n            When this object is set to reset, the modem shall be reset\n            and the value will change to the modem's new, implementation\n            dependent state.")
-mdmLineCapabilitiesTable = MibTable((1, 3, 6, 1, 2, 1, 38, 1, 1, 4), )
-if mibBuilder.loadTexts: mdmLineCapabilitiesTable.setDescription('A list of protocol capabilities for this modem.')
-mdmLineCapabilitiesEntry = MibTableRow((1, 3, 6, 1, 2, 1, 38, 1, 1, 4, 1), ).setIndexNames((0, "Modem-MIB", "mdmIndex"), (0, "Modem-MIB", "mdmLineCapabilitiesIndex"))
-if mibBuilder.loadTexts: mdmLineCapabilitiesEntry.setDescription('A listing of the protocol(s) that this modem is capable of.\n            Entries in this table are created only by the agent.  One\n            entry exists for each protocol that the modem is capable of,\n            regardless of whether that protocol is enabled or not.\n\n            This table is useful for providing an inventory of the\n            capabilities on a modem, and allowing the manager to enable\n            or disable capabilities from the menu of available\n            possibilities.  Row creation is not required to enable or\n            disable capabilities.')
-mdmLineCapabilitiesIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 4, 1, 1), Integer32())
-if mibBuilder.loadTexts: mdmLineCapabilitiesIndex.setDescription('A unique index for this capabilities entry.')
-mdmLineCapabilitiesID = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 4, 1, 2), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmLineCapabilitiesID.setDescription('An identifier for this capability.  Standard protocol\n            capabilities will have identifiers registered in this\n            document or other companion standards documents.\n            Proprietary protocol capabilities will be registered by\n            their respective organization.  All capabilities, standard\n            or vendor-specific, shall be registered in this table.')
-mdmLineCapabilitiesEnableRequested = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("disabled", 1), ("optional", 2), ("preferred", 3),)).clone('preferred')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mdmLineCapabilitiesEnableRequested.setDescription("The requested configuration of this capability.  If this\n            value is 'disabled(1)', this is a request to disable this\n            protocol.  If this value is 'preferred(3)', this is a\n            request to enable this protocol, and to prefer it in any\n            negotiation over other appropriate protocols that have a\n            value of 'optional(2)'.")
-mdmLineCapabilitiesEnableGranted = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("disabled", 1), ("optional", 2), ("preferred", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmLineCapabilitiesEnableGranted.setDescription("The actual configuration of this capability.  The agent\n            shall attempt to set this as close as possible to the\n            associated mdmLineCapabilitiesEnableRequested value.  The\n\n            agent shall make this determination in an implementation-\n            specific manner that may take into account the configuration\n            of other capabilities or other considerations.  The modem\n            will choose in an implementation-specific manner between\n            multiple mutually-exclusive capabilities that each have the\n            same (non-disabled) value.  However, the modem must prefer\n            all capabilities with a value of 'preferred(3)' over all\n            capabilities with a value of 'optional(2)'.\n\n            In other words, if there are one or more mutually-exclusive\n            capabilities (e.g. V.32 and V.32bis) that are set to\n            `preferred', the agent must choose one in an\n            implementation-specific manner.  Otherwise, if there are one\n            or more mutually-exclusive capabilities that are set to\n            `optional', the agent must choose one in an implementation-\n            specific manner.")
-mdmLineCapabilities = MibIdentifier((1, 3, 6, 1, 2, 1, 38, 1, 1, 5))
-mdmLineCapabilitiesV21 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 1))
-if mibBuilder.loadTexts: mdmLineCapabilitiesV21.setDescription('ITU V.21')
-mdmLineCapabilitiesV22 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 2))
-if mibBuilder.loadTexts: mdmLineCapabilitiesV22.setDescription('ITU V.22')
-mdmLineCapabilitiesV22bis = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 3))
-if mibBuilder.loadTexts: mdmLineCapabilitiesV22bis.setDescription('ITU V.22bis')
-mdmLineCapabilitiesV23CC = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 4))
-if mibBuilder.loadTexts: mdmLineCapabilitiesV23CC.setDescription('ITU V.23CC')
-mdmLineCapabilitiesV23SC = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 5))
-if mibBuilder.loadTexts: mdmLineCapabilitiesV23SC.setDescription('ITU V.23SC')
-mdmLineCapabilitiesV25bis = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 6))
-if mibBuilder.loadTexts: mdmLineCapabilitiesV25bis.setDescription('ITU V.25bis')
-mdmLineCapabilitiesV26bis = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 7))
-if mibBuilder.loadTexts: mdmLineCapabilitiesV26bis.setDescription('ITU V.26bis')
-mdmLineCapabilitiesV26ter = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 8))
-if mibBuilder.loadTexts: mdmLineCapabilitiesV26ter.setDescription('ITU V.26ter')
-mdmLineCapabilitiesV27ter = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 9))
-if mibBuilder.loadTexts: mdmLineCapabilitiesV27ter.setDescription('ITU V.27ter')
-mdmLineCapabilitiesV32 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 10))
-if mibBuilder.loadTexts: mdmLineCapabilitiesV32.setDescription('ITU V.32')
-mdmLineCapabilitiesV32bis = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 11))
-if mibBuilder.loadTexts: mdmLineCapabilitiesV32bis.setDescription('ITU V.32bis')
-mdmLineCapabilitiesV32terbo = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 12))
-if mibBuilder.loadTexts: mdmLineCapabilitiesV32terbo.setDescription('ITU V.32terbo')
-mdmLineCapabilitiesVFC = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 13))
-if mibBuilder.loadTexts: mdmLineCapabilitiesVFC.setDescription('ITU V.FC')
-mdmLineCapabilitiesV34 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 14))
-if mibBuilder.loadTexts: mdmLineCapabilitiesV34.setDescription('ITU V.34')
-mdmLineCapabilitiesV42 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 15))
-if mibBuilder.loadTexts: mdmLineCapabilitiesV42.setDescription('ITU V.42')
-mdmLineCapabilitiesV42bis = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 16))
-if mibBuilder.loadTexts: mdmLineCapabilitiesV42bis.setDescription('ITU V.42bis')
-mdmLineCapabilitiesMNP1 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 17))
-if mibBuilder.loadTexts: mdmLineCapabilitiesMNP1.setDescription('MNP1')
-mdmLineCapabilitiesMNP2 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 18))
-if mibBuilder.loadTexts: mdmLineCapabilitiesMNP2.setDescription('MNP2')
-mdmLineCapabilitiesMNP3 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 19))
-if mibBuilder.loadTexts: mdmLineCapabilitiesMNP3.setDescription('MNP3')
-mdmLineCapabilitiesMNP4 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 20))
-if mibBuilder.loadTexts: mdmLineCapabilitiesMNP4.setDescription('MNP4')
-mdmLineCapabilitiesMNP5 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 21))
-if mibBuilder.loadTexts: mdmLineCapabilitiesMNP5.setDescription('MNP5')
-mdmLineCapabilitiesMNP6 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 22))
-if mibBuilder.loadTexts: mdmLineCapabilitiesMNP6.setDescription('MNP6')
-mdmLineCapabilitiesMNP7 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 23))
-if mibBuilder.loadTexts: mdmLineCapabilitiesMNP7.setDescription('MNP7')
-mdmLineCapabilitiesMNP8 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 24))
-if mibBuilder.loadTexts: mdmLineCapabilitiesMNP8.setDescription('MNP8')
-mdmLineCapabilitiesMNP9 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 25))
-if mibBuilder.loadTexts: mdmLineCapabilitiesMNP9.setDescription('MNP9')
-mdmLineCapabilitiesMNP10 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 26))
-if mibBuilder.loadTexts: mdmLineCapabilitiesMNP10.setDescription('MNP10')
-mdmLineCapabilitiesV29 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 27))
-if mibBuilder.loadTexts: mdmLineCapabilitiesV29.setDescription('ITU V.29')
-mdmLineCapabilitiesV33 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 28))
-if mibBuilder.loadTexts: mdmLineCapabilitiesV33.setDescription('ITU V.33')
-mdmLineCapabilitiesBell208 = ObjectIdentity((1, 3, 6, 1, 2, 1, 38, 1, 1, 5, 29))
-if mibBuilder.loadTexts: mdmLineCapabilitiesBell208.setDescription('Bell 208')
-mdmDTEInterfaceTable = MibTable((1, 3, 6, 1, 2, 1, 38, 1, 1, 6), )
-if mibBuilder.loadTexts: mdmDTEInterfaceTable.setDescription('The modem DTE Interface Table augments the modem ID table.')
-mdmDTEInterfaceEntry = MibTableRow((1, 3, 6, 1, 2, 1, 38, 1, 1, 6, 1), )
-mdmIDEntry.registerAugmentions(("Modem-MIB", "mdmDTEInterfaceEntry"))
+mdmIDEntry.registerAugmentions((_B,_Q))
 mdmDTEInterfaceEntry.setIndexNames(*mdmIDEntry.getIndexNames())
-if mibBuilder.loadTexts: mdmDTEInterfaceEntry.setDescription('Entries in this table are created only by the agent. One\n            entry exists for each modem managed by the agent.')
-mdmDTEActionDTROnToOff = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 6, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("ignore", 1), ("escapeToCommandMode", 2), ("disconnectCall", 3), ("resetModem", 4),)).clone('disconnectCall')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mdmDTEActionDTROnToOff.setDescription('Defines the action the modem will take when DTR drops.\n\n            If the value is set to ignore(1), the modem takes no action\n            when DTR drops.  Typically, mdmDTEActionDTROffToOn would\n            also be set to ignore(1) if this object is set to ignore(1).\n\n            If the value is escapeToCommandMode(2), the modem remains\n\n            connected and enters command mode.  If the value is\n            disconnectCall(3), the current call (if any) is terminated\n            and the modem will not auto-answer while DTR is off.  If the\n            value is resetModem(4), the current call (if any) is\n            terminated and the modem is reset.')
-mdmDTEActionDTROffToOn = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("ignore", 1), ("enableDial", 2), ("autoAnswerEnable", 3), ("establishConnection", 4),)).clone('autoAnswerEnable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mdmDTEActionDTROffToOn.setDescription('Defines the action the modem will take when DTR is raised.\n\n            If the value is set to ignore(1), the modem takes no action\n            when DTR is raised.  Typically, mdmDTEActionDTROnToOff would\n            also be set to ignore(1) if this object is set to ignore(1).\n\n            If the value is set to enableDial(2), the modem prepares to\n            dial an outgoing call.  If the value is set to\n            autoAnswerEnable(3), the modem will be configured to answer\n            any incoming call.  If the value is set to\n            establishConnection(4), the modem dials an implementation\n            specific number.\n\n            Immediately after any reset or power-on of the modem, if the\n            DTR is high, the action specified here will be executed.')
-mdmDTESyncTimingSource = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("internal", 1), ("external", 2), ("loopback", 3), ("network", 4),)).clone('internal')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mdmDTESyncTimingSource.setDescription('The clock source for synchronous transmissions.  If set to\n            internal(1), the modem is the clock source and sends the\n\n            clock signals to the DTE.  If set to external(2), the\n            transmit clock signals are provided by the DTE.  If\n            loopback(3), the modem receiver clock is used for the\n            transmit clock.  If network(4), the clock signals are\n            supplied by the DCE interface.\n\n            If the modem is not in synchronous mode, setting this object\n            will have no effect on the current operations of the modem.')
-mdmDTESyncAsyncMode = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 6, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("async", 1), ("sync", 2), ("syncAfterDial", 3),)).clone('async')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mdmDTESyncAsyncMode.setDescription('The operational mode of the modem.  If the value is\n            syncAfterDial(3), the modem will accept commands in\n            asynchronous mode and change to synchronous mode to pass\n            data after a dial sequence has been executed.')
-mdmDTEInactivityTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 6, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mdmDTEInactivityTimeout.setDescription('The amount of idle time in minutes that the modem will wait\n            before disconnecting a connection.  When a call is connected\n            and no data is transferred (continuous marking condition) on\n            both circuits 103 and 104 for the specified time, the DCE\n            disconnects the call. If the value is 0, no idle disconnect\n            will occur.  This function applies to asynchronous dial\n            operations only and is intended for administrative control\n            over idle connections.')
-mdmCallControlTable = MibTable((1, 3, 6, 1, 2, 1, 38, 1, 1, 7), )
-if mibBuilder.loadTexts: mdmCallControlTable.setDescription('The modem Call Control Table augments the modem ID table.')
-mdmCallControlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 38, 1, 1, 7, 1), )
-mdmIDEntry.registerAugmentions(("Modem-MIB", "mdmCallControlEntry"))
+mdmIDEntry.registerAugmentions((_B,_R))
 mdmCallControlEntry.setIndexNames(*mdmIDEntry.getIndexNames())
-if mibBuilder.loadTexts: mdmCallControlEntry.setDescription('Entries in this table are created only by the agent. One\n            entry exists for each modem managed by the agent.')
-mdmCCRingsBeforeAnswer = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 7, 1, 1), Integer32().clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mdmCCRingsBeforeAnswer.setDescription("Determines which ring the modem will wait to answer the\n            phone on.  If this value is `0', the modem will not go\n            offhook and answer a call when a ring signal is detected.")
-mdmCCCallSetUpFailTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 7, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,255)).clone(30)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mdmCCCallSetUpFailTimer.setDescription('This parameter specifies the amount of time, in seconds,\n            that the modem shall allow between either answering a call\n            (automatically or manually) or completion of dialing, and\n            establishment of a connection with the remote modem. If no\n\n            connection is established during this time, the modem\n            disconnects from the line and returns a result code\n            indicating the cause of the disconnection. In TIA-602, this\n            is controlled by the value in the S7 register.')
-mdmCCResultCodeEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 7, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("disabled", 1), ("numericEnabled", 2), ("verboseEnabled", 3),)).clone('verboseEnabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mdmCCResultCodeEnable.setDescription("When disabled, the DCE shall issue no 'result codes' of any\n            kind to the DTE either in response to unsolicited events\n            (eg. ring signal), or commands. In TIA-602, this is\n            controlled by the ATQ command.  When numericEnabled, the DCE\n            shall issue result codes in numeric form.  When\n            verboseEnabled, the DCE shall issue result codes in a\n            verbose, textual form.")
-mdmCCEscapeAction = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 7, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("ignoreEscape", 1), ("hangUp", 2), ("enterCommandMode", 3),)).clone('ignoreEscape')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mdmCCEscapeAction.setDescription("The modem's action upon successfully recognizing the\n            'escape to command mode' character sequence.")
-mdmCCCallDuration = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 7, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmCCCallDuration.setDescription('Present or last completed connection time in seconds. If\n            there have been no previous connections, this value should\n            be -1.')
-mdmCCConnectionFailReason = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 7, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 10, 11, 20, 30, 31, 32, 33, 40, 41, 42,))).clone(namedValues=NamedValues(("unknown", 1), ("other", 2), ("managementCommand", 3), ("inactivityTimeout", 4), ("mnpIncompatibility", 5), ("protocolError", 6), ("powerLoss", 10), ("equipmentFailure", 11), ("dtrDrop", 20), ("noDialTone", 30), ("lineBusy", 31), ("noAnswer", 32), ("voiceDetected", 33), ("carrierLost", 40), ("trainingFailed", 41), ("faxDetected", 42),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmCCConnectionFailReason.setDescription("Indicates the reason that the last connection or attempt\n            failed. The meaning of each reason code is explained below.\n\n               unknown:\n            This code means the failure reason is unknown or\n            there has been no previous call.\n\n               other:\n            This code used when no other code is applicable.\n            Additional vendor information may be available\n            elsewhere.\n\n               managementCommand:\n\n            A management command terminated the call.  These\n            commands include escaping to command mode, initiating\n            dialing, restoring lines, and disconnecting.\n\n               inactivityTimeout:\n            The call was terminated because it was inactive for\n            at the minimum duration specified.\n\n               mnpIncompatibility:\n            The modems are unable to resolve MNP protocol\n            differences.\n\n               protocolError:\n            An error occured in one of protocol in use.  Further\n            information is required to determine in which\n            protocol the error occurred, and the exact nature of\n            the error.\n\n               powerLoss:\n            The modem lost power and disconnected the call.\n\n               equipmentFailure:\n            The modem equipment failed.\n\n               dtrDrop:\n            DTR has been turned off while the modem is to\n            disconnect on DTR drop. (Ref: V.58 cct108TurnedOff)\n\n               noDialTone:\n            If the modem is to monitor for call progress tones,\n            but the modem has failed to detect dial tone while\n            attempting to dial a number.\n\n               lineBusy:\n            Busy signal is detected while busy signal detection\n            is enabled, or while the 'W' or '@' dial modifier is\n            used. (Ref: V.58 engagedTone)\n\n               noAnswer:\n            The call was not answered.\n\n               voiceDetected:\n            A voice was detected on the call.\n\n               carrierLost:\n            Indicates that the modem has disconnected due to\n            detection of loss of carrier.  In TIA-602, the S10\n            register determines the time that loss of carrier\n\n            must be detected before the modem disconnects.\n\n               trainingFailed:\n            Indicates that the modems did not successfully train\n            and reach data mode on the previous connection.\n\n               faxDetected:\n            A fax was detected on the call.")
-mdmCCStoredDialStringTable = MibTable((1, 3, 6, 1, 2, 1, 38, 1, 1, 8), )
-if mibBuilder.loadTexts: mdmCCStoredDialStringTable.setDescription('The table of stored dial strings.')
-mdmCCStoredDialStringEntry = MibTableRow((1, 3, 6, 1, 2, 1, 38, 1, 1, 8, 1), ).setIndexNames((0, "Modem-MIB", "mdmIndex"), (0, "Modem-MIB", "mdmCCStoredDialStringIndex"))
-if mibBuilder.loadTexts: mdmCCStoredDialStringEntry.setDescription('A stored dial string.')
-mdmCCStoredDialStringIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 8, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)))
-if mibBuilder.loadTexts: mdmCCStoredDialStringIndex.setDescription('The unique index of a particular dial string.')
-mdmCCStoredDialString = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 8, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,64))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mdmCCStoredDialString.setDescription('A dial string stored in the modem.')
-mdmECTable = MibTable((1, 3, 6, 1, 2, 1, 38, 1, 1, 9), )
-if mibBuilder.loadTexts: mdmECTable.setDescription('The modem error correcting table augments the modem ID\n            table.')
-mdmECEntry = MibTableRow((1, 3, 6, 1, 2, 1, 38, 1, 1, 9, 1), )
-mdmIDEntry.registerAugmentions(("Modem-MIB", "mdmECEntry"))
+mdmIDEntry.registerAugmentions((_B,_S))
 mdmECEntry.setIndexNames(*mdmIDEntry.getIndexNames())
-if mibBuilder.loadTexts: mdmECEntry.setDescription('Entries in this table are created only by the agent. One\n            entry exists for each modem managed by the agent.')
-mdmECErrorControlUsed = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 9, 1, 1), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmECErrorControlUsed.setDescription("Indicates the error control method used during the current\n            or previous call.  This shall be one of the values for error\n            control protocols registered in the capabilities table for\n            this modem.  If no error control protocol is in use, this\n            object shall have the value '{0 0}'.")
-mdmDCTable = MibTable((1, 3, 6, 1, 2, 1, 38, 1, 1, 10), )
-if mibBuilder.loadTexts: mdmDCTable.setDescription('The modem data compression table augments the modem ID\n            table.')
-mdmDCEntry = MibTableRow((1, 3, 6, 1, 2, 1, 38, 1, 1, 10, 1), )
-mdmIDEntry.registerAugmentions(("Modem-MIB", "mdmDCEntry"))
+mdmIDEntry.registerAugmentions((_B,_T))
 mdmDCEntry.setIndexNames(*mdmIDEntry.getIndexNames())
-if mibBuilder.loadTexts: mdmDCEntry.setDescription('Entries in this table are created only by the agent. One\n            entry exists for each modem managed by the agent.')
-mdmDCCompressionTypeUsed = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 10, 1, 1), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmDCCompressionTypeUsed.setDescription("Indicates the data compression method used during the\n            current or previous call.  This shall be one of the values\n            for compression protocols registered in the capabilities\n            table for this modem.  If no compression protocol is in use,\n            this object shall have the value '{0 0}'.")
-mdmSCTable = MibTable((1, 3, 6, 1, 2, 1, 38, 1, 1, 11), )
-if mibBuilder.loadTexts: mdmSCTable.setDescription('The modem signal convertor table augments the modem ID\n            table.')
-mdmSCEntry = MibTableRow((1, 3, 6, 1, 2, 1, 38, 1, 1, 11, 1), )
-mdmIDEntry.registerAugmentions(("Modem-MIB", "mdmSCEntry"))
+mdmIDEntry.registerAugmentions((_B,_U))
 mdmSCEntry.setIndexNames(*mdmIDEntry.getIndexNames())
-if mibBuilder.loadTexts: mdmSCEntry.setDescription('Entries in this table are created only by the agent. One\n\n            entry exists for each modem managed by the agent.')
-mdmSCCurrentLineTransmitRate = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 11, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmSCCurrentLineTransmitRate.setDescription('The current link transmit rate of a connection, or the last\n            link transmit rate of the last connection in bits per\n            second.')
-mdmSCCurrentLineReceiveRate = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 11, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmSCCurrentLineReceiveRate.setDescription('The current link receive rate of a connection, or the last\n            link receive rate of the last connection in bits per\n            second.')
-mdmSCInitialLineTransmitRate = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 11, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmSCInitialLineTransmitRate.setDescription('The initial link transmit rate of the current connection,\n            or the initial link transmit rate of the last connection in\n            bits per second.')
-mdmSCInitialLineReceiveRate = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 11, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmSCInitialLineReceiveRate.setDescription('The initial link receive rate of the current connection, or\n            the initial link receive rate of the last connection in bits\n            per second.')
-mdmSCModulationSchemeUsed = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 11, 1, 5), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmSCModulationSchemeUsed.setDescription('The modulation scheme of the current or previous call.\n            This shall be one of the values for modulation protocols\n            registered in the capabilities table for this modem.')
-mdmStatsTable = MibTable((1, 3, 6, 1, 2, 1, 38, 1, 1, 12), )
-if mibBuilder.loadTexts: mdmStatsTable.setDescription('The modem statistics Table augments the modem ID table.')
-mdmStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1), )
-mdmIDEntry.registerAugmentions(("Modem-MIB", "mdmStatsEntry"))
+mdmIDEntry.registerAugmentions((_B,_V))
 mdmStatsEntry.setIndexNames(*mdmIDEntry.getIndexNames())
-if mibBuilder.loadTexts: mdmStatsEntry.setDescription('Entries in this table are created only by the agent. One\n            entry exists for each modem managed by the agent.')
-mdmStatsRingNoAnswers = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStatsRingNoAnswers.setDescription('The number of events in which ringing was detected but the\n            call was not answered.')
-mdmStatsIncomingConnectionFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStatsIncomingConnectionFailures.setDescription('The number of incoming connection requests that this modem\n            answered in which it could not train with the other DCE.')
-mdmStatsIncomingConnectionCompletions = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStatsIncomingConnectionCompletions.setDescription('The number of incoming connection requests that this modem\n            answered and successfully trained with the other DCE.')
-mdmStatsFailedDialAttempts = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStatsFailedDialAttempts.setDescription("The number of call attempts that failed because the modem\n        didn't go off hook, or there was no dialtone.")
-mdmStatsOutgoingConnectionFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStatsOutgoingConnectionFailures.setDescription('The number of outgoing calls from this modem which\n            sucessfully went off hook and dialed, in which it could not\n            train with the other DCE.')
-mdmStatsOutgoingConnectionCompletions = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStatsOutgoingConnectionCompletions.setDescription('The number of outgoing calls from this modem which resulted\n            in successfully training with the other DCE.')
-mdmStatsRetrains = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStatsRetrains.setDescription('The number of retrains experienced on connections on this\n            line.')
-mdmStats2400OrLessConnections = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStats2400OrLessConnections.setDescription('The number of connections initially established at a\n            modulation speed of 2400 bits per second or less.')
-mdmStats2400To14400Connections = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStats2400To14400Connections.setDescription('The number of connections initially established at a\n            modulation speed of greater than 2400 bits per second and\n            less than 14400 bits per second.')
-mdmStatsGreaterThan14400Connections = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStatsGreaterThan14400Connections.setDescription('The number of connections initially established at a\n            modulation speed of greater than 14400 bits per second.')
-mdmStatsErrorControlledConnections = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStatsErrorControlledConnections.setDescription('The number of established connections using an error\n            control protocol.')
-mdmStatsCompressedConnections = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStatsCompressedConnections.setDescription('The number of established connections using a compression\n            protocol.')
-mdmStatsCompressionEfficiency = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStatsCompressionEfficiency.setDescription("The number of bytes transferred into the compression\n            encoder divided by the number of bytes transferred out of\n            the encoder, multiplied by 100 for either the current or\n            last call.  If a data compression protocol is not in use,\n            this value shall be `100'.")
-mdmStatsSentOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStatsSentOctets.setDescription('The number of octets presented to the modem by the DTE.')
-mdmStatsReceivedOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStatsReceivedOctets.setDescription('The number of octets presented to the DTE by the modem.')
-mdmStatsSentDataFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStatsSentDataFrames.setDescription('The number of data frames sent on the line interface.  If\n            there is no frame-oriented protocol in use on the line\n            interface, this counter shall not increment.')
-mdmStatsReceivedDataFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStatsReceivedDataFrames.setDescription('The number of data frames received on the line interface.\n            If there is no frame-oriented protocol in use on the line\n            interface, this counter shall not increment.')
-mdmStatsResentFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStatsResentFrames.setDescription('The number of times this modem retransmits frames on the\n            line interface.  If there is no frame-oriented protocol in\n            use on the line interface, this counter shall not\n            increment.')
-mdmStatsErrorFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 38, 1, 1, 12, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mdmStatsErrorFrames.setDescription('The number of block errors received on the link.  If there\n            is no frame-oriented protocol in use on the line interface,\n\n            this counter shall not increment.')
-mdmCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 38, 1, 2, 1, 1)).setObjects(*(("Modem-MIB", "mdmIDGroup"), ("Modem-MIB", "mdmLineInterfaceGroup"), ("Modem-MIB", "mdmDTEInterfaceGroup"), ("Modem-MIB", "mdmCallControlGroup"), ("Modem-MIB", "mdmSignalConvertorGroup"), ("Modem-MIB", "mdmStatisticsGroup"), ("Modem-MIB", "mdmErrorControlGroup"), ("Modem-MIB", "mdmDataCompressionGroup"),))
-if mibBuilder.loadTexts: mdmCompliance.setDescription('The compliance statement for SNMPv2 entities which\n            implement the modem MIB.')
-mibBuilder.exportSymbols("Modem-MIB", mdmCallControlEntry=mdmCallControlEntry, mdmSCInitialLineTransmitRate=mdmSCInitialLineTransmitRate, mdmStatsCompressionEfficiency=mdmStatsCompressionEfficiency, mdmLineCapabilitiesV26ter=mdmLineCapabilitiesV26ter, mdmSCTable=mdmSCTable, mdmDTEInterfaceEntry=mdmDTEInterfaceEntry, mdmLineCapabilitiesVFC=mdmLineCapabilitiesVFC, mdmDataCompressionGroup=mdmDataCompressionGroup, mdmDTESyncAsyncMode=mdmDTESyncAsyncMode, mdmCompliances=mdmCompliances, mdmStatsRetrains=mdmStatsRetrains, mdmStatsGreaterThan14400Connections=mdmStatsGreaterThan14400Connections, mdmLineCapabilitiesMNP7=mdmLineCapabilitiesMNP7, mdmCCCallSetUpFailTimer=mdmCCCallSetUpFailTimer, mdmLineCapabilitiesMNP9=mdmLineCapabilitiesMNP9, mdmLineCapabilitiesV33=mdmLineCapabilitiesV33, mdmDTEInterfaceGroup=mdmDTEInterfaceGroup, mdmCCCallDuration=mdmCCCallDuration, mdmCCStoredDialStringEntry=mdmCCStoredDialStringEntry, mdmStatsReceivedDataFrames=mdmStatsReceivedDataFrames, mdmSignalConvertorGroup=mdmSignalConvertorGroup, mdmLineCapabilitiesMNP6=mdmLineCapabilitiesMNP6, mdmErrorControlGroup=mdmErrorControlGroup, mdmStatsOutgoingConnectionFailures=mdmStatsOutgoingConnectionFailures, mdmLineCapabilitiesMNP10=mdmLineCapabilitiesMNP10, mdmLineCapabilitiesV32bis=mdmLineCapabilitiesV32bis, mdmDTEInactivityTimeout=mdmDTEInactivityTimeout, mdmCCConnectionFailReason=mdmCCConnectionFailReason, mdmLineState=mdmLineState, mdmCCStoredDialStringIndex=mdmCCStoredDialStringIndex, mdmCallControlTable=mdmCallControlTable, mdmLineCapabilitiesV32terbo=mdmLineCapabilitiesV32terbo, mdmLineCapabilitiesV25bis=mdmLineCapabilitiesV25bis, mdmLineCapabilitiesMNP5=mdmLineCapabilitiesMNP5, mdmStatisticsGroup=mdmStatisticsGroup, mdmLineCapabilitiesV42bis=mdmLineCapabilitiesV42bis, mdmDTEActionDTROffToOn=mdmDTEActionDTROffToOn, mdmECTable=mdmECTable, mdmLineCapabilities=mdmLineCapabilities, mdmLineCapabilitiesMNP8=mdmLineCapabilitiesMNP8, mdmLineCapabilitiesV23CC=mdmLineCapabilitiesV23CC, mdmECErrorControlUsed=mdmECErrorControlUsed, mdmDTESyncTimingSource=mdmDTESyncTimingSource, mdmLineCapabilitiesV26bis=mdmLineCapabilitiesV26bis, mdmSCInitialLineReceiveRate=mdmSCInitialLineReceiveRate, mdmLineCapabilitiesMNP2=mdmLineCapabilitiesMNP2, mdmMib=mdmMib, mdmConformance=mdmConformance, mdmLineCapabilitiesTable=mdmLineCapabilitiesTable, mdmStatsEntry=mdmStatsEntry, mdmLineCapabilitiesV23SC=mdmLineCapabilitiesV23SC, mdmLineCapabilitiesV42=mdmLineCapabilitiesV42, mdmLineCapabilitiesMNP4=mdmLineCapabilitiesMNP4, mdmDCTable=mdmDCTable, mdmLineCapabilitiesBell208=mdmLineCapabilitiesBell208, mdmCompliance=mdmCompliance, mdmMIB=mdmMIB, mdmLineCapabilitiesV29=mdmLineCapabilitiesV29, mdmLineCapabilitiesV22=mdmLineCapabilitiesV22, mdmDTEInterfaceTable=mdmDTEInterfaceTable, mdmSCCurrentLineReceiveRate=mdmSCCurrentLineReceiveRate, mdmLineTable=mdmLineTable, mdmSCModulationSchemeUsed=mdmSCModulationSchemeUsed, mdmLineCapabilitiesIndex=mdmLineCapabilitiesIndex, mdmStatsErrorControlledConnections=mdmStatsErrorControlledConnections, PYSNMP_MODULE_ID=mdmMIB, mdmLineCapabilitiesEntry=mdmLineCapabilitiesEntry, mdmIDProductDetails=mdmIDProductDetails, mdmStatsSentOctets=mdmStatsSentOctets, mdmStatsFailedDialAttempts=mdmStatsFailedDialAttempts, mdmCCEscapeAction=mdmCCEscapeAction, mdmSCEntry=mdmSCEntry, mdmECEntry=mdmECEntry, mdmIndex=mdmIndex, mdmStatsSentDataFrames=mdmStatsSentDataFrames, mdmDTEActionDTROnToOff=mdmDTEActionDTROnToOff, mdmLineEntry=mdmLineEntry, mdmGroups=mdmGroups, mdmLineCapabilitiesV34=mdmLineCapabilitiesV34, mdmLineCarrierLossTime=mdmLineCarrierLossTime, mdmCCStoredDialString=mdmCCStoredDialString, mdmMIBObjects=mdmMIBObjects, mdmSCCurrentLineTransmitRate=mdmSCCurrentLineTransmitRate, mdmLineInterfaceGroup=mdmLineInterfaceGroup, mdmDCCompressionTypeUsed=mdmDCCompressionTypeUsed, mdmIDEntry=mdmIDEntry, mdmCCResultCodeEnable=mdmCCResultCodeEnable, mdmStatsIncomingConnectionFailures=mdmStatsIncomingConnectionFailures, mdmCallControlGroup=mdmCallControlGroup, mdmLineCapabilitiesV22bis=mdmLineCapabilitiesV22bis, mdmLineCapabilitiesMNP1=mdmLineCapabilitiesMNP1, mdmLineCapabilitiesV32=mdmLineCapabilitiesV32, mdmCCRingsBeforeAnswer=mdmCCRingsBeforeAnswer, mdmIDManufacturerOID=mdmIDManufacturerOID, mdmIDTable=mdmIDTable, mdmStatsTable=mdmStatsTable, mdmLineCapabilitiesID=mdmLineCapabilitiesID, mdmLineCapabilitiesV21=mdmLineCapabilitiesV21, mdmLineCapabilitiesEnableGranted=mdmLineCapabilitiesEnableGranted, mdmStatsIncomingConnectionCompletions=mdmStatsIncomingConnectionCompletions, mdmLineCapabilitiesV27ter=mdmLineCapabilitiesV27ter, mdmStatsResentFrames=mdmStatsResentFrames, mdmNumber=mdmNumber, mdmStats2400OrLessConnections=mdmStats2400OrLessConnections, mdmStats2400To14400Connections=mdmStats2400To14400Connections, mdmStatsCompressedConnections=mdmStatsCompressedConnections, mdmStatsReceivedOctets=mdmStatsReceivedOctets, mdmStatsErrorFrames=mdmStatsErrorFrames, mdmStatsOutgoingConnectionCompletions=mdmStatsOutgoingConnectionCompletions, mdmLineCapabilitiesMNP3=mdmLineCapabilitiesMNP3, mdmCCStoredDialStringTable=mdmCCStoredDialStringTable, mdmLineCapabilitiesEnableRequested=mdmLineCapabilitiesEnableRequested, mdmIDGroup=mdmIDGroup, mdmDCEntry=mdmDCEntry, mdmStatsRingNoAnswers=mdmStatsRingNoAnswers)
+mdmIDGroup=ObjectGroup((1,3,6,1,2,1,38,1,2,2,1))
+mdmIDGroup.setObjects(*((_B,_W),(_B,_X)))
+if mibBuilder.loadTexts:mdmIDGroup.setStatus(_A)
+mdmLineInterfaceGroup=ObjectGroup((1,3,6,1,2,1,38,1,2,2,2))
+mdmLineInterfaceGroup.setObjects(*((_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c)))
+if mibBuilder.loadTexts:mdmLineInterfaceGroup.setStatus(_A)
+mdmDTEInterfaceGroup=ObjectGroup((1,3,6,1,2,1,38,1,2,2,3))
+mdmDTEInterfaceGroup.setObjects(*((_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h)))
+if mibBuilder.loadTexts:mdmDTEInterfaceGroup.setStatus(_A)
+mdmCallControlGroup=ObjectGroup((1,3,6,1,2,1,38,1,2,2,4))
+mdmCallControlGroup.setObjects(*((_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o)))
+if mibBuilder.loadTexts:mdmCallControlGroup.setStatus(_A)
+mdmErrorControlGroup=ObjectGroup((1,3,6,1,2,1,38,1,2,2,5))
+mdmErrorControlGroup.setObjects((_B,_p))
+if mibBuilder.loadTexts:mdmErrorControlGroup.setStatus(_A)
+mdmDataCompressionGroup=ObjectGroup((1,3,6,1,2,1,38,1,2,2,6))
+mdmDataCompressionGroup.setObjects((_B,_q))
+if mibBuilder.loadTexts:mdmDataCompressionGroup.setStatus(_A)
+mdmSignalConvertorGroup=ObjectGroup((1,3,6,1,2,1,38,1,2,2,7))
+mdmSignalConvertorGroup.setObjects(*((_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v)))
+if mibBuilder.loadTexts:mdmSignalConvertorGroup.setStatus(_A)
+mdmStatisticsGroup=ObjectGroup((1,3,6,1,2,1,38,1,2,2,8))
+mdmStatisticsGroup.setObjects(*((_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE)))
+if mibBuilder.loadTexts:mdmStatisticsGroup.setStatus(_A)
+mdmCompliance=ModuleCompliance((1,3,6,1,2,1,38,1,2,1,1))
+mdmCompliance.setObjects(*((_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM)))
+if mibBuilder.loadTexts:mdmCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'mdmMib':mdmMib,'mdmMIB':mdmMIB,'mdmMIBObjects':mdmMIBObjects,'mdmNumber':mdmNumber,'mdmIDTable':mdmIDTable,'mdmIDEntry':mdmIDEntry,_F:mdmIndex,_W:mdmIDManufacturerOID,_X:mdmIDProductDetails,'mdmLineTable':mdmLineTable,_P:mdmLineEntry,_Y:mdmLineCarrierLossTime,_Z:mdmLineState,'mdmLineCapabilitiesTable':mdmLineCapabilitiesTable,'mdmLineCapabilitiesEntry':mdmLineCapabilitiesEntry,_K:mdmLineCapabilitiesIndex,_a:mdmLineCapabilitiesID,_b:mdmLineCapabilitiesEnableRequested,_c:mdmLineCapabilitiesEnableGranted,'mdmLineCapabilities':mdmLineCapabilities,'mdmLineCapabilitiesV21':mdmLineCapabilitiesV21,'mdmLineCapabilitiesV22':mdmLineCapabilitiesV22,'mdmLineCapabilitiesV22bis':mdmLineCapabilitiesV22bis,'mdmLineCapabilitiesV23CC':mdmLineCapabilitiesV23CC,'mdmLineCapabilitiesV23SC':mdmLineCapabilitiesV23SC,'mdmLineCapabilitiesV25bis':mdmLineCapabilitiesV25bis,'mdmLineCapabilitiesV26bis':mdmLineCapabilitiesV26bis,'mdmLineCapabilitiesV26ter':mdmLineCapabilitiesV26ter,'mdmLineCapabilitiesV27ter':mdmLineCapabilitiesV27ter,'mdmLineCapabilitiesV32':mdmLineCapabilitiesV32,'mdmLineCapabilitiesV32bis':mdmLineCapabilitiesV32bis,'mdmLineCapabilitiesV32terbo':mdmLineCapabilitiesV32terbo,'mdmLineCapabilitiesVFC':mdmLineCapabilitiesVFC,'mdmLineCapabilitiesV34':mdmLineCapabilitiesV34,'mdmLineCapabilitiesV42':mdmLineCapabilitiesV42,'mdmLineCapabilitiesV42bis':mdmLineCapabilitiesV42bis,'mdmLineCapabilitiesMNP1':mdmLineCapabilitiesMNP1,'mdmLineCapabilitiesMNP2':mdmLineCapabilitiesMNP2,'mdmLineCapabilitiesMNP3':mdmLineCapabilitiesMNP3,'mdmLineCapabilitiesMNP4':mdmLineCapabilitiesMNP4,'mdmLineCapabilitiesMNP5':mdmLineCapabilitiesMNP5,'mdmLineCapabilitiesMNP6':mdmLineCapabilitiesMNP6,'mdmLineCapabilitiesMNP7':mdmLineCapabilitiesMNP7,'mdmLineCapabilitiesMNP8':mdmLineCapabilitiesMNP8,'mdmLineCapabilitiesMNP9':mdmLineCapabilitiesMNP9,'mdmLineCapabilitiesMNP10':mdmLineCapabilitiesMNP10,'mdmLineCapabilitiesV29':mdmLineCapabilitiesV29,'mdmLineCapabilitiesV33':mdmLineCapabilitiesV33,'mdmLineCapabilitiesBell208':mdmLineCapabilitiesBell208,'mdmDTEInterfaceTable':mdmDTEInterfaceTable,_Q:mdmDTEInterfaceEntry,_d:mdmDTEActionDTROnToOff,_e:mdmDTEActionDTROffToOn,_f:mdmDTESyncTimingSource,_g:mdmDTESyncAsyncMode,_h:mdmDTEInactivityTimeout,'mdmCallControlTable':mdmCallControlTable,_R:mdmCallControlEntry,_i:mdmCCRingsBeforeAnswer,_j:mdmCCCallSetUpFailTimer,_k:mdmCCResultCodeEnable,_l:mdmCCEscapeAction,_m:mdmCCCallDuration,_n:mdmCCConnectionFailReason,'mdmCCStoredDialStringTable':mdmCCStoredDialStringTable,'mdmCCStoredDialStringEntry':mdmCCStoredDialStringEntry,_O:mdmCCStoredDialStringIndex,_o:mdmCCStoredDialString,'mdmECTable':mdmECTable,_S:mdmECEntry,_p:mdmECErrorControlUsed,'mdmDCTable':mdmDCTable,_T:mdmDCEntry,_q:mdmDCCompressionTypeUsed,'mdmSCTable':mdmSCTable,_U:mdmSCEntry,_s:mdmSCCurrentLineTransmitRate,_r:mdmSCCurrentLineReceiveRate,_u:mdmSCInitialLineTransmitRate,_t:mdmSCInitialLineReceiveRate,_v:mdmSCModulationSchemeUsed,'mdmStatsTable':mdmStatsTable,_V:mdmStatsEntry,_w:mdmStatsRingNoAnswers,_x:mdmStatsIncomingConnectionFailures,_y:mdmStatsIncomingConnectionCompletions,_z:mdmStatsFailedDialAttempts,_A0:mdmStatsOutgoingConnectionFailures,_A1:mdmStatsOutgoingConnectionCompletions,_A2:mdmStatsRetrains,_A3:mdmStats2400OrLessConnections,_A4:mdmStats2400To14400Connections,_A5:mdmStatsGreaterThan14400Connections,_A6:mdmStatsErrorControlledConnections,_A7:mdmStatsCompressedConnections,_A8:mdmStatsCompressionEfficiency,_A9:mdmStatsSentOctets,_AA:mdmStatsReceivedOctets,_AB:mdmStatsSentDataFrames,_AC:mdmStatsReceivedDataFrames,_AD:mdmStatsResentFrames,_AE:mdmStatsErrorFrames,'mdmConformance':mdmConformance,'mdmCompliances':mdmCompliances,'mdmCompliance':mdmCompliance,'mdmGroups':mdmGroups,_AF:mdmIDGroup,_AG:mdmLineInterfaceGroup,_AH:mdmDTEInterfaceGroup,_AI:mdmCallControlGroup,_AL:mdmErrorControlGroup,_AM:mdmDataCompressionGroup,_AJ:mdmSignalConvertorGroup,_AK:mdmStatisticsGroup})

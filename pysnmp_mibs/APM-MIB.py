@@ -1,243 +1,604 @@
-#
-# PySNMP MIB module APM-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/APM-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:04:57 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
-( OwnerString, rmon, ) = mibBuilder.importSymbols("RMON-MIB", "OwnerString", "rmon")
-( protocolDirLocalIndex, ) = mibBuilder.importSymbols("RMON2-MIB", "protocolDirLocalIndex")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( NotificationGroup, ObjectGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-( Gauge32, Counter32, IpAddress, Counter64, ModuleIdentity, NotificationType, ObjectIdentity, Integer32, Bits, MibIdentifier, Unsigned32, TimeTicks, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Counter32", "IpAddress", "Counter64", "ModuleIdentity", "NotificationType", "ObjectIdentity", "Integer32", "Bits", "MibIdentifier", "Unsigned32", "TimeTicks", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-( DisplayString, TimeInterval, TruthValue, TimeStamp, RowStatus, StorageType, TextualConvention, DateAndTime, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeInterval", "TruthValue", "TimeStamp", "RowStatus", "StorageType", "TextualConvention", "DateAndTime")
-apm = ModuleIdentity((1, 3, 6, 1, 2, 1, 16, 23)).setRevisions(("2004-02-19 00:00",))
-if mibBuilder.loadTexts: apm.setLastUpdated('200402190000Z')
-if mibBuilder.loadTexts: apm.setOrganization('IETF RMON MIB Working Group')
-if mibBuilder.loadTexts: apm.setContactInfo('Author:\n                     Steve Waldbusser\n\n             Phone:  +1-650-948-6500\n             Fax :   +1-650-745-0671\n             Email:  waldbusser@nextbeacon.com\n\n         Working Group Chair:\n                     Andy Bierman\n                     Cisco Systems, Inc.\n             Postal: 170 West Tasman Drive\n                     San Jose, CA USA 95134\n                Tel: +1 408 527-3711\n             E-mail: abierman@cisco.com\n\n         Working Group Mailing List: <rmonmib@ietf.org>\n         To subscribe send email to: <rmonmib-request@ietf.org>\n        ')
-if mibBuilder.loadTexts: apm.setDescription('The MIB module for measuring application performance\n        as experienced by end-users.\n\n        Copyright (C) The Internet Society (2004). This version of\n        this MIB module is part of RFC 3729; see the RFC itself for\n        full legal notices.')
-apmMibObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 23, 1))
-apmConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 23, 2))
-apmCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 23, 2, 1))
-apmGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 23, 2, 2))
-class AppLocalIndex(Unsigned32, TextualConvention):
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(1,2147483647)
-
-class ProtocolDirNetworkAddress(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,255)
-
-class DataSourceOrZero(ObjectIdentifier, TextualConvention):
-    pass
-
-class RmonClientID(Unsigned32, TextualConvention):
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(0,4294967295)
-
-class TransactionAggregationType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))
-    namedValues = NamedValues(("flows", 1), ("clients", 2), ("servers", 3), ("applications", 4),)
-
-apmAppDirTable = MibTable((1, 3, 6, 1, 2, 1, 16, 23, 1, 1), )
-if mibBuilder.loadTexts: apmAppDirTable.setDescription("The APM MIB directory of applications and application\n        verbs. The agent will populate this table with all\n        applications/verbs of any responsivenessType it has the\n        capability to monitor. Since the agent populates this table\n        with every entry it has the capability to monitor, the\n        entries in this table are read-write, allowing the management\n        station to modify parameters in this table but not to add new\n        entries or delete entries (however, entries may be\n        disabled). If new entries are added to the apmHttpFilterTable\n        or the apmUserDefinedAppTable, the agent will add the\n        corresponding entries to this table.\n\n        It is an implementation-dependent matter as to how the agent\n        sets these default parameters. For example, it may leave\n        certain entries in this table 'off(0)' if the agent developer\n\n        believes that combination will be infrequently used, allowing\n        a manager that needs that capability to set it to 'on(1)'.\n\n        Some applications are registered in the RMON2 protocol\n        directory and some are registered in other tables in this\n        MIB Module. Regardless of where an application is originally\n        registered, it is assigned an AppLocalIndex value that is the\n        primary index for this table.\n\n        The contents of this table affect all reports and exceptions\n        generated by this agent. Accordingly, modification of this\n        table should be performed by a manager acting in the role of\n        administrator. In particular, management software should not\n        require or enforce particular configuration of this table - it\n        should reflect the preferences of the site administrator, not\n        the software author. As a practical matter, this requires\n        management software to allow the administrator to configure\n        the values it will use so that it can be adapted to the site\n        policy.")
-apmAppDirEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 23, 1, 1, 1), ).setIndexNames((0, "APM-MIB", "apmAppDirAppLocalIndex"), (0, "APM-MIB", "apmAppDirResponsivenessType"))
-if mibBuilder.loadTexts: apmAppDirEntry.setDescription('The APM MIB directory of applications and application\n        verbs. An entry will exist in this table for all applications\n        for which application performance measurement is supported.')
-apmAppDirAppLocalIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 1, 1, 1), AppLocalIndex())
-if mibBuilder.loadTexts: apmAppDirAppLocalIndex.setDescription('The AppLocalIndex assigned for this application Directory\n        entry.')
-apmAppDirResponsivenessType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("transactionOriented", 1), ("throughputOriented", 2), ("streamingOriented", 3),)))
-if mibBuilder.loadTexts: apmAppDirResponsivenessType.setDescription("This object describes and configures the agent's support for\n        application performance measurement for this application.\n        There are 3 types of measurements for different types of\n        applications:\n\n        Transaction-Oriented applications have a fairly constant\n        workload to perform for all transactions. The responsiveness\n        metric for transaction-oriented applications is application\n        response time (from first request to final delivery of\n        service) and is measured in milliseconds. This is\n        commonly referred to as end-user response time.\n\n        Throughput-Oriented applications have widely varying workloads\n        based on the nature of the client request. In particular,\n        throughput-oriented applications vary widely in the amount of\n        data that must be transported to satisfy the request. The\n        responsiveness metric for throughput-oriented applications is\n        kilobits per second.\n\n        Streaming-Oriented applications deliver data at a constant\n        metered rate of speed regardless of the responsiveness of the\n        networking and computing infrastructure. This constant rate of\n        speed is generally specified to be below (sometimes well\n        below) the nominal capability of the infrastructure. However,\n        when the infrastructures cannot deliver data at this speed,\n        interruption of service or degradation of service can\n        result. The responsiveness metric for streaming-oriented\n        applications is the ratio of time that the service is degraded\n        or interrupted to the total service time. This metric is\n        measured in parts per million.\n\n        Note that for some applications, measuring more than one\n        responsiveness type may be interesting. For agents that wish\n\n        to support more than one measurement for a application, they\n        will populate this table with multiple entries for that\n        application, one for each type.")
-apmAppDirConfig = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("off", 1), ("on", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: apmAppDirConfig.setDescription('This object describes and configures support for application\n        performance measurement for this application.\n\n        If the value of this object is on(2), the agent supports\n        measurement of application performance metrics for this\n        application and is configured to measure such metrics for all\n        APM MIB functions and all interfaces.  If the value of this\n        object is off(1), the agent supports measurement of\n        application performance for this application but is configured\n        to not measure these metrics for any APM MIB functions or\n        interfaces.  Whenever this value changes from on(2) to off(1),\n        the agent shall delete all related entries in all tables in\n        this MIB Module.\n\n        The value of this object must persist across reboots.')
-apmAppDirResponsivenessBoundary1 = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 1, 1, 4), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: apmAppDirResponsivenessBoundary1.setDescription('The boundary value between bucket1 and bucket 2. If this\n        value is modified, all entries in the apmReportTable must be\n        deleted by the agent.\n\n        The value of this object must persist across reboots.')
-apmAppDirResponsivenessBoundary2 = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: apmAppDirResponsivenessBoundary2.setDescription('The boundary value between bucket2 and bucket 3. If this\n\n        value is modified, all entries in the apmReportTable must be\n        deleted by the agent.\n\n        The value of this object must persist across reboots.')
-apmAppDirResponsivenessBoundary3 = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 1, 1, 6), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: apmAppDirResponsivenessBoundary3.setDescription('The boundary value between bucket3 and bucket 4. If this\n        value is modified, all entries in the apmReportTable must be\n        deleted by the agent.\n\n        The value of this object must persist across reboots.')
-apmAppDirResponsivenessBoundary4 = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 1, 1, 7), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: apmAppDirResponsivenessBoundary4.setDescription('The boundary value between bucket4 and bucket 5. If this\n        value is modified, all entries in the apmReportTable must be\n        deleted by the agent.\n\n        The value of this object must persist across reboots.')
-apmAppDirResponsivenessBoundary5 = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 1, 1, 8), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: apmAppDirResponsivenessBoundary5.setDescription('The boundary value between bucket5 and bucket 6. If this\n        value is modified, all entries in the apmReportTable must be\n        deleted by the agent.\n\n        The value of this object must persist across reboots.')
-apmAppDirResponsivenessBoundary6 = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 1, 1, 9), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: apmAppDirResponsivenessBoundary6.setDescription('The boundary value between bucket6 and bucket 7. If this\n\n        value is modified, all entries in the apmReportTable must be\n        deleted by the agent.\n\n        The value of this object must persist across reboots.')
-apmBucketBoundaryLastChange = MibScalar((1, 3, 6, 1, 2, 1, 16, 23, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmBucketBoundaryLastChange.setDescription('The value of sysUpTime the last time that any bucket boundary\n        in any appDirEntry was changed. This object can help to\n        determine if two managers are both trying to enforce different\n        configurations of this table.')
-apmAppDirID = MibScalar((1, 3, 6, 1, 2, 1, 16, 23, 1, 3), ObjectIdentifier()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: apmAppDirID.setDescription("This object allows managers to avoid downloading application\n        directory information when the directory is set to a known\n        (usually fixed) configuration.\n\n        If the value of this object isn't 0.0, it signifies\n        that the entire contents of the apmAppDirTable,\n        apmHttpFilterTable, apmUserDefinedAppTable and\n        protocolDirTable are equal to a known state identified\n        by the value of this object. If a manager recognizes this\n        value as identifying a directory configuration it has a local\n        copy of, it may use this local copy rather than downloading\n        these tables. Note that it may have downloaded this local copy\n        (and the ID) from another agent and used this copy for all\n        other agents that advertised the same ID.\n\n        If an agent recognizes that the entire contents of the\n        apmAppDirTable, apmHttpFilterTable,\n        apmUserDefinedAppTable and protocolDirTable are equal to\n        a known state to which an ID has been assigned, it should set\n        this object to that ID.\n\n        In many cases when this feature is used, the application\n        directory information will be in read-only memory and thus the\n        tables may not be modified via SNMP requests. In the event\n\n        that the tables are writable and a modification is made, the\n        agent is responsible for setting this object to 0.0 if it\n        cannot determine that the state is equal to a known state.\n\n        An agent is not obligated to recognize and advertise all such\n        registered states as it may not have knowledge of all states.\n        Thus, a manager may encounter agents whose DirectoryID value\n        is 0.0 even though the contents of the directory were equal to\n        a registered state.\n\n        Note that the contents of those tables includes the\n        protocolDirLocalIndex and appLocalIndex values. In other\n        words, these values can't be assigned randomly on each agent,\n        but must be equal to values that are part of the known\n        state. While it is possible for a manager to download\n        application directory details using SNMP and to set the\n        appropriate directoryID, the manager would need to have some\n        scheme to ensure consistent values of LocalIndex variables\n        from agent to agent. Such schemes are outside the scope of\n        this specification.\n\n        Application directory registrations are unique within an\n        administrative domain.\n\n        Typically these registrations will be made by an agent\n        software developer who will set the application directory\n        tables to a read-only state and assign a DirectoryID to that\n        state. Thus, all agents running this software would share the\n        same DirectoryID. As the application directory might change\n        from one software release to the next, the developer may\n        register different DirectoryID's for each software release.\n\n        A customer could also create a site-wide application directory\n        configuration and assign a DirectoryID to that configuration\n        as long as consistent values of LocalIndex variables can be\n        ensured.\n\n        The value of this object must persist across reboots.")
-apmHttpFilterTable = MibTable((1, 3, 6, 1, 2, 1, 16, 23, 1, 4), )
-if mibBuilder.loadTexts: apmHttpFilterTable.setDescription('A table that creates virtual applications which measure the\n        performance of certain web pages or sets of web pages.\n\n        When an entry is added to this table, the agent will\n        automatically create one or more entries in the\n        apmAppDirTable (one for each responsivenessType it is\n        capable of measuring).\n\n        Note that when entries exist in this table some HTTP\n        transactions will be summarized twice: in applications\n        represented here as well as the HTTP application. If entries\n        in this table overlap, these transactions may be summarized\n        additional times.\n\n        The contents of this table affect all reports and exceptions\n        generated by this agent. Accordingly, modification of this\n        table should be performed by a manager acting in the role of\n        administrator. In particular, management software should not\n        require or enforce particular configuration of this table - it\n        should reflect the preferences of the site administrator, not\n        the software author.')
-apmHttpFilterEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 23, 1, 4, 1), ).setIndexNames((0, "APM-MIB", "apmHttpFilterIndex"))
-if mibBuilder.loadTexts: apmHttpFilterEntry.setDescription('A virtual application which measure the performance of certain\n        web pages or sets of web pages.')
-apmHttpFilterIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 4, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)))
-if mibBuilder.loadTexts: apmHttpFilterIndex.setDescription('An index that uniquely identifies an entry in the\n        apmHttpFilterTable.')
-apmHttpFilterAppLocalIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 4, 1, 2), AppLocalIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmHttpFilterAppLocalIndex.setDescription('The AppLocalIndex that represents HTTP transactions\n        that match this entry.\n\n        This object is read-only. A value is created by the agent from\n        an unused AppLocalIndex value when this apmHttpFilterEntry is\n        created.')
-apmHttpFilterServerProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 4, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmHttpFilterServerProtocol.setDescription('The protocolDirLocalIndex value of the network level protocol\n        of the apmHttpFilterServerAddress.')
-apmHttpFilterServerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 4, 1, 4), ProtocolDirNetworkAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmHttpFilterServerAddress.setDescription("This entry will only represent transactions coming from the\n        network address specified in this object.\n\n\n        This is represented as an octet string with\n        specific semantics and length as identified\n        by the associated apmHttpFilterServerProtocol object.\n\n        If this object is the zero-length string, then this entry will\n        match one of the addresses represented by the 'host' component\n        of the associated apmHttpFilterURLPath object, where the\n        format if a URL [9] is\n        http://<host>:<port>/<path>?<searchpart>.")
-apmHttpFilterURLPath = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 4, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmHttpFilterURLPath.setDescription('This entry will only represent HTTP transactions\n        where the URL path component in the request matches this\n        value. This value represents the requested path regardless of\n        any substitution that the server might perform.\n\n        Prior to the matching, the URL is stripped of any server\n        address or DNS name and consists solely of the path name on\n        that server.\n\n        If the length of this object is zero, then this entry will\n        match if the associated apmHttpFilterServerAddress match. If\n        the length of that object is also zero, then this entry will\n        match nothing.\n\n        The value of the associated apmHttpFilterMatchType dictates\n        the type of matching that will be attempted.')
-apmHttpFilterMatchType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 4, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("exact", 1), ("stripTrailingSlash", 2), ("prefix", 3),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmHttpFilterMatchType.setDescription("The matching algorithm used to compare the URL pathname.\n\n        If the value is exact(1), then the pathname component will be\n        compared with the associated apmHttpFilterURLPath and\n        will only be associated with this entry if it matches exactly.\n\n        If the value is stripTrailingSlash(2), then the pathname\n        component will be compared with the associated\n        apmHttpFilterURLPath and will only be associated with this\n        entry if it matches exactly or if the pathname ends with a '/'\n        symbol and matches apmHttpFilterURLPath if the '/' symbol is\n        removed from the pathname. This option exists for those paths\n        where an optional trailing slash is possible but for which a\n        prefix match would be too broad.\n\n        If the value is prefix(3), then the pathname component will be\n        compared with the associated apmHttpFilterURLPath and will\n        only be associated with this entry if the beginning of the\n        pathname matches every octet of this value. Octets that extend\n        beyond the length of this value are ignored.")
-apmHttpFilterOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 4, 1, 7), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmHttpFilterOwner.setDescription('The entity that configured this entry and is\n        therefore using the resources assigned to it.')
-apmHttpFilterStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 4, 1, 8), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmHttpFilterStorageType.setDescription("The storage type of this apmHttpFilterEntry. If the value of\n        this object is 'permanent', no objects in this row need to be\n        writable.")
-apmHttpFilterRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 4, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmHttpFilterRowStatus.setDescription("The status of this apmHttpFilterEntry. No objects in this row\n        may be modified while the row's status is 'active'.")
-apmHttpIgnoreUnregisteredURLs = MibScalar((1, 3, 6, 1, 2, 1, 16, 23, 1, 5), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: apmHttpIgnoreUnregisteredURLs.setDescription('When true, APM measurements of HTTP transactions will only\n        measure transactions relating to URLs that match a filter in\n        the apmHttpFilterTable. Thus, measurements for the HTTP\n        application will present aggregated statistics for\n        URL-matching HTTP transactions and measurements for the HTTP\n        GET application verb will present aggregated statistics for\n        URL-matching HTTP GET transactions.\n\n        This will be used in environments that wish to monitor only\n        targeted URLs and to ignore large volumes of internet web\n        browsing traffic.\n\n        This object affects all APM reports and exceptions generated\n        by this agent. Accordingly, modification of this object should\n        be performed by a manager acting in the role of\n        administrator. In particular, management software should not\n        require or enforce particular configuration of this object -\n        it should reflect the preferences of the site administrator,\n        not the software author.\n\n        The value of this object must persist across reboots.')
-apmHttp4xxIsFailure = MibScalar((1, 3, 6, 1, 2, 1, 16, 23, 1, 6), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: apmHttp4xxIsFailure.setDescription("When true, this agent will recognize HTTP errors in the range\n        of 400 through 499 and will treat them as unavailable\n        transactions. When false or when this object isn't supported,\n        they will be treated as successful transactions.\n\n        This object allows such error pages to be tracked at the\n        possible expense of having user typos treated as poor service\n        on the part of the web server.\n\n        This object affects all reports and exceptions generated by\n        this agent. Accordingly, modification of this object should be\n        performed by a manager acting in the role of administrator. In\n        particular, management software should not require or enforce\n        particular configuration of this object - it should reflect\n        the preferences of the site administrator, not the software\n        author.\n\n        The value of this object must persist across reboots.")
-apmUserDefinedAppTable = MibTable((1, 3, 6, 1, 2, 1, 16, 23, 1, 7), )
-if mibBuilder.loadTexts: apmUserDefinedAppTable.setDescription('A table that advertises user-defined applications that the\n        agent is measuring.\n\n        The agent will automatically create one or more entries in the\n        apmAppDirTable (one for each responsivenessType it is\n        capable of measuring) for each entry in this table.\n\n        Note that when entries exist in this table some\n        transactions can be summarized more than once if there is\n        overlap between applications defined here and applications\n        defined in the protocol directory or in the httpFilter table.')
-apmUserDefinedAppEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 23, 1, 7, 1), ).setIndexNames((0, "APM-MIB", "apmAppDirAppLocalIndex"))
-if mibBuilder.loadTexts: apmUserDefinedAppEntry.setDescription('A user-defined application that the agent is measuring, along\n        with its AppLocalIndex assignment.\n\n        The apmAppDirAppLocalIndex value in the index identifies\n        the agent-assigned AppLocalIndex value for this user-defined\n        application.')
-apmUserDefinedAppParentIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 7, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmUserDefinedAppParentIndex.setDescription('The protocolDirLocalIndex value of the highest-layer\n        protocol defined in the protocolDirTable that this\n        application is a child of.')
-apmUserDefinedAppApplication = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 7, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmUserDefinedAppApplication.setDescription('A human readable descriptive tag for this application.')
-apmNameTable = MibTable((1, 3, 6, 1, 2, 1, 16, 23, 1, 8), )
-if mibBuilder.loadTexts: apmNameTable.setDescription("A client machine may have multiple addresses during a period\n        of monitoring. The apmNameTable assigns a long-lived\n        identifier to a client and records what addresses were\n        assigned to that client for periods of time. Various\n        implementation techniques exist for tracking this mapping but\n        if an agent is unable to track client address mappings, it may\n        map client identifiers to client addresses rather than to\n        distinct client machines.\n\n        A particular apmNameClientID should be a constant attribute of\n        a particular client. When available, the agent may also record\n        the machine name and/or user name which may be valuable for\n        displaying to humans. The apmNameMachineName and\n        apmNameUserName are relatively constant, changing only if\n        these attributes actually change on the client.\n\n        The agent will store a historical log of these entries, aging\n        out old entries as the log becomes too large. Since this table\n        contains information vital to the interpretation of other\n        tables (e.g., the apmReportTable), the agent should ensure that\n\n        the log doesn't age out entries that would be referenced by\n        data in those tables.\n\n        Note that an entry for a clientID is active from its\n        StartTime until the StartTime of another entry (for the same\n        clientID) that supersedes it, or 'now' if none supersede\n        it. Therefore, if a clientID only has a single entry, it is by\n        definition very new and should never be aged out. No entry for\n        a clientID should be aged out unless it has been updated by a\n        new entry for the client (i.e., with an updated address) and\n        only if the new entry is 'old' enough.\n\n        To determine how old is old enough, compute the maximum value\n        of Interval * (NumReports + 1) of all entries in the\n        apmReportControlTable (the '+ 1' is to allow a reasonable\n        period of time for the report to be downloaded). Then take the\n        larger of this value and the age in seconds of the oldest\n        entry in the current transaction table. If an entry for a\n        clientID is superseded by another entry whose StartTime is\n        more than this many seconds ago, then the older entry may be\n        deleted.")
-apmNameEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 23, 1, 8, 1), ).setIndexNames((0, "APM-MIB", "apmNameClientID"), (0, "RMON2-MIB", "protocolDirLocalIndex"), (0, "APM-MIB", "apmNameClientAddress"), (0, "APM-MIB", "apmNameMappingStartTime"))
-if mibBuilder.loadTexts: apmNameEntry.setDescription('An entry in the APM name table. An entry exists for each\n        period of time that a client has been associated with a\n        particular address.\n\n        The protocolDirLocalIndex value in the index identifies\n        the network layer protocol for the ClientAddress for this\n        entry.\n\n        Note that some combinations of index values may result in an\n        index that exceeds 128 sub-identifiers in length which exceeds\n        the maximum for the SNMP protocol. Implementations should take\n        care to avoid such combinations.')
-apmNameClientID = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 8, 1, 1), RmonClientID())
-if mibBuilder.loadTexts: apmNameClientID.setDescription('A unique ID assigned to the machine represented by this\n         mapping. This ID is assigned by the agent using an\n         implementation-specific algorithm.')
-apmNameClientAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 8, 1, 2), ProtocolDirNetworkAddress().subtype(subtypeSpec=ValueSizeConstraint(1,255)))
-if mibBuilder.loadTexts: apmNameClientAddress.setDescription("The network client address for this client when this mapping\n        was active.\n\n        This is represented as an octet string with specific semantics\n        and length as identified by the protocolDirLocalIndex\n        component of the index. This object may not be the zero length\n        string.\n\n        Since this object is an index variable, it is encoded in the\n        index according to the index encoding rules.  For example, if\n        the protocolDirLocalIndex component of the index indicates an\n        encapsulation of ip, this object is encoded as a length octet\n        of 4, followed by the 4 octets of the ip address, in network\n        byte order. Care should be taken to avoid values of this\n        object that, in conjunction with the other index variables,\n        would result in an index longer than SNMP's maximum of 128\n        subidentifiers.")
-apmNameMappingStartTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 8, 1, 3), DateAndTime())
-if mibBuilder.loadTexts: apmNameMappingStartTime.setDescription('The time that the agent first discovered this mapping\n        as active.')
-apmNameMachineName = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 8, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmNameMachineName.setDescription('The human readable name of the client machine.\n\n        If the client has no machine name or the agent is\n        unable to learn the machine name, this object will be\n        a zero-length string.')
-apmNameUserName = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 8, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmNameUserName.setDescription("The human readable name of a human user using the client\n        machine. If more than one user name are available\n        simultaneously, it is an implementation-dependent matter as to\n        which is used here. However, if the user name changes, this\n        object should change to reflect that change.\n\n        Non-human user names like 'root' or 'administrator' aren't\n        intended as values for this object. If the client has no\n        recorded user name or the agent is unable to learn a user\n        name, this object will be a zero-length string.")
-apmReportControlTable = MibTable((1, 3, 6, 1, 2, 1, 16, 23, 1, 9), )
-if mibBuilder.loadTexts: apmReportControlTable.setDescription('Parameters that control the creation of a set of reports that\n        aggregate application performance.')
-apmReportControlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 23, 1, 9, 1), ).setIndexNames((0, "APM-MIB", "apmReportControlIndex"))
-if mibBuilder.loadTexts: apmReportControlEntry.setDescription('A conceptual row in the apmReportControlTable.\n\n        An example of the indexing of this table is\n\n        apmReportControlInterval.3')
-apmReportControlIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 9, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: apmReportControlIndex.setDescription('An index that uniquely identifies an entry in the\n        apmReportControlTable.  Each such entry defines a unique\n        report whose results are placed in the apmReportTable on\n        behalf of this apmReportControlEntry.')
-apmReportControlDataSource = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 9, 1, 2), DataSourceOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmReportControlDataSource.setDescription("The source of the data for APM Reports generated on\n        behalf of this apmReportControlEntry.\n\n        If the measurement is being performed by a probe, this should\n        be set to interface or port where data was received for\n        analysis. If the measurement isn't being performed by a probe,\n        this should be set to the primary interface over which the\n        measurement is being performed. If the measurement isn't being\n        performed by a probe and there is no primary interface or this\n\n        information isn't known, this object should be set to 0.0.\n\n        This object may not be modified if the associated\n        apmReportControlStatus object is equal to active(1).")
-apmReportControlAggregationType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 9, 1, 3), TransactionAggregationType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmReportControlAggregationType.setDescription('The type of aggregation being performed for this set of\n        reports.\n\n        The metrics for a single transaction are the responsiveness of\n        the transaction and whether the transaction succeeded (a\n        boolean). When such metrics are aggregated in this MIB Module,\n        these metrics are replaced by averages and distributions of\n        responsiveness and availability. The metrics describing\n        aggregates are constant no matter which type of aggregation is\n        being performed. These metrics may be found in the\n        apmReportTable.\n\n        The flows(1) aggregation is the simplest. All transactions\n        that share common application/server/client 3-tuples are\n        aggregated together, resulting in a set of metrics for all\n        such unique 3-tuples.\n\n        The clients(2) aggregation results in somewhat more\n        aggregation (i.e., fewer resulting records). All transactions\n        that share common application/client tuples are aggregated\n        together, resulting in a set of metrics for all such unique\n        tuples.\n\n        The servers(3) aggregation usually results in still more\n        aggregation (i.e., fewer resulting records). All transactions\n        that share common application/server tuples are aggregated\n        together, resulting in a set of metrics for all such unique\n        tuples.\n\n        The applications(4) aggregation results in the most\n        aggregation (i.e., the fewest resulting records). All\n\n        transactions that share a common application are aggregated\n        together, resulting in a set of metrics for all such unique\n        applications.\n\n        Note that it is not meaningful to aggregate applications, as\n        different applications have widely varying characteristics.\n        As a result, this set of aggregations is complete.\n\n        This object may not be modified if the associated\n        apmReportControlStatus object is equal to active(1).')
-apmReportControlInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 9, 1, 4), Unsigned32().clone(3600)).setUnits('Seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmReportControlInterval.setDescription("The interval in seconds over which data is accumulated before\n        being aggregated into a report in the apmReportTable.  All\n        reports with the same apmReportControlIndex will be based on\n        the same interval. This object must be greater than zero.\n\n        Many users desire that these reports be synchronized to within\n        seconds of the beginning of the hour because the results may\n        be correlated more meaningfully to business behavior and so\n        that data from multiple agents is aggregated over the same\n        time periods. Thus management software may take extra effort\n        to synchronize reports to the beginning of the hour and to one\n        another. However, the agent must not allow reports to 'drift'\n        over time as they will quickly become unsynchronized. In\n        particular, if there is any fixed processing delay between\n        reports, the reports should deduct this time from the interval\n        so that reports don't drift.\n\n        This object may not be modified if the associated\n        apmReportControlStatus object is equal to active(1).")
-apmReportControlRequestedSize = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 9, 1, 5), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmReportControlRequestedSize.setDescription('The number of entries requested to be allocated for each\n        report generated on behalf of this entry.')
-apmReportControlGrantedSize = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 9, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportControlGrantedSize.setDescription("The number of entries per report the agent has allocated\n        based on the requested amount in apmReportControlRequestedSize.\n        Since multiple reports are saved, the total number of entries\n        allocated will be this number multiplied by the value of\n        apmReportControlGrantedReports, or 1 if that object doesn't\n        exist.\n\n        When the associated apmReportControlRequestedSize object is\n        created or modified, the agent should set this object as\n        closely to the requested value as is possible for the\n        particular implementation and available resources. When\n        considering resources available, the agent must consider its\n        ability to allocate this many entries for all reports.\n\n        Note that while the actual number of entries stored in the\n        reports may fluctuate due to changing conditions, the agent\n        must continue to have storage available to satisfy the full\n        report size for all reports when necessary. Further, the agent\n        must not lower this value except as a result of a set to the\n        associated apmReportControlRequestedSize object.")
-apmReportControlRequestedReports = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 9, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmReportControlRequestedReports.setDescription('The number of saved reports requested to be allocated on\n        behalf of this entry.')
-apmReportControlGrantedReports = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 9, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportControlGrantedReports.setDescription("The number of saved reports the agent has allocated\n        based on the requested amount in\n        apmReportControlRequestedReports. Since each report can have\n        many entries, the total number of entries allocated will be\n        this number multiplied by the value of\n        apmReportControlGrantedSize, or 1 if that object doesn't\n        exist.\n\n        When the associated apmReportControlRequestedReports object is\n        created or modified, the agent should set this object as\n        closely to the requested value as is possible for the\n        particular implementation and available resources. When\n        considering resources available, the agent must consider its\n        ability to allocate this many reports each with the number of\n        entries represented by apmReportControlGrantedSize, or 1 if\n        that object doesn't exist.\n\n        Note that while the storage required for each report may\n        fluctuate due to changing conditions, the agent must continue\n        to have storage available to satisfy the full report size for\n        all reports when necessary. Further, the agent must not lower\n        this value except as a result of a set to the associated\n        apmReportControlRequestedSize object.")
-apmReportControlStartTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 9, 1, 9), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportControlStartTime.setDescription('The value of sysUpTime when the system began processing the\n        report in progress. Note that the report in progress is not\n        available.\n\n        This object may be used by the management station to figure\n        out the start time for all previous reports saved for this\n        apmReportControlEntry, as reports are started at fixed\n        intervals.')
-apmReportControlReportNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 9, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportControlReportNumber.setDescription('The number of the report in progress. When an\n        apmReportControlEntry is activated, the first report will be\n        numbered one.')
-apmReportControlDeniedInserts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 9, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportControlDeniedInserts.setDescription("The number of failed attempts to add an entry to reports for\n\n        this apmReportControlEntry because the number of entries\n        would have exceeded apmReportControlGrantedSize.\n\n        This number is valuable in determining if enough entries have\n        been allocated for reports in light of fluctuating network\n        usage. Note that since an entry that is denied will often be\n        attempted again, this number will not predict the exact number\n        of additional entries needed, but can be used to understand\n        the relative magnitude of the problem.\n\n        Also note that there is no ordering specified for the entries\n        in the report, thus there are no rules for which entries will\n        be omitted when not enough entries are available. As a\n        consequence, the agent is not required to delete 'least\n        valuable' entries first.")
-apmReportControlDroppedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 9, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportControlDroppedFrames.setDescription('The total number of frames which were received by the agent\n        and therefore not accounted for in the *StatsDropEvents, but\n        for which the agent chose not to count for this entry for\n        whatever reason.  Most often, this event occurs when the agent\n        is out of some resources and decides to shed load from this\n        collection.\n\n        This count does not include packets that were not counted\n        because they had MAC-layer errors.\n\n        This counter is only relevant if this apm report is based on\n        a data source whose collection methodology is based on\n        analyzing network traffic.\n\n        Note that if the apmReportTables are inactive because no\n        applications are enabled in the application directory, this\n        value should be 0.\n\n        Note that, unlike the dropEvents counter, this number is the\n        exact number of frames dropped.')
-apmReportControlOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 9, 1, 13), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmReportControlOwner.setDescription('The entity that configured this entry and is\n        therefore using the resources assigned to it.')
-apmReportControlStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 9, 1, 14), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmReportControlStorageType.setDescription("The storage type of this apmReportControlEntry. If the value\n        of this object is 'permanent', no objects in this row need to\n        be writable.")
-apmReportControlStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 9, 1, 15), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmReportControlStatus.setDescription('The status of this apmReportControlEntry.\n\n        An entry may not exist in the active state unless all\n        objects in the entry have an appropriate value. The only\n        objects in the entry that may be modified while the entry is\n        in the active state are apmReportControlRequestedSize and\n        apmReportControlRequestedReports.\n\n        If this object is not equal to active(1), all\n        associated entries in the apmReportTable shall be deleted\n        by the agent.')
-apmReportTable = MibTable((1, 3, 6, 1, 2, 1, 16, 23, 1, 10), )
-if mibBuilder.loadTexts: apmReportTable.setDescription('The data resulting from aggregated APM reports. Consult the\n        definition of apmReportControlAggregationType for the\n        definition of the various types of aggregations.')
-apmReportEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 23, 1, 10, 1), ).setIndexNames((0, "APM-MIB", "apmReportControlIndex"), (0, "APM-MIB", "apmReportIndex"), (0, "APM-MIB", "apmAppDirAppLocalIndex"), (0, "APM-MIB", "apmAppDirResponsivenessType"), (0, "RMON2-MIB", "protocolDirLocalIndex"), (0, "APM-MIB", "apmReportServerAddress"), (0, "APM-MIB", "apmNameClientID"))
-if mibBuilder.loadTexts: apmReportEntry.setDescription("A conceptual row in the apmReportTable.\n        The apmReportControlIndex value in the index identifies the\n        apmReportControlEntry on whose behalf this entry was created.\n        The apmReportIndex value in the index identifies which report\n        (in the series of reports) this entry is a part of.\n        The apmAppDirAppLocalIndex value in the index identifies\n        the common application of the transactions aggregated in this\n        entry.\n        The apmAppDirResponsivenessType value in the index\n        identifies the type of responsiveness metric reported by\n        this entry and uniquely identifies this entry when more\n        than one responsiveness metric is measured for a flow.\n        Entries will only exist in this table for those\n        combinations of AppLocalIndex and ResponsivenessType\n        that are configured 'on(1)'.\n        The protocolDirLocalIndex value in the index identifies\n        the network layer protocol of the apmReportServerAddress.\n        When the associated apmReportControlAggregationType value is\n        equal to applications(4) or clients(2), this\n        protocolDirLocalIndex value will equal 0.\n        The apmReportServerAddress value in the index identifies the\n        network layer address of the server in transactions aggregated\n        in this entry.\n        The apmNameClientID value in the index identifies the\n        client in transactions aggregated in this entry. If the\n        associated apmReportControlAggregationType is equal to\n        applications(4) or servers(3), then this protocolDirLocalIndex\n        value will equal 0.\n\n        An example of the indexing of this entry is\n        apmReportTransactionCount.3.15.3.1.8.4.192.168.1.2.3232235788\n\n        Note that some combinations of index values may result in an\n        index that exceeds 128 sub-identifiers in length which exceeds\n        the maximum for the SNMP protocol. Implementations should take\n        care to avoid such combinations.")
-apmReportIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 10, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: apmReportIndex.setDescription('The value of apmReportControlReportNumber for the report to\n        which this entry belongs.')
-apmReportServerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 10, 1, 2), ProtocolDirNetworkAddress())
-if mibBuilder.loadTexts: apmReportServerAddress.setDescription("The network server address for this apmReportEntry.\n\n        This is represented as an octet string with\n        specific semantics and length as identified\n        by the protocolDirLocalIndex component of the index.\n\n        Since this object is an index variable, it is encoded in the\n        index according to the index encoding rules.  For example, if\n        the protocolDirLocalIndex indicates an encapsulation of ip,\n        this object is encoded as a length octet of 4, followed by the\n        4 octets of the ip address, in network byte order. Care\n        should be taken to avoid values of this object that, in\n        conjunction with the other index variables, would result in an\n        index longer than SNMP's maximum of 128 subidentifiers.\n\n        If the associated apmReportControlAggregationType is equal to\n        applications(4) or clients(2), then this object will be a null\n        string and will be encoded simply as a length octet of 0.")
-apmReportTransactionCount = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 10, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportTransactionCount.setDescription('The total number of transactions aggregated into this record.')
-apmReportSuccessfulTransactions = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 10, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportSuccessfulTransactions.setDescription('The total number of successful transactions aggregated into\n        this record.')
-apmReportResponsivenessMean = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 10, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportResponsivenessMean.setDescription('The arithmetic mean of the responsiveness metrics for all\n        successful transactions aggregated into this record.')
-apmReportResponsivenessMin = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 10, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportResponsivenessMin.setDescription('The minimum of the responsiveness metrics for all\n        successful transactions aggregated into this record.')
-apmReportResponsivenessMax = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 10, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportResponsivenessMax.setDescription('The maximum of the responsiveness metrics for all\n        successful transactions aggregated into this record.')
-apmReportResponsivenessB1 = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 10, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportResponsivenessB1.setDescription('The number of successful transactions aggregated into this\n        record whose responsiveness was less than boundary1 value for\n        this application.')
-apmReportResponsivenessB2 = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 10, 1, 9), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportResponsivenessB2.setDescription('The number of successful transactions aggregated into this\n        record whose responsiveness did not fall into Bucket 1 and was\n        greater than or equal to the boundary1 value for this\n        application and less than the boundary2 value for this\n        application.')
-apmReportResponsivenessB3 = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 10, 1, 10), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportResponsivenessB3.setDescription('The number of successful transactions aggregated into this\n        record whose responsiveness did not fall into Bucket 1 or 2\n        and as greater than or equal to the boundary2 value for this\n        application and less than the boundary3 value for this\n        application.')
-apmReportResponsivenessB4 = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 10, 1, 11), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportResponsivenessB4.setDescription('The number of successful transactions aggregated into this\n        record whose responsiveness did not fall into Buckets 1\n        through 3 and was greater than or equal to the boundary3 value\n        for this application and less than the boundary4 value for\n        this application.')
-apmReportResponsivenessB5 = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 10, 1, 12), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportResponsivenessB5.setDescription('The number of successful transactions aggregated into this\n        record whose responsiveness did not fall into Buckets 1\n        through 4 and was greater than or equal to the boundary4 value\n        for this application and less than the boundary5 value for\n        this application.')
-apmReportResponsivenessB6 = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 10, 1, 13), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportResponsivenessB6.setDescription('The number of successful transactions aggregated into this\n        record whose responsiveness did not fall into Buckets 1\n        through 5 and was greater than or equal to the\n        boundary5 value for this application and less than the\n        boundary6 value for this application.')
-apmReportResponsivenessB7 = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 10, 1, 14), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmReportResponsivenessB7.setDescription('The number of successful transactions aggregated into this\n        record whose responsiveness did not fall into Buckets 1\n        through 6 and was greater than or equal to the boundary6 value\n        for this application.')
-apmTransactionTable = MibTable((1, 3, 6, 1, 2, 1, 16, 23, 1, 11), )
-if mibBuilder.loadTexts: apmTransactionTable.setDescription('This table contains transactions that are currently running\n        or have recently finished.')
-apmTransactionEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 23, 1, 11, 1), ).setIndexNames((0, "APM-MIB", "apmAppDirAppLocalIndex"), (0, "APM-MIB", "apmAppDirResponsivenessType"), (0, "RMON2-MIB", "protocolDirLocalIndex"), (0, "APM-MIB", "apmTransactionServerAddress"), (0, "APM-MIB", "apmNameClientID"), (0, "APM-MIB", "apmTransactionID"))
-if mibBuilder.loadTexts: apmTransactionEntry.setDescription("A conceptual row in the apmTransactionTable.\n\n        The apmAppDirAppLocalIndex value in the index identifies\n        the application of the transaction represented by this entry.\n        The apmAppDirResponsivenessType value in the index\n        identifies the type of responsiveness metric reported by\n        this entry and uniquely identifies this entry when more\n        than one responsiveness metric is measured for a flow.\n        Entries will only exist in this table for those\n        combinations of AppLocalIndex and ResponsivenessType\n        that are configured 'on(1)'.\n        The protocolDirLocalIndex value in the index identifies\n        the network layer protocol of the apmTransactionServerAddress.\n        The apmTransactionServerAddress value in the index identifies\n        the network layer address of the server in the transaction\n        represented by this entry.\n        The apmNameClientID value in the index identifies the\n        client in the transaction represented by this entry.\n\n        An example of the indexing of this entry is\n        apmTransactionCount.3.1.8.4.192.168.1.2.3232235788.2987\n\n        Note that some combinations of index values may result in an\n        index that exceeds 128 sub-identifiers in length which exceeds\n        the maximum for the SNMP protocol. Implementations should take\n        care to avoid such combinations.")
-apmTransactionServerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 11, 1, 1), ProtocolDirNetworkAddress().subtype(subtypeSpec=ValueSizeConstraint(1,255)))
-if mibBuilder.loadTexts: apmTransactionServerAddress.setDescription("The network server address for this apmTransactionEntry.\n\n        This is represented as an octet string with specific semantics\n        and length as identified by the protocolDirLocalIndex\n        component of the index. This object may not be the zero length\n        string.\n\n        For example, if the protocolDirLocalIndex indicates an\n        encapsulation of ip, this object is encoded as a length octet\n        of 4, followed by the 4 octets of the ip address, in network\n        byte order. Care should be taken to avoid values of this\n        object that, in conjunction with the other index variables,\n        would result in an index longer than SNMP's maximum of 128\n        subidentifiers.")
-apmTransactionID = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 11, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295)))
-if mibBuilder.loadTexts: apmTransactionID.setDescription("A unique value for this transaction amongst other\n        transactions sharing the same application layer protocol and\n        server and client addresses. Implementations may choose to use\n        the value of the client's source port, when possible.")
-apmTransactionResponsiveness = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 11, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmTransactionResponsiveness.setDescription('The current value of the responsiveness metric for this\n        transaction. If this transaction has completed, the final\n        value of the metric will be available.\n\n        Note that this value may change over the lifetime of the\n        transaction and it is the final value of this metric that is\n        recorded as the responsiveness of the transaction for use in\n        other APM MIB functions.')
-apmTransactionAge = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 11, 1, 4), TimeInterval()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmTransactionAge.setDescription('If this transaction is still executing, this value shall be\n\n        the length of time since it was started. If it has completed,\n        this value shall be the length of time it was executing.')
-apmTransactionSuccess = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 11, 1, 5), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmTransactionSuccess.setDescription('The success of this transaction up to this time. Once a\n        transaction has been marked as failed, it cannot move back\n        into the successful state.')
-apmTransactionsRequestedHistorySize = MibScalar((1, 3, 6, 1, 2, 1, 16, 23, 1, 12), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: apmTransactionsRequestedHistorySize.setDescription("The maximum number of completed transactions desired to be\n        retained in the apmTransactionTable. If the agent doesn't have\n        enough resources to retain this many, it will retain as many as\n        possible. Regardless of this value, the agent must attempt to\n        keep records for all current transactions it is monitoring.\n\n        The value of this object must persist across reboots.")
-apmExceptionTable = MibTable((1, 3, 6, 1, 2, 1, 16, 23, 1, 13), )
-if mibBuilder.loadTexts: apmExceptionTable.setDescription('This table creates filters so that a management station can\n        get immediate notification of a transaction that has had poor\n\n        availability or responsiveness.\n\n        Each apmExceptionEntry is associated with a particular type of\n        transaction and is applied to all transactions of that\n        type. Multiple apmExceptionEntries may be associated with a\n        particular type of transaction. A transaction type is\n        identified by the value of the apmAppDirAppLocalIndex\n        component of the index.\n\n        Because the quality of a transaction is not known until it is\n        completed, these thresholds are only applied after the\n        transaction has completed.')
-apmExceptionEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 23, 1, 13, 1), ).setIndexNames((0, "APM-MIB", "apmAppDirAppLocalIndex"), (0, "APM-MIB", "apmAppDirResponsivenessType"), (0, "APM-MIB", "apmExceptionIndex"))
-if mibBuilder.loadTexts: apmExceptionEntry.setDescription('A conceptual row in the apmExceptionTable.\n\n        The apmAppDirAppLocalIndex value in the index identifies\n        the application this entry will monitor.\n        The apmAppDirResponsivenessType value in the index\n        identifies the type of responsiveness metric this entry will\n        monitor.')
-apmExceptionIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 13, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: apmExceptionIndex.setDescription('An index that uniquely identifies an entry in the\n        apmExceptionTable amongst other entries with equivalent index\n        values for apmAppDirAppLocalIndex and\n        apmAppDirResponsivenessType. Each such entry sets up\n        thresholds for a particular measurement of a particular\n        application.')
-apmExceptionResponsivenessComparison = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 13, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("none", 1), ("greater", 2), ("less", 3),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmExceptionResponsivenessComparison.setDescription('If this value is greater(2) or less(3), the associated\n        apmExceptionResponsivenessThreshold will be compared to this\n        value and an exception will be created if the responsiveness\n        is greater than the threshold (greater(2)) or less than the\n        threshold (less(3)).')
-apmExceptionResponsivenessThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 13, 1, 3), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmExceptionResponsivenessThreshold.setDescription('The threshold that responsiveness metrics are compared to.')
-apmExceptionUnsuccessfulException = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 13, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("off", 1), ("on", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmExceptionUnsuccessfulException.setDescription('If this value is on(2), an exception will be created if a\n        transaction of the associated type is unsuccessful.')
-apmExceptionResponsivenessEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 13, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmExceptionResponsivenessEvents.setDescription('The total number of responsiveness exceptions generated. This\n        counter will be incremented even if no notification was sent\n        due to notifications not being configured or due to exceeding\n        the apmNotificationMaxRate value.')
-apmExceptionUnsuccessfulEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 13, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apmExceptionUnsuccessfulEvents.setDescription('The total number of unsuccessful exceptions generated. This\n        counter will be incremented even if no notification was sent\n        due to notifications not being configured or due to exceeding\n        the apmNotificationMaxRate value.')
-apmExceptionOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 13, 1, 7), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmExceptionOwner.setDescription('The entity that configured this entry and is\n        therefore using the resources assigned to it.')
-apmExceptionStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 13, 1, 8), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmExceptionStorageType.setDescription("The storage type of this apmReportControlEntry. If the value\n        of this object is 'permanent', no objects in this row need to\n        be writable.")
-apmExceptionStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 23, 1, 13, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: apmExceptionStatus.setDescription('The status of this apmExceptionEntry. The only objects in the\n        entry that may be modified while the entry is in the active\n        state are apmExceptionResponsivenessComparison,\n        apmExceptionResponsivenessThreshold and\n        apmExceptionUnsuccessfulException.')
-apmThroughputExceptionMinTime = MibScalar((1, 3, 6, 1, 2, 1, 16, 23, 1, 14), Unsigned32().clone(10)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: apmThroughputExceptionMinTime.setDescription("Because the responsiveness for throughput-oriented\n        transactions is divided by the elapsed time, it can be very\n        sensitive to short-term performance variations for\n        transactions that take a short period of time. For example,\n        when downloading a very short file, a single dropped packet\n        could double or triple the total response time.\n\n        Further, throughput is usually examined for applications that\n        transfer a lot of data, and when doing so it is helpful to\n        conceptualize transaction costs that are proportional to the\n        amount of data separately from those costs that are relatively\n        fixed (i.e., independent of the amount of data).  For very\n        short transactions, these fixed transaction costs (handshake,\n        setup time, authentication, round-trip time) may dominate the\n        total response time for the transaction, resulting in\n        throughput measurements that aren't really proportional to the\n        network's, server's and client's combined data throughput\n        capability.\n\n        This object controls the minimum number of seconds that an\n        throughput-based transaction must exceed before an exception\n        can be generated for it. If this object is set to zero, then\n        all throughput-based transactions are candidates for\n        exceptions.\n\n        The value of this object must persist across reboots.")
-apmNotificationMaxRate = MibScalar((1, 3, 6, 1, 2, 1, 16, 23, 1, 15), Unsigned32().clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: apmNotificationMaxRate.setDescription('The maximum number of notifications that can be generated\n        from this agent by the apmExceptionTable in any 60 second\n        period.\n\n        The value of this object must persist across reboots.')
-apmNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 23, 0))
-apmTransactionResponsivenessAlarm = NotificationType((1, 3, 6, 1, 2, 1, 16, 23, 0, 1)).setObjects(*(("APM-MIB", "apmExceptionResponsivenessThreshold"), ("APM-MIB", "apmTransactionResponsiveness"),))
-if mibBuilder.loadTexts: apmTransactionResponsivenessAlarm.setDescription('Notification sent when a transaction exceeds a threshold\n        defined in the apmException table. The index of the\n        included apmExceptionResponsivenessThreshold object identifies\n        the apmExceptionEntry that specified the threshold. The\n        apmTransactionResponsiveness variable identifies the actual\n        transaction and its responsiveness.\n\n        Agent implementors are urged to include additional data\n        objects in the alarm that may explain the reason for the\n        alarm. It is helpful to include such data in the alarm because\n        it describes the situation at the time the alarm was\n        generated, where polls after the fact may not provide\n        meaningful information. Examples of such information are CPU\n        load, memory utilization, network utilization, and transaction\n        statistics.')
-apmTransactionUnsuccessfulAlarm = NotificationType((1, 3, 6, 1, 2, 1, 16, 23, 0, 2)).setObjects(*(("APM-MIB", "apmExceptionResponsivenessThreshold"),))
-if mibBuilder.loadTexts: apmTransactionUnsuccessfulAlarm.setDescription('Notification sent when a transaction is unsuccessful.\n        The index of the included apmExceptionResponsivenessThreshold\n        object identifies both the type of the transaction that caused\n        this notification as well as the apmExceptionEntry that\n        specified the threshold.\n\n        Agent implementors are urged to include additional data\n        objects in the alarm that may explain the reason for the\n        alarm. It is helpful to include such data in the alarm because\n        it describes the situation at the time the alarm was\n        generated, where polls after the fact may not provide\n        meaningful information. Examples of such information are CPU\n        load, memory utilization, network utilization, and transaction\n        statistics.')
-apmCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 16, 23, 2, 1, 1)).setObjects(*(("APM-MIB", "apmAppDirGroup"), ("APM-MIB", "apmReportGroup"), ("APM-MIB", "apmUserDefinedApplicationsGroup"), ("APM-MIB", "apmTransactionGroup"), ("APM-MIB", "apmExceptionGroup"), ("APM-MIB", "apmNotificationGroup"),))
-if mibBuilder.loadTexts: apmCompliance.setDescription('Describes the requirements for conformance to\n        the APM MIB')
-apmAppDirGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 23, 2, 2, 1)).setObjects(*(("APM-MIB", "apmAppDirConfig"), ("APM-MIB", "apmAppDirResponsivenessBoundary1"), ("APM-MIB", "apmAppDirResponsivenessBoundary2"), ("APM-MIB", "apmAppDirResponsivenessBoundary3"), ("APM-MIB", "apmAppDirResponsivenessBoundary4"), ("APM-MIB", "apmAppDirResponsivenessBoundary5"), ("APM-MIB", "apmAppDirResponsivenessBoundary6"), ("APM-MIB", "apmBucketBoundaryLastChange"), ("APM-MIB", "apmAppDirID"), ("APM-MIB", "apmNameMachineName"), ("APM-MIB", "apmNameUserName"),))
-if mibBuilder.loadTexts: apmAppDirGroup.setDescription('The APM MIB directory of applications and application verbs.')
-apmUserDefinedApplicationsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 23, 2, 2, 2)).setObjects(*(("APM-MIB", "apmHttpFilterAppLocalIndex"), ("APM-MIB", "apmHttpFilterServerProtocol"), ("APM-MIB", "apmHttpFilterServerAddress"), ("APM-MIB", "apmHttpFilterURLPath"), ("APM-MIB", "apmHttpFilterMatchType"), ("APM-MIB", "apmHttpFilterOwner"), ("APM-MIB", "apmHttpFilterStorageType"), ("APM-MIB", "apmHttpFilterRowStatus"), ("APM-MIB", "apmHttpIgnoreUnregisteredURLs"), ("APM-MIB", "apmHttp4xxIsFailure"), ("APM-MIB", "apmUserDefinedAppParentIndex"), ("APM-MIB", "apmUserDefinedAppApplication"),))
-if mibBuilder.loadTexts: apmUserDefinedApplicationsGroup.setDescription('Objects used for creating and managing user-defined\n        applications.')
-apmReportGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 23, 2, 2, 3)).setObjects(*(("APM-MIB", "apmReportControlDataSource"), ("APM-MIB", "apmReportControlAggregationType"), ("APM-MIB", "apmReportControlInterval"), ("APM-MIB", "apmReportControlRequestedSize"), ("APM-MIB", "apmReportControlGrantedSize"), ("APM-MIB", "apmReportControlRequestedReports"), ("APM-MIB", "apmReportControlGrantedReports"), ("APM-MIB", "apmReportControlStartTime"), ("APM-MIB", "apmReportControlReportNumber"), ("APM-MIB", "apmReportControlDeniedInserts"), ("APM-MIB", "apmReportControlDroppedFrames"), ("APM-MIB", "apmReportControlOwner"), ("APM-MIB", "apmReportControlStorageType"), ("APM-MIB", "apmReportControlStatus"), ("APM-MIB", "apmReportTransactionCount"), ("APM-MIB", "apmReportSuccessfulTransactions"), ("APM-MIB", "apmReportResponsivenessMean"), ("APM-MIB", "apmReportResponsivenessMin"), ("APM-MIB", "apmReportResponsivenessMax"), ("APM-MIB", "apmReportResponsivenessB1"), ("APM-MIB", "apmReportResponsivenessB2"), ("APM-MIB", "apmReportResponsivenessB3"), ("APM-MIB", "apmReportResponsivenessB4"), ("APM-MIB", "apmReportResponsivenessB5"), ("APM-MIB", "apmReportResponsivenessB6"), ("APM-MIB", "apmReportResponsivenessB7"),))
-if mibBuilder.loadTexts: apmReportGroup.setDescription('The apm report group controls the creation and retrieval of\n        reports that aggregate application performance.')
-apmTransactionGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 23, 2, 2, 4)).setObjects(*(("APM-MIB", "apmTransactionResponsiveness"), ("APM-MIB", "apmTransactionAge"), ("APM-MIB", "apmTransactionSuccess"), ("APM-MIB", "apmTransactionsRequestedHistorySize"),))
-if mibBuilder.loadTexts: apmTransactionGroup.setDescription('The apm transaction group contains statistics for\n        individual transactions.')
-apmExceptionGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 23, 2, 2, 5)).setObjects(*(("APM-MIB", "apmExceptionResponsivenessComparison"), ("APM-MIB", "apmExceptionResponsivenessThreshold"), ("APM-MIB", "apmExceptionUnsuccessfulException"), ("APM-MIB", "apmExceptionResponsivenessEvents"), ("APM-MIB", "apmExceptionUnsuccessfulEvents"), ("APM-MIB", "apmExceptionOwner"), ("APM-MIB", "apmExceptionStorageType"), ("APM-MIB", "apmExceptionStatus"), ("APM-MIB", "apmThroughputExceptionMinTime"), ("APM-MIB", "apmNotificationMaxRate"),))
-if mibBuilder.loadTexts: apmExceptionGroup.setDescription('The apm exception group causes notifications to be sent\n        whenever transactions are detected that had poor availability\n        or responsiveness.')
-apmNotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 16, 23, 2, 2, 6)).setObjects(*(("APM-MIB", "apmTransactionResponsivenessAlarm"), ("APM-MIB", "apmTransactionUnsuccessfulAlarm"),))
-if mibBuilder.loadTexts: apmNotificationGroup.setDescription('Notifications sent by an APM MIB agent.')
-mibBuilder.exportSymbols("APM-MIB", apmHttpFilterRowStatus=apmHttpFilterRowStatus, apmHttpIgnoreUnregisteredURLs=apmHttpIgnoreUnregisteredURLs, apmReportResponsivenessMin=apmReportResponsivenessMin, apmNameTable=apmNameTable, apmReportControlTable=apmReportControlTable, apmTransactionTable=apmTransactionTable, apmReportControlInterval=apmReportControlInterval, apmUserDefinedAppApplication=apmUserDefinedAppApplication, apmExceptionIndex=apmExceptionIndex, apmUserDefinedAppParentIndex=apmUserDefinedAppParentIndex, apmAppDirAppLocalIndex=apmAppDirAppLocalIndex, apmHttpFilterOwner=apmHttpFilterOwner, apmReportControlOwner=apmReportControlOwner, apmUserDefinedAppEntry=apmUserDefinedAppEntry, apmReportSuccessfulTransactions=apmReportSuccessfulTransactions, apmReportControlReportNumber=apmReportControlReportNumber, apmNameMachineName=apmNameMachineName, apmHttpFilterStorageType=apmHttpFilterStorageType, apmExceptionStatus=apmExceptionStatus, apmTransactionsRequestedHistorySize=apmTransactionsRequestedHistorySize, apmReportResponsivenessB5=apmReportResponsivenessB5, apmReportResponsivenessMax=apmReportResponsivenessMax, apmReportControlRequestedSize=apmReportControlRequestedSize, apmNameClientAddress=apmNameClientAddress, apmReportServerAddress=apmReportServerAddress, apmReportTransactionCount=apmReportTransactionCount, apmReportEntry=apmReportEntry, apmReportIndex=apmReportIndex, ProtocolDirNetworkAddress=ProtocolDirNetworkAddress, apmHttpFilterMatchType=apmHttpFilterMatchType, apmReportResponsivenessB4=apmReportResponsivenessB4, apmTransactionResponsiveness=apmTransactionResponsiveness, apmAppDirEntry=apmAppDirEntry, apmHttpFilterEntry=apmHttpFilterEntry, apm=apm, apmNameEntry=apmNameEntry, apmReportResponsivenessMean=apmReportResponsivenessMean, apmAppDirID=apmAppDirID, apmAppDirResponsivenessBoundary4=apmAppDirResponsivenessBoundary4, apmReportGroup=apmReportGroup, apmExceptionStorageType=apmExceptionStorageType, DataSourceOrZero=DataSourceOrZero, apmCompliance=apmCompliance, apmAppDirGroup=apmAppDirGroup, apmUserDefinedApplicationsGroup=apmUserDefinedApplicationsGroup, apmAppDirResponsivenessBoundary1=apmAppDirResponsivenessBoundary1, apmUserDefinedAppTable=apmUserDefinedAppTable, apmTransactionAge=apmTransactionAge, apmNotifications=apmNotifications, apmAppDirResponsivenessType=apmAppDirResponsivenessType, apmAppDirResponsivenessBoundary5=apmAppDirResponsivenessBoundary5, apmReportControlRequestedReports=apmReportControlRequestedReports, apmReportResponsivenessB6=apmReportResponsivenessB6, apmHttpFilterAppLocalIndex=apmHttpFilterAppLocalIndex, apmReportControlGrantedSize=apmReportControlGrantedSize, apmReportControlAggregationType=apmReportControlAggregationType, apmNotificationMaxRate=apmNotificationMaxRate, apmTransactionGroup=apmTransactionGroup, apmReportResponsivenessB3=apmReportResponsivenessB3, apmExceptionEntry=apmExceptionEntry, apmAppDirConfig=apmAppDirConfig, apmReportControlStatus=apmReportControlStatus, apmNameMappingStartTime=apmNameMappingStartTime, apmReportResponsivenessB2=apmReportResponsivenessB2, apmReportControlIndex=apmReportControlIndex, apmExceptionUnsuccessfulEvents=apmExceptionUnsuccessfulEvents, apmNameClientID=apmNameClientID, apmAppDirTable=apmAppDirTable, apmReportControlGrantedReports=apmReportControlGrantedReports, apmTransactionID=apmTransactionID, apmReportControlDroppedFrames=apmReportControlDroppedFrames, apmReportResponsivenessB1=apmReportResponsivenessB1, PYSNMP_MODULE_ID=apm, apmHttp4xxIsFailure=apmHttp4xxIsFailure, apmHttpFilterServerAddress=apmHttpFilterServerAddress, apmExceptionOwner=apmExceptionOwner, apmAppDirResponsivenessBoundary6=apmAppDirResponsivenessBoundary6, apmThroughputExceptionMinTime=apmThroughputExceptionMinTime, apmExceptionGroup=apmExceptionGroup, apmHttpFilterURLPath=apmHttpFilterURLPath, apmHttpFilterServerProtocol=apmHttpFilterServerProtocol, apmReportControlEntry=apmReportControlEntry, apmCompliances=apmCompliances, apmReportTable=apmReportTable, apmReportControlDeniedInserts=apmReportControlDeniedInserts, RmonClientID=RmonClientID, apmTransactionUnsuccessfulAlarm=apmTransactionUnsuccessfulAlarm, apmReportResponsivenessB7=apmReportResponsivenessB7, apmTransactionEntry=apmTransactionEntry, TransactionAggregationType=TransactionAggregationType, apmTransactionServerAddress=apmTransactionServerAddress, apmExceptionResponsivenessEvents=apmExceptionResponsivenessEvents, apmConformance=apmConformance, apmReportControlStorageType=apmReportControlStorageType, apmReportControlStartTime=apmReportControlStartTime, apmNameUserName=apmNameUserName, apmTransactionSuccess=apmTransactionSuccess, apmHttpFilterTable=apmHttpFilterTable, apmTransactionResponsivenessAlarm=apmTransactionResponsivenessAlarm, apmMibObjects=apmMibObjects, apmGroups=apmGroups, apmExceptionTable=apmExceptionTable, apmExceptionUnsuccessfulException=apmExceptionUnsuccessfulException, apmNotificationGroup=apmNotificationGroup, apmAppDirResponsivenessBoundary2=apmAppDirResponsivenessBoundary2, apmReportControlDataSource=apmReportControlDataSource, apmBucketBoundaryLastChange=apmBucketBoundaryLastChange, apmExceptionResponsivenessComparison=apmExceptionResponsivenessComparison, AppLocalIndex=AppLocalIndex, apmAppDirResponsivenessBoundary3=apmAppDirResponsivenessBoundary3, apmHttpFilterIndex=apmHttpFilterIndex, apmExceptionResponsivenessThreshold=apmExceptionResponsivenessThreshold)
+_Ag='apmNotificationGroup'
+_Af='apmExceptionGroup'
+_Ae='apmTransactionGroup'
+_Ad='apmUserDefinedApplicationsGroup'
+_Ac='apmReportGroup'
+_Ab='apmAppDirGroup'
+_Aa='apmTransactionUnsuccessfulAlarm'
+_AZ='apmTransactionResponsivenessAlarm'
+_AY='apmNotificationMaxRate'
+_AX='apmThroughputExceptionMinTime'
+_AW='apmExceptionStatus'
+_AV='apmExceptionStorageType'
+_AU='apmExceptionOwner'
+_AT='apmExceptionUnsuccessfulEvents'
+_AS='apmExceptionResponsivenessEvents'
+_AR='apmExceptionUnsuccessfulException'
+_AQ='apmExceptionResponsivenessComparison'
+_AP='apmTransactionsRequestedHistorySize'
+_AO='apmTransactionSuccess'
+_AN='apmTransactionAge'
+_AM='apmReportResponsivenessB7'
+_AL='apmReportResponsivenessB6'
+_AK='apmReportResponsivenessB5'
+_AJ='apmReportResponsivenessB4'
+_AI='apmReportResponsivenessB3'
+_AH='apmReportResponsivenessB2'
+_AG='apmReportResponsivenessB1'
+_AF='apmReportResponsivenessMax'
+_AE='apmReportResponsivenessMin'
+_AD='apmReportResponsivenessMean'
+_AC='apmReportSuccessfulTransactions'
+_AB='apmReportTransactionCount'
+_AA='apmReportControlStatus'
+_A9='apmReportControlStorageType'
+_A8='apmReportControlOwner'
+_A7='apmReportControlDroppedFrames'
+_A6='apmReportControlDeniedInserts'
+_A5='apmReportControlReportNumber'
+_A4='apmReportControlStartTime'
+_A3='apmReportControlGrantedReports'
+_A2='apmReportControlRequestedReports'
+_A1='apmReportControlGrantedSize'
+_A0='apmReportControlRequestedSize'
+_z='apmReportControlInterval'
+_y='apmReportControlAggregationType'
+_x='apmReportControlDataSource'
+_w='apmUserDefinedAppApplication'
+_v='apmUserDefinedAppParentIndex'
+_u='apmHttp4xxIsFailure'
+_t='apmHttpIgnoreUnregisteredURLs'
+_s='apmHttpFilterRowStatus'
+_r='apmHttpFilterStorageType'
+_q='apmHttpFilterOwner'
+_p='apmHttpFilterMatchType'
+_o='apmHttpFilterURLPath'
+_n='apmHttpFilterServerAddress'
+_m='apmHttpFilterServerProtocol'
+_l='apmHttpFilterAppLocalIndex'
+_k='apmNameUserName'
+_j='apmNameMachineName'
+_i='apmAppDirID'
+_h='apmBucketBoundaryLastChange'
+_g='apmAppDirResponsivenessBoundary6'
+_f='apmAppDirResponsivenessBoundary5'
+_e='apmAppDirResponsivenessBoundary4'
+_d='apmAppDirResponsivenessBoundary3'
+_c='apmAppDirResponsivenessBoundary2'
+_b='apmAppDirResponsivenessBoundary1'
+_a='apmAppDirConfig'
+_Z='apmExceptionIndex'
+_Y='apmTransactionID'
+_X='apmTransactionServerAddress'
+_W='apmReportServerAddress'
+_V='apmReportIndex'
+_U='apmNameMappingStartTime'
+_T='apmNameClientAddress'
+_S='apmHttpFilterIndex'
+_R='OctetString'
+_Q='apmTransactionResponsiveness'
+_P='apmReportControlIndex'
+_O='ProtocolDirNetworkAddress'
+_N='apmExceptionResponsivenessThreshold'
+_M='apmNameClientID'
+_L='protocolDirLocalIndex'
+_K='RMON2-MIB'
+_J='apmAppDirResponsivenessType'
+_I='apmAppDirAppLocalIndex'
+_H='Integer32'
+_G='not-accessible'
+_F='read-write'
+_E='Unsigned32'
+_D='read-create'
+_C='read-only'
+_B='APM-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_R,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+OwnerString,rmon=mibBuilder.importSymbols('RMON-MIB','OwnerString','rmon')
+protocolDirLocalIndex,=mibBuilder.importSymbols(_K,_L)
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso')
+DateAndTime,DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','RowStatus','StorageType','TextualConvention','TimeInterval','TimeStamp','TruthValue')
+apm=ModuleIdentity((1,3,6,1,2,1,16,23))
+if mibBuilder.loadTexts:apm.setRevisions(('2004-02-19 00:00',))
+class AppLocalIndex(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+class ProtocolDirNetworkAddress(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+class DataSourceOrZero(TextualConvention,ObjectIdentifier):status=_A
+class RmonClientID(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+class TransactionAggregationType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('flows',1),('clients',2),('servers',3),('applications',4)))
+_ApmNotifications_ObjectIdentity=ObjectIdentity
+apmNotifications=_ApmNotifications_ObjectIdentity((1,3,6,1,2,1,16,23,0))
+_ApmMibObjects_ObjectIdentity=ObjectIdentity
+apmMibObjects=_ApmMibObjects_ObjectIdentity((1,3,6,1,2,1,16,23,1))
+_ApmAppDirTable_Object=MibTable
+apmAppDirTable=_ApmAppDirTable_Object((1,3,6,1,2,1,16,23,1,1))
+if mibBuilder.loadTexts:apmAppDirTable.setStatus(_A)
+_ApmAppDirEntry_Object=MibTableRow
+apmAppDirEntry=_ApmAppDirEntry_Object((1,3,6,1,2,1,16,23,1,1,1))
+apmAppDirEntry.setIndexNames((0,_B,_I),(0,_B,_J))
+if mibBuilder.loadTexts:apmAppDirEntry.setStatus(_A)
+_ApmAppDirAppLocalIndex_Type=AppLocalIndex
+_ApmAppDirAppLocalIndex_Object=MibTableColumn
+apmAppDirAppLocalIndex=_ApmAppDirAppLocalIndex_Object((1,3,6,1,2,1,16,23,1,1,1,1),_ApmAppDirAppLocalIndex_Type())
+apmAppDirAppLocalIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:apmAppDirAppLocalIndex.setStatus(_A)
+class _ApmAppDirResponsivenessType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('transactionOriented',1),('throughputOriented',2),('streamingOriented',3)))
+_ApmAppDirResponsivenessType_Type.__name__=_H
+_ApmAppDirResponsivenessType_Object=MibTableColumn
+apmAppDirResponsivenessType=_ApmAppDirResponsivenessType_Object((1,3,6,1,2,1,16,23,1,1,1,2),_ApmAppDirResponsivenessType_Type())
+apmAppDirResponsivenessType.setMaxAccess(_G)
+if mibBuilder.loadTexts:apmAppDirResponsivenessType.setStatus(_A)
+class _ApmAppDirConfig_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('off',1),('on',2)))
+_ApmAppDirConfig_Type.__name__=_H
+_ApmAppDirConfig_Object=MibTableColumn
+apmAppDirConfig=_ApmAppDirConfig_Object((1,3,6,1,2,1,16,23,1,1,1,3),_ApmAppDirConfig_Type())
+apmAppDirConfig.setMaxAccess(_F)
+if mibBuilder.loadTexts:apmAppDirConfig.setStatus(_A)
+_ApmAppDirResponsivenessBoundary1_Type=Unsigned32
+_ApmAppDirResponsivenessBoundary1_Object=MibTableColumn
+apmAppDirResponsivenessBoundary1=_ApmAppDirResponsivenessBoundary1_Object((1,3,6,1,2,1,16,23,1,1,1,4),_ApmAppDirResponsivenessBoundary1_Type())
+apmAppDirResponsivenessBoundary1.setMaxAccess(_F)
+if mibBuilder.loadTexts:apmAppDirResponsivenessBoundary1.setStatus(_A)
+_ApmAppDirResponsivenessBoundary2_Type=Unsigned32
+_ApmAppDirResponsivenessBoundary2_Object=MibTableColumn
+apmAppDirResponsivenessBoundary2=_ApmAppDirResponsivenessBoundary2_Object((1,3,6,1,2,1,16,23,1,1,1,5),_ApmAppDirResponsivenessBoundary2_Type())
+apmAppDirResponsivenessBoundary2.setMaxAccess(_F)
+if mibBuilder.loadTexts:apmAppDirResponsivenessBoundary2.setStatus(_A)
+_ApmAppDirResponsivenessBoundary3_Type=Unsigned32
+_ApmAppDirResponsivenessBoundary3_Object=MibTableColumn
+apmAppDirResponsivenessBoundary3=_ApmAppDirResponsivenessBoundary3_Object((1,3,6,1,2,1,16,23,1,1,1,6),_ApmAppDirResponsivenessBoundary3_Type())
+apmAppDirResponsivenessBoundary3.setMaxAccess(_F)
+if mibBuilder.loadTexts:apmAppDirResponsivenessBoundary3.setStatus(_A)
+_ApmAppDirResponsivenessBoundary4_Type=Unsigned32
+_ApmAppDirResponsivenessBoundary4_Object=MibTableColumn
+apmAppDirResponsivenessBoundary4=_ApmAppDirResponsivenessBoundary4_Object((1,3,6,1,2,1,16,23,1,1,1,7),_ApmAppDirResponsivenessBoundary4_Type())
+apmAppDirResponsivenessBoundary4.setMaxAccess(_F)
+if mibBuilder.loadTexts:apmAppDirResponsivenessBoundary4.setStatus(_A)
+_ApmAppDirResponsivenessBoundary5_Type=Unsigned32
+_ApmAppDirResponsivenessBoundary5_Object=MibTableColumn
+apmAppDirResponsivenessBoundary5=_ApmAppDirResponsivenessBoundary5_Object((1,3,6,1,2,1,16,23,1,1,1,8),_ApmAppDirResponsivenessBoundary5_Type())
+apmAppDirResponsivenessBoundary5.setMaxAccess(_F)
+if mibBuilder.loadTexts:apmAppDirResponsivenessBoundary5.setStatus(_A)
+_ApmAppDirResponsivenessBoundary6_Type=Unsigned32
+_ApmAppDirResponsivenessBoundary6_Object=MibTableColumn
+apmAppDirResponsivenessBoundary6=_ApmAppDirResponsivenessBoundary6_Object((1,3,6,1,2,1,16,23,1,1,1,9),_ApmAppDirResponsivenessBoundary6_Type())
+apmAppDirResponsivenessBoundary6.setMaxAccess(_F)
+if mibBuilder.loadTexts:apmAppDirResponsivenessBoundary6.setStatus(_A)
+_ApmBucketBoundaryLastChange_Type=TimeStamp
+_ApmBucketBoundaryLastChange_Object=MibScalar
+apmBucketBoundaryLastChange=_ApmBucketBoundaryLastChange_Object((1,3,6,1,2,1,16,23,1,2),_ApmBucketBoundaryLastChange_Type())
+apmBucketBoundaryLastChange.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmBucketBoundaryLastChange.setStatus(_A)
+_ApmAppDirID_Type=ObjectIdentifier
+_ApmAppDirID_Object=MibScalar
+apmAppDirID=_ApmAppDirID_Object((1,3,6,1,2,1,16,23,1,3),_ApmAppDirID_Type())
+apmAppDirID.setMaxAccess(_F)
+if mibBuilder.loadTexts:apmAppDirID.setStatus(_A)
+_ApmHttpFilterTable_Object=MibTable
+apmHttpFilterTable=_ApmHttpFilterTable_Object((1,3,6,1,2,1,16,23,1,4))
+if mibBuilder.loadTexts:apmHttpFilterTable.setStatus(_A)
+_ApmHttpFilterEntry_Object=MibTableRow
+apmHttpFilterEntry=_ApmHttpFilterEntry_Object((1,3,6,1,2,1,16,23,1,4,1))
+apmHttpFilterEntry.setIndexNames((0,_B,_S))
+if mibBuilder.loadTexts:apmHttpFilterEntry.setStatus(_A)
+class _ApmHttpFilterIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_ApmHttpFilterIndex_Type.__name__=_E
+_ApmHttpFilterIndex_Object=MibTableColumn
+apmHttpFilterIndex=_ApmHttpFilterIndex_Object((1,3,6,1,2,1,16,23,1,4,1,1),_ApmHttpFilterIndex_Type())
+apmHttpFilterIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:apmHttpFilterIndex.setStatus(_A)
+_ApmHttpFilterAppLocalIndex_Type=AppLocalIndex
+_ApmHttpFilterAppLocalIndex_Object=MibTableColumn
+apmHttpFilterAppLocalIndex=_ApmHttpFilterAppLocalIndex_Object((1,3,6,1,2,1,16,23,1,4,1,2),_ApmHttpFilterAppLocalIndex_Type())
+apmHttpFilterAppLocalIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmHttpFilterAppLocalIndex.setStatus(_A)
+class _ApmHttpFilterServerProtocol_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_ApmHttpFilterServerProtocol_Type.__name__=_E
+_ApmHttpFilterServerProtocol_Object=MibTableColumn
+apmHttpFilterServerProtocol=_ApmHttpFilterServerProtocol_Object((1,3,6,1,2,1,16,23,1,4,1,3),_ApmHttpFilterServerProtocol_Type())
+apmHttpFilterServerProtocol.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmHttpFilterServerProtocol.setStatus(_A)
+_ApmHttpFilterServerAddress_Type=ProtocolDirNetworkAddress
+_ApmHttpFilterServerAddress_Object=MibTableColumn
+apmHttpFilterServerAddress=_ApmHttpFilterServerAddress_Object((1,3,6,1,2,1,16,23,1,4,1,4),_ApmHttpFilterServerAddress_Type())
+apmHttpFilterServerAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmHttpFilterServerAddress.setStatus(_A)
+class _ApmHttpFilterURLPath_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,65535))
+_ApmHttpFilterURLPath_Type.__name__=_R
+_ApmHttpFilterURLPath_Object=MibTableColumn
+apmHttpFilterURLPath=_ApmHttpFilterURLPath_Object((1,3,6,1,2,1,16,23,1,4,1,5),_ApmHttpFilterURLPath_Type())
+apmHttpFilterURLPath.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmHttpFilterURLPath.setStatus(_A)
+class _ApmHttpFilterMatchType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('exact',1),('stripTrailingSlash',2),('prefix',3)))
+_ApmHttpFilterMatchType_Type.__name__=_H
+_ApmHttpFilterMatchType_Object=MibTableColumn
+apmHttpFilterMatchType=_ApmHttpFilterMatchType_Object((1,3,6,1,2,1,16,23,1,4,1,6),_ApmHttpFilterMatchType_Type())
+apmHttpFilterMatchType.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmHttpFilterMatchType.setStatus(_A)
+_ApmHttpFilterOwner_Type=OwnerString
+_ApmHttpFilterOwner_Object=MibTableColumn
+apmHttpFilterOwner=_ApmHttpFilterOwner_Object((1,3,6,1,2,1,16,23,1,4,1,7),_ApmHttpFilterOwner_Type())
+apmHttpFilterOwner.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmHttpFilterOwner.setStatus(_A)
+_ApmHttpFilterStorageType_Type=StorageType
+_ApmHttpFilterStorageType_Object=MibTableColumn
+apmHttpFilterStorageType=_ApmHttpFilterStorageType_Object((1,3,6,1,2,1,16,23,1,4,1,8),_ApmHttpFilterStorageType_Type())
+apmHttpFilterStorageType.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmHttpFilterStorageType.setStatus(_A)
+_ApmHttpFilterRowStatus_Type=RowStatus
+_ApmHttpFilterRowStatus_Object=MibTableColumn
+apmHttpFilterRowStatus=_ApmHttpFilterRowStatus_Object((1,3,6,1,2,1,16,23,1,4,1,9),_ApmHttpFilterRowStatus_Type())
+apmHttpFilterRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmHttpFilterRowStatus.setStatus(_A)
+_ApmHttpIgnoreUnregisteredURLs_Type=TruthValue
+_ApmHttpIgnoreUnregisteredURLs_Object=MibScalar
+apmHttpIgnoreUnregisteredURLs=_ApmHttpIgnoreUnregisteredURLs_Object((1,3,6,1,2,1,16,23,1,5),_ApmHttpIgnoreUnregisteredURLs_Type())
+apmHttpIgnoreUnregisteredURLs.setMaxAccess(_F)
+if mibBuilder.loadTexts:apmHttpIgnoreUnregisteredURLs.setStatus(_A)
+_ApmHttp4xxIsFailure_Type=TruthValue
+_ApmHttp4xxIsFailure_Object=MibScalar
+apmHttp4xxIsFailure=_ApmHttp4xxIsFailure_Object((1,3,6,1,2,1,16,23,1,6),_ApmHttp4xxIsFailure_Type())
+apmHttp4xxIsFailure.setMaxAccess(_F)
+if mibBuilder.loadTexts:apmHttp4xxIsFailure.setStatus(_A)
+_ApmUserDefinedAppTable_Object=MibTable
+apmUserDefinedAppTable=_ApmUserDefinedAppTable_Object((1,3,6,1,2,1,16,23,1,7))
+if mibBuilder.loadTexts:apmUserDefinedAppTable.setStatus(_A)
+_ApmUserDefinedAppEntry_Object=MibTableRow
+apmUserDefinedAppEntry=_ApmUserDefinedAppEntry_Object((1,3,6,1,2,1,16,23,1,7,1))
+apmUserDefinedAppEntry.setIndexNames((0,_B,_I))
+if mibBuilder.loadTexts:apmUserDefinedAppEntry.setStatus(_A)
+class _ApmUserDefinedAppParentIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_ApmUserDefinedAppParentIndex_Type.__name__=_E
+_ApmUserDefinedAppParentIndex_Object=MibTableColumn
+apmUserDefinedAppParentIndex=_ApmUserDefinedAppParentIndex_Object((1,3,6,1,2,1,16,23,1,7,1,1),_ApmUserDefinedAppParentIndex_Type())
+apmUserDefinedAppParentIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmUserDefinedAppParentIndex.setStatus(_A)
+_ApmUserDefinedAppApplication_Type=SnmpAdminString
+_ApmUserDefinedAppApplication_Object=MibTableColumn
+apmUserDefinedAppApplication=_ApmUserDefinedAppApplication_Object((1,3,6,1,2,1,16,23,1,7,1,2),_ApmUserDefinedAppApplication_Type())
+apmUserDefinedAppApplication.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmUserDefinedAppApplication.setStatus(_A)
+_ApmNameTable_Object=MibTable
+apmNameTable=_ApmNameTable_Object((1,3,6,1,2,1,16,23,1,8))
+if mibBuilder.loadTexts:apmNameTable.setStatus(_A)
+_ApmNameEntry_Object=MibTableRow
+apmNameEntry=_ApmNameEntry_Object((1,3,6,1,2,1,16,23,1,8,1))
+apmNameEntry.setIndexNames((0,_B,_M),(0,_K,_L),(0,_B,_T),(0,_B,_U))
+if mibBuilder.loadTexts:apmNameEntry.setStatus(_A)
+_ApmNameClientID_Type=RmonClientID
+_ApmNameClientID_Object=MibTableColumn
+apmNameClientID=_ApmNameClientID_Object((1,3,6,1,2,1,16,23,1,8,1,1),_ApmNameClientID_Type())
+apmNameClientID.setMaxAccess(_G)
+if mibBuilder.loadTexts:apmNameClientID.setStatus(_A)
+class _ApmNameClientAddress_Type(ProtocolDirNetworkAddress):subtypeSpec=ProtocolDirNetworkAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_ApmNameClientAddress_Type.__name__=_O
+_ApmNameClientAddress_Object=MibTableColumn
+apmNameClientAddress=_ApmNameClientAddress_Object((1,3,6,1,2,1,16,23,1,8,1,2),_ApmNameClientAddress_Type())
+apmNameClientAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:apmNameClientAddress.setStatus(_A)
+_ApmNameMappingStartTime_Type=DateAndTime
+_ApmNameMappingStartTime_Object=MibTableColumn
+apmNameMappingStartTime=_ApmNameMappingStartTime_Object((1,3,6,1,2,1,16,23,1,8,1,3),_ApmNameMappingStartTime_Type())
+apmNameMappingStartTime.setMaxAccess(_G)
+if mibBuilder.loadTexts:apmNameMappingStartTime.setStatus(_A)
+_ApmNameMachineName_Type=SnmpAdminString
+_ApmNameMachineName_Object=MibTableColumn
+apmNameMachineName=_ApmNameMachineName_Object((1,3,6,1,2,1,16,23,1,8,1,4),_ApmNameMachineName_Type())
+apmNameMachineName.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmNameMachineName.setStatus(_A)
+_ApmNameUserName_Type=SnmpAdminString
+_ApmNameUserName_Object=MibTableColumn
+apmNameUserName=_ApmNameUserName_Object((1,3,6,1,2,1,16,23,1,8,1,5),_ApmNameUserName_Type())
+apmNameUserName.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmNameUserName.setStatus(_A)
+_ApmReportControlTable_Object=MibTable
+apmReportControlTable=_ApmReportControlTable_Object((1,3,6,1,2,1,16,23,1,9))
+if mibBuilder.loadTexts:apmReportControlTable.setStatus(_A)
+_ApmReportControlEntry_Object=MibTableRow
+apmReportControlEntry=_ApmReportControlEntry_Object((1,3,6,1,2,1,16,23,1,9,1))
+apmReportControlEntry.setIndexNames((0,_B,_P))
+if mibBuilder.loadTexts:apmReportControlEntry.setStatus(_A)
+class _ApmReportControlIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_ApmReportControlIndex_Type.__name__=_E
+_ApmReportControlIndex_Object=MibTableColumn
+apmReportControlIndex=_ApmReportControlIndex_Object((1,3,6,1,2,1,16,23,1,9,1,1),_ApmReportControlIndex_Type())
+apmReportControlIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:apmReportControlIndex.setStatus(_A)
+_ApmReportControlDataSource_Type=DataSourceOrZero
+_ApmReportControlDataSource_Object=MibTableColumn
+apmReportControlDataSource=_ApmReportControlDataSource_Object((1,3,6,1,2,1,16,23,1,9,1,2),_ApmReportControlDataSource_Type())
+apmReportControlDataSource.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmReportControlDataSource.setStatus(_A)
+_ApmReportControlAggregationType_Type=TransactionAggregationType
+_ApmReportControlAggregationType_Object=MibTableColumn
+apmReportControlAggregationType=_ApmReportControlAggregationType_Object((1,3,6,1,2,1,16,23,1,9,1,3),_ApmReportControlAggregationType_Type())
+apmReportControlAggregationType.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmReportControlAggregationType.setStatus(_A)
+class _ApmReportControlInterval_Type(Unsigned32):defaultValue=3600
+_ApmReportControlInterval_Type.__name__=_E
+_ApmReportControlInterval_Object=MibTableColumn
+apmReportControlInterval=_ApmReportControlInterval_Object((1,3,6,1,2,1,16,23,1,9,1,4),_ApmReportControlInterval_Type())
+apmReportControlInterval.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmReportControlInterval.setStatus(_A)
+if mibBuilder.loadTexts:apmReportControlInterval.setUnits('Seconds')
+_ApmReportControlRequestedSize_Type=Unsigned32
+_ApmReportControlRequestedSize_Object=MibTableColumn
+apmReportControlRequestedSize=_ApmReportControlRequestedSize_Object((1,3,6,1,2,1,16,23,1,9,1,5),_ApmReportControlRequestedSize_Type())
+apmReportControlRequestedSize.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmReportControlRequestedSize.setStatus(_A)
+_ApmReportControlGrantedSize_Type=Unsigned32
+_ApmReportControlGrantedSize_Object=MibTableColumn
+apmReportControlGrantedSize=_ApmReportControlGrantedSize_Object((1,3,6,1,2,1,16,23,1,9,1,6),_ApmReportControlGrantedSize_Type())
+apmReportControlGrantedSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportControlGrantedSize.setStatus(_A)
+class _ApmReportControlRequestedReports_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_ApmReportControlRequestedReports_Type.__name__=_E
+_ApmReportControlRequestedReports_Object=MibTableColumn
+apmReportControlRequestedReports=_ApmReportControlRequestedReports_Object((1,3,6,1,2,1,16,23,1,9,1,7),_ApmReportControlRequestedReports_Type())
+apmReportControlRequestedReports.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmReportControlRequestedReports.setStatus(_A)
+class _ApmReportControlGrantedReports_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_ApmReportControlGrantedReports_Type.__name__=_E
+_ApmReportControlGrantedReports_Object=MibTableColumn
+apmReportControlGrantedReports=_ApmReportControlGrantedReports_Object((1,3,6,1,2,1,16,23,1,9,1,8),_ApmReportControlGrantedReports_Type())
+apmReportControlGrantedReports.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportControlGrantedReports.setStatus(_A)
+_ApmReportControlStartTime_Type=TimeStamp
+_ApmReportControlStartTime_Object=MibTableColumn
+apmReportControlStartTime=_ApmReportControlStartTime_Object((1,3,6,1,2,1,16,23,1,9,1,9),_ApmReportControlStartTime_Type())
+apmReportControlStartTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportControlStartTime.setStatus(_A)
+class _ApmReportControlReportNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_ApmReportControlReportNumber_Type.__name__=_E
+_ApmReportControlReportNumber_Object=MibTableColumn
+apmReportControlReportNumber=_ApmReportControlReportNumber_Object((1,3,6,1,2,1,16,23,1,9,1,10),_ApmReportControlReportNumber_Type())
+apmReportControlReportNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportControlReportNumber.setStatus(_A)
+_ApmReportControlDeniedInserts_Type=Counter32
+_ApmReportControlDeniedInserts_Object=MibTableColumn
+apmReportControlDeniedInserts=_ApmReportControlDeniedInserts_Object((1,3,6,1,2,1,16,23,1,9,1,11),_ApmReportControlDeniedInserts_Type())
+apmReportControlDeniedInserts.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportControlDeniedInserts.setStatus(_A)
+_ApmReportControlDroppedFrames_Type=Counter32
+_ApmReportControlDroppedFrames_Object=MibTableColumn
+apmReportControlDroppedFrames=_ApmReportControlDroppedFrames_Object((1,3,6,1,2,1,16,23,1,9,1,12),_ApmReportControlDroppedFrames_Type())
+apmReportControlDroppedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportControlDroppedFrames.setStatus(_A)
+_ApmReportControlOwner_Type=OwnerString
+_ApmReportControlOwner_Object=MibTableColumn
+apmReportControlOwner=_ApmReportControlOwner_Object((1,3,6,1,2,1,16,23,1,9,1,13),_ApmReportControlOwner_Type())
+apmReportControlOwner.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmReportControlOwner.setStatus(_A)
+_ApmReportControlStorageType_Type=StorageType
+_ApmReportControlStorageType_Object=MibTableColumn
+apmReportControlStorageType=_ApmReportControlStorageType_Object((1,3,6,1,2,1,16,23,1,9,1,14),_ApmReportControlStorageType_Type())
+apmReportControlStorageType.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmReportControlStorageType.setStatus(_A)
+_ApmReportControlStatus_Type=RowStatus
+_ApmReportControlStatus_Object=MibTableColumn
+apmReportControlStatus=_ApmReportControlStatus_Object((1,3,6,1,2,1,16,23,1,9,1,15),_ApmReportControlStatus_Type())
+apmReportControlStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmReportControlStatus.setStatus(_A)
+_ApmReportTable_Object=MibTable
+apmReportTable=_ApmReportTable_Object((1,3,6,1,2,1,16,23,1,10))
+if mibBuilder.loadTexts:apmReportTable.setStatus(_A)
+_ApmReportEntry_Object=MibTableRow
+apmReportEntry=_ApmReportEntry_Object((1,3,6,1,2,1,16,23,1,10,1))
+apmReportEntry.setIndexNames((0,_B,_P),(0,_B,_V),(0,_B,_I),(0,_B,_J),(0,_K,_L),(0,_B,_W),(0,_B,_M))
+if mibBuilder.loadTexts:apmReportEntry.setStatus(_A)
+class _ApmReportIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_ApmReportIndex_Type.__name__=_E
+_ApmReportIndex_Object=MibTableColumn
+apmReportIndex=_ApmReportIndex_Object((1,3,6,1,2,1,16,23,1,10,1,1),_ApmReportIndex_Type())
+apmReportIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:apmReportIndex.setStatus(_A)
+_ApmReportServerAddress_Type=ProtocolDirNetworkAddress
+_ApmReportServerAddress_Object=MibTableColumn
+apmReportServerAddress=_ApmReportServerAddress_Object((1,3,6,1,2,1,16,23,1,10,1,2),_ApmReportServerAddress_Type())
+apmReportServerAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:apmReportServerAddress.setStatus(_A)
+_ApmReportTransactionCount_Type=Unsigned32
+_ApmReportTransactionCount_Object=MibTableColumn
+apmReportTransactionCount=_ApmReportTransactionCount_Object((1,3,6,1,2,1,16,23,1,10,1,3),_ApmReportTransactionCount_Type())
+apmReportTransactionCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportTransactionCount.setStatus(_A)
+_ApmReportSuccessfulTransactions_Type=Unsigned32
+_ApmReportSuccessfulTransactions_Object=MibTableColumn
+apmReportSuccessfulTransactions=_ApmReportSuccessfulTransactions_Object((1,3,6,1,2,1,16,23,1,10,1,4),_ApmReportSuccessfulTransactions_Type())
+apmReportSuccessfulTransactions.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportSuccessfulTransactions.setStatus(_A)
+_ApmReportResponsivenessMean_Type=Unsigned32
+_ApmReportResponsivenessMean_Object=MibTableColumn
+apmReportResponsivenessMean=_ApmReportResponsivenessMean_Object((1,3,6,1,2,1,16,23,1,10,1,5),_ApmReportResponsivenessMean_Type())
+apmReportResponsivenessMean.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportResponsivenessMean.setStatus(_A)
+_ApmReportResponsivenessMin_Type=Unsigned32
+_ApmReportResponsivenessMin_Object=MibTableColumn
+apmReportResponsivenessMin=_ApmReportResponsivenessMin_Object((1,3,6,1,2,1,16,23,1,10,1,6),_ApmReportResponsivenessMin_Type())
+apmReportResponsivenessMin.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportResponsivenessMin.setStatus(_A)
+_ApmReportResponsivenessMax_Type=Unsigned32
+_ApmReportResponsivenessMax_Object=MibTableColumn
+apmReportResponsivenessMax=_ApmReportResponsivenessMax_Object((1,3,6,1,2,1,16,23,1,10,1,7),_ApmReportResponsivenessMax_Type())
+apmReportResponsivenessMax.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportResponsivenessMax.setStatus(_A)
+_ApmReportResponsivenessB1_Type=Unsigned32
+_ApmReportResponsivenessB1_Object=MibTableColumn
+apmReportResponsivenessB1=_ApmReportResponsivenessB1_Object((1,3,6,1,2,1,16,23,1,10,1,8),_ApmReportResponsivenessB1_Type())
+apmReportResponsivenessB1.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportResponsivenessB1.setStatus(_A)
+_ApmReportResponsivenessB2_Type=Unsigned32
+_ApmReportResponsivenessB2_Object=MibTableColumn
+apmReportResponsivenessB2=_ApmReportResponsivenessB2_Object((1,3,6,1,2,1,16,23,1,10,1,9),_ApmReportResponsivenessB2_Type())
+apmReportResponsivenessB2.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportResponsivenessB2.setStatus(_A)
+_ApmReportResponsivenessB3_Type=Unsigned32
+_ApmReportResponsivenessB3_Object=MibTableColumn
+apmReportResponsivenessB3=_ApmReportResponsivenessB3_Object((1,3,6,1,2,1,16,23,1,10,1,10),_ApmReportResponsivenessB3_Type())
+apmReportResponsivenessB3.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportResponsivenessB3.setStatus(_A)
+_ApmReportResponsivenessB4_Type=Unsigned32
+_ApmReportResponsivenessB4_Object=MibTableColumn
+apmReportResponsivenessB4=_ApmReportResponsivenessB4_Object((1,3,6,1,2,1,16,23,1,10,1,11),_ApmReportResponsivenessB4_Type())
+apmReportResponsivenessB4.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportResponsivenessB4.setStatus(_A)
+_ApmReportResponsivenessB5_Type=Unsigned32
+_ApmReportResponsivenessB5_Object=MibTableColumn
+apmReportResponsivenessB5=_ApmReportResponsivenessB5_Object((1,3,6,1,2,1,16,23,1,10,1,12),_ApmReportResponsivenessB5_Type())
+apmReportResponsivenessB5.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportResponsivenessB5.setStatus(_A)
+_ApmReportResponsivenessB6_Type=Unsigned32
+_ApmReportResponsivenessB6_Object=MibTableColumn
+apmReportResponsivenessB6=_ApmReportResponsivenessB6_Object((1,3,6,1,2,1,16,23,1,10,1,13),_ApmReportResponsivenessB6_Type())
+apmReportResponsivenessB6.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportResponsivenessB6.setStatus(_A)
+_ApmReportResponsivenessB7_Type=Unsigned32
+_ApmReportResponsivenessB7_Object=MibTableColumn
+apmReportResponsivenessB7=_ApmReportResponsivenessB7_Object((1,3,6,1,2,1,16,23,1,10,1,14),_ApmReportResponsivenessB7_Type())
+apmReportResponsivenessB7.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmReportResponsivenessB7.setStatus(_A)
+_ApmTransactionTable_Object=MibTable
+apmTransactionTable=_ApmTransactionTable_Object((1,3,6,1,2,1,16,23,1,11))
+if mibBuilder.loadTexts:apmTransactionTable.setStatus(_A)
+_ApmTransactionEntry_Object=MibTableRow
+apmTransactionEntry=_ApmTransactionEntry_Object((1,3,6,1,2,1,16,23,1,11,1))
+apmTransactionEntry.setIndexNames((0,_B,_I),(0,_B,_J),(0,_K,_L),(0,_B,_X),(0,_B,_M),(0,_B,_Y))
+if mibBuilder.loadTexts:apmTransactionEntry.setStatus(_A)
+class _ApmTransactionServerAddress_Type(ProtocolDirNetworkAddress):subtypeSpec=ProtocolDirNetworkAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_ApmTransactionServerAddress_Type.__name__=_O
+_ApmTransactionServerAddress_Object=MibTableColumn
+apmTransactionServerAddress=_ApmTransactionServerAddress_Object((1,3,6,1,2,1,16,23,1,11,1,1),_ApmTransactionServerAddress_Type())
+apmTransactionServerAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:apmTransactionServerAddress.setStatus(_A)
+class _ApmTransactionID_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_ApmTransactionID_Type.__name__=_E
+_ApmTransactionID_Object=MibTableColumn
+apmTransactionID=_ApmTransactionID_Object((1,3,6,1,2,1,16,23,1,11,1,2),_ApmTransactionID_Type())
+apmTransactionID.setMaxAccess(_G)
+if mibBuilder.loadTexts:apmTransactionID.setStatus(_A)
+_ApmTransactionResponsiveness_Type=Unsigned32
+_ApmTransactionResponsiveness_Object=MibTableColumn
+apmTransactionResponsiveness=_ApmTransactionResponsiveness_Object((1,3,6,1,2,1,16,23,1,11,1,3),_ApmTransactionResponsiveness_Type())
+apmTransactionResponsiveness.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmTransactionResponsiveness.setStatus(_A)
+_ApmTransactionAge_Type=TimeInterval
+_ApmTransactionAge_Object=MibTableColumn
+apmTransactionAge=_ApmTransactionAge_Object((1,3,6,1,2,1,16,23,1,11,1,4),_ApmTransactionAge_Type())
+apmTransactionAge.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmTransactionAge.setStatus(_A)
+_ApmTransactionSuccess_Type=TruthValue
+_ApmTransactionSuccess_Object=MibTableColumn
+apmTransactionSuccess=_ApmTransactionSuccess_Object((1,3,6,1,2,1,16,23,1,11,1,5),_ApmTransactionSuccess_Type())
+apmTransactionSuccess.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmTransactionSuccess.setStatus(_A)
+_ApmTransactionsRequestedHistorySize_Type=Unsigned32
+_ApmTransactionsRequestedHistorySize_Object=MibScalar
+apmTransactionsRequestedHistorySize=_ApmTransactionsRequestedHistorySize_Object((1,3,6,1,2,1,16,23,1,12),_ApmTransactionsRequestedHistorySize_Type())
+apmTransactionsRequestedHistorySize.setMaxAccess(_F)
+if mibBuilder.loadTexts:apmTransactionsRequestedHistorySize.setStatus(_A)
+_ApmExceptionTable_Object=MibTable
+apmExceptionTable=_ApmExceptionTable_Object((1,3,6,1,2,1,16,23,1,13))
+if mibBuilder.loadTexts:apmExceptionTable.setStatus(_A)
+_ApmExceptionEntry_Object=MibTableRow
+apmExceptionEntry=_ApmExceptionEntry_Object((1,3,6,1,2,1,16,23,1,13,1))
+apmExceptionEntry.setIndexNames((0,_B,_I),(0,_B,_J),(0,_B,_Z))
+if mibBuilder.loadTexts:apmExceptionEntry.setStatus(_A)
+class _ApmExceptionIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_ApmExceptionIndex_Type.__name__=_E
+_ApmExceptionIndex_Object=MibTableColumn
+apmExceptionIndex=_ApmExceptionIndex_Object((1,3,6,1,2,1,16,23,1,13,1,1),_ApmExceptionIndex_Type())
+apmExceptionIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:apmExceptionIndex.setStatus(_A)
+class _ApmExceptionResponsivenessComparison_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('greater',2),('less',3)))
+_ApmExceptionResponsivenessComparison_Type.__name__=_H
+_ApmExceptionResponsivenessComparison_Object=MibTableColumn
+apmExceptionResponsivenessComparison=_ApmExceptionResponsivenessComparison_Object((1,3,6,1,2,1,16,23,1,13,1,2),_ApmExceptionResponsivenessComparison_Type())
+apmExceptionResponsivenessComparison.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmExceptionResponsivenessComparison.setStatus(_A)
+_ApmExceptionResponsivenessThreshold_Type=Unsigned32
+_ApmExceptionResponsivenessThreshold_Object=MibTableColumn
+apmExceptionResponsivenessThreshold=_ApmExceptionResponsivenessThreshold_Object((1,3,6,1,2,1,16,23,1,13,1,3),_ApmExceptionResponsivenessThreshold_Type())
+apmExceptionResponsivenessThreshold.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmExceptionResponsivenessThreshold.setStatus(_A)
+class _ApmExceptionUnsuccessfulException_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('off',1),('on',2)))
+_ApmExceptionUnsuccessfulException_Type.__name__=_H
+_ApmExceptionUnsuccessfulException_Object=MibTableColumn
+apmExceptionUnsuccessfulException=_ApmExceptionUnsuccessfulException_Object((1,3,6,1,2,1,16,23,1,13,1,4),_ApmExceptionUnsuccessfulException_Type())
+apmExceptionUnsuccessfulException.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmExceptionUnsuccessfulException.setStatus(_A)
+_ApmExceptionResponsivenessEvents_Type=Counter32
+_ApmExceptionResponsivenessEvents_Object=MibTableColumn
+apmExceptionResponsivenessEvents=_ApmExceptionResponsivenessEvents_Object((1,3,6,1,2,1,16,23,1,13,1,5),_ApmExceptionResponsivenessEvents_Type())
+apmExceptionResponsivenessEvents.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmExceptionResponsivenessEvents.setStatus(_A)
+_ApmExceptionUnsuccessfulEvents_Type=Counter32
+_ApmExceptionUnsuccessfulEvents_Object=MibTableColumn
+apmExceptionUnsuccessfulEvents=_ApmExceptionUnsuccessfulEvents_Object((1,3,6,1,2,1,16,23,1,13,1,6),_ApmExceptionUnsuccessfulEvents_Type())
+apmExceptionUnsuccessfulEvents.setMaxAccess(_C)
+if mibBuilder.loadTexts:apmExceptionUnsuccessfulEvents.setStatus(_A)
+_ApmExceptionOwner_Type=OwnerString
+_ApmExceptionOwner_Object=MibTableColumn
+apmExceptionOwner=_ApmExceptionOwner_Object((1,3,6,1,2,1,16,23,1,13,1,7),_ApmExceptionOwner_Type())
+apmExceptionOwner.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmExceptionOwner.setStatus(_A)
+_ApmExceptionStorageType_Type=StorageType
+_ApmExceptionStorageType_Object=MibTableColumn
+apmExceptionStorageType=_ApmExceptionStorageType_Object((1,3,6,1,2,1,16,23,1,13,1,8),_ApmExceptionStorageType_Type())
+apmExceptionStorageType.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmExceptionStorageType.setStatus(_A)
+_ApmExceptionStatus_Type=RowStatus
+_ApmExceptionStatus_Object=MibTableColumn
+apmExceptionStatus=_ApmExceptionStatus_Object((1,3,6,1,2,1,16,23,1,13,1,9),_ApmExceptionStatus_Type())
+apmExceptionStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:apmExceptionStatus.setStatus(_A)
+class _ApmThroughputExceptionMinTime_Type(Unsigned32):defaultValue=10
+_ApmThroughputExceptionMinTime_Type.__name__=_E
+_ApmThroughputExceptionMinTime_Object=MibScalar
+apmThroughputExceptionMinTime=_ApmThroughputExceptionMinTime_Object((1,3,6,1,2,1,16,23,1,14),_ApmThroughputExceptionMinTime_Type())
+apmThroughputExceptionMinTime.setMaxAccess(_F)
+if mibBuilder.loadTexts:apmThroughputExceptionMinTime.setStatus(_A)
+if mibBuilder.loadTexts:apmThroughputExceptionMinTime.setUnits('seconds')
+class _ApmNotificationMaxRate_Type(Unsigned32):defaultValue=1
+_ApmNotificationMaxRate_Type.__name__=_E
+_ApmNotificationMaxRate_Object=MibScalar
+apmNotificationMaxRate=_ApmNotificationMaxRate_Object((1,3,6,1,2,1,16,23,1,15),_ApmNotificationMaxRate_Type())
+apmNotificationMaxRate.setMaxAccess(_F)
+if mibBuilder.loadTexts:apmNotificationMaxRate.setStatus(_A)
+_ApmConformance_ObjectIdentity=ObjectIdentity
+apmConformance=_ApmConformance_ObjectIdentity((1,3,6,1,2,1,16,23,2))
+_ApmCompliances_ObjectIdentity=ObjectIdentity
+apmCompliances=_ApmCompliances_ObjectIdentity((1,3,6,1,2,1,16,23,2,1))
+_ApmGroups_ObjectIdentity=ObjectIdentity
+apmGroups=_ApmGroups_ObjectIdentity((1,3,6,1,2,1,16,23,2,2))
+apmAppDirGroup=ObjectGroup((1,3,6,1,2,1,16,23,2,2,1))
+apmAppDirGroup.setObjects(*((_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k)))
+if mibBuilder.loadTexts:apmAppDirGroup.setStatus(_A)
+apmUserDefinedApplicationsGroup=ObjectGroup((1,3,6,1,2,1,16,23,2,2,2))
+apmUserDefinedApplicationsGroup.setObjects(*((_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w)))
+if mibBuilder.loadTexts:apmUserDefinedApplicationsGroup.setStatus(_A)
+apmReportGroup=ObjectGroup((1,3,6,1,2,1,16,23,2,2,3))
+apmReportGroup.setObjects(*((_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM)))
+if mibBuilder.loadTexts:apmReportGroup.setStatus(_A)
+apmTransactionGroup=ObjectGroup((1,3,6,1,2,1,16,23,2,2,4))
+apmTransactionGroup.setObjects(*((_B,_Q),(_B,_AN),(_B,_AO),(_B,_AP)))
+if mibBuilder.loadTexts:apmTransactionGroup.setStatus(_A)
+apmExceptionGroup=ObjectGroup((1,3,6,1,2,1,16,23,2,2,5))
+apmExceptionGroup.setObjects(*((_B,_AQ),(_B,_N),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY)))
+if mibBuilder.loadTexts:apmExceptionGroup.setStatus(_A)
+apmTransactionResponsivenessAlarm=NotificationType((1,3,6,1,2,1,16,23,0,1))
+apmTransactionResponsivenessAlarm.setObjects(*((_B,_N),(_B,_Q)))
+if mibBuilder.loadTexts:apmTransactionResponsivenessAlarm.setStatus(_A)
+apmTransactionUnsuccessfulAlarm=NotificationType((1,3,6,1,2,1,16,23,0,2))
+apmTransactionUnsuccessfulAlarm.setObjects((_B,_N))
+if mibBuilder.loadTexts:apmTransactionUnsuccessfulAlarm.setStatus(_A)
+apmNotificationGroup=NotificationGroup((1,3,6,1,2,1,16,23,2,2,6))
+apmNotificationGroup.setObjects(*((_B,_AZ),(_B,_Aa)))
+if mibBuilder.loadTexts:apmNotificationGroup.setStatus(_A)
+apmCompliance=ModuleCompliance((1,3,6,1,2,1,16,23,2,1,1))
+apmCompliance.setObjects(*((_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag)))
+if mibBuilder.loadTexts:apmCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'AppLocalIndex':AppLocalIndex,_O:ProtocolDirNetworkAddress,'DataSourceOrZero':DataSourceOrZero,'RmonClientID':RmonClientID,'TransactionAggregationType':TransactionAggregationType,'apm':apm,'apmNotifications':apmNotifications,_AZ:apmTransactionResponsivenessAlarm,_Aa:apmTransactionUnsuccessfulAlarm,'apmMibObjects':apmMibObjects,'apmAppDirTable':apmAppDirTable,'apmAppDirEntry':apmAppDirEntry,_I:apmAppDirAppLocalIndex,_J:apmAppDirResponsivenessType,_a:apmAppDirConfig,_b:apmAppDirResponsivenessBoundary1,_c:apmAppDirResponsivenessBoundary2,_d:apmAppDirResponsivenessBoundary3,_e:apmAppDirResponsivenessBoundary4,_f:apmAppDirResponsivenessBoundary5,_g:apmAppDirResponsivenessBoundary6,_h:apmBucketBoundaryLastChange,_i:apmAppDirID,'apmHttpFilterTable':apmHttpFilterTable,'apmHttpFilterEntry':apmHttpFilterEntry,_S:apmHttpFilterIndex,_l:apmHttpFilterAppLocalIndex,_m:apmHttpFilterServerProtocol,_n:apmHttpFilterServerAddress,_o:apmHttpFilterURLPath,_p:apmHttpFilterMatchType,_q:apmHttpFilterOwner,_r:apmHttpFilterStorageType,_s:apmHttpFilterRowStatus,_t:apmHttpIgnoreUnregisteredURLs,_u:apmHttp4xxIsFailure,'apmUserDefinedAppTable':apmUserDefinedAppTable,'apmUserDefinedAppEntry':apmUserDefinedAppEntry,_v:apmUserDefinedAppParentIndex,_w:apmUserDefinedAppApplication,'apmNameTable':apmNameTable,'apmNameEntry':apmNameEntry,_M:apmNameClientID,_T:apmNameClientAddress,_U:apmNameMappingStartTime,_j:apmNameMachineName,_k:apmNameUserName,'apmReportControlTable':apmReportControlTable,'apmReportControlEntry':apmReportControlEntry,_P:apmReportControlIndex,_x:apmReportControlDataSource,_y:apmReportControlAggregationType,_z:apmReportControlInterval,_A0:apmReportControlRequestedSize,_A1:apmReportControlGrantedSize,_A2:apmReportControlRequestedReports,_A3:apmReportControlGrantedReports,_A4:apmReportControlStartTime,_A5:apmReportControlReportNumber,_A6:apmReportControlDeniedInserts,_A7:apmReportControlDroppedFrames,_A8:apmReportControlOwner,_A9:apmReportControlStorageType,_AA:apmReportControlStatus,'apmReportTable':apmReportTable,'apmReportEntry':apmReportEntry,_V:apmReportIndex,_W:apmReportServerAddress,_AB:apmReportTransactionCount,_AC:apmReportSuccessfulTransactions,_AD:apmReportResponsivenessMean,_AE:apmReportResponsivenessMin,_AF:apmReportResponsivenessMax,_AG:apmReportResponsivenessB1,_AH:apmReportResponsivenessB2,_AI:apmReportResponsivenessB3,_AJ:apmReportResponsivenessB4,_AK:apmReportResponsivenessB5,_AL:apmReportResponsivenessB6,_AM:apmReportResponsivenessB7,'apmTransactionTable':apmTransactionTable,'apmTransactionEntry':apmTransactionEntry,_X:apmTransactionServerAddress,_Y:apmTransactionID,_Q:apmTransactionResponsiveness,_AN:apmTransactionAge,_AO:apmTransactionSuccess,_AP:apmTransactionsRequestedHistorySize,'apmExceptionTable':apmExceptionTable,'apmExceptionEntry':apmExceptionEntry,_Z:apmExceptionIndex,_AQ:apmExceptionResponsivenessComparison,_N:apmExceptionResponsivenessThreshold,_AR:apmExceptionUnsuccessfulException,_AS:apmExceptionResponsivenessEvents,_AT:apmExceptionUnsuccessfulEvents,_AU:apmExceptionOwner,_AV:apmExceptionStorageType,_AW:apmExceptionStatus,_AX:apmThroughputExceptionMinTime,_AY:apmNotificationMaxRate,'apmConformance':apmConformance,'apmCompliances':apmCompliances,'apmCompliance':apmCompliance,'apmGroups':apmGroups,_Ab:apmAppDirGroup,_Ad:apmUserDefinedApplicationsGroup,_Ac:apmReportGroup,_Ae:apmTransactionGroup,_Af:apmExceptionGroup,_Ag:apmNotificationGroup})

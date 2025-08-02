@@ -1,0 +1,13 @@
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+l2L3VpnMcastTCMIB=ModuleIdentity((1,3,6,1,2,1,244))
+if mibBuilder.loadTexts:l2L3VpnMcastTCMIB.setRevisions(('2018-12-14 00:00',))
+class L2L3VpnMcastProviderTunnelType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('noTunnelInfo',0),('rsvpP2mp',1),('ldpP2mp',2),('pimSsm',3),('pimAsm',4),('pimBidir',5),('ingressReplication',6),('ldpMp2mp',7),('transportTunnel',8)))
+class L2L3VpnMcastProviderTunnelId(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(12,12),ValueSizeConstraint(16,16),ValueSizeConstraint(17,17),ValueSizeConstraint(24,24),ValueSizeConstraint(29,29),ValueSizeConstraint(32,32))
+mibBuilder.exportSymbols('L2L3-VPN-MULTICAST-TC-MIB',**{'L2L3VpnMcastProviderTunnelType':L2L3VpnMcastProviderTunnelType,'L2L3VpnMcastProviderTunnelId':L2L3VpnMcastProviderTunnelId,'l2L3VpnMcastTCMIB':l2L3VpnMcastTCMIB})

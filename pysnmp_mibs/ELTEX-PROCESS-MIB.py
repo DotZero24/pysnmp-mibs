@@ -1,0 +1,301 @@
+_W='eltexProcessMemoryThresholdIndex'
+_V='eltexProcessCPUThresholdIndex'
+_U='eltexProcessMemoryFreePercent'
+_T='eltexProcessMemoryThresholdValue'
+_S='eltexProcessMemoryThresholdRelation'
+_R='eltexProcessMemoryThresholdSeverity'
+_Q='eltexProcessCPUMonitorValue'
+_P='eltexProcessCPUThresholdValue'
+_O='eltexProcessCPUThresholdRelation'
+_N='eltexProcessCPUThresholdSeverity'
+_M='eltexProcessMemoryIndex'
+_L='eltexProcessCPUMonitorInterval'
+_K='eltexProcessCPUMonitorIndex'
+_J='SyslogSeverity'
+_I='EltexPercent'
+_H='read-write'
+_G='not-accessible'
+_F='bytes'
+_E='TruthValue'
+_D='read-create'
+_C='read-only'
+_B='ELTEX-PROCESS-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+eltexLtd,=mibBuilder.importSymbols('ELTEX-SMI-ACTUAL','eltexLtd')
+EltexPercent,EltexThresholdRelation=mibBuilder.importSymbols('ELTEX-TC',_I,'EltexThresholdRelation')
+PhysicalIndex,=mibBuilder.importSymbols('ENTITY-MIB','PhysicalIndex')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_E)
+SyslogSeverity,=mibBuilder.importSymbols('SYSLOG-TC-MIB',_J)
+eltexProcessMIB=ModuleIdentity((1,3,6,1,4,1,35265,41))
+if mibBuilder.loadTexts:eltexProcessMIB.setRevisions(('2017-05-02 00:00',))
+_EltexProcessMIBObjects_ObjectIdentity=ObjectIdentity
+eltexProcessMIBObjects=_EltexProcessMIBObjects_ObjectIdentity((1,3,6,1,4,1,35265,41,1))
+_EltexProcessCPU_ObjectIdentity=ObjectIdentity
+eltexProcessCPU=_EltexProcessCPU_ObjectIdentity((1,3,6,1,4,1,35265,41,1,1))
+_EltexProcessCPUMonitorTable_Object=MibTable
+eltexProcessCPUMonitorTable=_EltexProcessCPUMonitorTable_Object((1,3,6,1,4,1,35265,41,1,1,1))
+if mibBuilder.loadTexts:eltexProcessCPUMonitorTable.setStatus(_A)
+_EltexProcessCPUMonitorEntry_Object=MibTableRow
+eltexProcessCPUMonitorEntry=_EltexProcessCPUMonitorEntry_Object((1,3,6,1,4,1,35265,41,1,1,1,1))
+eltexProcessCPUMonitorEntry.setIndexNames((0,_B,_K),(0,_B,_L))
+if mibBuilder.loadTexts:eltexProcessCPUMonitorEntry.setStatus(_A)
+_EltexProcessCPUMonitorIndex_Type=Unsigned32
+_EltexProcessCPUMonitorIndex_Object=MibTableColumn
+eltexProcessCPUMonitorIndex=_EltexProcessCPUMonitorIndex_Object((1,3,6,1,4,1,35265,41,1,1,1,1,1),_EltexProcessCPUMonitorIndex_Type())
+eltexProcessCPUMonitorIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:eltexProcessCPUMonitorIndex.setStatus(_A)
+_EltexProcessCPUMonitorInterval_Type=Unsigned32
+_EltexProcessCPUMonitorInterval_Object=MibTableColumn
+eltexProcessCPUMonitorInterval=_EltexProcessCPUMonitorInterval_Object((1,3,6,1,4,1,35265,41,1,1,1,1,2),_EltexProcessCPUMonitorInterval_Type())
+eltexProcessCPUMonitorInterval.setMaxAccess(_G)
+if mibBuilder.loadTexts:eltexProcessCPUMonitorInterval.setStatus(_A)
+if mibBuilder.loadTexts:eltexProcessCPUMonitorInterval.setUnits('seconds')
+_EltexProcessCPUMonitorPhysicalIndex_Type=PhysicalIndex
+_EltexProcessCPUMonitorPhysicalIndex_Object=MibTableColumn
+eltexProcessCPUMonitorPhysicalIndex=_EltexProcessCPUMonitorPhysicalIndex_Object((1,3,6,1,4,1,35265,41,1,1,1,1,3),_EltexProcessCPUMonitorPhysicalIndex_Type())
+eltexProcessCPUMonitorPhysicalIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:eltexProcessCPUMonitorPhysicalIndex.setStatus(_A)
+_EltexProcessCPUMonitorValue_Type=EltexPercent
+_EltexProcessCPUMonitorValue_Object=MibTableColumn
+eltexProcessCPUMonitorValue=_EltexProcessCPUMonitorValue_Object((1,3,6,1,4,1,35265,41,1,1,1,1,4),_EltexProcessCPUMonitorValue_Type())
+eltexProcessCPUMonitorValue.setMaxAccess(_C)
+if mibBuilder.loadTexts:eltexProcessCPUMonitorValue.setStatus(_A)
+if mibBuilder.loadTexts:eltexProcessCPUMonitorValue.setUnits('percent')
+_EltexProcessCPUMonitorValidValue_Type=TruthValue
+_EltexProcessCPUMonitorValidValue_Object=MibTableColumn
+eltexProcessCPUMonitorValidValue=_EltexProcessCPUMonitorValidValue_Object((1,3,6,1,4,1,35265,41,1,1,1,1,5),_EltexProcessCPUMonitorValidValue_Type())
+eltexProcessCPUMonitorValidValue.setMaxAccess(_C)
+if mibBuilder.loadTexts:eltexProcessCPUMonitorValidValue.setStatus(_A)
+_EltexProcessCPUMonitorThresholdFreeIndex_Type=Unsigned32
+_EltexProcessCPUMonitorThresholdFreeIndex_Object=MibTableColumn
+eltexProcessCPUMonitorThresholdFreeIndex=_EltexProcessCPUMonitorThresholdFreeIndex_Object((1,3,6,1,4,1,35265,41,1,1,1,1,6),_EltexProcessCPUMonitorThresholdFreeIndex_Type())
+eltexProcessCPUMonitorThresholdFreeIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:eltexProcessCPUMonitorThresholdFreeIndex.setStatus(_A)
+_EltexProcessCPUThreshold_ObjectIdentity=ObjectIdentity
+eltexProcessCPUThreshold=_EltexProcessCPUThreshold_ObjectIdentity((1,3,6,1,4,1,35265,41,1,1,2))
+class _EltexProcessCPUThresholdNotificationGlobalEnable_Type(TruthValue):defaultValue=2
+_EltexProcessCPUThresholdNotificationGlobalEnable_Type.__name__=_E
+_EltexProcessCPUThresholdNotificationGlobalEnable_Object=MibScalar
+eltexProcessCPUThresholdNotificationGlobalEnable=_EltexProcessCPUThresholdNotificationGlobalEnable_Object((1,3,6,1,4,1,35265,41,1,1,2,1),_EltexProcessCPUThresholdNotificationGlobalEnable_Type())
+eltexProcessCPUThresholdNotificationGlobalEnable.setMaxAccess(_H)
+if mibBuilder.loadTexts:eltexProcessCPUThresholdNotificationGlobalEnable.setStatus(_A)
+class _EltexProcessCPUThresholdRecoveryNotificationGlobalEnable_Type(TruthValue):defaultValue=2
+_EltexProcessCPUThresholdRecoveryNotificationGlobalEnable_Type.__name__=_E
+_EltexProcessCPUThresholdRecoveryNotificationGlobalEnable_Object=MibScalar
+eltexProcessCPUThresholdRecoveryNotificationGlobalEnable=_EltexProcessCPUThresholdRecoveryNotificationGlobalEnable_Object((1,3,6,1,4,1,35265,41,1,1,2,2),_EltexProcessCPUThresholdRecoveryNotificationGlobalEnable_Type())
+eltexProcessCPUThresholdRecoveryNotificationGlobalEnable.setMaxAccess(_H)
+if mibBuilder.loadTexts:eltexProcessCPUThresholdRecoveryNotificationGlobalEnable.setStatus(_A)
+_EltexProcessCPUThresholdTable_Object=MibTable
+eltexProcessCPUThresholdTable=_EltexProcessCPUThresholdTable_Object((1,3,6,1,4,1,35265,41,1,1,2,3))
+if mibBuilder.loadTexts:eltexProcessCPUThresholdTable.setStatus(_A)
+_EltexProcessCPUThresholdEntry_Object=MibTableRow
+eltexProcessCPUThresholdEntry=_EltexProcessCPUThresholdEntry_Object((1,3,6,1,4,1,35265,41,1,1,2,3,1))
+eltexProcessCPUThresholdEntry.setIndexNames((0,_B,_K),(0,_B,_V),(0,_B,_L))
+if mibBuilder.loadTexts:eltexProcessCPUThresholdEntry.setStatus(_A)
+_EltexProcessCPUThresholdIndex_Type=Unsigned32
+_EltexProcessCPUThresholdIndex_Object=MibTableColumn
+eltexProcessCPUThresholdIndex=_EltexProcessCPUThresholdIndex_Object((1,3,6,1,4,1,35265,41,1,1,2,3,1,1),_EltexProcessCPUThresholdIndex_Type())
+eltexProcessCPUThresholdIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:eltexProcessCPUThresholdIndex.setStatus(_A)
+_EltexProcessCPUThresholdRowStatus_Type=RowStatus
+_EltexProcessCPUThresholdRowStatus_Object=MibTableColumn
+eltexProcessCPUThresholdRowStatus=_EltexProcessCPUThresholdRowStatus_Object((1,3,6,1,4,1,35265,41,1,1,2,3,1,2),_EltexProcessCPUThresholdRowStatus_Type())
+eltexProcessCPUThresholdRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:eltexProcessCPUThresholdRowStatus.setStatus(_A)
+_EltexProcessCPUThresholdValue_Type=EltexPercent
+_EltexProcessCPUThresholdValue_Object=MibTableColumn
+eltexProcessCPUThresholdValue=_EltexProcessCPUThresholdValue_Object((1,3,6,1,4,1,35265,41,1,1,2,3,1,3),_EltexProcessCPUThresholdValue_Type())
+eltexProcessCPUThresholdValue.setMaxAccess(_D)
+if mibBuilder.loadTexts:eltexProcessCPUThresholdValue.setStatus(_A)
+class _EltexProcessCPUThresholdFlappingInterval_Type(EltexPercent):defaultValue=0
+_EltexProcessCPUThresholdFlappingInterval_Type.__name__=_I
+_EltexProcessCPUThresholdFlappingInterval_Object=MibTableColumn
+eltexProcessCPUThresholdFlappingInterval=_EltexProcessCPUThresholdFlappingInterval_Object((1,3,6,1,4,1,35265,41,1,1,2,3,1,4),_EltexProcessCPUThresholdFlappingInterval_Type())
+eltexProcessCPUThresholdFlappingInterval.setMaxAccess(_D)
+if mibBuilder.loadTexts:eltexProcessCPUThresholdFlappingInterval.setStatus(_A)
+class _EltexProcessCPUThresholdSeverity_Type(SyslogSeverity):defaultValue=1
+_EltexProcessCPUThresholdSeverity_Type.__name__=_J
+_EltexProcessCPUThresholdSeverity_Object=MibTableColumn
+eltexProcessCPUThresholdSeverity=_EltexProcessCPUThresholdSeverity_Object((1,3,6,1,4,1,35265,41,1,1,2,3,1,5),_EltexProcessCPUThresholdSeverity_Type())
+eltexProcessCPUThresholdSeverity.setMaxAccess(_D)
+if mibBuilder.loadTexts:eltexProcessCPUThresholdSeverity.setStatus(_A)
+_EltexProcessCPUThresholdRelation_Type=EltexThresholdRelation
+_EltexProcessCPUThresholdRelation_Object=MibTableColumn
+eltexProcessCPUThresholdRelation=_EltexProcessCPUThresholdRelation_Object((1,3,6,1,4,1,35265,41,1,1,2,3,1,6),_EltexProcessCPUThresholdRelation_Type())
+eltexProcessCPUThresholdRelation.setMaxAccess(_D)
+if mibBuilder.loadTexts:eltexProcessCPUThresholdRelation.setStatus(_A)
+class _EltexProcessCPUThresholdNotificationEnable_Type(TruthValue):defaultValue=1
+_EltexProcessCPUThresholdNotificationEnable_Type.__name__=_E
+_EltexProcessCPUThresholdNotificationEnable_Object=MibTableColumn
+eltexProcessCPUThresholdNotificationEnable=_EltexProcessCPUThresholdNotificationEnable_Object((1,3,6,1,4,1,35265,41,1,1,2,3,1,7),_EltexProcessCPUThresholdNotificationEnable_Type())
+eltexProcessCPUThresholdNotificationEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:eltexProcessCPUThresholdNotificationEnable.setStatus(_A)
+class _EltexProcessCPUThresholdRecoveryNotificationEnable_Type(TruthValue):defaultValue=1
+_EltexProcessCPUThresholdRecoveryNotificationEnable_Type.__name__=_E
+_EltexProcessCPUThresholdRecoveryNotificationEnable_Object=MibTableColumn
+eltexProcessCPUThresholdRecoveryNotificationEnable=_EltexProcessCPUThresholdRecoveryNotificationEnable_Object((1,3,6,1,4,1,35265,41,1,1,2,3,1,8),_EltexProcessCPUThresholdRecoveryNotificationEnable_Type())
+eltexProcessCPUThresholdRecoveryNotificationEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:eltexProcessCPUThresholdRecoveryNotificationEnable.setStatus(_A)
+_EltexProcessCPUThresholdEvaluation_Type=TruthValue
+_EltexProcessCPUThresholdEvaluation_Object=MibTableColumn
+eltexProcessCPUThresholdEvaluation=_EltexProcessCPUThresholdEvaluation_Object((1,3,6,1,4,1,35265,41,1,1,2,3,1,9),_EltexProcessCPUThresholdEvaluation_Type())
+eltexProcessCPUThresholdEvaluation.setMaxAccess(_C)
+if mibBuilder.loadTexts:eltexProcessCPUThresholdEvaluation.setStatus(_A)
+_EltexProcessMemory_ObjectIdentity=ObjectIdentity
+eltexProcessMemory=_EltexProcessMemory_ObjectIdentity((1,3,6,1,4,1,35265,41,1,2))
+_EltexProcessMemoryTable_Object=MibTable
+eltexProcessMemoryTable=_EltexProcessMemoryTable_Object((1,3,6,1,4,1,35265,41,1,2,1))
+if mibBuilder.loadTexts:eltexProcessMemoryTable.setStatus(_A)
+_EltexProcessMemoryEntry_Object=MibTableRow
+eltexProcessMemoryEntry=_EltexProcessMemoryEntry_Object((1,3,6,1,4,1,35265,41,1,2,1,1))
+eltexProcessMemoryEntry.setIndexNames((0,_B,_M))
+if mibBuilder.loadTexts:eltexProcessMemoryEntry.setStatus(_A)
+_EltexProcessMemoryIndex_Type=Unsigned32
+_EltexProcessMemoryIndex_Object=MibTableColumn
+eltexProcessMemoryIndex=_EltexProcessMemoryIndex_Object((1,3,6,1,4,1,35265,41,1,2,1,1,1),_EltexProcessMemoryIndex_Type())
+eltexProcessMemoryIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:eltexProcessMemoryIndex.setStatus(_A)
+_EltexProcessMemoryPhysicalIndex_Type=PhysicalIndex
+_EltexProcessMemoryPhysicalIndex_Object=MibTableColumn
+eltexProcessMemoryPhysicalIndex=_EltexProcessMemoryPhysicalIndex_Object((1,3,6,1,4,1,35265,41,1,2,1,1,2),_EltexProcessMemoryPhysicalIndex_Type())
+eltexProcessMemoryPhysicalIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:eltexProcessMemoryPhysicalIndex.setStatus(_A)
+_EltexProcessMemoryTotal_Type=Gauge32
+_EltexProcessMemoryTotal_Object=MibTableColumn
+eltexProcessMemoryTotal=_EltexProcessMemoryTotal_Object((1,3,6,1,4,1,35265,41,1,2,1,1,3),_EltexProcessMemoryTotal_Type())
+eltexProcessMemoryTotal.setMaxAccess(_C)
+if mibBuilder.loadTexts:eltexProcessMemoryTotal.setStatus(_A)
+if mibBuilder.loadTexts:eltexProcessMemoryTotal.setUnits(_F)
+_EltexProcessMemoryTotalOverflow_Type=Gauge32
+_EltexProcessMemoryTotalOverflow_Object=MibTableColumn
+eltexProcessMemoryTotalOverflow=_EltexProcessMemoryTotalOverflow_Object((1,3,6,1,4,1,35265,41,1,2,1,1,4),_EltexProcessMemoryTotalOverflow_Type())
+eltexProcessMemoryTotalOverflow.setMaxAccess(_C)
+if mibBuilder.loadTexts:eltexProcessMemoryTotalOverflow.setStatus(_A)
+if mibBuilder.loadTexts:eltexProcessMemoryTotalOverflow.setUnits(_F)
+_EltexProcessMemoryHCTotal_Type=Counter64
+_EltexProcessMemoryHCTotal_Object=MibTableColumn
+eltexProcessMemoryHCTotal=_EltexProcessMemoryHCTotal_Object((1,3,6,1,4,1,35265,41,1,2,1,1,5),_EltexProcessMemoryHCTotal_Type())
+eltexProcessMemoryHCTotal.setMaxAccess(_C)
+if mibBuilder.loadTexts:eltexProcessMemoryHCTotal.setStatus(_A)
+if mibBuilder.loadTexts:eltexProcessMemoryHCTotal.setUnits(_F)
+_EltexProcessMemoryFreePercent_Type=EltexPercent
+_EltexProcessMemoryFreePercent_Object=MibTableColumn
+eltexProcessMemoryFreePercent=_EltexProcessMemoryFreePercent_Object((1,3,6,1,4,1,35265,41,1,2,1,1,6),_EltexProcessMemoryFreePercent_Type())
+eltexProcessMemoryFreePercent.setMaxAccess(_C)
+if mibBuilder.loadTexts:eltexProcessMemoryFreePercent.setStatus(_A)
+_EltexProcessMemoryFree_Type=Gauge32
+_EltexProcessMemoryFree_Object=MibTableColumn
+eltexProcessMemoryFree=_EltexProcessMemoryFree_Object((1,3,6,1,4,1,35265,41,1,2,1,1,7),_EltexProcessMemoryFree_Type())
+eltexProcessMemoryFree.setMaxAccess(_C)
+if mibBuilder.loadTexts:eltexProcessMemoryFree.setStatus(_A)
+if mibBuilder.loadTexts:eltexProcessMemoryFree.setUnits(_F)
+_EltexProcessMemoryFreeOverflow_Type=Gauge32
+_EltexProcessMemoryFreeOverflow_Object=MibTableColumn
+eltexProcessMemoryFreeOverflow=_EltexProcessMemoryFreeOverflow_Object((1,3,6,1,4,1,35265,41,1,2,1,1,8),_EltexProcessMemoryFreeOverflow_Type())
+eltexProcessMemoryFreeOverflow.setMaxAccess(_C)
+if mibBuilder.loadTexts:eltexProcessMemoryFreeOverflow.setStatus(_A)
+if mibBuilder.loadTexts:eltexProcessMemoryFreeOverflow.setUnits(_F)
+_EltexProcessMemoryHCFree_Type=Counter64
+_EltexProcessMemoryHCFree_Object=MibTableColumn
+eltexProcessMemoryHCFree=_EltexProcessMemoryHCFree_Object((1,3,6,1,4,1,35265,41,1,2,1,1,9),_EltexProcessMemoryHCFree_Type())
+eltexProcessMemoryHCFree.setMaxAccess(_C)
+if mibBuilder.loadTexts:eltexProcessMemoryHCFree.setStatus(_A)
+if mibBuilder.loadTexts:eltexProcessMemoryHCFree.setUnits(_F)
+_EltexProcessMemoryThresholdFreeIndex_Type=Unsigned32
+_EltexProcessMemoryThresholdFreeIndex_Object=MibTableColumn
+eltexProcessMemoryThresholdFreeIndex=_EltexProcessMemoryThresholdFreeIndex_Object((1,3,6,1,4,1,35265,41,1,2,1,1,10),_EltexProcessMemoryThresholdFreeIndex_Type())
+eltexProcessMemoryThresholdFreeIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:eltexProcessMemoryThresholdFreeIndex.setStatus(_A)
+_EltexProcessMemoryThreshold_ObjectIdentity=ObjectIdentity
+eltexProcessMemoryThreshold=_EltexProcessMemoryThreshold_ObjectIdentity((1,3,6,1,4,1,35265,41,1,2,2))
+class _EltexProcessMemoryThresholdNotificationGlobalEnable_Type(TruthValue):defaultValue=2
+_EltexProcessMemoryThresholdNotificationGlobalEnable_Type.__name__=_E
+_EltexProcessMemoryThresholdNotificationGlobalEnable_Object=MibScalar
+eltexProcessMemoryThresholdNotificationGlobalEnable=_EltexProcessMemoryThresholdNotificationGlobalEnable_Object((1,3,6,1,4,1,35265,41,1,2,2,1),_EltexProcessMemoryThresholdNotificationGlobalEnable_Type())
+eltexProcessMemoryThresholdNotificationGlobalEnable.setMaxAccess(_H)
+if mibBuilder.loadTexts:eltexProcessMemoryThresholdNotificationGlobalEnable.setStatus(_A)
+class _EltexProcessMemoryThresholdRecoveryNotificationGlobalEnable_Type(TruthValue):defaultValue=2
+_EltexProcessMemoryThresholdRecoveryNotificationGlobalEnable_Type.__name__=_E
+_EltexProcessMemoryThresholdRecoveryNotificationGlobalEnable_Object=MibScalar
+eltexProcessMemoryThresholdRecoveryNotificationGlobalEnable=_EltexProcessMemoryThresholdRecoveryNotificationGlobalEnable_Object((1,3,6,1,4,1,35265,41,1,2,2,2),_EltexProcessMemoryThresholdRecoveryNotificationGlobalEnable_Type())
+eltexProcessMemoryThresholdRecoveryNotificationGlobalEnable.setMaxAccess(_H)
+if mibBuilder.loadTexts:eltexProcessMemoryThresholdRecoveryNotificationGlobalEnable.setStatus(_A)
+_EltexProcessMemoryThresholdTable_Object=MibTable
+eltexProcessMemoryThresholdTable=_EltexProcessMemoryThresholdTable_Object((1,3,6,1,4,1,35265,41,1,2,2,3))
+if mibBuilder.loadTexts:eltexProcessMemoryThresholdTable.setStatus(_A)
+_EltexProcessMemoryThresholdEntry_Object=MibTableRow
+eltexProcessMemoryThresholdEntry=_EltexProcessMemoryThresholdEntry_Object((1,3,6,1,4,1,35265,41,1,2,2,3,1))
+eltexProcessMemoryThresholdEntry.setIndexNames((0,_B,_M),(0,_B,_W))
+if mibBuilder.loadTexts:eltexProcessMemoryThresholdEntry.setStatus(_A)
+_EltexProcessMemoryThresholdIndex_Type=Unsigned32
+_EltexProcessMemoryThresholdIndex_Object=MibTableColumn
+eltexProcessMemoryThresholdIndex=_EltexProcessMemoryThresholdIndex_Object((1,3,6,1,4,1,35265,41,1,2,2,3,1,1),_EltexProcessMemoryThresholdIndex_Type())
+eltexProcessMemoryThresholdIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:eltexProcessMemoryThresholdIndex.setStatus(_A)
+_EltexProcessMemoryThresholdRowStatus_Type=RowStatus
+_EltexProcessMemoryThresholdRowStatus_Object=MibTableColumn
+eltexProcessMemoryThresholdRowStatus=_EltexProcessMemoryThresholdRowStatus_Object((1,3,6,1,4,1,35265,41,1,2,2,3,1,2),_EltexProcessMemoryThresholdRowStatus_Type())
+eltexProcessMemoryThresholdRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:eltexProcessMemoryThresholdRowStatus.setStatus(_A)
+_EltexProcessMemoryThresholdValue_Type=EltexPercent
+_EltexProcessMemoryThresholdValue_Object=MibTableColumn
+eltexProcessMemoryThresholdValue=_EltexProcessMemoryThresholdValue_Object((1,3,6,1,4,1,35265,41,1,2,2,3,1,3),_EltexProcessMemoryThresholdValue_Type())
+eltexProcessMemoryThresholdValue.setMaxAccess(_D)
+if mibBuilder.loadTexts:eltexProcessMemoryThresholdValue.setStatus(_A)
+class _EltexProcessMemoryThresholdFlappingInterval_Type(EltexPercent):defaultValue=0
+_EltexProcessMemoryThresholdFlappingInterval_Type.__name__=_I
+_EltexProcessMemoryThresholdFlappingInterval_Object=MibTableColumn
+eltexProcessMemoryThresholdFlappingInterval=_EltexProcessMemoryThresholdFlappingInterval_Object((1,3,6,1,4,1,35265,41,1,2,2,3,1,4),_EltexProcessMemoryThresholdFlappingInterval_Type())
+eltexProcessMemoryThresholdFlappingInterval.setMaxAccess(_D)
+if mibBuilder.loadTexts:eltexProcessMemoryThresholdFlappingInterval.setStatus(_A)
+class _EltexProcessMemoryThresholdSeverity_Type(SyslogSeverity):defaultValue=1
+_EltexProcessMemoryThresholdSeverity_Type.__name__=_J
+_EltexProcessMemoryThresholdSeverity_Object=MibTableColumn
+eltexProcessMemoryThresholdSeverity=_EltexProcessMemoryThresholdSeverity_Object((1,3,6,1,4,1,35265,41,1,2,2,3,1,5),_EltexProcessMemoryThresholdSeverity_Type())
+eltexProcessMemoryThresholdSeverity.setMaxAccess(_D)
+if mibBuilder.loadTexts:eltexProcessMemoryThresholdSeverity.setStatus(_A)
+_EltexProcessMemoryThresholdRelation_Type=EltexThresholdRelation
+_EltexProcessMemoryThresholdRelation_Object=MibTableColumn
+eltexProcessMemoryThresholdRelation=_EltexProcessMemoryThresholdRelation_Object((1,3,6,1,4,1,35265,41,1,2,2,3,1,6),_EltexProcessMemoryThresholdRelation_Type())
+eltexProcessMemoryThresholdRelation.setMaxAccess(_D)
+if mibBuilder.loadTexts:eltexProcessMemoryThresholdRelation.setStatus(_A)
+class _EltexProcessMemoryThresholdNotificationEnable_Type(TruthValue):defaultValue=1
+_EltexProcessMemoryThresholdNotificationEnable_Type.__name__=_E
+_EltexProcessMemoryThresholdNotificationEnable_Object=MibTableColumn
+eltexProcessMemoryThresholdNotificationEnable=_EltexProcessMemoryThresholdNotificationEnable_Object((1,3,6,1,4,1,35265,41,1,2,2,3,1,7),_EltexProcessMemoryThresholdNotificationEnable_Type())
+eltexProcessMemoryThresholdNotificationEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:eltexProcessMemoryThresholdNotificationEnable.setStatus(_A)
+class _EltexProcessMemoryThresholdRecoveryNotificationEnable_Type(TruthValue):defaultValue=1
+_EltexProcessMemoryThresholdRecoveryNotificationEnable_Type.__name__=_E
+_EltexProcessMemoryThresholdRecoveryNotificationEnable_Object=MibTableColumn
+eltexProcessMemoryThresholdRecoveryNotificationEnable=_EltexProcessMemoryThresholdRecoveryNotificationEnable_Object((1,3,6,1,4,1,35265,41,1,2,2,3,1,8),_EltexProcessMemoryThresholdRecoveryNotificationEnable_Type())
+eltexProcessMemoryThresholdRecoveryNotificationEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:eltexProcessMemoryThresholdRecoveryNotificationEnable.setStatus(_A)
+_EltexProcessMemoryThresholdEvaluation_Type=TruthValue
+_EltexProcessMemoryThresholdEvaluation_Object=MibTableColumn
+eltexProcessMemoryThresholdEvaluation=_EltexProcessMemoryThresholdEvaluation_Object((1,3,6,1,4,1,35265,41,1,2,2,3,1,9),_EltexProcessMemoryThresholdEvaluation_Type())
+eltexProcessMemoryThresholdEvaluation.setMaxAccess(_C)
+if mibBuilder.loadTexts:eltexProcessMemoryThresholdEvaluation.setStatus(_A)
+_EltexProcessMIBNotification_ObjectIdentity=ObjectIdentity
+eltexProcessMIBNotification=_EltexProcessMIBNotification_ObjectIdentity((1,3,6,1,4,1,35265,41,2))
+_EltexProcessMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
+eltexProcessMIBNotificationPrefix=_EltexProcessMIBNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,35265,41,2,0))
+eltexProcessCPUThresholdNotification=NotificationType((1,3,6,1,4,1,35265,41,2,0,1))
+eltexProcessCPUThresholdNotification.setObjects(*((_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
+if mibBuilder.loadTexts:eltexProcessCPUThresholdNotification.setStatus(_A)
+eltexProcessCPUThresholdRecoveryNotification=NotificationType((1,3,6,1,4,1,35265,41,2,0,2))
+eltexProcessCPUThresholdRecoveryNotification.setObjects(*((_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
+if mibBuilder.loadTexts:eltexProcessCPUThresholdRecoveryNotification.setStatus(_A)
+eltexProcessMemoryThresholdNotification=NotificationType((1,3,6,1,4,1,35265,41,2,0,3))
+eltexProcessMemoryThresholdNotification.setObjects(*((_B,_R),(_B,_S),(_B,_T),(_B,_U)))
+if mibBuilder.loadTexts:eltexProcessMemoryThresholdNotification.setStatus(_A)
+eltexProcessMemoryThresholdRecoveryNotification=NotificationType((1,3,6,1,4,1,35265,41,2,0,4))
+eltexProcessMemoryThresholdRecoveryNotification.setObjects(*((_B,_R),(_B,_S),(_B,_T),(_B,_U)))
+if mibBuilder.loadTexts:eltexProcessMemoryThresholdRecoveryNotification.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'eltexProcessMIB':eltexProcessMIB,'eltexProcessMIBObjects':eltexProcessMIBObjects,'eltexProcessCPU':eltexProcessCPU,'eltexProcessCPUMonitorTable':eltexProcessCPUMonitorTable,'eltexProcessCPUMonitorEntry':eltexProcessCPUMonitorEntry,_K:eltexProcessCPUMonitorIndex,_L:eltexProcessCPUMonitorInterval,'eltexProcessCPUMonitorPhysicalIndex':eltexProcessCPUMonitorPhysicalIndex,_Q:eltexProcessCPUMonitorValue,'eltexProcessCPUMonitorValidValue':eltexProcessCPUMonitorValidValue,'eltexProcessCPUMonitorThresholdFreeIndex':eltexProcessCPUMonitorThresholdFreeIndex,'eltexProcessCPUThreshold':eltexProcessCPUThreshold,'eltexProcessCPUThresholdNotificationGlobalEnable':eltexProcessCPUThresholdNotificationGlobalEnable,'eltexProcessCPUThresholdRecoveryNotificationGlobalEnable':eltexProcessCPUThresholdRecoveryNotificationGlobalEnable,'eltexProcessCPUThresholdTable':eltexProcessCPUThresholdTable,'eltexProcessCPUThresholdEntry':eltexProcessCPUThresholdEntry,_V:eltexProcessCPUThresholdIndex,'eltexProcessCPUThresholdRowStatus':eltexProcessCPUThresholdRowStatus,_P:eltexProcessCPUThresholdValue,'eltexProcessCPUThresholdFlappingInterval':eltexProcessCPUThresholdFlappingInterval,_N:eltexProcessCPUThresholdSeverity,_O:eltexProcessCPUThresholdRelation,'eltexProcessCPUThresholdNotificationEnable':eltexProcessCPUThresholdNotificationEnable,'eltexProcessCPUThresholdRecoveryNotificationEnable':eltexProcessCPUThresholdRecoveryNotificationEnable,'eltexProcessCPUThresholdEvaluation':eltexProcessCPUThresholdEvaluation,'eltexProcessMemory':eltexProcessMemory,'eltexProcessMemoryTable':eltexProcessMemoryTable,'eltexProcessMemoryEntry':eltexProcessMemoryEntry,_M:eltexProcessMemoryIndex,'eltexProcessMemoryPhysicalIndex':eltexProcessMemoryPhysicalIndex,'eltexProcessMemoryTotal':eltexProcessMemoryTotal,'eltexProcessMemoryTotalOverflow':eltexProcessMemoryTotalOverflow,'eltexProcessMemoryHCTotal':eltexProcessMemoryHCTotal,_U:eltexProcessMemoryFreePercent,'eltexProcessMemoryFree':eltexProcessMemoryFree,'eltexProcessMemoryFreeOverflow':eltexProcessMemoryFreeOverflow,'eltexProcessMemoryHCFree':eltexProcessMemoryHCFree,'eltexProcessMemoryThresholdFreeIndex':eltexProcessMemoryThresholdFreeIndex,'eltexProcessMemoryThreshold':eltexProcessMemoryThreshold,'eltexProcessMemoryThresholdNotificationGlobalEnable':eltexProcessMemoryThresholdNotificationGlobalEnable,'eltexProcessMemoryThresholdRecoveryNotificationGlobalEnable':eltexProcessMemoryThresholdRecoveryNotificationGlobalEnable,'eltexProcessMemoryThresholdTable':eltexProcessMemoryThresholdTable,'eltexProcessMemoryThresholdEntry':eltexProcessMemoryThresholdEntry,_W:eltexProcessMemoryThresholdIndex,'eltexProcessMemoryThresholdRowStatus':eltexProcessMemoryThresholdRowStatus,_T:eltexProcessMemoryThresholdValue,'eltexProcessMemoryThresholdFlappingInterval':eltexProcessMemoryThresholdFlappingInterval,_R:eltexProcessMemoryThresholdSeverity,_S:eltexProcessMemoryThresholdRelation,'eltexProcessMemoryThresholdNotificationEnable':eltexProcessMemoryThresholdNotificationEnable,'eltexProcessMemoryThresholdRecoveryNotificationEnable':eltexProcessMemoryThresholdRecoveryNotificationEnable,'eltexProcessMemoryThresholdEvaluation':eltexProcessMemoryThresholdEvaluation,'eltexProcessMIBNotification':eltexProcessMIBNotification,'eltexProcessMIBNotificationPrefix':eltexProcessMIBNotificationPrefix,'eltexProcessCPUThresholdNotification':eltexProcessCPUThresholdNotification,'eltexProcessCPUThresholdRecoveryNotification':eltexProcessCPUThresholdRecoveryNotification,'eltexProcessMemoryThresholdNotification':eltexProcessMemoryThresholdNotification,'eltexProcessMemoryThresholdRecoveryNotification':eltexProcessMemoryThresholdRecoveryNotification})

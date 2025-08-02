@@ -1,0 +1,16 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+eltMes,=mibBuilder.importSymbols('ELTEX-MES','eltMes')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+eltMesEndOfMibGroup=ModuleIdentity((1,3,6,1,4,1,35265,1,23,1000))
+if mibBuilder.loadTexts:eltMesEndOfMibGroup.setRevisions(('2012-07-13 00:00',))
+_EltEndOfMib_Type=Integer32
+_EltEndOfMib_Object=MibScalar
+eltEndOfMib=_EltEndOfMib_Object((1,3,6,1,4,1,35265,1,23,1000,1),_EltEndOfMib_Type())
+eltEndOfMib.setMaxAccess('read-only')
+if mibBuilder.loadTexts:eltEndOfMib.setStatus('current')
+mibBuilder.exportSymbols('ELTEX-MES-ENDOFMIB-MIB',**{'eltMesEndOfMibGroup':eltMesEndOfMibGroup,'eltEndOfMib':eltEndOfMib})

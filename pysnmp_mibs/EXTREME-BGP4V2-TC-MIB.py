@@ -1,0 +1,15 @@
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+extremeAgent,=mibBuilder.importSymbols('EXTREME-BASE-MIB','extremeAgent')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+extremeBgp4V2TC=ModuleIdentity((1,3,6,1,4,1,1916,1,52))
+if mibBuilder.loadTexts:extremeBgp4V2TC.setRevisions(('2018-11-02 00:00','2014-01-23 00:00'))
+class ExtremeBgp4V2IdentifierTC(TextualConvention,OctetString):status=_A;displayHint='1d.';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
+class ExtremeBgp4V2AddressFamilyIdentifierTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ipv4',1),('ipv6',2)))
+class ExtremeBgp4V2SubsequentAddressFamilyIdentifierTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,4)));namedValues=NamedValues(*(('unicast',1),('multicast',2),('mpls',4)))
+mibBuilder.exportSymbols('EXTREME-BGP4V2-TC-MIB',**{'ExtremeBgp4V2IdentifierTC':ExtremeBgp4V2IdentifierTC,'ExtremeBgp4V2AddressFamilyIdentifierTC':ExtremeBgp4V2AddressFamilyIdentifierTC,'ExtremeBgp4V2SubsequentAddressFamilyIdentifierTC':ExtremeBgp4V2SubsequentAddressFamilyIdentifierTC,'extremeBgp4V2TC':extremeBgp4V2TC})

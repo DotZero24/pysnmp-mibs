@@ -1,397 +1,880 @@
-#
-# PySNMP MIB module SCSI-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/SCSI-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:27:43 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, Integer, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ModuleCompliance, NotificationGroup, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-( MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, mib_2, ObjectIdentity, NotificationType, Gauge32, Counter32, Integer32, ModuleIdentity, iso, Unsigned32, Bits, MibIdentifier, Counter64, IpAddress, ) = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "mib-2", "ObjectIdentity", "NotificationType", "Gauge32", "Counter32", "Integer32", "ModuleIdentity", "iso", "Unsigned32", "Bits", "MibIdentifier", "Counter64", "IpAddress")
-( TimeStamp, RowStatus, RowPointer, StorageType, AutonomousType, TruthValue, DisplayString, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "RowStatus", "RowPointer", "StorageType", "AutonomousType", "TruthValue", "DisplayString", "TextualConvention")
-scsiMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 139)).setRevisions(("2006-03-30 00:00",))
-if mibBuilder.loadTexts: scsiMIB.setLastUpdated('200603300000Z')
-if mibBuilder.loadTexts: scsiMIB.setOrganization('IETF')
-if mibBuilder.loadTexts: scsiMIB.setContactInfo('\n          Michele Hallak-Stamler\n\n\n\n          Sanrad Intelligent Network\n          27 Habarzel Street\n          Tel Aviv, Israel\n          Phone: +972 3 7674809\n          E-mail: michele@sanrad.com\n\n          Yaron Lederman\n          Siliquent Technologies Ltd.\n          21 Etzel Street\n          Ramat Gan, Israel\n          Phone: +972 54 5308833\n          E-mail: yaronled@bezeqint.net\n\n          Mark Bakke\n          Postal: Cisco Systems, Inc\n          7900 International Drive, Suite 400\n          Bloomington, MN\n          USA 55425\n          E-mail: mbakke@cisco.com\n\n          Marjorie Krueger\n          Postal: Hewlett-Packard\n          8000 Foothills Blvd.\n          Roseville, CA 95747\n          E-mail: marjorie_krueger@hp.com\n\n          Keith McCloghrie\n          Cisco Systems, Inc.\n          Postal: 170 West Tasman Drive\n          San Jose, CA USA 95134\n          Phone: +1 408 526-5260\n          E-mail: kzm@cisco.com\n\n         ')
-if mibBuilder.loadTexts: scsiMIB.setDescription('The SCSI MIB Module.\n          Copyright (C) The Internet Society (2006).  This version of\n          this MIB module is part of RFC 4455; see the RFC\n          itself for full legal notices.')
-class ScsiLUN(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ConstraintsUnion(ValueSizeConstraint(2,2),ValueSizeConstraint(8,8),)
-class ScsiIndexValue(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(1,4294967295)
-
-class ScsiPortIndexValueOrZero(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(0,4294967295)
-
-class ScsiIndexValueOrZero(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(0,4294967295)
-
-class ScsiIdentifier(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,262)
-
-class ScsiName(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,262)
-
-class ScsiLuNameOrZero(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(8,8),)
-class ScsiDeviceOrPort(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3,))
-    namedValues = NamedValues(("device", 1), ("port", 2), ("other", 3),)
-
-class ScsiIdCodeSet(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(0,15)
-
-class ScsiIdAssociation(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(0,3)
-
-class ScsiIdType(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(0,15)
-
-class ScsiIdValue(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,255)
-
-class ScsiHrSWInstalledIndexOrZero(Integer32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,2147483647)
-
-scsiNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 139, 0))
-scsiAdmin = MibIdentifier((1, 3, 6, 1, 2, 1, 139, 1))
-scsiObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 139, 2))
-scsiConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 139, 3))
-scsiTransportTypes = MibIdentifier((1, 3, 6, 1, 2, 1, 139, 1, 1))
-scsiGeneral = MibIdentifier((1, 3, 6, 1, 2, 1, 139, 2, 1))
-scsiInitiatorDevice = MibIdentifier((1, 3, 6, 1, 2, 1, 139, 2, 2))
-scsiTargetDevice = MibIdentifier((1, 3, 6, 1, 2, 1, 139, 2, 3))
-scsiLogicalUnit = MibIdentifier((1, 3, 6, 1, 2, 1, 139, 2, 4))
-scsiTransportOther = ObjectIdentity((1, 3, 6, 1, 2, 1, 139, 1, 1, 1))
-if mibBuilder.loadTexts: scsiTransportOther.setDescription('This identity identifies a transport that has no identity; it\n     might happen because the transport is unknown or might not\n     have been defined when this MIB module was created.')
-scsiTransportSPI = ObjectIdentity((1, 3, 6, 1, 2, 1, 139, 1, 1, 2))
-if mibBuilder.loadTexts: scsiTransportSPI.setDescription('This identity identifies a parallel SCSI transport.')
-scsiTransportFCP = ObjectIdentity((1, 3, 6, 1, 2, 1, 139, 1, 1, 3))
-if mibBuilder.loadTexts: scsiTransportFCP.setDescription('This identity identifies a Fibre Channel Protocol for SCSI,\n     Second Version.')
-scsiTransportSRP = ObjectIdentity((1, 3, 6, 1, 2, 1, 139, 1, 1, 4))
-if mibBuilder.loadTexts: scsiTransportSRP.setDescription('This identity identifies a protocol for transporting SCSI over\n     Remote Direct Memory Access (RDMA) interfaces, e.g., InfiniBand\n     (tm).')
-scsiTransportISCSI = ObjectIdentity((1, 3, 6, 1, 2, 1, 139, 1, 1, 5))
-if mibBuilder.loadTexts: scsiTransportISCSI.setDescription('This identity identifies an iSCSI transport.')
-scsiTransportSBP = ObjectIdentity((1, 3, 6, 1, 2, 1, 139, 1, 1, 6))
-if mibBuilder.loadTexts: scsiTransportSBP.setDescription('This identity identifies the Serial Bus Protocol 3.')
-scsiTransportSAS = ObjectIdentity((1, 3, 6, 1, 2, 1, 139, 1, 1, 7))
-if mibBuilder.loadTexts: scsiTransportSAS.setDescription('This identity identifies the Serial Attach SCSI Protocol.')
-scsiInstanceTable = MibTable((1, 3, 6, 1, 2, 1, 139, 2, 1, 1), )
-if mibBuilder.loadTexts: scsiInstanceTable.setDescription('A list of SCSI instances present on the system.\n     The SCSI instance is the top-level entity, to which everything\n     else belongs.  An SNMP agent could represent more than one\n     instance if it represents either a stack of devices, or virtual\n     partitions of a larger device, or a host running multiple SCSI\n     implementations from different vendors.')
-scsiInstanceEntry = MibTableRow((1, 3, 6, 1, 2, 1, 139, 2, 1, 1, 1), ).setIndexNames((0, "SCSI-MIB", "scsiInstIndex"))
-if mibBuilder.loadTexts: scsiInstanceEntry.setDescription('An entry (row) containing management information applicable to\n     a particular SCSI instance.')
-scsiInstIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 1, 1, 1), ScsiIndexValue())
-if mibBuilder.loadTexts: scsiInstIndex.setDescription('This object represents an arbitrary integer used to uniquely\n     identify a particular SCSI instance.')
-scsiInstAlias = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 1, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,79))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiInstAlias.setDescription('This object represents an administrative string, configured by\n     the administrator.  It can be a zero-length string.')
-scsiInstSoftwareIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 1, 1, 3), ScsiHrSWInstalledIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiInstSoftwareIndex.setDescription("If this management instance corresponds to an installed\n     software module, then this object's value is the value of the\n     hrSWInstalledIndex of that module.  If there is no\n     correspondence to an installed software module (or no module\n     that has an hrSWInstalledIndex value), then the value of this\n     object is zero.")
-scsiInstVendorVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiInstVendorVersion.setDescription('This object represents a text string set by the manufacturer\n     describing the version of this instance.  The format of this\n     string is determined solely by the manufacturer and is for\n     informational purposes only.  It is unrelated to the SCSI\n     specification version numbers.')
-scsiInstScsiNotificationsEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 1, 1, 5), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiInstScsiNotificationsEnable.setDescription('This object indicates whether notifications defined in this\n      MIB module will be generated.')
-scsiInstStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 1, 1, 6), StorageType().clone('nonVolatile')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiInstStorageType.setDescription("This object specifies the memory realization for\n           this SCSI entity.\n           Specifically, each row in the following tables:\n\n                      scsiIntrDevTable\n                      scsiDscTgtTable\n                      scsiAuthorizedIntrTable\n                      scsiLunMapTable\n\n           has a StorageType as specified by the instance of\n           this object that is INDEXed by the same value of\n           scsiInstIndex.\n           This value of this object is also used to indicate\n           the persistence across reboots of writable values in\n           its row of the scsiInstanceTable.\n           Conceptual rows having the value 'permanent' need not\n           allow write-access to any columnar objects in the row,\n           nor to any object belonging to a table whose entry is\n           INDEXed by the same value of scsiInstIndex.")
-scsiDeviceTable = MibTable((1, 3, 6, 1, 2, 1, 139, 2, 1, 2), )
-if mibBuilder.loadTexts: scsiDeviceTable.setDescription('A list of SCSI devices contained in each of the SCSI manageable\n     instances that this agent is reporting.')
-scsiDeviceEntry = MibTableRow((1, 3, 6, 1, 2, 1, 139, 2, 1, 2, 1), ).setIndexNames((0, "SCSI-MIB", "scsiInstIndex"), (0, "SCSI-MIB", "scsiDeviceIndex"))
-if mibBuilder.loadTexts: scsiDeviceEntry.setDescription('An entry (row) containing management information applicable to\n     a particular SCSI device included in this SCSI manageable\n     instance identifiable by the value of scsiInstIndex.')
-scsiDeviceIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 2, 1, 1), ScsiIndexValue())
-if mibBuilder.loadTexts: scsiDeviceIndex.setDescription('This object is an arbitrary integer used to uniquely identify\n     a particular device within a particular SCSI instance.')
-scsiDeviceAlias = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 2, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,79))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiDeviceAlias.setDescription('This object contains an administrative name for this device.\n     If no name is assigned, the value of this object is the\n     zero-length string.\n     The StorageType of this object is specified by the instance\n     of scsiInstStorageType that is INDEXed by the same value of\n     scsiInstIndex.')
-scsiDeviceRole = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 2, 1, 3), Bits().clone(namedValues=NamedValues(("target", 0), ("initiator", 1),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiDeviceRole.setDescription('This object determines whether this device is acting as a\n     SCSI initiator device, or as a SCSI target device, or as both.')
-scsiDevicePortNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 2, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiDevicePortNumber.setDescription('This object represents the number of ports contained in this\n     device.')
-scsiPortTable = MibTable((1, 3, 6, 1, 2, 1, 139, 2, 1, 3), )
-if mibBuilder.loadTexts: scsiPortTable.setDescription('A list of SCSI ports for each SCSI device in each instance.')
-scsiPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 139, 2, 1, 3, 1), ).setIndexNames((0, "SCSI-MIB", "scsiInstIndex"), (0, "SCSI-MIB", "scsiDeviceIndex"), (0, "SCSI-MIB", "scsiPortIndex"))
-if mibBuilder.loadTexts: scsiPortEntry.setDescription('An entry (row) containing management information applicable to\n     a particular SCSI port of a particular SCSI device in a\n     particular SCSI instance.')
-scsiPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 3, 1, 1), ScsiIndexValue())
-if mibBuilder.loadTexts: scsiPortIndex.setDescription('An arbitrary integer used to uniquely identify a particular\n     port of a given device within a particular SCSI instance.')
-scsiPortRole = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 3, 1, 2), Bits().clone(namedValues=NamedValues(("target", 0), ("initiator", 1),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiPortRole.setDescription('This object indicates whether this port is acting as a\n     SCSI initiator port, or as a SCSI target port or as both.')
-scsiPortTransportPtr = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 3, 1, 3), RowPointer()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiPortTransportPtr.setDescription('This object is a pointer to the corresponding row in the\n     scsiTransportTable.  This row contains information on the\n     transport such as transport type and port name.')
-scsiPortBusyStatuses = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 3, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiPortBusyStatuses.setDescription('This object represents the number of port busy statuses sent or\n     received by this port.  Note: Initiator ports only receive busy\n     status and SCSI target ports only send busy status.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system.')
-scsiTransportTable = MibTable((1, 3, 6, 1, 2, 1, 139, 2, 1, 5), )
-if mibBuilder.loadTexts: scsiTransportTable.setDescription('This table contains the device transport-specific information\n     for each transport connected to each device in\n     scsiDeviceTable.')
-scsiTransportEntry = MibTableRow((1, 3, 6, 1, 2, 1, 139, 2, 1, 5, 1), ).setIndexNames((0, "SCSI-MIB", "scsiInstIndex"), (0, "SCSI-MIB", "scsiDeviceIndex"), (0, "SCSI-MIB", "scsiTransportIndex"))
-if mibBuilder.loadTexts: scsiTransportEntry.setDescription('An entry (row) containing parameters applicable to a transport\n     used by a particular device of a particular SCSI manageable\n     instance.')
-scsiTransportIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 5, 1, 1), ScsiIndexValue())
-if mibBuilder.loadTexts: scsiTransportIndex.setDescription('An arbitrary integer used to uniquely identify a particular\n     transport within a given device within a particular SCSI\n     instance.')
-scsiTransportType = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 5, 1, 2), AutonomousType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiTransportType.setDescription('This object identifies the transport type of this row of the\n     transport table.  For example, if this object has the value\n     scsiTransportFCP, then the identified transport is FCP.')
-scsiTransportPointer = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 5, 1, 3), RowPointer()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiTransportPointer.setDescription("This object represents a pointer to a conceptual row in a\n     'transport' MIB module allowing a manager to get useful\n     information for the transport described by this entry.\n     For example, if the transport of this device is iSCSI, this\n     object will point to the iSCSI Instance of the iSCSI MIB\n     module.\n     If there is no MIB for this transport, this object has the\n     value 0.0.")
-scsiTransportDevName = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 1, 5, 1, 4), ScsiName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiTransportDevName.setDescription('This object represents the name of this device in one of the\n     format(s) appropriate for this type of transport.')
-scsiIntrDevTable = MibTable((1, 3, 6, 1, 2, 1, 139, 2, 2, 1), )
-if mibBuilder.loadTexts: scsiIntrDevTable.setDescription('This table contains information for each local SCSI initiator\n     device in each instance.')
-scsiIntrDevEntry = MibTableRow((1, 3, 6, 1, 2, 1, 139, 2, 2, 1, 1), ).setIndexNames((0, "SCSI-MIB", "scsiInstIndex"), (0, "SCSI-MIB", "scsiDeviceIndex"))
-if mibBuilder.loadTexts: scsiIntrDevEntry.setDescription('An entry (row) containing information applicable to a SCSI\n     initiator device within a particular SCSI instance.')
-scsiIntrDevTgtAccessMode = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("unknown", 1), ("autoEnable", 2), ("manualEnable", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: scsiIntrDevTgtAccessMode.setDescription('This object controls whether or not a discovered SCSI target\n     device is immediately authorized:\n         - autoEnable (2) means that when a SCSI initiator device\n         discovers a SCSI target device, it can use it immediately.\n         - manualEnable (3) means that the SCSI initiator device\n         must wait for an operator to set scsiIntrDscTgtConfigured\n         = true before it is authorized.\n     The StorageType of this object is specified by the instance\n     of scsiInstStorageType that is INDEXed by the same value of\n     scsiInstIndex.')
-scsiIntrDevOutResets = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiIntrDevOutResets.setDescription('This object represents the total number of times that this SCSI\n     initiator device has issued\n     - a LOGICAL UNIT RESET or TARGET RESET task management request,\n       or\n     - any other SCSI transport protocol-specific action or event\n       that causes a Logical Unit Reset or a Hard Reset at one or\n       more SCSI target ports ([SAM2] chapters 5.9.6, 5.9.7).\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system.')
-scsiIntrPortTable = MibTable((1, 3, 6, 1, 2, 1, 139, 2, 2, 2), )
-if mibBuilder.loadTexts: scsiIntrPortTable.setDescription('This table contains all the SCSI initiator ports for each\n     local SCSI initiator or target/initiator devices in each SCSI\n     instance.')
-scsiIntrPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 139, 2, 2, 2, 1), ).setIndexNames((0, "SCSI-MIB", "scsiInstIndex"), (0, "SCSI-MIB", "scsiDeviceIndex"), (0, "SCSI-MIB", "scsiPortIndex"))
-if mibBuilder.loadTexts: scsiIntrPortEntry.setDescription('An entry (row) containing information applicable to a\n     particular SCSI initiator port of a particular SCSI device\n     within a SCSI instance.')
-scsiIntrPortName = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 2, 1, 1), ScsiName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiIntrPortName.setDescription('This object represents the name of the port assigned for use\n     by the SCSI protocol.  The format will depend on the type of\n     transport this port is using.')
-scsiIntrPortIdentifier = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 2, 1, 2), ScsiIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiIntrPortIdentifier.setDescription('This object represents the identifier of the port in one of\n     the format(s) appropriate for the type of transport in use.')
-scsiIntrPortOutCommands = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 2, 1, 3), Counter32()).setUnits('commands').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiIntrPortOutCommands.setDescription('This object represents the number of commands sent by this\n     SCSI initiator port.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system.')
-scsiIntrPortWrittenMegaBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 2, 1, 4), Counter32()).setUnits('Megabytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiIntrPortWrittenMegaBytes.setDescription('This object represents the amount of data in megabytes sent\n     by this SCSI initiator port.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system.')
-scsiIntrPortReadMegaBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 2, 1, 5), Counter32()).setUnits('Megabytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiIntrPortReadMegaBytes.setDescription('This object represents the amount of data in megabytes\n     received by this SCSI initiator port.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system.')
-scsiIntrPortHSOutCommands = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 2, 1, 6), Counter64()).setUnits('commands').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiIntrPortHSOutCommands.setDescription('This object represents the number of commands sent by this\n     SCSI initiator port.  This object provides support for systems\n     that can quickly generate a large number of commands because\n     they run at high speed.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system.')
-scsiRemoteTgtDev = MibIdentifier((1, 3, 6, 1, 2, 1, 139, 2, 2, 3))
-scsiDscTgtTable = MibTable((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 1), )
-if mibBuilder.loadTexts: scsiDscTgtTable.setDescription('This table includes all the remote (not in the local system)\n     SCSI target ports that are authorized to attach to each local\n     SCSI initiator port of this SCSI instance.')
-scsiDscTgtEntry = MibTableRow((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 1, 1), ).setIndexNames((0, "SCSI-MIB", "scsiInstIndex"), (0, "SCSI-MIB", "scsiDeviceIndex"), (0, "SCSI-MIB", "scsiDscTgtIntrPortIndex"), (0, "SCSI-MIB", "scsiDscTgtIndex"))
-if mibBuilder.loadTexts: scsiDscTgtEntry.setDescription('Each entry (row) contains information about the SCSI target\n     device or port to which this SCSI initiator port (or all SCSI\n     initiator ports in the SCSI initiator entry indexed by\n     scsiInstIndex, scsiDeviceIndex) will attempt to attach.  The\n     entry is either for all local ports (if scsiDscTgtIntrPortIndex\n     is zero) or only for the specific SCSI initiator port\n     identified by scsiDscTgtIntrPortIndex.  Note that if an entry in\n     this table is deleted, any corresponding entries in the\n     scsiDscLunsTable must be deleted as well.\n     The StorageType of a row in this table is specified by the\n     instance of scsiInstStorageType that is INDEXed by the same\n     value of scsiInstIndex.')
-scsiDscTgtIntrPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 1, 1, 1), ScsiPortIndexValueOrZero())
-if mibBuilder.loadTexts: scsiDscTgtIntrPortIndex.setDescription('This object relates to a particular local device within a\n     particular SCSI instance and specifies\n     - the index of the local SCSI initiator port,\n     - or zero, if this entry refers to the local device and\n     therefore refers to all the local SCSI initiator ports.')
-scsiDscTgtIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 1, 1, 2), ScsiIndexValue())
-if mibBuilder.loadTexts: scsiDscTgtIndex.setDescription('This object is an arbitrary integer used to uniquely identify\n     a particular SCSI target device either discovered by, or\n     configured for use with, one or more ports scsiDscTgtName of\n     a particular device within a particular SCSI instance.')
-scsiDscTgtDevOrPort = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 1, 1, 3), ScsiDeviceOrPort()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: scsiDscTgtDevOrPort.setDescription('This object indicates whether this entry describes a\n     configured SCSI target device name (and applies to all ports\n     on the identified SCSI target device) or an individual SCSI\n     target port.')
-scsiDscTgtName = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 1, 1, 4), ScsiName()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: scsiDscTgtName.setDescription('This object represents the name of this configured or\n     discovered SCSI target device or port depending on the value\n     of scsiDscTgtDevOrPort.')
-scsiDscTgtConfigured = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 1, 1, 5), TruthValue().clone('true')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: scsiDscTgtConfigured.setDescription('This object means\n      -true(1): this entry has been configured by an administrator.\n      -false(2): this entry has been added from a discovery\n     mechanism (e.g., SendTargets, SLP, iSNS).\n     An administrator can modify this value from false to true.')
-scsiDscTgtDiscovered = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 1, 1, 6), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiDscTgtDiscovered.setDescription('This object means\n      -true(1): this entry has been discovered by the SCSI instance\n      as result of an automatic discovery process.\n      -false(2):this entry has been added by manual configuration.\n     This entry is read-only because an administrator cannot change\n     it.\n     Note that it is an implementation decision to determine how\n     long to retain a row with configured=false, such as when the\n     SCSI target device is no longer visible/accessible to the local\n     SCSI initiator device.')
-scsiDscTgtInCommands = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 1, 1, 7), Counter32()).setUnits('commands').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiDscTgtInCommands.setDescription('This object represents the number of commands received from\n      this SCSI target port or device.\n      Discontinuities in the value of this counter can occur at re-\n      initialization of the management system, and at other times as\n      indicated by the value of scsiDscTgtLastCreation.')
-scsiDscTgtWrittenMegaBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 1, 1, 8), Counter32()).setUnits('Megabytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiDscTgtWrittenMegaBytes.setDescription('This object represents the amount of megabytes of data sent as\n     the result of WRITE commands to this SCSI target port or device.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system, and at other times as\n     indicated by the value of scsiDscTgtLastCreation.')
-scsiDscTgtReadMegaBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 1, 1, 9), Counter32()).setUnits('Megabytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiDscTgtReadMegaBytes.setDescription('This object represents the amount of megabytes received as the\n     result of READ commands to this SCSI target port or device.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system, and at other times as\n     indicated by the value of scsiDscTgtLastCreation.')
-scsiDscTgtHSInCommands = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 1, 1, 10), Counter64()).setUnits('commands').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiDscTgtHSInCommands.setDescription('This object represents the number of commands received by this\n     SCSI target port or device.  This object provides support for\n     system that can quickly generate a large number of commands\n     because they run at high speed.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system, and at other times as\n     indicated by the value of scsiDscTgtLastCreation.')
-scsiDscTgtLastCreation = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 1, 1, 11), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiDscTgtLastCreation.setDescription('This object represents the value of sysUpTime when this row\n     was created.')
-scsiDscTgtRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 1, 1, 12), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: scsiDscTgtRowStatus.setDescription("This object allows an administrator to configure dynamically a\n     new entry in this table via SNMP or eventually delete it.\n     An administrator is not allowed to delete an entry for which\n     the value of the object scsiIntrDscTgtDiscovered is equal to\n     true.\n     Note that when an entry in this table is deleted, then any\n     corresponding entries in the scsiDscLunsTable must also be\n     automatically deleted.\n\n     A newly created row cannot be made active until a value has\n     been set for scsiDscTgtName.  In this case, the value of the\n     corresponding instance of the scsiDscTgtRowStatus column will\n     stay 'notReady'.\n     The RowStatus TC [RFC2579] requires that this DESCRIPTION\n     clause states under which circumstances other objects in this\n     row can be modified:\n     The value of this object has no effect on whether other objects\n     in this conceptual row can be modified.")
-scsiDscLunTable = MibTable((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 2), )
-if mibBuilder.loadTexts: scsiDscLunTable.setDescription('This table includes all the remote (not in the local system)\n     logical unit numbers (LUNs) discovered via each local SCSI\n     initiator port of each local device within a particular SCSI\n     instance.')
-scsiDscLunEntry = MibTableRow((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 2, 1), ).setIndexNames((0, "SCSI-MIB", "scsiInstIndex"), (0, "SCSI-MIB", "scsiDeviceIndex"), (0, "SCSI-MIB", "scsiDscTgtIntrPortIndex"), (0, "SCSI-MIB", "scsiDscTgtIndex"), (0, "SCSI-MIB", "scsiDscLunIndex"))
-if mibBuilder.loadTexts: scsiDscLunEntry.setDescription('An entry (row) represents a discovered LUN at a particular\n     SCSI target device (scsiDscTgtIndex), where the LUN was\n     discovered by a particular local SCSI initiator device within a\n     particular SCSI instance, possibly via a particular local\n     SCSI initiator port.\n     Note that when an entry in the scsiDscTgtTable is deleted,\n     all corresponding entries in this table should automatically be\n     deleted.')
-scsiDscLunIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 2, 1, 1), ScsiIndexValue())
-if mibBuilder.loadTexts: scsiDscLunIndex.setDescription('This object is an arbitrary integer used to uniquely identify\n     a particular LUN discovered by a particular SCSI initiator port\n     or a particular SCSI initiator device within a particular SCSI\n     instance.\n     Entries in the scsiDscLunIdTable are associated with a LUN by\n     having the value of this object in their INDEX.')
-scsiDscLunLun = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 2, 1, 2), ScsiLUN()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiDscLunLun.setDescription('This object contains the Logical Unit Number (LUN) of the\n     discovered logical unit.')
-scsiDscLunIdTable = MibTable((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 3), )
-if mibBuilder.loadTexts: scsiDscLunIdTable.setDescription('This table includes all the known LU identifiers of the remote\n     (not in the local system) logical units discovered via each\n     local SCSI initiator port or device of this SCSI instance.')
-scsiDscLunIdEntry = MibTableRow((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 3, 1), ).setIndexNames((0, "SCSI-MIB", "scsiInstIndex"), (0, "SCSI-MIB", "scsiDeviceIndex"), (0, "SCSI-MIB", "scsiDscTgtIntrPortIndex"), (0, "SCSI-MIB", "scsiDscTgtIndex"), (0, "SCSI-MIB", "scsiDscLunIndex"), (0, "SCSI-MIB", "scsiDscLunIdIndex"))
-if mibBuilder.loadTexts: scsiDscLunIdEntry.setDescription('An entry (row) represents the LU identifier of a discovered\n     LUN at a particular SCSI target device (scsiDscTgtIndex), where\n     the LUN was discovered by a particular local SCSI initiator\n     device within a particular SCSI instance, possibly via a\n     particular local SCSI initiator port.')
-scsiDscLunIdIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 3, 1, 1), ScsiIndexValue())
-if mibBuilder.loadTexts: scsiDscLunIdIndex.setDescription('This object is an arbitrary integer used to uniquely identify\n     a particular LUN identifier discovered by each SCSI initiator\n     device or particular SCSI initiator port within a particular\n     SCSI instance.')
-scsiDscLunIdCodeSet = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 3, 1, 2), ScsiIdCodeSet()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiDscLunIdCodeSet.setDescription("This object specifies the code set in use with this\n     identifier.  The value is represented in the same format as\n     is contained in the identifier's Identification Descriptor\n     within the logical unit's Device Identification Page.")
-scsiDscLunIdAssociation = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 3, 1, 3), ScsiIdAssociation()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiDscLunIdAssociation.setDescription("This object specifies what the identifier is associated with\n     (e.g., with the addressed physical/logical device or with a\n     particular port).  The value is represented in the same format\n     as is contained in the identifier's Identification Descriptor\n     within the logical unit's Device Identification Page.")
-scsiDscLunIdType = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 3, 1, 4), ScsiIdType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiDscLunIdType.setDescription("This object specifies the type of the identifier.\n     The value is represented in the same format as is contained in\n     the identifier's Identification Descriptor within the logical\n     unit's Device Identification Page.")
-scsiDscLunIdValue = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 3, 1, 5), ScsiIdValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiDscLunIdValue.setDescription("This object represents the actual value of this identifier.\n     The format is defined by the objects scsiDscLunIdCodeSet,\n     scsiDscLunIdAssociation, scsiDscLunIdType.\n     The value is represented in the same format as is contained in\n     the identifier's Identification Descriptor within the logical\n     unit's Device Identification Page.")
-scsiAttTgtPortTable = MibTable((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 4), )
-if mibBuilder.loadTexts: scsiAttTgtPortTable.setDescription('This table includes all the remote (not in the local system)\n     SCSI target ports that are currently attached to each local\n     SCSI initiator port of this SCSI instance.')
-scsiAttTgtPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 4, 1), ).setIndexNames((0, "SCSI-MIB", "scsiInstIndex"), (0, "SCSI-MIB", "scsiDeviceIndex"), (0, "SCSI-MIB", "scsiPortIndex"), (0, "SCSI-MIB", "scsiAttTgtPortIndex"))
-if mibBuilder.loadTexts: scsiAttTgtPortEntry.setDescription('An entry (row) represents a remote SCSI target port\n     (scsiAttTgtPortIndex) currently attached to a particular\n     SCSI initiator port (scsiPortIndex) of a particular SCSI\n     initiator device within a particular SCSI instance.')
-scsiAttTgtPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 4, 1, 1), ScsiIndexValue())
-if mibBuilder.loadTexts: scsiAttTgtPortIndex.setDescription('An arbitrary integer used to uniquely identify a particular\n     SCSI target currently attached to a particular SCSI initiator\n     port of a particular SCSI initiator device within a particular\n     SCSI instance.')
-scsiAttTgtPortDscTgtIdx = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 4, 1, 2), ScsiIndexValueOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiAttTgtPortDscTgtIdx.setDescription('This object contains the value of the scsiDscTgtIntrPortIndex\n     index variable for the row in the scsiDscTgtTable representing\n     this currently attached SCSI target port.  If the currently\n     attached SCSI target port is not represented in the\n     scsiDscTgtTable, then the value of this object is zero.')
-scsiAttTgtPortName = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 4, 1, 3), ScsiName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiAttTgtPortName.setDescription('This object contains the name of the attached SCSI target\n     port.')
-scsiAttTgtPortIdentifier = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 2, 3, 4, 1, 4), ScsiIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiAttTgtPortIdentifier.setDescription('This object contains the identifier of the attached SCSI\n     target port.')
-scsiTgtDevTable = MibTable((1, 3, 6, 1, 2, 1, 139, 2, 3, 1), )
-if mibBuilder.loadTexts: scsiTgtDevTable.setDescription('This table contains information about each local SCSI target\n     device.')
-scsiTgtDevEntry = MibTableRow((1, 3, 6, 1, 2, 1, 139, 2, 3, 1, 1), ).setIndexNames((0, "SCSI-MIB", "scsiInstIndex"), (0, "SCSI-MIB", "scsiDeviceIndex"))
-if mibBuilder.loadTexts: scsiTgtDevEntry.setDescription('An entry (row) containing information applicable to a\n     particular local SCSI target device within a particular SCSI\n     instance.')
-scsiTgtDevNumberOfLUs = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 1, 1, 1), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiTgtDevNumberOfLUs.setDescription('This object is the number of logical units accessible via this\n     local SCSI target device.')
-scsiTgtDeviceStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8,))).clone(namedValues=NamedValues(("unknown", 1), ("available", 2), ("broken", 3), ("readying", 4), ("abnormal", 5), ("nonAddrFailure", 6), ("nonAddrFailReadying", 7), ("nonAddrFailAbnormal", 8),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiTgtDeviceStatus.setDescription('This object represents the status of this SCSI device,\n     summarizing the state of both the addressable devices (i.e.,\n     the logical units) and the non-addressable devices within this\n     SCSI device:\n          - unknown(1): This value is used when the status cannot be\n          determined\n          - available(2): All addressable and non-addressable\n          devices within the SCSI device are fully operational (i.e.,\n          no logical units have an abnormal status).\n          - broken(3): The SCSI device is not operational and cannot\n          be made operational without external intervention.\n          - readying(4): One or more logical units within the SCSI\n          device are being initialized and access to the SCSI device\n          is temporarily limited (i.e., one or more of the logical\n          units have a readying status).\n          - abnormal(5): One or more addressable devices within the\n          SCSI device are indicating a status other than available;\n          nevertheless, the SCSI device is operational (i.e., one or\n          more of the logical units have an abnormal status).\n          - nonAddrFailure(6): One or more non-addressable devices\n          within the SCSI device have failed; nevertheless, the SCSI\n          device is operational (i.e., no logical units have an\n          abnormal or readying status).\n\n\n\n          - nonAddrFailReadying(7): One or more non-addressable\n          devices within the SCSI device have failed; nevertheless,\n          one or more logical units within the SCSI device are being\n          initialized and access to the SCSI device is temporarily\n          limited.\n          - nonAddrFailAbnormal(8): One or more non-addressable\n          devices within the SCSI device have failed and one or more\n          addressable devices within the SCSI device are indicating a\n          status other than available; however, the SCSI device is\n          operational.\n     ')
-scsiTgtDevNonAccessibleLUs = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 1, 1, 3), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiTgtDevNonAccessibleLUs.setDescription('This object is the number of logical units existing but not\n     currently accessible via this local SCSI target device.')
-scsiTgtDevResets = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiTgtDevResets.setDescription('This object counts the number of hard resets encountered\n     by this SCSI target device.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system.')
-scsiTgtPortTable = MibTable((1, 3, 6, 1, 2, 1, 139, 2, 3, 2), )
-if mibBuilder.loadTexts: scsiTgtPortTable.setDescription('This table includes all the local SCSI target ports of all the\n     local SCSI target devices.')
-scsiTgtPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 139, 2, 3, 2, 1), ).setIndexNames((0, "SCSI-MIB", "scsiInstIndex"), (0, "SCSI-MIB", "scsiDeviceIndex"), (0, "SCSI-MIB", "scsiPortIndex"))
-if mibBuilder.loadTexts: scsiTgtPortEntry.setDescription('An entry (row) containing information applicable to a\n     particular local SCSI target port of a particular local SCSI\n     target device within a particular SCSI instance.')
-scsiTgtPortName = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 2, 1, 1), ScsiName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiTgtPortName.setDescription('This object represents the name of the port assigned for use\n     in the SCSI protocol.')
-scsiTgtPortIdentifier = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 2, 1, 2), ScsiIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiTgtPortIdentifier.setDescription('This object represents the identifier of the port in one of\n     the format(s) appropriate for the type of transport.')
-scsiTgtPortInCommands = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 2, 1, 3), Counter32()).setUnits('commands').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiTgtPortInCommands.setDescription('This object represents the number of commands received by this\n     SCSI target port.\n\n\n\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system.')
-scsiTgtPortWrittenMegaBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 2, 1, 4), Counter32()).setUnits('Megabytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiTgtPortWrittenMegaBytes.setDescription('This object represents the amount of data written in megabytes\n     by this SCSI target port.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system.')
-scsiTgtPortReadMegaBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 2, 1, 5), Counter32()).setUnits('Megabytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiTgtPortReadMegaBytes.setDescription('This object represents the amount of data read in megabytes by\n     this SCSI target port.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system.')
-scsiTgtPortHSInCommands = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 2, 1, 6), Counter64()).setUnits('commands').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiTgtPortHSInCommands.setDescription('This object represents the number of commands received.  This\n     object provides support for systems that can quickly generate a\n     large number of commands because they run at high speed.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system.')
-scsiRemoteIntrDev = MibIdentifier((1, 3, 6, 1, 2, 1, 139, 2, 3, 3))
-scsiAuthorizedIntrTable = MibTable((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 1), )
-if mibBuilder.loadTexts: scsiAuthorizedIntrTable.setDescription('This table includes all the authorized SCSI initiator devices\n     or ports that may attach a SCSI target device\n     (ScsiAuthIntrTgtPortIndex = 0) or port (ScsiAuthIntrTgtPortIndex\n     different than 0) of the local SCSI instance.  Statistics are\n     kept for each such authorization; thus, the authorizations\n     should be configured in the manner that will cause the desired\n     set of statistics to be collected and that will determine the\n     correct LUN map.')
-scsiAuthorizedIntrEntry = MibTableRow((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 1, 1), ).setIndexNames((0, "SCSI-MIB", "scsiInstIndex"), (0, "SCSI-MIB", "scsiDeviceIndex"), (0, "SCSI-MIB", "scsiAuthIntrTgtPortIndex"), (0, "SCSI-MIB", "scsiAuthIntrIndex"))
-if mibBuilder.loadTexts: scsiAuthorizedIntrEntry.setDescription('An entry (row) represents a remote SCSI initiator port or\n     remote SCSI initiator device that may attach to the local SCSI\n     target port or device within a particular SCSI instance.\n     The StorageType of a row in this table is specified by the\n     instance of scsiInstStorageType that is INDEXed by the same\n     value of scsiInstIndex.')
-scsiAuthIntrTgtPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 1, 1, 1), ScsiPortIndexValueOrZero())
-if mibBuilder.loadTexts: scsiAuthIntrTgtPortIndex.setDescription('This object contains either the index of the port or zero, to\n     indicate any port, on the particular local SCSI target device.')
-scsiAuthIntrIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 1, 1, 2), ScsiIndexValue())
-if mibBuilder.loadTexts: scsiAuthIntrIndex.setDescription('This object is an arbitrary integer used to uniquely identify\n     a SCSI initiator device or port that is authorized to attach\n     to a particular local SCSI target device or port of a particular\n     SCSI instance.')
-scsiAuthIntrDevOrPort = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 1, 1, 3), ScsiDeviceOrPort()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: scsiAuthIntrDevOrPort.setDescription('This object specifies whether this entry refers to a remote\n     SCSI initiator port or to a SCSI initiator device.\n     A value of device(1) means that the authorized remote initiator\n     is a SCSI initiator device and includes all of its ports.\n     A value of port(2) means that the authorized remote initiator\n     is a SCSI initiator port.')
-scsiAuthIntrName = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 1, 1, 4), ScsiName()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: scsiAuthIntrName.setDescription('This object represents the name of the remote SCSI initiator\n     device or port authorized by this row.')
-scsiAuthIntrLunMapIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 1, 1, 5), ScsiIndexValueOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: scsiAuthIntrLunMapIndex.setDescription('This object identifies the set of entries in the\n     scsiLunMapTable for which scsiLunMapIndex has the same value as\n     the value of this object.  The identified set of entries\n\n\n\n     constitutes the LUN map to be used for accessing logical units\n     when the remote SCSI initiator port or device corresponding to\n     this entry is attached to any local SCSI target port or device\n     corresponding to this entry.\n     Note that this object has a value of zero if this entry should\n     use the default LUN map.')
-scsiAuthIntrAttachedTimes = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 1, 1, 6), Counter32()).setUnits('Times').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiAuthIntrAttachedTimes.setDescription('This object indicates the number of times that this remote\n     SCSI initiator device or port has transitioned from unattached\n     to attached to this local SCSI target device or port.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system, and at other times as\n     indicated by the value of scsiAuthIntrLastCreation.')
-scsiAuthIntrOutCommands = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 1, 1, 7), Counter32()).setUnits('commands').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiAuthIntrOutCommands.setDescription('This object indicates the number of commands that the remote\n     SCSI initiator device or port corresponding to this entry has\n     sent to the local SCSI target device or port corresponding to\n     this entry.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system, and at other times as\n     indicated by the value of scsiAuthIntrLastCreation.')
-scsiAuthIntrReadMegaBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 1, 1, 8), Counter32()).setUnits('Megabytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiAuthIntrReadMegaBytes.setDescription('This object indicates the amount of data in megabytes that\n     the remote SCSI initiator device or port corresponding to this\n     entry has read from the local SCSI target device or port\n     corresponding to this entry.\n     Discontinuities in the value of this counter can occur at re-\n\n\n\n     initialization of the management system, and at other times as\n     indicated by the value of scsiAuthIntrLastCreation.')
-scsiAuthIntrWrittenMegaBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 1, 1, 9), Counter32()).setUnits('Megabytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiAuthIntrWrittenMegaBytes.setDescription('This object indicates the amount of data in megabytes that the\n     remote SCSI initiator device or port corresponding to this\n     entry has written to the local SCSI target device or port\n     corresponding to this entry.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system, and at other times as\n     indicated by the value of scsiAuthIntrLastCreation.')
-scsiAuthIntrHSOutCommands = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 1, 1, 10), Counter64()).setUnits('commands').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiAuthIntrHSOutCommands.setDescription('This object represents the number of commands sent by the\n     remote SCSI initiator device or port corresponding to this\n     entry to the local SCSI target device or port corresponding to\n     this entry.  This object provides support for systems that can\n     quickly generate a large number of commands because they run at\n     high speed.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system, and at other times as\n     indicated by the value of scsiAuthIntrLastCreation.')
-scsiAuthIntrLastCreation = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 1, 1, 11), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiAuthIntrLastCreation.setDescription('This object indicates the value of sysUpTime when this row was\n     last created.')
-scsiAuthIntrRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 1, 1, 12), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: scsiAuthIntrRowStatus.setDescription("This object allows an administrator to create or delete this\n     entry.\n     A newly created row cannot be made active until a value has\n     been set for scsiAuthIntrName.  In this case, the value of the\n     corresponding instance of the scsiAuthIntrRowStatus column will\n     stay 'notReady'.\n     The RowStatus TC [RFC2579] requires that this DESCRIPTION\n     clause states under which circumstances other objects in this\n     row can be modified:\n     The value of this object has no effect on whether other objects\n     in this conceptual row can be modified.")
-scsiAttIntrPortTable = MibTable((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 2), )
-if mibBuilder.loadTexts: scsiAttIntrPortTable.setDescription('This table includes all the remote SCSI initiator ports that\n     are currently attached to a local SCSI target port of all local\n     devices within all SCSI instances.')
-scsiAttIntrPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 2, 1), ).setIndexNames((0, "SCSI-MIB", "scsiInstIndex"), (0, "SCSI-MIB", "scsiDeviceIndex"), (0, "SCSI-MIB", "scsiPortIndex"), (0, "SCSI-MIB", "scsiAttIntrPortIndex"))
-if mibBuilder.loadTexts: scsiAttIntrPortEntry.setDescription('An entry (row) represents a remote SCSI initiator port\n     currently attached to a particular local SCSI target port of a\n     particular SCSI target device of a particular SCSI instance.')
-scsiAttIntrPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 2, 1, 1), ScsiIndexValue())
-if mibBuilder.loadTexts: scsiAttIntrPortIndex.setDescription('This object represents an arbitrary integer used to uniquely\n     identify a particular attached remote initiator port to a\n     particular SCSI target port within a particular SCSI target\n     device within a particular SCSI instance.')
-scsiAttIntrPortAuthIntrIdx = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 2, 1, 2), ScsiIndexValueOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiAttIntrPortAuthIntrIdx.setDescription('This object is the corresponding index in the\n     scsiAuthorizedIntrTable for this current attached remote\n     SCSI initiator device or zero if this remote attached SCSI\n     initiator device is not configured in that table.')
-scsiAttIntrPortName = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 2, 1, 3), ScsiName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiAttIntrPortName.setDescription('This object represents the name of the remote SCSI initiator\n     device attached to this local SCSI target port.')
-scsiAttIntrPortIdentifier = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 3, 3, 2, 1, 4), ScsiIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiAttIntrPortIdentifier.setDescription('This object represents the identifier of the remote SCSI\n     initiator device attached to this local SCSI target port.')
-scsiLuTable = MibTable((1, 3, 6, 1, 2, 1, 139, 2, 4, 1), )
-if mibBuilder.loadTexts: scsiLuTable.setDescription('This table contains the logical units exposed by local SCSI\n     target devices.\n\n\n\n     It includes attributes for the World Wide Name (WWN),\n     scsiLuVendorId, scsiLuProductId, and scsiLuRevisionId, which may\n     also appear in the scsiLuIdTable.  If an implementation exposes\n     a WWN as a LuIdTable entry, it must match the scsiLuWwnName in\n     this table.  If an implementation exposes a (vendor, product,\n     revision) identifier as an LuIdTable entry, each of these fields\n     must match the scsiLuVendorId, scsiLuProductId, and\n     scsiLuRevisionId attributes in this table.')
-scsiLuEntry = MibTableRow((1, 3, 6, 1, 2, 1, 139, 2, 4, 1, 1), ).setIndexNames((0, "SCSI-MIB", "scsiInstIndex"), (0, "SCSI-MIB", "scsiDeviceIndex"), (0, "SCSI-MIB", "scsiLuIndex"))
-if mibBuilder.loadTexts: scsiLuEntry.setDescription('An entry (row) contains information applicable to a particular\n     logical unit of a particular local SCSI target device within a\n     particular SCSI instance.')
-scsiLuIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 1, 1, 1), ScsiIndexValue())
-if mibBuilder.loadTexts: scsiLuIndex.setDescription('This object represents an arbitrary integer used to uniquely\n     identify a particular logical unit within a particular SCSI\n     target device within a particular SCSI instance.')
-scsiLuDefaultLun = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 1, 1, 2), ScsiLUN()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuDefaultLun.setDescription('This object represents the default Logical Unit Number (LUN)\n     for this logical unit; if a SCSI initiator device has not been\n     configured to view this logical unit via an entry in the\n     ScsiLunMapTable, the LU will be visible as scsiLuDefaultLun.\n     If this logical unit does not have a default LUN, it will only\n     be visible if specified via the ScsiLunMapTable, and this\n     object will contain a zero-length string.')
-scsiLuWwnName = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 1, 1, 3), ScsiLuNameOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuWwnName.setDescription('This object represents the World Wide Name of this LU that is\n     the device identifier of the Vital Product Data (VPD) page name;\n     if there is no WWN for this LU, this object will contain a\n     zero-length string.  If there is more than one identifier, they\n     will be listed in the scsiLuIdTable and this object will contain\n     a zero-length string.')
-scsiLuVendorId = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuVendorId.setDescription('This object represents a string identifying the vendor of this\n     LU as reported in the Standard INQUIRY data.')
-scsiLuProductId = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuProductId.setDescription('This object represents a string identifying the product for\n     this LU as reported in the Standard INQUIRY data.')
-scsiLuRevisionId = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 1, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuRevisionId.setDescription('This object represents a string defining the product revision\n     of this LU as reported in the Standard INQUIRY data.')
-scsiLuPeripheralType = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 1, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuPeripheralType.setDescription('This object is the value returned by SCSI Standard INQUIRY\n     data.  It can be: direct-access device, sequential-access\n     device, printer, communication device and so on.\n     The values that can be returned here are defined in SCSI\n     Primary Commands -2.')
-scsiLuStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("unknown", 1), ("available", 2), ("notAvailable", 3), ("broken", 4), ("readying", 5), ("abnormal", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuStatus.setDescription('This object represents the status of this logical unit:\n       - unknown(1): The status of this logical unit cannot be\n       determined.\n       - available(2): The logical unit is fully operational (i.e.,\n       accepts media access SCSI commands and has no state\n       information to report).\n       - notAvailable(3): The logical unit is capable of being\n       supported but is not available (i.e., no logical unit is\n       currently present or the logical unit is present but not\n       configured for use).\n       - broken(4): The logical unit has failed and cannot respond\n       to SCSI commands.\n       - readying(5): The logical unit is being initialized and\n\n\n\n       access is temporarily limited.\n       - abnormal(6): The logical unit has state information\n       available that indicates it is operating with limits.  The\n       scsiLuState indicates what those limits are.\n     ')
-scsiLuState = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 1, 1, 9), Bits().clone(namedValues=NamedValues(("dataLost", 0), ("dynamicReconfigurationInProgress", 1), ("exposed", 2), ("fractionallyExposed", 3), ("partiallyExposed", 4), ("protectedRebuild", 5), ("protectionDisabled", 6), ("rebuild", 7), ("recalculate", 8), ("spareInUse", 9), ("verifyInProgress", 10),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuState.setDescription('This object represents the state of a logical unit and its\n     meaning according to the bit position:\n          0 Data lost: Within the logical unit data has been lost.\n          1 Dynamic reconfiguration in progress: The logical unit is\n               being reconfigured.  In this state all data is still\n               protected.\n          2 Exposed: Within the logical unit data is not protected.\n               In this state all data is still valid; however, loss\n               of data or data availability is unavoidable in the\n               event of a failure.\n          3 Fractionally exposed: Within the logical unit part of\n               the data is not protected.  In this state all data is\n               still valid; however, a failure may cause a loss of\n               data or a loss of data availability.\n          4 Partially exposed: Within the logical unit one or more\n               underlying storage devices have failed.  In this state\n               all data is still protected.\n          5 Protected rebuild: The logical unit is in the process of\n               a rebuild operation.  In this state all data is\n               protected.\n          6 Protection disabled: Within the logical unit the data\n\n\n\n               protection method has been disabled.\n               In this state all data is still valid; however,\n               loss of data or data availability is unavoidable\n               in the event of a failure.\n          7 Rebuild: The data protection method is in the process of\n               rebuilding data.  In this state data is not protected.\n          8 Recalculate: The logical unit is in the process of a\n               recalculate operation.\n          9 Spare in use: Within the logical unit a storage device\n               in full or part is being used to store data.  In this\n               state all data is still protected.\n          10 Verify in progress: Within the logical unit data is\n               being verified.')
-scsiLuInCommands = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 1, 1, 10), Counter32()).setUnits('commands').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuInCommands.setDescription('This object represents the number of commands received by this\n     logical unit.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system, and at other times as\n     indicated by the value of scsiLuLastCreation.')
-scsiLuReadMegaBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 1, 1, 11), Counter32()).setUnits('Megabytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuReadMegaBytes.setDescription('This object represents the amount of data in megabytes read\n     from this logical unit.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system, and at other times as\n     indicated by the value of scsiLuLastCreation.')
-scsiLuWrittenMegaBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 1, 1, 12), Counter32()).setUnits('Megabytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuWrittenMegaBytes.setDescription('This object represents the amount of data in megabytes written\n     to this logical unit.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system, and at other times as\n     indicated by the value of scsiLuLastCreation.')
-scsiLuInResets = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 1, 1, 13), Counter32()).setUnits('resets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuInResets.setDescription('This object represents the number of times that this logical\n     unit received\n     - a LOGICAL UNIT RESET or TARGET RESET task management request,\n     or\n     - any other SCSI transport protocol-specific action or event\n     that causes a Logical Unit Reset or a Hard Reset at a SCSI\n     target port of the containing device\n     ([SAM2] Chapters 5.9.6, 5.9.7).\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system, and at other times as\n     indicated by the value of scsiLuLastCreation.')
-scsiLuOutTaskSetFullStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 1, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuOutTaskSetFullStatus.setDescription('This object represents the number of Task Set full statuses\n     issued for this logical unit.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system, and at other times as\n     indicated by the value of scsiLuLastCreation.')
-scsiLuHSInCommands = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 1, 1, 15), Counter64()).setUnits('commands').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuHSInCommands.setDescription('This object represents the number of commands received by this\n     logical unit.  This object provides support for systems that can\n     quickly generate a large number of commands because they run at\n     high speed.\n     Discontinuities in the value of this counter can occur at re-\n     initialization of the management system, and at other times as\n     indicated by the value of scsiLuLastCreation.')
-scsiLuLastCreation = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 1, 1, 16), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuLastCreation.setDescription('This object indicates the value of sysUpTime when this row was\n     last created.')
-scsiLuIdTable = MibTable((1, 3, 6, 1, 2, 1, 139, 2, 4, 2), )
-if mibBuilder.loadTexts: scsiLuIdTable.setDescription('A table of identifiers for all logical units exposed by the\n      local SCSI target device.')
-scsiLuIdEntry = MibTableRow((1, 3, 6, 1, 2, 1, 139, 2, 4, 2, 1), ).setIndexNames((0, "SCSI-MIB", "scsiInstIndex"), (0, "SCSI-MIB", "scsiDeviceIndex"), (0, "SCSI-MIB", "scsiLuIndex"), (0, "SCSI-MIB", "scsiLuIdIndex"))
-if mibBuilder.loadTexts: scsiLuIdEntry.setDescription('An entry (row) containing information applicable to a\n     particular identifier for a particular logical unit of a\n     particular SCSI target device within a particular SCSI\n     instance.')
-scsiLuIdIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 2, 1, 1), ScsiIndexValue())
-if mibBuilder.loadTexts: scsiLuIdIndex.setDescription('This object represents an arbitrary integer used to uniquely\n     identify a particular LU identifier within a particular logical\n     unit within a particular SCSI target device within a particular\n     SCSI instance.')
-scsiLuIdCodeSet = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 2, 1, 2), ScsiIdCodeSet()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuIdCodeSet.setDescription("This object specifies the code set in use with this\n     identifier.  The value is represented in the same format as is\n     contained in the identifier's Identification Descriptor within\n     the logical unit's Device Identification Page.")
-scsiLuIdAssociation = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 2, 1, 3), ScsiIdAssociation()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuIdAssociation.setDescription("This object specifies what the identifier is associated with\n     (e.g., with the addressed physical/logical device or with a\n     particular port).  The value is represented in the same format\n     as is contained in the identifier's Identification Descriptor\n     within the logical unit's Device Identification Page.")
-scsiLuIdType = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 2, 1, 4), ScsiIdType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuIdType.setDescription("This object specifies the type of the identifier.\n\n\n\n     The value is represented in the same format as is contained in\n     the identifier's Identification Descriptor within the logical\n     unit's Device Identification Page.")
-scsiLuIdValue = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 2, 1, 5), ScsiIdValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: scsiLuIdValue.setDescription("This object represents the actual value of this identifier.\n     The format is defined by the objects scsiLuIdCodeSet,\n     scsiLuIdAssociation, scsiLuIdType.\n     The value is represented in the same format as is contained in\n     the identifier's Identification Descriptor within the logical\n     unit's Device Identification Page.")
-scsiLunMapTable = MibTable((1, 3, 6, 1, 2, 1, 139, 2, 4, 3), )
-if mibBuilder.loadTexts: scsiLunMapTable.setDescription('This table provides the ability to present a logical unit\n     using different Logical Unit Numbers for different SCSI\n     initiator devices.\n     This table provides a mapping between a logical unit and a\n     Logical Unit Number, and can be referenced by a\n     ScsiAuthorizedIntrEntry to specify the LUN map for that\n     initiator.')
-scsiLunMapEntry = MibTableRow((1, 3, 6, 1, 2, 1, 139, 2, 4, 3, 1), ).setIndexNames((0, "SCSI-MIB", "scsiInstIndex"), (0, "SCSI-MIB", "scsiDeviceIndex"), (0, "SCSI-MIB", "scsiLunMapIndex"), (0, "SCSI-MIB", "scsiLunMapLun"))
-if mibBuilder.loadTexts: scsiLunMapEntry.setDescription('An entry containing information about the mapping of a\n\n\n\n     particular logical unit to a particular LUN.  The set of\n     entries that all have the same values of scsiInstIndex,\n     scsiDeviceIndex and scsiLunMapIndex constitutes a LUN map\n     within a particular SCSI instance.\n     The StorageType of a row in this table is specified by\n     the instance of scsiInstStorageType that is INDEX-ed by\n     the same value of scsiInstIndex.')
-scsiLunMapIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 3, 1, 1), ScsiIndexValue())
-if mibBuilder.loadTexts: scsiLunMapIndex.setDescription('This object represents an arbitrary integer used to uniquely\n     identify a particular LunMap within a particular SCSI target\n     device within a particular SCSI instance.')
-scsiLunMapLun = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 3, 1, 2), ScsiLUN())
-if mibBuilder.loadTexts: scsiLunMapLun.setDescription('This object specifies the Logical Unit Number, to which a\n     logical unit is mapped by this row.')
-scsiLunMapLuIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 3, 1, 3), ScsiIndexValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: scsiLunMapLuIndex.setDescription('This object identifies the logical unit for which the value of\n     scsiLuIndex is the same as the value of this object.  The\n     identified logical unit is the one mapped to a LUN by this\n     row.')
-scsiLunMapRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 139, 2, 4, 3, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: scsiLunMapRowStatus.setDescription('This object allows an administrator to create and delete this\n     entry.')
-scsiNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 2, 1, 139, 0, 0))
-scsiTgtDeviceStatusChanged = NotificationType((1, 3, 6, 1, 2, 1, 139, 0, 0, 1)).setObjects(*(("SCSI-MIB", "scsiTgtDeviceStatus"),))
-if mibBuilder.loadTexts: scsiTgtDeviceStatusChanged.setDescription("This notification will be generated for each occurrence of the\n     abnormal status (e.g., if the SCSI target device's current\n     status is abnormal) providing that the SCSI instance's value of\n     scsiInstScsiNotificationsEnable is enabled.\n     An SNMP agent implementing the SCSI MIB module should not send\n     more than three SCSI identical notifications in any 10-second\n     period.")
-scsiLuStatusChanged = NotificationType((1, 3, 6, 1, 2, 1, 139, 0, 0, 2)).setObjects(*(("SCSI-MIB", "scsiLuStatus"),))
-if mibBuilder.loadTexts: scsiLuStatusChanged.setDescription("This notification will be generated each time that\n     scsiLuStatus changes providing that the SCSI instance's value\n     of scsiInstScsiNotificationsEnable is enabled.\n     An SNMP agent implementing the SCSI MIB module should not send\n     more than three SCSI identical notifications in any 10-second\n     period.")
-scsiCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 139, 3, 1))
-scsiCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 139, 3, 1, 1)).setObjects(*(("SCSI-MIB", "scsiDeviceGroup"),))
-if mibBuilder.loadTexts: scsiCompliance.setDescription('Describes the requirements for compliance to this SCSI MIB\n      module.\n     If an implementation can be both a SCSI target device and a SCSI\n     initiator device, all groups are mandatory.')
-scsiGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 139, 3, 2))
-scsiDeviceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 139, 3, 2, 1)).setObjects(*(("SCSI-MIB", "scsiInstAlias"), ("SCSI-MIB", "scsiInstSoftwareIndex"), ("SCSI-MIB", "scsiInstVendorVersion"), ("SCSI-MIB", "scsiInstScsiNotificationsEnable"), ("SCSI-MIB", "scsiInstStorageType"), ("SCSI-MIB", "scsiDeviceAlias"), ("SCSI-MIB", "scsiDeviceRole"), ("SCSI-MIB", "scsiDevicePortNumber"), ("SCSI-MIB", "scsiPortRole"), ("SCSI-MIB", "scsiPortTransportPtr"), ("SCSI-MIB", "scsiTransportType"), ("SCSI-MIB", "scsiTransportPointer"), ("SCSI-MIB", "scsiTransportDevName"),))
-if mibBuilder.loadTexts: scsiDeviceGroup.setDescription('A collection of objects providing information about SCSI\n     instances, devices, and ports.')
-scsiInitiatorDeviceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 139, 3, 2, 2)).setObjects(*(("SCSI-MIB", "scsiIntrDevTgtAccessMode"), ("SCSI-MIB", "scsiIntrPortName"), ("SCSI-MIB", "scsiIntrPortIdentifier"), ("SCSI-MIB", "scsiAttTgtPortDscTgtIdx"), ("SCSI-MIB", "scsiAttTgtPortName"), ("SCSI-MIB", "scsiAttTgtPortIdentifier"),))
-if mibBuilder.loadTexts: scsiInitiatorDeviceGroup.setDescription('This group is relevant for s SCSI initiator device and port.')
-scsiDiscoveryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 139, 3, 2, 3)).setObjects(*(("SCSI-MIB", "scsiDscTgtDevOrPort"), ("SCSI-MIB", "scsiDscTgtName"), ("SCSI-MIB", "scsiDscTgtConfigured"), ("SCSI-MIB", "scsiDscTgtDiscovered"), ("SCSI-MIB", "scsiDscTgtRowStatus"), ("SCSI-MIB", "scsiDscTgtLastCreation"), ("SCSI-MIB", "scsiDscLunLun"), ("SCSI-MIB", "scsiDscLunIdCodeSet"), ("SCSI-MIB", "scsiDscLunIdAssociation"), ("SCSI-MIB", "scsiDscLunIdType"), ("SCSI-MIB", "scsiDscLunIdValue"),))
-if mibBuilder.loadTexts: scsiDiscoveryGroup.setDescription('This group is relevant for the discovered SCSI target devices\n     by a SCSI initiator port.')
-scsiTargetDeviceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 139, 3, 2, 4)).setObjects(*(("SCSI-MIB", "scsiTgtDevNumberOfLUs"), ("SCSI-MIB", "scsiTgtDeviceStatus"), ("SCSI-MIB", "scsiTgtDevNonAccessibleLUs"), ("SCSI-MIB", "scsiTgtPortName"), ("SCSI-MIB", "scsiTgtPortIdentifier"), ("SCSI-MIB", "scsiAttIntrPortAuthIntrIdx"), ("SCSI-MIB", "scsiAttIntrPortName"), ("SCSI-MIB", "scsiAttIntrPortIdentifier"), ("SCSI-MIB", "scsiLuDefaultLun"), ("SCSI-MIB", "scsiLuWwnName"), ("SCSI-MIB", "scsiLuVendorId"), ("SCSI-MIB", "scsiLuProductId"), ("SCSI-MIB", "scsiLuRevisionId"), ("SCSI-MIB", "scsiLuPeripheralType"), ("SCSI-MIB", "scsiLuStatus"), ("SCSI-MIB", "scsiLuState"), ("SCSI-MIB", "scsiLuLastCreation"), ("SCSI-MIB", "scsiLuIdCodeSet"), ("SCSI-MIB", "scsiLuIdAssociation"), ("SCSI-MIB", "scsiLuIdType"), ("SCSI-MIB", "scsiLuIdValue"),))
-if mibBuilder.loadTexts: scsiTargetDeviceGroup.setDescription('This group is relevant for a SCSI target device and port.')
-scsiLunMapGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 139, 3, 2, 5)).setObjects(*(("SCSI-MIB", "scsiLunMapLuIndex"), ("SCSI-MIB", "scsiLunMapRowStatus"), ("SCSI-MIB", "scsiAuthIntrDevOrPort"), ("SCSI-MIB", "scsiAuthIntrName"), ("SCSI-MIB", "scsiAuthIntrLunMapIndex"), ("SCSI-MIB", "scsiAuthIntrLastCreation"), ("SCSI-MIB", "scsiAuthIntrRowStatus"),))
-if mibBuilder.loadTexts: scsiLunMapGroup.setDescription('This group is a collection of attributes regarding the mapping\n     between Logical Unit Number, logical unit, and target device.')
-scsiTargetDevStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 139, 3, 2, 6)).setObjects(*(("SCSI-MIB", "scsiTgtDevResets"), ("SCSI-MIB", "scsiTgtPortInCommands"), ("SCSI-MIB", "scsiTgtPortWrittenMegaBytes"), ("SCSI-MIB", "scsiTgtPortReadMegaBytes"), ("SCSI-MIB", "scsiLuInCommands"), ("SCSI-MIB", "scsiLuReadMegaBytes"), ("SCSI-MIB", "scsiLuWrittenMegaBytes"), ("SCSI-MIB", "scsiLuInResets"), ("SCSI-MIB", "scsiLuOutTaskSetFullStatus"),))
-if mibBuilder.loadTexts: scsiTargetDevStatsGroup.setDescription('This group is a collection of statistics for all\n     implementations of the SCSI MIB module that contain SCSI target\n     devices.')
-scsiTargetDevHSStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 139, 3, 2, 7)).setObjects(*(("SCSI-MIB", "scsiTgtPortHSInCommands"), ("SCSI-MIB", "scsiLuHSInCommands"),))
-if mibBuilder.loadTexts: scsiTargetDevHSStatsGroup.setDescription('This group is a collection of high speed statistics for all\n     implementations of the SCSI MIB module that contain SCSI target\n     devices.')
-scsiLunMapStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 139, 3, 2, 8)).setObjects(*(("SCSI-MIB", "scsiAuthIntrAttachedTimes"), ("SCSI-MIB", "scsiAuthIntrOutCommands"), ("SCSI-MIB", "scsiAuthIntrReadMegaBytes"), ("SCSI-MIB", "scsiAuthIntrWrittenMegaBytes"),))
-if mibBuilder.loadTexts: scsiLunMapStatsGroup.setDescription('This group is a collection of statistics regarding SCSI\n     initiator devices authorized to attach local logical unit and\n     SCSI target device.')
-scsiLunMapHSStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 139, 3, 2, 9)).setObjects(*(("SCSI-MIB", "scsiAuthIntrHSOutCommands"),))
-if mibBuilder.loadTexts: scsiLunMapHSStatsGroup.setDescription('This group is a collection of high speed statistics regarding\n     SCSI initiator devices authorized to attach local logical unit\n     and SCSI target device.')
-scsiInitiatorDevStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 139, 3, 2, 10)).setObjects(*(("SCSI-MIB", "scsiIntrDevOutResets"), ("SCSI-MIB", "scsiIntrPortOutCommands"), ("SCSI-MIB", "scsiIntrPortWrittenMegaBytes"), ("SCSI-MIB", "scsiIntrPortReadMegaBytes"),))
-if mibBuilder.loadTexts: scsiInitiatorDevStatsGroup.setDescription('This group is a collection of statistics for all\n     implementations of the SCSI MIB module that contain SCSI\n     initiator devices.')
-scsiInitiatorDevHSStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 139, 3, 2, 11)).setObjects(*(("SCSI-MIB", "scsiIntrPortHSOutCommands"),))
-if mibBuilder.loadTexts: scsiInitiatorDevHSStatsGroup.setDescription('This group is a collection of high speed statistics for all\n\n\n\n     implementations of the SCSI MIB module that contain SCSI\n     initiator devices.')
-scsiDiscoveryStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 139, 3, 2, 12)).setObjects(*(("SCSI-MIB", "scsiDscTgtInCommands"), ("SCSI-MIB", "scsiDscTgtReadMegaBytes"), ("SCSI-MIB", "scsiDscTgtWrittenMegaBytes"),))
-if mibBuilder.loadTexts: scsiDiscoveryStatsGroup.setDescription('This group is a collection of statistics for all\n     implementations of the SCSI MIB module that contain discovered\n     SCSI initiator devices.')
-scsiDiscoveryHSStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 139, 3, 2, 13)).setObjects(*(("SCSI-MIB", "scsiDscTgtHSInCommands"),))
-if mibBuilder.loadTexts: scsiDiscoveryHSStatsGroup.setDescription('This group is a collection of high speed statistics for all\n     implementations of the SCSI MIB module that contain discovered\n     SCSI initiator devices.')
-scsiDeviceStatGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 139, 3, 2, 14)).setObjects(*(("SCSI-MIB", "scsiPortBusyStatuses"),))
-if mibBuilder.loadTexts: scsiDeviceStatGroup.setDescription('A collection of statistics regarding SCSI devices and\n     ports.')
-scsiTgtDevLuNotificationsGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 139, 3, 2, 15)).setObjects(*(("SCSI-MIB", "scsiTgtDeviceStatusChanged"), ("SCSI-MIB", "scsiLuStatusChanged"),))
-if mibBuilder.loadTexts: scsiTgtDevLuNotificationsGroup.setDescription('A collection of notifications regarding status change of SCSI\n     target devices and logical units.')
-mibBuilder.exportSymbols("SCSI-MIB", ScsiIdValue=ScsiIdValue, scsiDscLunIdAssociation=scsiDscLunIdAssociation, scsiLunMapHSStatsGroup=scsiLunMapHSStatsGroup, scsiConformance=scsiConformance, scsiRemoteIntrDev=scsiRemoteIntrDev, scsiLuIdTable=scsiLuIdTable, scsiAttTgtPortIndex=scsiAttTgtPortIndex, scsiInstVendorVersion=scsiInstVendorVersion, scsiIntrDevEntry=scsiIntrDevEntry, scsiInitiatorDevStatsGroup=scsiInitiatorDevStatsGroup, scsiAttIntrPortTable=scsiAttIntrPortTable, scsiLuIdCodeSet=scsiLuIdCodeSet, scsiDeviceRole=scsiDeviceRole, scsiDscTgtDiscovered=scsiDscTgtDiscovered, scsiPortRole=scsiPortRole, scsiObjects=scsiObjects, scsiLuVendorId=scsiLuVendorId, scsiNotificationsPrefix=scsiNotificationsPrefix, ScsiIdCodeSet=ScsiIdCodeSet, scsiDscTgtTable=scsiDscTgtTable, scsiInstanceTable=scsiInstanceTable, scsiDscLunEntry=scsiDscLunEntry, scsiInitiatorDevice=scsiInitiatorDevice, scsiDscLunIdIndex=scsiDscLunIdIndex, scsiTgtDevTable=scsiTgtDevTable, scsiDeviceTable=scsiDeviceTable, scsiTransportDevName=scsiTransportDevName, scsiIntrPortWrittenMegaBytes=scsiIntrPortWrittenMegaBytes, scsiAuthIntrLunMapIndex=scsiAuthIntrLunMapIndex, scsiDscTgtIntrPortIndex=scsiDscTgtIntrPortIndex, scsiDscTgtWrittenMegaBytes=scsiDscTgtWrittenMegaBytes, scsiCompliances=scsiCompliances, scsiGroups=scsiGroups, scsiAuthIntrOutCommands=scsiAuthIntrOutCommands, scsiIntrPortHSOutCommands=scsiIntrPortHSOutCommands, scsiDscLunLun=scsiDscLunLun, scsiTransportIndex=scsiTransportIndex, scsiTgtDevNonAccessibleLUs=scsiTgtDevNonAccessibleLUs, scsiDscTgtConfigured=scsiDscTgtConfigured, scsiLuHSInCommands=scsiLuHSInCommands, scsiLunMapStatsGroup=scsiLunMapStatsGroup, ScsiHrSWInstalledIndexOrZero=ScsiHrSWInstalledIndexOrZero, scsiLuInResets=scsiLuInResets, scsiLunMapTable=scsiLunMapTable, scsiInstStorageType=scsiInstStorageType, scsiDeviceEntry=scsiDeviceEntry, scsiLunMapGroup=scsiLunMapGroup, scsiLuWrittenMegaBytes=scsiLuWrittenMegaBytes, scsiTgtDevResets=scsiTgtDevResets, scsiDscTgtInCommands=scsiDscTgtInCommands, scsiInstanceEntry=scsiInstanceEntry, scsiLuIdEntry=scsiLuIdEntry, scsiTgtPortEntry=scsiTgtPortEntry, scsiAuthIntrHSOutCommands=scsiAuthIntrHSOutCommands, scsiDscTgtHSInCommands=scsiDscTgtHSInCommands, scsiPortTable=scsiPortTable, scsiLuProductId=scsiLuProductId, scsiDscTgtDevOrPort=scsiDscTgtDevOrPort, scsiTransportISCSI=scsiTransportISCSI, scsiDscLunIndex=scsiDscLunIndex, scsiAttTgtPortEntry=scsiAttTgtPortEntry, scsiPortIndex=scsiPortIndex, scsiMIB=scsiMIB, scsiLuLastCreation=scsiLuLastCreation, scsiDscLunIdTable=scsiDscLunIdTable, scsiTargetDevStatsGroup=scsiTargetDevStatsGroup, scsiDeviceStatGroup=scsiDeviceStatGroup, scsiLogicalUnit=scsiLogicalUnit, scsiLunMapIndex=scsiLunMapIndex, scsiIntrDevTgtAccessMode=scsiIntrDevTgtAccessMode, scsiTargetDeviceGroup=scsiTargetDeviceGroup, scsiAuthIntrReadMegaBytes=scsiAuthIntrReadMegaBytes, scsiTransportTypes=scsiTransportTypes, scsiDiscoveryHSStatsGroup=scsiDiscoveryHSStatsGroup, scsiDeviceIndex=scsiDeviceIndex, scsiLuTable=scsiLuTable, scsiTransportSRP=scsiTransportSRP, scsiAuthIntrLastCreation=scsiAuthIntrLastCreation, scsiLuStatusChanged=scsiLuStatusChanged, scsiInstSoftwareIndex=scsiInstSoftwareIndex, scsiDscTgtIndex=scsiDscTgtIndex, scsiLuIndex=scsiLuIndex, scsiTgtDeviceStatus=scsiTgtDeviceStatus, scsiAuthIntrName=scsiAuthIntrName, scsiTargetDevHSStatsGroup=scsiTargetDevHSStatsGroup, scsiIntrDevOutResets=scsiIntrDevOutResets, scsiLuIdAssociation=scsiLuIdAssociation, scsiLuState=scsiLuState, ScsiLuNameOrZero=ScsiLuNameOrZero, scsiTgtDeviceStatusChanged=scsiTgtDeviceStatusChanged, scsiTargetDevice=scsiTargetDevice, scsiTgtDevNumberOfLUs=scsiTgtDevNumberOfLUs, scsiLunMapLun=scsiLunMapLun, scsiAttIntrPortName=scsiAttIntrPortName, scsiIntrPortReadMegaBytes=scsiIntrPortReadMegaBytes, scsiDscTgtEntry=scsiDscTgtEntry, scsiDiscoveryGroup=scsiDiscoveryGroup, scsiTgtPortTable=scsiTgtPortTable, ScsiLUN=ScsiLUN, scsiInstAlias=scsiInstAlias, scsiLuIdValue=scsiLuIdValue, scsiAuthIntrWrittenMegaBytes=scsiAuthIntrWrittenMegaBytes, scsiAttTgtPortIdentifier=scsiAttTgtPortIdentifier, scsiTransportEntry=scsiTransportEntry, scsiDiscoveryStatsGroup=scsiDiscoveryStatsGroup, scsiDscTgtLastCreation=scsiDscTgtLastCreation, scsiAdmin=scsiAdmin, ScsiPortIndexValueOrZero=ScsiPortIndexValueOrZero, scsiLuIdType=scsiLuIdType, scsiDscTgtName=scsiDscTgtName, scsiDscLunTable=scsiDscLunTable, scsiTgtPortWrittenMegaBytes=scsiTgtPortWrittenMegaBytes, scsiTgtPortInCommands=scsiTgtPortInCommands, scsiPortTransportPtr=scsiPortTransportPtr, scsiIntrDevTable=scsiIntrDevTable, scsiLuRevisionId=scsiLuRevisionId, scsiTransportSPI=scsiTransportSPI, ScsiDeviceOrPort=ScsiDeviceOrPort, scsiAuthIntrTgtPortIndex=scsiAuthIntrTgtPortIndex, scsiTgtPortReadMegaBytes=scsiTgtPortReadMegaBytes, scsiAuthorizedIntrEntry=scsiAuthorizedIntrEntry, scsiLunMapLuIndex=scsiLunMapLuIndex, scsiTransportFCP=scsiTransportFCP, scsiDscTgtRowStatus=scsiDscTgtRowStatus, scsiAttTgtPortName=scsiAttTgtPortName, scsiTransportPointer=scsiTransportPointer, scsiLuEntry=scsiLuEntry, scsiTransportOther=scsiTransportOther, ScsiName=ScsiName, scsiIntrPortIdentifier=scsiIntrPortIdentifier, scsiGeneral=scsiGeneral, ScsiIdAssociation=ScsiIdAssociation, scsiTransportSAS=scsiTransportSAS, scsiIntrPortEntry=scsiIntrPortEntry, scsiAuthorizedIntrTable=scsiAuthorizedIntrTable, ScsiIndexValueOrZero=ScsiIndexValueOrZero, scsiLuPeripheralType=scsiLuPeripheralType, scsiLunMapEntry=scsiLunMapEntry, ScsiIdentifier=ScsiIdentifier, scsiDscLunIdEntry=scsiDscLunIdEntry, scsiLuReadMegaBytes=scsiLuReadMegaBytes, scsiPortBusyStatuses=scsiPortBusyStatuses, scsiLunMapRowStatus=scsiLunMapRowStatus, ScsiIdType=ScsiIdType, scsiAuthIntrRowStatus=scsiAuthIntrRowStatus, scsiTransportSBP=scsiTransportSBP, scsiInstScsiNotificationsEnable=scsiInstScsiNotificationsEnable, scsiIntrPortName=scsiIntrPortName, scsiTgtDevEntry=scsiTgtDevEntry, scsiTgtPortHSInCommands=scsiTgtPortHSInCommands, scsiDeviceGroup=scsiDeviceGroup, scsiPortEntry=scsiPortEntry, scsiDscLunIdCodeSet=scsiDscLunIdCodeSet, scsiLuInCommands=scsiLuInCommands, scsiDscLunIdValue=scsiDscLunIdValue, scsiDscTgtReadMegaBytes=scsiDscTgtReadMegaBytes, scsiInitiatorDeviceGroup=scsiInitiatorDeviceGroup, scsiAuthIntrDevOrPort=scsiAuthIntrDevOrPort, scsiDevicePortNumber=scsiDevicePortNumber, scsiNotifications=scsiNotifications, scsiAttIntrPortAuthIntrIdx=scsiAttIntrPortAuthIntrIdx, scsiLuWwnName=scsiLuWwnName, PYSNMP_MODULE_ID=scsiMIB, ScsiIndexValue=ScsiIndexValue, scsiTransportTable=scsiTransportTable, scsiIntrPortTable=scsiIntrPortTable, scsiAttIntrPortIdentifier=scsiAttIntrPortIdentifier, scsiDscLunIdType=scsiDscLunIdType, scsiAuthIntrIndex=scsiAuthIntrIndex, scsiLuIdIndex=scsiLuIdIndex, scsiCompliance=scsiCompliance, scsiAttTgtPortDscTgtIdx=scsiAttTgtPortDscTgtIdx, scsiAttIntrPortIndex=scsiAttIntrPortIndex, scsiRemoteTgtDev=scsiRemoteTgtDev, scsiTgtDevLuNotificationsGroup=scsiTgtDevLuNotificationsGroup, scsiTgtPortIdentifier=scsiTgtPortIdentifier, scsiLuDefaultLun=scsiLuDefaultLun, scsiTgtPortName=scsiTgtPortName, scsiAuthIntrAttachedTimes=scsiAuthIntrAttachedTimes, scsiLuOutTaskSetFullStatus=scsiLuOutTaskSetFullStatus, scsiAttIntrPortEntry=scsiAttIntrPortEntry, scsiInstIndex=scsiInstIndex, scsiTransportType=scsiTransportType, scsiLuStatus=scsiLuStatus, scsiInitiatorDevHSStatsGroup=scsiInitiatorDevHSStatsGroup, scsiDeviceAlias=scsiDeviceAlias, scsiAttTgtPortTable=scsiAttTgtPortTable, scsiIntrPortOutCommands=scsiIntrPortOutCommands)
+_B3='scsiDeviceGroup'
+_B2='scsiPortBusyStatuses'
+_B1='scsiDeviceResets'
+_B0='scsiDscTgtHSInCommands'
+_A_='scsiDscTgtWrittenMegaBytes'
+_Az='scsiDscTgtReadMegaBytes'
+_Ay='scsiDscTgtInCommands'
+_Ax='scsiIntrPrtHSOutCommands'
+_Aw='scsiIntrPrtReadMegaBytes'
+_Av='scsiIntrPrtWrittenMegaBytes'
+_Au='scsiIntrPrtOutCommands'
+_At='scsiIntrDevOutResets'
+_As='scsiAuthIntrHSOutCommands'
+_Ar='scsiAuthIntrWrittenMegaBytes'
+_Aq='scsiAuthIntrReadMegaBytes'
+_Ap='scsiAuthIntrOutCommands'
+_Ao='scsiAuthIntrAttachedTimes'
+_An='scsiLuHSInCommands'
+_Am='scsiTgtPortHSInCommands'
+_Al='scsiLuOutQueueFullStatus'
+_Ak='scsiLuInResets'
+_Aj='scsiLuWrittenMegaBytes'
+_Ai='scsiLuReadMegaBytes'
+_Ah='scsiLuInCommands'
+_Ag='scsiTgtPortReadMegaBytes'
+_Af='scsiTgtPortWrittenMegaBytes'
+_Ae='scsiTgtPortInCommands'
+_Ad='scsiAuthIntrRowStatus'
+_Ac='scsiAuthIntrLastCreation'
+_Ab='scsiAuthIntrLunMapIndex'
+_Aa='scsiAuthIntrName'
+_AZ='scsiAuthIntrDevOrPort'
+_AY='scsiLunMapRowStatus'
+_AX='scsiLunMapLuIndex'
+_AW='scsiLuIdValue'
+_AV='scsiLuIdType'
+_AU='scsiLuIdAssociation'
+_AT='scsiLuIdCodeSet'
+_AS='scsiLuState'
+_AR='scsiLuPeripheralType'
+_AQ='scsiLuRevisionId'
+_AP='scsiLuProductId'
+_AO='scsiLuVendorId'
+_AN='scsiLuWwnName'
+_AM='scsiLuDefaultLun'
+_AL='scsiAttIntrPrtId'
+_AK='scsiAttIntrPrtName'
+_AJ='scsiAttIntrPrtAuthIntrIdx'
+_AI='scsiTgtPortIdentifier'
+_AH='scsiTgtPortName'
+_AG='scsiTgtDevNonAccessibleLUs'
+_AF='scsiTgtDevNumberOfLUs'
+_AE='scsiDscLunIdValue'
+_AD='scsiDscLunIdType'
+_AC='scsiDscLunIdAssociation'
+_AB='scsiDscLunIdCodeSet'
+_AA='scsiDscLunLun'
+_A9='scsiDscTgtLastCreation'
+_A8='scsiDscTgtRowStatus'
+_A7='scsiDscTgtDiscovered'
+_A6='scsiDscTgtConfigured'
+_A5='scsiDscTgtName'
+_A4='scsiDscTgtDevOrPort'
+_A3='scsiAttTgtPortIdentifier'
+_A2='scsiAttTgtPortName'
+_A1='scsiAttTgtPortDscTgtIdx'
+_A0='scsiIntrPrtIdentifier'
+_z='scsiIntrPrtName'
+_y='scsiIntrDevTgtAccessMode'
+_x='scsiTrnsptDevName'
+_w='scsiTrnsptPointer'
+_v='scsiTrnsptType'
+_u='scsiPortTrnsptPtr'
+_t='scsiPortRole'
+_s='scsiDevicePortNumber'
+_r='scsiDeviceRole'
+_q='scsiDeviceAlias'
+_p='scsiInstScsiNotificationsEnable'
+_o='scsiInstVendorVersion'
+_n='scsiInstSoftwareIndex'
+_m='scsiInstAlias'
+_l='scsiLunMapLun'
+_k='scsiLunMapIndex'
+_j='scsiLuIdIndex'
+_i='scsiAttIntrPrtIdx'
+_h='scsiAuthIntrIndex'
+_g='scsiAuthIntrTgtPortIndex'
+_f='abnormal'
+_e='readying'
+_d='broken'
+_c='available'
+_b='scsiAttTgtPortIndex'
+_a='scsiDscLunIdIndex'
+_Z='scsiTrnsptIndex'
+_Y='initiator'
+_X='target'
+_W='scsiLuStatus'
+_V='scsiTgtDeviceStatus'
+_U='scsiLuIndex'
+_T='scsiDscLunIndex'
+_S='unknown'
+_R='TruthValue'
+_Q='scsiDscTgtIndex'
+_P='scsiDscTgtIntrPortIndex'
+_O='read-write'
+_N='Integer32'
+_M='Bits'
+_L='OctetString'
+_K='scsiPortIndex'
+_J='SnmpAdminString'
+_I='read-create'
+_H='Megabytes'
+_G='commands'
+_F='not-accessible'
+_E='scsiDeviceIndex'
+_D='scsiInstIndex'
+_C='read-only'
+_B='SCSI-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_L,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_J)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI',_M,'Counter32','Counter64','Gauge32',_N,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+AutonomousType,DisplayString,PhysAddress,RowPointer,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','AutonomousType','DisplayString','PhysAddress','RowPointer','RowStatus','TextualConvention','TimeStamp',_R)
+scsiModule=ModuleIdentity((1,3,6,1,2,1,999))
+if mibBuilder.loadTexts:scsiModule.setRevisions(('2002-02-25 00:00',))
+class ScsiLUNOrZero(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(2,2),ValueSizeConstraint(8,8))
+class ScsiIndexValue(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+class ScsiPortIndexValueOrZero(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+class ScsiIndexValueOrZero(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+class ScsiIdentifier(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(1,1),ValueSizeConstraint(2,2),ValueSizeConstraint(3,3),ValueSizeConstraint(11,11),ValueSizeConstraint(16,16),ValueSizeConstraint(256,256),ValueSizeConstraint(258,258),ValueSizeConstraint(262,262))
+class ScsiName(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(8,8),ValueSizeConstraint(11,11),ValueSizeConstraint(16,16),ValueSizeConstraint(256,256),ValueSizeConstraint(258,258),ValueSizeConstraint(262,262))
+class ScsiNameIdOrZero(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(8,8))
+class ScsiDeviceOrPort(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('device',1),('port',2),('other',3)))
+class ScsiIdCodeSet(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
+class ScsiIdAssociation(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3))
+class ScsiIdType(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
+class ScsiIdValue(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+class HrSWInstalledIndexOrZero(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_ScsiObjects_ObjectIdentity=ObjectIdentity
+scsiObjects=_ScsiObjects_ObjectIdentity((1,3,6,1,2,1,999,1))
+_ScsiTransportTypes_ObjectIdentity=ObjectIdentity
+scsiTransportTypes=_ScsiTransportTypes_ObjectIdentity((1,3,6,1,2,1,999,1,1))
+_ScsiTranportOther_ObjectIdentity=ObjectIdentity
+scsiTranportOther=_ScsiTranportOther_ObjectIdentity((1,3,6,1,2,1,999,1,1,1))
+_ScsiTranportSPI_ObjectIdentity=ObjectIdentity
+scsiTranportSPI=_ScsiTranportSPI_ObjectIdentity((1,3,6,1,2,1,999,1,1,2))
+_ScsiTransportFCP_ObjectIdentity=ObjectIdentity
+scsiTransportFCP=_ScsiTransportFCP_ObjectIdentity((1,3,6,1,2,1,999,1,1,3))
+_ScsiTransportSRP_ObjectIdentity=ObjectIdentity
+scsiTransportSRP=_ScsiTransportSRP_ObjectIdentity((1,3,6,1,2,1,999,1,1,4))
+_ScsiTransportISCSI_ObjectIdentity=ObjectIdentity
+scsiTransportISCSI=_ScsiTransportISCSI_ObjectIdentity((1,3,6,1,2,1,999,1,1,5))
+_ScsiTransportSBP_ObjectIdentity=ObjectIdentity
+scsiTransportSBP=_ScsiTransportSBP_ObjectIdentity((1,3,6,1,2,1,999,1,1,6))
+_ScsiGeneral_ObjectIdentity=ObjectIdentity
+scsiGeneral=_ScsiGeneral_ObjectIdentity((1,3,6,1,2,1,999,1,2))
+_ScsiInstanceTable_Object=MibTable
+scsiInstanceTable=_ScsiInstanceTable_Object((1,3,6,1,2,1,999,1,2,1))
+if mibBuilder.loadTexts:scsiInstanceTable.setStatus(_A)
+_ScsiInstanceEntry_Object=MibTableRow
+scsiInstanceEntry=_ScsiInstanceEntry_Object((1,3,6,1,2,1,999,1,2,1,1))
+scsiInstanceEntry.setIndexNames((0,_B,_D))
+if mibBuilder.loadTexts:scsiInstanceEntry.setStatus(_A)
+_ScsiInstIndex_Type=ScsiIndexValue
+_ScsiInstIndex_Object=MibTableColumn
+scsiInstIndex=_ScsiInstIndex_Object((1,3,6,1,2,1,999,1,2,1,1,1),_ScsiInstIndex_Type())
+scsiInstIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:scsiInstIndex.setStatus(_A)
+class _ScsiInstAlias_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,79))
+_ScsiInstAlias_Type.__name__=_J
+_ScsiInstAlias_Object=MibTableColumn
+scsiInstAlias=_ScsiInstAlias_Object((1,3,6,1,2,1,999,1,2,1,1,2),_ScsiInstAlias_Type())
+scsiInstAlias.setMaxAccess(_O)
+if mibBuilder.loadTexts:scsiInstAlias.setStatus(_A)
+_ScsiInstSoftwareIndex_Type=HrSWInstalledIndexOrZero
+_ScsiInstSoftwareIndex_Object=MibTableColumn
+scsiInstSoftwareIndex=_ScsiInstSoftwareIndex_Object((1,3,6,1,2,1,999,1,2,1,1,3),_ScsiInstSoftwareIndex_Type())
+scsiInstSoftwareIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiInstSoftwareIndex.setStatus(_A)
+class _ScsiInstVendorVersion_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,79))
+_ScsiInstVendorVersion_Type.__name__=_J
+_ScsiInstVendorVersion_Object=MibTableColumn
+scsiInstVendorVersion=_ScsiInstVendorVersion_Object((1,3,6,1,2,1,999,1,2,1,1,4),_ScsiInstVendorVersion_Type())
+scsiInstVendorVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiInstVendorVersion.setStatus(_A)
+class _ScsiInstScsiNotificationsEnable_Type(TruthValue):defaultValue=1
+_ScsiInstScsiNotificationsEnable_Type.__name__=_R
+_ScsiInstScsiNotificationsEnable_Object=MibTableColumn
+scsiInstScsiNotificationsEnable=_ScsiInstScsiNotificationsEnable_Object((1,3,6,1,2,1,999,1,2,1,1,5),_ScsiInstScsiNotificationsEnable_Type())
+scsiInstScsiNotificationsEnable.setMaxAccess(_O)
+if mibBuilder.loadTexts:scsiInstScsiNotificationsEnable.setStatus(_A)
+_ScsiDeviceTable_Object=MibTable
+scsiDeviceTable=_ScsiDeviceTable_Object((1,3,6,1,2,1,999,1,2,2))
+if mibBuilder.loadTexts:scsiDeviceTable.setStatus(_A)
+_ScsiDeviceEntry_Object=MibTableRow
+scsiDeviceEntry=_ScsiDeviceEntry_Object((1,3,6,1,2,1,999,1,2,2,1))
+scsiDeviceEntry.setIndexNames((0,_B,_D),(0,_B,_E))
+if mibBuilder.loadTexts:scsiDeviceEntry.setStatus(_A)
+_ScsiDeviceIndex_Type=ScsiIndexValue
+_ScsiDeviceIndex_Object=MibTableColumn
+scsiDeviceIndex=_ScsiDeviceIndex_Object((1,3,6,1,2,1,999,1,2,2,1,1),_ScsiDeviceIndex_Type())
+scsiDeviceIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:scsiDeviceIndex.setStatus(_A)
+class _ScsiDeviceAlias_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,79))
+_ScsiDeviceAlias_Type.__name__=_J
+_ScsiDeviceAlias_Object=MibTableColumn
+scsiDeviceAlias=_ScsiDeviceAlias_Object((1,3,6,1,2,1,999,1,2,2,1,2),_ScsiDeviceAlias_Type())
+scsiDeviceAlias.setMaxAccess(_O)
+if mibBuilder.loadTexts:scsiDeviceAlias.setStatus(_A)
+class _ScsiDeviceRole_Type(Bits):namedValues=NamedValues(*((_X,0),(_Y,1)))
+_ScsiDeviceRole_Type.__name__=_M
+_ScsiDeviceRole_Object=MibTableColumn
+scsiDeviceRole=_ScsiDeviceRole_Object((1,3,6,1,2,1,999,1,2,2,1,3),_ScsiDeviceRole_Type())
+scsiDeviceRole.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiDeviceRole.setStatus(_A)
+_ScsiDevicePortNumber_Type=Unsigned32
+_ScsiDevicePortNumber_Object=MibTableColumn
+scsiDevicePortNumber=_ScsiDevicePortNumber_Object((1,3,6,1,2,1,999,1,2,2,1,4),_ScsiDevicePortNumber_Type())
+scsiDevicePortNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiDevicePortNumber.setStatus(_A)
+_ScsiDeviceResets_Type=Counter32
+_ScsiDeviceResets_Object=MibTableColumn
+scsiDeviceResets=_ScsiDeviceResets_Object((1,3,6,1,2,1,999,1,2,2,1,5),_ScsiDeviceResets_Type())
+scsiDeviceResets.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiDeviceResets.setStatus(_A)
+_ScsiPortTable_Object=MibTable
+scsiPortTable=_ScsiPortTable_Object((1,3,6,1,2,1,999,1,2,3))
+if mibBuilder.loadTexts:scsiPortTable.setStatus(_A)
+_ScsiPortEntry_Object=MibTableRow
+scsiPortEntry=_ScsiPortEntry_Object((1,3,6,1,2,1,999,1,2,3,1))
+scsiPortEntry.setIndexNames((0,_B,_D),(0,_B,_E),(0,_B,_K))
+if mibBuilder.loadTexts:scsiPortEntry.setStatus(_A)
+_ScsiPortIndex_Type=ScsiIndexValue
+_ScsiPortIndex_Object=MibTableColumn
+scsiPortIndex=_ScsiPortIndex_Object((1,3,6,1,2,1,999,1,2,3,1,1),_ScsiPortIndex_Type())
+scsiPortIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:scsiPortIndex.setStatus(_A)
+class _ScsiPortRole_Type(Bits):namedValues=NamedValues(*((_X,0),(_Y,1)))
+_ScsiPortRole_Type.__name__=_M
+_ScsiPortRole_Object=MibTableColumn
+scsiPortRole=_ScsiPortRole_Object((1,3,6,1,2,1,999,1,2,3,1,2),_ScsiPortRole_Type())
+scsiPortRole.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiPortRole.setStatus(_A)
+class _ScsiPortTrnsptPtr_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_ScsiPortTrnsptPtr_Type.__name__=_L
+_ScsiPortTrnsptPtr_Object=MibTableColumn
+scsiPortTrnsptPtr=_ScsiPortTrnsptPtr_Object((1,3,6,1,2,1,999,1,2,3,1,3),_ScsiPortTrnsptPtr_Type())
+scsiPortTrnsptPtr.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiPortTrnsptPtr.setStatus(_A)
+_ScsiPortBusyStatuses_Type=Counter32
+_ScsiPortBusyStatuses_Object=MibTableColumn
+scsiPortBusyStatuses=_ScsiPortBusyStatuses_Object((1,3,6,1,2,1,999,1,2,3,1,4),_ScsiPortBusyStatuses_Type())
+scsiPortBusyStatuses.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiPortBusyStatuses.setStatus(_A)
+_ScsiTrnsptTable_Object=MibTable
+scsiTrnsptTable=_ScsiTrnsptTable_Object((1,3,6,1,2,1,999,1,2,5))
+if mibBuilder.loadTexts:scsiTrnsptTable.setStatus(_A)
+_ScsiTrnsptEntry_Object=MibTableRow
+scsiTrnsptEntry=_ScsiTrnsptEntry_Object((1,3,6,1,2,1,999,1,2,5,1))
+scsiTrnsptEntry.setIndexNames((0,_B,_D),(0,_B,_E),(0,_B,_Z))
+if mibBuilder.loadTexts:scsiTrnsptEntry.setStatus(_A)
+_ScsiTrnsptIndex_Type=ScsiIndexValue
+_ScsiTrnsptIndex_Object=MibTableColumn
+scsiTrnsptIndex=_ScsiTrnsptIndex_Object((1,3,6,1,2,1,999,1,2,5,1,1),_ScsiTrnsptIndex_Type())
+scsiTrnsptIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:scsiTrnsptIndex.setStatus(_A)
+class _ScsiTrnsptType_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_ScsiTrnsptType_Type.__name__=_L
+_ScsiTrnsptType_Object=MibTableColumn
+scsiTrnsptType=_ScsiTrnsptType_Object((1,3,6,1,2,1,999,1,2,5,1,2),_ScsiTrnsptType_Type())
+scsiTrnsptType.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiTrnsptType.setStatus(_A)
+class _ScsiTrnsptPointer_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_ScsiTrnsptPointer_Type.__name__=_L
+_ScsiTrnsptPointer_Object=MibTableColumn
+scsiTrnsptPointer=_ScsiTrnsptPointer_Object((1,3,6,1,2,1,999,1,2,5,1,3),_ScsiTrnsptPointer_Type())
+scsiTrnsptPointer.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiTrnsptPointer.setStatus(_A)
+_ScsiTrnsptDevName_Type=ScsiName
+_ScsiTrnsptDevName_Object=MibTableColumn
+scsiTrnsptDevName=_ScsiTrnsptDevName_Object((1,3,6,1,2,1,999,1,2,5,1,4),_ScsiTrnsptDevName_Type())
+scsiTrnsptDevName.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiTrnsptDevName.setStatus(_A)
+_ScsiInitiator_ObjectIdentity=ObjectIdentity
+scsiInitiator=_ScsiInitiator_ObjectIdentity((1,3,6,1,2,1,999,1,3))
+_ScsiIntrDevTable_Object=MibTable
+scsiIntrDevTable=_ScsiIntrDevTable_Object((1,3,6,1,2,1,999,1,3,1))
+if mibBuilder.loadTexts:scsiIntrDevTable.setStatus(_A)
+_ScsiIntrDevEntry_Object=MibTableRow
+scsiIntrDevEntry=_ScsiIntrDevEntry_Object((1,3,6,1,2,1,999,1,3,1,1))
+scsiIntrDevEntry.setIndexNames((0,_B,_D),(0,_B,_E))
+if mibBuilder.loadTexts:scsiIntrDevEntry.setStatus(_A)
+class _ScsiIntrDevTgtAccessMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_S,1),('autoEnable',2),('manualEnable',3)))
+_ScsiIntrDevTgtAccessMode_Type.__name__=_N
+_ScsiIntrDevTgtAccessMode_Object=MibTableColumn
+scsiIntrDevTgtAccessMode=_ScsiIntrDevTgtAccessMode_Object((1,3,6,1,2,1,999,1,3,1,1,1),_ScsiIntrDevTgtAccessMode_Type())
+scsiIntrDevTgtAccessMode.setMaxAccess(_O)
+if mibBuilder.loadTexts:scsiIntrDevTgtAccessMode.setStatus(_A)
+_ScsiIntrDevOutResets_Type=Counter32
+_ScsiIntrDevOutResets_Object=MibTableColumn
+scsiIntrDevOutResets=_ScsiIntrDevOutResets_Object((1,3,6,1,2,1,999,1,3,1,1,2),_ScsiIntrDevOutResets_Type())
+scsiIntrDevOutResets.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiIntrDevOutResets.setStatus(_A)
+_ScsiIntrPrtTable_Object=MibTable
+scsiIntrPrtTable=_ScsiIntrPrtTable_Object((1,3,6,1,2,1,999,1,3,3))
+if mibBuilder.loadTexts:scsiIntrPrtTable.setStatus(_A)
+_ScsiIntrPrtEntry_Object=MibTableRow
+scsiIntrPrtEntry=_ScsiIntrPrtEntry_Object((1,3,6,1,2,1,999,1,3,3,1))
+scsiIntrPrtEntry.setIndexNames((0,_B,_D),(0,_B,_E),(0,_B,_K))
+if mibBuilder.loadTexts:scsiIntrPrtEntry.setStatus(_A)
+_ScsiIntrPrtName_Type=ScsiName
+_ScsiIntrPrtName_Object=MibTableColumn
+scsiIntrPrtName=_ScsiIntrPrtName_Object((1,3,6,1,2,1,999,1,3,3,1,1),_ScsiIntrPrtName_Type())
+scsiIntrPrtName.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiIntrPrtName.setStatus(_A)
+_ScsiIntrPrtIdentifier_Type=ScsiIdentifier
+_ScsiIntrPrtIdentifier_Object=MibTableColumn
+scsiIntrPrtIdentifier=_ScsiIntrPrtIdentifier_Object((1,3,6,1,2,1,999,1,3,3,1,2),_ScsiIntrPrtIdentifier_Type())
+scsiIntrPrtIdentifier.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiIntrPrtIdentifier.setStatus(_A)
+_ScsiIntrPrtOutCommands_Type=Counter32
+_ScsiIntrPrtOutCommands_Object=MibTableColumn
+scsiIntrPrtOutCommands=_ScsiIntrPrtOutCommands_Object((1,3,6,1,2,1,999,1,3,3,1,3),_ScsiIntrPrtOutCommands_Type())
+scsiIntrPrtOutCommands.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiIntrPrtOutCommands.setStatus(_A)
+if mibBuilder.loadTexts:scsiIntrPrtOutCommands.setUnits(_G)
+_ScsiIntrPrtWrittenMegaBytes_Type=Counter32
+_ScsiIntrPrtWrittenMegaBytes_Object=MibTableColumn
+scsiIntrPrtWrittenMegaBytes=_ScsiIntrPrtWrittenMegaBytes_Object((1,3,6,1,2,1,999,1,3,3,1,4),_ScsiIntrPrtWrittenMegaBytes_Type())
+scsiIntrPrtWrittenMegaBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiIntrPrtWrittenMegaBytes.setStatus(_A)
+if mibBuilder.loadTexts:scsiIntrPrtWrittenMegaBytes.setUnits(_H)
+_ScsiIntrPrtReadMegaBytes_Type=Counter32
+_ScsiIntrPrtReadMegaBytes_Object=MibTableColumn
+scsiIntrPrtReadMegaBytes=_ScsiIntrPrtReadMegaBytes_Object((1,3,6,1,2,1,999,1,3,3,1,5),_ScsiIntrPrtReadMegaBytes_Type())
+scsiIntrPrtReadMegaBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiIntrPrtReadMegaBytes.setStatus(_A)
+if mibBuilder.loadTexts:scsiIntrPrtReadMegaBytes.setUnits(_H)
+_ScsiIntrPrtHSOutCommands_Type=Counter64
+_ScsiIntrPrtHSOutCommands_Object=MibTableColumn
+scsiIntrPrtHSOutCommands=_ScsiIntrPrtHSOutCommands_Object((1,3,6,1,2,1,999,1,3,3,1,6),_ScsiIntrPrtHSOutCommands_Type())
+scsiIntrPrtHSOutCommands.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiIntrPrtHSOutCommands.setStatus(_A)
+if mibBuilder.loadTexts:scsiIntrPrtHSOutCommands.setUnits(_G)
+_ScsiRemoteTarget_ObjectIdentity=ObjectIdentity
+scsiRemoteTarget=_ScsiRemoteTarget_ObjectIdentity((1,3,6,1,2,1,999,1,3,4))
+_ScsiDscTgtTable_Object=MibTable
+scsiDscTgtTable=_ScsiDscTgtTable_Object((1,3,6,1,2,1,999,1,3,4,1))
+if mibBuilder.loadTexts:scsiDscTgtTable.setStatus(_A)
+_ScsiDscTgtEntry_Object=MibTableRow
+scsiDscTgtEntry=_ScsiDscTgtEntry_Object((1,3,6,1,2,1,999,1,3,4,1,1))
+scsiDscTgtEntry.setIndexNames((0,_B,_D),(0,_B,_E),(0,_B,_P),(0,_B,_Q))
+if mibBuilder.loadTexts:scsiDscTgtEntry.setStatus(_A)
+_ScsiDscTgtIntrPortIndex_Type=ScsiPortIndexValueOrZero
+_ScsiDscTgtIntrPortIndex_Object=MibTableColumn
+scsiDscTgtIntrPortIndex=_ScsiDscTgtIntrPortIndex_Object((1,3,6,1,2,1,999,1,3,4,1,1,1),_ScsiDscTgtIntrPortIndex_Type())
+scsiDscTgtIntrPortIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:scsiDscTgtIntrPortIndex.setStatus(_A)
+_ScsiDscTgtIndex_Type=ScsiIndexValue
+_ScsiDscTgtIndex_Object=MibTableColumn
+scsiDscTgtIndex=_ScsiDscTgtIndex_Object((1,3,6,1,2,1,999,1,3,4,1,1,2),_ScsiDscTgtIndex_Type())
+scsiDscTgtIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:scsiDscTgtIndex.setStatus(_A)
+_ScsiDscTgtDevOrPort_Type=ScsiDeviceOrPort
+_ScsiDscTgtDevOrPort_Object=MibTableColumn
+scsiDscTgtDevOrPort=_ScsiDscTgtDevOrPort_Object((1,3,6,1,2,1,999,1,3,4,1,1,3),_ScsiDscTgtDevOrPort_Type())
+scsiDscTgtDevOrPort.setMaxAccess(_I)
+if mibBuilder.loadTexts:scsiDscTgtDevOrPort.setStatus(_A)
+_ScsiDscTgtName_Type=ScsiName
+_ScsiDscTgtName_Object=MibTableColumn
+scsiDscTgtName=_ScsiDscTgtName_Object((1,3,6,1,2,1,999,1,3,4,1,1,4),_ScsiDscTgtName_Type())
+scsiDscTgtName.setMaxAccess(_I)
+if mibBuilder.loadTexts:scsiDscTgtName.setStatus(_A)
+class _ScsiDscTgtConfigured_Type(TruthValue):defaultValue=1
+_ScsiDscTgtConfigured_Type.__name__=_R
+_ScsiDscTgtConfigured_Object=MibTableColumn
+scsiDscTgtConfigured=_ScsiDscTgtConfigured_Object((1,3,6,1,2,1,999,1,3,4,1,1,5),_ScsiDscTgtConfigured_Type())
+scsiDscTgtConfigured.setMaxAccess(_I)
+if mibBuilder.loadTexts:scsiDscTgtConfigured.setStatus(_A)
+_ScsiDscTgtDiscovered_Type=TruthValue
+_ScsiDscTgtDiscovered_Object=MibTableColumn
+scsiDscTgtDiscovered=_ScsiDscTgtDiscovered_Object((1,3,6,1,2,1,999,1,3,4,1,1,6),_ScsiDscTgtDiscovered_Type())
+scsiDscTgtDiscovered.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiDscTgtDiscovered.setStatus(_A)
+_ScsiDscTgtInCommands_Type=Counter32
+_ScsiDscTgtInCommands_Object=MibTableColumn
+scsiDscTgtInCommands=_ScsiDscTgtInCommands_Object((1,3,6,1,2,1,999,1,3,4,1,1,7),_ScsiDscTgtInCommands_Type())
+scsiDscTgtInCommands.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiDscTgtInCommands.setStatus(_A)
+if mibBuilder.loadTexts:scsiDscTgtInCommands.setUnits(_G)
+_ScsiDscTgtWrittenMegaBytes_Type=Counter32
+_ScsiDscTgtWrittenMegaBytes_Object=MibTableColumn
+scsiDscTgtWrittenMegaBytes=_ScsiDscTgtWrittenMegaBytes_Object((1,3,6,1,2,1,999,1,3,4,1,1,8),_ScsiDscTgtWrittenMegaBytes_Type())
+scsiDscTgtWrittenMegaBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiDscTgtWrittenMegaBytes.setStatus(_A)
+if mibBuilder.loadTexts:scsiDscTgtWrittenMegaBytes.setUnits(_H)
+_ScsiDscTgtReadMegaBytes_Type=Counter32
+_ScsiDscTgtReadMegaBytes_Object=MibTableColumn
+scsiDscTgtReadMegaBytes=_ScsiDscTgtReadMegaBytes_Object((1,3,6,1,2,1,999,1,3,4,1,1,9),_ScsiDscTgtReadMegaBytes_Type())
+scsiDscTgtReadMegaBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiDscTgtReadMegaBytes.setStatus(_A)
+if mibBuilder.loadTexts:scsiDscTgtReadMegaBytes.setUnits(_H)
+_ScsiDscTgtHSInCommands_Type=Counter64
+_ScsiDscTgtHSInCommands_Object=MibTableColumn
+scsiDscTgtHSInCommands=_ScsiDscTgtHSInCommands_Object((1,3,6,1,2,1,999,1,3,4,1,1,10),_ScsiDscTgtHSInCommands_Type())
+scsiDscTgtHSInCommands.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiDscTgtHSInCommands.setStatus(_A)
+if mibBuilder.loadTexts:scsiDscTgtHSInCommands.setUnits(_G)
+_ScsiDscTgtLastCreation_Type=TimeStamp
+_ScsiDscTgtLastCreation_Object=MibTableColumn
+scsiDscTgtLastCreation=_ScsiDscTgtLastCreation_Object((1,3,6,1,2,1,999,1,3,4,1,1,11),_ScsiDscTgtLastCreation_Type())
+scsiDscTgtLastCreation.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiDscTgtLastCreation.setStatus(_A)
+_ScsiDscTgtRowStatus_Type=RowStatus
+_ScsiDscTgtRowStatus_Object=MibTableColumn
+scsiDscTgtRowStatus=_ScsiDscTgtRowStatus_Object((1,3,6,1,2,1,999,1,3,4,1,1,12),_ScsiDscTgtRowStatus_Type())
+scsiDscTgtRowStatus.setMaxAccess(_I)
+if mibBuilder.loadTexts:scsiDscTgtRowStatus.setStatus(_A)
+_ScsiDscLunTable_Object=MibTable
+scsiDscLunTable=_ScsiDscLunTable_Object((1,3,6,1,2,1,999,1,3,4,2))
+if mibBuilder.loadTexts:scsiDscLunTable.setStatus(_A)
+_ScsiDscLunEntry_Object=MibTableRow
+scsiDscLunEntry=_ScsiDscLunEntry_Object((1,3,6,1,2,1,999,1,3,4,2,1))
+scsiDscLunEntry.setIndexNames((0,_B,_D),(0,_B,_E),(0,_B,_P),(0,_B,_Q),(0,_B,_T))
+if mibBuilder.loadTexts:scsiDscLunEntry.setStatus(_A)
+_ScsiDscLunIndex_Type=ScsiIndexValue
+_ScsiDscLunIndex_Object=MibTableColumn
+scsiDscLunIndex=_ScsiDscLunIndex_Object((1,3,6,1,2,1,999,1,3,4,2,1,1),_ScsiDscLunIndex_Type())
+scsiDscLunIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:scsiDscLunIndex.setStatus(_A)
+_ScsiDscLunLun_Type=ScsiLUNOrZero
+_ScsiDscLunLun_Object=MibTableColumn
+scsiDscLunLun=_ScsiDscLunLun_Object((1,3,6,1,2,1,999,1,3,4,2,1,2),_ScsiDscLunLun_Type())
+scsiDscLunLun.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiDscLunLun.setStatus(_A)
+_ScsiDscLunIdTable_Object=MibTable
+scsiDscLunIdTable=_ScsiDscLunIdTable_Object((1,3,6,1,2,1,999,1,3,4,3))
+if mibBuilder.loadTexts:scsiDscLunIdTable.setStatus(_A)
+_ScsiDscLunIdEntry_Object=MibTableRow
+scsiDscLunIdEntry=_ScsiDscLunIdEntry_Object((1,3,6,1,2,1,999,1,3,4,3,1))
+scsiDscLunIdEntry.setIndexNames((0,_B,_D),(0,_B,_E),(0,_B,_P),(0,_B,_Q),(0,_B,_T),(0,_B,_a))
+if mibBuilder.loadTexts:scsiDscLunIdEntry.setStatus(_A)
+_ScsiDscLunIdIndex_Type=ScsiIndexValue
+_ScsiDscLunIdIndex_Object=MibTableColumn
+scsiDscLunIdIndex=_ScsiDscLunIdIndex_Object((1,3,6,1,2,1,999,1,3,4,3,1,1),_ScsiDscLunIdIndex_Type())
+scsiDscLunIdIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:scsiDscLunIdIndex.setStatus(_A)
+_ScsiDscLunIdCodeSet_Type=ScsiIdCodeSet
+_ScsiDscLunIdCodeSet_Object=MibTableColumn
+scsiDscLunIdCodeSet=_ScsiDscLunIdCodeSet_Object((1,3,6,1,2,1,999,1,3,4,3,1,2),_ScsiDscLunIdCodeSet_Type())
+scsiDscLunIdCodeSet.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiDscLunIdCodeSet.setStatus(_A)
+_ScsiDscLunIdAssociation_Type=ScsiIdAssociation
+_ScsiDscLunIdAssociation_Object=MibTableColumn
+scsiDscLunIdAssociation=_ScsiDscLunIdAssociation_Object((1,3,6,1,2,1,999,1,3,4,3,1,3),_ScsiDscLunIdAssociation_Type())
+scsiDscLunIdAssociation.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiDscLunIdAssociation.setStatus(_A)
+_ScsiDscLunIdType_Type=ScsiIdType
+_ScsiDscLunIdType_Object=MibTableColumn
+scsiDscLunIdType=_ScsiDscLunIdType_Object((1,3,6,1,2,1,999,1,3,4,3,1,4),_ScsiDscLunIdType_Type())
+scsiDscLunIdType.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiDscLunIdType.setStatus(_A)
+_ScsiDscLunIdValue_Type=ScsiIdValue
+_ScsiDscLunIdValue_Object=MibTableColumn
+scsiDscLunIdValue=_ScsiDscLunIdValue_Object((1,3,6,1,2,1,999,1,3,4,3,1,5),_ScsiDscLunIdValue_Type())
+scsiDscLunIdValue.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiDscLunIdValue.setStatus(_A)
+_ScsiAttTgtPortTable_Object=MibTable
+scsiAttTgtPortTable=_ScsiAttTgtPortTable_Object((1,3,6,1,2,1,999,1,3,4,6))
+if mibBuilder.loadTexts:scsiAttTgtPortTable.setStatus(_A)
+_ScsiAttTgtPortEntry_Object=MibTableRow
+scsiAttTgtPortEntry=_ScsiAttTgtPortEntry_Object((1,3,6,1,2,1,999,1,3,4,6,1))
+scsiAttTgtPortEntry.setIndexNames((0,_B,_D),(0,_B,_E),(0,_B,_K),(0,_B,_b))
+if mibBuilder.loadTexts:scsiAttTgtPortEntry.setStatus(_A)
+_ScsiAttTgtPortIndex_Type=ScsiIndexValue
+_ScsiAttTgtPortIndex_Object=MibTableColumn
+scsiAttTgtPortIndex=_ScsiAttTgtPortIndex_Object((1,3,6,1,2,1,999,1,3,4,6,1,1),_ScsiAttTgtPortIndex_Type())
+scsiAttTgtPortIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:scsiAttTgtPortIndex.setStatus(_A)
+_ScsiAttTgtPortDscTgtIdx_Type=ScsiIndexValueOrZero
+_ScsiAttTgtPortDscTgtIdx_Object=MibTableColumn
+scsiAttTgtPortDscTgtIdx=_ScsiAttTgtPortDscTgtIdx_Object((1,3,6,1,2,1,999,1,3,4,6,1,2),_ScsiAttTgtPortDscTgtIdx_Type())
+scsiAttTgtPortDscTgtIdx.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiAttTgtPortDscTgtIdx.setStatus(_A)
+_ScsiAttTgtPortName_Type=ScsiName
+_ScsiAttTgtPortName_Object=MibTableColumn
+scsiAttTgtPortName=_ScsiAttTgtPortName_Object((1,3,6,1,2,1,999,1,3,4,6,1,3),_ScsiAttTgtPortName_Type())
+scsiAttTgtPortName.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiAttTgtPortName.setStatus(_A)
+_ScsiAttTgtPortIdentifier_Type=ScsiIdentifier
+_ScsiAttTgtPortIdentifier_Object=MibTableColumn
+scsiAttTgtPortIdentifier=_ScsiAttTgtPortIdentifier_Object((1,3,6,1,2,1,999,1,3,4,6,1,4),_ScsiAttTgtPortIdentifier_Type())
+scsiAttTgtPortIdentifier.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiAttTgtPortIdentifier.setStatus(_A)
+_ScsiTarget_ObjectIdentity=ObjectIdentity
+scsiTarget=_ScsiTarget_ObjectIdentity((1,3,6,1,2,1,999,1,4))
+_ScsiTgtDevTable_Object=MibTable
+scsiTgtDevTable=_ScsiTgtDevTable_Object((1,3,6,1,2,1,999,1,4,1))
+if mibBuilder.loadTexts:scsiTgtDevTable.setStatus(_A)
+_ScsiTgtDevEntry_Object=MibTableRow
+scsiTgtDevEntry=_ScsiTgtDevEntry_Object((1,3,6,1,2,1,999,1,4,1,1))
+scsiTgtDevEntry.setIndexNames((0,_B,_D),(0,_B,_E))
+if mibBuilder.loadTexts:scsiTgtDevEntry.setStatus(_A)
+_ScsiTgtDevNumberOfLUs_Type=Gauge32
+_ScsiTgtDevNumberOfLUs_Object=MibTableColumn
+scsiTgtDevNumberOfLUs=_ScsiTgtDevNumberOfLUs_Object((1,3,6,1,2,1,999,1,4,1,1,1),_ScsiTgtDevNumberOfLUs_Type())
+scsiTgtDevNumberOfLUs.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiTgtDevNumberOfLUs.setStatus(_A)
+class _ScsiTgtDeviceStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_S,1),(_c,2),(_d,3),(_e,4),(_f,5),('nonAddrFailure',6),('nonAddrFailReadying',7),('nonAddrFailAbnormal',8)))
+_ScsiTgtDeviceStatus_Type.__name__=_N
+_ScsiTgtDeviceStatus_Object=MibTableColumn
+scsiTgtDeviceStatus=_ScsiTgtDeviceStatus_Object((1,3,6,1,2,1,999,1,4,1,1,2),_ScsiTgtDeviceStatus_Type())
+scsiTgtDeviceStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiTgtDeviceStatus.setStatus(_A)
+_ScsiTgtDevNonAccessibleLUs_Type=Gauge32
+_ScsiTgtDevNonAccessibleLUs_Object=MibTableColumn
+scsiTgtDevNonAccessibleLUs=_ScsiTgtDevNonAccessibleLUs_Object((1,3,6,1,2,1,999,1,4,1,1,3),_ScsiTgtDevNonAccessibleLUs_Type())
+scsiTgtDevNonAccessibleLUs.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiTgtDevNonAccessibleLUs.setStatus(_A)
+_ScsiTgtPortTable_Object=MibTable
+scsiTgtPortTable=_ScsiTgtPortTable_Object((1,3,6,1,2,1,999,1,4,2))
+if mibBuilder.loadTexts:scsiTgtPortTable.setStatus(_A)
+_ScsiTgtPortEntry_Object=MibTableRow
+scsiTgtPortEntry=_ScsiTgtPortEntry_Object((1,3,6,1,2,1,999,1,4,2,1))
+scsiTgtPortEntry.setIndexNames((0,_B,_D),(0,_B,_E),(0,_B,_K))
+if mibBuilder.loadTexts:scsiTgtPortEntry.setStatus(_A)
+_ScsiTgtPortName_Type=ScsiName
+_ScsiTgtPortName_Object=MibTableColumn
+scsiTgtPortName=_ScsiTgtPortName_Object((1,3,6,1,2,1,999,1,4,2,1,1),_ScsiTgtPortName_Type())
+scsiTgtPortName.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiTgtPortName.setStatus(_A)
+_ScsiTgtPortIdentifier_Type=ScsiIdentifier
+_ScsiTgtPortIdentifier_Object=MibTableColumn
+scsiTgtPortIdentifier=_ScsiTgtPortIdentifier_Object((1,3,6,1,2,1,999,1,4,2,1,2),_ScsiTgtPortIdentifier_Type())
+scsiTgtPortIdentifier.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiTgtPortIdentifier.setStatus(_A)
+_ScsiTgtPortInCommands_Type=Counter32
+_ScsiTgtPortInCommands_Object=MibTableColumn
+scsiTgtPortInCommands=_ScsiTgtPortInCommands_Object((1,3,6,1,2,1,999,1,4,2,1,3),_ScsiTgtPortInCommands_Type())
+scsiTgtPortInCommands.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiTgtPortInCommands.setStatus(_A)
+if mibBuilder.loadTexts:scsiTgtPortInCommands.setUnits(_G)
+_ScsiTgtPortWrittenMegaBytes_Type=Counter32
+_ScsiTgtPortWrittenMegaBytes_Object=MibTableColumn
+scsiTgtPortWrittenMegaBytes=_ScsiTgtPortWrittenMegaBytes_Object((1,3,6,1,2,1,999,1,4,2,1,4),_ScsiTgtPortWrittenMegaBytes_Type())
+scsiTgtPortWrittenMegaBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiTgtPortWrittenMegaBytes.setStatus(_A)
+if mibBuilder.loadTexts:scsiTgtPortWrittenMegaBytes.setUnits(_H)
+_ScsiTgtPortReadMegaBytes_Type=Counter32
+_ScsiTgtPortReadMegaBytes_Object=MibTableColumn
+scsiTgtPortReadMegaBytes=_ScsiTgtPortReadMegaBytes_Object((1,3,6,1,2,1,999,1,4,2,1,5),_ScsiTgtPortReadMegaBytes_Type())
+scsiTgtPortReadMegaBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiTgtPortReadMegaBytes.setStatus(_A)
+if mibBuilder.loadTexts:scsiTgtPortReadMegaBytes.setUnits(_H)
+_ScsiTgtPortHSInCommands_Type=Counter64
+_ScsiTgtPortHSInCommands_Object=MibTableColumn
+scsiTgtPortHSInCommands=_ScsiTgtPortHSInCommands_Object((1,3,6,1,2,1,999,1,4,2,1,6),_ScsiTgtPortHSInCommands_Type())
+scsiTgtPortHSInCommands.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiTgtPortHSInCommands.setStatus(_A)
+if mibBuilder.loadTexts:scsiTgtPortHSInCommands.setUnits(_G)
+_ScsiRemoteInitiators_ObjectIdentity=ObjectIdentity
+scsiRemoteInitiators=_ScsiRemoteInitiators_ObjectIdentity((1,3,6,1,2,1,999,1,4,3))
+_ScsiAuthorizedIntrTable_Object=MibTable
+scsiAuthorizedIntrTable=_ScsiAuthorizedIntrTable_Object((1,3,6,1,2,1,999,1,4,3,1))
+if mibBuilder.loadTexts:scsiAuthorizedIntrTable.setStatus(_A)
+_ScsiAuthorizedIntrEntry_Object=MibTableRow
+scsiAuthorizedIntrEntry=_ScsiAuthorizedIntrEntry_Object((1,3,6,1,2,1,999,1,4,3,1,1))
+scsiAuthorizedIntrEntry.setIndexNames((0,_B,_D),(0,_B,_E),(0,_B,_g),(0,_B,_h))
+if mibBuilder.loadTexts:scsiAuthorizedIntrEntry.setStatus(_A)
+_ScsiAuthIntrTgtPortIndex_Type=ScsiPortIndexValueOrZero
+_ScsiAuthIntrTgtPortIndex_Object=MibTableColumn
+scsiAuthIntrTgtPortIndex=_ScsiAuthIntrTgtPortIndex_Object((1,3,6,1,2,1,999,1,4,3,1,1,1),_ScsiAuthIntrTgtPortIndex_Type())
+scsiAuthIntrTgtPortIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:scsiAuthIntrTgtPortIndex.setStatus(_A)
+_ScsiAuthIntrIndex_Type=ScsiIndexValue
+_ScsiAuthIntrIndex_Object=MibTableColumn
+scsiAuthIntrIndex=_ScsiAuthIntrIndex_Object((1,3,6,1,2,1,999,1,4,3,1,1,2),_ScsiAuthIntrIndex_Type())
+scsiAuthIntrIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:scsiAuthIntrIndex.setStatus(_A)
+_ScsiAuthIntrDevOrPort_Type=ScsiDeviceOrPort
+_ScsiAuthIntrDevOrPort_Object=MibTableColumn
+scsiAuthIntrDevOrPort=_ScsiAuthIntrDevOrPort_Object((1,3,6,1,2,1,999,1,4,3,1,1,3),_ScsiAuthIntrDevOrPort_Type())
+scsiAuthIntrDevOrPort.setMaxAccess(_I)
+if mibBuilder.loadTexts:scsiAuthIntrDevOrPort.setStatus(_A)
+_ScsiAuthIntrName_Type=ScsiName
+_ScsiAuthIntrName_Object=MibTableColumn
+scsiAuthIntrName=_ScsiAuthIntrName_Object((1,3,6,1,2,1,999,1,4,3,1,1,4),_ScsiAuthIntrName_Type())
+scsiAuthIntrName.setMaxAccess(_I)
+if mibBuilder.loadTexts:scsiAuthIntrName.setStatus(_A)
+_ScsiAuthIntrLunMapIndex_Type=ScsiIndexValueOrZero
+_ScsiAuthIntrLunMapIndex_Object=MibTableColumn
+scsiAuthIntrLunMapIndex=_ScsiAuthIntrLunMapIndex_Object((1,3,6,1,2,1,999,1,4,3,1,1,5),_ScsiAuthIntrLunMapIndex_Type())
+scsiAuthIntrLunMapIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:scsiAuthIntrLunMapIndex.setStatus(_A)
+_ScsiAuthIntrAttachedTimes_Type=Counter32
+_ScsiAuthIntrAttachedTimes_Object=MibTableColumn
+scsiAuthIntrAttachedTimes=_ScsiAuthIntrAttachedTimes_Object((1,3,6,1,2,1,999,1,4,3,1,1,6),_ScsiAuthIntrAttachedTimes_Type())
+scsiAuthIntrAttachedTimes.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiAuthIntrAttachedTimes.setStatus(_A)
+if mibBuilder.loadTexts:scsiAuthIntrAttachedTimes.setUnits('Times')
+_ScsiAuthIntrOutCommands_Type=Counter32
+_ScsiAuthIntrOutCommands_Object=MibTableColumn
+scsiAuthIntrOutCommands=_ScsiAuthIntrOutCommands_Object((1,3,6,1,2,1,999,1,4,3,1,1,7),_ScsiAuthIntrOutCommands_Type())
+scsiAuthIntrOutCommands.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiAuthIntrOutCommands.setStatus(_A)
+if mibBuilder.loadTexts:scsiAuthIntrOutCommands.setUnits(_G)
+_ScsiAuthIntrReadMegaBytes_Type=Counter32
+_ScsiAuthIntrReadMegaBytes_Object=MibTableColumn
+scsiAuthIntrReadMegaBytes=_ScsiAuthIntrReadMegaBytes_Object((1,3,6,1,2,1,999,1,4,3,1,1,8),_ScsiAuthIntrReadMegaBytes_Type())
+scsiAuthIntrReadMegaBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiAuthIntrReadMegaBytes.setStatus(_A)
+if mibBuilder.loadTexts:scsiAuthIntrReadMegaBytes.setUnits(_H)
+_ScsiAuthIntrWrittenMegaBytes_Type=Counter32
+_ScsiAuthIntrWrittenMegaBytes_Object=MibTableColumn
+scsiAuthIntrWrittenMegaBytes=_ScsiAuthIntrWrittenMegaBytes_Object((1,3,6,1,2,1,999,1,4,3,1,1,9),_ScsiAuthIntrWrittenMegaBytes_Type())
+scsiAuthIntrWrittenMegaBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiAuthIntrWrittenMegaBytes.setStatus(_A)
+if mibBuilder.loadTexts:scsiAuthIntrWrittenMegaBytes.setUnits(_H)
+_ScsiAuthIntrHSOutCommands_Type=Counter64
+_ScsiAuthIntrHSOutCommands_Object=MibTableColumn
+scsiAuthIntrHSOutCommands=_ScsiAuthIntrHSOutCommands_Object((1,3,6,1,2,1,999,1,4,3,1,1,10),_ScsiAuthIntrHSOutCommands_Type())
+scsiAuthIntrHSOutCommands.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiAuthIntrHSOutCommands.setStatus(_A)
+if mibBuilder.loadTexts:scsiAuthIntrHSOutCommands.setUnits(_G)
+_ScsiAuthIntrLastCreation_Type=TimeStamp
+_ScsiAuthIntrLastCreation_Object=MibTableColumn
+scsiAuthIntrLastCreation=_ScsiAuthIntrLastCreation_Object((1,3,6,1,2,1,999,1,4,3,1,1,11),_ScsiAuthIntrLastCreation_Type())
+scsiAuthIntrLastCreation.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiAuthIntrLastCreation.setStatus(_A)
+_ScsiAuthIntrRowStatus_Type=RowStatus
+_ScsiAuthIntrRowStatus_Object=MibTableColumn
+scsiAuthIntrRowStatus=_ScsiAuthIntrRowStatus_Object((1,3,6,1,2,1,999,1,4,3,1,1,12),_ScsiAuthIntrRowStatus_Type())
+scsiAuthIntrRowStatus.setMaxAccess(_I)
+if mibBuilder.loadTexts:scsiAuthIntrRowStatus.setStatus(_A)
+_ScsiAttIntrPrtTable_Object=MibTable
+scsiAttIntrPrtTable=_ScsiAttIntrPrtTable_Object((1,3,6,1,2,1,999,1,4,3,2))
+if mibBuilder.loadTexts:scsiAttIntrPrtTable.setStatus(_A)
+_ScsiAttIntrPrtEntry_Object=MibTableRow
+scsiAttIntrPrtEntry=_ScsiAttIntrPrtEntry_Object((1,3,6,1,2,1,999,1,4,3,2,1))
+scsiAttIntrPrtEntry.setIndexNames((0,_B,_D),(0,_B,_E),(0,_B,_K),(0,_B,_i))
+if mibBuilder.loadTexts:scsiAttIntrPrtEntry.setStatus(_A)
+_ScsiAttIntrPrtIdx_Type=ScsiIndexValue
+_ScsiAttIntrPrtIdx_Object=MibTableColumn
+scsiAttIntrPrtIdx=_ScsiAttIntrPrtIdx_Object((1,3,6,1,2,1,999,1,4,3,2,1,1),_ScsiAttIntrPrtIdx_Type())
+scsiAttIntrPrtIdx.setMaxAccess(_F)
+if mibBuilder.loadTexts:scsiAttIntrPrtIdx.setStatus(_A)
+_ScsiAttIntrPrtAuthIntrIdx_Type=ScsiIndexValueOrZero
+_ScsiAttIntrPrtAuthIntrIdx_Object=MibTableColumn
+scsiAttIntrPrtAuthIntrIdx=_ScsiAttIntrPrtAuthIntrIdx_Object((1,3,6,1,2,1,999,1,4,3,2,1,2),_ScsiAttIntrPrtAuthIntrIdx_Type())
+scsiAttIntrPrtAuthIntrIdx.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiAttIntrPrtAuthIntrIdx.setStatus(_A)
+_ScsiAttIntrPrtName_Type=ScsiName
+_ScsiAttIntrPrtName_Object=MibTableColumn
+scsiAttIntrPrtName=_ScsiAttIntrPrtName_Object((1,3,6,1,2,1,999,1,4,3,2,1,3),_ScsiAttIntrPrtName_Type())
+scsiAttIntrPrtName.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiAttIntrPrtName.setStatus(_A)
+_ScsiAttIntrPrtId_Type=ScsiIdentifier
+_ScsiAttIntrPrtId_Object=MibTableColumn
+scsiAttIntrPrtId=_ScsiAttIntrPrtId_Object((1,3,6,1,2,1,999,1,4,3,2,1,4),_ScsiAttIntrPrtId_Type())
+scsiAttIntrPrtId.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiAttIntrPrtId.setStatus(_A)
+_ScsiLogicalUnit_ObjectIdentity=ObjectIdentity
+scsiLogicalUnit=_ScsiLogicalUnit_ObjectIdentity((1,3,6,1,2,1,999,1,5))
+_ScsiLuTable_Object=MibTable
+scsiLuTable=_ScsiLuTable_Object((1,3,6,1,2,1,999,1,5,1))
+if mibBuilder.loadTexts:scsiLuTable.setStatus(_A)
+_ScsiLuEntry_Object=MibTableRow
+scsiLuEntry=_ScsiLuEntry_Object((1,3,6,1,2,1,999,1,5,1,1))
+scsiLuEntry.setIndexNames((0,_B,_D),(0,_B,_E),(0,_B,_U))
+if mibBuilder.loadTexts:scsiLuEntry.setStatus(_A)
+_ScsiLuIndex_Type=ScsiIndexValue
+_ScsiLuIndex_Object=MibTableColumn
+scsiLuIndex=_ScsiLuIndex_Object((1,3,6,1,2,1,999,1,5,1,1,1),_ScsiLuIndex_Type())
+scsiLuIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:scsiLuIndex.setStatus(_A)
+_ScsiLuDefaultLun_Type=ScsiLUNOrZero
+_ScsiLuDefaultLun_Object=MibTableColumn
+scsiLuDefaultLun=_ScsiLuDefaultLun_Object((1,3,6,1,2,1,999,1,5,1,1,2),_ScsiLuDefaultLun_Type())
+scsiLuDefaultLun.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuDefaultLun.setStatus(_A)
+_ScsiLuWwnName_Type=ScsiNameIdOrZero
+_ScsiLuWwnName_Object=MibTableColumn
+scsiLuWwnName=_ScsiLuWwnName_Object((1,3,6,1,2,1,999,1,5,1,1,3),_ScsiLuWwnName_Type())
+scsiLuWwnName.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuWwnName.setStatus(_A)
+class _ScsiLuVendorId_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,79))
+_ScsiLuVendorId_Type.__name__=_J
+_ScsiLuVendorId_Object=MibTableColumn
+scsiLuVendorId=_ScsiLuVendorId_Object((1,3,6,1,2,1,999,1,5,1,1,4),_ScsiLuVendorId_Type())
+scsiLuVendorId.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuVendorId.setStatus(_A)
+class _ScsiLuProductId_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,79))
+_ScsiLuProductId_Type.__name__=_J
+_ScsiLuProductId_Object=MibTableColumn
+scsiLuProductId=_ScsiLuProductId_Object((1,3,6,1,2,1,999,1,5,1,1,5),_ScsiLuProductId_Type())
+scsiLuProductId.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuProductId.setStatus(_A)
+class _ScsiLuRevisionId_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,79))
+_ScsiLuRevisionId_Type.__name__=_J
+_ScsiLuRevisionId_Object=MibTableColumn
+scsiLuRevisionId=_ScsiLuRevisionId_Object((1,3,6,1,2,1,999,1,5,1,1,6),_ScsiLuRevisionId_Type())
+scsiLuRevisionId.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuRevisionId.setStatus(_A)
+_ScsiLuPeripheralType_Type=Unsigned32
+_ScsiLuPeripheralType_Object=MibTableColumn
+scsiLuPeripheralType=_ScsiLuPeripheralType_Object((1,3,6,1,2,1,999,1,5,1,1,7),_ScsiLuPeripheralType_Type())
+scsiLuPeripheralType.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuPeripheralType.setStatus(_A)
+class _ScsiLuStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_S,1),(_c,2),('notAvailable',3),(_d,4),(_e,5),(_f,6)))
+_ScsiLuStatus_Type.__name__=_N
+_ScsiLuStatus_Object=MibTableColumn
+scsiLuStatus=_ScsiLuStatus_Object((1,3,6,1,2,1,999,1,5,1,1,8),_ScsiLuStatus_Type())
+scsiLuStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuStatus.setStatus(_A)
+class _ScsiLuState_Type(Bits):namedValues=NamedValues(*(('dataLost',0),('dynamicReconfigurationInProgress',1),('exposed',2),('fractionallyExposed',3),('partiallyExposed',4),('protectedRebuild',5),('protectionDisabled',6),('rebuild',7),('recalculate',8),('spareInUse',9),('verifyInProgress',10)))
+_ScsiLuState_Type.__name__=_M
+_ScsiLuState_Object=MibTableColumn
+scsiLuState=_ScsiLuState_Object((1,3,6,1,2,1,999,1,5,1,1,9),_ScsiLuState_Type())
+scsiLuState.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuState.setStatus(_A)
+_ScsiLuInCommands_Type=Counter32
+_ScsiLuInCommands_Object=MibTableColumn
+scsiLuInCommands=_ScsiLuInCommands_Object((1,3,6,1,2,1,999,1,5,1,1,10),_ScsiLuInCommands_Type())
+scsiLuInCommands.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuInCommands.setStatus(_A)
+if mibBuilder.loadTexts:scsiLuInCommands.setUnits(_G)
+_ScsiLuReadMegaBytes_Type=Counter32
+_ScsiLuReadMegaBytes_Object=MibTableColumn
+scsiLuReadMegaBytes=_ScsiLuReadMegaBytes_Object((1,3,6,1,2,1,999,1,5,1,1,11),_ScsiLuReadMegaBytes_Type())
+scsiLuReadMegaBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuReadMegaBytes.setStatus(_A)
+if mibBuilder.loadTexts:scsiLuReadMegaBytes.setUnits(_H)
+_ScsiLuWrittenMegaBytes_Type=Counter32
+_ScsiLuWrittenMegaBytes_Object=MibTableColumn
+scsiLuWrittenMegaBytes=_ScsiLuWrittenMegaBytes_Object((1,3,6,1,2,1,999,1,5,1,1,12),_ScsiLuWrittenMegaBytes_Type())
+scsiLuWrittenMegaBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuWrittenMegaBytes.setStatus(_A)
+if mibBuilder.loadTexts:scsiLuWrittenMegaBytes.setUnits(_H)
+_ScsiLuInResets_Type=Counter32
+_ScsiLuInResets_Object=MibTableColumn
+scsiLuInResets=_ScsiLuInResets_Object((1,3,6,1,2,1,999,1,5,1,1,13),_ScsiLuInResets_Type())
+scsiLuInResets.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuInResets.setStatus(_A)
+if mibBuilder.loadTexts:scsiLuInResets.setUnits('resets')
+_ScsiLuOutQueueFullStatus_Type=Counter32
+_ScsiLuOutQueueFullStatus_Object=MibTableColumn
+scsiLuOutQueueFullStatus=_ScsiLuOutQueueFullStatus_Object((1,3,6,1,2,1,999,1,5,1,1,14),_ScsiLuOutQueueFullStatus_Type())
+scsiLuOutQueueFullStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuOutQueueFullStatus.setStatus(_A)
+_ScsiLuHSInCommands_Type=Counter64
+_ScsiLuHSInCommands_Object=MibTableColumn
+scsiLuHSInCommands=_ScsiLuHSInCommands_Object((1,3,6,1,2,1,999,1,5,1,1,15),_ScsiLuHSInCommands_Type())
+scsiLuHSInCommands.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuHSInCommands.setStatus(_A)
+if mibBuilder.loadTexts:scsiLuHSInCommands.setUnits(_G)
+_ScsiLuIdTable_Object=MibTable
+scsiLuIdTable=_ScsiLuIdTable_Object((1,3,6,1,2,1,999,1,5,2))
+if mibBuilder.loadTexts:scsiLuIdTable.setStatus(_A)
+_ScsiLuIdEntry_Object=MibTableRow
+scsiLuIdEntry=_ScsiLuIdEntry_Object((1,3,6,1,2,1,999,1,5,2,1))
+scsiLuIdEntry.setIndexNames((0,_B,_D),(0,_B,_E),(0,_B,_U),(0,_B,_j))
+if mibBuilder.loadTexts:scsiLuIdEntry.setStatus(_A)
+_ScsiLuIdIndex_Type=ScsiIndexValue
+_ScsiLuIdIndex_Object=MibTableColumn
+scsiLuIdIndex=_ScsiLuIdIndex_Object((1,3,6,1,2,1,999,1,5,2,1,1),_ScsiLuIdIndex_Type())
+scsiLuIdIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:scsiLuIdIndex.setStatus(_A)
+_ScsiLuIdCodeSet_Type=ScsiIdCodeSet
+_ScsiLuIdCodeSet_Object=MibTableColumn
+scsiLuIdCodeSet=_ScsiLuIdCodeSet_Object((1,3,6,1,2,1,999,1,5,2,1,2),_ScsiLuIdCodeSet_Type())
+scsiLuIdCodeSet.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuIdCodeSet.setStatus(_A)
+_ScsiLuIdAssociation_Type=ScsiIdAssociation
+_ScsiLuIdAssociation_Object=MibTableColumn
+scsiLuIdAssociation=_ScsiLuIdAssociation_Object((1,3,6,1,2,1,999,1,5,2,1,3),_ScsiLuIdAssociation_Type())
+scsiLuIdAssociation.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuIdAssociation.setStatus(_A)
+_ScsiLuIdType_Type=ScsiIdType
+_ScsiLuIdType_Object=MibTableColumn
+scsiLuIdType=_ScsiLuIdType_Object((1,3,6,1,2,1,999,1,5,2,1,4),_ScsiLuIdType_Type())
+scsiLuIdType.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuIdType.setStatus(_A)
+_ScsiLuIdValue_Type=ScsiIdValue
+_ScsiLuIdValue_Object=MibTableColumn
+scsiLuIdValue=_ScsiLuIdValue_Object((1,3,6,1,2,1,999,1,5,2,1,5),_ScsiLuIdValue_Type())
+scsiLuIdValue.setMaxAccess(_C)
+if mibBuilder.loadTexts:scsiLuIdValue.setStatus(_A)
+_ScsiLunMapTable_Object=MibTable
+scsiLunMapTable=_ScsiLunMapTable_Object((1,3,6,1,2,1,999,1,5,3))
+if mibBuilder.loadTexts:scsiLunMapTable.setStatus(_A)
+_ScsiLunMapEntry_Object=MibTableRow
+scsiLunMapEntry=_ScsiLunMapEntry_Object((1,3,6,1,2,1,999,1,5,3,1))
+scsiLunMapEntry.setIndexNames((0,_B,_D),(0,_B,_E),(0,_B,_k),(0,_B,_l))
+if mibBuilder.loadTexts:scsiLunMapEntry.setStatus(_A)
+_ScsiLunMapIndex_Type=ScsiIndexValue
+_ScsiLunMapIndex_Object=MibTableColumn
+scsiLunMapIndex=_ScsiLunMapIndex_Object((1,3,6,1,2,1,999,1,5,3,1,1),_ScsiLunMapIndex_Type())
+scsiLunMapIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:scsiLunMapIndex.setStatus(_A)
+_ScsiLunMapLun_Type=ScsiLUNOrZero
+_ScsiLunMapLun_Object=MibTableColumn
+scsiLunMapLun=_ScsiLunMapLun_Object((1,3,6,1,2,1,999,1,5,3,1,2),_ScsiLunMapLun_Type())
+scsiLunMapLun.setMaxAccess(_F)
+if mibBuilder.loadTexts:scsiLunMapLun.setStatus(_A)
+_ScsiLunMapLuIndex_Type=ScsiIndexValue
+_ScsiLunMapLuIndex_Object=MibTableColumn
+scsiLunMapLuIndex=_ScsiLunMapLuIndex_Object((1,3,6,1,2,1,999,1,5,3,1,3),_ScsiLunMapLuIndex_Type())
+scsiLunMapLuIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:scsiLunMapLuIndex.setStatus(_A)
+_ScsiLunMapRowStatus_Type=RowStatus
+_ScsiLunMapRowStatus_Object=MibTableColumn
+scsiLunMapRowStatus=_ScsiLunMapRowStatus_Object((1,3,6,1,2,1,999,1,5,3,1,4),_ScsiLunMapRowStatus_Type())
+scsiLunMapRowStatus.setMaxAccess(_I)
+if mibBuilder.loadTexts:scsiLunMapRowStatus.setStatus(_A)
+_ScsiNotifications_ObjectIdentity=ObjectIdentity
+scsiNotifications=_ScsiNotifications_ObjectIdentity((1,3,6,1,2,1,999,2))
+_ScsiNotificationsPrefix_ObjectIdentity=ObjectIdentity
+scsiNotificationsPrefix=_ScsiNotificationsPrefix_ObjectIdentity((1,3,6,1,2,1,999,2,0))
+_ScsiConformance_ObjectIdentity=ObjectIdentity
+scsiConformance=_ScsiConformance_ObjectIdentity((1,3,6,1,2,1,999,3))
+_ScsiCompliances_ObjectIdentity=ObjectIdentity
+scsiCompliances=_ScsiCompliances_ObjectIdentity((1,3,6,1,2,1,999,3,1))
+_ScsiGroups_ObjectIdentity=ObjectIdentity
+scsiGroups=_ScsiGroups_ObjectIdentity((1,3,6,1,2,1,999,3,2))
+scsiDeviceGroup=ObjectGroup((1,3,6,1,2,1,999,3,2,1))
+scsiDeviceGroup.setObjects(*((_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x)))
+if mibBuilder.loadTexts:scsiDeviceGroup.setStatus(_A)
+scsiInitiatorGroup=ObjectGroup((1,3,6,1,2,1,999,3,2,2))
+scsiInitiatorGroup.setObjects(*((_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3)))
+if mibBuilder.loadTexts:scsiInitiatorGroup.setStatus(_A)
+scsiDiscoveryGroup=ObjectGroup((1,3,6,1,2,1,999,3,2,3))
+scsiDiscoveryGroup.setObjects(*((_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE)))
+if mibBuilder.loadTexts:scsiDiscoveryGroup.setStatus(_A)
+scsiTargetGroup=ObjectGroup((1,3,6,1,2,1,999,3,2,4))
+scsiTargetGroup.setObjects(*((_B,_AF),(_B,_V),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_W),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW)))
+if mibBuilder.loadTexts:scsiTargetGroup.setStatus(_A)
+scsiLunMapGroup=ObjectGroup((1,3,6,1,2,1,999,3,2,5))
+scsiLunMapGroup.setObjects(*((_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad)))
+if mibBuilder.loadTexts:scsiLunMapGroup.setStatus(_A)
+scsiTargetStatsGroup=ObjectGroup((1,3,6,1,2,1,999,3,2,6))
+scsiTargetStatsGroup.setObjects(*((_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al)))
+if mibBuilder.loadTexts:scsiTargetStatsGroup.setStatus(_A)
+scsiTargetHSStatsGroup=ObjectGroup((1,3,6,1,2,1,999,3,2,7))
+scsiTargetHSStatsGroup.setObjects(*((_B,_Am),(_B,_An)))
+if mibBuilder.loadTexts:scsiTargetHSStatsGroup.setStatus(_A)
+scsiLunMapStatsGroup=ObjectGroup((1,3,6,1,2,1,999,3,2,8))
+scsiLunMapStatsGroup.setObjects(*((_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar)))
+if mibBuilder.loadTexts:scsiLunMapStatsGroup.setStatus(_A)
+scsiLunMapHSStatsGroup=ObjectGroup((1,3,6,1,2,1,999,3,2,9))
+scsiLunMapHSStatsGroup.setObjects((_B,_As))
+if mibBuilder.loadTexts:scsiLunMapHSStatsGroup.setStatus(_A)
+scsiInitiatorStatsGroup=ObjectGroup((1,3,6,1,2,1,999,3,2,10))
+scsiInitiatorStatsGroup.setObjects(*((_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw)))
+if mibBuilder.loadTexts:scsiInitiatorStatsGroup.setStatus(_A)
+scsiInitiatorHSStatsGroup=ObjectGroup((1,3,6,1,2,1,999,3,2,11))
+scsiInitiatorHSStatsGroup.setObjects((_B,_Ax))
+if mibBuilder.loadTexts:scsiInitiatorHSStatsGroup.setStatus(_A)
+scsiDiscoveryStatsGroup=ObjectGroup((1,3,6,1,2,1,999,3,2,12))
+scsiDiscoveryStatsGroup.setObjects(*((_B,_Ay),(_B,_Az),(_B,_A_)))
+if mibBuilder.loadTexts:scsiDiscoveryStatsGroup.setStatus(_A)
+scsiDiscoveryHSStatsGroup=ObjectGroup((1,3,6,1,2,1,999,3,2,13))
+scsiDiscoveryHSStatsGroup.setObjects((_B,_B0))
+if mibBuilder.loadTexts:scsiDiscoveryHSStatsGroup.setStatus(_A)
+scsiDeviceStatGroup=ObjectGroup((1,3,6,1,2,1,999,3,2,14))
+scsiDeviceStatGroup.setObjects(*((_B,_B1),(_B,_B2)))
+if mibBuilder.loadTexts:scsiDeviceStatGroup.setStatus(_A)
+scsiTgtDeviceStatusChanged=NotificationType((1,3,6,1,2,1,999,2,0,1))
+scsiTgtDeviceStatusChanged.setObjects((_B,_V))
+if mibBuilder.loadTexts:scsiTgtDeviceStatusChanged.setStatus(_A)
+scsiLuStatusChanged=NotificationType((1,3,6,1,2,1,999,2,0,2))
+scsiLuStatusChanged.setObjects((_B,_W))
+if mibBuilder.loadTexts:scsiLuStatusChanged.setStatus(_A)
+scsiCompliance=ModuleCompliance((1,3,6,1,2,1,999,3,1,1))
+scsiCompliance.setObjects((_B,_B3))
+if mibBuilder.loadTexts:scsiCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'ScsiLUNOrZero':ScsiLUNOrZero,'ScsiIndexValue':ScsiIndexValue,'ScsiPortIndexValueOrZero':ScsiPortIndexValueOrZero,'ScsiIndexValueOrZero':ScsiIndexValueOrZero,'ScsiIdentifier':ScsiIdentifier,'ScsiName':ScsiName,'ScsiNameIdOrZero':ScsiNameIdOrZero,'ScsiDeviceOrPort':ScsiDeviceOrPort,'ScsiIdCodeSet':ScsiIdCodeSet,'ScsiIdAssociation':ScsiIdAssociation,'ScsiIdType':ScsiIdType,'ScsiIdValue':ScsiIdValue,'HrSWInstalledIndexOrZero':HrSWInstalledIndexOrZero,'scsiModule':scsiModule,'scsiObjects':scsiObjects,'scsiTransportTypes':scsiTransportTypes,'scsiTranportOther':scsiTranportOther,'scsiTranportSPI':scsiTranportSPI,'scsiTransportFCP':scsiTransportFCP,'scsiTransportSRP':scsiTransportSRP,'scsiTransportISCSI':scsiTransportISCSI,'scsiTransportSBP':scsiTransportSBP,'scsiGeneral':scsiGeneral,'scsiInstanceTable':scsiInstanceTable,'scsiInstanceEntry':scsiInstanceEntry,_D:scsiInstIndex,_m:scsiInstAlias,_n:scsiInstSoftwareIndex,_o:scsiInstVendorVersion,_p:scsiInstScsiNotificationsEnable,'scsiDeviceTable':scsiDeviceTable,'scsiDeviceEntry':scsiDeviceEntry,_E:scsiDeviceIndex,_q:scsiDeviceAlias,_r:scsiDeviceRole,_s:scsiDevicePortNumber,_B1:scsiDeviceResets,'scsiPortTable':scsiPortTable,'scsiPortEntry':scsiPortEntry,_K:scsiPortIndex,_t:scsiPortRole,_u:scsiPortTrnsptPtr,_B2:scsiPortBusyStatuses,'scsiTrnsptTable':scsiTrnsptTable,'scsiTrnsptEntry':scsiTrnsptEntry,_Z:scsiTrnsptIndex,_v:scsiTrnsptType,_w:scsiTrnsptPointer,_x:scsiTrnsptDevName,'scsiInitiator':scsiInitiator,'scsiIntrDevTable':scsiIntrDevTable,'scsiIntrDevEntry':scsiIntrDevEntry,_y:scsiIntrDevTgtAccessMode,_At:scsiIntrDevOutResets,'scsiIntrPrtTable':scsiIntrPrtTable,'scsiIntrPrtEntry':scsiIntrPrtEntry,_z:scsiIntrPrtName,_A0:scsiIntrPrtIdentifier,_Au:scsiIntrPrtOutCommands,_Av:scsiIntrPrtWrittenMegaBytes,_Aw:scsiIntrPrtReadMegaBytes,_Ax:scsiIntrPrtHSOutCommands,'scsiRemoteTarget':scsiRemoteTarget,'scsiDscTgtTable':scsiDscTgtTable,'scsiDscTgtEntry':scsiDscTgtEntry,_P:scsiDscTgtIntrPortIndex,_Q:scsiDscTgtIndex,_A4:scsiDscTgtDevOrPort,_A5:scsiDscTgtName,_A6:scsiDscTgtConfigured,_A7:scsiDscTgtDiscovered,_Ay:scsiDscTgtInCommands,_A_:scsiDscTgtWrittenMegaBytes,_Az:scsiDscTgtReadMegaBytes,_B0:scsiDscTgtHSInCommands,_A9:scsiDscTgtLastCreation,_A8:scsiDscTgtRowStatus,'scsiDscLunTable':scsiDscLunTable,'scsiDscLunEntry':scsiDscLunEntry,_T:scsiDscLunIndex,_AA:scsiDscLunLun,'scsiDscLunIdTable':scsiDscLunIdTable,'scsiDscLunIdEntry':scsiDscLunIdEntry,_a:scsiDscLunIdIndex,_AB:scsiDscLunIdCodeSet,_AC:scsiDscLunIdAssociation,_AD:scsiDscLunIdType,_AE:scsiDscLunIdValue,'scsiAttTgtPortTable':scsiAttTgtPortTable,'scsiAttTgtPortEntry':scsiAttTgtPortEntry,_b:scsiAttTgtPortIndex,_A1:scsiAttTgtPortDscTgtIdx,_A2:scsiAttTgtPortName,_A3:scsiAttTgtPortIdentifier,'scsiTarget':scsiTarget,'scsiTgtDevTable':scsiTgtDevTable,'scsiTgtDevEntry':scsiTgtDevEntry,_AF:scsiTgtDevNumberOfLUs,_V:scsiTgtDeviceStatus,_AG:scsiTgtDevNonAccessibleLUs,'scsiTgtPortTable':scsiTgtPortTable,'scsiTgtPortEntry':scsiTgtPortEntry,_AH:scsiTgtPortName,_AI:scsiTgtPortIdentifier,_Ae:scsiTgtPortInCommands,_Af:scsiTgtPortWrittenMegaBytes,_Ag:scsiTgtPortReadMegaBytes,_Am:scsiTgtPortHSInCommands,'scsiRemoteInitiators':scsiRemoteInitiators,'scsiAuthorizedIntrTable':scsiAuthorizedIntrTable,'scsiAuthorizedIntrEntry':scsiAuthorizedIntrEntry,_g:scsiAuthIntrTgtPortIndex,_h:scsiAuthIntrIndex,_AZ:scsiAuthIntrDevOrPort,_Aa:scsiAuthIntrName,_Ab:scsiAuthIntrLunMapIndex,_Ao:scsiAuthIntrAttachedTimes,_Ap:scsiAuthIntrOutCommands,_Aq:scsiAuthIntrReadMegaBytes,_Ar:scsiAuthIntrWrittenMegaBytes,_As:scsiAuthIntrHSOutCommands,_Ac:scsiAuthIntrLastCreation,_Ad:scsiAuthIntrRowStatus,'scsiAttIntrPrtTable':scsiAttIntrPrtTable,'scsiAttIntrPrtEntry':scsiAttIntrPrtEntry,_i:scsiAttIntrPrtIdx,_AJ:scsiAttIntrPrtAuthIntrIdx,_AK:scsiAttIntrPrtName,_AL:scsiAttIntrPrtId,'scsiLogicalUnit':scsiLogicalUnit,'scsiLuTable':scsiLuTable,'scsiLuEntry':scsiLuEntry,_U:scsiLuIndex,_AM:scsiLuDefaultLun,_AN:scsiLuWwnName,_AO:scsiLuVendorId,_AP:scsiLuProductId,_AQ:scsiLuRevisionId,_AR:scsiLuPeripheralType,_W:scsiLuStatus,_AS:scsiLuState,_Ah:scsiLuInCommands,_Ai:scsiLuReadMegaBytes,_Aj:scsiLuWrittenMegaBytes,_Ak:scsiLuInResets,_Al:scsiLuOutQueueFullStatus,_An:scsiLuHSInCommands,'scsiLuIdTable':scsiLuIdTable,'scsiLuIdEntry':scsiLuIdEntry,_j:scsiLuIdIndex,_AT:scsiLuIdCodeSet,_AU:scsiLuIdAssociation,_AV:scsiLuIdType,_AW:scsiLuIdValue,'scsiLunMapTable':scsiLunMapTable,'scsiLunMapEntry':scsiLunMapEntry,_k:scsiLunMapIndex,_l:scsiLunMapLun,_AX:scsiLunMapLuIndex,_AY:scsiLunMapRowStatus,'scsiNotifications':scsiNotifications,'scsiNotificationsPrefix':scsiNotificationsPrefix,'scsiTgtDeviceStatusChanged':scsiTgtDeviceStatusChanged,'scsiLuStatusChanged':scsiLuStatusChanged,'scsiConformance':scsiConformance,'scsiCompliances':scsiCompliances,'scsiCompliance':scsiCompliance,'scsiGroups':scsiGroups,_B3:scsiDeviceGroup,'scsiInitiatorGroup':scsiInitiatorGroup,'scsiDiscoveryGroup':scsiDiscoveryGroup,'scsiTargetGroup':scsiTargetGroup,'scsiLunMapGroup':scsiLunMapGroup,'scsiTargetStatsGroup':scsiTargetStatsGroup,'scsiTargetHSStatsGroup':scsiTargetHSStatsGroup,'scsiLunMapStatsGroup':scsiLunMapStatsGroup,'scsiLunMapHSStatsGroup':scsiLunMapHSStatsGroup,'scsiInitiatorStatsGroup':scsiInitiatorStatsGroup,'scsiInitiatorHSStatsGroup':scsiInitiatorHSStatsGroup,'scsiDiscoveryStatsGroup':scsiDiscoveryStatsGroup,'scsiDiscoveryHSStatsGroup':scsiDiscoveryHSStatsGroup,'scsiDeviceStatGroup':scsiDeviceStatGroup})

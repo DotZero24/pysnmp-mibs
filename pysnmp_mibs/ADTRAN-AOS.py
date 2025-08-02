@@ -1,0 +1,33 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+adIdentityShared,adShared=mibBuilder.importSymbols('ADTRAN-MIB','adIdentityShared','adShared')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+adGenAOSMib=ModuleIdentity((1,3,6,1,4,1,664,6,10000,53))
+if mibBuilder.loadTexts:adGenAOSMib.setRevisions(('2014-09-10 00:00','2012-04-27 00:00','2010-07-05 00:00','2004-10-20 00:00'))
+_AdGenAOS_ObjectIdentity=ObjectIdentity
+adGenAOS=_AdGenAOS_ObjectIdentity((1,3,6,1,4,1,664,5,53))
+_AdGenAOSCommon_ObjectIdentity=ObjectIdentity
+adGenAOSCommon=_AdGenAOSCommon_ObjectIdentity((1,3,6,1,4,1,664,5,53,1))
+_AdGenAOSRouter_ObjectIdentity=ObjectIdentity
+adGenAOSRouter=_AdGenAOSRouter_ObjectIdentity((1,3,6,1,4,1,664,5,53,2))
+_AdGenAOSSecurity_ObjectIdentity=ObjectIdentity
+adGenAOSSecurity=_AdGenAOSSecurity_ObjectIdentity((1,3,6,1,4,1,664,5,53,3))
+_AdGenAOSSwitch_ObjectIdentity=ObjectIdentity
+adGenAOSSwitch=_AdGenAOSSwitch_ObjectIdentity((1,3,6,1,4,1,664,5,53,4))
+_AdGenAOSVoice_ObjectIdentity=ObjectIdentity
+adGenAOSVoice=_AdGenAOSVoice_ObjectIdentity((1,3,6,1,4,1,664,5,53,5))
+_AdGenAOSWan_ObjectIdentity=ObjectIdentity
+adGenAOSWan=_AdGenAOSWan_ObjectIdentity((1,3,6,1,4,1,664,5,53,6))
+_AdGenAOSPower_ObjectIdentity=ObjectIdentity
+adGenAOSPower=_AdGenAOSPower_ObjectIdentity((1,3,6,1,4,1,664,5,53,7))
+_AdGenAOSApplications_ObjectIdentity=ObjectIdentity
+adGenAOSApplications=_AdGenAOSApplications_ObjectIdentity((1,3,6,1,4,1,664,5,53,8))
+_AdGenAOSMef_ObjectIdentity=ObjectIdentity
+adGenAOSMef=_AdGenAOSMef_ObjectIdentity((1,3,6,1,4,1,664,5,53,9))
+_AdGenAOSConformance_ObjectIdentity=ObjectIdentity
+adGenAOSConformance=_AdGenAOSConformance_ObjectIdentity((1,3,6,1,4,1,664,5,53,99))
+mibBuilder.exportSymbols('ADTRAN-AOS',**{'adGenAOS':adGenAOS,'adGenAOSCommon':adGenAOSCommon,'adGenAOSRouter':adGenAOSRouter,'adGenAOSSecurity':adGenAOSSecurity,'adGenAOSSwitch':adGenAOSSwitch,'adGenAOSVoice':adGenAOSVoice,'adGenAOSWan':adGenAOSWan,'adGenAOSPower':adGenAOSPower,'adGenAOSApplications':adGenAOSApplications,'adGenAOSMef':adGenAOSMef,'adGenAOSConformance':adGenAOSConformance,'adGenAOSMib':adGenAOSMib})

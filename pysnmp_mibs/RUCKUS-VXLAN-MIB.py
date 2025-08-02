@@ -1,0 +1,288 @@
+_Q='ruckusVxlanOverlayGatewaySiteIpListIpIndex'
+_P='ruckusVxlanOverlayGatewaySiteExtVlanId'
+_O='enabled'
+_N='disabled'
+_M='ruckusVxlanOverlayGatewayVlanMapVlanId'
+_L='ruckusVxlanOverlayGatewaySiteName'
+_K='DisplayString'
+_J='create'
+_I='delete'
+_H='valid'
+_G='invalid'
+_F='ruckusVxlanOverlayGatewayName'
+_E='Integer32'
+_D='read-write'
+_C='RUCKUS-VXLAN-MIB'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+DisplayString,=mibBuilder.importSymbols('FOUNDRY-SN-AGENT-MIB',_K)
+snSwitch,=mibBuilder.importSymbols('FOUNDRY-SN-SWITCH-GROUP-MIB','snSwitch')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_K,'PhysAddress','TextualConvention','TruthValue')
+ruckusVxlanMIB=ModuleIdentity((1,3,6,1,4,1,1991,1,1,3,49))
+if mibBuilder.loadTexts:ruckusVxlanMIB.setRevisions(('2021-10-29 00:00',))
+_RuckusVxlanObjects_ObjectIdentity=ObjectIdentity
+ruckusVxlanObjects=_RuckusVxlanObjects_ObjectIdentity((1,3,6,1,4,1,1991,1,1,3,49,1))
+_RuckusVxlanOverlayGateway_ObjectIdentity=ObjectIdentity
+ruckusVxlanOverlayGateway=_RuckusVxlanOverlayGateway_ObjectIdentity((1,3,6,1,4,1,1991,1,1,3,49,1,1))
+_RuckusVxlanOverlayGatewayTable_Object=MibTable
+ruckusVxlanOverlayGatewayTable=_RuckusVxlanOverlayGatewayTable_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,1))
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayTable.setStatus(_A)
+_RuckusVxlanOverlayGatewayEntry_Object=MibTableRow
+ruckusVxlanOverlayGatewayEntry=_RuckusVxlanOverlayGatewayEntry_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,1,1))
+ruckusVxlanOverlayGatewayEntry.setIndexNames((0,_C,_F))
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayEntry.setStatus(_A)
+class _RuckusVxlanOverlayGatewayName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
+_RuckusVxlanOverlayGatewayName_Type.__name__=_K
+_RuckusVxlanOverlayGatewayName_Object=MibTableColumn
+ruckusVxlanOverlayGatewayName=_RuckusVxlanOverlayGatewayName_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,1,1,1),_RuckusVxlanOverlayGatewayName_Type())
+ruckusVxlanOverlayGatewayName.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayName.setStatus(_A)
+class _RuckusVxlanOverlayGatewayType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('none',0),('l2Extension',1)))
+_RuckusVxlanOverlayGatewayType_Type.__name__=_E
+_RuckusVxlanOverlayGatewayType_Object=MibTableColumn
+ruckusVxlanOverlayGatewayType=_RuckusVxlanOverlayGatewayType_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,1,1,2),_RuckusVxlanOverlayGatewayType_Type())
+ruckusVxlanOverlayGatewayType.setMaxAccess(_D)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayType.setStatus(_A)
+_RuckusVxlanOverlayGatewayLoopbackId_Type=Integer32
+_RuckusVxlanOverlayGatewayLoopbackId_Object=MibTableColumn
+ruckusVxlanOverlayGatewayLoopbackId=_RuckusVxlanOverlayGatewayLoopbackId_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,1,1,3),_RuckusVxlanOverlayGatewayLoopbackId_Type())
+ruckusVxlanOverlayGatewayLoopbackId.setMaxAccess(_D)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayLoopbackId.setStatus(_A)
+_RuckusVxlanOverlayGatewayMappedVlans_Type=Integer32
+_RuckusVxlanOverlayGatewayMappedVlans_Object=MibTableColumn
+ruckusVxlanOverlayGatewayMappedVlans=_RuckusVxlanOverlayGatewayMappedVlans_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,1,1,4),_RuckusVxlanOverlayGatewayMappedVlans_Type())
+ruckusVxlanOverlayGatewayMappedVlans.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayMappedVlans.setStatus(_A)
+_RuckusVxlanOverlayGatewayExtendedSites_Type=Integer32
+_RuckusVxlanOverlayGatewayExtendedSites_Object=MibTableColumn
+ruckusVxlanOverlayGatewayExtendedSites=_RuckusVxlanOverlayGatewayExtendedSites_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,1,1,5),_RuckusVxlanOverlayGatewayExtendedSites_Type())
+ruckusVxlanOverlayGatewayExtendedSites.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayExtendedSites.setStatus(_A)
+class _RuckusVxlanOverlayGatewayRowStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),(_H,2),(_I,3),(_J,4)))
+_RuckusVxlanOverlayGatewayRowStatus_Type.__name__=_E
+_RuckusVxlanOverlayGatewayRowStatus_Object=MibTableColumn
+ruckusVxlanOverlayGatewayRowStatus=_RuckusVxlanOverlayGatewayRowStatus_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,1,1,6),_RuckusVxlanOverlayGatewayRowStatus_Type())
+ruckusVxlanOverlayGatewayRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayRowStatus.setStatus(_A)
+_RuckusVxlanOverlayGatewayVlanMapTable_Object=MibTable
+ruckusVxlanOverlayGatewayVlanMapTable=_RuckusVxlanOverlayGatewayVlanMapTable_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2))
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapTable.setStatus(_A)
+_RuckusVxlanOverlayGatewayVlanMapEntry_Object=MibTableRow
+ruckusVxlanOverlayGatewayVlanMapEntry=_RuckusVxlanOverlayGatewayVlanMapEntry_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2,1))
+ruckusVxlanOverlayGatewayVlanMapEntry.setIndexNames((0,_C,_F),(0,_C,_M))
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapEntry.setStatus(_A)
+_RuckusVxlanOverlayGatewayVlanMapVlanId_Type=Integer32
+_RuckusVxlanOverlayGatewayVlanMapVlanId_Object=MibTableColumn
+ruckusVxlanOverlayGatewayVlanMapVlanId=_RuckusVxlanOverlayGatewayVlanMapVlanId_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2,1,1),_RuckusVxlanOverlayGatewayVlanMapVlanId_Type())
+ruckusVxlanOverlayGatewayVlanMapVlanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapVlanId.setStatus(_A)
+_RuckusVxlanOverlayGatewayVlanMapVniId_Type=Integer32
+_RuckusVxlanOverlayGatewayVlanMapVniId_Object=MibTableColumn
+ruckusVxlanOverlayGatewayVlanMapVniId=_RuckusVxlanOverlayGatewayVlanMapVniId_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2,1,2),_RuckusVxlanOverlayGatewayVlanMapVniId_Type())
+ruckusVxlanOverlayGatewayVlanMapVniId.setMaxAccess(_D)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapVniId.setStatus(_A)
+_RuckusVxlanOverlayGatewayVlanMapVfiId_Type=Integer32
+_RuckusVxlanOverlayGatewayVlanMapVfiId_Object=MibTableColumn
+ruckusVxlanOverlayGatewayVlanMapVfiId=_RuckusVxlanOverlayGatewayVlanMapVfiId_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2,1,3),_RuckusVxlanOverlayGatewayVlanMapVfiId_Type())
+ruckusVxlanOverlayGatewayVlanMapVfiId.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapVfiId.setStatus(_A)
+class _RuckusVxlanOverlayGatewayVlanMapCrossConnect_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_N,0),(_O,1)))
+_RuckusVxlanOverlayGatewayVlanMapCrossConnect_Type.__name__=_E
+_RuckusVxlanOverlayGatewayVlanMapCrossConnect_Object=MibTableColumn
+ruckusVxlanOverlayGatewayVlanMapCrossConnect=_RuckusVxlanOverlayGatewayVlanMapCrossConnect_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2,1,4),_RuckusVxlanOverlayGatewayVlanMapCrossConnect_Type())
+ruckusVxlanOverlayGatewayVlanMapCrossConnect.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapCrossConnect.setStatus(_A)
+class _RuckusVxlanOverlayGatewayVlanMapStatistics_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*((_N,0),(_O,1)))
+_RuckusVxlanOverlayGatewayVlanMapStatistics_Type.__name__=_E
+_RuckusVxlanOverlayGatewayVlanMapStatistics_Object=MibTableColumn
+ruckusVxlanOverlayGatewayVlanMapStatistics=_RuckusVxlanOverlayGatewayVlanMapStatistics_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2,1,5),_RuckusVxlanOverlayGatewayVlanMapStatistics_Type())
+ruckusVxlanOverlayGatewayVlanMapStatistics.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapStatistics.setStatus(_A)
+_RuckusVxlanOverlayGatewayVlanMapAccessPortCount_Type=Integer32
+_RuckusVxlanOverlayGatewayVlanMapAccessPortCount_Object=MibTableColumn
+ruckusVxlanOverlayGatewayVlanMapAccessPortCount=_RuckusVxlanOverlayGatewayVlanMapAccessPortCount_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2,1,6),_RuckusVxlanOverlayGatewayVlanMapAccessPortCount_Type())
+ruckusVxlanOverlayGatewayVlanMapAccessPortCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapAccessPortCount.setStatus(_A)
+_RuckusVxlanOverlayGatewayVlanMapExtendedSite_Type=Integer32
+_RuckusVxlanOverlayGatewayVlanMapExtendedSite_Object=MibTableColumn
+ruckusVxlanOverlayGatewayVlanMapExtendedSite=_RuckusVxlanOverlayGatewayVlanMapExtendedSite_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2,1,7),_RuckusVxlanOverlayGatewayVlanMapExtendedSite_Type())
+ruckusVxlanOverlayGatewayVlanMapExtendedSite.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapExtendedSite.setStatus(_A)
+class _RuckusVxlanOverlayGatewayVlanMapRowStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),(_H,2),(_I,3),(_J,4)))
+_RuckusVxlanOverlayGatewayVlanMapRowStatus_Type.__name__=_E
+_RuckusVxlanOverlayGatewayVlanMapRowStatus_Object=MibTableColumn
+ruckusVxlanOverlayGatewayVlanMapRowStatus=_RuckusVxlanOverlayGatewayVlanMapRowStatus_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2,1,8),_RuckusVxlanOverlayGatewayVlanMapRowStatus_Type())
+ruckusVxlanOverlayGatewayVlanMapRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapRowStatus.setStatus(_A)
+_RuckusVxlanOverlayGatewayVlanMapInUnicastPackets_Type=Counter64
+_RuckusVxlanOverlayGatewayVlanMapInUnicastPackets_Object=MibTableColumn
+ruckusVxlanOverlayGatewayVlanMapInUnicastPackets=_RuckusVxlanOverlayGatewayVlanMapInUnicastPackets_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2,1,9),_RuckusVxlanOverlayGatewayVlanMapInUnicastPackets_Type())
+ruckusVxlanOverlayGatewayVlanMapInUnicastPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapInUnicastPackets.setStatus(_A)
+_RuckusVxlanOverlayGatewayVlanMapInUnicastBytes_Type=Counter64
+_RuckusVxlanOverlayGatewayVlanMapInUnicastBytes_Object=MibTableColumn
+ruckusVxlanOverlayGatewayVlanMapInUnicastBytes=_RuckusVxlanOverlayGatewayVlanMapInUnicastBytes_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2,1,10),_RuckusVxlanOverlayGatewayVlanMapInUnicastBytes_Type())
+ruckusVxlanOverlayGatewayVlanMapInUnicastBytes.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapInUnicastBytes.setStatus(_A)
+_RuckusVxlanOverlayGatewayVlanMapInMulticastPackets_Type=Counter64
+_RuckusVxlanOverlayGatewayVlanMapInMulticastPackets_Object=MibTableColumn
+ruckusVxlanOverlayGatewayVlanMapInMulticastPackets=_RuckusVxlanOverlayGatewayVlanMapInMulticastPackets_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2,1,11),_RuckusVxlanOverlayGatewayVlanMapInMulticastPackets_Type())
+ruckusVxlanOverlayGatewayVlanMapInMulticastPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapInMulticastPackets.setStatus(_A)
+_RuckusVxlanOverlayGatewayVlanMapInMutlticastBytes_Type=Counter64
+_RuckusVxlanOverlayGatewayVlanMapInMutlticastBytes_Object=MibTableColumn
+ruckusVxlanOverlayGatewayVlanMapInMutlticastBytes=_RuckusVxlanOverlayGatewayVlanMapInMutlticastBytes_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2,1,12),_RuckusVxlanOverlayGatewayVlanMapInMutlticastBytes_Type())
+ruckusVxlanOverlayGatewayVlanMapInMutlticastBytes.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapInMutlticastBytes.setStatus(_A)
+_RuckusVxlanOverlayGatewayVlanMapInBroadcastPackets_Type=Counter64
+_RuckusVxlanOverlayGatewayVlanMapInBroadcastPackets_Object=MibTableColumn
+ruckusVxlanOverlayGatewayVlanMapInBroadcastPackets=_RuckusVxlanOverlayGatewayVlanMapInBroadcastPackets_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2,1,13),_RuckusVxlanOverlayGatewayVlanMapInBroadcastPackets_Type())
+ruckusVxlanOverlayGatewayVlanMapInBroadcastPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapInBroadcastPackets.setStatus(_A)
+_RuckusVxlanOverlayGatewayVlanMapInBroadcastBytes_Type=Counter64
+_RuckusVxlanOverlayGatewayVlanMapInBroadcastBytes_Object=MibTableColumn
+ruckusVxlanOverlayGatewayVlanMapInBroadcastBytes=_RuckusVxlanOverlayGatewayVlanMapInBroadcastBytes_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2,1,14),_RuckusVxlanOverlayGatewayVlanMapInBroadcastBytes_Type())
+ruckusVxlanOverlayGatewayVlanMapInBroadcastBytes.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapInBroadcastBytes.setStatus(_A)
+_RuckusVxlanOverlayGatewayVlanMapOutPackets_Type=Counter64
+_RuckusVxlanOverlayGatewayVlanMapOutPackets_Object=MibTableColumn
+ruckusVxlanOverlayGatewayVlanMapOutPackets=_RuckusVxlanOverlayGatewayVlanMapOutPackets_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2,1,15),_RuckusVxlanOverlayGatewayVlanMapOutPackets_Type())
+ruckusVxlanOverlayGatewayVlanMapOutPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapOutPackets.setStatus(_A)
+_RuckusVxlanOverlayGatewayVlanMapOutBytes_Type=Counter64
+_RuckusVxlanOverlayGatewayVlanMapOutBytes_Object=MibTableColumn
+ruckusVxlanOverlayGatewayVlanMapOutBytes=_RuckusVxlanOverlayGatewayVlanMapOutBytes_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,2,1,16),_RuckusVxlanOverlayGatewayVlanMapOutBytes_Type())
+ruckusVxlanOverlayGatewayVlanMapOutBytes.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewayVlanMapOutBytes.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteTable_Object=MibTable
+ruckusVxlanOverlayGatewaySiteTable=_RuckusVxlanOverlayGatewaySiteTable_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,3))
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteTable.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteEntry_Object=MibTableRow
+ruckusVxlanOverlayGatewaySiteEntry=_RuckusVxlanOverlayGatewaySiteEntry_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,3,1))
+ruckusVxlanOverlayGatewaySiteEntry.setIndexNames((0,_C,_F),(0,_C,_L))
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteEntry.setStatus(_A)
+class _RuckusVxlanOverlayGatewaySiteName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
+_RuckusVxlanOverlayGatewaySiteName_Type.__name__=_K
+_RuckusVxlanOverlayGatewaySiteName_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteName=_RuckusVxlanOverlayGatewaySiteName_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,3,1,1),_RuckusVxlanOverlayGatewaySiteName_Type())
+ruckusVxlanOverlayGatewaySiteName.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteName.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteIpAddress_Type=IpAddress
+_RuckusVxlanOverlayGatewaySiteIpAddress_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteIpAddress=_RuckusVxlanOverlayGatewaySiteIpAddress_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,3,1,2),_RuckusVxlanOverlayGatewaySiteIpAddress_Type())
+ruckusVxlanOverlayGatewaySiteIpAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteIpAddress.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteStatus_Type=TruthValue
+_RuckusVxlanOverlayGatewaySiteStatus_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteStatus=_RuckusVxlanOverlayGatewaySiteStatus_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,3,1,3),_RuckusVxlanOverlayGatewaySiteStatus_Type())
+ruckusVxlanOverlayGatewaySiteStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteStatus.setStatus(_A)
+class _RuckusVxlanOverlayGatewaySiteRowStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),(_H,2),(_I,3),(_J,4)))
+_RuckusVxlanOverlayGatewaySiteRowStatus_Type.__name__=_E
+_RuckusVxlanOverlayGatewaySiteRowStatus_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteRowStatus=_RuckusVxlanOverlayGatewaySiteRowStatus_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,3,1,4),_RuckusVxlanOverlayGatewaySiteRowStatus_Type())
+ruckusVxlanOverlayGatewaySiteRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteRowStatus.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteInUnicastPackets_Type=Counter64
+_RuckusVxlanOverlayGatewaySiteInUnicastPackets_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteInUnicastPackets=_RuckusVxlanOverlayGatewaySiteInUnicastPackets_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,3,1,5),_RuckusVxlanOverlayGatewaySiteInUnicastPackets_Type())
+ruckusVxlanOverlayGatewaySiteInUnicastPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteInUnicastPackets.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteInUnicastBytes_Type=Counter64
+_RuckusVxlanOverlayGatewaySiteInUnicastBytes_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteInUnicastBytes=_RuckusVxlanOverlayGatewaySiteInUnicastBytes_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,3,1,6),_RuckusVxlanOverlayGatewaySiteInUnicastBytes_Type())
+ruckusVxlanOverlayGatewaySiteInUnicastBytes.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteInUnicastBytes.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteInMulticastPackets_Type=Counter64
+_RuckusVxlanOverlayGatewaySiteInMulticastPackets_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteInMulticastPackets=_RuckusVxlanOverlayGatewaySiteInMulticastPackets_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,3,1,7),_RuckusVxlanOverlayGatewaySiteInMulticastPackets_Type())
+ruckusVxlanOverlayGatewaySiteInMulticastPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteInMulticastPackets.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteInMutlticastBytes_Type=Counter64
+_RuckusVxlanOverlayGatewaySiteInMutlticastBytes_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteInMutlticastBytes=_RuckusVxlanOverlayGatewaySiteInMutlticastBytes_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,3,1,8),_RuckusVxlanOverlayGatewaySiteInMutlticastBytes_Type())
+ruckusVxlanOverlayGatewaySiteInMutlticastBytes.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteInMutlticastBytes.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteInBroadcastPackets_Type=Counter64
+_RuckusVxlanOverlayGatewaySiteInBroadcastPackets_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteInBroadcastPackets=_RuckusVxlanOverlayGatewaySiteInBroadcastPackets_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,3,1,9),_RuckusVxlanOverlayGatewaySiteInBroadcastPackets_Type())
+ruckusVxlanOverlayGatewaySiteInBroadcastPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteInBroadcastPackets.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteInBroadcastBytes_Type=Counter64
+_RuckusVxlanOverlayGatewaySiteInBroadcastBytes_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteInBroadcastBytes=_RuckusVxlanOverlayGatewaySiteInBroadcastBytes_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,3,1,10),_RuckusVxlanOverlayGatewaySiteInBroadcastBytes_Type())
+ruckusVxlanOverlayGatewaySiteInBroadcastBytes.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteInBroadcastBytes.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteOutPackets_Type=Counter64
+_RuckusVxlanOverlayGatewaySiteOutPackets_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteOutPackets=_RuckusVxlanOverlayGatewaySiteOutPackets_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,3,1,11),_RuckusVxlanOverlayGatewaySiteOutPackets_Type())
+ruckusVxlanOverlayGatewaySiteOutPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteOutPackets.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteOutBytes_Type=Counter64
+_RuckusVxlanOverlayGatewaySiteOutBytes_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteOutBytes=_RuckusVxlanOverlayGatewaySiteOutBytes_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,3,1,12),_RuckusVxlanOverlayGatewaySiteOutBytes_Type())
+ruckusVxlanOverlayGatewaySiteOutBytes.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteOutBytes.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteMonitoring_Type=TruthValue
+_RuckusVxlanOverlayGatewaySiteMonitoring_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteMonitoring=_RuckusVxlanOverlayGatewaySiteMonitoring_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,3,1,13),_RuckusVxlanOverlayGatewaySiteMonitoring_Type())
+ruckusVxlanOverlayGatewaySiteMonitoring.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteMonitoring.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteKeepAlive_Type=Integer32
+_RuckusVxlanOverlayGatewaySiteKeepAlive_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteKeepAlive=_RuckusVxlanOverlayGatewaySiteKeepAlive_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,3,1,14),_RuckusVxlanOverlayGatewaySiteKeepAlive_Type())
+ruckusVxlanOverlayGatewaySiteKeepAlive.setMaxAccess(_D)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteKeepAlive.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteRetry_Type=Integer32
+_RuckusVxlanOverlayGatewaySiteRetry_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteRetry=_RuckusVxlanOverlayGatewaySiteRetry_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,3,1,15),_RuckusVxlanOverlayGatewaySiteRetry_Type())
+ruckusVxlanOverlayGatewaySiteRetry.setMaxAccess(_D)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteRetry.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteExtVlanTable_Object=MibTable
+ruckusVxlanOverlayGatewaySiteExtVlanTable=_RuckusVxlanOverlayGatewaySiteExtVlanTable_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,4))
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteExtVlanTable.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteExtVlanEntry_Object=MibTableRow
+ruckusVxlanOverlayGatewaySiteExtVlanEntry=_RuckusVxlanOverlayGatewaySiteExtVlanEntry_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,4,1))
+ruckusVxlanOverlayGatewaySiteExtVlanEntry.setIndexNames((0,_C,_F),(0,_C,_L),(0,_C,_P))
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteExtVlanEntry.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteExtVlanId_Type=Integer32
+_RuckusVxlanOverlayGatewaySiteExtVlanId_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteExtVlanId=_RuckusVxlanOverlayGatewaySiteExtVlanId_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,4,1,1),_RuckusVxlanOverlayGatewaySiteExtVlanId_Type())
+ruckusVxlanOverlayGatewaySiteExtVlanId.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteExtVlanId.setStatus(_A)
+class _RuckusVxlanOverlayGatewaySiteExtVlanRowStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),(_H,2),(_I,3),(_J,4)))
+_RuckusVxlanOverlayGatewaySiteExtVlanRowStatus_Type.__name__=_E
+_RuckusVxlanOverlayGatewaySiteExtVlanRowStatus_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteExtVlanRowStatus=_RuckusVxlanOverlayGatewaySiteExtVlanRowStatus_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,4,1,2),_RuckusVxlanOverlayGatewaySiteExtVlanRowStatus_Type())
+ruckusVxlanOverlayGatewaySiteExtVlanRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteExtVlanRowStatus.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteIpListTable_Object=MibTable
+ruckusVxlanOverlayGatewaySiteIpListTable=_RuckusVxlanOverlayGatewaySiteIpListTable_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,5))
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteIpListTable.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteIpListEntry_Object=MibTableRow
+ruckusVxlanOverlayGatewaySiteIpListEntry=_RuckusVxlanOverlayGatewaySiteIpListEntry_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,5,1))
+ruckusVxlanOverlayGatewaySiteIpListEntry.setIndexNames((0,_C,_F),(0,_C,_L),(0,_C,_Q))
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteIpListEntry.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteIpListIpIndex_Type=Integer32
+_RuckusVxlanOverlayGatewaySiteIpListIpIndex_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteIpListIpIndex=_RuckusVxlanOverlayGatewaySiteIpListIpIndex_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,5,1,1),_RuckusVxlanOverlayGatewaySiteIpListIpIndex_Type())
+ruckusVxlanOverlayGatewaySiteIpListIpIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteIpListIpIndex.setStatus(_A)
+_RuckusVxlanOverlayGatewaySiteIpListIpAddress_Type=IpAddress
+_RuckusVxlanOverlayGatewaySiteIpListIpAddress_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteIpListIpAddress=_RuckusVxlanOverlayGatewaySiteIpListIpAddress_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,5,1,2),_RuckusVxlanOverlayGatewaySiteIpListIpAddress_Type())
+ruckusVxlanOverlayGatewaySiteIpListIpAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteIpListIpAddress.setStatus(_A)
+class _RuckusVxlanOverlayGatewaySiteIpListRowStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_G,1),(_H,2),(_I,3),(_J,4)))
+_RuckusVxlanOverlayGatewaySiteIpListRowStatus_Type.__name__=_E
+_RuckusVxlanOverlayGatewaySiteIpListRowStatus_Object=MibTableColumn
+ruckusVxlanOverlayGatewaySiteIpListRowStatus=_RuckusVxlanOverlayGatewaySiteIpListRowStatus_Object((1,3,6,1,4,1,1991,1,1,3,49,1,1,5,1,3),_RuckusVxlanOverlayGatewaySiteIpListRowStatus_Type())
+ruckusVxlanOverlayGatewaySiteIpListRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:ruckusVxlanOverlayGatewaySiteIpListRowStatus.setStatus(_A)
+mibBuilder.exportSymbols(_C,**{'ruckusVxlanMIB':ruckusVxlanMIB,'ruckusVxlanObjects':ruckusVxlanObjects,'ruckusVxlanOverlayGateway':ruckusVxlanOverlayGateway,'ruckusVxlanOverlayGatewayTable':ruckusVxlanOverlayGatewayTable,'ruckusVxlanOverlayGatewayEntry':ruckusVxlanOverlayGatewayEntry,_F:ruckusVxlanOverlayGatewayName,'ruckusVxlanOverlayGatewayType':ruckusVxlanOverlayGatewayType,'ruckusVxlanOverlayGatewayLoopbackId':ruckusVxlanOverlayGatewayLoopbackId,'ruckusVxlanOverlayGatewayMappedVlans':ruckusVxlanOverlayGatewayMappedVlans,'ruckusVxlanOverlayGatewayExtendedSites':ruckusVxlanOverlayGatewayExtendedSites,'ruckusVxlanOverlayGatewayRowStatus':ruckusVxlanOverlayGatewayRowStatus,'ruckusVxlanOverlayGatewayVlanMapTable':ruckusVxlanOverlayGatewayVlanMapTable,'ruckusVxlanOverlayGatewayVlanMapEntry':ruckusVxlanOverlayGatewayVlanMapEntry,_M:ruckusVxlanOverlayGatewayVlanMapVlanId,'ruckusVxlanOverlayGatewayVlanMapVniId':ruckusVxlanOverlayGatewayVlanMapVniId,'ruckusVxlanOverlayGatewayVlanMapVfiId':ruckusVxlanOverlayGatewayVlanMapVfiId,'ruckusVxlanOverlayGatewayVlanMapCrossConnect':ruckusVxlanOverlayGatewayVlanMapCrossConnect,'ruckusVxlanOverlayGatewayVlanMapStatistics':ruckusVxlanOverlayGatewayVlanMapStatistics,'ruckusVxlanOverlayGatewayVlanMapAccessPortCount':ruckusVxlanOverlayGatewayVlanMapAccessPortCount,'ruckusVxlanOverlayGatewayVlanMapExtendedSite':ruckusVxlanOverlayGatewayVlanMapExtendedSite,'ruckusVxlanOverlayGatewayVlanMapRowStatus':ruckusVxlanOverlayGatewayVlanMapRowStatus,'ruckusVxlanOverlayGatewayVlanMapInUnicastPackets':ruckusVxlanOverlayGatewayVlanMapInUnicastPackets,'ruckusVxlanOverlayGatewayVlanMapInUnicastBytes':ruckusVxlanOverlayGatewayVlanMapInUnicastBytes,'ruckusVxlanOverlayGatewayVlanMapInMulticastPackets':ruckusVxlanOverlayGatewayVlanMapInMulticastPackets,'ruckusVxlanOverlayGatewayVlanMapInMutlticastBytes':ruckusVxlanOverlayGatewayVlanMapInMutlticastBytes,'ruckusVxlanOverlayGatewayVlanMapInBroadcastPackets':ruckusVxlanOverlayGatewayVlanMapInBroadcastPackets,'ruckusVxlanOverlayGatewayVlanMapInBroadcastBytes':ruckusVxlanOverlayGatewayVlanMapInBroadcastBytes,'ruckusVxlanOverlayGatewayVlanMapOutPackets':ruckusVxlanOverlayGatewayVlanMapOutPackets,'ruckusVxlanOverlayGatewayVlanMapOutBytes':ruckusVxlanOverlayGatewayVlanMapOutBytes,'ruckusVxlanOverlayGatewaySiteTable':ruckusVxlanOverlayGatewaySiteTable,'ruckusVxlanOverlayGatewaySiteEntry':ruckusVxlanOverlayGatewaySiteEntry,_L:ruckusVxlanOverlayGatewaySiteName,'ruckusVxlanOverlayGatewaySiteIpAddress':ruckusVxlanOverlayGatewaySiteIpAddress,'ruckusVxlanOverlayGatewaySiteStatus':ruckusVxlanOverlayGatewaySiteStatus,'ruckusVxlanOverlayGatewaySiteRowStatus':ruckusVxlanOverlayGatewaySiteRowStatus,'ruckusVxlanOverlayGatewaySiteInUnicastPackets':ruckusVxlanOverlayGatewaySiteInUnicastPackets,'ruckusVxlanOverlayGatewaySiteInUnicastBytes':ruckusVxlanOverlayGatewaySiteInUnicastBytes,'ruckusVxlanOverlayGatewaySiteInMulticastPackets':ruckusVxlanOverlayGatewaySiteInMulticastPackets,'ruckusVxlanOverlayGatewaySiteInMutlticastBytes':ruckusVxlanOverlayGatewaySiteInMutlticastBytes,'ruckusVxlanOverlayGatewaySiteInBroadcastPackets':ruckusVxlanOverlayGatewaySiteInBroadcastPackets,'ruckusVxlanOverlayGatewaySiteInBroadcastBytes':ruckusVxlanOverlayGatewaySiteInBroadcastBytes,'ruckusVxlanOverlayGatewaySiteOutPackets':ruckusVxlanOverlayGatewaySiteOutPackets,'ruckusVxlanOverlayGatewaySiteOutBytes':ruckusVxlanOverlayGatewaySiteOutBytes,'ruckusVxlanOverlayGatewaySiteMonitoring':ruckusVxlanOverlayGatewaySiteMonitoring,'ruckusVxlanOverlayGatewaySiteKeepAlive':ruckusVxlanOverlayGatewaySiteKeepAlive,'ruckusVxlanOverlayGatewaySiteRetry':ruckusVxlanOverlayGatewaySiteRetry,'ruckusVxlanOverlayGatewaySiteExtVlanTable':ruckusVxlanOverlayGatewaySiteExtVlanTable,'ruckusVxlanOverlayGatewaySiteExtVlanEntry':ruckusVxlanOverlayGatewaySiteExtVlanEntry,_P:ruckusVxlanOverlayGatewaySiteExtVlanId,'ruckusVxlanOverlayGatewaySiteExtVlanRowStatus':ruckusVxlanOverlayGatewaySiteExtVlanRowStatus,'ruckusVxlanOverlayGatewaySiteIpListTable':ruckusVxlanOverlayGatewaySiteIpListTable,'ruckusVxlanOverlayGatewaySiteIpListEntry':ruckusVxlanOverlayGatewaySiteIpListEntry,_Q:ruckusVxlanOverlayGatewaySiteIpListIpIndex,'ruckusVxlanOverlayGatewaySiteIpListIpAddress':ruckusVxlanOverlayGatewaySiteIpListIpAddress,'ruckusVxlanOverlayGatewaySiteIpListRowStatus':ruckusVxlanOverlayGatewaySiteIpListRowStatus})

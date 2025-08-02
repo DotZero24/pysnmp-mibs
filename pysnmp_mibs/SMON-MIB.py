@@ -1,171 +1,413 @@
-#
-# PySNMP MIB module SMON-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/SMON-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:28:37 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-( InterfaceIndex, ) = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-( OwnerString, rmon, ) = mibBuilder.importSymbols("RMON-MIB", "OwnerString", "rmon")
-( rmonConformance, LastCreateTime, DataSource, probeConfig, ) = mibBuilder.importSymbols("RMON2-MIB", "rmonConformance", "LastCreateTime", "DataSource", "probeConfig")
-( ModuleCompliance, ObjectGroup, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-( ModuleIdentity, iso, TimeTicks, Gauge32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Integer32, Counter32, Unsigned32, Counter64, ObjectIdentity, IpAddress, NotificationType, ) = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "iso", "TimeTicks", "Gauge32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Integer32", "Counter32", "Unsigned32", "Counter64", "ObjectIdentity", "IpAddress", "NotificationType")
-( RowStatus, DisplayString, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
-switchRMON = ModuleIdentity((1, 3, 6, 1, 2, 1, 16, 22))
-if mibBuilder.loadTexts: switchRMON.setLastUpdated('9812160000Z')
-if mibBuilder.loadTexts: switchRMON.setOrganization('IETF RMON MIB Working Group')
-if mibBuilder.loadTexts: switchRMON.setContactInfo('IETF RMONMIB WG Mailing list: rmonmib@cisco.com\n\n                Rich Waterman\n                Allot Networks Inc.\n                Tel:  +1-408-559-0253\n                Email: rich@allot.com\n\n                Bill Lahaye\n                Xylan Corp.\n                Tel: +1-800-995-2612\n                Email:  lahaye@ctron.com\n\n                Dan Romascanu\n                Lucent Technologies\n                Tel:  +972-3-645-8414\n                Email: dromasca@lucent.com\n\n                Steven Waldbusser\n                International Network Services\n                Tel: +1-415-254-4251\n                Email: waldbusser@ins.com')
-if mibBuilder.loadTexts: switchRMON.setDescription('The MIB module for managing remote monitoring device\n                 implementations for Switched Networks')
-smonMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 22, 1))
-dataSourceCaps = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 22, 1, 1))
-smonStats = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 22, 1, 2))
-portCopyConfig = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 22, 1, 3))
-smonRegistrationPoints = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 22, 1, 4))
-class SmonDataSource(ObjectIdentifier, TextualConvention):
-    pass
-
-smonCapabilities = MibScalar((1, 3, 6, 1, 2, 1, 16, 19, 15), Bits().clone(namedValues=NamedValues(("smonVlanStats", 0), ("smonPrioStats", 1), ("dataSource", 2), ("smonUnusedBit", 3), ("portCopy", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonCapabilities.setDescription('An indication of the SMON MIB groups supported\n         by this agent.')
-dataSourceCapsTable = MibTable((1, 3, 6, 1, 2, 1, 16, 22, 1, 1, 1), )
-if mibBuilder.loadTexts: dataSourceCapsTable.setDescription("This table describes RMON data sources and port copy\n        capabilities. An NMS MAY use this table to discover the\n        identity and attributes of the data sources on a given agent\n        implementation. Similar to the probeCapabilities object,\n        actual row-creation operations will succeed or fail based on\n        the resources available and parameter values used in each\n        row-creation operation.\n\n        Upon restart of the RMON agent, the dataSourceTable, ifTable,\n        and perhaps entPhysicalTable are initialized for the available\n        dataSources.\n\n        For each dataSourceCapsEntry representing a VLAN or\n        entPhysicalEntry the agent MUST create an associated ifEntry\n        with a ifType value of 'propVirtual(53)'. This ifEntry will be\n        used as the actual value in RMON control table dataSource\n        objects. The assigned ifIndex value is copied into the\n        associated dataSourceCapsIfIndex object.\n        It is understood that dataSources representing VLANs may not\n        always be instantiated immediately upon restart, but rather as\n        VLAN usage is detected by the agent. The agent SHOULD attempt\n        to create dataSource and interface entries for all dataSources\n        as soon as possible.")
-dataSourceCapsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 22, 1, 1, 1, 1), ).setIndexNames((1, "SMON-MIB", "dataSourceCapsObject"))
-if mibBuilder.loadTexts: dataSourceCapsEntry.setDescription('Entries per data source containing descriptions of data\n         source and port copy capabilities. This table is populated by\n         the SMON agent with one entry for each supported data\n         source.')
-dataSourceCapsObject = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 1, 1, 1, 1), SmonDataSource())
-if mibBuilder.loadTexts: dataSourceCapsObject.setDescription('Defines an object that can be a SMON data source or a\n          source or a destination for a port copy operation.')
-dataSourceRmonCaps = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 1, 1, 1, 2), Bits().clone(namedValues=NamedValues(("countErrFrames", 0), ("countAllGoodFrames", 1), ("countAnyRmonTables", 2), ("babyGiantsCountAsGood", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dataSourceRmonCaps.setDescription(" General attributes of the specified dataSource. Note that\n        these are static attributes, which SHOULD NOT be adjusted\n        because of current resources or configuration.\n\n      - countErrFrames(0)\n          The agent sets this bit for the dataSource if errored frames\n          received on this dataSource can actually be monitored by the\n          agent The agent clears this bit if any errored frames are\n          not visible to the RMON data collector.\n\n      - countAllGoodFrames(1)\n          The agent sets this bit for the dataSource if all good\n          frames received on this dataSource can actually be monitored\n          by the agent. The agent clears this bit if any good frames\n          are not visible for RMON collection, e.g., the dataSource is\n          a non-promiscuous interface or an internal switch interface\n          which may not receive frames which were switched in hardware\n          or dropped by the bridge forwarding function.\n\n      - countAnyRmonTables(2)\n          The agent sets this bit if this dataSource can actually be\n          used in any of the implemented RMON tables, resources\n          notwithstanding. The agent clears this bit if this\n          dataSourceCapsEntry is present simply to identify a\n          dataSource that may only be used as portCopySource and/or a\n          portCopyDest, but not the source of an actual RMON data\n          collection.\n\n      - babyGiantsCountAsGood(3)\n          The agent sets this bit if it can distinguish, for counting\n          purposes, between true giant frames and frames that exceed\n          Ethernet maximum frame size 1518 due to VLAN tagging ('baby\n          giants'). Specifically, this BIT means that frames up to\n          1522 octets are counted as good.\n\n          Agents not capable of detecting 'baby giants' will clear\n          this bit and will view all frames less than or equal to 1518\n          octets as 'good frames' and all frames larger than 1518\n          octets as 'bad frames' for the purpose of counting in the\n          smonVlanIdStats and smonPrioStats tables.\n\n          Agents capable of detecting 'baby giants' SHALL consider\n          them as 'good frames' for the purpose of counting in the\n          smonVlanIdStats and smonPrioStats tables.")
-dataSourceCopyCaps = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 1, 1, 1, 3), Bits().clone(namedValues=NamedValues(("copySourcePort", 0), ("copyDestPort", 1), ("copySrcTxTraffic", 2), ("copySrcRxTraffic", 3), ("countDestDropEvents", 4), ("copyErrFrames", 5), ("copyUnalteredFrames", 6), ("copyAllGoodFrames", 7),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dataSourceCopyCaps.setDescription('PortCopy function capabilities of the specified dataSource.\n    Note that these are static capabilities, which SHOULD NOT be\n    adjusted because of current resources or configuration.\n\n      - copySourcePort(0)\n          The agent sets this bit if this dataSource is capable of\n          acting as a source of a portCopy operation. The agent clears\n          this bit otherwise.\n\n      - copyDestPort(1)\n          The agent sets this bit if this dataSource is capable of\n          acting as a destination of a portCopy operation. The agent\n          clears this bit otherwise.\n\n     - copySrcTxTraffic(2)\n          If the copySourcePort bit is set:\n                The agent sets this bit if this dataSource is capable of\n              copying frames transmitted out this portCopy source. The\n              agent clears this bit otherwise. This function is needed\n              to support full-duplex ports.\n           Else:\n               this bit SHOULD be cleared.\n\n      - copySrcRxTraffic(3)\n          If the copySourcePort bit is set:\n            The agent sets this bit if this dataSource is capable of\n            copying frames received on this portCopy source. The agent\n            clears this bit otherwise. This function is needed to\n            support full-duplex ports.\n          Else:\n            this bit SHOULD be cleared.\n\n      - countDestDropEvents(4)\n          If the copyDestPort bit is set:\n              The agent sets this bit if it is capable of incrementing\n              portCopyDestDropEvents, when this dataSource is the\n              target of a portCopy operation and a frame destined to\n              this dataSource is dropped (for RMON counting purposes).\n          Else:\n              this BIT SHOULD be cleared.\n\n      - copyErrFrames(5)\n          If the copySourcePort bit is set:\n              The agent sets this bit if it is capable of copying all\n              errored frames from this portCopy source-port, for\n              errored frames received on this dataSource.\n          Else:\n              this BIT SHOULD be cleared.\n\n      - copyUnalteredFrames(6)\n          If the copySourcePort bit is set:\n              The agent sets the copyUnalteredFrames bit If it is\n              capable of copying all frames from this portCopy\n              source-port without alteration in any way;\n          Else:\n              this bit SHOULD be cleared.\n\n      - copyAllGoodFrames(7)\n          If the copySourcePort bit is set:\n              The agent sets this bit for the dataSource if all good\n              frames received on this dataSource are normally capable\n              of being copied by the agent. The agent clears this bit\n              if any good frames are not visible for the RMON portCopy\n              operation, e.g., the dataSource is a non-promiscuous\n              interface or an internal switch interface which may not\n              receive frames which were switched in hardware or\n              dropped by the bridge forwarding function.\n           Else:\n              this bit SHOULD be cleared.')
-dataSourceCapsIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 1, 1, 1, 4), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dataSourceCapsIfIndex.setDescription("This object contains the ifIndex value of the ifEntry\n         associated with this smonDataSource. The agent MUST create\n         'propVirtual' ifEntries for each dataSourceCapsEntry of type\n         VLAN or entPhysicalEntry.")
-smonVlanStatsControlTable = MibTable((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 1), )
-if mibBuilder.loadTexts: smonVlanStatsControlTable.setDescription('Controls the setup of VLAN statistics tables.\n\n         The statistics collected represent a distribution based on\n         the IEEE 802.1Q VLAN-ID (VID), for each good frame attributed\n         to the data source for the collection.')
-smonVlanStatsControlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 1, 1), ).setIndexNames((0, "SMON-MIB", "smonVlanStatsControlIndex"))
-if mibBuilder.loadTexts: smonVlanStatsControlEntry.setDescription('A conceptual row in the smonVlanStatsControlTable.')
-smonVlanStatsControlIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: smonVlanStatsControlIndex.setDescription('A unique arbitrary index for this smonVlanStatsControlEntry.')
-smonVlanStatsControlDataSource = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 1, 1, 2), DataSource()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: smonVlanStatsControlDataSource.setDescription('The source of data for this set of VLAN statistics.\n\n        This object MAY NOT be modified if the associated\n        smonVlanStatsControlStatus object is equal to active(1).')
-smonVlanStatsControlCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 1, 1, 3), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonVlanStatsControlCreateTime.setDescription('The value of sysUpTime when this control entry was last\n        activated. This object allows to a management station to\n        detect deletion and recreation cycles between polls.')
-smonVlanStatsControlOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 1, 1, 4), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: smonVlanStatsControlOwner.setDescription('Administratively assigned named of the owner of this entry.\n        It usually defines the entity that created this entry and is\n        therefore using the resources assigned to it, though there is\n        no enforcement mechanism, nor assurance that rows created are\n        ever used.')
-smonVlanStatsControlStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: smonVlanStatsControlStatus.setDescription('The status of this row.\n\n        An entry MAY NOT exist in the active state unless all\n        objects in the entry have an appropriate value.\n\n        If this object is not equal to active(1), all associated\n        entries in the smonVlanIdStatsTable SHALL be deleted.')
-smonVlanIdStatsTable = MibTable((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 2), )
-if mibBuilder.loadTexts: smonVlanIdStatsTable.setDescription('Contains the VLAN statistics data.\n         The statistics collected represent a distribution based\n         on the IEEE 802.1Q VLAN-ID (VID), for each good frame\n         attributed to the data source for the collection.\n\n         This function applies the same rules for attributing frames\n         to VLAN-based collections. RMON VLAN statistics are collected\n         after the Ingress Rules defined in section 3.13 of the VLAN\n         Specification [20] are applied.\n\n         It is possible that entries in this table will be\n         garbage-collected, based on agent resources, and VLAN\n         configuration. Agents are encouraged to support all 4094\n         index values and not garbage collect this table.')
-smonVlanIdStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 2, 1), ).setIndexNames((0, "SMON-MIB", "smonVlanStatsControlIndex"), (0, "SMON-MIB", "smonVlanIdStatsId"))
-if mibBuilder.loadTexts: smonVlanIdStatsEntry.setDescription('A conceptual row in smonVlanIdStatsTable.')
-smonVlanIdStatsId = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,4094)))
-if mibBuilder.loadTexts: smonVlanIdStatsId.setDescription('The unique identifier of the VLAN monitored for\n         this specific statistics collection.\n\n        Tagged packets match the VID for the range between 1 and 4094.\n        An external RMON probe MAY detect VID=0 on an Inter Switch\n        Link, in which case the packet belongs to a VLAN determined by\n        the PVID of the ingress port. The VLAN to which such a packet\n        belongs can be determined only by a RMON probe internal to the\n        switch.')
-smonVlanIdStatsTotalPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 2, 1, 2), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonVlanIdStatsTotalPkts.setDescription('The total number of packets counted on this VLAN.')
-smonVlanIdStatsTotalOverflowPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 2, 1, 3), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonVlanIdStatsTotalOverflowPkts.setDescription('The number of times the associated smonVlanIdStatsTotalPkts\n         counter has overflowed.')
-smonVlanIdStatsTotalHCPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 2, 1, 4), Counter64()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonVlanIdStatsTotalHCPkts.setDescription('The total number of packets counted on this VLAN.')
-smonVlanIdStatsTotalOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 2, 1, 5), Counter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonVlanIdStatsTotalOctets.setDescription('The total number of octets counted on this VLAN.')
-smonVlanIdStatsTotalOverflowOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 2, 1, 6), Counter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonVlanIdStatsTotalOverflowOctets.setDescription('The number of times the associated smonVlanIdStatsTotalOctets\n         counter has overflowed.')
-smonVlanIdStatsTotalHCOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 2, 1, 7), Counter64()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonVlanIdStatsTotalHCOctets.setDescription('The total number of octets counted on this VLAN.')
-smonVlanIdStatsNUcastPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 2, 1, 8), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonVlanIdStatsNUcastPkts.setDescription('The total number of non-unicast packets counted on this\n         VLAN.')
-smonVlanIdStatsNUcastOverflowPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 2, 1, 9), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonVlanIdStatsNUcastOverflowPkts.setDescription('The number of times the associated smonVlanIdStatsNUcastPkts\n         counter has overflowed.')
-smonVlanIdStatsNUcastHCPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 2, 1, 10), Counter64()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonVlanIdStatsNUcastHCPkts.setDescription('The total number of non-unicast packets counted on\n         this VLAN.')
-smonVlanIdStatsNUcastOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 2, 1, 11), Counter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonVlanIdStatsNUcastOctets.setDescription('The total number of non-unicast octets counted on\n         this VLAN.')
-smonVlanIdStatsNUcastOverflowOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 2, 1, 12), Counter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonVlanIdStatsNUcastOverflowOctets.setDescription('The number of times the associated\n         smonVlanIdStatsNUcastOctets counter has overflowed.')
-smonVlanIdStatsNUcastHCOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 2, 1, 13), Counter64()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonVlanIdStatsNUcastHCOctets.setDescription('The total number of Non-unicast octets counted on\n         this VLAN.')
-smonVlanIdStatsCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 2, 1, 14), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonVlanIdStatsCreateTime.setDescription('The value of sysUpTime when this entry was last\n        activated. This object allows to a management station to\n        detect deletion and recreation cycles between polls.')
-smonPrioStatsControlTable = MibTable((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 3), )
-if mibBuilder.loadTexts: smonPrioStatsControlTable.setDescription('Controls the setup of priority statistics tables.\n\n         The smonPrioStatsControlTable allows configuration of\n         collections based on the value of the 3-bit user priority\n         field encoded in the Tag Control Information (TCI) field\n         according to [19],[20].\n\n         Note that this table merely reports priority as encoded in\n         the VLAN headers, not the priority (if any) given to the\n         frame for the actual switching purposes.')
-smonPrioStatsControlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 3, 1), ).setIndexNames((0, "SMON-MIB", "smonPrioStatsControlIndex"))
-if mibBuilder.loadTexts: smonPrioStatsControlEntry.setDescription('A conceptual row in the smonPrioStatsControlTable.')
-smonPrioStatsControlIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: smonPrioStatsControlIndex.setDescription('A unique arbitrary index for this smonPrioStatsControlEntry.')
-smonPrioStatsControlDataSource = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 3, 1, 2), DataSource()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: smonPrioStatsControlDataSource.setDescription('The source of data for this set of VLAN statistics.\n\n        This object MAY NOT be modified if the associated\n        smonPrioStatsControlStatus object is equal to active(1).')
-smonPrioStatsControlCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 3, 1, 3), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonPrioStatsControlCreateTime.setDescription('The value of sysUpTime when this entry was created.\n        This object allows to a management station to\n        detect deletion and recreation cycles between polls.')
-smonPrioStatsControlOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 3, 1, 4), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: smonPrioStatsControlOwner.setDescription('Administratively assigned named of the owner of this entry.\n        It usually defines the entity that created this entry and is\n        therefore using the resources assigned to it, though there is\n        no enforcement mechanism, nor assurance that rows created are\n        ever used.')
-smonPrioStatsControlStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 3, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: smonPrioStatsControlStatus.setDescription('The status of this row.\n        An entry MAY NOT exist in the active state unless all\n        objects in the entry have an appropriate value.\n\n        If this object is not equal to active(1), all associated\n        entries in the smonPrioStatsTable SHALL be deleted.')
-smonPrioStatsTable = MibTable((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 4), )
-if mibBuilder.loadTexts: smonPrioStatsTable.setDescription('Contains the priority statistics. The collections are based\n         on the value of the 3-bit user priority field encoded in the\n         Tag Control Information (TCI) field according to [19], [20].\n         Note that this table merely reports priority as encoded in\n         the VLAN headers, not the priority (if any) given to the\n         frame for the actual switching purposes.\n\n         No garbage collection is designed for this table, as there\n         always are at most eight rows per statistical set, and the\n         low memory requirements do not justify the implementation of\n         such a mechanism.')
-smonPrioStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 4, 1), ).setIndexNames((0, "SMON-MIB", "smonPrioStatsControlIndex"), (0, "SMON-MIB", "smonPrioStatsId"))
-if mibBuilder.loadTexts: smonPrioStatsEntry.setDescription('A conceptual row in smonPrioStatsTable.')
-smonPrioStatsId = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,7)))
-if mibBuilder.loadTexts: smonPrioStatsId.setDescription('The unique identifier of the priority level monitored for\n         this specific statistics collection.')
-smonPrioStatsPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 4, 1, 2), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonPrioStatsPkts.setDescription('The total number of packets counted on\n         this priority level.')
-smonPrioStatsOverflowPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 4, 1, 3), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonPrioStatsOverflowPkts.setDescription('The number of times the associated smonPrioStatsPkts\n         counter has overflowed.')
-smonPrioStatsHCPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 4, 1, 4), Counter64()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonPrioStatsHCPkts.setDescription('The total number of packets counted on\n         this priority level.')
-smonPrioStatsOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 4, 1, 5), Counter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonPrioStatsOctets.setDescription('The total number of octets counted on\n         this priority level.')
-smonPrioStatsOverflowOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 4, 1, 6), Counter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonPrioStatsOverflowOctets.setDescription('The number of times the associated smonPrioStatsOctets\n         counter has overflowed.')
-smonPrioStatsHCOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 2, 4, 1, 7), Counter64()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: smonPrioStatsHCOctets.setDescription('The total number of octets counted on\n         this priority level.')
-portCopyTable = MibTable((1, 3, 6, 1, 2, 1, 16, 22, 1, 3, 1), )
-if mibBuilder.loadTexts: portCopyTable.setDescription(" Port Copy provides the ability to copy all frames from a\n         specified source to specified destination within a switch.\n         Source and destinations MUST be ifEntries, as defined by [22].\n         One to one, one to many, many to one and many to many source to\n         destination relationships may be configured.\n\n         Applicable counters on the destination will increment for all\n         packets transiting the port, be it by normal bridging/switching\n         or due to packet copy.\n         Note that this table manages no RMON data collection by itself,\n         and an agent may possibly implement no RMON objects except\n         objects related to the port copy operation defined by the\n         portCopyCompliance conformance macro. That allows for a switch\n         with no other embedded RMON capability to perform port copy\n         operations to a destination port at which a different external\n         RMON probe is connected.\n\n         One to one, many to one and one to many source to destination\n         relationships may be configured.\n\n         Each row that exists in this table defines such a\n         relationship. By disabling a row in this table the port copy\n         relationship no longer exists.\n\n         The number of entries and the types of port copies (1-1,\n         many-1, 1-many) are implementation specific and could\n         possibly be dynamic due to changing resource availability.\n\n         In order to configure a source to destination portCopy\n         relationship, both source and destination interfaces MUST be\n         present as an ifEntry in the ifTable and their respective\n         ifAdminStatus and ifOperStatus values MUST be equal to\n         'up(1)'. If the value of any of those two objects changes\n         after the portCopyEntry is activated, portCopyStatus will\n         transition to 'notReady(3)'.\n\n         The capability of an interface to be source or destination of\n         a port copy operation is described by the 'copySourcePort(0)'\n         and 'copyDestPort(1)' bits in dataSourceCopyCaps. Those bits\n         SHOULD be appropriately set by the agent, in order to allow\n         for a portCopyEntry to be created.\n\n         Applicable counters on the destination will increment for all\n         packets transmitted, be it by normal bridging/switching or\n         due to packet copy.")
-portCopyEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 22, 1, 3, 1, 1), ).setIndexNames((0, "SMON-MIB", "portCopySource"), (0, "SMON-MIB", "portCopyDest"))
-if mibBuilder.loadTexts: portCopyEntry.setDescription('Describes a particular port copy entry.')
-portCopySource = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 3, 1, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: portCopySource.setDescription('The ifIndex of the source which will have all packets\n         redirected to the destination as defined by portCopyDest.')
-portCopyDest = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 3, 1, 1, 2), InterfaceIndex())
-if mibBuilder.loadTexts: portCopyDest.setDescription('Defines the ifIndex destination for the copy operation.')
-portCopyDestDropEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 3, 1, 1, 3), Counter32()).setUnits('events').setMaxAccess("readonly")
-if mibBuilder.loadTexts: portCopyDestDropEvents.setDescription('The total number of events in which port copy packets were\n         dropped by the switch at the destination port due to lack of\n         resources.\n\n         Note that this number is not necessarily the number of\n         packets dropped; it is just the number of times this\n         condition has been detected.\n\n         A single dropped event counter is maintained for each\n         portCopyDest. Thus all instances associated with a given\n         portCopyDest will have the same portCopyDestDropEvents\n         value.')
-portCopyDirection = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("copyRxOnly", 1), ("copyTxOnly", 2), ("copyBoth", 3),)).clone('copyBoth')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portCopyDirection.setDescription("This object affects the way traffic is copied from a switch\n          source port, for the indicated port copy operation.\n\n\n         If this object has the value 'copyRxOnly(1)', then only\n         traffic received on the indicated source port will be copied\n         to the indicated destination port.\n\n         If this object has the value 'copyTxOnly(2)', then only\n         traffic transmitted out the indicated source port will be\n         copied to the indicated destination port.\n\n         If this object has the value 'copyBoth(3)', then all traffic\n         received or transmitted on the indicated source port will be\n         copied to the indicated destination port.\n\n         The creation and deletion of instances of this object is\n         controlled by the portCopyRowStatus object. Note that there\n         is no guarantee that changes in the value of this object\n         performed while the associated portCopyRowStatus object is\n         equal to active will not cause traffic discontinuities in the\n         packet stream.")
-portCopyStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 22, 1, 3, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portCopyStatus.setDescription("Defines the status of the port copy entry.\n\n         In order to configure a source to destination portCopy\n         relationship, both source and destination interfaces MUST be\n         present as an ifEntry in the ifTable and their respective\n         ifAdminStatus and ifOperStatus values MUST be equal to\n         'up(1)'. If the value of any of those two objects changes\n         after the portCopyEntry is activated, portCopyStatus will\n         transition to 'notReady(3)'.\n\n         The capability of an interface to be source or destination of\n         a port copy operation is described by the 'copySourcePort(0)'\n         and 'copyDestPort(1)' bits in dataSourceCopyCaps. Those bits\n         SHOULD be appropriately set by the agent, in order to allow\n         for a portCopyEntry to be created.")
-smonVlanDataSource = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 22, 1, 4, 1))
-smonMIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 20, 3))
-smonMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 20, 4))
-smonMIBCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 16, 20, 3, 1)).setObjects(*(("SMON-MIB", "dataSourceCapsGroup"), ("SMON-MIB", "smonVlanStatsGroup"), ("SMON-MIB", "smonPrioStatsGroup"), ("SMON-MIB", "portCopyConfigGroup"), ("SMON-MIB", "smonInformationGroup"), ("SMON-MIB", "smonHcTo100mbGroup"), ("SMON-MIB", "smonHc100mbPlusGroup"),))
-if mibBuilder.loadTexts: smonMIBCompliance.setDescription('Describes the requirements for full conformance with the SMON\n        MIB')
-smonMIBVlanStatsCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 16, 20, 3, 2)).setObjects(*(("SMON-MIB", "dataSourceCapsGroup"), ("SMON-MIB", "smonVlanStatsGroup"), ("SMON-MIB", "smonInformationGroup"), ("SMON-MIB", "hcVlanTo100mbGroup"), ("SMON-MIB", "hcVlan100mbPlusGroup"),))
-if mibBuilder.loadTexts: smonMIBVlanStatsCompliance.setDescription('Describes the requirements for conformance with the SMON MIB\n         with support for VLAN Statistics. Mandatory for a SMON probe\n         in environment where IEEE 802.1Q bridging is implemented.')
-smonMIBPrioStatsCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 16, 20, 3, 3)).setObjects(*(("SMON-MIB", "dataSourceCapsGroup"), ("SMON-MIB", "smonPrioStatsGroup"), ("SMON-MIB", "smonInformationGroup"), ("SMON-MIB", "hcPrioTo100mbGroup"), ("SMON-MIB", "hcPrio100mbPlusGroup"),))
-if mibBuilder.loadTexts: smonMIBPrioStatsCompliance.setDescription('Describes the requirements for conformance with the SMON MIB\n         with support for priority level Statistics. Mandatory for a\n         SMON probe in a environment where IEEE 802.1p\n         priority-switching is implemented.')
-portCopyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 16, 20, 3, 4)).setObjects(*(("SMON-MIB", "dataSourceCapsGroup"), ("SMON-MIB", "portCopyConfigGroup"), ("SMON-MIB", "smonInformationGroup"),))
-if mibBuilder.loadTexts: portCopyCompliance.setDescription('Describes the requirements for conformance with the port copy\n         functionality defined by the SMON MIB')
-dataSourceCapsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 4, 1)).setObjects(*(("SMON-MIB", "dataSourceRmonCaps"), ("SMON-MIB", "dataSourceCopyCaps"), ("SMON-MIB", "dataSourceCapsIfIndex"),))
-if mibBuilder.loadTexts: dataSourceCapsGroup.setDescription('Defines the objects that describe the capabilities of RMON\n         data sources.')
-smonVlanStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 4, 2)).setObjects(*(("SMON-MIB", "smonVlanStatsControlDataSource"), ("SMON-MIB", "smonVlanStatsControlCreateTime"), ("SMON-MIB", "smonVlanStatsControlOwner"), ("SMON-MIB", "smonVlanStatsControlStatus"), ("SMON-MIB", "smonVlanIdStatsTotalPkts"), ("SMON-MIB", "smonVlanIdStatsTotalOctets"), ("SMON-MIB", "smonVlanIdStatsNUcastPkts"), ("SMON-MIB", "smonVlanIdStatsCreateTime"),))
-if mibBuilder.loadTexts: smonVlanStatsGroup.setDescription('Defines the switch monitoring specific statistics - per VLAN\n         Id on interfaces of 10MB or less.')
-smonPrioStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 4, 3)).setObjects(*(("SMON-MIB", "smonPrioStatsControlDataSource"), ("SMON-MIB", "smonPrioStatsControlCreateTime"), ("SMON-MIB", "smonPrioStatsControlOwner"), ("SMON-MIB", "smonPrioStatsControlStatus"), ("SMON-MIB", "smonPrioStatsPkts"), ("SMON-MIB", "smonPrioStatsOctets"),))
-if mibBuilder.loadTexts: smonPrioStatsGroup.setDescription('Defines the switch monitoring specific statistics - per VLAN\n         Id on interface.')
-smonHcTo100mbGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 4, 4)).setObjects(*(("SMON-MIB", "smonVlanIdStatsTotalOverflowOctets"), ("SMON-MIB", "smonVlanIdStatsTotalHCOctets"), ("SMON-MIB", "smonPrioStatsOverflowOctets"), ("SMON-MIB", "smonPrioStatsHCOctets"),))
-if mibBuilder.loadTexts: smonHcTo100mbGroup.setDescription('Defines the additional high capacity statistics needed to be\n         kept on interfaces with ifSpeed greater than 10MB/sec and\n         less than or equal to 100MB/sec.')
-smonHc100mbPlusGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 4, 5)).setObjects(*(("SMON-MIB", "smonVlanIdStatsTotalOverflowPkts"), ("SMON-MIB", "smonVlanIdStatsTotalHCPkts"), ("SMON-MIB", "smonVlanIdStatsTotalOverflowOctets"), ("SMON-MIB", "smonVlanIdStatsTotalHCOctets"), ("SMON-MIB", "smonVlanIdStatsNUcastOverflowPkts"), ("SMON-MIB", "smonVlanIdStatsNUcastHCPkts"), ("SMON-MIB", "smonPrioStatsOverflowPkts"), ("SMON-MIB", "smonPrioStatsHCPkts"), ("SMON-MIB", "smonPrioStatsOverflowOctets"), ("SMON-MIB", "smonPrioStatsHCOctets"),))
-if mibBuilder.loadTexts: smonHc100mbPlusGroup.setDescription('Defines the additional high capacity statistics needed to be\n         kept on interfaces with ifSpeed of more than 100MB/sec. These\n         statistics MUST also be kept on smonDataSources of type VLAN\n         or entPhysicalEntry.')
-hcVlanTo100mbGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 4, 6)).setObjects(*(("SMON-MIB", "smonVlanIdStatsTotalOverflowOctets"), ("SMON-MIB", "smonVlanIdStatsTotalHCOctets"),))
-if mibBuilder.loadTexts: hcVlanTo100mbGroup.setDescription('Defines the additional high capacity VLAN statistics\n         needed to be kept on interfaces with ifSpeed greater than\n         10MB/sec and less than or equal to 100MB/sec.')
-hcVlan100mbPlusGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 4, 7)).setObjects(*(("SMON-MIB", "smonVlanIdStatsTotalOverflowPkts"), ("SMON-MIB", "smonVlanIdStatsTotalHCPkts"), ("SMON-MIB", "smonVlanIdStatsTotalOverflowOctets"), ("SMON-MIB", "smonVlanIdStatsTotalHCOctets"), ("SMON-MIB", "smonVlanIdStatsNUcastOverflowPkts"), ("SMON-MIB", "smonVlanIdStatsNUcastHCPkts"),))
-if mibBuilder.loadTexts: hcVlan100mbPlusGroup.setDescription('Defines the additional high capacity VLAN statistics\n         needed to be kept on interfaces with ifSpeed of more than\n         100MB/sec.  These statistics MUST also be kept on\n         smonDataSources of type VLAN or entPhysicalEntry.')
-hcPrioTo100mbGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 4, 8)).setObjects(*(("SMON-MIB", "smonPrioStatsOverflowOctets"), ("SMON-MIB", "smonPrioStatsHCOctets"),))
-if mibBuilder.loadTexts: hcPrioTo100mbGroup.setDescription('Defines the additional high capacity VLAN priority\n         statistics needed to be kept on interfaces with\n         ifSpeed of greater than 10MB/sec and less than or equal\n         to 100MB/sec.')
-hcPrio100mbPlusGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 4, 9)).setObjects(*(("SMON-MIB", "smonPrioStatsOverflowPkts"), ("SMON-MIB", "smonPrioStatsHCPkts"), ("SMON-MIB", "smonPrioStatsOverflowOctets"), ("SMON-MIB", "smonPrioStatsHCOctets"),))
-if mibBuilder.loadTexts: hcPrio100mbPlusGroup.setDescription('Defines the additional high capacity VLAN priority\n         statistics needed to be kept on interfaces with\n         ifSpeed of greater than 100MB/sec. These statistics MUST\n         also be kept on smonDataSources of type VLAN or\n         entPhysicalEntry.')
-smonVlanStatsExtGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 4, 10)).setObjects(*(("SMON-MIB", "smonVlanIdStatsNUcastOctets"), ("SMON-MIB", "smonVlanIdStatsNUcastOverflowOctets"), ("SMON-MIB", "smonVlanIdStatsNUcastHCOctets"),))
-if mibBuilder.loadTexts: smonVlanStatsExtGroup.setDescription('Defines the switch monitoring specific statistics for systems\n         capable of counting non-unicast octets for a given dataSource\n         (as described in the dataSourceRmonCaps object).')
-smonInformationGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 4, 11)).setObjects(*(("SMON-MIB", "smonCapabilities"),))
-if mibBuilder.loadTexts: smonInformationGroup.setDescription('An indication of the SMON capabilities supported by this\n        agent.')
-portCopyConfigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 4, 12)).setObjects(*(("SMON-MIB", "portCopyDestDropEvents"), ("SMON-MIB", "portCopyDirection"), ("SMON-MIB", "portCopyStatus"),))
-if mibBuilder.loadTexts: portCopyConfigGroup.setDescription('Defines the control objects for copy port operations.')
-mibBuilder.exportSymbols("SMON-MIB", smonVlanIdStatsNUcastOverflowOctets=smonVlanIdStatsNUcastOverflowOctets, smonVlanIdStatsTotalHCPkts=smonVlanIdStatsTotalHCPkts, portCopyDestDropEvents=portCopyDestDropEvents, dataSourceCapsGroup=dataSourceCapsGroup, smonMIBCompliance=smonMIBCompliance, smonPrioStatsControlDataSource=smonPrioStatsControlDataSource, hcVlan100mbPlusGroup=hcVlan100mbPlusGroup, smonVlanIdStatsTotalOverflowOctets=smonVlanIdStatsTotalOverflowOctets, dataSourceCaps=dataSourceCaps, smonMIBVlanStatsCompliance=smonMIBVlanStatsCompliance, smonVlanStatsControlDataSource=smonVlanStatsControlDataSource, smonPrioStatsControlIndex=smonPrioStatsControlIndex, smonVlanStatsControlIndex=smonVlanStatsControlIndex, smonInformationGroup=smonInformationGroup, PYSNMP_MODULE_ID=switchRMON, portCopyEntry=portCopyEntry, smonMIBCompliances=smonMIBCompliances, portCopyDest=portCopyDest, smonMIBObjects=smonMIBObjects, smonVlanStatsControlOwner=smonVlanStatsControlOwner, smonVlanStatsControlStatus=smonVlanStatsControlStatus, smonPrioStatsOverflowPkts=smonPrioStatsOverflowPkts, smonPrioStatsControlTable=smonPrioStatsControlTable, portCopyDirection=portCopyDirection, smonHcTo100mbGroup=smonHcTo100mbGroup, smonPrioStatsControlEntry=smonPrioStatsControlEntry, smonMIBPrioStatsCompliance=smonMIBPrioStatsCompliance, smonVlanIdStatsTotalPkts=smonVlanIdStatsTotalPkts, smonVlanIdStatsId=smonVlanIdStatsId, smonPrioStatsTable=smonPrioStatsTable, portCopyStatus=portCopyStatus, hcPrioTo100mbGroup=hcPrioTo100mbGroup, portCopyConfig=portCopyConfig, dataSourceCopyCaps=dataSourceCopyCaps, smonPrioStatsId=smonPrioStatsId, smonVlanIdStatsTotalHCOctets=smonVlanIdStatsTotalHCOctets, portCopySource=portCopySource, portCopyTable=portCopyTable, dataSourceCapsIfIndex=dataSourceCapsIfIndex, smonVlanStatsControlEntry=smonVlanStatsControlEntry, dataSourceCapsObject=dataSourceCapsObject, smonVlanStatsExtGroup=smonVlanStatsExtGroup, portCopyConfigGroup=portCopyConfigGroup, smonVlanStatsControlCreateTime=smonVlanStatsControlCreateTime, smonVlanIdStatsNUcastOverflowPkts=smonVlanIdStatsNUcastOverflowPkts, smonVlanIdStatsTable=smonVlanIdStatsTable, hcPrio100mbPlusGroup=hcPrio100mbPlusGroup, dataSourceRmonCaps=dataSourceRmonCaps, smonRegistrationPoints=smonRegistrationPoints, smonCapabilities=smonCapabilities, smonMIBGroups=smonMIBGroups, smonVlanIdStatsTotalOverflowPkts=smonVlanIdStatsTotalOverflowPkts, smonHc100mbPlusGroup=smonHc100mbPlusGroup, dataSourceCapsEntry=dataSourceCapsEntry, smonPrioStatsPkts=smonPrioStatsPkts, smonPrioStatsHCPkts=smonPrioStatsHCPkts, smonStats=smonStats, smonVlanDataSource=smonVlanDataSource, smonPrioStatsOctets=smonPrioStatsOctets, smonVlanStatsControlTable=smonVlanStatsControlTable, smonVlanIdStatsTotalOctets=smonVlanIdStatsTotalOctets, SmonDataSource=SmonDataSource, smonPrioStatsEntry=smonPrioStatsEntry, smonVlanIdStatsNUcastOctets=smonVlanIdStatsNUcastOctets, smonVlanIdStatsNUcastHCOctets=smonVlanIdStatsNUcastHCOctets, smonVlanIdStatsCreateTime=smonVlanIdStatsCreateTime, hcVlanTo100mbGroup=hcVlanTo100mbGroup, smonPrioStatsOverflowOctets=smonPrioStatsOverflowOctets, smonPrioStatsHCOctets=smonPrioStatsHCOctets, smonPrioStatsControlOwner=smonPrioStatsControlOwner, dataSourceCapsTable=dataSourceCapsTable, smonPrioStatsControlStatus=smonPrioStatsControlStatus, switchRMON=switchRMON, smonVlanStatsGroup=smonVlanStatsGroup, smonVlanIdStatsNUcastPkts=smonVlanIdStatsNUcastPkts, smonPrioStatsControlCreateTime=smonPrioStatsControlCreateTime, smonPrioStatsGroup=smonPrioStatsGroup, smonVlanIdStatsEntry=smonVlanIdStatsEntry, smonVlanIdStatsNUcastHCPkts=smonVlanIdStatsNUcastHCPkts, portCopyCompliance=portCopyCompliance)
+_A8='hcPrio100mbPlusGroup'
+_A7='hcPrioTo100mbGroup'
+_A6='hcVlan100mbPlusGroup'
+_A5='hcVlanTo100mbGroup'
+_A4='smonHc100mbPlusGroup'
+_A3='smonHcTo100mbGroup'
+_A2='portCopyStatus'
+_A1='portCopyDirection'
+_A0='portCopyDestDropEvents'
+_z='smonCapabilities'
+_y='smonVlanIdStatsNUcastHCOctets'
+_x='smonVlanIdStatsNUcastOverflowOctets'
+_w='smonVlanIdStatsNUcastOctets'
+_v='smonPrioStatsOctets'
+_u='smonPrioStatsPkts'
+_t='smonPrioStatsControlStatus'
+_s='smonPrioStatsControlOwner'
+_r='smonPrioStatsControlCreateTime'
+_q='smonPrioStatsControlDataSource'
+_p='smonVlanIdStatsCreateTime'
+_o='smonVlanIdStatsNUcastPkts'
+_n='smonVlanIdStatsTotalOctets'
+_m='smonVlanIdStatsTotalPkts'
+_l='smonVlanStatsControlStatus'
+_k='smonVlanStatsControlOwner'
+_j='smonVlanStatsControlCreateTime'
+_i='smonVlanStatsControlDataSource'
+_h='dataSourceCapsIfIndex'
+_g='dataSourceCopyCaps'
+_f='dataSourceRmonCaps'
+_e='portCopyDest'
+_d='portCopySource'
+_c='smonPrioStatsId'
+_b='smonVlanIdStatsId'
+_a='dataSourceCapsObject'
+_Z='portCopyConfigGroup'
+_Y='smonPrioStatsGroup'
+_X='smonVlanStatsGroup'
+_W='smonPrioStatsHCPkts'
+_V='smonPrioStatsOverflowPkts'
+_U='smonVlanIdStatsNUcastHCPkts'
+_T='smonVlanIdStatsNUcastOverflowPkts'
+_S='smonVlanIdStatsTotalHCPkts'
+_R='smonVlanIdStatsTotalOverflowPkts'
+_Q='smonPrioStatsControlIndex'
+_P='smonVlanStatsControlIndex'
+_O='Bits'
+_N='smonInformationGroup'
+_M='dataSourceCapsGroup'
+_L='smonPrioStatsHCOctets'
+_K='smonPrioStatsOverflowOctets'
+_J='smonVlanIdStatsTotalHCOctets'
+_I='smonVlanIdStatsTotalOverflowOctets'
+_H='Integer32'
+_G='not-accessible'
+_F='read-create'
+_E='octets'
+_D='packets'
+_C='read-only'
+_B='current'
+_A='SMON-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
+OwnerString,rmon=mibBuilder.importSymbols('RMON-MIB','OwnerString','rmon')
+DataSource,LastCreateTime,probeConfig,rmonConformance=mibBuilder.importSymbols('RMON2-MIB','DataSource','LastCreateTime','probeConfig','rmonConformance')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI',_O,'Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
+switchRMON=ModuleIdentity((1,3,6,1,2,1,16,22))
+if mibBuilder.loadTexts:switchRMON.setRevisions(('1998-12-16 00:00',))
+class SmonDataSource(TextualConvention,ObjectIdentifier):status=_B
+class _SmonCapabilities_Type(Bits):namedValues=NamedValues(*(('smonVlanStats',0),('smonPrioStats',1),('dataSource',2),('smonUnusedBit',3),('portCopy',4)))
+_SmonCapabilities_Type.__name__=_O
+_SmonCapabilities_Object=MibScalar
+smonCapabilities=_SmonCapabilities_Object((1,3,6,1,2,1,16,19,15),_SmonCapabilities_Type())
+smonCapabilities.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonCapabilities.setStatus(_B)
+_SmonMIBCompliances_ObjectIdentity=ObjectIdentity
+smonMIBCompliances=_SmonMIBCompliances_ObjectIdentity((1,3,6,1,2,1,16,20,3))
+_SmonMIBGroups_ObjectIdentity=ObjectIdentity
+smonMIBGroups=_SmonMIBGroups_ObjectIdentity((1,3,6,1,2,1,16,20,4))
+_SmonMIBObjects_ObjectIdentity=ObjectIdentity
+smonMIBObjects=_SmonMIBObjects_ObjectIdentity((1,3,6,1,2,1,16,22,1))
+_DataSourceCaps_ObjectIdentity=ObjectIdentity
+dataSourceCaps=_DataSourceCaps_ObjectIdentity((1,3,6,1,2,1,16,22,1,1))
+_DataSourceCapsTable_Object=MibTable
+dataSourceCapsTable=_DataSourceCapsTable_Object((1,3,6,1,2,1,16,22,1,1,1))
+if mibBuilder.loadTexts:dataSourceCapsTable.setStatus(_B)
+_DataSourceCapsEntry_Object=MibTableRow
+dataSourceCapsEntry=_DataSourceCapsEntry_Object((1,3,6,1,2,1,16,22,1,1,1,1))
+dataSourceCapsEntry.setIndexNames((1,_A,_a))
+if mibBuilder.loadTexts:dataSourceCapsEntry.setStatus(_B)
+_DataSourceCapsObject_Type=SmonDataSource
+_DataSourceCapsObject_Object=MibTableColumn
+dataSourceCapsObject=_DataSourceCapsObject_Object((1,3,6,1,2,1,16,22,1,1,1,1,1),_DataSourceCapsObject_Type())
+dataSourceCapsObject.setMaxAccess(_G)
+if mibBuilder.loadTexts:dataSourceCapsObject.setStatus(_B)
+class _DataSourceRmonCaps_Type(Bits):namedValues=NamedValues(*(('countErrFrames',0),('countAllGoodFrames',1),('countAnyRmonTables',2),('babyGiantsCountAsGood',3)))
+_DataSourceRmonCaps_Type.__name__=_O
+_DataSourceRmonCaps_Object=MibTableColumn
+dataSourceRmonCaps=_DataSourceRmonCaps_Object((1,3,6,1,2,1,16,22,1,1,1,1,2),_DataSourceRmonCaps_Type())
+dataSourceRmonCaps.setMaxAccess(_C)
+if mibBuilder.loadTexts:dataSourceRmonCaps.setStatus(_B)
+class _DataSourceCopyCaps_Type(Bits):namedValues=NamedValues(*(('copySourcePort',0),('copyDestPort',1),('copySrcTxTraffic',2),('copySrcRxTraffic',3),('countDestDropEvents',4),('copyErrFrames',5),('copyUnalteredFrames',6),('copyAllGoodFrames',7)))
+_DataSourceCopyCaps_Type.__name__=_O
+_DataSourceCopyCaps_Object=MibTableColumn
+dataSourceCopyCaps=_DataSourceCopyCaps_Object((1,3,6,1,2,1,16,22,1,1,1,1,3),_DataSourceCopyCaps_Type())
+dataSourceCopyCaps.setMaxAccess(_C)
+if mibBuilder.loadTexts:dataSourceCopyCaps.setStatus(_B)
+_DataSourceCapsIfIndex_Type=InterfaceIndex
+_DataSourceCapsIfIndex_Object=MibTableColumn
+dataSourceCapsIfIndex=_DataSourceCapsIfIndex_Object((1,3,6,1,2,1,16,22,1,1,1,1,4),_DataSourceCapsIfIndex_Type())
+dataSourceCapsIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:dataSourceCapsIfIndex.setStatus(_B)
+_SmonStats_ObjectIdentity=ObjectIdentity
+smonStats=_SmonStats_ObjectIdentity((1,3,6,1,2,1,16,22,1,2))
+_SmonVlanStatsControlTable_Object=MibTable
+smonVlanStatsControlTable=_SmonVlanStatsControlTable_Object((1,3,6,1,2,1,16,22,1,2,1))
+if mibBuilder.loadTexts:smonVlanStatsControlTable.setStatus(_B)
+_SmonVlanStatsControlEntry_Object=MibTableRow
+smonVlanStatsControlEntry=_SmonVlanStatsControlEntry_Object((1,3,6,1,2,1,16,22,1,2,1,1))
+smonVlanStatsControlEntry.setIndexNames((0,_A,_P))
+if mibBuilder.loadTexts:smonVlanStatsControlEntry.setStatus(_B)
+class _SmonVlanStatsControlIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_SmonVlanStatsControlIndex_Type.__name__=_H
+_SmonVlanStatsControlIndex_Object=MibTableColumn
+smonVlanStatsControlIndex=_SmonVlanStatsControlIndex_Object((1,3,6,1,2,1,16,22,1,2,1,1,1),_SmonVlanStatsControlIndex_Type())
+smonVlanStatsControlIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:smonVlanStatsControlIndex.setStatus(_B)
+_SmonVlanStatsControlDataSource_Type=DataSource
+_SmonVlanStatsControlDataSource_Object=MibTableColumn
+smonVlanStatsControlDataSource=_SmonVlanStatsControlDataSource_Object((1,3,6,1,2,1,16,22,1,2,1,1,2),_SmonVlanStatsControlDataSource_Type())
+smonVlanStatsControlDataSource.setMaxAccess(_F)
+if mibBuilder.loadTexts:smonVlanStatsControlDataSource.setStatus(_B)
+_SmonVlanStatsControlCreateTime_Type=LastCreateTime
+_SmonVlanStatsControlCreateTime_Object=MibTableColumn
+smonVlanStatsControlCreateTime=_SmonVlanStatsControlCreateTime_Object((1,3,6,1,2,1,16,22,1,2,1,1,3),_SmonVlanStatsControlCreateTime_Type())
+smonVlanStatsControlCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonVlanStatsControlCreateTime.setStatus(_B)
+_SmonVlanStatsControlOwner_Type=OwnerString
+_SmonVlanStatsControlOwner_Object=MibTableColumn
+smonVlanStatsControlOwner=_SmonVlanStatsControlOwner_Object((1,3,6,1,2,1,16,22,1,2,1,1,4),_SmonVlanStatsControlOwner_Type())
+smonVlanStatsControlOwner.setMaxAccess(_F)
+if mibBuilder.loadTexts:smonVlanStatsControlOwner.setStatus(_B)
+_SmonVlanStatsControlStatus_Type=RowStatus
+_SmonVlanStatsControlStatus_Object=MibTableColumn
+smonVlanStatsControlStatus=_SmonVlanStatsControlStatus_Object((1,3,6,1,2,1,16,22,1,2,1,1,5),_SmonVlanStatsControlStatus_Type())
+smonVlanStatsControlStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:smonVlanStatsControlStatus.setStatus(_B)
+_SmonVlanIdStatsTable_Object=MibTable
+smonVlanIdStatsTable=_SmonVlanIdStatsTable_Object((1,3,6,1,2,1,16,22,1,2,2))
+if mibBuilder.loadTexts:smonVlanIdStatsTable.setStatus(_B)
+_SmonVlanIdStatsEntry_Object=MibTableRow
+smonVlanIdStatsEntry=_SmonVlanIdStatsEntry_Object((1,3,6,1,2,1,16,22,1,2,2,1))
+smonVlanIdStatsEntry.setIndexNames((0,_A,_P),(0,_A,_b))
+if mibBuilder.loadTexts:smonVlanIdStatsEntry.setStatus(_B)
+class _SmonVlanIdStatsId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
+_SmonVlanIdStatsId_Type.__name__=_H
+_SmonVlanIdStatsId_Object=MibTableColumn
+smonVlanIdStatsId=_SmonVlanIdStatsId_Object((1,3,6,1,2,1,16,22,1,2,2,1,1),_SmonVlanIdStatsId_Type())
+smonVlanIdStatsId.setMaxAccess(_G)
+if mibBuilder.loadTexts:smonVlanIdStatsId.setStatus(_B)
+_SmonVlanIdStatsTotalPkts_Type=Counter32
+_SmonVlanIdStatsTotalPkts_Object=MibTableColumn
+smonVlanIdStatsTotalPkts=_SmonVlanIdStatsTotalPkts_Object((1,3,6,1,2,1,16,22,1,2,2,1,2),_SmonVlanIdStatsTotalPkts_Type())
+smonVlanIdStatsTotalPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonVlanIdStatsTotalPkts.setStatus(_B)
+if mibBuilder.loadTexts:smonVlanIdStatsTotalPkts.setUnits(_D)
+_SmonVlanIdStatsTotalOverflowPkts_Type=Counter32
+_SmonVlanIdStatsTotalOverflowPkts_Object=MibTableColumn
+smonVlanIdStatsTotalOverflowPkts=_SmonVlanIdStatsTotalOverflowPkts_Object((1,3,6,1,2,1,16,22,1,2,2,1,3),_SmonVlanIdStatsTotalOverflowPkts_Type())
+smonVlanIdStatsTotalOverflowPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonVlanIdStatsTotalOverflowPkts.setStatus(_B)
+if mibBuilder.loadTexts:smonVlanIdStatsTotalOverflowPkts.setUnits(_D)
+_SmonVlanIdStatsTotalHCPkts_Type=Counter64
+_SmonVlanIdStatsTotalHCPkts_Object=MibTableColumn
+smonVlanIdStatsTotalHCPkts=_SmonVlanIdStatsTotalHCPkts_Object((1,3,6,1,2,1,16,22,1,2,2,1,4),_SmonVlanIdStatsTotalHCPkts_Type())
+smonVlanIdStatsTotalHCPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonVlanIdStatsTotalHCPkts.setStatus(_B)
+if mibBuilder.loadTexts:smonVlanIdStatsTotalHCPkts.setUnits(_D)
+_SmonVlanIdStatsTotalOctets_Type=Counter32
+_SmonVlanIdStatsTotalOctets_Object=MibTableColumn
+smonVlanIdStatsTotalOctets=_SmonVlanIdStatsTotalOctets_Object((1,3,6,1,2,1,16,22,1,2,2,1,5),_SmonVlanIdStatsTotalOctets_Type())
+smonVlanIdStatsTotalOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonVlanIdStatsTotalOctets.setStatus(_B)
+if mibBuilder.loadTexts:smonVlanIdStatsTotalOctets.setUnits(_E)
+_SmonVlanIdStatsTotalOverflowOctets_Type=Counter32
+_SmonVlanIdStatsTotalOverflowOctets_Object=MibTableColumn
+smonVlanIdStatsTotalOverflowOctets=_SmonVlanIdStatsTotalOverflowOctets_Object((1,3,6,1,2,1,16,22,1,2,2,1,6),_SmonVlanIdStatsTotalOverflowOctets_Type())
+smonVlanIdStatsTotalOverflowOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonVlanIdStatsTotalOverflowOctets.setStatus(_B)
+if mibBuilder.loadTexts:smonVlanIdStatsTotalOverflowOctets.setUnits(_E)
+_SmonVlanIdStatsTotalHCOctets_Type=Counter64
+_SmonVlanIdStatsTotalHCOctets_Object=MibTableColumn
+smonVlanIdStatsTotalHCOctets=_SmonVlanIdStatsTotalHCOctets_Object((1,3,6,1,2,1,16,22,1,2,2,1,7),_SmonVlanIdStatsTotalHCOctets_Type())
+smonVlanIdStatsTotalHCOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonVlanIdStatsTotalHCOctets.setStatus(_B)
+if mibBuilder.loadTexts:smonVlanIdStatsTotalHCOctets.setUnits(_E)
+_SmonVlanIdStatsNUcastPkts_Type=Counter32
+_SmonVlanIdStatsNUcastPkts_Object=MibTableColumn
+smonVlanIdStatsNUcastPkts=_SmonVlanIdStatsNUcastPkts_Object((1,3,6,1,2,1,16,22,1,2,2,1,8),_SmonVlanIdStatsNUcastPkts_Type())
+smonVlanIdStatsNUcastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonVlanIdStatsNUcastPkts.setStatus(_B)
+if mibBuilder.loadTexts:smonVlanIdStatsNUcastPkts.setUnits(_D)
+_SmonVlanIdStatsNUcastOverflowPkts_Type=Counter32
+_SmonVlanIdStatsNUcastOverflowPkts_Object=MibTableColumn
+smonVlanIdStatsNUcastOverflowPkts=_SmonVlanIdStatsNUcastOverflowPkts_Object((1,3,6,1,2,1,16,22,1,2,2,1,9),_SmonVlanIdStatsNUcastOverflowPkts_Type())
+smonVlanIdStatsNUcastOverflowPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonVlanIdStatsNUcastOverflowPkts.setStatus(_B)
+if mibBuilder.loadTexts:smonVlanIdStatsNUcastOverflowPkts.setUnits(_D)
+_SmonVlanIdStatsNUcastHCPkts_Type=Counter64
+_SmonVlanIdStatsNUcastHCPkts_Object=MibTableColumn
+smonVlanIdStatsNUcastHCPkts=_SmonVlanIdStatsNUcastHCPkts_Object((1,3,6,1,2,1,16,22,1,2,2,1,10),_SmonVlanIdStatsNUcastHCPkts_Type())
+smonVlanIdStatsNUcastHCPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonVlanIdStatsNUcastHCPkts.setStatus(_B)
+if mibBuilder.loadTexts:smonVlanIdStatsNUcastHCPkts.setUnits(_D)
+_SmonVlanIdStatsNUcastOctets_Type=Counter32
+_SmonVlanIdStatsNUcastOctets_Object=MibTableColumn
+smonVlanIdStatsNUcastOctets=_SmonVlanIdStatsNUcastOctets_Object((1,3,6,1,2,1,16,22,1,2,2,1,11),_SmonVlanIdStatsNUcastOctets_Type())
+smonVlanIdStatsNUcastOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonVlanIdStatsNUcastOctets.setStatus(_B)
+if mibBuilder.loadTexts:smonVlanIdStatsNUcastOctets.setUnits(_E)
+_SmonVlanIdStatsNUcastOverflowOctets_Type=Counter32
+_SmonVlanIdStatsNUcastOverflowOctets_Object=MibTableColumn
+smonVlanIdStatsNUcastOverflowOctets=_SmonVlanIdStatsNUcastOverflowOctets_Object((1,3,6,1,2,1,16,22,1,2,2,1,12),_SmonVlanIdStatsNUcastOverflowOctets_Type())
+smonVlanIdStatsNUcastOverflowOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonVlanIdStatsNUcastOverflowOctets.setStatus(_B)
+if mibBuilder.loadTexts:smonVlanIdStatsNUcastOverflowOctets.setUnits(_E)
+_SmonVlanIdStatsNUcastHCOctets_Type=Counter64
+_SmonVlanIdStatsNUcastHCOctets_Object=MibTableColumn
+smonVlanIdStatsNUcastHCOctets=_SmonVlanIdStatsNUcastHCOctets_Object((1,3,6,1,2,1,16,22,1,2,2,1,13),_SmonVlanIdStatsNUcastHCOctets_Type())
+smonVlanIdStatsNUcastHCOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonVlanIdStatsNUcastHCOctets.setStatus(_B)
+if mibBuilder.loadTexts:smonVlanIdStatsNUcastHCOctets.setUnits(_E)
+_SmonVlanIdStatsCreateTime_Type=LastCreateTime
+_SmonVlanIdStatsCreateTime_Object=MibTableColumn
+smonVlanIdStatsCreateTime=_SmonVlanIdStatsCreateTime_Object((1,3,6,1,2,1,16,22,1,2,2,1,14),_SmonVlanIdStatsCreateTime_Type())
+smonVlanIdStatsCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonVlanIdStatsCreateTime.setStatus(_B)
+_SmonPrioStatsControlTable_Object=MibTable
+smonPrioStatsControlTable=_SmonPrioStatsControlTable_Object((1,3,6,1,2,1,16,22,1,2,3))
+if mibBuilder.loadTexts:smonPrioStatsControlTable.setStatus(_B)
+_SmonPrioStatsControlEntry_Object=MibTableRow
+smonPrioStatsControlEntry=_SmonPrioStatsControlEntry_Object((1,3,6,1,2,1,16,22,1,2,3,1))
+smonPrioStatsControlEntry.setIndexNames((0,_A,_Q))
+if mibBuilder.loadTexts:smonPrioStatsControlEntry.setStatus(_B)
+class _SmonPrioStatsControlIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_SmonPrioStatsControlIndex_Type.__name__=_H
+_SmonPrioStatsControlIndex_Object=MibTableColumn
+smonPrioStatsControlIndex=_SmonPrioStatsControlIndex_Object((1,3,6,1,2,1,16,22,1,2,3,1,1),_SmonPrioStatsControlIndex_Type())
+smonPrioStatsControlIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:smonPrioStatsControlIndex.setStatus(_B)
+_SmonPrioStatsControlDataSource_Type=DataSource
+_SmonPrioStatsControlDataSource_Object=MibTableColumn
+smonPrioStatsControlDataSource=_SmonPrioStatsControlDataSource_Object((1,3,6,1,2,1,16,22,1,2,3,1,2),_SmonPrioStatsControlDataSource_Type())
+smonPrioStatsControlDataSource.setMaxAccess(_F)
+if mibBuilder.loadTexts:smonPrioStatsControlDataSource.setStatus(_B)
+_SmonPrioStatsControlCreateTime_Type=LastCreateTime
+_SmonPrioStatsControlCreateTime_Object=MibTableColumn
+smonPrioStatsControlCreateTime=_SmonPrioStatsControlCreateTime_Object((1,3,6,1,2,1,16,22,1,2,3,1,3),_SmonPrioStatsControlCreateTime_Type())
+smonPrioStatsControlCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonPrioStatsControlCreateTime.setStatus(_B)
+_SmonPrioStatsControlOwner_Type=OwnerString
+_SmonPrioStatsControlOwner_Object=MibTableColumn
+smonPrioStatsControlOwner=_SmonPrioStatsControlOwner_Object((1,3,6,1,2,1,16,22,1,2,3,1,4),_SmonPrioStatsControlOwner_Type())
+smonPrioStatsControlOwner.setMaxAccess(_F)
+if mibBuilder.loadTexts:smonPrioStatsControlOwner.setStatus(_B)
+_SmonPrioStatsControlStatus_Type=RowStatus
+_SmonPrioStatsControlStatus_Object=MibTableColumn
+smonPrioStatsControlStatus=_SmonPrioStatsControlStatus_Object((1,3,6,1,2,1,16,22,1,2,3,1,5),_SmonPrioStatsControlStatus_Type())
+smonPrioStatsControlStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:smonPrioStatsControlStatus.setStatus(_B)
+_SmonPrioStatsTable_Object=MibTable
+smonPrioStatsTable=_SmonPrioStatsTable_Object((1,3,6,1,2,1,16,22,1,2,4))
+if mibBuilder.loadTexts:smonPrioStatsTable.setStatus(_B)
+_SmonPrioStatsEntry_Object=MibTableRow
+smonPrioStatsEntry=_SmonPrioStatsEntry_Object((1,3,6,1,2,1,16,22,1,2,4,1))
+smonPrioStatsEntry.setIndexNames((0,_A,_Q),(0,_A,_c))
+if mibBuilder.loadTexts:smonPrioStatsEntry.setStatus(_B)
+class _SmonPrioStatsId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
+_SmonPrioStatsId_Type.__name__=_H
+_SmonPrioStatsId_Object=MibTableColumn
+smonPrioStatsId=_SmonPrioStatsId_Object((1,3,6,1,2,1,16,22,1,2,4,1,1),_SmonPrioStatsId_Type())
+smonPrioStatsId.setMaxAccess(_G)
+if mibBuilder.loadTexts:smonPrioStatsId.setStatus(_B)
+_SmonPrioStatsPkts_Type=Counter32
+_SmonPrioStatsPkts_Object=MibTableColumn
+smonPrioStatsPkts=_SmonPrioStatsPkts_Object((1,3,6,1,2,1,16,22,1,2,4,1,2),_SmonPrioStatsPkts_Type())
+smonPrioStatsPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonPrioStatsPkts.setStatus(_B)
+if mibBuilder.loadTexts:smonPrioStatsPkts.setUnits(_D)
+_SmonPrioStatsOverflowPkts_Type=Counter32
+_SmonPrioStatsOverflowPkts_Object=MibTableColumn
+smonPrioStatsOverflowPkts=_SmonPrioStatsOverflowPkts_Object((1,3,6,1,2,1,16,22,1,2,4,1,3),_SmonPrioStatsOverflowPkts_Type())
+smonPrioStatsOverflowPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonPrioStatsOverflowPkts.setStatus(_B)
+if mibBuilder.loadTexts:smonPrioStatsOverflowPkts.setUnits(_D)
+_SmonPrioStatsHCPkts_Type=Counter64
+_SmonPrioStatsHCPkts_Object=MibTableColumn
+smonPrioStatsHCPkts=_SmonPrioStatsHCPkts_Object((1,3,6,1,2,1,16,22,1,2,4,1,4),_SmonPrioStatsHCPkts_Type())
+smonPrioStatsHCPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonPrioStatsHCPkts.setStatus(_B)
+if mibBuilder.loadTexts:smonPrioStatsHCPkts.setUnits(_D)
+_SmonPrioStatsOctets_Type=Counter32
+_SmonPrioStatsOctets_Object=MibTableColumn
+smonPrioStatsOctets=_SmonPrioStatsOctets_Object((1,3,6,1,2,1,16,22,1,2,4,1,5),_SmonPrioStatsOctets_Type())
+smonPrioStatsOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonPrioStatsOctets.setStatus(_B)
+if mibBuilder.loadTexts:smonPrioStatsOctets.setUnits(_E)
+_SmonPrioStatsOverflowOctets_Type=Counter32
+_SmonPrioStatsOverflowOctets_Object=MibTableColumn
+smonPrioStatsOverflowOctets=_SmonPrioStatsOverflowOctets_Object((1,3,6,1,2,1,16,22,1,2,4,1,6),_SmonPrioStatsOverflowOctets_Type())
+smonPrioStatsOverflowOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonPrioStatsOverflowOctets.setStatus(_B)
+if mibBuilder.loadTexts:smonPrioStatsOverflowOctets.setUnits(_E)
+_SmonPrioStatsHCOctets_Type=Counter64
+_SmonPrioStatsHCOctets_Object=MibTableColumn
+smonPrioStatsHCOctets=_SmonPrioStatsHCOctets_Object((1,3,6,1,2,1,16,22,1,2,4,1,7),_SmonPrioStatsHCOctets_Type())
+smonPrioStatsHCOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:smonPrioStatsHCOctets.setStatus(_B)
+if mibBuilder.loadTexts:smonPrioStatsHCOctets.setUnits(_E)
+_PortCopyConfig_ObjectIdentity=ObjectIdentity
+portCopyConfig=_PortCopyConfig_ObjectIdentity((1,3,6,1,2,1,16,22,1,3))
+_PortCopyTable_Object=MibTable
+portCopyTable=_PortCopyTable_Object((1,3,6,1,2,1,16,22,1,3,1))
+if mibBuilder.loadTexts:portCopyTable.setStatus(_B)
+_PortCopyEntry_Object=MibTableRow
+portCopyEntry=_PortCopyEntry_Object((1,3,6,1,2,1,16,22,1,3,1,1))
+portCopyEntry.setIndexNames((0,_A,_d),(0,_A,_e))
+if mibBuilder.loadTexts:portCopyEntry.setStatus(_B)
+_PortCopySource_Type=InterfaceIndex
+_PortCopySource_Object=MibTableColumn
+portCopySource=_PortCopySource_Object((1,3,6,1,2,1,16,22,1,3,1,1,1),_PortCopySource_Type())
+portCopySource.setMaxAccess(_G)
+if mibBuilder.loadTexts:portCopySource.setStatus(_B)
+_PortCopyDest_Type=InterfaceIndex
+_PortCopyDest_Object=MibTableColumn
+portCopyDest=_PortCopyDest_Object((1,3,6,1,2,1,16,22,1,3,1,1,2),_PortCopyDest_Type())
+portCopyDest.setMaxAccess(_G)
+if mibBuilder.loadTexts:portCopyDest.setStatus(_B)
+_PortCopyDestDropEvents_Type=Counter32
+_PortCopyDestDropEvents_Object=MibTableColumn
+portCopyDestDropEvents=_PortCopyDestDropEvents_Object((1,3,6,1,2,1,16,22,1,3,1,1,3),_PortCopyDestDropEvents_Type())
+portCopyDestDropEvents.setMaxAccess(_C)
+if mibBuilder.loadTexts:portCopyDestDropEvents.setStatus(_B)
+if mibBuilder.loadTexts:portCopyDestDropEvents.setUnits('events')
+class _PortCopyDirection_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('copyRxOnly',1),('copyTxOnly',2),('copyBoth',3)))
+_PortCopyDirection_Type.__name__=_H
+_PortCopyDirection_Object=MibTableColumn
+portCopyDirection=_PortCopyDirection_Object((1,3,6,1,2,1,16,22,1,3,1,1,4),_PortCopyDirection_Type())
+portCopyDirection.setMaxAccess(_F)
+if mibBuilder.loadTexts:portCopyDirection.setStatus(_B)
+_PortCopyStatus_Type=RowStatus
+_PortCopyStatus_Object=MibTableColumn
+portCopyStatus=_PortCopyStatus_Object((1,3,6,1,2,1,16,22,1,3,1,1,5),_PortCopyStatus_Type())
+portCopyStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:portCopyStatus.setStatus(_B)
+_SmonRegistrationPoints_ObjectIdentity=ObjectIdentity
+smonRegistrationPoints=_SmonRegistrationPoints_ObjectIdentity((1,3,6,1,2,1,16,22,1,4))
+_SmonVlanDataSource_ObjectIdentity=ObjectIdentity
+smonVlanDataSource=_SmonVlanDataSource_ObjectIdentity((1,3,6,1,2,1,16,22,1,4,1))
+dataSourceCapsGroup=ObjectGroup((1,3,6,1,2,1,16,20,4,1))
+dataSourceCapsGroup.setObjects(*((_A,_f),(_A,_g),(_A,_h)))
+if mibBuilder.loadTexts:dataSourceCapsGroup.setStatus(_B)
+smonVlanStatsGroup=ObjectGroup((1,3,6,1,2,1,16,20,4,2))
+smonVlanStatsGroup.setObjects(*((_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p)))
+if mibBuilder.loadTexts:smonVlanStatsGroup.setStatus(_B)
+smonPrioStatsGroup=ObjectGroup((1,3,6,1,2,1,16,20,4,3))
+smonPrioStatsGroup.setObjects(*((_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v)))
+if mibBuilder.loadTexts:smonPrioStatsGroup.setStatus(_B)
+smonHcTo100mbGroup=ObjectGroup((1,3,6,1,2,1,16,20,4,4))
+smonHcTo100mbGroup.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_L)))
+if mibBuilder.loadTexts:smonHcTo100mbGroup.setStatus(_B)
+smonHc100mbPlusGroup=ObjectGroup((1,3,6,1,2,1,16,20,4,5))
+smonHc100mbPlusGroup.setObjects(*((_A,_R),(_A,_S),(_A,_I),(_A,_J),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_K),(_A,_L)))
+if mibBuilder.loadTexts:smonHc100mbPlusGroup.setStatus(_B)
+hcVlanTo100mbGroup=ObjectGroup((1,3,6,1,2,1,16,20,4,6))
+hcVlanTo100mbGroup.setObjects(*((_A,_I),(_A,_J)))
+if mibBuilder.loadTexts:hcVlanTo100mbGroup.setStatus(_B)
+hcVlan100mbPlusGroup=ObjectGroup((1,3,6,1,2,1,16,20,4,7))
+hcVlan100mbPlusGroup.setObjects(*((_A,_R),(_A,_S),(_A,_I),(_A,_J),(_A,_T),(_A,_U)))
+if mibBuilder.loadTexts:hcVlan100mbPlusGroup.setStatus(_B)
+hcPrioTo100mbGroup=ObjectGroup((1,3,6,1,2,1,16,20,4,8))
+hcPrioTo100mbGroup.setObjects(*((_A,_K),(_A,_L)))
+if mibBuilder.loadTexts:hcPrioTo100mbGroup.setStatus(_B)
+hcPrio100mbPlusGroup=ObjectGroup((1,3,6,1,2,1,16,20,4,9))
+hcPrio100mbPlusGroup.setObjects(*((_A,_V),(_A,_W),(_A,_K),(_A,_L)))
+if mibBuilder.loadTexts:hcPrio100mbPlusGroup.setStatus(_B)
+smonVlanStatsExtGroup=ObjectGroup((1,3,6,1,2,1,16,20,4,10))
+smonVlanStatsExtGroup.setObjects(*((_A,_w),(_A,_x),(_A,_y)))
+if mibBuilder.loadTexts:smonVlanStatsExtGroup.setStatus(_B)
+smonInformationGroup=ObjectGroup((1,3,6,1,2,1,16,20,4,11))
+smonInformationGroup.setObjects((_A,_z))
+if mibBuilder.loadTexts:smonInformationGroup.setStatus(_B)
+portCopyConfigGroup=ObjectGroup((1,3,6,1,2,1,16,20,4,12))
+portCopyConfigGroup.setObjects(*((_A,_A0),(_A,_A1),(_A,_A2)))
+if mibBuilder.loadTexts:portCopyConfigGroup.setStatus(_B)
+smonMIBCompliance=ModuleCompliance((1,3,6,1,2,1,16,20,3,1))
+smonMIBCompliance.setObjects(*((_A,_M),(_A,_X),(_A,_Y),(_A,_Z),(_A,_N),(_A,_A3),(_A,_A4)))
+if mibBuilder.loadTexts:smonMIBCompliance.setStatus(_B)
+smonMIBVlanStatsCompliance=ModuleCompliance((1,3,6,1,2,1,16,20,3,2))
+smonMIBVlanStatsCompliance.setObjects(*((_A,_M),(_A,_X),(_A,_N),(_A,_A5),(_A,_A6)))
+if mibBuilder.loadTexts:smonMIBVlanStatsCompliance.setStatus(_B)
+smonMIBPrioStatsCompliance=ModuleCompliance((1,3,6,1,2,1,16,20,3,3))
+smonMIBPrioStatsCompliance.setObjects(*((_A,_M),(_A,_Y),(_A,_N),(_A,_A7),(_A,_A8)))
+if mibBuilder.loadTexts:smonMIBPrioStatsCompliance.setStatus(_B)
+portCopyCompliance=ModuleCompliance((1,3,6,1,2,1,16,20,3,4))
+portCopyCompliance.setObjects(*((_A,_M),(_A,_Z),(_A,_N)))
+if mibBuilder.loadTexts:portCopyCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'SmonDataSource':SmonDataSource,_z:smonCapabilities,'smonMIBCompliances':smonMIBCompliances,'smonMIBCompliance':smonMIBCompliance,'smonMIBVlanStatsCompliance':smonMIBVlanStatsCompliance,'smonMIBPrioStatsCompliance':smonMIBPrioStatsCompliance,'portCopyCompliance':portCopyCompliance,'smonMIBGroups':smonMIBGroups,_M:dataSourceCapsGroup,_X:smonVlanStatsGroup,_Y:smonPrioStatsGroup,_A3:smonHcTo100mbGroup,_A4:smonHc100mbPlusGroup,_A5:hcVlanTo100mbGroup,_A6:hcVlan100mbPlusGroup,_A7:hcPrioTo100mbGroup,_A8:hcPrio100mbPlusGroup,'smonVlanStatsExtGroup':smonVlanStatsExtGroup,_N:smonInformationGroup,_Z:portCopyConfigGroup,'switchRMON':switchRMON,'smonMIBObjects':smonMIBObjects,'dataSourceCaps':dataSourceCaps,'dataSourceCapsTable':dataSourceCapsTable,'dataSourceCapsEntry':dataSourceCapsEntry,_a:dataSourceCapsObject,_f:dataSourceRmonCaps,_g:dataSourceCopyCaps,_h:dataSourceCapsIfIndex,'smonStats':smonStats,'smonVlanStatsControlTable':smonVlanStatsControlTable,'smonVlanStatsControlEntry':smonVlanStatsControlEntry,_P:smonVlanStatsControlIndex,_i:smonVlanStatsControlDataSource,_j:smonVlanStatsControlCreateTime,_k:smonVlanStatsControlOwner,_l:smonVlanStatsControlStatus,'smonVlanIdStatsTable':smonVlanIdStatsTable,'smonVlanIdStatsEntry':smonVlanIdStatsEntry,_b:smonVlanIdStatsId,_m:smonVlanIdStatsTotalPkts,_R:smonVlanIdStatsTotalOverflowPkts,_S:smonVlanIdStatsTotalHCPkts,_n:smonVlanIdStatsTotalOctets,_I:smonVlanIdStatsTotalOverflowOctets,_J:smonVlanIdStatsTotalHCOctets,_o:smonVlanIdStatsNUcastPkts,_T:smonVlanIdStatsNUcastOverflowPkts,_U:smonVlanIdStatsNUcastHCPkts,_w:smonVlanIdStatsNUcastOctets,_x:smonVlanIdStatsNUcastOverflowOctets,_y:smonVlanIdStatsNUcastHCOctets,_p:smonVlanIdStatsCreateTime,'smonPrioStatsControlTable':smonPrioStatsControlTable,'smonPrioStatsControlEntry':smonPrioStatsControlEntry,_Q:smonPrioStatsControlIndex,_q:smonPrioStatsControlDataSource,_r:smonPrioStatsControlCreateTime,_s:smonPrioStatsControlOwner,_t:smonPrioStatsControlStatus,'smonPrioStatsTable':smonPrioStatsTable,'smonPrioStatsEntry':smonPrioStatsEntry,_c:smonPrioStatsId,_u:smonPrioStatsPkts,_V:smonPrioStatsOverflowPkts,_W:smonPrioStatsHCPkts,_v:smonPrioStatsOctets,_K:smonPrioStatsOverflowOctets,_L:smonPrioStatsHCOctets,'portCopyConfig':portCopyConfig,'portCopyTable':portCopyTable,'portCopyEntry':portCopyEntry,_d:portCopySource,_e:portCopyDest,_A0:portCopyDestDropEvents,_A1:portCopyDirection,_A2:portCopyStatus,'smonRegistrationPoints':smonRegistrationPoints,'smonVlanDataSource':smonVlanDataSource})

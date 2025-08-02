@@ -1,95 +1,226 @@
-#
-# PySNMP MIB module APPN-DLUR-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/APPN-DLUR-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:05:25 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( SnaControlPointName, ) = mibBuilder.importSymbols("APPN-MIB", "SnaControlPointName")
-( OctetString, ObjectIdentifier, Integer, ) = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-( snanauMIB, ) = mibBuilder.importSymbols("SNA-NAU-MIB", "snanauMIB")
-( NotificationGroup, ObjectGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-( Gauge32, Unsigned32, TimeTicks, Bits, Counter32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, iso, NotificationType, ObjectIdentity, Integer32, MibIdentifier, ModuleIdentity, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Unsigned32", "TimeTicks", "Bits", "Counter32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "iso", "NotificationType", "ObjectIdentity", "Integer32", "MibIdentifier", "ModuleIdentity")
-( TruthValue, DisplayString, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-dlurMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 34, 5))
-if mibBuilder.loadTexts: dlurMIB.setLastUpdated('9705101500Z')
-if mibBuilder.loadTexts: dlurMIB.setOrganization('IETF SNA NAU MIB WG / AIW APPN/HPR MIBs SIG')
-if mibBuilder.loadTexts: dlurMIB.setContactInfo('\n                        Bob Clouston\n                        Cisco Systems\n                        7025 Kit Creek Road\n                        P.O. Box 14987\n                        Research Triangle Park, NC 27709, USA\n                        Tel:    1 919 472 2333\n                        E-mail: clouston@cisco.com\n\n                        Bob Moore\n                        IBM Corporation\n                        800 Park Offices Drive\n                        RHJA/664\n                        P.O. Box 12195\n                        Research Triangle Park, NC 27709, USA\n                        Tel:    1 919 254 4436\n                        E-mail: remoore@ralvm6.vnet.ibm.com\n                ')
-if mibBuilder.loadTexts: dlurMIB.setDescription('This is the MIB module for objects used to manage\n                network devices with DLUR capabilities.  This MIB\n                contains information that is useful for managing an APPN\n                product that implements a DLUR (Dependent Logical Unit\n                Requester).  The DLUR product has a client/server\n                relationship with an APPN product that implements a DLUS\n                (Dependent Logical Unit Server).')
-dlurObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 5, 1))
-dlurNodeInfo = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 5, 1, 1))
-dlurNodeCapabilities = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 5, 1, 1, 1))
-dlurNodeCpName = MibScalar((1, 3, 6, 1, 2, 1, 34, 5, 1, 1, 1, 1), SnaControlPointName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurNodeCpName.setDescription('Administratively assigned network name for the APPN node where\n          this DLUR implementation resides.  If this object has the same\n          value as the appnNodeCpName object in the APPN MIB, then the\n          two objects are referring to the same APPN node.')
-dlurReleaseLevel = MibScalar((1, 3, 6, 1, 2, 1, 34, 5, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(2,2)).setFixedLength(2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurReleaseLevel.setDescription("The DLUR release level of this implementation.  This is the\n          value that is encoded in the DLUR/DLUS Capabilites (CV 51).\n          To insure consistent display, this one-byte value is encoded\n          here as two displayable characters that are equivalent to a\n          hexadecimal display.  For example, if the one-byte value as\n          encoded in CV51 is X'01', this object will contain the\n          displayable string '01'.")
-dlurAnsSupport = MibScalar((1, 3, 6, 1, 2, 1, 34, 5, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("continueOrStop", 1), ("stopOnly", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurAnsSupport.setDescription("Automatic Network Shutdown (ANS) capability of this node.\n\n              -  'continueOrStop' indicates that the DLUR implementation\n                 supports either ANS value (continue or stop) as\n                 specified by the DLUS on ACTPU for each PU.\n\n              -  'stopOnly' indicates that the DLUR implementation only\n                 supports the ANS value of stop.\n\n           ANS = continue means that the DLUR node will keep LU-LU\n           sessions active even if SSCP-PU and SSCP-LU control sessions\n           are interrupted.\n\n           ANS = stop means that LU-LU sessions will be interrupted when\n           the SSCP-PU and SSCP-LU sessions are interrupted.")
-dlurMultiSubnetSupport = MibScalar((1, 3, 6, 1, 2, 1, 34, 5, 1, 1, 1, 4), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurMultiSubnetSupport.setDescription('Indication of whether this DLUR implementation can support\n          CPSVRMGR sessions that cross NetId boundaries.')
-dlurDefaultDefPrimDlusName = MibScalar((1, 3, 6, 1, 2, 1, 34, 5, 1, 1, 1, 5), SnaControlPointName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurDefaultDefPrimDlusName.setDescription('The SNA name of the defined default primary DLUS for all of\n          the PUs served by this DLUR.  This can be overridden for a\n          particular PU by a defined primary DLUS for that PU,\n          represented by the dlurPuDefPrimDlusName object.')
-dlurNetworkNameForwardingSupport = MibScalar((1, 3, 6, 1, 2, 1, 34, 5, 1, 1, 1, 6), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurNetworkNameForwardingSupport.setDescription('Indication of whether this DLUR implementation supports\n          forwarding of Network Name control vectors on ACTPUs and\n          ACTLUs to DLUR-served PUs and their associated LUs.\n\n          This object corresponds to byte 9. bit 3 of cv51.')
-dlurNondisDlusDlurSessDeactSup = MibScalar((1, 3, 6, 1, 2, 1, 34, 5, 1, 1, 1, 7), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurNondisDlusDlurSessDeactSup.setDescription("Indication of whether this DLUR implementation supports\n          nondisruptive deactivation of its DLUR-DLUS sessions.\n          Upon receiving from a DLUS an UNBIND for the CPSVRMGR pipe\n          with sense data X'08A0 000B', a DLUR that supports this\n          option immediately begins attempting to activate a CPSVRMGR\n          pipe with a DLUS other than the one that sent the UNBIND.\n\n          This object corresponds to byte 9. bit 4 of cv51.")
-dlurDefaultDefBackupDlusTable = MibTable((1, 3, 6, 1, 2, 1, 34, 5, 1, 1, 2), )
-if mibBuilder.loadTexts: dlurDefaultDefBackupDlusTable.setDescription('This table contains an ordered list of defined backup DLUSs\n          for all of the PUs served by this DLUR.  These can be\n          overridden for a particular PU by a list of defined backup\n          DLUSs for that PU, represented by the\n          dlurPuDefBackupDlusNameTable.  Entries in this table are\n          ordered from most preferred default backup DLUS to least\n          preferred.')
-dlurDefaultDefBackupDlusEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 5, 1, 1, 2, 1), ).setIndexNames((0, "APPN-DLUR-MIB", "dlurDefaultDefBackupDlusIndex"))
-if mibBuilder.loadTexts: dlurDefaultDefBackupDlusEntry.setDescription('This table is indexed by an integer-valued index, which\n          orders the entries from most preferred default backup DLUS\n          to least preferred.')
-dlurDefaultDefBackupDlusIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 5, 1, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: dlurDefaultDefBackupDlusIndex.setDescription('Index for this table.  The index values start at 1,\n          which identifies the most preferred default backup DLUS.')
-dlurDefaultDefBackupDlusName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 5, 1, 1, 2, 1, 2), SnaControlPointName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurDefaultDefBackupDlusName.setDescription('Fully qualified name of a default backup DLUS for PUs served\n          by this DLUR.')
-dlurPuInfo = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 5, 1, 2))
-dlurPuTable = MibTable((1, 3, 6, 1, 2, 1, 34, 5, 1, 2, 1), )
-if mibBuilder.loadTexts: dlurPuTable.setDescription('Information about the PUs supported by this DLUR.')
-dlurPuEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 5, 1, 2, 1, 1), ).setIndexNames((0, "APPN-DLUR-MIB", "dlurPuName"))
-if mibBuilder.loadTexts: dlurPuEntry.setDescription('Entry in a table of PU information, indexed by PU name.')
-dlurPuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 5, 1, 2, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: dlurPuName.setDescription('Locally administered name of the PU.')
-dlurPuSscpSuppliedName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 5, 1, 2, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurPuSscpSuppliedName.setDescription('The SNA name of the PU.  This value is supplied to a PU by the\n          SSCP that activated it.  If a value has not been supplied, a\n          zero-length string is returned.')
-dlurPuStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 5, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9,))).clone(namedValues=NamedValues(("reset", 1), ("pendReqActpuRsp", 2), ("pendActpu", 3), ("pendActpuRsp", 4), ("active", 5), ("pendLinkact", 6), ("pendDactpuRsp", 7), ("pendInop", 8), ("pendInopActpu", 9),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurPuStatus.setDescription('Status of the DLUR-supported PU.  The following values are\n          defined:\n\n             reset(1)           -  reset\n             pendReqActpuRsp(2) -  pending a response from the DLUS\n                                   to a Request ACTPU\n             pendActpu(3)       -  pending an ACTPU from the DLUS\n             pendActpuRsp(4)    -  pending an ACTPU response from the PU\n             active(5)          -  active\n             pendLinkact(6)     -  pending activation of the link to a\n                                   downstream PU\n             pendDactpuRsp(7)   -  pending a DACTPU response from the PU\n             pendInop(8)        -  the CPSVRMGR pipe became inoperative\n                                   while the DLUR was pending an ACTPU\n                                   response from the PU\n             pendInopActpu(9)   -  when the DLUR was in the pendInop\n                                   state, a CPSVRMGR pipe became active\n                                   and a new ACTPU was received over it,\n                                   before a response to the previous\n                                   ACTPU was received from the PU.')
-dlurPuAnsSupport = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 5, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("continue", 1), ("stop", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurPuAnsSupport.setDescription("The Automatic Network Shutdown (ANS) support configured for\n          this PU.  This value (as configured by the network\n          administrator) is sent by DLUS with ACTPU for each PU.\n\n              -  'continue' means that the DLUR node will attempt to keep\n                 LU-LU sessions active even if SSCP-PU and SSCP-LU\n                 control sessions are interrupted.\n\n              -  'stop' means that LU-LU sessions will be interrupted\n                 when the SSCP-PU and SSCP-LU sessions are interrupted.")
-dlurPuLocation = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 5, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("internal", 1), ("downstream", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurPuLocation.setDescription('Location of the DLUR-support PU:\n              internal(1)   - internal to the APPN node itself (no link)\n              downstream(2) - downstream of the APPN node (connected via\n                              a link).')
-dlurPuLsName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 5, 1, 2, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,10))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurPuLsName.setDescription('Administratively assigned name of the link station through\n          which a downstream PU is connected to this DLUR.  A zero-length\n          string is returned for internal PUs.  If this object has the\n          same value as the appnLsName object in the APPN MIB, then the\n          two are identifying the same link station.')
-dlurPuDlusSessnStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 5, 1, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("reset", 1), ("pendingActive", 2), ("active", 3), ("pendingInactive", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurPuDlusSessnStatus.setDescription("Status of the control session to the DLUS identified in\n          dlurPuActiveDlusName.  This is a combination of the separate\n          states for the contention-winner and contention-loser sessions:\n\n          reset(1)           - none of the cases below\n          pendingActive(2)   - either contention-winner session or\n                               contention-loser session is pending active\n          active(3)          - contention-winner and contention-loser\n                               sessions are both active\n          pendingInactive(4) - either contention-winner session or\n                               contention-loser session is pending\n                               inactive - this test is made AFTER the\n                               'pendingActive' test.\n\n          The following matrix provides a different representation of\n          how the values of this object are related to the individual\n          states of the contention-winner and contention-loser sessions:\n\n               Conwinner\n               | pA | pI | A | X = !(pA | pI | A)\n          C ++++++++++++++++++++++++++++++++++\n          o pA | 2  |  2 | 2 | 2\n          n ++++++++++++++++++++++++++++++++++\n          l pI | 2  |  4 | 4 | 4\n          o ++++++++++++++++++++++++++++++++++\n          s A  | 2  |  4 | 3 | 1\n          e ++++++++++++++++++++++++++++++++++\n          r X  | 2  |  4 | 1 | 1\n            ++++++++++++++++++++++++++++++++++\n          ")
-dlurPuActiveDlusName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 5, 1, 2, 1, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurPuActiveDlusName.setDescription('The SNA name of the active DLUS for this PU.  If its length\n          is not zero, this name follows the SnaControlPointName textual\n          convention.  A zero-length string indicates that the PU does\n          not currently have an active DLUS.')
-dlurPuDefPrimDlusName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 5, 1, 2, 1, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurPuDefPrimDlusName.setDescription('The SNA name of the defined primary DLUS for this PU, if one\n          has been defined.  If present, this name follows the\n          SnaControlPointName textual convention.  A zero-length string\n          indicates that no primary DLUS has been defined for this PU, in\n          which case the global default represented by the\n          dlurDefaultDefPrimDlusName object is used.')
-dlurPuDefBackupDlusTable = MibTable((1, 3, 6, 1, 2, 1, 34, 5, 1, 2, 2), )
-if mibBuilder.loadTexts: dlurPuDefBackupDlusTable.setDescription('This table contains an ordered list of defined backup DLUSs\n          for those PUs served by this DLUR that have their own defined\n          backup DLUSs.  PUs that have no entries in this table use the\n          global default backup DLUSs for the DLUR, represented by the\n          dlurDefaultDefBackupDlusNameTable.  Entries in this table are\n          ordered from most preferred backup DLUS to least preferred for\n          each PU.')
-dlurPuDefBackupDlusEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 5, 1, 2, 2, 1), ).setIndexNames((0, "APPN-DLUR-MIB", "dlurPuDefBackupDlusPuName"), (0, "APPN-DLUR-MIB", "dlurPuDefBackupDlusIndex"))
-if mibBuilder.loadTexts: dlurPuDefBackupDlusEntry.setDescription('This table is indexed by PU name and by an integer-valued\n          index, which orders the entries from most preferred backup DLUS\n          for the PU to least preferred.')
-dlurPuDefBackupDlusPuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 5, 1, 2, 2, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: dlurPuDefBackupDlusPuName.setDescription('Locally administered name of the PU.  If this object has the\n          same value as the dlurPuName object, then the two are\n          identifying the same PU.')
-dlurPuDefBackupDlusIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 5, 1, 2, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: dlurPuDefBackupDlusIndex.setDescription('Secondary index for this table.  The index values start at 1,\n          which identifies the most preferred backup DLUS for the PU.')
-dlurPuDefBackupDlusName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 5, 1, 2, 2, 1, 3), SnaControlPointName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurPuDefBackupDlusName.setDescription('Fully qualified name of a backup DLUS for this PU.')
-dlurDlusInfo = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 5, 1, 3))
-dlurDlusTable = MibTable((1, 3, 6, 1, 2, 1, 34, 5, 1, 3, 1), )
-if mibBuilder.loadTexts: dlurDlusTable.setDescription('Information about DLUS control sessions.')
-dlurDlusEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 5, 1, 3, 1, 1), ).setIndexNames((0, "APPN-DLUR-MIB", "dlurDlusName"))
-if mibBuilder.loadTexts: dlurDlusEntry.setDescription('This entry is indexed by the name of the DLUS.')
-dlurDlusName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 5, 1, 3, 1, 1, 1), SnaControlPointName())
-if mibBuilder.loadTexts: dlurDlusName.setDescription('The SNA name of a DLUS with which this DLUR currently has a\n          CPSVRMGR pipe established.')
-dlurDlusSessnStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 5, 1, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("reset", 1), ("pendingActive", 2), ("active", 3), ("pendingInactive", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dlurDlusSessnStatus.setDescription("Status of the CPSVRMGR pipe between the DLUR and this DLUS.\n          This is a combination of the separate states for the\n          contention-winner and contention-loser sessions:\n\n          reset(1)           - none of the cases below\n          pendingActive(2)   - either contention-winner session or\n                               contention-loser session is pending active\n          active(3)          - contention-winner and contention-loser\n                               sessions are both active\n          pendingInactive(4) - either contention-winner session or\n                               contention-loser session is pending\n                               inactive - this test is made AFTER the\n                               'pendingActive' test.\n\n          The following matrix provides a different representation of\n          how the values of this object are related to the individual\n          states of the contention-winner and contention-loser sessions:\n\n               Conwinner\n               | pA | pI | A | X = !(pA | pI | A)\n          C ++++++++++++++++++++++++++++++++++\n          o pA | 2  |  2 | 2 | 2\n          n ++++++++++++++++++++++++++++++++++\n          l pI | 2  |  4 | 4 | 4\n          o ++++++++++++++++++++++++++++++++++\n          s A  | 2  |  4 | 3 | 1\n          e ++++++++++++++++++++++++++++++++++\n          r X  | 2  |  4 | 1 | 1\n            ++++++++++++++++++++++++++++++++++\n          ")
-dlurConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 5, 2))
-dlurCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 5, 2, 1))
-dlurGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 5, 2, 2))
-dlurCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 34, 5, 2, 1, 1)).setObjects(*(("APPN-DLUR-MIB", "dlurConfGroup"),))
-if mibBuilder.loadTexts: dlurCompliance.setDescription('The compliance statement for the SNMPv2 entities which\n          implement the DLUR MIB.')
-dlurConfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 5, 2, 2, 1)).setObjects(*(("APPN-DLUR-MIB", "dlurNodeCpName"), ("APPN-DLUR-MIB", "dlurReleaseLevel"), ("APPN-DLUR-MIB", "dlurAnsSupport"), ("APPN-DLUR-MIB", "dlurMultiSubnetSupport"), ("APPN-DLUR-MIB", "dlurNetworkNameForwardingSupport"), ("APPN-DLUR-MIB", "dlurNondisDlusDlurSessDeactSup"), ("APPN-DLUR-MIB", "dlurDefaultDefPrimDlusName"), ("APPN-DLUR-MIB", "dlurDefaultDefBackupDlusName"), ("APPN-DLUR-MIB", "dlurPuSscpSuppliedName"), ("APPN-DLUR-MIB", "dlurPuStatus"), ("APPN-DLUR-MIB", "dlurPuAnsSupport"), ("APPN-DLUR-MIB", "dlurPuLocation"), ("APPN-DLUR-MIB", "dlurPuLsName"), ("APPN-DLUR-MIB", "dlurPuDlusSessnStatus"), ("APPN-DLUR-MIB", "dlurPuActiveDlusName"), ("APPN-DLUR-MIB", "dlurPuDefPrimDlusName"), ("APPN-DLUR-MIB", "dlurPuDefBackupDlusName"), ("APPN-DLUR-MIB", "dlurDlusSessnStatus"),))
-if mibBuilder.loadTexts: dlurConfGroup.setDescription('A collection of objects providing information on an\n          implementation of APPN DLUR.')
-mibBuilder.exportSymbols("APPN-DLUR-MIB", dlurDefaultDefBackupDlusName=dlurDefaultDefBackupDlusName, dlurPuSscpSuppliedName=dlurPuSscpSuppliedName, dlurCompliance=dlurCompliance, dlurPuEntry=dlurPuEntry, dlurNodeCpName=dlurNodeCpName, dlurPuLsName=dlurPuLsName, dlurPuName=dlurPuName, dlurPuAnsSupport=dlurPuAnsSupport, dlurDlusSessnStatus=dlurDlusSessnStatus, dlurAnsSupport=dlurAnsSupport, dlurNodeCapabilities=dlurNodeCapabilities, dlurConformance=dlurConformance, dlurDlusEntry=dlurDlusEntry, dlurPuDlusSessnStatus=dlurPuDlusSessnStatus, dlurNodeInfo=dlurNodeInfo, dlurDefaultDefPrimDlusName=dlurDefaultDefPrimDlusName, dlurPuTable=dlurPuTable, dlurNondisDlusDlurSessDeactSup=dlurNondisDlusDlurSessDeactSup, dlurDlusInfo=dlurDlusInfo, dlurDefaultDefBackupDlusIndex=dlurDefaultDefBackupDlusIndex, dlurPuDefBackupDlusTable=dlurPuDefBackupDlusTable, dlurPuDefBackupDlusEntry=dlurPuDefBackupDlusEntry, dlurDlusTable=dlurDlusTable, dlurPuInfo=dlurPuInfo, dlurPuDefPrimDlusName=dlurPuDefPrimDlusName, dlurCompliances=dlurCompliances, dlurMultiSubnetSupport=dlurMultiSubnetSupport, PYSNMP_MODULE_ID=dlurMIB, dlurReleaseLevel=dlurReleaseLevel, dlurObjects=dlurObjects, dlurPuDefBackupDlusIndex=dlurPuDefBackupDlusIndex, dlurConfGroup=dlurConfGroup, dlurDefaultDefBackupDlusEntry=dlurDefaultDefBackupDlusEntry, dlurPuActiveDlusName=dlurPuActiveDlusName, dlurPuDefBackupDlusPuName=dlurPuDefBackupDlusPuName, dlurDefaultDefBackupDlusTable=dlurDefaultDefBackupDlusTable, dlurNetworkNameForwardingSupport=dlurNetworkNameForwardingSupport, dlurPuStatus=dlurPuStatus, dlurGroups=dlurGroups, dlurPuDefBackupDlusName=dlurPuDefBackupDlusName, dlurDlusName=dlurDlusName, dlurMIB=dlurMIB, dlurPuLocation=dlurPuLocation)
+_i='dlurConfGroup'
+_h='dlurDlusSessnStatus'
+_g='dlurPuDefBackupDlusName'
+_f='dlurPuDefPrimDlusName'
+_e='dlurPuActiveDlusName'
+_d='dlurPuDlusSessnStatus'
+_c='dlurPuLsName'
+_b='dlurPuLocation'
+_a='dlurPuAnsSupport'
+_Z='dlurPuStatus'
+_Y='dlurPuSscpSuppliedName'
+_X='dlurDefaultDefBackupDlusName'
+_W='dlurDefaultDefPrimDlusName'
+_V='dlurNondisDlusDlurSessDeactSup'
+_U='dlurNetworkNameForwardingSupport'
+_T='dlurMultiSubnetSupport'
+_S='dlurAnsSupport'
+_R='dlurReleaseLevel'
+_Q='dlurNodeCpName'
+_P='dlurDlusName'
+_O='dlurPuDefBackupDlusIndex'
+_N='dlurPuDefBackupDlusPuName'
+_M='pendingInactive'
+_L='pendingActive'
+_K='dlurPuName'
+_J='dlurDefaultDefBackupDlusIndex'
+_I='active'
+_H='reset'
+_G='Unsigned32'
+_F='not-accessible'
+_E='Integer32'
+_D='DisplayString'
+_C='read-only'
+_B='APPN-DLUR-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+SnaControlPointName,=mibBuilder.importSymbols('APPN-MIB','SnaControlPointName')
+snanauMIB,=mibBuilder.importSymbols('SNA-NAU-MIB','snanauMIB')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso')
+DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_D,'PhysAddress','TextualConvention','TruthValue')
+dlurMIB=ModuleIdentity((1,3,6,1,2,1,34,5))
+_DlurObjects_ObjectIdentity=ObjectIdentity
+dlurObjects=_DlurObjects_ObjectIdentity((1,3,6,1,2,1,34,5,1))
+_DlurNodeInfo_ObjectIdentity=ObjectIdentity
+dlurNodeInfo=_DlurNodeInfo_ObjectIdentity((1,3,6,1,2,1,34,5,1,1))
+_DlurNodeCapabilities_ObjectIdentity=ObjectIdentity
+dlurNodeCapabilities=_DlurNodeCapabilities_ObjectIdentity((1,3,6,1,2,1,34,5,1,1,1))
+_DlurNodeCpName_Type=SnaControlPointName
+_DlurNodeCpName_Object=MibScalar
+dlurNodeCpName=_DlurNodeCpName_Object((1,3,6,1,2,1,34,5,1,1,1,1),_DlurNodeCpName_Type())
+dlurNodeCpName.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurNodeCpName.setStatus(_A)
+class _DlurReleaseLevel_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
+_DlurReleaseLevel_Type.__name__=_D
+_DlurReleaseLevel_Object=MibScalar
+dlurReleaseLevel=_DlurReleaseLevel_Object((1,3,6,1,2,1,34,5,1,1,1,2),_DlurReleaseLevel_Type())
+dlurReleaseLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurReleaseLevel.setStatus(_A)
+class _DlurAnsSupport_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('continueOrStop',1),('stopOnly',2)))
+_DlurAnsSupport_Type.__name__=_E
+_DlurAnsSupport_Object=MibScalar
+dlurAnsSupport=_DlurAnsSupport_Object((1,3,6,1,2,1,34,5,1,1,1,3),_DlurAnsSupport_Type())
+dlurAnsSupport.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurAnsSupport.setStatus(_A)
+_DlurMultiSubnetSupport_Type=TruthValue
+_DlurMultiSubnetSupport_Object=MibScalar
+dlurMultiSubnetSupport=_DlurMultiSubnetSupport_Object((1,3,6,1,2,1,34,5,1,1,1,4),_DlurMultiSubnetSupport_Type())
+dlurMultiSubnetSupport.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurMultiSubnetSupport.setStatus(_A)
+_DlurDefaultDefPrimDlusName_Type=SnaControlPointName
+_DlurDefaultDefPrimDlusName_Object=MibScalar
+dlurDefaultDefPrimDlusName=_DlurDefaultDefPrimDlusName_Object((1,3,6,1,2,1,34,5,1,1,1,5),_DlurDefaultDefPrimDlusName_Type())
+dlurDefaultDefPrimDlusName.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurDefaultDefPrimDlusName.setStatus(_A)
+_DlurNetworkNameForwardingSupport_Type=TruthValue
+_DlurNetworkNameForwardingSupport_Object=MibScalar
+dlurNetworkNameForwardingSupport=_DlurNetworkNameForwardingSupport_Object((1,3,6,1,2,1,34,5,1,1,1,6),_DlurNetworkNameForwardingSupport_Type())
+dlurNetworkNameForwardingSupport.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurNetworkNameForwardingSupport.setStatus(_A)
+_DlurNondisDlusDlurSessDeactSup_Type=TruthValue
+_DlurNondisDlusDlurSessDeactSup_Object=MibScalar
+dlurNondisDlusDlurSessDeactSup=_DlurNondisDlusDlurSessDeactSup_Object((1,3,6,1,2,1,34,5,1,1,1,7),_DlurNondisDlusDlurSessDeactSup_Type())
+dlurNondisDlusDlurSessDeactSup.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurNondisDlusDlurSessDeactSup.setStatus(_A)
+_DlurDefaultDefBackupDlusTable_Object=MibTable
+dlurDefaultDefBackupDlusTable=_DlurDefaultDefBackupDlusTable_Object((1,3,6,1,2,1,34,5,1,1,2))
+if mibBuilder.loadTexts:dlurDefaultDefBackupDlusTable.setStatus(_A)
+_DlurDefaultDefBackupDlusEntry_Object=MibTableRow
+dlurDefaultDefBackupDlusEntry=_DlurDefaultDefBackupDlusEntry_Object((1,3,6,1,2,1,34,5,1,1,2,1))
+dlurDefaultDefBackupDlusEntry.setIndexNames((0,_B,_J))
+if mibBuilder.loadTexts:dlurDefaultDefBackupDlusEntry.setStatus(_A)
+class _DlurDefaultDefBackupDlusIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_DlurDefaultDefBackupDlusIndex_Type.__name__=_G
+_DlurDefaultDefBackupDlusIndex_Object=MibTableColumn
+dlurDefaultDefBackupDlusIndex=_DlurDefaultDefBackupDlusIndex_Object((1,3,6,1,2,1,34,5,1,1,2,1,1),_DlurDefaultDefBackupDlusIndex_Type())
+dlurDefaultDefBackupDlusIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:dlurDefaultDefBackupDlusIndex.setStatus(_A)
+_DlurDefaultDefBackupDlusName_Type=SnaControlPointName
+_DlurDefaultDefBackupDlusName_Object=MibTableColumn
+dlurDefaultDefBackupDlusName=_DlurDefaultDefBackupDlusName_Object((1,3,6,1,2,1,34,5,1,1,2,1,2),_DlurDefaultDefBackupDlusName_Type())
+dlurDefaultDefBackupDlusName.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurDefaultDefBackupDlusName.setStatus(_A)
+_DlurPuInfo_ObjectIdentity=ObjectIdentity
+dlurPuInfo=_DlurPuInfo_ObjectIdentity((1,3,6,1,2,1,34,5,1,2))
+_DlurPuTable_Object=MibTable
+dlurPuTable=_DlurPuTable_Object((1,3,6,1,2,1,34,5,1,2,1))
+if mibBuilder.loadTexts:dlurPuTable.setStatus(_A)
+_DlurPuEntry_Object=MibTableRow
+dlurPuEntry=_DlurPuEntry_Object((1,3,6,1,2,1,34,5,1,2,1,1))
+dlurPuEntry.setIndexNames((0,_B,_K))
+if mibBuilder.loadTexts:dlurPuEntry.setStatus(_A)
+class _DlurPuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_DlurPuName_Type.__name__=_D
+_DlurPuName_Object=MibTableColumn
+dlurPuName=_DlurPuName_Object((1,3,6,1,2,1,34,5,1,2,1,1,1),_DlurPuName_Type())
+dlurPuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:dlurPuName.setStatus(_A)
+class _DlurPuSscpSuppliedName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,17))
+_DlurPuSscpSuppliedName_Type.__name__=_D
+_DlurPuSscpSuppliedName_Object=MibTableColumn
+dlurPuSscpSuppliedName=_DlurPuSscpSuppliedName_Object((1,3,6,1,2,1,34,5,1,2,1,1,2),_DlurPuSscpSuppliedName_Type())
+dlurPuSscpSuppliedName.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurPuSscpSuppliedName.setStatus(_A)
+class _DlurPuStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*((_H,1),('pendReqActpuRsp',2),('pendActpu',3),('pendActpuRsp',4),(_I,5),('pendLinkact',6),('pendDactpuRsp',7),('pendInop',8),('pendInopActpu',9)))
+_DlurPuStatus_Type.__name__=_E
+_DlurPuStatus_Object=MibTableColumn
+dlurPuStatus=_DlurPuStatus_Object((1,3,6,1,2,1,34,5,1,2,1,1,3),_DlurPuStatus_Type())
+dlurPuStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurPuStatus.setStatus(_A)
+class _DlurPuAnsSupport_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('continue',1),('stop',2)))
+_DlurPuAnsSupport_Type.__name__=_E
+_DlurPuAnsSupport_Object=MibTableColumn
+dlurPuAnsSupport=_DlurPuAnsSupport_Object((1,3,6,1,2,1,34,5,1,2,1,1,4),_DlurPuAnsSupport_Type())
+dlurPuAnsSupport.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurPuAnsSupport.setStatus(_A)
+class _DlurPuLocation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('internal',1),('downstream',2)))
+_DlurPuLocation_Type.__name__=_E
+_DlurPuLocation_Object=MibTableColumn
+dlurPuLocation=_DlurPuLocation_Object((1,3,6,1,2,1,34,5,1,2,1,1,5),_DlurPuLocation_Type())
+dlurPuLocation.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurPuLocation.setStatus(_A)
+class _DlurPuLsName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,10))
+_DlurPuLsName_Type.__name__=_D
+_DlurPuLsName_Object=MibTableColumn
+dlurPuLsName=_DlurPuLsName_Object((1,3,6,1,2,1,34,5,1,2,1,1,6),_DlurPuLsName_Type())
+dlurPuLsName.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurPuLsName.setStatus(_A)
+class _DlurPuDlusSessnStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_H,1),(_L,2),(_I,3),(_M,4)))
+_DlurPuDlusSessnStatus_Type.__name__=_E
+_DlurPuDlusSessnStatus_Object=MibTableColumn
+dlurPuDlusSessnStatus=_DlurPuDlusSessnStatus_Object((1,3,6,1,2,1,34,5,1,2,1,1,7),_DlurPuDlusSessnStatus_Type())
+dlurPuDlusSessnStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurPuDlusSessnStatus.setStatus(_A)
+class _DlurPuActiveDlusName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,17))
+_DlurPuActiveDlusName_Type.__name__=_D
+_DlurPuActiveDlusName_Object=MibTableColumn
+dlurPuActiveDlusName=_DlurPuActiveDlusName_Object((1,3,6,1,2,1,34,5,1,2,1,1,8),_DlurPuActiveDlusName_Type())
+dlurPuActiveDlusName.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurPuActiveDlusName.setStatus(_A)
+class _DlurPuDefPrimDlusName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,17))
+_DlurPuDefPrimDlusName_Type.__name__=_D
+_DlurPuDefPrimDlusName_Object=MibTableColumn
+dlurPuDefPrimDlusName=_DlurPuDefPrimDlusName_Object((1,3,6,1,2,1,34,5,1,2,1,1,9),_DlurPuDefPrimDlusName_Type())
+dlurPuDefPrimDlusName.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurPuDefPrimDlusName.setStatus(_A)
+_DlurPuDefBackupDlusTable_Object=MibTable
+dlurPuDefBackupDlusTable=_DlurPuDefBackupDlusTable_Object((1,3,6,1,2,1,34,5,1,2,2))
+if mibBuilder.loadTexts:dlurPuDefBackupDlusTable.setStatus(_A)
+_DlurPuDefBackupDlusEntry_Object=MibTableRow
+dlurPuDefBackupDlusEntry=_DlurPuDefBackupDlusEntry_Object((1,3,6,1,2,1,34,5,1,2,2,1))
+dlurPuDefBackupDlusEntry.setIndexNames((0,_B,_N),(0,_B,_O))
+if mibBuilder.loadTexts:dlurPuDefBackupDlusEntry.setStatus(_A)
+class _DlurPuDefBackupDlusPuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_DlurPuDefBackupDlusPuName_Type.__name__=_D
+_DlurPuDefBackupDlusPuName_Object=MibTableColumn
+dlurPuDefBackupDlusPuName=_DlurPuDefBackupDlusPuName_Object((1,3,6,1,2,1,34,5,1,2,2,1,1),_DlurPuDefBackupDlusPuName_Type())
+dlurPuDefBackupDlusPuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:dlurPuDefBackupDlusPuName.setStatus(_A)
+class _DlurPuDefBackupDlusIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_DlurPuDefBackupDlusIndex_Type.__name__=_G
+_DlurPuDefBackupDlusIndex_Object=MibTableColumn
+dlurPuDefBackupDlusIndex=_DlurPuDefBackupDlusIndex_Object((1,3,6,1,2,1,34,5,1,2,2,1,2),_DlurPuDefBackupDlusIndex_Type())
+dlurPuDefBackupDlusIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:dlurPuDefBackupDlusIndex.setStatus(_A)
+_DlurPuDefBackupDlusName_Type=SnaControlPointName
+_DlurPuDefBackupDlusName_Object=MibTableColumn
+dlurPuDefBackupDlusName=_DlurPuDefBackupDlusName_Object((1,3,6,1,2,1,34,5,1,2,2,1,3),_DlurPuDefBackupDlusName_Type())
+dlurPuDefBackupDlusName.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurPuDefBackupDlusName.setStatus(_A)
+_DlurDlusInfo_ObjectIdentity=ObjectIdentity
+dlurDlusInfo=_DlurDlusInfo_ObjectIdentity((1,3,6,1,2,1,34,5,1,3))
+_DlurDlusTable_Object=MibTable
+dlurDlusTable=_DlurDlusTable_Object((1,3,6,1,2,1,34,5,1,3,1))
+if mibBuilder.loadTexts:dlurDlusTable.setStatus(_A)
+_DlurDlusEntry_Object=MibTableRow
+dlurDlusEntry=_DlurDlusEntry_Object((1,3,6,1,2,1,34,5,1,3,1,1))
+dlurDlusEntry.setIndexNames((0,_B,_P))
+if mibBuilder.loadTexts:dlurDlusEntry.setStatus(_A)
+_DlurDlusName_Type=SnaControlPointName
+_DlurDlusName_Object=MibTableColumn
+dlurDlusName=_DlurDlusName_Object((1,3,6,1,2,1,34,5,1,3,1,1,1),_DlurDlusName_Type())
+dlurDlusName.setMaxAccess(_F)
+if mibBuilder.loadTexts:dlurDlusName.setStatus(_A)
+class _DlurDlusSessnStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_H,1),(_L,2),(_I,3),(_M,4)))
+_DlurDlusSessnStatus_Type.__name__=_E
+_DlurDlusSessnStatus_Object=MibTableColumn
+dlurDlusSessnStatus=_DlurDlusSessnStatus_Object((1,3,6,1,2,1,34,5,1,3,1,1,2),_DlurDlusSessnStatus_Type())
+dlurDlusSessnStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:dlurDlusSessnStatus.setStatus(_A)
+_DlurConformance_ObjectIdentity=ObjectIdentity
+dlurConformance=_DlurConformance_ObjectIdentity((1,3,6,1,2,1,34,5,2))
+_DlurCompliances_ObjectIdentity=ObjectIdentity
+dlurCompliances=_DlurCompliances_ObjectIdentity((1,3,6,1,2,1,34,5,2,1))
+_DlurGroups_ObjectIdentity=ObjectIdentity
+dlurGroups=_DlurGroups_ObjectIdentity((1,3,6,1,2,1,34,5,2,2))
+dlurConfGroup=ObjectGroup((1,3,6,1,2,1,34,5,2,2,1))
+dlurConfGroup.setObjects(*((_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h)))
+if mibBuilder.loadTexts:dlurConfGroup.setStatus(_A)
+dlurCompliance=ModuleCompliance((1,3,6,1,2,1,34,5,2,1,1))
+dlurCompliance.setObjects((_B,_i))
+if mibBuilder.loadTexts:dlurCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'dlurMIB':dlurMIB,'dlurObjects':dlurObjects,'dlurNodeInfo':dlurNodeInfo,'dlurNodeCapabilities':dlurNodeCapabilities,_Q:dlurNodeCpName,_R:dlurReleaseLevel,_S:dlurAnsSupport,_T:dlurMultiSubnetSupport,_W:dlurDefaultDefPrimDlusName,_U:dlurNetworkNameForwardingSupport,_V:dlurNondisDlusDlurSessDeactSup,'dlurDefaultDefBackupDlusTable':dlurDefaultDefBackupDlusTable,'dlurDefaultDefBackupDlusEntry':dlurDefaultDefBackupDlusEntry,_J:dlurDefaultDefBackupDlusIndex,_X:dlurDefaultDefBackupDlusName,'dlurPuInfo':dlurPuInfo,'dlurPuTable':dlurPuTable,'dlurPuEntry':dlurPuEntry,_K:dlurPuName,_Y:dlurPuSscpSuppliedName,_Z:dlurPuStatus,_a:dlurPuAnsSupport,_b:dlurPuLocation,_c:dlurPuLsName,_d:dlurPuDlusSessnStatus,_e:dlurPuActiveDlusName,_f:dlurPuDefPrimDlusName,'dlurPuDefBackupDlusTable':dlurPuDefBackupDlusTable,'dlurPuDefBackupDlusEntry':dlurPuDefBackupDlusEntry,_N:dlurPuDefBackupDlusPuName,_O:dlurPuDefBackupDlusIndex,_g:dlurPuDefBackupDlusName,'dlurDlusInfo':dlurDlusInfo,'dlurDlusTable':dlurDlusTable,'dlurDlusEntry':dlurDlusEntry,_P:dlurDlusName,_h:dlurDlusSessnStatus,'dlurConformance':dlurConformance,'dlurCompliances':dlurCompliances,'dlurCompliance':dlurCompliance,'dlurGroups':dlurGroups,_i:dlurConfGroup})

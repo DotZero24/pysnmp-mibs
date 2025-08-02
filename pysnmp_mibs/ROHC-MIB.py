@@ -1,163 +1,403 @@
-#
-# PySNMP MIB module ROHC-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/ROHC-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:27:00 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, OctetString, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
-( ifIndex, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ModuleCompliance, ObjectGroup, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-( ObjectIdentity, iso, Unsigned32, Gauge32, mib_2, MibIdentifier, Integer32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Counter64, Counter32, NotificationType, ModuleIdentity, IpAddress, ) = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "iso", "Unsigned32", "Gauge32", "mib-2", "MibIdentifier", "Integer32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Counter64", "Counter32", "NotificationType", "ModuleIdentity", "IpAddress")
-( TimeInterval, DisplayString, TruthValue, TextualConvention, DateAndTime, ) = mibBuilder.importSymbols("SNMPv2-TC", "TimeInterval", "DisplayString", "TruthValue", "TextualConvention", "DateAndTime")
-rohcMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 112)).setRevisions(("2004-06-03 00:00",))
-if mibBuilder.loadTexts: rohcMIB.setLastUpdated('200406030000Z')
-if mibBuilder.loadTexts: rohcMIB.setOrganization('IETF Robust Header Compression Working Group')
-if mibBuilder.loadTexts: rohcMIB.setContactInfo('WG charter:\n          http://www.ietf.org/html.charters/rohc-charter.html\n\n        Mailing Lists:\n          General Discussion: rohc@ietf.org\n          To Subscribe: rohc-request@ietf.org\n          In Body: subscribe your_email_address\n\n        Editor:\n          Juergen Quittek\n          NEC Europe Ltd.\n          Network Laboratories\n          Kurfuersten-Anlage 36\n\n\n\n          69221 Heidelberg\n          Germany\n          Tel: +49 6221 90511-15\n          EMail: quittek@netlab.nec.de')
-if mibBuilder.loadTexts: rohcMIB.setDescription('This MIB module defines a set of basic objects for\n         monitoring and configuring robust header compression.\n         The module covers information about running instances\n         of ROHC (compressors or decompressors) at IP interfaces.\n\n         Information about compressor contexts and decompressor\n         contexts has different structure for different profiles.\n         Therefore it is not provided by this MIB module, but by\n         individual modules for different profiles.\n\n         Copyright (C) The Internet Society (2004). The\n         initial version of this MIB module was published\n         in RFC 3816. For full legal notices see the RFC\n         itself or see:\n         http://www.ietf.org/copyrights/ianamib.html')
-class RohcChannelIdentifier(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(1,4294967295)
-
-class RohcChannelIdentifierOrZero(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(0,4294967295)
-
-class RohcCompressionRatio(Unsigned32, TextualConvention):
-    displayHint = 'd'
-
-rohcObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 112, 1))
-rohcConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 112, 2))
-rohcInstanceObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 112, 1, 1))
-rohcChannelTable = MibTable((1, 3, 6, 1, 2, 1, 112, 1, 1, 1), )
-if mibBuilder.loadTexts: rohcChannelTable.setDescription('This table lists and describes all ROHC channels\n         per interface.')
-rohcChannelEntry = MibTableRow((1, 3, 6, 1, 2, 1, 112, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ROHC-MIB", "rohcChannelID"))
-if mibBuilder.loadTexts: rohcChannelEntry.setDescription('An entry describing a particular script.  Every script that\n         is stored in non-volatile memory is required to appear in\n\n\n\n         this script table.\n\n         Note, that the rohcChannelID identifies the channel\n         uniquely.  The ifIndex is part of the index of this table\n         just in order to allow addressing channels per interface.')
-rohcChannelID = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 1, 1, 2), RohcChannelIdentifier())
-if mibBuilder.loadTexts: rohcChannelID.setDescription("The locally arbitrary, but unique identifier associated\n         with this channel.  The value is REQUIRED to be unique\n         per ROHC MIB implementation independent of the associated\n         interface.\n\n         The value is REQUIRED to remain constant at least from one\n         re-initialization of the entity's network management system\n         to the next re-initialization.  It is RECOMMENDED that the\n         value persist across such re-initializations.")
-rohcChannelType = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("notInUse", 1), ("rohc", 2), ("dedicatedFeedback", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcChannelType.setDescription('Type of usage of the channel.  A channel might be currently\n         not in use for ROHC or feedback, it might be in use as\n         a ROHC channel carrying packets and optional piggy-backed\n         feedback, or it might be used as a dedicated feedback\n         channel exclusively carrying feedback.')
-rohcChannelFeedbackFor = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 1, 1, 4), RohcChannelIdentifierOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcChannelFeedbackFor.setDescription('The index of another channel of this interface for which\n         the channel serves as feedback channel.\n\n         If no feedback information is transferred on this channel,\n         then the value of this ID is 0.  If the channel type is set\n         to notInUse(1), then the value of this object must be 0.\n         If the channel type is rohc(2) and the value of this object\n         is a valid channel ID, then feedback information is\n         piggy-backed on the ROHC channel.  If the channel type is\n         dedicatedFeedback(3), then feedback is transferred on this\n         channel and the value of this object MUST be different from\n         0 and MUST identify an existing ROHC channel.')
-rohcChannelDescr = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcChannelDescr.setDescription('A textual description of the channel.')
-rohcChannelStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcChannelStatus.setDescription('Status of the channel.')
-rohcInstanceTable = MibTable((1, 3, 6, 1, 2, 1, 112, 1, 1, 2), )
-if mibBuilder.loadTexts: rohcInstanceTable.setDescription('This table lists properties of running instances\n         of robust header compressors and decompressors\n         at IP interfaces.  It is indexed by interface number,\n         the type of instance (compressor or decompressor),\n         and the ID of the channel used by the instance as\n         ROHC channel.\n\n         Note that the rohcChannelID uniquely identifies an\n         instance.  The ifIndex and rohcInstanceType are part\n         of the index, because it simplifies accessing instances\n         per interface and for addressing either compressors or\n         decompressors only.')
-rohcInstanceEntry = MibTableRow((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ROHC-MIB", "rohcInstanceType"), (0, "ROHC-MIB", "rohcChannelID"))
-if mibBuilder.loadTexts: rohcInstanceEntry.setDescription('An entry describing a particular instance\n         of a robust header compressor or decompressor.')
-rohcInstanceType = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("compressor", 1), ("decompressor", 2),)))
-if mibBuilder.loadTexts: rohcInstanceType.setDescription('Type of the instance of ROHC. It is either a\n         compressor instance or a decompressor instance.')
-rohcInstanceFBChannelID = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 4), RohcChannelIdentifierOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcInstanceFBChannelID.setDescription('Identifier of the channel used for feedback.\n         If no feedback channel is used, the value of\n         this object is 0 .')
-rohcInstanceVendor = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 5), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcInstanceVendor.setDescription('An object identifier that identifies the vendor who\n         provides the implementation of robust header description.\n         This object identifier SHALL point to the object identifier\n         directly below the enterprise object identifier\n         {1 3 6 1 4 1} allocated for the vendor.  The value must be\n         the object identifier {0 0} if the vendor is not known.')
-rohcInstanceVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 6), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcInstanceVersion.setDescription('The version number of the implementation of robust header\n         compression.  The zero-length string shall be used if the\n         implementation does not have a version number.\n\n\n\n\n         It is suggested that the version number consist of one or\n         more decimal numbers separated by dots, where the first\n         number is called the major version number.')
-rohcInstanceDescr = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcInstanceDescr.setDescription('A textual description of the implementation.')
-rohcInstanceClockRes = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 8), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcInstanceClockRes.setDescription('This object indicates the system clock resolution in\n         units of milliseconds.  A zero (0) value means that there\n         is no clock available.')
-rohcInstanceMaxCID = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,16383))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcInstanceMaxCID.setDescription('The highest context ID number to be used by the\n         compressor.  Note that this parameter is not coupled to,\n         but in effect further constrained by,\n         rohcChannelLargeCIDs.')
-rohcInstanceLargeCIDs = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 10), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcInstanceLargeCIDs.setDescription('When retrieved, this boolean object returns false if\n         the short CID representation (0 bytes or 1 prefix byte,\n         covering CID 0 to 15) is used; it returns true, if the\n         embedded CID representation (1 or 2 embedded CID bytes\n         covering CID 0 to 16383) is used.')
-rohcInstanceMRRU = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 11), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcInstanceMRRU.setDescription('Maximum reconstructed reception unit.  This is the\n         size of the largest reconstructed unit in octets that\n         the decompressor is expected to reassemble from\n         segments (see RFC 3095, Section 5.2.5).  Note that this\n         size includes the CRC.  If MRRU is negotiated to be 0,\n         no segment headers are allowed on the channel.')
-rohcInstanceContextStorageTime = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 12), TimeInterval().clone(360000)).setUnits('centi-seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rohcInstanceContextStorageTime.setDescription('This object indicates the default maximum amount of time\n         information on a context belonging to this instance is kept\n         as entry in the rohcContextTable after the context is\n         expired or terminated.  The value of this object is used\n         to initialize rohcContexStorageTime object when a new\n         context is created.\n         Changing the value of an rohcInstanceContextStorageTime\n         instance does not affect any entry of the rohcContextTable\n         created previously.\n         ROHC-MIB implementations SHOULD store the set value of this\n         object persistently.')
-rohcInstanceStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcInstanceStatus.setDescription('Status of the instance of ROHC.')
-rohcInstanceContextsTotal = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcInstanceContextsTotal.setDescription('Counter of all contexts created by this instance.\n\n         Discontinuities in the value of this counter can\n         occur at re-initialization of the management\n         system, and at other times as indicated by the\n         value of ifCounterDiscontinuityTime.')
-rohcInstanceContextsCurrent = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 15), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcInstanceContextsCurrent.setDescription('Number of currently active contexts created by this\n         instance.')
-rohcInstancePackets = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcInstancePackets.setDescription('Counter of all packets passing this instance.\n\n         Discontinuities in the value of this counter can\n         occur at re-initialization of the management\n         system, and at other times as indicated by the\n         value of ifCounterDiscontinuityTime.')
-rohcInstanceIRs = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcInstanceIRs.setDescription('The number of all IR packets that are either sent\n         or received by this instance.\n\n         Discontinuities in the value of this counter can\n         occur at re-initialization of the management\n         system, and at other times as indicated by the\n\n\n\n         value of ifCounterDiscontinuityTime.')
-rohcInstanceIRDYNs = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcInstanceIRDYNs.setDescription('The number of all IR-DYN packets that are either sent\n         or received by this instance.\n\n         Discontinuities in the value of this counter can\n         occur at re-initialization of the management\n         system, and at other times as indicated by the\n         value of ifCounterDiscontinuityTime.')
-rohcInstanceFeedbacks = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcInstanceFeedbacks.setDescription('The number of all feedbacks that are either sent\n         or received by this instance.\n\n         Discontinuities in the value of this counter can\n         occur at re-initialization of the management\n         system, and at other times as indicated by the\n         value of ifCounterDiscontinuityTime.')
-rohcInstanceCompressionRatio = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 2, 1, 20), RohcCompressionRatio()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcInstanceCompressionRatio.setDescription('This object indicates the compression ratio so far over all\n         packets on the channel served by this instance.  The\n         compression is computed over all bytes of the IP packets\n         including the IP header but excluding all lower layer\n         headers.')
-rohcProfileTable = MibTable((1, 3, 6, 1, 2, 1, 112, 1, 1, 3), )
-if mibBuilder.loadTexts: rohcProfileTable.setDescription('This table lists a set of profiles supported by the\n         instance.')
-rohcProfileEntry = MibTableRow((1, 3, 6, 1, 2, 1, 112, 1, 1, 3, 1), ).setIndexNames((0, "ROHC-MIB", "rohcChannelID"), (0, "ROHC-MIB", "rohcProfile"))
-if mibBuilder.loadTexts: rohcProfileEntry.setDescription('An entry describing a particular profile supported by\n         the instance.  It is indexed by the rohcChannelID\n         identifying the instance and by the rohcProfile.')
-rohcProfile = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 3, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)))
-if mibBuilder.loadTexts: rohcProfile.setDescription("Identifier of a profile supported.  For a listing of\n         possible profile values, see the IANA registry for\n         'RObust Header Compression (ROHC) Profile Identifiers'\n         at http://www.iana.org/assignments/rohc-pro-ids")
-rohcProfileVendor = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 3, 1, 3), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcProfileVendor.setDescription('An object identifier that identifies the vendor who\n         provides the implementation of robust header description.\n         This object identifier SHALL point to the object identifier\n         directly below the enterprise object identifier\n         {1 3 6 1 4 1} allocated for the vendor.  The value must be\n         the object identifier {0 0} if the vendor is not known.')
-rohcProfileVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 3, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcProfileVersion.setDescription('The version number of the implementation of robust header\n         compression.  The zero-length string shall be used if the\n         implementation does not have a version number.\n\n         It is suggested that the version number consist of one or\n         more decimal numbers separated by dots, where the first\n         number is called the major version number.')
-rohcProfileDescr = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 3, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcProfileDescr.setDescription('A textual description of the implementation.')
-rohcProfileNegotiated = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 1, 3, 1, 6), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcProfileNegotiated.setDescription('When retrieved, this boolean object returns true\n         if the profile has been negotiated to be used at\n         the instance, i.e., is supported also be the\n         corresponding compressor/decompressor.')
-rohcContextTable = MibTable((1, 3, 6, 1, 2, 1, 112, 1, 2), )
-if mibBuilder.loadTexts: rohcContextTable.setDescription('This table lists and describes all compressor contexts\n         per instance.')
-rohcContextEntry = MibTableRow((1, 3, 6, 1, 2, 1, 112, 1, 2, 1), ).setIndexNames((0, "ROHC-MIB", "rohcChannelID"), (0, "ROHC-MIB", "rohcContextCID"))
-if mibBuilder.loadTexts: rohcContextEntry.setDescription('An entry describing a particular compressor context.')
-rohcContextCID = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,16383)))
-if mibBuilder.loadTexts: rohcContextCID.setDescription('The context identifier (CID) of this context.')
-rohcContextCIDState = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("unused", 1), ("active", 2), ("expired", 3), ("terminated", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextCIDState.setDescription("State of the CID.  When a CID is assigned to a context,\n         its state changes from `unused' to `active'.  The active\n         context may stop operation due to some explicit\n         signalling or after observing no packet for some specified\n         time.  In the first case then the CID state changes to\n         `terminated', in the latter case it changes to `expired'.\n         If the CID is re-used again for another context, the\n         state changes back to `active'.")
-rohcContextProfile = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextProfile.setDescription('Identifier of the profile for this context.\n         The profile is identified by its index in the\n         rohcProfileTable for this instance.  There MUST exist a\n         corresponding entry in the rohcProfileTable using the\n         value of rohcContextProfile as second part of the index\n         (and using the same rohcChannelID as first part of the\n         index).')
-rohcContextDecompressorDepth = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextDecompressorDepth.setDescription('This object indicates whether reverse decompression, for\n         example as described in RFC 3095, Section 6.1, is used\n         on this channel or not, and if used, to what extent.\n\n\n\n\n         Its value is only valid for decompressor contexts, i.e.,\n         if rohcInstanceType has the value decompressor(2).  For\n         compressor contexts where rohcInstanceType has the value\n         compressor(1), the value of this object is irrelevant\n         and MUST be set to zero (0).\n\n         The value of the reverse decompression depth indicates\n         the maximum number of packets that are buffered, and thus\n         possibly be reverse decompressed by the decompressor.\n         A zero (0) value means that reverse decompression is not\n         used.')
-rohcContextStorageTime = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 6), TimeInterval()).setUnits('centi-seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rohcContextStorageTime.setDescription('The value of this object specifies how long this row\n         can exist in the rohcContextTable after the\n         rohcContextCIDState switched to expired(3) or\n         terminated(4).  This object returns  the remaining time\n         that the row may exist before it is aged out.  The object\n         is initialized with the value of the  associated\n         rohcContextStorageTime object.  After expiration or\n         termination of the context, the value of this object ticks\n         backwards.  The entry in the rohcContextTable is destroyed\n         when the value reaches 0.\n\n         The value of this object may be set in order to increase or\n         reduce the remaining time that the row may exist.  Setting\n         the value to 0 will destroy this entry as soon as the\n         rochContextCIDState has the value expired(3) or\n         terminated(4).\n\n         Note that there is no guarantee that the row is stored as\n         long as this object indicates.  In case of limited CID\n         space, the instance may re-use a CID before the storage\n         time of the corresponding row in rohcContextTable reaches\n         the value of 0.  In this case the information stored in this\n         row is not anymore available.')
-rohcContextActivationTime = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 7), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextActivationTime.setDescription("The date and time when the context started to be able to\n         compress packets or decompress packets, respectively.\n         The value '0000000000000000'H is returned if the context\n         has not been activated yet.")
-rohcContextDeactivationTime = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 8), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextDeactivationTime.setDescription("The date and time when the context stopped being able to\n         compress packets or decompress packets, respectively,\n         because it expired or was terminated for other reasons.\n         The value '0000000000000000'H is returned if the context\n         has not been deactivated yet.")
-rohcContextPackets = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextPackets.setDescription('The number of all packets passing this context.\n\n         Discontinuities in the value of this counter can\n         occur at re-initialization of the management\n         system, and at other times as indicated by the\n         value of ifCounterDiscontinuityTime.  For checking\n         ifCounterDiscontinuityTime, the interface index is\n         required.  It can be determined by reading the\n         rohcChannelTable.')
-rohcContextIRs = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextIRs.setDescription('The number of all IR packets sent or received,\n         respectively, by this context.\n\n         Discontinuities in the value of this counter can\n         occur at re-initialization of the management\n         system, and at other times as indicated by the\n\n\n\n         value of ifCounterDiscontinuityTime.  For checking\n         ifCounterDiscontinuityTime, the interface index is\n         required.  It can be determined by reading the\n         rohcChannelTable.')
-rohcContextIRDYNs = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextIRDYNs.setDescription('The number of all IR-DYN packets sent or received,\n         respectively, by this context.\n\n         Discontinuities in the value of this counter can\n         occur at re-initialization of the management\n         system, and at other times as indicated by the\n         value of ifCounterDiscontinuityTime.  For checking\n         ifCounterDiscontinuityTime, the interface index is\n         required.  It can be determined by reading the\n         rohcChannelTable.')
-rohcContextFeedbacks = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextFeedbacks.setDescription('The number of all feedbacks sent or received,\n         respectively, by this context.\n\n         Discontinuities in the value of this counter can\n         occur at re-initialization of the management\n         system, and at other times as indicated by the\n         value of ifCounterDiscontinuityTime.  For checking\n         ifCounterDiscontinuityTime, the interface index is\n         required.  It can be determined by reading the\n         rohcChannelTable.')
-rohcContextDecompressorFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextDecompressorFailures.setDescription('The number of all decompressor failures so far in this\n         context. The number is only valid for decompressor\n         contexts, i.e., if rohcInstanceType has the value\n         decompressor(2).\n\n         Discontinuities in the value of this counter can\n         occur at re-initialization of the management\n         system, and at other times as indicated by the\n         value of ifCounterDiscontinuityTime.  For checking\n         ifCounterDiscontinuityTime, the interface index is\n         required.  It can be determined by reading the\n         rohcChannelTable.')
-rohcContextDecompressorRepairs = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextDecompressorRepairs.setDescription('The number of all context repairs so far in this\n         context.  The number is only valid for decompressor\n         contexts, i.e., if rohcInstanceType has the value\n         decompressor(2).\n\n         Discontinuities in the value of this counter can\n         occur at re-initialization of the management\n         system, and at other times as indicated by the\n         value of ifCounterDiscontinuityTime.  For checking\n         ifCounterDiscontinuityTime, the interface index is\n         required.  It can be determined by reading the\n         rohcChannelTable.')
-rohcContextAllPacketsRatio = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 15), RohcCompressionRatio()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextAllPacketsRatio.setDescription('This object indicates the compression ratio so far over all\n         packets passing this context.  The compression is computed\n         over all bytes of the IP packets including the IP header\n         but excluding all lower layer headers.')
-rohcContextAllHeadersRatio = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 16), RohcCompressionRatio()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextAllHeadersRatio.setDescription('This object indicates the compression ratio so far over all\n         packet headers passing this context.  The compression is\n         computed over all bytes of all headers that are subject to\n         compression for the used profile.')
-rohcContextAllPacketsMeanSize = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 17), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextAllPacketsMeanSize.setDescription('This object indicates the mean compressed packet size\n         of all packets passing this context.  The packet size\n         includes the IP header and payload but excludes all lower\n         layer headers.  The mean value is given in byte rounded\n         to the next integer value.')
-rohcContextAllHeadersMeanSize = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 18), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextAllHeadersMeanSize.setDescription('This object indicates the mean compressed packet header size\n         of all packets passing this context.  The packet header size\n         is the sum of the size of all headers of a packet that are\n         subject to compression for the used profile.  The mean value\n         is given in byte rounded to the next integer value.')
-rohcContextLastPacketsRatio = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 19), RohcCompressionRatio()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextLastPacketsRatio.setDescription('This object indicates the compression ratio\n         concerning the last 16 packets passing this context\n         or concerning all packets passing this context\n         if they are less than 16, so far.  The compression is\n         computed over all bytes of the IP packets including the IP\n         header but excluding all lower layer headers.')
-rohcContextLastHeadersRatio = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 20), RohcCompressionRatio()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextLastHeadersRatio.setDescription('This object indicates the compression ratio concerning the\n         headers of the last 16 packets passing this context or\n         concerning the headers of all packets passing this context\n         if they are less than 16, so far.  The compression is\n         computed over all bytes of all headers that are subject to\n         compression for the used profile.')
-rohcContextLastPacketsMeanSize = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 21), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextLastPacketsMeanSize.setDescription('This object indicates the mean compressed packet size\n         concerning the last 16 packets passing this context or\n         concerning all packets passing this context if they are\n         less than 16, so far.  The packet size includes the IP\n         header and payload but excludes all lower layer headers.\n         The mean value is given in byte rounded to the next\n         integer value.')
-rohcContextLastHeadersMeanSize = MibTableColumn((1, 3, 6, 1, 2, 1, 112, 1, 2, 1, 22), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcContextLastHeadersMeanSize.setDescription('This object indicates the mean compressed packet header size\n         concerning the last 16 packets passing this context or\n         concerning all packets passing this context if they are\n         less than 16, so far.  The packet header size is the sum of\n         the size of all headers of a packet that are subject to\n         compression for the used profile.  The mean value is given\n         in byte rounded to the next integer value.')
-rohcCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 112, 2, 1))
-rohcGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 112, 2, 2))
-rohcCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 112, 2, 1, 1)).setObjects(*(("ROHC-MIB", "rohcInstanceGroup"), ("ROHC-MIB", "rohcContextGroup"), ("ROHC-MIB", "rohcStatisticsGroup"), ("ROHC-MIB", "rohcTimerGroup"), ("ROHC-MIB", "rohcContextStatisticsGroup"),))
-if mibBuilder.loadTexts: rohcCompliance.setDescription('The compliance statement for SNMP entities that implement\n         the ROHC-MIB.\n\n         Note that compliance with this compliance\n         statement requires compliance with the\n         ifCompliance3 MODULE-COMPLIANCE statement of the\n         IF-MIB (RFC2863).')
-rohcInstanceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 112, 2, 2, 2)).setObjects(*(("ROHC-MIB", "rohcChannelType"), ("ROHC-MIB", "rohcChannelFeedbackFor"), ("ROHC-MIB", "rohcChannelDescr"), ("ROHC-MIB", "rohcChannelStatus"), ("ROHC-MIB", "rohcInstanceFBChannelID"), ("ROHC-MIB", "rohcInstanceVendor"), ("ROHC-MIB", "rohcInstanceVersion"), ("ROHC-MIB", "rohcInstanceDescr"), ("ROHC-MIB", "rohcInstanceClockRes"), ("ROHC-MIB", "rohcInstanceMaxCID"), ("ROHC-MIB", "rohcInstanceLargeCIDs"), ("ROHC-MIB", "rohcInstanceMRRU"), ("ROHC-MIB", "rohcInstanceStatus"), ("ROHC-MIB", "rohcProfileVendor"), ("ROHC-MIB", "rohcProfileVersion"), ("ROHC-MIB", "rohcProfileDescr"), ("ROHC-MIB", "rohcProfileNegotiated"),))
-if mibBuilder.loadTexts: rohcInstanceGroup.setDescription('A collection of objects providing information about\n         ROHC instances, used channels and available profiles.')
-rohcStatisticsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 112, 2, 2, 4)).setObjects(*(("ROHC-MIB", "rohcInstanceContextsTotal"), ("ROHC-MIB", "rohcInstanceContextsCurrent"), ("ROHC-MIB", "rohcInstancePackets"), ("ROHC-MIB", "rohcInstanceIRs"), ("ROHC-MIB", "rohcInstanceIRDYNs"), ("ROHC-MIB", "rohcInstanceFeedbacks"), ("ROHC-MIB", "rohcInstanceCompressionRatio"),))
-if mibBuilder.loadTexts: rohcStatisticsGroup.setDescription('A collection of objects providing ROHC statistics.')
-rohcContextGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 112, 2, 2, 5)).setObjects(*(("ROHC-MIB", "rohcContextCIDState"), ("ROHC-MIB", "rohcContextProfile"), ("ROHC-MIB", "rohcContextDecompressorDepth"),))
-if mibBuilder.loadTexts: rohcContextGroup.setDescription('A collection of objects providing information about\n         ROHC compressor contexts and decompressor contexts.')
-rohcTimerGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 112, 2, 2, 6)).setObjects(*(("ROHC-MIB", "rohcInstanceContextStorageTime"), ("ROHC-MIB", "rohcContextStorageTime"), ("ROHC-MIB", "rohcContextActivationTime"), ("ROHC-MIB", "rohcContextDeactivationTime"),))
-if mibBuilder.loadTexts: rohcTimerGroup.setDescription('A collection of objects providing statistical information\n         about ROHC compressor contexts and decompressor contexts.')
-rohcContextStatisticsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 112, 2, 2, 7)).setObjects(*(("ROHC-MIB", "rohcContextPackets"), ("ROHC-MIB", "rohcContextIRs"), ("ROHC-MIB", "rohcContextIRDYNs"), ("ROHC-MIB", "rohcContextFeedbacks"), ("ROHC-MIB", "rohcContextDecompressorFailures"), ("ROHC-MIB", "rohcContextDecompressorRepairs"), ("ROHC-MIB", "rohcContextAllPacketsRatio"), ("ROHC-MIB", "rohcContextAllHeadersRatio"), ("ROHC-MIB", "rohcContextAllPacketsMeanSize"), ("ROHC-MIB", "rohcContextAllHeadersMeanSize"), ("ROHC-MIB", "rohcContextLastPacketsRatio"), ("ROHC-MIB", "rohcContextLastHeadersRatio"), ("ROHC-MIB", "rohcContextLastPacketsMeanSize"), ("ROHC-MIB", "rohcContextLastHeadersMeanSize"),))
-if mibBuilder.loadTexts: rohcContextStatisticsGroup.setDescription('A collection of objects providing statistical information\n         about ROHC compressor contexts and decompressor contexts.')
-mibBuilder.exportSymbols("ROHC-MIB", rohcProfileVendor=rohcProfileVendor, rohcInstanceEntry=rohcInstanceEntry, rohcContextDecompressorDepth=rohcContextDecompressorDepth, rohcInstanceIRs=rohcInstanceIRs, rohcChannelID=rohcChannelID, rohcContextTable=rohcContextTable, rohcContextDeactivationTime=rohcContextDeactivationTime, rohcInstanceContextsCurrent=rohcInstanceContextsCurrent, rohcInstanceTable=rohcInstanceTable, rohcInstanceMaxCID=rohcInstanceMaxCID, rohcInstanceFBChannelID=rohcInstanceFBChannelID, RohcChannelIdentifierOrZero=RohcChannelIdentifierOrZero, rohcContextFeedbacks=rohcContextFeedbacks, rohcMIB=rohcMIB, rohcTimerGroup=rohcTimerGroup, rohcContextDecompressorRepairs=rohcContextDecompressorRepairs, rohcInstanceContextStorageTime=rohcInstanceContextStorageTime, rohcInstanceGroup=rohcInstanceGroup, RohcCompressionRatio=RohcCompressionRatio, rohcContextPackets=rohcContextPackets, rohcInstanceLargeCIDs=rohcInstanceLargeCIDs, rohcStatisticsGroup=rohcStatisticsGroup, rohcProfileVersion=rohcProfileVersion, rohcContextLastPacketsMeanSize=rohcContextLastPacketsMeanSize, rohcChannelDescr=rohcChannelDescr, rohcObjects=rohcObjects, rohcContextIRs=rohcContextIRs, rohcContextAllHeadersMeanSize=rohcContextAllHeadersMeanSize, rohcInstancePackets=rohcInstancePackets, rohcContextDecompressorFailures=rohcContextDecompressorFailures, rohcCompliances=rohcCompliances, rohcInstanceStatus=rohcInstanceStatus, rohcContextLastPacketsRatio=rohcContextLastPacketsRatio, rohcInstanceVendor=rohcInstanceVendor, rohcContextLastHeadersMeanSize=rohcContextLastHeadersMeanSize, rohcContextProfile=rohcContextProfile, rohcChannelEntry=rohcChannelEntry, rohcInstanceVersion=rohcInstanceVersion, rohcInstanceFeedbacks=rohcInstanceFeedbacks, rohcContextStorageTime=rohcContextStorageTime, rohcContextAllPacketsMeanSize=rohcContextAllPacketsMeanSize, rohcChannelTable=rohcChannelTable, rohcContextActivationTime=rohcContextActivationTime, rohcContextIRDYNs=rohcContextIRDYNs, rohcContextCID=rohcContextCID, rohcInstanceClockRes=rohcInstanceClockRes, rohcContextCIDState=rohcContextCIDState, rohcProfile=rohcProfile, rohcContextLastHeadersRatio=rohcContextLastHeadersRatio, rohcInstanceCompressionRatio=rohcInstanceCompressionRatio, rohcProfileDescr=rohcProfileDescr, rohcGroups=rohcGroups, rohcChannelStatus=rohcChannelStatus, rohcCompliance=rohcCompliance, rohcProfileNegotiated=rohcProfileNegotiated, PYSNMP_MODULE_ID=rohcMIB, RohcChannelIdentifier=RohcChannelIdentifier, rohcProfileEntry=rohcProfileEntry, rohcChannelType=rohcChannelType, rohcContextGroup=rohcContextGroup, rohcInstanceMRRU=rohcInstanceMRRU, rohcInstanceIRDYNs=rohcInstanceIRDYNs, rohcContextEntry=rohcContextEntry, rohcChannelFeedbackFor=rohcChannelFeedbackFor, rohcContextStatisticsGroup=rohcContextStatisticsGroup, rohcContextAllHeadersRatio=rohcContextAllHeadersRatio, rohcProfileTable=rohcProfileTable, rohcConformance=rohcConformance, rohcInstanceType=rohcInstanceType, rohcInstanceContextsTotal=rohcInstanceContextsTotal, rohcInstanceDescr=rohcInstanceDescr, rohcInstanceObjects=rohcInstanceObjects, rohcContextAllPacketsRatio=rohcContextAllPacketsRatio)
+_AH='rohcContextStatisticsGroup'
+_AG='rohcTimerGroup'
+_AF='rohcStatisticsGroup'
+_AE='rohcContextGroup'
+_AD='rohcInstanceGroup'
+_AC='rohcContextLastHeadersMeanSize'
+_AB='rohcContextLastPacketsMeanSize'
+_AA='rohcContextLastHeadersRatio'
+_A9='rohcContextLastPacketsRatio'
+_A8='rohcContextAllHeadersMeanSize'
+_A7='rohcContextAllPacketsMeanSize'
+_A6='rohcContextAllHeadersRatio'
+_A5='rohcContextAllPacketsRatio'
+_A4='rohcContextDecompressorRepairs'
+_A3='rohcContextDecompressorFailures'
+_A2='rohcContextFeedbacks'
+_A1='rohcContextIRDYNs'
+_A0='rohcContextIRs'
+_z='rohcContextPackets'
+_y='rohcContextDeactivationTime'
+_x='rohcContextActivationTime'
+_w='rohcContextStorageTime'
+_v='rohcInstanceContextStorageTime'
+_u='rohcContextDecompressorDepth'
+_t='rohcContextProfile'
+_s='rohcContextCIDState'
+_r='rohcInstanceCompressionRatio'
+_q='rohcInstanceFeedbacks'
+_p='rohcInstanceIRDYNs'
+_o='rohcInstanceIRs'
+_n='rohcInstancePackets'
+_m='rohcInstanceContextsCurrent'
+_l='rohcInstanceContextsTotal'
+_k='rohcProfileNegotiated'
+_j='rohcProfileDescr'
+_i='rohcProfileVersion'
+_h='rohcProfileVendor'
+_g='rohcInstanceStatus'
+_f='rohcInstanceMRRU'
+_e='rohcInstanceLargeCIDs'
+_d='rohcInstanceMaxCID'
+_c='rohcInstanceClockRes'
+_b='rohcInstanceDescr'
+_a='rohcInstanceVersion'
+_Z='rohcInstanceVendor'
+_Y='rohcInstanceFBChannelID'
+_X='rohcChannelStatus'
+_W='rohcChannelDescr'
+_V='rohcChannelFeedbackFor'
+_U='rohcChannelType'
+_T='0000000000000000'
+_S='rohcContextCID'
+_R='rohcProfile'
+_Q='centi-seconds'
+_P='read-write'
+_O='rohcInstanceType'
+_N='disabled'
+_M='enabled'
+_L='TimeInterval'
+_K='DateAndTime'
+_J='SnmpAdminString'
+_I='ifIndex'
+_H='IF-MIB'
+_G='not-accessible'
+_F='rohcChannelID'
+_E='Unsigned32'
+_D='Integer32'
+_C='read-only'
+_B='ROHC-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ifIndex,=mibBuilder.importSymbols(_H,_I)
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_J)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso','mib-2')
+DateAndTime,DisplayString,PhysAddress,TextualConvention,TimeInterval,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_K,'DisplayString','PhysAddress','TextualConvention',_L,'TruthValue')
+rohcMIB=ModuleIdentity((1,3,6,1,2,1,112))
+if mibBuilder.loadTexts:rohcMIB.setRevisions(('2004-06-03 00:00',))
+class RohcChannelIdentifier(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+class RohcChannelIdentifierOrZero(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+class RohcCompressionRatio(TextualConvention,Unsigned32):status=_A;displayHint='d'
+_RohcObjects_ObjectIdentity=ObjectIdentity
+rohcObjects=_RohcObjects_ObjectIdentity((1,3,6,1,2,1,112,1))
+_RohcInstanceObjects_ObjectIdentity=ObjectIdentity
+rohcInstanceObjects=_RohcInstanceObjects_ObjectIdentity((1,3,6,1,2,1,112,1,1))
+_RohcChannelTable_Object=MibTable
+rohcChannelTable=_RohcChannelTable_Object((1,3,6,1,2,1,112,1,1,1))
+if mibBuilder.loadTexts:rohcChannelTable.setStatus(_A)
+_RohcChannelEntry_Object=MibTableRow
+rohcChannelEntry=_RohcChannelEntry_Object((1,3,6,1,2,1,112,1,1,1,1))
+rohcChannelEntry.setIndexNames((0,_H,_I),(0,_B,_F))
+if mibBuilder.loadTexts:rohcChannelEntry.setStatus(_A)
+_RohcChannelID_Type=RohcChannelIdentifier
+_RohcChannelID_Object=MibTableColumn
+rohcChannelID=_RohcChannelID_Object((1,3,6,1,2,1,112,1,1,1,1,2),_RohcChannelID_Type())
+rohcChannelID.setMaxAccess(_G)
+if mibBuilder.loadTexts:rohcChannelID.setStatus(_A)
+class _RohcChannelType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('notInUse',1),('rohc',2),('dedicatedFeedback',3)))
+_RohcChannelType_Type.__name__=_D
+_RohcChannelType_Object=MibTableColumn
+rohcChannelType=_RohcChannelType_Object((1,3,6,1,2,1,112,1,1,1,1,3),_RohcChannelType_Type())
+rohcChannelType.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcChannelType.setStatus(_A)
+_RohcChannelFeedbackFor_Type=RohcChannelIdentifierOrZero
+_RohcChannelFeedbackFor_Object=MibTableColumn
+rohcChannelFeedbackFor=_RohcChannelFeedbackFor_Object((1,3,6,1,2,1,112,1,1,1,1,4),_RohcChannelFeedbackFor_Type())
+rohcChannelFeedbackFor.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcChannelFeedbackFor.setStatus(_A)
+_RohcChannelDescr_Type=SnmpAdminString
+_RohcChannelDescr_Object=MibTableColumn
+rohcChannelDescr=_RohcChannelDescr_Object((1,3,6,1,2,1,112,1,1,1,1,5),_RohcChannelDescr_Type())
+rohcChannelDescr.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcChannelDescr.setStatus(_A)
+class _RohcChannelStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_M,1),(_N,2)))
+_RohcChannelStatus_Type.__name__=_D
+_RohcChannelStatus_Object=MibTableColumn
+rohcChannelStatus=_RohcChannelStatus_Object((1,3,6,1,2,1,112,1,1,1,1,6),_RohcChannelStatus_Type())
+rohcChannelStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcChannelStatus.setStatus(_A)
+_RohcInstanceTable_Object=MibTable
+rohcInstanceTable=_RohcInstanceTable_Object((1,3,6,1,2,1,112,1,1,2))
+if mibBuilder.loadTexts:rohcInstanceTable.setStatus(_A)
+_RohcInstanceEntry_Object=MibTableRow
+rohcInstanceEntry=_RohcInstanceEntry_Object((1,3,6,1,2,1,112,1,1,2,1))
+rohcInstanceEntry.setIndexNames((0,_H,_I),(0,_B,_O),(0,_B,_F))
+if mibBuilder.loadTexts:rohcInstanceEntry.setStatus(_A)
+class _RohcInstanceType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('compressor',1),('decompressor',2)))
+_RohcInstanceType_Type.__name__=_D
+_RohcInstanceType_Object=MibTableColumn
+rohcInstanceType=_RohcInstanceType_Object((1,3,6,1,2,1,112,1,1,2,1,2),_RohcInstanceType_Type())
+rohcInstanceType.setMaxAccess(_G)
+if mibBuilder.loadTexts:rohcInstanceType.setStatus(_A)
+_RohcInstanceFBChannelID_Type=RohcChannelIdentifierOrZero
+_RohcInstanceFBChannelID_Object=MibTableColumn
+rohcInstanceFBChannelID=_RohcInstanceFBChannelID_Object((1,3,6,1,2,1,112,1,1,2,1,4),_RohcInstanceFBChannelID_Type())
+rohcInstanceFBChannelID.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcInstanceFBChannelID.setStatus(_A)
+_RohcInstanceVendor_Type=ObjectIdentifier
+_RohcInstanceVendor_Object=MibTableColumn
+rohcInstanceVendor=_RohcInstanceVendor_Object((1,3,6,1,2,1,112,1,1,2,1,5),_RohcInstanceVendor_Type())
+rohcInstanceVendor.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcInstanceVendor.setStatus(_A)
+class _RohcInstanceVersion_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_RohcInstanceVersion_Type.__name__=_J
+_RohcInstanceVersion_Object=MibTableColumn
+rohcInstanceVersion=_RohcInstanceVersion_Object((1,3,6,1,2,1,112,1,1,2,1,6),_RohcInstanceVersion_Type())
+rohcInstanceVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcInstanceVersion.setStatus(_A)
+_RohcInstanceDescr_Type=SnmpAdminString
+_RohcInstanceDescr_Object=MibTableColumn
+rohcInstanceDescr=_RohcInstanceDescr_Object((1,3,6,1,2,1,112,1,1,2,1,7),_RohcInstanceDescr_Type())
+rohcInstanceDescr.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcInstanceDescr.setStatus(_A)
+_RohcInstanceClockRes_Type=Unsigned32
+_RohcInstanceClockRes_Object=MibTableColumn
+rohcInstanceClockRes=_RohcInstanceClockRes_Object((1,3,6,1,2,1,112,1,1,2,1,8),_RohcInstanceClockRes_Type())
+rohcInstanceClockRes.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcInstanceClockRes.setStatus(_A)
+if mibBuilder.loadTexts:rohcInstanceClockRes.setUnits('milliseconds')
+class _RohcInstanceMaxCID_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16383))
+_RohcInstanceMaxCID_Type.__name__=_E
+_RohcInstanceMaxCID_Object=MibTableColumn
+rohcInstanceMaxCID=_RohcInstanceMaxCID_Object((1,3,6,1,2,1,112,1,1,2,1,9),_RohcInstanceMaxCID_Type())
+rohcInstanceMaxCID.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcInstanceMaxCID.setStatus(_A)
+_RohcInstanceLargeCIDs_Type=TruthValue
+_RohcInstanceLargeCIDs_Object=MibTableColumn
+rohcInstanceLargeCIDs=_RohcInstanceLargeCIDs_Object((1,3,6,1,2,1,112,1,1,2,1,10),_RohcInstanceLargeCIDs_Type())
+rohcInstanceLargeCIDs.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcInstanceLargeCIDs.setStatus(_A)
+_RohcInstanceMRRU_Type=Unsigned32
+_RohcInstanceMRRU_Object=MibTableColumn
+rohcInstanceMRRU=_RohcInstanceMRRU_Object((1,3,6,1,2,1,112,1,1,2,1,11),_RohcInstanceMRRU_Type())
+rohcInstanceMRRU.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcInstanceMRRU.setStatus(_A)
+class _RohcInstanceContextStorageTime_Type(TimeInterval):defaultValue=360000
+_RohcInstanceContextStorageTime_Type.__name__=_L
+_RohcInstanceContextStorageTime_Object=MibTableColumn
+rohcInstanceContextStorageTime=_RohcInstanceContextStorageTime_Object((1,3,6,1,2,1,112,1,1,2,1,12),_RohcInstanceContextStorageTime_Type())
+rohcInstanceContextStorageTime.setMaxAccess(_P)
+if mibBuilder.loadTexts:rohcInstanceContextStorageTime.setStatus(_A)
+if mibBuilder.loadTexts:rohcInstanceContextStorageTime.setUnits(_Q)
+class _RohcInstanceStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_M,1),(_N,2)))
+_RohcInstanceStatus_Type.__name__=_D
+_RohcInstanceStatus_Object=MibTableColumn
+rohcInstanceStatus=_RohcInstanceStatus_Object((1,3,6,1,2,1,112,1,1,2,1,13),_RohcInstanceStatus_Type())
+rohcInstanceStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcInstanceStatus.setStatus(_A)
+_RohcInstanceContextsTotal_Type=Counter32
+_RohcInstanceContextsTotal_Object=MibTableColumn
+rohcInstanceContextsTotal=_RohcInstanceContextsTotal_Object((1,3,6,1,2,1,112,1,1,2,1,14),_RohcInstanceContextsTotal_Type())
+rohcInstanceContextsTotal.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcInstanceContextsTotal.setStatus(_A)
+_RohcInstanceContextsCurrent_Type=Unsigned32
+_RohcInstanceContextsCurrent_Object=MibTableColumn
+rohcInstanceContextsCurrent=_RohcInstanceContextsCurrent_Object((1,3,6,1,2,1,112,1,1,2,1,15),_RohcInstanceContextsCurrent_Type())
+rohcInstanceContextsCurrent.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcInstanceContextsCurrent.setStatus(_A)
+_RohcInstancePackets_Type=Counter32
+_RohcInstancePackets_Object=MibTableColumn
+rohcInstancePackets=_RohcInstancePackets_Object((1,3,6,1,2,1,112,1,1,2,1,16),_RohcInstancePackets_Type())
+rohcInstancePackets.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcInstancePackets.setStatus(_A)
+_RohcInstanceIRs_Type=Counter32
+_RohcInstanceIRs_Object=MibTableColumn
+rohcInstanceIRs=_RohcInstanceIRs_Object((1,3,6,1,2,1,112,1,1,2,1,17),_RohcInstanceIRs_Type())
+rohcInstanceIRs.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcInstanceIRs.setStatus(_A)
+_RohcInstanceIRDYNs_Type=Counter32
+_RohcInstanceIRDYNs_Object=MibTableColumn
+rohcInstanceIRDYNs=_RohcInstanceIRDYNs_Object((1,3,6,1,2,1,112,1,1,2,1,18),_RohcInstanceIRDYNs_Type())
+rohcInstanceIRDYNs.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcInstanceIRDYNs.setStatus(_A)
+_RohcInstanceFeedbacks_Type=Counter32
+_RohcInstanceFeedbacks_Object=MibTableColumn
+rohcInstanceFeedbacks=_RohcInstanceFeedbacks_Object((1,3,6,1,2,1,112,1,1,2,1,19),_RohcInstanceFeedbacks_Type())
+rohcInstanceFeedbacks.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcInstanceFeedbacks.setStatus(_A)
+_RohcInstanceCompressionRatio_Type=RohcCompressionRatio
+_RohcInstanceCompressionRatio_Object=MibTableColumn
+rohcInstanceCompressionRatio=_RohcInstanceCompressionRatio_Object((1,3,6,1,2,1,112,1,1,2,1,20),_RohcInstanceCompressionRatio_Type())
+rohcInstanceCompressionRatio.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcInstanceCompressionRatio.setStatus(_A)
+_RohcProfileTable_Object=MibTable
+rohcProfileTable=_RohcProfileTable_Object((1,3,6,1,2,1,112,1,1,3))
+if mibBuilder.loadTexts:rohcProfileTable.setStatus(_A)
+_RohcProfileEntry_Object=MibTableRow
+rohcProfileEntry=_RohcProfileEntry_Object((1,3,6,1,2,1,112,1,1,3,1))
+rohcProfileEntry.setIndexNames((0,_B,_F),(0,_B,_R))
+if mibBuilder.loadTexts:rohcProfileEntry.setStatus(_A)
+class _RohcProfile_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_RohcProfile_Type.__name__=_E
+_RohcProfile_Object=MibTableColumn
+rohcProfile=_RohcProfile_Object((1,3,6,1,2,1,112,1,1,3,1,2),_RohcProfile_Type())
+rohcProfile.setMaxAccess(_G)
+if mibBuilder.loadTexts:rohcProfile.setStatus(_A)
+_RohcProfileVendor_Type=ObjectIdentifier
+_RohcProfileVendor_Object=MibTableColumn
+rohcProfileVendor=_RohcProfileVendor_Object((1,3,6,1,2,1,112,1,1,3,1,3),_RohcProfileVendor_Type())
+rohcProfileVendor.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcProfileVendor.setStatus(_A)
+class _RohcProfileVersion_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_RohcProfileVersion_Type.__name__=_J
+_RohcProfileVersion_Object=MibTableColumn
+rohcProfileVersion=_RohcProfileVersion_Object((1,3,6,1,2,1,112,1,1,3,1,4),_RohcProfileVersion_Type())
+rohcProfileVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcProfileVersion.setStatus(_A)
+_RohcProfileDescr_Type=SnmpAdminString
+_RohcProfileDescr_Object=MibTableColumn
+rohcProfileDescr=_RohcProfileDescr_Object((1,3,6,1,2,1,112,1,1,3,1,5),_RohcProfileDescr_Type())
+rohcProfileDescr.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcProfileDescr.setStatus(_A)
+_RohcProfileNegotiated_Type=TruthValue
+_RohcProfileNegotiated_Object=MibTableColumn
+rohcProfileNegotiated=_RohcProfileNegotiated_Object((1,3,6,1,2,1,112,1,1,3,1,6),_RohcProfileNegotiated_Type())
+rohcProfileNegotiated.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcProfileNegotiated.setStatus(_A)
+_RohcContextTable_Object=MibTable
+rohcContextTable=_RohcContextTable_Object((1,3,6,1,2,1,112,1,2))
+if mibBuilder.loadTexts:rohcContextTable.setStatus(_A)
+_RohcContextEntry_Object=MibTableRow
+rohcContextEntry=_RohcContextEntry_Object((1,3,6,1,2,1,112,1,2,1))
+rohcContextEntry.setIndexNames((0,_B,_F),(0,_B,_S))
+if mibBuilder.loadTexts:rohcContextEntry.setStatus(_A)
+class _RohcContextCID_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,16383))
+_RohcContextCID_Type.__name__=_E
+_RohcContextCID_Object=MibTableColumn
+rohcContextCID=_RohcContextCID_Object((1,3,6,1,2,1,112,1,2,1,2),_RohcContextCID_Type())
+rohcContextCID.setMaxAccess(_G)
+if mibBuilder.loadTexts:rohcContextCID.setStatus(_A)
+class _RohcContextCIDState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('unused',1),('active',2),('expired',3),('terminated',4)))
+_RohcContextCIDState_Type.__name__=_D
+_RohcContextCIDState_Object=MibTableColumn
+rohcContextCIDState=_RohcContextCIDState_Object((1,3,6,1,2,1,112,1,2,1,3),_RohcContextCIDState_Type())
+rohcContextCIDState.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextCIDState.setStatus(_A)
+class _RohcContextProfile_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_RohcContextProfile_Type.__name__=_E
+_RohcContextProfile_Object=MibTableColumn
+rohcContextProfile=_RohcContextProfile_Object((1,3,6,1,2,1,112,1,2,1,4),_RohcContextProfile_Type())
+rohcContextProfile.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextProfile.setStatus(_A)
+_RohcContextDecompressorDepth_Type=Unsigned32
+_RohcContextDecompressorDepth_Object=MibTableColumn
+rohcContextDecompressorDepth=_RohcContextDecompressorDepth_Object((1,3,6,1,2,1,112,1,2,1,5),_RohcContextDecompressorDepth_Type())
+rohcContextDecompressorDepth.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextDecompressorDepth.setStatus(_A)
+_RohcContextStorageTime_Type=TimeInterval
+_RohcContextStorageTime_Object=MibTableColumn
+rohcContextStorageTime=_RohcContextStorageTime_Object((1,3,6,1,2,1,112,1,2,1,6),_RohcContextStorageTime_Type())
+rohcContextStorageTime.setMaxAccess(_P)
+if mibBuilder.loadTexts:rohcContextStorageTime.setStatus(_A)
+if mibBuilder.loadTexts:rohcContextStorageTime.setUnits(_Q)
+class _RohcContextActivationTime_Type(DateAndTime):defaultHexValue=_T
+_RohcContextActivationTime_Type.__name__=_K
+_RohcContextActivationTime_Object=MibTableColumn
+rohcContextActivationTime=_RohcContextActivationTime_Object((1,3,6,1,2,1,112,1,2,1,7),_RohcContextActivationTime_Type())
+rohcContextActivationTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextActivationTime.setStatus(_A)
+class _RohcContextDeactivationTime_Type(DateAndTime):defaultHexValue=_T
+_RohcContextDeactivationTime_Type.__name__=_K
+_RohcContextDeactivationTime_Object=MibTableColumn
+rohcContextDeactivationTime=_RohcContextDeactivationTime_Object((1,3,6,1,2,1,112,1,2,1,8),_RohcContextDeactivationTime_Type())
+rohcContextDeactivationTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextDeactivationTime.setStatus(_A)
+_RohcContextPackets_Type=Counter32
+_RohcContextPackets_Object=MibTableColumn
+rohcContextPackets=_RohcContextPackets_Object((1,3,6,1,2,1,112,1,2,1,9),_RohcContextPackets_Type())
+rohcContextPackets.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextPackets.setStatus(_A)
+_RohcContextIRs_Type=Counter32
+_RohcContextIRs_Object=MibTableColumn
+rohcContextIRs=_RohcContextIRs_Object((1,3,6,1,2,1,112,1,2,1,10),_RohcContextIRs_Type())
+rohcContextIRs.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextIRs.setStatus(_A)
+_RohcContextIRDYNs_Type=Counter32
+_RohcContextIRDYNs_Object=MibTableColumn
+rohcContextIRDYNs=_RohcContextIRDYNs_Object((1,3,6,1,2,1,112,1,2,1,11),_RohcContextIRDYNs_Type())
+rohcContextIRDYNs.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextIRDYNs.setStatus(_A)
+_RohcContextFeedbacks_Type=Counter32
+_RohcContextFeedbacks_Object=MibTableColumn
+rohcContextFeedbacks=_RohcContextFeedbacks_Object((1,3,6,1,2,1,112,1,2,1,12),_RohcContextFeedbacks_Type())
+rohcContextFeedbacks.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextFeedbacks.setStatus(_A)
+_RohcContextDecompressorFailures_Type=Counter32
+_RohcContextDecompressorFailures_Object=MibTableColumn
+rohcContextDecompressorFailures=_RohcContextDecompressorFailures_Object((1,3,6,1,2,1,112,1,2,1,13),_RohcContextDecompressorFailures_Type())
+rohcContextDecompressorFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextDecompressorFailures.setStatus(_A)
+_RohcContextDecompressorRepairs_Type=Counter32
+_RohcContextDecompressorRepairs_Object=MibTableColumn
+rohcContextDecompressorRepairs=_RohcContextDecompressorRepairs_Object((1,3,6,1,2,1,112,1,2,1,14),_RohcContextDecompressorRepairs_Type())
+rohcContextDecompressorRepairs.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextDecompressorRepairs.setStatus(_A)
+_RohcContextAllPacketsRatio_Type=RohcCompressionRatio
+_RohcContextAllPacketsRatio_Object=MibTableColumn
+rohcContextAllPacketsRatio=_RohcContextAllPacketsRatio_Object((1,3,6,1,2,1,112,1,2,1,15),_RohcContextAllPacketsRatio_Type())
+rohcContextAllPacketsRatio.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextAllPacketsRatio.setStatus(_A)
+_RohcContextAllHeadersRatio_Type=RohcCompressionRatio
+_RohcContextAllHeadersRatio_Object=MibTableColumn
+rohcContextAllHeadersRatio=_RohcContextAllHeadersRatio_Object((1,3,6,1,2,1,112,1,2,1,16),_RohcContextAllHeadersRatio_Type())
+rohcContextAllHeadersRatio.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextAllHeadersRatio.setStatus(_A)
+_RohcContextAllPacketsMeanSize_Type=Unsigned32
+_RohcContextAllPacketsMeanSize_Object=MibTableColumn
+rohcContextAllPacketsMeanSize=_RohcContextAllPacketsMeanSize_Object((1,3,6,1,2,1,112,1,2,1,17),_RohcContextAllPacketsMeanSize_Type())
+rohcContextAllPacketsMeanSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextAllPacketsMeanSize.setStatus(_A)
+_RohcContextAllHeadersMeanSize_Type=Unsigned32
+_RohcContextAllHeadersMeanSize_Object=MibTableColumn
+rohcContextAllHeadersMeanSize=_RohcContextAllHeadersMeanSize_Object((1,3,6,1,2,1,112,1,2,1,18),_RohcContextAllHeadersMeanSize_Type())
+rohcContextAllHeadersMeanSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextAllHeadersMeanSize.setStatus(_A)
+_RohcContextLastPacketsRatio_Type=RohcCompressionRatio
+_RohcContextLastPacketsRatio_Object=MibTableColumn
+rohcContextLastPacketsRatio=_RohcContextLastPacketsRatio_Object((1,3,6,1,2,1,112,1,2,1,19),_RohcContextLastPacketsRatio_Type())
+rohcContextLastPacketsRatio.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextLastPacketsRatio.setStatus(_A)
+_RohcContextLastHeadersRatio_Type=RohcCompressionRatio
+_RohcContextLastHeadersRatio_Object=MibTableColumn
+rohcContextLastHeadersRatio=_RohcContextLastHeadersRatio_Object((1,3,6,1,2,1,112,1,2,1,20),_RohcContextLastHeadersRatio_Type())
+rohcContextLastHeadersRatio.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextLastHeadersRatio.setStatus(_A)
+_RohcContextLastPacketsMeanSize_Type=Unsigned32
+_RohcContextLastPacketsMeanSize_Object=MibTableColumn
+rohcContextLastPacketsMeanSize=_RohcContextLastPacketsMeanSize_Object((1,3,6,1,2,1,112,1,2,1,21),_RohcContextLastPacketsMeanSize_Type())
+rohcContextLastPacketsMeanSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextLastPacketsMeanSize.setStatus(_A)
+_RohcContextLastHeadersMeanSize_Type=Unsigned32
+_RohcContextLastHeadersMeanSize_Object=MibTableColumn
+rohcContextLastHeadersMeanSize=_RohcContextLastHeadersMeanSize_Object((1,3,6,1,2,1,112,1,2,1,22),_RohcContextLastHeadersMeanSize_Type())
+rohcContextLastHeadersMeanSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:rohcContextLastHeadersMeanSize.setStatus(_A)
+_RohcConformance_ObjectIdentity=ObjectIdentity
+rohcConformance=_RohcConformance_ObjectIdentity((1,3,6,1,2,1,112,2))
+_RohcCompliances_ObjectIdentity=ObjectIdentity
+rohcCompliances=_RohcCompliances_ObjectIdentity((1,3,6,1,2,1,112,2,1))
+_RohcGroups_ObjectIdentity=ObjectIdentity
+rohcGroups=_RohcGroups_ObjectIdentity((1,3,6,1,2,1,112,2,2))
+rohcInstanceGroup=ObjectGroup((1,3,6,1,2,1,112,2,2,2))
+rohcInstanceGroup.setObjects(*((_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k)))
+if mibBuilder.loadTexts:rohcInstanceGroup.setStatus(_A)
+rohcStatisticsGroup=ObjectGroup((1,3,6,1,2,1,112,2,2,4))
+rohcStatisticsGroup.setObjects(*((_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r)))
+if mibBuilder.loadTexts:rohcStatisticsGroup.setStatus(_A)
+rohcContextGroup=ObjectGroup((1,3,6,1,2,1,112,2,2,5))
+rohcContextGroup.setObjects(*((_B,_s),(_B,_t),(_B,_u)))
+if mibBuilder.loadTexts:rohcContextGroup.setStatus(_A)
+rohcTimerGroup=ObjectGroup((1,3,6,1,2,1,112,2,2,6))
+rohcTimerGroup.setObjects(*((_B,_v),(_B,_w),(_B,_x),(_B,_y)))
+if mibBuilder.loadTexts:rohcTimerGroup.setStatus(_A)
+rohcContextStatisticsGroup=ObjectGroup((1,3,6,1,2,1,112,2,2,7))
+rohcContextStatisticsGroup.setObjects(*((_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC)))
+if mibBuilder.loadTexts:rohcContextStatisticsGroup.setStatus(_A)
+rohcCompliance=ModuleCompliance((1,3,6,1,2,1,112,2,1,1))
+rohcCompliance.setObjects(*((_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH)))
+if mibBuilder.loadTexts:rohcCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'RohcChannelIdentifier':RohcChannelIdentifier,'RohcChannelIdentifierOrZero':RohcChannelIdentifierOrZero,'RohcCompressionRatio':RohcCompressionRatio,'rohcMIB':rohcMIB,'rohcObjects':rohcObjects,'rohcInstanceObjects':rohcInstanceObjects,'rohcChannelTable':rohcChannelTable,'rohcChannelEntry':rohcChannelEntry,_F:rohcChannelID,_U:rohcChannelType,_V:rohcChannelFeedbackFor,_W:rohcChannelDescr,_X:rohcChannelStatus,'rohcInstanceTable':rohcInstanceTable,'rohcInstanceEntry':rohcInstanceEntry,_O:rohcInstanceType,_Y:rohcInstanceFBChannelID,_Z:rohcInstanceVendor,_a:rohcInstanceVersion,_b:rohcInstanceDescr,_c:rohcInstanceClockRes,_d:rohcInstanceMaxCID,_e:rohcInstanceLargeCIDs,_f:rohcInstanceMRRU,_v:rohcInstanceContextStorageTime,_g:rohcInstanceStatus,_l:rohcInstanceContextsTotal,_m:rohcInstanceContextsCurrent,_n:rohcInstancePackets,_o:rohcInstanceIRs,_p:rohcInstanceIRDYNs,_q:rohcInstanceFeedbacks,_r:rohcInstanceCompressionRatio,'rohcProfileTable':rohcProfileTable,'rohcProfileEntry':rohcProfileEntry,_R:rohcProfile,_h:rohcProfileVendor,_i:rohcProfileVersion,_j:rohcProfileDescr,_k:rohcProfileNegotiated,'rohcContextTable':rohcContextTable,'rohcContextEntry':rohcContextEntry,_S:rohcContextCID,_s:rohcContextCIDState,_t:rohcContextProfile,_u:rohcContextDecompressorDepth,_w:rohcContextStorageTime,_x:rohcContextActivationTime,_y:rohcContextDeactivationTime,_z:rohcContextPackets,_A0:rohcContextIRs,_A1:rohcContextIRDYNs,_A2:rohcContextFeedbacks,_A3:rohcContextDecompressorFailures,_A4:rohcContextDecompressorRepairs,_A5:rohcContextAllPacketsRatio,_A6:rohcContextAllHeadersRatio,_A7:rohcContextAllPacketsMeanSize,_A8:rohcContextAllHeadersMeanSize,_A9:rohcContextLastPacketsRatio,_AA:rohcContextLastHeadersRatio,_AB:rohcContextLastPacketsMeanSize,_AC:rohcContextLastHeadersMeanSize,'rohcConformance':rohcConformance,'rohcCompliances':rohcCompliances,'rohcCompliance':rohcCompliance,'rohcGroups':rohcGroups,_AD:rohcInstanceGroup,_AF:rohcStatisticsGroup,_AE:rohcContextGroup,_AG:rohcTimerGroup,_AH:rohcContextStatisticsGroup})

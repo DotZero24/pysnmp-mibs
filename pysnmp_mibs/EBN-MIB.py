@@ -1,118 +1,261 @@
-#
-# PySNMP MIB module EBN-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/EBN-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:11:33 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( SnaControlPointName, ) = mibBuilder.importSymbols("APPN-MIB", "SnaControlPointName")
-( Integer, ObjectIdentifier, OctetString, ) = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
-( snanauMIB, ) = mibBuilder.importSymbols("SNA-NAU-MIB", "snanauMIB")
-( ModuleCompliance, NotificationGroup, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-( MibIdentifier, IpAddress, TimeTicks, Counter64, iso, Counter32, Gauge32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Unsigned32, NotificationType, ObjectIdentity, Bits, ) = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "IpAddress", "TimeTicks", "Counter64", "iso", "Counter32", "Gauge32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Unsigned32", "NotificationType", "ObjectIdentity", "Bits")
-( TextualConvention, DisplayString, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ebnMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 34, 7))
-if mibBuilder.loadTexts: ebnMIB.setLastUpdated('9804281800Z')
-if mibBuilder.loadTexts: ebnMIB.setOrganization('IETF SNA NAU MIB WG / AIW APPN MIBs SIG')
-if mibBuilder.loadTexts: ebnMIB.setContactInfo('\n                          Bob Clouston\n                          Cisco Systems\n                          7025 Kit Creek Road\n                          P.O. Box 14987\n                          Research Triangle Park, NC 27709, USA\n                          Tel:    1 919 472 2333\n                          E-mail: clouston@cisco.com\n\n                          Bob Moore\n                          IBM Corporation\n                          BRQA/501\n                          P.O. Box 12195\n                          Research Triangle Park, NC 27709, USA\n                          Tel:    1 919 254 4436\n                          E-mail: remoore@us.ibm.com\n                  ')
-if mibBuilder.loadTexts: ebnMIB.setDescription(' The MIB Module for Extended Border Node')
-class SnaNAUWildcardName(DisplayString, TextualConvention):
-    subtypeSpec = DisplayString.subtypeSpec+ValueSizeConstraint(1,17)
-
-ebnObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 7, 1))
-ebnDir = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 7, 1, 1))
-ebnDirTable = MibTable((1, 3, 6, 1, 2, 1, 34, 7, 1, 1, 1), )
-if mibBuilder.loadTexts: ebnDirTable.setDescription("The EBN Directory Table.  This table is an extension\n            to the APPN MIB's appnDirTable.  Entries in this table\n            are in one-to-one correspondence with entries in the\n            appnDirTable, with corresponding entries having identical\n            values for their respective indexes.")
-ebnDirEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 7, 1, 1, 1, 1), ).setIndexNames((0, "EBN-MIB", "ebnDirLuName"))
-if mibBuilder.loadTexts: ebnDirEntry.setDescription('Entry in the EBN Directory Table.')
-ebnDirLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 1, 1, 1, 1), SnaNAUWildcardName())
-if mibBuilder.loadTexts: ebnDirLuName.setDescription('Fully qualified network LU name in the domain of a serving\n            network node.  If this object has the same value as the\n            appnDirLuName object in the APPN MIB, then the two objects\n            are referring to the same LU.')
-ebnDirSubnetAffiliation = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("native", 1), ("nonNative", 2), ("subarea", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ebnDirSubnetAffiliation.setDescription('Specifies the subnetwork affiliation of the LU:\n                - native(1)    : The LU is in the native APPN subnetwork.\n                - nonNative(2) : The LU is in a non-native APPN subnetwork.\n                - subarea(3)   : The LU is in a subarea network.')
-ebnIsRscv = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 7, 1, 2))
-ebnIsRscvTable = MibTable((1, 3, 6, 1, 2, 1, 34, 7, 1, 2, 1), )
-if mibBuilder.loadTexts: ebnIsRscvTable.setDescription('The EBN Intermediate Session RSCV table.  This table is an\n            extension to the appnIsInTable.  It contains the RSCV and COS\n            used in the direction of the BIND destination.  There is an\n            entry in this table for each session that traverses an ISTG\n            when it enters or leaves this EBN, with corresponding entries\n            having identical values for their respective indexes.')
-ebnIsRscvEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 7, 1, 2, 1, 1), ).setIndexNames((0, "EBN-MIB", "ebnIsRscvCpName"), (0, "EBN-MIB", "ebnIsRscvPcid"))
-if mibBuilder.loadTexts: ebnIsRscvEntry.setDescription('Entry in ebnIsRscvTable.')
-ebnIsRscvCpName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 2, 1, 1, 1), SnaControlPointName())
-if mibBuilder.loadTexts: ebnIsRscvCpName.setDescription('The network-qualified control point name of the node at\n            which the session and PCID originated.  For APPN and LEN\n            nodes, this is either CP name of the APPN node at which\n            the origin LU is located or the CP name of the NN serving\n            the LEN node at which the origin LU is located.  For DLUR\n            resources it is the name of the owning SSCP.\n\n            If this object has the same value as the appnIsInFqCpName\n            object in the APPN MIB, then the two objects are referring to\n            the same APPN control point.')
-ebnIsRscvPcid = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 2, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(8,8)).setFixedLength(8))
-if mibBuilder.loadTexts: ebnIsRscvPcid.setDescription('The procedure correlation identifier (PCID) of a session.\n            It is an 8-octet value.\n\n            If this object has the same value as the appnIsInPcid object\n            in the APPN MIB, and if the corresponding ebnIsRscvCpName\n            object has the same value as the corresponding\n            appnIsInFqCpName object, then the entries indexed by these\n            objects are referring to the same session.')
-ebnIsRscvDestinationRoute = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 2, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ebnIsRscvDestinationRoute.setDescription("The route selection control vector (RSCV x'2B') used in the\n            direction towards the SLU.")
-ebnIsRscvDestinationCos = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 2, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ebnIsRscvDestinationCos.setDescription('The Class of Service (COS) name used in the direction\n            towards the SLU.\n\n            Because the characters allowed in an SNA COS name come from\n            a restricted character set, these names are not subject to\n            internationalization.')
-ebnDirConfig = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 7, 1, 3))
-ebnSearchCacheTime = MibScalar((1, 3, 6, 1, 2, 1, 34, 7, 1, 3, 1), Unsigned32()).setUnits('minutes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: ebnSearchCacheTime.setDescription('The amount of time in minutes an extended border node will\n            retain information about a multi-subnetwork search, once\n            that that search terminates.  A value 0 indicates that the\n            EBN has no defined limit, and the number of entries is\n            bounded only by memory.')
-ebnMaxSearchCache = MibScalar((1, 3, 6, 1, 2, 1, 34, 7, 1, 3, 2), Unsigned32()).setUnits('entries').setMaxAccess("readonly")
-if mibBuilder.loadTexts: ebnMaxSearchCache.setDescription('The maximum number of multi-subnet entries to be cached.\n            The value 0 indicates that the local node has no defined\n            limit, and the number of entries is bounded only by\n            memory.')
-ebnDefaultSubnetVisitCount = MibScalar((1, 3, 6, 1, 2, 1, 34, 7, 1, 3, 3), Unsigned32()).setUnits('topology subnetworks').setMaxAccess("readonly")
-if mibBuilder.loadTexts: ebnDefaultSubnetVisitCount.setDescription('The default maximum number of subnetworks a LOCATE search\n            procedure may traverse.')
-ebnCOS = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 7, 1, 4))
-ebnCosMapTable = MibTable((1, 3, 6, 1, 2, 1, 34, 7, 1, 4, 1), )
-if mibBuilder.loadTexts: ebnCosMapTable.setDescription('The EBN COS Mapping Table.  This table specifies how non-\n            native COS values are mapped to COS values defined in the\n            native subnetwork.\n\n            Note:  The COS mappings that an EBN performs are determined\n            by multiple factors, one of which is a set of user-defined\n            initial mappings.  This table returns the COS mappings that\n            the EBN is actually performing at the time it is queried,\n            rather than the user-defined initial ones.')
-ebnCosMapEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 7, 1, 4, 1, 1), ).setIndexNames((0, "EBN-MIB", "ebnCosMapCpName"), (0, "EBN-MIB", "ebnCosMapNonNativeCos"))
-if mibBuilder.loadTexts: ebnCosMapEntry.setDescription('An entry in the EBN COS Mapping table.')
-ebnCosMapCpName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 4, 1, 1, 1), SnaNAUWildcardName())
-if mibBuilder.loadTexts: ebnCosMapCpName.setDescription('Fully qualified network CP name for which the COS mapping\n            applies.')
-ebnCosMapNonNativeCos = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 4, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,8)))
-if mibBuilder.loadTexts: ebnCosMapNonNativeCos.setDescription("This object contains one of the following values:\n\n               - An 8-character COS name used in a non-native subnetwork.\n               - The single character '*', identifying the entry with the\n                 default native COS for a non-native CP name.  This entry\n                 is used when there is no entry in the table for a\n                 non-native CP name / non-native COS pair.\n\n            Because the characters allowed in an SNA COS name come from\n            a restricted character set, these names are not subject to\n            internationalization.")
-ebnCosMapNativeCos = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 4, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ebnCosMapNativeCos.setDescription('An 8-byte name for the class-of-service, as known in the\n            native subnetwork.\n\n            Because the characters allowed in an SNA COS name come from\n            a restricted character set, these names are not subject to\n            internationalization.')
-ebnSubnetRoutingList = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 7, 1, 5))
-ebnSubnetSearchTable = MibTable((1, 3, 6, 1, 2, 1, 34, 7, 1, 5, 1), )
-if mibBuilder.loadTexts: ebnSubnetSearchTable.setDescription('This table contains one entry for each fully qualified LU\n            name for which an associated subnet routing list has been\n            defined.  An entry in this table contains general\n            characteristics of the subnet search routing list for an\n            LU name.  The routing list itself is represented by a set\n            of contiguous entries in the ebnSearchTable.')
-ebnSubnetSearchEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 7, 1, 5, 1, 1), ).setIndexNames((0, "EBN-MIB", "ebnSubnetSearchLuName"))
-if mibBuilder.loadTexts: ebnSubnetSearchEntry.setDescription('An entry for the ebnSubnetSearchTable.  The entry\n            represents the configured parameters the EBN uses when it\n            is determining how to search for the LU identified by the\n            ebnSubnetSearchLuName object.')
-ebnSubnetSearchLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 5, 1, 1, 1), SnaNAUWildcardName())
-if mibBuilder.loadTexts: ebnSubnetSearchLuName.setDescription('Fully qualified network LU name.')
-ebnSubnetSearchDynamics = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 5, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("none", 1), ("limited", 2), ("full", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ebnSubnetSearchDynamics.setDescription('Indicates whether an EBN may add dynamic entries to a\n            subnetwork routing list.  none(1) means no entries may be\n            added to the subnetwork routing list.  limited(2) means\n            only likely entries may be added to the subnetwork routing\n            list.  full(3) means all native extended border nodes and\n            adjacent, non-native EBNs and NNs will be added to the\n            subnetwork routing list.')
-ebnSubnetSearchOrdering = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("priority", 1), ("defined", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ebnSubnetSearchOrdering.setDescription('Indicates whether an EBN may reorder a subnetwork routing\n            list so that entries which are more likely to be successful\n            move to the top of the subnetwork routing list and entries\n            which are more likely to be unsuccessful move to the bottom\n            of the list.\n            The following values are defined:\n\n               - priority(1):  Entries may be reordered.\n               - defined(2):   Entries must not be reordered.')
-ebnSearchTable = MibTable((1, 3, 6, 1, 2, 1, 34, 7, 1, 5, 2), )
-if mibBuilder.loadTexts: ebnSearchTable.setDescription('This table indicates the CONFIGURED list of control points\n            to which the EBN sends Locate searches for a given fully\n            qualified LU name.  Each entry in the table indicates one\n            control point that should be included in a multi-subnet\n            search for a particular LU name.')
-ebnSearchEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 7, 1, 5, 2, 1), ).setIndexNames((0, "EBN-MIB", "ebnSearchLuName"), (0, "EBN-MIB", "ebnSearchIndex"))
-if mibBuilder.loadTexts: ebnSearchEntry.setDescription("An entry in the ebnSearchTable.  An entry can exist in\n            this table only if an entry exists in the\n            ebnSubnetSearchTable with an ebnSubnetSearchLuName value\n            matching this entry's ebnSearchLuName.\n            For a given ebnSearchLuName value, the ordering of entries\n            provides by the ebnSearchIndex values corresponds to the\n            order in which the control points to be searched appear in\n            the CONFIGURED search list for the ebnSearchLuName.")
-ebnSearchLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 5, 2, 1, 1), SnaNAUWildcardName())
-if mibBuilder.loadTexts: ebnSearchLuName.setDescription('Fully qualified network LU name.  If this object has the\n            same value as the ebnSubnetSearchLuName object, then the\n            two objects are referring to the same LU.')
-ebnSearchIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 5, 2, 1, 2), Unsigned32())
-if mibBuilder.loadTexts: ebnSearchIndex.setDescription('Secondary index enumerating the CONFIGURED order in which\n            a search is forwarded to CPs for a particular LU name.  The\n            order for an actual search is determined dynamically by the\n            EBN, based on this configured information and on other\n            factors, including whether search dynamics and search\n            ordering are enabled.  Information on these last two settings\n            is available in, respectively, the ebnSubnetSearchDynamics\n            and ebnSubnetSearch ordering objects.')
-ebnSearchCpName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 5, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ebnSearchCpName.setDescription("This object specifies the CP(s) to which a search should be\n            forwarded.  It either follows the SnaNAUWildcardName textual\n            convention or takes one of the following special formats:\n\n               '*' indicates that all native EBNs and all adjacent non-\n               native EBNs and NNs may be added to the routing list\n               dynamically,\n\n               '*SELF' indicates that the EBN should search itself and\n               its native subnetwork at this time during the\n               cross-subnet search,\n\n               '*EBNS' indicates all native EBNs.\n\n            Because the characters allowed in a CP name come from a\n            restricted character set, and because the three formats\n            listed here use no special characters, this object is not\n            subject to internationalization.")
-ebnSearchSNVC = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 5, 2, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ebnSearchSNVC.setDescription('The maximum number of subnets a Locate search procedure may\n            traverse.  ')
-hbn = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 7, 1, 6))
-hbnIsInTable = MibTable((1, 3, 6, 1, 2, 1, 34, 7, 1, 6, 1), )
-if mibBuilder.loadTexts: hbnIsInTable.setDescription('The HBN Intermediate Session table.')
-hbnIsInEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 7, 1, 6, 1, 1), ).setIndexNames((0, "EBN-MIB", "hbnIsInFqCpName"), (0, "EBN-MIB", "hbnIsInPcid"))
-if mibBuilder.loadTexts: hbnIsInEntry.setDescription('Entry of the HBN Intermediate Session Table.  An entry\n            exists in this table for every intermediate session being\n            routed between back-to-back RTP connections in the HBN.\n\n            When an entry for a session exists in this table, the\n            NceIds and Tcids for the back-to-back RTP connections are\n            made available in the following four objects:\n\n               RTP connection in the direction of the PLU:\n                  - NceId:  appnIsInRtpNceId (in the APPN MIB)\n                  - Tcid:   appnIsinRtpTcid (in the APPN MIB).\n\n               RTP connection in the direction of the SLU:\n                  - NceId:  hbnIsInRtpNceId (in this table)\n                  - Tcid:   hbnIsInRtpTcid (in this table).')
-hbnIsInFqCpName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 6, 1, 1, 1), SnaControlPointName())
-if mibBuilder.loadTexts: hbnIsInFqCpName.setDescription('The network-qualified control point name of the node at\n            which the session and PCID originated.  For APPN and LEN\n            nodes, this is either the CP name of the APPN node at\n            which the origin LU is located or the CP name of the NN\n            serving the LEN node at which the origin LU is located.\n\n            If this object has the same value as the appnIsInFqCpName\n            object in the APPN MIB, then the two objects are referring\n            to the same APPN control point.')
-hbnIsInPcid = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 6, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(8,8)).setFixedLength(8))
-if mibBuilder.loadTexts: hbnIsInPcid.setDescription('The procedure correlation identifier (PCID) of a session.\n            It is an 8-octet value.\n\n            If this object has the same value as the appnIsInPcid object\n            in the APPN MIB, and if the corresponding hbnIsInFqCpName\n            object has the same value as the corresponding\n            appnIsInFqCpName object, then the entries indexed by these\n            objects are referring to the same session.')
-hbnIsInRtpNceId = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 6, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hbnIsInRtpNceId.setDescription('The HPR local Network Connection Endpoint of the session in\n            the direction of the SLU.')
-hbnIsInRtpTcid = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 7, 1, 6, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(8,8)).setFixedLength(8)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hbnIsInRtpTcid.setDescription('The RTP connection local TCID of the session in the direction\n            of the SLU.')
-ebnConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 7, 2))
-ebnCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 7, 2, 1))
-ebnGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 7, 2, 2))
-ebnCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 34, 7, 2, 1, 1)).setObjects(*(("EBN-MIB", "ebnDirectoryGroup"), ("EBN-MIB", "ebnIsRscvGroup"), ("EBN-MIB", "ebnDirectoryConfigGroup"), ("EBN-MIB", "ebnCosMappingGroup"), ("EBN-MIB", "ebnSubnetRoutingListGroup"), ("EBN-MIB", "hbnIsInGroup"),))
-if mibBuilder.loadTexts: ebnCompliance.setDescription('The compliance statement for the SNMPv2 entities which\n         implement the ebnMIB.')
-ebnDirectoryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 7, 2, 2, 1)).setObjects(*(("EBN-MIB", "ebnDirSubnetAffiliation"),))
-if mibBuilder.loadTexts: ebnDirectoryGroup.setDescription('The EBN-related directory objects.')
-ebnIsRscvGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 7, 2, 2, 2)).setObjects(*(("EBN-MIB", "ebnIsRscvDestinationRoute"), ("EBN-MIB", "ebnIsRscvDestinationCos"),))
-if mibBuilder.loadTexts: ebnIsRscvGroup.setDescription('Two objects representing RSCV and class of service\n            information saved by an EBN.')
-ebnDirectoryConfigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 7, 2, 2, 3)).setObjects(*(("EBN-MIB", "ebnSearchCacheTime"), ("EBN-MIB", "ebnMaxSearchCache"), ("EBN-MIB", "ebnDefaultSubnetVisitCount"),))
-if mibBuilder.loadTexts: ebnDirectoryConfigGroup.setDescription('The EBN Directory Configuration Group.')
-ebnCosMappingGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 7, 2, 2, 4)).setObjects(*(("EBN-MIB", "ebnCosMapNativeCos"),))
-if mibBuilder.loadTexts: ebnCosMappingGroup.setDescription('The EBN COS Mapping Group.')
-ebnSubnetRoutingListGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 7, 2, 2, 5)).setObjects(*(("EBN-MIB", "ebnSubnetSearchDynamics"), ("EBN-MIB", "ebnSubnetSearchOrdering"), ("EBN-MIB", "ebnSearchCpName"), ("EBN-MIB", "ebnSearchSNVC"),))
-if mibBuilder.loadTexts: ebnSubnetRoutingListGroup.setDescription('The Subnet Routing List Group.')
-hbnIsInGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 7, 2, 2, 6)).setObjects(*(("EBN-MIB", "hbnIsInRtpNceId"), ("EBN-MIB", "hbnIsInRtpTcid"),))
-if mibBuilder.loadTexts: hbnIsInGroup.setDescription('The HBN-related Intermediate Session Objects.')
-mibBuilder.exportSymbols("EBN-MIB", ebnCosMappingGroup=ebnCosMappingGroup, ebnIsRscvEntry=ebnIsRscvEntry, ebnSearchTable=ebnSearchTable, ebnCosMapTable=ebnCosMapTable, ebnCosMapNativeCos=ebnCosMapNativeCos, ebnIsRscvGroup=ebnIsRscvGroup, ebnDefaultSubnetVisitCount=ebnDefaultSubnetVisitCount, ebnSubnetSearchEntry=ebnSubnetSearchEntry, ebnCosMapNonNativeCos=ebnCosMapNonNativeCos, ebnDirLuName=ebnDirLuName, ebnSearchCacheTime=ebnSearchCacheTime, ebnDirectoryGroup=ebnDirectoryGroup, ebnDir=ebnDir, ebnSearchSNVC=ebnSearchSNVC, hbnIsInFqCpName=hbnIsInFqCpName, ebnMaxSearchCache=ebnMaxSearchCache, ebnCosMapCpName=ebnCosMapCpName, hbnIsInRtpTcid=hbnIsInRtpTcid, ebnCompliance=ebnCompliance, SnaNAUWildcardName=SnaNAUWildcardName, ebnDirTable=ebnDirTable, hbnIsInPcid=hbnIsInPcid, ebnMIB=ebnMIB, ebnSubnetSearchLuName=ebnSubnetSearchLuName, ebnIsRscvTable=ebnIsRscvTable, hbnIsInTable=hbnIsInTable, ebnIsRscvDestinationRoute=ebnIsRscvDestinationRoute, hbnIsInGroup=hbnIsInGroup, ebnDirConfig=ebnDirConfig, ebnSearchLuName=ebnSearchLuName, ebnSearchEntry=ebnSearchEntry, ebnCosMapEntry=ebnCosMapEntry, hbnIsInRtpNceId=hbnIsInRtpNceId, ebnDirSubnetAffiliation=ebnDirSubnetAffiliation, ebnIsRscv=ebnIsRscv, ebnDirEntry=ebnDirEntry, PYSNMP_MODULE_ID=ebnMIB, ebnSubnetRoutingList=ebnSubnetRoutingList, ebnSubnetSearchTable=ebnSubnetSearchTable, ebnSubnetSearchDynamics=ebnSubnetSearchDynamics, ebnSearchIndex=ebnSearchIndex, ebnConformance=ebnConformance, hbnIsInEntry=hbnIsInEntry, ebnCompliances=ebnCompliances, ebnSearchCpName=ebnSearchCpName, ebnObjects=ebnObjects, ebnSubnetRoutingListGroup=ebnSubnetRoutingListGroup, ebnIsRscvCpName=ebnIsRscvCpName, ebnDirectoryConfigGroup=ebnDirectoryConfigGroup, ebnGroups=ebnGroups, hbn=hbn, ebnIsRscvDestinationCos=ebnIsRscvDestinationCos, ebnIsRscvPcid=ebnIsRscvPcid, ebnCOS=ebnCOS, ebnSubnetSearchOrdering=ebnSubnetSearchOrdering)
+_j='hbnIsInGroup'
+_i='ebnSubnetRoutingListGroup'
+_h='ebnCosMappingGroup'
+_g='ebnDirectoryConfigGroup'
+_f='ebnIsRscvGroup'
+_e='ebnDirectoryGroup'
+_d='hbnIsInRtpTcid'
+_c='hbnIsInRtpNceId'
+_b='ebnSearchSNVC'
+_a='ebnSearchCpName'
+_Z='ebnSubnetSearchOrdering'
+_Y='ebnSubnetSearchDynamics'
+_X='ebnCosMapNativeCos'
+_W='ebnDefaultSubnetVisitCount'
+_V='ebnMaxSearchCache'
+_U='ebnSearchCacheTime'
+_T='ebnIsRscvDestinationCos'
+_S='ebnIsRscvDestinationRoute'
+_R='ebnDirSubnetAffiliation'
+_Q='hbnIsInPcid'
+_P='hbnIsInFqCpName'
+_O='ebnSearchIndex'
+_N='ebnSearchLuName'
+_M='ebnSubnetSearchLuName'
+_L='ebnCosMapNonNativeCos'
+_K='ebnCosMapCpName'
+_J='ebnIsRscvPcid'
+_I='ebnIsRscvCpName'
+_H='ebnDirLuName'
+_G='Integer32'
+_F='DisplayString'
+_E='OctetString'
+_D='not-accessible'
+_C='read-only'
+_B='EBN-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+SnaControlPointName,=mibBuilder.importSymbols('APPN-MIB','SnaControlPointName')
+snanauMIB,=mibBuilder.importSymbols('SNA-NAU-MIB','snanauMIB')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_F,'PhysAddress','TextualConvention')
+ebnMIB=ModuleIdentity((1,3,6,1,2,1,34,7))
+class SnaNAUWildcardName(DisplayString):status=_A;subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_EbnObjects_ObjectIdentity=ObjectIdentity
+ebnObjects=_EbnObjects_ObjectIdentity((1,3,6,1,2,1,34,7,1))
+_EbnDir_ObjectIdentity=ObjectIdentity
+ebnDir=_EbnDir_ObjectIdentity((1,3,6,1,2,1,34,7,1,1))
+_EbnDirTable_Object=MibTable
+ebnDirTable=_EbnDirTable_Object((1,3,6,1,2,1,34,7,1,1,1))
+if mibBuilder.loadTexts:ebnDirTable.setStatus(_A)
+_EbnDirEntry_Object=MibTableRow
+ebnDirEntry=_EbnDirEntry_Object((1,3,6,1,2,1,34,7,1,1,1,1))
+ebnDirEntry.setIndexNames((0,_B,_H))
+if mibBuilder.loadTexts:ebnDirEntry.setStatus(_A)
+_EbnDirLuName_Type=SnaNAUWildcardName
+_EbnDirLuName_Object=MibTableColumn
+ebnDirLuName=_EbnDirLuName_Object((1,3,6,1,2,1,34,7,1,1,1,1,1),_EbnDirLuName_Type())
+ebnDirLuName.setMaxAccess(_D)
+if mibBuilder.loadTexts:ebnDirLuName.setStatus(_A)
+class _EbnDirSubnetAffiliation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('native',1),('nonNative',2),('subarea',3)))
+_EbnDirSubnetAffiliation_Type.__name__=_G
+_EbnDirSubnetAffiliation_Object=MibTableColumn
+ebnDirSubnetAffiliation=_EbnDirSubnetAffiliation_Object((1,3,6,1,2,1,34,7,1,1,1,1,2),_EbnDirSubnetAffiliation_Type())
+ebnDirSubnetAffiliation.setMaxAccess(_C)
+if mibBuilder.loadTexts:ebnDirSubnetAffiliation.setStatus(_A)
+_EbnIsRscv_ObjectIdentity=ObjectIdentity
+ebnIsRscv=_EbnIsRscv_ObjectIdentity((1,3,6,1,2,1,34,7,1,2))
+_EbnIsRscvTable_Object=MibTable
+ebnIsRscvTable=_EbnIsRscvTable_Object((1,3,6,1,2,1,34,7,1,2,1))
+if mibBuilder.loadTexts:ebnIsRscvTable.setStatus(_A)
+_EbnIsRscvEntry_Object=MibTableRow
+ebnIsRscvEntry=_EbnIsRscvEntry_Object((1,3,6,1,2,1,34,7,1,2,1,1))
+ebnIsRscvEntry.setIndexNames((0,_B,_I),(0,_B,_J))
+if mibBuilder.loadTexts:ebnIsRscvEntry.setStatus(_A)
+_EbnIsRscvCpName_Type=SnaControlPointName
+_EbnIsRscvCpName_Object=MibTableColumn
+ebnIsRscvCpName=_EbnIsRscvCpName_Object((1,3,6,1,2,1,34,7,1,2,1,1,1),_EbnIsRscvCpName_Type())
+ebnIsRscvCpName.setMaxAccess(_D)
+if mibBuilder.loadTexts:ebnIsRscvCpName.setStatus(_A)
+class _EbnIsRscvPcid_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
+_EbnIsRscvPcid_Type.__name__=_E
+_EbnIsRscvPcid_Object=MibTableColumn
+ebnIsRscvPcid=_EbnIsRscvPcid_Object((1,3,6,1,2,1,34,7,1,2,1,1,2),_EbnIsRscvPcid_Type())
+ebnIsRscvPcid.setMaxAccess(_D)
+if mibBuilder.loadTexts:ebnIsRscvPcid.setStatus(_A)
+class _EbnIsRscvDestinationRoute_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_EbnIsRscvDestinationRoute_Type.__name__=_E
+_EbnIsRscvDestinationRoute_Object=MibTableColumn
+ebnIsRscvDestinationRoute=_EbnIsRscvDestinationRoute_Object((1,3,6,1,2,1,34,7,1,2,1,1,3),_EbnIsRscvDestinationRoute_Type())
+ebnIsRscvDestinationRoute.setMaxAccess(_C)
+if mibBuilder.loadTexts:ebnIsRscvDestinationRoute.setStatus(_A)
+class _EbnIsRscvDestinationCos_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
+_EbnIsRscvDestinationCos_Type.__name__=_F
+_EbnIsRscvDestinationCos_Object=MibTableColumn
+ebnIsRscvDestinationCos=_EbnIsRscvDestinationCos_Object((1,3,6,1,2,1,34,7,1,2,1,1,4),_EbnIsRscvDestinationCos_Type())
+ebnIsRscvDestinationCos.setMaxAccess(_C)
+if mibBuilder.loadTexts:ebnIsRscvDestinationCos.setStatus(_A)
+_EbnDirConfig_ObjectIdentity=ObjectIdentity
+ebnDirConfig=_EbnDirConfig_ObjectIdentity((1,3,6,1,2,1,34,7,1,3))
+_EbnSearchCacheTime_Type=Unsigned32
+_EbnSearchCacheTime_Object=MibScalar
+ebnSearchCacheTime=_EbnSearchCacheTime_Object((1,3,6,1,2,1,34,7,1,3,1),_EbnSearchCacheTime_Type())
+ebnSearchCacheTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:ebnSearchCacheTime.setStatus(_A)
+if mibBuilder.loadTexts:ebnSearchCacheTime.setUnits('minutes')
+_EbnMaxSearchCache_Type=Unsigned32
+_EbnMaxSearchCache_Object=MibScalar
+ebnMaxSearchCache=_EbnMaxSearchCache_Object((1,3,6,1,2,1,34,7,1,3,2),_EbnMaxSearchCache_Type())
+ebnMaxSearchCache.setMaxAccess(_C)
+if mibBuilder.loadTexts:ebnMaxSearchCache.setStatus(_A)
+if mibBuilder.loadTexts:ebnMaxSearchCache.setUnits('entries')
+_EbnDefaultSubnetVisitCount_Type=Unsigned32
+_EbnDefaultSubnetVisitCount_Object=MibScalar
+ebnDefaultSubnetVisitCount=_EbnDefaultSubnetVisitCount_Object((1,3,6,1,2,1,34,7,1,3,3),_EbnDefaultSubnetVisitCount_Type())
+ebnDefaultSubnetVisitCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:ebnDefaultSubnetVisitCount.setStatus(_A)
+if mibBuilder.loadTexts:ebnDefaultSubnetVisitCount.setUnits('topology subnetworks')
+_EbnCOS_ObjectIdentity=ObjectIdentity
+ebnCOS=_EbnCOS_ObjectIdentity((1,3,6,1,2,1,34,7,1,4))
+_EbnCosMapTable_Object=MibTable
+ebnCosMapTable=_EbnCosMapTable_Object((1,3,6,1,2,1,34,7,1,4,1))
+if mibBuilder.loadTexts:ebnCosMapTable.setStatus(_A)
+_EbnCosMapEntry_Object=MibTableRow
+ebnCosMapEntry=_EbnCosMapEntry_Object((1,3,6,1,2,1,34,7,1,4,1,1))
+ebnCosMapEntry.setIndexNames((0,_B,_K),(0,_B,_L))
+if mibBuilder.loadTexts:ebnCosMapEntry.setStatus(_A)
+_EbnCosMapCpName_Type=SnaNAUWildcardName
+_EbnCosMapCpName_Object=MibTableColumn
+ebnCosMapCpName=_EbnCosMapCpName_Object((1,3,6,1,2,1,34,7,1,4,1,1,1),_EbnCosMapCpName_Type())
+ebnCosMapCpName.setMaxAccess(_D)
+if mibBuilder.loadTexts:ebnCosMapCpName.setStatus(_A)
+class _EbnCosMapNonNativeCos_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
+_EbnCosMapNonNativeCos_Type.__name__=_F
+_EbnCosMapNonNativeCos_Object=MibTableColumn
+ebnCosMapNonNativeCos=_EbnCosMapNonNativeCos_Object((1,3,6,1,2,1,34,7,1,4,1,1,2),_EbnCosMapNonNativeCos_Type())
+ebnCosMapNonNativeCos.setMaxAccess(_D)
+if mibBuilder.loadTexts:ebnCosMapNonNativeCos.setStatus(_A)
+class _EbnCosMapNativeCos_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
+_EbnCosMapNativeCos_Type.__name__=_F
+_EbnCosMapNativeCos_Object=MibTableColumn
+ebnCosMapNativeCos=_EbnCosMapNativeCos_Object((1,3,6,1,2,1,34,7,1,4,1,1,3),_EbnCosMapNativeCos_Type())
+ebnCosMapNativeCos.setMaxAccess(_C)
+if mibBuilder.loadTexts:ebnCosMapNativeCos.setStatus(_A)
+_EbnSubnetRoutingList_ObjectIdentity=ObjectIdentity
+ebnSubnetRoutingList=_EbnSubnetRoutingList_ObjectIdentity((1,3,6,1,2,1,34,7,1,5))
+_EbnSubnetSearchTable_Object=MibTable
+ebnSubnetSearchTable=_EbnSubnetSearchTable_Object((1,3,6,1,2,1,34,7,1,5,1))
+if mibBuilder.loadTexts:ebnSubnetSearchTable.setStatus(_A)
+_EbnSubnetSearchEntry_Object=MibTableRow
+ebnSubnetSearchEntry=_EbnSubnetSearchEntry_Object((1,3,6,1,2,1,34,7,1,5,1,1))
+ebnSubnetSearchEntry.setIndexNames((0,_B,_M))
+if mibBuilder.loadTexts:ebnSubnetSearchEntry.setStatus(_A)
+_EbnSubnetSearchLuName_Type=SnaNAUWildcardName
+_EbnSubnetSearchLuName_Object=MibTableColumn
+ebnSubnetSearchLuName=_EbnSubnetSearchLuName_Object((1,3,6,1,2,1,34,7,1,5,1,1,1),_EbnSubnetSearchLuName_Type())
+ebnSubnetSearchLuName.setMaxAccess(_D)
+if mibBuilder.loadTexts:ebnSubnetSearchLuName.setStatus(_A)
+class _EbnSubnetSearchDynamics_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('none',1),('limited',2),('full',3)))
+_EbnSubnetSearchDynamics_Type.__name__=_G
+_EbnSubnetSearchDynamics_Object=MibTableColumn
+ebnSubnetSearchDynamics=_EbnSubnetSearchDynamics_Object((1,3,6,1,2,1,34,7,1,5,1,1,2),_EbnSubnetSearchDynamics_Type())
+ebnSubnetSearchDynamics.setMaxAccess(_C)
+if mibBuilder.loadTexts:ebnSubnetSearchDynamics.setStatus(_A)
+class _EbnSubnetSearchOrdering_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('priority',1),('defined',2)))
+_EbnSubnetSearchOrdering_Type.__name__=_G
+_EbnSubnetSearchOrdering_Object=MibTableColumn
+ebnSubnetSearchOrdering=_EbnSubnetSearchOrdering_Object((1,3,6,1,2,1,34,7,1,5,1,1,3),_EbnSubnetSearchOrdering_Type())
+ebnSubnetSearchOrdering.setMaxAccess(_C)
+if mibBuilder.loadTexts:ebnSubnetSearchOrdering.setStatus(_A)
+_EbnSearchTable_Object=MibTable
+ebnSearchTable=_EbnSearchTable_Object((1,3,6,1,2,1,34,7,1,5,2))
+if mibBuilder.loadTexts:ebnSearchTable.setStatus(_A)
+_EbnSearchEntry_Object=MibTableRow
+ebnSearchEntry=_EbnSearchEntry_Object((1,3,6,1,2,1,34,7,1,5,2,1))
+ebnSearchEntry.setIndexNames((0,_B,_N),(0,_B,_O))
+if mibBuilder.loadTexts:ebnSearchEntry.setStatus(_A)
+_EbnSearchLuName_Type=SnaNAUWildcardName
+_EbnSearchLuName_Object=MibTableColumn
+ebnSearchLuName=_EbnSearchLuName_Object((1,3,6,1,2,1,34,7,1,5,2,1,1),_EbnSearchLuName_Type())
+ebnSearchLuName.setMaxAccess(_D)
+if mibBuilder.loadTexts:ebnSearchLuName.setStatus(_A)
+_EbnSearchIndex_Type=Unsigned32
+_EbnSearchIndex_Object=MibTableColumn
+ebnSearchIndex=_EbnSearchIndex_Object((1,3,6,1,2,1,34,7,1,5,2,1,2),_EbnSearchIndex_Type())
+ebnSearchIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:ebnSearchIndex.setStatus(_A)
+class _EbnSearchCpName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_EbnSearchCpName_Type.__name__=_F
+_EbnSearchCpName_Object=MibTableColumn
+ebnSearchCpName=_EbnSearchCpName_Object((1,3,6,1,2,1,34,7,1,5,2,1,3),_EbnSearchCpName_Type())
+ebnSearchCpName.setMaxAccess(_C)
+if mibBuilder.loadTexts:ebnSearchCpName.setStatus(_A)
+_EbnSearchSNVC_Type=Unsigned32
+_EbnSearchSNVC_Object=MibTableColumn
+ebnSearchSNVC=_EbnSearchSNVC_Object((1,3,6,1,2,1,34,7,1,5,2,1,4),_EbnSearchSNVC_Type())
+ebnSearchSNVC.setMaxAccess(_C)
+if mibBuilder.loadTexts:ebnSearchSNVC.setStatus(_A)
+_Hbn_ObjectIdentity=ObjectIdentity
+hbn=_Hbn_ObjectIdentity((1,3,6,1,2,1,34,7,1,6))
+_HbnIsInTable_Object=MibTable
+hbnIsInTable=_HbnIsInTable_Object((1,3,6,1,2,1,34,7,1,6,1))
+if mibBuilder.loadTexts:hbnIsInTable.setStatus(_A)
+_HbnIsInEntry_Object=MibTableRow
+hbnIsInEntry=_HbnIsInEntry_Object((1,3,6,1,2,1,34,7,1,6,1,1))
+hbnIsInEntry.setIndexNames((0,_B,_P),(0,_B,_Q))
+if mibBuilder.loadTexts:hbnIsInEntry.setStatus(_A)
+_HbnIsInFqCpName_Type=SnaControlPointName
+_HbnIsInFqCpName_Object=MibTableColumn
+hbnIsInFqCpName=_HbnIsInFqCpName_Object((1,3,6,1,2,1,34,7,1,6,1,1,1),_HbnIsInFqCpName_Type())
+hbnIsInFqCpName.setMaxAccess(_D)
+if mibBuilder.loadTexts:hbnIsInFqCpName.setStatus(_A)
+class _HbnIsInPcid_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
+_HbnIsInPcid_Type.__name__=_E
+_HbnIsInPcid_Object=MibTableColumn
+hbnIsInPcid=_HbnIsInPcid_Object((1,3,6,1,2,1,34,7,1,6,1,1,2),_HbnIsInPcid_Type())
+hbnIsInPcid.setMaxAccess(_D)
+if mibBuilder.loadTexts:hbnIsInPcid.setStatus(_A)
+class _HbnIsInRtpNceId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
+_HbnIsInRtpNceId_Type.__name__=_E
+_HbnIsInRtpNceId_Object=MibTableColumn
+hbnIsInRtpNceId=_HbnIsInRtpNceId_Object((1,3,6,1,2,1,34,7,1,6,1,1,3),_HbnIsInRtpNceId_Type())
+hbnIsInRtpNceId.setMaxAccess(_C)
+if mibBuilder.loadTexts:hbnIsInRtpNceId.setStatus(_A)
+class _HbnIsInRtpTcid_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
+_HbnIsInRtpTcid_Type.__name__=_E
+_HbnIsInRtpTcid_Object=MibTableColumn
+hbnIsInRtpTcid=_HbnIsInRtpTcid_Object((1,3,6,1,2,1,34,7,1,6,1,1,4),_HbnIsInRtpTcid_Type())
+hbnIsInRtpTcid.setMaxAccess(_C)
+if mibBuilder.loadTexts:hbnIsInRtpTcid.setStatus(_A)
+_EbnConformance_ObjectIdentity=ObjectIdentity
+ebnConformance=_EbnConformance_ObjectIdentity((1,3,6,1,2,1,34,7,2))
+_EbnCompliances_ObjectIdentity=ObjectIdentity
+ebnCompliances=_EbnCompliances_ObjectIdentity((1,3,6,1,2,1,34,7,2,1))
+_EbnGroups_ObjectIdentity=ObjectIdentity
+ebnGroups=_EbnGroups_ObjectIdentity((1,3,6,1,2,1,34,7,2,2))
+ebnDirectoryGroup=ObjectGroup((1,3,6,1,2,1,34,7,2,2,1))
+ebnDirectoryGroup.setObjects((_B,_R))
+if mibBuilder.loadTexts:ebnDirectoryGroup.setStatus(_A)
+ebnIsRscvGroup=ObjectGroup((1,3,6,1,2,1,34,7,2,2,2))
+ebnIsRscvGroup.setObjects(*((_B,_S),(_B,_T)))
+if mibBuilder.loadTexts:ebnIsRscvGroup.setStatus(_A)
+ebnDirectoryConfigGroup=ObjectGroup((1,3,6,1,2,1,34,7,2,2,3))
+ebnDirectoryConfigGroup.setObjects(*((_B,_U),(_B,_V),(_B,_W)))
+if mibBuilder.loadTexts:ebnDirectoryConfigGroup.setStatus(_A)
+ebnCosMappingGroup=ObjectGroup((1,3,6,1,2,1,34,7,2,2,4))
+ebnCosMappingGroup.setObjects((_B,_X))
+if mibBuilder.loadTexts:ebnCosMappingGroup.setStatus(_A)
+ebnSubnetRoutingListGroup=ObjectGroup((1,3,6,1,2,1,34,7,2,2,5))
+ebnSubnetRoutingListGroup.setObjects(*((_B,_Y),(_B,_Z),(_B,_a),(_B,_b)))
+if mibBuilder.loadTexts:ebnSubnetRoutingListGroup.setStatus(_A)
+hbnIsInGroup=ObjectGroup((1,3,6,1,2,1,34,7,2,2,6))
+hbnIsInGroup.setObjects(*((_B,_c),(_B,_d)))
+if mibBuilder.loadTexts:hbnIsInGroup.setStatus(_A)
+ebnCompliance=ModuleCompliance((1,3,6,1,2,1,34,7,2,1,1))
+ebnCompliance.setObjects(*((_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j)))
+if mibBuilder.loadTexts:ebnCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'SnaNAUWildcardName':SnaNAUWildcardName,'ebnMIB':ebnMIB,'ebnObjects':ebnObjects,'ebnDir':ebnDir,'ebnDirTable':ebnDirTable,'ebnDirEntry':ebnDirEntry,_H:ebnDirLuName,_R:ebnDirSubnetAffiliation,'ebnIsRscv':ebnIsRscv,'ebnIsRscvTable':ebnIsRscvTable,'ebnIsRscvEntry':ebnIsRscvEntry,_I:ebnIsRscvCpName,_J:ebnIsRscvPcid,_S:ebnIsRscvDestinationRoute,_T:ebnIsRscvDestinationCos,'ebnDirConfig':ebnDirConfig,_U:ebnSearchCacheTime,_V:ebnMaxSearchCache,_W:ebnDefaultSubnetVisitCount,'ebnCOS':ebnCOS,'ebnCosMapTable':ebnCosMapTable,'ebnCosMapEntry':ebnCosMapEntry,_K:ebnCosMapCpName,_L:ebnCosMapNonNativeCos,_X:ebnCosMapNativeCos,'ebnSubnetRoutingList':ebnSubnetRoutingList,'ebnSubnetSearchTable':ebnSubnetSearchTable,'ebnSubnetSearchEntry':ebnSubnetSearchEntry,_M:ebnSubnetSearchLuName,_Y:ebnSubnetSearchDynamics,_Z:ebnSubnetSearchOrdering,'ebnSearchTable':ebnSearchTable,'ebnSearchEntry':ebnSearchEntry,_N:ebnSearchLuName,_O:ebnSearchIndex,_a:ebnSearchCpName,_b:ebnSearchSNVC,'hbn':hbn,'hbnIsInTable':hbnIsInTable,'hbnIsInEntry':hbnIsInEntry,_P:hbnIsInFqCpName,_Q:hbnIsInPcid,_c:hbnIsInRtpNceId,_d:hbnIsInRtpTcid,'ebnConformance':ebnConformance,'ebnCompliances':ebnCompliances,'ebnCompliance':ebnCompliance,'ebnGroups':ebnGroups,_e:ebnDirectoryGroup,_f:ebnIsRscvGroup,_g:ebnDirectoryConfigGroup,_h:ebnCosMappingGroup,_i:ebnSubnetRoutingListGroup,_j:hbnIsInGroup})

@@ -1,106 +1,285 @@
-#
-# PySNMP MIB module RADIUS-DYNAUTH-CLIENT-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/RADIUS-DYNAUTH-CLIENT-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:25:39 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
-( InetPortNumber, InetAddressType, InetAddress, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( NotificationGroup, ObjectGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-( ModuleIdentity, Counter32, MibIdentifier, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, mib_2, Integer32, Unsigned32, Counter64, NotificationType, iso, ObjectIdentity, IpAddress, Bits, TimeTicks, ) = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter32", "MibIdentifier", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "mib-2", "Integer32", "Unsigned32", "Counter64", "NotificationType", "iso", "ObjectIdentity", "IpAddress", "Bits", "TimeTicks")
-( TextualConvention, DisplayString, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-radiusDynAuthClientMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 145)).setRevisions(("2006-09-29 00:00",))
-if mibBuilder.loadTexts: radiusDynAuthClientMIB.setLastUpdated('200608290000Z')
-if mibBuilder.loadTexts: radiusDynAuthClientMIB.setOrganization('IETF RADEXT Working Group')
-if mibBuilder.loadTexts: radiusDynAuthClientMIB.setContactInfo(" Stefaan De Cnodder\n\n\n\n                Alcatel\n                Francis Wellesplein 1\n                B-2018 Antwerp\n                Belgium\n\n                Phone: +32 3 240 85 15\n                EMail: stefaan.de_cnodder@alcatel.be\n\n                Nagi Reddy Jonnala\n                Cisco Systems, Inc.\n                Divyasree Chambers, B Wing,\n                O'Shaugnessy Road,\n                Bangalore-560027, India.\n\n                Phone: +91 94487 60828\n                EMail: njonnala@cisco.com\n\n                Murtaza Chiba\n                Cisco Systems, Inc.\n                170 West Tasman Dr.\n                San Jose CA, 95134\n\n                Phone: +1 408 525 7198\n                EMail: mchiba@cisco.com ")
-if mibBuilder.loadTexts: radiusDynAuthClientMIB.setDescription('The MIB module for entities implementing the client\n            side of the Dynamic Authorization Extensions to the\n            Remote Authentication Dial-In User Service (RADIUS)\n            protocol. Copyright (C) The Internet Society (2006).\n            Initial version as published in RFC 4672;\n            for full legal notices see the RFC itself.')
-radiusDynAuthClientMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 145, 1))
-radiusDynAuthClientScalars = MibIdentifier((1, 3, 6, 1, 2, 1, 145, 1, 1))
-radiusDynAuthClientDisconInvalidServerAddresses = MibScalar((1, 3, 6, 1, 2, 1, 145, 1, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientDisconInvalidServerAddresses.setDescription('The number of Disconnect-Ack and Disconnect-NAK packets\n\n\n\n              received from unknown addresses.  This counter may\n              experience a discontinuity when the DAC module\n              (re)starts, as indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.')
-radiusDynAuthClientCoAInvalidServerAddresses = MibScalar((1, 3, 6, 1, 2, 1, 145, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientCoAInvalidServerAddresses.setDescription('The number of CoA-Ack and CoA-NAK packets received from\n              unknown addresses.  Disconnect-NAK packets received\n              from unknown addresses.  This counter may experience a\n              discontinuity when the DAC module (re)starts, as\n              indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.')
-radiusDynAuthServerTable = MibTable((1, 3, 6, 1, 2, 1, 145, 1, 2), )
-if mibBuilder.loadTexts: radiusDynAuthServerTable.setDescription('The (conceptual) table listing the RADIUS Dynamic\n              Authorization Servers with which the client shares a\n              secret.')
-radiusDynAuthServerEntry = MibTableRow((1, 3, 6, 1, 2, 1, 145, 1, 2, 1), ).setIndexNames((0, "RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthServerIndex"))
-if mibBuilder.loadTexts: radiusDynAuthServerEntry.setDescription('An entry (conceptual row) representing one Dynamic\n              Authorization Server with which the client shares a\n              secret.')
-radiusDynAuthServerIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: radiusDynAuthServerIndex.setDescription('A number uniquely identifying each RADIUS Dynamic\n              Authorization Server with which this Dynamic\n              Authorization Client communicates.  This number is\n              allocated by the agent implementing this MIB module\n              and is unique in this context.')
-radiusDynAuthServerAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 2), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthServerAddressType.setDescription('The type of IP address of the RADIUS Dynamic\n              Authorization Server referred to in this table entry.')
-radiusDynAuthServerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 3), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthServerAddress.setDescription('The IP address value of the RADIUS Dynamic\n              Authorization Server referred to in this table entry\n              using the version neutral IP address format.  The type\n              of this address is determined by the value of the\n              radiusDynAuthServerAddressType object.')
-radiusDynAuthServerClientPortNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 4), InetPortNumber().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthServerClientPortNumber.setDescription('The UDP destination port that the RADIUS Dynamic\n              Authorization Client is using to send requests to this\n              server.  The value zero is invalid.')
-radiusDynAuthServerID = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthServerID.setDescription('The NAS-Identifier of the RADIUS Dynamic Authorization\n              Server referred to in this table entry.  This is not\n              necessarily the same as sysName in MIB II.')
-radiusDynAuthClientRoundTripTime = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 6), TimeTicks()).setUnits('hundredths of a second').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientRoundTripTime.setDescription('The time interval (in hundredths of a second) between\n              the most recent Disconnect or CoA request and the\n              receipt of the corresponding Disconnect or CoA reply.\n              A value of zero is returned if no reply has been\n              received yet from this server.')
-radiusDynAuthClientDisconRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 7), Counter32()).setUnits('requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientDisconRequests.setDescription("The number of RADIUS Disconnect-Requests sent\n              to this Dynamic Authorization Server.  This also\n              includes the RADIUS Disconnect-Requests that have a\n              Service-Type attribute with value 'Authorize Only'.\n              Disconnect-NAK packets received from unknown addresses.\n              This counter may experience a discontinuity when the\n              DAC module (re)starts, as indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.")
-radiusDynAuthClientDisconAuthOnlyRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 8), Counter32()).setUnits('requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientDisconAuthOnlyRequests.setDescription("The number of RADIUS Disconnect-Requests that include a\n              Service-Type attribute with value 'Authorize Only'\n              sent to this Dynamic Authorization Server.\n              Disconnect-NAK packets received from unknown addresses.\n              This counter may experience a discontinuity when the\n              DAC module (re)starts, as indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.")
-radiusDynAuthClientDisconRetransmissions = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 9), Counter32()).setUnits('retransmissions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientDisconRetransmissions.setDescription('The number of RADIUS Disconnect-request packets\n              retransmitted to this RADIUS Dynamic Authorization\n              Server.  Disconnect-NAK packets received from unknown\n              addresses.  This counter may experience a discontinuity\n              when the DAC module (re)starts, as indicated by the\n              value of radiusDynAuthClientCounterDiscontinuity.')
-radiusDynAuthClientDisconAcks = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 10), Counter32()).setUnits('replies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientDisconAcks.setDescription('The number of RADIUS Disconnect-ACK packets\n              received from this Dynamic Authorization Server.  This\n              counter may experience a discontinuity when the DAC\n              module (re)starts, as indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.')
-radiusDynAuthClientDisconNaks = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 11), Counter32()).setUnits('replies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientDisconNaks.setDescription("The number of RADIUS Disconnect-NAK packets\n              received from this Dynamic Authorization Server.\n              This includes the RADIUS Disconnect-NAK packets\n              received with a Service-Type attribute with value\n              'Authorize Only' and the RADIUS Disconnect-NAK\n              packets received if no session context was found.  This\n              counter may experience a discontinuity when the DAC\n              module (re)starts, as indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.")
-radiusDynAuthClientDisconNakAuthOnlyRequest = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 12), Counter32()).setUnits('replies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientDisconNakAuthOnlyRequest.setDescription("The number of RADIUS Disconnect-NAK packets\n              that include a Service-Type attribute with value\n              'Authorize Only' received from this Dynamic\n              Authorization Server.  This counter may experience a\n              discontinuity when the DAC module (re)starts, as\n\n\n\n              indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.")
-radiusDynAuthClientDisconNakSessNoContext = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 13), Counter32()).setUnits('replies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientDisconNakSessNoContext.setDescription("The number of RADIUS Disconnect-NAK packets\n              received from this Dynamic Authorization Server\n              because no session context was found; i.e., it\n              includes an Error-Cause attribute with value 503\n              ('Session Context Not Found').  This counter may\n              experience a discontinuity when the DAC module\n              (re)starts, as indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.")
-radiusDynAuthClientMalformedDisconResponses = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 14), Counter32()).setUnits('replies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientMalformedDisconResponses.setDescription('The number of malformed RADIUS Disconnect-Ack and\n              Disconnect-NAK packets received from this Dynamic\n              Authorization Server.  Bad authenticators and unknown\n              types are not included as malformed Disconnect-Ack and\n              Disconnect-NAK packets.  This counter may experience a\n              discontinuity when the DAC module (re)starts, as\n              indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.')
-radiusDynAuthClientDisconBadAuthenticators = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 15), Counter32()).setUnits('replies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientDisconBadAuthenticators.setDescription('The number of RADIUS Disconnect-Ack and Disconnect-NAK\n              packets that contained invalid Authenticator field\n              received from this Dynamic Authorization Server.  This\n              counter may experience a discontinuity when the DAC\n              module (re)starts, as indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.')
-radiusDynAuthClientDisconPendingRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 16), Gauge32()).setUnits('requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientDisconPendingRequests.setDescription('The number of RADIUS Disconnect-request packets\n              destined for this server that have not yet timed out\n              or received a response.  This variable is incremented\n              when an Disconnect-Request is sent and decremented\n              due to receipt of a Disconnect-Ack, a Disconnect-NAK,\n              a timeout, or a retransmission.')
-radiusDynAuthClientDisconTimeouts = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 17), Counter32()).setUnits('timeouts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientDisconTimeouts.setDescription('The number of Disconnect request timeouts to this\n              server.  After a timeout, the client may retry to the\n              same server or give up.  A retry to the same server is\n              counted as a retransmit and as a timeout.  A send\n              to a different server is counted as a\n              Disconnect-Request and as a timeout.  This counter\n              may experience a discontinuity when the DAC module\n              (re)starts, as indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.')
-radiusDynAuthClientDisconPacketsDropped = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 18), Counter32()).setUnits('replies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientDisconPacketsDropped.setDescription('The number of incoming Disconnect-Ack and\n              Disconnect-NAK packets from this Dynamic Authorization\n              Server silently discarded by the client application for\n              some reason other than malformed, bad authenticators,\n              or unknown types.  This counter may experience a\n              discontinuity when the DAC module (re)starts, as\n              indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.')
-radiusDynAuthClientCoARequests = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 19), Counter32()).setUnits('requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientCoARequests.setDescription("The number of RADIUS CoA-Requests sent to this\n              Dynamic Authorization Server.  This also includes\n              CoA requests that have a Service-Type attribute\n              with value 'Authorize Only'.  This counter may\n              experience a discontinuity when the DAC module\n              (re)starts, as indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.")
-radiusDynAuthClientCoAAuthOnlyRequest = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 20), Counter32()).setUnits('requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientCoAAuthOnlyRequest.setDescription("The number of RADIUS CoA-requests that include a\n              Service-Type attribute with value 'Authorize Only'\n              sent to this Dynamic Authorization Client.  This\n              counter may experience a discontinuity when the DAC\n              module (re)starts, as indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.")
-radiusDynAuthClientCoARetransmissions = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 21), Counter32()).setUnits('retransmissions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientCoARetransmissions.setDescription('The number of RADIUS CoA-request packets\n              retransmitted to this RADIUS Dynamic Authorization\n              Server.  This counter may experience a discontinuity\n              when the DAC module (re)starts, as indicated by the\n              value of radiusDynAuthClientCounterDiscontinuity.')
-radiusDynAuthClientCoAAcks = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 22), Counter32()).setUnits('replies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientCoAAcks.setDescription('The number of RADIUS CoA-ACK packets received from\n              this Dynamic Authorization Server.  This counter may\n              experience a discontinuity when the DAC module\n              (re)starts, as indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.')
-radiusDynAuthClientCoANaks = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 23), Counter32()).setUnits('replies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientCoANaks.setDescription("The number of RADIUS CoA-NAK packets received from\n              this Dynamic Authorization Server.  This includes the\n              RADIUS CoA-NAK packets received with a Service-Type\n              attribute with value 'Authorize Only' and the RADIUS\n              CoA-NAK packets received because no session context\n\n\n\n              was found.  This counter may experience a discontinuity\n              when the DAC module (re)starts, as indicated by the\n              value of radiusDynAuthClientCounterDiscontinuity.")
-radiusDynAuthClientCoANakAuthOnlyRequest = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 24), Counter32()).setUnits('replies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientCoANakAuthOnlyRequest.setDescription("The number of RADIUS CoA-NAK packets that include a\n              Service-Type attribute with value 'Authorize Only'\n              received from this Dynamic Authorization Server.  This\n              counter may experience a discontinuity when the DAC\n              module (re)starts, as indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.")
-radiusDynAuthClientCoANakSessNoContext = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 25), Counter32()).setUnits('replies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientCoANakSessNoContext.setDescription("The number of RADIUS CoA-NAK packets received from\n              this Dynamic Authorization Server because no session\n              context was found; i.e., it includes an Error-Cause\n              attribute with value 503 ('Session Context Not Found').\n              This counter may experience a discontinuity when the\n              DAC module (re)starts as indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.")
-radiusDynAuthClientMalformedCoAResponses = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 26), Counter32()).setUnits('replies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientMalformedCoAResponses.setDescription('The number of malformed RADIUS CoA-Ack and CoA-NAK\n              packets received from this Dynamic Authorization\n              Server.  Bad authenticators and unknown types are\n              not included as malformed CoA-Ack and CoA-NAK packets.\n              This counter may experience a discontinuity when the\n              DAC module (re)starts, as indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.')
-radiusDynAuthClientCoABadAuthenticators = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 27), Counter32()).setUnits('replies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientCoABadAuthenticators.setDescription('The number of RADIUS CoA-Ack and CoA-NAK packets\n              that contained invalid Authenticator field\n              received from this Dynamic Authorization Server.\n              This counter may experience a discontinuity when the\n              DAC module (re)starts, as indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.')
-radiusDynAuthClientCoAPendingRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 28), Gauge32()).setUnits('requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientCoAPendingRequests.setDescription('The number of RADIUS CoA-request packets destined for\n              this server that have not yet timed out or received a\n              response.  This variable is incremented when an\n              CoA-Request is sent and decremented due to receipt of\n              a CoA-Ack, a CoA-NAK, or a timeout, or a\n              retransmission.')
-radiusDynAuthClientCoATimeouts = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 29), Counter32()).setUnits('timeouts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientCoATimeouts.setDescription('The number of CoA request timeouts to this server.\n              After a timeout, the client may retry to the same\n              server or give up.  A retry to the same server is\n              counted as a retransmit and as a timeout.  A send to\n              a different server is counted as a CoA-Request and\n              as a timeout.  This counter may experience a\n              discontinuity when the DAC module (re)starts, as\n              indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.')
-radiusDynAuthClientCoAPacketsDropped = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 30), Counter32()).setUnits('replies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientCoAPacketsDropped.setDescription('The number of incoming CoA-Ack and CoA-NAK from this\n              Dynamic Authorization Server silently discarded by the\n              client application for some reason other than\n              malformed, bad authenticators, or unknown types.  This\n              counter may experience a discontinuity when the DAC\n              module (re)starts, as indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.')
-radiusDynAuthClientUnknownTypes = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 31), Counter32()).setUnits('replies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientUnknownTypes.setDescription('The number of incoming packets of unknown types\n              that were received on the Dynamic Authorization port.\n              This counter may experience a discontinuity when the\n              DAC module (re)starts, as indicated by the value of\n              radiusDynAuthClientCounterDiscontinuity.')
-radiusDynAuthClientCounterDiscontinuity = MibTableColumn((1, 3, 6, 1, 2, 1, 145, 1, 2, 1, 32), TimeTicks()).setUnits('hundredths of a second').setMaxAccess("readonly")
-if mibBuilder.loadTexts: radiusDynAuthClientCounterDiscontinuity.setDescription('The time (in hundredths of a second) since the\n              last counter discontinuity.  A discontinuity may\n              be the result of a reinitialization of the DAC\n              module within the managed entity.')
-radiusDynAuthClientMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 145, 2))
-radiusDynAuthClientMIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 145, 2, 1))
-radiusDynAuthClientMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 145, 2, 2))
-radiusDynAuthClientMIBCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 145, 2, 1, 1)).setObjects(*(("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientMIBGroup"),))
-if mibBuilder.loadTexts: radiusDynAuthClientMIBCompliance.setDescription('The compliance statement for entities implementing\n              the RADIUS Dynamic Authorization Client.\n              Implementation of this module is for entities that\n              support IPv4 and/or IPv6.')
-radiusDynAuthClientMIBGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 145, 2, 2, 1)).setObjects(*(("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientDisconInvalidServerAddresses"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientCoAInvalidServerAddresses"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthServerAddressType"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthServerAddress"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthServerClientPortNumber"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthServerID"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientRoundTripTime"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientDisconRequests"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientDisconRetransmissions"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientDisconAcks"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientDisconNaks"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientMalformedDisconResponses"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientDisconBadAuthenticators"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientDisconPendingRequests"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientDisconTimeouts"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientDisconPacketsDropped"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientCoARequests"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientCoARetransmissions"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientCoAAcks"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientCoANaks"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientMalformedCoAResponses"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientCoABadAuthenticators"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientCoAPendingRequests"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientCoATimeouts"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientCoAPacketsDropped"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientUnknownTypes"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientCounterDiscontinuity"),))
-if mibBuilder.loadTexts: radiusDynAuthClientMIBGroup.setDescription('The collection of objects providing management of\n              a RADIUS Dynamic Authorization Client.')
-radiusDynAuthClientAuthOnlyGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 145, 2, 2, 2)).setObjects(*(("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientDisconAuthOnlyRequests"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientDisconNakAuthOnlyRequest"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientCoAAuthOnlyRequest"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientCoANakAuthOnlyRequest"),))
-if mibBuilder.loadTexts: radiusDynAuthClientAuthOnlyGroup.setDescription("The collection of objects supporting the RADIUS\n              messages including Service-Type attribute with\n              value 'Authorize Only'.")
-radiusDynAuthClientNoSessGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 145, 2, 2, 3)).setObjects(*(("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientDisconNakSessNoContext"), ("RADIUS-DYNAUTH-CLIENT-MIB", "radiusDynAuthClientCoANakSessNoContext"),))
-if mibBuilder.loadTexts: radiusDynAuthClientNoSessGroup.setDescription('The collection of objects supporting the RADIUS\n              messages that are referring to non-existing sessions.')
-mibBuilder.exportSymbols("RADIUS-DYNAUTH-CLIENT-MIB", radiusDynAuthClientCoAAcks=radiusDynAuthClientCoAAcks, radiusDynAuthServerIndex=radiusDynAuthServerIndex, radiusDynAuthClientDisconRetransmissions=radiusDynAuthClientDisconRetransmissions, radiusDynAuthClientDisconAcks=radiusDynAuthClientDisconAcks, radiusDynAuthClientCoARequests=radiusDynAuthClientCoARequests, radiusDynAuthClientMIBGroup=radiusDynAuthClientMIBGroup, radiusDynAuthClientMIBObjects=radiusDynAuthClientMIBObjects, radiusDynAuthClientCoANaks=radiusDynAuthClientCoANaks, radiusDynAuthClientMIB=radiusDynAuthClientMIB, radiusDynAuthServerAddressType=radiusDynAuthServerAddressType, radiusDynAuthClientCoAInvalidServerAddresses=radiusDynAuthClientCoAInvalidServerAddresses, radiusDynAuthClientMIBCompliance=radiusDynAuthClientMIBCompliance, radiusDynAuthClientCoARetransmissions=radiusDynAuthClientCoARetransmissions, radiusDynAuthClientCoAPendingRequests=radiusDynAuthClientCoAPendingRequests, radiusDynAuthServerTable=radiusDynAuthServerTable, radiusDynAuthClientDisconAuthOnlyRequests=radiusDynAuthClientDisconAuthOnlyRequests, radiusDynAuthClientRoundTripTime=radiusDynAuthClientRoundTripTime, radiusDynAuthClientDisconNakAuthOnlyRequest=radiusDynAuthClientDisconNakAuthOnlyRequest, radiusDynAuthClientMIBGroups=radiusDynAuthClientMIBGroups, radiusDynAuthClientMalformedDisconResponses=radiusDynAuthClientMalformedDisconResponses, radiusDynAuthClientMIBCompliances=radiusDynAuthClientMIBCompliances, radiusDynAuthClientDisconRequests=radiusDynAuthClientDisconRequests, radiusDynAuthClientMIBConformance=radiusDynAuthClientMIBConformance, radiusDynAuthClientUnknownTypes=radiusDynAuthClientUnknownTypes, radiusDynAuthServerEntry=radiusDynAuthServerEntry, radiusDynAuthClientDisconNaks=radiusDynAuthClientDisconNaks, radiusDynAuthClientNoSessGroup=radiusDynAuthClientNoSessGroup, radiusDynAuthServerID=radiusDynAuthServerID, radiusDynAuthClientCoABadAuthenticators=radiusDynAuthClientCoABadAuthenticators, radiusDynAuthClientCoAPacketsDropped=radiusDynAuthClientCoAPacketsDropped, radiusDynAuthClientDisconPendingRequests=radiusDynAuthClientDisconPendingRequests, radiusDynAuthClientCounterDiscontinuity=radiusDynAuthClientCounterDiscontinuity, radiusDynAuthClientDisconBadAuthenticators=radiusDynAuthClientDisconBadAuthenticators, radiusDynAuthClientDisconPacketsDropped=radiusDynAuthClientDisconPacketsDropped, radiusDynAuthClientDisconNakSessNoContext=radiusDynAuthClientDisconNakSessNoContext, radiusDynAuthServerClientPortNumber=radiusDynAuthServerClientPortNumber, radiusDynAuthClientScalars=radiusDynAuthClientScalars, radiusDynAuthClientMalformedCoAResponses=radiusDynAuthClientMalformedCoAResponses, radiusDynAuthServerAddress=radiusDynAuthServerAddress, radiusDynAuthClientCoANakAuthOnlyRequest=radiusDynAuthClientCoANakAuthOnlyRequest, radiusDynAuthClientAuthOnlyGroup=radiusDynAuthClientAuthOnlyGroup, PYSNMP_MODULE_ID=radiusDynAuthClientMIB, radiusDynAuthClientCoANakSessNoContext=radiusDynAuthClientCoANakSessNoContext, radiusDynAuthClientDisconTimeouts=radiusDynAuthClientDisconTimeouts, radiusDynAuthClientCoAAuthOnlyRequest=radiusDynAuthClientCoAAuthOnlyRequest, radiusDynAuthClientDisconInvalidServerAddresses=radiusDynAuthClientDisconInvalidServerAddresses, radiusDynAuthClientCoATimeouts=radiusDynAuthClientCoATimeouts)
+_s='radiusDynAuthClientMIBGroup'
+_r='radiusDynAuthClientCoANakSessNoContext'
+_q='radiusDynAuthClientDisconNakSessNoContext'
+_p='radiusDynAuthClientCoANakAuthOnlyRequest'
+_o='radiusDynAuthClientCoAAuthOnlyRequest'
+_n='radiusDynAuthClientDisconNakAuthOnlyRequest'
+_m='radiusDynAuthClientDisconAuthOnlyRequests'
+_l='radiusDynAuthClientCounterDiscontinuity'
+_k='radiusDynAuthClientUnknownTypes'
+_j='radiusDynAuthClientCoAPacketsDropped'
+_i='radiusDynAuthClientCoATimeouts'
+_h='radiusDynAuthClientCoAPendingRequests'
+_g='radiusDynAuthClientCoABadAuthenticators'
+_f='radiusDynAuthClientMalformedCoAResponses'
+_e='radiusDynAuthClientCoANaks'
+_d='radiusDynAuthClientCoAAcks'
+_c='radiusDynAuthClientCoARetransmissions'
+_b='radiusDynAuthClientCoARequests'
+_a='radiusDynAuthClientDisconPacketsDropped'
+_Z='radiusDynAuthClientDisconTimeouts'
+_Y='radiusDynAuthClientDisconPendingRequests'
+_X='radiusDynAuthClientDisconBadAuthenticators'
+_W='radiusDynAuthClientMalformedDisconResponses'
+_V='radiusDynAuthClientDisconNaks'
+_U='radiusDynAuthClientDisconAcks'
+_T='radiusDynAuthClientDisconRetransmissions'
+_S='radiusDynAuthClientDisconRequests'
+_R='radiusDynAuthClientRoundTripTime'
+_Q='radiusDynAuthServerID'
+_P='radiusDynAuthServerClientPortNumber'
+_O='radiusDynAuthServerAddress'
+_N='radiusDynAuthServerAddressType'
+_M='radiusDynAuthClientCoAInvalidServerAddresses'
+_L='radiusDynAuthClientDisconInvalidServerAddresses'
+_K='timeouts'
+_J='retransmissions'
+_I='hundredths of a second'
+_H='radiusDynAuthServerIndex'
+_G='Integer32'
+_F='InetPortNumber'
+_E='requests'
+_D='replies'
+_C='read-only'
+_B='RADIUS-DYNAUTH-CLIENT-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InetAddress,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType',_F)
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_G,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+radiusDynAuthClientMIB=ModuleIdentity((1,3,6,1,2,1,145))
+if mibBuilder.loadTexts:radiusDynAuthClientMIB.setRevisions(('2006-09-29 00:00',))
+_RadiusDynAuthClientMIBObjects_ObjectIdentity=ObjectIdentity
+radiusDynAuthClientMIBObjects=_RadiusDynAuthClientMIBObjects_ObjectIdentity((1,3,6,1,2,1,145,1))
+_RadiusDynAuthClientScalars_ObjectIdentity=ObjectIdentity
+radiusDynAuthClientScalars=_RadiusDynAuthClientScalars_ObjectIdentity((1,3,6,1,2,1,145,1,1))
+_RadiusDynAuthClientDisconInvalidServerAddresses_Type=Counter32
+_RadiusDynAuthClientDisconInvalidServerAddresses_Object=MibScalar
+radiusDynAuthClientDisconInvalidServerAddresses=_RadiusDynAuthClientDisconInvalidServerAddresses_Object((1,3,6,1,2,1,145,1,1,1),_RadiusDynAuthClientDisconInvalidServerAddresses_Type())
+radiusDynAuthClientDisconInvalidServerAddresses.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconInvalidServerAddresses.setStatus(_A)
+_RadiusDynAuthClientCoAInvalidServerAddresses_Type=Counter32
+_RadiusDynAuthClientCoAInvalidServerAddresses_Object=MibScalar
+radiusDynAuthClientCoAInvalidServerAddresses=_RadiusDynAuthClientCoAInvalidServerAddresses_Object((1,3,6,1,2,1,145,1,1,2),_RadiusDynAuthClientCoAInvalidServerAddresses_Type())
+radiusDynAuthClientCoAInvalidServerAddresses.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientCoAInvalidServerAddresses.setStatus(_A)
+_RadiusDynAuthServerTable_Object=MibTable
+radiusDynAuthServerTable=_RadiusDynAuthServerTable_Object((1,3,6,1,2,1,145,1,2))
+if mibBuilder.loadTexts:radiusDynAuthServerTable.setStatus(_A)
+_RadiusDynAuthServerEntry_Object=MibTableRow
+radiusDynAuthServerEntry=_RadiusDynAuthServerEntry_Object((1,3,6,1,2,1,145,1,2,1))
+radiusDynAuthServerEntry.setIndexNames((0,_B,_H))
+if mibBuilder.loadTexts:radiusDynAuthServerEntry.setStatus(_A)
+class _RadiusDynAuthServerIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_RadiusDynAuthServerIndex_Type.__name__=_G
+_RadiusDynAuthServerIndex_Object=MibTableColumn
+radiusDynAuthServerIndex=_RadiusDynAuthServerIndex_Object((1,3,6,1,2,1,145,1,2,1,1),_RadiusDynAuthServerIndex_Type())
+radiusDynAuthServerIndex.setMaxAccess('not-accessible')
+if mibBuilder.loadTexts:radiusDynAuthServerIndex.setStatus(_A)
+_RadiusDynAuthServerAddressType_Type=InetAddressType
+_RadiusDynAuthServerAddressType_Object=MibTableColumn
+radiusDynAuthServerAddressType=_RadiusDynAuthServerAddressType_Object((1,3,6,1,2,1,145,1,2,1,2),_RadiusDynAuthServerAddressType_Type())
+radiusDynAuthServerAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthServerAddressType.setStatus(_A)
+_RadiusDynAuthServerAddress_Type=InetAddress
+_RadiusDynAuthServerAddress_Object=MibTableColumn
+radiusDynAuthServerAddress=_RadiusDynAuthServerAddress_Object((1,3,6,1,2,1,145,1,2,1,3),_RadiusDynAuthServerAddress_Type())
+radiusDynAuthServerAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthServerAddress.setStatus(_A)
+class _RadiusDynAuthServerClientPortNumber_Type(InetPortNumber):subtypeSpec=InetPortNumber.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_RadiusDynAuthServerClientPortNumber_Type.__name__=_F
+_RadiusDynAuthServerClientPortNumber_Object=MibTableColumn
+radiusDynAuthServerClientPortNumber=_RadiusDynAuthServerClientPortNumber_Object((1,3,6,1,2,1,145,1,2,1,4),_RadiusDynAuthServerClientPortNumber_Type())
+radiusDynAuthServerClientPortNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthServerClientPortNumber.setStatus(_A)
+_RadiusDynAuthServerID_Type=SnmpAdminString
+_RadiusDynAuthServerID_Object=MibTableColumn
+radiusDynAuthServerID=_RadiusDynAuthServerID_Object((1,3,6,1,2,1,145,1,2,1,5),_RadiusDynAuthServerID_Type())
+radiusDynAuthServerID.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthServerID.setStatus(_A)
+_RadiusDynAuthClientRoundTripTime_Type=TimeTicks
+_RadiusDynAuthClientRoundTripTime_Object=MibTableColumn
+radiusDynAuthClientRoundTripTime=_RadiusDynAuthClientRoundTripTime_Object((1,3,6,1,2,1,145,1,2,1,6),_RadiusDynAuthClientRoundTripTime_Type())
+radiusDynAuthClientRoundTripTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientRoundTripTime.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientRoundTripTime.setUnits(_I)
+_RadiusDynAuthClientDisconRequests_Type=Counter32
+_RadiusDynAuthClientDisconRequests_Object=MibTableColumn
+radiusDynAuthClientDisconRequests=_RadiusDynAuthClientDisconRequests_Object((1,3,6,1,2,1,145,1,2,1,7),_RadiusDynAuthClientDisconRequests_Type())
+radiusDynAuthClientDisconRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconRequests.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconRequests.setUnits(_E)
+_RadiusDynAuthClientDisconAuthOnlyRequests_Type=Counter32
+_RadiusDynAuthClientDisconAuthOnlyRequests_Object=MibTableColumn
+radiusDynAuthClientDisconAuthOnlyRequests=_RadiusDynAuthClientDisconAuthOnlyRequests_Object((1,3,6,1,2,1,145,1,2,1,8),_RadiusDynAuthClientDisconAuthOnlyRequests_Type())
+radiusDynAuthClientDisconAuthOnlyRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconAuthOnlyRequests.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconAuthOnlyRequests.setUnits(_E)
+_RadiusDynAuthClientDisconRetransmissions_Type=Counter32
+_RadiusDynAuthClientDisconRetransmissions_Object=MibTableColumn
+radiusDynAuthClientDisconRetransmissions=_RadiusDynAuthClientDisconRetransmissions_Object((1,3,6,1,2,1,145,1,2,1,9),_RadiusDynAuthClientDisconRetransmissions_Type())
+radiusDynAuthClientDisconRetransmissions.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconRetransmissions.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconRetransmissions.setUnits(_J)
+_RadiusDynAuthClientDisconAcks_Type=Counter32
+_RadiusDynAuthClientDisconAcks_Object=MibTableColumn
+radiusDynAuthClientDisconAcks=_RadiusDynAuthClientDisconAcks_Object((1,3,6,1,2,1,145,1,2,1,10),_RadiusDynAuthClientDisconAcks_Type())
+radiusDynAuthClientDisconAcks.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconAcks.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconAcks.setUnits(_D)
+_RadiusDynAuthClientDisconNaks_Type=Counter32
+_RadiusDynAuthClientDisconNaks_Object=MibTableColumn
+radiusDynAuthClientDisconNaks=_RadiusDynAuthClientDisconNaks_Object((1,3,6,1,2,1,145,1,2,1,11),_RadiusDynAuthClientDisconNaks_Type())
+radiusDynAuthClientDisconNaks.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconNaks.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconNaks.setUnits(_D)
+_RadiusDynAuthClientDisconNakAuthOnlyRequest_Type=Counter32
+_RadiusDynAuthClientDisconNakAuthOnlyRequest_Object=MibTableColumn
+radiusDynAuthClientDisconNakAuthOnlyRequest=_RadiusDynAuthClientDisconNakAuthOnlyRequest_Object((1,3,6,1,2,1,145,1,2,1,12),_RadiusDynAuthClientDisconNakAuthOnlyRequest_Type())
+radiusDynAuthClientDisconNakAuthOnlyRequest.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconNakAuthOnlyRequest.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconNakAuthOnlyRequest.setUnits(_D)
+_RadiusDynAuthClientDisconNakSessNoContext_Type=Counter32
+_RadiusDynAuthClientDisconNakSessNoContext_Object=MibTableColumn
+radiusDynAuthClientDisconNakSessNoContext=_RadiusDynAuthClientDisconNakSessNoContext_Object((1,3,6,1,2,1,145,1,2,1,13),_RadiusDynAuthClientDisconNakSessNoContext_Type())
+radiusDynAuthClientDisconNakSessNoContext.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconNakSessNoContext.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconNakSessNoContext.setUnits(_D)
+_RadiusDynAuthClientMalformedDisconResponses_Type=Counter32
+_RadiusDynAuthClientMalformedDisconResponses_Object=MibTableColumn
+radiusDynAuthClientMalformedDisconResponses=_RadiusDynAuthClientMalformedDisconResponses_Object((1,3,6,1,2,1,145,1,2,1,14),_RadiusDynAuthClientMalformedDisconResponses_Type())
+radiusDynAuthClientMalformedDisconResponses.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientMalformedDisconResponses.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientMalformedDisconResponses.setUnits(_D)
+_RadiusDynAuthClientDisconBadAuthenticators_Type=Counter32
+_RadiusDynAuthClientDisconBadAuthenticators_Object=MibTableColumn
+radiusDynAuthClientDisconBadAuthenticators=_RadiusDynAuthClientDisconBadAuthenticators_Object((1,3,6,1,2,1,145,1,2,1,15),_RadiusDynAuthClientDisconBadAuthenticators_Type())
+radiusDynAuthClientDisconBadAuthenticators.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconBadAuthenticators.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconBadAuthenticators.setUnits(_D)
+_RadiusDynAuthClientDisconPendingRequests_Type=Gauge32
+_RadiusDynAuthClientDisconPendingRequests_Object=MibTableColumn
+radiusDynAuthClientDisconPendingRequests=_RadiusDynAuthClientDisconPendingRequests_Object((1,3,6,1,2,1,145,1,2,1,16),_RadiusDynAuthClientDisconPendingRequests_Type())
+radiusDynAuthClientDisconPendingRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconPendingRequests.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconPendingRequests.setUnits(_E)
+_RadiusDynAuthClientDisconTimeouts_Type=Counter32
+_RadiusDynAuthClientDisconTimeouts_Object=MibTableColumn
+radiusDynAuthClientDisconTimeouts=_RadiusDynAuthClientDisconTimeouts_Object((1,3,6,1,2,1,145,1,2,1,17),_RadiusDynAuthClientDisconTimeouts_Type())
+radiusDynAuthClientDisconTimeouts.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconTimeouts.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconTimeouts.setUnits(_K)
+_RadiusDynAuthClientDisconPacketsDropped_Type=Counter32
+_RadiusDynAuthClientDisconPacketsDropped_Object=MibTableColumn
+radiusDynAuthClientDisconPacketsDropped=_RadiusDynAuthClientDisconPacketsDropped_Object((1,3,6,1,2,1,145,1,2,1,18),_RadiusDynAuthClientDisconPacketsDropped_Type())
+radiusDynAuthClientDisconPacketsDropped.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconPacketsDropped.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientDisconPacketsDropped.setUnits(_D)
+_RadiusDynAuthClientCoARequests_Type=Counter32
+_RadiusDynAuthClientCoARequests_Object=MibTableColumn
+radiusDynAuthClientCoARequests=_RadiusDynAuthClientCoARequests_Object((1,3,6,1,2,1,145,1,2,1,19),_RadiusDynAuthClientCoARequests_Type())
+radiusDynAuthClientCoARequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientCoARequests.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientCoARequests.setUnits(_E)
+_RadiusDynAuthClientCoAAuthOnlyRequest_Type=Counter32
+_RadiusDynAuthClientCoAAuthOnlyRequest_Object=MibTableColumn
+radiusDynAuthClientCoAAuthOnlyRequest=_RadiusDynAuthClientCoAAuthOnlyRequest_Object((1,3,6,1,2,1,145,1,2,1,20),_RadiusDynAuthClientCoAAuthOnlyRequest_Type())
+radiusDynAuthClientCoAAuthOnlyRequest.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientCoAAuthOnlyRequest.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientCoAAuthOnlyRequest.setUnits(_E)
+_RadiusDynAuthClientCoARetransmissions_Type=Counter32
+_RadiusDynAuthClientCoARetransmissions_Object=MibTableColumn
+radiusDynAuthClientCoARetransmissions=_RadiusDynAuthClientCoARetransmissions_Object((1,3,6,1,2,1,145,1,2,1,21),_RadiusDynAuthClientCoARetransmissions_Type())
+radiusDynAuthClientCoARetransmissions.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientCoARetransmissions.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientCoARetransmissions.setUnits(_J)
+_RadiusDynAuthClientCoAAcks_Type=Counter32
+_RadiusDynAuthClientCoAAcks_Object=MibTableColumn
+radiusDynAuthClientCoAAcks=_RadiusDynAuthClientCoAAcks_Object((1,3,6,1,2,1,145,1,2,1,22),_RadiusDynAuthClientCoAAcks_Type())
+radiusDynAuthClientCoAAcks.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientCoAAcks.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientCoAAcks.setUnits(_D)
+_RadiusDynAuthClientCoANaks_Type=Counter32
+_RadiusDynAuthClientCoANaks_Object=MibTableColumn
+radiusDynAuthClientCoANaks=_RadiusDynAuthClientCoANaks_Object((1,3,6,1,2,1,145,1,2,1,23),_RadiusDynAuthClientCoANaks_Type())
+radiusDynAuthClientCoANaks.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientCoANaks.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientCoANaks.setUnits(_D)
+_RadiusDynAuthClientCoANakAuthOnlyRequest_Type=Counter32
+_RadiusDynAuthClientCoANakAuthOnlyRequest_Object=MibTableColumn
+radiusDynAuthClientCoANakAuthOnlyRequest=_RadiusDynAuthClientCoANakAuthOnlyRequest_Object((1,3,6,1,2,1,145,1,2,1,24),_RadiusDynAuthClientCoANakAuthOnlyRequest_Type())
+radiusDynAuthClientCoANakAuthOnlyRequest.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientCoANakAuthOnlyRequest.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientCoANakAuthOnlyRequest.setUnits(_D)
+_RadiusDynAuthClientCoANakSessNoContext_Type=Counter32
+_RadiusDynAuthClientCoANakSessNoContext_Object=MibTableColumn
+radiusDynAuthClientCoANakSessNoContext=_RadiusDynAuthClientCoANakSessNoContext_Object((1,3,6,1,2,1,145,1,2,1,25),_RadiusDynAuthClientCoANakSessNoContext_Type())
+radiusDynAuthClientCoANakSessNoContext.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientCoANakSessNoContext.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientCoANakSessNoContext.setUnits(_D)
+_RadiusDynAuthClientMalformedCoAResponses_Type=Counter32
+_RadiusDynAuthClientMalformedCoAResponses_Object=MibTableColumn
+radiusDynAuthClientMalformedCoAResponses=_RadiusDynAuthClientMalformedCoAResponses_Object((1,3,6,1,2,1,145,1,2,1,26),_RadiusDynAuthClientMalformedCoAResponses_Type())
+radiusDynAuthClientMalformedCoAResponses.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientMalformedCoAResponses.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientMalformedCoAResponses.setUnits(_D)
+_RadiusDynAuthClientCoABadAuthenticators_Type=Counter32
+_RadiusDynAuthClientCoABadAuthenticators_Object=MibTableColumn
+radiusDynAuthClientCoABadAuthenticators=_RadiusDynAuthClientCoABadAuthenticators_Object((1,3,6,1,2,1,145,1,2,1,27),_RadiusDynAuthClientCoABadAuthenticators_Type())
+radiusDynAuthClientCoABadAuthenticators.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientCoABadAuthenticators.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientCoABadAuthenticators.setUnits(_D)
+_RadiusDynAuthClientCoAPendingRequests_Type=Gauge32
+_RadiusDynAuthClientCoAPendingRequests_Object=MibTableColumn
+radiusDynAuthClientCoAPendingRequests=_RadiusDynAuthClientCoAPendingRequests_Object((1,3,6,1,2,1,145,1,2,1,28),_RadiusDynAuthClientCoAPendingRequests_Type())
+radiusDynAuthClientCoAPendingRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientCoAPendingRequests.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientCoAPendingRequests.setUnits(_E)
+_RadiusDynAuthClientCoATimeouts_Type=Counter32
+_RadiusDynAuthClientCoATimeouts_Object=MibTableColumn
+radiusDynAuthClientCoATimeouts=_RadiusDynAuthClientCoATimeouts_Object((1,3,6,1,2,1,145,1,2,1,29),_RadiusDynAuthClientCoATimeouts_Type())
+radiusDynAuthClientCoATimeouts.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientCoATimeouts.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientCoATimeouts.setUnits(_K)
+_RadiusDynAuthClientCoAPacketsDropped_Type=Counter32
+_RadiusDynAuthClientCoAPacketsDropped_Object=MibTableColumn
+radiusDynAuthClientCoAPacketsDropped=_RadiusDynAuthClientCoAPacketsDropped_Object((1,3,6,1,2,1,145,1,2,1,30),_RadiusDynAuthClientCoAPacketsDropped_Type())
+radiusDynAuthClientCoAPacketsDropped.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientCoAPacketsDropped.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientCoAPacketsDropped.setUnits(_D)
+_RadiusDynAuthClientUnknownTypes_Type=Counter32
+_RadiusDynAuthClientUnknownTypes_Object=MibTableColumn
+radiusDynAuthClientUnknownTypes=_RadiusDynAuthClientUnknownTypes_Object((1,3,6,1,2,1,145,1,2,1,31),_RadiusDynAuthClientUnknownTypes_Type())
+radiusDynAuthClientUnknownTypes.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientUnknownTypes.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientUnknownTypes.setUnits(_D)
+_RadiusDynAuthClientCounterDiscontinuity_Type=TimeTicks
+_RadiusDynAuthClientCounterDiscontinuity_Object=MibTableColumn
+radiusDynAuthClientCounterDiscontinuity=_RadiusDynAuthClientCounterDiscontinuity_Object((1,3,6,1,2,1,145,1,2,1,32),_RadiusDynAuthClientCounterDiscontinuity_Type())
+radiusDynAuthClientCounterDiscontinuity.setMaxAccess(_C)
+if mibBuilder.loadTexts:radiusDynAuthClientCounterDiscontinuity.setStatus(_A)
+if mibBuilder.loadTexts:radiusDynAuthClientCounterDiscontinuity.setUnits(_I)
+_RadiusDynAuthClientMIBConformance_ObjectIdentity=ObjectIdentity
+radiusDynAuthClientMIBConformance=_RadiusDynAuthClientMIBConformance_ObjectIdentity((1,3,6,1,2,1,145,2))
+_RadiusDynAuthClientMIBCompliances_ObjectIdentity=ObjectIdentity
+radiusDynAuthClientMIBCompliances=_RadiusDynAuthClientMIBCompliances_ObjectIdentity((1,3,6,1,2,1,145,2,1))
+_RadiusDynAuthClientMIBGroups_ObjectIdentity=ObjectIdentity
+radiusDynAuthClientMIBGroups=_RadiusDynAuthClientMIBGroups_ObjectIdentity((1,3,6,1,2,1,145,2,2))
+radiusDynAuthClientMIBGroup=ObjectGroup((1,3,6,1,2,1,145,2,2,1))
+radiusDynAuthClientMIBGroup.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l)))
+if mibBuilder.loadTexts:radiusDynAuthClientMIBGroup.setStatus(_A)
+radiusDynAuthClientAuthOnlyGroup=ObjectGroup((1,3,6,1,2,1,145,2,2,2))
+radiusDynAuthClientAuthOnlyGroup.setObjects(*((_B,_m),(_B,_n),(_B,_o),(_B,_p)))
+if mibBuilder.loadTexts:radiusDynAuthClientAuthOnlyGroup.setStatus(_A)
+radiusDynAuthClientNoSessGroup=ObjectGroup((1,3,6,1,2,1,145,2,2,3))
+radiusDynAuthClientNoSessGroup.setObjects(*((_B,_q),(_B,_r)))
+if mibBuilder.loadTexts:radiusDynAuthClientNoSessGroup.setStatus(_A)
+radiusDynAuthClientMIBCompliance=ModuleCompliance((1,3,6,1,2,1,145,2,1,1))
+radiusDynAuthClientMIBCompliance.setObjects((_B,_s))
+if mibBuilder.loadTexts:radiusDynAuthClientMIBCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'radiusDynAuthClientMIB':radiusDynAuthClientMIB,'radiusDynAuthClientMIBObjects':radiusDynAuthClientMIBObjects,'radiusDynAuthClientScalars':radiusDynAuthClientScalars,_L:radiusDynAuthClientDisconInvalidServerAddresses,_M:radiusDynAuthClientCoAInvalidServerAddresses,'radiusDynAuthServerTable':radiusDynAuthServerTable,'radiusDynAuthServerEntry':radiusDynAuthServerEntry,_H:radiusDynAuthServerIndex,_N:radiusDynAuthServerAddressType,_O:radiusDynAuthServerAddress,_P:radiusDynAuthServerClientPortNumber,_Q:radiusDynAuthServerID,_R:radiusDynAuthClientRoundTripTime,_S:radiusDynAuthClientDisconRequests,_m:radiusDynAuthClientDisconAuthOnlyRequests,_T:radiusDynAuthClientDisconRetransmissions,_U:radiusDynAuthClientDisconAcks,_V:radiusDynAuthClientDisconNaks,_n:radiusDynAuthClientDisconNakAuthOnlyRequest,_q:radiusDynAuthClientDisconNakSessNoContext,_W:radiusDynAuthClientMalformedDisconResponses,_X:radiusDynAuthClientDisconBadAuthenticators,_Y:radiusDynAuthClientDisconPendingRequests,_Z:radiusDynAuthClientDisconTimeouts,_a:radiusDynAuthClientDisconPacketsDropped,_b:radiusDynAuthClientCoARequests,_o:radiusDynAuthClientCoAAuthOnlyRequest,_c:radiusDynAuthClientCoARetransmissions,_d:radiusDynAuthClientCoAAcks,_e:radiusDynAuthClientCoANaks,_p:radiusDynAuthClientCoANakAuthOnlyRequest,_r:radiusDynAuthClientCoANakSessNoContext,_f:radiusDynAuthClientMalformedCoAResponses,_g:radiusDynAuthClientCoABadAuthenticators,_h:radiusDynAuthClientCoAPendingRequests,_i:radiusDynAuthClientCoATimeouts,_j:radiusDynAuthClientCoAPacketsDropped,_k:radiusDynAuthClientUnknownTypes,_l:radiusDynAuthClientCounterDiscontinuity,'radiusDynAuthClientMIBConformance':radiusDynAuthClientMIBConformance,'radiusDynAuthClientMIBCompliances':radiusDynAuthClientMIBCompliances,'radiusDynAuthClientMIBCompliance':radiusDynAuthClientMIBCompliance,'radiusDynAuthClientMIBGroups':radiusDynAuthClientMIBGroups,_s:radiusDynAuthClientMIBGroup,'radiusDynAuthClientAuthOnlyGroup':radiusDynAuthClientAuthOnlyGroup,'radiusDynAuthClientNoSessGroup':radiusDynAuthClientNoSessGroup})

@@ -1,567 +1,1359 @@
-#
-# PySNMP MIB module APPLETALK-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/APPLETALK-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:05:10 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, OctetString, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
-( ModuleCompliance, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-( Unsigned32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, mib_2, Integer32, ModuleIdentity, ObjectIdentity, IpAddress, Bits, Counter64, TimeTicks, MibIdentifier, NotificationType, Gauge32, iso, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "mib-2", "Integer32", "ModuleIdentity", "ObjectIdentity", "IpAddress", "Bits", "Counter64", "TimeTicks", "MibIdentifier", "NotificationType", "Gauge32", "iso")
-( TextualConvention, DisplayString, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-appletalk = MibIdentifier((1, 3, 6, 1, 2, 1, 13))
-class ATNetworkNumber(OctetString):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(2,2)
-    fixedLength = 2
-
-class DdpNodeAddress(OctetString):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(3,3)
-    fixedLength = 3
-
-class DdpSocketAddress(OctetString):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(4,4)
-    fixedLength = 4
-
-class ATName(OctetString):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,32)
-
-llap = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 1))
-aarp = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 2))
-atport = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 3))
-ddp = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 4))
-rtmp = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 5))
-kip = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 6))
-zipRouter = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 7))
-nbp = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 8))
-atecho = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 9))
-atp = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 10))
-pap = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 11))
-asp = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 12))
-adsp = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 13))
-atportptop = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 14))
-rtmpStub = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 16))
-zipEndNode = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 17))
-perPort = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 18))
-llapTable = MibTable((1, 3, 6, 1, 2, 1, 13, 1, 1), )
-if mibBuilder.loadTexts: llapTable.setDescription('The list of LLAP entries.')
-llapEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 1, 1, 1), ).setIndexNames((0, "APPLETALK-MIB", "llapIfIndex"))
-if mibBuilder.loadTexts: llapEntry.setDescription('An LLAP entry containing objects for the LocalTalk\n                  Link Access Protocol for a particular LocalTalk\n                  interface.\n\n                  As an example, an instance of the llapOutPkts object\n                  might be named llapOutPks.1')
-llapIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: llapIfIndex.setDescription('The LLAP interface to which this entry pertains.\n                  The interface identified by a particular value of\n                  this index is the same interface as identified\n                  by the same value of ifIndex.')
-llapInPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 1, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: llapInPkts.setDescription('The total number of good data packets received on\n                  this LocalTalk interface.')
-llapOutPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 1, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: llapOutPkts.setDescription('The total number of data packets transmitted on\n                  this LocalTalk interface.')
-llapInNoHandlers = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 1, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: llapInNoHandlers.setDescription('The total number of good packets received on this\n                  LocalTalk interface for which there was no protocol\n                  handler.')
-llapInLengthErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 1, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: llapInLengthErrors.setDescription('The total number of packets received on this LocalTalk\n                  interface whose actual length did not match the length\n                  in the header.')
-llapInErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 1, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: llapInErrors.setDescription('The total number of packets containing errors received\n                  on this LocalTalk interface.')
-llapCollisions = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 1, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: llapCollisions.setDescription('The total number of collisions assumed on this\n                  LocalTalk interface due to the lack of a lapCTS reply.')
-llapDefers = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 1, 1, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: llapDefers.setDescription('The total number of times this LocalTalk interface\n                  deferred to other packets.')
-llapNoDataErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 1, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: llapNoDataErrors.setDescription('The total number of times this LocalTalk interface\n                  received a lapRTS packet and expected a data packet,\n                  but did not receive any data packet.')
-llapRandomCTSErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 1, 1, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: llapRandomCTSErrors.setDescription('The total number of times this LocalTalk interface\n                  received a lapCTS packet that was not solicited by a\n                  lapRTS packet.')
-llapFCSErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 1, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: llapFCSErrors.setDescription('The total number of times this LocalTalk interface\n                  received a packet with an FCS (Frame Check Sequence)\n                  error.')
-aarpTable = MibTable((1, 3, 6, 1, 2, 1, 13, 2, 1), )
-if mibBuilder.loadTexts: aarpTable.setDescription('The AppleTalk Address Translation Table contains an\n                  equivalence of AppleTalk Network Addresses to the link\n                  layer physical address.')
-aarpEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 2, 1, 1), ).setIndexNames((0, "APPLETALK-MIB", "aarpIfIndex"), (0, "APPLETALK-MIB", "aarpNetAddress"))
-if mibBuilder.loadTexts: aarpEntry.setDescription('Each entry contains one AppleTalk Network Address to\n                  physical address equivalence.\n\n                  As an example, an instance of the aarpPhysAddress\n                  object might be named aarpPhysAddress.1.0.80.234')
-aarpIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aarpIfIndex.setDescription("The interface on which this entry's equivalence is\n                  effective.  The interface identified by a particular\n                  value of this index is the same interface as\n                  identified by the same value of ifIndex.")
-aarpPhysAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 2, 1, 1, 2), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aarpPhysAddress.setDescription('The media-dependent physical address.')
-aarpNetAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 2, 1, 1, 3), DdpNodeAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aarpNetAddress.setDescription('The AppleTalk Network Address corresponding to the\n                  media-dependent physical address.')
-aarpStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aarpStatus.setDescription('The status of this AARP entry.\n                  Setting this object to the value invalid(2) has the\n                  effect of invalidating the corresponding entry in the\n                  aarpTable.  That is, it effectively disassociates\n                  the mapping identified with said entry.  It is an\n                  implementation-specific matter as to whether the agent\n                  removes an invalidated entry from the table.\n                  Accordingly, management stations must be prepared to\n                  receive from agents tabular information corresponding\n                  to entries not currently in use.  Proper\n                  interpretation of such entries requires examination\n                  of the relevant aarpStatus object.')
-aarpLookups = MibScalar((1, 3, 6, 1, 2, 1, 13, 2, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aarpLookups.setDescription('The number of times the AARP cache for this entity\n                  was searched.')
-aarpHits = MibScalar((1, 3, 6, 1, 2, 1, 13, 2, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aarpHits.setDescription('The number of times an entry was searched for and\n                  found in the AARP cache for this entity.')
-atportTable = MibTable((1, 3, 6, 1, 2, 1, 13, 3, 1), )
-if mibBuilder.loadTexts: atportTable.setDescription('A list of AppleTalk ports for this entity.')
-atportEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 3, 1, 1), ).setIndexNames((0, "APPLETALK-MIB", "atportIndex"))
-if mibBuilder.loadTexts: atportEntry.setDescription('The description of one of the AppleTalk\n                  ports on this entity.\n\n                  As an example, an instance of the atportNetFrom object\n                  might be named atportNetFrom.2')
-atportIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atportIndex.setDescription("A unique value for each AppleTalk port.\n                  Its value is between 1 and the total number of\n                  AppleTalk ports.  The value for each port must\n                  remain constant at least from the re-initialization\n                  of the entity's network management system to the\n                  next re-initialization.")
-atportDescr = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atportDescr.setDescription('A text string containing information about the\n                  port.  This string is intended for presentation\n                  to a human; it must not contain anything but printable\n                  ASCII characters.')
-atportType = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24,))).clone(namedValues=NamedValues(("other", 1), ("localtalk", 2), ("ethertalk1", 3), ("ethertalk2", 4), ("tokentalk", 5), ("iptalk", 6), ("serialPPP", 7), ("serialNonstandard", 8), ("virtual", 9), ("fdditalk", 10), ("arctalk", 11), ("smdstalk", 12), ("aurp", 13), ("frameRelay", 14), ("x25", 15), ("ip", 16), ("osi", 17), ("decnetIV", 18), ("arap", 19), ("isdnInThePacketMode", 20), ("nonAppleTalk3Com", 21), ("ipx", 22), ("arns", 23), ("hdlc", 24),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atportType.setDescription('The type of port, distinguished by the protocol\n                  immediately below DDP in the protocol stack.')
-atportNetStart = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 4), ATNetworkNumber()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atportNetStart.setDescription('The first AppleTalk network address in the range\n                  configured for this port.  If this port is not a\n                  native AppleTalk port, this object shall have the\n                  value of two octets of zero.')
-atportNetEnd = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 5), ATNetworkNumber()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atportNetEnd.setDescription('The last AppleTalk network address in the range\n                  configured for this port.  If the network to which\n                  this AppleTalk port is connected is a non-extended\n                  network, or if it is not a native AppleTalk port,\n                  the value for atportNetEnd shall be two octets of\n                  zero.')
-atportNetAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 6), DdpNodeAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atportNetAddress.setDescription('The AppleTalk network address configured for this\n                  port.  In addition, this value may be used as a hint\n                  for an initial node number used during node-finding.\n                  If this port is not a native AppleTalk port, this\n                  object shall have the value of three octets of zero.')
-atportStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7,))).clone(namedValues=NamedValues(("routing", 1), ("unconfigured", 2), ("off", 3), ("invalid", 4), ("endNode", 5), ("offDueToConflict", 6), ("other", 7),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atportStatus.setDescription('The configuration status of this port.\n\n                  Setting this object to the value invalid(4) has the\n                  effect of invalidating the corresponding entry in the\n                  atportTable.  That is, it effectively disassociates the\n                  mapping identified with said entry.  It is an\n                  implementation-specific matter as to whether the agent\n                  removes an invalidated entry from the table.\n                  Accordingly, management stations must be prepared to\n                  receive from agents tabular information corresponding\n                  to entries not currently in use.  Proper\n                  interpretation of such entries requires examination\n                  of the relevant atportStatus object.')
-atportNetConfig = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("conflictOrientedSeed", 1), ("garnered", 2), ("guessed", 3), ("unconfigured", 4), ("conflictAverseSeed", 5), ("softSeed", 6),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atportNetConfig.setDescription('The status of the network information for this port.\n                  If this port is not a native AppleTalk port, this\n                  object shall have the value unconfigured(4).')
-atportZoneConfig = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("conflictOrientedSeed", 1), ("garnered", 2), ("guessed", 3), ("unconfigured", 4), ("conflictAverseSeed", 5), ("softSeed", 6),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atportZoneConfig.setDescription('The status of the zone information for this port.\n                  If this port is not a native AppleTalk port, this\n                  object shall have the value unconfigured(4).')
-atportZoneDefault = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 10), ATName()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atportZoneDefault.setDescription('The name of the default zone for this port.  If\n                  this port only has one zone, that zone is\n                  represented here. If this port is not a native\n                  AppleTalk port, this object shall contain an octet\n                  string of zero length.\n\n                  When this value is changed in a router, the router\n                  must send a zipNotify packet on the associated\n                  network.')
-atportIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 11), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atportIfIndex.setDescription('The physical interface associated with this\n                  AppleTalk port.  The interface identified by a\n                  particular value of this index is the same interface\n                  as identified by the same value of ifIndex.')
-atportNetFrom = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 12), DdpNodeAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atportNetFrom.setDescription('When atportNetConfig is set to garnered(2), this\n                  variable contains the DDP address of an entity from\n                  which the AppleTalk network number was garnered.\n                  When atportNetConfig is set to\n                  conflictOrientedSeed(1), conflictAverseSeed(5),\n                  or softSeed(6), this variable contains the DDP\n                  address of an entity which confirmed or supplied our\n                  AppleTalk network number, for example by replying to\n                  a ZIP GetNetInfo request.\n\n                  If atportNetConfig is set to guessed(3) or\n                  unconfigured(4), or if the entity has not received\n                  any network number confirmation, this variable\n                  should be set to three octets of zero.')
-atportZoneFrom = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 13), DdpNodeAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atportZoneFrom.setDescription('When atportZoneConfig is set to garnered(2), this\n                  variable contains the DDP address of an entity from\n                  which the AppleTalk zone list was garnered.\n\n                  When atportZoneConfig is set to\n                  conflictOrientedSeed(1), conflictAverseSeed(5), or\n                  softSeed(6), this variable contains the DDP address\n                  of an entity which confirmed or supplied our\n                  AppleTalk zone information, for example by replying\n                  to a ZIP GetNetInfo request or a ZIP Query.\n\n                  If atportZoneConfig is set to guessed(3) or\n                  unconfigured(4), or if the entity has not received\n                  any zone confirmation, this variable should be set\n                  to three octets of zero.')
-atportInPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atportInPkts.setDescription('The number of packets received by this entity on\n                  this port.')
-atportOutPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atportOutPkts.setDescription('The number of packets transmitted by this entity on\n                  this port.')
-atportHome = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("home", 1), ("notHome", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atportHome.setDescription('An indication of whether or not the entity is\n                  homed on this port, that is to say, a port on which\n                  the entity could perform NBP registrations for\n                  services that it chooses to advertise.')
-atportCurrentZone = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 17), ATName()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atportCurrentZone.setDescription('The current zone for the port.  In general, this is\n                  the zone name in which services on this port will\n                  be registered.  If this port is not a native\n                  AppleTalk port, this object shall contain an octet\n                  string of zero length.  Note that modifications to\n                  this object do not affect the nbpTable.')
-atportConflictPhysAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 1, 1, 18), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atportConflictPhysAddr.setDescription('The link-layer address of a device which caused\n                  this entity to set atportStatus to\n                  offDueToConflict(6). If this address is not\n                  available, or if the entity has not set atportStatus\n                  to offDueToConflict, this object shall be a zero\n                  length OCTET STRING.')
-atportZoneTable = MibTable((1, 3, 6, 1, 2, 1, 13, 3, 2), )
-if mibBuilder.loadTexts: atportZoneTable.setDescription('The table of zone information for non-default\n                  zones on ports.')
-atportZoneEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 3, 2, 1), ).setIndexNames((0, "APPLETALK-MIB", "atportZonePort"), (0, "APPLETALK-MIB", "atportZoneName"))
-if mibBuilder.loadTexts: atportZoneEntry.setDescription('An entry of zone information for a port.\n\n                  As an example, an instance of the atportZoneStatus\n                  object might be named\n                  atportZoneStatus.2.8.84.119.105.108.105.103.104.116')
-atportZonePort = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 2, 1, 1), Integer32())
-if mibBuilder.loadTexts: atportZonePort.setDescription('An integer representing the port to which this zone\n                  belongs. The port identified by a particular value\n                  of this object is the same port as identified by the\n                  same value of atportIndex.')
-atportZoneName = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 2, 1, 2), ATName().subtype(subtypeSpec=ValueSizeConstraint(1,32)))
-if mibBuilder.loadTexts: atportZoneName.setDescription('A zone name configured for the AppleTalk port\n                  referred to in the corresponding entry of\n                  atportZonePort.\n\n                  When this value is changed in a router, the router\n                  must send a zipNotify packet on the associated\n                  network.')
-atportZoneStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 3, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atportZoneStatus.setDescription('The status of this zone entry.\n\n                  Setting this object to the value invalid(2) has the\n                  effect of invalidating the corresponding entry in\n                  the atportZoneTable.  That is, it effectively\n                  disassociates the mapping identified with said\n                  entry.  It is an implementation-specific matter as\n                  to whether the agent removes an invalidated entry\n                  from the table. Accordingly, management stations\n                  must be prepared to receive from agents tabular\n                  information corresponding to entries not currently\n                  in use.  Proper interpretation of such entries\n                  requires examination of the relevant\n                  atportZoneStatus object.')
-ddpOutRequests = MibScalar((1, 3, 6, 1, 2, 1, 13, 4, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpOutRequests.setDescription('The total number of DDP datagrams which were\n                  supplied to DDP by local DDP clients in requests for\n                  transmission.  Note that this counter does not\n                  include any datagrams counted in ddpForwRequests.')
-ddpOutShorts = MibScalar((1, 3, 6, 1, 2, 1, 13, 4, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpOutShorts.setDescription('The total number of short DDP datagrams which were\n                  transmitted from this entity.')
-ddpOutLongs = MibScalar((1, 3, 6, 1, 2, 1, 13, 4, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpOutLongs.setDescription('The total number of long DDP datagrams which were\n                  transmitted from this entity.')
-ddpInReceives = MibScalar((1, 3, 6, 1, 2, 1, 13, 4, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpInReceives.setDescription('The total number of input datagrams received by\n                  DDP, including those received in error.')
-ddpInLocalDatagrams = MibScalar((1, 3, 6, 1, 2, 1, 13, 4, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpInLocalDatagrams.setDescription('The total number of input DDP datagrams for which\n                  this\n                  entity was their final DDP destination.')
-ddpNoProtocolHandlers = MibScalar((1, 3, 6, 1, 2, 1, 13, 4, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpNoProtocolHandlers.setDescription('The total number of DDP datagrams addressed to this\n                  entity that were addressed to an upper layer protocol\n                  for which no protocol handler existed.')
-ddpTooShortErrors = MibScalar((1, 3, 6, 1, 2, 1, 13, 4, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpTooShortErrors.setDescription('The total number of input DDP datagrams dropped\n                  because the received data length was less than the\n                  data length specified in the DDP header or the\n                  received data length was less than the length of the\n                  expected DDP header.')
-ddpTooLongErrors = MibScalar((1, 3, 6, 1, 2, 1, 13, 4, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpTooLongErrors.setDescription('The total number of input DDP datagrams dropped\n                  because they exceeded the maximum DDP datagram\n                  size.')
-ddpShortDDPErrors = MibScalar((1, 3, 6, 1, 2, 1, 13, 4, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpShortDDPErrors.setDescription('The total number of input DDP datagrams dropped\n                  because this entity was not their final destination\n                  and their type was short DDP.')
-ddpChecksumErrors = MibScalar((1, 3, 6, 1, 2, 1, 13, 4, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpChecksumErrors.setDescription('The total number of input DDP datagrams for which\n                  this DDP entity was their final destination, and\n                  which were dropped because of a checksum error.')
-ddpListenerTable = MibTable((1, 3, 6, 1, 2, 1, 13, 4, 15), )
-if mibBuilder.loadTexts: ddpListenerTable.setDescription('The ddpListenerTable stores information for each\n                  DDP socket that has a listener.')
-ddpListenerEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 4, 15, 1), ).setIndexNames((0, "APPLETALK-MIB", "ddpListenerAddress"))
-if mibBuilder.loadTexts: ddpListenerEntry.setDescription('This ddpListenerEntry contains information about a\n                  particular socket that has a socket listener.\n\n                  As an example, an instance of the ddpListenerStatus\n                  object might be named ddpListenerStatus.0.80.220.1')
-ddpListenerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 4, 15, 1, 1), DdpSocketAddress())
-if mibBuilder.loadTexts: ddpListenerAddress.setDescription("The DDP address that this socket listener is bound\n                  to.  If this socket listener isn't bound to a\n                  particular address, for instance if it is intended\n                  for all interfaces, this object shall have the value\n                  of three octets of zero followed by one octet of\n                  socket number. The socket number must not equal\n                  zero.")
-ddpListenerInPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 4, 15, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpListenerInPkts.setDescription('The number of packets received for this listener.')
-ddpListenerStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 4, 15, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ddpListenerStatus.setDescription('The status of this socket listener.\n                  Setting this object to the value invalid(2) has the\n                  effect of invalidating the corresponding entry in the\n                  ddpListenerTable.  That is, it effectively\n                  disassociates the mapping identified with said\n                  entry.  It is an implementation-specific matter as\n                  to whether the agent removes an invalidated entry\n                  from the table. Accordingly, management stations\n                  must be prepared to receive from agents tabular\n                  information corresponding to entries not currently\n                  in use.  Proper interpretation of such entries\n                  requires examination of the relevant\n                  ddpListenerStatus object.')
-ddpForwRequests = MibScalar((1, 3, 6, 1, 2, 1, 13, 4, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpForwRequests.setDescription('The number of input datagrams for which this entity\n                  was not their final DDP destination, as a result of\n                  which an attempt was made to find a route to forward\n                  them to that final destination.')
-ddpOutNoRoutes = MibScalar((1, 3, 6, 1, 2, 1, 13, 4, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpOutNoRoutes.setDescription('The total number of DDP datagrams dropped because a\n                  route could not be found to their final destination.')
-ddpBroadcastErrors = MibScalar((1, 3, 6, 1, 2, 1, 13, 4, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpBroadcastErrors.setDescription('The total number of input DDP datagrams dropped\n                  because this entity was not their final destination\n                  and they were addressed to the link level broadcast.')
-ddpHopCountErrors = MibScalar((1, 3, 6, 1, 2, 1, 13, 4, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpHopCountErrors.setDescription('The total number of input DDP datagrams dropped\n                  because this entity was not their final destination\n                  and their hop count would exceed 15.')
-ddpForwardingTable = MibTable((1, 3, 6, 1, 2, 1, 13, 4, 16), )
-if mibBuilder.loadTexts: ddpForwardingTable.setDescription('A table of forwarding entries for DDP.  This table\n                  contains a route for each AppleTalk network currently\n                  known to the entity.')
-ddpForwardingEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 4, 16, 1), ).setIndexNames((0, "APPLETALK-MIB", "ddpForwardingNetEnd"))
-if mibBuilder.loadTexts: ddpForwardingEntry.setDescription('A forwarding entry for a particular AppleTalk\n                  network.\n\n                  As an example, an instance of the ddpForwardingPort\n                  object might be named ddpForwardingPort.0.90')
-ddpForwardingNetEnd = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 4, 16, 1, 1), ATNetworkNumber())
-if mibBuilder.loadTexts: ddpForwardingNetEnd.setDescription('The last network number in the network range\n                  matched by this forwarding entry.  This will not be\n                  zero even if this corresponds to a non-extended\n                  net.')
-ddpForwardingNetStart = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 4, 16, 1, 2), ATNetworkNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpForwardingNetStart.setDescription('The first network number in the network range\n                  matched by this forwarding entry.')
-ddpForwardingNextHop = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 4, 16, 1, 3), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpForwardingNextHop.setDescription("The next hop in the route to this entry's\n                  destination network.  The format of this address can\n                  be determined by examinating the atportType\n                  corresponding to this entry.")
-ddpForwardingProto = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 4, 16, 1, 4), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpForwardingProto.setDescription('The routing mechanism by which this route was\n                  learned.')
-ddpForwardingModifiedTime = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 4, 16, 1, 5), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpForwardingModifiedTime.setDescription('The value of sysUpTime at the time of the last\n                  modification to this entry.  The initial value of\n                  ddpForwardingModified time shall be the value of\n                  sysUpTime at the time the entry is created.')
-ddpForwardingUseCounts = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 4, 16, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpForwardingUseCounts.setDescription('The number of times this entry has been used to\n                  route a packet to the destination network.  Note\n                  that this counter is not cleared when the\n                  corresponding ddpForwardingNextHop variable\n                  changes.')
-ddpForwardingPort = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 4, 16, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpForwardingPort.setDescription('The AppleTalk port through which\n                  ddpForwardingNextHop is reached.  The interface\n                  identified by a particular value of this variable is\n                  the same interface as identified by the same value\n                  of atportIndex.')
-ddpForwProtoOids = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 4, 17))
-rtmpRoutingProto = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 4, 17, 1))
-kipRoutingProto = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 4, 17, 2))
-ddpForwardingTableOverflows = MibScalar((1, 3, 6, 1, 2, 1, 13, 4, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddpForwardingTableOverflows.setDescription('The number of times the entity attempted to add an\n                  entry to the forwarding table but failed due to\n                  overflow.')
-rtmpTable = MibTable((1, 3, 6, 1, 2, 1, 13, 5, 1), )
-if mibBuilder.loadTexts: rtmpTable.setDescription('A list of Routing Table Maintenance Protocol\n                  entries for this entity.')
-rtmpEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 5, 1, 1), ).setIndexNames((0, "APPLETALK-MIB", "rtmpRangeStart"))
-if mibBuilder.loadTexts: rtmpEntry.setDescription('The route entry to a particular network range.\n\n                  As an example, an instance of the rtmpPort object\n                  might be named rtmpPort.0.80')
-rtmpRangeStart = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 5, 1, 1, 1), ATNetworkNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rtmpRangeStart.setDescription('The first DDP network address in the network range\n                  to which this routing entry pertains.  This is a two\n                  octet DDP network address in network byte order.')
-rtmpRangeEnd = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 5, 1, 1, 2), ATNetworkNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rtmpRangeEnd.setDescription('The last DDP network address in the network range\n                  to which this routing entry pertains.  This is a two\n                  octet DDP network address in network byte order.  If\n                  the network to which this routing entry pertains is\n                  a non-extended network, the value for rtmpRangeEnd\n                  shall be two octets of zero.')
-rtmpNextHop = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 5, 1, 1, 3), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rtmpNextHop.setDescription("The next internet router in the route to this\n                  entry's destination network.  The format of this\n                  address can be determined by examinating the\n                  atportType corresponding to this entry.")
-rtmpType = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 5, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("other", 1), ("appletalk", 2), ("serialPPP", 3), ("serialNonstandard", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rtmpType.setDescription('The type of network over which this route points.')
-rtmpPort = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 5, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rtmpPort.setDescription('The AppleTalk port over which this route points.\n                  The interface identified by a particular value of\n                  this variable is the same interface as identified by\n                  the same value of atportIndex.')
-rtmpHops = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 5, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rtmpHops.setDescription('The number of hops required to reach the\n                  destination network to which this routing entry\n                  pertains.')
-rtmpState = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 5, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("good", 1), ("suspect", 2), ("badZero", 3), ("badOne", 4), ("invalid", 5),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rtmpState.setDescription('The status of the information contained in this\n                  route entry.\n\n                  Setting this object to the value invalid(5) has the\n                  effect of invalidating the corresponding entry in\n                  the rtmpTable.  That is, it  effectively\n                  disassociates the mapping identified with said\n                  entry.  It is an implementation-specific matter as\n                  to whether the agent removes an invalidated entry\n                  from the table. Accordingly, management stations\n                  must be prepared to receive from agents tabular\n                  information corresponding to entries not currently\n                  in use.  Proper interpretation of such entries\n                  requires examination of the relevant rtmpState\n                  object.')
-rtmpInDataPkts = MibScalar((1, 3, 6, 1, 2, 1, 13, 5, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rtmpInDataPkts.setDescription('A count of the number of good RTMP data packets\n                  received by this entity.')
-rtmpOutDataPkts = MibScalar((1, 3, 6, 1, 2, 1, 13, 5, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rtmpOutDataPkts.setDescription('A count of the number of RTMP packets sent by this\n                  entity.')
-rtmpInRequestPkts = MibScalar((1, 3, 6, 1, 2, 1, 13, 5, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rtmpInRequestPkts.setDescription('A count of the number of good RTMP Request packets\n                  received by this entity.')
-rtmpNextIREqualChanges = MibScalar((1, 3, 6, 1, 2, 1, 13, 5, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rtmpNextIREqualChanges.setDescription('A count of the number of times RTMP changes the\n                  Next Internet Router in a routing entry because the\n                  hop count advertised in a routing tuple was equal to\n                  the current hop count for a particular network.')
-rtmpNextIRLessChanges = MibScalar((1, 3, 6, 1, 2, 1, 13, 5, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rtmpNextIRLessChanges.setDescription('A count of the number of times RTMP changes the\n                  Next Internet Router in a routing entry because the\n                  hop count advertised in a routing tuple was less\n                  than the current hop count for a particular network.')
-rtmpRouteDeletes = MibScalar((1, 3, 6, 1, 2, 1, 13, 5, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rtmpRouteDeletes.setDescription('A count of the number of times RTMP deletes a route\n                  because it was aged out of the table.  This can help\n                  to detect routing problems.')
-rtmpRoutingTableOverflows = MibScalar((1, 3, 6, 1, 2, 1, 13, 5, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rtmpRoutingTableOverflows.setDescription('The number of times RTMP attempted to add a route\n                  to the RTMP table but failed due to lack of space.')
-rtmpOutRequestPkts = MibScalar((1, 3, 6, 1, 2, 1, 13, 16, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rtmpOutRequestPkts.setDescription('A count of the number of RTMP Request packets sent\n                  by this entity.')
-rtmpInVersionMismatches = MibScalar((1, 3, 6, 1, 2, 1, 13, 16, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rtmpInVersionMismatches.setDescription('A count of the number of RTMP packets received by\n                  this entity that were rejected due to a version\n                  mismatch.')
-rtmpInErrors = MibScalar((1, 3, 6, 1, 2, 1, 13, 16, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rtmpInErrors.setDescription('A count of the number of RTMP packets received by\n                  this entity that were rejected for an error other\n                  than version mismatch.')
-kipTable = MibTable((1, 3, 6, 1, 2, 1, 13, 6, 1), )
-if mibBuilder.loadTexts: kipTable.setDescription('The table of routing information for KIP networks.')
-kipEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 6, 1, 1), ).setIndexNames((0, "APPLETALK-MIB", "kipNetStart"))
-if mibBuilder.loadTexts: kipEntry.setDescription('An entry in the routing table for KIP networks.\n\n                  As an example, an instance of the kipCore object\n                  might be named kipCore.0.80')
-kipNetStart = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 6, 1, 1, 1), ATNetworkNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: kipNetStart.setDescription('The first AppleTalk network address in the range\n                  for this routing entry.  This address is a two octet\n                  DDP network address in network byte order.')
-kipNetEnd = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 6, 1, 1, 2), ATNetworkNumber()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: kipNetEnd.setDescription('The last AppleTalk network address in the range for\n                  this routing entry.  This address is a two octet DDP\n                  network address in network byte order.  If the\n                  network to which this AppleTalk port is connected is\n                  a non-extended network, the value for kipNetEnd\n                  shall be two octets of zero.')
-kipNextHop = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 6, 1, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: kipNextHop.setDescription("The IP address of the next hop in the route to this\n                  entry's destination network.")
-kipHopCount = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 6, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: kipHopCount.setDescription('The number of hops required to reach the destination\n                  network to which this entry pertains.')
-kipBCastAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 6, 1, 1, 5), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: kipBCastAddr.setDescription('The form of the IP address used to broadcast on this\n                  network.')
-kipCore = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 6, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("core", 1), ("notcore", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: kipCore.setDescription('The status of kipNextHop as a core gateway.')
-kipType = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 6, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("kipRouter", 1), ("net", 2), ("host", 3), ("other", 4), ("async", 5),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: kipType.setDescription('The type of the entity that this route points to.')
-kipState = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 6, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("configured", 1), ("learned", 2), ("invalid", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: kipState.setDescription('The state of this network entry.\n\n                  Setting this object to the value invalid(3) has the\n                  effect of invalidating the corresponding entry in the\n                  kipTable.  That is, it  effectively disassociates the\n                  mapping identified with said entry.  It is an\n                  implementation-specific matter as to whether the agent\n                  removes an invalidated entry from the table.\n                  Accordingly, management stations must be prepared to\n                  receive from agents tabular information corresponding\n                  to entries not currently in use.  Proper\n                  interpretation of such entries requires examination\n                  of the relevant kipState object.')
-kipShare = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 6, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("shared", 1), ("private", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: kipShare.setDescription('If the information in this entry is propagated to\n                  other routers as part of the AA routing protocol,\n                  the value of this variable is equal to shared(1).\n                  Otherwise its value is private(2).')
-kipFrom = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 6, 1, 1, 10), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: kipFrom.setDescription('The IP address from which the routing entry was\n                  learned via the AA protocol.  If this entry was not\n                  created via the AA protocol, it should contain IP\n                  address 0.0.0.0.')
-zipTable = MibTable((1, 3, 6, 1, 2, 1, 13, 7, 1), )
-if mibBuilder.loadTexts: zipTable.setDescription('The table of zone information for reachable\n                  AppleTalk networks.')
-zipEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 7, 1, 1), ).setIndexNames((0, "APPLETALK-MIB", "zipZoneNetStart"), (0, "APPLETALK-MIB", "zipZoneIndex"))
-if mibBuilder.loadTexts: zipEntry.setDescription('An entry of zone information for a particular zone\n                  and network combination.\n\n                  As an example, an instance of the zipZoneState object\n                  might be named zipZoneState.0.80.4')
-zipZoneName = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 7, 1, 1, 1), ATName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipZoneName.setDescription('The zone name of this entry.  This is stored in\n                  Mac ASCII format.  If the full zone list for the\n                  entry is not known, the value for zipZoneName shall\n                  be a zero length octet string.')
-zipZoneIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 7, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipZoneIndex.setDescription('An integer that is unique to the zipZoneName that\n                  is present in this entry.  For any given zone name,\n                  every zipEntry that has an equal zone name will have\n                  the same zipZoneIndex.  When a zone name is\n                  discovered which is not currently in the table, it\n                  will be assigned an index greater than any\n                  previously assigned index.')
-zipZoneNetStart = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 7, 1, 1, 3), ATNetworkNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipZoneNetStart.setDescription('The network that starts the range for this entry.\n                  This address is a two octet DDP network address in\n                  network byte order.')
-zipZoneNetEnd = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 7, 1, 1, 4), ATNetworkNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipZoneNetEnd.setDescription('The network that ends the range for this entry.\n                  This address is a two octet DDP network address in\n                  network byte order.  If the network to which this\n                  zip entry pertains is a non-extended network, the\n                  value for zipZoneNetEnd shall be two octets of\n                  zero.')
-zipZoneState = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 7, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zipZoneState.setDescription('The state of this zip entry.\n\n                  Setting this object to the value invalid(2) has the\n                  effect of invalidating the corresponding entry in\n                  the zipTable.  That is, it  effectively\n                  disassociates the mapping identified with said\n                  entry.  It is an implementation-specific matter as\n                  to whether the agent removes an invalidated entry\n                  from the table. Accordingly, management stations\n                  must be prepared to receive from agents tabular\n                  information corresponding to entries not currently\n                  in use.  Proper interpretation of such entries\n                  requires examination of the relevant zipZoneState\n                  object.')
-zipZoneFrom = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 7, 1, 1, 6), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipZoneFrom.setDescription('The address from which this zone name to network\n                  number mapping was learned.  The format of this\n                  address can be determined by examining the\n                  atportType corresponding to this entry.  When this\n                  mapping is learned from the entity itself, this\n                  object shall have the value of three\n                  octets of zero.')
-zipZonePort = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 7, 1, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipZonePort.setDescription('The AppleTalk port through which this zone name to\n                  network number mapping was learned.  The interface\n                  identified by a particular value of this variable is\n                  the same interface as identified by the same value\n                  of atportIndex.')
-zipInZipQueries = MibScalar((1, 3, 6, 1, 2, 1, 13, 7, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipInZipQueries.setDescription('The number of ZIP Queries received by this entity.')
-zipInZipReplies = MibScalar((1, 3, 6, 1, 2, 1, 13, 7, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipInZipReplies.setDescription('The number of ZIP Replies received by this entity.')
-zipInZipExtendedReplies = MibScalar((1, 3, 6, 1, 2, 1, 13, 7, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipInZipExtendedReplies.setDescription('The number of ZIP Extended Replies received by this\n                  entity.')
-zipZoneConflictErrors = MibScalar((1, 3, 6, 1, 2, 1, 13, 7, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipZoneConflictErrors.setDescription("The number of times a conflict has been detected\n                  between this entity's zone information and another\n                  entity's zone information.")
-zipInObsoletes = MibScalar((1, 3, 6, 1, 2, 1, 13, 7, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipInObsoletes.setDescription('The number of ZIP Takedown or ZIP Bringup packets\n                  received by this entity.  Note that as the ZIP\n                  Takedown and ZIP Bringup packets have been\n                  obsoleted, the receipt of one of these packets\n                  indicates that a node sent it in error.')
-zipRouterNetInfoTable = MibTable((1, 3, 6, 1, 2, 1, 13, 7, 7), )
-if mibBuilder.loadTexts: zipRouterNetInfoTable.setDescription('The table of Net Info packets received by each port\n                  on this entity.')
-zipRouterNetInfoEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 7, 7, 1), ).setIndexNames((0, "APPLETALK-MIB", "atportIndex"))
-if mibBuilder.loadTexts: zipRouterNetInfoEntry.setDescription('The description of the Net Info packets received on\n                  a particular port on this entity.  One such entry\n                  shall exist for each atport on this router entity.\n\n                  As an example, an instance of the zipInGetNetInfos\n                  object might be named zipInGetNetInfos.2')
-zipInGetNetInfos = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 7, 7, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipInGetNetInfos.setDescription('The number of ZIP GetNetInfo packets received on\n                  this port by this entity.')
-zipOutGetNetInfoReplies = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 7, 7, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipOutGetNetInfoReplies.setDescription('The number of ZIP GetNetInfo Reply packets sent out\n                  this port by this entity.')
-zipZoneOutInvalids = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 7, 7, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipZoneOutInvalids.setDescription('The number of times this entity has sent a ZIP\n                  GetNetInfo Reply with the zone invalid bit set in\n                  response to a GetNetInfo Request with an invalid\n                  zone name.')
-zipAddressInvalids = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 7, 7, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipAddressInvalids.setDescription('The number of times this entity had to broadcast a\n                  ZIP GetNetInfo Reply because the GetNetInfo Request\n                  had an invalid address.')
-zipNetInfoTable = MibTable((1, 3, 6, 1, 2, 1, 13, 17, 1), )
-if mibBuilder.loadTexts: zipNetInfoTable.setDescription('The table of Net Info packets received by each port\n                  on this entity.')
-zipNetInfoEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 17, 1, 1), ).setIndexNames((0, "APPLETALK-MIB", "atportIndex"))
-if mibBuilder.loadTexts: zipNetInfoEntry.setDescription('The description of the Net Info packets received on\n                  a particular port on this entity.  One such entry\n                  shall exist for each atport on this entity.\n\n                  As an example, an instance of the zipOutGetNetInfos\n                  object might be named zipOutGetNetInfos.2')
-zipOutGetNetInfos = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 17, 1, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipOutGetNetInfos.setDescription('The number of ZIP GetNetInfo packets sent out this\n                  port by this entity.')
-zipInGetNetInfoReplies = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 17, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipInGetNetInfoReplies.setDescription('The number of ZIP GetNetInfo Reply packets received\n              on this port by this entity.')
-zipZoneInInvalids = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 17, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipZoneInInvalids.setDescription('The number of times this entity has received a ZIP\n                  GetNetInfo Reply with the zone invalid bit set\n                  because the corresponding GetNetInfo Request had an\n                  invalid zone name.')
-zipInErrors = MibScalar((1, 3, 6, 1, 2, 1, 13, 17, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zipInErrors.setDescription('The number of ZIP packets received by this entity\n                  that were rejected for any error.')
-nbpTable = MibTable((1, 3, 6, 1, 2, 1, 13, 8, 1), )
-if mibBuilder.loadTexts: nbpTable.setDescription('The table of NBP services registered on this entity.')
-nbpEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 8, 1, 1), ).setIndexNames((0, "APPLETALK-MIB", "nbpIndex"))
-if mibBuilder.loadTexts: nbpEntry.setDescription('The description of an NBP service registered on this\n                  entity.\n\n                  As an example, an instance of the nbpZone object\n                  might be named nbpZone.2')
-nbpIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 8, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbpIndex.setDescription('The index of this NBP entry.  This index is unique\n                  with respect to the indexes of all other NBP entries,\n                  and shall remain constant throughout the lifetime\n                  of this object.')
-nbpObject = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 8, 1, 1, 2), ATName().subtype(subtypeSpec=ValueSizeConstraint(1,32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbpObject.setDescription('The name of the service described by this entity.\n                  When this variable is changed, the entity should\n                  perform an NBP registration using the new nbpObject.')
-nbpType = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 8, 1, 1, 3), ATName().subtype(subtypeSpec=ValueSizeConstraint(1,32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbpType.setDescription('The type of the service described by this entity.\n                  When this variable is changed, the entity should\n                  perform an NBP registration using the new nbpType.')
-nbpZone = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 8, 1, 1, 4), ATName()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbpZone.setDescription('The zone the service described by this entity is\n                  registered in.  This must be the actual zone name,\n                  without any wildcard characters.  When this variable\n                  is changed, the entity should perform an NBP\n                  registration using the new nbpZone.')
-nbpState = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 8, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("valid", 1), ("registering", 2), ("registrationFailed", 3), ("invalid", 4),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbpState.setDescription('The state of this NBP entry.\n                  When the registration for an entry in the nbpTable\n                  fails, it is an implementation-specific matter as to\n                  how long the entry will remain in the\n                  registrationFailed(3) state before moving to the\n                  invalid(4) state.  Note that the entry may pass\n                  immediately from the registrationFailed state to\n                  the invalid state.\n\n                  Setting this object to the value invalid(4) has the\n                  effect of invalidating the corresponding entry in the\n                  nbpTable.  That is, it  effectively disassociates the\n                  mapping identified with said entry.  It is an\n                  implementation-specific matter as to whether the agent\n                  removes an invalidated entry from the table.\n                  Accordingly, management stations must be prepared to\n                  receive from agents tabular information corresponding\n                  to entries not currently in use.  Proper\n                  interpretation of such entries requires examination\n                  of the relevant nbpState object.')
-nbpAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 8, 1, 1, 6), DdpSocketAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbpAddress.setDescription('The DDP network, node, and socket number of this\n                  entity. If this is unspecified, for instance if the\n                  registration is on all ports of a multiport device,\n                  this object shall have the value of three octets of\n                  zero, followed by one octet of socket number.')
-nbpEnumerator = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 8, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbpEnumerator.setDescription('The enumerator assigned to this entity.')
-nbpInLookUpRequests = MibScalar((1, 3, 6, 1, 2, 1, 13, 8, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbpInLookUpRequests.setDescription('The number of NBP LookUp Requests received.')
-nbpInLookUpReplies = MibScalar((1, 3, 6, 1, 2, 1, 13, 8, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbpInLookUpReplies.setDescription('The number of NBP LookUp Replies received.')
-nbpInBroadcastRequests = MibScalar((1, 3, 6, 1, 2, 1, 13, 8, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbpInBroadcastRequests.setDescription('The number of NBP Broadcast Requests received.')
-nbpInForwardRequests = MibScalar((1, 3, 6, 1, 2, 1, 13, 8, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbpInForwardRequests.setDescription('The number of NBP Forward Requests received.')
-nbpOutLookUpReplies = MibScalar((1, 3, 6, 1, 2, 1, 13, 8, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbpOutLookUpReplies.setDescription('The number of NBP LookUp Replies sent.')
-nbpRegistrationFailures = MibScalar((1, 3, 6, 1, 2, 1, 13, 8, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbpRegistrationFailures.setDescription('The number of times this node experienced a failure\n                  in attempting to register an NBP entity.')
-nbpInErrors = MibScalar((1, 3, 6, 1, 2, 1, 13, 8, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbpInErrors.setDescription('The number of NBP packets received by this entity\n                  that were rejected for any error.')
-atechoRequests = MibScalar((1, 3, 6, 1, 2, 1, 13, 9, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atechoRequests.setDescription('The number of AppleTalk Echo requests received.')
-atechoReplies = MibScalar((1, 3, 6, 1, 2, 1, 13, 9, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atechoReplies.setDescription('The number of AppleTalk Echo replies sent.')
-atechoOutRequests = MibScalar((1, 3, 6, 1, 2, 1, 13, 9, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atechoOutRequests.setDescription('The count of AppleTalk Echo requests sent.')
-atechoInReplies = MibScalar((1, 3, 6, 1, 2, 1, 13, 9, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atechoInReplies.setDescription('The count of AppleTalk Echo replies received.')
-atpInPkts = MibScalar((1, 3, 6, 1, 2, 1, 13, 10, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atpInPkts.setDescription('The number of ATP packets received by this entity.')
-atpOutPkts = MibScalar((1, 3, 6, 1, 2, 1, 13, 10, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atpOutPkts.setDescription('The number of ATP packets sent by this entity.')
-atpTRequestRetransmissions = MibScalar((1, 3, 6, 1, 2, 1, 13, 10, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atpTRequestRetransmissions.setDescription('The number of times that a timeout occurred and a\n                  Transaction Request packet needed to be\n                  retransmitted by this host.')
-atpTResponseRetransmissions = MibScalar((1, 3, 6, 1, 2, 1, 13, 10, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atpTResponseRetransmissions.setDescription('The number of times a timeout was detected and a\n                  Transaction Response packet needed to be\n                  retransmitted by this host.')
-atpReleaseTimerExpiredCounts = MibScalar((1, 3, 6, 1, 2, 1, 13, 10, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atpReleaseTimerExpiredCounts.setDescription('The number of times the release timer expired, as a\n                  result of which a Request Control Block had to be\n                  deleted.')
-atpRetryCountExceededs = MibScalar((1, 3, 6, 1, 2, 1, 13, 10, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atpRetryCountExceededs.setDescription('The number of times the retry count was exceeded,\n                  and an error was returned to the client of ATP.')
-atpListenerTable = MibTable((1, 3, 6, 1, 2, 1, 13, 10, 7), )
-if mibBuilder.loadTexts: atpListenerTable.setDescription('The atpListenerTable stores information for each ATP\n                  socket that has a listener.')
-atpListenerEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 10, 7, 1), ).setIndexNames((0, "APPLETALK-MIB", "atpListenerAddress"))
-if mibBuilder.loadTexts: atpListenerEntry.setDescription('This atpListenerEntry contains information about a\n                  particular socket that has a socket listener.\n\n                  As an example, an instance of the atpListenerStatus\n                  object might be named atpListenerStatus.0.80.220.3')
-atpListenerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 10, 7, 1, 1), DdpSocketAddress())
-if mibBuilder.loadTexts: atpListenerAddress.setDescription("The DDP address that this socket listener is bound\n                  to. If this socket listener isn't bound to a\n                  particular address, for instance if it is intended\n                  for all interfaces, this object shall have the value\n                  of three octets of zero followed by one octet of\n                  socket number.")
-atpListenerStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 10, 7, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atpListenerStatus.setDescription('The status of this socket.\n\n                  Setting this object to the value invalid(2) has the\n                  effect of invalidating the corresponding entry in\n                  the atpListenerTable.  That is, it effectively\n                  disassociates the mapping identified with said\n                  entry.  It is an implementation-specific matter as\n                  to whether the agent removes an invalidated entry\n                  from the table. Accordingly, management stations\n                  must be prepared to receive from agents tabular\n                  information corresponding to entries not currently\n                  in use.  Proper interpretation of such entries\n                  requires examination of the relevant\n                  atpListenerStatus object.')
-papInOpenConns = MibScalar((1, 3, 6, 1, 2, 1, 13, 11, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: papInOpenConns.setDescription('The number of PAP Open Connection requests received\n                  by this entity.')
-papOutOpenConns = MibScalar((1, 3, 6, 1, 2, 1, 13, 11, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: papOutOpenConns.setDescription('The number of PAP Open Connection requests sent by\n                  this entity.')
-papInDatas = MibScalar((1, 3, 6, 1, 2, 1, 13, 11, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: papInDatas.setDescription('The number of PAP Data messages received by\n                  this entity.')
-papOutDatas = MibScalar((1, 3, 6, 1, 2, 1, 13, 11, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: papOutDatas.setDescription('The number of PAP Data messages sent by\n                  this entity.')
-papInCloseConns = MibScalar((1, 3, 6, 1, 2, 1, 13, 11, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: papInCloseConns.setDescription('The number of PAP Close Connection requests\n                  received by this entity.')
-papOutCloseConns = MibScalar((1, 3, 6, 1, 2, 1, 13, 11, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: papOutCloseConns.setDescription('The number of PAP Close Connection requests sent by\n                  this entity.')
-papTickleTimeoutCloses = MibScalar((1, 3, 6, 1, 2, 1, 13, 11, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: papTickleTimeoutCloses.setDescription("The number of times the PAP entity on this node\n                  closed a connection because it didn't receive a\n                  Tickle message before its timer expired.")
-papServerTable = MibTable((1, 3, 6, 1, 2, 1, 13, 11, 8), )
-if mibBuilder.loadTexts: papServerTable.setDescription('A list of servers on this entity that are\n                  accessible through the Printer Access Protocol.')
-papServerEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 11, 8, 1), ).setIndexNames((0, "APPLETALK-MIB", "papServerIndex"))
-if mibBuilder.loadTexts: papServerEntry.setDescription("A set of information about a particular PAP server's\n                  configuration and performance.\n\n                  As an example, an instance of the papServerStatus\n                  object might be named papServerStatus.1")
-papServerIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 11, 8, 1, 1), Integer32())
-if mibBuilder.loadTexts: papServerIndex.setDescription('An unique value for each Printer Access Protocol\n                  Server.')
-papServerListeningSocket = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 11, 8, 1, 2), DdpSocketAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: papServerListeningSocket.setDescription('The Server Listening Socket that this PAP server is\n                  listening on.')
-papServerStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 11, 8, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: papServerStatus.setDescription('The status string of this server.  This is the\n                  message as it would appear in a PAP Status Reply\n                  from this server.')
-papServerCompletedJobs = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 11, 8, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: papServerCompletedJobs.setDescription('The number of jobs that have been accepted and\n                  successfully executed by this server.')
-papServerBusyJobs = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 11, 8, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: papServerBusyJobs.setDescription('The number of GetNextJob calls that have accepted\n                  and are currently executing a job.')
-papServerFreeJobs = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 11, 8, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: papServerFreeJobs.setDescription('The minimum number of GetNextJob calls that are\n                  currently waiting for a job.')
-papServerAuthenticationFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 11, 8, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: papServerAuthenticationFailures.setDescription('The number of times this PAP server rejected a job\n                  because the job was not correctly authenticated.')
-papServerAccountingFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 11, 8, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: papServerAccountingFailures.setDescription('The number of times this PAP server rejected a job\n                  because the job did not fit some accounting rule,\n                  such as exceeding a quota.')
-papServerGeneralFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 11, 8, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: papServerGeneralFailures.setDescription('The number of times this PAP server rejected a job\n                  for some reason other than authentication or\n                  accounting failures.')
-papServerState = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 11, 8, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: papServerState.setDescription('The state of this PAP Server entry.\n\n                  Setting this object to the value invalid(2) has the\n                  effect of invalidating the corresponding entry in\n                  the papServerTable.  That is, it  effectively\n                  disassociates the mapping identified with said\n                  entry.  It is an implementation-specific matter as\n                  to whether the agent removes an invalidated entry\n                  from the table. Accordingly, management stations\n                  must be prepared to receive from agents tabular\n                  information corresponding to entries not currently\n                  in use.  Proper interpretation of such entries\n                  requires examination of the relevant papServerState\n                  object.')
-papServerLastStatusMsg = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 11, 8, 1, 11), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: papServerLastStatusMsg.setDescription('The last status message that was transmitted by\n                  this server.')
-aspInputTransactions = MibScalar((1, 3, 6, 1, 2, 1, 13, 12, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aspInputTransactions.setDescription('The number of ASP requests and replies received by\n                  this entity.  Note that this is not necessarily the\n                  number of packets containing ASP transactions.')
-aspOutputTransactions = MibScalar((1, 3, 6, 1, 2, 1, 13, 12, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aspOutputTransactions.setDescription('The number of ASP requests and replies sent by this\n                  entity.  Note that this is not necessarily the number\n                  of packets containing ASP transactions.')
-aspInOpenSessions = MibScalar((1, 3, 6, 1, 2, 1, 13, 12, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aspInOpenSessions.setDescription('The number of ASP Open Session requests and replies\n                  received by this entity.')
-aspOutOpenSessions = MibScalar((1, 3, 6, 1, 2, 1, 13, 12, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aspOutOpenSessions.setDescription('The number of ASP Open Session requests and replies\n                  sent by this entity.')
-aspInCloseSessions = MibScalar((1, 3, 6, 1, 2, 1, 13, 12, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aspInCloseSessions.setDescription('The number of ASP Close Session requests and replies\n                  received by this entity.')
-aspOutCloseSessions = MibScalar((1, 3, 6, 1, 2, 1, 13, 12, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aspOutCloseSessions.setDescription('The number of ASP Close Session requests and replies\n                  sent by this entity.')
-aspNoMoreSessionsErrors = MibScalar((1, 3, 6, 1, 2, 1, 13, 12, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aspNoMoreSessionsErrors.setDescription('The number of times an error condition was returned\n                  because this server implementation could not support\n                  another session.')
-aspTickleTimeOutCloses = MibScalar((1, 3, 6, 1, 2, 1, 13, 12, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aspTickleTimeOutCloses.setDescription("The number of times the ASP entity on this node\n                  closed a connection because it didn't receive any\n                  messages from the remote end before its timer\n                  expired.")
-aspConnTable = MibTable((1, 3, 6, 1, 2, 1, 13, 12, 9), )
-if mibBuilder.loadTexts: aspConnTable.setDescription('A list of ASP connections on this entity.')
-aspConnEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 12, 9, 1), ).setIndexNames((0, "APPLETALK-MIB", "aspConnLocalAddress"), (0, "APPLETALK-MIB", "aspConnRemoteAddress"), (0, "APPLETALK-MIB", "aspConnID"))
-if mibBuilder.loadTexts: aspConnEntry.setDescription('A set of information describing an ASP connection.\n\n                  As an example, an instance of the aspConnState object\n                  might be named\n                  aspConnState.0.80.220.135.0.80.239.119.12')
-aspConnLocalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 12, 9, 1, 1), DdpSocketAddress())
-if mibBuilder.loadTexts: aspConnLocalAddress.setDescription('The local address of this ASP connection.')
-aspConnRemoteAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 12, 9, 1, 2), DdpSocketAddress())
-if mibBuilder.loadTexts: aspConnRemoteAddress.setDescription('The remote address of this ASP connection.  If\n                  this entry is in the listening mode, this object\n                  shall have a value of four octets of zero.')
-aspConnID = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 12, 9, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,255)))
-if mibBuilder.loadTexts: aspConnID.setDescription('The remote Connection ID of this ASP connection.  If\n                  this entry is in the listening mode, this object\n                  shall have a value of zero.')
-aspConnLastReqNum = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 12, 9, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aspConnLastReqNum.setDescription('The last request number on this ASP connection.  If\n                  this entry is in the listening mode, this object\n                  shall have a value of zero.')
-aspConnServerEnd = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 12, 9, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("sss", 1), ("wss", 2), ("sls", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aspConnServerEnd.setDescription('Specifies what mode the local session end is in.')
-aspConnState = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 12, 9, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("open", 1), ("closed", 2), ("invalid", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aspConnState.setDescription('The state of this ASP connection.\n                  Setting this object to the value invalid(3) has the\n                  effect of invalidating the corresponding entry in the\n                  aspConnTable.  That is, it  effectively disassociates\n                  the mapping identified with said entry.  It is an\n                  implementation-specific matter as to whether the agent\n                  removes an invalidated entry from the table.\n                  Accordingly, management stations must be prepared to\n                  receive from agents tabular information corresponding\n                  to entries not currently in use.  Proper\n                  interpretation of such entries requires examination\n                  of the relevant aspConnState object.')
-adspInPkts = MibScalar((1, 3, 6, 1, 2, 1, 13, 13, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adspInPkts.setDescription('The number of ADSP packets received by this entity.')
-adspOutPkts = MibScalar((1, 3, 6, 1, 2, 1, 13, 13, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adspOutPkts.setDescription('The number of ADSP packets sent by this entity.')
-adspInOctets = MibScalar((1, 3, 6, 1, 2, 1, 13, 13, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adspInOctets.setDescription('The number of data octets contained in ADSP packets\n                  received by this entity.  Note that this does not\n                  include EOM bits.')
-adspOutOctets = MibScalar((1, 3, 6, 1, 2, 1, 13, 13, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adspOutOctets.setDescription('The number of data octets contained in ADSP packets\n                  sent by this entity.  Note that this does not include\n                  EOM bits.')
-adspInDataPkts = MibScalar((1, 3, 6, 1, 2, 1, 13, 13, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adspInDataPkts.setDescription('The number of ADSP data packets this entity has\n                  received.')
-adspOutDataPkts = MibScalar((1, 3, 6, 1, 2, 1, 13, 13, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adspOutDataPkts.setDescription('The number of ADSP data packets this entity has\n                  sent.')
-adspTimeoutErrors = MibScalar((1, 3, 6, 1, 2, 1, 13, 13, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adspTimeoutErrors.setDescription('The number of times the ADSP on this entity detected\n                  an expired connection timer.')
-adspTimeoutCloseErrors = MibScalar((1, 3, 6, 1, 2, 1, 13, 13, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adspTimeoutCloseErrors.setDescription('The number of times the ADSP on this entity closed a\n                  connection because of too many timeouts.')
-adspConnTable = MibTable((1, 3, 6, 1, 2, 1, 13, 13, 9), )
-if mibBuilder.loadTexts: adspConnTable.setDescription('A list of ADSP connections on this entity.')
-adspConnEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 13, 9, 1), ).setIndexNames((0, "APPLETALK-MIB", "adspConnLocalAddress"), (0, "APPLETALK-MIB", "adspConnRemoteAddress"), (0, "APPLETALK-MIB", "adspConnLocalConnID"))
-if mibBuilder.loadTexts: adspConnEntry.setDescription('A set of information describing an ADSP connection.\n                  As an example, an instance of the adspConnState object\n                  might be named\n                  adspConnState.0.80.220.7.0.80.239.142.31231')
-adspConnLocalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 13, 9, 1, 1), DdpSocketAddress())
-if mibBuilder.loadTexts: adspConnLocalAddress.setDescription('The local DDP address of this ADSP connection.')
-adspConnLocalConnID = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 13, 9, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)))
-if mibBuilder.loadTexts: adspConnLocalConnID.setDescription('The local Connection ID of this ADSP connection.  If\n                  this entry specifies an ADSP listener, this value\n                  shall be zero.')
-adspConnRemoteAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 13, 9, 1, 3), DdpSocketAddress())
-if mibBuilder.loadTexts: adspConnRemoteAddress.setDescription('The remote DDP address of this ADSP connection.  If\n                  this entry specifies an ADSP listener, this value\n                  shall be zero.')
-adspConnRemoteConnID = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 13, 9, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adspConnRemoteConnID.setDescription('The remote Connection ID of this ADSP connection.\n                  If this entry specifies an ADSP listener, this value\n                  shall be zero.')
-adspConnState = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 13, 9, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("open", 1), ("localHalfOpen", 2), ("remoteHalfOpen", 3), ("listening", 4), ("closed", 5), ("invalid", 6),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: adspConnState.setDescription('The state of this ADSP connection.  The state is\n                  open if both ends are established.  If only one end\n                  is established, then the state is half-open.  If\n                  neither end is established, then the state is\n                  closed.  If an ADSP server is listening on a socket\n                  and is not yet connected, its state is set to\n                  listening, and the adspConnRemoteAddress,\n                  adspConnRemoteSocket, adspConnRemoteConnID, and\n                  adspConnRemoteWindowSize are all set to zero.\n\n                  Setting this object to the value invalid(6) has the\n                  effect of invalidating the corresponding entry in\n                  the adspConnTable.  That is, it  effectively\n                  disassociates the mapping identified with said\n                  entry.  It is an implementation-specific matter as\n                  to whether the agent removes an invalidated entry\n                  from the table. Accordingly, management stations\n                  must be prepared to receive from agents tabular\n                  information corresponding to entries not currently\n                  in use.  Proper interpretation of such entries\n                  requires examination of the relevant adspConnState\n                  object.')
-atportPtoPTable = MibTable((1, 3, 6, 1, 2, 1, 13, 14, 1), )
-if mibBuilder.loadTexts: atportPtoPTable.setDescription('A list of AppleTalk point-to-point connections for\n                  this entity.')
-atportPtoPEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 14, 1, 1), ).setIndexNames((0, "APPLETALK-MIB", "atportPtoPIndex"))
-if mibBuilder.loadTexts: atportPtoPEntry.setDescription('The description of one of the AppleTalk\n                  point-to-point connections on this entity.\n\n                  As an example, an instance of the\n                  atportPtoPRemoteAddress object might be named\n                  atportPtoPRemoteAddress.2')
-atportPtoPIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 14, 1, 1, 1), Integer32())
-if mibBuilder.loadTexts: atportPtoPIndex.setDescription("A unique value for each AppleTalk point-to-point\n                  connection.  Its value is between 1 and the total\n                  number of AppleTalk point-to-point connections.  The\n                  value for each connection must remain constant at\n                  least from the re-initialization of the entity's\n                  network management system to the next\n                  re-initialization.")
-atportPtoPProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 14, 1, 1, 2), ObjectIdentifier()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atportPtoPProtocol.setDescription('The protocol type used over the point-to-point\n                  connection.')
-atportPtoPRemoteName = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 14, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atportPtoPRemoteName.setDescription('A text string containing the network node name of the\n                  entity at the other end of the point-to-point link.\n                  If the name is unknown or undefined, then this\n                  string is zero length.')
-atportPtoPRemoteAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 14, 1, 1, 4), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atportPtoPRemoteAddress.setDescription('The network address of the entity at the other end\n                  of the point-to-point link in network byte order.\n                  The format of this address can be determined\n                  by examinating the atportType corresponding to this\n                  entry.  If the address is unknown or undefined, then\n                  this string is zero length.')
-atportPtoPPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 14, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atportPtoPPortIndex.setDescription('The AppleTalk port associated with this\n                  point-to-point connection.  The interface identified\n                  by a particular value of this index is the same\n                  interface as identified by the same value of\n                  atportIndex.')
-atportPtoPStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 14, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atportPtoPStatus.setDescription('The status of this entry in the atportPtoPTable.\n\n                  Setting this object to the value invalid(2) has the\n                  effect of invalidating the corresponding entry in\n                  the atportPtoPTable.  That is, it  effectively\n                  disassociates the mapping identified with said\n                  entry.  It is an implementation-specific matter as\n                  to whether the agent removes an invalidated entry\n                  from the table. Accordingly, management stations\n                  must be prepared to receive from agents tabular\n                  information corresponding to entries not currently\n                  in use.  Proper interpretation of such entries\n                  requires examinationr of the relevant\n                  atportPtoPStatus object.')
-atportPtoPProtoOids = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 14, 2))
-pToPProtoOther = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 14, 2, 1))
-pToPProtoAurp = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 14, 2, 2))
-pToPProtoCaymanUdp = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 14, 2, 3))
-pToPProtoAtkvmsDecnetIV = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 14, 2, 4))
-pToPProtoLiaisonUdp = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 14, 2, 5))
-pToPProtoIpx = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 14, 2, 6))
-pToPProtoShivaIp = MibIdentifier((1, 3, 6, 1, 2, 1, 13, 14, 2, 7))
-perPortTable = MibTable((1, 3, 6, 1, 2, 1, 13, 18, 1), )
-if mibBuilder.loadTexts: perPortTable.setDescription('The table of per-port statistics for this entity.')
-perPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 13, 18, 1, 1), ).setIndexNames((0, "APPLETALK-MIB", "atportIndex"))
-if mibBuilder.loadTexts: perPortEntry.setDescription('The statistics available for a particular port on\n                  this entity.\n\n                  As an example, an instance of the perPortAarpInProbes\n                  object might be named perPortAarpInProbes.2')
-perPortAarpInProbes = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortAarpInProbes.setDescription('The total number of AARP Probe packets received\n                  by this entity on this port.')
-perPortAarpOutProbes = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortAarpOutProbes.setDescription('The total number of AARP Probe packets sent by\n                  this entity on this port.')
-perPortAarpInReqs = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortAarpInReqs.setDescription('The total number of AARP Request packets received\n                  by this entity on this port.')
-perPortAarpOutReqs = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortAarpOutReqs.setDescription('The total number of AARP Request packets sent by\n                  this entity on this port.')
-perPortAarpInRsps = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortAarpInRsps.setDescription('The total number of AARP Response packets received\n                  by this entity on this port.')
-perPortAarpOutRsps = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortAarpOutRsps.setDescription('The total number of AARP Response packets sent by\n                  this entity on this port.')
-perPortDdpInReceives = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortDdpInReceives.setDescription('The total number of input datagrams received by DDP\n                  on this port, including those received in error.')
-perPortDdpInLocalDatagrams = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortDdpInLocalDatagrams.setDescription('The total number of input DDP datagrams on this\n                  port for which this entity was their final DDP\n                  destination.')
-perPortDdpNoProtocolHandlers = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortDdpNoProtocolHandlers.setDescription('The total number of DDP datagrams addressed to this\n                  entity on this port that were addressed to an upper\n                  layer protocol for which no protocol handler\n                  existed.')
-perPortDdpTooShortErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortDdpTooShortErrors.setDescription('The total number of input DDP datagrams on this\n                  port dropped because the received data length was\n                  less than the data length specified in the DDP\n                  header or the received data length was less than the\n                  length of the expected DDP header.')
-perPortDdpTooLongErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortDdpTooLongErrors.setDescription('The total number of input DDP datagrams on this\n                  port dropped because they exceeded the maximum DDP\n                  datagram size.')
-perPortDdpChecksumErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortDdpChecksumErrors.setDescription('The total number of input DDP datagrams on this\n                  port for which this DDP entity was their final\n                  destination, and which were dropped because of a\n                  checksum error.')
-perPortDdpForwRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortDdpForwRequests.setDescription('The number of input datagrams on this port for\n                  which this entity was not their final DDP\n                  destination, as a result of which an attempt was\n                  made to find a route to forward them to that final\n                  destination.')
-perPortRtmpInDataPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortRtmpInDataPkts.setDescription('A count of the number of good RTMP data packets\n                  received by this entity on this port.')
-perPortRtmpOutDataPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortRtmpOutDataPkts.setDescription('A count of the number of RTMP packets sent by this\n                  entity on this port.')
-perPortRtmpInRequestPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortRtmpInRequestPkts.setDescription('A count of the number of good RTMP Request packets\n                  received by this entity on this port.')
-perPortRtmpRouteDeletes = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortRtmpRouteDeletes.setDescription('A count of the number of times RTMP deletes a route\n                  on this port because it was aged out of the table.')
-perPortZipInZipQueries = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortZipInZipQueries.setDescription('The number of ZIP Queries received by this entity\n                  on this port.')
-perPortZipInZipReplies = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortZipInZipReplies.setDescription('The number of ZIP Replies received by this entity\n                  on this port.')
-perPortZipInZipExtendedReplies = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortZipInZipExtendedReplies.setDescription('The number of ZIP Extended Replies received by this\n                  entity on this port.')
-perPortZipZoneConflictErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 21), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortZipZoneConflictErrors.setDescription("The number of times a conflict has been detected on\n                  this port between this entity's zone information and\n                  another entity's zone information.")
-perPortZipInErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 22), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortZipInErrors.setDescription('The number of ZIP packets received by this entity\n                  on this port that were rejected for any error.')
-perPortNbpInLookUpRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 23), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortNbpInLookUpRequests.setDescription('The number of NBP LookUp Requests received on this\n                  port.')
-perPortNbpInLookUpReplies = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 24), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortNbpInLookUpReplies.setDescription('The number of NBP LookUp Replies received on this\n                  port.')
-perPortNbpInBroadcastRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 25), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortNbpInBroadcastRequests.setDescription('The number of NBP Broadcast Requests received on\n                  this port.')
-perPortNbpInForwardRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 26), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortNbpInForwardRequests.setDescription('The number of NBP Forward Requests received on this\n                  port.')
-perPortNbpOutLookUpReplies = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 27), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortNbpOutLookUpReplies.setDescription('The number of NBP LookUp Replies sent on this port.')
-perPortNbpRegistrationFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 28), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortNbpRegistrationFailures.setDescription('The number of times this node experienced a failure\n                  in attempting to register an NBP entity on this\n                  port.')
-perPortNbpInErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 29), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortNbpInErrors.setDescription('The number of NBP packets received by this entity\n                  on this port that were rejected for any error.')
-perPortEchoRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 30), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortEchoRequests.setDescription('The number of AppleTalk Echo requests received on\n                  this port.')
-perPortEchoReplies = MibTableColumn((1, 3, 6, 1, 2, 1, 13, 18, 1, 1, 31), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: perPortEchoReplies.setDescription('The count of AppleTalk Echo replies received on\n                  this port.')
-mibBuilder.exportSymbols("APPLETALK-MIB", aarpIfIndex=aarpIfIndex, ddpOutRequests=ddpOutRequests, adspConnLocalConnID=adspConnLocalConnID, rtmpOutDataPkts=rtmpOutDataPkts, nbpInLookUpReplies=nbpInLookUpReplies, ddpTooLongErrors=ddpTooLongErrors, perPortEchoReplies=perPortEchoReplies, aspNoMoreSessionsErrors=aspNoMoreSessionsErrors, rtmp=rtmp, papServerAccountingFailures=papServerAccountingFailures, DdpNodeAddress=DdpNodeAddress, atportStatus=atportStatus, atpListenerAddress=atpListenerAddress, adspOutOctets=adspOutOctets, ddpTooShortErrors=ddpTooShortErrors, atechoOutRequests=atechoOutRequests, aspConnLastReqNum=aspConnLastReqNum, zipEndNode=zipEndNode, perPortAarpOutReqs=perPortAarpOutReqs, appletalk=appletalk, kip=kip, perPortNbpInBroadcastRequests=perPortNbpInBroadcastRequests, llapInNoHandlers=llapInNoHandlers, atpRetryCountExceededs=atpRetryCountExceededs, perPortDdpNoProtocolHandlers=perPortDdpNoProtocolHandlers, papServerFreeJobs=papServerFreeJobs, perPortEchoRequests=perPortEchoRequests, aarpHits=aarpHits, zipInZipExtendedReplies=zipInZipExtendedReplies, perPortDdpChecksumErrors=perPortDdpChecksumErrors, perPortZipInErrors=perPortZipInErrors, aarpNetAddress=aarpNetAddress, pToPProtoAtkvmsDecnetIV=pToPProtoAtkvmsDecnetIV, aspConnTable=aspConnTable, atechoInReplies=atechoInReplies, papServerEntry=papServerEntry, zipOutGetNetInfoReplies=zipOutGetNetInfoReplies, atportZoneDefault=atportZoneDefault, zipZoneNetStart=zipZoneNetStart, atechoReplies=atechoReplies, aspConnEntry=aspConnEntry, atportNetEnd=atportNetEnd, perPortDdpInReceives=perPortDdpInReceives, ddpListenerTable=ddpListenerTable, atpListenerStatus=atpListenerStatus, atportType=atportType, perPortZipZoneConflictErrors=perPortZipZoneConflictErrors, adspConnRemoteConnID=adspConnRemoteConnID, atpListenerTable=atpListenerTable, rtmpNextIRLessChanges=rtmpNextIRLessChanges, papInDatas=papInDatas, ddpForwardingTable=ddpForwardingTable, zipInErrors=zipInErrors, kipNetStart=kipNetStart, atp=atp, zipNetInfoEntry=zipNetInfoEntry, adspInPkts=adspInPkts, perPortNbpOutLookUpReplies=perPortNbpOutLookUpReplies, zipInZipQueries=zipInZipQueries, perPortRtmpInRequestPkts=perPortRtmpInRequestPkts, nbpEntry=nbpEntry, llapEntry=llapEntry, rtmpState=rtmpState, papInOpenConns=papInOpenConns, pap=pap, rtmpOutRequestPkts=rtmpOutRequestPkts, zipZonePort=zipZonePort, perPortAarpInRsps=perPortAarpInRsps, ddpForwProtoOids=ddpForwProtoOids, kipNetEnd=kipNetEnd, aspInputTransactions=aspInputTransactions, ddpOutShorts=ddpOutShorts, perPortAarpInReqs=perPortAarpInReqs, ddpBroadcastErrors=ddpBroadcastErrors, zipNetInfoTable=zipNetInfoTable, atportPtoPRemoteAddress=atportPtoPRemoteAddress, ddpHopCountErrors=ddpHopCountErrors, rtmpInVersionMismatches=rtmpInVersionMismatches, nbpZone=nbpZone, aarp=aarp, adspInDataPkts=adspInDataPkts, rtmpType=rtmpType, atechoRequests=atechoRequests, ddpListenerEntry=ddpListenerEntry, atportNetStart=atportNetStart, nbpEnumerator=nbpEnumerator, nbpObject=nbpObject, atportZoneFrom=atportZoneFrom, pToPProtoAurp=pToPProtoAurp, perPortEntry=perPortEntry, perPortRtmpRouteDeletes=perPortRtmpRouteDeletes, zipZoneName=zipZoneName, perPortNbpInForwardRequests=perPortNbpInForwardRequests, perPortDdpInLocalDatagrams=perPortDdpInLocalDatagrams, papOutDatas=papOutDatas, kipTable=kipTable, pToPProtoOther=pToPProtoOther, perPortDdpTooShortErrors=perPortDdpTooShortErrors, kipHopCount=kipHopCount, ddpForwardingTableOverflows=ddpForwardingTableOverflows, atportPtoPProtoOids=atportPtoPProtoOids, atportHome=atportHome, zipZoneOutInvalids=zipZoneOutInvalids, adspTimeoutErrors=adspTimeoutErrors, atportEntry=atportEntry, ddpInLocalDatagrams=ddpInLocalDatagrams, nbpAddress=nbpAddress, perPortZipInZipReplies=perPortZipInZipReplies, adspOutDataPkts=adspOutDataPkts, llapCollisions=llapCollisions, perPortAarpOutRsps=perPortAarpOutRsps, aarpTable=aarpTable, aarpStatus=aarpStatus, ddpForwardingNextHop=ddpForwardingNextHop, ddpForwardingPort=ddpForwardingPort, atportOutPkts=atportOutPkts, papServerState=papServerState, atportPtoPStatus=atportPtoPStatus, ddpListenerStatus=ddpListenerStatus, pToPProtoLiaisonUdp=pToPProtoLiaisonUdp, aspConnServerEnd=aspConnServerEnd, atportZoneTable=atportZoneTable, papServerListeningSocket=papServerListeningSocket, atportDescr=atportDescr, rtmpInRequestPkts=rtmpInRequestPkts, adspTimeoutCloseErrors=adspTimeoutCloseErrors, adspConnTable=adspConnTable, aspConnState=aspConnState, zipInObsoletes=zipInObsoletes, kipBCastAddr=kipBCastAddr, nbpTable=nbpTable, ddpForwardingNetEnd=ddpForwardingNetEnd, atpTResponseRetransmissions=atpTResponseRetransmissions, adspConnEntry=adspConnEntry, perPortNbpInLookUpRequests=perPortNbpInLookUpRequests, aspTickleTimeOutCloses=aspTickleTimeOutCloses, llapIfIndex=llapIfIndex, atportConflictPhysAddr=atportConflictPhysAddr, rtmpRangeEnd=rtmpRangeEnd, aspConnRemoteAddress=aspConnRemoteAddress, papServerAuthenticationFailures=papServerAuthenticationFailures, perPortTable=perPortTable, atportPtoPRemoteName=atportPtoPRemoteName, ATNetworkNumber=ATNetworkNumber, perPortZipInZipExtendedReplies=perPortZipInZipExtendedReplies, perPortNbpRegistrationFailures=perPortNbpRegistrationFailures, aarpLookups=aarpLookups, perPortAarpInProbes=perPortAarpInProbes, zipRouter=zipRouter, ddpInReceives=ddpInReceives, rtmpRoutingProto=rtmpRoutingProto, nbpType=nbpType, papOutOpenConns=papOutOpenConns, rtmpEntry=rtmpEntry, ddpListenerAddress=ddpListenerAddress, zipZoneInInvalids=zipZoneInInvalids, ddpListenerInPkts=ddpListenerInPkts, atportptop=atportptop, atportCurrentZone=atportCurrentZone, rtmpNextHop=rtmpNextHop, atportZonePort=atportZonePort, atportTable=atportTable, rtmpRoutingTableOverflows=rtmpRoutingTableOverflows, perPortDdpForwRequests=perPortDdpForwRequests, llapDefers=llapDefers, ddpForwardingProto=ddpForwardingProto, atportPtoPTable=atportPtoPTable, llapOutPkts=llapOutPkts, papServerGeneralFailures=papServerGeneralFailures, atportIndex=atportIndex, atpOutPkts=atpOutPkts, ddpForwRequests=ddpForwRequests, perPortDdpTooLongErrors=perPortDdpTooLongErrors, zipZoneIndex=zipZoneIndex, atportZoneConfig=atportZoneConfig, adspInOctets=adspInOctets, zipZoneFrom=zipZoneFrom, llapTable=llapTable, atportNetAddress=atportNetAddress, zipZoneNetEnd=zipZoneNetEnd, aspInOpenSessions=aspInOpenSessions, adspConnLocalAddress=adspConnLocalAddress, kipState=kipState, zipRouterNetInfoTable=zipRouterNetInfoTable, adspOutPkts=adspOutPkts, kipEntry=kipEntry, aarpPhysAddress=aarpPhysAddress, zipInGetNetInfos=zipInGetNetInfos, nbp=nbp, nbpInLookUpRequests=nbpInLookUpRequests, ddp=ddp, aspConnID=aspConnID, pToPProtoIpx=pToPProtoIpx, aarpEntry=aarpEntry, nbpIndex=nbpIndex, atportPtoPPortIndex=atportPtoPPortIndex, rtmpStub=rtmpStub, ddpChecksumErrors=ddpChecksumErrors, llapInLengthErrors=llapInLengthErrors, nbpInErrors=nbpInErrors, papServerTable=papServerTable, atportNetFrom=atportNetFrom, rtmpInErrors=rtmpInErrors, rtmpNextIREqualChanges=rtmpNextIREqualChanges, zipAddressInvalids=zipAddressInvalids, atport=atport, ddpForwardingNetStart=ddpForwardingNetStart, papServerIndex=papServerIndex, kipFrom=kipFrom, atportPtoPIndex=atportPtoPIndex, atportIfIndex=atportIfIndex, asp=asp, kipType=kipType, zipInZipReplies=zipInZipReplies, atpInPkts=atpInPkts, papServerBusyJobs=papServerBusyJobs, rtmpRangeStart=rtmpRangeStart, atportZoneStatus=atportZoneStatus, papServerStatus=papServerStatus, kipNextHop=kipNextHop, perPort=perPort, perPortNbpInErrors=perPortNbpInErrors, atecho=atecho, rtmpRouteDeletes=rtmpRouteDeletes, llapFCSErrors=llapFCSErrors, zipRouterNetInfoEntry=zipRouterNetInfoEntry, aspConnLocalAddress=aspConnLocalAddress, kipRoutingProto=kipRoutingProto, aspOutCloseSessions=aspOutCloseSessions, nbpInBroadcastRequests=nbpInBroadcastRequests, ddpForwardingEntry=ddpForwardingEntry, papTickleTimeoutCloses=papTickleTimeoutCloses, zipEntry=zipEntry, nbpState=nbpState, perPortRtmpOutDataPkts=perPortRtmpOutDataPkts, atportPtoPEntry=atportPtoPEntry, rtmpPort=rtmpPort, perPortNbpInLookUpReplies=perPortNbpInLookUpReplies, kipShare=kipShare, aspOutputTransactions=aspOutputTransactions, atportZoneEntry=atportZoneEntry, llapNoDataErrors=llapNoDataErrors, rtmpHops=rtmpHops, atpTRequestRetransmissions=atpTRequestRetransmissions, papServerCompletedJobs=papServerCompletedJobs, perPortZipInZipQueries=perPortZipInZipQueries, ddpShortDDPErrors=ddpShortDDPErrors, llapInErrors=llapInErrors, ddpOutLongs=ddpOutLongs, kipCore=kipCore, zipZoneConflictErrors=zipZoneConflictErrors, ddpOutNoRoutes=ddpOutNoRoutes, zipInGetNetInfoReplies=zipInGetNetInfoReplies, adsp=adsp)
-mibBuilder.exportSymbols("APPLETALK-MIB", zipOutGetNetInfos=zipOutGetNetInfos, zipZoneState=zipZoneState, llap=llap, llapInPkts=llapInPkts, ddpForwardingUseCounts=ddpForwardingUseCounts, nbpOutLookUpReplies=nbpOutLookUpReplies, ATName=ATName, atpReleaseTimerExpiredCounts=atpReleaseTimerExpiredCounts, nbpRegistrationFailures=nbpRegistrationFailures, ddpForwardingModifiedTime=ddpForwardingModifiedTime, zipTable=zipTable, atportInPkts=atportInPkts, papOutCloseConns=papOutCloseConns, rtmpTable=rtmpTable, pToPProtoCaymanUdp=pToPProtoCaymanUdp, pToPProtoShivaIp=pToPProtoShivaIp, papServerLastStatusMsg=papServerLastStatusMsg, atportPtoPProtocol=atportPtoPProtocol, perPortRtmpInDataPkts=perPortRtmpInDataPkts, papInCloseConns=papInCloseConns, aspOutOpenSessions=aspOutOpenSessions, aspInCloseSessions=aspInCloseSessions, DdpSocketAddress=DdpSocketAddress, adspConnState=adspConnState, perPortAarpOutProbes=perPortAarpOutProbes, nbpInForwardRequests=nbpInForwardRequests, atportNetConfig=atportNetConfig, llapRandomCTSErrors=llapRandomCTSErrors, rtmpInDataPkts=rtmpInDataPkts, adspConnRemoteAddress=adspConnRemoteAddress, atportZoneName=atportZoneName, atpListenerEntry=atpListenerEntry, ddpNoProtocolHandlers=ddpNoProtocolHandlers)
+_q='atportPtoPIndex'
+_p='adspConnLocalConnID'
+_o='adspConnRemoteAddress'
+_n='adspConnLocalAddress'
+_m='closed'
+_l='aspConnID'
+_k='aspConnRemoteAddress'
+_j='aspConnLocalAddress'
+_i='papServerIndex'
+_h='atpListenerAddress'
+_g='nbpIndex'
+_f='zipZoneIndex'
+_e='zipZoneNetStart'
+_d='kipNetStart'
+_c='appletalk'
+_b='rtmpRangeStart'
+_a='ddpForwardingNetEnd'
+_Z='ddpListenerAddress'
+_Y='atportZoneName'
+_X='atportZonePort'
+_W='softSeed'
+_V='conflictAverseSeed'
+_U='guessed'
+_T='garnered'
+_S='conflictOrientedSeed'
+_R='serialNonstandard'
+_Q='serialPPP'
+_P='aarpNetAddress'
+_O='aarpIfIndex'
+_N='llapIfIndex'
+_M='unconfigured'
+_L='ATName'
+_K='other'
+_J='deprecated'
+_I='atportIndex'
+_H='valid'
+_G='not-accessible'
+_F='invalid'
+_E='APPLETALK-MIB'
+_D='Integer32'
+_C='read-write'
+_B='read-only'
+_A='mandatory'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+class ATNetworkNumber(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
+class DdpNodeAddress(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,3));fixedLength=3
+class DdpSocketAddress(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
+class ATName(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_Appletalk_ObjectIdentity=ObjectIdentity
+appletalk=_Appletalk_ObjectIdentity((1,3,6,1,2,1,13))
+_Llap_ObjectIdentity=ObjectIdentity
+llap=_Llap_ObjectIdentity((1,3,6,1,2,1,13,1))
+_LlapTable_Object=MibTable
+llapTable=_LlapTable_Object((1,3,6,1,2,1,13,1,1))
+if mibBuilder.loadTexts:llapTable.setStatus(_A)
+_LlapEntry_Object=MibTableRow
+llapEntry=_LlapEntry_Object((1,3,6,1,2,1,13,1,1,1))
+llapEntry.setIndexNames((0,_E,_N))
+if mibBuilder.loadTexts:llapEntry.setStatus(_A)
+_LlapIfIndex_Type=Integer32
+_LlapIfIndex_Object=MibTableColumn
+llapIfIndex=_LlapIfIndex_Object((1,3,6,1,2,1,13,1,1,1,1),_LlapIfIndex_Type())
+llapIfIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:llapIfIndex.setStatus(_A)
+_LlapInPkts_Type=Counter32
+_LlapInPkts_Object=MibTableColumn
+llapInPkts=_LlapInPkts_Object((1,3,6,1,2,1,13,1,1,1,2),_LlapInPkts_Type())
+llapInPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:llapInPkts.setStatus(_J)
+_LlapOutPkts_Type=Counter32
+_LlapOutPkts_Object=MibTableColumn
+llapOutPkts=_LlapOutPkts_Object((1,3,6,1,2,1,13,1,1,1,3),_LlapOutPkts_Type())
+llapOutPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:llapOutPkts.setStatus(_J)
+_LlapInNoHandlers_Type=Counter32
+_LlapInNoHandlers_Object=MibTableColumn
+llapInNoHandlers=_LlapInNoHandlers_Object((1,3,6,1,2,1,13,1,1,1,4),_LlapInNoHandlers_Type())
+llapInNoHandlers.setMaxAccess(_B)
+if mibBuilder.loadTexts:llapInNoHandlers.setStatus(_J)
+_LlapInLengthErrors_Type=Counter32
+_LlapInLengthErrors_Object=MibTableColumn
+llapInLengthErrors=_LlapInLengthErrors_Object((1,3,6,1,2,1,13,1,1,1,5),_LlapInLengthErrors_Type())
+llapInLengthErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:llapInLengthErrors.setStatus(_A)
+_LlapInErrors_Type=Counter32
+_LlapInErrors_Object=MibTableColumn
+llapInErrors=_LlapInErrors_Object((1,3,6,1,2,1,13,1,1,1,6),_LlapInErrors_Type())
+llapInErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:llapInErrors.setStatus(_J)
+_LlapCollisions_Type=Counter32
+_LlapCollisions_Object=MibTableColumn
+llapCollisions=_LlapCollisions_Object((1,3,6,1,2,1,13,1,1,1,7),_LlapCollisions_Type())
+llapCollisions.setMaxAccess(_B)
+if mibBuilder.loadTexts:llapCollisions.setStatus(_A)
+_LlapDefers_Type=Counter32
+_LlapDefers_Object=MibTableColumn
+llapDefers=_LlapDefers_Object((1,3,6,1,2,1,13,1,1,1,8),_LlapDefers_Type())
+llapDefers.setMaxAccess(_B)
+if mibBuilder.loadTexts:llapDefers.setStatus(_A)
+_LlapNoDataErrors_Type=Counter32
+_LlapNoDataErrors_Object=MibTableColumn
+llapNoDataErrors=_LlapNoDataErrors_Object((1,3,6,1,2,1,13,1,1,1,9),_LlapNoDataErrors_Type())
+llapNoDataErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:llapNoDataErrors.setStatus(_A)
+_LlapRandomCTSErrors_Type=Counter32
+_LlapRandomCTSErrors_Object=MibTableColumn
+llapRandomCTSErrors=_LlapRandomCTSErrors_Object((1,3,6,1,2,1,13,1,1,1,10),_LlapRandomCTSErrors_Type())
+llapRandomCTSErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:llapRandomCTSErrors.setStatus(_A)
+_LlapFCSErrors_Type=Counter32
+_LlapFCSErrors_Object=MibTableColumn
+llapFCSErrors=_LlapFCSErrors_Object((1,3,6,1,2,1,13,1,1,1,11),_LlapFCSErrors_Type())
+llapFCSErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:llapFCSErrors.setStatus(_A)
+_Aarp_ObjectIdentity=ObjectIdentity
+aarp=_Aarp_ObjectIdentity((1,3,6,1,2,1,13,2))
+_AarpTable_Object=MibTable
+aarpTable=_AarpTable_Object((1,3,6,1,2,1,13,2,1))
+if mibBuilder.loadTexts:aarpTable.setStatus(_A)
+_AarpEntry_Object=MibTableRow
+aarpEntry=_AarpEntry_Object((1,3,6,1,2,1,13,2,1,1))
+aarpEntry.setIndexNames((0,_E,_O),(0,_E,_P))
+if mibBuilder.loadTexts:aarpEntry.setStatus(_A)
+_AarpIfIndex_Type=Integer32
+_AarpIfIndex_Object=MibTableColumn
+aarpIfIndex=_AarpIfIndex_Object((1,3,6,1,2,1,13,2,1,1,1),_AarpIfIndex_Type())
+aarpIfIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:aarpIfIndex.setStatus(_A)
+_AarpPhysAddress_Type=OctetString
+_AarpPhysAddress_Object=MibTableColumn
+aarpPhysAddress=_AarpPhysAddress_Object((1,3,6,1,2,1,13,2,1,1,2),_AarpPhysAddress_Type())
+aarpPhysAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:aarpPhysAddress.setStatus(_A)
+_AarpNetAddress_Type=DdpNodeAddress
+_AarpNetAddress_Object=MibTableColumn
+aarpNetAddress=_AarpNetAddress_Object((1,3,6,1,2,1,13,2,1,1,3),_AarpNetAddress_Type())
+aarpNetAddress.setMaxAccess(_B)
+if mibBuilder.loadTexts:aarpNetAddress.setStatus(_A)
+class _AarpStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_F,2)))
+_AarpStatus_Type.__name__=_D
+_AarpStatus_Object=MibTableColumn
+aarpStatus=_AarpStatus_Object((1,3,6,1,2,1,13,2,1,1,4),_AarpStatus_Type())
+aarpStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:aarpStatus.setStatus(_A)
+_AarpLookups_Type=Counter32
+_AarpLookups_Object=MibScalar
+aarpLookups=_AarpLookups_Object((1,3,6,1,2,1,13,2,2),_AarpLookups_Type())
+aarpLookups.setMaxAccess(_B)
+if mibBuilder.loadTexts:aarpLookups.setStatus(_A)
+_AarpHits_Type=Counter32
+_AarpHits_Object=MibScalar
+aarpHits=_AarpHits_Object((1,3,6,1,2,1,13,2,3),_AarpHits_Type())
+aarpHits.setMaxAccess(_B)
+if mibBuilder.loadTexts:aarpHits.setStatus(_A)
+_Atport_ObjectIdentity=ObjectIdentity
+atport=_Atport_ObjectIdentity((1,3,6,1,2,1,13,3))
+_AtportTable_Object=MibTable
+atportTable=_AtportTable_Object((1,3,6,1,2,1,13,3,1))
+if mibBuilder.loadTexts:atportTable.setStatus(_A)
+_AtportEntry_Object=MibTableRow
+atportEntry=_AtportEntry_Object((1,3,6,1,2,1,13,3,1,1))
+atportEntry.setIndexNames((0,_E,_I))
+if mibBuilder.loadTexts:atportEntry.setStatus(_A)
+_AtportIndex_Type=Integer32
+_AtportIndex_Object=MibTableColumn
+atportIndex=_AtportIndex_Object((1,3,6,1,2,1,13,3,1,1,1),_AtportIndex_Type())
+atportIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:atportIndex.setStatus(_A)
+_AtportDescr_Type=DisplayString
+_AtportDescr_Object=MibTableColumn
+atportDescr=_AtportDescr_Object((1,3,6,1,2,1,13,3,1,1,2),_AtportDescr_Type())
+atportDescr.setMaxAccess(_C)
+if mibBuilder.loadTexts:atportDescr.setStatus(_A)
+class _AtportType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24)));namedValues=NamedValues(*((_K,1),('localtalk',2),('ethertalk1',3),('ethertalk2',4),('tokentalk',5),('iptalk',6),(_Q,7),(_R,8),('virtual',9),('fdditalk',10),('arctalk',11),('smdstalk',12),('aurp',13),('frameRelay',14),('x25',15),('ip',16),('osi',17),('decnetIV',18),('arap',19),('isdnInThePacketMode',20),('nonAppleTalk3Com',21),('ipx',22),('arns',23),('hdlc',24)))
+_AtportType_Type.__name__=_D
+_AtportType_Object=MibTableColumn
+atportType=_AtportType_Object((1,3,6,1,2,1,13,3,1,1,3),_AtportType_Type())
+atportType.setMaxAccess(_C)
+if mibBuilder.loadTexts:atportType.setStatus(_A)
+_AtportNetStart_Type=ATNetworkNumber
+_AtportNetStart_Object=MibTableColumn
+atportNetStart=_AtportNetStart_Object((1,3,6,1,2,1,13,3,1,1,4),_AtportNetStart_Type())
+atportNetStart.setMaxAccess(_C)
+if mibBuilder.loadTexts:atportNetStart.setStatus(_A)
+_AtportNetEnd_Type=ATNetworkNumber
+_AtportNetEnd_Object=MibTableColumn
+atportNetEnd=_AtportNetEnd_Object((1,3,6,1,2,1,13,3,1,1,5),_AtportNetEnd_Type())
+atportNetEnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:atportNetEnd.setStatus(_A)
+_AtportNetAddress_Type=DdpNodeAddress
+_AtportNetAddress_Object=MibTableColumn
+atportNetAddress=_AtportNetAddress_Object((1,3,6,1,2,1,13,3,1,1,6),_AtportNetAddress_Type())
+atportNetAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:atportNetAddress.setStatus(_A)
+class _AtportStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('routing',1),(_M,2),('off',3),(_F,4),('endNode',5),('offDueToConflict',6),(_K,7)))
+_AtportStatus_Type.__name__=_D
+_AtportStatus_Object=MibTableColumn
+atportStatus=_AtportStatus_Object((1,3,6,1,2,1,13,3,1,1,7),_AtportStatus_Type())
+atportStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:atportStatus.setStatus(_A)
+class _AtportNetConfig_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_S,1),(_T,2),(_U,3),(_M,4),(_V,5),(_W,6)))
+_AtportNetConfig_Type.__name__=_D
+_AtportNetConfig_Object=MibTableColumn
+atportNetConfig=_AtportNetConfig_Object((1,3,6,1,2,1,13,3,1,1,8),_AtportNetConfig_Type())
+atportNetConfig.setMaxAccess(_C)
+if mibBuilder.loadTexts:atportNetConfig.setStatus(_A)
+class _AtportZoneConfig_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_S,1),(_T,2),(_U,3),(_M,4),(_V,5),(_W,6)))
+_AtportZoneConfig_Type.__name__=_D
+_AtportZoneConfig_Object=MibTableColumn
+atportZoneConfig=_AtportZoneConfig_Object((1,3,6,1,2,1,13,3,1,1,9),_AtportZoneConfig_Type())
+atportZoneConfig.setMaxAccess(_C)
+if mibBuilder.loadTexts:atportZoneConfig.setStatus(_A)
+_AtportZoneDefault_Type=ATName
+_AtportZoneDefault_Object=MibTableColumn
+atportZoneDefault=_AtportZoneDefault_Object((1,3,6,1,2,1,13,3,1,1,10),_AtportZoneDefault_Type())
+atportZoneDefault.setMaxAccess(_C)
+if mibBuilder.loadTexts:atportZoneDefault.setStatus(_A)
+_AtportIfIndex_Type=Integer32
+_AtportIfIndex_Object=MibTableColumn
+atportIfIndex=_AtportIfIndex_Object((1,3,6,1,2,1,13,3,1,1,11),_AtportIfIndex_Type())
+atportIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:atportIfIndex.setStatus(_A)
+_AtportNetFrom_Type=DdpNodeAddress
+_AtportNetFrom_Object=MibTableColumn
+atportNetFrom=_AtportNetFrom_Object((1,3,6,1,2,1,13,3,1,1,12),_AtportNetFrom_Type())
+atportNetFrom.setMaxAccess(_B)
+if mibBuilder.loadTexts:atportNetFrom.setStatus(_A)
+_AtportZoneFrom_Type=DdpNodeAddress
+_AtportZoneFrom_Object=MibTableColumn
+atportZoneFrom=_AtportZoneFrom_Object((1,3,6,1,2,1,13,3,1,1,13),_AtportZoneFrom_Type())
+atportZoneFrom.setMaxAccess(_B)
+if mibBuilder.loadTexts:atportZoneFrom.setStatus(_A)
+_AtportInPkts_Type=Counter32
+_AtportInPkts_Object=MibTableColumn
+atportInPkts=_AtportInPkts_Object((1,3,6,1,2,1,13,3,1,1,14),_AtportInPkts_Type())
+atportInPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:atportInPkts.setStatus(_A)
+_AtportOutPkts_Type=Counter32
+_AtportOutPkts_Object=MibTableColumn
+atportOutPkts=_AtportOutPkts_Object((1,3,6,1,2,1,13,3,1,1,15),_AtportOutPkts_Type())
+atportOutPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:atportOutPkts.setStatus(_A)
+class _AtportHome_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('home',1),('notHome',2)))
+_AtportHome_Type.__name__=_D
+_AtportHome_Object=MibTableColumn
+atportHome=_AtportHome_Object((1,3,6,1,2,1,13,3,1,1,16),_AtportHome_Type())
+atportHome.setMaxAccess(_B)
+if mibBuilder.loadTexts:atportHome.setStatus(_A)
+_AtportCurrentZone_Type=ATName
+_AtportCurrentZone_Object=MibTableColumn
+atportCurrentZone=_AtportCurrentZone_Object((1,3,6,1,2,1,13,3,1,1,17),_AtportCurrentZone_Type())
+atportCurrentZone.setMaxAccess(_C)
+if mibBuilder.loadTexts:atportCurrentZone.setStatus(_A)
+_AtportConflictPhysAddr_Type=OctetString
+_AtportConflictPhysAddr_Object=MibTableColumn
+atportConflictPhysAddr=_AtportConflictPhysAddr_Object((1,3,6,1,2,1,13,3,1,1,18),_AtportConflictPhysAddr_Type())
+atportConflictPhysAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:atportConflictPhysAddr.setStatus(_A)
+_AtportZoneTable_Object=MibTable
+atportZoneTable=_AtportZoneTable_Object((1,3,6,1,2,1,13,3,2))
+if mibBuilder.loadTexts:atportZoneTable.setStatus(_A)
+_AtportZoneEntry_Object=MibTableRow
+atportZoneEntry=_AtportZoneEntry_Object((1,3,6,1,2,1,13,3,2,1))
+atportZoneEntry.setIndexNames((0,_E,_X),(0,_E,_Y))
+if mibBuilder.loadTexts:atportZoneEntry.setStatus(_A)
+_AtportZonePort_Type=Integer32
+_AtportZonePort_Object=MibTableColumn
+atportZonePort=_AtportZonePort_Object((1,3,6,1,2,1,13,3,2,1,1),_AtportZonePort_Type())
+atportZonePort.setMaxAccess(_G)
+if mibBuilder.loadTexts:atportZonePort.setStatus(_A)
+class _AtportZoneName_Type(ATName):subtypeSpec=ATName.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_AtportZoneName_Type.__name__=_L
+_AtportZoneName_Object=MibTableColumn
+atportZoneName=_AtportZoneName_Object((1,3,6,1,2,1,13,3,2,1,2),_AtportZoneName_Type())
+atportZoneName.setMaxAccess(_G)
+if mibBuilder.loadTexts:atportZoneName.setStatus(_A)
+class _AtportZoneStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_F,2)))
+_AtportZoneStatus_Type.__name__=_D
+_AtportZoneStatus_Object=MibTableColumn
+atportZoneStatus=_AtportZoneStatus_Object((1,3,6,1,2,1,13,3,2,1,3),_AtportZoneStatus_Type())
+atportZoneStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:atportZoneStatus.setStatus(_A)
+_Ddp_ObjectIdentity=ObjectIdentity
+ddp=_Ddp_ObjectIdentity((1,3,6,1,2,1,13,4))
+_DdpOutRequests_Type=Counter32
+_DdpOutRequests_Object=MibScalar
+ddpOutRequests=_DdpOutRequests_Object((1,3,6,1,2,1,13,4,1),_DdpOutRequests_Type())
+ddpOutRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpOutRequests.setStatus(_A)
+_DdpOutShorts_Type=Counter32
+_DdpOutShorts_Object=MibScalar
+ddpOutShorts=_DdpOutShorts_Object((1,3,6,1,2,1,13,4,2),_DdpOutShorts_Type())
+ddpOutShorts.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpOutShorts.setStatus(_A)
+_DdpOutLongs_Type=Counter32
+_DdpOutLongs_Object=MibScalar
+ddpOutLongs=_DdpOutLongs_Object((1,3,6,1,2,1,13,4,3),_DdpOutLongs_Type())
+ddpOutLongs.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpOutLongs.setStatus(_A)
+_DdpInReceives_Type=Counter32
+_DdpInReceives_Object=MibScalar
+ddpInReceives=_DdpInReceives_Object((1,3,6,1,2,1,13,4,4),_DdpInReceives_Type())
+ddpInReceives.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpInReceives.setStatus(_A)
+_DdpForwRequests_Type=Counter32
+_DdpForwRequests_Object=MibScalar
+ddpForwRequests=_DdpForwRequests_Object((1,3,6,1,2,1,13,4,5),_DdpForwRequests_Type())
+ddpForwRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpForwRequests.setStatus(_A)
+_DdpInLocalDatagrams_Type=Counter32
+_DdpInLocalDatagrams_Object=MibScalar
+ddpInLocalDatagrams=_DdpInLocalDatagrams_Object((1,3,6,1,2,1,13,4,6),_DdpInLocalDatagrams_Type())
+ddpInLocalDatagrams.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpInLocalDatagrams.setStatus(_A)
+_DdpNoProtocolHandlers_Type=Counter32
+_DdpNoProtocolHandlers_Object=MibScalar
+ddpNoProtocolHandlers=_DdpNoProtocolHandlers_Object((1,3,6,1,2,1,13,4,7),_DdpNoProtocolHandlers_Type())
+ddpNoProtocolHandlers.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpNoProtocolHandlers.setStatus(_A)
+_DdpOutNoRoutes_Type=Counter32
+_DdpOutNoRoutes_Object=MibScalar
+ddpOutNoRoutes=_DdpOutNoRoutes_Object((1,3,6,1,2,1,13,4,8),_DdpOutNoRoutes_Type())
+ddpOutNoRoutes.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpOutNoRoutes.setStatus(_A)
+_DdpTooShortErrors_Type=Counter32
+_DdpTooShortErrors_Object=MibScalar
+ddpTooShortErrors=_DdpTooShortErrors_Object((1,3,6,1,2,1,13,4,9),_DdpTooShortErrors_Type())
+ddpTooShortErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpTooShortErrors.setStatus(_A)
+_DdpTooLongErrors_Type=Counter32
+_DdpTooLongErrors_Object=MibScalar
+ddpTooLongErrors=_DdpTooLongErrors_Object((1,3,6,1,2,1,13,4,10),_DdpTooLongErrors_Type())
+ddpTooLongErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpTooLongErrors.setStatus(_A)
+_DdpBroadcastErrors_Type=Counter32
+_DdpBroadcastErrors_Object=MibScalar
+ddpBroadcastErrors=_DdpBroadcastErrors_Object((1,3,6,1,2,1,13,4,11),_DdpBroadcastErrors_Type())
+ddpBroadcastErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpBroadcastErrors.setStatus(_A)
+_DdpShortDDPErrors_Type=Counter32
+_DdpShortDDPErrors_Object=MibScalar
+ddpShortDDPErrors=_DdpShortDDPErrors_Object((1,3,6,1,2,1,13,4,12),_DdpShortDDPErrors_Type())
+ddpShortDDPErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpShortDDPErrors.setStatus(_A)
+_DdpHopCountErrors_Type=Counter32
+_DdpHopCountErrors_Object=MibScalar
+ddpHopCountErrors=_DdpHopCountErrors_Object((1,3,6,1,2,1,13,4,13),_DdpHopCountErrors_Type())
+ddpHopCountErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpHopCountErrors.setStatus(_A)
+_DdpChecksumErrors_Type=Counter32
+_DdpChecksumErrors_Object=MibScalar
+ddpChecksumErrors=_DdpChecksumErrors_Object((1,3,6,1,2,1,13,4,14),_DdpChecksumErrors_Type())
+ddpChecksumErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpChecksumErrors.setStatus(_A)
+_DdpListenerTable_Object=MibTable
+ddpListenerTable=_DdpListenerTable_Object((1,3,6,1,2,1,13,4,15))
+if mibBuilder.loadTexts:ddpListenerTable.setStatus(_A)
+_DdpListenerEntry_Object=MibTableRow
+ddpListenerEntry=_DdpListenerEntry_Object((1,3,6,1,2,1,13,4,15,1))
+ddpListenerEntry.setIndexNames((0,_E,_Z))
+if mibBuilder.loadTexts:ddpListenerEntry.setStatus(_A)
+_DdpListenerAddress_Type=DdpSocketAddress
+_DdpListenerAddress_Object=MibTableColumn
+ddpListenerAddress=_DdpListenerAddress_Object((1,3,6,1,2,1,13,4,15,1,1),_DdpListenerAddress_Type())
+ddpListenerAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:ddpListenerAddress.setStatus(_A)
+_DdpListenerInPkts_Type=Counter32
+_DdpListenerInPkts_Object=MibTableColumn
+ddpListenerInPkts=_DdpListenerInPkts_Object((1,3,6,1,2,1,13,4,15,1,2),_DdpListenerInPkts_Type())
+ddpListenerInPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpListenerInPkts.setStatus(_A)
+class _DdpListenerStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_F,2)))
+_DdpListenerStatus_Type.__name__=_D
+_DdpListenerStatus_Object=MibTableColumn
+ddpListenerStatus=_DdpListenerStatus_Object((1,3,6,1,2,1,13,4,15,1,3),_DdpListenerStatus_Type())
+ddpListenerStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:ddpListenerStatus.setStatus(_A)
+_DdpForwardingTable_Object=MibTable
+ddpForwardingTable=_DdpForwardingTable_Object((1,3,6,1,2,1,13,4,16))
+if mibBuilder.loadTexts:ddpForwardingTable.setStatus(_A)
+_DdpForwardingEntry_Object=MibTableRow
+ddpForwardingEntry=_DdpForwardingEntry_Object((1,3,6,1,2,1,13,4,16,1))
+ddpForwardingEntry.setIndexNames((0,_E,_a))
+if mibBuilder.loadTexts:ddpForwardingEntry.setStatus(_A)
+_DdpForwardingNetEnd_Type=ATNetworkNumber
+_DdpForwardingNetEnd_Object=MibTableColumn
+ddpForwardingNetEnd=_DdpForwardingNetEnd_Object((1,3,6,1,2,1,13,4,16,1,1),_DdpForwardingNetEnd_Type())
+ddpForwardingNetEnd.setMaxAccess(_G)
+if mibBuilder.loadTexts:ddpForwardingNetEnd.setStatus(_A)
+_DdpForwardingNetStart_Type=ATNetworkNumber
+_DdpForwardingNetStart_Object=MibTableColumn
+ddpForwardingNetStart=_DdpForwardingNetStart_Object((1,3,6,1,2,1,13,4,16,1,2),_DdpForwardingNetStart_Type())
+ddpForwardingNetStart.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpForwardingNetStart.setStatus(_A)
+_DdpForwardingNextHop_Type=OctetString
+_DdpForwardingNextHop_Object=MibTableColumn
+ddpForwardingNextHop=_DdpForwardingNextHop_Object((1,3,6,1,2,1,13,4,16,1,3),_DdpForwardingNextHop_Type())
+ddpForwardingNextHop.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpForwardingNextHop.setStatus(_A)
+_DdpForwardingProto_Type=ObjectIdentifier
+_DdpForwardingProto_Object=MibTableColumn
+ddpForwardingProto=_DdpForwardingProto_Object((1,3,6,1,2,1,13,4,16,1,4),_DdpForwardingProto_Type())
+ddpForwardingProto.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpForwardingProto.setStatus(_A)
+_DdpForwardingModifiedTime_Type=TimeTicks
+_DdpForwardingModifiedTime_Object=MibTableColumn
+ddpForwardingModifiedTime=_DdpForwardingModifiedTime_Object((1,3,6,1,2,1,13,4,16,1,5),_DdpForwardingModifiedTime_Type())
+ddpForwardingModifiedTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpForwardingModifiedTime.setStatus(_A)
+_DdpForwardingUseCounts_Type=Counter32
+_DdpForwardingUseCounts_Object=MibTableColumn
+ddpForwardingUseCounts=_DdpForwardingUseCounts_Object((1,3,6,1,2,1,13,4,16,1,6),_DdpForwardingUseCounts_Type())
+ddpForwardingUseCounts.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpForwardingUseCounts.setStatus(_A)
+_DdpForwardingPort_Type=Integer32
+_DdpForwardingPort_Object=MibTableColumn
+ddpForwardingPort=_DdpForwardingPort_Object((1,3,6,1,2,1,13,4,16,1,7),_DdpForwardingPort_Type())
+ddpForwardingPort.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpForwardingPort.setStatus(_A)
+_DdpForwProtoOids_ObjectIdentity=ObjectIdentity
+ddpForwProtoOids=_DdpForwProtoOids_ObjectIdentity((1,3,6,1,2,1,13,4,17))
+_RtmpRoutingProto_ObjectIdentity=ObjectIdentity
+rtmpRoutingProto=_RtmpRoutingProto_ObjectIdentity((1,3,6,1,2,1,13,4,17,1))
+_KipRoutingProto_ObjectIdentity=ObjectIdentity
+kipRoutingProto=_KipRoutingProto_ObjectIdentity((1,3,6,1,2,1,13,4,17,2))
+_DdpForwardingTableOverflows_Type=Counter32
+_DdpForwardingTableOverflows_Object=MibScalar
+ddpForwardingTableOverflows=_DdpForwardingTableOverflows_Object((1,3,6,1,2,1,13,4,18),_DdpForwardingTableOverflows_Type())
+ddpForwardingTableOverflows.setMaxAccess(_B)
+if mibBuilder.loadTexts:ddpForwardingTableOverflows.setStatus(_A)
+_Rtmp_ObjectIdentity=ObjectIdentity
+rtmp=_Rtmp_ObjectIdentity((1,3,6,1,2,1,13,5))
+_RtmpTable_Object=MibTable
+rtmpTable=_RtmpTable_Object((1,3,6,1,2,1,13,5,1))
+if mibBuilder.loadTexts:rtmpTable.setStatus(_A)
+_RtmpEntry_Object=MibTableRow
+rtmpEntry=_RtmpEntry_Object((1,3,6,1,2,1,13,5,1,1))
+rtmpEntry.setIndexNames((0,_E,_b))
+if mibBuilder.loadTexts:rtmpEntry.setStatus(_A)
+_RtmpRangeStart_Type=ATNetworkNumber
+_RtmpRangeStart_Object=MibTableColumn
+rtmpRangeStart=_RtmpRangeStart_Object((1,3,6,1,2,1,13,5,1,1,1),_RtmpRangeStart_Type())
+rtmpRangeStart.setMaxAccess(_B)
+if mibBuilder.loadTexts:rtmpRangeStart.setStatus(_A)
+_RtmpRangeEnd_Type=ATNetworkNumber
+_RtmpRangeEnd_Object=MibTableColumn
+rtmpRangeEnd=_RtmpRangeEnd_Object((1,3,6,1,2,1,13,5,1,1,2),_RtmpRangeEnd_Type())
+rtmpRangeEnd.setMaxAccess(_B)
+if mibBuilder.loadTexts:rtmpRangeEnd.setStatus(_A)
+_RtmpNextHop_Type=OctetString
+_RtmpNextHop_Object=MibTableColumn
+rtmpNextHop=_RtmpNextHop_Object((1,3,6,1,2,1,13,5,1,1,3),_RtmpNextHop_Type())
+rtmpNextHop.setMaxAccess(_B)
+if mibBuilder.loadTexts:rtmpNextHop.setStatus(_A)
+class _RtmpType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_K,1),(_c,2),(_Q,3),(_R,4)))
+_RtmpType_Type.__name__=_D
+_RtmpType_Object=MibTableColumn
+rtmpType=_RtmpType_Object((1,3,6,1,2,1,13,5,1,1,4),_RtmpType_Type())
+rtmpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:rtmpType.setStatus(_A)
+_RtmpPort_Type=Integer32
+_RtmpPort_Object=MibTableColumn
+rtmpPort=_RtmpPort_Object((1,3,6,1,2,1,13,5,1,1,5),_RtmpPort_Type())
+rtmpPort.setMaxAccess(_B)
+if mibBuilder.loadTexts:rtmpPort.setStatus(_A)
+_RtmpHops_Type=Integer32
+_RtmpHops_Object=MibTableColumn
+rtmpHops=_RtmpHops_Object((1,3,6,1,2,1,13,5,1,1,6),_RtmpHops_Type())
+rtmpHops.setMaxAccess(_B)
+if mibBuilder.loadTexts:rtmpHops.setStatus(_A)
+class _RtmpState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('good',1),('suspect',2),('badZero',3),('badOne',4),(_F,5)))
+_RtmpState_Type.__name__=_D
+_RtmpState_Object=MibTableColumn
+rtmpState=_RtmpState_Object((1,3,6,1,2,1,13,5,1,1,7),_RtmpState_Type())
+rtmpState.setMaxAccess(_C)
+if mibBuilder.loadTexts:rtmpState.setStatus(_A)
+_RtmpInDataPkts_Type=Counter32
+_RtmpInDataPkts_Object=MibScalar
+rtmpInDataPkts=_RtmpInDataPkts_Object((1,3,6,1,2,1,13,5,2),_RtmpInDataPkts_Type())
+rtmpInDataPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:rtmpInDataPkts.setStatus(_A)
+_RtmpOutDataPkts_Type=Counter32
+_RtmpOutDataPkts_Object=MibScalar
+rtmpOutDataPkts=_RtmpOutDataPkts_Object((1,3,6,1,2,1,13,5,3),_RtmpOutDataPkts_Type())
+rtmpOutDataPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:rtmpOutDataPkts.setStatus(_A)
+_RtmpInRequestPkts_Type=Counter32
+_RtmpInRequestPkts_Object=MibScalar
+rtmpInRequestPkts=_RtmpInRequestPkts_Object((1,3,6,1,2,1,13,5,4),_RtmpInRequestPkts_Type())
+rtmpInRequestPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:rtmpInRequestPkts.setStatus(_A)
+_RtmpNextIREqualChanges_Type=Counter32
+_RtmpNextIREqualChanges_Object=MibScalar
+rtmpNextIREqualChanges=_RtmpNextIREqualChanges_Object((1,3,6,1,2,1,13,5,5),_RtmpNextIREqualChanges_Type())
+rtmpNextIREqualChanges.setMaxAccess(_B)
+if mibBuilder.loadTexts:rtmpNextIREqualChanges.setStatus(_A)
+_RtmpNextIRLessChanges_Type=Counter32
+_RtmpNextIRLessChanges_Object=MibScalar
+rtmpNextIRLessChanges=_RtmpNextIRLessChanges_Object((1,3,6,1,2,1,13,5,6),_RtmpNextIRLessChanges_Type())
+rtmpNextIRLessChanges.setMaxAccess(_B)
+if mibBuilder.loadTexts:rtmpNextIRLessChanges.setStatus(_A)
+_RtmpRouteDeletes_Type=Counter32
+_RtmpRouteDeletes_Object=MibScalar
+rtmpRouteDeletes=_RtmpRouteDeletes_Object((1,3,6,1,2,1,13,5,7),_RtmpRouteDeletes_Type())
+rtmpRouteDeletes.setMaxAccess(_B)
+if mibBuilder.loadTexts:rtmpRouteDeletes.setStatus(_A)
+_RtmpRoutingTableOverflows_Type=Counter32
+_RtmpRoutingTableOverflows_Object=MibScalar
+rtmpRoutingTableOverflows=_RtmpRoutingTableOverflows_Object((1,3,6,1,2,1,13,5,8),_RtmpRoutingTableOverflows_Type())
+rtmpRoutingTableOverflows.setMaxAccess(_B)
+if mibBuilder.loadTexts:rtmpRoutingTableOverflows.setStatus(_A)
+_Kip_ObjectIdentity=ObjectIdentity
+kip=_Kip_ObjectIdentity((1,3,6,1,2,1,13,6))
+_KipTable_Object=MibTable
+kipTable=_KipTable_Object((1,3,6,1,2,1,13,6,1))
+if mibBuilder.loadTexts:kipTable.setStatus(_A)
+_KipEntry_Object=MibTableRow
+kipEntry=_KipEntry_Object((1,3,6,1,2,1,13,6,1,1))
+kipEntry.setIndexNames((0,_E,_d))
+if mibBuilder.loadTexts:kipEntry.setStatus(_A)
+_KipNetStart_Type=ATNetworkNumber
+_KipNetStart_Object=MibTableColumn
+kipNetStart=_KipNetStart_Object((1,3,6,1,2,1,13,6,1,1,1),_KipNetStart_Type())
+kipNetStart.setMaxAccess(_B)
+if mibBuilder.loadTexts:kipNetStart.setStatus(_A)
+_KipNetEnd_Type=ATNetworkNumber
+_KipNetEnd_Object=MibTableColumn
+kipNetEnd=_KipNetEnd_Object((1,3,6,1,2,1,13,6,1,1,2),_KipNetEnd_Type())
+kipNetEnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:kipNetEnd.setStatus(_A)
+_KipNextHop_Type=IpAddress
+_KipNextHop_Object=MibTableColumn
+kipNextHop=_KipNextHop_Object((1,3,6,1,2,1,13,6,1,1,3),_KipNextHop_Type())
+kipNextHop.setMaxAccess(_C)
+if mibBuilder.loadTexts:kipNextHop.setStatus(_A)
+_KipHopCount_Type=Integer32
+_KipHopCount_Object=MibTableColumn
+kipHopCount=_KipHopCount_Object((1,3,6,1,2,1,13,6,1,1,4),_KipHopCount_Type())
+kipHopCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:kipHopCount.setStatus(_A)
+_KipBCastAddr_Type=IpAddress
+_KipBCastAddr_Object=MibTableColumn
+kipBCastAddr=_KipBCastAddr_Object((1,3,6,1,2,1,13,6,1,1,5),_KipBCastAddr_Type())
+kipBCastAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:kipBCastAddr.setStatus(_A)
+class _KipCore_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('core',1),('notcore',2)))
+_KipCore_Type.__name__=_D
+_KipCore_Object=MibTableColumn
+kipCore=_KipCore_Object((1,3,6,1,2,1,13,6,1,1,6),_KipCore_Type())
+kipCore.setMaxAccess(_C)
+if mibBuilder.loadTexts:kipCore.setStatus(_A)
+class _KipType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('kipRouter',1),('net',2),('host',3),(_K,4),('async',5)))
+_KipType_Type.__name__=_D
+_KipType_Object=MibTableColumn
+kipType=_KipType_Object((1,3,6,1,2,1,13,6,1,1,7),_KipType_Type())
+kipType.setMaxAccess(_C)
+if mibBuilder.loadTexts:kipType.setStatus(_A)
+class _KipState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('configured',1),('learned',2),(_F,3)))
+_KipState_Type.__name__=_D
+_KipState_Object=MibTableColumn
+kipState=_KipState_Object((1,3,6,1,2,1,13,6,1,1,8),_KipState_Type())
+kipState.setMaxAccess(_C)
+if mibBuilder.loadTexts:kipState.setStatus(_A)
+class _KipShare_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('shared',1),('private',2)))
+_KipShare_Type.__name__=_D
+_KipShare_Object=MibTableColumn
+kipShare=_KipShare_Object((1,3,6,1,2,1,13,6,1,1,9),_KipShare_Type())
+kipShare.setMaxAccess(_C)
+if mibBuilder.loadTexts:kipShare.setStatus(_A)
+_KipFrom_Type=IpAddress
+_KipFrom_Object=MibTableColumn
+kipFrom=_KipFrom_Object((1,3,6,1,2,1,13,6,1,1,10),_KipFrom_Type())
+kipFrom.setMaxAccess(_B)
+if mibBuilder.loadTexts:kipFrom.setStatus(_A)
+_ZipRouter_ObjectIdentity=ObjectIdentity
+zipRouter=_ZipRouter_ObjectIdentity((1,3,6,1,2,1,13,7))
+_ZipTable_Object=MibTable
+zipTable=_ZipTable_Object((1,3,6,1,2,1,13,7,1))
+if mibBuilder.loadTexts:zipTable.setStatus(_A)
+_ZipEntry_Object=MibTableRow
+zipEntry=_ZipEntry_Object((1,3,6,1,2,1,13,7,1,1))
+zipEntry.setIndexNames((0,_E,_e),(0,_E,_f))
+if mibBuilder.loadTexts:zipEntry.setStatus(_A)
+_ZipZoneName_Type=ATName
+_ZipZoneName_Object=MibTableColumn
+zipZoneName=_ZipZoneName_Object((1,3,6,1,2,1,13,7,1,1,1),_ZipZoneName_Type())
+zipZoneName.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipZoneName.setStatus(_A)
+_ZipZoneIndex_Type=Integer32
+_ZipZoneIndex_Object=MibTableColumn
+zipZoneIndex=_ZipZoneIndex_Object((1,3,6,1,2,1,13,7,1,1,2),_ZipZoneIndex_Type())
+zipZoneIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipZoneIndex.setStatus(_A)
+_ZipZoneNetStart_Type=ATNetworkNumber
+_ZipZoneNetStart_Object=MibTableColumn
+zipZoneNetStart=_ZipZoneNetStart_Object((1,3,6,1,2,1,13,7,1,1,3),_ZipZoneNetStart_Type())
+zipZoneNetStart.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipZoneNetStart.setStatus(_A)
+_ZipZoneNetEnd_Type=ATNetworkNumber
+_ZipZoneNetEnd_Object=MibTableColumn
+zipZoneNetEnd=_ZipZoneNetEnd_Object((1,3,6,1,2,1,13,7,1,1,4),_ZipZoneNetEnd_Type())
+zipZoneNetEnd.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipZoneNetEnd.setStatus(_A)
+class _ZipZoneState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_F,2)))
+_ZipZoneState_Type.__name__=_D
+_ZipZoneState_Object=MibTableColumn
+zipZoneState=_ZipZoneState_Object((1,3,6,1,2,1,13,7,1,1,5),_ZipZoneState_Type())
+zipZoneState.setMaxAccess(_C)
+if mibBuilder.loadTexts:zipZoneState.setStatus(_A)
+_ZipZoneFrom_Type=OctetString
+_ZipZoneFrom_Object=MibTableColumn
+zipZoneFrom=_ZipZoneFrom_Object((1,3,6,1,2,1,13,7,1,1,6),_ZipZoneFrom_Type())
+zipZoneFrom.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipZoneFrom.setStatus(_A)
+_ZipZonePort_Type=Integer32
+_ZipZonePort_Object=MibTableColumn
+zipZonePort=_ZipZonePort_Object((1,3,6,1,2,1,13,7,1,1,7),_ZipZonePort_Type())
+zipZonePort.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipZonePort.setStatus(_A)
+_ZipInZipQueries_Type=Counter32
+_ZipInZipQueries_Object=MibScalar
+zipInZipQueries=_ZipInZipQueries_Object((1,3,6,1,2,1,13,7,2),_ZipInZipQueries_Type())
+zipInZipQueries.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipInZipQueries.setStatus(_A)
+_ZipInZipReplies_Type=Counter32
+_ZipInZipReplies_Object=MibScalar
+zipInZipReplies=_ZipInZipReplies_Object((1,3,6,1,2,1,13,7,3),_ZipInZipReplies_Type())
+zipInZipReplies.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipInZipReplies.setStatus(_A)
+_ZipInZipExtendedReplies_Type=Counter32
+_ZipInZipExtendedReplies_Object=MibScalar
+zipInZipExtendedReplies=_ZipInZipExtendedReplies_Object((1,3,6,1,2,1,13,7,4),_ZipInZipExtendedReplies_Type())
+zipInZipExtendedReplies.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipInZipExtendedReplies.setStatus(_A)
+_ZipZoneConflictErrors_Type=Counter32
+_ZipZoneConflictErrors_Object=MibScalar
+zipZoneConflictErrors=_ZipZoneConflictErrors_Object((1,3,6,1,2,1,13,7,5),_ZipZoneConflictErrors_Type())
+zipZoneConflictErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipZoneConflictErrors.setStatus(_A)
+_ZipInObsoletes_Type=Counter32
+_ZipInObsoletes_Object=MibScalar
+zipInObsoletes=_ZipInObsoletes_Object((1,3,6,1,2,1,13,7,6),_ZipInObsoletes_Type())
+zipInObsoletes.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipInObsoletes.setStatus(_A)
+_ZipRouterNetInfoTable_Object=MibTable
+zipRouterNetInfoTable=_ZipRouterNetInfoTable_Object((1,3,6,1,2,1,13,7,7))
+if mibBuilder.loadTexts:zipRouterNetInfoTable.setStatus(_A)
+_ZipRouterNetInfoEntry_Object=MibTableRow
+zipRouterNetInfoEntry=_ZipRouterNetInfoEntry_Object((1,3,6,1,2,1,13,7,7,1))
+zipRouterNetInfoEntry.setIndexNames((0,_E,_I))
+if mibBuilder.loadTexts:zipRouterNetInfoEntry.setStatus(_A)
+_ZipInGetNetInfos_Type=Counter32
+_ZipInGetNetInfos_Object=MibTableColumn
+zipInGetNetInfos=_ZipInGetNetInfos_Object((1,3,6,1,2,1,13,7,7,1,1),_ZipInGetNetInfos_Type())
+zipInGetNetInfos.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipInGetNetInfos.setStatus(_A)
+_ZipOutGetNetInfoReplies_Type=Counter32
+_ZipOutGetNetInfoReplies_Object=MibTableColumn
+zipOutGetNetInfoReplies=_ZipOutGetNetInfoReplies_Object((1,3,6,1,2,1,13,7,7,1,2),_ZipOutGetNetInfoReplies_Type())
+zipOutGetNetInfoReplies.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipOutGetNetInfoReplies.setStatus(_A)
+_ZipZoneOutInvalids_Type=Counter32
+_ZipZoneOutInvalids_Object=MibTableColumn
+zipZoneOutInvalids=_ZipZoneOutInvalids_Object((1,3,6,1,2,1,13,7,7,1,3),_ZipZoneOutInvalids_Type())
+zipZoneOutInvalids.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipZoneOutInvalids.setStatus(_A)
+_ZipAddressInvalids_Type=Counter32
+_ZipAddressInvalids_Object=MibTableColumn
+zipAddressInvalids=_ZipAddressInvalids_Object((1,3,6,1,2,1,13,7,7,1,4),_ZipAddressInvalids_Type())
+zipAddressInvalids.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipAddressInvalids.setStatus(_A)
+_Nbp_ObjectIdentity=ObjectIdentity
+nbp=_Nbp_ObjectIdentity((1,3,6,1,2,1,13,8))
+_NbpTable_Object=MibTable
+nbpTable=_NbpTable_Object((1,3,6,1,2,1,13,8,1))
+if mibBuilder.loadTexts:nbpTable.setStatus(_A)
+_NbpEntry_Object=MibTableRow
+nbpEntry=_NbpEntry_Object((1,3,6,1,2,1,13,8,1,1))
+nbpEntry.setIndexNames((0,_E,_g))
+if mibBuilder.loadTexts:nbpEntry.setStatus(_A)
+_NbpIndex_Type=Integer32
+_NbpIndex_Object=MibTableColumn
+nbpIndex=_NbpIndex_Object((1,3,6,1,2,1,13,8,1,1,1),_NbpIndex_Type())
+nbpIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:nbpIndex.setStatus(_A)
+class _NbpObject_Type(ATName):subtypeSpec=ATName.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_NbpObject_Type.__name__=_L
+_NbpObject_Object=MibTableColumn
+nbpObject=_NbpObject_Object((1,3,6,1,2,1,13,8,1,1,2),_NbpObject_Type())
+nbpObject.setMaxAccess(_C)
+if mibBuilder.loadTexts:nbpObject.setStatus(_A)
+class _NbpType_Type(ATName):subtypeSpec=ATName.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_NbpType_Type.__name__=_L
+_NbpType_Object=MibTableColumn
+nbpType=_NbpType_Object((1,3,6,1,2,1,13,8,1,1,3),_NbpType_Type())
+nbpType.setMaxAccess(_C)
+if mibBuilder.loadTexts:nbpType.setStatus(_A)
+_NbpZone_Type=ATName
+_NbpZone_Object=MibTableColumn
+nbpZone=_NbpZone_Object((1,3,6,1,2,1,13,8,1,1,4),_NbpZone_Type())
+nbpZone.setMaxAccess(_C)
+if mibBuilder.loadTexts:nbpZone.setStatus(_A)
+class _NbpState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_H,1),('registering',2),('registrationFailed',3),(_F,4)))
+_NbpState_Type.__name__=_D
+_NbpState_Object=MibTableColumn
+nbpState=_NbpState_Object((1,3,6,1,2,1,13,8,1,1,5),_NbpState_Type())
+nbpState.setMaxAccess(_C)
+if mibBuilder.loadTexts:nbpState.setStatus(_A)
+_NbpAddress_Type=DdpSocketAddress
+_NbpAddress_Object=MibTableColumn
+nbpAddress=_NbpAddress_Object((1,3,6,1,2,1,13,8,1,1,6),_NbpAddress_Type())
+nbpAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:nbpAddress.setStatus(_A)
+class _NbpEnumerator_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_NbpEnumerator_Type.__name__=_D
+_NbpEnumerator_Object=MibTableColumn
+nbpEnumerator=_NbpEnumerator_Object((1,3,6,1,2,1,13,8,1,1,7),_NbpEnumerator_Type())
+nbpEnumerator.setMaxAccess(_B)
+if mibBuilder.loadTexts:nbpEnumerator.setStatus(_A)
+_NbpInLookUpRequests_Type=Counter32
+_NbpInLookUpRequests_Object=MibScalar
+nbpInLookUpRequests=_NbpInLookUpRequests_Object((1,3,6,1,2,1,13,8,2),_NbpInLookUpRequests_Type())
+nbpInLookUpRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:nbpInLookUpRequests.setStatus(_A)
+_NbpInLookUpReplies_Type=Counter32
+_NbpInLookUpReplies_Object=MibScalar
+nbpInLookUpReplies=_NbpInLookUpReplies_Object((1,3,6,1,2,1,13,8,3),_NbpInLookUpReplies_Type())
+nbpInLookUpReplies.setMaxAccess(_B)
+if mibBuilder.loadTexts:nbpInLookUpReplies.setStatus(_A)
+_NbpInBroadcastRequests_Type=Counter32
+_NbpInBroadcastRequests_Object=MibScalar
+nbpInBroadcastRequests=_NbpInBroadcastRequests_Object((1,3,6,1,2,1,13,8,4),_NbpInBroadcastRequests_Type())
+nbpInBroadcastRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:nbpInBroadcastRequests.setStatus(_A)
+_NbpInForwardRequests_Type=Counter32
+_NbpInForwardRequests_Object=MibScalar
+nbpInForwardRequests=_NbpInForwardRequests_Object((1,3,6,1,2,1,13,8,5),_NbpInForwardRequests_Type())
+nbpInForwardRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:nbpInForwardRequests.setStatus(_A)
+_NbpOutLookUpReplies_Type=Counter32
+_NbpOutLookUpReplies_Object=MibScalar
+nbpOutLookUpReplies=_NbpOutLookUpReplies_Object((1,3,6,1,2,1,13,8,6),_NbpOutLookUpReplies_Type())
+nbpOutLookUpReplies.setMaxAccess(_B)
+if mibBuilder.loadTexts:nbpOutLookUpReplies.setStatus(_A)
+_NbpRegistrationFailures_Type=Counter32
+_NbpRegistrationFailures_Object=MibScalar
+nbpRegistrationFailures=_NbpRegistrationFailures_Object((1,3,6,1,2,1,13,8,7),_NbpRegistrationFailures_Type())
+nbpRegistrationFailures.setMaxAccess(_B)
+if mibBuilder.loadTexts:nbpRegistrationFailures.setStatus(_A)
+_NbpInErrors_Type=Counter32
+_NbpInErrors_Object=MibScalar
+nbpInErrors=_NbpInErrors_Object((1,3,6,1,2,1,13,8,8),_NbpInErrors_Type())
+nbpInErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:nbpInErrors.setStatus(_A)
+_Atecho_ObjectIdentity=ObjectIdentity
+atecho=_Atecho_ObjectIdentity((1,3,6,1,2,1,13,9))
+_AtechoRequests_Type=Counter32
+_AtechoRequests_Object=MibScalar
+atechoRequests=_AtechoRequests_Object((1,3,6,1,2,1,13,9,1),_AtechoRequests_Type())
+atechoRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:atechoRequests.setStatus(_A)
+_AtechoReplies_Type=Counter32
+_AtechoReplies_Object=MibScalar
+atechoReplies=_AtechoReplies_Object((1,3,6,1,2,1,13,9,2),_AtechoReplies_Type())
+atechoReplies.setMaxAccess(_B)
+if mibBuilder.loadTexts:atechoReplies.setStatus(_A)
+_AtechoOutRequests_Type=Counter32
+_AtechoOutRequests_Object=MibScalar
+atechoOutRequests=_AtechoOutRequests_Object((1,3,6,1,2,1,13,9,3),_AtechoOutRequests_Type())
+atechoOutRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:atechoOutRequests.setStatus(_A)
+_AtechoInReplies_Type=Counter32
+_AtechoInReplies_Object=MibScalar
+atechoInReplies=_AtechoInReplies_Object((1,3,6,1,2,1,13,9,4),_AtechoInReplies_Type())
+atechoInReplies.setMaxAccess(_B)
+if mibBuilder.loadTexts:atechoInReplies.setStatus(_A)
+_Atp_ObjectIdentity=ObjectIdentity
+atp=_Atp_ObjectIdentity((1,3,6,1,2,1,13,10))
+_AtpInPkts_Type=Counter32
+_AtpInPkts_Object=MibScalar
+atpInPkts=_AtpInPkts_Object((1,3,6,1,2,1,13,10,1),_AtpInPkts_Type())
+atpInPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:atpInPkts.setStatus(_A)
+_AtpOutPkts_Type=Counter32
+_AtpOutPkts_Object=MibScalar
+atpOutPkts=_AtpOutPkts_Object((1,3,6,1,2,1,13,10,2),_AtpOutPkts_Type())
+atpOutPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:atpOutPkts.setStatus(_A)
+_AtpTRequestRetransmissions_Type=Counter32
+_AtpTRequestRetransmissions_Object=MibScalar
+atpTRequestRetransmissions=_AtpTRequestRetransmissions_Object((1,3,6,1,2,1,13,10,3),_AtpTRequestRetransmissions_Type())
+atpTRequestRetransmissions.setMaxAccess(_B)
+if mibBuilder.loadTexts:atpTRequestRetransmissions.setStatus(_A)
+_AtpTResponseRetransmissions_Type=Counter32
+_AtpTResponseRetransmissions_Object=MibScalar
+atpTResponseRetransmissions=_AtpTResponseRetransmissions_Object((1,3,6,1,2,1,13,10,4),_AtpTResponseRetransmissions_Type())
+atpTResponseRetransmissions.setMaxAccess(_B)
+if mibBuilder.loadTexts:atpTResponseRetransmissions.setStatus(_A)
+_AtpReleaseTimerExpiredCounts_Type=Counter32
+_AtpReleaseTimerExpiredCounts_Object=MibScalar
+atpReleaseTimerExpiredCounts=_AtpReleaseTimerExpiredCounts_Object((1,3,6,1,2,1,13,10,5),_AtpReleaseTimerExpiredCounts_Type())
+atpReleaseTimerExpiredCounts.setMaxAccess(_B)
+if mibBuilder.loadTexts:atpReleaseTimerExpiredCounts.setStatus(_A)
+_AtpRetryCountExceededs_Type=Counter32
+_AtpRetryCountExceededs_Object=MibScalar
+atpRetryCountExceededs=_AtpRetryCountExceededs_Object((1,3,6,1,2,1,13,10,6),_AtpRetryCountExceededs_Type())
+atpRetryCountExceededs.setMaxAccess(_B)
+if mibBuilder.loadTexts:atpRetryCountExceededs.setStatus(_A)
+_AtpListenerTable_Object=MibTable
+atpListenerTable=_AtpListenerTable_Object((1,3,6,1,2,1,13,10,7))
+if mibBuilder.loadTexts:atpListenerTable.setStatus(_A)
+_AtpListenerEntry_Object=MibTableRow
+atpListenerEntry=_AtpListenerEntry_Object((1,3,6,1,2,1,13,10,7,1))
+atpListenerEntry.setIndexNames((0,_E,_h))
+if mibBuilder.loadTexts:atpListenerEntry.setStatus(_A)
+_AtpListenerAddress_Type=DdpSocketAddress
+_AtpListenerAddress_Object=MibTableColumn
+atpListenerAddress=_AtpListenerAddress_Object((1,3,6,1,2,1,13,10,7,1,1),_AtpListenerAddress_Type())
+atpListenerAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:atpListenerAddress.setStatus(_A)
+class _AtpListenerStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_F,2)))
+_AtpListenerStatus_Type.__name__=_D
+_AtpListenerStatus_Object=MibTableColumn
+atpListenerStatus=_AtpListenerStatus_Object((1,3,6,1,2,1,13,10,7,1,2),_AtpListenerStatus_Type())
+atpListenerStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:atpListenerStatus.setStatus(_A)
+_Pap_ObjectIdentity=ObjectIdentity
+pap=_Pap_ObjectIdentity((1,3,6,1,2,1,13,11))
+_PapInOpenConns_Type=Counter32
+_PapInOpenConns_Object=MibScalar
+papInOpenConns=_PapInOpenConns_Object((1,3,6,1,2,1,13,11,1),_PapInOpenConns_Type())
+papInOpenConns.setMaxAccess(_B)
+if mibBuilder.loadTexts:papInOpenConns.setStatus(_A)
+_PapOutOpenConns_Type=Counter32
+_PapOutOpenConns_Object=MibScalar
+papOutOpenConns=_PapOutOpenConns_Object((1,3,6,1,2,1,13,11,2),_PapOutOpenConns_Type())
+papOutOpenConns.setMaxAccess(_B)
+if mibBuilder.loadTexts:papOutOpenConns.setStatus(_A)
+_PapInDatas_Type=Counter32
+_PapInDatas_Object=MibScalar
+papInDatas=_PapInDatas_Object((1,3,6,1,2,1,13,11,3),_PapInDatas_Type())
+papInDatas.setMaxAccess(_B)
+if mibBuilder.loadTexts:papInDatas.setStatus(_A)
+_PapOutDatas_Type=Counter32
+_PapOutDatas_Object=MibScalar
+papOutDatas=_PapOutDatas_Object((1,3,6,1,2,1,13,11,4),_PapOutDatas_Type())
+papOutDatas.setMaxAccess(_B)
+if mibBuilder.loadTexts:papOutDatas.setStatus(_A)
+_PapInCloseConns_Type=Counter32
+_PapInCloseConns_Object=MibScalar
+papInCloseConns=_PapInCloseConns_Object((1,3,6,1,2,1,13,11,5),_PapInCloseConns_Type())
+papInCloseConns.setMaxAccess(_B)
+if mibBuilder.loadTexts:papInCloseConns.setStatus(_A)
+_PapOutCloseConns_Type=Counter32
+_PapOutCloseConns_Object=MibScalar
+papOutCloseConns=_PapOutCloseConns_Object((1,3,6,1,2,1,13,11,6),_PapOutCloseConns_Type())
+papOutCloseConns.setMaxAccess(_B)
+if mibBuilder.loadTexts:papOutCloseConns.setStatus(_A)
+_PapTickleTimeoutCloses_Type=Counter32
+_PapTickleTimeoutCloses_Object=MibScalar
+papTickleTimeoutCloses=_PapTickleTimeoutCloses_Object((1,3,6,1,2,1,13,11,7),_PapTickleTimeoutCloses_Type())
+papTickleTimeoutCloses.setMaxAccess(_B)
+if mibBuilder.loadTexts:papTickleTimeoutCloses.setStatus(_A)
+_PapServerTable_Object=MibTable
+papServerTable=_PapServerTable_Object((1,3,6,1,2,1,13,11,8))
+if mibBuilder.loadTexts:papServerTable.setStatus(_A)
+_PapServerEntry_Object=MibTableRow
+papServerEntry=_PapServerEntry_Object((1,3,6,1,2,1,13,11,8,1))
+papServerEntry.setIndexNames((0,_E,_i))
+if mibBuilder.loadTexts:papServerEntry.setStatus(_A)
+_PapServerIndex_Type=Integer32
+_PapServerIndex_Object=MibTableColumn
+papServerIndex=_PapServerIndex_Object((1,3,6,1,2,1,13,11,8,1,1),_PapServerIndex_Type())
+papServerIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:papServerIndex.setStatus(_A)
+_PapServerListeningSocket_Type=DdpSocketAddress
+_PapServerListeningSocket_Object=MibTableColumn
+papServerListeningSocket=_PapServerListeningSocket_Object((1,3,6,1,2,1,13,11,8,1,2),_PapServerListeningSocket_Type())
+papServerListeningSocket.setMaxAccess(_C)
+if mibBuilder.loadTexts:papServerListeningSocket.setStatus(_A)
+_PapServerStatus_Type=DisplayString
+_PapServerStatus_Object=MibTableColumn
+papServerStatus=_PapServerStatus_Object((1,3,6,1,2,1,13,11,8,1,3),_PapServerStatus_Type())
+papServerStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:papServerStatus.setStatus(_A)
+_PapServerCompletedJobs_Type=Counter32
+_PapServerCompletedJobs_Object=MibTableColumn
+papServerCompletedJobs=_PapServerCompletedJobs_Object((1,3,6,1,2,1,13,11,8,1,4),_PapServerCompletedJobs_Type())
+papServerCompletedJobs.setMaxAccess(_B)
+if mibBuilder.loadTexts:papServerCompletedJobs.setStatus(_A)
+_PapServerBusyJobs_Type=Integer32
+_PapServerBusyJobs_Object=MibTableColumn
+papServerBusyJobs=_PapServerBusyJobs_Object((1,3,6,1,2,1,13,11,8,1,5),_PapServerBusyJobs_Type())
+papServerBusyJobs.setMaxAccess(_B)
+if mibBuilder.loadTexts:papServerBusyJobs.setStatus(_A)
+_PapServerFreeJobs_Type=Integer32
+_PapServerFreeJobs_Object=MibTableColumn
+papServerFreeJobs=_PapServerFreeJobs_Object((1,3,6,1,2,1,13,11,8,1,6),_PapServerFreeJobs_Type())
+papServerFreeJobs.setMaxAccess(_B)
+if mibBuilder.loadTexts:papServerFreeJobs.setStatus(_A)
+_PapServerAuthenticationFailures_Type=Counter32
+_PapServerAuthenticationFailures_Object=MibTableColumn
+papServerAuthenticationFailures=_PapServerAuthenticationFailures_Object((1,3,6,1,2,1,13,11,8,1,7),_PapServerAuthenticationFailures_Type())
+papServerAuthenticationFailures.setMaxAccess(_B)
+if mibBuilder.loadTexts:papServerAuthenticationFailures.setStatus(_A)
+_PapServerAccountingFailures_Type=Counter32
+_PapServerAccountingFailures_Object=MibTableColumn
+papServerAccountingFailures=_PapServerAccountingFailures_Object((1,3,6,1,2,1,13,11,8,1,8),_PapServerAccountingFailures_Type())
+papServerAccountingFailures.setMaxAccess(_B)
+if mibBuilder.loadTexts:papServerAccountingFailures.setStatus(_A)
+_PapServerGeneralFailures_Type=Counter32
+_PapServerGeneralFailures_Object=MibTableColumn
+papServerGeneralFailures=_PapServerGeneralFailures_Object((1,3,6,1,2,1,13,11,8,1,9),_PapServerGeneralFailures_Type())
+papServerGeneralFailures.setMaxAccess(_B)
+if mibBuilder.loadTexts:papServerGeneralFailures.setStatus(_A)
+class _PapServerState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_F,2)))
+_PapServerState_Type.__name__=_D
+_PapServerState_Object=MibTableColumn
+papServerState=_PapServerState_Object((1,3,6,1,2,1,13,11,8,1,10),_PapServerState_Type())
+papServerState.setMaxAccess(_C)
+if mibBuilder.loadTexts:papServerState.setStatus(_A)
+_PapServerLastStatusMsg_Type=DisplayString
+_PapServerLastStatusMsg_Object=MibTableColumn
+papServerLastStatusMsg=_PapServerLastStatusMsg_Object((1,3,6,1,2,1,13,11,8,1,11),_PapServerLastStatusMsg_Type())
+papServerLastStatusMsg.setMaxAccess(_B)
+if mibBuilder.loadTexts:papServerLastStatusMsg.setStatus(_A)
+_Asp_ObjectIdentity=ObjectIdentity
+asp=_Asp_ObjectIdentity((1,3,6,1,2,1,13,12))
+_AspInputTransactions_Type=Counter32
+_AspInputTransactions_Object=MibScalar
+aspInputTransactions=_AspInputTransactions_Object((1,3,6,1,2,1,13,12,1),_AspInputTransactions_Type())
+aspInputTransactions.setMaxAccess(_B)
+if mibBuilder.loadTexts:aspInputTransactions.setStatus(_A)
+_AspOutputTransactions_Type=Counter32
+_AspOutputTransactions_Object=MibScalar
+aspOutputTransactions=_AspOutputTransactions_Object((1,3,6,1,2,1,13,12,2),_AspOutputTransactions_Type())
+aspOutputTransactions.setMaxAccess(_B)
+if mibBuilder.loadTexts:aspOutputTransactions.setStatus(_A)
+_AspInOpenSessions_Type=Counter32
+_AspInOpenSessions_Object=MibScalar
+aspInOpenSessions=_AspInOpenSessions_Object((1,3,6,1,2,1,13,12,3),_AspInOpenSessions_Type())
+aspInOpenSessions.setMaxAccess(_B)
+if mibBuilder.loadTexts:aspInOpenSessions.setStatus(_A)
+_AspOutOpenSessions_Type=Counter32
+_AspOutOpenSessions_Object=MibScalar
+aspOutOpenSessions=_AspOutOpenSessions_Object((1,3,6,1,2,1,13,12,4),_AspOutOpenSessions_Type())
+aspOutOpenSessions.setMaxAccess(_B)
+if mibBuilder.loadTexts:aspOutOpenSessions.setStatus(_A)
+_AspInCloseSessions_Type=Counter32
+_AspInCloseSessions_Object=MibScalar
+aspInCloseSessions=_AspInCloseSessions_Object((1,3,6,1,2,1,13,12,5),_AspInCloseSessions_Type())
+aspInCloseSessions.setMaxAccess(_B)
+if mibBuilder.loadTexts:aspInCloseSessions.setStatus(_A)
+_AspOutCloseSessions_Type=Counter32
+_AspOutCloseSessions_Object=MibScalar
+aspOutCloseSessions=_AspOutCloseSessions_Object((1,3,6,1,2,1,13,12,6),_AspOutCloseSessions_Type())
+aspOutCloseSessions.setMaxAccess(_B)
+if mibBuilder.loadTexts:aspOutCloseSessions.setStatus(_A)
+_AspNoMoreSessionsErrors_Type=Counter32
+_AspNoMoreSessionsErrors_Object=MibScalar
+aspNoMoreSessionsErrors=_AspNoMoreSessionsErrors_Object((1,3,6,1,2,1,13,12,7),_AspNoMoreSessionsErrors_Type())
+aspNoMoreSessionsErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:aspNoMoreSessionsErrors.setStatus(_A)
+_AspTickleTimeOutCloses_Type=Counter32
+_AspTickleTimeOutCloses_Object=MibScalar
+aspTickleTimeOutCloses=_AspTickleTimeOutCloses_Object((1,3,6,1,2,1,13,12,8),_AspTickleTimeOutCloses_Type())
+aspTickleTimeOutCloses.setMaxAccess(_B)
+if mibBuilder.loadTexts:aspTickleTimeOutCloses.setStatus(_A)
+_AspConnTable_Object=MibTable
+aspConnTable=_AspConnTable_Object((1,3,6,1,2,1,13,12,9))
+if mibBuilder.loadTexts:aspConnTable.setStatus(_A)
+_AspConnEntry_Object=MibTableRow
+aspConnEntry=_AspConnEntry_Object((1,3,6,1,2,1,13,12,9,1))
+aspConnEntry.setIndexNames((0,_E,_j),(0,_E,_k),(0,_E,_l))
+if mibBuilder.loadTexts:aspConnEntry.setStatus(_A)
+_AspConnLocalAddress_Type=DdpSocketAddress
+_AspConnLocalAddress_Object=MibTableColumn
+aspConnLocalAddress=_AspConnLocalAddress_Object((1,3,6,1,2,1,13,12,9,1,1),_AspConnLocalAddress_Type())
+aspConnLocalAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:aspConnLocalAddress.setStatus(_A)
+_AspConnRemoteAddress_Type=DdpSocketAddress
+_AspConnRemoteAddress_Object=MibTableColumn
+aspConnRemoteAddress=_AspConnRemoteAddress_Object((1,3,6,1,2,1,13,12,9,1,2),_AspConnRemoteAddress_Type())
+aspConnRemoteAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:aspConnRemoteAddress.setStatus(_A)
+class _AspConnID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_AspConnID_Type.__name__=_D
+_AspConnID_Object=MibTableColumn
+aspConnID=_AspConnID_Object((1,3,6,1,2,1,13,12,9,1,3),_AspConnID_Type())
+aspConnID.setMaxAccess(_G)
+if mibBuilder.loadTexts:aspConnID.setStatus(_A)
+class _AspConnLastReqNum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_AspConnLastReqNum_Type.__name__=_D
+_AspConnLastReqNum_Object=MibTableColumn
+aspConnLastReqNum=_AspConnLastReqNum_Object((1,3,6,1,2,1,13,12,9,1,4),_AspConnLastReqNum_Type())
+aspConnLastReqNum.setMaxAccess(_B)
+if mibBuilder.loadTexts:aspConnLastReqNum.setStatus(_A)
+class _AspConnServerEnd_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('sss',1),('wss',2),('sls',3)))
+_AspConnServerEnd_Type.__name__=_D
+_AspConnServerEnd_Object=MibTableColumn
+aspConnServerEnd=_AspConnServerEnd_Object((1,3,6,1,2,1,13,12,9,1,5),_AspConnServerEnd_Type())
+aspConnServerEnd.setMaxAccess(_B)
+if mibBuilder.loadTexts:aspConnServerEnd.setStatus(_A)
+class _AspConnState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('open',1),(_m,2),(_F,3)))
+_AspConnState_Type.__name__=_D
+_AspConnState_Object=MibTableColumn
+aspConnState=_AspConnState_Object((1,3,6,1,2,1,13,12,9,1,6),_AspConnState_Type())
+aspConnState.setMaxAccess(_C)
+if mibBuilder.loadTexts:aspConnState.setStatus(_A)
+_Adsp_ObjectIdentity=ObjectIdentity
+adsp=_Adsp_ObjectIdentity((1,3,6,1,2,1,13,13))
+_AdspInPkts_Type=Counter32
+_AdspInPkts_Object=MibScalar
+adspInPkts=_AdspInPkts_Object((1,3,6,1,2,1,13,13,1),_AdspInPkts_Type())
+adspInPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:adspInPkts.setStatus(_A)
+_AdspOutPkts_Type=Counter32
+_AdspOutPkts_Object=MibScalar
+adspOutPkts=_AdspOutPkts_Object((1,3,6,1,2,1,13,13,2),_AdspOutPkts_Type())
+adspOutPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:adspOutPkts.setStatus(_A)
+_AdspInOctets_Type=Counter32
+_AdspInOctets_Object=MibScalar
+adspInOctets=_AdspInOctets_Object((1,3,6,1,2,1,13,13,3),_AdspInOctets_Type())
+adspInOctets.setMaxAccess(_B)
+if mibBuilder.loadTexts:adspInOctets.setStatus(_A)
+_AdspOutOctets_Type=Counter32
+_AdspOutOctets_Object=MibScalar
+adspOutOctets=_AdspOutOctets_Object((1,3,6,1,2,1,13,13,4),_AdspOutOctets_Type())
+adspOutOctets.setMaxAccess(_B)
+if mibBuilder.loadTexts:adspOutOctets.setStatus(_A)
+_AdspInDataPkts_Type=Counter32
+_AdspInDataPkts_Object=MibScalar
+adspInDataPkts=_AdspInDataPkts_Object((1,3,6,1,2,1,13,13,5),_AdspInDataPkts_Type())
+adspInDataPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:adspInDataPkts.setStatus(_A)
+_AdspOutDataPkts_Type=Counter32
+_AdspOutDataPkts_Object=MibScalar
+adspOutDataPkts=_AdspOutDataPkts_Object((1,3,6,1,2,1,13,13,6),_AdspOutDataPkts_Type())
+adspOutDataPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:adspOutDataPkts.setStatus(_A)
+_AdspTimeoutErrors_Type=Counter32
+_AdspTimeoutErrors_Object=MibScalar
+adspTimeoutErrors=_AdspTimeoutErrors_Object((1,3,6,1,2,1,13,13,7),_AdspTimeoutErrors_Type())
+adspTimeoutErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:adspTimeoutErrors.setStatus(_A)
+_AdspTimeoutCloseErrors_Type=Counter32
+_AdspTimeoutCloseErrors_Object=MibScalar
+adspTimeoutCloseErrors=_AdspTimeoutCloseErrors_Object((1,3,6,1,2,1,13,13,8),_AdspTimeoutCloseErrors_Type())
+adspTimeoutCloseErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:adspTimeoutCloseErrors.setStatus(_A)
+_AdspConnTable_Object=MibTable
+adspConnTable=_AdspConnTable_Object((1,3,6,1,2,1,13,13,9))
+if mibBuilder.loadTexts:adspConnTable.setStatus(_A)
+_AdspConnEntry_Object=MibTableRow
+adspConnEntry=_AdspConnEntry_Object((1,3,6,1,2,1,13,13,9,1))
+adspConnEntry.setIndexNames((0,_E,_n),(0,_E,_o),(0,_E,_p))
+if mibBuilder.loadTexts:adspConnEntry.setStatus(_A)
+_AdspConnLocalAddress_Type=DdpSocketAddress
+_AdspConnLocalAddress_Object=MibTableColumn
+adspConnLocalAddress=_AdspConnLocalAddress_Object((1,3,6,1,2,1,13,13,9,1,1),_AdspConnLocalAddress_Type())
+adspConnLocalAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:adspConnLocalAddress.setStatus(_A)
+class _AdspConnLocalConnID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_AdspConnLocalConnID_Type.__name__=_D
+_AdspConnLocalConnID_Object=MibTableColumn
+adspConnLocalConnID=_AdspConnLocalConnID_Object((1,3,6,1,2,1,13,13,9,1,2),_AdspConnLocalConnID_Type())
+adspConnLocalConnID.setMaxAccess(_G)
+if mibBuilder.loadTexts:adspConnLocalConnID.setStatus(_A)
+_AdspConnRemoteAddress_Type=DdpSocketAddress
+_AdspConnRemoteAddress_Object=MibTableColumn
+adspConnRemoteAddress=_AdspConnRemoteAddress_Object((1,3,6,1,2,1,13,13,9,1,3),_AdspConnRemoteAddress_Type())
+adspConnRemoteAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:adspConnRemoteAddress.setStatus(_A)
+class _AdspConnRemoteConnID_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_AdspConnRemoteConnID_Type.__name__=_D
+_AdspConnRemoteConnID_Object=MibTableColumn
+adspConnRemoteConnID=_AdspConnRemoteConnID_Object((1,3,6,1,2,1,13,13,9,1,4),_AdspConnRemoteConnID_Type())
+adspConnRemoteConnID.setMaxAccess(_B)
+if mibBuilder.loadTexts:adspConnRemoteConnID.setStatus(_A)
+class _AdspConnState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('open',1),('localHalfOpen',2),('remoteHalfOpen',3),('listening',4),(_m,5),(_F,6)))
+_AdspConnState_Type.__name__=_D
+_AdspConnState_Object=MibTableColumn
+adspConnState=_AdspConnState_Object((1,3,6,1,2,1,13,13,9,1,5),_AdspConnState_Type())
+adspConnState.setMaxAccess(_C)
+if mibBuilder.loadTexts:adspConnState.setStatus(_A)
+_Atportptop_ObjectIdentity=ObjectIdentity
+atportptop=_Atportptop_ObjectIdentity((1,3,6,1,2,1,13,14))
+_AtportPtoPTable_Object=MibTable
+atportPtoPTable=_AtportPtoPTable_Object((1,3,6,1,2,1,13,14,1))
+if mibBuilder.loadTexts:atportPtoPTable.setStatus(_A)
+_AtportPtoPEntry_Object=MibTableRow
+atportPtoPEntry=_AtportPtoPEntry_Object((1,3,6,1,2,1,13,14,1,1))
+atportPtoPEntry.setIndexNames((0,_E,_q))
+if mibBuilder.loadTexts:atportPtoPEntry.setStatus(_A)
+_AtportPtoPIndex_Type=Integer32
+_AtportPtoPIndex_Object=MibTableColumn
+atportPtoPIndex=_AtportPtoPIndex_Object((1,3,6,1,2,1,13,14,1,1,1),_AtportPtoPIndex_Type())
+atportPtoPIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:atportPtoPIndex.setStatus(_A)
+_AtportPtoPProtocol_Type=ObjectIdentifier
+_AtportPtoPProtocol_Object=MibTableColumn
+atportPtoPProtocol=_AtportPtoPProtocol_Object((1,3,6,1,2,1,13,14,1,1,2),_AtportPtoPProtocol_Type())
+atportPtoPProtocol.setMaxAccess(_C)
+if mibBuilder.loadTexts:atportPtoPProtocol.setStatus(_A)
+_AtportPtoPRemoteName_Type=DisplayString
+_AtportPtoPRemoteName_Object=MibTableColumn
+atportPtoPRemoteName=_AtportPtoPRemoteName_Object((1,3,6,1,2,1,13,14,1,1,3),_AtportPtoPRemoteName_Type())
+atportPtoPRemoteName.setMaxAccess(_C)
+if mibBuilder.loadTexts:atportPtoPRemoteName.setStatus(_A)
+_AtportPtoPRemoteAddress_Type=OctetString
+_AtportPtoPRemoteAddress_Object=MibTableColumn
+atportPtoPRemoteAddress=_AtportPtoPRemoteAddress_Object((1,3,6,1,2,1,13,14,1,1,4),_AtportPtoPRemoteAddress_Type())
+atportPtoPRemoteAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:atportPtoPRemoteAddress.setStatus(_A)
+_AtportPtoPPortIndex_Type=Integer32
+_AtportPtoPPortIndex_Object=MibTableColumn
+atportPtoPPortIndex=_AtportPtoPPortIndex_Object((1,3,6,1,2,1,13,14,1,1,5),_AtportPtoPPortIndex_Type())
+atportPtoPPortIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:atportPtoPPortIndex.setStatus(_A)
+class _AtportPtoPStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_F,2)))
+_AtportPtoPStatus_Type.__name__=_D
+_AtportPtoPStatus_Object=MibTableColumn
+atportPtoPStatus=_AtportPtoPStatus_Object((1,3,6,1,2,1,13,14,1,1,6),_AtportPtoPStatus_Type())
+atportPtoPStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:atportPtoPStatus.setStatus(_A)
+_AtportPtoPProtoOids_ObjectIdentity=ObjectIdentity
+atportPtoPProtoOids=_AtportPtoPProtoOids_ObjectIdentity((1,3,6,1,2,1,13,14,2))
+_PToPProtoOther_ObjectIdentity=ObjectIdentity
+pToPProtoOther=_PToPProtoOther_ObjectIdentity((1,3,6,1,2,1,13,14,2,1))
+_PToPProtoAurp_ObjectIdentity=ObjectIdentity
+pToPProtoAurp=_PToPProtoAurp_ObjectIdentity((1,3,6,1,2,1,13,14,2,2))
+_PToPProtoCaymanUdp_ObjectIdentity=ObjectIdentity
+pToPProtoCaymanUdp=_PToPProtoCaymanUdp_ObjectIdentity((1,3,6,1,2,1,13,14,2,3))
+_PToPProtoAtkvmsDecnetIV_ObjectIdentity=ObjectIdentity
+pToPProtoAtkvmsDecnetIV=_PToPProtoAtkvmsDecnetIV_ObjectIdentity((1,3,6,1,2,1,13,14,2,4))
+_PToPProtoLiaisonUdp_ObjectIdentity=ObjectIdentity
+pToPProtoLiaisonUdp=_PToPProtoLiaisonUdp_ObjectIdentity((1,3,6,1,2,1,13,14,2,5))
+_PToPProtoIpx_ObjectIdentity=ObjectIdentity
+pToPProtoIpx=_PToPProtoIpx_ObjectIdentity((1,3,6,1,2,1,13,14,2,6))
+_PToPProtoShivaIp_ObjectIdentity=ObjectIdentity
+pToPProtoShivaIp=_PToPProtoShivaIp_ObjectIdentity((1,3,6,1,2,1,13,14,2,7))
+_RtmpStub_ObjectIdentity=ObjectIdentity
+rtmpStub=_RtmpStub_ObjectIdentity((1,3,6,1,2,1,13,16))
+_RtmpOutRequestPkts_Type=Counter32
+_RtmpOutRequestPkts_Object=MibScalar
+rtmpOutRequestPkts=_RtmpOutRequestPkts_Object((1,3,6,1,2,1,13,16,1),_RtmpOutRequestPkts_Type())
+rtmpOutRequestPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:rtmpOutRequestPkts.setStatus(_A)
+_RtmpInVersionMismatches_Type=Counter32
+_RtmpInVersionMismatches_Object=MibScalar
+rtmpInVersionMismatches=_RtmpInVersionMismatches_Object((1,3,6,1,2,1,13,16,2),_RtmpInVersionMismatches_Type())
+rtmpInVersionMismatches.setMaxAccess(_B)
+if mibBuilder.loadTexts:rtmpInVersionMismatches.setStatus(_A)
+_RtmpInErrors_Type=Counter32
+_RtmpInErrors_Object=MibScalar
+rtmpInErrors=_RtmpInErrors_Object((1,3,6,1,2,1,13,16,3),_RtmpInErrors_Type())
+rtmpInErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:rtmpInErrors.setStatus(_A)
+_ZipEndNode_ObjectIdentity=ObjectIdentity
+zipEndNode=_ZipEndNode_ObjectIdentity((1,3,6,1,2,1,13,17))
+_ZipNetInfoTable_Object=MibTable
+zipNetInfoTable=_ZipNetInfoTable_Object((1,3,6,1,2,1,13,17,1))
+if mibBuilder.loadTexts:zipNetInfoTable.setStatus(_A)
+_ZipNetInfoEntry_Object=MibTableRow
+zipNetInfoEntry=_ZipNetInfoEntry_Object((1,3,6,1,2,1,13,17,1,1))
+zipNetInfoEntry.setIndexNames((0,_E,_I))
+if mibBuilder.loadTexts:zipNetInfoEntry.setStatus(_A)
+_ZipOutGetNetInfos_Type=Counter32
+_ZipOutGetNetInfos_Object=MibTableColumn
+zipOutGetNetInfos=_ZipOutGetNetInfos_Object((1,3,6,1,2,1,13,17,1,1,1),_ZipOutGetNetInfos_Type())
+zipOutGetNetInfos.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipOutGetNetInfos.setStatus(_A)
+_ZipInGetNetInfoReplies_Type=Counter32
+_ZipInGetNetInfoReplies_Object=MibTableColumn
+zipInGetNetInfoReplies=_ZipInGetNetInfoReplies_Object((1,3,6,1,2,1,13,17,1,1,2),_ZipInGetNetInfoReplies_Type())
+zipInGetNetInfoReplies.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipInGetNetInfoReplies.setStatus(_A)
+_ZipZoneInInvalids_Type=Counter32
+_ZipZoneInInvalids_Object=MibTableColumn
+zipZoneInInvalids=_ZipZoneInInvalids_Object((1,3,6,1,2,1,13,17,1,1,3),_ZipZoneInInvalids_Type())
+zipZoneInInvalids.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipZoneInInvalids.setStatus(_A)
+_ZipInErrors_Type=Counter32
+_ZipInErrors_Object=MibScalar
+zipInErrors=_ZipInErrors_Object((1,3,6,1,2,1,13,17,2),_ZipInErrors_Type())
+zipInErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:zipInErrors.setStatus(_A)
+_PerPort_ObjectIdentity=ObjectIdentity
+perPort=_PerPort_ObjectIdentity((1,3,6,1,2,1,13,18))
+_PerPortTable_Object=MibTable
+perPortTable=_PerPortTable_Object((1,3,6,1,2,1,13,18,1))
+if mibBuilder.loadTexts:perPortTable.setStatus(_A)
+_PerPortEntry_Object=MibTableRow
+perPortEntry=_PerPortEntry_Object((1,3,6,1,2,1,13,18,1,1))
+perPortEntry.setIndexNames((0,_E,_I))
+if mibBuilder.loadTexts:perPortEntry.setStatus(_A)
+_PerPortAarpInProbes_Type=Counter32
+_PerPortAarpInProbes_Object=MibTableColumn
+perPortAarpInProbes=_PerPortAarpInProbes_Object((1,3,6,1,2,1,13,18,1,1,1),_PerPortAarpInProbes_Type())
+perPortAarpInProbes.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortAarpInProbes.setStatus(_A)
+_PerPortAarpOutProbes_Type=Counter32
+_PerPortAarpOutProbes_Object=MibTableColumn
+perPortAarpOutProbes=_PerPortAarpOutProbes_Object((1,3,6,1,2,1,13,18,1,1,2),_PerPortAarpOutProbes_Type())
+perPortAarpOutProbes.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortAarpOutProbes.setStatus(_A)
+_PerPortAarpInReqs_Type=Counter32
+_PerPortAarpInReqs_Object=MibTableColumn
+perPortAarpInReqs=_PerPortAarpInReqs_Object((1,3,6,1,2,1,13,18,1,1,3),_PerPortAarpInReqs_Type())
+perPortAarpInReqs.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortAarpInReqs.setStatus(_A)
+_PerPortAarpOutReqs_Type=Counter32
+_PerPortAarpOutReqs_Object=MibTableColumn
+perPortAarpOutReqs=_PerPortAarpOutReqs_Object((1,3,6,1,2,1,13,18,1,1,4),_PerPortAarpOutReqs_Type())
+perPortAarpOutReqs.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortAarpOutReqs.setStatus(_A)
+_PerPortAarpInRsps_Type=Counter32
+_PerPortAarpInRsps_Object=MibTableColumn
+perPortAarpInRsps=_PerPortAarpInRsps_Object((1,3,6,1,2,1,13,18,1,1,5),_PerPortAarpInRsps_Type())
+perPortAarpInRsps.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortAarpInRsps.setStatus(_A)
+_PerPortAarpOutRsps_Type=Counter32
+_PerPortAarpOutRsps_Object=MibTableColumn
+perPortAarpOutRsps=_PerPortAarpOutRsps_Object((1,3,6,1,2,1,13,18,1,1,6),_PerPortAarpOutRsps_Type())
+perPortAarpOutRsps.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortAarpOutRsps.setStatus(_A)
+_PerPortDdpInReceives_Type=Counter32
+_PerPortDdpInReceives_Object=MibTableColumn
+perPortDdpInReceives=_PerPortDdpInReceives_Object((1,3,6,1,2,1,13,18,1,1,7),_PerPortDdpInReceives_Type())
+perPortDdpInReceives.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortDdpInReceives.setStatus(_A)
+_PerPortDdpInLocalDatagrams_Type=Counter32
+_PerPortDdpInLocalDatagrams_Object=MibTableColumn
+perPortDdpInLocalDatagrams=_PerPortDdpInLocalDatagrams_Object((1,3,6,1,2,1,13,18,1,1,8),_PerPortDdpInLocalDatagrams_Type())
+perPortDdpInLocalDatagrams.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortDdpInLocalDatagrams.setStatus(_A)
+_PerPortDdpNoProtocolHandlers_Type=Counter32
+_PerPortDdpNoProtocolHandlers_Object=MibTableColumn
+perPortDdpNoProtocolHandlers=_PerPortDdpNoProtocolHandlers_Object((1,3,6,1,2,1,13,18,1,1,9),_PerPortDdpNoProtocolHandlers_Type())
+perPortDdpNoProtocolHandlers.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortDdpNoProtocolHandlers.setStatus(_A)
+_PerPortDdpTooShortErrors_Type=Counter32
+_PerPortDdpTooShortErrors_Object=MibTableColumn
+perPortDdpTooShortErrors=_PerPortDdpTooShortErrors_Object((1,3,6,1,2,1,13,18,1,1,10),_PerPortDdpTooShortErrors_Type())
+perPortDdpTooShortErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortDdpTooShortErrors.setStatus(_A)
+_PerPortDdpTooLongErrors_Type=Counter32
+_PerPortDdpTooLongErrors_Object=MibTableColumn
+perPortDdpTooLongErrors=_PerPortDdpTooLongErrors_Object((1,3,6,1,2,1,13,18,1,1,11),_PerPortDdpTooLongErrors_Type())
+perPortDdpTooLongErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortDdpTooLongErrors.setStatus(_A)
+_PerPortDdpChecksumErrors_Type=Counter32
+_PerPortDdpChecksumErrors_Object=MibTableColumn
+perPortDdpChecksumErrors=_PerPortDdpChecksumErrors_Object((1,3,6,1,2,1,13,18,1,1,12),_PerPortDdpChecksumErrors_Type())
+perPortDdpChecksumErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortDdpChecksumErrors.setStatus(_A)
+_PerPortDdpForwRequests_Type=Counter32
+_PerPortDdpForwRequests_Object=MibTableColumn
+perPortDdpForwRequests=_PerPortDdpForwRequests_Object((1,3,6,1,2,1,13,18,1,1,13),_PerPortDdpForwRequests_Type())
+perPortDdpForwRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortDdpForwRequests.setStatus(_A)
+_PerPortRtmpInDataPkts_Type=Counter32
+_PerPortRtmpInDataPkts_Object=MibTableColumn
+perPortRtmpInDataPkts=_PerPortRtmpInDataPkts_Object((1,3,6,1,2,1,13,18,1,1,14),_PerPortRtmpInDataPkts_Type())
+perPortRtmpInDataPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortRtmpInDataPkts.setStatus(_A)
+_PerPortRtmpOutDataPkts_Type=Counter32
+_PerPortRtmpOutDataPkts_Object=MibTableColumn
+perPortRtmpOutDataPkts=_PerPortRtmpOutDataPkts_Object((1,3,6,1,2,1,13,18,1,1,15),_PerPortRtmpOutDataPkts_Type())
+perPortRtmpOutDataPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortRtmpOutDataPkts.setStatus(_A)
+_PerPortRtmpInRequestPkts_Type=Counter32
+_PerPortRtmpInRequestPkts_Object=MibTableColumn
+perPortRtmpInRequestPkts=_PerPortRtmpInRequestPkts_Object((1,3,6,1,2,1,13,18,1,1,16),_PerPortRtmpInRequestPkts_Type())
+perPortRtmpInRequestPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortRtmpInRequestPkts.setStatus(_A)
+_PerPortRtmpRouteDeletes_Type=Counter32
+_PerPortRtmpRouteDeletes_Object=MibTableColumn
+perPortRtmpRouteDeletes=_PerPortRtmpRouteDeletes_Object((1,3,6,1,2,1,13,18,1,1,17),_PerPortRtmpRouteDeletes_Type())
+perPortRtmpRouteDeletes.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortRtmpRouteDeletes.setStatus(_A)
+_PerPortZipInZipQueries_Type=Counter32
+_PerPortZipInZipQueries_Object=MibTableColumn
+perPortZipInZipQueries=_PerPortZipInZipQueries_Object((1,3,6,1,2,1,13,18,1,1,18),_PerPortZipInZipQueries_Type())
+perPortZipInZipQueries.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortZipInZipQueries.setStatus(_A)
+_PerPortZipInZipReplies_Type=Counter32
+_PerPortZipInZipReplies_Object=MibTableColumn
+perPortZipInZipReplies=_PerPortZipInZipReplies_Object((1,3,6,1,2,1,13,18,1,1,19),_PerPortZipInZipReplies_Type())
+perPortZipInZipReplies.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortZipInZipReplies.setStatus(_A)
+_PerPortZipInZipExtendedReplies_Type=Counter32
+_PerPortZipInZipExtendedReplies_Object=MibTableColumn
+perPortZipInZipExtendedReplies=_PerPortZipInZipExtendedReplies_Object((1,3,6,1,2,1,13,18,1,1,20),_PerPortZipInZipExtendedReplies_Type())
+perPortZipInZipExtendedReplies.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortZipInZipExtendedReplies.setStatus(_A)
+_PerPortZipZoneConflictErrors_Type=Counter32
+_PerPortZipZoneConflictErrors_Object=MibTableColumn
+perPortZipZoneConflictErrors=_PerPortZipZoneConflictErrors_Object((1,3,6,1,2,1,13,18,1,1,21),_PerPortZipZoneConflictErrors_Type())
+perPortZipZoneConflictErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortZipZoneConflictErrors.setStatus(_A)
+_PerPortZipInErrors_Type=Counter32
+_PerPortZipInErrors_Object=MibTableColumn
+perPortZipInErrors=_PerPortZipInErrors_Object((1,3,6,1,2,1,13,18,1,1,22),_PerPortZipInErrors_Type())
+perPortZipInErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortZipInErrors.setStatus(_A)
+_PerPortNbpInLookUpRequests_Type=Counter32
+_PerPortNbpInLookUpRequests_Object=MibTableColumn
+perPortNbpInLookUpRequests=_PerPortNbpInLookUpRequests_Object((1,3,6,1,2,1,13,18,1,1,23),_PerPortNbpInLookUpRequests_Type())
+perPortNbpInLookUpRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortNbpInLookUpRequests.setStatus(_A)
+_PerPortNbpInLookUpReplies_Type=Counter32
+_PerPortNbpInLookUpReplies_Object=MibTableColumn
+perPortNbpInLookUpReplies=_PerPortNbpInLookUpReplies_Object((1,3,6,1,2,1,13,18,1,1,24),_PerPortNbpInLookUpReplies_Type())
+perPortNbpInLookUpReplies.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortNbpInLookUpReplies.setStatus(_A)
+_PerPortNbpInBroadcastRequests_Type=Counter32
+_PerPortNbpInBroadcastRequests_Object=MibTableColumn
+perPortNbpInBroadcastRequests=_PerPortNbpInBroadcastRequests_Object((1,3,6,1,2,1,13,18,1,1,25),_PerPortNbpInBroadcastRequests_Type())
+perPortNbpInBroadcastRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortNbpInBroadcastRequests.setStatus(_A)
+_PerPortNbpInForwardRequests_Type=Counter32
+_PerPortNbpInForwardRequests_Object=MibTableColumn
+perPortNbpInForwardRequests=_PerPortNbpInForwardRequests_Object((1,3,6,1,2,1,13,18,1,1,26),_PerPortNbpInForwardRequests_Type())
+perPortNbpInForwardRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortNbpInForwardRequests.setStatus(_A)
+_PerPortNbpOutLookUpReplies_Type=Counter32
+_PerPortNbpOutLookUpReplies_Object=MibTableColumn
+perPortNbpOutLookUpReplies=_PerPortNbpOutLookUpReplies_Object((1,3,6,1,2,1,13,18,1,1,27),_PerPortNbpOutLookUpReplies_Type())
+perPortNbpOutLookUpReplies.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortNbpOutLookUpReplies.setStatus(_A)
+_PerPortNbpRegistrationFailures_Type=Counter32
+_PerPortNbpRegistrationFailures_Object=MibTableColumn
+perPortNbpRegistrationFailures=_PerPortNbpRegistrationFailures_Object((1,3,6,1,2,1,13,18,1,1,28),_PerPortNbpRegistrationFailures_Type())
+perPortNbpRegistrationFailures.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortNbpRegistrationFailures.setStatus(_A)
+_PerPortNbpInErrors_Type=Counter32
+_PerPortNbpInErrors_Object=MibTableColumn
+perPortNbpInErrors=_PerPortNbpInErrors_Object((1,3,6,1,2,1,13,18,1,1,29),_PerPortNbpInErrors_Type())
+perPortNbpInErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortNbpInErrors.setStatus(_A)
+_PerPortEchoRequests_Type=Counter32
+_PerPortEchoRequests_Object=MibTableColumn
+perPortEchoRequests=_PerPortEchoRequests_Object((1,3,6,1,2,1,13,18,1,1,30),_PerPortEchoRequests_Type())
+perPortEchoRequests.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortEchoRequests.setStatus(_A)
+_PerPortEchoReplies_Type=Counter32
+_PerPortEchoReplies_Object=MibTableColumn
+perPortEchoReplies=_PerPortEchoReplies_Object((1,3,6,1,2,1,13,18,1,1,31),_PerPortEchoReplies_Type())
+perPortEchoReplies.setMaxAccess(_B)
+if mibBuilder.loadTexts:perPortEchoReplies.setStatus(_A)
+mibBuilder.exportSymbols(_E,**{'ATNetworkNumber':ATNetworkNumber,'DdpNodeAddress':DdpNodeAddress,'DdpSocketAddress':DdpSocketAddress,_L:ATName,_c:appletalk,'llap':llap,'llapTable':llapTable,'llapEntry':llapEntry,_N:llapIfIndex,'llapInPkts':llapInPkts,'llapOutPkts':llapOutPkts,'llapInNoHandlers':llapInNoHandlers,'llapInLengthErrors':llapInLengthErrors,'llapInErrors':llapInErrors,'llapCollisions':llapCollisions,'llapDefers':llapDefers,'llapNoDataErrors':llapNoDataErrors,'llapRandomCTSErrors':llapRandomCTSErrors,'llapFCSErrors':llapFCSErrors,'aarp':aarp,'aarpTable':aarpTable,'aarpEntry':aarpEntry,_O:aarpIfIndex,'aarpPhysAddress':aarpPhysAddress,_P:aarpNetAddress,'aarpStatus':aarpStatus,'aarpLookups':aarpLookups,'aarpHits':aarpHits,'atport':atport,'atportTable':atportTable,'atportEntry':atportEntry,_I:atportIndex,'atportDescr':atportDescr,'atportType':atportType,'atportNetStart':atportNetStart,'atportNetEnd':atportNetEnd,'atportNetAddress':atportNetAddress,'atportStatus':atportStatus,'atportNetConfig':atportNetConfig,'atportZoneConfig':atportZoneConfig,'atportZoneDefault':atportZoneDefault,'atportIfIndex':atportIfIndex,'atportNetFrom':atportNetFrom,'atportZoneFrom':atportZoneFrom,'atportInPkts':atportInPkts,'atportOutPkts':atportOutPkts,'atportHome':atportHome,'atportCurrentZone':atportCurrentZone,'atportConflictPhysAddr':atportConflictPhysAddr,'atportZoneTable':atportZoneTable,'atportZoneEntry':atportZoneEntry,_X:atportZonePort,_Y:atportZoneName,'atportZoneStatus':atportZoneStatus,'ddp':ddp,'ddpOutRequests':ddpOutRequests,'ddpOutShorts':ddpOutShorts,'ddpOutLongs':ddpOutLongs,'ddpInReceives':ddpInReceives,'ddpForwRequests':ddpForwRequests,'ddpInLocalDatagrams':ddpInLocalDatagrams,'ddpNoProtocolHandlers':ddpNoProtocolHandlers,'ddpOutNoRoutes':ddpOutNoRoutes,'ddpTooShortErrors':ddpTooShortErrors,'ddpTooLongErrors':ddpTooLongErrors,'ddpBroadcastErrors':ddpBroadcastErrors,'ddpShortDDPErrors':ddpShortDDPErrors,'ddpHopCountErrors':ddpHopCountErrors,'ddpChecksumErrors':ddpChecksumErrors,'ddpListenerTable':ddpListenerTable,'ddpListenerEntry':ddpListenerEntry,_Z:ddpListenerAddress,'ddpListenerInPkts':ddpListenerInPkts,'ddpListenerStatus':ddpListenerStatus,'ddpForwardingTable':ddpForwardingTable,'ddpForwardingEntry':ddpForwardingEntry,_a:ddpForwardingNetEnd,'ddpForwardingNetStart':ddpForwardingNetStart,'ddpForwardingNextHop':ddpForwardingNextHop,'ddpForwardingProto':ddpForwardingProto,'ddpForwardingModifiedTime':ddpForwardingModifiedTime,'ddpForwardingUseCounts':ddpForwardingUseCounts,'ddpForwardingPort':ddpForwardingPort,'ddpForwProtoOids':ddpForwProtoOids,'rtmpRoutingProto':rtmpRoutingProto,'kipRoutingProto':kipRoutingProto,'ddpForwardingTableOverflows':ddpForwardingTableOverflows,'rtmp':rtmp,'rtmpTable':rtmpTable,'rtmpEntry':rtmpEntry,_b:rtmpRangeStart,'rtmpRangeEnd':rtmpRangeEnd,'rtmpNextHop':rtmpNextHop,'rtmpType':rtmpType,'rtmpPort':rtmpPort,'rtmpHops':rtmpHops,'rtmpState':rtmpState,'rtmpInDataPkts':rtmpInDataPkts,'rtmpOutDataPkts':rtmpOutDataPkts,'rtmpInRequestPkts':rtmpInRequestPkts,'rtmpNextIREqualChanges':rtmpNextIREqualChanges,'rtmpNextIRLessChanges':rtmpNextIRLessChanges,'rtmpRouteDeletes':rtmpRouteDeletes,'rtmpRoutingTableOverflows':rtmpRoutingTableOverflows,'kip':kip,'kipTable':kipTable,'kipEntry':kipEntry,_d:kipNetStart,'kipNetEnd':kipNetEnd,'kipNextHop':kipNextHop,'kipHopCount':kipHopCount,'kipBCastAddr':kipBCastAddr,'kipCore':kipCore,'kipType':kipType,'kipState':kipState,'kipShare':kipShare,'kipFrom':kipFrom,'zipRouter':zipRouter,'zipTable':zipTable,'zipEntry':zipEntry,'zipZoneName':zipZoneName,_f:zipZoneIndex,_e:zipZoneNetStart,'zipZoneNetEnd':zipZoneNetEnd,'zipZoneState':zipZoneState,'zipZoneFrom':zipZoneFrom,'zipZonePort':zipZonePort,'zipInZipQueries':zipInZipQueries,'zipInZipReplies':zipInZipReplies,'zipInZipExtendedReplies':zipInZipExtendedReplies,'zipZoneConflictErrors':zipZoneConflictErrors,'zipInObsoletes':zipInObsoletes,'zipRouterNetInfoTable':zipRouterNetInfoTable,'zipRouterNetInfoEntry':zipRouterNetInfoEntry,'zipInGetNetInfos':zipInGetNetInfos,'zipOutGetNetInfoReplies':zipOutGetNetInfoReplies,'zipZoneOutInvalids':zipZoneOutInvalids,'zipAddressInvalids':zipAddressInvalids,'nbp':nbp,'nbpTable':nbpTable,'nbpEntry':nbpEntry,_g:nbpIndex,'nbpObject':nbpObject,'nbpType':nbpType,'nbpZone':nbpZone,'nbpState':nbpState,'nbpAddress':nbpAddress,'nbpEnumerator':nbpEnumerator,'nbpInLookUpRequests':nbpInLookUpRequests,'nbpInLookUpReplies':nbpInLookUpReplies,'nbpInBroadcastRequests':nbpInBroadcastRequests,'nbpInForwardRequests':nbpInForwardRequests,'nbpOutLookUpReplies':nbpOutLookUpReplies,'nbpRegistrationFailures':nbpRegistrationFailures,'nbpInErrors':nbpInErrors,'atecho':atecho,'atechoRequests':atechoRequests,'atechoReplies':atechoReplies,'atechoOutRequests':atechoOutRequests,'atechoInReplies':atechoInReplies,'atp':atp,'atpInPkts':atpInPkts,'atpOutPkts':atpOutPkts,'atpTRequestRetransmissions':atpTRequestRetransmissions,'atpTResponseRetransmissions':atpTResponseRetransmissions,'atpReleaseTimerExpiredCounts':atpReleaseTimerExpiredCounts,'atpRetryCountExceededs':atpRetryCountExceededs,'atpListenerTable':atpListenerTable,'atpListenerEntry':atpListenerEntry,_h:atpListenerAddress,'atpListenerStatus':atpListenerStatus,'pap':pap,'papInOpenConns':papInOpenConns,'papOutOpenConns':papOutOpenConns,'papInDatas':papInDatas,'papOutDatas':papOutDatas,'papInCloseConns':papInCloseConns,'papOutCloseConns':papOutCloseConns,'papTickleTimeoutCloses':papTickleTimeoutCloses,'papServerTable':papServerTable,'papServerEntry':papServerEntry,_i:papServerIndex,'papServerListeningSocket':papServerListeningSocket,'papServerStatus':papServerStatus,'papServerCompletedJobs':papServerCompletedJobs,'papServerBusyJobs':papServerBusyJobs,'papServerFreeJobs':papServerFreeJobs,'papServerAuthenticationFailures':papServerAuthenticationFailures,'papServerAccountingFailures':papServerAccountingFailures,'papServerGeneralFailures':papServerGeneralFailures,'papServerState':papServerState,'papServerLastStatusMsg':papServerLastStatusMsg,'asp':asp,'aspInputTransactions':aspInputTransactions,'aspOutputTransactions':aspOutputTransactions,'aspInOpenSessions':aspInOpenSessions,'aspOutOpenSessions':aspOutOpenSessions,'aspInCloseSessions':aspInCloseSessions,'aspOutCloseSessions':aspOutCloseSessions,'aspNoMoreSessionsErrors':aspNoMoreSessionsErrors,'aspTickleTimeOutCloses':aspTickleTimeOutCloses,'aspConnTable':aspConnTable,'aspConnEntry':aspConnEntry,_j:aspConnLocalAddress,_k:aspConnRemoteAddress,_l:aspConnID,'aspConnLastReqNum':aspConnLastReqNum,'aspConnServerEnd':aspConnServerEnd,'aspConnState':aspConnState,'adsp':adsp,'adspInPkts':adspInPkts,'adspOutPkts':adspOutPkts,'adspInOctets':adspInOctets,'adspOutOctets':adspOutOctets,'adspInDataPkts':adspInDataPkts,'adspOutDataPkts':adspOutDataPkts,'adspTimeoutErrors':adspTimeoutErrors,'adspTimeoutCloseErrors':adspTimeoutCloseErrors,'adspConnTable':adspConnTable,'adspConnEntry':adspConnEntry,_n:adspConnLocalAddress,_p:adspConnLocalConnID,_o:adspConnRemoteAddress,'adspConnRemoteConnID':adspConnRemoteConnID,'adspConnState':adspConnState,'atportptop':atportptop,'atportPtoPTable':atportPtoPTable,'atportPtoPEntry':atportPtoPEntry,_q:atportPtoPIndex,'atportPtoPProtocol':atportPtoPProtocol,'atportPtoPRemoteName':atportPtoPRemoteName,'atportPtoPRemoteAddress':atportPtoPRemoteAddress,'atportPtoPPortIndex':atportPtoPPortIndex,'atportPtoPStatus':atportPtoPStatus,'atportPtoPProtoOids':atportPtoPProtoOids,'pToPProtoOther':pToPProtoOther,'pToPProtoAurp':pToPProtoAurp,'pToPProtoCaymanUdp':pToPProtoCaymanUdp,'pToPProtoAtkvmsDecnetIV':pToPProtoAtkvmsDecnetIV,'pToPProtoLiaisonUdp':pToPProtoLiaisonUdp,'pToPProtoIpx':pToPProtoIpx,'pToPProtoShivaIp':pToPProtoShivaIp,'rtmpStub':rtmpStub,'rtmpOutRequestPkts':rtmpOutRequestPkts,'rtmpInVersionMismatches':rtmpInVersionMismatches,'rtmpInErrors':rtmpInErrors,'zipEndNode':zipEndNode,'zipNetInfoTable':zipNetInfoTable,'zipNetInfoEntry':zipNetInfoEntry,'zipOutGetNetInfos':zipOutGetNetInfos,'zipInGetNetInfoReplies':zipInGetNetInfoReplies,'zipZoneInInvalids':zipZoneInInvalids,'zipInErrors':zipInErrors,'perPort':perPort,'perPortTable':perPortTable,'perPortEntry':perPortEntry,'perPortAarpInProbes':perPortAarpInProbes,'perPortAarpOutProbes':perPortAarpOutProbes,'perPortAarpInReqs':perPortAarpInReqs,'perPortAarpOutReqs':perPortAarpOutReqs,'perPortAarpInRsps':perPortAarpInRsps,'perPortAarpOutRsps':perPortAarpOutRsps,'perPortDdpInReceives':perPortDdpInReceives,'perPortDdpInLocalDatagrams':perPortDdpInLocalDatagrams,'perPortDdpNoProtocolHandlers':perPortDdpNoProtocolHandlers,'perPortDdpTooShortErrors':perPortDdpTooShortErrors,'perPortDdpTooLongErrors':perPortDdpTooLongErrors,'perPortDdpChecksumErrors':perPortDdpChecksumErrors,'perPortDdpForwRequests':perPortDdpForwRequests,'perPortRtmpInDataPkts':perPortRtmpInDataPkts,'perPortRtmpOutDataPkts':perPortRtmpOutDataPkts,'perPortRtmpInRequestPkts':perPortRtmpInRequestPkts,'perPortRtmpRouteDeletes':perPortRtmpRouteDeletes,'perPortZipInZipQueries':perPortZipInZipQueries,'perPortZipInZipReplies':perPortZipInZipReplies,'perPortZipInZipExtendedReplies':perPortZipInZipExtendedReplies,'perPortZipZoneConflictErrors':perPortZipZoneConflictErrors,'perPortZipInErrors':perPortZipInErrors,'perPortNbpInLookUpRequests':perPortNbpInLookUpRequests,'perPortNbpInLookUpReplies':perPortNbpInLookUpReplies,'perPortNbpInBroadcastRequests':perPortNbpInBroadcastRequests,'perPortNbpInForwardRequests':perPortNbpInForwardRequests,'perPortNbpOutLookUpReplies':perPortNbpOutLookUpReplies,'perPortNbpRegistrationFailures':perPortNbpRegistrationFailures,'perPortNbpInErrors':perPortNbpInErrors,'perPortEchoRequests':perPortEchoRequests,'perPortEchoReplies':perPortEchoReplies})

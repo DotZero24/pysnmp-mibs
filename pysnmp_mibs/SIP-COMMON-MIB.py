@@ -1,247 +1,628 @@
-#
-# PySNMP MIB module SIP-COMMON-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/SIP-COMMON-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:28:00 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, ObjectIdentifier, Integer, ) = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
-( InetPortNumber, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber")
-( applIndex, ) = mibBuilder.importSymbols("NETWORK-SERVICES-MIB", "applIndex")
-( SipTCOptionTagHeaders, SipTCMethodName, SipTCTransportProtocol, SipTCEntityRole, ) = mibBuilder.importSymbols("SIP-TC-MIB", "SipTCOptionTagHeaders", "SipTCMethodName", "SipTCTransportProtocol", "SipTCEntityRole")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ModuleCompliance, NotificationGroup, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-( IpAddress, TimeTicks, ObjectIdentity, Unsigned32, Integer32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, mib_2, iso, Counter64, Bits, MibIdentifier, ModuleIdentity, Counter32, NotificationType, ) = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "TimeTicks", "ObjectIdentity", "Unsigned32", "Integer32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "mib-2", "iso", "Counter64", "Bits", "MibIdentifier", "ModuleIdentity", "Counter32", "NotificationType")
-( RowStatus, TextualConvention, TimeStamp, TruthValue, DisplayString, ) = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "TimeStamp", "TruthValue", "DisplayString")
-sipCommonMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 149)).setRevisions(("2007-04-20 00:00",))
-if mibBuilder.loadTexts: sipCommonMIB.setLastUpdated('200704200000Z')
-if mibBuilder.loadTexts: sipCommonMIB.setOrganization('IETF Session Initiation Protocol Working Group')
-if mibBuilder.loadTexts: sipCommonMIB.setContactInfo('SIP WG email: sip@ietf.org\n\n              Co-editor  Kevin Lingle\n                         Cisco Systems, Inc.\n              postal:    7025 Kit Creek Road\n                         P.O. Box 14987\n                         Research Triangle Park, NC 27709\n                         USA\n              email:     klingle@cisco.com\n              phone:     +1 919 476 2029\n\n              Co-editor  Joon Maeng\n              email:     jmaeng@austin.rr.com\n\n              Co-editor  Jean-Francois Mule\n                         CableLabs\n\n              postal:    858 Coal Creek Circle\n                         Louisville, CO 80027\n                         USA\n              email:     jf.mule@cablelabs.com\n              phone:     +1 303 661 9100\n\n              Co-editor  Dave Walker\n              email:     drwalker@rogers.com')
-if mibBuilder.loadTexts: sipCommonMIB.setDescription('Session Initiation Protocol (SIP) Common MIB module.  This\n        module defines objects that may be common to all SIP entities.\n\n        SIP is an application-layer signaling protocol for creating,\n        modifying and terminating multimedia sessions with one or more\n        participants.  These sessions include Internet multimedia\n        conferences and Internet telephone calls.  SIP is defined in\n        RFC 3261 (June 2002).\n\n        This MIB is defined for managing objects that are common to\n        SIP User Agents (UAs), Proxy, Redirect, and Registrar servers.\n        Objects specific to each of these entities MAY be managed using\n        entity specific MIBs defined in other modules.\n\n        Copyright (C) The IETF Trust (2007).  This version of\n        this MIB module is part of RFC 4780; see the RFC itself for\n        full legal notices.')
-sipCommonMIBNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 149, 0))
-sipCommonMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 149, 1))
-sipCommonMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 149, 2))
-sipCommonCfgBase = MibIdentifier((1, 3, 6, 1, 2, 1, 149, 1, 1))
-sipCommonCfgTimer = MibIdentifier((1, 3, 6, 1, 2, 1, 149, 1, 2))
-sipCommonSummaryStats = MibIdentifier((1, 3, 6, 1, 2, 1, 149, 1, 3))
-sipCommonMethodStats = MibIdentifier((1, 3, 6, 1, 2, 1, 149, 1, 4))
-sipCommonStatusCode = MibIdentifier((1, 3, 6, 1, 2, 1, 149, 1, 5))
-sipCommonStatsTrans = MibIdentifier((1, 3, 6, 1, 2, 1, 149, 1, 6))
-sipCommonStatsRetry = MibIdentifier((1, 3, 6, 1, 2, 1, 149, 1, 7))
-sipCommonOtherStats = MibIdentifier((1, 3, 6, 1, 2, 1, 149, 1, 8))
-sipCommonNotifObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 149, 1, 9))
-sipCommonCfgTable = MibTable((1, 3, 6, 1, 2, 1, 149, 1, 1, 1), )
-if mibBuilder.loadTexts: sipCommonCfgTable.setDescription('This table contains the common configuration objects applicable\n        to all SIP entities.')
-sipCommonCfgEntry = MibTableRow((1, 3, 6, 1, 2, 1, 149, 1, 1, 1, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"))
-if mibBuilder.loadTexts: sipCommonCfgEntry.setDescription('A row of common configuration.\n\n        Each row represents objects for a particular SIP entity\n        instance present in this system.  applIndex is used to uniquely\n        identify these instances of SIP entities and correlate them\n        through the common framework of the NETWORK-SERVICES-MIB (RFC\n        2788).')
-sipCommonCfgProtocolVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 1, 1, 1, 1), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgProtocolVersion.setDescription("This object will reflect the version of SIP supported by this\n        SIP entity.  It will follow the same format as SIP version\n        information contained in the SIP messages generated by this SIP\n        entity.  For example, entities supporting SIP version 2 will\n        return 'SIP/2.0' as dictated by the standard.")
-sipCommonCfgServiceOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7,))).clone(namedValues=NamedValues(("unknown", 1), ("up", 2), ("down", 3), ("congested", 4), ("restarting", 5), ("quiescing", 6), ("testing", 7),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgServiceOperStatus.setDescription('This object contains the current operational state of\n        the SIP application.\n\n        unknown    : The operational status cannot be determined\n                     for some reason.\n        up         : The application is operating normally and is\n                     processing (receiving and possibly issuing) SIP\n                     requests and responses.\n        down       : The application is currently unable to process\n                     SIP messages.\n        congested  : The application is operational but no additional\n\n                     inbound transactions can be accommodated at the\n                     moment.\n        restarting : The application is currently unavailable, but it\n                     is in the process of restarting and will\n                     presumably, soon be able to process SIP messages.\n        quiescing  : The application is currently operational\n                     but has been administratively put into\n                     quiescence mode.  Additional inbound\n                     transactions MAY be rejected.\n        testing    : The application is currently in test mode\n                     and MAY not be able to process SIP messages.\n\n        The operational status values defined for this object are not\n        based on any specific information contained in the SIP\n        standard.')
-sipCommonCfgServiceStartTime = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 1, 1, 1, 3), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgServiceStartTime.setDescription('The value of sysUpTime at the time the SIP entity was last\n        started.  If started prior to the last re-initialization of the\n        local network management subsystem, then this object contains a\n        zero value.')
-sipCommonCfgServiceLastChange = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 1, 1, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgServiceLastChange.setDescription('The value of sysUpTime at the time the SIP entity entered its\n        current operational state.  If the current state was entered\n        prior to the last re-initialization of the local network\n        management subsystem, then this object contains a zero value.')
-sipCommonCfgOrganization = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 1, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgOrganization.setDescription('This object contains the organization name that the SIP entity\n        inserts into Organization headers of SIP messages processed by\n        this system.  If the string is empty, no Organization header is\n        to be generated.')
-sipCommonCfgMaxTransactions = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 1, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgMaxTransactions.setDescription("This object indicates the maximum number of simultaneous\n        transactions per second that the SIP entity can manage.  In\n        general, the value of this object SHOULD reflect a level of\n        transaction processing per second that is considered high\n        enough to impact the system's CPU and/or memory resources to\n        the point of deteriorating SIP call processing but not high\n        enough to cause catastrophic system failure.")
-sipCommonCfgServiceNotifEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 1, 1, 1, 7), Bits().clone(namedValues=NamedValues(("sipCommonServiceColdStart", 0), ("sipCommonServiceWarmStart", 1), ("sipCommonServiceStatusChanged", 2),)).clone(namedValues=NamedValues(("sipCommonServiceColdStart", 0), ("sipCommonServiceWarmStart", 1),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sipCommonCfgServiceNotifEnable.setDescription("This object specifies which SIP service related notifications\n        are enabled.  Each bit represents a specific notification.  If\n        a bit has a value 1, the associated notification is enabled and\n        will be generated by the SIP entity at the appropriate time.\n\n        Support for these notifications is OPTIONAL: either none or all\n        notification values are supported.  If an implementation does\n        not support this object, it should return a 'noSuchObject'\n        exception to an SNMP GET operation.  If notifications are\n        supported, this object's default value SHOULD reflect\n        sipCommonServiceColdStart and sipCommonServiceWarmStart enabled\n        and sipCommonServiceStatusChanged disabled.\n\n        This object value SHOULD persist across reboots.")
-sipCommonCfgEntityType = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 1, 1, 1, 8), SipTCEntityRole()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgEntityType.setDescription('This object identifies the list of SIP entities to which this\n        row is related.  It is defined as a bit map.  Each bit\n        represents a type of SIP entity.  If a bit has value 1, the\n        SIP entity represented by this row plays the role of this\n        entity type.  If a bit has value 0, the SIP entity represented\n        by this row does not act as this entity type.  Combinations\n        of bits can be set when the SIP entity plays multiple SIP\n        roles.')
-sipCommonPortTable = MibTable((1, 3, 6, 1, 2, 1, 149, 1, 1, 2), )
-if mibBuilder.loadTexts: sipCommonPortTable.setDescription('This table contains the list of ports that each SIP entity in\n        this system is allowed to use.  These ports can be advertised\n        using the Contact header in a REGISTER request or response.')
-sipCommonPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 149, 1, 1, 2, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"), (0, "SIP-COMMON-MIB", "sipCommonPort"))
-if mibBuilder.loadTexts: sipCommonPortEntry.setDescription('Specification of a particular port.\n\n        Each row represents those objects for a particular SIP entity\n        present in this system.  applIndex is used to uniquely identify\n        these instances of SIP entities and correlate them through\n        the common framework of the NETWORK-SERVICES-MIB (RFC 2788).')
-sipCommonPort = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 1, 2, 1, 1), InetPortNumber().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: sipCommonPort.setDescription('This object reflects a particular port that can be used by the\n        SIP application.')
-sipCommonPortTransportRcv = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 1, 2, 1, 2), SipTCTransportProtocol()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonPortTransportRcv.setDescription('This object will specify the transport protocol the SIP entity\n        will use to receive SIP messages.\n\n        This object is a bit map.  Each bit represents a transport\n        protocol.  If a bit has value 1, then that transport protocol\n        is currently being used.  If a bit has value 0, then that\n        transport protocol is currently not being used.')
-sipCommonOptionTagTable = MibTable((1, 3, 6, 1, 2, 1, 149, 1, 1, 3), )
-if mibBuilder.loadTexts: sipCommonOptionTagTable.setDescription("This table contains a list of the SIP option tags (SIP\n        extensions) that are either required, supported, or\n        unsupported by the SIP entity.  These option tags are\n        used in the Require, Proxy-Require, Supported, and\n        Unsupported header fields.\n\n        Example: If a user agent client supports, and requires the\n        server to support, reliability of provisional responses\n        (RFC 3262), this table contains a row with the option tag string\n        '100rel' in sipCommonOptionTag and the OCTET STRING value of\n        '1010 0000' or '0xA0' in sipCommonOptionTagHeaderField.\n\n        If a server does not support the required feature (indicated in\n        a Require header to a UAS, or in a Proxy-Require to a Proxy\n        Server), the server returns a 420 Bad Extension listing the\n        feature in an Unsupported header.\n\n        Normally, the list of such features supported by an entity is\n        static (i.e., will not change over time).")
-sipCommonOptionTagEntry = MibTableRow((1, 3, 6, 1, 2, 1, 149, 1, 1, 3, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"), (0, "SIP-COMMON-MIB", "sipCommonOptionTagIndex"))
-if mibBuilder.loadTexts: sipCommonOptionTagEntry.setDescription('A particular SIP option tag (extension) supported or\n        unsupported by the SIP entity, and which may be supported or\n        required by a peer.\n\n        Each row represents those objects for a particular SIP entity\n        present in this system.  applIndex is used to uniquely identify\n        these instances of SIP entities and correlate them through the\n        common framework of the NETWORK-SERVICES-MIB (RFC 2788).')
-sipCommonOptionTagIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 1, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: sipCommonOptionTagIndex.setDescription('This object uniquely identifies a conceptual row in the table.')
-sipCommonOptionTag = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 1, 3, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonOptionTag.setDescription('This object indicates the SIP option tag.  The option tag names\n       are registered with IANA and available at http://www.iana.org.')
-sipCommonOptionTagHeaderField = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 1, 3, 1, 3), SipTCOptionTagHeaders()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonOptionTagHeaderField.setDescription('This object indicates whether the SIP option tag is supported\n        (Supported header), unsupported (Unsupported header), or\n        required (Require or Proxy-Require header) by the SIP entity.\n        A SIP option tag may be both supported and required.')
-sipCommonMethodSupportedTable = MibTable((1, 3, 6, 1, 2, 1, 149, 1, 1, 4), )
-if mibBuilder.loadTexts: sipCommonMethodSupportedTable.setDescription('This table contains a list of methods supported by each SIP\n        entity in this system (see the standard set of SIP methods in\n        Section 7.1 of RFC 3261).  Any additional methods that may be\n        incorporated into the SIP protocol can be represented by this\n        table without any requirement to update this MIB module.\n\n        The table is informational in nature and conveys capabilities\n        of the managed system to the SNMP Manager.\n\n        From a protocol point of view, the list of methods advertised\n        by the SIP entity in the Allow header (Section 20.5 of RFC\n        3261) MUST be consistent with the methods reflected in this\n        table.')
-sipCommonMethodSupportedEntry = MibTableRow((1, 3, 6, 1, 2, 1, 149, 1, 1, 4, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"), (0, "SIP-COMMON-MIB", "sipCommonMethodSupportedIndex"))
-if mibBuilder.loadTexts: sipCommonMethodSupportedEntry.setDescription('A particular method supported by the SIP entity.\n\n        Each row represents those objects for a particular SIP entity\n        present in this system.  applIndex is used to uniquely identify\n        these instances of SIP entities and correlate them through\n        the common framework of the NETWORK-SERVICES-MIB (RFC 2788).')
-sipCommonMethodSupportedIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 1, 4, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: sipCommonMethodSupportedIndex.setDescription('This object uniquely identifies a conceptual row in the table\n        and reflects an assigned number used to identify a specific\n        SIP method.\n\n        This identifier is suitable for referencing the associated\n        method throughout this and other MIBs supported by this managed\n        system.')
-sipCommonMethodSupportedName = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 1, 4, 1, 2), SipTCMethodName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonMethodSupportedName.setDescription("This object reflects the supported method's name.  The method\n        name MUST be all upper case (e.g., 'INVITE').")
-sipCommonCfgTimerTable = MibTable((1, 3, 6, 1, 2, 1, 149, 1, 2, 1), )
-if mibBuilder.loadTexts: sipCommonCfgTimerTable.setDescription('This table contains timer configuration objects applicable to\n        SIP user agent and SIP stateful Proxy Server entities.')
-sipCommonCfgTimerEntry = MibTableRow((1, 3, 6, 1, 2, 1, 149, 1, 2, 1, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"))
-if mibBuilder.loadTexts: sipCommonCfgTimerEntry.setDescription('A row of timer configuration.\n\n        Each row represents those objects for a particular SIP entity\n        present in this system.  applIndex is used to uniquely identify\n        these instances of SIP entities and correlate them through\n        the common framework of the NETWORK-SERVICES-MIB (RFC 2788).\n        The objects in this table entry SHOULD be non-volatile and\n        their value SHOULD be kept at reboot.')
-sipCommonCfgTimerA = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 2, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(100,1000)).clone(500)).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgTimerA.setDescription('This object reflects the initial value for the retransmit timer\n        for the INVITE method.  The retransmit timer doubles after each\n        retransmission, ensuring an exponential backoff in network\n        traffic.  This object represents the initial time a SIP entity\n        will wait to receive a provisional response to an INVITE before\n        resending the INVITE request.')
-sipCommonCfgTimerB = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 2, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(32000,300000)).clone(32000)).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgTimerB.setDescription('This object reflects the maximum time a SIP entity will wait to\n        receive a final response to an INVITE.  The timer is started\n        upon transmission of the initial INVITE request.')
-sipCommonCfgTimerC = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 2, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(180000,300000)).clone(180000)).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgTimerC.setDescription('This object reflects the maximum time a SIP Proxy Server will\n        wait to receive a provisional response to an INVITE.  The Timer\n        C MUST be set for each client transaction when an INVITE\n        request is proxied.')
-sipCommonCfgTimerD = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 2, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,300000)).clone(32000)).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgTimerD.setDescription("This object reflects the amount of time that the server\n        transaction can remain in the 'Completed' state when unreliable\n        transports are used.  The default value MUST be equal to or\n        greater than 32000 for UDP transport, and its value MUST be 0\n        for TCP/SCTP transport.")
-sipCommonCfgTimerE = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 2, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(100,1000)).clone(500)).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgTimerE.setDescription("This object reflects the initial value for the retransmit timer\n        for a non-INVITE method while in 'Trying' state.  The\n        retransmit timer doubles after each retransmission until it\n        reaches T2 to ensure an exponential backoff in network traffic.\n        This object represents the initial time a SIP entity will wait\n        to receive a provisional response to the request before\n        resending the non-INVITE request.")
-sipCommonCfgTimerF = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 2, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(32000,300000)).clone(32000)).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgTimerF.setDescription('This object reflects the maximum time a SIP entity will wait to\n        receive a final response to a non-INVITE request.  The timer is\n        started upon transmission of the initial request.')
-sipCommonCfgTimerG = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 2, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,1000)).clone(500)).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgTimerG.setDescription('This object reflects the initial value for the retransmit timer\n        for final responses to INVITE requests.  If timer G fires, the\n        response is passed to the transport layer again for\n        retransmission, and timer G is set to fire in MIN(2*T1, T2)\n        seconds.  From then on, when timer G fires, the response is\n        passed to the transport again for transmission, and timer G is\n        reset with a value that doubles, unless that value exceeds T2,\n        in which case, it is reset with the value of T2.  The default\n        value MUST be T1 for UDP transport, and its value MUST be 0 for\n        reliable transport like TCP/SCTP.')
-sipCommonCfgTimerH = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 2, 1, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(32000,300000)).clone(32000)).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgTimerH.setDescription("This object reflects the maximum time a server will wait to\n        receive an ACK before it abandons retransmitting the response.\n\n        The timer is started upon entering the 'Completed' state.")
-sipCommonCfgTimerI = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 2, 1, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,10000)).clone(5000)).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgTimerI.setDescription("This object reflects the maximum time a SIP entity will wait to\n        receive additional ACK message retransmissions.\n\n        The timer is started upon entering the 'Confirmed' state.  The\n        default value MUST be T4 for UDP transport and its value MUST\n        be 0 for reliable transport like TCP/SCTP.")
-sipCommonCfgTimerJ = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 2, 1, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(32000,300000)).clone(32000)).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgTimerJ.setDescription("This object reflects the maximum time a SIP server will wait to\n        receive retransmissions of non-INVITE requests.  The timer is\n        started upon entering the 'Completed' state for non-INVITE\n        transactions.  When timer J fires, the server MUST transition to\n        the 'Terminated' state.")
-sipCommonCfgTimerK = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 2, 1, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,10000)).clone(5000)).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgTimerK.setDescription("This object reflects the maximum time a SIP client will wait to\n        receive retransmissions of responses to non-INVITE requests.\n        The timer is started upon entering the 'Completed' state for\n\n        non-INVITE transactions.  When timer K fires, the server MUST\n        transition to the 'Terminated' state.  The default value MUST\n        be T4 for UDP transport, and its value MUST be 0 for reliable\n        transport like TCP/SCTP.")
-sipCommonCfgTimerT1 = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 2, 1, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(200,10000)).clone(500)).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgTimerT1.setDescription('This object reflects the T1 timer for a SIP entity.  T1 is an\n        estimate of the round-trip time (RTT) between the client and\n        server transactions.')
-sipCommonCfgTimerT2 = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 2, 1, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(200,10000)).clone(4000)).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgTimerT2.setDescription("This object reflects the T2 timer for a SIP entity.  T2 is the\n        maximum retransmit interval for non-INVITE requests and INVITE\n        responses.  It's used in various parts of the protocol to reset\n        other Timer* objects to this value.")
-sipCommonCfgTimerT4 = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 2, 1, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(200,10000)).clone(5000)).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonCfgTimerT4.setDescription("This object reflects the T4 timer for a SIP entity.  T4 is the\n        maximum duration a message will remain in the network.  It\n        represents the amount of time the network will take to clear\n        messages between client and server transactions.  It's used in\n\n        various parts of the protocol to reset other Timer* objects to\n        this value.")
-sipCommonSummaryStatsTable = MibTable((1, 3, 6, 1, 2, 1, 149, 1, 3, 1), )
-if mibBuilder.loadTexts: sipCommonSummaryStatsTable.setDescription('This table contains the summary statistics objects applicable\n        to all SIP entities.  Each row represents those objects for a\n        particular SIP entity present in this system.')
-sipCommonSummaryStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 149, 1, 3, 1, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"))
-if mibBuilder.loadTexts: sipCommonSummaryStatsEntry.setDescription('A row of summary statistics.\n\n        Each row represents those objects for a particular SIP entity\n        present in this system.  applIndex is used to uniquely identify\n        these instances of SIP entities and correlate them through\n        the common framework of the NETWORK-SERVICES-MIB (RFC 2788).')
-sipCommonSummaryInRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 3, 1, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonSummaryInRequests.setDescription('This object indicates the total number of SIP request messages\n        received by the SIP entity, including retransmissions.\n\n        Discontinuities in the value of this counter can occur at\n        re-initialization of the SIP entity or service.  A Management\n        Station can detect discontinuities in this counter by\n        monitoring the sipCommonSummaryDisconTime object in the same\n        row.')
-sipCommonSummaryOutRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 3, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonSummaryOutRequests.setDescription('This object contains the total number of SIP request messages\n        sent out (originated and relayed) by the SIP entity.  Where a\n        particular message is sent more than once, for example as a\n        retransmission or as a result of forking, each transmission is\n        counted separately.\n\n        Discontinuities in the value of this counter can occur at\n        re-initialization of the SIP entity or service.  A Management\n        Station can detect discontinuities in this counter by\n        monitoring the sipCommonSummaryDisconTime object in the same\n        row.')
-sipCommonSummaryInResponses = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 3, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonSummaryInResponses.setDescription('This object contains the total number of SIP response messages\n        received by the SIP entity, including retransmissions.\n\n        Discontinuities in the value of this counter can occur at\n        re-initialization of the SIP entity or service.  A Management\n        Station can detect discontinuities in this counter by\n        monitoring the sipCommonSummaryDisconTime object in the same\n        row.')
-sipCommonSummaryOutResponses = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 3, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonSummaryOutResponses.setDescription('This object contains the total number of SIP response messages\n        sent (originated and relayed) by the SIP entity including\n        retransmissions.\n\n        Discontinuities in the value of this counter can occur at\n        re-initialization of the SIP entity or service.  A Management\n        Station can detect discontinuities in this counter by\n        monitoring the sipCommonSummaryDisconTime object in the same\n        row.')
-sipCommonSummaryTotalTransactions = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 3, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonSummaryTotalTransactions.setDescription("This object contains a count of the number of transactions that\n        are in progress and transactions that have reached the\n        'Terminated' state.  It is not applicable to stateless SIP Proxy\n        Servers.\n\n        A SIP transaction occurs between a client and a server, and\n        comprises all messages from the first request sent from the\n        client to the server, up to a final (non-1xx) response sent\n        from the server to the client.\n\n        If the request is INVITE and the final response is a non-2xx,\n        the transaction also include an ACK to the response.  The ACK\n        for a 2xx response to an INVITE request is a separate\n        transaction.\n\n        The branch ID parameter in the Via header field values serves\n        as a transaction identifier.\n\n        A transaction is identified by the CSeq sequence number within\n        a single call leg.  The ACK request has the same CSeq number as\n        the corresponding INVITE request, but comprises a transaction\n        of its own.\n\n        In the case of a forked request, each branch counts as a single\n        transaction.\n\n        For a transaction stateless Proxy Server, this counter is\n        always 0.\n\n        Discontinuities in the value of this counter can occur at\n        re-initialization of the SIP entity or service.  A Management\n        Station can detect discontinuities in this counter by\n        monitoring the sipCommonSummaryDisconTime object in the same\n        row.")
-sipCommonSummaryDisconTime = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 3, 1, 1, 6), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonSummaryDisconTime.setDescription('The value of the sysUpTime object when the counters for the\n        summary statistics objects in this row last experienced a\n        discontinuity.')
-sipCommonMethodStatsTable = MibTable((1, 3, 6, 1, 2, 1, 149, 1, 4, 1), )
-if mibBuilder.loadTexts: sipCommonMethodStatsTable.setDescription('This table contains the method statistics objects for SIP\n        entities.  Each row represents those objects for a particular\n        SIP entity present in this system.')
-sipCommonMethodStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 149, 1, 4, 1, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"), (0, "SIP-COMMON-MIB", "sipCommonMethodStatsName"))
-if mibBuilder.loadTexts: sipCommonMethodStatsEntry.setDescription('A row of per entity method statistics.\n\n        Each row represents those objects for a particular SIP entity\n        present in this system.  applIndex is used to uniquely identify\n        these instances of SIP entities and correlate them through\n        the common framework of the NETWORK-SERVICES-MIB (RFC 2788).')
-sipCommonMethodStatsName = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 4, 1, 1, 1), SipTCMethodName())
-if mibBuilder.loadTexts: sipCommonMethodStatsName.setDescription('This object uniquely identifies the SIP method related to the\n        objects in a particular row.')
-sipCommonMethodStatsOutbounds = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 4, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonMethodStatsOutbounds.setDescription('This object reflects the total number of requests sent by the\n        SIP entity, excluding retransmissions.  Retransmissions are\n        counted separately and are not reflected in this counter.  A\n        Management Station can detect discontinuities in this counter\n        by monitoring the sipCommonMethodStatsDisconTime object in the\n        same row.')
-sipCommonMethodStatsInbounds = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 4, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonMethodStatsInbounds.setDescription('This object reflects the total number of requests received by\n        the SIP entity.  Retransmissions are counted separately and are\n        not reflected in this counter.  A Management Station can detect\n        discontinuities in this counter by monitoring the\n        sipCommonMethodStatsDisconTime object in the same row.')
-sipCommonMethodStatsDisconTime = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 4, 1, 1, 4), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonMethodStatsDisconTime.setDescription('The value of the sysUpTime object when the counters for the\n        method statistics objects in this row last experienced a\n        discontinuity.')
-sipCommonStatusCodeTable = MibTable((1, 3, 6, 1, 2, 1, 149, 1, 5, 1), )
-if mibBuilder.loadTexts: sipCommonStatusCodeTable.setDescription('This table contains the list of SIP status codes that each SIP\n        entity in this system has been requested to monitor.  It is the\n        mechanism by which specific status codes are monitored.\n        Entries created in this table must not persist across reboots.')
-sipCommonStatusCodeEntry = MibTableRow((1, 3, 6, 1, 2, 1, 149, 1, 5, 1, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"), (0, "SIP-COMMON-MIB", "sipCommonStatusCodeMethod"), (0, "SIP-COMMON-MIB", "sipCommonStatusCodeValue"))
-if mibBuilder.loadTexts: sipCommonStatusCodeEntry.setDescription('This row contains information on a particular SIP status code\n        that the SIP entity has been requested to monitor.  Entries\n        created in this table must not persist across reboots.\n\n        Each row represents those objects for a particular SIP entity\n        present in this system.  applIndex is used to uniquely identify\n        these instances of SIP entities and correlate them through\n        the common framework of the NETWORK-SERVICES-MIB (RFC 2788).')
-sipCommonStatusCodeMethod = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 5, 1, 1, 1), SipTCMethodName())
-if mibBuilder.loadTexts: sipCommonStatusCodeMethod.setDescription('This object uniquely identifies a conceptual row in the\n        table.')
-sipCommonStatusCodeValue = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 5, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(100,999)))
-if mibBuilder.loadTexts: sipCommonStatusCodeValue.setDescription('This object contains a SIP status code value that the SIP\n        entity has been requested to monitor.  All of the other\n        information in the row is related to this value.')
-sipCommonStatusCodeIns = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 5, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonStatusCodeIns.setDescription('This object reflects the total number of response messages\n        received by the SIP entity with the status code value contained\n        in the sipCommonStatusCodeValue column.\n\n        Discontinuities in the value of this counter can occur at\n        re-initialization of the SIP entity or service, or when the\n        monitoring of the status code is temporarily disabled.  A\n        Management Station can detect discontinuities in this counter\n        by monitoring the sipCommonStatusCodeDisconTime object in the\n        same row.')
-sipCommonStatusCodeOuts = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 5, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonStatusCodeOuts.setDescription('This object reflects the total number of response messages sent\n        by the SIP entity with the status code value contained in the\n        sipCommonStatusCodeValue column.\n\n        Discontinuities in the value of this counter can occur at\n        re-initialization of the SIP entity or service, or when the\n        monitoring of the Status code is temporarily disabled.  A\n        Management Station can detect discontinuities in this counter\n        by monitoring the sipCommonStatusCodeDisconTime object in the\n        same row.')
-sipCommonStatusCodeRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 5, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sipCommonStatusCodeRowStatus.setDescription("The row augmentation in sipCommonStatusCodeNotifTable will be\n        governed by the value of this RowStatus.\n\n        The values 'createAndGo' and 'destroy' are the only valid\n        values allowed for this object.  If a row exists, it will\n        reflect a status of 'active' when queried.")
-sipCommonStatusCodeDisconTime = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 5, 1, 1, 6), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonStatusCodeDisconTime.setDescription('The value of the sysUpTime object when the counters for the\n        status code statistics objects in this row last experienced\n        a discontinuity.')
-sipCommonStatusCodeNotifTable = MibTable((1, 3, 6, 1, 2, 1, 149, 1, 5, 2), )
-if mibBuilder.loadTexts: sipCommonStatusCodeNotifTable.setDescription('This table contains objects to control notifications related to\n        particular status codes that each SIP entity in this system has\n        been requested to monitor.\n\n        There is an entry in this table corresponding to each entry in\n        sipCommonStatusCodeTable.  Therefore, this table augments\n        sipCommonStatusCodeTable and utilizes the same index\n        methodology.\n\n        The objects in this table are not included directly in the\n        sipCommonStatusCodeTable simply to keep the status code\n        notification control objects separate from the actual status\n        code statistics.')
-sipCommonStatusCodeNotifEntry = MibTableRow((1, 3, 6, 1, 2, 1, 149, 1, 5, 2, 1), )
-sipCommonStatusCodeEntry.registerAugmentions(("SIP-COMMON-MIB", "sipCommonStatusCodeNotifEntry"))
+_AZ='sipCommonStatsGroup'
+_AY='sipCommonConfigGroup'
+_AX='sipCommonStatusCodeThreshExceededOutNotif'
+_AW='sipCommonStatusCodeThreshExceededInNotif'
+_AV='sipCommonStatusCodeNotif'
+_AU='sipCommonStatusCodeNotifInterval'
+_AT='sipCommonStatusCodeNotifThresh'
+_AS='sipCommonStatusCodeNotifEmitMode'
+_AR='sipCommonStatusCodeNotifSend'
+_AQ='sipCommonStatsRetryDisconTime'
+_AP='sipCommonStatsRetryNonFinalResponses'
+_AO='sipCommonStatsRetryFinalResponses'
+_AN='sipCommonStatsRetries'
+_AM='sipCommonOtherStatsDisconTime'
+_AL='sipCommonOtherStatsOtherwiseDiscardedMsgs'
+_AK='sipCommonOtherStatsNumUnsupportedMethods'
+_AJ='sipCommonOtherStatsNumUnsupportedUris'
+_AI='sipCommonTransCurrentactions'
+_AH='sipCommonStatusCodeDisconTime'
+_AG='sipCommonStatusCodeRowStatus'
+_AF='sipCommonMethodStatsDisconTime'
+_AE='sipCommonMethodStatsInbounds'
+_AD='sipCommonMethodStatsOutbounds'
+_AC='sipCommonSummaryDisconTime'
+_AB='sipCommonSummaryTotalTransactions'
+_AA='sipCommonSummaryOutResponses'
+_A9='sipCommonSummaryInResponses'
+_A8='sipCommonSummaryOutRequests'
+_A7='sipCommonSummaryInRequests'
+_A6='sipCommonCfgTimerT4'
+_A5='sipCommonCfgTimerT2'
+_A4='sipCommonCfgTimerT1'
+_A3='sipCommonCfgTimerK'
+_A2='sipCommonCfgTimerJ'
+_A1='sipCommonCfgTimerI'
+_A0='sipCommonCfgTimerH'
+_z='sipCommonCfgTimerG'
+_y='sipCommonCfgTimerF'
+_x='sipCommonCfgTimerE'
+_w='sipCommonCfgTimerD'
+_v='sipCommonCfgTimerC'
+_u='sipCommonCfgTimerB'
+_t='sipCommonCfgTimerA'
+_s='sipCommonCfgOrganization'
+_r='sipCommonMethodSupportedName'
+_q='sipCommonCfgEntityType'
+_p='sipCommonCfgServiceNotifEnable'
+_o='sipCommonCfgMaxTransactions'
+_n='sipCommonOptionTagHeaderField'
+_m='sipCommonOptionTag'
+_l='sipCommonPortTransportRcv'
+_k='sipCommonCfgProtocolVersion'
+_j='sipCommonStatusCodeNotifEntry'
+_i='sipCommonStatsRetryMethod'
+_h='sipCommonStatusCodeValue'
+_g='sipCommonStatusCodeMethod'
+_f='sipCommonMethodStatsName'
+_e='sipCommonMethodSupportedIndex'
+_d='sipCommonOptionTagIndex'
+_c='sipCommonPort'
+_b='TruthValue'
+_a='Gauge32'
+_Z='InetPortNumber'
+_Y='sipCommonStatusCodeNotifCSeq'
+_X='sipCommonStatusCodeNotifCallId'
+_W='sipCommonStatusCodeNotifFrom'
+_V='sipCommonStatusCodeNotifTo'
+_U='sipCommonCfgServiceStartTime'
+_T='sipCommonCfgServiceOperStatus'
+_S='sipCommonServiceStatusChanged'
+_R='sipCommonServiceWarmStart'
+_Q='sipCommonServiceColdStart'
+_P='Integer32'
+_O='sipCommonStatusCodeOuts'
+_N='sipCommonStatusCodeIns'
+_M='sipCommonCfgServiceLastChange'
+_L='read-write'
+_K='accessible-for-notify'
+_J='not-accessible'
+_I='sipCommonNotifSequenceNumber'
+_H='sipCommonNotifApplIndex'
+_G='applIndex'
+_F='NETWORK-SERVICES-MIB'
+_E='milliseconds'
+_D='Unsigned32'
+_C='read-only'
+_B='SIP-COMMON-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InetPortNumber,=mibBuilder.importSymbols('INET-ADDRESS-MIB',_Z)
+applIndex,=mibBuilder.importSymbols(_F,_G)
+SipTCEntityRole,SipTCMethodName,SipTCOptionTagHeaders,SipTCTransportProtocol=mibBuilder.importSymbols('SIP-TC-MIB','SipTCEntityRole','SipTCMethodName','SipTCOptionTagHeaders','SipTCTransportProtocol')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64',_a,_P,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso','mib-2')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TimeStamp',_b)
+sipCommonMIB=ModuleIdentity((1,3,6,1,2,1,149))
+if mibBuilder.loadTexts:sipCommonMIB.setRevisions(('2007-04-20 00:00',))
+_SipCommonMIBNotifications_ObjectIdentity=ObjectIdentity
+sipCommonMIBNotifications=_SipCommonMIBNotifications_ObjectIdentity((1,3,6,1,2,1,149,0))
+_SipCommonMIBObjects_ObjectIdentity=ObjectIdentity
+sipCommonMIBObjects=_SipCommonMIBObjects_ObjectIdentity((1,3,6,1,2,1,149,1))
+_SipCommonCfgBase_ObjectIdentity=ObjectIdentity
+sipCommonCfgBase=_SipCommonCfgBase_ObjectIdentity((1,3,6,1,2,1,149,1,1))
+_SipCommonCfgTable_Object=MibTable
+sipCommonCfgTable=_SipCommonCfgTable_Object((1,3,6,1,2,1,149,1,1,1))
+if mibBuilder.loadTexts:sipCommonCfgTable.setStatus(_A)
+_SipCommonCfgEntry_Object=MibTableRow
+sipCommonCfgEntry=_SipCommonCfgEntry_Object((1,3,6,1,2,1,149,1,1,1,1))
+sipCommonCfgEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:sipCommonCfgEntry.setStatus(_A)
+_SipCommonCfgProtocolVersion_Type=SnmpAdminString
+_SipCommonCfgProtocolVersion_Object=MibTableColumn
+sipCommonCfgProtocolVersion=_SipCommonCfgProtocolVersion_Object((1,3,6,1,2,1,149,1,1,1,1,1),_SipCommonCfgProtocolVersion_Type())
+sipCommonCfgProtocolVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgProtocolVersion.setStatus(_A)
+class _SipCommonCfgServiceOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('unknown',1),('up',2),('down',3),('congested',4),('restarting',5),('quiescing',6),('testing',7)))
+_SipCommonCfgServiceOperStatus_Type.__name__=_P
+_SipCommonCfgServiceOperStatus_Object=MibTableColumn
+sipCommonCfgServiceOperStatus=_SipCommonCfgServiceOperStatus_Object((1,3,6,1,2,1,149,1,1,1,1,2),_SipCommonCfgServiceOperStatus_Type())
+sipCommonCfgServiceOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgServiceOperStatus.setStatus(_A)
+_SipCommonCfgServiceStartTime_Type=TimeTicks
+_SipCommonCfgServiceStartTime_Object=MibTableColumn
+sipCommonCfgServiceStartTime=_SipCommonCfgServiceStartTime_Object((1,3,6,1,2,1,149,1,1,1,1,3),_SipCommonCfgServiceStartTime_Type())
+sipCommonCfgServiceStartTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgServiceStartTime.setStatus(_A)
+_SipCommonCfgServiceLastChange_Type=TimeTicks
+_SipCommonCfgServiceLastChange_Object=MibTableColumn
+sipCommonCfgServiceLastChange=_SipCommonCfgServiceLastChange_Object((1,3,6,1,2,1,149,1,1,1,1,4),_SipCommonCfgServiceLastChange_Type())
+sipCommonCfgServiceLastChange.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgServiceLastChange.setStatus(_A)
+_SipCommonCfgOrganization_Type=SnmpAdminString
+_SipCommonCfgOrganization_Object=MibTableColumn
+sipCommonCfgOrganization=_SipCommonCfgOrganization_Object((1,3,6,1,2,1,149,1,1,1,1,5),_SipCommonCfgOrganization_Type())
+sipCommonCfgOrganization.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgOrganization.setStatus(_A)
+class _SipCommonCfgMaxTransactions_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_SipCommonCfgMaxTransactions_Type.__name__=_D
+_SipCommonCfgMaxTransactions_Object=MibTableColumn
+sipCommonCfgMaxTransactions=_SipCommonCfgMaxTransactions_Object((1,3,6,1,2,1,149,1,1,1,1,6),_SipCommonCfgMaxTransactions_Type())
+sipCommonCfgMaxTransactions.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgMaxTransactions.setStatus(_A)
+class _SipCommonCfgServiceNotifEnable_Type(Bits):defaultBinValue='11';namedValues=NamedValues(*((_Q,0),(_R,1),(_S,2)))
+_SipCommonCfgServiceNotifEnable_Type.__name__='Bits'
+_SipCommonCfgServiceNotifEnable_Object=MibTableColumn
+sipCommonCfgServiceNotifEnable=_SipCommonCfgServiceNotifEnable_Object((1,3,6,1,2,1,149,1,1,1,1,7),_SipCommonCfgServiceNotifEnable_Type())
+sipCommonCfgServiceNotifEnable.setMaxAccess(_L)
+if mibBuilder.loadTexts:sipCommonCfgServiceNotifEnable.setStatus(_A)
+_SipCommonCfgEntityType_Type=SipTCEntityRole
+_SipCommonCfgEntityType_Object=MibTableColumn
+sipCommonCfgEntityType=_SipCommonCfgEntityType_Object((1,3,6,1,2,1,149,1,1,1,1,8),_SipCommonCfgEntityType_Type())
+sipCommonCfgEntityType.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgEntityType.setStatus(_A)
+_SipCommonPortTable_Object=MibTable
+sipCommonPortTable=_SipCommonPortTable_Object((1,3,6,1,2,1,149,1,1,2))
+if mibBuilder.loadTexts:sipCommonPortTable.setStatus(_A)
+_SipCommonPortEntry_Object=MibTableRow
+sipCommonPortEntry=_SipCommonPortEntry_Object((1,3,6,1,2,1,149,1,1,2,1))
+sipCommonPortEntry.setIndexNames((0,_F,_G),(0,_B,_c))
+if mibBuilder.loadTexts:sipCommonPortEntry.setStatus(_A)
+class _SipCommonPort_Type(InetPortNumber):subtypeSpec=InetPortNumber.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_SipCommonPort_Type.__name__=_Z
+_SipCommonPort_Object=MibTableColumn
+sipCommonPort=_SipCommonPort_Object((1,3,6,1,2,1,149,1,1,2,1,1),_SipCommonPort_Type())
+sipCommonPort.setMaxAccess(_J)
+if mibBuilder.loadTexts:sipCommonPort.setStatus(_A)
+_SipCommonPortTransportRcv_Type=SipTCTransportProtocol
+_SipCommonPortTransportRcv_Object=MibTableColumn
+sipCommonPortTransportRcv=_SipCommonPortTransportRcv_Object((1,3,6,1,2,1,149,1,1,2,1,2),_SipCommonPortTransportRcv_Type())
+sipCommonPortTransportRcv.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonPortTransportRcv.setStatus(_A)
+_SipCommonOptionTagTable_Object=MibTable
+sipCommonOptionTagTable=_SipCommonOptionTagTable_Object((1,3,6,1,2,1,149,1,1,3))
+if mibBuilder.loadTexts:sipCommonOptionTagTable.setStatus(_A)
+_SipCommonOptionTagEntry_Object=MibTableRow
+sipCommonOptionTagEntry=_SipCommonOptionTagEntry_Object((1,3,6,1,2,1,149,1,1,3,1))
+sipCommonOptionTagEntry.setIndexNames((0,_F,_G),(0,_B,_d))
+if mibBuilder.loadTexts:sipCommonOptionTagEntry.setStatus(_A)
+class _SipCommonOptionTagIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_SipCommonOptionTagIndex_Type.__name__=_D
+_SipCommonOptionTagIndex_Object=MibTableColumn
+sipCommonOptionTagIndex=_SipCommonOptionTagIndex_Object((1,3,6,1,2,1,149,1,1,3,1,1),_SipCommonOptionTagIndex_Type())
+sipCommonOptionTagIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:sipCommonOptionTagIndex.setStatus(_A)
+_SipCommonOptionTag_Type=SnmpAdminString
+_SipCommonOptionTag_Object=MibTableColumn
+sipCommonOptionTag=_SipCommonOptionTag_Object((1,3,6,1,2,1,149,1,1,3,1,2),_SipCommonOptionTag_Type())
+sipCommonOptionTag.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonOptionTag.setStatus(_A)
+_SipCommonOptionTagHeaderField_Type=SipTCOptionTagHeaders
+_SipCommonOptionTagHeaderField_Object=MibTableColumn
+sipCommonOptionTagHeaderField=_SipCommonOptionTagHeaderField_Object((1,3,6,1,2,1,149,1,1,3,1,3),_SipCommonOptionTagHeaderField_Type())
+sipCommonOptionTagHeaderField.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonOptionTagHeaderField.setStatus(_A)
+_SipCommonMethodSupportedTable_Object=MibTable
+sipCommonMethodSupportedTable=_SipCommonMethodSupportedTable_Object((1,3,6,1,2,1,149,1,1,4))
+if mibBuilder.loadTexts:sipCommonMethodSupportedTable.setStatus(_A)
+_SipCommonMethodSupportedEntry_Object=MibTableRow
+sipCommonMethodSupportedEntry=_SipCommonMethodSupportedEntry_Object((1,3,6,1,2,1,149,1,1,4,1))
+sipCommonMethodSupportedEntry.setIndexNames((0,_F,_G),(0,_B,_e))
+if mibBuilder.loadTexts:sipCommonMethodSupportedEntry.setStatus(_A)
+class _SipCommonMethodSupportedIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_SipCommonMethodSupportedIndex_Type.__name__=_D
+_SipCommonMethodSupportedIndex_Object=MibTableColumn
+sipCommonMethodSupportedIndex=_SipCommonMethodSupportedIndex_Object((1,3,6,1,2,1,149,1,1,4,1,1),_SipCommonMethodSupportedIndex_Type())
+sipCommonMethodSupportedIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:sipCommonMethodSupportedIndex.setStatus(_A)
+_SipCommonMethodSupportedName_Type=SipTCMethodName
+_SipCommonMethodSupportedName_Object=MibTableColumn
+sipCommonMethodSupportedName=_SipCommonMethodSupportedName_Object((1,3,6,1,2,1,149,1,1,4,1,2),_SipCommonMethodSupportedName_Type())
+sipCommonMethodSupportedName.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonMethodSupportedName.setStatus(_A)
+_SipCommonCfgTimer_ObjectIdentity=ObjectIdentity
+sipCommonCfgTimer=_SipCommonCfgTimer_ObjectIdentity((1,3,6,1,2,1,149,1,2))
+_SipCommonCfgTimerTable_Object=MibTable
+sipCommonCfgTimerTable=_SipCommonCfgTimerTable_Object((1,3,6,1,2,1,149,1,2,1))
+if mibBuilder.loadTexts:sipCommonCfgTimerTable.setStatus(_A)
+_SipCommonCfgTimerEntry_Object=MibTableRow
+sipCommonCfgTimerEntry=_SipCommonCfgTimerEntry_Object((1,3,6,1,2,1,149,1,2,1,1))
+sipCommonCfgTimerEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:sipCommonCfgTimerEntry.setStatus(_A)
+class _SipCommonCfgTimerA_Type(Unsigned32):defaultValue=500;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,1000))
+_SipCommonCfgTimerA_Type.__name__=_D
+_SipCommonCfgTimerA_Object=MibTableColumn
+sipCommonCfgTimerA=_SipCommonCfgTimerA_Object((1,3,6,1,2,1,149,1,2,1,1,1),_SipCommonCfgTimerA_Type())
+sipCommonCfgTimerA.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgTimerA.setStatus(_A)
+if mibBuilder.loadTexts:sipCommonCfgTimerA.setUnits(_E)
+class _SipCommonCfgTimerB_Type(Unsigned32):defaultValue=32000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(32000,300000))
+_SipCommonCfgTimerB_Type.__name__=_D
+_SipCommonCfgTimerB_Object=MibTableColumn
+sipCommonCfgTimerB=_SipCommonCfgTimerB_Object((1,3,6,1,2,1,149,1,2,1,1,2),_SipCommonCfgTimerB_Type())
+sipCommonCfgTimerB.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgTimerB.setStatus(_A)
+if mibBuilder.loadTexts:sipCommonCfgTimerB.setUnits(_E)
+class _SipCommonCfgTimerC_Type(Unsigned32):defaultValue=180000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(180000,300000))
+_SipCommonCfgTimerC_Type.__name__=_D
+_SipCommonCfgTimerC_Object=MibTableColumn
+sipCommonCfgTimerC=_SipCommonCfgTimerC_Object((1,3,6,1,2,1,149,1,2,1,1,3),_SipCommonCfgTimerC_Type())
+sipCommonCfgTimerC.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgTimerC.setStatus(_A)
+if mibBuilder.loadTexts:sipCommonCfgTimerC.setUnits(_E)
+class _SipCommonCfgTimerD_Type(Unsigned32):defaultValue=32000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,300000))
+_SipCommonCfgTimerD_Type.__name__=_D
+_SipCommonCfgTimerD_Object=MibTableColumn
+sipCommonCfgTimerD=_SipCommonCfgTimerD_Object((1,3,6,1,2,1,149,1,2,1,1,4),_SipCommonCfgTimerD_Type())
+sipCommonCfgTimerD.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgTimerD.setStatus(_A)
+if mibBuilder.loadTexts:sipCommonCfgTimerD.setUnits(_E)
+class _SipCommonCfgTimerE_Type(Unsigned32):defaultValue=500;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,1000))
+_SipCommonCfgTimerE_Type.__name__=_D
+_SipCommonCfgTimerE_Object=MibTableColumn
+sipCommonCfgTimerE=_SipCommonCfgTimerE_Object((1,3,6,1,2,1,149,1,2,1,1,5),_SipCommonCfgTimerE_Type())
+sipCommonCfgTimerE.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgTimerE.setStatus(_A)
+if mibBuilder.loadTexts:sipCommonCfgTimerE.setUnits(_E)
+class _SipCommonCfgTimerF_Type(Unsigned32):defaultValue=32000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(32000,300000))
+_SipCommonCfgTimerF_Type.__name__=_D
+_SipCommonCfgTimerF_Object=MibTableColumn
+sipCommonCfgTimerF=_SipCommonCfgTimerF_Object((1,3,6,1,2,1,149,1,2,1,1,6),_SipCommonCfgTimerF_Type())
+sipCommonCfgTimerF.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgTimerF.setStatus(_A)
+if mibBuilder.loadTexts:sipCommonCfgTimerF.setUnits(_E)
+class _SipCommonCfgTimerG_Type(Unsigned32):defaultValue=500;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1000))
+_SipCommonCfgTimerG_Type.__name__=_D
+_SipCommonCfgTimerG_Object=MibTableColumn
+sipCommonCfgTimerG=_SipCommonCfgTimerG_Object((1,3,6,1,2,1,149,1,2,1,1,7),_SipCommonCfgTimerG_Type())
+sipCommonCfgTimerG.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgTimerG.setStatus(_A)
+if mibBuilder.loadTexts:sipCommonCfgTimerG.setUnits(_E)
+class _SipCommonCfgTimerH_Type(Unsigned32):defaultValue=32000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(32000,300000))
+_SipCommonCfgTimerH_Type.__name__=_D
+_SipCommonCfgTimerH_Object=MibTableColumn
+sipCommonCfgTimerH=_SipCommonCfgTimerH_Object((1,3,6,1,2,1,149,1,2,1,1,8),_SipCommonCfgTimerH_Type())
+sipCommonCfgTimerH.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgTimerH.setStatus(_A)
+if mibBuilder.loadTexts:sipCommonCfgTimerH.setUnits(_E)
+class _SipCommonCfgTimerI_Type(Unsigned32):defaultValue=5000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
+_SipCommonCfgTimerI_Type.__name__=_D
+_SipCommonCfgTimerI_Object=MibTableColumn
+sipCommonCfgTimerI=_SipCommonCfgTimerI_Object((1,3,6,1,2,1,149,1,2,1,1,9),_SipCommonCfgTimerI_Type())
+sipCommonCfgTimerI.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgTimerI.setStatus(_A)
+if mibBuilder.loadTexts:sipCommonCfgTimerI.setUnits(_E)
+class _SipCommonCfgTimerJ_Type(Unsigned32):defaultValue=32000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(32000,300000))
+_SipCommonCfgTimerJ_Type.__name__=_D
+_SipCommonCfgTimerJ_Object=MibTableColumn
+sipCommonCfgTimerJ=_SipCommonCfgTimerJ_Object((1,3,6,1,2,1,149,1,2,1,1,10),_SipCommonCfgTimerJ_Type())
+sipCommonCfgTimerJ.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgTimerJ.setStatus(_A)
+if mibBuilder.loadTexts:sipCommonCfgTimerJ.setUnits(_E)
+class _SipCommonCfgTimerK_Type(Unsigned32):defaultValue=5000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10000))
+_SipCommonCfgTimerK_Type.__name__=_D
+_SipCommonCfgTimerK_Object=MibTableColumn
+sipCommonCfgTimerK=_SipCommonCfgTimerK_Object((1,3,6,1,2,1,149,1,2,1,1,11),_SipCommonCfgTimerK_Type())
+sipCommonCfgTimerK.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgTimerK.setStatus(_A)
+if mibBuilder.loadTexts:sipCommonCfgTimerK.setUnits(_E)
+class _SipCommonCfgTimerT1_Type(Unsigned32):defaultValue=500;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(200,10000))
+_SipCommonCfgTimerT1_Type.__name__=_D
+_SipCommonCfgTimerT1_Object=MibTableColumn
+sipCommonCfgTimerT1=_SipCommonCfgTimerT1_Object((1,3,6,1,2,1,149,1,2,1,1,12),_SipCommonCfgTimerT1_Type())
+sipCommonCfgTimerT1.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgTimerT1.setStatus(_A)
+if mibBuilder.loadTexts:sipCommonCfgTimerT1.setUnits(_E)
+class _SipCommonCfgTimerT2_Type(Unsigned32):defaultValue=4000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(200,10000))
+_SipCommonCfgTimerT2_Type.__name__=_D
+_SipCommonCfgTimerT2_Object=MibTableColumn
+sipCommonCfgTimerT2=_SipCommonCfgTimerT2_Object((1,3,6,1,2,1,149,1,2,1,1,13),_SipCommonCfgTimerT2_Type())
+sipCommonCfgTimerT2.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgTimerT2.setStatus(_A)
+if mibBuilder.loadTexts:sipCommonCfgTimerT2.setUnits(_E)
+class _SipCommonCfgTimerT4_Type(Unsigned32):defaultValue=5000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(200,10000))
+_SipCommonCfgTimerT4_Type.__name__=_D
+_SipCommonCfgTimerT4_Object=MibTableColumn
+sipCommonCfgTimerT4=_SipCommonCfgTimerT4_Object((1,3,6,1,2,1,149,1,2,1,1,14),_SipCommonCfgTimerT4_Type())
+sipCommonCfgTimerT4.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonCfgTimerT4.setStatus(_A)
+if mibBuilder.loadTexts:sipCommonCfgTimerT4.setUnits(_E)
+_SipCommonSummaryStats_ObjectIdentity=ObjectIdentity
+sipCommonSummaryStats=_SipCommonSummaryStats_ObjectIdentity((1,3,6,1,2,1,149,1,3))
+_SipCommonSummaryStatsTable_Object=MibTable
+sipCommonSummaryStatsTable=_SipCommonSummaryStatsTable_Object((1,3,6,1,2,1,149,1,3,1))
+if mibBuilder.loadTexts:sipCommonSummaryStatsTable.setStatus(_A)
+_SipCommonSummaryStatsEntry_Object=MibTableRow
+sipCommonSummaryStatsEntry=_SipCommonSummaryStatsEntry_Object((1,3,6,1,2,1,149,1,3,1,1))
+sipCommonSummaryStatsEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:sipCommonSummaryStatsEntry.setStatus(_A)
+_SipCommonSummaryInRequests_Type=Counter32
+_SipCommonSummaryInRequests_Object=MibTableColumn
+sipCommonSummaryInRequests=_SipCommonSummaryInRequests_Object((1,3,6,1,2,1,149,1,3,1,1,1),_SipCommonSummaryInRequests_Type())
+sipCommonSummaryInRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonSummaryInRequests.setStatus(_A)
+_SipCommonSummaryOutRequests_Type=Counter32
+_SipCommonSummaryOutRequests_Object=MibTableColumn
+sipCommonSummaryOutRequests=_SipCommonSummaryOutRequests_Object((1,3,6,1,2,1,149,1,3,1,1,2),_SipCommonSummaryOutRequests_Type())
+sipCommonSummaryOutRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonSummaryOutRequests.setStatus(_A)
+_SipCommonSummaryInResponses_Type=Counter32
+_SipCommonSummaryInResponses_Object=MibTableColumn
+sipCommonSummaryInResponses=_SipCommonSummaryInResponses_Object((1,3,6,1,2,1,149,1,3,1,1,3),_SipCommonSummaryInResponses_Type())
+sipCommonSummaryInResponses.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonSummaryInResponses.setStatus(_A)
+_SipCommonSummaryOutResponses_Type=Counter32
+_SipCommonSummaryOutResponses_Object=MibTableColumn
+sipCommonSummaryOutResponses=_SipCommonSummaryOutResponses_Object((1,3,6,1,2,1,149,1,3,1,1,4),_SipCommonSummaryOutResponses_Type())
+sipCommonSummaryOutResponses.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonSummaryOutResponses.setStatus(_A)
+_SipCommonSummaryTotalTransactions_Type=Counter32
+_SipCommonSummaryTotalTransactions_Object=MibTableColumn
+sipCommonSummaryTotalTransactions=_SipCommonSummaryTotalTransactions_Object((1,3,6,1,2,1,149,1,3,1,1,5),_SipCommonSummaryTotalTransactions_Type())
+sipCommonSummaryTotalTransactions.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonSummaryTotalTransactions.setStatus(_A)
+_SipCommonSummaryDisconTime_Type=TimeStamp
+_SipCommonSummaryDisconTime_Object=MibTableColumn
+sipCommonSummaryDisconTime=_SipCommonSummaryDisconTime_Object((1,3,6,1,2,1,149,1,3,1,1,6),_SipCommonSummaryDisconTime_Type())
+sipCommonSummaryDisconTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonSummaryDisconTime.setStatus(_A)
+_SipCommonMethodStats_ObjectIdentity=ObjectIdentity
+sipCommonMethodStats=_SipCommonMethodStats_ObjectIdentity((1,3,6,1,2,1,149,1,4))
+_SipCommonMethodStatsTable_Object=MibTable
+sipCommonMethodStatsTable=_SipCommonMethodStatsTable_Object((1,3,6,1,2,1,149,1,4,1))
+if mibBuilder.loadTexts:sipCommonMethodStatsTable.setStatus(_A)
+_SipCommonMethodStatsEntry_Object=MibTableRow
+sipCommonMethodStatsEntry=_SipCommonMethodStatsEntry_Object((1,3,6,1,2,1,149,1,4,1,1))
+sipCommonMethodStatsEntry.setIndexNames((0,_F,_G),(0,_B,_f))
+if mibBuilder.loadTexts:sipCommonMethodStatsEntry.setStatus(_A)
+_SipCommonMethodStatsName_Type=SipTCMethodName
+_SipCommonMethodStatsName_Object=MibTableColumn
+sipCommonMethodStatsName=_SipCommonMethodStatsName_Object((1,3,6,1,2,1,149,1,4,1,1,1),_SipCommonMethodStatsName_Type())
+sipCommonMethodStatsName.setMaxAccess(_J)
+if mibBuilder.loadTexts:sipCommonMethodStatsName.setStatus(_A)
+_SipCommonMethodStatsOutbounds_Type=Counter32
+_SipCommonMethodStatsOutbounds_Object=MibTableColumn
+sipCommonMethodStatsOutbounds=_SipCommonMethodStatsOutbounds_Object((1,3,6,1,2,1,149,1,4,1,1,2),_SipCommonMethodStatsOutbounds_Type())
+sipCommonMethodStatsOutbounds.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonMethodStatsOutbounds.setStatus(_A)
+_SipCommonMethodStatsInbounds_Type=Counter32
+_SipCommonMethodStatsInbounds_Object=MibTableColumn
+sipCommonMethodStatsInbounds=_SipCommonMethodStatsInbounds_Object((1,3,6,1,2,1,149,1,4,1,1,3),_SipCommonMethodStatsInbounds_Type())
+sipCommonMethodStatsInbounds.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonMethodStatsInbounds.setStatus(_A)
+_SipCommonMethodStatsDisconTime_Type=TimeStamp
+_SipCommonMethodStatsDisconTime_Object=MibTableColumn
+sipCommonMethodStatsDisconTime=_SipCommonMethodStatsDisconTime_Object((1,3,6,1,2,1,149,1,4,1,1,4),_SipCommonMethodStatsDisconTime_Type())
+sipCommonMethodStatsDisconTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonMethodStatsDisconTime.setStatus(_A)
+_SipCommonStatusCode_ObjectIdentity=ObjectIdentity
+sipCommonStatusCode=_SipCommonStatusCode_ObjectIdentity((1,3,6,1,2,1,149,1,5))
+_SipCommonStatusCodeTable_Object=MibTable
+sipCommonStatusCodeTable=_SipCommonStatusCodeTable_Object((1,3,6,1,2,1,149,1,5,1))
+if mibBuilder.loadTexts:sipCommonStatusCodeTable.setStatus(_A)
+_SipCommonStatusCodeEntry_Object=MibTableRow
+sipCommonStatusCodeEntry=_SipCommonStatusCodeEntry_Object((1,3,6,1,2,1,149,1,5,1,1))
+sipCommonStatusCodeEntry.setIndexNames((0,_F,_G),(0,_B,_g),(0,_B,_h))
+if mibBuilder.loadTexts:sipCommonStatusCodeEntry.setStatus(_A)
+_SipCommonStatusCodeMethod_Type=SipTCMethodName
+_SipCommonStatusCodeMethod_Object=MibTableColumn
+sipCommonStatusCodeMethod=_SipCommonStatusCodeMethod_Object((1,3,6,1,2,1,149,1,5,1,1,1),_SipCommonStatusCodeMethod_Type())
+sipCommonStatusCodeMethod.setMaxAccess(_J)
+if mibBuilder.loadTexts:sipCommonStatusCodeMethod.setStatus(_A)
+class _SipCommonStatusCodeValue_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,999))
+_SipCommonStatusCodeValue_Type.__name__=_D
+_SipCommonStatusCodeValue_Object=MibTableColumn
+sipCommonStatusCodeValue=_SipCommonStatusCodeValue_Object((1,3,6,1,2,1,149,1,5,1,1,2),_SipCommonStatusCodeValue_Type())
+sipCommonStatusCodeValue.setMaxAccess(_J)
+if mibBuilder.loadTexts:sipCommonStatusCodeValue.setStatus(_A)
+_SipCommonStatusCodeIns_Type=Counter32
+_SipCommonStatusCodeIns_Object=MibTableColumn
+sipCommonStatusCodeIns=_SipCommonStatusCodeIns_Object((1,3,6,1,2,1,149,1,5,1,1,3),_SipCommonStatusCodeIns_Type())
+sipCommonStatusCodeIns.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonStatusCodeIns.setStatus(_A)
+_SipCommonStatusCodeOuts_Type=Counter32
+_SipCommonStatusCodeOuts_Object=MibTableColumn
+sipCommonStatusCodeOuts=_SipCommonStatusCodeOuts_Object((1,3,6,1,2,1,149,1,5,1,1,4),_SipCommonStatusCodeOuts_Type())
+sipCommonStatusCodeOuts.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonStatusCodeOuts.setStatus(_A)
+_SipCommonStatusCodeRowStatus_Type=RowStatus
+_SipCommonStatusCodeRowStatus_Object=MibTableColumn
+sipCommonStatusCodeRowStatus=_SipCommonStatusCodeRowStatus_Object((1,3,6,1,2,1,149,1,5,1,1,5),_SipCommonStatusCodeRowStatus_Type())
+sipCommonStatusCodeRowStatus.setMaxAccess('read-create')
+if mibBuilder.loadTexts:sipCommonStatusCodeRowStatus.setStatus(_A)
+_SipCommonStatusCodeDisconTime_Type=TimeStamp
+_SipCommonStatusCodeDisconTime_Object=MibTableColumn
+sipCommonStatusCodeDisconTime=_SipCommonStatusCodeDisconTime_Object((1,3,6,1,2,1,149,1,5,1,1,6),_SipCommonStatusCodeDisconTime_Type())
+sipCommonStatusCodeDisconTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonStatusCodeDisconTime.setStatus(_A)
+_SipCommonStatusCodeNotifTable_Object=MibTable
+sipCommonStatusCodeNotifTable=_SipCommonStatusCodeNotifTable_Object((1,3,6,1,2,1,149,1,5,2))
+if mibBuilder.loadTexts:sipCommonStatusCodeNotifTable.setStatus(_A)
+_SipCommonStatusCodeNotifEntry_Object=MibTableRow
+sipCommonStatusCodeNotifEntry=_SipCommonStatusCodeNotifEntry_Object((1,3,6,1,2,1,149,1,5,2,1))
+if mibBuilder.loadTexts:sipCommonStatusCodeNotifEntry.setStatus(_A)
+class _SipCommonStatusCodeNotifSend_Type(TruthValue):defaultValue=2
+_SipCommonStatusCodeNotifSend_Type.__name__=_b
+_SipCommonStatusCodeNotifSend_Object=MibTableColumn
+sipCommonStatusCodeNotifSend=_SipCommonStatusCodeNotifSend_Object((1,3,6,1,2,1,149,1,5,2,1,1),_SipCommonStatusCodeNotifSend_Type())
+sipCommonStatusCodeNotifSend.setMaxAccess(_L)
+if mibBuilder.loadTexts:sipCommonStatusCodeNotifSend.setStatus(_A)
+class _SipCommonStatusCodeNotifEmitMode_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('normal',1),('oneShot',2),('triggered',3)))
+_SipCommonStatusCodeNotifEmitMode_Type.__name__=_P
+_SipCommonStatusCodeNotifEmitMode_Object=MibTableColumn
+sipCommonStatusCodeNotifEmitMode=_SipCommonStatusCodeNotifEmitMode_Object((1,3,6,1,2,1,149,1,5,2,1,2),_SipCommonStatusCodeNotifEmitMode_Type())
+sipCommonStatusCodeNotifEmitMode.setMaxAccess(_L)
+if mibBuilder.loadTexts:sipCommonStatusCodeNotifEmitMode.setStatus(_A)
+class _SipCommonStatusCodeNotifThresh_Type(Unsigned32):defaultValue=500
+_SipCommonStatusCodeNotifThresh_Type.__name__=_D
+_SipCommonStatusCodeNotifThresh_Object=MibTableColumn
+sipCommonStatusCodeNotifThresh=_SipCommonStatusCodeNotifThresh_Object((1,3,6,1,2,1,149,1,5,2,1,3),_SipCommonStatusCodeNotifThresh_Type())
+sipCommonStatusCodeNotifThresh.setMaxAccess(_L)
+if mibBuilder.loadTexts:sipCommonStatusCodeNotifThresh.setStatus(_A)
+class _SipCommonStatusCodeNotifInterval_Type(Unsigned32):defaultValue=60
+_SipCommonStatusCodeNotifInterval_Type.__name__=_D
+_SipCommonStatusCodeNotifInterval_Object=MibTableColumn
+sipCommonStatusCodeNotifInterval=_SipCommonStatusCodeNotifInterval_Object((1,3,6,1,2,1,149,1,5,2,1,4),_SipCommonStatusCodeNotifInterval_Type())
+sipCommonStatusCodeNotifInterval.setMaxAccess(_L)
+if mibBuilder.loadTexts:sipCommonStatusCodeNotifInterval.setStatus(_A)
+if mibBuilder.loadTexts:sipCommonStatusCodeNotifInterval.setUnits('seconds')
+_SipCommonStatsTrans_ObjectIdentity=ObjectIdentity
+sipCommonStatsTrans=_SipCommonStatsTrans_ObjectIdentity((1,3,6,1,2,1,149,1,6))
+_SipCommonTransCurrentTable_Object=MibTable
+sipCommonTransCurrentTable=_SipCommonTransCurrentTable_Object((1,3,6,1,2,1,149,1,6,1))
+if mibBuilder.loadTexts:sipCommonTransCurrentTable.setStatus(_A)
+_SipCommonTransCurrentEntry_Object=MibTableRow
+sipCommonTransCurrentEntry=_SipCommonTransCurrentEntry_Object((1,3,6,1,2,1,149,1,6,1,1))
+sipCommonTransCurrentEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:sipCommonTransCurrentEntry.setStatus(_A)
+class _SipCommonTransCurrentactions_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_SipCommonTransCurrentactions_Type.__name__=_a
+_SipCommonTransCurrentactions_Object=MibTableColumn
+sipCommonTransCurrentactions=_SipCommonTransCurrentactions_Object((1,3,6,1,2,1,149,1,6,1,1,1),_SipCommonTransCurrentactions_Type())
+sipCommonTransCurrentactions.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonTransCurrentactions.setStatus(_A)
+_SipCommonStatsRetry_ObjectIdentity=ObjectIdentity
+sipCommonStatsRetry=_SipCommonStatsRetry_ObjectIdentity((1,3,6,1,2,1,149,1,7))
+_SipCommonStatsRetryTable_Object=MibTable
+sipCommonStatsRetryTable=_SipCommonStatsRetryTable_Object((1,3,6,1,2,1,149,1,7,1))
+if mibBuilder.loadTexts:sipCommonStatsRetryTable.setStatus(_A)
+_SipCommonStatsRetryEntry_Object=MibTableRow
+sipCommonStatsRetryEntry=_SipCommonStatsRetryEntry_Object((1,3,6,1,2,1,149,1,7,1,1))
+sipCommonStatsRetryEntry.setIndexNames((0,_F,_G),(0,_B,_i))
+if mibBuilder.loadTexts:sipCommonStatsRetryEntry.setStatus(_A)
+_SipCommonStatsRetryMethod_Type=SipTCMethodName
+_SipCommonStatsRetryMethod_Object=MibTableColumn
+sipCommonStatsRetryMethod=_SipCommonStatsRetryMethod_Object((1,3,6,1,2,1,149,1,7,1,1,1),_SipCommonStatsRetryMethod_Type())
+sipCommonStatsRetryMethod.setMaxAccess(_J)
+if mibBuilder.loadTexts:sipCommonStatsRetryMethod.setStatus(_A)
+_SipCommonStatsRetries_Type=Counter32
+_SipCommonStatsRetries_Object=MibTableColumn
+sipCommonStatsRetries=_SipCommonStatsRetries_Object((1,3,6,1,2,1,149,1,7,1,1,2),_SipCommonStatsRetries_Type())
+sipCommonStatsRetries.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonStatsRetries.setStatus(_A)
+_SipCommonStatsRetryFinalResponses_Type=Counter32
+_SipCommonStatsRetryFinalResponses_Object=MibTableColumn
+sipCommonStatsRetryFinalResponses=_SipCommonStatsRetryFinalResponses_Object((1,3,6,1,2,1,149,1,7,1,1,3),_SipCommonStatsRetryFinalResponses_Type())
+sipCommonStatsRetryFinalResponses.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonStatsRetryFinalResponses.setStatus(_A)
+_SipCommonStatsRetryNonFinalResponses_Type=Counter32
+_SipCommonStatsRetryNonFinalResponses_Object=MibTableColumn
+sipCommonStatsRetryNonFinalResponses=_SipCommonStatsRetryNonFinalResponses_Object((1,3,6,1,2,1,149,1,7,1,1,4),_SipCommonStatsRetryNonFinalResponses_Type())
+sipCommonStatsRetryNonFinalResponses.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonStatsRetryNonFinalResponses.setStatus(_A)
+_SipCommonStatsRetryDisconTime_Type=TimeStamp
+_SipCommonStatsRetryDisconTime_Object=MibTableColumn
+sipCommonStatsRetryDisconTime=_SipCommonStatsRetryDisconTime_Object((1,3,6,1,2,1,149,1,7,1,1,5),_SipCommonStatsRetryDisconTime_Type())
+sipCommonStatsRetryDisconTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonStatsRetryDisconTime.setStatus(_A)
+_SipCommonOtherStats_ObjectIdentity=ObjectIdentity
+sipCommonOtherStats=_SipCommonOtherStats_ObjectIdentity((1,3,6,1,2,1,149,1,8))
+_SipCommonOtherStatsTable_Object=MibTable
+sipCommonOtherStatsTable=_SipCommonOtherStatsTable_Object((1,3,6,1,2,1,149,1,8,1))
+if mibBuilder.loadTexts:sipCommonOtherStatsTable.setStatus(_A)
+_SipCommonOtherStatsEntry_Object=MibTableRow
+sipCommonOtherStatsEntry=_SipCommonOtherStatsEntry_Object((1,3,6,1,2,1,149,1,8,1,1))
+sipCommonOtherStatsEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:sipCommonOtherStatsEntry.setStatus(_A)
+_SipCommonOtherStatsNumUnsupportedUris_Type=Counter32
+_SipCommonOtherStatsNumUnsupportedUris_Object=MibTableColumn
+sipCommonOtherStatsNumUnsupportedUris=_SipCommonOtherStatsNumUnsupportedUris_Object((1,3,6,1,2,1,149,1,8,1,1,1),_SipCommonOtherStatsNumUnsupportedUris_Type())
+sipCommonOtherStatsNumUnsupportedUris.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonOtherStatsNumUnsupportedUris.setStatus(_A)
+_SipCommonOtherStatsNumUnsupportedMethods_Type=Counter32
+_SipCommonOtherStatsNumUnsupportedMethods_Object=MibTableColumn
+sipCommonOtherStatsNumUnsupportedMethods=_SipCommonOtherStatsNumUnsupportedMethods_Object((1,3,6,1,2,1,149,1,8,1,1,2),_SipCommonOtherStatsNumUnsupportedMethods_Type())
+sipCommonOtherStatsNumUnsupportedMethods.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonOtherStatsNumUnsupportedMethods.setStatus(_A)
+_SipCommonOtherStatsOtherwiseDiscardedMsgs_Type=Counter32
+_SipCommonOtherStatsOtherwiseDiscardedMsgs_Object=MibTableColumn
+sipCommonOtherStatsOtherwiseDiscardedMsgs=_SipCommonOtherStatsOtherwiseDiscardedMsgs_Object((1,3,6,1,2,1,149,1,8,1,1,3),_SipCommonOtherStatsOtherwiseDiscardedMsgs_Type())
+sipCommonOtherStatsOtherwiseDiscardedMsgs.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonOtherStatsOtherwiseDiscardedMsgs.setStatus(_A)
+_SipCommonOtherStatsDisconTime_Type=TimeStamp
+_SipCommonOtherStatsDisconTime_Object=MibTableColumn
+sipCommonOtherStatsDisconTime=_SipCommonOtherStatsDisconTime_Object((1,3,6,1,2,1,149,1,8,1,1,4),_SipCommonOtherStatsDisconTime_Type())
+sipCommonOtherStatsDisconTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:sipCommonOtherStatsDisconTime.setStatus(_A)
+_SipCommonNotifObjects_ObjectIdentity=ObjectIdentity
+sipCommonNotifObjects=_SipCommonNotifObjects_ObjectIdentity((1,3,6,1,2,1,149,1,9))
+_SipCommonStatusCodeNotifTo_Type=SnmpAdminString
+_SipCommonStatusCodeNotifTo_Object=MibScalar
+sipCommonStatusCodeNotifTo=_SipCommonStatusCodeNotifTo_Object((1,3,6,1,2,1,149,1,9,1),_SipCommonStatusCodeNotifTo_Type())
+sipCommonStatusCodeNotifTo.setMaxAccess(_K)
+if mibBuilder.loadTexts:sipCommonStatusCodeNotifTo.setStatus(_A)
+_SipCommonStatusCodeNotifFrom_Type=SnmpAdminString
+_SipCommonStatusCodeNotifFrom_Object=MibScalar
+sipCommonStatusCodeNotifFrom=_SipCommonStatusCodeNotifFrom_Object((1,3,6,1,2,1,149,1,9,2),_SipCommonStatusCodeNotifFrom_Type())
+sipCommonStatusCodeNotifFrom.setMaxAccess(_K)
+if mibBuilder.loadTexts:sipCommonStatusCodeNotifFrom.setStatus(_A)
+_SipCommonStatusCodeNotifCallId_Type=SnmpAdminString
+_SipCommonStatusCodeNotifCallId_Object=MibScalar
+sipCommonStatusCodeNotifCallId=_SipCommonStatusCodeNotifCallId_Object((1,3,6,1,2,1,149,1,9,3),_SipCommonStatusCodeNotifCallId_Type())
+sipCommonStatusCodeNotifCallId.setMaxAccess(_K)
+if mibBuilder.loadTexts:sipCommonStatusCodeNotifCallId.setStatus(_A)
+_SipCommonStatusCodeNotifCSeq_Type=Unsigned32
+_SipCommonStatusCodeNotifCSeq_Object=MibScalar
+sipCommonStatusCodeNotifCSeq=_SipCommonStatusCodeNotifCSeq_Object((1,3,6,1,2,1,149,1,9,4),_SipCommonStatusCodeNotifCSeq_Type())
+sipCommonStatusCodeNotifCSeq.setMaxAccess(_K)
+if mibBuilder.loadTexts:sipCommonStatusCodeNotifCSeq.setStatus(_A)
+class _SipCommonNotifApplIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_SipCommonNotifApplIndex_Type.__name__=_D
+_SipCommonNotifApplIndex_Object=MibScalar
+sipCommonNotifApplIndex=_SipCommonNotifApplIndex_Object((1,3,6,1,2,1,149,1,9,5),_SipCommonNotifApplIndex_Type())
+sipCommonNotifApplIndex.setMaxAccess(_K)
+if mibBuilder.loadTexts:sipCommonNotifApplIndex.setStatus(_A)
+class _SipCommonNotifSequenceNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_SipCommonNotifSequenceNumber_Type.__name__=_D
+_SipCommonNotifSequenceNumber_Object=MibScalar
+sipCommonNotifSequenceNumber=_SipCommonNotifSequenceNumber_Object((1,3,6,1,2,1,149,1,9,6),_SipCommonNotifSequenceNumber_Type())
+sipCommonNotifSequenceNumber.setMaxAccess(_K)
+if mibBuilder.loadTexts:sipCommonNotifSequenceNumber.setStatus(_A)
+_SipCommonMIBConformance_ObjectIdentity=ObjectIdentity
+sipCommonMIBConformance=_SipCommonMIBConformance_ObjectIdentity((1,3,6,1,2,1,149,2))
+_SipCommonMIBCompliances_ObjectIdentity=ObjectIdentity
+sipCommonMIBCompliances=_SipCommonMIBCompliances_ObjectIdentity((1,3,6,1,2,1,149,2,1))
+_SipCommonMIBGroups_ObjectIdentity=ObjectIdentity
+sipCommonMIBGroups=_SipCommonMIBGroups_ObjectIdentity((1,3,6,1,2,1,149,2,2))
+sipCommonStatusCodeEntry.registerAugmentions((_B,_j))
 sipCommonStatusCodeNotifEntry.setIndexNames(*sipCommonStatusCodeEntry.getIndexNames())
-if mibBuilder.loadTexts: sipCommonStatusCodeNotifEntry.setDescription('This row contains information controlling notifications for a\n        particular SIP status code that the SIP entity has been\n        requested to monitor.')
-sipCommonStatusCodeNotifSend = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 5, 2, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sipCommonStatusCodeNotifSend.setDescription("This object controls whether a sipCommonStatusCodeNotif is\n        emitted when the status code value specified by\n        sipCommonStatusCodeValue is sent or received.  If the value of\n        this object is 'true', then a notification is sent.  If it is\n        'false', no notification is sent.\n        Note well that a notification MAY be emitted for every message\n        sent or received that contains the particular status code.\n        Depending on the status code involved, this can cause a\n        significant number of notification emissions that could be\n        detrimental to network performance.  Managers are forewarned to\n        be prudent in the use of this object to enable notifications.\n        Look to sipCommonStatusCodeNotifEmitMode for alternative\n        controls for sipCommonStatusCodeNotif emissions.")
-sipCommonStatusCodeNotifEmitMode = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 5, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("normal", 1), ("oneShot", 2), ("triggered", 3),)).clone('oneShot')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sipCommonStatusCodeNotifEmitMode.setDescription("The object sipCommonStatusCodeNotifSend MUST be set to 'true'\n        for the values of this object to have any effect.  It is\n        RECOMMENDED that the desired emit mode be established by this\n        object prior to setting sipCommonStatusCodeNotifSend to 'true'.\n        This object and the sipCommonStatusCodeNotifSend object can\n        obviously be set independently, but their respective values\n        will have a dependency on each other and the resulting\n        notifications.\n\n        This object specifies the mode for emissions of\n        sipCommonStatusCodeNotif notifications.\n\n        normal    : sipCommonStatusCodeNotif notifications will be\n                    emitted by the system for each SIP response\n                    message sent or received that contains the\n                    desired status code.\n\n        oneShot   : Only one sipCommonStatusCodeNotif notification\n                    will be emitted.  It will be the next SIP response\n                    message sent or received that contains the\n                    desired status code.\n\n                    No more notifications are emitted until this\n                    object is set to 'oneShot' again or set to\n                    'normal'.  This option is provided as a means of\n                    quelling the potential promiscuous behavior that\n                    can be associated with the\n                    sipCommonStatusCodeNotif.\n\n        triggered : This value is only readable and cannot be set.  It\n                    reflects that the 'oneShot' case has occurred,\n                    and indicates that the mode needs to be reset to\n                    get further notifications.  The mode is reset by\n                    setting this object to 'oneShot' or 'normal'.")
-sipCommonStatusCodeNotifThresh = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 5, 2, 1, 3), Unsigned32().clone(500)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sipCommonStatusCodeNotifThresh.setDescription('This object specifies the number of response messages sent or\n        received by this system that are considered excessive.  Based\n        on crossing that threshold, a\n        sipCommonStatusCodeThreshExceededInNotif notification or a\n        sipCommonStatusCodeThreshExceededOutNotif will be sent.  The\n        sipCommonStatusCodeThreshExceededInNotif and\n\n        sipCommonStatusCodeThreshExceededOutNotif notifications can be\n        used as an early warning mechanism in lieu of using\n        sipCommonStatusCodeNotif.\n\n        Note that the configuration applied by this object will be\n        applied equally to inbound and outbound response messages.')
-sipCommonStatusCodeNotifInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 5, 2, 1, 4), Unsigned32().clone(60)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sipCommonStatusCodeNotifInterval.setDescription('This object specifies the time interval over which, if\n        sipCommonStatusCodeThresh is exceeded with respect to sent or\n        received messages, a sipCommonStatusCodeThreshExceededInNotif\n        or sipCommonStatusCodeThreshExceededOutNotif notification will\n        be sent.\n\n        Note that the configuration applied by this object will be\n        applied equally to inbound and outbound response messages.')
-sipCommonTransCurrentTable = MibTable((1, 3, 6, 1, 2, 1, 149, 1, 6, 1), )
-if mibBuilder.loadTexts: sipCommonTransCurrentTable.setDescription('This table contains information on the transactions currently\n        awaiting definitive responses by each SIP entity in this\n        system.\n\n        This table does not apply to transaction stateless Proxy\n        Servers.')
-sipCommonTransCurrentEntry = MibTableRow((1, 3, 6, 1, 2, 1, 149, 1, 6, 1, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"))
-if mibBuilder.loadTexts: sipCommonTransCurrentEntry.setDescription("Information on a particular SIP entity's current transactions.\n\n        Each row represents those objects for a particular SIP entity\n        present in this system.  applIndex is used to uniquely identify\n        these instances of SIP entities and correlate them through\n        the common framework of the NETWORK-SERVICES-MIB (RFC 2788).")
-sipCommonTransCurrentactions = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 6, 1, 1, 1), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonTransCurrentactions.setDescription('This object contains the number of transactions awaiting\n        definitive (non-1xx) response.  In the case of a forked\n        request, each branch counts as a single transaction\n        corresponding to the entity identified by applIndex.')
-sipCommonStatsRetryTable = MibTable((1, 3, 6, 1, 2, 1, 149, 1, 7, 1), )
-if mibBuilder.loadTexts: sipCommonStatsRetryTable.setDescription('This table contains retry statistics objects applicable to each\n        SIP entity in this system.')
-sipCommonStatsRetryEntry = MibTableRow((1, 3, 6, 1, 2, 1, 149, 1, 7, 1, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"), (0, "SIP-COMMON-MIB", "sipCommonStatsRetryMethod"))
-if mibBuilder.loadTexts: sipCommonStatsRetryEntry.setDescription('A row of retry statistics.\n\n        Each row represents those objects for a particular SIP entity\n        present in this system.  applIndex is used to uniquely identify\n        these instances of SIP entities and correlate them through the\n        common framework of the NETWORK-SERVICES-MIB (RFC 2788).')
-sipCommonStatsRetryMethod = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 7, 1, 1, 1), SipTCMethodName())
-if mibBuilder.loadTexts: sipCommonStatsRetryMethod.setDescription('This object uniquely identifies the SIP method related to the\n        objects in a row.')
-sipCommonStatsRetries = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 7, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonStatsRetries.setDescription('This object reflects the total number of request\n        retransmissions that have been sent by the SIP entity.  Note\n        that there could be multiple retransmissions per request.\n\n        Discontinuities in the value of this counter can occur at\n        re-initialization of the SIP entity or service.  A Management\n        Station can detect discontinuities in this counter by\n        monitoring the sipCommonStatsRetryDisconTime object in the same\n        row.')
-sipCommonStatsRetryFinalResponses = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 7, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonStatsRetryFinalResponses.setDescription('This object reflects the total number of Final Response retries\n        that have been sent by the SIP entity.  Note that there could\n        be multiple retransmissions per request.\n\n        Discontinuities in the value of this counter can occur at\n        re-initialization of the SIP entity or service.  A Management\n        Station can detect discontinuities in this counter by\n\n        monitoring the sipCommonStatsRetryDisconTime object in the same\n        row.')
-sipCommonStatsRetryNonFinalResponses = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 7, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonStatsRetryNonFinalResponses.setDescription('This object reflects the total number of non-Final Response\n        retries that have been sent by the SIP entity.\n\n        Discontinuities in the value of this counter can occur at\n        re-initialization of the SIP entity or service.  A Management\n        Station can detect discontinuities in this counter by\n        monitoring the sipCommonStatsRetryDisconTime object in the same\n        row.')
-sipCommonStatsRetryDisconTime = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 7, 1, 1, 5), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonStatsRetryDisconTime.setDescription('The value of the sysUpTime object when the counters for the\n        retry statistics objects in this row last experienced a\n        discontinuity.')
-sipCommonOtherStatsTable = MibTable((1, 3, 6, 1, 2, 1, 149, 1, 8, 1), )
-if mibBuilder.loadTexts: sipCommonOtherStatsTable.setDescription('This table contains other common statistics supported by each\n        SIP entity in this system.')
-sipCommonOtherStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 149, 1, 8, 1, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"))
-if mibBuilder.loadTexts: sipCommonOtherStatsEntry.setDescription("Information on a particular SIP entity's other common\n        statistics.\n\n        Each row represents those objects for a particular SIP entity\n        present in this system.  applIndex is used to uniquely identify\n        these instances of SIP entities and correlate them through\n        the common framework of the NETWORK-SERVICES-MIB (RFC 2788).")
-sipCommonOtherStatsNumUnsupportedUris = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 8, 1, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonOtherStatsNumUnsupportedUris.setDescription('Number of RequestURIs received with an unsupported scheme.\n        A server normally responds to such requests with a 400 Bad\n        Request status code.\n\n        Discontinuities in the value of this counter can occur at\n        re-initialization of the SIP entity or service.  A Management\n        Station can detect discontinuities in this counter by\n        monitoring the sipCommonOtherStatsDisconTime object in the same\n        row.')
-sipCommonOtherStatsNumUnsupportedMethods = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 8, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonOtherStatsNumUnsupportedMethods.setDescription('Number of SIP requests received with unsupported methods.  A\n        server normally responds to such requests with a 501 (Not\n        Implemented) or 405 (Method Not Allowed).\n\n        Discontinuities in the value of this counter can occur at\n        re-initialization of the SIP entity or service.  A Management\n        Station can detect discontinuities in this counter by\n        monitoring the sipCommonOtherStatsDisconTime object in the same\n        row.')
-sipCommonOtherStatsOtherwiseDiscardedMsgs = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 8, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonOtherStatsOtherwiseDiscardedMsgs.setDescription('Number of SIP messages received that, for any number of\n        reasons, was discarded without a response.\n\n        Discontinuities in the value of this counter can occur at\n        re-initialization of the SIP entity or service.  A Management\n        Station can detect discontinuities in this counter by\n        monitoring the sipCommonOtherStatsDisconTime object in the same\n        row.')
-sipCommonOtherStatsDisconTime = MibTableColumn((1, 3, 6, 1, 2, 1, 149, 1, 8, 1, 1, 4), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sipCommonOtherStatsDisconTime.setDescription('The value of the sysUpTime object when the counters for the\n        statistics objects in this row last experienced a\n        discontinuity.')
-sipCommonStatusCodeNotifTo = MibScalar((1, 3, 6, 1, 2, 1, 149, 1, 9, 1), SnmpAdminString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: sipCommonStatusCodeNotifTo.setDescription("This object contains the value of the To header in the message\n        containing the status code that caused the notification.  The\n        header name will be part of this object value.  For example,\n        'To: Watson '.")
-sipCommonStatusCodeNotifFrom = MibScalar((1, 3, 6, 1, 2, 1, 149, 1, 9, 2), SnmpAdminString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: sipCommonStatusCodeNotifFrom.setDescription("This object contains the value of the From header in the\n        message containing the status code that caused the\n\n        notification.  The header name will be part of this object\n        value.  For example, 'From: Watson '.")
-sipCommonStatusCodeNotifCallId = MibScalar((1, 3, 6, 1, 2, 1, 149, 1, 9, 3), SnmpAdminString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: sipCommonStatusCodeNotifCallId.setDescription("This object contains the value of the Call-ID in the message\n        containing the status code that caused the notification.  The\n        header name will be part of this object value.  For example,\n        'Call-ID: 5551212@example.com'.")
-sipCommonStatusCodeNotifCSeq = MibScalar((1, 3, 6, 1, 2, 1, 149, 1, 9, 4), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: sipCommonStatusCodeNotifCSeq.setDescription("This object contains the CSeq value in the message containing\n        the status code that caused the notification.  The header name\n        will be part of this object value.  For example, 'CSeq: 1722\n        INVITE'.")
-sipCommonNotifApplIndex = MibScalar((1, 3, 6, 1, 2, 1, 149, 1, 9, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: sipCommonNotifApplIndex.setDescription('This object contains the applIndex as described in RFC 2788.\n        This object is created in order to allow a variable binding\n        containing a value of applIndex in a notification.')
-sipCommonNotifSequenceNumber = MibScalar((1, 3, 6, 1, 2, 1, 149, 1, 9, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: sipCommonNotifSequenceNumber.setDescription('This object contains a sequence number for each notification\n        generated by this SIP entity.  Each notification SHOULD have a\n        unique sequence number.  A network manager can use this\n        information to determine whether notifications from a\n\n        particular SIP entity have been missed.  The value of this\n        object MUST start at 1 and increase by 1 with each generated\n        notification.  If a system restarts, the sequence number MAY\n        start again from 1.')
-sipCommonStatusCodeNotif = NotificationType((1, 3, 6, 1, 2, 1, 149, 0, 1)).setObjects(*(("SIP-COMMON-MIB", "sipCommonNotifSequenceNumber"), ("SIP-COMMON-MIB", "sipCommonNotifApplIndex"), ("SIP-COMMON-MIB", "sipCommonStatusCodeNotifTo"), ("SIP-COMMON-MIB", "sipCommonStatusCodeNotifFrom"), ("SIP-COMMON-MIB", "sipCommonStatusCodeNotifCallId"), ("SIP-COMMON-MIB", "sipCommonStatusCodeNotifCSeq"), ("SIP-COMMON-MIB", "sipCommonStatusCodeIns"), ("SIP-COMMON-MIB", "sipCommonStatusCodeOuts"),))
-if mibBuilder.loadTexts: sipCommonStatusCodeNotif.setDescription('Signifies that a specific status code has been sent or received\n        by the system.')
-sipCommonStatusCodeThreshExceededInNotif = NotificationType((1, 3, 6, 1, 2, 1, 149, 0, 2)).setObjects(*(("SIP-COMMON-MIB", "sipCommonNotifSequenceNumber"), ("SIP-COMMON-MIB", "sipCommonNotifApplIndex"), ("SIP-COMMON-MIB", "sipCommonStatusCodeIns"),))
-if mibBuilder.loadTexts: sipCommonStatusCodeThreshExceededInNotif.setDescription('Signifies that a specific status code was found to have been\n        received by the system frequently enough to exceed the\n        configured threshold.  This notification can be used as\n        an early warning mechanism in lieu of using\n        sipCommonStatusCodeNotif.')
-sipCommonStatusCodeThreshExceededOutNotif = NotificationType((1, 3, 6, 1, 2, 1, 149, 0, 3)).setObjects(*(("SIP-COMMON-MIB", "sipCommonNotifSequenceNumber"), ("SIP-COMMON-MIB", "sipCommonNotifApplIndex"), ("SIP-COMMON-MIB", "sipCommonStatusCodeOuts"),))
-if mibBuilder.loadTexts: sipCommonStatusCodeThreshExceededOutNotif.setDescription('Signifies that a specific status code was found to have been\n        sent by the system enough to exceed the configured threshold.\n        This notification can be used as an early warning mechanism in\n        lieu of using sipCommonStatusCodeNotif.')
-sipCommonServiceColdStart = NotificationType((1, 3, 6, 1, 2, 1, 149, 0, 4)).setObjects(*(("SIP-COMMON-MIB", "sipCommonNotifSequenceNumber"), ("SIP-COMMON-MIB", "sipCommonNotifApplIndex"), ("SIP-COMMON-MIB", "sipCommonCfgServiceStartTime"),))
-if mibBuilder.loadTexts: sipCommonServiceColdStart.setDescription("Signifies that the SIP service has reinitialized itself or\n        started for the first time.  This SHOULD result from a hard\n        'down' to 'up' administrative status change.  The configuration\n        or behavior of the service MAY be altered.")
-sipCommonServiceWarmStart = NotificationType((1, 3, 6, 1, 2, 1, 149, 0, 5)).setObjects(*(("SIP-COMMON-MIB", "sipCommonNotifSequenceNumber"), ("SIP-COMMON-MIB", "sipCommonNotifApplIndex"), ("SIP-COMMON-MIB", "sipCommonCfgServiceLastChange"),))
-if mibBuilder.loadTexts: sipCommonServiceWarmStart.setDescription("Signifies that the SIP service has reinitialized itself and is\n        restarting after an administrative 'reset'.  The configuration\n        or behavior of the service MAY be altered.")
-sipCommonServiceStatusChanged = NotificationType((1, 3, 6, 1, 2, 1, 149, 0, 6)).setObjects(*(("SIP-COMMON-MIB", "sipCommonNotifSequenceNumber"), ("SIP-COMMON-MIB", "sipCommonNotifApplIndex"), ("SIP-COMMON-MIB", "sipCommonCfgServiceLastChange"), ("SIP-COMMON-MIB", "sipCommonCfgServiceOperStatus"),))
-if mibBuilder.loadTexts: sipCommonServiceStatusChanged.setDescription('Signifies that the SIP service operational status has changed.')
-sipCommonMIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 149, 2, 1))
-sipCommonMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 149, 2, 2))
-sipCommonCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 149, 2, 1, 1)).setObjects(*(("SIP-COMMON-MIB", "sipCommonConfigGroup"), ("SIP-COMMON-MIB", "sipCommonStatsGroup"),))
-if mibBuilder.loadTexts: sipCommonCompliance.setDescription('The compliance statement for SIP entities.')
-sipCommonConfigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 149, 2, 2, 1)).setObjects(*(("SIP-COMMON-MIB", "sipCommonCfgProtocolVersion"), ("SIP-COMMON-MIB", "sipCommonCfgServiceOperStatus"), ("SIP-COMMON-MIB", "sipCommonCfgServiceStartTime"), ("SIP-COMMON-MIB", "sipCommonCfgServiceLastChange"), ("SIP-COMMON-MIB", "sipCommonPortTransportRcv"), ("SIP-COMMON-MIB", "sipCommonOptionTag"), ("SIP-COMMON-MIB", "sipCommonOptionTagHeaderField"), ("SIP-COMMON-MIB", "sipCommonCfgMaxTransactions"), ("SIP-COMMON-MIB", "sipCommonCfgServiceNotifEnable"), ("SIP-COMMON-MIB", "sipCommonCfgEntityType"), ("SIP-COMMON-MIB", "sipCommonMethodSupportedName"),))
-if mibBuilder.loadTexts: sipCommonConfigGroup.setDescription('A collection of objects providing configuration common to all\n        SIP entities.')
-sipCommonInformationalGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 149, 2, 2, 2)).setObjects(*(("SIP-COMMON-MIB", "sipCommonCfgOrganization"),))
-if mibBuilder.loadTexts: sipCommonInformationalGroup.setDescription('A collection of objects providing configuration common to all\n        SIP entities.')
-sipCommonConfigTimerGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 149, 2, 2, 3)).setObjects(*(("SIP-COMMON-MIB", "sipCommonCfgTimerA"), ("SIP-COMMON-MIB", "sipCommonCfgTimerB"), ("SIP-COMMON-MIB", "sipCommonCfgTimerC"), ("SIP-COMMON-MIB", "sipCommonCfgTimerD"), ("SIP-COMMON-MIB", "sipCommonCfgTimerE"), ("SIP-COMMON-MIB", "sipCommonCfgTimerF"), ("SIP-COMMON-MIB", "sipCommonCfgTimerG"), ("SIP-COMMON-MIB", "sipCommonCfgTimerH"), ("SIP-COMMON-MIB", "sipCommonCfgTimerI"), ("SIP-COMMON-MIB", "sipCommonCfgTimerJ"), ("SIP-COMMON-MIB", "sipCommonCfgTimerK"), ("SIP-COMMON-MIB", "sipCommonCfgTimerT1"), ("SIP-COMMON-MIB", "sipCommonCfgTimerT2"), ("SIP-COMMON-MIB", "sipCommonCfgTimerT4"),))
-if mibBuilder.loadTexts: sipCommonConfigTimerGroup.setDescription('A collection of objects providing timer configuration common to\n        all SIP entities.')
-sipCommonStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 149, 2, 2, 4)).setObjects(*(("SIP-COMMON-MIB", "sipCommonSummaryInRequests"), ("SIP-COMMON-MIB", "sipCommonSummaryOutRequests"), ("SIP-COMMON-MIB", "sipCommonSummaryInResponses"), ("SIP-COMMON-MIB", "sipCommonSummaryOutResponses"), ("SIP-COMMON-MIB", "sipCommonSummaryTotalTransactions"), ("SIP-COMMON-MIB", "sipCommonSummaryDisconTime"), ("SIP-COMMON-MIB", "sipCommonMethodStatsOutbounds"), ("SIP-COMMON-MIB", "sipCommonMethodStatsInbounds"), ("SIP-COMMON-MIB", "sipCommonMethodStatsDisconTime"), ("SIP-COMMON-MIB", "sipCommonStatusCodeIns"), ("SIP-COMMON-MIB", "sipCommonStatusCodeOuts"), ("SIP-COMMON-MIB", "sipCommonStatusCodeRowStatus"), ("SIP-COMMON-MIB", "sipCommonStatusCodeDisconTime"), ("SIP-COMMON-MIB", "sipCommonTransCurrentactions"), ("SIP-COMMON-MIB", "sipCommonOtherStatsNumUnsupportedUris"), ("SIP-COMMON-MIB", "sipCommonOtherStatsNumUnsupportedMethods"), ("SIP-COMMON-MIB", "sipCommonOtherStatsOtherwiseDiscardedMsgs"), ("SIP-COMMON-MIB", "sipCommonOtherStatsDisconTime"),))
-if mibBuilder.loadTexts: sipCommonStatsGroup.setDescription('A collection of objects providing statistics common to all SIP\n        entities.')
-sipCommonStatsRetryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 149, 2, 2, 5)).setObjects(*(("SIP-COMMON-MIB", "sipCommonStatsRetries"), ("SIP-COMMON-MIB", "sipCommonStatsRetryFinalResponses"), ("SIP-COMMON-MIB", "sipCommonStatsRetryNonFinalResponses"), ("SIP-COMMON-MIB", "sipCommonStatsRetryDisconTime"),))
-if mibBuilder.loadTexts: sipCommonStatsRetryGroup.setDescription('A collection of objects providing retry statistics.')
-sipCommonNotifGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 149, 2, 2, 6)).setObjects(*(("SIP-COMMON-MIB", "sipCommonStatusCodeNotif"), ("SIP-COMMON-MIB", "sipCommonStatusCodeThreshExceededInNotif"), ("SIP-COMMON-MIB", "sipCommonStatusCodeThreshExceededOutNotif"), ("SIP-COMMON-MIB", "sipCommonServiceColdStart"), ("SIP-COMMON-MIB", "sipCommonServiceWarmStart"), ("SIP-COMMON-MIB", "sipCommonServiceStatusChanged"),))
-if mibBuilder.loadTexts: sipCommonNotifGroup.setDescription('A collection of notifications common to all SIP entities.')
-sipCommonStatusCodeNotifGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 149, 2, 2, 7)).setObjects(*(("SIP-COMMON-MIB", "sipCommonStatusCodeNotifSend"), ("SIP-COMMON-MIB", "sipCommonStatusCodeNotifEmitMode"), ("SIP-COMMON-MIB", "sipCommonStatusCodeNotifThresh"), ("SIP-COMMON-MIB", "sipCommonStatusCodeNotifInterval"),))
-if mibBuilder.loadTexts: sipCommonStatusCodeNotifGroup.setDescription('A collection of objects related to the control and attribution\n        of notifications common to all SIP entities.')
-sipCommonNotifObjectsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 149, 2, 2, 8)).setObjects(*(("SIP-COMMON-MIB", "sipCommonStatusCodeNotifTo"), ("SIP-COMMON-MIB", "sipCommonStatusCodeNotifFrom"), ("SIP-COMMON-MIB", "sipCommonStatusCodeNotifCallId"), ("SIP-COMMON-MIB", "sipCommonStatusCodeNotifCSeq"), ("SIP-COMMON-MIB", "sipCommonNotifApplIndex"), ("SIP-COMMON-MIB", "sipCommonNotifSequenceNumber"),))
-if mibBuilder.loadTexts: sipCommonNotifObjectsGroup.setDescription('A collection of accessible-for-notify objects related to the\n        notification defined in this MIB module.')
-mibBuilder.exportSymbols("SIP-COMMON-MIB", sipCommonStatusCodeNotifCSeq=sipCommonStatusCodeNotifCSeq, sipCommonStatsRetryFinalResponses=sipCommonStatsRetryFinalResponses, sipCommonStatsGroup=sipCommonStatsGroup, sipCommonNotifSequenceNumber=sipCommonNotifSequenceNumber, sipCommonOptionTagHeaderField=sipCommonOptionTagHeaderField, sipCommonStatusCodeNotifSend=sipCommonStatusCodeNotifSend, sipCommonStatsRetryGroup=sipCommonStatsRetryGroup, sipCommonSummaryOutResponses=sipCommonSummaryOutResponses, sipCommonOptionTagEntry=sipCommonOptionTagEntry, sipCommonTransCurrentTable=sipCommonTransCurrentTable, sipCommonStatusCodeDisconTime=sipCommonStatusCodeDisconTime, sipCommonStatusCodeMethod=sipCommonStatusCodeMethod, sipCommonCfgTimerD=sipCommonCfgTimerD, sipCommonStatusCodeNotifThresh=sipCommonStatusCodeNotifThresh, sipCommonStatsRetryDisconTime=sipCommonStatsRetryDisconTime, sipCommonCfgTimerEntry=sipCommonCfgTimerEntry, sipCommonCfgTimerT4=sipCommonCfgTimerT4, sipCommonCfgServiceLastChange=sipCommonCfgServiceLastChange, sipCommonStatusCodeNotif=sipCommonStatusCodeNotif, sipCommonOtherStatsEntry=sipCommonOtherStatsEntry, sipCommonMethodStatsOutbounds=sipCommonMethodStatsOutbounds, sipCommonMethodStats=sipCommonMethodStats, sipCommonCfgTimerH=sipCommonCfgTimerH, sipCommonSummaryDisconTime=sipCommonSummaryDisconTime, sipCommonCfgTimer=sipCommonCfgTimer, sipCommonCfgTimerA=sipCommonCfgTimerA, sipCommonCfgTimerK=sipCommonCfgTimerK, sipCommonOtherStatsOtherwiseDiscardedMsgs=sipCommonOtherStatsOtherwiseDiscardedMsgs, sipCommonTransCurrentactions=sipCommonTransCurrentactions, sipCommonSummaryTotalTransactions=sipCommonSummaryTotalTransactions, sipCommonStatusCodeIns=sipCommonStatusCodeIns, sipCommonConfigGroup=sipCommonConfigGroup, sipCommonStatsRetry=sipCommonStatsRetry, sipCommonMethodSupportedEntry=sipCommonMethodSupportedEntry, sipCommonStatusCode=sipCommonStatusCode, sipCommonCfgTimerI=sipCommonCfgTimerI, sipCommonCfgTimerJ=sipCommonCfgTimerJ, sipCommonCfgTimerC=sipCommonCfgTimerC, sipCommonStatsRetryEntry=sipCommonStatsRetryEntry, sipCommonSummaryStats=sipCommonSummaryStats, sipCommonNotifObjectsGroup=sipCommonNotifObjectsGroup, sipCommonOtherStatsDisconTime=sipCommonOtherStatsDisconTime, sipCommonOtherStatsNumUnsupportedUris=sipCommonOtherStatsNumUnsupportedUris, sipCommonPortTransportRcv=sipCommonPortTransportRcv, sipCommonSummaryStatsEntry=sipCommonSummaryStatsEntry, sipCommonCfgServiceOperStatus=sipCommonCfgServiceOperStatus, sipCommonMethodSupportedTable=sipCommonMethodSupportedTable, sipCommonStatsRetryNonFinalResponses=sipCommonStatsRetryNonFinalResponses, sipCommonStatusCodeNotifEntry=sipCommonStatusCodeNotifEntry, sipCommonNotifGroup=sipCommonNotifGroup, sipCommonCfgProtocolVersion=sipCommonCfgProtocolVersion, sipCommonMIBGroups=sipCommonMIBGroups, sipCommonMethodSupportedIndex=sipCommonMethodSupportedIndex, sipCommonServiceWarmStart=sipCommonServiceWarmStart, sipCommonCfgBase=sipCommonCfgBase, sipCommonStatsRetryTable=sipCommonStatsRetryTable, sipCommonMIBCompliances=sipCommonMIBCompliances, sipCommonCfgServiceNotifEnable=sipCommonCfgServiceNotifEnable, sipCommonCfgTimerT2=sipCommonCfgTimerT2, PYSNMP_MODULE_ID=sipCommonMIB, sipCommonMIB=sipCommonMIB, sipCommonStatusCodeNotifTable=sipCommonStatusCodeNotifTable, sipCommonPortEntry=sipCommonPortEntry, sipCommonMethodStatsInbounds=sipCommonMethodStatsInbounds, sipCommonOptionTagTable=sipCommonOptionTagTable, sipCommonInformationalGroup=sipCommonInformationalGroup, sipCommonCfgTimerTable=sipCommonCfgTimerTable, sipCommonCfgTimerG=sipCommonCfgTimerG, sipCommonStatusCodeTable=sipCommonStatusCodeTable, sipCommonOtherStatsNumUnsupportedMethods=sipCommonOtherStatsNumUnsupportedMethods, sipCommonStatusCodeNotifFrom=sipCommonStatusCodeNotifFrom, sipCommonStatusCodeNotifCallId=sipCommonStatusCodeNotifCallId, sipCommonConfigTimerGroup=sipCommonConfigTimerGroup, sipCommonStatusCodeNotifGroup=sipCommonStatusCodeNotifGroup, sipCommonCfgTimerB=sipCommonCfgTimerB, sipCommonServiceStatusChanged=sipCommonServiceStatusChanged, sipCommonOtherStats=sipCommonOtherStats, sipCommonSummaryInResponses=sipCommonSummaryInResponses, sipCommonOtherStatsTable=sipCommonOtherStatsTable, sipCommonCfgEntityType=sipCommonCfgEntityType, sipCommonOptionTagIndex=sipCommonOptionTagIndex, sipCommonNotifObjects=sipCommonNotifObjects, sipCommonCfgOrganization=sipCommonCfgOrganization, sipCommonStatusCodeEntry=sipCommonStatusCodeEntry, sipCommonMethodStatsTable=sipCommonMethodStatsTable, sipCommonCfgTimerE=sipCommonCfgTimerE, sipCommonMethodStatsEntry=sipCommonMethodStatsEntry, sipCommonTransCurrentEntry=sipCommonTransCurrentEntry, sipCommonSummaryInRequests=sipCommonSummaryInRequests, sipCommonStatusCodeRowStatus=sipCommonStatusCodeRowStatus, sipCommonStatusCodeNotifEmitMode=sipCommonStatusCodeNotifEmitMode, sipCommonStatusCodeThreshExceededInNotif=sipCommonStatusCodeThreshExceededInNotif, sipCommonSummaryOutRequests=sipCommonSummaryOutRequests, sipCommonCfgTable=sipCommonCfgTable, sipCommonPortTable=sipCommonPortTable, sipCommonMethodStatsDisconTime=sipCommonMethodStatsDisconTime, sipCommonStatsTrans=sipCommonStatsTrans, sipCommonCfgServiceStartTime=sipCommonCfgServiceStartTime, sipCommonCfgMaxTransactions=sipCommonCfgMaxTransactions, sipCommonStatusCodeNotifInterval=sipCommonStatusCodeNotifInterval, sipCommonStatsRetryMethod=sipCommonStatsRetryMethod, sipCommonMIBNotifications=sipCommonMIBNotifications, sipCommonMethodStatsName=sipCommonMethodStatsName, sipCommonOptionTag=sipCommonOptionTag, sipCommonCompliance=sipCommonCompliance, sipCommonStatusCodeOuts=sipCommonStatusCodeOuts, sipCommonMIBConformance=sipCommonMIBConformance, sipCommonCfgTimerT1=sipCommonCfgTimerT1, sipCommonCfgEntry=sipCommonCfgEntry, sipCommonStatusCodeThreshExceededOutNotif=sipCommonStatusCodeThreshExceededOutNotif, sipCommonMethodSupportedName=sipCommonMethodSupportedName, sipCommonStatusCodeNotifTo=sipCommonStatusCodeNotifTo, sipCommonPort=sipCommonPort, sipCommonMIBObjects=sipCommonMIBObjects, sipCommonSummaryStatsTable=sipCommonSummaryStatsTable, sipCommonCfgTimerF=sipCommonCfgTimerF, sipCommonServiceColdStart=sipCommonServiceColdStart, sipCommonStatsRetries=sipCommonStatsRetries, sipCommonStatusCodeValue=sipCommonStatusCodeValue, sipCommonNotifApplIndex=sipCommonNotifApplIndex)
+sipCommonConfigGroup=ObjectGroup((1,3,6,1,2,1,149,2,2,1))
+sipCommonConfigGroup.setObjects(*((_B,_k),(_B,_T),(_B,_U),(_B,_M),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r)))
+if mibBuilder.loadTexts:sipCommonConfigGroup.setStatus(_A)
+sipCommonInformationalGroup=ObjectGroup((1,3,6,1,2,1,149,2,2,2))
+sipCommonInformationalGroup.setObjects((_B,_s))
+if mibBuilder.loadTexts:sipCommonInformationalGroup.setStatus(_A)
+sipCommonConfigTimerGroup=ObjectGroup((1,3,6,1,2,1,149,2,2,3))
+sipCommonConfigTimerGroup.setObjects(*((_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6)))
+if mibBuilder.loadTexts:sipCommonConfigTimerGroup.setStatus(_A)
+sipCommonStatsGroup=ObjectGroup((1,3,6,1,2,1,149,2,2,4))
+sipCommonStatsGroup.setObjects(*((_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_N),(_B,_O),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM)))
+if mibBuilder.loadTexts:sipCommonStatsGroup.setStatus(_A)
+sipCommonStatsRetryGroup=ObjectGroup((1,3,6,1,2,1,149,2,2,5))
+sipCommonStatsRetryGroup.setObjects(*((_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ)))
+if mibBuilder.loadTexts:sipCommonStatsRetryGroup.setStatus(_A)
+sipCommonStatusCodeNotifGroup=ObjectGroup((1,3,6,1,2,1,149,2,2,7))
+sipCommonStatusCodeNotifGroup.setObjects(*((_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU)))
+if mibBuilder.loadTexts:sipCommonStatusCodeNotifGroup.setStatus(_A)
+sipCommonNotifObjectsGroup=ObjectGroup((1,3,6,1,2,1,149,2,2,8))
+sipCommonNotifObjectsGroup.setObjects(*((_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_H),(_B,_I)))
+if mibBuilder.loadTexts:sipCommonNotifObjectsGroup.setStatus(_A)
+sipCommonStatusCodeNotif=NotificationType((1,3,6,1,2,1,149,0,1))
+sipCommonStatusCodeNotif.setObjects(*((_B,_I),(_B,_H),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_N),(_B,_O)))
+if mibBuilder.loadTexts:sipCommonStatusCodeNotif.setStatus(_A)
+sipCommonStatusCodeThreshExceededInNotif=NotificationType((1,3,6,1,2,1,149,0,2))
+sipCommonStatusCodeThreshExceededInNotif.setObjects(*((_B,_I),(_B,_H),(_B,_N)))
+if mibBuilder.loadTexts:sipCommonStatusCodeThreshExceededInNotif.setStatus(_A)
+sipCommonStatusCodeThreshExceededOutNotif=NotificationType((1,3,6,1,2,1,149,0,3))
+sipCommonStatusCodeThreshExceededOutNotif.setObjects(*((_B,_I),(_B,_H),(_B,_O)))
+if mibBuilder.loadTexts:sipCommonStatusCodeThreshExceededOutNotif.setStatus(_A)
+sipCommonServiceColdStart=NotificationType((1,3,6,1,2,1,149,0,4))
+sipCommonServiceColdStart.setObjects(*((_B,_I),(_B,_H),(_B,_U)))
+if mibBuilder.loadTexts:sipCommonServiceColdStart.setStatus(_A)
+sipCommonServiceWarmStart=NotificationType((1,3,6,1,2,1,149,0,5))
+sipCommonServiceWarmStart.setObjects(*((_B,_I),(_B,_H),(_B,_M)))
+if mibBuilder.loadTexts:sipCommonServiceWarmStart.setStatus(_A)
+sipCommonServiceStatusChanged=NotificationType((1,3,6,1,2,1,149,0,6))
+sipCommonServiceStatusChanged.setObjects(*((_B,_I),(_B,_H),(_B,_M),(_B,_T)))
+if mibBuilder.loadTexts:sipCommonServiceStatusChanged.setStatus(_A)
+sipCommonNotifGroup=NotificationGroup((1,3,6,1,2,1,149,2,2,6))
+sipCommonNotifGroup.setObjects(*((_B,_AV),(_B,_AW),(_B,_AX),(_B,_Q),(_B,_R),(_B,_S)))
+if mibBuilder.loadTexts:sipCommonNotifGroup.setStatus(_A)
+sipCommonCompliance=ModuleCompliance((1,3,6,1,2,1,149,2,1,1))
+sipCommonCompliance.setObjects(*((_B,_AY),(_B,_AZ)))
+if mibBuilder.loadTexts:sipCommonCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'sipCommonMIB':sipCommonMIB,'sipCommonMIBNotifications':sipCommonMIBNotifications,_AV:sipCommonStatusCodeNotif,_AW:sipCommonStatusCodeThreshExceededInNotif,_AX:sipCommonStatusCodeThreshExceededOutNotif,_Q:sipCommonServiceColdStart,_R:sipCommonServiceWarmStart,_S:sipCommonServiceStatusChanged,'sipCommonMIBObjects':sipCommonMIBObjects,'sipCommonCfgBase':sipCommonCfgBase,'sipCommonCfgTable':sipCommonCfgTable,'sipCommonCfgEntry':sipCommonCfgEntry,_k:sipCommonCfgProtocolVersion,_T:sipCommonCfgServiceOperStatus,_U:sipCommonCfgServiceStartTime,_M:sipCommonCfgServiceLastChange,_s:sipCommonCfgOrganization,_o:sipCommonCfgMaxTransactions,_p:sipCommonCfgServiceNotifEnable,_q:sipCommonCfgEntityType,'sipCommonPortTable':sipCommonPortTable,'sipCommonPortEntry':sipCommonPortEntry,_c:sipCommonPort,_l:sipCommonPortTransportRcv,'sipCommonOptionTagTable':sipCommonOptionTagTable,'sipCommonOptionTagEntry':sipCommonOptionTagEntry,_d:sipCommonOptionTagIndex,_m:sipCommonOptionTag,_n:sipCommonOptionTagHeaderField,'sipCommonMethodSupportedTable':sipCommonMethodSupportedTable,'sipCommonMethodSupportedEntry':sipCommonMethodSupportedEntry,_e:sipCommonMethodSupportedIndex,_r:sipCommonMethodSupportedName,'sipCommonCfgTimer':sipCommonCfgTimer,'sipCommonCfgTimerTable':sipCommonCfgTimerTable,'sipCommonCfgTimerEntry':sipCommonCfgTimerEntry,_t:sipCommonCfgTimerA,_u:sipCommonCfgTimerB,_v:sipCommonCfgTimerC,_w:sipCommonCfgTimerD,_x:sipCommonCfgTimerE,_y:sipCommonCfgTimerF,_z:sipCommonCfgTimerG,_A0:sipCommonCfgTimerH,_A1:sipCommonCfgTimerI,_A2:sipCommonCfgTimerJ,_A3:sipCommonCfgTimerK,_A4:sipCommonCfgTimerT1,_A5:sipCommonCfgTimerT2,_A6:sipCommonCfgTimerT4,'sipCommonSummaryStats':sipCommonSummaryStats,'sipCommonSummaryStatsTable':sipCommonSummaryStatsTable,'sipCommonSummaryStatsEntry':sipCommonSummaryStatsEntry,_A7:sipCommonSummaryInRequests,_A8:sipCommonSummaryOutRequests,_A9:sipCommonSummaryInResponses,_AA:sipCommonSummaryOutResponses,_AB:sipCommonSummaryTotalTransactions,_AC:sipCommonSummaryDisconTime,'sipCommonMethodStats':sipCommonMethodStats,'sipCommonMethodStatsTable':sipCommonMethodStatsTable,'sipCommonMethodStatsEntry':sipCommonMethodStatsEntry,_f:sipCommonMethodStatsName,_AD:sipCommonMethodStatsOutbounds,_AE:sipCommonMethodStatsInbounds,_AF:sipCommonMethodStatsDisconTime,'sipCommonStatusCode':sipCommonStatusCode,'sipCommonStatusCodeTable':sipCommonStatusCodeTable,'sipCommonStatusCodeEntry':sipCommonStatusCodeEntry,_g:sipCommonStatusCodeMethod,_h:sipCommonStatusCodeValue,_N:sipCommonStatusCodeIns,_O:sipCommonStatusCodeOuts,_AG:sipCommonStatusCodeRowStatus,_AH:sipCommonStatusCodeDisconTime,'sipCommonStatusCodeNotifTable':sipCommonStatusCodeNotifTable,_j:sipCommonStatusCodeNotifEntry,_AR:sipCommonStatusCodeNotifSend,_AS:sipCommonStatusCodeNotifEmitMode,_AT:sipCommonStatusCodeNotifThresh,_AU:sipCommonStatusCodeNotifInterval,'sipCommonStatsTrans':sipCommonStatsTrans,'sipCommonTransCurrentTable':sipCommonTransCurrentTable,'sipCommonTransCurrentEntry':sipCommonTransCurrentEntry,_AI:sipCommonTransCurrentactions,'sipCommonStatsRetry':sipCommonStatsRetry,'sipCommonStatsRetryTable':sipCommonStatsRetryTable,'sipCommonStatsRetryEntry':sipCommonStatsRetryEntry,_i:sipCommonStatsRetryMethod,_AN:sipCommonStatsRetries,_AO:sipCommonStatsRetryFinalResponses,_AP:sipCommonStatsRetryNonFinalResponses,_AQ:sipCommonStatsRetryDisconTime,'sipCommonOtherStats':sipCommonOtherStats,'sipCommonOtherStatsTable':sipCommonOtherStatsTable,'sipCommonOtherStatsEntry':sipCommonOtherStatsEntry,_AJ:sipCommonOtherStatsNumUnsupportedUris,_AK:sipCommonOtherStatsNumUnsupportedMethods,_AL:sipCommonOtherStatsOtherwiseDiscardedMsgs,_AM:sipCommonOtherStatsDisconTime,'sipCommonNotifObjects':sipCommonNotifObjects,_V:sipCommonStatusCodeNotifTo,_W:sipCommonStatusCodeNotifFrom,_X:sipCommonStatusCodeNotifCallId,_Y:sipCommonStatusCodeNotifCSeq,_H:sipCommonNotifApplIndex,_I:sipCommonNotifSequenceNumber,'sipCommonMIBConformance':sipCommonMIBConformance,'sipCommonMIBCompliances':sipCommonMIBCompliances,'sipCommonCompliance':sipCommonCompliance,'sipCommonMIBGroups':sipCommonMIBGroups,_AY:sipCommonConfigGroup,'sipCommonInformationalGroup':sipCommonInformationalGroup,'sipCommonConfigTimerGroup':sipCommonConfigTimerGroup,_AZ:sipCommonStatsGroup,'sipCommonStatsRetryGroup':sipCommonStatsRetryGroup,'sipCommonNotifGroup':sipCommonNotifGroup,'sipCommonStatusCodeNotifGroup':sipCommonStatusCodeNotifGroup,'sipCommonNotifObjectsGroup':sipCommonNotifObjectsGroup})

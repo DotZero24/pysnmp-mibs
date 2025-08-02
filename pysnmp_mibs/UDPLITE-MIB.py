@@ -1,73 +1,157 @@
-#
-# PySNMP MIB module UDPLITE-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/UDPLITE-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:32:25 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, ObjectIdentifier, OctetString, ) = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint")
-( InetPortNumber, InetAddress, InetAddressType, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddress", "InetAddressType")
-( NotificationGroup, ObjectGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-( Bits, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, NotificationType, Counter32, Unsigned32, ModuleIdentity, Counter64, Gauge32, TimeTicks, ObjectIdentity, Integer32, mib_2, MibIdentifier, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "NotificationType", "Counter32", "Unsigned32", "ModuleIdentity", "Counter64", "Gauge32", "TimeTicks", "ObjectIdentity", "Integer32", "mib-2", "MibIdentifier")
-( DisplayString, TimeStamp, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "TextualConvention")
-udpliteMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 170)).setRevisions(("2007-12-18 00:00",))
-if mibBuilder.loadTexts: udpliteMIB.setLastUpdated('200712180000Z')
-if mibBuilder.loadTexts: udpliteMIB.setOrganization('IETF TSV Working Group (TSVWG)')
-if mibBuilder.loadTexts: udpliteMIB.setContactInfo('IETF TSV Working Group\n            http://www.ietf.org/html.charters/tsvwg-charter.html\n            Mailing List: tsvwg@ietf.org\n\n\n\n\n            Gerrit Renker, Godred Fairhurst\n            Electronics Research Group\n            School of Engineering, University of Aberdeen\n            Fraser Noble Building, Aberdeen AB24 3UE, UK')
-if mibBuilder.loadTexts: udpliteMIB.setDescription('The MIB module for managing UDP-Lite implementations.\n            Copyright (C) The IETF Trust (2008).  This version of\n            this MIB module is part of RFC 5097; see the RFC\n            itself for full legal notices.')
-udplite = MibIdentifier((1, 3, 6, 1, 2, 1, 170, 1))
-udpliteInDatagrams = MibScalar((1, 3, 6, 1, 2, 1, 170, 1, 1), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpliteInDatagrams.setDescription('The total number of UDP-Lite datagrams that were\n            delivered to UDP-Lite users.\n            Discontinuities in the value of this counter can occur\n            at re-initialisation of the management system, and at\n            other times as indicated by the value of\n            udpliteStatsDiscontinuityTime.')
-udpliteInPartialCov = MibScalar((1, 3, 6, 1, 2, 1, 170, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpliteInPartialCov.setDescription('The total number of UDP-Lite datagrams that were\n            delivered to UDP-Lite users (applications) and whose\n            checksum coverage was strictly less than the datagram\n            length.\n            Discontinuities in the value of this counter can occur\n            at re-initialisation of the management system, and at\n            other times as indicated by the value of\n            udpliteStatsDiscontinuityTime.')
-udpliteNoPorts = MibScalar((1, 3, 6, 1, 2, 1, 170, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpliteNoPorts.setDescription('The total number of received UDP-Lite datagrams for\n            which there was no listener at the destination port.\n            Discontinuities in the value of this counter can occur\n            at re-initialisation of the management system, and at\n            other times as indicated by the value of\n            udpliteStatsDiscontinuityTime.')
-udpliteInErrors = MibScalar((1, 3, 6, 1, 2, 1, 170, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpliteInErrors.setDescription('The number of received UDP-Lite datagrams that could not\n            be delivered for reasons other than the lack of an\n            application at the destination port.\n            Discontinuities in the value of this counter can occur\n            at re-initialisation of the management system, and at\n            other times as indicated by the value of\n            udpliteStatsDiscontinuityTime.')
-udpliteInBadChecksum = MibScalar((1, 3, 6, 1, 2, 1, 170, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpliteInBadChecksum.setDescription('The number of received UDP-Lite datagrams whose checksum\n            could not be validated.  This includes illegal checksum\n            coverage values, as their use would lead to incorrect\n            checksums.\n            Discontinuities in the value of this counter can occur\n            at re-initialisation of the management system, and at\n            other times as indicated by the value of\n            udpliteStatsDiscontinuityTime.')
-udpliteOutDatagrams = MibScalar((1, 3, 6, 1, 2, 1, 170, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpliteOutDatagrams.setDescription('The total number of UDP-Lite datagrams sent from this\n            entity.\n            Discontinuities in the value of this counter can occur\n            at re-initialisation of the management system, and at\n            other times as indicated by the value of\n            udpliteStatsDiscontinuityTime.')
-udpliteOutPartialCov = MibScalar((1, 3, 6, 1, 2, 1, 170, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpliteOutPartialCov.setDescription('The total number of udpliteOutDatagrams whose\n            checksum coverage was strictly less than the\n            datagram length.\n            Discontinuities in the value of this counter can occur\n            at re-initialisation of the management system, and at\n            other times as indicated by the value of\n            udpliteStatsDiscontinuityTime.')
-udpliteEndpointTable = MibTable((1, 3, 6, 1, 2, 1, 170, 1, 8), )
-if mibBuilder.loadTexts: udpliteEndpointTable.setDescription("A table containing information about this entity's\n            UDP-Lite endpoints on which a local application is\n            currently accepting or sending datagrams.\n\n            The address type in this table represents the address\n            type used for the communication, irrespective of the\n            higher-layer abstraction.  For example, an application\n            using IPv6 'sockets' to communicate via IPv4 between\n            ::ffff:10.0.0.1 and ::ffff:10.0.0.2 would use\n            InetAddressType ipv4(1).\n\n            Like the udpTable in RFC 4113, this table also allows\n            the representation of an application that completely\n            specifies both local and remote addresses and ports.  A\n            listening application is represented in three possible\n            ways:\n\n            1) An application that is willing to accept both IPv4\n               and IPv6 datagrams is represented by a\n               udpliteEndpointLocalAddressType of unknown(0) and a\n               udpliteEndpointLocalAddress of ''h (a zero-length\n\n\n\n               octet-string).\n\n            2) An application that is willing to accept only IPv4\n               or only IPv6 datagrams is represented by a\n               udpliteEndpointLocalAddressType of the appropriate\n               address type and a udpliteEndpointLocalAddress of\n               '0.0.0.0' or '::' respectively.\n\n            3) An application that is listening for datagrams only\n               for a specific IP address but from any remote\n               system is represented by a\n               udpliteEndpointLocalAddressType of the appropriate\n               address type, with udpliteEndpointLocalAddress\n               specifying the local address.\n\n            In all cases where the remote address is a wildcard,\n            the udpliteEndpointRemoteAddressType is unknown(0),\n            the udpliteEndpointRemoteAddress is ''h (a zero-length\n            octet-string), and the udpliteEndpointRemotePort is 0.\n\n            If the operating system is demultiplexing UDP-Lite\n            packets by remote address/port, or if the application\n            has 'connected' the socket specifying a default remote\n            address/port, the udpliteEndpointRemote* values should\n            be used to reflect this.")
-udpliteEndpointEntry = MibTableRow((1, 3, 6, 1, 2, 1, 170, 1, 8, 1), ).setIndexNames((0, "UDPLITE-MIB", "udpliteEndpointLocalAddressType"), (0, "UDPLITE-MIB", "udpliteEndpointLocalAddress"), (0, "UDPLITE-MIB", "udpliteEndpointLocalPort"), (0, "UDPLITE-MIB", "udpliteEndpointRemoteAddressType"), (0, "UDPLITE-MIB", "udpliteEndpointRemoteAddress"), (0, "UDPLITE-MIB", "udpliteEndpointRemotePort"), (0, "UDPLITE-MIB", "udpliteEndpointInstance"))
-if mibBuilder.loadTexts: udpliteEndpointEntry.setDescription('Information about a particular current UDP-Lite endpoint.\n            Implementers need to pay attention to the sizes of\n            udpliteEndpointLocalAddress/RemoteAddress, as Object\n            Identifiers (OIDs) of column instances in this table must\n            have no more than 128 sub-identifiers in order to remain\n             accessible with SNMPv1, SNMPv2c, and SNMPv3.')
-udpliteEndpointLocalAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 170, 1, 8, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: udpliteEndpointLocalAddressType.setDescription('The address type of udpliteEndpointLocalAddress.  Only\n            IPv4, IPv4z, IPv6, and IPv6z addresses are expected, or\n            unknown(0) if datagrams for all local IP addresses are\n            accepted.')
-udpliteEndpointLocalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 170, 1, 8, 1, 2), InetAddress())
-if mibBuilder.loadTexts: udpliteEndpointLocalAddress.setDescription("The local IP address for this UDP-Lite endpoint.\n\n            The value of this object can be represented in three\n            possible ways, depending on the characteristics of the\n            listening application:\n\n            1. For an application that is willing to accept both\n               IPv4 and IPv6 datagrams, the value of this object\n               must be ''h (a zero-length octet-string), with\n               the value of the corresponding instance of the\n               EndpointLocalAddressType object being unknown(0).\n\n            2. For an application that is willing to accept only\n               IPv4 or only IPv6 datagrams, the value of this\n               object must be '0.0.0.0' or '::', respectively,\n               while the corresponding instance of the\n               EndpointLocalAddressType object represents the\n               appropriate address type.\n\n            3. For an application that is listening for data\n\n\n\n               destined only to a specific IP address, the value\n               of this object is the specific IP address for\n               which this node is receiving packets, with the\n               corresponding instance of the\n               EndpointLocalAddressType object representing the\n               appropriate address type.\n\n            As this object is used in the index for the\n            udpliteEndpointTable, implementors should be careful\n            not to create entries that would result in OIDs with\n            more than 128 sub-identifiers; this is because of SNMP\n            and SMI limitations.")
-udpliteEndpointLocalPort = MibTableColumn((1, 3, 6, 1, 2, 1, 170, 1, 8, 1, 3), InetPortNumber())
-if mibBuilder.loadTexts: udpliteEndpointLocalPort.setDescription('The local port number for this UDP-Lite endpoint.')
-udpliteEndpointRemoteAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 170, 1, 8, 1, 4), InetAddressType())
-if mibBuilder.loadTexts: udpliteEndpointRemoteAddressType.setDescription('The address type of udpliteEndpointRemoteAddress.  Only\n            IPv4, IPv4z, IPv6, and IPv6z addresses are expected, or\n            unknown(0) if datagrams for all remote IP addresses are\n            accepted.  Also, note that some combinations of\n            udpliteEndpointLocalAdressType and\n            udpliteEndpointRemoteAddressType are not supported.  In\n            particular, if the value of this object is not\n            unknown(0), it is expected to always refer to the\n            same IP version as udpliteEndpointLocalAddressType.')
-udpliteEndpointRemoteAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 170, 1, 8, 1, 5), InetAddress())
-if mibBuilder.loadTexts: udpliteEndpointRemoteAddress.setDescription("The remote IP address for this UDP-Lite endpoint.  If\n            datagrams from any remote system are to be accepted,\n            this value is ''h (a zero-length octet-string).\n            Otherwise, it has the type described by\n            udpliteEndpointRemoteAddressType and is the address of\n\n\n\n            the remote system from which datagrams are to be\n            accepted (or to which all datagrams will be sent).\n\n            As this object is used in the index for the\n            udpliteEndpointTable, implementors should be careful\n            not to create entries that would result in OIDs with\n            more than 128 sub-identifiers; this is because of SNMP\n            and SMI limitations.")
-udpliteEndpointRemotePort = MibTableColumn((1, 3, 6, 1, 2, 1, 170, 1, 8, 1, 6), InetPortNumber())
-if mibBuilder.loadTexts: udpliteEndpointRemotePort.setDescription('The remote port number for this UDP-Lite endpoint.  If\n            datagrams from any remote system are to be accepted,\n            this value is zero.')
-udpliteEndpointInstance = MibTableColumn((1, 3, 6, 1, 2, 1, 170, 1, 8, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: udpliteEndpointInstance.setDescription("The instance of this tuple.  This object is used to\n            distinguish among multiple processes 'connected' to\n            the same UDP-Lite endpoint.  For example, on a system\n            implementing the BSD sockets interface, this would be\n            used to support the SO_REUSEADDR and SO_REUSEPORT\n            socket options.")
-udpliteEndpointProcess = MibTableColumn((1, 3, 6, 1, 2, 1, 170, 1, 8, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpliteEndpointProcess.setDescription("A unique value corresponding to a piece of software\n            running on this endpoint.\n\n            If this endpoint is associated with more than one piece\n            of software, the agent should choose one of these.  As\n            long as the representative piece of software\n            is running and still associated with the endpoint,\n            subsequent reads will consistently return the same\n            value.  The implementation may use any algorithm\n            satisfying these constraints (e.g., choosing the entity\n\n\n\n            with the oldest start time).\n\n            This identifier is platform-specific.  Wherever possible,\n            it should use the system's native, unique identification\n            number as the value.\n\n            If the SYSAPPL-MIB module is available, the value should\n            be the same as sysApplElmtRunIndex.  If not available, an\n            alternative should be used (e.g., the hrSWRunIndex of the\n            HOST-RESOURCES-MIB module).\n\n            If it is not possible to uniquely identify the pieces of\n            software associated with this endpoint, then the value\n            zero should be used.  (Note that zero is otherwise a\n            valid value for sysApplElmtRunIndex.)")
-udpliteEndpointMinCoverage = MibTableColumn((1, 3, 6, 1, 2, 1, 170, 1, 8, 1, 9), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpliteEndpointMinCoverage.setDescription('The minimum checksum coverage expected by this endpoint.\n            A value of 0 indicates that only fully covered datagrams\n            are accepted.')
-udpliteEndpointViolCoverage = MibTableColumn((1, 3, 6, 1, 2, 1, 170, 1, 8, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpliteEndpointViolCoverage.setDescription('The number of datagrams received by this endpoint whose\n            checksum coverage violated the minimum coverage threshold\n            set for this connection (i.e., all valid datagrams whose\n            checksum coverage was strictly smaller than the minimum,\n            as defined in RFC 3828).\n            Discontinuities in the value of this counter can occur\n            at re-initialisation of the management system, and at\n            other times as indicated by the value of\n            udpliteStatsDiscontinuityTime.')
-udpliteStatsDiscontinuityTime = MibScalar((1, 3, 6, 1, 2, 1, 170, 1, 9), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpliteStatsDiscontinuityTime.setDescription('The value of sysUpTime at the most recent occasion at\n            which one or more of the UDP-Lite counters suffered a\n            discontinuity.\n            A value of zero indicates no such discontinuity has\n            occurred since the last re-initialisation of the local\n            management subsystem.')
-udpliteMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 170, 2))
-udpliteMIBCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 170, 2, 1)).setObjects(*(("UDPLITE-MIB", "udpliteBaseGroup"), ("UDPLITE-MIB", "udplitePartialCsumGroup"), ("UDPLITE-MIB", "udpliteEndpointGroup"), ("UDPLITE-MIB", "udpliteAppGroup"),))
-if mibBuilder.loadTexts: udpliteMIBCompliance.setDescription('The compliance statement for systems that implement\n            UDP-Lite.\n\n            There are a number of INDEX objects that cannot be\n            represented in the form of OBJECT clauses in SMIv2,\n            but for which we have the following compliance\n            requirements, expressed in OBJECT clause form in this\n            description clause:\n\n            -- OBJECT      udpliteEndpointLocalAddressType\n            -- SYNTAX      InetAddressType { unknown(0), ipv4(1),\n            --                               ipv6(2), ipv4z(3),\n            --                               ipv6z(4) }\n            -- DESCRIPTION\n            --     Support for dns(16) is not required.\n            -- OBJECT      udpliteEndpointLocalAddress\n            -- SYNTAX      InetAddress (SIZE(0|4|8|16|20))\n            -- DESCRIPTION\n            --     Support is only required for zero-length\n            --     octet-strings, and for scoped and unscoped\n            --     IPv4 and IPv6 addresses.\n            -- OBJECT      udpliteEndpointRemoteAddressType\n            -- SYNTAX      InetAddressType { unknown(0), ipv4(1),\n            --                               ipv6(2), ipv4z(3),\n            --                               ipv6z(4) }\n            -- DESCRIPTION\n            --     Support for dns(16) is not required.\n            -- OBJECT      udpliteEndpointRemoteAddress\n\n\n\n            -- SYNTAX      InetAddress (SIZE(0|4|8|16|20))\n            -- DESCRIPTION\n            --     Support is only required for zero-length\n            --     octet-strings, and for scoped and unscoped\n            --     IPv4 and IPv6 addresses.\n           ')
-udpliteMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 170, 2, 2))
-udpliteBaseGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 170, 2, 2, 1)).setObjects(*(("UDPLITE-MIB", "udpliteInDatagrams"), ("UDPLITE-MIB", "udpliteNoPorts"), ("UDPLITE-MIB", "udpliteInErrors"), ("UDPLITE-MIB", "udpliteOutDatagrams"), ("UDPLITE-MIB", "udpliteStatsDiscontinuityTime"),))
-if mibBuilder.loadTexts: udpliteBaseGroup.setDescription('The group of objects providing for counters of\n            basic UDP-like statistics.')
-udplitePartialCsumGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 170, 2, 2, 2)).setObjects(*(("UDPLITE-MIB", "udpliteInPartialCov"), ("UDPLITE-MIB", "udpliteInBadChecksum"), ("UDPLITE-MIB", "udpliteOutPartialCov"),))
-if mibBuilder.loadTexts: udplitePartialCsumGroup.setDescription('The group of objects providing for counters of\n            transport layer statistics exclusive to UDP-Lite.')
-udpliteEndpointGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 170, 2, 2, 3)).setObjects(*(("UDPLITE-MIB", "udpliteEndpointProcess"), ("UDPLITE-MIB", "udpliteEndpointMinCoverage"),))
-if mibBuilder.loadTexts: udpliteEndpointGroup.setDescription("The group of objects providing for the IP version\n            independent management of UDP-Lite 'endpoints'.")
-udpliteAppGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 170, 2, 2, 4)).setObjects(*(("UDPLITE-MIB", "udpliteEndpointViolCoverage"),))
-if mibBuilder.loadTexts: udpliteAppGroup.setDescription("The group of objects that provide application-level\n            information for the configuration management of\n            UDP-Lite 'endpoints'.")
-mibBuilder.exportSymbols("UDPLITE-MIB", udpliteAppGroup=udpliteAppGroup, udplitePartialCsumGroup=udplitePartialCsumGroup, udpliteInPartialCov=udpliteInPartialCov, udpliteOutDatagrams=udpliteOutDatagrams, udpliteEndpointMinCoverage=udpliteEndpointMinCoverage, udpliteInBadChecksum=udpliteInBadChecksum, udpliteEndpointGroup=udpliteEndpointGroup, udpliteEndpointInstance=udpliteEndpointInstance, udpliteEndpointLocalAddress=udpliteEndpointLocalAddress, udpliteBaseGroup=udpliteBaseGroup, udpliteMIBCompliance=udpliteMIBCompliance, udpliteEndpointTable=udpliteEndpointTable, udpliteEndpointRemotePort=udpliteEndpointRemotePort, udpliteInDatagrams=udpliteInDatagrams, udpliteNoPorts=udpliteNoPorts, udpliteEndpointRemoteAddress=udpliteEndpointRemoteAddress, udpliteMIBGroups=udpliteMIBGroups, udpliteEndpointViolCoverage=udpliteEndpointViolCoverage, udpliteEndpointLocalAddressType=udpliteEndpointLocalAddressType, udpliteEndpointEntry=udpliteEndpointEntry, udpliteOutPartialCov=udpliteOutPartialCov, udpliteMIB=udpliteMIB, udpliteInErrors=udpliteInErrors, udpliteEndpointRemoteAddressType=udpliteEndpointRemoteAddressType, udpliteMIBConformance=udpliteMIBConformance, PYSNMP_MODULE_ID=udpliteMIB, udpliteEndpointLocalPort=udpliteEndpointLocalPort, udplite=udplite, udpliteEndpointProcess=udpliteEndpointProcess, udpliteStatsDiscontinuityTime=udpliteStatsDiscontinuityTime)
+_a='udpliteAppGroup'
+_Z='udpliteEndpointGroup'
+_Y='udplitePartialCsumGroup'
+_X='udpliteBaseGroup'
+_W='udpliteEndpointViolCoverage'
+_V='udpliteEndpointMinCoverage'
+_U='udpliteEndpointProcess'
+_T='udpliteOutPartialCov'
+_S='udpliteInBadChecksum'
+_R='udpliteInPartialCov'
+_Q='udpliteStatsDiscontinuityTime'
+_P='udpliteOutDatagrams'
+_O='udpliteInErrors'
+_N='udpliteNoPorts'
+_M='udpliteInDatagrams'
+_L='udpliteEndpointInstance'
+_K='udpliteEndpointRemotePort'
+_J='udpliteEndpointRemoteAddress'
+_I='udpliteEndpointRemoteAddressType'
+_H='udpliteEndpointLocalPort'
+_G='udpliteEndpointLocalAddress'
+_F='udpliteEndpointLocalAddressType'
+_E='Unsigned32'
+_D='not-accessible'
+_C='read-only'
+_B='UDPLITE-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InetAddress,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType','InetPortNumber')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso','mib-2')
+DisplayString,PhysAddress,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp')
+udpliteMIB=ModuleIdentity((1,3,6,1,2,1,170))
+if mibBuilder.loadTexts:udpliteMIB.setRevisions(('2007-12-18 00:00',))
+_Udplite_ObjectIdentity=ObjectIdentity
+udplite=_Udplite_ObjectIdentity((1,3,6,1,2,1,170,1))
+_UdpliteInDatagrams_Type=Counter64
+_UdpliteInDatagrams_Object=MibScalar
+udpliteInDatagrams=_UdpliteInDatagrams_Object((1,3,6,1,2,1,170,1,1),_UdpliteInDatagrams_Type())
+udpliteInDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:udpliteInDatagrams.setStatus(_A)
+_UdpliteInPartialCov_Type=Counter64
+_UdpliteInPartialCov_Object=MibScalar
+udpliteInPartialCov=_UdpliteInPartialCov_Object((1,3,6,1,2,1,170,1,2),_UdpliteInPartialCov_Type())
+udpliteInPartialCov.setMaxAccess(_C)
+if mibBuilder.loadTexts:udpliteInPartialCov.setStatus(_A)
+_UdpliteNoPorts_Type=Counter32
+_UdpliteNoPorts_Object=MibScalar
+udpliteNoPorts=_UdpliteNoPorts_Object((1,3,6,1,2,1,170,1,3),_UdpliteNoPorts_Type())
+udpliteNoPorts.setMaxAccess(_C)
+if mibBuilder.loadTexts:udpliteNoPorts.setStatus(_A)
+_UdpliteInErrors_Type=Counter32
+_UdpliteInErrors_Object=MibScalar
+udpliteInErrors=_UdpliteInErrors_Object((1,3,6,1,2,1,170,1,4),_UdpliteInErrors_Type())
+udpliteInErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:udpliteInErrors.setStatus(_A)
+_UdpliteInBadChecksum_Type=Counter32
+_UdpliteInBadChecksum_Object=MibScalar
+udpliteInBadChecksum=_UdpliteInBadChecksum_Object((1,3,6,1,2,1,170,1,5),_UdpliteInBadChecksum_Type())
+udpliteInBadChecksum.setMaxAccess(_C)
+if mibBuilder.loadTexts:udpliteInBadChecksum.setStatus(_A)
+_UdpliteOutDatagrams_Type=Counter64
+_UdpliteOutDatagrams_Object=MibScalar
+udpliteOutDatagrams=_UdpliteOutDatagrams_Object((1,3,6,1,2,1,170,1,6),_UdpliteOutDatagrams_Type())
+udpliteOutDatagrams.setMaxAccess(_C)
+if mibBuilder.loadTexts:udpliteOutDatagrams.setStatus(_A)
+_UdpliteOutPartialCov_Type=Counter64
+_UdpliteOutPartialCov_Object=MibScalar
+udpliteOutPartialCov=_UdpliteOutPartialCov_Object((1,3,6,1,2,1,170,1,7),_UdpliteOutPartialCov_Type())
+udpliteOutPartialCov.setMaxAccess(_C)
+if mibBuilder.loadTexts:udpliteOutPartialCov.setStatus(_A)
+_UdpliteEndpointTable_Object=MibTable
+udpliteEndpointTable=_UdpliteEndpointTable_Object((1,3,6,1,2,1,170,1,8))
+if mibBuilder.loadTexts:udpliteEndpointTable.setStatus(_A)
+_UdpliteEndpointEntry_Object=MibTableRow
+udpliteEndpointEntry=_UdpliteEndpointEntry_Object((1,3,6,1,2,1,170,1,8,1))
+udpliteEndpointEntry.setIndexNames((0,_B,_F),(0,_B,_G),(0,_B,_H),(0,_B,_I),(0,_B,_J),(0,_B,_K),(0,_B,_L))
+if mibBuilder.loadTexts:udpliteEndpointEntry.setStatus(_A)
+_UdpliteEndpointLocalAddressType_Type=InetAddressType
+_UdpliteEndpointLocalAddressType_Object=MibTableColumn
+udpliteEndpointLocalAddressType=_UdpliteEndpointLocalAddressType_Object((1,3,6,1,2,1,170,1,8,1,1),_UdpliteEndpointLocalAddressType_Type())
+udpliteEndpointLocalAddressType.setMaxAccess(_D)
+if mibBuilder.loadTexts:udpliteEndpointLocalAddressType.setStatus(_A)
+_UdpliteEndpointLocalAddress_Type=InetAddress
+_UdpliteEndpointLocalAddress_Object=MibTableColumn
+udpliteEndpointLocalAddress=_UdpliteEndpointLocalAddress_Object((1,3,6,1,2,1,170,1,8,1,2),_UdpliteEndpointLocalAddress_Type())
+udpliteEndpointLocalAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:udpliteEndpointLocalAddress.setStatus(_A)
+_UdpliteEndpointLocalPort_Type=InetPortNumber
+_UdpliteEndpointLocalPort_Object=MibTableColumn
+udpliteEndpointLocalPort=_UdpliteEndpointLocalPort_Object((1,3,6,1,2,1,170,1,8,1,3),_UdpliteEndpointLocalPort_Type())
+udpliteEndpointLocalPort.setMaxAccess(_D)
+if mibBuilder.loadTexts:udpliteEndpointLocalPort.setStatus(_A)
+_UdpliteEndpointRemoteAddressType_Type=InetAddressType
+_UdpliteEndpointRemoteAddressType_Object=MibTableColumn
+udpliteEndpointRemoteAddressType=_UdpliteEndpointRemoteAddressType_Object((1,3,6,1,2,1,170,1,8,1,4),_UdpliteEndpointRemoteAddressType_Type())
+udpliteEndpointRemoteAddressType.setMaxAccess(_D)
+if mibBuilder.loadTexts:udpliteEndpointRemoteAddressType.setStatus(_A)
+_UdpliteEndpointRemoteAddress_Type=InetAddress
+_UdpliteEndpointRemoteAddress_Object=MibTableColumn
+udpliteEndpointRemoteAddress=_UdpliteEndpointRemoteAddress_Object((1,3,6,1,2,1,170,1,8,1,5),_UdpliteEndpointRemoteAddress_Type())
+udpliteEndpointRemoteAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:udpliteEndpointRemoteAddress.setStatus(_A)
+_UdpliteEndpointRemotePort_Type=InetPortNumber
+_UdpliteEndpointRemotePort_Object=MibTableColumn
+udpliteEndpointRemotePort=_UdpliteEndpointRemotePort_Object((1,3,6,1,2,1,170,1,8,1,6),_UdpliteEndpointRemotePort_Type())
+udpliteEndpointRemotePort.setMaxAccess(_D)
+if mibBuilder.loadTexts:udpliteEndpointRemotePort.setStatus(_A)
+class _UdpliteEndpointInstance_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_UdpliteEndpointInstance_Type.__name__=_E
+_UdpliteEndpointInstance_Object=MibTableColumn
+udpliteEndpointInstance=_UdpliteEndpointInstance_Object((1,3,6,1,2,1,170,1,8,1,7),_UdpliteEndpointInstance_Type())
+udpliteEndpointInstance.setMaxAccess(_D)
+if mibBuilder.loadTexts:udpliteEndpointInstance.setStatus(_A)
+_UdpliteEndpointProcess_Type=Unsigned32
+_UdpliteEndpointProcess_Object=MibTableColumn
+udpliteEndpointProcess=_UdpliteEndpointProcess_Object((1,3,6,1,2,1,170,1,8,1,8),_UdpliteEndpointProcess_Type())
+udpliteEndpointProcess.setMaxAccess(_C)
+if mibBuilder.loadTexts:udpliteEndpointProcess.setStatus(_A)
+_UdpliteEndpointMinCoverage_Type=Unsigned32
+_UdpliteEndpointMinCoverage_Object=MibTableColumn
+udpliteEndpointMinCoverage=_UdpliteEndpointMinCoverage_Object((1,3,6,1,2,1,170,1,8,1,9),_UdpliteEndpointMinCoverage_Type())
+udpliteEndpointMinCoverage.setMaxAccess(_C)
+if mibBuilder.loadTexts:udpliteEndpointMinCoverage.setStatus(_A)
+_UdpliteEndpointViolCoverage_Type=Counter32
+_UdpliteEndpointViolCoverage_Object=MibTableColumn
+udpliteEndpointViolCoverage=_UdpliteEndpointViolCoverage_Object((1,3,6,1,2,1,170,1,8,1,10),_UdpliteEndpointViolCoverage_Type())
+udpliteEndpointViolCoverage.setMaxAccess(_C)
+if mibBuilder.loadTexts:udpliteEndpointViolCoverage.setStatus(_A)
+_UdpliteStatsDiscontinuityTime_Type=TimeStamp
+_UdpliteStatsDiscontinuityTime_Object=MibScalar
+udpliteStatsDiscontinuityTime=_UdpliteStatsDiscontinuityTime_Object((1,3,6,1,2,1,170,1,9),_UdpliteStatsDiscontinuityTime_Type())
+udpliteStatsDiscontinuityTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:udpliteStatsDiscontinuityTime.setStatus(_A)
+_UdpliteMIBConformance_ObjectIdentity=ObjectIdentity
+udpliteMIBConformance=_UdpliteMIBConformance_ObjectIdentity((1,3,6,1,2,1,170,2))
+_UdpliteMIBGroups_ObjectIdentity=ObjectIdentity
+udpliteMIBGroups=_UdpliteMIBGroups_ObjectIdentity((1,3,6,1,2,1,170,2,2))
+udpliteBaseGroup=ObjectGroup((1,3,6,1,2,1,170,2,2,1))
+udpliteBaseGroup.setObjects(*((_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
+if mibBuilder.loadTexts:udpliteBaseGroup.setStatus(_A)
+udplitePartialCsumGroup=ObjectGroup((1,3,6,1,2,1,170,2,2,2))
+udplitePartialCsumGroup.setObjects(*((_B,_R),(_B,_S),(_B,_T)))
+if mibBuilder.loadTexts:udplitePartialCsumGroup.setStatus(_A)
+udpliteEndpointGroup=ObjectGroup((1,3,6,1,2,1,170,2,2,3))
+udpliteEndpointGroup.setObjects(*((_B,_U),(_B,_V)))
+if mibBuilder.loadTexts:udpliteEndpointGroup.setStatus(_A)
+udpliteAppGroup=ObjectGroup((1,3,6,1,2,1,170,2,2,4))
+udpliteAppGroup.setObjects((_B,_W))
+if mibBuilder.loadTexts:udpliteAppGroup.setStatus(_A)
+udpliteMIBCompliance=ModuleCompliance((1,3,6,1,2,1,170,2,1))
+udpliteMIBCompliance.setObjects(*((_B,_X),(_B,_Y),(_B,_Z),(_B,_a)))
+if mibBuilder.loadTexts:udpliteMIBCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'udpliteMIB':udpliteMIB,'udplite':udplite,_M:udpliteInDatagrams,_R:udpliteInPartialCov,_N:udpliteNoPorts,_O:udpliteInErrors,_S:udpliteInBadChecksum,_P:udpliteOutDatagrams,_T:udpliteOutPartialCov,'udpliteEndpointTable':udpliteEndpointTable,'udpliteEndpointEntry':udpliteEndpointEntry,_F:udpliteEndpointLocalAddressType,_G:udpliteEndpointLocalAddress,_H:udpliteEndpointLocalPort,_I:udpliteEndpointRemoteAddressType,_J:udpliteEndpointRemoteAddress,_K:udpliteEndpointRemotePort,_L:udpliteEndpointInstance,_U:udpliteEndpointProcess,_V:udpliteEndpointMinCoverage,_W:udpliteEndpointViolCoverage,_Q:udpliteStatsDiscontinuityTime,'udpliteMIBConformance':udpliteMIBConformance,'udpliteMIBCompliance':udpliteMIBCompliance,'udpliteMIBGroups':udpliteMIBGroups,_X:udpliteBaseGroup,_Y:udplitePartialCsumGroup,_Z:udpliteEndpointGroup,_a:udpliteAppGroup})

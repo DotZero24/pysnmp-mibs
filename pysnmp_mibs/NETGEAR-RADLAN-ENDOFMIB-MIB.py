@@ -1,0 +1,16 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+rnd,=mibBuilder.importSymbols('NETGEAR-RADLAN-MIB','rnd')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+rndEndOfMibGroup=ModuleIdentity((1,3,6,1,4,1,4526,17,1000))
+if mibBuilder.loadTexts:rndEndOfMibGroup.setRevisions(('2007-01-02 00:00',))
+_RndEndOfMib_Type=Integer32
+_RndEndOfMib_Object=MibScalar
+rndEndOfMib=_RndEndOfMib_Object((1,3,6,1,4,1,4526,17,1000,1),_RndEndOfMib_Type())
+rndEndOfMib.setMaxAccess('read-only')
+if mibBuilder.loadTexts:rndEndOfMib.setStatus('current')
+mibBuilder.exportSymbols('NETGEAR-RADLAN-ENDOFMIB-MIB',**{'rndEndOfMibGroup':rndEndOfMibGroup,'rndEndOfMib':rndEndOfMib})

@@ -1,0 +1,306 @@
+_s='cienaWsXcvrModemGroup'
+_r='cwsXcvrModemEquipmentStatusLossOfSynchronizationTick'
+_q='cwsXcvrModemEquipmentStatusClockSuspect'
+_p='cwsXcvrModemEquipmentStatusCommsLinkSuspect'
+_o='cwsXcvrModemEquipmentStatusDataLinkSuspect'
+_n='cwsXcvrModemEquipmentStatusEquipmentFailure'
+_m='cwsXcvrModemEquipmentStatusEquipmentOutOfSpec'
+_l='cwsXcvrModemEquipmentStatusTransmitterState'
+_k='cwsXcvrModemLineSystemSupportThirdParty'
+_j='cwsXcvrModemLineSystemSupportCoherentSelectColourless'
+_i='cwsXcvrModemLineSystemSupportCoherentSelectColoured'
+_h='cwsXcvrModemLineSystemSupportContentionless'
+_g='cwsXcvrModemLineSystemSupportColourless'
+_f='cwsXcvrModemLineSystemSupportColoured'
+_e='cwsXcvrModemTransportProtocolsEthernet'
+_d='cwsXcvrModemTransportProtocolsOtnInterworking'
+_c='cwsXcvrModemTransportProtocolsOtnBookended'
+_b='cwsXcvrModemModulationSupportModulation8qam'
+_a='cwsXcvrModemModulationSupportModulationBpsk'
+_Z='cwsXcvrModemModulationSupportModulationQpsk'
+_Y='cwsXcvrModemModulationSupportModulation16qam'
+_X='cwsXcvrModemTransmitterTechnologyEdfa'
+_W='cwsXcvrModemTransmitterTechnologyTxDispersionMax'
+_V='cwsXcvrModemTransmitterTechnologyTxDispersionMin'
+_U='cwsXcvrModemTransmitterTechnologyFrequencyMax'
+_T='cwsXcvrModemTransmitterTechnologyFrequencyMin'
+_S='cwsXcvrModemTransmitterTechnologyWavelengthTolerance'
+_R='cwsXcvrModemTransmitterTechnologyWavelengthMax'
+_Q='cwsXcvrModemTransmitterTechnologyWavelengthMin'
+_P='cwsXcvrModemTransmitterTechnologyTunable'
+_O='cwsXcvrModemTransmitterTechnologyWavelengthControl'
+_N='cwsXcvrModemVendorDiagnosticMonitoringDispersionMeasurement'
+_M='cwsXcvrModemVendorDiagnosticMonitoringDiagnosticSupport'
+_L='cwsXcvrAugXcvrModemVendorDiagnosticMonitoringEntry'
+_K='cwsXcvrModemEquipmentStatusTableSnmpKey'
+_J='cwsXcvrModemLineSystemSupportTableSnmpKey'
+_I='cwsXcvrModemTransportProtocolsTableSnmpKey'
+_H='cwsXcvrModemModulationSupportTableSnmpKey'
+_G='cwsXcvrModemTransmitterTechnologyTableSnmpKey'
+_F='not-accessible'
+_E='cwsXcvrXcvrsXcvrIndex'
+_D='Integer32'
+_C='read-only'
+_B='CIENA-WS-XCVR-MODEM-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+cienaWsConfig,=mibBuilder.importSymbols('CIENA-WS-MIB','cienaWsConfig')
+Decimal2Dig,EnabledDisabledEnum,XcvrId,YesNoEnum=mibBuilder.importSymbols('CIENA-WS-TYPEDEFS-MIB','Decimal2Dig','EnabledDisabledEnum','XcvrId','YesNoEnum')
+cwsXcvrVendorDiagnosticMonitoringEntry,=mibBuilder.importSymbols('CIENA-WS-XCVR-MIB','cwsXcvrVendorDiagnosticMonitoringEntry')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+cienaWsXcvrModemMIB=ModuleIdentity((1,3,6,1,4,1,1271,3,4,16))
+if mibBuilder.loadTexts:cienaWsXcvrModemMIB.setRevisions(('2017-03-02 00:00','2016-12-12 00:00','2016-06-14 00:00','2016-03-03 00:00','2015-02-25 00:00'))
+_CienaWsXcvrModemObjects_ObjectIdentity=ObjectIdentity
+cienaWsXcvrModemObjects=_CienaWsXcvrModemObjects_ObjectIdentity((1,3,6,1,4,1,1271,3,4,16,1))
+_CienaWsXcvrModemConformance_ObjectIdentity=ObjectIdentity
+cienaWsXcvrModemConformance=_CienaWsXcvrModemConformance_ObjectIdentity((1,3,6,1,4,1,1271,3,4,16,2))
+_CienaWsXcvrModemGroups_ObjectIdentity=ObjectIdentity
+cienaWsXcvrModemGroups=_CienaWsXcvrModemGroups_ObjectIdentity((1,3,6,1,4,1,1271,3,4,16,2,1))
+_CienaWsXcvrModemCompliances_ObjectIdentity=ObjectIdentity
+cienaWsXcvrModemCompliances=_CienaWsXcvrModemCompliances_ObjectIdentity((1,3,6,1,4,1,1271,3,4,16,2,2))
+_CwsXcvrAugXcvrModemVendorDiagnosticMonitoringTable_Object=MibTable
+cwsXcvrAugXcvrModemVendorDiagnosticMonitoringTable=_CwsXcvrAugXcvrModemVendorDiagnosticMonitoringTable_Object((1,3,6,1,4,1,1271,3,4,16,3))
+if mibBuilder.loadTexts:cwsXcvrAugXcvrModemVendorDiagnosticMonitoringTable.setStatus(_A)
+_CwsXcvrAugXcvrModemVendorDiagnosticMonitoringEntry_Object=MibTableRow
+cwsXcvrAugXcvrModemVendorDiagnosticMonitoringEntry=_CwsXcvrAugXcvrModemVendorDiagnosticMonitoringEntry_Object((1,3,6,1,4,1,1271,3,4,16,3,1))
+if mibBuilder.loadTexts:cwsXcvrAugXcvrModemVendorDiagnosticMonitoringEntry.setStatus(_A)
+_CwsXcvrModemVendorDiagnosticMonitoringDiagnosticSupport_Type=YesNoEnum
+_CwsXcvrModemVendorDiagnosticMonitoringDiagnosticSupport_Object=MibTableColumn
+cwsXcvrModemVendorDiagnosticMonitoringDiagnosticSupport=_CwsXcvrModemVendorDiagnosticMonitoringDiagnosticSupport_Object((1,3,6,1,4,1,1271,3,4,16,3,1,1),_CwsXcvrModemVendorDiagnosticMonitoringDiagnosticSupport_Type())
+cwsXcvrModemVendorDiagnosticMonitoringDiagnosticSupport.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemVendorDiagnosticMonitoringDiagnosticSupport.setStatus(_A)
+_CwsXcvrModemVendorDiagnosticMonitoringDispersionMeasurement_Type=YesNoEnum
+_CwsXcvrModemVendorDiagnosticMonitoringDispersionMeasurement_Object=MibTableColumn
+cwsXcvrModemVendorDiagnosticMonitoringDispersionMeasurement=_CwsXcvrModemVendorDiagnosticMonitoringDispersionMeasurement_Object((1,3,6,1,4,1,1271,3,4,16,3,1,2),_CwsXcvrModemVendorDiagnosticMonitoringDispersionMeasurement_Type())
+cwsXcvrModemVendorDiagnosticMonitoringDispersionMeasurement.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemVendorDiagnosticMonitoringDispersionMeasurement.setStatus(_A)
+_CwsXcvrModemTransmitterTechnologyTable_Object=MibTable
+cwsXcvrModemTransmitterTechnologyTable=_CwsXcvrModemTransmitterTechnologyTable_Object((1,3,6,1,4,1,1271,3,4,16,4))
+if mibBuilder.loadTexts:cwsXcvrModemTransmitterTechnologyTable.setStatus(_A)
+_CwsXcvrModemTransmitterTechnologyEntry_Object=MibTableRow
+cwsXcvrModemTransmitterTechnologyEntry=_CwsXcvrModemTransmitterTechnologyEntry_Object((1,3,6,1,4,1,1271,3,4,16,4,1))
+cwsXcvrModemTransmitterTechnologyEntry.setIndexNames((0,_B,_E),(0,_B,_G))
+if mibBuilder.loadTexts:cwsXcvrModemTransmitterTechnologyEntry.setStatus(_A)
+class _CwsXcvrModemTransmitterTechnologyTableSnmpKey_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_CwsXcvrModemTransmitterTechnologyTableSnmpKey_Type.__name__=_D
+_CwsXcvrModemTransmitterTechnologyTableSnmpKey_Object=MibTableColumn
+cwsXcvrModemTransmitterTechnologyTableSnmpKey=_CwsXcvrModemTransmitterTechnologyTableSnmpKey_Object((1,3,6,1,4,1,1271,3,4,16,4,1,1),_CwsXcvrModemTransmitterTechnologyTableSnmpKey_Type())
+cwsXcvrModemTransmitterTechnologyTableSnmpKey.setMaxAccess(_F)
+if mibBuilder.loadTexts:cwsXcvrModemTransmitterTechnologyTableSnmpKey.setStatus(_A)
+class _CwsXcvrModemTransmitterTechnologyWavelengthControl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('none',0),('active',1)))
+_CwsXcvrModemTransmitterTechnologyWavelengthControl_Type.__name__=_D
+_CwsXcvrModemTransmitterTechnologyWavelengthControl_Object=MibTableColumn
+cwsXcvrModemTransmitterTechnologyWavelengthControl=_CwsXcvrModemTransmitterTechnologyWavelengthControl_Object((1,3,6,1,4,1,1271,3,4,16,4,1,2),_CwsXcvrModemTransmitterTechnologyWavelengthControl_Type())
+cwsXcvrModemTransmitterTechnologyWavelengthControl.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemTransmitterTechnologyWavelengthControl.setStatus(_A)
+_CwsXcvrModemTransmitterTechnologyTunable_Type=YesNoEnum
+_CwsXcvrModemTransmitterTechnologyTunable_Object=MibTableColumn
+cwsXcvrModemTransmitterTechnologyTunable=_CwsXcvrModemTransmitterTechnologyTunable_Object((1,3,6,1,4,1,1271,3,4,16,4,1,3),_CwsXcvrModemTransmitterTechnologyTunable_Type())
+cwsXcvrModemTransmitterTechnologyTunable.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemTransmitterTechnologyTunable.setStatus(_A)
+_CwsXcvrModemTransmitterTechnologyWavelengthMin_Type=Decimal2Dig
+_CwsXcvrModemTransmitterTechnologyWavelengthMin_Object=MibTableColumn
+cwsXcvrModemTransmitterTechnologyWavelengthMin=_CwsXcvrModemTransmitterTechnologyWavelengthMin_Object((1,3,6,1,4,1,1271,3,4,16,4,1,4),_CwsXcvrModemTransmitterTechnologyWavelengthMin_Type())
+cwsXcvrModemTransmitterTechnologyWavelengthMin.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemTransmitterTechnologyWavelengthMin.setStatus(_A)
+_CwsXcvrModemTransmitterTechnologyWavelengthMax_Type=Decimal2Dig
+_CwsXcvrModemTransmitterTechnologyWavelengthMax_Object=MibTableColumn
+cwsXcvrModemTransmitterTechnologyWavelengthMax=_CwsXcvrModemTransmitterTechnologyWavelengthMax_Object((1,3,6,1,4,1,1271,3,4,16,4,1,5),_CwsXcvrModemTransmitterTechnologyWavelengthMax_Type())
+cwsXcvrModemTransmitterTechnologyWavelengthMax.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemTransmitterTechnologyWavelengthMax.setStatus(_A)
+_CwsXcvrModemTransmitterTechnologyWavelengthTolerance_Type=Unsigned32
+_CwsXcvrModemTransmitterTechnologyWavelengthTolerance_Object=MibTableColumn
+cwsXcvrModemTransmitterTechnologyWavelengthTolerance=_CwsXcvrModemTransmitterTechnologyWavelengthTolerance_Object((1,3,6,1,4,1,1271,3,4,16,4,1,6),_CwsXcvrModemTransmitterTechnologyWavelengthTolerance_Type())
+cwsXcvrModemTransmitterTechnologyWavelengthTolerance.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemTransmitterTechnologyWavelengthTolerance.setStatus(_A)
+_CwsXcvrModemTransmitterTechnologyFrequencyMin_Type=Unsigned32
+_CwsXcvrModemTransmitterTechnologyFrequencyMin_Object=MibTableColumn
+cwsXcvrModemTransmitterTechnologyFrequencyMin=_CwsXcvrModemTransmitterTechnologyFrequencyMin_Object((1,3,6,1,4,1,1271,3,4,16,4,1,7),_CwsXcvrModemTransmitterTechnologyFrequencyMin_Type())
+cwsXcvrModemTransmitterTechnologyFrequencyMin.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemTransmitterTechnologyFrequencyMin.setStatus(_A)
+_CwsXcvrModemTransmitterTechnologyFrequencyMax_Type=Unsigned32
+_CwsXcvrModemTransmitterTechnologyFrequencyMax_Object=MibTableColumn
+cwsXcvrModemTransmitterTechnologyFrequencyMax=_CwsXcvrModemTransmitterTechnologyFrequencyMax_Object((1,3,6,1,4,1,1271,3,4,16,4,1,8),_CwsXcvrModemTransmitterTechnologyFrequencyMax_Type())
+cwsXcvrModemTransmitterTechnologyFrequencyMax.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemTransmitterTechnologyFrequencyMax.setStatus(_A)
+_CwsXcvrModemTransmitterTechnologyTxDispersionMin_Type=Unsigned32
+_CwsXcvrModemTransmitterTechnologyTxDispersionMin_Object=MibTableColumn
+cwsXcvrModemTransmitterTechnologyTxDispersionMin=_CwsXcvrModemTransmitterTechnologyTxDispersionMin_Object((1,3,6,1,4,1,1271,3,4,16,4,1,9),_CwsXcvrModemTransmitterTechnologyTxDispersionMin_Type())
+cwsXcvrModemTransmitterTechnologyTxDispersionMin.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemTransmitterTechnologyTxDispersionMin.setStatus(_A)
+_CwsXcvrModemTransmitterTechnologyTxDispersionMax_Type=Unsigned32
+_CwsXcvrModemTransmitterTechnologyTxDispersionMax_Object=MibTableColumn
+cwsXcvrModemTransmitterTechnologyTxDispersionMax=_CwsXcvrModemTransmitterTechnologyTxDispersionMax_Object((1,3,6,1,4,1,1271,3,4,16,4,1,10),_CwsXcvrModemTransmitterTechnologyTxDispersionMax_Type())
+cwsXcvrModemTransmitterTechnologyTxDispersionMax.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemTransmitterTechnologyTxDispersionMax.setStatus(_A)
+_CwsXcvrModemTransmitterTechnologyEdfa_Type=YesNoEnum
+_CwsXcvrModemTransmitterTechnologyEdfa_Object=MibTableColumn
+cwsXcvrModemTransmitterTechnologyEdfa=_CwsXcvrModemTransmitterTechnologyEdfa_Object((1,3,6,1,4,1,1271,3,4,16,4,1,11),_CwsXcvrModemTransmitterTechnologyEdfa_Type())
+cwsXcvrModemTransmitterTechnologyEdfa.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemTransmitterTechnologyEdfa.setStatus(_A)
+_CwsXcvrModemModulationSupportTable_Object=MibTable
+cwsXcvrModemModulationSupportTable=_CwsXcvrModemModulationSupportTable_Object((1,3,6,1,4,1,1271,3,4,16,5))
+if mibBuilder.loadTexts:cwsXcvrModemModulationSupportTable.setStatus(_A)
+_CwsXcvrModemModulationSupportEntry_Object=MibTableRow
+cwsXcvrModemModulationSupportEntry=_CwsXcvrModemModulationSupportEntry_Object((1,3,6,1,4,1,1271,3,4,16,5,1))
+cwsXcvrModemModulationSupportEntry.setIndexNames((0,_B,_E),(0,_B,_H))
+if mibBuilder.loadTexts:cwsXcvrModemModulationSupportEntry.setStatus(_A)
+class _CwsXcvrModemModulationSupportTableSnmpKey_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_CwsXcvrModemModulationSupportTableSnmpKey_Type.__name__=_D
+_CwsXcvrModemModulationSupportTableSnmpKey_Object=MibTableColumn
+cwsXcvrModemModulationSupportTableSnmpKey=_CwsXcvrModemModulationSupportTableSnmpKey_Object((1,3,6,1,4,1,1271,3,4,16,5,1,1),_CwsXcvrModemModulationSupportTableSnmpKey_Type())
+cwsXcvrModemModulationSupportTableSnmpKey.setMaxAccess(_F)
+if mibBuilder.loadTexts:cwsXcvrModemModulationSupportTableSnmpKey.setStatus(_A)
+_CwsXcvrModemModulationSupportModulation16qam_Type=YesNoEnum
+_CwsXcvrModemModulationSupportModulation16qam_Object=MibTableColumn
+cwsXcvrModemModulationSupportModulation16qam=_CwsXcvrModemModulationSupportModulation16qam_Object((1,3,6,1,4,1,1271,3,4,16,5,1,2),_CwsXcvrModemModulationSupportModulation16qam_Type())
+cwsXcvrModemModulationSupportModulation16qam.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemModulationSupportModulation16qam.setStatus(_A)
+_CwsXcvrModemModulationSupportModulationQpsk_Type=YesNoEnum
+_CwsXcvrModemModulationSupportModulationQpsk_Object=MibTableColumn
+cwsXcvrModemModulationSupportModulationQpsk=_CwsXcvrModemModulationSupportModulationQpsk_Object((1,3,6,1,4,1,1271,3,4,16,5,1,3),_CwsXcvrModemModulationSupportModulationQpsk_Type())
+cwsXcvrModemModulationSupportModulationQpsk.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemModulationSupportModulationQpsk.setStatus(_A)
+_CwsXcvrModemModulationSupportModulationBpsk_Type=YesNoEnum
+_CwsXcvrModemModulationSupportModulationBpsk_Object=MibTableColumn
+cwsXcvrModemModulationSupportModulationBpsk=_CwsXcvrModemModulationSupportModulationBpsk_Object((1,3,6,1,4,1,1271,3,4,16,5,1,4),_CwsXcvrModemModulationSupportModulationBpsk_Type())
+cwsXcvrModemModulationSupportModulationBpsk.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemModulationSupportModulationBpsk.setStatus(_A)
+_CwsXcvrModemModulationSupportModulation8qam_Type=YesNoEnum
+_CwsXcvrModemModulationSupportModulation8qam_Object=MibTableColumn
+cwsXcvrModemModulationSupportModulation8qam=_CwsXcvrModemModulationSupportModulation8qam_Object((1,3,6,1,4,1,1271,3,4,16,5,1,5),_CwsXcvrModemModulationSupportModulation8qam_Type())
+cwsXcvrModemModulationSupportModulation8qam.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemModulationSupportModulation8qam.setStatus(_A)
+_CwsXcvrModemTransportProtocolsTable_Object=MibTable
+cwsXcvrModemTransportProtocolsTable=_CwsXcvrModemTransportProtocolsTable_Object((1,3,6,1,4,1,1271,3,4,16,6))
+if mibBuilder.loadTexts:cwsXcvrModemTransportProtocolsTable.setStatus(_A)
+_CwsXcvrModemTransportProtocolsEntry_Object=MibTableRow
+cwsXcvrModemTransportProtocolsEntry=_CwsXcvrModemTransportProtocolsEntry_Object((1,3,6,1,4,1,1271,3,4,16,6,1))
+cwsXcvrModemTransportProtocolsEntry.setIndexNames((0,_B,_E),(0,_B,_I))
+if mibBuilder.loadTexts:cwsXcvrModemTransportProtocolsEntry.setStatus(_A)
+class _CwsXcvrModemTransportProtocolsTableSnmpKey_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_CwsXcvrModemTransportProtocolsTableSnmpKey_Type.__name__=_D
+_CwsXcvrModemTransportProtocolsTableSnmpKey_Object=MibTableColumn
+cwsXcvrModemTransportProtocolsTableSnmpKey=_CwsXcvrModemTransportProtocolsTableSnmpKey_Object((1,3,6,1,4,1,1271,3,4,16,6,1,1),_CwsXcvrModemTransportProtocolsTableSnmpKey_Type())
+cwsXcvrModemTransportProtocolsTableSnmpKey.setMaxAccess(_F)
+if mibBuilder.loadTexts:cwsXcvrModemTransportProtocolsTableSnmpKey.setStatus(_A)
+_CwsXcvrModemTransportProtocolsOtnBookended_Type=YesNoEnum
+_CwsXcvrModemTransportProtocolsOtnBookended_Object=MibTableColumn
+cwsXcvrModemTransportProtocolsOtnBookended=_CwsXcvrModemTransportProtocolsOtnBookended_Object((1,3,6,1,4,1,1271,3,4,16,6,1,2),_CwsXcvrModemTransportProtocolsOtnBookended_Type())
+cwsXcvrModemTransportProtocolsOtnBookended.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemTransportProtocolsOtnBookended.setStatus(_A)
+_CwsXcvrModemTransportProtocolsOtnInterworking_Type=YesNoEnum
+_CwsXcvrModemTransportProtocolsOtnInterworking_Object=MibTableColumn
+cwsXcvrModemTransportProtocolsOtnInterworking=_CwsXcvrModemTransportProtocolsOtnInterworking_Object((1,3,6,1,4,1,1271,3,4,16,6,1,3),_CwsXcvrModemTransportProtocolsOtnInterworking_Type())
+cwsXcvrModemTransportProtocolsOtnInterworking.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemTransportProtocolsOtnInterworking.setStatus(_A)
+_CwsXcvrModemTransportProtocolsEthernet_Type=YesNoEnum
+_CwsXcvrModemTransportProtocolsEthernet_Object=MibTableColumn
+cwsXcvrModemTransportProtocolsEthernet=_CwsXcvrModemTransportProtocolsEthernet_Object((1,3,6,1,4,1,1271,3,4,16,6,1,4),_CwsXcvrModemTransportProtocolsEthernet_Type())
+cwsXcvrModemTransportProtocolsEthernet.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemTransportProtocolsEthernet.setStatus(_A)
+_CwsXcvrModemLineSystemSupportTable_Object=MibTable
+cwsXcvrModemLineSystemSupportTable=_CwsXcvrModemLineSystemSupportTable_Object((1,3,6,1,4,1,1271,3,4,16,7))
+if mibBuilder.loadTexts:cwsXcvrModemLineSystemSupportTable.setStatus(_A)
+_CwsXcvrModemLineSystemSupportEntry_Object=MibTableRow
+cwsXcvrModemLineSystemSupportEntry=_CwsXcvrModemLineSystemSupportEntry_Object((1,3,6,1,4,1,1271,3,4,16,7,1))
+cwsXcvrModemLineSystemSupportEntry.setIndexNames((0,_B,_E),(0,_B,_J))
+if mibBuilder.loadTexts:cwsXcvrModemLineSystemSupportEntry.setStatus(_A)
+class _CwsXcvrModemLineSystemSupportTableSnmpKey_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_CwsXcvrModemLineSystemSupportTableSnmpKey_Type.__name__=_D
+_CwsXcvrModemLineSystemSupportTableSnmpKey_Object=MibTableColumn
+cwsXcvrModemLineSystemSupportTableSnmpKey=_CwsXcvrModemLineSystemSupportTableSnmpKey_Object((1,3,6,1,4,1,1271,3,4,16,7,1,1),_CwsXcvrModemLineSystemSupportTableSnmpKey_Type())
+cwsXcvrModemLineSystemSupportTableSnmpKey.setMaxAccess(_F)
+if mibBuilder.loadTexts:cwsXcvrModemLineSystemSupportTableSnmpKey.setStatus(_A)
+_CwsXcvrModemLineSystemSupportColoured_Type=YesNoEnum
+_CwsXcvrModemLineSystemSupportColoured_Object=MibTableColumn
+cwsXcvrModemLineSystemSupportColoured=_CwsXcvrModemLineSystemSupportColoured_Object((1,3,6,1,4,1,1271,3,4,16,7,1,2),_CwsXcvrModemLineSystemSupportColoured_Type())
+cwsXcvrModemLineSystemSupportColoured.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemLineSystemSupportColoured.setStatus(_A)
+_CwsXcvrModemLineSystemSupportColourless_Type=YesNoEnum
+_CwsXcvrModemLineSystemSupportColourless_Object=MibTableColumn
+cwsXcvrModemLineSystemSupportColourless=_CwsXcvrModemLineSystemSupportColourless_Object((1,3,6,1,4,1,1271,3,4,16,7,1,3),_CwsXcvrModemLineSystemSupportColourless_Type())
+cwsXcvrModemLineSystemSupportColourless.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemLineSystemSupportColourless.setStatus(_A)
+_CwsXcvrModemLineSystemSupportContentionless_Type=YesNoEnum
+_CwsXcvrModemLineSystemSupportContentionless_Object=MibTableColumn
+cwsXcvrModemLineSystemSupportContentionless=_CwsXcvrModemLineSystemSupportContentionless_Object((1,3,6,1,4,1,1271,3,4,16,7,1,4),_CwsXcvrModemLineSystemSupportContentionless_Type())
+cwsXcvrModemLineSystemSupportContentionless.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemLineSystemSupportContentionless.setStatus(_A)
+_CwsXcvrModemLineSystemSupportCoherentSelectColoured_Type=YesNoEnum
+_CwsXcvrModemLineSystemSupportCoherentSelectColoured_Object=MibTableColumn
+cwsXcvrModemLineSystemSupportCoherentSelectColoured=_CwsXcvrModemLineSystemSupportCoherentSelectColoured_Object((1,3,6,1,4,1,1271,3,4,16,7,1,5),_CwsXcvrModemLineSystemSupportCoherentSelectColoured_Type())
+cwsXcvrModemLineSystemSupportCoherentSelectColoured.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemLineSystemSupportCoherentSelectColoured.setStatus(_A)
+_CwsXcvrModemLineSystemSupportCoherentSelectColourless_Type=YesNoEnum
+_CwsXcvrModemLineSystemSupportCoherentSelectColourless_Object=MibTableColumn
+cwsXcvrModemLineSystemSupportCoherentSelectColourless=_CwsXcvrModemLineSystemSupportCoherentSelectColourless_Object((1,3,6,1,4,1,1271,3,4,16,7,1,6),_CwsXcvrModemLineSystemSupportCoherentSelectColourless_Type())
+cwsXcvrModemLineSystemSupportCoherentSelectColourless.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemLineSystemSupportCoherentSelectColourless.setStatus(_A)
+_CwsXcvrModemLineSystemSupportThirdParty_Type=YesNoEnum
+_CwsXcvrModemLineSystemSupportThirdParty_Object=MibTableColumn
+cwsXcvrModemLineSystemSupportThirdParty=_CwsXcvrModemLineSystemSupportThirdParty_Object((1,3,6,1,4,1,1271,3,4,16,7,1,7),_CwsXcvrModemLineSystemSupportThirdParty_Type())
+cwsXcvrModemLineSystemSupportThirdParty.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemLineSystemSupportThirdParty.setStatus(_A)
+_CwsXcvrModemEquipmentStatusTable_Object=MibTable
+cwsXcvrModemEquipmentStatusTable=_CwsXcvrModemEquipmentStatusTable_Object((1,3,6,1,4,1,1271,3,4,16,8))
+if mibBuilder.loadTexts:cwsXcvrModemEquipmentStatusTable.setStatus(_A)
+_CwsXcvrModemEquipmentStatusEntry_Object=MibTableRow
+cwsXcvrModemEquipmentStatusEntry=_CwsXcvrModemEquipmentStatusEntry_Object((1,3,6,1,4,1,1271,3,4,16,8,1))
+cwsXcvrModemEquipmentStatusEntry.setIndexNames((0,_B,_E),(0,_B,_K))
+if mibBuilder.loadTexts:cwsXcvrModemEquipmentStatusEntry.setStatus(_A)
+class _CwsXcvrModemEquipmentStatusTableSnmpKey_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_CwsXcvrModemEquipmentStatusTableSnmpKey_Type.__name__=_D
+_CwsXcvrModemEquipmentStatusTableSnmpKey_Object=MibTableColumn
+cwsXcvrModemEquipmentStatusTableSnmpKey=_CwsXcvrModemEquipmentStatusTableSnmpKey_Object((1,3,6,1,4,1,1271,3,4,16,8,1,1),_CwsXcvrModemEquipmentStatusTableSnmpKey_Type())
+cwsXcvrModemEquipmentStatusTableSnmpKey.setMaxAccess(_F)
+if mibBuilder.loadTexts:cwsXcvrModemEquipmentStatusTableSnmpKey.setStatus(_A)
+_CwsXcvrModemEquipmentStatusTransmitterState_Type=EnabledDisabledEnum
+_CwsXcvrModemEquipmentStatusTransmitterState_Object=MibTableColumn
+cwsXcvrModemEquipmentStatusTransmitterState=_CwsXcvrModemEquipmentStatusTransmitterState_Object((1,3,6,1,4,1,1271,3,4,16,8,1,2),_CwsXcvrModemEquipmentStatusTransmitterState_Type())
+cwsXcvrModemEquipmentStatusTransmitterState.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemEquipmentStatusTransmitterState.setStatus(_A)
+_CwsXcvrModemEquipmentStatusEquipmentOutOfSpec_Type=YesNoEnum
+_CwsXcvrModemEquipmentStatusEquipmentOutOfSpec_Object=MibTableColumn
+cwsXcvrModemEquipmentStatusEquipmentOutOfSpec=_CwsXcvrModemEquipmentStatusEquipmentOutOfSpec_Object((1,3,6,1,4,1,1271,3,4,16,8,1,3),_CwsXcvrModemEquipmentStatusEquipmentOutOfSpec_Type())
+cwsXcvrModemEquipmentStatusEquipmentOutOfSpec.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemEquipmentStatusEquipmentOutOfSpec.setStatus(_A)
+_CwsXcvrModemEquipmentStatusEquipmentFailure_Type=YesNoEnum
+_CwsXcvrModemEquipmentStatusEquipmentFailure_Object=MibTableColumn
+cwsXcvrModemEquipmentStatusEquipmentFailure=_CwsXcvrModemEquipmentStatusEquipmentFailure_Object((1,3,6,1,4,1,1271,3,4,16,8,1,4),_CwsXcvrModemEquipmentStatusEquipmentFailure_Type())
+cwsXcvrModemEquipmentStatusEquipmentFailure.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemEquipmentStatusEquipmentFailure.setStatus(_A)
+_CwsXcvrModemEquipmentStatusDataLinkSuspect_Type=YesNoEnum
+_CwsXcvrModemEquipmentStatusDataLinkSuspect_Object=MibTableColumn
+cwsXcvrModemEquipmentStatusDataLinkSuspect=_CwsXcvrModemEquipmentStatusDataLinkSuspect_Object((1,3,6,1,4,1,1271,3,4,16,8,1,5),_CwsXcvrModemEquipmentStatusDataLinkSuspect_Type())
+cwsXcvrModemEquipmentStatusDataLinkSuspect.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemEquipmentStatusDataLinkSuspect.setStatus(_A)
+_CwsXcvrModemEquipmentStatusCommsLinkSuspect_Type=YesNoEnum
+_CwsXcvrModemEquipmentStatusCommsLinkSuspect_Object=MibTableColumn
+cwsXcvrModemEquipmentStatusCommsLinkSuspect=_CwsXcvrModemEquipmentStatusCommsLinkSuspect_Object((1,3,6,1,4,1,1271,3,4,16,8,1,6),_CwsXcvrModemEquipmentStatusCommsLinkSuspect_Type())
+cwsXcvrModemEquipmentStatusCommsLinkSuspect.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemEquipmentStatusCommsLinkSuspect.setStatus(_A)
+_CwsXcvrModemEquipmentStatusClockSuspect_Type=YesNoEnum
+_CwsXcvrModemEquipmentStatusClockSuspect_Object=MibTableColumn
+cwsXcvrModemEquipmentStatusClockSuspect=_CwsXcvrModemEquipmentStatusClockSuspect_Object((1,3,6,1,4,1,1271,3,4,16,8,1,7),_CwsXcvrModemEquipmentStatusClockSuspect_Type())
+cwsXcvrModemEquipmentStatusClockSuspect.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemEquipmentStatusClockSuspect.setStatus(_A)
+_CwsXcvrModemEquipmentStatusLossOfSynchronizationTick_Type=YesNoEnum
+_CwsXcvrModemEquipmentStatusLossOfSynchronizationTick_Object=MibTableColumn
+cwsXcvrModemEquipmentStatusLossOfSynchronizationTick=_CwsXcvrModemEquipmentStatusLossOfSynchronizationTick_Object((1,3,6,1,4,1,1271,3,4,16,8,1,8),_CwsXcvrModemEquipmentStatusLossOfSynchronizationTick_Type())
+cwsXcvrModemEquipmentStatusLossOfSynchronizationTick.setMaxAccess(_C)
+if mibBuilder.loadTexts:cwsXcvrModemEquipmentStatusLossOfSynchronizationTick.setStatus(_A)
+cwsXcvrVendorDiagnosticMonitoringEntry.registerAugmentions((_B,_L))
+cwsXcvrAugXcvrModemVendorDiagnosticMonitoringEntry.setIndexNames(*cwsXcvrVendorDiagnosticMonitoringEntry.getIndexNames())
+cienaWsXcvrModemGroup=ObjectGroup((1,3,6,1,4,1,1271,3,4,16,2,1,1))
+cienaWsXcvrModemGroup.setObjects(*((_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r)))
+if mibBuilder.loadTexts:cienaWsXcvrModemGroup.setStatus(_A)
+cienaWsXcvrModemCompliance=ModuleCompliance((1,3,6,1,4,1,1271,3,4,16,2,2,1))
+cienaWsXcvrModemCompliance.setObjects((_B,_s))
+if mibBuilder.loadTexts:cienaWsXcvrModemCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'cienaWsXcvrModemMIB':cienaWsXcvrModemMIB,'cienaWsXcvrModemObjects':cienaWsXcvrModemObjects,'cienaWsXcvrModemConformance':cienaWsXcvrModemConformance,'cienaWsXcvrModemGroups':cienaWsXcvrModemGroups,_s:cienaWsXcvrModemGroup,'cienaWsXcvrModemCompliances':cienaWsXcvrModemCompliances,'cienaWsXcvrModemCompliance':cienaWsXcvrModemCompliance,'cwsXcvrAugXcvrModemVendorDiagnosticMonitoringTable':cwsXcvrAugXcvrModemVendorDiagnosticMonitoringTable,_L:cwsXcvrAugXcvrModemVendorDiagnosticMonitoringEntry,_M:cwsXcvrModemVendorDiagnosticMonitoringDiagnosticSupport,_N:cwsXcvrModemVendorDiagnosticMonitoringDispersionMeasurement,'cwsXcvrModemTransmitterTechnologyTable':cwsXcvrModemTransmitterTechnologyTable,'cwsXcvrModemTransmitterTechnologyEntry':cwsXcvrModemTransmitterTechnologyEntry,_G:cwsXcvrModemTransmitterTechnologyTableSnmpKey,_O:cwsXcvrModemTransmitterTechnologyWavelengthControl,_P:cwsXcvrModemTransmitterTechnologyTunable,_Q:cwsXcvrModemTransmitterTechnologyWavelengthMin,_R:cwsXcvrModemTransmitterTechnologyWavelengthMax,_S:cwsXcvrModemTransmitterTechnologyWavelengthTolerance,_T:cwsXcvrModemTransmitterTechnologyFrequencyMin,_U:cwsXcvrModemTransmitterTechnologyFrequencyMax,_V:cwsXcvrModemTransmitterTechnologyTxDispersionMin,_W:cwsXcvrModemTransmitterTechnologyTxDispersionMax,_X:cwsXcvrModemTransmitterTechnologyEdfa,'cwsXcvrModemModulationSupportTable':cwsXcvrModemModulationSupportTable,'cwsXcvrModemModulationSupportEntry':cwsXcvrModemModulationSupportEntry,_H:cwsXcvrModemModulationSupportTableSnmpKey,_Y:cwsXcvrModemModulationSupportModulation16qam,_Z:cwsXcvrModemModulationSupportModulationQpsk,_a:cwsXcvrModemModulationSupportModulationBpsk,_b:cwsXcvrModemModulationSupportModulation8qam,'cwsXcvrModemTransportProtocolsTable':cwsXcvrModemTransportProtocolsTable,'cwsXcvrModemTransportProtocolsEntry':cwsXcvrModemTransportProtocolsEntry,_I:cwsXcvrModemTransportProtocolsTableSnmpKey,_c:cwsXcvrModemTransportProtocolsOtnBookended,_d:cwsXcvrModemTransportProtocolsOtnInterworking,_e:cwsXcvrModemTransportProtocolsEthernet,'cwsXcvrModemLineSystemSupportTable':cwsXcvrModemLineSystemSupportTable,'cwsXcvrModemLineSystemSupportEntry':cwsXcvrModemLineSystemSupportEntry,_J:cwsXcvrModemLineSystemSupportTableSnmpKey,_f:cwsXcvrModemLineSystemSupportColoured,_g:cwsXcvrModemLineSystemSupportColourless,_h:cwsXcvrModemLineSystemSupportContentionless,_i:cwsXcvrModemLineSystemSupportCoherentSelectColoured,_j:cwsXcvrModemLineSystemSupportCoherentSelectColourless,_k:cwsXcvrModemLineSystemSupportThirdParty,'cwsXcvrModemEquipmentStatusTable':cwsXcvrModemEquipmentStatusTable,'cwsXcvrModemEquipmentStatusEntry':cwsXcvrModemEquipmentStatusEntry,_K:cwsXcvrModemEquipmentStatusTableSnmpKey,_l:cwsXcvrModemEquipmentStatusTransmitterState,_m:cwsXcvrModemEquipmentStatusEquipmentOutOfSpec,_n:cwsXcvrModemEquipmentStatusEquipmentFailure,_o:cwsXcvrModemEquipmentStatusDataLinkSuspect,_p:cwsXcvrModemEquipmentStatusCommsLinkSuspect,_q:cwsXcvrModemEquipmentStatusClockSuspect,_r:cwsXcvrModemEquipmentStatusLossOfSynchronizationTick})

@@ -1,528 +1,1513 @@
-#
-# PySNMP MIB module PIM-STD-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/PIM-STD-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:23:42 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, ObjectIdentifier, OctetString, ) = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-( IANAipRouteProtocol, ) = mibBuilder.importSymbols("IANA-RTPROTO-MIB", "IANAipRouteProtocol")
-( InterfaceIndex, InterfaceIndexOrZero, ) = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex", "InterfaceIndexOrZero")
-( InetAddress, InetVersion, InetAddressPrefixLength, InetAddressType, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetVersion", "InetAddressPrefixLength", "InetAddressType")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( iso, Gauge32, TimeTicks, Unsigned32, mib_2, Counter64, MibIdentifier, IpAddress, NotificationType, ModuleIdentity, Integer32, Counter32, Bits, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, ) = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Gauge32", "TimeTicks", "Unsigned32", "mib-2", "Counter64", "MibIdentifier", "IpAddress", "NotificationType", "ModuleIdentity", "Integer32", "Counter32", "Bits", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-( TruthValue, DisplayString, TextualConvention, StorageType, RowStatus, ) = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention", "StorageType", "RowStatus")
-pimStdMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 157)).setRevisions(("2007-11-02 00:00",))
-if mibBuilder.loadTexts: pimStdMIB.setLastUpdated('200711020000Z')
-if mibBuilder.loadTexts: pimStdMIB.setOrganization('IETF Protocol Independent Multicast (PIM) Working Group')
-if mibBuilder.loadTexts: pimStdMIB.setContactInfo('Email: pim@ietf.org\n            WG charter:\n\n            http://www.ietf.org/html.charters/pim-charter.html')
-if mibBuilder.loadTexts: pimStdMIB.setDescription('The MIB module for management of PIM routers.\n\n            Copyright (C) The IETF Trust (2007).  This version of this\n            MIB module is part of RFC 5060; see the RFC itself for full\n            legal notices.')
-class PimMode(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))
-    namedValues = NamedValues(("none", 1), ("ssm", 2), ("asm", 3), ("bidir", 4), ("dm", 5), ("other", 6),)
-
-class PimGroupMappingOriginType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7,))
-    namedValues = NamedValues(("fixed", 1), ("configRp", 2), ("configSsm", 3), ("bsr", 4), ("autoRP", 5), ("embedded", 6), ("other", 7),)
-
-pimNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 157, 0))
-pim = MibIdentifier((1, 3, 6, 1, 2, 1, 157, 1))
-pimKeepalivePeriod = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(210)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pimKeepalivePeriod.setDescription('The duration of the Keepalive Timer.  This is the period\n            during which the PIM router will maintain (S,G) state in the\n            absence of explicit (S,G) local membership or (S,G) join\n            messages received to maintain it.  This timer period is\n            called the Keepalive_Period in the PIM-SM specification.  It\n            is called the SourceLifetime in the PIM-DM specification.\n\n            The storage type of this object is determined by\n            pimDeviceConfigStorageType.')
-pimRegisterSuppressionTime = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(60)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pimRegisterSuppressionTime.setDescription('The duration of the Register Suppression Timer.  This is\n            the period during which a PIM Designated Router (DR) stops\n            sending Register-encapsulated data to the Rendezvous Point\n            (RP) after receiving a Register-Stop message.  This object\n            is used to run timers both at the DR and at the RP.  This\n            timer period is called the Register_Suppression_Time in the\n            PIM-SM specification.\n\n            The storage type of this object is determined by\n            pimDeviceConfigStorageType.')
-pimStarGEntries = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 16), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGEntries.setDescription('The number of entries in the pimStarGTable.')
-pimStarGIEntries = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 17), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGIEntries.setDescription('The number of entries in the pimStarGITable.')
-pimSGEntries = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 18), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGEntries.setDescription('The number of entries in the pimSGTable.')
-pimSGIEntries = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 19), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGIEntries.setDescription('The number of entries in the pimSGITable.')
-pimSGRptEntries = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 20), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRptEntries.setDescription('The number of entries in the pimSGRptTable.')
-pimSGRptIEntries = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 21), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRptIEntries.setDescription('The number of entries in the pimSGRptITable.')
-pimOutAsserts = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 22), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimOutAsserts.setDescription('The number of Asserts sent by this router.\n\n            Discontinuities in the value of this counter can occur at\n            re-initialization of the management system, for example,\n            when the device is rebooted.')
-pimInAsserts = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 23), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInAsserts.setDescription('The number of Asserts received by this router.  Asserts\n            are multicast to all routers on a network.  This counter is\n            incremented by all routers that receive an assert, not only\n            those routers that are contesting the assert.\n            Discontinuities in the value of this counter can occur at\n            re-initialization of the management system, for example,\n            when the device is rebooted.')
-pimLastAssertInterface = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 24), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimLastAssertInterface.setDescription('The interface on which this router most recently sent or\n            received an assert, or zero if this router has not sent or\n            received an assert.')
-pimLastAssertGroupAddressType = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 25), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimLastAssertGroupAddressType.setDescription('The address type of the multicast group address in the most\n            recently sent or received assert.  If this router has not\n            sent or received an assert, then this object is set to\n            unknown(0).')
-pimLastAssertGroupAddress = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 26), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimLastAssertGroupAddress.setDescription('The multicast group address in the most recently sent or\n            received assert.  The InetAddressType is given by the\n            pimLastAssertGroupAddressType object.')
-pimLastAssertSourceAddressType = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 27), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimLastAssertSourceAddressType.setDescription('The address type of the source address in the most recently\n            sent or received assert.  If the most recent assert was\n            (*,G), or if this router has not sent or received an assert,\n            then this object is set to unknown(0).')
-pimLastAssertSourceAddress = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 28), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimLastAssertSourceAddress.setDescription('The source address in the most recently sent or received\n            assert.  The InetAddressType is given by the\n            pimLastAssertSourceAddressType object.')
-pimNeighborLossNotificationPeriod = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 29), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pimNeighborLossNotificationPeriod.setDescription("The minimum time that must elapse between pimNeighborLoss\n            notifications originated by this router.  The maximum value\n            65535 represents an 'infinite' time, in which case, no\n            pimNeighborLoss notifications are ever sent.\n\n            The storage type of this object is determined by\n            pimDeviceConfigStorageType.")
-pimNeighborLossCount = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 30), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimNeighborLossCount.setDescription('The number of neighbor loss events that have occurred.\n\n            This counter is incremented when the neighbor timer expires,\n            and the router has no other neighbors on the same interface\n            with the same IP version and a lower IP address than itself.\n\n            This counter is incremented whenever a pimNeighborLoss\n            notification would be generated.\n\n            Discontinuities in the value of this counter can occur at\n            re-initialization of the management system, for example,\n            when the device is rebooted.')
-pimInvalidRegisterNotificationPeriod = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 31), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(10,65535)).clone(65535)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pimInvalidRegisterNotificationPeriod.setDescription("The minimum time that must elapse between\n            pimInvalidRegister notifications originated by this router.\n            The default value of 65535 represents an 'infinite' time, in\n            which case, no pimInvalidRegister notifications are ever\n            sent.\n\n            The non-zero minimum allowed value provides resilience\n            against propagation of denial-of-service attacks from the\n            data and control planes to the network management plane.\n\n            The storage type of this object is determined by\n            pimDeviceConfigStorageType.")
-pimInvalidRegisterMsgsRcvd = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 32), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInvalidRegisterMsgsRcvd.setDescription('The number of invalid PIM Register messages that have been\n            received by this device.\n\n            A PIM Register message is invalid if either\n\n            o the destination address of the Register message does not\n              match the Group to RP mapping on this device, or\n\n            o this device believes the group address to be within an\n              SSM address range, but this Register implies ASM usage.\n\n            These conditions can occur transiently while RP mapping\n            changes propagate through the network.  If this counter is\n            incremented repeatedly over several minutes, then there is a\n            persisting configuration error that requires correction.\n\n            The active Group to RP mapping on this device is specified\n            by the object pimGroupMappingPimMode.  If there is no such\n            mapping, then the object pimGroupMappingPimMode is absent.\n            The RP address contained in the invalid Register is\n            pimInvalidRegisterRp.\n\n            Multicast data carried by invalid Register messages is\n            discarded.  The discarded data is from a source directly\n            connected to pimInvalidRegisterOrigin, and is addressed to\n            pimInvalidRegisterGroup.\n\n            Discontinuities in the value of this counter can occur at\n            re-initialization of the management system, for example,\n            when the device is rebooted.')
-pimInvalidRegisterAddressType = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 33), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInvalidRegisterAddressType.setDescription('The address type stored in pimInvalidRegisterOrigin,\n            pimInvalidRegisterGroup, and pimInvalidRegisterRp.\n\n            If no invalid Register messages have been received, then\n            this object is set to unknown(0).')
-pimInvalidRegisterOrigin = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 34), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInvalidRegisterOrigin.setDescription('The source address of the last invalid Register message\n            received by this device.')
-pimInvalidRegisterGroup = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 35), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInvalidRegisterGroup.setDescription('The IP multicast group address to which the last invalid\n            Register message received by this device was addressed.')
-pimInvalidRegisterRp = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 36), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInvalidRegisterRp.setDescription('The RP address to which the last invalid Register message\n            received by this device was delivered.')
-pimInvalidJoinPruneNotificationPeriod = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 37), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(10,65535)).clone(65535)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pimInvalidJoinPruneNotificationPeriod.setDescription("The minimum time that must elapse between\n            pimInvalidJoinPrune notifications originated by this router.\n            The default value of 65535 represents an 'infinite' time, in\n            which case, no pimInvalidJoinPrune notifications are ever\n            sent.\n\n            The non-zero minimum allowed value provides resilience\n            against propagation of denial-of-service attacks from the\n            control plane to the network management plane.\n\n            The storage type of this object is determined by\n            pimDeviceConfigStorageType.")
-pimInvalidJoinPruneMsgsRcvd = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 38), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInvalidJoinPruneMsgsRcvd.setDescription('The number of invalid PIM Join/Prune messages that have\n            been received by this device.\n\n            A PIM Join/Prune message is invalid if either\n\n            o the Group to RP mapping specified by this message does not\n              match the Group to RP mapping on this device, or\n\n            o this device believes the group address to be within an\n              SSM address range, but this Join/Prune (*,G) or (S,G,rpt)\n              implies ASM usage.\n\n            These conditions can occur transiently while RP mapping\n            changes propagate through the network.  If this counter is\n            incremented repeatedly over several minutes, then there is a\n            persisting configuration error that requires correction.\n\n            The active Group to RP mapping on this device is specified\n            by the object pimGroupMappingPimMode.  If there is no such\n            mapping, then the object pimGroupMappingPimMode is absent.\n            The RP address contained in the invalid Join/Prune is\n            pimInvalidJoinPruneRp.\n            Invalid Join/Prune messages are discarded.  This may result\n            in loss of multicast data affecting listeners downstream of\n            pimInvalidJoinPruneOrigin, for multicast data addressed to\n            pimInvalidJoinPruneGroup.\n\n            Discontinuities in the value of this counter can occur at\n            re-initialization of the management system, for example,\n            when the device is rebooted.')
-pimInvalidJoinPruneAddressType = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 39), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInvalidJoinPruneAddressType.setDescription('The address type stored in pimInvalidJoinPruneOrigin,\n            pimInvalidJoinPruneGroup, and pimInvalidJoinPruneRp.\n\n            If no invalid Join/Prune messages have been received, this\n            object is set to unknown(0).')
-pimInvalidJoinPruneOrigin = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 40), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInvalidJoinPruneOrigin.setDescription('The source address of the last invalid Join/Prune message\n            received by this device.')
-pimInvalidJoinPruneGroup = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 41), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInvalidJoinPruneGroup.setDescription('The IP multicast group address carried in the last\n            invalid Join/Prune message received by this device.')
-pimInvalidJoinPruneRp = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 42), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInvalidJoinPruneRp.setDescription('The RP address carried in the last invalid Join/Prune\n            message received by this device.')
-pimRPMappingNotificationPeriod = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 43), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(65535)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pimRPMappingNotificationPeriod.setDescription("The minimum time that must elapse between\n            pimRPMappingChange notifications originated by this router.\n            The default value of 65535 represents an 'infinite' time, in\n            which case, no pimRPMappingChange notifications are ever\n            sent.\n\n            The storage type of this object is determined by\n            pimDeviceConfigStorageType.")
-pimRPMappingChangeCount = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 44), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimRPMappingChangeCount.setDescription('The number of changes to active RP mappings on this device.\n\n            Information about active RP mappings is available in\n            pimGroupMappingTable.  Only changes to active mappings cause\n            this counter to be incremented.  That is, changes that\n            modify the pimGroupMappingEntry with the highest precedence\n            for a group (lowest value of pimGroupMappingPrecedence).\n\n            Such changes may result from manual configuration of this\n            device, or from automatic RP mapping discovery methods\n            including the PIM Bootstrap Router (BSR) mechanism.\n\n            Discontinuities in the value of this counter can occur at\n            re-initialization of the management system, for example,\n            when the device is rebooted.')
-pimInterfaceElectionNotificationPeriod = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 45), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(65535)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pimInterfaceElectionNotificationPeriod.setDescription("The minimum time that must elapse between\n            pimInterfaceElection notifications originated by this\n            router.  The default value of 65535 represents an 'infinite'\n            time, in which case, no pimInterfaceElection notifications\n            are ever sent.\n\n            The storage type of this object is determined by\n            pimDeviceConfigStorageType.")
-pimInterfaceElectionWinCount = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 46), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInterfaceElectionWinCount.setDescription('The number of times this device has been elected DR or DF\n            on any interface.\n\n            Elections occur frequently on newly-active interfaces, as\n            triggered Hellos establish adjacencies.  This counter is not\n            incremented for elections on an interface until the first\n            periodic Hello has been sent.  If this router is the DR or\n            DF at the time of sending the first periodic Hello after\n            interface activation, then this counter is incremented\n            (once) at that time.\n\n            Discontinuities in the value of this counter can occur at\n            re-initialization of the management system, for example,\n            when the device is rebooted.')
-pimRefreshInterval = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 47), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(60)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pimRefreshInterval.setDescription('The interval between successive State Refresh messages sent\n            by an Originator.  This timer period is called the\n            RefreshInterval in the PIM-DM specification.  This object is\n            used only by PIM-DM.\n\n            The storage type of this object is determined by\n            pimDeviceConfigStorageType.')
-pimDeviceConfigStorageType = MibScalar((1, 3, 6, 1, 2, 1, 157, 1, 48), StorageType().clone('nonVolatile')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pimDeviceConfigStorageType.setDescription("The storage type used for the global PIM configuration of\n            this device, comprised of the objects listed below.  If this\n            storage type takes the value 'permanent', write-access to\n            the listed objects need not be allowed.\n\n            The objects described by this storage type are:\n            pimKeepalivePeriod, pimRegisterSuppressionTime,\n            pimNeighborLossNotificationPeriod,\n            pimInvalidRegisterNotificationPeriod,\n            pimInvalidJoinPruneNotificationPeriod,\n            pimRPMappingNotificationPeriod,\n            pimInterfaceElectionNotificationPeriod, and\n            pimRefreshInterval.")
-pimInterfaceTable = MibTable((1, 3, 6, 1, 2, 1, 157, 1, 1), )
-if mibBuilder.loadTexts: pimInterfaceTable.setDescription("The (conceptual) table listing the router's PIM interfaces.\n            PIM is enabled on all interfaces listed in this table.")
-pimInterfaceEntry = MibTableRow((1, 3, 6, 1, 2, 1, 157, 1, 1, 1), ).setIndexNames((0, "PIM-STD-MIB", "pimInterfaceIfIndex"), (0, "PIM-STD-MIB", "pimInterfaceIPVersion"))
-if mibBuilder.loadTexts: pimInterfaceEntry.setDescription('An entry (conceptual row) in the pimInterfaceTable.  This\n            entry is preserved on agent restart.')
-pimInterfaceIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: pimInterfaceIfIndex.setDescription('The ifIndex value of this PIM interface.')
-pimInterfaceIPVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 2), InetVersion())
-if mibBuilder.loadTexts: pimInterfaceIPVersion.setDescription('The IP version of this PIM interface.  A physical interface\n            may be configured in multiple modes concurrently, e.g., IPv4\n            and IPv6; however, the traffic is considered to be logically\n            separate.')
-pimInterfaceAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 3), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInterfaceAddressType.setDescription('The address type of this PIM interface.')
-pimInterfaceAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 4), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInterfaceAddress.setDescription('The primary IP address of this router on this PIM\n            interface.  The InetAddressType is given by the\n            pimInterfaceAddressType object.')
-pimInterfaceGenerationIDValue = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInterfaceGenerationIDValue.setDescription('The value of the Generation ID this router inserted in the\n            last PIM Hello message it sent on this interface.')
-pimInterfaceDR = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 6), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInterfaceDR.setDescription('The primary IP address of the Designated Router on this PIM\n            interface.  The InetAddressType is given by the\n            pimInterfaceAddressType object.')
-pimInterfaceDRPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 7), Unsigned32().clone(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimInterfaceDRPriority.setDescription('The Designated Router Priority value inserted into the DR\n            Priority option in PIM Hello messages transmitted on this\n            interface.  Numerically higher values for this object\n            indicate higher priorities.')
-pimInterfaceDRPriorityEnabled = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 8), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInterfaceDRPriorityEnabled.setDescription('Evaluates to TRUE if all routers on this interface are\n            using the DR Priority option.')
-pimInterfaceHelloInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,18000)).clone(30)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimInterfaceHelloInterval.setDescription("The frequency at which PIM Hello messages are transmitted\n            on this interface.  This object corresponds to the\n            'Hello_Period' timer value defined in the PIM-SM\n            specification.  A value of zero represents an 'infinite'\n            interval, and indicates that periodic PIM Hello messages\n            should not be sent on this interface.")
-pimInterfaceTrigHelloInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,60)).clone(5)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimInterfaceTrigHelloInterval.setDescription("The maximum time before this router sends a triggered PIM\n            Hello message on this interface.  This object corresponds to\n            the 'Trigered_Hello_Delay' timer value defined in the PIM-SM\n            specification.  A value of zero has no special meaning and\n            indicates that triggered PIM Hello messages should always be\n            sent immediately.")
-pimInterfaceHelloHoldtime = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(105)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimInterfaceHelloHoldtime.setDescription("The value set in the Holdtime field of PIM Hello messages\n            transmitted on this interface.  A value of 65535 represents\n            an 'infinite' holdtime.  Implementations are recommended\n            to use a holdtime that is 3.5 times the value of\n            pimInterfaceHelloInterval, or 65535 if\n            pimInterfaceHelloInterval is set to zero.")
-pimInterfaceJoinPruneInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,18000)).clone(60)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimInterfaceJoinPruneInterval.setDescription("The frequency at which this router sends PIM Join/Prune\n            messages on this PIM interface.  This object corresponds to\n            the 't_periodic' timer value defined in the PIM-SM\n            specification.  A value of zero represents an 'infinite'\n            interval, and indicates that periodic PIM Join/Prune\n            messages should not be sent on this interface.")
-pimInterfaceJoinPruneHoldtime = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(210)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimInterfaceJoinPruneHoldtime.setDescription("The value inserted into the Holdtime field of a PIM\n            Join/Prune message sent on this interface.  A value of 65535\n            represents an 'infinite' holdtime.  Implementations are\n            recommended to use a holdtime that is 3.5 times the value of\n            pimInterfaceJoinPruneInterval, or 65535 if\n            pimInterfaceJoinPruneInterval is set to zero.  PIM-DM\n            implementations are recommended to use the value of\n            pimInterfacePruneLimitInterval.")
-pimInterfaceDFElectionRobustness = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 14), Unsigned32().clone(3)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimInterfaceDFElectionRobustness.setDescription('The minimum number of PIM DF-Election messages that must be\n            lost in order for DF election on this interface to fail.')
-pimInterfaceLanDelayEnabled = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 15), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInterfaceLanDelayEnabled.setDescription('Evaluates to TRUE if all routers on this interface are\n            using the LAN Prune Delay option.')
-pimInterfacePropagationDelay = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 16), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,32767)).clone(500)).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimInterfacePropagationDelay.setDescription('The expected propagation delay between PIM routers on this\n            network or link.\n\n            This router inserts this value into the Propagation_Delay\n            field of the LAN Prune Delay option in the PIM Hello\n            messages sent on this interface.  Implementations SHOULD\n            enforce a lower bound on the permitted values for this\n            object to allow for scheduling and processing delays within\n            the local router.')
-pimInterfaceOverrideInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 17), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(2500)).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimInterfaceOverrideInterval.setDescription('The value this router inserts into the Override_Interval\n            field of the LAN Prune Delay option in the PIM Hello\n            messages it sends on this interface.\n\n            When overriding a prune, PIM routers pick a random timer\n            duration up to the value of this object.  The more PIM\n            routers that are active on a network, the more likely it is\n            that the prune will be overridden after a small proportion\n            of this time has elapsed.\n\n            The more PIM routers are active on this network, the larger\n            this object should be to obtain an optimal spread of prune\n            override latencies.')
-pimInterfaceEffectPropagDelay = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 18), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,32767))).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInterfaceEffectPropagDelay.setDescription('The Effective Propagation Delay on this interface.  This\n            object is always 500 if pimInterfaceLanDelayEnabled is\n            FALSE.')
-pimInterfaceEffectOverrideIvl = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 19), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInterfaceEffectOverrideIvl.setDescription('The Effective Override Interval on this interface.  This\n            object is always 2500 if pimInterfaceLanDelayEnabled is\n            FALSE.')
-pimInterfaceSuppressionEnabled = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 20), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInterfaceSuppressionEnabled.setDescription('Whether join suppression is enabled on this interface.\n            This object is always TRUE if pimInterfaceLanDelayEnabled is\n            FALSE.')
-pimInterfaceBidirCapable = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 21), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInterfaceBidirCapable.setDescription('Evaluates to TRUE if all routers on this interface are\n            using the Bidirectional-PIM Capable option.')
-pimInterfaceDomainBorder = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 22), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimInterfaceDomainBorder.setDescription('Whether or not this interface is a PIM domain border.  This\n            includes acting as a border for PIM Bootstrap Router (BSR)\n            messages, if the BSR mechanism is in use.')
-pimInterfaceStubInterface = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 23), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimInterfaceStubInterface.setDescription("Whether this interface is a 'stub interface'.  If this\n            object is set to TRUE, then no PIM packets are sent out this\n            interface, and any received PIM packets are ignored.\n\n            Setting this object to TRUE is a security measure for\n            interfaces towards untrusted hosts.  This allows an\n            interface to be configured for use with IGMP (Internet Group\n            Management Protocol) or MLD (Multicast Listener Discovery)\n            only, which protects the PIM router from forged PIM messages\n            on the interface.\n\n            To communicate with other PIM routers using this interface,\n            this object must remain set to FALSE.\n\n            Changing the value of this object while the interface is\n            operational causes PIM to be disabled and then re-enabled on\n            this interface.")
-pimInterfacePruneLimitInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 24), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(60)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimInterfacePruneLimitInterval.setDescription("The minimum interval that must transpire between two\n            successive Prunes sent by a router.  This object corresponds\n            to the 't_limit' timer value defined in the PIM-DM\n            specification.  This object is used only by PIM-DM.")
-pimInterfaceGraftRetryInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 25), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(3)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimInterfaceGraftRetryInterval.setDescription("The minimum interval that must transpire between two\n            successive Grafts sent by a router.  This object corresponds\n            to the 'Graft_Retry_Period' timer value defined in the\n            PIM-DM specification.  This object is used only by PIM-DM.")
-pimInterfaceSRPriorityEnabled = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 26), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimInterfaceSRPriorityEnabled.setDescription('Evaluates to TRUE if all routers on this interface are\n            using the State Refresh option.  This object is used only by\n            PIM-DM.')
-pimInterfaceStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 27), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimInterfaceStatus.setDescription('The status of this entry.  Creating the entry enables PIM\n            on the interface; destroying the entry disables PIM on the\n            interface.\n\n            This status object can be set to active(1) without setting\n            any other columnar objects in this entry.\n\n            All writable objects in this entry can be modified when the\n            status of this entry is active(1).')
-pimInterfaceStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 1, 1, 28), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimInterfaceStorageType.setDescription("The storage type for this row.  Rows having the value\n            'permanent' need not allow write-access to any columnar\n            objects in the row.")
-pimNeighborTable = MibTable((1, 3, 6, 1, 2, 1, 157, 1, 2), )
-if mibBuilder.loadTexts: pimNeighborTable.setDescription("The (conceptual) table listing the router's PIM neighbors.")
-pimNeighborEntry = MibTableRow((1, 3, 6, 1, 2, 1, 157, 1, 2, 1), ).setIndexNames((0, "PIM-STD-MIB", "pimNeighborIfIndex"), (0, "PIM-STD-MIB", "pimNeighborAddressType"), (0, "PIM-STD-MIB", "pimNeighborAddress"))
-if mibBuilder.loadTexts: pimNeighborEntry.setDescription('An entry (conceptual row) in the pimNeighborTable.')
-pimNeighborIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 2, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: pimNeighborIfIndex.setDescription('The value of ifIndex for the interface used to reach this\n            PIM neighbor.')
-pimNeighborAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 2, 1, 2), InetAddressType())
-if mibBuilder.loadTexts: pimNeighborAddressType.setDescription('The address type of this PIM neighbor.')
-pimNeighborAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 2, 1, 3), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),)))
-if mibBuilder.loadTexts: pimNeighborAddress.setDescription('The primary IP address of this PIM neighbor.  The\n            InetAddressType is given by the pimNeighborAddressType\n            object.')
-pimNeighborGenerationIDPresent = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 2, 1, 4), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimNeighborGenerationIDPresent.setDescription('Evaluates to TRUE if this neighbor is using the Generation\n            ID option.')
-pimNeighborGenerationIDValue = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 2, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimNeighborGenerationIDValue.setDescription('The value of the Generation ID from the last PIM Hello\n            message received from this neighbor.  This object is always\n            zero if pimNeighborGenerationIDPresent is FALSE.')
-pimNeighborUpTime = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 2, 1, 6), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimNeighborUpTime.setDescription('The time since this PIM neighbor (last) became a neighbor\n            of the local router.')
-pimNeighborExpiryTime = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 2, 1, 7), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimNeighborExpiryTime.setDescription('The minimum time remaining before this PIM neighbor will\n            time out.  The value zero indicates that this PIM neighbor\n            will never time out.')
-pimNeighborDRPriorityPresent = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 2, 1, 8), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimNeighborDRPriorityPresent.setDescription('Evaluates to TRUE if this neighbor is using the DR Priority\n            option.')
-pimNeighborDRPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 2, 1, 9), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimNeighborDRPriority.setDescription('The value of the Designated Router Priority from the last\n            PIM Hello message received from this neighbor.  This object\n            is always zero if pimNeighborDRPriorityPresent is FALSE.')
-pimNeighborLanPruneDelayPresent = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 2, 1, 10), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimNeighborLanPruneDelayPresent.setDescription('Evaluates to TRUE if this neighbor is using the LAN Prune\n            Delay option.')
-pimNeighborTBit = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 2, 1, 11), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimNeighborTBit.setDescription('Whether the T bit was set in the LAN Prune Delay option\n            received from this neighbor.  The T bit specifies the\n            ability of the neighbor to disable join suppression.  This\n            object is always TRUE if pimNeighborLanPruneDelayPresent is\n            FALSE.')
-pimNeighborPropagationDelay = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 2, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,32767))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimNeighborPropagationDelay.setDescription('The value of the Propagation_Delay field of the LAN Prune\n            Delay option received from this neighbor.  This object is\n            always zero if pimNeighborLanPruneDelayPresent is FALSE.')
-pimNeighborOverrideInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 2, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimNeighborOverrideInterval.setDescription('The value of the Override_Interval field of the LAN Prune\n            Delay option received from this neighbor.  This object is\n            always zero if pimNeighborLanPruneDelayPresent is FALSE.')
-pimNeighborBidirCapable = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 2, 1, 14), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimNeighborBidirCapable.setDescription('Evaluates to TRUE if this neighbor is using the\n            Bidirectional-PIM Capable option.')
-pimNeighborSRCapable = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 2, 1, 15), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimNeighborSRCapable.setDescription('Evaluates to TRUE if this neighbor is using the State\n            Refresh Capable option.  This object is used only by\n            PIM-DM.')
-pimNbrSecAddressTable = MibTable((1, 3, 6, 1, 2, 1, 157, 1, 3), )
-if mibBuilder.loadTexts: pimNbrSecAddressTable.setDescription('The (conceptual) table listing the secondary addresses\n            advertised by each PIM neighbor (on a subset of the rows of\n            the pimNeighborTable defined above).')
-pimNbrSecAddressEntry = MibTableRow((1, 3, 6, 1, 2, 1, 157, 1, 3, 1), ).setIndexNames((0, "PIM-STD-MIB", "pimNbrSecAddressIfIndex"), (0, "PIM-STD-MIB", "pimNbrSecAddressType"), (0, "PIM-STD-MIB", "pimNbrSecAddressPrimary"), (0, "PIM-STD-MIB", "pimNbrSecAddress"))
-if mibBuilder.loadTexts: pimNbrSecAddressEntry.setDescription('An entry (conceptual row) in the pimNbrSecAddressTable.')
-pimNbrSecAddressIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 3, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: pimNbrSecAddressIfIndex.setDescription('The value of ifIndex for the interface used to reach this\n            PIM neighbor.')
-pimNbrSecAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 3, 1, 2), InetAddressType())
-if mibBuilder.loadTexts: pimNbrSecAddressType.setDescription('The address type of this PIM neighbor.')
-pimNbrSecAddressPrimary = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 3, 1, 3), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),)))
-if mibBuilder.loadTexts: pimNbrSecAddressPrimary.setDescription('The primary IP address of this PIM neighbor.  The\n            InetAddressType is given by the pimNbrSecAddressType\n            object.')
-pimNbrSecAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 3, 1, 4), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimNbrSecAddress.setDescription('The secondary IP address of this PIM neighbor.  The\n            InetAddressType is given by the pimNbrSecAddressType\n            object.')
-pimStarGTable = MibTable((1, 3, 6, 1, 2, 1, 157, 1, 4), )
-if mibBuilder.loadTexts: pimStarGTable.setDescription('The (conceptual) table listing the non-interface specific\n            (*,G) state that PIM has.')
-pimStarGEntry = MibTableRow((1, 3, 6, 1, 2, 1, 157, 1, 4, 1), ).setIndexNames((0, "PIM-STD-MIB", "pimStarGAddressType"), (0, "PIM-STD-MIB", "pimStarGGrpAddress"))
-if mibBuilder.loadTexts: pimStarGEntry.setDescription('An entry (conceptual row) in the pimStarGTable.')
-pimStarGAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: pimStarGAddressType.setDescription('The address type of this multicast group.')
-pimStarGGrpAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),)))
-if mibBuilder.loadTexts: pimStarGGrpAddress.setDescription('The multicast group address.  The InetAddressType is given\n            by the pimStarGAddressType object.')
-pimStarGUpTime = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 3), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGUpTime.setDescription('The time since this entry was created by the local router.')
-pimStarGPimMode = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 4), PimMode().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(3, 4,))).clone(namedValues=NamedValues(("asm", 3), ("bidir", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGPimMode.setDescription('Whether this entry represents an ASM (Any Source Multicast,\n            used with PIM-SM) or BIDIR-PIM group.')
-pimStarGRPAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 5), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGRPAddressType.setDescription('The address type of the Rendezvous Point (RP), or\n            unknown(0) if the RP address is unknown.')
-pimStarGRPAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 6), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGRPAddress.setDescription('The address of the Rendezvous Point (RP) for the group.\n            The InetAddressType is given by the pimStarGRPAddressType.')
-pimStarGPimModeOrigin = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 7), PimGroupMappingOriginType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGPimModeOrigin.setDescription('The mechanism by which the PIM mode and RP for the group\n            were learned.')
-pimStarGRPIsLocal = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 8), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGRPIsLocal.setDescription('Whether the local router is the RP for the group.')
-pimStarGUpstreamJoinState = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("notJoined", 1), ("joined", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGUpstreamJoinState.setDescription('Whether the local router should join the RP tree for the\n            group.  This corresponds to the state of the upstream (*,G)\n            state machine in the PIM-SM specification.')
-pimStarGUpstreamJoinTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 10), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGUpstreamJoinTimer.setDescription('The time remaining before the local router next sends a\n            periodic (*,G) Join message on pimStarGRPFIfIndex.  This\n            timer is called the (*,G) Upstream Join Timer in the PIM-SM\n            specification.  This object is zero if the timer is not\n            running.')
-pimStarGUpstreamNeighborType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 11), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGUpstreamNeighborType.setDescription('The primary address type of the upstream neighbor, or\n            unknown(0) if the upstream neighbor address is unknown or is\n            not a PIM neighbor.')
-pimStarGUpstreamNeighbor = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 12), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGUpstreamNeighbor.setDescription("The primary address of the neighbor on pimStarGRPFIfIndex\n            that the local router is sending periodic (*,G) Join\n            messages to.  The InetAddressType is given by the\n            pimStarGUpstreamNeighborType object.  This address is called\n            RPF'(*,G) in the PIM-SM specification.")
-pimStarGRPFIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 13), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGRPFIfIndex.setDescription('The value of ifIndex for the Reverse Path Forwarding\n            (RPF) interface towards the RP, or zero if the RPF\n            interface is unknown.')
-pimStarGRPFNextHopType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 14), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGRPFNextHopType.setDescription('The address type of the RPF next hop towards the RP, or\n            unknown(0) if the RPF next hop is unknown.')
-pimStarGRPFNextHop = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 15), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGRPFNextHop.setDescription('The address of the RPF next hop towards the RP.  The\n            InetAddressType is given by the pimStarGRPFNextHopType\n            object.  This address is called MRIB.next_hop(RP(G))\n            in the PIM-SM specification.')
-pimStarGRPFRouteProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 16), IANAipRouteProtocol()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGRPFRouteProtocol.setDescription('The routing mechanism via which the route used to find the\n            RPF interface towards the RP was learned.')
-pimStarGRPFRouteAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 17), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGRPFRouteAddress.setDescription('The IP address that, when combined with the corresponding\n            value of pimStarGRPFRoutePrefixLength, identifies the route\n            used to find the RPF interface towards the RP.  The\n            InetAddressType is given by the pimStarGRPFNextHopType\n            object.\n\n            This address object is only significant up to\n            pimStarGRPFRoutePrefixLength bits.  The remainder of the\n            address bits are zero.')
-pimStarGRPFRoutePrefixLength = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 18), InetAddressPrefixLength()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGRPFRoutePrefixLength.setDescription('The prefix length that, when combined with the\n            corresponding value of pimStarGRPFRouteAddress, identifies\n            the route used to find the RPF interface towards the RP.\n            The InetAddressType is given by the pimStarGRPFNextHopType\n            object.')
-pimStarGRPFRouteMetricPref = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 19), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGRPFRouteMetricPref.setDescription('The metric preference of the route used to find the RPF\n            interface towards the RP.')
-pimStarGRPFRouteMetric = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 4, 1, 20), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGRPFRouteMetric.setDescription('The routing metric of the route used to find the RPF\n            interface towards the RP.')
-pimStarGITable = MibTable((1, 3, 6, 1, 2, 1, 157, 1, 5), )
-if mibBuilder.loadTexts: pimStarGITable.setDescription('The (conceptual) table listing the interface-specific (*,G)\n            state that PIM has.')
-pimStarGIEntry = MibTableRow((1, 3, 6, 1, 2, 1, 157, 1, 5, 1), ).setIndexNames((0, "PIM-STD-MIB", "pimStarGAddressType"), (0, "PIM-STD-MIB", "pimStarGGrpAddress"), (0, "PIM-STD-MIB", "pimStarGIIfIndex"))
-if mibBuilder.loadTexts: pimStarGIEntry.setDescription('An entry (conceptual row) in the pimStarGITable.')
-pimStarGIIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 5, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: pimStarGIIfIndex.setDescription('The ifIndex of the interface that this entry corresponds\n            to.')
-pimStarGIUpTime = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 5, 1, 2), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGIUpTime.setDescription('The time since this entry was created by the local router.')
-pimStarGILocalMembership = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 5, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGILocalMembership.setDescription('Whether the local router has (*,G) local membership on this\n            interface (resulting from a mechanism such as IGMP or MLD).\n            This corresponds to local_receiver_include(*,G,I) in the\n            PIM-SM specification.')
-pimStarGIJoinPruneState = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 5, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("noInfo", 1), ("join", 2), ("prunePending", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGIJoinPruneState.setDescription('The state resulting from (*,G) Join/Prune messages\n            received on this interface.  This corresponds to the state\n            of the downstream per-interface (*,G) state machine in the\n            PIM-SM specification.')
-pimStarGIPrunePendingTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 5, 1, 5), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGIPrunePendingTimer.setDescription('The time remaining before the local router acts on a (*,G)\n            Prune message received on this interface, during which the\n            router is waiting to see whether another downstream router\n            will override the Prune message.  This timer is called the\n            (*,G) Prune-Pending Timer in the PIM-SM specification.  This\n            object is zero if the timer is not running.')
-pimStarGIJoinExpiryTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 5, 1, 6), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGIJoinExpiryTimer.setDescription("The time remaining before (*,G) Join state for this\n            interface expires.  This timer is called the (*,G) Join\n            Expiry Timer in the PIM-SM specification.  This object is\n            zero if the timer is not running.  A value of 'FFFFFFFF'h\n            indicates an infinite expiry time.")
-pimStarGIAssertState = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 5, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("noInfo", 1), ("iAmAssertWinner", 2), ("iAmAssertLoser", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGIAssertState.setDescription("The (*,G) Assert state for this interface.  This\n            corresponds to the state of the per-interface (*,G) Assert\n            state machine in the PIM-SM specification.  If\n            pimStarGPimMode is 'bidir', this object must be 'noInfo'.")
-pimStarGIAssertTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 5, 1, 8), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGIAssertTimer.setDescription("If pimStarGIAssertState is 'iAmAssertWinner', this is the\n            time remaining before the local router next sends a (*,G)\n            Assert message on this interface.  If pimStarGIAssertState\n            is 'iAmAssertLoser', this is the time remaining before the\n            (*,G) Assert state expires.  If pimStarGIAssertState is\n            'noInfo', this is zero.  This timer is called the (*,G)\n            Assert Timer in the PIM-SM specification.")
-pimStarGIAssertWinnerAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 5, 1, 9), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGIAssertWinnerAddressType.setDescription("If pimStarGIAssertState is 'iAmAssertLoser', this is the\n            address type of the assert winner; otherwise, this object is\n            unknown(0).")
-pimStarGIAssertWinnerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 5, 1, 10), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGIAssertWinnerAddress.setDescription("If pimStarGIAssertState is 'iAmAssertLoser', this is the\n            address of the assert winner.  The InetAddressType is given\n            by the pimStarGIAssertWinnerAddressType object.")
-pimStarGIAssertWinnerMetricPref = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 5, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGIAssertWinnerMetricPref.setDescription("If pimStarGIAssertState is 'iAmAssertLoser', this is the\n            metric preference of the route to the RP advertised by the\n            assert winner; otherwise, this object is zero.")
-pimStarGIAssertWinnerMetric = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 5, 1, 12), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimStarGIAssertWinnerMetric.setDescription("If pimStarGIAssertState is 'iAmAssertLoser', this is the\n            routing metric of the route to the RP advertised by the\n            assert winner; otherwise, this object is zero.")
-pimSGTable = MibTable((1, 3, 6, 1, 2, 1, 157, 1, 6), )
-if mibBuilder.loadTexts: pimSGTable.setDescription('The (conceptual) table listing the non-interface specific\n            (S,G) state that PIM has.')
-pimSGEntry = MibTableRow((1, 3, 6, 1, 2, 1, 157, 1, 6, 1), ).setIndexNames((0, "PIM-STD-MIB", "pimSGAddressType"), (0, "PIM-STD-MIB", "pimSGGrpAddress"), (0, "PIM-STD-MIB", "pimSGSrcAddress"))
-if mibBuilder.loadTexts: pimSGEntry.setDescription('An entry (conceptual row) in the pimSGTable.')
-pimSGAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: pimSGAddressType.setDescription('The address type of the source and multicast group for this\n            entry.')
-pimSGGrpAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),)))
-if mibBuilder.loadTexts: pimSGGrpAddress.setDescription('The multicast group address for this entry.  The\n            InetAddressType is given by the pimSGAddressType object.')
-pimSGSrcAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 3), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),)))
-if mibBuilder.loadTexts: pimSGSrcAddress.setDescription('The source address for this entry.  The InetAddressType is\n            given by the pimSGAddressType object.')
-pimSGUpTime = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGUpTime.setDescription('The time since this entry was created by the local router.')
-pimSGPimMode = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 5), PimMode().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3,))).clone(namedValues=NamedValues(("ssm", 2), ("asm", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGPimMode.setDescription('Whether pimSGGrpAddress is an SSM (Source Specific\n            Multicast, used with PIM-SM) or ASM (Any Source Multicast,\n            used with PIM-SM) group.')
-pimSGUpstreamJoinState = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("notJoined", 1), ("joined", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGUpstreamJoinState.setDescription('Whether the local router should join the shortest-path tree\n            for the source and group represented by this entry.  This\n            corresponds to the state of the upstream (S,G) state machine\n            in the PIM-SM specification.')
-pimSGUpstreamJoinTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 7), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGUpstreamJoinTimer.setDescription('The time remaining before the local router next sends a\n            periodic (S,G) Join message on pimSGRPFIfIndex.  This timer\n            is called the (S,G) Upstream Join Timer in the PIM-SM\n            specification.  This object is zero if the timer is not\n            running.')
-pimSGUpstreamNeighbor = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 8), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGUpstreamNeighbor.setDescription("The primary address of the neighbor on pimSGRPFIfIndex that\n            the local router is sending periodic (S,G) Join messages to.\n            This is zero if the RPF next hop is unknown or is not a\n            PIM neighbor.  The InetAddressType is given by the\n            pimSGAddressType object.  This address is called RPF'(S,G)\n            in the PIM-SM specification.")
-pimSGRPFIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 9), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRPFIfIndex.setDescription('The value of ifIndex for the RPF interface towards the\n            source, or zero if the RPF interface is unknown.')
-pimSGRPFNextHopType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 10), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRPFNextHopType.setDescription('The address type of the RPF next hop towards the source, or\n            unknown(0) if the RPF next hop is unknown.')
-pimSGRPFNextHop = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 11), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRPFNextHop.setDescription('The address of the RPF next hop towards the source.  The\n            InetAddressType is given by the pimSGRPFNextHopType.  This\n            address is called MRIB.next_hop(S) in the PIM-SM\n            specification.')
-pimSGRPFRouteProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 12), IANAipRouteProtocol()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRPFRouteProtocol.setDescription('The routing mechanism via which the route used to find the\n            RPF interface towards the source was learned.')
-pimSGRPFRouteAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 13), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRPFRouteAddress.setDescription('The IP address that, when combined with the corresponding\n            value of pimSGRPFRoutePrefixLength, identifies the route\n            used to find the RPF interface towards the source.  The\n            InetAddressType is given by the pimSGRPFNextHopType object.\n\n            This address object is only significant up to\n            pimSGRPFRoutePrefixLength bits.  The remainder of the\n            address bits are zero.')
-pimSGRPFRoutePrefixLength = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 14), InetAddressPrefixLength()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRPFRoutePrefixLength.setDescription('The prefix length that, when combined with the\n            corresponding value of pimSGRPFRouteAddress, identifies the\n            route used to find the RPF interface towards the source.\n            The InetAddressType is given by the pimSGRPFNextHopType\n            object.')
-pimSGRPFRouteMetricPref = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRPFRouteMetricPref.setDescription('The metric preference of the route used to find the RPF\n            interface towards the source.')
-pimSGRPFRouteMetric = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 16), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRPFRouteMetric.setDescription('The routing metric of the route used to find the RPF\n            interface towards the source.')
-pimSGSPTBit = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 17), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGSPTBit.setDescription('Whether the SPT bit is set; and therefore whether\n            forwarding is taking place on the shortest-path tree.')
-pimSGKeepaliveTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 18), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGKeepaliveTimer.setDescription('The time remaining before this (S,G) state expires, in\n            the absence of explicit (S,G) local membership or (S,G)\n            Join messages received to maintain it.  This timer is\n            called the (S,G) Keepalive Timer in the PIM-SM\n            specification.')
-pimSGDRRegisterState = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("noInfo", 1), ("join", 2), ("joinPending", 3), ("prune", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGDRRegisterState.setDescription("Whether the local router should encapsulate (S,G) data\n            packets in Register messages and send them to the RP.  This\n            corresponds to the state of the per-(S,G) Register state\n            machine in the PIM-SM specification.  This object is always\n            'noInfo' unless pimSGPimMode is 'asm'.")
-pimSGDRRegisterStopTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 20), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGDRRegisterStopTimer.setDescription("If pimSGDRRegisterState is 'prune', this is the time\n            remaining before the local router sends a Null-Register\n            message to the RP.  If pimSGDRRegisterState is\n            'joinPending', this is the time remaining before the local\n            router resumes encapsulating data packets and sending them\n            to the RP.  Otherwise, this is zero.  This timer is called\n            the Register-Stop Timer in the PIM-SM specification.")
-pimSGRPRegisterPMBRAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 21), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRPRegisterPMBRAddressType.setDescription('The address type of the first PIM Multicast Border Router\n            to send a Register message with the Border bit set.  This\n            object is unknown(0) if the local router is not the RP for\n            the group.')
-pimSGRPRegisterPMBRAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 22), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRPRegisterPMBRAddress.setDescription('The IP address of the first PIM Multicast Border Router to\n            send a Register message with the Border bit set.  The\n            InetAddressType is given by the\n            pimSGRPRegisterPMBRAddressType object.')
-pimSGUpstreamPruneState = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("forwarding", 1), ("ackpending", 2), ("pruned", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGUpstreamPruneState.setDescription('Whether the local router has pruned itself from the tree.\n            This corresponds to the state of the upstream prune (S,G)\n            state machine in the PIM-DM specification.  This object is\n            used only by PIM-DM.')
-pimSGUpstreamPruneLimitTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 24), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGUpstreamPruneLimitTimer.setDescription('The time remaining before the local router may send a (S,G)\n            Prune message on pimSGRPFIfIndex.  This timer is called the\n            (S,G) Prune Limit Timer in the PIM-DM specification.  This\n            object is zero if the timer is not running.  This object is\n            used only by PIM-DM.')
-pimSGOriginatorState = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("notOriginator", 1), ("originator", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGOriginatorState.setDescription('Whether the router is an originator for an (S,G) message\n            flow.  This corresponds to the state of the per-(S,G)\n            Originator state machine in the PIM-DM specification.  This\n            object is used only by PIM-DM.')
-pimSGSourceActiveTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 26), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGSourceActiveTimer.setDescription("If pimSGOriginatorState is 'originator', this is the time\n            remaining before the local router reverts to a notOriginator\n            state.  Otherwise, this is zero.  This timer is called the\n            Source Active Timer in the PIM-DM specification.  This\n            object is used only by PIM-DM.")
-pimSGStateRefreshTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 6, 1, 27), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGStateRefreshTimer.setDescription("If pimSGOriginatorState is 'originator', this is the time\n            remaining before the local router sends a State Refresh\n            message.  Otherwise, this is zero.  This timer is called the\n            State Refresh Timer in the PIM-DM specification.  This\n            object is used only by PIM-DM.")
-pimSGITable = MibTable((1, 3, 6, 1, 2, 1, 157, 1, 7), )
-if mibBuilder.loadTexts: pimSGITable.setDescription('The (conceptual) table listing the interface-specific (S,G)\n            state that PIM has.')
-pimSGIEntry = MibTableRow((1, 3, 6, 1, 2, 1, 157, 1, 7, 1), ).setIndexNames((0, "PIM-STD-MIB", "pimSGAddressType"), (0, "PIM-STD-MIB", "pimSGGrpAddress"), (0, "PIM-STD-MIB", "pimSGSrcAddress"), (0, "PIM-STD-MIB", "pimSGIIfIndex"))
-if mibBuilder.loadTexts: pimSGIEntry.setDescription('An entry (conceptual row) in the pimSGITable.')
-pimSGIIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 7, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: pimSGIIfIndex.setDescription('The ifIndex of the interface that this entry corresponds\n            to.')
-pimSGIUpTime = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 7, 1, 2), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGIUpTime.setDescription('The time since this entry was created by the local router.')
-pimSGILocalMembership = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 7, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGILocalMembership.setDescription('Whether the local router has (S,G) local membership on this\n            interface (resulting from a mechanism such as IGMP or MLD).\n            This corresponds to local_receiver_include(S,G,I) in the\n            PIM-SM specification.')
-pimSGIJoinPruneState = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 7, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("noInfo", 1), ("join", 2), ("prunePending", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGIJoinPruneState.setDescription('The state resulting from (S,G) Join/Prune messages\n            received on this interface.  This corresponds to the state\n            of the downstream per-interface (S,G) state machine in the\n            PIM-SM and PIM-DM specification.')
-pimSGIPrunePendingTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 7, 1, 5), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGIPrunePendingTimer.setDescription('The time remaining before the local router acts on an (S,G)\n            Prune message received on this interface, during which the\n            router is waiting to see whether another downstream router\n            will override the Prune message.  This timer is called the\n            (S,G) Prune-Pending Timer in the PIM-SM specification.  This\n            object is zero if the timer is not running.')
-pimSGIJoinExpiryTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 7, 1, 6), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGIJoinExpiryTimer.setDescription("The time remaining before (S,G) Join state for this\n            interface expires.  This timer is called the (S,G) Join\n            Expiry Timer in the PIM-SM specification.  This object is\n            zero if the timer is not running.  A value of 'FFFFFFFF'h\n            indicates an infinite expiry time.  This timer is called the\n            (S,G) Prune Timer in the PIM-DM specification.")
-pimSGIAssertState = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 7, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("noInfo", 1), ("iAmAssertWinner", 2), ("iAmAssertLoser", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGIAssertState.setDescription('The (S,G) Assert state for this interface.  This\n            corresponds to the state of the per-interface (S,G) Assert\n            state machine in the PIM-SM specification.')
-pimSGIAssertTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 7, 1, 8), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGIAssertTimer.setDescription("If pimSGIAssertState is 'iAmAssertWinner', this is the time\n            remaining before the local router next sends a (S,G) Assert\n            message on this interface.  If pimSGIAssertState is\n            'iAmAssertLoser', this is the time remaining before the\n            (S,G) Assert state expires.  If pimSGIAssertState is\n            'noInfo', this is zero.  This timer is called the (S,G)\n            Assert Timer in the PIM-SM specification.")
-pimSGIAssertWinnerAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 7, 1, 9), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGIAssertWinnerAddressType.setDescription("If pimSGIAssertState is 'iAmAssertLoser', this is the\n            address type of the assert winner; otherwise, this object is\n            unknown(0).")
-pimSGIAssertWinnerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 7, 1, 10), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGIAssertWinnerAddress.setDescription("If pimSGIAssertState is 'iAmAssertLoser', this is the\n            address of the assert winner.  The InetAddressType is given\n            by the pimSGIAssertWinnerAddressType object.")
-pimSGIAssertWinnerMetricPref = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 7, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGIAssertWinnerMetricPref.setDescription("If pimSGIAssertState is 'iAmAssertLoser', this is the\n            metric preference of the route to the source advertised by\n            the assert winner; otherwise, this object is zero.")
-pimSGIAssertWinnerMetric = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 7, 1, 12), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGIAssertWinnerMetric.setDescription("If pimSGIAssertState is 'iAmAssertLoser', this is the\n            routing metric of the route to the source advertised by the\n            assert winner; otherwise, this object is zero.")
-pimSGRptTable = MibTable((1, 3, 6, 1, 2, 1, 157, 1, 8), )
-if mibBuilder.loadTexts: pimSGRptTable.setDescription('The (conceptual) table listing the non-interface specific\n            (S,G,rpt) state that PIM has.')
-pimSGRptEntry = MibTableRow((1, 3, 6, 1, 2, 1, 157, 1, 8, 1), ).setIndexNames((0, "PIM-STD-MIB", "pimStarGAddressType"), (0, "PIM-STD-MIB", "pimStarGGrpAddress"), (0, "PIM-STD-MIB", "pimSGRptSrcAddress"))
-if mibBuilder.loadTexts: pimSGRptEntry.setDescription('An entry (conceptual row) in the pimSGRptTable.')
-pimSGRptSrcAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 8, 1, 1), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),)))
-if mibBuilder.loadTexts: pimSGRptSrcAddress.setDescription('The source address for this entry.  The InetAddressType is\n            given by the pimStarGAddressType object.')
-pimSGRptUpTime = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 8, 1, 2), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRptUpTime.setDescription('The time since this entry was created by the local router.')
-pimSGRptUpstreamPruneState = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 8, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("rptNotJoined", 1), ("pruned", 2), ("notPruned", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRptUpstreamPruneState.setDescription('Whether the local router should prune the source off the RP\n            tree.  This corresponds to the state of the upstream\n            (S,G,rpt) state machine for triggered messages in the PIM-SM\n            specification.')
-pimSGRptUpstreamOverrideTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 8, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRptUpstreamOverrideTimer.setDescription('The time remaining before the local router sends a\n            triggered (S,G,rpt) Join message on pimStarGRPFIfIndex.\n            This timer is called the (S,G,rpt) Upstream Override Timer\n            in the PIM-SM specification.  This object is zero if the\n            timer is not running.')
-pimSGRptITable = MibTable((1, 3, 6, 1, 2, 1, 157, 1, 9), )
-if mibBuilder.loadTexts: pimSGRptITable.setDescription('The (conceptual) table listing the interface-specific\n            (S,G,rpt) state that PIM has.')
-pimSGRptIEntry = MibTableRow((1, 3, 6, 1, 2, 1, 157, 1, 9, 1), ).setIndexNames((0, "PIM-STD-MIB", "pimStarGAddressType"), (0, "PIM-STD-MIB", "pimStarGGrpAddress"), (0, "PIM-STD-MIB", "pimSGRptSrcAddress"), (0, "PIM-STD-MIB", "pimSGRptIIfIndex"))
-if mibBuilder.loadTexts: pimSGRptIEntry.setDescription('An entry (conceptual row) in the pimSGRptITable.')
-pimSGRptIIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 9, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: pimSGRptIIfIndex.setDescription('The ifIndex of the interface that this entry corresponds\n            to.')
-pimSGRptIUpTime = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 9, 1, 2), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRptIUpTime.setDescription('The time since this entry was created by the local router.')
-pimSGRptILocalMembership = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 9, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRptILocalMembership.setDescription('Whether the local router has both (*,G) include local\n            membership and (S,G) exclude local membership on this\n            interface (resulting from a mechanism such as IGMP or MLD).\n            This corresponds to local_receiver_exclude(S,G,I) in the\n            PIM-SM specification.')
-pimSGRptIJoinPruneState = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 9, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("noInfo", 1), ("prune", 2), ("prunePending", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRptIJoinPruneState.setDescription('The state resulting from (S,G,rpt) Join/Prune messages\n            received on this interface.  This corresponds to the state\n            of the downstream per-interface (S,G,rpt) state machine in\n            the PIM-SM specification.')
-pimSGRptIPrunePendingTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 9, 1, 5), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRptIPrunePendingTimer.setDescription('The time remaining before the local router starts pruning\n            this source off the RP tree.  This timer is called the\n            (S,G,rpt) Prune-Pending Timer in the PIM-SM specification.\n            This object is zero if the timer is not running.')
-pimSGRptIPruneExpiryTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 9, 1, 6), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimSGRptIPruneExpiryTimer.setDescription("The time remaining before (S,G,rpt) Prune state for this\n            interface expires.  This timer is called the (S,G,rpt)\n            Prune Expiry Timer in the PIM-SM specification.  This object\n            is zero if the timer is not running.  A value of 'FFFFFFFF'h\n            indicates an infinite expiry time.")
-pimBidirDFElectionTable = MibTable((1, 3, 6, 1, 2, 1, 157, 1, 10), )
-if mibBuilder.loadTexts: pimBidirDFElectionTable.setDescription('The (conceptual) table listing the per-RP Designated\n            Forwarder (DF) Election state for each interface for all the\n            RPs in BIDIR mode.')
-pimBidirDFElectionEntry = MibTableRow((1, 3, 6, 1, 2, 1, 157, 1, 10, 1), ).setIndexNames((0, "PIM-STD-MIB", "pimBidirDFElectionAddressType"), (0, "PIM-STD-MIB", "pimBidirDFElectionRPAddress"), (0, "PIM-STD-MIB", "pimBidirDFElectionIfIndex"))
-if mibBuilder.loadTexts: pimBidirDFElectionEntry.setDescription('An entry (conceptual row) in the pimBidirDFElectionTable.')
-pimBidirDFElectionAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 10, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: pimBidirDFElectionAddressType.setDescription('The address type of the RP for which the DF state is being\n            maintained.')
-pimBidirDFElectionRPAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 10, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),)))
-if mibBuilder.loadTexts: pimBidirDFElectionRPAddress.setDescription('The IP address of the RP for which the DF state is being\n            maintained.  The InetAddressType is given by the\n            pimBidirDFElectionAddressType object.')
-pimBidirDFElectionIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 10, 1, 3), InterfaceIndex())
-if mibBuilder.loadTexts: pimBidirDFElectionIfIndex.setDescription('The value of ifIndex for the interface for which the DF\n            state is being maintained.')
-pimBidirDFElectionWinnerAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 10, 1, 4), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimBidirDFElectionWinnerAddressType.setDescription('The primary address type of the winner of the DF Election\n            process.  A value of unknown(0) indicates there is currently\n            no DF.')
-pimBidirDFElectionWinnerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 10, 1, 5), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimBidirDFElectionWinnerAddress.setDescription('The primary IP address of the winner of the DF Election\n            process.  The InetAddressType is given by the\n            pimBidirDFElectionWinnerAddressType object.')
-pimBidirDFElectionWinnerUpTime = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 10, 1, 6), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimBidirDFElectionWinnerUpTime.setDescription('The time since the current winner (last) became elected as\n            the DF for this RP.')
-pimBidirDFElectionWinnerMetricPref = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 10, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimBidirDFElectionWinnerMetricPref.setDescription('The metric preference advertised by the DF Winner, or zero\n            if there is currently no DF.')
-pimBidirDFElectionWinnerMetric = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 10, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimBidirDFElectionWinnerMetric.setDescription('The metric advertised by the DF Winner, or zero if there is\n            currently no DF.')
-pimBidirDFElectionState = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 10, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("dfOffer", 1), ("dfLose", 2), ("dfWinner", 3), ("dfBackoff", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimBidirDFElectionState.setDescription('The state of this interface with respect to DF-Election for\n            this RP.  The states correspond to the ones defined in the\n            BIDIR-PIM specification.')
-pimBidirDFElectionStateTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 10, 1, 10), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimBidirDFElectionStateTimer.setDescription('The minimum time remaining after which the local router\n            will expire the current DF state represented by\n            pimBidirDFElectionState.')
-pimStaticRPTable = MibTable((1, 3, 6, 1, 2, 1, 157, 1, 11), )
-if mibBuilder.loadTexts: pimStaticRPTable.setDescription('This table is used to manage static configuration of RPs.\n\n            If the group prefixes configured for two or more rows in\n            this table overlap, the row with the greatest value of\n            pimStaticRPGrpPrefixLength is used for the overlapping\n            range.')
-pimStaticRPEntry = MibTableRow((1, 3, 6, 1, 2, 1, 157, 1, 11, 1), ).setIndexNames((0, "PIM-STD-MIB", "pimStaticRPAddressType"), (0, "PIM-STD-MIB", "pimStaticRPGrpAddress"), (0, "PIM-STD-MIB", "pimStaticRPGrpPrefixLength"))
-if mibBuilder.loadTexts: pimStaticRPEntry.setDescription('An entry (conceptual row) in the pimStaticRPTable.  This\n            entry is preserved on agent restart.')
-pimStaticRPAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 11, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: pimStaticRPAddressType.setDescription('The address type of this entry.')
-pimStaticRPGrpAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 11, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),)))
-if mibBuilder.loadTexts: pimStaticRPGrpAddress.setDescription('The multicast group address that, when combined with\n            pimStaticRPGrpPrefixLength, gives the group prefix for this\n            entry.  The InetAddressType is given by the\n            pimStaticRPAddressType object.\n\n            This address object is only significant up to\n            pimStaticRPGrpPrefixLength bits.  The remainder of the\n            address bits are zero.  This is especially important for\n            this index field, which is part of the index of this entry.\n            Any non-zero bits would signify an entirely different\n            entry.')
-pimStaticRPGrpPrefixLength = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 11, 1, 3), InetAddressPrefixLength().subtype(subtypeSpec=ValueRangeConstraint(4,128)))
-if mibBuilder.loadTexts: pimStaticRPGrpPrefixLength.setDescription("The multicast group prefix length that, when combined\n            with pimStaticRPGrpAddress, gives the group prefix for this\n            entry.  The InetAddressType is given by the\n            pimStaticRPAddressType object.  If pimStaticRPAddressType is\n            'ipv4' or 'ipv4z', this object must be in the range 4..32.\n            If pimStaticRPGrpAddressType is 'ipv6' or 'ipv6z', this\n            object must be in the range 8..128.")
-pimStaticRPRPAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 11, 1, 4), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimStaticRPRPAddress.setDescription('The IP address of the RP to be used for groups within this\n            group prefix.  The InetAddressType is given by the\n            pimStaticRPAddressType object.')
-pimStaticRPPimMode = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 11, 1, 5), PimMode().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3, 4,))).clone(namedValues=NamedValues(("ssm", 2), ("asm", 3), ("bidir", 4),)).clone('asm')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimStaticRPPimMode.setDescription('The PIM mode to be used for groups in this group prefix.\n\n            If this object is set to ssm(2), then pimStaticRPRPAddress\n            must be set to zero.  No RP operations are ever possible for\n            PIM Mode SSM.')
-pimStaticRPOverrideDynamic = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 11, 1, 6), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimStaticRPOverrideDynamic.setDescription('Whether this static RP configuration will override other\n            group mappings in this group prefix.  If this object is\n            TRUE, then it will override:\n\n            -  RP information learned dynamically for groups in this\n            group prefix.\n\n            -  RP information configured in pimStaticRPTable with\n            pimStaticRPOverrideDynamic set to FALSE.\n\n            See pimGroupMappingTable for details.')
-pimStaticRPPrecedence = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 11, 1, 7), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimStaticRPPrecedence.setDescription('The value for pimGroupMappingPrecedence to be used for this\n            static RP configuration.  This allows fine control over\n            which configuration is overridden by this static\n            configuration.\n\n            If pimStaticRPOverrideDynamic is set to TRUE, all dynamic RP\n            configuration is overridden by this static configuration,\n            whatever the value of this object.\n\n            The absolute values of this object have a significance only\n            on the local router and do not need to be coordinated with\n            other routers.  A setting of this object may have different\n            effects when applied to other routers.\n\n            Do not use this object unless fine control of static RP\n            behavior on the local router is required.')
-pimStaticRPRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 11, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimStaticRPRowStatus.setDescription('The status of this row, by which rows in this table can\n            be created and destroyed.\n\n            This status object cannot be set to active(1) before a valid\n            value has been written to pimStaticRPRPAddress.\n\n            All writable objects in this entry can be modified when the\n            status of this entry is active(1).')
-pimStaticRPStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 11, 1, 9), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimStaticRPStorageType.setDescription("The storage type for this row.  Rows having the value\n            'permanent' need not allow write-access to any columnar\n            objects in the row.")
-pimAnycastRPSetTable = MibTable((1, 3, 6, 1, 2, 1, 157, 1, 12), )
-if mibBuilder.loadTexts: pimAnycastRPSetTable.setDescription('This table is used to manage Anycast-RP via PIM Register\n            messages, as opposed to via other protocols such as MSDP\n            (Multicast Source Discovery Protocol).\n\n            Entries must be configured in this table if and only if the\n            local router is a member of one or more Anycast-RP sets,\n            that is, one or more Anycast-RP addresses are assigned to\n            the local router.  Note that if using static RP\n            configuration, this is in addition to, not instead of, the\n            pimStaticRPTable entries that must be configured for the\n            Anycast-RPs.\n\n            The set of rows with the same values of both\n            pimAnycastRPSetAddressType and pimAnycastRPSetAnycastAddress\n            corresponds to the Anycast-RP set for that Anycast-RP\n            address.\n\n            When an Anycast-RP set configuration is active, one entry\n            per pimAnycastRPSetAnycastAddress corresponds to the local\n            router.  The local router is identified by the\n            pimAnycastRpSetLocalRouter object.  That entry determines\n            the source address used by the local router when forwarding\n            PIM Register messages within the Anycast-RP set.')
-pimAnycastRPSetEntry = MibTableRow((1, 3, 6, 1, 2, 1, 157, 1, 12, 1), ).setIndexNames((0, "PIM-STD-MIB", "pimAnycastRPSetAddressType"), (0, "PIM-STD-MIB", "pimAnycastRPSetAnycastAddress"), (0, "PIM-STD-MIB", "pimAnycastRPSetRouterAddress"))
-if mibBuilder.loadTexts: pimAnycastRPSetEntry.setDescription('An entry corresponds to a single router within a particular\n            Anycast-RP set.  This entry is preserved on agent restart.')
-pimAnycastRPSetAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 12, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: pimAnycastRPSetAddressType.setDescription('The address type of the Anycast-RP address and router\n            address.')
-pimAnycastRPSetAnycastAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 12, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),)))
-if mibBuilder.loadTexts: pimAnycastRPSetAnycastAddress.setDescription('The Anycast-RP address.  The InetAddressType is given by\n            the pimAnycastRPSetAddressType object.')
-pimAnycastRPSetRouterAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 12, 1, 3), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),)))
-if mibBuilder.loadTexts: pimAnycastRPSetRouterAddress.setDescription('The address of a router that is a member of the Anycast-RP\n            set.  The InetAddressType is given by the\n            pimAnycastRPSetAddressType object.\n\n            This address differs from pimAnycastRPSetAnycastAddress.\n            Equal values for these two addresses in a single entry are\n            not permitted.  That would cause a Register loop.')
-pimAnycastRPSetLocalRouter = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 12, 1, 4), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimAnycastRPSetLocalRouter.setDescription('Whether this entry corresponds to the local router.')
-pimAnycastRPSetRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 12, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimAnycastRPSetRowStatus.setDescription('The status of this row, by which rows in this table can\n            be created and destroyed.\n\n            This status object can be set to active(1) without setting\n            any other columnar objects in this entry.\n\n            All writable objects in this entry can be modified when the\n            status of this entry is active(1).')
-pimAnycastRPSetStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 12, 1, 6), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pimAnycastRPSetStorageType.setDescription("The storage type for this row.  Rows having the value\n            'permanent' need not allow write-access to any columnar\n            objects in the row.")
-pimGroupMappingTable = MibTable((1, 3, 6, 1, 2, 1, 157, 1, 13), )
-if mibBuilder.loadTexts: pimGroupMappingTable.setDescription("The (conceptual) table listing mappings from multicast\n            group prefixes to the PIM mode and RP address to use for\n            groups within that group prefix.\n\n            Rows in this table are created for a variety of reasons,\n            indicated by the value of the pimGroupMappingOrigin object.\n\n            -  Rows with a pimGroupMappingOrigin value of 'fixed' are\n               created automatically by the router at startup, to\n               correspond to the well-defined prefixes of link-local and\n               unroutable group addresses.  These rows are never\n               destroyed.\n\n            -  Rows with a pimGroupMappingOrigin value of 'embedded' are\n               created by the router to correspond to group prefixes\n               that are to be treated as being in Embedded-RP format.\n\n            -  Rows with a pimGroupMappingOrigin value of 'configRp' are\n               created and destroyed as a result of rows in the\n               pimStaticRPTable being created and destroyed.\n\n            -  Rows with a pimGroupMappingOrigin value of 'configSsm'\n               are created and destroyed as a result of configuration of\n               SSM address ranges to the local router.\n\n            -  Rows with a pimGroupMappingOrigin value of 'bsr' are\n               created as a result of running the PIM Bootstrap Router\n               (BSR) mechanism.  If the local router is not the elected\n               BSR, these rows are created to correspond to group\n               prefixes in the PIM Bootstrap messages received from the\n               elected BSR.  If the local router is the elected BSR,\n               these rows are created to correspond to group prefixes in\n               the PIM Bootstrap messages that the local router sends.\n               In either case, these rows are destroyed when the group\n               prefixes are timed out by the BSR mechanism.\n\n            -  Rows with a pimGroupMappingOrigin value of 'other' are\n               created and destroyed according to some other mechanism\n               not specified here.\n\n            Given the collection of rows in this table at any point in\n            time, the PIM mode and RP address to use for a particular\n            group is determined using the following algorithm.\n\n            1. From the set of all rows, the subset whose group prefix\n               contains the group in question are selected.\n\n            2. If there are no such rows, then the group mapping is\n               undefined.\n\n            3. If there are multiple selected rows, and a subset is\n               defined by pimStaticRPTable (pimGroupMappingOrigin value\n               of 'configRp') with pimStaticRPOverrideDynamic set to\n               TRUE, then this subset is selected.\n\n            4. From the selected subset of rows, the subset that have\n               the greatest value of pimGroupMappingGrpPrefixLength are\n               selected.\n\n            5. If there are still multiple selected rows, the subset\n               that has the highest precedence (the lowest numerical\n               value for pimGroupMappingPrecedence) is selected.\n\n            6. If there are still multiple selected rows, the row\n               selected is implementation dependent; the implementation\n               might or might not apply the PIM hash function to select\n               the row.\n\n            7. The group mode to use is given by the value of\n               pimGroupMappingPimMode from the single selected row; the\n               RP to use is given by the value of\n               pimGroupMappingRPAddress, unless pimGroupMappingOrigin is\n               'embedded', in which case, the RP is extracted from the\n               group address in question.")
-pimGroupMappingEntry = MibTableRow((1, 3, 6, 1, 2, 1, 157, 1, 13, 1), ).setIndexNames((0, "PIM-STD-MIB", "pimGroupMappingOrigin"), (0, "PIM-STD-MIB", "pimGroupMappingAddressType"), (0, "PIM-STD-MIB", "pimGroupMappingGrpAddress"), (0, "PIM-STD-MIB", "pimGroupMappingGrpPrefixLength"), (0, "PIM-STD-MIB", "pimGroupMappingRPAddressType"), (0, "PIM-STD-MIB", "pimGroupMappingRPAddress"))
-if mibBuilder.loadTexts: pimGroupMappingEntry.setDescription('An entry (conceptual row) in the pimGroupMappingTable.')
-pimGroupMappingOrigin = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 13, 1, 1), PimGroupMappingOriginType())
-if mibBuilder.loadTexts: pimGroupMappingOrigin.setDescription('The mechanism by which this group mapping was learned.')
-pimGroupMappingAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 13, 1, 2), InetAddressType())
-if mibBuilder.loadTexts: pimGroupMappingAddressType.setDescription('The address type of the IP multicast group prefix.')
-pimGroupMappingGrpAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 13, 1, 3), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),)))
-if mibBuilder.loadTexts: pimGroupMappingGrpAddress.setDescription('The IP multicast group address that, when combined with\n            pimGroupMappingGrpPrefixLength, gives the group prefix for\n            this mapping.  The InetAddressType is given by the\n            pimGroupMappingAddressType object.\n\n            This address object is only significant up to\n            pimGroupMappingGrpPrefixLength bits.  The remainder of the\n            address bits are zero.  This is especially important for\n            this index field, which is part of the index of this entry.\n            Any non-zero bits would signify an entirely different\n            entry.')
-pimGroupMappingGrpPrefixLength = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 13, 1, 4), InetAddressPrefixLength().subtype(subtypeSpec=ValueRangeConstraint(4,128)))
-if mibBuilder.loadTexts: pimGroupMappingGrpPrefixLength.setDescription("The multicast group prefix length that, when combined\n            with pimGroupMappingGrpAddress, gives the group prefix for\n            this mapping.  The InetAddressType is given by the\n            pimGroupMappingAddressType object.  If\n            pimGroupMappingAddressType is 'ipv4' or 'ipv4z', this\n            object must be in the range 4..32.  If\n            pimGroupMappingAddressType is 'ipv6' or 'ipv6z', this object\n            must be in the range 8..128.")
-pimGroupMappingRPAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 13, 1, 5), InetAddressType())
-if mibBuilder.loadTexts: pimGroupMappingRPAddressType.setDescription('The address type of the RP to be used for groups within\n            this group prefix, or unknown(0) if no RP is to be used or\n            if the RP address is unknown.  This object must be\n            unknown(0) if pimGroupMappingPimMode is ssm(2), or if\n            pimGroupMappingOrigin is embedded(6).')
-pimGroupMappingRPAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 13, 1, 6), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20),)))
-if mibBuilder.loadTexts: pimGroupMappingRPAddress.setDescription('The IP address of the RP to be used for groups within this\n            group prefix.  The InetAddressType is given by the\n            pimGroupMappingRPAddressType object.')
-pimGroupMappingPimMode = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 13, 1, 7), PimMode()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimGroupMappingPimMode.setDescription('The PIM mode to be used for groups in this group prefix.')
-pimGroupMappingPrecedence = MibTableColumn((1, 3, 6, 1, 2, 1, 157, 1, 13, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pimGroupMappingPrecedence.setDescription('The precedence of this row, used in the algorithm that\n            determines which row applies to a given group address\n            (described above).  Numerically higher values for this\n            object indicate lower precedences, with the value zero\n            denoting the highest precedence.\n\n            The absolute values of this object have a significance only\n            on the local router and do not need to be coordinated with\n            other routers.')
-pimNeighborLoss = NotificationType((1, 3, 6, 1, 2, 1, 157, 0, 1)).setObjects(*(("PIM-STD-MIB", "pimNeighborUpTime"),))
-if mibBuilder.loadTexts: pimNeighborLoss.setDescription('A pimNeighborLoss notification signifies the loss of an\n            adjacency with a neighbor.  This notification should be\n            generated when the neighbor timer expires, and the router\n            has no other neighbors on the same interface with the same\n            IP version and a lower IP address than itself.\n\n            This notification is generated whenever the counter\n            pimNeighborLossCount is incremented, subject\n            to the rate limit specified by\n            pimNeighborLossNotificationPeriod.')
-pimInvalidRegister = NotificationType((1, 3, 6, 1, 2, 1, 157, 0, 2)).setObjects(*(("PIM-STD-MIB", "pimGroupMappingPimMode"), ("PIM-STD-MIB", "pimInvalidRegisterAddressType"), ("PIM-STD-MIB", "pimInvalidRegisterOrigin"), ("PIM-STD-MIB", "pimInvalidRegisterGroup"), ("PIM-STD-MIB", "pimInvalidRegisterRp"),))
-if mibBuilder.loadTexts: pimInvalidRegister.setDescription('A pimInvalidRegister notification signifies that an invalid\n            PIM Register message was received by this device.\n\n            This notification is generated whenever the counter\n            pimInvalidRegisterMsgsRcvd is incremented, subject to the\n            rate limit specified by\n            pimInvalidRegisterNotificationPeriod.')
-pimInvalidJoinPrune = NotificationType((1, 3, 6, 1, 2, 1, 157, 0, 3)).setObjects(*(("PIM-STD-MIB", "pimGroupMappingPimMode"), ("PIM-STD-MIB", "pimInvalidJoinPruneAddressType"), ("PIM-STD-MIB", "pimInvalidJoinPruneOrigin"), ("PIM-STD-MIB", "pimInvalidJoinPruneGroup"), ("PIM-STD-MIB", "pimInvalidJoinPruneRp"), ("PIM-STD-MIB", "pimNeighborUpTime"),))
-if mibBuilder.loadTexts: pimInvalidJoinPrune.setDescription('A pimInvalidJoinPrune notification signifies that an\n            invalid PIM Join/Prune message was received by this device.\n\n            This notification is generated whenever the counter\n            pimInvalidJoinPruneMsgsRcvd is incremented, subject to the\n            rate limit specified by\n            pimInvalidJoinPruneNotificationPeriod.')
-pimRPMappingChange = NotificationType((1, 3, 6, 1, 2, 1, 157, 0, 4)).setObjects(*(("PIM-STD-MIB", "pimGroupMappingPimMode"), ("PIM-STD-MIB", "pimGroupMappingPrecedence"),))
-if mibBuilder.loadTexts: pimRPMappingChange.setDescription('A pimRPMappingChange notification signifies a change to the\n            active RP mapping on this device.\n\n            This notification is generated whenever the counter\n            pimRPMappingChangeCount is incremented, subject to the\n            rate limit specified by\n            pimRPMappingChangeNotificationPeriod.')
-pimInterfaceElection = NotificationType((1, 3, 6, 1, 2, 1, 157, 0, 5)).setObjects(*(("PIM-STD-MIB", "pimInterfaceAddressType"), ("PIM-STD-MIB", "pimInterfaceAddress"),))
-if mibBuilder.loadTexts: pimInterfaceElection.setDescription('A pimInterfaceElection notification signifies that a new DR\n            or DF has been elected on a network.\n\n            This notification is generated whenever the counter\n            pimInterfaceElectionWinCount is incremented, subject to the\n            rate limit specified by\n            pimInterfaceElectionNotificationPeriod.')
-pimMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 157, 2))
-pimMIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 157, 2, 1))
-pimMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 157, 2, 2))
-pimMIBComplianceAsm = ModuleCompliance((1, 3, 6, 1, 2, 1, 157, 2, 1, 1)).setObjects(*(("PIM-STD-MIB", "pimTopologyGroup"), ("PIM-STD-MIB", "pimSsmGroup"), ("PIM-STD-MIB", "pimRPConfigGroup"), ("PIM-STD-MIB", "pimSmGroup"), ("PIM-STD-MIB", "pimNotificationGroup"), ("PIM-STD-MIB", "pimTuningParametersGroup"), ("PIM-STD-MIB", "pimRouterStatisticsGroup"), ("PIM-STD-MIB", "pimAnycastRpGroup"), ("PIM-STD-MIB", "pimStaticRPPrecedenceGroup"), ("PIM-STD-MIB", "pimNetMgmtNotificationObjects"), ("PIM-STD-MIB", "pimNetMgmtNotificationGroup"), ("PIM-STD-MIB", "pimDiagnosticsGroup"), ("PIM-STD-MIB", "pimDeviceStorageGroup"),))
-if mibBuilder.loadTexts: pimMIBComplianceAsm.setDescription('The compliance statement for routers which are running\n             PIM-SM (Sparse Mode).')
-pimMIBComplianceBidir = ModuleCompliance((1, 3, 6, 1, 2, 1, 157, 2, 1, 2)).setObjects(*(("PIM-STD-MIB", "pimTopologyGroup"), ("PIM-STD-MIB", "pimRPConfigGroup"), ("PIM-STD-MIB", "pimSmGroup"), ("PIM-STD-MIB", "pimBidirGroup"), ("PIM-STD-MIB", "pimNotificationGroup"), ("PIM-STD-MIB", "pimTuningParametersGroup"), ("PIM-STD-MIB", "pimRouterStatisticsGroup"), ("PIM-STD-MIB", "pimAnycastRpGroup"), ("PIM-STD-MIB", "pimStaticRPPrecedenceGroup"), ("PIM-STD-MIB", "pimNetMgmtNotificationObjects"), ("PIM-STD-MIB", "pimNetMgmtNotificationGroup"), ("PIM-STD-MIB", "pimDiagnosticsGroup"), ("PIM-STD-MIB", "pimDeviceStorageGroup"),))
-if mibBuilder.loadTexts: pimMIBComplianceBidir.setDescription('The compliance statement for routers which are running\n            Bidir-PIM.')
-pimMIBComplianceSsm = ModuleCompliance((1, 3, 6, 1, 2, 1, 157, 2, 1, 3)).setObjects(*(("PIM-STD-MIB", "pimTopologyGroup"), ("PIM-STD-MIB", "pimSsmGroup"), ("PIM-STD-MIB", "pimNotificationGroup"), ("PIM-STD-MIB", "pimTuningParametersGroup"), ("PIM-STD-MIB", "pimRouterStatisticsGroup"), ("PIM-STD-MIB", "pimNetMgmtNotificationObjects"), ("PIM-STD-MIB", "pimNetMgmtNotificationGroup"), ("PIM-STD-MIB", "pimDiagnosticsGroup"), ("PIM-STD-MIB", "pimDeviceStorageGroup"),))
-if mibBuilder.loadTexts: pimMIBComplianceSsm.setDescription('The compliance statement for routers which are running\n             PIM SSM (Source Specific Multicast).')
-pimMIBComplianceDm = ModuleCompliance((1, 3, 6, 1, 2, 1, 157, 2, 1, 4)).setObjects(*(("PIM-STD-MIB", "pimTopologyGroup"), ("PIM-STD-MIB", "pimSsmGroup"), ("PIM-STD-MIB", "pimRPConfigGroup"), ("PIM-STD-MIB", "pimSmGroup"), ("PIM-STD-MIB", "pimDmGroup"), ("PIM-STD-MIB", "pimNotificationGroup"), ("PIM-STD-MIB", "pimTuningParametersGroup"), ("PIM-STD-MIB", "pimRouterStatisticsGroup"), ("PIM-STD-MIB", "pimAnycastRpGroup"), ("PIM-STD-MIB", "pimStaticRPPrecedenceGroup"), ("PIM-STD-MIB", "pimNetMgmtNotificationObjects"), ("PIM-STD-MIB", "pimNetMgmtNotificationGroup"), ("PIM-STD-MIB", "pimDiagnosticsGroup"), ("PIM-STD-MIB", "pimDeviceStorageGroup"),))
-if mibBuilder.loadTexts: pimMIBComplianceDm.setDescription('The compliance statement for routers which are running\n            PIM-DM (Dense Mode).')
-pimTopologyGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 157, 2, 2, 1)).setObjects(*(("PIM-STD-MIB", "pimInterfaceAddressType"), ("PIM-STD-MIB", "pimInterfaceAddress"), ("PIM-STD-MIB", "pimInterfaceGenerationIDValue"), ("PIM-STD-MIB", "pimInterfaceDR"), ("PIM-STD-MIB", "pimInterfaceDRPriorityEnabled"), ("PIM-STD-MIB", "pimInterfaceHelloHoldtime"), ("PIM-STD-MIB", "pimInterfaceJoinPruneHoldtime"), ("PIM-STD-MIB", "pimInterfaceLanDelayEnabled"), ("PIM-STD-MIB", "pimInterfaceEffectPropagDelay"), ("PIM-STD-MIB", "pimInterfaceEffectOverrideIvl"), ("PIM-STD-MIB", "pimInterfaceSuppressionEnabled"), ("PIM-STD-MIB", "pimInterfaceBidirCapable"), ("PIM-STD-MIB", "pimNeighborGenerationIDPresent"), ("PIM-STD-MIB", "pimNeighborGenerationIDValue"), ("PIM-STD-MIB", "pimNeighborUpTime"), ("PIM-STD-MIB", "pimNeighborExpiryTime"), ("PIM-STD-MIB", "pimNeighborDRPriorityPresent"), ("PIM-STD-MIB", "pimNeighborDRPriority"), ("PIM-STD-MIB", "pimNeighborLanPruneDelayPresent"), ("PIM-STD-MIB", "pimNeighborTBit"), ("PIM-STD-MIB", "pimNeighborPropagationDelay"), ("PIM-STD-MIB", "pimNeighborOverrideInterval"), ("PIM-STD-MIB", "pimNeighborBidirCapable"), ("PIM-STD-MIB", "pimNbrSecAddress"),))
-if mibBuilder.loadTexts: pimTopologyGroup.setDescription('A collection of read-only objects used to report local PIM\n            topology.')
-pimNotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 157, 2, 2, 2)).setObjects(*(("PIM-STD-MIB", "pimNeighborLoss"),))
-if mibBuilder.loadTexts: pimNotificationGroup.setDescription('A collection of notifications for signaling important PIM\n            events.')
-pimTuningParametersGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 157, 2, 2, 3)).setObjects(*(("PIM-STD-MIB", "pimKeepalivePeriod"), ("PIM-STD-MIB", "pimRegisterSuppressionTime"), ("PIM-STD-MIB", "pimInterfaceDRPriority"), ("PIM-STD-MIB", "pimInterfaceHelloInterval"), ("PIM-STD-MIB", "pimInterfaceTrigHelloInterval"), ("PIM-STD-MIB", "pimInterfaceJoinPruneInterval"), ("PIM-STD-MIB", "pimInterfacePropagationDelay"), ("PIM-STD-MIB", "pimInterfaceOverrideInterval"), ("PIM-STD-MIB", "pimInterfaceDomainBorder"), ("PIM-STD-MIB", "pimInterfaceStubInterface"), ("PIM-STD-MIB", "pimInterfaceStatus"), ("PIM-STD-MIB", "pimInterfaceStorageType"),))
-if mibBuilder.loadTexts: pimTuningParametersGroup.setDescription('A collection of writable objects used to configure PIM\n            behavior and to tune performance.')
-pimRouterStatisticsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 157, 2, 2, 4)).setObjects(*(("PIM-STD-MIB", "pimStarGEntries"), ("PIM-STD-MIB", "pimStarGIEntries"), ("PIM-STD-MIB", "pimSGEntries"), ("PIM-STD-MIB", "pimSGIEntries"), ("PIM-STD-MIB", "pimSGRptEntries"), ("PIM-STD-MIB", "pimSGRptIEntries"),))
-if mibBuilder.loadTexts: pimRouterStatisticsGroup.setDescription('A collection of statistics global to the PIM router.')
-pimSsmGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 157, 2, 2, 5)).setObjects(*(("PIM-STD-MIB", "pimSGUpTime"), ("PIM-STD-MIB", "pimSGPimMode"), ("PIM-STD-MIB", "pimSGUpstreamJoinState"), ("PIM-STD-MIB", "pimSGUpstreamJoinTimer"), ("PIM-STD-MIB", "pimSGUpstreamNeighbor"), ("PIM-STD-MIB", "pimSGRPFIfIndex"), ("PIM-STD-MIB", "pimSGRPFNextHopType"), ("PIM-STD-MIB", "pimSGRPFNextHop"), ("PIM-STD-MIB", "pimSGRPFRouteProtocol"), ("PIM-STD-MIB", "pimSGRPFRouteAddress"), ("PIM-STD-MIB", "pimSGRPFRoutePrefixLength"), ("PIM-STD-MIB", "pimSGRPFRouteMetricPref"), ("PIM-STD-MIB", "pimSGRPFRouteMetric"), ("PIM-STD-MIB", "pimSGSPTBit"), ("PIM-STD-MIB", "pimSGKeepaliveTimer"), ("PIM-STD-MIB", "pimSGDRRegisterState"), ("PIM-STD-MIB", "pimSGDRRegisterStopTimer"), ("PIM-STD-MIB", "pimSGRPRegisterPMBRAddressType"), ("PIM-STD-MIB", "pimSGRPRegisterPMBRAddress"), ("PIM-STD-MIB", "pimSGIUpTime"), ("PIM-STD-MIB", "pimSGILocalMembership"), ("PIM-STD-MIB", "pimSGIJoinPruneState"), ("PIM-STD-MIB", "pimSGIPrunePendingTimer"), ("PIM-STD-MIB", "pimSGIJoinExpiryTimer"), ("PIM-STD-MIB", "pimSGIAssertState"), ("PIM-STD-MIB", "pimSGIAssertTimer"), ("PIM-STD-MIB", "pimSGIAssertWinnerAddressType"), ("PIM-STD-MIB", "pimSGIAssertWinnerAddress"), ("PIM-STD-MIB", "pimSGIAssertWinnerMetricPref"), ("PIM-STD-MIB", "pimSGIAssertWinnerMetric"),))
-if mibBuilder.loadTexts: pimSsmGroup.setDescription('A collection of objects to support management of PIM\n            routers running the PIM SSM (Source Specific Multicast)\n            protocol, in PIM mode SM (Sparse Mode).')
-pimRPConfigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 157, 2, 2, 6)).setObjects(*(("PIM-STD-MIB", "pimStaticRPRPAddress"), ("PIM-STD-MIB", "pimStaticRPPimMode"), ("PIM-STD-MIB", "pimStaticRPOverrideDynamic"), ("PIM-STD-MIB", "pimStaticRPRowStatus"), ("PIM-STD-MIB", "pimStaticRPStorageType"), ("PIM-STD-MIB", "pimGroupMappingPimMode"), ("PIM-STD-MIB", "pimGroupMappingPrecedence"),))
-if mibBuilder.loadTexts: pimRPConfigGroup.setDescription('A collection of objects to support configuration of RPs\n            (Rendezvous Points) and Group Mappings.')
-pimSmGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 157, 2, 2, 7)).setObjects(*(("PIM-STD-MIB", "pimStarGUpTime"), ("PIM-STD-MIB", "pimStarGPimMode"), ("PIM-STD-MIB", "pimStarGRPAddressType"), ("PIM-STD-MIB", "pimStarGRPAddress"), ("PIM-STD-MIB", "pimStarGPimModeOrigin"), ("PIM-STD-MIB", "pimStarGRPIsLocal"), ("PIM-STD-MIB", "pimStarGUpstreamJoinState"), ("PIM-STD-MIB", "pimStarGUpstreamJoinTimer"), ("PIM-STD-MIB", "pimStarGUpstreamNeighborType"), ("PIM-STD-MIB", "pimStarGUpstreamNeighbor"), ("PIM-STD-MIB", "pimStarGRPFIfIndex"), ("PIM-STD-MIB", "pimStarGRPFNextHopType"), ("PIM-STD-MIB", "pimStarGRPFNextHop"), ("PIM-STD-MIB", "pimStarGRPFRouteProtocol"), ("PIM-STD-MIB", "pimStarGRPFRouteAddress"), ("PIM-STD-MIB", "pimStarGRPFRoutePrefixLength"), ("PIM-STD-MIB", "pimStarGRPFRouteMetricPref"), ("PIM-STD-MIB", "pimStarGRPFRouteMetric"), ("PIM-STD-MIB", "pimStarGIUpTime"), ("PIM-STD-MIB", "pimStarGILocalMembership"), ("PIM-STD-MIB", "pimStarGIJoinPruneState"), ("PIM-STD-MIB", "pimStarGIPrunePendingTimer"), ("PIM-STD-MIB", "pimStarGIJoinExpiryTimer"), ("PIM-STD-MIB", "pimStarGIAssertState"), ("PIM-STD-MIB", "pimStarGIAssertTimer"), ("PIM-STD-MIB", "pimStarGIAssertWinnerAddressType"), ("PIM-STD-MIB", "pimStarGIAssertWinnerAddress"), ("PIM-STD-MIB", "pimStarGIAssertWinnerMetricPref"), ("PIM-STD-MIB", "pimStarGIAssertWinnerMetric"), ("PIM-STD-MIB", "pimSGRptUpTime"), ("PIM-STD-MIB", "pimSGRptUpstreamPruneState"), ("PIM-STD-MIB", "pimSGRptUpstreamOverrideTimer"), ("PIM-STD-MIB", "pimSGRptIUpTime"), ("PIM-STD-MIB", "pimSGRptILocalMembership"), ("PIM-STD-MIB", "pimSGRptIJoinPruneState"), ("PIM-STD-MIB", "pimSGRptIPrunePendingTimer"), ("PIM-STD-MIB", "pimSGRptIPruneExpiryTimer"),))
-if mibBuilder.loadTexts: pimSmGroup.setDescription('A collection of objects to support management of PIM\n            routers running PIM-SM (Sparse Mode).  The groups\n            pimSsmGroup and pimRPConfigGroup are also required.')
-pimBidirGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 157, 2, 2, 8)).setObjects(*(("PIM-STD-MIB", "pimInterfaceDFElectionRobustness"), ("PIM-STD-MIB", "pimBidirDFElectionWinnerAddressType"), ("PIM-STD-MIB", "pimBidirDFElectionWinnerAddress"), ("PIM-STD-MIB", "pimBidirDFElectionWinnerUpTime"), ("PIM-STD-MIB", "pimBidirDFElectionWinnerMetricPref"), ("PIM-STD-MIB", "pimBidirDFElectionWinnerMetric"), ("PIM-STD-MIB", "pimBidirDFElectionState"), ("PIM-STD-MIB", "pimBidirDFElectionStateTimer"),))
-if mibBuilder.loadTexts: pimBidirGroup.setDescription('A collection of objects to support management of PIM\n            routers running BIDIR mode.  The groups pimSsmGroup,\n            pimSmGroup and pimRPConfigGroup are also required.')
-pimAnycastRpGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 157, 2, 2, 9)).setObjects(*(("PIM-STD-MIB", "pimAnycastRPSetLocalRouter"), ("PIM-STD-MIB", "pimAnycastRPSetRowStatus"), ("PIM-STD-MIB", "pimAnycastRPSetStorageType"),))
-if mibBuilder.loadTexts: pimAnycastRpGroup.setDescription('A collection of objects to support management of the PIM\n            Anycast-RP mechanism.')
-pimStaticRPPrecedenceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 157, 2, 2, 10)).setObjects(*(("PIM-STD-MIB", "pimStaticRPPrecedence"),))
-if mibBuilder.loadTexts: pimStaticRPPrecedenceGroup.setDescription('A collection of objects to allow fine control of\n            interactions between static RP configuration and\n            dynamically acquired group to RP mappings.')
-pimNetMgmtNotificationObjects = ObjectGroup((1, 3, 6, 1, 2, 1, 157, 2, 2, 11)).setObjects(*(("PIM-STD-MIB", "pimInvalidRegisterNotificationPeriod"), ("PIM-STD-MIB", "pimInvalidRegisterMsgsRcvd"), ("PIM-STD-MIB", "pimInvalidRegisterAddressType"), ("PIM-STD-MIB", "pimInvalidRegisterOrigin"), ("PIM-STD-MIB", "pimInvalidRegisterGroup"), ("PIM-STD-MIB", "pimInvalidRegisterRp"), ("PIM-STD-MIB", "pimInvalidJoinPruneNotificationPeriod"), ("PIM-STD-MIB", "pimInvalidJoinPruneMsgsRcvd"), ("PIM-STD-MIB", "pimInvalidJoinPruneAddressType"), ("PIM-STD-MIB", "pimInvalidJoinPruneOrigin"), ("PIM-STD-MIB", "pimInvalidJoinPruneGroup"), ("PIM-STD-MIB", "pimInvalidJoinPruneRp"), ("PIM-STD-MIB", "pimRPMappingNotificationPeriod"), ("PIM-STD-MIB", "pimRPMappingChangeCount"), ("PIM-STD-MIB", "pimInterfaceElectionNotificationPeriod"), ("PIM-STD-MIB", "pimInterfaceElectionWinCount"),))
-if mibBuilder.loadTexts: pimNetMgmtNotificationObjects.setDescription('A collection of objects to support notification of PIM\n            network management events.')
-pimNetMgmtNotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 157, 2, 2, 12)).setObjects(*(("PIM-STD-MIB", "pimInvalidRegister"), ("PIM-STD-MIB", "pimInvalidJoinPrune"), ("PIM-STD-MIB", "pimRPMappingChange"), ("PIM-STD-MIB", "pimInterfaceElection"),))
-if mibBuilder.loadTexts: pimNetMgmtNotificationGroup.setDescription('A collection of notifications for signaling PIM network\n            management events.')
-pimDiagnosticsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 157, 2, 2, 13)).setObjects(*(("PIM-STD-MIB", "pimInAsserts"), ("PIM-STD-MIB", "pimOutAsserts"), ("PIM-STD-MIB", "pimLastAssertInterface"), ("PIM-STD-MIB", "pimLastAssertGroupAddressType"), ("PIM-STD-MIB", "pimLastAssertGroupAddress"), ("PIM-STD-MIB", "pimLastAssertSourceAddressType"), ("PIM-STD-MIB", "pimLastAssertSourceAddress"), ("PIM-STD-MIB", "pimNeighborLossNotificationPeriod"), ("PIM-STD-MIB", "pimNeighborLossCount"),))
-if mibBuilder.loadTexts: pimDiagnosticsGroup.setDescription('Objects providing additional diagnostics related to a PIM\n            router.')
-pimDmGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 157, 2, 2, 14)).setObjects(*(("PIM-STD-MIB", "pimRefreshInterval"), ("PIM-STD-MIB", "pimInterfacePruneLimitInterval"), ("PIM-STD-MIB", "pimInterfaceGraftRetryInterval"), ("PIM-STD-MIB", "pimInterfaceSRPriorityEnabled"), ("PIM-STD-MIB", "pimNeighborSRCapable"), ("PIM-STD-MIB", "pimSGUpstreamPruneState"), ("PIM-STD-MIB", "pimSGUpstreamPruneLimitTimer"), ("PIM-STD-MIB", "pimSGOriginatorState"), ("PIM-STD-MIB", "pimSGSourceActiveTimer"), ("PIM-STD-MIB", "pimSGStateRefreshTimer"),))
-if mibBuilder.loadTexts: pimDmGroup.setDescription('A collection of objects required for management of PIM\n            Dense Mode (PIM-DM) function.  The groups pimSsmGroup and\n            pimSmGroup are also required.')
-pimDeviceStorageGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 157, 2, 2, 15)).setObjects(*(("PIM-STD-MIB", "pimDeviceConfigStorageType"),))
-if mibBuilder.loadTexts: pimDeviceStorageGroup.setDescription('An object that specifies the volatility of global PIM\n            configuration settings on this device.')
-mibBuilder.exportSymbols("PIM-STD-MIB", pimSGUpTime=pimSGUpTime, pimKeepalivePeriod=pimKeepalivePeriod, pimStarGTable=pimStarGTable, pimStarGRPFRouteMetricPref=pimStarGRPFRouteMetricPref, pimTopologyGroup=pimTopologyGroup, pimLastAssertGroupAddress=pimLastAssertGroupAddress, pimSGAddressType=pimSGAddressType, pimGroupMappingPimMode=pimGroupMappingPimMode, pimGroupMappingRPAddressType=pimGroupMappingRPAddressType, pimStarGIUpTime=pimStarGIUpTime, pimLastAssertSourceAddressType=pimLastAssertSourceAddressType, pimStarGPimMode=pimStarGPimMode, pimInterfaceIfIndex=pimInterfaceIfIndex, pimInterfaceOverrideInterval=pimInterfaceOverrideInterval, pimStarGIAssertTimer=pimStarGIAssertTimer, pimBidirDFElectionIfIndex=pimBidirDFElectionIfIndex, pimGroupMappingEntry=pimGroupMappingEntry, pimNbrSecAddressEntry=pimNbrSecAddressEntry, pimMIBComplianceSsm=pimMIBComplianceSsm, pimMIBComplianceDm=pimMIBComplianceDm, pimDeviceStorageGroup=pimDeviceStorageGroup, pimSGRPFIfIndex=pimSGRPFIfIndex, pimInterfaceHelloInterval=pimInterfaceHelloInterval, pimNotificationGroup=pimNotificationGroup, pimAnycastRPSetAnycastAddress=pimAnycastRPSetAnycastAddress, pimSGITable=pimSGITable, pimRPMappingChangeCount=pimRPMappingChangeCount, pimInvalidRegisterRp=pimInvalidRegisterRp, pimInvalidJoinPruneNotificationPeriod=pimInvalidJoinPruneNotificationPeriod, pimInterfaceStatus=pimInterfaceStatus, pimStarGUpstreamNeighbor=pimStarGUpstreamNeighbor, pimStarGRPFNextHopType=pimStarGRPFNextHopType, pimSGTable=pimSGTable, pimInterfacePruneLimitInterval=pimInterfacePruneLimitInterval, pimStarGIAssertWinnerAddress=pimStarGIAssertWinnerAddress, pimStarGILocalMembership=pimStarGILocalMembership, pimSGIEntry=pimSGIEntry, pimNeighborEntry=pimNeighborEntry, pimNeighborExpiryTime=pimNeighborExpiryTime, pimBidirDFElectionWinnerAddressType=pimBidirDFElectionWinnerAddressType, pimStarGIJoinPruneState=pimStarGIJoinPruneState, pimSGSPTBit=pimSGSPTBit, pimStaticRPEntry=pimStaticRPEntry, pimSGRptIPrunePendingTimer=pimSGRptIPrunePendingTimer, pimInterfaceEffectOverrideIvl=pimInterfaceEffectOverrideIvl, pimSGDRRegisterStopTimer=pimSGDRRegisterStopTimer, pimSGRPFNextHop=pimSGRPFNextHop, pimGroupMappingGrpPrefixLength=pimGroupMappingGrpPrefixLength, pimDmGroup=pimDmGroup, pimSGEntries=pimSGEntries, pimLastAssertSourceAddress=pimLastAssertSourceAddress, pimInterfaceBidirCapable=pimInterfaceBidirCapable, pimSGIAssertWinnerAddress=pimSGIAssertWinnerAddress, pimSGRPFRoutePrefixLength=pimSGRPFRoutePrefixLength, pimOutAsserts=pimOutAsserts, pimSGUpstreamPruneLimitTimer=pimSGUpstreamPruneLimitTimer, pimSGRptTable=pimSGRptTable, pimBidirDFElectionWinnerUpTime=pimBidirDFElectionWinnerUpTime, pimNeighborLoss=pimNeighborLoss, pimNbrSecAddressIfIndex=pimNbrSecAddressIfIndex, pimNbrSecAddressPrimary=pimNbrSecAddressPrimary, pimStarGITable=pimStarGITable, pimSGIJoinPruneState=pimSGIJoinPruneState, pimStaticRPStorageType=pimStaticRPStorageType, pimStarGPimModeOrigin=pimStarGPimModeOrigin, pimStarGIAssertState=pimStarGIAssertState, pimStarGRPFRoutePrefixLength=pimStarGRPFRoutePrefixLength, pimInterfaceDRPriority=pimInterfaceDRPriority, pimStarGIPrunePendingTimer=pimStarGIPrunePendingTimer, pimStarGUpTime=pimStarGUpTime, pimInterfaceElection=pimInterfaceElection, pimInAsserts=pimInAsserts, pimInterfaceDR=pimInterfaceDR, pimNeighborGenerationIDValue=pimNeighborGenerationIDValue, pimInterfaceSRPriorityEnabled=pimInterfaceSRPriorityEnabled, pim=pim, pimStarGIEntry=pimStarGIEntry, pimSGStateRefreshTimer=pimSGStateRefreshTimer, pimSGIAssertWinnerMetric=pimSGIAssertWinnerMetric, pimRouterStatisticsGroup=pimRouterStatisticsGroup, pimInvalidJoinPruneRp=pimInvalidJoinPruneRp, pimSGRPFNextHopType=pimSGRPFNextHopType, pimInvalidJoinPruneAddressType=pimInvalidJoinPruneAddressType, pimSGRPRegisterPMBRAddressType=pimSGRPRegisterPMBRAddressType, pimSGIUpTime=pimSGIUpTime, pimStaticRPPimMode=pimStaticRPPimMode, pimInterfaceAddressType=pimInterfaceAddressType, pimSGRPFRouteMetricPref=pimSGRPFRouteMetricPref, pimInvalidJoinPruneGroup=pimInvalidJoinPruneGroup, pimInterfaceGraftRetryInterval=pimInterfaceGraftRetryInterval, pimInterfaceStorageType=pimInterfaceStorageType, pimSGRptIJoinPruneState=pimSGRptIJoinPruneState, pimStarGRPFRouteAddress=pimStarGRPFRouteAddress, pimDeviceConfigStorageType=pimDeviceConfigStorageType, pimStarGRPAddress=pimStarGRPAddress, pimMIBConformance=pimMIBConformance, pimMIBCompliances=pimMIBCompliances, pimSGRPFRouteProtocol=pimSGRPFRouteProtocol, pimSGEntry=pimSGEntry, pimStarGIEntries=pimStarGIEntries, pimInterfaceAddress=pimInterfaceAddress, pimStarGEntry=pimStarGEntry, pimMIBComplianceAsm=pimMIBComplianceAsm, pimBidirDFElectionStateTimer=pimBidirDFElectionStateTimer, pimInvalidRegisterGroup=pimInvalidRegisterGroup, pimNbrSecAddress=pimNbrSecAddress, pimSGGrpAddress=pimSGGrpAddress, pimSGIAssertTimer=pimSGIAssertTimer, pimMIBGroups=pimMIBGroups, pimBidirDFElectionAddressType=pimBidirDFElectionAddressType, pimSGRptILocalMembership=pimSGRptILocalMembership, pimStarGGrpAddress=pimStarGGrpAddress, pimRPConfigGroup=pimRPConfigGroup, pimNeighborTable=pimNeighborTable, pimSmGroup=pimSmGroup, pimBidirGroup=pimBidirGroup, pimSGSourceActiveTimer=pimSGSourceActiveTimer, pimInterfaceStubInterface=pimInterfaceStubInterface, pimSGUpstreamJoinTimer=pimSGUpstreamJoinTimer, pimInterfaceLanDelayEnabled=pimInterfaceLanDelayEnabled, pimSGRptIIfIndex=pimSGRptIIfIndex, pimBidirDFElectionRPAddress=pimBidirDFElectionRPAddress, pimSGRptEntry=pimSGRptEntry, pimAnycastRPSetTable=pimAnycastRPSetTable, pimNetMgmtNotificationGroup=pimNetMgmtNotificationGroup, pimInterfaceElectionNotificationPeriod=pimInterfaceElectionNotificationPeriod, pimAnycastRPSetStorageType=pimAnycastRPSetStorageType, pimMIBComplianceBidir=pimMIBComplianceBidir, pimSGPimMode=pimSGPimMode, pimInterfaceHelloHoldtime=pimInterfaceHelloHoldtime, pimNeighborAddress=pimNeighborAddress, pimNeighborTBit=pimNeighborTBit, pimSGILocalMembership=pimSGILocalMembership, pimAnycastRpGroup=pimAnycastRpGroup, pimLastAssertInterface=pimLastAssertInterface, pimInterfaceGenerationIDValue=pimInterfaceGenerationIDValue, pimStarGRPFNextHop=pimStarGRPFNextHop, pimInvalidJoinPruneOrigin=pimInvalidJoinPruneOrigin, pimInterfacePropagationDelay=pimInterfacePropagationDelay, PimMode=PimMode, pimSGOriginatorState=pimSGOriginatorState, pimAnycastRPSetLocalRouter=pimAnycastRPSetLocalRouter, pimSGIPrunePendingTimer=pimSGIPrunePendingTimer, pimStaticRPTable=pimStaticRPTable, pimInvalidJoinPruneMsgsRcvd=pimInvalidJoinPruneMsgsRcvd, pimInterfaceEntry=pimInterfaceEntry, pimNbrSecAddressType=pimNbrSecAddressType, pimSGKeepaliveTimer=pimSGKeepaliveTimer, pimInterfaceDomainBorder=pimInterfaceDomainBorder, pimTuningParametersGroup=pimTuningParametersGroup, pimBidirDFElectionWinnerMetricPref=pimBidirDFElectionWinnerMetricPref, pimStaticRPOverrideDynamic=pimStaticRPOverrideDynamic, pimInterfaceTable=pimInterfaceTable, pimAnycastRPSetRowStatus=pimAnycastRPSetRowStatus, pimSGSrcAddress=pimSGSrcAddress, pimInvalidRegisterMsgsRcvd=pimInvalidRegisterMsgsRcvd, pimInterfaceJoinPruneHoldtime=pimInterfaceJoinPruneHoldtime, pimSGRPFRouteMetric=pimSGRPFRouteMetric, pimStarGIIfIndex=pimStarGIIfIndex, pimBidirDFElectionWinnerMetric=pimBidirDFElectionWinnerMetric, pimInvalidJoinPrune=pimInvalidJoinPrune, pimGroupMappingRPAddress=pimGroupMappingRPAddress, pimSGUpstreamPruneState=pimSGUpstreamPruneState, pimAnycastRPSetRouterAddress=pimAnycastRPSetRouterAddress, pimNeighborDRPriority=pimNeighborDRPriority, pimNeighborIfIndex=pimNeighborIfIndex, pimNeighborLossNotificationPeriod=pimNeighborLossNotificationPeriod, pimInvalidRegisterAddressType=pimInvalidRegisterAddressType, pimStarGIAssertWinnerMetric=pimStarGIAssertWinnerMetric, pimGroupMappingAddressType=pimGroupMappingAddressType, pimNeighborPropagationDelay=pimNeighborPropagationDelay, pimNeighborOverrideInterval=pimNeighborOverrideInterval, pimStaticRPGrpPrefixLength=pimStaticRPGrpPrefixLength, pimStarGUpstreamNeighborType=pimStarGUpstreamNeighborType, pimNeighborBidirCapable=pimNeighborBidirCapable, pimRegisterSuppressionTime=pimRegisterSuppressionTime, pimNeighborGenerationIDPresent=pimNeighborGenerationIDPresent, pimInterfaceJoinPruneInterval=pimInterfaceJoinPruneInterval, pimSGIAssertWinnerMetricPref=pimSGIAssertWinnerMetricPref, pimBidirDFElectionWinnerAddress=pimBidirDFElectionWinnerAddress, pimStarGRPFRouteProtocol=pimStarGRPFRouteProtocol, pimNeighborLanPruneDelayPresent=pimNeighborLanPruneDelayPresent, pimNotifications=pimNotifications, pimSGRPFRouteAddress=pimSGRPFRouteAddress, pimInterfaceEffectPropagDelay=pimInterfaceEffectPropagDelay, pimStaticRPAddressType=pimStaticRPAddressType, pimSGIAssertWinnerAddressType=pimSGIAssertWinnerAddressType, pimStaticRPPrecedenceGroup=pimStaticRPPrecedenceGroup, pimStdMIB=pimStdMIB, pimStarGUpstreamJoinState=pimStarGUpstreamJoinState, pimSGUpstreamJoinState=pimSGUpstreamJoinState, pimSGRptIUpTime=pimSGRptIUpTime, pimStarGRPFIfIndex=pimStarGRPFIfIndex, pimSGRptIEntry=pimSGRptIEntry, pimSGRptEntries=pimSGRptEntries, pimNeighborAddressType=pimNeighborAddressType, pimStarGIJoinExpiryTimer=pimStarGIJoinExpiryTimer, pimInvalidRegisterOrigin=pimInvalidRegisterOrigin, pimInterfaceElectionWinCount=pimInterfaceElectionWinCount, pimSGRptUpstreamOverrideTimer=pimSGRptUpstreamOverrideTimer, pimNeighborDRPriorityPresent=pimNeighborDRPriorityPresent, pimBidirDFElectionState=pimBidirDFElectionState, pimSsmGroup=pimSsmGroup, pimInterfaceIPVersion=pimInterfaceIPVersion, pimNeighborLossCount=pimNeighborLossCount, pimSGIEntries=pimSGIEntries, pimBidirDFElectionEntry=pimBidirDFElectionEntry, pimStaticRPRowStatus=pimStaticRPRowStatus, pimGroupMappingOrigin=pimGroupMappingOrigin, pimStarGAddressType=pimStarGAddressType, pimGroupMappingPrecedence=pimGroupMappingPrecedence, pimStarGIAssertWinnerAddressType=pimStarGIAssertWinnerAddressType, pimSGIAssertState=pimSGIAssertState, pimInvalidRegister=pimInvalidRegister, pimInterfaceDFElectionRobustness=pimInterfaceDFElectionRobustness, pimAnycastRPSetAddressType=pimAnycastRPSetAddressType, pimSGRPRegisterPMBRAddress=pimSGRPRegisterPMBRAddress, pimSGRptIEntries=pimSGRptIEntries, pimNeighborSRCapable=pimNeighborSRCapable, pimStarGEntries=pimStarGEntries, pimSGRptUpTime=pimSGRptUpTime, pimStarGRPFRouteMetric=pimStarGRPFRouteMetric, pimLastAssertGroupAddressType=pimLastAssertGroupAddressType, pimStaticRPPrecedence=pimStaticRPPrecedence, pimStarGIAssertWinnerMetricPref=pimStarGIAssertWinnerMetricPref, pimGroupMappingGrpAddress=pimGroupMappingGrpAddress, pimInvalidRegisterNotificationPeriod=pimInvalidRegisterNotificationPeriod, pimSGIJoinExpiryTimer=pimSGIJoinExpiryTimer, pimStarGRPIsLocal=pimStarGRPIsLocal, pimAnycastRPSetEntry=pimAnycastRPSetEntry, pimRPMappingChange=pimRPMappingChange, pimNeighborUpTime=pimNeighborUpTime, pimNbrSecAddressTable=pimNbrSecAddressTable, pimSGRptITable=pimSGRptITable, pimBidirDFElectionTable=pimBidirDFElectionTable, pimNetMgmtNotificationObjects=pimNetMgmtNotificationObjects, pimInterfaceTrigHelloInterval=pimInterfaceTrigHelloInterval, pimStarGUpstreamJoinTimer=pimStarGUpstreamJoinTimer, PimGroupMappingOriginType=PimGroupMappingOriginType, pimSGRptUpstreamPruneState=pimSGRptUpstreamPruneState, PYSNMP_MODULE_ID=pimStdMIB, pimRPMappingNotificationPeriod=pimRPMappingNotificationPeriod, pimInterfaceDRPriorityEnabled=pimInterfaceDRPriorityEnabled, pimStaticRPRPAddress=pimStaticRPRPAddress, pimSGDRRegisterState=pimSGDRRegisterState, pimSGRptSrcAddress=pimSGRptSrcAddress, pimDiagnosticsGroup=pimDiagnosticsGroup, pimInterfaceSuppressionEnabled=pimInterfaceSuppressionEnabled, pimStarGRPAddressType=pimStarGRPAddressType, pimSGRptIPruneExpiryTimer=pimSGRptIPruneExpiryTimer, pimStaticRPGrpAddress=pimStaticRPGrpAddress, pimGroupMappingTable=pimGroupMappingTable, pimRefreshInterval=pimRefreshInterval, pimSGIIfIndex=pimSGIIfIndex)
-mibBuilder.exportSymbols("PIM-STD-MIB", pimSGUpstreamNeighbor=pimSGUpstreamNeighbor)
+_Cz='pimDmGroup'
+_Cy='pimBidirGroup'
+_Cx='pimInterfaceElection'
+_Cw='pimRPMappingChange'
+_Cv='pimInvalidJoinPrune'
+_Cu='pimInvalidRegister'
+_Ct='pimNeighborLoss'
+_Cs='pimDeviceConfigStorageType'
+_Cr='pimSGStateRefreshTimer'
+_Cq='pimSGSourceActiveTimer'
+_Cp='pimSGOriginatorState'
+_Co='pimSGUpstreamPruneLimitTimer'
+_Cn='pimSGUpstreamPruneState'
+_Cm='pimNeighborSRCapable'
+_Cl='pimInterfaceSRPriorityEnabled'
+_Ck='pimInterfaceGraftRetryInterval'
+_Cj='pimInterfacePruneLimitInterval'
+_Ci='pimRefreshInterval'
+_Ch='pimNeighborLossCount'
+_Cg='pimNeighborLossNotificationPeriod'
+_Cf='pimLastAssertSourceAddress'
+_Ce='pimLastAssertSourceAddressType'
+_Cd='pimLastAssertGroupAddress'
+_Cc='pimLastAssertGroupAddressType'
+_Cb='pimLastAssertInterface'
+_Ca='pimOutAsserts'
+_CZ='pimInAsserts'
+_CY='pimInterfaceElectionWinCount'
+_CX='pimInterfaceElectionNotificationPeriod'
+_CW='pimRPMappingChangeCount'
+_CV='pimRPMappingNotificationPeriod'
+_CU='pimInvalidJoinPruneMsgsRcvd'
+_CT='pimInvalidJoinPruneNotificationPeriod'
+_CS='pimInvalidRegisterMsgsRcvd'
+_CR='pimInvalidRegisterNotificationPeriod'
+_CQ='pimStaticRPPrecedence'
+_CP='pimAnycastRPSetStorageType'
+_CO='pimAnycastRPSetRowStatus'
+_CN='pimAnycastRPSetLocalRouter'
+_CM='pimBidirDFElectionStateTimer'
+_CL='pimBidirDFElectionState'
+_CK='pimBidirDFElectionWinnerMetric'
+_CJ='pimBidirDFElectionWinnerMetricPref'
+_CI='pimBidirDFElectionWinnerUpTime'
+_CH='pimBidirDFElectionWinnerAddress'
+_CG='pimBidirDFElectionWinnerAddressType'
+_CF='pimInterfaceDFElectionRobustness'
+_CE='pimSGRptIPruneExpiryTimer'
+_CD='pimSGRptIPrunePendingTimer'
+_CC='pimSGRptIJoinPruneState'
+_CB='pimSGRptILocalMembership'
+_CA='pimSGRptIUpTime'
+_C9='pimSGRptUpstreamOverrideTimer'
+_C8='pimSGRptUpstreamPruneState'
+_C7='pimSGRptUpTime'
+_C6='pimStarGIAssertWinnerMetric'
+_C5='pimStarGIAssertWinnerMetricPref'
+_C4='pimStarGIAssertWinnerAddress'
+_C3='pimStarGIAssertWinnerAddressType'
+_C2='pimStarGIAssertTimer'
+_C1='pimStarGIAssertState'
+_C0='pimStarGIJoinExpiryTimer'
+_B_='pimStarGIPrunePendingTimer'
+_Bz='pimStarGIJoinPruneState'
+_By='pimStarGILocalMembership'
+_Bx='pimStarGIUpTime'
+_Bw='pimStarGRPFRouteMetric'
+_Bv='pimStarGRPFRouteMetricPref'
+_Bu='pimStarGRPFRoutePrefixLength'
+_Bt='pimStarGRPFRouteAddress'
+_Bs='pimStarGRPFRouteProtocol'
+_Br='pimStarGRPFNextHop'
+_Bq='pimStarGRPFNextHopType'
+_Bp='pimStarGRPFIfIndex'
+_Bo='pimStarGUpstreamNeighbor'
+_Bn='pimStarGUpstreamNeighborType'
+_Bm='pimStarGUpstreamJoinTimer'
+_Bl='pimStarGUpstreamJoinState'
+_Bk='pimStarGRPIsLocal'
+_Bj='pimStarGPimModeOrigin'
+_Bi='pimStarGRPAddress'
+_Bh='pimStarGRPAddressType'
+_Bg='pimStarGPimMode'
+_Bf='pimStarGUpTime'
+_Be='pimStaticRPStorageType'
+_Bd='pimStaticRPRowStatus'
+_Bc='pimStaticRPOverrideDynamic'
+_Bb='pimStaticRPPimMode'
+_Ba='pimStaticRPRPAddress'
+_BZ='pimSGIAssertWinnerMetric'
+_BY='pimSGIAssertWinnerMetricPref'
+_BX='pimSGIAssertWinnerAddress'
+_BW='pimSGIAssertWinnerAddressType'
+_BV='pimSGIAssertTimer'
+_BU='pimSGIAssertState'
+_BT='pimSGIJoinExpiryTimer'
+_BS='pimSGIPrunePendingTimer'
+_BR='pimSGIJoinPruneState'
+_BQ='pimSGILocalMembership'
+_BP='pimSGIUpTime'
+_BO='pimSGRPRegisterPMBRAddress'
+_BN='pimSGRPRegisterPMBRAddressType'
+_BM='pimSGDRRegisterStopTimer'
+_BL='pimSGDRRegisterState'
+_BK='pimSGKeepaliveTimer'
+_BJ='pimSGSPTBit'
+_BI='pimSGRPFRouteMetric'
+_BH='pimSGRPFRouteMetricPref'
+_BG='pimSGRPFRoutePrefixLength'
+_BF='pimSGRPFRouteAddress'
+_BE='pimSGRPFRouteProtocol'
+_BD='pimSGRPFNextHop'
+_BC='pimSGRPFNextHopType'
+_BB='pimSGRPFIfIndex'
+_BA='pimSGUpstreamNeighbor'
+_B9='pimSGUpstreamJoinTimer'
+_B8='pimSGUpstreamJoinState'
+_B7='pimSGPimMode'
+_B6='pimSGUpTime'
+_B5='pimSGRptIEntries'
+_B4='pimSGRptEntries'
+_B3='pimSGIEntries'
+_B2='pimSGEntries'
+_B1='pimStarGIEntries'
+_B0='pimStarGEntries'
+_A_='pimInterfaceStorageType'
+_Az='pimInterfaceStatus'
+_Ay='pimInterfaceStubInterface'
+_Ax='pimInterfaceDomainBorder'
+_Aw='pimInterfaceOverrideInterval'
+_Av='pimInterfacePropagationDelay'
+_Au='pimInterfaceJoinPruneInterval'
+_At='pimInterfaceTrigHelloInterval'
+_As='pimInterfaceHelloInterval'
+_Ar='pimInterfaceDRPriority'
+_Aq='pimRegisterSuppressionTime'
+_Ap='pimKeepalivePeriod'
+_Ao='pimNeighborBidirCapable'
+_An='pimNeighborOverrideInterval'
+_Am='pimNeighborPropagationDelay'
+_Al='pimNeighborTBit'
+_Ak='pimNeighborLanPruneDelayPresent'
+_Aj='pimNeighborDRPriority'
+_Ai='pimNeighborDRPriorityPresent'
+_Ah='pimNeighborExpiryTime'
+_Ag='pimNeighborGenerationIDValue'
+_Af='pimNeighborGenerationIDPresent'
+_Ae='pimInterfaceBidirCapable'
+_Ad='pimInterfaceSuppressionEnabled'
+_Ac='pimInterfaceEffectOverrideIvl'
+_Ab='pimInterfaceEffectPropagDelay'
+_Aa='pimInterfaceLanDelayEnabled'
+_AZ='pimInterfaceJoinPruneHoldtime'
+_AY='pimInterfaceHelloHoldtime'
+_AX='pimInterfaceDRPriorityEnabled'
+_AW='pimInterfaceDR'
+_AV='pimInterfaceGenerationIDValue'
+_AU='pimGroupMappingRPAddress'
+_AT='pimGroupMappingRPAddressType'
+_AS='pimGroupMappingGrpPrefixLength'
+_AR='pimGroupMappingGrpAddress'
+_AQ='pimGroupMappingAddressType'
+_AP='pimGroupMappingOrigin'
+_AO='pimAnycastRPSetRouterAddress'
+_AN='pimAnycastRPSetAnycastAddress'
+_AM='pimAnycastRPSetAddressType'
+_AL='pimStaticRPGrpPrefixLength'
+_AK='pimStaticRPGrpAddress'
+_AJ='pimStaticRPAddressType'
+_AI='pimBidirDFElectionIfIndex'
+_AH='pimBidirDFElectionRPAddress'
+_AG='pimBidirDFElectionAddressType'
+_AF='pimSGRptIIfIndex'
+_AE='pimSGIIfIndex'
+_AD='iAmAssertLoser'
+_AC='iAmAssertWinner'
+_AB='pimStarGIIfIndex'
+_AA='notJoined'
+_A9='pimNbrSecAddressPrimary'
+_A8='pimNbrSecAddressType'
+_A7='pimNbrSecAddressIfIndex'
+_A6='pimNeighborAddress'
+_A5='pimNeighborAddressType'
+_A4='pimNeighborIfIndex'
+_A3='pimInterfaceIPVersion'
+_A2='pimInterfaceIfIndex'
+_A1='pimInvalidJoinPruneRp'
+_A0='pimInvalidJoinPruneGroup'
+_z='pimInvalidJoinPruneOrigin'
+_y='pimInvalidJoinPruneAddressType'
+_x='pimInvalidRegisterRp'
+_w='pimInvalidRegisterGroup'
+_v='pimInvalidRegisterOrigin'
+_u='pimInvalidRegisterAddressType'
+_t='pimGroupMappingPrecedence'
+_s='pimInterfaceAddress'
+_r='pimInterfaceAddressType'
+_q='pimSGRptSrcAddress'
+_p='pimSGSrcAddress'
+_o='pimSGGrpAddress'
+_n='pimSGAddressType'
+_m='prunePending'
+_l='join'
+_k='pimNbrSecAddress'
+_j='bidir'
+_i='ssm'
+_h='InetAddressPrefixLength'
+_g='pimStaticRPPrecedenceGroup'
+_f='pimAnycastRpGroup'
+_e='pimSmGroup'
+_d='pimRPConfigGroup'
+_c='pimSsmGroup'
+_b='pimNeighborUpTime'
+_a='PimMode'
+_Z='milliseconds'
+_Y='asm'
+_X='TruthValue'
+_W='pimDeviceStorageGroup'
+_V='pimDiagnosticsGroup'
+_U='pimNetMgmtNotificationGroup'
+_T='pimNetMgmtNotificationObjects'
+_S='pimRouterStatisticsGroup'
+_R='pimTuningParametersGroup'
+_Q='pimNotificationGroup'
+_P='pimTopologyGroup'
+_O='pimGroupMappingPimMode'
+_N='pimStarGGrpAddress'
+_M='pimStarGAddressType'
+_L='StorageType'
+_K='noInfo'
+_J='read-write'
+_I='Integer32'
+_H='seconds'
+_G='read-create'
+_F='Unsigned32'
+_E='not-accessible'
+_D='InetAddress'
+_C='read-only'
+_B='current'
+_A='PIM-STD-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+IANAipRouteProtocol,=mibBuilder.importSymbols('IANA-RTPROTO-MIB','IANAipRouteProtocol')
+InterfaceIndex,InterfaceIndexOrZero=mibBuilder.importSymbols('IF-MIB','InterfaceIndex','InterfaceIndexOrZero')
+InetAddress,InetAddressPrefixLength,InetAddressType,InetVersion=mibBuilder.importSymbols('INET-ADDRESS-MIB',_D,_h,'InetAddressType','InetVersion')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_I,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'iso','mib-2')
+DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_L,'TextualConvention',_X)
+pimStdMIB=ModuleIdentity((1,3,6,1,2,1,157))
+if mibBuilder.loadTexts:pimStdMIB.setRevisions(('2007-11-02 00:00',))
+class PimMode(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('none',1),(_i,2),(_Y,3),(_j,4),('dm',5),('other',6)))
+class PimGroupMappingOriginType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('fixed',1),('configRp',2),('configSsm',3),('bsr',4),('autoRP',5),('embedded',6),('other',7)))
+_PimNotifications_ObjectIdentity=ObjectIdentity
+pimNotifications=_PimNotifications_ObjectIdentity((1,3,6,1,2,1,157,0))
+_Pim_ObjectIdentity=ObjectIdentity
+pim=_Pim_ObjectIdentity((1,3,6,1,2,1,157,1))
+_PimInterfaceTable_Object=MibTable
+pimInterfaceTable=_PimInterfaceTable_Object((1,3,6,1,2,1,157,1,1))
+if mibBuilder.loadTexts:pimInterfaceTable.setStatus(_B)
+_PimInterfaceEntry_Object=MibTableRow
+pimInterfaceEntry=_PimInterfaceEntry_Object((1,3,6,1,2,1,157,1,1,1))
+pimInterfaceEntry.setIndexNames((0,_A,_A2),(0,_A,_A3))
+if mibBuilder.loadTexts:pimInterfaceEntry.setStatus(_B)
+_PimInterfaceIfIndex_Type=InterfaceIndex
+_PimInterfaceIfIndex_Object=MibTableColumn
+pimInterfaceIfIndex=_PimInterfaceIfIndex_Object((1,3,6,1,2,1,157,1,1,1,1),_PimInterfaceIfIndex_Type())
+pimInterfaceIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimInterfaceIfIndex.setStatus(_B)
+_PimInterfaceIPVersion_Type=InetVersion
+_PimInterfaceIPVersion_Object=MibTableColumn
+pimInterfaceIPVersion=_PimInterfaceIPVersion_Object((1,3,6,1,2,1,157,1,1,1,2),_PimInterfaceIPVersion_Type())
+pimInterfaceIPVersion.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimInterfaceIPVersion.setStatus(_B)
+_PimInterfaceAddressType_Type=InetAddressType
+_PimInterfaceAddressType_Object=MibTableColumn
+pimInterfaceAddressType=_PimInterfaceAddressType_Object((1,3,6,1,2,1,157,1,1,1,3),_PimInterfaceAddressType_Type())
+pimInterfaceAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInterfaceAddressType.setStatus(_B)
+class _PimInterfaceAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimInterfaceAddress_Type.__name__=_D
+_PimInterfaceAddress_Object=MibTableColumn
+pimInterfaceAddress=_PimInterfaceAddress_Object((1,3,6,1,2,1,157,1,1,1,4),_PimInterfaceAddress_Type())
+pimInterfaceAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInterfaceAddress.setStatus(_B)
+_PimInterfaceGenerationIDValue_Type=Unsigned32
+_PimInterfaceGenerationIDValue_Object=MibTableColumn
+pimInterfaceGenerationIDValue=_PimInterfaceGenerationIDValue_Object((1,3,6,1,2,1,157,1,1,1,5),_PimInterfaceGenerationIDValue_Type())
+pimInterfaceGenerationIDValue.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInterfaceGenerationIDValue.setStatus(_B)
+class _PimInterfaceDR_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimInterfaceDR_Type.__name__=_D
+_PimInterfaceDR_Object=MibTableColumn
+pimInterfaceDR=_PimInterfaceDR_Object((1,3,6,1,2,1,157,1,1,1,6),_PimInterfaceDR_Type())
+pimInterfaceDR.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInterfaceDR.setStatus(_B)
+class _PimInterfaceDRPriority_Type(Unsigned32):defaultValue=1
+_PimInterfaceDRPriority_Type.__name__=_F
+_PimInterfaceDRPriority_Object=MibTableColumn
+pimInterfaceDRPriority=_PimInterfaceDRPriority_Object((1,3,6,1,2,1,157,1,1,1,7),_PimInterfaceDRPriority_Type())
+pimInterfaceDRPriority.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimInterfaceDRPriority.setStatus(_B)
+_PimInterfaceDRPriorityEnabled_Type=TruthValue
+_PimInterfaceDRPriorityEnabled_Object=MibTableColumn
+pimInterfaceDRPriorityEnabled=_PimInterfaceDRPriorityEnabled_Object((1,3,6,1,2,1,157,1,1,1,8),_PimInterfaceDRPriorityEnabled_Type())
+pimInterfaceDRPriorityEnabled.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInterfaceDRPriorityEnabled.setStatus(_B)
+class _PimInterfaceHelloInterval_Type(Unsigned32):defaultValue=30;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,18000))
+_PimInterfaceHelloInterval_Type.__name__=_F
+_PimInterfaceHelloInterval_Object=MibTableColumn
+pimInterfaceHelloInterval=_PimInterfaceHelloInterval_Object((1,3,6,1,2,1,157,1,1,1,9),_PimInterfaceHelloInterval_Type())
+pimInterfaceHelloInterval.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimInterfaceHelloInterval.setStatus(_B)
+if mibBuilder.loadTexts:pimInterfaceHelloInterval.setUnits(_H)
+class _PimInterfaceTrigHelloInterval_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,60))
+_PimInterfaceTrigHelloInterval_Type.__name__=_F
+_PimInterfaceTrigHelloInterval_Object=MibTableColumn
+pimInterfaceTrigHelloInterval=_PimInterfaceTrigHelloInterval_Object((1,3,6,1,2,1,157,1,1,1,10),_PimInterfaceTrigHelloInterval_Type())
+pimInterfaceTrigHelloInterval.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimInterfaceTrigHelloInterval.setStatus(_B)
+if mibBuilder.loadTexts:pimInterfaceTrigHelloInterval.setUnits(_H)
+class _PimInterfaceHelloHoldtime_Type(Unsigned32):defaultValue=105;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PimInterfaceHelloHoldtime_Type.__name__=_F
+_PimInterfaceHelloHoldtime_Object=MibTableColumn
+pimInterfaceHelloHoldtime=_PimInterfaceHelloHoldtime_Object((1,3,6,1,2,1,157,1,1,1,11),_PimInterfaceHelloHoldtime_Type())
+pimInterfaceHelloHoldtime.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimInterfaceHelloHoldtime.setStatus(_B)
+if mibBuilder.loadTexts:pimInterfaceHelloHoldtime.setUnits(_H)
+class _PimInterfaceJoinPruneInterval_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,18000))
+_PimInterfaceJoinPruneInterval_Type.__name__=_F
+_PimInterfaceJoinPruneInterval_Object=MibTableColumn
+pimInterfaceJoinPruneInterval=_PimInterfaceJoinPruneInterval_Object((1,3,6,1,2,1,157,1,1,1,12),_PimInterfaceJoinPruneInterval_Type())
+pimInterfaceJoinPruneInterval.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimInterfaceJoinPruneInterval.setStatus(_B)
+if mibBuilder.loadTexts:pimInterfaceJoinPruneInterval.setUnits(_H)
+class _PimInterfaceJoinPruneHoldtime_Type(Unsigned32):defaultValue=210;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PimInterfaceJoinPruneHoldtime_Type.__name__=_F
+_PimInterfaceJoinPruneHoldtime_Object=MibTableColumn
+pimInterfaceJoinPruneHoldtime=_PimInterfaceJoinPruneHoldtime_Object((1,3,6,1,2,1,157,1,1,1,13),_PimInterfaceJoinPruneHoldtime_Type())
+pimInterfaceJoinPruneHoldtime.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimInterfaceJoinPruneHoldtime.setStatus(_B)
+if mibBuilder.loadTexts:pimInterfaceJoinPruneHoldtime.setUnits(_H)
+class _PimInterfaceDFElectionRobustness_Type(Unsigned32):defaultValue=3
+_PimInterfaceDFElectionRobustness_Type.__name__=_F
+_PimInterfaceDFElectionRobustness_Object=MibTableColumn
+pimInterfaceDFElectionRobustness=_PimInterfaceDFElectionRobustness_Object((1,3,6,1,2,1,157,1,1,1,14),_PimInterfaceDFElectionRobustness_Type())
+pimInterfaceDFElectionRobustness.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimInterfaceDFElectionRobustness.setStatus(_B)
+_PimInterfaceLanDelayEnabled_Type=TruthValue
+_PimInterfaceLanDelayEnabled_Object=MibTableColumn
+pimInterfaceLanDelayEnabled=_PimInterfaceLanDelayEnabled_Object((1,3,6,1,2,1,157,1,1,1,15),_PimInterfaceLanDelayEnabled_Type())
+pimInterfaceLanDelayEnabled.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInterfaceLanDelayEnabled.setStatus(_B)
+class _PimInterfacePropagationDelay_Type(Unsigned32):defaultValue=500;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32767))
+_PimInterfacePropagationDelay_Type.__name__=_F
+_PimInterfacePropagationDelay_Object=MibTableColumn
+pimInterfacePropagationDelay=_PimInterfacePropagationDelay_Object((1,3,6,1,2,1,157,1,1,1,16),_PimInterfacePropagationDelay_Type())
+pimInterfacePropagationDelay.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimInterfacePropagationDelay.setStatus(_B)
+if mibBuilder.loadTexts:pimInterfacePropagationDelay.setUnits(_Z)
+class _PimInterfaceOverrideInterval_Type(Unsigned32):defaultValue=2500;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PimInterfaceOverrideInterval_Type.__name__=_F
+_PimInterfaceOverrideInterval_Object=MibTableColumn
+pimInterfaceOverrideInterval=_PimInterfaceOverrideInterval_Object((1,3,6,1,2,1,157,1,1,1,17),_PimInterfaceOverrideInterval_Type())
+pimInterfaceOverrideInterval.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimInterfaceOverrideInterval.setStatus(_B)
+if mibBuilder.loadTexts:pimInterfaceOverrideInterval.setUnits(_Z)
+class _PimInterfaceEffectPropagDelay_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32767))
+_PimInterfaceEffectPropagDelay_Type.__name__=_F
+_PimInterfaceEffectPropagDelay_Object=MibTableColumn
+pimInterfaceEffectPropagDelay=_PimInterfaceEffectPropagDelay_Object((1,3,6,1,2,1,157,1,1,1,18),_PimInterfaceEffectPropagDelay_Type())
+pimInterfaceEffectPropagDelay.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInterfaceEffectPropagDelay.setStatus(_B)
+if mibBuilder.loadTexts:pimInterfaceEffectPropagDelay.setUnits(_Z)
+class _PimInterfaceEffectOverrideIvl_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PimInterfaceEffectOverrideIvl_Type.__name__=_F
+_PimInterfaceEffectOverrideIvl_Object=MibTableColumn
+pimInterfaceEffectOverrideIvl=_PimInterfaceEffectOverrideIvl_Object((1,3,6,1,2,1,157,1,1,1,19),_PimInterfaceEffectOverrideIvl_Type())
+pimInterfaceEffectOverrideIvl.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInterfaceEffectOverrideIvl.setStatus(_B)
+if mibBuilder.loadTexts:pimInterfaceEffectOverrideIvl.setUnits(_Z)
+_PimInterfaceSuppressionEnabled_Type=TruthValue
+_PimInterfaceSuppressionEnabled_Object=MibTableColumn
+pimInterfaceSuppressionEnabled=_PimInterfaceSuppressionEnabled_Object((1,3,6,1,2,1,157,1,1,1,20),_PimInterfaceSuppressionEnabled_Type())
+pimInterfaceSuppressionEnabled.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInterfaceSuppressionEnabled.setStatus(_B)
+_PimInterfaceBidirCapable_Type=TruthValue
+_PimInterfaceBidirCapable_Object=MibTableColumn
+pimInterfaceBidirCapable=_PimInterfaceBidirCapable_Object((1,3,6,1,2,1,157,1,1,1,21),_PimInterfaceBidirCapable_Type())
+pimInterfaceBidirCapable.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInterfaceBidirCapable.setStatus(_B)
+class _PimInterfaceDomainBorder_Type(TruthValue):defaultValue=2
+_PimInterfaceDomainBorder_Type.__name__=_X
+_PimInterfaceDomainBorder_Object=MibTableColumn
+pimInterfaceDomainBorder=_PimInterfaceDomainBorder_Object((1,3,6,1,2,1,157,1,1,1,22),_PimInterfaceDomainBorder_Type())
+pimInterfaceDomainBorder.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimInterfaceDomainBorder.setStatus(_B)
+class _PimInterfaceStubInterface_Type(TruthValue):defaultValue=2
+_PimInterfaceStubInterface_Type.__name__=_X
+_PimInterfaceStubInterface_Object=MibTableColumn
+pimInterfaceStubInterface=_PimInterfaceStubInterface_Object((1,3,6,1,2,1,157,1,1,1,23),_PimInterfaceStubInterface_Type())
+pimInterfaceStubInterface.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimInterfaceStubInterface.setStatus(_B)
+class _PimInterfacePruneLimitInterval_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PimInterfacePruneLimitInterval_Type.__name__=_F
+_PimInterfacePruneLimitInterval_Object=MibTableColumn
+pimInterfacePruneLimitInterval=_PimInterfacePruneLimitInterval_Object((1,3,6,1,2,1,157,1,1,1,24),_PimInterfacePruneLimitInterval_Type())
+pimInterfacePruneLimitInterval.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimInterfacePruneLimitInterval.setStatus(_B)
+if mibBuilder.loadTexts:pimInterfacePruneLimitInterval.setUnits(_H)
+class _PimInterfaceGraftRetryInterval_Type(Unsigned32):defaultValue=3;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PimInterfaceGraftRetryInterval_Type.__name__=_F
+_PimInterfaceGraftRetryInterval_Object=MibTableColumn
+pimInterfaceGraftRetryInterval=_PimInterfaceGraftRetryInterval_Object((1,3,6,1,2,1,157,1,1,1,25),_PimInterfaceGraftRetryInterval_Type())
+pimInterfaceGraftRetryInterval.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimInterfaceGraftRetryInterval.setStatus(_B)
+if mibBuilder.loadTexts:pimInterfaceGraftRetryInterval.setUnits(_H)
+_PimInterfaceSRPriorityEnabled_Type=TruthValue
+_PimInterfaceSRPriorityEnabled_Object=MibTableColumn
+pimInterfaceSRPriorityEnabled=_PimInterfaceSRPriorityEnabled_Object((1,3,6,1,2,1,157,1,1,1,26),_PimInterfaceSRPriorityEnabled_Type())
+pimInterfaceSRPriorityEnabled.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInterfaceSRPriorityEnabled.setStatus(_B)
+_PimInterfaceStatus_Type=RowStatus
+_PimInterfaceStatus_Object=MibTableColumn
+pimInterfaceStatus=_PimInterfaceStatus_Object((1,3,6,1,2,1,157,1,1,1,27),_PimInterfaceStatus_Type())
+pimInterfaceStatus.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimInterfaceStatus.setStatus(_B)
+class _PimInterfaceStorageType_Type(StorageType):defaultValue=3
+_PimInterfaceStorageType_Type.__name__=_L
+_PimInterfaceStorageType_Object=MibTableColumn
+pimInterfaceStorageType=_PimInterfaceStorageType_Object((1,3,6,1,2,1,157,1,1,1,28),_PimInterfaceStorageType_Type())
+pimInterfaceStorageType.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimInterfaceStorageType.setStatus(_B)
+_PimNeighborTable_Object=MibTable
+pimNeighborTable=_PimNeighborTable_Object((1,3,6,1,2,1,157,1,2))
+if mibBuilder.loadTexts:pimNeighborTable.setStatus(_B)
+_PimNeighborEntry_Object=MibTableRow
+pimNeighborEntry=_PimNeighborEntry_Object((1,3,6,1,2,1,157,1,2,1))
+pimNeighborEntry.setIndexNames((0,_A,_A4),(0,_A,_A5),(0,_A,_A6))
+if mibBuilder.loadTexts:pimNeighborEntry.setStatus(_B)
+_PimNeighborIfIndex_Type=InterfaceIndex
+_PimNeighborIfIndex_Object=MibTableColumn
+pimNeighborIfIndex=_PimNeighborIfIndex_Object((1,3,6,1,2,1,157,1,2,1,1),_PimNeighborIfIndex_Type())
+pimNeighborIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimNeighborIfIndex.setStatus(_B)
+_PimNeighborAddressType_Type=InetAddressType
+_PimNeighborAddressType_Object=MibTableColumn
+pimNeighborAddressType=_PimNeighborAddressType_Object((1,3,6,1,2,1,157,1,2,1,2),_PimNeighborAddressType_Type())
+pimNeighborAddressType.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimNeighborAddressType.setStatus(_B)
+class _PimNeighborAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimNeighborAddress_Type.__name__=_D
+_PimNeighborAddress_Object=MibTableColumn
+pimNeighborAddress=_PimNeighborAddress_Object((1,3,6,1,2,1,157,1,2,1,3),_PimNeighborAddress_Type())
+pimNeighborAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimNeighborAddress.setStatus(_B)
+_PimNeighborGenerationIDPresent_Type=TruthValue
+_PimNeighborGenerationIDPresent_Object=MibTableColumn
+pimNeighborGenerationIDPresent=_PimNeighborGenerationIDPresent_Object((1,3,6,1,2,1,157,1,2,1,4),_PimNeighborGenerationIDPresent_Type())
+pimNeighborGenerationIDPresent.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimNeighborGenerationIDPresent.setStatus(_B)
+_PimNeighborGenerationIDValue_Type=Unsigned32
+_PimNeighborGenerationIDValue_Object=MibTableColumn
+pimNeighborGenerationIDValue=_PimNeighborGenerationIDValue_Object((1,3,6,1,2,1,157,1,2,1,5),_PimNeighborGenerationIDValue_Type())
+pimNeighborGenerationIDValue.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimNeighborGenerationIDValue.setStatus(_B)
+_PimNeighborUpTime_Type=TimeTicks
+_PimNeighborUpTime_Object=MibTableColumn
+pimNeighborUpTime=_PimNeighborUpTime_Object((1,3,6,1,2,1,157,1,2,1,6),_PimNeighborUpTime_Type())
+pimNeighborUpTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimNeighborUpTime.setStatus(_B)
+_PimNeighborExpiryTime_Type=TimeTicks
+_PimNeighborExpiryTime_Object=MibTableColumn
+pimNeighborExpiryTime=_PimNeighborExpiryTime_Object((1,3,6,1,2,1,157,1,2,1,7),_PimNeighborExpiryTime_Type())
+pimNeighborExpiryTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimNeighborExpiryTime.setStatus(_B)
+_PimNeighborDRPriorityPresent_Type=TruthValue
+_PimNeighborDRPriorityPresent_Object=MibTableColumn
+pimNeighborDRPriorityPresent=_PimNeighborDRPriorityPresent_Object((1,3,6,1,2,1,157,1,2,1,8),_PimNeighborDRPriorityPresent_Type())
+pimNeighborDRPriorityPresent.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimNeighborDRPriorityPresent.setStatus(_B)
+_PimNeighborDRPriority_Type=Unsigned32
+_PimNeighborDRPriority_Object=MibTableColumn
+pimNeighborDRPriority=_PimNeighborDRPriority_Object((1,3,6,1,2,1,157,1,2,1,9),_PimNeighborDRPriority_Type())
+pimNeighborDRPriority.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimNeighborDRPriority.setStatus(_B)
+_PimNeighborLanPruneDelayPresent_Type=TruthValue
+_PimNeighborLanPruneDelayPresent_Object=MibTableColumn
+pimNeighborLanPruneDelayPresent=_PimNeighborLanPruneDelayPresent_Object((1,3,6,1,2,1,157,1,2,1,10),_PimNeighborLanPruneDelayPresent_Type())
+pimNeighborLanPruneDelayPresent.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimNeighborLanPruneDelayPresent.setStatus(_B)
+_PimNeighborTBit_Type=TruthValue
+_PimNeighborTBit_Object=MibTableColumn
+pimNeighborTBit=_PimNeighborTBit_Object((1,3,6,1,2,1,157,1,2,1,11),_PimNeighborTBit_Type())
+pimNeighborTBit.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimNeighborTBit.setStatus(_B)
+class _PimNeighborPropagationDelay_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32767))
+_PimNeighborPropagationDelay_Type.__name__=_F
+_PimNeighborPropagationDelay_Object=MibTableColumn
+pimNeighborPropagationDelay=_PimNeighborPropagationDelay_Object((1,3,6,1,2,1,157,1,2,1,12),_PimNeighborPropagationDelay_Type())
+pimNeighborPropagationDelay.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimNeighborPropagationDelay.setStatus(_B)
+class _PimNeighborOverrideInterval_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PimNeighborOverrideInterval_Type.__name__=_F
+_PimNeighborOverrideInterval_Object=MibTableColumn
+pimNeighborOverrideInterval=_PimNeighborOverrideInterval_Object((1,3,6,1,2,1,157,1,2,1,13),_PimNeighborOverrideInterval_Type())
+pimNeighborOverrideInterval.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimNeighborOverrideInterval.setStatus(_B)
+_PimNeighborBidirCapable_Type=TruthValue
+_PimNeighborBidirCapable_Object=MibTableColumn
+pimNeighborBidirCapable=_PimNeighborBidirCapable_Object((1,3,6,1,2,1,157,1,2,1,14),_PimNeighborBidirCapable_Type())
+pimNeighborBidirCapable.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimNeighborBidirCapable.setStatus(_B)
+_PimNeighborSRCapable_Type=TruthValue
+_PimNeighborSRCapable_Object=MibTableColumn
+pimNeighborSRCapable=_PimNeighborSRCapable_Object((1,3,6,1,2,1,157,1,2,1,15),_PimNeighborSRCapable_Type())
+pimNeighborSRCapable.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimNeighborSRCapable.setStatus(_B)
+_PimNbrSecAddressTable_Object=MibTable
+pimNbrSecAddressTable=_PimNbrSecAddressTable_Object((1,3,6,1,2,1,157,1,3))
+if mibBuilder.loadTexts:pimNbrSecAddressTable.setStatus(_B)
+_PimNbrSecAddressEntry_Object=MibTableRow
+pimNbrSecAddressEntry=_PimNbrSecAddressEntry_Object((1,3,6,1,2,1,157,1,3,1))
+pimNbrSecAddressEntry.setIndexNames((0,_A,_A7),(0,_A,_A8),(0,_A,_A9),(0,_A,_k))
+if mibBuilder.loadTexts:pimNbrSecAddressEntry.setStatus(_B)
+_PimNbrSecAddressIfIndex_Type=InterfaceIndex
+_PimNbrSecAddressIfIndex_Object=MibTableColumn
+pimNbrSecAddressIfIndex=_PimNbrSecAddressIfIndex_Object((1,3,6,1,2,1,157,1,3,1,1),_PimNbrSecAddressIfIndex_Type())
+pimNbrSecAddressIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimNbrSecAddressIfIndex.setStatus(_B)
+_PimNbrSecAddressType_Type=InetAddressType
+_PimNbrSecAddressType_Object=MibTableColumn
+pimNbrSecAddressType=_PimNbrSecAddressType_Object((1,3,6,1,2,1,157,1,3,1,2),_PimNbrSecAddressType_Type())
+pimNbrSecAddressType.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimNbrSecAddressType.setStatus(_B)
+class _PimNbrSecAddressPrimary_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimNbrSecAddressPrimary_Type.__name__=_D
+_PimNbrSecAddressPrimary_Object=MibTableColumn
+pimNbrSecAddressPrimary=_PimNbrSecAddressPrimary_Object((1,3,6,1,2,1,157,1,3,1,3),_PimNbrSecAddressPrimary_Type())
+pimNbrSecAddressPrimary.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimNbrSecAddressPrimary.setStatus(_B)
+class _PimNbrSecAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimNbrSecAddress_Type.__name__=_D
+_PimNbrSecAddress_Object=MibTableColumn
+pimNbrSecAddress=_PimNbrSecAddress_Object((1,3,6,1,2,1,157,1,3,1,4),_PimNbrSecAddress_Type())
+pimNbrSecAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimNbrSecAddress.setStatus(_B)
+_PimStarGTable_Object=MibTable
+pimStarGTable=_PimStarGTable_Object((1,3,6,1,2,1,157,1,4))
+if mibBuilder.loadTexts:pimStarGTable.setStatus(_B)
+_PimStarGEntry_Object=MibTableRow
+pimStarGEntry=_PimStarGEntry_Object((1,3,6,1,2,1,157,1,4,1))
+pimStarGEntry.setIndexNames((0,_A,_M),(0,_A,_N))
+if mibBuilder.loadTexts:pimStarGEntry.setStatus(_B)
+_PimStarGAddressType_Type=InetAddressType
+_PimStarGAddressType_Object=MibTableColumn
+pimStarGAddressType=_PimStarGAddressType_Object((1,3,6,1,2,1,157,1,4,1,1),_PimStarGAddressType_Type())
+pimStarGAddressType.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimStarGAddressType.setStatus(_B)
+class _PimStarGGrpAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimStarGGrpAddress_Type.__name__=_D
+_PimStarGGrpAddress_Object=MibTableColumn
+pimStarGGrpAddress=_PimStarGGrpAddress_Object((1,3,6,1,2,1,157,1,4,1,2),_PimStarGGrpAddress_Type())
+pimStarGGrpAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimStarGGrpAddress.setStatus(_B)
+_PimStarGUpTime_Type=TimeTicks
+_PimStarGUpTime_Object=MibTableColumn
+pimStarGUpTime=_PimStarGUpTime_Object((1,3,6,1,2,1,157,1,4,1,3),_PimStarGUpTime_Type())
+pimStarGUpTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGUpTime.setStatus(_B)
+class _PimStarGPimMode_Type(PimMode):subtypeSpec=PimMode.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(3,4)));namedValues=NamedValues(*((_Y,3),(_j,4)))
+_PimStarGPimMode_Type.__name__=_a
+_PimStarGPimMode_Object=MibTableColumn
+pimStarGPimMode=_PimStarGPimMode_Object((1,3,6,1,2,1,157,1,4,1,4),_PimStarGPimMode_Type())
+pimStarGPimMode.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGPimMode.setStatus(_B)
+_PimStarGRPAddressType_Type=InetAddressType
+_PimStarGRPAddressType_Object=MibTableColumn
+pimStarGRPAddressType=_PimStarGRPAddressType_Object((1,3,6,1,2,1,157,1,4,1,5),_PimStarGRPAddressType_Type())
+pimStarGRPAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGRPAddressType.setStatus(_B)
+class _PimStarGRPAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimStarGRPAddress_Type.__name__=_D
+_PimStarGRPAddress_Object=MibTableColumn
+pimStarGRPAddress=_PimStarGRPAddress_Object((1,3,6,1,2,1,157,1,4,1,6),_PimStarGRPAddress_Type())
+pimStarGRPAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGRPAddress.setStatus(_B)
+_PimStarGPimModeOrigin_Type=PimGroupMappingOriginType
+_PimStarGPimModeOrigin_Object=MibTableColumn
+pimStarGPimModeOrigin=_PimStarGPimModeOrigin_Object((1,3,6,1,2,1,157,1,4,1,7),_PimStarGPimModeOrigin_Type())
+pimStarGPimModeOrigin.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGPimModeOrigin.setStatus(_B)
+_PimStarGRPIsLocal_Type=TruthValue
+_PimStarGRPIsLocal_Object=MibTableColumn
+pimStarGRPIsLocal=_PimStarGRPIsLocal_Object((1,3,6,1,2,1,157,1,4,1,8),_PimStarGRPIsLocal_Type())
+pimStarGRPIsLocal.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGRPIsLocal.setStatus(_B)
+class _PimStarGUpstreamJoinState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_AA,1),('joined',2)))
+_PimStarGUpstreamJoinState_Type.__name__=_I
+_PimStarGUpstreamJoinState_Object=MibTableColumn
+pimStarGUpstreamJoinState=_PimStarGUpstreamJoinState_Object((1,3,6,1,2,1,157,1,4,1,9),_PimStarGUpstreamJoinState_Type())
+pimStarGUpstreamJoinState.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGUpstreamJoinState.setStatus(_B)
+_PimStarGUpstreamJoinTimer_Type=TimeTicks
+_PimStarGUpstreamJoinTimer_Object=MibTableColumn
+pimStarGUpstreamJoinTimer=_PimStarGUpstreamJoinTimer_Object((1,3,6,1,2,1,157,1,4,1,10),_PimStarGUpstreamJoinTimer_Type())
+pimStarGUpstreamJoinTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGUpstreamJoinTimer.setStatus(_B)
+_PimStarGUpstreamNeighborType_Type=InetAddressType
+_PimStarGUpstreamNeighborType_Object=MibTableColumn
+pimStarGUpstreamNeighborType=_PimStarGUpstreamNeighborType_Object((1,3,6,1,2,1,157,1,4,1,11),_PimStarGUpstreamNeighborType_Type())
+pimStarGUpstreamNeighborType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGUpstreamNeighborType.setStatus(_B)
+class _PimStarGUpstreamNeighbor_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimStarGUpstreamNeighbor_Type.__name__=_D
+_PimStarGUpstreamNeighbor_Object=MibTableColumn
+pimStarGUpstreamNeighbor=_PimStarGUpstreamNeighbor_Object((1,3,6,1,2,1,157,1,4,1,12),_PimStarGUpstreamNeighbor_Type())
+pimStarGUpstreamNeighbor.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGUpstreamNeighbor.setStatus(_B)
+_PimStarGRPFIfIndex_Type=InterfaceIndexOrZero
+_PimStarGRPFIfIndex_Object=MibTableColumn
+pimStarGRPFIfIndex=_PimStarGRPFIfIndex_Object((1,3,6,1,2,1,157,1,4,1,13),_PimStarGRPFIfIndex_Type())
+pimStarGRPFIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGRPFIfIndex.setStatus(_B)
+_PimStarGRPFNextHopType_Type=InetAddressType
+_PimStarGRPFNextHopType_Object=MibTableColumn
+pimStarGRPFNextHopType=_PimStarGRPFNextHopType_Object((1,3,6,1,2,1,157,1,4,1,14),_PimStarGRPFNextHopType_Type())
+pimStarGRPFNextHopType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGRPFNextHopType.setStatus(_B)
+class _PimStarGRPFNextHop_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimStarGRPFNextHop_Type.__name__=_D
+_PimStarGRPFNextHop_Object=MibTableColumn
+pimStarGRPFNextHop=_PimStarGRPFNextHop_Object((1,3,6,1,2,1,157,1,4,1,15),_PimStarGRPFNextHop_Type())
+pimStarGRPFNextHop.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGRPFNextHop.setStatus(_B)
+_PimStarGRPFRouteProtocol_Type=IANAipRouteProtocol
+_PimStarGRPFRouteProtocol_Object=MibTableColumn
+pimStarGRPFRouteProtocol=_PimStarGRPFRouteProtocol_Object((1,3,6,1,2,1,157,1,4,1,16),_PimStarGRPFRouteProtocol_Type())
+pimStarGRPFRouteProtocol.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGRPFRouteProtocol.setStatus(_B)
+class _PimStarGRPFRouteAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimStarGRPFRouteAddress_Type.__name__=_D
+_PimStarGRPFRouteAddress_Object=MibTableColumn
+pimStarGRPFRouteAddress=_PimStarGRPFRouteAddress_Object((1,3,6,1,2,1,157,1,4,1,17),_PimStarGRPFRouteAddress_Type())
+pimStarGRPFRouteAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGRPFRouteAddress.setStatus(_B)
+_PimStarGRPFRoutePrefixLength_Type=InetAddressPrefixLength
+_PimStarGRPFRoutePrefixLength_Object=MibTableColumn
+pimStarGRPFRoutePrefixLength=_PimStarGRPFRoutePrefixLength_Object((1,3,6,1,2,1,157,1,4,1,18),_PimStarGRPFRoutePrefixLength_Type())
+pimStarGRPFRoutePrefixLength.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGRPFRoutePrefixLength.setStatus(_B)
+class _PimStarGRPFRouteMetricPref_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_PimStarGRPFRouteMetricPref_Type.__name__=_F
+_PimStarGRPFRouteMetricPref_Object=MibTableColumn
+pimStarGRPFRouteMetricPref=_PimStarGRPFRouteMetricPref_Object((1,3,6,1,2,1,157,1,4,1,19),_PimStarGRPFRouteMetricPref_Type())
+pimStarGRPFRouteMetricPref.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGRPFRouteMetricPref.setStatus(_B)
+_PimStarGRPFRouteMetric_Type=Unsigned32
+_PimStarGRPFRouteMetric_Object=MibTableColumn
+pimStarGRPFRouteMetric=_PimStarGRPFRouteMetric_Object((1,3,6,1,2,1,157,1,4,1,20),_PimStarGRPFRouteMetric_Type())
+pimStarGRPFRouteMetric.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGRPFRouteMetric.setStatus(_B)
+_PimStarGITable_Object=MibTable
+pimStarGITable=_PimStarGITable_Object((1,3,6,1,2,1,157,1,5))
+if mibBuilder.loadTexts:pimStarGITable.setStatus(_B)
+_PimStarGIEntry_Object=MibTableRow
+pimStarGIEntry=_PimStarGIEntry_Object((1,3,6,1,2,1,157,1,5,1))
+pimStarGIEntry.setIndexNames((0,_A,_M),(0,_A,_N),(0,_A,_AB))
+if mibBuilder.loadTexts:pimStarGIEntry.setStatus(_B)
+_PimStarGIIfIndex_Type=InterfaceIndex
+_PimStarGIIfIndex_Object=MibTableColumn
+pimStarGIIfIndex=_PimStarGIIfIndex_Object((1,3,6,1,2,1,157,1,5,1,1),_PimStarGIIfIndex_Type())
+pimStarGIIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimStarGIIfIndex.setStatus(_B)
+_PimStarGIUpTime_Type=TimeTicks
+_PimStarGIUpTime_Object=MibTableColumn
+pimStarGIUpTime=_PimStarGIUpTime_Object((1,3,6,1,2,1,157,1,5,1,2),_PimStarGIUpTime_Type())
+pimStarGIUpTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGIUpTime.setStatus(_B)
+_PimStarGILocalMembership_Type=TruthValue
+_PimStarGILocalMembership_Object=MibTableColumn
+pimStarGILocalMembership=_PimStarGILocalMembership_Object((1,3,6,1,2,1,157,1,5,1,3),_PimStarGILocalMembership_Type())
+pimStarGILocalMembership.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGILocalMembership.setStatus(_B)
+class _PimStarGIJoinPruneState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_K,1),(_l,2),(_m,3)))
+_PimStarGIJoinPruneState_Type.__name__=_I
+_PimStarGIJoinPruneState_Object=MibTableColumn
+pimStarGIJoinPruneState=_PimStarGIJoinPruneState_Object((1,3,6,1,2,1,157,1,5,1,4),_PimStarGIJoinPruneState_Type())
+pimStarGIJoinPruneState.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGIJoinPruneState.setStatus(_B)
+_PimStarGIPrunePendingTimer_Type=TimeTicks
+_PimStarGIPrunePendingTimer_Object=MibTableColumn
+pimStarGIPrunePendingTimer=_PimStarGIPrunePendingTimer_Object((1,3,6,1,2,1,157,1,5,1,5),_PimStarGIPrunePendingTimer_Type())
+pimStarGIPrunePendingTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGIPrunePendingTimer.setStatus(_B)
+_PimStarGIJoinExpiryTimer_Type=TimeTicks
+_PimStarGIJoinExpiryTimer_Object=MibTableColumn
+pimStarGIJoinExpiryTimer=_PimStarGIJoinExpiryTimer_Object((1,3,6,1,2,1,157,1,5,1,6),_PimStarGIJoinExpiryTimer_Type())
+pimStarGIJoinExpiryTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGIJoinExpiryTimer.setStatus(_B)
+class _PimStarGIAssertState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_K,1),(_AC,2),(_AD,3)))
+_PimStarGIAssertState_Type.__name__=_I
+_PimStarGIAssertState_Object=MibTableColumn
+pimStarGIAssertState=_PimStarGIAssertState_Object((1,3,6,1,2,1,157,1,5,1,7),_PimStarGIAssertState_Type())
+pimStarGIAssertState.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGIAssertState.setStatus(_B)
+_PimStarGIAssertTimer_Type=TimeTicks
+_PimStarGIAssertTimer_Object=MibTableColumn
+pimStarGIAssertTimer=_PimStarGIAssertTimer_Object((1,3,6,1,2,1,157,1,5,1,8),_PimStarGIAssertTimer_Type())
+pimStarGIAssertTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGIAssertTimer.setStatus(_B)
+_PimStarGIAssertWinnerAddressType_Type=InetAddressType
+_PimStarGIAssertWinnerAddressType_Object=MibTableColumn
+pimStarGIAssertWinnerAddressType=_PimStarGIAssertWinnerAddressType_Object((1,3,6,1,2,1,157,1,5,1,9),_PimStarGIAssertWinnerAddressType_Type())
+pimStarGIAssertWinnerAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGIAssertWinnerAddressType.setStatus(_B)
+class _PimStarGIAssertWinnerAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimStarGIAssertWinnerAddress_Type.__name__=_D
+_PimStarGIAssertWinnerAddress_Object=MibTableColumn
+pimStarGIAssertWinnerAddress=_PimStarGIAssertWinnerAddress_Object((1,3,6,1,2,1,157,1,5,1,10),_PimStarGIAssertWinnerAddress_Type())
+pimStarGIAssertWinnerAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGIAssertWinnerAddress.setStatus(_B)
+class _PimStarGIAssertWinnerMetricPref_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_PimStarGIAssertWinnerMetricPref_Type.__name__=_F
+_PimStarGIAssertWinnerMetricPref_Object=MibTableColumn
+pimStarGIAssertWinnerMetricPref=_PimStarGIAssertWinnerMetricPref_Object((1,3,6,1,2,1,157,1,5,1,11),_PimStarGIAssertWinnerMetricPref_Type())
+pimStarGIAssertWinnerMetricPref.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGIAssertWinnerMetricPref.setStatus(_B)
+_PimStarGIAssertWinnerMetric_Type=Unsigned32
+_PimStarGIAssertWinnerMetric_Object=MibTableColumn
+pimStarGIAssertWinnerMetric=_PimStarGIAssertWinnerMetric_Object((1,3,6,1,2,1,157,1,5,1,12),_PimStarGIAssertWinnerMetric_Type())
+pimStarGIAssertWinnerMetric.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGIAssertWinnerMetric.setStatus(_B)
+_PimSGTable_Object=MibTable
+pimSGTable=_PimSGTable_Object((1,3,6,1,2,1,157,1,6))
+if mibBuilder.loadTexts:pimSGTable.setStatus(_B)
+_PimSGEntry_Object=MibTableRow
+pimSGEntry=_PimSGEntry_Object((1,3,6,1,2,1,157,1,6,1))
+pimSGEntry.setIndexNames((0,_A,_n),(0,_A,_o),(0,_A,_p))
+if mibBuilder.loadTexts:pimSGEntry.setStatus(_B)
+_PimSGAddressType_Type=InetAddressType
+_PimSGAddressType_Object=MibTableColumn
+pimSGAddressType=_PimSGAddressType_Object((1,3,6,1,2,1,157,1,6,1,1),_PimSGAddressType_Type())
+pimSGAddressType.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimSGAddressType.setStatus(_B)
+class _PimSGGrpAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimSGGrpAddress_Type.__name__=_D
+_PimSGGrpAddress_Object=MibTableColumn
+pimSGGrpAddress=_PimSGGrpAddress_Object((1,3,6,1,2,1,157,1,6,1,2),_PimSGGrpAddress_Type())
+pimSGGrpAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimSGGrpAddress.setStatus(_B)
+class _PimSGSrcAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimSGSrcAddress_Type.__name__=_D
+_PimSGSrcAddress_Object=MibTableColumn
+pimSGSrcAddress=_PimSGSrcAddress_Object((1,3,6,1,2,1,157,1,6,1,3),_PimSGSrcAddress_Type())
+pimSGSrcAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimSGSrcAddress.setStatus(_B)
+_PimSGUpTime_Type=TimeTicks
+_PimSGUpTime_Object=MibTableColumn
+pimSGUpTime=_PimSGUpTime_Object((1,3,6,1,2,1,157,1,6,1,4),_PimSGUpTime_Type())
+pimSGUpTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGUpTime.setStatus(_B)
+class _PimSGPimMode_Type(PimMode):subtypeSpec=PimMode.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3)));namedValues=NamedValues(*((_i,2),(_Y,3)))
+_PimSGPimMode_Type.__name__=_a
+_PimSGPimMode_Object=MibTableColumn
+pimSGPimMode=_PimSGPimMode_Object((1,3,6,1,2,1,157,1,6,1,5),_PimSGPimMode_Type())
+pimSGPimMode.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGPimMode.setStatus(_B)
+class _PimSGUpstreamJoinState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_AA,1),('joined',2)))
+_PimSGUpstreamJoinState_Type.__name__=_I
+_PimSGUpstreamJoinState_Object=MibTableColumn
+pimSGUpstreamJoinState=_PimSGUpstreamJoinState_Object((1,3,6,1,2,1,157,1,6,1,6),_PimSGUpstreamJoinState_Type())
+pimSGUpstreamJoinState.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGUpstreamJoinState.setStatus(_B)
+_PimSGUpstreamJoinTimer_Type=TimeTicks
+_PimSGUpstreamJoinTimer_Object=MibTableColumn
+pimSGUpstreamJoinTimer=_PimSGUpstreamJoinTimer_Object((1,3,6,1,2,1,157,1,6,1,7),_PimSGUpstreamJoinTimer_Type())
+pimSGUpstreamJoinTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGUpstreamJoinTimer.setStatus(_B)
+class _PimSGUpstreamNeighbor_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimSGUpstreamNeighbor_Type.__name__=_D
+_PimSGUpstreamNeighbor_Object=MibTableColumn
+pimSGUpstreamNeighbor=_PimSGUpstreamNeighbor_Object((1,3,6,1,2,1,157,1,6,1,8),_PimSGUpstreamNeighbor_Type())
+pimSGUpstreamNeighbor.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGUpstreamNeighbor.setStatus(_B)
+_PimSGRPFIfIndex_Type=InterfaceIndexOrZero
+_PimSGRPFIfIndex_Object=MibTableColumn
+pimSGRPFIfIndex=_PimSGRPFIfIndex_Object((1,3,6,1,2,1,157,1,6,1,9),_PimSGRPFIfIndex_Type())
+pimSGRPFIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRPFIfIndex.setStatus(_B)
+_PimSGRPFNextHopType_Type=InetAddressType
+_PimSGRPFNextHopType_Object=MibTableColumn
+pimSGRPFNextHopType=_PimSGRPFNextHopType_Object((1,3,6,1,2,1,157,1,6,1,10),_PimSGRPFNextHopType_Type())
+pimSGRPFNextHopType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRPFNextHopType.setStatus(_B)
+class _PimSGRPFNextHop_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimSGRPFNextHop_Type.__name__=_D
+_PimSGRPFNextHop_Object=MibTableColumn
+pimSGRPFNextHop=_PimSGRPFNextHop_Object((1,3,6,1,2,1,157,1,6,1,11),_PimSGRPFNextHop_Type())
+pimSGRPFNextHop.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRPFNextHop.setStatus(_B)
+_PimSGRPFRouteProtocol_Type=IANAipRouteProtocol
+_PimSGRPFRouteProtocol_Object=MibTableColumn
+pimSGRPFRouteProtocol=_PimSGRPFRouteProtocol_Object((1,3,6,1,2,1,157,1,6,1,12),_PimSGRPFRouteProtocol_Type())
+pimSGRPFRouteProtocol.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRPFRouteProtocol.setStatus(_B)
+class _PimSGRPFRouteAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimSGRPFRouteAddress_Type.__name__=_D
+_PimSGRPFRouteAddress_Object=MibTableColumn
+pimSGRPFRouteAddress=_PimSGRPFRouteAddress_Object((1,3,6,1,2,1,157,1,6,1,13),_PimSGRPFRouteAddress_Type())
+pimSGRPFRouteAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRPFRouteAddress.setStatus(_B)
+_PimSGRPFRoutePrefixLength_Type=InetAddressPrefixLength
+_PimSGRPFRoutePrefixLength_Object=MibTableColumn
+pimSGRPFRoutePrefixLength=_PimSGRPFRoutePrefixLength_Object((1,3,6,1,2,1,157,1,6,1,14),_PimSGRPFRoutePrefixLength_Type())
+pimSGRPFRoutePrefixLength.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRPFRoutePrefixLength.setStatus(_B)
+class _PimSGRPFRouteMetricPref_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_PimSGRPFRouteMetricPref_Type.__name__=_F
+_PimSGRPFRouteMetricPref_Object=MibTableColumn
+pimSGRPFRouteMetricPref=_PimSGRPFRouteMetricPref_Object((1,3,6,1,2,1,157,1,6,1,15),_PimSGRPFRouteMetricPref_Type())
+pimSGRPFRouteMetricPref.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRPFRouteMetricPref.setStatus(_B)
+_PimSGRPFRouteMetric_Type=Unsigned32
+_PimSGRPFRouteMetric_Object=MibTableColumn
+pimSGRPFRouteMetric=_PimSGRPFRouteMetric_Object((1,3,6,1,2,1,157,1,6,1,16),_PimSGRPFRouteMetric_Type())
+pimSGRPFRouteMetric.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRPFRouteMetric.setStatus(_B)
+_PimSGSPTBit_Type=TruthValue
+_PimSGSPTBit_Object=MibTableColumn
+pimSGSPTBit=_PimSGSPTBit_Object((1,3,6,1,2,1,157,1,6,1,17),_PimSGSPTBit_Type())
+pimSGSPTBit.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGSPTBit.setStatus(_B)
+_PimSGKeepaliveTimer_Type=TimeTicks
+_PimSGKeepaliveTimer_Object=MibTableColumn
+pimSGKeepaliveTimer=_PimSGKeepaliveTimer_Object((1,3,6,1,2,1,157,1,6,1,18),_PimSGKeepaliveTimer_Type())
+pimSGKeepaliveTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGKeepaliveTimer.setStatus(_B)
+class _PimSGDRRegisterState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_K,1),(_l,2),('joinPending',3),('prune',4)))
+_PimSGDRRegisterState_Type.__name__=_I
+_PimSGDRRegisterState_Object=MibTableColumn
+pimSGDRRegisterState=_PimSGDRRegisterState_Object((1,3,6,1,2,1,157,1,6,1,19),_PimSGDRRegisterState_Type())
+pimSGDRRegisterState.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGDRRegisterState.setStatus(_B)
+_PimSGDRRegisterStopTimer_Type=TimeTicks
+_PimSGDRRegisterStopTimer_Object=MibTableColumn
+pimSGDRRegisterStopTimer=_PimSGDRRegisterStopTimer_Object((1,3,6,1,2,1,157,1,6,1,20),_PimSGDRRegisterStopTimer_Type())
+pimSGDRRegisterStopTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGDRRegisterStopTimer.setStatus(_B)
+_PimSGRPRegisterPMBRAddressType_Type=InetAddressType
+_PimSGRPRegisterPMBRAddressType_Object=MibTableColumn
+pimSGRPRegisterPMBRAddressType=_PimSGRPRegisterPMBRAddressType_Object((1,3,6,1,2,1,157,1,6,1,21),_PimSGRPRegisterPMBRAddressType_Type())
+pimSGRPRegisterPMBRAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRPRegisterPMBRAddressType.setStatus(_B)
+class _PimSGRPRegisterPMBRAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimSGRPRegisterPMBRAddress_Type.__name__=_D
+_PimSGRPRegisterPMBRAddress_Object=MibTableColumn
+pimSGRPRegisterPMBRAddress=_PimSGRPRegisterPMBRAddress_Object((1,3,6,1,2,1,157,1,6,1,22),_PimSGRPRegisterPMBRAddress_Type())
+pimSGRPRegisterPMBRAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRPRegisterPMBRAddress.setStatus(_B)
+class _PimSGUpstreamPruneState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('forwarding',1),('ackpending',2),('pruned',3)))
+_PimSGUpstreamPruneState_Type.__name__=_I
+_PimSGUpstreamPruneState_Object=MibTableColumn
+pimSGUpstreamPruneState=_PimSGUpstreamPruneState_Object((1,3,6,1,2,1,157,1,6,1,23),_PimSGUpstreamPruneState_Type())
+pimSGUpstreamPruneState.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGUpstreamPruneState.setStatus(_B)
+_PimSGUpstreamPruneLimitTimer_Type=TimeTicks
+_PimSGUpstreamPruneLimitTimer_Object=MibTableColumn
+pimSGUpstreamPruneLimitTimer=_PimSGUpstreamPruneLimitTimer_Object((1,3,6,1,2,1,157,1,6,1,24),_PimSGUpstreamPruneLimitTimer_Type())
+pimSGUpstreamPruneLimitTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGUpstreamPruneLimitTimer.setStatus(_B)
+class _PimSGOriginatorState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('notOriginator',1),('originator',2)))
+_PimSGOriginatorState_Type.__name__=_I
+_PimSGOriginatorState_Object=MibTableColumn
+pimSGOriginatorState=_PimSGOriginatorState_Object((1,3,6,1,2,1,157,1,6,1,25),_PimSGOriginatorState_Type())
+pimSGOriginatorState.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGOriginatorState.setStatus(_B)
+_PimSGSourceActiveTimer_Type=TimeTicks
+_PimSGSourceActiveTimer_Object=MibTableColumn
+pimSGSourceActiveTimer=_PimSGSourceActiveTimer_Object((1,3,6,1,2,1,157,1,6,1,26),_PimSGSourceActiveTimer_Type())
+pimSGSourceActiveTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGSourceActiveTimer.setStatus(_B)
+_PimSGStateRefreshTimer_Type=TimeTicks
+_PimSGStateRefreshTimer_Object=MibTableColumn
+pimSGStateRefreshTimer=_PimSGStateRefreshTimer_Object((1,3,6,1,2,1,157,1,6,1,27),_PimSGStateRefreshTimer_Type())
+pimSGStateRefreshTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGStateRefreshTimer.setStatus(_B)
+_PimSGITable_Object=MibTable
+pimSGITable=_PimSGITable_Object((1,3,6,1,2,1,157,1,7))
+if mibBuilder.loadTexts:pimSGITable.setStatus(_B)
+_PimSGIEntry_Object=MibTableRow
+pimSGIEntry=_PimSGIEntry_Object((1,3,6,1,2,1,157,1,7,1))
+pimSGIEntry.setIndexNames((0,_A,_n),(0,_A,_o),(0,_A,_p),(0,_A,_AE))
+if mibBuilder.loadTexts:pimSGIEntry.setStatus(_B)
+_PimSGIIfIndex_Type=InterfaceIndex
+_PimSGIIfIndex_Object=MibTableColumn
+pimSGIIfIndex=_PimSGIIfIndex_Object((1,3,6,1,2,1,157,1,7,1,1),_PimSGIIfIndex_Type())
+pimSGIIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimSGIIfIndex.setStatus(_B)
+_PimSGIUpTime_Type=TimeTicks
+_PimSGIUpTime_Object=MibTableColumn
+pimSGIUpTime=_PimSGIUpTime_Object((1,3,6,1,2,1,157,1,7,1,2),_PimSGIUpTime_Type())
+pimSGIUpTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGIUpTime.setStatus(_B)
+_PimSGILocalMembership_Type=TruthValue
+_PimSGILocalMembership_Object=MibTableColumn
+pimSGILocalMembership=_PimSGILocalMembership_Object((1,3,6,1,2,1,157,1,7,1,3),_PimSGILocalMembership_Type())
+pimSGILocalMembership.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGILocalMembership.setStatus(_B)
+class _PimSGIJoinPruneState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_K,1),(_l,2),(_m,3)))
+_PimSGIJoinPruneState_Type.__name__=_I
+_PimSGIJoinPruneState_Object=MibTableColumn
+pimSGIJoinPruneState=_PimSGIJoinPruneState_Object((1,3,6,1,2,1,157,1,7,1,4),_PimSGIJoinPruneState_Type())
+pimSGIJoinPruneState.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGIJoinPruneState.setStatus(_B)
+_PimSGIPrunePendingTimer_Type=TimeTicks
+_PimSGIPrunePendingTimer_Object=MibTableColumn
+pimSGIPrunePendingTimer=_PimSGIPrunePendingTimer_Object((1,3,6,1,2,1,157,1,7,1,5),_PimSGIPrunePendingTimer_Type())
+pimSGIPrunePendingTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGIPrunePendingTimer.setStatus(_B)
+_PimSGIJoinExpiryTimer_Type=TimeTicks
+_PimSGIJoinExpiryTimer_Object=MibTableColumn
+pimSGIJoinExpiryTimer=_PimSGIJoinExpiryTimer_Object((1,3,6,1,2,1,157,1,7,1,6),_PimSGIJoinExpiryTimer_Type())
+pimSGIJoinExpiryTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGIJoinExpiryTimer.setStatus(_B)
+class _PimSGIAssertState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_K,1),(_AC,2),(_AD,3)))
+_PimSGIAssertState_Type.__name__=_I
+_PimSGIAssertState_Object=MibTableColumn
+pimSGIAssertState=_PimSGIAssertState_Object((1,3,6,1,2,1,157,1,7,1,7),_PimSGIAssertState_Type())
+pimSGIAssertState.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGIAssertState.setStatus(_B)
+_PimSGIAssertTimer_Type=TimeTicks
+_PimSGIAssertTimer_Object=MibTableColumn
+pimSGIAssertTimer=_PimSGIAssertTimer_Object((1,3,6,1,2,1,157,1,7,1,8),_PimSGIAssertTimer_Type())
+pimSGIAssertTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGIAssertTimer.setStatus(_B)
+_PimSGIAssertWinnerAddressType_Type=InetAddressType
+_PimSGIAssertWinnerAddressType_Object=MibTableColumn
+pimSGIAssertWinnerAddressType=_PimSGIAssertWinnerAddressType_Object((1,3,6,1,2,1,157,1,7,1,9),_PimSGIAssertWinnerAddressType_Type())
+pimSGIAssertWinnerAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGIAssertWinnerAddressType.setStatus(_B)
+class _PimSGIAssertWinnerAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimSGIAssertWinnerAddress_Type.__name__=_D
+_PimSGIAssertWinnerAddress_Object=MibTableColumn
+pimSGIAssertWinnerAddress=_PimSGIAssertWinnerAddress_Object((1,3,6,1,2,1,157,1,7,1,10),_PimSGIAssertWinnerAddress_Type())
+pimSGIAssertWinnerAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGIAssertWinnerAddress.setStatus(_B)
+class _PimSGIAssertWinnerMetricPref_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_PimSGIAssertWinnerMetricPref_Type.__name__=_F
+_PimSGIAssertWinnerMetricPref_Object=MibTableColumn
+pimSGIAssertWinnerMetricPref=_PimSGIAssertWinnerMetricPref_Object((1,3,6,1,2,1,157,1,7,1,11),_PimSGIAssertWinnerMetricPref_Type())
+pimSGIAssertWinnerMetricPref.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGIAssertWinnerMetricPref.setStatus(_B)
+_PimSGIAssertWinnerMetric_Type=Unsigned32
+_PimSGIAssertWinnerMetric_Object=MibTableColumn
+pimSGIAssertWinnerMetric=_PimSGIAssertWinnerMetric_Object((1,3,6,1,2,1,157,1,7,1,12),_PimSGIAssertWinnerMetric_Type())
+pimSGIAssertWinnerMetric.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGIAssertWinnerMetric.setStatus(_B)
+_PimSGRptTable_Object=MibTable
+pimSGRptTable=_PimSGRptTable_Object((1,3,6,1,2,1,157,1,8))
+if mibBuilder.loadTexts:pimSGRptTable.setStatus(_B)
+_PimSGRptEntry_Object=MibTableRow
+pimSGRptEntry=_PimSGRptEntry_Object((1,3,6,1,2,1,157,1,8,1))
+pimSGRptEntry.setIndexNames((0,_A,_M),(0,_A,_N),(0,_A,_q))
+if mibBuilder.loadTexts:pimSGRptEntry.setStatus(_B)
+class _PimSGRptSrcAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimSGRptSrcAddress_Type.__name__=_D
+_PimSGRptSrcAddress_Object=MibTableColumn
+pimSGRptSrcAddress=_PimSGRptSrcAddress_Object((1,3,6,1,2,1,157,1,8,1,1),_PimSGRptSrcAddress_Type())
+pimSGRptSrcAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimSGRptSrcAddress.setStatus(_B)
+_PimSGRptUpTime_Type=TimeTicks
+_PimSGRptUpTime_Object=MibTableColumn
+pimSGRptUpTime=_PimSGRptUpTime_Object((1,3,6,1,2,1,157,1,8,1,2),_PimSGRptUpTime_Type())
+pimSGRptUpTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRptUpTime.setStatus(_B)
+class _PimSGRptUpstreamPruneState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('rptNotJoined',1),('pruned',2),('notPruned',3)))
+_PimSGRptUpstreamPruneState_Type.__name__=_I
+_PimSGRptUpstreamPruneState_Object=MibTableColumn
+pimSGRptUpstreamPruneState=_PimSGRptUpstreamPruneState_Object((1,3,6,1,2,1,157,1,8,1,3),_PimSGRptUpstreamPruneState_Type())
+pimSGRptUpstreamPruneState.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRptUpstreamPruneState.setStatus(_B)
+_PimSGRptUpstreamOverrideTimer_Type=TimeTicks
+_PimSGRptUpstreamOverrideTimer_Object=MibTableColumn
+pimSGRptUpstreamOverrideTimer=_PimSGRptUpstreamOverrideTimer_Object((1,3,6,1,2,1,157,1,8,1,4),_PimSGRptUpstreamOverrideTimer_Type())
+pimSGRptUpstreamOverrideTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRptUpstreamOverrideTimer.setStatus(_B)
+_PimSGRptITable_Object=MibTable
+pimSGRptITable=_PimSGRptITable_Object((1,3,6,1,2,1,157,1,9))
+if mibBuilder.loadTexts:pimSGRptITable.setStatus(_B)
+_PimSGRptIEntry_Object=MibTableRow
+pimSGRptIEntry=_PimSGRptIEntry_Object((1,3,6,1,2,1,157,1,9,1))
+pimSGRptIEntry.setIndexNames((0,_A,_M),(0,_A,_N),(0,_A,_q),(0,_A,_AF))
+if mibBuilder.loadTexts:pimSGRptIEntry.setStatus(_B)
+_PimSGRptIIfIndex_Type=InterfaceIndex
+_PimSGRptIIfIndex_Object=MibTableColumn
+pimSGRptIIfIndex=_PimSGRptIIfIndex_Object((1,3,6,1,2,1,157,1,9,1,1),_PimSGRptIIfIndex_Type())
+pimSGRptIIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimSGRptIIfIndex.setStatus(_B)
+_PimSGRptIUpTime_Type=TimeTicks
+_PimSGRptIUpTime_Object=MibTableColumn
+pimSGRptIUpTime=_PimSGRptIUpTime_Object((1,3,6,1,2,1,157,1,9,1,2),_PimSGRptIUpTime_Type())
+pimSGRptIUpTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRptIUpTime.setStatus(_B)
+_PimSGRptILocalMembership_Type=TruthValue
+_PimSGRptILocalMembership_Object=MibTableColumn
+pimSGRptILocalMembership=_PimSGRptILocalMembership_Object((1,3,6,1,2,1,157,1,9,1,3),_PimSGRptILocalMembership_Type())
+pimSGRptILocalMembership.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRptILocalMembership.setStatus(_B)
+class _PimSGRptIJoinPruneState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_K,1),('prune',2),(_m,3)))
+_PimSGRptIJoinPruneState_Type.__name__=_I
+_PimSGRptIJoinPruneState_Object=MibTableColumn
+pimSGRptIJoinPruneState=_PimSGRptIJoinPruneState_Object((1,3,6,1,2,1,157,1,9,1,4),_PimSGRptIJoinPruneState_Type())
+pimSGRptIJoinPruneState.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRptIJoinPruneState.setStatus(_B)
+_PimSGRptIPrunePendingTimer_Type=TimeTicks
+_PimSGRptIPrunePendingTimer_Object=MibTableColumn
+pimSGRptIPrunePendingTimer=_PimSGRptIPrunePendingTimer_Object((1,3,6,1,2,1,157,1,9,1,5),_PimSGRptIPrunePendingTimer_Type())
+pimSGRptIPrunePendingTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRptIPrunePendingTimer.setStatus(_B)
+_PimSGRptIPruneExpiryTimer_Type=TimeTicks
+_PimSGRptIPruneExpiryTimer_Object=MibTableColumn
+pimSGRptIPruneExpiryTimer=_PimSGRptIPruneExpiryTimer_Object((1,3,6,1,2,1,157,1,9,1,6),_PimSGRptIPruneExpiryTimer_Type())
+pimSGRptIPruneExpiryTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRptIPruneExpiryTimer.setStatus(_B)
+_PimBidirDFElectionTable_Object=MibTable
+pimBidirDFElectionTable=_PimBidirDFElectionTable_Object((1,3,6,1,2,1,157,1,10))
+if mibBuilder.loadTexts:pimBidirDFElectionTable.setStatus(_B)
+_PimBidirDFElectionEntry_Object=MibTableRow
+pimBidirDFElectionEntry=_PimBidirDFElectionEntry_Object((1,3,6,1,2,1,157,1,10,1))
+pimBidirDFElectionEntry.setIndexNames((0,_A,_AG),(0,_A,_AH),(0,_A,_AI))
+if mibBuilder.loadTexts:pimBidirDFElectionEntry.setStatus(_B)
+_PimBidirDFElectionAddressType_Type=InetAddressType
+_PimBidirDFElectionAddressType_Object=MibTableColumn
+pimBidirDFElectionAddressType=_PimBidirDFElectionAddressType_Object((1,3,6,1,2,1,157,1,10,1,1),_PimBidirDFElectionAddressType_Type())
+pimBidirDFElectionAddressType.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimBidirDFElectionAddressType.setStatus(_B)
+class _PimBidirDFElectionRPAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimBidirDFElectionRPAddress_Type.__name__=_D
+_PimBidirDFElectionRPAddress_Object=MibTableColumn
+pimBidirDFElectionRPAddress=_PimBidirDFElectionRPAddress_Object((1,3,6,1,2,1,157,1,10,1,2),_PimBidirDFElectionRPAddress_Type())
+pimBidirDFElectionRPAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimBidirDFElectionRPAddress.setStatus(_B)
+_PimBidirDFElectionIfIndex_Type=InterfaceIndex
+_PimBidirDFElectionIfIndex_Object=MibTableColumn
+pimBidirDFElectionIfIndex=_PimBidirDFElectionIfIndex_Object((1,3,6,1,2,1,157,1,10,1,3),_PimBidirDFElectionIfIndex_Type())
+pimBidirDFElectionIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimBidirDFElectionIfIndex.setStatus(_B)
+_PimBidirDFElectionWinnerAddressType_Type=InetAddressType
+_PimBidirDFElectionWinnerAddressType_Object=MibTableColumn
+pimBidirDFElectionWinnerAddressType=_PimBidirDFElectionWinnerAddressType_Object((1,3,6,1,2,1,157,1,10,1,4),_PimBidirDFElectionWinnerAddressType_Type())
+pimBidirDFElectionWinnerAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimBidirDFElectionWinnerAddressType.setStatus(_B)
+class _PimBidirDFElectionWinnerAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimBidirDFElectionWinnerAddress_Type.__name__=_D
+_PimBidirDFElectionWinnerAddress_Object=MibTableColumn
+pimBidirDFElectionWinnerAddress=_PimBidirDFElectionWinnerAddress_Object((1,3,6,1,2,1,157,1,10,1,5),_PimBidirDFElectionWinnerAddress_Type())
+pimBidirDFElectionWinnerAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimBidirDFElectionWinnerAddress.setStatus(_B)
+_PimBidirDFElectionWinnerUpTime_Type=TimeTicks
+_PimBidirDFElectionWinnerUpTime_Object=MibTableColumn
+pimBidirDFElectionWinnerUpTime=_PimBidirDFElectionWinnerUpTime_Object((1,3,6,1,2,1,157,1,10,1,6),_PimBidirDFElectionWinnerUpTime_Type())
+pimBidirDFElectionWinnerUpTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimBidirDFElectionWinnerUpTime.setStatus(_B)
+_PimBidirDFElectionWinnerMetricPref_Type=Unsigned32
+_PimBidirDFElectionWinnerMetricPref_Object=MibTableColumn
+pimBidirDFElectionWinnerMetricPref=_PimBidirDFElectionWinnerMetricPref_Object((1,3,6,1,2,1,157,1,10,1,7),_PimBidirDFElectionWinnerMetricPref_Type())
+pimBidirDFElectionWinnerMetricPref.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimBidirDFElectionWinnerMetricPref.setStatus(_B)
+_PimBidirDFElectionWinnerMetric_Type=Unsigned32
+_PimBidirDFElectionWinnerMetric_Object=MibTableColumn
+pimBidirDFElectionWinnerMetric=_PimBidirDFElectionWinnerMetric_Object((1,3,6,1,2,1,157,1,10,1,8),_PimBidirDFElectionWinnerMetric_Type())
+pimBidirDFElectionWinnerMetric.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimBidirDFElectionWinnerMetric.setStatus(_B)
+class _PimBidirDFElectionState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('dfOffer',1),('dfLose',2),('dfWinner',3),('dfBackoff',4)))
+_PimBidirDFElectionState_Type.__name__=_I
+_PimBidirDFElectionState_Object=MibTableColumn
+pimBidirDFElectionState=_PimBidirDFElectionState_Object((1,3,6,1,2,1,157,1,10,1,9),_PimBidirDFElectionState_Type())
+pimBidirDFElectionState.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimBidirDFElectionState.setStatus(_B)
+_PimBidirDFElectionStateTimer_Type=TimeTicks
+_PimBidirDFElectionStateTimer_Object=MibTableColumn
+pimBidirDFElectionStateTimer=_PimBidirDFElectionStateTimer_Object((1,3,6,1,2,1,157,1,10,1,10),_PimBidirDFElectionStateTimer_Type())
+pimBidirDFElectionStateTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimBidirDFElectionStateTimer.setStatus(_B)
+_PimStaticRPTable_Object=MibTable
+pimStaticRPTable=_PimStaticRPTable_Object((1,3,6,1,2,1,157,1,11))
+if mibBuilder.loadTexts:pimStaticRPTable.setStatus(_B)
+_PimStaticRPEntry_Object=MibTableRow
+pimStaticRPEntry=_PimStaticRPEntry_Object((1,3,6,1,2,1,157,1,11,1))
+pimStaticRPEntry.setIndexNames((0,_A,_AJ),(0,_A,_AK),(0,_A,_AL))
+if mibBuilder.loadTexts:pimStaticRPEntry.setStatus(_B)
+_PimStaticRPAddressType_Type=InetAddressType
+_PimStaticRPAddressType_Object=MibTableColumn
+pimStaticRPAddressType=_PimStaticRPAddressType_Object((1,3,6,1,2,1,157,1,11,1,1),_PimStaticRPAddressType_Type())
+pimStaticRPAddressType.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimStaticRPAddressType.setStatus(_B)
+class _PimStaticRPGrpAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimStaticRPGrpAddress_Type.__name__=_D
+_PimStaticRPGrpAddress_Object=MibTableColumn
+pimStaticRPGrpAddress=_PimStaticRPGrpAddress_Object((1,3,6,1,2,1,157,1,11,1,2),_PimStaticRPGrpAddress_Type())
+pimStaticRPGrpAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimStaticRPGrpAddress.setStatus(_B)
+class _PimStaticRPGrpPrefixLength_Type(InetAddressPrefixLength):subtypeSpec=InetAddressPrefixLength.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(4,128))
+_PimStaticRPGrpPrefixLength_Type.__name__=_h
+_PimStaticRPGrpPrefixLength_Object=MibTableColumn
+pimStaticRPGrpPrefixLength=_PimStaticRPGrpPrefixLength_Object((1,3,6,1,2,1,157,1,11,1,3),_PimStaticRPGrpPrefixLength_Type())
+pimStaticRPGrpPrefixLength.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimStaticRPGrpPrefixLength.setStatus(_B)
+class _PimStaticRPRPAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimStaticRPRPAddress_Type.__name__=_D
+_PimStaticRPRPAddress_Object=MibTableColumn
+pimStaticRPRPAddress=_PimStaticRPRPAddress_Object((1,3,6,1,2,1,157,1,11,1,4),_PimStaticRPRPAddress_Type())
+pimStaticRPRPAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimStaticRPRPAddress.setStatus(_B)
+class _PimStaticRPPimMode_Type(PimMode):defaultValue=3;subtypeSpec=PimMode.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3,4)));namedValues=NamedValues(*((_i,2),(_Y,3),(_j,4)))
+_PimStaticRPPimMode_Type.__name__=_a
+_PimStaticRPPimMode_Object=MibTableColumn
+pimStaticRPPimMode=_PimStaticRPPimMode_Object((1,3,6,1,2,1,157,1,11,1,5),_PimStaticRPPimMode_Type())
+pimStaticRPPimMode.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimStaticRPPimMode.setStatus(_B)
+class _PimStaticRPOverrideDynamic_Type(TruthValue):defaultValue=2
+_PimStaticRPOverrideDynamic_Type.__name__=_X
+_PimStaticRPOverrideDynamic_Object=MibTableColumn
+pimStaticRPOverrideDynamic=_PimStaticRPOverrideDynamic_Object((1,3,6,1,2,1,157,1,11,1,6),_PimStaticRPOverrideDynamic_Type())
+pimStaticRPOverrideDynamic.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimStaticRPOverrideDynamic.setStatus(_B)
+_PimStaticRPPrecedence_Type=Unsigned32
+_PimStaticRPPrecedence_Object=MibTableColumn
+pimStaticRPPrecedence=_PimStaticRPPrecedence_Object((1,3,6,1,2,1,157,1,11,1,7),_PimStaticRPPrecedence_Type())
+pimStaticRPPrecedence.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimStaticRPPrecedence.setStatus(_B)
+_PimStaticRPRowStatus_Type=RowStatus
+_PimStaticRPRowStatus_Object=MibTableColumn
+pimStaticRPRowStatus=_PimStaticRPRowStatus_Object((1,3,6,1,2,1,157,1,11,1,8),_PimStaticRPRowStatus_Type())
+pimStaticRPRowStatus.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimStaticRPRowStatus.setStatus(_B)
+class _PimStaticRPStorageType_Type(StorageType):defaultValue=3
+_PimStaticRPStorageType_Type.__name__=_L
+_PimStaticRPStorageType_Object=MibTableColumn
+pimStaticRPStorageType=_PimStaticRPStorageType_Object((1,3,6,1,2,1,157,1,11,1,9),_PimStaticRPStorageType_Type())
+pimStaticRPStorageType.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimStaticRPStorageType.setStatus(_B)
+_PimAnycastRPSetTable_Object=MibTable
+pimAnycastRPSetTable=_PimAnycastRPSetTable_Object((1,3,6,1,2,1,157,1,12))
+if mibBuilder.loadTexts:pimAnycastRPSetTable.setStatus(_B)
+_PimAnycastRPSetEntry_Object=MibTableRow
+pimAnycastRPSetEntry=_PimAnycastRPSetEntry_Object((1,3,6,1,2,1,157,1,12,1))
+pimAnycastRPSetEntry.setIndexNames((0,_A,_AM),(0,_A,_AN),(0,_A,_AO))
+if mibBuilder.loadTexts:pimAnycastRPSetEntry.setStatus(_B)
+_PimAnycastRPSetAddressType_Type=InetAddressType
+_PimAnycastRPSetAddressType_Object=MibTableColumn
+pimAnycastRPSetAddressType=_PimAnycastRPSetAddressType_Object((1,3,6,1,2,1,157,1,12,1,1),_PimAnycastRPSetAddressType_Type())
+pimAnycastRPSetAddressType.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimAnycastRPSetAddressType.setStatus(_B)
+class _PimAnycastRPSetAnycastAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimAnycastRPSetAnycastAddress_Type.__name__=_D
+_PimAnycastRPSetAnycastAddress_Object=MibTableColumn
+pimAnycastRPSetAnycastAddress=_PimAnycastRPSetAnycastAddress_Object((1,3,6,1,2,1,157,1,12,1,2),_PimAnycastRPSetAnycastAddress_Type())
+pimAnycastRPSetAnycastAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimAnycastRPSetAnycastAddress.setStatus(_B)
+class _PimAnycastRPSetRouterAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimAnycastRPSetRouterAddress_Type.__name__=_D
+_PimAnycastRPSetRouterAddress_Object=MibTableColumn
+pimAnycastRPSetRouterAddress=_PimAnycastRPSetRouterAddress_Object((1,3,6,1,2,1,157,1,12,1,3),_PimAnycastRPSetRouterAddress_Type())
+pimAnycastRPSetRouterAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimAnycastRPSetRouterAddress.setStatus(_B)
+_PimAnycastRPSetLocalRouter_Type=TruthValue
+_PimAnycastRPSetLocalRouter_Object=MibTableColumn
+pimAnycastRPSetLocalRouter=_PimAnycastRPSetLocalRouter_Object((1,3,6,1,2,1,157,1,12,1,4),_PimAnycastRPSetLocalRouter_Type())
+pimAnycastRPSetLocalRouter.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimAnycastRPSetLocalRouter.setStatus(_B)
+_PimAnycastRPSetRowStatus_Type=RowStatus
+_PimAnycastRPSetRowStatus_Object=MibTableColumn
+pimAnycastRPSetRowStatus=_PimAnycastRPSetRowStatus_Object((1,3,6,1,2,1,157,1,12,1,5),_PimAnycastRPSetRowStatus_Type())
+pimAnycastRPSetRowStatus.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimAnycastRPSetRowStatus.setStatus(_B)
+class _PimAnycastRPSetStorageType_Type(StorageType):defaultValue=3
+_PimAnycastRPSetStorageType_Type.__name__=_L
+_PimAnycastRPSetStorageType_Object=MibTableColumn
+pimAnycastRPSetStorageType=_PimAnycastRPSetStorageType_Object((1,3,6,1,2,1,157,1,12,1,6),_PimAnycastRPSetStorageType_Type())
+pimAnycastRPSetStorageType.setMaxAccess(_G)
+if mibBuilder.loadTexts:pimAnycastRPSetStorageType.setStatus(_B)
+_PimGroupMappingTable_Object=MibTable
+pimGroupMappingTable=_PimGroupMappingTable_Object((1,3,6,1,2,1,157,1,13))
+if mibBuilder.loadTexts:pimGroupMappingTable.setStatus(_B)
+_PimGroupMappingEntry_Object=MibTableRow
+pimGroupMappingEntry=_PimGroupMappingEntry_Object((1,3,6,1,2,1,157,1,13,1))
+pimGroupMappingEntry.setIndexNames((0,_A,_AP),(0,_A,_AQ),(0,_A,_AR),(0,_A,_AS),(0,_A,_AT),(0,_A,_AU))
+if mibBuilder.loadTexts:pimGroupMappingEntry.setStatus(_B)
+_PimGroupMappingOrigin_Type=PimGroupMappingOriginType
+_PimGroupMappingOrigin_Object=MibTableColumn
+pimGroupMappingOrigin=_PimGroupMappingOrigin_Object((1,3,6,1,2,1,157,1,13,1,1),_PimGroupMappingOrigin_Type())
+pimGroupMappingOrigin.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimGroupMappingOrigin.setStatus(_B)
+_PimGroupMappingAddressType_Type=InetAddressType
+_PimGroupMappingAddressType_Object=MibTableColumn
+pimGroupMappingAddressType=_PimGroupMappingAddressType_Object((1,3,6,1,2,1,157,1,13,1,2),_PimGroupMappingAddressType_Type())
+pimGroupMappingAddressType.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimGroupMappingAddressType.setStatus(_B)
+class _PimGroupMappingGrpAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimGroupMappingGrpAddress_Type.__name__=_D
+_PimGroupMappingGrpAddress_Object=MibTableColumn
+pimGroupMappingGrpAddress=_PimGroupMappingGrpAddress_Object((1,3,6,1,2,1,157,1,13,1,3),_PimGroupMappingGrpAddress_Type())
+pimGroupMappingGrpAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimGroupMappingGrpAddress.setStatus(_B)
+class _PimGroupMappingGrpPrefixLength_Type(InetAddressPrefixLength):subtypeSpec=InetAddressPrefixLength.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(4,128))
+_PimGroupMappingGrpPrefixLength_Type.__name__=_h
+_PimGroupMappingGrpPrefixLength_Object=MibTableColumn
+pimGroupMappingGrpPrefixLength=_PimGroupMappingGrpPrefixLength_Object((1,3,6,1,2,1,157,1,13,1,4),_PimGroupMappingGrpPrefixLength_Type())
+pimGroupMappingGrpPrefixLength.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimGroupMappingGrpPrefixLength.setStatus(_B)
+_PimGroupMappingRPAddressType_Type=InetAddressType
+_PimGroupMappingRPAddressType_Object=MibTableColumn
+pimGroupMappingRPAddressType=_PimGroupMappingRPAddressType_Object((1,3,6,1,2,1,157,1,13,1,5),_PimGroupMappingRPAddressType_Type())
+pimGroupMappingRPAddressType.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimGroupMappingRPAddressType.setStatus(_B)
+class _PimGroupMappingRPAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimGroupMappingRPAddress_Type.__name__=_D
+_PimGroupMappingRPAddress_Object=MibTableColumn
+pimGroupMappingRPAddress=_PimGroupMappingRPAddress_Object((1,3,6,1,2,1,157,1,13,1,6),_PimGroupMappingRPAddress_Type())
+pimGroupMappingRPAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:pimGroupMappingRPAddress.setStatus(_B)
+_PimGroupMappingPimMode_Type=PimMode
+_PimGroupMappingPimMode_Object=MibTableColumn
+pimGroupMappingPimMode=_PimGroupMappingPimMode_Object((1,3,6,1,2,1,157,1,13,1,7),_PimGroupMappingPimMode_Type())
+pimGroupMappingPimMode.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimGroupMappingPimMode.setStatus(_B)
+_PimGroupMappingPrecedence_Type=Unsigned32
+_PimGroupMappingPrecedence_Object=MibTableColumn
+pimGroupMappingPrecedence=_PimGroupMappingPrecedence_Object((1,3,6,1,2,1,157,1,13,1,8),_PimGroupMappingPrecedence_Type())
+pimGroupMappingPrecedence.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimGroupMappingPrecedence.setStatus(_B)
+class _PimKeepalivePeriod_Type(Unsigned32):defaultValue=210;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PimKeepalivePeriod_Type.__name__=_F
+_PimKeepalivePeriod_Object=MibScalar
+pimKeepalivePeriod=_PimKeepalivePeriod_Object((1,3,6,1,2,1,157,1,14),_PimKeepalivePeriod_Type())
+pimKeepalivePeriod.setMaxAccess(_J)
+if mibBuilder.loadTexts:pimKeepalivePeriod.setStatus(_B)
+if mibBuilder.loadTexts:pimKeepalivePeriod.setUnits(_H)
+class _PimRegisterSuppressionTime_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PimRegisterSuppressionTime_Type.__name__=_F
+_PimRegisterSuppressionTime_Object=MibScalar
+pimRegisterSuppressionTime=_PimRegisterSuppressionTime_Object((1,3,6,1,2,1,157,1,15),_PimRegisterSuppressionTime_Type())
+pimRegisterSuppressionTime.setMaxAccess(_J)
+if mibBuilder.loadTexts:pimRegisterSuppressionTime.setStatus(_B)
+if mibBuilder.loadTexts:pimRegisterSuppressionTime.setUnits(_H)
+_PimStarGEntries_Type=Gauge32
+_PimStarGEntries_Object=MibScalar
+pimStarGEntries=_PimStarGEntries_Object((1,3,6,1,2,1,157,1,16),_PimStarGEntries_Type())
+pimStarGEntries.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGEntries.setStatus(_B)
+_PimStarGIEntries_Type=Gauge32
+_PimStarGIEntries_Object=MibScalar
+pimStarGIEntries=_PimStarGIEntries_Object((1,3,6,1,2,1,157,1,17),_PimStarGIEntries_Type())
+pimStarGIEntries.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimStarGIEntries.setStatus(_B)
+_PimSGEntries_Type=Gauge32
+_PimSGEntries_Object=MibScalar
+pimSGEntries=_PimSGEntries_Object((1,3,6,1,2,1,157,1,18),_PimSGEntries_Type())
+pimSGEntries.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGEntries.setStatus(_B)
+_PimSGIEntries_Type=Gauge32
+_PimSGIEntries_Object=MibScalar
+pimSGIEntries=_PimSGIEntries_Object((1,3,6,1,2,1,157,1,19),_PimSGIEntries_Type())
+pimSGIEntries.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGIEntries.setStatus(_B)
+_PimSGRptEntries_Type=Gauge32
+_PimSGRptEntries_Object=MibScalar
+pimSGRptEntries=_PimSGRptEntries_Object((1,3,6,1,2,1,157,1,20),_PimSGRptEntries_Type())
+pimSGRptEntries.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRptEntries.setStatus(_B)
+_PimSGRptIEntries_Type=Gauge32
+_PimSGRptIEntries_Object=MibScalar
+pimSGRptIEntries=_PimSGRptIEntries_Object((1,3,6,1,2,1,157,1,21),_PimSGRptIEntries_Type())
+pimSGRptIEntries.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimSGRptIEntries.setStatus(_B)
+_PimOutAsserts_Type=Counter64
+_PimOutAsserts_Object=MibScalar
+pimOutAsserts=_PimOutAsserts_Object((1,3,6,1,2,1,157,1,22),_PimOutAsserts_Type())
+pimOutAsserts.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimOutAsserts.setStatus(_B)
+_PimInAsserts_Type=Counter64
+_PimInAsserts_Object=MibScalar
+pimInAsserts=_PimInAsserts_Object((1,3,6,1,2,1,157,1,23),_PimInAsserts_Type())
+pimInAsserts.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInAsserts.setStatus(_B)
+_PimLastAssertInterface_Type=InterfaceIndexOrZero
+_PimLastAssertInterface_Object=MibScalar
+pimLastAssertInterface=_PimLastAssertInterface_Object((1,3,6,1,2,1,157,1,24),_PimLastAssertInterface_Type())
+pimLastAssertInterface.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimLastAssertInterface.setStatus(_B)
+_PimLastAssertGroupAddressType_Type=InetAddressType
+_PimLastAssertGroupAddressType_Object=MibScalar
+pimLastAssertGroupAddressType=_PimLastAssertGroupAddressType_Object((1,3,6,1,2,1,157,1,25),_PimLastAssertGroupAddressType_Type())
+pimLastAssertGroupAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimLastAssertGroupAddressType.setStatus(_B)
+class _PimLastAssertGroupAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimLastAssertGroupAddress_Type.__name__=_D
+_PimLastAssertGroupAddress_Object=MibScalar
+pimLastAssertGroupAddress=_PimLastAssertGroupAddress_Object((1,3,6,1,2,1,157,1,26),_PimLastAssertGroupAddress_Type())
+pimLastAssertGroupAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimLastAssertGroupAddress.setStatus(_B)
+_PimLastAssertSourceAddressType_Type=InetAddressType
+_PimLastAssertSourceAddressType_Object=MibScalar
+pimLastAssertSourceAddressType=_PimLastAssertSourceAddressType_Object((1,3,6,1,2,1,157,1,27),_PimLastAssertSourceAddressType_Type())
+pimLastAssertSourceAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimLastAssertSourceAddressType.setStatus(_B)
+class _PimLastAssertSourceAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimLastAssertSourceAddress_Type.__name__=_D
+_PimLastAssertSourceAddress_Object=MibScalar
+pimLastAssertSourceAddress=_PimLastAssertSourceAddress_Object((1,3,6,1,2,1,157,1,28),_PimLastAssertSourceAddress_Type())
+pimLastAssertSourceAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimLastAssertSourceAddress.setStatus(_B)
+class _PimNeighborLossNotificationPeriod_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PimNeighborLossNotificationPeriod_Type.__name__=_F
+_PimNeighborLossNotificationPeriod_Object=MibScalar
+pimNeighborLossNotificationPeriod=_PimNeighborLossNotificationPeriod_Object((1,3,6,1,2,1,157,1,29),_PimNeighborLossNotificationPeriod_Type())
+pimNeighborLossNotificationPeriod.setMaxAccess(_J)
+if mibBuilder.loadTexts:pimNeighborLossNotificationPeriod.setStatus(_B)
+if mibBuilder.loadTexts:pimNeighborLossNotificationPeriod.setUnits(_H)
+_PimNeighborLossCount_Type=Counter32
+_PimNeighborLossCount_Object=MibScalar
+pimNeighborLossCount=_PimNeighborLossCount_Object((1,3,6,1,2,1,157,1,30),_PimNeighborLossCount_Type())
+pimNeighborLossCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimNeighborLossCount.setStatus(_B)
+class _PimInvalidRegisterNotificationPeriod_Type(Unsigned32):defaultValue=65535;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,65535))
+_PimInvalidRegisterNotificationPeriod_Type.__name__=_F
+_PimInvalidRegisterNotificationPeriod_Object=MibScalar
+pimInvalidRegisterNotificationPeriod=_PimInvalidRegisterNotificationPeriod_Object((1,3,6,1,2,1,157,1,31),_PimInvalidRegisterNotificationPeriod_Type())
+pimInvalidRegisterNotificationPeriod.setMaxAccess(_J)
+if mibBuilder.loadTexts:pimInvalidRegisterNotificationPeriod.setStatus(_B)
+if mibBuilder.loadTexts:pimInvalidRegisterNotificationPeriod.setUnits(_H)
+_PimInvalidRegisterMsgsRcvd_Type=Counter32
+_PimInvalidRegisterMsgsRcvd_Object=MibScalar
+pimInvalidRegisterMsgsRcvd=_PimInvalidRegisterMsgsRcvd_Object((1,3,6,1,2,1,157,1,32),_PimInvalidRegisterMsgsRcvd_Type())
+pimInvalidRegisterMsgsRcvd.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInvalidRegisterMsgsRcvd.setStatus(_B)
+_PimInvalidRegisterAddressType_Type=InetAddressType
+_PimInvalidRegisterAddressType_Object=MibScalar
+pimInvalidRegisterAddressType=_PimInvalidRegisterAddressType_Object((1,3,6,1,2,1,157,1,33),_PimInvalidRegisterAddressType_Type())
+pimInvalidRegisterAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInvalidRegisterAddressType.setStatus(_B)
+class _PimInvalidRegisterOrigin_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimInvalidRegisterOrigin_Type.__name__=_D
+_PimInvalidRegisterOrigin_Object=MibScalar
+pimInvalidRegisterOrigin=_PimInvalidRegisterOrigin_Object((1,3,6,1,2,1,157,1,34),_PimInvalidRegisterOrigin_Type())
+pimInvalidRegisterOrigin.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInvalidRegisterOrigin.setStatus(_B)
+class _PimInvalidRegisterGroup_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimInvalidRegisterGroup_Type.__name__=_D
+_PimInvalidRegisterGroup_Object=MibScalar
+pimInvalidRegisterGroup=_PimInvalidRegisterGroup_Object((1,3,6,1,2,1,157,1,35),_PimInvalidRegisterGroup_Type())
+pimInvalidRegisterGroup.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInvalidRegisterGroup.setStatus(_B)
+class _PimInvalidRegisterRp_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimInvalidRegisterRp_Type.__name__=_D
+_PimInvalidRegisterRp_Object=MibScalar
+pimInvalidRegisterRp=_PimInvalidRegisterRp_Object((1,3,6,1,2,1,157,1,36),_PimInvalidRegisterRp_Type())
+pimInvalidRegisterRp.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInvalidRegisterRp.setStatus(_B)
+class _PimInvalidJoinPruneNotificationPeriod_Type(Unsigned32):defaultValue=65535;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(10,65535))
+_PimInvalidJoinPruneNotificationPeriod_Type.__name__=_F
+_PimInvalidJoinPruneNotificationPeriod_Object=MibScalar
+pimInvalidJoinPruneNotificationPeriod=_PimInvalidJoinPruneNotificationPeriod_Object((1,3,6,1,2,1,157,1,37),_PimInvalidJoinPruneNotificationPeriod_Type())
+pimInvalidJoinPruneNotificationPeriod.setMaxAccess(_J)
+if mibBuilder.loadTexts:pimInvalidJoinPruneNotificationPeriod.setStatus(_B)
+if mibBuilder.loadTexts:pimInvalidJoinPruneNotificationPeriod.setUnits(_H)
+_PimInvalidJoinPruneMsgsRcvd_Type=Counter32
+_PimInvalidJoinPruneMsgsRcvd_Object=MibScalar
+pimInvalidJoinPruneMsgsRcvd=_PimInvalidJoinPruneMsgsRcvd_Object((1,3,6,1,2,1,157,1,38),_PimInvalidJoinPruneMsgsRcvd_Type())
+pimInvalidJoinPruneMsgsRcvd.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInvalidJoinPruneMsgsRcvd.setStatus(_B)
+_PimInvalidJoinPruneAddressType_Type=InetAddressType
+_PimInvalidJoinPruneAddressType_Object=MibScalar
+pimInvalidJoinPruneAddressType=_PimInvalidJoinPruneAddressType_Object((1,3,6,1,2,1,157,1,39),_PimInvalidJoinPruneAddressType_Type())
+pimInvalidJoinPruneAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInvalidJoinPruneAddressType.setStatus(_B)
+class _PimInvalidJoinPruneOrigin_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimInvalidJoinPruneOrigin_Type.__name__=_D
+_PimInvalidJoinPruneOrigin_Object=MibScalar
+pimInvalidJoinPruneOrigin=_PimInvalidJoinPruneOrigin_Object((1,3,6,1,2,1,157,1,40),_PimInvalidJoinPruneOrigin_Type())
+pimInvalidJoinPruneOrigin.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInvalidJoinPruneOrigin.setStatus(_B)
+class _PimInvalidJoinPruneGroup_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimInvalidJoinPruneGroup_Type.__name__=_D
+_PimInvalidJoinPruneGroup_Object=MibScalar
+pimInvalidJoinPruneGroup=_PimInvalidJoinPruneGroup_Object((1,3,6,1,2,1,157,1,41),_PimInvalidJoinPruneGroup_Type())
+pimInvalidJoinPruneGroup.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInvalidJoinPruneGroup.setStatus(_B)
+class _PimInvalidJoinPruneRp_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),ValueSizeConstraint(20,20))
+_PimInvalidJoinPruneRp_Type.__name__=_D
+_PimInvalidJoinPruneRp_Object=MibScalar
+pimInvalidJoinPruneRp=_PimInvalidJoinPruneRp_Object((1,3,6,1,2,1,157,1,42),_PimInvalidJoinPruneRp_Type())
+pimInvalidJoinPruneRp.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInvalidJoinPruneRp.setStatus(_B)
+class _PimRPMappingNotificationPeriod_Type(Unsigned32):defaultValue=65535;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PimRPMappingNotificationPeriod_Type.__name__=_F
+_PimRPMappingNotificationPeriod_Object=MibScalar
+pimRPMappingNotificationPeriod=_PimRPMappingNotificationPeriod_Object((1,3,6,1,2,1,157,1,43),_PimRPMappingNotificationPeriod_Type())
+pimRPMappingNotificationPeriod.setMaxAccess(_J)
+if mibBuilder.loadTexts:pimRPMappingNotificationPeriod.setStatus(_B)
+if mibBuilder.loadTexts:pimRPMappingNotificationPeriod.setUnits(_H)
+_PimRPMappingChangeCount_Type=Counter32
+_PimRPMappingChangeCount_Object=MibScalar
+pimRPMappingChangeCount=_PimRPMappingChangeCount_Object((1,3,6,1,2,1,157,1,44),_PimRPMappingChangeCount_Type())
+pimRPMappingChangeCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimRPMappingChangeCount.setStatus(_B)
+class _PimInterfaceElectionNotificationPeriod_Type(Unsigned32):defaultValue=65535;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PimInterfaceElectionNotificationPeriod_Type.__name__=_F
+_PimInterfaceElectionNotificationPeriod_Object=MibScalar
+pimInterfaceElectionNotificationPeriod=_PimInterfaceElectionNotificationPeriod_Object((1,3,6,1,2,1,157,1,45),_PimInterfaceElectionNotificationPeriod_Type())
+pimInterfaceElectionNotificationPeriod.setMaxAccess(_J)
+if mibBuilder.loadTexts:pimInterfaceElectionNotificationPeriod.setStatus(_B)
+if mibBuilder.loadTexts:pimInterfaceElectionNotificationPeriod.setUnits(_H)
+_PimInterfaceElectionWinCount_Type=Counter32
+_PimInterfaceElectionWinCount_Object=MibScalar
+pimInterfaceElectionWinCount=_PimInterfaceElectionWinCount_Object((1,3,6,1,2,1,157,1,46),_PimInterfaceElectionWinCount_Type())
+pimInterfaceElectionWinCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:pimInterfaceElectionWinCount.setStatus(_B)
+class _PimRefreshInterval_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_PimRefreshInterval_Type.__name__=_F
+_PimRefreshInterval_Object=MibScalar
+pimRefreshInterval=_PimRefreshInterval_Object((1,3,6,1,2,1,157,1,47),_PimRefreshInterval_Type())
+pimRefreshInterval.setMaxAccess(_J)
+if mibBuilder.loadTexts:pimRefreshInterval.setStatus(_B)
+if mibBuilder.loadTexts:pimRefreshInterval.setUnits(_H)
+class _PimDeviceConfigStorageType_Type(StorageType):defaultValue=3
+_PimDeviceConfigStorageType_Type.__name__=_L
+_PimDeviceConfigStorageType_Object=MibScalar
+pimDeviceConfigStorageType=_PimDeviceConfigStorageType_Object((1,3,6,1,2,1,157,1,48),_PimDeviceConfigStorageType_Type())
+pimDeviceConfigStorageType.setMaxAccess(_J)
+if mibBuilder.loadTexts:pimDeviceConfigStorageType.setStatus(_B)
+_PimMIBConformance_ObjectIdentity=ObjectIdentity
+pimMIBConformance=_PimMIBConformance_ObjectIdentity((1,3,6,1,2,1,157,2))
+_PimMIBCompliances_ObjectIdentity=ObjectIdentity
+pimMIBCompliances=_PimMIBCompliances_ObjectIdentity((1,3,6,1,2,1,157,2,1))
+_PimMIBGroups_ObjectIdentity=ObjectIdentity
+pimMIBGroups=_PimMIBGroups_ObjectIdentity((1,3,6,1,2,1,157,2,2))
+pimTopologyGroup=ObjectGroup((1,3,6,1,2,1,157,2,2,1))
+pimTopologyGroup.setObjects(*((_A,_r),(_A,_s),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_b),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_k)))
+if mibBuilder.loadTexts:pimTopologyGroup.setStatus(_B)
+pimTuningParametersGroup=ObjectGroup((1,3,6,1,2,1,157,2,2,3))
+pimTuningParametersGroup.setObjects(*((_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_)))
+if mibBuilder.loadTexts:pimTuningParametersGroup.setStatus(_B)
+pimRouterStatisticsGroup=ObjectGroup((1,3,6,1,2,1,157,2,2,4))
+pimRouterStatisticsGroup.setObjects(*((_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5)))
+if mibBuilder.loadTexts:pimRouterStatisticsGroup.setStatus(_B)
+pimSsmGroup=ObjectGroup((1,3,6,1,2,1,157,2,2,5))
+pimSsmGroup.setObjects(*((_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BE),(_A,_BF),(_A,_BG),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_BQ),(_A,_BR),(_A,_BS),(_A,_BT),(_A,_BU),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ)))
+if mibBuilder.loadTexts:pimSsmGroup.setStatus(_B)
+pimRPConfigGroup=ObjectGroup((1,3,6,1,2,1,157,2,2,6))
+pimRPConfigGroup.setObjects(*((_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_O),(_A,_t)))
+if mibBuilder.loadTexts:pimRPConfigGroup.setStatus(_B)
+pimSmGroup=ObjectGroup((1,3,6,1,2,1,157,2,2,7))
+pimSmGroup.setObjects(*((_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo),(_A,_Bp),(_A,_Bq),(_A,_Br),(_A,_Bs),(_A,_Bt),(_A,_Bu),(_A,_Bv),(_A,_Bw),(_A,_Bx),(_A,_By),(_A,_Bz),(_A,_B_),(_A,_C0),(_A,_C1),(_A,_C2),(_A,_C3),(_A,_C4),(_A,_C5),(_A,_C6),(_A,_C7),(_A,_C8),(_A,_C9),(_A,_CA),(_A,_CB),(_A,_CC),(_A,_CD),(_A,_CE)))
+if mibBuilder.loadTexts:pimSmGroup.setStatus(_B)
+pimBidirGroup=ObjectGroup((1,3,6,1,2,1,157,2,2,8))
+pimBidirGroup.setObjects(*((_A,_CF),(_A,_CG),(_A,_CH),(_A,_CI),(_A,_CJ),(_A,_CK),(_A,_CL),(_A,_CM)))
+if mibBuilder.loadTexts:pimBidirGroup.setStatus(_B)
+pimAnycastRpGroup=ObjectGroup((1,3,6,1,2,1,157,2,2,9))
+pimAnycastRpGroup.setObjects(*((_A,_CN),(_A,_CO),(_A,_CP)))
+if mibBuilder.loadTexts:pimAnycastRpGroup.setStatus(_B)
+pimStaticRPPrecedenceGroup=ObjectGroup((1,3,6,1,2,1,157,2,2,10))
+pimStaticRPPrecedenceGroup.setObjects((_A,_CQ))
+if mibBuilder.loadTexts:pimStaticRPPrecedenceGroup.setStatus(_B)
+pimNetMgmtNotificationObjects=ObjectGroup((1,3,6,1,2,1,157,2,2,11))
+pimNetMgmtNotificationObjects.setObjects(*((_A,_CR),(_A,_CS),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_CT),(_A,_CU),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_CV),(_A,_CW),(_A,_CX),(_A,_CY)))
+if mibBuilder.loadTexts:pimNetMgmtNotificationObjects.setStatus(_B)
+pimDiagnosticsGroup=ObjectGroup((1,3,6,1,2,1,157,2,2,13))
+pimDiagnosticsGroup.setObjects(*((_A,_CZ),(_A,_Ca),(_A,_Cb),(_A,_Cc),(_A,_Cd),(_A,_Ce),(_A,_Cf),(_A,_Cg),(_A,_Ch)))
+if mibBuilder.loadTexts:pimDiagnosticsGroup.setStatus(_B)
+pimDmGroup=ObjectGroup((1,3,6,1,2,1,157,2,2,14))
+pimDmGroup.setObjects(*((_A,_Ci),(_A,_Cj),(_A,_Ck),(_A,_Cl),(_A,_Cm),(_A,_Cn),(_A,_Co),(_A,_Cp),(_A,_Cq),(_A,_Cr)))
+if mibBuilder.loadTexts:pimDmGroup.setStatus(_B)
+pimDeviceStorageGroup=ObjectGroup((1,3,6,1,2,1,157,2,2,15))
+pimDeviceStorageGroup.setObjects((_A,_Cs))
+if mibBuilder.loadTexts:pimDeviceStorageGroup.setStatus(_B)
+pimNeighborLoss=NotificationType((1,3,6,1,2,1,157,0,1))
+pimNeighborLoss.setObjects((_A,_b))
+if mibBuilder.loadTexts:pimNeighborLoss.setStatus(_B)
+pimInvalidRegister=NotificationType((1,3,6,1,2,1,157,0,2))
+pimInvalidRegister.setObjects(*((_A,_O),(_A,_u),(_A,_v),(_A,_w),(_A,_x)))
+if mibBuilder.loadTexts:pimInvalidRegister.setStatus(_B)
+pimInvalidJoinPrune=NotificationType((1,3,6,1,2,1,157,0,3))
+pimInvalidJoinPrune.setObjects(*((_A,_O),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_b)))
+if mibBuilder.loadTexts:pimInvalidJoinPrune.setStatus(_B)
+pimRPMappingChange=NotificationType((1,3,6,1,2,1,157,0,4))
+pimRPMappingChange.setObjects(*((_A,_O),(_A,_t)))
+if mibBuilder.loadTexts:pimRPMappingChange.setStatus(_B)
+pimInterfaceElection=NotificationType((1,3,6,1,2,1,157,0,5))
+pimInterfaceElection.setObjects(*((_A,_r),(_A,_s)))
+if mibBuilder.loadTexts:pimInterfaceElection.setStatus(_B)
+pimNotificationGroup=NotificationGroup((1,3,6,1,2,1,157,2,2,2))
+pimNotificationGroup.setObjects((_A,_Ct))
+if mibBuilder.loadTexts:pimNotificationGroup.setStatus(_B)
+pimNetMgmtNotificationGroup=NotificationGroup((1,3,6,1,2,1,157,2,2,12))
+pimNetMgmtNotificationGroup.setObjects(*((_A,_Cu),(_A,_Cv),(_A,_Cw),(_A,_Cx)))
+if mibBuilder.loadTexts:pimNetMgmtNotificationGroup.setStatus(_B)
+pimMIBComplianceAsm=ModuleCompliance((1,3,6,1,2,1,157,2,1,1))
+pimMIBComplianceAsm.setObjects(*((_A,_P),(_A,_c),(_A,_d),(_A,_e),(_A,_Q),(_A,_R),(_A,_S),(_A,_f),(_A,_g),(_A,_T),(_A,_U),(_A,_V),(_A,_W)))
+if mibBuilder.loadTexts:pimMIBComplianceAsm.setStatus(_B)
+pimMIBComplianceBidir=ModuleCompliance((1,3,6,1,2,1,157,2,1,2))
+pimMIBComplianceBidir.setObjects(*((_A,_P),(_A,_d),(_A,_e),(_A,_Cy),(_A,_Q),(_A,_R),(_A,_S),(_A,_f),(_A,_g),(_A,_T),(_A,_U),(_A,_V),(_A,_W)))
+if mibBuilder.loadTexts:pimMIBComplianceBidir.setStatus(_B)
+pimMIBComplianceSsm=ModuleCompliance((1,3,6,1,2,1,157,2,1,3))
+pimMIBComplianceSsm.setObjects(*((_A,_P),(_A,_c),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W)))
+if mibBuilder.loadTexts:pimMIBComplianceSsm.setStatus(_B)
+pimMIBComplianceDm=ModuleCompliance((1,3,6,1,2,1,157,2,1,4))
+pimMIBComplianceDm.setObjects(*((_A,_P),(_A,_c),(_A,_d),(_A,_e),(_A,_Cz),(_A,_Q),(_A,_R),(_A,_S),(_A,_f),(_A,_g),(_A,_T),(_A,_U),(_A,_V),(_A,_W)))
+if mibBuilder.loadTexts:pimMIBComplianceDm.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{_a:PimMode,'PimGroupMappingOriginType':PimGroupMappingOriginType,'pimStdMIB':pimStdMIB,'pimNotifications':pimNotifications,_Ct:pimNeighborLoss,_Cu:pimInvalidRegister,_Cv:pimInvalidJoinPrune,_Cw:pimRPMappingChange,_Cx:pimInterfaceElection,'pim':pim,'pimInterfaceTable':pimInterfaceTable,'pimInterfaceEntry':pimInterfaceEntry,_A2:pimInterfaceIfIndex,_A3:pimInterfaceIPVersion,_r:pimInterfaceAddressType,_s:pimInterfaceAddress,_AV:pimInterfaceGenerationIDValue,_AW:pimInterfaceDR,_Ar:pimInterfaceDRPriority,_AX:pimInterfaceDRPriorityEnabled,_As:pimInterfaceHelloInterval,_At:pimInterfaceTrigHelloInterval,_AY:pimInterfaceHelloHoldtime,_Au:pimInterfaceJoinPruneInterval,_AZ:pimInterfaceJoinPruneHoldtime,_CF:pimInterfaceDFElectionRobustness,_Aa:pimInterfaceLanDelayEnabled,_Av:pimInterfacePropagationDelay,_Aw:pimInterfaceOverrideInterval,_Ab:pimInterfaceEffectPropagDelay,_Ac:pimInterfaceEffectOverrideIvl,_Ad:pimInterfaceSuppressionEnabled,_Ae:pimInterfaceBidirCapable,_Ax:pimInterfaceDomainBorder,_Ay:pimInterfaceStubInterface,_Cj:pimInterfacePruneLimitInterval,_Ck:pimInterfaceGraftRetryInterval,_Cl:pimInterfaceSRPriorityEnabled,_Az:pimInterfaceStatus,_A_:pimInterfaceStorageType,'pimNeighborTable':pimNeighborTable,'pimNeighborEntry':pimNeighborEntry,_A4:pimNeighborIfIndex,_A5:pimNeighborAddressType,_A6:pimNeighborAddress,_Af:pimNeighborGenerationIDPresent,_Ag:pimNeighborGenerationIDValue,_b:pimNeighborUpTime,_Ah:pimNeighborExpiryTime,_Ai:pimNeighborDRPriorityPresent,_Aj:pimNeighborDRPriority,_Ak:pimNeighborLanPruneDelayPresent,_Al:pimNeighborTBit,_Am:pimNeighborPropagationDelay,_An:pimNeighborOverrideInterval,_Ao:pimNeighborBidirCapable,_Cm:pimNeighborSRCapable,'pimNbrSecAddressTable':pimNbrSecAddressTable,'pimNbrSecAddressEntry':pimNbrSecAddressEntry,_A7:pimNbrSecAddressIfIndex,_A8:pimNbrSecAddressType,_A9:pimNbrSecAddressPrimary,_k:pimNbrSecAddress,'pimStarGTable':pimStarGTable,'pimStarGEntry':pimStarGEntry,_M:pimStarGAddressType,_N:pimStarGGrpAddress,_Bf:pimStarGUpTime,_Bg:pimStarGPimMode,_Bh:pimStarGRPAddressType,_Bi:pimStarGRPAddress,_Bj:pimStarGPimModeOrigin,_Bk:pimStarGRPIsLocal,_Bl:pimStarGUpstreamJoinState,_Bm:pimStarGUpstreamJoinTimer,_Bn:pimStarGUpstreamNeighborType,_Bo:pimStarGUpstreamNeighbor,_Bp:pimStarGRPFIfIndex,_Bq:pimStarGRPFNextHopType,_Br:pimStarGRPFNextHop,_Bs:pimStarGRPFRouteProtocol,_Bt:pimStarGRPFRouteAddress,_Bu:pimStarGRPFRoutePrefixLength,_Bv:pimStarGRPFRouteMetricPref,_Bw:pimStarGRPFRouteMetric,'pimStarGITable':pimStarGITable,'pimStarGIEntry':pimStarGIEntry,_AB:pimStarGIIfIndex,_Bx:pimStarGIUpTime,_By:pimStarGILocalMembership,_Bz:pimStarGIJoinPruneState,_B_:pimStarGIPrunePendingTimer,_C0:pimStarGIJoinExpiryTimer,_C1:pimStarGIAssertState,_C2:pimStarGIAssertTimer,_C3:pimStarGIAssertWinnerAddressType,_C4:pimStarGIAssertWinnerAddress,_C5:pimStarGIAssertWinnerMetricPref,_C6:pimStarGIAssertWinnerMetric,'pimSGTable':pimSGTable,'pimSGEntry':pimSGEntry,_n:pimSGAddressType,_o:pimSGGrpAddress,_p:pimSGSrcAddress,_B6:pimSGUpTime,_B7:pimSGPimMode,_B8:pimSGUpstreamJoinState,_B9:pimSGUpstreamJoinTimer,_BA:pimSGUpstreamNeighbor,_BB:pimSGRPFIfIndex,_BC:pimSGRPFNextHopType,_BD:pimSGRPFNextHop,_BE:pimSGRPFRouteProtocol,_BF:pimSGRPFRouteAddress,_BG:pimSGRPFRoutePrefixLength,_BH:pimSGRPFRouteMetricPref,_BI:pimSGRPFRouteMetric,_BJ:pimSGSPTBit,_BK:pimSGKeepaliveTimer,_BL:pimSGDRRegisterState,_BM:pimSGDRRegisterStopTimer,_BN:pimSGRPRegisterPMBRAddressType,_BO:pimSGRPRegisterPMBRAddress,_Cn:pimSGUpstreamPruneState,_Co:pimSGUpstreamPruneLimitTimer,_Cp:pimSGOriginatorState,_Cq:pimSGSourceActiveTimer,_Cr:pimSGStateRefreshTimer,'pimSGITable':pimSGITable,'pimSGIEntry':pimSGIEntry,_AE:pimSGIIfIndex,_BP:pimSGIUpTime,_BQ:pimSGILocalMembership,_BR:pimSGIJoinPruneState,_BS:pimSGIPrunePendingTimer,_BT:pimSGIJoinExpiryTimer,_BU:pimSGIAssertState,_BV:pimSGIAssertTimer,_BW:pimSGIAssertWinnerAddressType,_BX:pimSGIAssertWinnerAddress,_BY:pimSGIAssertWinnerMetricPref,_BZ:pimSGIAssertWinnerMetric,'pimSGRptTable':pimSGRptTable,'pimSGRptEntry':pimSGRptEntry,_q:pimSGRptSrcAddress,_C7:pimSGRptUpTime,_C8:pimSGRptUpstreamPruneState,_C9:pimSGRptUpstreamOverrideTimer,'pimSGRptITable':pimSGRptITable,'pimSGRptIEntry':pimSGRptIEntry,_AF:pimSGRptIIfIndex,_CA:pimSGRptIUpTime,_CB:pimSGRptILocalMembership,_CC:pimSGRptIJoinPruneState,_CD:pimSGRptIPrunePendingTimer,_CE:pimSGRptIPruneExpiryTimer,'pimBidirDFElectionTable':pimBidirDFElectionTable,'pimBidirDFElectionEntry':pimBidirDFElectionEntry,_AG:pimBidirDFElectionAddressType,_AH:pimBidirDFElectionRPAddress,_AI:pimBidirDFElectionIfIndex,_CG:pimBidirDFElectionWinnerAddressType,_CH:pimBidirDFElectionWinnerAddress,_CI:pimBidirDFElectionWinnerUpTime,_CJ:pimBidirDFElectionWinnerMetricPref,_CK:pimBidirDFElectionWinnerMetric,_CL:pimBidirDFElectionState,_CM:pimBidirDFElectionStateTimer,'pimStaticRPTable':pimStaticRPTable,'pimStaticRPEntry':pimStaticRPEntry,_AJ:pimStaticRPAddressType,_AK:pimStaticRPGrpAddress,_AL:pimStaticRPGrpPrefixLength,_Ba:pimStaticRPRPAddress,_Bb:pimStaticRPPimMode,_Bc:pimStaticRPOverrideDynamic,_CQ:pimStaticRPPrecedence,_Bd:pimStaticRPRowStatus,_Be:pimStaticRPStorageType,'pimAnycastRPSetTable':pimAnycastRPSetTable,'pimAnycastRPSetEntry':pimAnycastRPSetEntry,_AM:pimAnycastRPSetAddressType,_AN:pimAnycastRPSetAnycastAddress,_AO:pimAnycastRPSetRouterAddress,_CN:pimAnycastRPSetLocalRouter,_CO:pimAnycastRPSetRowStatus,_CP:pimAnycastRPSetStorageType,'pimGroupMappingTable':pimGroupMappingTable,'pimGroupMappingEntry':pimGroupMappingEntry,_AP:pimGroupMappingOrigin,_AQ:pimGroupMappingAddressType,_AR:pimGroupMappingGrpAddress,_AS:pimGroupMappingGrpPrefixLength,_AT:pimGroupMappingRPAddressType,_AU:pimGroupMappingRPAddress,_O:pimGroupMappingPimMode,_t:pimGroupMappingPrecedence,_Ap:pimKeepalivePeriod,_Aq:pimRegisterSuppressionTime,_B0:pimStarGEntries,_B1:pimStarGIEntries,_B2:pimSGEntries,_B3:pimSGIEntries,_B4:pimSGRptEntries,_B5:pimSGRptIEntries,_Ca:pimOutAsserts,_CZ:pimInAsserts,_Cb:pimLastAssertInterface,_Cc:pimLastAssertGroupAddressType,_Cd:pimLastAssertGroupAddress,_Ce:pimLastAssertSourceAddressType,_Cf:pimLastAssertSourceAddress,_Cg:pimNeighborLossNotificationPeriod,_Ch:pimNeighborLossCount,_CR:pimInvalidRegisterNotificationPeriod,_CS:pimInvalidRegisterMsgsRcvd,_u:pimInvalidRegisterAddressType,_v:pimInvalidRegisterOrigin,_w:pimInvalidRegisterGroup,_x:pimInvalidRegisterRp,_CT:pimInvalidJoinPruneNotificationPeriod,_CU:pimInvalidJoinPruneMsgsRcvd,_y:pimInvalidJoinPruneAddressType,_z:pimInvalidJoinPruneOrigin,_A0:pimInvalidJoinPruneGroup,_A1:pimInvalidJoinPruneRp,_CV:pimRPMappingNotificationPeriod,_CW:pimRPMappingChangeCount,_CX:pimInterfaceElectionNotificationPeriod,_CY:pimInterfaceElectionWinCount,_Ci:pimRefreshInterval,_Cs:pimDeviceConfigStorageType,'pimMIBConformance':pimMIBConformance,'pimMIBCompliances':pimMIBCompliances,'pimMIBComplianceAsm':pimMIBComplianceAsm,'pimMIBComplianceBidir':pimMIBComplianceBidir,'pimMIBComplianceSsm':pimMIBComplianceSsm,'pimMIBComplianceDm':pimMIBComplianceDm,'pimMIBGroups':pimMIBGroups,_P:pimTopologyGroup,_Q:pimNotificationGroup,_R:pimTuningParametersGroup,_S:pimRouterStatisticsGroup,_c:pimSsmGroup,_d:pimRPConfigGroup,_e:pimSmGroup,_Cy:pimBidirGroup,_f:pimAnycastRpGroup,_g:pimStaticRPPrecedenceGroup,_T:pimNetMgmtNotificationObjects,_U:pimNetMgmtNotificationGroup,_V:pimDiagnosticsGroup,_Cz:pimDmGroup,_W:pimDeviceStorageGroup})

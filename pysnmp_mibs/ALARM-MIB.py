@@ -1,179 +1,453 @@
-#
-# PySNMP MIB module ALARM-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/ALARM-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:04:40 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
-( InetAddressType, InetAddress, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-( ZeroBasedCounter32, ) = mibBuilder.importSymbols("RMON2-MIB", "ZeroBasedCounter32")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, mib_2, Counter32, Opaque, ObjectIdentity, MibIdentifier, iso, zeroDotZero, IpAddress, Integer32, Unsigned32, NotificationType, Gauge32, Bits, ModuleIdentity, Counter64, ) = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "mib-2", "Counter32", "Opaque", "ObjectIdentity", "MibIdentifier", "iso", "zeroDotZero", "IpAddress", "Integer32", "Unsigned32", "NotificationType", "Gauge32", "Bits", "ModuleIdentity", "Counter64")
-( DisplayString, RowPointer, TextualConvention, RowStatus, DateAndTime, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowPointer", "TextualConvention", "RowStatus", "DateAndTime")
-alarmMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 118)).setRevisions(("2004-09-09 00:00",))
-if mibBuilder.loadTexts: alarmMIB.setLastUpdated('200409090000Z')
-if mibBuilder.loadTexts: alarmMIB.setOrganization('IETF Distributed Management Working Group')
-if mibBuilder.loadTexts: alarmMIB.setContactInfo('WG EMail: disman@ietf.org\n           Subscribe: disman-request@ietf.org\n           http://www.ietf.org/html.charters/disman-charter.html\n\n\n\n           Chair:     Randy Presuhn\n                      randy_presuhn@mindspring.com\n\n           Editors:   Sharon Chisholm\n                      Nortel Networks\n                      PO Box 3511 Station C\n                      Ottawa, Ont.  K1Y 4H7\n                      Canada\n                      schishol@nortelnetworks.com\n\n                      Dan Romascanu\n                      Avaya\n                      Atidim Technology Park, Bldg. #3\n                      Tel Aviv, 61131\n                      Israel\n                      Tel: +972-3-645-8414\n                      Email: dromasca@avaya.com')
-if mibBuilder.loadTexts: alarmMIB.setDescription('The MIB module describes a generic solution\n           to model alarms and to store the current list\n           of active alarms.\n\n           Copyright (C) The Internet Society (2004).  The\n           initial version of this MIB module was published\n           in RFC 3877.  For full legal notices see the RFC\n           itself.  Supplementary information may be available on:\n           http://www.ietf.org/copyrights/ianamib.html')
-alarmObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 118, 1))
-alarmNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 118, 0))
-alarmModel = MibIdentifier((1, 3, 6, 1, 2, 1, 118, 1, 1))
-alarmActive = MibIdentifier((1, 3, 6, 1, 2, 1, 118, 1, 2))
-alarmClear = MibIdentifier((1, 3, 6, 1, 2, 1, 118, 1, 3))
-class ResourceId(ObjectIdentifier, TextualConvention):
-    pass
-
-class LocalSnmpEngineOrZeroLenStr(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(5,32),)
-alarmModelLastChanged = MibScalar((1, 3, 6, 1, 2, 1, 118, 1, 1, 1), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmModelLastChanged.setDescription('The value of sysUpTime at the time of the last\n         creation, deletion or modification of an entry in\n         the alarmModelTable.\n\n         If the number and content of entries has been unchanged\n         since the last re-initialization of the local network\n         management subsystem, then the value of this object\n         MUST be zero.')
-alarmModelTable = MibTable((1, 3, 6, 1, 2, 1, 118, 1, 1, 2), )
-if mibBuilder.loadTexts: alarmModelTable.setDescription('A table of information about possible alarms on the system,\n        and how they have been modelled.')
-alarmModelEntry = MibTableRow((1, 3, 6, 1, 2, 1, 118, 1, 1, 2, 1), ).setIndexNames((0, "ALARM-MIB", "alarmListName"), (0, "ALARM-MIB", "alarmModelIndex"), (0, "ALARM-MIB", "alarmModelState"))
-if mibBuilder.loadTexts: alarmModelEntry.setDescription('Entries appear in this table for each possible alarm state.\n       This table MUST be persistent across system reboots.')
-alarmModelIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: alarmModelIndex.setDescription('An integer that acts as an alarm Id\n       to uniquely identify each alarm\n       within the named alarm list. ')
-alarmModelState = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 1, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: alarmModelState.setDescription('A value of 1 MUST indicate a clear alarm state.\n        The value of this object MUST be less than the\n        alarmModelState of more severe alarm states for\n        this alarm.  The value of this object MUST be more\n        than the alarmModelState of less severe alarm states\n        for this alarm.')
-alarmModelNotificationId = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 1, 2, 1, 3), ObjectIdentifier().clone((0, 0))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alarmModelNotificationId.setDescription("The NOTIFICATION-TYPE object identifier of this alarm\n       state transition.  If there is no notification associated\n       with this alarm state, the value of this object MUST be\n       '0.0'")
-alarmModelVarbindIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 1, 2, 1, 4), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alarmModelVarbindIndex.setDescription('The index into the varbind listing of the notification\n     indicated by alarmModelNotificationId which helps\n     signal that the given alarm has changed state.\n     If there is no applicable varbind, the value of this\n     object MUST be zero.\n\n     Note that the value of alarmModelVarbindIndex acknowledges\n     the existence of the first two obligatory varbinds in\n     the InformRequest-PDU and SNMPv2-Trap-PDU (sysUpTime.0\n     and snmpTrapOID.0).  That is, a value of 2 refers to\n     the snmpTrapOID.0.\n\n     If the incoming notification is instead an SNMPv1 Trap-PDU,\n     then an appropriate value for sysUpTime.0 or snmpTrapOID.0\n     shall be determined by using the rules in section 3.1 of\n     [RFC3584]')
-alarmModelVarbindValue = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 1, 2, 1, 5), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alarmModelVarbindValue.setDescription('The value that the varbind indicated by\n     alarmModelVarbindIndex takes to indicate\n     that the alarm has entered this state.\n\n     If alarmModelVarbindIndex has a value of 0, so\n     MUST alarmModelVarbindValue.\n     ')
-alarmModelDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 1, 2, 1, 6), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alarmModelDescription.setDescription('A brief description of this alarm and state suitable\n      to display to operators.')
-alarmModelSpecificPointer = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 1, 2, 1, 7), RowPointer().clone((0, 0))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alarmModelSpecificPointer.setDescription("If no additional, model-specific Alarm MIB is supported by\n      the system the value of this object is `0.0'and attempts\n      to set it to any other value MUST be rejected appropriately.\n\n      When a model-specific Alarm MIB is supported, this object\n      MUST refer to the first accessible object in a corresponding\n      row of the model definition in one of these model-specific\n      MIB and attempts to set this object to { 0 0 } or any other\n      value MUST be rejected appropriately.")
-alarmModelVarbindSubtree = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 1, 2, 1, 8), ObjectIdentifier().clone((0, 0))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alarmModelVarbindSubtree.setDescription("The name portion of each VarBind in the notification,\n        in order, is compared to the value of this object.\n        If the name is equal to or a subtree of the value\n        of this object, for purposes of computing the value\n\n\n\n        of AlarmActiveResourceID the 'prefix' will be the\n        matching portion, and the 'indexes' will be any\n        remainder.  The examination of varbinds ends with\n        the first match.  If the value of this object is 0.0,\n        then the first varbind, or in the case of v2, the\n        first varbind after the timestamp and the trap\n        OID, will always be matched.\n       ")
-alarmModelResourcePrefix = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 1, 2, 1, 9), ObjectIdentifier().clone((0, 0))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alarmModelResourcePrefix.setDescription("The value of AlarmActiveResourceId is computed\n        by appending any indexes extracted in accordance\n        with the description of alarmModelVarbindSubtree\n        onto the value of this object.  If this object's\n        value is 0.0, then the 'prefix' extracted is used\n        instead.\n       ")
-alarmModelRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 1, 2, 1, 10), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alarmModelRowStatus.setDescription("Control for creating and deleting entries.  Entries may be\n    modified while active.  Alarms whose alarmModelRowStatus is\n    not active will not appear in either the alarmActiveTable\n    or the alarmClearTable.  Setting this object to notInService\n    cannot be used as an alarm suppression mechanism.  Entries\n    that are notInService will disappear as described in RFC2579.\n\n    This row can not be modified while it is being\n    referenced by a value of alarmActiveModelPointer.  In these\n    cases, an error of `inconsistentValue' will be returned to\n    the manager.\n\n    This entry may be deleted while it is being\n    referenced by a value of alarmActiveModelPointer.  This results\n    in the deletion of this entry and entries in the active alarms\n    referencing this entry via an alarmActiveModelPointer.\n\n\n\n\n    As all read-create objects in this table have a DEFVAL clause,\n    there is no requirement that any object be explicitly set\n    before this row can become active.  Note that a row consisting\n    only of default values is not very meaningful.")
-alarmActiveLastChanged = MibScalar((1, 3, 6, 1, 2, 1, 118, 1, 2, 1), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveLastChanged.setDescription('The value of sysUpTime at the time of the last\n       creation or deletion of an entry in the alarmActiveTable.\n       If the number of entries has been unchanged since the\n       last re-initialization of the local network management\n       subsystem, then this object contains a zero value.')
-alarmActiveOverflow = MibScalar((1, 3, 6, 1, 2, 1, 118, 1, 2, 5), Counter32()).setUnits('active alarms').setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveOverflow.setDescription('The number of active alarms that have not been put into\n         the alarmActiveTable since system restart as a result\n         of extreme resource constraints.')
-alarmActiveTable = MibTable((1, 3, 6, 1, 2, 1, 118, 1, 2, 2), )
-if mibBuilder.loadTexts: alarmActiveTable.setDescription('A table of Active Alarms entries.')
-alarmActiveEntry = MibTableRow((1, 3, 6, 1, 2, 1, 118, 1, 2, 2, 1), ).setIndexNames((0, "ALARM-MIB", "alarmListName"), (0, "ALARM-MIB", "alarmActiveDateAndTime"), (0, "ALARM-MIB", "alarmActiveIndex"))
-if mibBuilder.loadTexts: alarmActiveEntry.setDescription('Entries appear in this table when alarms are raised.  They\n        are removed when the alarm is cleared.\n\n        If under extreme resource constraint the system is unable to\n\n\n\n        add any more entries into this table, then the\n        alarmActiveOverflow statistic will be increased by one.')
-alarmListName = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 2, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,32)))
-if mibBuilder.loadTexts: alarmListName.setDescription('The name of the list of alarms.  This SHOULD be the same as\n    nlmLogName if the Notification Log MIB [RFC3014] is supported.\n    This SHOULD be the same as, or contain as a prefix, the\n    applicable snmpNotifyFilterProfileName if the\n    SNMP-NOTIFICATION-MIB DEFINITIONS [RFC3413] is supported.\n\n    An implementation may allow multiple named alarm lists, up to\n    some implementation-specific limit (which may be none).  A\n    zero-length list name is reserved for creation and deletion\n    by the managed system, and MUST be used as the default log\n    name by systems that do not support named alarm lists.')
-alarmActiveDateAndTime = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 2, 1, 2), DateAndTime())
-if mibBuilder.loadTexts: alarmActiveDateAndTime.setDescription('The local date and time when the error occurred.\n\n       This object facilitates retrieving all instances of\n\n\n\n       alarms that have been raised or have changed state\n       since a given point in time.\n\n       Implementations MUST include the offset from UTC,\n       if available.  Implementation in environments in which\n       the UTC offset is not available is NOT RECOMMENDED.')
-alarmActiveIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: alarmActiveIndex.setDescription('A strictly monotonically increasing integer which\n       acts as the index of entries within the named alarm\n       list.  It wraps back to 1 after it reaches its\n       maximum value.')
-alarmActiveEngineID = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 2, 1, 4), LocalSnmpEngineOrZeroLenStr()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveEngineID.setDescription('The identification of the SNMP engine at which the alarm\n        originated.  If the alarm is from an SNMPv1 system this\n        object is a zero length string.')
-alarmActiveEngineAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 2, 1, 5), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveEngineAddressType.setDescription('This object indicates what type of address is stored in\n    the alarmActiveEngineAddress object - IPv4, IPv6, DNS, etc.')
-alarmActiveEngineAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 2, 1, 6), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveEngineAddress.setDescription('The address of the SNMP engine on which the alarm is\n    occurring.\n\n    This object MUST always be instantiated, even if the list\n    can contain alarms from only one engine.')
-alarmActiveContextName = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 2, 1, 7), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveContextName.setDescription("The name of the SNMP MIB context from which the alarm came.\n        For SNMPv1 alarms this is the community string from the Trap.\n        Note that care MUST be taken when selecting community\n        strings to ensure that these can be represented as a\n        well-formed SnmpAdminString.  Community or Context names\n        that are not well-formed SnmpAdminStrings will be mapped\n        to zero length strings.\n\n        If the alarm's source SNMP engine is known not to support\n        multiple contexts, this object is a zero length string.")
-alarmActiveVariables = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 2, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveVariables.setDescription('The number of variables in alarmActiveVariableTable for this\n       alarm.')
-alarmActiveNotificationID = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 2, 1, 9), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveNotificationID.setDescription('The NOTIFICATION-TYPE object identifier of the alarm\n       state transition that is occurring.')
-alarmActiveResourceId = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 2, 1, 10), ResourceId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveResourceId.setDescription('This object identifies the resource under alarm.\n\n      If there is no corresponding resource, then\n      the value of this object MUST be 0.0.')
-alarmActiveDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 2, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveDescription.setDescription('This object provides a textual description of the\n      active alarm.  This text is generated dynamically by the\n      notification generator to provide useful information\n      to the human operator.  This information SHOULD\n      provide information allowing the operator to locate\n      the resource for which this alarm is being generated.\n      This information is not intended for consumption by\n      automated tools.')
-alarmActiveLogPointer = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 2, 1, 12), RowPointer()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveLogPointer.setDescription('A pointer to the corresponding row in a\n       notification logging MIB where the state change\n       notification for this active alarm is logged.\n       If no log entry applies to this active alarm,\n       then this object MUST have the value of 0.0')
-alarmActiveModelPointer = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 2, 1, 13), RowPointer()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveModelPointer.setDescription('A pointer to the corresponding row in the\n       alarmModelTable for this active alarm.  This\n       points not only to the alarm model being\n       instantiated, but also to the specific alarm\n       state that is active.')
-alarmActiveSpecificPointer = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 2, 1, 14), RowPointer()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveSpecificPointer.setDescription("If no additional, model-specific, Alarm MIB is supported by\n     the system this object is `0.0'.  When a model-specific Alarm\n     MIB is supported, this object is the instance pointer to the\n     specific model-specific active alarm list.")
-alarmActiveVariableTable = MibTable((1, 3, 6, 1, 2, 1, 118, 1, 2, 3), )
-if mibBuilder.loadTexts: alarmActiveVariableTable.setDescription('A table of variables to go with active alarm entries.')
-alarmActiveVariableEntry = MibTableRow((1, 3, 6, 1, 2, 1, 118, 1, 2, 3, 1), ).setIndexNames((0, "ALARM-MIB", "alarmListName"), (0, "ALARM-MIB", "alarmActiveIndex"), (0, "ALARM-MIB", "alarmActiveVariableIndex"))
-if mibBuilder.loadTexts: alarmActiveVariableEntry.setDescription('Entries appear in this table when there are variables in\n       the varbind list of a corresponding alarm in\n       alarmActiveTable.\n\n       Entries appear in this table as though\n       the trap/notification had been transported using a\n       SNMPv2-Trap-PDU, as defined in [RFC3416] - i.e., the\n       alarmActiveVariableIndex 1 will always be sysUpTime\n       and alarmActiveVariableIndex 2 will always be\n       snmpTrapOID.\n\n       If the incoming notification is instead an SNMPv1 Trap-PDU and\n       the value of alarmModelVarbindIndex is 1 or 2, an appropriate\n       value for sysUpTime.0 or snmpTrapOID.0 shall be determined\n       by using the rules in section 3.1 of [RFC3584].')
-alarmActiveVariableIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: alarmActiveVariableIndex.setDescription('A strictly monotonically increasing integer, starting at\n       1 for a given alarmActiveIndex, for indexing variables\n       within the active alarm variable list. ')
-alarmActiveVariableID = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 3, 1, 2), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveVariableID.setDescription("The alarm variable's object identifier.")
-alarmActiveVariableValueType = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9,))).clone(namedValues=NamedValues(("counter32", 1), ("unsigned32", 2), ("timeTicks", 3), ("integer32", 4), ("ipAddress", 5), ("octetString", 6), ("objectId", 7), ("counter64", 8), ("opaque", 9),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveVariableValueType.setDescription('The type of the value.  One and only one of the value\n       objects that follow is used for a given row in this table,\n       based on this type.')
-alarmActiveVariableCounter32Val = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 3, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveVariableCounter32Val.setDescription("The value when alarmActiveVariableType is 'counter32'.")
-alarmActiveVariableUnsigned32Val = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 3, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveVariableUnsigned32Val.setDescription("The value when alarmActiveVariableType is 'unsigned32'.")
-alarmActiveVariableTimeTicksVal = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 3, 1, 6), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveVariableTimeTicksVal.setDescription("The value when alarmActiveVariableType is 'timeTicks'.")
-alarmActiveVariableInteger32Val = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 3, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveVariableInteger32Val.setDescription("The value when alarmActiveVariableType is 'integer32'.")
-alarmActiveVariableOctetStringVal = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 3, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveVariableOctetStringVal.setDescription("The value when alarmActiveVariableType is 'octetString'.")
-alarmActiveVariableIpAddressVal = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 3, 1, 9), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveVariableIpAddressVal.setDescription("The value when alarmActiveVariableType is 'ipAddress'.")
-alarmActiveVariableOidVal = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 3, 1, 10), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveVariableOidVal.setDescription("The value when alarmActiveVariableType is 'objectId'.")
-alarmActiveVariableCounter64Val = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 3, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveVariableCounter64Val.setDescription("The value when alarmActiveVariableType is 'counter64'.")
-alarmActiveVariableOpaqueVal = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 3, 1, 12), Opaque().subtype(subtypeSpec=ValueSizeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveVariableOpaqueVal.setDescription("The value when alarmActiveVariableType is 'opaque'.\n\n       Note that although RFC2578 [RFC2578] forbids the use\n       of Opaque in 'standard' MIB modules, this particular\n       usage is driven by the need to be able to accurately\n       represent any well-formed notification, and justified\n       by the need for backward compatibility.")
-alarmActiveStatsTable = MibTable((1, 3, 6, 1, 2, 1, 118, 1, 2, 4), )
-if mibBuilder.loadTexts: alarmActiveStatsTable.setDescription('This table represents the alarm statistics\n         information.')
-alarmActiveStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 118, 1, 2, 4, 1), ).setIndexNames((0, "ALARM-MIB", "alarmListName"))
-if mibBuilder.loadTexts: alarmActiveStatsEntry.setDescription('Statistics on the current active alarms.')
-alarmActiveStatsActiveCurrent = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 4, 1, 1), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveStatsActiveCurrent.setDescription('The total number of currently active alarms on the system.')
-alarmActiveStatsActives = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 4, 1, 2), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveStatsActives.setDescription('The total number of active alarms since system restarted.')
-alarmActiveStatsLastRaise = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 4, 1, 3), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveStatsLastRaise.setDescription('The value of sysUpTime at the time of the last\n       alarm raise for this alarm list.\n       If no alarm raises have occurred since the\n       last re-initialization of the local network management\n       subsystem, then this object contains a zero value.')
-alarmActiveStatsLastClear = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 2, 4, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmActiveStatsLastClear.setDescription('The value of sysUpTime at the time of the last\n       alarm clear for this alarm list.\n       If no alarm clears have occurred since the\n       last re-initialization of the local network management\n       subsystem, then this object contains a zero value.')
-alarmClearMaximum = MibScalar((1, 3, 6, 1, 2, 1, 118, 1, 3, 1), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alarmClearMaximum.setDescription('This object specifies the maximum number of cleared\n   alarms to store in the alarmClearTable.  When this\n   number is reached, the cleared alarms with the\n   earliest clear time will be removed from the table.')
-alarmClearTable = MibTable((1, 3, 6, 1, 2, 1, 118, 1, 3, 2), )
-if mibBuilder.loadTexts: alarmClearTable.setDescription('This table contains information on\n         cleared alarms.')
-alarmClearEntry = MibTableRow((1, 3, 6, 1, 2, 1, 118, 1, 3, 2, 1), ).setIndexNames((0, "ALARM-MIB", "alarmListName"), (0, "ALARM-MIB", "alarmClearDateAndTime"), (0, "ALARM-MIB", "alarmClearIndex"))
-if mibBuilder.loadTexts: alarmClearEntry.setDescription('Information on a cleared alarm.')
-alarmClearIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 3, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: alarmClearIndex.setDescription('An integer which acts as the index of entries within\n\n\n\n       the named alarm list.  It wraps back to 1 after it\n       reaches its maximum value.\n\n       This object has the same value as the alarmActiveIndex that\n       this alarm instance had when it was active.')
-alarmClearDateAndTime = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 3, 2, 1, 2), DateAndTime())
-if mibBuilder.loadTexts: alarmClearDateAndTime.setDescription('The local date and time when the alarm cleared.\n\n       This object facilitates retrieving all instances of\n       alarms that have been cleared since a given point in time.\n\n       Implementations MUST include the offset from UTC,\n       if available.  Implementation in environments in which\n       the UTC offset is not available is NOT RECOMMENDED.')
-alarmClearEngineID = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 3, 2, 1, 3), LocalSnmpEngineOrZeroLenStr()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmClearEngineID.setDescription('The identification of the SNMP engine at which the alarm\n        originated.  If the alarm is from an SNMPv1 system this\n        object is a zero length string.')
-alarmClearEngineAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 3, 2, 1, 4), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmClearEngineAddressType.setDescription('This object indicates what type of address is stored in\n    the alarmActiveEngineAddress object - IPv4, IPv6, DNS, etc.')
-alarmClearEngineAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 3, 2, 1, 5), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmClearEngineAddress.setDescription('The Address of the SNMP engine on which the alarm was\n    occurring.  This is used to identify the source of an SNMPv1\n\n\n\n    trap, since an alarmActiveEngineId cannot be extracted from the\n    SNMPv1 trap PDU.\n\n    This object MUST always be instantiated, even if the list\n    can contain alarms from only one engine.')
-alarmClearContextName = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 3, 2, 1, 6), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmClearContextName.setDescription("The name of the SNMP MIB context from which the alarm came.\n       For SNMPv1 traps this is the community string from the Trap.\n       Note that care needs to be taken when selecting community\n       strings to ensure that these can be represented as a\n       well-formed SnmpAdminString.  Community or Context names\n       that are not well-formed SnmpAdminStrings will be mapped\n       to zero length strings.\n\n       If the alarm's source SNMP engine is known not to support\n       multiple contexts, this object is a zero length string.")
-alarmClearNotificationID = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 3, 2, 1, 7), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmClearNotificationID.setDescription('The NOTIFICATION-TYPE object identifier of the alarm\n       clear.')
-alarmClearResourceId = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 3, 2, 1, 8), ResourceId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmClearResourceId.setDescription('This object identifies the resource that was under alarm.\n\n      If there is no corresponding resource, then\n      the value of this object MUST be 0.0.')
-alarmClearLogIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 3, 2, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmClearLogIndex.setDescription('This number MUST be the same as the log index of the\n       applicable row in the notification log MIB, if it exists.\n       If no log index applies to the trap, then this object\n       MUST have the value of 0.')
-alarmClearModelPointer = MibTableColumn((1, 3, 6, 1, 2, 1, 118, 1, 3, 2, 1, 10), RowPointer()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmClearModelPointer.setDescription('A pointer to the corresponding row in the\n       alarmModelTable for this cleared alarm.')
-alarmActiveState = NotificationType((1, 3, 6, 1, 2, 1, 118, 0, 2)).setObjects(*(("ALARM-MIB", "alarmActiveModelPointer"), ("ALARM-MIB", "alarmActiveResourceId"),))
-if mibBuilder.loadTexts: alarmActiveState.setDescription('An instance of the alarm indicated by\n    alarmActiveModelPointer has been raised\n    against the entity indicated by\n    alarmActiveResourceId.\n\n    The agent must throttle the generation of\n    consecutive alarmActiveState traps so that there is at\n    least a two-second gap between traps of this\n    type against the same alarmActiveModelPointer and\n    alarmActiveResourceId.  When traps are throttled,\n    they are dropped, not queued for sending at a future time.\n\n    A management application should periodically check\n    the value of alarmActiveLastChanged to detect any\n    missed alarmActiveState notification-events, e.g.,\n    due to throttling or transmission loss.')
-alarmClearState = NotificationType((1, 3, 6, 1, 2, 1, 118, 0, 3)).setObjects(*(("ALARM-MIB", "alarmActiveModelPointer"), ("ALARM-MIB", "alarmActiveResourceId"),))
-if mibBuilder.loadTexts: alarmClearState.setDescription('An instance of the alarm indicated by\n     alarmActiveModelPointer has been cleared against\n\n\n\n     the entity indicated by alarmActiveResourceId.\n\n    The agent must throttle the generation of\n    consecutive alarmActiveClear traps so that there is at\n    least a two-second gap between traps of this\n    type against the same alarmActiveModelPointer and\n    alarmActiveResourceId.  When traps are throttled,\n    they are dropped, not queued for sending at a future time.\n\n    A management application should periodically check\n    the value of alarmActiveLastChanged to detect any\n    missed alarmClearState notification-events, e.g.,\n    due to throttling or transmission loss.')
-alarmConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 118, 2))
-alarmCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 118, 2, 1))
-alarmCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 118, 2, 1, 1)).setObjects(*(("ALARM-MIB", "alarmActiveGroup"), ("ALARM-MIB", "alarmModelGroup"), ("ALARM-MIB", "alarmActiveStatsGroup"), ("ALARM-MIB", "alarmClearGroup"), ("ALARM-MIB", "alarmNotificationsGroup"),))
-if mibBuilder.loadTexts: alarmCompliance.setDescription('The compliance statement for systems supporting\n          the Alarm MIB.')
-alarmGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 118, 2, 2))
-alarmModelGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 118, 2, 2, 1)).setObjects(*(("ALARM-MIB", "alarmModelLastChanged"), ("ALARM-MIB", "alarmModelNotificationId"), ("ALARM-MIB", "alarmModelVarbindIndex"), ("ALARM-MIB", "alarmModelVarbindValue"), ("ALARM-MIB", "alarmModelDescription"), ("ALARM-MIB", "alarmModelSpecificPointer"), ("ALARM-MIB", "alarmModelVarbindSubtree"), ("ALARM-MIB", "alarmModelResourcePrefix"), ("ALARM-MIB", "alarmModelRowStatus"),))
-if mibBuilder.loadTexts: alarmModelGroup.setDescription('Alarm model group.')
-alarmActiveGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 118, 2, 2, 2)).setObjects(*(("ALARM-MIB", "alarmActiveLastChanged"), ("ALARM-MIB", "alarmActiveOverflow"), ("ALARM-MIB", "alarmActiveEngineID"), ("ALARM-MIB", "alarmActiveEngineAddressType"), ("ALARM-MIB", "alarmActiveEngineAddress"), ("ALARM-MIB", "alarmActiveContextName"), ("ALARM-MIB", "alarmActiveVariables"), ("ALARM-MIB", "alarmActiveNotificationID"), ("ALARM-MIB", "alarmActiveResourceId"), ("ALARM-MIB", "alarmActiveDescription"), ("ALARM-MIB", "alarmActiveLogPointer"), ("ALARM-MIB", "alarmActiveModelPointer"), ("ALARM-MIB", "alarmActiveSpecificPointer"), ("ALARM-MIB", "alarmActiveVariableID"), ("ALARM-MIB", "alarmActiveVariableValueType"), ("ALARM-MIB", "alarmActiveVariableCounter32Val"), ("ALARM-MIB", "alarmActiveVariableUnsigned32Val"), ("ALARM-MIB", "alarmActiveVariableTimeTicksVal"), ("ALARM-MIB", "alarmActiveVariableInteger32Val"), ("ALARM-MIB", "alarmActiveVariableOctetStringVal"), ("ALARM-MIB", "alarmActiveVariableIpAddressVal"), ("ALARM-MIB", "alarmActiveVariableOidVal"), ("ALARM-MIB", "alarmActiveVariableCounter64Val"), ("ALARM-MIB", "alarmActiveVariableOpaqueVal"),))
-if mibBuilder.loadTexts: alarmActiveGroup.setDescription('Active Alarm list group.')
-alarmActiveStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 118, 2, 2, 3)).setObjects(*(("ALARM-MIB", "alarmActiveStatsActives"), ("ALARM-MIB", "alarmActiveStatsActiveCurrent"), ("ALARM-MIB", "alarmActiveStatsLastRaise"), ("ALARM-MIB", "alarmActiveStatsLastClear"),))
-if mibBuilder.loadTexts: alarmActiveStatsGroup.setDescription('Active alarm summary group.')
-alarmClearGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 118, 2, 2, 4)).setObjects(*(("ALARM-MIB", "alarmClearMaximum"), ("ALARM-MIB", "alarmClearEngineID"), ("ALARM-MIB", "alarmClearEngineAddressType"), ("ALARM-MIB", "alarmClearEngineAddress"), ("ALARM-MIB", "alarmClearContextName"), ("ALARM-MIB", "alarmClearNotificationID"), ("ALARM-MIB", "alarmClearResourceId"), ("ALARM-MIB", "alarmClearLogIndex"), ("ALARM-MIB", "alarmClearModelPointer"),))
-if mibBuilder.loadTexts: alarmClearGroup.setDescription('Cleared alarm group.')
-alarmNotificationsGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 118, 2, 2, 6)).setObjects(*(("ALARM-MIB", "alarmActiveState"), ("ALARM-MIB", "alarmClearState"),))
-if mibBuilder.loadTexts: alarmNotificationsGroup.setDescription('The collection of notifications that can be used to\n           model alarms for faults lacking pre-existing\n           notification definitions.')
-mibBuilder.exportSymbols("ALARM-MIB", alarmClearEngineAddress=alarmClearEngineAddress, alarmActiveStatsLastRaise=alarmActiveStatsLastRaise, alarmListName=alarmListName, alarmActiveEngineAddress=alarmActiveEngineAddress, alarmActiveVariableOidVal=alarmActiveVariableOidVal, alarmActiveContextName=alarmActiveContextName, alarmNotifications=alarmNotifications, alarmActiveStatsActiveCurrent=alarmActiveStatsActiveCurrent, alarmActiveStatsActives=alarmActiveStatsActives, alarmActiveVariableTable=alarmActiveVariableTable, alarmModelVarbindValue=alarmModelVarbindValue, alarmCompliances=alarmCompliances, alarmClearGroup=alarmClearGroup, alarmModelVarbindIndex=alarmModelVarbindIndex, alarmModel=alarmModel, alarmModelNotificationId=alarmModelNotificationId, alarmMIB=alarmMIB, alarmActiveSpecificPointer=alarmActiveSpecificPointer, alarmActiveNotificationID=alarmActiveNotificationID, alarmClearEngineID=alarmClearEngineID, alarmClearLogIndex=alarmClearLogIndex, alarmActiveVariableUnsigned32Val=alarmActiveVariableUnsigned32Val, alarmClearModelPointer=alarmClearModelPointer, alarmClearMaximum=alarmClearMaximum, alarmModelGroup=alarmModelGroup, alarmClearTable=alarmClearTable, alarmClearResourceId=alarmClearResourceId, alarmActiveGroup=alarmActiveGroup, alarmActiveVariableCounter64Val=alarmActiveVariableCounter64Val, alarmActiveEngineAddressType=alarmActiveEngineAddressType, alarmActiveDateAndTime=alarmActiveDateAndTime, alarmActiveStatsEntry=alarmActiveStatsEntry, alarmClearEntry=alarmClearEntry, alarmModelLastChanged=alarmModelLastChanged, alarmActiveVariableIpAddressVal=alarmActiveVariableIpAddressVal, alarmActiveTable=alarmActiveTable, alarmClearDateAndTime=alarmClearDateAndTime, alarmModelResourcePrefix=alarmModelResourcePrefix, LocalSnmpEngineOrZeroLenStr=LocalSnmpEngineOrZeroLenStr, alarmConformance=alarmConformance, alarmActiveStatsGroup=alarmActiveStatsGroup, alarmActiveVariableOctetStringVal=alarmActiveVariableOctetStringVal, alarmActiveState=alarmActiveState, alarmClearContextName=alarmClearContextName, alarmActiveVariableOpaqueVal=alarmActiveVariableOpaqueVal, alarmClearState=alarmClearState, alarmCompliance=alarmCompliance, alarmModelRowStatus=alarmModelRowStatus, alarmModelState=alarmModelState, alarmClearEngineAddressType=alarmClearEngineAddressType, alarmActiveResourceId=alarmActiveResourceId, alarmActiveVariableEntry=alarmActiveVariableEntry, alarmModelVarbindSubtree=alarmModelVarbindSubtree, alarmActiveLogPointer=alarmActiveLogPointer, alarmActiveVariables=alarmActiveVariables, alarmActiveEntry=alarmActiveEntry, alarmActiveVariableInteger32Val=alarmActiveVariableInteger32Val, alarmClearNotificationID=alarmClearNotificationID, alarmModelEntry=alarmModelEntry, alarmActiveVariableValueType=alarmActiveVariableValueType, alarmModelDescription=alarmModelDescription, alarmModelTable=alarmModelTable, alarmObjects=alarmObjects, alarmModelSpecificPointer=alarmModelSpecificPointer, alarmModelIndex=alarmModelIndex, alarmActiveIndex=alarmActiveIndex, alarmActiveDescription=alarmActiveDescription, alarmActiveVariableIndex=alarmActiveVariableIndex, PYSNMP_MODULE_ID=alarmMIB, alarmActiveVariableTimeTicksVal=alarmActiveVariableTimeTicksVal, alarmActiveVariableID=alarmActiveVariableID, alarmActiveEngineID=alarmActiveEngineID, alarmActiveOverflow=alarmActiveOverflow, alarmActiveStatsTable=alarmActiveStatsTable, alarmActiveStatsLastClear=alarmActiveStatsLastClear, alarmGroups=alarmGroups, alarmActive=alarmActive, alarmActiveModelPointer=alarmActiveModelPointer, alarmClear=alarmClear, ResourceId=ResourceId, alarmNotificationsGroup=alarmNotificationsGroup, alarmClearIndex=alarmClearIndex, alarmActiveVariableCounter32Val=alarmActiveVariableCounter32Val, alarmActiveLastChanged=alarmActiveLastChanged)
+_AK='alarmNotificationsGroup'
+_AJ='alarmClearGroup'
+_AI='alarmActiveStatsGroup'
+_AH='alarmModelGroup'
+_AG='alarmActiveGroup'
+_AF='alarmClearState'
+_AE='alarmActiveState'
+_AD='alarmClearModelPointer'
+_AC='alarmClearLogIndex'
+_AB='alarmClearResourceId'
+_AA='alarmClearNotificationID'
+_A9='alarmClearContextName'
+_A8='alarmClearEngineAddress'
+_A7='alarmClearEngineAddressType'
+_A6='alarmClearEngineID'
+_A5='alarmClearMaximum'
+_A4='alarmActiveStatsLastClear'
+_A3='alarmActiveStatsLastRaise'
+_A2='alarmActiveStatsActiveCurrent'
+_A1='alarmActiveStatsActives'
+_A0='alarmActiveVariableOpaqueVal'
+_z='alarmActiveVariableCounter64Val'
+_y='alarmActiveVariableOidVal'
+_x='alarmActiveVariableIpAddressVal'
+_w='alarmActiveVariableOctetStringVal'
+_v='alarmActiveVariableInteger32Val'
+_u='alarmActiveVariableTimeTicksVal'
+_t='alarmActiveVariableUnsigned32Val'
+_s='alarmActiveVariableCounter32Val'
+_r='alarmActiveVariableValueType'
+_q='alarmActiveVariableID'
+_p='alarmActiveSpecificPointer'
+_o='alarmActiveLogPointer'
+_n='alarmActiveDescription'
+_m='alarmActiveNotificationID'
+_l='alarmActiveVariables'
+_k='alarmActiveContextName'
+_j='alarmActiveEngineAddress'
+_i='alarmActiveEngineAddressType'
+_h='alarmActiveEngineID'
+_g='alarmActiveOverflow'
+_f='alarmActiveLastChanged'
+_e='alarmModelRowStatus'
+_d='alarmModelResourcePrefix'
+_c='alarmModelVarbindSubtree'
+_b='alarmModelSpecificPointer'
+_a='alarmModelDescription'
+_Z='alarmModelVarbindValue'
+_Y='alarmModelVarbindIndex'
+_X='alarmModelNotificationId'
+_W='alarmModelLastChanged'
+_V='alarmClearIndex'
+_U='alarmClearDateAndTime'
+_T='alarmActiveVariableIndex'
+_S='alarmActiveDateAndTime'
+_R='alarmModelState'
+_Q='alarmModelIndex'
+_P='RowPointer'
+_O='Opaque'
+_N='OctetString'
+_M='alarmActiveIndex'
+_L='Integer32'
+_K='alarmActiveModelPointer'
+_J='alarmActiveResourceId'
+_I='ObjectIdentifier'
+_H='SnmpAdminString'
+_G='alarmListName'
+_F='read-create'
+_E='not-accessible'
+_D='Unsigned32'
+_C='read-only'
+_B='ALARM-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_N,_I)
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
+ZeroBasedCounter32,=mibBuilder.importSymbols('RMON2-MIB','ZeroBasedCounter32')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_H)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,Opaque,TimeTicks,Unsigned32,iso,mib_2,zeroDotZero=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_L,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_O,'TimeTicks',_D,'iso','mib-2','zeroDotZero')
+DateAndTime,DisplayString,PhysAddress,RowPointer,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress',_P,'RowStatus','TextualConvention')
+alarmMIB=ModuleIdentity((1,3,6,1,2,1,118))
+if mibBuilder.loadTexts:alarmMIB.setRevisions(('2004-09-09 00:00',))
+class ResourceId(TextualConvention,ObjectIdentifier):status=_A
+class LocalSnmpEngineOrZeroLenStr(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(5,32))
+_AlarmNotifications_ObjectIdentity=ObjectIdentity
+alarmNotifications=_AlarmNotifications_ObjectIdentity((1,3,6,1,2,1,118,0))
+_AlarmObjects_ObjectIdentity=ObjectIdentity
+alarmObjects=_AlarmObjects_ObjectIdentity((1,3,6,1,2,1,118,1))
+_AlarmModel_ObjectIdentity=ObjectIdentity
+alarmModel=_AlarmModel_ObjectIdentity((1,3,6,1,2,1,118,1,1))
+_AlarmModelLastChanged_Type=TimeTicks
+_AlarmModelLastChanged_Object=MibScalar
+alarmModelLastChanged=_AlarmModelLastChanged_Object((1,3,6,1,2,1,118,1,1,1),_AlarmModelLastChanged_Type())
+alarmModelLastChanged.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmModelLastChanged.setStatus(_A)
+_AlarmModelTable_Object=MibTable
+alarmModelTable=_AlarmModelTable_Object((1,3,6,1,2,1,118,1,1,2))
+if mibBuilder.loadTexts:alarmModelTable.setStatus(_A)
+_AlarmModelEntry_Object=MibTableRow
+alarmModelEntry=_AlarmModelEntry_Object((1,3,6,1,2,1,118,1,1,2,1))
+alarmModelEntry.setIndexNames((0,_B,_G),(0,_B,_Q),(0,_B,_R))
+if mibBuilder.loadTexts:alarmModelEntry.setStatus(_A)
+class _AlarmModelIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_AlarmModelIndex_Type.__name__=_D
+_AlarmModelIndex_Object=MibTableColumn
+alarmModelIndex=_AlarmModelIndex_Object((1,3,6,1,2,1,118,1,1,2,1,1),_AlarmModelIndex_Type())
+alarmModelIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:alarmModelIndex.setStatus(_A)
+class _AlarmModelState_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_AlarmModelState_Type.__name__=_D
+_AlarmModelState_Object=MibTableColumn
+alarmModelState=_AlarmModelState_Object((1,3,6,1,2,1,118,1,1,2,1,2),_AlarmModelState_Type())
+alarmModelState.setMaxAccess(_E)
+if mibBuilder.loadTexts:alarmModelState.setStatus(_A)
+class _AlarmModelNotificationId_Type(ObjectIdentifier):defaultValue=0,0
+_AlarmModelNotificationId_Type.__name__=_I
+_AlarmModelNotificationId_Object=MibTableColumn
+alarmModelNotificationId=_AlarmModelNotificationId_Object((1,3,6,1,2,1,118,1,1,2,1,3),_AlarmModelNotificationId_Type())
+alarmModelNotificationId.setMaxAccess(_F)
+if mibBuilder.loadTexts:alarmModelNotificationId.setStatus(_A)
+class _AlarmModelVarbindIndex_Type(Unsigned32):defaultValue=0
+_AlarmModelVarbindIndex_Type.__name__=_D
+_AlarmModelVarbindIndex_Object=MibTableColumn
+alarmModelVarbindIndex=_AlarmModelVarbindIndex_Object((1,3,6,1,2,1,118,1,1,2,1,4),_AlarmModelVarbindIndex_Type())
+alarmModelVarbindIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:alarmModelVarbindIndex.setStatus(_A)
+class _AlarmModelVarbindValue_Type(Integer32):defaultValue=0
+_AlarmModelVarbindValue_Type.__name__=_L
+_AlarmModelVarbindValue_Object=MibTableColumn
+alarmModelVarbindValue=_AlarmModelVarbindValue_Object((1,3,6,1,2,1,118,1,1,2,1,5),_AlarmModelVarbindValue_Type())
+alarmModelVarbindValue.setMaxAccess(_F)
+if mibBuilder.loadTexts:alarmModelVarbindValue.setStatus(_A)
+class _AlarmModelDescription_Type(SnmpAdminString):defaultValue=OctetString('')
+_AlarmModelDescription_Type.__name__=_H
+_AlarmModelDescription_Object=MibTableColumn
+alarmModelDescription=_AlarmModelDescription_Object((1,3,6,1,2,1,118,1,1,2,1,6),_AlarmModelDescription_Type())
+alarmModelDescription.setMaxAccess(_F)
+if mibBuilder.loadTexts:alarmModelDescription.setStatus(_A)
+class _AlarmModelSpecificPointer_Type(RowPointer):defaultValue=0,0
+_AlarmModelSpecificPointer_Type.__name__=_P
+_AlarmModelSpecificPointer_Object=MibTableColumn
+alarmModelSpecificPointer=_AlarmModelSpecificPointer_Object((1,3,6,1,2,1,118,1,1,2,1,7),_AlarmModelSpecificPointer_Type())
+alarmModelSpecificPointer.setMaxAccess(_F)
+if mibBuilder.loadTexts:alarmModelSpecificPointer.setStatus(_A)
+class _AlarmModelVarbindSubtree_Type(ObjectIdentifier):defaultValue=0,0
+_AlarmModelVarbindSubtree_Type.__name__=_I
+_AlarmModelVarbindSubtree_Object=MibTableColumn
+alarmModelVarbindSubtree=_AlarmModelVarbindSubtree_Object((1,3,6,1,2,1,118,1,1,2,1,8),_AlarmModelVarbindSubtree_Type())
+alarmModelVarbindSubtree.setMaxAccess(_F)
+if mibBuilder.loadTexts:alarmModelVarbindSubtree.setStatus(_A)
+class _AlarmModelResourcePrefix_Type(ObjectIdentifier):defaultValue=0,0
+_AlarmModelResourcePrefix_Type.__name__=_I
+_AlarmModelResourcePrefix_Object=MibTableColumn
+alarmModelResourcePrefix=_AlarmModelResourcePrefix_Object((1,3,6,1,2,1,118,1,1,2,1,9),_AlarmModelResourcePrefix_Type())
+alarmModelResourcePrefix.setMaxAccess(_F)
+if mibBuilder.loadTexts:alarmModelResourcePrefix.setStatus(_A)
+_AlarmModelRowStatus_Type=RowStatus
+_AlarmModelRowStatus_Object=MibTableColumn
+alarmModelRowStatus=_AlarmModelRowStatus_Object((1,3,6,1,2,1,118,1,1,2,1,10),_AlarmModelRowStatus_Type())
+alarmModelRowStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:alarmModelRowStatus.setStatus(_A)
+_AlarmActive_ObjectIdentity=ObjectIdentity
+alarmActive=_AlarmActive_ObjectIdentity((1,3,6,1,2,1,118,1,2))
+_AlarmActiveLastChanged_Type=TimeTicks
+_AlarmActiveLastChanged_Object=MibScalar
+alarmActiveLastChanged=_AlarmActiveLastChanged_Object((1,3,6,1,2,1,118,1,2,1),_AlarmActiveLastChanged_Type())
+alarmActiveLastChanged.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveLastChanged.setStatus(_A)
+_AlarmActiveTable_Object=MibTable
+alarmActiveTable=_AlarmActiveTable_Object((1,3,6,1,2,1,118,1,2,2))
+if mibBuilder.loadTexts:alarmActiveTable.setStatus(_A)
+_AlarmActiveEntry_Object=MibTableRow
+alarmActiveEntry=_AlarmActiveEntry_Object((1,3,6,1,2,1,118,1,2,2,1))
+alarmActiveEntry.setIndexNames((0,_B,_G),(0,_B,_S),(0,_B,_M))
+if mibBuilder.loadTexts:alarmActiveEntry.setStatus(_A)
+class _AlarmListName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_AlarmListName_Type.__name__=_H
+_AlarmListName_Object=MibTableColumn
+alarmListName=_AlarmListName_Object((1,3,6,1,2,1,118,1,2,2,1,1),_AlarmListName_Type())
+alarmListName.setMaxAccess(_E)
+if mibBuilder.loadTexts:alarmListName.setStatus(_A)
+_AlarmActiveDateAndTime_Type=DateAndTime
+_AlarmActiveDateAndTime_Object=MibTableColumn
+alarmActiveDateAndTime=_AlarmActiveDateAndTime_Object((1,3,6,1,2,1,118,1,2,2,1,2),_AlarmActiveDateAndTime_Type())
+alarmActiveDateAndTime.setMaxAccess(_E)
+if mibBuilder.loadTexts:alarmActiveDateAndTime.setStatus(_A)
+class _AlarmActiveIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_AlarmActiveIndex_Type.__name__=_D
+_AlarmActiveIndex_Object=MibTableColumn
+alarmActiveIndex=_AlarmActiveIndex_Object((1,3,6,1,2,1,118,1,2,2,1,3),_AlarmActiveIndex_Type())
+alarmActiveIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:alarmActiveIndex.setStatus(_A)
+_AlarmActiveEngineID_Type=LocalSnmpEngineOrZeroLenStr
+_AlarmActiveEngineID_Object=MibTableColumn
+alarmActiveEngineID=_AlarmActiveEngineID_Object((1,3,6,1,2,1,118,1,2,2,1,4),_AlarmActiveEngineID_Type())
+alarmActiveEngineID.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveEngineID.setStatus(_A)
+_AlarmActiveEngineAddressType_Type=InetAddressType
+_AlarmActiveEngineAddressType_Object=MibTableColumn
+alarmActiveEngineAddressType=_AlarmActiveEngineAddressType_Object((1,3,6,1,2,1,118,1,2,2,1,5),_AlarmActiveEngineAddressType_Type())
+alarmActiveEngineAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveEngineAddressType.setStatus(_A)
+_AlarmActiveEngineAddress_Type=InetAddress
+_AlarmActiveEngineAddress_Object=MibTableColumn
+alarmActiveEngineAddress=_AlarmActiveEngineAddress_Object((1,3,6,1,2,1,118,1,2,2,1,6),_AlarmActiveEngineAddress_Type())
+alarmActiveEngineAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveEngineAddress.setStatus(_A)
+class _AlarmActiveContextName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_AlarmActiveContextName_Type.__name__=_H
+_AlarmActiveContextName_Object=MibTableColumn
+alarmActiveContextName=_AlarmActiveContextName_Object((1,3,6,1,2,1,118,1,2,2,1,7),_AlarmActiveContextName_Type())
+alarmActiveContextName.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveContextName.setStatus(_A)
+_AlarmActiveVariables_Type=Unsigned32
+_AlarmActiveVariables_Object=MibTableColumn
+alarmActiveVariables=_AlarmActiveVariables_Object((1,3,6,1,2,1,118,1,2,2,1,8),_AlarmActiveVariables_Type())
+alarmActiveVariables.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveVariables.setStatus(_A)
+_AlarmActiveNotificationID_Type=ObjectIdentifier
+_AlarmActiveNotificationID_Object=MibTableColumn
+alarmActiveNotificationID=_AlarmActiveNotificationID_Object((1,3,6,1,2,1,118,1,2,2,1,9),_AlarmActiveNotificationID_Type())
+alarmActiveNotificationID.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveNotificationID.setStatus(_A)
+_AlarmActiveResourceId_Type=ResourceId
+_AlarmActiveResourceId_Object=MibTableColumn
+alarmActiveResourceId=_AlarmActiveResourceId_Object((1,3,6,1,2,1,118,1,2,2,1,10),_AlarmActiveResourceId_Type())
+alarmActiveResourceId.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveResourceId.setStatus(_A)
+_AlarmActiveDescription_Type=SnmpAdminString
+_AlarmActiveDescription_Object=MibTableColumn
+alarmActiveDescription=_AlarmActiveDescription_Object((1,3,6,1,2,1,118,1,2,2,1,11),_AlarmActiveDescription_Type())
+alarmActiveDescription.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveDescription.setStatus(_A)
+_AlarmActiveLogPointer_Type=RowPointer
+_AlarmActiveLogPointer_Object=MibTableColumn
+alarmActiveLogPointer=_AlarmActiveLogPointer_Object((1,3,6,1,2,1,118,1,2,2,1,12),_AlarmActiveLogPointer_Type())
+alarmActiveLogPointer.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveLogPointer.setStatus(_A)
+_AlarmActiveModelPointer_Type=RowPointer
+_AlarmActiveModelPointer_Object=MibTableColumn
+alarmActiveModelPointer=_AlarmActiveModelPointer_Object((1,3,6,1,2,1,118,1,2,2,1,13),_AlarmActiveModelPointer_Type())
+alarmActiveModelPointer.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveModelPointer.setStatus(_A)
+_AlarmActiveSpecificPointer_Type=RowPointer
+_AlarmActiveSpecificPointer_Object=MibTableColumn
+alarmActiveSpecificPointer=_AlarmActiveSpecificPointer_Object((1,3,6,1,2,1,118,1,2,2,1,14),_AlarmActiveSpecificPointer_Type())
+alarmActiveSpecificPointer.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveSpecificPointer.setStatus(_A)
+_AlarmActiveVariableTable_Object=MibTable
+alarmActiveVariableTable=_AlarmActiveVariableTable_Object((1,3,6,1,2,1,118,1,2,3))
+if mibBuilder.loadTexts:alarmActiveVariableTable.setStatus(_A)
+_AlarmActiveVariableEntry_Object=MibTableRow
+alarmActiveVariableEntry=_AlarmActiveVariableEntry_Object((1,3,6,1,2,1,118,1,2,3,1))
+alarmActiveVariableEntry.setIndexNames((0,_B,_G),(0,_B,_M),(0,_B,_T))
+if mibBuilder.loadTexts:alarmActiveVariableEntry.setStatus(_A)
+class _AlarmActiveVariableIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_AlarmActiveVariableIndex_Type.__name__=_D
+_AlarmActiveVariableIndex_Object=MibTableColumn
+alarmActiveVariableIndex=_AlarmActiveVariableIndex_Object((1,3,6,1,2,1,118,1,2,3,1,1),_AlarmActiveVariableIndex_Type())
+alarmActiveVariableIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:alarmActiveVariableIndex.setStatus(_A)
+_AlarmActiveVariableID_Type=ObjectIdentifier
+_AlarmActiveVariableID_Object=MibTableColumn
+alarmActiveVariableID=_AlarmActiveVariableID_Object((1,3,6,1,2,1,118,1,2,3,1,2),_AlarmActiveVariableID_Type())
+alarmActiveVariableID.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveVariableID.setStatus(_A)
+class _AlarmActiveVariableValueType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('counter32',1),('unsigned32',2),('timeTicks',3),('integer32',4),('ipAddress',5),('octetString',6),('objectId',7),('counter64',8),('opaque',9)))
+_AlarmActiveVariableValueType_Type.__name__=_L
+_AlarmActiveVariableValueType_Object=MibTableColumn
+alarmActiveVariableValueType=_AlarmActiveVariableValueType_Object((1,3,6,1,2,1,118,1,2,3,1,3),_AlarmActiveVariableValueType_Type())
+alarmActiveVariableValueType.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveVariableValueType.setStatus(_A)
+_AlarmActiveVariableCounter32Val_Type=Counter32
+_AlarmActiveVariableCounter32Val_Object=MibTableColumn
+alarmActiveVariableCounter32Val=_AlarmActiveVariableCounter32Val_Object((1,3,6,1,2,1,118,1,2,3,1,4),_AlarmActiveVariableCounter32Val_Type())
+alarmActiveVariableCounter32Val.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveVariableCounter32Val.setStatus(_A)
+_AlarmActiveVariableUnsigned32Val_Type=Unsigned32
+_AlarmActiveVariableUnsigned32Val_Object=MibTableColumn
+alarmActiveVariableUnsigned32Val=_AlarmActiveVariableUnsigned32Val_Object((1,3,6,1,2,1,118,1,2,3,1,5),_AlarmActiveVariableUnsigned32Val_Type())
+alarmActiveVariableUnsigned32Val.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveVariableUnsigned32Val.setStatus(_A)
+_AlarmActiveVariableTimeTicksVal_Type=TimeTicks
+_AlarmActiveVariableTimeTicksVal_Object=MibTableColumn
+alarmActiveVariableTimeTicksVal=_AlarmActiveVariableTimeTicksVal_Object((1,3,6,1,2,1,118,1,2,3,1,6),_AlarmActiveVariableTimeTicksVal_Type())
+alarmActiveVariableTimeTicksVal.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveVariableTimeTicksVal.setStatus(_A)
+_AlarmActiveVariableInteger32Val_Type=Integer32
+_AlarmActiveVariableInteger32Val_Object=MibTableColumn
+alarmActiveVariableInteger32Val=_AlarmActiveVariableInteger32Val_Object((1,3,6,1,2,1,118,1,2,3,1,7),_AlarmActiveVariableInteger32Val_Type())
+alarmActiveVariableInteger32Val.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveVariableInteger32Val.setStatus(_A)
+class _AlarmActiveVariableOctetStringVal_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,65535))
+_AlarmActiveVariableOctetStringVal_Type.__name__=_N
+_AlarmActiveVariableOctetStringVal_Object=MibTableColumn
+alarmActiveVariableOctetStringVal=_AlarmActiveVariableOctetStringVal_Object((1,3,6,1,2,1,118,1,2,3,1,8),_AlarmActiveVariableOctetStringVal_Type())
+alarmActiveVariableOctetStringVal.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveVariableOctetStringVal.setStatus(_A)
+_AlarmActiveVariableIpAddressVal_Type=IpAddress
+_AlarmActiveVariableIpAddressVal_Object=MibTableColumn
+alarmActiveVariableIpAddressVal=_AlarmActiveVariableIpAddressVal_Object((1,3,6,1,2,1,118,1,2,3,1,9),_AlarmActiveVariableIpAddressVal_Type())
+alarmActiveVariableIpAddressVal.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveVariableIpAddressVal.setStatus(_A)
+_AlarmActiveVariableOidVal_Type=ObjectIdentifier
+_AlarmActiveVariableOidVal_Object=MibTableColumn
+alarmActiveVariableOidVal=_AlarmActiveVariableOidVal_Object((1,3,6,1,2,1,118,1,2,3,1,10),_AlarmActiveVariableOidVal_Type())
+alarmActiveVariableOidVal.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveVariableOidVal.setStatus(_A)
+_AlarmActiveVariableCounter64Val_Type=Counter64
+_AlarmActiveVariableCounter64Val_Object=MibTableColumn
+alarmActiveVariableCounter64Val=_AlarmActiveVariableCounter64Val_Object((1,3,6,1,2,1,118,1,2,3,1,11),_AlarmActiveVariableCounter64Val_Type())
+alarmActiveVariableCounter64Val.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveVariableCounter64Val.setStatus(_A)
+class _AlarmActiveVariableOpaqueVal_Type(Opaque):subtypeSpec=Opaque.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,65535))
+_AlarmActiveVariableOpaqueVal_Type.__name__=_O
+_AlarmActiveVariableOpaqueVal_Object=MibTableColumn
+alarmActiveVariableOpaqueVal=_AlarmActiveVariableOpaqueVal_Object((1,3,6,1,2,1,118,1,2,3,1,12),_AlarmActiveVariableOpaqueVal_Type())
+alarmActiveVariableOpaqueVal.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveVariableOpaqueVal.setStatus(_A)
+_AlarmActiveStatsTable_Object=MibTable
+alarmActiveStatsTable=_AlarmActiveStatsTable_Object((1,3,6,1,2,1,118,1,2,4))
+if mibBuilder.loadTexts:alarmActiveStatsTable.setStatus(_A)
+_AlarmActiveStatsEntry_Object=MibTableRow
+alarmActiveStatsEntry=_AlarmActiveStatsEntry_Object((1,3,6,1,2,1,118,1,2,4,1))
+alarmActiveStatsEntry.setIndexNames((0,_B,_G))
+if mibBuilder.loadTexts:alarmActiveStatsEntry.setStatus(_A)
+_AlarmActiveStatsActiveCurrent_Type=Gauge32
+_AlarmActiveStatsActiveCurrent_Object=MibTableColumn
+alarmActiveStatsActiveCurrent=_AlarmActiveStatsActiveCurrent_Object((1,3,6,1,2,1,118,1,2,4,1,1),_AlarmActiveStatsActiveCurrent_Type())
+alarmActiveStatsActiveCurrent.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveStatsActiveCurrent.setStatus(_A)
+_AlarmActiveStatsActives_Type=ZeroBasedCounter32
+_AlarmActiveStatsActives_Object=MibTableColumn
+alarmActiveStatsActives=_AlarmActiveStatsActives_Object((1,3,6,1,2,1,118,1,2,4,1,2),_AlarmActiveStatsActives_Type())
+alarmActiveStatsActives.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveStatsActives.setStatus(_A)
+_AlarmActiveStatsLastRaise_Type=TimeTicks
+_AlarmActiveStatsLastRaise_Object=MibTableColumn
+alarmActiveStatsLastRaise=_AlarmActiveStatsLastRaise_Object((1,3,6,1,2,1,118,1,2,4,1,3),_AlarmActiveStatsLastRaise_Type())
+alarmActiveStatsLastRaise.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveStatsLastRaise.setStatus(_A)
+_AlarmActiveStatsLastClear_Type=TimeTicks
+_AlarmActiveStatsLastClear_Object=MibTableColumn
+alarmActiveStatsLastClear=_AlarmActiveStatsLastClear_Object((1,3,6,1,2,1,118,1,2,4,1,4),_AlarmActiveStatsLastClear_Type())
+alarmActiveStatsLastClear.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveStatsLastClear.setStatus(_A)
+_AlarmActiveOverflow_Type=Counter32
+_AlarmActiveOverflow_Object=MibScalar
+alarmActiveOverflow=_AlarmActiveOverflow_Object((1,3,6,1,2,1,118,1,2,5),_AlarmActiveOverflow_Type())
+alarmActiveOverflow.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmActiveOverflow.setStatus(_A)
+if mibBuilder.loadTexts:alarmActiveOverflow.setUnits('active alarms')
+_AlarmClear_ObjectIdentity=ObjectIdentity
+alarmClear=_AlarmClear_ObjectIdentity((1,3,6,1,2,1,118,1,3))
+_AlarmClearMaximum_Type=Unsigned32
+_AlarmClearMaximum_Object=MibScalar
+alarmClearMaximum=_AlarmClearMaximum_Object((1,3,6,1,2,1,118,1,3,1),_AlarmClearMaximum_Type())
+alarmClearMaximum.setMaxAccess('read-write')
+if mibBuilder.loadTexts:alarmClearMaximum.setStatus(_A)
+_AlarmClearTable_Object=MibTable
+alarmClearTable=_AlarmClearTable_Object((1,3,6,1,2,1,118,1,3,2))
+if mibBuilder.loadTexts:alarmClearTable.setStatus(_A)
+_AlarmClearEntry_Object=MibTableRow
+alarmClearEntry=_AlarmClearEntry_Object((1,3,6,1,2,1,118,1,3,2,1))
+alarmClearEntry.setIndexNames((0,_B,_G),(0,_B,_U),(0,_B,_V))
+if mibBuilder.loadTexts:alarmClearEntry.setStatus(_A)
+class _AlarmClearIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_AlarmClearIndex_Type.__name__=_D
+_AlarmClearIndex_Object=MibTableColumn
+alarmClearIndex=_AlarmClearIndex_Object((1,3,6,1,2,1,118,1,3,2,1,1),_AlarmClearIndex_Type())
+alarmClearIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:alarmClearIndex.setStatus(_A)
+_AlarmClearDateAndTime_Type=DateAndTime
+_AlarmClearDateAndTime_Object=MibTableColumn
+alarmClearDateAndTime=_AlarmClearDateAndTime_Object((1,3,6,1,2,1,118,1,3,2,1,2),_AlarmClearDateAndTime_Type())
+alarmClearDateAndTime.setMaxAccess(_E)
+if mibBuilder.loadTexts:alarmClearDateAndTime.setStatus(_A)
+_AlarmClearEngineID_Type=LocalSnmpEngineOrZeroLenStr
+_AlarmClearEngineID_Object=MibTableColumn
+alarmClearEngineID=_AlarmClearEngineID_Object((1,3,6,1,2,1,118,1,3,2,1,3),_AlarmClearEngineID_Type())
+alarmClearEngineID.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmClearEngineID.setStatus(_A)
+_AlarmClearEngineAddressType_Type=InetAddressType
+_AlarmClearEngineAddressType_Object=MibTableColumn
+alarmClearEngineAddressType=_AlarmClearEngineAddressType_Object((1,3,6,1,2,1,118,1,3,2,1,4),_AlarmClearEngineAddressType_Type())
+alarmClearEngineAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmClearEngineAddressType.setStatus(_A)
+_AlarmClearEngineAddress_Type=InetAddress
+_AlarmClearEngineAddress_Object=MibTableColumn
+alarmClearEngineAddress=_AlarmClearEngineAddress_Object((1,3,6,1,2,1,118,1,3,2,1,5),_AlarmClearEngineAddress_Type())
+alarmClearEngineAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmClearEngineAddress.setStatus(_A)
+class _AlarmClearContextName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_AlarmClearContextName_Type.__name__=_H
+_AlarmClearContextName_Object=MibTableColumn
+alarmClearContextName=_AlarmClearContextName_Object((1,3,6,1,2,1,118,1,3,2,1,6),_AlarmClearContextName_Type())
+alarmClearContextName.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmClearContextName.setStatus(_A)
+_AlarmClearNotificationID_Type=ObjectIdentifier
+_AlarmClearNotificationID_Object=MibTableColumn
+alarmClearNotificationID=_AlarmClearNotificationID_Object((1,3,6,1,2,1,118,1,3,2,1,7),_AlarmClearNotificationID_Type())
+alarmClearNotificationID.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmClearNotificationID.setStatus(_A)
+_AlarmClearResourceId_Type=ResourceId
+_AlarmClearResourceId_Object=MibTableColumn
+alarmClearResourceId=_AlarmClearResourceId_Object((1,3,6,1,2,1,118,1,3,2,1,8),_AlarmClearResourceId_Type())
+alarmClearResourceId.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmClearResourceId.setStatus(_A)
+class _AlarmClearLogIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_AlarmClearLogIndex_Type.__name__=_D
+_AlarmClearLogIndex_Object=MibTableColumn
+alarmClearLogIndex=_AlarmClearLogIndex_Object((1,3,6,1,2,1,118,1,3,2,1,9),_AlarmClearLogIndex_Type())
+alarmClearLogIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmClearLogIndex.setStatus(_A)
+_AlarmClearModelPointer_Type=RowPointer
+_AlarmClearModelPointer_Object=MibTableColumn
+alarmClearModelPointer=_AlarmClearModelPointer_Object((1,3,6,1,2,1,118,1,3,2,1,10),_AlarmClearModelPointer_Type())
+alarmClearModelPointer.setMaxAccess(_C)
+if mibBuilder.loadTexts:alarmClearModelPointer.setStatus(_A)
+_AlarmConformance_ObjectIdentity=ObjectIdentity
+alarmConformance=_AlarmConformance_ObjectIdentity((1,3,6,1,2,1,118,2))
+_AlarmCompliances_ObjectIdentity=ObjectIdentity
+alarmCompliances=_AlarmCompliances_ObjectIdentity((1,3,6,1,2,1,118,2,1))
+_AlarmGroups_ObjectIdentity=ObjectIdentity
+alarmGroups=_AlarmGroups_ObjectIdentity((1,3,6,1,2,1,118,2,2))
+alarmModelGroup=ObjectGroup((1,3,6,1,2,1,118,2,2,1))
+alarmModelGroup.setObjects(*((_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e)))
+if mibBuilder.loadTexts:alarmModelGroup.setStatus(_A)
+alarmActiveGroup=ObjectGroup((1,3,6,1,2,1,118,2,2,2))
+alarmActiveGroup.setObjects(*((_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_J),(_B,_n),(_B,_o),(_B,_K),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0)))
+if mibBuilder.loadTexts:alarmActiveGroup.setStatus(_A)
+alarmActiveStatsGroup=ObjectGroup((1,3,6,1,2,1,118,2,2,3))
+alarmActiveStatsGroup.setObjects(*((_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4)))
+if mibBuilder.loadTexts:alarmActiveStatsGroup.setStatus(_A)
+alarmClearGroup=ObjectGroup((1,3,6,1,2,1,118,2,2,4))
+alarmClearGroup.setObjects(*((_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD)))
+if mibBuilder.loadTexts:alarmClearGroup.setStatus(_A)
+alarmActiveState=NotificationType((1,3,6,1,2,1,118,0,2))
+alarmActiveState.setObjects(*((_B,_K),(_B,_J)))
+if mibBuilder.loadTexts:alarmActiveState.setStatus(_A)
+alarmClearState=NotificationType((1,3,6,1,2,1,118,0,3))
+alarmClearState.setObjects(*((_B,_K),(_B,_J)))
+if mibBuilder.loadTexts:alarmClearState.setStatus(_A)
+alarmNotificationsGroup=NotificationGroup((1,3,6,1,2,1,118,2,2,6))
+alarmNotificationsGroup.setObjects(*((_B,_AE),(_B,_AF)))
+if mibBuilder.loadTexts:alarmNotificationsGroup.setStatus(_A)
+alarmCompliance=ModuleCompliance((1,3,6,1,2,1,118,2,1,1))
+alarmCompliance.setObjects(*((_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK)))
+if mibBuilder.loadTexts:alarmCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'ResourceId':ResourceId,'LocalSnmpEngineOrZeroLenStr':LocalSnmpEngineOrZeroLenStr,'alarmMIB':alarmMIB,'alarmNotifications':alarmNotifications,_AE:alarmActiveState,_AF:alarmClearState,'alarmObjects':alarmObjects,'alarmModel':alarmModel,_W:alarmModelLastChanged,'alarmModelTable':alarmModelTable,'alarmModelEntry':alarmModelEntry,_Q:alarmModelIndex,_R:alarmModelState,_X:alarmModelNotificationId,_Y:alarmModelVarbindIndex,_Z:alarmModelVarbindValue,_a:alarmModelDescription,_b:alarmModelSpecificPointer,_c:alarmModelVarbindSubtree,_d:alarmModelResourcePrefix,_e:alarmModelRowStatus,'alarmActive':alarmActive,_f:alarmActiveLastChanged,'alarmActiveTable':alarmActiveTable,'alarmActiveEntry':alarmActiveEntry,_G:alarmListName,_S:alarmActiveDateAndTime,_M:alarmActiveIndex,_h:alarmActiveEngineID,_i:alarmActiveEngineAddressType,_j:alarmActiveEngineAddress,_k:alarmActiveContextName,_l:alarmActiveVariables,_m:alarmActiveNotificationID,_J:alarmActiveResourceId,_n:alarmActiveDescription,_o:alarmActiveLogPointer,_K:alarmActiveModelPointer,_p:alarmActiveSpecificPointer,'alarmActiveVariableTable':alarmActiveVariableTable,'alarmActiveVariableEntry':alarmActiveVariableEntry,_T:alarmActiveVariableIndex,_q:alarmActiveVariableID,_r:alarmActiveVariableValueType,_s:alarmActiveVariableCounter32Val,_t:alarmActiveVariableUnsigned32Val,_u:alarmActiveVariableTimeTicksVal,_v:alarmActiveVariableInteger32Val,_w:alarmActiveVariableOctetStringVal,_x:alarmActiveVariableIpAddressVal,_y:alarmActiveVariableOidVal,_z:alarmActiveVariableCounter64Val,_A0:alarmActiveVariableOpaqueVal,'alarmActiveStatsTable':alarmActiveStatsTable,'alarmActiveStatsEntry':alarmActiveStatsEntry,_A2:alarmActiveStatsActiveCurrent,_A1:alarmActiveStatsActives,_A3:alarmActiveStatsLastRaise,_A4:alarmActiveStatsLastClear,_g:alarmActiveOverflow,'alarmClear':alarmClear,_A5:alarmClearMaximum,'alarmClearTable':alarmClearTable,'alarmClearEntry':alarmClearEntry,_V:alarmClearIndex,_U:alarmClearDateAndTime,_A6:alarmClearEngineID,_A7:alarmClearEngineAddressType,_A8:alarmClearEngineAddress,_A9:alarmClearContextName,_AA:alarmClearNotificationID,_AB:alarmClearResourceId,_AC:alarmClearLogIndex,_AD:alarmClearModelPointer,'alarmConformance':alarmConformance,'alarmCompliances':alarmCompliances,'alarmCompliance':alarmCompliance,'alarmGroups':alarmGroups,_AH:alarmModelGroup,_AG:alarmActiveGroup,_AI:alarmActiveStatsGroup,_AJ:alarmClearGroup,_AK:alarmNotificationsGroup})

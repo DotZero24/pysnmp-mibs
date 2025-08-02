@@ -1,109 +1,222 @@
-#
-# PySNMP MIB module NETWORK-SERVICES-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/NETWORK-SERVICES-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:07:50 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( NotificationGroup, ObjectGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-( TimeTicks, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Integer32, NotificationType, ModuleIdentity, Counter32, mib_2, IpAddress, ObjectIdentity, Counter64, MibIdentifier, iso, Unsigned32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Integer32", "NotificationType", "ModuleIdentity", "Counter32", "mib-2", "IpAddress", "ObjectIdentity", "Counter64", "MibIdentifier", "iso", "Unsigned32")
-( TextualConvention, DisplayString, TimeStamp, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TimeStamp")
-application = ModuleIdentity((1, 3, 6, 1, 2, 1, 27)).setRevisions(("2000-03-03 00:00", "1999-05-12 00:00", "1997-08-17 00:00", "1993-11-28 00:00",))
-if mibBuilder.loadTexts: application.setLastUpdated('200003030000Z')
-if mibBuilder.loadTexts: application.setOrganization('IETF Mail and Directory Management Working Group')
-if mibBuilder.loadTexts: application.setContactInfo('        Ned Freed\n\n          Postal: Innosoft International, Inc.\n                  1050 Lakes Drive\n                  West Covina, CA 91790\n                  US\n\n             Tel: +1 626 919 3600\n             Fax: +1 626 919 3614\n\n          E-Mail: ned.freed@innosoft.com')
-if mibBuilder.loadTexts: application.setDescription('The MIB module describing network service applications')
-class DistinguishedName(OctetString, TextualConvention):
-    displayHint = '255a'
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,255)
-
-class URLString(OctetString, TextualConvention):
-    displayHint = '255a'
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,255)
-
-applTable = MibTable((1, 3, 6, 1, 2, 1, 27, 1), )
-if mibBuilder.loadTexts: applTable.setDescription('The table holding objects which apply to all different\n            kinds of applications providing network services.\n            Each network service application capable of being\n            monitored should have a single entry in this table.')
-applEntry = MibTableRow((1, 3, 6, 1, 2, 1, 27, 1, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"))
-if mibBuilder.loadTexts: applEntry.setDescription('An entry associated with a single network service\n          application.')
-applIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: applIndex.setDescription('An index to uniquely identify the network service\n          application. This attribute is the index used for\n          lexicographic ordering of the table.')
-applName = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applName.setDescription('The name the network service application chooses to be\n          known by.')
-applDirectoryName = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 1, 1, 3), DistinguishedName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applDirectoryName.setDescription('The Distinguished Name of the directory entry where\n          static information about this application is stored.\n          An empty string indicates that no information about\n          the application is available in the directory.')
-applVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applVersion.setDescription('The version of network service application software.\n          This field is usually defined by the vendor of the\n          network service application software.')
-applUptime = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 1, 1, 5), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applUptime.setDescription('The value of sysUpTime at the time the network service\n          application was last initialized.  If the application was\n          last initialized prior to the last initialization of the\n          network management subsystem, then this object contains\n          a zero value.')
-applOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("halted", 3), ("congested", 4), ("restarting", 5), ("quiescing", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOperStatus.setDescription("Indicates the operational status of the network service\n          application. 'down' indicates that the network service is\n          not available. 'up' indicates that the network service\n          is operational and available.  'halted' indicates that the\n          service is operational but not available.  'congested'\n          indicates that the service is operational but no additional\n          inbound associations can be accommodated.  'restarting'\n          indicates that the service is currently unavailable but is\n          in the process of restarting and will be available soon.\n          'quiescing' indicates that service is currently operational\n          but is in the process of shutting down. Additional inbound\n          associations may be rejected by applications in the\n          'quiescing' state.")
-applLastChange = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 1, 1, 7), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applLastChange.setDescription('The value of sysUpTime at the time the network service\n          application entered its current operational state.  If\n          the current state was entered prior to the last\n          initialization of the local network management subsystem,\n          then this object contains a zero value.')
-applInboundAssociations = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 1, 1, 8), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applInboundAssociations.setDescription('The number of current associations to the network service\n          application, where it is the responder.  An inbound\n          association occurs when another application successfully\n          connects to this one.')
-applOutboundAssociations = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 1, 1, 9), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOutboundAssociations.setDescription('The number of current associations to the network service\n          application, where it is the initiator.  An outbound\n          association occurs when this application successfully\n          connects to another one.')
-applAccumulatedInboundAssociations = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 1, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applAccumulatedInboundAssociations.setDescription('The total number of associations to the application entity\n          since application initialization, where it was the responder.')
-applAccumulatedOutboundAssociations = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applAccumulatedOutboundAssociations.setDescription('The total number of associations to the application entity\n          since application initialization, where it was the initiator.')
-applLastInboundActivity = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 1, 1, 12), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applLastInboundActivity.setDescription('The value of sysUpTime at the time this application last\n          had an inbound association.  If the last association\n          occurred prior to the last initialization of the network\n          subsystem, then this object contains a zero value.')
-applLastOutboundActivity = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 1, 1, 13), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applLastOutboundActivity.setDescription('The value of sysUpTime at the time this application last\n          had an outbound association.  If the last association\n          occurred prior to the last initialization of the network\n          subsystem, then this object contains a zero value.')
-applRejectedInboundAssociations = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 1, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applRejectedInboundAssociations.setDescription('The total number of inbound associations the application\n          entity has rejected, since application initialization.\n          Rejected associations are not counted in the accumulated\n          association totals.  Note that this only counts\n          associations the application entity has rejected itself;\n          it does not count rejections that occur at lower layers\n          of the network.  Thus, this counter may not reflect the\n          true number of failed inbound associations.')
-applFailedOutboundAssociations = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 1, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applFailedOutboundAssociations.setDescription('The total number associations where the application entity\n          is initiator and association establishment has failed,\n          since application initialization.  Failed associations are\n          not counted in the accumulated association totals.')
-applDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 1, 1, 16), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applDescription.setDescription('A text description of the application.  This information\n          is intended to identify and briefly describe the\n          application in a status display.')
-applURL = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 1, 1, 17), URLString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applURL.setDescription('A URL pointing to a description of the application.\n          This information is intended to identify and describe\n          the application in a status display.')
-assocTable = MibTable((1, 3, 6, 1, 2, 1, 27, 2), )
-if mibBuilder.loadTexts: assocTable.setDescription('The table holding a set of all active application\n            associations.')
-assocEntry = MibTableRow((1, 3, 6, 1, 2, 1, 27, 2, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"), (0, "NETWORK-SERVICES-MIB", "assocIndex"))
-if mibBuilder.loadTexts: assocEntry.setDescription('An entry associated with an association for a network\n          service application.')
-assocIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: assocIndex.setDescription('An index to uniquely identify each association for a network\n          service application.  This attribute is the index that is\n          used for lexicographic ordering of the table.  Note that the\n          table is also indexed by the applIndex.')
-assocRemoteApplication = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 2, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: assocRemoteApplication.setDescription("The name of the system running remote network service\n          application.  For an IP-based application this should be\n          either a domain name or IP address.  For an OSI application\n          it should be the string encoded distinguished name of the\n          managed object.  For X.400(1984) MTAs which do not have a\n          Distinguished Name, the RFC 2156 syntax 'mta in\n          globalid' used in X400-Received: fields can be used. Note,\n          however, that not all connections an MTA makes are\n          necessarily to another MTA.")
-assocApplicationProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 2, 1, 3), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: assocApplicationProtocol.setDescription("An identification of the protocol being used for the\n          application.  For an OSI Application, this will be the\n          Application Context.  For Internet applications, OID\n          values of the form {applTCPProtoID port} or {applUDPProtoID\n          port} are used for TCP-based and UDP-based protocols,\n          respectively. In either case 'port' corresponds to the\n          primary port number being used by the protocol. The\n          usual IANA procedures may be used to register ports for\n          new protocols.")
-assocApplicationType = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("uainitiator", 1), ("uaresponder", 2), ("peerinitiator", 3), ("peerresponder", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: assocApplicationType.setDescription('This indicates whether the remote application is some type of\n          client making use of this network service (e.g., a Mail User\n          Agent) or a server acting as a peer. Also indicated is whether\n          the remote end initiated an incoming connection to the network\n          service or responded to an outgoing connection made by the\n          local application.  MTAs and messaging gateways are\n          considered to be peers for the purposes of this variable.')
-assocDuration = MibTableColumn((1, 3, 6, 1, 2, 1, 27, 2, 1, 5), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: assocDuration.setDescription('The value of sysUpTime at the time this association was\n          started.  If this association started prior to the last\n          initialization of the network subsystem, then this\n          object contains a zero value.')
-applConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 27, 3))
-applGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 27, 3, 1))
-applCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 27, 3, 2))
-applCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 27, 3, 2, 1)).setObjects(*(("NETWORK-SERVICES-MIB", "applRFC1565Group"),))
-if mibBuilder.loadTexts: applCompliance.setDescription('The compliance statement for RFC 1565 implementations\n          which support the Network Services Monitoring MIB\n          for basic monitoring of network service applications.\n          This is the basic compliance statement for RFC 1565.')
-assocCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 27, 3, 2, 2)).setObjects(*(("NETWORK-SERVICES-MIB", "applRFC1565Group"), ("NETWORK-SERVICES-MIB", "assocRFC1565Group"),))
-if mibBuilder.loadTexts: assocCompliance.setDescription('The compliance statement for RFC 1565 implementations\n          which support the Network Services Monitoring MIB\n          for basic monitoring of network service applications\n          and their associations.')
-applRFC2248Compliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 27, 3, 2, 3)).setObjects(*(("NETWORK-SERVICES-MIB", "applRFC2248Group"),))
-if mibBuilder.loadTexts: applRFC2248Compliance.setDescription('The compliance statement for RFC 2248 implementations\n          which support the Network Services Monitoring MIB\n          for basic monitoring of network service applications.')
-assocRFC2248Compliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 27, 3, 2, 4)).setObjects(*(("NETWORK-SERVICES-MIB", "applRFC2248Group"), ("NETWORK-SERVICES-MIB", "assocRFC2248Group"),))
-if mibBuilder.loadTexts: assocRFC2248Compliance.setDescription('The compliance statement for RFC 2248 implementations\n          which support the Network Services Monitoring MIB for\n          basic monitoring of network service applications and\n          their associations.')
-applRFC2788Compliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 27, 3, 2, 5)).setObjects(*(("NETWORK-SERVICES-MIB", "applRFC2788Group"),))
-if mibBuilder.loadTexts: applRFC2788Compliance.setDescription('The compliance statement for RFC 2788 implementations\n          which support the Network Services Monitoring MIB\n          for basic monitoring of network service applications.')
-assocRFC2788Compliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 27, 3, 2, 6)).setObjects(*(("NETWORK-SERVICES-MIB", "applRFC2788Group"), ("NETWORK-SERVICES-MIB", "assocRFC2788Group"),))
-if mibBuilder.loadTexts: assocRFC2788Compliance.setDescription('The compliance statement for RFC 2788 implementations\n          which support the Network Services Monitoring MIB for\n          basic monitoring of network service applications and\n          their associations.')
-applRFC1565Group = ObjectGroup((1, 3, 6, 1, 2, 1, 27, 3, 1, 7)).setObjects(*(("NETWORK-SERVICES-MIB", "applName"), ("NETWORK-SERVICES-MIB", "applVersion"), ("NETWORK-SERVICES-MIB", "applUptime"), ("NETWORK-SERVICES-MIB", "applOperStatus"), ("NETWORK-SERVICES-MIB", "applLastChange"), ("NETWORK-SERVICES-MIB", "applInboundAssociations"), ("NETWORK-SERVICES-MIB", "applOutboundAssociations"), ("NETWORK-SERVICES-MIB", "applAccumulatedInboundAssociations"), ("NETWORK-SERVICES-MIB", "applAccumulatedOutboundAssociations"), ("NETWORK-SERVICES-MIB", "applLastInboundActivity"), ("NETWORK-SERVICES-MIB", "applLastOutboundActivity"), ("NETWORK-SERVICES-MIB", "applRejectedInboundAssociations"), ("NETWORK-SERVICES-MIB", "applFailedOutboundAssociations"),))
-if mibBuilder.loadTexts: applRFC1565Group.setDescription('A collection of objects providing basic monitoring of\n          network service applications.  This is the original set\n          of such objects defined in RFC 1565.')
-assocRFC1565Group = ObjectGroup((1, 3, 6, 1, 2, 1, 27, 3, 1, 2)).setObjects(*(("NETWORK-SERVICES-MIB", "assocRemoteApplication"), ("NETWORK-SERVICES-MIB", "assocApplicationProtocol"), ("NETWORK-SERVICES-MIB", "assocApplicationType"), ("NETWORK-SERVICES-MIB", "assocDuration"),))
-if mibBuilder.loadTexts: assocRFC1565Group.setDescription("A collection of objects providing basic monitoring of\n          network service applications' associations.  This is the\n          original set of such objects defined in RFC 1565.")
-applRFC2248Group = ObjectGroup((1, 3, 6, 1, 2, 1, 27, 3, 1, 3)).setObjects(*(("NETWORK-SERVICES-MIB", "applName"), ("NETWORK-SERVICES-MIB", "applVersion"), ("NETWORK-SERVICES-MIB", "applUptime"), ("NETWORK-SERVICES-MIB", "applOperStatus"), ("NETWORK-SERVICES-MIB", "applLastChange"), ("NETWORK-SERVICES-MIB", "applInboundAssociations"), ("NETWORK-SERVICES-MIB", "applOutboundAssociations"), ("NETWORK-SERVICES-MIB", "applAccumulatedInboundAssociations"), ("NETWORK-SERVICES-MIB", "applAccumulatedOutboundAssociations"), ("NETWORK-SERVICES-MIB", "applLastInboundActivity"), ("NETWORK-SERVICES-MIB", "applLastOutboundActivity"), ("NETWORK-SERVICES-MIB", "applRejectedInboundAssociations"), ("NETWORK-SERVICES-MIB", "applFailedOutboundAssociations"), ("NETWORK-SERVICES-MIB", "applDescription"), ("NETWORK-SERVICES-MIB", "applURL"),))
-if mibBuilder.loadTexts: applRFC2248Group.setDescription('A collection of objects providing basic monitoring of\n          network service applications.  This group was originally\n          defined in RFC 2248; note that applDirectoryName is\n          missing.')
-assocRFC2248Group = ObjectGroup((1, 3, 6, 1, 2, 1, 27, 3, 1, 4)).setObjects(*(("NETWORK-SERVICES-MIB", "assocRemoteApplication"), ("NETWORK-SERVICES-MIB", "assocApplicationProtocol"), ("NETWORK-SERVICES-MIB", "assocApplicationType"), ("NETWORK-SERVICES-MIB", "assocDuration"),))
-if mibBuilder.loadTexts: assocRFC2248Group.setDescription("A collection of objects providing basic monitoring of\n          network service applications' associations.  This group\n          was originally defined by RFC 2248.")
-applRFC2788Group = ObjectGroup((1, 3, 6, 1, 2, 1, 27, 3, 1, 5)).setObjects(*(("NETWORK-SERVICES-MIB", "applName"), ("NETWORK-SERVICES-MIB", "applDirectoryName"), ("NETWORK-SERVICES-MIB", "applVersion"), ("NETWORK-SERVICES-MIB", "applUptime"), ("NETWORK-SERVICES-MIB", "applOperStatus"), ("NETWORK-SERVICES-MIB", "applLastChange"), ("NETWORK-SERVICES-MIB", "applInboundAssociations"), ("NETWORK-SERVICES-MIB", "applOutboundAssociations"), ("NETWORK-SERVICES-MIB", "applAccumulatedInboundAssociations"), ("NETWORK-SERVICES-MIB", "applAccumulatedOutboundAssociations"), ("NETWORK-SERVICES-MIB", "applLastInboundActivity"), ("NETWORK-SERVICES-MIB", "applLastOutboundActivity"), ("NETWORK-SERVICES-MIB", "applRejectedInboundAssociations"), ("NETWORK-SERVICES-MIB", "applFailedOutboundAssociations"), ("NETWORK-SERVICES-MIB", "applDescription"), ("NETWORK-SERVICES-MIB", "applURL"),))
-if mibBuilder.loadTexts: applRFC2788Group.setDescription('A collection of objects providing basic monitoring of\n          network service applications.  This is the appropriate\n          group for RFC 2788 -- it adds the applDirectoryName object\n          missing in RFC 2248.')
-assocRFC2788Group = ObjectGroup((1, 3, 6, 1, 2, 1, 27, 3, 1, 6)).setObjects(*(("NETWORK-SERVICES-MIB", "assocRemoteApplication"), ("NETWORK-SERVICES-MIB", "assocApplicationProtocol"), ("NETWORK-SERVICES-MIB", "assocApplicationType"), ("NETWORK-SERVICES-MIB", "assocDuration"),))
-if mibBuilder.loadTexts: assocRFC2788Group.setDescription("A collection of objects providing basic monitoring of\n          network service applications' associations.  This is\n          the appropriate group for RFC 2788.")
-applTCPProtoID = MibIdentifier((1, 3, 6, 1, 2, 1, 27, 4))
-applUDPProtoID = MibIdentifier((1, 3, 6, 1, 2, 1, 27, 5))
-mibBuilder.exportSymbols("NETWORK-SERVICES-MIB", applFailedOutboundAssociations=applFailedOutboundAssociations, assocRFC2788Compliance=assocRFC2788Compliance, applName=applName, assocDuration=assocDuration, applRFC1565Group=applRFC1565Group, applIndex=applIndex, applUptime=applUptime, PYSNMP_MODULE_ID=application, applRFC2248Compliance=applRFC2248Compliance, applLastChange=applLastChange, assocApplicationType=assocApplicationType, applConformance=applConformance, applRejectedInboundAssociations=applRejectedInboundAssociations, applOperStatus=applOperStatus, applRFC2788Compliance=applRFC2788Compliance, applRFC2248Group=applRFC2248Group, applAccumulatedInboundAssociations=applAccumulatedInboundAssociations, assocEntry=assocEntry, applAccumulatedOutboundAssociations=applAccumulatedOutboundAssociations, assocRFC2248Compliance=assocRFC2248Compliance, assocRFC2248Group=assocRFC2248Group, applTable=applTable, assocRFC1565Group=assocRFC1565Group, applUDPProtoID=applUDPProtoID, applEntry=applEntry, applVersion=applVersion, applInboundAssociations=applInboundAssociations, applOutboundAssociations=applOutboundAssociations, assocIndex=assocIndex, applCompliance=applCompliance, applDirectoryName=applDirectoryName, applLastInboundActivity=applLastInboundActivity, assocTable=assocTable, assocCompliance=assocCompliance, applTCPProtoID=applTCPProtoID, assocApplicationProtocol=assocApplicationProtocol, applURL=applURL, DistinguishedName=DistinguishedName, applGroups=applGroups, assocRemoteApplication=assocRemoteApplication, application=application, URLString=URLString, applLastOutboundActivity=applLastOutboundActivity, applCompliances=applCompliances, applRFC2788Group=applRFC2788Group, assocRFC2788Group=assocRFC2788Group, applDescription=applDescription)
+_i='assocRFC2788Group'
+_h='assocRFC2248Group'
+_g='assocRFC1565Group'
+_f='applDirectoryName'
+_e='assocIndex'
+_d='not-accessible'
+_c='applRFC2788Group'
+_b='applRFC2248Group'
+_a='applRFC1565Group'
+_Z='applURL'
+_Y='applDescription'
+_X='applIndex'
+_W='deprecated'
+_V='applFailedOutboundAssociations'
+_U='applRejectedInboundAssociations'
+_T='applLastOutboundActivity'
+_S='applLastInboundActivity'
+_R='applAccumulatedOutboundAssociations'
+_Q='applAccumulatedInboundAssociations'
+_P='applOutboundAssociations'
+_O='applInboundAssociations'
+_N='applLastChange'
+_M='applOperStatus'
+_L='applUptime'
+_K='applVersion'
+_J='applName'
+_I='obsolete'
+_H='assocDuration'
+_G='assocApplicationType'
+_F='assocApplicationProtocol'
+_E='assocRemoteApplication'
+_D='Integer32'
+_C='read-only'
+_B='current'
+_A='NETWORK-SERVICES-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp')
+application=ModuleIdentity((1,3,6,1,2,1,27))
+if mibBuilder.loadTexts:application.setRevisions(('2000-03-03 00:00','1999-05-12 00:00','1997-08-17 00:00','1993-11-28 00:00'))
+class DistinguishedName(TextualConvention,OctetString):status=_B;displayHint='255a';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+class URLString(TextualConvention,OctetString):status=_B;displayHint='255a';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_ApplTable_Object=MibTable
+applTable=_ApplTable_Object((1,3,6,1,2,1,27,1))
+if mibBuilder.loadTexts:applTable.setStatus(_B)
+_ApplEntry_Object=MibTableRow
+applEntry=_ApplEntry_Object((1,3,6,1,2,1,27,1,1))
+applEntry.setIndexNames((0,_A,_X))
+if mibBuilder.loadTexts:applEntry.setStatus(_B)
+class _ApplIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_ApplIndex_Type.__name__=_D
+_ApplIndex_Object=MibTableColumn
+applIndex=_ApplIndex_Object((1,3,6,1,2,1,27,1,1,1),_ApplIndex_Type())
+applIndex.setMaxAccess(_d)
+if mibBuilder.loadTexts:applIndex.setStatus(_B)
+_ApplName_Type=SnmpAdminString
+_ApplName_Object=MibTableColumn
+applName=_ApplName_Object((1,3,6,1,2,1,27,1,1,2),_ApplName_Type())
+applName.setMaxAccess(_C)
+if mibBuilder.loadTexts:applName.setStatus(_B)
+_ApplDirectoryName_Type=DistinguishedName
+_ApplDirectoryName_Object=MibTableColumn
+applDirectoryName=_ApplDirectoryName_Object((1,3,6,1,2,1,27,1,1,3),_ApplDirectoryName_Type())
+applDirectoryName.setMaxAccess(_C)
+if mibBuilder.loadTexts:applDirectoryName.setStatus(_B)
+_ApplVersion_Type=SnmpAdminString
+_ApplVersion_Object=MibTableColumn
+applVersion=_ApplVersion_Object((1,3,6,1,2,1,27,1,1,4),_ApplVersion_Type())
+applVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:applVersion.setStatus(_B)
+_ApplUptime_Type=TimeStamp
+_ApplUptime_Object=MibTableColumn
+applUptime=_ApplUptime_Object((1,3,6,1,2,1,27,1,1,5),_ApplUptime_Type())
+applUptime.setMaxAccess(_C)
+if mibBuilder.loadTexts:applUptime.setStatus(_B)
+class _ApplOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('up',1),('down',2),('halted',3),('congested',4),('restarting',5),('quiescing',6)))
+_ApplOperStatus_Type.__name__=_D
+_ApplOperStatus_Object=MibTableColumn
+applOperStatus=_ApplOperStatus_Object((1,3,6,1,2,1,27,1,1,6),_ApplOperStatus_Type())
+applOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOperStatus.setStatus(_B)
+_ApplLastChange_Type=TimeStamp
+_ApplLastChange_Object=MibTableColumn
+applLastChange=_ApplLastChange_Object((1,3,6,1,2,1,27,1,1,7),_ApplLastChange_Type())
+applLastChange.setMaxAccess(_C)
+if mibBuilder.loadTexts:applLastChange.setStatus(_B)
+_ApplInboundAssociations_Type=Gauge32
+_ApplInboundAssociations_Object=MibTableColumn
+applInboundAssociations=_ApplInboundAssociations_Object((1,3,6,1,2,1,27,1,1,8),_ApplInboundAssociations_Type())
+applInboundAssociations.setMaxAccess(_C)
+if mibBuilder.loadTexts:applInboundAssociations.setStatus(_B)
+_ApplOutboundAssociations_Type=Gauge32
+_ApplOutboundAssociations_Object=MibTableColumn
+applOutboundAssociations=_ApplOutboundAssociations_Object((1,3,6,1,2,1,27,1,1,9),_ApplOutboundAssociations_Type())
+applOutboundAssociations.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOutboundAssociations.setStatus(_B)
+_ApplAccumulatedInboundAssociations_Type=Counter32
+_ApplAccumulatedInboundAssociations_Object=MibTableColumn
+applAccumulatedInboundAssociations=_ApplAccumulatedInboundAssociations_Object((1,3,6,1,2,1,27,1,1,10),_ApplAccumulatedInboundAssociations_Type())
+applAccumulatedInboundAssociations.setMaxAccess(_C)
+if mibBuilder.loadTexts:applAccumulatedInboundAssociations.setStatus(_B)
+_ApplAccumulatedOutboundAssociations_Type=Counter32
+_ApplAccumulatedOutboundAssociations_Object=MibTableColumn
+applAccumulatedOutboundAssociations=_ApplAccumulatedOutboundAssociations_Object((1,3,6,1,2,1,27,1,1,11),_ApplAccumulatedOutboundAssociations_Type())
+applAccumulatedOutboundAssociations.setMaxAccess(_C)
+if mibBuilder.loadTexts:applAccumulatedOutboundAssociations.setStatus(_B)
+_ApplLastInboundActivity_Type=TimeStamp
+_ApplLastInboundActivity_Object=MibTableColumn
+applLastInboundActivity=_ApplLastInboundActivity_Object((1,3,6,1,2,1,27,1,1,12),_ApplLastInboundActivity_Type())
+applLastInboundActivity.setMaxAccess(_C)
+if mibBuilder.loadTexts:applLastInboundActivity.setStatus(_B)
+_ApplLastOutboundActivity_Type=TimeStamp
+_ApplLastOutboundActivity_Object=MibTableColumn
+applLastOutboundActivity=_ApplLastOutboundActivity_Object((1,3,6,1,2,1,27,1,1,13),_ApplLastOutboundActivity_Type())
+applLastOutboundActivity.setMaxAccess(_C)
+if mibBuilder.loadTexts:applLastOutboundActivity.setStatus(_B)
+_ApplRejectedInboundAssociations_Type=Counter32
+_ApplRejectedInboundAssociations_Object=MibTableColumn
+applRejectedInboundAssociations=_ApplRejectedInboundAssociations_Object((1,3,6,1,2,1,27,1,1,14),_ApplRejectedInboundAssociations_Type())
+applRejectedInboundAssociations.setMaxAccess(_C)
+if mibBuilder.loadTexts:applRejectedInboundAssociations.setStatus(_B)
+_ApplFailedOutboundAssociations_Type=Counter32
+_ApplFailedOutboundAssociations_Object=MibTableColumn
+applFailedOutboundAssociations=_ApplFailedOutboundAssociations_Object((1,3,6,1,2,1,27,1,1,15),_ApplFailedOutboundAssociations_Type())
+applFailedOutboundAssociations.setMaxAccess(_C)
+if mibBuilder.loadTexts:applFailedOutboundAssociations.setStatus(_B)
+_ApplDescription_Type=SnmpAdminString
+_ApplDescription_Object=MibTableColumn
+applDescription=_ApplDescription_Object((1,3,6,1,2,1,27,1,1,16),_ApplDescription_Type())
+applDescription.setMaxAccess(_C)
+if mibBuilder.loadTexts:applDescription.setStatus(_B)
+_ApplURL_Type=URLString
+_ApplURL_Object=MibTableColumn
+applURL=_ApplURL_Object((1,3,6,1,2,1,27,1,1,17),_ApplURL_Type())
+applURL.setMaxAccess(_C)
+if mibBuilder.loadTexts:applURL.setStatus(_B)
+_AssocTable_Object=MibTable
+assocTable=_AssocTable_Object((1,3,6,1,2,1,27,2))
+if mibBuilder.loadTexts:assocTable.setStatus(_B)
+_AssocEntry_Object=MibTableRow
+assocEntry=_AssocEntry_Object((1,3,6,1,2,1,27,2,1))
+assocEntry.setIndexNames((0,_A,_X),(0,_A,_e))
+if mibBuilder.loadTexts:assocEntry.setStatus(_B)
+class _AssocIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_AssocIndex_Type.__name__=_D
+_AssocIndex_Object=MibTableColumn
+assocIndex=_AssocIndex_Object((1,3,6,1,2,1,27,2,1,1),_AssocIndex_Type())
+assocIndex.setMaxAccess(_d)
+if mibBuilder.loadTexts:assocIndex.setStatus(_B)
+_AssocRemoteApplication_Type=SnmpAdminString
+_AssocRemoteApplication_Object=MibTableColumn
+assocRemoteApplication=_AssocRemoteApplication_Object((1,3,6,1,2,1,27,2,1,2),_AssocRemoteApplication_Type())
+assocRemoteApplication.setMaxAccess(_C)
+if mibBuilder.loadTexts:assocRemoteApplication.setStatus(_B)
+_AssocApplicationProtocol_Type=ObjectIdentifier
+_AssocApplicationProtocol_Object=MibTableColumn
+assocApplicationProtocol=_AssocApplicationProtocol_Object((1,3,6,1,2,1,27,2,1,3),_AssocApplicationProtocol_Type())
+assocApplicationProtocol.setMaxAccess(_C)
+if mibBuilder.loadTexts:assocApplicationProtocol.setStatus(_B)
+class _AssocApplicationType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('uainitiator',1),('uaresponder',2),('peerinitiator',3),('peerresponder',4)))
+_AssocApplicationType_Type.__name__=_D
+_AssocApplicationType_Object=MibTableColumn
+assocApplicationType=_AssocApplicationType_Object((1,3,6,1,2,1,27,2,1,4),_AssocApplicationType_Type())
+assocApplicationType.setMaxAccess(_C)
+if mibBuilder.loadTexts:assocApplicationType.setStatus(_B)
+_AssocDuration_Type=TimeStamp
+_AssocDuration_Object=MibTableColumn
+assocDuration=_AssocDuration_Object((1,3,6,1,2,1,27,2,1,5),_AssocDuration_Type())
+assocDuration.setMaxAccess(_C)
+if mibBuilder.loadTexts:assocDuration.setStatus(_B)
+_ApplConformance_ObjectIdentity=ObjectIdentity
+applConformance=_ApplConformance_ObjectIdentity((1,3,6,1,2,1,27,3))
+_ApplGroups_ObjectIdentity=ObjectIdentity
+applGroups=_ApplGroups_ObjectIdentity((1,3,6,1,2,1,27,3,1))
+_ApplCompliances_ObjectIdentity=ObjectIdentity
+applCompliances=_ApplCompliances_ObjectIdentity((1,3,6,1,2,1,27,3,2))
+_ApplTCPProtoID_ObjectIdentity=ObjectIdentity
+applTCPProtoID=_ApplTCPProtoID_ObjectIdentity((1,3,6,1,2,1,27,4))
+_ApplUDPProtoID_ObjectIdentity=ObjectIdentity
+applUDPProtoID=_ApplUDPProtoID_ObjectIdentity((1,3,6,1,2,1,27,5))
+assocRFC1565Group=ObjectGroup((1,3,6,1,2,1,27,3,1,2))
+assocRFC1565Group.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H)))
+if mibBuilder.loadTexts:assocRFC1565Group.setStatus(_I)
+applRFC2248Group=ObjectGroup((1,3,6,1,2,1,27,3,1,3))
+applRFC2248Group.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_Y),(_A,_Z)))
+if mibBuilder.loadTexts:applRFC2248Group.setStatus(_W)
+assocRFC2248Group=ObjectGroup((1,3,6,1,2,1,27,3,1,4))
+assocRFC2248Group.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H)))
+if mibBuilder.loadTexts:assocRFC2248Group.setStatus(_W)
+applRFC2788Group=ObjectGroup((1,3,6,1,2,1,27,3,1,5))
+applRFC2788Group.setObjects(*((_A,_J),(_A,_f),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_Y),(_A,_Z)))
+if mibBuilder.loadTexts:applRFC2788Group.setStatus(_B)
+assocRFC2788Group=ObjectGroup((1,3,6,1,2,1,27,3,1,6))
+assocRFC2788Group.setObjects(*((_A,_E),(_A,_F),(_A,_G),(_A,_H)))
+if mibBuilder.loadTexts:assocRFC2788Group.setStatus(_B)
+applRFC1565Group=ObjectGroup((1,3,6,1,2,1,27,3,1,7))
+applRFC1565Group.setObjects(*((_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V)))
+if mibBuilder.loadTexts:applRFC1565Group.setStatus(_I)
+applCompliance=ModuleCompliance((1,3,6,1,2,1,27,3,2,1))
+applCompliance.setObjects((_A,_a))
+if mibBuilder.loadTexts:applCompliance.setStatus(_I)
+assocCompliance=ModuleCompliance((1,3,6,1,2,1,27,3,2,2))
+assocCompliance.setObjects(*((_A,_a),(_A,_g)))
+if mibBuilder.loadTexts:assocCompliance.setStatus(_I)
+applRFC2248Compliance=ModuleCompliance((1,3,6,1,2,1,27,3,2,3))
+applRFC2248Compliance.setObjects((_A,_b))
+if mibBuilder.loadTexts:applRFC2248Compliance.setStatus(_W)
+assocRFC2248Compliance=ModuleCompliance((1,3,6,1,2,1,27,3,2,4))
+assocRFC2248Compliance.setObjects(*((_A,_b),(_A,_h)))
+if mibBuilder.loadTexts:assocRFC2248Compliance.setStatus(_W)
+applRFC2788Compliance=ModuleCompliance((1,3,6,1,2,1,27,3,2,5))
+applRFC2788Compliance.setObjects((_A,_c))
+if mibBuilder.loadTexts:applRFC2788Compliance.setStatus(_B)
+assocRFC2788Compliance=ModuleCompliance((1,3,6,1,2,1,27,3,2,6))
+assocRFC2788Compliance.setObjects(*((_A,_c),(_A,_i)))
+if mibBuilder.loadTexts:assocRFC2788Compliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'DistinguishedName':DistinguishedName,'URLString':URLString,'application':application,'applTable':applTable,'applEntry':applEntry,_X:applIndex,_J:applName,_f:applDirectoryName,_K:applVersion,_L:applUptime,_M:applOperStatus,_N:applLastChange,_O:applInboundAssociations,_P:applOutboundAssociations,_Q:applAccumulatedInboundAssociations,_R:applAccumulatedOutboundAssociations,_S:applLastInboundActivity,_T:applLastOutboundActivity,_U:applRejectedInboundAssociations,_V:applFailedOutboundAssociations,_Y:applDescription,_Z:applURL,'assocTable':assocTable,'assocEntry':assocEntry,_e:assocIndex,_E:assocRemoteApplication,_F:assocApplicationProtocol,_G:assocApplicationType,_H:assocDuration,'applConformance':applConformance,'applGroups':applGroups,_g:assocRFC1565Group,_b:applRFC2248Group,_h:assocRFC2248Group,_c:applRFC2788Group,_i:assocRFC2788Group,_a:applRFC1565Group,'applCompliances':applCompliances,'applCompliance':applCompliance,'assocCompliance':assocCompliance,'applRFC2248Compliance':applRFC2248Compliance,'assocRFC2248Compliance':assocRFC2248Compliance,'applRFC2788Compliance':applRFC2788Compliance,'assocRFC2788Compliance':assocRFC2788Compliance,'applTCPProtoID':applTCPProtoID,'applUDPProtoID':applUDPProtoID})

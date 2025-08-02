@@ -1,41 +1,62 @@
-#
-# PySNMP MIB module IF-CAP-STACK-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/IF-CAP-STACK-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:16:17 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, ObjectIdentifier, OctetString, ) = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-( ifInvStackGroup, ) = mibBuilder.importSymbols("IF-INVERTED-STACK-MIB", "ifInvStackGroup")
-( ifStackGroup2, ifStackHigherLayer, ifStackLowerLayer, ) = mibBuilder.importSymbols("IF-MIB", "ifStackGroup2", "ifStackHigherLayer", "ifStackLowerLayer")
-( ModuleCompliance, NotificationGroup, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-( Counter32, NotificationType, TimeTicks, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Gauge32, MibIdentifier, Unsigned32, Counter64, ObjectIdentity, mib_2, Integer32, iso, Bits, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "NotificationType", "TimeTicks", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Gauge32", "MibIdentifier", "Unsigned32", "Counter64", "ObjectIdentity", "mib-2", "Integer32", "iso", "Bits")
-( DisplayString, TextualConvention, TruthValue, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
-ifCapStackMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 166)).setRevisions(("2007-11-07 00:00",))
-if mibBuilder.loadTexts: ifCapStackMIB.setLastUpdated('200711070000Z')
-if mibBuilder.loadTexts: ifCapStackMIB.setOrganization('IETF Ethernet Interfaces and Hub MIB Working Group')
-if mibBuilder.loadTexts: ifCapStackMIB.setContactInfo('WG charter:\n        http://www.ietf.org/html.charters/OLD/hubmib-charter.html\n\n      Mailing Lists:\n        General Discussion: hubmib@ietf.org\n\n\n\n        To Subscribe: hubmib-request@ietf.org\n        In Body: subscribe your_email_address\n\n      Chair:  Bert Wijnen\n      Postal: Alcatel-Lucent\n              Schagen 33\n              3461 GL Linschoten\n              Netherlands\n       Phone: +31-348-407-775\n       EMail: bwijnen@alcatel-lucent.com\n\n      Editor: Edward Beili\n      Postal: Actelis Networks Inc.\n              25 Bazel St., P.O.B. 10173\n              Petach-Tikva 10173\n              Israel\n       Phone: +972-3-924-3491\n       EMail: edward.beili@actelis.com')
-if mibBuilder.loadTexts: ifCapStackMIB.setDescription('The objects in this MIB module are used to describe\n      cross-connect capabilities of stacked (layered) interfaces,\n      complementing ifStackTable and ifInvStackTable defined in\n      IF-MIB and IF-INVERTED-STACK-MIB, respectively.\n\n      Copyright (C) The IETF Trust (2007).  This version\n      of this MIB module is part of RFC 5066;  see the RFC\n      itself for full legal notices.')
-ifCapStackObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 166, 1))
-ifCapStackConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 166, 2))
-ifCapStackTable = MibTable((1, 3, 6, 1, 2, 1, 166, 1, 1), )
-if mibBuilder.loadTexts: ifCapStackTable.setDescription("This table, modeled after ifStackTable from IF-MIB,\n       contains information on the possible 'on-top-of'\n       relationships between the multiple sub-layers of network\n       interfaces (as opposed to actual relationships described in\n       ifStackTable).  In particular, it contains information on\n       which sub-layers MAY possibly run 'on top of' which other\n       sub-layers, as determined by cross-connect capability of the\n       device, where each sub-layer corresponds to a conceptual row\n       in the ifTable.  For example, when the sub-layer with ifIndex\n       value x can be connected to run on top of the sub-layer with\n       ifIndex value y, then this table contains:\n\n         ifCapStackStatus.x.y=true\n\n       The ifCapStackStatus.x.y row does not exist if it is\n       impossible to connect between the sub-layers x and y.\n\n       Note that for most stacked interfaces (e.g., 2BASE-TL)\n       there's always at least one higher-level interface (e.g., PCS\n       port) for each lower-level interface (e.g., PME) and at\n       least one lower-level interface for each higher-level\n       interface, that is, there is at least a single row with a\n       'true' status for any such existing value of x or y.\n\n       This table is read-only as it describes device capabilities.")
-ifCapStackEntry = MibTableRow((1, 3, 6, 1, 2, 1, 166, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifStackHigherLayer"), (0, "IF-MIB", "ifStackLowerLayer"))
-if mibBuilder.loadTexts: ifCapStackEntry.setDescription("Information on a particular relationship between two\n       sub-layers, specifying that one sub-layer MAY possibly run\n       on 'top' of the other sub-layer.  Each sub-layer corresponds\n       to a conceptual row in the ifTable (interface index for\n       lower and higher layer, respectively).")
-ifCapStackStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 166, 1, 1, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifCapStackStatus.setDescription("The status of the 'cross-connect capability' relationship\n       between two sub-layers.  The following values can be returned:\n         true(1)         - indicates that the sub-layer interface,\n                           identified by the ifStackLowerLayer MAY\n                           be connected to run 'below' the sub-layer\n                           interface, identified by the\n                           ifStackHigherLayer index.\n         false(2)        - the sub-layer interfaces cannot be\n                           connected temporarily due to\n                           unavailability of the interface(s), e.g.,\n                           one of the interfaces is located on an\n                           absent pluggable module.\n\n       Note that lower-layer interface availability per higher-layer,\n       indicated by the value of 'true', can be constrained by\n       other parameters, for example, by the aggregation capacity of\n       a higher-layer interface or by the lower-layer interface in\n       question being already connected to another higher-layer\n       interface.  In order to ensure that a particular sub-layer can\n       be connected to another sub-layer, all respective objects\n       (e.g., ifCapStackTable, ifStackTable, and efmCuPAFCapacity for\n       EFMCu interfaces) SHALL be inspected.\n\n       This object is read-only, unlike ifStackStatus, as it\n       describes a cross-connect capability.")
-ifInvCapStackTable = MibTable((1, 3, 6, 1, 2, 1, 166, 1, 2), )
-if mibBuilder.loadTexts: ifInvCapStackTable.setDescription("A table containing information on the possible relationships\n       between the multiple sub-layers of network interfaces.  This\n       table, modeled after ifInvStackTable from\n       IF-INVERTED-STACK-MIB, is an inverse of the ifCapStackTable\n       defined in this MIB module.\n\n\n\n       In particular, this table contains information on which\n       sub-layers MAY run 'underneath' which other sub-layers, where\n       each sub-layer corresponds to a conceptual row in the ifTable.\n       For example, when the sub-layer with ifIndex value x MAY be\n       connected to run underneath the sub-layer with ifIndex value\n       y, then this table contains:\n\n          ifInvCapStackStatus.x.y=true\n\n       This table contains exactly the same number of rows as the\n       ifCapStackTable, but the rows appear in a different order.\n\n       This table is read-only as it describes a cross-connect\n       capability.")
-ifInvCapStackEntry = MibTableRow((1, 3, 6, 1, 2, 1, 166, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifStackLowerLayer"), (0, "IF-MIB", "ifStackHigherLayer"))
-if mibBuilder.loadTexts: ifInvCapStackEntry.setDescription('Information on a particular relationship between two sub-\n        layers, specifying that one sub-layer MAY run underneath the\n        other sub-layer.  Each sub-layer corresponds to a conceptual\n        row in the ifTable.')
-ifInvCapStackStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 166, 1, 2, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifInvCapStackStatus.setDescription("The status of the possible 'cross-connect capability'\n        relationship between two sub-layers.\n\n        An instance of this object exists for each instance of the\n        ifCapStackStatus object, and vice versa.  For example, if the\n        variable ifCapStackStatus.H.L exists, then the variable\n        ifInvCapStackStatus.L.H must also exist, and vice versa.  In\n        addition, the two variables always have the same value.\n\n\n\n\n        The ifInvCapStackStatus object is read-only, as it describes\n        a cross-connect capability.")
-ifCapStackGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 166, 2, 1))
-ifCapStackCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 166, 2, 2))
-ifCapStackGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 166, 2, 1, 1)).setObjects(*(("IF-CAP-STACK-MIB", "ifCapStackStatus"), ("IF-CAP-STACK-MIB", "ifInvCapStackStatus"),))
-if mibBuilder.loadTexts: ifCapStackGroup.setDescription('A collection of objects providing information on the\n       cross-connect capability of multi-layer (stacked) network\n       interfaces.')
-ifCapStackCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 166, 2, 2, 1)).setObjects(*(("IF-CAP-STACK-MIB", "ifCapStackGroup"), ("IF-MIB", "ifStackGroup2"), ("IF-INVERTED-STACK-MIB", "ifInvStackGroup"),))
-if mibBuilder.loadTexts: ifCapStackCompliance.setDescription('The compliance statement for SNMP entities, which provide\n       information on the cross-connect capability of multi-layer\n       (stacked) network interfaces, with flexible cross-connect\n       between the sub-layers.')
-mibBuilder.exportSymbols("IF-CAP-STACK-MIB", ifCapStackEntry=ifCapStackEntry, ifCapStackGroups=ifCapStackGroups, ifInvCapStackTable=ifInvCapStackTable, ifCapStackMIB=ifCapStackMIB, ifCapStackObjects=ifCapStackObjects, ifInvCapStackEntry=ifInvCapStackEntry, ifCapStackGroup=ifCapStackGroup, ifCapStackTable=ifCapStackTable, ifCapStackStatus=ifCapStackStatus, ifInvCapStackStatus=ifInvCapStackStatus, ifCapStackCompliances=ifCapStackCompliances, PYSNMP_MODULE_ID=ifCapStackMIB, ifCapStackCompliance=ifCapStackCompliance, ifCapStackConformance=ifCapStackConformance)
+_L='ifCapStackGroup'
+_K='ifInvCapStackStatus'
+_J='ifCapStackStatus'
+_I='read-only'
+_H='ifStackGroup2'
+_G='ifInvStackGroup'
+_F='IF-INVERTED-STACK-MIB'
+_E='ifStackLowerLayer'
+_D='ifStackHigherLayer'
+_C='IF-CAP-STACK-MIB'
+_B='IF-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ifInvStackGroup,=mibBuilder.importSymbols(_F,_G)
+ifStackGroup2,ifStackHigherLayer,ifStackLowerLayer=mibBuilder.importSymbols(_B,_H,_D,_E)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
+ifCapStackMIB=ModuleIdentity((1,3,6,1,2,1,166))
+if mibBuilder.loadTexts:ifCapStackMIB.setRevisions(('2007-11-07 00:00',))
+_IfCapStackObjects_ObjectIdentity=ObjectIdentity
+ifCapStackObjects=_IfCapStackObjects_ObjectIdentity((1,3,6,1,2,1,166,1))
+_IfCapStackTable_Object=MibTable
+ifCapStackTable=_IfCapStackTable_Object((1,3,6,1,2,1,166,1,1))
+if mibBuilder.loadTexts:ifCapStackTable.setStatus(_A)
+_IfCapStackEntry_Object=MibTableRow
+ifCapStackEntry=_IfCapStackEntry_Object((1,3,6,1,2,1,166,1,1,1))
+ifCapStackEntry.setIndexNames((0,_B,_D),(0,_B,_E))
+if mibBuilder.loadTexts:ifCapStackEntry.setStatus(_A)
+_IfCapStackStatus_Type=TruthValue
+_IfCapStackStatus_Object=MibTableColumn
+ifCapStackStatus=_IfCapStackStatus_Object((1,3,6,1,2,1,166,1,1,1,1),_IfCapStackStatus_Type())
+ifCapStackStatus.setMaxAccess(_I)
+if mibBuilder.loadTexts:ifCapStackStatus.setStatus(_A)
+_IfInvCapStackTable_Object=MibTable
+ifInvCapStackTable=_IfInvCapStackTable_Object((1,3,6,1,2,1,166,1,2))
+if mibBuilder.loadTexts:ifInvCapStackTable.setStatus(_A)
+_IfInvCapStackEntry_Object=MibTableRow
+ifInvCapStackEntry=_IfInvCapStackEntry_Object((1,3,6,1,2,1,166,1,2,1))
+ifInvCapStackEntry.setIndexNames((0,_B,_E),(0,_B,_D))
+if mibBuilder.loadTexts:ifInvCapStackEntry.setStatus(_A)
+_IfInvCapStackStatus_Type=TruthValue
+_IfInvCapStackStatus_Object=MibTableColumn
+ifInvCapStackStatus=_IfInvCapStackStatus_Object((1,3,6,1,2,1,166,1,2,1,1),_IfInvCapStackStatus_Type())
+ifInvCapStackStatus.setMaxAccess(_I)
+if mibBuilder.loadTexts:ifInvCapStackStatus.setStatus(_A)
+_IfCapStackConformance_ObjectIdentity=ObjectIdentity
+ifCapStackConformance=_IfCapStackConformance_ObjectIdentity((1,3,6,1,2,1,166,2))
+_IfCapStackGroups_ObjectIdentity=ObjectIdentity
+ifCapStackGroups=_IfCapStackGroups_ObjectIdentity((1,3,6,1,2,1,166,2,1))
+_IfCapStackCompliances_ObjectIdentity=ObjectIdentity
+ifCapStackCompliances=_IfCapStackCompliances_ObjectIdentity((1,3,6,1,2,1,166,2,2))
+ifCapStackGroup=ObjectGroup((1,3,6,1,2,1,166,2,1,1))
+ifCapStackGroup.setObjects(*((_C,_J),(_C,_K)))
+if mibBuilder.loadTexts:ifCapStackGroup.setStatus(_A)
+ifCapStackCompliance=ModuleCompliance((1,3,6,1,2,1,166,2,2,1))
+ifCapStackCompliance.setObjects(*((_C,_L),(_B,_H),(_F,_G)))
+if mibBuilder.loadTexts:ifCapStackCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_C,**{'ifCapStackMIB':ifCapStackMIB,'ifCapStackObjects':ifCapStackObjects,'ifCapStackTable':ifCapStackTable,'ifCapStackEntry':ifCapStackEntry,_J:ifCapStackStatus,'ifInvCapStackTable':ifInvCapStackTable,'ifInvCapStackEntry':ifInvCapStackEntry,_K:ifInvCapStackStatus,'ifCapStackConformance':ifCapStackConformance,'ifCapStackGroups':ifCapStackGroups,_L:ifCapStackGroup,'ifCapStackCompliances':ifCapStackCompliances,'ifCapStackCompliance':ifCapStackCompliance})

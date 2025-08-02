@@ -1,65 +1,142 @@
-#
-# PySNMP MIB module DISMAN-NSLOOKUP-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/DISMAN-NSLOOKUP-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:08:03 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, OctetString, Integer, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
-( InetAddressType, InetAddress, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ObjectGroup, ModuleCompliance, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-( iso, mib_2, Unsigned32, TimeTicks, Counter32, ObjectIdentity, Gauge32, ModuleIdentity, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, IpAddress, NotificationType, Bits, MibIdentifier, ) = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "mib-2", "Unsigned32", "TimeTicks", "Counter32", "ObjectIdentity", "Gauge32", "ModuleIdentity", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "IpAddress", "NotificationType", "Bits", "MibIdentifier")
-( TextualConvention, RowStatus, DisplayString, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
-lookupMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 82)).setRevisions(("2006-06-13 00:00", "2000-09-21 00:00",))
-if mibBuilder.loadTexts: lookupMIB.setLastUpdated('200606130000Z')
-if mibBuilder.loadTexts: lookupMIB.setOrganization('IETF Distributed Management Working Group')
-if mibBuilder.loadTexts: lookupMIB.setContactInfo('Juergen Quittek\n           NEC Europe Ltd.\n           Network Laboratories\n           Kurfuersten-Anlage 36\n           69115 Heidelberg\n           Germany\n\n           Phone: +49 6221 4342-115\n           Email: quittek@netlab.nec.de')
-if mibBuilder.loadTexts: lookupMIB.setDescription('The Lookup MIB (DISMAN-NSLOOKUP-MIB) enables determination\n           of either the name(s) corresponding to a host address or of\n           the address(es) associated with a host name at a remote\n           host.\n\n           Copyright (C) The Internet Society (2006).  This version of\n           this MIB module is part of RFC 4560; see the RFC itself for\n           full legal notices.')
-lookupObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 82, 1))
-lookupConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 82, 2))
-lookupMaxConcurrentRequests = MibScalar((1, 3, 6, 1, 2, 1, 82, 1, 1), Unsigned32().clone(10)).setUnits('requests').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lookupMaxConcurrentRequests.setDescription('The maximum number of concurrent active lookup requests\n          that are allowed within an agent implementation.  A value\n          of 0 for this object implies that there is no limit for\n          the number of concurrent active requests in effect.\n\n          The limit applies only to new requests being activated.\n          When a new value is set, the agent will continue processing\n          all the requests already active, even if their number\n          exceed the limit just imposed.')
-lookupPurgeTime = MibScalar((1, 3, 6, 1, 2, 1, 82, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,86400)).clone(900)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lookupPurgeTime.setDescription('The amount of time to wait before automatically\n          deleting an entry in the lookupCtlTable and any\n          dependent lookupResultsTable entries\n          after the lookup operation represented by a\n          lookupCtlEntry has been completed.\n          A lookupCtEntry is considered complete\n          when its lookupCtlOperStatus object has a\n          value of completed(3).\n\n          A value of 0 indicates that automatic deletion\n          of entries is disabled.')
-lookupCtlTable = MibTable((1, 3, 6, 1, 2, 1, 82, 1, 3), )
-if mibBuilder.loadTexts: lookupCtlTable.setDescription('Defines the Lookup Control Table for providing\n           the capability of performing a lookup operation\n           for a symbolic host name or for a host address\n           from a remote host.')
-lookupCtlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 82, 1, 3, 1), ).setIndexNames((0, "DISMAN-NSLOOKUP-MIB", "lookupCtlOwnerIndex"), (0, "DISMAN-NSLOOKUP-MIB", "lookupCtlOperationName"))
-if mibBuilder.loadTexts: lookupCtlEntry.setDescription('Defines an entry in the lookupCtlTable.  A\n           lookupCtlEntry is initially indexed by\n           lookupCtlOwnerIndex, which is a type of SnmpAdminString,\n           a textual convention that allows for the use of the SNMPv3\n           View-Based Access Control Model (RFC 3415, VACM)\n           and that also allows a management application to identify\n           its entries.  The second index element,\n           lookupCtlOperationName, enables the same\n           lookupCtlOwnerIndex entity to have multiple outstanding\n           requests.  The value of lookupCtlTargetAddressType\n           determines which lookup function to perform.')
-lookupCtlOwnerIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 82, 1, 3, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,32)))
-if mibBuilder.loadTexts: lookupCtlOwnerIndex.setDescription("To facilitate the provisioning of access control by a\n          security administrator using the View-Based Access\n          Control Model (RFC 2575, VACM) for tables in which\n          multiple users may need to create or\n          modify entries independently, the initial index is used as\n          an 'owner index'.  Such an initial index has a syntax of\n          SnmpAdminString and can thus be trivially mapped to a\n          securityName or groupName defined in VACM, in\n          accordance with a security policy.\n\n          When used in conjunction with such a security policy all\n          entries in the table belonging to a particular user (or\n          group) will have the same value for this initial index.\n          For a given user's entries in a particular table, the\n          object identifiers for the information in these entries\n          will have the same subidentifiers (except for the\n          'column' subidentifier) up to the end of the encoded\n          owner index.  To configure VACM to permit access to this\n          portion of the table, one would create\n          vacmViewTreeFamilyTable entries with the value of\n          vacmViewTreeFamilySubtree including the owner index\n          portion, and vacmViewTreeFamilyMask 'wildcarding' the\n          column subidentifier.  More elaborate configurations\n          are possible.")
-lookupCtlOperationName = MibTableColumn((1, 3, 6, 1, 2, 1, 82, 1, 3, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,32)))
-if mibBuilder.loadTexts: lookupCtlOperationName.setDescription('The name of a lookup operation.  This is locally unique,\n           within the scope of an lookupCtlOwnerIndex.')
-lookupCtlTargetAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 82, 1, 3, 1, 3), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: lookupCtlTargetAddressType.setDescription('Specifies the type of address for performing a\n           lookup operation for a symbolic host name or for a host\n           address from a remote host.\n\n           Specification of dns(16) as the value for this object\n           means that a function such as, for example, getaddrinfo()\n           or gethostbyname() should be performed to return one or\n           more numeric addresses.  Use of a value of either ipv4(1)\n           or ipv6(2) means that a functions such as, for example,\n           getnameinfo() or gethostbyaddr() should be used to return\n           the symbolic names associated with a host.')
-lookupCtlTargetAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 82, 1, 3, 1, 4), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: lookupCtlTargetAddress.setDescription('Specifies the address used for a resolver lookup at a\n           remote host.  The corresponding lookupCtlTargetAddressType\n           objects determines its type, as well as the function\n           that can be requested.\n\n           A value for this object MUST be set prior to\n           transitioning its corresponding lookupCtlEntry to\n           active(1) via lookupCtlRowStatus.')
-lookupCtlOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 82, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("enabled", 1), ("notStarted", 2), ("completed", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lookupCtlOperStatus.setDescription('Reflects the operational state of an lookupCtlEntry:\n\n              enabled(1)    - Operation is active.\n              notStarted(2) - Operation has not been enabled.\n              completed(3)  - Operation has been completed.\n\n            An operation is automatically enabled(1) when its\n            lookupCtlRowStatus object is transitioned to active(1)\n            status.  Until this occurs, lookupCtlOperStatus MUST\n            report a value of notStarted(2).  After the lookup\n            operation is completed (success or failure), the value\n            for lookupCtlOperStatus MUST be transitioned to\n            completed(3).')
-lookupCtlTime = MibTableColumn((1, 3, 6, 1, 2, 1, 82, 1, 3, 1, 6), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: lookupCtlTime.setDescription('Reports the number of milliseconds that a lookup\n           operation required to be completed at a remote host.\n           Completed means operation failure as well as\n           success.')
-lookupCtlRc = MibTableColumn((1, 3, 6, 1, 2, 1, 82, 1, 3, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lookupCtlRc.setDescription('The system-specific return code from a lookup\n           operation.  All implementations MUST return a value\n           of 0 for this object when the remote lookup\n           operation succeeds.  A non-zero value for this\n           objects indicates failure.  It is recommended that\n           implementations return the error codes that are\n           generated by the lookup function used.')
-lookupCtlRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 82, 1, 3, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: lookupCtlRowStatus.setDescription('This object allows entries to be created and deleted\n           in the lookupCtlTable.\n\n           A remote lookup operation is started when an\n           entry in this table is created via an SNMP set\n           request and the entry is activated.  This\n           occurs by setting the value of this object\n           to CreateAndGo(4) during row creation or\n           by setting this object to active(1) after\n           the row is created.\n\n           A value MUST be specified for lookupCtlTargetAddress\n           prior to the acceptance of a transition to active(1) state.\n           A remote lookup operation starts when its entry\n           first becomes active(1).  Transitions in and\n           out of active(1) state have no effect on the\n           operational behavior of a remote lookup\n           operation, with the exception that deletion of\n           an entry in this table by setting its RowStatus\n           object to destroy(6) will stop an active\n           remote lookup operation.\n\n           The operational state of a remote lookup operation\n           can be determined by examination of its\n           lookupCtlOperStatus object.')
-lookupResultsTable = MibTable((1, 3, 6, 1, 2, 1, 82, 1, 4), )
-if mibBuilder.loadTexts: lookupResultsTable.setDescription("Defines the Lookup Results Table for providing\n           the capability of determining the results of a\n           operation at a remote host.\n\n           One or more entries are added to the\n           lookupResultsTable when a lookup operation,\n           as reflected by an lookupCtlEntry, is completed\n           successfully.  All entries related to a\n           successful lookup operation MUST be added\n           to the lookupResultsTable at the same time\n           that the associating lookupCtlOperStatus\n           object is transitioned to completed(2).\n\n           The number of entries added depends on the\n           results determined for a particular lookup\n           operation.  All entries associated with an\n           lookupCtlEntry are removed when the\n           lookupCtlEntry is deleted.\n\n           A remote host can be multi-homed and have more than one IP\n           address associated with it (returned by lookup function),\n           or it can have more than one symbolic name (returned\n           by lookup function).\n\n           A function such as, for example, getnameinfo() or\n           gethostbyaddr() is called with a host address as its\n           parameter and is used primarily to determine a symbolic\n           name to associate with the host address.  Entries in the\n           lookupResultsTable MUST be made for each host name\n           returned.  If the function identifies an 'official host\n           name,' then this symbolic name MUST be assigned a\n           lookupResultsIndex of 1.\n\n           A function such as, for example, getaddrinfo() or\n           gethostbyname() is called with a symbolic host name and is\n           used primarily to retrieve a host address.  The entries\n           MUST be stored in the order that they are retrieved from\n           the lookup function.  lookupResultsIndex 1 MUST be\n           assigned to the first entry.")
-lookupResultsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 82, 1, 4, 1), ).setIndexNames((0, "DISMAN-NSLOOKUP-MIB", "lookupCtlOwnerIndex"), (0, "DISMAN-NSLOOKUP-MIB", "lookupCtlOperationName"), (0, "DISMAN-NSLOOKUP-MIB", "lookupResultsIndex"))
-if mibBuilder.loadTexts: lookupResultsEntry.setDescription('Defines an entry in the lookupResultsTable.  The\n           first two index elements identify the\n           lookupCtlEntry that a lookupResultsEntry belongs\n           to.  The third index element selects a single\n           lookup operation result.')
-lookupResultsIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 82, 1, 4, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: lookupResultsIndex.setDescription('Entries in the lookupResultsTable are created when\n           the result of a lookup operation is determined.\n\n           Entries MUST be stored in the lookupResultsTable in\n           the order that they are retrieved.  Values assigned\n           to lookupResultsIndex MUST start at 1 and increase\n           consecutively.')
-lookupResultsAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 82, 1, 4, 1, 2), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lookupResultsAddressType.setDescription("Indicates the type of result of a remote lookup\n           operation.  A value of unknown(0) implies either that\n           the operation hasn't been started or that\n           it has failed.")
-lookupResultsAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 82, 1, 4, 1, 3), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lookupResultsAddress.setDescription('Reflects a result for a remote lookup operation\n           as per the value of lookupResultsAddressType.\n\n           The address type (InetAddressType) that relates to\n           this object is specified by the corresponding value\n           of lookupResultsAddress.')
-lookupCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 82, 2, 1))
-lookupGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 82, 2, 2))
-lookupCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 82, 2, 1, 1)).setObjects(*(("DISMAN-NSLOOKUP-MIB", "lookupGroup"),))
-if mibBuilder.loadTexts: lookupCompliance.setDescription('The compliance statement for SNMP entities that\n               fully implement the DISMAN-NSLOOKUP-MIB.')
-lookupMinimumCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 82, 2, 1, 2)).setObjects(*(("DISMAN-NSLOOKUP-MIB", "lookupGroup"),))
-if mibBuilder.loadTexts: lookupMinimumCompliance.setDescription('The minimum compliance statement for SNMP entities\n               that implement the minimal subset of the\n               DISMAN-NSLOOKUP-MIB.  Implementors might choose this\n               subset for small devices with limited resources.')
-lookupGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 82, 2, 2, 1)).setObjects(*(("DISMAN-NSLOOKUP-MIB", "lookupMaxConcurrentRequests"), ("DISMAN-NSLOOKUP-MIB", "lookupPurgeTime"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlOperStatus"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlTargetAddressType"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlTargetAddress"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlTime"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlRc"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlRowStatus"), ("DISMAN-NSLOOKUP-MIB", "lookupResultsAddressType"), ("DISMAN-NSLOOKUP-MIB", "lookupResultsAddress"),))
-if mibBuilder.loadTexts: lookupGroup.setDescription('The group of objects that constitute the remote\n          Lookup operation.')
-mibBuilder.exportSymbols("DISMAN-NSLOOKUP-MIB", lookupCompliances=lookupCompliances, lookupCtlOperStatus=lookupCtlOperStatus, lookupResultsTable=lookupResultsTable, lookupCompliance=lookupCompliance, lookupResultsEntry=lookupResultsEntry, lookupMIB=lookupMIB, lookupCtlOperationName=lookupCtlOperationName, lookupMinimumCompliance=lookupMinimumCompliance, lookupResultsAddressType=lookupResultsAddressType, lookupCtlTargetAddressType=lookupCtlTargetAddressType, lookupCtlTable=lookupCtlTable, lookupResultsAddress=lookupResultsAddress, lookupConformance=lookupConformance, PYSNMP_MODULE_ID=lookupMIB, lookupResultsIndex=lookupResultsIndex, lookupMaxConcurrentRequests=lookupMaxConcurrentRequests, lookupCtlRowStatus=lookupCtlRowStatus, lookupCtlRc=lookupCtlRc, lookupPurgeTime=lookupPurgeTime, lookupCtlTargetAddress=lookupCtlTargetAddress, lookupObjects=lookupObjects, lookupCtlOwnerIndex=lookupCtlOwnerIndex, lookupGroups=lookupGroups, lookupCtlTime=lookupCtlTime, lookupCtlEntry=lookupCtlEntry, lookupGroup=lookupGroup)
+_X='lookupResultsAddress'
+_W='lookupResultsAddressType'
+_V='lookupCtlRowStatus'
+_U='lookupCtlRc'
+_T='lookupCtlTime'
+_S='lookupCtlTargetAddress'
+_R='lookupCtlTargetAddressType'
+_Q='lookupCtlOperStatus'
+_P='lookupPurgeTime'
+_O='lookupMaxConcurrentRequests'
+_N='lookupResultsIndex'
+_M='read-write'
+_L='Integer32'
+_K='InetAddressType'
+_J='lookupGroup'
+_I='read-create'
+_H='not-accessible'
+_G='lookupCtlOperationName'
+_F='lookupCtlOwnerIndex'
+_E='SnmpAdminString'
+_D='Unsigned32'
+_C='read-only'
+_B='DISMAN-NSLOOKUP-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress',_K)
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_E)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_L,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_D,'iso','mib-2')
+DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
+lookupMIB=ModuleIdentity((1,3,6,1,2,1,82))
+if mibBuilder.loadTexts:lookupMIB.setRevisions(('2006-06-13 00:00','2000-09-21 00:00'))
+_LookupObjects_ObjectIdentity=ObjectIdentity
+lookupObjects=_LookupObjects_ObjectIdentity((1,3,6,1,2,1,82,1))
+class _LookupMaxConcurrentRequests_Type(Unsigned32):defaultValue=10
+_LookupMaxConcurrentRequests_Type.__name__=_D
+_LookupMaxConcurrentRequests_Object=MibScalar
+lookupMaxConcurrentRequests=_LookupMaxConcurrentRequests_Object((1,3,6,1,2,1,82,1,1),_LookupMaxConcurrentRequests_Type())
+lookupMaxConcurrentRequests.setMaxAccess(_M)
+if mibBuilder.loadTexts:lookupMaxConcurrentRequests.setStatus(_A)
+if mibBuilder.loadTexts:lookupMaxConcurrentRequests.setUnits('requests')
+class _LookupPurgeTime_Type(Unsigned32):defaultValue=900;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,86400))
+_LookupPurgeTime_Type.__name__=_D
+_LookupPurgeTime_Object=MibScalar
+lookupPurgeTime=_LookupPurgeTime_Object((1,3,6,1,2,1,82,1,2),_LookupPurgeTime_Type())
+lookupPurgeTime.setMaxAccess(_M)
+if mibBuilder.loadTexts:lookupPurgeTime.setStatus(_A)
+if mibBuilder.loadTexts:lookupPurgeTime.setUnits('seconds')
+_LookupCtlTable_Object=MibTable
+lookupCtlTable=_LookupCtlTable_Object((1,3,6,1,2,1,82,1,3))
+if mibBuilder.loadTexts:lookupCtlTable.setStatus(_A)
+_LookupCtlEntry_Object=MibTableRow
+lookupCtlEntry=_LookupCtlEntry_Object((1,3,6,1,2,1,82,1,3,1))
+lookupCtlEntry.setIndexNames((0,_B,_F),(0,_B,_G))
+if mibBuilder.loadTexts:lookupCtlEntry.setStatus(_A)
+class _LookupCtlOwnerIndex_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_LookupCtlOwnerIndex_Type.__name__=_E
+_LookupCtlOwnerIndex_Object=MibTableColumn
+lookupCtlOwnerIndex=_LookupCtlOwnerIndex_Object((1,3,6,1,2,1,82,1,3,1,1),_LookupCtlOwnerIndex_Type())
+lookupCtlOwnerIndex.setMaxAccess(_H)
+if mibBuilder.loadTexts:lookupCtlOwnerIndex.setStatus(_A)
+class _LookupCtlOperationName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_LookupCtlOperationName_Type.__name__=_E
+_LookupCtlOperationName_Object=MibTableColumn
+lookupCtlOperationName=_LookupCtlOperationName_Object((1,3,6,1,2,1,82,1,3,1,2),_LookupCtlOperationName_Type())
+lookupCtlOperationName.setMaxAccess(_H)
+if mibBuilder.loadTexts:lookupCtlOperationName.setStatus(_A)
+class _LookupCtlTargetAddressType_Type(InetAddressType):defaultValue=0
+_LookupCtlTargetAddressType_Type.__name__=_K
+_LookupCtlTargetAddressType_Object=MibTableColumn
+lookupCtlTargetAddressType=_LookupCtlTargetAddressType_Object((1,3,6,1,2,1,82,1,3,1,3),_LookupCtlTargetAddressType_Type())
+lookupCtlTargetAddressType.setMaxAccess(_I)
+if mibBuilder.loadTexts:lookupCtlTargetAddressType.setStatus(_A)
+_LookupCtlTargetAddress_Type=InetAddress
+_LookupCtlTargetAddress_Object=MibTableColumn
+lookupCtlTargetAddress=_LookupCtlTargetAddress_Object((1,3,6,1,2,1,82,1,3,1,4),_LookupCtlTargetAddress_Type())
+lookupCtlTargetAddress.setMaxAccess(_I)
+if mibBuilder.loadTexts:lookupCtlTargetAddress.setStatus(_A)
+class _LookupCtlOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('enabled',1),('notStarted',2),('completed',3)))
+_LookupCtlOperStatus_Type.__name__=_L
+_LookupCtlOperStatus_Object=MibTableColumn
+lookupCtlOperStatus=_LookupCtlOperStatus_Object((1,3,6,1,2,1,82,1,3,1,5),_LookupCtlOperStatus_Type())
+lookupCtlOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:lookupCtlOperStatus.setStatus(_A)
+_LookupCtlTime_Type=Unsigned32
+_LookupCtlTime_Object=MibTableColumn
+lookupCtlTime=_LookupCtlTime_Object((1,3,6,1,2,1,82,1,3,1,6),_LookupCtlTime_Type())
+lookupCtlTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:lookupCtlTime.setStatus(_A)
+if mibBuilder.loadTexts:lookupCtlTime.setUnits('milliseconds')
+_LookupCtlRc_Type=Integer32
+_LookupCtlRc_Object=MibTableColumn
+lookupCtlRc=_LookupCtlRc_Object((1,3,6,1,2,1,82,1,3,1,7),_LookupCtlRc_Type())
+lookupCtlRc.setMaxAccess(_C)
+if mibBuilder.loadTexts:lookupCtlRc.setStatus(_A)
+_LookupCtlRowStatus_Type=RowStatus
+_LookupCtlRowStatus_Object=MibTableColumn
+lookupCtlRowStatus=_LookupCtlRowStatus_Object((1,3,6,1,2,1,82,1,3,1,8),_LookupCtlRowStatus_Type())
+lookupCtlRowStatus.setMaxAccess(_I)
+if mibBuilder.loadTexts:lookupCtlRowStatus.setStatus(_A)
+_LookupResultsTable_Object=MibTable
+lookupResultsTable=_LookupResultsTable_Object((1,3,6,1,2,1,82,1,4))
+if mibBuilder.loadTexts:lookupResultsTable.setStatus(_A)
+_LookupResultsEntry_Object=MibTableRow
+lookupResultsEntry=_LookupResultsEntry_Object((1,3,6,1,2,1,82,1,4,1))
+lookupResultsEntry.setIndexNames((0,_B,_F),(0,_B,_G),(0,_B,_N))
+if mibBuilder.loadTexts:lookupResultsEntry.setStatus(_A)
+class _LookupResultsIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_LookupResultsIndex_Type.__name__=_D
+_LookupResultsIndex_Object=MibTableColumn
+lookupResultsIndex=_LookupResultsIndex_Object((1,3,6,1,2,1,82,1,4,1,1),_LookupResultsIndex_Type())
+lookupResultsIndex.setMaxAccess(_H)
+if mibBuilder.loadTexts:lookupResultsIndex.setStatus(_A)
+_LookupResultsAddressType_Type=InetAddressType
+_LookupResultsAddressType_Object=MibTableColumn
+lookupResultsAddressType=_LookupResultsAddressType_Object((1,3,6,1,2,1,82,1,4,1,2),_LookupResultsAddressType_Type())
+lookupResultsAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:lookupResultsAddressType.setStatus(_A)
+_LookupResultsAddress_Type=InetAddress
+_LookupResultsAddress_Object=MibTableColumn
+lookupResultsAddress=_LookupResultsAddress_Object((1,3,6,1,2,1,82,1,4,1,3),_LookupResultsAddress_Type())
+lookupResultsAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:lookupResultsAddress.setStatus(_A)
+_LookupConformance_ObjectIdentity=ObjectIdentity
+lookupConformance=_LookupConformance_ObjectIdentity((1,3,6,1,2,1,82,2))
+_LookupCompliances_ObjectIdentity=ObjectIdentity
+lookupCompliances=_LookupCompliances_ObjectIdentity((1,3,6,1,2,1,82,2,1))
+_LookupGroups_ObjectIdentity=ObjectIdentity
+lookupGroups=_LookupGroups_ObjectIdentity((1,3,6,1,2,1,82,2,2))
+lookupGroup=ObjectGroup((1,3,6,1,2,1,82,2,2,1))
+lookupGroup.setObjects(*((_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X)))
+if mibBuilder.loadTexts:lookupGroup.setStatus(_A)
+lookupCompliance=ModuleCompliance((1,3,6,1,2,1,82,2,1,1))
+lookupCompliance.setObjects((_B,_J))
+if mibBuilder.loadTexts:lookupCompliance.setStatus(_A)
+lookupMinimumCompliance=ModuleCompliance((1,3,6,1,2,1,82,2,1,2))
+lookupMinimumCompliance.setObjects((_B,_J))
+if mibBuilder.loadTexts:lookupMinimumCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'lookupMIB':lookupMIB,'lookupObjects':lookupObjects,_O:lookupMaxConcurrentRequests,_P:lookupPurgeTime,'lookupCtlTable':lookupCtlTable,'lookupCtlEntry':lookupCtlEntry,_F:lookupCtlOwnerIndex,_G:lookupCtlOperationName,_R:lookupCtlTargetAddressType,_S:lookupCtlTargetAddress,_Q:lookupCtlOperStatus,_T:lookupCtlTime,_U:lookupCtlRc,_V:lookupCtlRowStatus,'lookupResultsTable':lookupResultsTable,'lookupResultsEntry':lookupResultsEntry,_N:lookupResultsIndex,_W:lookupResultsAddressType,_X:lookupResultsAddress,'lookupConformance':lookupConformance,'lookupCompliances':lookupCompliances,'lookupCompliance':lookupCompliance,'lookupMinimumCompliance':lookupMinimumCompliance,'lookupGroups':lookupGroups,_J:lookupGroup})

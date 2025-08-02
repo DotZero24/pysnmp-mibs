@@ -1,397 +1,1099 @@
-#
-# PySNMP MIB module ATM2-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/ATM2-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:06:16 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-( atmMIBObjects, atmInterfaceConfEntry, atmVplEntry, atmVplVpi, atmVclVpi, atmVclEntry, atmVclVci, atmVcCrossConnectEntry, atmVpCrossConnectEntry, ) = mibBuilder.importSymbols("ATM-MIB", "atmMIBObjects", "atmInterfaceConfEntry", "atmVplEntry", "atmVplVpi", "atmVclVpi", "atmVclEntry", "atmVclVci", "atmVcCrossConnectEntry", "atmVpCrossConnectEntry")
-( AtmIlmiNetworkPrefix, AtmAddr, AtmTrafficDescrParamIndex, AtmInterfaceType, AtmVpIdentifier, AtmSigDescrParamIndex, AtmVcIdentifier, ) = mibBuilder.importSymbols("ATM-TC-MIB", "AtmIlmiNetworkPrefix", "AtmAddr", "AtmTrafficDescrParamIndex", "AtmInterfaceType", "AtmVpIdentifier", "AtmSigDescrParamIndex", "AtmVcIdentifier")
-( ifIndex, InterfaceIndex, InterfaceIndexOrZero, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex", "InterfaceIndexOrZero")
-( NotificationGroup, ObjectGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-( ObjectIdentity, MibIdentifier, Gauge32, Counter32, ModuleIdentity, Counter64, Bits, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, NotificationType, IpAddress, Unsigned32, Integer32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "MibIdentifier", "Gauge32", "Counter32", "ModuleIdentity", "Counter64", "Bits", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "NotificationType", "IpAddress", "Unsigned32", "Integer32")
-( TextualConvention, TimeStamp, DisplayString, RowStatus, TruthValue, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "DisplayString", "RowStatus", "TruthValue")
-atm2MIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 37, 1, 14)).setRevisions(("1999-09-16 12:00",))
-if mibBuilder.loadTexts: atm2MIB.setLastUpdated('9909161200Z')
-if mibBuilder.loadTexts: atm2MIB.setOrganization('IETF AToMMIB Working Group')
-if mibBuilder.loadTexts: atm2MIB.setContactInfo('          Faye Ly\n                       Postal:  Copper Mountain Networks\n                                2470 Embarcadero Way\n                                Palo Alto, CA 94303\n                                USA\n                       Tel:     +1 650 858 8500 ext.240\n                       E-Mail:  faye@coppermountain.com\n\n                                Michael Noto\n                       Postal:  Cisco Systems\n                                170 W. Tasman Drive\n                                San Jose, CA 95134-1706\n                                USA\n                       E-mail:  mnoto@cisco.com\n                                Andrew Smith\n                       Postal:  Extreme Networks\n                                10460 Bandley Drive\n                                Cupertino, CA 95014\n                                USA\n                       Tel:     +1 408 863 2821\n                       Fax:     +1 408 342 0990\n                       E-Mail:  ansmith@extremenetworks.com\n\n                                Ethan Mickey Spiegel\n                       Postal:  Cisco Systems\n                                170 W. Tasman Drive\n                                San Jose, CA 95134-1706\n                                USA\n                       Tel:     +1 408 526 6408\n                       Fax:     +1 408 526 6488\n                       E-Mail:  mspiegel@cisco.com\n\n                                Kaj Tesink\n                       Postal:  Telcordia Technologies\n                                331 Newman Springs Road\n                                Red Bank, NJ 07701\n                                USA\n                       Tel:     +1 732 758 5254\n                       Fax:     +1 732 758 2269\n                       E-mail:  kaj@research.telcordia.com')
-if mibBuilder.loadTexts: atm2MIB.setDescription('This MIB Module is a supplement to the ATM-MIB\n                     defined in RFC 2515.')
-atm2MIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 37, 1, 14, 1))
-atm2MIBTraps = MibIdentifier((1, 3, 6, 1, 2, 1, 37, 1, 14, 2))
-atmSvcVpCrossConnectTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 1), )
-if mibBuilder.loadTexts: atmSvcVpCrossConnectTable.setDescription('The ATM SVPC Cross-Connect table.  A\n                     bi-directional VP cross-connect between two\n                     switched VPLs is modeled as one entry in this\n                     table.  A Soft PVPC cross-connect, between a\n                     soft permanent VPL and a switched VPL, is\n                     also modeled as one entry in this table.')
-atmSvcVpCrossConnectEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 1, 1), ).setIndexNames((0, "ATM2-MIB", "atmSvcVpCrossConnectIndex"), (0, "ATM2-MIB", "atmSvcVpCrossConnectLowIfIndex"), (0, "ATM2-MIB", "atmSvcVpCrossConnectLowVpi"), (0, "ATM2-MIB", "atmSvcVpCrossConnectHighIfIndex"), (0, "ATM2-MIB", "atmSvcVpCrossConnectHighVpi"))
-if mibBuilder.loadTexts: atmSvcVpCrossConnectEntry.setDescription('An entry in the ATM SVPC Cross-Connect table.\n                     This entry is used to model a bi-directional\n                     ATM VP cross-connect between two VPLs.')
-atmSvcVpCrossConnectIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: atmSvcVpCrossConnectIndex.setDescription('A unique value to identify this SVPC\n                     cross-connect.')
-atmSvcVpCrossConnectLowIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 1, 1, 2), InterfaceIndex())
-if mibBuilder.loadTexts: atmSvcVpCrossConnectLowIfIndex.setDescription('The value of this object is equal to the\n                     ifIndex value of the ATM interface port for this\n                     SVPC cross-connect.  The term low implies\n                     that this ATM interface has the numerically lower\n                     ifIndex value than the other ATM interface\n                     identified in the same atmSvcVpCrossConnectEntry.')
-atmSvcVpCrossConnectLowVpi = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 1, 1, 3), AtmVpIdentifier())
-if mibBuilder.loadTexts: atmSvcVpCrossConnectLowVpi.setDescription('The value of this object is equal to the VPI\n                     value associated with the SVPC cross-connect\n                     at the ATM interface that is identified by\n                     atmSvcVpCrossConnectLowIfIndex.  The VPI value\n                     cannot exceed the number supported by the\n                     atmInterfaceMaxVpiBits at the low ATM interface\n                     port.')
-atmSvcVpCrossConnectHighIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 1, 1, 4), InterfaceIndex())
-if mibBuilder.loadTexts: atmSvcVpCrossConnectHighIfIndex.setDescription('The value of this object is equal to the\n                     ifIndex value of the ATM interface port for\n                     this SVC VP cross-connect.  The term high\n                     implies that this ATM interface has the\n                     numerically higher ifIndex value than the\n                     other ATM interface identified in the same\n                     atmSvcVpCrossConnectEntry.')
-atmSvcVpCrossConnectHighVpi = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 1, 1, 5), AtmVpIdentifier())
-if mibBuilder.loadTexts: atmSvcVpCrossConnectHighVpi.setDescription('The value of this object is equal to the VPI\n                     value associated with the SVPC cross-connect\n                     at the ATM interface that is identified by\n                     atmSvcVpCrossConnectHighIfIndex.  The VPI value\n                     cannot exceed the number supported by the\n                     atmInterfaceMaxVpiBits at the high ATM interface\n                     port.')
-atmSvcVpCrossConnectCreationTime = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 1, 1, 6), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSvcVpCrossConnectCreationTime.setDescription('The value of the sysUpTime object\n                     at the time this bi-directional SVPC\n                     cross-connect was created.  If the current\n                     state was entered prior to the last\n                     re-initialization of the agent, then this\n                     object contains a zero value.')
-atmSvcVpCrossConnectRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 1, 1, 7), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmSvcVpCrossConnectRowStatus.setDescription('This object is used to delete rows in the\n                      atmSvcVpCrossConnectTable.')
-atmSvcVcCrossConnectTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 2), )
-if mibBuilder.loadTexts: atmSvcVcCrossConnectTable.setDescription('The ATM SVCC Cross-Connect table.  A\n                    bi-directional VC cross-connect between two\n                    switched VCLs is modeled as one entry in\n                    this table.  A Soft PVCC cross-connect,\n                    between a soft permanent VCL and a switched\n                    VCL, is also modeled as one entry in this\n                    table.')
-atmSvcVcCrossConnectEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 2, 1), ).setIndexNames((0, "ATM2-MIB", "atmSvcVcCrossConnectIndex"), (0, "ATM2-MIB", "atmSvcVcCrossConnectLowIfIndex"), (0, "ATM2-MIB", "atmSvcVcCrossConnectLowVpi"), (0, "ATM2-MIB", "atmSvcVcCrossConnectLowVci"), (0, "ATM2-MIB", "atmSvcVcCrossConnectHighIfIndex"), (0, "ATM2-MIB", "atmSvcVcCrossConnectHighVpi"), (0, "ATM2-MIB", "atmSvcVcCrossConnectHighVci"))
-if mibBuilder.loadTexts: atmSvcVcCrossConnectEntry.setDescription('An entry in the ATM SVCC Cross-Connect table.\n                    This entry is used to model a bi-directional ATM\n                    VC cross-connect between two VCLs.')
-atmSvcVcCrossConnectIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: atmSvcVcCrossConnectIndex.setDescription('A unique value to identify this SVCC cross-connect.')
-atmSvcVcCrossConnectLowIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 2, 1, 2), InterfaceIndex())
-if mibBuilder.loadTexts: atmSvcVcCrossConnectLowIfIndex.setDescription('The value of this object is equal to the\n                    ifIndex value of the ATM interface port for this\n                    SVCC cross-connect.  The term low implies that\n                    this ATM interface has the numerically lower\n                    ifIndex value than the other ATM interface\n                    identified in the same atmSvcVcCrossConnectEntry.')
-atmSvcVcCrossConnectLowVpi = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 2, 1, 3), AtmVpIdentifier())
-if mibBuilder.loadTexts: atmSvcVcCrossConnectLowVpi.setDescription('The value of this object is equal to the VPI\n                    value associated with the SVCC cross-connect\n                    at the ATM interface that is identified by\n                    atmSvcVcCrossConnectLowIfIndex.  The VPI value\n                    cannot exceed the number supported by the\n                    atmInterfaceMaxVpiBits at the low ATM interface\n                    port.')
-atmSvcVcCrossConnectLowVci = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 2, 1, 4), AtmVcIdentifier())
-if mibBuilder.loadTexts: atmSvcVcCrossConnectLowVci.setDescription('The value of this object is equal to the VCI\n                    value associated with the SVCC cross-connect\n                    at the ATM interface that is identified by\n                    atmSvcVcCrossConnectLowIfIndex.  The VCI value\n                    cannot exceed the number supported by the\n                    atmInterfaceMaxVciBits at the low ATM interface\n                    port.')
-atmSvcVcCrossConnectHighIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 2, 1, 5), InterfaceIndex())
-if mibBuilder.loadTexts: atmSvcVcCrossConnectHighIfIndex.setDescription('The value of this object is equal to the\n                    ifIndex value for the ATM interface port for\n                    this SVCC cross-connect.  The term high implies\n                    that this ATM interface has the numerically\n                    higher ifIndex value than the other ATM interface\n                    identified in the same atmSvcVcCrossConnectEntry.')
-atmSvcVcCrossConnectHighVpi = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 2, 1, 6), AtmVpIdentifier())
-if mibBuilder.loadTexts: atmSvcVcCrossConnectHighVpi.setDescription('The value of this object is equal to the VPI\n                    value associated with the SVCC cross-connect\n                    at the ATM interface that is identified by\n                    atmSvcVcCrossConnectHighIfIndex.  The VPI value\n                    cannot exceed the number supported by the\n                    atmInterfaceMaxVpiBits at the high ATM interface\n                    port.')
-atmSvcVcCrossConnectHighVci = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 2, 1, 7), AtmVcIdentifier())
-if mibBuilder.loadTexts: atmSvcVcCrossConnectHighVci.setDescription('The value of this object is equal to the VCI\n                    value associated with the SVCC cross-connect\n                    at the ATM interface that is identified by\n                    atmSvcVcCrossConnectHighIfIndex.  The VCI value\n                    cannot exceed the number supported by the\n                    atmInterfaceMaxVciBits at the high ATM interface\n                    port.')
-atmSvcVcCrossConnectCreationTime = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 2, 1, 8), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSvcVcCrossConnectCreationTime.setDescription('The value of the sysUpTime object\n                    at the time this bi-directional SVCC\n                    cross-connect was created.  If the current\n                    state was entered prior to the last\n                    re-initialization of the agent, then this\n                    object contains a zero value.')
-atmSvcVcCrossConnectRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 2, 1, 9), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmSvcVcCrossConnectRowStatus.setDescription('This object is used to delete rows in the\n                     atmSvcVcCrossConnectTable.')
-atmSigStatTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3), )
-if mibBuilder.loadTexts: atmSigStatTable.setDescription('This table contains ATM interface signalling\n                  statistics, one entry per ATM signalling\n                  interface.')
-atmSigStatEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: atmSigStatEntry.setDescription('This list contains signalling statistics variables.')
-atmSigSSCOPConEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigSSCOPConEvents.setDescription('SSCOP Connection Events Counter.  This\n                    counter counts the sum of the following errors:\n\n                    1) SSCOP Connection Disconnect Counter\n\n                    The abnormal occurrence of this event is\n                    characterized by the expiry of Timer_NO_RESPONSE.\n                    (This event is communicated to the layer management\n                    with MAA-ERROR code P.  See ITU-T Q.2110.)\n\n                    2) SSCOP Connection Initiation Failure\n\n                    This condition indicates the inability to establish\n                    an SSCOP connection.  This event occurs whenever the\n                    number of expiries of the connection control timer\n                    (Timer_CC) equals or exceeds the MaxCC, or upon\n                    receipt of a connection reject message BGREJ PDU.\n                    (This event is communicated to layer management with\n                    MAA-ERROR code O.  See ITU-T Q.2110.)\n\n                    3) SSCOP Connection Re-Establ/Resynch\n\n                    This event occurs upon receipt of a BGN PDU or\n                    RS PDU.')
-atmSigSSCOPErrdPdus = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigSSCOPErrdPdus.setDescription('SSCOP Errored PDUs Counter.  This counter counts the\n                   sum of the following errors:\n\n                   1) Invalid PDUs.\n                      These are defined in SSCOP and consist of PDUs\n                      with an incorrect length (MAA-ERROR code U), an\n                      undefined PDU type code, or that are not 32-bit\n                      aligned.\n\n                   2) PDUs that result in MAA-ERROR codes and are\n                      discarded.\n\n                   See MAA-ERROR codes A-D, F-M, and Q-T defined in\n                   ITU-T Q.2110.')
-atmSigDetectSetupAttempts = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigDetectSetupAttempts.setDescription('Call Setup Attempts Counter.  This counter counts\n                  the number of call setup attempts (both successful\n                  and unsuccessful) detected on this interface.')
-atmSigEmitSetupAttempts = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigEmitSetupAttempts.setDescription('Call Setup Attempts Counter.  This counter counts the\n                 number of call setup attempts (both successful and\n                 unsuccessful) transmitted on this interface.')
-atmSigDetectUnavailRoutes = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigDetectUnavailRoutes.setDescription('Number of Route Unavailability detected on this\n                 interface.  This counter is incremented when a RELEASE,\n                 RELEASE COMPLETE (only when not preceded by a RELEASE\n                 message for the same call), ADD PARTY REJECT, or STATUS\n                 message that contains one of the following cause code\n                 values is received (Note: These cause values apply to\n                 both UNI3.0 and UNI3.1):\n\n                 Cause Value            Meaning\n\n                    1            unallocated (unassigned) number\n                    2            no route to specified transit network\n                    3            no route to destination\n\n                 NOTE:  For this counter, RELEASE COMPLETE\n                 messages that are a reply to a previous RELEASE\n                 message and contain the same cause value, are\n                 redundant (for counting purposes) and should not\n                 be counted.')
-atmSigEmitUnavailRoutes = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigEmitUnavailRoutes.setDescription('Number of Route Unavailability transmitted from this\n                 interface.  This counter is incremented when a RELEASE,\n                 RELEASE COMPLETE (only when not preceded by a RELEASE\n                 message for the same call), ADD PARTY REJECT, or STATUS\n                 message that contains one of the following cause code\n                 values is transmitted (Note: These cause values apply\n                 to both UNI3.0 and UNI3.1):\n\n                 Cause Value            Meaning\n                    1            unallocated (unassigned) number\n                    2            no route to specified transit network\n                    3            no route to destination\n\n                 NOTE:  For this counter, RELEASE COMPLETE\n                 messages that are a reply to a previous RELEASE\n                 message and contain the same cause value, are\n                 redundant (for counting purposes) and should not\n                 be counted.')
-atmSigDetectUnavailResrcs = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigDetectUnavailResrcs.setDescription('Number of Resource Unavailability detected on this\n                 interface.  This counter is incremented when a RELEASE,\n                 RELEASE COMPLETE (only when not preceded by a RELEASE\n                 message for the same call), ADD PARTY REJECT, or STATUS\n                 message that contains one of the following cause code\n                 values is received (Note: These cause values apply to\n                 both UNI3.0 and UNI3.1 unless otherwise stated):\n\n                 Cause Value          Meaning\n\n                    35          requested VPCI/VCI not available\n                    37          user cell rate not available (UNI3.1\n                                only)\n                    38          network out of order\n                    41          temporary failure\n                    45          no VPCI/VCI available\n                    47          resource unavailable, unspecified\n                    49          Quality of Service unavailable\n                    51          user cell rate not available (UNI3.0\n                                only)\n                    58          bearer capability not presently\n                                available\n                    63          Service or option not available,\n                                unspecified\n                    92          too many pending add party requests\n\n                 NOTE:  For this counter, RELEASE COMPLETE\n                 messages that are a reply to a previous RELEASE\n                 message and contain the same cause value, are\n                 redundant (for counting purposes) and should not\n                 be counted.')
-atmSigEmitUnavailResrcs = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigEmitUnavailResrcs.setDescription('Number of Resource Unavailability transmitted from\n                 this interface.  This counter is incremented when a\n                 RELEASE, RELEASE COMPLETE (only when not preceded by a\n                 RELEASE message for the same call), ADD PARTY REJECT,\n                 or STATUS message that contains one of the following\n                 cause code values is transmitted (Note: These cause\n                 values apply to both UNI3.0 and UNI3.1 unless otherwise\n                 stated):\n\n                 Cause Value          Meaning\n\n                    35          requested VPCI/VCI not available\n                    37          user cell rate not available (UNI3.1\n                                only)\n                    38          network out of order\n                    41          temporary failure\n                    45          no VPCI/VCI available\n                    47          resource unavailable, unspecified\n                    49          Quality of Service unavailable\n                    51          user cell rate not available (UNI3.0\n                                only)\n                    58          bearer capability not presently\n                                available\n                    63          Service or option not available,\n                                unspecified\n                    92          too many pending add party requests\n\n                 NOTE:  For this counter, RELEASE COMPLETE\n                 messages that are a reply to a previous RELEASE\n                 message and contain the same cause value, are\n                 redundant (for counting purposes) and should not\n                 be counted.')
-atmSigDetectCldPtyEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigDetectCldPtyEvents.setDescription("Number of Called Party Responsible For Unsuccessful\n                 Call detected on this interface.  This counter is\n                 incremented when a RELEASE, RELEASE COMPLETE (only when\n                 not preceded by a RELEASE message for the same call),\n                 ADD PARTY REJECT, or STATUS message that contains one\n                 of the following cause code values is received (Note:\n                 These cause values apply to both UNI3.0 and UNI3.1):\n\n                 Cause Value         Meaning\n\n                    17           user busy\n                    18           no user responding\n                    21           call rejected\n                    22           number changed\n                    23           user rejects all calls with calling\n                                 line identification restriction (CLIR)\n                    27           destination out of order\n                    31           normal, unspecified\n                    88           incompatible destination\n\n                 NOTE:  For this counter, RELEASE COMPLETE\n                 messages that are a reply to a previous RELEASE\n                 message and contain the same cause value, are\n                 redundant (for counting purposes) and should not\n                 be counted.\n\n                 Note: Cause Value #30 'response to STATUS ENQUIRY'\n                 was not included in this memo since it did not apply\n                 to a hard failure.")
-atmSigEmitCldPtyEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigEmitCldPtyEvents.setDescription("Number of Called Party Responsible For Unsuccessful\n                 Call transmitted from this interface.  This counter is\n                 incremented when a RELEASE, RELEASE COMPLETE (only\n                 when not preceded by a RELEASE message for the same call),\n                 ADD PARTY REJECT, or STATUS message that contains one\n                 of the following cause code values is\n                 transmitted (Note: These cause values apply to both\n                 UNI3.0 and UNI3.1):\n\n                 Cause Value         Meaning\n\n                    17           user busy\n                    18           no user responding\n                    21           call rejected\n                    22           number changed\n                    23           user rejects all calls with calling\n                                 line identification restriction (CLIR)\n                    27           destination out of order\n                    31           normal, unspecified\n                    88           incompatible destination\n\n                 NOTE:  For this counter, RELEASE COMPLETE\n                 messages that are a reply to a previous RELEASE\n                 message and contain the same cause value, are\n                 redundant (for counting purposes) and should not\n                 be counted.\n\n                 Note: Cause Value #30 'response to STATUS ENQUIRY'\n                 was not included in this memo since it did not apply\n                 to a hard failure.")
-atmSigDetectMsgErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigDetectMsgErrors.setDescription("Number of Incorrect Messages detected on this\n                 interface.  The Incorrect Messages Counter reflects any\n                 sort of incorrect information in a message.  This\n                 includes:\n\n                 - RELEASE, RELEASE COMPLETE, ADD PARTY REJECT,\n                   and STATUS messages transmitted, that contain any of\n                   the Cause values listed below.\n\n                 - Ignored messages.  These messages are dropped\n                   because the message was so damaged that it could\n                   not be further processed.  A list of dropped\n                   messages is compiled below:\n\n                    1.  Message with invalid protocol discriminator\n\n                    2.  Message with errors in the call reference I.E.\n                         - Bits 5-8 of the first octet not equal to\n                           '0000'\n                         - Bits 1-4 of the first octet indicating a\n                           length other than 3 octets\n                         - RELEASE COMPLETE message received with a\n                           call reference that does not relate to a\n                           call active or in progress\n                         - SETUP message received with call reference\n                           flag incorrectly set to 1\n                         - SETUP message received with a call\n                           reference for a call that is already\n                           active or in progress.\n\n                    3.  Message too short\n\n\n                 The following cause values are monitored by this\n                 counter (Note: These cause values apply to both UNI3.0\n                 and UNI3.1 unless otherwise stated):\n\n                 Cause Value     Meaning\n\n                    10     VPCI/VCI unacceptable (UNI3.0 only)\n                    36     VPCI/VCI assignment failure (UNI3.1 only)\n                    81     invalid call reference value\n                    82     identified channel does not exist\n                    89     invalid endpoint reference\n                    96     mandatory information element is missing\n                    97     message type non-existent or not\n                           implemented\n                    99     information element non-existent or not\n                           implemented\n                    100    invalid information element contents\n                    101    message not compatible with call state\n                    104    incorrect message length\n                    111    protocol error, unspecified\n                    NOTE:  For this counter, RELEASE COMPLETE\n                    messages that are a reply to a previous RELEASE\n                    message and contain the same cause value, are\n                    redundant (for counting purposes) and should not\n                    be counted.")
-atmSigEmitMsgErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigEmitMsgErrors.setDescription("Number of Incorrect Messages transmitted on this\n                 interface.  The Incorrect Messages Counter reflects any\n                 sort of incorrect information in a message.  This\n                 includes:\n\n\n                 - RELEASE, RELEASE COMPLETE, ADD PARTY REJECT,\n                   and STATUS messages transmitted or\n                   received, that contain any of the Cause values\n                   listed below.\n\n                 - Ignored messages.  These messages are dropped\n                   because the message was so damaged that it could\n                   not be further processed.  A list of dropped\n                   messages is compiled below:\n\n                    1.  Message with invalid protocol discriminator\n\n                    2.  Message with errors in the call reference I.E.\n                         - Bits 5-8 of the first octet not equal to\n                           '0000'\n                         - Bits 1-4 of the first octet indicating a\n                           length other than 3 octets\n                         - RELEASE COMPLETE message received with a\n                           call reference that does not relate to a\n                           call active or in progress\n                         - SETUP message received with call reference\n                           flag incorrectly set to 1\n                         - SETUP message received with a call\n                           reference for a call that is already\n                           active or in progress.\n\n                    3.  Message too short\n\n\n                 The following cause values are monitored by this\n                 counter (Note: These cause values apply to both UNI3.0\n                 and UNI3.1 unless otherwise stated):\n\n                 Cause Value     Meaning\n\n                    10     VPCI/VCI unacceptable (UNI3.0 only)\n                    36     VPCI/VCI assignment failure (UNI3.1 only)\n                    81     invalid call reference value\n                    82     identified channel does not exist\n                    89     invalid endpoint reference\n                    96     mandatory information element is missing\n                    97     message type non-existent or not\n                           implemented\n                    99     information element non-existent or not\n                           implemented\n                    100    invalid information element contents\n                    101    message not compatible with call state\n                    104    incorrect message length\n                    111    protocol error, unspecified\n\n                    NOTE:  For this counter, RELEASE COMPLETE\n                    messages that are a reply to a previous RELEASE\n                    message and contain the same cause value, are\n                    redundant (for counting purposes) and should not\n                    be counted.")
-atmSigDetectClgPtyEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigDetectClgPtyEvents.setDescription('Number of Calling Party Events detected on this\n                 interface.  This counter monitors error events that\n                 occur due to the originating user doing something\n                 wrong.  This counter is incremented when a RELEASE,\n                 RELEASE COMPLETE (only when not preceded by a RELEASE\n                 message for the same call), ADD PARTY REJECT, or STATUS\n                 message that contains one of the following cause code\n                 values is received (Note: These cause values apply to\n                 both UNI3.0 and UNI3.1):\n\n                 Cause Value     Meaning\n\n                    28     invalid number format (address incomplete)\n                    43     access information discarded\n                    57     bearer capability not authorized\n                    65     bearer capability not implemented\n                    73     unsupported combination of traffic\n                           parameters\n                    78     AAL parameters cannot be supported (UNI3.1\n                           only)\n                    91     invalid transit network selection\n                    93     AAL parameters cannot be supported (UNI3.0\n                           only)\n\n                    NOTE:  For this counter, RELEASE COMPLETE\n                    messages that are a reply to a previous RELEASE\n                    message and contain the same cause value, are\n                    redundant (for counting purposes) and should not\n                    be counted.')
-atmSigEmitClgPtyEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigEmitClgPtyEvents.setDescription('Number of Calling Party Events transmitted from this\n                 interface.  This counter monitors error events that\n                 occur due to the originating user doing something\n                 wrong.  This counter is incremented when a RELEASE,\n                 RELEASE COMPLETE (only when not preceded by a RELEASE\n                 message for the same call), ADD PARTY REJECT, or STATUS\n                 message that contains one of the following cause code\n                 values is transmitted (Note: These cause values apply\n                 to both UNI3.0 and UNI3.1):\n\n                 Cause Value     Meaning\n\n                    28     invalid number format (address incomplete)\n                    43     access information discarded\n                    57     bearer capability not authorized\n                    65     bearer capability not implemented\n                    73     unsupported combination of traffic\n                           parameters\n                    78     AAL parameters cannot be supported (UNI3.1\n                           only)\n                    91     invalid transit network selection\n                    93     AAL parameters cannot be supported (UNI3.0\n                           only)\n\n                    NOTE:  For this counter, RELEASE COMPLETE\n                    messages that are a reply to a previous RELEASE\n                    message and contain the same cause value, are\n                    redundant (for counting purposes) and should not\n                    be counted.')
-atmSigDetectTimerExpireds = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigDetectTimerExpireds.setDescription("Number of Timer Expiries detected on this interface.\n                 The Timer Expiries Counter provides a count of network\n                 timer expiries, and to some extent, host or switch\n                 timer expiries.  The conditions for incrementing this\n                 counter are:\n                    - Expiry of any network timer\n\n                    - Receipt of a RELEASE or RELEASE COMPLETE\n                      message with Cause #102, 'recovery on\n                      timer expiry'.\n\n                 NOTE:  For this counter, RELEASE COMPLETE messages\n                 that are a reply to a previous RELEASE message and\n                 contain the same cause value, are redundant (for\n                 counting purposes) and should not be counted.")
-atmSigEmitTimerExpireds = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigEmitTimerExpireds.setDescription("Number of Timer Expiries transmitted from this\n                 interface.  The Timer Expiries Counter provides a count\n                 of network timer expiries, and to some extent, host or\n                 switch timer expiries.  The conditions for incrementing\n                 this counter are:\n                    - Expiry of any network timer\n\n                    - Receipt of a RELEASE or RELEASE COMPLETE\n                      message with Cause #102, 'recovery on\n                      timer expiry'.\n\n                 NOTE:  For this counter, RELEASE COMPLETE messages\n                 that are a reply to a previous RELEASE message and\n                 contain the same cause value, are redundant (for\n                 counting purposes) and should not be counted.")
-atmSigDetectRestarts = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigDetectRestarts.setDescription('Number of Restart Activity errors detected on this\n                 interface.  The Restart Activity Counter provides a\n                 count of host, switch, or network restart activity.\n                 This counter is incremented when receiving a RESTART\n                 message.')
-atmSigEmitRestarts = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigEmitRestarts.setDescription('Number of Restart Activity errors transmitted from\n                 this interface.  The Restart Activity Counter provides\n                 a count of host, switch, or network restart activity.\n                 This counter is incremented when transmitting a RESTART\n                 message.')
-atmSigInEstabls = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigInEstabls.setDescription('Number of SVC VCCs established at this signalling\n                 entity for incoming connections.')
-atmSigOutEstabls = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 3, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmSigOutEstabls.setDescription('Number of SVC VCCs established at this signalling\n                 entity for outgoing connections.')
-atmSigSupportTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 4), )
-if mibBuilder.loadTexts: atmSigSupportTable.setDescription('This table contains ATM local interface configuration\n                 parameters, one entry per ATM signalling interface.')
-atmSigSupportEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: atmSigSupportEntry.setDescription('This list contains signalling configuration parameters\n                 and state variables.')
-atmSigSupportClgPtyNumDel = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmSigSupportClgPtyNumDel.setDescription('This object indicates whether the Calling Party Number\n                 Information Element is transferred to the called party\n                 address.  The value of this object can be:\n                   - enabled(1)  This Information Element is transferred\n                                 to the called party\n\n                   - disabled(2) This Information Element is NOT\n                                 transferred to the called party.')
-atmSigSupportClgPtySubAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmSigSupportClgPtySubAddr.setDescription("This object indicates whether to accept and transfer\n                 the Calling Party Subaddress Information Element from\n                 the calling party to the called party.  Calling party\n                 subaddress information shall only be transferred to the\n                 called party if calling party number delivery is\n                 enabled (i.e., atmSigSupportClgPtyNumDel =\n                 'enabled(1)'.  The value of this object can be:\n                   - enabled(1)  This Information Element is transferred\n                                 to the called party\n\n                   - disabled(2) This Information Element is NOT\n                                 transferred to the called party.")
-atmSigSupportCldPtySubAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmSigSupportCldPtySubAddr.setDescription('This object indicates whether to accept, transfer, and\n                 deliver the Called Party Subaddress Information Element\n                 from the calling party to the called party.  The value\n                 of this object can be:\n                   - enabled(1)  This Information Element is transferred\n                                 to the called party\n\n                   - disabled(2) This Information Element is NOT\n                                 transferred to the called party.')
-atmSigSupportHiLyrInfo = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmSigSupportHiLyrInfo.setDescription('This object indicates whether to accept, transfer, and\n                 deliver the Broadband High Layer Information Element\n                 from the calling party to the called party.  The value\n                 of this object can be:\n                   - enabled(1)  This Information Element is transferred\n                                 to the called party\n\n                   - disabled(2) This Information Element is NOT\n                                 transferred to the called party.')
-atmSigSupportLoLyrInfo = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmSigSupportLoLyrInfo.setDescription('This object indicates whether to accept, transfer, and\n                 deliver the Broadband Low Layer Information Element\n                 from the calling party to the called party.  The value\n                 of this object can be:\n                   - enabled(1)  This Information Element is transferred\n                                 to the called party\n\n                   - disabled(2) This Information Element is NOT\n                                 transferred to the called party.')
-atmSigSupportBlliRepeatInd = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 4, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmSigSupportBlliRepeatInd.setDescription("This object indicates whether to accept, transfer, and\n                 deliver the Broadband Repeat Indicator with two or\n                 three instances of the Broadband Low Layer Information\n                 Element for low layer information selection from the\n                 calling party to the called party.  This object shall\n                 only be transferred if atmSigSupportLoLyrInfo =\n                 'enabled(1)'.  The value of this object can be:\n                   - enabled(1)  This Information Element is transferred\n                                 to the called party\n\n                   - disabled(2) This Information Element is NOT\n                                 transferred to the called party.")
-atmSigSupportAALInfo = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 4, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmSigSupportAALInfo.setDescription('This object indicates whether to accept, transfer, and\n                 deliver the ATM Adaptation Layer Parameters Information\n                 Element from the calling party to the called party.\n                 The value of this object can be:\n                   - enabled(1)  This Information Element is transferred\n                                 to the called party\n\n                   - disabled(2) This Information Element is NOT\n                                 transferred to the called party.')
-atmSigSupportPrefCarrier = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 4, 1, 8), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmSigSupportPrefCarrier.setDescription("This parameter identifies the carrier to which\n                 intercarrier calls originated from this interface are\n                 routed when transit network selection information is\n                 not provided by the calling party.  If a Carrier\n                 Identification Code (CIC) is used the parameter shall\n                 contain the CIC.  For three-digit CICs, the first octet\n                 shall be '0' and the CIC is contained in the three\n                 following octets.  If the preferred carrier feature is\n                 not supported the value is a zero-length string.")
-atmSigDescrParamTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 5), )
-if mibBuilder.loadTexts: atmSigDescrParamTable.setDescription('A table contains signalling capabilities of VCLs\n                      except the Traffic Descriptor.  Traffic\n                      descriptors are described in the\n                      atmTrafficDescrParamTable.')
-atmSigDescrParamEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 5, 1), ).setIndexNames((0, "ATM2-MIB", "atmSigDescrParamIndex"))
-if mibBuilder.loadTexts: atmSigDescrParamEntry.setDescription('Each entry in this table represents a set of\n                      signalling capabilities that can be applied to a\n                      VCL.  There is no requirement for unique entries,\n                      except that the index must be unique.  Objects\n                      atmSigDescrParamRowStatus is required during\n                      creation.')
-atmSigDescrParamIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 5, 1, 1), AtmSigDescrParamIndex())
-if mibBuilder.loadTexts: atmSigDescrParamIndex.setDescription('The value of this object is used by the\n                      atmVclGenSigDescrIndex object in the\n                      atmVclGenTable to identify a row in this table.')
-atmSigDescrParamAalType = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("other", 1), ("aal1", 2), ("aal34", 3), ("aal5", 4), ("userDefined", 5), ("aal2", 6),)).clone('other')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmSigDescrParamAalType.setDescription('The AAL type.  The value of this object is set to\n                      other(1) when not defined.')
-atmSigDescrParamAalSscsType = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 5, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("other", 1), ("assured", 2), ("nonassured", 3), ("frameRelay", 4), ("null", 5),)).clone('other')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmSigDescrParamAalSscsType.setDescription('The SSCS type used by this entry.')
-atmSigDescrParamBhliType = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 5, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("other", 1), ("iso", 2), ("user", 3), ("hiProfile", 4), ("vendorSpecific", 5),)).clone('other')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmSigDescrParamBhliType.setDescription('The Broadband high layer type.')
-atmSigDescrParamBhliInfo = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 5, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,8)).clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmSigDescrParamBhliInfo.setDescription('The Broadband high layer information.  When\n                      atmSigDescrParamBhliType is set to iso(2), the\n                      value of this object is a zero length string.\n                      When atmSigDescrParamBhliType is set to user(3),\n                      the value of this object is an octet string with\n                      length ranging from 0 to 8.  When\n                      atmSigDescrParamBhliType is set to hiProfile(4),\n                      the value of this object is a length of 4 octet\n                      string containing user to user profile identifier.\n                      When atmSigDescrParamBhliType is set to\n                      vendorSpecific(5), the value of this object is a\n                      length of 7 octet string, where the most\n                      significant 3 octets consist of a globally-\n                      administered OUI, and the least significant 4\n                      octets are the vender administered application\n                      OUI.')
-atmSigDescrParamBbcConnConf = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 5, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("ptp", 1), ("ptmp", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmSigDescrParamBbcConnConf.setDescription('The Broadband bearer capability user plane\n                      connection configuration parameter.')
-atmSigDescrParamBlliLayer2 = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 5, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,))).clone(namedValues=NamedValues(("other", 1), ("iso1745", 2), ("q921", 3), ("x25linklayer", 4), ("x25multilink", 5), ("lapb", 6), ("hdlcArm", 7), ("hdlcNrm", 8), ("hdlcAbm", 9), ("iso88022", 10), ("x75slp", 11), ("q922", 12), ("userDef", 13), ("iso7776", 14),)).clone('other')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmSigDescrParamBlliLayer2.setDescription('The Broadband low layer information, protocol\n                      type of layer 2.  The value of this object is\n                      other(1) if layer 2 protocol is not used.')
-atmSigDescrParamBlliLayer3 = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 5, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8,))).clone(namedValues=NamedValues(("other", 1), ("x25pkt", 2), ("isoiec8208", 3), ("x223iso8878", 4), ("isoiec8473", 5), ("t70", 6), ("tr9577", 7), ("userDef", 8),)).clone('other')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmSigDescrParamBlliLayer3.setDescription('The Broadband low layer information, protocol\n                      type of layer 3.  The value of this object is\n                      other(1) if layer 3 protocol is not used.')
-atmSigDescrParamBlliPktSize = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 5, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,))).clone(namedValues=NamedValues(("other", 1), ("s16", 2), ("s32", 3), ("s64", 4), ("s128", 5), ("s256", 6), ("s512", 7), ("s1024", 8), ("s2048", 9), ("s4096", 10),)).clone('other')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmSigDescrParamBlliPktSize.setDescription('The default packet size defined in B-LLI.')
-atmSigDescrParamBlliSnapId = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 5, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("other", 1), ("true", 2), ("false", 3),)).clone('other')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmSigDescrParamBlliSnapId.setDescription('The SNAP ID used for Broadband low layer protocol\n                      layer 3.  The value of this object is other(1) if\n                      atmSigDescrParamBlliLayer3 is set to other(1).')
-atmSigDescrParamBlliOuiPid = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 5, 1, 11), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(5,5),)).clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmSigDescrParamBlliOuiPid.setDescription('The OUI/PID encoding for Broadband low layer\n                      protocol layer 3.  The value of this object is a\n                      zero length string if atmSigDescrParamBlliLayer3\n                      is set to other(1).  When used, it is always 5\n                      octets with the most significant octet as the OUI\n                      Octet 1 and the least significant octet as the PID\n                      Octet 2.')
-atmSigDescrParamRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 5, 1, 12), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmSigDescrParamRowStatus.setDescription('This object is used to create and delete rows in\n                      the atmSigDescrParamTable.')
-atmIfRegisteredAddrTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 6), )
-if mibBuilder.loadTexts: atmIfRegisteredAddrTable.setDescription('This table contains a list of ATM addresses that can\n                 be used for calls to and from a given interface by a\n                 switch or service.  The ATM addresses are either\n                 registered by the endsystem via ILMI or statically\n                 configured.  This table does not expose PNNI\n                 reachability information.  ILMI registered addresses\n                 cannot be deleted using this table.  This table only\n                 applies to switches and network services.')
-atmIfRegisteredAddrEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ATM2-MIB", "atmIfRegAddrAddress"))
-if mibBuilder.loadTexts: atmIfRegisteredAddrEntry.setDescription('An entry in the ATM Interface Registered Address\n                 table.')
-atmIfRegAddrAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 6, 1, 1), AtmAddr())
-if mibBuilder.loadTexts: atmIfRegAddrAddress.setDescription('An address registered for a given switch or service\n                 interface.')
-atmIfRegAddrAddressSource = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("other", 1), ("static", 2), ("dynamic", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmIfRegAddrAddressSource.setDescription('The type of address source for a given ATM Address.\n                 The value dynamic(3) is indicated when ILMI is used.')
-atmIfRegAddrOrgScope = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,))).clone(namedValues=NamedValues(("localNetwork", 1), ("localNetworkPlusOne", 2), ("localNetworkPlusTwo", 3), ("siteMinusOne", 4), ("intraSite", 5), ("sitePlusOne", 6), ("organizationMinusOne", 7), ("intraOrganization", 8), ("organizationPlusOne", 9), ("communityMinusOne", 10), ("intraCommunity", 11), ("communityPlusOne", 12), ("regional", 13), ("interRegional", 14), ("global", 15),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmIfRegAddrOrgScope.setDescription('This object indicates the organizational scope for\n                  the referenced address.  The information of the\n                  referenced address shall not be distributed outside\n                  the indicated scope.   Refer to Annex 5.3 of ATM\n                  Forum UNI Signalling 4.0 for guidelines regarding\n                  the use of organizational scopes.\n\n                  This value cannot be configured for ILMI-registered\n                  addresses.\n\n                  The default values for organizational scope are\n                  localNetwork(1) for ATM group addresses, and\n                  global(15) for individual addresses.')
-atmIfRegAddrRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 6, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmIfRegAddrRowStatus.setDescription('This object is used to create and delete rows in the\n                 atmIfRegisteredAddrTable.  Rows created dynamically\n                 (e.g., ILMI-registered addresses) cannot be deleted\n                 using this object.')
-atmVclAddrTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 7), )
-if mibBuilder.loadTexts: atmVclAddrTable.setDescription('This table provides a mapping between the\n                      atmVclTable and the ATM called party/calling party\n                      address.  This table can be used to retrieve the\n                      calling party and called party ATM address pair\n                      for a given VCL.  Note that there can be more than\n                      one pair of calling party and called party ATM\n                      addresses for a VCL in a point to multi-point\n                      call.')
-atmVclAddrEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 7, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ATM-MIB", "atmVclVpi"), (0, "ATM-MIB", "atmVclVci"), (0, "ATM2-MIB", "atmVclAddrAddr"))
-if mibBuilder.loadTexts: atmVclAddrEntry.setDescription('Each entry in this table represents a binding\n                      between a VCL and an ATM address associated with\n                      this call.  This ATM address can be either the\n                      called party address or the calling party address.\n                      There can be more than one pair of calling/called\n                      party ATM addresses associated with the VCL entry\n                      for point to multi-point calls.  Objects\n                      atmVclAddrAddr, atmVclAddrType, and\n                      atmVclAddrRowStatus are required during row\n                      creation.')
-atmVclAddrAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 7, 1, 1), AtmAddr())
-if mibBuilder.loadTexts: atmVclAddrAddr.setDescription('An ATM address on one end of the VCL.  For SVCs,\n                      the agent supplies the value of this object at\n                      creation time.  For PVCs, the manager can supply\n                      the value of this object during or after the PVC\n                      creation.')
-atmVclAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 7, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("callingParty", 1), ("calledParty", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVclAddrType.setDescription('The type of ATM Address represented by the object\n                      atmVclAddrAddr.  Choices are either the calling\n                      party ATM address or the called party ATM\n                      address.')
-atmVclAddrRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 7, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVclAddrRowStatus.setDescription('This object is used to create or destroy an entry\n                      from this table.')
-atmAddrVclTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 8), )
-if mibBuilder.loadTexts: atmAddrVclTable.setDescription('This table provides an alternative way to\n                      retrieve the atmVclTable.  This table can be used\n                      to retrieve the indexing to the atmVclTable by an\n                      ATM address.')
-atmAddrVclEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 8, 1), ).setIndexNames((0, "ATM2-MIB", "atmVclAddrAddr"), (0, "ATM2-MIB", "atmAddrVclAtmIfIndex"), (0, "ATM2-MIB", "atmAddrVclVpi"), (0, "ATM2-MIB", "atmAddrVclVci"))
-if mibBuilder.loadTexts: atmAddrVclEntry.setDescription('Each entry in this table represents an entry in\n                      the atmVclTable of the ATM-MIB by its ATM address.\n                      The ATM address is either the calling or called\n                      party ATM address of the call.  Entries in this\n                      table are read only.  They show up when entries\n                      are created in the atmVclAddrTable.')
-atmAddrVclAtmIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 8, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: atmAddrVclAtmIfIndex.setDescription('The interface index of the ATM interface to which\n                      this VCL pertains.  This object combined with the\n                      atmAddrVclVpi and atmAddrVclVci objects serves as\n                      an index to the atmVclTable.')
-atmAddrVclVpi = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 8, 1, 2), AtmVpIdentifier())
-if mibBuilder.loadTexts: atmAddrVclVpi.setDescription('The VPI value of the VCL.  This object combined\n                      with the atmAddrVclAtmIfIndex and atmAddrVclVci\n                      objects serves as an index to the atmVclTable.')
-atmAddrVclVci = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 8, 1, 3), AtmVcIdentifier())
-if mibBuilder.loadTexts: atmAddrVclVci.setDescription('The VCI value of the VCL.  This object combined\n                      with the atmAddrVclAtmIfIndex and atmAddrVclVpi\n                      objects serves as an index to the atmVclTable.')
-atmAddrVclAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 8, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("callingParty", 1), ("calledParty", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmAddrVclAddrType.setDescription('The type of ATM Address represented by the object\n                      atmVclAddrAddr.  Choices are either calling party\n                      address or called party address.')
-atmVplStatTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 9), )
-if mibBuilder.loadTexts: atmVplStatTable.setDescription('This table contains all statistics counters per\n                      VPL.  It is used to monitor the usage of the VPL\n                      in terms of incoming cells and outgoing cells.')
-atmVplStatEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 9, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ATM-MIB", "atmVplVpi"))
-if mibBuilder.loadTexts: atmVplStatEntry.setDescription('Each entry in this table represents a VPL.')
-atmVplStatTotalCellIns = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 9, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVplStatTotalCellIns.setDescription('The total number of valid ATM cells received by\n                      this VPL including both CLP=0 and CLP=1 cells.\n                      The cells are counted prior to the application of\n                      the traffic policing.')
-atmVplStatClp0CellIns = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 9, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVplStatClp0CellIns.setDescription('The number of valid ATM cells received by this\n                      VPL with CLP=0.  The cells are counted prior to\n                      the application of the traffic policing.')
-atmVplStatTotalDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 9, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVplStatTotalDiscards.setDescription('The total number of valid ATM cells discarded by\n                      the traffic policing entity.  This includes cells\n                      originally received with CLP=0 and CLP=1.')
-atmVplStatClp0Discards = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 9, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVplStatClp0Discards.setDescription('The total number of valid ATM cells received with\n                      CLP=0 and discarded by the traffic policing\n                      entity.')
-atmVplStatTotalCellOuts = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 9, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVplStatTotalCellOuts.setDescription('The total number of valid ATM cells transmitted\n                      by this VPL.  This includes both CLP=0 and CLP=1\n                      cells.')
-atmVplStatClp0CellOuts = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 9, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVplStatClp0CellOuts.setDescription('The total number of valid ATM cells transmitted\n                      with CLP=0 by this VPL.')
-atmVplStatTaggedOuts = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 9, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVplStatTaggedOuts.setDescription('The total number of valid ATM cells tagged by the\n                      traffic policing entity from CLP=0 to CLP=1 and\n                      transmitted by this VPL.')
-atmVplLogicalPortTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 10), )
-if mibBuilder.loadTexts: atmVplLogicalPortTable.setDescription('Indicates whether the VPL is an ATM Logical Port\n                      interface (ifType=80).')
-atmVplLogicalPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 10, 1), )
-atmVplEntry.registerAugmentions(("ATM2-MIB", "atmVplLogicalPortEntry"))
+_Bz='atmHostSigDescrGroup'
+_By='atmHostGroup'
+_Bx='atmServcGroup'
+_Bw='atmSwitchGroup'
+_Bv='atmSwitchServcNotifGroup'
+_Bu='atmSwitchServcSigGroup'
+_Bt='atmSwitchServcGroup'
+_Bs='atmCommonStatsGroup'
+_Br='atmCommonGroup'
+_Bq='atmIntfPvcFailuresTrap'
+_Bp='atmSigDescrParamRowStatus'
+_Bo='atmSigDescrParamBlliOuiPid'
+_Bn='atmSigDescrParamBlliSnapId'
+_Bm='atmSigDescrParamBlliPktSize'
+_Bl='atmSigDescrParamBlliLayer3'
+_Bk='atmSigDescrParamBlliLayer2'
+_Bj='atmSigDescrParamBbcConnConf'
+_Bi='atmSigDescrParamBhliInfo'
+_Bh='atmSigDescrParamBhliType'
+_Bg='atmSigDescrParamAalSscsType'
+_Bf='atmSigDescrParamAalType'
+_Be='atmVclGenSigDescrIndex'
+_Bd='atmAddrVclAddrType'
+_Bc='atmVclAddrRowStatus'
+_Bb='atmVclAddrType'
+_Ba='atmAal5VclOutOctets'
+_BZ='atmAal5VclInOctets'
+_BY='atmAal5VclOutPkts'
+_BX='atmAal5VclInPkts'
+_BW='atmVcCrossConnectProviderName'
+_BV='atmVcCrossConnectUserName'
+_BU='atmVpCrossConnectProviderName'
+_BT='atmVpCrossConnectUserName'
+_BS='atmSwitchAddressRowStatus'
+_BR='atmSwitchAddressAddress'
+_BQ='atmSigSupportPrefCarrier'
+_BP='atmSigSupportAALInfo'
+_BO='atmSigSupportBlliRepeatInd'
+_BN='atmSigSupportLoLyrInfo'
+_BM='atmSigSupportHiLyrInfo'
+_BL='atmSigSupportCldPtySubAddr'
+_BK='atmSigSupportClgPtySubAddr'
+_BJ='atmSigSupportClgPtyNumDel'
+_BI='atmIfRegAddrRowStatus'
+_BH='atmIfRegAddrOrgScope'
+_BG='atmIfRegAddrAddressSource'
+_BF='atmSvcVcCrossConnectRowStatus'
+_BE='atmSvcVcCrossConnectCreationTime'
+_BD='atmSvcVpCrossConnectRowStatus'
+_BC='atmSvcVpCrossConnectCreationTime'
+_BB='atmIlmiNetPrefixRowStatus'
+_BA='atmIlmiSrvcRegRowStatus'
+_B9='atmIlmiSrvcRegParm1'
+_B8='atmIlmiSrvcRegATMAddress'
+_B7='atmVplStatClp0Tagged'
+_B6='atmVplStatClp0CellOuts'
+_B5='atmVplStatTotalCellOuts'
+_B4='atmVplStatClp0Discards'
+_B3='atmVplStatTotalDiscards'
+_B2='atmVplStatClp0CellIns'
+_B1='atmVplStatTotalCellIns'
+_B0='atmVclStatClp0Tagged'
+_A_='atmVclStatClp0CellOuts'
+_Az='atmVclStatTotalCellOuts'
+_Ay='atmVclStatClp0Discards'
+_Ax='atmVclStatTotalDiscards'
+_Aw='atmVclStatClp0CellIns'
+_Av='atmVclStatTotalCellIns'
+_Au='atmCurrentlyFailingPVclTimeStamp'
+_At='atmCurrentlyFailingPVplTimeStamp'
+_As='atmIntfIlmiPublicPrivateIndctr'
+_Ar='atmIntfIlmiConPollInactFactor'
+_Aq='atmIntfIlmiCheckConPollIntvl'
+_Ap='atmIntfIlmiEstablishConPollIntvl'
+_Ao='atmIntfIlmiFsmState'
+_An='atmIntfIlmiOperStatus'
+_Am='atmIntfIlmiAdminStatus'
+_Al='atmIntfActualSide'
+_Ak='atmIntfConfigSide'
+_Aj='atmIntfActualType'
+_Ai='atmIntfConfigType'
+_Ah='atmIntfLeafSetupRequests'
+_Ag='atmIntfLeafSetupFailures'
+_Af='atmIntfPvcFailuresTrapEnable'
+_Ae='atmIntfPvcNotificationInterval'
+_Ad='atmIntfSigVccTxTrafficDescrIndex'
+_Ac='atmIntfSigVccRxTrafficDescrIndex'
+_Ab='atmInterfaceCurrentMinSvccVci'
+_Aa='atmInterfaceConfMinSvccVci'
+_AZ='atmInterfaceCurrentMaxSvccVpi'
+_AY='atmInterfaceConfMaxSvccVpi'
+_AX='atmInterfaceCurrentMaxSvpcVpi'
+_AW='atmInterfaceConfMaxSvpcVpi'
+_AV='atmVplLogicalPortIndex'
+_AU='atmVplLogicalPortDef'
+_AT='atmSigOutEstabls'
+_AS='atmSigInEstabls'
+_AR='atmSigEmitRestarts'
+_AQ='atmSigDetectRestarts'
+_AP='atmSigEmitTimerExpireds'
+_AO='atmSigDetectTimerExpireds'
+_AN='atmSigEmitClgPtyEvents'
+_AM='atmSigDetectClgPtyEvents'
+_AL='atmSigEmitMsgErrors'
+_AK='atmSigDetectMsgErrors'
+_AJ='atmSigEmitCldPtyEvents'
+_AI='atmSigDetectCldPtyEvents'
+_AH='atmSigEmitUnavailResrcs'
+_AG='atmSigDetectUnavailResrcs'
+_AF='atmSigEmitUnavailRoutes'
+_AE='atmSigDetectUnavailRoutes'
+_AD='atmSigEmitSetupAttempts'
+_AC='atmSigDetectSetupAttempts'
+_AB='atmSigSSCOPErrdPdus'
+_AA='atmSigSSCOPConEvents'
+_A9='atmVcCrossConnectXEntry'
+_A8='atmVpCrossConnectXEntry'
+_A7='atmInterfaceExtEntry'
+_A6='atmVclGenEntry'
+_A5='atmVplLogicalPortEntry'
+_A4='atmSwitchAddressIndex'
+_A3='atmIlmiNetPrefixPrefix'
+_A2='atmIlmiSrvcRegAddressIndex'
+_A1='atmIlmiSrvcRegServiceID'
+_A0='atmIlmiSrvcRegIndex'
+_z='ilmiSigVccParamNegotiation'
+_y='ilmiPvcPvpMgmt'
+_x='ilmiConnectivity'
+_w='ilmiAddressRegistration'
+_v='network'
+_u='atmAddrVclVci'
+_t='atmAddrVclVpi'
+_s='atmAddrVclAtmIfIndex'
+_r='calledParty'
+_q='callingParty'
+_p='atmIfRegAddrAddress'
+_o='userDef'
+_n='atmSigDescrParamIndex'
+_m='atmSvcVcCrossConnectHighVci'
+_l='atmSvcVcCrossConnectHighVpi'
+_k='atmSvcVcCrossConnectHighIfIndex'
+_j='atmSvcVcCrossConnectLowVci'
+_i='atmSvcVcCrossConnectLowVpi'
+_h='atmSvcVcCrossConnectLowIfIndex'
+_g='atmSvcVcCrossConnectIndex'
+_f='atmSvcVpCrossConnectHighVpi'
+_e='atmSvcVpCrossConnectHighIfIndex'
+_d='atmSvcVpCrossConnectLowVpi'
+_c='atmSvcVpCrossConnectLowIfIndex'
+_b='atmSvcVpCrossConnectIndex'
+_a='TruthValue'
+_Z='AtmInterfaceType'
+_Y='atmIntfCurrentlyFailingPVcls'
+_X='atmIntfCurrentlyFailingPVpls'
+_W='atmIntfPvcFailures'
+_V='seconds'
+_U='atmVclAddrAddr'
+_T='user'
+_S='Bits'
+_R='atmVplVpi'
+_Q='SnmpAdminString'
+_P='atmVclVpi'
+_O='atmVclVci'
+_N='OctetString'
+_M='disabled'
+_L='enabled'
+_K='other'
+_J='ATM-MIB'
+_I='ifIndex'
+_H='IF-MIB'
+_G='not-accessible'
+_F='read-write'
+_E='read-create'
+_D='Integer32'
+_C='read-only'
+_B='ATM2-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_N,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+atmInterfaceConfEntry,atmMIBObjects,atmVcCrossConnectEntry,atmVclEntry,atmVclVci,atmVclVpi,atmVpCrossConnectEntry,atmVplEntry,atmVplVpi=mibBuilder.importSymbols(_J,'atmInterfaceConfEntry','atmMIBObjects','atmVcCrossConnectEntry','atmVclEntry',_O,_P,'atmVpCrossConnectEntry','atmVplEntry',_R)
+AtmAddr,AtmIlmiNetworkPrefix,AtmInterfaceType,AtmSigDescrParamIndex,AtmTrafficDescrParamIndex,AtmVcIdentifier,AtmVpIdentifier=mibBuilder.importSymbols('ATM-TC-MIB','AtmAddr','AtmIlmiNetworkPrefix',_Z,'AtmSigDescrParamIndex','AtmTrafficDescrParamIndex','AtmVcIdentifier','AtmVpIdentifier')
+InterfaceIndex,InterfaceIndexOrZero,ifIndex=mibBuilder.importSymbols(_H,'InterfaceIndex','InterfaceIndexOrZero',_I)
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_Q)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI',_S,'Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TimeStamp',_a)
+atm2MIB=ModuleIdentity((1,3,6,1,2,1,37,1,14))
+if mibBuilder.loadTexts:atm2MIB.setRevisions(('2003-09-23 00:00',))
+_Atm2MIBObjects_ObjectIdentity=ObjectIdentity
+atm2MIBObjects=_Atm2MIBObjects_ObjectIdentity((1,3,6,1,2,1,37,1,14,1))
+_AtmSvcVpCrossConnectTable_Object=MibTable
+atmSvcVpCrossConnectTable=_AtmSvcVpCrossConnectTable_Object((1,3,6,1,2,1,37,1,14,1,1))
+if mibBuilder.loadTexts:atmSvcVpCrossConnectTable.setStatus(_A)
+_AtmSvcVpCrossConnectEntry_Object=MibTableRow
+atmSvcVpCrossConnectEntry=_AtmSvcVpCrossConnectEntry_Object((1,3,6,1,2,1,37,1,14,1,1,1))
+atmSvcVpCrossConnectEntry.setIndexNames((0,_B,_b),(0,_B,_c),(0,_B,_d),(0,_B,_e),(0,_B,_f))
+if mibBuilder.loadTexts:atmSvcVpCrossConnectEntry.setStatus(_A)
+class _AtmSvcVpCrossConnectIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_AtmSvcVpCrossConnectIndex_Type.__name__=_D
+_AtmSvcVpCrossConnectIndex_Object=MibTableColumn
+atmSvcVpCrossConnectIndex=_AtmSvcVpCrossConnectIndex_Object((1,3,6,1,2,1,37,1,14,1,1,1,1),_AtmSvcVpCrossConnectIndex_Type())
+atmSvcVpCrossConnectIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmSvcVpCrossConnectIndex.setStatus(_A)
+_AtmSvcVpCrossConnectLowIfIndex_Type=InterfaceIndex
+_AtmSvcVpCrossConnectLowIfIndex_Object=MibTableColumn
+atmSvcVpCrossConnectLowIfIndex=_AtmSvcVpCrossConnectLowIfIndex_Object((1,3,6,1,2,1,37,1,14,1,1,1,2),_AtmSvcVpCrossConnectLowIfIndex_Type())
+atmSvcVpCrossConnectLowIfIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmSvcVpCrossConnectLowIfIndex.setStatus(_A)
+_AtmSvcVpCrossConnectLowVpi_Type=AtmVpIdentifier
+_AtmSvcVpCrossConnectLowVpi_Object=MibTableColumn
+atmSvcVpCrossConnectLowVpi=_AtmSvcVpCrossConnectLowVpi_Object((1,3,6,1,2,1,37,1,14,1,1,1,3),_AtmSvcVpCrossConnectLowVpi_Type())
+atmSvcVpCrossConnectLowVpi.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmSvcVpCrossConnectLowVpi.setStatus(_A)
+_AtmSvcVpCrossConnectHighIfIndex_Type=InterfaceIndex
+_AtmSvcVpCrossConnectHighIfIndex_Object=MibTableColumn
+atmSvcVpCrossConnectHighIfIndex=_AtmSvcVpCrossConnectHighIfIndex_Object((1,3,6,1,2,1,37,1,14,1,1,1,4),_AtmSvcVpCrossConnectHighIfIndex_Type())
+atmSvcVpCrossConnectHighIfIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmSvcVpCrossConnectHighIfIndex.setStatus(_A)
+_AtmSvcVpCrossConnectHighVpi_Type=AtmVpIdentifier
+_AtmSvcVpCrossConnectHighVpi_Object=MibTableColumn
+atmSvcVpCrossConnectHighVpi=_AtmSvcVpCrossConnectHighVpi_Object((1,3,6,1,2,1,37,1,14,1,1,1,5),_AtmSvcVpCrossConnectHighVpi_Type())
+atmSvcVpCrossConnectHighVpi.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmSvcVpCrossConnectHighVpi.setStatus(_A)
+_AtmSvcVpCrossConnectCreationTime_Type=TimeStamp
+_AtmSvcVpCrossConnectCreationTime_Object=MibTableColumn
+atmSvcVpCrossConnectCreationTime=_AtmSvcVpCrossConnectCreationTime_Object((1,3,6,1,2,1,37,1,14,1,1,1,6),_AtmSvcVpCrossConnectCreationTime_Type())
+atmSvcVpCrossConnectCreationTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSvcVpCrossConnectCreationTime.setStatus(_A)
+_AtmSvcVpCrossConnectRowStatus_Type=RowStatus
+_AtmSvcVpCrossConnectRowStatus_Object=MibTableColumn
+atmSvcVpCrossConnectRowStatus=_AtmSvcVpCrossConnectRowStatus_Object((1,3,6,1,2,1,37,1,14,1,1,1,7),_AtmSvcVpCrossConnectRowStatus_Type())
+atmSvcVpCrossConnectRowStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmSvcVpCrossConnectRowStatus.setStatus(_A)
+_AtmSvcVcCrossConnectTable_Object=MibTable
+atmSvcVcCrossConnectTable=_AtmSvcVcCrossConnectTable_Object((1,3,6,1,2,1,37,1,14,1,2))
+if mibBuilder.loadTexts:atmSvcVcCrossConnectTable.setStatus(_A)
+_AtmSvcVcCrossConnectEntry_Object=MibTableRow
+atmSvcVcCrossConnectEntry=_AtmSvcVcCrossConnectEntry_Object((1,3,6,1,2,1,37,1,14,1,2,1))
+atmSvcVcCrossConnectEntry.setIndexNames((0,_B,_g),(0,_B,_h),(0,_B,_i),(0,_B,_j),(0,_B,_k),(0,_B,_l),(0,_B,_m))
+if mibBuilder.loadTexts:atmSvcVcCrossConnectEntry.setStatus(_A)
+class _AtmSvcVcCrossConnectIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_AtmSvcVcCrossConnectIndex_Type.__name__=_D
+_AtmSvcVcCrossConnectIndex_Object=MibTableColumn
+atmSvcVcCrossConnectIndex=_AtmSvcVcCrossConnectIndex_Object((1,3,6,1,2,1,37,1,14,1,2,1,1),_AtmSvcVcCrossConnectIndex_Type())
+atmSvcVcCrossConnectIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmSvcVcCrossConnectIndex.setStatus(_A)
+_AtmSvcVcCrossConnectLowIfIndex_Type=InterfaceIndex
+_AtmSvcVcCrossConnectLowIfIndex_Object=MibTableColumn
+atmSvcVcCrossConnectLowIfIndex=_AtmSvcVcCrossConnectLowIfIndex_Object((1,3,6,1,2,1,37,1,14,1,2,1,2),_AtmSvcVcCrossConnectLowIfIndex_Type())
+atmSvcVcCrossConnectLowIfIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmSvcVcCrossConnectLowIfIndex.setStatus(_A)
+_AtmSvcVcCrossConnectLowVpi_Type=AtmVpIdentifier
+_AtmSvcVcCrossConnectLowVpi_Object=MibTableColumn
+atmSvcVcCrossConnectLowVpi=_AtmSvcVcCrossConnectLowVpi_Object((1,3,6,1,2,1,37,1,14,1,2,1,3),_AtmSvcVcCrossConnectLowVpi_Type())
+atmSvcVcCrossConnectLowVpi.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmSvcVcCrossConnectLowVpi.setStatus(_A)
+_AtmSvcVcCrossConnectLowVci_Type=AtmVcIdentifier
+_AtmSvcVcCrossConnectLowVci_Object=MibTableColumn
+atmSvcVcCrossConnectLowVci=_AtmSvcVcCrossConnectLowVci_Object((1,3,6,1,2,1,37,1,14,1,2,1,4),_AtmSvcVcCrossConnectLowVci_Type())
+atmSvcVcCrossConnectLowVci.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmSvcVcCrossConnectLowVci.setStatus(_A)
+_AtmSvcVcCrossConnectHighIfIndex_Type=InterfaceIndex
+_AtmSvcVcCrossConnectHighIfIndex_Object=MibTableColumn
+atmSvcVcCrossConnectHighIfIndex=_AtmSvcVcCrossConnectHighIfIndex_Object((1,3,6,1,2,1,37,1,14,1,2,1,5),_AtmSvcVcCrossConnectHighIfIndex_Type())
+atmSvcVcCrossConnectHighIfIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmSvcVcCrossConnectHighIfIndex.setStatus(_A)
+_AtmSvcVcCrossConnectHighVpi_Type=AtmVpIdentifier
+_AtmSvcVcCrossConnectHighVpi_Object=MibTableColumn
+atmSvcVcCrossConnectHighVpi=_AtmSvcVcCrossConnectHighVpi_Object((1,3,6,1,2,1,37,1,14,1,2,1,6),_AtmSvcVcCrossConnectHighVpi_Type())
+atmSvcVcCrossConnectHighVpi.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmSvcVcCrossConnectHighVpi.setStatus(_A)
+_AtmSvcVcCrossConnectHighVci_Type=AtmVcIdentifier
+_AtmSvcVcCrossConnectHighVci_Object=MibTableColumn
+atmSvcVcCrossConnectHighVci=_AtmSvcVcCrossConnectHighVci_Object((1,3,6,1,2,1,37,1,14,1,2,1,7),_AtmSvcVcCrossConnectHighVci_Type())
+atmSvcVcCrossConnectHighVci.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmSvcVcCrossConnectHighVci.setStatus(_A)
+_AtmSvcVcCrossConnectCreationTime_Type=TimeStamp
+_AtmSvcVcCrossConnectCreationTime_Object=MibTableColumn
+atmSvcVcCrossConnectCreationTime=_AtmSvcVcCrossConnectCreationTime_Object((1,3,6,1,2,1,37,1,14,1,2,1,8),_AtmSvcVcCrossConnectCreationTime_Type())
+atmSvcVcCrossConnectCreationTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSvcVcCrossConnectCreationTime.setStatus(_A)
+_AtmSvcVcCrossConnectRowStatus_Type=RowStatus
+_AtmSvcVcCrossConnectRowStatus_Object=MibTableColumn
+atmSvcVcCrossConnectRowStatus=_AtmSvcVcCrossConnectRowStatus_Object((1,3,6,1,2,1,37,1,14,1,2,1,9),_AtmSvcVcCrossConnectRowStatus_Type())
+atmSvcVcCrossConnectRowStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmSvcVcCrossConnectRowStatus.setStatus(_A)
+_AtmSigStatTable_Object=MibTable
+atmSigStatTable=_AtmSigStatTable_Object((1,3,6,1,2,1,37,1,14,1,3))
+if mibBuilder.loadTexts:atmSigStatTable.setStatus(_A)
+_AtmSigStatEntry_Object=MibTableRow
+atmSigStatEntry=_AtmSigStatEntry_Object((1,3,6,1,2,1,37,1,14,1,3,1))
+atmSigStatEntry.setIndexNames((0,_H,_I))
+if mibBuilder.loadTexts:atmSigStatEntry.setStatus(_A)
+_AtmSigSSCOPConEvents_Type=Counter32
+_AtmSigSSCOPConEvents_Object=MibTableColumn
+atmSigSSCOPConEvents=_AtmSigSSCOPConEvents_Object((1,3,6,1,2,1,37,1,14,1,3,1,1),_AtmSigSSCOPConEvents_Type())
+atmSigSSCOPConEvents.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigSSCOPConEvents.setStatus(_A)
+_AtmSigSSCOPErrdPdus_Type=Counter32
+_AtmSigSSCOPErrdPdus_Object=MibTableColumn
+atmSigSSCOPErrdPdus=_AtmSigSSCOPErrdPdus_Object((1,3,6,1,2,1,37,1,14,1,3,1,2),_AtmSigSSCOPErrdPdus_Type())
+atmSigSSCOPErrdPdus.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigSSCOPErrdPdus.setStatus(_A)
+_AtmSigDetectSetupAttempts_Type=Counter32
+_AtmSigDetectSetupAttempts_Object=MibTableColumn
+atmSigDetectSetupAttempts=_AtmSigDetectSetupAttempts_Object((1,3,6,1,2,1,37,1,14,1,3,1,3),_AtmSigDetectSetupAttempts_Type())
+atmSigDetectSetupAttempts.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigDetectSetupAttempts.setStatus(_A)
+_AtmSigEmitSetupAttempts_Type=Counter32
+_AtmSigEmitSetupAttempts_Object=MibTableColumn
+atmSigEmitSetupAttempts=_AtmSigEmitSetupAttempts_Object((1,3,6,1,2,1,37,1,14,1,3,1,4),_AtmSigEmitSetupAttempts_Type())
+atmSigEmitSetupAttempts.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigEmitSetupAttempts.setStatus(_A)
+_AtmSigDetectUnavailRoutes_Type=Counter32
+_AtmSigDetectUnavailRoutes_Object=MibTableColumn
+atmSigDetectUnavailRoutes=_AtmSigDetectUnavailRoutes_Object((1,3,6,1,2,1,37,1,14,1,3,1,5),_AtmSigDetectUnavailRoutes_Type())
+atmSigDetectUnavailRoutes.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigDetectUnavailRoutes.setStatus(_A)
+_AtmSigEmitUnavailRoutes_Type=Counter32
+_AtmSigEmitUnavailRoutes_Object=MibTableColumn
+atmSigEmitUnavailRoutes=_AtmSigEmitUnavailRoutes_Object((1,3,6,1,2,1,37,1,14,1,3,1,6),_AtmSigEmitUnavailRoutes_Type())
+atmSigEmitUnavailRoutes.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigEmitUnavailRoutes.setStatus(_A)
+_AtmSigDetectUnavailResrcs_Type=Counter32
+_AtmSigDetectUnavailResrcs_Object=MibTableColumn
+atmSigDetectUnavailResrcs=_AtmSigDetectUnavailResrcs_Object((1,3,6,1,2,1,37,1,14,1,3,1,7),_AtmSigDetectUnavailResrcs_Type())
+atmSigDetectUnavailResrcs.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigDetectUnavailResrcs.setStatus(_A)
+_AtmSigEmitUnavailResrcs_Type=Counter32
+_AtmSigEmitUnavailResrcs_Object=MibTableColumn
+atmSigEmitUnavailResrcs=_AtmSigEmitUnavailResrcs_Object((1,3,6,1,2,1,37,1,14,1,3,1,8),_AtmSigEmitUnavailResrcs_Type())
+atmSigEmitUnavailResrcs.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigEmitUnavailResrcs.setStatus(_A)
+_AtmSigDetectCldPtyEvents_Type=Counter32
+_AtmSigDetectCldPtyEvents_Object=MibTableColumn
+atmSigDetectCldPtyEvents=_AtmSigDetectCldPtyEvents_Object((1,3,6,1,2,1,37,1,14,1,3,1,9),_AtmSigDetectCldPtyEvents_Type())
+atmSigDetectCldPtyEvents.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigDetectCldPtyEvents.setStatus(_A)
+_AtmSigEmitCldPtyEvents_Type=Counter32
+_AtmSigEmitCldPtyEvents_Object=MibTableColumn
+atmSigEmitCldPtyEvents=_AtmSigEmitCldPtyEvents_Object((1,3,6,1,2,1,37,1,14,1,3,1,10),_AtmSigEmitCldPtyEvents_Type())
+atmSigEmitCldPtyEvents.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigEmitCldPtyEvents.setStatus(_A)
+_AtmSigDetectMsgErrors_Type=Counter32
+_AtmSigDetectMsgErrors_Object=MibTableColumn
+atmSigDetectMsgErrors=_AtmSigDetectMsgErrors_Object((1,3,6,1,2,1,37,1,14,1,3,1,11),_AtmSigDetectMsgErrors_Type())
+atmSigDetectMsgErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigDetectMsgErrors.setStatus(_A)
+_AtmSigEmitMsgErrors_Type=Counter32
+_AtmSigEmitMsgErrors_Object=MibTableColumn
+atmSigEmitMsgErrors=_AtmSigEmitMsgErrors_Object((1,3,6,1,2,1,37,1,14,1,3,1,12),_AtmSigEmitMsgErrors_Type())
+atmSigEmitMsgErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigEmitMsgErrors.setStatus(_A)
+_AtmSigDetectClgPtyEvents_Type=Counter32
+_AtmSigDetectClgPtyEvents_Object=MibTableColumn
+atmSigDetectClgPtyEvents=_AtmSigDetectClgPtyEvents_Object((1,3,6,1,2,1,37,1,14,1,3,1,13),_AtmSigDetectClgPtyEvents_Type())
+atmSigDetectClgPtyEvents.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigDetectClgPtyEvents.setStatus(_A)
+_AtmSigEmitClgPtyEvents_Type=Counter32
+_AtmSigEmitClgPtyEvents_Object=MibTableColumn
+atmSigEmitClgPtyEvents=_AtmSigEmitClgPtyEvents_Object((1,3,6,1,2,1,37,1,14,1,3,1,14),_AtmSigEmitClgPtyEvents_Type())
+atmSigEmitClgPtyEvents.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigEmitClgPtyEvents.setStatus(_A)
+_AtmSigDetectTimerExpireds_Type=Counter32
+_AtmSigDetectTimerExpireds_Object=MibTableColumn
+atmSigDetectTimerExpireds=_AtmSigDetectTimerExpireds_Object((1,3,6,1,2,1,37,1,14,1,3,1,15),_AtmSigDetectTimerExpireds_Type())
+atmSigDetectTimerExpireds.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigDetectTimerExpireds.setStatus(_A)
+_AtmSigEmitTimerExpireds_Type=Counter32
+_AtmSigEmitTimerExpireds_Object=MibTableColumn
+atmSigEmitTimerExpireds=_AtmSigEmitTimerExpireds_Object((1,3,6,1,2,1,37,1,14,1,3,1,16),_AtmSigEmitTimerExpireds_Type())
+atmSigEmitTimerExpireds.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigEmitTimerExpireds.setStatus(_A)
+_AtmSigDetectRestarts_Type=Counter32
+_AtmSigDetectRestarts_Object=MibTableColumn
+atmSigDetectRestarts=_AtmSigDetectRestarts_Object((1,3,6,1,2,1,37,1,14,1,3,1,17),_AtmSigDetectRestarts_Type())
+atmSigDetectRestarts.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigDetectRestarts.setStatus(_A)
+_AtmSigEmitRestarts_Type=Counter32
+_AtmSigEmitRestarts_Object=MibTableColumn
+atmSigEmitRestarts=_AtmSigEmitRestarts_Object((1,3,6,1,2,1,37,1,14,1,3,1,18),_AtmSigEmitRestarts_Type())
+atmSigEmitRestarts.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigEmitRestarts.setStatus(_A)
+_AtmSigInEstabls_Type=Counter32
+_AtmSigInEstabls_Object=MibTableColumn
+atmSigInEstabls=_AtmSigInEstabls_Object((1,3,6,1,2,1,37,1,14,1,3,1,19),_AtmSigInEstabls_Type())
+atmSigInEstabls.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigInEstabls.setStatus(_A)
+_AtmSigOutEstabls_Type=Counter32
+_AtmSigOutEstabls_Object=MibTableColumn
+atmSigOutEstabls=_AtmSigOutEstabls_Object((1,3,6,1,2,1,37,1,14,1,3,1,20),_AtmSigOutEstabls_Type())
+atmSigOutEstabls.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmSigOutEstabls.setStatus(_A)
+_AtmSigSupportTable_Object=MibTable
+atmSigSupportTable=_AtmSigSupportTable_Object((1,3,6,1,2,1,37,1,14,1,4))
+if mibBuilder.loadTexts:atmSigSupportTable.setStatus(_A)
+_AtmSigSupportEntry_Object=MibTableRow
+atmSigSupportEntry=_AtmSigSupportEntry_Object((1,3,6,1,2,1,37,1,14,1,4,1))
+atmSigSupportEntry.setIndexNames((0,_H,_I))
+if mibBuilder.loadTexts:atmSigSupportEntry.setStatus(_A)
+class _AtmSigSupportClgPtyNumDel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_L,1),(_M,2)))
+_AtmSigSupportClgPtyNumDel_Type.__name__=_D
+_AtmSigSupportClgPtyNumDel_Object=MibTableColumn
+atmSigSupportClgPtyNumDel=_AtmSigSupportClgPtyNumDel_Object((1,3,6,1,2,1,37,1,14,1,4,1,1),_AtmSigSupportClgPtyNumDel_Type())
+atmSigSupportClgPtyNumDel.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmSigSupportClgPtyNumDel.setStatus(_A)
+class _AtmSigSupportClgPtySubAddr_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_L,1),(_M,2)))
+_AtmSigSupportClgPtySubAddr_Type.__name__=_D
+_AtmSigSupportClgPtySubAddr_Object=MibTableColumn
+atmSigSupportClgPtySubAddr=_AtmSigSupportClgPtySubAddr_Object((1,3,6,1,2,1,37,1,14,1,4,1,2),_AtmSigSupportClgPtySubAddr_Type())
+atmSigSupportClgPtySubAddr.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmSigSupportClgPtySubAddr.setStatus(_A)
+class _AtmSigSupportCldPtySubAddr_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_L,1),(_M,2)))
+_AtmSigSupportCldPtySubAddr_Type.__name__=_D
+_AtmSigSupportCldPtySubAddr_Object=MibTableColumn
+atmSigSupportCldPtySubAddr=_AtmSigSupportCldPtySubAddr_Object((1,3,6,1,2,1,37,1,14,1,4,1,3),_AtmSigSupportCldPtySubAddr_Type())
+atmSigSupportCldPtySubAddr.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmSigSupportCldPtySubAddr.setStatus(_A)
+class _AtmSigSupportHiLyrInfo_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_L,1),(_M,2)))
+_AtmSigSupportHiLyrInfo_Type.__name__=_D
+_AtmSigSupportHiLyrInfo_Object=MibTableColumn
+atmSigSupportHiLyrInfo=_AtmSigSupportHiLyrInfo_Object((1,3,6,1,2,1,37,1,14,1,4,1,4),_AtmSigSupportHiLyrInfo_Type())
+atmSigSupportHiLyrInfo.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmSigSupportHiLyrInfo.setStatus(_A)
+class _AtmSigSupportLoLyrInfo_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_L,1),(_M,2)))
+_AtmSigSupportLoLyrInfo_Type.__name__=_D
+_AtmSigSupportLoLyrInfo_Object=MibTableColumn
+atmSigSupportLoLyrInfo=_AtmSigSupportLoLyrInfo_Object((1,3,6,1,2,1,37,1,14,1,4,1,5),_AtmSigSupportLoLyrInfo_Type())
+atmSigSupportLoLyrInfo.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmSigSupportLoLyrInfo.setStatus(_A)
+class _AtmSigSupportBlliRepeatInd_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_L,1),(_M,2)))
+_AtmSigSupportBlliRepeatInd_Type.__name__=_D
+_AtmSigSupportBlliRepeatInd_Object=MibTableColumn
+atmSigSupportBlliRepeatInd=_AtmSigSupportBlliRepeatInd_Object((1,3,6,1,2,1,37,1,14,1,4,1,6),_AtmSigSupportBlliRepeatInd_Type())
+atmSigSupportBlliRepeatInd.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmSigSupportBlliRepeatInd.setStatus(_A)
+class _AtmSigSupportAALInfo_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_L,1),(_M,2)))
+_AtmSigSupportAALInfo_Type.__name__=_D
+_AtmSigSupportAALInfo_Object=MibTableColumn
+atmSigSupportAALInfo=_AtmSigSupportAALInfo_Object((1,3,6,1,2,1,37,1,14,1,4,1,7),_AtmSigSupportAALInfo_Type())
+atmSigSupportAALInfo.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmSigSupportAALInfo.setStatus(_A)
+class _AtmSigSupportPrefCarrier_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4))
+_AtmSigSupportPrefCarrier_Type.__name__=_N
+_AtmSigSupportPrefCarrier_Object=MibTableColumn
+atmSigSupportPrefCarrier=_AtmSigSupportPrefCarrier_Object((1,3,6,1,2,1,37,1,14,1,4,1,8),_AtmSigSupportPrefCarrier_Type())
+atmSigSupportPrefCarrier.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmSigSupportPrefCarrier.setStatus(_A)
+_AtmSigDescrParamTable_Object=MibTable
+atmSigDescrParamTable=_AtmSigDescrParamTable_Object((1,3,6,1,2,1,37,1,14,1,5))
+if mibBuilder.loadTexts:atmSigDescrParamTable.setStatus(_A)
+_AtmSigDescrParamEntry_Object=MibTableRow
+atmSigDescrParamEntry=_AtmSigDescrParamEntry_Object((1,3,6,1,2,1,37,1,14,1,5,1))
+atmSigDescrParamEntry.setIndexNames((0,_B,_n))
+if mibBuilder.loadTexts:atmSigDescrParamEntry.setStatus(_A)
+_AtmSigDescrParamIndex_Type=AtmSigDescrParamIndex
+_AtmSigDescrParamIndex_Object=MibTableColumn
+atmSigDescrParamIndex=_AtmSigDescrParamIndex_Object((1,3,6,1,2,1,37,1,14,1,5,1,1),_AtmSigDescrParamIndex_Type())
+atmSigDescrParamIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmSigDescrParamIndex.setStatus(_A)
+class _AtmSigDescrParamAalType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_K,1),('aal1',2),('aal34',3),('aal5',4),('userDefined',5),('aal2',6)))
+_AtmSigDescrParamAalType_Type.__name__=_D
+_AtmSigDescrParamAalType_Object=MibTableColumn
+atmSigDescrParamAalType=_AtmSigDescrParamAalType_Object((1,3,6,1,2,1,37,1,14,1,5,1,2),_AtmSigDescrParamAalType_Type())
+atmSigDescrParamAalType.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmSigDescrParamAalType.setStatus(_A)
+class _AtmSigDescrParamAalSscsType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_K,1),('assured',2),('nonassured',3),('frameRelay',4),('null',5)))
+_AtmSigDescrParamAalSscsType_Type.__name__=_D
+_AtmSigDescrParamAalSscsType_Object=MibTableColumn
+atmSigDescrParamAalSscsType=_AtmSigDescrParamAalSscsType_Object((1,3,6,1,2,1,37,1,14,1,5,1,3),_AtmSigDescrParamAalSscsType_Type())
+atmSigDescrParamAalSscsType.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmSigDescrParamAalSscsType.setStatus(_A)
+class _AtmSigDescrParamBhliType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_K,1),('iso',2),(_T,3),('hiProfile',4),('vendorSpecific',5)))
+_AtmSigDescrParamBhliType_Type.__name__=_D
+_AtmSigDescrParamBhliType_Object=MibTableColumn
+atmSigDescrParamBhliType=_AtmSigDescrParamBhliType_Object((1,3,6,1,2,1,37,1,14,1,5,1,4),_AtmSigDescrParamBhliType_Type())
+atmSigDescrParamBhliType.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmSigDescrParamBhliType.setStatus(_A)
+class _AtmSigDescrParamBhliInfo_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_AtmSigDescrParamBhliInfo_Type.__name__=_N
+_AtmSigDescrParamBhliInfo_Object=MibTableColumn
+atmSigDescrParamBhliInfo=_AtmSigDescrParamBhliInfo_Object((1,3,6,1,2,1,37,1,14,1,5,1,5),_AtmSigDescrParamBhliInfo_Type())
+atmSigDescrParamBhliInfo.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmSigDescrParamBhliInfo.setStatus(_A)
+class _AtmSigDescrParamBbcConnConf_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ptp',1),('ptmp',2)))
+_AtmSigDescrParamBbcConnConf_Type.__name__=_D
+_AtmSigDescrParamBbcConnConf_Object=MibTableColumn
+atmSigDescrParamBbcConnConf=_AtmSigDescrParamBbcConnConf_Object((1,3,6,1,2,1,37,1,14,1,5,1,6),_AtmSigDescrParamBbcConnConf_Type())
+atmSigDescrParamBbcConnConf.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmSigDescrParamBbcConnConf.setStatus(_A)
+class _AtmSigDescrParamBlliLayer2_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14)));namedValues=NamedValues(*((_K,1),('iso1745',2),('q921',3),('x25linklayer',4),('x25multilink',5),('lapb',6),('hdlcArm',7),('hdlcNrm',8),('hdlcAbm',9),('iso88022',10),('x75slp',11),('q922',12),(_o,13),('iso7776',14)))
+_AtmSigDescrParamBlliLayer2_Type.__name__=_D
+_AtmSigDescrParamBlliLayer2_Object=MibTableColumn
+atmSigDescrParamBlliLayer2=_AtmSigDescrParamBlliLayer2_Object((1,3,6,1,2,1,37,1,14,1,5,1,7),_AtmSigDescrParamBlliLayer2_Type())
+atmSigDescrParamBlliLayer2.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmSigDescrParamBlliLayer2.setStatus(_A)
+class _AtmSigDescrParamBlliLayer3_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_K,1),('x25pkt',2),('isoiec8208',3),('x223iso8878',4),('isoiec8473',5),('t70',6),('tr9577',7),(_o,8)))
+_AtmSigDescrParamBlliLayer3_Type.__name__=_D
+_AtmSigDescrParamBlliLayer3_Object=MibTableColumn
+atmSigDescrParamBlliLayer3=_AtmSigDescrParamBlliLayer3_Object((1,3,6,1,2,1,37,1,14,1,5,1,8),_AtmSigDescrParamBlliLayer3_Type())
+atmSigDescrParamBlliLayer3.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmSigDescrParamBlliLayer3.setStatus(_A)
+class _AtmSigDescrParamBlliPktSize_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_K,1),('s16',2),('s32',3),('s64',4),('s128',5),('s256',6),('s512',7),('s1024',8),('s2048',9),('s4096',10)))
+_AtmSigDescrParamBlliPktSize_Type.__name__=_D
+_AtmSigDescrParamBlliPktSize_Object=MibTableColumn
+atmSigDescrParamBlliPktSize=_AtmSigDescrParamBlliPktSize_Object((1,3,6,1,2,1,37,1,14,1,5,1,9),_AtmSigDescrParamBlliPktSize_Type())
+atmSigDescrParamBlliPktSize.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmSigDescrParamBlliPktSize.setStatus(_A)
+class _AtmSigDescrParamBlliSnapId_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_K,1),('true',2),('false',3)))
+_AtmSigDescrParamBlliSnapId_Type.__name__=_D
+_AtmSigDescrParamBlliSnapId_Object=MibTableColumn
+atmSigDescrParamBlliSnapId=_AtmSigDescrParamBlliSnapId_Object((1,3,6,1,2,1,37,1,14,1,5,1,10),_AtmSigDescrParamBlliSnapId_Type())
+atmSigDescrParamBlliSnapId.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmSigDescrParamBlliSnapId.setStatus(_A)
+class _AtmSigDescrParamBlliOuiPid_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(5,5))
+_AtmSigDescrParamBlliOuiPid_Type.__name__=_N
+_AtmSigDescrParamBlliOuiPid_Object=MibTableColumn
+atmSigDescrParamBlliOuiPid=_AtmSigDescrParamBlliOuiPid_Object((1,3,6,1,2,1,37,1,14,1,5,1,11),_AtmSigDescrParamBlliOuiPid_Type())
+atmSigDescrParamBlliOuiPid.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmSigDescrParamBlliOuiPid.setStatus(_A)
+_AtmSigDescrParamRowStatus_Type=RowStatus
+_AtmSigDescrParamRowStatus_Object=MibTableColumn
+atmSigDescrParamRowStatus=_AtmSigDescrParamRowStatus_Object((1,3,6,1,2,1,37,1,14,1,5,1,12),_AtmSigDescrParamRowStatus_Type())
+atmSigDescrParamRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmSigDescrParamRowStatus.setStatus(_A)
+_AtmIfRegisteredAddrTable_Object=MibTable
+atmIfRegisteredAddrTable=_AtmIfRegisteredAddrTable_Object((1,3,6,1,2,1,37,1,14,1,6))
+if mibBuilder.loadTexts:atmIfRegisteredAddrTable.setStatus(_A)
+_AtmIfRegisteredAddrEntry_Object=MibTableRow
+atmIfRegisteredAddrEntry=_AtmIfRegisteredAddrEntry_Object((1,3,6,1,2,1,37,1,14,1,6,1))
+atmIfRegisteredAddrEntry.setIndexNames((0,_H,_I),(0,_B,_p))
+if mibBuilder.loadTexts:atmIfRegisteredAddrEntry.setStatus(_A)
+_AtmIfRegAddrAddress_Type=AtmAddr
+_AtmIfRegAddrAddress_Object=MibTableColumn
+atmIfRegAddrAddress=_AtmIfRegAddrAddress_Object((1,3,6,1,2,1,37,1,14,1,6,1,1),_AtmIfRegAddrAddress_Type())
+atmIfRegAddrAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmIfRegAddrAddress.setStatus(_A)
+class _AtmIfRegAddrAddressSource_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_K,1),('static',2),('dynamic',3)))
+_AtmIfRegAddrAddressSource_Type.__name__=_D
+_AtmIfRegAddrAddressSource_Object=MibTableColumn
+atmIfRegAddrAddressSource=_AtmIfRegAddrAddressSource_Object((1,3,6,1,2,1,37,1,14,1,6,1,2),_AtmIfRegAddrAddressSource_Type())
+atmIfRegAddrAddressSource.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmIfRegAddrAddressSource.setStatus(_A)
+class _AtmIfRegAddrOrgScope_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)));namedValues=NamedValues(*(('localNetwork',1),('localNetworkPlusOne',2),('localNetworkPlusTwo',3),('siteMinusOne',4),('intraSite',5),('sitePlusOne',6),('organizationMinusOne',7),('intraOrganization',8),('organizationPlusOne',9),('communityMinusOne',10),('intraCommunity',11),('communityPlusOne',12),('regional',13),('interRegional',14),('global',15)))
+_AtmIfRegAddrOrgScope_Type.__name__=_D
+_AtmIfRegAddrOrgScope_Object=MibTableColumn
+atmIfRegAddrOrgScope=_AtmIfRegAddrOrgScope_Object((1,3,6,1,2,1,37,1,14,1,6,1,3),_AtmIfRegAddrOrgScope_Type())
+atmIfRegAddrOrgScope.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmIfRegAddrOrgScope.setStatus(_A)
+_AtmIfRegAddrRowStatus_Type=RowStatus
+_AtmIfRegAddrRowStatus_Object=MibTableColumn
+atmIfRegAddrRowStatus=_AtmIfRegAddrRowStatus_Object((1,3,6,1,2,1,37,1,14,1,6,1,4),_AtmIfRegAddrRowStatus_Type())
+atmIfRegAddrRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmIfRegAddrRowStatus.setStatus(_A)
+_AtmVclAddrTable_Object=MibTable
+atmVclAddrTable=_AtmVclAddrTable_Object((1,3,6,1,2,1,37,1,14,1,7))
+if mibBuilder.loadTexts:atmVclAddrTable.setStatus(_A)
+_AtmVclAddrEntry_Object=MibTableRow
+atmVclAddrEntry=_AtmVclAddrEntry_Object((1,3,6,1,2,1,37,1,14,1,7,1))
+atmVclAddrEntry.setIndexNames((0,_H,_I),(0,_J,_P),(0,_J,_O),(0,_B,_U))
+if mibBuilder.loadTexts:atmVclAddrEntry.setStatus(_A)
+_AtmVclAddrAddr_Type=AtmAddr
+_AtmVclAddrAddr_Object=MibTableColumn
+atmVclAddrAddr=_AtmVclAddrAddr_Object((1,3,6,1,2,1,37,1,14,1,7,1,1),_AtmVclAddrAddr_Type())
+atmVclAddrAddr.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmVclAddrAddr.setStatus(_A)
+class _AtmVclAddrType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_q,1),(_r,2)))
+_AtmVclAddrType_Type.__name__=_D
+_AtmVclAddrType_Object=MibTableColumn
+atmVclAddrType=_AtmVclAddrType_Object((1,3,6,1,2,1,37,1,14,1,7,1,2),_AtmVclAddrType_Type())
+atmVclAddrType.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmVclAddrType.setStatus(_A)
+_AtmVclAddrRowStatus_Type=RowStatus
+_AtmVclAddrRowStatus_Object=MibTableColumn
+atmVclAddrRowStatus=_AtmVclAddrRowStatus_Object((1,3,6,1,2,1,37,1,14,1,7,1,3),_AtmVclAddrRowStatus_Type())
+atmVclAddrRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmVclAddrRowStatus.setStatus(_A)
+_AtmAddrVclTable_Object=MibTable
+atmAddrVclTable=_AtmAddrVclTable_Object((1,3,6,1,2,1,37,1,14,1,8))
+if mibBuilder.loadTexts:atmAddrVclTable.setStatus(_A)
+_AtmAddrVclEntry_Object=MibTableRow
+atmAddrVclEntry=_AtmAddrVclEntry_Object((1,3,6,1,2,1,37,1,14,1,8,1))
+atmAddrVclEntry.setIndexNames((0,_B,_U),(0,_B,_s),(0,_B,_t),(0,_B,_u))
+if mibBuilder.loadTexts:atmAddrVclEntry.setStatus(_A)
+_AtmAddrVclAtmIfIndex_Type=InterfaceIndex
+_AtmAddrVclAtmIfIndex_Object=MibTableColumn
+atmAddrVclAtmIfIndex=_AtmAddrVclAtmIfIndex_Object((1,3,6,1,2,1,37,1,14,1,8,1,1),_AtmAddrVclAtmIfIndex_Type())
+atmAddrVclAtmIfIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmAddrVclAtmIfIndex.setStatus(_A)
+_AtmAddrVclVpi_Type=AtmVpIdentifier
+_AtmAddrVclVpi_Object=MibTableColumn
+atmAddrVclVpi=_AtmAddrVclVpi_Object((1,3,6,1,2,1,37,1,14,1,8,1,2),_AtmAddrVclVpi_Type())
+atmAddrVclVpi.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmAddrVclVpi.setStatus(_A)
+_AtmAddrVclVci_Type=AtmVcIdentifier
+_AtmAddrVclVci_Object=MibTableColumn
+atmAddrVclVci=_AtmAddrVclVci_Object((1,3,6,1,2,1,37,1,14,1,8,1,3),_AtmAddrVclVci_Type())
+atmAddrVclVci.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmAddrVclVci.setStatus(_A)
+class _AtmAddrVclAddrType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_q,1),(_r,2)))
+_AtmAddrVclAddrType_Type.__name__=_D
+_AtmAddrVclAddrType_Object=MibTableColumn
+atmAddrVclAddrType=_AtmAddrVclAddrType_Object((1,3,6,1,2,1,37,1,14,1,8,1,4),_AtmAddrVclAddrType_Type())
+atmAddrVclAddrType.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmAddrVclAddrType.setStatus(_A)
+_AtmVplStatTable_Object=MibTable
+atmVplStatTable=_AtmVplStatTable_Object((1,3,6,1,2,1,37,1,14,1,9))
+if mibBuilder.loadTexts:atmVplStatTable.setStatus(_A)
+_AtmVplStatEntry_Object=MibTableRow
+atmVplStatEntry=_AtmVplStatEntry_Object((1,3,6,1,2,1,37,1,14,1,9,1))
+atmVplStatEntry.setIndexNames((0,_H,_I),(0,_J,_R))
+if mibBuilder.loadTexts:atmVplStatEntry.setStatus(_A)
+_AtmVplStatTotalCellIns_Type=Counter32
+_AtmVplStatTotalCellIns_Object=MibTableColumn
+atmVplStatTotalCellIns=_AtmVplStatTotalCellIns_Object((1,3,6,1,2,1,37,1,14,1,9,1,1),_AtmVplStatTotalCellIns_Type())
+atmVplStatTotalCellIns.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmVplStatTotalCellIns.setStatus(_A)
+_AtmVplStatClp0CellIns_Type=Counter32
+_AtmVplStatClp0CellIns_Object=MibTableColumn
+atmVplStatClp0CellIns=_AtmVplStatClp0CellIns_Object((1,3,6,1,2,1,37,1,14,1,9,1,2),_AtmVplStatClp0CellIns_Type())
+atmVplStatClp0CellIns.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmVplStatClp0CellIns.setStatus(_A)
+_AtmVplStatTotalDiscards_Type=Counter32
+_AtmVplStatTotalDiscards_Object=MibTableColumn
+atmVplStatTotalDiscards=_AtmVplStatTotalDiscards_Object((1,3,6,1,2,1,37,1,14,1,9,1,3),_AtmVplStatTotalDiscards_Type())
+atmVplStatTotalDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmVplStatTotalDiscards.setStatus(_A)
+_AtmVplStatClp0Discards_Type=Counter32
+_AtmVplStatClp0Discards_Object=MibTableColumn
+atmVplStatClp0Discards=_AtmVplStatClp0Discards_Object((1,3,6,1,2,1,37,1,14,1,9,1,4),_AtmVplStatClp0Discards_Type())
+atmVplStatClp0Discards.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmVplStatClp0Discards.setStatus(_A)
+_AtmVplStatTotalCellOuts_Type=Counter32
+_AtmVplStatTotalCellOuts_Object=MibTableColumn
+atmVplStatTotalCellOuts=_AtmVplStatTotalCellOuts_Object((1,3,6,1,2,1,37,1,14,1,9,1,5),_AtmVplStatTotalCellOuts_Type())
+atmVplStatTotalCellOuts.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmVplStatTotalCellOuts.setStatus(_A)
+_AtmVplStatClp0CellOuts_Type=Counter32
+_AtmVplStatClp0CellOuts_Object=MibTableColumn
+atmVplStatClp0CellOuts=_AtmVplStatClp0CellOuts_Object((1,3,6,1,2,1,37,1,14,1,9,1,6),_AtmVplStatClp0CellOuts_Type())
+atmVplStatClp0CellOuts.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmVplStatClp0CellOuts.setStatus(_A)
+_AtmVplStatClp0Tagged_Type=Counter32
+_AtmVplStatClp0Tagged_Object=MibTableColumn
+atmVplStatClp0Tagged=_AtmVplStatClp0Tagged_Object((1,3,6,1,2,1,37,1,14,1,9,1,7),_AtmVplStatClp0Tagged_Type())
+atmVplStatClp0Tagged.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmVplStatClp0Tagged.setStatus(_A)
+_AtmVplLogicalPortTable_Object=MibTable
+atmVplLogicalPortTable=_AtmVplLogicalPortTable_Object((1,3,6,1,2,1,37,1,14,1,10))
+if mibBuilder.loadTexts:atmVplLogicalPortTable.setStatus(_A)
+_AtmVplLogicalPortEntry_Object=MibTableRow
+atmVplLogicalPortEntry=_AtmVplLogicalPortEntry_Object((1,3,6,1,2,1,37,1,14,1,10,1))
+if mibBuilder.loadTexts:atmVplLogicalPortEntry.setStatus(_A)
+class _AtmVplLogicalPortDef_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('notLogicalIf',1),('isLogicalIf',2)))
+_AtmVplLogicalPortDef_Type.__name__=_D
+_AtmVplLogicalPortDef_Object=MibTableColumn
+atmVplLogicalPortDef=_AtmVplLogicalPortDef_Object((1,3,6,1,2,1,37,1,14,1,10,1,1),_AtmVplLogicalPortDef_Type())
+atmVplLogicalPortDef.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmVplLogicalPortDef.setStatus(_A)
+_AtmVplLogicalPortIndex_Type=InterfaceIndexOrZero
+_AtmVplLogicalPortIndex_Object=MibTableColumn
+atmVplLogicalPortIndex=_AtmVplLogicalPortIndex_Object((1,3,6,1,2,1,37,1,14,1,10,1,2),_AtmVplLogicalPortIndex_Type())
+atmVplLogicalPortIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmVplLogicalPortIndex.setStatus(_A)
+_AtmVclStatTable_Object=MibTable
+atmVclStatTable=_AtmVclStatTable_Object((1,3,6,1,2,1,37,1,14,1,11))
+if mibBuilder.loadTexts:atmVclStatTable.setStatus(_A)
+_AtmVclStatEntry_Object=MibTableRow
+atmVclStatEntry=_AtmVclStatEntry_Object((1,3,6,1,2,1,37,1,14,1,11,1))
+atmVclStatEntry.setIndexNames((0,_H,_I),(0,_J,_P),(0,_J,_O))
+if mibBuilder.loadTexts:atmVclStatEntry.setStatus(_A)
+_AtmVclStatTotalCellIns_Type=Counter32
+_AtmVclStatTotalCellIns_Object=MibTableColumn
+atmVclStatTotalCellIns=_AtmVclStatTotalCellIns_Object((1,3,6,1,2,1,37,1,14,1,11,1,1),_AtmVclStatTotalCellIns_Type())
+atmVclStatTotalCellIns.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmVclStatTotalCellIns.setStatus(_A)
+_AtmVclStatClp0CellIns_Type=Counter32
+_AtmVclStatClp0CellIns_Object=MibTableColumn
+atmVclStatClp0CellIns=_AtmVclStatClp0CellIns_Object((1,3,6,1,2,1,37,1,14,1,11,1,2),_AtmVclStatClp0CellIns_Type())
+atmVclStatClp0CellIns.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmVclStatClp0CellIns.setStatus(_A)
+_AtmVclStatTotalDiscards_Type=Counter32
+_AtmVclStatTotalDiscards_Object=MibTableColumn
+atmVclStatTotalDiscards=_AtmVclStatTotalDiscards_Object((1,3,6,1,2,1,37,1,14,1,11,1,3),_AtmVclStatTotalDiscards_Type())
+atmVclStatTotalDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmVclStatTotalDiscards.setStatus(_A)
+_AtmVclStatClp0Discards_Type=Counter32
+_AtmVclStatClp0Discards_Object=MibTableColumn
+atmVclStatClp0Discards=_AtmVclStatClp0Discards_Object((1,3,6,1,2,1,37,1,14,1,11,1,4),_AtmVclStatClp0Discards_Type())
+atmVclStatClp0Discards.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmVclStatClp0Discards.setStatus(_A)
+_AtmVclStatTotalCellOuts_Type=Counter32
+_AtmVclStatTotalCellOuts_Object=MibTableColumn
+atmVclStatTotalCellOuts=_AtmVclStatTotalCellOuts_Object((1,3,6,1,2,1,37,1,14,1,11,1,5),_AtmVclStatTotalCellOuts_Type())
+atmVclStatTotalCellOuts.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmVclStatTotalCellOuts.setStatus(_A)
+_AtmVclStatClp0CellOuts_Type=Counter32
+_AtmVclStatClp0CellOuts_Object=MibTableColumn
+atmVclStatClp0CellOuts=_AtmVclStatClp0CellOuts_Object((1,3,6,1,2,1,37,1,14,1,11,1,6),_AtmVclStatClp0CellOuts_Type())
+atmVclStatClp0CellOuts.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmVclStatClp0CellOuts.setStatus(_A)
+_AtmVclStatClp0Tagged_Type=Counter32
+_AtmVclStatClp0Tagged_Object=MibTableColumn
+atmVclStatClp0Tagged=_AtmVclStatClp0Tagged_Object((1,3,6,1,2,1,37,1,14,1,11,1,7),_AtmVclStatClp0Tagged_Type())
+atmVclStatClp0Tagged.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmVclStatClp0Tagged.setStatus(_A)
+_AtmAal5VclStatTable_Object=MibTable
+atmAal5VclStatTable=_AtmAal5VclStatTable_Object((1,3,6,1,2,1,37,1,14,1,12))
+if mibBuilder.loadTexts:atmAal5VclStatTable.setStatus(_A)
+_AtmAal5VclStatEntry_Object=MibTableRow
+atmAal5VclStatEntry=_AtmAal5VclStatEntry_Object((1,3,6,1,2,1,37,1,14,1,12,1))
+atmAal5VclStatEntry.setIndexNames((0,_H,_I),(0,_J,_P),(0,_J,_O))
+if mibBuilder.loadTexts:atmAal5VclStatEntry.setStatus(_A)
+_AtmAal5VclInPkts_Type=Counter32
+_AtmAal5VclInPkts_Object=MibTableColumn
+atmAal5VclInPkts=_AtmAal5VclInPkts_Object((1,3,6,1,2,1,37,1,14,1,12,1,1),_AtmAal5VclInPkts_Type())
+atmAal5VclInPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmAal5VclInPkts.setStatus(_A)
+_AtmAal5VclOutPkts_Type=Counter32
+_AtmAal5VclOutPkts_Object=MibTableColumn
+atmAal5VclOutPkts=_AtmAal5VclOutPkts_Object((1,3,6,1,2,1,37,1,14,1,12,1,2),_AtmAal5VclOutPkts_Type())
+atmAal5VclOutPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmAal5VclOutPkts.setStatus(_A)
+_AtmAal5VclInOctets_Type=Counter32
+_AtmAal5VclInOctets_Object=MibTableColumn
+atmAal5VclInOctets=_AtmAal5VclInOctets_Object((1,3,6,1,2,1,37,1,14,1,12,1,3),_AtmAal5VclInOctets_Type())
+atmAal5VclInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmAal5VclInOctets.setStatus(_A)
+_AtmAal5VclOutOctets_Type=Counter32
+_AtmAal5VclOutOctets_Object=MibTableColumn
+atmAal5VclOutOctets=_AtmAal5VclOutOctets_Object((1,3,6,1,2,1,37,1,14,1,12,1,4),_AtmAal5VclOutOctets_Type())
+atmAal5VclOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmAal5VclOutOctets.setStatus(_A)
+_AtmVclGenTable_Object=MibTable
+atmVclGenTable=_AtmVclGenTable_Object((1,3,6,1,2,1,37,1,14,1,13))
+if mibBuilder.loadTexts:atmVclGenTable.setStatus(_A)
+_AtmVclGenEntry_Object=MibTableRow
+atmVclGenEntry=_AtmVclGenEntry_Object((1,3,6,1,2,1,37,1,14,1,13,1))
+if mibBuilder.loadTexts:atmVclGenEntry.setStatus(_A)
+_AtmVclGenSigDescrIndex_Type=AtmSigDescrParamIndex
+_AtmVclGenSigDescrIndex_Object=MibTableColumn
+atmVclGenSigDescrIndex=_AtmVclGenSigDescrIndex_Object((1,3,6,1,2,1,37,1,14,1,13,1,1),_AtmVclGenSigDescrIndex_Type())
+atmVclGenSigDescrIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmVclGenSigDescrIndex.setStatus(_A)
+_AtmInterfaceExtTable_Object=MibTable
+atmInterfaceExtTable=_AtmInterfaceExtTable_Object((1,3,6,1,2,1,37,1,14,1,14))
+if mibBuilder.loadTexts:atmInterfaceExtTable.setStatus(_A)
+_AtmInterfaceExtEntry_Object=MibTableRow
+atmInterfaceExtEntry=_AtmInterfaceExtEntry_Object((1,3,6,1,2,1,37,1,14,1,14,1))
+if mibBuilder.loadTexts:atmInterfaceExtEntry.setStatus(_A)
+class _AtmIntfConfigType_Type(AtmInterfaceType):defaultValue=2
+_AtmIntfConfigType_Type.__name__=_Z
+_AtmIntfConfigType_Object=MibTableColumn
+atmIntfConfigType=_AtmIntfConfigType_Object((1,3,6,1,2,1,37,1,14,1,14,1,1),_AtmIntfConfigType_Type())
+atmIntfConfigType.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmIntfConfigType.setStatus(_A)
+_AtmIntfActualType_Type=AtmInterfaceType
+_AtmIntfActualType_Object=MibTableColumn
+atmIntfActualType=_AtmIntfActualType_Object((1,3,6,1,2,1,37,1,14,1,14,1,2),_AtmIntfActualType_Type())
+atmIntfActualType.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmIntfActualType.setStatus(_A)
+class _AtmIntfConfigSide_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_K,1),(_T,2),(_v,3)))
+_AtmIntfConfigSide_Type.__name__=_D
+_AtmIntfConfigSide_Object=MibTableColumn
+atmIntfConfigSide=_AtmIntfConfigSide_Object((1,3,6,1,2,1,37,1,14,1,14,1,3),_AtmIntfConfigSide_Type())
+atmIntfConfigSide.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmIntfConfigSide.setStatus(_A)
+class _AtmIntfActualSide_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_K,1),(_T,2),(_v,3),('symmetric',4)))
+_AtmIntfActualSide_Type.__name__=_D
+_AtmIntfActualSide_Object=MibTableColumn
+atmIntfActualSide=_AtmIntfActualSide_Object((1,3,6,1,2,1,37,1,14,1,14,1,4),_AtmIntfActualSide_Type())
+atmIntfActualSide.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmIntfActualSide.setStatus(_A)
+class _AtmIntfIlmiAdminStatus_Type(Bits):namedValues=NamedValues(*(('ilmi',0),(_w,1),(_x,2),(_y,3),(_z,4)))
+_AtmIntfIlmiAdminStatus_Type.__name__=_S
+_AtmIntfIlmiAdminStatus_Object=MibTableColumn
+atmIntfIlmiAdminStatus=_AtmIntfIlmiAdminStatus_Object((1,3,6,1,2,1,37,1,14,1,14,1,5),_AtmIntfIlmiAdminStatus_Type())
+atmIntfIlmiAdminStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmIntfIlmiAdminStatus.setStatus(_A)
+class _AtmIntfIlmiOperStatus_Type(Bits):namedValues=NamedValues(*(('ilmi',0),(_w,1),(_x,2),(_y,3),(_z,4)))
+_AtmIntfIlmiOperStatus_Type.__name__=_S
+_AtmIntfIlmiOperStatus_Object=MibTableColumn
+atmIntfIlmiOperStatus=_AtmIntfIlmiOperStatus_Object((1,3,6,1,2,1,37,1,14,1,14,1,6),_AtmIntfIlmiOperStatus_Type())
+atmIntfIlmiOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmIntfIlmiOperStatus.setStatus(_A)
+class _AtmIntfIlmiFsmState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('stopped',1),('linkFailing',2),('establishing',3),('configuring',4),('retrievingNetworkPrefixes',5),('registeringNetworkPrefixes',6),('retrievingAddresses',7),('registeringAddresses',8),('verifying',9)))
+_AtmIntfIlmiFsmState_Type.__name__=_D
+_AtmIntfIlmiFsmState_Object=MibTableColumn
+atmIntfIlmiFsmState=_AtmIntfIlmiFsmState_Object((1,3,6,1,2,1,37,1,14,1,14,1,7),_AtmIntfIlmiFsmState_Type())
+atmIntfIlmiFsmState.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmIntfIlmiFsmState.setStatus(_A)
+class _AtmIntfIlmiEstablishConPollIntvl_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_AtmIntfIlmiEstablishConPollIntvl_Type.__name__=_D
+_AtmIntfIlmiEstablishConPollIntvl_Object=MibTableColumn
+atmIntfIlmiEstablishConPollIntvl=_AtmIntfIlmiEstablishConPollIntvl_Object((1,3,6,1,2,1,37,1,14,1,14,1,8),_AtmIntfIlmiEstablishConPollIntvl_Type())
+atmIntfIlmiEstablishConPollIntvl.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmIntfIlmiEstablishConPollIntvl.setStatus(_A)
+if mibBuilder.loadTexts:atmIntfIlmiEstablishConPollIntvl.setUnits(_V)
+class _AtmIntfIlmiCheckConPollIntvl_Type(Integer32):defaultValue=5;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_AtmIntfIlmiCheckConPollIntvl_Type.__name__=_D
+_AtmIntfIlmiCheckConPollIntvl_Object=MibTableColumn
+atmIntfIlmiCheckConPollIntvl=_AtmIntfIlmiCheckConPollIntvl_Object((1,3,6,1,2,1,37,1,14,1,14,1,9),_AtmIntfIlmiCheckConPollIntvl_Type())
+atmIntfIlmiCheckConPollIntvl.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmIntfIlmiCheckConPollIntvl.setStatus(_A)
+if mibBuilder.loadTexts:atmIntfIlmiCheckConPollIntvl.setUnits(_V)
+class _AtmIntfIlmiConPollInactFactor_Type(Integer32):defaultValue=4;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_AtmIntfIlmiConPollInactFactor_Type.__name__=_D
+_AtmIntfIlmiConPollInactFactor_Object=MibTableColumn
+atmIntfIlmiConPollInactFactor=_AtmIntfIlmiConPollInactFactor_Object((1,3,6,1,2,1,37,1,14,1,14,1,10),_AtmIntfIlmiConPollInactFactor_Type())
+atmIntfIlmiConPollInactFactor.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmIntfIlmiConPollInactFactor.setStatus(_A)
+class _AtmIntfIlmiPublicPrivateIndctr_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_K,1),('public',2),('private',3)))
+_AtmIntfIlmiPublicPrivateIndctr_Type.__name__=_D
+_AtmIntfIlmiPublicPrivateIndctr_Object=MibTableColumn
+atmIntfIlmiPublicPrivateIndctr=_AtmIntfIlmiPublicPrivateIndctr_Object((1,3,6,1,2,1,37,1,14,1,14,1,11),_AtmIntfIlmiPublicPrivateIndctr_Type())
+atmIntfIlmiPublicPrivateIndctr.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmIntfIlmiPublicPrivateIndctr.setStatus(_A)
+class _AtmInterfaceConfMaxSvpcVpi_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
+_AtmInterfaceConfMaxSvpcVpi_Type.__name__=_D
+_AtmInterfaceConfMaxSvpcVpi_Object=MibTableColumn
+atmInterfaceConfMaxSvpcVpi=_AtmInterfaceConfMaxSvpcVpi_Object((1,3,6,1,2,1,37,1,14,1,14,1,12),_AtmInterfaceConfMaxSvpcVpi_Type())
+atmInterfaceConfMaxSvpcVpi.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmInterfaceConfMaxSvpcVpi.setStatus(_A)
+class _AtmInterfaceCurrentMaxSvpcVpi_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
+_AtmInterfaceCurrentMaxSvpcVpi_Type.__name__=_D
+_AtmInterfaceCurrentMaxSvpcVpi_Object=MibTableColumn
+atmInterfaceCurrentMaxSvpcVpi=_AtmInterfaceCurrentMaxSvpcVpi_Object((1,3,6,1,2,1,37,1,14,1,14,1,13),_AtmInterfaceCurrentMaxSvpcVpi_Type())
+atmInterfaceCurrentMaxSvpcVpi.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmInterfaceCurrentMaxSvpcVpi.setStatus(_A)
+class _AtmInterfaceConfMaxSvccVpi_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
+_AtmInterfaceConfMaxSvccVpi_Type.__name__=_D
+_AtmInterfaceConfMaxSvccVpi_Object=MibTableColumn
+atmInterfaceConfMaxSvccVpi=_AtmInterfaceConfMaxSvccVpi_Object((1,3,6,1,2,1,37,1,14,1,14,1,14),_AtmInterfaceConfMaxSvccVpi_Type())
+atmInterfaceConfMaxSvccVpi.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmInterfaceConfMaxSvccVpi.setStatus(_A)
+class _AtmInterfaceCurrentMaxSvccVpi_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
+_AtmInterfaceCurrentMaxSvccVpi_Type.__name__=_D
+_AtmInterfaceCurrentMaxSvccVpi_Object=MibTableColumn
+atmInterfaceCurrentMaxSvccVpi=_AtmInterfaceCurrentMaxSvccVpi_Object((1,3,6,1,2,1,37,1,14,1,14,1,15),_AtmInterfaceCurrentMaxSvccVpi_Type())
+atmInterfaceCurrentMaxSvccVpi.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmInterfaceCurrentMaxSvccVpi.setStatus(_A)
+class _AtmInterfaceConfMinSvccVci_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_AtmInterfaceConfMinSvccVci_Type.__name__=_D
+_AtmInterfaceConfMinSvccVci_Object=MibTableColumn
+atmInterfaceConfMinSvccVci=_AtmInterfaceConfMinSvccVci_Object((1,3,6,1,2,1,37,1,14,1,14,1,16),_AtmInterfaceConfMinSvccVci_Type())
+atmInterfaceConfMinSvccVci.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmInterfaceConfMinSvccVci.setStatus(_A)
+class _AtmInterfaceCurrentMinSvccVci_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_AtmInterfaceCurrentMinSvccVci_Type.__name__=_D
+_AtmInterfaceCurrentMinSvccVci_Object=MibTableColumn
+atmInterfaceCurrentMinSvccVci=_AtmInterfaceCurrentMinSvccVci_Object((1,3,6,1,2,1,37,1,14,1,14,1,17),_AtmInterfaceCurrentMinSvccVci_Type())
+atmInterfaceCurrentMinSvccVci.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmInterfaceCurrentMinSvccVci.setStatus(_A)
+_AtmIntfSigVccRxTrafficDescrIndex_Type=AtmTrafficDescrParamIndex
+_AtmIntfSigVccRxTrafficDescrIndex_Object=MibTableColumn
+atmIntfSigVccRxTrafficDescrIndex=_AtmIntfSigVccRxTrafficDescrIndex_Object((1,3,6,1,2,1,37,1,14,1,14,1,18),_AtmIntfSigVccRxTrafficDescrIndex_Type())
+atmIntfSigVccRxTrafficDescrIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmIntfSigVccRxTrafficDescrIndex.setStatus(_A)
+_AtmIntfSigVccTxTrafficDescrIndex_Type=AtmTrafficDescrParamIndex
+_AtmIntfSigVccTxTrafficDescrIndex_Object=MibTableColumn
+atmIntfSigVccTxTrafficDescrIndex=_AtmIntfSigVccTxTrafficDescrIndex_Object((1,3,6,1,2,1,37,1,14,1,14,1,19),_AtmIntfSigVccTxTrafficDescrIndex_Type())
+atmIntfSigVccTxTrafficDescrIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmIntfSigVccTxTrafficDescrIndex.setStatus(_A)
+_AtmIntfPvcFailures_Type=Counter32
+_AtmIntfPvcFailures_Object=MibTableColumn
+atmIntfPvcFailures=_AtmIntfPvcFailures_Object((1,3,6,1,2,1,37,1,14,1,14,1,20),_AtmIntfPvcFailures_Type())
+atmIntfPvcFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmIntfPvcFailures.setStatus(_A)
+_AtmIntfCurrentlyFailingPVpls_Type=Gauge32
+_AtmIntfCurrentlyFailingPVpls_Object=MibTableColumn
+atmIntfCurrentlyFailingPVpls=_AtmIntfCurrentlyFailingPVpls_Object((1,3,6,1,2,1,37,1,14,1,14,1,21),_AtmIntfCurrentlyFailingPVpls_Type())
+atmIntfCurrentlyFailingPVpls.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmIntfCurrentlyFailingPVpls.setStatus(_A)
+_AtmIntfCurrentlyFailingPVcls_Type=Gauge32
+_AtmIntfCurrentlyFailingPVcls_Object=MibTableColumn
+atmIntfCurrentlyFailingPVcls=_AtmIntfCurrentlyFailingPVcls_Object((1,3,6,1,2,1,37,1,14,1,14,1,22),_AtmIntfCurrentlyFailingPVcls_Type())
+atmIntfCurrentlyFailingPVcls.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmIntfCurrentlyFailingPVcls.setStatus(_A)
+class _AtmIntfPvcFailuresTrapEnable_Type(TruthValue):defaultValue=2
+_AtmIntfPvcFailuresTrapEnable_Type.__name__=_a
+_AtmIntfPvcFailuresTrapEnable_Object=MibTableColumn
+atmIntfPvcFailuresTrapEnable=_AtmIntfPvcFailuresTrapEnable_Object((1,3,6,1,2,1,37,1,14,1,14,1,23),_AtmIntfPvcFailuresTrapEnable_Type())
+atmIntfPvcFailuresTrapEnable.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmIntfPvcFailuresTrapEnable.setStatus(_A)
+class _AtmIntfPvcNotificationInterval_Type(Integer32):defaultValue=30;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,3600))
+_AtmIntfPvcNotificationInterval_Type.__name__=_D
+_AtmIntfPvcNotificationInterval_Object=MibTableColumn
+atmIntfPvcNotificationInterval=_AtmIntfPvcNotificationInterval_Object((1,3,6,1,2,1,37,1,14,1,14,1,24),_AtmIntfPvcNotificationInterval_Type())
+atmIntfPvcNotificationInterval.setMaxAccess(_F)
+if mibBuilder.loadTexts:atmIntfPvcNotificationInterval.setStatus(_A)
+if mibBuilder.loadTexts:atmIntfPvcNotificationInterval.setUnits(_V)
+_AtmIntfLeafSetupFailures_Type=Counter32
+_AtmIntfLeafSetupFailures_Object=MibTableColumn
+atmIntfLeafSetupFailures=_AtmIntfLeafSetupFailures_Object((1,3,6,1,2,1,37,1,14,1,14,1,25),_AtmIntfLeafSetupFailures_Type())
+atmIntfLeafSetupFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmIntfLeafSetupFailures.setStatus(_A)
+_AtmIntfLeafSetupRequests_Type=Counter32
+_AtmIntfLeafSetupRequests_Object=MibTableColumn
+atmIntfLeafSetupRequests=_AtmIntfLeafSetupRequests_Object((1,3,6,1,2,1,37,1,14,1,14,1,26),_AtmIntfLeafSetupRequests_Type())
+atmIntfLeafSetupRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmIntfLeafSetupRequests.setStatus(_A)
+_AtmIlmiSrvcRegTable_Object=MibTable
+atmIlmiSrvcRegTable=_AtmIlmiSrvcRegTable_Object((1,3,6,1,2,1,37,1,14,1,15))
+if mibBuilder.loadTexts:atmIlmiSrvcRegTable.setStatus(_A)
+_AtmIlmiSrvcRegEntry_Object=MibTableRow
+atmIlmiSrvcRegEntry=_AtmIlmiSrvcRegEntry_Object((1,3,6,1,2,1,37,1,14,1,15,1))
+atmIlmiSrvcRegEntry.setIndexNames((0,_B,_A0),(0,_B,_A1),(0,_B,_A2))
+if mibBuilder.loadTexts:atmIlmiSrvcRegEntry.setStatus(_A)
+_AtmIlmiSrvcRegIndex_Type=InterfaceIndexOrZero
+_AtmIlmiSrvcRegIndex_Object=MibTableColumn
+atmIlmiSrvcRegIndex=_AtmIlmiSrvcRegIndex_Object((1,3,6,1,2,1,37,1,14,1,15,1,1),_AtmIlmiSrvcRegIndex_Type())
+atmIlmiSrvcRegIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmIlmiSrvcRegIndex.setStatus(_A)
+_AtmIlmiSrvcRegServiceID_Type=ObjectIdentifier
+_AtmIlmiSrvcRegServiceID_Object=MibTableColumn
+atmIlmiSrvcRegServiceID=_AtmIlmiSrvcRegServiceID_Object((1,3,6,1,2,1,37,1,14,1,15,1,2),_AtmIlmiSrvcRegServiceID_Type())
+atmIlmiSrvcRegServiceID.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmIlmiSrvcRegServiceID.setStatus(_A)
+class _AtmIlmiSrvcRegAddressIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_AtmIlmiSrvcRegAddressIndex_Type.__name__=_D
+_AtmIlmiSrvcRegAddressIndex_Object=MibTableColumn
+atmIlmiSrvcRegAddressIndex=_AtmIlmiSrvcRegAddressIndex_Object((1,3,6,1,2,1,37,1,14,1,15,1,3),_AtmIlmiSrvcRegAddressIndex_Type())
+atmIlmiSrvcRegAddressIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmIlmiSrvcRegAddressIndex.setStatus(_A)
+_AtmIlmiSrvcRegATMAddress_Type=AtmAddr
+_AtmIlmiSrvcRegATMAddress_Object=MibTableColumn
+atmIlmiSrvcRegATMAddress=_AtmIlmiSrvcRegATMAddress_Object((1,3,6,1,2,1,37,1,14,1,15,1,4),_AtmIlmiSrvcRegATMAddress_Type())
+atmIlmiSrvcRegATMAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmIlmiSrvcRegATMAddress.setStatus(_A)
+class _AtmIlmiSrvcRegParm1_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_AtmIlmiSrvcRegParm1_Type.__name__=_N
+_AtmIlmiSrvcRegParm1_Object=MibTableColumn
+atmIlmiSrvcRegParm1=_AtmIlmiSrvcRegParm1_Object((1,3,6,1,2,1,37,1,14,1,15,1,5),_AtmIlmiSrvcRegParm1_Type())
+atmIlmiSrvcRegParm1.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmIlmiSrvcRegParm1.setStatus(_A)
+_AtmIlmiSrvcRegRowStatus_Type=RowStatus
+_AtmIlmiSrvcRegRowStatus_Object=MibTableColumn
+atmIlmiSrvcRegRowStatus=_AtmIlmiSrvcRegRowStatus_Object((1,3,6,1,2,1,37,1,14,1,15,1,6),_AtmIlmiSrvcRegRowStatus_Type())
+atmIlmiSrvcRegRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmIlmiSrvcRegRowStatus.setStatus(_A)
+_AtmIlmiNetworkPrefixTable_Object=MibTable
+atmIlmiNetworkPrefixTable=_AtmIlmiNetworkPrefixTable_Object((1,3,6,1,2,1,37,1,14,1,16))
+if mibBuilder.loadTexts:atmIlmiNetworkPrefixTable.setStatus(_A)
+_AtmIlmiNetworkPrefixEntry_Object=MibTableRow
+atmIlmiNetworkPrefixEntry=_AtmIlmiNetworkPrefixEntry_Object((1,3,6,1,2,1,37,1,14,1,16,1))
+atmIlmiNetworkPrefixEntry.setIndexNames((0,_H,_I),(0,_B,_A3))
+if mibBuilder.loadTexts:atmIlmiNetworkPrefixEntry.setStatus(_A)
+_AtmIlmiNetPrefixPrefix_Type=AtmIlmiNetworkPrefix
+_AtmIlmiNetPrefixPrefix_Object=MibTableColumn
+atmIlmiNetPrefixPrefix=_AtmIlmiNetPrefixPrefix_Object((1,3,6,1,2,1,37,1,14,1,16,1,1),_AtmIlmiNetPrefixPrefix_Type())
+atmIlmiNetPrefixPrefix.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmIlmiNetPrefixPrefix.setStatus(_A)
+_AtmIlmiNetPrefixRowStatus_Type=RowStatus
+_AtmIlmiNetPrefixRowStatus_Object=MibTableColumn
+atmIlmiNetPrefixRowStatus=_AtmIlmiNetPrefixRowStatus_Object((1,3,6,1,2,1,37,1,14,1,16,1,2),_AtmIlmiNetPrefixRowStatus_Type())
+atmIlmiNetPrefixRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmIlmiNetPrefixRowStatus.setStatus(_A)
+_AtmSwitchAddressTable_Object=MibTable
+atmSwitchAddressTable=_AtmSwitchAddressTable_Object((1,3,6,1,2,1,37,1,14,1,17))
+if mibBuilder.loadTexts:atmSwitchAddressTable.setStatus(_A)
+_AtmSwitchAddressEntry_Object=MibTableRow
+atmSwitchAddressEntry=_AtmSwitchAddressEntry_Object((1,3,6,1,2,1,37,1,14,1,17,1))
+atmSwitchAddressEntry.setIndexNames((0,_B,_A4))
+if mibBuilder.loadTexts:atmSwitchAddressEntry.setStatus(_A)
+class _AtmSwitchAddressIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_AtmSwitchAddressIndex_Type.__name__=_D
+_AtmSwitchAddressIndex_Object=MibTableColumn
+atmSwitchAddressIndex=_AtmSwitchAddressIndex_Object((1,3,6,1,2,1,37,1,14,1,17,1,1),_AtmSwitchAddressIndex_Type())
+atmSwitchAddressIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:atmSwitchAddressIndex.setStatus(_A)
+class _AtmSwitchAddressAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(13,13),ValueSizeConstraint(20,20))
+_AtmSwitchAddressAddress_Type.__name__=_N
+_AtmSwitchAddressAddress_Object=MibTableColumn
+atmSwitchAddressAddress=_AtmSwitchAddressAddress_Object((1,3,6,1,2,1,37,1,14,1,17,1,2),_AtmSwitchAddressAddress_Type())
+atmSwitchAddressAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmSwitchAddressAddress.setStatus(_A)
+_AtmSwitchAddressRowStatus_Type=RowStatus
+_AtmSwitchAddressRowStatus_Object=MibTableColumn
+atmSwitchAddressRowStatus=_AtmSwitchAddressRowStatus_Object((1,3,6,1,2,1,37,1,14,1,17,1,3),_AtmSwitchAddressRowStatus_Type())
+atmSwitchAddressRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmSwitchAddressRowStatus.setStatus(_A)
+_AtmVpCrossConnectXTable_Object=MibTable
+atmVpCrossConnectXTable=_AtmVpCrossConnectXTable_Object((1,3,6,1,2,1,37,1,14,1,18))
+if mibBuilder.loadTexts:atmVpCrossConnectXTable.setStatus(_A)
+_AtmVpCrossConnectXEntry_Object=MibTableRow
+atmVpCrossConnectXEntry=_AtmVpCrossConnectXEntry_Object((1,3,6,1,2,1,37,1,14,1,18,1))
+if mibBuilder.loadTexts:atmVpCrossConnectXEntry.setStatus(_A)
+class _AtmVpCrossConnectUserName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_AtmVpCrossConnectUserName_Type.__name__=_Q
+_AtmVpCrossConnectUserName_Object=MibTableColumn
+atmVpCrossConnectUserName=_AtmVpCrossConnectUserName_Object((1,3,6,1,2,1,37,1,14,1,18,1,1),_AtmVpCrossConnectUserName_Type())
+atmVpCrossConnectUserName.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmVpCrossConnectUserName.setStatus(_A)
+class _AtmVpCrossConnectProviderName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_AtmVpCrossConnectProviderName_Type.__name__=_Q
+_AtmVpCrossConnectProviderName_Object=MibTableColumn
+atmVpCrossConnectProviderName=_AtmVpCrossConnectProviderName_Object((1,3,6,1,2,1,37,1,14,1,18,1,2),_AtmVpCrossConnectProviderName_Type())
+atmVpCrossConnectProviderName.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmVpCrossConnectProviderName.setStatus(_A)
+_AtmVcCrossConnectXTable_Object=MibTable
+atmVcCrossConnectXTable=_AtmVcCrossConnectXTable_Object((1,3,6,1,2,1,37,1,14,1,19))
+if mibBuilder.loadTexts:atmVcCrossConnectXTable.setStatus(_A)
+_AtmVcCrossConnectXEntry_Object=MibTableRow
+atmVcCrossConnectXEntry=_AtmVcCrossConnectXEntry_Object((1,3,6,1,2,1,37,1,14,1,19,1))
+if mibBuilder.loadTexts:atmVcCrossConnectXEntry.setStatus(_A)
+class _AtmVcCrossConnectUserName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_AtmVcCrossConnectUserName_Type.__name__=_Q
+_AtmVcCrossConnectUserName_Object=MibTableColumn
+atmVcCrossConnectUserName=_AtmVcCrossConnectUserName_Object((1,3,6,1,2,1,37,1,14,1,19,1,1),_AtmVcCrossConnectUserName_Type())
+atmVcCrossConnectUserName.setMaxAccess(_E)
+if mibBuilder.loadTexts:atmVcCrossConnectUserName.setStatus(_A)
+class _AtmVcCrossConnectProviderName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_AtmVcCrossConnectProviderName_Type.__name__=_Q
+_AtmVcCrossConnectProviderName_Object=MibTableColumn
+atmVcCrossConnectProviderName=_AtmVcCrossConnectProviderName_Object((1,3,6,1,2,1,37,1,14,1,19,1,2),_AtmVcCrossConnectProviderName_Type())
+atmVcCrossConnectProviderName.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmVcCrossConnectProviderName.setStatus(_A)
+_AtmCurrentlyFailingPVplTable_Object=MibTable
+atmCurrentlyFailingPVplTable=_AtmCurrentlyFailingPVplTable_Object((1,3,6,1,2,1,37,1,14,1,20))
+if mibBuilder.loadTexts:atmCurrentlyFailingPVplTable.setStatus(_A)
+_AtmCurrentlyFailingPVplEntry_Object=MibTableRow
+atmCurrentlyFailingPVplEntry=_AtmCurrentlyFailingPVplEntry_Object((1,3,6,1,2,1,37,1,14,1,20,1))
+atmCurrentlyFailingPVplEntry.setIndexNames((0,_H,_I),(0,_J,_R))
+if mibBuilder.loadTexts:atmCurrentlyFailingPVplEntry.setStatus(_A)
+_AtmCurrentlyFailingPVplTimeStamp_Type=TimeStamp
+_AtmCurrentlyFailingPVplTimeStamp_Object=MibTableColumn
+atmCurrentlyFailingPVplTimeStamp=_AtmCurrentlyFailingPVplTimeStamp_Object((1,3,6,1,2,1,37,1,14,1,20,1,1),_AtmCurrentlyFailingPVplTimeStamp_Type())
+atmCurrentlyFailingPVplTimeStamp.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmCurrentlyFailingPVplTimeStamp.setStatus(_A)
+_AtmCurrentlyFailingPVclTable_Object=MibTable
+atmCurrentlyFailingPVclTable=_AtmCurrentlyFailingPVclTable_Object((1,3,6,1,2,1,37,1,14,1,21))
+if mibBuilder.loadTexts:atmCurrentlyFailingPVclTable.setStatus(_A)
+_AtmCurrentlyFailingPVclEntry_Object=MibTableRow
+atmCurrentlyFailingPVclEntry=_AtmCurrentlyFailingPVclEntry_Object((1,3,6,1,2,1,37,1,14,1,21,1))
+atmCurrentlyFailingPVclEntry.setIndexNames((0,_H,_I),(0,_J,_P),(0,_J,_O))
+if mibBuilder.loadTexts:atmCurrentlyFailingPVclEntry.setStatus(_A)
+_AtmCurrentlyFailingPVclTimeStamp_Type=TimeStamp
+_AtmCurrentlyFailingPVclTimeStamp_Object=MibTableColumn
+atmCurrentlyFailingPVclTimeStamp=_AtmCurrentlyFailingPVclTimeStamp_Object((1,3,6,1,2,1,37,1,14,1,21,1,1),_AtmCurrentlyFailingPVclTimeStamp_Type())
+atmCurrentlyFailingPVclTimeStamp.setMaxAccess(_C)
+if mibBuilder.loadTexts:atmCurrentlyFailingPVclTimeStamp.setStatus(_A)
+_Atm2MIBTraps_ObjectIdentity=ObjectIdentity
+atm2MIBTraps=_Atm2MIBTraps_ObjectIdentity((1,3,6,1,2,1,37,1,14,2))
+_AtmPvcTraps_ObjectIdentity=ObjectIdentity
+atmPvcTraps=_AtmPvcTraps_ObjectIdentity((1,3,6,1,2,1,37,1,14,2,1))
+_AtmPvcTrapsPrefix_ObjectIdentity=ObjectIdentity
+atmPvcTrapsPrefix=_AtmPvcTrapsPrefix_ObjectIdentity((1,3,6,1,2,1,37,1,14,2,1,0))
+_Atm2MIBConformance_ObjectIdentity=ObjectIdentity
+atm2MIBConformance=_Atm2MIBConformance_ObjectIdentity((1,3,6,1,2,1,37,1,14,3))
+_Atm2MIBGroups_ObjectIdentity=ObjectIdentity
+atm2MIBGroups=_Atm2MIBGroups_ObjectIdentity((1,3,6,1,2,1,37,1,14,3,1))
+_Atm2MIBCompliances_ObjectIdentity=ObjectIdentity
+atm2MIBCompliances=_Atm2MIBCompliances_ObjectIdentity((1,3,6,1,2,1,37,1,14,3,2))
+atmVplEntry.registerAugmentions((_B,_A5))
 atmVplLogicalPortEntry.setIndexNames(*atmVplEntry.getIndexNames())
-if mibBuilder.loadTexts: atmVplLogicalPortEntry.setDescription('An entry with information about the ATM Logical\n                      Port interface.')
-atmVplLogicalPortDef = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 10, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("notLogicalIf", 1), ("isLogicalIf", 2),)).clone('notLogicalIf')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVplLogicalPortDef.setDescription('Indicates whether the VPC at this VPL interface\n                      is an ATM Logical Port interface.')
-atmVplLogicalPortIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 10, 1, 2), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVplLogicalPortIndex.setDescription('The ifTable index of the ATM logical port\n                      interface associated with this VPL. The\n                      distinguished value of zero indicates that the\n                      agent has not (yet) assigned such an ifTable\n                      Index. The zero value must be assigned by the\n                      agent if the value of atmVplLogicalPortDef is set\n                      to notLogicalIf, or if the VPL row is not active.')
-atmVclStatTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 11), )
-if mibBuilder.loadTexts: atmVclStatTable.setDescription('This table contains all statistics counters per\n                      VCL.  It is used to monitor the usage of the VCL\n                      in terms of incoming cells and outgoing cells.')
-atmVclStatEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 11, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ATM-MIB", "atmVclVpi"), (0, "ATM-MIB", "atmVclVci"))
-if mibBuilder.loadTexts: atmVclStatEntry.setDescription('Each entry in this table represents a VCL.')
-atmVclStatTotalCellIns = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 11, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVclStatTotalCellIns.setDescription('The total number of valid ATM cells received by\n                      this VCL including both CLP=0 and CLP=1 cells.\n                      The cells are counted prior to the application of\n                      the traffic policing.')
-atmVclStatClp0CellIns = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 11, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVclStatClp0CellIns.setDescription('The number of valid ATM cells received by this\n                      VCL with CLP=0.  The cells are counted prior to\n                      the application of the traffic policing.')
-atmVclStatTotalDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 11, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVclStatTotalDiscards.setDescription('The total number of valid ATM cells discarded by\n                      the traffic policing entity.  This includes cells\n                      originally received with CLP=0 and CLP=1.')
-atmVclStatClp0Discards = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 11, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVclStatClp0Discards.setDescription('The total number of valid ATM cells received with\n                      CLP=0 and discarded by the traffic policing\n                      entity.')
-atmVclStatTotalCellOuts = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 11, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVclStatTotalCellOuts.setDescription('The total number of valid ATM cells transmitted\n                      by this VCL.  This includes both CLP=0 and CLP=1\n                      cells.')
-atmVclStatClp0CellOuts = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 11, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVclStatClp0CellOuts.setDescription('The total number of valid ATM cells transmitted\n                      with CLP=0 by this VCL.')
-atmVclStatTaggedOuts = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 11, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVclStatTaggedOuts.setDescription('The total number of valid ATM cells tagged by the\n                      traffic policing entity from CLP=0 to CLP=1 and\n                      transmitted by this VCL.')
-atmAal5VclStatTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 12), )
-if mibBuilder.loadTexts: atmAal5VclStatTable.setDescription('This table provides a collection of objects\n                      providing AAL5 configuration and performance\n                      statistics of a VCL.')
-atmAal5VclStatEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 12, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ATM-MIB", "atmVclVpi"), (0, "ATM-MIB", "atmVclVci"))
-if mibBuilder.loadTexts: atmAal5VclStatEntry.setDescription('Each entry in this table represents an AAL5 VCL,\n                      and is indexed by ifIndex values of AAL5\n                      interfaces and the associated VPI/VCI values.')
-atmAal5VclInPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 12, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmAal5VclInPkts.setDescription('The number of AAL5 CPCS PDUs received on the AAL5\n                      VCC at the interface identified by the ifIndex.')
-atmAal5VclOutPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 12, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmAal5VclOutPkts.setDescription('The number of AAL5 CPCS PDUs transmitted on the\n                      AAL5 VCC at the interface identified by the\n                      ifIndex.')
-atmAal5VclInOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 12, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmAal5VclInOctets.setDescription('The number of octets contained in AAL5 CPCS PDUs\n                      received on the AAL5 VCC at the interface\n                      identified by the ifIndex.')
-atmAal5VclOutOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 12, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmAal5VclOutOctets.setDescription('The number of octets contained in AAL5 CPCS PDUs\n                      transmitted on the AAL5 VCC at the interface\n                      identified by the ifIndex.')
-atmVclGenTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 13), )
-if mibBuilder.loadTexts: atmVclGenTable.setDescription('General Information for each VC.')
-atmVclGenEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 13, 1), )
-atmVclEntry.registerAugmentions(("ATM2-MIB", "atmVclGenEntry"))
+atmVclEntry.registerAugmentions((_B,_A6))
 atmVclGenEntry.setIndexNames(*atmVclEntry.getIndexNames())
-if mibBuilder.loadTexts: atmVclGenEntry.setDescription('An entry with general information about the ATM\n                      VC.')
-atmVclGenSigDescrIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 13, 1, 1), AtmSigDescrParamIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVclGenSigDescrIndex.setDescription('The value of this object identifies the row in\n                      the ATM Signalling Descriptor Parameter Table\n                      which applies to this VCL.')
-atmInterfaceExtTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14), )
-if mibBuilder.loadTexts: atmInterfaceExtTable.setDescription('This table contains ATM interface configuration and\n                 monitoring information not defined in the\n                 atmInterfaceConfTable from the ATM-MIB.  This includes\n                 the type of connection setup procedures, ILMI\n                 information, and information on the VPI/VCI range.')
-atmInterfaceExtEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1), )
-atmInterfaceConfEntry.registerAugmentions(("ATM2-MIB", "atmInterfaceExtEntry"))
+atmInterfaceConfEntry.registerAugmentions((_B,_A7))
 atmInterfaceExtEntry.setIndexNames(*atmInterfaceConfEntry.getIndexNames())
-if mibBuilder.loadTexts: atmInterfaceExtEntry.setDescription('An entry extends the atmInterfaceConfEntry defined in\n                 the ATM-MIB.  Each entry corresponds to an ATM\n                 interface.')
-atmIntfConfigType = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 1), AtmInterfaceType().clone('autoConfig')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmIntfConfigType.setDescription("The type of connection setup procedures configured for\n                 the ATM interface.  Setting this variable to a value of\n                 'other' is not allowed.")
-atmIntfActualType = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 2), AtmInterfaceType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmIntfActualType.setDescription("The type of connection setup procedures currently\n                 being used on the interface.  This may reflect a\n                 manually configured value for the interface type, or\n                 may be determined by other means such as auto-\n                 configuration.  A value of `autoConfig' indicates that\n                 auto-configuration was requested but has not yet been\n                 completed.")
-atmIntfConfigSide = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("other", 1), ("user", 2), ("network", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmIntfConfigSide.setDescription("The configured role of the managed entity as one side\n                 of the ATM interface.  This value does not apply when\n                 the object atmIntfConfigType is set to `autoConfig',\n                 `atmfPnni1Dot0', or `atmfBici2Dot0'.")
-atmIntfActualSide = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("other", 1), ("user", 2), ("network", 3), ("symmetric", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmIntfActualSide.setDescription('The current role used by the managed entity to\n                 represent one side of the ATM interface.')
-atmIntfIlmiAdminStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 5), Bits().clone(namedValues=NamedValues(("ilmi", 0), ("ilmiAddressRegistration", 1), ("ilmiConnectivity", 2), ("ilmiPvcPvpMgmt", 3), ("ilmiSigVccParamNegotiation", 4),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmIntfIlmiAdminStatus.setDescription("Indicates which components of ILMI are\n                 administratively enabled on this interface.  If the\n                 'ilmi' bit is not set, then no ILMI components are\n                 operational.  ILMI components other than auto-\n                 configuration that are not represented in the value\n                 have their administrative status determined according\n                 to the 'ilmi' bit.  The ILMI auto-configuration\n                 component is enabled/disabled by the atmIntfConfigType\n                 object.")
-atmIntfIlmiOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 6), Bits().clone(namedValues=NamedValues(("ilmi", 0), ("ilmiAddressRegistration", 1), ("ilmiConnectivity", 2), ("ilmiPvcPvpMgmt", 3), ("ilmiSigVccParamNegotiation", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmIntfIlmiOperStatus.setDescription('Indicates which components of ILMI are operational on\n                 this interface.')
-atmIntfIlmiFsmState = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9,))).clone(namedValues=NamedValues(("stopped", 1), ("linkFailing", 2), ("establishing", 3), ("configuring", 4), ("retrievingNetworkPrefixes", 5), ("registeringNetworkPrefixes", 6), ("retrievingAddresses", 7), ("registeringAddresses", 8), ("verifying", 9),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmIntfIlmiFsmState.setDescription('Indicates the state of the ILMI Finite State Machine\n                 associated with this interface.')
-atmIntfIlmiEstablishConPollIntvl = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)).clone(1)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmIntfIlmiEstablishConPollIntvl.setDescription('The amount of time S between successive transmissions\n                 of ILMI messages on this interface for the purpose of\n                 detecting establishment of ILMI connectivity.')
-atmIntfIlmiCheckConPollIntvl = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(5)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmIntfIlmiCheckConPollIntvl.setDescription('The amount of time T between successive transmissions\n                 of ILMI messages on this interface for the purpose of\n                 detecting loss of ILMI connectivity.  The distinguished\n                 value zero disables ILMI connectivity procedures on\n                 this interface.')
-atmIntfIlmiConPollInactFactor = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(4)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmIntfIlmiConPollInactFactor.setDescription('The number K of consecutive polls on this interface\n                 for which no ILMI response message is received before\n                 ILMI connectivity is declared lost.')
-atmIntfIlmiPublicPrivateIndctr = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("other", 1), ("public", 2), ("private", 3),)).clone('private')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmIntfIlmiPublicPrivateIndctr.setDescription("Specifies whether this end of the interface is\n                 advertised in ILMI as a device of the `public' or\n                 `private' type.")
-atmInterfaceConfMaxSvpcVpi = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4095))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmInterfaceConfMaxSvpcVpi.setDescription('The maximum VPI that the signalling stack on the ATM\n                 interface is configured to support for allocation to\n                 switched virtual path connections.')
-atmInterfaceCurrentMaxSvpcVpi = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4095))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmInterfaceCurrentMaxSvpcVpi.setDescription("The maximum VPI that the signalling stack on the ATM\n                 interface may currently allocate to switched virtual\n                 path connections.  This value is the minimum of\n                 atmInterfaceConfMaxSvpcVpi, and the\n                 atmInterfaceMaxSvpcVpi of the interface's UNI/NNI peer.\n\n                 If the interface does not negotiate with its peer to\n                 determine the maximum VPI that can be allocated to\n                 SVPCs on the interface, then the value of this object\n                 must equal atmInterfaceConfMaxSvpcVpi. ")
-atmInterfaceConfMaxSvccVpi = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4095))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmInterfaceConfMaxSvccVpi.setDescription('The maximum VPI that the signalling stack on the ATM\n                 interface is configured to support for allocation to\n                 switched virtual channel connections.')
-atmInterfaceCurrentMaxSvccVpi = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4095))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmInterfaceCurrentMaxSvccVpi.setDescription("The maximum VPI that the signalling stack on the ATM\n                 interface may currently allocate to switched virtual\n                 channel connections.  This value is the minimum of\n                 atmInterfaceConfMaxSvccVpi, and the\n                 atmInterfaceConfMaxSvccVpi of the interface's UNI/NNI\n                 peer.\n\n                 If the interface does not negotiate with its peer to\n                 determine the maximum VPI that can be allocated to\n                 SVCCs on the interface, then the value of this object\n                 must equal atmInterfaceConfMaxSvccVpi.")
-atmInterfaceConfMinSvccVci = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmInterfaceConfMinSvccVci.setDescription('The minimum VCI that the signalling stack on the ATM\n                 interface is configured to support for allocation to\n                 switched virtual channel connections.')
-atmInterfaceCurrentMinSvccVci = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmInterfaceCurrentMinSvccVci.setDescription("The minimum VCI that the signalling stack on the ATM\n                 interface may currently allocate to switched virtual\n                 channel connections.  This value is the maximum of\n                 atmInterfaceConfMinSvccVci, and the\n                 atmInterfaceConfMinSvccVci of the interface's UNI/NNI\n                 peer.\n\n                 If the interface does not negotiate with its peer to\n                 determine the minimum VCI that can be allocated to\n                 SVCCs on the interface, then the value of this object\n                 must equal atmInterfaceConfMinSvccVci.")
-atmIntfSigVccRxTrafficDescrIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 18), AtmTrafficDescrParamIndex()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmIntfSigVccRxTrafficDescrIndex.setDescription('This object identifies the row in the\n                 atmTrafficDescrParamTable used during ILMI auto-\n                 configuration to specify the advertised signalling VCC\n                 traffic parameters for the receive direction.\n\n                 The traffic descriptor resulting from ILMI auto-\n                 configuration of the signalling VCC is indicated in the\n                 atmVclTable.')
-atmIntfSigVccTxTrafficDescrIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 19), AtmTrafficDescrParamIndex()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmIntfSigVccTxTrafficDescrIndex.setDescription('This object identifies the row in the\n                 atmTrafficDescrParamTable used during ILMI auto-\n                 configuration to specify the advertised signalling VCC\n                 traffic parameters for the transmit direction.\n\n                 The traffic descriptor resulting from ILMI auto-\n                 configuration of the signalling VCC is indicated in the\n                 atmVclTable.')
-atmIntfPvcFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmIntfPvcFailures.setDescription('The number of times the operational status of a PVPL\n                 or PVCL on this interface has gone down.')
-atmIntfCurrentlyFailingPVpls = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 21), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmIntfCurrentlyFailingPVpls.setDescription("The current number of VPLs on this interface for which\n                 there is an active row in the atmVplTable having an\n                 atmVplConnKind value of `pvc' and an atmVplOperStatus\n                 with a value other than `up'.")
-atmIntfCurrentlyFailingPVcls = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 22), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmIntfCurrentlyFailingPVcls.setDescription("The current number of VCLs on this interface for which\n                 there is an active row in the atmVclTable having an\n                 atmVclConnKind value of `pvc' and an atmVclOperStatus\n                 with a value other than `up'.")
-atmIntfPvcFailuresTrapEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 23), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmIntfPvcFailuresTrapEnable.setDescription('Allows the generation of traps in response to PVCL or\n                 PVPL failures on this interface.')
-atmIntfPvcNotificationInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 14, 1, 24), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,3600)).clone(30)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atmIntfPvcNotificationInterval.setDescription('The minimum interval between the sending of\n                 atmIntfPvcFailuresTrap notifications for this\n                 interface.')
-atmIlmiSrvcRegTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 15), )
-if mibBuilder.loadTexts: atmIlmiSrvcRegTable.setDescription('This table contains a list of all the ATM network\n                 services known by this device.\n\n                 The characteristics of these services are made\n                 available through the ILMI, using the ILMI general-\n                 purpose service registry MIB.\n\n                 These services may be made available to all ATM\n                 interfaces (atmIlmiSrvcRegIndex = 0) or to some\n                 specific ATM interfaces only (atmIlmiSrvcRegIndex = ATM\n                 interface index).')
-atmIlmiSrvcRegEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 15, 1), ).setIndexNames((0, "ATM2-MIB", "atmIlmiSrvcRegIndex"), (0, "ATM2-MIB", "atmIlmiSrvcRegServiceID"), (0, "ATM2-MIB", "atmIlmiSrvcRegAddressIndex"))
-if mibBuilder.loadTexts: atmIlmiSrvcRegEntry.setDescription('Information about a single service provider that is\n                 available to the user-side of an adjacent device\n                 through the ILMI.')
-atmIlmiSrvcRegIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 15, 1, 1), InterfaceIndexOrZero())
-if mibBuilder.loadTexts: atmIlmiSrvcRegIndex.setDescription('The ATM interface where the service defined in this\n                 entry can be made available to an ATM device attached\n                 to this interface.\n\n                 The value of 0 has a special meaning: when an ATM\n                 service is defined in an entry whose\n                 atmIlmiSrvcRegIndex is zero, the ATM service is\n                 available to ATM devices connected to any ATM\n                 interface.  (default value(s)).\n\n                 When the user-side of an adjacent device queries the\n                 content of the ILMI service registry MIB (using the\n                 ILMI protocol), the local network-side responds with\n                 the ATM services defined in atmIlmiSrvcRegTable\n                 entries, provided that these entries are indexed by:\n                 - the corresponding ifIndex value (atmIlmiSrvcRegIndex\n                   equal to the ifIndex of the interface to which the\n                   adjacent device is connected)\n                 - zero (atmIlmiSrvcRegIndex=0).')
-atmIlmiSrvcRegServiceID = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 15, 1, 2), ObjectIdentifier())
-if mibBuilder.loadTexts: atmIlmiSrvcRegServiceID.setDescription('This is the service identifier which uniquely\n                 identifies the type of service at the address provided\n                 in the table.  The object identifiers for the LAN\n                 Emulation Configuration Server (LECS) and the ATM Name\n                 Server (ANS) are defined in the ATM Forum ILMI Service\n                 Registry MIB.  The object identifiers for the ATMARP\n                 Server, the Multicast Address Resolution Server (MARS),\n                 and the NHRP Server (NHS) are defined in RFC 2601, RFC\n                 2602, and RFC 2603, respectively.')
-atmIlmiSrvcRegAddressIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 15, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: atmIlmiSrvcRegAddressIndex.setDescription('An arbitrary integer to differentiate multiple rows\n                 containing different ATM addresses for the same service\n                 on the same interface.  This number need NOT be the\n                 same as the corresponding ILMI atmfSrvcRegAddressIndex\n                 MIB object.')
-atmIlmiSrvcRegATMAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 15, 1, 4), AtmAddr()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmIlmiSrvcRegATMAddress.setDescription('This is the full address of the service.  The user-\n                 side of the adjacent device may use this address to\n                 establish a connection with the service.')
-atmIlmiSrvcRegParm1 = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 15, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmIlmiSrvcRegParm1.setDescription('An octet string used according to the value of\n                 atmIlmiSrvcRegServiceID.')
-atmIlmiSrvcRegRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 15, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmIlmiSrvcRegRowStatus.setDescription('This object is used to create or destroy an entry from\n                 this table.')
-atmIlmiNetworkPrefixTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 16), )
-if mibBuilder.loadTexts: atmIlmiNetworkPrefixTable.setDescription('A table specifying per-interface network prefix(es)\n                 supplied by the network side of the UNI during ILMI\n                 address registration.  When no network prefixes are\n                 specified for a particular interface, one or more\n                 network prefixes based on the switch address(es) may be\n                 used for ILMI address registration.')
-atmIlmiNetworkPrefixEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 16, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ATM2-MIB", "atmIlmiNetPrefixPrefix"))
-if mibBuilder.loadTexts: atmIlmiNetworkPrefixEntry.setDescription('Information about a single network prefix supplied by\n                 the network side of the UNI during ILMI address\n                 registration.  Note that the index variable\n                 atmIlmiNetPrefixPrefix is a variable-length string, and\n                 as such the rule for variable-length strings in section\n                 7.7 of RFC 2578 applies.')
-atmIlmiNetPrefixPrefix = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 16, 1, 1), AtmIlmiNetworkPrefix())
-if mibBuilder.loadTexts: atmIlmiNetPrefixPrefix.setDescription('The network prefix specified for use in ILMI address\n                 registration.')
-atmIlmiNetPrefixRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 16, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmIlmiNetPrefixRowStatus.setDescription('Used to create, delete, activate and de-activate\n                 network prefixes used in ILMI address registration.')
-atmSwitchAddressTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 17), )
-if mibBuilder.loadTexts: atmSwitchAddressTable.setDescription('This table contains one or more ATM endsystem\n                 addresses on a per-switch basis.  These addresses are\n                 used to identify the switch.  When no ILMI network\n                 prefixes are configured for certain interfaces, network\n                 prefixes based on the switch address(es) may be used\n                 for ILMI address registration.')
-atmSwitchAddressEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 17, 1), ).setIndexNames((0, "ATM2-MIB", "atmSwitchAddressIndex"))
-if mibBuilder.loadTexts: atmSwitchAddressEntry.setDescription('An entry in the ATM Switch Address table.')
-atmSwitchAddressIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 17, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: atmSwitchAddressIndex.setDescription('An arbitrary index used to enumerate the ATM endsystem\n                 addresses for this switch.')
-atmSwitchAddressAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 17, 1, 2), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(13,13),ValueSizeConstraint(20,20),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmSwitchAddressAddress.setDescription('An ATM endsystem address or address prefix used to\n                 identify this switch.  When no ESI or SEL field is\n                 specified, the switch may generate the ESI and SEL\n                 fields automatically to obtain a complete 20-byte ATM\n                 endsystem address.')
-atmSwitchAddressRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 17, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmSwitchAddressRowStatus.setDescription('Used to create, delete, activate, and de-activate\n                 addresses used to identify this switch.')
-atmVpCrossConnectXTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 18), )
-if mibBuilder.loadTexts: atmVpCrossConnectXTable.setDescription('This table contains one row per VP Cross-Connect\n                 represented in the atmVpCrossConnectTable.')
-atmVpCrossConnectXEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 18, 1), )
-atmVpCrossConnectEntry.registerAugmentions(("ATM2-MIB", "atmVpCrossConnectXEntry"))
+atmVpCrossConnectEntry.registerAugmentions((_B,_A8))
 atmVpCrossConnectXEntry.setIndexNames(*atmVpCrossConnectEntry.getIndexNames())
-if mibBuilder.loadTexts: atmVpCrossConnectXEntry.setDescription('Information about a particular ATM VP Cross-Connect.\n\n                 Each entry provides an two objects that name the\n                 Cross-Connect.  One is assigned by the Service User and\n                 the other by the Service Provider.')
-atmVpCrossConnectUserName = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 18, 1, 1), DisplayString().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVpCrossConnectUserName.setDescription('This is a service user assigned textual representation\n                 of a VPC PVC.')
-atmVpCrossConnectProviderName = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 18, 1, 2), DisplayString().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVpCrossConnectProviderName.setDescription('This is a system supplied textual representation of\n                 VPC PVC.  It is assigned by the service provider.')
-atmVcCrossConnectXTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 19), )
-if mibBuilder.loadTexts: atmVcCrossConnectXTable.setDescription('This table contains one row per VC Cross-Connect\n                 represented in the atmVcCrossConnectTable.')
-atmVcCrossConnectXEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 19, 1), )
-atmVcCrossConnectEntry.registerAugmentions(("ATM2-MIB", "atmVcCrossConnectXEntry"))
+atmVcCrossConnectEntry.registerAugmentions((_B,_A9))
 atmVcCrossConnectXEntry.setIndexNames(*atmVcCrossConnectEntry.getIndexNames())
-if mibBuilder.loadTexts: atmVcCrossConnectXEntry.setDescription('Information about a particular ATM VC Cross-Connect.\n\n                 Each entry provides an two objects that name the\n                 Cross-Connect.  One is assigned by the Service User and\n                 the other by the Service Provider.')
-atmVcCrossConnectUserName = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 19, 1, 1), DisplayString().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atmVcCrossConnectUserName.setDescription('This is a service user assigned textual representation\n                 of a VCC PVC.')
-atmVcCrossConnectProviderName = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 19, 1, 2), DisplayString().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmVcCrossConnectProviderName.setDescription('This is a system supplied textual representation of\n                 VCC PVC.  It is assigned by the service provider.')
-atmCurrentlyFailingPVplTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 20), )
-if mibBuilder.loadTexts: atmCurrentlyFailingPVplTable.setDescription("A table indicating all VPLs for which there is an\n                 active row in the atmVplTable having an atmVplConnKind\n                 value of `pvc' and an atmVplOperStatus with a value\n                 other than `up'.")
-atmCurrentlyFailingPVplEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 20, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ATM-MIB", "atmVplVpi"))
-if mibBuilder.loadTexts: atmCurrentlyFailingPVplEntry.setDescription("Each entry in this table represents a VPL for which\n                 the atmVplRowStatus is `active', the atmVplConnKind is\n                 `pvc', and the atmVplOperStatus is other than `up'.")
-atmCurrentlyFailingPVplTimeStamp = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 20, 1, 1), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmCurrentlyFailingPVplTimeStamp.setDescription('The time at which this PVPL began to fail.')
-atmCurrentlyFailingPVclTable = MibTable((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 21), )
-if mibBuilder.loadTexts: atmCurrentlyFailingPVclTable.setDescription("A table indicating all VCLs for which there is an\n                 active row in the atmVclTable having an atmVclConnKind\n                 value of `pvc' and an atmVclOperStatus with a value\n                 other than `up'.")
-atmCurrentlyFailingPVclEntry = MibTableRow((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 21, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ATM-MIB", "atmVclVpi"), (0, "ATM-MIB", "atmVclVci"))
-if mibBuilder.loadTexts: atmCurrentlyFailingPVclEntry.setDescription("Each entry in this table represents a VCL for which\n                 the atmVclRowStatus is `active', the atmVclConnKind is\n                 `pvc', and the atmVclOperStatus is other than `up'.")
-atmCurrentlyFailingPVclTimeStamp = MibTableColumn((1, 3, 6, 1, 2, 1, 37, 1, 14, 1, 21, 1, 1), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atmCurrentlyFailingPVclTimeStamp.setDescription('The time at which this PVCL began to fail.')
-atmPvcTraps = MibIdentifier((1, 3, 6, 1, 2, 1, 37, 1, 14, 2, 1))
-atmPvcTrapsPrefix = MibIdentifier((1, 3, 6, 1, 2, 1, 37, 1, 14, 2, 1, 0))
-atmIntfPvcFailuresTrap = NotificationType((1, 3, 6, 1, 2, 1, 37, 1, 14, 2, 1, 0, 1)).setObjects(*(("ATM2-MIB", "ifIndex"), ("ATM2-MIB", "atmIntfPvcFailures"), ("ATM2-MIB", "atmIntfCurrentlyFailingPVpls"), ("ATM2-MIB", "atmIntfCurrentlyFailingPVcls"),))
-if mibBuilder.loadTexts: atmIntfPvcFailuresTrap.setDescription('A notification indicating that one or more PVPLs or\n                 PVCLs on this interface has failed since the last\n                 atmPvcFailuresTrap was sent.  If this trap has not been\n                 sent for the last atmIntfPvcNotificationInterval, then\n                 it will be sent on the next increment of\n                 atmIntfPvcFailures.')
-atm2MIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 37, 1, 14, 3))
-atm2MIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 37, 1, 14, 3, 1))
-atm2MIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 37, 1, 14, 3, 2))
-atm2MIBCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 37, 1, 14, 3, 2, 1)).setObjects(*(("ATM2-MIB", "atmSwitchServcHostGroup"),))
-if mibBuilder.loadTexts: atm2MIBCompliance.setDescription('The compliance statement for SNMP entities which\n                 represent ATM interfaces.  The compliance statements\n                 are used to determine if a particular group or object\n                 applies to hosts, networks/switches, or both.')
-atmSwitchServcHostGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 37, 1, 14, 3, 1, 1)).setObjects(*(("ATM2-MIB", "atmSigSSCOPConEvents"), ("ATM2-MIB", "atmSigSSCOPErrdPdus"), ("ATM2-MIB", "atmSigDetectSetupAttempts"), ("ATM2-MIB", "atmSigEmitSetupAttempts"), ("ATM2-MIB", "atmSigDetectUnavailRoutes"), ("ATM2-MIB", "atmSigEmitUnavailRoutes"), ("ATM2-MIB", "atmSigDetectUnavailResrcs"), ("ATM2-MIB", "atmSigEmitUnavailResrcs"), ("ATM2-MIB", "atmSigDetectCldPtyEvents"), ("ATM2-MIB", "atmSigEmitCldPtyEvents"), ("ATM2-MIB", "atmSigDetectMsgErrors"), ("ATM2-MIB", "atmSigEmitMsgErrors"), ("ATM2-MIB", "atmSigDetectClgPtyEvents"), ("ATM2-MIB", "atmSigEmitClgPtyEvents"), ("ATM2-MIB", "atmSigDetectTimerExpireds"), ("ATM2-MIB", "atmSigEmitTimerExpireds"), ("ATM2-MIB", "atmSigDetectRestarts"), ("ATM2-MIB", "atmSigEmitRestarts"), ("ATM2-MIB", "atmSigInEstabls"), ("ATM2-MIB", "atmSigOutEstabls"), ("ATM2-MIB", "atmVclStatTotalCellIns"), ("ATM2-MIB", "atmVclStatClp0CellIns"), ("ATM2-MIB", "atmVclStatTotalDiscards"), ("ATM2-MIB", "atmVclStatClp0Discards"), ("ATM2-MIB", "atmVclStatTotalCellOuts"), ("ATM2-MIB", "atmVclStatClp0CellOuts"), ("ATM2-MIB", "atmVclStatTaggedOuts"), ("ATM2-MIB", "atmVplStatTotalCellIns"), ("ATM2-MIB", "atmVplStatClp0CellIns"), ("ATM2-MIB", "atmVplStatTotalDiscards"), ("ATM2-MIB", "atmVplStatClp0Discards"), ("ATM2-MIB", "atmVplStatTotalCellOuts"), ("ATM2-MIB", "atmVplStatClp0CellOuts"), ("ATM2-MIB", "atmVplStatTaggedOuts"), ("ATM2-MIB", "atmVplLogicalPortDef"), ("ATM2-MIB", "atmVplLogicalPortIndex"), ("ATM2-MIB", "atmInterfaceConfMaxSvpcVpi"), ("ATM2-MIB", "atmInterfaceCurrentMaxSvpcVpi"), ("ATM2-MIB", "atmInterfaceConfMaxSvccVpi"), ("ATM2-MIB", "atmInterfaceCurrentMaxSvccVpi"), ("ATM2-MIB", "atmInterfaceConfMinSvccVci"), ("ATM2-MIB", "atmInterfaceCurrentMinSvccVci"), ("ATM2-MIB", "atmIntfSigVccRxTrafficDescrIndex"), ("ATM2-MIB", "atmIntfSigVccTxTrafficDescrIndex"), ("ATM2-MIB", "atmIntfPvcFailures"), ("ATM2-MIB", "atmIntfCurrentlyFailingPVpls"), ("ATM2-MIB", "atmIntfCurrentlyFailingPVcls"), ("ATM2-MIB", "atmIntfPvcNotificationInterval"), ("ATM2-MIB", "atmIntfPvcFailuresTrapEnable"), ("ATM2-MIB", "atmIntfConfigType"), ("ATM2-MIB", "atmIntfActualType"), ("ATM2-MIB", "atmIntfConfigSide"), ("ATM2-MIB", "atmIntfActualSide"), ("ATM2-MIB", "atmIntfIlmiAdminStatus"), ("ATM2-MIB", "atmIntfIlmiOperStatus"), ("ATM2-MIB", "atmIntfIlmiFsmState"), ("ATM2-MIB", "atmIntfIlmiEstablishConPollIntvl"), ("ATM2-MIB", "atmIntfIlmiCheckConPollIntvl"), ("ATM2-MIB", "atmIntfIlmiConPollInactFactor"), ("ATM2-MIB", "atmIntfIlmiPublicPrivateIndctr"), ("ATM2-MIB", "atmCurrentlyFailingPVplTimeStamp"), ("ATM2-MIB", "atmCurrentlyFailingPVclTimeStamp"),))
-if mibBuilder.loadTexts: atmSwitchServcHostGroup.setDescription('A collection of objects providing information\n                   for a Switch/Service/Host that implements\n                   ATM interfaces.')
-atmSwitchServcGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 37, 1, 14, 3, 1, 2)).setObjects(*(("ATM2-MIB", "atmIlmiSrvcRegATMAddress"), ("ATM2-MIB", "atmIlmiSrvcRegParm1"), ("ATM2-MIB", "atmIlmiSrvcRegRowStatus"), ("ATM2-MIB", "atmIlmiNetPrefixRowStatus"), ("ATM2-MIB", "atmSigSupportClgPtyNumDel"), ("ATM2-MIB", "atmSigSupportClgPtySubAddr"), ("ATM2-MIB", "atmSigSupportCldPtySubAddr"), ("ATM2-MIB", "atmSigSupportHiLyrInfo"), ("ATM2-MIB", "atmSigSupportLoLyrInfo"), ("ATM2-MIB", "atmSigSupportBlliRepeatInd"), ("ATM2-MIB", "atmSigSupportAALInfo"), ("ATM2-MIB", "atmSigSupportPrefCarrier"), ("ATM2-MIB", "atmSvcVpCrossConnectCreationTime"), ("ATM2-MIB", "atmSvcVpCrossConnectRowStatus"), ("ATM2-MIB", "atmSvcVcCrossConnectCreationTime"), ("ATM2-MIB", "atmSvcVcCrossConnectRowStatus"), ("ATM2-MIB", "atmIfRegAddrAddressSource"), ("ATM2-MIB", "atmIfRegAddrOrgScope"), ("ATM2-MIB", "atmIfRegAddrRowStatus"),))
-if mibBuilder.loadTexts: atmSwitchServcGroup.setDescription('A collection of objects providing information\n                   for a Switch/Service that implements ATM interfaces.')
-atmSwitchServcNotifGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 37, 1, 14, 3, 1, 3)).setObjects(*(("ATM2-MIB", "atmIntfPvcFailuresTrap"),))
-if mibBuilder.loadTexts: atmSwitchServcNotifGroup.setDescription('A collection of notifications providing information\n                   for a Switch/Service that implements ATM interfaces.')
-atmSwitchGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 37, 1, 14, 3, 1, 4)).setObjects(*(("ATM2-MIB", "atmSwitchAddressAddress"), ("ATM2-MIB", "atmSwitchAddressRowStatus"),))
-if mibBuilder.loadTexts: atmSwitchGroup.setDescription('A collection of objects providing information\n                   for an ATM switch.')
-atmServcGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 37, 1, 14, 3, 1, 5)).setObjects(*(("ATM2-MIB", "atmVpCrossConnectUserName"), ("ATM2-MIB", "atmVpCrossConnectProviderName"), ("ATM2-MIB", "atmVcCrossConnectUserName"), ("ATM2-MIB", "atmVcCrossConnectProviderName"),))
-if mibBuilder.loadTexts: atmServcGroup.setDescription('A collection of objects providing information\n                   for an ATM Network Service.')
-atmHostGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 37, 1, 14, 3, 1, 6)).setObjects(*(("ATM2-MIB", "atmAal5VclInPkts"), ("ATM2-MIB", "atmAal5VclOutPkts"), ("ATM2-MIB", "atmAal5VclInOctets"), ("ATM2-MIB", "atmAal5VclOutOctets"), ("ATM2-MIB", "atmVclAddrType"), ("ATM2-MIB", "atmVclAddrRowStatus"), ("ATM2-MIB", "atmAddrVclAddrType"), ("ATM2-MIB", "atmVclGenSigDescrIndex"), ("ATM2-MIB", "atmSigDescrParamAalType"), ("ATM2-MIB", "atmSigDescrParamAalSscsType"), ("ATM2-MIB", "atmSigDescrParamBhliType"), ("ATM2-MIB", "atmSigDescrParamBhliInfo"), ("ATM2-MIB", "atmSigDescrParamBbcConnConf"), ("ATM2-MIB", "atmSigDescrParamBlliLayer2"), ("ATM2-MIB", "atmSigDescrParamBlliLayer3"), ("ATM2-MIB", "atmSigDescrParamBlliPktSize"), ("ATM2-MIB", "atmSigDescrParamBlliSnapId"), ("ATM2-MIB", "atmSigDescrParamBlliOuiPid"), ("ATM2-MIB", "atmSigDescrParamRowStatus"),))
-if mibBuilder.loadTexts: atmHostGroup.setDescription('A collection of objects providing information\n                   for a Host that implements ATM interfaces.')
-mibBuilder.exportSymbols("ATM2-MIB", atmVclStatTotalCellIns=atmVclStatTotalCellIns, atmSwitchGroup=atmSwitchGroup, atmAal5VclInOctets=atmAal5VclInOctets, atmSigDetectUnavailRoutes=atmSigDetectUnavailRoutes, atmSigDetectUnavailResrcs=atmSigDetectUnavailResrcs, atmVclAddrRowStatus=atmVclAddrRowStatus, atmIlmiSrvcRegATMAddress=atmIlmiSrvcRegATMAddress, atmSigEmitUnavailRoutes=atmSigEmitUnavailRoutes, atmSigSupportLoLyrInfo=atmSigSupportLoLyrInfo, atmSigDescrParamBbcConnConf=atmSigDescrParamBbcConnConf, atmSvcVcCrossConnectRowStatus=atmSvcVcCrossConnectRowStatus, atmSigDescrParamRowStatus=atmSigDescrParamRowStatus, atmVclGenTable=atmVclGenTable, atmVplStatTaggedOuts=atmVplStatTaggedOuts, atmVclStatClp0Discards=atmVclStatClp0Discards, atmIntfConfigType=atmIntfConfigType, atmAal5VclOutPkts=atmAal5VclOutPkts, atmIntfCurrentlyFailingPVpls=atmIntfCurrentlyFailingPVpls, atmIntfCurrentlyFailingPVcls=atmIntfCurrentlyFailingPVcls, atmVclStatTotalCellOuts=atmVclStatTotalCellOuts, atmSigSupportClgPtySubAddr=atmSigSupportClgPtySubAddr, atmAal5VclOutOctets=atmAal5VclOutOctets, atmSvcVpCrossConnectHighIfIndex=atmSvcVpCrossConnectHighIfIndex, atmIfRegAddrOrgScope=atmIfRegAddrOrgScope, atmVclGenSigDescrIndex=atmVclGenSigDescrIndex, atmIlmiSrvcRegEntry=atmIlmiSrvcRegEntry, atmSvcVcCrossConnectTable=atmSvcVcCrossConnectTable, atmSigDescrParamBlliSnapId=atmSigDescrParamBlliSnapId, atmIntfConfigSide=atmIntfConfigSide, atmSvcVcCrossConnectLowVpi=atmSvcVcCrossConnectLowVpi, atmIfRegAddrRowStatus=atmIfRegAddrRowStatus, atmSigDetectRestarts=atmSigDetectRestarts, atmSigSupportCldPtySubAddr=atmSigSupportCldPtySubAddr, atmSigEmitTimerExpireds=atmSigEmitTimerExpireds, atmSvcVpCrossConnectHighVpi=atmSvcVpCrossConnectHighVpi, atmVplStatTotalCellIns=atmVplStatTotalCellIns, atmVplLogicalPortIndex=atmVplLogicalPortIndex, atmIntfSigVccRxTrafficDescrIndex=atmIntfSigVccRxTrafficDescrIndex, atmInterfaceExtTable=atmInterfaceExtTable, atm2MIBCompliances=atm2MIBCompliances, atmAddrVclAddrType=atmAddrVclAddrType, atmVclStatTable=atmVclStatTable, atmVclAddrAddr=atmVclAddrAddr, atmIlmiNetPrefixPrefix=atmIlmiNetPrefixPrefix, atmInterfaceExtEntry=atmInterfaceExtEntry, atmAal5VclStatEntry=atmAal5VclStatEntry, atmInterfaceCurrentMinSvccVci=atmInterfaceCurrentMinSvccVci, atmIlmiSrvcRegTable=atmIlmiSrvcRegTable, atmIntfIlmiCheckConPollIntvl=atmIntfIlmiCheckConPollIntvl, atmIntfPvcFailures=atmIntfPvcFailures, atmIlmiSrvcRegIndex=atmIlmiSrvcRegIndex, atmHostGroup=atmHostGroup, atmSigDescrParamBlliOuiPid=atmSigDescrParamBlliOuiPid, atmSigSupportEntry=atmSigSupportEntry, atmVclGenEntry=atmVclGenEntry, atmInterfaceConfMaxSvpcVpi=atmInterfaceConfMaxSvpcVpi, atmInterfaceCurrentMaxSvccVpi=atmInterfaceCurrentMaxSvccVpi, atmVpCrossConnectUserName=atmVpCrossConnectUserName, atmSvcVpCrossConnectLowVpi=atmSvcVpCrossConnectLowVpi, atmCurrentlyFailingPVclTable=atmCurrentlyFailingPVclTable, atmSigDescrParamBhliInfo=atmSigDescrParamBhliInfo, atmIlmiSrvcRegParm1=atmIlmiSrvcRegParm1, atmIntfPvcFailuresTrap=atmIntfPvcFailuresTrap, atmSigSupportPrefCarrier=atmSigSupportPrefCarrier, atmVplStatClp0CellIns=atmVplStatClp0CellIns, atmSigEmitCldPtyEvents=atmSigEmitCldPtyEvents, atmVclStatEntry=atmVclStatEntry, atmSigStatEntry=atmSigStatEntry, atmVplStatEntry=atmVplStatEntry, atmVclStatClp0CellOuts=atmVclStatClp0CellOuts, atmIntfPvcNotificationInterval=atmIntfPvcNotificationInterval, atmIlmiSrvcRegRowStatus=atmIlmiSrvcRegRowStatus, atmSigDescrParamBlliPktSize=atmSigDescrParamBlliPktSize, atmCurrentlyFailingPVplEntry=atmCurrentlyFailingPVplEntry, atmVcCrossConnectUserName=atmVcCrossConnectUserName, atmVclAddrEntry=atmVclAddrEntry, atmSigSSCOPErrdPdus=atmSigSSCOPErrdPdus, atmIfRegisteredAddrTable=atmIfRegisteredAddrTable, atmVclAddrTable=atmVclAddrTable, atmSigDetectClgPtyEvents=atmSigDetectClgPtyEvents, atmAddrVclVci=atmAddrVclVci, atm2MIBCompliance=atm2MIBCompliance, atmSigSupportBlliRepeatInd=atmSigSupportBlliRepeatInd, atmSwitchServcGroup=atmSwitchServcGroup, atmSigInEstabls=atmSigInEstabls, atmAddrVclVpi=atmAddrVclVpi, atmVplStatTable=atmVplStatTable, atmAddrVclAtmIfIndex=atmAddrVclAtmIfIndex, atmAddrVclTable=atmAddrVclTable, atmIntfIlmiConPollInactFactor=atmIntfIlmiConPollInactFactor, atmInterfaceConfMaxSvccVpi=atmInterfaceConfMaxSvccVpi, atmIntfIlmiEstablishConPollIntvl=atmIntfIlmiEstablishConPollIntvl, atmSwitchAddressIndex=atmSwitchAddressIndex, atmIlmiNetworkPrefixTable=atmIlmiNetworkPrefixTable, atmIntfIlmiAdminStatus=atmIntfIlmiAdminStatus, atmSvcVcCrossConnectIndex=atmSvcVcCrossConnectIndex, atmSigDescrParamBlliLayer2=atmSigDescrParamBlliLayer2, atm2MIBTraps=atm2MIBTraps, atmSwitchAddressTable=atmSwitchAddressTable, atmCurrentlyFailingPVplTimeStamp=atmCurrentlyFailingPVplTimeStamp, atmSwitchServcNotifGroup=atmSwitchServcNotifGroup, atmSigDescrParamBhliType=atmSigDescrParamBhliType, atmIntfActualType=atmIntfActualType, atmInterfaceCurrentMaxSvpcVpi=atmInterfaceCurrentMaxSvpcVpi, atmCurrentlyFailingPVplTable=atmCurrentlyFailingPVplTable, atmSvcVcCrossConnectEntry=atmSvcVcCrossConnectEntry, atmVclStatTaggedOuts=atmVclStatTaggedOuts, atmPvcTraps=atmPvcTraps, atmIntfPvcFailuresTrapEnable=atmIntfPvcFailuresTrapEnable, atmVplStatClp0CellOuts=atmVplStatClp0CellOuts, atmVcCrossConnectXTable=atmVcCrossConnectXTable, atmSigDescrParamBlliLayer3=atmSigDescrParamBlliLayer3, atmSigEmitUnavailResrcs=atmSigEmitUnavailResrcs, atmVplLogicalPortEntry=atmVplLogicalPortEntry, atmSigEmitMsgErrors=atmSigEmitMsgErrors, atmVcCrossConnectProviderName=atmVcCrossConnectProviderName, atmVplStatTotalCellOuts=atmVplStatTotalCellOuts, atmSigSSCOPConEvents=atmSigSSCOPConEvents, atmSvcVcCrossConnectCreationTime=atmSvcVcCrossConnectCreationTime, atmSvcVpCrossConnectIndex=atmSvcVpCrossConnectIndex, atmSigDetectTimerExpireds=atmSigDetectTimerExpireds, atm2MIBConformance=atm2MIBConformance, atmSigDescrParamAalType=atmSigDescrParamAalType, atmIlmiSrvcRegAddressIndex=atmIlmiSrvcRegAddressIndex, atmSigEmitClgPtyEvents=atmSigEmitClgPtyEvents, atmSigDescrParamAalSscsType=atmSigDescrParamAalSscsType, atmVclStatClp0CellIns=atmVclStatClp0CellIns, atmAal5VclInPkts=atmAal5VclInPkts, atmVpCrossConnectXEntry=atmVpCrossConnectXEntry, atmVcCrossConnectXEntry=atmVcCrossConnectXEntry, atmSigDescrParamEntry=atmSigDescrParamEntry, atmVplLogicalPortDef=atmVplLogicalPortDef, atmServcGroup=atmServcGroup, atmSigSupportHiLyrInfo=atmSigSupportHiLyrInfo, atmIlmiNetworkPrefixEntry=atmIlmiNetworkPrefixEntry, atmIlmiSrvcRegServiceID=atmIlmiSrvcRegServiceID, atmSvcVcCrossConnectHighVpi=atmSvcVcCrossConnectHighVpi, atmSigSupportTable=atmSigSupportTable, atmSigOutEstabls=atmSigOutEstabls, atmSvcVcCrossConnectLowVci=atmSvcVcCrossConnectLowVci, atmSvcVpCrossConnectCreationTime=atmSvcVpCrossConnectCreationTime, atmSwitchAddressEntry=atmSwitchAddressEntry, atmSigDescrParamIndex=atmSigDescrParamIndex, atmSigSupportClgPtyNumDel=atmSigSupportClgPtyNumDel, atmSvcVpCrossConnectLowIfIndex=atmSvcVpCrossConnectLowIfIndex, atmSvcVpCrossConnectRowStatus=atmSvcVpCrossConnectRowStatus, atmIntfIlmiOperStatus=atmIntfIlmiOperStatus, atmIntfSigVccTxTrafficDescrIndex=atmIntfSigVccTxTrafficDescrIndex, atmSigDetectMsgErrors=atmSigDetectMsgErrors, atmCurrentlyFailingPVclEntry=atmCurrentlyFailingPVclEntry, atmSigDescrParamTable=atmSigDescrParamTable, atmPvcTrapsPrefix=atmPvcTrapsPrefix, atmSvcVpCrossConnectEntry=atmSvcVpCrossConnectEntry, atmVplStatTotalDiscards=atmVplStatTotalDiscards, atmVplLogicalPortTable=atmVplLogicalPortTable, atmVclAddrType=atmVclAddrType, atmSvcVcCrossConnectHighIfIndex=atmSvcVcCrossConnectHighIfIndex, atmIlmiNetPrefixRowStatus=atmIlmiNetPrefixRowStatus, atmIfRegAddrAddressSource=atmIfRegAddrAddressSource, atmSwitchServcHostGroup=atmSwitchServcHostGroup, atmInterfaceConfMinSvccVci=atmInterfaceConfMinSvccVci, atmCurrentlyFailingPVclTimeStamp=atmCurrentlyFailingPVclTimeStamp, atm2MIBGroups=atm2MIBGroups, atmSigDetectSetupAttempts=atmSigDetectSetupAttempts, PYSNMP_MODULE_ID=atm2MIB, atmSigEmitSetupAttempts=atmSigEmitSetupAttempts, atmSvcVcCrossConnectLowIfIndex=atmSvcVcCrossConnectLowIfIndex, atm2MIB=atm2MIB, atmAddrVclEntry=atmAddrVclEntry, atmSvcVpCrossConnectTable=atmSvcVpCrossConnectTable, atmIntfIlmiFsmState=atmIntfIlmiFsmState, atmSvcVcCrossConnectHighVci=atmSvcVcCrossConnectHighVci, atmAal5VclStatTable=atmAal5VclStatTable, atmIfRegAddrAddress=atmIfRegAddrAddress, atmVplStatClp0Discards=atmVplStatClp0Discards, atmIntfActualSide=atmIntfActualSide, atmIntfIlmiPublicPrivateIndctr=atmIntfIlmiPublicPrivateIndctr, atmSwitchAddressRowStatus=atmSwitchAddressRowStatus, atmVpCrossConnectProviderName=atmVpCrossConnectProviderName, atmIfRegisteredAddrEntry=atmIfRegisteredAddrEntry, atmVpCrossConnectXTable=atmVpCrossConnectXTable, atmVclStatTotalDiscards=atmVclStatTotalDiscards, atmSigStatTable=atmSigStatTable, atmSigEmitRestarts=atmSigEmitRestarts, atmSigDetectCldPtyEvents=atmSigDetectCldPtyEvents, atmSwitchAddressAddress=atmSwitchAddressAddress, atmSigSupportAALInfo=atmSigSupportAALInfo, atm2MIBObjects=atm2MIBObjects)
+atmCommonGroup=ObjectGroup((1,3,6,1,2,1,37,1,14,3,1,1))
+atmCommonGroup.setObjects(*((_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_W),(_B,_X),(_B,_Y),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au)))
+if mibBuilder.loadTexts:atmCommonGroup.setStatus(_A)
+atmCommonStatsGroup=ObjectGroup((1,3,6,1,2,1,37,1,14,3,1,2))
+atmCommonStatsGroup.setObjects(*((_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7)))
+if mibBuilder.loadTexts:atmCommonStatsGroup.setStatus(_A)
+atmSwitchServcGroup=ObjectGroup((1,3,6,1,2,1,37,1,14,3,1,3))
+atmSwitchServcGroup.setObjects(*((_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI)))
+if mibBuilder.loadTexts:atmSwitchServcGroup.setStatus(_A)
+atmSwitchServcSigGroup=ObjectGroup((1,3,6,1,2,1,37,1,14,3,1,4))
+atmSwitchServcSigGroup.setObjects(*((_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ)))
+if mibBuilder.loadTexts:atmSwitchServcSigGroup.setStatus(_A)
+atmSwitchGroup=ObjectGroup((1,3,6,1,2,1,37,1,14,3,1,6))
+atmSwitchGroup.setObjects(*((_B,_BR),(_B,_BS)))
+if mibBuilder.loadTexts:atmSwitchGroup.setStatus(_A)
+atmServcGroup=ObjectGroup((1,3,6,1,2,1,37,1,14,3,1,7))
+atmServcGroup.setObjects(*((_B,_BT),(_B,_BU),(_B,_BV),(_B,_BW)))
+if mibBuilder.loadTexts:atmServcGroup.setStatus(_A)
+atmHostGroup=ObjectGroup((1,3,6,1,2,1,37,1,14,3,1,8))
+atmHostGroup.setObjects(*((_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba),(_B,_Bb),(_B,_Bc),(_B,_Bd),(_B,_Be)))
+if mibBuilder.loadTexts:atmHostGroup.setStatus(_A)
+atmHostSigDescrGroup=ObjectGroup((1,3,6,1,2,1,37,1,14,3,1,9))
+atmHostSigDescrGroup.setObjects(*((_B,_Bf),(_B,_Bg),(_B,_Bh),(_B,_Bi),(_B,_Bj),(_B,_Bk),(_B,_Bl),(_B,_Bm),(_B,_Bn),(_B,_Bo),(_B,_Bp)))
+if mibBuilder.loadTexts:atmHostSigDescrGroup.setStatus(_A)
+atmIntfPvcFailuresTrap=NotificationType((1,3,6,1,2,1,37,1,14,2,1,0,1))
+atmIntfPvcFailuresTrap.setObjects(*((_H,_I),(_B,_W),(_B,_X),(_B,_Y)))
+if mibBuilder.loadTexts:atmIntfPvcFailuresTrap.setStatus(_A)
+atmSwitchServcNotifGroup=NotificationGroup((1,3,6,1,2,1,37,1,14,3,1,5))
+atmSwitchServcNotifGroup.setObjects((_B,_Bq))
+if mibBuilder.loadTexts:atmSwitchServcNotifGroup.setStatus(_A)
+atm2MIBCompliance=ModuleCompliance((1,3,6,1,2,1,37,1,14,3,2,1))
+atm2MIBCompliance.setObjects(*((_B,_Br),(_B,_Bs),(_B,_Bt),(_B,_Bu),(_B,_Bv),(_B,_Bw),(_B,_Bx),(_B,_By),(_B,_Bz)))
+if mibBuilder.loadTexts:atm2MIBCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'atm2MIB':atm2MIB,'atm2MIBObjects':atm2MIBObjects,'atmSvcVpCrossConnectTable':atmSvcVpCrossConnectTable,'atmSvcVpCrossConnectEntry':atmSvcVpCrossConnectEntry,_b:atmSvcVpCrossConnectIndex,_c:atmSvcVpCrossConnectLowIfIndex,_d:atmSvcVpCrossConnectLowVpi,_e:atmSvcVpCrossConnectHighIfIndex,_f:atmSvcVpCrossConnectHighVpi,_BC:atmSvcVpCrossConnectCreationTime,_BD:atmSvcVpCrossConnectRowStatus,'atmSvcVcCrossConnectTable':atmSvcVcCrossConnectTable,'atmSvcVcCrossConnectEntry':atmSvcVcCrossConnectEntry,_g:atmSvcVcCrossConnectIndex,_h:atmSvcVcCrossConnectLowIfIndex,_i:atmSvcVcCrossConnectLowVpi,_j:atmSvcVcCrossConnectLowVci,_k:atmSvcVcCrossConnectHighIfIndex,_l:atmSvcVcCrossConnectHighVpi,_m:atmSvcVcCrossConnectHighVci,_BE:atmSvcVcCrossConnectCreationTime,_BF:atmSvcVcCrossConnectRowStatus,'atmSigStatTable':atmSigStatTable,'atmSigStatEntry':atmSigStatEntry,_AA:atmSigSSCOPConEvents,_AB:atmSigSSCOPErrdPdus,_AC:atmSigDetectSetupAttempts,_AD:atmSigEmitSetupAttempts,_AE:atmSigDetectUnavailRoutes,_AF:atmSigEmitUnavailRoutes,_AG:atmSigDetectUnavailResrcs,_AH:atmSigEmitUnavailResrcs,_AI:atmSigDetectCldPtyEvents,_AJ:atmSigEmitCldPtyEvents,_AK:atmSigDetectMsgErrors,_AL:atmSigEmitMsgErrors,_AM:atmSigDetectClgPtyEvents,_AN:atmSigEmitClgPtyEvents,_AO:atmSigDetectTimerExpireds,_AP:atmSigEmitTimerExpireds,_AQ:atmSigDetectRestarts,_AR:atmSigEmitRestarts,_AS:atmSigInEstabls,_AT:atmSigOutEstabls,'atmSigSupportTable':atmSigSupportTable,'atmSigSupportEntry':atmSigSupportEntry,_BJ:atmSigSupportClgPtyNumDel,_BK:atmSigSupportClgPtySubAddr,_BL:atmSigSupportCldPtySubAddr,_BM:atmSigSupportHiLyrInfo,_BN:atmSigSupportLoLyrInfo,_BO:atmSigSupportBlliRepeatInd,_BP:atmSigSupportAALInfo,_BQ:atmSigSupportPrefCarrier,'atmSigDescrParamTable':atmSigDescrParamTable,'atmSigDescrParamEntry':atmSigDescrParamEntry,_n:atmSigDescrParamIndex,_Bf:atmSigDescrParamAalType,_Bg:atmSigDescrParamAalSscsType,_Bh:atmSigDescrParamBhliType,_Bi:atmSigDescrParamBhliInfo,_Bj:atmSigDescrParamBbcConnConf,_Bk:atmSigDescrParamBlliLayer2,_Bl:atmSigDescrParamBlliLayer3,_Bm:atmSigDescrParamBlliPktSize,_Bn:atmSigDescrParamBlliSnapId,_Bo:atmSigDescrParamBlliOuiPid,_Bp:atmSigDescrParamRowStatus,'atmIfRegisteredAddrTable':atmIfRegisteredAddrTable,'atmIfRegisteredAddrEntry':atmIfRegisteredAddrEntry,_p:atmIfRegAddrAddress,_BG:atmIfRegAddrAddressSource,_BH:atmIfRegAddrOrgScope,_BI:atmIfRegAddrRowStatus,'atmVclAddrTable':atmVclAddrTable,'atmVclAddrEntry':atmVclAddrEntry,_U:atmVclAddrAddr,_Bb:atmVclAddrType,_Bc:atmVclAddrRowStatus,'atmAddrVclTable':atmAddrVclTable,'atmAddrVclEntry':atmAddrVclEntry,_s:atmAddrVclAtmIfIndex,_t:atmAddrVclVpi,_u:atmAddrVclVci,_Bd:atmAddrVclAddrType,'atmVplStatTable':atmVplStatTable,'atmVplStatEntry':atmVplStatEntry,_B1:atmVplStatTotalCellIns,_B2:atmVplStatClp0CellIns,_B3:atmVplStatTotalDiscards,_B4:atmVplStatClp0Discards,_B5:atmVplStatTotalCellOuts,_B6:atmVplStatClp0CellOuts,_B7:atmVplStatClp0Tagged,'atmVplLogicalPortTable':atmVplLogicalPortTable,_A5:atmVplLogicalPortEntry,_AU:atmVplLogicalPortDef,_AV:atmVplLogicalPortIndex,'atmVclStatTable':atmVclStatTable,'atmVclStatEntry':atmVclStatEntry,_Av:atmVclStatTotalCellIns,_Aw:atmVclStatClp0CellIns,_Ax:atmVclStatTotalDiscards,_Ay:atmVclStatClp0Discards,_Az:atmVclStatTotalCellOuts,_A_:atmVclStatClp0CellOuts,_B0:atmVclStatClp0Tagged,'atmAal5VclStatTable':atmAal5VclStatTable,'atmAal5VclStatEntry':atmAal5VclStatEntry,_BX:atmAal5VclInPkts,_BY:atmAal5VclOutPkts,_BZ:atmAal5VclInOctets,_Ba:atmAal5VclOutOctets,'atmVclGenTable':atmVclGenTable,_A6:atmVclGenEntry,_Be:atmVclGenSigDescrIndex,'atmInterfaceExtTable':atmInterfaceExtTable,_A7:atmInterfaceExtEntry,_Ai:atmIntfConfigType,_Aj:atmIntfActualType,_Ak:atmIntfConfigSide,_Al:atmIntfActualSide,_Am:atmIntfIlmiAdminStatus,_An:atmIntfIlmiOperStatus,_Ao:atmIntfIlmiFsmState,_Ap:atmIntfIlmiEstablishConPollIntvl,_Aq:atmIntfIlmiCheckConPollIntvl,_Ar:atmIntfIlmiConPollInactFactor,_As:atmIntfIlmiPublicPrivateIndctr,_AW:atmInterfaceConfMaxSvpcVpi,_AX:atmInterfaceCurrentMaxSvpcVpi,_AY:atmInterfaceConfMaxSvccVpi,_AZ:atmInterfaceCurrentMaxSvccVpi,_Aa:atmInterfaceConfMinSvccVci,_Ab:atmInterfaceCurrentMinSvccVci,_Ac:atmIntfSigVccRxTrafficDescrIndex,_Ad:atmIntfSigVccTxTrafficDescrIndex,_W:atmIntfPvcFailures,_X:atmIntfCurrentlyFailingPVpls,_Y:atmIntfCurrentlyFailingPVcls,_Af:atmIntfPvcFailuresTrapEnable,_Ae:atmIntfPvcNotificationInterval,_Ag:atmIntfLeafSetupFailures,_Ah:atmIntfLeafSetupRequests,'atmIlmiSrvcRegTable':atmIlmiSrvcRegTable,'atmIlmiSrvcRegEntry':atmIlmiSrvcRegEntry,_A0:atmIlmiSrvcRegIndex,_A1:atmIlmiSrvcRegServiceID,_A2:atmIlmiSrvcRegAddressIndex,_B8:atmIlmiSrvcRegATMAddress,_B9:atmIlmiSrvcRegParm1,_BA:atmIlmiSrvcRegRowStatus,'atmIlmiNetworkPrefixTable':atmIlmiNetworkPrefixTable,'atmIlmiNetworkPrefixEntry':atmIlmiNetworkPrefixEntry,_A3:atmIlmiNetPrefixPrefix,_BB:atmIlmiNetPrefixRowStatus,'atmSwitchAddressTable':atmSwitchAddressTable,'atmSwitchAddressEntry':atmSwitchAddressEntry,_A4:atmSwitchAddressIndex,_BR:atmSwitchAddressAddress,_BS:atmSwitchAddressRowStatus,'atmVpCrossConnectXTable':atmVpCrossConnectXTable,_A8:atmVpCrossConnectXEntry,_BT:atmVpCrossConnectUserName,_BU:atmVpCrossConnectProviderName,'atmVcCrossConnectXTable':atmVcCrossConnectXTable,_A9:atmVcCrossConnectXEntry,_BV:atmVcCrossConnectUserName,_BW:atmVcCrossConnectProviderName,'atmCurrentlyFailingPVplTable':atmCurrentlyFailingPVplTable,'atmCurrentlyFailingPVplEntry':atmCurrentlyFailingPVplEntry,_At:atmCurrentlyFailingPVplTimeStamp,'atmCurrentlyFailingPVclTable':atmCurrentlyFailingPVclTable,'atmCurrentlyFailingPVclEntry':atmCurrentlyFailingPVclEntry,_Au:atmCurrentlyFailingPVclTimeStamp,'atm2MIBTraps':atm2MIBTraps,'atmPvcTraps':atmPvcTraps,'atmPvcTrapsPrefix':atmPvcTrapsPrefix,_Bq:atmIntfPvcFailuresTrap,'atm2MIBConformance':atm2MIBConformance,'atm2MIBGroups':atm2MIBGroups,_Br:atmCommonGroup,_Bs:atmCommonStatsGroup,_Bt:atmSwitchServcGroup,_Bu:atmSwitchServcSigGroup,_Bv:atmSwitchServcNotifGroup,_Bw:atmSwitchGroup,_Bx:atmServcGroup,_By:atmHostGroup,_Bz:atmHostSigDescrGroup,'atm2MIBCompliances':atm2MIBCompliances,'atm2MIBCompliance':atm2MIBCompliance})

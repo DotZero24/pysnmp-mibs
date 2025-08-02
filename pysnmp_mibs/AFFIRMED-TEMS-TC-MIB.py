@@ -1,0 +1,17 @@
+_B='ModuleIdentity'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+affirmedSnmpTc,=mibBuilder.importSymbols('AFFIRMED-TEMS-SNMP-MIB','affirmedSnmpTc')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress',_B,'MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,ModuleIdentity,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString',_B,'PhysAddress','TextualConvention')
+affirmedTemsTc=ModuleIdentity((1,3,6,1,4,1,37963,6,1,1))
+if mibBuilder.loadTexts:affirmedTemsTc.setRevisions(('2008-03-14 11:14',))
+class ResourceAdminStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('active',1),('inactive',2),('testing',3)))
+class ThresholdType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('increasing',1),('decreasing',2)))
+class AlarmLevel(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('cleared',1),('warning',2),('minor',3),('major',4),('critical',5)))
+class AlarmLevelString(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,24))
+mibBuilder.exportSymbols('AFFIRMED-TEMS-TC-MIB',**{'ResourceAdminStatus':ResourceAdminStatus,'ThresholdType':ThresholdType,'AlarmLevel':AlarmLevel,'AlarmLevelString':AlarmLevelString,'affirmedTemsTc':affirmedTemsTc})

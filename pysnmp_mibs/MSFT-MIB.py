@@ -1,0 +1,26 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+_Microsoft_ObjectIdentity=ObjectIdentity
+microsoft=_Microsoft_ObjectIdentity((1,3,6,1,4,1,311))
+_Software_ObjectIdentity=ObjectIdentity
+software=_Software_ObjectIdentity((1,3,6,1,4,1,311,1))
+_Systems_ObjectIdentity=ObjectIdentity
+systems=_Systems_ObjectIdentity((1,3,6,1,4,1,311,1,1))
+_Os_ObjectIdentity=ObjectIdentity
+os=_Os_ObjectIdentity((1,3,6,1,4,1,311,1,1,3))
+_WindowsNT_ObjectIdentity=ObjectIdentity
+windowsNT=_WindowsNT_ObjectIdentity((1,3,6,1,4,1,311,1,1,3,1))
+_Workstation_ObjectIdentity=ObjectIdentity
+workstation=_Workstation_ObjectIdentity((1,3,6,1,4,1,311,1,1,3,1,1))
+_Server_ObjectIdentity=ObjectIdentity
+server=_Server_ObjectIdentity((1,3,6,1,4,1,311,1,1,3,1,2))
+_Dc_ObjectIdentity=ObjectIdentity
+dc=_Dc_ObjectIdentity((1,3,6,1,4,1,311,1,1,3,1,3))
+_Windows_ObjectIdentity=ObjectIdentity
+windows=_Windows_ObjectIdentity((1,3,6,1,4,1,311,1,1,3,2))
+mibBuilder.exportSymbols('MSFT-MIB',**{'microsoft':microsoft,'software':software,'systems':systems,'os':os,'windowsNT':windowsNT,'workstation':workstation,'server':server,'dc':dc,'windows':windows})

@@ -1,0 +1,24 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+_Huawei_ObjectIdentity=ObjectIdentity
+huawei=_Huawei_ObjectIdentity((1,3,6,1,4,1,2011))
+_Products_ObjectIdentity=ObjectIdentity
+products=_Products_ObjectIdentity((1,3,6,1,4,1,2011,2))
+_Transmission_ObjectIdentity=ObjectIdentity
+transmission=_Transmission_ObjectIdentity((1,3,6,1,4,1,2011,2,25))
+_OptixCommon_ObjectIdentity=ObjectIdentity
+optixCommon=_OptixCommon_ObjectIdentity((1,3,6,1,4,1,2011,2,25,3))
+_OptixCommonSnmp_ObjectIdentity=ObjectIdentity
+optixCommonSnmp=_OptixCommonSnmp_ObjectIdentity((1,3,6,1,4,1,2011,2,25,3,1))
+_OptixCommonGlobal_ObjectIdentity=ObjectIdentity
+optixCommonGlobal=_OptixCommonGlobal_ObjectIdentity((1,3,6,1,4,1,2011,2,25,3,40))
+_OptixProvision_ObjectIdentity=ObjectIdentity
+optixProvision=_OptixProvision_ObjectIdentity((1,3,6,1,4,1,2011,2,25,4))
+_OptixProvisionWDM_ObjectIdentity=ObjectIdentity
+optixProvisionWDM=_OptixProvisionWDM_ObjectIdentity((1,3,6,1,4,1,2011,2,25,4,70))
+mibBuilder.exportSymbols('OPTIX-OID-MIB',**{'huawei':huawei,'products':products,'transmission':transmission,'optixCommon':optixCommon,'optixCommonSnmp':optixCommonSnmp,'optixCommonGlobal':optixCommonGlobal,'optixProvision':optixProvision,'optixProvisionWDM':optixProvisionWDM})

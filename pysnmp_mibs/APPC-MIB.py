@@ -1,619 +1,1902 @@
-#
-# PySNMP MIB module APPC-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/APPC-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:05:05 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, OctetString, Integer, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
-( snanauMIB, ) = mibBuilder.importSymbols("SNA-NAU-MIB", "snanauMIB")
-( ModuleCompliance, NotificationGroup, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-( TimeTicks, iso, Unsigned32, ObjectIdentity, Counter32, NotificationType, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Counter64, Bits, Integer32, MibIdentifier, ModuleIdentity, mib_2, ) = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "iso", "Unsigned32", "ObjectIdentity", "Counter32", "NotificationType", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Counter64", "Bits", "Integer32", "MibIdentifier", "ModuleIdentity", "mib-2")
-( DisplayString, InstancePointer, TextualConvention, DateAndTime, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "InstancePointer", "TextualConvention", "DateAndTime")
-appcMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 34, 3))
-if mibBuilder.loadTexts: appcMIB.setLastUpdated('9512150000Z')
-if mibBuilder.loadTexts: appcMIB.setOrganization('IETF SNA NAU MIB Working Group')
-if mibBuilder.loadTexts: appcMIB.setContactInfo('\n                        Michael Allen\n                        Wall Data Inc.\n                        P.O.Box 1120\n                        Duval, WA 98019, USA\n                        Tel:    1 206 844 3505\n                        E-mail: mallen@hq.walldata.com\n\n                        Bob Clouston\n                        Cisco Systems\n                        7025 Kit Creek Road\n                        P.O. Box 14987\n                        Research Triangle Park, NC 27709, USA\n                        Tel:    1 919 472 2333\n                        E-mail: clouston@cisco.com\n\n                        Zbigniew Kielczewski\n                        Cisco Systems\n                        3100 Smoketree Court\n                        Raleigh, NC 27604, USA\n                        Tel:    1 919 871 6326\n                        E-mail: zbig@cisco.com\n\n\n\n\n                        William Kwan\n                        Jupiter Technology Inc.\n                        200 Prospect Street\n                        Waltham, MA 02254, USA\n                        Tel:    1 617 894 9300, x423\n                        E-mail: billk@jti.com\n\n                        Bob Moore\n                        IBM Corporation\n                        800 Park Offices Drive\n                        CNMA/664\n                        P.O. Box 12195\n                        Research Triangle Park, NC 27709, USA\n                        Tel:    1 919 254 4436\n                        E-mail: remoore@ralvm6.vnet.ibm.com\n                ')
-if mibBuilder.loadTexts: appcMIB.setDescription('This is the MIB module for objects used to manage network\n          devices with APPC capabilities.')
-appcObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 3, 1))
-appcGlobal = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 3, 1, 1))
-appcLu = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 3, 1, 2))
-appcTp = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 3, 1, 3))
-appcSession = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 3, 1, 4))
-appcConversation = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 3, 1, 5))
-appcCPIC = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 3, 1, 6))
-class SnaSenseData(DisplayString, TextualConvention):
-    subtypeSpec = DisplayString.subtypeSpec+ValueSizeConstraint(8,8)
-    fixedLength = 8
-
-appcCntrlAdminGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 1))
-appcCntrlAdminStat = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("notActive", 1), ("active", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: appcCntrlAdminStat.setDescription('Indicates the desired state of statistics collection:\n\n              notActive  collection of counters is not active.\n              active     collection of counters is active.\n\n           When this object is set to notActive, all of the entries are\n           removed from the appcSessStatsTable.')
-appcCntrlAdminRscv = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("notActive", 1), ("active", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: appcCntrlAdminRscv.setDescription('Indicates the desired state of RSCV information collection:\n              notActive  collection of route selection control vectors\n                         is not active.\n              active     collection of route selection control vectors\n                         is active.')
-appcCntrlAdminTrace = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("notActive", 1), ("active", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: appcCntrlAdminTrace.setDescription('Indicates the desired state of tracing:\n\n              notActive  collection of tracing information is not active\n              active     collection of tracing information is active')
-appcCntrlAdminTraceParm = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,128))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: appcCntrlAdminTraceParm.setDescription('Specifies the parameter to be used in conjunction with\n          activating tracing.  The actual content is implementation\n          dependent.')
-appcCntrlOperGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 2))
-appcCntrlOperStat = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("notActive", 1), ("active", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCntrlOperStat.setDescription("Indicates the current collection options in effect:\n\n              notActive  collection of counters is not active.\n              active     collection of counters is active.\n\n          Statistical entries are present in the appcSessStatsTable\n          only when the value of this object is 'active'.")
-appcCntrlOperStatTime = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 2, 2), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCntrlOperStatTime.setDescription('Time since the appcCntrlOperStat object last changed.\n           This time is in hundreds of a second.')
-appcCntrlOperRscv = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("notActive", 1), ("active", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCntrlOperRscv.setDescription('Indicates the current collection options in effect:\n\n              notActive  collection of route selection control vectors\n                         is not active.\n              active     collection of route selection control vectors\n                         is active.')
-appcCntrlOperRscvTime = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 2, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCntrlOperRscvTime.setDescription('Time since the appcCntrlOperRscv object last changed.\n           This time is in hundreds of a second.')
-appcCntrlOperTrace = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("notActive", 1), ("active", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCntrlOperTrace.setDescription('Indicates the current state of tracing:\n\n              notActive  collection of tracing information is not active.\n              active     collection of tracing information is active.')
-appcCntrlOperTraceTime = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 2, 6), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCntrlOperTraceTime.setDescription('Time since the appcCntrlOperTrace object last changed.\n           This time is in hundreds of a second.')
-appcCntrlOperTraceParm = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 2, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCntrlOperTraceParm.setDescription('Specifies the parameter used in conjunction with activating\n           tracing. The actual content is implementation dependent.')
-appcGlobalObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 3))
-appcUpTime = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 3, 1), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcUpTime.setDescription('The time, in hundredths of a second, since the\n          APPC portion of the system was last reinitialized.')
-appcDefaultModeName = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 3, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcDefaultModeName.setDescription('Specifies the mode name to be used under the following\n           conditions:\n\n              When an incoming BIND request contains a mode name not\n              defined at the local node.  The parameters defined for\n              this mode are used for the inbound implicit mode\n              capability.\n\n              When an APPC program issues an [MC_]ALLOCATE,\n              [MC_]SEND_CONVERSATION, or CNOS verb, or when a CPI-C\n              program issues an Allocate (CMALLC) call,\n              specifying a mode name not defined at the local node.  The\n              parameters defined for this mode are used for the outbound\n              implicit mode capability.\n\n           This mode name must match a defined entry in the\n           appcModeAdminTable.')
-appcDefaultLuName = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 3, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcDefaultLuName.setDescription('Specifies the name of the local LU that is to serve as the\n          default LU.  This is the default LU to which are routed inbound\n\n          BIND requests that exclude the secondary LU name.  This field\n          is from 1 to 17 characters in length, including a period (.)\n          which separates the NetId from the NAU name if the NetId is\n          present.  This local LU name must match a defined entry in the\n          appcLluAdminTable.')
-appcDefaultImplInbndPlu = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 3, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcDefaultImplInbndPlu.setDescription('Specifies whether or not inbound implicit partner LU support\n          is enabled.  The following values are defined:\n\n              no   -  Specifies that inbound implicit partner LU support\n                      is disabled, which means that an incoming bind that\n                      specifies a partner LU that is not defined at the\n                      local node will be rejected.\n\n              yes  -  Specifies that inbound implicit partner LU support\n                      is enabled, which provides the capability to accept\n                      an incoming BIND request that contains a partner LU\n                      name that is not defined at the local node.')
-appcDefaultMaxMcLlSndSize = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 3, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcDefaultMaxMcLlSndSize.setDescription('Specifies the maximum size of a logical record to be used for\n          a mapped conversation when sending data to either the inbound\n          or outbound implicit partner LU.  This size is the maximum\n          number of bytes in a single logical record, as indicated in the\n          LL field of the record.  The default value is 32767.\n\n          Note that this object does not limit the maximum size that an\n          application program can supply on the Send Data call for a\n          mapped conversation.')
-appcDefaultFileSpec = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 3, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,80))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcDefaultFileSpec.setDescription("The local file specification that is to be searched by the\n           APPC attach manager when no DEFINE_TP verb has been issued\n           for the TP name received on an incoming attach.  In this\n           case, the attach manager will attempt to start a program\n           whose file name is the same as the incoming TP name.  If\n           found, the program is loaded. If not found, the attach is\n           rejected.\n\n           The value '*' indicates that the normal search path for\n           executable programs is to be used for locating an undefined\n           transaction program.\n\n           A null string indicates that there is no default file\n           specification for undefined transaction programs.")
-appcDefaultTpOperation = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 3, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("other", 1), ("queuedOperatorStarted", 2), ("queuedOperatorPreloaded", 3), ("queuedAmStarted", 4), ("nonqueuedAmStarted", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcDefaultTpOperation.setDescription('Specifies how the program will be started.\n\n              other - Specifies that the default TP operation is none of\n                      the methods specified below. It may be a\n                      product-specific method.\n\n              queuedOperatorStarted - Specifies that one version of the\n                      program will be run at a time.  If an incoming\n                      attach arrives and the program has not been started\n                      yet, APPC will issue a message to the operator to\n                      start the specified program.  Subsequent attaches\n                      that arrive while the program is active will be\n                      queued.\n\n              queuedOperatorPreloaded - Specifies that one version\n\n                      of the program will be run at a time.  If an\n                      incoming attach arrives and the program has not\n                      been started yet, the Attach will be rejected.  The\n                      APPC attach manager determines that a TP has\n                      started upon reception of an APPC RECEIVE_ALLOCATE\n                      verb, or a CPI-C Accept_Conversation (CMACCP) or\n                      Specify_Local_TP_Name (CMSLTP) call.  No message is\n                      sent to the operator.  Subsequent attaches that\n                      arrive while the program is active are queued.\n\n              queuedAmStarted - Specifies that one version of the\n                      program will be run at a time and will be started\n                      by the APPC attach manager.  Subsequent attaches\n                      that arrive while the program is active will be\n                      queued.\n\n              nonqueuedAmStarted - Specifies that multiple copies of\n                      the program will be run at a time and will be\n                      started by the APPC attach manager. ')
-appcDefaultTpConvSecRqd = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 3, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcDefaultTpConvSecRqd.setDescription('Specifies whether or not conversation security will be used\n          for default TPs.\n\n              no   -  Specifies that the incoming attach does not have to\n                      contain security information.\n              yes  -  Specifies that the incoming attach must contain\n                      valid authentication information (e.g., user ID and\n                      password).')
-appcLocalCpName = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 3, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLocalCpName.setDescription('Specifies the name of the local control point.  This field is\n          from 0 to 17 characters in length, including a period (.) which\n\n          separates the NetId from the NAU name if the NetId is present.\n          A null string indicates that the value is unknown.')
-appcActiveSessions = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 3, 10), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveSessions.setDescription('Specifies the total number of active APPC sessions supported\n          by this implementation.  Sessions for which both LUs are local\n          are counted twice.')
-appcActiveHprSessions = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 3, 11), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveHprSessions.setDescription('Specifies the total number of active HPR APPC sessions.')
-appcCnosControl = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 4))
-appcCnosCommand = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 4, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("initSesslimit", 1), ("changeSesslimit", 2), ("resetSesslimit", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: appcCnosCommand.setDescription('Specifies the CNOS command or verb to issue.  First set the\n          values of the particular CNOS parameter objects (from the range\n          { appcCnosControl 2 } through { appcCnosControl 8 }) that apply\n          to the CNOS command to be executed, set the three CNOS target\n          objects ({ appcCnosControl 9 } through { appcCnosControl 11 }),\n          then set this object to the command to be executed.\n\n          Here is the list of parameter objects that must be set for each\n          of the CNOS commands:\n\n             INIT_SESSION_LIMIT -\n                appcCnosMaxSessLimit\n                appcCnosMinCwinLimit\n                appcCnosMinClosLimit\n                appcCnosTargetLocLuName\n                appcCnosTargetParLuName\n                appcCnosTargetModeName\n\n             CHANGE_SESSION_LIMIT -\n                appcCnosMaxSessLimit\n                appcCnosMinCwinLimit\n                appcCnosMinClosLimit\n                appcCnosResponsible\n                appcCnosTargetLocLuName\n                appcCnosTargetParLuName\n                appcCnosTargetModeName\n\n             RESET_SESSION_LIMIT -\n                appcCnosResponsible\n                appcCnosDrainPart\n                appcCnosForce\n                appcCnosTargetLocLuName\n                appcCnosTargetParLuName\n                appcCnosTargetModeName\n          ')
-appcCnosMaxSessLimit = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 4, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: appcCnosMaxSessLimit.setDescription('Specifies the maximum value that the local LU is to use,\n          during CNOS processing, for the session limit.  The local LU,\n          as a target LU, will negotiate a higher session limit it\n          receives in the CNOS request down to this maximum value.  The\n\n          local LU, as a source LU, will restrict the session limit it\n          sends in a CNOS request to a value less than or equal to this\n          maximum value.\n\n           If set (i.e., greater than 0), this overrides the maximum\n           session limit defined in the appcModeAdminTable.\n\n           This parameter should be set to the desired value before\n           setting the command (appcCnosCommand).\n\n           This parameter applies to the INITIALIZE_SESSION_LIMIT and\n           CHANGE_SESSION_LIMIT verbs.')
-appcCnosMinCwinLimit = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 4, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: appcCnosMinCwinLimit.setDescription('Specifies the default minimum contention winner sessions\n          limit.\n\n          This parameter should be set to the desired value before\n          setting the command (appcCnosCommand).\n\n          This parameter applies to the INITIALIZE_SESSION_LIMIT and\n          CHANGE_SESSION_LIMIT verbs.')
-appcCnosMinClosLimit = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 4, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: appcCnosMinClosLimit.setDescription('Specifies the default minimum contention loser sessions limit.\n\n           This parameter should be set to the desired value before\n           setting the command (appcCnosCommand).\n\n           This parameter applies to the INITIALIZE_SESSION_LIMIT and\n           CHANGE_SESSION_LIMIT verbs.')
-appcCnosDrainSelf = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 4, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),)).clone('no')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: appcCnosDrainSelf.setDescription('Specifies whether the local LU is draining its conversations\n          for this mode.  When a mode session limit is reset (via a CNOS\n          RESET_SESSION_LIMIT request), the local LU could be set to\n          process all queued conversations before deactivating all of the\n          sessions (using the SNA Bracket Initiation Stopped or BIS\n          protocol).\n\n          This parameter should be set to the desired value before\n          setting the command (appcCnosCommand).\n\n          This parameter applies only to the RESET_SESSION_LIMIT verb.')
-appcCnosDrainPart = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 4, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),)).clone('yes')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: appcCnosDrainPart.setDescription('Specifies whether the partner LU is draining its conversations\n          for this mode.  When a mode session limit is reset (via a CNOS\n          RESET_SESSION_LIMIT request), the partner LU could be set to\n          process all queued conversations before deactivating all of the\n          sessions (using the SNA Bracket Initiation Stop or BIS\n          protocol).\n\n          This parameter should be set to the desired value before\n          setting the command (appcCnosCommand).\n\n          This parameter applies only to the RESET_SESSION_LIMIT verb.')
-appcCnosResponsible = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 4, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("source", 1), ("target", 2),)).clone('source')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: appcCnosResponsible.setDescription('Specifies which LU is responsible for selecting and\n          deactivating sessions as a result of a change that decreases\n          the session limit or the maximum number of contention winner\n          sessions for the source or target LU.  If no session need to be\n          deactivated, this parameter is ignored.\n\n                source  -       specifies that the source (local) LU is\n                                responsible.  The target (partner) LU\n                                cannot negotiate this value.\n                target  -       specifies that the target (partner) LU is\n                                responsible. The target LU can negotiate\n                                this value to source.\n\n           This parameter should be set to the desired value before\n           setting the command (appcCnosCommand).\n\n           This parameter applies to the RESET_SESSION_LIMIT and\n           CHANGE_SESSION_LIMIT verbs.')
-appcCnosForce = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 4, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),)).clone('no')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: appcCnosForce.setDescription('Specifies whether the local LU should force the resetting of\n          the session limit when certain error conditions occur that\n          prevent the successful exchange of CNOS request and reply.\n\n           This parameter should be set to the desired value before\n\n           setting the command (appcCnosCommand).\n\n           This parameter applies only to the RESET_SESSION_LIMIT verb.')
-appcCnosTargetLocLuName = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 4, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: appcCnosTargetLocLuName.setDescription('The SNA name of the local LU to which the CNOS command is\n           to be applied. This field is from 1 to 17 characters in\n           length, including a period (.) which separates the\n           NetId from the NAU name if the NetId is present.\n\n           This object should be set to the desired value before setting\n           the command (appcCnosCommand).\n\n           This parameter applies to all CNOS verbs.')
-appcCnosTargetParLuName = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 4, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: appcCnosTargetParLuName.setDescription('The SNA name of the partner LU to which the CNOS command is\n           to be applied. This field is from 1 to 17 characters in\n           length, including a period (.) which separates the\n           NetId from the NAU name if the NetId is present.\n\n           This object should be set to the desired value before setting\n           the command (appcCnosCommand).\n\n           This parameter applies to all CNOS verbs.')
-appcCnosTargetModeName = MibScalar((1, 3, 6, 1, 2, 1, 34, 3, 1, 1, 4, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,8))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: appcCnosTargetModeName.setDescription('Specifies the mode name to which the CNOS command is to be\n\n           applied.\n\n           This object should be set to the desired value before setting\n           the command (appcCnosCommand).\n\n           This parameter applies to all CNOS verbs.')
-appcLluAdminTable = MibTable((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 1), )
-if mibBuilder.loadTexts: appcLluAdminTable.setDescription('APPC Local LU Admin Table.')
-appcLluAdminEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 1, 1), ).setIndexNames((0, "APPC-MIB", "appcLluAdminName"))
-if mibBuilder.loadTexts: appcLluAdminEntry.setDescription('Information about local APPC LUs. ')
-appcLluAdminName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcLluAdminName.setDescription('Specifies the name of the local LU.  This field is from 1 to\n          17 characters in length, including a period (.) which separates\n          the NetId from the NAU name if the NetId is present.')
-appcLluAdminDepType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("dependent", 1), ("independent", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluAdminDepType.setDescription('This value identifies whether the LU is dependent or\n          independent.')
-appcLluAdminLocalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluAdminLocalAddress.setDescription('The local address for this LU is a byte with a value ranging\n          from 0 to 254.  For dependent LUs, this value ranges from 1 to\n\n          254; for independent LUs this value is always 0.')
-appcLluAdminSessLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluAdminSessLimit.setDescription('The maximum number of sessions supported by this LU.')
-appcLluAdminBindRspMayQ = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluAdminBindRspMayQ.setDescription('Indicates whether or not the local LU, as the sender of a BIND\n          request, allows a partner partner LU to delay sending the BIND\n          response if the partner LU cannot process the BIND request\n          immediately.')
-appcLluAdminCompression = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("prohibited", 1), ("required", 2), ("negotiable", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluAdminCompression.setDescription('Specifies whether compression is supported. The local LU uses\n           this value for negotiation during session activation\n           (SNA BIND).\n\n              prohibited  -  specifies that no compression is to be used.\n              required    -  specifies that compression is required.\n              negotiable  -  specifies that the usage of compression\n                             is to be negotiated between the LUs. The\n                             level of compression is also negotiated.')
-appcLluAdminInBoundCompLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("none", 1), ("rle", 2), ("lz9", 3), ("lz10", 4), ("lz12", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluAdminInBoundCompLevel.setDescription('Specifies the maximum level of compression supported for\n          inbound data.  The local LU uses this value in conjunction with\n          appcLluAdminCompression for negotiation during session\n          activation (SNA BIND).\n              none  -  specifies that no compression is to be used.\n              rle   -  specifies run-length encoding compression\n                       in which a 1 or 2 byte sequence substitution is\n                       used for each repeated run of the same character.\n              lz9   -  specifies Lempel-Ziv-like compression in which\n                       9 bit codes are used to substitute repeated\n                       substrings in the data stream.  These codes are\n                       indices that refer to entries in a common\n                       dictionary generated adaptively at both sender and\n                       receiver as the data flows and compression occurs.\n                       The larger number bits used for the code, the more\n                       storage space is required for the dictionary, but\n                       the larger the compression ratio.\n              lz10  -  specifies a 10 bit code Lempel-Ziv-like compression.\n              lz12  -  specifies a 12 bit code Lempel-Ziv-like compression.')
-appcLluAdminOutBoundCompLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("none", 1), ("rle", 2), ("lz9", 3), ("lz10", 4), ("lz12", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluAdminOutBoundCompLevel.setDescription('Specifies the maximum level of compression supported for\n          outbound data.  The local LU uses this value in conjunction\n          with appcLluAdminCompression for negotiation during session\n          activation (SNA BIND).\n\n              none  -  specifies that no compression is to be used.\n              rle   -  specifies run-length encoding compression\n                       in which a 1 or 2 byte sequence substitution is\n                       used for each repeated run of the same character.\n              lz9   -  specifies Lempel-Ziv-like compression in which\n                       9 bit codes are used to substitute repeated\n                       substrings in the data stream.  These codes are\n                       indices that refer to entries in a common\n                       dictionary generated adaptively at both sender and\n                       receiver as the data flows and compression occurs.\n                       The larger of number bits used for the code, the\n                       more storage space is required for the dictionary,\n                       but the larger the compression ratio.\n              lz10  -  specifies a 10 bit code Lempel-Ziv-like compression.\n              lz12  -  specifies a 12 bit code Lempel-Ziv-like compression.')
-appcLluAdminCompRleBeforeLZ = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluAdminCompRleBeforeLZ.setDescription('Specifies whether run-length encoding is to be applied to the\n          data before applying Lempel-Ziv-like compression.  The local LU\n          uses this value for negotiation during session activation (SNA\n          BIND).  This parameter is only supported if LZ compression is\n          used.')
-appcLluAdminAlias = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 1, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluAdminAlias.setDescription('A local alias for the local LU.  If not known or\n           not applicable, this object contains a zero-length\n           string.')
-appcLluOperTable = MibTable((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 2), )
-if mibBuilder.loadTexts: appcLluOperTable.setDescription('APPC Local LU Operational Table.')
-appcLluOperEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 2, 1), ).setIndexNames((0, "APPC-MIB", "appcLluOperName"))
-if mibBuilder.loadTexts: appcLluOperEntry.setDescription('Information about local APPC LUs.')
-appcLluOperName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 2, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcLluOperName.setDescription('Specifies the name of the local LU.  This field is from 1 to\n          17 characters in length, including a period (.) which separates\n          the NetId from the NAU name if the NetId is present.')
-appcLluOperDepType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("dependent", 1), ("independent", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluOperDepType.setDescription('This value identifies whether the LU is dependent or\n          independent.')
-appcLluOperLocalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 2, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluOperLocalAddress.setDescription('The local address for this LU is a byte with a value ranging\n          from 0 to 254.  For dependent LUs, this value ranges from 1 to\n          254; for independent LUs this value is always 0.')
-appcLluOperSessLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluOperSessLimit.setDescription('The maximum number of sessions supported by this LU.')
-appcLluOperBindRspMayQ = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluOperBindRspMayQ.setDescription('Indicates whether or not the local LU, as the sender of a BIND\n          request, allows a partner LU to delay sending the BIND\n          response if the partner LU cannot process the BIND request\n          immediately.')
-appcLluOperCompression = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("prohibited", 1), ("required", 2), ("negotiable", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluOperCompression.setDescription('Specifies whether compression is supported.  The local LU uses\n          this value for negotiation during session activation (SNA\n          BIND).\n\n              prohibited  -  specifies that no compression is to be used.\n              required    -  specifies that compression is required.\n              negotiable  -  specifies that the usage of compression\n                             is to be negotiated between the LUs. The\n                             level of compression is also negotiated.')
-appcLluOperInBoundCompLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("none", 1), ("rle", 2), ("lz9", 3), ("lz10", 4), ("lz12", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluOperInBoundCompLevel.setDescription('Specifies the maximum level of compression supported for\n          inbound data.  The local LU uses this value in conjunction with\n          appcLluOperCompression for negotiation during session\n          activation (SNA BIND).\n\n              none  -  specifies that no compression is to be used.\n              rle   -  specifies run-length encoding compression\n                       in which a 1 or 2 byte sequence substitution is\n                       used for each repeated run of the same character.\n              lz9   -  specifies Lempel-Ziv-like compression in which\n                       9 bit codes are used to substitute repeated\n                       substrings in the data stream.  These codes are\n                       indices that refer to entries in a common\n                       dictionary generated adaptively at both sender and\n                       receiver as the data flows and compression occurs.\n                       The larger of number bits used for the code, the\n\n                       more storage space is required for the dictionary,\n                       but the larger the compression ratio.\n              lz10  -  specifies a 10 bit code Lempel-Ziv-like compression.\n              lz12  -  specifies a 12 bit code Lempel-Ziv-like compression.')
-appcLluOperOutBoundCompLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("none", 1), ("rle", 2), ("lz9", 3), ("lz10", 4), ("lz12", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluOperOutBoundCompLevel.setDescription('Specifies the maximum level of compression supported for\n          outbound data.  The local LU uses this value in conjunction\n          with appcLluAdminCompression for negotiation during session\n          activation (SNA BIND).\n\n              none  -  specifies that no compression is to be used.\n              rle   -  specifies run-length encoding compression\n                       in which a 1 or 2 byte sequence substitution is\n                       used for each repeated run of the same character.\n              lz9   -  specifies Lempel-Ziv-like compression in which\n                       9 bit codes are used to substitute repeated\n                       substrings in the data stream.  These codes are\n                       indices that refer to entries in a common\n                       dictionary generated adaptively at both sender and\n                       receiver as the data flows and compression occurs.\n                       The larger of number bits used for the code, the\n                       more storage space is required for the dictionary,\n                       but the larger the compression ratio.\n              lz10  -  specifies a 10 bit code Lempel-Ziv-like compression.\n              lz12  -  specifies a 12 bit code Lempel-Ziv-like compression.')
-appcLluOperCompRleBeforeLZ = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluOperCompRleBeforeLZ.setDescription('Specifies whether run-length encoding is to be applied to the\n          data before applying Lempel-Ziv-like compression.  The local LU\n          uses this value for negotiation during session activation (SNA\n          BIND).  This parameter is only supported if LZ compression is\n          used.')
-appcLluOperAlias = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 2, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluOperAlias.setDescription('A local alias for the local LU.  If not known or\n           not applicable, this object contains a zero-length\n           string.')
-appcLluOperActiveSessions = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 2, 1, 11), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLluOperActiveSessions.setDescription('Specifies the total number of active APPC sessions for this\n          LU.')
-appcLuPairAdminTable = MibTable((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 3), )
-if mibBuilder.loadTexts: appcLuPairAdminTable.setDescription('APPC Partner LU administrative Table')
-appcLuPairAdminEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 3, 1), ).setIndexNames((0, "APPC-MIB", "appcLuPairAdminLocLuName"), (0, "APPC-MIB", "appcLuPairAdminParLuName"))
-if mibBuilder.loadTexts: appcLuPairAdminEntry.setDescription('Entry of APPC Partner LU Information Table.\n          It is indexed by the local and partner LU Names.')
-appcLuPairAdminLocLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 3, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcLuPairAdminLocLuName.setDescription("The SNA name of the local LU to which this partner LU\n           definition applies. This field is from 1 to 17 characters in\n           length, including a period (.) which separates the\n           NetId from the NAU name if the NetId is present.\n\n           The reserved value '*ALL' indicates that the partner LU\n           definition applies to all local LUs, and not just to a single\n           local LU.")
-appcLuPairAdminParLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 3, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcLuPairAdminParLuName.setDescription('The SNA name of the partner LU.\n           This field is from 1 to 17 characters in\n           length, including a period (.) which separates the\n           NetId from the NAU name if the NetId is present.')
-appcLuPairAdminParLuAlias = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLuPairAdminParLuAlias.setDescription('A local alias for the partner LU.  If not known or\n           not applicable, this object contains a zero-length\n           string.')
-appcLuPairAdminSessLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 3, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLuPairAdminSessLimit.setDescription('The maximum number of sessions supported by this partner LU.')
-appcLuPairAdminSessSec = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("required", 1), ("accepted", 2), ("notAllowed", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLuPairAdminSessSec.setDescription('Specifies the type of session-level security information that\n          a local LU will accept on BIND requests it receives from the\n          partner LU.\n\n          required    -   Specifies that the BIND request must carry\n                          session level verification information that\n                          will be verified upon receipt.\n          accepted    -   Specifies that the BIND request may carry\n                          session level verification information that\n                          will be verified upon receipt.\n          notAllowed  -   Specifies that the BIND request must not carry\n                          session level verification information.')
-appcLuPairAdminSecAccept = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("none", 1), ("conversation", 2), ("alreadyVerified", 3), ("persistentVerification", 4), ("aVandpV", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLuPairAdminSecAccept.setDescription('Specifies support for different levels of access security\n           information in ATTACH requests received from this partner LU.\n\n           Possible values are:\n\n                none    -   No access security information will be\n                            accepted on allocation requests (ATTACH) from\n                            this LU.\n                conversation\n                        -   Allocation requests will not be accepted that\n                            include already verified or persistent\n                            verification indicators.  Accept\n                            conversation-level access security\n                            information, which must include both a user\n                            Id and password, and may also include a\n                            profile.\n                alreadyVerified\n                        -   Allocation requests will be accepted that\n                            include already verified indicators.\n                            Persistent verification indicators will not\n                            be accepted.\n                persistentVerification\n                        -   Allocation requests will be accepted that\n                            include persistent verification indicators.\n                            Already verified indicators will not be\n                            accepted.\n                aVandpV -   Allocation requests will be accepted that\n                            include already verified or persistent\n                            verification indicators.')
-appcLuPairAdminLinkObjId = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 3, 1, 7), InstancePointer()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLuPairAdminLinkObjId.setDescription('Specifies the link associated with this partner LU.  This\n          value points to the row in the table containing information on\n\n          the link instance.  (e.g., the sdlcLSAdminTable of the SNA DLC\n          MIB module).  This object may be NULL if the link is not\n          specified or if a link is not applicable (as for APPN-level\n          nodes).')
-appcLuPairAdminParaSessSup = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLuPairAdminParaSessSup.setDescription('Defined Parallel Sessions Supported.\n\n          Indicates whether or not multiple sessions between the partner\n          LU and its associated local LU are permitted.  Parallel session\n          support also indicates that Change Number of Sessions (CNOS)\n          will be used to negotiate session limits between the LUs.')
-appcLuPairOperTable = MibTable((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 4), )
-if mibBuilder.loadTexts: appcLuPairOperTable.setDescription('Table of active partner/local LU pairs.  Two entries are\n          present in the table when both LUs in a pair are local.')
-appcLuPairOperEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 4, 1), ).setIndexNames((0, "APPC-MIB", "appcLuPairOperLocLuName"), (0, "APPC-MIB", "appcLuPairOperParLuName"))
-if mibBuilder.loadTexts: appcLuPairOperEntry.setDescription('Entry representing one partner/local LU pair.')
-appcLuPairOperLocLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 4, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcLuPairOperLocLuName.setDescription('The SNA name of the local LU.  This field is from 1 to 17\n          characters in length, including a period (.) which separates\n          the NetId from the NAU name if the NetId is present.\n\n          If this object has the same value as appcLluOperName,\n          then the two entries being indexed apply to the same\n          resource (specifically, to the same local LU).')
-appcLuPairOperParLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 4, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcLuPairOperParLuName.setDescription('The SNA name of the partner LU.\n           This field is from 1 to 17 characters in\n           length, including a period (.) which separates the\n           NetId from the NAU name if the NetId is present.')
-appcLuPairOperParLuAlias = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 4, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLuPairOperParLuAlias.setDescription('A local alias for the partner LU.  If not known or\n           not applicable, this object contains a zero-length\n           string.')
-appcLuPairOperSessLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 4, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLuPairOperSessLimit.setDescription('The maximum number of sessions supported by this partner LU.')
-appcLuPairOperSessSec = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("required", 1), ("accepted", 2), ("notAllowed", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLuPairOperSessSec.setDescription('Specifies the type of security information that a local LU\n          will accept on BIND requests it receives from the partner LU.\n\n          required    -   Specifies that the BIND request must carry\n                          session level verification information that\n                          will be verified upon receipt.\n          accepted    -   Specifies that the BIND request may carry\n                          session level verification information that\n                          will be verified upon receipt.\n          notAllowed  -   Specifies that the BIND request must not carry\n                          session level verification information.')
-appcLuPairOperSecAccept = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 4, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("none", 1), ("conversation", 2), ("alreadyVerified", 3), ("persistentVerification", 4), ("aVandpV", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLuPairOperSecAccept.setDescription('Specifies support for different levels of security acceptance\n           information in ATTACH requests received from this partner LU.\n\n           Possible values are:\n\n                none    -   No access security information will be\n                            accepted on allocation requests (ATTACH) from\n                            this LU.\n                conversation\n                        -   Allocation requests will not be accepted that\n                            include already verified or persistent\n                            verification indicators.  Accept\n                            conversation-level access security\n                            information, which must include both a user\n                            Id and password, and may also include a\n                            profile.\n                alreadyVerified\n                        -   Allocation requests will be accepted that\n                            include already verified indicators.\n                            Persistent verification indicators will not\n                            be accepted.\n                persistentVerification\n                        -   Allocation requests will be accepted that\n                            include persistent verification indicators.\n                            Already verified indicators will not be\n                            accepted.\n                aVandpV -   Allocation requests will be accepted that\n                            include already verified or persistent\n                            verification indicators.')
-appcLuPairOperLinkObjId = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 4, 1, 7), InstancePointer()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLuPairOperLinkObjId.setDescription('Specifies the link associated with this partner LU.  This\n          value points to the row in the table containing information on\n          the link instance.  (e.g., the sdlcLSAdminTable of the SNA DLC\n          MIB module).  This object may be NULL if the link is not\n          specified or if a link is not applicable (as for APPN-level\n          nodes).')
-appcLuPairOperParaSessSup = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 4, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLuPairOperParaSessSup.setDescription('Active Parallel Sessions Supported.\n\n           Indicates whether or not multiple session between the partner\n           LU and its associated local LU are permitted.  Parallel\n           session support also indicates that Change Number of Sessions\n           (CNOS) will be used to negotiate session limits between the\n           LUs.')
-appcLuPairOperParaSessSupLS = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 4, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLuPairOperParaSessSupLS.setDescription('Active Parallel Sessions Supported - last starting value.\n\n           This object represents the initial value proposed by the local\n           LU the last time this capability was negotiated, i.e., when\n           the first session was bound between the local LU and its\n           partner.')
-appcLuPairOperState = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 4, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcLuPairOperState.setDescription('The value identifies the current operational state of this LU\n          pair:\n\n                  inactive (1) - no active or pending session exists\n                                 between the LUs.\n                  active (2)   - an active or pending session exists\n\n                                 between the LUs.')
-appcModeAdminTable = MibTable((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5), )
-if mibBuilder.loadTexts: appcModeAdminTable.setDescription('APPC Mode Table')
-appcModeAdminEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1), ).setIndexNames((0, "APPC-MIB", "appcModeAdminLocLuName"), (0, "APPC-MIB", "appcModeAdminParLuName"), (0, "APPC-MIB", "appcModeAdminModeName"))
-if mibBuilder.loadTexts: appcModeAdminEntry.setDescription('Entry of APPC Mode Information Table.')
-appcModeAdminLocLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcModeAdminLocLuName.setDescription("The SNA name of the local LU to which this mode definition\n           applies.  This field is from 1 to 17 characters in length,\n           including a period (.)  which separates the NetId from the\n           NAU name if the NetId is present.\n\n           The reserved value '*ALL' indicates that the mode definition\n           applies to all local LUs for the SNA node identified by\n           appcLocalCpName, and not just to a single local LU.")
-appcModeAdminParLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcModeAdminParLuName.setDescription("The SNA name of the partner LU to which this mode definition\n           applies.  This field is from 1 to 17 characters in length,\n           including a period (.) which separates the NetId from the\n           NAU name if the NetId is present.\n\n           The reserved value '*ALL' indicates that the mode definition\n           applies to all partner LUs for the SNA node identified by\n           appcModeAdminLocLuName, and not just to a single partner LU.")
-appcModeAdminModeName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,8)))
-if mibBuilder.loadTexts: appcModeAdminModeName.setDescription('Specifies the mode name. A mode defines the characteristics\n           for a group of sessions. The mode name can be blank (8\n           space characters). ')
-appcModeAdminCosName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminCosName.setDescription('Specifies the class of service (COS) name associated with\n           this mode.  If the implementation does not support COS names,\n           a null string is returned.')
-appcModeAdminSessEndTpName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminSessEndTpName.setDescription("Specifies the name of the transaction program (TP) to be\n          invoked when a session using this mode is deactivated or ended.\n          If no such TP is defined, this object is a null string.  When\n          the TP name consists entirely of displayable EBCDIC code\n          points, it is mapped directly to the equivalent ASCII display\n          string.  However, registered TP names always have a non-\n          displayable EBCDIC code point (value less than or equal to\n          x'3F') as the first character, so they cannot be directly\n          mapped to an ASCII display string.  These TP names are\n          converted to a display string that is equivalent to a\n          hexadecimal display of the EBCDIC code points.  For example,\n          the 2-byte TP name x'06F1' (CNOS) is converted to the 6-byte\n          ASCII display string '06F1' (including the two single quotes).\n          ")
-appcModeAdminMaxSessLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminMaxSessLimit.setDescription('Specifies the maximum value that the local LU is to use,\n          during CNOS processing, for the session limit.  The local LU,\n          as a target LU, will negotiate a higher session limit it\n\n          receives in the CNOS request down to this maximum value.  The\n          local LU, as a source LU, will restrict the session limit it\n          sends in a CNOS request to a value less than or equal to this\n          maximum value.')
-appcModeAdminMinCwinLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminMinCwinLimit.setDescription('Specifies the default minimum contention winner sessions\n          limit.  Some implementations internally issue a\n          INITIALIZE_SESSION_LIMIT verb when a Mode is created.  This\n          value is the parameter used for the CNOS processing of that\n          verb.  This parameter is not used when issuing an explicit\n          INITIALIZE_SESSION_LIMIT verb.  The equivalent object in\n          appcCnosCommandTable is used.')
-appcModeAdminMinClosLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminMinClosLimit.setDescription('Specifies the default minimum contention loser sessions limit.\n          Some implementations internally issue a\n          INITIALIZE_SESSION_LIMIT verb when a Mode is created.  This\n          value is the parameter used for the CNOS processing of that\n          verb.  This is the same as target minimum contention winner\n          sessions.  This parameter is not used when issuing an explicit\n          INITIALIZE_SESSION_LIMIT verb.  The equivalent object in\n          appcCnosCommandTable is used.')
-appcModeAdminConWinAutoActLmt = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminConWinAutoActLmt.setDescription('Specifies the limit on the number of contention winner\n          sessions to be automatically activated when the minimum number\n          of contention winner sessions increases (as a result of CNOS\n          processing).  The actual number of sessions activated is the\n          lesser of this value and the new minimum number of contention\n          winner sessions.  ')
-appcModeAdminRecvPacWinSz = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminRecvPacWinSz.setDescription('Specifies the size of the receive pacing window. This value is\n           used for negotiation during session activations (SNA BIND).\n\n           The meaning of this value when set to 0 depends on whether\n           adaptive pacing is supported:\n              adaptive pacing        No limit on window size\n              fixed pacing           No pacing is supported')
-appcModeAdminSendPacWinSz = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminSendPacWinSz.setDescription('Specifies the size of the send pacing window. This value is\n           used for negotiation during session activations (SNA BIND).\n\n           The meaning of this value when set to 0 depends on whether\n           adaptive pacing is supported:\n              adaptive pacing        No limit on window size\n              fixed pacing           No pacing is supported')
-appcModeAdminPrefRecvRuSz = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminPrefRecvRuSz.setDescription('Specifies the preferred receive RU (Request Unit) size of\n          normal-flow requests on the sessions.  This value must be less\n          than or equal to the value specified in\n          appcModeAdminRecvRuSzUpBnd and greater than or equal to the\n          value specified in appcModeAdminRecvRuSzLoBnd.\n\n           The local LU specifies this value for the receive maximum RU\n           size in session activation (SNA BIND) requests and responses.\n           It will allow negotiation up to the appcModeAdminRecvRuSzUpBnd\n           value or down to the appcModeAdminRecvRuSzLoBnd value.')
-appcModeAdminPrefSendRuSz = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 13), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminPrefSendRuSz.setDescription('Specifies the preferred send RU (Request Unit) size of normal-\n          flow requests on the sessions.  This value must be less than or\n          equal to the value specified in appcModeAdminSendRuSzUpBnd and\n          greater than or equal to the value specified in\n          appcModeAdminSendRuSzLoBnd.\n\n           The local LU specifies this value for the send maximum RU\n           size in session activation (SNA BIND) requests and responses.\n           It will allow negotiation up to the appcModeAdminSendRuSzUpBnd\n           value or down to the appcModeAdminSendRuSzLoBnd value.')
-appcModeAdminRecvRuSzUpBnd = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 14), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminRecvRuSzUpBnd.setDescription('Specifies the upper bound for the maximum receive RU\n           (Request Unit) size of normal-flow requests. This is used\n           for negotiation during session activations (SNA BIND). ')
-appcModeAdminSendRuSzUpBnd = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 15), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminSendRuSzUpBnd.setDescription('Specifies the upper bound for the maximum send RU (Request\n          Unit) size of normal-flow requests.  This is used for\n          negotiation during session activations (SNA BIND).  ')
-appcModeAdminRecvRuSzLoBnd = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 16), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminRecvRuSzLoBnd.setDescription('Specifies the lower bound for the maximum receive RU (Request\n\n          Unit) size of normal-flow requests.  This is used for\n          negotiation during session activations (SNA BIND).  ')
-appcModeAdminSendRuSzLoBnd = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 17), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminSendRuSzLoBnd.setDescription('Specifies the lower bound for the maximum send RU (Request\n          Unit) size of normal-flow requests.  This is used for\n          negotiation during session activations (SNA BIND).  ')
-appcModeAdminSingSessReinit = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("notApplicable", 1), ("operatorControlled", 2), ("primaryOnly", 3), ("secondaryOnly", 4), ("primaryOrSecondary", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminSingSessReinit.setDescription('Specifies the responsibility for session reinitiation of a\n          single session with the partner LU (when the session goes\n          down).  The local LU uses this parameter to specify the session\n          reinitiation responsibility in session activation (SNA BIND)\n          requests and responses.\n\n                notApplicable      - specifies that this parameter has\n                                     no meaning since the value of\n                                     appcLuPairAdminParaSessSup is yes.\n                                     The field in the SNA BIND is\n                                     reserved (set to zero).\n                operatorControlled - specifies that neither LU will\n                                     automatically attempt to reinitiate\n                                     the session.  The operator on either\n                                     side will manually reactivate the\n                                     session.  A contention race (both\n                                     side reinitiating at the same time)\n                                     is won by the LU with the\n                                     lexicographically greater fully-\n                                     qualified LU name.\n                primaryOnly        - specifies that the primary LU will\n\n                                     automatically attempt to reinitiate\n                                     the session.\n                secondaryOnly      - specifies that the secondary LU will\n                                     automatically attempt to reinitiate\n                                     the session.\n                primaryOrSecondary - specifies that either the primary or\n                                     the secondary may automatically\n                                     attempt to reinitiate the session.\n                                     A contention race is handled the\n                                     same way as with operatorControlled.\n          ')
-appcModeAdminCompression = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("prohibited", 1), ("required", 2), ("negotiable", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminCompression.setDescription('Specifies whether compression is supported.  The local LU uses\n          this value for negotiation during session activation (SNA\n          BIND).\n\n              prohibited  -  specifies that no compression is to be used.\n              required    -  specifies that compression is required.\n              negotiable  -  specifies that the usage of compression\n                             is to be negotiated between the LUs. The\n                             level of compression is also negotiated.')
-appcModeAdminInBoundCompLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("none", 1), ("rle", 2), ("lz9", 3), ("lz10", 4), ("lz12", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminInBoundCompLevel.setDescription('Specifies the maximum level of compression supported for\n          inbound data.  The local LU uses this value in conjunction with\n          appcModeAdminCompression for negotiation during session\n\n          activation (SNA BIND).\n\n              none  -  specifies that no compression is to be used.\n              rle   -  specifies run-length encoding compression\n                       in which a 1 or 2 byte sequence substitution is\n                       used for each repeated run of the same character.\n              lz9   -  specifies Lempel-Ziv-like compression in which\n                       9 bit codes are used to substitute repeated\n                       substrings in the data stream.  These codes are\n                       indices that refer to entries in a common\n                       dictionary generated adaptively at both sender and\n                       receiver as the data flows and compression occurs.\n                       The larger of number bits used for the code, the\n                       more storage space is required for the dictionary,\n                       but the larger the compression ratio.\n              lz10  -  specifies a 10 bit code Lempel-Ziv-like compression.\n              lz12  -  specifies a 12 bit code Lempel-Ziv-like compression.')
-appcModeAdminOutBoundCompLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("none", 1), ("rle", 2), ("lz9", 3), ("lz10", 4), ("lz12", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminOutBoundCompLevel.setDescription('Specifies the maximum level of compression supported for\n          outbound data.  The local LU uses this value in conjunction\n          with appcModeAdminCompression for negotiation during session\n          activation (SNA BIND).\n\n              none  -  specifies that no compression is to be used.\n              rle   -  specifies run-length encoding compression\n                       in which a 1 or 2 byte sequence substitution is\n                       used for each repeated run of the same character.\n              lz9   -  specifies Lempel-Ziv-like compression in which\n                       9 bit codes are used to substitute repeated\n                       substrings in the data stream.  These codes are\n                       indices that refer to entries in a common\n                       dictionary generated adaptively at both sender and\n                       receiver as the data flows and compression occurs.\n                       The larger of number bits used for the code, the\n                       more storage space is required for the dictionary,\n\n                       but the larger the compression ratio.\n              lz10  -  specifies a 10 bit code Lempel-Ziv-like compression.\n              lz12  -  specifies a 12 bit code Lempel-Ziv-like compression.')
-appcModeAdminCompRleBeforeLZ = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminCompRleBeforeLZ.setDescription('Specifies whether run-length encoding is to be applied to the\n          data before applying Lempel-Ziv-like compression.  The local LU\n          uses this value for negotiation during session activation (SNA\n          BIND).  This parameter is only supported if LZ compression is\n          used.')
-appcModeAdminSyncLvl = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("none", 1), ("noneConfirm", 2), ("noneConfirmSyncPoint", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminSyncLvl.setDescription('Specifies the sync level support. This value is used for\n           negotiation during session activations (SNA BIND).\n\n                none                 - No sync level is supported.\n                noneConfirm          - None and Confirm levels supported.\n                noneConfirmSyncPoint - None, Confirm, and Sync Point is\n                                       supported.\n          ')
-appcModeAdminCrypto = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 5, 1, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("notSupported", 1), ("mandatory", 2), ("selective", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeAdminCrypto.setDescription('Specifies whether session-level cryptography is supported.\n           This value is used for negotiation during session activations\n           (SNA BIND).\n                notSupported    -   Specifies session-level cryptography\n                                    is not to be used.\n                mandatory       -   Specifies session-level cryptography\n                                    must be used.\n                selective       -   Specifies session-level cryptography\n                                    is required just on selected requests\n                                    flowing on the sessions.')
-appcModeOperTable = MibTable((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6), )
-if mibBuilder.loadTexts: appcModeOperTable.setDescription('Operational APPC Mode Information.  Two entries are present in\n          the table when both LUs in a pair are local.')
-appcModeOperEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1), ).setIndexNames((0, "APPC-MIB", "appcModeOperLocLuName"), (0, "APPC-MIB", "appcModeOperParLuName"), (0, "APPC-MIB", "appcModeOperModeName"))
-if mibBuilder.loadTexts: appcModeOperEntry.setDescription('Entry of APPC mode operational information table.  This entry\n          does not augment the appcModeAdminEntry, but reflects an actual\n          operational mode for a given local LU - partner LU pair.')
-appcModeOperLocLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcModeOperLocLuName.setDescription('The SNA name of the local LU.  This field is from 1 to 17\n          characters in length, including a period (.) which separates\n          the NetId from the NAU name if the NetId is present.\n\n          If this object has the same value as appcLluOperName,\n          then the two entries being indexed apply to the same\n          resource (specifically, to the same local LU).')
-appcModeOperParLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcModeOperParLuName.setDescription('The SNA name of the partner LU.  This field is from 1 to 17\n          characters in length, including a period (.) which separates\n          the NetId from the NAU name if the NetId is present.\n\n          If this object has the same value as appcLuPairOperParLuName,\n          then the two entries being indexed apply to the same\n          resource (specifically, to the same partner LU).')
-appcModeOperModeName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,8)))
-if mibBuilder.loadTexts: appcModeOperModeName.setDescription('Specifies the mode name. A mode defines the characteristics\n           for a group of sessions. The mode name can be blank (8\n           space characters). ')
-appcModeOperCosName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperCosName.setDescription('Specifies the class of service (COS) name associated with\n           this mode.  If the implementation does not support COS names,\n           a zero-length string is returned.')
-appcModeOperSessEndTpName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperSessEndTpName.setDescription("Specifies the name of the transaction program (TP) to be\n          invoked when a session using this mode is deactivated or ended.\n          If the name is NULL, no transaction program is invoked.  When\n          the TP name consists entirely of displayable EBCDIC code\n          points, it is mapped directly to the equivalent ASCII display\n          string.  However, registered TP names always have a non-\n          displayable EBCDIC code point (value less than or equal to\n          x'3F') as the first character, so they cannot be directly\n          mapped to an ASCII display string.  These TP names are\n          converted to a display string that is equivalent to a\n          hexadecimal display of the EBCDIC code points.  For example,\n          the 2-byte TP name x'06F1' (CNOS) is converted to the 6-byte\n          ASCII display string '06F1' (including the two single quotes).")
-appcModeOperSessLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperSessLimit.setDescription('Specifies the current session limit of this mode as negotiated\n          through APPC CNOS (Change Number of Sessions) processing.\n          Identifies the total number of sessions that can be established\n          between the local and partner LU using this mode.')
-appcModeOperMaxSessLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperMaxSessLimit.setDescription('Specifies the maximum value that the local LU is to use,\n          during CNOS processing, for the session limit.  The local LU,\n          as a target LU, will negotiate a higher session limit it\n          receives in the CNOS request down to this maximum value.  The\n          local LU, as a source LU, will restrict the session limit it\n          sends in a CNOS request to a value less than or equal to this\n          maximum value.')
-appcModeOperMinCwinLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperMinCwinLimit.setDescription('Specifies the minimum contention winner sessions limit that\n           was negotiated via CNOS processing.')
-appcModeOperMinClosLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperMinClosLimit.setDescription('Specifies the minimum contention loser sessions limit that\n           was negotiated via CNOS processing. This is the same as\n           target minimum contention winner sessions.')
-appcModeOperConWinAutoActLmt = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperConWinAutoActLmt.setDescription('Specifies the limit on the number of contention winner sessions\n          to be automatically activated when the minimum number of\n          contention winner sessions increases (as a result of CNOS\n          processing). The actual number of sessions activated is the\n          lesser of this value and the new minimum number of contention\n          winner sessions. ')
-appcModeOperRecvPacWinSz = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperRecvPacWinSz.setDescription('Specifies the size of the receive pacing window. This value is\n           used for negotiation during session activations (SNA BIND).\n\n           The meaning of this value when set to 0 depends on whether\n           adaptive pacing is supported:\n              adaptive pacing   -     No limit on window size\n              fixed pacing      -     No pacing is supported')
-appcModeOperSendPacWinSz = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperSendPacWinSz.setDescription('Specifies the size of the send pacing window. This value is\n           used for negotiation during session activations (SNA BIND).\n\n           The meaning of this value when set to 0 depends on whether\n           adaptive pacing is supported:\n              adaptive pacing        No limit on window size\n              fixed pacing           No pacing is supported')
-appcModeOperPrefRecvRuSz = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 13), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperPrefRecvRuSz.setDescription('Specifies the preferred receive RU (Request Unit) size of\n          normal-flow requests on the sessions.  This value must be less\n          than or equal to the value specified in\n          appcModeOperRecvRuSzUpBnd and greater than or equal to the\n          value specified in appcModeOperRecvRuSzLoBnd.\n\n           The local LU specifies this value for the receive maximum RU\n           size in session activation (SNA BIND) requests and responses.\n           It will allow negotiation up to the appcModeOperRecvRuSzUpBnd\n           value or down to the appcModeOperRecvRuSzLoBnd value.')
-appcModeOperPrefSendRuSz = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 14), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperPrefSendRuSz.setDescription('Specifies the preferred send RU (Request Unit) size of normal-\n          flow requests on the sessions.  This value must be less than or\n          equal to the value specified in appcModeOperSendRuSzUpBnd and\n          greater than or equal to the value specified in\n          appcModeOperSendRuSzLoBnd.\n\n           The local LU specifies this value for the send maximum RU\n           size in session activation (SNA BIND) requests and responses.\n           It will allow negotiation up to the appcModeOperSendRuSzUpBnd\n           value or down to the appcModeOperSendRuSzLoBnd value.')
-appcModeOperRecvRuSzUpBnd = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 15), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperRecvRuSzUpBnd.setDescription('Specifies the upper bound for the maximum receive RU\n           (Request Unit) size of normal-flow requests. This is used\n           for negotiation during session activations (SNA BIND). ')
-appcModeOperSendRuSzUpBnd = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 16), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperSendRuSzUpBnd.setDescription('Specifies the upper bound for the maximum send RU (Request\n          Unit) size of normal-flow requests.  This is used for\n          negotiation during session activations (SNA BIND).  ')
-appcModeOperRecvRuSzLoBnd = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 17), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperRecvRuSzLoBnd.setDescription('Specifies the lower bound for the maximum receive RU\n           (Request Unit) size of normal-flow requests. This is used\n           for negotiation during session activations (SNA BIND). ')
-appcModeOperSendRuSzLoBnd = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 18), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperSendRuSzLoBnd.setDescription('Specifies the lower bound for the maximum send RU\n           (Request Unit) size of normal-flow requests. This is used\n           for negotiation during session activations (SNA BIND). ')
-appcModeOperSingSessReinit = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("notApplicable", 1), ("operatorControlled", 2), ("primaryOnly", 3), ("secondaryOnly", 4), ("primaryOrSecondary", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperSingSessReinit.setDescription('Specifies the responsibility for session reinitiation of a\n          single session with the partner LU (when the session goes\n          down).  The local LU uses this parameter to specify the session\n          reinitiation responsibility in session activation (SNA BIND)\n          requests and responses.\n\n                notApplicable      - specifies that this parameter has\n                                     no meaning since the value of\n                                     appcLuPairOperParaSessSup is yes.\n                                     The field in the SNA BIND is\n                                     reserved (set to zero).\n                operatorControlled - specifies that neither LU will\n                                     automatically attempt to reinitiate\n                                     the session.  The operator on either\n                                     side will manually reactivate the\n                                     session.  A contention race (both\n                                     side reinitiating at the same time)\n                                     is won by the LU with the\n                                     lexicographically greater fully-\n                                     qualified LU name.\n                primaryOnly        - specifies that the primary LU will\n                                     automatically attempt to reinitiate\n                                     the session.\n                secondaryOnly      - specifies that the secondary LU will\n                                     automatically attempt to reinitiate\n                                     the session.\n                primaryOrSecondary - specifies that either the primary or\n                                     the secondary may automatically\n                                     attempt to reinitiate the session.\n                                     A contention race is handled the\n                                     same way as with operatorControlled.\n          ')
-appcModeOperCompression = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("prohibited", 1), ("required", 2), ("negotiable", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperCompression.setDescription('Specifies whether compression is supported.  The local LU uses\n          this value for negotiation during session activation (SNA\n          BIND).\n\n              prohibited  -  specifies that no compression is to be used.\n              required    -  specifies that compression is required.\n              negotiable  -  specifies that the usage of compression\n                             is to be negotiated between the LUs. The\n                             level of compression is also negotiated.')
-appcModeOperInBoundCompLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("none", 1), ("rle", 2), ("lz9", 3), ("lz10", 4), ("lz12", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperInBoundCompLevel.setDescription('Specifies the maximum level of compression supported for\n          inbound data.  The local LU uses this value in conjunction with\n          appcModeOperCompression for negotiation during session\n          activation (SNA BIND).\n\n              none  -  specifies that no compression is to be used.\n              rle   -  specifies run-length encoding compression\n                       in which a 1 or 2 byte sequence substitution is\n                       used for each repeated run of the same character.\n              lz9   -  specifies Lempel-Ziv-like compression in which\n                       9 bit codes are used to substitute repeated\n                       substrings in the data stream.  These codes are\n                       indices that refer to entries in a common\n                       dictionary generated adaptively at both sender and\n                       receiver as the data flows and compression occurs.\n                       The larger of number bits used for the code, the\n                       more storage space is required for the dictionary,\n                       but the larger the compression ratio.\n              lz10  -  specifies a 10 bit code Lempel-Ziv-like compression.\n              lz12  -  specifies a 12 bit code Lempel-Ziv-like compression.')
-appcModeOperOutBoundCompLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("none", 1), ("rle", 2), ("lz9", 3), ("lz10", 4), ("lz12", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperOutBoundCompLevel.setDescription('Specifies the maximum level of compression supported for\n          outbound data.  The local LU uses this value in conjunction\n          with appcModeOperCompression for negotiation during session\n          activation (SNA BIND).\n\n              none  -  specifies that no compression is to be used.\n              rle   -  specifies run-length encoding compression\n                       in which a 1 or 2 byte sequence substitution is\n                       used for each repeated run of the same character.\n              lz9   -  specifies Lempel-Ziv-like compression in which\n                       9 bit codes are used to substitute repeated\n                       substrings in the data stream.  These codes are\n                       indices that refer to entries in a common\n                       dictionary generated adaptively at both sender and\n                       receiver as the data flows and compression occurs.\n                       The larger of number bits used for the code, the\n                       more storage space is required for the dictionary,\n                       but the larger the compression ratio.\n              lz10  -  specifies a 10 bit code Lempel-Ziv-like compression.\n              lz12  -  specifies a 12 bit code Lempel-Ziv-like compression.')
-appcModeOperCompRleBeforeLZ = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperCompRleBeforeLZ.setDescription('Specifies whether run-length encoding is to be applied to the\n          data before applying Lempel-Ziv-like compression.  The local LU\n          uses this value for negotiation during session activation (SNA\n          BIND).  This parameter is only supported if LZ compression is\n          used.')
-appcModeOperSyncLvl = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("none", 1), ("noneConfirm", 2), ("noneConfirmSyncPoint", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperSyncLvl.setDescription('Specifies the sync level support for sessions involving this\n           LU pair and mode name.\n\n                none             -       No sync level is supported.\n                noneConfirm      -       None and Confirm level supported.\n                noneConfirmSyncPoint -   None, Confirm and Sync Point is\n                                                supported.\n          ')
-appcModeOperCrypto = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("notSupported", 1), ("mandatory", 2), ("selective", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperCrypto.setDescription('Specifies whether session-level cryptography is supported for\n           sessions involving this LU pair and mode name.\n\n                notSupported    -   Specifies session-level cryptography\n                                       is not being used.\n                mandatory       -   Specifies session-level cryptography\n                                       in being used on all requests\n                                       flowing on the sessions.\n                selective       -   Specifies session-level cryptography\n                                       is required just on selected\n                                       requests flowing on the sessions.')
-appcModeOperSyncLvlLastStart = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 26), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("none", 1), ("noneConfirm", 2), ("noneConfirmSyncPoint", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperSyncLvlLastStart.setDescription('Specifies the sync level support.  This value represents the\n          initial value proposed by the local LU the last time this\n          capability was negotiated, i.e., when the first session was\n          bound between the local LU and its partner.\n\n                none             -      No sync level is supported.\n                noneConfirm      -      None and Confirm level supported.\n                noneConfirmSyncPoint -  None, Confirm and Sync Point is\n                                            supported.\n          ')
-appcModeOperCryptoLastStart = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 27), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("notSupported", 1), ("mandatory", 2), ("selective", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperCryptoLastStart.setDescription('Specifies whether session-level cryptography is supported.\n           This value represents the initial value proposed by the local\n           LU the last time this capability was negotiated, i.e., when\n           the first session was bound between the local LU and its\n           partner.\n                notSupported    -   Specifies session-level cryptography\n                                       is not to be used.\n                mandatory       -   Specifies session-level cryptography\n                                       must be used.\n                selective       -   Specifies session-level cryptography\n                                       is required just on selected\n                                       requests flowing on the sessions.')
-appcModeOperCNOSNeg = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 28), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperCNOSNeg.setDescription('Specifies whether CNOS negotiation is in process.  CNOS\n          negotiation is used to set or change the various session limits\n          for a mode.')
-appcModeOperActCwin = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 29), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperActCwin.setDescription('Specifies the number of active contention winner sessions.')
-appcModeOperActClos = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 30), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperActClos.setDescription('Specifies the number of active contention loser sessions.')
-appcModeOperPndCwin = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 31), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperPndCwin.setDescription('Specifies the number of contention winner sessions that are\n           pending activation.')
-appcModeOperPndClos = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 32), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperPndClos.setDescription('Specifies the number of contention loser sessions that are\n           pending activation.')
-appcModeOperPtmCwin = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 33), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperPtmCwin.setDescription('Specifies the number of contention winner sessions that are\n           pending termination.')
-appcModeOperPtmClos = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 34), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperPtmClos.setDescription('Specifies the number of contention loser sessions that are\n           pending termination.')
-appcModeOperDrainSelf = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 35), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperDrainSelf.setDescription('Specifies whether the local LU is draining its conversations\n          for this mode.  When a mode session limit is reset (via a CNOS\n          RESET_SESSION_LIMIT request), the local LU could be set to\n          process all queued conversations before deactivating all of the\n          sessions (using the SNA Bracket Initiation Stopped or BIS\n          protocol).  ')
-appcModeOperDrainPart = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 2, 6, 1, 36), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcModeOperDrainPart.setDescription('Specifies whether the partner LU is draining its conversations\n          for this mode.  When a mode session limit is reset (via a CNOS\n          RESET_SESSION_LIMIT request), the partner LU could be set to\n          process all queued conversations before deactivating all of the\n\n          sessions (using the SNA Bracket Initiation Stop or BIS\n          protocol).  ')
-appcTpAdminTable = MibTable((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1), )
-if mibBuilder.loadTexts: appcTpAdminTable.setDescription('APPC Local TP Table')
-appcTpAdminEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1, 1), ).setIndexNames((0, "APPC-MIB", "appcTpAdminLocLuName"), (0, "APPC-MIB", "appcTpAdminTpName"))
-if mibBuilder.loadTexts: appcTpAdminEntry.setDescription('Entry of APPC Local TP Information Table.')
-appcTpAdminLocLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcTpAdminLocLuName.setDescription("The SNA name of the local LU to which this TP definition\n           applies. This field is from 1 to 17 characters in length,\n           including a period (.) which separates the NetId from the NAU\n           name if the NetId is present.\n\n           The reserved value '*ALL' indicates that the TP definition\n           applies to all local LUs, and not just to a single local LU.")
-appcTpAdminTpName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,64)))
-if mibBuilder.loadTexts: appcTpAdminTpName.setDescription("The local transaction program name. This name is sent on an\n           ATTACH remote allocation request.\n\n           When the TP name consists entirely of displayable EBCDIC\n           code points, it is mapped directly to the equivalent ASCII\n           display string.  However, registered TP names always have a\n           non-displayable EBCDIC code point (value less than or equal to\n           x'3F') as the first character, so they cannot be directly\n           mapped to an ASCII display string.  These TP names are\n           converted to a display string that is equivalent to a\n           hexadecimal display of the EBCDIC code points.  For example,\n           the 2-byte TP name x'06F1' (CNOS) is converted to the 6-byte\n           ASCII display string '06F1' (including the two single quotes).")
-appcTpAdminFileSpec = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,80))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcTpAdminFileSpec.setDescription('The local file specification of the transaction program.\n          May be a zero-length string if not applicable.')
-appcTpAdminStartParm = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcTpAdminStartParm.setDescription('A parameter string passed to the transaction program when it\n           is started.  May be a zero-length string if not supported. ')
-appcTpAdminTpOperation = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("other", 1), ("queuedOperatorStarted", 2), ("queuedOperatorPreloaded", 3), ("queuedAmStarted", 4), ("nonqueuedAmStarted", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcTpAdminTpOperation.setDescription('Specifies how the program will be started.\n              other - Specifies that the program operation is none of\n                      the methods specified. It may be a\n                      product-specific method.\n\n              queuedOperatorStarted - Specifies that one version of the\n                      program will be run at a time.  If an incoming\n                      attach arrives and the program has not been started\n                      yet, APPC will issue a message to the operator to\n                      start the specified program.  Subsequent attaches\n                      that arrive while the program is active will be\n                      queued.\n\n              queuedOperatorPreloaded - Specifies that one version of the\n                      program will be run at a time.  If an incoming\n                      attach arrives and the program has not been started\n                      yet, the Attach will be rejected.  The APPC attach\n                      manager determines that a TP has started upon\n                      reception of an APPC RECEIVE_ALLOCATE verb, or a\n                      CPI-C Accept_Conversation (CMACCP) or\n                      Specify_Local_TP_Name (CMSLTP) call.  No message is\n                      sent to the operator.  Subsequent attaches that\n                      arrive while the program is active are queued.\n\n              queuedAmStarted - Specifies that one version of the\n                      program will be run at a time and will be started\n                      by the APPC attach manager.  Subsequent attaches\n\n                      that arrive while the program is active will be\n                      queued.\n\n              nonqueuedAmStarted - Specifies that multiple copies of the\n                      program will be run at a time and will be started\n                      by the APPC attach manager.')
-appcTpAdminInAttachTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcTpAdminInAttachTimeout.setDescription('This object specifies the number of seconds incoming attaches\n          will be queued waiting for an APPC program to issue a\n          RECEIVE_ALLOCATE verb or for a CPI-C program to issue an\n          Accept_Conversation (CMACCP) call.  This parameter is\n          meaningful only when appcTpAdminTpOperation has one of the\n          following values:\n                     queuedOperatorStarted\n                     queuedOperatorPreloaded\n                     queuedAmStarted\n\n          A value of zero indicates that there is no timeout.')
-appcTpAdminRcvAllocTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcTpAdminRcvAllocTimeout.setDescription("This object specifies the number of seconds an APPC program's\n          RECEIVE_ALLOCATE verb or a CPI-C program's Accept_Conversation\n          (CMACCP) call will wait for an incoming attach to arrive.\n\n          A value of zero indicates that there is no timeout.")
-appcTpAdminSyncLvl = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7,))).clone(namedValues=NamedValues(("none", 1), ("confirm", 2), ("noneAndConfirm", 3), ("syncpoint", 4), ("noneAndSyncpoint", 5), ("confirmAndSyncpoint", 6), ("all", 7),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcTpAdminSyncLvl.setDescription('Indicates the synchronization level or levels that the\n          transaction program supports.  The levels are defined as\n          follows:\n\n               none      - allocation requests indicating a\n                           synchronization level of none are allowed to\n                           start the program.\n               confirm   - allocation requests indicating a\n                           synchronization level of confirm are allowed\n                           to start the program.\n               syncpoint - allocation requests indicating a\n                           synchronization level of sync point are\n                           allowed to start the program.')
-appcTpAdminInstLmt = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcTpAdminInstLmt.setDescription('The maximum number of concurrent instances of this transaction\n           program that will be supported for a local LU.  A value of\n           zero indicates that there is no limit.')
-appcTpAdminStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("enabled", 1), ("tempDisabled", 2), ("permDisabled", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcTpAdminStatus.setDescription('Indicates the status of the TP relative to starting execution\n          when the local LU receives an allocation (ATTACH) request\n          naming this program.\n\n                enabled         -    the local LU can start the program.\n                tempDisabled    -    the local LU cannot start the\n\n                                     program. The local LU rejects the\n                                     request with an indication that the\n                                     TP is not available but retry is\n                                     possible.\n                permDisabled    -    the local LU cannot start the\n                                     program. The local LU rejects the\n                                     request with an indication that the\n                                     TP is not available and retry is\n                                     not possible.')
-appcTpAdminLongRun = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcTpAdminLongRun.setDescription('Indicates whether this is a long-running transaction program\n          (i.e., one that stays around even after the conversation goes\n          away).')
-appcTpAdminConvType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("basic", 1), ("mapped", 2), ("basicOrMapped", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcTpAdminConvType.setDescription('Specifies the conversation type (basic or mapped) that will be\n          used by the TP.  This value is verified upon receipt of an\n          incoming attach.  The acceptable values are:\n\n                 basic         - Indicates that this transaction program\n                                 supports basic conversations.\n\n                 mapped        - Indicates that this transaction program\n                                 supports mapped conversations.\n\n                 basicOrMapped - Indicates that this transaction program\n                                 supports both basic and mapped\n                                 conversations.')
-appcTpAdminConvDuplex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("half", 1), ("full", 2), ("halfOrFull", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcTpAdminConvDuplex.setDescription('Specifies the conversation duplex type (half or full) that\n          will be used by the TP.  This value is verified upon receipt of\n          an incoming attach.  The acceptable values are:\n\n                 half       - Indicates that this transaction program\n                              supports half duplex conversations.\n\n                 full       - Indicates that this transaction program\n                              supports full duplex conversations.\n\n                 halfOrFull - Indicates that this transaction program\n                              supports either half or full duplex\n                              conversations.')
-appcTpAdminConvSecReq = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcTpAdminConvSecReq.setDescription('Indicates whether conversation-level security information is\n          required on incoming attaches designating this TP name.\n          Conversation-level security verification is always performed on\n          those requests that include security information.\n\n                 yes - Indicates that conversation-level security\n                       information is required.  ATTACHs designating the\n                       transaction program must carry a user_id and\n                       either a password or an already verified\n                       indicator.\n\n                 no  - Indicates that no security information is\n                       required.  ATTACHs designating the transaction\n\n                       program can omit or include security information.')
-appcTpAdminVerPip = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcTpAdminVerPip.setDescription('Specifies whether the number of PIP (Program Initialization\n           Parameters) subfields should be verified against the number\n           expected (appcTpAdminPipSubNum).')
-appcTpAdminPipSubNum = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 3, 1, 1, 16), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcTpAdminPipSubNum.setDescription('Specifies the number of PIP subfields expected by the TP.')
-appcActSessTable = MibTable((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1), )
-if mibBuilder.loadTexts: appcActSessTable.setDescription('Table of active APPC sessions.  Two entries are present in the\n          table when both session partners are local.')
-appcActSessEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1), ).setIndexNames((0, "APPC-MIB", "appcActSessLocLuName"), (0, "APPC-MIB", "appcActSessParLuName"), (0, "APPC-MIB", "appcActSessIndex"))
-if mibBuilder.loadTexts: appcActSessEntry.setDescription('Entry of APPC Session Information Table.  Indexed by LU pair\n          and integer-valued session index.')
-appcActSessLocLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcActSessLocLuName.setDescription('Specifies the name of the local LU for the session.  This\n          field is from 1 to 17 characters in length, including a period\n          (.) which separates the NetId from the NAU name if the NetId is\n\n          present.\n\n          If this object has the same value as appcLluOperName, then the\n          two entries being indexed apply to the same resource\n          (specifically, to the same local LU).')
-appcActSessParLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcActSessParLuName.setDescription('Specifies the name of the partner LU for the session.  This\n          field is from 1 to 17 characters in length, including a period\n          (.) which separates the NetId from the NAU name if the NetId is\n          present.\n\n          If this object has the same value as appcLuPairOperParLuName,\n          then the two entries being indexed apply to the same resource\n          (specifically, to the same partner LU).')
-appcActSessIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 3), Integer32())
-if mibBuilder.loadTexts: appcActSessIndex.setDescription('This value identifies the index of the session, which is\n          unique for this LU pair.  It is recommended that an Agent not\n          reuse the index of a deactivated session for a significant\n          period of time (e.g., one week).')
-appcActSessPcidCpName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 4), DisplayString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(3,17),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessPcidCpName.setDescription('The network-qualified CP name of the node at which the session\n          and PCID originated.  For APPN and LEN nodes, this is either CP\n          name of the APPN node at which the origin LU is located or the\n          CP name of the NN serving the LEN node at which the origin LU\n          is located.  This field is from 3 to 17 characters in length,\n          including a period (.) which separates the NetId from the NAU\n          name.  A null string indicates that the value is unknown.')
-appcActSessPcid = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 5), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(8,8),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessPcid.setDescription('The procedure correlation identifier (PCID) of a session.  It\n          is an 8-octet value assigned by the control point providing\n          session services for the primary LU.  A null string indicates\n          that the value is unknown.')
-appcActSessPluIndicator = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("localLuIsPlu", 1), ("partnerLuIsPlu", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessPluIndicator.setDescription("Indicates which LU is the PLU for this session.  For\n          independent LUs, the PLU (primary LU) is the one that initiated\n          the session (sent BIND), while the SLU (secondary LU) is the\n          one that accepted the session initiation (received BIND).\n\n          The 'local' LU is the one identified by appcLluOperName.\n\n          The 'partner' LU is the one identified by\n          appcLuPairOperParLuName.")
-appcActSessModeName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessModeName.setDescription('The mode name used for this session.')
-appcActSessCosName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessCosName.setDescription('The Class of Service (COS) name used for this session.\n          A null string indicates that the value is unknown.')
-appcActSessTransPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("unknown", 1), ("low", 2), ("medium", 3), ("high", 4), ("network", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessTransPriority.setDescription('The transmission priority of this session.\n              1 = unknown priority\n              2 = low priority\n              3 = medium priority\n              4 = high priority\n              5 = network priority\n          ')
-appcActSessEnhanceSecSup = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("none", 1), ("level1", 2), ("level2", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessEnhanceSecSup.setDescription('Enhanced security supported. Indicates the level of enhanced\n          security support:\n\n             1 = none\n             2 = level 1\n             3 = level 2\n          ')
-appcActSessSendPacingType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("none", 1), ("fixed", 2), ("adaptive", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessSendPacingType.setDescription('The type of pacing being used for sending data.')
-appcActSessSendRpc = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 12), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessSendRpc.setDescription('The send residual pace count.  This represents the number of\n          MUs that can still be sent in the current session window.')
-appcActSessSendNxWndwSize = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 13), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessSendNxWndwSize.setDescription('The size of the next window which will be used to send data.')
-appcActSessRecvPacingType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("none", 1), ("fixed", 2), ("adaptive", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessRecvPacingType.setDescription('The type of pacing being used for receiving data.')
-appcActSessRecvRpc = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 15), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessRecvRpc.setDescription('The receive residual pace count.  This represents the number\n\n          of MUs that can still be received in the current session\n          window.')
-appcActSessRecvNxWndwSize = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 16), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessRecvNxWndwSize.setDescription('The size of the next window which will be used to receive\n          data.')
-appcActSessRscv = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 17), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessRscv.setDescription('The route selection control vector (RSCV CV2B) used for this\n          session.  It is present for APPN-level implementations.\n          LEN-level implementations will return a null string.  The\n          internal format of this vector is described in SNA Formats.\n          This object contains an uninterpreted copy of the control\n          vector (including the length and key fields).')
-appcActSessInUse = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessInUse.setDescription('Specifies whether the session is currently in use (i.e., in\n           bracket with a conversation).')
-appcActSessMaxSndRuSize = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,8192))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessMaxSndRuSize.setDescription('The maximum RU size used on this session for sending RUs.')
-appcActSessMaxRcvRuSize = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,8192))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessMaxRcvRuSize.setDescription('The maximum RU size used on this session for receiving RUs.')
-appcActSessSndPacingSize = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessSndPacingSize.setDescription('The size of the send pacing window on this session.')
-appcActSessRcvPacingSize = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 22), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessRcvPacingSize.setDescription('The size of the receive pacing window on this session.')
-appcActSessOperState = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("unbound", 1), ("pendingBind", 2), ("bound", 3), ("pendingUnbind", 4),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: appcActSessOperState.setDescription("The value indicates the current operational state of the\n          session.\n\n                  'unbound (1)' - session has been  unbound;\n                        in this state it will be removed from the\n                        session table by the Agent.\n\n                  'pendingBind (2)' - this state has different\n                        meanings for dependent and independent LUs;\n\n                        for dependent LU - waiting for BIND from\n                        the host, for independent LU - waiting for\n                        BIND response.  When a session enters this\n                        state, the corresponding entry in the\n                        session table is created by the Agent.\n\n                  'bound (3)' - session has been successfully bound.\n\n                  'pendingUnbind (4)' - session enters this state\n                        when an UNBIND is sent and before the\n                        rsp(UNBIND) is received.\n\n          Session deactivation:\n\n                  If a session is in the operational state\n                  'bound (3)' then setting the value of this\n                  object to 'unbound (1)' will initiate the\n                  session shutdown.\n\n                  If a session is in the operational state\n                  'pendingBind (2)' then setting the value of this\n                  object to 'unbound (1)' will initiate the session\n                  shutdown.\n\n                  If a session is in the operational state\n                  'pendingUnbind (4)' for an abnormally long period\n                  of time (e.g., three minutes) then setting the value\n                  of this object to 'unbound (1)' will change the\n                  session operational state to 'unbound (1)'. ")
-appcActSessUpTime = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 24), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessUpTime.setDescription('The length of time the session has been active, measured in\n          hundredths of a second.')
-appcActSessRtpNceId = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 25), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessRtpNceId.setDescription('The local HPR Network Connection Endpoint of the session.')
-appcActSessRtpTcid = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 26), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(8,8),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessRtpTcid.setDescription('The local RTP connection TCID of the session.')
-appcActSessLinkIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 1, 1, 27), InstancePointer()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActSessLinkIndex.setDescription('This value identifies the link over which the session passes.\n          This value points to the row in the table containing\n          information on the link instance.  (e.g., the sdlcLSAdminTable\n          of the SNA DLC MIB module).  This object may be NULL if the\n          link is not specified or if a link is not applicable (as for\n          APPN-level nodes).')
-appcSessStatsTable = MibTable((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 2), )
-if mibBuilder.loadTexts: appcSessStatsTable.setDescription("This table contains dynamic statistical information relating\n          to active APPC sessions.  The entries in this table cannot be\n          created by a Management Station.  Two entries are present in\n          the table when both session partners are local.  This table is\n          populated only when the value of appcCntrlOperStat is\n          'active'.")
-appcSessStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 2, 1), ).setIndexNames((0, "APPC-MIB", "appcSessStatsLocLuName"), (0, "APPC-MIB", "appcSessStatsParLuName"), (0, "APPC-MIB", "appcSessStatsSessIndex"))
-if mibBuilder.loadTexts: appcSessStatsEntry.setDescription('Contains statistics information for an APPC session.  Each\n          entry is created by the Agent.  Objects in this table have\n          read-only access.  Each session from appcActSessTable has one\n          entry in this table.')
-appcSessStatsLocLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 2, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcSessStatsLocLuName.setDescription('Specifies the name of the local LU for the session.  This\n          field is from 1 to 17 characters in length, including a period\n          (.) which separates the NetId from the NAU name if the NetId is\n          present.\n\n          If this object has the same value as appcLluOperName, then the\n          two entries being indexed apply to the same resource\n          (specifically, to the same local LU).')
-appcSessStatsParLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcSessStatsParLuName.setDescription('Specifies the name of the partner LU for the session.  This\n          field is from 1 to 17 characters in length, including a period\n          (.) which separates the NetId from the NAU name if the NetId is\n          present.\n\n          If this object has the same value as appcLuPairOperParLuName,\n          then the two entries being indexed apply to the same resource\n          (specifically, to the same partner LU).')
-appcSessStatsSessIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 2, 1, 3), Integer32())
-if mibBuilder.loadTexts: appcSessStatsSessIndex.setDescription('This value identifies the index of the session, which is\n          unique for this LU pair.  It is recommended that an Agent not\n          reuse the index of a deactivated session for a significant\n          period of time (e.g., one week).\n\n          If this object has the same value as appcActSessIndex for the\n          same LU pair, then the two entries being indexed apply to the\n          same resource (specifically, to the same session).')
-appcSessStatsSentFmdBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 2, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcSessStatsSentFmdBytes.setDescription('The number of function management data (FMD) bytes sent by the\n          local LU.')
-appcSessStatsSentNonFmdBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 2, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcSessStatsSentNonFmdBytes.setDescription('The number of non-function management data (non-FMD) bytes\n          sent by the local LU.')
-appcSessStatsRcvdFmdBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 2, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcSessStatsRcvdFmdBytes.setDescription('The number of function management data (FMD) bytes received by\n          the local LU.')
-appcSessStatsRcvdNonFmdBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 2, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcSessStatsRcvdNonFmdBytes.setDescription('The number of non-function management data (non-FMD) bytes\n          received by the local LU.')
-appcSessStatsSentFmdRus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 2, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcSessStatsSentFmdRus.setDescription('The number of function management data (FMD) RUs sent by the\n          local LU.')
-appcSessStatsSentNonFmdRus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 2, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcSessStatsSentNonFmdRus.setDescription('The number of non-function management data (non-FMD) RUs sent\n          by the local LU.')
-appcSessStatsRcvdFmdRus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 2, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcSessStatsRcvdFmdRus.setDescription('The number of function management data (FMD) RUs received by\n          the local LU.')
-appcSessStatsRcvdNonFmdRus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 2, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcSessStatsRcvdNonFmdRus.setDescription('The number of non-function management data (non-FMD) RUs\n          received by the local LU.')
-appcSessStatsCtrUpTime = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 2, 1, 12), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcSessStatsCtrUpTime.setDescription('The length of time the counters for this session have been\n          active, measured in hundredths of a second.')
-appcHistSessTable = MibTable((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 3), )
-if mibBuilder.loadTexts: appcHistSessTable.setDescription('Table of historical information about APPC sessions that\n          terminated abnormally.  Two entries may be present in the table\n          when both session partners are local.  It is an implementation\n          choice how long to retain information about a given session.')
-appcHistSessEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 3, 1), ).setIndexNames((0, "APPC-MIB", "appcHistSessIndex"))
-if mibBuilder.loadTexts: appcHistSessEntry.setDescription('Entry of APPC Session History Table.  This table is indexed by\n          an integer which is continuously incremented until it\n          eventually wraps.')
-appcHistSessIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647)))
-if mibBuilder.loadTexts: appcHistSessIndex.setDescription('Table index.  The value of the index begins at zero\n           and is incremented up to a maximum value of 2**31-1\n           (2,147,483,647) before wrapping.')
-appcHistSessTime = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 3, 1, 2), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistSessTime.setDescription('The time at which the session was either terminated or\n           failed to be established.')
-appcHistSessType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("recvNegBindRsp", 1), ("sendNegBindRsp", 2), ("sessActRejected", 3), ("unbindSent", 4), ("unbindReceived", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistSessType.setDescription('Indicates the type of event that caused the entry to be made:\n\n               recvNegBindRsp  - Received a negative bind response from\n                                 the partner LU.\n               sendNegBindRsp  - Sent a negative bind response to the\n                                 partner LU.\n               sessActRejected - Session activation rejected by the\n                                 partner LU.\n               unbindSent      - Unbind sent to the partner LU.\n               unbindReceived  - Unbind received from the partner LU.\n\n          These event types correspond to the five SNA/MS Alerts\n          LU62001 through LU62005, documented in the SNA Management\n          Services Reference.')
-appcHistSessLocLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 3, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistSessLocLuName.setDescription('The network-qualified local LU name.  This field is from 3 to\n          17 characters in length, including a period (.) which separates\n          the NetId from the NAU name if the NetId is present.')
-appcHistSessParLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 3, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(3,17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistSessParLuName.setDescription('The network-qualified partner LU name.  This field is from 3\n          to 17 characters in length, including a period (.) which\n          separates the NetId from the NAU name if the NetId is present.')
-appcHistSessModeName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 3, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistSessModeName.setDescription('The mode name of the session.')
-appcHistSessUnbindType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 3, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistSessUnbindType.setDescription('The type of unbind which terminated the session.  This\n           value is consists of one (1) octet; and its meaning\n           is defined in SNA Formats.')
-appcHistSessSenseData = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 3, 1, 8), SnaSenseData()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistSessSenseData.setDescription('The sense data associated with the termination of the\n          session, taken from the negative BIND response or UNBIND\n          request.')
-appcHistSessComponentId = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 3, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistSessComponentId.setDescription('The implementation-specific name of the component which\n          detected the problem.')
-appcHistSessDetectModule = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 3, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistSessDetectModule.setDescription('The implementation-specific name of the module which\n          detected the problem.')
-appcSessRtpTable = MibTable((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 4), )
-if mibBuilder.loadTexts: appcSessRtpTable.setDescription('A table indicating how many APPC sessions terminating in this\n          node are transported by each RTP connection.')
-appcSessRtpEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 4, 1), ).setIndexNames((0, "APPC-MIB", "appcSessRtpNceId"), (0, "APPC-MIB", "appcSessRtpTcid"))
-if mibBuilder.loadTexts: appcSessRtpEntry.setDescription('Entry of APPC session RTP table.')
-appcSessRtpNceId = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 4, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,8)))
-if mibBuilder.loadTexts: appcSessRtpNceId.setDescription('The local Network Connection Endpoint of the RTP connection.')
-appcSessRtpTcid = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 4, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(8,8)).setFixedLength(8))
-if mibBuilder.loadTexts: appcSessRtpTcid.setDescription('The local TCID of the RTP connection.')
-appcSessRtpSessions = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 4, 4, 1, 3), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcSessRtpSessions.setDescription('The number of APPC sessions terminating in this node\n          that are using this RTP connection.')
-appcActiveConvTable = MibTable((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1), )
-if mibBuilder.loadTexts: appcActiveConvTable.setDescription("Table of information about active APPC Conversations.  In this\n          context 'active' means that a conversation is currently\n          associated with a particular session.  Two entries are present\n          in the table when both LUs for the session are local.")
-appcActiveConvEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1), ).setIndexNames((0, "APPC-MIB", "appcActiveConvLocLuName"), (0, "APPC-MIB", "appcActiveConvParLuName"), (0, "APPC-MIB", "appcActiveConvSessIndex"))
-if mibBuilder.loadTexts: appcActiveConvEntry.setDescription('Entry representing one active APPC Conversation.')
-appcActiveConvLocLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcActiveConvLocLuName.setDescription('The SNA name of the local LU for the conversation.  This field\n          is from 1 to 17 characters in length, including a period (.)\n          which separates the NetId from the NAU name if the NetId is\n          present.\n\n          If this object has the same value as appcLluOperName,\n          then the two entries being indexed apply to the same\n          resource (specifically, to the same local LU).')
-appcActiveConvParLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcActiveConvParLuName.setDescription('The SNA name of the partner LU for the conversation.  This\n          field is from 1 to 17 characters in length, including a period\n          (.) which separates the NetId from the NAU name if the NetId is\n          present.\n\n          If this object has the same value as appcLuPairOperParLuName,\n          then the two entries being indexed apply to the same\n          resource (specifically, to the same partner LU).')
-appcActiveConvSessIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 3), Integer32())
-if mibBuilder.loadTexts: appcActiveConvSessIndex.setDescription('Index of entry in appcActSessTable that is associated with\n          this conversation.  If this object has the same value as\n          appcActSessIndex for the same LU pair, then the two entries\n          being indexed apply to the same resource (specifically, to the\n          same session).')
-appcActiveConvId = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4,4)).setFixedLength(4)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvId.setDescription('The 4-byte ID of the conversation.')
-appcActiveConvState = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,))).clone(namedValues=NamedValues(("reset", 1), ("send", 2), ("receive", 3), ("confirm", 4), ("confirmSend", 5), ("confirmDealloc", 6), ("pendingDeallocate", 7), ("pendingPost", 8), ("sendReceive", 9), ("sendOnly", 10), ("receiveOnly", 11), ("deferReceive", 12), ("deferDeallocate", 13), ("syncpoint", 14), ("syncpointSend", 15), ("syncpointDeallocate", 16), ("backoutRequired", 17),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvState.setDescription('Indicates the state of the conversation at the instant when\n          the information was retrieved.  The values are:\n\n              reset\n                        The conversation is reset (i.e., deallocated).\n              send\n                        The conversation can send data.  This value also\n                        is returned if the conversation is in\n                        Send-Pending state.\n              receive\n                        The conversation can receive data.\n              confirm\n                        The conversation has received a confirm\n                        indicator.  It can issue an [MC_]CONFIRMED or\n                        [MC_]SEND_ERROR verb to change state.  It will\n                        continue in Receive state if an [MC_]CONFIRMED\n                        verb is issued.\n              confirmSend\n                        The conversation is in Confirm state and changes\n                        to Send state when an [MC_]CONFIRMED verb is\n                        issued.\n              confirmDealloc\n                        The conversation is in Confirm state and becomes\n                        inactive when an [MC_]CONFIRMED verb is issued.\n              pendingDeallocate\n                        The conversation is in Pending-Deallocate state\n                        while it waits for (MC_)DEALLOCATE TYPE\n                        (sync_level) to complete.\n              pendingPost\n                        The conversation is in Pending-Post state while\n                        it waits for the [MC_]RECEIVE_AND_POST verb to\n                        complete its receive function.\n              sendReceive\n                        The full-duplex conversation can send or receive\n                        data.\n              sendOnly\n                        The full-duplex conversation can send data, but\n                        it does not have permission to receive data,\n                        because the partner TP has already deallocated\n                        its side of the conversation.\n              receiveOnly\n                        The full-duplex conversation can receive data,\n                        but it does not have permission to send data,\n                        because it has already deallocated its side of\n                        the conversation.\n              deferReceive\n                        Waiting for a successful SYNCPT verb operation to\n                        go into the receive state.\n              deferDeallocate\n                        Waiting for a successful SYNCPT verb operation to\n                        go into the reset state.\n\n              syncpoint\n                        Need to response to a SYNCPT verb issued.  After\n                        successful operation, the next state will be\n                        receive.\n              syncpointSend\n                        Need to response to a SYNCPT verb issued.  After\n                        successful operation, the next state will be\n                        send.\n              syncpointDeallocate\n                        Need to response to a SYNCPT verb issued.  After\n                        successful operation, the next state will be\n                        reset.\n              backoutRequired\n                        TP must execute a BACKOUT verb to backout the\n                        transaction.')
-appcActiveConvType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("basic", 1), ("mapped", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvType.setDescription('Indicates the type of conversation.  The values are:\n\n              basic\n                        Indicates that this conversation supports\n                        basic verbs.\n\n              mapped\n                        Indicates that this conversation supports\n                        mapped verbs.')
-appcActiveConvCorrelator = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvCorrelator.setDescription('This is an 8-byte identifier that the source LU assigns to the\n          conversation; the source LU is the one that sent the allocation\n          request.  The conversation correlator is included on the\n          allocation request.  The conversation correlator uniquely\n\n          identifies a conversation, from among all conversations,\n          between the local and partner LUs.  It may be used, for\n          example, during problem determination associated with a\n          conversation.  A length of 0 indicates that no conversation\n          correlator is defined.')
-appcActiveConvSyncLvl = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("none", 1), ("confirm", 2), ("syncpt", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvSyncLvl.setDescription('Indicates the highest sync level support for the conversation.\n          The values are:\n\n                none\n                        Indicates that no sync-level processing can be\n                        performed on this conversation. The\n                        transaction program does not issue verbs or\n                        recognize any returned parameters\n                        relating to any sync-level function.\n\n                confirm\n                        Indicates that confirmation processing can be\n                        performed on this conversation.  The\n                        transaction program can issue verbs and\n                        recognize returned parameters relating to\n                        confirmation.\n\n                syncpt\n                        Indicates that syncpt and confirmation processing\n                        can be performed on this conversation. The\n                        transaction program can issue verbs and recognize\n                        returned parameters relating to syncpt and\n                        confirmation.')
-appcActiveConvSource = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("localLu", 1), ("partnerLu", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvSource.setDescription('Indicates whether the local or partner LU is the source of the\n          conversation, that is, which LU started the conversation by\n          sending the allocation request.\n\n               localLu\n                        The local LU is the source of the conversation,\n                        and the partner LU is the target of the\n                        conversation.\n\n               partnerLu\n                        The partner LU is the source of the\n                        conversation, and the local LU is the target of\n                        the conversation.')
-appcActiveConvDuplex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("half", 1), ("full", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvDuplex.setDescription('Indicates the conversation duplex style in effect for the\n          conversation.\n\n            half        Indicates that information can be transferred in\n                        both directions, but only in one direction at a\n                        time.\n\n            full        Indicates that information can be transferred in\n                        both directions at the same time.')
-appcActiveConvUpTime = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 11), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvUpTime.setDescription('The length of time since the conversation started, measured in\n          hundredths of a second.')
-appcActiveConvSendBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvSendBytes.setDescription('Indicates the number of bytes that was sent on the\n          conversation.  The count includes all SNA RU bytes sent,\n          including those in the FMH-5 (Attach), FMH-7 (Error\n          Description), SIGNAL, LUSTAT, and SNA responses; it does not\n          include SNA TH and RH bytes.')
-appcActiveConvRcvBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvRcvBytes.setDescription('Indicates the number of bytes that was received on the\n          conversation.  The count includes all SNA RU bytes sent,\n          including those in the FMH-5 (Attach), FMH-7 (Error\n          Description), SIGNAL, LUSTAT, and SNA responses; it does not\n          include SNA TH and RH bytes.')
-appcActiveConvUserid = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,10))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvUserid.setDescription('The user ID that the initiating program provided in the\n          incoming attach.')
-appcActiveConvPcidNauName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 15), DisplayString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(3,17),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvPcidNauName.setDescription('The network-qualified NAU name of the\n           node at which the session and PCID originated.  For APPN\n           and LEN nodes, this is either CP name of the APPN node at\n           which the origin LU is located or the CP name of the\n           NN serving the LEN node at which the origin LU is\n           located.  This field is from 3 to 17 characters in\n           length, including a period (.) which separates the\n\n           NetId from the NAU name.  A null string indicates\n           that the value is unknown.')
-appcActiveConvPcid = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 16), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(8,8),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvPcid.setDescription('The procedure correlation identifier (PCID) of the session.\n          It is an 8-octet value assigned by the control point providing\n          session services for the primary LU.  A null string indicates\n          that the value is unknown.')
-appcActiveConvModeName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 17), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvModeName.setDescription('The Mode Name used for this conversation.\n           This is a 1-8 character name.')
-appcActiveConvLuwIdName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 18), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvLuwIdName.setDescription('The SNA name of the LU that initiated the logical unit of work\n           that is associated with this active TP. This field is from\n           1 to 17 characters in length, including a period (.) which\n           separates the NetId from the LU name if the NetId is present.')
-appcActiveConvLuwIdInstance = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 19), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,6))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvLuwIdInstance.setDescription('The instance identifier for the logical unit of work.')
-appcActiveConvLuwIdSequence = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 20), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvLuwIdSequence.setDescription('The sequence identifier for the logical unit of work.')
-appcActiveConvTpName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 1, 1, 21), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcActiveConvTpName.setDescription("The transaction program name which started this conversation.\n          This name could either be from a FMH5 ATTACH for a remotely\n          started conversation, otherwise it could the name of the local\n          TP if available.\n\n          When the TP name consists entirely of displayable EBCDIC code\n          points, it is mapped directly to the equivalent ASCII display\n          string.  However, registered TP names always have a non-\n          displayable EBCDIC code point (value less than or equal to\n          x'3F') as the first character, so they cannot be directly\n          mapped to an ASCII display string.  These TP names are\n          converted to a display string that is equivalent to a\n          hexadecimal display of the EBCDIC code points.  For example,\n          the 2-byte TP name x'06F1' (CNOS) is converted to the 6-byte\n          ASCII display string '06F1' (including the two single quotes).\n\n          This name is NULL if the conversation is started locally\n          (i.e., not with a FMH5 ATTACH).")
-appcHistConvTable = MibTable((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 2), )
-if mibBuilder.loadTexts: appcHistConvTable.setDescription('Table of historical information about APPC Conversations that\n\n          ended in error.  Possible categories of error conditions that\n          could be saved in this table are:\n\n                - allocation errors,\n                - deallocate abend,\n                - program errors, and\n                - service errors.')
-appcHistConvEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 2, 1), ).setIndexNames((0, "APPC-MIB", "appcHistConvIndex"))
-if mibBuilder.loadTexts: appcHistConvEntry.setDescription('Entry representing one APPC Conversation.')
-appcHistConvIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 2, 1, 1), Integer32())
-if mibBuilder.loadTexts: appcHistConvIndex.setDescription('Index for entry in Conversation table.  This value identifies\n          the unique index of the conversation.  It is recommended that\n          an Agent not reuse the index of a deactivated conversation for\n          a significant period of time (e.g. one week).')
-appcHistConvEndTime = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 2, 1, 2), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistConvEndTime.setDescription('The time at which the conversation ended.')
-appcHistConvLocLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistConvLocLuName.setDescription('The name of the local LU for this conversation.  This field is\n          from 1 to 17 characters in length, including a period (.) which\n          separates the NetId from the NAU name if the NetId is present.')
-appcHistConvParLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistConvParLuName.setDescription('The SNA name of the partner LU for the conversation.  This\n          field is from 1 to 17 characters in length, including a period\n          (.) which separates the NetId from the NAU name if the NetId is\n          present.')
-appcHistConvTpName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 2, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistConvTpName.setDescription("The transaction program name which started this conversation.\n          This name could either be from a FMH5 ATTACH for a remotely\n          started conversation, otherwise it could the name of the local\n          TP if available.\n\n          When the TP name consists entirely of displayable EBCDIC code\n          points, it is mapped directly to the equivalent ASCII display\n          string.  However, registered TP names always have a non-\n          displayable EBCDIC code point (value less than or equal to\n          x'3F') as the first character, so they cannot be directly\n          mapped to an ASCII display string.  These TP names are\n          converted to a display string that is equivalent to a\n\n          hexadecimal display of the EBCDIC code points.  For example,\n          the 2-byte TP name x'06F1' (CNOS) is converted to the 6-byte\n          ASCII display string '06F1' (including the two single quotes).\n\n          This name is NULL if the conversation is started locally\n          (i.e., not with a FMH5 ATTACH).")
-appcHistConvPcidNauName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 2, 1, 6), DisplayString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(3,17),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistConvPcidNauName.setDescription('The network-qualified NAU name of the\n           node at which the session and PCID originated.  For APPN\n           and LEN nodes, this is either CP name of the APPN node at\n           which the origin LU is located or the CP name of the\n           NN serving the LEN node at which the origin LU is\n           located.  This field is from 3 to 17 characters in\n           length, including a period (.) which separates the\n           NetId from the NAU name.  A null string indicates that the\n           value is unknown.')
-appcHistConvPcid = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 2, 1, 7), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(8,8),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistConvPcid.setDescription('The procedure correlation identifier (PCID) of the session.\n         It is an 8-octet value assigned by the control point providing\n         session services for the primary LU.  A null string indicates\n         that the value is unknown.')
-appcHistConvSenseData = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 2, 1, 8), SnaSenseData()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistConvSenseData.setDescription('The sense data associated with the action that ended this\n          conversation, e.g., FMH-7 or UNBIND.')
-appcHistConvLogData = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 2, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistConvLogData.setDescription('The first 32 bytes of the data portion of the Log Data GDS\n          Variable that is associated with the last FMH-7 that occurred\n          on this conversation.  If there was no Log Data GDS Variable\n          associated with the FMH-7, this object is null.\n\n          This object reflects only the data portion of the Log Data\n          GDS Variable (i.e. not the LL or GDS Id).')
-appcHistConvEndedBy = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 5, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("localLu", 1), ("partnerLu", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcHistConvEndedBy.setDescription('Indicates which LU ended the conversation.')
-appcCpicAdminTable = MibTable((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 1), )
-if mibBuilder.loadTexts: appcCpicAdminTable.setDescription('APPC CPI-C side information table.')
-appcCpicAdminEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 1, 1), ).setIndexNames((0, "APPC-MIB", "appcCpicAdminLocLuName"), (0, "APPC-MIB", "appcCpicAdminSymbDestName"))
-if mibBuilder.loadTexts: appcCpicAdminEntry.setDescription('Entry of APPC CPI-C side information Table.')
-appcCpicAdminLocLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcCpicAdminLocLuName.setDescription("The SNA name of the local LU to which this CPI-C side\n          information definition applies.  This field is from 1 to 17\n          characters in length, including a period (.) which separates\n          the NetId from the NAU name if the NetId is present.\n\n          The reserved value '*ALL' indicates that the definition applies\n          to all local LUs, and not just to a single local LU.")
-appcCpicAdminSymbDestName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,8)))
-if mibBuilder.loadTexts: appcCpicAdminSymbDestName.setDescription('Specifies the symbolic destination name used by CPI-C\n          applications to identify this definition.')
-appcCpicAdminParLuAlias = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCpicAdminParLuAlias.setDescription('A local alias for the partner LU.  If not known or\n\n           not applicable, this object contains a zero-length\n           string.')
-appcCpicAdminParLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCpicAdminParLuName.setDescription('The SNA name of the partner LU.  This field is from 1 to 17\n          characters in length, including a period (.)  which separates\n          the NetId from the NAU name if the NetId is present.')
-appcCpicAdminModeName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCpicAdminModeName.setDescription('Specifies the mode name.  A mode defines the characteristics\n          for a group of sessions.  The mode name can be blank (8 space\n          characters).')
-appcCpicAdminTpNameType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("normal", 1), ("snaServiceTp", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCpicAdminTpNameType.setDescription('Specifies whether the TP name in appcCpicAdminTpName\n          identifies a normal TP or an SNA service TP.  In this context,\n          a normal TP is one with a name consisting only of displayable\n          characters, while an SNA service TP has a name containing\n          octets that do not map to displayable characters.')
-appcCpicAdminTpName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 1, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCpicAdminTpName.setDescription("Specifies the name of the partner TP to be used when a CPI-C\n           application initiates a conversation specifying this side\n           information entry.\n\n           Display convention\n\n              When the TP name consists entirely of displayable EBCDIC\n              code points, it is mapped directly to the equivalent ASCII\n              display string.  However, registered TP names always have a\n              non-displayable EBCDIC code point (value less than or equal\n              to x'3F') as the first character, so they cannot be\n              directly mapped to an ASCII display string.  These TP names\n              are converted to a display string that is equivalent to a\n              hexadecimal display of the EBCDIC code points.  For\n              example, the 2-byte TP name x'06F1' (CNOS) is converted to\n              the 6-byte ASCII display string '06F1' (including the two\n              single quotes).")
-appcCpicAdminUserid = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 1, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,10))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCpicAdminUserid.setDescription('The security userid, if any, associated with the side\n          information definition.')
-appcCpicAdminSecurity = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("none", 1), ("same", 2), ("pgm", 3), ("pgmStrong", 4), ("distributed", 5), ("mutual", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCpicAdminSecurity.setDescription('Specifies the security information to be used for allocating\n          the conversation.\n\n\n            none        - No security information.\n            same        - Use the security environment currently\n                          associated with this TP.\n            pgm         - Use the program-supplied user_id and password.\n            pgmStrong   - Use the program-supplied user_id and password.\n                          The local LU will insure that the password is\n                          not exposed in clear-text form on the physical\n                          network.\n            distributed - Use the security environment and a distributed\n                          security system to generate the authentication\n                          information for this request.  If distributed\n                          security tokens cannot be generated, then fail\n                          the conversation.\n            mutual      - Authenticate both the user to the destination\n                          system and the destination system to the user.')
-appcCpicOperTable = MibTable((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 2), )
-if mibBuilder.loadTexts: appcCpicOperTable.setDescription('APPC CPI-C side information operational table.')
-appcCpicOperEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 2, 1), ).setIndexNames((0, "APPC-MIB", "appcCpicOperLocLuName"), (0, "APPC-MIB", "appcCpicOperSymbDestName"))
-if mibBuilder.loadTexts: appcCpicOperEntry.setDescription('Entry of APPC CPI-C side information Table.')
-appcCpicOperLocLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 2, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17)))
-if mibBuilder.loadTexts: appcCpicOperLocLuName.setDescription("The SNA name of the local LU to which this CPI-C side\n          information definition applies.  This field is from 1 to 17\n          characters in length, including a period (.) which separates\n          the NetId from the NAU name if the NetId is present.\n\n          The reserved value '*ALL' indicates that the definition applies\n          to all local LUs, and not just to a single local LU.")
-appcCpicOperSymbDestName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,8)))
-if mibBuilder.loadTexts: appcCpicOperSymbDestName.setDescription('Specifies the symbolic destination name used by CPI-C\n          applications to identify this definition.')
-appcCpicOperParLuAlias = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCpicOperParLuAlias.setDescription('A local alias for the partner LU.  If not known or not\n          applicable, this object contains a zero-length string.')
-appcCpicOperParLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCpicOperParLuName.setDescription('The SNA name of the partner LU.  This field is from 1 to 17\n          characters in length, including a period (.) which separates\n          the NetId from the NAU name if the NetId is present.')
-appcCpicOperModeName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 2, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCpicOperModeName.setDescription('Specifies the mode name.  A mode defines the characteristics\n          for a group of sessions.  The mode name can be blank (8 space\n          characters).')
-appcCpicOperTpNameType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("normal", 1), ("snaServiceTp", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCpicOperTpNameType.setDescription('Specifies whether the TP name in appcCpicOperTpName identifies\n          a normal TP or an SNA service TP.  In this context, a normal TP\n          is one with a name consisting only of displayable characters,\n          while an SNA service TP has a name containing octets that do\n          not map to displayable characters.')
-appcCpicOperTpName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 2, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCpicOperTpName.setDescription("Specifies the name of the partner TP to be used when a CPI-C\n          application initiates a conversation specifying this side\n          information entry.\n\n\n          Display convention\n\n              When the TP name consists entirely of displayable EBCDIC\n              code points, it is mapped directly to the equivalent ASCII\n              display string.  However, registered TP names always have\n              a non-displayable EBCDIC code point (value less than or\n              equal to x'3F') as the first character, so they cannot be\n              directly mapped to an ASCII display string.  These TP\n              names are converted to a display string that is equivalent\n              to a hexadecimal display of the EBCDIC code points.  For\n              example, the 2-byte TP name x'06F1' (CNOS) is converted to\n              the 6-byte ASCII display string '06F1' (including the two\n              single quotes).")
-appcCpicOperUserid = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 2, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,10))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCpicOperUserid.setDescription('The security userid, if any, associated with the active side\n          information definition.')
-appcCpicOperSecurity = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 3, 1, 6, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("none", 1), ("same", 2), ("pgm", 3), ("pgmStrong", 4), ("distributed", 5), ("mutual", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: appcCpicOperSecurity.setDescription('Specifies the security information to be used for allocating\n          the conversation.\n\n            none        - No security information.\n            same        - Use the security environment currently\n                          associated with this TP.\n            pgm         - Use the program-supplied user_id and password.\n            pgmStrong   - Use the program-supplied user_id and password.\n                          The local LU will insure that the password is\n                          not exposed in clear-text form on the physical\n\n                          network.\n            distributed - Use the security environment and a distributed\n                          security system to generate the authentication\n                          information for this request.  If distributed\n                          security tokens cannot be generated, then fail\n                          the conversation.\n            mutual      - Authenticate both the user to the destination\n                          system and the destination system to the user.')
-appcConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 3, 2))
-appcCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 3, 2, 1))
-appcGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 3, 2, 2))
-appcCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 34, 3, 2, 1, 1)).setObjects(*(("APPC-MIB", "appcGlobalConfGroup"), ("APPC-MIB", "appcLluConfGroup"), ("APPC-MIB", "appcParLuConfGroup"), ("APPC-MIB", "appcModeConfGroup"), ("APPC-MIB", "appcTpConfGroup"), ("APPC-MIB", "appcSessionConfGroup"), ("APPC-MIB", "appcControlConfGroup"), ("APPC-MIB", "appcCnosConfGroup"), ("APPC-MIB", "appcCpicConfGroup"), ("APPC-MIB", "appcConversationConfGroup"),))
-if mibBuilder.loadTexts: appcCompliance.setDescription('The compliance statement for the SNMPv2 entities which\n          implement the APPC MIB.')
-appcGlobalConfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 3, 2, 2, 1)).setObjects(*(("APPC-MIB", "appcUpTime"), ("APPC-MIB", "appcDefaultModeName"), ("APPC-MIB", "appcDefaultLuName"), ("APPC-MIB", "appcDefaultImplInbndPlu"), ("APPC-MIB", "appcDefaultMaxMcLlSndSize"), ("APPC-MIB", "appcDefaultFileSpec"), ("APPC-MIB", "appcDefaultTpOperation"), ("APPC-MIB", "appcDefaultTpConvSecRqd"), ("APPC-MIB", "appcLocalCpName"), ("APPC-MIB", "appcActiveSessions"), ("APPC-MIB", "appcActiveHprSessions"),))
-if mibBuilder.loadTexts: appcGlobalConfGroup.setDescription('A collection of objects providing the instrumentation of APPC\n          global information and defaults.')
-appcLluConfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 3, 2, 2, 2)).setObjects(*(("APPC-MIB", "appcLluAdminDepType"), ("APPC-MIB", "appcLluAdminLocalAddress"), ("APPC-MIB", "appcLluAdminSessLimit"), ("APPC-MIB", "appcLluAdminBindRspMayQ"), ("APPC-MIB", "appcLluAdminCompression"), ("APPC-MIB", "appcLluAdminInBoundCompLevel"), ("APPC-MIB", "appcLluAdminOutBoundCompLevel"), ("APPC-MIB", "appcLluAdminCompRleBeforeLZ"), ("APPC-MIB", "appcLluAdminAlias"), ("APPC-MIB", "appcLluOperDepType"), ("APPC-MIB", "appcLluOperLocalAddress"), ("APPC-MIB", "appcLluOperSessLimit"), ("APPC-MIB", "appcLluOperBindRspMayQ"), ("APPC-MIB", "appcLluOperCompression"), ("APPC-MIB", "appcLluOperInBoundCompLevel"), ("APPC-MIB", "appcLluOperOutBoundCompLevel"), ("APPC-MIB", "appcLluOperCompRleBeforeLZ"), ("APPC-MIB", "appcLluOperAlias"), ("APPC-MIB", "appcLluOperActiveSessions"),))
-if mibBuilder.loadTexts: appcLluConfGroup.setDescription('A collection of objects providing the instrumentation of APPC\n          local LU6.2s.')
-appcParLuConfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 3, 2, 2, 3)).setObjects(*(("APPC-MIB", "appcLuPairAdminParLuAlias"), ("APPC-MIB", "appcLuPairAdminSessLimit"), ("APPC-MIB", "appcLuPairAdminSessSec"), ("APPC-MIB", "appcLuPairAdminSecAccept"), ("APPC-MIB", "appcLuPairAdminLinkObjId"), ("APPC-MIB", "appcLuPairAdminParaSessSup"), ("APPC-MIB", "appcLuPairOperParLuAlias"), ("APPC-MIB", "appcLuPairOperSessLimit"), ("APPC-MIB", "appcLuPairOperSessSec"), ("APPC-MIB", "appcLuPairOperSecAccept"), ("APPC-MIB", "appcLuPairOperLinkObjId"), ("APPC-MIB", "appcLuPairOperParaSessSup"), ("APPC-MIB", "appcLuPairOperParaSessSupLS"), ("APPC-MIB", "appcLuPairOperState"),))
-if mibBuilder.loadTexts: appcParLuConfGroup.setDescription('A collection of objects providing the instrumentation of APPC\n          partner LUs.')
-appcModeConfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 3, 2, 2, 4)).setObjects(*(("APPC-MIB", "appcModeAdminCosName"), ("APPC-MIB", "appcModeAdminSessEndTpName"), ("APPC-MIB", "appcModeAdminMaxSessLimit"), ("APPC-MIB", "appcModeAdminMinCwinLimit"), ("APPC-MIB", "appcModeAdminMinClosLimit"), ("APPC-MIB", "appcModeAdminConWinAutoActLmt"), ("APPC-MIB", "appcModeAdminRecvPacWinSz"), ("APPC-MIB", "appcModeAdminSendPacWinSz"), ("APPC-MIB", "appcModeAdminPrefRecvRuSz"), ("APPC-MIB", "appcModeAdminPrefSendRuSz"), ("APPC-MIB", "appcModeAdminRecvRuSzUpBnd"), ("APPC-MIB", "appcModeAdminSendRuSzUpBnd"), ("APPC-MIB", "appcModeAdminRecvRuSzLoBnd"), ("APPC-MIB", "appcModeAdminSendRuSzLoBnd"), ("APPC-MIB", "appcModeAdminSingSessReinit"), ("APPC-MIB", "appcModeAdminCompression"), ("APPC-MIB", "appcModeAdminInBoundCompLevel"), ("APPC-MIB", "appcModeAdminOutBoundCompLevel"), ("APPC-MIB", "appcModeAdminCompRleBeforeLZ"), ("APPC-MIB", "appcModeAdminSyncLvl"), ("APPC-MIB", "appcModeAdminCrypto"), ("APPC-MIB", "appcModeOperCosName"), ("APPC-MIB", "appcModeOperSessEndTpName"), ("APPC-MIB", "appcModeOperSessLimit"), ("APPC-MIB", "appcModeOperMaxSessLimit"), ("APPC-MIB", "appcModeOperMinCwinLimit"), ("APPC-MIB", "appcModeOperMinClosLimit"), ("APPC-MIB", "appcModeOperConWinAutoActLmt"), ("APPC-MIB", "appcModeOperRecvPacWinSz"), ("APPC-MIB", "appcModeOperSendPacWinSz"), ("APPC-MIB", "appcModeOperPrefRecvRuSz"), ("APPC-MIB", "appcModeOperPrefSendRuSz"), ("APPC-MIB", "appcModeOperRecvRuSzUpBnd"), ("APPC-MIB", "appcModeOperSendRuSzUpBnd"), ("APPC-MIB", "appcModeOperRecvRuSzLoBnd"), ("APPC-MIB", "appcModeOperSendRuSzLoBnd"), ("APPC-MIB", "appcModeOperSingSessReinit"), ("APPC-MIB", "appcModeOperCompression"), ("APPC-MIB", "appcModeOperInBoundCompLevel"), ("APPC-MIB", "appcModeOperOutBoundCompLevel"), ("APPC-MIB", "appcModeOperCompRleBeforeLZ"), ("APPC-MIB", "appcModeOperSyncLvl"), ("APPC-MIB", "appcModeOperCrypto"), ("APPC-MIB", "appcModeOperSyncLvlLastStart"), ("APPC-MIB", "appcModeOperCryptoLastStart"), ("APPC-MIB", "appcModeOperCNOSNeg"), ("APPC-MIB", "appcModeOperActCwin"), ("APPC-MIB", "appcModeOperActClos"), ("APPC-MIB", "appcModeOperPndCwin"), ("APPC-MIB", "appcModeOperPndClos"), ("APPC-MIB", "appcModeOperPtmCwin"), ("APPC-MIB", "appcModeOperPtmClos"), ("APPC-MIB", "appcModeOperDrainSelf"), ("APPC-MIB", "appcModeOperDrainPart"),))
-if mibBuilder.loadTexts: appcModeConfGroup.setDescription('A collection of objects providing the instrumentation of APPC\n          modes.')
-appcTpConfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 3, 2, 2, 5)).setObjects(*(("APPC-MIB", "appcTpAdminFileSpec"), ("APPC-MIB", "appcTpAdminStartParm"), ("APPC-MIB", "appcTpAdminTpOperation"), ("APPC-MIB", "appcTpAdminInAttachTimeout"), ("APPC-MIB", "appcTpAdminRcvAllocTimeout"), ("APPC-MIB", "appcTpAdminSyncLvl"), ("APPC-MIB", "appcTpAdminInstLmt"), ("APPC-MIB", "appcTpAdminStatus"), ("APPC-MIB", "appcTpAdminLongRun"), ("APPC-MIB", "appcTpAdminConvType"), ("APPC-MIB", "appcTpAdminConvDuplex"), ("APPC-MIB", "appcTpAdminConvSecReq"), ("APPC-MIB", "appcTpAdminVerPip"), ("APPC-MIB", "appcTpAdminPipSubNum"),))
-if mibBuilder.loadTexts: appcTpConfGroup.setDescription('A collection of objects providing the instrumentation of APPC\n          Transaction Programs.')
-appcSessionConfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 3, 2, 2, 6)).setObjects(*(("APPC-MIB", "appcActSessPcidCpName"), ("APPC-MIB", "appcActSessPcid"), ("APPC-MIB", "appcActSessPluIndicator"), ("APPC-MIB", "appcActSessModeName"), ("APPC-MIB", "appcActSessCosName"), ("APPC-MIB", "appcActSessTransPriority"), ("APPC-MIB", "appcActSessEnhanceSecSup"), ("APPC-MIB", "appcActSessSendPacingType"), ("APPC-MIB", "appcActSessSendRpc"), ("APPC-MIB", "appcActSessSendNxWndwSize"), ("APPC-MIB", "appcActSessRecvPacingType"), ("APPC-MIB", "appcActSessRecvRpc"), ("APPC-MIB", "appcActSessRecvNxWndwSize"), ("APPC-MIB", "appcActSessRscv"), ("APPC-MIB", "appcActSessInUse"), ("APPC-MIB", "appcActSessMaxSndRuSize"), ("APPC-MIB", "appcActSessMaxRcvRuSize"), ("APPC-MIB", "appcActSessSndPacingSize"), ("APPC-MIB", "appcActSessRcvPacingSize"), ("APPC-MIB", "appcActSessOperState"), ("APPC-MIB", "appcActSessUpTime"), ("APPC-MIB", "appcActSessRtpNceId"), ("APPC-MIB", "appcActSessRtpTcid"), ("APPC-MIB", "appcActSessLinkIndex"), ("APPC-MIB", "appcSessStatsSentFmdBytes"), ("APPC-MIB", "appcSessStatsSentNonFmdBytes"), ("APPC-MIB", "appcSessStatsRcvdFmdBytes"), ("APPC-MIB", "appcSessStatsRcvdNonFmdBytes"), ("APPC-MIB", "appcSessStatsSentFmdRus"), ("APPC-MIB", "appcSessStatsSentNonFmdRus"), ("APPC-MIB", "appcSessStatsRcvdFmdRus"), ("APPC-MIB", "appcSessStatsRcvdNonFmdRus"), ("APPC-MIB", "appcSessStatsCtrUpTime"), ("APPC-MIB", "appcHistSessTime"), ("APPC-MIB", "appcHistSessType"), ("APPC-MIB", "appcHistSessLocLuName"), ("APPC-MIB", "appcHistSessParLuName"), ("APPC-MIB", "appcHistSessModeName"), ("APPC-MIB", "appcHistSessUnbindType"), ("APPC-MIB", "appcHistSessSenseData"), ("APPC-MIB", "appcHistSessComponentId"), ("APPC-MIB", "appcHistSessDetectModule"), ("APPC-MIB", "appcSessRtpSessions"),))
-if mibBuilder.loadTexts: appcSessionConfGroup.setDescription('A collection of objects providing the instrumentation of APPC\n          LU6.2 sessions.')
-appcControlConfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 3, 2, 2, 7)).setObjects(*(("APPC-MIB", "appcCntrlAdminStat"), ("APPC-MIB", "appcCntrlAdminRscv"), ("APPC-MIB", "appcCntrlAdminTrace"), ("APPC-MIB", "appcCntrlAdminTraceParm"), ("APPC-MIB", "appcCntrlOperStat"), ("APPC-MIB", "appcCntrlOperStatTime"), ("APPC-MIB", "appcCntrlOperRscv"), ("APPC-MIB", "appcCntrlOperRscvTime"), ("APPC-MIB", "appcCntrlOperTrace"), ("APPC-MIB", "appcCntrlOperTraceTime"), ("APPC-MIB", "appcCntrlOperTraceParm"),))
-if mibBuilder.loadTexts: appcControlConfGroup.setDescription('A collection of objects providing the instrumentation of APPC\n          control.')
-appcCnosConfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 3, 2, 2, 8)).setObjects(*(("APPC-MIB", "appcCnosCommand"), ("APPC-MIB", "appcCnosMaxSessLimit"), ("APPC-MIB", "appcCnosMinCwinLimit"), ("APPC-MIB", "appcCnosMinClosLimit"), ("APPC-MIB", "appcCnosDrainSelf"), ("APPC-MIB", "appcCnosDrainPart"), ("APPC-MIB", "appcCnosResponsible"), ("APPC-MIB", "appcCnosForce"), ("APPC-MIB", "appcCnosTargetLocLuName"), ("APPC-MIB", "appcCnosTargetParLuName"), ("APPC-MIB", "appcCnosTargetModeName"),))
-if mibBuilder.loadTexts: appcCnosConfGroup.setDescription('A collection of objects providing the instrumentation of APPC\n          CNOS processing.')
-appcCpicConfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 3, 2, 2, 9)).setObjects(*(("APPC-MIB", "appcCpicAdminParLuAlias"), ("APPC-MIB", "appcCpicAdminParLuName"), ("APPC-MIB", "appcCpicAdminModeName"), ("APPC-MIB", "appcCpicAdminTpNameType"), ("APPC-MIB", "appcCpicAdminTpName"), ("APPC-MIB", "appcCpicAdminUserid"), ("APPC-MIB", "appcCpicAdminSecurity"), ("APPC-MIB", "appcCpicOperParLuAlias"), ("APPC-MIB", "appcCpicOperParLuName"), ("APPC-MIB", "appcCpicOperModeName"), ("APPC-MIB", "appcCpicOperTpNameType"), ("APPC-MIB", "appcCpicOperTpName"), ("APPC-MIB", "appcCpicOperUserid"), ("APPC-MIB", "appcCpicOperSecurity"),))
-if mibBuilder.loadTexts: appcCpicConfGroup.setDescription('A collection of objects providing the instrumentation of APPC\n          CPI-C side information.')
-appcConversationConfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 3, 2, 2, 10)).setObjects(*(("APPC-MIB", "appcActiveConvId"), ("APPC-MIB", "appcActiveConvState"), ("APPC-MIB", "appcActiveConvType"), ("APPC-MIB", "appcActiveConvCorrelator"), ("APPC-MIB", "appcActiveConvSyncLvl"), ("APPC-MIB", "appcActiveConvSource"), ("APPC-MIB", "appcActiveConvDuplex"), ("APPC-MIB", "appcActiveConvUpTime"), ("APPC-MIB", "appcActiveConvSendBytes"), ("APPC-MIB", "appcActiveConvRcvBytes"), ("APPC-MIB", "appcActiveConvUserid"), ("APPC-MIB", "appcActiveConvPcidNauName"), ("APPC-MIB", "appcActiveConvPcid"), ("APPC-MIB", "appcActiveConvModeName"), ("APPC-MIB", "appcActiveConvLuwIdName"), ("APPC-MIB", "appcActiveConvLuwIdInstance"), ("APPC-MIB", "appcActiveConvLuwIdSequence"), ("APPC-MIB", "appcActiveConvTpName"), ("APPC-MIB", "appcHistConvEndTime"), ("APPC-MIB", "appcHistConvLocLuName"), ("APPC-MIB", "appcHistConvParLuName"), ("APPC-MIB", "appcHistConvTpName"), ("APPC-MIB", "appcHistConvPcidNauName"), ("APPC-MIB", "appcHistConvPcid"), ("APPC-MIB", "appcHistConvSenseData"), ("APPC-MIB", "appcHistConvLogData"), ("APPC-MIB", "appcHistConvEndedBy"),))
-if mibBuilder.loadTexts: appcConversationConfGroup.setDescription('A collection of objects providing the instrumentation of APPC\n          conversations.')
-mibBuilder.exportSymbols("APPC-MIB", appcActSessSendNxWndwSize=appcActSessSendNxWndwSize, appcModeAdminRecvRuSzUpBnd=appcModeAdminRecvRuSzUpBnd, appcModeAdminInBoundCompLevel=appcModeAdminInBoundCompLevel, appcSessStatsSentNonFmdRus=appcSessStatsSentNonFmdRus, appcActiveSessions=appcActiveSessions, appcActiveConvModeName=appcActiveConvModeName, appcCpicAdminParLuName=appcCpicAdminParLuName, appcSessStatsSentFmdRus=appcSessStatsSentFmdRus, appcSessStatsRcvdNonFmdBytes=appcSessStatsRcvdNonFmdBytes, appcActiveConvEntry=appcActiveConvEntry, appcActiveConvLuwIdSequence=appcActiveConvLuwIdSequence, appcTpAdminInAttachTimeout=appcTpAdminInAttachTimeout, appcSessStatsSessIndex=appcSessStatsSessIndex, appcLuPairOperTable=appcLuPairOperTable, appcModeOperCosName=appcModeOperCosName, appcModeOperMinCwinLimit=appcModeOperMinCwinLimit, appcActSessMaxRcvRuSize=appcActSessMaxRcvRuSize, appcActiveConvLuwIdInstance=appcActiveConvLuwIdInstance, appcActSessMaxSndRuSize=appcActSessMaxSndRuSize, appcHistConvSenseData=appcHistConvSenseData, appcLuPairOperState=appcLuPairOperState, appcModeAdminPrefSendRuSz=appcModeAdminPrefSendRuSz, appcTpAdminInstLmt=appcTpAdminInstLmt, appcLuPairOperParLuName=appcLuPairOperParLuName, appcModeOperCNOSNeg=appcModeOperCNOSNeg, appcLuPairOperParLuAlias=appcLuPairOperParLuAlias, appcTpAdminSyncLvl=appcTpAdminSyncLvl, appcCpicAdminParLuAlias=appcCpicAdminParLuAlias, appcLuPairOperSessLimit=appcLuPairOperSessLimit, appcCpicOperSecurity=appcCpicOperSecurity, appcModeOperCryptoLastStart=appcModeOperCryptoLastStart, appcCpicAdminTable=appcCpicAdminTable, appcModeAdminOutBoundCompLevel=appcModeAdminOutBoundCompLevel, appcDefaultModeName=appcDefaultModeName, appcActSessPcid=appcActSessPcid, appcHistConvTable=appcHistConvTable, appcModeOperSendRuSzLoBnd=appcModeOperSendRuSzLoBnd, appcModeOperSingSessReinit=appcModeOperSingSessReinit, appcSessStatsEntry=appcSessStatsEntry, appcActiveConvUserid=appcActiveConvUserid, appcHistSessModeName=appcHistSessModeName, appcModeAdminSyncLvl=appcModeAdminSyncLvl, appcModeOperCrypto=appcModeOperCrypto, appcActSessUpTime=appcActSessUpTime, appcHistSessLocLuName=appcHistSessLocLuName, appcCpicAdminUserid=appcCpicAdminUserid, appcLluOperAlias=appcLluOperAlias, appcCnosTargetParLuName=appcCnosTargetParLuName, appcLuPairOperParaSessSupLS=appcLuPairOperParaSessSupLS, appcLluOperOutBoundCompLevel=appcLluOperOutBoundCompLevel, appcSessStatsParLuName=appcSessStatsParLuName, appcActiveConvCorrelator=appcActiveConvCorrelator, PYSNMP_MODULE_ID=appcMIB, appcCompliance=appcCompliance, appcConformance=appcConformance, appcModeAdminMinClosLimit=appcModeAdminMinClosLimit, appcActSessTable=appcActSessTable, appcActSessRecvRpc=appcActSessRecvRpc, appcActSessRecvPacingType=appcActSessRecvPacingType, appcActSessSendRpc=appcActSessSendRpc, appcActSessInUse=appcActSessInUse, appcSessStatsRcvdNonFmdRus=appcSessStatsRcvdNonFmdRus, appcActSessRcvPacingSize=appcActSessRcvPacingSize, appcCpicOperUserid=appcCpicOperUserid, appcCnosTargetModeName=appcCnosTargetModeName, appcModeOperRecvRuSzUpBnd=appcModeOperRecvRuSzUpBnd, appcSessRtpSessions=appcSessRtpSessions, appcHistSessParLuName=appcHistSessParLuName, appcActSessEnhanceSecSup=appcActSessEnhanceSecSup, appcCntrlOperGroup=appcCntrlOperGroup, appcCpicOperParLuName=appcCpicOperParLuName, appcLuPairAdminSecAccept=appcLuPairAdminSecAccept, appcCpicAdminSecurity=appcCpicAdminSecurity, appcCpicOperSymbDestName=appcCpicOperSymbDestName, appcModeOperSyncLvl=appcModeOperSyncLvl, appcActSessLinkIndex=appcActSessLinkIndex, appcParLuConfGroup=appcParLuConfGroup, appcActSessOperState=appcActSessOperState, appcActSessRtpTcid=appcActSessRtpTcid, appcLocalCpName=appcLocalCpName, appcCnosMinCwinLimit=appcCnosMinCwinLimit, appcActSessSendPacingType=appcActSessSendPacingType, appcModeOperRecvRuSzLoBnd=appcModeOperRecvRuSzLoBnd, appcHistConvEndedBy=appcHistConvEndedBy, appcSessStatsTable=appcSessStatsTable, appcCpicAdminSymbDestName=appcCpicAdminSymbDestName, appcLuPairOperSecAccept=appcLuPairOperSecAccept, appcModeAdminPrefRecvRuSz=appcModeAdminPrefRecvRuSz, appcModeAdminCompression=appcModeAdminCompression, appcModeOperDrainPart=appcModeOperDrainPart, appcModeOperActClos=appcModeOperActClos, appcCpicOperParLuAlias=appcCpicOperParLuAlias, appcCpicOperModeName=appcCpicOperModeName, appcActiveConvLuwIdName=appcActiveConvLuwIdName, appcModeOperActCwin=appcModeOperActCwin, appcTpConfGroup=appcTpConfGroup, appcActiveConvSource=appcActiveConvSource, appcDefaultFileSpec=appcDefaultFileSpec, SnaSenseData=SnaSenseData, appcLluAdminName=appcLluAdminName, appcLluOperDepType=appcLluOperDepType, appcSessRtpNceId=appcSessRtpNceId, appcLuPairAdminLocLuName=appcLuPairAdminLocLuName, appcCnosConfGroup=appcCnosConfGroup, appcTpAdminLocLuName=appcTpAdminLocLuName, appcHistConvIndex=appcHistConvIndex, appcActiveConvTpName=appcActiveConvTpName, appcModeOperEntry=appcModeOperEntry, appcConversation=appcConversation, appcTpAdminStatus=appcTpAdminStatus, appcModeAdminCompRleBeforeLZ=appcModeAdminCompRleBeforeLZ, appcModeOperPndClos=appcModeOperPndClos, appcCntrlOperTrace=appcCntrlOperTrace, appcModeOperCompRleBeforeLZ=appcModeOperCompRleBeforeLZ, appcActSessParLuName=appcActSessParLuName, appcActSessEntry=appcActSessEntry, appcLuPairAdminSessLimit=appcLuPairAdminSessLimit, appcLluOperCompRleBeforeLZ=appcLluOperCompRleBeforeLZ, appcActiveConvDuplex=appcActiveConvDuplex, appcTpAdminTpName=appcTpAdminTpName, appcDefaultImplInbndPlu=appcDefaultImplInbndPlu, appcGroups=appcGroups, appcModeAdminConWinAutoActLmt=appcModeAdminConWinAutoActLmt, appcCntrlAdminStat=appcCntrlAdminStat, appcCnosCommand=appcCnosCommand, appcModeOperSessEndTpName=appcModeOperSessEndTpName, appcCntrlOperStatTime=appcCntrlOperStatTime, appcModeOperOutBoundCompLevel=appcModeOperOutBoundCompLevel, appcLu=appcLu, appcTp=appcTp, appcLluOperActiveSessions=appcLluOperActiveSessions, appcLuPairOperParaSessSup=appcLuPairOperParaSessSup, appcTpAdminFileSpec=appcTpAdminFileSpec, appcTpAdminRcvAllocTimeout=appcTpAdminRcvAllocTimeout, appcTpAdminVerPip=appcTpAdminVerPip, appcHistSessSenseData=appcHistSessSenseData, appcLluOperTable=appcLluOperTable, appcCnosDrainPart=appcCnosDrainPart, appcLluOperName=appcLluOperName, appcLluOperEntry=appcLluOperEntry, appcModeOperMinClosLimit=appcModeOperMinClosLimit, appcLluAdminInBoundCompLevel=appcLluAdminInBoundCompLevel, appcLuPairOperEntry=appcLuPairOperEntry, appcModeOperRecvPacWinSz=appcModeOperRecvPacWinSz, appcSessRtpTcid=appcSessRtpTcid, appcLluAdminEntry=appcLluAdminEntry, appcHistSessUnbindType=appcHistSessUnbindType, appcModeAdminTable=appcModeAdminTable, appcSessionConfGroup=appcSessionConfGroup, appcActSessModeName=appcActSessModeName, appcActiveConvUpTime=appcActiveConvUpTime, appcCpicOperEntry=appcCpicOperEntry, appcSession=appcSession, appcModeOperPrefRecvRuSz=appcModeOperPrefRecvRuSz, appcModeAdminModeName=appcModeAdminModeName, appcLluConfGroup=appcLluConfGroup, appcCpicOperTpNameType=appcCpicOperTpNameType, appcHistSessType=appcHistSessType, appcModeOperPrefSendRuSz=appcModeOperPrefSendRuSz, appcCntrlAdminGroup=appcCntrlAdminGroup, appcCnosMaxSessLimit=appcCnosMaxSessLimit, appcConversationConfGroup=appcConversationConfGroup, appcTpAdminTable=appcTpAdminTable, appcActSessRscv=appcActSessRscv, appcModeOperParLuName=appcModeOperParLuName, appcModeConfGroup=appcModeConfGroup, appcActiveConvType=appcActiveConvType, appcModeAdminSessEndTpName=appcModeAdminSessEndTpName, appcActSessLocLuName=appcActSessLocLuName, appcLluAdminDepType=appcLluAdminDepType, appcModeAdminMinCwinLimit=appcModeAdminMinCwinLimit, appcModeOperLocLuName=appcModeOperLocLuName, appcActSessRtpNceId=appcActSessRtpNceId, appcCpicAdminModeName=appcCpicAdminModeName, appcModeAdminLocLuName=appcModeAdminLocLuName, appcUpTime=appcUpTime, appcSessRtpTable=appcSessRtpTable, appcCpicAdminTpNameType=appcCpicAdminTpNameType, appcCntrlOperStat=appcCntrlOperStat, appcModeOperDrainSelf=appcModeOperDrainSelf, appcActSessIndex=appcActSessIndex, appcActSessPluIndicator=appcActSessPluIndicator, appcModeOperModeName=appcModeOperModeName, appcLluOperLocalAddress=appcLluOperLocalAddress, appcCnosResponsible=appcCnosResponsible, appcLuPairOperLinkObjId=appcLuPairOperLinkObjId, appcActSessRecvNxWndwSize=appcActSessRecvNxWndwSize, appcSessStatsRcvdFmdRus=appcSessStatsRcvdFmdRus, appcSessRtpEntry=appcSessRtpEntry, appcTpAdminPipSubNum=appcTpAdminPipSubNum, appcLluAdminCompRleBeforeLZ=appcLluAdminCompRleBeforeLZ, appcModeOperPtmCwin=appcModeOperPtmCwin, appcModeOperPtmClos=appcModeOperPtmClos, appcCpicAdminLocLuName=appcCpicAdminLocLuName, appcTpAdminEntry=appcTpAdminEntry, appcTpAdminLongRun=appcTpAdminLongRun, appcHistConvEntry=appcHistConvEntry, appcLuPairAdminParLuAlias=appcLuPairAdminParLuAlias, appcModeOperSendRuSzUpBnd=appcModeOperSendRuSzUpBnd, appcLluAdminAlias=appcLluAdminAlias, appcCnosForce=appcCnosForce, appcSessStatsCtrUpTime=appcSessStatsCtrUpTime, appcActiveConvSessIndex=appcActiveConvSessIndex, appcControlConfGroup=appcControlConfGroup, appcModeOperInBoundCompLevel=appcModeOperInBoundCompLevel, appcCnosMinClosLimit=appcCnosMinClosLimit, appcModeOperSessLimit=appcModeOperSessLimit, appcCnosTargetLocLuName=appcCnosTargetLocLuName, appcActiveConvPcid=appcActiveConvPcid, appcLuPairAdminParLuName=appcLuPairAdminParLuName, appcHistSessComponentId=appcHistSessComponentId, appcCntrlOperRscv=appcCntrlOperRscv, appcHistConvPcidNauName=appcHistConvPcidNauName, appcCpicAdminEntry=appcCpicAdminEntry, appcCompliances=appcCompliances, appcActiveConvParLuName=appcActiveConvParLuName, appcModeAdminSendRuSzLoBnd=appcModeAdminSendRuSzLoBnd, appcObjects=appcObjects, appcCntrlAdminTraceParm=appcCntrlAdminTraceParm, appcCnosDrainSelf=appcCnosDrainSelf, appcModeOperSendPacWinSz=appcModeOperSendPacWinSz, appcModeAdminCosName=appcModeAdminCosName, appcModeAdminRecvRuSzLoBnd=appcModeAdminRecvRuSzLoBnd, appcCntrlOperTraceTime=appcCntrlOperTraceTime, appcLluAdminTable=appcLluAdminTable, appcModeOperMaxSessLimit=appcModeOperMaxSessLimit, appcLuPairAdminParaSessSup=appcLuPairAdminParaSessSup, appcSessStatsSentFmdBytes=appcSessStatsSentFmdBytes, appcCnosControl=appcCnosControl, appcActiveConvRcvBytes=appcActiveConvRcvBytes, appcTpAdminTpOperation=appcTpAdminTpOperation, appcGlobalObjects=appcGlobalObjects, appcLluAdminLocalAddress=appcLluAdminLocalAddress, appcModeOperCompression=appcModeOperCompression, appcHistConvLocLuName=appcHistConvLocLuName, appcModeAdminRecvPacWinSz=appcModeAdminRecvPacWinSz, appcModeOperConWinAutoActLmt=appcModeOperConWinAutoActLmt, appcActiveConvPcidNauName=appcActiveConvPcidNauName, appcModeOperPndCwin=appcModeOperPndCwin, appcDefaultTpConvSecRqd=appcDefaultTpConvSecRqd, appcSessStatsLocLuName=appcSessStatsLocLuName, appcActiveConvSendBytes=appcActiveConvSendBytes, appcHistConvEndTime=appcHistConvEndTime, appcCPIC=appcCPIC, appcHistConvPcid=appcHistConvPcid, appcLuPairOperSessSec=appcLuPairOperSessSec, appcLluAdminSessLimit=appcLluAdminSessLimit, appcCntrlAdminTrace=appcCntrlAdminTrace, appcHistSessTime=appcHistSessTime, appcDefaultTpOperation=appcDefaultTpOperation, appcCntrlOperTraceParm=appcCntrlOperTraceParm, appcLuPairAdminTable=appcLuPairAdminTable, appcModeAdminEntry=appcModeAdminEntry, appcLluAdminCompression=appcLluAdminCompression)
-mibBuilder.exportSymbols("APPC-MIB", appcActSessCosName=appcActSessCosName, appcHistSessEntry=appcHistSessEntry, appcModeAdminSingSessReinit=appcModeAdminSingSessReinit, appcActiveConvState=appcActiveConvState, appcLluOperBindRspMayQ=appcLluOperBindRspMayQ, appcMIB=appcMIB, appcActiveHprSessions=appcActiveHprSessions, appcModeAdminParLuName=appcModeAdminParLuName, appcTpAdminStartParm=appcTpAdminStartParm, appcLluOperCompression=appcLluOperCompression, appcSessStatsRcvdFmdBytes=appcSessStatsRcvdFmdBytes, appcModeOperTable=appcModeOperTable, appcActiveConvTable=appcActiveConvTable, appcModeAdminSendRuSzUpBnd=appcModeAdminSendRuSzUpBnd, appcActiveConvLocLuName=appcActiveConvLocLuName, appcHistSessTable=appcHistSessTable, appcDefaultMaxMcLlSndSize=appcDefaultMaxMcLlSndSize, appcCpicAdminTpName=appcCpicAdminTpName, appcTpAdminConvDuplex=appcTpAdminConvDuplex, appcModeAdminMaxSessLimit=appcModeAdminMaxSessLimit, appcCpicOperTpName=appcCpicOperTpName, appcLluAdminBindRspMayQ=appcLluAdminBindRspMayQ, appcHistConvTpName=appcHistConvTpName, appcDefaultLuName=appcDefaultLuName, appcHistConvParLuName=appcHistConvParLuName, appcCpicOperTable=appcCpicOperTable, appcLluOperInBoundCompLevel=appcLluOperInBoundCompLevel, appcLuPairAdminEntry=appcLuPairAdminEntry, appcCntrlOperRscvTime=appcCntrlOperRscvTime, appcLuPairAdminLinkObjId=appcLuPairAdminLinkObjId, appcCntrlAdminRscv=appcCntrlAdminRscv, appcActSessTransPriority=appcActSessTransPriority, appcLuPairAdminSessSec=appcLuPairAdminSessSec, appcModeOperSyncLvlLastStart=appcModeOperSyncLvlLastStart, appcActiveConvId=appcActiveConvId, appcActSessPcidCpName=appcActSessPcidCpName, appcGlobal=appcGlobal, appcHistSessIndex=appcHistSessIndex, appcActiveConvSyncLvl=appcActiveConvSyncLvl, appcModeAdminSendPacWinSz=appcModeAdminSendPacWinSz, appcModeAdminCrypto=appcModeAdminCrypto, appcActSessSndPacingSize=appcActSessSndPacingSize, appcHistConvLogData=appcHistConvLogData, appcTpAdminConvType=appcTpAdminConvType, appcLuPairOperLocLuName=appcLuPairOperLocLuName, appcLluAdminOutBoundCompLevel=appcLluAdminOutBoundCompLevel, appcTpAdminConvSecReq=appcTpAdminConvSecReq, appcSessStatsSentNonFmdBytes=appcSessStatsSentNonFmdBytes, appcCpicOperLocLuName=appcCpicOperLocLuName, appcHistSessDetectModule=appcHistSessDetectModule, appcCpicConfGroup=appcCpicConfGroup, appcLluOperSessLimit=appcLluOperSessLimit, appcGlobalConfGroup=appcGlobalConfGroup)
+_E2='appcConversationConfGroup'
+_E1='appcCpicConfGroup'
+_E0='appcCnosConfGroup'
+_D_='appcControlConfGroup'
+_Dz='appcSessionConfGroup'
+_Dy='appcTpConfGroup'
+_Dx='appcModeConfGroup'
+_Dw='appcParLuConfGroup'
+_Dv='appcLluConfGroup'
+_Du='appcGlobalConfGroup'
+_Dt='appcHistConvEndedBy'
+_Ds='appcHistConvLogData'
+_Dr='appcHistConvSenseData'
+_Dq='appcHistConvPcid'
+_Dp='appcHistConvPcidNauName'
+_Do='appcHistConvTpName'
+_Dn='appcHistConvParLuName'
+_Dm='appcHistConvLocLuName'
+_Dl='appcHistConvEndTime'
+_Dk='appcActiveConvTpName'
+_Dj='appcActiveConvLuwIdSequence'
+_Di='appcActiveConvLuwIdInstance'
+_Dh='appcActiveConvLuwIdName'
+_Dg='appcActiveConvModeName'
+_Df='appcActiveConvPcid'
+_De='appcActiveConvPcidNauName'
+_Dd='appcActiveConvUserid'
+_Dc='appcActiveConvRcvBytes'
+_Db='appcActiveConvSendBytes'
+_Da='appcActiveConvUpTime'
+_DZ='appcActiveConvDuplex'
+_DY='appcActiveConvSource'
+_DX='appcActiveConvSyncLvl'
+_DW='appcActiveConvCorrelator'
+_DV='appcActiveConvType'
+_DU='appcActiveConvState'
+_DT='appcActiveConvId'
+_DS='appcCpicOperSecurity'
+_DR='appcCpicOperUserid'
+_DQ='appcCpicOperTpName'
+_DP='appcCpicOperTpNameType'
+_DO='appcCpicOperModeName'
+_DN='appcCpicOperParLuName'
+_DM='appcCpicOperParLuAlias'
+_DL='appcCpicAdminSecurity'
+_DK='appcCpicAdminUserid'
+_DJ='appcCpicAdminTpName'
+_DI='appcCpicAdminTpNameType'
+_DH='appcCpicAdminModeName'
+_DG='appcCpicAdminParLuName'
+_DF='appcCpicAdminParLuAlias'
+_DE='appcCnosTargetModeName'
+_DD='appcCnosTargetParLuName'
+_DC='appcCnosTargetLocLuName'
+_DB='appcCnosForce'
+_DA='appcCnosResponsible'
+_D9='appcCnosDrainPart'
+_D8='appcCnosDrainSelf'
+_D7='appcCnosMinClosLimit'
+_D6='appcCnosMinCwinLimit'
+_D5='appcCnosMaxSessLimit'
+_D4='appcCnosCommand'
+_D3='appcCntrlOperTraceParm'
+_D2='appcCntrlOperTraceTime'
+_D1='appcCntrlOperTrace'
+_D0='appcCntrlOperRscvTime'
+_C_='appcCntrlOperRscv'
+_Cz='appcCntrlOperStatTime'
+_Cy='appcCntrlOperStat'
+_Cx='appcCntrlAdminTraceParm'
+_Cw='appcCntrlAdminTrace'
+_Cv='appcCntrlAdminRscv'
+_Cu='appcCntrlAdminStat'
+_Ct='appcSessRtpSessions'
+_Cs='appcHistSessDetectModule'
+_Cr='appcHistSessComponentId'
+_Cq='appcHistSessSenseData'
+_Cp='appcHistSessUnbindType'
+_Co='appcHistSessModeName'
+_Cn='appcHistSessParLuName'
+_Cm='appcHistSessLocLuName'
+_Cl='appcHistSessType'
+_Ck='appcHistSessTime'
+_Cj='appcSessStatsCtrUpTime'
+_Ci='appcSessStatsRcvdNonFmdRus'
+_Ch='appcSessStatsRcvdFmdRus'
+_Cg='appcSessStatsSentNonFmdRus'
+_Cf='appcSessStatsSentFmdRus'
+_Ce='appcSessStatsRcvdNonFmdBytes'
+_Cd='appcSessStatsRcvdFmdBytes'
+_Cc='appcSessStatsSentNonFmdBytes'
+_Cb='appcSessStatsSentFmdBytes'
+_Ca='appcActSessLinkIndex'
+_CZ='appcActSessRtpTcid'
+_CY='appcActSessRtpNceId'
+_CX='appcActSessUpTime'
+_CW='appcActSessOperState'
+_CV='appcActSessRcvPacingSize'
+_CU='appcActSessSndPacingSize'
+_CT='appcActSessMaxRcvRuSize'
+_CS='appcActSessMaxSndRuSize'
+_CR='appcActSessInUse'
+_CQ='appcActSessRscv'
+_CP='appcActSessRecvNxWndwSize'
+_CO='appcActSessRecvRpc'
+_CN='appcActSessRecvPacingType'
+_CM='appcActSessSendNxWndwSize'
+_CL='appcActSessSendRpc'
+_CK='appcActSessSendPacingType'
+_CJ='appcActSessEnhanceSecSup'
+_CI='appcActSessTransPriority'
+_CH='appcActSessCosName'
+_CG='appcActSessModeName'
+_CF='appcActSessPluIndicator'
+_CE='appcActSessPcid'
+_CD='appcActSessPcidCpName'
+_CC='appcTpAdminPipSubNum'
+_CB='appcTpAdminVerPip'
+_CA='appcTpAdminConvSecReq'
+_C9='appcTpAdminConvDuplex'
+_C8='appcTpAdminConvType'
+_C7='appcTpAdminLongRun'
+_C6='appcTpAdminStatus'
+_C5='appcTpAdminInstLmt'
+_C4='appcTpAdminSyncLvl'
+_C3='appcTpAdminRcvAllocTimeout'
+_C2='appcTpAdminInAttachTimeout'
+_C1='appcTpAdminTpOperation'
+_C0='appcTpAdminStartParm'
+_B_='appcTpAdminFileSpec'
+_Bz='appcModeOperDrainPart'
+_By='appcModeOperDrainSelf'
+_Bx='appcModeOperPtmClos'
+_Bw='appcModeOperPtmCwin'
+_Bv='appcModeOperPndClos'
+_Bu='appcModeOperPndCwin'
+_Bt='appcModeOperActClos'
+_Bs='appcModeOperActCwin'
+_Br='appcModeOperCNOSNeg'
+_Bq='appcModeOperCryptoLastStart'
+_Bp='appcModeOperSyncLvlLastStart'
+_Bo='appcModeOperCrypto'
+_Bn='appcModeOperSyncLvl'
+_Bm='appcModeOperCompRleBeforeLZ'
+_Bl='appcModeOperOutBoundCompLevel'
+_Bk='appcModeOperInBoundCompLevel'
+_Bj='appcModeOperCompression'
+_Bi='appcModeOperSingSessReinit'
+_Bh='appcModeOperSendRuSzLoBnd'
+_Bg='appcModeOperRecvRuSzLoBnd'
+_Bf='appcModeOperSendRuSzUpBnd'
+_Be='appcModeOperRecvRuSzUpBnd'
+_Bd='appcModeOperPrefSendRuSz'
+_Bc='appcModeOperPrefRecvRuSz'
+_Bb='appcModeOperSendPacWinSz'
+_Ba='appcModeOperRecvPacWinSz'
+_BZ='appcModeOperConWinAutoActLmt'
+_BY='appcModeOperMinClosLimit'
+_BX='appcModeOperMinCwinLimit'
+_BW='appcModeOperMaxSessLimit'
+_BV='appcModeOperSessLimit'
+_BU='appcModeOperSessEndTpName'
+_BT='appcModeOperCosName'
+_BS='appcModeAdminCrypto'
+_BR='appcModeAdminSyncLvl'
+_BQ='appcModeAdminCompRleBeforeLZ'
+_BP='appcModeAdminOutBoundCompLevel'
+_BO='appcModeAdminInBoundCompLevel'
+_BN='appcModeAdminCompression'
+_BM='appcModeAdminSingSessReinit'
+_BL='appcModeAdminSendRuSzLoBnd'
+_BK='appcModeAdminRecvRuSzLoBnd'
+_BJ='appcModeAdminSendRuSzUpBnd'
+_BI='appcModeAdminRecvRuSzUpBnd'
+_BH='appcModeAdminPrefSendRuSz'
+_BG='appcModeAdminPrefRecvRuSz'
+_BF='appcModeAdminSendPacWinSz'
+_BE='appcModeAdminRecvPacWinSz'
+_BD='appcModeAdminConWinAutoActLmt'
+_BC='appcModeAdminMinClosLimit'
+_BB='appcModeAdminMinCwinLimit'
+_BA='appcModeAdminMaxSessLimit'
+_B9='appcModeAdminSessEndTpName'
+_B8='appcModeAdminCosName'
+_B7='appcLuPairOperState'
+_B6='appcLuPairOperParaSessSupLS'
+_B5='appcLuPairOperParaSessSup'
+_B4='appcLuPairOperLinkObjId'
+_B3='appcLuPairOperSecAccept'
+_B2='appcLuPairOperSessSec'
+_B1='appcLuPairOperSessLimit'
+_B0='appcLuPairOperParLuAlias'
+_A_='appcLuPairAdminParaSessSup'
+_Az='appcLuPairAdminLinkObjId'
+_Ay='appcLuPairAdminSecAccept'
+_Ax='appcLuPairAdminSessSec'
+_Aw='appcLuPairAdminSessLimit'
+_Av='appcLuPairAdminParLuAlias'
+_Au='appcLluOperActiveSessions'
+_At='appcLluOperAlias'
+_As='appcLluOperCompRleBeforeLZ'
+_Ar='appcLluOperOutBoundCompLevel'
+_Aq='appcLluOperInBoundCompLevel'
+_Ap='appcLluOperCompression'
+_Ao='appcLluOperBindRspMayQ'
+_An='appcLluOperSessLimit'
+_Am='appcLluOperLocalAddress'
+_Al='appcLluOperDepType'
+_Ak='appcLluAdminAlias'
+_Aj='appcLluAdminCompRleBeforeLZ'
+_Ai='appcLluAdminOutBoundCompLevel'
+_Ah='appcLluAdminInBoundCompLevel'
+_Ag='appcLluAdminCompression'
+_Af='appcLluAdminBindRspMayQ'
+_Ae='appcLluAdminSessLimit'
+_Ad='appcLluAdminLocalAddress'
+_Ac='appcLluAdminDepType'
+_Ab='appcActiveHprSessions'
+_Aa='appcActiveSessions'
+_AZ='appcLocalCpName'
+_AY='appcDefaultTpConvSecRqd'
+_AX='appcDefaultTpOperation'
+_AW='appcDefaultFileSpec'
+_AV='appcDefaultMaxMcLlSndSize'
+_AU='appcDefaultImplInbndPlu'
+_AT='appcDefaultLuName'
+_AS='appcDefaultModeName'
+_AR='appcUpTime'
+_AQ='appcCpicOperSymbDestName'
+_AP='appcCpicOperLocLuName'
+_AO='distributed'
+_AN='pgmStrong'
+_AM='snaServiceTp'
+_AL='appcCpicAdminSymbDestName'
+_AK='appcCpicAdminLocLuName'
+_AJ='appcHistConvIndex'
+_AI='partnerLu'
+_AH='appcActiveConvSessIndex'
+_AG='appcActiveConvParLuName'
+_AF='appcActiveConvLocLuName'
+_AE='appcSessRtpTcid'
+_AD='appcSessRtpNceId'
+_AC='appcHistSessIndex'
+_AB='appcSessStatsSessIndex'
+_AA='appcSessStatsParLuName'
+_A9='appcSessStatsLocLuName'
+_A8='appcActSessIndex'
+_A7='appcActSessParLuName'
+_A6='appcActSessLocLuName'
+_A5='syncpoint'
+_A4='appcTpAdminTpName'
+_A3='appcTpAdminLocLuName'
+_A2='appcModeOperModeName'
+_A1='appcModeOperParLuName'
+_A0='appcModeOperLocLuName'
+_z='primaryOrSecondary'
+_y='secondaryOnly'
+_x='primaryOnly'
+_w='operatorControlled'
+_v='notApplicable'
+_u='appcModeAdminModeName'
+_t='appcModeAdminParLuName'
+_s='appcModeAdminLocLuName'
+_r='appcLuPairOperParLuName'
+_q='appcLuPairOperLocLuName'
+_p='aVandpV'
+_o='persistentVerification'
+_n='alreadyVerified'
+_m='conversation'
+_l='notAllowed'
+_k='accepted'
+_j='appcLuPairAdminParLuName'
+_i='appcLuPairAdminLocLuName'
+_h='appcLluOperName'
+_g='independent'
+_f='dependent'
+_e='appcLluAdminName'
+_d='nonqueuedAmStarted'
+_c='queuedAmStarted'
+_b='queuedOperatorPreloaded'
+_a='queuedOperatorStarted'
+_Z='confirm'
+_Y='selective'
+_X='mandatory'
+_W='notSupported'
+_V='noneConfirmSyncPoint'
+_U='noneConfirm'
+_T='negotiable'
+_S='prohibited'
+_R='required'
+_Q='notActive'
+_P='active'
+_O='lz12'
+_N='lz10'
+_M='lz9'
+_L='rle'
+_K='read-write'
+_J='OctetString'
+_I='none'
+_H='yes'
+_G='no'
+_F='not-accessible'
+_E='DisplayString'
+_D='Integer32'
+_C='read-only'
+_B='APPC-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_J,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+snanauMIB,=mibBuilder.importSymbols('SNA-NAU-MIB','snanauMIB')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DateAndTime,DisplayString,InstancePointer,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime',_E,'InstancePointer','PhysAddress','TextualConvention')
+appcMIB=ModuleIdentity((1,3,6,1,2,1,34,3))
+class SnaSenseData(DisplayString):status=_A;subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
+_AppcObjects_ObjectIdentity=ObjectIdentity
+appcObjects=_AppcObjects_ObjectIdentity((1,3,6,1,2,1,34,3,1))
+_AppcGlobal_ObjectIdentity=ObjectIdentity
+appcGlobal=_AppcGlobal_ObjectIdentity((1,3,6,1,2,1,34,3,1,1))
+_AppcCntrlAdminGroup_ObjectIdentity=ObjectIdentity
+appcCntrlAdminGroup=_AppcCntrlAdminGroup_ObjectIdentity((1,3,6,1,2,1,34,3,1,1,1))
+class _AppcCntrlAdminStat_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_Q,1),(_P,2)))
+_AppcCntrlAdminStat_Type.__name__=_D
+_AppcCntrlAdminStat_Object=MibScalar
+appcCntrlAdminStat=_AppcCntrlAdminStat_Object((1,3,6,1,2,1,34,3,1,1,1,1),_AppcCntrlAdminStat_Type())
+appcCntrlAdminStat.setMaxAccess(_K)
+if mibBuilder.loadTexts:appcCntrlAdminStat.setStatus(_A)
+class _AppcCntrlAdminRscv_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_Q,1),(_P,2)))
+_AppcCntrlAdminRscv_Type.__name__=_D
+_AppcCntrlAdminRscv_Object=MibScalar
+appcCntrlAdminRscv=_AppcCntrlAdminRscv_Object((1,3,6,1,2,1,34,3,1,1,1,2),_AppcCntrlAdminRscv_Type())
+appcCntrlAdminRscv.setMaxAccess(_K)
+if mibBuilder.loadTexts:appcCntrlAdminRscv.setStatus(_A)
+class _AppcCntrlAdminTrace_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_Q,1),(_P,2)))
+_AppcCntrlAdminTrace_Type.__name__=_D
+_AppcCntrlAdminTrace_Object=MibScalar
+appcCntrlAdminTrace=_AppcCntrlAdminTrace_Object((1,3,6,1,2,1,34,3,1,1,1,3),_AppcCntrlAdminTrace_Type())
+appcCntrlAdminTrace.setMaxAccess(_K)
+if mibBuilder.loadTexts:appcCntrlAdminTrace.setStatus(_A)
+class _AppcCntrlAdminTraceParm_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
+_AppcCntrlAdminTraceParm_Type.__name__=_E
+_AppcCntrlAdminTraceParm_Object=MibScalar
+appcCntrlAdminTraceParm=_AppcCntrlAdminTraceParm_Object((1,3,6,1,2,1,34,3,1,1,1,4),_AppcCntrlAdminTraceParm_Type())
+appcCntrlAdminTraceParm.setMaxAccess(_K)
+if mibBuilder.loadTexts:appcCntrlAdminTraceParm.setStatus(_A)
+_AppcCntrlOperGroup_ObjectIdentity=ObjectIdentity
+appcCntrlOperGroup=_AppcCntrlOperGroup_ObjectIdentity((1,3,6,1,2,1,34,3,1,1,2))
+class _AppcCntrlOperStat_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_Q,1),(_P,2)))
+_AppcCntrlOperStat_Type.__name__=_D
+_AppcCntrlOperStat_Object=MibScalar
+appcCntrlOperStat=_AppcCntrlOperStat_Object((1,3,6,1,2,1,34,3,1,1,2,1),_AppcCntrlOperStat_Type())
+appcCntrlOperStat.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCntrlOperStat.setStatus(_A)
+_AppcCntrlOperStatTime_Type=TimeTicks
+_AppcCntrlOperStatTime_Object=MibScalar
+appcCntrlOperStatTime=_AppcCntrlOperStatTime_Object((1,3,6,1,2,1,34,3,1,1,2,2),_AppcCntrlOperStatTime_Type())
+appcCntrlOperStatTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCntrlOperStatTime.setStatus(_A)
+class _AppcCntrlOperRscv_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_Q,1),(_P,2)))
+_AppcCntrlOperRscv_Type.__name__=_D
+_AppcCntrlOperRscv_Object=MibScalar
+appcCntrlOperRscv=_AppcCntrlOperRscv_Object((1,3,6,1,2,1,34,3,1,1,2,3),_AppcCntrlOperRscv_Type())
+appcCntrlOperRscv.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCntrlOperRscv.setStatus(_A)
+_AppcCntrlOperRscvTime_Type=TimeTicks
+_AppcCntrlOperRscvTime_Object=MibScalar
+appcCntrlOperRscvTime=_AppcCntrlOperRscvTime_Object((1,3,6,1,2,1,34,3,1,1,2,4),_AppcCntrlOperRscvTime_Type())
+appcCntrlOperRscvTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCntrlOperRscvTime.setStatus(_A)
+class _AppcCntrlOperTrace_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_Q,1),(_P,2)))
+_AppcCntrlOperTrace_Type.__name__=_D
+_AppcCntrlOperTrace_Object=MibScalar
+appcCntrlOperTrace=_AppcCntrlOperTrace_Object((1,3,6,1,2,1,34,3,1,1,2,5),_AppcCntrlOperTrace_Type())
+appcCntrlOperTrace.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCntrlOperTrace.setStatus(_A)
+_AppcCntrlOperTraceTime_Type=TimeTicks
+_AppcCntrlOperTraceTime_Object=MibScalar
+appcCntrlOperTraceTime=_AppcCntrlOperTraceTime_Object((1,3,6,1,2,1,34,3,1,1,2,6),_AppcCntrlOperTraceTime_Type())
+appcCntrlOperTraceTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCntrlOperTraceTime.setStatus(_A)
+class _AppcCntrlOperTraceParm_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
+_AppcCntrlOperTraceParm_Type.__name__=_E
+_AppcCntrlOperTraceParm_Object=MibScalar
+appcCntrlOperTraceParm=_AppcCntrlOperTraceParm_Object((1,3,6,1,2,1,34,3,1,1,2,7),_AppcCntrlOperTraceParm_Type())
+appcCntrlOperTraceParm.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCntrlOperTraceParm.setStatus(_A)
+_AppcGlobalObjects_ObjectIdentity=ObjectIdentity
+appcGlobalObjects=_AppcGlobalObjects_ObjectIdentity((1,3,6,1,2,1,34,3,1,1,3))
+_AppcUpTime_Type=TimeTicks
+_AppcUpTime_Object=MibScalar
+appcUpTime=_AppcUpTime_Object((1,3,6,1,2,1,34,3,1,1,3,1),_AppcUpTime_Type())
+appcUpTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcUpTime.setStatus(_A)
+class _AppcDefaultModeName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
+_AppcDefaultModeName_Type.__name__=_E
+_AppcDefaultModeName_Object=MibScalar
+appcDefaultModeName=_AppcDefaultModeName_Object((1,3,6,1,2,1,34,3,1,1,3,2),_AppcDefaultModeName_Type())
+appcDefaultModeName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcDefaultModeName.setStatus(_A)
+class _AppcDefaultLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcDefaultLuName_Type.__name__=_E
+_AppcDefaultLuName_Object=MibScalar
+appcDefaultLuName=_AppcDefaultLuName_Object((1,3,6,1,2,1,34,3,1,1,3,3),_AppcDefaultLuName_Type())
+appcDefaultLuName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcDefaultLuName.setStatus(_A)
+class _AppcDefaultImplInbndPlu_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcDefaultImplInbndPlu_Type.__name__=_D
+_AppcDefaultImplInbndPlu_Object=MibScalar
+appcDefaultImplInbndPlu=_AppcDefaultImplInbndPlu_Object((1,3,6,1,2,1,34,3,1,1,3,4),_AppcDefaultImplInbndPlu_Type())
+appcDefaultImplInbndPlu.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcDefaultImplInbndPlu.setStatus(_A)
+_AppcDefaultMaxMcLlSndSize_Type=Integer32
+_AppcDefaultMaxMcLlSndSize_Object=MibScalar
+appcDefaultMaxMcLlSndSize=_AppcDefaultMaxMcLlSndSize_Object((1,3,6,1,2,1,34,3,1,1,3,5),_AppcDefaultMaxMcLlSndSize_Type())
+appcDefaultMaxMcLlSndSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcDefaultMaxMcLlSndSize.setStatus(_A)
+class _AppcDefaultFileSpec_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
+_AppcDefaultFileSpec_Type.__name__=_E
+_AppcDefaultFileSpec_Object=MibScalar
+appcDefaultFileSpec=_AppcDefaultFileSpec_Object((1,3,6,1,2,1,34,3,1,1,3,6),_AppcDefaultFileSpec_Type())
+appcDefaultFileSpec.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcDefaultFileSpec.setStatus(_A)
+class _AppcDefaultTpOperation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('other',1),(_a,2),(_b,3),(_c,4),(_d,5)))
+_AppcDefaultTpOperation_Type.__name__=_D
+_AppcDefaultTpOperation_Object=MibScalar
+appcDefaultTpOperation=_AppcDefaultTpOperation_Object((1,3,6,1,2,1,34,3,1,1,3,7),_AppcDefaultTpOperation_Type())
+appcDefaultTpOperation.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcDefaultTpOperation.setStatus(_A)
+class _AppcDefaultTpConvSecRqd_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcDefaultTpConvSecRqd_Type.__name__=_D
+_AppcDefaultTpConvSecRqd_Object=MibScalar
+appcDefaultTpConvSecRqd=_AppcDefaultTpConvSecRqd_Object((1,3,6,1,2,1,34,3,1,1,3,8),_AppcDefaultTpConvSecRqd_Type())
+appcDefaultTpConvSecRqd.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcDefaultTpConvSecRqd.setStatus(_A)
+class _AppcLocalCpName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,17))
+_AppcLocalCpName_Type.__name__=_E
+_AppcLocalCpName_Object=MibScalar
+appcLocalCpName=_AppcLocalCpName_Object((1,3,6,1,2,1,34,3,1,1,3,9),_AppcLocalCpName_Type())
+appcLocalCpName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLocalCpName.setStatus(_A)
+_AppcActiveSessions_Type=Gauge32
+_AppcActiveSessions_Object=MibScalar
+appcActiveSessions=_AppcActiveSessions_Object((1,3,6,1,2,1,34,3,1,1,3,10),_AppcActiveSessions_Type())
+appcActiveSessions.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveSessions.setStatus(_A)
+_AppcActiveHprSessions_Type=Gauge32
+_AppcActiveHprSessions_Object=MibScalar
+appcActiveHprSessions=_AppcActiveHprSessions_Object((1,3,6,1,2,1,34,3,1,1,3,11),_AppcActiveHprSessions_Type())
+appcActiveHprSessions.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveHprSessions.setStatus(_A)
+_AppcCnosControl_ObjectIdentity=ObjectIdentity
+appcCnosControl=_AppcCnosControl_ObjectIdentity((1,3,6,1,2,1,34,3,1,1,4))
+class _AppcCnosCommand_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('initSesslimit',1),('changeSesslimit',2),('resetSesslimit',3)))
+_AppcCnosCommand_Type.__name__=_D
+_AppcCnosCommand_Object=MibScalar
+appcCnosCommand=_AppcCnosCommand_Object((1,3,6,1,2,1,34,3,1,1,4,1),_AppcCnosCommand_Type())
+appcCnosCommand.setMaxAccess(_K)
+if mibBuilder.loadTexts:appcCnosCommand.setStatus(_A)
+class _AppcCnosMaxSessLimit_Type(Integer32):defaultValue=0
+_AppcCnosMaxSessLimit_Type.__name__=_D
+_AppcCnosMaxSessLimit_Object=MibScalar
+appcCnosMaxSessLimit=_AppcCnosMaxSessLimit_Object((1,3,6,1,2,1,34,3,1,1,4,2),_AppcCnosMaxSessLimit_Type())
+appcCnosMaxSessLimit.setMaxAccess(_K)
+if mibBuilder.loadTexts:appcCnosMaxSessLimit.setStatus(_A)
+class _AppcCnosMinCwinLimit_Type(Integer32):defaultValue=0
+_AppcCnosMinCwinLimit_Type.__name__=_D
+_AppcCnosMinCwinLimit_Object=MibScalar
+appcCnosMinCwinLimit=_AppcCnosMinCwinLimit_Object((1,3,6,1,2,1,34,3,1,1,4,3),_AppcCnosMinCwinLimit_Type())
+appcCnosMinCwinLimit.setMaxAccess(_K)
+if mibBuilder.loadTexts:appcCnosMinCwinLimit.setStatus(_A)
+class _AppcCnosMinClosLimit_Type(Integer32):defaultValue=0
+_AppcCnosMinClosLimit_Type.__name__=_D
+_AppcCnosMinClosLimit_Object=MibScalar
+appcCnosMinClosLimit=_AppcCnosMinClosLimit_Object((1,3,6,1,2,1,34,3,1,1,4,4),_AppcCnosMinClosLimit_Type())
+appcCnosMinClosLimit.setMaxAccess(_K)
+if mibBuilder.loadTexts:appcCnosMinClosLimit.setStatus(_A)
+class _AppcCnosDrainSelf_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcCnosDrainSelf_Type.__name__=_D
+_AppcCnosDrainSelf_Object=MibScalar
+appcCnosDrainSelf=_AppcCnosDrainSelf_Object((1,3,6,1,2,1,34,3,1,1,4,5),_AppcCnosDrainSelf_Type())
+appcCnosDrainSelf.setMaxAccess(_K)
+if mibBuilder.loadTexts:appcCnosDrainSelf.setStatus(_A)
+class _AppcCnosDrainPart_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcCnosDrainPart_Type.__name__=_D
+_AppcCnosDrainPart_Object=MibScalar
+appcCnosDrainPart=_AppcCnosDrainPart_Object((1,3,6,1,2,1,34,3,1,1,4,6),_AppcCnosDrainPart_Type())
+appcCnosDrainPart.setMaxAccess(_K)
+if mibBuilder.loadTexts:appcCnosDrainPart.setStatus(_A)
+class _AppcCnosResponsible_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('source',1),('target',2)))
+_AppcCnosResponsible_Type.__name__=_D
+_AppcCnosResponsible_Object=MibScalar
+appcCnosResponsible=_AppcCnosResponsible_Object((1,3,6,1,2,1,34,3,1,1,4,7),_AppcCnosResponsible_Type())
+appcCnosResponsible.setMaxAccess(_K)
+if mibBuilder.loadTexts:appcCnosResponsible.setStatus(_A)
+class _AppcCnosForce_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcCnosForce_Type.__name__=_D
+_AppcCnosForce_Object=MibScalar
+appcCnosForce=_AppcCnosForce_Object((1,3,6,1,2,1,34,3,1,1,4,8),_AppcCnosForce_Type())
+appcCnosForce.setMaxAccess(_K)
+if mibBuilder.loadTexts:appcCnosForce.setStatus(_A)
+class _AppcCnosTargetLocLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcCnosTargetLocLuName_Type.__name__=_E
+_AppcCnosTargetLocLuName_Object=MibScalar
+appcCnosTargetLocLuName=_AppcCnosTargetLocLuName_Object((1,3,6,1,2,1,34,3,1,1,4,9),_AppcCnosTargetLocLuName_Type())
+appcCnosTargetLocLuName.setMaxAccess(_K)
+if mibBuilder.loadTexts:appcCnosTargetLocLuName.setStatus(_A)
+class _AppcCnosTargetParLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcCnosTargetParLuName_Type.__name__=_E
+_AppcCnosTargetParLuName_Object=MibScalar
+appcCnosTargetParLuName=_AppcCnosTargetParLuName_Object((1,3,6,1,2,1,34,3,1,1,4,10),_AppcCnosTargetParLuName_Type())
+appcCnosTargetParLuName.setMaxAccess(_K)
+if mibBuilder.loadTexts:appcCnosTargetParLuName.setStatus(_A)
+class _AppcCnosTargetModeName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
+_AppcCnosTargetModeName_Type.__name__=_E
+_AppcCnosTargetModeName_Object=MibScalar
+appcCnosTargetModeName=_AppcCnosTargetModeName_Object((1,3,6,1,2,1,34,3,1,1,4,11),_AppcCnosTargetModeName_Type())
+appcCnosTargetModeName.setMaxAccess(_K)
+if mibBuilder.loadTexts:appcCnosTargetModeName.setStatus(_A)
+_AppcLu_ObjectIdentity=ObjectIdentity
+appcLu=_AppcLu_ObjectIdentity((1,3,6,1,2,1,34,3,1,2))
+_AppcLluAdminTable_Object=MibTable
+appcLluAdminTable=_AppcLluAdminTable_Object((1,3,6,1,2,1,34,3,1,2,1))
+if mibBuilder.loadTexts:appcLluAdminTable.setStatus(_A)
+_AppcLluAdminEntry_Object=MibTableRow
+appcLluAdminEntry=_AppcLluAdminEntry_Object((1,3,6,1,2,1,34,3,1,2,1,1))
+appcLluAdminEntry.setIndexNames((0,_B,_e))
+if mibBuilder.loadTexts:appcLluAdminEntry.setStatus(_A)
+class _AppcLluAdminName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcLluAdminName_Type.__name__=_E
+_AppcLluAdminName_Object=MibTableColumn
+appcLluAdminName=_AppcLluAdminName_Object((1,3,6,1,2,1,34,3,1,2,1,1,1),_AppcLluAdminName_Type())
+appcLluAdminName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcLluAdminName.setStatus(_A)
+class _AppcLluAdminDepType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_f,1),(_g,2)))
+_AppcLluAdminDepType_Type.__name__=_D
+_AppcLluAdminDepType_Object=MibTableColumn
+appcLluAdminDepType=_AppcLluAdminDepType_Object((1,3,6,1,2,1,34,3,1,2,1,1,2),_AppcLluAdminDepType_Type())
+appcLluAdminDepType.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluAdminDepType.setStatus(_A)
+class _AppcLluAdminLocalAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_AppcLluAdminLocalAddress_Type.__name__=_J
+_AppcLluAdminLocalAddress_Object=MibTableColumn
+appcLluAdminLocalAddress=_AppcLluAdminLocalAddress_Object((1,3,6,1,2,1,34,3,1,2,1,1,3),_AppcLluAdminLocalAddress_Type())
+appcLluAdminLocalAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluAdminLocalAddress.setStatus(_A)
+_AppcLluAdminSessLimit_Type=Integer32
+_AppcLluAdminSessLimit_Object=MibTableColumn
+appcLluAdminSessLimit=_AppcLluAdminSessLimit_Object((1,3,6,1,2,1,34,3,1,2,1,1,4),_AppcLluAdminSessLimit_Type())
+appcLluAdminSessLimit.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluAdminSessLimit.setStatus(_A)
+class _AppcLluAdminBindRspMayQ_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcLluAdminBindRspMayQ_Type.__name__=_D
+_AppcLluAdminBindRspMayQ_Object=MibTableColumn
+appcLluAdminBindRspMayQ=_AppcLluAdminBindRspMayQ_Object((1,3,6,1,2,1,34,3,1,2,1,1,5),_AppcLluAdminBindRspMayQ_Type())
+appcLluAdminBindRspMayQ.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluAdminBindRspMayQ.setStatus(_A)
+class _AppcLluAdminCompression_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_S,1),(_R,2),(_T,3)))
+_AppcLluAdminCompression_Type.__name__=_D
+_AppcLluAdminCompression_Object=MibTableColumn
+appcLluAdminCompression=_AppcLluAdminCompression_Object((1,3,6,1,2,1,34,3,1,2,1,1,6),_AppcLluAdminCompression_Type())
+appcLluAdminCompression.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluAdminCompression.setStatus(_A)
+class _AppcLluAdminInBoundCompLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_I,1),(_L,2),(_M,3),(_N,4),(_O,5)))
+_AppcLluAdminInBoundCompLevel_Type.__name__=_D
+_AppcLluAdminInBoundCompLevel_Object=MibTableColumn
+appcLluAdminInBoundCompLevel=_AppcLluAdminInBoundCompLevel_Object((1,3,6,1,2,1,34,3,1,2,1,1,7),_AppcLluAdminInBoundCompLevel_Type())
+appcLluAdminInBoundCompLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluAdminInBoundCompLevel.setStatus(_A)
+class _AppcLluAdminOutBoundCompLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_I,1),(_L,2),(_M,3),(_N,4),(_O,5)))
+_AppcLluAdminOutBoundCompLevel_Type.__name__=_D
+_AppcLluAdminOutBoundCompLevel_Object=MibTableColumn
+appcLluAdminOutBoundCompLevel=_AppcLluAdminOutBoundCompLevel_Object((1,3,6,1,2,1,34,3,1,2,1,1,8),_AppcLluAdminOutBoundCompLevel_Type())
+appcLluAdminOutBoundCompLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluAdminOutBoundCompLevel.setStatus(_A)
+class _AppcLluAdminCompRleBeforeLZ_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcLluAdminCompRleBeforeLZ_Type.__name__=_D
+_AppcLluAdminCompRleBeforeLZ_Object=MibTableColumn
+appcLluAdminCompRleBeforeLZ=_AppcLluAdminCompRleBeforeLZ_Object((1,3,6,1,2,1,34,3,1,2,1,1,9),_AppcLluAdminCompRleBeforeLZ_Type())
+appcLluAdminCompRleBeforeLZ.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluAdminCompRleBeforeLZ.setStatus(_A)
+class _AppcLluAdminAlias_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_AppcLluAdminAlias_Type.__name__=_E
+_AppcLluAdminAlias_Object=MibTableColumn
+appcLluAdminAlias=_AppcLluAdminAlias_Object((1,3,6,1,2,1,34,3,1,2,1,1,10),_AppcLluAdminAlias_Type())
+appcLluAdminAlias.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluAdminAlias.setStatus(_A)
+_AppcLluOperTable_Object=MibTable
+appcLluOperTable=_AppcLluOperTable_Object((1,3,6,1,2,1,34,3,1,2,2))
+if mibBuilder.loadTexts:appcLluOperTable.setStatus(_A)
+_AppcLluOperEntry_Object=MibTableRow
+appcLluOperEntry=_AppcLluOperEntry_Object((1,3,6,1,2,1,34,3,1,2,2,1))
+appcLluOperEntry.setIndexNames((0,_B,_h))
+if mibBuilder.loadTexts:appcLluOperEntry.setStatus(_A)
+class _AppcLluOperName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcLluOperName_Type.__name__=_E
+_AppcLluOperName_Object=MibTableColumn
+appcLluOperName=_AppcLluOperName_Object((1,3,6,1,2,1,34,3,1,2,2,1,1),_AppcLluOperName_Type())
+appcLluOperName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcLluOperName.setStatus(_A)
+class _AppcLluOperDepType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_f,1),(_g,2)))
+_AppcLluOperDepType_Type.__name__=_D
+_AppcLluOperDepType_Object=MibTableColumn
+appcLluOperDepType=_AppcLluOperDepType_Object((1,3,6,1,2,1,34,3,1,2,2,1,2),_AppcLluOperDepType_Type())
+appcLluOperDepType.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluOperDepType.setStatus(_A)
+class _AppcLluOperLocalAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_AppcLluOperLocalAddress_Type.__name__=_J
+_AppcLluOperLocalAddress_Object=MibTableColumn
+appcLluOperLocalAddress=_AppcLluOperLocalAddress_Object((1,3,6,1,2,1,34,3,1,2,2,1,3),_AppcLluOperLocalAddress_Type())
+appcLluOperLocalAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluOperLocalAddress.setStatus(_A)
+_AppcLluOperSessLimit_Type=Integer32
+_AppcLluOperSessLimit_Object=MibTableColumn
+appcLluOperSessLimit=_AppcLluOperSessLimit_Object((1,3,6,1,2,1,34,3,1,2,2,1,4),_AppcLluOperSessLimit_Type())
+appcLluOperSessLimit.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluOperSessLimit.setStatus(_A)
+class _AppcLluOperBindRspMayQ_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcLluOperBindRspMayQ_Type.__name__=_D
+_AppcLluOperBindRspMayQ_Object=MibTableColumn
+appcLluOperBindRspMayQ=_AppcLluOperBindRspMayQ_Object((1,3,6,1,2,1,34,3,1,2,2,1,5),_AppcLluOperBindRspMayQ_Type())
+appcLluOperBindRspMayQ.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluOperBindRspMayQ.setStatus(_A)
+class _AppcLluOperCompression_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_S,1),(_R,2),(_T,3)))
+_AppcLluOperCompression_Type.__name__=_D
+_AppcLluOperCompression_Object=MibTableColumn
+appcLluOperCompression=_AppcLluOperCompression_Object((1,3,6,1,2,1,34,3,1,2,2,1,6),_AppcLluOperCompression_Type())
+appcLluOperCompression.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluOperCompression.setStatus(_A)
+class _AppcLluOperInBoundCompLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_I,1),(_L,2),(_M,3),(_N,4),(_O,5)))
+_AppcLluOperInBoundCompLevel_Type.__name__=_D
+_AppcLluOperInBoundCompLevel_Object=MibTableColumn
+appcLluOperInBoundCompLevel=_AppcLluOperInBoundCompLevel_Object((1,3,6,1,2,1,34,3,1,2,2,1,7),_AppcLluOperInBoundCompLevel_Type())
+appcLluOperInBoundCompLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluOperInBoundCompLevel.setStatus(_A)
+class _AppcLluOperOutBoundCompLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_I,1),(_L,2),(_M,3),(_N,4),(_O,5)))
+_AppcLluOperOutBoundCompLevel_Type.__name__=_D
+_AppcLluOperOutBoundCompLevel_Object=MibTableColumn
+appcLluOperOutBoundCompLevel=_AppcLluOperOutBoundCompLevel_Object((1,3,6,1,2,1,34,3,1,2,2,1,8),_AppcLluOperOutBoundCompLevel_Type())
+appcLluOperOutBoundCompLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluOperOutBoundCompLevel.setStatus(_A)
+class _AppcLluOperCompRleBeforeLZ_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcLluOperCompRleBeforeLZ_Type.__name__=_D
+_AppcLluOperCompRleBeforeLZ_Object=MibTableColumn
+appcLluOperCompRleBeforeLZ=_AppcLluOperCompRleBeforeLZ_Object((1,3,6,1,2,1,34,3,1,2,2,1,9),_AppcLluOperCompRleBeforeLZ_Type())
+appcLluOperCompRleBeforeLZ.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluOperCompRleBeforeLZ.setStatus(_A)
+class _AppcLluOperAlias_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_AppcLluOperAlias_Type.__name__=_E
+_AppcLluOperAlias_Object=MibTableColumn
+appcLluOperAlias=_AppcLluOperAlias_Object((1,3,6,1,2,1,34,3,1,2,2,1,10),_AppcLluOperAlias_Type())
+appcLluOperAlias.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluOperAlias.setStatus(_A)
+_AppcLluOperActiveSessions_Type=Gauge32
+_AppcLluOperActiveSessions_Object=MibTableColumn
+appcLluOperActiveSessions=_AppcLluOperActiveSessions_Object((1,3,6,1,2,1,34,3,1,2,2,1,11),_AppcLluOperActiveSessions_Type())
+appcLluOperActiveSessions.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLluOperActiveSessions.setStatus(_A)
+_AppcLuPairAdminTable_Object=MibTable
+appcLuPairAdminTable=_AppcLuPairAdminTable_Object((1,3,6,1,2,1,34,3,1,2,3))
+if mibBuilder.loadTexts:appcLuPairAdminTable.setStatus(_A)
+_AppcLuPairAdminEntry_Object=MibTableRow
+appcLuPairAdminEntry=_AppcLuPairAdminEntry_Object((1,3,6,1,2,1,34,3,1,2,3,1))
+appcLuPairAdminEntry.setIndexNames((0,_B,_i),(0,_B,_j))
+if mibBuilder.loadTexts:appcLuPairAdminEntry.setStatus(_A)
+class _AppcLuPairAdminLocLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcLuPairAdminLocLuName_Type.__name__=_E
+_AppcLuPairAdminLocLuName_Object=MibTableColumn
+appcLuPairAdminLocLuName=_AppcLuPairAdminLocLuName_Object((1,3,6,1,2,1,34,3,1,2,3,1,1),_AppcLuPairAdminLocLuName_Type())
+appcLuPairAdminLocLuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcLuPairAdminLocLuName.setStatus(_A)
+class _AppcLuPairAdminParLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcLuPairAdminParLuName_Type.__name__=_E
+_AppcLuPairAdminParLuName_Object=MibTableColumn
+appcLuPairAdminParLuName=_AppcLuPairAdminParLuName_Object((1,3,6,1,2,1,34,3,1,2,3,1,2),_AppcLuPairAdminParLuName_Type())
+appcLuPairAdminParLuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcLuPairAdminParLuName.setStatus(_A)
+class _AppcLuPairAdminParLuAlias_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_AppcLuPairAdminParLuAlias_Type.__name__=_E
+_AppcLuPairAdminParLuAlias_Object=MibTableColumn
+appcLuPairAdminParLuAlias=_AppcLuPairAdminParLuAlias_Object((1,3,6,1,2,1,34,3,1,2,3,1,3),_AppcLuPairAdminParLuAlias_Type())
+appcLuPairAdminParLuAlias.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLuPairAdminParLuAlias.setStatus(_A)
+_AppcLuPairAdminSessLimit_Type=Integer32
+_AppcLuPairAdminSessLimit_Object=MibTableColumn
+appcLuPairAdminSessLimit=_AppcLuPairAdminSessLimit_Object((1,3,6,1,2,1,34,3,1,2,3,1,4),_AppcLuPairAdminSessLimit_Type())
+appcLuPairAdminSessLimit.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLuPairAdminSessLimit.setStatus(_A)
+class _AppcLuPairAdminSessSec_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_R,1),(_k,2),(_l,3)))
+_AppcLuPairAdminSessSec_Type.__name__=_D
+_AppcLuPairAdminSessSec_Object=MibTableColumn
+appcLuPairAdminSessSec=_AppcLuPairAdminSessSec_Object((1,3,6,1,2,1,34,3,1,2,3,1,5),_AppcLuPairAdminSessSec_Type())
+appcLuPairAdminSessSec.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLuPairAdminSessSec.setStatus(_A)
+class _AppcLuPairAdminSecAccept_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_I,1),(_m,2),(_n,3),(_o,4),(_p,5)))
+_AppcLuPairAdminSecAccept_Type.__name__=_D
+_AppcLuPairAdminSecAccept_Object=MibTableColumn
+appcLuPairAdminSecAccept=_AppcLuPairAdminSecAccept_Object((1,3,6,1,2,1,34,3,1,2,3,1,6),_AppcLuPairAdminSecAccept_Type())
+appcLuPairAdminSecAccept.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLuPairAdminSecAccept.setStatus(_A)
+_AppcLuPairAdminLinkObjId_Type=InstancePointer
+_AppcLuPairAdminLinkObjId_Object=MibTableColumn
+appcLuPairAdminLinkObjId=_AppcLuPairAdminLinkObjId_Object((1,3,6,1,2,1,34,3,1,2,3,1,7),_AppcLuPairAdminLinkObjId_Type())
+appcLuPairAdminLinkObjId.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLuPairAdminLinkObjId.setStatus(_A)
+class _AppcLuPairAdminParaSessSup_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcLuPairAdminParaSessSup_Type.__name__=_D
+_AppcLuPairAdminParaSessSup_Object=MibTableColumn
+appcLuPairAdminParaSessSup=_AppcLuPairAdminParaSessSup_Object((1,3,6,1,2,1,34,3,1,2,3,1,8),_AppcLuPairAdminParaSessSup_Type())
+appcLuPairAdminParaSessSup.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLuPairAdminParaSessSup.setStatus(_A)
+_AppcLuPairOperTable_Object=MibTable
+appcLuPairOperTable=_AppcLuPairOperTable_Object((1,3,6,1,2,1,34,3,1,2,4))
+if mibBuilder.loadTexts:appcLuPairOperTable.setStatus(_A)
+_AppcLuPairOperEntry_Object=MibTableRow
+appcLuPairOperEntry=_AppcLuPairOperEntry_Object((1,3,6,1,2,1,34,3,1,2,4,1))
+appcLuPairOperEntry.setIndexNames((0,_B,_q),(0,_B,_r))
+if mibBuilder.loadTexts:appcLuPairOperEntry.setStatus(_A)
+class _AppcLuPairOperLocLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcLuPairOperLocLuName_Type.__name__=_E
+_AppcLuPairOperLocLuName_Object=MibTableColumn
+appcLuPairOperLocLuName=_AppcLuPairOperLocLuName_Object((1,3,6,1,2,1,34,3,1,2,4,1,1),_AppcLuPairOperLocLuName_Type())
+appcLuPairOperLocLuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcLuPairOperLocLuName.setStatus(_A)
+class _AppcLuPairOperParLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcLuPairOperParLuName_Type.__name__=_E
+_AppcLuPairOperParLuName_Object=MibTableColumn
+appcLuPairOperParLuName=_AppcLuPairOperParLuName_Object((1,3,6,1,2,1,34,3,1,2,4,1,2),_AppcLuPairOperParLuName_Type())
+appcLuPairOperParLuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcLuPairOperParLuName.setStatus(_A)
+class _AppcLuPairOperParLuAlias_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_AppcLuPairOperParLuAlias_Type.__name__=_E
+_AppcLuPairOperParLuAlias_Object=MibTableColumn
+appcLuPairOperParLuAlias=_AppcLuPairOperParLuAlias_Object((1,3,6,1,2,1,34,3,1,2,4,1,3),_AppcLuPairOperParLuAlias_Type())
+appcLuPairOperParLuAlias.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLuPairOperParLuAlias.setStatus(_A)
+_AppcLuPairOperSessLimit_Type=Integer32
+_AppcLuPairOperSessLimit_Object=MibTableColumn
+appcLuPairOperSessLimit=_AppcLuPairOperSessLimit_Object((1,3,6,1,2,1,34,3,1,2,4,1,4),_AppcLuPairOperSessLimit_Type())
+appcLuPairOperSessLimit.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLuPairOperSessLimit.setStatus(_A)
+class _AppcLuPairOperSessSec_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_R,1),(_k,2),(_l,3)))
+_AppcLuPairOperSessSec_Type.__name__=_D
+_AppcLuPairOperSessSec_Object=MibTableColumn
+appcLuPairOperSessSec=_AppcLuPairOperSessSec_Object((1,3,6,1,2,1,34,3,1,2,4,1,5),_AppcLuPairOperSessSec_Type())
+appcLuPairOperSessSec.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLuPairOperSessSec.setStatus(_A)
+class _AppcLuPairOperSecAccept_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_I,1),(_m,2),(_n,3),(_o,4),(_p,5)))
+_AppcLuPairOperSecAccept_Type.__name__=_D
+_AppcLuPairOperSecAccept_Object=MibTableColumn
+appcLuPairOperSecAccept=_AppcLuPairOperSecAccept_Object((1,3,6,1,2,1,34,3,1,2,4,1,6),_AppcLuPairOperSecAccept_Type())
+appcLuPairOperSecAccept.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLuPairOperSecAccept.setStatus(_A)
+_AppcLuPairOperLinkObjId_Type=InstancePointer
+_AppcLuPairOperLinkObjId_Object=MibTableColumn
+appcLuPairOperLinkObjId=_AppcLuPairOperLinkObjId_Object((1,3,6,1,2,1,34,3,1,2,4,1,7),_AppcLuPairOperLinkObjId_Type())
+appcLuPairOperLinkObjId.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLuPairOperLinkObjId.setStatus(_A)
+class _AppcLuPairOperParaSessSup_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcLuPairOperParaSessSup_Type.__name__=_D
+_AppcLuPairOperParaSessSup_Object=MibTableColumn
+appcLuPairOperParaSessSup=_AppcLuPairOperParaSessSup_Object((1,3,6,1,2,1,34,3,1,2,4,1,8),_AppcLuPairOperParaSessSup_Type())
+appcLuPairOperParaSessSup.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLuPairOperParaSessSup.setStatus(_A)
+class _AppcLuPairOperParaSessSupLS_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcLuPairOperParaSessSupLS_Type.__name__=_D
+_AppcLuPairOperParaSessSupLS_Object=MibTableColumn
+appcLuPairOperParaSessSupLS=_AppcLuPairOperParaSessSupLS_Object((1,3,6,1,2,1,34,3,1,2,4,1,9),_AppcLuPairOperParaSessSupLS_Type())
+appcLuPairOperParaSessSupLS.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLuPairOperParaSessSupLS.setStatus(_A)
+class _AppcLuPairOperState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('inactive',1),(_P,2)))
+_AppcLuPairOperState_Type.__name__=_D
+_AppcLuPairOperState_Object=MibTableColumn
+appcLuPairOperState=_AppcLuPairOperState_Object((1,3,6,1,2,1,34,3,1,2,4,1,10),_AppcLuPairOperState_Type())
+appcLuPairOperState.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcLuPairOperState.setStatus(_A)
+_AppcModeAdminTable_Object=MibTable
+appcModeAdminTable=_AppcModeAdminTable_Object((1,3,6,1,2,1,34,3,1,2,5))
+if mibBuilder.loadTexts:appcModeAdminTable.setStatus(_A)
+_AppcModeAdminEntry_Object=MibTableRow
+appcModeAdminEntry=_AppcModeAdminEntry_Object((1,3,6,1,2,1,34,3,1,2,5,1))
+appcModeAdminEntry.setIndexNames((0,_B,_s),(0,_B,_t),(0,_B,_u))
+if mibBuilder.loadTexts:appcModeAdminEntry.setStatus(_A)
+class _AppcModeAdminLocLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcModeAdminLocLuName_Type.__name__=_E
+_AppcModeAdminLocLuName_Object=MibTableColumn
+appcModeAdminLocLuName=_AppcModeAdminLocLuName_Object((1,3,6,1,2,1,34,3,1,2,5,1,1),_AppcModeAdminLocLuName_Type())
+appcModeAdminLocLuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcModeAdminLocLuName.setStatus(_A)
+class _AppcModeAdminParLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcModeAdminParLuName_Type.__name__=_E
+_AppcModeAdminParLuName_Object=MibTableColumn
+appcModeAdminParLuName=_AppcModeAdminParLuName_Object((1,3,6,1,2,1,34,3,1,2,5,1,2),_AppcModeAdminParLuName_Type())
+appcModeAdminParLuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcModeAdminParLuName.setStatus(_A)
+class _AppcModeAdminModeName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
+_AppcModeAdminModeName_Type.__name__=_E
+_AppcModeAdminModeName_Object=MibTableColumn
+appcModeAdminModeName=_AppcModeAdminModeName_Object((1,3,6,1,2,1,34,3,1,2,5,1,3),_AppcModeAdminModeName_Type())
+appcModeAdminModeName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcModeAdminModeName.setStatus(_A)
+class _AppcModeAdminCosName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_AppcModeAdminCosName_Type.__name__=_E
+_AppcModeAdminCosName_Object=MibTableColumn
+appcModeAdminCosName=_AppcModeAdminCosName_Object((1,3,6,1,2,1,34,3,1,2,5,1,4),_AppcModeAdminCosName_Type())
+appcModeAdminCosName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminCosName.setStatus(_A)
+class _AppcModeAdminSessEndTpName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
+_AppcModeAdminSessEndTpName_Type.__name__=_E
+_AppcModeAdminSessEndTpName_Object=MibTableColumn
+appcModeAdminSessEndTpName=_AppcModeAdminSessEndTpName_Object((1,3,6,1,2,1,34,3,1,2,5,1,5),_AppcModeAdminSessEndTpName_Type())
+appcModeAdminSessEndTpName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminSessEndTpName.setStatus(_A)
+_AppcModeAdminMaxSessLimit_Type=Integer32
+_AppcModeAdminMaxSessLimit_Object=MibTableColumn
+appcModeAdminMaxSessLimit=_AppcModeAdminMaxSessLimit_Object((1,3,6,1,2,1,34,3,1,2,5,1,6),_AppcModeAdminMaxSessLimit_Type())
+appcModeAdminMaxSessLimit.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminMaxSessLimit.setStatus(_A)
+_AppcModeAdminMinCwinLimit_Type=Integer32
+_AppcModeAdminMinCwinLimit_Object=MibTableColumn
+appcModeAdminMinCwinLimit=_AppcModeAdminMinCwinLimit_Object((1,3,6,1,2,1,34,3,1,2,5,1,7),_AppcModeAdminMinCwinLimit_Type())
+appcModeAdminMinCwinLimit.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminMinCwinLimit.setStatus(_A)
+_AppcModeAdminMinClosLimit_Type=Integer32
+_AppcModeAdminMinClosLimit_Object=MibTableColumn
+appcModeAdminMinClosLimit=_AppcModeAdminMinClosLimit_Object((1,3,6,1,2,1,34,3,1,2,5,1,8),_AppcModeAdminMinClosLimit_Type())
+appcModeAdminMinClosLimit.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminMinClosLimit.setStatus(_A)
+_AppcModeAdminConWinAutoActLmt_Type=Integer32
+_AppcModeAdminConWinAutoActLmt_Object=MibTableColumn
+appcModeAdminConWinAutoActLmt=_AppcModeAdminConWinAutoActLmt_Object((1,3,6,1,2,1,34,3,1,2,5,1,9),_AppcModeAdminConWinAutoActLmt_Type())
+appcModeAdminConWinAutoActLmt.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminConWinAutoActLmt.setStatus(_A)
+_AppcModeAdminRecvPacWinSz_Type=Integer32
+_AppcModeAdminRecvPacWinSz_Object=MibTableColumn
+appcModeAdminRecvPacWinSz=_AppcModeAdminRecvPacWinSz_Object((1,3,6,1,2,1,34,3,1,2,5,1,10),_AppcModeAdminRecvPacWinSz_Type())
+appcModeAdminRecvPacWinSz.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminRecvPacWinSz.setStatus(_A)
+_AppcModeAdminSendPacWinSz_Type=Integer32
+_AppcModeAdminSendPacWinSz_Object=MibTableColumn
+appcModeAdminSendPacWinSz=_AppcModeAdminSendPacWinSz_Object((1,3,6,1,2,1,34,3,1,2,5,1,11),_AppcModeAdminSendPacWinSz_Type())
+appcModeAdminSendPacWinSz.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminSendPacWinSz.setStatus(_A)
+_AppcModeAdminPrefRecvRuSz_Type=Integer32
+_AppcModeAdminPrefRecvRuSz_Object=MibTableColumn
+appcModeAdminPrefRecvRuSz=_AppcModeAdminPrefRecvRuSz_Object((1,3,6,1,2,1,34,3,1,2,5,1,12),_AppcModeAdminPrefRecvRuSz_Type())
+appcModeAdminPrefRecvRuSz.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminPrefRecvRuSz.setStatus(_A)
+_AppcModeAdminPrefSendRuSz_Type=Integer32
+_AppcModeAdminPrefSendRuSz_Object=MibTableColumn
+appcModeAdminPrefSendRuSz=_AppcModeAdminPrefSendRuSz_Object((1,3,6,1,2,1,34,3,1,2,5,1,13),_AppcModeAdminPrefSendRuSz_Type())
+appcModeAdminPrefSendRuSz.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminPrefSendRuSz.setStatus(_A)
+_AppcModeAdminRecvRuSzUpBnd_Type=Integer32
+_AppcModeAdminRecvRuSzUpBnd_Object=MibTableColumn
+appcModeAdminRecvRuSzUpBnd=_AppcModeAdminRecvRuSzUpBnd_Object((1,3,6,1,2,1,34,3,1,2,5,1,14),_AppcModeAdminRecvRuSzUpBnd_Type())
+appcModeAdminRecvRuSzUpBnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminRecvRuSzUpBnd.setStatus(_A)
+_AppcModeAdminSendRuSzUpBnd_Type=Integer32
+_AppcModeAdminSendRuSzUpBnd_Object=MibTableColumn
+appcModeAdminSendRuSzUpBnd=_AppcModeAdminSendRuSzUpBnd_Object((1,3,6,1,2,1,34,3,1,2,5,1,15),_AppcModeAdminSendRuSzUpBnd_Type())
+appcModeAdminSendRuSzUpBnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminSendRuSzUpBnd.setStatus(_A)
+_AppcModeAdminRecvRuSzLoBnd_Type=Integer32
+_AppcModeAdminRecvRuSzLoBnd_Object=MibTableColumn
+appcModeAdminRecvRuSzLoBnd=_AppcModeAdminRecvRuSzLoBnd_Object((1,3,6,1,2,1,34,3,1,2,5,1,16),_AppcModeAdminRecvRuSzLoBnd_Type())
+appcModeAdminRecvRuSzLoBnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminRecvRuSzLoBnd.setStatus(_A)
+_AppcModeAdminSendRuSzLoBnd_Type=Integer32
+_AppcModeAdminSendRuSzLoBnd_Object=MibTableColumn
+appcModeAdminSendRuSzLoBnd=_AppcModeAdminSendRuSzLoBnd_Object((1,3,6,1,2,1,34,3,1,2,5,1,17),_AppcModeAdminSendRuSzLoBnd_Type())
+appcModeAdminSendRuSzLoBnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminSendRuSzLoBnd.setStatus(_A)
+class _AppcModeAdminSingSessReinit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_v,1),(_w,2),(_x,3),(_y,4),(_z,5)))
+_AppcModeAdminSingSessReinit_Type.__name__=_D
+_AppcModeAdminSingSessReinit_Object=MibTableColumn
+appcModeAdminSingSessReinit=_AppcModeAdminSingSessReinit_Object((1,3,6,1,2,1,34,3,1,2,5,1,18),_AppcModeAdminSingSessReinit_Type())
+appcModeAdminSingSessReinit.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminSingSessReinit.setStatus(_A)
+class _AppcModeAdminCompression_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_S,1),(_R,2),(_T,3)))
+_AppcModeAdminCompression_Type.__name__=_D
+_AppcModeAdminCompression_Object=MibTableColumn
+appcModeAdminCompression=_AppcModeAdminCompression_Object((1,3,6,1,2,1,34,3,1,2,5,1,19),_AppcModeAdminCompression_Type())
+appcModeAdminCompression.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminCompression.setStatus(_A)
+class _AppcModeAdminInBoundCompLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_I,1),(_L,2),(_M,3),(_N,4),(_O,5)))
+_AppcModeAdminInBoundCompLevel_Type.__name__=_D
+_AppcModeAdminInBoundCompLevel_Object=MibTableColumn
+appcModeAdminInBoundCompLevel=_AppcModeAdminInBoundCompLevel_Object((1,3,6,1,2,1,34,3,1,2,5,1,20),_AppcModeAdminInBoundCompLevel_Type())
+appcModeAdminInBoundCompLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminInBoundCompLevel.setStatus(_A)
+class _AppcModeAdminOutBoundCompLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_I,1),(_L,2),(_M,3),(_N,4),(_O,5)))
+_AppcModeAdminOutBoundCompLevel_Type.__name__=_D
+_AppcModeAdminOutBoundCompLevel_Object=MibTableColumn
+appcModeAdminOutBoundCompLevel=_AppcModeAdminOutBoundCompLevel_Object((1,3,6,1,2,1,34,3,1,2,5,1,21),_AppcModeAdminOutBoundCompLevel_Type())
+appcModeAdminOutBoundCompLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminOutBoundCompLevel.setStatus(_A)
+class _AppcModeAdminCompRleBeforeLZ_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcModeAdminCompRleBeforeLZ_Type.__name__=_D
+_AppcModeAdminCompRleBeforeLZ_Object=MibTableColumn
+appcModeAdminCompRleBeforeLZ=_AppcModeAdminCompRleBeforeLZ_Object((1,3,6,1,2,1,34,3,1,2,5,1,22),_AppcModeAdminCompRleBeforeLZ_Type())
+appcModeAdminCompRleBeforeLZ.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminCompRleBeforeLZ.setStatus(_A)
+class _AppcModeAdminSyncLvl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),(_U,2),(_V,3)))
+_AppcModeAdminSyncLvl_Type.__name__=_D
+_AppcModeAdminSyncLvl_Object=MibTableColumn
+appcModeAdminSyncLvl=_AppcModeAdminSyncLvl_Object((1,3,6,1,2,1,34,3,1,2,5,1,23),_AppcModeAdminSyncLvl_Type())
+appcModeAdminSyncLvl.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminSyncLvl.setStatus(_A)
+class _AppcModeAdminCrypto_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_W,1),(_X,2),(_Y,3)))
+_AppcModeAdminCrypto_Type.__name__=_D
+_AppcModeAdminCrypto_Object=MibTableColumn
+appcModeAdminCrypto=_AppcModeAdminCrypto_Object((1,3,6,1,2,1,34,3,1,2,5,1,24),_AppcModeAdminCrypto_Type())
+appcModeAdminCrypto.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeAdminCrypto.setStatus(_A)
+_AppcModeOperTable_Object=MibTable
+appcModeOperTable=_AppcModeOperTable_Object((1,3,6,1,2,1,34,3,1,2,6))
+if mibBuilder.loadTexts:appcModeOperTable.setStatus(_A)
+_AppcModeOperEntry_Object=MibTableRow
+appcModeOperEntry=_AppcModeOperEntry_Object((1,3,6,1,2,1,34,3,1,2,6,1))
+appcModeOperEntry.setIndexNames((0,_B,_A0),(0,_B,_A1),(0,_B,_A2))
+if mibBuilder.loadTexts:appcModeOperEntry.setStatus(_A)
+class _AppcModeOperLocLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcModeOperLocLuName_Type.__name__=_E
+_AppcModeOperLocLuName_Object=MibTableColumn
+appcModeOperLocLuName=_AppcModeOperLocLuName_Object((1,3,6,1,2,1,34,3,1,2,6,1,1),_AppcModeOperLocLuName_Type())
+appcModeOperLocLuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcModeOperLocLuName.setStatus(_A)
+class _AppcModeOperParLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcModeOperParLuName_Type.__name__=_E
+_AppcModeOperParLuName_Object=MibTableColumn
+appcModeOperParLuName=_AppcModeOperParLuName_Object((1,3,6,1,2,1,34,3,1,2,6,1,2),_AppcModeOperParLuName_Type())
+appcModeOperParLuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcModeOperParLuName.setStatus(_A)
+class _AppcModeOperModeName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
+_AppcModeOperModeName_Type.__name__=_E
+_AppcModeOperModeName_Object=MibTableColumn
+appcModeOperModeName=_AppcModeOperModeName_Object((1,3,6,1,2,1,34,3,1,2,6,1,3),_AppcModeOperModeName_Type())
+appcModeOperModeName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcModeOperModeName.setStatus(_A)
+class _AppcModeOperCosName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_AppcModeOperCosName_Type.__name__=_E
+_AppcModeOperCosName_Object=MibTableColumn
+appcModeOperCosName=_AppcModeOperCosName_Object((1,3,6,1,2,1,34,3,1,2,6,1,4),_AppcModeOperCosName_Type())
+appcModeOperCosName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperCosName.setStatus(_A)
+class _AppcModeOperSessEndTpName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
+_AppcModeOperSessEndTpName_Type.__name__=_E
+_AppcModeOperSessEndTpName_Object=MibTableColumn
+appcModeOperSessEndTpName=_AppcModeOperSessEndTpName_Object((1,3,6,1,2,1,34,3,1,2,6,1,5),_AppcModeOperSessEndTpName_Type())
+appcModeOperSessEndTpName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperSessEndTpName.setStatus(_A)
+_AppcModeOperSessLimit_Type=Integer32
+_AppcModeOperSessLimit_Object=MibTableColumn
+appcModeOperSessLimit=_AppcModeOperSessLimit_Object((1,3,6,1,2,1,34,3,1,2,6,1,6),_AppcModeOperSessLimit_Type())
+appcModeOperSessLimit.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperSessLimit.setStatus(_A)
+_AppcModeOperMaxSessLimit_Type=Integer32
+_AppcModeOperMaxSessLimit_Object=MibTableColumn
+appcModeOperMaxSessLimit=_AppcModeOperMaxSessLimit_Object((1,3,6,1,2,1,34,3,1,2,6,1,7),_AppcModeOperMaxSessLimit_Type())
+appcModeOperMaxSessLimit.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperMaxSessLimit.setStatus(_A)
+_AppcModeOperMinCwinLimit_Type=Integer32
+_AppcModeOperMinCwinLimit_Object=MibTableColumn
+appcModeOperMinCwinLimit=_AppcModeOperMinCwinLimit_Object((1,3,6,1,2,1,34,3,1,2,6,1,8),_AppcModeOperMinCwinLimit_Type())
+appcModeOperMinCwinLimit.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperMinCwinLimit.setStatus(_A)
+_AppcModeOperMinClosLimit_Type=Integer32
+_AppcModeOperMinClosLimit_Object=MibTableColumn
+appcModeOperMinClosLimit=_AppcModeOperMinClosLimit_Object((1,3,6,1,2,1,34,3,1,2,6,1,9),_AppcModeOperMinClosLimit_Type())
+appcModeOperMinClosLimit.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperMinClosLimit.setStatus(_A)
+_AppcModeOperConWinAutoActLmt_Type=Integer32
+_AppcModeOperConWinAutoActLmt_Object=MibTableColumn
+appcModeOperConWinAutoActLmt=_AppcModeOperConWinAutoActLmt_Object((1,3,6,1,2,1,34,3,1,2,6,1,10),_AppcModeOperConWinAutoActLmt_Type())
+appcModeOperConWinAutoActLmt.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperConWinAutoActLmt.setStatus(_A)
+_AppcModeOperRecvPacWinSz_Type=Integer32
+_AppcModeOperRecvPacWinSz_Object=MibTableColumn
+appcModeOperRecvPacWinSz=_AppcModeOperRecvPacWinSz_Object((1,3,6,1,2,1,34,3,1,2,6,1,11),_AppcModeOperRecvPacWinSz_Type())
+appcModeOperRecvPacWinSz.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperRecvPacWinSz.setStatus(_A)
+_AppcModeOperSendPacWinSz_Type=Integer32
+_AppcModeOperSendPacWinSz_Object=MibTableColumn
+appcModeOperSendPacWinSz=_AppcModeOperSendPacWinSz_Object((1,3,6,1,2,1,34,3,1,2,6,1,12),_AppcModeOperSendPacWinSz_Type())
+appcModeOperSendPacWinSz.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperSendPacWinSz.setStatus(_A)
+_AppcModeOperPrefRecvRuSz_Type=Integer32
+_AppcModeOperPrefRecvRuSz_Object=MibTableColumn
+appcModeOperPrefRecvRuSz=_AppcModeOperPrefRecvRuSz_Object((1,3,6,1,2,1,34,3,1,2,6,1,13),_AppcModeOperPrefRecvRuSz_Type())
+appcModeOperPrefRecvRuSz.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperPrefRecvRuSz.setStatus(_A)
+_AppcModeOperPrefSendRuSz_Type=Integer32
+_AppcModeOperPrefSendRuSz_Object=MibTableColumn
+appcModeOperPrefSendRuSz=_AppcModeOperPrefSendRuSz_Object((1,3,6,1,2,1,34,3,1,2,6,1,14),_AppcModeOperPrefSendRuSz_Type())
+appcModeOperPrefSendRuSz.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperPrefSendRuSz.setStatus(_A)
+_AppcModeOperRecvRuSzUpBnd_Type=Integer32
+_AppcModeOperRecvRuSzUpBnd_Object=MibTableColumn
+appcModeOperRecvRuSzUpBnd=_AppcModeOperRecvRuSzUpBnd_Object((1,3,6,1,2,1,34,3,1,2,6,1,15),_AppcModeOperRecvRuSzUpBnd_Type())
+appcModeOperRecvRuSzUpBnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperRecvRuSzUpBnd.setStatus(_A)
+_AppcModeOperSendRuSzUpBnd_Type=Integer32
+_AppcModeOperSendRuSzUpBnd_Object=MibTableColumn
+appcModeOperSendRuSzUpBnd=_AppcModeOperSendRuSzUpBnd_Object((1,3,6,1,2,1,34,3,1,2,6,1,16),_AppcModeOperSendRuSzUpBnd_Type())
+appcModeOperSendRuSzUpBnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperSendRuSzUpBnd.setStatus(_A)
+_AppcModeOperRecvRuSzLoBnd_Type=Integer32
+_AppcModeOperRecvRuSzLoBnd_Object=MibTableColumn
+appcModeOperRecvRuSzLoBnd=_AppcModeOperRecvRuSzLoBnd_Object((1,3,6,1,2,1,34,3,1,2,6,1,17),_AppcModeOperRecvRuSzLoBnd_Type())
+appcModeOperRecvRuSzLoBnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperRecvRuSzLoBnd.setStatus(_A)
+_AppcModeOperSendRuSzLoBnd_Type=Integer32
+_AppcModeOperSendRuSzLoBnd_Object=MibTableColumn
+appcModeOperSendRuSzLoBnd=_AppcModeOperSendRuSzLoBnd_Object((1,3,6,1,2,1,34,3,1,2,6,1,18),_AppcModeOperSendRuSzLoBnd_Type())
+appcModeOperSendRuSzLoBnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperSendRuSzLoBnd.setStatus(_A)
+class _AppcModeOperSingSessReinit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_v,1),(_w,2),(_x,3),(_y,4),(_z,5)))
+_AppcModeOperSingSessReinit_Type.__name__=_D
+_AppcModeOperSingSessReinit_Object=MibTableColumn
+appcModeOperSingSessReinit=_AppcModeOperSingSessReinit_Object((1,3,6,1,2,1,34,3,1,2,6,1,19),_AppcModeOperSingSessReinit_Type())
+appcModeOperSingSessReinit.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperSingSessReinit.setStatus(_A)
+class _AppcModeOperCompression_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_S,1),(_R,2),(_T,3)))
+_AppcModeOperCompression_Type.__name__=_D
+_AppcModeOperCompression_Object=MibTableColumn
+appcModeOperCompression=_AppcModeOperCompression_Object((1,3,6,1,2,1,34,3,1,2,6,1,20),_AppcModeOperCompression_Type())
+appcModeOperCompression.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperCompression.setStatus(_A)
+class _AppcModeOperInBoundCompLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_I,1),(_L,2),(_M,3),(_N,4),(_O,5)))
+_AppcModeOperInBoundCompLevel_Type.__name__=_D
+_AppcModeOperInBoundCompLevel_Object=MibTableColumn
+appcModeOperInBoundCompLevel=_AppcModeOperInBoundCompLevel_Object((1,3,6,1,2,1,34,3,1,2,6,1,21),_AppcModeOperInBoundCompLevel_Type())
+appcModeOperInBoundCompLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperInBoundCompLevel.setStatus(_A)
+class _AppcModeOperOutBoundCompLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_I,1),(_L,2),(_M,3),(_N,4),(_O,5)))
+_AppcModeOperOutBoundCompLevel_Type.__name__=_D
+_AppcModeOperOutBoundCompLevel_Object=MibTableColumn
+appcModeOperOutBoundCompLevel=_AppcModeOperOutBoundCompLevel_Object((1,3,6,1,2,1,34,3,1,2,6,1,22),_AppcModeOperOutBoundCompLevel_Type())
+appcModeOperOutBoundCompLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperOutBoundCompLevel.setStatus(_A)
+class _AppcModeOperCompRleBeforeLZ_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcModeOperCompRleBeforeLZ_Type.__name__=_D
+_AppcModeOperCompRleBeforeLZ_Object=MibTableColumn
+appcModeOperCompRleBeforeLZ=_AppcModeOperCompRleBeforeLZ_Object((1,3,6,1,2,1,34,3,1,2,6,1,23),_AppcModeOperCompRleBeforeLZ_Type())
+appcModeOperCompRleBeforeLZ.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperCompRleBeforeLZ.setStatus(_A)
+class _AppcModeOperSyncLvl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),(_U,2),(_V,3)))
+_AppcModeOperSyncLvl_Type.__name__=_D
+_AppcModeOperSyncLvl_Object=MibTableColumn
+appcModeOperSyncLvl=_AppcModeOperSyncLvl_Object((1,3,6,1,2,1,34,3,1,2,6,1,24),_AppcModeOperSyncLvl_Type())
+appcModeOperSyncLvl.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperSyncLvl.setStatus(_A)
+class _AppcModeOperCrypto_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_W,1),(_X,2),(_Y,3)))
+_AppcModeOperCrypto_Type.__name__=_D
+_AppcModeOperCrypto_Object=MibTableColumn
+appcModeOperCrypto=_AppcModeOperCrypto_Object((1,3,6,1,2,1,34,3,1,2,6,1,25),_AppcModeOperCrypto_Type())
+appcModeOperCrypto.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperCrypto.setStatus(_A)
+class _AppcModeOperSyncLvlLastStart_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),(_U,2),(_V,3)))
+_AppcModeOperSyncLvlLastStart_Type.__name__=_D
+_AppcModeOperSyncLvlLastStart_Object=MibTableColumn
+appcModeOperSyncLvlLastStart=_AppcModeOperSyncLvlLastStart_Object((1,3,6,1,2,1,34,3,1,2,6,1,26),_AppcModeOperSyncLvlLastStart_Type())
+appcModeOperSyncLvlLastStart.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperSyncLvlLastStart.setStatus(_A)
+class _AppcModeOperCryptoLastStart_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_W,1),(_X,2),(_Y,3)))
+_AppcModeOperCryptoLastStart_Type.__name__=_D
+_AppcModeOperCryptoLastStart_Object=MibTableColumn
+appcModeOperCryptoLastStart=_AppcModeOperCryptoLastStart_Object((1,3,6,1,2,1,34,3,1,2,6,1,27),_AppcModeOperCryptoLastStart_Type())
+appcModeOperCryptoLastStart.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperCryptoLastStart.setStatus(_A)
+class _AppcModeOperCNOSNeg_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcModeOperCNOSNeg_Type.__name__=_D
+_AppcModeOperCNOSNeg_Object=MibTableColumn
+appcModeOperCNOSNeg=_AppcModeOperCNOSNeg_Object((1,3,6,1,2,1,34,3,1,2,6,1,28),_AppcModeOperCNOSNeg_Type())
+appcModeOperCNOSNeg.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperCNOSNeg.setStatus(_A)
+_AppcModeOperActCwin_Type=Gauge32
+_AppcModeOperActCwin_Object=MibTableColumn
+appcModeOperActCwin=_AppcModeOperActCwin_Object((1,3,6,1,2,1,34,3,1,2,6,1,29),_AppcModeOperActCwin_Type())
+appcModeOperActCwin.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperActCwin.setStatus(_A)
+_AppcModeOperActClos_Type=Gauge32
+_AppcModeOperActClos_Object=MibTableColumn
+appcModeOperActClos=_AppcModeOperActClos_Object((1,3,6,1,2,1,34,3,1,2,6,1,30),_AppcModeOperActClos_Type())
+appcModeOperActClos.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperActClos.setStatus(_A)
+_AppcModeOperPndCwin_Type=Gauge32
+_AppcModeOperPndCwin_Object=MibTableColumn
+appcModeOperPndCwin=_AppcModeOperPndCwin_Object((1,3,6,1,2,1,34,3,1,2,6,1,31),_AppcModeOperPndCwin_Type())
+appcModeOperPndCwin.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperPndCwin.setStatus(_A)
+_AppcModeOperPndClos_Type=Gauge32
+_AppcModeOperPndClos_Object=MibTableColumn
+appcModeOperPndClos=_AppcModeOperPndClos_Object((1,3,6,1,2,1,34,3,1,2,6,1,32),_AppcModeOperPndClos_Type())
+appcModeOperPndClos.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperPndClos.setStatus(_A)
+_AppcModeOperPtmCwin_Type=Gauge32
+_AppcModeOperPtmCwin_Object=MibTableColumn
+appcModeOperPtmCwin=_AppcModeOperPtmCwin_Object((1,3,6,1,2,1,34,3,1,2,6,1,33),_AppcModeOperPtmCwin_Type())
+appcModeOperPtmCwin.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperPtmCwin.setStatus(_A)
+_AppcModeOperPtmClos_Type=Gauge32
+_AppcModeOperPtmClos_Object=MibTableColumn
+appcModeOperPtmClos=_AppcModeOperPtmClos_Object((1,3,6,1,2,1,34,3,1,2,6,1,34),_AppcModeOperPtmClos_Type())
+appcModeOperPtmClos.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperPtmClos.setStatus(_A)
+class _AppcModeOperDrainSelf_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcModeOperDrainSelf_Type.__name__=_D
+_AppcModeOperDrainSelf_Object=MibTableColumn
+appcModeOperDrainSelf=_AppcModeOperDrainSelf_Object((1,3,6,1,2,1,34,3,1,2,6,1,35),_AppcModeOperDrainSelf_Type())
+appcModeOperDrainSelf.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperDrainSelf.setStatus(_A)
+class _AppcModeOperDrainPart_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcModeOperDrainPart_Type.__name__=_D
+_AppcModeOperDrainPart_Object=MibTableColumn
+appcModeOperDrainPart=_AppcModeOperDrainPart_Object((1,3,6,1,2,1,34,3,1,2,6,1,36),_AppcModeOperDrainPart_Type())
+appcModeOperDrainPart.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcModeOperDrainPart.setStatus(_A)
+_AppcTp_ObjectIdentity=ObjectIdentity
+appcTp=_AppcTp_ObjectIdentity((1,3,6,1,2,1,34,3,1,3))
+_AppcTpAdminTable_Object=MibTable
+appcTpAdminTable=_AppcTpAdminTable_Object((1,3,6,1,2,1,34,3,1,3,1))
+if mibBuilder.loadTexts:appcTpAdminTable.setStatus(_A)
+_AppcTpAdminEntry_Object=MibTableRow
+appcTpAdminEntry=_AppcTpAdminEntry_Object((1,3,6,1,2,1,34,3,1,3,1,1))
+appcTpAdminEntry.setIndexNames((0,_B,_A3),(0,_B,_A4))
+if mibBuilder.loadTexts:appcTpAdminEntry.setStatus(_A)
+class _AppcTpAdminLocLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcTpAdminLocLuName_Type.__name__=_E
+_AppcTpAdminLocLuName_Object=MibTableColumn
+appcTpAdminLocLuName=_AppcTpAdminLocLuName_Object((1,3,6,1,2,1,34,3,1,3,1,1,1),_AppcTpAdminLocLuName_Type())
+appcTpAdminLocLuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcTpAdminLocLuName.setStatus(_A)
+class _AppcTpAdminTpName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
+_AppcTpAdminTpName_Type.__name__=_E
+_AppcTpAdminTpName_Object=MibTableColumn
+appcTpAdminTpName=_AppcTpAdminTpName_Object((1,3,6,1,2,1,34,3,1,3,1,1,2),_AppcTpAdminTpName_Type())
+appcTpAdminTpName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcTpAdminTpName.setStatus(_A)
+class _AppcTpAdminFileSpec_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,80))
+_AppcTpAdminFileSpec_Type.__name__=_E
+_AppcTpAdminFileSpec_Object=MibTableColumn
+appcTpAdminFileSpec=_AppcTpAdminFileSpec_Object((1,3,6,1,2,1,34,3,1,3,1,1,3),_AppcTpAdminFileSpec_Type())
+appcTpAdminFileSpec.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcTpAdminFileSpec.setStatus(_A)
+class _AppcTpAdminStartParm_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,128))
+_AppcTpAdminStartParm_Type.__name__=_E
+_AppcTpAdminStartParm_Object=MibTableColumn
+appcTpAdminStartParm=_AppcTpAdminStartParm_Object((1,3,6,1,2,1,34,3,1,3,1,1,4),_AppcTpAdminStartParm_Type())
+appcTpAdminStartParm.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcTpAdminStartParm.setStatus(_A)
+class _AppcTpAdminTpOperation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('other',1),(_a,2),(_b,3),(_c,4),(_d,5)))
+_AppcTpAdminTpOperation_Type.__name__=_D
+_AppcTpAdminTpOperation_Object=MibTableColumn
+appcTpAdminTpOperation=_AppcTpAdminTpOperation_Object((1,3,6,1,2,1,34,3,1,3,1,1,5),_AppcTpAdminTpOperation_Type())
+appcTpAdminTpOperation.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcTpAdminTpOperation.setStatus(_A)
+_AppcTpAdminInAttachTimeout_Type=Integer32
+_AppcTpAdminInAttachTimeout_Object=MibTableColumn
+appcTpAdminInAttachTimeout=_AppcTpAdminInAttachTimeout_Object((1,3,6,1,2,1,34,3,1,3,1,1,6),_AppcTpAdminInAttachTimeout_Type())
+appcTpAdminInAttachTimeout.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcTpAdminInAttachTimeout.setStatus(_A)
+_AppcTpAdminRcvAllocTimeout_Type=Integer32
+_AppcTpAdminRcvAllocTimeout_Object=MibTableColumn
+appcTpAdminRcvAllocTimeout=_AppcTpAdminRcvAllocTimeout_Object((1,3,6,1,2,1,34,3,1,3,1,1,7),_AppcTpAdminRcvAllocTimeout_Type())
+appcTpAdminRcvAllocTimeout.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcTpAdminRcvAllocTimeout.setStatus(_A)
+class _AppcTpAdminSyncLvl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*((_I,1),(_Z,2),('noneAndConfirm',3),(_A5,4),('noneAndSyncpoint',5),('confirmAndSyncpoint',6),('all',7)))
+_AppcTpAdminSyncLvl_Type.__name__=_D
+_AppcTpAdminSyncLvl_Object=MibTableColumn
+appcTpAdminSyncLvl=_AppcTpAdminSyncLvl_Object((1,3,6,1,2,1,34,3,1,3,1,1,8),_AppcTpAdminSyncLvl_Type())
+appcTpAdminSyncLvl.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcTpAdminSyncLvl.setStatus(_A)
+_AppcTpAdminInstLmt_Type=Integer32
+_AppcTpAdminInstLmt_Object=MibTableColumn
+appcTpAdminInstLmt=_AppcTpAdminInstLmt_Object((1,3,6,1,2,1,34,3,1,3,1,1,9),_AppcTpAdminInstLmt_Type())
+appcTpAdminInstLmt.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcTpAdminInstLmt.setStatus(_A)
+class _AppcTpAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('enabled',1),('tempDisabled',2),('permDisabled',3)))
+_AppcTpAdminStatus_Type.__name__=_D
+_AppcTpAdminStatus_Object=MibTableColumn
+appcTpAdminStatus=_AppcTpAdminStatus_Object((1,3,6,1,2,1,34,3,1,3,1,1,10),_AppcTpAdminStatus_Type())
+appcTpAdminStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcTpAdminStatus.setStatus(_A)
+class _AppcTpAdminLongRun_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcTpAdminLongRun_Type.__name__=_D
+_AppcTpAdminLongRun_Object=MibTableColumn
+appcTpAdminLongRun=_AppcTpAdminLongRun_Object((1,3,6,1,2,1,34,3,1,3,1,1,11),_AppcTpAdminLongRun_Type())
+appcTpAdminLongRun.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcTpAdminLongRun.setStatus(_A)
+class _AppcTpAdminConvType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('basic',1),('mapped',2),('basicOrMapped',3)))
+_AppcTpAdminConvType_Type.__name__=_D
+_AppcTpAdminConvType_Object=MibTableColumn
+appcTpAdminConvType=_AppcTpAdminConvType_Object((1,3,6,1,2,1,34,3,1,3,1,1,12),_AppcTpAdminConvType_Type())
+appcTpAdminConvType.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcTpAdminConvType.setStatus(_A)
+class _AppcTpAdminConvDuplex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('half',1),('full',2),('halfOrFull',3)))
+_AppcTpAdminConvDuplex_Type.__name__=_D
+_AppcTpAdminConvDuplex_Object=MibTableColumn
+appcTpAdminConvDuplex=_AppcTpAdminConvDuplex_Object((1,3,6,1,2,1,34,3,1,3,1,1,13),_AppcTpAdminConvDuplex_Type())
+appcTpAdminConvDuplex.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcTpAdminConvDuplex.setStatus(_A)
+class _AppcTpAdminConvSecReq_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcTpAdminConvSecReq_Type.__name__=_D
+_AppcTpAdminConvSecReq_Object=MibTableColumn
+appcTpAdminConvSecReq=_AppcTpAdminConvSecReq_Object((1,3,6,1,2,1,34,3,1,3,1,1,14),_AppcTpAdminConvSecReq_Type())
+appcTpAdminConvSecReq.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcTpAdminConvSecReq.setStatus(_A)
+class _AppcTpAdminVerPip_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcTpAdminVerPip_Type.__name__=_D
+_AppcTpAdminVerPip_Object=MibTableColumn
+appcTpAdminVerPip=_AppcTpAdminVerPip_Object((1,3,6,1,2,1,34,3,1,3,1,1,15),_AppcTpAdminVerPip_Type())
+appcTpAdminVerPip.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcTpAdminVerPip.setStatus(_A)
+_AppcTpAdminPipSubNum_Type=Integer32
+_AppcTpAdminPipSubNum_Object=MibTableColumn
+appcTpAdminPipSubNum=_AppcTpAdminPipSubNum_Object((1,3,6,1,2,1,34,3,1,3,1,1,16),_AppcTpAdminPipSubNum_Type())
+appcTpAdminPipSubNum.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcTpAdminPipSubNum.setStatus(_A)
+_AppcSession_ObjectIdentity=ObjectIdentity
+appcSession=_AppcSession_ObjectIdentity((1,3,6,1,2,1,34,3,1,4))
+_AppcActSessTable_Object=MibTable
+appcActSessTable=_AppcActSessTable_Object((1,3,6,1,2,1,34,3,1,4,1))
+if mibBuilder.loadTexts:appcActSessTable.setStatus(_A)
+_AppcActSessEntry_Object=MibTableRow
+appcActSessEntry=_AppcActSessEntry_Object((1,3,6,1,2,1,34,3,1,4,1,1))
+appcActSessEntry.setIndexNames((0,_B,_A6),(0,_B,_A7),(0,_B,_A8))
+if mibBuilder.loadTexts:appcActSessEntry.setStatus(_A)
+class _AppcActSessLocLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcActSessLocLuName_Type.__name__=_E
+_AppcActSessLocLuName_Object=MibTableColumn
+appcActSessLocLuName=_AppcActSessLocLuName_Object((1,3,6,1,2,1,34,3,1,4,1,1,1),_AppcActSessLocLuName_Type())
+appcActSessLocLuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcActSessLocLuName.setStatus(_A)
+class _AppcActSessParLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcActSessParLuName_Type.__name__=_E
+_AppcActSessParLuName_Object=MibTableColumn
+appcActSessParLuName=_AppcActSessParLuName_Object((1,3,6,1,2,1,34,3,1,4,1,1,2),_AppcActSessParLuName_Type())
+appcActSessParLuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcActSessParLuName.setStatus(_A)
+_AppcActSessIndex_Type=Integer32
+_AppcActSessIndex_Object=MibTableColumn
+appcActSessIndex=_AppcActSessIndex_Object((1,3,6,1,2,1,34,3,1,4,1,1,3),_AppcActSessIndex_Type())
+appcActSessIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcActSessIndex.setStatus(_A)
+class _AppcActSessPcidCpName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(3,17))
+_AppcActSessPcidCpName_Type.__name__=_E
+_AppcActSessPcidCpName_Object=MibTableColumn
+appcActSessPcidCpName=_AppcActSessPcidCpName_Object((1,3,6,1,2,1,34,3,1,4,1,1,4),_AppcActSessPcidCpName_Type())
+appcActSessPcidCpName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessPcidCpName.setStatus(_A)
+class _AppcActSessPcid_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(8,8))
+_AppcActSessPcid_Type.__name__=_J
+_AppcActSessPcid_Object=MibTableColumn
+appcActSessPcid=_AppcActSessPcid_Object((1,3,6,1,2,1,34,3,1,4,1,1,5),_AppcActSessPcid_Type())
+appcActSessPcid.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessPcid.setStatus(_A)
+class _AppcActSessPluIndicator_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('localLuIsPlu',1),('partnerLuIsPlu',2)))
+_AppcActSessPluIndicator_Type.__name__=_D
+_AppcActSessPluIndicator_Object=MibTableColumn
+appcActSessPluIndicator=_AppcActSessPluIndicator_Object((1,3,6,1,2,1,34,3,1,4,1,1,6),_AppcActSessPluIndicator_Type())
+appcActSessPluIndicator.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessPluIndicator.setStatus(_A)
+class _AppcActSessModeName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
+_AppcActSessModeName_Type.__name__=_E
+_AppcActSessModeName_Object=MibTableColumn
+appcActSessModeName=_AppcActSessModeName_Object((1,3,6,1,2,1,34,3,1,4,1,1,7),_AppcActSessModeName_Type())
+appcActSessModeName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessModeName.setStatus(_A)
+class _AppcActSessCosName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_AppcActSessCosName_Type.__name__=_E
+_AppcActSessCosName_Object=MibTableColumn
+appcActSessCosName=_AppcActSessCosName_Object((1,3,6,1,2,1,34,3,1,4,1,1,8),_AppcActSessCosName_Type())
+appcActSessCosName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessCosName.setStatus(_A)
+class _AppcActSessTransPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('unknown',1),('low',2),('medium',3),('high',4),('network',5)))
+_AppcActSessTransPriority_Type.__name__=_D
+_AppcActSessTransPriority_Object=MibTableColumn
+appcActSessTransPriority=_AppcActSessTransPriority_Object((1,3,6,1,2,1,34,3,1,4,1,1,9),_AppcActSessTransPriority_Type())
+appcActSessTransPriority.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessTransPriority.setStatus(_A)
+class _AppcActSessEnhanceSecSup_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),('level1',2),('level2',3)))
+_AppcActSessEnhanceSecSup_Type.__name__=_D
+_AppcActSessEnhanceSecSup_Object=MibTableColumn
+appcActSessEnhanceSecSup=_AppcActSessEnhanceSecSup_Object((1,3,6,1,2,1,34,3,1,4,1,1,10),_AppcActSessEnhanceSecSup_Type())
+appcActSessEnhanceSecSup.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessEnhanceSecSup.setStatus(_A)
+class _AppcActSessSendPacingType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),('fixed',2),('adaptive',3)))
+_AppcActSessSendPacingType_Type.__name__=_D
+_AppcActSessSendPacingType_Object=MibTableColumn
+appcActSessSendPacingType=_AppcActSessSendPacingType_Object((1,3,6,1,2,1,34,3,1,4,1,1,11),_AppcActSessSendPacingType_Type())
+appcActSessSendPacingType.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessSendPacingType.setStatus(_A)
+_AppcActSessSendRpc_Type=Gauge32
+_AppcActSessSendRpc_Object=MibTableColumn
+appcActSessSendRpc=_AppcActSessSendRpc_Object((1,3,6,1,2,1,34,3,1,4,1,1,12),_AppcActSessSendRpc_Type())
+appcActSessSendRpc.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessSendRpc.setStatus(_A)
+_AppcActSessSendNxWndwSize_Type=Gauge32
+_AppcActSessSendNxWndwSize_Object=MibTableColumn
+appcActSessSendNxWndwSize=_AppcActSessSendNxWndwSize_Object((1,3,6,1,2,1,34,3,1,4,1,1,13),_AppcActSessSendNxWndwSize_Type())
+appcActSessSendNxWndwSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessSendNxWndwSize.setStatus(_A)
+class _AppcActSessRecvPacingType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),('fixed',2),('adaptive',3)))
+_AppcActSessRecvPacingType_Type.__name__=_D
+_AppcActSessRecvPacingType_Object=MibTableColumn
+appcActSessRecvPacingType=_AppcActSessRecvPacingType_Object((1,3,6,1,2,1,34,3,1,4,1,1,14),_AppcActSessRecvPacingType_Type())
+appcActSessRecvPacingType.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessRecvPacingType.setStatus(_A)
+_AppcActSessRecvRpc_Type=Gauge32
+_AppcActSessRecvRpc_Object=MibTableColumn
+appcActSessRecvRpc=_AppcActSessRecvRpc_Object((1,3,6,1,2,1,34,3,1,4,1,1,15),_AppcActSessRecvRpc_Type())
+appcActSessRecvRpc.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessRecvRpc.setStatus(_A)
+_AppcActSessRecvNxWndwSize_Type=Gauge32
+_AppcActSessRecvNxWndwSize_Object=MibTableColumn
+appcActSessRecvNxWndwSize=_AppcActSessRecvNxWndwSize_Object((1,3,6,1,2,1,34,3,1,4,1,1,16),_AppcActSessRecvNxWndwSize_Type())
+appcActSessRecvNxWndwSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessRecvNxWndwSize.setStatus(_A)
+class _AppcActSessRscv_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_AppcActSessRscv_Type.__name__=_J
+_AppcActSessRscv_Object=MibTableColumn
+appcActSessRscv=_AppcActSessRscv_Object((1,3,6,1,2,1,34,3,1,4,1,1,17),_AppcActSessRscv_Type())
+appcActSessRscv.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessRscv.setStatus(_A)
+class _AppcActSessInUse_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),(_H,2)))
+_AppcActSessInUse_Type.__name__=_D
+_AppcActSessInUse_Object=MibTableColumn
+appcActSessInUse=_AppcActSessInUse_Object((1,3,6,1,2,1,34,3,1,4,1,1,18),_AppcActSessInUse_Type())
+appcActSessInUse.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessInUse.setStatus(_A)
+class _AppcActSessMaxSndRuSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8192))
+_AppcActSessMaxSndRuSize_Type.__name__=_D
+_AppcActSessMaxSndRuSize_Object=MibTableColumn
+appcActSessMaxSndRuSize=_AppcActSessMaxSndRuSize_Object((1,3,6,1,2,1,34,3,1,4,1,1,19),_AppcActSessMaxSndRuSize_Type())
+appcActSessMaxSndRuSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessMaxSndRuSize.setStatus(_A)
+class _AppcActSessMaxRcvRuSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8192))
+_AppcActSessMaxRcvRuSize_Type.__name__=_D
+_AppcActSessMaxRcvRuSize_Object=MibTableColumn
+appcActSessMaxRcvRuSize=_AppcActSessMaxRcvRuSize_Object((1,3,6,1,2,1,34,3,1,4,1,1,20),_AppcActSessMaxRcvRuSize_Type())
+appcActSessMaxRcvRuSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessMaxRcvRuSize.setStatus(_A)
+class _AppcActSessSndPacingSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,63))
+_AppcActSessSndPacingSize_Type.__name__=_D
+_AppcActSessSndPacingSize_Object=MibTableColumn
+appcActSessSndPacingSize=_AppcActSessSndPacingSize_Object((1,3,6,1,2,1,34,3,1,4,1,1,21),_AppcActSessSndPacingSize_Type())
+appcActSessSndPacingSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessSndPacingSize.setStatus(_A)
+class _AppcActSessRcvPacingSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,63))
+_AppcActSessRcvPacingSize_Type.__name__=_D
+_AppcActSessRcvPacingSize_Object=MibTableColumn
+appcActSessRcvPacingSize=_AppcActSessRcvPacingSize_Object((1,3,6,1,2,1,34,3,1,4,1,1,22),_AppcActSessRcvPacingSize_Type())
+appcActSessRcvPacingSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessRcvPacingSize.setStatus(_A)
+class _AppcActSessOperState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('unbound',1),('pendingBind',2),('bound',3),('pendingUnbind',4)))
+_AppcActSessOperState_Type.__name__=_D
+_AppcActSessOperState_Object=MibTableColumn
+appcActSessOperState=_AppcActSessOperState_Object((1,3,6,1,2,1,34,3,1,4,1,1,23),_AppcActSessOperState_Type())
+appcActSessOperState.setMaxAccess(_K)
+if mibBuilder.loadTexts:appcActSessOperState.setStatus(_A)
+_AppcActSessUpTime_Type=TimeTicks
+_AppcActSessUpTime_Object=MibTableColumn
+appcActSessUpTime=_AppcActSessUpTime_Object((1,3,6,1,2,1,34,3,1,4,1,1,24),_AppcActSessUpTime_Type())
+appcActSessUpTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessUpTime.setStatus(_A)
+class _AppcActSessRtpNceId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_AppcActSessRtpNceId_Type.__name__=_J
+_AppcActSessRtpNceId_Object=MibTableColumn
+appcActSessRtpNceId=_AppcActSessRtpNceId_Object((1,3,6,1,2,1,34,3,1,4,1,1,25),_AppcActSessRtpNceId_Type())
+appcActSessRtpNceId.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessRtpNceId.setStatus(_A)
+class _AppcActSessRtpTcid_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(8,8))
+_AppcActSessRtpTcid_Type.__name__=_J
+_AppcActSessRtpTcid_Object=MibTableColumn
+appcActSessRtpTcid=_AppcActSessRtpTcid_Object((1,3,6,1,2,1,34,3,1,4,1,1,26),_AppcActSessRtpTcid_Type())
+appcActSessRtpTcid.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessRtpTcid.setStatus(_A)
+_AppcActSessLinkIndex_Type=InstancePointer
+_AppcActSessLinkIndex_Object=MibTableColumn
+appcActSessLinkIndex=_AppcActSessLinkIndex_Object((1,3,6,1,2,1,34,3,1,4,1,1,27),_AppcActSessLinkIndex_Type())
+appcActSessLinkIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActSessLinkIndex.setStatus(_A)
+_AppcSessStatsTable_Object=MibTable
+appcSessStatsTable=_AppcSessStatsTable_Object((1,3,6,1,2,1,34,3,1,4,2))
+if mibBuilder.loadTexts:appcSessStatsTable.setStatus(_A)
+_AppcSessStatsEntry_Object=MibTableRow
+appcSessStatsEntry=_AppcSessStatsEntry_Object((1,3,6,1,2,1,34,3,1,4,2,1))
+appcSessStatsEntry.setIndexNames((0,_B,_A9),(0,_B,_AA),(0,_B,_AB))
+if mibBuilder.loadTexts:appcSessStatsEntry.setStatus(_A)
+class _AppcSessStatsLocLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcSessStatsLocLuName_Type.__name__=_E
+_AppcSessStatsLocLuName_Object=MibTableColumn
+appcSessStatsLocLuName=_AppcSessStatsLocLuName_Object((1,3,6,1,2,1,34,3,1,4,2,1,1),_AppcSessStatsLocLuName_Type())
+appcSessStatsLocLuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcSessStatsLocLuName.setStatus(_A)
+class _AppcSessStatsParLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcSessStatsParLuName_Type.__name__=_E
+_AppcSessStatsParLuName_Object=MibTableColumn
+appcSessStatsParLuName=_AppcSessStatsParLuName_Object((1,3,6,1,2,1,34,3,1,4,2,1,2),_AppcSessStatsParLuName_Type())
+appcSessStatsParLuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcSessStatsParLuName.setStatus(_A)
+_AppcSessStatsSessIndex_Type=Integer32
+_AppcSessStatsSessIndex_Object=MibTableColumn
+appcSessStatsSessIndex=_AppcSessStatsSessIndex_Object((1,3,6,1,2,1,34,3,1,4,2,1,3),_AppcSessStatsSessIndex_Type())
+appcSessStatsSessIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcSessStatsSessIndex.setStatus(_A)
+_AppcSessStatsSentFmdBytes_Type=Counter32
+_AppcSessStatsSentFmdBytes_Object=MibTableColumn
+appcSessStatsSentFmdBytes=_AppcSessStatsSentFmdBytes_Object((1,3,6,1,2,1,34,3,1,4,2,1,4),_AppcSessStatsSentFmdBytes_Type())
+appcSessStatsSentFmdBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcSessStatsSentFmdBytes.setStatus(_A)
+_AppcSessStatsSentNonFmdBytes_Type=Counter32
+_AppcSessStatsSentNonFmdBytes_Object=MibTableColumn
+appcSessStatsSentNonFmdBytes=_AppcSessStatsSentNonFmdBytes_Object((1,3,6,1,2,1,34,3,1,4,2,1,5),_AppcSessStatsSentNonFmdBytes_Type())
+appcSessStatsSentNonFmdBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcSessStatsSentNonFmdBytes.setStatus(_A)
+_AppcSessStatsRcvdFmdBytes_Type=Counter32
+_AppcSessStatsRcvdFmdBytes_Object=MibTableColumn
+appcSessStatsRcvdFmdBytes=_AppcSessStatsRcvdFmdBytes_Object((1,3,6,1,2,1,34,3,1,4,2,1,6),_AppcSessStatsRcvdFmdBytes_Type())
+appcSessStatsRcvdFmdBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcSessStatsRcvdFmdBytes.setStatus(_A)
+_AppcSessStatsRcvdNonFmdBytes_Type=Counter32
+_AppcSessStatsRcvdNonFmdBytes_Object=MibTableColumn
+appcSessStatsRcvdNonFmdBytes=_AppcSessStatsRcvdNonFmdBytes_Object((1,3,6,1,2,1,34,3,1,4,2,1,7),_AppcSessStatsRcvdNonFmdBytes_Type())
+appcSessStatsRcvdNonFmdBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcSessStatsRcvdNonFmdBytes.setStatus(_A)
+_AppcSessStatsSentFmdRus_Type=Counter32
+_AppcSessStatsSentFmdRus_Object=MibTableColumn
+appcSessStatsSentFmdRus=_AppcSessStatsSentFmdRus_Object((1,3,6,1,2,1,34,3,1,4,2,1,8),_AppcSessStatsSentFmdRus_Type())
+appcSessStatsSentFmdRus.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcSessStatsSentFmdRus.setStatus(_A)
+_AppcSessStatsSentNonFmdRus_Type=Counter32
+_AppcSessStatsSentNonFmdRus_Object=MibTableColumn
+appcSessStatsSentNonFmdRus=_AppcSessStatsSentNonFmdRus_Object((1,3,6,1,2,1,34,3,1,4,2,1,9),_AppcSessStatsSentNonFmdRus_Type())
+appcSessStatsSentNonFmdRus.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcSessStatsSentNonFmdRus.setStatus(_A)
+_AppcSessStatsRcvdFmdRus_Type=Counter32
+_AppcSessStatsRcvdFmdRus_Object=MibTableColumn
+appcSessStatsRcvdFmdRus=_AppcSessStatsRcvdFmdRus_Object((1,3,6,1,2,1,34,3,1,4,2,1,10),_AppcSessStatsRcvdFmdRus_Type())
+appcSessStatsRcvdFmdRus.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcSessStatsRcvdFmdRus.setStatus(_A)
+_AppcSessStatsRcvdNonFmdRus_Type=Counter32
+_AppcSessStatsRcvdNonFmdRus_Object=MibTableColumn
+appcSessStatsRcvdNonFmdRus=_AppcSessStatsRcvdNonFmdRus_Object((1,3,6,1,2,1,34,3,1,4,2,1,11),_AppcSessStatsRcvdNonFmdRus_Type())
+appcSessStatsRcvdNonFmdRus.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcSessStatsRcvdNonFmdRus.setStatus(_A)
+_AppcSessStatsCtrUpTime_Type=TimeTicks
+_AppcSessStatsCtrUpTime_Object=MibTableColumn
+appcSessStatsCtrUpTime=_AppcSessStatsCtrUpTime_Object((1,3,6,1,2,1,34,3,1,4,2,1,12),_AppcSessStatsCtrUpTime_Type())
+appcSessStatsCtrUpTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcSessStatsCtrUpTime.setStatus(_A)
+_AppcHistSessTable_Object=MibTable
+appcHistSessTable=_AppcHistSessTable_Object((1,3,6,1,2,1,34,3,1,4,3))
+if mibBuilder.loadTexts:appcHistSessTable.setStatus(_A)
+_AppcHistSessEntry_Object=MibTableRow
+appcHistSessEntry=_AppcHistSessEntry_Object((1,3,6,1,2,1,34,3,1,4,3,1))
+appcHistSessEntry.setIndexNames((0,_B,_AC))
+if mibBuilder.loadTexts:appcHistSessEntry.setStatus(_A)
+class _AppcHistSessIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_AppcHistSessIndex_Type.__name__=_D
+_AppcHistSessIndex_Object=MibTableColumn
+appcHistSessIndex=_AppcHistSessIndex_Object((1,3,6,1,2,1,34,3,1,4,3,1,1),_AppcHistSessIndex_Type())
+appcHistSessIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcHistSessIndex.setStatus(_A)
+_AppcHistSessTime_Type=DateAndTime
+_AppcHistSessTime_Object=MibTableColumn
+appcHistSessTime=_AppcHistSessTime_Object((1,3,6,1,2,1,34,3,1,4,3,1,2),_AppcHistSessTime_Type())
+appcHistSessTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistSessTime.setStatus(_A)
+class _AppcHistSessType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('recvNegBindRsp',1),('sendNegBindRsp',2),('sessActRejected',3),('unbindSent',4),('unbindReceived',5)))
+_AppcHistSessType_Type.__name__=_D
+_AppcHistSessType_Object=MibTableColumn
+appcHistSessType=_AppcHistSessType_Object((1,3,6,1,2,1,34,3,1,4,3,1,3),_AppcHistSessType_Type())
+appcHistSessType.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistSessType.setStatus(_A)
+class _AppcHistSessLocLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcHistSessLocLuName_Type.__name__=_E
+_AppcHistSessLocLuName_Object=MibTableColumn
+appcHistSessLocLuName=_AppcHistSessLocLuName_Object((1,3,6,1,2,1,34,3,1,4,3,1,4),_AppcHistSessLocLuName_Type())
+appcHistSessLocLuName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistSessLocLuName.setStatus(_A)
+class _AppcHistSessParLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,17))
+_AppcHistSessParLuName_Type.__name__=_E
+_AppcHistSessParLuName_Object=MibTableColumn
+appcHistSessParLuName=_AppcHistSessParLuName_Object((1,3,6,1,2,1,34,3,1,4,3,1,5),_AppcHistSessParLuName_Type())
+appcHistSessParLuName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistSessParLuName.setStatus(_A)
+class _AppcHistSessModeName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
+_AppcHistSessModeName_Type.__name__=_E
+_AppcHistSessModeName_Object=MibTableColumn
+appcHistSessModeName=_AppcHistSessModeName_Object((1,3,6,1,2,1,34,3,1,4,3,1,6),_AppcHistSessModeName_Type())
+appcHistSessModeName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistSessModeName.setStatus(_A)
+class _AppcHistSessUnbindType_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_AppcHistSessUnbindType_Type.__name__=_J
+_AppcHistSessUnbindType_Object=MibTableColumn
+appcHistSessUnbindType=_AppcHistSessUnbindType_Object((1,3,6,1,2,1,34,3,1,4,3,1,7),_AppcHistSessUnbindType_Type())
+appcHistSessUnbindType.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistSessUnbindType.setStatus(_A)
+_AppcHistSessSenseData_Type=SnaSenseData
+_AppcHistSessSenseData_Object=MibTableColumn
+appcHistSessSenseData=_AppcHistSessSenseData_Object((1,3,6,1,2,1,34,3,1,4,3,1,8),_AppcHistSessSenseData_Type())
+appcHistSessSenseData.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistSessSenseData.setStatus(_A)
+class _AppcHistSessComponentId_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_AppcHistSessComponentId_Type.__name__=_E
+_AppcHistSessComponentId_Object=MibTableColumn
+appcHistSessComponentId=_AppcHistSessComponentId_Object((1,3,6,1,2,1,34,3,1,4,3,1,9),_AppcHistSessComponentId_Type())
+appcHistSessComponentId.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistSessComponentId.setStatus(_A)
+class _AppcHistSessDetectModule_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_AppcHistSessDetectModule_Type.__name__=_E
+_AppcHistSessDetectModule_Object=MibTableColumn
+appcHistSessDetectModule=_AppcHistSessDetectModule_Object((1,3,6,1,2,1,34,3,1,4,3,1,10),_AppcHistSessDetectModule_Type())
+appcHistSessDetectModule.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistSessDetectModule.setStatus(_A)
+_AppcSessRtpTable_Object=MibTable
+appcSessRtpTable=_AppcSessRtpTable_Object((1,3,6,1,2,1,34,3,1,4,4))
+if mibBuilder.loadTexts:appcSessRtpTable.setStatus(_A)
+_AppcSessRtpEntry_Object=MibTableRow
+appcSessRtpEntry=_AppcSessRtpEntry_Object((1,3,6,1,2,1,34,3,1,4,4,1))
+appcSessRtpEntry.setIndexNames((0,_B,_AD),(0,_B,_AE))
+if mibBuilder.loadTexts:appcSessRtpEntry.setStatus(_A)
+class _AppcSessRtpNceId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
+_AppcSessRtpNceId_Type.__name__=_J
+_AppcSessRtpNceId_Object=MibTableColumn
+appcSessRtpNceId=_AppcSessRtpNceId_Object((1,3,6,1,2,1,34,3,1,4,4,1,1),_AppcSessRtpNceId_Type())
+appcSessRtpNceId.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcSessRtpNceId.setStatus(_A)
+class _AppcSessRtpTcid_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
+_AppcSessRtpTcid_Type.__name__=_J
+_AppcSessRtpTcid_Object=MibTableColumn
+appcSessRtpTcid=_AppcSessRtpTcid_Object((1,3,6,1,2,1,34,3,1,4,4,1,2),_AppcSessRtpTcid_Type())
+appcSessRtpTcid.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcSessRtpTcid.setStatus(_A)
+_AppcSessRtpSessions_Type=Gauge32
+_AppcSessRtpSessions_Object=MibTableColumn
+appcSessRtpSessions=_AppcSessRtpSessions_Object((1,3,6,1,2,1,34,3,1,4,4,1,3),_AppcSessRtpSessions_Type())
+appcSessRtpSessions.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcSessRtpSessions.setStatus(_A)
+_AppcConversation_ObjectIdentity=ObjectIdentity
+appcConversation=_AppcConversation_ObjectIdentity((1,3,6,1,2,1,34,3,1,5))
+_AppcActiveConvTable_Object=MibTable
+appcActiveConvTable=_AppcActiveConvTable_Object((1,3,6,1,2,1,34,3,1,5,1))
+if mibBuilder.loadTexts:appcActiveConvTable.setStatus(_A)
+_AppcActiveConvEntry_Object=MibTableRow
+appcActiveConvEntry=_AppcActiveConvEntry_Object((1,3,6,1,2,1,34,3,1,5,1,1))
+appcActiveConvEntry.setIndexNames((0,_B,_AF),(0,_B,_AG),(0,_B,_AH))
+if mibBuilder.loadTexts:appcActiveConvEntry.setStatus(_A)
+class _AppcActiveConvLocLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcActiveConvLocLuName_Type.__name__=_E
+_AppcActiveConvLocLuName_Object=MibTableColumn
+appcActiveConvLocLuName=_AppcActiveConvLocLuName_Object((1,3,6,1,2,1,34,3,1,5,1,1,1),_AppcActiveConvLocLuName_Type())
+appcActiveConvLocLuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcActiveConvLocLuName.setStatus(_A)
+class _AppcActiveConvParLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcActiveConvParLuName_Type.__name__=_E
+_AppcActiveConvParLuName_Object=MibTableColumn
+appcActiveConvParLuName=_AppcActiveConvParLuName_Object((1,3,6,1,2,1,34,3,1,5,1,1,2),_AppcActiveConvParLuName_Type())
+appcActiveConvParLuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcActiveConvParLuName.setStatus(_A)
+_AppcActiveConvSessIndex_Type=Integer32
+_AppcActiveConvSessIndex_Object=MibTableColumn
+appcActiveConvSessIndex=_AppcActiveConvSessIndex_Object((1,3,6,1,2,1,34,3,1,5,1,1,3),_AppcActiveConvSessIndex_Type())
+appcActiveConvSessIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcActiveConvSessIndex.setStatus(_A)
+class _AppcActiveConvId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
+_AppcActiveConvId_Type.__name__=_J
+_AppcActiveConvId_Object=MibTableColumn
+appcActiveConvId=_AppcActiveConvId_Object((1,3,6,1,2,1,34,3,1,5,1,1,4),_AppcActiveConvId_Type())
+appcActiveConvId.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvId.setStatus(_A)
+class _AppcActiveConvState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17)));namedValues=NamedValues(*(('reset',1),('send',2),('receive',3),(_Z,4),('confirmSend',5),('confirmDealloc',6),('pendingDeallocate',7),('pendingPost',8),('sendReceive',9),('sendOnly',10),('receiveOnly',11),('deferReceive',12),('deferDeallocate',13),(_A5,14),('syncpointSend',15),('syncpointDeallocate',16),('backoutRequired',17)))
+_AppcActiveConvState_Type.__name__=_D
+_AppcActiveConvState_Object=MibTableColumn
+appcActiveConvState=_AppcActiveConvState_Object((1,3,6,1,2,1,34,3,1,5,1,1,5),_AppcActiveConvState_Type())
+appcActiveConvState.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvState.setStatus(_A)
+class _AppcActiveConvType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('basic',1),('mapped',2)))
+_AppcActiveConvType_Type.__name__=_D
+_AppcActiveConvType_Object=MibTableColumn
+appcActiveConvType=_AppcActiveConvType_Object((1,3,6,1,2,1,34,3,1,5,1,1,6),_AppcActiveConvType_Type())
+appcActiveConvType.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvType.setStatus(_A)
+class _AppcActiveConvCorrelator_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_AppcActiveConvCorrelator_Type.__name__=_J
+_AppcActiveConvCorrelator_Object=MibTableColumn
+appcActiveConvCorrelator=_AppcActiveConvCorrelator_Object((1,3,6,1,2,1,34,3,1,5,1,1,7),_AppcActiveConvCorrelator_Type())
+appcActiveConvCorrelator.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvCorrelator.setStatus(_A)
+class _AppcActiveConvSyncLvl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),(_Z,2),('syncpt',3)))
+_AppcActiveConvSyncLvl_Type.__name__=_D
+_AppcActiveConvSyncLvl_Object=MibTableColumn
+appcActiveConvSyncLvl=_AppcActiveConvSyncLvl_Object((1,3,6,1,2,1,34,3,1,5,1,1,8),_AppcActiveConvSyncLvl_Type())
+appcActiveConvSyncLvl.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvSyncLvl.setStatus(_A)
+class _AppcActiveConvSource_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('localLu',1),(_AI,2)))
+_AppcActiveConvSource_Type.__name__=_D
+_AppcActiveConvSource_Object=MibTableColumn
+appcActiveConvSource=_AppcActiveConvSource_Object((1,3,6,1,2,1,34,3,1,5,1,1,9),_AppcActiveConvSource_Type())
+appcActiveConvSource.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvSource.setStatus(_A)
+class _AppcActiveConvDuplex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('half',1),('full',2)))
+_AppcActiveConvDuplex_Type.__name__=_D
+_AppcActiveConvDuplex_Object=MibTableColumn
+appcActiveConvDuplex=_AppcActiveConvDuplex_Object((1,3,6,1,2,1,34,3,1,5,1,1,10),_AppcActiveConvDuplex_Type())
+appcActiveConvDuplex.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvDuplex.setStatus(_A)
+_AppcActiveConvUpTime_Type=TimeTicks
+_AppcActiveConvUpTime_Object=MibTableColumn
+appcActiveConvUpTime=_AppcActiveConvUpTime_Object((1,3,6,1,2,1,34,3,1,5,1,1,11),_AppcActiveConvUpTime_Type())
+appcActiveConvUpTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvUpTime.setStatus(_A)
+_AppcActiveConvSendBytes_Type=Counter32
+_AppcActiveConvSendBytes_Object=MibTableColumn
+appcActiveConvSendBytes=_AppcActiveConvSendBytes_Object((1,3,6,1,2,1,34,3,1,5,1,1,12),_AppcActiveConvSendBytes_Type())
+appcActiveConvSendBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvSendBytes.setStatus(_A)
+_AppcActiveConvRcvBytes_Type=Counter32
+_AppcActiveConvRcvBytes_Object=MibTableColumn
+appcActiveConvRcvBytes=_AppcActiveConvRcvBytes_Object((1,3,6,1,2,1,34,3,1,5,1,1,13),_AppcActiveConvRcvBytes_Type())
+appcActiveConvRcvBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvRcvBytes.setStatus(_A)
+class _AppcActiveConvUserid_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,10))
+_AppcActiveConvUserid_Type.__name__=_E
+_AppcActiveConvUserid_Object=MibTableColumn
+appcActiveConvUserid=_AppcActiveConvUserid_Object((1,3,6,1,2,1,34,3,1,5,1,1,14),_AppcActiveConvUserid_Type())
+appcActiveConvUserid.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvUserid.setStatus(_A)
+class _AppcActiveConvPcidNauName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(3,17))
+_AppcActiveConvPcidNauName_Type.__name__=_E
+_AppcActiveConvPcidNauName_Object=MibTableColumn
+appcActiveConvPcidNauName=_AppcActiveConvPcidNauName_Object((1,3,6,1,2,1,34,3,1,5,1,1,15),_AppcActiveConvPcidNauName_Type())
+appcActiveConvPcidNauName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvPcidNauName.setStatus(_A)
+class _AppcActiveConvPcid_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(8,8))
+_AppcActiveConvPcid_Type.__name__=_J
+_AppcActiveConvPcid_Object=MibTableColumn
+appcActiveConvPcid=_AppcActiveConvPcid_Object((1,3,6,1,2,1,34,3,1,5,1,1,16),_AppcActiveConvPcid_Type())
+appcActiveConvPcid.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvPcid.setStatus(_A)
+class _AppcActiveConvModeName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
+_AppcActiveConvModeName_Type.__name__=_E
+_AppcActiveConvModeName_Object=MibTableColumn
+appcActiveConvModeName=_AppcActiveConvModeName_Object((1,3,6,1,2,1,34,3,1,5,1,1,17),_AppcActiveConvModeName_Type())
+appcActiveConvModeName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvModeName.setStatus(_A)
+class _AppcActiveConvLuwIdName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcActiveConvLuwIdName_Type.__name__=_E
+_AppcActiveConvLuwIdName_Object=MibTableColumn
+appcActiveConvLuwIdName=_AppcActiveConvLuwIdName_Object((1,3,6,1,2,1,34,3,1,5,1,1,18),_AppcActiveConvLuwIdName_Type())
+appcActiveConvLuwIdName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvLuwIdName.setStatus(_A)
+class _AppcActiveConvLuwIdInstance_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,6))
+_AppcActiveConvLuwIdInstance_Type.__name__=_J
+_AppcActiveConvLuwIdInstance_Object=MibTableColumn
+appcActiveConvLuwIdInstance=_AppcActiveConvLuwIdInstance_Object((1,3,6,1,2,1,34,3,1,5,1,1,19),_AppcActiveConvLuwIdInstance_Type())
+appcActiveConvLuwIdInstance.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvLuwIdInstance.setStatus(_A)
+class _AppcActiveConvLuwIdSequence_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,2))
+_AppcActiveConvLuwIdSequence_Type.__name__=_J
+_AppcActiveConvLuwIdSequence_Object=MibTableColumn
+appcActiveConvLuwIdSequence=_AppcActiveConvLuwIdSequence_Object((1,3,6,1,2,1,34,3,1,5,1,1,20),_AppcActiveConvLuwIdSequence_Type())
+appcActiveConvLuwIdSequence.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvLuwIdSequence.setStatus(_A)
+class _AppcActiveConvTpName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
+_AppcActiveConvTpName_Type.__name__=_E
+_AppcActiveConvTpName_Object=MibTableColumn
+appcActiveConvTpName=_AppcActiveConvTpName_Object((1,3,6,1,2,1,34,3,1,5,1,1,21),_AppcActiveConvTpName_Type())
+appcActiveConvTpName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcActiveConvTpName.setStatus(_A)
+_AppcHistConvTable_Object=MibTable
+appcHistConvTable=_AppcHistConvTable_Object((1,3,6,1,2,1,34,3,1,5,2))
+if mibBuilder.loadTexts:appcHistConvTable.setStatus(_A)
+_AppcHistConvEntry_Object=MibTableRow
+appcHistConvEntry=_AppcHistConvEntry_Object((1,3,6,1,2,1,34,3,1,5,2,1))
+appcHistConvEntry.setIndexNames((0,_B,_AJ))
+if mibBuilder.loadTexts:appcHistConvEntry.setStatus(_A)
+_AppcHistConvIndex_Type=Integer32
+_AppcHistConvIndex_Object=MibTableColumn
+appcHistConvIndex=_AppcHistConvIndex_Object((1,3,6,1,2,1,34,3,1,5,2,1,1),_AppcHistConvIndex_Type())
+appcHistConvIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcHistConvIndex.setStatus(_A)
+_AppcHistConvEndTime_Type=DateAndTime
+_AppcHistConvEndTime_Object=MibTableColumn
+appcHistConvEndTime=_AppcHistConvEndTime_Object((1,3,6,1,2,1,34,3,1,5,2,1,2),_AppcHistConvEndTime_Type())
+appcHistConvEndTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistConvEndTime.setStatus(_A)
+class _AppcHistConvLocLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcHistConvLocLuName_Type.__name__=_E
+_AppcHistConvLocLuName_Object=MibTableColumn
+appcHistConvLocLuName=_AppcHistConvLocLuName_Object((1,3,6,1,2,1,34,3,1,5,2,1,3),_AppcHistConvLocLuName_Type())
+appcHistConvLocLuName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistConvLocLuName.setStatus(_A)
+class _AppcHistConvParLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcHistConvParLuName_Type.__name__=_E
+_AppcHistConvParLuName_Object=MibTableColumn
+appcHistConvParLuName=_AppcHistConvParLuName_Object((1,3,6,1,2,1,34,3,1,5,2,1,4),_AppcHistConvParLuName_Type())
+appcHistConvParLuName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistConvParLuName.setStatus(_A)
+class _AppcHistConvTpName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
+_AppcHistConvTpName_Type.__name__=_E
+_AppcHistConvTpName_Object=MibTableColumn
+appcHistConvTpName=_AppcHistConvTpName_Object((1,3,6,1,2,1,34,3,1,5,2,1,5),_AppcHistConvTpName_Type())
+appcHistConvTpName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistConvTpName.setStatus(_A)
+class _AppcHistConvPcidNauName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(3,17))
+_AppcHistConvPcidNauName_Type.__name__=_E
+_AppcHistConvPcidNauName_Object=MibTableColumn
+appcHistConvPcidNauName=_AppcHistConvPcidNauName_Object((1,3,6,1,2,1,34,3,1,5,2,1,6),_AppcHistConvPcidNauName_Type())
+appcHistConvPcidNauName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistConvPcidNauName.setStatus(_A)
+class _AppcHistConvPcid_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(8,8))
+_AppcHistConvPcid_Type.__name__=_J
+_AppcHistConvPcid_Object=MibTableColumn
+appcHistConvPcid=_AppcHistConvPcid_Object((1,3,6,1,2,1,34,3,1,5,2,1,7),_AppcHistConvPcid_Type())
+appcHistConvPcid.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistConvPcid.setStatus(_A)
+_AppcHistConvSenseData_Type=SnaSenseData
+_AppcHistConvSenseData_Object=MibTableColumn
+appcHistConvSenseData=_AppcHistConvSenseData_Object((1,3,6,1,2,1,34,3,1,5,2,1,8),_AppcHistConvSenseData_Type())
+appcHistConvSenseData.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistConvSenseData.setStatus(_A)
+class _AppcHistConvLogData_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_AppcHistConvLogData_Type.__name__=_J
+_AppcHistConvLogData_Object=MibTableColumn
+appcHistConvLogData=_AppcHistConvLogData_Object((1,3,6,1,2,1,34,3,1,5,2,1,9),_AppcHistConvLogData_Type())
+appcHistConvLogData.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistConvLogData.setStatus(_A)
+class _AppcHistConvEndedBy_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('localLu',1),(_AI,2)))
+_AppcHistConvEndedBy_Type.__name__=_D
+_AppcHistConvEndedBy_Object=MibTableColumn
+appcHistConvEndedBy=_AppcHistConvEndedBy_Object((1,3,6,1,2,1,34,3,1,5,2,1,10),_AppcHistConvEndedBy_Type())
+appcHistConvEndedBy.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcHistConvEndedBy.setStatus(_A)
+_AppcCPIC_ObjectIdentity=ObjectIdentity
+appcCPIC=_AppcCPIC_ObjectIdentity((1,3,6,1,2,1,34,3,1,6))
+_AppcCpicAdminTable_Object=MibTable
+appcCpicAdminTable=_AppcCpicAdminTable_Object((1,3,6,1,2,1,34,3,1,6,1))
+if mibBuilder.loadTexts:appcCpicAdminTable.setStatus(_A)
+_AppcCpicAdminEntry_Object=MibTableRow
+appcCpicAdminEntry=_AppcCpicAdminEntry_Object((1,3,6,1,2,1,34,3,1,6,1,1))
+appcCpicAdminEntry.setIndexNames((0,_B,_AK),(0,_B,_AL))
+if mibBuilder.loadTexts:appcCpicAdminEntry.setStatus(_A)
+class _AppcCpicAdminLocLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcCpicAdminLocLuName_Type.__name__=_E
+_AppcCpicAdminLocLuName_Object=MibTableColumn
+appcCpicAdminLocLuName=_AppcCpicAdminLocLuName_Object((1,3,6,1,2,1,34,3,1,6,1,1,1),_AppcCpicAdminLocLuName_Type())
+appcCpicAdminLocLuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcCpicAdminLocLuName.setStatus(_A)
+class _AppcCpicAdminSymbDestName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
+_AppcCpicAdminSymbDestName_Type.__name__=_E
+_AppcCpicAdminSymbDestName_Object=MibTableColumn
+appcCpicAdminSymbDestName=_AppcCpicAdminSymbDestName_Object((1,3,6,1,2,1,34,3,1,6,1,1,2),_AppcCpicAdminSymbDestName_Type())
+appcCpicAdminSymbDestName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcCpicAdminSymbDestName.setStatus(_A)
+class _AppcCpicAdminParLuAlias_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_AppcCpicAdminParLuAlias_Type.__name__=_E
+_AppcCpicAdminParLuAlias_Object=MibTableColumn
+appcCpicAdminParLuAlias=_AppcCpicAdminParLuAlias_Object((1,3,6,1,2,1,34,3,1,6,1,1,3),_AppcCpicAdminParLuAlias_Type())
+appcCpicAdminParLuAlias.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCpicAdminParLuAlias.setStatus(_A)
+class _AppcCpicAdminParLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcCpicAdminParLuName_Type.__name__=_E
+_AppcCpicAdminParLuName_Object=MibTableColumn
+appcCpicAdminParLuName=_AppcCpicAdminParLuName_Object((1,3,6,1,2,1,34,3,1,6,1,1,4),_AppcCpicAdminParLuName_Type())
+appcCpicAdminParLuName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCpicAdminParLuName.setStatus(_A)
+class _AppcCpicAdminModeName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
+_AppcCpicAdminModeName_Type.__name__=_E
+_AppcCpicAdminModeName_Object=MibTableColumn
+appcCpicAdminModeName=_AppcCpicAdminModeName_Object((1,3,6,1,2,1,34,3,1,6,1,1,5),_AppcCpicAdminModeName_Type())
+appcCpicAdminModeName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCpicAdminModeName.setStatus(_A)
+class _AppcCpicAdminTpNameType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('normal',1),(_AM,2)))
+_AppcCpicAdminTpNameType_Type.__name__=_D
+_AppcCpicAdminTpNameType_Object=MibTableColumn
+appcCpicAdminTpNameType=_AppcCpicAdminTpNameType_Object((1,3,6,1,2,1,34,3,1,6,1,1,6),_AppcCpicAdminTpNameType_Type())
+appcCpicAdminTpNameType.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCpicAdminTpNameType.setStatus(_A)
+class _AppcCpicAdminTpName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
+_AppcCpicAdminTpName_Type.__name__=_E
+_AppcCpicAdminTpName_Object=MibTableColumn
+appcCpicAdminTpName=_AppcCpicAdminTpName_Object((1,3,6,1,2,1,34,3,1,6,1,1,7),_AppcCpicAdminTpName_Type())
+appcCpicAdminTpName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCpicAdminTpName.setStatus(_A)
+class _AppcCpicAdminUserid_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,10))
+_AppcCpicAdminUserid_Type.__name__=_E
+_AppcCpicAdminUserid_Object=MibTableColumn
+appcCpicAdminUserid=_AppcCpicAdminUserid_Object((1,3,6,1,2,1,34,3,1,6,1,1,8),_AppcCpicAdminUserid_Type())
+appcCpicAdminUserid.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCpicAdminUserid.setStatus(_A)
+class _AppcCpicAdminSecurity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_I,1),('same',2),('pgm',3),(_AN,4),(_AO,5),('mutual',6)))
+_AppcCpicAdminSecurity_Type.__name__=_D
+_AppcCpicAdminSecurity_Object=MibTableColumn
+appcCpicAdminSecurity=_AppcCpicAdminSecurity_Object((1,3,6,1,2,1,34,3,1,6,1,1,9),_AppcCpicAdminSecurity_Type())
+appcCpicAdminSecurity.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCpicAdminSecurity.setStatus(_A)
+_AppcCpicOperTable_Object=MibTable
+appcCpicOperTable=_AppcCpicOperTable_Object((1,3,6,1,2,1,34,3,1,6,2))
+if mibBuilder.loadTexts:appcCpicOperTable.setStatus(_A)
+_AppcCpicOperEntry_Object=MibTableRow
+appcCpicOperEntry=_AppcCpicOperEntry_Object((1,3,6,1,2,1,34,3,1,6,2,1))
+appcCpicOperEntry.setIndexNames((0,_B,_AP),(0,_B,_AQ))
+if mibBuilder.loadTexts:appcCpicOperEntry.setStatus(_A)
+class _AppcCpicOperLocLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcCpicOperLocLuName_Type.__name__=_E
+_AppcCpicOperLocLuName_Object=MibTableColumn
+appcCpicOperLocLuName=_AppcCpicOperLocLuName_Object((1,3,6,1,2,1,34,3,1,6,2,1,1),_AppcCpicOperLocLuName_Type())
+appcCpicOperLocLuName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcCpicOperLocLuName.setStatus(_A)
+class _AppcCpicOperSymbDestName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
+_AppcCpicOperSymbDestName_Type.__name__=_E
+_AppcCpicOperSymbDestName_Object=MibTableColumn
+appcCpicOperSymbDestName=_AppcCpicOperSymbDestName_Object((1,3,6,1,2,1,34,3,1,6,2,1,2),_AppcCpicOperSymbDestName_Type())
+appcCpicOperSymbDestName.setMaxAccess(_F)
+if mibBuilder.loadTexts:appcCpicOperSymbDestName.setStatus(_A)
+class _AppcCpicOperParLuAlias_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_AppcCpicOperParLuAlias_Type.__name__=_E
+_AppcCpicOperParLuAlias_Object=MibTableColumn
+appcCpicOperParLuAlias=_AppcCpicOperParLuAlias_Object((1,3,6,1,2,1,34,3,1,6,2,1,3),_AppcCpicOperParLuAlias_Type())
+appcCpicOperParLuAlias.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCpicOperParLuAlias.setStatus(_A)
+class _AppcCpicOperParLuName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,17))
+_AppcCpicOperParLuName_Type.__name__=_E
+_AppcCpicOperParLuName_Object=MibTableColumn
+appcCpicOperParLuName=_AppcCpicOperParLuName_Object((1,3,6,1,2,1,34,3,1,6,2,1,4),_AppcCpicOperParLuName_Type())
+appcCpicOperParLuName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCpicOperParLuName.setStatus(_A)
+class _AppcCpicOperModeName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
+_AppcCpicOperModeName_Type.__name__=_E
+_AppcCpicOperModeName_Object=MibTableColumn
+appcCpicOperModeName=_AppcCpicOperModeName_Object((1,3,6,1,2,1,34,3,1,6,2,1,5),_AppcCpicOperModeName_Type())
+appcCpicOperModeName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCpicOperModeName.setStatus(_A)
+class _AppcCpicOperTpNameType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('normal',1),(_AM,2)))
+_AppcCpicOperTpNameType_Type.__name__=_D
+_AppcCpicOperTpNameType_Object=MibTableColumn
+appcCpicOperTpNameType=_AppcCpicOperTpNameType_Object((1,3,6,1,2,1,34,3,1,6,2,1,6),_AppcCpicOperTpNameType_Type())
+appcCpicOperTpNameType.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCpicOperTpNameType.setStatus(_A)
+class _AppcCpicOperTpName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
+_AppcCpicOperTpName_Type.__name__=_E
+_AppcCpicOperTpName_Object=MibTableColumn
+appcCpicOperTpName=_AppcCpicOperTpName_Object((1,3,6,1,2,1,34,3,1,6,2,1,7),_AppcCpicOperTpName_Type())
+appcCpicOperTpName.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCpicOperTpName.setStatus(_A)
+class _AppcCpicOperUserid_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,10))
+_AppcCpicOperUserid_Type.__name__=_E
+_AppcCpicOperUserid_Object=MibTableColumn
+appcCpicOperUserid=_AppcCpicOperUserid_Object((1,3,6,1,2,1,34,3,1,6,2,1,8),_AppcCpicOperUserid_Type())
+appcCpicOperUserid.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCpicOperUserid.setStatus(_A)
+class _AppcCpicOperSecurity_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_I,1),('same',2),('pgm',3),(_AN,4),(_AO,5),('mutual',6)))
+_AppcCpicOperSecurity_Type.__name__=_D
+_AppcCpicOperSecurity_Object=MibTableColumn
+appcCpicOperSecurity=_AppcCpicOperSecurity_Object((1,3,6,1,2,1,34,3,1,6,2,1,9),_AppcCpicOperSecurity_Type())
+appcCpicOperSecurity.setMaxAccess(_C)
+if mibBuilder.loadTexts:appcCpicOperSecurity.setStatus(_A)
+_AppcConformance_ObjectIdentity=ObjectIdentity
+appcConformance=_AppcConformance_ObjectIdentity((1,3,6,1,2,1,34,3,2))
+_AppcCompliances_ObjectIdentity=ObjectIdentity
+appcCompliances=_AppcCompliances_ObjectIdentity((1,3,6,1,2,1,34,3,2,1))
+_AppcGroups_ObjectIdentity=ObjectIdentity
+appcGroups=_AppcGroups_ObjectIdentity((1,3,6,1,2,1,34,3,2,2))
+appcGlobalConfGroup=ObjectGroup((1,3,6,1,2,1,34,3,2,2,1))
+appcGlobalConfGroup.setObjects(*((_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa),(_B,_Ab)))
+if mibBuilder.loadTexts:appcGlobalConfGroup.setStatus(_A)
+appcLluConfGroup=ObjectGroup((1,3,6,1,2,1,34,3,2,2,2))
+appcLluConfGroup.setObjects(*((_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au)))
+if mibBuilder.loadTexts:appcLluConfGroup.setStatus(_A)
+appcParLuConfGroup=ObjectGroup((1,3,6,1,2,1,34,3,2,2,3))
+appcParLuConfGroup.setObjects(*((_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7)))
+if mibBuilder.loadTexts:appcParLuConfGroup.setStatus(_A)
+appcModeConfGroup=ObjectGroup((1,3,6,1,2,1,34,3,2,2,4))
+appcModeConfGroup.setObjects(*((_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI),(_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_BS),(_B,_BT),(_B,_BU),(_B,_BV),(_B,_BW),(_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba),(_B,_Bb),(_B,_Bc),(_B,_Bd),(_B,_Be),(_B,_Bf),(_B,_Bg),(_B,_Bh),(_B,_Bi),(_B,_Bj),(_B,_Bk),(_B,_Bl),(_B,_Bm),(_B,_Bn),(_B,_Bo),(_B,_Bp),(_B,_Bq),(_B,_Br),(_B,_Bs),(_B,_Bt),(_B,_Bu),(_B,_Bv),(_B,_Bw),(_B,_Bx),(_B,_By),(_B,_Bz)))
+if mibBuilder.loadTexts:appcModeConfGroup.setStatus(_A)
+appcTpConfGroup=ObjectGroup((1,3,6,1,2,1,34,3,2,2,5))
+appcTpConfGroup.setObjects(*((_B,_B_),(_B,_C0),(_B,_C1),(_B,_C2),(_B,_C3),(_B,_C4),(_B,_C5),(_B,_C6),(_B,_C7),(_B,_C8),(_B,_C9),(_B,_CA),(_B,_CB),(_B,_CC)))
+if mibBuilder.loadTexts:appcTpConfGroup.setStatus(_A)
+appcSessionConfGroup=ObjectGroup((1,3,6,1,2,1,34,3,2,2,6))
+appcSessionConfGroup.setObjects(*((_B,_CD),(_B,_CE),(_B,_CF),(_B,_CG),(_B,_CH),(_B,_CI),(_B,_CJ),(_B,_CK),(_B,_CL),(_B,_CM),(_B,_CN),(_B,_CO),(_B,_CP),(_B,_CQ),(_B,_CR),(_B,_CS),(_B,_CT),(_B,_CU),(_B,_CV),(_B,_CW),(_B,_CX),(_B,_CY),(_B,_CZ),(_B,_Ca),(_B,_Cb),(_B,_Cc),(_B,_Cd),(_B,_Ce),(_B,_Cf),(_B,_Cg),(_B,_Ch),(_B,_Ci),(_B,_Cj),(_B,_Ck),(_B,_Cl),(_B,_Cm),(_B,_Cn),(_B,_Co),(_B,_Cp),(_B,_Cq),(_B,_Cr),(_B,_Cs),(_B,_Ct)))
+if mibBuilder.loadTexts:appcSessionConfGroup.setStatus(_A)
+appcControlConfGroup=ObjectGroup((1,3,6,1,2,1,34,3,2,2,7))
+appcControlConfGroup.setObjects(*((_B,_Cu),(_B,_Cv),(_B,_Cw),(_B,_Cx),(_B,_Cy),(_B,_Cz),(_B,_C_),(_B,_D0),(_B,_D1),(_B,_D2),(_B,_D3)))
+if mibBuilder.loadTexts:appcControlConfGroup.setStatus(_A)
+appcCnosConfGroup=ObjectGroup((1,3,6,1,2,1,34,3,2,2,8))
+appcCnosConfGroup.setObjects(*((_B,_D4),(_B,_D5),(_B,_D6),(_B,_D7),(_B,_D8),(_B,_D9),(_B,_DA),(_B,_DB),(_B,_DC),(_B,_DD),(_B,_DE)))
+if mibBuilder.loadTexts:appcCnosConfGroup.setStatus(_A)
+appcCpicConfGroup=ObjectGroup((1,3,6,1,2,1,34,3,2,2,9))
+appcCpicConfGroup.setObjects(*((_B,_DF),(_B,_DG),(_B,_DH),(_B,_DI),(_B,_DJ),(_B,_DK),(_B,_DL),(_B,_DM),(_B,_DN),(_B,_DO),(_B,_DP),(_B,_DQ),(_B,_DR),(_B,_DS)))
+if mibBuilder.loadTexts:appcCpicConfGroup.setStatus(_A)
+appcConversationConfGroup=ObjectGroup((1,3,6,1,2,1,34,3,2,2,10))
+appcConversationConfGroup.setObjects(*((_B,_DT),(_B,_DU),(_B,_DV),(_B,_DW),(_B,_DX),(_B,_DY),(_B,_DZ),(_B,_Da),(_B,_Db),(_B,_Dc),(_B,_Dd),(_B,_De),(_B,_Df),(_B,_Dg),(_B,_Dh),(_B,_Di),(_B,_Dj),(_B,_Dk),(_B,_Dl),(_B,_Dm),(_B,_Dn),(_B,_Do),(_B,_Dp),(_B,_Dq),(_B,_Dr),(_B,_Ds),(_B,_Dt)))
+if mibBuilder.loadTexts:appcConversationConfGroup.setStatus(_A)
+appcCompliance=ModuleCompliance((1,3,6,1,2,1,34,3,2,1,1))
+appcCompliance.setObjects(*((_B,_Du),(_B,_Dv),(_B,_Dw),(_B,_Dx),(_B,_Dy),(_B,_Dz),(_B,_D_),(_B,_E0),(_B,_E1),(_B,_E2)))
+if mibBuilder.loadTexts:appcCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'SnaSenseData':SnaSenseData,'appcMIB':appcMIB,'appcObjects':appcObjects,'appcGlobal':appcGlobal,'appcCntrlAdminGroup':appcCntrlAdminGroup,_Cu:appcCntrlAdminStat,_Cv:appcCntrlAdminRscv,_Cw:appcCntrlAdminTrace,_Cx:appcCntrlAdminTraceParm,'appcCntrlOperGroup':appcCntrlOperGroup,_Cy:appcCntrlOperStat,_Cz:appcCntrlOperStatTime,_C_:appcCntrlOperRscv,_D0:appcCntrlOperRscvTime,_D1:appcCntrlOperTrace,_D2:appcCntrlOperTraceTime,_D3:appcCntrlOperTraceParm,'appcGlobalObjects':appcGlobalObjects,_AR:appcUpTime,_AS:appcDefaultModeName,_AT:appcDefaultLuName,_AU:appcDefaultImplInbndPlu,_AV:appcDefaultMaxMcLlSndSize,_AW:appcDefaultFileSpec,_AX:appcDefaultTpOperation,_AY:appcDefaultTpConvSecRqd,_AZ:appcLocalCpName,_Aa:appcActiveSessions,_Ab:appcActiveHprSessions,'appcCnosControl':appcCnosControl,_D4:appcCnosCommand,_D5:appcCnosMaxSessLimit,_D6:appcCnosMinCwinLimit,_D7:appcCnosMinClosLimit,_D8:appcCnosDrainSelf,_D9:appcCnosDrainPart,_DA:appcCnosResponsible,_DB:appcCnosForce,_DC:appcCnosTargetLocLuName,_DD:appcCnosTargetParLuName,_DE:appcCnosTargetModeName,'appcLu':appcLu,'appcLluAdminTable':appcLluAdminTable,'appcLluAdminEntry':appcLluAdminEntry,_e:appcLluAdminName,_Ac:appcLluAdminDepType,_Ad:appcLluAdminLocalAddress,_Ae:appcLluAdminSessLimit,_Af:appcLluAdminBindRspMayQ,_Ag:appcLluAdminCompression,_Ah:appcLluAdminInBoundCompLevel,_Ai:appcLluAdminOutBoundCompLevel,_Aj:appcLluAdminCompRleBeforeLZ,_Ak:appcLluAdminAlias,'appcLluOperTable':appcLluOperTable,'appcLluOperEntry':appcLluOperEntry,_h:appcLluOperName,_Al:appcLluOperDepType,_Am:appcLluOperLocalAddress,_An:appcLluOperSessLimit,_Ao:appcLluOperBindRspMayQ,_Ap:appcLluOperCompression,_Aq:appcLluOperInBoundCompLevel,_Ar:appcLluOperOutBoundCompLevel,_As:appcLluOperCompRleBeforeLZ,_At:appcLluOperAlias,_Au:appcLluOperActiveSessions,'appcLuPairAdminTable':appcLuPairAdminTable,'appcLuPairAdminEntry':appcLuPairAdminEntry,_i:appcLuPairAdminLocLuName,_j:appcLuPairAdminParLuName,_Av:appcLuPairAdminParLuAlias,_Aw:appcLuPairAdminSessLimit,_Ax:appcLuPairAdminSessSec,_Ay:appcLuPairAdminSecAccept,_Az:appcLuPairAdminLinkObjId,_A_:appcLuPairAdminParaSessSup,'appcLuPairOperTable':appcLuPairOperTable,'appcLuPairOperEntry':appcLuPairOperEntry,_q:appcLuPairOperLocLuName,_r:appcLuPairOperParLuName,_B0:appcLuPairOperParLuAlias,_B1:appcLuPairOperSessLimit,_B2:appcLuPairOperSessSec,_B3:appcLuPairOperSecAccept,_B4:appcLuPairOperLinkObjId,_B5:appcLuPairOperParaSessSup,_B6:appcLuPairOperParaSessSupLS,_B7:appcLuPairOperState,'appcModeAdminTable':appcModeAdminTable,'appcModeAdminEntry':appcModeAdminEntry,_s:appcModeAdminLocLuName,_t:appcModeAdminParLuName,_u:appcModeAdminModeName,_B8:appcModeAdminCosName,_B9:appcModeAdminSessEndTpName,_BA:appcModeAdminMaxSessLimit,_BB:appcModeAdminMinCwinLimit,_BC:appcModeAdminMinClosLimit,_BD:appcModeAdminConWinAutoActLmt,_BE:appcModeAdminRecvPacWinSz,_BF:appcModeAdminSendPacWinSz,_BG:appcModeAdminPrefRecvRuSz,_BH:appcModeAdminPrefSendRuSz,_BI:appcModeAdminRecvRuSzUpBnd,_BJ:appcModeAdminSendRuSzUpBnd,_BK:appcModeAdminRecvRuSzLoBnd,_BL:appcModeAdminSendRuSzLoBnd,_BM:appcModeAdminSingSessReinit,_BN:appcModeAdminCompression,_BO:appcModeAdminInBoundCompLevel,_BP:appcModeAdminOutBoundCompLevel,_BQ:appcModeAdminCompRleBeforeLZ,_BR:appcModeAdminSyncLvl,_BS:appcModeAdminCrypto,'appcModeOperTable':appcModeOperTable,'appcModeOperEntry':appcModeOperEntry,_A0:appcModeOperLocLuName,_A1:appcModeOperParLuName,_A2:appcModeOperModeName,_BT:appcModeOperCosName,_BU:appcModeOperSessEndTpName,_BV:appcModeOperSessLimit,_BW:appcModeOperMaxSessLimit,_BX:appcModeOperMinCwinLimit,_BY:appcModeOperMinClosLimit,_BZ:appcModeOperConWinAutoActLmt,_Ba:appcModeOperRecvPacWinSz,_Bb:appcModeOperSendPacWinSz,_Bc:appcModeOperPrefRecvRuSz,_Bd:appcModeOperPrefSendRuSz,_Be:appcModeOperRecvRuSzUpBnd,_Bf:appcModeOperSendRuSzUpBnd,_Bg:appcModeOperRecvRuSzLoBnd,_Bh:appcModeOperSendRuSzLoBnd,_Bi:appcModeOperSingSessReinit,_Bj:appcModeOperCompression,_Bk:appcModeOperInBoundCompLevel,_Bl:appcModeOperOutBoundCompLevel,_Bm:appcModeOperCompRleBeforeLZ,_Bn:appcModeOperSyncLvl,_Bo:appcModeOperCrypto,_Bp:appcModeOperSyncLvlLastStart,_Bq:appcModeOperCryptoLastStart,_Br:appcModeOperCNOSNeg,_Bs:appcModeOperActCwin,_Bt:appcModeOperActClos,_Bu:appcModeOperPndCwin,_Bv:appcModeOperPndClos,_Bw:appcModeOperPtmCwin,_Bx:appcModeOperPtmClos,_By:appcModeOperDrainSelf,_Bz:appcModeOperDrainPart,'appcTp':appcTp,'appcTpAdminTable':appcTpAdminTable,'appcTpAdminEntry':appcTpAdminEntry,_A3:appcTpAdminLocLuName,_A4:appcTpAdminTpName,_B_:appcTpAdminFileSpec,_C0:appcTpAdminStartParm,_C1:appcTpAdminTpOperation,_C2:appcTpAdminInAttachTimeout,_C3:appcTpAdminRcvAllocTimeout,_C4:appcTpAdminSyncLvl,_C5:appcTpAdminInstLmt,_C6:appcTpAdminStatus,_C7:appcTpAdminLongRun,_C8:appcTpAdminConvType,_C9:appcTpAdminConvDuplex,_CA:appcTpAdminConvSecReq,_CB:appcTpAdminVerPip,_CC:appcTpAdminPipSubNum,'appcSession':appcSession,'appcActSessTable':appcActSessTable,'appcActSessEntry':appcActSessEntry,_A6:appcActSessLocLuName,_A7:appcActSessParLuName,_A8:appcActSessIndex,_CD:appcActSessPcidCpName,_CE:appcActSessPcid,_CF:appcActSessPluIndicator,_CG:appcActSessModeName,_CH:appcActSessCosName,_CI:appcActSessTransPriority,_CJ:appcActSessEnhanceSecSup,_CK:appcActSessSendPacingType,_CL:appcActSessSendRpc,_CM:appcActSessSendNxWndwSize,_CN:appcActSessRecvPacingType,_CO:appcActSessRecvRpc,_CP:appcActSessRecvNxWndwSize,_CQ:appcActSessRscv,_CR:appcActSessInUse,_CS:appcActSessMaxSndRuSize,_CT:appcActSessMaxRcvRuSize,_CU:appcActSessSndPacingSize,_CV:appcActSessRcvPacingSize,_CW:appcActSessOperState,_CX:appcActSessUpTime,_CY:appcActSessRtpNceId,_CZ:appcActSessRtpTcid,_Ca:appcActSessLinkIndex,'appcSessStatsTable':appcSessStatsTable,'appcSessStatsEntry':appcSessStatsEntry,_A9:appcSessStatsLocLuName,_AA:appcSessStatsParLuName,_AB:appcSessStatsSessIndex,_Cb:appcSessStatsSentFmdBytes,_Cc:appcSessStatsSentNonFmdBytes,_Cd:appcSessStatsRcvdFmdBytes,_Ce:appcSessStatsRcvdNonFmdBytes,_Cf:appcSessStatsSentFmdRus,_Cg:appcSessStatsSentNonFmdRus,_Ch:appcSessStatsRcvdFmdRus,_Ci:appcSessStatsRcvdNonFmdRus,_Cj:appcSessStatsCtrUpTime,'appcHistSessTable':appcHistSessTable,'appcHistSessEntry':appcHistSessEntry,_AC:appcHistSessIndex,_Ck:appcHistSessTime,_Cl:appcHistSessType,_Cm:appcHistSessLocLuName,_Cn:appcHistSessParLuName,_Co:appcHistSessModeName,_Cp:appcHistSessUnbindType,_Cq:appcHistSessSenseData,_Cr:appcHistSessComponentId,_Cs:appcHistSessDetectModule,'appcSessRtpTable':appcSessRtpTable,'appcSessRtpEntry':appcSessRtpEntry,_AD:appcSessRtpNceId,_AE:appcSessRtpTcid,_Ct:appcSessRtpSessions,'appcConversation':appcConversation,'appcActiveConvTable':appcActiveConvTable,'appcActiveConvEntry':appcActiveConvEntry,_AF:appcActiveConvLocLuName,_AG:appcActiveConvParLuName,_AH:appcActiveConvSessIndex,_DT:appcActiveConvId,_DU:appcActiveConvState,_DV:appcActiveConvType,_DW:appcActiveConvCorrelator,_DX:appcActiveConvSyncLvl,_DY:appcActiveConvSource,_DZ:appcActiveConvDuplex,_Da:appcActiveConvUpTime,_Db:appcActiveConvSendBytes,_Dc:appcActiveConvRcvBytes,_Dd:appcActiveConvUserid,_De:appcActiveConvPcidNauName,_Df:appcActiveConvPcid,_Dg:appcActiveConvModeName,_Dh:appcActiveConvLuwIdName,_Di:appcActiveConvLuwIdInstance,_Dj:appcActiveConvLuwIdSequence,_Dk:appcActiveConvTpName,'appcHistConvTable':appcHistConvTable,'appcHistConvEntry':appcHistConvEntry,_AJ:appcHistConvIndex,_Dl:appcHistConvEndTime,_Dm:appcHistConvLocLuName,_Dn:appcHistConvParLuName,_Do:appcHistConvTpName,_Dp:appcHistConvPcidNauName,_Dq:appcHistConvPcid,_Dr:appcHistConvSenseData,_Ds:appcHistConvLogData,_Dt:appcHistConvEndedBy,'appcCPIC':appcCPIC,'appcCpicAdminTable':appcCpicAdminTable,'appcCpicAdminEntry':appcCpicAdminEntry,_AK:appcCpicAdminLocLuName,_AL:appcCpicAdminSymbDestName,_DF:appcCpicAdminParLuAlias,_DG:appcCpicAdminParLuName,_DH:appcCpicAdminModeName,_DI:appcCpicAdminTpNameType,_DJ:appcCpicAdminTpName,_DK:appcCpicAdminUserid,_DL:appcCpicAdminSecurity,'appcCpicOperTable':appcCpicOperTable,'appcCpicOperEntry':appcCpicOperEntry,_AP:appcCpicOperLocLuName,_AQ:appcCpicOperSymbDestName,_DM:appcCpicOperParLuAlias,_DN:appcCpicOperParLuName,_DO:appcCpicOperModeName,_DP:appcCpicOperTpNameType,_DQ:appcCpicOperTpName,_DR:appcCpicOperUserid,_DS:appcCpicOperSecurity,'appcConformance':appcConformance,'appcCompliances':appcCompliances,'appcCompliance':appcCompliance,'appcGroups':appcGroups,_Du:appcGlobalConfGroup,_Dv:appcLluConfGroup,_Dw:appcParLuConfGroup,_Dx:appcModeConfGroup,_Dy:appcTpConfGroup,_Dz:appcSessionConfGroup,_D_:appcControlConfGroup,_E0:appcCnosConfGroup,_E1:appcCpicConfGroup,_E2:appcConversationConfGroup})

@@ -1,118 +1,296 @@
-#
-# PySNMP MIB module FR-ATM-PVC-SERVICE-IWF-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/FR-ATM-PVC-SERVICE-IWF-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:13:21 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, OctetString, Integer, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
-( atmVclEntry, ) = mibBuilder.importSymbols("ATM-MIB", "atmVclEntry")
-( AtmVpIdentifier, AtmVcIdentifier, ) = mibBuilder.importSymbols("ATM-TC-MIB", "AtmVpIdentifier", "AtmVcIdentifier")
-( InterfaceIndex, ) = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-( ModuleCompliance, NotificationGroup, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-( Integer32, ObjectIdentity, Bits, Unsigned32, TimeTicks, iso, Gauge32, IpAddress, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, mib_2, MibIdentifier, Counter32, Counter64, NotificationType, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "ObjectIdentity", "Bits", "Unsigned32", "TimeTicks", "iso", "Gauge32", "IpAddress", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "mib-2", "MibIdentifier", "Counter32", "Counter64", "NotificationType")
-( TimeStamp, RowStatus, DisplayString, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "RowStatus", "DisplayString", "TextualConvention")
-frAtmIwfMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 86)).setRevisions(("2000-09-28 00:00",))
-if mibBuilder.loadTexts: frAtmIwfMIB.setLastUpdated('200009280000Z')
-if mibBuilder.loadTexts: frAtmIwfMIB.setOrganization('IETF Frame Relay Service MIB Working Group')
-if mibBuilder.loadTexts: frAtmIwfMIB.setContactInfo('WG Charter:\n                    http://www.ietf.org/html.charters/frnetmib-charter\n                  WG-email:\n                    frnetmib@sunroof.eng.sun.com\n                  Subscribe:\n                    frnetmib-request@sunroof.eng.sun.com\n                  Email Archive:\n                    ftp://ftp.ietf.org/ietf-mail-archive/frnetmib\n\n                  Chair:      Andy Malis\n                              Vivace Networks, Inc.\n                  Email:      Andy.Malis@vivacenetworks.com\n\n                  WG editor:  Kenneth Rehbehn\n                              Megisto Systems, Inc.\n                  Email:      krehbehn@megisto.com\n\n                  Co-author:  Orly Nicklass\n                              RAD Data Communications Ltd.\n                  EMail:      orly_n@rad.co.il\n\n                  Co-author:  George Mouradian\n                              AT&T Labs\n                  EMail:      gvm@att.com')
-if mibBuilder.loadTexts: frAtmIwfMIB.setDescription('The MIB module for monitoring and controlling the\n                     Frame Relay/ATM PVC Service Interworking\n                     Function.')
-frAtmIwfMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 86, 1))
-frAtmIwfTraps = MibIdentifier((1, 3, 6, 1, 2, 1, 86, 2))
-frAtmIwfTrapsPrefix = MibIdentifier((1, 3, 6, 1, 2, 1, 86, 2, 0))
-frAtmIwfConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 86, 3))
-frAtmIwfGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 86, 3, 1))
-frAtmIwfCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 86, 3, 2))
-frAtmIwfConnIndexNext = MibScalar((1, 3, 6, 1, 2, 1, 86, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAtmIwfConnIndexNext.setDescription('This object contains an appropriate value to be\n                     used for frAtmIwfConnIndex  when creating entries\n                     in the frAtmIwfConnectionTable. The value 0\n                     indicates that no unassigned entries are\n                     available. To obtain the frAtmIwfConnIndexNext\n                     value for a new entry, the manager issues a\n                     management protocol retrieval operation to obtain\n                     the current value of this object.  After each\n                     retrieval, the agent should modify the value to\n                     the next unassigned index.')
-frAtmIwfConnectionTable = MibTable((1, 3, 6, 1, 2, 1, 86, 1, 2), )
-if mibBuilder.loadTexts: frAtmIwfConnectionTable.setDescription('A table in which each row represents a Frame\n                     Relay/ATM interworking connection.')
-frAtmIwfConnectionEntry = MibTableRow((1, 3, 6, 1, 2, 1, 86, 1, 2, 1), ).setIndexNames((0, "FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnIndex"), (0, "FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnAtmPort"), (0, "FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnVpi"), (0, "FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnVci"), (0, "FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnFrPort"), (0, "FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnDlci"))
-if mibBuilder.loadTexts: frAtmIwfConnectionEntry.setDescription("The FrAtmIwfConnectionEntry provides an entry for\n                     an interworking connection between a frame relay\n                     PVC and one or more ATM PVCs, or an ATM PVC and\n                     one or more frame relay PVCs.  A single frame\n                     relay PVC connected to a single ATM PVC is\n                     referred to as a `point-to-point' connection and\n                     is represented by a single row in the FR/ATM IWF\n                     Connection Table.  The case of a single frame\n                     relay PVC connected to multiple ATM PVCs (or\n                     single ATM PVC connected to multiple frame relay\n                     PVCs) is referred to as a `point-to-multipoint'\n                     connection and is represented by multiple rows in\n                     the FR/ATM IWF Connection Table.\n\n                     The object frAtmIwfConnIndex uniquely identifies\n                     each point-to-point or point-to-multipoint\n                     connection.  The manager obtains the\n                     frAtmIwfConnIndex value by reading the\n                     frAtmIwfConnIndexNext object.\n\n                     After a frAtmIwfConnIndex is assigned for the\n                     connection, the manager creates one or more rows\n                     in the Cross Connect Table; one for each cross-\n                     connection between the frame relay PVC and an ATM\n                     PVC. In the case of `point-to-multipoint'\n                     connections, all rows are indexed by the same\n                     frAtmIwfConnIndex value and MUST refer to the same\n                     frame relay PVC or ATM PVC respectively.  An entry\n                     can be created only when at least one pair of\n                     frame relay and ATM PVCs exist.\n\n                     A row can be established by one-step set-request\n                     with all required parameter values and\n                     frAtmIwfConnRowStatus set to createAndGo(4). The\n                     Agent should perform all error checking as needed.\n                     A pair of cross-connected PVCs, as identified by a\n                     particular value of the indexes, is released by\n                     setting frAtmIwfConnRowStatus to destroy(6). The\n                     Agent may release all associated resources. The\n                     manager may remove the related PVCs thereafter.\n                     Indexes are persistent across reboots of the\n                     system.")
-frAtmIwfConnIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: frAtmIwfConnIndex.setDescription('A unique value for each point-to-point or point-\n                     to-multipoint connection.  The manager obtains the\n                     frAtmIwfConnIndex value by reading the\n                     frAtmIwfConnIndexNext object.  A point-to-\n                     multipoint connection will be represented in the\n                     frAtmIwfConnectionTable with multiple entries that\n                     share the same frAtmIwfConnIndex value.')
-frAtmIwfConnAtmPort = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 2), InterfaceIndex())
-if mibBuilder.loadTexts: frAtmIwfConnAtmPort.setDescription('The index in the ifTable that identifies the ATM\n                     port for this interworking connection.')
-frAtmIwfConnVpi = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 3), AtmVpIdentifier())
-if mibBuilder.loadTexts: frAtmIwfConnVpi.setDescription('The VPI of the ATM PVC end point for this\n                      interworking connection.')
-frAtmIwfConnVci = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 4), AtmVcIdentifier())
-if mibBuilder.loadTexts: frAtmIwfConnVci.setDescription('The VCI of the ATM PVC end point for this\n                     interworking\n                      connection.')
-frAtmIwfConnFrPort = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 5), InterfaceIndex())
-if mibBuilder.loadTexts: frAtmIwfConnFrPort.setDescription('The index in the ifTable that identifies the\n                     frame relay port for this interworking\n                     connection.')
-frAtmIwfConnDlci = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(16,4194303)))
-if mibBuilder.loadTexts: frAtmIwfConnDlci.setDescription('The DLCI that identifies the frame relay PVC end\n                     point for this interworking connection.')
-frAtmIwfConnRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frAtmIwfConnRowStatus.setDescription("The table row may be created with\n                     'createAndWait(5)' or 'createAndGo(4)'.\n                     To activate a connection entry, a valid connection\n                     descriptor MUST be established in the\n                     frAtmIwfConnectionDescriptor object.\n\n                     This object is set to 'destroy(6)' to delete the\n                     table row.  Before the table row is destroyed, the\n                     OperStatus/AdminStatus of the corresponding\n                     endpoints MUST be 'down(2)'.  The deactivation of\n                     the ATM endpoint MAY occur as a side-effect of\n                     deleting the FR/ATM IWF cross-connection table\n                     row.  Otherwise, 'destroy(6)' operation MUST fail\n                     (error code 'inconsistentValue').")
-frAtmIwfConnAdminStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("up", 1), ("down", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frAtmIwfConnAdminStatus.setDescription("The desired operational state for this FR/ATM\n                     interworked connection.\n\n                     up(1)       = Activate the connection. Before the\n                                   activation can be completed, the\n                                   OperStatus/AdminStatus of the\n                                   corresponding endpoints MUST be\n                                   'up(1)'.  The activation of the\n                                   corresponding endpoints MAY occur as\n                                   a side-effect of activating the\n                                   FR/ATM IWF cross-connection.\n\n                     down(2)     = Deactivate the connection. Before\n                                   the deactivation can be completed,\n                                   the atmVclAdminStatus of the\n                                   corresponding ATM endpoint MUST be\n                                   'down(2)'.  The deactivation of the\n                                   ATM endpoint MAY occur as a\n                                   side-effect of deactivating the\n                                   FR/ATM IWF cross-connection.")
-frAtmIwfConnAtm2FrOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("up", 1), ("down", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAtmIwfConnAtm2FrOperStatus.setDescription('The current operational state of this\n                     interworking connection in the ATM to frame\n                     relay direction.')
-frAtmIwfConnAtm2FrLastChange = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 10), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAtmIwfConnAtm2FrLastChange.setDescription('The value of sysUpTime at the time this\n                     interworking connection entered its current\n                     operational state in the ATM to FR direction.  If\n                     the current state was entered prior to the last\n                     re-initialization of the local network management\n                     subsystem, then this object contains a zero\n                     value.')
-frAtmIwfConnFr2AtmOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("up", 1), ("down", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAtmIwfConnFr2AtmOperStatus.setDescription('The current operational state of this\n                     interworking connection in the frame relay\n                     to ATM direction.')
-frAtmIwfConnFr2AtmLastChange = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 12), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAtmIwfConnFr2AtmLastChange.setDescription('The value of sysUpTime at the time this\n                     interworking connection entered its current\n                     operational state in the FR to ATM direction.  If\n                     the current state was entered prior to the last\n                     re-initialization of the local network management\n                     subsystem, then this object contains a zero\n                     value.')
-frAtmIwfConnectionDescriptor = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 13), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frAtmIwfConnectionDescriptor.setDescription("The value represents a pointer to the relevant\n                     descriptor in the IWF descriptor table.  An\n                     attempt to set this value to an inactive or non-\n                     existent row in the Connection Descriptor Table\n                     MUST fail (error code 'inconsistentValue').")
-frAtmIwfConnFailedFrameTranslate = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 14), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAtmIwfConnFailedFrameTranslate.setDescription('This object counts the number of frames discarded\n                     by the IWF because, while operating in Translation\n                     Mode, the IWF is unable to decode the incoming\n                     frame payload header according to the mapping\n                     rules. (i.e., payload header not recognized by the\n                     IWF).\n\n                     Frame relay frames are received in the frame relay\n                     to ATM direction of the PVC.\n\n                     When operating in Transparent Mode, the IWF MUST\n                     return noSuchInstance.')
-frAtmIwfConnOverSizedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 15), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAtmIwfConnOverSizedFrames.setDescription('Count of frames discarded by the IWF because the\n                     frame is too large to be processed by the AAL5\n                     segmentation procedure.  Specifically, the frame\n                     does not conform to the size specified in the\n                     atmVccAal5CpcsTransmitSduSize object associated\n                     with the atmVclEntry at the ATM endpoint.\n                     Frame relay frames are received in the frame relay\n                     to ATM direction of the PVC.')
-frAtmIwfConnFailedAal5PduTranslate = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 16), Counter32()).setUnits('PDUs').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAtmIwfConnFailedAal5PduTranslate.setDescription('This attribute counts the number of AAL5 PDUs\n                     discarded by the IWF because, while operating in\n                     Translation Mode, the IWF is unable to decode the\n                     incoming AAL5 PDU payload header according to the\n                     mapping rules. (i.e., payload header not\n                     recognized by the IWF).\n\n                     AAL5 PDUs are received in the ATM to frame relay\n                     direction of the PVC.\n\n                     When operating in Transparent Mode, the IWF MUST\n                     return noSuchInstance.')
-frAtmIwfConnOverSizedSDUs = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 17), Counter32()).setUnits('SDUs').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAtmIwfConnOverSizedSDUs.setDescription('Count of AAL5 SDUs discarded by the IWF because\n                     the SDU is too large to be forwarded on the frame\n                     relay segment of the connection.  Specifically,\n                     the frame does not conform to the size specified\n                     in the frLportFragSize object of the FRS MIB [19].\n\n                     AAL5 PDUs are received in the ATM to frame relay\n                     direction of the PVC.')
-frAtmIwfConnCrcErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 18), Counter32()).setUnits('PDUs').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAtmIwfConnCrcErrors.setDescription('The number of AAL5 CPCS PDUs received with CRC-32\n                     errors on this AAL5 VCC at the IWF.\n\n                     AAL5 PDUs are received in the ATM to frame relay\n                     direction of the PVC.')
-frAtmIwfConnSarTimeOuts = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 2, 1, 19), Counter32()).setUnits('PDUs').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAtmIwfConnSarTimeOuts.setDescription('The number of partially re-assembled AAL5 CPCS\n                     PDUs which were discarded on this AAL5 VCC at the\n                     IWF because they were not fully re-assembled\n                     within the required time period.  If the re-\n                     assembly timer is not supported, then this object\n                     contains a zero value.\n\n                     AAL5 PDUs are received in the ATM to frame relay\n                     direction of the PVC.')
-frAtmIwfConnectionDescriptorIndexNext = MibScalar((1, 3, 6, 1, 2, 1, 86, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAtmIwfConnectionDescriptorIndexNext.setDescription('This object contains an appropriate value to be\n                     used for frAtmIwfConnectionDescriptorIndex  when\n                     creating entries in the\n                     frAtmIwfConnectionDescriptorTable. The value 0\n                     indicates that no unassigned entries are\n                     available. To obtain the\n                     frAtmIwfConnectionDescriptorIndexNext value for a\n                     new entry, the manager issues a management\n                     protocol retrieval operation to obtain the current\n                     value of this object.  After each retrieval, the\n                     agent should modify the value to the next\n                     unassigned index.')
-frAtmIwfConnectionDescriptorTable = MibTable((1, 3, 6, 1, 2, 1, 86, 1, 4), )
-if mibBuilder.loadTexts: frAtmIwfConnectionDescriptorTable.setDescription('A table in which each row represents a descriptor\n                     for one type of Frame Relay/ATM interworking\n                     connection.  A descriptor may be assigned to zero\n                     or more FR/ATM PVC service IWF connections.')
-frAtmIwfConnectionDescriptorEntry = MibTableRow((1, 3, 6, 1, 2, 1, 86, 1, 4, 1), ).setIndexNames((0, "FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnectionDescriptorIndex"))
-if mibBuilder.loadTexts: frAtmIwfConnectionDescriptorEntry.setDescription('An entry for a descriptor in an interworking\n                     connection between a frame relay PVC and an ATM\n                     PVC.')
-frAtmIwfConnectionDescriptorIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: frAtmIwfConnectionDescriptorIndex.setDescription('A unique value to identify a descriptor in the\n                     table ')
-frAtmIwfConnDescriptorRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 4, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frAtmIwfConnDescriptorRowStatus.setDescription("The status of this table row.  This object is\n                     used to create or delete an entry in the\n                     descriptor table.\n\n                     Creation of the row requires a row index (see\n                     frAtmIwfConnectionDescriptorIndexNext).  If not\n                     explicitly set or in existence, all other columns\n                     of the row will be created and initialized to the\n                     default value.  During creation, this object MAY\n                     be set to 'createAndGo(4)' or 'createAndWait(5)'.\n                     The object MUST contain the value 'active(1)'\n                     before any connection table entry references the\n                     row.\n\n                     To destroy a row in this table, this object is set\n                     to the 'destroy(6)' action.  Row destruction MUST\n                     fail (error code 'inconsistentValue') if any\n                     connection references the row.")
-frAtmIwfConnDeToClpMappingMode = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("mode1", 1), ("mode2Const0", 2), ("mode2Const1", 3),)).clone('mode1')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frAtmIwfConnDeToClpMappingMode.setDescription('This object describes which mode of translation\n                     is in use for loss priority mapping in the frame\n                     relay to ATM direction.\n\n                     mode1(1)        = the DE field in the Q.922 core\n                                       frame shall be mapped to the ATM\n                                       CLP field of every cell\n                                       generated by the segmentation\n                                       process of the AAL5 PDU\n                                       containing the information of\n                                       that frame.\n\n                     mode2Contst0(2) = the ATM CLP field of every cell\n                                       generated by the segmentation\n                                       process of the AAL5 PDU\n                                       containing the information of\n                                       that frame shall be set to\n                                       constant 0.\n\n                     mode2Contst1(3) = the ATM CLP field of every cell\n                                       generated by the segmentation\n                                       process of the AAL5 PDU\n                                       containing the information of\n                                       that frame shall be set to\n                                       constant 1.')
-frAtmIwfConnClpToDeMappingMode = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("mode1", 1), ("mode2Const0", 2), ("mode2Const1", 3),)).clone('mode1')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frAtmIwfConnClpToDeMappingMode.setDescription('This object describes which mode of translation\n                     is in use for loss priority mapping in the ATM to\n                     frame relay direction.\n\n                     mode1(1)       = if one or more cells in a frame\n                                      has its CLP field set, the DE\n                                      field of the Q.922 core frame\n                                      should be set.\n\n                     mode2Const0(2) = the DE field of the Q.922 core\n                                      frame should be set to the\n                                      constant 0.\n\n                     mode2Const1(3) = the DE field of the Q.922 core\n                                      frame should be set to the\n                                      constant 1.')
-frAtmIwfConnCongestionMappingMode = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("mode1", 1), ("mode2", 2),)).clone('mode1')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frAtmIwfConnCongestionMappingMode.setDescription("This object describes which mode of translation\n                     is in use for forward congestion indication\n                     mapping in the frame relay to ATM direction.\n\n                     mode1(1) = The FECN field in the Q.922 core frame\n                                shall be mapped to the ATM EFCI field\n                                of every cell generated by the\n                                segmentation process of the AAL5 PDU\n                                containing the information of that\n                                frame.\n\n                     mode2(2) = The FECN field in the Q.922 core frame\n                                shall not be mapped to the ATM EFCI\n                                field of cells generated by the\n                                segmentation process of the AAL5 PDU\n                                containing the information of that\n                                frame. The EFCI field is always set to\n                                'congestion not experienced'.\n\n                     In both of the modes above, if there is congestion\n                     in the forward direction in the ATM layer within\n                     the IWF, then the IWF can set the EFCI field to\n                     'congestion experienced'.")
-frAtmIwfConnEncapsulationMappingMode = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 4, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("transparentMode", 1), ("translationMode", 2), ("translationModeAll", 3),)).clone('transparentMode')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frAtmIwfConnEncapsulationMappingMode.setDescription('This object indicates whether the mapping of\n                     upper layer protocol encapsulation is enabled on\n                     this interworking connection.\n\n                     transparentMode(1) = Forward the encapsulations\n                                          unaltered.\n\n                     translationMode(2) = Perform mapping between the\n                                          two encapsulations due to the\n                                          incompatibilities of the two\n                                          methods. Mapping is provided\n                                          for a subset of the potential\n                                          encapsulations as itemized in\n                                          frAtmIwfConnEncapsulationMapp\n                                          ings.\n\n                     translationModeAll(3) = Perform mapping between\n                                          the two encapsulations due to\n                                          the incompatibilities of the\n                                          two methods. All\n                                          encapsulations are\n                                          translated.')
-frAtmIwfConnEncapsulationMappings = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 4, 1, 7), Bits().clone(namedValues=NamedValues(("none", 0), ("bridgedPdus", 1), ("bridged802dot6", 2), ("bPdus", 3), ("routedIp", 4), ("routedOsi", 5), ("otherRouted", 6), ("x25Iso8202", 7), ("q933q2931", 8),)).clone(namedValues=NamedValues(("none", 0),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frAtmIwfConnEncapsulationMappings.setDescription('If upper layer protocol encapsulation mapping is\n                     enabled on this interworking connection, then this\n                     attribute enumerates which of the encapsulation\n                     mappings are supported.\n\n                     none(0)           = Transparent mode operation\n                     bridgedPdus(1)    = PID: 0x00-01,-07,-02 or -08\n                     bridged802dot6(2) = PID: 0x00-0B\n                     bPdus(3)          = PID: 0x00-0E or -0F\n                     routedIp(4)       = NLPID: OxCC\n                     routedOsi(5)      = NLPID: Ox81, 0x82 or 0x83\n                     otherRouted(6)    = Other routed protocols\n                     x25Iso8202(7)     = X25\n                     q933q2931(8)      = Q.933 and Q.2931')
-frAtmIwfConnFragAndReassEnabled = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 4, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),)).clone('disabled')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frAtmIwfConnFragAndReassEnabled.setDescription('The attribute indicates whether fragmentation and\n                     reassembly is enabled for this connection.')
-frAtmIwfConnArpTranslationEnabled = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 4, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),)).clone('disabled')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frAtmIwfConnArpTranslationEnabled.setDescription('The attribute indicates whether ARP translation\n                     is enabled for this connection.')
-frAtmIwfVclTable = MibTable((1, 3, 6, 1, 2, 1, 86, 1, 5), )
-if mibBuilder.loadTexts: frAtmIwfVclTable.setDescription('The FR/ATM IWF VCL Table augments the ATM MIB VCL\n                     Endpoint table.')
-frAtmIwfVclEntry = MibTableRow((1, 3, 6, 1, 2, 1, 86, 1, 5, 1), )
-atmVclEntry.registerAugmentions(("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfVclEntry"))
+_y='frAtmIwfConnStatusChange'
+_x='frAtmIwfVclCrossConnectIdentifier'
+_w='frAtmIwfConnDescriptorRowStatus'
+_v='frAtmIwfConnArpTranslationEnabled'
+_u='frAtmIwfConnFragAndReassEnabled'
+_t='frAtmIwfConnEncapsulationMappings'
+_s='frAtmIwfConnEncapsulationMappingMode'
+_r='frAtmIwfConnCongestionMappingMode'
+_q='frAtmIwfConnClpToDeMappingMode'
+_p='frAtmIwfConnDeToClpMappingMode'
+_o='frAtmIwfConnectionDescriptorIndexNext'
+_n='frAtmIwfConnRowStatus'
+_m='frAtmIwfConnSarTimeOuts'
+_l='frAtmIwfConnCrcErrors'
+_k='frAtmIwfConnOverSizedSDUs'
+_j='frAtmIwfConnFailedAal5PduTranslate'
+_i='frAtmIwfConnOverSizedFrames'
+_h='frAtmIwfConnFailedFrameTranslate'
+_g='frAtmIwfConnectionDescriptor'
+_f='frAtmIwfConnFr2AtmLastChange'
+_e='frAtmIwfConnAtm2FrLastChange'
+_d='frAtmIwfConnIndexNext'
+_c='frAtmIwfVclEntry'
+_b='disabled'
+_a='enabled'
+_Z='mode2Const1'
+_Y='mode2Const0'
+_X='frAtmIwfConnectionDescriptorIndex'
+_W='Frames'
+_V='frAtmIwfConnDlci'
+_U='frAtmIwfConnFrPort'
+_T='frAtmIwfConnVci'
+_S='frAtmIwfConnVpi'
+_R='frAtmIwfConnAtmPort'
+_Q='frAtmIwfConnIndex'
+_P='frAtmIwfNotificationsGroup'
+_O='frAtmIwfAtmVclTableAugmentGroup'
+_N='frAtmIwfConnectionDescriptorGroup'
+_M='frAtmIwfBasicGroup'
+_L='frAtmIwfConnFr2AtmOperStatus'
+_K='frAtmIwfConnAtm2FrOperStatus'
+_J='frAtmIwfConnAdminStatus'
+_I='mode1'
+_H='PDUs'
+_G='down'
+_F='not-accessible'
+_E='read-create'
+_D='read-only'
+_C='Integer32'
+_B='current'
+_A='FR-ATM-PVC-SERVICE-IWF-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+atmVclEntry,=mibBuilder.importSymbols('ATM-MIB','atmVclEntry')
+AtmVcIdentifier,AtmVpIdentifier=mibBuilder.importSymbols('ATM-TC-MIB','AtmVcIdentifier','AtmVpIdentifier')
+InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TimeStamp')
+frAtmIwfMIB=ModuleIdentity((1,3,6,1,2,1,86))
+if mibBuilder.loadTexts:frAtmIwfMIB.setRevisions(('2000-09-28 00:00',))
+_FrAtmIwfMIBObjects_ObjectIdentity=ObjectIdentity
+frAtmIwfMIBObjects=_FrAtmIwfMIBObjects_ObjectIdentity((1,3,6,1,2,1,86,1))
+class _FrAtmIwfConnIndexNext_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_FrAtmIwfConnIndexNext_Type.__name__=_C
+_FrAtmIwfConnIndexNext_Object=MibScalar
+frAtmIwfConnIndexNext=_FrAtmIwfConnIndexNext_Object((1,3,6,1,2,1,86,1,1),_FrAtmIwfConnIndexNext_Type())
+frAtmIwfConnIndexNext.setMaxAccess(_D)
+if mibBuilder.loadTexts:frAtmIwfConnIndexNext.setStatus(_B)
+_FrAtmIwfConnectionTable_Object=MibTable
+frAtmIwfConnectionTable=_FrAtmIwfConnectionTable_Object((1,3,6,1,2,1,86,1,2))
+if mibBuilder.loadTexts:frAtmIwfConnectionTable.setStatus(_B)
+_FrAtmIwfConnectionEntry_Object=MibTableRow
+frAtmIwfConnectionEntry=_FrAtmIwfConnectionEntry_Object((1,3,6,1,2,1,86,1,2,1))
+frAtmIwfConnectionEntry.setIndexNames((0,_A,_Q),(0,_A,_R),(0,_A,_S),(0,_A,_T),(0,_A,_U),(0,_A,_V))
+if mibBuilder.loadTexts:frAtmIwfConnectionEntry.setStatus(_B)
+class _FrAtmIwfConnIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FrAtmIwfConnIndex_Type.__name__=_C
+_FrAtmIwfConnIndex_Object=MibTableColumn
+frAtmIwfConnIndex=_FrAtmIwfConnIndex_Object((1,3,6,1,2,1,86,1,2,1,1),_FrAtmIwfConnIndex_Type())
+frAtmIwfConnIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:frAtmIwfConnIndex.setStatus(_B)
+_FrAtmIwfConnAtmPort_Type=InterfaceIndex
+_FrAtmIwfConnAtmPort_Object=MibTableColumn
+frAtmIwfConnAtmPort=_FrAtmIwfConnAtmPort_Object((1,3,6,1,2,1,86,1,2,1,2),_FrAtmIwfConnAtmPort_Type())
+frAtmIwfConnAtmPort.setMaxAccess(_F)
+if mibBuilder.loadTexts:frAtmIwfConnAtmPort.setStatus(_B)
+_FrAtmIwfConnVpi_Type=AtmVpIdentifier
+_FrAtmIwfConnVpi_Object=MibTableColumn
+frAtmIwfConnVpi=_FrAtmIwfConnVpi_Object((1,3,6,1,2,1,86,1,2,1,3),_FrAtmIwfConnVpi_Type())
+frAtmIwfConnVpi.setMaxAccess(_F)
+if mibBuilder.loadTexts:frAtmIwfConnVpi.setStatus(_B)
+_FrAtmIwfConnVci_Type=AtmVcIdentifier
+_FrAtmIwfConnVci_Object=MibTableColumn
+frAtmIwfConnVci=_FrAtmIwfConnVci_Object((1,3,6,1,2,1,86,1,2,1,4),_FrAtmIwfConnVci_Type())
+frAtmIwfConnVci.setMaxAccess(_F)
+if mibBuilder.loadTexts:frAtmIwfConnVci.setStatus(_B)
+_FrAtmIwfConnFrPort_Type=InterfaceIndex
+_FrAtmIwfConnFrPort_Object=MibTableColumn
+frAtmIwfConnFrPort=_FrAtmIwfConnFrPort_Object((1,3,6,1,2,1,86,1,2,1,5),_FrAtmIwfConnFrPort_Type())
+frAtmIwfConnFrPort.setMaxAccess(_F)
+if mibBuilder.loadTexts:frAtmIwfConnFrPort.setStatus(_B)
+class _FrAtmIwfConnDlci_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(16,4194303))
+_FrAtmIwfConnDlci_Type.__name__=_C
+_FrAtmIwfConnDlci_Object=MibTableColumn
+frAtmIwfConnDlci=_FrAtmIwfConnDlci_Object((1,3,6,1,2,1,86,1,2,1,6),_FrAtmIwfConnDlci_Type())
+frAtmIwfConnDlci.setMaxAccess(_F)
+if mibBuilder.loadTexts:frAtmIwfConnDlci.setStatus(_B)
+_FrAtmIwfConnRowStatus_Type=RowStatus
+_FrAtmIwfConnRowStatus_Object=MibTableColumn
+frAtmIwfConnRowStatus=_FrAtmIwfConnRowStatus_Object((1,3,6,1,2,1,86,1,2,1,7),_FrAtmIwfConnRowStatus_Type())
+frAtmIwfConnRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:frAtmIwfConnRowStatus.setStatus(_B)
+class _FrAtmIwfConnAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),(_G,2)))
+_FrAtmIwfConnAdminStatus_Type.__name__=_C
+_FrAtmIwfConnAdminStatus_Object=MibTableColumn
+frAtmIwfConnAdminStatus=_FrAtmIwfConnAdminStatus_Object((1,3,6,1,2,1,86,1,2,1,8),_FrAtmIwfConnAdminStatus_Type())
+frAtmIwfConnAdminStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:frAtmIwfConnAdminStatus.setStatus(_B)
+class _FrAtmIwfConnAtm2FrOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),(_G,2)))
+_FrAtmIwfConnAtm2FrOperStatus_Type.__name__=_C
+_FrAtmIwfConnAtm2FrOperStatus_Object=MibTableColumn
+frAtmIwfConnAtm2FrOperStatus=_FrAtmIwfConnAtm2FrOperStatus_Object((1,3,6,1,2,1,86,1,2,1,9),_FrAtmIwfConnAtm2FrOperStatus_Type())
+frAtmIwfConnAtm2FrOperStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:frAtmIwfConnAtm2FrOperStatus.setStatus(_B)
+_FrAtmIwfConnAtm2FrLastChange_Type=TimeStamp
+_FrAtmIwfConnAtm2FrLastChange_Object=MibTableColumn
+frAtmIwfConnAtm2FrLastChange=_FrAtmIwfConnAtm2FrLastChange_Object((1,3,6,1,2,1,86,1,2,1,10),_FrAtmIwfConnAtm2FrLastChange_Type())
+frAtmIwfConnAtm2FrLastChange.setMaxAccess(_D)
+if mibBuilder.loadTexts:frAtmIwfConnAtm2FrLastChange.setStatus(_B)
+class _FrAtmIwfConnFr2AtmOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),(_G,2)))
+_FrAtmIwfConnFr2AtmOperStatus_Type.__name__=_C
+_FrAtmIwfConnFr2AtmOperStatus_Object=MibTableColumn
+frAtmIwfConnFr2AtmOperStatus=_FrAtmIwfConnFr2AtmOperStatus_Object((1,3,6,1,2,1,86,1,2,1,11),_FrAtmIwfConnFr2AtmOperStatus_Type())
+frAtmIwfConnFr2AtmOperStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:frAtmIwfConnFr2AtmOperStatus.setStatus(_B)
+_FrAtmIwfConnFr2AtmLastChange_Type=TimeStamp
+_FrAtmIwfConnFr2AtmLastChange_Object=MibTableColumn
+frAtmIwfConnFr2AtmLastChange=_FrAtmIwfConnFr2AtmLastChange_Object((1,3,6,1,2,1,86,1,2,1,12),_FrAtmIwfConnFr2AtmLastChange_Type())
+frAtmIwfConnFr2AtmLastChange.setMaxAccess(_D)
+if mibBuilder.loadTexts:frAtmIwfConnFr2AtmLastChange.setStatus(_B)
+_FrAtmIwfConnectionDescriptor_Type=Integer32
+_FrAtmIwfConnectionDescriptor_Object=MibTableColumn
+frAtmIwfConnectionDescriptor=_FrAtmIwfConnectionDescriptor_Object((1,3,6,1,2,1,86,1,2,1,13),_FrAtmIwfConnectionDescriptor_Type())
+frAtmIwfConnectionDescriptor.setMaxAccess(_E)
+if mibBuilder.loadTexts:frAtmIwfConnectionDescriptor.setStatus(_B)
+_FrAtmIwfConnFailedFrameTranslate_Type=Counter32
+_FrAtmIwfConnFailedFrameTranslate_Object=MibTableColumn
+frAtmIwfConnFailedFrameTranslate=_FrAtmIwfConnFailedFrameTranslate_Object((1,3,6,1,2,1,86,1,2,1,14),_FrAtmIwfConnFailedFrameTranslate_Type())
+frAtmIwfConnFailedFrameTranslate.setMaxAccess(_D)
+if mibBuilder.loadTexts:frAtmIwfConnFailedFrameTranslate.setStatus(_B)
+if mibBuilder.loadTexts:frAtmIwfConnFailedFrameTranslate.setUnits(_W)
+_FrAtmIwfConnOverSizedFrames_Type=Counter32
+_FrAtmIwfConnOverSizedFrames_Object=MibTableColumn
+frAtmIwfConnOverSizedFrames=_FrAtmIwfConnOverSizedFrames_Object((1,3,6,1,2,1,86,1,2,1,15),_FrAtmIwfConnOverSizedFrames_Type())
+frAtmIwfConnOverSizedFrames.setMaxAccess(_D)
+if mibBuilder.loadTexts:frAtmIwfConnOverSizedFrames.setStatus(_B)
+if mibBuilder.loadTexts:frAtmIwfConnOverSizedFrames.setUnits(_W)
+_FrAtmIwfConnFailedAal5PduTranslate_Type=Counter32
+_FrAtmIwfConnFailedAal5PduTranslate_Object=MibTableColumn
+frAtmIwfConnFailedAal5PduTranslate=_FrAtmIwfConnFailedAal5PduTranslate_Object((1,3,6,1,2,1,86,1,2,1,16),_FrAtmIwfConnFailedAal5PduTranslate_Type())
+frAtmIwfConnFailedAal5PduTranslate.setMaxAccess(_D)
+if mibBuilder.loadTexts:frAtmIwfConnFailedAal5PduTranslate.setStatus(_B)
+if mibBuilder.loadTexts:frAtmIwfConnFailedAal5PduTranslate.setUnits(_H)
+_FrAtmIwfConnOverSizedSDUs_Type=Counter32
+_FrAtmIwfConnOverSizedSDUs_Object=MibTableColumn
+frAtmIwfConnOverSizedSDUs=_FrAtmIwfConnOverSizedSDUs_Object((1,3,6,1,2,1,86,1,2,1,17),_FrAtmIwfConnOverSizedSDUs_Type())
+frAtmIwfConnOverSizedSDUs.setMaxAccess(_D)
+if mibBuilder.loadTexts:frAtmIwfConnOverSizedSDUs.setStatus(_B)
+if mibBuilder.loadTexts:frAtmIwfConnOverSizedSDUs.setUnits('SDUs')
+_FrAtmIwfConnCrcErrors_Type=Counter32
+_FrAtmIwfConnCrcErrors_Object=MibTableColumn
+frAtmIwfConnCrcErrors=_FrAtmIwfConnCrcErrors_Object((1,3,6,1,2,1,86,1,2,1,18),_FrAtmIwfConnCrcErrors_Type())
+frAtmIwfConnCrcErrors.setMaxAccess(_D)
+if mibBuilder.loadTexts:frAtmIwfConnCrcErrors.setStatus(_B)
+if mibBuilder.loadTexts:frAtmIwfConnCrcErrors.setUnits(_H)
+_FrAtmIwfConnSarTimeOuts_Type=Counter32
+_FrAtmIwfConnSarTimeOuts_Object=MibTableColumn
+frAtmIwfConnSarTimeOuts=_FrAtmIwfConnSarTimeOuts_Object((1,3,6,1,2,1,86,1,2,1,19),_FrAtmIwfConnSarTimeOuts_Type())
+frAtmIwfConnSarTimeOuts.setMaxAccess(_D)
+if mibBuilder.loadTexts:frAtmIwfConnSarTimeOuts.setStatus(_B)
+if mibBuilder.loadTexts:frAtmIwfConnSarTimeOuts.setUnits(_H)
+class _FrAtmIwfConnectionDescriptorIndexNext_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_FrAtmIwfConnectionDescriptorIndexNext_Type.__name__=_C
+_FrAtmIwfConnectionDescriptorIndexNext_Object=MibScalar
+frAtmIwfConnectionDescriptorIndexNext=_FrAtmIwfConnectionDescriptorIndexNext_Object((1,3,6,1,2,1,86,1,3),_FrAtmIwfConnectionDescriptorIndexNext_Type())
+frAtmIwfConnectionDescriptorIndexNext.setMaxAccess(_D)
+if mibBuilder.loadTexts:frAtmIwfConnectionDescriptorIndexNext.setStatus(_B)
+_FrAtmIwfConnectionDescriptorTable_Object=MibTable
+frAtmIwfConnectionDescriptorTable=_FrAtmIwfConnectionDescriptorTable_Object((1,3,6,1,2,1,86,1,4))
+if mibBuilder.loadTexts:frAtmIwfConnectionDescriptorTable.setStatus(_B)
+_FrAtmIwfConnectionDescriptorEntry_Object=MibTableRow
+frAtmIwfConnectionDescriptorEntry=_FrAtmIwfConnectionDescriptorEntry_Object((1,3,6,1,2,1,86,1,4,1))
+frAtmIwfConnectionDescriptorEntry.setIndexNames((0,_A,_X))
+if mibBuilder.loadTexts:frAtmIwfConnectionDescriptorEntry.setStatus(_B)
+class _FrAtmIwfConnectionDescriptorIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FrAtmIwfConnectionDescriptorIndex_Type.__name__=_C
+_FrAtmIwfConnectionDescriptorIndex_Object=MibTableColumn
+frAtmIwfConnectionDescriptorIndex=_FrAtmIwfConnectionDescriptorIndex_Object((1,3,6,1,2,1,86,1,4,1,1),_FrAtmIwfConnectionDescriptorIndex_Type())
+frAtmIwfConnectionDescriptorIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:frAtmIwfConnectionDescriptorIndex.setStatus(_B)
+_FrAtmIwfConnDescriptorRowStatus_Type=RowStatus
+_FrAtmIwfConnDescriptorRowStatus_Object=MibTableColumn
+frAtmIwfConnDescriptorRowStatus=_FrAtmIwfConnDescriptorRowStatus_Object((1,3,6,1,2,1,86,1,4,1,2),_FrAtmIwfConnDescriptorRowStatus_Type())
+frAtmIwfConnDescriptorRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:frAtmIwfConnDescriptorRowStatus.setStatus(_B)
+class _FrAtmIwfConnDeToClpMappingMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),(_Y,2),(_Z,3)))
+_FrAtmIwfConnDeToClpMappingMode_Type.__name__=_C
+_FrAtmIwfConnDeToClpMappingMode_Object=MibTableColumn
+frAtmIwfConnDeToClpMappingMode=_FrAtmIwfConnDeToClpMappingMode_Object((1,3,6,1,2,1,86,1,4,1,3),_FrAtmIwfConnDeToClpMappingMode_Type())
+frAtmIwfConnDeToClpMappingMode.setMaxAccess(_E)
+if mibBuilder.loadTexts:frAtmIwfConnDeToClpMappingMode.setStatus(_B)
+class _FrAtmIwfConnClpToDeMappingMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_I,1),(_Y,2),(_Z,3)))
+_FrAtmIwfConnClpToDeMappingMode_Type.__name__=_C
+_FrAtmIwfConnClpToDeMappingMode_Object=MibTableColumn
+frAtmIwfConnClpToDeMappingMode=_FrAtmIwfConnClpToDeMappingMode_Object((1,3,6,1,2,1,86,1,4,1,4),_FrAtmIwfConnClpToDeMappingMode_Type())
+frAtmIwfConnClpToDeMappingMode.setMaxAccess(_E)
+if mibBuilder.loadTexts:frAtmIwfConnClpToDeMappingMode.setStatus(_B)
+class _FrAtmIwfConnCongestionMappingMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_I,1),('mode2',2)))
+_FrAtmIwfConnCongestionMappingMode_Type.__name__=_C
+_FrAtmIwfConnCongestionMappingMode_Object=MibTableColumn
+frAtmIwfConnCongestionMappingMode=_FrAtmIwfConnCongestionMappingMode_Object((1,3,6,1,2,1,86,1,4,1,5),_FrAtmIwfConnCongestionMappingMode_Type())
+frAtmIwfConnCongestionMappingMode.setMaxAccess(_E)
+if mibBuilder.loadTexts:frAtmIwfConnCongestionMappingMode.setStatus(_B)
+class _FrAtmIwfConnEncapsulationMappingMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('transparentMode',1),('translationMode',2),('translationModeAll',3)))
+_FrAtmIwfConnEncapsulationMappingMode_Type.__name__=_C
+_FrAtmIwfConnEncapsulationMappingMode_Object=MibTableColumn
+frAtmIwfConnEncapsulationMappingMode=_FrAtmIwfConnEncapsulationMappingMode_Object((1,3,6,1,2,1,86,1,4,1,6),_FrAtmIwfConnEncapsulationMappingMode_Type())
+frAtmIwfConnEncapsulationMappingMode.setMaxAccess(_E)
+if mibBuilder.loadTexts:frAtmIwfConnEncapsulationMappingMode.setStatus(_B)
+class _FrAtmIwfConnEncapsulationMappings_Type(Bits):defaultBinValue='1';namedValues=NamedValues(*(('none',0),('bridgedPdus',1),('bridged802dot6',2),('bPdus',3),('routedIp',4),('routedOsi',5),('otherRouted',6),('x25Iso8202',7),('q933q2931',8)))
+_FrAtmIwfConnEncapsulationMappings_Type.__name__='Bits'
+_FrAtmIwfConnEncapsulationMappings_Object=MibTableColumn
+frAtmIwfConnEncapsulationMappings=_FrAtmIwfConnEncapsulationMappings_Object((1,3,6,1,2,1,86,1,4,1,7),_FrAtmIwfConnEncapsulationMappings_Type())
+frAtmIwfConnEncapsulationMappings.setMaxAccess(_E)
+if mibBuilder.loadTexts:frAtmIwfConnEncapsulationMappings.setStatus(_B)
+class _FrAtmIwfConnFragAndReassEnabled_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_a,1),(_b,2)))
+_FrAtmIwfConnFragAndReassEnabled_Type.__name__=_C
+_FrAtmIwfConnFragAndReassEnabled_Object=MibTableColumn
+frAtmIwfConnFragAndReassEnabled=_FrAtmIwfConnFragAndReassEnabled_Object((1,3,6,1,2,1,86,1,4,1,8),_FrAtmIwfConnFragAndReassEnabled_Type())
+frAtmIwfConnFragAndReassEnabled.setMaxAccess(_E)
+if mibBuilder.loadTexts:frAtmIwfConnFragAndReassEnabled.setStatus(_B)
+class _FrAtmIwfConnArpTranslationEnabled_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_a,1),(_b,2)))
+_FrAtmIwfConnArpTranslationEnabled_Type.__name__=_C
+_FrAtmIwfConnArpTranslationEnabled_Object=MibTableColumn
+frAtmIwfConnArpTranslationEnabled=_FrAtmIwfConnArpTranslationEnabled_Object((1,3,6,1,2,1,86,1,4,1,9),_FrAtmIwfConnArpTranslationEnabled_Type())
+frAtmIwfConnArpTranslationEnabled.setMaxAccess(_E)
+if mibBuilder.loadTexts:frAtmIwfConnArpTranslationEnabled.setStatus(_B)
+_FrAtmIwfVclTable_Object=MibTable
+frAtmIwfVclTable=_FrAtmIwfVclTable_Object((1,3,6,1,2,1,86,1,5))
+if mibBuilder.loadTexts:frAtmIwfVclTable.setStatus(_B)
+_FrAtmIwfVclEntry_Object=MibTableRow
+frAtmIwfVclEntry=_FrAtmIwfVclEntry_Object((1,3,6,1,2,1,86,1,5,1))
+if mibBuilder.loadTexts:frAtmIwfVclEntry.setStatus(_B)
+class _FrAtmIwfVclCrossConnectIdentifier_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FrAtmIwfVclCrossConnectIdentifier_Type.__name__=_C
+_FrAtmIwfVclCrossConnectIdentifier_Object=MibTableColumn
+frAtmIwfVclCrossConnectIdentifier=_FrAtmIwfVclCrossConnectIdentifier_Object((1,3,6,1,2,1,86,1,5,1,1),_FrAtmIwfVclCrossConnectIdentifier_Type())
+frAtmIwfVclCrossConnectIdentifier.setMaxAccess(_D)
+if mibBuilder.loadTexts:frAtmIwfVclCrossConnectIdentifier.setStatus(_B)
+_FrAtmIwfTraps_ObjectIdentity=ObjectIdentity
+frAtmIwfTraps=_FrAtmIwfTraps_ObjectIdentity((1,3,6,1,2,1,86,2))
+_FrAtmIwfTrapsPrefix_ObjectIdentity=ObjectIdentity
+frAtmIwfTrapsPrefix=_FrAtmIwfTrapsPrefix_ObjectIdentity((1,3,6,1,2,1,86,2,0))
+_FrAtmIwfConformance_ObjectIdentity=ObjectIdentity
+frAtmIwfConformance=_FrAtmIwfConformance_ObjectIdentity((1,3,6,1,2,1,86,3))
+_FrAtmIwfGroups_ObjectIdentity=ObjectIdentity
+frAtmIwfGroups=_FrAtmIwfGroups_ObjectIdentity((1,3,6,1,2,1,86,3,1))
+_FrAtmIwfCompliances_ObjectIdentity=ObjectIdentity
+frAtmIwfCompliances=_FrAtmIwfCompliances_ObjectIdentity((1,3,6,1,2,1,86,3,2))
+atmVclEntry.registerAugmentions((_A,_c))
 frAtmIwfVclEntry.setIndexNames(*atmVclEntry.getIndexNames())
-if mibBuilder.loadTexts: frAtmIwfVclEntry.setDescription('Entries in this table are created only by the\n                     agent. One entry exists for each ATM VCL managed\n                     by the agent.')
-frAtmIwfVclCrossConnectIdentifier = MibTableColumn((1, 3, 6, 1, 2, 1, 86, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAtmIwfVclCrossConnectIdentifier.setDescription('This object contains the index value of the\n                     FR/ATM cross-connect table entry used to link the\n                     ATM VCL with a frame relay PVC.\n\n                     Each row of the atmVclTable that is not cross-\n                     connected with a frame relay PVC MUST return the\n                     value zero when this object is read.\n\n                     In the case of (frame relay) point to (ATM)\n                     multipoint, multiple ATM VCLs will have the same\n                     value of this object, and all their cross-\n                     connections are identified by entries that are\n                     indexed by the same value of\n                     frAtmIwfVclCrossConnectIdentifier in the\n                     frAtmIwfConnectionTable of this MIB module.\n\n                     The value of this object is initialized by the\n                     agent after the associated entries in the\n                     frAtmIwfConnectionTable have been created.')
-frAtmIwfConnStatusChange = NotificationType((1, 3, 6, 1, 2, 1, 86, 2, 0, 1)).setObjects(*(("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnAdminStatus"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnAtm2FrOperStatus"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnFr2AtmOperStatus"),))
-if mibBuilder.loadTexts: frAtmIwfConnStatusChange.setDescription('An indication that the status of this\n                     interworking connection has changed.')
-frAtmIwfEquipmentCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 86, 3, 2, 1)).setObjects(*(("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfBasicGroup"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnectionDescriptorGroup"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfAtmVclTableAugmentGroup"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfNotificationsGroup"),))
-if mibBuilder.loadTexts: frAtmIwfEquipmentCompliance.setDescription('The compliance statement for equipment that\n                     implements the FR/ATM Interworking MIB.')
-frAtmIwfServiceCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 86, 3, 2, 2)).setObjects(*(("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfBasicGroup"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnectionDescriptorGroup"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfAtmVclTableAugmentGroup"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfNotificationsGroup"),))
-if mibBuilder.loadTexts: frAtmIwfServiceCompliance.setDescription('The compliance statement for a CNM interface that\n                     implements the FR/ATM Interworking MIB.')
-frAtmIwfBasicGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 86, 3, 1, 1)).setObjects(*(("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnIndexNext"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnAdminStatus"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnAtm2FrOperStatus"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnAtm2FrLastChange"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnFr2AtmOperStatus"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnFr2AtmLastChange"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnectionDescriptor"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnFailedFrameTranslate"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnOverSizedFrames"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnFailedAal5PduTranslate"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnOverSizedSDUs"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnCrcErrors"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnSarTimeOuts"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnRowStatus"),))
-if mibBuilder.loadTexts: frAtmIwfBasicGroup.setDescription('The collection of basic objects for configuration\n                     and control of FR/ATM interworking connections.')
-frAtmIwfConnectionDescriptorGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 86, 3, 1, 2)).setObjects(*(("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnectionDescriptorIndexNext"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnDeToClpMappingMode"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnClpToDeMappingMode"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnCongestionMappingMode"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnEncapsulationMappingMode"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnEncapsulationMappings"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnFragAndReassEnabled"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnArpTranslationEnabled"), ("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnDescriptorRowStatus"),))
-if mibBuilder.loadTexts: frAtmIwfConnectionDescriptorGroup.setDescription('The collection of basic objects for specification\n                     of FR/ATM interworking connection descriptors.')
-frAtmIwfAtmVclTableAugmentGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 86, 3, 1, 3)).setObjects(*(("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfVclCrossConnectIdentifier"),))
-if mibBuilder.loadTexts: frAtmIwfAtmVclTableAugmentGroup.setDescription('The ATM MIB VCL Endpoint Table AUGMENT object\n                     contained in the FR/ATM PVC Service Interworking\n                     MIB.')
-frAtmIwfNotificationsGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 86, 3, 1, 4)).setObjects(*(("FR-ATM-PVC-SERVICE-IWF-MIB", "frAtmIwfConnStatusChange"),))
-if mibBuilder.loadTexts: frAtmIwfNotificationsGroup.setDescription('The notification for FR/ATM interworking status\n                     change.')
-mibBuilder.exportSymbols("FR-ATM-PVC-SERVICE-IWF-MIB", frAtmIwfConnectionDescriptorTable=frAtmIwfConnectionDescriptorTable, frAtmIwfConnFr2AtmLastChange=frAtmIwfConnFr2AtmLastChange, PYSNMP_MODULE_ID=frAtmIwfMIB, frAtmIwfConnDescriptorRowStatus=frAtmIwfConnDescriptorRowStatus, frAtmIwfConnDlci=frAtmIwfConnDlci, frAtmIwfConnectionDescriptorIndex=frAtmIwfConnectionDescriptorIndex, frAtmIwfVclEntry=frAtmIwfVclEntry, frAtmIwfConnClpToDeMappingMode=frAtmIwfConnClpToDeMappingMode, frAtmIwfNotificationsGroup=frAtmIwfNotificationsGroup, frAtmIwfConnectionDescriptorIndexNext=frAtmIwfConnectionDescriptorIndexNext, frAtmIwfConnFrPort=frAtmIwfConnFrPort, frAtmIwfConnDeToClpMappingMode=frAtmIwfConnDeToClpMappingMode, frAtmIwfConnCongestionMappingMode=frAtmIwfConnCongestionMappingMode, frAtmIwfConnAdminStatus=frAtmIwfConnAdminStatus, frAtmIwfConnArpTranslationEnabled=frAtmIwfConnArpTranslationEnabled, frAtmIwfConnFr2AtmOperStatus=frAtmIwfConnFr2AtmOperStatus, frAtmIwfMIBObjects=frAtmIwfMIBObjects, frAtmIwfConnVpi=frAtmIwfConnVpi, frAtmIwfConnectionEntry=frAtmIwfConnectionEntry, frAtmIwfConnIndex=frAtmIwfConnIndex, frAtmIwfConformance=frAtmIwfConformance, frAtmIwfConnFailedFrameTranslate=frAtmIwfConnFailedFrameTranslate, frAtmIwfServiceCompliance=frAtmIwfServiceCompliance, frAtmIwfConnIndexNext=frAtmIwfConnIndexNext, frAtmIwfConnSarTimeOuts=frAtmIwfConnSarTimeOuts, frAtmIwfVclCrossConnectIdentifier=frAtmIwfVclCrossConnectIdentifier, frAtmIwfConnStatusChange=frAtmIwfConnStatusChange, frAtmIwfGroups=frAtmIwfGroups, frAtmIwfConnectionTable=frAtmIwfConnectionTable, frAtmIwfConnectionDescriptor=frAtmIwfConnectionDescriptor, frAtmIwfConnFragAndReassEnabled=frAtmIwfConnFragAndReassEnabled, frAtmIwfConnOverSizedSDUs=frAtmIwfConnOverSizedSDUs, frAtmIwfVclTable=frAtmIwfVclTable, frAtmIwfBasicGroup=frAtmIwfBasicGroup, frAtmIwfConnCrcErrors=frAtmIwfConnCrcErrors, frAtmIwfTrapsPrefix=frAtmIwfTrapsPrefix, frAtmIwfConnVci=frAtmIwfConnVci, frAtmIwfConnOverSizedFrames=frAtmIwfConnOverSizedFrames, frAtmIwfConnAtmPort=frAtmIwfConnAtmPort, frAtmIwfConnFailedAal5PduTranslate=frAtmIwfConnFailedAal5PduTranslate, frAtmIwfTraps=frAtmIwfTraps, frAtmIwfConnectionDescriptorEntry=frAtmIwfConnectionDescriptorEntry, frAtmIwfConnRowStatus=frAtmIwfConnRowStatus, frAtmIwfConnEncapsulationMappingMode=frAtmIwfConnEncapsulationMappingMode, frAtmIwfEquipmentCompliance=frAtmIwfEquipmentCompliance, frAtmIwfConnectionDescriptorGroup=frAtmIwfConnectionDescriptorGroup, frAtmIwfAtmVclTableAugmentGroup=frAtmIwfAtmVclTableAugmentGroup, frAtmIwfConnAtm2FrOperStatus=frAtmIwfConnAtm2FrOperStatus, frAtmIwfMIB=frAtmIwfMIB, frAtmIwfConnEncapsulationMappings=frAtmIwfConnEncapsulationMappings, frAtmIwfConnAtm2FrLastChange=frAtmIwfConnAtm2FrLastChange, frAtmIwfCompliances=frAtmIwfCompliances)
+frAtmIwfBasicGroup=ObjectGroup((1,3,6,1,2,1,86,3,1,1))
+frAtmIwfBasicGroup.setObjects(*((_A,_d),(_A,_J),(_A,_K),(_A,_e),(_A,_L),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n)))
+if mibBuilder.loadTexts:frAtmIwfBasicGroup.setStatus(_B)
+frAtmIwfConnectionDescriptorGroup=ObjectGroup((1,3,6,1,2,1,86,3,1,2))
+frAtmIwfConnectionDescriptorGroup.setObjects(*((_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w)))
+if mibBuilder.loadTexts:frAtmIwfConnectionDescriptorGroup.setStatus(_B)
+frAtmIwfAtmVclTableAugmentGroup=ObjectGroup((1,3,6,1,2,1,86,3,1,3))
+frAtmIwfAtmVclTableAugmentGroup.setObjects((_A,_x))
+if mibBuilder.loadTexts:frAtmIwfAtmVclTableAugmentGroup.setStatus(_B)
+frAtmIwfConnStatusChange=NotificationType((1,3,6,1,2,1,86,2,0,1))
+frAtmIwfConnStatusChange.setObjects(*((_A,_J),(_A,_K),(_A,_L)))
+if mibBuilder.loadTexts:frAtmIwfConnStatusChange.setStatus(_B)
+frAtmIwfNotificationsGroup=NotificationGroup((1,3,6,1,2,1,86,3,1,4))
+frAtmIwfNotificationsGroup.setObjects((_A,_y))
+if mibBuilder.loadTexts:frAtmIwfNotificationsGroup.setStatus(_B)
+frAtmIwfEquipmentCompliance=ModuleCompliance((1,3,6,1,2,1,86,3,2,1))
+frAtmIwfEquipmentCompliance.setObjects(*((_A,_M),(_A,_N),(_A,_O),(_A,_P)))
+if mibBuilder.loadTexts:frAtmIwfEquipmentCompliance.setStatus(_B)
+frAtmIwfServiceCompliance=ModuleCompliance((1,3,6,1,2,1,86,3,2,2))
+frAtmIwfServiceCompliance.setObjects(*((_A,_M),(_A,_N),(_A,_O),(_A,_P)))
+if mibBuilder.loadTexts:frAtmIwfServiceCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'frAtmIwfMIB':frAtmIwfMIB,'frAtmIwfMIBObjects':frAtmIwfMIBObjects,_d:frAtmIwfConnIndexNext,'frAtmIwfConnectionTable':frAtmIwfConnectionTable,'frAtmIwfConnectionEntry':frAtmIwfConnectionEntry,_Q:frAtmIwfConnIndex,_R:frAtmIwfConnAtmPort,_S:frAtmIwfConnVpi,_T:frAtmIwfConnVci,_U:frAtmIwfConnFrPort,_V:frAtmIwfConnDlci,_n:frAtmIwfConnRowStatus,_J:frAtmIwfConnAdminStatus,_K:frAtmIwfConnAtm2FrOperStatus,_e:frAtmIwfConnAtm2FrLastChange,_L:frAtmIwfConnFr2AtmOperStatus,_f:frAtmIwfConnFr2AtmLastChange,_g:frAtmIwfConnectionDescriptor,_h:frAtmIwfConnFailedFrameTranslate,_i:frAtmIwfConnOverSizedFrames,_j:frAtmIwfConnFailedAal5PduTranslate,_k:frAtmIwfConnOverSizedSDUs,_l:frAtmIwfConnCrcErrors,_m:frAtmIwfConnSarTimeOuts,_o:frAtmIwfConnectionDescriptorIndexNext,'frAtmIwfConnectionDescriptorTable':frAtmIwfConnectionDescriptorTable,'frAtmIwfConnectionDescriptorEntry':frAtmIwfConnectionDescriptorEntry,_X:frAtmIwfConnectionDescriptorIndex,_w:frAtmIwfConnDescriptorRowStatus,_p:frAtmIwfConnDeToClpMappingMode,_q:frAtmIwfConnClpToDeMappingMode,_r:frAtmIwfConnCongestionMappingMode,_s:frAtmIwfConnEncapsulationMappingMode,_t:frAtmIwfConnEncapsulationMappings,_u:frAtmIwfConnFragAndReassEnabled,_v:frAtmIwfConnArpTranslationEnabled,'frAtmIwfVclTable':frAtmIwfVclTable,_c:frAtmIwfVclEntry,_x:frAtmIwfVclCrossConnectIdentifier,'frAtmIwfTraps':frAtmIwfTraps,'frAtmIwfTrapsPrefix':frAtmIwfTrapsPrefix,_y:frAtmIwfConnStatusChange,'frAtmIwfConformance':frAtmIwfConformance,'frAtmIwfGroups':frAtmIwfGroups,_M:frAtmIwfBasicGroup,_N:frAtmIwfConnectionDescriptorGroup,_O:frAtmIwfAtmVclTableAugmentGroup,_P:frAtmIwfNotificationsGroup,'frAtmIwfCompliances':frAtmIwfCompliances,'frAtmIwfEquipmentCompliance':frAtmIwfEquipmentCompliance,'frAtmIwfServiceCompliance':frAtmIwfServiceCompliance})

@@ -1,0 +1,307 @@
+_r='me1200DdmiNotificationInfoGroup'
+_q='me1200DdmiStatusInterfaceTableInfoGroup'
+_p='me1200DdmiConfigGlobalsInfoGroup'
+_o='me1200DdmiNotificationSFPErrorType'
+_n='me1200DdmiStatusInterfaceA2RxPowerLowWarnThreshold'
+_m='me1200DdmiStatusInterfaceA2RxPowerHighWarnThreshold'
+_l='me1200DdmiStatusInterfaceA2RxPowerLowAlarmThreshold'
+_k='me1200DdmiStatusInterfaceA2RxPowerHighAlarmThreshold'
+_j='me1200DdmiStatusInterfaceA2CurrentRxPower'
+_i='me1200DdmiStatusInterfaceA2TxPowerLowWarnThreshold'
+_h='me1200DdmiStatusInterfaceA2TxPowerHighWarnThreshold'
+_g='me1200DdmiStatusInterfaceA2TxPowerLowAlarmThreshold'
+_f='me1200DdmiStatusInterfaceA2TxPowerHighAlarmThreshold'
+_e='me1200DdmiStatusInterfaceA2CurrentTxPower'
+_d='me1200DdmiStatusInterfaceA2TxBiasLowWarnThreshold'
+_c='me1200DdmiStatusInterfaceA2TxBiasHighWarnThreshold'
+_b='me1200DdmiStatusInterfaceA2TxBiasLowAlarmThreshold'
+_a='me1200DdmiStatusInterfaceA2TxBiasHighAlarmThreshold'
+_Z='me1200DdmiStatusInterfaceA2CurrentTxBias'
+_Y='me1200DdmiStatusInterfaceA2VoltageLowWarnThreshold'
+_X='me1200DdmiStatusInterfaceA2VoltageHighWarnThreshold'
+_W='me1200DdmiStatusInterfaceA2VoltageLowAlarmThreshold'
+_V='me1200DdmiStatusInterfaceA2VoltageHighAlarmThreshold'
+_U='me1200DdmiStatusInterfaceA2CurrentVoltage'
+_T='me1200DdmiStatusInterfaceA2TemperatureLowWarnThreshold'
+_S='me1200DdmiStatusInterfaceA2TemperatureHighWarnThreshold'
+_R='me1200DdmiStatusInterfaceA2TemperatureLowAlarmThreshold'
+_Q='me1200DdmiStatusInterfaceA2TemperatureHighAlarmThreshold'
+_P='me1200DdmiStatusInterfaceA2CurrentTemperature'
+_O='me1200DdmiStatusInterfaceA2Supported'
+_N='me1200DdmiStatusInterfaceA0DateCode'
+_M='me1200DdmiStatusInterfaceA0Revision'
+_L='me1200DdmiStatusInterfaceA0SerialNumber'
+_K='me1200DdmiStatusInterfaceA0PartNumber'
+_J='me1200DdmiStatusInterfaceA0Vendor'
+_I='me1200DdmiStatusInterfaceA0SfpDetected'
+_H='me1200DdmiStatusInterfaceA0Supported'
+_G='me1200DdmiConfigGlobalsMode'
+_F='me1200DdmiStatusInterfaceIfIndex'
+_E='me1200DdmiStatusInterfaceA0SfpType'
+_D='ME1200DisplayString'
+_C='read-only'
+_B='ME1200-DDMI-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+me1200SwitchMgmt,=mibBuilder.importSymbols('CISCOME1200-MIB','me1200SwitchMgmt')
+ME1200DisplayString,ME1200InterfaceIndex=mibBuilder.importSymbols('ME1200-TC',_D,'ME1200InterfaceIndex')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
+me1200DdmiMib=ModuleIdentity((1,3,6,1,4,1,9,9,815,1,121))
+if mibBuilder.loadTexts:me1200DdmiMib.setRevisions(('2016-05-23 00:00','2014-06-30 00:00','2014-05-16 00:00','2014-05-14 00:00'))
+class ME1200DdmiSfpTransceiver(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,7,8,9,10,11,12,13,14)));namedValues=NamedValues(*(('none',0),('notSupported',1),('sfp100FX',2),('sfp1000BaseT',7),('sfp1000BaseCx',8),('sfp1000BaseSx',9),('sfp1000BaseLx',10),('sfp1000BaseX',11),('sfp2G5',12),('sfp5G',13),('sfp10G',14)))
+_Me1200DdmiMibObjects_ObjectIdentity=ObjectIdentity
+me1200DdmiMibObjects=_Me1200DdmiMibObjects_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,121,1))
+_Me1200DdmiConfig_ObjectIdentity=ObjectIdentity
+me1200DdmiConfig=_Me1200DdmiConfig_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,121,1,2))
+_Me1200DdmiConfigGlobals_ObjectIdentity=ObjectIdentity
+me1200DdmiConfigGlobals=_Me1200DdmiConfigGlobals_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,121,1,2,1))
+_Me1200DdmiConfigGlobalsMode_Type=TruthValue
+_Me1200DdmiConfigGlobalsMode_Object=MibScalar
+me1200DdmiConfigGlobalsMode=_Me1200DdmiConfigGlobalsMode_Object((1,3,6,1,4,1,9,9,815,1,121,1,2,1,1),_Me1200DdmiConfigGlobalsMode_Type())
+me1200DdmiConfigGlobalsMode.setMaxAccess('read-write')
+if mibBuilder.loadTexts:me1200DdmiConfigGlobalsMode.setStatus(_A)
+_Me1200DdmiStatus_ObjectIdentity=ObjectIdentity
+me1200DdmiStatus=_Me1200DdmiStatus_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,121,1,3))
+_Me1200DdmiStatusInterfaceTable_Object=MibTable
+me1200DdmiStatusInterfaceTable=_Me1200DdmiStatusInterfaceTable_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2))
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceTable.setStatus(_A)
+_Me1200DdmiStatusInterfaceEntry_Object=MibTableRow
+me1200DdmiStatusInterfaceEntry=_Me1200DdmiStatusInterfaceEntry_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1))
+me1200DdmiStatusInterfaceEntry.setIndexNames((0,_B,_F))
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceEntry.setStatus(_A)
+_Me1200DdmiStatusInterfaceIfIndex_Type=ME1200InterfaceIndex
+_Me1200DdmiStatusInterfaceIfIndex_Object=MibTableColumn
+me1200DdmiStatusInterfaceIfIndex=_Me1200DdmiStatusInterfaceIfIndex_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1),_Me1200DdmiStatusInterfaceIfIndex_Type())
+me1200DdmiStatusInterfaceIfIndex.setMaxAccess('not-accessible')
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceIfIndex.setStatus(_A)
+_Me1200DdmiStatusInterfaceA0Supported_Type=TruthValue
+_Me1200DdmiStatusInterfaceA0Supported_Object=MibTableColumn
+me1200DdmiStatusInterfaceA0Supported=_Me1200DdmiStatusInterfaceA0Supported_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,2),_Me1200DdmiStatusInterfaceA0Supported_Type())
+me1200DdmiStatusInterfaceA0Supported.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA0Supported.setStatus(_A)
+_Me1200DdmiStatusInterfaceA0SfpDetected_Type=TruthValue
+_Me1200DdmiStatusInterfaceA0SfpDetected_Object=MibTableColumn
+me1200DdmiStatusInterfaceA0SfpDetected=_Me1200DdmiStatusInterfaceA0SfpDetected_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,3),_Me1200DdmiStatusInterfaceA0SfpDetected_Type())
+me1200DdmiStatusInterfaceA0SfpDetected.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA0SfpDetected.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA0Vendor_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA0Vendor_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA0Vendor_Object=MibTableColumn
+me1200DdmiStatusInterfaceA0Vendor=_Me1200DdmiStatusInterfaceA0Vendor_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,4),_Me1200DdmiStatusInterfaceA0Vendor_Type())
+me1200DdmiStatusInterfaceA0Vendor.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA0Vendor.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA0PartNumber_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA0PartNumber_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA0PartNumber_Object=MibTableColumn
+me1200DdmiStatusInterfaceA0PartNumber=_Me1200DdmiStatusInterfaceA0PartNumber_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,5),_Me1200DdmiStatusInterfaceA0PartNumber_Type())
+me1200DdmiStatusInterfaceA0PartNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA0PartNumber.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA0SerialNumber_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA0SerialNumber_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA0SerialNumber_Object=MibTableColumn
+me1200DdmiStatusInterfaceA0SerialNumber=_Me1200DdmiStatusInterfaceA0SerialNumber_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,6),_Me1200DdmiStatusInterfaceA0SerialNumber_Type())
+me1200DdmiStatusInterfaceA0SerialNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA0SerialNumber.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA0Revision_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA0Revision_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA0Revision_Object=MibTableColumn
+me1200DdmiStatusInterfaceA0Revision=_Me1200DdmiStatusInterfaceA0Revision_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,7),_Me1200DdmiStatusInterfaceA0Revision_Type())
+me1200DdmiStatusInterfaceA0Revision.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA0Revision.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA0DateCode_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA0DateCode_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA0DateCode_Object=MibTableColumn
+me1200DdmiStatusInterfaceA0DateCode=_Me1200DdmiStatusInterfaceA0DateCode_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,8),_Me1200DdmiStatusInterfaceA0DateCode_Type())
+me1200DdmiStatusInterfaceA0DateCode.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA0DateCode.setStatus(_A)
+_Me1200DdmiStatusInterfaceA0SfpType_Type=ME1200DdmiSfpTransceiver
+_Me1200DdmiStatusInterfaceA0SfpType_Object=MibTableColumn
+me1200DdmiStatusInterfaceA0SfpType=_Me1200DdmiStatusInterfaceA0SfpType_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,9),_Me1200DdmiStatusInterfaceA0SfpType_Type())
+me1200DdmiStatusInterfaceA0SfpType.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA0SfpType.setStatus(_A)
+_Me1200DdmiStatusInterfaceA2Supported_Type=TruthValue
+_Me1200DdmiStatusInterfaceA2Supported_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2Supported=_Me1200DdmiStatusInterfaceA2Supported_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1002),_Me1200DdmiStatusInterfaceA2Supported_Type())
+me1200DdmiStatusInterfaceA2Supported.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2Supported.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2CurrentTemperature_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2CurrentTemperature_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2CurrentTemperature_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2CurrentTemperature=_Me1200DdmiStatusInterfaceA2CurrentTemperature_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1003),_Me1200DdmiStatusInterfaceA2CurrentTemperature_Type())
+me1200DdmiStatusInterfaceA2CurrentTemperature.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2CurrentTemperature.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2TemperatureHighAlarmThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2TemperatureHighAlarmThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2TemperatureHighAlarmThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2TemperatureHighAlarmThreshold=_Me1200DdmiStatusInterfaceA2TemperatureHighAlarmThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1004),_Me1200DdmiStatusInterfaceA2TemperatureHighAlarmThreshold_Type())
+me1200DdmiStatusInterfaceA2TemperatureHighAlarmThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2TemperatureHighAlarmThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2TemperatureLowAlarmThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2TemperatureLowAlarmThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2TemperatureLowAlarmThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2TemperatureLowAlarmThreshold=_Me1200DdmiStatusInterfaceA2TemperatureLowAlarmThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1005),_Me1200DdmiStatusInterfaceA2TemperatureLowAlarmThreshold_Type())
+me1200DdmiStatusInterfaceA2TemperatureLowAlarmThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2TemperatureLowAlarmThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2TemperatureHighWarnThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2TemperatureHighWarnThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2TemperatureHighWarnThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2TemperatureHighWarnThreshold=_Me1200DdmiStatusInterfaceA2TemperatureHighWarnThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1006),_Me1200DdmiStatusInterfaceA2TemperatureHighWarnThreshold_Type())
+me1200DdmiStatusInterfaceA2TemperatureHighWarnThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2TemperatureHighWarnThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2TemperatureLowWarnThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2TemperatureLowWarnThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2TemperatureLowWarnThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2TemperatureLowWarnThreshold=_Me1200DdmiStatusInterfaceA2TemperatureLowWarnThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1007),_Me1200DdmiStatusInterfaceA2TemperatureLowWarnThreshold_Type())
+me1200DdmiStatusInterfaceA2TemperatureLowWarnThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2TemperatureLowWarnThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2CurrentVoltage_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2CurrentVoltage_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2CurrentVoltage_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2CurrentVoltage=_Me1200DdmiStatusInterfaceA2CurrentVoltage_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1008),_Me1200DdmiStatusInterfaceA2CurrentVoltage_Type())
+me1200DdmiStatusInterfaceA2CurrentVoltage.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2CurrentVoltage.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2VoltageHighAlarmThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2VoltageHighAlarmThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2VoltageHighAlarmThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2VoltageHighAlarmThreshold=_Me1200DdmiStatusInterfaceA2VoltageHighAlarmThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1009),_Me1200DdmiStatusInterfaceA2VoltageHighAlarmThreshold_Type())
+me1200DdmiStatusInterfaceA2VoltageHighAlarmThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2VoltageHighAlarmThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2VoltageLowAlarmThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2VoltageLowAlarmThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2VoltageLowAlarmThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2VoltageLowAlarmThreshold=_Me1200DdmiStatusInterfaceA2VoltageLowAlarmThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1010),_Me1200DdmiStatusInterfaceA2VoltageLowAlarmThreshold_Type())
+me1200DdmiStatusInterfaceA2VoltageLowAlarmThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2VoltageLowAlarmThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2VoltageHighWarnThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2VoltageHighWarnThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2VoltageHighWarnThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2VoltageHighWarnThreshold=_Me1200DdmiStatusInterfaceA2VoltageHighWarnThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1011),_Me1200DdmiStatusInterfaceA2VoltageHighWarnThreshold_Type())
+me1200DdmiStatusInterfaceA2VoltageHighWarnThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2VoltageHighWarnThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2VoltageLowWarnThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2VoltageLowWarnThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2VoltageLowWarnThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2VoltageLowWarnThreshold=_Me1200DdmiStatusInterfaceA2VoltageLowWarnThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1012),_Me1200DdmiStatusInterfaceA2VoltageLowWarnThreshold_Type())
+me1200DdmiStatusInterfaceA2VoltageLowWarnThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2VoltageLowWarnThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2CurrentTxBias_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2CurrentTxBias_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2CurrentTxBias_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2CurrentTxBias=_Me1200DdmiStatusInterfaceA2CurrentTxBias_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1013),_Me1200DdmiStatusInterfaceA2CurrentTxBias_Type())
+me1200DdmiStatusInterfaceA2CurrentTxBias.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2CurrentTxBias.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2TxBiasHighAlarmThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2TxBiasHighAlarmThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2TxBiasHighAlarmThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2TxBiasHighAlarmThreshold=_Me1200DdmiStatusInterfaceA2TxBiasHighAlarmThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1014),_Me1200DdmiStatusInterfaceA2TxBiasHighAlarmThreshold_Type())
+me1200DdmiStatusInterfaceA2TxBiasHighAlarmThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2TxBiasHighAlarmThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2TxBiasLowAlarmThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2TxBiasLowAlarmThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2TxBiasLowAlarmThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2TxBiasLowAlarmThreshold=_Me1200DdmiStatusInterfaceA2TxBiasLowAlarmThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1015),_Me1200DdmiStatusInterfaceA2TxBiasLowAlarmThreshold_Type())
+me1200DdmiStatusInterfaceA2TxBiasLowAlarmThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2TxBiasLowAlarmThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2TxBiasHighWarnThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2TxBiasHighWarnThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2TxBiasHighWarnThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2TxBiasHighWarnThreshold=_Me1200DdmiStatusInterfaceA2TxBiasHighWarnThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1016),_Me1200DdmiStatusInterfaceA2TxBiasHighWarnThreshold_Type())
+me1200DdmiStatusInterfaceA2TxBiasHighWarnThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2TxBiasHighWarnThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2TxBiasLowWarnThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2TxBiasLowWarnThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2TxBiasLowWarnThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2TxBiasLowWarnThreshold=_Me1200DdmiStatusInterfaceA2TxBiasLowWarnThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1017),_Me1200DdmiStatusInterfaceA2TxBiasLowWarnThreshold_Type())
+me1200DdmiStatusInterfaceA2TxBiasLowWarnThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2TxBiasLowWarnThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2CurrentTxPower_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2CurrentTxPower_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2CurrentTxPower_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2CurrentTxPower=_Me1200DdmiStatusInterfaceA2CurrentTxPower_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1018),_Me1200DdmiStatusInterfaceA2CurrentTxPower_Type())
+me1200DdmiStatusInterfaceA2CurrentTxPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2CurrentTxPower.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2TxPowerHighAlarmThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2TxPowerHighAlarmThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2TxPowerHighAlarmThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2TxPowerHighAlarmThreshold=_Me1200DdmiStatusInterfaceA2TxPowerHighAlarmThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1019),_Me1200DdmiStatusInterfaceA2TxPowerHighAlarmThreshold_Type())
+me1200DdmiStatusInterfaceA2TxPowerHighAlarmThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2TxPowerHighAlarmThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2TxPowerLowAlarmThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2TxPowerLowAlarmThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2TxPowerLowAlarmThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2TxPowerLowAlarmThreshold=_Me1200DdmiStatusInterfaceA2TxPowerLowAlarmThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1020),_Me1200DdmiStatusInterfaceA2TxPowerLowAlarmThreshold_Type())
+me1200DdmiStatusInterfaceA2TxPowerLowAlarmThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2TxPowerLowAlarmThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2TxPowerHighWarnThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2TxPowerHighWarnThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2TxPowerHighWarnThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2TxPowerHighWarnThreshold=_Me1200DdmiStatusInterfaceA2TxPowerHighWarnThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1021),_Me1200DdmiStatusInterfaceA2TxPowerHighWarnThreshold_Type())
+me1200DdmiStatusInterfaceA2TxPowerHighWarnThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2TxPowerHighWarnThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2TxPowerLowWarnThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2TxPowerLowWarnThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2TxPowerLowWarnThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2TxPowerLowWarnThreshold=_Me1200DdmiStatusInterfaceA2TxPowerLowWarnThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1022),_Me1200DdmiStatusInterfaceA2TxPowerLowWarnThreshold_Type())
+me1200DdmiStatusInterfaceA2TxPowerLowWarnThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2TxPowerLowWarnThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2CurrentRxPower_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2CurrentRxPower_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2CurrentRxPower_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2CurrentRxPower=_Me1200DdmiStatusInterfaceA2CurrentRxPower_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1023),_Me1200DdmiStatusInterfaceA2CurrentRxPower_Type())
+me1200DdmiStatusInterfaceA2CurrentRxPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2CurrentRxPower.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2RxPowerHighAlarmThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2RxPowerHighAlarmThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2RxPowerHighAlarmThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2RxPowerHighAlarmThreshold=_Me1200DdmiStatusInterfaceA2RxPowerHighAlarmThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1024),_Me1200DdmiStatusInterfaceA2RxPowerHighAlarmThreshold_Type())
+me1200DdmiStatusInterfaceA2RxPowerHighAlarmThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2RxPowerHighAlarmThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2RxPowerLowAlarmThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2RxPowerLowAlarmThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2RxPowerLowAlarmThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2RxPowerLowAlarmThreshold=_Me1200DdmiStatusInterfaceA2RxPowerLowAlarmThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1025),_Me1200DdmiStatusInterfaceA2RxPowerLowAlarmThreshold_Type())
+me1200DdmiStatusInterfaceA2RxPowerLowAlarmThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2RxPowerLowAlarmThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2RxPowerHighWarnThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2RxPowerHighWarnThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2RxPowerHighWarnThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2RxPowerHighWarnThreshold=_Me1200DdmiStatusInterfaceA2RxPowerHighWarnThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1026),_Me1200DdmiStatusInterfaceA2RxPowerHighWarnThreshold_Type())
+me1200DdmiStatusInterfaceA2RxPowerHighWarnThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2RxPowerHighWarnThreshold.setStatus(_A)
+class _Me1200DdmiStatusInterfaceA2RxPowerLowWarnThreshold_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200DdmiStatusInterfaceA2RxPowerLowWarnThreshold_Type.__name__=_D
+_Me1200DdmiStatusInterfaceA2RxPowerLowWarnThreshold_Object=MibTableColumn
+me1200DdmiStatusInterfaceA2RxPowerLowWarnThreshold=_Me1200DdmiStatusInterfaceA2RxPowerLowWarnThreshold_Object((1,3,6,1,4,1,9,9,815,1,121,1,3,2,1,1027),_Me1200DdmiStatusInterfaceA2RxPowerLowWarnThreshold_Type())
+me1200DdmiStatusInterfaceA2RxPowerLowWarnThreshold.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceA2RxPowerLowWarnThreshold.setStatus(_A)
+_Me1200DdmiNotificationPrefix_ObjectIdentity=ObjectIdentity
+me1200DdmiNotificationPrefix=_Me1200DdmiNotificationPrefix_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,121,1,4))
+_Me1200DdmitNotification_ObjectIdentity=ObjectIdentity
+me1200DdmitNotification=_Me1200DdmitNotification_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,121,1,4,0))
+_Me1200DdmiMibConformance_ObjectIdentity=ObjectIdentity
+me1200DdmiMibConformance=_Me1200DdmiMibConformance_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,121,2))
+_Me1200DdmiMibCompliances_ObjectIdentity=ObjectIdentity
+me1200DdmiMibCompliances=_Me1200DdmiMibCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,121,2,1))
+_Me1200DdmiMibGroups_ObjectIdentity=ObjectIdentity
+me1200DdmiMibGroups=_Me1200DdmiMibGroups_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,121,2,2))
+me1200DdmiConfigGlobalsInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,121,2,2,1))
+me1200DdmiConfigGlobalsInfoGroup.setObjects((_B,_G))
+if mibBuilder.loadTexts:me1200DdmiConfigGlobalsInfoGroup.setStatus(_A)
+me1200DdmiStatusInterfaceTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,121,2,2,2))
+me1200DdmiStatusInterfaceTableInfoGroup.setObjects(*((_B,_H),(_B,_I),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_E),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n)))
+if mibBuilder.loadTexts:me1200DdmiStatusInterfaceTableInfoGroup.setStatus(_A)
+me1200DdmiNotificationSFPErrorType=NotificationType((1,3,6,1,4,1,9,9,815,1,121,1,4,0,1))
+me1200DdmiNotificationSFPErrorType.setObjects((_B,_E))
+if mibBuilder.loadTexts:me1200DdmiNotificationSFPErrorType.setStatus(_A)
+me1200DdmiNotificationInfoGroup=NotificationGroup((1,3,6,1,4,1,9,9,815,1,121,2,2,3))
+me1200DdmiNotificationInfoGroup.setObjects((_B,_o))
+if mibBuilder.loadTexts:me1200DdmiNotificationInfoGroup.setStatus(_A)
+me1200DdmiMibCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,815,1,121,2,1,1))
+me1200DdmiMibCompliance.setObjects(*((_B,_p),(_B,_q),(_B,_r)))
+if mibBuilder.loadTexts:me1200DdmiMibCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'ME1200DdmiSfpTransceiver':ME1200DdmiSfpTransceiver,'me1200DdmiMib':me1200DdmiMib,'me1200DdmiMibObjects':me1200DdmiMibObjects,'me1200DdmiConfig':me1200DdmiConfig,'me1200DdmiConfigGlobals':me1200DdmiConfigGlobals,_G:me1200DdmiConfigGlobalsMode,'me1200DdmiStatus':me1200DdmiStatus,'me1200DdmiStatusInterfaceTable':me1200DdmiStatusInterfaceTable,'me1200DdmiStatusInterfaceEntry':me1200DdmiStatusInterfaceEntry,_F:me1200DdmiStatusInterfaceIfIndex,_H:me1200DdmiStatusInterfaceA0Supported,_I:me1200DdmiStatusInterfaceA0SfpDetected,_J:me1200DdmiStatusInterfaceA0Vendor,_K:me1200DdmiStatusInterfaceA0PartNumber,_L:me1200DdmiStatusInterfaceA0SerialNumber,_M:me1200DdmiStatusInterfaceA0Revision,_N:me1200DdmiStatusInterfaceA0DateCode,_E:me1200DdmiStatusInterfaceA0SfpType,_O:me1200DdmiStatusInterfaceA2Supported,_P:me1200DdmiStatusInterfaceA2CurrentTemperature,_Q:me1200DdmiStatusInterfaceA2TemperatureHighAlarmThreshold,_R:me1200DdmiStatusInterfaceA2TemperatureLowAlarmThreshold,_S:me1200DdmiStatusInterfaceA2TemperatureHighWarnThreshold,_T:me1200DdmiStatusInterfaceA2TemperatureLowWarnThreshold,_U:me1200DdmiStatusInterfaceA2CurrentVoltage,_V:me1200DdmiStatusInterfaceA2VoltageHighAlarmThreshold,_W:me1200DdmiStatusInterfaceA2VoltageLowAlarmThreshold,_X:me1200DdmiStatusInterfaceA2VoltageHighWarnThreshold,_Y:me1200DdmiStatusInterfaceA2VoltageLowWarnThreshold,_Z:me1200DdmiStatusInterfaceA2CurrentTxBias,_a:me1200DdmiStatusInterfaceA2TxBiasHighAlarmThreshold,_b:me1200DdmiStatusInterfaceA2TxBiasLowAlarmThreshold,_c:me1200DdmiStatusInterfaceA2TxBiasHighWarnThreshold,_d:me1200DdmiStatusInterfaceA2TxBiasLowWarnThreshold,_e:me1200DdmiStatusInterfaceA2CurrentTxPower,_f:me1200DdmiStatusInterfaceA2TxPowerHighAlarmThreshold,_g:me1200DdmiStatusInterfaceA2TxPowerLowAlarmThreshold,_h:me1200DdmiStatusInterfaceA2TxPowerHighWarnThreshold,_i:me1200DdmiStatusInterfaceA2TxPowerLowWarnThreshold,_j:me1200DdmiStatusInterfaceA2CurrentRxPower,_k:me1200DdmiStatusInterfaceA2RxPowerHighAlarmThreshold,_l:me1200DdmiStatusInterfaceA2RxPowerLowAlarmThreshold,_m:me1200DdmiStatusInterfaceA2RxPowerHighWarnThreshold,_n:me1200DdmiStatusInterfaceA2RxPowerLowWarnThreshold,'me1200DdmiNotificationPrefix':me1200DdmiNotificationPrefix,'me1200DdmitNotification':me1200DdmitNotification,_o:me1200DdmiNotificationSFPErrorType,'me1200DdmiMibConformance':me1200DdmiMibConformance,'me1200DdmiMibCompliances':me1200DdmiMibCompliances,'me1200DdmiMibCompliance':me1200DdmiMibCompliance,'me1200DdmiMibGroups':me1200DdmiMibGroups,_p:me1200DdmiConfigGlobalsInfoGroup,_q:me1200DdmiStatusInterfaceTableInfoGroup,_r:me1200DdmiNotificationInfoGroup})

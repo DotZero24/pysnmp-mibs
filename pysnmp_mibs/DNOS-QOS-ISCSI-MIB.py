@@ -1,0 +1,176 @@
+_N='agentIscsiFlowAccelerationConnectionIndex'
+_M='agentIscsiFlowAccelerationSessionIndex'
+_L='read-create'
+_K='agentIscsiFlowAccelerationTargetConfigAddr'
+_J='agentIscsiFlowAccelerationTargetConfigTcpPort'
+_I='Integer32'
+_H='OctetString'
+_G='Unsigned32'
+_F='not-accessible'
+_E='DisplayString'
+_D='DNOS-QOS-ISCSI-MIB'
+_C='read-write'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_H,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+fastPathQOS,=mibBuilder.importSymbols('DNOS-QOS-MIB','fastPathQOS')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_I,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso')
+DateAndTime,DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime',_E,'PhysAddress','RowStatus','TextualConvention','TruthValue')
+fastPathIscsiFlowAcceleration=ModuleIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5))
+if mibBuilder.loadTexts:fastPathIscsiFlowAcceleration.setRevisions(('2011-01-26 00:00','2009-04-30 00:00'))
+class QosType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('vpt',0),('dscp',1)))
+_AgentIscsiFlowAccelerationGlobalConfigGroup_ObjectIdentity=ObjectIdentity
+agentIscsiFlowAccelerationGlobalConfigGroup=_AgentIscsiFlowAccelerationGlobalConfigGroup_ObjectIdentity((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,1))
+_AgentIscsiFlowAccelerationEnable_Type=TruthValue
+_AgentIscsiFlowAccelerationEnable_Object=MibScalar
+agentIscsiFlowAccelerationEnable=_AgentIscsiFlowAccelerationEnable_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,1,1),_AgentIscsiFlowAccelerationEnable_Type())
+agentIscsiFlowAccelerationEnable.setMaxAccess(_C)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationEnable.setStatus(_A)
+class _AgentIscsiFlowAccelerationAgingTimeOut_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,2592000))
+_AgentIscsiFlowAccelerationAgingTimeOut_Type.__name__=_I
+_AgentIscsiFlowAccelerationAgingTimeOut_Object=MibScalar
+agentIscsiFlowAccelerationAgingTimeOut=_AgentIscsiFlowAccelerationAgingTimeOut_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,1,2),_AgentIscsiFlowAccelerationAgingTimeOut_Type())
+agentIscsiFlowAccelerationAgingTimeOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationAgingTimeOut.setStatus(_A)
+_AgentIscsiFlowAccelerationQosType_Type=QosType
+_AgentIscsiFlowAccelerationQosType_Object=MibScalar
+agentIscsiFlowAccelerationQosType=_AgentIscsiFlowAccelerationQosType_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,1,3),_AgentIscsiFlowAccelerationQosType_Type())
+agentIscsiFlowAccelerationQosType.setMaxAccess(_C)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationQosType.setStatus(_A)
+class _AgentIscsiFlowAccelerationQosVptValue_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
+_AgentIscsiFlowAccelerationQosVptValue_Type.__name__=_G
+_AgentIscsiFlowAccelerationQosVptValue_Object=MibScalar
+agentIscsiFlowAccelerationQosVptValue=_AgentIscsiFlowAccelerationQosVptValue_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,1,4),_AgentIscsiFlowAccelerationQosVptValue_Type())
+agentIscsiFlowAccelerationQosVptValue.setMaxAccess(_C)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationQosVptValue.setStatus(_A)
+class _AgentIscsiFlowAccelerationQosDscpValue_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,63))
+_AgentIscsiFlowAccelerationQosDscpValue_Type.__name__=_G
+_AgentIscsiFlowAccelerationQosDscpValue_Object=MibScalar
+agentIscsiFlowAccelerationQosDscpValue=_AgentIscsiFlowAccelerationQosDscpValue_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,1,5),_AgentIscsiFlowAccelerationQosDscpValue_Type())
+agentIscsiFlowAccelerationQosDscpValue.setMaxAccess(_C)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationQosDscpValue.setStatus(_A)
+_AgentIscsiFlowAccelerationQosRemark_Type=TruthValue
+_AgentIscsiFlowAccelerationQosRemark_Object=MibScalar
+agentIscsiFlowAccelerationQosRemark=_AgentIscsiFlowAccelerationQosRemark_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,1,6),_AgentIscsiFlowAccelerationQosRemark_Type())
+agentIscsiFlowAccelerationQosRemark.setMaxAccess(_C)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationQosRemark.setStatus(_A)
+_AgentIscsiFlowAccelerationCosEnable_Type=TruthValue
+_AgentIscsiFlowAccelerationCosEnable_Object=MibScalar
+agentIscsiFlowAccelerationCosEnable=_AgentIscsiFlowAccelerationCosEnable_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,1,7),_AgentIscsiFlowAccelerationCosEnable_Type())
+agentIscsiFlowAccelerationCosEnable.setMaxAccess(_C)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationCosEnable.setStatus(_A)
+_AgentIscsiFlowAccelerationTargetConfigTable_Object=MibTable
+agentIscsiFlowAccelerationTargetConfigTable=_AgentIscsiFlowAccelerationTargetConfigTable_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,2))
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationTargetConfigTable.setStatus(_A)
+_AgentIscsiFlowAccelerationTargetConfigEntry_Object=MibTableRow
+agentIscsiFlowAccelerationTargetConfigEntry=_AgentIscsiFlowAccelerationTargetConfigEntry_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,2,1))
+agentIscsiFlowAccelerationTargetConfigEntry.setIndexNames((0,_D,_J),(0,_D,_K))
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationTargetConfigEntry.setStatus(_A)
+_AgentIscsiFlowAccelerationTargetConfigTcpPort_Type=Unsigned32
+_AgentIscsiFlowAccelerationTargetConfigTcpPort_Object=MibTableColumn
+agentIscsiFlowAccelerationTargetConfigTcpPort=_AgentIscsiFlowAccelerationTargetConfigTcpPort_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,2,1,1),_AgentIscsiFlowAccelerationTargetConfigTcpPort_Type())
+agentIscsiFlowAccelerationTargetConfigTcpPort.setMaxAccess(_F)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationTargetConfigTcpPort.setStatus(_A)
+_AgentIscsiFlowAccelerationTargetConfigAddr_Type=IpAddress
+_AgentIscsiFlowAccelerationTargetConfigAddr_Object=MibTableColumn
+agentIscsiFlowAccelerationTargetConfigAddr=_AgentIscsiFlowAccelerationTargetConfigAddr_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,2,1,2),_AgentIscsiFlowAccelerationTargetConfigAddr_Type())
+agentIscsiFlowAccelerationTargetConfigAddr.setMaxAccess(_F)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationTargetConfigAddr.setStatus(_A)
+class _AgentIscsiFlowAccelerationTargetConfigName_Type(DisplayString):defaultValue=OctetString('');subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,223))
+_AgentIscsiFlowAccelerationTargetConfigName_Type.__name__=_E
+_AgentIscsiFlowAccelerationTargetConfigName_Object=MibTableColumn
+agentIscsiFlowAccelerationTargetConfigName=_AgentIscsiFlowAccelerationTargetConfigName_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,2,1,3),_AgentIscsiFlowAccelerationTargetConfigName_Type())
+agentIscsiFlowAccelerationTargetConfigName.setMaxAccess(_L)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationTargetConfigName.setStatus(_A)
+_AgentIscsiFlowAccelerationTargetConfigStatus_Type=RowStatus
+_AgentIscsiFlowAccelerationTargetConfigStatus_Object=MibTableColumn
+agentIscsiFlowAccelerationTargetConfigStatus=_AgentIscsiFlowAccelerationTargetConfigStatus_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,2,1,4),_AgentIscsiFlowAccelerationTargetConfigStatus_Type())
+agentIscsiFlowAccelerationTargetConfigStatus.setMaxAccess(_L)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationTargetConfigStatus.setStatus(_A)
+_AgentIscsiFlowAccelerationSessionTable_Object=MibTable
+agentIscsiFlowAccelerationSessionTable=_AgentIscsiFlowAccelerationSessionTable_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,3))
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationSessionTable.setStatus(_A)
+_AgentIscsiFlowAccelerationSessionEntry_Object=MibTableRow
+agentIscsiFlowAccelerationSessionEntry=_AgentIscsiFlowAccelerationSessionEntry_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,3,1))
+agentIscsiFlowAccelerationSessionEntry.setIndexNames((0,_D,_M))
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationSessionEntry.setStatus(_A)
+_AgentIscsiFlowAccelerationSessionIndex_Type=Unsigned32
+_AgentIscsiFlowAccelerationSessionIndex_Object=MibTableColumn
+agentIscsiFlowAccelerationSessionIndex=_AgentIscsiFlowAccelerationSessionIndex_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,3,1,1),_AgentIscsiFlowAccelerationSessionIndex_Type())
+agentIscsiFlowAccelerationSessionIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationSessionIndex.setStatus(_A)
+class _AgentIscsiFlowAccelerationTargetName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,223))
+_AgentIscsiFlowAccelerationTargetName_Type.__name__=_E
+_AgentIscsiFlowAccelerationTargetName_Object=MibTableColumn
+agentIscsiFlowAccelerationTargetName=_AgentIscsiFlowAccelerationTargetName_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,3,1,2),_AgentIscsiFlowAccelerationTargetName_Type())
+agentIscsiFlowAccelerationTargetName.setMaxAccess(_B)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationTargetName.setStatus(_A)
+class _AgentIscsiFlowAccelerationInitiatorName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,223))
+_AgentIscsiFlowAccelerationInitiatorName_Type.__name__=_E
+_AgentIscsiFlowAccelerationInitiatorName_Object=MibTableColumn
+agentIscsiFlowAccelerationInitiatorName=_AgentIscsiFlowAccelerationInitiatorName_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,3,1,3),_AgentIscsiFlowAccelerationInitiatorName_Type())
+agentIscsiFlowAccelerationInitiatorName.setMaxAccess(_B)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationInitiatorName.setStatus(_A)
+class _AgentIscsiFlowAccelerationSessionISID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
+_AgentIscsiFlowAccelerationSessionISID_Type.__name__=_H
+_AgentIscsiFlowAccelerationSessionISID_Object=MibTableColumn
+agentIscsiFlowAccelerationSessionISID=_AgentIscsiFlowAccelerationSessionISID_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,3,1,4),_AgentIscsiFlowAccelerationSessionISID_Type())
+agentIscsiFlowAccelerationSessionISID.setMaxAccess(_B)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationSessionISID.setStatus(_A)
+_AgentIscsiFlowAccelerationSessAgingTime_Type=Unsigned32
+_AgentIscsiFlowAccelerationSessAgingTime_Object=MibTableColumn
+agentIscsiFlowAccelerationSessAgingTime=_AgentIscsiFlowAccelerationSessAgingTime_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,3,1,5),_AgentIscsiFlowAccelerationSessAgingTime_Type())
+agentIscsiFlowAccelerationSessAgingTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationSessAgingTime.setStatus(_A)
+_AgentIscsiFlowAccelerationSessionUpTime_Type=Unsigned32
+_AgentIscsiFlowAccelerationSessionUpTime_Object=MibTableColumn
+agentIscsiFlowAccelerationSessionUpTime=_AgentIscsiFlowAccelerationSessionUpTime_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,3,1,6),_AgentIscsiFlowAccelerationSessionUpTime_Type())
+agentIscsiFlowAccelerationSessionUpTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationSessionUpTime.setStatus(_A)
+_AgentIscsiFlowAccelerationConnectionTable_Object=MibTable
+agentIscsiFlowAccelerationConnectionTable=_AgentIscsiFlowAccelerationConnectionTable_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,4))
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationConnectionTable.setStatus(_A)
+_AgentIscsiFlowAccelerationConnectionEntry_Object=MibTableRow
+agentIscsiFlowAccelerationConnectionEntry=_AgentIscsiFlowAccelerationConnectionEntry_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,4,1))
+agentIscsiFlowAccelerationConnectionEntry.setIndexNames((0,_D,_N))
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationConnectionEntry.setStatus(_A)
+_AgentIscsiFlowAccelerationConnectionIndex_Type=Unsigned32
+_AgentIscsiFlowAccelerationConnectionIndex_Object=MibTableColumn
+agentIscsiFlowAccelerationConnectionIndex=_AgentIscsiFlowAccelerationConnectionIndex_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,4,1,1),_AgentIscsiFlowAccelerationConnectionIndex_Type())
+agentIscsiFlowAccelerationConnectionIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationConnectionIndex.setStatus(_A)
+_AgentIscsiFlowAccelerationConnectionTargetAddr_Type=IpAddress
+_AgentIscsiFlowAccelerationConnectionTargetAddr_Object=MibTableColumn
+agentIscsiFlowAccelerationConnectionTargetAddr=_AgentIscsiFlowAccelerationConnectionTargetAddr_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,4,1,2),_AgentIscsiFlowAccelerationConnectionTargetAddr_Type())
+agentIscsiFlowAccelerationConnectionTargetAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationConnectionTargetAddr.setStatus(_A)
+_AgentIscsiFlowAccelerationConnectionTargetPort_Type=Unsigned32
+_AgentIscsiFlowAccelerationConnectionTargetPort_Object=MibTableColumn
+agentIscsiFlowAccelerationConnectionTargetPort=_AgentIscsiFlowAccelerationConnectionTargetPort_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,4,1,3),_AgentIscsiFlowAccelerationConnectionTargetPort_Type())
+agentIscsiFlowAccelerationConnectionTargetPort.setMaxAccess(_B)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationConnectionTargetPort.setStatus(_A)
+_AgentIscsiFlowAccelerationConnectionInitiatorAddr_Type=IpAddress
+_AgentIscsiFlowAccelerationConnectionInitiatorAddr_Object=MibTableColumn
+agentIscsiFlowAccelerationConnectionInitiatorAddr=_AgentIscsiFlowAccelerationConnectionInitiatorAddr_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,4,1,4),_AgentIscsiFlowAccelerationConnectionInitiatorAddr_Type())
+agentIscsiFlowAccelerationConnectionInitiatorAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationConnectionInitiatorAddr.setStatus(_A)
+_AgentIscsiFlowAccelerationConnectionInitiatorPort_Type=Unsigned32
+_AgentIscsiFlowAccelerationConnectionInitiatorPort_Object=MibTableColumn
+agentIscsiFlowAccelerationConnectionInitiatorPort=_AgentIscsiFlowAccelerationConnectionInitiatorPort_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,4,1,5),_AgentIscsiFlowAccelerationConnectionInitiatorPort_Type())
+agentIscsiFlowAccelerationConnectionInitiatorPort.setMaxAccess(_B)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationConnectionInitiatorPort.setStatus(_A)
+_AgentIscsiFlowAccelerationConnectionCID_Type=Unsigned32
+_AgentIscsiFlowAccelerationConnectionCID_Object=MibTableColumn
+agentIscsiFlowAccelerationConnectionCID=_AgentIscsiFlowAccelerationConnectionCID_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,4,1,6),_AgentIscsiFlowAccelerationConnectionCID_Type())
+agentIscsiFlowAccelerationConnectionCID.setMaxAccess(_B)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationConnectionCID.setStatus(_A)
+_AgentIscsiFlowAccelerationConnectionSessionIndex_Type=Unsigned32
+_AgentIscsiFlowAccelerationConnectionSessionIndex_Object=MibTableColumn
+agentIscsiFlowAccelerationConnectionSessionIndex=_AgentIscsiFlowAccelerationConnectionSessionIndex_Object((1,3,6,1,4,1,674,10895,5000,2,6132,1,1,3,5,4,1,7),_AgentIscsiFlowAccelerationConnectionSessionIndex_Type())
+agentIscsiFlowAccelerationConnectionSessionIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:agentIscsiFlowAccelerationConnectionSessionIndex.setStatus(_A)
+mibBuilder.exportSymbols(_D,**{'QosType':QosType,'fastPathIscsiFlowAcceleration':fastPathIscsiFlowAcceleration,'agentIscsiFlowAccelerationGlobalConfigGroup':agentIscsiFlowAccelerationGlobalConfigGroup,'agentIscsiFlowAccelerationEnable':agentIscsiFlowAccelerationEnable,'agentIscsiFlowAccelerationAgingTimeOut':agentIscsiFlowAccelerationAgingTimeOut,'agentIscsiFlowAccelerationQosType':agentIscsiFlowAccelerationQosType,'agentIscsiFlowAccelerationQosVptValue':agentIscsiFlowAccelerationQosVptValue,'agentIscsiFlowAccelerationQosDscpValue':agentIscsiFlowAccelerationQosDscpValue,'agentIscsiFlowAccelerationQosRemark':agentIscsiFlowAccelerationQosRemark,'agentIscsiFlowAccelerationCosEnable':agentIscsiFlowAccelerationCosEnable,'agentIscsiFlowAccelerationTargetConfigTable':agentIscsiFlowAccelerationTargetConfigTable,'agentIscsiFlowAccelerationTargetConfigEntry':agentIscsiFlowAccelerationTargetConfigEntry,_J:agentIscsiFlowAccelerationTargetConfigTcpPort,_K:agentIscsiFlowAccelerationTargetConfigAddr,'agentIscsiFlowAccelerationTargetConfigName':agentIscsiFlowAccelerationTargetConfigName,'agentIscsiFlowAccelerationTargetConfigStatus':agentIscsiFlowAccelerationTargetConfigStatus,'agentIscsiFlowAccelerationSessionTable':agentIscsiFlowAccelerationSessionTable,'agentIscsiFlowAccelerationSessionEntry':agentIscsiFlowAccelerationSessionEntry,_M:agentIscsiFlowAccelerationSessionIndex,'agentIscsiFlowAccelerationTargetName':agentIscsiFlowAccelerationTargetName,'agentIscsiFlowAccelerationInitiatorName':agentIscsiFlowAccelerationInitiatorName,'agentIscsiFlowAccelerationSessionISID':agentIscsiFlowAccelerationSessionISID,'agentIscsiFlowAccelerationSessAgingTime':agentIscsiFlowAccelerationSessAgingTime,'agentIscsiFlowAccelerationSessionUpTime':agentIscsiFlowAccelerationSessionUpTime,'agentIscsiFlowAccelerationConnectionTable':agentIscsiFlowAccelerationConnectionTable,'agentIscsiFlowAccelerationConnectionEntry':agentIscsiFlowAccelerationConnectionEntry,_N:agentIscsiFlowAccelerationConnectionIndex,'agentIscsiFlowAccelerationConnectionTargetAddr':agentIscsiFlowAccelerationConnectionTargetAddr,'agentIscsiFlowAccelerationConnectionTargetPort':agentIscsiFlowAccelerationConnectionTargetPort,'agentIscsiFlowAccelerationConnectionInitiatorAddr':agentIscsiFlowAccelerationConnectionInitiatorAddr,'agentIscsiFlowAccelerationConnectionInitiatorPort':agentIscsiFlowAccelerationConnectionInitiatorPort,'agentIscsiFlowAccelerationConnectionCID':agentIscsiFlowAccelerationConnectionCID,'agentIscsiFlowAccelerationConnectionSessionIndex':agentIscsiFlowAccelerationConnectionSessionIndex})

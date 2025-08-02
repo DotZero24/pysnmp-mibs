@@ -1,63 +1,143 @@
-#
-# PySNMP MIB module PPP-BRIDGE-NCP-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/PPP-BRIDGE-NCP-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:24:12 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, ObjectIdentifier, OctetString, ) = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-( ifIndex, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-( ppp, ) = mibBuilder.importSymbols("PPP-LCP-MIB", "ppp")
-( ModuleCompliance, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-( Bits, NotificationType, IpAddress, iso, Unsigned32, Counter64, ModuleIdentity, Integer32, Counter32, MibIdentifier, ObjectIdentity, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "NotificationType", "IpAddress", "iso", "Unsigned32", "Counter64", "ModuleIdentity", "Integer32", "Counter32", "MibIdentifier", "ObjectIdentity", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32")
-( DisplayString, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-pppBridge = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 23, 4))
-pppBridgeTable = MibTable((1, 3, 6, 1, 2, 1, 10, 23, 4, 1), )
-if mibBuilder.loadTexts: pppBridgeTable.setDescription('Table containing the parameters and statistics\n                         for the local PPP entity that are related to\n                         the operation of Bridging over the PPP.')
-pppBridgeEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 23, 4, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: pppBridgeEntry.setDescription('Bridging information for a particular PPP\n                         link.')
-pppBridgeOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("opened", 1), ("not-opened", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pppBridgeOperStatus.setDescription('The operational status of the Bridge network\n                         protocol. If the value of this object is up\n                         then the finite state machine for the Bridge\n                         network protocol has reached the Opened state.')
-pppBridgeLocalToRemoteTinygramCompression = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 4, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("false", 1), ("true", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pppBridgeLocalToRemoteTinygramCompression.setDescription('Indicates whether the local node will perform\n                         Tinygram Compression when sending packets to\n                         the remote entity. If false then the local\n                         entity will not perform Tinygram Compression.\n                         If true then the local entity will perform\n                         Tinygram Compression. The value of this object\n                         is meaningful only when the link has reached\n                         the open state (pppBridgeOperStatus is\n                         opened).')
-pppBridgeRemoteToLocalTinygramCompression = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 4, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("false", 1), ("true", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pppBridgeRemoteToLocalTinygramCompression.setDescription('If false(1) then the remote entity is not\n                         expected to perform Tinygram Compression. If\n                         true then the remote entity is expected to\n                         perform Tinygram Compression. The value of this\n                         object is meaningful only when the link has\n                         reached the open state (pppBridgeOperStatus is\n                         opened).')
-pppBridgeLocalToRemoteLanId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 4, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("false", 1), ("true", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pppBridgeLocalToRemoteLanId.setDescription('Indicates whether the local node will include\n                         the LAN Identification field in transmitted\n                         packets or not. If false(1) then the local node\n                         will not transmit this field, true(2) means\n                         that the field will be transmitted. The value\n                         of this object is meaningful only when the link\n                         has reached the open state (pppBridgeOperStatus\n                         is opened).')
-pppBridgeRemoteToLocalLanId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 4, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("false", 1), ("true", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pppBridgeRemoteToLocalLanId.setDescription('Indicates whether the remote node has\n                         indicated that it will include the LAN\n                         Identification field in transmitted packets or\n                         not. If false(1) then the field will not be\n                         transmitted, if true(2) then the field will be\n                         transmitted. The value of this object is\n                         meaningful only when the link has reached the\n                         open state (pppBridgeOperStatus is opened).')
-pppBridgeConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 23, 4, 2), )
-if mibBuilder.loadTexts: pppBridgeConfigTable.setDescription('Table containing the parameters and statistics\n                         for the local PPP entity that are related to\n                         the operation of Bridging over the PPP.')
-pppBridgeConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 23, 4, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: pppBridgeConfigEntry.setDescription('Bridging Configuration information for a\n                         particular PPP link.')
-pppBridgeConfigAdminStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 4, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("open", 1), ("close", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pppBridgeConfigAdminStatus.setDescription("The immediate desired status of the Bridging\n                         network protocol. Setting this object to open\n                         will inject an administrative open event into\n                         the Bridging network protocol's finite state\n                         machine. Setting this object to close will\n                         inject an administrative close event into the\n                         Bridging network protocol's finite state\n                         machine.")
-pppBridgeConfigTinygram = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 4, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("false", 1), ("true", 2),)).clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pppBridgeConfigTinygram.setDescription('If false then the local BNCP entity will not\n                         initiate the Tinygram Compression Option\n                         Negotiation. If true then the local BNCP entity\n                         will initiate negotiation of this option.')
-pppBridgeConfigRingId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 4, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("false", 1), ("true", 2),)).clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pppBridgeConfigRingId.setDescription('If false then the local PPP Entity will not\n                         initiate a Remote Ring Identification Option\n                         negotiation. If true then the local PPP entity\n                         will intiate this negotiation. This MIB object\n                         is relevant only if the interface is for 802.5\n                         Token Ring bridging.')
-pppBridgeConfigLineId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 4, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("false", 1), ("true", 2),)).clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pppBridgeConfigLineId.setDescription('If false then the local PPP Entity is not to\n                         initiate a Line Identification Option\n                         negotiation. If true then the local PPP entity\n                         will intiate this negotiation. This MIB object\n                         is relevant only if the interface is for 802.5\n                         Token Ring bridging.')
-pppBridgeConfigLanId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 4, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("false", 1), ("true", 2),)).clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pppBridgeConfigLanId.setDescription('If false then the local BNCP entity will not\n                         initiate the LAN Identification Option\n                         Negotiation. If true then the local BNCP entity\n                         will initiate negotiation of this option.')
-pppBridgeMediaTable = MibTable((1, 3, 6, 1, 2, 1, 10, 23, 4, 3), )
-if mibBuilder.loadTexts: pppBridgeMediaTable.setDescription('Table identifying which MAC media types are\n                         enabled for the Bridging NCPs.')
-pppBridgeMediaEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 23, 4, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "PPP-BRIDGE-NCP-MIB", "pppBridgeMediaMacType"))
-if mibBuilder.loadTexts: pppBridgeMediaEntry.setDescription('Status of a specific MAC Type for a specific\n                         PPP Link.')
-pppBridgeMediaMacType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 4, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pppBridgeMediaMacType.setDescription('The MAC type for which this entry in the\n                         pppBridgeMediaTable is providing status\n                         information. Valid values for this object are\n                         defined in Section 6.6 MAC Type Support\n                         Selection of RFC1220 (Bridging Point-to-Point\n                         Protocol).')
-pppBridgeMediaLocalStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 4, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("accept", 1), ("dont-accept", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pppBridgeMediaLocalStatus.setDescription('Indicates whether the local PPP Bridging\n                         Entity will accept packets of the protocol type\n                         identified in pppBridgeMediaMacType on the PPP\n                         link identified by ifIndex or not. If this\n                         object is accept then any packets of the\n                         indicated MAC type will be received and\n                         properly processed. If this object is dont-\n                         accept then received packets of the indicated\n                         MAC type will not be properly processed.')
-pppBridgeMediaRemoteStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 4, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("accept", 1), ("dont-accept", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pppBridgeMediaRemoteStatus.setDescription('Indicates whether the local PPP Bridging\n                         Entity believes that the remote PPP Bridging\n                         Entity will accept packets of the protocol type\n                         identified in pppBridgeMediaMacType on the PPP\n                         link identified by ifIndex or not.')
-pppBridgeMediaConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 23, 4, 4), )
-if mibBuilder.loadTexts: pppBridgeMediaConfigTable.setDescription('Table identifying which MAC media types are\n                         enabled for the Bridging NCPs.')
-pppBridgeMediaConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 23, 4, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "PPP-BRIDGE-NCP-MIB", "pppBridgeMediaConfigMacType"))
-if mibBuilder.loadTexts: pppBridgeMediaConfigEntry.setDescription('Status of a specific MAC Type for a specific\n                         PPP Link.')
-pppBridgeMediaConfigMacType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 4, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pppBridgeMediaConfigMacType.setDescription('The MAC type for which this entry in the\n                         pppBridgeMediaConfigTable is providing status\n                         information. Valid values for this object are\n                         defined in Section 6.6 MAC Type Support\n                         Selection of RFC1220 (Bridging Point-to-Point\n                         Protocol).')
-pppBridgeMediaConfigLocalStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 23, 4, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("accept", 1), ("dont-accept", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pppBridgeMediaConfigLocalStatus.setDescription('Indicates whether the local PPP Bridging\n                         Entity should accept packets of the protocol\n                         type identified in pppBridgeMediaConfigMacType\n                         on the PPP link identified by ifIndex or not.\n                         Setting this object to the value dont-accept\n                         has the affect of invalidating the\n                         corresponding entry in the\n                         pppBridgeMediaConfigTable object. It is an\n                         implementation-specific matter as to whether\n                         the agent removes an invalidated entry from the\n                         table. Accordingly, management stations must be\n                         prepared to receive tabular information from\n                         agents that corresponds to entries not\n                         currently in use. Changing this object will\n                         have effect when the link is next restarted.')
-mibBuilder.exportSymbols("PPP-BRIDGE-NCP-MIB", pppBridgeConfigRingId=pppBridgeConfigRingId, pppBridgeRemoteToLocalLanId=pppBridgeRemoteToLocalLanId, pppBridgeMediaConfigMacType=pppBridgeMediaConfigMacType, pppBridgeMediaEntry=pppBridgeMediaEntry, pppBridgeTable=pppBridgeTable, pppBridgeMediaLocalStatus=pppBridgeMediaLocalStatus, pppBridgeMediaMacType=pppBridgeMediaMacType, pppBridgeConfigAdminStatus=pppBridgeConfigAdminStatus, pppBridgeOperStatus=pppBridgeOperStatus, pppBridgeMediaConfigTable=pppBridgeMediaConfigTable, pppBridgeConfigLineId=pppBridgeConfigLineId, pppBridgeMediaRemoteStatus=pppBridgeMediaRemoteStatus, pppBridgeLocalToRemoteLanId=pppBridgeLocalToRemoteLanId, pppBridgeConfigTable=pppBridgeConfigTable, pppBridgeConfigLanId=pppBridgeConfigLanId, pppBridge=pppBridge, pppBridgeMediaConfigLocalStatus=pppBridgeMediaConfigLocalStatus, pppBridgeMediaConfigEntry=pppBridgeMediaConfigEntry, pppBridgeEntry=pppBridgeEntry, pppBridgeLocalToRemoteTinygramCompression=pppBridgeLocalToRemoteTinygramCompression, pppBridgeRemoteToLocalTinygramCompression=pppBridgeRemoteToLocalTinygramCompression, pppBridgeMediaTable=pppBridgeMediaTable, pppBridgeConfigTinygram=pppBridgeConfigTinygram, pppBridgeConfigEntry=pppBridgeConfigEntry)
+_M='pppBridgeMediaConfigMacType'
+_L='pppBridgeMediaMacType'
+_K='dont-accept'
+_J='accept'
+_I='PPP-BRIDGE-NCP-MIB'
+_H='ifIndex'
+_G='IF-MIB'
+_F='read-write'
+_E='true'
+_D='false'
+_C='read-only'
+_B='Integer32'
+_A='mandatory'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ifIndex,=mibBuilder.importSymbols(_G,_H)
+ppp,=mibBuilder.importSymbols('PPP-LCP-MIB','ppp')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+_PppBridge_ObjectIdentity=ObjectIdentity
+pppBridge=_PppBridge_ObjectIdentity((1,3,6,1,2,1,10,23,4))
+_PppBridgeTable_Object=MibTable
+pppBridgeTable=_PppBridgeTable_Object((1,3,6,1,2,1,10,23,4,1))
+if mibBuilder.loadTexts:pppBridgeTable.setStatus(_A)
+_PppBridgeEntry_Object=MibTableRow
+pppBridgeEntry=_PppBridgeEntry_Object((1,3,6,1,2,1,10,23,4,1,1))
+pppBridgeEntry.setIndexNames((0,_G,_H))
+if mibBuilder.loadTexts:pppBridgeEntry.setStatus(_A)
+class _PppBridgeOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('opened',1),('not-opened',2)))
+_PppBridgeOperStatus_Type.__name__=_B
+_PppBridgeOperStatus_Object=MibTableColumn
+pppBridgeOperStatus=_PppBridgeOperStatus_Object((1,3,6,1,2,1,10,23,4,1,1,1),_PppBridgeOperStatus_Type())
+pppBridgeOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:pppBridgeOperStatus.setStatus(_A)
+class _PppBridgeLocalToRemoteTinygramCompression_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
+_PppBridgeLocalToRemoteTinygramCompression_Type.__name__=_B
+_PppBridgeLocalToRemoteTinygramCompression_Object=MibTableColumn
+pppBridgeLocalToRemoteTinygramCompression=_PppBridgeLocalToRemoteTinygramCompression_Object((1,3,6,1,2,1,10,23,4,1,1,2),_PppBridgeLocalToRemoteTinygramCompression_Type())
+pppBridgeLocalToRemoteTinygramCompression.setMaxAccess(_C)
+if mibBuilder.loadTexts:pppBridgeLocalToRemoteTinygramCompression.setStatus(_A)
+class _PppBridgeRemoteToLocalTinygramCompression_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
+_PppBridgeRemoteToLocalTinygramCompression_Type.__name__=_B
+_PppBridgeRemoteToLocalTinygramCompression_Object=MibTableColumn
+pppBridgeRemoteToLocalTinygramCompression=_PppBridgeRemoteToLocalTinygramCompression_Object((1,3,6,1,2,1,10,23,4,1,1,3),_PppBridgeRemoteToLocalTinygramCompression_Type())
+pppBridgeRemoteToLocalTinygramCompression.setMaxAccess(_C)
+if mibBuilder.loadTexts:pppBridgeRemoteToLocalTinygramCompression.setStatus(_A)
+class _PppBridgeLocalToRemoteLanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
+_PppBridgeLocalToRemoteLanId_Type.__name__=_B
+_PppBridgeLocalToRemoteLanId_Object=MibTableColumn
+pppBridgeLocalToRemoteLanId=_PppBridgeLocalToRemoteLanId_Object((1,3,6,1,2,1,10,23,4,1,1,4),_PppBridgeLocalToRemoteLanId_Type())
+pppBridgeLocalToRemoteLanId.setMaxAccess(_C)
+if mibBuilder.loadTexts:pppBridgeLocalToRemoteLanId.setStatus(_A)
+class _PppBridgeRemoteToLocalLanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
+_PppBridgeRemoteToLocalLanId_Type.__name__=_B
+_PppBridgeRemoteToLocalLanId_Object=MibTableColumn
+pppBridgeRemoteToLocalLanId=_PppBridgeRemoteToLocalLanId_Object((1,3,6,1,2,1,10,23,4,1,1,5),_PppBridgeRemoteToLocalLanId_Type())
+pppBridgeRemoteToLocalLanId.setMaxAccess(_C)
+if mibBuilder.loadTexts:pppBridgeRemoteToLocalLanId.setStatus(_A)
+_PppBridgeConfigTable_Object=MibTable
+pppBridgeConfigTable=_PppBridgeConfigTable_Object((1,3,6,1,2,1,10,23,4,2))
+if mibBuilder.loadTexts:pppBridgeConfigTable.setStatus(_A)
+_PppBridgeConfigEntry_Object=MibTableRow
+pppBridgeConfigEntry=_PppBridgeConfigEntry_Object((1,3,6,1,2,1,10,23,4,2,1))
+pppBridgeConfigEntry.setIndexNames((0,_G,_H))
+if mibBuilder.loadTexts:pppBridgeConfigEntry.setStatus(_A)
+class _PppBridgeConfigAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('open',1),('close',2)))
+_PppBridgeConfigAdminStatus_Type.__name__=_B
+_PppBridgeConfigAdminStatus_Object=MibTableColumn
+pppBridgeConfigAdminStatus=_PppBridgeConfigAdminStatus_Object((1,3,6,1,2,1,10,23,4,2,1,1),_PppBridgeConfigAdminStatus_Type())
+pppBridgeConfigAdminStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:pppBridgeConfigAdminStatus.setStatus(_A)
+class _PppBridgeConfigTinygram_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
+_PppBridgeConfigTinygram_Type.__name__=_B
+_PppBridgeConfigTinygram_Object=MibTableColumn
+pppBridgeConfigTinygram=_PppBridgeConfigTinygram_Object((1,3,6,1,2,1,10,23,4,2,1,2),_PppBridgeConfigTinygram_Type())
+pppBridgeConfigTinygram.setMaxAccess(_F)
+if mibBuilder.loadTexts:pppBridgeConfigTinygram.setStatus(_A)
+class _PppBridgeConfigRingId_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
+_PppBridgeConfigRingId_Type.__name__=_B
+_PppBridgeConfigRingId_Object=MibTableColumn
+pppBridgeConfigRingId=_PppBridgeConfigRingId_Object((1,3,6,1,2,1,10,23,4,2,1,3),_PppBridgeConfigRingId_Type())
+pppBridgeConfigRingId.setMaxAccess(_F)
+if mibBuilder.loadTexts:pppBridgeConfigRingId.setStatus(_A)
+class _PppBridgeConfigLineId_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
+_PppBridgeConfigLineId_Type.__name__=_B
+_PppBridgeConfigLineId_Object=MibTableColumn
+pppBridgeConfigLineId=_PppBridgeConfigLineId_Object((1,3,6,1,2,1,10,23,4,2,1,4),_PppBridgeConfigLineId_Type())
+pppBridgeConfigLineId.setMaxAccess(_F)
+if mibBuilder.loadTexts:pppBridgeConfigLineId.setStatus(_A)
+class _PppBridgeConfigLanId_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_D,1),(_E,2)))
+_PppBridgeConfigLanId_Type.__name__=_B
+_PppBridgeConfigLanId_Object=MibTableColumn
+pppBridgeConfigLanId=_PppBridgeConfigLanId_Object((1,3,6,1,2,1,10,23,4,2,1,5),_PppBridgeConfigLanId_Type())
+pppBridgeConfigLanId.setMaxAccess(_F)
+if mibBuilder.loadTexts:pppBridgeConfigLanId.setStatus(_A)
+_PppBridgeMediaTable_Object=MibTable
+pppBridgeMediaTable=_PppBridgeMediaTable_Object((1,3,6,1,2,1,10,23,4,3))
+if mibBuilder.loadTexts:pppBridgeMediaTable.setStatus(_A)
+_PppBridgeMediaEntry_Object=MibTableRow
+pppBridgeMediaEntry=_PppBridgeMediaEntry_Object((1,3,6,1,2,1,10,23,4,3,1))
+pppBridgeMediaEntry.setIndexNames((0,_G,_H),(0,_I,_L))
+if mibBuilder.loadTexts:pppBridgeMediaEntry.setStatus(_A)
+class _PppBridgeMediaMacType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_PppBridgeMediaMacType_Type.__name__=_B
+_PppBridgeMediaMacType_Object=MibTableColumn
+pppBridgeMediaMacType=_PppBridgeMediaMacType_Object((1,3,6,1,2,1,10,23,4,3,1,1),_PppBridgeMediaMacType_Type())
+pppBridgeMediaMacType.setMaxAccess(_C)
+if mibBuilder.loadTexts:pppBridgeMediaMacType.setStatus(_A)
+class _PppBridgeMediaLocalStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_J,1),(_K,2)))
+_PppBridgeMediaLocalStatus_Type.__name__=_B
+_PppBridgeMediaLocalStatus_Object=MibTableColumn
+pppBridgeMediaLocalStatus=_PppBridgeMediaLocalStatus_Object((1,3,6,1,2,1,10,23,4,3,1,2),_PppBridgeMediaLocalStatus_Type())
+pppBridgeMediaLocalStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:pppBridgeMediaLocalStatus.setStatus(_A)
+class _PppBridgeMediaRemoteStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_J,1),(_K,2)))
+_PppBridgeMediaRemoteStatus_Type.__name__=_B
+_PppBridgeMediaRemoteStatus_Object=MibTableColumn
+pppBridgeMediaRemoteStatus=_PppBridgeMediaRemoteStatus_Object((1,3,6,1,2,1,10,23,4,3,1,3),_PppBridgeMediaRemoteStatus_Type())
+pppBridgeMediaRemoteStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:pppBridgeMediaRemoteStatus.setStatus(_A)
+_PppBridgeMediaConfigTable_Object=MibTable
+pppBridgeMediaConfigTable=_PppBridgeMediaConfigTable_Object((1,3,6,1,2,1,10,23,4,4))
+if mibBuilder.loadTexts:pppBridgeMediaConfigTable.setStatus(_A)
+_PppBridgeMediaConfigEntry_Object=MibTableRow
+pppBridgeMediaConfigEntry=_PppBridgeMediaConfigEntry_Object((1,3,6,1,2,1,10,23,4,4,1))
+pppBridgeMediaConfigEntry.setIndexNames((0,_G,_H),(0,_I,_M))
+if mibBuilder.loadTexts:pppBridgeMediaConfigEntry.setStatus(_A)
+class _PppBridgeMediaConfigMacType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_PppBridgeMediaConfigMacType_Type.__name__=_B
+_PppBridgeMediaConfigMacType_Object=MibTableColumn
+pppBridgeMediaConfigMacType=_PppBridgeMediaConfigMacType_Object((1,3,6,1,2,1,10,23,4,4,1,1),_PppBridgeMediaConfigMacType_Type())
+pppBridgeMediaConfigMacType.setMaxAccess(_F)
+if mibBuilder.loadTexts:pppBridgeMediaConfigMacType.setStatus(_A)
+class _PppBridgeMediaConfigLocalStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_J,1),(_K,2)))
+_PppBridgeMediaConfigLocalStatus_Type.__name__=_B
+_PppBridgeMediaConfigLocalStatus_Object=MibTableColumn
+pppBridgeMediaConfigLocalStatus=_PppBridgeMediaConfigLocalStatus_Object((1,3,6,1,2,1,10,23,4,4,1,2),_PppBridgeMediaConfigLocalStatus_Type())
+pppBridgeMediaConfigLocalStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:pppBridgeMediaConfigLocalStatus.setStatus(_A)
+mibBuilder.exportSymbols(_I,**{'pppBridge':pppBridge,'pppBridgeTable':pppBridgeTable,'pppBridgeEntry':pppBridgeEntry,'pppBridgeOperStatus':pppBridgeOperStatus,'pppBridgeLocalToRemoteTinygramCompression':pppBridgeLocalToRemoteTinygramCompression,'pppBridgeRemoteToLocalTinygramCompression':pppBridgeRemoteToLocalTinygramCompression,'pppBridgeLocalToRemoteLanId':pppBridgeLocalToRemoteLanId,'pppBridgeRemoteToLocalLanId':pppBridgeRemoteToLocalLanId,'pppBridgeConfigTable':pppBridgeConfigTable,'pppBridgeConfigEntry':pppBridgeConfigEntry,'pppBridgeConfigAdminStatus':pppBridgeConfigAdminStatus,'pppBridgeConfigTinygram':pppBridgeConfigTinygram,'pppBridgeConfigRingId':pppBridgeConfigRingId,'pppBridgeConfigLineId':pppBridgeConfigLineId,'pppBridgeConfigLanId':pppBridgeConfigLanId,'pppBridgeMediaTable':pppBridgeMediaTable,'pppBridgeMediaEntry':pppBridgeMediaEntry,_L:pppBridgeMediaMacType,'pppBridgeMediaLocalStatus':pppBridgeMediaLocalStatus,'pppBridgeMediaRemoteStatus':pppBridgeMediaRemoteStatus,'pppBridgeMediaConfigTable':pppBridgeMediaConfigTable,'pppBridgeMediaConfigEntry':pppBridgeMediaConfigEntry,_M:pppBridgeMediaConfigMacType,'pppBridgeMediaConfigLocalStatus':pppBridgeMediaConfigLocalStatus})

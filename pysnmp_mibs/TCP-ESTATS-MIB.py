@@ -1,386 +1,1083 @@
-#
-# PySNMP MIB module TCP-ESTATS-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/TCP-ESTATS-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:31:06 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, ObjectIdentifier, OctetString, ) = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
-( ZeroBasedCounter64, ) = mibBuilder.importSymbols("HCNUM-TC", "ZeroBasedCounter64")
-( ZeroBasedCounter32, ) = mibBuilder.importSymbols("RMON2-MIB", "ZeroBasedCounter32")
-( ModuleCompliance, ObjectGroup, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-( MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, mib_2, Integer32, ModuleIdentity, IpAddress, Bits, ObjectIdentity, iso, NotificationType, Gauge32, Counter64, Counter32, Unsigned32, TimeTicks, ) = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "mib-2", "Integer32", "ModuleIdentity", "IpAddress", "Bits", "ObjectIdentity", "iso", "NotificationType", "Gauge32", "Counter64", "Counter32", "Unsigned32", "TimeTicks")
-( DateAndTime, TextualConvention, TimeStamp, DisplayString, TruthValue, ) = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "TimeStamp", "DisplayString", "TruthValue")
-( tcpListenerEntry, tcpConnectionEntry, ) = mibBuilder.importSymbols("TCP-MIB", "tcpListenerEntry", "tcpConnectionEntry")
-tcpEStatsMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 156)).setRevisions(("2007-05-18 00:00",))
-if mibBuilder.loadTexts: tcpEStatsMIB.setLastUpdated('200705180000Z')
-if mibBuilder.loadTexts: tcpEStatsMIB.setOrganization('IETF TSV Working Group')
-if mibBuilder.loadTexts: tcpEStatsMIB.setContactInfo('Matt Mathis\n        John Heffner\n        Web100 Project\n        Pittsburgh Supercomputing Center\n        300 S. Craig St.\n        Pittsburgh, PA 15213\n        Email: mathis@psc.edu, jheffner@psc.edu\n\n        Rajiv Raghunarayan\n        Cisco Systems Inc.\n        San Jose, CA 95134\n        Phone: 408 853 9612\n        Email: raraghun@cisco.com\n\n        Jon Saperia\n        84 Kettell Plain Road\n        Stow, MA 01775\n        Phone: 617-201-2655\n        Email: saperia@jdscons.com ')
-if mibBuilder.loadTexts: tcpEStatsMIB.setDescription('Documentation of TCP Extended Performance Instrumentation\n         variables from the Web100 project.  [Web100]\n\n         All of the objects in this MIB MUST have the same\n         persistence properties as the underlying TCP implementation.\n         On a reboot, all zero-based counters MUST be cleared, all\n         dynamically created table rows MUST be deleted, and all\n         read-write objects MUST be restored to their default values.\n\n         It is assumed that all TCP implementation have some\n         initialization code (if nothing else to set IP addresses)\n         that has the opportunity to adjust tcpEStatsConnTableLatency\n         and other read-write scalars controlling the creation of the\n         various tables, before establishing the first TCP\n         connection.  Implementations MAY also choose to make these\n         control scalars persist across reboots.\n\n         Copyright (C) The IETF Trust (2007).  This version\n         of this MIB module is a part of RFC 4898; see the RFC\n         itself for full legal notices.')
-tcpEStatsNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 156, 0))
-tcpEStatsMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 156, 1))
-tcpEStatsConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 156, 2))
-tcpEStats = MibIdentifier((1, 3, 6, 1, 2, 1, 156, 1, 1))
-tcpEStatsControl = MibIdentifier((1, 3, 6, 1, 2, 1, 156, 1, 2))
-tcpEStatsScalar = MibIdentifier((1, 3, 6, 1, 2, 1, 156, 1, 3))
-class TcpEStatsNegotiated(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3,))
-    namedValues = NamedValues(("enabled", 1), ("selfDisabled", 2), ("peerDisabled", 3),)
-
-tcpEStatsListenerTableLastChange = MibScalar((1, 3, 6, 1, 2, 1, 156, 1, 3, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsListenerTableLastChange.setDescription('The value of sysUpTime at the time of the last\n            creation or deletion of an entry in the tcpListenerTable.\n            If the number of entries has been unchanged since the\n            last re-initialization of the local network management\n            subsystem, then this object contains a zero value.')
-tcpEStatsControlPath = MibScalar((1, 3, 6, 1, 2, 1, 156, 1, 2, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tcpEStatsControlPath.setDescription("Controls the activation of the TCP Path Statistics\n        table.\n\n        A value 'true' indicates that the TCP Path Statistics\n        table is active, while 'false' indicates that the\n        table is inactive.")
-tcpEStatsControlStack = MibScalar((1, 3, 6, 1, 2, 1, 156, 1, 2, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tcpEStatsControlStack.setDescription("Controls the activation of the TCP Stack Statistics\n        table.\n\n        A value 'true' indicates that the TCP Stack Statistics\n        table is active, while 'false' indicates that the\n        table is inactive.")
-tcpEStatsControlApp = MibScalar((1, 3, 6, 1, 2, 1, 156, 1, 2, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tcpEStatsControlApp.setDescription("Controls the activation of the TCP Application\n        Statistics table.\n\n        A value 'true' indicates that the TCP Application\n        Statistics table is active, while 'false' indicates\n        that the table is inactive.")
-tcpEStatsControlTune = MibScalar((1, 3, 6, 1, 2, 1, 156, 1, 2, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tcpEStatsControlTune.setDescription("Controls the activation of the TCP Tuning table.\n\n        A value 'true' indicates that the TCP Tuning\n        table is active, while 'false' indicates that the\n        table is inactive.")
-tcpEStatsControlNotify = MibScalar((1, 3, 6, 1, 2, 1, 156, 1, 2, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tcpEStatsControlNotify.setDescription("Controls the generation of all notifications defined in\n        this MIB.\n\n        A value 'true' indicates that the notifications\n        are active, while 'false' indicates that the\n        notifications are inactive.")
-tcpEStatsConnTableLatency = MibScalar((1, 3, 6, 1, 2, 1, 156, 1, 2, 6), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tcpEStatsConnTableLatency.setDescription('Specifies the number of seconds that the entity will\n         retain entries in the TCP connection tables, after the\n         connection first enters the closed state.  The entity\n         SHOULD provide a configuration option to enable\n\n\n\n         customization of this value.  A value of 0\n         results in entries being removed from the tables as soon as\n         the connection enters the closed state.  The value of\n         this object pertains to the following tables:\n           tcpEStatsConnectIdTable\n           tcpEStatsPerfTable\n           tcpEStatsPathTable\n           tcpEStatsStackTable\n           tcpEStatsAppTable\n           tcpEStatsTuneTable')
-tcpEStatsListenerTable = MibTable((1, 3, 6, 1, 2, 1, 156, 1, 1, 1), )
-if mibBuilder.loadTexts: tcpEStatsListenerTable.setDescription('This table contains information about TCP Listeners,\n        in addition to the information maintained by the\n        tcpListenerTable RFC 4022.')
-tcpEStatsListenerEntry = MibTableRow((1, 3, 6, 1, 2, 1, 156, 1, 1, 1, 1), )
-tcpListenerEntry.registerAugmentions(("TCP-ESTATS-MIB", "tcpEStatsListenerEntry"))
+_Bu='tcpEStatsNotificationsCtlGroup'
+_Bt='tcpEStatsNotificationsGroup'
+_Bs='tcpEStatsTuneOptionalGroup'
+_Br='tcpEStatsAppOptionalGroup'
+_Bq='tcpEStatsAppHCGroup'
+_Bp='tcpEStatsStackOptionalGroup'
+_Bo='tcpEStatsPathHCGroup'
+_Bn='tcpEStatsPathOptionalGroup'
+_Bm='tcpEStatsPerfHCGroup'
+_Bl='tcpEStatsPerfOptionalGroup'
+_Bk='tcpEStatsListenerHCGroup'
+_Bj='tcpEStatsAppGroup'
+_Bi='tcpEStatsStackGroup'
+_Bh='tcpEStatsPathGroup'
+_Bg='tcpEStatsPerfGroup'
+_Bf='tcpEStatsConnectIdGroup'
+_Be='tcpEStatsListenerGroup'
+_Bd='tcpEStatsCloseNotification'
+_Bc='tcpEStatsEstablishNotification'
+_Bb='tcpEStatsControlNotify'
+_Ba='tcpEStatsTuneLimMSS'
+_BZ='tcpEStatsTuneLimRwin'
+_BY='tcpEStatsTuneLimSsthresh'
+_BX='tcpEStatsTuneLimCwnd'
+_BW='tcpEStatsControlTune'
+_BV='tcpEStatsAppMaxAppRQueue'
+_BU='tcpEStatsAppCurAppRQueue'
+_BT='tcpEStatsAppMaxAppWQueue'
+_BS='tcpEStatsAppCurAppWQueue'
+_BR='tcpEStatsAppHCThruOctetsReceived'
+_BQ='tcpEStatsAppHCThruOctetsAcked'
+_BP='tcpEStatsAppThruOctetsReceived'
+_BO='tcpEStatsAppRcvNxt'
+_BN='tcpEStatsAppThruOctetsAcked'
+_BM='tcpEStatsAppSndMax'
+_BL='tcpEStatsAppSndNxt'
+_BK='tcpEStatsAppSndUna'
+_BJ='tcpEStatsControlApp'
+_BI='tcpEStatsStackMaxReasmQueue'
+_BH='tcpEStatsStackCurReasmQueue'
+_BG='tcpEStatsStackMaxRetxQueue'
+_BF='tcpEStatsStackCurRetxQueue'
+_BE='tcpEStatsStackRecInitial'
+_BD='tcpEStatsStackSndInitial'
+_BC='tcpEStatsStackMinMSS'
+_BB='tcpEStatsStackMaxMSS'
+_BA='tcpEStatsStackDSACKDups'
+_B9='tcpEStatsStackSendStall'
+_B8='tcpEStatsStackSACKBlocksRcvd'
+_B7='tcpEStatsStackSACKsRcvd'
+_B6='tcpEStatsStackAbruptTimeouts'
+_B5='tcpEStatsStackCurTimeoutCount'
+_B4='tcpEStatsStackSubsequentTimeouts'
+_B3='tcpEStatsStackFastRetran'
+_B2='tcpEStatsStackCongOverCount'
+_B1='tcpEStatsStackOtherReductions'
+_B0='tcpEStatsStackCongAvoid'
+_A_='tcpEStatsStackSlowStart'
+_Az='tcpEStatsStackSoftErrorReason'
+_Ay='tcpEStatsStackSoftErrors'
+_Ax='tcpEStatsStackSpuriousRtoDetected'
+_Aw='tcpEStatsStackSpuriousFrDetected'
+_Av='tcpEStatsStackDupAcksIn'
+_Au='tcpEStatsStackInRecovery'
+_At='tcpEStatsStackMinSsthresh'
+_As='tcpEStatsStackMaxSsthresh'
+_Ar='tcpEStatsStackMaxCaCwnd'
+_Aq='tcpEStatsStackMaxSsCwnd'
+_Ap='tcpEStatsStackNagle'
+_Ao='tcpEStatsStackState'
+_An='tcpEStatsStackWillUseSACK'
+_Am='tcpEStatsStackWillSendSACK'
+_Al='tcpEStatsStackECN'
+_Ak='tcpEStatsStackTimeStamps'
+_Aj='tcpEStatsStackWinScaleRcvd'
+_Ai='tcpEStatsStackWinScaleSent'
+_Ah='tcpEStatsStackMSSRcvd'
+_Ag='tcpEStatsStackMSSSent'
+_Af='tcpEStatsStackActiveOpen'
+_Ae='tcpEStatsControlStack'
+_Ad='tcpEStatsPathHCSumRTT'
+_Ac='tcpEStatsPathECESent'
+_Ab='tcpEStatsPathCERcvd'
+_Aa='tcpEStatsPathDupAcksOut'
+_AZ='tcpEStatsPathRcvRTT'
+_AY='tcpEStatsPathDupAckEpisodes'
+_AX='tcpEStatsPathECNsignals'
+_AW='tcpEStatsPathPostCongCountRTT'
+_AV='tcpEStatsPathPostCongSumRTT'
+_AU='tcpEStatsPathPreCongSumRTT'
+_AT='tcpEStatsPathPreCongSumCwnd'
+_AS='tcpEStatsPathIpTosOut'
+_AR='tcpEStatsPathIpTosIn'
+_AQ='tcpEStatsPathIpTtl'
+_AP='tcpEStatsPathMinRTO'
+_AO='tcpEStatsPathMaxRTO'
+_AN='tcpEStatsPathCountRTT'
+_AM='tcpEStatsPathSumRTT'
+_AL='tcpEStatsPathMinRTT'
+_AK='tcpEStatsPathMaxRTT'
+_AJ='tcpEStatsPathRTTVar'
+_AI='tcpEStatsPathSampleRTT'
+_AH='tcpEStatsPathNonRecovDA'
+_AG='tcpEStatsPathSumOctetsReordered'
+_AF='tcpEStatsPathNonRecovDAEpisodes'
+_AE='tcpEStatsPathRetranThresh'
+_AD='tcpEStatsControlPath'
+_AC='tcpEStatsPerfHCDataOctetsIn'
+_AB='tcpEStatsPerfHCDataOctetsOut'
+_AA='tcpEStatsPerfSndLimTimeSnd'
+_A9='tcpEStatsPerfSndLimTimeCwnd'
+_A8='tcpEStatsPerfSndLimTimeRwin'
+_A7='tcpEStatsPerfSndLimTransSnd'
+_A6='tcpEStatsPerfSndLimTransCwnd'
+_A5='tcpEStatsPerfSndLimTransRwin'
+_A4='tcpEStatsPerfZeroRwinRcvd'
+_A3='tcpEStatsPerfMaxRwinRcvd'
+_A2='tcpEStatsPerfCurRwinRcvd'
+_A1='tcpEStatsPerfZeroRwinSent'
+_A0='tcpEStatsPerfMaxRwinSent'
+_z='tcpEStatsPerfCurRwinSent'
+_y='tcpEStatsPerfTimeouts'
+_x='tcpEStatsPerfCurSsthresh'
+_w='tcpEStatsPerfCurCwnd'
+_v='tcpEStatsPerfCongSignals'
+_u='tcpEStatsPerfCurRTO'
+_t='tcpEStatsPerfSmoothedRTT'
+_s='tcpEStatsPerfMaxPipeSize'
+_r='tcpEStatsPerfPipeSize'
+_q='tcpEStatsPerfCurMSS'
+_p='tcpEStatsPerfStartTimeStamp'
+_o='tcpEStatsPerfElapsedMicroSecs'
+_n='tcpEStatsPerfElapsedSecs'
+_m='tcpEStatsPerfDataOctetsIn'
+_l='tcpEStatsPerfDataSegsIn'
+_k='tcpEStatsPerfSegsIn'
+_j='tcpEStatsPerfOctetsRetrans'
+_i='tcpEStatsPerfSegsRetrans'
+_h='tcpEStatsPerfDataOctetsOut'
+_g='tcpEStatsPerfDataSegsOut'
+_f='tcpEStatsPerfSegsOut'
+_e='tcpEStatsConnTableLatency'
+_d='tcpEStatsListenerHCExceedBacklog'
+_c='tcpEStatsListenerHCAccepted'
+_b='tcpEStatsListenerHCEstablished'
+_a='tcpEStatsListenerHCInitial'
+_Z='tcpEStatsListenerHCSynRcvd'
+_Y='tcpEStatsListenerCurEstabBacklog'
+_X='tcpEStatsListenerCurBacklog'
+_W='tcpEStatsListenerMaxBacklog'
+_V='tcpEStatsListenerCurConns'
+_U='tcpEStatsListenerExceedBacklog'
+_T='tcpEStatsListenerAccepted'
+_S='tcpEStatsListenerEstablished'
+_R='tcpEStatsListenerInitial'
+_Q='tcpEStatsListenerSynRcvd'
+_P='tcpEStatsListenerStartTime'
+_O='tcpEStatsListenerTableLastChange'
+_N='tcpEStatsConnectIdEntry'
+_M='tcpEStatsListenerEntry'
+_L='seconds'
+_K='Unsigned32'
+_J='OctetString'
+_I='TruthValue'
+_H='Integer32'
+_G='tcpEStatsConnectIndex'
+_F='read-write'
+_E='milliseconds'
+_D='octets'
+_C='read-only'
+_B='TCP-ESTATS-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_J,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ZeroBasedCounter64,=mibBuilder.importSymbols('HCNUM-TC','ZeroBasedCounter64')
+ZeroBasedCounter32,=mibBuilder.importSymbols('RMON2-MIB','ZeroBasedCounter32')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_K,'iso','mib-2')
+DateAndTime,DisplayString,PhysAddress,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention','TimeStamp',_I)
+tcpConnectionEntry,tcpListenerEntry=mibBuilder.importSymbols('TCP-MIB','tcpConnectionEntry','tcpListenerEntry')
+tcpEStatsMIB=ModuleIdentity((1,3,6,1,2,1,156))
+if mibBuilder.loadTexts:tcpEStatsMIB.setRevisions(('2007-05-18 00:00',))
+class TcpEStatsNegotiated(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('enabled',1),('selfDisabled',2),('peerDisabled',3)))
+_TcpEStatsNotifications_ObjectIdentity=ObjectIdentity
+tcpEStatsNotifications=_TcpEStatsNotifications_ObjectIdentity((1,3,6,1,2,1,156,0))
+_TcpEStatsMIBObjects_ObjectIdentity=ObjectIdentity
+tcpEStatsMIBObjects=_TcpEStatsMIBObjects_ObjectIdentity((1,3,6,1,2,1,156,1))
+_TcpEStats_ObjectIdentity=ObjectIdentity
+tcpEStats=_TcpEStats_ObjectIdentity((1,3,6,1,2,1,156,1,1))
+_TcpEStatsListenerTable_Object=MibTable
+tcpEStatsListenerTable=_TcpEStatsListenerTable_Object((1,3,6,1,2,1,156,1,1,1))
+if mibBuilder.loadTexts:tcpEStatsListenerTable.setStatus(_A)
+_TcpEStatsListenerEntry_Object=MibTableRow
+tcpEStatsListenerEntry=_TcpEStatsListenerEntry_Object((1,3,6,1,2,1,156,1,1,1,1))
+if mibBuilder.loadTexts:tcpEStatsListenerEntry.setStatus(_A)
+_TcpEStatsListenerStartTime_Type=TimeStamp
+_TcpEStatsListenerStartTime_Object=MibTableColumn
+tcpEStatsListenerStartTime=_TcpEStatsListenerStartTime_Object((1,3,6,1,2,1,156,1,1,1,1,1),_TcpEStatsListenerStartTime_Type())
+tcpEStatsListenerStartTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsListenerStartTime.setStatus(_A)
+_TcpEStatsListenerSynRcvd_Type=ZeroBasedCounter32
+_TcpEStatsListenerSynRcvd_Object=MibTableColumn
+tcpEStatsListenerSynRcvd=_TcpEStatsListenerSynRcvd_Object((1,3,6,1,2,1,156,1,1,1,1,2),_TcpEStatsListenerSynRcvd_Type())
+tcpEStatsListenerSynRcvd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsListenerSynRcvd.setStatus(_A)
+_TcpEStatsListenerInitial_Type=ZeroBasedCounter32
+_TcpEStatsListenerInitial_Object=MibTableColumn
+tcpEStatsListenerInitial=_TcpEStatsListenerInitial_Object((1,3,6,1,2,1,156,1,1,1,1,3),_TcpEStatsListenerInitial_Type())
+tcpEStatsListenerInitial.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsListenerInitial.setStatus(_A)
+_TcpEStatsListenerEstablished_Type=ZeroBasedCounter32
+_TcpEStatsListenerEstablished_Object=MibTableColumn
+tcpEStatsListenerEstablished=_TcpEStatsListenerEstablished_Object((1,3,6,1,2,1,156,1,1,1,1,4),_TcpEStatsListenerEstablished_Type())
+tcpEStatsListenerEstablished.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsListenerEstablished.setStatus(_A)
+_TcpEStatsListenerAccepted_Type=ZeroBasedCounter32
+_TcpEStatsListenerAccepted_Object=MibTableColumn
+tcpEStatsListenerAccepted=_TcpEStatsListenerAccepted_Object((1,3,6,1,2,1,156,1,1,1,1,5),_TcpEStatsListenerAccepted_Type())
+tcpEStatsListenerAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsListenerAccepted.setStatus(_A)
+_TcpEStatsListenerExceedBacklog_Type=ZeroBasedCounter32
+_TcpEStatsListenerExceedBacklog_Object=MibTableColumn
+tcpEStatsListenerExceedBacklog=_TcpEStatsListenerExceedBacklog_Object((1,3,6,1,2,1,156,1,1,1,1,6),_TcpEStatsListenerExceedBacklog_Type())
+tcpEStatsListenerExceedBacklog.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsListenerExceedBacklog.setStatus(_A)
+_TcpEStatsListenerHCSynRcvd_Type=ZeroBasedCounter64
+_TcpEStatsListenerHCSynRcvd_Object=MibTableColumn
+tcpEStatsListenerHCSynRcvd=_TcpEStatsListenerHCSynRcvd_Object((1,3,6,1,2,1,156,1,1,1,1,7),_TcpEStatsListenerHCSynRcvd_Type())
+tcpEStatsListenerHCSynRcvd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsListenerHCSynRcvd.setStatus(_A)
+_TcpEStatsListenerHCInitial_Type=ZeroBasedCounter64
+_TcpEStatsListenerHCInitial_Object=MibTableColumn
+tcpEStatsListenerHCInitial=_TcpEStatsListenerHCInitial_Object((1,3,6,1,2,1,156,1,1,1,1,8),_TcpEStatsListenerHCInitial_Type())
+tcpEStatsListenerHCInitial.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsListenerHCInitial.setStatus(_A)
+_TcpEStatsListenerHCEstablished_Type=ZeroBasedCounter64
+_TcpEStatsListenerHCEstablished_Object=MibTableColumn
+tcpEStatsListenerHCEstablished=_TcpEStatsListenerHCEstablished_Object((1,3,6,1,2,1,156,1,1,1,1,9),_TcpEStatsListenerHCEstablished_Type())
+tcpEStatsListenerHCEstablished.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsListenerHCEstablished.setStatus(_A)
+_TcpEStatsListenerHCAccepted_Type=ZeroBasedCounter64
+_TcpEStatsListenerHCAccepted_Object=MibTableColumn
+tcpEStatsListenerHCAccepted=_TcpEStatsListenerHCAccepted_Object((1,3,6,1,2,1,156,1,1,1,1,10),_TcpEStatsListenerHCAccepted_Type())
+tcpEStatsListenerHCAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsListenerHCAccepted.setStatus(_A)
+_TcpEStatsListenerHCExceedBacklog_Type=ZeroBasedCounter64
+_TcpEStatsListenerHCExceedBacklog_Object=MibTableColumn
+tcpEStatsListenerHCExceedBacklog=_TcpEStatsListenerHCExceedBacklog_Object((1,3,6,1,2,1,156,1,1,1,1,11),_TcpEStatsListenerHCExceedBacklog_Type())
+tcpEStatsListenerHCExceedBacklog.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsListenerHCExceedBacklog.setStatus(_A)
+_TcpEStatsListenerCurConns_Type=Gauge32
+_TcpEStatsListenerCurConns_Object=MibTableColumn
+tcpEStatsListenerCurConns=_TcpEStatsListenerCurConns_Object((1,3,6,1,2,1,156,1,1,1,1,12),_TcpEStatsListenerCurConns_Type())
+tcpEStatsListenerCurConns.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsListenerCurConns.setStatus(_A)
+_TcpEStatsListenerMaxBacklog_Type=Unsigned32
+_TcpEStatsListenerMaxBacklog_Object=MibTableColumn
+tcpEStatsListenerMaxBacklog=_TcpEStatsListenerMaxBacklog_Object((1,3,6,1,2,1,156,1,1,1,1,13),_TcpEStatsListenerMaxBacklog_Type())
+tcpEStatsListenerMaxBacklog.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsListenerMaxBacklog.setStatus(_A)
+_TcpEStatsListenerCurBacklog_Type=Gauge32
+_TcpEStatsListenerCurBacklog_Object=MibTableColumn
+tcpEStatsListenerCurBacklog=_TcpEStatsListenerCurBacklog_Object((1,3,6,1,2,1,156,1,1,1,1,14),_TcpEStatsListenerCurBacklog_Type())
+tcpEStatsListenerCurBacklog.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsListenerCurBacklog.setStatus(_A)
+_TcpEStatsListenerCurEstabBacklog_Type=Gauge32
+_TcpEStatsListenerCurEstabBacklog_Object=MibTableColumn
+tcpEStatsListenerCurEstabBacklog=_TcpEStatsListenerCurEstabBacklog_Object((1,3,6,1,2,1,156,1,1,1,1,15),_TcpEStatsListenerCurEstabBacklog_Type())
+tcpEStatsListenerCurEstabBacklog.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsListenerCurEstabBacklog.setStatus(_A)
+_TcpEStatsConnectIdTable_Object=MibTable
+tcpEStatsConnectIdTable=_TcpEStatsConnectIdTable_Object((1,3,6,1,2,1,156,1,1,2))
+if mibBuilder.loadTexts:tcpEStatsConnectIdTable.setStatus(_A)
+_TcpEStatsConnectIdEntry_Object=MibTableRow
+tcpEStatsConnectIdEntry=_TcpEStatsConnectIdEntry_Object((1,3,6,1,2,1,156,1,1,2,1))
+if mibBuilder.loadTexts:tcpEStatsConnectIdEntry.setStatus(_A)
+class _TcpEStatsConnectIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_TcpEStatsConnectIndex_Type.__name__=_K
+_TcpEStatsConnectIndex_Object=MibTableColumn
+tcpEStatsConnectIndex=_TcpEStatsConnectIndex_Object((1,3,6,1,2,1,156,1,1,2,1,1),_TcpEStatsConnectIndex_Type())
+tcpEStatsConnectIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsConnectIndex.setStatus(_A)
+_TcpEStatsPerfTable_Object=MibTable
+tcpEStatsPerfTable=_TcpEStatsPerfTable_Object((1,3,6,1,2,1,156,1,1,3))
+if mibBuilder.loadTexts:tcpEStatsPerfTable.setStatus(_A)
+_TcpEStatsPerfEntry_Object=MibTableRow
+tcpEStatsPerfEntry=_TcpEStatsPerfEntry_Object((1,3,6,1,2,1,156,1,1,3,1))
+tcpEStatsPerfEntry.setIndexNames((0,_B,_G))
+if mibBuilder.loadTexts:tcpEStatsPerfEntry.setStatus(_A)
+_TcpEStatsPerfSegsOut_Type=ZeroBasedCounter32
+_TcpEStatsPerfSegsOut_Object=MibTableColumn
+tcpEStatsPerfSegsOut=_TcpEStatsPerfSegsOut_Object((1,3,6,1,2,1,156,1,1,3,1,1),_TcpEStatsPerfSegsOut_Type())
+tcpEStatsPerfSegsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfSegsOut.setStatus(_A)
+_TcpEStatsPerfDataSegsOut_Type=ZeroBasedCounter32
+_TcpEStatsPerfDataSegsOut_Object=MibTableColumn
+tcpEStatsPerfDataSegsOut=_TcpEStatsPerfDataSegsOut_Object((1,3,6,1,2,1,156,1,1,3,1,2),_TcpEStatsPerfDataSegsOut_Type())
+tcpEStatsPerfDataSegsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfDataSegsOut.setStatus(_A)
+_TcpEStatsPerfDataOctetsOut_Type=ZeroBasedCounter32
+_TcpEStatsPerfDataOctetsOut_Object=MibTableColumn
+tcpEStatsPerfDataOctetsOut=_TcpEStatsPerfDataOctetsOut_Object((1,3,6,1,2,1,156,1,1,3,1,3),_TcpEStatsPerfDataOctetsOut_Type())
+tcpEStatsPerfDataOctetsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfDataOctetsOut.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfDataOctetsOut.setUnits(_D)
+_TcpEStatsPerfHCDataOctetsOut_Type=ZeroBasedCounter64
+_TcpEStatsPerfHCDataOctetsOut_Object=MibTableColumn
+tcpEStatsPerfHCDataOctetsOut=_TcpEStatsPerfHCDataOctetsOut_Object((1,3,6,1,2,1,156,1,1,3,1,4),_TcpEStatsPerfHCDataOctetsOut_Type())
+tcpEStatsPerfHCDataOctetsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfHCDataOctetsOut.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfHCDataOctetsOut.setUnits(_D)
+_TcpEStatsPerfSegsRetrans_Type=ZeroBasedCounter32
+_TcpEStatsPerfSegsRetrans_Object=MibTableColumn
+tcpEStatsPerfSegsRetrans=_TcpEStatsPerfSegsRetrans_Object((1,3,6,1,2,1,156,1,1,3,1,5),_TcpEStatsPerfSegsRetrans_Type())
+tcpEStatsPerfSegsRetrans.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfSegsRetrans.setStatus(_A)
+_TcpEStatsPerfOctetsRetrans_Type=ZeroBasedCounter32
+_TcpEStatsPerfOctetsRetrans_Object=MibTableColumn
+tcpEStatsPerfOctetsRetrans=_TcpEStatsPerfOctetsRetrans_Object((1,3,6,1,2,1,156,1,1,3,1,6),_TcpEStatsPerfOctetsRetrans_Type())
+tcpEStatsPerfOctetsRetrans.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfOctetsRetrans.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfOctetsRetrans.setUnits(_D)
+_TcpEStatsPerfSegsIn_Type=ZeroBasedCounter32
+_TcpEStatsPerfSegsIn_Object=MibTableColumn
+tcpEStatsPerfSegsIn=_TcpEStatsPerfSegsIn_Object((1,3,6,1,2,1,156,1,1,3,1,7),_TcpEStatsPerfSegsIn_Type())
+tcpEStatsPerfSegsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfSegsIn.setStatus(_A)
+_TcpEStatsPerfDataSegsIn_Type=ZeroBasedCounter32
+_TcpEStatsPerfDataSegsIn_Object=MibTableColumn
+tcpEStatsPerfDataSegsIn=_TcpEStatsPerfDataSegsIn_Object((1,3,6,1,2,1,156,1,1,3,1,8),_TcpEStatsPerfDataSegsIn_Type())
+tcpEStatsPerfDataSegsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfDataSegsIn.setStatus(_A)
+_TcpEStatsPerfDataOctetsIn_Type=ZeroBasedCounter32
+_TcpEStatsPerfDataOctetsIn_Object=MibTableColumn
+tcpEStatsPerfDataOctetsIn=_TcpEStatsPerfDataOctetsIn_Object((1,3,6,1,2,1,156,1,1,3,1,9),_TcpEStatsPerfDataOctetsIn_Type())
+tcpEStatsPerfDataOctetsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfDataOctetsIn.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfDataOctetsIn.setUnits(_D)
+_TcpEStatsPerfHCDataOctetsIn_Type=ZeroBasedCounter64
+_TcpEStatsPerfHCDataOctetsIn_Object=MibTableColumn
+tcpEStatsPerfHCDataOctetsIn=_TcpEStatsPerfHCDataOctetsIn_Object((1,3,6,1,2,1,156,1,1,3,1,10),_TcpEStatsPerfHCDataOctetsIn_Type())
+tcpEStatsPerfHCDataOctetsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfHCDataOctetsIn.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfHCDataOctetsIn.setUnits(_D)
+_TcpEStatsPerfElapsedSecs_Type=ZeroBasedCounter32
+_TcpEStatsPerfElapsedSecs_Object=MibTableColumn
+tcpEStatsPerfElapsedSecs=_TcpEStatsPerfElapsedSecs_Object((1,3,6,1,2,1,156,1,1,3,1,11),_TcpEStatsPerfElapsedSecs_Type())
+tcpEStatsPerfElapsedSecs.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfElapsedSecs.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfElapsedSecs.setUnits(_L)
+_TcpEStatsPerfElapsedMicroSecs_Type=ZeroBasedCounter32
+_TcpEStatsPerfElapsedMicroSecs_Object=MibTableColumn
+tcpEStatsPerfElapsedMicroSecs=_TcpEStatsPerfElapsedMicroSecs_Object((1,3,6,1,2,1,156,1,1,3,1,12),_TcpEStatsPerfElapsedMicroSecs_Type())
+tcpEStatsPerfElapsedMicroSecs.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfElapsedMicroSecs.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfElapsedMicroSecs.setUnits('microseconds')
+_TcpEStatsPerfStartTimeStamp_Type=DateAndTime
+_TcpEStatsPerfStartTimeStamp_Object=MibTableColumn
+tcpEStatsPerfStartTimeStamp=_TcpEStatsPerfStartTimeStamp_Object((1,3,6,1,2,1,156,1,1,3,1,13),_TcpEStatsPerfStartTimeStamp_Type())
+tcpEStatsPerfStartTimeStamp.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfStartTimeStamp.setStatus(_A)
+_TcpEStatsPerfCurMSS_Type=Gauge32
+_TcpEStatsPerfCurMSS_Object=MibTableColumn
+tcpEStatsPerfCurMSS=_TcpEStatsPerfCurMSS_Object((1,3,6,1,2,1,156,1,1,3,1,14),_TcpEStatsPerfCurMSS_Type())
+tcpEStatsPerfCurMSS.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfCurMSS.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfCurMSS.setUnits(_D)
+_TcpEStatsPerfPipeSize_Type=Gauge32
+_TcpEStatsPerfPipeSize_Object=MibTableColumn
+tcpEStatsPerfPipeSize=_TcpEStatsPerfPipeSize_Object((1,3,6,1,2,1,156,1,1,3,1,15),_TcpEStatsPerfPipeSize_Type())
+tcpEStatsPerfPipeSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfPipeSize.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfPipeSize.setUnits(_D)
+_TcpEStatsPerfMaxPipeSize_Type=Gauge32
+_TcpEStatsPerfMaxPipeSize_Object=MibTableColumn
+tcpEStatsPerfMaxPipeSize=_TcpEStatsPerfMaxPipeSize_Object((1,3,6,1,2,1,156,1,1,3,1,16),_TcpEStatsPerfMaxPipeSize_Type())
+tcpEStatsPerfMaxPipeSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfMaxPipeSize.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfMaxPipeSize.setUnits(_D)
+_TcpEStatsPerfSmoothedRTT_Type=Gauge32
+_TcpEStatsPerfSmoothedRTT_Object=MibTableColumn
+tcpEStatsPerfSmoothedRTT=_TcpEStatsPerfSmoothedRTT_Object((1,3,6,1,2,1,156,1,1,3,1,17),_TcpEStatsPerfSmoothedRTT_Type())
+tcpEStatsPerfSmoothedRTT.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfSmoothedRTT.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfSmoothedRTT.setUnits(_E)
+_TcpEStatsPerfCurRTO_Type=Gauge32
+_TcpEStatsPerfCurRTO_Object=MibTableColumn
+tcpEStatsPerfCurRTO=_TcpEStatsPerfCurRTO_Object((1,3,6,1,2,1,156,1,1,3,1,18),_TcpEStatsPerfCurRTO_Type())
+tcpEStatsPerfCurRTO.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfCurRTO.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfCurRTO.setUnits(_E)
+_TcpEStatsPerfCongSignals_Type=ZeroBasedCounter32
+_TcpEStatsPerfCongSignals_Object=MibTableColumn
+tcpEStatsPerfCongSignals=_TcpEStatsPerfCongSignals_Object((1,3,6,1,2,1,156,1,1,3,1,19),_TcpEStatsPerfCongSignals_Type())
+tcpEStatsPerfCongSignals.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfCongSignals.setStatus(_A)
+_TcpEStatsPerfCurCwnd_Type=Gauge32
+_TcpEStatsPerfCurCwnd_Object=MibTableColumn
+tcpEStatsPerfCurCwnd=_TcpEStatsPerfCurCwnd_Object((1,3,6,1,2,1,156,1,1,3,1,20),_TcpEStatsPerfCurCwnd_Type())
+tcpEStatsPerfCurCwnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfCurCwnd.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfCurCwnd.setUnits(_D)
+_TcpEStatsPerfCurSsthresh_Type=Gauge32
+_TcpEStatsPerfCurSsthresh_Object=MibTableColumn
+tcpEStatsPerfCurSsthresh=_TcpEStatsPerfCurSsthresh_Object((1,3,6,1,2,1,156,1,1,3,1,21),_TcpEStatsPerfCurSsthresh_Type())
+tcpEStatsPerfCurSsthresh.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfCurSsthresh.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfCurSsthresh.setUnits(_D)
+_TcpEStatsPerfTimeouts_Type=ZeroBasedCounter32
+_TcpEStatsPerfTimeouts_Object=MibTableColumn
+tcpEStatsPerfTimeouts=_TcpEStatsPerfTimeouts_Object((1,3,6,1,2,1,156,1,1,3,1,22),_TcpEStatsPerfTimeouts_Type())
+tcpEStatsPerfTimeouts.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfTimeouts.setStatus(_A)
+_TcpEStatsPerfCurRwinSent_Type=Gauge32
+_TcpEStatsPerfCurRwinSent_Object=MibTableColumn
+tcpEStatsPerfCurRwinSent=_TcpEStatsPerfCurRwinSent_Object((1,3,6,1,2,1,156,1,1,3,1,23),_TcpEStatsPerfCurRwinSent_Type())
+tcpEStatsPerfCurRwinSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfCurRwinSent.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfCurRwinSent.setUnits(_D)
+_TcpEStatsPerfMaxRwinSent_Type=Gauge32
+_TcpEStatsPerfMaxRwinSent_Object=MibTableColumn
+tcpEStatsPerfMaxRwinSent=_TcpEStatsPerfMaxRwinSent_Object((1,3,6,1,2,1,156,1,1,3,1,24),_TcpEStatsPerfMaxRwinSent_Type())
+tcpEStatsPerfMaxRwinSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfMaxRwinSent.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfMaxRwinSent.setUnits(_D)
+_TcpEStatsPerfZeroRwinSent_Type=ZeroBasedCounter32
+_TcpEStatsPerfZeroRwinSent_Object=MibTableColumn
+tcpEStatsPerfZeroRwinSent=_TcpEStatsPerfZeroRwinSent_Object((1,3,6,1,2,1,156,1,1,3,1,25),_TcpEStatsPerfZeroRwinSent_Type())
+tcpEStatsPerfZeroRwinSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfZeroRwinSent.setStatus(_A)
+_TcpEStatsPerfCurRwinRcvd_Type=Gauge32
+_TcpEStatsPerfCurRwinRcvd_Object=MibTableColumn
+tcpEStatsPerfCurRwinRcvd=_TcpEStatsPerfCurRwinRcvd_Object((1,3,6,1,2,1,156,1,1,3,1,26),_TcpEStatsPerfCurRwinRcvd_Type())
+tcpEStatsPerfCurRwinRcvd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfCurRwinRcvd.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfCurRwinRcvd.setUnits(_D)
+_TcpEStatsPerfMaxRwinRcvd_Type=Gauge32
+_TcpEStatsPerfMaxRwinRcvd_Object=MibTableColumn
+tcpEStatsPerfMaxRwinRcvd=_TcpEStatsPerfMaxRwinRcvd_Object((1,3,6,1,2,1,156,1,1,3,1,27),_TcpEStatsPerfMaxRwinRcvd_Type())
+tcpEStatsPerfMaxRwinRcvd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfMaxRwinRcvd.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfMaxRwinRcvd.setUnits(_D)
+_TcpEStatsPerfZeroRwinRcvd_Type=ZeroBasedCounter32
+_TcpEStatsPerfZeroRwinRcvd_Object=MibTableColumn
+tcpEStatsPerfZeroRwinRcvd=_TcpEStatsPerfZeroRwinRcvd_Object((1,3,6,1,2,1,156,1,1,3,1,28),_TcpEStatsPerfZeroRwinRcvd_Type())
+tcpEStatsPerfZeroRwinRcvd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfZeroRwinRcvd.setStatus(_A)
+_TcpEStatsPerfSndLimTransRwin_Type=ZeroBasedCounter32
+_TcpEStatsPerfSndLimTransRwin_Object=MibTableColumn
+tcpEStatsPerfSndLimTransRwin=_TcpEStatsPerfSndLimTransRwin_Object((1,3,6,1,2,1,156,1,1,3,1,31),_TcpEStatsPerfSndLimTransRwin_Type())
+tcpEStatsPerfSndLimTransRwin.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfSndLimTransRwin.setStatus(_A)
+_TcpEStatsPerfSndLimTransCwnd_Type=ZeroBasedCounter32
+_TcpEStatsPerfSndLimTransCwnd_Object=MibTableColumn
+tcpEStatsPerfSndLimTransCwnd=_TcpEStatsPerfSndLimTransCwnd_Object((1,3,6,1,2,1,156,1,1,3,1,32),_TcpEStatsPerfSndLimTransCwnd_Type())
+tcpEStatsPerfSndLimTransCwnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfSndLimTransCwnd.setStatus(_A)
+_TcpEStatsPerfSndLimTransSnd_Type=ZeroBasedCounter32
+_TcpEStatsPerfSndLimTransSnd_Object=MibTableColumn
+tcpEStatsPerfSndLimTransSnd=_TcpEStatsPerfSndLimTransSnd_Object((1,3,6,1,2,1,156,1,1,3,1,33),_TcpEStatsPerfSndLimTransSnd_Type())
+tcpEStatsPerfSndLimTransSnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfSndLimTransSnd.setStatus(_A)
+_TcpEStatsPerfSndLimTimeRwin_Type=ZeroBasedCounter32
+_TcpEStatsPerfSndLimTimeRwin_Object=MibTableColumn
+tcpEStatsPerfSndLimTimeRwin=_TcpEStatsPerfSndLimTimeRwin_Object((1,3,6,1,2,1,156,1,1,3,1,34),_TcpEStatsPerfSndLimTimeRwin_Type())
+tcpEStatsPerfSndLimTimeRwin.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfSndLimTimeRwin.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfSndLimTimeRwin.setUnits(_E)
+_TcpEStatsPerfSndLimTimeCwnd_Type=ZeroBasedCounter32
+_TcpEStatsPerfSndLimTimeCwnd_Object=MibTableColumn
+tcpEStatsPerfSndLimTimeCwnd=_TcpEStatsPerfSndLimTimeCwnd_Object((1,3,6,1,2,1,156,1,1,3,1,35),_TcpEStatsPerfSndLimTimeCwnd_Type())
+tcpEStatsPerfSndLimTimeCwnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfSndLimTimeCwnd.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfSndLimTimeCwnd.setUnits(_E)
+_TcpEStatsPerfSndLimTimeSnd_Type=ZeroBasedCounter32
+_TcpEStatsPerfSndLimTimeSnd_Object=MibTableColumn
+tcpEStatsPerfSndLimTimeSnd=_TcpEStatsPerfSndLimTimeSnd_Object((1,3,6,1,2,1,156,1,1,3,1,36),_TcpEStatsPerfSndLimTimeSnd_Type())
+tcpEStatsPerfSndLimTimeSnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPerfSndLimTimeSnd.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPerfSndLimTimeSnd.setUnits(_E)
+_TcpEStatsPathTable_Object=MibTable
+tcpEStatsPathTable=_TcpEStatsPathTable_Object((1,3,6,1,2,1,156,1,1,4))
+if mibBuilder.loadTexts:tcpEStatsPathTable.setStatus(_A)
+_TcpEStatsPathEntry_Object=MibTableRow
+tcpEStatsPathEntry=_TcpEStatsPathEntry_Object((1,3,6,1,2,1,156,1,1,4,1))
+tcpEStatsPathEntry.setIndexNames((0,_B,_G))
+if mibBuilder.loadTexts:tcpEStatsPathEntry.setStatus(_A)
+_TcpEStatsPathRetranThresh_Type=Gauge32
+_TcpEStatsPathRetranThresh_Object=MibTableColumn
+tcpEStatsPathRetranThresh=_TcpEStatsPathRetranThresh_Object((1,3,6,1,2,1,156,1,1,4,1,1),_TcpEStatsPathRetranThresh_Type())
+tcpEStatsPathRetranThresh.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathRetranThresh.setStatus(_A)
+_TcpEStatsPathNonRecovDAEpisodes_Type=ZeroBasedCounter32
+_TcpEStatsPathNonRecovDAEpisodes_Object=MibTableColumn
+tcpEStatsPathNonRecovDAEpisodes=_TcpEStatsPathNonRecovDAEpisodes_Object((1,3,6,1,2,1,156,1,1,4,1,2),_TcpEStatsPathNonRecovDAEpisodes_Type())
+tcpEStatsPathNonRecovDAEpisodes.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathNonRecovDAEpisodes.setStatus(_A)
+_TcpEStatsPathSumOctetsReordered_Type=ZeroBasedCounter32
+_TcpEStatsPathSumOctetsReordered_Object=MibTableColumn
+tcpEStatsPathSumOctetsReordered=_TcpEStatsPathSumOctetsReordered_Object((1,3,6,1,2,1,156,1,1,4,1,3),_TcpEStatsPathSumOctetsReordered_Type())
+tcpEStatsPathSumOctetsReordered.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathSumOctetsReordered.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPathSumOctetsReordered.setUnits(_D)
+_TcpEStatsPathNonRecovDA_Type=ZeroBasedCounter32
+_TcpEStatsPathNonRecovDA_Object=MibTableColumn
+tcpEStatsPathNonRecovDA=_TcpEStatsPathNonRecovDA_Object((1,3,6,1,2,1,156,1,1,4,1,4),_TcpEStatsPathNonRecovDA_Type())
+tcpEStatsPathNonRecovDA.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathNonRecovDA.setStatus(_A)
+_TcpEStatsPathSampleRTT_Type=Gauge32
+_TcpEStatsPathSampleRTT_Object=MibTableColumn
+tcpEStatsPathSampleRTT=_TcpEStatsPathSampleRTT_Object((1,3,6,1,2,1,156,1,1,4,1,11),_TcpEStatsPathSampleRTT_Type())
+tcpEStatsPathSampleRTT.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathSampleRTT.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPathSampleRTT.setUnits(_E)
+_TcpEStatsPathRTTVar_Type=Gauge32
+_TcpEStatsPathRTTVar_Object=MibTableColumn
+tcpEStatsPathRTTVar=_TcpEStatsPathRTTVar_Object((1,3,6,1,2,1,156,1,1,4,1,12),_TcpEStatsPathRTTVar_Type())
+tcpEStatsPathRTTVar.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathRTTVar.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPathRTTVar.setUnits(_E)
+_TcpEStatsPathMaxRTT_Type=Gauge32
+_TcpEStatsPathMaxRTT_Object=MibTableColumn
+tcpEStatsPathMaxRTT=_TcpEStatsPathMaxRTT_Object((1,3,6,1,2,1,156,1,1,4,1,13),_TcpEStatsPathMaxRTT_Type())
+tcpEStatsPathMaxRTT.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathMaxRTT.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPathMaxRTT.setUnits(_E)
+_TcpEStatsPathMinRTT_Type=Gauge32
+_TcpEStatsPathMinRTT_Object=MibTableColumn
+tcpEStatsPathMinRTT=_TcpEStatsPathMinRTT_Object((1,3,6,1,2,1,156,1,1,4,1,14),_TcpEStatsPathMinRTT_Type())
+tcpEStatsPathMinRTT.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathMinRTT.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPathMinRTT.setUnits(_E)
+_TcpEStatsPathSumRTT_Type=ZeroBasedCounter32
+_TcpEStatsPathSumRTT_Object=MibTableColumn
+tcpEStatsPathSumRTT=_TcpEStatsPathSumRTT_Object((1,3,6,1,2,1,156,1,1,4,1,15),_TcpEStatsPathSumRTT_Type())
+tcpEStatsPathSumRTT.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathSumRTT.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPathSumRTT.setUnits(_E)
+_TcpEStatsPathHCSumRTT_Type=ZeroBasedCounter64
+_TcpEStatsPathHCSumRTT_Object=MibTableColumn
+tcpEStatsPathHCSumRTT=_TcpEStatsPathHCSumRTT_Object((1,3,6,1,2,1,156,1,1,4,1,16),_TcpEStatsPathHCSumRTT_Type())
+tcpEStatsPathHCSumRTT.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathHCSumRTT.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPathHCSumRTT.setUnits(_E)
+_TcpEStatsPathCountRTT_Type=ZeroBasedCounter32
+_TcpEStatsPathCountRTT_Object=MibTableColumn
+tcpEStatsPathCountRTT=_TcpEStatsPathCountRTT_Object((1,3,6,1,2,1,156,1,1,4,1,17),_TcpEStatsPathCountRTT_Type())
+tcpEStatsPathCountRTT.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathCountRTT.setStatus(_A)
+_TcpEStatsPathMaxRTO_Type=Gauge32
+_TcpEStatsPathMaxRTO_Object=MibTableColumn
+tcpEStatsPathMaxRTO=_TcpEStatsPathMaxRTO_Object((1,3,6,1,2,1,156,1,1,4,1,18),_TcpEStatsPathMaxRTO_Type())
+tcpEStatsPathMaxRTO.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathMaxRTO.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPathMaxRTO.setUnits(_E)
+_TcpEStatsPathMinRTO_Type=Gauge32
+_TcpEStatsPathMinRTO_Object=MibTableColumn
+tcpEStatsPathMinRTO=_TcpEStatsPathMinRTO_Object((1,3,6,1,2,1,156,1,1,4,1,19),_TcpEStatsPathMinRTO_Type())
+tcpEStatsPathMinRTO.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathMinRTO.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPathMinRTO.setUnits(_E)
+_TcpEStatsPathIpTtl_Type=Unsigned32
+_TcpEStatsPathIpTtl_Object=MibTableColumn
+tcpEStatsPathIpTtl=_TcpEStatsPathIpTtl_Object((1,3,6,1,2,1,156,1,1,4,1,20),_TcpEStatsPathIpTtl_Type())
+tcpEStatsPathIpTtl.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathIpTtl.setStatus(_A)
+class _TcpEStatsPathIpTosIn_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_TcpEStatsPathIpTosIn_Type.__name__=_J
+_TcpEStatsPathIpTosIn_Object=MibTableColumn
+tcpEStatsPathIpTosIn=_TcpEStatsPathIpTosIn_Object((1,3,6,1,2,1,156,1,1,4,1,21),_TcpEStatsPathIpTosIn_Type())
+tcpEStatsPathIpTosIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathIpTosIn.setStatus(_A)
+class _TcpEStatsPathIpTosOut_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_TcpEStatsPathIpTosOut_Type.__name__=_J
+_TcpEStatsPathIpTosOut_Object=MibTableColumn
+tcpEStatsPathIpTosOut=_TcpEStatsPathIpTosOut_Object((1,3,6,1,2,1,156,1,1,4,1,22),_TcpEStatsPathIpTosOut_Type())
+tcpEStatsPathIpTosOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathIpTosOut.setStatus(_A)
+_TcpEStatsPathPreCongSumCwnd_Type=ZeroBasedCounter32
+_TcpEStatsPathPreCongSumCwnd_Object=MibTableColumn
+tcpEStatsPathPreCongSumCwnd=_TcpEStatsPathPreCongSumCwnd_Object((1,3,6,1,2,1,156,1,1,4,1,23),_TcpEStatsPathPreCongSumCwnd_Type())
+tcpEStatsPathPreCongSumCwnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathPreCongSumCwnd.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPathPreCongSumCwnd.setUnits(_D)
+_TcpEStatsPathPreCongSumRTT_Type=ZeroBasedCounter32
+_TcpEStatsPathPreCongSumRTT_Object=MibTableColumn
+tcpEStatsPathPreCongSumRTT=_TcpEStatsPathPreCongSumRTT_Object((1,3,6,1,2,1,156,1,1,4,1,24),_TcpEStatsPathPreCongSumRTT_Type())
+tcpEStatsPathPreCongSumRTT.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathPreCongSumRTT.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPathPreCongSumRTT.setUnits(_E)
+_TcpEStatsPathPostCongSumRTT_Type=ZeroBasedCounter32
+_TcpEStatsPathPostCongSumRTT_Object=MibTableColumn
+tcpEStatsPathPostCongSumRTT=_TcpEStatsPathPostCongSumRTT_Object((1,3,6,1,2,1,156,1,1,4,1,25),_TcpEStatsPathPostCongSumRTT_Type())
+tcpEStatsPathPostCongSumRTT.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathPostCongSumRTT.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPathPostCongSumRTT.setUnits(_D)
+_TcpEStatsPathPostCongCountRTT_Type=ZeroBasedCounter32
+_TcpEStatsPathPostCongCountRTT_Object=MibTableColumn
+tcpEStatsPathPostCongCountRTT=_TcpEStatsPathPostCongCountRTT_Object((1,3,6,1,2,1,156,1,1,4,1,26),_TcpEStatsPathPostCongCountRTT_Type())
+tcpEStatsPathPostCongCountRTT.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathPostCongCountRTT.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsPathPostCongCountRTT.setUnits(_E)
+_TcpEStatsPathECNsignals_Type=ZeroBasedCounter32
+_TcpEStatsPathECNsignals_Object=MibTableColumn
+tcpEStatsPathECNsignals=_TcpEStatsPathECNsignals_Object((1,3,6,1,2,1,156,1,1,4,1,27),_TcpEStatsPathECNsignals_Type())
+tcpEStatsPathECNsignals.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathECNsignals.setStatus(_A)
+_TcpEStatsPathDupAckEpisodes_Type=ZeroBasedCounter32
+_TcpEStatsPathDupAckEpisodes_Object=MibTableColumn
+tcpEStatsPathDupAckEpisodes=_TcpEStatsPathDupAckEpisodes_Object((1,3,6,1,2,1,156,1,1,4,1,28),_TcpEStatsPathDupAckEpisodes_Type())
+tcpEStatsPathDupAckEpisodes.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathDupAckEpisodes.setStatus(_A)
+_TcpEStatsPathRcvRTT_Type=Gauge32
+_TcpEStatsPathRcvRTT_Object=MibTableColumn
+tcpEStatsPathRcvRTT=_TcpEStatsPathRcvRTT_Object((1,3,6,1,2,1,156,1,1,4,1,29),_TcpEStatsPathRcvRTT_Type())
+tcpEStatsPathRcvRTT.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathRcvRTT.setStatus(_A)
+_TcpEStatsPathDupAcksOut_Type=ZeroBasedCounter32
+_TcpEStatsPathDupAcksOut_Object=MibTableColumn
+tcpEStatsPathDupAcksOut=_TcpEStatsPathDupAcksOut_Object((1,3,6,1,2,1,156,1,1,4,1,30),_TcpEStatsPathDupAcksOut_Type())
+tcpEStatsPathDupAcksOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathDupAcksOut.setStatus(_A)
+_TcpEStatsPathCERcvd_Type=ZeroBasedCounter32
+_TcpEStatsPathCERcvd_Object=MibTableColumn
+tcpEStatsPathCERcvd=_TcpEStatsPathCERcvd_Object((1,3,6,1,2,1,156,1,1,4,1,31),_TcpEStatsPathCERcvd_Type())
+tcpEStatsPathCERcvd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathCERcvd.setStatus(_A)
+_TcpEStatsPathECESent_Type=ZeroBasedCounter32
+_TcpEStatsPathECESent_Object=MibTableColumn
+tcpEStatsPathECESent=_TcpEStatsPathECESent_Object((1,3,6,1,2,1,156,1,1,4,1,32),_TcpEStatsPathECESent_Type())
+tcpEStatsPathECESent.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsPathECESent.setStatus(_A)
+_TcpEStatsStackTable_Object=MibTable
+tcpEStatsStackTable=_TcpEStatsStackTable_Object((1,3,6,1,2,1,156,1,1,5))
+if mibBuilder.loadTexts:tcpEStatsStackTable.setStatus(_A)
+_TcpEStatsStackEntry_Object=MibTableRow
+tcpEStatsStackEntry=_TcpEStatsStackEntry_Object((1,3,6,1,2,1,156,1,1,5,1))
+tcpEStatsStackEntry.setIndexNames((0,_B,_G))
+if mibBuilder.loadTexts:tcpEStatsStackEntry.setStatus(_A)
+_TcpEStatsStackActiveOpen_Type=TruthValue
+_TcpEStatsStackActiveOpen_Object=MibTableColumn
+tcpEStatsStackActiveOpen=_TcpEStatsStackActiveOpen_Object((1,3,6,1,2,1,156,1,1,5,1,1),_TcpEStatsStackActiveOpen_Type())
+tcpEStatsStackActiveOpen.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackActiveOpen.setStatus(_A)
+_TcpEStatsStackMSSSent_Type=Unsigned32
+_TcpEStatsStackMSSSent_Object=MibTableColumn
+tcpEStatsStackMSSSent=_TcpEStatsStackMSSSent_Object((1,3,6,1,2,1,156,1,1,5,1,2),_TcpEStatsStackMSSSent_Type())
+tcpEStatsStackMSSSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackMSSSent.setStatus(_A)
+_TcpEStatsStackMSSRcvd_Type=Unsigned32
+_TcpEStatsStackMSSRcvd_Object=MibTableColumn
+tcpEStatsStackMSSRcvd=_TcpEStatsStackMSSRcvd_Object((1,3,6,1,2,1,156,1,1,5,1,3),_TcpEStatsStackMSSRcvd_Type())
+tcpEStatsStackMSSRcvd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackMSSRcvd.setStatus(_A)
+class _TcpEStatsStackWinScaleSent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,14))
+_TcpEStatsStackWinScaleSent_Type.__name__=_H
+_TcpEStatsStackWinScaleSent_Object=MibTableColumn
+tcpEStatsStackWinScaleSent=_TcpEStatsStackWinScaleSent_Object((1,3,6,1,2,1,156,1,1,5,1,4),_TcpEStatsStackWinScaleSent_Type())
+tcpEStatsStackWinScaleSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackWinScaleSent.setStatus(_A)
+class _TcpEStatsStackWinScaleRcvd_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,14))
+_TcpEStatsStackWinScaleRcvd_Type.__name__=_H
+_TcpEStatsStackWinScaleRcvd_Object=MibTableColumn
+tcpEStatsStackWinScaleRcvd=_TcpEStatsStackWinScaleRcvd_Object((1,3,6,1,2,1,156,1,1,5,1,5),_TcpEStatsStackWinScaleRcvd_Type())
+tcpEStatsStackWinScaleRcvd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackWinScaleRcvd.setStatus(_A)
+_TcpEStatsStackTimeStamps_Type=TcpEStatsNegotiated
+_TcpEStatsStackTimeStamps_Object=MibTableColumn
+tcpEStatsStackTimeStamps=_TcpEStatsStackTimeStamps_Object((1,3,6,1,2,1,156,1,1,5,1,6),_TcpEStatsStackTimeStamps_Type())
+tcpEStatsStackTimeStamps.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackTimeStamps.setStatus(_A)
+_TcpEStatsStackECN_Type=TcpEStatsNegotiated
+_TcpEStatsStackECN_Object=MibTableColumn
+tcpEStatsStackECN=_TcpEStatsStackECN_Object((1,3,6,1,2,1,156,1,1,5,1,7),_TcpEStatsStackECN_Type())
+tcpEStatsStackECN.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackECN.setStatus(_A)
+_TcpEStatsStackWillSendSACK_Type=TcpEStatsNegotiated
+_TcpEStatsStackWillSendSACK_Object=MibTableColumn
+tcpEStatsStackWillSendSACK=_TcpEStatsStackWillSendSACK_Object((1,3,6,1,2,1,156,1,1,5,1,8),_TcpEStatsStackWillSendSACK_Type())
+tcpEStatsStackWillSendSACK.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackWillSendSACK.setStatus(_A)
+_TcpEStatsStackWillUseSACK_Type=TcpEStatsNegotiated
+_TcpEStatsStackWillUseSACK_Object=MibTableColumn
+tcpEStatsStackWillUseSACK=_TcpEStatsStackWillUseSACK_Object((1,3,6,1,2,1,156,1,1,5,1,9),_TcpEStatsStackWillUseSACK_Type())
+tcpEStatsStackWillUseSACK.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackWillUseSACK.setStatus(_A)
+class _TcpEStatsStackState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12)));namedValues=NamedValues(*(('tcpESStateClosed',1),('tcpESStateListen',2),('tcpESStateSynSent',3),('tcpESStateSynReceived',4),('tcpESStateEstablished',5),('tcpESStateFinWait1',6),('tcpESStateFinWait2',7),('tcpESStateCloseWait',8),('tcpESStateLastAck',9),('tcpESStateClosing',10),('tcpESStateTimeWait',11),('tcpESStateDeleteTcb',12)))
+_TcpEStatsStackState_Type.__name__=_H
+_TcpEStatsStackState_Object=MibTableColumn
+tcpEStatsStackState=_TcpEStatsStackState_Object((1,3,6,1,2,1,156,1,1,5,1,10),_TcpEStatsStackState_Type())
+tcpEStatsStackState.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackState.setStatus(_A)
+_TcpEStatsStackNagle_Type=TruthValue
+_TcpEStatsStackNagle_Object=MibTableColumn
+tcpEStatsStackNagle=_TcpEStatsStackNagle_Object((1,3,6,1,2,1,156,1,1,5,1,11),_TcpEStatsStackNagle_Type())
+tcpEStatsStackNagle.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackNagle.setStatus(_A)
+_TcpEStatsStackMaxSsCwnd_Type=Gauge32
+_TcpEStatsStackMaxSsCwnd_Object=MibTableColumn
+tcpEStatsStackMaxSsCwnd=_TcpEStatsStackMaxSsCwnd_Object((1,3,6,1,2,1,156,1,1,5,1,12),_TcpEStatsStackMaxSsCwnd_Type())
+tcpEStatsStackMaxSsCwnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackMaxSsCwnd.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsStackMaxSsCwnd.setUnits(_D)
+_TcpEStatsStackMaxCaCwnd_Type=Gauge32
+_TcpEStatsStackMaxCaCwnd_Object=MibTableColumn
+tcpEStatsStackMaxCaCwnd=_TcpEStatsStackMaxCaCwnd_Object((1,3,6,1,2,1,156,1,1,5,1,13),_TcpEStatsStackMaxCaCwnd_Type())
+tcpEStatsStackMaxCaCwnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackMaxCaCwnd.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsStackMaxCaCwnd.setUnits(_D)
+_TcpEStatsStackMaxSsthresh_Type=Gauge32
+_TcpEStatsStackMaxSsthresh_Object=MibTableColumn
+tcpEStatsStackMaxSsthresh=_TcpEStatsStackMaxSsthresh_Object((1,3,6,1,2,1,156,1,1,5,1,14),_TcpEStatsStackMaxSsthresh_Type())
+tcpEStatsStackMaxSsthresh.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackMaxSsthresh.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsStackMaxSsthresh.setUnits(_D)
+_TcpEStatsStackMinSsthresh_Type=Gauge32
+_TcpEStatsStackMinSsthresh_Object=MibTableColumn
+tcpEStatsStackMinSsthresh=_TcpEStatsStackMinSsthresh_Object((1,3,6,1,2,1,156,1,1,5,1,15),_TcpEStatsStackMinSsthresh_Type())
+tcpEStatsStackMinSsthresh.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackMinSsthresh.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsStackMinSsthresh.setUnits(_D)
+class _TcpEStatsStackInRecovery_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('tcpESDataContiguous',1),('tcpESDataUnordered',2),('tcpESDataRecovery',3)))
+_TcpEStatsStackInRecovery_Type.__name__=_H
+_TcpEStatsStackInRecovery_Object=MibTableColumn
+tcpEStatsStackInRecovery=_TcpEStatsStackInRecovery_Object((1,3,6,1,2,1,156,1,1,5,1,16),_TcpEStatsStackInRecovery_Type())
+tcpEStatsStackInRecovery.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackInRecovery.setStatus(_A)
+_TcpEStatsStackDupAcksIn_Type=ZeroBasedCounter32
+_TcpEStatsStackDupAcksIn_Object=MibTableColumn
+tcpEStatsStackDupAcksIn=_TcpEStatsStackDupAcksIn_Object((1,3,6,1,2,1,156,1,1,5,1,17),_TcpEStatsStackDupAcksIn_Type())
+tcpEStatsStackDupAcksIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackDupAcksIn.setStatus(_A)
+_TcpEStatsStackSpuriousFrDetected_Type=ZeroBasedCounter32
+_TcpEStatsStackSpuriousFrDetected_Object=MibTableColumn
+tcpEStatsStackSpuriousFrDetected=_TcpEStatsStackSpuriousFrDetected_Object((1,3,6,1,2,1,156,1,1,5,1,18),_TcpEStatsStackSpuriousFrDetected_Type())
+tcpEStatsStackSpuriousFrDetected.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackSpuriousFrDetected.setStatus(_A)
+_TcpEStatsStackSpuriousRtoDetected_Type=ZeroBasedCounter32
+_TcpEStatsStackSpuriousRtoDetected_Object=MibTableColumn
+tcpEStatsStackSpuriousRtoDetected=_TcpEStatsStackSpuriousRtoDetected_Object((1,3,6,1,2,1,156,1,1,5,1,19),_TcpEStatsStackSpuriousRtoDetected_Type())
+tcpEStatsStackSpuriousRtoDetected.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackSpuriousRtoDetected.setStatus(_A)
+_TcpEStatsStackSoftErrors_Type=ZeroBasedCounter32
+_TcpEStatsStackSoftErrors_Object=MibTableColumn
+tcpEStatsStackSoftErrors=_TcpEStatsStackSoftErrors_Object((1,3,6,1,2,1,156,1,1,5,1,21),_TcpEStatsStackSoftErrors_Type())
+tcpEStatsStackSoftErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackSoftErrors.setStatus(_A)
+class _TcpEStatsStackSoftErrorReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('belowDataWindow',1),('aboveDataWindow',2),('belowAckWindow',3),('aboveAckWindow',4),('belowTSWindow',5),('aboveTSWindow',6),('dataCheckSum',7),('otherSoftError',8)))
+_TcpEStatsStackSoftErrorReason_Type.__name__=_H
+_TcpEStatsStackSoftErrorReason_Object=MibTableColumn
+tcpEStatsStackSoftErrorReason=_TcpEStatsStackSoftErrorReason_Object((1,3,6,1,2,1,156,1,1,5,1,22),_TcpEStatsStackSoftErrorReason_Type())
+tcpEStatsStackSoftErrorReason.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackSoftErrorReason.setStatus(_A)
+_TcpEStatsStackSlowStart_Type=ZeroBasedCounter32
+_TcpEStatsStackSlowStart_Object=MibTableColumn
+tcpEStatsStackSlowStart=_TcpEStatsStackSlowStart_Object((1,3,6,1,2,1,156,1,1,5,1,23),_TcpEStatsStackSlowStart_Type())
+tcpEStatsStackSlowStart.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackSlowStart.setStatus(_A)
+_TcpEStatsStackCongAvoid_Type=ZeroBasedCounter32
+_TcpEStatsStackCongAvoid_Object=MibTableColumn
+tcpEStatsStackCongAvoid=_TcpEStatsStackCongAvoid_Object((1,3,6,1,2,1,156,1,1,5,1,24),_TcpEStatsStackCongAvoid_Type())
+tcpEStatsStackCongAvoid.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackCongAvoid.setStatus(_A)
+_TcpEStatsStackOtherReductions_Type=ZeroBasedCounter32
+_TcpEStatsStackOtherReductions_Object=MibTableColumn
+tcpEStatsStackOtherReductions=_TcpEStatsStackOtherReductions_Object((1,3,6,1,2,1,156,1,1,5,1,25),_TcpEStatsStackOtherReductions_Type())
+tcpEStatsStackOtherReductions.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackOtherReductions.setStatus(_A)
+_TcpEStatsStackCongOverCount_Type=ZeroBasedCounter32
+_TcpEStatsStackCongOverCount_Object=MibTableColumn
+tcpEStatsStackCongOverCount=_TcpEStatsStackCongOverCount_Object((1,3,6,1,2,1,156,1,1,5,1,26),_TcpEStatsStackCongOverCount_Type())
+tcpEStatsStackCongOverCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackCongOverCount.setStatus(_A)
+_TcpEStatsStackFastRetran_Type=ZeroBasedCounter32
+_TcpEStatsStackFastRetran_Object=MibTableColumn
+tcpEStatsStackFastRetran=_TcpEStatsStackFastRetran_Object((1,3,6,1,2,1,156,1,1,5,1,27),_TcpEStatsStackFastRetran_Type())
+tcpEStatsStackFastRetran.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackFastRetran.setStatus(_A)
+_TcpEStatsStackSubsequentTimeouts_Type=ZeroBasedCounter32
+_TcpEStatsStackSubsequentTimeouts_Object=MibTableColumn
+tcpEStatsStackSubsequentTimeouts=_TcpEStatsStackSubsequentTimeouts_Object((1,3,6,1,2,1,156,1,1,5,1,28),_TcpEStatsStackSubsequentTimeouts_Type())
+tcpEStatsStackSubsequentTimeouts.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackSubsequentTimeouts.setStatus(_A)
+_TcpEStatsStackCurTimeoutCount_Type=Gauge32
+_TcpEStatsStackCurTimeoutCount_Object=MibTableColumn
+tcpEStatsStackCurTimeoutCount=_TcpEStatsStackCurTimeoutCount_Object((1,3,6,1,2,1,156,1,1,5,1,29),_TcpEStatsStackCurTimeoutCount_Type())
+tcpEStatsStackCurTimeoutCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackCurTimeoutCount.setStatus(_A)
+_TcpEStatsStackAbruptTimeouts_Type=ZeroBasedCounter32
+_TcpEStatsStackAbruptTimeouts_Object=MibTableColumn
+tcpEStatsStackAbruptTimeouts=_TcpEStatsStackAbruptTimeouts_Object((1,3,6,1,2,1,156,1,1,5,1,30),_TcpEStatsStackAbruptTimeouts_Type())
+tcpEStatsStackAbruptTimeouts.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackAbruptTimeouts.setStatus(_A)
+_TcpEStatsStackSACKsRcvd_Type=ZeroBasedCounter32
+_TcpEStatsStackSACKsRcvd_Object=MibTableColumn
+tcpEStatsStackSACKsRcvd=_TcpEStatsStackSACKsRcvd_Object((1,3,6,1,2,1,156,1,1,5,1,31),_TcpEStatsStackSACKsRcvd_Type())
+tcpEStatsStackSACKsRcvd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackSACKsRcvd.setStatus(_A)
+_TcpEStatsStackSACKBlocksRcvd_Type=ZeroBasedCounter32
+_TcpEStatsStackSACKBlocksRcvd_Object=MibTableColumn
+tcpEStatsStackSACKBlocksRcvd=_TcpEStatsStackSACKBlocksRcvd_Object((1,3,6,1,2,1,156,1,1,5,1,32),_TcpEStatsStackSACKBlocksRcvd_Type())
+tcpEStatsStackSACKBlocksRcvd.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackSACKBlocksRcvd.setStatus(_A)
+_TcpEStatsStackSendStall_Type=ZeroBasedCounter32
+_TcpEStatsStackSendStall_Object=MibTableColumn
+tcpEStatsStackSendStall=_TcpEStatsStackSendStall_Object((1,3,6,1,2,1,156,1,1,5,1,33),_TcpEStatsStackSendStall_Type())
+tcpEStatsStackSendStall.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackSendStall.setStatus(_A)
+_TcpEStatsStackDSACKDups_Type=ZeroBasedCounter32
+_TcpEStatsStackDSACKDups_Object=MibTableColumn
+tcpEStatsStackDSACKDups=_TcpEStatsStackDSACKDups_Object((1,3,6,1,2,1,156,1,1,5,1,34),_TcpEStatsStackDSACKDups_Type())
+tcpEStatsStackDSACKDups.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackDSACKDups.setStatus(_A)
+_TcpEStatsStackMaxMSS_Type=Gauge32
+_TcpEStatsStackMaxMSS_Object=MibTableColumn
+tcpEStatsStackMaxMSS=_TcpEStatsStackMaxMSS_Object((1,3,6,1,2,1,156,1,1,5,1,35),_TcpEStatsStackMaxMSS_Type())
+tcpEStatsStackMaxMSS.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackMaxMSS.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsStackMaxMSS.setUnits(_D)
+_TcpEStatsStackMinMSS_Type=Gauge32
+_TcpEStatsStackMinMSS_Object=MibTableColumn
+tcpEStatsStackMinMSS=_TcpEStatsStackMinMSS_Object((1,3,6,1,2,1,156,1,1,5,1,36),_TcpEStatsStackMinMSS_Type())
+tcpEStatsStackMinMSS.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackMinMSS.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsStackMinMSS.setUnits(_D)
+_TcpEStatsStackSndInitial_Type=Unsigned32
+_TcpEStatsStackSndInitial_Object=MibTableColumn
+tcpEStatsStackSndInitial=_TcpEStatsStackSndInitial_Object((1,3,6,1,2,1,156,1,1,5,1,37),_TcpEStatsStackSndInitial_Type())
+tcpEStatsStackSndInitial.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackSndInitial.setStatus(_A)
+_TcpEStatsStackRecInitial_Type=Unsigned32
+_TcpEStatsStackRecInitial_Object=MibTableColumn
+tcpEStatsStackRecInitial=_TcpEStatsStackRecInitial_Object((1,3,6,1,2,1,156,1,1,5,1,38),_TcpEStatsStackRecInitial_Type())
+tcpEStatsStackRecInitial.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackRecInitial.setStatus(_A)
+_TcpEStatsStackCurRetxQueue_Type=Gauge32
+_TcpEStatsStackCurRetxQueue_Object=MibTableColumn
+tcpEStatsStackCurRetxQueue=_TcpEStatsStackCurRetxQueue_Object((1,3,6,1,2,1,156,1,1,5,1,39),_TcpEStatsStackCurRetxQueue_Type())
+tcpEStatsStackCurRetxQueue.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackCurRetxQueue.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsStackCurRetxQueue.setUnits(_D)
+_TcpEStatsStackMaxRetxQueue_Type=Gauge32
+_TcpEStatsStackMaxRetxQueue_Object=MibTableColumn
+tcpEStatsStackMaxRetxQueue=_TcpEStatsStackMaxRetxQueue_Object((1,3,6,1,2,1,156,1,1,5,1,40),_TcpEStatsStackMaxRetxQueue_Type())
+tcpEStatsStackMaxRetxQueue.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackMaxRetxQueue.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsStackMaxRetxQueue.setUnits(_D)
+_TcpEStatsStackCurReasmQueue_Type=Gauge32
+_TcpEStatsStackCurReasmQueue_Object=MibTableColumn
+tcpEStatsStackCurReasmQueue=_TcpEStatsStackCurReasmQueue_Object((1,3,6,1,2,1,156,1,1,5,1,41),_TcpEStatsStackCurReasmQueue_Type())
+tcpEStatsStackCurReasmQueue.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackCurReasmQueue.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsStackCurReasmQueue.setUnits(_D)
+_TcpEStatsStackMaxReasmQueue_Type=Gauge32
+_TcpEStatsStackMaxReasmQueue_Object=MibTableColumn
+tcpEStatsStackMaxReasmQueue=_TcpEStatsStackMaxReasmQueue_Object((1,3,6,1,2,1,156,1,1,5,1,42),_TcpEStatsStackMaxReasmQueue_Type())
+tcpEStatsStackMaxReasmQueue.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsStackMaxReasmQueue.setStatus(_A)
+_TcpEStatsAppTable_Object=MibTable
+tcpEStatsAppTable=_TcpEStatsAppTable_Object((1,3,6,1,2,1,156,1,1,6))
+if mibBuilder.loadTexts:tcpEStatsAppTable.setStatus(_A)
+_TcpEStatsAppEntry_Object=MibTableRow
+tcpEStatsAppEntry=_TcpEStatsAppEntry_Object((1,3,6,1,2,1,156,1,1,6,1))
+tcpEStatsAppEntry.setIndexNames((0,_B,_G))
+if mibBuilder.loadTexts:tcpEStatsAppEntry.setStatus(_A)
+_TcpEStatsAppSndUna_Type=Counter32
+_TcpEStatsAppSndUna_Object=MibTableColumn
+tcpEStatsAppSndUna=_TcpEStatsAppSndUna_Object((1,3,6,1,2,1,156,1,1,6,1,1),_TcpEStatsAppSndUna_Type())
+tcpEStatsAppSndUna.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsAppSndUna.setStatus(_A)
+_TcpEStatsAppSndNxt_Type=Unsigned32
+_TcpEStatsAppSndNxt_Object=MibTableColumn
+tcpEStatsAppSndNxt=_TcpEStatsAppSndNxt_Object((1,3,6,1,2,1,156,1,1,6,1,2),_TcpEStatsAppSndNxt_Type())
+tcpEStatsAppSndNxt.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsAppSndNxt.setStatus(_A)
+_TcpEStatsAppSndMax_Type=Counter32
+_TcpEStatsAppSndMax_Object=MibTableColumn
+tcpEStatsAppSndMax=_TcpEStatsAppSndMax_Object((1,3,6,1,2,1,156,1,1,6,1,3),_TcpEStatsAppSndMax_Type())
+tcpEStatsAppSndMax.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsAppSndMax.setStatus(_A)
+_TcpEStatsAppThruOctetsAcked_Type=ZeroBasedCounter32
+_TcpEStatsAppThruOctetsAcked_Object=MibTableColumn
+tcpEStatsAppThruOctetsAcked=_TcpEStatsAppThruOctetsAcked_Object((1,3,6,1,2,1,156,1,1,6,1,4),_TcpEStatsAppThruOctetsAcked_Type())
+tcpEStatsAppThruOctetsAcked.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsAppThruOctetsAcked.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsAppThruOctetsAcked.setUnits(_D)
+_TcpEStatsAppHCThruOctetsAcked_Type=ZeroBasedCounter64
+_TcpEStatsAppHCThruOctetsAcked_Object=MibTableColumn
+tcpEStatsAppHCThruOctetsAcked=_TcpEStatsAppHCThruOctetsAcked_Object((1,3,6,1,2,1,156,1,1,6,1,5),_TcpEStatsAppHCThruOctetsAcked_Type())
+tcpEStatsAppHCThruOctetsAcked.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsAppHCThruOctetsAcked.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsAppHCThruOctetsAcked.setUnits(_D)
+_TcpEStatsAppRcvNxt_Type=Counter32
+_TcpEStatsAppRcvNxt_Object=MibTableColumn
+tcpEStatsAppRcvNxt=_TcpEStatsAppRcvNxt_Object((1,3,6,1,2,1,156,1,1,6,1,6),_TcpEStatsAppRcvNxt_Type())
+tcpEStatsAppRcvNxt.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsAppRcvNxt.setStatus(_A)
+_TcpEStatsAppThruOctetsReceived_Type=ZeroBasedCounter32
+_TcpEStatsAppThruOctetsReceived_Object=MibTableColumn
+tcpEStatsAppThruOctetsReceived=_TcpEStatsAppThruOctetsReceived_Object((1,3,6,1,2,1,156,1,1,6,1,7),_TcpEStatsAppThruOctetsReceived_Type())
+tcpEStatsAppThruOctetsReceived.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsAppThruOctetsReceived.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsAppThruOctetsReceived.setUnits(_D)
+_TcpEStatsAppHCThruOctetsReceived_Type=ZeroBasedCounter64
+_TcpEStatsAppHCThruOctetsReceived_Object=MibTableColumn
+tcpEStatsAppHCThruOctetsReceived=_TcpEStatsAppHCThruOctetsReceived_Object((1,3,6,1,2,1,156,1,1,6,1,8),_TcpEStatsAppHCThruOctetsReceived_Type())
+tcpEStatsAppHCThruOctetsReceived.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsAppHCThruOctetsReceived.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsAppHCThruOctetsReceived.setUnits(_D)
+_TcpEStatsAppCurAppWQueue_Type=Gauge32
+_TcpEStatsAppCurAppWQueue_Object=MibTableColumn
+tcpEStatsAppCurAppWQueue=_TcpEStatsAppCurAppWQueue_Object((1,3,6,1,2,1,156,1,1,6,1,11),_TcpEStatsAppCurAppWQueue_Type())
+tcpEStatsAppCurAppWQueue.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsAppCurAppWQueue.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsAppCurAppWQueue.setUnits(_D)
+_TcpEStatsAppMaxAppWQueue_Type=Gauge32
+_TcpEStatsAppMaxAppWQueue_Object=MibTableColumn
+tcpEStatsAppMaxAppWQueue=_TcpEStatsAppMaxAppWQueue_Object((1,3,6,1,2,1,156,1,1,6,1,12),_TcpEStatsAppMaxAppWQueue_Type())
+tcpEStatsAppMaxAppWQueue.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsAppMaxAppWQueue.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsAppMaxAppWQueue.setUnits(_D)
+_TcpEStatsAppCurAppRQueue_Type=Gauge32
+_TcpEStatsAppCurAppRQueue_Object=MibTableColumn
+tcpEStatsAppCurAppRQueue=_TcpEStatsAppCurAppRQueue_Object((1,3,6,1,2,1,156,1,1,6,1,13),_TcpEStatsAppCurAppRQueue_Type())
+tcpEStatsAppCurAppRQueue.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsAppCurAppRQueue.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsAppCurAppRQueue.setUnits(_D)
+_TcpEStatsAppMaxAppRQueue_Type=Gauge32
+_TcpEStatsAppMaxAppRQueue_Object=MibTableColumn
+tcpEStatsAppMaxAppRQueue=_TcpEStatsAppMaxAppRQueue_Object((1,3,6,1,2,1,156,1,1,6,1,14),_TcpEStatsAppMaxAppRQueue_Type())
+tcpEStatsAppMaxAppRQueue.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsAppMaxAppRQueue.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsAppMaxAppRQueue.setUnits(_D)
+_TcpEStatsTuneTable_Object=MibTable
+tcpEStatsTuneTable=_TcpEStatsTuneTable_Object((1,3,6,1,2,1,156,1,1,7))
+if mibBuilder.loadTexts:tcpEStatsTuneTable.setStatus(_A)
+_TcpEStatsTuneEntry_Object=MibTableRow
+tcpEStatsTuneEntry=_TcpEStatsTuneEntry_Object((1,3,6,1,2,1,156,1,1,7,1))
+tcpEStatsTuneEntry.setIndexNames((0,_B,_G))
+if mibBuilder.loadTexts:tcpEStatsTuneEntry.setStatus(_A)
+_TcpEStatsTuneLimCwnd_Type=Unsigned32
+_TcpEStatsTuneLimCwnd_Object=MibTableColumn
+tcpEStatsTuneLimCwnd=_TcpEStatsTuneLimCwnd_Object((1,3,6,1,2,1,156,1,1,7,1,1),_TcpEStatsTuneLimCwnd_Type())
+tcpEStatsTuneLimCwnd.setMaxAccess(_F)
+if mibBuilder.loadTexts:tcpEStatsTuneLimCwnd.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsTuneLimCwnd.setUnits(_D)
+_TcpEStatsTuneLimSsthresh_Type=Unsigned32
+_TcpEStatsTuneLimSsthresh_Object=MibTableColumn
+tcpEStatsTuneLimSsthresh=_TcpEStatsTuneLimSsthresh_Object((1,3,6,1,2,1,156,1,1,7,1,2),_TcpEStatsTuneLimSsthresh_Type())
+tcpEStatsTuneLimSsthresh.setMaxAccess(_F)
+if mibBuilder.loadTexts:tcpEStatsTuneLimSsthresh.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsTuneLimSsthresh.setUnits(_D)
+_TcpEStatsTuneLimRwin_Type=Unsigned32
+_TcpEStatsTuneLimRwin_Object=MibTableColumn
+tcpEStatsTuneLimRwin=_TcpEStatsTuneLimRwin_Object((1,3,6,1,2,1,156,1,1,7,1,3),_TcpEStatsTuneLimRwin_Type())
+tcpEStatsTuneLimRwin.setMaxAccess(_F)
+if mibBuilder.loadTexts:tcpEStatsTuneLimRwin.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsTuneLimRwin.setUnits(_D)
+_TcpEStatsTuneLimMSS_Type=Unsigned32
+_TcpEStatsTuneLimMSS_Object=MibTableColumn
+tcpEStatsTuneLimMSS=_TcpEStatsTuneLimMSS_Object((1,3,6,1,2,1,156,1,1,7,1,4),_TcpEStatsTuneLimMSS_Type())
+tcpEStatsTuneLimMSS.setMaxAccess(_F)
+if mibBuilder.loadTexts:tcpEStatsTuneLimMSS.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsTuneLimMSS.setUnits(_D)
+_TcpEStatsControl_ObjectIdentity=ObjectIdentity
+tcpEStatsControl=_TcpEStatsControl_ObjectIdentity((1,3,6,1,2,1,156,1,2))
+class _TcpEStatsControlPath_Type(TruthValue):defaultValue=2
+_TcpEStatsControlPath_Type.__name__=_I
+_TcpEStatsControlPath_Object=MibScalar
+tcpEStatsControlPath=_TcpEStatsControlPath_Object((1,3,6,1,2,1,156,1,2,1),_TcpEStatsControlPath_Type())
+tcpEStatsControlPath.setMaxAccess(_F)
+if mibBuilder.loadTexts:tcpEStatsControlPath.setStatus(_A)
+class _TcpEStatsControlStack_Type(TruthValue):defaultValue=2
+_TcpEStatsControlStack_Type.__name__=_I
+_TcpEStatsControlStack_Object=MibScalar
+tcpEStatsControlStack=_TcpEStatsControlStack_Object((1,3,6,1,2,1,156,1,2,2),_TcpEStatsControlStack_Type())
+tcpEStatsControlStack.setMaxAccess(_F)
+if mibBuilder.loadTexts:tcpEStatsControlStack.setStatus(_A)
+class _TcpEStatsControlApp_Type(TruthValue):defaultValue=2
+_TcpEStatsControlApp_Type.__name__=_I
+_TcpEStatsControlApp_Object=MibScalar
+tcpEStatsControlApp=_TcpEStatsControlApp_Object((1,3,6,1,2,1,156,1,2,3),_TcpEStatsControlApp_Type())
+tcpEStatsControlApp.setMaxAccess(_F)
+if mibBuilder.loadTexts:tcpEStatsControlApp.setStatus(_A)
+class _TcpEStatsControlTune_Type(TruthValue):defaultValue=2
+_TcpEStatsControlTune_Type.__name__=_I
+_TcpEStatsControlTune_Object=MibScalar
+tcpEStatsControlTune=_TcpEStatsControlTune_Object((1,3,6,1,2,1,156,1,2,4),_TcpEStatsControlTune_Type())
+tcpEStatsControlTune.setMaxAccess(_F)
+if mibBuilder.loadTexts:tcpEStatsControlTune.setStatus(_A)
+class _TcpEStatsControlNotify_Type(TruthValue):defaultValue=2
+_TcpEStatsControlNotify_Type.__name__=_I
+_TcpEStatsControlNotify_Object=MibScalar
+tcpEStatsControlNotify=_TcpEStatsControlNotify_Object((1,3,6,1,2,1,156,1,2,5),_TcpEStatsControlNotify_Type())
+tcpEStatsControlNotify.setMaxAccess(_F)
+if mibBuilder.loadTexts:tcpEStatsControlNotify.setStatus(_A)
+class _TcpEStatsConnTableLatency_Type(Unsigned32):defaultValue=0
+_TcpEStatsConnTableLatency_Type.__name__=_K
+_TcpEStatsConnTableLatency_Object=MibScalar
+tcpEStatsConnTableLatency=_TcpEStatsConnTableLatency_Object((1,3,6,1,2,1,156,1,2,6),_TcpEStatsConnTableLatency_Type())
+tcpEStatsConnTableLatency.setMaxAccess(_F)
+if mibBuilder.loadTexts:tcpEStatsConnTableLatency.setStatus(_A)
+if mibBuilder.loadTexts:tcpEStatsConnTableLatency.setUnits(_L)
+_TcpEStatsScalar_ObjectIdentity=ObjectIdentity
+tcpEStatsScalar=_TcpEStatsScalar_ObjectIdentity((1,3,6,1,2,1,156,1,3))
+_TcpEStatsListenerTableLastChange_Type=TimeStamp
+_TcpEStatsListenerTableLastChange_Object=MibScalar
+tcpEStatsListenerTableLastChange=_TcpEStatsListenerTableLastChange_Object((1,3,6,1,2,1,156,1,3,3),_TcpEStatsListenerTableLastChange_Type())
+tcpEStatsListenerTableLastChange.setMaxAccess(_C)
+if mibBuilder.loadTexts:tcpEStatsListenerTableLastChange.setStatus(_A)
+_TcpEStatsConformance_ObjectIdentity=ObjectIdentity
+tcpEStatsConformance=_TcpEStatsConformance_ObjectIdentity((1,3,6,1,2,1,156,2))
+_TcpEStatsCompliances_ObjectIdentity=ObjectIdentity
+tcpEStatsCompliances=_TcpEStatsCompliances_ObjectIdentity((1,3,6,1,2,1,156,2,1))
+_TcpEStatsGroups_ObjectIdentity=ObjectIdentity
+tcpEStatsGroups=_TcpEStatsGroups_ObjectIdentity((1,3,6,1,2,1,156,2,2))
+tcpListenerEntry.registerAugmentions((_B,_M))
 tcpEStatsListenerEntry.setIndexNames(*tcpListenerEntry.getIndexNames())
-if mibBuilder.loadTexts: tcpEStatsListenerEntry.setDescription('Each entry in the table contains information about\n        a specific TCP Listener.')
-tcpEStatsListenerStartTime = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 1, 1, 1), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsListenerStartTime.setDescription('The value of sysUpTime at the time this listener was\n        established.  If the current state was entered prior to\n        the last re-initialization of the local network management\n        subsystem, then this object contains a zero value.')
-tcpEStatsListenerSynRcvd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 1, 1, 2), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsListenerSynRcvd.setDescription('The number of SYNs which have been received for this\n        listener.  The total number of failed connections for\n        all reasons can be estimated to be tcpEStatsListenerSynRcvd\n        minus tcpEStatsListenerAccepted and\n        tcpEStatsListenerCurBacklog.')
-tcpEStatsListenerInitial = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 1, 1, 3), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsListenerInitial.setDescription('The total number of connections for which the Listener\n       has allocated initial state and placed the\n       connection in the backlog.  This may happen in the\n       SYN-RCVD or ESTABLISHED states, depending on the\n       implementation.')
-tcpEStatsListenerEstablished = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 1, 1, 4), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsListenerEstablished.setDescription('The number of connections that have been established to\n        this endpoint (e.g., the number of first ACKs that have\n        been received for this listener).')
-tcpEStatsListenerAccepted = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 1, 1, 5), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsListenerAccepted.setDescription('The total number of connections for which the Listener\n       has successfully issued an accept, removing the connection\n       from the backlog.')
-tcpEStatsListenerExceedBacklog = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 1, 1, 6), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsListenerExceedBacklog.setDescription('The total number of connections dropped from the\n      backlog by this listener due to all reasons.  This\n      includes all connections that are allocated initial\n      resources, but are not accepted for some reason.')
-tcpEStatsListenerHCSynRcvd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 1, 1, 7), ZeroBasedCounter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsListenerHCSynRcvd.setDescription('The number of SYNs that have been received for this\n        listener on systems that can process (or reject) more\n        than 1 million connections per second.  See\n        tcpEStatsListenerSynRcvd.')
-tcpEStatsListenerHCInitial = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 1, 1, 8), ZeroBasedCounter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsListenerHCInitial.setDescription('The total number of connections for which the Listener\n       has allocated initial state and placed the connection\n       in the backlog on systems that can process (or reject)\n       more than 1 million connections per second.  See\n       tcpEStatsListenerInitial.')
-tcpEStatsListenerHCEstablished = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 1, 1, 9), ZeroBasedCounter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsListenerHCEstablished.setDescription('The number of connections that have been established to\n        this endpoint on systems that can process (or reject) more\n        than 1 million connections per second.  See\n        tcpEStatsListenerEstablished.')
-tcpEStatsListenerHCAccepted = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 1, 1, 10), ZeroBasedCounter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsListenerHCAccepted.setDescription('The total number of connections for which the Listener\n       has successfully issued an accept, removing the connection\n       from the backlog on systems that can process (or reject)\n       more than 1 million connections per second.  See\n       tcpEStatsListenerAccepted.')
-tcpEStatsListenerHCExceedBacklog = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 1, 1, 11), ZeroBasedCounter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsListenerHCExceedBacklog.setDescription('The total number of connections dropped from the\n      backlog by this listener due to all reasons on\n      systems that can process (or reject) more than\n      1 million connections per second.  See\n      tcpEStatsListenerExceedBacklog.')
-tcpEStatsListenerCurConns = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 1, 1, 12), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsListenerCurConns.setDescription('The current number of connections in the ESTABLISHED\n       state, which have also been accepted.  It excludes\n       connections that have been established but not accepted\n       because they are still subject to being discarded to\n       shed load without explicit action by either endpoint.')
-tcpEStatsListenerMaxBacklog = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 1, 1, 13), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsListenerMaxBacklog.setDescription('The maximum number of connections allowed in the\n       backlog at one time.')
-tcpEStatsListenerCurBacklog = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 1, 1, 14), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsListenerCurBacklog.setDescription('The current number of connections that are in the backlog.\n       This gauge includes connections in ESTABLISHED or\n       SYN-RECEIVED states for which the Listener has not yet\n       issued an accept.\n\n       If this listener is using some technique to implicitly\n       represent the SYN-RECEIVED states (e.g., by\n       cryptographically encoding the state information in the\n       initial sequence number, ISS), it MAY elect to exclude\n       connections in the SYN-RECEIVED state from the backlog.')
-tcpEStatsListenerCurEstabBacklog = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 1, 1, 15), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsListenerCurEstabBacklog.setDescription('The current number of connections in the backlog that are\n       in the ESTABLISHED state, but for which the Listener has\n       not yet issued an accept.')
-tcpEStatsConnectIdTable = MibTable((1, 3, 6, 1, 2, 1, 156, 1, 1, 2), )
-if mibBuilder.loadTexts: tcpEStatsConnectIdTable.setDescription('This table maps information that uniquely identifies\n        each active TCP connection to the connection ID used by\n\n\n\n        other tables in this MIB Module.  It is an extension of\n        tcpConnectionTable in RFC 4022.\n\n        Entries are retained in this table for the number of\n        seconds indicated by the tcpEStatsConnTableLatency\n        object, after the TCP connection first enters the closed\n        state.')
-tcpEStatsConnectIdEntry = MibTableRow((1, 3, 6, 1, 2, 1, 156, 1, 1, 2, 1), )
-tcpConnectionEntry.registerAugmentions(("TCP-ESTATS-MIB", "tcpEStatsConnectIdEntry"))
+tcpConnectionEntry.registerAugmentions((_B,_N))
 tcpEStatsConnectIdEntry.setIndexNames(*tcpConnectionEntry.getIndexNames())
-if mibBuilder.loadTexts: tcpEStatsConnectIdEntry.setDescription('Each entry in this table maps a TCP connection\n        4-tuple to a connection index.')
-tcpEStatsConnectIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsConnectIndex.setDescription('A unique integer value assigned to each TCP Connection\n        entry.\n\n        The RECOMMENDED algorithm is to begin at 1 and increase to\n        some implementation-specific maximum value and then start\n        again at 1 skipping values already in use.')
-tcpEStatsPerfTable = MibTable((1, 3, 6, 1, 2, 1, 156, 1, 1, 3), )
-if mibBuilder.loadTexts: tcpEStatsPerfTable.setDescription('This table contains objects that are useful for\n\n\n\n        measuring TCP performance and first line problem\n        diagnosis.  Most objects in this table directly expose\n        some TCP state variable or are easily implemented as\n        simple functions (e.g., the maximum value) of TCP\n        state variables.\n\n        Entries are retained in this table for the number of\n        seconds indicated by the tcpEStatsConnTableLatency\n        object, after the TCP connection first enters the closed\n        state.')
-tcpEStatsPerfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1), ).setIndexNames((0, "TCP-ESTATS-MIB", "tcpEStatsConnectIndex"))
-if mibBuilder.loadTexts: tcpEStatsPerfEntry.setDescription('Each entry in this table has information about the\n        characteristics of each active and recently closed TCP\n        connection.')
-tcpEStatsPerfSegsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 1), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfSegsOut.setDescription('The total number of segments sent.')
-tcpEStatsPerfDataSegsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 2), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfDataSegsOut.setDescription('The number of segments sent containing a positive length\n        data segment.')
-tcpEStatsPerfDataOctetsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 3), ZeroBasedCounter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfDataOctetsOut.setDescription('The number of octets of data contained in transmitted\n        segments, including retransmitted data.  Note that this does\n        not include TCP headers.')
-tcpEStatsPerfHCDataOctetsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 4), ZeroBasedCounter64()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfHCDataOctetsOut.setDescription('The number of octets of data contained in transmitted\n        segments, including retransmitted data, on systems that can\n        transmit more than 10 million bits per second.  Note that\n        this does not include TCP headers.')
-tcpEStatsPerfSegsRetrans = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 5), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfSegsRetrans.setDescription('The number of segments transmitted containing at least some\n        retransmitted data.')
-tcpEStatsPerfOctetsRetrans = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 6), ZeroBasedCounter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfOctetsRetrans.setDescription('The number of octets retransmitted.')
-tcpEStatsPerfSegsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 7), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfSegsIn.setDescription('The total number of segments received.')
-tcpEStatsPerfDataSegsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 8), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfDataSegsIn.setDescription('The number of segments received containing a positive\n\n\n\n        length data segment.')
-tcpEStatsPerfDataOctetsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 9), ZeroBasedCounter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfDataOctetsIn.setDescription('The number of octets contained in received data segments,\n        including retransmitted data.  Note that this does not\n        include TCP headers.')
-tcpEStatsPerfHCDataOctetsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 10), ZeroBasedCounter64()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfHCDataOctetsIn.setDescription('The number of octets contained in received data segments,\n        including retransmitted data, on systems that can receive\n        more than 10 million bits per second.  Note that this does\n        not include TCP headers.')
-tcpEStatsPerfElapsedSecs = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 11), ZeroBasedCounter32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfElapsedSecs.setDescription('The seconds part of the time elapsed between\n        tcpEStatsPerfStartTimeStamp and the most recent protocol\n        event (segment sent or received).')
-tcpEStatsPerfElapsedMicroSecs = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 12), ZeroBasedCounter32()).setUnits('microseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfElapsedMicroSecs.setDescription('The micro-second part of time elapsed between\n        tcpEStatsPerfStartTimeStamp to the most recent protocol\n        event (segment sent or received).  This may be updated in\n        whatever time granularity is the system supports.')
-tcpEStatsPerfStartTimeStamp = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 13), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfStartTimeStamp.setDescription('Time at which this row was created and all\n        ZeroBasedCounters in the row were initialized to zero.')
-tcpEStatsPerfCurMSS = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 14), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfCurMSS.setDescription('The current maximum segment size (MSS), in octets.')
-tcpEStatsPerfPipeSize = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 15), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfPipeSize.setDescription("The TCP senders current estimate of the number of\n        unacknowledged data octets in the network.\n\n        While not in recovery (e.g., while the receiver is not\n        reporting missing data to the sender), this is precisely the\n        same as 'Flight size' as defined in RFC 2581, which can be\n        computed as SND.NXT minus SND.UNA. [RFC793]\n\n        During recovery, the TCP sender has incomplete information\n        about the state of the network (e.g., which segments are\n        lost vs reordered, especially if the return path is also\n        dropping TCP acknowledgments).  Current TCP standards do not\n        mandate any specific algorithm for estimating the number of\n        unacknowledged data octets in the network.\n\n        RFC 3517 describes a conservative algorithm to use SACK\n\n\n\n        information to estimate the number of unacknowledged data\n        octets in the network. tcpEStatsPerfPipeSize object SHOULD\n        be the same as 'pipe' as defined in RFC 3517 if it is\n        implemented. (Note that while not in recovery the pipe\n        algorithm yields the same values as flight size).\n\n        If RFC 3517 is not implemented, the data octets in flight\n        SHOULD be estimated as SND.NXT minus SND.UNA adjusted by\n        some measure of the data that has left the network and\n        retransmitted data.  For example, with Reno or NewReno style\n        TCP, the number of duplicate acknowledgment is used to\n        count the number of segments that have left the network.\n        That is,\n        PipeSize=SND.NXT-SND.UNA+(retransmits-dupacks)*CurMSS")
-tcpEStatsPerfMaxPipeSize = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 16), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfMaxPipeSize.setDescription('The maximum value of tcpEStatsPerfPipeSize, for this\n        connection.')
-tcpEStatsPerfSmoothedRTT = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 17), Gauge32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfSmoothedRTT.setDescription('The smoothed round trip time used in calculation of the\n        RTO. See SRTT in [RFC2988].')
-tcpEStatsPerfCurRTO = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 18), Gauge32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfCurRTO.setDescription('The current value of the retransmit timer RTO.')
-tcpEStatsPerfCongSignals = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 19), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfCongSignals.setDescription('The number of multiplicative downward congestion window\n        adjustments due to all forms of congestion signals,\n        including Fast Retransmit, Explicit Congestion Notification\n        (ECN), and timeouts.  This object summarizes all events that\n        invoke the MD portion of Additive Increase Multiplicative\n        Decrease (AIMD) congestion control, and as such is the best\n        indicator of how a cwnd is being affected by congestion.\n\n        Note that retransmission timeouts multiplicatively reduce\n        the window implicitly by setting ssthresh, and SHOULD be\n        included in tcpEStatsPerfCongSignals.  In order to minimize\n        spurious congestion indications due to out-of-order\n        segments, tcpEStatsPerfCongSignals SHOULD be incremented in\n        association with the Fast Retransmit algorithm.')
-tcpEStatsPerfCurCwnd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 20), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfCurCwnd.setDescription('The current congestion window, in octets.')
-tcpEStatsPerfCurSsthresh = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 21), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfCurSsthresh.setDescription('The current slow start threshold in octets.')
-tcpEStatsPerfTimeouts = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 22), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfTimeouts.setDescription('The number of times the retransmit timeout has expired when\n        the RTO backoff multiplier is equal to one.')
-tcpEStatsPerfCurRwinSent = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 23), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfCurRwinSent.setDescription('The most recent window advertisement sent, in octets.')
-tcpEStatsPerfMaxRwinSent = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 24), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfMaxRwinSent.setDescription('The maximum window advertisement sent, in octets.')
-tcpEStatsPerfZeroRwinSent = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 25), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfZeroRwinSent.setDescription('The number of acknowledgments sent announcing a zero\n\n\n\n        receive window, when the previously announced window was\n        not zero.')
-tcpEStatsPerfCurRwinRcvd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 26), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfCurRwinRcvd.setDescription('The most recent window advertisement received, in octets.')
-tcpEStatsPerfMaxRwinRcvd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 27), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfMaxRwinRcvd.setDescription('The maximum window advertisement received, in octets.')
-tcpEStatsPerfZeroRwinRcvd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 28), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfZeroRwinRcvd.setDescription('The number of acknowledgments received announcing a zero\n        receive window, when the previously announced window was\n        not zero.')
-tcpEStatsPerfSndLimTransRwin = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 31), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfSndLimTransRwin.setDescription("The number of transitions into the 'Receiver Limited' state\n        from either the 'Congestion Limited' or 'Sender Limited'\n        states.  This state is entered whenever TCP transmission\n        stops because the sender has filled the announced receiver\n        window, i.e., when SND.NXT has advanced to SND.UNA +\n        SND.WND - 1 as described in RFC 793.")
-tcpEStatsPerfSndLimTransCwnd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 32), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfSndLimTransCwnd.setDescription("The number of transitions into the 'Congestion Limited'\n        state from either the 'Receiver Limited' or 'Sender\n        Limited' states.  This state is entered whenever TCP\n        transmission stops because the sender has reached some\n        limit defined by congestion control (e.g., cwnd) or other\n        algorithms (retransmission timeouts) designed to control\n        network traffic.  See the definition of 'CONGESTION WINDOW'\n\n\n\n        in RFC 2581.")
-tcpEStatsPerfSndLimTransSnd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 33), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfSndLimTransSnd.setDescription("The number of transitions into the 'Sender Limited' state\n        from either the 'Receiver Limited' or 'Congestion Limited'\n        states.  This state is entered whenever TCP transmission\n        stops due to some sender limit such as running out of\n        application data or other resources and the Karn algorithm.\n        When TCP stops sending data for any reason, which cannot be\n        classified as Receiver Limited or Congestion Limited, it\n        MUST be treated as Sender Limited.")
-tcpEStatsPerfSndLimTimeRwin = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 34), ZeroBasedCounter32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfSndLimTimeRwin.setDescription("The cumulative time spent in the 'Receiver Limited' state.\n        See tcpEStatsPerfSndLimTransRwin.")
-tcpEStatsPerfSndLimTimeCwnd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 35), ZeroBasedCounter32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfSndLimTimeCwnd.setDescription("The cumulative time spent in the 'Congestion Limited'\n        state.  See tcpEStatsPerfSndLimTransCwnd.  When there is a\n        retransmission timeout, it SHOULD be counted in\n        tcpEStatsPerfSndLimTimeCwnd (and not the cumulative time\n        for some other state.)")
-tcpEStatsPerfSndLimTimeSnd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 3, 1, 36), ZeroBasedCounter32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPerfSndLimTimeSnd.setDescription("The cumulative time spent in the 'Sender Limited' state.\n        See tcpEStatsPerfSndLimTransSnd.")
-tcpEStatsPathTable = MibTable((1, 3, 6, 1, 2, 1, 156, 1, 1, 4), )
-if mibBuilder.loadTexts: tcpEStatsPathTable.setDescription('This table contains objects that can be used to infer\n        detailed behavior of the Internet path, such as the\n        extent that there is reordering, ECN bits, and if\n        RTT fluctuations are correlated to losses.\n\n        Entries are retained in this table for the number of\n        seconds indicated by the tcpEStatsConnTableLatency\n        object, after the TCP connection first enters the closed\n        state.')
-tcpEStatsPathEntry = MibTableRow((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1), ).setIndexNames((0, "TCP-ESTATS-MIB", "tcpEStatsConnectIndex"))
-if mibBuilder.loadTexts: tcpEStatsPathEntry.setDescription('Each entry in this table has information about the\n        characteristics of each active and recently closed TCP\n        connection.')
-tcpEStatsPathRetranThresh = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 1), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathRetranThresh.setDescription('The number of duplicate acknowledgments required to trigger\n        Fast Retransmit.  Note that although this is constant in\n        traditional Reno TCP implementations, it is adaptive in\n        many newer TCPs.')
-tcpEStatsPathNonRecovDAEpisodes = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 2), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathNonRecovDAEpisodes.setDescription("The number of duplicate acknowledgment episodes that did\n        not trigger a Fast Retransmit because ACK advanced prior to\n        the number of duplicate acknowledgments reaching\n        RetranThresh.\n\n\n\n\n        In many implementations this is the number of times the\n        'dupacks' counter is set to zero when it is non-zero but\n        less than RetranThresh.\n\n        Note that the change in tcpEStatsPathNonRecovDAEpisodes\n        divided by the change in tcpEStatsPerfDataSegsOut is an\n        estimate of the frequency of data reordering on the forward\n        path over some interval.")
-tcpEStatsPathSumOctetsReordered = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 3), ZeroBasedCounter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathSumOctetsReordered.setDescription('The sum of the amounts SND.UNA advances on the\n        acknowledgment which ends a dup-ack episode without a\n        retransmission.\n\n        Note the change in tcpEStatsPathSumOctetsReordered divided\n        by the change in tcpEStatsPathNonRecovDAEpisodes is an\n        estimates of the average reordering distance, over some\n        interval.')
-tcpEStatsPathNonRecovDA = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 4), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathNonRecovDA.setDescription("Duplicate acks (or SACKS) that did not trigger a Fast\n        Retransmit because ACK advanced prior to the number of\n        duplicate acknowledgments reaching RetranThresh.\n\n        In many implementations, this is the sum of the 'dupacks'\n        counter, just before it is set to zero because ACK advanced\n        without a Fast Retransmit.\n\n        Note that the change in tcpEStatsPathNonRecovDA divided by\n        the change in tcpEStatsPathNonRecovDAEpisodes is an\n        estimate of the average reordering distance in segments\n        over some interval.")
-tcpEStatsPathSampleRTT = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 11), Gauge32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathSampleRTT.setDescription('The most recent raw round trip time measurement used in\n        calculation of the RTO.')
-tcpEStatsPathRTTVar = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 12), Gauge32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathRTTVar.setDescription('The round trip time variation used in calculation of the\n        RTO.  See RTTVAR in [RFC2988].')
-tcpEStatsPathMaxRTT = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 13), Gauge32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathMaxRTT.setDescription('The maximum sampled round trip time.')
-tcpEStatsPathMinRTT = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 14), Gauge32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathMinRTT.setDescription('The minimum sampled round trip time.')
-tcpEStatsPathSumRTT = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 15), ZeroBasedCounter32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathSumRTT.setDescription('The sum of all sampled round trip times.\n\n        Note that the change in tcpEStatsPathSumRTT divided by the\n        change in tcpEStatsPathCountRTT is the mean RTT, uniformly\n        averaged over an enter interval.')
-tcpEStatsPathHCSumRTT = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 16), ZeroBasedCounter64()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathHCSumRTT.setDescription('The sum of all sampled round trip times, on all systems\n        that implement multiple concurrent RTT measurements.\n\n        Note that the change in tcpEStatsPathHCSumRTT divided by\n        the change in tcpEStatsPathCountRTT is the mean RTT,\n        uniformly averaged over an enter interval.')
-tcpEStatsPathCountRTT = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 17), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathCountRTT.setDescription('The number of round trip time samples included in\n        tcpEStatsPathSumRTT and tcpEStatsPathHCSumRTT.')
-tcpEStatsPathMaxRTO = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 18), Gauge32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathMaxRTO.setDescription('The maximum value of the retransmit timer RTO.')
-tcpEStatsPathMinRTO = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 19), Gauge32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathMinRTO.setDescription('The minimum value of the retransmit timer RTO.')
-tcpEStatsPathIpTtl = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 20), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathIpTtl.setDescription('The value of the TTL field carried in the most recently\n        received IP header.  This is sometimes useful to detect\n        changing or unstable routes.')
-tcpEStatsPathIpTosIn = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 21), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathIpTosIn.setDescription('The value of the IPv4 Type of Service octet, or the IPv6\n        traffic class octet, carried in the most recently received\n        IP header.\n\n        This is useful to diagnose interactions between TCP and any\n        IP layer packet scheduling and delivery policy, which might\n        be in effect to implement Diffserv.')
-tcpEStatsPathIpTosOut = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 22), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathIpTosOut.setDescription('The value of the IPv4 Type Of Service octet, or the IPv6\n        traffic class octet, carried in the most recently\n        transmitted IP header.\n\n        This is useful to diagnose interactions between TCP and any\n        IP layer packet scheduling and delivery policy, which might\n        be in effect to implement Diffserv.')
-tcpEStatsPathPreCongSumCwnd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 23), ZeroBasedCounter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathPreCongSumCwnd.setDescription('The sum of the values of the congestion window, in octets,\n        captured each time a congestion signal is received.  This\n        MUST be updated each time tcpEStatsPerfCongSignals is\n        incremented, such that the change in\n        tcpEStatsPathPreCongSumCwnd divided by the change in\n        tcpEStatsPerfCongSignals is the average window (over some\n        interval) just prior to a congestion signal.')
-tcpEStatsPathPreCongSumRTT = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 24), ZeroBasedCounter32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathPreCongSumRTT.setDescription('Sum of the last sample of the RTT (tcpEStatsPathSampleRTT)\n        prior to the received congestion signals.  This MUST be\n        updated each time tcpEStatsPerfCongSignals is incremented,\n        such that the change in tcpEStatsPathPreCongSumRTT divided by\n        the change in tcpEStatsPerfCongSignals is the average RTT\n        (over some interval) just prior to a congestion signal.')
-tcpEStatsPathPostCongSumRTT = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 25), ZeroBasedCounter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathPostCongSumRTT.setDescription('Sum of the first sample of the RTT (tcpEStatsPathSampleRTT)\n        following each congestion signal.  Such that the change in\n        tcpEStatsPathPostCongSumRTT divided by the change in\n        tcpEStatsPathPostCongCountRTT is the average RTT (over some\n        interval) just after a congestion signal.')
-tcpEStatsPathPostCongCountRTT = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 26), ZeroBasedCounter32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathPostCongCountRTT.setDescription('The number of RTT samples included in\n        tcpEStatsPathPostCongSumRTT such that the change in\n        tcpEStatsPathPostCongSumRTT divided by the change in\n        tcpEStatsPathPostCongCountRTT is the average RTT (over some\n        interval) just after a congestion signal.')
-tcpEStatsPathECNsignals = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 27), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathECNsignals.setDescription('The number of congestion signals delivered to the TCP\n        sender via explicit congestion notification (ECN).  This is\n        typically the number of segments bearing Echo Congestion\n\n\n\n        Experienced (ECE) bits, but\n        should also include segments failing the ECN nonce check or\n        other explicit congestion signals.')
-tcpEStatsPathDupAckEpisodes = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 28), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathDupAckEpisodes.setDescription('The number of Duplicate Acks Sent when prior Ack was not\n        duplicate.  This is the number of times that a contiguous\n        series of duplicate acknowledgments have been sent.\n\n        This is an indication of the number of data segments lost\n        or reordered on the path from the remote TCP endpoint to\n        the near TCP endpoint.')
-tcpEStatsPathRcvRTT = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 29), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathRcvRTT.setDescription("The receiver's estimate of the Path RTT.\n\n        Adaptive receiver window algorithms depend on the receiver\n        to having a good estimate of the path RTT.")
-tcpEStatsPathDupAcksOut = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 30), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathDupAcksOut.setDescription('The number of duplicate ACKs sent.  The ratio of the change\n        in tcpEStatsPathDupAcksOut to the change in\n        tcpEStatsPathDupAckEpisodes is an indication of reorder or\n        recovery distance over some interval.')
-tcpEStatsPathCERcvd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 31), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathCERcvd.setDescription('The number of segments received with IP headers bearing\n        Congestion Experienced (CE) markings.')
-tcpEStatsPathECESent = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 4, 1, 32), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsPathECESent.setDescription('Number of times the Echo Congestion Experienced (ECE) bit\n        in the TCP header has been set (transitioned from 0 to 1),\n        due to a Congestion Experienced (CE) marking on an IP\n        header.  Note that ECE can be set and reset only once per\n        RTT, while CE can be set on many segments per RTT.')
-tcpEStatsStackTable = MibTable((1, 3, 6, 1, 2, 1, 156, 1, 1, 5), )
-if mibBuilder.loadTexts: tcpEStatsStackTable.setDescription('This table contains objects that are most useful for\n        determining how well some of the TCP control\n        algorithms are coping with this particular\n\n\n\n        path.\n\n        Entries are retained in this table for the number of\n        seconds indicated by the tcpEStatsConnTableLatency\n        object, after the TCP connection first enters the closed\n        state.')
-tcpEStatsStackEntry = MibTableRow((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1), ).setIndexNames((0, "TCP-ESTATS-MIB", "tcpEStatsConnectIndex"))
-if mibBuilder.loadTexts: tcpEStatsStackEntry.setDescription('Each entry in this table has information about the\n        characteristics of each active and recently closed TCP\n        connection.')
-tcpEStatsStackActiveOpen = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackActiveOpen.setDescription('True(1) if the local connection traversed the SYN-SENT\n        state, else false(2).')
-tcpEStatsStackMSSSent = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackMSSSent.setDescription('The value sent in an MSS option, or zero if none.')
-tcpEStatsStackMSSRcvd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackMSSRcvd.setDescription('The value received in an MSS option, or zero if none.')
-tcpEStatsStackWinScaleSent = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1,14))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackWinScaleSent.setDescription('The value of the transmitted window scale option if one was\n        sent; otherwise, a value of -1.\n\n        Note that if both tcpEStatsStackWinScaleSent and\n        tcpEStatsStackWinScaleRcvd are not -1, then Rcv.Wind.Scale\n        will be the same as this value and used to scale receiver\n        window announcements from the local host to the remote\n        host.')
-tcpEStatsStackWinScaleRcvd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1,14))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackWinScaleRcvd.setDescription('The value of the received window scale option if one was\n        received; otherwise, a value of -1.\n\n        Note that if both tcpEStatsStackWinScaleSent and\n        tcpEStatsStackWinScaleRcvd are not -1, then Snd.Wind.Scale\n        will be the same as this value and used to scale receiver\n        window announcements from the remote host to the local\n        host.')
-tcpEStatsStackTimeStamps = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 6), TcpEStatsNegotiated()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackTimeStamps.setDescription('Enabled(1) if TCP timestamps have been negotiated on,\n        selfDisabled(2) if they are disabled or not implemented on\n        the local host, or peerDisabled(3) if not negotiated by the\n        remote hosts.')
-tcpEStatsStackECN = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 7), TcpEStatsNegotiated()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackECN.setDescription('Enabled(1) if Explicit Congestion Notification (ECN) has\n        been negotiated on, selfDisabled(2) if it is disabled or\n        not implemented on the local host, or peerDisabled(3) if\n        not negotiated by the remote hosts.')
-tcpEStatsStackWillSendSACK = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 8), TcpEStatsNegotiated()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackWillSendSACK.setDescription('Enabled(1) if the local host will send SACK options,\n        selfDisabled(2) if SACK is disabled or not implemented on\n        the local host, or peerDisabled(3) if the remote host did\n        not send the SACK-permitted option.\n\n        Note that SACK negotiation is not symmetrical.  SACK can\n        enabled on one side of the connection and not the other.')
-tcpEStatsStackWillUseSACK = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 9), TcpEStatsNegotiated()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackWillUseSACK.setDescription('Enabled(1) if the local host will process SACK options,\n        selfDisabled(2) if SACK is disabled or not implemented on\n        the local host, or peerDisabled(3) if the remote host sends\n\n\n\n        duplicate ACKs without SACK options, or the local host\n        otherwise decides not to process received SACK options.\n\n        Unlike other TCP options, the remote data receiver cannot\n        explicitly indicate if it is able to generate SACK options.\n        When sending data, the local host has to deduce if the\n        remote receiver is sending SACK options.  This object can\n        transition from Enabled(1) to peerDisabled(3) after the SYN\n        exchange.\n\n        Note that SACK negotiation is not symmetrical.  SACK can\n        enabled on one side of the connection and not the other.')
-tcpEStatsStackState = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,))).clone(namedValues=NamedValues(("tcpESStateClosed", 1), ("tcpESStateListen", 2), ("tcpESStateSynSent", 3), ("tcpESStateSynReceived", 4), ("tcpESStateEstablished", 5), ("tcpESStateFinWait1", 6), ("tcpESStateFinWait2", 7), ("tcpESStateCloseWait", 8), ("tcpESStateLastAck", 9), ("tcpESStateClosing", 10), ("tcpESStateTimeWait", 11), ("tcpESStateDeleteTcb", 12),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackState.setDescription('An integer value representing the connection state from the\n        TCP State Transition Diagram.\n\n        The value listen(2) is included only for parallelism to the\n        old tcpConnTable, and SHOULD NOT be used because the listen\n        state in managed by the tcpListenerTable.\n\n        The value DeleteTcb(12) is included only for parallelism to\n        the tcpConnTable mechanism for terminating connections,\n\n\n\n        although this table does not permit writing.')
-tcpEStatsStackNagle = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 11), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackNagle.setDescription('True(1) if the Nagle algorithm is being used, else\n        false(2).')
-tcpEStatsStackMaxSsCwnd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 12), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackMaxSsCwnd.setDescription('The maximum congestion window used during Slow Start, in\n        octets.')
-tcpEStatsStackMaxCaCwnd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 13), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackMaxCaCwnd.setDescription('The maximum congestion window used during Congestion\n        Avoidance, in octets.')
-tcpEStatsStackMaxSsthresh = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 14), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackMaxSsthresh.setDescription('The maximum slow start threshold, excluding the initial\n        value.')
-tcpEStatsStackMinSsthresh = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 15), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackMinSsthresh.setDescription('The minimum slow start threshold.')
-tcpEStatsStackInRecovery = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("tcpESDataContiguous", 1), ("tcpESDataUnordered", 2), ("tcpESDataRecovery", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackInRecovery.setDescription('An integer value representing the state of the loss\n        recovery for this connection.\n\n        tcpESDataContiguous(1) indicates that the remote receiver\n        is reporting contiguous data (no duplicate acknowledgments\n        or SACK options) and that there are no unacknowledged\n        retransmissions.\n\n        tcpESDataUnordered(2) indicates that the remote receiver is\n        reporting missing or out-of-order data (e.g., sending\n        duplicate acknowledgments or SACK options) and that there\n        are no unacknowledged retransmissions (because the missing\n        data has not yet been retransmitted).\n\n        tcpESDataRecovery(3) indicates that the sender has\n        outstanding retransmitted data that is still\n\n\n\n        unacknowledged.')
-tcpEStatsStackDupAcksIn = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 17), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackDupAcksIn.setDescription('The number of duplicate ACKs received.')
-tcpEStatsStackSpuriousFrDetected = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 18), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackSpuriousFrDetected.setDescription("The number of acknowledgments reporting out-of-order\n        segments after the Fast Retransmit algorithm has already\n        retransmitted the segments. (For example as detected by the\n        Eifel algorithm).'")
-tcpEStatsStackSpuriousRtoDetected = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 19), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackSpuriousRtoDetected.setDescription('The number of acknowledgments reporting segments that have\n        already been retransmitted due to a Retransmission Timeout.')
-tcpEStatsStackSoftErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 21), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackSoftErrors.setDescription('The number of segments that fail various consistency tests\n        during TCP input processing.  Soft errors might cause the\n        segment to be discarded but some do not.  Some of these soft\n        errors cause the generation of a TCP acknowledgment, while\n        others are silently discarded.')
-tcpEStatsStackSoftErrorReason = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8,))).clone(namedValues=NamedValues(("belowDataWindow", 1), ("aboveDataWindow", 2), ("belowAckWindow", 3), ("aboveAckWindow", 4), ("belowTSWindow", 5), ("aboveTSWindow", 6), ("dataCheckSum", 7), ("otherSoftError", 8),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackSoftErrorReason.setDescription('This object identifies which consistency test most recently\n        failed during TCP input processing.  This object SHOULD be\n        set every time tcpEStatsStackSoftErrors is incremented.  The\n        codes are as follows:\n\n        belowDataWindow(1) - All data in the segment is below\n        SND.UNA. (Normal for keep-alives and zero window probes).\n\n        aboveDataWindow(2) - Some data in the segment is above\n        SND.WND. (Indicates an implementation bug or possible\n        attack).\n\n        belowAckWindow(3) - ACK below SND.UNA. (Indicates that the\n        return path is reordering ACKs)\n\n        aboveAckWindow(4) - An ACK for data that we have not sent.\n        (Indicates an implementation bug or possible attack).\n\n        belowTSWindow(5) - TSecr on the segment is older than the\n        current TS.Recent (Normal for the rare case where PAWS\n        detects data reordered by the network).\n\n        aboveTSWindow(6) - TSecr on the segment is newer than the\n        current TS.Recent. (Indicates an implementation bug or\n        possible attack).\n\n\n\n\n        dataCheckSum(7) - Incorrect checksum.  Note that this value\n        is intrinsically fragile, because the header fields used to\n        identify the connection may have been corrupted.\n\n        otherSoftError(8) - All other soft errors not listed\n        above.')
-tcpEStatsStackSlowStart = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 23), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackSlowStart.setDescription('The number of times the congestion window has been\n        increased by the Slow Start algorithm.')
-tcpEStatsStackCongAvoid = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 24), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackCongAvoid.setDescription('The number of times the congestion window has been\n        increased by the Congestion Avoidance algorithm.')
-tcpEStatsStackOtherReductions = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 25), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackOtherReductions.setDescription('The number of congestion window reductions made as a result\n        of anything other than AIMD congestion control algorithms.\n        Examples of non-multiplicative window reductions include\n        Congestion Window Validation [RFC2861] and experimental\n        algorithms such as Vegas [Bra94].\n\n\n\n\n        All window reductions MUST be counted as either\n        tcpEStatsPerfCongSignals or tcpEStatsStackOtherReductions.')
-tcpEStatsStackCongOverCount = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 26), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackCongOverCount.setDescription("The number of congestion events that were 'backed out' of\n        the congestion control state machine such that the\n        congestion window was restored to a prior value.  This can\n        happen due to the Eifel algorithm [RFC3522] or other\n        algorithms that can be used to detect and cancel spurious\n        invocations of the Fast Retransmit Algorithm.\n\n        Although it may be feasible to undo the effects of spurious\n        invocation of the Fast Retransmit congestion events cannot\n        easily be backed out of tcpEStatsPerfCongSignals and\n        tcpEStatsPathPreCongSumCwnd, etc.")
-tcpEStatsStackFastRetran = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 27), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackFastRetran.setDescription('The number of invocations of the Fast Retransmit algorithm.')
-tcpEStatsStackSubsequentTimeouts = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 28), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackSubsequentTimeouts.setDescription('The number of times the retransmit timeout has expired after\n        the RTO has been doubled.  See Section 5.5 of RFC 2988.')
-tcpEStatsStackCurTimeoutCount = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 29), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackCurTimeoutCount.setDescription('The current number of times the retransmit timeout has\n        expired without receiving an acknowledgment for new data.\n        tcpEStatsStackCurTimeoutCount is reset to zero when new\n        data is acknowledged and incremented for each invocation of\n        Section 5.5 of RFC 2988.')
-tcpEStatsStackAbruptTimeouts = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 30), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackAbruptTimeouts.setDescription('The number of timeouts that occurred without any\n        immediately preceding duplicate acknowledgments or other\n        indications of congestion.  Abrupt Timeouts indicate that\n        the path lost an entire window of data or acknowledgments.\n\n        Timeouts that are preceded by duplicate acknowledgments or\n        other congestion signals (e.g., ECN) are not counted as\n        abrupt, and might have been avoided by a more sophisticated\n        Fast Retransmit algorithm.')
-tcpEStatsStackSACKsRcvd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 31), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackSACKsRcvd.setDescription('The number of SACK options received.')
-tcpEStatsStackSACKBlocksRcvd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 32), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackSACKBlocksRcvd.setDescription('The number of SACK blocks received (within SACK options).')
-tcpEStatsStackSendStall = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 33), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackSendStall.setDescription('The number of interface stalls or other sender local\n        resource limitations that are treated as congestion\n        signals.')
-tcpEStatsStackDSACKDups = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 34), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackDSACKDups.setDescription('The number of duplicate segments reported to the local host\n        by D-SACK blocks.')
-tcpEStatsStackMaxMSS = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 35), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackMaxMSS.setDescription('The maximum MSS, in octets.')
-tcpEStatsStackMinMSS = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 36), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackMinMSS.setDescription('The minimum MSS, in octets.')
-tcpEStatsStackSndInitial = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 37), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackSndInitial.setDescription('Initial send sequence number.  Note that by definition\n        tcpEStatsStackSndInitial never changes for a given\n        connection.')
-tcpEStatsStackRecInitial = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 38), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackRecInitial.setDescription('Initial receive sequence number.  Note that by definition\n        tcpEStatsStackRecInitial never changes for a given\n        connection.')
-tcpEStatsStackCurRetxQueue = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 39), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackCurRetxQueue.setDescription('The current number of octets of data occupying the\n        retransmit queue.')
-tcpEStatsStackMaxRetxQueue = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 40), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackMaxRetxQueue.setDescription('The maximum number of octets of data occupying the\n        retransmit queue.')
-tcpEStatsStackCurReasmQueue = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 41), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackCurReasmQueue.setDescription('The current number of octets of sequence space spanned by\n        the reassembly queue.  This is generally the difference\n        between rcv.nxt and the sequence number of the right most\n        edge of the reassembly queue.')
-tcpEStatsStackMaxReasmQueue = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 5, 1, 42), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsStackMaxReasmQueue.setDescription('The maximum value of tcpEStatsStackCurReasmQueue')
-tcpEStatsAppTable = MibTable((1, 3, 6, 1, 2, 1, 156, 1, 1, 6), )
-if mibBuilder.loadTexts: tcpEStatsAppTable.setDescription('This table contains objects that are useful for\n        determining if the application using TCP is\n\n\n\n        limiting TCP performance.\n\n        Entries are retained in this table for the number of\n        seconds indicated by the tcpEStatsConnTableLatency\n        object, after the TCP connection first enters the closed\n        state.')
-tcpEStatsAppEntry = MibTableRow((1, 3, 6, 1, 2, 1, 156, 1, 1, 6, 1), ).setIndexNames((0, "TCP-ESTATS-MIB", "tcpEStatsConnectIndex"))
-if mibBuilder.loadTexts: tcpEStatsAppEntry.setDescription('Each entry in this table has information about the\n        characteristics of each active and recently closed TCP\n        connection.')
-tcpEStatsAppSndUna = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 6, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsAppSndUna.setDescription('The value of SND.UNA, the oldest unacknowledged sequence\n        number.\n\n        Note that SND.UNA is a TCP state variable that is congruent\n        to Counter32 semantics.')
-tcpEStatsAppSndNxt = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 6, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsAppSndNxt.setDescription('The value of SND.NXT, the next sequence number to be sent.\n        Note that tcpEStatsAppSndNxt is not monotonic (and thus not\n        a counter) because TCP sometimes retransmits lost data by\n        pulling tcpEStatsAppSndNxt back to the missing data.')
-tcpEStatsAppSndMax = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 6, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsAppSndMax.setDescription('The farthest forward (right most or largest) SND.NXT value.\n        Note that this will be equal to tcpEStatsAppSndNxt except\n        when tcpEStatsAppSndNxt is pulled back during recovery.')
-tcpEStatsAppThruOctetsAcked = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 6, 1, 4), ZeroBasedCounter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsAppThruOctetsAcked.setDescription('The number of octets for which cumulative acknowledgments\n        have been received.  Note that this will be the sum of\n        changes to tcpEStatsAppSndUna.')
-tcpEStatsAppHCThruOctetsAcked = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 6, 1, 5), ZeroBasedCounter64()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsAppHCThruOctetsAcked.setDescription('The number of octets for which cumulative acknowledgments\n        have been received, on systems that can receive more than\n        10 million bits per second.  Note that this will be the sum\n        of changes in tcpEStatsAppSndUna.')
-tcpEStatsAppRcvNxt = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 6, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsAppRcvNxt.setDescription('The value of RCV.NXT.  The next sequence number expected on\n        an incoming segment, and the left or lower edge of the\n        receive window.\n\n        Note that RCV.NXT is a TCP state variable that is congruent\n        to Counter32 semantics.')
-tcpEStatsAppThruOctetsReceived = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 6, 1, 7), ZeroBasedCounter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsAppThruOctetsReceived.setDescription('The number of octets for which cumulative acknowledgments\n        have been sent.  Note that this will be the sum of changes\n        to tcpEStatsAppRcvNxt.')
-tcpEStatsAppHCThruOctetsReceived = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 6, 1, 8), ZeroBasedCounter64()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsAppHCThruOctetsReceived.setDescription('The number of octets for which cumulative acknowledgments\n        have been sent, on systems that can transmit more than 10\n        million bits per second.  Note that this will be the sum of\n        changes in tcpEStatsAppRcvNxt.')
-tcpEStatsAppCurAppWQueue = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 6, 1, 11), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsAppCurAppWQueue.setDescription('The current number of octets of application data buffered\n        by TCP, pending first transmission, i.e., to the left of\n        SND.NXT or SndMax.  This data will generally be transmitted\n        (and SND.NXT advanced to the left) as soon as there is an\n        available congestion window (cwnd) or receiver window\n        (rwin).  This is the amount of data readily available for\n        transmission, without scheduling the application.  TCP\n        performance may suffer if there is insufficient queued\n        write data.')
-tcpEStatsAppMaxAppWQueue = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 6, 1, 12), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsAppMaxAppWQueue.setDescription('The maximum number of octets of application data buffered\n        by TCP, pending first transmission.  This is the maximum\n        value of tcpEStatsAppCurAppWQueue.  This pair of objects can\n        be used to determine if insufficient queued data is steady\n        state (suggesting insufficient queue space) or transient\n        (suggesting insufficient application performance or\n        excessive CPU load or scheduler latency).')
-tcpEStatsAppCurAppRQueue = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 6, 1, 13), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsAppCurAppRQueue.setDescription('The current number of octets of application data that has\n        been acknowledged by TCP but not yet delivered to the\n        application.')
-tcpEStatsAppMaxAppRQueue = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 6, 1, 14), Gauge32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcpEStatsAppMaxAppRQueue.setDescription('The maximum number of octets of application data that has\n        been acknowledged by TCP but not yet delivered to the\n        application.')
-tcpEStatsTuneTable = MibTable((1, 3, 6, 1, 2, 1, 156, 1, 1, 7), )
-if mibBuilder.loadTexts: tcpEStatsTuneTable.setDescription('This table contains per-connection controls that can\n        be used to work around a number of common problems that\n        plague TCP over some paths.  All can be characterized as\n        limiting the growth of the congestion window so as to\n        prevent TCP from overwhelming some component in the\n        path.\n\n        Entries are retained in this table for the number of\n        seconds indicated by the tcpEStatsConnTableLatency\n        object, after the TCP connection first enters the closed\n        state.')
-tcpEStatsTuneEntry = MibTableRow((1, 3, 6, 1, 2, 1, 156, 1, 1, 7, 1), ).setIndexNames((0, "TCP-ESTATS-MIB", "tcpEStatsConnectIndex"))
-if mibBuilder.loadTexts: tcpEStatsTuneEntry.setDescription('Each entry in this table is a control that can be used to\n        place limits on each active TCP connection.')
-tcpEStatsTuneLimCwnd = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 7, 1, 1), Unsigned32()).setUnits('octets').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tcpEStatsTuneLimCwnd.setDescription('A control to set the maximum congestion window that may be\n        used, in octets.')
-tcpEStatsTuneLimSsthresh = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 7, 1, 2), Unsigned32()).setUnits('octets').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tcpEStatsTuneLimSsthresh.setDescription('A control to limit the maximum queue space (in octets) that\n        this TCP connection is likely to occupy during slowstart.\n\n        It can be implemented with the algorithm described in\n        RFC 3742 by setting the max_ssthresh parameter to twice\n        tcpEStatsTuneLimSsthresh.\n\n        This algorithm can be used to overcome some TCP performance\n        problems over network paths that do not have sufficient\n        buffering to withstand the bursts normally present during\n        slowstart.')
-tcpEStatsTuneLimRwin = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 7, 1, 3), Unsigned32()).setUnits('octets').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tcpEStatsTuneLimRwin.setDescription('A control to set the maximum window advertisement that may\n        be sent, in octets.')
-tcpEStatsTuneLimMSS = MibTableColumn((1, 3, 6, 1, 2, 1, 156, 1, 1, 7, 1, 4), Unsigned32()).setUnits('octets').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tcpEStatsTuneLimMSS.setDescription('A control to limit the maximum segment size in octets, that\n        this TCP connection can use.')
-tcpEStatsEstablishNotification = NotificationType((1, 3, 6, 1, 2, 1, 156, 0, 1)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsConnectIndex"),))
-if mibBuilder.loadTexts: tcpEStatsEstablishNotification.setDescription('The indicated connection has been accepted\n        (or alternatively entered the established state).')
-tcpEStatsCloseNotification = NotificationType((1, 3, 6, 1, 2, 1, 156, 0, 2)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsConnectIndex"),))
-if mibBuilder.loadTexts: tcpEStatsCloseNotification.setDescription('The indicated connection has left the\n        established state')
-tcpEStatsCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 156, 2, 1))
-tcpEStatsGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 156, 2, 2))
-tcpEStatsCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 156, 2, 1, 1)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsListenerGroup"), ("TCP-ESTATS-MIB", "tcpEStatsConnectIdGroup"), ("TCP-ESTATS-MIB", "tcpEStatsPerfGroup"), ("TCP-ESTATS-MIB", "tcpEStatsPathGroup"), ("TCP-ESTATS-MIB", "tcpEStatsStackGroup"), ("TCP-ESTATS-MIB", "tcpEStatsAppGroup"), ("TCP-ESTATS-MIB", "tcpEStatsListenerHCGroup"), ("TCP-ESTATS-MIB", "tcpEStatsPerfOptionalGroup"), ("TCP-ESTATS-MIB", "tcpEStatsPerfHCGroup"), ("TCP-ESTATS-MIB", "tcpEStatsPathOptionalGroup"), ("TCP-ESTATS-MIB", "tcpEStatsPathHCGroup"), ("TCP-ESTATS-MIB", "tcpEStatsStackOptionalGroup"), ("TCP-ESTATS-MIB", "tcpEStatsAppHCGroup"), ("TCP-ESTATS-MIB", "tcpEStatsAppOptionalGroup"), ("TCP-ESTATS-MIB", "tcpEStatsTuneOptionalGroup"), ("TCP-ESTATS-MIB", "tcpEStatsNotificationsGroup"), ("TCP-ESTATS-MIB", "tcpEStatsNotificationsCtlGroup"),))
-if mibBuilder.loadTexts: tcpEStatsCompliance.setDescription('Compliance statement for all systems that implement TCP\n         extended statistics.')
-tcpEStatsListenerGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 156, 2, 2, 1)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsListenerTableLastChange"), ("TCP-ESTATS-MIB", "tcpEStatsListenerStartTime"), ("TCP-ESTATS-MIB", "tcpEStatsListenerSynRcvd"), ("TCP-ESTATS-MIB", "tcpEStatsListenerInitial"), ("TCP-ESTATS-MIB", "tcpEStatsListenerEstablished"), ("TCP-ESTATS-MIB", "tcpEStatsListenerAccepted"), ("TCP-ESTATS-MIB", "tcpEStatsListenerExceedBacklog"), ("TCP-ESTATS-MIB", "tcpEStatsListenerCurConns"), ("TCP-ESTATS-MIB", "tcpEStatsListenerMaxBacklog"), ("TCP-ESTATS-MIB", "tcpEStatsListenerCurBacklog"), ("TCP-ESTATS-MIB", "tcpEStatsListenerCurEstabBacklog"),))
-if mibBuilder.loadTexts: tcpEStatsListenerGroup.setDescription('The tcpEStatsListener group includes objects that\n              provide valuable statistics and debugging\n              information for TCP Listeners.')
-tcpEStatsListenerHCGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 156, 2, 2, 2)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsListenerHCSynRcvd"), ("TCP-ESTATS-MIB", "tcpEStatsListenerHCInitial"), ("TCP-ESTATS-MIB", "tcpEStatsListenerHCEstablished"), ("TCP-ESTATS-MIB", "tcpEStatsListenerHCAccepted"), ("TCP-ESTATS-MIB", "tcpEStatsListenerHCExceedBacklog"),))
-if mibBuilder.loadTexts: tcpEStatsListenerHCGroup.setDescription('The tcpEStatsListenerHC group includes 64-bit\n               counters in tcpEStatsListenerTable.')
-tcpEStatsConnectIdGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 156, 2, 2, 3)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsConnTableLatency"), ("TCP-ESTATS-MIB", "tcpEStatsConnectIndex"),))
-if mibBuilder.loadTexts: tcpEStatsConnectIdGroup.setDescription('The tcpEStatsConnectId group includes objects that\n              identify TCP connections and control how long TCP\n              connection entries are retained in the tables.')
-tcpEStatsPerfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 156, 2, 2, 4)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsPerfSegsOut"), ("TCP-ESTATS-MIB", "tcpEStatsPerfDataSegsOut"), ("TCP-ESTATS-MIB", "tcpEStatsPerfDataOctetsOut"), ("TCP-ESTATS-MIB", "tcpEStatsPerfSegsRetrans"), ("TCP-ESTATS-MIB", "tcpEStatsPerfOctetsRetrans"), ("TCP-ESTATS-MIB", "tcpEStatsPerfSegsIn"), ("TCP-ESTATS-MIB", "tcpEStatsPerfDataSegsIn"), ("TCP-ESTATS-MIB", "tcpEStatsPerfDataOctetsIn"), ("TCP-ESTATS-MIB", "tcpEStatsPerfElapsedSecs"), ("TCP-ESTATS-MIB", "tcpEStatsPerfElapsedMicroSecs"), ("TCP-ESTATS-MIB", "tcpEStatsPerfStartTimeStamp"), ("TCP-ESTATS-MIB", "tcpEStatsPerfCurMSS"), ("TCP-ESTATS-MIB", "tcpEStatsPerfPipeSize"), ("TCP-ESTATS-MIB", "tcpEStatsPerfMaxPipeSize"), ("TCP-ESTATS-MIB", "tcpEStatsPerfSmoothedRTT"), ("TCP-ESTATS-MIB", "tcpEStatsPerfCurRTO"), ("TCP-ESTATS-MIB", "tcpEStatsPerfCongSignals"), ("TCP-ESTATS-MIB", "tcpEStatsPerfCurCwnd"), ("TCP-ESTATS-MIB", "tcpEStatsPerfCurSsthresh"), ("TCP-ESTATS-MIB", "tcpEStatsPerfTimeouts"), ("TCP-ESTATS-MIB", "tcpEStatsPerfCurRwinSent"), ("TCP-ESTATS-MIB", "tcpEStatsPerfMaxRwinSent"), ("TCP-ESTATS-MIB", "tcpEStatsPerfZeroRwinSent"), ("TCP-ESTATS-MIB", "tcpEStatsPerfCurRwinRcvd"), ("TCP-ESTATS-MIB", "tcpEStatsPerfMaxRwinRcvd"), ("TCP-ESTATS-MIB", "tcpEStatsPerfZeroRwinRcvd"),))
-if mibBuilder.loadTexts: tcpEStatsPerfGroup.setDescription('The tcpEStatsPerf group includes those objects that\n              provide basic performance data for a TCP connection.')
-tcpEStatsPerfOptionalGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 156, 2, 2, 5)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsPerfSndLimTransRwin"), ("TCP-ESTATS-MIB", "tcpEStatsPerfSndLimTransCwnd"), ("TCP-ESTATS-MIB", "tcpEStatsPerfSndLimTransSnd"), ("TCP-ESTATS-MIB", "tcpEStatsPerfSndLimTimeRwin"), ("TCP-ESTATS-MIB", "tcpEStatsPerfSndLimTimeCwnd"), ("TCP-ESTATS-MIB", "tcpEStatsPerfSndLimTimeSnd"),))
-if mibBuilder.loadTexts: tcpEStatsPerfOptionalGroup.setDescription('The tcpEStatsPerf group includes those objects that\n              provide basic performance data for a TCP connection.')
-tcpEStatsPerfHCGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 156, 2, 2, 6)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsPerfHCDataOctetsOut"), ("TCP-ESTATS-MIB", "tcpEStatsPerfHCDataOctetsIn"),))
-if mibBuilder.loadTexts: tcpEStatsPerfHCGroup.setDescription('The tcpEStatsPerfHC group includes 64-bit\n              counters in the tcpEStatsPerfTable.')
-tcpEStatsPathGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 156, 2, 2, 7)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsControlPath"), ("TCP-ESTATS-MIB", "tcpEStatsPathRetranThresh"), ("TCP-ESTATS-MIB", "tcpEStatsPathNonRecovDAEpisodes"), ("TCP-ESTATS-MIB", "tcpEStatsPathSumOctetsReordered"), ("TCP-ESTATS-MIB", "tcpEStatsPathNonRecovDA"),))
-if mibBuilder.loadTexts: tcpEStatsPathGroup.setDescription('The tcpEStatsPath group includes objects that\n              control the creation of the tcpEStatsPathTable,\n              and provide information about the path\n              for each TCP connection.')
-tcpEStatsPathOptionalGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 156, 2, 2, 8)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsPathSampleRTT"), ("TCP-ESTATS-MIB", "tcpEStatsPathRTTVar"), ("TCP-ESTATS-MIB", "tcpEStatsPathMaxRTT"), ("TCP-ESTATS-MIB", "tcpEStatsPathMinRTT"), ("TCP-ESTATS-MIB", "tcpEStatsPathSumRTT"), ("TCP-ESTATS-MIB", "tcpEStatsPathCountRTT"), ("TCP-ESTATS-MIB", "tcpEStatsPathMaxRTO"), ("TCP-ESTATS-MIB", "tcpEStatsPathMinRTO"), ("TCP-ESTATS-MIB", "tcpEStatsPathIpTtl"), ("TCP-ESTATS-MIB", "tcpEStatsPathIpTosIn"), ("TCP-ESTATS-MIB", "tcpEStatsPathIpTosOut"), ("TCP-ESTATS-MIB", "tcpEStatsPathPreCongSumCwnd"), ("TCP-ESTATS-MIB", "tcpEStatsPathPreCongSumRTT"), ("TCP-ESTATS-MIB", "tcpEStatsPathPostCongSumRTT"), ("TCP-ESTATS-MIB", "tcpEStatsPathPostCongCountRTT"), ("TCP-ESTATS-MIB", "tcpEStatsPathECNsignals"), ("TCP-ESTATS-MIB", "tcpEStatsPathDupAckEpisodes"), ("TCP-ESTATS-MIB", "tcpEStatsPathRcvRTT"), ("TCP-ESTATS-MIB", "tcpEStatsPathDupAcksOut"), ("TCP-ESTATS-MIB", "tcpEStatsPathCERcvd"), ("TCP-ESTATS-MIB", "tcpEStatsPathECESent"),))
-if mibBuilder.loadTexts: tcpEStatsPathOptionalGroup.setDescription('The tcpEStatsPath group includes objects that\n              provide additional information about the path\n              for each TCP connection.')
-tcpEStatsPathHCGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 156, 2, 2, 9)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsPathHCSumRTT"),))
-if mibBuilder.loadTexts: tcpEStatsPathHCGroup.setDescription('The tcpEStatsPathHC group includes 64-bit\n              counters in the tcpEStatsPathTable.')
-tcpEStatsStackGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 156, 2, 2, 10)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsControlStack"), ("TCP-ESTATS-MIB", "tcpEStatsStackActiveOpen"), ("TCP-ESTATS-MIB", "tcpEStatsStackMSSSent"), ("TCP-ESTATS-MIB", "tcpEStatsStackMSSRcvd"), ("TCP-ESTATS-MIB", "tcpEStatsStackWinScaleSent"), ("TCP-ESTATS-MIB", "tcpEStatsStackWinScaleRcvd"), ("TCP-ESTATS-MIB", "tcpEStatsStackTimeStamps"), ("TCP-ESTATS-MIB", "tcpEStatsStackECN"), ("TCP-ESTATS-MIB", "tcpEStatsStackWillSendSACK"), ("TCP-ESTATS-MIB", "tcpEStatsStackWillUseSACK"), ("TCP-ESTATS-MIB", "tcpEStatsStackState"), ("TCP-ESTATS-MIB", "tcpEStatsStackNagle"), ("TCP-ESTATS-MIB", "tcpEStatsStackMaxSsCwnd"), ("TCP-ESTATS-MIB", "tcpEStatsStackMaxCaCwnd"), ("TCP-ESTATS-MIB", "tcpEStatsStackMaxSsthresh"), ("TCP-ESTATS-MIB", "tcpEStatsStackMinSsthresh"), ("TCP-ESTATS-MIB", "tcpEStatsStackInRecovery"), ("TCP-ESTATS-MIB", "tcpEStatsStackDupAcksIn"), ("TCP-ESTATS-MIB", "tcpEStatsStackSpuriousFrDetected"), ("TCP-ESTATS-MIB", "tcpEStatsStackSpuriousRtoDetected"),))
-if mibBuilder.loadTexts: tcpEStatsStackGroup.setDescription('The tcpEStatsConnState group includes objects that\n              control the creation of the tcpEStatsStackTable,\n              and provide information about the operation of\n              algorithms used within TCP.')
-tcpEStatsStackOptionalGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 156, 2, 2, 11)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsStackSoftErrors"), ("TCP-ESTATS-MIB", "tcpEStatsStackSoftErrorReason"), ("TCP-ESTATS-MIB", "tcpEStatsStackSlowStart"), ("TCP-ESTATS-MIB", "tcpEStatsStackCongAvoid"), ("TCP-ESTATS-MIB", "tcpEStatsStackOtherReductions"), ("TCP-ESTATS-MIB", "tcpEStatsStackCongOverCount"), ("TCP-ESTATS-MIB", "tcpEStatsStackFastRetran"), ("TCP-ESTATS-MIB", "tcpEStatsStackSubsequentTimeouts"), ("TCP-ESTATS-MIB", "tcpEStatsStackCurTimeoutCount"), ("TCP-ESTATS-MIB", "tcpEStatsStackAbruptTimeouts"), ("TCP-ESTATS-MIB", "tcpEStatsStackSACKsRcvd"), ("TCP-ESTATS-MIB", "tcpEStatsStackSACKBlocksRcvd"), ("TCP-ESTATS-MIB", "tcpEStatsStackSendStall"), ("TCP-ESTATS-MIB", "tcpEStatsStackDSACKDups"), ("TCP-ESTATS-MIB", "tcpEStatsStackMaxMSS"), ("TCP-ESTATS-MIB", "tcpEStatsStackMinMSS"), ("TCP-ESTATS-MIB", "tcpEStatsStackSndInitial"), ("TCP-ESTATS-MIB", "tcpEStatsStackRecInitial"), ("TCP-ESTATS-MIB", "tcpEStatsStackCurRetxQueue"), ("TCP-ESTATS-MIB", "tcpEStatsStackMaxRetxQueue"), ("TCP-ESTATS-MIB", "tcpEStatsStackCurReasmQueue"), ("TCP-ESTATS-MIB", "tcpEStatsStackMaxReasmQueue"),))
-if mibBuilder.loadTexts: tcpEStatsStackOptionalGroup.setDescription('The tcpEStatsConnState group includes objects that\n              provide additional information about the operation of\n              algorithms used within TCP.')
-tcpEStatsAppGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 156, 2, 2, 12)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsControlApp"), ("TCP-ESTATS-MIB", "tcpEStatsAppSndUna"), ("TCP-ESTATS-MIB", "tcpEStatsAppSndNxt"), ("TCP-ESTATS-MIB", "tcpEStatsAppSndMax"), ("TCP-ESTATS-MIB", "tcpEStatsAppThruOctetsAcked"), ("TCP-ESTATS-MIB", "tcpEStatsAppRcvNxt"), ("TCP-ESTATS-MIB", "tcpEStatsAppThruOctetsReceived"),))
-if mibBuilder.loadTexts: tcpEStatsAppGroup.setDescription('The tcpEStatsConnState group includes objects that\n              control the creation of the tcpEStatsAppTable,\n              and provide information about the operation of\n              algorithms used within TCP.')
-tcpEStatsAppHCGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 156, 2, 2, 13)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsAppHCThruOctetsAcked"), ("TCP-ESTATS-MIB", "tcpEStatsAppHCThruOctetsReceived"),))
-if mibBuilder.loadTexts: tcpEStatsAppHCGroup.setDescription('The tcpEStatsStackHC group includes 64-bit\n              counters in the tcpEStatsStackTable.')
-tcpEStatsAppOptionalGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 156, 2, 2, 14)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsAppCurAppWQueue"), ("TCP-ESTATS-MIB", "tcpEStatsAppMaxAppWQueue"), ("TCP-ESTATS-MIB", "tcpEStatsAppCurAppRQueue"), ("TCP-ESTATS-MIB", "tcpEStatsAppMaxAppRQueue"),))
-if mibBuilder.loadTexts: tcpEStatsAppOptionalGroup.setDescription('The tcpEStatsConnState group includes objects that\n              provide additional information about how applications\n              are interacting with each TCP connection.')
-tcpEStatsTuneOptionalGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 156, 2, 2, 15)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsControlTune"), ("TCP-ESTATS-MIB", "tcpEStatsTuneLimCwnd"), ("TCP-ESTATS-MIB", "tcpEStatsTuneLimSsthresh"), ("TCP-ESTATS-MIB", "tcpEStatsTuneLimRwin"), ("TCP-ESTATS-MIB", "tcpEStatsTuneLimMSS"),))
-if mibBuilder.loadTexts: tcpEStatsTuneOptionalGroup.setDescription('The tcpEStatsConnState group includes objects that\n              control the creation of the tcpEStatsConnectionTable,\n              which can be used to set tuning parameters\n              for each TCP connection.')
-tcpEStatsNotificationsGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 156, 2, 2, 16)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsEstablishNotification"), ("TCP-ESTATS-MIB", "tcpEStatsCloseNotification"),))
-if mibBuilder.loadTexts: tcpEStatsNotificationsGroup.setDescription('Notifications sent by a TCP extended statistics agent.')
-tcpEStatsNotificationsCtlGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 156, 2, 2, 17)).setObjects(*(("TCP-ESTATS-MIB", "tcpEStatsControlNotify"),))
-if mibBuilder.loadTexts: tcpEStatsNotificationsCtlGroup.setDescription('The tcpEStatsNotificationsCtl group includes the\n              object that controls the creation of the events\n              in the tcpEStatsNotificationsGroup.')
-mibBuilder.exportSymbols("TCP-ESTATS-MIB", tcpEStatsPerfSegsIn=tcpEStatsPerfSegsIn, tcpEStatsAppHCThruOctetsAcked=tcpEStatsAppHCThruOctetsAcked, tcpEStatsStackMSSSent=tcpEStatsStackMSSSent, tcpEStatsTuneLimRwin=tcpEStatsTuneLimRwin, tcpEStatsStackTimeStamps=tcpEStatsStackTimeStamps, tcpEStatsStackState=tcpEStatsStackState, tcpEStatsPerfZeroRwinRcvd=tcpEStatsPerfZeroRwinRcvd, tcpEStatsStackSpuriousFrDetected=tcpEStatsStackSpuriousFrDetected, tcpEStatsStackMaxMSS=tcpEStatsStackMaxMSS, tcpEStatsPerfDataOctetsIn=tcpEStatsPerfDataOctetsIn, tcpEStatsStackSACKsRcvd=tcpEStatsStackSACKsRcvd, tcpEStatsTuneTable=tcpEStatsTuneTable, TcpEStatsNegotiated=TcpEStatsNegotiated, tcpEStatsPathCERcvd=tcpEStatsPathCERcvd, tcpEStatsPerfEntry=tcpEStatsPerfEntry, tcpEStatsConnectIndex=tcpEStatsConnectIndex, tcpEStatsPerfSndLimTransSnd=tcpEStatsPerfSndLimTransSnd, tcpEStatsPerfZeroRwinSent=tcpEStatsPerfZeroRwinSent, tcpEStatsStackSACKBlocksRcvd=tcpEStatsStackSACKBlocksRcvd, tcpEStatsPerfSndLimTimeRwin=tcpEStatsPerfSndLimTimeRwin, tcpEStatsPerfTable=tcpEStatsPerfTable, tcpEStatsPathSampleRTT=tcpEStatsPathSampleRTT, tcpEStatsEstablishNotification=tcpEStatsEstablishNotification, tcpEStatsPerfMaxRwinRcvd=tcpEStatsPerfMaxRwinRcvd, tcpEStatsAppMaxAppRQueue=tcpEStatsAppMaxAppRQueue, tcpEStatsPerfCurSsthresh=tcpEStatsPerfCurSsthresh, tcpEStatsStackDSACKDups=tcpEStatsStackDSACKDups, tcpEStatsCloseNotification=tcpEStatsCloseNotification, tcpEStatsAppEntry=tcpEStatsAppEntry, tcpEStatsControlApp=tcpEStatsControlApp, tcpEStatsStackRecInitial=tcpEStatsStackRecInitial, tcpEStatsStackMaxReasmQueue=tcpEStatsStackMaxReasmQueue, tcpEStatsStackWillSendSACK=tcpEStatsStackWillSendSACK, tcpEStatsAppRcvNxt=tcpEStatsAppRcvNxt, tcpEStatsPerfHCGroup=tcpEStatsPerfHCGroup, tcpEStatsPerfSndLimTimeCwnd=tcpEStatsPerfSndLimTimeCwnd, tcpEStatsPerfStartTimeStamp=tcpEStatsPerfStartTimeStamp, tcpEStatsConnectIdTable=tcpEStatsConnectIdTable, tcpEStatsControlStack=tcpEStatsControlStack, tcpEStatsStackDupAcksIn=tcpEStatsStackDupAcksIn, tcpEStatsListenerGroup=tcpEStatsListenerGroup, tcpEStatsControlPath=tcpEStatsControlPath, tcpEStatsPathIpTosIn=tcpEStatsPathIpTosIn, tcpEStatsStackOtherReductions=tcpEStatsStackOtherReductions, tcpEStatsStackCurRetxQueue=tcpEStatsStackCurRetxQueue, tcpEStatsTuneEntry=tcpEStatsTuneEntry, tcpEStatsPerfHCDataOctetsIn=tcpEStatsPerfHCDataOctetsIn, tcpEStatsStackMaxSsCwnd=tcpEStatsStackMaxSsCwnd, tcpEStatsPathNonRecovDA=tcpEStatsPathNonRecovDA, tcpEStatsStackSoftErrorReason=tcpEStatsStackSoftErrorReason, tcpEStatsStackTable=tcpEStatsStackTable, tcpEStatsPathECESent=tcpEStatsPathECESent, tcpEStatsPerfPipeSize=tcpEStatsPerfPipeSize, tcpEStatsStackSlowStart=tcpEStatsStackSlowStart, tcpEStatsStackMSSRcvd=tcpEStatsStackMSSRcvd, tcpEStatsListenerAccepted=tcpEStatsListenerAccepted, tcpEStatsAppGroup=tcpEStatsAppGroup, tcpEStatsStackAbruptTimeouts=tcpEStatsStackAbruptTimeouts, tcpEStatsPathPostCongCountRTT=tcpEStatsPathPostCongCountRTT, tcpEStatsPathSumRTT=tcpEStatsPathSumRTT, tcpEStatsPathEntry=tcpEStatsPathEntry, tcpEStatsPathHCGroup=tcpEStatsPathHCGroup, tcpEStatsListenerSynRcvd=tcpEStatsListenerSynRcvd, tcpEStatsStackMinMSS=tcpEStatsStackMinMSS, tcpEStatsPathSumOctetsReordered=tcpEStatsPathSumOctetsReordered, tcpEStatsAppSndUna=tcpEStatsAppSndUna, tcpEStatsPerfTimeouts=tcpEStatsPerfTimeouts, tcpEStatsListenerExceedBacklog=tcpEStatsListenerExceedBacklog, tcpEStatsPathMinRTO=tcpEStatsPathMinRTO, tcpEStatsPerfOctetsRetrans=tcpEStatsPerfOctetsRetrans, tcpEStatsStackMaxSsthresh=tcpEStatsStackMaxSsthresh, tcpEStatsAppOptionalGroup=tcpEStatsAppOptionalGroup, tcpEStatsPathPreCongSumCwnd=tcpEStatsPathPreCongSumCwnd, tcpEStatsListenerMaxBacklog=tcpEStatsListenerMaxBacklog, tcpEStatsPerfCongSignals=tcpEStatsPerfCongSignals, tcpEStatsStackFastRetran=tcpEStatsStackFastRetran, tcpEStatsTuneOptionalGroup=tcpEStatsTuneOptionalGroup, tcpEStatsCompliance=tcpEStatsCompliance, tcpEStatsListenerCurBacklog=tcpEStatsListenerCurBacklog, tcpEStatsStackMaxCaCwnd=tcpEStatsStackMaxCaCwnd, tcpEStatsPathIpTosOut=tcpEStatsPathIpTosOut, tcpEStatsControlNotify=tcpEStatsControlNotify, tcpEStatsNotificationsCtlGroup=tcpEStatsNotificationsCtlGroup, tcpEStatsAppTable=tcpEStatsAppTable, tcpEStatsPerfSndLimTimeSnd=tcpEStatsPerfSndLimTimeSnd, tcpEStatsPathRcvRTT=tcpEStatsPathRcvRTT, tcpEStatsStackEntry=tcpEStatsStackEntry, tcpEStatsStackWillUseSACK=tcpEStatsStackWillUseSACK, tcpEStatsPerfSmoothedRTT=tcpEStatsPerfSmoothedRTT, tcpEStatsControl=tcpEStatsControl, tcpEStatsPathMaxRTO=tcpEStatsPathMaxRTO, tcpEStatsAppHCThruOctetsReceived=tcpEStatsAppHCThruOctetsReceived, tcpEStatsAppCurAppWQueue=tcpEStatsAppCurAppWQueue, tcpEStatsGroups=tcpEStatsGroups, tcpEStatsMIBObjects=tcpEStatsMIBObjects, tcpEStatsListenerEstablished=tcpEStatsListenerEstablished, tcpEStatsPerfCurMSS=tcpEStatsPerfCurMSS, tcpEStatsListenerHCEstablished=tcpEStatsListenerHCEstablished, tcpEStatsPathECNsignals=tcpEStatsPathECNsignals, tcpEStatsPerfCurCwnd=tcpEStatsPerfCurCwnd, tcpEStatsNotifications=tcpEStatsNotifications, tcpEStatsListenerHCExceedBacklog=tcpEStatsListenerHCExceedBacklog, tcpEStatsPerfSegsRetrans=tcpEStatsPerfSegsRetrans, tcpEStatsPerfMaxRwinSent=tcpEStatsPerfMaxRwinSent, tcpEStatsPathCountRTT=tcpEStatsPathCountRTT, tcpEStatsPerfSegsOut=tcpEStatsPerfSegsOut, tcpEStatsAppSndNxt=tcpEStatsAppSndNxt, tcpEStatsPerfDataSegsIn=tcpEStatsPerfDataSegsIn, tcpEStatsControlTune=tcpEStatsControlTune, tcpEStatsTuneLimMSS=tcpEStatsTuneLimMSS, tcpEStatsStackSpuriousRtoDetected=tcpEStatsStackSpuriousRtoDetected, tcpEStatsStackSendStall=tcpEStatsStackSendStall, tcpEStatsListenerTable=tcpEStatsListenerTable, tcpEStatsStackInRecovery=tcpEStatsStackInRecovery, tcpEStatsAppThruOctetsAcked=tcpEStatsAppThruOctetsAcked, tcpEStatsStackGroup=tcpEStatsStackGroup, tcpEStatsPathRTTVar=tcpEStatsPathRTTVar, tcpEStatsConnectIdEntry=tcpEStatsConnectIdEntry, tcpEStatsPathHCSumRTT=tcpEStatsPathHCSumRTT, tcpEStatsListenerHCInitial=tcpEStatsListenerHCInitial, tcpEStatsAppMaxAppWQueue=tcpEStatsAppMaxAppWQueue, tcpEStatsListenerCurEstabBacklog=tcpEStatsListenerCurEstabBacklog, tcpEStatsListenerHCSynRcvd=tcpEStatsListenerHCSynRcvd, tcpEStatsStackWinScaleRcvd=tcpEStatsStackWinScaleRcvd, tcpEStatsPerfOptionalGroup=tcpEStatsPerfOptionalGroup, tcpEStatsConformance=tcpEStatsConformance, tcpEStatsPerfHCDataOctetsOut=tcpEStatsPerfHCDataOctetsOut, tcpEStatsStackCurTimeoutCount=tcpEStatsStackCurTimeoutCount, tcpEStatsListenerInitial=tcpEStatsListenerInitial, tcpEStatsStackNagle=tcpEStatsStackNagle, tcpEStatsAppCurAppRQueue=tcpEStatsAppCurAppRQueue, tcpEStatsPerfElapsedMicroSecs=tcpEStatsPerfElapsedMicroSecs, tcpEStatsStackCurReasmQueue=tcpEStatsStackCurReasmQueue, tcpEStatsStackSubsequentTimeouts=tcpEStatsStackSubsequentTimeouts, tcpEStatsStackECN=tcpEStatsStackECN, tcpEStatsAppHCGroup=tcpEStatsAppHCGroup, tcpEStatsConnTableLatency=tcpEStatsConnTableLatency, tcpEStatsPathDupAckEpisodes=tcpEStatsPathDupAckEpisodes, tcpEStatsStackMinSsthresh=tcpEStatsStackMinSsthresh, tcpEStatsPathMaxRTT=tcpEStatsPathMaxRTT, tcpEStatsMIB=tcpEStatsMIB, tcpEStatsPathRetranThresh=tcpEStatsPathRetranThresh, tcpEStatsConnectIdGroup=tcpEStatsConnectIdGroup, tcpEStatsTuneLimSsthresh=tcpEStatsTuneLimSsthresh, tcpEStatsPerfSndLimTransCwnd=tcpEStatsPerfSndLimTransCwnd, tcpEStatsPerfCurRTO=tcpEStatsPerfCurRTO, tcpEStatsPathTable=tcpEStatsPathTable, PYSNMP_MODULE_ID=tcpEStatsMIB, tcpEStatsAppSndMax=tcpEStatsAppSndMax, tcpEStatsListenerHCGroup=tcpEStatsListenerHCGroup, tcpEStatsPathIpTtl=tcpEStatsPathIpTtl, tcpEStatsStackCongAvoid=tcpEStatsStackCongAvoid, tcpEStatsPathGroup=tcpEStatsPathGroup, tcpEStatsStackSndInitial=tcpEStatsStackSndInitial, tcpEStatsPathPostCongSumRTT=tcpEStatsPathPostCongSumRTT, tcpEStatsPathMinRTT=tcpEStatsPathMinRTT, tcpEStats=tcpEStats, tcpEStatsPathPreCongSumRTT=tcpEStatsPathPreCongSumRTT, tcpEStatsPathDupAcksOut=tcpEStatsPathDupAcksOut, tcpEStatsStackCongOverCount=tcpEStatsStackCongOverCount, tcpEStatsPathOptionalGroup=tcpEStatsPathOptionalGroup, tcpEStatsNotificationsGroup=tcpEStatsNotificationsGroup, tcpEStatsPerfMaxPipeSize=tcpEStatsPerfMaxPipeSize, tcpEStatsListenerEntry=tcpEStatsListenerEntry, tcpEStatsPerfSndLimTransRwin=tcpEStatsPerfSndLimTransRwin, tcpEStatsPerfGroup=tcpEStatsPerfGroup, tcpEStatsListenerHCAccepted=tcpEStatsListenerHCAccepted, tcpEStatsTuneLimCwnd=tcpEStatsTuneLimCwnd, tcpEStatsPerfElapsedSecs=tcpEStatsPerfElapsedSecs, tcpEStatsListenerStartTime=tcpEStatsListenerStartTime, tcpEStatsPerfCurRwinSent=tcpEStatsPerfCurRwinSent, tcpEStatsPathNonRecovDAEpisodes=tcpEStatsPathNonRecovDAEpisodes, tcpEStatsStackMaxRetxQueue=tcpEStatsStackMaxRetxQueue, tcpEStatsStackSoftErrors=tcpEStatsStackSoftErrors, tcpEStatsStackWinScaleSent=tcpEStatsStackWinScaleSent, tcpEStatsListenerTableLastChange=tcpEStatsListenerTableLastChange, tcpEStatsPerfDataSegsOut=tcpEStatsPerfDataSegsOut, tcpEStatsCompliances=tcpEStatsCompliances, tcpEStatsStackActiveOpen=tcpEStatsStackActiveOpen, tcpEStatsPerfCurRwinRcvd=tcpEStatsPerfCurRwinRcvd, tcpEStatsAppThruOctetsReceived=tcpEStatsAppThruOctetsReceived, tcpEStatsPerfDataOctetsOut=tcpEStatsPerfDataOctetsOut, tcpEStatsListenerCurConns=tcpEStatsListenerCurConns, tcpEStatsScalar=tcpEStatsScalar, tcpEStatsStackOptionalGroup=tcpEStatsStackOptionalGroup)
+tcpEStatsListenerGroup=ObjectGroup((1,3,6,1,2,1,156,2,2,1))
+tcpEStatsListenerGroup.setObjects(*((_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y)))
+if mibBuilder.loadTexts:tcpEStatsListenerGroup.setStatus(_A)
+tcpEStatsListenerHCGroup=ObjectGroup((1,3,6,1,2,1,156,2,2,2))
+tcpEStatsListenerHCGroup.setObjects(*((_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d)))
+if mibBuilder.loadTexts:tcpEStatsListenerHCGroup.setStatus(_A)
+tcpEStatsConnectIdGroup=ObjectGroup((1,3,6,1,2,1,156,2,2,3))
+tcpEStatsConnectIdGroup.setObjects(*((_B,_e),(_B,_G)))
+if mibBuilder.loadTexts:tcpEStatsConnectIdGroup.setStatus(_A)
+tcpEStatsPerfGroup=ObjectGroup((1,3,6,1,2,1,156,2,2,4))
+tcpEStatsPerfGroup.setObjects(*((_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4)))
+if mibBuilder.loadTexts:tcpEStatsPerfGroup.setStatus(_A)
+tcpEStatsPerfOptionalGroup=ObjectGroup((1,3,6,1,2,1,156,2,2,5))
+tcpEStatsPerfOptionalGroup.setObjects(*((_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA)))
+if mibBuilder.loadTexts:tcpEStatsPerfOptionalGroup.setStatus(_A)
+tcpEStatsPerfHCGroup=ObjectGroup((1,3,6,1,2,1,156,2,2,6))
+tcpEStatsPerfHCGroup.setObjects(*((_B,_AB),(_B,_AC)))
+if mibBuilder.loadTexts:tcpEStatsPerfHCGroup.setStatus(_A)
+tcpEStatsPathGroup=ObjectGroup((1,3,6,1,2,1,156,2,2,7))
+tcpEStatsPathGroup.setObjects(*((_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH)))
+if mibBuilder.loadTexts:tcpEStatsPathGroup.setStatus(_A)
+tcpEStatsPathOptionalGroup=ObjectGroup((1,3,6,1,2,1,156,2,2,8))
+tcpEStatsPathOptionalGroup.setObjects(*((_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac)))
+if mibBuilder.loadTexts:tcpEStatsPathOptionalGroup.setStatus(_A)
+tcpEStatsPathHCGroup=ObjectGroup((1,3,6,1,2,1,156,2,2,9))
+tcpEStatsPathHCGroup.setObjects((_B,_Ad))
+if mibBuilder.loadTexts:tcpEStatsPathHCGroup.setStatus(_A)
+tcpEStatsStackGroup=ObjectGroup((1,3,6,1,2,1,156,2,2,10))
+tcpEStatsStackGroup.setObjects(*((_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax)))
+if mibBuilder.loadTexts:tcpEStatsStackGroup.setStatus(_A)
+tcpEStatsStackOptionalGroup=ObjectGroup((1,3,6,1,2,1,156,2,2,11))
+tcpEStatsStackOptionalGroup.setObjects(*((_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7),(_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI)))
+if mibBuilder.loadTexts:tcpEStatsStackOptionalGroup.setStatus(_A)
+tcpEStatsAppGroup=ObjectGroup((1,3,6,1,2,1,156,2,2,12))
+tcpEStatsAppGroup.setObjects(*((_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP)))
+if mibBuilder.loadTexts:tcpEStatsAppGroup.setStatus(_A)
+tcpEStatsAppHCGroup=ObjectGroup((1,3,6,1,2,1,156,2,2,13))
+tcpEStatsAppHCGroup.setObjects(*((_B,_BQ),(_B,_BR)))
+if mibBuilder.loadTexts:tcpEStatsAppHCGroup.setStatus(_A)
+tcpEStatsAppOptionalGroup=ObjectGroup((1,3,6,1,2,1,156,2,2,14))
+tcpEStatsAppOptionalGroup.setObjects(*((_B,_BS),(_B,_BT),(_B,_BU),(_B,_BV)))
+if mibBuilder.loadTexts:tcpEStatsAppOptionalGroup.setStatus(_A)
+tcpEStatsTuneOptionalGroup=ObjectGroup((1,3,6,1,2,1,156,2,2,15))
+tcpEStatsTuneOptionalGroup.setObjects(*((_B,_BW),(_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba)))
+if mibBuilder.loadTexts:tcpEStatsTuneOptionalGroup.setStatus(_A)
+tcpEStatsNotificationsCtlGroup=ObjectGroup((1,3,6,1,2,1,156,2,2,17))
+tcpEStatsNotificationsCtlGroup.setObjects((_B,_Bb))
+if mibBuilder.loadTexts:tcpEStatsNotificationsCtlGroup.setStatus(_A)
+tcpEStatsEstablishNotification=NotificationType((1,3,6,1,2,1,156,0,1))
+tcpEStatsEstablishNotification.setObjects((_B,_G))
+if mibBuilder.loadTexts:tcpEStatsEstablishNotification.setStatus(_A)
+tcpEStatsCloseNotification=NotificationType((1,3,6,1,2,1,156,0,2))
+tcpEStatsCloseNotification.setObjects((_B,_G))
+if mibBuilder.loadTexts:tcpEStatsCloseNotification.setStatus(_A)
+tcpEStatsNotificationsGroup=NotificationGroup((1,3,6,1,2,1,156,2,2,16))
+tcpEStatsNotificationsGroup.setObjects(*((_B,_Bc),(_B,_Bd)))
+if mibBuilder.loadTexts:tcpEStatsNotificationsGroup.setStatus(_A)
+tcpEStatsCompliance=ModuleCompliance((1,3,6,1,2,1,156,2,1,1))
+tcpEStatsCompliance.setObjects(*((_B,_Be),(_B,_Bf),(_B,_Bg),(_B,_Bh),(_B,_Bi),(_B,_Bj),(_B,_Bk),(_B,_Bl),(_B,_Bm),(_B,_Bn),(_B,_Bo),(_B,_Bp),(_B,_Bq),(_B,_Br),(_B,_Bs),(_B,_Bt),(_B,_Bu)))
+if mibBuilder.loadTexts:tcpEStatsCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'TcpEStatsNegotiated':TcpEStatsNegotiated,'tcpEStatsMIB':tcpEStatsMIB,'tcpEStatsNotifications':tcpEStatsNotifications,_Bc:tcpEStatsEstablishNotification,_Bd:tcpEStatsCloseNotification,'tcpEStatsMIBObjects':tcpEStatsMIBObjects,'tcpEStats':tcpEStats,'tcpEStatsListenerTable':tcpEStatsListenerTable,_M:tcpEStatsListenerEntry,_P:tcpEStatsListenerStartTime,_Q:tcpEStatsListenerSynRcvd,_R:tcpEStatsListenerInitial,_S:tcpEStatsListenerEstablished,_T:tcpEStatsListenerAccepted,_U:tcpEStatsListenerExceedBacklog,_Z:tcpEStatsListenerHCSynRcvd,_a:tcpEStatsListenerHCInitial,_b:tcpEStatsListenerHCEstablished,_c:tcpEStatsListenerHCAccepted,_d:tcpEStatsListenerHCExceedBacklog,_V:tcpEStatsListenerCurConns,_W:tcpEStatsListenerMaxBacklog,_X:tcpEStatsListenerCurBacklog,_Y:tcpEStatsListenerCurEstabBacklog,'tcpEStatsConnectIdTable':tcpEStatsConnectIdTable,_N:tcpEStatsConnectIdEntry,_G:tcpEStatsConnectIndex,'tcpEStatsPerfTable':tcpEStatsPerfTable,'tcpEStatsPerfEntry':tcpEStatsPerfEntry,_f:tcpEStatsPerfSegsOut,_g:tcpEStatsPerfDataSegsOut,_h:tcpEStatsPerfDataOctetsOut,_AB:tcpEStatsPerfHCDataOctetsOut,_i:tcpEStatsPerfSegsRetrans,_j:tcpEStatsPerfOctetsRetrans,_k:tcpEStatsPerfSegsIn,_l:tcpEStatsPerfDataSegsIn,_m:tcpEStatsPerfDataOctetsIn,_AC:tcpEStatsPerfHCDataOctetsIn,_n:tcpEStatsPerfElapsedSecs,_o:tcpEStatsPerfElapsedMicroSecs,_p:tcpEStatsPerfStartTimeStamp,_q:tcpEStatsPerfCurMSS,_r:tcpEStatsPerfPipeSize,_s:tcpEStatsPerfMaxPipeSize,_t:tcpEStatsPerfSmoothedRTT,_u:tcpEStatsPerfCurRTO,_v:tcpEStatsPerfCongSignals,_w:tcpEStatsPerfCurCwnd,_x:tcpEStatsPerfCurSsthresh,_y:tcpEStatsPerfTimeouts,_z:tcpEStatsPerfCurRwinSent,_A0:tcpEStatsPerfMaxRwinSent,_A1:tcpEStatsPerfZeroRwinSent,_A2:tcpEStatsPerfCurRwinRcvd,_A3:tcpEStatsPerfMaxRwinRcvd,_A4:tcpEStatsPerfZeroRwinRcvd,_A5:tcpEStatsPerfSndLimTransRwin,_A6:tcpEStatsPerfSndLimTransCwnd,_A7:tcpEStatsPerfSndLimTransSnd,_A8:tcpEStatsPerfSndLimTimeRwin,_A9:tcpEStatsPerfSndLimTimeCwnd,_AA:tcpEStatsPerfSndLimTimeSnd,'tcpEStatsPathTable':tcpEStatsPathTable,'tcpEStatsPathEntry':tcpEStatsPathEntry,_AE:tcpEStatsPathRetranThresh,_AF:tcpEStatsPathNonRecovDAEpisodes,_AG:tcpEStatsPathSumOctetsReordered,_AH:tcpEStatsPathNonRecovDA,_AI:tcpEStatsPathSampleRTT,_AJ:tcpEStatsPathRTTVar,_AK:tcpEStatsPathMaxRTT,_AL:tcpEStatsPathMinRTT,_AM:tcpEStatsPathSumRTT,_Ad:tcpEStatsPathHCSumRTT,_AN:tcpEStatsPathCountRTT,_AO:tcpEStatsPathMaxRTO,_AP:tcpEStatsPathMinRTO,_AQ:tcpEStatsPathIpTtl,_AR:tcpEStatsPathIpTosIn,_AS:tcpEStatsPathIpTosOut,_AT:tcpEStatsPathPreCongSumCwnd,_AU:tcpEStatsPathPreCongSumRTT,_AV:tcpEStatsPathPostCongSumRTT,_AW:tcpEStatsPathPostCongCountRTT,_AX:tcpEStatsPathECNsignals,_AY:tcpEStatsPathDupAckEpisodes,_AZ:tcpEStatsPathRcvRTT,_Aa:tcpEStatsPathDupAcksOut,_Ab:tcpEStatsPathCERcvd,_Ac:tcpEStatsPathECESent,'tcpEStatsStackTable':tcpEStatsStackTable,'tcpEStatsStackEntry':tcpEStatsStackEntry,_Af:tcpEStatsStackActiveOpen,_Ag:tcpEStatsStackMSSSent,_Ah:tcpEStatsStackMSSRcvd,_Ai:tcpEStatsStackWinScaleSent,_Aj:tcpEStatsStackWinScaleRcvd,_Ak:tcpEStatsStackTimeStamps,_Al:tcpEStatsStackECN,_Am:tcpEStatsStackWillSendSACK,_An:tcpEStatsStackWillUseSACK,_Ao:tcpEStatsStackState,_Ap:tcpEStatsStackNagle,_Aq:tcpEStatsStackMaxSsCwnd,_Ar:tcpEStatsStackMaxCaCwnd,_As:tcpEStatsStackMaxSsthresh,_At:tcpEStatsStackMinSsthresh,_Au:tcpEStatsStackInRecovery,_Av:tcpEStatsStackDupAcksIn,_Aw:tcpEStatsStackSpuriousFrDetected,_Ax:tcpEStatsStackSpuriousRtoDetected,_Ay:tcpEStatsStackSoftErrors,_Az:tcpEStatsStackSoftErrorReason,_A_:tcpEStatsStackSlowStart,_B0:tcpEStatsStackCongAvoid,_B1:tcpEStatsStackOtherReductions,_B2:tcpEStatsStackCongOverCount,_B3:tcpEStatsStackFastRetran,_B4:tcpEStatsStackSubsequentTimeouts,_B5:tcpEStatsStackCurTimeoutCount,_B6:tcpEStatsStackAbruptTimeouts,_B7:tcpEStatsStackSACKsRcvd,_B8:tcpEStatsStackSACKBlocksRcvd,_B9:tcpEStatsStackSendStall,_BA:tcpEStatsStackDSACKDups,_BB:tcpEStatsStackMaxMSS,_BC:tcpEStatsStackMinMSS,_BD:tcpEStatsStackSndInitial,_BE:tcpEStatsStackRecInitial,_BF:tcpEStatsStackCurRetxQueue,_BG:tcpEStatsStackMaxRetxQueue,_BH:tcpEStatsStackCurReasmQueue,_BI:tcpEStatsStackMaxReasmQueue,'tcpEStatsAppTable':tcpEStatsAppTable,'tcpEStatsAppEntry':tcpEStatsAppEntry,_BK:tcpEStatsAppSndUna,_BL:tcpEStatsAppSndNxt,_BM:tcpEStatsAppSndMax,_BN:tcpEStatsAppThruOctetsAcked,_BQ:tcpEStatsAppHCThruOctetsAcked,_BO:tcpEStatsAppRcvNxt,_BP:tcpEStatsAppThruOctetsReceived,_BR:tcpEStatsAppHCThruOctetsReceived,_BS:tcpEStatsAppCurAppWQueue,_BT:tcpEStatsAppMaxAppWQueue,_BU:tcpEStatsAppCurAppRQueue,_BV:tcpEStatsAppMaxAppRQueue,'tcpEStatsTuneTable':tcpEStatsTuneTable,'tcpEStatsTuneEntry':tcpEStatsTuneEntry,_BX:tcpEStatsTuneLimCwnd,_BY:tcpEStatsTuneLimSsthresh,_BZ:tcpEStatsTuneLimRwin,_Ba:tcpEStatsTuneLimMSS,'tcpEStatsControl':tcpEStatsControl,_AD:tcpEStatsControlPath,_Ae:tcpEStatsControlStack,_BJ:tcpEStatsControlApp,_BW:tcpEStatsControlTune,_Bb:tcpEStatsControlNotify,_e:tcpEStatsConnTableLatency,'tcpEStatsScalar':tcpEStatsScalar,_O:tcpEStatsListenerTableLastChange,'tcpEStatsConformance':tcpEStatsConformance,'tcpEStatsCompliances':tcpEStatsCompliances,'tcpEStatsCompliance':tcpEStatsCompliance,'tcpEStatsGroups':tcpEStatsGroups,_Be:tcpEStatsListenerGroup,_Bk:tcpEStatsListenerHCGroup,_Bf:tcpEStatsConnectIdGroup,_Bg:tcpEStatsPerfGroup,_Bl:tcpEStatsPerfOptionalGroup,_Bm:tcpEStatsPerfHCGroup,_Bh:tcpEStatsPathGroup,_Bn:tcpEStatsPathOptionalGroup,_Bo:tcpEStatsPathHCGroup,_Bi:tcpEStatsStackGroup,_Bp:tcpEStatsStackOptionalGroup,_Bj:tcpEStatsAppGroup,_Bq:tcpEStatsAppHCGroup,_Br:tcpEStatsAppOptionalGroup,_Bs:tcpEStatsTuneOptionalGroup,_Bt:tcpEStatsNotificationsGroup,_Bu:tcpEStatsNotificationsCtlGroup})

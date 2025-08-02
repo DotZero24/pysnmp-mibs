@@ -1,0 +1,523 @@
+_T='zyMldSnoopingProxyMembershipGroupIpAddress'
+_S='zyMldSnoopingProxyMembershipGroupIpAddressType'
+_R='zyMldSnoopingProxyMembershipPort'
+_Q='zyMldSnoopingProxyMembershipVid'
+_P='zyMldSnoopingProxyDownstreamVlanPortIndex'
+_O='read-create'
+_N='zyMldSnoopingProxyFilteringProfileEndIpAddress'
+_M='zyMldSnoopingProxyFilteringProfileEndIpAddressType'
+_L='zyMldSnoopingProxyFilteringProfileStartIpAddress'
+_K='zyMldSnoopingProxyFilteringProfileStartIpAddressType'
+_J='zyMldSnoopingProxyFilteringProfileName'
+_I='dot1dBasePort'
+_H='BRIDGE-MIB'
+_G='zyMldSnoopingProxyVlanVid'
+_F='Integer32'
+_E='not-accessible'
+_D='ZYXEL-MLD-SNOOPING-PROXY-MIB'
+_C='read-write'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+dot1dBasePort,=mibBuilder.importSymbols(_H,_I)
+InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
+EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
+PortList,=mibBuilder.importSymbols('Q-BRIDGE-MIB','PortList')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
+esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
+zyxelMldSnoopingProxy=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,51))
+_ZyxelMldSnoopingProxyFilteringSetup_ObjectIdentity=ObjectIdentity
+zyxelMldSnoopingProxyFilteringSetup=_ZyxelMldSnoopingProxyFilteringSetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,51,1))
+_ZyMldSnoopingProxyFilteringMaxNumberOfProfiles_Type=Integer32
+_ZyMldSnoopingProxyFilteringMaxNumberOfProfiles_Object=MibScalar
+zyMldSnoopingProxyFilteringMaxNumberOfProfiles=_ZyMldSnoopingProxyFilteringMaxNumberOfProfiles_Object((1,3,6,1,4,1,890,1,15,3,51,1,1),_ZyMldSnoopingProxyFilteringMaxNumberOfProfiles_Type())
+zyMldSnoopingProxyFilteringMaxNumberOfProfiles.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyFilteringMaxNumberOfProfiles.setStatus(_A)
+_ZyxelMldSnoopingProxyFilteringProfileTable_Object=MibTable
+zyxelMldSnoopingProxyFilteringProfileTable=_ZyxelMldSnoopingProxyFilteringProfileTable_Object((1,3,6,1,4,1,890,1,15,3,51,1,2))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyFilteringProfileTable.setStatus(_A)
+_ZyxelMldSnoopingProxyFilteringProfileEntry_Object=MibTableRow
+zyxelMldSnoopingProxyFilteringProfileEntry=_ZyxelMldSnoopingProxyFilteringProfileEntry_Object((1,3,6,1,4,1,890,1,15,3,51,1,2,1))
+zyxelMldSnoopingProxyFilteringProfileEntry.setIndexNames((0,_D,_J),(0,_D,_K),(0,_D,_L),(0,_D,_M),(0,_D,_N))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyFilteringProfileEntry.setStatus(_A)
+_ZyMldSnoopingProxyFilteringProfileName_Type=OctetString
+_ZyMldSnoopingProxyFilteringProfileName_Object=MibTableColumn
+zyMldSnoopingProxyFilteringProfileName=_ZyMldSnoopingProxyFilteringProfileName_Object((1,3,6,1,4,1,890,1,15,3,51,1,2,1,1),_ZyMldSnoopingProxyFilteringProfileName_Type())
+zyMldSnoopingProxyFilteringProfileName.setMaxAccess(_E)
+if mibBuilder.loadTexts:zyMldSnoopingProxyFilteringProfileName.setStatus(_A)
+_ZyMldSnoopingProxyFilteringProfileStartIpAddressType_Type=InetAddressType
+_ZyMldSnoopingProxyFilteringProfileStartIpAddressType_Object=MibTableColumn
+zyMldSnoopingProxyFilteringProfileStartIpAddressType=_ZyMldSnoopingProxyFilteringProfileStartIpAddressType_Object((1,3,6,1,4,1,890,1,15,3,51,1,2,1,2),_ZyMldSnoopingProxyFilteringProfileStartIpAddressType_Type())
+zyMldSnoopingProxyFilteringProfileStartIpAddressType.setMaxAccess(_E)
+if mibBuilder.loadTexts:zyMldSnoopingProxyFilteringProfileStartIpAddressType.setStatus(_A)
+_ZyMldSnoopingProxyFilteringProfileStartIpAddress_Type=InetAddress
+_ZyMldSnoopingProxyFilteringProfileStartIpAddress_Object=MibTableColumn
+zyMldSnoopingProxyFilteringProfileStartIpAddress=_ZyMldSnoopingProxyFilteringProfileStartIpAddress_Object((1,3,6,1,4,1,890,1,15,3,51,1,2,1,3),_ZyMldSnoopingProxyFilteringProfileStartIpAddress_Type())
+zyMldSnoopingProxyFilteringProfileStartIpAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:zyMldSnoopingProxyFilteringProfileStartIpAddress.setStatus(_A)
+_ZyMldSnoopingProxyFilteringProfileEndIpAddressType_Type=InetAddressType
+_ZyMldSnoopingProxyFilteringProfileEndIpAddressType_Object=MibTableColumn
+zyMldSnoopingProxyFilteringProfileEndIpAddressType=_ZyMldSnoopingProxyFilteringProfileEndIpAddressType_Object((1,3,6,1,4,1,890,1,15,3,51,1,2,1,4),_ZyMldSnoopingProxyFilteringProfileEndIpAddressType_Type())
+zyMldSnoopingProxyFilteringProfileEndIpAddressType.setMaxAccess(_E)
+if mibBuilder.loadTexts:zyMldSnoopingProxyFilteringProfileEndIpAddressType.setStatus(_A)
+_ZyMldSnoopingProxyFilteringProfileEndIpAddress_Type=InetAddress
+_ZyMldSnoopingProxyFilteringProfileEndIpAddress_Object=MibTableColumn
+zyMldSnoopingProxyFilteringProfileEndIpAddress=_ZyMldSnoopingProxyFilteringProfileEndIpAddress_Object((1,3,6,1,4,1,890,1,15,3,51,1,2,1,5),_ZyMldSnoopingProxyFilteringProfileEndIpAddress_Type())
+zyMldSnoopingProxyFilteringProfileEndIpAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:zyMldSnoopingProxyFilteringProfileEndIpAddress.setStatus(_A)
+_ZyMldSnoopingProxyFilteringProfileRowStatus_Type=RowStatus
+_ZyMldSnoopingProxyFilteringProfileRowStatus_Object=MibTableColumn
+zyMldSnoopingProxyFilteringProfileRowStatus=_ZyMldSnoopingProxyFilteringProfileRowStatus_Object((1,3,6,1,4,1,890,1,15,3,51,1,2,1,6),_ZyMldSnoopingProxyFilteringProfileRowStatus_Type())
+zyMldSnoopingProxyFilteringProfileRowStatus.setMaxAccess(_O)
+if mibBuilder.loadTexts:zyMldSnoopingProxyFilteringProfileRowStatus.setStatus(_A)
+_ZyxelMldSnoopingProxyFilteringPortTable_Object=MibTable
+zyxelMldSnoopingProxyFilteringPortTable=_ZyxelMldSnoopingProxyFilteringPortTable_Object((1,3,6,1,4,1,890,1,15,3,51,1,3))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyFilteringPortTable.setStatus(_A)
+_ZyxelMldSnoopingProxyFilteringPortEntry_Object=MibTableRow
+zyxelMldSnoopingProxyFilteringPortEntry=_ZyxelMldSnoopingProxyFilteringPortEntry_Object((1,3,6,1,4,1,890,1,15,3,51,1,3,1))
+zyxelMldSnoopingProxyFilteringPortEntry.setIndexNames((0,_H,_I))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyFilteringPortEntry.setStatus(_A)
+_ZyMldSnoopingProxyFilteringPortProfile_Type=OctetString
+_ZyMldSnoopingProxyFilteringPortProfile_Object=MibTableColumn
+zyMldSnoopingProxyFilteringPortProfile=_ZyMldSnoopingProxyFilteringPortProfile_Object((1,3,6,1,4,1,890,1,15,3,51,1,3,1,1),_ZyMldSnoopingProxyFilteringPortProfile_Type())
+zyMldSnoopingProxyFilteringPortProfile.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyFilteringPortProfile.setStatus(_A)
+_ZyMldSnoopingProxyFilteringPortGroupLimitState_Type=EnabledStatus
+_ZyMldSnoopingProxyFilteringPortGroupLimitState_Object=MibTableColumn
+zyMldSnoopingProxyFilteringPortGroupLimitState=_ZyMldSnoopingProxyFilteringPortGroupLimitState_Object((1,3,6,1,4,1,890,1,15,3,51,1,3,1,2),_ZyMldSnoopingProxyFilteringPortGroupLimitState_Type())
+zyMldSnoopingProxyFilteringPortGroupLimitState.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyFilteringPortGroupLimitState.setStatus(_A)
+_ZyMldSnoopingProxyFilteringPortMaxNumberOfGroups_Type=Integer32
+_ZyMldSnoopingProxyFilteringPortMaxNumberOfGroups_Object=MibTableColumn
+zyMldSnoopingProxyFilteringPortMaxNumberOfGroups=_ZyMldSnoopingProxyFilteringPortMaxNumberOfGroups_Object((1,3,6,1,4,1,890,1,15,3,51,1,3,1,3),_ZyMldSnoopingProxyFilteringPortMaxNumberOfGroups_Type())
+zyMldSnoopingProxyFilteringPortMaxNumberOfGroups.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyFilteringPortMaxNumberOfGroups.setStatus(_A)
+_ZyxelMldSnoopingProxyStatistics_ObjectIdentity=ObjectIdentity
+zyxelMldSnoopingProxyStatistics=_ZyxelMldSnoopingProxyStatistics_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,51,2))
+_ZyMldSnoopingProxySysStatisticsV1QueryRx_Type=Integer32
+_ZyMldSnoopingProxySysStatisticsV1QueryRx_Object=MibScalar
+zyMldSnoopingProxySysStatisticsV1QueryRx=_ZyMldSnoopingProxySysStatisticsV1QueryRx_Object((1,3,6,1,4,1,890,1,15,3,51,2,1),_ZyMldSnoopingProxySysStatisticsV1QueryRx_Type())
+zyMldSnoopingProxySysStatisticsV1QueryRx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxySysStatisticsV1QueryRx.setStatus(_A)
+_ZyMldSnoopingProxySysStatisticsV1QueryTx_Type=Integer32
+_ZyMldSnoopingProxySysStatisticsV1QueryTx_Object=MibScalar
+zyMldSnoopingProxySysStatisticsV1QueryTx=_ZyMldSnoopingProxySysStatisticsV1QueryTx_Object((1,3,6,1,4,1,890,1,15,3,51,2,2),_ZyMldSnoopingProxySysStatisticsV1QueryTx_Type())
+zyMldSnoopingProxySysStatisticsV1QueryTx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxySysStatisticsV1QueryTx.setStatus(_A)
+_ZyMldSnoopingProxySysStatisticsV1QueryDrop_Type=Integer32
+_ZyMldSnoopingProxySysStatisticsV1QueryDrop_Object=MibScalar
+zyMldSnoopingProxySysStatisticsV1QueryDrop=_ZyMldSnoopingProxySysStatisticsV1QueryDrop_Object((1,3,6,1,4,1,890,1,15,3,51,2,3),_ZyMldSnoopingProxySysStatisticsV1QueryDrop_Type())
+zyMldSnoopingProxySysStatisticsV1QueryDrop.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxySysStatisticsV1QueryDrop.setStatus(_A)
+_ZyMldSnoopingProxySysStatisticsV1ReportRx_Type=Integer32
+_ZyMldSnoopingProxySysStatisticsV1ReportRx_Object=MibScalar
+zyMldSnoopingProxySysStatisticsV1ReportRx=_ZyMldSnoopingProxySysStatisticsV1ReportRx_Object((1,3,6,1,4,1,890,1,15,3,51,2,4),_ZyMldSnoopingProxySysStatisticsV1ReportRx_Type())
+zyMldSnoopingProxySysStatisticsV1ReportRx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxySysStatisticsV1ReportRx.setStatus(_A)
+_ZyMldSnoopingProxySysStatisticsV1ReportTx_Type=Integer32
+_ZyMldSnoopingProxySysStatisticsV1ReportTx_Object=MibScalar
+zyMldSnoopingProxySysStatisticsV1ReportTx=_ZyMldSnoopingProxySysStatisticsV1ReportTx_Object((1,3,6,1,4,1,890,1,15,3,51,2,5),_ZyMldSnoopingProxySysStatisticsV1ReportTx_Type())
+zyMldSnoopingProxySysStatisticsV1ReportTx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxySysStatisticsV1ReportTx.setStatus(_A)
+_ZyMldSnoopingProxySysStatisticsV1ReportDrop_Type=Integer32
+_ZyMldSnoopingProxySysStatisticsV1ReportDrop_Object=MibScalar
+zyMldSnoopingProxySysStatisticsV1ReportDrop=_ZyMldSnoopingProxySysStatisticsV1ReportDrop_Object((1,3,6,1,4,1,890,1,15,3,51,2,6),_ZyMldSnoopingProxySysStatisticsV1ReportDrop_Type())
+zyMldSnoopingProxySysStatisticsV1ReportDrop.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxySysStatisticsV1ReportDrop.setStatus(_A)
+_ZyMldSnoopingProxySysStatisticsV1DoneRx_Type=Integer32
+_ZyMldSnoopingProxySysStatisticsV1DoneRx_Object=MibScalar
+zyMldSnoopingProxySysStatisticsV1DoneRx=_ZyMldSnoopingProxySysStatisticsV1DoneRx_Object((1,3,6,1,4,1,890,1,15,3,51,2,7),_ZyMldSnoopingProxySysStatisticsV1DoneRx_Type())
+zyMldSnoopingProxySysStatisticsV1DoneRx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxySysStatisticsV1DoneRx.setStatus(_A)
+_ZyMldSnoopingProxySysStatisticsV1DoneTx_Type=Integer32
+_ZyMldSnoopingProxySysStatisticsV1DoneTx_Object=MibScalar
+zyMldSnoopingProxySysStatisticsV1DoneTx=_ZyMldSnoopingProxySysStatisticsV1DoneTx_Object((1,3,6,1,4,1,890,1,15,3,51,2,8),_ZyMldSnoopingProxySysStatisticsV1DoneTx_Type())
+zyMldSnoopingProxySysStatisticsV1DoneTx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxySysStatisticsV1DoneTx.setStatus(_A)
+_ZyMldSnoopingProxySysStatisticsV1DoneDrop_Type=Integer32
+_ZyMldSnoopingProxySysStatisticsV1DoneDrop_Object=MibScalar
+zyMldSnoopingProxySysStatisticsV1DoneDrop=_ZyMldSnoopingProxySysStatisticsV1DoneDrop_Object((1,3,6,1,4,1,890,1,15,3,51,2,9),_ZyMldSnoopingProxySysStatisticsV1DoneDrop_Type())
+zyMldSnoopingProxySysStatisticsV1DoneDrop.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxySysStatisticsV1DoneDrop.setStatus(_A)
+_ZyMldSnoopingProxySysStatisticsV2QueryRx_Type=Integer32
+_ZyMldSnoopingProxySysStatisticsV2QueryRx_Object=MibScalar
+zyMldSnoopingProxySysStatisticsV2QueryRx=_ZyMldSnoopingProxySysStatisticsV2QueryRx_Object((1,3,6,1,4,1,890,1,15,3,51,2,10),_ZyMldSnoopingProxySysStatisticsV2QueryRx_Type())
+zyMldSnoopingProxySysStatisticsV2QueryRx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxySysStatisticsV2QueryRx.setStatus(_A)
+_ZyMldSnoopingProxySysStatisticsV2QueryTx_Type=Integer32
+_ZyMldSnoopingProxySysStatisticsV2QueryTx_Object=MibScalar
+zyMldSnoopingProxySysStatisticsV2QueryTx=_ZyMldSnoopingProxySysStatisticsV2QueryTx_Object((1,3,6,1,4,1,890,1,15,3,51,2,11),_ZyMldSnoopingProxySysStatisticsV2QueryTx_Type())
+zyMldSnoopingProxySysStatisticsV2QueryTx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxySysStatisticsV2QueryTx.setStatus(_A)
+_ZyMldSnoopingProxySysStatisticsV2QueryDrop_Type=Integer32
+_ZyMldSnoopingProxySysStatisticsV2QueryDrop_Object=MibScalar
+zyMldSnoopingProxySysStatisticsV2QueryDrop=_ZyMldSnoopingProxySysStatisticsV2QueryDrop_Object((1,3,6,1,4,1,890,1,15,3,51,2,12),_ZyMldSnoopingProxySysStatisticsV2QueryDrop_Type())
+zyMldSnoopingProxySysStatisticsV2QueryDrop.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxySysStatisticsV2QueryDrop.setStatus(_A)
+_ZyMldSnoopingProxySysStatisticsV2ReportRx_Type=Integer32
+_ZyMldSnoopingProxySysStatisticsV2ReportRx_Object=MibScalar
+zyMldSnoopingProxySysStatisticsV2ReportRx=_ZyMldSnoopingProxySysStatisticsV2ReportRx_Object((1,3,6,1,4,1,890,1,15,3,51,2,13),_ZyMldSnoopingProxySysStatisticsV2ReportRx_Type())
+zyMldSnoopingProxySysStatisticsV2ReportRx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxySysStatisticsV2ReportRx.setStatus(_A)
+_ZyMldSnoopingProxySysStatisticsV2ReportTx_Type=Integer32
+_ZyMldSnoopingProxySysStatisticsV2ReportTx_Object=MibScalar
+zyMldSnoopingProxySysStatisticsV2ReportTx=_ZyMldSnoopingProxySysStatisticsV2ReportTx_Object((1,3,6,1,4,1,890,1,15,3,51,2,14),_ZyMldSnoopingProxySysStatisticsV2ReportTx_Type())
+zyMldSnoopingProxySysStatisticsV2ReportTx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxySysStatisticsV2ReportTx.setStatus(_A)
+_ZyMldSnoopingProxySysStatisticsV2ReportDrop_Type=Integer32
+_ZyMldSnoopingProxySysStatisticsV2ReportDrop_Object=MibScalar
+zyMldSnoopingProxySysStatisticsV2ReportDrop=_ZyMldSnoopingProxySysStatisticsV2ReportDrop_Object((1,3,6,1,4,1,890,1,15,3,51,2,15),_ZyMldSnoopingProxySysStatisticsV2ReportDrop_Type())
+zyMldSnoopingProxySysStatisticsV2ReportDrop.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxySysStatisticsV2ReportDrop.setStatus(_A)
+_ZyxelMldSnoopingProxyStatisticsVlanTable_Object=MibTable
+zyxelMldSnoopingProxyStatisticsVlanTable=_ZyxelMldSnoopingProxyStatisticsVlanTable_Object((1,3,6,1,4,1,890,1,15,3,51,2,16))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyStatisticsVlanTable.setStatus(_A)
+_ZyxelMldSnoopingProxyStatisticsVlanEntry_Object=MibTableRow
+zyxelMldSnoopingProxyStatisticsVlanEntry=_ZyxelMldSnoopingProxyStatisticsVlanEntry_Object((1,3,6,1,4,1,890,1,15,3,51,2,16,1))
+zyxelMldSnoopingProxyStatisticsVlanEntry.setIndexNames((0,_D,_G))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyStatisticsVlanEntry.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsVlanV1QueryRx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsVlanV1QueryRx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsVlanV1QueryRx=_ZyMldSnoopingProxyStatisticsVlanV1QueryRx_Object((1,3,6,1,4,1,890,1,15,3,51,2,16,1,1),_ZyMldSnoopingProxyStatisticsVlanV1QueryRx_Type())
+zyMldSnoopingProxyStatisticsVlanV1QueryRx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsVlanV1QueryRx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsVlanV1QueryTx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsVlanV1QueryTx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsVlanV1QueryTx=_ZyMldSnoopingProxyStatisticsVlanV1QueryTx_Object((1,3,6,1,4,1,890,1,15,3,51,2,16,1,2),_ZyMldSnoopingProxyStatisticsVlanV1QueryTx_Type())
+zyMldSnoopingProxyStatisticsVlanV1QueryTx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsVlanV1QueryTx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsVlanV1QueryDrop_Type=Integer32
+_ZyMldSnoopingProxyStatisticsVlanV1QueryDrop_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsVlanV1QueryDrop=_ZyMldSnoopingProxyStatisticsVlanV1QueryDrop_Object((1,3,6,1,4,1,890,1,15,3,51,2,16,1,3),_ZyMldSnoopingProxyStatisticsVlanV1QueryDrop_Type())
+zyMldSnoopingProxyStatisticsVlanV1QueryDrop.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsVlanV1QueryDrop.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsVlanV1ReportRx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsVlanV1ReportRx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsVlanV1ReportRx=_ZyMldSnoopingProxyStatisticsVlanV1ReportRx_Object((1,3,6,1,4,1,890,1,15,3,51,2,16,1,4),_ZyMldSnoopingProxyStatisticsVlanV1ReportRx_Type())
+zyMldSnoopingProxyStatisticsVlanV1ReportRx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsVlanV1ReportRx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsVlanV1ReportTx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsVlanV1ReportTx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsVlanV1ReportTx=_ZyMldSnoopingProxyStatisticsVlanV1ReportTx_Object((1,3,6,1,4,1,890,1,15,3,51,2,16,1,5),_ZyMldSnoopingProxyStatisticsVlanV1ReportTx_Type())
+zyMldSnoopingProxyStatisticsVlanV1ReportTx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsVlanV1ReportTx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsVlanV1ReportDrop_Type=Integer32
+_ZyMldSnoopingProxyStatisticsVlanV1ReportDrop_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsVlanV1ReportDrop=_ZyMldSnoopingProxyStatisticsVlanV1ReportDrop_Object((1,3,6,1,4,1,890,1,15,3,51,2,16,1,6),_ZyMldSnoopingProxyStatisticsVlanV1ReportDrop_Type())
+zyMldSnoopingProxyStatisticsVlanV1ReportDrop.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsVlanV1ReportDrop.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsVlanV1DoneRx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsVlanV1DoneRx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsVlanV1DoneRx=_ZyMldSnoopingProxyStatisticsVlanV1DoneRx_Object((1,3,6,1,4,1,890,1,15,3,51,2,16,1,7),_ZyMldSnoopingProxyStatisticsVlanV1DoneRx_Type())
+zyMldSnoopingProxyStatisticsVlanV1DoneRx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsVlanV1DoneRx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsVlanV1DoneTx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsVlanV1DoneTx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsVlanV1DoneTx=_ZyMldSnoopingProxyStatisticsVlanV1DoneTx_Object((1,3,6,1,4,1,890,1,15,3,51,2,16,1,8),_ZyMldSnoopingProxyStatisticsVlanV1DoneTx_Type())
+zyMldSnoopingProxyStatisticsVlanV1DoneTx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsVlanV1DoneTx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsVlanV1DoneDrop_Type=Integer32
+_ZyMldSnoopingProxyStatisticsVlanV1DoneDrop_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsVlanV1DoneDrop=_ZyMldSnoopingProxyStatisticsVlanV1DoneDrop_Object((1,3,6,1,4,1,890,1,15,3,51,2,16,1,9),_ZyMldSnoopingProxyStatisticsVlanV1DoneDrop_Type())
+zyMldSnoopingProxyStatisticsVlanV1DoneDrop.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsVlanV1DoneDrop.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsVlanV2QueryRx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsVlanV2QueryRx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsVlanV2QueryRx=_ZyMldSnoopingProxyStatisticsVlanV2QueryRx_Object((1,3,6,1,4,1,890,1,15,3,51,2,16,1,10),_ZyMldSnoopingProxyStatisticsVlanV2QueryRx_Type())
+zyMldSnoopingProxyStatisticsVlanV2QueryRx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsVlanV2QueryRx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsVlanV2QueryTx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsVlanV2QueryTx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsVlanV2QueryTx=_ZyMldSnoopingProxyStatisticsVlanV2QueryTx_Object((1,3,6,1,4,1,890,1,15,3,51,2,16,1,11),_ZyMldSnoopingProxyStatisticsVlanV2QueryTx_Type())
+zyMldSnoopingProxyStatisticsVlanV2QueryTx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsVlanV2QueryTx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsVlanV2QueryDrop_Type=Integer32
+_ZyMldSnoopingProxyStatisticsVlanV2QueryDrop_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsVlanV2QueryDrop=_ZyMldSnoopingProxyStatisticsVlanV2QueryDrop_Object((1,3,6,1,4,1,890,1,15,3,51,2,16,1,12),_ZyMldSnoopingProxyStatisticsVlanV2QueryDrop_Type())
+zyMldSnoopingProxyStatisticsVlanV2QueryDrop.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsVlanV2QueryDrop.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsVlanV2ReportRx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsVlanV2ReportRx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsVlanV2ReportRx=_ZyMldSnoopingProxyStatisticsVlanV2ReportRx_Object((1,3,6,1,4,1,890,1,15,3,51,2,16,1,13),_ZyMldSnoopingProxyStatisticsVlanV2ReportRx_Type())
+zyMldSnoopingProxyStatisticsVlanV2ReportRx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsVlanV2ReportRx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsVlanV2ReportTx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsVlanV2ReportTx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsVlanV2ReportTx=_ZyMldSnoopingProxyStatisticsVlanV2ReportTx_Object((1,3,6,1,4,1,890,1,15,3,51,2,16,1,14),_ZyMldSnoopingProxyStatisticsVlanV2ReportTx_Type())
+zyMldSnoopingProxyStatisticsVlanV2ReportTx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsVlanV2ReportTx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsVlanV2ReportDrop_Type=Integer32
+_ZyMldSnoopingProxyStatisticsVlanV2ReportDrop_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsVlanV2ReportDrop=_ZyMldSnoopingProxyStatisticsVlanV2ReportDrop_Object((1,3,6,1,4,1,890,1,15,3,51,2,16,1,15),_ZyMldSnoopingProxyStatisticsVlanV2ReportDrop_Type())
+zyMldSnoopingProxyStatisticsVlanV2ReportDrop.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsVlanV2ReportDrop.setStatus(_A)
+_ZyxelMldSnoopingProxyStatisticsPortTable_Object=MibTable
+zyxelMldSnoopingProxyStatisticsPortTable=_ZyxelMldSnoopingProxyStatisticsPortTable_Object((1,3,6,1,4,1,890,1,15,3,51,2,17))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyStatisticsPortTable.setStatus(_A)
+_ZyxelMldSnoopingProxyStatisticsPortEntry_Object=MibTableRow
+zyxelMldSnoopingProxyStatisticsPortEntry=_ZyxelMldSnoopingProxyStatisticsPortEntry_Object((1,3,6,1,4,1,890,1,15,3,51,2,17,1))
+zyxelMldSnoopingProxyStatisticsPortEntry.setIndexNames((0,_H,_I))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyStatisticsPortEntry.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsPortV1QueryRx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsPortV1QueryRx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsPortV1QueryRx=_ZyMldSnoopingProxyStatisticsPortV1QueryRx_Object((1,3,6,1,4,1,890,1,15,3,51,2,17,1,1),_ZyMldSnoopingProxyStatisticsPortV1QueryRx_Type())
+zyMldSnoopingProxyStatisticsPortV1QueryRx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsPortV1QueryRx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsPortV1QueryTx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsPortV1QueryTx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsPortV1QueryTx=_ZyMldSnoopingProxyStatisticsPortV1QueryTx_Object((1,3,6,1,4,1,890,1,15,3,51,2,17,1,2),_ZyMldSnoopingProxyStatisticsPortV1QueryTx_Type())
+zyMldSnoopingProxyStatisticsPortV1QueryTx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsPortV1QueryTx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsPortV1QueryDrop_Type=Integer32
+_ZyMldSnoopingProxyStatisticsPortV1QueryDrop_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsPortV1QueryDrop=_ZyMldSnoopingProxyStatisticsPortV1QueryDrop_Object((1,3,6,1,4,1,890,1,15,3,51,2,17,1,3),_ZyMldSnoopingProxyStatisticsPortV1QueryDrop_Type())
+zyMldSnoopingProxyStatisticsPortV1QueryDrop.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsPortV1QueryDrop.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsPortV1ReportRx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsPortV1ReportRx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsPortV1ReportRx=_ZyMldSnoopingProxyStatisticsPortV1ReportRx_Object((1,3,6,1,4,1,890,1,15,3,51,2,17,1,4),_ZyMldSnoopingProxyStatisticsPortV1ReportRx_Type())
+zyMldSnoopingProxyStatisticsPortV1ReportRx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsPortV1ReportRx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsPortV1ReportTx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsPortV1ReportTx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsPortV1ReportTx=_ZyMldSnoopingProxyStatisticsPortV1ReportTx_Object((1,3,6,1,4,1,890,1,15,3,51,2,17,1,5),_ZyMldSnoopingProxyStatisticsPortV1ReportTx_Type())
+zyMldSnoopingProxyStatisticsPortV1ReportTx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsPortV1ReportTx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsPortV1ReportDrop_Type=Integer32
+_ZyMldSnoopingProxyStatisticsPortV1ReportDrop_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsPortV1ReportDrop=_ZyMldSnoopingProxyStatisticsPortV1ReportDrop_Object((1,3,6,1,4,1,890,1,15,3,51,2,17,1,6),_ZyMldSnoopingProxyStatisticsPortV1ReportDrop_Type())
+zyMldSnoopingProxyStatisticsPortV1ReportDrop.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsPortV1ReportDrop.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsPortV1DoneRx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsPortV1DoneRx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsPortV1DoneRx=_ZyMldSnoopingProxyStatisticsPortV1DoneRx_Object((1,3,6,1,4,1,890,1,15,3,51,2,17,1,7),_ZyMldSnoopingProxyStatisticsPortV1DoneRx_Type())
+zyMldSnoopingProxyStatisticsPortV1DoneRx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsPortV1DoneRx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsPortV1DoneTx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsPortV1DoneTx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsPortV1DoneTx=_ZyMldSnoopingProxyStatisticsPortV1DoneTx_Object((1,3,6,1,4,1,890,1,15,3,51,2,17,1,8),_ZyMldSnoopingProxyStatisticsPortV1DoneTx_Type())
+zyMldSnoopingProxyStatisticsPortV1DoneTx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsPortV1DoneTx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsPortV1DoneDrop_Type=Integer32
+_ZyMldSnoopingProxyStatisticsPortV1DoneDrop_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsPortV1DoneDrop=_ZyMldSnoopingProxyStatisticsPortV1DoneDrop_Object((1,3,6,1,4,1,890,1,15,3,51,2,17,1,9),_ZyMldSnoopingProxyStatisticsPortV1DoneDrop_Type())
+zyMldSnoopingProxyStatisticsPortV1DoneDrop.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsPortV1DoneDrop.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsPortV2QueryRx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsPortV2QueryRx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsPortV2QueryRx=_ZyMldSnoopingProxyStatisticsPortV2QueryRx_Object((1,3,6,1,4,1,890,1,15,3,51,2,17,1,10),_ZyMldSnoopingProxyStatisticsPortV2QueryRx_Type())
+zyMldSnoopingProxyStatisticsPortV2QueryRx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsPortV2QueryRx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsPortV2QueryTx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsPortV2QueryTx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsPortV2QueryTx=_ZyMldSnoopingProxyStatisticsPortV2QueryTx_Object((1,3,6,1,4,1,890,1,15,3,51,2,17,1,11),_ZyMldSnoopingProxyStatisticsPortV2QueryTx_Type())
+zyMldSnoopingProxyStatisticsPortV2QueryTx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsPortV2QueryTx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsPortV2QueryDrop_Type=Integer32
+_ZyMldSnoopingProxyStatisticsPortV2QueryDrop_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsPortV2QueryDrop=_ZyMldSnoopingProxyStatisticsPortV2QueryDrop_Object((1,3,6,1,4,1,890,1,15,3,51,2,17,1,12),_ZyMldSnoopingProxyStatisticsPortV2QueryDrop_Type())
+zyMldSnoopingProxyStatisticsPortV2QueryDrop.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsPortV2QueryDrop.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsPortV2ReportRx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsPortV2ReportRx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsPortV2ReportRx=_ZyMldSnoopingProxyStatisticsPortV2ReportRx_Object((1,3,6,1,4,1,890,1,15,3,51,2,17,1,13),_ZyMldSnoopingProxyStatisticsPortV2ReportRx_Type())
+zyMldSnoopingProxyStatisticsPortV2ReportRx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsPortV2ReportRx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsPortV2ReportTx_Type=Integer32
+_ZyMldSnoopingProxyStatisticsPortV2ReportTx_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsPortV2ReportTx=_ZyMldSnoopingProxyStatisticsPortV2ReportTx_Object((1,3,6,1,4,1,890,1,15,3,51,2,17,1,14),_ZyMldSnoopingProxyStatisticsPortV2ReportTx_Type())
+zyMldSnoopingProxyStatisticsPortV2ReportTx.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsPortV2ReportTx.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsPortV2ReportDrop_Type=Integer32
+_ZyMldSnoopingProxyStatisticsPortV2ReportDrop_Object=MibTableColumn
+zyMldSnoopingProxyStatisticsPortV2ReportDrop=_ZyMldSnoopingProxyStatisticsPortV2ReportDrop_Object((1,3,6,1,4,1,890,1,15,3,51,2,17,1,15),_ZyMldSnoopingProxyStatisticsPortV2ReportDrop_Type())
+zyMldSnoopingProxyStatisticsPortV2ReportDrop.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsPortV2ReportDrop.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsClear_Type=EnabledStatus
+_ZyMldSnoopingProxyStatisticsClear_Object=MibScalar
+zyMldSnoopingProxyStatisticsClear=_ZyMldSnoopingProxyStatisticsClear_Object((1,3,6,1,4,1,890,1,15,3,51,2,18),_ZyMldSnoopingProxyStatisticsClear_Type())
+zyMldSnoopingProxyStatisticsClear.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsClear.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsClearSystem_Type=EnabledStatus
+_ZyMldSnoopingProxyStatisticsClearSystem_Object=MibScalar
+zyMldSnoopingProxyStatisticsClearSystem=_ZyMldSnoopingProxyStatisticsClearSystem_Object((1,3,6,1,4,1,890,1,15,3,51,2,19),_ZyMldSnoopingProxyStatisticsClearSystem_Type())
+zyMldSnoopingProxyStatisticsClearSystem.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsClearSystem.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsClearPort_Type=EnabledStatus
+_ZyMldSnoopingProxyStatisticsClearPort_Object=MibScalar
+zyMldSnoopingProxyStatisticsClearPort=_ZyMldSnoopingProxyStatisticsClearPort_Object((1,3,6,1,4,1,890,1,15,3,51,2,20),_ZyMldSnoopingProxyStatisticsClearPort_Type())
+zyMldSnoopingProxyStatisticsClearPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsClearPort.setStatus(_A)
+_ZyMldSnoopingProxyStatisticsClearVlan_Type=EnabledStatus
+_ZyMldSnoopingProxyStatisticsClearVlan_Object=MibScalar
+zyMldSnoopingProxyStatisticsClearVlan=_ZyMldSnoopingProxyStatisticsClearVlan_Object((1,3,6,1,4,1,890,1,15,3,51,2,21),_ZyMldSnoopingProxyStatisticsClearVlan_Type())
+zyMldSnoopingProxyStatisticsClearVlan.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyStatisticsClearVlan.setStatus(_A)
+_ZyxelMldSnoopingProxySetup_ObjectIdentity=ObjectIdentity
+zyxelMldSnoopingProxySetup=_ZyxelMldSnoopingProxySetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,51,3))
+_ZyMldSnoopingProxyState_Type=EnabledStatus
+_ZyMldSnoopingProxyState_Object=MibScalar
+zyMldSnoopingProxyState=_ZyMldSnoopingProxyState_Object((1,3,6,1,4,1,890,1,15,3,51,3,1),_ZyMldSnoopingProxyState_Type())
+zyMldSnoopingProxyState.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyState.setStatus(_A)
+_ZyMldSnoopingProxyFilteringState_Type=EnabledStatus
+_ZyMldSnoopingProxyFilteringState_Object=MibScalar
+zyMldSnoopingProxyFilteringState=_ZyMldSnoopingProxyFilteringState_Object((1,3,6,1,4,1,890,1,15,3,51,3,2),_ZyMldSnoopingProxyFilteringState_Type())
+zyMldSnoopingProxyFilteringState.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyFilteringState.setStatus(_A)
+_ZyMldSnoopingProxy8021pPriority_Type=Integer32
+_ZyMldSnoopingProxy8021pPriority_Object=MibScalar
+zyMldSnoopingProxy8021pPriority=_ZyMldSnoopingProxy8021pPriority_Object((1,3,6,1,4,1,890,1,15,3,51,3,3),_ZyMldSnoopingProxy8021pPriority_Type())
+zyMldSnoopingProxy8021pPriority.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxy8021pPriority.setStatus(_A)
+_ZyMldSnoopingProxyMaxNumberOfVlans_Type=Integer32
+_ZyMldSnoopingProxyMaxNumberOfVlans_Object=MibScalar
+zyMldSnoopingProxyMaxNumberOfVlans=_ZyMldSnoopingProxyMaxNumberOfVlans_Object((1,3,6,1,4,1,890,1,15,3,51,3,4),_ZyMldSnoopingProxyMaxNumberOfVlans_Type())
+zyMldSnoopingProxyMaxNumberOfVlans.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyMaxNumberOfVlans.setStatus(_A)
+_ZyxelMldSnoopingProxyVlanTable_Object=MibTable
+zyxelMldSnoopingProxyVlanTable=_ZyxelMldSnoopingProxyVlanTable_Object((1,3,6,1,4,1,890,1,15,3,51,3,5))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyVlanTable.setStatus(_A)
+_ZyxelMldSnoopingProxyVlanEntry_Object=MibTableRow
+zyxelMldSnoopingProxyVlanEntry=_ZyxelMldSnoopingProxyVlanEntry_Object((1,3,6,1,4,1,890,1,15,3,51,3,5,1))
+zyxelMldSnoopingProxyVlanEntry.setIndexNames((0,_D,_G))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyVlanEntry.setStatus(_A)
+_ZyMldSnoopingProxyVlanVid_Type=Integer32
+_ZyMldSnoopingProxyVlanVid_Object=MibTableColumn
+zyMldSnoopingProxyVlanVid=_ZyMldSnoopingProxyVlanVid_Object((1,3,6,1,4,1,890,1,15,3,51,3,5,1,1),_ZyMldSnoopingProxyVlanVid_Type())
+zyMldSnoopingProxyVlanVid.setMaxAccess(_E)
+if mibBuilder.loadTexts:zyMldSnoopingProxyVlanVid.setStatus(_A)
+_ZyMldSnoopingProxyVlanRowStatus_Type=RowStatus
+_ZyMldSnoopingProxyVlanRowStatus_Object=MibTableColumn
+zyMldSnoopingProxyVlanRowStatus=_ZyMldSnoopingProxyVlanRowStatus_Object((1,3,6,1,4,1,890,1,15,3,51,3,5,1,2),_ZyMldSnoopingProxyVlanRowStatus_Type())
+zyMldSnoopingProxyVlanRowStatus.setMaxAccess(_O)
+if mibBuilder.loadTexts:zyMldSnoopingProxyVlanRowStatus.setStatus(_A)
+_ZyxelMldSnoopingProxyUpstreamVlanTable_Object=MibTable
+zyxelMldSnoopingProxyUpstreamVlanTable=_ZyxelMldSnoopingProxyUpstreamVlanTable_Object((1,3,6,1,4,1,890,1,15,3,51,3,6))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyUpstreamVlanTable.setStatus(_A)
+_ZyxelMldSnoopingProxyUpstreamVlanEntry_Object=MibTableRow
+zyxelMldSnoopingProxyUpstreamVlanEntry=_ZyxelMldSnoopingProxyUpstreamVlanEntry_Object((1,3,6,1,4,1,890,1,15,3,51,3,6,1))
+zyxelMldSnoopingProxyUpstreamVlanEntry.setIndexNames((0,_D,_G))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyUpstreamVlanEntry.setStatus(_A)
+_ZyMldSnoopingProxyUpstreamVlanPorts_Type=PortList
+_ZyMldSnoopingProxyUpstreamVlanPorts_Object=MibTableColumn
+zyMldSnoopingProxyUpstreamVlanPorts=_ZyMldSnoopingProxyUpstreamVlanPorts_Object((1,3,6,1,4,1,890,1,15,3,51,3,6,1,1),_ZyMldSnoopingProxyUpstreamVlanPorts_Type())
+zyMldSnoopingProxyUpstreamVlanPorts.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyUpstreamVlanPorts.setStatus(_A)
+class _ZyMldSnoopingProxyUpstreamVlanQueryInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1000,31744000))
+_ZyMldSnoopingProxyUpstreamVlanQueryInterval_Type.__name__=_F
+_ZyMldSnoopingProxyUpstreamVlanQueryInterval_Object=MibTableColumn
+zyMldSnoopingProxyUpstreamVlanQueryInterval=_ZyMldSnoopingProxyUpstreamVlanQueryInterval_Object((1,3,6,1,4,1,890,1,15,3,51,3,6,1,2),_ZyMldSnoopingProxyUpstreamVlanQueryInterval_Type())
+zyMldSnoopingProxyUpstreamVlanQueryInterval.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyUpstreamVlanQueryInterval.setStatus(_A)
+class _ZyMldSnoopingProxyUpstreamVlanMaxResponseTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1000,25000))
+_ZyMldSnoopingProxyUpstreamVlanMaxResponseTime_Type.__name__=_F
+_ZyMldSnoopingProxyUpstreamVlanMaxResponseTime_Object=MibTableColumn
+zyMldSnoopingProxyUpstreamVlanMaxResponseTime=_ZyMldSnoopingProxyUpstreamVlanMaxResponseTime_Object((1,3,6,1,4,1,890,1,15,3,51,3,6,1,3),_ZyMldSnoopingProxyUpstreamVlanMaxResponseTime_Type())
+zyMldSnoopingProxyUpstreamVlanMaxResponseTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyUpstreamVlanMaxResponseTime.setStatus(_A)
+class _ZyMldSnoopingProxyUpstreamVlanRobustness_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,25))
+_ZyMldSnoopingProxyUpstreamVlanRobustness_Type.__name__=_F
+_ZyMldSnoopingProxyUpstreamVlanRobustness_Object=MibTableColumn
+zyMldSnoopingProxyUpstreamVlanRobustness=_ZyMldSnoopingProxyUpstreamVlanRobustness_Object((1,3,6,1,4,1,890,1,15,3,51,3,6,1,4),_ZyMldSnoopingProxyUpstreamVlanRobustness_Type())
+zyMldSnoopingProxyUpstreamVlanRobustness.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyUpstreamVlanRobustness.setStatus(_A)
+class _ZyMldSnoopingProxyUpstreamVlanLastMemberQueryInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8387584))
+_ZyMldSnoopingProxyUpstreamVlanLastMemberQueryInterval_Type.__name__=_F
+_ZyMldSnoopingProxyUpstreamVlanLastMemberQueryInterval_Object=MibTableColumn
+zyMldSnoopingProxyUpstreamVlanLastMemberQueryInterval=_ZyMldSnoopingProxyUpstreamVlanLastMemberQueryInterval_Object((1,3,6,1,4,1,890,1,15,3,51,3,6,1,5),_ZyMldSnoopingProxyUpstreamVlanLastMemberQueryInterval_Type())
+zyMldSnoopingProxyUpstreamVlanLastMemberQueryInterval.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyUpstreamVlanLastMemberQueryInterval.setStatus(_A)
+_ZyxelMldSnoopingProxyDownstreamVlanTable_Object=MibTable
+zyxelMldSnoopingProxyDownstreamVlanTable=_ZyxelMldSnoopingProxyDownstreamVlanTable_Object((1,3,6,1,4,1,890,1,15,3,51,3,7))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyDownstreamVlanTable.setStatus(_A)
+_ZyxelMldSnoopingProxyDownstreamVlanEntry_Object=MibTableRow
+zyxelMldSnoopingProxyDownstreamVlanEntry=_ZyxelMldSnoopingProxyDownstreamVlanEntry_Object((1,3,6,1,4,1,890,1,15,3,51,3,7,1))
+zyxelMldSnoopingProxyDownstreamVlanEntry.setIndexNames((0,_D,_G))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyDownstreamVlanEntry.setStatus(_A)
+_ZyMldSnoopingProxyDownstreamVlanPorts_Type=PortList
+_ZyMldSnoopingProxyDownstreamVlanPorts_Object=MibTableColumn
+zyMldSnoopingProxyDownstreamVlanPorts=_ZyMldSnoopingProxyDownstreamVlanPorts_Object((1,3,6,1,4,1,890,1,15,3,51,3,7,1,1),_ZyMldSnoopingProxyDownstreamVlanPorts_Type())
+zyMldSnoopingProxyDownstreamVlanPorts.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyDownstreamVlanPorts.setStatus(_A)
+class _ZyMldSnoopingProxyDownstreamVlanQueryInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1000,31744000))
+_ZyMldSnoopingProxyDownstreamVlanQueryInterval_Type.__name__=_F
+_ZyMldSnoopingProxyDownstreamVlanQueryInterval_Object=MibTableColumn
+zyMldSnoopingProxyDownstreamVlanQueryInterval=_ZyMldSnoopingProxyDownstreamVlanQueryInterval_Object((1,3,6,1,4,1,890,1,15,3,51,3,7,1,2),_ZyMldSnoopingProxyDownstreamVlanQueryInterval_Type())
+zyMldSnoopingProxyDownstreamVlanQueryInterval.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyDownstreamVlanQueryInterval.setStatus(_A)
+class _ZyMldSnoopingProxyDownstreamVlanMaxResponseTime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1000,25000))
+_ZyMldSnoopingProxyDownstreamVlanMaxResponseTime_Type.__name__=_F
+_ZyMldSnoopingProxyDownstreamVlanMaxResponseTime_Object=MibTableColumn
+zyMldSnoopingProxyDownstreamVlanMaxResponseTime=_ZyMldSnoopingProxyDownstreamVlanMaxResponseTime_Object((1,3,6,1,4,1,890,1,15,3,51,3,7,1,3),_ZyMldSnoopingProxyDownstreamVlanMaxResponseTime_Type())
+zyMldSnoopingProxyDownstreamVlanMaxResponseTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyDownstreamVlanMaxResponseTime.setStatus(_A)
+_ZyxelMldSnoopingProxyDownstreamVlanPortTable_Object=MibTable
+zyxelMldSnoopingProxyDownstreamVlanPortTable=_ZyxelMldSnoopingProxyDownstreamVlanPortTable_Object((1,3,6,1,4,1,890,1,15,3,51,3,8))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyDownstreamVlanPortTable.setStatus(_A)
+_ZyxelMldSnoopingProxyDownstreamVlanPortEntry_Object=MibTableRow
+zyxelMldSnoopingProxyDownstreamVlanPortEntry=_ZyxelMldSnoopingProxyDownstreamVlanPortEntry_Object((1,3,6,1,4,1,890,1,15,3,51,3,8,1))
+zyxelMldSnoopingProxyDownstreamVlanPortEntry.setIndexNames((0,_D,_G),(0,_D,_P))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyDownstreamVlanPortEntry.setStatus(_A)
+_ZyMldSnoopingProxyDownstreamVlanPortIndex_Type=Integer32
+_ZyMldSnoopingProxyDownstreamVlanPortIndex_Object=MibTableColumn
+zyMldSnoopingProxyDownstreamVlanPortIndex=_ZyMldSnoopingProxyDownstreamVlanPortIndex_Object((1,3,6,1,4,1,890,1,15,3,51,3,8,1,1),_ZyMldSnoopingProxyDownstreamVlanPortIndex_Type())
+zyMldSnoopingProxyDownstreamVlanPortIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:zyMldSnoopingProxyDownstreamVlanPortIndex.setStatus(_A)
+class _ZyMldSnoopingProxyDownstreamVlanPortLeaveMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('immediate',0),('normal',1),('fast',2)))
+_ZyMldSnoopingProxyDownstreamVlanPortLeaveMode_Type.__name__=_F
+_ZyMldSnoopingProxyDownstreamVlanPortLeaveMode_Object=MibTableColumn
+zyMldSnoopingProxyDownstreamVlanPortLeaveMode=_ZyMldSnoopingProxyDownstreamVlanPortLeaveMode_Object((1,3,6,1,4,1,890,1,15,3,51,3,8,1,2),_ZyMldSnoopingProxyDownstreamVlanPortLeaveMode_Type())
+zyMldSnoopingProxyDownstreamVlanPortLeaveMode.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyDownstreamVlanPortLeaveMode.setStatus(_A)
+_ZyMldSnoopingProxyDownstreamVlanPortLeaveTimeout_Type=Integer32
+_ZyMldSnoopingProxyDownstreamVlanPortLeaveTimeout_Object=MibTableColumn
+zyMldSnoopingProxyDownstreamVlanPortLeaveTimeout=_ZyMldSnoopingProxyDownstreamVlanPortLeaveTimeout_Object((1,3,6,1,4,1,890,1,15,3,51,3,8,1,3),_ZyMldSnoopingProxyDownstreamVlanPortLeaveTimeout_Type())
+zyMldSnoopingProxyDownstreamVlanPortLeaveTimeout.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyDownstreamVlanPortLeaveTimeout.setStatus(_A)
+_ZyMldSnoopingProxyDownstreamVlanPortFastLeaveTimeout_Type=Integer32
+_ZyMldSnoopingProxyDownstreamVlanPortFastLeaveTimeout_Object=MibTableColumn
+zyMldSnoopingProxyDownstreamVlanPortFastLeaveTimeout=_ZyMldSnoopingProxyDownstreamVlanPortFastLeaveTimeout_Object((1,3,6,1,4,1,890,1,15,3,51,3,8,1,4),_ZyMldSnoopingProxyDownstreamVlanPortFastLeaveTimeout_Type())
+zyMldSnoopingProxyDownstreamVlanPortFastLeaveTimeout.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyMldSnoopingProxyDownstreamVlanPortFastLeaveTimeout.setStatus(_A)
+_ZyxelMldSnoopingProxyMembershipStatus_ObjectIdentity=ObjectIdentity
+zyxelMldSnoopingProxyMembershipStatus=_ZyxelMldSnoopingProxyMembershipStatus_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,51,4))
+_ZyxelMldSnoopingProxyMembershipTable_Object=MibTable
+zyxelMldSnoopingProxyMembershipTable=_ZyxelMldSnoopingProxyMembershipTable_Object((1,3,6,1,4,1,890,1,15,3,51,4,1))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyMembershipTable.setStatus(_A)
+_ZyxelMldSnoopingProxyMembershipEntry_Object=MibTableRow
+zyxelMldSnoopingProxyMembershipEntry=_ZyxelMldSnoopingProxyMembershipEntry_Object((1,3,6,1,4,1,890,1,15,3,51,4,1,1))
+zyxelMldSnoopingProxyMembershipEntry.setIndexNames((0,_D,_Q),(0,_D,_R),(0,_D,_S),(0,_D,_T))
+if mibBuilder.loadTexts:zyxelMldSnoopingProxyMembershipEntry.setStatus(_A)
+class _ZyMldSnoopingProxyMembershipVid_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4094))
+_ZyMldSnoopingProxyMembershipVid_Type.__name__=_F
+_ZyMldSnoopingProxyMembershipVid_Object=MibTableColumn
+zyMldSnoopingProxyMembershipVid=_ZyMldSnoopingProxyMembershipVid_Object((1,3,6,1,4,1,890,1,15,3,51,4,1,1,1),_ZyMldSnoopingProxyMembershipVid_Type())
+zyMldSnoopingProxyMembershipVid.setMaxAccess(_E)
+if mibBuilder.loadTexts:zyMldSnoopingProxyMembershipVid.setStatus(_A)
+_ZyMldSnoopingProxyMembershipPort_Type=Integer32
+_ZyMldSnoopingProxyMembershipPort_Object=MibTableColumn
+zyMldSnoopingProxyMembershipPort=_ZyMldSnoopingProxyMembershipPort_Object((1,3,6,1,4,1,890,1,15,3,51,4,1,1,2),_ZyMldSnoopingProxyMembershipPort_Type())
+zyMldSnoopingProxyMembershipPort.setMaxAccess(_E)
+if mibBuilder.loadTexts:zyMldSnoopingProxyMembershipPort.setStatus(_A)
+_ZyMldSnoopingProxyMembershipGroupIpAddressType_Type=InetAddressType
+_ZyMldSnoopingProxyMembershipGroupIpAddressType_Object=MibTableColumn
+zyMldSnoopingProxyMembershipGroupIpAddressType=_ZyMldSnoopingProxyMembershipGroupIpAddressType_Object((1,3,6,1,4,1,890,1,15,3,51,4,1,1,3),_ZyMldSnoopingProxyMembershipGroupIpAddressType_Type())
+zyMldSnoopingProxyMembershipGroupIpAddressType.setMaxAccess(_E)
+if mibBuilder.loadTexts:zyMldSnoopingProxyMembershipGroupIpAddressType.setStatus(_A)
+_ZyMldSnoopingProxyMembershipGroupIpAddress_Type=InetAddress
+_ZyMldSnoopingProxyMembershipGroupIpAddress_Object=MibTableColumn
+zyMldSnoopingProxyMembershipGroupIpAddress=_ZyMldSnoopingProxyMembershipGroupIpAddress_Object((1,3,6,1,4,1,890,1,15,3,51,4,1,1,4),_ZyMldSnoopingProxyMembershipGroupIpAddress_Type())
+zyMldSnoopingProxyMembershipGroupIpAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:zyMldSnoopingProxyMembershipGroupIpAddress.setStatus(_A)
+_ZyMldSnoopingProxyMembershipGroupTimeout_Type=Integer32
+_ZyMldSnoopingProxyMembershipGroupTimeout_Object=MibTableColumn
+zyMldSnoopingProxyMembershipGroupTimeout=_ZyMldSnoopingProxyMembershipGroupTimeout_Object((1,3,6,1,4,1,890,1,15,3,51,4,1,1,5),_ZyMldSnoopingProxyMembershipGroupTimeout_Type())
+zyMldSnoopingProxyMembershipGroupTimeout.setMaxAccess(_B)
+if mibBuilder.loadTexts:zyMldSnoopingProxyMembershipGroupTimeout.setStatus(_A)
+mibBuilder.exportSymbols(_D,**{'zyxelMldSnoopingProxy':zyxelMldSnoopingProxy,'zyxelMldSnoopingProxyFilteringSetup':zyxelMldSnoopingProxyFilteringSetup,'zyMldSnoopingProxyFilteringMaxNumberOfProfiles':zyMldSnoopingProxyFilteringMaxNumberOfProfiles,'zyxelMldSnoopingProxyFilteringProfileTable':zyxelMldSnoopingProxyFilteringProfileTable,'zyxelMldSnoopingProxyFilteringProfileEntry':zyxelMldSnoopingProxyFilteringProfileEntry,_J:zyMldSnoopingProxyFilteringProfileName,_K:zyMldSnoopingProxyFilteringProfileStartIpAddressType,_L:zyMldSnoopingProxyFilteringProfileStartIpAddress,_M:zyMldSnoopingProxyFilteringProfileEndIpAddressType,_N:zyMldSnoopingProxyFilteringProfileEndIpAddress,'zyMldSnoopingProxyFilteringProfileRowStatus':zyMldSnoopingProxyFilteringProfileRowStatus,'zyxelMldSnoopingProxyFilteringPortTable':zyxelMldSnoopingProxyFilteringPortTable,'zyxelMldSnoopingProxyFilteringPortEntry':zyxelMldSnoopingProxyFilteringPortEntry,'zyMldSnoopingProxyFilteringPortProfile':zyMldSnoopingProxyFilteringPortProfile,'zyMldSnoopingProxyFilteringPortGroupLimitState':zyMldSnoopingProxyFilteringPortGroupLimitState,'zyMldSnoopingProxyFilteringPortMaxNumberOfGroups':zyMldSnoopingProxyFilteringPortMaxNumberOfGroups,'zyxelMldSnoopingProxyStatistics':zyxelMldSnoopingProxyStatistics,'zyMldSnoopingProxySysStatisticsV1QueryRx':zyMldSnoopingProxySysStatisticsV1QueryRx,'zyMldSnoopingProxySysStatisticsV1QueryTx':zyMldSnoopingProxySysStatisticsV1QueryTx,'zyMldSnoopingProxySysStatisticsV1QueryDrop':zyMldSnoopingProxySysStatisticsV1QueryDrop,'zyMldSnoopingProxySysStatisticsV1ReportRx':zyMldSnoopingProxySysStatisticsV1ReportRx,'zyMldSnoopingProxySysStatisticsV1ReportTx':zyMldSnoopingProxySysStatisticsV1ReportTx,'zyMldSnoopingProxySysStatisticsV1ReportDrop':zyMldSnoopingProxySysStatisticsV1ReportDrop,'zyMldSnoopingProxySysStatisticsV1DoneRx':zyMldSnoopingProxySysStatisticsV1DoneRx,'zyMldSnoopingProxySysStatisticsV1DoneTx':zyMldSnoopingProxySysStatisticsV1DoneTx,'zyMldSnoopingProxySysStatisticsV1DoneDrop':zyMldSnoopingProxySysStatisticsV1DoneDrop,'zyMldSnoopingProxySysStatisticsV2QueryRx':zyMldSnoopingProxySysStatisticsV2QueryRx,'zyMldSnoopingProxySysStatisticsV2QueryTx':zyMldSnoopingProxySysStatisticsV2QueryTx,'zyMldSnoopingProxySysStatisticsV2QueryDrop':zyMldSnoopingProxySysStatisticsV2QueryDrop,'zyMldSnoopingProxySysStatisticsV2ReportRx':zyMldSnoopingProxySysStatisticsV2ReportRx,'zyMldSnoopingProxySysStatisticsV2ReportTx':zyMldSnoopingProxySysStatisticsV2ReportTx,'zyMldSnoopingProxySysStatisticsV2ReportDrop':zyMldSnoopingProxySysStatisticsV2ReportDrop,'zyxelMldSnoopingProxyStatisticsVlanTable':zyxelMldSnoopingProxyStatisticsVlanTable,'zyxelMldSnoopingProxyStatisticsVlanEntry':zyxelMldSnoopingProxyStatisticsVlanEntry,'zyMldSnoopingProxyStatisticsVlanV1QueryRx':zyMldSnoopingProxyStatisticsVlanV1QueryRx,'zyMldSnoopingProxyStatisticsVlanV1QueryTx':zyMldSnoopingProxyStatisticsVlanV1QueryTx,'zyMldSnoopingProxyStatisticsVlanV1QueryDrop':zyMldSnoopingProxyStatisticsVlanV1QueryDrop,'zyMldSnoopingProxyStatisticsVlanV1ReportRx':zyMldSnoopingProxyStatisticsVlanV1ReportRx,'zyMldSnoopingProxyStatisticsVlanV1ReportTx':zyMldSnoopingProxyStatisticsVlanV1ReportTx,'zyMldSnoopingProxyStatisticsVlanV1ReportDrop':zyMldSnoopingProxyStatisticsVlanV1ReportDrop,'zyMldSnoopingProxyStatisticsVlanV1DoneRx':zyMldSnoopingProxyStatisticsVlanV1DoneRx,'zyMldSnoopingProxyStatisticsVlanV1DoneTx':zyMldSnoopingProxyStatisticsVlanV1DoneTx,'zyMldSnoopingProxyStatisticsVlanV1DoneDrop':zyMldSnoopingProxyStatisticsVlanV1DoneDrop,'zyMldSnoopingProxyStatisticsVlanV2QueryRx':zyMldSnoopingProxyStatisticsVlanV2QueryRx,'zyMldSnoopingProxyStatisticsVlanV2QueryTx':zyMldSnoopingProxyStatisticsVlanV2QueryTx,'zyMldSnoopingProxyStatisticsVlanV2QueryDrop':zyMldSnoopingProxyStatisticsVlanV2QueryDrop,'zyMldSnoopingProxyStatisticsVlanV2ReportRx':zyMldSnoopingProxyStatisticsVlanV2ReportRx,'zyMldSnoopingProxyStatisticsVlanV2ReportTx':zyMldSnoopingProxyStatisticsVlanV2ReportTx,'zyMldSnoopingProxyStatisticsVlanV2ReportDrop':zyMldSnoopingProxyStatisticsVlanV2ReportDrop,'zyxelMldSnoopingProxyStatisticsPortTable':zyxelMldSnoopingProxyStatisticsPortTable,'zyxelMldSnoopingProxyStatisticsPortEntry':zyxelMldSnoopingProxyStatisticsPortEntry,'zyMldSnoopingProxyStatisticsPortV1QueryRx':zyMldSnoopingProxyStatisticsPortV1QueryRx,'zyMldSnoopingProxyStatisticsPortV1QueryTx':zyMldSnoopingProxyStatisticsPortV1QueryTx,'zyMldSnoopingProxyStatisticsPortV1QueryDrop':zyMldSnoopingProxyStatisticsPortV1QueryDrop,'zyMldSnoopingProxyStatisticsPortV1ReportRx':zyMldSnoopingProxyStatisticsPortV1ReportRx,'zyMldSnoopingProxyStatisticsPortV1ReportTx':zyMldSnoopingProxyStatisticsPortV1ReportTx,'zyMldSnoopingProxyStatisticsPortV1ReportDrop':zyMldSnoopingProxyStatisticsPortV1ReportDrop,'zyMldSnoopingProxyStatisticsPortV1DoneRx':zyMldSnoopingProxyStatisticsPortV1DoneRx,'zyMldSnoopingProxyStatisticsPortV1DoneTx':zyMldSnoopingProxyStatisticsPortV1DoneTx,'zyMldSnoopingProxyStatisticsPortV1DoneDrop':zyMldSnoopingProxyStatisticsPortV1DoneDrop,'zyMldSnoopingProxyStatisticsPortV2QueryRx':zyMldSnoopingProxyStatisticsPortV2QueryRx,'zyMldSnoopingProxyStatisticsPortV2QueryTx':zyMldSnoopingProxyStatisticsPortV2QueryTx,'zyMldSnoopingProxyStatisticsPortV2QueryDrop':zyMldSnoopingProxyStatisticsPortV2QueryDrop,'zyMldSnoopingProxyStatisticsPortV2ReportRx':zyMldSnoopingProxyStatisticsPortV2ReportRx,'zyMldSnoopingProxyStatisticsPortV2ReportTx':zyMldSnoopingProxyStatisticsPortV2ReportTx,'zyMldSnoopingProxyStatisticsPortV2ReportDrop':zyMldSnoopingProxyStatisticsPortV2ReportDrop,'zyMldSnoopingProxyStatisticsClear':zyMldSnoopingProxyStatisticsClear,'zyMldSnoopingProxyStatisticsClearSystem':zyMldSnoopingProxyStatisticsClearSystem,'zyMldSnoopingProxyStatisticsClearPort':zyMldSnoopingProxyStatisticsClearPort,'zyMldSnoopingProxyStatisticsClearVlan':zyMldSnoopingProxyStatisticsClearVlan,'zyxelMldSnoopingProxySetup':zyxelMldSnoopingProxySetup,'zyMldSnoopingProxyState':zyMldSnoopingProxyState,'zyMldSnoopingProxyFilteringState':zyMldSnoopingProxyFilteringState,'zyMldSnoopingProxy8021pPriority':zyMldSnoopingProxy8021pPriority,'zyMldSnoopingProxyMaxNumberOfVlans':zyMldSnoopingProxyMaxNumberOfVlans,'zyxelMldSnoopingProxyVlanTable':zyxelMldSnoopingProxyVlanTable,'zyxelMldSnoopingProxyVlanEntry':zyxelMldSnoopingProxyVlanEntry,_G:zyMldSnoopingProxyVlanVid,'zyMldSnoopingProxyVlanRowStatus':zyMldSnoopingProxyVlanRowStatus,'zyxelMldSnoopingProxyUpstreamVlanTable':zyxelMldSnoopingProxyUpstreamVlanTable,'zyxelMldSnoopingProxyUpstreamVlanEntry':zyxelMldSnoopingProxyUpstreamVlanEntry,'zyMldSnoopingProxyUpstreamVlanPorts':zyMldSnoopingProxyUpstreamVlanPorts,'zyMldSnoopingProxyUpstreamVlanQueryInterval':zyMldSnoopingProxyUpstreamVlanQueryInterval,'zyMldSnoopingProxyUpstreamVlanMaxResponseTime':zyMldSnoopingProxyUpstreamVlanMaxResponseTime,'zyMldSnoopingProxyUpstreamVlanRobustness':zyMldSnoopingProxyUpstreamVlanRobustness,'zyMldSnoopingProxyUpstreamVlanLastMemberQueryInterval':zyMldSnoopingProxyUpstreamVlanLastMemberQueryInterval,'zyxelMldSnoopingProxyDownstreamVlanTable':zyxelMldSnoopingProxyDownstreamVlanTable,'zyxelMldSnoopingProxyDownstreamVlanEntry':zyxelMldSnoopingProxyDownstreamVlanEntry,'zyMldSnoopingProxyDownstreamVlanPorts':zyMldSnoopingProxyDownstreamVlanPorts,'zyMldSnoopingProxyDownstreamVlanQueryInterval':zyMldSnoopingProxyDownstreamVlanQueryInterval,'zyMldSnoopingProxyDownstreamVlanMaxResponseTime':zyMldSnoopingProxyDownstreamVlanMaxResponseTime,'zyxelMldSnoopingProxyDownstreamVlanPortTable':zyxelMldSnoopingProxyDownstreamVlanPortTable,'zyxelMldSnoopingProxyDownstreamVlanPortEntry':zyxelMldSnoopingProxyDownstreamVlanPortEntry,_P:zyMldSnoopingProxyDownstreamVlanPortIndex,'zyMldSnoopingProxyDownstreamVlanPortLeaveMode':zyMldSnoopingProxyDownstreamVlanPortLeaveMode,'zyMldSnoopingProxyDownstreamVlanPortLeaveTimeout':zyMldSnoopingProxyDownstreamVlanPortLeaveTimeout,'zyMldSnoopingProxyDownstreamVlanPortFastLeaveTimeout':zyMldSnoopingProxyDownstreamVlanPortFastLeaveTimeout,'zyxelMldSnoopingProxyMembershipStatus':zyxelMldSnoopingProxyMembershipStatus,'zyxelMldSnoopingProxyMembershipTable':zyxelMldSnoopingProxyMembershipTable,'zyxelMldSnoopingProxyMembershipEntry':zyxelMldSnoopingProxyMembershipEntry,_Q:zyMldSnoopingProxyMembershipVid,_R:zyMldSnoopingProxyMembershipPort,_S:zyMldSnoopingProxyMembershipGroupIpAddressType,_T:zyMldSnoopingProxyMembershipGroupIpAddress,'zyMldSnoopingProxyMembershipGroupTimeout':zyMldSnoopingProxyMembershipGroupTimeout})

@@ -1,247 +1,593 @@
-#
-# PySNMP MIB module T11-FC-FABRIC-CONFIG-SERVER-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/T11-FC-FABRIC-CONFIG-SERVER-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:29:49 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-( fcmSwitchIndex, FcDomainIdOrZero, fcmInstanceIndex, FcAddressIdOrZero, FcPortType, FcNameIdOrZero, ) = mibBuilder.importSymbols("FC-MGMT-MIB", "fcmSwitchIndex", "FcDomainIdOrZero", "fcmInstanceIndex", "FcAddressIdOrZero", "FcPortType", "FcNameIdOrZero")
-( URLString, ) = mibBuilder.importSymbols("NETWORK-SERVICES-MIB", "URLString")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ModuleCompliance, ObjectGroup, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-( MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Gauge32, iso, ObjectIdentity, Integer32, Counter64, MibIdentifier, Unsigned32, TimeTicks, mib_2, NotificationType, ModuleIdentity, Bits, IpAddress, ) = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Gauge32", "iso", "ObjectIdentity", "Integer32", "Counter64", "MibIdentifier", "Unsigned32", "TimeTicks", "mib-2", "NotificationType", "ModuleIdentity", "Bits", "IpAddress")
-( TextualConvention, DisplayString, TimeStamp, TruthValue, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TimeStamp", "TruthValue")
-( t11FamLocalSwitchWwn, ) = mibBuilder.importSymbols("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamLocalSwitchWwn")
-( T11NsGs4RejectReasonCode, ) = mibBuilder.importSymbols("T11-FC-NAME-SERVER-MIB", "T11NsGs4RejectReasonCode")
-( T11FabricIndex, ) = mibBuilder.importSymbols("T11-TC-MIB", "T11FabricIndex")
-t11FcFabricConfigServerMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 162)).setRevisions(("2007-06-27 00:00",))
-if mibBuilder.loadTexts: t11FcFabricConfigServerMIB.setLastUpdated('200706270000Z')
-if mibBuilder.loadTexts: t11FcFabricConfigServerMIB.setOrganization("For the initial versions, T11.\n                   For later versions, the IETF's IMSS Working Group.")
-if mibBuilder.loadTexts: t11FcFabricConfigServerMIB.setContactInfo('     Claudio DeSanti\n                   Cisco Systems, Inc.\n                   170 West Tasman Drive\n                   San Jose, CA 95134 USA\n                   EMail: cds@cisco.com\n\n                   Keith McCloghrie\n                   Cisco Systems, Inc.\n                   170 West Tasman Drive\n                   San Jose, CA 95134 USA\n                   EMail: kzm@cisco.com')
-if mibBuilder.loadTexts: t11FcFabricConfigServerMIB.setDescription('The MIB module for the management of a Fabric\n            Configuration Server (FCS) in a Fibre Channel (FC)\n            network.  An FCS is defined by the FC-GS-5 standard.  This\n\n\n\n            MIB provides the capabilities to trigger a discovery of\n            the configuration of one or more Fabrics, to retrieve the\n            results of such a discovery, as well as to control and\n            monitor the operation of an FCS.  The discovered\n            configuration contains information about:\n\n               - Interconnect Elements (IEs), i.e., switches, hubs,\n                 bridges, etc.,\n               - Ports on IEs, and\n               - Platforms that consist of one or more FC nodes.\n\n           Copyright (C) The IETF Trust (2007).  This version of\n           this MIB module is part of RFC 4935;  see the RFC itself for\n           full legal notices.')
-t11FcsMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 162, 1))
-t11FcsMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 162, 2))
-t11FcsNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 162, 0))
-t11FcsDiscovery = MibIdentifier((1, 3, 6, 1, 2, 1, 162, 1, 1))
-t11FcsDiscoveredConfig = MibIdentifier((1, 3, 6, 1, 2, 1, 162, 1, 2))
-t11FcsStats = MibIdentifier((1, 3, 6, 1, 2, 1, 162, 1, 3))
-t11FcsNotificationInfo = MibIdentifier((1, 3, 6, 1, 2, 1, 162, 1, 4))
-class T11FcListIndex(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(1,4294967295)
-
-class T11FcListIndexPointerOrZero(Unsigned32, TextualConvention):
-    displayHint = 'd'
-
-class T11FcIeType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))
-    namedValues = NamedValues(("unknown", 1), ("other", 2), ("switch", 3), ("hub", 4), ("bridge", 5),)
-
-class T11FcPortState(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))
-    namedValues = NamedValues(("unknown", 1), ("other", 2), ("online", 3), ("offline", 4), ("testing", 5), ("fault", 6),)
-
-class T11FcPortTxType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,))
-    namedValues = NamedValues(("unknown", 1), ("other", 2), ("shortwave850nm", 3), ("longwave1550nm", 4), ("longwave1310nm", 5), ("electrical", 6), ("tenGbaseSr850", 7), ("tenGbaseLr1310", 8), ("tenGbaseEr1550", 9), ("tenGbaseLx1300", 10), ("tenGbaseSw850", 11), ("tenGbaseLw1310", 12), ("tenGbaseEw1550", 13),)
-
-class T11FcsRejectReasonExplanation(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,))
-    namedValues = NamedValues(("noAdditionalExplanation", 1), ("invNameIdForIEOrPort", 2), ("ieListNotAvailable", 3), ("ieTypeNotAvailable", 4), ("domainIdNotAvailable", 5), ("mgmtIdNotAvailable", 6), ("fabNameNotAvailable", 7), ("ielogNameNotAvailable", 8), ("mgmtAddrListNotAvailable", 9), ("ieInfoListNotAvailable", 10), ("portListNotAvailable", 11), ("portTypeNotAvailable", 12), ("phyPortNumNotAvailable", 13), ("attPortNameListNotAvailable", 14), ("portStateNotAvailable", 15), ("unableToRegIELogName", 16), ("platformNameNoExist", 17), ("platformNameAlreadyExists", 18), ("platformNodeNameNoExists", 19), ("platformNodeNameAlreadyExists", 20), ("resourceUnavailable", 21), ("noEntriesInLunMap", 22), ("invalidDeviceNameLength", 23), ("multipleAttributes", 24), ("invalidAttribBlockLength", 25), ("attributesMissing", 26),)
-
-t11FcsFabricDiscoveryTable = MibTable((1, 3, 6, 1, 2, 1, 162, 1, 1, 1), )
-if mibBuilder.loadTexts: t11FcsFabricDiscoveryTable.setDescription('This table contains control information for discovery\n            of Fabric configuration by switches.\n\n            Values written to objects in this table are not\n            retained over agent reboots.')
-t11FcsFabricDiscoveryEntry = MibTableRow((1, 3, 6, 1, 2, 1, 162, 1, 1, 1, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"))
-if mibBuilder.loadTexts: t11FcsFabricDiscoveryEntry.setDescription('Control information for discovery by the switch\n            identified by fcmInstanceIndex and fcmSwitchIndex.')
-t11FcsFabricDiscoveryRangeLow = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 1, 1, 1, 1), T11FabricIndex()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FcsFabricDiscoveryRangeLow.setDescription('The discovery by a particular switch operates\n            within all existing Fabrics that have a Fabric\n            Index within a specific inclusive range.  This\n            object specifies the minimum Fabric Index value\n            within that range.  This value just represents\n            the lower end of the range and does not necessarily\n            represent any existing Fabric.')
-t11FcsFabricDiscoveryRangeHigh = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 1, 1, 1, 2), T11FabricIndex()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FcsFabricDiscoveryRangeHigh.setDescription('The discovery by a particular switch operates\n            within all existing Fabrics that have a Fabric\n\n\n\n            Index within a specific inclusive range.  This\n            object specifies the maximum Fabric Index value\n            within that range.  This value just represents the\n            higher end of the range and does not necessarily\n            represent any existing Fabric.')
-t11FcsFabricDiscoveryStart = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("start", 1), ("noOp", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FcsFabricDiscoveryStart.setDescription("This object provides the capability to trigger the start\n            of a discovery by a Fabric Configuration Server.  If this\n            object is set to 'start', then the discovery is started on\n            those Fabrics that have their Fabric Index value in the\n            range specified by t11FcsFabricDiscoveryRangeLow and\n            t11FcsFabricDiscoveryRangeHigh.  It is recommended that\n            whenever an instance of this object is set to 'start',\n            that the desired range be specified at the same time by\n            setting the corresponding instances of\n            t11FcsFabricDiscoveryRangeLow and\n            t11FcsFabricDiscoveryRangeHigh.\n\n            Setting this object to 'start' will be rejected if a\n            discovery is already/still in progress on any Fabrics in\n            the specified range.\n\n            No action is taken if this object is set to 'noOp'.\n            The value of this object when read is always 'noOp'.")
-t11FcsFabricDiscoveryTimeOut = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 1, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(300,86400)).clone(900)).setUnits('Seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FcsFabricDiscoveryTimeOut.setDescription('The minimum interval of time for which the discovered\n            Fabric information is cached by a Fabric Configuration\n            Server.')
-t11FcsDiscoveryStateTable = MibTable((1, 3, 6, 1, 2, 1, 162, 1, 1, 2), )
-if mibBuilder.loadTexts: t11FcsDiscoveryStateTable.setDescription('This table contains the status of discovery of\n            locally known Fabrics.')
-t11FcsDiscoveryStateEntry = MibTableRow((1, 3, 6, 1, 2, 1, 162, 1, 1, 2, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsFabricIndex"))
-if mibBuilder.loadTexts: t11FcsDiscoveryStateEntry.setDescription('The discovery status for a particular Fabric on the\n            switch identified by fcmInstanceIndex and fcmSwitchIndex.')
-t11FcsFabricIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 1, 2, 1, 1), T11FabricIndex())
-if mibBuilder.loadTexts: t11FcsFabricIndex.setDescription('A unique index value that uniquely identifies a\n            particular Fabric.\n\n            In a Fabric conformant to FC-SW-4, multiple Virtual Fabrics\n            can operate within one (or more) physical infrastructures,\n            and this index value is used to uniquely identify a\n            particular (physical or virtual) Fabric within a physical\n            infrastructure.\n\n            In a Fabric conformant to versions earlier than FC-SW-4,\n            only a single Fabric could operate within a physical\n            infrastructure, and thus, the value of this Fabric Index\n            was defined to always be 1.')
-t11FcsDiscoveryStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("inProgress", 1), ("completed", 2), ("localOnly", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FcsDiscoveryStatus.setDescription("The status of the discovery for the particular Fabric.\n\n            Initially when the switch comes up, all instances of this\n            object have the value: 'localOnly', and the database\n            contains only local information, i.e., no information\n            discovered via the Fabric Configuration Server protocol\n            specified in FC-GS-5.\n\n            If t11FcsFabricDiscoveryStart is set to 'start' for a\n            range of Fabrics that includes this Fabric, then the\n            value of this object transitions to 'inProgress'.  When\n            the discovery completes, this object transitions to\n            'completed', and the data is cached for the minimum\n            interval of time specified by\n            t11FcsFabricDiscoveryTimeOut.  After this interval has\n            been exceeded, the data may be lost, in which case, the\n            value of this object changes to 'localOnly'.\n\n            This object cannot be set via SNMP to any value other\n            than 'localOnly'.  If this object is set (via SNMP) to\n            'localOnly', the cached data for the Fabric is discarded\n            immediately, and if a discovery initiated from this\n            switch was in progress for this Fabric, then that\n            discovery is aborted.")
-t11FcsDiscoveryCompleteTime = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 1, 2, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsDiscoveryCompleteTime.setDescription('This object contains the value of sysUpTime at which\n            discovery was most recently completed or aborted on this\n            Fabric.  This object contains the value of zero before\n            the first discovery on this Fabric.')
-t11FcsIeTable = MibTable((1, 3, 6, 1, 2, 1, 162, 1, 2, 1), )
-if mibBuilder.loadTexts: t11FcsIeTable.setDescription('A table of Interconnect Elements.  Interconnect\n            Elements (IEs) are switches, hubs, bridges etc.\n\n            By default, the Fabric Configuration Server will\n            maintain detailed information pertaining only to\n            local resources.  As far as discovered topology is\n            concerned, only the IE name, type, and Domain ID\n            information will be maintained.  If a discovery\n            cycle is triggered on a set of Fabrics, this table\n            along with the Port and Platform tables will be\n            populated with the discovered information.  The\n            discovered data will be retained in this table for\n            at least t11FcsFabricDiscoveryTimeOut seconds after\n            the completion of its discovery or until the\n            discovered data is invalidated.')
-t11FcsIeEntry = MibTableRow((1, 3, 6, 1, 2, 1, 162, 1, 2, 1, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsFabricIndex"), (0, "T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsIeName"))
-if mibBuilder.loadTexts: t11FcsIeEntry.setDescription('Information about an Interconnect Element that was\n            discovered on a Fabric (identified by t11FcsFabricIndex),\n            by a switch (identified by fcmInstanceIndex and\n            fcmSwitchIndex).')
-t11FcsIeName = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 1, 1, 1), FcNameIdOrZero().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),)))
-if mibBuilder.loadTexts: t11FcsIeName.setDescription('The WWN of an Interconnect Element.  This object\n            uniquely identifies an Interconnect Element on a\n            Fabric.  If the IE is a switch, then this object\n            is the Switch_Name (WWN) of the switch.')
-t11FcsIeType = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 1, 1, 2), T11FcIeType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsIeType.setDescription('The type of this Interconnect Element.')
-t11FcsIeDomainId = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 1, 1, 3), FcDomainIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsIeDomainId.setDescription('The Domain ID of this Interconnect Element.')
-t11FcsIeMgmtId = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 1, 1, 4), FcAddressIdOrZero().clone(hexValue="000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsIeMgmtId.setDescription("The management identifier of this Interconnect Element.\n            If the Interconnect Element is a switch, this object will\n            be the Domain Controller identifier of the switch.  When\n            the value of the identifier is unknown, this object\n            contains the all-zeros value: x'00 00 00'.")
-t11FcsIeFabricName = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 1, 1, 5), FcNameIdOrZero().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),)).clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsIeFabricName.setDescription("The Fabric_Name (WWN) of this Interconnect Element.\n            When the Fabric_Name is unknown, this object contains\n            the all-zeros value: x'00 00 00 00 00 00 00 00'.")
-t11FcsIeLogicalName = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsIeLogicalName.setDescription('The logical name of this Interconnect Element.\n            When the logical name is unknown, this object contains\n            the zero-length string.')
-t11FcsIeMgmtAddrListIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 1, 1, 7), T11FcListIndexPointerOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsIeMgmtAddrListIndex.setDescription('The management address list for this Interconnect Element.\n            This object points to an entry in the\n            t11FcsMgmtAddrListTable.')
-t11FcsIeInfoList = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 1, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,252))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsIeInfoList.setDescription("The information list for this Interconnect Element.\n\n            The value of this object is formatted as specified in\n            FC-GS-5, i.e., it has the following substrings in order:\n            vendor name, model name/number, and release code/level,\n            followed by zero or more substrings of vendor-specific\n            information.  Each substring is terminated with a byte\n            containing a null value (x'00').")
-t11FcsMgmtAddrListTable = MibTable((1, 3, 6, 1, 2, 1, 162, 1, 2, 2), )
-if mibBuilder.loadTexts: t11FcsMgmtAddrListTable.setDescription('This table contains the set of management address lists\n            that are currently referenced by any instance of the\n            t11FcsIeMgmtAddrListIndex or\n            t11FcsPlatformMgmtAddrListIndex objects.')
-t11FcsMgmtAddrListEntry = MibTableRow((1, 3, 6, 1, 2, 1, 162, 1, 2, 2, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsMgmtAddrListIndex"), (0, "T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsMgmtAddrIndex"))
-if mibBuilder.loadTexts: t11FcsMgmtAddrListEntry.setDescription('Information about one management address in a\n            management address list, which is known to a\n            switch (identified by fcmInstanceIndex and\n            fcmSwitchIndex).')
-t11FcsMgmtAddrListIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 2, 1, 1), T11FcListIndex())
-if mibBuilder.loadTexts: t11FcsMgmtAddrListIndex.setDescription('The index value of the management address list.')
-t11FcsMgmtAddrIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: t11FcsMgmtAddrIndex.setDescription('An integer value to distinguish different\n            management addresses in the same list.')
-t11FcsMgmtAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 2, 1, 3), URLString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsMgmtAddr.setDescription('The management address of this entry.\n\n            The format of this object is a Uniform Resource\n            Locator (URL), e.g., for SNMP, see RFC 4088.')
-t11FcsPortTable = MibTable((1, 3, 6, 1, 2, 1, 162, 1, 2, 4), )
-if mibBuilder.loadTexts: t11FcsPortTable.setDescription('This table contains information about the ports of IEs.')
-t11FcsPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 162, 1, 2, 4, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsFabricIndex"), (0, "T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsIeName"), (0, "T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPortName"))
-if mibBuilder.loadTexts: t11FcsPortEntry.setDescription('Information about a particular port of an Interconnect\n            Element (identified by t11FcsIeName).  The port is\n            connected to a Fabric (identified by t11FcsFabricIndex)\n            and known to a switch (identified by fcmInstanceIndex\n            and fcmSwitchIndex).')
-t11FcsPortName = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 4, 1, 1), FcNameIdOrZero().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),)))
-if mibBuilder.loadTexts: t11FcsPortName.setDescription('The Port_Name (WWN) of the port for which this row\n            contains information.')
-t11FcsPortType = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 4, 1, 2), FcPortType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPortType.setDescription('The Port Type of this port.')
-t11FcsPortTxType = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 4, 1, 3), T11FcPortTxType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPortTxType.setDescription('The Port TX Type of this port.')
-t11FcsPortModuleType = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 4, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPortModuleType.setDescription('The port module type of this port.')
-t11FcsPortPhyPortNum = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 4, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPortPhyPortNum.setDescription('The physical number for this port.  FC-GS-5 says that\n            the contents of this field, which are carried in a field\n            with a size of 4 bytes, are not to be restricted due to\n            vendor-specific methods for numbering physical ports.')
-t11FcsPortAttachPortNameIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 4, 1, 6), T11FcListIndexPointerOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPortAttachPortNameIndex.setDescription('The attached port name list for this port.  This object\n            points to an entry in the t11FcsAttachPortNameListTable.')
-t11FcsPortState = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 4, 1, 7), T11FcPortState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPortState.setDescription('The state of this port.')
-t11FcsPortSpeedCapab = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 4, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2,2)).setFixedLength(2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPortSpeedCapab.setDescription('The port speed capabilities of this port.  The two octets\n            of the value are formatted as described in FC-GS-5.')
-t11FcsPortOperSpeed = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 4, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2,2)).setFixedLength(2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPortOperSpeed.setDescription('The operating speed of this port.  The two octets\n            of the value are formatted as described in FC-GS-5.')
-t11FcsPortZoningEnfStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 4, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(12,12)).setFixedLength(12)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPortZoningEnfStatus.setDescription('The zoning enforcement status of this port.  The 12\n            octets of the value are formatted as described in FC-GS-5.')
-t11FcsAttachPortNameListTable = MibTable((1, 3, 6, 1, 2, 1, 162, 1, 2, 5), )
-if mibBuilder.loadTexts: t11FcsAttachPortNameListTable.setDescription('This table contains all the lists of attach port\n            names.')
-t11FcsAttachPortNameListEntry = MibTableRow((1, 3, 6, 1, 2, 1, 162, 1, 2, 5, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsAttachPortNameListIndex"), (0, "T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsAttachPortName"))
-if mibBuilder.loadTexts: t11FcsAttachPortNameListEntry.setDescription('Information about the name of a particular attached port,\n            which is known to a switch (identified by fcmInstanceIndex\n            and fcmSwitchIndex).')
-t11FcsAttachPortNameListIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 5, 1, 1), T11FcListIndex())
-if mibBuilder.loadTexts: t11FcsAttachPortNameListIndex.setDescription('The index value of the attach port name list.')
-t11FcsAttachPortName = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 5, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(12,12)).setFixedLength(12)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsAttachPortName.setDescription('The attached port name.  Zero or more of these names\n            may be associated with a port object.\n            The first 8 bytes of this object contain the WWN of\n            the port followed by 2 reserved bytes.  Following\n            this is one byte of Port flags and one byte of\n            Port type, as described in FC-GS-5.')
-t11FcsPlatformTable = MibTable((1, 3, 6, 1, 2, 1, 162, 1, 2, 6), )
-if mibBuilder.loadTexts: t11FcsPlatformTable.setDescription('This table contains information on platforms.\n\n            By default, this table only contains local (e.g., for a\n            local switch) information.  If a discovery is triggered,\n            this table will also contain information gathered by the\n            discovery process.  The discovered information is retained\n            in this table for at least t11FcsFabricDiscoveryTimeOut\n            seconds after the completion of its discovery or until\n            the discovered cache is invalidated.')
-t11FcsPlatformEntry = MibTableRow((1, 3, 6, 1, 2, 1, 162, 1, 2, 6, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsFabricIndex"), (0, "T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPlatformIndex"))
-if mibBuilder.loadTexts: t11FcsPlatformEntry.setDescription('Information about a particular platform, which is\n            known to a switch (identified by fcmInstanceIndex and\n            fcmSwitchIndex).\n\n            A platform can contain multiple nodes.  Information on\n            nodes is contained in the t11FcsNodeNameListTable.  The\n            t11FcsPlatformNodeNameListIndex object in this table\n\n\n\n            points to the list of nodes contained in this platform.\n            Similarly, the t11FcsPlatformMgmtAddrListIndex object in\n            this table points to the list of management addresses\n            associated with this platform.')
-t11FcsPlatformIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 6, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: t11FcsPlatformIndex.setDescription('An integer value to distinguish one platform from\n            other platforms in the same Fabric.')
-t11FcsPlatformName = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 6, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPlatformName.setDescription('The name of this platform.  The last byte of the value\n            indicates the format of the name (even if the name itself\n            is the zero-length string) as specified in FC-GS-5.')
-t11FcsPlatformType = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 6, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4,4)).setFixedLength(4)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPlatformType.setDescription('The type(s) of this platform, encoded in 4 bytes as\n            specified in FC-GS-5.')
-t11FcsPlatformNodeNameListIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 6, 1, 4), T11FcListIndexPointerOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPlatformNodeNameListIndex.setDescription('The list of nodes for this platform.  This object points\n            to an entry in the t11FcsNodeNameListTable.')
-t11FcsPlatformMgmtAddrListIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 6, 1, 5), T11FcListIndexPointerOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPlatformMgmtAddrListIndex.setDescription('The list of management addresses for this platform.  This\n            object points to an entry in the t11FcsMgmtAddrListTable.')
-t11FcsPlatformVendorId = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 6, 1, 6), SnmpAdminString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(12,12),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPlatformVendorId.setDescription('The identifier of the vendor of this platform, in the\n            format specified in FC-GS-5.')
-t11FcsPlatformProductId = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 6, 1, 7), SnmpAdminString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(20,20),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPlatformProductId.setDescription("The vendor's product and/or model identifier for this\n            platform, in the format specified in FC-GS-5.")
-t11FcsPlatformProductRevLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 6, 1, 8), SnmpAdminString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,32),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPlatformProductRevLevel.setDescription('The product revision level for this platform, in the\n            format specified in FC-GS-5.')
-t11FcsPlatformDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 6, 1, 9), SnmpAdminString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,128),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPlatformDescription.setDescription("The description of this platform, in the\n            format specified in FC-GS-5.  This value should\n            include the full name and version identification of the\n            platform's hardware type and software operating system.")
-t11FcsPlatformLabel = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 6, 1, 10), SnmpAdminString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,64),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPlatformLabel.setDescription('An administratively assigned symbolic name for the\n            platform, in the format specified in FC-GS-5.')
-t11FcsPlatformLocation = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 6, 1, 11), SnmpAdminString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,128),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPlatformLocation.setDescription("The physical location of the platform, in the format\n            specified in FC-GS-5 (e.g., 'telephone closet, 3rd floor').")
-t11FcsPlatformSystemID = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 6, 1, 12), SnmpAdminString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,64),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPlatformSystemID.setDescription('An identifier for a hosting system that this platform is\n            associated with.  This identifier is used to associate\n            platforms of logical types (e.g., logical partitions) with\n            a physical system.')
-t11FcsPlatformSysMgmtAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 6, 1, 13), T11FcListIndexPointerOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPlatformSysMgmtAddr.setDescription('A list of management addresses for the platform.')
-t11FcsPlatformClusterId = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 6, 1, 14), SnmpAdminString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,64),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPlatformClusterId.setDescription('An identifier for a cluster that this platform is\n             associated with, where a cluster is a set of independent\n             platforms that are managed together to provide increased\n             performance capabilities, failover, etc.')
-t11FcsPlatformClusterMgmtAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 6, 1, 15), T11FcListIndexPointerOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPlatformClusterMgmtAddr.setDescription('A list of management addresses for the cluster identified\n            in the corresponding instance of t11FcsPlatformClusterId.')
-t11FcsPlatformFC4Types = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 6, 1, 16), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(32,32),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsPlatformFC4Types.setDescription('The FC-4 types supported by this platform, formatted as\n            a bit mask as specified in FC-GS-5.  If this object\n            contains the zero-length string, the types are unknown.')
-t11FcsNodeNameListTable = MibTable((1, 3, 6, 1, 2, 1, 162, 1, 2, 7), )
-if mibBuilder.loadTexts: t11FcsNodeNameListTable.setDescription('This table contains all the lists of nodes.')
-t11FcsNodeNameListEntry = MibTableRow((1, 3, 6, 1, 2, 1, 162, 1, 2, 7, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsNodeNameListIndex"), (0, "T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsNodeName"))
-if mibBuilder.loadTexts: t11FcsNodeNameListEntry.setDescription('Information about a node, which is known to a\n\n\n\n            switch (identified by fcmInstanceIndex and\n            fcmSwitchIndex).')
-t11FcsNodeNameListIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 7, 1, 1), T11FcListIndex())
-if mibBuilder.loadTexts: t11FcsNodeNameListIndex.setDescription('The index value of the node name list.')
-t11FcsNodeName = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 2, 7, 1, 2), FcNameIdOrZero().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(8,8),ValueSizeConstraint(16,16),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsNodeName.setDescription('The name of this node.')
-t11FcsStatsTable = MibTable((1, 3, 6, 1, 2, 1, 162, 1, 3, 1), )
-if mibBuilder.loadTexts: t11FcsStatsTable.setDescription('This table contains all the statistics related\n            to the Fabric Configuration Server.')
-t11FcsStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 162, 1, 3, 1, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsFabricIndex"))
-if mibBuilder.loadTexts: t11FcsStatsEntry.setDescription('A set of statistics for a particular Fabric (identified\n            by t11FcsFabricIndex) on a switch (identified by\n            fcmInstanceIndex and fcmSwitchIndex).')
-t11FcsInGetReqs = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 3, 1, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsInGetReqs.setDescription('The number of Get Requests received by the Fabric\n            Configuration Server on this Fabric.\n\n            This counter has no discontinuities other than\n            those that all Counter32s have when sysUpTime=0.')
-t11FcsOutGetReqs = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 3, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsOutGetReqs.setDescription('The number of Get Requests sent by the Fabric\n            Configuration Server on this Fabric to other\n            servers in the Fabric.\n\n            This counter has no discontinuities other than\n            those that all Counter32s have when sysUpTime=0.')
-t11FcsInRegReqs = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 3, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsInRegReqs.setDescription('The number of Registration Requests received by the\n            Fabric Configuration Server on this Fabric.\n\n\n\n\n            This counter has no discontinuities other than\n            those that all Counter32s have when sysUpTime=0.')
-t11FcsOutRegReqs = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 3, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsOutRegReqs.setDescription('The number of Registration Requests sent by the\n            Fabric Configuration Server on this Fabric.\n\n            This counter has no discontinuities other than\n            those that all Counter32s have when sysUpTime=0.')
-t11FcsInDeregReqs = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 3, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsInDeregReqs.setDescription('The number of Deregistration Requests received by\n            the Fabric Configuration Server on this Fabric.\n\n            This counter has no discontinuities other than\n            those that all Counter32s have when sysUpTime=0.')
-t11FcsOutDeregReqs = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 3, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsOutDeregReqs.setDescription('The number of Deregistration Requests sent by\n            the Fabric Configuration Server on this Fabric.\n\n            This counter has no discontinuities other than\n            those that all Counter32s have when sysUpTime=0.')
-t11FcsRejects = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 3, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsRejects.setDescription('The total number of requests rejected by the Fabric\n            Configuration Server on this Fabric.\n\n\n\n            This counter has no discontinuities other than\n            those that all Counter32s have when sysUpTime=0.')
-t11FcsNotifyControlTable = MibTable((1, 3, 6, 1, 2, 1, 162, 1, 4, 1), )
-if mibBuilder.loadTexts: t11FcsNotifyControlTable.setDescription('A table of control information for notifications\n            generated due to Fabric Configuration Server events.\n\n            Values written to objects in this table should be\n            persistent/retained over agent reboots.')
-t11FcsNotifyControlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 162, 1, 4, 1, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsFabricIndex"))
-if mibBuilder.loadTexts: t11FcsNotifyControlEntry.setDescription('Each entry contains notification control information\n            for a Fabric Configuration Server on a particular Fabric\n            (identified by t11FcsFabricIndex) on a particular\n            switch (identified by fcmInstanceIndex and\n            fcmSwitchIndex).')
-t11FcsReqRejectNotifyEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 4, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FcsReqRejectNotifyEnable.setDescription("This object specifies if the Fabric Configuration\n            Server should generate 't11FcsRqRejectNotification'\n            notifications.\n\n            If the value of this object is 'true', then the\n            notification is issued.  If the value of this object\n            is 'false', then the notification is not issued.")
-t11FcsDiscoveryCompNotifyEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 4, 1, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FcsDiscoveryCompNotifyEnable.setDescription("This object specifies if the Fabric Configuration\n            Server should generate 't11FcsDiscoveryCompleteNotify'\n            notifications.\n\n            If the value of this object is 'true', then the\n            notification is issued.  If the value of this object\n            is 'false', then the notification is not issued.")
-t11FcsMgmtAddrChangeNotifyEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 4, 1, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FcsMgmtAddrChangeNotifyEnable.setDescription("This object specifies if the Fabric Configuration\n            Server should generate 't11FcsMgmtAddrChangeNotify'\n            notifications.\n\n            If the value of this object is 'true', then the\n            notification is issued.  If the value of this object\n            is 'false', then the notification is not issued.")
-t11FcsRejectCtCommandString = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 4, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsRejectCtCommandString.setDescription("The binary content of the Fabric Configuration Server\n\n\n\n            request, formatted as an octet string (in network byte\n            order) containing the Common Transport Information Unit\n            (CT_IU), as described in Table 2 of FC-GS-5 (including\n            the preamble), which was most recently rejected by the\n            Fabric Configuration Server for this Fabric.\n\n            This object contains the zero-length string if and when the\n            CT-IU's content is unavailable.\n\n            When the length of this object is 255 octets, it contains\n            the first 255 octets of the CT-IU (in network byte order).")
-t11FcsRejectRequestSource = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 4, 1, 1, 5), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsRejectRequestSource.setDescription('The WWN that was the source of the CT_IU contained in\n            the corresponding instance of t11FcsRejectCtCommandString.')
-t11FcsRejectReasonCode = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 4, 1, 1, 6), T11NsGs4RejectReasonCode()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsRejectReasonCode.setDescription('This object contains the reason code corresponding\n            to the latest Fabric Configuration Server request\n            rejected by the local system.')
-t11FcsRejectReasonCodeExp = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 4, 1, 1, 7), T11FcsRejectReasonExplanation()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsRejectReasonCodeExp.setDescription("When the corresponding instance of\n            t11FcsRejectReasonCode has the value: 'unable to\n            perform command request', this object contains the\n            corresponding reason code explanation.")
-t11FcsRejectReasonVendorCode = MibTableColumn((1, 3, 6, 1, 2, 1, 162, 1, 4, 1, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcsRejectReasonVendorCode.setDescription('A registration reject vendor-specific code.  This\n            object contains the vendor-specific code of the most\n            recently rejected Fabric Configuration Server\n            Registration request for the particular port on\n            the particular Fabric.')
-t11FcsRqRejectNotification = NotificationType((1, 3, 6, 1, 2, 1, 162, 0, 1)).setObjects(*(("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FamLocalSwitchWwn"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsRejectReasonCode"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsRejectReasonCodeExp"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsRejectReasonVendorCode"),))
-if mibBuilder.loadTexts: t11FcsRqRejectNotification.setDescription('This notification is generated whenever the Fabric\n            Configuration Server on a switch (indicated by the\n            value of t11FamLocalSwitchWwn) rejects a Fabric\n            Configuration Server request.\n\n            The Fabric Configuration Server should update the\n            t11FcsRejectReasonCode, t11FcsRejectReasonCodeExp\n            and t11FcsRejectReasonVendorCode objects with the\n            corresponding reason code, explanation and vendor\n            specific code before sending the notification.')
-t11FcsDiscoveryCompleteNotify = NotificationType((1, 3, 6, 1, 2, 1, 162, 0, 2)).setObjects(*(("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsFabricDiscoveryRangeLow"),))
-if mibBuilder.loadTexts: t11FcsDiscoveryCompleteNotify.setDescription('This notification is generated by the Fabric\n            Configuration Server on the completion of the\n            discovery of Fabrics in the range that has\n            t11FcsFabricDiscoveryRangeLow at its low end.')
-t11FcsMgmtAddrChangeNotify = NotificationType((1, 3, 6, 1, 2, 1, 162, 0, 3)).setObjects(*(("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsMgmtAddrChangeFabricIndex"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsMgmtAddrChangeIeName"),))
-if mibBuilder.loadTexts: t11FcsMgmtAddrChangeNotify.setDescription('This notification is generated by the Fabric\n            Configuration Server whenever the management\n            address of an IE changes, i.e., whenever an\n            entry in the t11FcsMgmtAddrListTable changes.')
-t11FcsMgmtAddrChangeFabricIndex = MibScalar((1, 3, 6, 1, 2, 1, 162, 1, 4, 2), T11FabricIndex()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: t11FcsMgmtAddrChangeFabricIndex.setDescription('The index value that identifies the Fabric on which\n            a management address change has been detected.')
-t11FcsMgmtAddrChangeIeName = MibScalar((1, 3, 6, 1, 2, 1, 162, 1, 4, 3), FcNameIdOrZero()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: t11FcsMgmtAddrChangeIeName.setDescription('The IE for which a management address change has been\n            detected.')
-t11FcsMIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 162, 2, 1))
-t11FcsMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 162, 2, 2))
-t11FcsMIBCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 162, 2, 1, 1)).setObjects(*(("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsDiscoveredConfigGroup"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsDiscoveryStatusGroup"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsNotificationInfoGroup"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsNotificationGroup"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsDiscoveryControlGroup"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsStatisticsGroup"),))
-if mibBuilder.loadTexts: t11FcsMIBCompliance.setDescription('The compliance statement for entities that\n            implement the Fabric Configuration Server.')
-t11FcsDiscoveryControlGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 162, 2, 2, 1)).setObjects(*(("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsFabricDiscoveryRangeLow"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsFabricDiscoveryRangeHigh"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsFabricDiscoveryStart"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsFabricDiscoveryTimeOut"),))
-if mibBuilder.loadTexts: t11FcsDiscoveryControlGroup.setDescription('A collection of objects for requesting a Fabric\n            Configuration Server to discover the configuration\n            of one or more Fabrics.')
-t11FcsDiscoveryStatusGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 162, 2, 2, 2)).setObjects(*(("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsDiscoveryStatus"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsDiscoveryCompleteTime"),))
-if mibBuilder.loadTexts: t11FcsDiscoveryStatusGroup.setDescription('A collection of objects with which to monitor the\n            status of discovery (of Fabric configurations) by\n            Fabric Configuration Servers.')
-t11FcsDiscoveredConfigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 162, 2, 2, 3)).setObjects(*(("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsIeType"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsIeDomainId"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsIeMgmtId"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsIeFabricName"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsIeLogicalName"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsIeMgmtAddrListIndex"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsIeInfoList"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsMgmtAddr"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPortType"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPortTxType"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPortModuleType"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPortPhyPortNum"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPortAttachPortNameIndex"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPortState"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPortSpeedCapab"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPortOperSpeed"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPortZoningEnfStatus"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsAttachPortName"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPlatformName"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPlatformType"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPlatformNodeNameListIndex"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPlatformMgmtAddrListIndex"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPlatformVendorId"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPlatformProductId"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPlatformProductRevLevel"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPlatformDescription"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPlatformLabel"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPlatformLocation"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPlatformSystemID"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPlatformSysMgmtAddr"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPlatformClusterId"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPlatformClusterMgmtAddr"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsPlatformFC4Types"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsNodeName"),))
-if mibBuilder.loadTexts: t11FcsDiscoveredConfigGroup.setDescription('A collection of objects to contain the Fabric configuration\n            information discovered by Fabric Configuration Servers.')
-t11FcsStatisticsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 162, 2, 2, 4)).setObjects(*(("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsInGetReqs"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsOutGetReqs"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsInRegReqs"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsOutRegReqs"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsInDeregReqs"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsOutDeregReqs"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsRejects"),))
-if mibBuilder.loadTexts: t11FcsStatisticsGroup.setDescription('A collection of objects for Fabric Configuration Server\n            statistics information.')
-t11FcsNotificationInfoGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 162, 2, 2, 5)).setObjects(*(("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsReqRejectNotifyEnable"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsDiscoveryCompNotifyEnable"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsMgmtAddrChangeNotifyEnable"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsRejectCtCommandString"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsRejectRequestSource"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsRejectReasonCode"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsRejectReasonCodeExp"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsRejectReasonVendorCode"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsMgmtAddrChangeFabricIndex"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsMgmtAddrChangeIeName"),))
-if mibBuilder.loadTexts: t11FcsNotificationInfoGroup.setDescription('A collection of notification control and notification\n            information objects for monitoring Fabric\n            Configuration Servers.')
-t11FcsNotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 162, 2, 2, 6)).setObjects(*(("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsRqRejectNotification"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsDiscoveryCompleteNotify"), ("T11-FC-FABRIC-CONFIG-SERVER-MIB", "t11FcsMgmtAddrChangeNotify"),))
-if mibBuilder.loadTexts: t11FcsNotificationGroup.setDescription('A collection of notifications for monitoring Fabric\n            Configuration Servers.')
-mibBuilder.exportSymbols("T11-FC-FABRIC-CONFIG-SERVER-MIB", t11FcsIeDomainId=t11FcsIeDomainId, t11FcsPlatformEntry=t11FcsPlatformEntry, T11FcPortTxType=T11FcPortTxType, t11FcsIeFabricName=t11FcsIeFabricName, T11FcsRejectReasonExplanation=T11FcsRejectReasonExplanation, t11FcsPlatformName=t11FcsPlatformName, t11FcsPlatformNodeNameListIndex=t11FcsPlatformNodeNameListIndex, t11FcsInGetReqs=t11FcsInGetReqs, t11FcsDiscoveryCompleteNotify=t11FcsDiscoveryCompleteNotify, t11FcsDiscoveredConfigGroup=t11FcsDiscoveredConfigGroup, T11FcPortState=T11FcPortState, t11FcsFabricDiscoveryTable=t11FcsFabricDiscoveryTable, t11FcsMgmtAddrListEntry=t11FcsMgmtAddrListEntry, t11FcsNotifyControlEntry=t11FcsNotifyControlEntry, t11FcsIeLogicalName=t11FcsIeLogicalName, t11FcsPortState=t11FcsPortState, t11FcsPortTable=t11FcsPortTable, t11FcsRejectCtCommandString=t11FcsRejectCtCommandString, t11FcsPlatformSysMgmtAddr=t11FcsPlatformSysMgmtAddr, t11FcsDiscoveryCompNotifyEnable=t11FcsDiscoveryCompNotifyEnable, t11FcsMIBCompliances=t11FcsMIBCompliances, t11FcsRejects=t11FcsRejects, T11FcIeType=T11FcIeType, t11FcsIeMgmtId=t11FcsIeMgmtId, t11FcFabricConfigServerMIB=t11FcFabricConfigServerMIB, t11FcsPlatformSystemID=t11FcsPlatformSystemID, t11FcsDiscovery=t11FcsDiscovery, t11FcsStatisticsGroup=t11FcsStatisticsGroup, t11FcsMgmtAddr=t11FcsMgmtAddr, t11FcsRqRejectNotification=t11FcsRqRejectNotification, t11FcsMgmtAddrChangeNotify=t11FcsMgmtAddrChangeNotify, t11FcsPlatformProductRevLevel=t11FcsPlatformProductRevLevel, t11FcsAttachPortNameListTable=t11FcsAttachPortNameListTable, t11FcsMIBObjects=t11FcsMIBObjects, t11FcsDiscoveryCompleteTime=t11FcsDiscoveryCompleteTime, t11FcsInRegReqs=t11FcsInRegReqs, t11FcsMgmtAddrIndex=t11FcsMgmtAddrIndex, t11FcsMgmtAddrChangeFabricIndex=t11FcsMgmtAddrChangeFabricIndex, t11FcsPlatformTable=t11FcsPlatformTable, t11FcsRejectReasonVendorCode=t11FcsRejectReasonVendorCode, t11FcsFabricDiscoveryRangeHigh=t11FcsFabricDiscoveryRangeHigh, t11FcsPortAttachPortNameIndex=t11FcsPortAttachPortNameIndex, t11FcsStatsEntry=t11FcsStatsEntry, t11FcsPortPhyPortNum=t11FcsPortPhyPortNum, t11FcsPlatformFC4Types=t11FcsPlatformFC4Types, t11FcsMIBCompliance=t11FcsMIBCompliance, t11FcsOutGetReqs=t11FcsOutGetReqs, t11FcsDiscoveryStatus=t11FcsDiscoveryStatus, t11FcsDiscoveryStateEntry=t11FcsDiscoveryStateEntry, t11FcsFabricDiscoveryEntry=t11FcsFabricDiscoveryEntry, t11FcsPortEntry=t11FcsPortEntry, t11FcsFabricDiscoveryStart=t11FcsFabricDiscoveryStart, t11FcsRejectRequestSource=t11FcsRejectRequestSource, t11FcsNotificationInfo=t11FcsNotificationInfo, t11FcsPortName=t11FcsPortName, t11FcsPortOperSpeed=t11FcsPortOperSpeed, t11FcsNotificationGroup=t11FcsNotificationGroup, t11FcsPortModuleType=t11FcsPortModuleType, t11FcsDiscoveredConfig=t11FcsDiscoveredConfig, t11FcsIeName=t11FcsIeName, t11FcsAttachPortNameListEntry=t11FcsAttachPortNameListEntry, t11FcsFabricIndex=t11FcsFabricIndex, t11FcsStatsTable=t11FcsStatsTable, t11FcsNodeNameListIndex=t11FcsNodeNameListIndex, t11FcsMgmtAddrListTable=t11FcsMgmtAddrListTable, t11FcsDiscoveryControlGroup=t11FcsDiscoveryControlGroup, t11FcsStats=t11FcsStats, t11FcsOutDeregReqs=t11FcsOutDeregReqs, t11FcsIeType=t11FcsIeType, t11FcsPortZoningEnfStatus=t11FcsPortZoningEnfStatus, t11FcsNotifyControlTable=t11FcsNotifyControlTable, t11FcsMgmtAddrChangeNotifyEnable=t11FcsMgmtAddrChangeNotifyEnable, t11FcsPlatformDescription=t11FcsPlatformDescription, t11FcsPlatformClusterMgmtAddr=t11FcsPlatformClusterMgmtAddr, t11FcsNotificationInfoGroup=t11FcsNotificationInfoGroup, t11FcsIeMgmtAddrListIndex=t11FcsIeMgmtAddrListIndex, t11FcsNodeName=t11FcsNodeName, t11FcsPortType=t11FcsPortType, t11FcsFabricDiscoveryRangeLow=t11FcsFabricDiscoveryRangeLow, t11FcsPlatformLocation=t11FcsPlatformLocation, t11FcsDiscoveryStateTable=t11FcsDiscoveryStateTable, t11FcsPlatformProductId=t11FcsPlatformProductId, T11FcListIndex=T11FcListIndex, t11FcsMgmtAddrChangeIeName=t11FcsMgmtAddrChangeIeName, t11FcsIeTable=t11FcsIeTable, t11FcsRejectReasonCodeExp=t11FcsRejectReasonCodeExp, t11FcsPortTxType=t11FcsPortTxType, t11FcsPlatformLabel=t11FcsPlatformLabel, t11FcsPlatformMgmtAddrListIndex=t11FcsPlatformMgmtAddrListIndex, t11FcsMIBConformance=t11FcsMIBConformance, PYSNMP_MODULE_ID=t11FcFabricConfigServerMIB, t11FcsRejectReasonCode=t11FcsRejectReasonCode, t11FcsPlatformClusterId=t11FcsPlatformClusterId, t11FcsIeEntry=t11FcsIeEntry, t11FcsAttachPortNameListIndex=t11FcsAttachPortNameListIndex, t11FcsDiscoveryStatusGroup=t11FcsDiscoveryStatusGroup, t11FcsNotifications=t11FcsNotifications, T11FcListIndexPointerOrZero=T11FcListIndexPointerOrZero, t11FcsAttachPortName=t11FcsAttachPortName, t11FcsNodeNameListEntry=t11FcsNodeNameListEntry, t11FcsPlatformVendorId=t11FcsPlatformVendorId, t11FcsNodeNameListTable=t11FcsNodeNameListTable, t11FcsPlatformIndex=t11FcsPlatformIndex, t11FcsPortSpeedCapab=t11FcsPortSpeedCapab, t11FcsFabricDiscoveryTimeOut=t11FcsFabricDiscoveryTimeOut, t11FcsPlatformType=t11FcsPlatformType, t11FcsInDeregReqs=t11FcsInDeregReqs, t11FcsMIBGroups=t11FcsMIBGroups, t11FcsMgmtAddrListIndex=t11FcsMgmtAddrListIndex, t11FcsReqRejectNotifyEnable=t11FcsReqRejectNotifyEnable, t11FcsIeInfoList=t11FcsIeInfoList, t11FcsOutRegReqs=t11FcsOutRegReqs)
+_Af='t11FcsStatisticsGroup'
+_Ae='t11FcsDiscoveryControlGroup'
+_Ad='t11FcsNotificationGroup'
+_Ac='t11FcsNotificationInfoGroup'
+_Ab='t11FcsDiscoveryStatusGroup'
+_Aa='t11FcsDiscoveredConfigGroup'
+_AZ='t11FcsMgmtAddrChangeNotify'
+_AY='t11FcsDiscoveryCompleteNotify'
+_AX='t11FcsRqRejectNotification'
+_AW='t11FcsRejectRequestSource'
+_AV='t11FcsRejectCtCommandString'
+_AU='t11FcsMgmtAddrChangeNotifyEnable'
+_AT='t11FcsDiscoveryCompNotifyEnable'
+_AS='t11FcsReqRejectNotifyEnable'
+_AR='t11FcsRejects'
+_AQ='t11FcsOutDeregReqs'
+_AP='t11FcsInDeregReqs'
+_AO='t11FcsOutRegReqs'
+_AN='t11FcsInRegReqs'
+_AM='t11FcsOutGetReqs'
+_AL='t11FcsInGetReqs'
+_AK='t11FcsPlatformFC4Types'
+_AJ='t11FcsPlatformClusterMgmtAddr'
+_AI='t11FcsPlatformClusterId'
+_AH='t11FcsPlatformSysMgmtAddr'
+_AG='t11FcsPlatformSystemID'
+_AF='t11FcsPlatformLocation'
+_AE='t11FcsPlatformLabel'
+_AD='t11FcsPlatformDescription'
+_AC='t11FcsPlatformProductRevLevel'
+_AB='t11FcsPlatformProductId'
+_AA='t11FcsPlatformVendorId'
+_A9='t11FcsPlatformMgmtAddrListIndex'
+_A8='t11FcsPlatformNodeNameListIndex'
+_A7='t11FcsPlatformType'
+_A6='t11FcsPlatformName'
+_A5='t11FcsPortZoningEnfStatus'
+_A4='t11FcsPortOperSpeed'
+_A3='t11FcsPortSpeedCapab'
+_A2='t11FcsPortState'
+_A1='t11FcsPortAttachPortNameIndex'
+_A0='t11FcsPortPhyPortNum'
+_z='t11FcsPortModuleType'
+_y='t11FcsPortTxType'
+_x='t11FcsPortType'
+_w='t11FcsMgmtAddr'
+_v='t11FcsIeInfoList'
+_u='t11FcsIeMgmtAddrListIndex'
+_t='t11FcsIeLogicalName'
+_s='t11FcsIeFabricName'
+_r='t11FcsIeMgmtId'
+_q='t11FcsIeDomainId'
+_p='t11FcsIeType'
+_o='t11FcsDiscoveryCompleteTime'
+_n='t11FcsDiscoveryStatus'
+_m='t11FcsFabricDiscoveryTimeOut'
+_l='t11FcsFabricDiscoveryStart'
+_k='t11FcsFabricDiscoveryRangeHigh'
+_j='accessible-for-notify'
+_i='t11FcsNodeNameListIndex'
+_h='t11FcsPlatformIndex'
+_g='t11FcsAttachPortNameListIndex'
+_f='t11FcsPortName'
+_e='t11FcsMgmtAddrIndex'
+_d='t11FcsMgmtAddrListIndex'
+_c='t11FamLocalSwitchWwn'
+_b='T11-FC-FABRIC-ADDR-MGR-MIB'
+_a='FcAddressIdOrZero'
+_Z='t11FcsMgmtAddrChangeIeName'
+_Y='t11FcsMgmtAddrChangeFabricIndex'
+_X='t11FcsRejectReasonVendorCode'
+_W='t11FcsRejectReasonCodeExp'
+_V='t11FcsRejectReasonCode'
+_U='t11FcsFabricDiscoveryRangeLow'
+_T='t11FcsNodeName'
+_S='t11FcsAttachPortName'
+_R='t11FcsIeName'
+_Q='other'
+_P='unknown'
+_O='Integer32'
+_N='TruthValue'
+_M='Unsigned32'
+_L='FcNameIdOrZero'
+_K='t11FcsFabricIndex'
+_J='not-accessible'
+_I='read-write'
+_H='SnmpAdminString'
+_G='fcmSwitchIndex'
+_F='fcmInstanceIndex'
+_E='OctetString'
+_D='FC-MGMT-MIB'
+_C='read-only'
+_B='T11-FC-FABRIC-CONFIG-SERVER-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+FcAddressIdOrZero,FcDomainIdOrZero,FcNameIdOrZero,FcPortType,fcmInstanceIndex,fcmSwitchIndex=mibBuilder.importSymbols(_D,_a,'FcDomainIdOrZero',_L,'FcPortType',_F,_G)
+URLString,=mibBuilder.importSymbols('NETWORK-SERVICES-MIB','URLString')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_H)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_O,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_M,'iso','mib-2')
+DisplayString,PhysAddress,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TimeStamp',_N)
+t11FamLocalSwitchWwn,=mibBuilder.importSymbols(_b,_c)
+T11NsGs4RejectReasonCode,=mibBuilder.importSymbols('T11-FC-NAME-SERVER-MIB','T11NsGs4RejectReasonCode')
+T11FabricIndex,=mibBuilder.importSymbols('T11-TC-MIB','T11FabricIndex')
+t11FcFabricConfigServerMIB=ModuleIdentity((1,3,6,1,2,1,162))
+if mibBuilder.loadTexts:t11FcFabricConfigServerMIB.setRevisions(('2007-06-27 00:00',))
+class T11FcListIndex(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+class T11FcListIndexPointerOrZero(TextualConvention,Unsigned32):status=_A;displayHint='d'
+class T11FcIeType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_P,1),(_Q,2),('switch',3),('hub',4),('bridge',5)))
+class T11FcPortState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*((_P,1),(_Q,2),('online',3),('offline',4),('testing',5),('fault',6)))
+class T11FcPortTxType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13)));namedValues=NamedValues(*((_P,1),(_Q,2),('shortwave850nm',3),('longwave1550nm',4),('longwave1310nm',5),('electrical',6),('tenGbaseSr850',7),('tenGbaseLr1310',8),('tenGbaseEr1550',9),('tenGbaseLx1300',10),('tenGbaseSw850',11),('tenGbaseLw1310',12),('tenGbaseEw1550',13)))
+class T11FcsRejectReasonExplanation(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26)));namedValues=NamedValues(*(('noAdditionalExplanation',1),('invNameIdForIEOrPort',2),('ieListNotAvailable',3),('ieTypeNotAvailable',4),('domainIdNotAvailable',5),('mgmtIdNotAvailable',6),('fabNameNotAvailable',7),('ielogNameNotAvailable',8),('mgmtAddrListNotAvailable',9),('ieInfoListNotAvailable',10),('portListNotAvailable',11),('portTypeNotAvailable',12),('phyPortNumNotAvailable',13),('attPortNameListNotAvailable',14),('portStateNotAvailable',15),('unableToRegIELogName',16),('platformNameNoExist',17),('platformNameAlreadyExists',18),('platformNodeNameNoExists',19),('platformNodeNameAlreadyExists',20),('resourceUnavailable',21),('noEntriesInLunMap',22),('invalidDeviceNameLength',23),('multipleAttributes',24),('invalidAttribBlockLength',25),('attributesMissing',26)))
+_T11FcsNotifications_ObjectIdentity=ObjectIdentity
+t11FcsNotifications=_T11FcsNotifications_ObjectIdentity((1,3,6,1,2,1,162,0))
+_T11FcsMIBObjects_ObjectIdentity=ObjectIdentity
+t11FcsMIBObjects=_T11FcsMIBObjects_ObjectIdentity((1,3,6,1,2,1,162,1))
+_T11FcsDiscovery_ObjectIdentity=ObjectIdentity
+t11FcsDiscovery=_T11FcsDiscovery_ObjectIdentity((1,3,6,1,2,1,162,1,1))
+_T11FcsFabricDiscoveryTable_Object=MibTable
+t11FcsFabricDiscoveryTable=_T11FcsFabricDiscoveryTable_Object((1,3,6,1,2,1,162,1,1,1))
+if mibBuilder.loadTexts:t11FcsFabricDiscoveryTable.setStatus(_A)
+_T11FcsFabricDiscoveryEntry_Object=MibTableRow
+t11FcsFabricDiscoveryEntry=_T11FcsFabricDiscoveryEntry_Object((1,3,6,1,2,1,162,1,1,1,1))
+t11FcsFabricDiscoveryEntry.setIndexNames((0,_D,_F),(0,_D,_G))
+if mibBuilder.loadTexts:t11FcsFabricDiscoveryEntry.setStatus(_A)
+_T11FcsFabricDiscoveryRangeLow_Type=T11FabricIndex
+_T11FcsFabricDiscoveryRangeLow_Object=MibTableColumn
+t11FcsFabricDiscoveryRangeLow=_T11FcsFabricDiscoveryRangeLow_Object((1,3,6,1,2,1,162,1,1,1,1,1),_T11FcsFabricDiscoveryRangeLow_Type())
+t11FcsFabricDiscoveryRangeLow.setMaxAccess(_I)
+if mibBuilder.loadTexts:t11FcsFabricDiscoveryRangeLow.setStatus(_A)
+_T11FcsFabricDiscoveryRangeHigh_Type=T11FabricIndex
+_T11FcsFabricDiscoveryRangeHigh_Object=MibTableColumn
+t11FcsFabricDiscoveryRangeHigh=_T11FcsFabricDiscoveryRangeHigh_Object((1,3,6,1,2,1,162,1,1,1,1,2),_T11FcsFabricDiscoveryRangeHigh_Type())
+t11FcsFabricDiscoveryRangeHigh.setMaxAccess(_I)
+if mibBuilder.loadTexts:t11FcsFabricDiscoveryRangeHigh.setStatus(_A)
+class _T11FcsFabricDiscoveryStart_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('start',1),('noOp',2)))
+_T11FcsFabricDiscoveryStart_Type.__name__=_O
+_T11FcsFabricDiscoveryStart_Object=MibTableColumn
+t11FcsFabricDiscoveryStart=_T11FcsFabricDiscoveryStart_Object((1,3,6,1,2,1,162,1,1,1,1,3),_T11FcsFabricDiscoveryStart_Type())
+t11FcsFabricDiscoveryStart.setMaxAccess(_I)
+if mibBuilder.loadTexts:t11FcsFabricDiscoveryStart.setStatus(_A)
+class _T11FcsFabricDiscoveryTimeOut_Type(Unsigned32):defaultValue=900;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(300,86400))
+_T11FcsFabricDiscoveryTimeOut_Type.__name__=_M
+_T11FcsFabricDiscoveryTimeOut_Object=MibTableColumn
+t11FcsFabricDiscoveryTimeOut=_T11FcsFabricDiscoveryTimeOut_Object((1,3,6,1,2,1,162,1,1,1,1,4),_T11FcsFabricDiscoveryTimeOut_Type())
+t11FcsFabricDiscoveryTimeOut.setMaxAccess(_I)
+if mibBuilder.loadTexts:t11FcsFabricDiscoveryTimeOut.setStatus(_A)
+if mibBuilder.loadTexts:t11FcsFabricDiscoveryTimeOut.setUnits('Seconds')
+_T11FcsDiscoveryStateTable_Object=MibTable
+t11FcsDiscoveryStateTable=_T11FcsDiscoveryStateTable_Object((1,3,6,1,2,1,162,1,1,2))
+if mibBuilder.loadTexts:t11FcsDiscoveryStateTable.setStatus(_A)
+_T11FcsDiscoveryStateEntry_Object=MibTableRow
+t11FcsDiscoveryStateEntry=_T11FcsDiscoveryStateEntry_Object((1,3,6,1,2,1,162,1,1,2,1))
+t11FcsDiscoveryStateEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_B,_K))
+if mibBuilder.loadTexts:t11FcsDiscoveryStateEntry.setStatus(_A)
+_T11FcsFabricIndex_Type=T11FabricIndex
+_T11FcsFabricIndex_Object=MibTableColumn
+t11FcsFabricIndex=_T11FcsFabricIndex_Object((1,3,6,1,2,1,162,1,1,2,1,1),_T11FcsFabricIndex_Type())
+t11FcsFabricIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:t11FcsFabricIndex.setStatus(_A)
+class _T11FcsDiscoveryStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('inProgress',1),('completed',2),('localOnly',3)))
+_T11FcsDiscoveryStatus_Type.__name__=_O
+_T11FcsDiscoveryStatus_Object=MibTableColumn
+t11FcsDiscoveryStatus=_T11FcsDiscoveryStatus_Object((1,3,6,1,2,1,162,1,1,2,1,2),_T11FcsDiscoveryStatus_Type())
+t11FcsDiscoveryStatus.setMaxAccess(_I)
+if mibBuilder.loadTexts:t11FcsDiscoveryStatus.setStatus(_A)
+_T11FcsDiscoveryCompleteTime_Type=TimeStamp
+_T11FcsDiscoveryCompleteTime_Object=MibTableColumn
+t11FcsDiscoveryCompleteTime=_T11FcsDiscoveryCompleteTime_Object((1,3,6,1,2,1,162,1,1,2,1,3),_T11FcsDiscoveryCompleteTime_Type())
+t11FcsDiscoveryCompleteTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsDiscoveryCompleteTime.setStatus(_A)
+_T11FcsDiscoveredConfig_ObjectIdentity=ObjectIdentity
+t11FcsDiscoveredConfig=_T11FcsDiscoveredConfig_ObjectIdentity((1,3,6,1,2,1,162,1,2))
+_T11FcsIeTable_Object=MibTable
+t11FcsIeTable=_T11FcsIeTable_Object((1,3,6,1,2,1,162,1,2,1))
+if mibBuilder.loadTexts:t11FcsIeTable.setStatus(_A)
+_T11FcsIeEntry_Object=MibTableRow
+t11FcsIeEntry=_T11FcsIeEntry_Object((1,3,6,1,2,1,162,1,2,1,1))
+t11FcsIeEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_B,_K),(0,_B,_R))
+if mibBuilder.loadTexts:t11FcsIeEntry.setStatus(_A)
+class _T11FcsIeName_Type(FcNameIdOrZero):subtypeSpec=FcNameIdOrZero.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8),ValueSizeConstraint(16,16))
+_T11FcsIeName_Type.__name__=_L
+_T11FcsIeName_Object=MibTableColumn
+t11FcsIeName=_T11FcsIeName_Object((1,3,6,1,2,1,162,1,2,1,1,1),_T11FcsIeName_Type())
+t11FcsIeName.setMaxAccess(_J)
+if mibBuilder.loadTexts:t11FcsIeName.setStatus(_A)
+_T11FcsIeType_Type=T11FcIeType
+_T11FcsIeType_Object=MibTableColumn
+t11FcsIeType=_T11FcsIeType_Object((1,3,6,1,2,1,162,1,2,1,1,2),_T11FcsIeType_Type())
+t11FcsIeType.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsIeType.setStatus(_A)
+_T11FcsIeDomainId_Type=FcDomainIdOrZero
+_T11FcsIeDomainId_Object=MibTableColumn
+t11FcsIeDomainId=_T11FcsIeDomainId_Object((1,3,6,1,2,1,162,1,2,1,1,3),_T11FcsIeDomainId_Type())
+t11FcsIeDomainId.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsIeDomainId.setStatus(_A)
+class _T11FcsIeMgmtId_Type(FcAddressIdOrZero):defaultHexValue='000000'
+_T11FcsIeMgmtId_Type.__name__=_a
+_T11FcsIeMgmtId_Object=MibTableColumn
+t11FcsIeMgmtId=_T11FcsIeMgmtId_Object((1,3,6,1,2,1,162,1,2,1,1,4),_T11FcsIeMgmtId_Type())
+t11FcsIeMgmtId.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsIeMgmtId.setStatus(_A)
+class _T11FcsIeFabricName_Type(FcNameIdOrZero):defaultHexValue='0000000000000000';subtypeSpec=FcNameIdOrZero.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8),ValueSizeConstraint(16,16))
+_T11FcsIeFabricName_Type.__name__=_L
+_T11FcsIeFabricName_Object=MibTableColumn
+t11FcsIeFabricName=_T11FcsIeFabricName_Object((1,3,6,1,2,1,162,1,2,1,1,5),_T11FcsIeFabricName_Type())
+t11FcsIeFabricName.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsIeFabricName.setStatus(_A)
+class _T11FcsIeLogicalName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_T11FcsIeLogicalName_Type.__name__=_E
+_T11FcsIeLogicalName_Object=MibTableColumn
+t11FcsIeLogicalName=_T11FcsIeLogicalName_Object((1,3,6,1,2,1,162,1,2,1,1,6),_T11FcsIeLogicalName_Type())
+t11FcsIeLogicalName.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsIeLogicalName.setStatus(_A)
+_T11FcsIeMgmtAddrListIndex_Type=T11FcListIndexPointerOrZero
+_T11FcsIeMgmtAddrListIndex_Object=MibTableColumn
+t11FcsIeMgmtAddrListIndex=_T11FcsIeMgmtAddrListIndex_Object((1,3,6,1,2,1,162,1,2,1,1,7),_T11FcsIeMgmtAddrListIndex_Type())
+t11FcsIeMgmtAddrListIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsIeMgmtAddrListIndex.setStatus(_A)
+class _T11FcsIeInfoList_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,252))
+_T11FcsIeInfoList_Type.__name__=_E
+_T11FcsIeInfoList_Object=MibTableColumn
+t11FcsIeInfoList=_T11FcsIeInfoList_Object((1,3,6,1,2,1,162,1,2,1,1,8),_T11FcsIeInfoList_Type())
+t11FcsIeInfoList.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsIeInfoList.setStatus(_A)
+_T11FcsMgmtAddrListTable_Object=MibTable
+t11FcsMgmtAddrListTable=_T11FcsMgmtAddrListTable_Object((1,3,6,1,2,1,162,1,2,2))
+if mibBuilder.loadTexts:t11FcsMgmtAddrListTable.setStatus(_A)
+_T11FcsMgmtAddrListEntry_Object=MibTableRow
+t11FcsMgmtAddrListEntry=_T11FcsMgmtAddrListEntry_Object((1,3,6,1,2,1,162,1,2,2,1))
+t11FcsMgmtAddrListEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_B,_d),(0,_B,_e))
+if mibBuilder.loadTexts:t11FcsMgmtAddrListEntry.setStatus(_A)
+_T11FcsMgmtAddrListIndex_Type=T11FcListIndex
+_T11FcsMgmtAddrListIndex_Object=MibTableColumn
+t11FcsMgmtAddrListIndex=_T11FcsMgmtAddrListIndex_Object((1,3,6,1,2,1,162,1,2,2,1,1),_T11FcsMgmtAddrListIndex_Type())
+t11FcsMgmtAddrListIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:t11FcsMgmtAddrListIndex.setStatus(_A)
+class _T11FcsMgmtAddrIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_T11FcsMgmtAddrIndex_Type.__name__=_M
+_T11FcsMgmtAddrIndex_Object=MibTableColumn
+t11FcsMgmtAddrIndex=_T11FcsMgmtAddrIndex_Object((1,3,6,1,2,1,162,1,2,2,1,2),_T11FcsMgmtAddrIndex_Type())
+t11FcsMgmtAddrIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:t11FcsMgmtAddrIndex.setStatus(_A)
+_T11FcsMgmtAddr_Type=URLString
+_T11FcsMgmtAddr_Object=MibTableColumn
+t11FcsMgmtAddr=_T11FcsMgmtAddr_Object((1,3,6,1,2,1,162,1,2,2,1,3),_T11FcsMgmtAddr_Type())
+t11FcsMgmtAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsMgmtAddr.setStatus(_A)
+_T11FcsPortTable_Object=MibTable
+t11FcsPortTable=_T11FcsPortTable_Object((1,3,6,1,2,1,162,1,2,4))
+if mibBuilder.loadTexts:t11FcsPortTable.setStatus(_A)
+_T11FcsPortEntry_Object=MibTableRow
+t11FcsPortEntry=_T11FcsPortEntry_Object((1,3,6,1,2,1,162,1,2,4,1))
+t11FcsPortEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_B,_K),(0,_B,_R),(0,_B,_f))
+if mibBuilder.loadTexts:t11FcsPortEntry.setStatus(_A)
+class _T11FcsPortName_Type(FcNameIdOrZero):subtypeSpec=FcNameIdOrZero.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8),ValueSizeConstraint(16,16))
+_T11FcsPortName_Type.__name__=_L
+_T11FcsPortName_Object=MibTableColumn
+t11FcsPortName=_T11FcsPortName_Object((1,3,6,1,2,1,162,1,2,4,1,1),_T11FcsPortName_Type())
+t11FcsPortName.setMaxAccess(_J)
+if mibBuilder.loadTexts:t11FcsPortName.setStatus(_A)
+_T11FcsPortType_Type=FcPortType
+_T11FcsPortType_Object=MibTableColumn
+t11FcsPortType=_T11FcsPortType_Object((1,3,6,1,2,1,162,1,2,4,1,2),_T11FcsPortType_Type())
+t11FcsPortType.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPortType.setStatus(_A)
+_T11FcsPortTxType_Type=T11FcPortTxType
+_T11FcsPortTxType_Object=MibTableColumn
+t11FcsPortTxType=_T11FcsPortTxType_Object((1,3,6,1,2,1,162,1,2,4,1,3),_T11FcsPortTxType_Type())
+t11FcsPortTxType.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPortTxType.setStatus(_A)
+class _T11FcsPortModuleType_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_T11FcsPortModuleType_Type.__name__=_M
+_T11FcsPortModuleType_Object=MibTableColumn
+t11FcsPortModuleType=_T11FcsPortModuleType_Object((1,3,6,1,2,1,162,1,2,4,1,4),_T11FcsPortModuleType_Type())
+t11FcsPortModuleType.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPortModuleType.setStatus(_A)
+_T11FcsPortPhyPortNum_Type=Unsigned32
+_T11FcsPortPhyPortNum_Object=MibTableColumn
+t11FcsPortPhyPortNum=_T11FcsPortPhyPortNum_Object((1,3,6,1,2,1,162,1,2,4,1,5),_T11FcsPortPhyPortNum_Type())
+t11FcsPortPhyPortNum.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPortPhyPortNum.setStatus(_A)
+_T11FcsPortAttachPortNameIndex_Type=T11FcListIndexPointerOrZero
+_T11FcsPortAttachPortNameIndex_Object=MibTableColumn
+t11FcsPortAttachPortNameIndex=_T11FcsPortAttachPortNameIndex_Object((1,3,6,1,2,1,162,1,2,4,1,6),_T11FcsPortAttachPortNameIndex_Type())
+t11FcsPortAttachPortNameIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPortAttachPortNameIndex.setStatus(_A)
+_T11FcsPortState_Type=T11FcPortState
+_T11FcsPortState_Object=MibTableColumn
+t11FcsPortState=_T11FcsPortState_Object((1,3,6,1,2,1,162,1,2,4,1,7),_T11FcsPortState_Type())
+t11FcsPortState.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPortState.setStatus(_A)
+class _T11FcsPortSpeedCapab_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
+_T11FcsPortSpeedCapab_Type.__name__=_E
+_T11FcsPortSpeedCapab_Object=MibTableColumn
+t11FcsPortSpeedCapab=_T11FcsPortSpeedCapab_Object((1,3,6,1,2,1,162,1,2,4,1,8),_T11FcsPortSpeedCapab_Type())
+t11FcsPortSpeedCapab.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPortSpeedCapab.setStatus(_A)
+class _T11FcsPortOperSpeed_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
+_T11FcsPortOperSpeed_Type.__name__=_E
+_T11FcsPortOperSpeed_Object=MibTableColumn
+t11FcsPortOperSpeed=_T11FcsPortOperSpeed_Object((1,3,6,1,2,1,162,1,2,4,1,9),_T11FcsPortOperSpeed_Type())
+t11FcsPortOperSpeed.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPortOperSpeed.setStatus(_A)
+class _T11FcsPortZoningEnfStatus_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(12,12));fixedLength=12
+_T11FcsPortZoningEnfStatus_Type.__name__=_E
+_T11FcsPortZoningEnfStatus_Object=MibTableColumn
+t11FcsPortZoningEnfStatus=_T11FcsPortZoningEnfStatus_Object((1,3,6,1,2,1,162,1,2,4,1,10),_T11FcsPortZoningEnfStatus_Type())
+t11FcsPortZoningEnfStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPortZoningEnfStatus.setStatus(_A)
+_T11FcsAttachPortNameListTable_Object=MibTable
+t11FcsAttachPortNameListTable=_T11FcsAttachPortNameListTable_Object((1,3,6,1,2,1,162,1,2,5))
+if mibBuilder.loadTexts:t11FcsAttachPortNameListTable.setStatus(_A)
+_T11FcsAttachPortNameListEntry_Object=MibTableRow
+t11FcsAttachPortNameListEntry=_T11FcsAttachPortNameListEntry_Object((1,3,6,1,2,1,162,1,2,5,1))
+t11FcsAttachPortNameListEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_B,_g),(0,_B,_S))
+if mibBuilder.loadTexts:t11FcsAttachPortNameListEntry.setStatus(_A)
+_T11FcsAttachPortNameListIndex_Type=T11FcListIndex
+_T11FcsAttachPortNameListIndex_Object=MibTableColumn
+t11FcsAttachPortNameListIndex=_T11FcsAttachPortNameListIndex_Object((1,3,6,1,2,1,162,1,2,5,1,1),_T11FcsAttachPortNameListIndex_Type())
+t11FcsAttachPortNameListIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:t11FcsAttachPortNameListIndex.setStatus(_A)
+class _T11FcsAttachPortName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(12,12));fixedLength=12
+_T11FcsAttachPortName_Type.__name__=_E
+_T11FcsAttachPortName_Object=MibTableColumn
+t11FcsAttachPortName=_T11FcsAttachPortName_Object((1,3,6,1,2,1,162,1,2,5,1,2),_T11FcsAttachPortName_Type())
+t11FcsAttachPortName.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsAttachPortName.setStatus(_A)
+_T11FcsPlatformTable_Object=MibTable
+t11FcsPlatformTable=_T11FcsPlatformTable_Object((1,3,6,1,2,1,162,1,2,6))
+if mibBuilder.loadTexts:t11FcsPlatformTable.setStatus(_A)
+_T11FcsPlatformEntry_Object=MibTableRow
+t11FcsPlatformEntry=_T11FcsPlatformEntry_Object((1,3,6,1,2,1,162,1,2,6,1))
+t11FcsPlatformEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_B,_K),(0,_B,_h))
+if mibBuilder.loadTexts:t11FcsPlatformEntry.setStatus(_A)
+class _T11FcsPlatformIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_T11FcsPlatformIndex_Type.__name__=_M
+_T11FcsPlatformIndex_Object=MibTableColumn
+t11FcsPlatformIndex=_T11FcsPlatformIndex_Object((1,3,6,1,2,1,162,1,2,6,1,1),_T11FcsPlatformIndex_Type())
+t11FcsPlatformIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:t11FcsPlatformIndex.setStatus(_A)
+class _T11FcsPlatformName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_T11FcsPlatformName_Type.__name__=_E
+_T11FcsPlatformName_Object=MibTableColumn
+t11FcsPlatformName=_T11FcsPlatformName_Object((1,3,6,1,2,1,162,1,2,6,1,2),_T11FcsPlatformName_Type())
+t11FcsPlatformName.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPlatformName.setStatus(_A)
+class _T11FcsPlatformType_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
+_T11FcsPlatformType_Type.__name__=_E
+_T11FcsPlatformType_Object=MibTableColumn
+t11FcsPlatformType=_T11FcsPlatformType_Object((1,3,6,1,2,1,162,1,2,6,1,3),_T11FcsPlatformType_Type())
+t11FcsPlatformType.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPlatformType.setStatus(_A)
+_T11FcsPlatformNodeNameListIndex_Type=T11FcListIndexPointerOrZero
+_T11FcsPlatformNodeNameListIndex_Object=MibTableColumn
+t11FcsPlatformNodeNameListIndex=_T11FcsPlatformNodeNameListIndex_Object((1,3,6,1,2,1,162,1,2,6,1,4),_T11FcsPlatformNodeNameListIndex_Type())
+t11FcsPlatformNodeNameListIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPlatformNodeNameListIndex.setStatus(_A)
+_T11FcsPlatformMgmtAddrListIndex_Type=T11FcListIndexPointerOrZero
+_T11FcsPlatformMgmtAddrListIndex_Object=MibTableColumn
+t11FcsPlatformMgmtAddrListIndex=_T11FcsPlatformMgmtAddrListIndex_Object((1,3,6,1,2,1,162,1,2,6,1,5),_T11FcsPlatformMgmtAddrListIndex_Type())
+t11FcsPlatformMgmtAddrListIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPlatformMgmtAddrListIndex.setStatus(_A)
+class _T11FcsPlatformVendorId_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(12,12))
+_T11FcsPlatformVendorId_Type.__name__=_H
+_T11FcsPlatformVendorId_Object=MibTableColumn
+t11FcsPlatformVendorId=_T11FcsPlatformVendorId_Object((1,3,6,1,2,1,162,1,2,6,1,6),_T11FcsPlatformVendorId_Type())
+t11FcsPlatformVendorId.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPlatformVendorId.setStatus(_A)
+class _T11FcsPlatformProductId_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(20,20))
+_T11FcsPlatformProductId_Type.__name__=_H
+_T11FcsPlatformProductId_Object=MibTableColumn
+t11FcsPlatformProductId=_T11FcsPlatformProductId_Object((1,3,6,1,2,1,162,1,2,6,1,7),_T11FcsPlatformProductId_Type())
+t11FcsPlatformProductId.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPlatformProductId.setStatus(_A)
+class _T11FcsPlatformProductRevLevel_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,32))
+_T11FcsPlatformProductRevLevel_Type.__name__=_H
+_T11FcsPlatformProductRevLevel_Object=MibTableColumn
+t11FcsPlatformProductRevLevel=_T11FcsPlatformProductRevLevel_Object((1,3,6,1,2,1,162,1,2,6,1,8),_T11FcsPlatformProductRevLevel_Type())
+t11FcsPlatformProductRevLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPlatformProductRevLevel.setStatus(_A)
+class _T11FcsPlatformDescription_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,128))
+_T11FcsPlatformDescription_Type.__name__=_H
+_T11FcsPlatformDescription_Object=MibTableColumn
+t11FcsPlatformDescription=_T11FcsPlatformDescription_Object((1,3,6,1,2,1,162,1,2,6,1,9),_T11FcsPlatformDescription_Type())
+t11FcsPlatformDescription.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPlatformDescription.setStatus(_A)
+class _T11FcsPlatformLabel_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,64))
+_T11FcsPlatformLabel_Type.__name__=_H
+_T11FcsPlatformLabel_Object=MibTableColumn
+t11FcsPlatformLabel=_T11FcsPlatformLabel_Object((1,3,6,1,2,1,162,1,2,6,1,10),_T11FcsPlatformLabel_Type())
+t11FcsPlatformLabel.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPlatformLabel.setStatus(_A)
+class _T11FcsPlatformLocation_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,128))
+_T11FcsPlatformLocation_Type.__name__=_H
+_T11FcsPlatformLocation_Object=MibTableColumn
+t11FcsPlatformLocation=_T11FcsPlatformLocation_Object((1,3,6,1,2,1,162,1,2,6,1,11),_T11FcsPlatformLocation_Type())
+t11FcsPlatformLocation.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPlatformLocation.setStatus(_A)
+class _T11FcsPlatformSystemID_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,64))
+_T11FcsPlatformSystemID_Type.__name__=_H
+_T11FcsPlatformSystemID_Object=MibTableColumn
+t11FcsPlatformSystemID=_T11FcsPlatformSystemID_Object((1,3,6,1,2,1,162,1,2,6,1,12),_T11FcsPlatformSystemID_Type())
+t11FcsPlatformSystemID.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPlatformSystemID.setStatus(_A)
+_T11FcsPlatformSysMgmtAddr_Type=T11FcListIndexPointerOrZero
+_T11FcsPlatformSysMgmtAddr_Object=MibTableColumn
+t11FcsPlatformSysMgmtAddr=_T11FcsPlatformSysMgmtAddr_Object((1,3,6,1,2,1,162,1,2,6,1,13),_T11FcsPlatformSysMgmtAddr_Type())
+t11FcsPlatformSysMgmtAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPlatformSysMgmtAddr.setStatus(_A)
+class _T11FcsPlatformClusterId_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,64))
+_T11FcsPlatformClusterId_Type.__name__=_H
+_T11FcsPlatformClusterId_Object=MibTableColumn
+t11FcsPlatformClusterId=_T11FcsPlatformClusterId_Object((1,3,6,1,2,1,162,1,2,6,1,14),_T11FcsPlatformClusterId_Type())
+t11FcsPlatformClusterId.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPlatformClusterId.setStatus(_A)
+_T11FcsPlatformClusterMgmtAddr_Type=T11FcListIndexPointerOrZero
+_T11FcsPlatformClusterMgmtAddr_Object=MibTableColumn
+t11FcsPlatformClusterMgmtAddr=_T11FcsPlatformClusterMgmtAddr_Object((1,3,6,1,2,1,162,1,2,6,1,15),_T11FcsPlatformClusterMgmtAddr_Type())
+t11FcsPlatformClusterMgmtAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPlatformClusterMgmtAddr.setStatus(_A)
+class _T11FcsPlatformFC4Types_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(32,32))
+_T11FcsPlatformFC4Types_Type.__name__=_E
+_T11FcsPlatformFC4Types_Object=MibTableColumn
+t11FcsPlatformFC4Types=_T11FcsPlatformFC4Types_Object((1,3,6,1,2,1,162,1,2,6,1,16),_T11FcsPlatformFC4Types_Type())
+t11FcsPlatformFC4Types.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsPlatformFC4Types.setStatus(_A)
+_T11FcsNodeNameListTable_Object=MibTable
+t11FcsNodeNameListTable=_T11FcsNodeNameListTable_Object((1,3,6,1,2,1,162,1,2,7))
+if mibBuilder.loadTexts:t11FcsNodeNameListTable.setStatus(_A)
+_T11FcsNodeNameListEntry_Object=MibTableRow
+t11FcsNodeNameListEntry=_T11FcsNodeNameListEntry_Object((1,3,6,1,2,1,162,1,2,7,1))
+t11FcsNodeNameListEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_B,_i),(0,_B,_T))
+if mibBuilder.loadTexts:t11FcsNodeNameListEntry.setStatus(_A)
+_T11FcsNodeNameListIndex_Type=T11FcListIndex
+_T11FcsNodeNameListIndex_Object=MibTableColumn
+t11FcsNodeNameListIndex=_T11FcsNodeNameListIndex_Object((1,3,6,1,2,1,162,1,2,7,1,1),_T11FcsNodeNameListIndex_Type())
+t11FcsNodeNameListIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:t11FcsNodeNameListIndex.setStatus(_A)
+class _T11FcsNodeName_Type(FcNameIdOrZero):subtypeSpec=FcNameIdOrZero.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8),ValueSizeConstraint(16,16))
+_T11FcsNodeName_Type.__name__=_L
+_T11FcsNodeName_Object=MibTableColumn
+t11FcsNodeName=_T11FcsNodeName_Object((1,3,6,1,2,1,162,1,2,7,1,2),_T11FcsNodeName_Type())
+t11FcsNodeName.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsNodeName.setStatus(_A)
+_T11FcsStats_ObjectIdentity=ObjectIdentity
+t11FcsStats=_T11FcsStats_ObjectIdentity((1,3,6,1,2,1,162,1,3))
+_T11FcsStatsTable_Object=MibTable
+t11FcsStatsTable=_T11FcsStatsTable_Object((1,3,6,1,2,1,162,1,3,1))
+if mibBuilder.loadTexts:t11FcsStatsTable.setStatus(_A)
+_T11FcsStatsEntry_Object=MibTableRow
+t11FcsStatsEntry=_T11FcsStatsEntry_Object((1,3,6,1,2,1,162,1,3,1,1))
+t11FcsStatsEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_B,_K))
+if mibBuilder.loadTexts:t11FcsStatsEntry.setStatus(_A)
+_T11FcsInGetReqs_Type=Counter32
+_T11FcsInGetReqs_Object=MibTableColumn
+t11FcsInGetReqs=_T11FcsInGetReqs_Object((1,3,6,1,2,1,162,1,3,1,1,1),_T11FcsInGetReqs_Type())
+t11FcsInGetReqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsInGetReqs.setStatus(_A)
+_T11FcsOutGetReqs_Type=Counter32
+_T11FcsOutGetReqs_Object=MibTableColumn
+t11FcsOutGetReqs=_T11FcsOutGetReqs_Object((1,3,6,1,2,1,162,1,3,1,1,2),_T11FcsOutGetReqs_Type())
+t11FcsOutGetReqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsOutGetReqs.setStatus(_A)
+_T11FcsInRegReqs_Type=Counter32
+_T11FcsInRegReqs_Object=MibTableColumn
+t11FcsInRegReqs=_T11FcsInRegReqs_Object((1,3,6,1,2,1,162,1,3,1,1,3),_T11FcsInRegReqs_Type())
+t11FcsInRegReqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsInRegReqs.setStatus(_A)
+_T11FcsOutRegReqs_Type=Counter32
+_T11FcsOutRegReqs_Object=MibTableColumn
+t11FcsOutRegReqs=_T11FcsOutRegReqs_Object((1,3,6,1,2,1,162,1,3,1,1,4),_T11FcsOutRegReqs_Type())
+t11FcsOutRegReqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsOutRegReqs.setStatus(_A)
+_T11FcsInDeregReqs_Type=Counter32
+_T11FcsInDeregReqs_Object=MibTableColumn
+t11FcsInDeregReqs=_T11FcsInDeregReqs_Object((1,3,6,1,2,1,162,1,3,1,1,5),_T11FcsInDeregReqs_Type())
+t11FcsInDeregReqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsInDeregReqs.setStatus(_A)
+_T11FcsOutDeregReqs_Type=Counter32
+_T11FcsOutDeregReqs_Object=MibTableColumn
+t11FcsOutDeregReqs=_T11FcsOutDeregReqs_Object((1,3,6,1,2,1,162,1,3,1,1,6),_T11FcsOutDeregReqs_Type())
+t11FcsOutDeregReqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsOutDeregReqs.setStatus(_A)
+_T11FcsRejects_Type=Counter32
+_T11FcsRejects_Object=MibTableColumn
+t11FcsRejects=_T11FcsRejects_Object((1,3,6,1,2,1,162,1,3,1,1,7),_T11FcsRejects_Type())
+t11FcsRejects.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsRejects.setStatus(_A)
+_T11FcsNotificationInfo_ObjectIdentity=ObjectIdentity
+t11FcsNotificationInfo=_T11FcsNotificationInfo_ObjectIdentity((1,3,6,1,2,1,162,1,4))
+_T11FcsNotifyControlTable_Object=MibTable
+t11FcsNotifyControlTable=_T11FcsNotifyControlTable_Object((1,3,6,1,2,1,162,1,4,1))
+if mibBuilder.loadTexts:t11FcsNotifyControlTable.setStatus(_A)
+_T11FcsNotifyControlEntry_Object=MibTableRow
+t11FcsNotifyControlEntry=_T11FcsNotifyControlEntry_Object((1,3,6,1,2,1,162,1,4,1,1))
+t11FcsNotifyControlEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_B,_K))
+if mibBuilder.loadTexts:t11FcsNotifyControlEntry.setStatus(_A)
+class _T11FcsReqRejectNotifyEnable_Type(TruthValue):defaultValue=2
+_T11FcsReqRejectNotifyEnable_Type.__name__=_N
+_T11FcsReqRejectNotifyEnable_Object=MibTableColumn
+t11FcsReqRejectNotifyEnable=_T11FcsReqRejectNotifyEnable_Object((1,3,6,1,2,1,162,1,4,1,1,1),_T11FcsReqRejectNotifyEnable_Type())
+t11FcsReqRejectNotifyEnable.setMaxAccess(_I)
+if mibBuilder.loadTexts:t11FcsReqRejectNotifyEnable.setStatus(_A)
+class _T11FcsDiscoveryCompNotifyEnable_Type(TruthValue):defaultValue=2
+_T11FcsDiscoveryCompNotifyEnable_Type.__name__=_N
+_T11FcsDiscoveryCompNotifyEnable_Object=MibTableColumn
+t11FcsDiscoveryCompNotifyEnable=_T11FcsDiscoveryCompNotifyEnable_Object((1,3,6,1,2,1,162,1,4,1,1,2),_T11FcsDiscoveryCompNotifyEnable_Type())
+t11FcsDiscoveryCompNotifyEnable.setMaxAccess(_I)
+if mibBuilder.loadTexts:t11FcsDiscoveryCompNotifyEnable.setStatus(_A)
+class _T11FcsMgmtAddrChangeNotifyEnable_Type(TruthValue):defaultValue=2
+_T11FcsMgmtAddrChangeNotifyEnable_Type.__name__=_N
+_T11FcsMgmtAddrChangeNotifyEnable_Object=MibTableColumn
+t11FcsMgmtAddrChangeNotifyEnable=_T11FcsMgmtAddrChangeNotifyEnable_Object((1,3,6,1,2,1,162,1,4,1,1,3),_T11FcsMgmtAddrChangeNotifyEnable_Type())
+t11FcsMgmtAddrChangeNotifyEnable.setMaxAccess(_I)
+if mibBuilder.loadTexts:t11FcsMgmtAddrChangeNotifyEnable.setStatus(_A)
+class _T11FcsRejectCtCommandString_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_T11FcsRejectCtCommandString_Type.__name__=_E
+_T11FcsRejectCtCommandString_Object=MibTableColumn
+t11FcsRejectCtCommandString=_T11FcsRejectCtCommandString_Object((1,3,6,1,2,1,162,1,4,1,1,4),_T11FcsRejectCtCommandString_Type())
+t11FcsRejectCtCommandString.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsRejectCtCommandString.setStatus(_A)
+_T11FcsRejectRequestSource_Type=FcNameIdOrZero
+_T11FcsRejectRequestSource_Object=MibTableColumn
+t11FcsRejectRequestSource=_T11FcsRejectRequestSource_Object((1,3,6,1,2,1,162,1,4,1,1,5),_T11FcsRejectRequestSource_Type())
+t11FcsRejectRequestSource.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsRejectRequestSource.setStatus(_A)
+_T11FcsRejectReasonCode_Type=T11NsGs4RejectReasonCode
+_T11FcsRejectReasonCode_Object=MibTableColumn
+t11FcsRejectReasonCode=_T11FcsRejectReasonCode_Object((1,3,6,1,2,1,162,1,4,1,1,6),_T11FcsRejectReasonCode_Type())
+t11FcsRejectReasonCode.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsRejectReasonCode.setStatus(_A)
+_T11FcsRejectReasonCodeExp_Type=T11FcsRejectReasonExplanation
+_T11FcsRejectReasonCodeExp_Object=MibTableColumn
+t11FcsRejectReasonCodeExp=_T11FcsRejectReasonCodeExp_Object((1,3,6,1,2,1,162,1,4,1,1,7),_T11FcsRejectReasonCodeExp_Type())
+t11FcsRejectReasonCodeExp.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsRejectReasonCodeExp.setStatus(_A)
+class _T11FcsRejectReasonVendorCode_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_T11FcsRejectReasonVendorCode_Type.__name__=_E
+_T11FcsRejectReasonVendorCode_Object=MibTableColumn
+t11FcsRejectReasonVendorCode=_T11FcsRejectReasonVendorCode_Object((1,3,6,1,2,1,162,1,4,1,1,8),_T11FcsRejectReasonVendorCode_Type())
+t11FcsRejectReasonVendorCode.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcsRejectReasonVendorCode.setStatus(_A)
+_T11FcsMgmtAddrChangeFabricIndex_Type=T11FabricIndex
+_T11FcsMgmtAddrChangeFabricIndex_Object=MibScalar
+t11FcsMgmtAddrChangeFabricIndex=_T11FcsMgmtAddrChangeFabricIndex_Object((1,3,6,1,2,1,162,1,4,2),_T11FcsMgmtAddrChangeFabricIndex_Type())
+t11FcsMgmtAddrChangeFabricIndex.setMaxAccess(_j)
+if mibBuilder.loadTexts:t11FcsMgmtAddrChangeFabricIndex.setStatus(_A)
+_T11FcsMgmtAddrChangeIeName_Type=FcNameIdOrZero
+_T11FcsMgmtAddrChangeIeName_Object=MibScalar
+t11FcsMgmtAddrChangeIeName=_T11FcsMgmtAddrChangeIeName_Object((1,3,6,1,2,1,162,1,4,3),_T11FcsMgmtAddrChangeIeName_Type())
+t11FcsMgmtAddrChangeIeName.setMaxAccess(_j)
+if mibBuilder.loadTexts:t11FcsMgmtAddrChangeIeName.setStatus(_A)
+_T11FcsMIBConformance_ObjectIdentity=ObjectIdentity
+t11FcsMIBConformance=_T11FcsMIBConformance_ObjectIdentity((1,3,6,1,2,1,162,2))
+_T11FcsMIBCompliances_ObjectIdentity=ObjectIdentity
+t11FcsMIBCompliances=_T11FcsMIBCompliances_ObjectIdentity((1,3,6,1,2,1,162,2,1))
+_T11FcsMIBGroups_ObjectIdentity=ObjectIdentity
+t11FcsMIBGroups=_T11FcsMIBGroups_ObjectIdentity((1,3,6,1,2,1,162,2,2))
+t11FcsDiscoveryControlGroup=ObjectGroup((1,3,6,1,2,1,162,2,2,1))
+t11FcsDiscoveryControlGroup.setObjects(*((_B,_U),(_B,_k),(_B,_l),(_B,_m)))
+if mibBuilder.loadTexts:t11FcsDiscoveryControlGroup.setStatus(_A)
+t11FcsDiscoveryStatusGroup=ObjectGroup((1,3,6,1,2,1,162,2,2,2))
+t11FcsDiscoveryStatusGroup.setObjects(*((_B,_n),(_B,_o)))
+if mibBuilder.loadTexts:t11FcsDiscoveryStatusGroup.setStatus(_A)
+t11FcsDiscoveredConfigGroup=ObjectGroup((1,3,6,1,2,1,162,2,2,3))
+t11FcsDiscoveredConfigGroup.setObjects(*((_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_S),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_T)))
+if mibBuilder.loadTexts:t11FcsDiscoveredConfigGroup.setStatus(_A)
+t11FcsStatisticsGroup=ObjectGroup((1,3,6,1,2,1,162,2,2,4))
+t11FcsStatisticsGroup.setObjects(*((_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR)))
+if mibBuilder.loadTexts:t11FcsStatisticsGroup.setStatus(_A)
+t11FcsNotificationInfoGroup=ObjectGroup((1,3,6,1,2,1,162,2,2,5))
+t11FcsNotificationInfoGroup.setObjects(*((_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z)))
+if mibBuilder.loadTexts:t11FcsNotificationInfoGroup.setStatus(_A)
+t11FcsRqRejectNotification=NotificationType((1,3,6,1,2,1,162,0,1))
+t11FcsRqRejectNotification.setObjects(*((_b,_c),(_B,_V),(_B,_W),(_B,_X)))
+if mibBuilder.loadTexts:t11FcsRqRejectNotification.setStatus(_A)
+t11FcsDiscoveryCompleteNotify=NotificationType((1,3,6,1,2,1,162,0,2))
+t11FcsDiscoveryCompleteNotify.setObjects((_B,_U))
+if mibBuilder.loadTexts:t11FcsDiscoveryCompleteNotify.setStatus(_A)
+t11FcsMgmtAddrChangeNotify=NotificationType((1,3,6,1,2,1,162,0,3))
+t11FcsMgmtAddrChangeNotify.setObjects(*((_B,_Y),(_B,_Z)))
+if mibBuilder.loadTexts:t11FcsMgmtAddrChangeNotify.setStatus(_A)
+t11FcsNotificationGroup=NotificationGroup((1,3,6,1,2,1,162,2,2,6))
+t11FcsNotificationGroup.setObjects(*((_B,_AX),(_B,_AY),(_B,_AZ)))
+if mibBuilder.loadTexts:t11FcsNotificationGroup.setStatus(_A)
+t11FcsMIBCompliance=ModuleCompliance((1,3,6,1,2,1,162,2,1,1))
+t11FcsMIBCompliance.setObjects(*((_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af)))
+if mibBuilder.loadTexts:t11FcsMIBCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'T11FcListIndex':T11FcListIndex,'T11FcListIndexPointerOrZero':T11FcListIndexPointerOrZero,'T11FcIeType':T11FcIeType,'T11FcPortState':T11FcPortState,'T11FcPortTxType':T11FcPortTxType,'T11FcsRejectReasonExplanation':T11FcsRejectReasonExplanation,'t11FcFabricConfigServerMIB':t11FcFabricConfigServerMIB,'t11FcsNotifications':t11FcsNotifications,_AX:t11FcsRqRejectNotification,_AY:t11FcsDiscoveryCompleteNotify,_AZ:t11FcsMgmtAddrChangeNotify,'t11FcsMIBObjects':t11FcsMIBObjects,'t11FcsDiscovery':t11FcsDiscovery,'t11FcsFabricDiscoveryTable':t11FcsFabricDiscoveryTable,'t11FcsFabricDiscoveryEntry':t11FcsFabricDiscoveryEntry,_U:t11FcsFabricDiscoveryRangeLow,_k:t11FcsFabricDiscoveryRangeHigh,_l:t11FcsFabricDiscoveryStart,_m:t11FcsFabricDiscoveryTimeOut,'t11FcsDiscoveryStateTable':t11FcsDiscoveryStateTable,'t11FcsDiscoveryStateEntry':t11FcsDiscoveryStateEntry,_K:t11FcsFabricIndex,_n:t11FcsDiscoveryStatus,_o:t11FcsDiscoveryCompleteTime,'t11FcsDiscoveredConfig':t11FcsDiscoveredConfig,'t11FcsIeTable':t11FcsIeTable,'t11FcsIeEntry':t11FcsIeEntry,_R:t11FcsIeName,_p:t11FcsIeType,_q:t11FcsIeDomainId,_r:t11FcsIeMgmtId,_s:t11FcsIeFabricName,_t:t11FcsIeLogicalName,_u:t11FcsIeMgmtAddrListIndex,_v:t11FcsIeInfoList,'t11FcsMgmtAddrListTable':t11FcsMgmtAddrListTable,'t11FcsMgmtAddrListEntry':t11FcsMgmtAddrListEntry,_d:t11FcsMgmtAddrListIndex,_e:t11FcsMgmtAddrIndex,_w:t11FcsMgmtAddr,'t11FcsPortTable':t11FcsPortTable,'t11FcsPortEntry':t11FcsPortEntry,_f:t11FcsPortName,_x:t11FcsPortType,_y:t11FcsPortTxType,_z:t11FcsPortModuleType,_A0:t11FcsPortPhyPortNum,_A1:t11FcsPortAttachPortNameIndex,_A2:t11FcsPortState,_A3:t11FcsPortSpeedCapab,_A4:t11FcsPortOperSpeed,_A5:t11FcsPortZoningEnfStatus,'t11FcsAttachPortNameListTable':t11FcsAttachPortNameListTable,'t11FcsAttachPortNameListEntry':t11FcsAttachPortNameListEntry,_g:t11FcsAttachPortNameListIndex,_S:t11FcsAttachPortName,'t11FcsPlatformTable':t11FcsPlatformTable,'t11FcsPlatformEntry':t11FcsPlatformEntry,_h:t11FcsPlatformIndex,_A6:t11FcsPlatformName,_A7:t11FcsPlatformType,_A8:t11FcsPlatformNodeNameListIndex,_A9:t11FcsPlatformMgmtAddrListIndex,_AA:t11FcsPlatformVendorId,_AB:t11FcsPlatformProductId,_AC:t11FcsPlatformProductRevLevel,_AD:t11FcsPlatformDescription,_AE:t11FcsPlatformLabel,_AF:t11FcsPlatformLocation,_AG:t11FcsPlatformSystemID,_AH:t11FcsPlatformSysMgmtAddr,_AI:t11FcsPlatformClusterId,_AJ:t11FcsPlatformClusterMgmtAddr,_AK:t11FcsPlatformFC4Types,'t11FcsNodeNameListTable':t11FcsNodeNameListTable,'t11FcsNodeNameListEntry':t11FcsNodeNameListEntry,_i:t11FcsNodeNameListIndex,_T:t11FcsNodeName,'t11FcsStats':t11FcsStats,'t11FcsStatsTable':t11FcsStatsTable,'t11FcsStatsEntry':t11FcsStatsEntry,_AL:t11FcsInGetReqs,_AM:t11FcsOutGetReqs,_AN:t11FcsInRegReqs,_AO:t11FcsOutRegReqs,_AP:t11FcsInDeregReqs,_AQ:t11FcsOutDeregReqs,_AR:t11FcsRejects,'t11FcsNotificationInfo':t11FcsNotificationInfo,'t11FcsNotifyControlTable':t11FcsNotifyControlTable,'t11FcsNotifyControlEntry':t11FcsNotifyControlEntry,_AS:t11FcsReqRejectNotifyEnable,_AT:t11FcsDiscoveryCompNotifyEnable,_AU:t11FcsMgmtAddrChangeNotifyEnable,_AV:t11FcsRejectCtCommandString,_AW:t11FcsRejectRequestSource,_V:t11FcsRejectReasonCode,_W:t11FcsRejectReasonCodeExp,_X:t11FcsRejectReasonVendorCode,_Y:t11FcsMgmtAddrChangeFabricIndex,_Z:t11FcsMgmtAddrChangeIeName,'t11FcsMIBConformance':t11FcsMIBConformance,'t11FcsMIBCompliances':t11FcsMIBCompliances,'t11FcsMIBCompliance':t11FcsMIBCompliance,'t11FcsMIBGroups':t11FcsMIBGroups,_Ae:t11FcsDiscoveryControlGroup,_Ab:t11FcsDiscoveryStatusGroup,_Aa:t11FcsDiscoveredConfigGroup,_Af:t11FcsStatisticsGroup,_Ac:t11FcsNotificationInfoGroup,_Ad:t11FcsNotificationGroup})

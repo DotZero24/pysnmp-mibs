@@ -1,387 +1,1053 @@
-#
-# PySNMP MIB module MIP-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/MIP-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:20:14 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, OctetString, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
-( ModuleCompliance, ObjectGroup, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-( Counter64, MibIdentifier, Gauge32, ObjectIdentity, TimeTicks, Counter32, Bits, iso, IpAddress, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, experimental, NotificationType, ModuleIdentity, mib_2, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "MibIdentifier", "Gauge32", "ObjectIdentity", "TimeTicks", "Counter32", "Bits", "iso", "IpAddress", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "experimental", "NotificationType", "ModuleIdentity", "mib-2")
-( TruthValue, TextualConvention, DisplayString, TimeStamp, RowStatus, ) = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString", "TimeStamp", "RowStatus")
-mipMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 44))
-if mibBuilder.loadTexts: mipMIB.setLastUpdated('9606040000Z')
-if mibBuilder.loadTexts: mipMIB.setOrganization('IETF Mobile IP Working Group')
-if mibBuilder.loadTexts: mipMIB.setContactInfo('       David Cong\n                Postal: Motorola\n                        1301 E. Algonquin Rd.\n                        Schaumburg, IL 60196\n                Phone:  +1-847-576-1357\n                Email:  cong@comm.mot.com')
-if mibBuilder.loadTexts: mipMIB.setDescription('The MIB Module for the Mobile IP.')
-mipMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 1))
-mipSystem = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 1, 1))
-mipSecurity = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 1, 2))
-mipMN = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 1, 3))
-mipMA = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 1, 4))
-mipFA = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 1, 5))
-mipHA = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 1, 6))
-mnSystem = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 1, 3, 1))
-mnDiscovery = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 1, 3, 2))
-mnRegistration = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 1, 3, 3))
-maAdvertisement = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 1, 4, 2))
-faSystem = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 1, 5, 1))
-faAdvertisement = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 1, 5, 2))
-faRegistration = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 1, 5, 3))
-haRegistration = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 1, 6, 3))
-class RegistrationFlags(Bits, TextualConvention):
-    namedValues = NamedValues(("vjCompression", 0), ("gre", 1), ("minEnc", 2), ("decapsulationbyMN", 3), ("broadcastDatagram", 4), ("simultaneousBindings", 5),)
-
-mipEntities = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 1, 1), Bits().clone(namedValues=NamedValues(("mobileNode", 0), ("foreignAgent", 1), ("homeAgent", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mipEntities.setDescription('This object describes which Mobile IP entities are\n                supported by this managed entity. The entity may\n                support more than one Mobile IP entities. For example,\n                the entity supports both Foreign Agent (FA) and Home\n                Agent (HA). Therefore, bit 1 and bit 2 are set to 1\n                for this object.')
-mipEnable = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mipEnable.setDescription('Indicates whether the Mobile IP protocol should be\n                enabled for the managed entity. If it is disabled, the\n                entity should disable both agent discovery and\n                registration functions.')
-mipEncapsulationSupported = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 1, 3), Bits().clone(namedValues=NamedValues(("ipInIp", 0), ("gre", 1), ("minEnc", 2), ("other", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mipEncapsulationSupported.setDescription('Encapsulation methods supported by the Mobile IP\n                entity. The entity may support multiple encapsulation\n                methods or none of them:\n                    ipInIp(0), -- IP Encapsulation within IP\n                    gre(1),    -- Generic Routing Encapsulation,\n                               -- refers to RFC1701\n                    minEnc(2), -- Minimal Encapsulation within IP.')
-mipSecAssocTable = MibTable((1, 3, 6, 1, 2, 1, 44, 1, 2, 1), )
-if mibBuilder.loadTexts: mipSecAssocTable.setDescription('A table containing Mobility Security Associations.')
-mipSecAssocEntry = MibTableRow((1, 3, 6, 1, 2, 1, 44, 1, 2, 1, 1), ).setIndexNames((0, "MIP-MIB", "mipSecPeerAddress"), (0, "MIP-MIB", "mipSecSPI"))
-if mibBuilder.loadTexts: mipSecAssocEntry.setDescription('One particular Mobility Security Association.')
-mipSecPeerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 2, 1, 1, 1), IpAddress())
-if mibBuilder.loadTexts: mipSecPeerAddress.setDescription('The IP address of the peer entity with which this\n                node shares the mobility security association.')
-mipSecSPI = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 2, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295)))
-if mibBuilder.loadTexts: mipSecSPI.setDescription('The SPI is the 4-byte opaque index within the\n                Mobility Security Association which selects the\n                specific security parameters to be used to\n                authenticate the peer, i.e. the rest of the variables\n                in this MipSecAssocEntry.')
-mipSecAlgorithmType = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("other", 1), ("md5", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mipSecAlgorithmType.setDescription('Type of security algorithm.')
-mipSecAlgorithmMode = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("other", 1), ("prefixSuffix", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mipSecAlgorithmMode.setDescription('Security mode used by this algorithm.')
-mipSecKey = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 2, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16,16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mipSecKey.setDescription('The shared secret key for the security\n                associations. Reading this object will always return\n                zero length value.')
-mipSecReplayMethod = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("other", 1), ("timestamps", 2), ("nonces", 3),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mipSecReplayMethod.setDescription('The replay-protection method supported for this SPI\n                within this Mobility Security Association.')
-mipSecTotalViolations = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 2, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mipSecTotalViolations.setDescription('Total number of security violations in the entity')
-mipSecViolationTable = MibTable((1, 3, 6, 1, 2, 1, 44, 1, 2, 3), )
-if mibBuilder.loadTexts: mipSecViolationTable.setDescription('A table containing information about security\n                violations.')
-mipSecViolationEntry = MibTableRow((1, 3, 6, 1, 2, 1, 44, 1, 2, 3, 1), ).setIndexNames((0, "MIP-MIB", "mipSecViolatorAddress"))
-if mibBuilder.loadTexts: mipSecViolationEntry.setDescription('Information about one particular security violation.')
-mipSecViolatorAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 2, 3, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mipSecViolatorAddress.setDescription("Violator's IP address. The violator is not necessary\n                in the mipSecAssocTable.")
-mipSecViolationCounter = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 2, 3, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mipSecViolationCounter.setDescription('Total number of security violations for this peer.')
-mipSecRecentViolationSPI = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 2, 3, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mipSecRecentViolationSPI.setDescription('SPI of the most recent security violation for this\n                peer. If the security violation is due to an\n                identification mismatch, then this is the SPI from the\n                Mobile-Home Authentication Extension.  If the security\n                violation is due to an invalid authenticator, then\n                this is the SPI from the offending authentication\n                extension.  In all other cases, it should be set to\n                zero.')
-mipSecRecentViolationTime = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 2, 3, 1, 4), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mipSecRecentViolationTime.setDescription('Time of the most recent security violation for this\n                peer.')
-mipSecRecentViolationIDLow = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 2, 3, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mipSecRecentViolationIDLow.setDescription('Low-order 32 bits of identification used in request or\n                reply of the most recent security violation for this\n                peer.')
-mipSecRecentViolationIDHigh = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 2, 3, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mipSecRecentViolationIDHigh.setDescription('High-order 32 bits of identification used in request\n                or reply of the most recent security violation for\n                this peer.')
-mipSecRecentViolationReason = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 2, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("noMobilitySecurityAssociation", 1), ("badAuthenticator", 2), ("badIdentifier", 3), ("badSPI", 4), ("missingSecurityExtension", 5), ("other", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mipSecRecentViolationReason.setDescription('Reason for the most recent security violation for\n                this peer.')
-mnState = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("home", 1), ("registered", 2), ("pending", 3), ("isolated", 4), ("unknown", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnState.setDescription("Indicates mobile node's state of Mobile IP:\n                     home,\n                         -- MN is connected to home network.\n                     registered,\n                         -- MN has registered on foreign network\n                     pending,\n                         -- MN has sent registration request and is\n                            waiting for the reply\n                     isolated,\n                         -- MN is isolated from network\n                     unknown\n                         -- MN can not determine its state.")
-mnHomeAddress = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnHomeAddress.setDescription("An IP address that is assigned for an extended period\n                of time to the mobile node. It remains unchanged\n                regardless of the mobile node's current point of\n                attachment.")
-mnHATable = MibTable((1, 3, 6, 1, 2, 1, 44, 1, 3, 1, 3), )
-if mibBuilder.loadTexts: mnHATable.setDescription("A table containing all of the mobile node's potential\n                home agents.")
-mnHAEntry = MibTableRow((1, 3, 6, 1, 2, 1, 44, 1, 3, 1, 3, 1), ).setIndexNames((0, "MIP-MIB", "mnHAAddress"))
-if mibBuilder.loadTexts: mnHAEntry.setDescription('Information for a particular Home Agent.')
-mnHAAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 3, 1, 3, 1, 1), IpAddress())
-if mibBuilder.loadTexts: mnHAAddress.setDescription("IP address of mobile node's Home Agent.")
-mnCurrentHA = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 3, 1, 3, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnCurrentHA.setDescription('Whether this home agent is the current home agent for\n                the mobile node. If it is true, the mobile node is\n                registered with that home agent.')
-mnHAStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 3, 1, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mnHAStatus.setDescription("The row status for this home agent entry. If the\n                status is set to 'createAndGo' or 'active', then the\n                mobile node can use mnHAAddress as a valid candidate\n                for a home agent. If the status is set to 'destroy',\n                then the mobile node should delete this row, and\n                deregister from that home agent.")
-mnFATable = MibTable((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 1), )
-if mibBuilder.loadTexts: mnFATable.setDescription('A table containing all foreign agents that the mobile\n                node knows about and their corresponding COA (care-of\n                address). This COA is an address of a foreign agent\n                with which the mobile node is registered. The table is\n                updated when advertisements are received by the mobile\n                node. If an advertisement expires, its entry(s) should\n                be deleted from the table. One foreign agent can\n                provide more than one COA in its advertisements.')
-mnFAEntry = MibTableRow((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 1, 1), ).setIndexNames((0, "MIP-MIB", "mnFAAddress"), (0, "MIP-MIB", "mnCOA"))
-if mibBuilder.loadTexts: mnFAEntry.setDescription('One pair of foreign agent IP address and COA for that\n                foreign agent.')
-mnFAAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 1, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnFAAddress.setDescription("Foreign agent's IP address.")
-mnCOA = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnCOA.setDescription('A care-of address being offered by this foreign agent\n                or a co-located care-of address which the mobile node\n                has associated with one of its own network\n                interfaces.')
-mnRecentAdvReceived = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 2))
-mnAdvSourceAddress = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 2, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnAdvSourceAddress.setDescription('The source IP address of the most recently received\n                Agent Advertisement. This address could be the address\n                of a home agent or a foreign agent.')
-mnAdvSequence = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnAdvSequence.setDescription('The sequence number of the most recently received\n                advertisement. The sequence number ranges from 0 to\n                0xffff. After the sequence number attains the value\n                0xffff, it will roll over to 256.')
-mnAdvFlags = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 2, 3), Bits().clone(namedValues=NamedValues(("vjCompression", 0), ("gre", 1), ("minEnc", 2), ("foreignAgent", 3), ("homeAgent", 4), ("busy", 5), ("regRequired", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnAdvFlags.setDescription('The flags are contained in the 7th byte in the\n                extension of the most recently received mobility agent\n                advertisement:\n                    vjCompression\n                        -- Agent supports Van Jacobson compression\n                    gre\n                        -- Agent offers Generice Routing Encapsulation\n                    minEnc,\n                        -- Agent offers Minimal Encapsulation\n                    foreignAgent,\n                        -- Agent is a Foreign Agent\n                    homeAgent,\n                        -- Agent is a Home Agent\n                    busy,\n                        -- Foreign Agent is busy\n                    regRequired,\n                        -- FA registration is required.')
-mnAdvMaxRegLifetime = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnAdvMaxRegLifetime.setDescription('The longest lifetime in seconds that the agent is\n                willing to accept in any registration request.')
-mnAdvMaxAdvLifetime = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 2, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnAdvMaxAdvLifetime.setDescription('The maximum length of time that the Advertisement is\n                considered valid in the absence of further\n                Advertisements.')
-mnAdvTimeReceived = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 2, 6), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnAdvTimeReceived.setDescription('The time at which the most recently received\n                advertisement was received.')
-mnSolicitationsSent = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnSolicitationsSent.setDescription('Total number of Solicitation sent by the mobile\n                node.')
-mnAdvertisementsReceived = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnAdvertisementsReceived.setDescription('Total number of advertisements received by the mobile\n                node.')
-mnAdvsDroppedInvalidExtension = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnAdvsDroppedInvalidExtension.setDescription('Total number of advertisements dropped by the mobile\n                node due to both poorly formed extensions and\n                unrecognized extensions with extension number in the\n                range 0-127.')
-mnAdvsIgnoredUnknownExtension = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnAdvsIgnoredUnknownExtension.setDescription('Total number of unrecognized extensions in the range\n                128-255 that were ignored by the mobile node.')
-mnMoveFromHAToFA = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnMoveFromHAToFA.setDescription('Number of times that the mobile node has decided to\n                move from its home network to a foreign network.')
-mnMoveFromFAToFA = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnMoveFromFAToFA.setDescription('Number of times that the mobile node has decided to\n                move from one foreign network to another foreign\n                network.')
-mnMoveFromFAToHA = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnMoveFromFAToHA.setDescription('Number of times that the mobile node has decided to\n                move from a foreign network to its home network.')
-mnGratuitousARPsSend = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnGratuitousARPsSend.setDescription('Total number of Gratuitous ARPs sent by mobile node\n                in order to clear out any stale ARP entries in the ARP\n                caches of nodes on the home network.')
-mnAgentRebootsDectected = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 2, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnAgentRebootsDectected.setDescription('Total number of agent reboots detected by the mobile\n                node through sequence number of the advertisement.')
-mnRegistrationTable = MibTable((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 1), )
-if mibBuilder.loadTexts: mnRegistrationTable.setDescription("A table containing information about the mobile\n                node's attempted registration(s).  The mobile node\n                updates this table based upon Registration Requests\n                sent and Registration Replies received in response to\n                these requests.  Certain variables within this table\n                are also updated if when Registration Requests are\n                retransmitted.")
-mnRegistrationEntry = MibTableRow((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 1, 1), ).setIndexNames((0, "MIP-MIB", "mnRegAgentAddress"), (0, "MIP-MIB", "mnRegCOA"))
-if mibBuilder.loadTexts: mnRegistrationEntry.setDescription('Information about one registration attempt.')
-mnRegAgentAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 1, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRegAgentAddress.setDescription('IP address of the agent as used in the destination\n                 IP address of the Registration Request.  The agent\n                 may be a home agent or a foreign agent.')
-mnRegCOA = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRegCOA.setDescription('Care-of address for the registration.')
-mnRegFlags = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 1, 1, 3), RegistrationFlags()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRegFlags.setDescription('Registration flags sent by the mobile node. It is the\n                second byte in the Mobile IP Registratation Request\n                message.')
-mnRegIDLow = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRegIDLow.setDescription('Low-order 32 bits of the Identification used in that\n                registration by the mobile node.')
-mnRegIDHigh = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRegIDHigh.setDescription('High-order 32 bits of the Identification used in that\n                registration by the mobile node.')
-mnRegTimeRequested = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 1, 1, 6), Integer32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRegTimeRequested.setDescription('If the registration is pending, then this is the\n                lifetime requested by the mobile node (in seconds).\n                If the registration has been accepted, then this is\n                the lifetime actually granted by the home agent in the\n                reply.')
-mnRegTimeRemaining = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 1, 1, 7), Gauge32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRegTimeRemaining.setDescription('The number of seconds remaining until this\n                registration expires.  It has the same initial value\n                as mnRegTimeRequested and is only valid if\n                mnRegIsAccepted is TRUE.')
-mnRegTimeSent = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 1, 1, 8), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRegTimeSent.setDescription('The time when the last (re-)transmission occured.')
-mnRegIsAccepted = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 1, 1, 9), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRegIsAccepted.setDescription('true(1) if the mobile node has received a\n                Registration Reply indicating that service has been\n                accepted; false(2) otherwise.  false(2) implies that\n                the registration is still pending.')
-mnCOAIsLocal = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 1, 1, 10), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnCOAIsLocal.setDescription('Whether the COA is local to (dynamically acquired by)\n                the mobile node or not.  If it is false(2), the COA is\n                an address of the foreign agent.')
-mnRegRequestsSent = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRegRequestsSent.setDescription('Total number of registration requests sent by the\n                mobile node. This does not include deregistrations\n                (those with Lifetime equal to zero).')
-mnDeRegRequestsSent = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnDeRegRequestsSent.setDescription('Total number of deregistration requests sent by the\n                mobile node (those with Lifetime equal to zero).')
-mnRegRepliesRecieved = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRegRepliesRecieved.setDescription('Total number of registration replies received by the\n                mobile node in which the Lifetime is greater than\n                zero.')
-mnDeRegRepliesRecieved = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnDeRegRepliesRecieved.setDescription('Total number of (de)registration replies received by\n                the mobile node in which the Lifetime is equal to\n                zero.')
-mnRepliesInvalidHomeAddress = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRepliesInvalidHomeAddress.setDescription('Total number of replies with invalid home address for\n                the mobile node.')
-mnRepliesUnknownHA = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRepliesUnknownHA.setDescription('Total number of replies with unknown home agents\n                (not in home agent table).')
-mnRepliesUnknownFA = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRepliesUnknownFA.setDescription('Total number of replies with unknown foreign agents if\n                replies relayed through foreign agent.')
-mnRepliesInvalidID = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRepliesInvalidID.setDescription('Total number of replies with invalid Identification\n                fields.')
-mnRepliesDroppedInvalidExtension = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRepliesDroppedInvalidExtension.setDescription('Total number of Registration Replies dropped by the\n                mobile node due to both poorly formed extensions and\n                unrecognized extensions with extension number in the\n                range 0-127.')
-mnRepliesIgnoredUnknownExtension = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRepliesIgnoredUnknownExtension.setDescription('Total number of Registration Replies that contained\n                one or more unrecognized extensions in the range\n                128-255 that were ignored by the mobile node.')
-mnRepliesHAAuthenticationFailure = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRepliesHAAuthenticationFailure.setDescription('Total number of replies without a valid Home Agent to\n                Mobile Node authenticator.')
-mnRepliesFAAuthenticationFailure = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRepliesFAAuthenticationFailure.setDescription('Total number of replies without a valid Foreign Agent\n                to Mobile Node authenticator.')
-mnRegRequestsAccepted = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRegRequestsAccepted.setDescription("Total number of registration requests accepted by the\n                mobile node's home agent (Code 0 and Code 1).")
-mnRegRequestsDeniedByHA = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRegRequestsDeniedByHA.setDescription("Total number of registration requests denied by\n                mobile node's home agent (Sum of Code 128 through\n                Code 191).")
-mnRegRequestsDeniedByFA = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRegRequestsDeniedByFA.setDescription('Total number of registration requests denied by the\n                foreign agent (Sum of Codes 64 through Code 127).')
-mnRegRequestsDeniedByHADueToID = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRegRequestsDeniedByHADueToID.setDescription('Total number of Registration Request denied by home\n                agent due to identification mismatch.')
-mnRegRequestsWithDirectedBroadcast = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 3, 3, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mnRegRequestsWithDirectedBroadcast.setDescription('Total number of Registration Requests sent by mobile\n                node with a directed broadcast address in the home\n                agent field.')
-maAdvConfigTable = MibTable((1, 3, 6, 1, 2, 1, 44, 1, 4, 2, 1), )
-if mibBuilder.loadTexts: maAdvConfigTable.setDescription('A table containing configurable advertisement\n                parameters for all advertisement interfaces in\n                the mobility agent.')
-maAdvConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 44, 1, 4, 2, 1, 1), ).setIndexNames((0, "MIP-MIB", "maInterfaceAddress"))
-if mibBuilder.loadTexts: maAdvConfigEntry.setDescription('Advertisement parameters for one advertisement\n                interface.')
-maInterfaceAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 4, 2, 1, 1, 1), IpAddress())
-if mibBuilder.loadTexts: maInterfaceAddress.setDescription('IP address for advertisement interface.')
-maAdvMaxRegLifetime = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 4, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: maAdvMaxRegLifetime.setDescription('The longest lifetime in seconds that mobility agent\n                is willing to accept in any Registration Request.')
-maAdvPrefixLengthInclusion = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 4, 2, 1, 1, 3), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: maAdvPrefixLengthInclusion.setDescription('Whether the advertisement should include the Prefix-\n                Lengths Extension. If it is true, all advertisements\n                sent over this interface should include the\n                Prefix-Lengths Extension.')
-maAdvAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 4, 2, 1, 1, 4), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: maAdvAddress.setDescription('The IP destination address to be used for\n                advertisements sent from the interface. The only\n                permissible values are the all-systems multicast\n                address (224.0.0.1) or the limited-broadcast address\n                (255.255.255.255).')
-maAdvMaxInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 4, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(4,1800))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: maAdvMaxInterval.setDescription('The maximum time in seconds between successive\n                transmissions of Agent Advertisements from this\n                interface.')
-maAdvMinInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 4, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(3,1800))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: maAdvMinInterval.setDescription('The minimum time in seconds between successive\n                transmissions of Agent Advertisements from this\n                interface.')
-maAdvMaxAdvLifetime = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 4, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(4,9000))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: maAdvMaxAdvLifetime.setDescription('The time (in seconds) to be placed in the Lifetime\n                field of the RFC 1256-portion of the Agent\n                Advertisements sent over this interface.')
-maAdvResponseSolicitationOnly = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 4, 2, 1, 1, 8), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: maAdvResponseSolicitationOnly.setDescription('The flag indicates whether the advertisement from\n                that interface should be sent only in response to an\n                Agent Solicitation message.')
-maAdvStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 4, 2, 1, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: maAdvStatus.setDescription("The row status for the agent advertisement table. If\n                this column status is 'active', the manager should not\n                change any column in the row.")
-maAdvertisementsSent = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 4, 2, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: maAdvertisementsSent.setDescription('Total number of advertisements sent by the mobility\n                agent.')
-maAdvsSentForSolicitation = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 4, 2, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: maAdvsSentForSolicitation.setDescription('Total number of advertisements sent by mobility agent\n                in response to mobile node solicitations.')
-maSolicitationsReceived = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 4, 2, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: maSolicitationsReceived.setDescription('Total number of solicitations received by the\n                mobility agent.')
-faCOATable = MibTable((1, 3, 6, 1, 2, 1, 44, 1, 5, 1, 1), )
-if mibBuilder.loadTexts: faCOATable.setDescription('A table containing all of the care-of addresses\n                (COAs) supported by the foreign agent. New entries can\n                be added to the table. The order of entries in the\n                faCOATAble is also the order in which the COAs are\n                listed in the Agent Advertisement.')
-faCOAEntry = MibTableRow((1, 3, 6, 1, 2, 1, 44, 1, 5, 1, 1, 1), ).setIndexNames((0, "MIP-MIB", "faSupportedCOA"))
-if mibBuilder.loadTexts: faCOAEntry.setDescription('Entry of COA')
-faSupportedCOA = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 5, 1, 1, 1, 1), IpAddress())
-if mibBuilder.loadTexts: faSupportedCOA.setDescription('Care-of-address supported by this foreign agent.')
-faCOAStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 5, 1, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: faCOAStatus.setDescription('The row status for COA entry.')
-faIsBusy = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 5, 2, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faIsBusy.setDescription("Whether or not the foreign agent is too busy to\n                accept additional registrations. If true(1), the agent\n                is busy and any Agent advertisements sent from this\n                agent should have the 'B' bit set to 1.")
-faRegistrationRequired = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 5, 2, 2), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: faRegistrationRequired.setDescription("Whether or not this foreign agent requires\n                registration even from those mobile nodes that have\n                acquired their own, colocated care-of address.  If\n                true(1), registration is required and any Agent\n                Advertisements sent from this agent should have the\n                'R' bit set to 1.")
-faVisitorTable = MibTable((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 1), )
-if mibBuilder.loadTexts: faVisitorTable.setDescription("A table containing the foreign agent's visitor list.\n                The foreign agent updates this table in response to\n                registration events from mobile nodes.")
-faVisitorEntry = MibTableRow((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 1, 1), ).setIndexNames((0, "MIP-MIB", "faVisitorIPAddress"))
-if mibBuilder.loadTexts: faVisitorEntry.setDescription('Information for one visitor.')
-faVisitorIPAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 1, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faVisitorIPAddress.setDescription("Source IP address of visitor's Registration Request.")
-faVisitorHomeAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faVisitorHomeAddress.setDescription('Home (IP) address of visiting mobile node.')
-faVisitorHomeAgentAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faVisitorHomeAgentAddress.setDescription('Home agent IP address for that visiting mobile node.')
-faVisitorTimeGranted = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 1, 1, 4), Integer32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: faVisitorTimeGranted.setDescription('The lifetime in seconds granted to the mobile node\n                for this registration.  Only valid if\n                faVisitorRegIsAccepted is true(1).')
-faVisitorTimeRemaining = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 1, 1, 5), Gauge32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: faVisitorTimeRemaining.setDescription('The number of seconds remaining until the\n                registration is expired. It has the same initial value\n                as faVisitorTimeGranted, and is counted down by the\n                foreign agent.')
-faVisitorRegFlags = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 1, 1, 6), RegistrationFlags()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faVisitorRegFlags.setDescription('Registration flags sent by mobile node.')
-faVisitorRegIDLow = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 1, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faVisitorRegIDLow.setDescription('Low 32 bits of Identification used in that\n                registration by the mobile node.')
-faVisitorRegIDHigh = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 1, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faVisitorRegIDHigh.setDescription('High 32 bits of Identification used in that\n                registration by the mobile node.')
-faVisitorRegIsAccepted = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 1, 1, 9), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faVisitorRegIsAccepted.setDescription('Whether the registration has been accepted or not. If\n                it is false(2), this registration is still pending for\n                reply.')
-faRegRequestsReceived = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faRegRequestsReceived.setDescription('Total number of valid Registration Requests\n                received.')
-faRegRequestsRelayed = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faRegRequestsRelayed.setDescription('Total number of Registration Requests relayed to home\n                agent by foreign agent.')
-faReasonUnspecified = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faReasonUnspecified.setDescription('Total number of Registration Requests denied by\n                foreign agent -- reason unspecified (Code 64).')
-faAdmProhibited = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faAdmProhibited.setDescription('Total number of Registration Requests denied by\n                foreign agent -- administratively prohibited (Code\n                65).')
-faInsufficientResource = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faInsufficientResource.setDescription('Total number of Registration Requests denied by\n                foreign agent -- insufficient resources (Code 66).')
-faMNAuthenticationFailure = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faMNAuthenticationFailure.setDescription('Total number of Registration Requests denied by\n                foreign agent -- mobile node failed authentication\n                (Code 67).')
-faRegLifetimeTooLong = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faRegLifetimeTooLong.setDescription('Total number of Registration Requests denied by\n                foreign agent -- requested lifetime too long (Code\n                69).')
-faPoorlyFormedRequests = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faPoorlyFormedRequests.setDescription('Total number of Registration Requests denied by\n                foreign agent -- poorly formed request (Code 70).')
-faEncapsulationUnavailable = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faEncapsulationUnavailable.setDescription('Total number of Registration Requests denied by\n                foreign agent -- requested encapsulation unavailable\n                (Code 72).')
-faVJCompressionUnavailable = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faVJCompressionUnavailable.setDescription('Total number of Registration Requests denied by\n                foreign agent -- requested Van Jacobson header\n                compression unavailable (Code 73).')
-faHAUnreachable = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faHAUnreachable.setDescription('Total number of Registration Requests denied by\n                foreign agent -- home agent unreachable (Codes\n                80-95).')
-faRegRepliesRecieved = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faRegRepliesRecieved.setDescription('Total number of well-formed Registration Replies\n                received by foreign agent.')
-faRegRepliesRelayed = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faRegRepliesRelayed.setDescription('Total number of valid Registration Replies relayed to\n                the mobile node by foreign agent.')
-faHAAuthenticationFailure = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faHAAuthenticationFailure.setDescription('Total number of Registration Replies denied by\n                foreign agent -- home agent failed authentication\n                (Code 68).')
-faPoorlyFormedReplies = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 5, 3, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: faPoorlyFormedReplies.setDescription('Total number of Registration Replies denied by\n                foreign agent -- poorly formed reply (Code 71).')
-haMobilityBindingTable = MibTable((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 1), )
-if mibBuilder.loadTexts: haMobilityBindingTable.setDescription("A table containing the home agent's mobility binding\n                list.  The home agent updates this table in response\n                to registration events from mobile nodes.")
-haMobilityBindingEntry = MibTableRow((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 1, 1), ).setIndexNames((0, "MIP-MIB", "haMobilityBindingMN"), (0, "MIP-MIB", "haMobilityBindingCOA"))
-if mibBuilder.loadTexts: haMobilityBindingEntry.setDescription('An entry on the mobility binding list.')
-haMobilityBindingMN = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 1, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haMobilityBindingMN.setDescription("Mobile node's home (IP) address.")
-haMobilityBindingCOA = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haMobilityBindingCOA.setDescription("Mobile node's care-of-address. One mobile node can\n                have multiple bindings with different\n                care-of-addresses.")
-haMobilityBindingSourceAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haMobilityBindingSourceAddress.setDescription("IP source address of the Registration Request as\n                received by the home agent.  Will be either a mobile\n                node's co-located care-of address or an address of the\n                foreign agent.")
-haMobilityBindingRegFlags = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 1, 1, 4), RegistrationFlags()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haMobilityBindingRegFlags.setDescription('Registration flags sent by mobile node.')
-haMobilityBindingRegIDLow = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haMobilityBindingRegIDLow.setDescription('Low 32 bits of Identification used in that binding by\n                the mobile node.')
-haMobilityBindingRegIDHigh = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haMobilityBindingRegIDHigh.setDescription('High 32 bits of Identification used in that binding by\n                the mobile node.')
-haMobilityBindingTimeGranted = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 1, 1, 7), Integer32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: haMobilityBindingTimeGranted.setDescription('The lifetime in seconds granted to the mobile node\n                for this registration.')
-haMobilityBindingTimeRemaining = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 1, 1, 8), Gauge32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: haMobilityBindingTimeRemaining.setDescription('The number of seconds remaining until the\n                registration is expired. It has the same initial value\n                as haMobilityBindingTimeGranted, and is counted down\n                by the home agent.')
-haCounterTable = MibTable((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 2), )
-if mibBuilder.loadTexts: haCounterTable.setDescription('A table containing registration statistics for all\n                mobile nodes authorized to use this home agent.')
-haCounterEntry = MibTableRow((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 2, 1), ).setIndexNames((0, "MIP-MIB", "haMobilityBindingMN"))
-if mibBuilder.loadTexts: haCounterEntry.setDescription('Registration statistics for one mobile node.')
-haServiceRequestsAccepted = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 2, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haServiceRequestsAccepted.setDescription('Total number of service requests for the mobile node\n                accepted by the home agent (Code 0 + Code 1).')
-haServiceRequestsDenied = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haServiceRequestsDenied.setDescription('Total number of service requests for the mobile node\n                denied by the home agent (sum of all registrations\n                denied with Code 128 through Code 159).')
-haOverallServiceTime = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 2, 1, 4), Gauge32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: haOverallServiceTime.setDescription('Overall service time (in seconds) that has\n                accumulated for the mobile node since the home agent\n                last rebooted.')
-haRecentServiceAcceptedTime = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 2, 1, 5), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haRecentServiceAcceptedTime.setDescription('The time at which the most recent Registration\n                Request was accepted by the home agent for this mobile\n                node.')
-haRecentServiceDeniedTime = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 2, 1, 6), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haRecentServiceDeniedTime.setDescription('The time at which the most recent Registration\n                Request was denied by the home agent for this mobile\n                node.')
-haRecentServiceDeniedCode = MibTableColumn((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(128, 129, 130, 131, 132, 133, 134, 135, 136,))).clone(namedValues=NamedValues(("reasonUnspecified", 128), ("admProhibited", 129), ("insufficientResource", 130), ("mnAuthenticationFailure", 131), ("faAuthenticationFailure", 132), ("idMismatch", 133), ("poorlyFormedRequest", 134), ("tooManyBindings", 135), ("unknownHA", 136),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haRecentServiceDeniedCode.setDescription('The Code indicating the reason why the most recent\n                Registration Request for this mobile node was rejected\n                by the home agent.')
-haRegistrationAccepted = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haRegistrationAccepted.setDescription('Total number of Registration Requests accepted by\n                home agent (Code 0).')
-haMultiBindingUnsupported = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haMultiBindingUnsupported.setDescription('Total number of Registration Requests accepted by\n                home agent -- simultaneous mobility bindings\n                unsupported (Code 1).')
-haReasonUnspecified = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haReasonUnspecified.setDescription('Total number of Registration Requests denied by home\n                agent -- reason unspecified (Code 128).')
-haAdmProhibited = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haAdmProhibited.setDescription('Total number of Registration Requests denied by home\n                agent -- administratively prohibited (Code 129).')
-haInsufficientResource = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haInsufficientResource.setDescription('Total number of Registration Requests denied by home\n                agent -- insufficient resources (Code 130).')
-haMNAuthenticationFailure = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haMNAuthenticationFailure.setDescription('Total number of Registration Requests denied by home\n                agent -- mobile node failed authentication (Code\n                131).')
-haFAAuthenticationFailure = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haFAAuthenticationFailure.setDescription('Total number of Registration Requests denied by home\n                agent -- foreign agent failed authentication (Code\n                132).')
-haIDMismatch = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haIDMismatch.setDescription('Total number of Registration Requests denied by home\n                agent -- Identification mismatch (Code 133).')
-haPoorlyFormedRequest = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haPoorlyFormedRequest.setDescription('Total number of Registration Requests denied by home\n                agent -- poorly formed request (Code 134).')
-haTooManyBindings = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haTooManyBindings.setDescription('Total number of Registration Requests denied by home\n                agent -- too many simultaneous mobility bindings (Code\n                135).')
-haUnknownHA = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haUnknownHA.setDescription('Total number of Registration Requests denied by home\n                agent -- unknown home agent address (Code 136).')
-haGratuitiousARPsSent = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haGratuitiousARPsSent.setDescription('Total number of gratuition ARPs sent by the home\n                agent on behalf of mobile nodes.')
-haProxyARPsSent = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haProxyARPsSent.setDescription('Total number of proxy ARPs sent by the home agent on\n                behalf of mobile nodes.')
-haRegRequestsReceived = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haRegRequestsReceived.setDescription('Total number of Registration Requests received by\n                home agent.')
-haDeRegRequestsReceived = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haDeRegRequestsReceived.setDescription('Total number of Registration Requests received by the\n                home agent with a Lifetime of zero (requests to\n                deregister).')
-haRegRepliesSent = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haRegRepliesSent.setDescription('Total number of Registration Replies sent by the home\n                agent.')
-haDeRegRepliesSent = MibScalar((1, 3, 6, 1, 2, 1, 44, 1, 6, 3, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: haDeRegRepliesSent.setDescription('Total number of Registration Replies sent by the home\n                agent in response to requests to deregister.')
-mipMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 2))
-mipMIBNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 2, 0))
-mipAuthFailure = NotificationType((1, 3, 6, 1, 2, 1, 44, 2, 0, 1)).setObjects(*(("MIP-MIB", "mipSecViolatorAddress"), ("MIP-MIB", "mipSecRecentViolationSPI"), ("MIP-MIB", "mipSecRecentViolationIDLow"), ("MIP-MIB", "mipSecRecentViolationIDHigh"), ("MIP-MIB", "mipSecRecentViolationReason"),))
-if mibBuilder.loadTexts: mipAuthFailure.setDescription('The mipAuthFailure indicates that the Mobile IP\n                entity has an authentication failure when it validates\n                the mobile Registration Request or Reply.\n                Implementation of this trap is optional.')
-mipMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 3))
-mipGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 3, 1))
-mipCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 44, 3, 2))
-mipCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 44, 3, 2, 1)).setObjects(*(("MIP-MIB", "mipSystemGroup"), ("MIP-MIB", "mipSecAssociationGroup"), ("MIP-MIB", "mipSecViolationGroup"), ("MIP-MIB", "mnSystemGroup"), ("MIP-MIB", "mnDiscoveryGroup"), ("MIP-MIB", "mnRegistrationGroup"), ("MIP-MIB", "maAdvertisementGroup"), ("MIP-MIB", "faSystemGroup"), ("MIP-MIB", "faAdvertisementGroup"), ("MIP-MIB", "faRegistrationGroup"), ("MIP-MIB", "haRegistrationGroup"), ("MIP-MIB", "haRegNodeCountersGroup"), ("MIP-MIB", "mipSecNotificationsGroup"),))
-if mibBuilder.loadTexts: mipCompliance.setDescription('The compliance statement for SNMPv2 entities which\n                implement the Mobile IP MIB.')
-mipSystemGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 44, 3, 1, 1)).setObjects(*(("MIP-MIB", "mipEntities"), ("MIP-MIB", "mipEnable"), ("MIP-MIB", "mipEncapsulationSupported"),))
-if mibBuilder.loadTexts: mipSystemGroup.setDescription("A collection of objects providing the basic Mobile IP\n                entity's management information.")
-mipSecAssociationGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 44, 3, 1, 2)).setObjects(*(("MIP-MIB", "mipSecAlgorithmType"), ("MIP-MIB", "mipSecAlgorithmMode"), ("MIP-MIB", "mipSecKey"), ("MIP-MIB", "mipSecReplayMethod"),))
-if mibBuilder.loadTexts: mipSecAssociationGroup.setDescription('A collection of objects providing the management\n                information for security associations of Mobile IP\n                entities.')
-mipSecViolationGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 44, 3, 1, 3)).setObjects(*(("MIP-MIB", "mipSecTotalViolations"), ("MIP-MIB", "mipSecViolationCounter"), ("MIP-MIB", "mipSecRecentViolationSPI"), ("MIP-MIB", "mipSecRecentViolationTime"), ("MIP-MIB", "mipSecRecentViolationIDLow"), ("MIP-MIB", "mipSecRecentViolationIDHigh"), ("MIP-MIB", "mipSecRecentViolationReason"),))
-if mibBuilder.loadTexts: mipSecViolationGroup.setDescription('A collection of objects providing the management\n                information for security violation logging of Mobile\n                IP entities.')
-mnSystemGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 44, 3, 1, 4)).setObjects(*(("MIP-MIB", "mnState"), ("MIP-MIB", "mnCurrentHA"), ("MIP-MIB", "mnHomeAddress"), ("MIP-MIB", "mnHAStatus"),))
-if mibBuilder.loadTexts: mnSystemGroup.setDescription('A collection of objects providing the basic\n                management information for mobile nodes.')
-mnDiscoveryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 44, 3, 1, 5)).setObjects(*(("MIP-MIB", "mnFAAddress"), ("MIP-MIB", "mnCOA"), ("MIP-MIB", "mnAdvSourceAddress"), ("MIP-MIB", "mnAdvSequence"), ("MIP-MIB", "mnAdvFlags"), ("MIP-MIB", "mnAdvMaxRegLifetime"), ("MIP-MIB", "mnAdvMaxAdvLifetime"), ("MIP-MIB", "mnAdvTimeReceived"), ("MIP-MIB", "mnSolicitationsSent"), ("MIP-MIB", "mnAdvertisementsReceived"), ("MIP-MIB", "mnAdvsDroppedInvalidExtension"), ("MIP-MIB", "mnAdvsIgnoredUnknownExtension"), ("MIP-MIB", "mnMoveFromHAToFA"), ("MIP-MIB", "mnMoveFromFAToFA"), ("MIP-MIB", "mnMoveFromFAToHA"), ("MIP-MIB", "mnGratuitousARPsSend"), ("MIP-MIB", "mnAgentRebootsDectected"),))
-if mibBuilder.loadTexts: mnDiscoveryGroup.setDescription('A collection of objects providing management\n                information for the Agent Discovery function within a\n                mobile node.')
-mnRegistrationGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 44, 3, 1, 6)).setObjects(*(("MIP-MIB", "mnRegAgentAddress"), ("MIP-MIB", "mnRegCOA"), ("MIP-MIB", "mnRegFlags"), ("MIP-MIB", "mnRegIDLow"), ("MIP-MIB", "mnRegIDHigh"), ("MIP-MIB", "mnRegTimeRequested"), ("MIP-MIB", "mnRegTimeRemaining"), ("MIP-MIB", "mnRegTimeSent"), ("MIP-MIB", "mnRegIsAccepted"), ("MIP-MIB", "mnCOAIsLocal"), ("MIP-MIB", "mnRegRequestsSent"), ("MIP-MIB", "mnRegRepliesRecieved"), ("MIP-MIB", "mnDeRegRequestsSent"), ("MIP-MIB", "mnDeRegRepliesRecieved"), ("MIP-MIB", "mnRepliesInvalidHomeAddress"), ("MIP-MIB", "mnRepliesUnknownHA"), ("MIP-MIB", "mnRepliesUnknownFA"), ("MIP-MIB", "mnRepliesInvalidID"), ("MIP-MIB", "mnRepliesDroppedInvalidExtension"), ("MIP-MIB", "mnRepliesIgnoredUnknownExtension"), ("MIP-MIB", "mnRepliesHAAuthenticationFailure"), ("MIP-MIB", "mnRepliesFAAuthenticationFailure"), ("MIP-MIB", "mnRegRequestsAccepted"), ("MIP-MIB", "mnRegRequestsDeniedByHA"), ("MIP-MIB", "mnRegRequestsDeniedByFA"), ("MIP-MIB", "mnRegRequestsDeniedByHADueToID"), ("MIP-MIB", "mnRegRequestsWithDirectedBroadcast"),))
-if mibBuilder.loadTexts: mnRegistrationGroup.setDescription('A collection of objects providing management\n                information for the registration function within a\n                mobile node.')
-maAdvertisementGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 44, 3, 1, 7)).setObjects(*(("MIP-MIB", "maAdvMaxRegLifetime"), ("MIP-MIB", "maAdvPrefixLengthInclusion"), ("MIP-MIB", "maAdvAddress"), ("MIP-MIB", "maAdvMaxInterval"), ("MIP-MIB", "maAdvMinInterval"), ("MIP-MIB", "maAdvMaxAdvLifetime"), ("MIP-MIB", "maAdvResponseSolicitationOnly"), ("MIP-MIB", "maAdvStatus"), ("MIP-MIB", "maAdvertisementsSent"), ("MIP-MIB", "maAdvsSentForSolicitation"), ("MIP-MIB", "maSolicitationsReceived"),))
-if mibBuilder.loadTexts: maAdvertisementGroup.setDescription('A collection of objects providing management\n                information for the Agent Advertisement function\n                within mobility agents.')
-faSystemGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 44, 3, 1, 8)).setObjects(*(("MIP-MIB", "faCOAStatus"),))
-if mibBuilder.loadTexts: faSystemGroup.setDescription('A collection of objects providing the basic\n                management information for foreign agents.')
-faAdvertisementGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 44, 3, 1, 9)).setObjects(*(("MIP-MIB", "faIsBusy"), ("MIP-MIB", "faRegistrationRequired"),))
-if mibBuilder.loadTexts: faAdvertisementGroup.setDescription('A collection of objects providing supplemental\n                management information for the Agent Advertisement\n                function within a foreign agent.')
-faRegistrationGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 44, 3, 1, 10)).setObjects(*(("MIP-MIB", "faVisitorIPAddress"), ("MIP-MIB", "faVisitorHomeAddress"), ("MIP-MIB", "faVisitorHomeAgentAddress"), ("MIP-MIB", "faVisitorTimeGranted"), ("MIP-MIB", "faVisitorTimeRemaining"), ("MIP-MIB", "faVisitorRegFlags"), ("MIP-MIB", "faVisitorRegIDLow"), ("MIP-MIB", "faVisitorRegIDHigh"), ("MIP-MIB", "faVisitorRegIsAccepted"), ("MIP-MIB", "faRegRequestsReceived"), ("MIP-MIB", "faRegRequestsRelayed"), ("MIP-MIB", "faReasonUnspecified"), ("MIP-MIB", "faAdmProhibited"), ("MIP-MIB", "faInsufficientResource"), ("MIP-MIB", "faMNAuthenticationFailure"), ("MIP-MIB", "faRegLifetimeTooLong"), ("MIP-MIB", "faPoorlyFormedRequests"), ("MIP-MIB", "faEncapsulationUnavailable"), ("MIP-MIB", "faVJCompressionUnavailable"), ("MIP-MIB", "faHAUnreachable"), ("MIP-MIB", "faRegRepliesRecieved"), ("MIP-MIB", "faRegRepliesRelayed"), ("MIP-MIB", "faHAAuthenticationFailure"), ("MIP-MIB", "faPoorlyFormedReplies"),))
-if mibBuilder.loadTexts: faRegistrationGroup.setDescription('A collection of objects providing management\n                information for the registration function within a\n                foreign agent.')
-haRegistrationGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 44, 3, 1, 11)).setObjects(*(("MIP-MIB", "haMobilityBindingMN"), ("MIP-MIB", "haMobilityBindingCOA"), ("MIP-MIB", "haMobilityBindingSourceAddress"), ("MIP-MIB", "haMobilityBindingRegFlags"), ("MIP-MIB", "haMobilityBindingRegIDLow"), ("MIP-MIB", "haMobilityBindingRegIDHigh"), ("MIP-MIB", "haMobilityBindingTimeGranted"), ("MIP-MIB", "haMobilityBindingTimeRemaining"), ("MIP-MIB", "haRegistrationAccepted"), ("MIP-MIB", "haMultiBindingUnsupported"), ("MIP-MIB", "haReasonUnspecified"), ("MIP-MIB", "haAdmProhibited"), ("MIP-MIB", "haInsufficientResource"), ("MIP-MIB", "haMNAuthenticationFailure"), ("MIP-MIB", "haFAAuthenticationFailure"), ("MIP-MIB", "haIDMismatch"), ("MIP-MIB", "haPoorlyFormedRequest"), ("MIP-MIB", "haTooManyBindings"), ("MIP-MIB", "haUnknownHA"), ("MIP-MIB", "haGratuitiousARPsSent"), ("MIP-MIB", "haProxyARPsSent"), ("MIP-MIB", "haRegRequestsReceived"), ("MIP-MIB", "haDeRegRequestsReceived"), ("MIP-MIB", "haRegRepliesSent"), ("MIP-MIB", "haDeRegRepliesSent"),))
-if mibBuilder.loadTexts: haRegistrationGroup.setDescription('A collection of objects providing management\n                information for the registration function within a\n                home agent.')
-haRegNodeCountersGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 44, 3, 1, 12)).setObjects(*(("MIP-MIB", "haServiceRequestsAccepted"), ("MIP-MIB", "haServiceRequestsDenied"), ("MIP-MIB", "haOverallServiceTime"), ("MIP-MIB", "haRecentServiceAcceptedTime"), ("MIP-MIB", "haRecentServiceDeniedTime"), ("MIP-MIB", "haRecentServiceDeniedCode"),))
-if mibBuilder.loadTexts: haRegNodeCountersGroup.setDescription('A collection of objects providing management\n                information for counters related to the registration\n                function within a home agent.')
-mipSecNotificationsGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 44, 3, 1, 13)).setObjects(*(("MIP-MIB", "mipAuthFailure"),))
-if mibBuilder.loadTexts: mipSecNotificationsGroup.setDescription('The notification related to security violations.')
-mibBuilder.exportSymbols("MIP-MIB", haAdmProhibited=haAdmProhibited, mipSecViolationGroup=mipSecViolationGroup, faCOATable=faCOATable, mipSystem=mipSystem, haFAAuthenticationFailure=haFAAuthenticationFailure, mipSecRecentViolationIDHigh=mipSecRecentViolationIDHigh, maInterfaceAddress=maInterfaceAddress, faCOAEntry=faCOAEntry, faAdvertisementGroup=faAdvertisementGroup, mipSecViolationEntry=mipSecViolationEntry, haServiceRequestsDenied=haServiceRequestsDenied, haMobilityBindingRegIDHigh=haMobilityBindingRegIDHigh, mipSecAssocTable=mipSecAssocTable, mnFAAddress=mnFAAddress, mnMoveFromFAToFA=mnMoveFromFAToFA, mipMIBObjects=mipMIBObjects, mipCompliances=mipCompliances, maAdvertisementGroup=maAdvertisementGroup, mnFATable=mnFATable, haProxyARPsSent=haProxyARPsSent, mipSecurity=mipSecurity, mnRegRequestsSent=mnRegRequestsSent, mnRegIDHigh=mnRegIDHigh, haMobilityBindingTimeGranted=haMobilityBindingTimeGranted, haTooManyBindings=haTooManyBindings, haMobilityBindingTimeRemaining=haMobilityBindingTimeRemaining, haRegRequestsReceived=haRegRequestsReceived, mnHomeAddress=mnHomeAddress, mnSolicitationsSent=mnSolicitationsSent, mnDeRegRequestsSent=mnDeRegRequestsSent, mnCOAIsLocal=mnCOAIsLocal, maAdvPrefixLengthInclusion=maAdvPrefixLengthInclusion, haCounterTable=haCounterTable, maAdvStatus=maAdvStatus, faVisitorHomeAgentAddress=faVisitorHomeAgentAddress, mipFA=mipFA, maAdvResponseSolicitationOnly=maAdvResponseSolicitationOnly, faVisitorRegIsAccepted=faVisitorRegIsAccepted, maAdvAddress=maAdvAddress, maAdvertisement=maAdvertisement, RegistrationFlags=RegistrationFlags, mnRegistrationTable=mnRegistrationTable, maAdvMaxRegLifetime=maAdvMaxRegLifetime, mipCompliance=mipCompliance, mipEncapsulationSupported=mipEncapsulationSupported, mnSystem=mnSystem, mnDiscovery=mnDiscovery, mipMIB=mipMIB, haDeRegRequestsReceived=haDeRegRequestsReceived, faRegistrationRequired=faRegistrationRequired, faCOAStatus=faCOAStatus, mnRepliesDroppedInvalidExtension=mnRepliesDroppedInvalidExtension, haMobilityBindingEntry=haMobilityBindingEntry, faPoorlyFormedRequests=faPoorlyFormedRequests, mnRegFlags=mnRegFlags, haMobilityBindingRegIDLow=haMobilityBindingRegIDLow, faAdvertisement=faAdvertisement, mnAdvertisementsReceived=mnAdvertisementsReceived, mnAdvTimeReceived=mnAdvTimeReceived, mipGroups=mipGroups, mipEntities=mipEntities, mnHAEntry=mnHAEntry, mnAgentRebootsDectected=mnAgentRebootsDectected, mnDeRegRepliesRecieved=mnDeRegRepliesRecieved, haIDMismatch=haIDMismatch, haRegistrationAccepted=haRegistrationAccepted, faVisitorTimeRemaining=faVisitorTimeRemaining, maSolicitationsReceived=maSolicitationsReceived, faReasonUnspecified=faReasonUnspecified, maAdvertisementsSent=maAdvertisementsSent, faEncapsulationUnavailable=faEncapsulationUnavailable, haReasonUnspecified=haReasonUnspecified, maAdvsSentForSolicitation=maAdvsSentForSolicitation, mnRegRepliesRecieved=mnRegRepliesRecieved, mnHAStatus=mnHAStatus, faVisitorIPAddress=faVisitorIPAddress, mnRegRequestsDeniedByHADueToID=mnRegRequestsDeniedByHADueToID, mipSecNotificationsGroup=mipSecNotificationsGroup, haPoorlyFormedRequest=haPoorlyFormedRequest, mipSecRecentViolationIDLow=mipSecRecentViolationIDLow, faVisitorRegFlags=faVisitorRegFlags, haInsufficientResource=haInsufficientResource, mipEnable=mipEnable, maAdvConfigEntry=maAdvConfigEntry, faIsBusy=faIsBusy, haMobilityBindingSourceAddress=haMobilityBindingSourceAddress, mnAdvMaxRegLifetime=mnAdvMaxRegLifetime, haMobilityBindingMN=haMobilityBindingMN, faVJCompressionUnavailable=faVJCompressionUnavailable, haRegRepliesSent=haRegRepliesSent, mnMoveFromHAToFA=mnMoveFromHAToFA, faSystem=faSystem, mnRepliesIgnoredUnknownExtension=mnRepliesIgnoredUnknownExtension, faRegRepliesRecieved=faRegRepliesRecieved, haMobilityBindingRegFlags=haMobilityBindingRegFlags, mipSecRecentViolationTime=mipSecRecentViolationTime, mipSystemGroup=mipSystemGroup, mnState=mnState, mnRepliesInvalidID=mnRepliesInvalidID, mipSecSPI=mipSecSPI, mnRepliesHAAuthenticationFailure=mnRepliesHAAuthenticationFailure, mnRegistrationEntry=mnRegistrationEntry, faVisitorTable=faVisitorTable, mipAuthFailure=mipAuthFailure, faSystemGroup=faSystemGroup, faRegRequestsReceived=faRegRequestsReceived, faRegRequestsRelayed=faRegRequestsRelayed, haServiceRequestsAccepted=haServiceRequestsAccepted, maAdvMaxAdvLifetime=maAdvMaxAdvLifetime, mipMIBNotificationPrefix=mipMIBNotificationPrefix, mnRepliesUnknownFA=mnRepliesUnknownFA, maAdvMaxInterval=maAdvMaxInterval, mnRegRequestsAccepted=mnRegRequestsAccepted, haRecentServiceDeniedTime=haRecentServiceDeniedTime, faRegLifetimeTooLong=faRegLifetimeTooLong, mipSecViolationCounter=mipSecViolationCounter, mipSecReplayMethod=mipSecReplayMethod, faRegRepliesRelayed=faRegRepliesRelayed, faAdmProhibited=faAdmProhibited, mnGratuitousARPsSend=mnGratuitousARPsSend, mipSecAssociationGroup=mipSecAssociationGroup, haOverallServiceTime=haOverallServiceTime, mnAdvsIgnoredUnknownExtension=mnAdvsIgnoredUnknownExtension, faHAUnreachable=faHAUnreachable, mipSecViolatorAddress=mipSecViolatorAddress, haRegNodeCountersGroup=haRegNodeCountersGroup, maAdvConfigTable=maAdvConfigTable, faVisitorHomeAddress=faVisitorHomeAddress, mnRegIsAccepted=mnRegIsAccepted, mipSecRecentViolationReason=mipSecRecentViolationReason, mnMoveFromFAToHA=mnMoveFromFAToHA, haMNAuthenticationFailure=haMNAuthenticationFailure, faRegistrationGroup=faRegistrationGroup, mnCOA=mnCOA, mipSecAlgorithmType=mipSecAlgorithmType, mipMIBConformance=mipMIBConformance, mipSecRecentViolationSPI=mipSecRecentViolationSPI, haRegistration=haRegistration, mnRecentAdvReceived=mnRecentAdvReceived, mnAdvSequence=mnAdvSequence, mnRegRequestsDeniedByFA=mnRegRequestsDeniedByFA, haGratuitiousARPsSent=haGratuitiousARPsSent, mnAdvMaxAdvLifetime=mnAdvMaxAdvLifetime, faSupportedCOA=faSupportedCOA, mnHAAddress=mnHAAddress, haCounterEntry=haCounterEntry, mnRegTimeRequested=mnRegTimeRequested, faPoorlyFormedReplies=faPoorlyFormedReplies, mnRepliesUnknownHA=mnRepliesUnknownHA, mipSecAssocEntry=mipSecAssocEntry, faInsufficientResource=faInsufficientResource, mipSecViolationTable=mipSecViolationTable, mnHATable=mnHATable, mnRepliesInvalidHomeAddress=mnRepliesInvalidHomeAddress, mnAdvSourceAddress=mnAdvSourceAddress, mnRegAgentAddress=mnRegAgentAddress, mnDiscoveryGroup=mnDiscoveryGroup, faVisitorRegIDHigh=faVisitorRegIDHigh, haRegistrationGroup=haRegistrationGroup, mnRepliesFAAuthenticationFailure=mnRepliesFAAuthenticationFailure, mnRegistrationGroup=mnRegistrationGroup, mnRegistration=mnRegistration, maAdvMinInterval=maAdvMinInterval, mipSecAlgorithmMode=mipSecAlgorithmMode, mnFAEntry=mnFAEntry, haRecentServiceAcceptedTime=haRecentServiceAcceptedTime, PYSNMP_MODULE_ID=mipMIB, mipMIBNotifications=mipMIBNotifications, haUnknownHA=haUnknownHA, haMobilityBindingCOA=haMobilityBindingCOA, haDeRegRepliesSent=haDeRegRepliesSent, faRegistration=faRegistration, mipSecKey=mipSecKey, mipSecPeerAddress=mipSecPeerAddress, faVisitorTimeGranted=faVisitorTimeGranted, mnRegIDLow=mnRegIDLow, mipMN=mipMN, faVisitorRegIDLow=faVisitorRegIDLow, mnRegCOA=mnRegCOA, faHAAuthenticationFailure=faHAAuthenticationFailure, mnRegRequestsWithDirectedBroadcast=mnRegRequestsWithDirectedBroadcast, mnAdvFlags=mnAdvFlags, mipHA=mipHA, haMobilityBindingTable=haMobilityBindingTable, mnRegTimeSent=mnRegTimeSent, mnCurrentHA=mnCurrentHA, haRecentServiceDeniedCode=haRecentServiceDeniedCode, mnSystemGroup=mnSystemGroup, mnAdvsDroppedInvalidExtension=mnAdvsDroppedInvalidExtension, mnRegTimeRemaining=mnRegTimeRemaining, haMultiBindingUnsupported=haMultiBindingUnsupported, faMNAuthenticationFailure=faMNAuthenticationFailure, faVisitorEntry=faVisitorEntry, mnRegRequestsDeniedByHA=mnRegRequestsDeniedByHA, mipMA=mipMA, mipSecTotalViolations=mipSecTotalViolations)
+_Bq='mipSecNotificationsGroup'
+_Bp='haRegNodeCountersGroup'
+_Bo='haRegistrationGroup'
+_Bn='faRegistrationGroup'
+_Bm='faAdvertisementGroup'
+_Bl='faSystemGroup'
+_Bk='maAdvertisementGroup'
+_Bj='mnRegistrationGroup'
+_Bi='mnDiscoveryGroup'
+_Bh='mnSystemGroup'
+_Bg='mipSecViolationGroup'
+_Bf='mipSecAssociationGroup'
+_Be='mipSystemGroup'
+_Bd='mipAuthFailure'
+_Bc='haRecentServiceDeniedCode'
+_Bb='haRecentServiceDeniedTime'
+_Ba='haRecentServiceAcceptedTime'
+_BZ='haOverallServiceTime'
+_BY='haServiceRequestsDenied'
+_BX='haServiceRequestsAccepted'
+_BW='haDeRegRepliesSent'
+_BV='haRegRepliesSent'
+_BU='haDeRegRequestsReceived'
+_BT='haRegRequestsReceived'
+_BS='haProxyARPsSent'
+_BR='haGratuitiousARPsSent'
+_BQ='haUnknownHA'
+_BP='haTooManyBindings'
+_BO='haPoorlyFormedRequest'
+_BN='haIDMismatch'
+_BM='haFAAuthenticationFailure'
+_BL='haMNAuthenticationFailure'
+_BK='haInsufficientResource'
+_BJ='haAdmProhibited'
+_BI='haReasonUnspecified'
+_BH='haMultiBindingUnsupported'
+_BG='haRegistrationAccepted'
+_BF='haMobilityBindingTimeRemaining'
+_BE='haMobilityBindingTimeGranted'
+_BD='haMobilityBindingRegIDHigh'
+_BC='haMobilityBindingRegIDLow'
+_BB='haMobilityBindingRegFlags'
+_BA='haMobilityBindingSourceAddress'
+_B9='faPoorlyFormedReplies'
+_B8='faHAAuthenticationFailure'
+_B7='faRegRepliesRelayed'
+_B6='faRegRepliesRecieved'
+_B5='faHAUnreachable'
+_B4='faVJCompressionUnavailable'
+_B3='faEncapsulationUnavailable'
+_B2='faPoorlyFormedRequests'
+_B1='faRegLifetimeTooLong'
+_B0='faMNAuthenticationFailure'
+_A_='faInsufficientResource'
+_Az='faAdmProhibited'
+_Ay='faReasonUnspecified'
+_Ax='faRegRequestsRelayed'
+_Aw='faRegRequestsReceived'
+_Av='faVisitorRegIsAccepted'
+_Au='faVisitorRegIDHigh'
+_At='faVisitorRegIDLow'
+_As='faVisitorRegFlags'
+_Ar='faVisitorTimeRemaining'
+_Aq='faVisitorTimeGranted'
+_Ap='faVisitorHomeAgentAddress'
+_Ao='faVisitorHomeAddress'
+_An='faRegistrationRequired'
+_Am='faCOAStatus'
+_Al='maSolicitationsReceived'
+_Ak='maAdvsSentForSolicitation'
+_Aj='maAdvertisementsSent'
+_Ai='maAdvStatus'
+_Ah='maAdvResponseSolicitationOnly'
+_Ag='maAdvMaxAdvLifetime'
+_Af='maAdvMinInterval'
+_Ae='maAdvMaxInterval'
+_Ad='maAdvAddress'
+_Ac='maAdvPrefixLengthInclusion'
+_Ab='maAdvMaxRegLifetime'
+_Aa='mnRegRequestsWithDirectedBroadcast'
+_AZ='mnRegRequestsDeniedByHADueToID'
+_AY='mnRegRequestsDeniedByFA'
+_AX='mnRegRequestsDeniedByHA'
+_AW='mnRegRequestsAccepted'
+_AV='mnRepliesFAAuthenticationFailure'
+_AU='mnRepliesHAAuthenticationFailure'
+_AT='mnRepliesIgnoredUnknownExtension'
+_AS='mnRepliesDroppedInvalidExtension'
+_AR='mnRepliesInvalidID'
+_AQ='mnRepliesUnknownFA'
+_AP='mnRepliesUnknownHA'
+_AO='mnRepliesInvalidHomeAddress'
+_AN='mnDeRegRepliesRecieved'
+_AM='mnDeRegRequestsSent'
+_AL='mnRegRepliesRecieved'
+_AK='mnRegRequestsSent'
+_AJ='mnCOAIsLocal'
+_AI='mnRegIsAccepted'
+_AH='mnRegTimeSent'
+_AG='mnRegTimeRemaining'
+_AF='mnRegTimeRequested'
+_AE='mnRegIDHigh'
+_AD='mnRegIDLow'
+_AC='mnRegFlags'
+_AB='mnAgentRebootsDectected'
+_AA='mnGratuitousARPsSend'
+_A9='mnMoveFromFAToHA'
+_A8='mnMoveFromFAToFA'
+_A7='mnMoveFromHAToFA'
+_A6='mnAdvsIgnoredUnknownExtension'
+_A5='mnAdvsDroppedInvalidExtension'
+_A4='mnAdvertisementsReceived'
+_A3='mnSolicitationsSent'
+_A2='mnAdvTimeReceived'
+_A1='mnAdvMaxAdvLifetime'
+_A0='mnAdvMaxRegLifetime'
+_z='mnAdvFlags'
+_y='mnAdvSequence'
+_x='mnAdvSourceAddress'
+_w='mnHAStatus'
+_v='mnHomeAddress'
+_u='mnCurrentHA'
+_t='mnState'
+_s='mipSecRecentViolationTime'
+_r='mipSecViolationCounter'
+_q='mipSecTotalViolations'
+_p='mipSecReplayMethod'
+_o='mipSecKey'
+_n='mipSecAlgorithmMode'
+_m='mipSecAlgorithmType'
+_l='mipEncapsulationSupported'
+_k='mipEnable'
+_j='mipEntities'
+_i='faSupportedCOA'
+_h='maInterfaceAddress'
+_g='mnHAAddress'
+_f='mipSecSPI'
+_e='mipSecPeerAddress'
+_d='read-write'
+_c='homeAgent'
+_b='foreignAgent'
+_a='vjCompression'
+_Z='TruthValue'
+_Y='Unsigned32'
+_X='OctetString'
+_W='mipSecRecentViolationReason'
+_V='mipSecRecentViolationIDHigh'
+_U='mipSecRecentViolationIDLow'
+_T='mipSecRecentViolationSPI'
+_S='haMobilityBindingCOA'
+_R='faVisitorIPAddress'
+_Q='mnRegCOA'
+_P='mnRegAgentAddress'
+_O='mnCOA'
+_N='mnFAAddress'
+_M='mipSecViolatorAddress'
+_L='minEnc'
+_K='gre'
+_J='haMobilityBindingMN'
+_I='Bits'
+_H='not-accessible'
+_G='other'
+_F='seconds'
+_E='read-create'
+_D='Integer32'
+_C='read-only'
+_B='MIP-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_X,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI',_I,'Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_Y,'iso','mib-2')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TimeStamp',_Z)
+mipMIB=ModuleIdentity((1,3,6,1,2,1,44))
+class RegistrationFlags(TextualConvention,Bits):status=_A;namedValues=NamedValues(*((_a,0),(_K,1),(_L,2),('decapsulationbyMN',3),('broadcastDatagram',4),('simultaneousBindings',5)))
+_MipMIBObjects_ObjectIdentity=ObjectIdentity
+mipMIBObjects=_MipMIBObjects_ObjectIdentity((1,3,6,1,2,1,44,1))
+_MipSystem_ObjectIdentity=ObjectIdentity
+mipSystem=_MipSystem_ObjectIdentity((1,3,6,1,2,1,44,1,1))
+class _MipEntities_Type(Bits):namedValues=NamedValues(*(('mobileNode',0),(_b,1),(_c,2)))
+_MipEntities_Type.__name__=_I
+_MipEntities_Object=MibScalar
+mipEntities=_MipEntities_Object((1,3,6,1,2,1,44,1,1,1),_MipEntities_Type())
+mipEntities.setMaxAccess(_C)
+if mibBuilder.loadTexts:mipEntities.setStatus(_A)
+class _MipEnable_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
+_MipEnable_Type.__name__=_D
+_MipEnable_Object=MibScalar
+mipEnable=_MipEnable_Object((1,3,6,1,2,1,44,1,1,2),_MipEnable_Type())
+mipEnable.setMaxAccess(_d)
+if mibBuilder.loadTexts:mipEnable.setStatus(_A)
+class _MipEncapsulationSupported_Type(Bits):namedValues=NamedValues(*(('ipInIp',0),(_K,1),(_L,2),(_G,3)))
+_MipEncapsulationSupported_Type.__name__=_I
+_MipEncapsulationSupported_Object=MibScalar
+mipEncapsulationSupported=_MipEncapsulationSupported_Object((1,3,6,1,2,1,44,1,1,3),_MipEncapsulationSupported_Type())
+mipEncapsulationSupported.setMaxAccess(_C)
+if mibBuilder.loadTexts:mipEncapsulationSupported.setStatus(_A)
+_MipSecurity_ObjectIdentity=ObjectIdentity
+mipSecurity=_MipSecurity_ObjectIdentity((1,3,6,1,2,1,44,1,2))
+_MipSecAssocTable_Object=MibTable
+mipSecAssocTable=_MipSecAssocTable_Object((1,3,6,1,2,1,44,1,2,1))
+if mibBuilder.loadTexts:mipSecAssocTable.setStatus(_A)
+_MipSecAssocEntry_Object=MibTableRow
+mipSecAssocEntry=_MipSecAssocEntry_Object((1,3,6,1,2,1,44,1,2,1,1))
+mipSecAssocEntry.setIndexNames((0,_B,_e),(0,_B,_f))
+if mibBuilder.loadTexts:mipSecAssocEntry.setStatus(_A)
+_MipSecPeerAddress_Type=IpAddress
+_MipSecPeerAddress_Object=MibTableColumn
+mipSecPeerAddress=_MipSecPeerAddress_Object((1,3,6,1,2,1,44,1,2,1,1,1),_MipSecPeerAddress_Type())
+mipSecPeerAddress.setMaxAccess(_H)
+if mibBuilder.loadTexts:mipSecPeerAddress.setStatus(_A)
+class _MipSecSPI_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_MipSecSPI_Type.__name__=_Y
+_MipSecSPI_Object=MibTableColumn
+mipSecSPI=_MipSecSPI_Object((1,3,6,1,2,1,44,1,2,1,1,2),_MipSecSPI_Type())
+mipSecSPI.setMaxAccess(_H)
+if mibBuilder.loadTexts:mipSecSPI.setStatus(_A)
+class _MipSecAlgorithmType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),('md5',2)))
+_MipSecAlgorithmType_Type.__name__=_D
+_MipSecAlgorithmType_Object=MibTableColumn
+mipSecAlgorithmType=_MipSecAlgorithmType_Object((1,3,6,1,2,1,44,1,2,1,1,3),_MipSecAlgorithmType_Type())
+mipSecAlgorithmType.setMaxAccess(_E)
+if mibBuilder.loadTexts:mipSecAlgorithmType.setStatus(_A)
+class _MipSecAlgorithmMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_G,1),('prefixSuffix',2)))
+_MipSecAlgorithmMode_Type.__name__=_D
+_MipSecAlgorithmMode_Object=MibTableColumn
+mipSecAlgorithmMode=_MipSecAlgorithmMode_Object((1,3,6,1,2,1,44,1,2,1,1,4),_MipSecAlgorithmMode_Type())
+mipSecAlgorithmMode.setMaxAccess(_E)
+if mibBuilder.loadTexts:mipSecAlgorithmMode.setStatus(_A)
+class _MipSecKey_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
+_MipSecKey_Type.__name__=_X
+_MipSecKey_Object=MibTableColumn
+mipSecKey=_MipSecKey_Object((1,3,6,1,2,1,44,1,2,1,1,5),_MipSecKey_Type())
+mipSecKey.setMaxAccess(_E)
+if mibBuilder.loadTexts:mipSecKey.setStatus(_A)
+class _MipSecReplayMethod_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_G,1),('timestamps',2),('nonces',3)))
+_MipSecReplayMethod_Type.__name__=_D
+_MipSecReplayMethod_Object=MibTableColumn
+mipSecReplayMethod=_MipSecReplayMethod_Object((1,3,6,1,2,1,44,1,2,1,1,6),_MipSecReplayMethod_Type())
+mipSecReplayMethod.setMaxAccess(_E)
+if mibBuilder.loadTexts:mipSecReplayMethod.setStatus(_A)
+_MipSecTotalViolations_Type=Counter32
+_MipSecTotalViolations_Object=MibScalar
+mipSecTotalViolations=_MipSecTotalViolations_Object((1,3,6,1,2,1,44,1,2,2),_MipSecTotalViolations_Type())
+mipSecTotalViolations.setMaxAccess(_C)
+if mibBuilder.loadTexts:mipSecTotalViolations.setStatus(_A)
+_MipSecViolationTable_Object=MibTable
+mipSecViolationTable=_MipSecViolationTable_Object((1,3,6,1,2,1,44,1,2,3))
+if mibBuilder.loadTexts:mipSecViolationTable.setStatus(_A)
+_MipSecViolationEntry_Object=MibTableRow
+mipSecViolationEntry=_MipSecViolationEntry_Object((1,3,6,1,2,1,44,1,2,3,1))
+mipSecViolationEntry.setIndexNames((0,_B,_M))
+if mibBuilder.loadTexts:mipSecViolationEntry.setStatus(_A)
+_MipSecViolatorAddress_Type=IpAddress
+_MipSecViolatorAddress_Object=MibTableColumn
+mipSecViolatorAddress=_MipSecViolatorAddress_Object((1,3,6,1,2,1,44,1,2,3,1,1),_MipSecViolatorAddress_Type())
+mipSecViolatorAddress.setMaxAccess('accessible-for-notify')
+if mibBuilder.loadTexts:mipSecViolatorAddress.setStatus(_A)
+_MipSecViolationCounter_Type=Counter32
+_MipSecViolationCounter_Object=MibTableColumn
+mipSecViolationCounter=_MipSecViolationCounter_Object((1,3,6,1,2,1,44,1,2,3,1,2),_MipSecViolationCounter_Type())
+mipSecViolationCounter.setMaxAccess(_C)
+if mibBuilder.loadTexts:mipSecViolationCounter.setStatus(_A)
+_MipSecRecentViolationSPI_Type=Integer32
+_MipSecRecentViolationSPI_Object=MibTableColumn
+mipSecRecentViolationSPI=_MipSecRecentViolationSPI_Object((1,3,6,1,2,1,44,1,2,3,1,3),_MipSecRecentViolationSPI_Type())
+mipSecRecentViolationSPI.setMaxAccess(_C)
+if mibBuilder.loadTexts:mipSecRecentViolationSPI.setStatus(_A)
+_MipSecRecentViolationTime_Type=TimeStamp
+_MipSecRecentViolationTime_Object=MibTableColumn
+mipSecRecentViolationTime=_MipSecRecentViolationTime_Object((1,3,6,1,2,1,44,1,2,3,1,4),_MipSecRecentViolationTime_Type())
+mipSecRecentViolationTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mipSecRecentViolationTime.setStatus(_A)
+_MipSecRecentViolationIDLow_Type=Integer32
+_MipSecRecentViolationIDLow_Object=MibTableColumn
+mipSecRecentViolationIDLow=_MipSecRecentViolationIDLow_Object((1,3,6,1,2,1,44,1,2,3,1,5),_MipSecRecentViolationIDLow_Type())
+mipSecRecentViolationIDLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:mipSecRecentViolationIDLow.setStatus(_A)
+_MipSecRecentViolationIDHigh_Type=Integer32
+_MipSecRecentViolationIDHigh_Object=MibTableColumn
+mipSecRecentViolationIDHigh=_MipSecRecentViolationIDHigh_Object((1,3,6,1,2,1,44,1,2,3,1,6),_MipSecRecentViolationIDHigh_Type())
+mipSecRecentViolationIDHigh.setMaxAccess(_C)
+if mibBuilder.loadTexts:mipSecRecentViolationIDHigh.setStatus(_A)
+class _MipSecRecentViolationReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('noMobilitySecurityAssociation',1),('badAuthenticator',2),('badIdentifier',3),('badSPI',4),('missingSecurityExtension',5),(_G,6)))
+_MipSecRecentViolationReason_Type.__name__=_D
+_MipSecRecentViolationReason_Object=MibTableColumn
+mipSecRecentViolationReason=_MipSecRecentViolationReason_Object((1,3,6,1,2,1,44,1,2,3,1,7),_MipSecRecentViolationReason_Type())
+mipSecRecentViolationReason.setMaxAccess(_C)
+if mibBuilder.loadTexts:mipSecRecentViolationReason.setStatus(_A)
+_MipMN_ObjectIdentity=ObjectIdentity
+mipMN=_MipMN_ObjectIdentity((1,3,6,1,2,1,44,1,3))
+_MnSystem_ObjectIdentity=ObjectIdentity
+mnSystem=_MnSystem_ObjectIdentity((1,3,6,1,2,1,44,1,3,1))
+class _MnState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('home',1),('registered',2),('pending',3),('isolated',4),('unknown',5)))
+_MnState_Type.__name__=_D
+_MnState_Object=MibScalar
+mnState=_MnState_Object((1,3,6,1,2,1,44,1,3,1,1),_MnState_Type())
+mnState.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnState.setStatus(_A)
+_MnHomeAddress_Type=IpAddress
+_MnHomeAddress_Object=MibScalar
+mnHomeAddress=_MnHomeAddress_Object((1,3,6,1,2,1,44,1,3,1,2),_MnHomeAddress_Type())
+mnHomeAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnHomeAddress.setStatus(_A)
+_MnHATable_Object=MibTable
+mnHATable=_MnHATable_Object((1,3,6,1,2,1,44,1,3,1,3))
+if mibBuilder.loadTexts:mnHATable.setStatus(_A)
+_MnHAEntry_Object=MibTableRow
+mnHAEntry=_MnHAEntry_Object((1,3,6,1,2,1,44,1,3,1,3,1))
+mnHAEntry.setIndexNames((0,_B,_g))
+if mibBuilder.loadTexts:mnHAEntry.setStatus(_A)
+_MnHAAddress_Type=IpAddress
+_MnHAAddress_Object=MibTableColumn
+mnHAAddress=_MnHAAddress_Object((1,3,6,1,2,1,44,1,3,1,3,1,1),_MnHAAddress_Type())
+mnHAAddress.setMaxAccess(_H)
+if mibBuilder.loadTexts:mnHAAddress.setStatus(_A)
+_MnCurrentHA_Type=TruthValue
+_MnCurrentHA_Object=MibTableColumn
+mnCurrentHA=_MnCurrentHA_Object((1,3,6,1,2,1,44,1,3,1,3,1,2),_MnCurrentHA_Type())
+mnCurrentHA.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnCurrentHA.setStatus(_A)
+_MnHAStatus_Type=RowStatus
+_MnHAStatus_Object=MibTableColumn
+mnHAStatus=_MnHAStatus_Object((1,3,6,1,2,1,44,1,3,1,3,1,3),_MnHAStatus_Type())
+mnHAStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:mnHAStatus.setStatus(_A)
+_MnDiscovery_ObjectIdentity=ObjectIdentity
+mnDiscovery=_MnDiscovery_ObjectIdentity((1,3,6,1,2,1,44,1,3,2))
+_MnFATable_Object=MibTable
+mnFATable=_MnFATable_Object((1,3,6,1,2,1,44,1,3,2,1))
+if mibBuilder.loadTexts:mnFATable.setStatus(_A)
+_MnFAEntry_Object=MibTableRow
+mnFAEntry=_MnFAEntry_Object((1,3,6,1,2,1,44,1,3,2,1,1))
+mnFAEntry.setIndexNames((0,_B,_N),(0,_B,_O))
+if mibBuilder.loadTexts:mnFAEntry.setStatus(_A)
+_MnFAAddress_Type=IpAddress
+_MnFAAddress_Object=MibTableColumn
+mnFAAddress=_MnFAAddress_Object((1,3,6,1,2,1,44,1,3,2,1,1,1),_MnFAAddress_Type())
+mnFAAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnFAAddress.setStatus(_A)
+_MnCOA_Type=IpAddress
+_MnCOA_Object=MibTableColumn
+mnCOA=_MnCOA_Object((1,3,6,1,2,1,44,1,3,2,1,1,2),_MnCOA_Type())
+mnCOA.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnCOA.setStatus(_A)
+_MnRecentAdvReceived_ObjectIdentity=ObjectIdentity
+mnRecentAdvReceived=_MnRecentAdvReceived_ObjectIdentity((1,3,6,1,2,1,44,1,3,2,2))
+_MnAdvSourceAddress_Type=IpAddress
+_MnAdvSourceAddress_Object=MibScalar
+mnAdvSourceAddress=_MnAdvSourceAddress_Object((1,3,6,1,2,1,44,1,3,2,2,1),_MnAdvSourceAddress_Type())
+mnAdvSourceAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnAdvSourceAddress.setStatus(_A)
+class _MnAdvSequence_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_MnAdvSequence_Type.__name__=_D
+_MnAdvSequence_Object=MibScalar
+mnAdvSequence=_MnAdvSequence_Object((1,3,6,1,2,1,44,1,3,2,2,2),_MnAdvSequence_Type())
+mnAdvSequence.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnAdvSequence.setStatus(_A)
+class _MnAdvFlags_Type(Bits):namedValues=NamedValues(*((_a,0),(_K,1),(_L,2),(_b,3),(_c,4),('busy',5),('regRequired',6)))
+_MnAdvFlags_Type.__name__=_I
+_MnAdvFlags_Object=MibScalar
+mnAdvFlags=_MnAdvFlags_Object((1,3,6,1,2,1,44,1,3,2,2,3),_MnAdvFlags_Type())
+mnAdvFlags.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnAdvFlags.setStatus(_A)
+class _MnAdvMaxRegLifetime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_MnAdvMaxRegLifetime_Type.__name__=_D
+_MnAdvMaxRegLifetime_Object=MibScalar
+mnAdvMaxRegLifetime=_MnAdvMaxRegLifetime_Object((1,3,6,1,2,1,44,1,3,2,2,4),_MnAdvMaxRegLifetime_Type())
+mnAdvMaxRegLifetime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnAdvMaxRegLifetime.setStatus(_A)
+if mibBuilder.loadTexts:mnAdvMaxRegLifetime.setUnits(_F)
+class _MnAdvMaxAdvLifetime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_MnAdvMaxAdvLifetime_Type.__name__=_D
+_MnAdvMaxAdvLifetime_Object=MibScalar
+mnAdvMaxAdvLifetime=_MnAdvMaxAdvLifetime_Object((1,3,6,1,2,1,44,1,3,2,2,5),_MnAdvMaxAdvLifetime_Type())
+mnAdvMaxAdvLifetime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnAdvMaxAdvLifetime.setStatus(_A)
+if mibBuilder.loadTexts:mnAdvMaxAdvLifetime.setUnits(_F)
+_MnAdvTimeReceived_Type=TimeStamp
+_MnAdvTimeReceived_Object=MibScalar
+mnAdvTimeReceived=_MnAdvTimeReceived_Object((1,3,6,1,2,1,44,1,3,2,2,6),_MnAdvTimeReceived_Type())
+mnAdvTimeReceived.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnAdvTimeReceived.setStatus(_A)
+_MnSolicitationsSent_Type=Counter32
+_MnSolicitationsSent_Object=MibScalar
+mnSolicitationsSent=_MnSolicitationsSent_Object((1,3,6,1,2,1,44,1,3,2,3),_MnSolicitationsSent_Type())
+mnSolicitationsSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnSolicitationsSent.setStatus(_A)
+_MnAdvertisementsReceived_Type=Counter32
+_MnAdvertisementsReceived_Object=MibScalar
+mnAdvertisementsReceived=_MnAdvertisementsReceived_Object((1,3,6,1,2,1,44,1,3,2,4),_MnAdvertisementsReceived_Type())
+mnAdvertisementsReceived.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnAdvertisementsReceived.setStatus(_A)
+_MnAdvsDroppedInvalidExtension_Type=Counter32
+_MnAdvsDroppedInvalidExtension_Object=MibScalar
+mnAdvsDroppedInvalidExtension=_MnAdvsDroppedInvalidExtension_Object((1,3,6,1,2,1,44,1,3,2,5),_MnAdvsDroppedInvalidExtension_Type())
+mnAdvsDroppedInvalidExtension.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnAdvsDroppedInvalidExtension.setStatus(_A)
+_MnAdvsIgnoredUnknownExtension_Type=Counter32
+_MnAdvsIgnoredUnknownExtension_Object=MibScalar
+mnAdvsIgnoredUnknownExtension=_MnAdvsIgnoredUnknownExtension_Object((1,3,6,1,2,1,44,1,3,2,6),_MnAdvsIgnoredUnknownExtension_Type())
+mnAdvsIgnoredUnknownExtension.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnAdvsIgnoredUnknownExtension.setStatus(_A)
+_MnMoveFromHAToFA_Type=Counter32
+_MnMoveFromHAToFA_Object=MibScalar
+mnMoveFromHAToFA=_MnMoveFromHAToFA_Object((1,3,6,1,2,1,44,1,3,2,7),_MnMoveFromHAToFA_Type())
+mnMoveFromHAToFA.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnMoveFromHAToFA.setStatus(_A)
+_MnMoveFromFAToFA_Type=Counter32
+_MnMoveFromFAToFA_Object=MibScalar
+mnMoveFromFAToFA=_MnMoveFromFAToFA_Object((1,3,6,1,2,1,44,1,3,2,8),_MnMoveFromFAToFA_Type())
+mnMoveFromFAToFA.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnMoveFromFAToFA.setStatus(_A)
+_MnMoveFromFAToHA_Type=Counter32
+_MnMoveFromFAToHA_Object=MibScalar
+mnMoveFromFAToHA=_MnMoveFromFAToHA_Object((1,3,6,1,2,1,44,1,3,2,9),_MnMoveFromFAToHA_Type())
+mnMoveFromFAToHA.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnMoveFromFAToHA.setStatus(_A)
+_MnGratuitousARPsSend_Type=Counter32
+_MnGratuitousARPsSend_Object=MibScalar
+mnGratuitousARPsSend=_MnGratuitousARPsSend_Object((1,3,6,1,2,1,44,1,3,2,10),_MnGratuitousARPsSend_Type())
+mnGratuitousARPsSend.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnGratuitousARPsSend.setStatus(_A)
+_MnAgentRebootsDectected_Type=Counter32
+_MnAgentRebootsDectected_Object=MibScalar
+mnAgentRebootsDectected=_MnAgentRebootsDectected_Object((1,3,6,1,2,1,44,1,3,2,11),_MnAgentRebootsDectected_Type())
+mnAgentRebootsDectected.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnAgentRebootsDectected.setStatus(_A)
+_MnRegistration_ObjectIdentity=ObjectIdentity
+mnRegistration=_MnRegistration_ObjectIdentity((1,3,6,1,2,1,44,1,3,3))
+_MnRegistrationTable_Object=MibTable
+mnRegistrationTable=_MnRegistrationTable_Object((1,3,6,1,2,1,44,1,3,3,1))
+if mibBuilder.loadTexts:mnRegistrationTable.setStatus(_A)
+_MnRegistrationEntry_Object=MibTableRow
+mnRegistrationEntry=_MnRegistrationEntry_Object((1,3,6,1,2,1,44,1,3,3,1,1))
+mnRegistrationEntry.setIndexNames((0,_B,_P),(0,_B,_Q))
+if mibBuilder.loadTexts:mnRegistrationEntry.setStatus(_A)
+_MnRegAgentAddress_Type=IpAddress
+_MnRegAgentAddress_Object=MibTableColumn
+mnRegAgentAddress=_MnRegAgentAddress_Object((1,3,6,1,2,1,44,1,3,3,1,1,1),_MnRegAgentAddress_Type())
+mnRegAgentAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRegAgentAddress.setStatus(_A)
+_MnRegCOA_Type=IpAddress
+_MnRegCOA_Object=MibTableColumn
+mnRegCOA=_MnRegCOA_Object((1,3,6,1,2,1,44,1,3,3,1,1,2),_MnRegCOA_Type())
+mnRegCOA.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRegCOA.setStatus(_A)
+_MnRegFlags_Type=RegistrationFlags
+_MnRegFlags_Object=MibTableColumn
+mnRegFlags=_MnRegFlags_Object((1,3,6,1,2,1,44,1,3,3,1,1,3),_MnRegFlags_Type())
+mnRegFlags.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRegFlags.setStatus(_A)
+_MnRegIDLow_Type=Integer32
+_MnRegIDLow_Object=MibTableColumn
+mnRegIDLow=_MnRegIDLow_Object((1,3,6,1,2,1,44,1,3,3,1,1,4),_MnRegIDLow_Type())
+mnRegIDLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRegIDLow.setStatus(_A)
+_MnRegIDHigh_Type=Integer32
+_MnRegIDHigh_Object=MibTableColumn
+mnRegIDHigh=_MnRegIDHigh_Object((1,3,6,1,2,1,44,1,3,3,1,1,5),_MnRegIDHigh_Type())
+mnRegIDHigh.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRegIDHigh.setStatus(_A)
+_MnRegTimeRequested_Type=Integer32
+_MnRegTimeRequested_Object=MibTableColumn
+mnRegTimeRequested=_MnRegTimeRequested_Object((1,3,6,1,2,1,44,1,3,3,1,1,6),_MnRegTimeRequested_Type())
+mnRegTimeRequested.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRegTimeRequested.setStatus(_A)
+if mibBuilder.loadTexts:mnRegTimeRequested.setUnits(_F)
+_MnRegTimeRemaining_Type=Gauge32
+_MnRegTimeRemaining_Object=MibTableColumn
+mnRegTimeRemaining=_MnRegTimeRemaining_Object((1,3,6,1,2,1,44,1,3,3,1,1,7),_MnRegTimeRemaining_Type())
+mnRegTimeRemaining.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRegTimeRemaining.setStatus(_A)
+if mibBuilder.loadTexts:mnRegTimeRemaining.setUnits(_F)
+_MnRegTimeSent_Type=TimeStamp
+_MnRegTimeSent_Object=MibTableColumn
+mnRegTimeSent=_MnRegTimeSent_Object((1,3,6,1,2,1,44,1,3,3,1,1,8),_MnRegTimeSent_Type())
+mnRegTimeSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRegTimeSent.setStatus(_A)
+_MnRegIsAccepted_Type=TruthValue
+_MnRegIsAccepted_Object=MibTableColumn
+mnRegIsAccepted=_MnRegIsAccepted_Object((1,3,6,1,2,1,44,1,3,3,1,1,9),_MnRegIsAccepted_Type())
+mnRegIsAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRegIsAccepted.setStatus(_A)
+_MnCOAIsLocal_Type=TruthValue
+_MnCOAIsLocal_Object=MibTableColumn
+mnCOAIsLocal=_MnCOAIsLocal_Object((1,3,6,1,2,1,44,1,3,3,1,1,10),_MnCOAIsLocal_Type())
+mnCOAIsLocal.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnCOAIsLocal.setStatus(_A)
+_MnRegRequestsSent_Type=Counter32
+_MnRegRequestsSent_Object=MibScalar
+mnRegRequestsSent=_MnRegRequestsSent_Object((1,3,6,1,2,1,44,1,3,3,2),_MnRegRequestsSent_Type())
+mnRegRequestsSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRegRequestsSent.setStatus(_A)
+_MnDeRegRequestsSent_Type=Counter32
+_MnDeRegRequestsSent_Object=MibScalar
+mnDeRegRequestsSent=_MnDeRegRequestsSent_Object((1,3,6,1,2,1,44,1,3,3,3),_MnDeRegRequestsSent_Type())
+mnDeRegRequestsSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnDeRegRequestsSent.setStatus(_A)
+_MnRegRepliesRecieved_Type=Counter32
+_MnRegRepliesRecieved_Object=MibScalar
+mnRegRepliesRecieved=_MnRegRepliesRecieved_Object((1,3,6,1,2,1,44,1,3,3,4),_MnRegRepliesRecieved_Type())
+mnRegRepliesRecieved.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRegRepliesRecieved.setStatus(_A)
+_MnDeRegRepliesRecieved_Type=Counter32
+_MnDeRegRepliesRecieved_Object=MibScalar
+mnDeRegRepliesRecieved=_MnDeRegRepliesRecieved_Object((1,3,6,1,2,1,44,1,3,3,5),_MnDeRegRepliesRecieved_Type())
+mnDeRegRepliesRecieved.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnDeRegRepliesRecieved.setStatus(_A)
+_MnRepliesInvalidHomeAddress_Type=Counter32
+_MnRepliesInvalidHomeAddress_Object=MibScalar
+mnRepliesInvalidHomeAddress=_MnRepliesInvalidHomeAddress_Object((1,3,6,1,2,1,44,1,3,3,6),_MnRepliesInvalidHomeAddress_Type())
+mnRepliesInvalidHomeAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRepliesInvalidHomeAddress.setStatus(_A)
+_MnRepliesUnknownHA_Type=Counter32
+_MnRepliesUnknownHA_Object=MibScalar
+mnRepliesUnknownHA=_MnRepliesUnknownHA_Object((1,3,6,1,2,1,44,1,3,3,7),_MnRepliesUnknownHA_Type())
+mnRepliesUnknownHA.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRepliesUnknownHA.setStatus(_A)
+_MnRepliesUnknownFA_Type=Counter32
+_MnRepliesUnknownFA_Object=MibScalar
+mnRepliesUnknownFA=_MnRepliesUnknownFA_Object((1,3,6,1,2,1,44,1,3,3,8),_MnRepliesUnknownFA_Type())
+mnRepliesUnknownFA.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRepliesUnknownFA.setStatus(_A)
+_MnRepliesInvalidID_Type=Counter32
+_MnRepliesInvalidID_Object=MibScalar
+mnRepliesInvalidID=_MnRepliesInvalidID_Object((1,3,6,1,2,1,44,1,3,3,9),_MnRepliesInvalidID_Type())
+mnRepliesInvalidID.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRepliesInvalidID.setStatus(_A)
+_MnRepliesDroppedInvalidExtension_Type=Counter32
+_MnRepliesDroppedInvalidExtension_Object=MibScalar
+mnRepliesDroppedInvalidExtension=_MnRepliesDroppedInvalidExtension_Object((1,3,6,1,2,1,44,1,3,3,10),_MnRepliesDroppedInvalidExtension_Type())
+mnRepliesDroppedInvalidExtension.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRepliesDroppedInvalidExtension.setStatus(_A)
+_MnRepliesIgnoredUnknownExtension_Type=Counter32
+_MnRepliesIgnoredUnknownExtension_Object=MibScalar
+mnRepliesIgnoredUnknownExtension=_MnRepliesIgnoredUnknownExtension_Object((1,3,6,1,2,1,44,1,3,3,11),_MnRepliesIgnoredUnknownExtension_Type())
+mnRepliesIgnoredUnknownExtension.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRepliesIgnoredUnknownExtension.setStatus(_A)
+_MnRepliesHAAuthenticationFailure_Type=Counter32
+_MnRepliesHAAuthenticationFailure_Object=MibScalar
+mnRepliesHAAuthenticationFailure=_MnRepliesHAAuthenticationFailure_Object((1,3,6,1,2,1,44,1,3,3,12),_MnRepliesHAAuthenticationFailure_Type())
+mnRepliesHAAuthenticationFailure.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRepliesHAAuthenticationFailure.setStatus(_A)
+_MnRepliesFAAuthenticationFailure_Type=Counter32
+_MnRepliesFAAuthenticationFailure_Object=MibScalar
+mnRepliesFAAuthenticationFailure=_MnRepliesFAAuthenticationFailure_Object((1,3,6,1,2,1,44,1,3,3,13),_MnRepliesFAAuthenticationFailure_Type())
+mnRepliesFAAuthenticationFailure.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRepliesFAAuthenticationFailure.setStatus(_A)
+_MnRegRequestsAccepted_Type=Counter32
+_MnRegRequestsAccepted_Object=MibScalar
+mnRegRequestsAccepted=_MnRegRequestsAccepted_Object((1,3,6,1,2,1,44,1,3,3,14),_MnRegRequestsAccepted_Type())
+mnRegRequestsAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRegRequestsAccepted.setStatus(_A)
+_MnRegRequestsDeniedByHA_Type=Counter32
+_MnRegRequestsDeniedByHA_Object=MibScalar
+mnRegRequestsDeniedByHA=_MnRegRequestsDeniedByHA_Object((1,3,6,1,2,1,44,1,3,3,15),_MnRegRequestsDeniedByHA_Type())
+mnRegRequestsDeniedByHA.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRegRequestsDeniedByHA.setStatus(_A)
+_MnRegRequestsDeniedByFA_Type=Counter32
+_MnRegRequestsDeniedByFA_Object=MibScalar
+mnRegRequestsDeniedByFA=_MnRegRequestsDeniedByFA_Object((1,3,6,1,2,1,44,1,3,3,16),_MnRegRequestsDeniedByFA_Type())
+mnRegRequestsDeniedByFA.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRegRequestsDeniedByFA.setStatus(_A)
+_MnRegRequestsDeniedByHADueToID_Type=Counter32
+_MnRegRequestsDeniedByHADueToID_Object=MibScalar
+mnRegRequestsDeniedByHADueToID=_MnRegRequestsDeniedByHADueToID_Object((1,3,6,1,2,1,44,1,3,3,17),_MnRegRequestsDeniedByHADueToID_Type())
+mnRegRequestsDeniedByHADueToID.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRegRequestsDeniedByHADueToID.setStatus(_A)
+_MnRegRequestsWithDirectedBroadcast_Type=Counter32
+_MnRegRequestsWithDirectedBroadcast_Object=MibScalar
+mnRegRequestsWithDirectedBroadcast=_MnRegRequestsWithDirectedBroadcast_Object((1,3,6,1,2,1,44,1,3,3,18),_MnRegRequestsWithDirectedBroadcast_Type())
+mnRegRequestsWithDirectedBroadcast.setMaxAccess(_C)
+if mibBuilder.loadTexts:mnRegRequestsWithDirectedBroadcast.setStatus(_A)
+_MipMA_ObjectIdentity=ObjectIdentity
+mipMA=_MipMA_ObjectIdentity((1,3,6,1,2,1,44,1,4))
+_MaAdvertisement_ObjectIdentity=ObjectIdentity
+maAdvertisement=_MaAdvertisement_ObjectIdentity((1,3,6,1,2,1,44,1,4,2))
+_MaAdvConfigTable_Object=MibTable
+maAdvConfigTable=_MaAdvConfigTable_Object((1,3,6,1,2,1,44,1,4,2,1))
+if mibBuilder.loadTexts:maAdvConfigTable.setStatus(_A)
+_MaAdvConfigEntry_Object=MibTableRow
+maAdvConfigEntry=_MaAdvConfigEntry_Object((1,3,6,1,2,1,44,1,4,2,1,1))
+maAdvConfigEntry.setIndexNames((0,_B,_h))
+if mibBuilder.loadTexts:maAdvConfigEntry.setStatus(_A)
+_MaInterfaceAddress_Type=IpAddress
+_MaInterfaceAddress_Object=MibTableColumn
+maInterfaceAddress=_MaInterfaceAddress_Object((1,3,6,1,2,1,44,1,4,2,1,1,1),_MaInterfaceAddress_Type())
+maInterfaceAddress.setMaxAccess(_H)
+if mibBuilder.loadTexts:maInterfaceAddress.setStatus(_A)
+class _MaAdvMaxRegLifetime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_MaAdvMaxRegLifetime_Type.__name__=_D
+_MaAdvMaxRegLifetime_Object=MibTableColumn
+maAdvMaxRegLifetime=_MaAdvMaxRegLifetime_Object((1,3,6,1,2,1,44,1,4,2,1,1,2),_MaAdvMaxRegLifetime_Type())
+maAdvMaxRegLifetime.setMaxAccess(_E)
+if mibBuilder.loadTexts:maAdvMaxRegLifetime.setStatus(_A)
+if mibBuilder.loadTexts:maAdvMaxRegLifetime.setUnits(_F)
+_MaAdvPrefixLengthInclusion_Type=TruthValue
+_MaAdvPrefixLengthInclusion_Object=MibTableColumn
+maAdvPrefixLengthInclusion=_MaAdvPrefixLengthInclusion_Object((1,3,6,1,2,1,44,1,4,2,1,1,3),_MaAdvPrefixLengthInclusion_Type())
+maAdvPrefixLengthInclusion.setMaxAccess(_E)
+if mibBuilder.loadTexts:maAdvPrefixLengthInclusion.setStatus(_A)
+_MaAdvAddress_Type=IpAddress
+_MaAdvAddress_Object=MibTableColumn
+maAdvAddress=_MaAdvAddress_Object((1,3,6,1,2,1,44,1,4,2,1,1,4),_MaAdvAddress_Type())
+maAdvAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:maAdvAddress.setStatus(_A)
+class _MaAdvMaxInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(4,1800))
+_MaAdvMaxInterval_Type.__name__=_D
+_MaAdvMaxInterval_Object=MibTableColumn
+maAdvMaxInterval=_MaAdvMaxInterval_Object((1,3,6,1,2,1,44,1,4,2,1,1,5),_MaAdvMaxInterval_Type())
+maAdvMaxInterval.setMaxAccess(_E)
+if mibBuilder.loadTexts:maAdvMaxInterval.setStatus(_A)
+if mibBuilder.loadTexts:maAdvMaxInterval.setUnits(_F)
+class _MaAdvMinInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(3,1800))
+_MaAdvMinInterval_Type.__name__=_D
+_MaAdvMinInterval_Object=MibTableColumn
+maAdvMinInterval=_MaAdvMinInterval_Object((1,3,6,1,2,1,44,1,4,2,1,1,6),_MaAdvMinInterval_Type())
+maAdvMinInterval.setMaxAccess(_E)
+if mibBuilder.loadTexts:maAdvMinInterval.setStatus(_A)
+if mibBuilder.loadTexts:maAdvMinInterval.setUnits(_F)
+class _MaAdvMaxAdvLifetime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(4,9000))
+_MaAdvMaxAdvLifetime_Type.__name__=_D
+_MaAdvMaxAdvLifetime_Object=MibTableColumn
+maAdvMaxAdvLifetime=_MaAdvMaxAdvLifetime_Object((1,3,6,1,2,1,44,1,4,2,1,1,7),_MaAdvMaxAdvLifetime_Type())
+maAdvMaxAdvLifetime.setMaxAccess(_E)
+if mibBuilder.loadTexts:maAdvMaxAdvLifetime.setStatus(_A)
+if mibBuilder.loadTexts:maAdvMaxAdvLifetime.setUnits(_F)
+class _MaAdvResponseSolicitationOnly_Type(TruthValue):defaultValue=2
+_MaAdvResponseSolicitationOnly_Type.__name__=_Z
+_MaAdvResponseSolicitationOnly_Object=MibTableColumn
+maAdvResponseSolicitationOnly=_MaAdvResponseSolicitationOnly_Object((1,3,6,1,2,1,44,1,4,2,1,1,8),_MaAdvResponseSolicitationOnly_Type())
+maAdvResponseSolicitationOnly.setMaxAccess(_E)
+if mibBuilder.loadTexts:maAdvResponseSolicitationOnly.setStatus(_A)
+_MaAdvStatus_Type=RowStatus
+_MaAdvStatus_Object=MibTableColumn
+maAdvStatus=_MaAdvStatus_Object((1,3,6,1,2,1,44,1,4,2,1,1,9),_MaAdvStatus_Type())
+maAdvStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:maAdvStatus.setStatus(_A)
+_MaAdvertisementsSent_Type=Counter32
+_MaAdvertisementsSent_Object=MibScalar
+maAdvertisementsSent=_MaAdvertisementsSent_Object((1,3,6,1,2,1,44,1,4,2,2),_MaAdvertisementsSent_Type())
+maAdvertisementsSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:maAdvertisementsSent.setStatus(_A)
+_MaAdvsSentForSolicitation_Type=Counter32
+_MaAdvsSentForSolicitation_Object=MibScalar
+maAdvsSentForSolicitation=_MaAdvsSentForSolicitation_Object((1,3,6,1,2,1,44,1,4,2,3),_MaAdvsSentForSolicitation_Type())
+maAdvsSentForSolicitation.setMaxAccess(_C)
+if mibBuilder.loadTexts:maAdvsSentForSolicitation.setStatus(_A)
+_MaSolicitationsReceived_Type=Counter32
+_MaSolicitationsReceived_Object=MibScalar
+maSolicitationsReceived=_MaSolicitationsReceived_Object((1,3,6,1,2,1,44,1,4,2,4),_MaSolicitationsReceived_Type())
+maSolicitationsReceived.setMaxAccess(_C)
+if mibBuilder.loadTexts:maSolicitationsReceived.setStatus(_A)
+_MipFA_ObjectIdentity=ObjectIdentity
+mipFA=_MipFA_ObjectIdentity((1,3,6,1,2,1,44,1,5))
+_FaSystem_ObjectIdentity=ObjectIdentity
+faSystem=_FaSystem_ObjectIdentity((1,3,6,1,2,1,44,1,5,1))
+_FaCOATable_Object=MibTable
+faCOATable=_FaCOATable_Object((1,3,6,1,2,1,44,1,5,1,1))
+if mibBuilder.loadTexts:faCOATable.setStatus(_A)
+_FaCOAEntry_Object=MibTableRow
+faCOAEntry=_FaCOAEntry_Object((1,3,6,1,2,1,44,1,5,1,1,1))
+faCOAEntry.setIndexNames((0,_B,_i))
+if mibBuilder.loadTexts:faCOAEntry.setStatus(_A)
+_FaSupportedCOA_Type=IpAddress
+_FaSupportedCOA_Object=MibTableColumn
+faSupportedCOA=_FaSupportedCOA_Object((1,3,6,1,2,1,44,1,5,1,1,1,1),_FaSupportedCOA_Type())
+faSupportedCOA.setMaxAccess(_H)
+if mibBuilder.loadTexts:faSupportedCOA.setStatus(_A)
+_FaCOAStatus_Type=RowStatus
+_FaCOAStatus_Object=MibTableColumn
+faCOAStatus=_FaCOAStatus_Object((1,3,6,1,2,1,44,1,5,1,1,1,2),_FaCOAStatus_Type())
+faCOAStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:faCOAStatus.setStatus(_A)
+_FaAdvertisement_ObjectIdentity=ObjectIdentity
+faAdvertisement=_FaAdvertisement_ObjectIdentity((1,3,6,1,2,1,44,1,5,2))
+_FaIsBusy_Type=TruthValue
+_FaIsBusy_Object=MibScalar
+faIsBusy=_FaIsBusy_Object((1,3,6,1,2,1,44,1,5,2,1),_FaIsBusy_Type())
+faIsBusy.setMaxAccess(_C)
+if mibBuilder.loadTexts:faIsBusy.setStatus(_A)
+_FaRegistrationRequired_Type=TruthValue
+_FaRegistrationRequired_Object=MibScalar
+faRegistrationRequired=_FaRegistrationRequired_Object((1,3,6,1,2,1,44,1,5,2,2),_FaRegistrationRequired_Type())
+faRegistrationRequired.setMaxAccess(_d)
+if mibBuilder.loadTexts:faRegistrationRequired.setStatus(_A)
+_FaRegistration_ObjectIdentity=ObjectIdentity
+faRegistration=_FaRegistration_ObjectIdentity((1,3,6,1,2,1,44,1,5,3))
+_FaVisitorTable_Object=MibTable
+faVisitorTable=_FaVisitorTable_Object((1,3,6,1,2,1,44,1,5,3,1))
+if mibBuilder.loadTexts:faVisitorTable.setStatus(_A)
+_FaVisitorEntry_Object=MibTableRow
+faVisitorEntry=_FaVisitorEntry_Object((1,3,6,1,2,1,44,1,5,3,1,1))
+faVisitorEntry.setIndexNames((0,_B,_R))
+if mibBuilder.loadTexts:faVisitorEntry.setStatus(_A)
+_FaVisitorIPAddress_Type=IpAddress
+_FaVisitorIPAddress_Object=MibTableColumn
+faVisitorIPAddress=_FaVisitorIPAddress_Object((1,3,6,1,2,1,44,1,5,3,1,1,1),_FaVisitorIPAddress_Type())
+faVisitorIPAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:faVisitorIPAddress.setStatus(_A)
+_FaVisitorHomeAddress_Type=IpAddress
+_FaVisitorHomeAddress_Object=MibTableColumn
+faVisitorHomeAddress=_FaVisitorHomeAddress_Object((1,3,6,1,2,1,44,1,5,3,1,1,2),_FaVisitorHomeAddress_Type())
+faVisitorHomeAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:faVisitorHomeAddress.setStatus(_A)
+_FaVisitorHomeAgentAddress_Type=IpAddress
+_FaVisitorHomeAgentAddress_Object=MibTableColumn
+faVisitorHomeAgentAddress=_FaVisitorHomeAgentAddress_Object((1,3,6,1,2,1,44,1,5,3,1,1,3),_FaVisitorHomeAgentAddress_Type())
+faVisitorHomeAgentAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:faVisitorHomeAgentAddress.setStatus(_A)
+_FaVisitorTimeGranted_Type=Integer32
+_FaVisitorTimeGranted_Object=MibTableColumn
+faVisitorTimeGranted=_FaVisitorTimeGranted_Object((1,3,6,1,2,1,44,1,5,3,1,1,4),_FaVisitorTimeGranted_Type())
+faVisitorTimeGranted.setMaxAccess(_C)
+if mibBuilder.loadTexts:faVisitorTimeGranted.setStatus(_A)
+if mibBuilder.loadTexts:faVisitorTimeGranted.setUnits(_F)
+_FaVisitorTimeRemaining_Type=Gauge32
+_FaVisitorTimeRemaining_Object=MibTableColumn
+faVisitorTimeRemaining=_FaVisitorTimeRemaining_Object((1,3,6,1,2,1,44,1,5,3,1,1,5),_FaVisitorTimeRemaining_Type())
+faVisitorTimeRemaining.setMaxAccess(_C)
+if mibBuilder.loadTexts:faVisitorTimeRemaining.setStatus(_A)
+if mibBuilder.loadTexts:faVisitorTimeRemaining.setUnits(_F)
+_FaVisitorRegFlags_Type=RegistrationFlags
+_FaVisitorRegFlags_Object=MibTableColumn
+faVisitorRegFlags=_FaVisitorRegFlags_Object((1,3,6,1,2,1,44,1,5,3,1,1,6),_FaVisitorRegFlags_Type())
+faVisitorRegFlags.setMaxAccess(_C)
+if mibBuilder.loadTexts:faVisitorRegFlags.setStatus(_A)
+_FaVisitorRegIDLow_Type=Integer32
+_FaVisitorRegIDLow_Object=MibTableColumn
+faVisitorRegIDLow=_FaVisitorRegIDLow_Object((1,3,6,1,2,1,44,1,5,3,1,1,7),_FaVisitorRegIDLow_Type())
+faVisitorRegIDLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:faVisitorRegIDLow.setStatus(_A)
+_FaVisitorRegIDHigh_Type=Integer32
+_FaVisitorRegIDHigh_Object=MibTableColumn
+faVisitorRegIDHigh=_FaVisitorRegIDHigh_Object((1,3,6,1,2,1,44,1,5,3,1,1,8),_FaVisitorRegIDHigh_Type())
+faVisitorRegIDHigh.setMaxAccess(_C)
+if mibBuilder.loadTexts:faVisitorRegIDHigh.setStatus(_A)
+_FaVisitorRegIsAccepted_Type=TruthValue
+_FaVisitorRegIsAccepted_Object=MibTableColumn
+faVisitorRegIsAccepted=_FaVisitorRegIsAccepted_Object((1,3,6,1,2,1,44,1,5,3,1,1,9),_FaVisitorRegIsAccepted_Type())
+faVisitorRegIsAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:faVisitorRegIsAccepted.setStatus(_A)
+_FaRegRequestsReceived_Type=Counter32
+_FaRegRequestsReceived_Object=MibScalar
+faRegRequestsReceived=_FaRegRequestsReceived_Object((1,3,6,1,2,1,44,1,5,3,2),_FaRegRequestsReceived_Type())
+faRegRequestsReceived.setMaxAccess(_C)
+if mibBuilder.loadTexts:faRegRequestsReceived.setStatus(_A)
+_FaRegRequestsRelayed_Type=Counter32
+_FaRegRequestsRelayed_Object=MibScalar
+faRegRequestsRelayed=_FaRegRequestsRelayed_Object((1,3,6,1,2,1,44,1,5,3,3),_FaRegRequestsRelayed_Type())
+faRegRequestsRelayed.setMaxAccess(_C)
+if mibBuilder.loadTexts:faRegRequestsRelayed.setStatus(_A)
+_FaReasonUnspecified_Type=Counter32
+_FaReasonUnspecified_Object=MibScalar
+faReasonUnspecified=_FaReasonUnspecified_Object((1,3,6,1,2,1,44,1,5,3,4),_FaReasonUnspecified_Type())
+faReasonUnspecified.setMaxAccess(_C)
+if mibBuilder.loadTexts:faReasonUnspecified.setStatus(_A)
+_FaAdmProhibited_Type=Counter32
+_FaAdmProhibited_Object=MibScalar
+faAdmProhibited=_FaAdmProhibited_Object((1,3,6,1,2,1,44,1,5,3,5),_FaAdmProhibited_Type())
+faAdmProhibited.setMaxAccess(_C)
+if mibBuilder.loadTexts:faAdmProhibited.setStatus(_A)
+_FaInsufficientResource_Type=Counter32
+_FaInsufficientResource_Object=MibScalar
+faInsufficientResource=_FaInsufficientResource_Object((1,3,6,1,2,1,44,1,5,3,6),_FaInsufficientResource_Type())
+faInsufficientResource.setMaxAccess(_C)
+if mibBuilder.loadTexts:faInsufficientResource.setStatus(_A)
+_FaMNAuthenticationFailure_Type=Counter32
+_FaMNAuthenticationFailure_Object=MibScalar
+faMNAuthenticationFailure=_FaMNAuthenticationFailure_Object((1,3,6,1,2,1,44,1,5,3,7),_FaMNAuthenticationFailure_Type())
+faMNAuthenticationFailure.setMaxAccess(_C)
+if mibBuilder.loadTexts:faMNAuthenticationFailure.setStatus(_A)
+_FaRegLifetimeTooLong_Type=Counter32
+_FaRegLifetimeTooLong_Object=MibScalar
+faRegLifetimeTooLong=_FaRegLifetimeTooLong_Object((1,3,6,1,2,1,44,1,5,3,8),_FaRegLifetimeTooLong_Type())
+faRegLifetimeTooLong.setMaxAccess(_C)
+if mibBuilder.loadTexts:faRegLifetimeTooLong.setStatus(_A)
+_FaPoorlyFormedRequests_Type=Counter32
+_FaPoorlyFormedRequests_Object=MibScalar
+faPoorlyFormedRequests=_FaPoorlyFormedRequests_Object((1,3,6,1,2,1,44,1,5,3,9),_FaPoorlyFormedRequests_Type())
+faPoorlyFormedRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:faPoorlyFormedRequests.setStatus(_A)
+_FaEncapsulationUnavailable_Type=Counter32
+_FaEncapsulationUnavailable_Object=MibScalar
+faEncapsulationUnavailable=_FaEncapsulationUnavailable_Object((1,3,6,1,2,1,44,1,5,3,10),_FaEncapsulationUnavailable_Type())
+faEncapsulationUnavailable.setMaxAccess(_C)
+if mibBuilder.loadTexts:faEncapsulationUnavailable.setStatus(_A)
+_FaVJCompressionUnavailable_Type=Counter32
+_FaVJCompressionUnavailable_Object=MibScalar
+faVJCompressionUnavailable=_FaVJCompressionUnavailable_Object((1,3,6,1,2,1,44,1,5,3,11),_FaVJCompressionUnavailable_Type())
+faVJCompressionUnavailable.setMaxAccess(_C)
+if mibBuilder.loadTexts:faVJCompressionUnavailable.setStatus(_A)
+_FaHAUnreachable_Type=Counter32
+_FaHAUnreachable_Object=MibScalar
+faHAUnreachable=_FaHAUnreachable_Object((1,3,6,1,2,1,44,1,5,3,12),_FaHAUnreachable_Type())
+faHAUnreachable.setMaxAccess(_C)
+if mibBuilder.loadTexts:faHAUnreachable.setStatus(_A)
+_FaRegRepliesRecieved_Type=Counter32
+_FaRegRepliesRecieved_Object=MibScalar
+faRegRepliesRecieved=_FaRegRepliesRecieved_Object((1,3,6,1,2,1,44,1,5,3,13),_FaRegRepliesRecieved_Type())
+faRegRepliesRecieved.setMaxAccess(_C)
+if mibBuilder.loadTexts:faRegRepliesRecieved.setStatus(_A)
+_FaRegRepliesRelayed_Type=Counter32
+_FaRegRepliesRelayed_Object=MibScalar
+faRegRepliesRelayed=_FaRegRepliesRelayed_Object((1,3,6,1,2,1,44,1,5,3,14),_FaRegRepliesRelayed_Type())
+faRegRepliesRelayed.setMaxAccess(_C)
+if mibBuilder.loadTexts:faRegRepliesRelayed.setStatus(_A)
+_FaHAAuthenticationFailure_Type=Counter32
+_FaHAAuthenticationFailure_Object=MibScalar
+faHAAuthenticationFailure=_FaHAAuthenticationFailure_Object((1,3,6,1,2,1,44,1,5,3,15),_FaHAAuthenticationFailure_Type())
+faHAAuthenticationFailure.setMaxAccess(_C)
+if mibBuilder.loadTexts:faHAAuthenticationFailure.setStatus(_A)
+_FaPoorlyFormedReplies_Type=Counter32
+_FaPoorlyFormedReplies_Object=MibScalar
+faPoorlyFormedReplies=_FaPoorlyFormedReplies_Object((1,3,6,1,2,1,44,1,5,3,16),_FaPoorlyFormedReplies_Type())
+faPoorlyFormedReplies.setMaxAccess(_C)
+if mibBuilder.loadTexts:faPoorlyFormedReplies.setStatus(_A)
+_MipHA_ObjectIdentity=ObjectIdentity
+mipHA=_MipHA_ObjectIdentity((1,3,6,1,2,1,44,1,6))
+_HaRegistration_ObjectIdentity=ObjectIdentity
+haRegistration=_HaRegistration_ObjectIdentity((1,3,6,1,2,1,44,1,6,3))
+_HaMobilityBindingTable_Object=MibTable
+haMobilityBindingTable=_HaMobilityBindingTable_Object((1,3,6,1,2,1,44,1,6,3,1))
+if mibBuilder.loadTexts:haMobilityBindingTable.setStatus(_A)
+_HaMobilityBindingEntry_Object=MibTableRow
+haMobilityBindingEntry=_HaMobilityBindingEntry_Object((1,3,6,1,2,1,44,1,6,3,1,1))
+haMobilityBindingEntry.setIndexNames((0,_B,_J),(0,_B,_S))
+if mibBuilder.loadTexts:haMobilityBindingEntry.setStatus(_A)
+_HaMobilityBindingMN_Type=IpAddress
+_HaMobilityBindingMN_Object=MibTableColumn
+haMobilityBindingMN=_HaMobilityBindingMN_Object((1,3,6,1,2,1,44,1,6,3,1,1,1),_HaMobilityBindingMN_Type())
+haMobilityBindingMN.setMaxAccess(_C)
+if mibBuilder.loadTexts:haMobilityBindingMN.setStatus(_A)
+_HaMobilityBindingCOA_Type=IpAddress
+_HaMobilityBindingCOA_Object=MibTableColumn
+haMobilityBindingCOA=_HaMobilityBindingCOA_Object((1,3,6,1,2,1,44,1,6,3,1,1,2),_HaMobilityBindingCOA_Type())
+haMobilityBindingCOA.setMaxAccess(_C)
+if mibBuilder.loadTexts:haMobilityBindingCOA.setStatus(_A)
+_HaMobilityBindingSourceAddress_Type=IpAddress
+_HaMobilityBindingSourceAddress_Object=MibTableColumn
+haMobilityBindingSourceAddress=_HaMobilityBindingSourceAddress_Object((1,3,6,1,2,1,44,1,6,3,1,1,3),_HaMobilityBindingSourceAddress_Type())
+haMobilityBindingSourceAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:haMobilityBindingSourceAddress.setStatus(_A)
+_HaMobilityBindingRegFlags_Type=RegistrationFlags
+_HaMobilityBindingRegFlags_Object=MibTableColumn
+haMobilityBindingRegFlags=_HaMobilityBindingRegFlags_Object((1,3,6,1,2,1,44,1,6,3,1,1,4),_HaMobilityBindingRegFlags_Type())
+haMobilityBindingRegFlags.setMaxAccess(_C)
+if mibBuilder.loadTexts:haMobilityBindingRegFlags.setStatus(_A)
+_HaMobilityBindingRegIDLow_Type=Integer32
+_HaMobilityBindingRegIDLow_Object=MibTableColumn
+haMobilityBindingRegIDLow=_HaMobilityBindingRegIDLow_Object((1,3,6,1,2,1,44,1,6,3,1,1,5),_HaMobilityBindingRegIDLow_Type())
+haMobilityBindingRegIDLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:haMobilityBindingRegIDLow.setStatus(_A)
+_HaMobilityBindingRegIDHigh_Type=Integer32
+_HaMobilityBindingRegIDHigh_Object=MibTableColumn
+haMobilityBindingRegIDHigh=_HaMobilityBindingRegIDHigh_Object((1,3,6,1,2,1,44,1,6,3,1,1,6),_HaMobilityBindingRegIDHigh_Type())
+haMobilityBindingRegIDHigh.setMaxAccess(_C)
+if mibBuilder.loadTexts:haMobilityBindingRegIDHigh.setStatus(_A)
+_HaMobilityBindingTimeGranted_Type=Integer32
+_HaMobilityBindingTimeGranted_Object=MibTableColumn
+haMobilityBindingTimeGranted=_HaMobilityBindingTimeGranted_Object((1,3,6,1,2,1,44,1,6,3,1,1,7),_HaMobilityBindingTimeGranted_Type())
+haMobilityBindingTimeGranted.setMaxAccess(_C)
+if mibBuilder.loadTexts:haMobilityBindingTimeGranted.setStatus(_A)
+if mibBuilder.loadTexts:haMobilityBindingTimeGranted.setUnits(_F)
+_HaMobilityBindingTimeRemaining_Type=Gauge32
+_HaMobilityBindingTimeRemaining_Object=MibTableColumn
+haMobilityBindingTimeRemaining=_HaMobilityBindingTimeRemaining_Object((1,3,6,1,2,1,44,1,6,3,1,1,8),_HaMobilityBindingTimeRemaining_Type())
+haMobilityBindingTimeRemaining.setMaxAccess(_C)
+if mibBuilder.loadTexts:haMobilityBindingTimeRemaining.setStatus(_A)
+if mibBuilder.loadTexts:haMobilityBindingTimeRemaining.setUnits(_F)
+_HaCounterTable_Object=MibTable
+haCounterTable=_HaCounterTable_Object((1,3,6,1,2,1,44,1,6,3,2))
+if mibBuilder.loadTexts:haCounterTable.setStatus(_A)
+_HaCounterEntry_Object=MibTableRow
+haCounterEntry=_HaCounterEntry_Object((1,3,6,1,2,1,44,1,6,3,2,1))
+haCounterEntry.setIndexNames((0,_B,_J))
+if mibBuilder.loadTexts:haCounterEntry.setStatus(_A)
+_HaServiceRequestsAccepted_Type=Counter32
+_HaServiceRequestsAccepted_Object=MibTableColumn
+haServiceRequestsAccepted=_HaServiceRequestsAccepted_Object((1,3,6,1,2,1,44,1,6,3,2,1,2),_HaServiceRequestsAccepted_Type())
+haServiceRequestsAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:haServiceRequestsAccepted.setStatus(_A)
+_HaServiceRequestsDenied_Type=Counter32
+_HaServiceRequestsDenied_Object=MibTableColumn
+haServiceRequestsDenied=_HaServiceRequestsDenied_Object((1,3,6,1,2,1,44,1,6,3,2,1,3),_HaServiceRequestsDenied_Type())
+haServiceRequestsDenied.setMaxAccess(_C)
+if mibBuilder.loadTexts:haServiceRequestsDenied.setStatus(_A)
+_HaOverallServiceTime_Type=Gauge32
+_HaOverallServiceTime_Object=MibTableColumn
+haOverallServiceTime=_HaOverallServiceTime_Object((1,3,6,1,2,1,44,1,6,3,2,1,4),_HaOverallServiceTime_Type())
+haOverallServiceTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:haOverallServiceTime.setStatus(_A)
+if mibBuilder.loadTexts:haOverallServiceTime.setUnits(_F)
+_HaRecentServiceAcceptedTime_Type=TimeStamp
+_HaRecentServiceAcceptedTime_Object=MibTableColumn
+haRecentServiceAcceptedTime=_HaRecentServiceAcceptedTime_Object((1,3,6,1,2,1,44,1,6,3,2,1,5),_HaRecentServiceAcceptedTime_Type())
+haRecentServiceAcceptedTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:haRecentServiceAcceptedTime.setStatus(_A)
+_HaRecentServiceDeniedTime_Type=TimeStamp
+_HaRecentServiceDeniedTime_Object=MibTableColumn
+haRecentServiceDeniedTime=_HaRecentServiceDeniedTime_Object((1,3,6,1,2,1,44,1,6,3,2,1,6),_HaRecentServiceDeniedTime_Type())
+haRecentServiceDeniedTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:haRecentServiceDeniedTime.setStatus(_A)
+class _HaRecentServiceDeniedCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(128,129,130,131,132,133,134,135,136)));namedValues=NamedValues(*(('reasonUnspecified',128),('admProhibited',129),('insufficientResource',130),('mnAuthenticationFailure',131),('faAuthenticationFailure',132),('idMismatch',133),('poorlyFormedRequest',134),('tooManyBindings',135),('unknownHA',136)))
+_HaRecentServiceDeniedCode_Type.__name__=_D
+_HaRecentServiceDeniedCode_Object=MibTableColumn
+haRecentServiceDeniedCode=_HaRecentServiceDeniedCode_Object((1,3,6,1,2,1,44,1,6,3,2,1,7),_HaRecentServiceDeniedCode_Type())
+haRecentServiceDeniedCode.setMaxAccess(_C)
+if mibBuilder.loadTexts:haRecentServiceDeniedCode.setStatus(_A)
+_HaRegistrationAccepted_Type=Counter32
+_HaRegistrationAccepted_Object=MibScalar
+haRegistrationAccepted=_HaRegistrationAccepted_Object((1,3,6,1,2,1,44,1,6,3,3),_HaRegistrationAccepted_Type())
+haRegistrationAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:haRegistrationAccepted.setStatus(_A)
+_HaMultiBindingUnsupported_Type=Counter32
+_HaMultiBindingUnsupported_Object=MibScalar
+haMultiBindingUnsupported=_HaMultiBindingUnsupported_Object((1,3,6,1,2,1,44,1,6,3,4),_HaMultiBindingUnsupported_Type())
+haMultiBindingUnsupported.setMaxAccess(_C)
+if mibBuilder.loadTexts:haMultiBindingUnsupported.setStatus(_A)
+_HaReasonUnspecified_Type=Counter32
+_HaReasonUnspecified_Object=MibScalar
+haReasonUnspecified=_HaReasonUnspecified_Object((1,3,6,1,2,1,44,1,6,3,5),_HaReasonUnspecified_Type())
+haReasonUnspecified.setMaxAccess(_C)
+if mibBuilder.loadTexts:haReasonUnspecified.setStatus(_A)
+_HaAdmProhibited_Type=Counter32
+_HaAdmProhibited_Object=MibScalar
+haAdmProhibited=_HaAdmProhibited_Object((1,3,6,1,2,1,44,1,6,3,6),_HaAdmProhibited_Type())
+haAdmProhibited.setMaxAccess(_C)
+if mibBuilder.loadTexts:haAdmProhibited.setStatus(_A)
+_HaInsufficientResource_Type=Counter32
+_HaInsufficientResource_Object=MibScalar
+haInsufficientResource=_HaInsufficientResource_Object((1,3,6,1,2,1,44,1,6,3,7),_HaInsufficientResource_Type())
+haInsufficientResource.setMaxAccess(_C)
+if mibBuilder.loadTexts:haInsufficientResource.setStatus(_A)
+_HaMNAuthenticationFailure_Type=Counter32
+_HaMNAuthenticationFailure_Object=MibScalar
+haMNAuthenticationFailure=_HaMNAuthenticationFailure_Object((1,3,6,1,2,1,44,1,6,3,8),_HaMNAuthenticationFailure_Type())
+haMNAuthenticationFailure.setMaxAccess(_C)
+if mibBuilder.loadTexts:haMNAuthenticationFailure.setStatus(_A)
+_HaFAAuthenticationFailure_Type=Counter32
+_HaFAAuthenticationFailure_Object=MibScalar
+haFAAuthenticationFailure=_HaFAAuthenticationFailure_Object((1,3,6,1,2,1,44,1,6,3,9),_HaFAAuthenticationFailure_Type())
+haFAAuthenticationFailure.setMaxAccess(_C)
+if mibBuilder.loadTexts:haFAAuthenticationFailure.setStatus(_A)
+_HaIDMismatch_Type=Counter32
+_HaIDMismatch_Object=MibScalar
+haIDMismatch=_HaIDMismatch_Object((1,3,6,1,2,1,44,1,6,3,10),_HaIDMismatch_Type())
+haIDMismatch.setMaxAccess(_C)
+if mibBuilder.loadTexts:haIDMismatch.setStatus(_A)
+_HaPoorlyFormedRequest_Type=Counter32
+_HaPoorlyFormedRequest_Object=MibScalar
+haPoorlyFormedRequest=_HaPoorlyFormedRequest_Object((1,3,6,1,2,1,44,1,6,3,11),_HaPoorlyFormedRequest_Type())
+haPoorlyFormedRequest.setMaxAccess(_C)
+if mibBuilder.loadTexts:haPoorlyFormedRequest.setStatus(_A)
+_HaTooManyBindings_Type=Counter32
+_HaTooManyBindings_Object=MibScalar
+haTooManyBindings=_HaTooManyBindings_Object((1,3,6,1,2,1,44,1,6,3,12),_HaTooManyBindings_Type())
+haTooManyBindings.setMaxAccess(_C)
+if mibBuilder.loadTexts:haTooManyBindings.setStatus(_A)
+_HaUnknownHA_Type=Counter32
+_HaUnknownHA_Object=MibScalar
+haUnknownHA=_HaUnknownHA_Object((1,3,6,1,2,1,44,1,6,3,13),_HaUnknownHA_Type())
+haUnknownHA.setMaxAccess(_C)
+if mibBuilder.loadTexts:haUnknownHA.setStatus(_A)
+_HaGratuitiousARPsSent_Type=Counter32
+_HaGratuitiousARPsSent_Object=MibScalar
+haGratuitiousARPsSent=_HaGratuitiousARPsSent_Object((1,3,6,1,2,1,44,1,6,3,14),_HaGratuitiousARPsSent_Type())
+haGratuitiousARPsSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:haGratuitiousARPsSent.setStatus(_A)
+_HaProxyARPsSent_Type=Counter32
+_HaProxyARPsSent_Object=MibScalar
+haProxyARPsSent=_HaProxyARPsSent_Object((1,3,6,1,2,1,44,1,6,3,15),_HaProxyARPsSent_Type())
+haProxyARPsSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:haProxyARPsSent.setStatus(_A)
+_HaRegRequestsReceived_Type=Counter32
+_HaRegRequestsReceived_Object=MibScalar
+haRegRequestsReceived=_HaRegRequestsReceived_Object((1,3,6,1,2,1,44,1,6,3,16),_HaRegRequestsReceived_Type())
+haRegRequestsReceived.setMaxAccess(_C)
+if mibBuilder.loadTexts:haRegRequestsReceived.setStatus(_A)
+_HaDeRegRequestsReceived_Type=Counter32
+_HaDeRegRequestsReceived_Object=MibScalar
+haDeRegRequestsReceived=_HaDeRegRequestsReceived_Object((1,3,6,1,2,1,44,1,6,3,17),_HaDeRegRequestsReceived_Type())
+haDeRegRequestsReceived.setMaxAccess(_C)
+if mibBuilder.loadTexts:haDeRegRequestsReceived.setStatus(_A)
+_HaRegRepliesSent_Type=Counter32
+_HaRegRepliesSent_Object=MibScalar
+haRegRepliesSent=_HaRegRepliesSent_Object((1,3,6,1,2,1,44,1,6,3,18),_HaRegRepliesSent_Type())
+haRegRepliesSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:haRegRepliesSent.setStatus(_A)
+_HaDeRegRepliesSent_Type=Counter32
+_HaDeRegRepliesSent_Object=MibScalar
+haDeRegRepliesSent=_HaDeRegRepliesSent_Object((1,3,6,1,2,1,44,1,6,3,19),_HaDeRegRepliesSent_Type())
+haDeRegRepliesSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:haDeRegRepliesSent.setStatus(_A)
+_MipMIBNotificationPrefix_ObjectIdentity=ObjectIdentity
+mipMIBNotificationPrefix=_MipMIBNotificationPrefix_ObjectIdentity((1,3,6,1,2,1,44,2))
+_MipMIBNotifications_ObjectIdentity=ObjectIdentity
+mipMIBNotifications=_MipMIBNotifications_ObjectIdentity((1,3,6,1,2,1,44,2,0))
+_MipMIBConformance_ObjectIdentity=ObjectIdentity
+mipMIBConformance=_MipMIBConformance_ObjectIdentity((1,3,6,1,2,1,44,3))
+_MipGroups_ObjectIdentity=ObjectIdentity
+mipGroups=_MipGroups_ObjectIdentity((1,3,6,1,2,1,44,3,1))
+_MipCompliances_ObjectIdentity=ObjectIdentity
+mipCompliances=_MipCompliances_ObjectIdentity((1,3,6,1,2,1,44,3,2))
+mipSystemGroup=ObjectGroup((1,3,6,1,2,1,44,3,1,1))
+mipSystemGroup.setObjects(*((_B,_j),(_B,_k),(_B,_l)))
+if mibBuilder.loadTexts:mipSystemGroup.setStatus(_A)
+mipSecAssociationGroup=ObjectGroup((1,3,6,1,2,1,44,3,1,2))
+mipSecAssociationGroup.setObjects(*((_B,_m),(_B,_n),(_B,_o),(_B,_p)))
+if mibBuilder.loadTexts:mipSecAssociationGroup.setStatus(_A)
+mipSecViolationGroup=ObjectGroup((1,3,6,1,2,1,44,3,1,3))
+mipSecViolationGroup.setObjects(*((_B,_q),(_B,_r),(_B,_T),(_B,_s),(_B,_U),(_B,_V),(_B,_W)))
+if mibBuilder.loadTexts:mipSecViolationGroup.setStatus(_A)
+mnSystemGroup=ObjectGroup((1,3,6,1,2,1,44,3,1,4))
+mnSystemGroup.setObjects(*((_B,_t),(_B,_u),(_B,_v),(_B,_w)))
+if mibBuilder.loadTexts:mnSystemGroup.setStatus(_A)
+mnDiscoveryGroup=ObjectGroup((1,3,6,1,2,1,44,3,1,5))
+mnDiscoveryGroup.setObjects(*((_B,_N),(_B,_O),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB)))
+if mibBuilder.loadTexts:mnDiscoveryGroup.setStatus(_A)
+mnRegistrationGroup=ObjectGroup((1,3,6,1,2,1,44,3,1,6))
+mnRegistrationGroup.setObjects(*((_B,_P),(_B,_Q),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa)))
+if mibBuilder.loadTexts:mnRegistrationGroup.setStatus(_A)
+maAdvertisementGroup=ObjectGroup((1,3,6,1,2,1,44,3,1,7))
+maAdvertisementGroup.setObjects(*((_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al)))
+if mibBuilder.loadTexts:maAdvertisementGroup.setStatus(_A)
+faSystemGroup=ObjectGroup((1,3,6,1,2,1,44,3,1,8))
+faSystemGroup.setObjects((_B,_Am))
+if mibBuilder.loadTexts:faSystemGroup.setStatus(_A)
+faAdvertisementGroup=ObjectGroup((1,3,6,1,2,1,44,3,1,9))
+faAdvertisementGroup.setObjects(*((_B,'faIsBusy'),(_B,_An)))
+if mibBuilder.loadTexts:faAdvertisementGroup.setStatus(_A)
+faRegistrationGroup=ObjectGroup((1,3,6,1,2,1,44,3,1,10))
+faRegistrationGroup.setObjects(*((_B,_R),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7),(_B,_B8),(_B,_B9)))
+if mibBuilder.loadTexts:faRegistrationGroup.setStatus(_A)
+haRegistrationGroup=ObjectGroup((1,3,6,1,2,1,44,3,1,11))
+haRegistrationGroup.setObjects(*((_B,_J),(_B,_S),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI),(_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_BS),(_B,_BT),(_B,_BU),(_B,_BV),(_B,_BW)))
+if mibBuilder.loadTexts:haRegistrationGroup.setStatus(_A)
+haRegNodeCountersGroup=ObjectGroup((1,3,6,1,2,1,44,3,1,12))
+haRegNodeCountersGroup.setObjects(*((_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba),(_B,_Bb),(_B,_Bc)))
+if mibBuilder.loadTexts:haRegNodeCountersGroup.setStatus(_A)
+mipAuthFailure=NotificationType((1,3,6,1,2,1,44,2,0,1))
+mipAuthFailure.setObjects(*((_B,_M),(_B,_T),(_B,_U),(_B,_V),(_B,_W)))
+if mibBuilder.loadTexts:mipAuthFailure.setStatus(_A)
+mipSecNotificationsGroup=NotificationGroup((1,3,6,1,2,1,44,3,1,13))
+mipSecNotificationsGroup.setObjects((_B,_Bd))
+if mibBuilder.loadTexts:mipSecNotificationsGroup.setStatus(_A)
+mipCompliance=ModuleCompliance((1,3,6,1,2,1,44,3,2,1))
+mipCompliance.setObjects(*((_B,_Be),(_B,_Bf),(_B,_Bg),(_B,_Bh),(_B,_Bi),(_B,_Bj),(_B,_Bk),(_B,_Bl),(_B,_Bm),(_B,_Bn),(_B,_Bo),(_B,_Bp),(_B,_Bq)))
+if mibBuilder.loadTexts:mipCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'RegistrationFlags':RegistrationFlags,'mipMIB':mipMIB,'mipMIBObjects':mipMIBObjects,'mipSystem':mipSystem,_j:mipEntities,_k:mipEnable,_l:mipEncapsulationSupported,'mipSecurity':mipSecurity,'mipSecAssocTable':mipSecAssocTable,'mipSecAssocEntry':mipSecAssocEntry,_e:mipSecPeerAddress,_f:mipSecSPI,_m:mipSecAlgorithmType,_n:mipSecAlgorithmMode,_o:mipSecKey,_p:mipSecReplayMethod,_q:mipSecTotalViolations,'mipSecViolationTable':mipSecViolationTable,'mipSecViolationEntry':mipSecViolationEntry,_M:mipSecViolatorAddress,_r:mipSecViolationCounter,_T:mipSecRecentViolationSPI,_s:mipSecRecentViolationTime,_U:mipSecRecentViolationIDLow,_V:mipSecRecentViolationIDHigh,_W:mipSecRecentViolationReason,'mipMN':mipMN,'mnSystem':mnSystem,_t:mnState,_v:mnHomeAddress,'mnHATable':mnHATable,'mnHAEntry':mnHAEntry,_g:mnHAAddress,_u:mnCurrentHA,_w:mnHAStatus,'mnDiscovery':mnDiscovery,'mnFATable':mnFATable,'mnFAEntry':mnFAEntry,_N:mnFAAddress,_O:mnCOA,'mnRecentAdvReceived':mnRecentAdvReceived,_x:mnAdvSourceAddress,_y:mnAdvSequence,_z:mnAdvFlags,_A0:mnAdvMaxRegLifetime,_A1:mnAdvMaxAdvLifetime,_A2:mnAdvTimeReceived,_A3:mnSolicitationsSent,_A4:mnAdvertisementsReceived,_A5:mnAdvsDroppedInvalidExtension,_A6:mnAdvsIgnoredUnknownExtension,_A7:mnMoveFromHAToFA,_A8:mnMoveFromFAToFA,_A9:mnMoveFromFAToHA,_AA:mnGratuitousARPsSend,_AB:mnAgentRebootsDectected,'mnRegistration':mnRegistration,'mnRegistrationTable':mnRegistrationTable,'mnRegistrationEntry':mnRegistrationEntry,_P:mnRegAgentAddress,_Q:mnRegCOA,_AC:mnRegFlags,_AD:mnRegIDLow,_AE:mnRegIDHigh,_AF:mnRegTimeRequested,_AG:mnRegTimeRemaining,_AH:mnRegTimeSent,_AI:mnRegIsAccepted,_AJ:mnCOAIsLocal,_AK:mnRegRequestsSent,_AM:mnDeRegRequestsSent,_AL:mnRegRepliesRecieved,_AN:mnDeRegRepliesRecieved,_AO:mnRepliesInvalidHomeAddress,_AP:mnRepliesUnknownHA,_AQ:mnRepliesUnknownFA,_AR:mnRepliesInvalidID,_AS:mnRepliesDroppedInvalidExtension,_AT:mnRepliesIgnoredUnknownExtension,_AU:mnRepliesHAAuthenticationFailure,_AV:mnRepliesFAAuthenticationFailure,_AW:mnRegRequestsAccepted,_AX:mnRegRequestsDeniedByHA,_AY:mnRegRequestsDeniedByFA,_AZ:mnRegRequestsDeniedByHADueToID,_Aa:mnRegRequestsWithDirectedBroadcast,'mipMA':mipMA,'maAdvertisement':maAdvertisement,'maAdvConfigTable':maAdvConfigTable,'maAdvConfigEntry':maAdvConfigEntry,_h:maInterfaceAddress,_Ab:maAdvMaxRegLifetime,_Ac:maAdvPrefixLengthInclusion,_Ad:maAdvAddress,_Ae:maAdvMaxInterval,_Af:maAdvMinInterval,_Ag:maAdvMaxAdvLifetime,_Ah:maAdvResponseSolicitationOnly,_Ai:maAdvStatus,_Aj:maAdvertisementsSent,_Ak:maAdvsSentForSolicitation,_Al:maSolicitationsReceived,'mipFA':mipFA,'faSystem':faSystem,'faCOATable':faCOATable,'faCOAEntry':faCOAEntry,_i:faSupportedCOA,_Am:faCOAStatus,'faAdvertisement':faAdvertisement,'faIsBusy':faIsBusy,_An:faRegistrationRequired,'faRegistration':faRegistration,'faVisitorTable':faVisitorTable,'faVisitorEntry':faVisitorEntry,_R:faVisitorIPAddress,_Ao:faVisitorHomeAddress,_Ap:faVisitorHomeAgentAddress,_Aq:faVisitorTimeGranted,_Ar:faVisitorTimeRemaining,_As:faVisitorRegFlags,_At:faVisitorRegIDLow,_Au:faVisitorRegIDHigh,_Av:faVisitorRegIsAccepted,_Aw:faRegRequestsReceived,_Ax:faRegRequestsRelayed,_Ay:faReasonUnspecified,_Az:faAdmProhibited,_A_:faInsufficientResource,_B0:faMNAuthenticationFailure,_B1:faRegLifetimeTooLong,_B2:faPoorlyFormedRequests,_B3:faEncapsulationUnavailable,_B4:faVJCompressionUnavailable,_B5:faHAUnreachable,_B6:faRegRepliesRecieved,_B7:faRegRepliesRelayed,_B8:faHAAuthenticationFailure,_B9:faPoorlyFormedReplies,'mipHA':mipHA,'haRegistration':haRegistration,'haMobilityBindingTable':haMobilityBindingTable,'haMobilityBindingEntry':haMobilityBindingEntry,_J:haMobilityBindingMN,_S:haMobilityBindingCOA,_BA:haMobilityBindingSourceAddress,_BB:haMobilityBindingRegFlags,_BC:haMobilityBindingRegIDLow,_BD:haMobilityBindingRegIDHigh,_BE:haMobilityBindingTimeGranted,_BF:haMobilityBindingTimeRemaining,'haCounterTable':haCounterTable,'haCounterEntry':haCounterEntry,_BX:haServiceRequestsAccepted,_BY:haServiceRequestsDenied,_BZ:haOverallServiceTime,_Ba:haRecentServiceAcceptedTime,_Bb:haRecentServiceDeniedTime,_Bc:haRecentServiceDeniedCode,_BG:haRegistrationAccepted,_BH:haMultiBindingUnsupported,_BI:haReasonUnspecified,_BJ:haAdmProhibited,_BK:haInsufficientResource,_BL:haMNAuthenticationFailure,_BM:haFAAuthenticationFailure,_BN:haIDMismatch,_BO:haPoorlyFormedRequest,_BP:haTooManyBindings,_BQ:haUnknownHA,_BR:haGratuitiousARPsSent,_BS:haProxyARPsSent,_BT:haRegRequestsReceived,_BU:haDeRegRequestsReceived,_BV:haRegRepliesSent,_BW:haDeRegRepliesSent,'mipMIBNotificationPrefix':mipMIBNotificationPrefix,'mipMIBNotifications':mipMIBNotifications,_Bd:mipAuthFailure,'mipMIBConformance':mipMIBConformance,'mipGroups':mipGroups,_Be:mipSystemGroup,_Bf:mipSecAssociationGroup,_Bg:mipSecViolationGroup,_Bh:mnSystemGroup,_Bi:mnDiscoveryGroup,_Bj:mnRegistrationGroup,_Bk:maAdvertisementGroup,_Bl:faSystemGroup,_Bm:faAdvertisementGroup,_Bn:faRegistrationGroup,_Bo:haRegistrationGroup,_Bp:haRegNodeCountersGroup,_Bq:mipSecNotificationsGroup,'mipCompliances':mipCompliances,'mipCompliance':mipCompliance})

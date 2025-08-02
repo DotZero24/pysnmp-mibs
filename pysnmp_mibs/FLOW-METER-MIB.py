@@ -1,295 +1,721 @@
-#
-# PySNMP MIB module FLOW-METER-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/FLOW-METER-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:13:04 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, ObjectIdentifier, Integer, ) = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion")
-( ifIndex, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-( TimeFilter, ) = mibBuilder.importSymbols("RMON2-MIB", "TimeFilter")
-( ModuleCompliance, NotificationGroup, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-( IpAddress, Bits, ObjectIdentity, mib_2, Integer32, Counter32, NotificationType, MibIdentifier, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, iso, Gauge32, ModuleIdentity, TimeTicks, ) = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Bits", "ObjectIdentity", "mib-2", "Integer32", "Counter32", "NotificationType", "MibIdentifier", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "iso", "Gauge32", "ModuleIdentity", "TimeTicks")
-( RowStatus, TimeStamp, TextualConvention, DisplayString, TruthValue, ) = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TimeStamp", "TextualConvention", "DisplayString", "TruthValue")
-flowMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 40)).setRevisions(("1999-10-25 00:00", "1999-08-30 12:50", "1999-08-19 10:10", "1997-12-23 09:37", "1997-07-07 17:15", "1996-03-08 02:08",))
-if mibBuilder.loadTexts: flowMIB.setLastUpdated('9910250000Z')
-if mibBuilder.loadTexts: flowMIB.setOrganization('IETF Realtime Traffic Flow Measurement Working Group')
-if mibBuilder.loadTexts: flowMIB.setContactInfo('Nevil Brownlee, The University of Auckland\n\n        Postal: Information Technology Sytems & Services\n                The University of Auckland\n                Private Bag 92-019\n                Auckland, New Zealand\n\n        Phone:  +64 9 373 7599 x8941\n        E-mail: n.brownlee@auckland.ac.nz')
-if mibBuilder.loadTexts: flowMIB.setDescription('MIB for the RTFM Traffic Flow Meter.')
-flowControl = MibIdentifier((1, 3, 6, 1, 2, 1, 40, 1))
-flowData = MibIdentifier((1, 3, 6, 1, 2, 1, 40, 2))
-flowRules = MibIdentifier((1, 3, 6, 1, 2, 1, 40, 3))
-flowMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 40, 4))
-class UTF8OwnerString(OctetString, TextualConvention):
-    displayHint = '127t'
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,127)
-
-class PeerType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 11, 12, 13,))
-    namedValues = NamedValues(("ipv4", 1), ("ipv6", 2), ("nsap", 3), ("ipx", 11), ("appletalk", 12), ("decnet", 13),)
-
-class PeerAddress(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(3,20)
-
-class AdjacentType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 3, 7, 9, 11, 12, 13, 15,))
-    namedValues = NamedValues(("ip", 1), ("nsap", 3), ("ethernet", 7), ("tokenring", 9), ("ipx", 11), ("appletalk", 12), ("decnet", 13), ("fddi", 15),)
-
-class AdjacentAddress(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(3,20)
-
-class TransportType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(1,255)
-
-class TransportAddress(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(2,2)
-    fixedLength = 2
-
-class RuleAddress(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(2,20)
-
-class FlowAttributeNumber(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41,))
-    namedValues = NamedValues(("flowIndex", 1), ("flowStatus", 2), ("flowTimeMark", 3), ("sourceInterface", 4), ("sourceAdjacentType", 5), ("sourceAdjacentAddress", 6), ("sourceAdjacentMask", 7), ("sourcePeerType", 8), ("sourcePeerAddress", 9), ("sourcePeerMask", 10), ("sourceTransType", 11), ("sourceTransAddress", 12), ("sourceTransMask", 13), ("destInterface", 14), ("destAdjacentType", 15), ("destAdjacentAddress", 16), ("destAdjacentMask", 17), ("destPeerType", 18), ("destPeerAddress", 19), ("destPeerMask", 20), ("destTransType", 21), ("destTransAddress", 22), ("destTransMask", 23), ("pduScale", 24), ("octetScale", 25), ("ruleSet", 26), ("toOctets", 27), ("toPDUs", 28), ("fromOctets", 29), ("fromPDUs", 30), ("firstTime", 31), ("lastActiveTime", 32), ("sourceSubscriberID", 33), ("destSubscriberID", 34), ("sessionID", 35), ("sourceClass", 36), ("destClass", 37), ("flowClass", 38), ("sourceKind", 39), ("destKind", 40), ("flowKind", 41),)
-
-class RuleAttributeNumber(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(0, 4, 5, 6, 8, 9, 11, 12, 14, 15, 16, 18, 19, 21, 22, 33, 34, 35, 36, 37, 38, 39, 40, 41, 50, 51, 52, 53, 54, 55,))
-    namedValues = NamedValues(("null", 0), ("sourceInterface", 4), ("sourceAdjacentType", 5), ("sourceAdjacentAddress", 6), ("sourcePeerType", 8), ("sourcePeerAddress", 9), ("sourceTransType", 11), ("sourceTransAddress", 12), ("destInterface", 14), ("destAdjacentType", 15), ("destAdjacentAddress", 16), ("destPeerType", 18), ("destPeerAddress", 19), ("destTransType", 21), ("destTransAddress", 22), ("sourceSubscriberID", 33), ("destSubscriberID", 34), ("sessionID", 35), ("sourceClass", 36), ("destClass", 37), ("flowClass", 38), ("sourceKind", 39), ("destKind", 40), ("flowKind", 41), ("matchingStoD", 50), ("v1", 51), ("v2", 52), ("v3", 53), ("v4", 54), ("v5", 55),)
-
-class ActionNumber(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,))
-    namedValues = NamedValues(("ignore", 1), ("noMatch", 2), ("count", 3), ("countPkt", 4), ("return", 5), ("gosub", 6), ("gosubAct", 7), ("assign", 8), ("assignAct", 9), ("goto", 10), ("gotoAct", 11), ("pushRuleTo", 12), ("pushRuleToAct", 13), ("pushPktTo", 14), ("pushPktToAct", 15), ("popTo", 16), ("popToAct", 17),)
-
-flowRuleSetInfoTable = MibTable((1, 3, 6, 1, 2, 1, 40, 1, 1), )
-if mibBuilder.loadTexts: flowRuleSetInfoTable.setDescription("An array of information about the RuleSets held in the\n        meter.\n\n        Any manager may configure a new RuleSet for the meter by\n        creating a row in this table with status active(1), and setting\n        values for all the objects in its rules.  At this stage the new\n        RuleSet is available but not 'running', i.e. it is not being\n        used by the meter to produce entries in the flow table.\n\n        To actually 'run' a RuleSet a manager must create a row in\n        the flowManagerInfoTable, set it's flowManagerStatus to\n        active(1), and set either its CurrentRuleSet or StandbyRuleSet\n        to point to the RuleSet to be run.\n\n        Once a RuleSet is running a manager may not change any of the\n        objects within the RuleSet itself.  Any attempt to do so should\n        result in a notWritable(17) SNMP error-status for such objects.\n\n        A manager may stop a RuleSet running by removing all\n        references to it in the flowManagerInfoTable (i.e. by setting\n        CurrentRuleSet and StandbyRuleSet values to 0).  This provides\n\n        a way to stop RuleSets left running if a manager fails.\n        For example, when a manager is started, it could search the\n        meter's flowManager table and stop all RuleSets having a\n        specified value of flowRuleInfoOwner.\n\n        To prevent a manager from interfering with variables belonging\n        to another manager, the meter should use MIB views [RFC2575] so\n        as to limit each manager's access to the meter's variables,\n        effectively dividing the single meter into several virtual\n        meters, one for each independent manager.")
-flowRuleSetInfoEntry = MibTableRow((1, 3, 6, 1, 2, 1, 40, 1, 1, 1), ).setIndexNames((0, "FLOW-METER-MIB", "flowRuleInfoIndex"))
-if mibBuilder.loadTexts: flowRuleSetInfoEntry.setDescription('Information about a particular RuleSet.')
-flowRuleInfoIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: flowRuleInfoIndex.setDescription('An index which selects an entry in the flowRuleSetInfoTable.\n        Each such entry contains control information for a particular\n        RuleSet which the meter may run.')
-flowRuleInfoSize = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 1, 1, 2), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: flowRuleInfoSize.setDescription('Number of rules in this RuleSet.  Setting this variable will\n\n        cause the meter to allocate space for these rules.')
-flowRuleInfoOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 1, 1, 3), UTF8OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: flowRuleInfoOwner.setDescription("Identifies the manager which 'owns' this RuleSet.  A manager\n        must set this variable when creating a row in this table.")
-flowRuleInfoTimeStamp = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 1, 1, 4), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowRuleInfoTimeStamp.setDescription("Time this row's associated RuleSet was last changed.")
-flowRuleInfoStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: flowRuleInfoStatus.setDescription("The status of this flowRuleSetInfoEntry. If this value is\n        not active(1) the meter must not attempt to use the row's\n        associated RuleSet.  Once its value has been set to active(1)\n        a manager may not change any of the other variables in the\n        row, nor the contents of the associated RuleSet.  Any attempt\n        to do so should result in a notWritable(17) SNMP error-status\n        for such variables or objects.\n\n        To download a RuleSet, a manger could:\n           - Locate an open slot in the RuleSetInfoTable.\n           - Create a RuleSetInfoEntry by setting the status for this\n               open slot to createAndWait(5).\n           - Set flowRuleInfoSize and flowRuleInfoName as required.\n           - Download the rules into the row's rule table.\n           - Set flowRuleInfoStatus to active(1).\n\n        The RuleSet would then be ready to run. The manager is not\n        allowed to change the value of flowRuleInfoStatus from\n        active(1) if the associated RuleSet is being referenced by any\n        of the entries in the flowManagerInfoTable.\n\n        Setting RuleInfoStatus to destroy(6) destroys the associated\n        RuleSet together with any flow data collected by it.")
-flowRuleInfoName = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,127))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: flowRuleInfoName.setDescription('An alphanumeric identifier used by managers and readers to\n        identify a RuleSet.  For example, a manager wishing to run a\n        RuleSet named WWW-FLOWS could search the flowRuleSetInfoTable\n        to see whether the WWW-FLOWS RuleSet is already available on\n        the meter.\n\n        Note that references to RuleSets in the flowManagerInfoTable\n        use indexes for their flowRuleSetInfoTable entries.  These may\n        be different each time the RuleSet is loaded into a meter.')
-flowRuleInfoRulesReady = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 1, 1, 7), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: flowRuleInfoRulesReady.setDescription("Indicates whether the rules for this row's associated RuleSet\n        are ready for use.  The meter will refuse to 'run' the RuleSet\n        unless this variable has been set to true(1).\n        While RulesReady is false(2), the manager may modify the\n        RuleSet, for example by downloading rules into it.")
-flowRuleInfoFlowRecords = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 1, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowRuleInfoFlowRecords.setDescription('The number of entries in the flow table for this RuleSet.\n        These may be current (waiting for collection by one or more\n        meter readers) or idle (waiting for the meter to recover\n        their memory).')
-flowInterfaceTable = MibTable((1, 3, 6, 1, 2, 1, 40, 1, 2), )
-if mibBuilder.loadTexts: flowInterfaceTable.setDescription('An array of information specific to each meter interface.')
-flowInterfaceEntry = MibTableRow((1, 3, 6, 1, 2, 1, 40, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: flowInterfaceEntry.setDescription('Information about a particular interface.')
-flowInterfaceSampleRate = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 2, 1, 1), Integer32().clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: flowInterfaceSampleRate.setDescription("The parameter N for statistical counting on this interface.\n        Set to N to count 1/Nth of the packets appearing at this\n        interface.  A sampling rate of 1 counts all packets.\n        A sampling rate of 0 results in the interface being ignored\n        by the meter.\n\n        A meter should choose its own algorithm to introduce variance\n        into the sampling so that exactly every Nth packet is counted.\n        The IPPM Working Group's RFC 'Framework for IP Performance\n        Metrics' [IPPM-FRM] explains why this should be done, and sets\n        out an algorithm for doing it.")
-flowInterfaceLostPackets = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 2, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowInterfaceLostPackets.setDescription('The number of packets the meter has lost for this interface.\n        Such losses may occur because the meter has been unable to\n        keep up with the traffic volume.')
-flowReaderInfoTable = MibTable((1, 3, 6, 1, 2, 1, 40, 1, 3), )
-if mibBuilder.loadTexts: flowReaderInfoTable.setDescription('An array of information about meter readers which have\n        registered their intent to collect flow data from this meter.')
-flowReaderInfoEntry = MibTableRow((1, 3, 6, 1, 2, 1, 40, 1, 3, 1), ).setIndexNames((0, "FLOW-METER-MIB", "flowReaderIndex"))
-if mibBuilder.loadTexts: flowReaderInfoEntry.setDescription('Information about a particular meter reader.')
-flowReaderIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: flowReaderIndex.setDescription('An index which selects an entry in the flowReaderInfoTable.')
-flowReaderTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 3, 1, 2), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: flowReaderTimeout.setDescription('Specifies the maximum time (in seconds) between flow data\n        collections for this meter reader.  If this time elapses\n        without a collection, the meter should assume that this meter\n        reader has stopped collecting, and delete this row from the\n        table.  A value of zero indicates that this row should not be\n        timed out.')
-flowReaderOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 3, 1, 3), UTF8OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: flowReaderOwner.setDescription('Identifies the meter reader which created this row.')
-flowReaderLastTime = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 3, 1, 4), TimeStamp()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: flowReaderLastTime.setDescription('Time this meter reader began its most recent data collection.\n\n        This variable should be written by a meter reader as its first\n        step in reading flow data.  The meter will set this LastTime\n        value to its current Uptime, and set its PreviousTime value\n        (below) to the old  LastTime.  This allows the meter to\n        recover flows which have been inactive since PreviousTime,\n        for these have been collected at least once.\n\n        If the meter reader fails to write flowLastReadTime, collection\n        may still proceed but the meter may not be able to recover\n        inactive flows until the flowReaderTimeout has been reached\n        for this entry.')
-flowReaderPreviousTime = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 3, 1, 5), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowReaderPreviousTime.setDescription('Time this meter reader began the collection before last.')
-flowReaderStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 3, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: flowReaderStatus.setDescription("The status of this FlowReaderInfoEntry. A value of active(1)\n        implies that the associated reader should be collecting data\n        from the meter.  Once this variable has been set to active(1)\n        a manager may only change this row's flowReaderLastTime and\n        flowReaderTimeout variables.")
-flowReaderRuleSet = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: flowReaderRuleSet.setDescription("An index to the array of RuleSets.  Specifies a set of rules\n        of interest to this meter reader.  The reader will attempt to\n        collect any data generated by the meter for this RuleSet, and\n        the meter will not recover the memory of any of the RuleSet's\n        flows until this collection has taken place.  Note that a\n        reader may have entries in this table for several RuleSets.")
-flowManagerInfoTable = MibTable((1, 3, 6, 1, 2, 1, 40, 1, 4), )
-if mibBuilder.loadTexts: flowManagerInfoTable.setDescription('An array of information about managers which have\n\n        registered their intent to run RuleSets on this meter.')
-flowManagerInfoEntry = MibTableRow((1, 3, 6, 1, 2, 1, 40, 1, 4, 1), ).setIndexNames((0, "FLOW-METER-MIB", "flowManagerIndex"))
-if mibBuilder.loadTexts: flowManagerInfoEntry.setDescription("Information about a particular meter 'task.'  By creating\n        an entry in this table and activating it, a manager requests\n        that the meter 'run' the indicated RuleSet.\n\n        The entry also specifies a HighWaterMark and a StandbyRuleSet.\n        If the meter's flow table usage exceeds this task's\n        HighWaterMark the meter will stop running the task's\n        CurrentRuleSet and switch to its StandbyRuleSet.\n\n        If the value of the task's StandbyRuleSet is 0 when its\n        HighWaterMark is exceeded, the meter simply stops running the\n        task's CurrentRuleSet.  By careful selection of HighWaterMarks\n        for the various tasks a manager can ensure that the most\n        critical RuleSets are the last to stop running as the number\n        of flows increases.\n\n        When a manager has determined that the demand for flow table\n        space has abated, it may cause the task to switch back to its\n        CurrentRuleSet by setting its flowManagerRunningStandby\n        variable to false(2).")
-flowManagerIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: flowManagerIndex.setDescription('An index which selects an entry in the flowManagerInfoTable.')
-flowManagerCurrentRuleSet = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 4, 1, 2), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: flowManagerCurrentRuleSet.setDescription("Index to the array of RuleSets.  Specifies which set of\n        rules is the 'current' one for this task.  The meter will\n        be 'running' the current RuleSet if this row's\n        flowManagerRunningStandby value is false(2).\n\n        When the manager sets this variable the meter will stop using\n        the task's old current RuleSet and start using the new one.\n        Specifying RuleSet 0 (the empty set) stops flow measurement\n        for this task.")
-flowManagerStandbyRuleSet = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 4, 1, 3), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: flowManagerStandbyRuleSet.setDescription("Index to the array of RuleSets.  After reaching HighWaterMark\n        (see below) the manager will switch to using the task's\n        StandbyRuleSet in place of its CurrentRuleSet.  For this to be\n        effective the designated StandbyRuleSet should have a coarser\n        reporting granularity then the CurrentRuleSet.  The manager may\n        also need to decrease the meter reading interval so that the\n        meter can recover flows measured by this task's CurrentRuleSet.")
-flowManagerHighWaterMark = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 4, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,100))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: flowManagerHighWaterMark.setDescription('A value expressed as a percentage, interpreted by the meter\n        as an indication of how full the flow table should be before\n        it should switch to the standby RuleSet (if one has been\n        specified) for this task.  Values of 0% or 100% disable the\n        checking represented by this variable.')
-flowManagerCounterWrap = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("wrap", 1), ("scale", 2),)).clone('wrap')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: flowManagerCounterWrap.setDescription('Specifies whether PDU and octet counters should wrap when\n        they reach the top of their range (normal behaviour for\n        Counter64 objects), or whether their scale factors should\n        be used instead.  The combination of counter and scale\n        factor allows counts to be returned as non-negative binary\n        floating point numbers, with 64-bit mantissas and 8-bit\n        exponents.')
-flowManagerOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 4, 1, 6), UTF8OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: flowManagerOwner.setDescription('Identifies the manager which created this row.')
-flowManagerTimeStamp = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 4, 1, 7), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowManagerTimeStamp.setDescription('Time this row was last changed by its manager.')
-flowManagerStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 4, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: flowManagerStatus.setDescription('The status of this row in the flowManagerInfoTable.  A value\n        of active(1) implies that this task may be activated, by\n        setting its CurrentRuleSet and StandbyRuleSet variables.\n        Its HighWaterMark and RunningStandby variables may also be\n        changed.')
-flowManagerRunningStandby = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 1, 4, 1, 9), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: flowManagerRunningStandby.setDescription("Set to true(1) by the meter to indicate that it has switched\n        to runnning this task's StandbyRuleSet in place of its\n\n        CurrentRuleSet.  To switch back to the CurrentRuleSet, the\n        manager may simply set this variable to false(2).")
-flowFloodMark = MibScalar((1, 3, 6, 1, 2, 1, 40, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,100)).clone(95)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: flowFloodMark.setDescription('A value expressed as a percentage, interpreted by the meter\n        as an indication of how full the flow table should be before\n        it should take some action to avoid running out of resources\n        to handle new flows, as discussed in section 4.6 (Handling\n        Increasing Traffic Levels) of the RTFM Architecture RFC\n        [RTFM-ARC].\n\n        Values of 0% or 100% disable the checking represented by\n        this variable.')
-flowInactivityTimeout = MibScalar((1, 3, 6, 1, 2, 1, 40, 1, 6), Integer32().clone(600)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: flowInactivityTimeout.setDescription("The time in seconds since the last packet seen, after which\n        a flow becomes 'idle.'  Note that although a flow may be\n        idle, it will not be discarded (and its memory recovered)\n        until after its data has been collected by all the meter\n        readers registered for its RuleSet.")
-flowActiveFlows = MibScalar((1, 3, 6, 1, 2, 1, 40, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowActiveFlows.setDescription('The number of flows which are currently in use.')
-flowMaxFlows = MibScalar((1, 3, 6, 1, 2, 1, 40, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowMaxFlows.setDescription("The maximum number of flows allowed in the meter's\n        flow table.  At present this is determined when the meter\n        is first started up.")
-flowFloodMode = MibScalar((1, 3, 6, 1, 2, 1, 40, 1, 9), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: flowFloodMode.setDescription('Indicates that the meter has passed its FloodMark and is\n        not running in its normal mode.\n\n        When the manager notices this it should take action to remedy\n        the problem which caused the flooding.  It should then monitor\n        flowActiveFlows so as to determine when the flood has receded.\n        At that point the manager may set flowFloodMode to false(2) to\n        resume normal operation.')
-flowDataTable = MibTable((1, 3, 6, 1, 2, 1, 40, 2, 1), )
-if mibBuilder.loadTexts: flowDataTable.setDescription('The list of all flows being measured.')
-flowDataEntry = MibTableRow((1, 3, 6, 1, 2, 1, 40, 2, 1, 1), ).setIndexNames((0, "FLOW-METER-MIB", "flowDataRuleSet"), (0, "FLOW-METER-MIB", "flowDataTimeMark"), (0, "FLOW-METER-MIB", "flowDataIndex"))
-if mibBuilder.loadTexts: flowDataEntry.setDescription('The flow data record for a particular flow.')
-flowDataIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: flowDataIndex.setDescription("Value of this flow data record's index within the meter's\n        flow table.")
-flowDataTimeMark = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 2), TimeFilter())
-if mibBuilder.loadTexts: flowDataTimeMark.setDescription("A TimeFilter for this entry.  Allows GetNext and GetBulk\n        to find flow table rows which have changed since a specified\n        value of the meter's Uptime.")
-flowDataStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("inactive", 1), ("current", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataStatus.setDescription('Status of this flow data record.')
-flowDataSourceInterface = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataSourceInterface.setDescription("Index of the interface associated with the source address\n        for this flow.  It's value is one of those contained in the\n        ifIndex field of the meter's interfaces table.")
-flowDataSourceAdjacentType = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 5), AdjacentType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataSourceAdjacentType.setDescription('Adjacent address type of the source for this flow.\n\n        If metering is being performed at the network level,\n        AdjacentType will indicate the medium for the interface on\n        which the flow was observed and AdjacentAddress will be the\n        MAC address for that interface.  This is the usual case.\n\n        If traffic is being metered inside a tunnel, AdjacentType will\n        be the peer type of the host at the end of the tunnel and\n        AdjacentAddress will be the peer address for that host.')
-flowDataSourceAdjacentAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 6), AdjacentAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataSourceAdjacentAddress.setDescription('Address of the adjacent device on the path for the source\n        for this flow.')
-flowDataSourceAdjacentMask = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 7), AdjacentAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataSourceAdjacentMask.setDescription('1-bits in this mask indicate which bits must match when\n        comparing the adjacent source address for this flow.')
-flowDataSourcePeerType = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 8), PeerType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataSourcePeerType.setDescription('Peer address type of the source for this flow.')
-flowDataSourcePeerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 9), PeerAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataSourcePeerAddress.setDescription('Address of the peer device for the source of this flow.')
-flowDataSourcePeerMask = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 10), PeerAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataSourcePeerMask.setDescription('1-bits in this mask indicate which bits must match when\n        comparing the source peer address for this flow.')
-flowDataSourceTransType = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 11), TransportType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataSourceTransType.setDescription('Transport address type of the source for this flow.  The\n        value of this attribute will depend on the peer address type.')
-flowDataSourceTransAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 12), TransportAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataSourceTransAddress.setDescription('Transport address for the source of this flow.')
-flowDataSourceTransMask = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 13), TransportAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataSourceTransMask.setDescription('1-bits in this mask indicate which bits must match when\n        comparing the transport source address for this flow.')
-flowDataDestInterface = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 14), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataDestInterface.setDescription('Index of the interface associated with the dest address for\n        this flow.  This value is one of the values contained in the\n        ifIndex field of the interfaces table.')
-flowDataDestAdjacentType = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 15), AdjacentType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataDestAdjacentType.setDescription('Adjacent address type of the destination for this flow.')
-flowDataDestAdjacentAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 16), AdjacentAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataDestAdjacentAddress.setDescription('Address of the adjacent device on the path for the\n        destination for this flow.')
-flowDataDestAdjacentMask = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 17), AdjacentAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataDestAdjacentMask.setDescription('1-bits in this mask indicate which bits must match when\n        comparing the adjacent destination address for this flow.')
-flowDataDestPeerType = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 18), PeerType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataDestPeerType.setDescription('Peer address type of the destination for this flow.')
-flowDataDestPeerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 19), PeerAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataDestPeerAddress.setDescription('Address of the peer device for the destination of this flow.')
-flowDataDestPeerMask = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 20), PeerAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataDestPeerMask.setDescription('1-bits in this mask indicate which bits must match when\n        comparing the destination peer type for this flow.')
-flowDataDestTransType = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 21), TransportType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataDestTransType.setDescription('Transport address type of the destination for this flow.  The\n        value of this attribute will depend on the peer address type.')
-flowDataDestTransAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 22), TransportAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataDestTransAddress.setDescription('Transport address for the destination of this flow.')
-flowDataDestTransMask = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 23), TransportAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataDestTransMask.setDescription('1-bits in this mask indicate which bits must match when\n        comparing the transport destination address for this flow.')
-flowDataPDUScale = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 24), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataPDUScale.setDescription('The scale factor applied to this particular flow.  Indicates\n        the number of bits the PDU counter values should be moved left\n        to obtain the actual values.')
-flowDataOctetScale = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 25), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataOctetScale.setDescription('The scale factor applied to this particular flow.  Indicates\n        the number of bits the octet counter values should be moved\n        left to obtain the actual values.')
-flowDataRuleSet = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 26), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,255)))
-if mibBuilder.loadTexts: flowDataRuleSet.setDescription('The RuleSet number of the RuleSet which created this flow.\n        Allows a manager to use GetNext or GetBulk requests to find\n        flows belonging to a particular RuleSet.')
-flowDataToOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 27), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataToOctets.setDescription('The count of octets flowing from source to destination\n        for this flow.')
-flowDataToPDUs = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 28), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataToPDUs.setDescription('The count of packets flowing from source to destination\n        for this flow.')
-flowDataFromOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 29), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataFromOctets.setDescription('The count of octets flowing from destination to source\n        for this flow.')
-flowDataFromPDUs = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 30), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataFromPDUs.setDescription('The count of packets flowing from destination to source\n        for this flow.')
-flowDataFirstTime = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 31), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataFirstTime.setDescription('The time at which this flow was first entered in the table')
-flowDataLastActiveTime = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 32), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataLastActiveTime.setDescription('The last time this flow had activity, i.e. the time of\n        arrival of the most recent PDU belonging to this flow.')
-flowDataSourceSubscriberID = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 33), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4,20))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataSourceSubscriberID.setDescription('Subscriber ID associated with the source address for this\n        flow.  A Subscriber ID is an unspecified text string, used\n        to ascribe traffic flows to individual users.  At this time\n        the means by which a Subscriber ID may be associated with a\n        flow is unspecified.')
-flowDataDestSubscriberID = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 34), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4,20))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataDestSubscriberID.setDescription('Subscriber ID associated with the destination address for\n        this flow.  A Subscriber ID is an unspecified text string,\n        used to ascribe traffic flows to individual users.  At this\n        time the means by which a Subscriber ID may be associated\n        with a flow is unspecified.')
-flowDataSessionID = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 35), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4,10))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataSessionID.setDescription('Session ID for this flow.  Such an ID might be allocated\n        by a network access server to distinguish a series of sessions\n        between the same pair of addresses, which would otherwise\n        appear to be parts of the same accounting flow.')
-flowDataSourceClass = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 36), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataSourceClass.setDescription('Source class for this flow.  Determined by the rules, set by\n        a PushRule action when this flow was entered in the table.')
-flowDataDestClass = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 37), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataDestClass.setDescription('Destination class for this flow.  Determined by the rules, set\n        by a PushRule action when this flow was entered in the table.')
-flowDataClass = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 38), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataClass.setDescription('Class for this flow.  Determined by the rules, set by a\n        PushRule action when this flow was entered in the table.')
-flowDataSourceKind = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 39), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataSourceKind.setDescription('Source kind for this flow.  Determined by the rules, set by\n        a PushRule action when this flow was entered in the table.')
-flowDataDestKind = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 40), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataDestKind.setDescription('Destination kind for this flow.  Determined by the rules, set\n        by a PushRule action when this flow was entered in the table.')
-flowDataKind = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 1, 1, 41), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowDataKind.setDescription('Class for this flow.  Determined by the rules, set by a\n        PushRule action when this flow was entered in the table.')
-flowColumnActivityTable = MibTable((1, 3, 6, 1, 2, 1, 40, 2, 2), )
-if mibBuilder.loadTexts: flowColumnActivityTable.setDescription('Index into the Flow Table.  Allows a meter reader to retrieve\n        a list containing the flow table indexes of flows which were\n        last active at or after a given time, together with the values\n        of a specified attribute for each such flow.')
-flowColumnActivityEntry = MibTableRow((1, 3, 6, 1, 2, 1, 40, 2, 2, 1), ).setIndexNames((0, "FLOW-METER-MIB", "flowColumnActivityAttribute"), (0, "FLOW-METER-MIB", "flowColumnActivityTime"), (0, "FLOW-METER-MIB", "flowColumnActivityIndex"))
-if mibBuilder.loadTexts: flowColumnActivityEntry.setDescription('The Column Activity Entry for a particular attribute,\n        activity time and flow.')
-flowColumnActivityAttribute = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 2, 1, 1), FlowAttributeNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowColumnActivityAttribute.setDescription('Specifies the attribute for which values are required from\n        active flows.')
-flowColumnActivityTime = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 2, 1, 2), TimeFilter()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowColumnActivityTime.setDescription('This variable is a copy of flowDataLastActiveTime in the\n        flow data record identified by the flowColumnActivityIndex\n        value of this flowColumnActivityTable entry.')
-flowColumnActivityIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowColumnActivityIndex.setDescription('Index of a flow table entry which was active at or after\n        a specified flowColumnActivityTime.')
-flowColumnActivityData = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 2, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(3,1000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowColumnActivityData.setDescription('Collection of attribute data for flows active after\n        flowColumnActivityTime.  Within the OCTET STRING is a\n        sequence of { flow index, attribute value } pairs, one for\n        each active flow.  The end of the sequence is marked by a\n        flow index value of 0, indicating that there are no more\n        rows in this column.\n\n        The format of objects inside flowColumnFlowData is as follows.\n        All numbers are unsigned.  Numbers and strings appear with\n        their high-order bytes leading.  Numbers are fixed size, as\n        specified by their SYNTAX in the flow table (above), i.e. one\n        octet for flowAddressType and small constants, and four octets\n        for Counter and TimeStamp.  Strings are variable-length, with\n\n        the length given in a single leading octet.\n\n        The following is an attempt at an ASN.1 definition of\n        flowColumnActivityData:\n\n        flowColumnActivityData ::= SEQUENCE flowRowItemEntry\n        flowRowItemEntry ::= SEQUENCE {\n           flowRowNumber    Integer32 (1..65535),\n                                 -- 0 indicates the end of this column\n           flowDataValue   flowDataType -- Choice depends on attribute\n           }\n        flowDataType ::= CHOICE {\n            flowByteValue   Integer32 (1..255),\n            flowShortValue  Integer32 (1..65535),\n            flowLongValue   Integer32,\n            flowStringValue OCTET STRING  -- Length (n) in first byte,\n                  -- n+1 bytes total length, trailing zeroes truncated\n            }')
-flowDataPackageTable = MibTable((1, 3, 6, 1, 2, 1, 40, 2, 3), )
-if mibBuilder.loadTexts: flowDataPackageTable.setDescription('Index into the Flow Table.  Allows a meter reader to retrieve\n        a sequence containing the values of a specified set of\n        attributes for a flow which came from a specified RuleSet and\n        which was last active at or after a given time.')
-flowDataPackageEntry = MibTableRow((1, 3, 6, 1, 2, 1, 40, 2, 3, 1), ).setIndexNames((0, "FLOW-METER-MIB", "flowPackageSelector"), (0, "FLOW-METER-MIB", "flowPackageRuleSet"), (0, "FLOW-METER-MIB", "flowPackageTime"), (0, "FLOW-METER-MIB", "flowPackageIndex"))
-if mibBuilder.loadTexts: flowDataPackageEntry.setDescription('The data package containing selected variables from\n        active rows in the flow table.')
-flowPackageSelector = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 3, 1, 1), OctetString())
-if mibBuilder.loadTexts: flowPackageSelector.setDescription('Specifies the attributes for which values are required from\n        an active flow.  These are encoded as a sequence of octets\n        each containing a FlowAttribute number, preceded by an octet\n        giving the length of the sequence (not including the length\n        octet).  For a flowPackageSelector to be valid, it must\n        contain at least one attribute.')
-flowPackageRuleSet = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,255)))
-if mibBuilder.loadTexts: flowPackageRuleSet.setDescription('Specifies the index (in the flowRuleSetInfoTable) of the rule\n        set which produced the required flow.')
-flowPackageTime = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 3, 1, 3), TimeFilter())
-if mibBuilder.loadTexts: flowPackageTime.setDescription('This variable is a copy of flowDataLastActiveTime in the\n        flow data record identified by the flowPackageIndex\n        value of this flowPackageTable entry.')
-flowPackageIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: flowPackageIndex.setDescription('Index of a flow table entry which was active at or after\n        a specified flowPackageTime.')
-flowPackageData = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 2, 3, 1, 5), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flowPackageData.setDescription("A collection of attribute values for a single flow, as\n        specified by this row's indexes.  The attribute values are\n        contained within a BER-encoded sequence [ASN-1, ASN-BER],\n        in the order they appear in their flowPackageSelector.\n\n        For example, to retrieve a flowPackage containing values for\n        attributes 11, 18 and 29, for a flow in RuleSet 7, with flow\n        index 3447, one would GET the package whose Object Identifier\n        (OID) is\n            flowPackageData . 3.11.18.29 . 7. 0 . 3447\n\n        To get a package for the next such flow which had been\n        active since time 12345 one would GETNEXT the package whose\n        Object Identifier (OID) is\n            flowPackageData . 3.11.18.29 . 7. 12345 . 3447")
-flowRuleTable = MibTable((1, 3, 6, 1, 2, 1, 40, 3, 1), )
-if mibBuilder.loadTexts: flowRuleTable.setDescription('Contains all the RuleSets which may be used by the meter.')
-flowRuleEntry = MibTableRow((1, 3, 6, 1, 2, 1, 40, 3, 1, 1), ).setIndexNames((0, "FLOW-METER-MIB", "flowRuleSet"), (0, "FLOW-METER-MIB", "flowRuleIndex"))
-if mibBuilder.loadTexts: flowRuleEntry.setDescription('The rule record itself.')
-flowRuleSet = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: flowRuleSet.setDescription('Selects a RuleSet from the array of RuleSets.')
-flowRuleIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: flowRuleIndex.setDescription('The index into the Rule table.  N.B: These values will\n        normally be consecutive, given the fall-through semantics\n        of processing the table.')
-flowRuleSelector = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 3, 1, 1, 3), RuleAttributeNumber()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: flowRuleSelector.setDescription("Indicates the attribute to be matched.\n\n        null(0) is a special case; null rules always succeed.\n\n\n        matchingStoD(50) is set by the meter's Packet Matching Engine.\n        Its value is true(1) if the PME is attempting to match the\n        packet with its addresses in Source-to-Destination order (i.e.\n        as they appear in the packet), and false(2) otherwise.\n        Details of how packets are matched are given in the 'Traffic\n        Flow Measurement: Architecture' document [RTFM-ARC].\n        v1(51), v2(52), v3(53), v4(54) and v5(55) select meter\n        variables, each of which can hold the name (i.e. selector\n        value) of an address attribute.  When one of these is used\n        as a selector, its value specifies the attribute to be\n        tested.  Variable values are set by an Assign action.")
-flowRuleMask = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 3, 1, 1, 4), RuleAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: flowRuleMask.setDescription("The initial mask used to compute the desired value.  If the\n        mask is zero the rule's test will always succeed.")
-flowRuleMatchedValue = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 3, 1, 1, 5), RuleAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: flowRuleMatchedValue.setDescription('The resulting value to be matched for equality.\n        Specifically, if the attribute chosen by the flowRuleSelector\n        logically ANDed with the mask specified by the flowRuleMask\n        equals the value specified in the flowRuleMatchedValue, then\n        continue processing the table entry based on the action\n        specified by the flowRuleAction entry.  Otherwise, proceed to\n        the next entry in the rule table.')
-flowRuleAction = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 3, 1, 1, 6), ActionNumber()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: flowRuleAction.setDescription("The action to be taken if this rule's test succeeds, or if\n        the meter's 'test' flag is off.  Actions are opcodes for the\n        meter's Packet Matching Engine; details are given in the\n        'Traffic Flow Measurement: Architecture' document [RTFM-ARC].")
-flowRuleParameter = MibTableColumn((1, 3, 6, 1, 2, 1, 40, 3, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: flowRuleParameter.setDescription("A parameter value providing extra information for this rule's\n        action.  Most of the actions use the parameter value to specify\n        which rule to execute after this rule's test has failed; details\n        are given in the 'Traffic Flow Measurement: Architecture'\n        document [RTFM-ARC].")
-flowMIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 40, 4, 1))
-flowMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 40, 4, 2))
-flowControlGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 40, 4, 2, 1)).setObjects(*(("FLOW-METER-MIB", "flowRuleInfoSize"), ("FLOW-METER-MIB", "flowRuleInfoOwner"), ("FLOW-METER-MIB", "flowRuleInfoTimeStamp"), ("FLOW-METER-MIB", "flowRuleInfoStatus"), ("FLOW-METER-MIB", "flowRuleInfoName"), ("FLOW-METER-MIB", "flowRuleInfoRulesReady"), ("FLOW-METER-MIB", "flowRuleInfoFlowRecords"), ("FLOW-METER-MIB", "flowInterfaceSampleRate"), ("FLOW-METER-MIB", "flowInterfaceLostPackets"), ("FLOW-METER-MIB", "flowReaderTimeout"), ("FLOW-METER-MIB", "flowReaderOwner"), ("FLOW-METER-MIB", "flowReaderLastTime"), ("FLOW-METER-MIB", "flowReaderPreviousTime"), ("FLOW-METER-MIB", "flowReaderStatus"), ("FLOW-METER-MIB", "flowReaderRuleSet"), ("FLOW-METER-MIB", "flowManagerCurrentRuleSet"), ("FLOW-METER-MIB", "flowManagerStandbyRuleSet"), ("FLOW-METER-MIB", "flowManagerHighWaterMark"), ("FLOW-METER-MIB", "flowManagerCounterWrap"), ("FLOW-METER-MIB", "flowManagerOwner"), ("FLOW-METER-MIB", "flowManagerTimeStamp"), ("FLOW-METER-MIB", "flowManagerStatus"), ("FLOW-METER-MIB", "flowManagerRunningStandby"), ("FLOW-METER-MIB", "flowFloodMark"), ("FLOW-METER-MIB", "flowInactivityTimeout"), ("FLOW-METER-MIB", "flowActiveFlows"), ("FLOW-METER-MIB", "flowMaxFlows"), ("FLOW-METER-MIB", "flowFloodMode"),))
-if mibBuilder.loadTexts: flowControlGroup.setDescription('The control group defines objects which are used to control\n        an accounting meter.')
-flowDataTableGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 40, 4, 2, 2)).setObjects(*(("FLOW-METER-MIB", "flowDataStatus"), ("FLOW-METER-MIB", "flowDataSourceInterface"), ("FLOW-METER-MIB", "flowDataSourceAdjacentType"), ("FLOW-METER-MIB", "flowDataSourceAdjacentAddress"), ("FLOW-METER-MIB", "flowDataSourceAdjacentMask"), ("FLOW-METER-MIB", "flowDataSourcePeerType"), ("FLOW-METER-MIB", "flowDataSourcePeerAddress"), ("FLOW-METER-MIB", "flowDataSourcePeerMask"), ("FLOW-METER-MIB", "flowDataSourceTransType"), ("FLOW-METER-MIB", "flowDataSourceTransAddress"), ("FLOW-METER-MIB", "flowDataSourceTransMask"), ("FLOW-METER-MIB", "flowDataDestInterface"), ("FLOW-METER-MIB", "flowDataDestAdjacentType"), ("FLOW-METER-MIB", "flowDataDestAdjacentAddress"), ("FLOW-METER-MIB", "flowDataDestAdjacentMask"), ("FLOW-METER-MIB", "flowDataDestPeerType"), ("FLOW-METER-MIB", "flowDataDestPeerAddress"), ("FLOW-METER-MIB", "flowDataDestPeerMask"), ("FLOW-METER-MIB", "flowDataDestTransType"), ("FLOW-METER-MIB", "flowDataDestTransAddress"), ("FLOW-METER-MIB", "flowDataDestTransMask"), ("FLOW-METER-MIB", "flowDataToOctets"), ("FLOW-METER-MIB", "flowDataToPDUs"), ("FLOW-METER-MIB", "flowDataFromOctets"), ("FLOW-METER-MIB", "flowDataFromPDUs"), ("FLOW-METER-MIB", "flowDataFirstTime"), ("FLOW-METER-MIB", "flowDataLastActiveTime"), ("FLOW-METER-MIB", "flowDataSourceClass"), ("FLOW-METER-MIB", "flowDataDestClass"), ("FLOW-METER-MIB", "flowDataClass"), ("FLOW-METER-MIB", "flowDataSourceKind"), ("FLOW-METER-MIB", "flowDataDestKind"), ("FLOW-METER-MIB", "flowDataKind"),))
-if mibBuilder.loadTexts: flowDataTableGroup.setDescription("The flow table group defines objects which provide the\n        structure for the flow table, including the creation time\n        and activity time indexes into it.  In addition it defines\n        objects which provide a base set of flow attributes for the\n        adjacent, peer and transport layers, together with a flow's\n        counters and times.  Finally it defines a flow's class and\n        kind attributes, which are set by rule actions.")
-flowDataScaleGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 40, 4, 2, 3)).setObjects(*(("FLOW-METER-MIB", "flowManagerCounterWrap"), ("FLOW-METER-MIB", "flowDataPDUScale"), ("FLOW-METER-MIB", "flowDataOctetScale"),))
-if mibBuilder.loadTexts: flowDataScaleGroup.setDescription('The flow scale group defines objects which specify scale\n        factors for counters.')
-flowDataSubscriberGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 40, 4, 2, 4)).setObjects(*(("FLOW-METER-MIB", "flowDataSourceSubscriberID"), ("FLOW-METER-MIB", "flowDataDestSubscriberID"), ("FLOW-METER-MIB", "flowDataSessionID"),))
-if mibBuilder.loadTexts: flowDataSubscriberGroup.setDescription('The flow subscriber group defines objects which may be used\n        to identify the end point(s) of a flow.')
-flowDataColumnTableGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 40, 4, 2, 5)).setObjects(*(("FLOW-METER-MIB", "flowColumnActivityAttribute"), ("FLOW-METER-MIB", "flowColumnActivityIndex"), ("FLOW-METER-MIB", "flowColumnActivityTime"), ("FLOW-METER-MIB", "flowColumnActivityData"),))
-if mibBuilder.loadTexts: flowDataColumnTableGroup.setDescription('The flow column table group defines objects which can be used\n        to collect part of a column of attribute values from the flow\n        table.')
-flowDataPackageGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 40, 4, 2, 6)).setObjects(*(("FLOW-METER-MIB", "flowPackageData"),))
-if mibBuilder.loadTexts: flowDataPackageGroup.setDescription('The data package group defines objects which can be used\n        to collect a specified set of attribute values from a row of\n        the flow table.')
-flowRuleTableGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 40, 4, 2, 7)).setObjects(*(("FLOW-METER-MIB", "flowRuleSelector"), ("FLOW-METER-MIB", "flowRuleMask"), ("FLOW-METER-MIB", "flowRuleMatchedValue"), ("FLOW-METER-MIB", "flowRuleAction"), ("FLOW-METER-MIB", "flowRuleParameter"),))
-if mibBuilder.loadTexts: flowRuleTableGroup.setDescription('The rule table group defines objects which hold the set(s)\n        of rules specifying which traffic flows are to be accounted\n        for.')
-flowDataScaleGroup2 = ObjectGroup((1, 3, 6, 1, 2, 1, 40, 4, 2, 8)).setObjects(*(("FLOW-METER-MIB", "flowDataPDUScale"), ("FLOW-METER-MIB", "flowDataOctetScale"),))
-if mibBuilder.loadTexts: flowDataScaleGroup2.setDescription('The flow scale group defines objects which specify scale\n        factors for counters.  This group replaces the earlier\n        version of flowDataScaleGroup above (now deprecated).')
-flowControlGroup2 = ObjectGroup((1, 3, 6, 1, 2, 1, 40, 4, 2, 9)).setObjects(*(("FLOW-METER-MIB", "flowRuleInfoSize"), ("FLOW-METER-MIB", "flowRuleInfoOwner"), ("FLOW-METER-MIB", "flowRuleInfoTimeStamp"), ("FLOW-METER-MIB", "flowRuleInfoStatus"), ("FLOW-METER-MIB", "flowRuleInfoName"), ("FLOW-METER-MIB", "flowRuleInfoFlowRecords"), ("FLOW-METER-MIB", "flowInterfaceSampleRate"), ("FLOW-METER-MIB", "flowInterfaceLostPackets"), ("FLOW-METER-MIB", "flowReaderTimeout"), ("FLOW-METER-MIB", "flowReaderOwner"), ("FLOW-METER-MIB", "flowReaderLastTime"), ("FLOW-METER-MIB", "flowReaderPreviousTime"), ("FLOW-METER-MIB", "flowReaderStatus"), ("FLOW-METER-MIB", "flowReaderRuleSet"), ("FLOW-METER-MIB", "flowManagerCurrentRuleSet"), ("FLOW-METER-MIB", "flowManagerStandbyRuleSet"), ("FLOW-METER-MIB", "flowManagerHighWaterMark"), ("FLOW-METER-MIB", "flowManagerOwner"), ("FLOW-METER-MIB", "flowManagerTimeStamp"), ("FLOW-METER-MIB", "flowManagerStatus"), ("FLOW-METER-MIB", "flowManagerRunningStandby"), ("FLOW-METER-MIB", "flowFloodMark"), ("FLOW-METER-MIB", "flowInactivityTimeout"), ("FLOW-METER-MIB", "flowActiveFlows"), ("FLOW-METER-MIB", "flowMaxFlows"), ("FLOW-METER-MIB", "flowFloodMode"),))
-if mibBuilder.loadTexts: flowControlGroup2.setDescription('The control group defines objects which are used to control\n        an accounting meter.  It replaces the earlier version of\n        flowControlGroup above (now deprecated).')
-flowMIBCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 40, 4, 1, 1)).setObjects(*(("FLOW-METER-MIB", "flowControlGroup2"), ("FLOW-METER-MIB", "flowDataTableGroup"), ("FLOW-METER-MIB", "flowDataPackageGroup"), ("FLOW-METER-MIB", "flowRuleTableGroup"),))
-if mibBuilder.loadTexts: flowMIBCompliance.setDescription('The compliance statement for a Traffic Flow Meter.')
-mibBuilder.exportSymbols("FLOW-METER-MIB", flowColumnActivityData=flowColumnActivityData, flowRuleSetInfoEntry=flowRuleSetInfoEntry, flowPackageIndex=flowPackageIndex, flowReaderRuleSet=flowReaderRuleSet, flowDataScaleGroup=flowDataScaleGroup, flowMIBCompliance=flowMIBCompliance, flowDataDestPeerMask=flowDataDestPeerMask, flowData=flowData, flowRuleInfoOwner=flowRuleInfoOwner, flowRuleInfoSize=flowRuleInfoSize, flowControl=flowControl, flowDataPackageEntry=flowDataPackageEntry, flowDataSourceSubscriberID=flowDataSourceSubscriberID, flowDataDestKind=flowDataDestKind, AdjacentType=AdjacentType, flowRuleSetInfoTable=flowRuleSetInfoTable, flowRuleMatchedValue=flowRuleMatchedValue, flowDataSourcePeerMask=flowDataSourcePeerMask, flowManagerStatus=flowManagerStatus, PeerType=PeerType, RuleAddress=RuleAddress, FlowAttributeNumber=FlowAttributeNumber, flowDataDestInterface=flowDataDestInterface, flowColumnActivityEntry=flowColumnActivityEntry, flowDataSourceTransAddress=flowDataSourceTransAddress, flowRuleInfoTimeStamp=flowRuleInfoTimeStamp, flowDataSourceAdjacentAddress=flowDataSourceAdjacentAddress, flowRuleSet=flowRuleSet, flowManagerInfoTable=flowManagerInfoTable, flowControlGroup2=flowControlGroup2, flowColumnActivityAttribute=flowColumnActivityAttribute, flowMIBCompliances=flowMIBCompliances, flowReaderIndex=flowReaderIndex, flowDataSourcePeerType=flowDataSourcePeerType, PeerAddress=PeerAddress, flowReaderInfoEntry=flowReaderInfoEntry, flowDataSourcePeerAddress=flowDataSourcePeerAddress, flowDataEntry=flowDataEntry, flowRuleAction=flowRuleAction, flowRuleInfoFlowRecords=flowRuleInfoFlowRecords, flowDataDestSubscriberID=flowDataDestSubscriberID, flowDataToOctets=flowDataToOctets, UTF8OwnerString=UTF8OwnerString, flowDataIndex=flowDataIndex, flowDataClass=flowDataClass, flowDataLastActiveTime=flowDataLastActiveTime, TransportType=TransportType, PYSNMP_MODULE_ID=flowMIB, flowManagerCounterWrap=flowManagerCounterWrap, flowDataSessionID=flowDataSessionID, flowManagerRunningStandby=flowManagerRunningStandby, flowPackageData=flowPackageData, flowDataColumnTableGroup=flowDataColumnTableGroup, flowMaxFlows=flowMaxFlows, flowInterfaceEntry=flowInterfaceEntry, flowReaderStatus=flowReaderStatus, flowDataTable=flowDataTable, flowDataStatus=flowDataStatus, flowRuleSelector=flowRuleSelector, flowDataDestPeerType=flowDataDestPeerType, flowDataSourceTransType=flowDataSourceTransType, flowDataDestAdjacentType=flowDataDestAdjacentType, flowDataSourceTransMask=flowDataSourceTransMask, flowRuleMask=flowRuleMask, flowDataScaleGroup2=flowDataScaleGroup2, flowRuleTableGroup=flowRuleTableGroup, flowColumnActivityIndex=flowColumnActivityIndex, flowDataTableGroup=flowDataTableGroup, flowDataDestAdjacentAddress=flowDataDestAdjacentAddress, flowColumnActivityTime=flowColumnActivityTime, flowManagerOwner=flowManagerOwner, flowRuleInfoName=flowRuleInfoName, flowPackageTime=flowPackageTime, flowDataOctetScale=flowDataOctetScale, flowInactivityTimeout=flowInactivityTimeout, flowMIBConformance=flowMIBConformance, flowMIBGroups=flowMIBGroups, flowManagerCurrentRuleSet=flowManagerCurrentRuleSet, flowRuleTable=flowRuleTable, flowDataFromPDUs=flowDataFromPDUs, flowRuleParameter=flowRuleParameter, flowRules=flowRules, flowPackageSelector=flowPackageSelector, flowManagerHighWaterMark=flowManagerHighWaterMark, TransportAddress=TransportAddress, flowDataDestPeerAddress=flowDataDestPeerAddress, flowDataTimeMark=flowDataTimeMark, flowRuleInfoStatus=flowRuleInfoStatus, flowDataSourceAdjacentMask=flowDataSourceAdjacentMask, RuleAttributeNumber=RuleAttributeNumber, flowDataDestClass=flowDataDestClass, flowDataDestTransMask=flowDataDestTransMask, flowReaderOwner=flowReaderOwner, flowInterfaceSampleRate=flowInterfaceSampleRate, flowDataDestTransType=flowDataDestTransType, flowControlGroup=flowControlGroup, flowDataFromOctets=flowDataFromOctets, ActionNumber=ActionNumber, flowDataPDUScale=flowDataPDUScale, flowFloodMode=flowFloodMode, flowInterfaceTable=flowInterfaceTable, flowDataFirstTime=flowDataFirstTime, flowDataSourceInterface=flowDataSourceInterface, flowReaderPreviousTime=flowReaderPreviousTime, flowDataDestTransAddress=flowDataDestTransAddress, flowActiveFlows=flowActiveFlows, flowDataDestAdjacentMask=flowDataDestAdjacentMask, flowDataSourceClass=flowDataSourceClass, flowReaderTimeout=flowReaderTimeout, AdjacentAddress=AdjacentAddress, flowRuleInfoIndex=flowRuleInfoIndex, flowRuleEntry=flowRuleEntry, flowManagerInfoEntry=flowManagerInfoEntry, flowDataRuleSet=flowDataRuleSet, flowDataPackageGroup=flowDataPackageGroup, flowReaderInfoTable=flowReaderInfoTable, flowRuleInfoRulesReady=flowRuleInfoRulesReady, flowReaderLastTime=flowReaderLastTime, flowPackageRuleSet=flowPackageRuleSet, flowMIB=flowMIB, flowManagerTimeStamp=flowManagerTimeStamp, flowDataSourceAdjacentType=flowDataSourceAdjacentType, flowDataSourceKind=flowDataSourceKind, flowRuleIndex=flowRuleIndex, flowManagerIndex=flowManagerIndex, flowManagerStandbyRuleSet=flowManagerStandbyRuleSet, flowFloodMark=flowFloodMark, flowDataToPDUs=flowDataToPDUs, flowColumnActivityTable=flowColumnActivityTable, flowDataPackageTable=flowDataPackageTable, flowInterfaceLostPackets=flowInterfaceLostPackets, flowDataKind=flowDataKind, flowDataSubscriberGroup=flowDataSubscriberGroup)
+_BB='flowRuleTableGroup'
+_BA='flowDataPackageGroup'
+_B9='flowDataTableGroup'
+_B8='flowControlGroup2'
+_B7='flowRuleParameter'
+_B6='flowRuleAction'
+_B5='flowRuleMatchedValue'
+_B4='flowRuleMask'
+_B3='flowRuleSelector'
+_B2='flowPackageData'
+_B1='flowColumnActivityData'
+_B0='flowDataSessionID'
+_A_='flowDataDestSubscriberID'
+_Az='flowDataSourceSubscriberID'
+_Ay='flowDataKind'
+_Ax='flowDataDestKind'
+_Aw='flowDataSourceKind'
+_Av='flowDataClass'
+_Au='flowDataDestClass'
+_At='flowDataSourceClass'
+_As='flowDataLastActiveTime'
+_Ar='flowDataFirstTime'
+_Aq='flowDataFromPDUs'
+_Ap='flowDataFromOctets'
+_Ao='flowDataToPDUs'
+_An='flowDataToOctets'
+_Am='flowDataDestTransMask'
+_Al='flowDataDestTransAddress'
+_Ak='flowDataDestTransType'
+_Aj='flowDataDestPeerMask'
+_Ai='flowDataDestPeerAddress'
+_Ah='flowDataDestPeerType'
+_Ag='flowDataDestAdjacentMask'
+_Af='flowDataDestAdjacentAddress'
+_Ae='flowDataDestAdjacentType'
+_Ad='flowDataDestInterface'
+_Ac='flowDataSourceTransMask'
+_Ab='flowDataSourceTransAddress'
+_Aa='flowDataSourceTransType'
+_AZ='flowDataSourcePeerMask'
+_AY='flowDataSourcePeerAddress'
+_AX='flowDataSourcePeerType'
+_AW='flowDataSourceAdjacentMask'
+_AV='flowDataSourceAdjacentAddress'
+_AU='flowDataSourceAdjacentType'
+_AT='flowDataSourceInterface'
+_AS='flowDataStatus'
+_AR='flowRuleInfoRulesReady'
+_AQ='flowRuleIndex'
+_AP='flowRuleSet'
+_AO='flowPackageIndex'
+_AN='flowPackageTime'
+_AM='flowPackageRuleSet'
+_AL='flowPackageSelector'
+_AK='flowDataIndex'
+_AJ='flowDataTimeMark'
+_AI='flowDataRuleSet'
+_AH='flowManagerIndex'
+_AG='flowReaderIndex'
+_AF='flowRuleInfoIndex'
+_AE='sourceKind'
+_AD='flowClass'
+_AC='destClass'
+_AB='sourceClass'
+_AA='sessionID'
+_A9='destSubscriberID'
+_A8='sourceSubscriberID'
+_A7='destTransAddress'
+_A6='destTransType'
+_A5='destPeerAddress'
+_A4='destPeerType'
+_A3='destAdjacentAddress'
+_A2='destAdjacentType'
+_A1='destInterface'
+_A0='sourceTransAddress'
+_z='sourceTransType'
+_y='sourcePeerAddress'
+_x='sourcePeerType'
+_w='sourceAdjacentAddress'
+_v='sourceAdjacentType'
+_u='sourceInterface'
+_t='decnet'
+_s='appletalk'
+_r='TruthValue'
+_q='ifIndex'
+_p='IF-MIB'
+_o='flowDataOctetScale'
+_n='flowDataPDUScale'
+_m='flowFloodMode'
+_l='flowMaxFlows'
+_k='flowActiveFlows'
+_j='flowInactivityTimeout'
+_i='flowFloodMark'
+_h='flowManagerRunningStandby'
+_g='flowManagerStatus'
+_f='flowManagerTimeStamp'
+_e='flowManagerOwner'
+_d='flowManagerCounterWrap'
+_c='flowManagerHighWaterMark'
+_b='flowManagerStandbyRuleSet'
+_a='flowManagerCurrentRuleSet'
+_Z='flowReaderRuleSet'
+_Y='flowReaderStatus'
+_X='flowReaderPreviousTime'
+_W='flowReaderLastTime'
+_V='flowReaderOwner'
+_U='flowReaderTimeout'
+_T='flowInterfaceLostPackets'
+_S='flowInterfaceSampleRate'
+_R='flowRuleInfoFlowRecords'
+_Q='flowRuleInfoName'
+_P='flowRuleInfoStatus'
+_O='flowRuleInfoTimeStamp'
+_N='flowRuleInfoOwner'
+_M='flowRuleInfoSize'
+_L='flowColumnActivityIndex'
+_K='flowColumnActivityTime'
+_J='flowColumnActivityAttribute'
+_I='OctetString'
+_H='read-write'
+_G='not-accessible'
+_F='deprecated'
+_E='read-create'
+_D='Integer32'
+_C='read-only'
+_B='current'
+_A='FLOW-METER-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_I,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ifIndex,=mibBuilder.importSymbols(_p,_q)
+TimeFilter,=mibBuilder.importSymbols('RMON2-MIB','TimeFilter')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TimeStamp',_r)
+flowMIB=ModuleIdentity((1,3,6,1,2,1,40))
+if mibBuilder.loadTexts:flowMIB.setRevisions(('1999-10-25 00:00','1999-08-30 12:50','1999-08-19 10:10','1997-12-23 09:37','1997-07-07 17:15','1996-03-08 02:08'))
+class UTF8OwnerString(TextualConvention,OctetString):status=_B;displayHint='127t';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
+class PeerType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,11,12,13)));namedValues=NamedValues(*(('ipv4',1),('ipv6',2),('nsap',3),('ipx',11),(_s,12),(_t,13)))
+class PeerAddress(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,20))
+class AdjacentType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,3,7,9,11,12,13,15)));namedValues=NamedValues(*(('ip',1),('nsap',3),('ethernet',7),('tokenring',9),('ipx',11),(_s,12),(_t,13),('fddi',15)))
+class AdjacentAddress(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,20))
+class TransportType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+class TransportAddress(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
+class RuleAddress(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,20))
+class FlowAttributeNumber(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41)));namedValues=NamedValues(*(('flowIndex',1),('flowStatus',2),('flowTimeMark',3),(_u,4),(_v,5),(_w,6),('sourceAdjacentMask',7),(_x,8),(_y,9),('sourcePeerMask',10),(_z,11),(_A0,12),('sourceTransMask',13),(_A1,14),(_A2,15),(_A3,16),('destAdjacentMask',17),(_A4,18),(_A5,19),('destPeerMask',20),(_A6,21),(_A7,22),('destTransMask',23),('pduScale',24),('octetScale',25),('ruleSet',26),('toOctets',27),('toPDUs',28),('fromOctets',29),('fromPDUs',30),('firstTime',31),('lastActiveTime',32),(_A8,33),(_A9,34),(_AA,35),(_AB,36),(_AC,37),(_AD,38),(_AE,39),('destKind',40),('flowKind',41)))
+class RuleAttributeNumber(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,4,5,6,8,9,11,12,14,15,16,18,19,21,22,33,34,35,36,37,38,39,40,41,50,51,52,53,54,55)));namedValues=NamedValues(*(('null',0),(_u,4),(_v,5),(_w,6),(_x,8),(_y,9),(_z,11),(_A0,12),(_A1,14),(_A2,15),(_A3,16),(_A4,18),(_A5,19),(_A6,21),(_A7,22),(_A8,33),(_A9,34),(_AA,35),(_AB,36),(_AC,37),(_AD,38),(_AE,39),('destKind',40),('flowKind',41),('matchingStoD',50),('v1',51),('v2',52),('v3',53),('v4',54),('v5',55)))
+class ActionNumber(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17)));namedValues=NamedValues(*(('ignore',1),('noMatch',2),('count',3),('countPkt',4),('return',5),('gosub',6),('gosubAct',7),('assign',8),('assignAct',9),('goto',10),('gotoAct',11),('pushRuleTo',12),('pushRuleToAct',13),('pushPktTo',14),('pushPktToAct',15),('popTo',16),('popToAct',17)))
+_FlowControl_ObjectIdentity=ObjectIdentity
+flowControl=_FlowControl_ObjectIdentity((1,3,6,1,2,1,40,1))
+_FlowRuleSetInfoTable_Object=MibTable
+flowRuleSetInfoTable=_FlowRuleSetInfoTable_Object((1,3,6,1,2,1,40,1,1))
+if mibBuilder.loadTexts:flowRuleSetInfoTable.setStatus(_B)
+_FlowRuleSetInfoEntry_Object=MibTableRow
+flowRuleSetInfoEntry=_FlowRuleSetInfoEntry_Object((1,3,6,1,2,1,40,1,1,1))
+flowRuleSetInfoEntry.setIndexNames((0,_A,_AF))
+if mibBuilder.loadTexts:flowRuleSetInfoEntry.setStatus(_B)
+class _FlowRuleInfoIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FlowRuleInfoIndex_Type.__name__=_D
+_FlowRuleInfoIndex_Object=MibTableColumn
+flowRuleInfoIndex=_FlowRuleInfoIndex_Object((1,3,6,1,2,1,40,1,1,1,1),_FlowRuleInfoIndex_Type())
+flowRuleInfoIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:flowRuleInfoIndex.setStatus(_B)
+_FlowRuleInfoSize_Type=Integer32
+_FlowRuleInfoSize_Object=MibTableColumn
+flowRuleInfoSize=_FlowRuleInfoSize_Object((1,3,6,1,2,1,40,1,1,1,2),_FlowRuleInfoSize_Type())
+flowRuleInfoSize.setMaxAccess(_E)
+if mibBuilder.loadTexts:flowRuleInfoSize.setStatus(_B)
+_FlowRuleInfoOwner_Type=UTF8OwnerString
+_FlowRuleInfoOwner_Object=MibTableColumn
+flowRuleInfoOwner=_FlowRuleInfoOwner_Object((1,3,6,1,2,1,40,1,1,1,3),_FlowRuleInfoOwner_Type())
+flowRuleInfoOwner.setMaxAccess(_E)
+if mibBuilder.loadTexts:flowRuleInfoOwner.setStatus(_B)
+_FlowRuleInfoTimeStamp_Type=TimeStamp
+_FlowRuleInfoTimeStamp_Object=MibTableColumn
+flowRuleInfoTimeStamp=_FlowRuleInfoTimeStamp_Object((1,3,6,1,2,1,40,1,1,1,4),_FlowRuleInfoTimeStamp_Type())
+flowRuleInfoTimeStamp.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowRuleInfoTimeStamp.setStatus(_B)
+_FlowRuleInfoStatus_Type=RowStatus
+_FlowRuleInfoStatus_Object=MibTableColumn
+flowRuleInfoStatus=_FlowRuleInfoStatus_Object((1,3,6,1,2,1,40,1,1,1,5),_FlowRuleInfoStatus_Type())
+flowRuleInfoStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:flowRuleInfoStatus.setStatus(_B)
+class _FlowRuleInfoName_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
+_FlowRuleInfoName_Type.__name__=_I
+_FlowRuleInfoName_Object=MibTableColumn
+flowRuleInfoName=_FlowRuleInfoName_Object((1,3,6,1,2,1,40,1,1,1,6),_FlowRuleInfoName_Type())
+flowRuleInfoName.setMaxAccess(_E)
+if mibBuilder.loadTexts:flowRuleInfoName.setStatus(_B)
+_FlowRuleInfoRulesReady_Type=TruthValue
+_FlowRuleInfoRulesReady_Object=MibTableColumn
+flowRuleInfoRulesReady=_FlowRuleInfoRulesReady_Object((1,3,6,1,2,1,40,1,1,1,7),_FlowRuleInfoRulesReady_Type())
+flowRuleInfoRulesReady.setMaxAccess(_E)
+if mibBuilder.loadTexts:flowRuleInfoRulesReady.setStatus(_F)
+_FlowRuleInfoFlowRecords_Type=Integer32
+_FlowRuleInfoFlowRecords_Object=MibTableColumn
+flowRuleInfoFlowRecords=_FlowRuleInfoFlowRecords_Object((1,3,6,1,2,1,40,1,1,1,8),_FlowRuleInfoFlowRecords_Type())
+flowRuleInfoFlowRecords.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowRuleInfoFlowRecords.setStatus(_B)
+_FlowInterfaceTable_Object=MibTable
+flowInterfaceTable=_FlowInterfaceTable_Object((1,3,6,1,2,1,40,1,2))
+if mibBuilder.loadTexts:flowInterfaceTable.setStatus(_B)
+_FlowInterfaceEntry_Object=MibTableRow
+flowInterfaceEntry=_FlowInterfaceEntry_Object((1,3,6,1,2,1,40,1,2,1))
+flowInterfaceEntry.setIndexNames((0,_p,_q))
+if mibBuilder.loadTexts:flowInterfaceEntry.setStatus(_B)
+class _FlowInterfaceSampleRate_Type(Integer32):defaultValue=1
+_FlowInterfaceSampleRate_Type.__name__=_D
+_FlowInterfaceSampleRate_Object=MibTableColumn
+flowInterfaceSampleRate=_FlowInterfaceSampleRate_Object((1,3,6,1,2,1,40,1,2,1,1),_FlowInterfaceSampleRate_Type())
+flowInterfaceSampleRate.setMaxAccess(_H)
+if mibBuilder.loadTexts:flowInterfaceSampleRate.setStatus(_B)
+_FlowInterfaceLostPackets_Type=Counter32
+_FlowInterfaceLostPackets_Object=MibTableColumn
+flowInterfaceLostPackets=_FlowInterfaceLostPackets_Object((1,3,6,1,2,1,40,1,2,1,2),_FlowInterfaceLostPackets_Type())
+flowInterfaceLostPackets.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowInterfaceLostPackets.setStatus(_B)
+_FlowReaderInfoTable_Object=MibTable
+flowReaderInfoTable=_FlowReaderInfoTable_Object((1,3,6,1,2,1,40,1,3))
+if mibBuilder.loadTexts:flowReaderInfoTable.setStatus(_B)
+_FlowReaderInfoEntry_Object=MibTableRow
+flowReaderInfoEntry=_FlowReaderInfoEntry_Object((1,3,6,1,2,1,40,1,3,1))
+flowReaderInfoEntry.setIndexNames((0,_A,_AG))
+if mibBuilder.loadTexts:flowReaderInfoEntry.setStatus(_B)
+class _FlowReaderIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FlowReaderIndex_Type.__name__=_D
+_FlowReaderIndex_Object=MibTableColumn
+flowReaderIndex=_FlowReaderIndex_Object((1,3,6,1,2,1,40,1,3,1,1),_FlowReaderIndex_Type())
+flowReaderIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:flowReaderIndex.setStatus(_B)
+_FlowReaderTimeout_Type=Integer32
+_FlowReaderTimeout_Object=MibTableColumn
+flowReaderTimeout=_FlowReaderTimeout_Object((1,3,6,1,2,1,40,1,3,1,2),_FlowReaderTimeout_Type())
+flowReaderTimeout.setMaxAccess(_E)
+if mibBuilder.loadTexts:flowReaderTimeout.setStatus(_B)
+_FlowReaderOwner_Type=UTF8OwnerString
+_FlowReaderOwner_Object=MibTableColumn
+flowReaderOwner=_FlowReaderOwner_Object((1,3,6,1,2,1,40,1,3,1,3),_FlowReaderOwner_Type())
+flowReaderOwner.setMaxAccess(_E)
+if mibBuilder.loadTexts:flowReaderOwner.setStatus(_B)
+_FlowReaderLastTime_Type=TimeStamp
+_FlowReaderLastTime_Object=MibTableColumn
+flowReaderLastTime=_FlowReaderLastTime_Object((1,3,6,1,2,1,40,1,3,1,4),_FlowReaderLastTime_Type())
+flowReaderLastTime.setMaxAccess(_E)
+if mibBuilder.loadTexts:flowReaderLastTime.setStatus(_B)
+_FlowReaderPreviousTime_Type=TimeStamp
+_FlowReaderPreviousTime_Object=MibTableColumn
+flowReaderPreviousTime=_FlowReaderPreviousTime_Object((1,3,6,1,2,1,40,1,3,1,5),_FlowReaderPreviousTime_Type())
+flowReaderPreviousTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowReaderPreviousTime.setStatus(_B)
+_FlowReaderStatus_Type=RowStatus
+_FlowReaderStatus_Object=MibTableColumn
+flowReaderStatus=_FlowReaderStatus_Object((1,3,6,1,2,1,40,1,3,1,6),_FlowReaderStatus_Type())
+flowReaderStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:flowReaderStatus.setStatus(_B)
+class _FlowReaderRuleSet_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FlowReaderRuleSet_Type.__name__=_D
+_FlowReaderRuleSet_Object=MibTableColumn
+flowReaderRuleSet=_FlowReaderRuleSet_Object((1,3,6,1,2,1,40,1,3,1,7),_FlowReaderRuleSet_Type())
+flowReaderRuleSet.setMaxAccess(_E)
+if mibBuilder.loadTexts:flowReaderRuleSet.setStatus(_B)
+_FlowManagerInfoTable_Object=MibTable
+flowManagerInfoTable=_FlowManagerInfoTable_Object((1,3,6,1,2,1,40,1,4))
+if mibBuilder.loadTexts:flowManagerInfoTable.setStatus(_B)
+_FlowManagerInfoEntry_Object=MibTableRow
+flowManagerInfoEntry=_FlowManagerInfoEntry_Object((1,3,6,1,2,1,40,1,4,1))
+flowManagerInfoEntry.setIndexNames((0,_A,_AH))
+if mibBuilder.loadTexts:flowManagerInfoEntry.setStatus(_B)
+class _FlowManagerIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FlowManagerIndex_Type.__name__=_D
+_FlowManagerIndex_Object=MibTableColumn
+flowManagerIndex=_FlowManagerIndex_Object((1,3,6,1,2,1,40,1,4,1,1),_FlowManagerIndex_Type())
+flowManagerIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:flowManagerIndex.setStatus(_B)
+_FlowManagerCurrentRuleSet_Type=Integer32
+_FlowManagerCurrentRuleSet_Object=MibTableColumn
+flowManagerCurrentRuleSet=_FlowManagerCurrentRuleSet_Object((1,3,6,1,2,1,40,1,4,1,2),_FlowManagerCurrentRuleSet_Type())
+flowManagerCurrentRuleSet.setMaxAccess(_E)
+if mibBuilder.loadTexts:flowManagerCurrentRuleSet.setStatus(_B)
+class _FlowManagerStandbyRuleSet_Type(Integer32):defaultValue=0
+_FlowManagerStandbyRuleSet_Type.__name__=_D
+_FlowManagerStandbyRuleSet_Object=MibTableColumn
+flowManagerStandbyRuleSet=_FlowManagerStandbyRuleSet_Object((1,3,6,1,2,1,40,1,4,1,3),_FlowManagerStandbyRuleSet_Type())
+flowManagerStandbyRuleSet.setMaxAccess(_E)
+if mibBuilder.loadTexts:flowManagerStandbyRuleSet.setStatus(_B)
+class _FlowManagerHighWaterMark_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
+_FlowManagerHighWaterMark_Type.__name__=_D
+_FlowManagerHighWaterMark_Object=MibTableColumn
+flowManagerHighWaterMark=_FlowManagerHighWaterMark_Object((1,3,6,1,2,1,40,1,4,1,4),_FlowManagerHighWaterMark_Type())
+flowManagerHighWaterMark.setMaxAccess(_E)
+if mibBuilder.loadTexts:flowManagerHighWaterMark.setStatus(_B)
+class _FlowManagerCounterWrap_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('wrap',1),('scale',2)))
+_FlowManagerCounterWrap_Type.__name__=_D
+_FlowManagerCounterWrap_Object=MibTableColumn
+flowManagerCounterWrap=_FlowManagerCounterWrap_Object((1,3,6,1,2,1,40,1,4,1,5),_FlowManagerCounterWrap_Type())
+flowManagerCounterWrap.setMaxAccess(_E)
+if mibBuilder.loadTexts:flowManagerCounterWrap.setStatus(_F)
+_FlowManagerOwner_Type=UTF8OwnerString
+_FlowManagerOwner_Object=MibTableColumn
+flowManagerOwner=_FlowManagerOwner_Object((1,3,6,1,2,1,40,1,4,1,6),_FlowManagerOwner_Type())
+flowManagerOwner.setMaxAccess(_E)
+if mibBuilder.loadTexts:flowManagerOwner.setStatus(_B)
+_FlowManagerTimeStamp_Type=TimeStamp
+_FlowManagerTimeStamp_Object=MibTableColumn
+flowManagerTimeStamp=_FlowManagerTimeStamp_Object((1,3,6,1,2,1,40,1,4,1,7),_FlowManagerTimeStamp_Type())
+flowManagerTimeStamp.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowManagerTimeStamp.setStatus(_B)
+_FlowManagerStatus_Type=RowStatus
+_FlowManagerStatus_Object=MibTableColumn
+flowManagerStatus=_FlowManagerStatus_Object((1,3,6,1,2,1,40,1,4,1,8),_FlowManagerStatus_Type())
+flowManagerStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:flowManagerStatus.setStatus(_B)
+class _FlowManagerRunningStandby_Type(TruthValue):defaultValue=2
+_FlowManagerRunningStandby_Type.__name__=_r
+_FlowManagerRunningStandby_Object=MibTableColumn
+flowManagerRunningStandby=_FlowManagerRunningStandby_Object((1,3,6,1,2,1,40,1,4,1,9),_FlowManagerRunningStandby_Type())
+flowManagerRunningStandby.setMaxAccess(_E)
+if mibBuilder.loadTexts:flowManagerRunningStandby.setStatus(_B)
+class _FlowFloodMark_Type(Integer32):defaultValue=95;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
+_FlowFloodMark_Type.__name__=_D
+_FlowFloodMark_Object=MibScalar
+flowFloodMark=_FlowFloodMark_Object((1,3,6,1,2,1,40,1,5),_FlowFloodMark_Type())
+flowFloodMark.setMaxAccess(_H)
+if mibBuilder.loadTexts:flowFloodMark.setStatus(_B)
+class _FlowInactivityTimeout_Type(Integer32):defaultValue=600
+_FlowInactivityTimeout_Type.__name__=_D
+_FlowInactivityTimeout_Object=MibScalar
+flowInactivityTimeout=_FlowInactivityTimeout_Object((1,3,6,1,2,1,40,1,6),_FlowInactivityTimeout_Type())
+flowInactivityTimeout.setMaxAccess(_H)
+if mibBuilder.loadTexts:flowInactivityTimeout.setStatus(_B)
+_FlowActiveFlows_Type=Integer32
+_FlowActiveFlows_Object=MibScalar
+flowActiveFlows=_FlowActiveFlows_Object((1,3,6,1,2,1,40,1,7),_FlowActiveFlows_Type())
+flowActiveFlows.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowActiveFlows.setStatus(_B)
+_FlowMaxFlows_Type=Integer32
+_FlowMaxFlows_Object=MibScalar
+flowMaxFlows=_FlowMaxFlows_Object((1,3,6,1,2,1,40,1,8),_FlowMaxFlows_Type())
+flowMaxFlows.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowMaxFlows.setStatus(_B)
+_FlowFloodMode_Type=TruthValue
+_FlowFloodMode_Object=MibScalar
+flowFloodMode=_FlowFloodMode_Object((1,3,6,1,2,1,40,1,9),_FlowFloodMode_Type())
+flowFloodMode.setMaxAccess(_H)
+if mibBuilder.loadTexts:flowFloodMode.setStatus(_B)
+_FlowData_ObjectIdentity=ObjectIdentity
+flowData=_FlowData_ObjectIdentity((1,3,6,1,2,1,40,2))
+_FlowDataTable_Object=MibTable
+flowDataTable=_FlowDataTable_Object((1,3,6,1,2,1,40,2,1))
+if mibBuilder.loadTexts:flowDataTable.setStatus(_B)
+_FlowDataEntry_Object=MibTableRow
+flowDataEntry=_FlowDataEntry_Object((1,3,6,1,2,1,40,2,1,1))
+flowDataEntry.setIndexNames((0,_A,_AI),(0,_A,_AJ),(0,_A,_AK))
+if mibBuilder.loadTexts:flowDataEntry.setStatus(_B)
+class _FlowDataIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FlowDataIndex_Type.__name__=_D
+_FlowDataIndex_Object=MibTableColumn
+flowDataIndex=_FlowDataIndex_Object((1,3,6,1,2,1,40,2,1,1,1),_FlowDataIndex_Type())
+flowDataIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:flowDataIndex.setStatus(_B)
+_FlowDataTimeMark_Type=TimeFilter
+_FlowDataTimeMark_Object=MibTableColumn
+flowDataTimeMark=_FlowDataTimeMark_Object((1,3,6,1,2,1,40,2,1,1,2),_FlowDataTimeMark_Type())
+flowDataTimeMark.setMaxAccess(_G)
+if mibBuilder.loadTexts:flowDataTimeMark.setStatus(_B)
+class _FlowDataStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('inactive',1),(_B,2)))
+_FlowDataStatus_Type.__name__=_D
+_FlowDataStatus_Object=MibTableColumn
+flowDataStatus=_FlowDataStatus_Object((1,3,6,1,2,1,40,2,1,1,3),_FlowDataStatus_Type())
+flowDataStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataStatus.setStatus(_F)
+_FlowDataSourceInterface_Type=Integer32
+_FlowDataSourceInterface_Object=MibTableColumn
+flowDataSourceInterface=_FlowDataSourceInterface_Object((1,3,6,1,2,1,40,2,1,1,4),_FlowDataSourceInterface_Type())
+flowDataSourceInterface.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataSourceInterface.setStatus(_B)
+_FlowDataSourceAdjacentType_Type=AdjacentType
+_FlowDataSourceAdjacentType_Object=MibTableColumn
+flowDataSourceAdjacentType=_FlowDataSourceAdjacentType_Object((1,3,6,1,2,1,40,2,1,1,5),_FlowDataSourceAdjacentType_Type())
+flowDataSourceAdjacentType.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataSourceAdjacentType.setStatus(_B)
+_FlowDataSourceAdjacentAddress_Type=AdjacentAddress
+_FlowDataSourceAdjacentAddress_Object=MibTableColumn
+flowDataSourceAdjacentAddress=_FlowDataSourceAdjacentAddress_Object((1,3,6,1,2,1,40,2,1,1,6),_FlowDataSourceAdjacentAddress_Type())
+flowDataSourceAdjacentAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataSourceAdjacentAddress.setStatus(_B)
+_FlowDataSourceAdjacentMask_Type=AdjacentAddress
+_FlowDataSourceAdjacentMask_Object=MibTableColumn
+flowDataSourceAdjacentMask=_FlowDataSourceAdjacentMask_Object((1,3,6,1,2,1,40,2,1,1,7),_FlowDataSourceAdjacentMask_Type())
+flowDataSourceAdjacentMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataSourceAdjacentMask.setStatus(_B)
+_FlowDataSourcePeerType_Type=PeerType
+_FlowDataSourcePeerType_Object=MibTableColumn
+flowDataSourcePeerType=_FlowDataSourcePeerType_Object((1,3,6,1,2,1,40,2,1,1,8),_FlowDataSourcePeerType_Type())
+flowDataSourcePeerType.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataSourcePeerType.setStatus(_B)
+_FlowDataSourcePeerAddress_Type=PeerAddress
+_FlowDataSourcePeerAddress_Object=MibTableColumn
+flowDataSourcePeerAddress=_FlowDataSourcePeerAddress_Object((1,3,6,1,2,1,40,2,1,1,9),_FlowDataSourcePeerAddress_Type())
+flowDataSourcePeerAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataSourcePeerAddress.setStatus(_B)
+_FlowDataSourcePeerMask_Type=PeerAddress
+_FlowDataSourcePeerMask_Object=MibTableColumn
+flowDataSourcePeerMask=_FlowDataSourcePeerMask_Object((1,3,6,1,2,1,40,2,1,1,10),_FlowDataSourcePeerMask_Type())
+flowDataSourcePeerMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataSourcePeerMask.setStatus(_B)
+_FlowDataSourceTransType_Type=TransportType
+_FlowDataSourceTransType_Object=MibTableColumn
+flowDataSourceTransType=_FlowDataSourceTransType_Object((1,3,6,1,2,1,40,2,1,1,11),_FlowDataSourceTransType_Type())
+flowDataSourceTransType.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataSourceTransType.setStatus(_B)
+_FlowDataSourceTransAddress_Type=TransportAddress
+_FlowDataSourceTransAddress_Object=MibTableColumn
+flowDataSourceTransAddress=_FlowDataSourceTransAddress_Object((1,3,6,1,2,1,40,2,1,1,12),_FlowDataSourceTransAddress_Type())
+flowDataSourceTransAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataSourceTransAddress.setStatus(_B)
+_FlowDataSourceTransMask_Type=TransportAddress
+_FlowDataSourceTransMask_Object=MibTableColumn
+flowDataSourceTransMask=_FlowDataSourceTransMask_Object((1,3,6,1,2,1,40,2,1,1,13),_FlowDataSourceTransMask_Type())
+flowDataSourceTransMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataSourceTransMask.setStatus(_B)
+_FlowDataDestInterface_Type=Integer32
+_FlowDataDestInterface_Object=MibTableColumn
+flowDataDestInterface=_FlowDataDestInterface_Object((1,3,6,1,2,1,40,2,1,1,14),_FlowDataDestInterface_Type())
+flowDataDestInterface.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataDestInterface.setStatus(_B)
+_FlowDataDestAdjacentType_Type=AdjacentType
+_FlowDataDestAdjacentType_Object=MibTableColumn
+flowDataDestAdjacentType=_FlowDataDestAdjacentType_Object((1,3,6,1,2,1,40,2,1,1,15),_FlowDataDestAdjacentType_Type())
+flowDataDestAdjacentType.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataDestAdjacentType.setStatus(_B)
+_FlowDataDestAdjacentAddress_Type=AdjacentAddress
+_FlowDataDestAdjacentAddress_Object=MibTableColumn
+flowDataDestAdjacentAddress=_FlowDataDestAdjacentAddress_Object((1,3,6,1,2,1,40,2,1,1,16),_FlowDataDestAdjacentAddress_Type())
+flowDataDestAdjacentAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataDestAdjacentAddress.setStatus(_B)
+_FlowDataDestAdjacentMask_Type=AdjacentAddress
+_FlowDataDestAdjacentMask_Object=MibTableColumn
+flowDataDestAdjacentMask=_FlowDataDestAdjacentMask_Object((1,3,6,1,2,1,40,2,1,1,17),_FlowDataDestAdjacentMask_Type())
+flowDataDestAdjacentMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataDestAdjacentMask.setStatus(_B)
+_FlowDataDestPeerType_Type=PeerType
+_FlowDataDestPeerType_Object=MibTableColumn
+flowDataDestPeerType=_FlowDataDestPeerType_Object((1,3,6,1,2,1,40,2,1,1,18),_FlowDataDestPeerType_Type())
+flowDataDestPeerType.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataDestPeerType.setStatus(_B)
+_FlowDataDestPeerAddress_Type=PeerAddress
+_FlowDataDestPeerAddress_Object=MibTableColumn
+flowDataDestPeerAddress=_FlowDataDestPeerAddress_Object((1,3,6,1,2,1,40,2,1,1,19),_FlowDataDestPeerAddress_Type())
+flowDataDestPeerAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataDestPeerAddress.setStatus(_B)
+_FlowDataDestPeerMask_Type=PeerAddress
+_FlowDataDestPeerMask_Object=MibTableColumn
+flowDataDestPeerMask=_FlowDataDestPeerMask_Object((1,3,6,1,2,1,40,2,1,1,20),_FlowDataDestPeerMask_Type())
+flowDataDestPeerMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataDestPeerMask.setStatus(_B)
+_FlowDataDestTransType_Type=TransportType
+_FlowDataDestTransType_Object=MibTableColumn
+flowDataDestTransType=_FlowDataDestTransType_Object((1,3,6,1,2,1,40,2,1,1,21),_FlowDataDestTransType_Type())
+flowDataDestTransType.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataDestTransType.setStatus(_B)
+_FlowDataDestTransAddress_Type=TransportAddress
+_FlowDataDestTransAddress_Object=MibTableColumn
+flowDataDestTransAddress=_FlowDataDestTransAddress_Object((1,3,6,1,2,1,40,2,1,1,22),_FlowDataDestTransAddress_Type())
+flowDataDestTransAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataDestTransAddress.setStatus(_B)
+_FlowDataDestTransMask_Type=TransportAddress
+_FlowDataDestTransMask_Object=MibTableColumn
+flowDataDestTransMask=_FlowDataDestTransMask_Object((1,3,6,1,2,1,40,2,1,1,23),_FlowDataDestTransMask_Type())
+flowDataDestTransMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataDestTransMask.setStatus(_B)
+class _FlowDataPDUScale_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_FlowDataPDUScale_Type.__name__=_D
+_FlowDataPDUScale_Object=MibTableColumn
+flowDataPDUScale=_FlowDataPDUScale_Object((1,3,6,1,2,1,40,2,1,1,24),_FlowDataPDUScale_Type())
+flowDataPDUScale.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataPDUScale.setStatus(_B)
+class _FlowDataOctetScale_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_FlowDataOctetScale_Type.__name__=_D
+_FlowDataOctetScale_Object=MibTableColumn
+flowDataOctetScale=_FlowDataOctetScale_Object((1,3,6,1,2,1,40,2,1,1,25),_FlowDataOctetScale_Type())
+flowDataOctetScale.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataOctetScale.setStatus(_B)
+class _FlowDataRuleSet_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_FlowDataRuleSet_Type.__name__=_D
+_FlowDataRuleSet_Object=MibTableColumn
+flowDataRuleSet=_FlowDataRuleSet_Object((1,3,6,1,2,1,40,2,1,1,26),_FlowDataRuleSet_Type())
+flowDataRuleSet.setMaxAccess(_G)
+if mibBuilder.loadTexts:flowDataRuleSet.setStatus(_B)
+_FlowDataToOctets_Type=Counter64
+_FlowDataToOctets_Object=MibTableColumn
+flowDataToOctets=_FlowDataToOctets_Object((1,3,6,1,2,1,40,2,1,1,27),_FlowDataToOctets_Type())
+flowDataToOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataToOctets.setStatus(_B)
+_FlowDataToPDUs_Type=Counter64
+_FlowDataToPDUs_Object=MibTableColumn
+flowDataToPDUs=_FlowDataToPDUs_Object((1,3,6,1,2,1,40,2,1,1,28),_FlowDataToPDUs_Type())
+flowDataToPDUs.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataToPDUs.setStatus(_B)
+_FlowDataFromOctets_Type=Counter64
+_FlowDataFromOctets_Object=MibTableColumn
+flowDataFromOctets=_FlowDataFromOctets_Object((1,3,6,1,2,1,40,2,1,1,29),_FlowDataFromOctets_Type())
+flowDataFromOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataFromOctets.setStatus(_B)
+_FlowDataFromPDUs_Type=Counter64
+_FlowDataFromPDUs_Object=MibTableColumn
+flowDataFromPDUs=_FlowDataFromPDUs_Object((1,3,6,1,2,1,40,2,1,1,30),_FlowDataFromPDUs_Type())
+flowDataFromPDUs.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataFromPDUs.setStatus(_B)
+_FlowDataFirstTime_Type=TimeStamp
+_FlowDataFirstTime_Object=MibTableColumn
+flowDataFirstTime=_FlowDataFirstTime_Object((1,3,6,1,2,1,40,2,1,1,31),_FlowDataFirstTime_Type())
+flowDataFirstTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataFirstTime.setStatus(_B)
+_FlowDataLastActiveTime_Type=TimeStamp
+_FlowDataLastActiveTime_Object=MibTableColumn
+flowDataLastActiveTime=_FlowDataLastActiveTime_Object((1,3,6,1,2,1,40,2,1,1,32),_FlowDataLastActiveTime_Type())
+flowDataLastActiveTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataLastActiveTime.setStatus(_B)
+class _FlowDataSourceSubscriberID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,20))
+_FlowDataSourceSubscriberID_Type.__name__=_I
+_FlowDataSourceSubscriberID_Object=MibTableColumn
+flowDataSourceSubscriberID=_FlowDataSourceSubscriberID_Object((1,3,6,1,2,1,40,2,1,1,33),_FlowDataSourceSubscriberID_Type())
+flowDataSourceSubscriberID.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataSourceSubscriberID.setStatus(_B)
+class _FlowDataDestSubscriberID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,20))
+_FlowDataDestSubscriberID_Type.__name__=_I
+_FlowDataDestSubscriberID_Object=MibTableColumn
+flowDataDestSubscriberID=_FlowDataDestSubscriberID_Object((1,3,6,1,2,1,40,2,1,1,34),_FlowDataDestSubscriberID_Type())
+flowDataDestSubscriberID.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataDestSubscriberID.setStatus(_B)
+class _FlowDataSessionID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,10))
+_FlowDataSessionID_Type.__name__=_I
+_FlowDataSessionID_Object=MibTableColumn
+flowDataSessionID=_FlowDataSessionID_Object((1,3,6,1,2,1,40,2,1,1,35),_FlowDataSessionID_Type())
+flowDataSessionID.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataSessionID.setStatus(_B)
+class _FlowDataSourceClass_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_FlowDataSourceClass_Type.__name__=_D
+_FlowDataSourceClass_Object=MibTableColumn
+flowDataSourceClass=_FlowDataSourceClass_Object((1,3,6,1,2,1,40,2,1,1,36),_FlowDataSourceClass_Type())
+flowDataSourceClass.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataSourceClass.setStatus(_B)
+class _FlowDataDestClass_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_FlowDataDestClass_Type.__name__=_D
+_FlowDataDestClass_Object=MibTableColumn
+flowDataDestClass=_FlowDataDestClass_Object((1,3,6,1,2,1,40,2,1,1,37),_FlowDataDestClass_Type())
+flowDataDestClass.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataDestClass.setStatus(_B)
+class _FlowDataClass_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_FlowDataClass_Type.__name__=_D
+_FlowDataClass_Object=MibTableColumn
+flowDataClass=_FlowDataClass_Object((1,3,6,1,2,1,40,2,1,1,38),_FlowDataClass_Type())
+flowDataClass.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataClass.setStatus(_B)
+class _FlowDataSourceKind_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_FlowDataSourceKind_Type.__name__=_D
+_FlowDataSourceKind_Object=MibTableColumn
+flowDataSourceKind=_FlowDataSourceKind_Object((1,3,6,1,2,1,40,2,1,1,39),_FlowDataSourceKind_Type())
+flowDataSourceKind.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataSourceKind.setStatus(_B)
+class _FlowDataDestKind_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_FlowDataDestKind_Type.__name__=_D
+_FlowDataDestKind_Object=MibTableColumn
+flowDataDestKind=_FlowDataDestKind_Object((1,3,6,1,2,1,40,2,1,1,40),_FlowDataDestKind_Type())
+flowDataDestKind.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataDestKind.setStatus(_B)
+class _FlowDataKind_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_FlowDataKind_Type.__name__=_D
+_FlowDataKind_Object=MibTableColumn
+flowDataKind=_FlowDataKind_Object((1,3,6,1,2,1,40,2,1,1,41),_FlowDataKind_Type())
+flowDataKind.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowDataKind.setStatus(_B)
+_FlowColumnActivityTable_Object=MibTable
+flowColumnActivityTable=_FlowColumnActivityTable_Object((1,3,6,1,2,1,40,2,2))
+if mibBuilder.loadTexts:flowColumnActivityTable.setStatus(_F)
+_FlowColumnActivityEntry_Object=MibTableRow
+flowColumnActivityEntry=_FlowColumnActivityEntry_Object((1,3,6,1,2,1,40,2,2,1))
+flowColumnActivityEntry.setIndexNames((0,_A,_J),(0,_A,_K),(0,_A,_L))
+if mibBuilder.loadTexts:flowColumnActivityEntry.setStatus(_F)
+_FlowColumnActivityAttribute_Type=FlowAttributeNumber
+_FlowColumnActivityAttribute_Object=MibTableColumn
+flowColumnActivityAttribute=_FlowColumnActivityAttribute_Object((1,3,6,1,2,1,40,2,2,1,1),_FlowColumnActivityAttribute_Type())
+flowColumnActivityAttribute.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowColumnActivityAttribute.setStatus(_F)
+_FlowColumnActivityTime_Type=TimeFilter
+_FlowColumnActivityTime_Object=MibTableColumn
+flowColumnActivityTime=_FlowColumnActivityTime_Object((1,3,6,1,2,1,40,2,2,1,2),_FlowColumnActivityTime_Type())
+flowColumnActivityTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowColumnActivityTime.setStatus(_F)
+class _FlowColumnActivityIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FlowColumnActivityIndex_Type.__name__=_D
+_FlowColumnActivityIndex_Object=MibTableColumn
+flowColumnActivityIndex=_FlowColumnActivityIndex_Object((1,3,6,1,2,1,40,2,2,1,3),_FlowColumnActivityIndex_Type())
+flowColumnActivityIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowColumnActivityIndex.setStatus(_F)
+class _FlowColumnActivityData_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,1000))
+_FlowColumnActivityData_Type.__name__=_I
+_FlowColumnActivityData_Object=MibTableColumn
+flowColumnActivityData=_FlowColumnActivityData_Object((1,3,6,1,2,1,40,2,2,1,4),_FlowColumnActivityData_Type())
+flowColumnActivityData.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowColumnActivityData.setStatus(_F)
+_FlowDataPackageTable_Object=MibTable
+flowDataPackageTable=_FlowDataPackageTable_Object((1,3,6,1,2,1,40,2,3))
+if mibBuilder.loadTexts:flowDataPackageTable.setStatus(_B)
+_FlowDataPackageEntry_Object=MibTableRow
+flowDataPackageEntry=_FlowDataPackageEntry_Object((1,3,6,1,2,1,40,2,3,1))
+flowDataPackageEntry.setIndexNames((0,_A,_AL),(0,_A,_AM),(0,_A,_AN),(0,_A,_AO))
+if mibBuilder.loadTexts:flowDataPackageEntry.setStatus(_B)
+_FlowPackageSelector_Type=OctetString
+_FlowPackageSelector_Object=MibTableColumn
+flowPackageSelector=_FlowPackageSelector_Object((1,3,6,1,2,1,40,2,3,1,1),_FlowPackageSelector_Type())
+flowPackageSelector.setMaxAccess(_G)
+if mibBuilder.loadTexts:flowPackageSelector.setStatus(_B)
+class _FlowPackageRuleSet_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_FlowPackageRuleSet_Type.__name__=_D
+_FlowPackageRuleSet_Object=MibTableColumn
+flowPackageRuleSet=_FlowPackageRuleSet_Object((1,3,6,1,2,1,40,2,3,1,2),_FlowPackageRuleSet_Type())
+flowPackageRuleSet.setMaxAccess(_G)
+if mibBuilder.loadTexts:flowPackageRuleSet.setStatus(_B)
+_FlowPackageTime_Type=TimeFilter
+_FlowPackageTime_Object=MibTableColumn
+flowPackageTime=_FlowPackageTime_Object((1,3,6,1,2,1,40,2,3,1,3),_FlowPackageTime_Type())
+flowPackageTime.setMaxAccess(_G)
+if mibBuilder.loadTexts:flowPackageTime.setStatus(_B)
+class _FlowPackageIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FlowPackageIndex_Type.__name__=_D
+_FlowPackageIndex_Object=MibTableColumn
+flowPackageIndex=_FlowPackageIndex_Object((1,3,6,1,2,1,40,2,3,1,4),_FlowPackageIndex_Type())
+flowPackageIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:flowPackageIndex.setStatus(_B)
+_FlowPackageData_Type=OctetString
+_FlowPackageData_Object=MibTableColumn
+flowPackageData=_FlowPackageData_Object((1,3,6,1,2,1,40,2,3,1,5),_FlowPackageData_Type())
+flowPackageData.setMaxAccess(_C)
+if mibBuilder.loadTexts:flowPackageData.setStatus(_B)
+_FlowRules_ObjectIdentity=ObjectIdentity
+flowRules=_FlowRules_ObjectIdentity((1,3,6,1,2,1,40,3))
+_FlowRuleTable_Object=MibTable
+flowRuleTable=_FlowRuleTable_Object((1,3,6,1,2,1,40,3,1))
+if mibBuilder.loadTexts:flowRuleTable.setStatus(_B)
+_FlowRuleEntry_Object=MibTableRow
+flowRuleEntry=_FlowRuleEntry_Object((1,3,6,1,2,1,40,3,1,1))
+flowRuleEntry.setIndexNames((0,_A,_AP),(0,_A,_AQ))
+if mibBuilder.loadTexts:flowRuleEntry.setStatus(_B)
+class _FlowRuleSet_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FlowRuleSet_Type.__name__=_D
+_FlowRuleSet_Object=MibTableColumn
+flowRuleSet=_FlowRuleSet_Object((1,3,6,1,2,1,40,3,1,1,1),_FlowRuleSet_Type())
+flowRuleSet.setMaxAccess(_G)
+if mibBuilder.loadTexts:flowRuleSet.setStatus(_B)
+class _FlowRuleIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FlowRuleIndex_Type.__name__=_D
+_FlowRuleIndex_Object=MibTableColumn
+flowRuleIndex=_FlowRuleIndex_Object((1,3,6,1,2,1,40,3,1,1,2),_FlowRuleIndex_Type())
+flowRuleIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:flowRuleIndex.setStatus(_B)
+_FlowRuleSelector_Type=RuleAttributeNumber
+_FlowRuleSelector_Object=MibTableColumn
+flowRuleSelector=_FlowRuleSelector_Object((1,3,6,1,2,1,40,3,1,1,3),_FlowRuleSelector_Type())
+flowRuleSelector.setMaxAccess(_H)
+if mibBuilder.loadTexts:flowRuleSelector.setStatus(_B)
+_FlowRuleMask_Type=RuleAddress
+_FlowRuleMask_Object=MibTableColumn
+flowRuleMask=_FlowRuleMask_Object((1,3,6,1,2,1,40,3,1,1,4),_FlowRuleMask_Type())
+flowRuleMask.setMaxAccess(_H)
+if mibBuilder.loadTexts:flowRuleMask.setStatus(_B)
+_FlowRuleMatchedValue_Type=RuleAddress
+_FlowRuleMatchedValue_Object=MibTableColumn
+flowRuleMatchedValue=_FlowRuleMatchedValue_Object((1,3,6,1,2,1,40,3,1,1,5),_FlowRuleMatchedValue_Type())
+flowRuleMatchedValue.setMaxAccess(_H)
+if mibBuilder.loadTexts:flowRuleMatchedValue.setStatus(_B)
+_FlowRuleAction_Type=ActionNumber
+_FlowRuleAction_Object=MibTableColumn
+flowRuleAction=_FlowRuleAction_Object((1,3,6,1,2,1,40,3,1,1,6),_FlowRuleAction_Type())
+flowRuleAction.setMaxAccess(_H)
+if mibBuilder.loadTexts:flowRuleAction.setStatus(_B)
+class _FlowRuleParameter_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_FlowRuleParameter_Type.__name__=_D
+_FlowRuleParameter_Object=MibTableColumn
+flowRuleParameter=_FlowRuleParameter_Object((1,3,6,1,2,1,40,3,1,1,7),_FlowRuleParameter_Type())
+flowRuleParameter.setMaxAccess(_H)
+if mibBuilder.loadTexts:flowRuleParameter.setStatus(_B)
+_FlowMIBConformance_ObjectIdentity=ObjectIdentity
+flowMIBConformance=_FlowMIBConformance_ObjectIdentity((1,3,6,1,2,1,40,4))
+_FlowMIBCompliances_ObjectIdentity=ObjectIdentity
+flowMIBCompliances=_FlowMIBCompliances_ObjectIdentity((1,3,6,1,2,1,40,4,1))
+_FlowMIBGroups_ObjectIdentity=ObjectIdentity
+flowMIBGroups=_FlowMIBGroups_ObjectIdentity((1,3,6,1,2,1,40,4,2))
+flowControlGroup=ObjectGroup((1,3,6,1,2,1,40,4,2,1))
+flowControlGroup.setObjects(*((_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_AR),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m)))
+if mibBuilder.loadTexts:flowControlGroup.setStatus(_F)
+flowDataTableGroup=ObjectGroup((1,3,6,1,2,1,40,4,2,2))
+flowDataTableGroup.setObjects(*((_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay)))
+if mibBuilder.loadTexts:flowDataTableGroup.setStatus(_F)
+flowDataScaleGroup=ObjectGroup((1,3,6,1,2,1,40,4,2,3))
+flowDataScaleGroup.setObjects(*((_A,_d),(_A,_n),(_A,_o)))
+if mibBuilder.loadTexts:flowDataScaleGroup.setStatus(_F)
+flowDataSubscriberGroup=ObjectGroup((1,3,6,1,2,1,40,4,2,4))
+flowDataSubscriberGroup.setObjects(*((_A,_Az),(_A,_A_),(_A,_B0)))
+if mibBuilder.loadTexts:flowDataSubscriberGroup.setStatus(_B)
+flowDataColumnTableGroup=ObjectGroup((1,3,6,1,2,1,40,4,2,5))
+flowDataColumnTableGroup.setObjects(*((_A,_J),(_A,_L),(_A,_K),(_A,_B1)))
+if mibBuilder.loadTexts:flowDataColumnTableGroup.setStatus(_F)
+flowDataPackageGroup=ObjectGroup((1,3,6,1,2,1,40,4,2,6))
+flowDataPackageGroup.setObjects((_A,_B2))
+if mibBuilder.loadTexts:flowDataPackageGroup.setStatus(_B)
+flowRuleTableGroup=ObjectGroup((1,3,6,1,2,1,40,4,2,7))
+flowRuleTableGroup.setObjects(*((_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7)))
+if mibBuilder.loadTexts:flowRuleTableGroup.setStatus(_B)
+flowDataScaleGroup2=ObjectGroup((1,3,6,1,2,1,40,4,2,8))
+flowDataScaleGroup2.setObjects(*((_A,_n),(_A,_o)))
+if mibBuilder.loadTexts:flowDataScaleGroup2.setStatus(_B)
+flowControlGroup2=ObjectGroup((1,3,6,1,2,1,40,4,2,9))
+flowControlGroup2.setObjects(*((_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m)))
+if mibBuilder.loadTexts:flowControlGroup2.setStatus(_B)
+flowMIBCompliance=ModuleCompliance((1,3,6,1,2,1,40,4,1,1))
+flowMIBCompliance.setObjects(*((_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB)))
+if mibBuilder.loadTexts:flowMIBCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'UTF8OwnerString':UTF8OwnerString,'PeerType':PeerType,'PeerAddress':PeerAddress,'AdjacentType':AdjacentType,'AdjacentAddress':AdjacentAddress,'TransportType':TransportType,'TransportAddress':TransportAddress,'RuleAddress':RuleAddress,'FlowAttributeNumber':FlowAttributeNumber,'RuleAttributeNumber':RuleAttributeNumber,'ActionNumber':ActionNumber,'flowMIB':flowMIB,'flowControl':flowControl,'flowRuleSetInfoTable':flowRuleSetInfoTable,'flowRuleSetInfoEntry':flowRuleSetInfoEntry,_AF:flowRuleInfoIndex,_M:flowRuleInfoSize,_N:flowRuleInfoOwner,_O:flowRuleInfoTimeStamp,_P:flowRuleInfoStatus,_Q:flowRuleInfoName,_AR:flowRuleInfoRulesReady,_R:flowRuleInfoFlowRecords,'flowInterfaceTable':flowInterfaceTable,'flowInterfaceEntry':flowInterfaceEntry,_S:flowInterfaceSampleRate,_T:flowInterfaceLostPackets,'flowReaderInfoTable':flowReaderInfoTable,'flowReaderInfoEntry':flowReaderInfoEntry,_AG:flowReaderIndex,_U:flowReaderTimeout,_V:flowReaderOwner,_W:flowReaderLastTime,_X:flowReaderPreviousTime,_Y:flowReaderStatus,_Z:flowReaderRuleSet,'flowManagerInfoTable':flowManagerInfoTable,'flowManagerInfoEntry':flowManagerInfoEntry,_AH:flowManagerIndex,_a:flowManagerCurrentRuleSet,_b:flowManagerStandbyRuleSet,_c:flowManagerHighWaterMark,_d:flowManagerCounterWrap,_e:flowManagerOwner,_f:flowManagerTimeStamp,_g:flowManagerStatus,_h:flowManagerRunningStandby,_i:flowFloodMark,_j:flowInactivityTimeout,_k:flowActiveFlows,_l:flowMaxFlows,_m:flowFloodMode,'flowData':flowData,'flowDataTable':flowDataTable,'flowDataEntry':flowDataEntry,_AK:flowDataIndex,_AJ:flowDataTimeMark,_AS:flowDataStatus,_AT:flowDataSourceInterface,_AU:flowDataSourceAdjacentType,_AV:flowDataSourceAdjacentAddress,_AW:flowDataSourceAdjacentMask,_AX:flowDataSourcePeerType,_AY:flowDataSourcePeerAddress,_AZ:flowDataSourcePeerMask,_Aa:flowDataSourceTransType,_Ab:flowDataSourceTransAddress,_Ac:flowDataSourceTransMask,_Ad:flowDataDestInterface,_Ae:flowDataDestAdjacentType,_Af:flowDataDestAdjacentAddress,_Ag:flowDataDestAdjacentMask,_Ah:flowDataDestPeerType,_Ai:flowDataDestPeerAddress,_Aj:flowDataDestPeerMask,_Ak:flowDataDestTransType,_Al:flowDataDestTransAddress,_Am:flowDataDestTransMask,_n:flowDataPDUScale,_o:flowDataOctetScale,_AI:flowDataRuleSet,_An:flowDataToOctets,_Ao:flowDataToPDUs,_Ap:flowDataFromOctets,_Aq:flowDataFromPDUs,_Ar:flowDataFirstTime,_As:flowDataLastActiveTime,_Az:flowDataSourceSubscriberID,_A_:flowDataDestSubscriberID,_B0:flowDataSessionID,_At:flowDataSourceClass,_Au:flowDataDestClass,_Av:flowDataClass,_Aw:flowDataSourceKind,_Ax:flowDataDestKind,_Ay:flowDataKind,'flowColumnActivityTable':flowColumnActivityTable,'flowColumnActivityEntry':flowColumnActivityEntry,_J:flowColumnActivityAttribute,_K:flowColumnActivityTime,_L:flowColumnActivityIndex,_B1:flowColumnActivityData,'flowDataPackageTable':flowDataPackageTable,'flowDataPackageEntry':flowDataPackageEntry,_AL:flowPackageSelector,_AM:flowPackageRuleSet,_AN:flowPackageTime,_AO:flowPackageIndex,_B2:flowPackageData,'flowRules':flowRules,'flowRuleTable':flowRuleTable,'flowRuleEntry':flowRuleEntry,_AP:flowRuleSet,_AQ:flowRuleIndex,_B3:flowRuleSelector,_B4:flowRuleMask,_B5:flowRuleMatchedValue,_B6:flowRuleAction,_B7:flowRuleParameter,'flowMIBConformance':flowMIBConformance,'flowMIBCompliances':flowMIBCompliances,'flowMIBCompliance':flowMIBCompliance,'flowMIBGroups':flowMIBGroups,'flowControlGroup':flowControlGroup,_B9:flowDataTableGroup,'flowDataScaleGroup':flowDataScaleGroup,'flowDataSubscriberGroup':flowDataSubscriberGroup,'flowDataColumnTableGroup':flowDataColumnTableGroup,_BA:flowDataPackageGroup,_BB:flowRuleTableGroup,'flowDataScaleGroup2':flowDataScaleGroup2,_B8:flowControlGroup2})

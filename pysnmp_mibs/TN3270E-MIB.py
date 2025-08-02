@@ -1,239 +1,659 @@
-#
-# PySNMP MIB module TN3270E-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/TN3270E-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:31:36 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, ObjectIdentifier, OctetString, ) = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-( IANATn3270DeviceType, IANATn3270eAddrType, IANATn3270ResourceType, IANATn3270Functions, IANATn3270eLogData, IANATn3270eClientType, IANATn3270eAddress, ) = mibBuilder.importSymbols("IANATn3270eTC-MIB", "IANATn3270DeviceType", "IANATn3270eAddrType", "IANATn3270ResourceType", "IANATn3270Functions", "IANATn3270eLogData", "IANATn3270eClientType", "IANATn3270eAddress")
-( snanauMIB, ) = mibBuilder.importSymbols("SNA-NAU-MIB", "snanauMIB")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ModuleCompliance, ObjectGroup, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-( Counter32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Unsigned32, Integer32, Gauge32, NotificationType, ObjectIdentity, TimeTicks, MibIdentifier, Counter64, ModuleIdentity, IpAddress, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Unsigned32", "Integer32", "Gauge32", "NotificationType", "ObjectIdentity", "TimeTicks", "MibIdentifier", "Counter64", "ModuleIdentity", "IpAddress")
-( DisplayString, TestAndIncr, DateAndTime, TextualConvention, RowStatus, TimeStamp, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TestAndIncr", "DateAndTime", "TextualConvention", "RowStatus", "TimeStamp")
-( Utf8String, ) = mibBuilder.importSymbols("SYSAPPL-MIB", "Utf8String")
-tn3270eMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 34, 8)).setRevisions(("1998-07-27 00:00",))
-if mibBuilder.loadTexts: tn3270eMIB.setLastUpdated('9807270000Z')
-if mibBuilder.loadTexts: tn3270eMIB.setOrganization('TN3270E Working Group')
-if mibBuilder.loadTexts: tn3270eMIB.setContactInfo('Kenneth White (kennethw@vnet.ibm.com)\n             IBM Corp. - Dept. BRQA/Bldg. 501/G114\n             P.O. Box 12195\n             3039 Cornwallis\n             RTP, NC 27709-2195\n             USA\n\n             Robert Moore (remoore@us.ibm.com)\n             IBM Corp. - Dept. BRQA/Bldg. 501/G114\n             P.O. Box 12195\n             3039 Cornwallis\n             RTP, NC 27709-2195\n             USA\n             +1-919-254-4436')
-if mibBuilder.loadTexts: tn3270eMIB.setDescription('This module defines a portion of the management\n            information base (MIB) for managing TN3270E servers.')
-class SnaResourceName(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,17)
-
-class Tn3270eTraceData(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(3,4096),)
-tn3270eNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 8, 0))
-tn3270eObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 8, 1))
-tn3270eConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 8, 3))
-tn3270eSrvrConfTable = MibTable((1, 3, 6, 1, 2, 1, 34, 8, 1, 1), )
-if mibBuilder.loadTexts: tn3270eSrvrConfTable.setDescription('This table defines the configuration elements for\n          TN3270E servers.  The number of entries in this table\n          is expected to vary depending on the location of the\n          table.  A particular TN3270E server is expected to\n          have a single entry.  Modeling of the configuration\n          elements as a table allows multiple TN3270E\n          servers to be serviced by the same SNMP agent.\n          An implementation SHOULD NOT retain an SNMP-created\n          entry in this table across re-IPLs (Initial Program\n          Loads) of the corresponding TN3270E server.')
-tn3270eSrvrConfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 8, 1, 1, 1), ).setIndexNames((0, "TN3270E-MIB", "tn3270eSrvrConfIndex"))
-if mibBuilder.loadTexts: tn3270eSrvrConfEntry.setDescription('Definition of the configuration elements for a single\n          TN3270E server.')
-tn3270eSrvrConfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: tn3270eSrvrConfIndex.setDescription('Identifier for a single TN3270E server.\n\n         tn3270eSrvrConfIndex values need not be\n         contiguous.')
-tn3270eSrvrConfInactivityTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,99999999))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tn3270eSrvrConfInactivityTimeout.setDescription('The inactivity time-out specified in seconds.  When a\n          connection has been inactive for the number of seconds\n          specified by this object it is closed.  Only user traffic\n          is considered when determining whether there has been\n          activity on a connection.\n\n          The default value 0 means that no inactivity time-out is\n          in effect.')
-tn3270eSrvrConfConnectivityChk = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("timingMark", 1), ("nop", 2), ("noCheck", 3),)).clone('noCheck')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tn3270eSrvrConfConnectivityChk.setDescription('This object enables TIMING-MARK processing, NOP\n          processing, or neither for a TN3270E server.')
-tn3270eSrvrConfTmNopInactTime = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,86400)).clone(600)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tn3270eSrvrConfTmNopInactTime.setDescription('The amount of time a connection must have had no\n         traffic on it in order for a TIMING-MARK or NOP request\n         to be sent on the connection.  This value applies only\n         when connections are being examined for recent activity\n         on a scan interval controlled by the value of the\n         tn3270eSrvrConfTmNopInterval object.')
-tn3270eSrvrConfTmNopInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,86400)).clone(120)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tn3270eSrvrConfTmNopInterval.setDescription('The scan interval to be used by a TN3270E server when\n         it examines its Telnet connections for recent activity.\n         The server scans its Telnet connections on the interval\n         provided by this object, looking for ones that have been\n         idle for more than the value provided by the\n         tn3270eSrvrConfTmNopInactTime object.  A TIMING-MARK or\n         NOP request is sent for each connection that has\n         exhibited no activity for this period of time.')
-tn3270eSrvrFunctionsSupported = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 1, 1, 6), IANATn3270Functions().clone(namedValues=NamedValues(("scsCtlCodes", 5), ("dataStreamCtl", 6), ("responses", 7), ("bindImage", 8), ("sysreq", 9),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrFunctionsSupported.setDescription('This object indicates the functions supported by a\n          TN3270E server.')
-tn3270eSrvrConfAdminStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("stopImmediate", 3),)).clone('up')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tn3270eSrvrConfAdminStatus.setDescription('The desired state of the TN3270E server represented\n           by this entry in the table:\n\n           up(1)            - Activate this TN3270E server.\n           down(2)          - Informs the associated TN3270E\n                              server to gracefully terminate\n                              its processing.\n           stopImmediate(3) - Informs the associated TN3270E\n                              server to terminate itself\n                              immediately.\n\n           When a managed system creates an entry in this table,\n           tn3270eSrvrConfAdminStatus and tn3270eSrvrConfOperStatus\n           are initialized as up(1) by default.\n\n           The exact behavior of a server in response to a down(2)\n           or stopImmediate(3) command is left implementation-\n           dependent.  A TN3270E server that is capable of it\n           SHOULD close all of its TN3270 and TN3270E sessions\n           during a graceful termination.\n\n           Often the function enabled via stopImmediate(3) is used\n           as a last resort by a system administrator, to attempt\n           to either bring down a hung TN3270E server or free up\n           its resources immediately to aid in general system\n           availability, or to shut down a TN3270E server that is\n           not recognizing a down(2) request.\n\n           A TN3270E server that does not distinguish between\n           down(2) or stopImmediate(3) transitions should not\n           support stopImmediate(3).')
-tn3270eSrvrConfOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("busy", 3), ("shuttingDown", 4),)).clone('up')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrConfOperStatus.setDescription('The current operational state of a TN3270E server.\n         The following values are defined:\n\n          up(1)            - the server is active and accepting\n                             new client connections\n          down(2)          - the server is not active\n          busy(3)          - the server is active, but is not\n                             accepting new client connections\n                             because it lacks the resources to\n                             do so\n          shuttingDown(4)  - the server is active, but is not\n                             accepting new client connections\n                             because it is in the process of\n                             performing a graceful shutdown.')
-tn3270eSrvrConfSessionTermState = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("terminate", 1), ("luSessionPend", 2), ("queueSession", 3),)).clone('terminate')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tn3270eSrvrConfSessionTermState.setDescription("This object determines what a TN3270E server\n          should do when a TN3270 Session terminates:\n         terminate(1)     => Terminate the TCP connection.\n         luSessionPend(2) => Do not drop the TCP connection\n                             associated with a client when its\n                             TN3270 session ends.  Processing\n                             should redrive session initialization\n                             as if the client were first connecting.\n         queueSession(3)  => This value relates to the Close\n                             Destination PASS (CLSDST PASS) operation\n                             in VTAM.  An example provides the\n                             easiest explanation.  Suppose a TN3270E\n                             client is in session with APPL1, and\n                             APPL1 does a CLSDST PASS of the client's\n                             session to APPL2.  queueSession(3)\n                             specifies that the TN3270E server must\n                             keep the TCP connection with the client\n                             active after it receives the UNBIND from\n                             APPL1, waiting for the BIND from APPL2.")
-tn3270eSrvrConfSrvrType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("host", 1), ("gateway", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrConfSrvrType.setDescription('This object indicates the type of TN3270E server.\n          The existence of MIB tables and objects that will be\n          defined by follow-on MIBs may be predicated on whether\n          the TN3270E server can be local to the same host as a\n          target application (host(1)) or will always be remote\n          (gateway(2)).\n\n          A host TN3270E server refers to an implementation where\n          the TN3270E server is collocated with the Systems\n          Network Architecture (SNA) System Services Control Point\n          (SSCP) for the dependent Secondary Logical Units (SLUs)\n          that the server makes available to its clients for\n          connecting into an SNA network.\n          A gateway TN3270E server resides on an SNA node other\n          than an SSCP, either an SNA type 2.0 node or an APPN node\n          acting in the role of a Dependent LU Requester (DLUR).\n\n          Host and gateway TN3270E server implementations typically\n          differ greatly as to their internal implementation and\n          system definition (SYSDEF) requirements.')
-tn3270eSrvrConfContact = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 1, 1, 11), SnmpAdminString().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tn3270eSrvrConfContact.setDescription('This object provides a scratch pad for a TN3270E\n          server administrator for storing information for\n          later retrieval.')
-tn3270eSrvrConfRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 1, 1, 12), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tn3270eSrvrConfRowStatus.setDescription('This object allows entries to be created and deleted\n          in the tn3270eSrvrConfTable.  Entries may also be\n          created and deleted as a result of implementation-\n          dependent operations.\n\n          With the exception of tn3270eSrvrConfSrvrType, which\n          an implementation can easily fill in for itself, all\n          the columnar objects in this table have DEFVALs\n          associated with them.  Consequently, a Management\n          Station can create a conceptual row via a SET\n          operation that specifies a value only for this object.\n\n          When a tn3270eSrvrConfEntry is deleted (by setting\n          this object to destroy(6)), this has the side-effect\n          of removing all the associated entries (i.e., those\n          having the same tn3270eSrvrConfIndex) from the\n          tn3270eSrvrPortTable, the tn3270eSrvrStatsTable, the\n          tn3270eClientGroupTable, the tn3270eResPoolTable,\n          the tn3270eSnaMapTable, the tn3270eClientResMapTable,\n          and the tn3270eResMapTable.  All entries in the\n          tn3270eTcpConnTable that belong to a TN3270E server\n          that has been deleted MUST also be removed.\n          In other words, a tn3270eSrvrConfEntry must exist for\n          a TN3270E server in order for it to have entries in\n          any of the other tables defined by this MIB.')
-tn3270eSrvrConfLastActTime = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 1, 1, 13), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrConfLastActTime.setDescription("This object reports the DateAndTime when a TN3270E\n          server was most recently activated.\n\n          The special value of all '00'Hs indicates that the\n          server has never been active, i.e., that the value of\n          tn3270eSrvrOperStatus has never been anything other\n          than down(2).")
-tn3270eSrvrConfTmTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 1, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,600)).clone(5)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tn3270eSrvrConfTmTimeout.setDescription('The TIMING-MARK time-out, specified in seconds.')
-tn3270eSrvrPortTable = MibTable((1, 3, 6, 1, 2, 1, 34, 8, 1, 2), )
-if mibBuilder.loadTexts: tn3270eSrvrPortTable.setDescription('This table defines the TCP ports associated with\n          TN3270E servers.  No entry in this table shall exist\n          without a corresponding (same tn3270eSrvrConfIndex)\n          entry in the tn3270eSrvrConfTable existing.\n\n          An implementation SHOULD NOT retain SNMP-created\n          entries in this table across re-IPLs (Initial Program\n          Loads) of the corresponding TN3270E server.')
-tn3270eSrvrPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 8, 1, 2, 1), ).setIndexNames((0, "TN3270E-MIB", "tn3270eSrvrConfIndex"), (0, "TN3270E-MIB", "tn3270eSrvrPort"), (0, "TN3270E-MIB", "tn3270eSrvrPortAddrType"), (0, "TN3270E-MIB", "tn3270eSrvrPortAddress"))
-if mibBuilder.loadTexts: tn3270eSrvrPortEntry.setDescription('Definition of a single TCP port assignment to a\n           TN3270E server.  Assignment of a port on a local\n           address basis is enabled though use of\n           tn3270eSrvrPortAddrType and tn3270eSrvrPortAddress.\n\n           A TCP port assignment that is not restricted to\n           a local address SHALL specify a tn3270eSrvrPortAddrType\n           of unknown(0), and SHALL use a zero-length octet string\n           for the tn3270eSrvrPortAddress.')
-tn3270eSrvrPort = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)))
-if mibBuilder.loadTexts: tn3270eSrvrPort.setDescription('Indicates a port assigned to a server.')
-tn3270eSrvrPortAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 2, 1, 2), IANATn3270eAddrType())
-if mibBuilder.loadTexts: tn3270eSrvrPortAddrType.setDescription('Indicates the type of an address local to the host on\n          which the TN3270E server resides that is represented\n          in tn3270eSrvrPortAddress.  A value of unknown(0)\n          SHALL be used for this object when the port is not\n          to be restricted to a local address.')
-tn3270eSrvrPortAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 2, 1, 3), IANATn3270eAddress())
-if mibBuilder.loadTexts: tn3270eSrvrPortAddress.setDescription("A local address on the host that a TN3270E server\n           resides on that is associated with a TCP port that\n           is to be used or is in use by a TN3270E server.\n           tn3270eClientGroupAddrType indicates the\n           address type (IPv4 or IPv6, for example).\n\n           A zero-length octet string SHALL be used as the\n           value of this object when a local address isn't\n           being specified.")
-tn3270eSrvrPortRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tn3270eSrvrPortRowStatus.setDescription('This object allows entries to be created and deleted\n          in the tn3270eSrvrPortTable.  Entries may also be\n          created and deleted as a result of implementation-\n          dependent operations.\n\n          Since this is the only accessible object in this table,\n          a Management Station can create a conceptual row via a SET\n          operation that specifies a value only for this object.\n\n          An entry in this table is deleted by setting this object\n          to destroy(6).  Deletion of a tn3270eSrvrPortEntry has\n          no effect on any other table entry defined by this MIB.')
-tn3270eSrvrStatsTable = MibTable((1, 3, 6, 1, 2, 1, 34, 8, 1, 3), )
-if mibBuilder.loadTexts: tn3270eSrvrStatsTable.setDescription('This table defines a set of statistics concerning\n          TN3270E server performance.\n\n          No entry in this table shall exist without\n          a corresponding (same tn3270eSrvrConfIndex) entry in\n          the tn3270eSrvrConfTable existing.')
-tn3270eSrvrStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 8, 1, 3, 1), ).setIndexNames((0, "TN3270E-MIB", "tn3270eSrvrConfIndex"), (0, "TN3270E-MIB", "tn3270eSrvrPort"), (0, "TN3270E-MIB", "tn3270eSrvrPortAddrType"), (0, "TN3270E-MIB", "tn3270eSrvrPortAddress"))
-if mibBuilder.loadTexts: tn3270eSrvrStatsEntry.setDescription('A collection of statistical and maximum usage objects\n          for a single TN3270 server.  An entry can represent the total\n          activity of the server, or it can represent the activity\n          occurring at the server on either a port or a\n          port-and-local-address basis.\n\n          Collection of the statistics represented by the objects\n          in this table is not mandatory.   An implementation\n          of this table MUST use only one of the three levels of\n          refinement that this table supports for the entries\n          associated with each TN3270E server.\n\n          The indexing for a row that represents total server\n          statistics is as follows:\n\n               tn3270eSrvrConfIndex      value identifying the server\n               tn3270eSrvrPort           0\n               tn3270eSrvrPortAddrType   unknown(0)\n               tn3270eSrvrPortAddress    zero-length octet string.\n\n          On a port basis:\n\n               tn3270eSrvrConfIndex      value identifying the server\n               tn3270eSrvrPort           > 0\n               tn3270eSrvrPortAddrType   unknown(0)\n               tn3270eSrvrPortAddress    zero-length octet string.\n\n          On a port-and-local-address basis:\n\n               tn3270eSrvrConfIndex      value identifying the server\n               tn3270eSrvrPort           > 0\n               tn3270eSrvrPortAddrType   valid value other than unknown(0)\n               tn3270eSrvrPortAddress    non-zero-length octet string.\n\n         ')
-tn3270eSrvrStatsUpTime = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 3, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrStatsUpTime.setDescription('The value of the sysUpTime object the last time\n          the TN3270E server was re-initialized.\n\n          Server re-initialization is the only discontinuity\n          event for the counters in this table.  Even if table\n          entries are on a port or port-and-local-address\n          basis, port deactivation and reactivation do not\n          result in counter discontinuities.')
-tn3270eSrvrStatsMaxTerms = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 3, 1, 3), Unsigned32()).setUnits('LUs').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrStatsMaxTerms.setDescription('Indicates the maximum number of terminal LUs available\n         for use at a TN3270E server for the granularity of this\n         conceptual row (server-wide, port, or\n         port-and-local-address).')
-tn3270eSrvrStatsInUseTerms = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 3, 1, 4), Gauge32()).setUnits('LUs').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrStatsInUseTerms.setDescription('Indicates the number of terminal LUs currently in\n         use at a TN3270E server for the granularity of this\n         conceptual row (server-wide, port, or\n         port-and-local-address).')
-tn3270eSrvrStatsSpareTerms = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 3, 1, 5), Gauge32()).setUnits('LUs').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrStatsSpareTerms.setDescription('Indicates the number of free terminal LUs at a TN3270E\n         server for the granularity of this conceptual row\n         (server-wide, port, or port-and-local-address).\n\n         It is possible that the difference between\n         tn3270eSrvrStatsMaxTerms and tn3270eSrvrStatsInUseTerms\n         in a conceptual row does not equal the value of\n         tn3270eSrvrStatsSpareTerms in that row:  an LU may\n         exist but not be usable by a client connection.\n\n         Alternatively, the administrative ceiling represented\n         by tn3270eSrvrStatsMaxTerms may have been lowered to\n         a point where it is less than the current value of\n         tn3270eSrvrStatsInUseTerms.  In this case\n         tn3270eSrvrStatsSpareTerms returns the value 0.')
-tn3270eSrvrStatsMaxPtrs = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 3, 1, 6), Unsigned32()).setUnits('Printer Resources').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrStatsMaxPtrs.setDescription('Indicates the maximum number of printer resources\n         available for use by a TN3270E server for the\n         granularity of this conceptual row (server-wide,\n         port, or port-and-local-address).')
-tn3270eSrvrStatsInUsePtrs = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 3, 1, 7), Gauge32()).setUnits('Printer Resources').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrStatsInUsePtrs.setDescription('Indicates the number of printer resources\n         currently in use by a TN3270E server for the\n         granularity of this conceptual row (server-wide,\n         port, or port-and-local-address).')
-tn3270eSrvrStatsSparePtrs = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 3, 1, 8), Gauge32()).setUnits('Spare Printer Resources').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrStatsSparePtrs.setDescription('Indicates the number of free printer resources at\n         a TN3270E server for the granularity of this conceptual\n         row (server-wide, port, or port-and-local-address).\n\n         It is possible that the difference between\n         tn3270eSrvrStatsMaxPtrs and tn3270eSrvrStatsInUsePtrs\n         in a conceptual row does not equal the value of\n         tn3270eSrvrStatsSparePtrs in that row:  a printer\n         resource may exist but not be usable by a client\n         connection.\n\n         Alternatively, the administrative ceiling represented\n         by tn3270eSrvrStatsMaxPtrs may have been lowered to\n         a point where it is less than the current value of\n         tn3270eSrvrStatsInUsePtrs.  In this case\n         tn3270eSrvrStatsSparePtrs returns the value 0.')
-tn3270eSrvrStatsInConnects = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 3, 1, 9), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrStatsInConnects.setDescription('Indicates the number of client (TCP) connections\n         that succeeded at a TN3270E server for the\n         granularity of this conceptual row (server-wide,\n         port, or port-and-local-address).\n\n         The tn3270eSrvrStatsConnResrceRejs and\n         tn3270eSrvrStatsConnErrorRejs objects provide a count\n         of failed connection attempts.\n\n         A Management Station can detect discontinuities in\n         this counter by monitoring the tn3270eSrvrStatsUpTime\n         object.')
-tn3270eSrvrStatsConnResrceRejs = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 3, 1, 10), Counter32()).setUnits('connection attempts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrStatsConnResrceRejs.setDescription("Indicates the number of (TCP) connections rejected\n         during connection setup at a TN3270E server for the\n         granularity of this conceptual row (server-wide,\n         port, or port-and-local-address) due to a lack of\n         resources at the server.  An example of when this\n         counter would be incremented is when no terminal\n         or printer resource is available to associate with a\n         client's TCP connection.\n\n         A Management Station can detect discontinuities in\n         this counter by monitoring the tn3270eSrvrStatsUpTime\n         object.")
-tn3270eSrvrStatsDisconnects = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 3, 1, 11), Counter32()).setUnits('disconnections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrStatsDisconnects.setDescription('Indicates the number of (TCP) connections that were\n         disconnected at a TN3270E server for the\n         granularity of this conceptual row (server-wide,\n         port, or port-and-local-address).\n\n         A Management Station can detect discontinuities in\n         this counter by monitoring the tn3270eSrvrStatsUpTime\n         object.')
-tn3270eSrvrStatsHCInOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 3, 1, 12), Counter64()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrStatsHCInOctets.setDescription('Indicates the number of octets received from TN3270\n         and TN3270E clients for the granularity of this\n         conceptual row (server-wide, port, or\n         port-and-local-address).\n\n         A Management Station can detect discontinuities in\n         this counter by monitoring the tn3270eSrvrStatsUpTime\n         object.')
-tn3270eSrvrStatsInOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 3, 1, 13), Counter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrStatsInOctets.setDescription('Low-order 32 bits of tn3270eSrvrStatsHCInOctets for\n         this conceptual row.\n\n         A Management Station can detect discontinuities in\n         this counter by monitoring the tn3270eSrvrStatsUpTime\n         object.')
-tn3270eSrvrStatsHCOutOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 3, 1, 14), Counter64()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrStatsHCOutOctets.setDescription('Indicates the number of octets sent to TN3270\n         and TN3270E clients for the granularity of this\n         conceptual row (server-wide, port, or\n         port-and-local-address).\n\n         A Management Station can detect discontinuities in\n         this counter by monitoring the tn3270eSrvrStatsUpTime\n         object.')
-tn3270eSrvrStatsOutOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 3, 1, 15), Counter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrStatsOutOctets.setDescription('Low-order 32 bits of tn3270eSrvrStatsHCOutOctets for\n         this conceptual row.\n\n         A Management Station can detect discontinuities in\n         this counter by monitoring the tn3270eSrvrStatsUpTime\n         object.')
-tn3270eSrvrStatsConnErrorRejs = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 3, 1, 16), Counter32()).setUnits('connection attempts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSrvrStatsConnErrorRejs.setDescription('Indicates the number of (TCP) connections rejected\n         during connection setup at a TN3270E server for the\n         granularity of this conceptual row (server-wide,\n         port, or port-and-local-address) due to an error\n         of some type.  An example of when this counter would\n         be incremented is when the client and the server\n         cannot agree on a common set of TN3270E functions for\n         the connection.\n\n         A Management Station can detect discontinuities in\n         this counter by monitoring the tn3270eSrvrStatsUpTime\n         object.')
-tn3270eClientGroupTable = MibTable((1, 3, 6, 1, 2, 1, 34, 8, 1, 4), )
-if mibBuilder.loadTexts: tn3270eClientGroupTable.setDescription('This table defines client address groupings for use\n          by a TN3270E server.\n\n          No entry in this table shall exist without\n          a corresponding (same tn3270eSrvrConfIndex) entry in\n          the tn3270eSrvrConfTable existing.\n\n          An implementation SHOULD NOT retain SNMP-created\n          entries in this table across re-IPLs (Initial Program\n          Loads) of the corresponding TN3270E server.')
-tn3270eClientGroupEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 8, 1, 4, 1), ).setIndexNames((0, "TN3270E-MIB", "tn3270eSrvrConfIndex"), (0, "TN3270E-MIB", "tn3270eClientGroupName"), (0, "TN3270E-MIB", "tn3270eClientGroupAddrType"), (0, "TN3270E-MIB", "tn3270eClientGroupAddress"))
-if mibBuilder.loadTexts: tn3270eClientGroupEntry.setDescription('Definition of a single client address entry.  All\n          entries with the same first two indexes,\n          tn3270eSrvrConfIndex and tn3270eClientGroupName, are\n          considered to be in the same client group.')
-tn3270eClientGroupName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 4, 1, 1), Utf8String().subtype(subtypeSpec=ValueSizeConstraint(1,24)))
-if mibBuilder.loadTexts: tn3270eClientGroupName.setDescription('The name of a client group.  Note: client group\n          names are required to be unique only with respect\n          to a single TN3270E server.')
-tn3270eClientGroupAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 4, 1, 2), IANATn3270eAddrType())
-if mibBuilder.loadTexts: tn3270eClientGroupAddrType.setDescription('Indicates the type of the address represented in\n           tn3270eClientGroupAddress.')
-tn3270eClientGroupAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 4, 1, 3), IANATn3270eAddress())
-if mibBuilder.loadTexts: tn3270eClientGroupAddress.setDescription('The client address of a member of a client group.\n          The value of tn3270eClientGroupAddrType indicates\n          the address type (IPv4 or IPv6, for example).')
-tn3270eClientGroupSubnetMask = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 4, 1, 4), IpAddress().clone(hexValue="FFFFFFFF")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tn3270eClientGroupSubnetMask.setDescription("The corresponding subnet mask associated with\n           tn3270eClientGroupAddress.  A single IP address is\n           represented by having this object contain the value\n           of 255.255.255.255.\n\n           This object's value is meaningful only if\n           tn3270eClientGroupAddrType has a value of ipv4(1).")
-tn3270eClientGroupPfxLength = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 4, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,128))).setUnits('bits').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tn3270eClientGroupPfxLength.setDescription("The corresponding IPv6 network prefix length.\n\n          This object's value is meaningful only if\n          tn3270eClientGroupAddrType  has a value of ipv6(2).")
-tn3270eClientGroupRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 4, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tn3270eClientGroupRowStatus.setDescription('This object allows entries to be created and deleted\n          in the tn3270eClientGroupTable.  Entries may also be\n          created and deleted as a result of implementation-\n          dependent operations.\n\n          An entry in this table is deleted by setting this object\n          to destroy(6).  When the number of entries in this table\n          for a given client group becomes 0, this has the side-\n          effect of removing any entries for the group in the\n          tn3270eClientResMapTable.')
-tn3270eResPoolTable = MibTable((1, 3, 6, 1, 2, 1, 34, 8, 1, 5), )
-if mibBuilder.loadTexts: tn3270eResPoolTable.setDescription("This table defines resource groupings; the term\n          'pool' is used as it is defined by RFC 2355.\n\n          No entry in this table shall exist without\n          a corresponding (same tn3270eSrvrConfIndex) entry in\n          the tn3270eSrvrConfTable existing.\n\n          An implementation SHOULD NOT retain SNMP-created\n          entries in this table across re-IPLs (Initial Program\n          Loads) of the corresponding TN3270E server.")
-tn3270eResPoolEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 8, 1, 5, 1), ).setIndexNames((0, "TN3270E-MIB", "tn3270eSrvrConfIndex"), (0, "TN3270E-MIB", "tn3270eResPoolName"), (0, "TN3270E-MIB", "tn3270eResPoolElementName"))
-if mibBuilder.loadTexts: tn3270eResPoolEntry.setDescription('Definition of a single resource pool member.  All entries\n          with the same first two indexes, tn3270eSrvrConfIndex and\n          tn3270eResPoolName, are considered to be in the same pool.')
-tn3270eResPoolName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 5, 1, 1), Utf8String().subtype(subtypeSpec=ValueSizeConstraint(1,24)))
-if mibBuilder.loadTexts: tn3270eResPoolName.setDescription('The name of a resource pool.')
-tn3270eResPoolElementName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 5, 1, 2), SnaResourceName())
-if mibBuilder.loadTexts: tn3270eResPoolElementName.setDescription('The name of a member of a resource pool.')
-tn3270eResPoolElementType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 5, 1, 3), IANATn3270ResourceType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tn3270eResPoolElementType.setDescription('The type of the entity in a resource pool.')
-tn3270eResPoolRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 5, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tn3270eResPoolRowStatus.setDescription('This object allows entries to be created and deleted\n          in the tn3270eResPoolTable.  Entries may also be\n          created and deleted as a result of implementation-\n          dependent operations.\n\n          An entry in this table is deleted by setting this object\n          to destroy(6).  When all entries in this table associated\n          with the same tn3270eResPoolElementName have been removed,\n          then any associated (tn3270eResPoolElementName matching\n          tn3270eClientResMapPoolName with same tn3270eSrvrConfIndex\n          values) entries in the tn3270eClientResMapTable SHALL\n          also be removed.')
-tn3270eSnaMapTable = MibTable((1, 3, 6, 1, 2, 1, 34, 8, 1, 6), )
-if mibBuilder.loadTexts: tn3270eSnaMapTable.setDescription('This table provide a mapping from the name by which\n          a secondary LU is known in the SNA network to the\n          name by which it is known locally at the TN3270e\n          server.  This latter name serves as an index into\n          the tn3270eResPoolTable and the tn3270eResMapTable.\n          No entry in this table shall exist without\n          a corresponding (same tn3270eSrvrConfIndex) entry in\n          the tn3270eSrvrConfTable existing.')
-tn3270eSnaMapEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 8, 1, 6, 1), ).setIndexNames((0, "TN3270E-MIB", "tn3270eSrvrConfIndex"), (0, "TN3270E-MIB", "tn3270eSnaMapSscpSuppliedName"))
-if mibBuilder.loadTexts: tn3270eSnaMapEntry.setDescription('Definition of a single mapping from an SSCP-supplied\n          SLU name to a local SLU name.\n\n          Note:  In certain pathological cases, it is possible\n          that an SSCP will send on an ACTLU for a local LU an\n          SLU name currently represented by an entry in this\n          table that associates it with a different local LU.\n          In these cases the association from the newer ACTLU\n          SHOULD be the one represented in this table.')
-tn3270eSnaMapSscpSuppliedName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 6, 1, 1), SnaResourceName())
-if mibBuilder.loadTexts: tn3270eSnaMapSscpSuppliedName.setDescription('The name of the secondary LU (SLU) as it is known in\n           the SNA network.  This name is sent by the SSCP on\n           the Activate Logical Unit (ACTLU) request.')
-tn3270eSnaMapLocalName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 6, 1, 2), SnaResourceName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSnaMapLocalName.setDescription('The local name of the secondary LU (SLU).')
-tn3270eSnaMapPrimaryLuName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 6, 1, 3), SnaResourceName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eSnaMapPrimaryLuName.setDescription('When there is a currently active LU-LU session for\n          this connection, this object returns the primary LU\n          (PLU) name from the BIND.  When there is no active\n          LU-LU session, or when the PLU name is unavailable\n          for some other reason, this object returns a\n          zero-length octet string.')
-tn3270eClientResMapTable = MibTable((1, 3, 6, 1, 2, 1, 34, 8, 1, 7), )
-if mibBuilder.loadTexts: tn3270eClientResMapTable.setDescription('This table defines resource-pool to client-group\n          mappings.  Since both the resource pool name and client\n          group name are included in the index clause of this\n          table, multiple resource pools can be assigned to the\n          same client group.  This enables use of multiple\n          resource pools for use in client to resource mapping.\n          Assigning multiple client groups to the same resource\n          pool is also allowed, but is not the primary purpose\n          for how the indexing is structured.\n\n          Assignment of a resource pool to client group can be\n          restricted based on TCP port.  An index value of 0 for\n          tn3270eClientResMapClientPort disables restriction of\n          resource assignment based on client target port\n          selection.\n\n          No entry in this table shall exist without\n          a corresponding (same tn3270eSrvrConfIndex) entry in\n          the tn3270eSrvrConfTable existing.\n\n          An implementation SHOULD NOT retain SNMP-created\n          entries in this table across re-IPLs (Initial Program\n          Loads) of the corresponding TN3270E server.')
-tn3270eClientResMapEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 8, 1, 7, 1), ).setIndexNames((0, "TN3270E-MIB", "tn3270eSrvrConfIndex"), (0, "TN3270E-MIB", "tn3270eClientResMapPoolName"), (0, "TN3270E-MIB", "tn3270eClientResMapClientGroupName"), (0, "TN3270E-MIB", "tn3270eClientResMapClientPort"))
-if mibBuilder.loadTexts: tn3270eClientResMapEntry.setDescription('Definition of a single resource pool to client group\n          mapping.')
-tn3270eClientResMapPoolName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 7, 1, 1), Utf8String().subtype(subtypeSpec=ValueSizeConstraint(1,24)))
-if mibBuilder.loadTexts: tn3270eClientResMapPoolName.setDescription('The name of a resource pool.')
-tn3270eClientResMapClientGroupName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 7, 1, 2), Utf8String().subtype(subtypeSpec=ValueSizeConstraint(1,24)))
-if mibBuilder.loadTexts: tn3270eClientResMapClientGroupName.setDescription('The name of the client group that is mapped to a\n           resource pool.')
-tn3270eClientResMapClientPort = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 7, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)))
-if mibBuilder.loadTexts: tn3270eClientResMapClientPort.setDescription('A port number restricting the scope of a mapping\n          from a resource pool to a client group.  The\n          value 0 for this object indicates that the scope\n          of the mapping is not restricted.')
-tn3270eClientResMapRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 7, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tn3270eClientResMapRowStatus.setDescription("This object allows entries to be created and deleted\n          in the tn3270eClientResMapTable.  Entries may also be\n          created and deleted as a result of implementation-\n          dependent operations.\n\n          An entry in this table is deleted by setting this object\n          to destroy(6).  Removing an entry from this table doesn't\n          affect any other table entry defined in this MIB.")
-tn3270eResMapTable = MibTable((1, 3, 6, 1, 2, 1, 34, 8, 1, 8), )
-if mibBuilder.loadTexts: tn3270eResMapTable.setDescription('This table defines the actual mapping of a resource\n          to a client address.\n\n          No entry in this table shall exist without\n          a corresponding (same tn3270eSrvrConfIndex) entry in\n          the tn3270eSrvrConfTable existing.')
-tn3270eResMapEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 8, 1, 8, 1), ).setIndexNames((0, "TN3270E-MIB", "tn3270eSrvrConfIndex"), (0, "TN3270E-MIB", "tn3270eResMapElementName"))
-if mibBuilder.loadTexts: tn3270eResMapEntry.setDescription('Definition of the mapping of a Resource Element to\n           a client address.')
-tn3270eResMapElementName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 8, 1, 1), SnaResourceName())
-if mibBuilder.loadTexts: tn3270eResMapElementName.setDescription('The name of a resource element.  This is the name by\n          which the server implementing this table knows the\n          resource.  It may be different from the name by which\n          the resource is known in the SNA network.  This latter\n          name is returned in the tn3270eResMapSscpSuppliedName\n          object.')
-tn3270eResMapAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 8, 1, 2), IANATn3270eAddrType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eResMapAddrType.setDescription('Indicates the type of the client address represented\n          in tn3270eResMapAddress.')
-tn3270eResMapAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 8, 1, 3), IANATn3270eAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eResMapAddress.setDescription('A client address.')
-tn3270eResMapPort = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 8, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eResMapPort.setDescription('A client port.')
-tn3270eResMapElementType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 8, 1, 5), IANATn3270ResourceType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eResMapElementType.setDescription('The type of the associated resource element.')
-tn3270eResMapSscpSuppliedName = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 8, 1, 6), SnaResourceName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eResMapSscpSuppliedName.setDescription('The name of the secondary LU (SLU) as it is known\n          in a SNA network.  This name is sent by the SSCP on\n          the Activate Logical Unit (ACTLU) request.  If this\n          name is not known, this object returns a zero-length\n          octet string.')
-tn3270eTcpConnTable = MibTable((1, 3, 6, 1, 2, 1, 34, 8, 1, 9), )
-if mibBuilder.loadTexts: tn3270eTcpConnTable.setDescription('This table has an entry for each TN3270(E) client\n           connection that is currently active at a TN3270E server.\n           An implementation MAY retain entries for connections\n           that have been terminated, but which entries are\n           retained, how many entries are retained, and how long\n           they are retained is entirely implementation-dependent.\n\n           The indexing for this table is designed to support the\n           use of an SNMP GET-NEXT operation using only the remote\n           address type, remote address, and remote port, as a way\n           for a Management Station to retrieve the table entries\n           related to a particular TN3270(E) client.')
-tn3270eTcpConnEntry = MibTableRow((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1), ).setIndexNames((0, "TN3270E-MIB", "tn3270eTcpConnRemAddrType"), (0, "TN3270E-MIB", "tn3270eTcpConnRemAddress"), (0, "TN3270E-MIB", "tn3270eTcpConnRemPort"), (0, "TN3270E-MIB", "tn3270eTcpConnLocalAddrType"), (0, "TN3270E-MIB", "tn3270eTcpConnLocalAddress"), (0, "TN3270E-MIB", "tn3270eTcpConnLocalPort"))
-if mibBuilder.loadTexts: tn3270eTcpConnEntry.setDescription('Provides information about a single TN3270/TN3270E\n          session.  Note: a tn3270eSrvrConfIndex is not needed\n          in this table, since the combination of remote and\n          local addresses and ports is sufficient to\n          guarantee uniqueness across the TN3270E servers\n          serviced by an SNMP agent.  Because of this indexing\n          structure, however, this table does not support\n          view-based access control policies that provide\n          access to table rows on a per-server basis.')
-tn3270eTcpConnRemAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 1), IANATn3270eAddrType())
-if mibBuilder.loadTexts: tn3270eTcpConnRemAddrType.setDescription('Indicates the type of the value of the\n          tn3270eTcpConnRemAddress object.  For example,\n          ipv4(1) or ipv6(2).')
-tn3270eTcpConnRemAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 2), IANATn3270eAddress())
-if mibBuilder.loadTexts: tn3270eTcpConnRemAddress.setDescription("The remote address associated with a TN3270E client.\n           tn3270eTcpConnRemAddrType indicates the address type\n           (IPv4 or IPv6, for example).\n\n           If a TN3270(E) client is connected to its\n           server via a proxy client the address represented by\n           the value of this object shall be the remote client's\n           address, not the proxy client's address.")
-tn3270eTcpConnRemPort = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)))
-if mibBuilder.loadTexts: tn3270eTcpConnRemPort.setDescription("The remote port associated with a TN3270E client.  The value 0\n          is used if the tn3270eTcpConnRemAddrType identifies an address\n          type that does not support ports.\n\n          If a TN3270(E) client is connected to its server via a proxy\n          client, the port represented by the value of this object shall\n          be the remote client's port, not the proxy client's port.")
-tn3270eTcpConnLocalAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 4), IANATn3270eAddrType())
-if mibBuilder.loadTexts: tn3270eTcpConnLocalAddrType.setDescription('Indicates the type of the value of the\n          tn3270eTcpConnLocalAddress object.  For example,\n          ipv4(1) or ipv6(2).')
-tn3270eTcpConnLocalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 5), IANATn3270eAddress())
-if mibBuilder.loadTexts: tn3270eTcpConnLocalAddress.setDescription('The local address associated with a TN3270E client.\n           tn3270eTcpConnRemAddrType indicates the address type\n           (IPv4 or IPv6, for example).')
-tn3270eTcpConnLocalPort = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: tn3270eTcpConnLocalPort.setDescription('The remote port associated with a TN3270E client.')
-tn3270eTcpConnLastActivity = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 7), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eTcpConnLastActivity.setDescription('The number of 100ths of seconds since any data was\n           transferred for the associated TCP Connection.')
-tn3270eTcpConnBytesIn = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 8), Counter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eTcpConnBytesIn.setDescription('The number of bytes received by the server from TCP\n          for this connection.\n\n          A Management Station can detect discontinuities in\n          this counter by monitoring the\n          tn3270eTcpConnActivationTime object.')
-tn3270eTcpConnBytesOut = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 9), Counter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eTcpConnBytesOut.setDescription('The number of bytes sent to TCP for this connection.\n\n          A Management Station can detect discontinuities in\n          this counter by monitoring the\n          tn3270eTcpConnActivationTime object.')
-tn3270eTcpConnResourceElement = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 10), SnaResourceName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eTcpConnResourceElement.setDescription('LU/Print secondary name for connecting an client\n           into an SNA network.')
-tn3270eTcpConnResourceType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 11), IANATn3270ResourceType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eTcpConnResourceType.setDescription('Indicates the type of resource identified by\n           tn3270eTcpConnResourceElement.')
-tn3270eTcpConnDeviceType = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 12), IANATn3270DeviceType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eTcpConnDeviceType.setDescription('Indicates the device type if negotiated with the\n          client.  A value of unknown(100) should be used as\n          the value of this object when a device type is not\n          negotiated.  Refer to RFC 2355 for how device types\n          can be negotiated.')
-tn3270eTcpConnFunctions = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 13), IANATn3270Functions()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eTcpConnFunctions.setDescription('This object indicates which of the TN3270 and TN3270E\n          functions were negotiated by the server and the client\n          for this TCP connection.\n\n          Refer to tn3270eSrvrFunctionsSupported for the list of\n          these functions supported by the server.')
-tn3270eTcpConnId = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 14), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eTcpConnId.setDescription("The connection identifier associated with a TN3270 or\n           a TN3270E session's TCP connection.  TCP implementations\n           often assign a unique (with respect to itself) unsigned\n           integer as an identifier for a TCP connection.\n\n           The value 0 indicates that a connection does not have\n           a valid connection identifier.")
-tn3270eTcpConnClientIdFormat = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 15), IANATn3270eClientType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eTcpConnClientIdFormat.setDescription('The format of a corresponding tn3270eTcpConnClientId\n          object as defined by the IANSTn3270eClientType textual\n          convention imported from the IANATn3270eTC-MIB.')
-tn3270eTcpConnClientId = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 16), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,512))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eTcpConnClientId.setDescription('Additional client identification information.  The\n          type of this information is indicated by the value of\n          the corresponding tn3270eTcpConnClientIdFormat object.\n          All values are returned in network-byte order.\n\n          The purpose of this object is to provide an alternate\n          means of identifying a client, other than though the\n          remote address returned in tn3270eTcpConnRemAddress.')
-tn3270eTcpConnTraceData = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 17), Tn3270eTraceData()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eTcpConnTraceData.setDescription('Trace data for this session.')
-tn3270eTcpConnLogInfo = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 18), IANATn3270eLogData()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eTcpConnLogInfo.setDescription('Log information, encoded as specified in the\n          IANATn3270eLogData textual convention from the\n          IANAtn3270eTC-MIB.')
-tn3270eTcpConnLuLuBindImage = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 19), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,256))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eTcpConnLuLuBindImage.setDescription("When there is a currently active LU-LU session for\n          this connection, this object returns the BIND Image\n          (defined to be bytes 1-p of the complete BIND Request\n          Unit -- see 'SNA Formats' for more information)\n          that was received from the PLU during session\n          activation.  When there is no active LU-LU session,\n          or when a BIND image is unavailable for some other\n          reason, this object returns a zero-length octet\n          string.")
-tn3270eTcpConnSnaState = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("unknown", 1), ("noSluSession", 2), ("sscpLuSession", 3), ("luLuSession", 4), ("sscpLuSessionAndLuLuSession", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eTcpConnSnaState.setDescription('The current state of the SNA side of the end-to-end\n          TN3270 connection.  The following states are defined:\n\n              unknown(1)          - The true state is not known.\n              noSluSession(2)     - The SLU has neither an SSCP-LU\n                                    nor an LU-LU session active.\n              sscpLuSession(3)    - The SSCP-LU session for the SLU\n                                    is active, but the SLU is not\n                                    currently in session with a PLU.\n              luLuSession(4)      - The SLU is currently in session\n                                    with a PLU, but the SSCP-LU\n                                    session for the LU is not active.\n              sscpLuSessionAndLuLuSession(5) - The SLU currently has\n                                    an active session with a PLU,\n                                    and the SSCP-LU session for the\n                                    SLU is active.')
-tn3270eTcpConnStateLastDiscReason = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,))).clone(namedValues=NamedValues(("unknown", 1), ("hostSendsUnbind", 2), ("hostDontAcceptConnection", 3), ("outOfResource", 4), ("clientProtocolError", 5), ("invalidDeviceName", 6), ("deviceInUse", 7), ("inactivityTimeout", 8), ("hostNotResponding", 9), ("clientNotResponding", 10), ("serverClose", 11), ("sysreqLogoff", 12), ("serverSpecificHexCode", 13),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eTcpConnStateLastDiscReason.setDescription('The last disconnect reason.  A session that has not\n          experienced a disconnect shall use the value unknown(1)\n          for this object.  Depending on when an implementation\n          removes entries from this table, certain states may\n          never be returned.')
-tn3270eTcpConnSrvrConfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 22), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eTcpConnSrvrConfIndex.setDescription('tn3270eSrvrConfIndex of the tn3270eSrvrConfEntry\n          belonging to the TN3270E server to which this entry\n          belongs.')
-tn3270eTcpConnActivationTime = MibTableColumn((1, 3, 6, 1, 2, 1, 34, 8, 1, 9, 1, 23), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tn3270eTcpConnActivationTime.setDescription('The value of the sysUpTime object the last time\n          this TCP connection became active.')
-tn3270eConfSpinLock = MibScalar((1, 3, 6, 1, 2, 1, 34, 8, 1, 10), TestAndIncr()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tn3270eConfSpinLock.setDescription('An advisory lock used to allow cooperating\n        TN3270E-MIB applications to coordinate their use\n        of the tn3270eSrvrConfTable, the tn3270eSrvrPortTable,\n        the tn3270eClientGroupTable, the tn3270eResPoolTable,\n        and the tn3270eClientResMapTable.\n\n        When creating a new entry or altering an existing entry\n        in the any of the tables mentioned above, an application\n        should make use of tn3270eRtSpinLock to serialize\n        application changes or additions.\n\n        Since this is an advisory lock, the use of this lock is\n        not enforced.')
-tn3270eGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 8, 3, 1))
-tn3270eCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 34, 8, 3, 2))
-tn3270eCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 34, 8, 3, 2, 1)).setObjects(*(("TN3270E-MIB", "tn3270eBasicGroup"), ("TN3270E-MIB", "tn3270eSessionGroup"), ("TN3270E-MIB", "tn3270eResMapGroup"), ("TN3270E-MIB", "tn3270eHiCapacityGroup"),))
-if mibBuilder.loadTexts: tn3270eCompliance.setDescription('The compliance statement for agents that support the\n          TN3270E-MIB.')
-tn3270eBasicGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 8, 3, 1, 1)).setObjects(*(("TN3270E-MIB", "tn3270eSrvrConfInactivityTimeout"), ("TN3270E-MIB", "tn3270eSrvrConfConnectivityChk"), ("TN3270E-MIB", "tn3270eSrvrConfTmNopInactTime"), ("TN3270E-MIB", "tn3270eSrvrConfTmNopInterval"), ("TN3270E-MIB", "tn3270eSrvrFunctionsSupported"), ("TN3270E-MIB", "tn3270eSrvrConfAdminStatus"), ("TN3270E-MIB", "tn3270eSrvrConfOperStatus"), ("TN3270E-MIB", "tn3270eSrvrConfSessionTermState"), ("TN3270E-MIB", "tn3270eSrvrConfSrvrType"), ("TN3270E-MIB", "tn3270eSrvrConfContact"), ("TN3270E-MIB", "tn3270eSrvrConfRowStatus"), ("TN3270E-MIB", "tn3270eSrvrConfLastActTime"), ("TN3270E-MIB", "tn3270eSrvrConfTmTimeout"), ("TN3270E-MIB", "tn3270eSrvrPortRowStatus"), ("TN3270E-MIB", "tn3270eSrvrStatsUpTime"), ("TN3270E-MIB", "tn3270eSrvrStatsMaxTerms"), ("TN3270E-MIB", "tn3270eSrvrStatsInUseTerms"), ("TN3270E-MIB", "tn3270eSrvrStatsSpareTerms"), ("TN3270E-MIB", "tn3270eSrvrStatsMaxPtrs"), ("TN3270E-MIB", "tn3270eSrvrStatsInUsePtrs"), ("TN3270E-MIB", "tn3270eSrvrStatsSparePtrs"), ("TN3270E-MIB", "tn3270eSrvrStatsInConnects"), ("TN3270E-MIB", "tn3270eSrvrStatsConnResrceRejs"), ("TN3270E-MIB", "tn3270eSrvrStatsDisconnects"), ("TN3270E-MIB", "tn3270eSrvrStatsInOctets"), ("TN3270E-MIB", "tn3270eSrvrStatsOutOctets"), ("TN3270E-MIB", "tn3270eSrvrStatsConnErrorRejs"), ("TN3270E-MIB", "tn3270eClientGroupSubnetMask"), ("TN3270E-MIB", "tn3270eClientGroupPfxLength"), ("TN3270E-MIB", "tn3270eClientGroupRowStatus"), ("TN3270E-MIB", "tn3270eSnaMapLocalName"), ("TN3270E-MIB", "tn3270eSnaMapPrimaryLuName"), ("TN3270E-MIB", "tn3270eConfSpinLock"),))
-if mibBuilder.loadTexts: tn3270eBasicGroup.setDescription('This group is mandatory for all hosts supporting the\n           TN3270E-MIB.')
-tn3270eSessionGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 8, 3, 1, 2)).setObjects(*(("TN3270E-MIB", "tn3270eResMapAddrType"), ("TN3270E-MIB", "tn3270eResMapAddress"), ("TN3270E-MIB", "tn3270eResMapPort"), ("TN3270E-MIB", "tn3270eResMapElementType"), ("TN3270E-MIB", "tn3270eResMapSscpSuppliedName"), ("TN3270E-MIB", "tn3270eTcpConnLastActivity"), ("TN3270E-MIB", "tn3270eTcpConnBytesIn"), ("TN3270E-MIB", "tn3270eTcpConnBytesOut"), ("TN3270E-MIB", "tn3270eTcpConnResourceElement"), ("TN3270E-MIB", "tn3270eTcpConnResourceType"), ("TN3270E-MIB", "tn3270eTcpConnDeviceType"), ("TN3270E-MIB", "tn3270eTcpConnFunctions"), ("TN3270E-MIB", "tn3270eTcpConnSrvrConfIndex"), ("TN3270E-MIB", "tn3270eTcpConnActivationTime"),))
-if mibBuilder.loadTexts: tn3270eSessionGroup.setDescription('This group is mandatory for all hosts supporting the\n           TN3270E-MIB.')
-tn3270eResMapGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 8, 3, 1, 3)).setObjects(*(("TN3270E-MIB", "tn3270eResPoolElementType"), ("TN3270E-MIB", "tn3270eResPoolRowStatus"), ("TN3270E-MIB", "tn3270eClientResMapRowStatus"), ("TN3270E-MIB", "tn3270eTcpConnId"), ("TN3270E-MIB", "tn3270eTcpConnClientIdFormat"), ("TN3270E-MIB", "tn3270eTcpConnClientId"), ("TN3270E-MIB", "tn3270eTcpConnTraceData"), ("TN3270E-MIB", "tn3270eTcpConnLogInfo"), ("TN3270E-MIB", "tn3270eTcpConnLuLuBindImage"), ("TN3270E-MIB", "tn3270eTcpConnSnaState"), ("TN3270E-MIB", "tn3270eTcpConnStateLastDiscReason"),))
-if mibBuilder.loadTexts: tn3270eResMapGroup.setDescription('This group is optional for all hosts supporting the\n           TN3270E-MIB.')
-tn3270eHiCapacityGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 34, 8, 3, 1, 4)).setObjects(*(("TN3270E-MIB", "tn3270eSrvrStatsHCInOctets"), ("TN3270E-MIB", "tn3270eSrvrStatsHCOutOctets"),))
-if mibBuilder.loadTexts: tn3270eHiCapacityGroup.setDescription("Support of these objects is REQUIRED when the\n           Counter32 versions can potentially wrap too\n           frequently.  This group is optional for all other\n           hosts supporting the TN3270E-MIB.\n\n           The IF-MIB (RFC 2233) requires that the 64-bit\n           versions of its counters be implemented when an\n           interface can support rates of around 20 million\n           bits per second or greater.  This implies a minimum\n           wrap rate of just over 28 minutes.  It is recommended\n           that this same guideline be used for determining\n           whether an implementation implements these objects.\n\n           This group contains two objects with the syntax\n           Counter64.  An implementation that doesn't support\n           these objects should return noSuchObject, since\n           returning a zero is misleading.")
-mibBuilder.exportSymbols("TN3270E-MIB", tn3270eClientResMapTable=tn3270eClientResMapTable, tn3270eSnaMapLocalName=tn3270eSnaMapLocalName, tn3270eSrvrConfConnectivityChk=tn3270eSrvrConfConnectivityChk, tn3270eSrvrStatsInOctets=tn3270eSrvrStatsInOctets, tn3270eSnaMapTable=tn3270eSnaMapTable, tn3270eTcpConnBytesOut=tn3270eTcpConnBytesOut, tn3270eResPoolEntry=tn3270eResPoolEntry, tn3270eSrvrStatsSpareTerms=tn3270eSrvrStatsSpareTerms, tn3270eTcpConnResourceElement=tn3270eTcpConnResourceElement, tn3270eClientGroupName=tn3270eClientGroupName, tn3270eNotifications=tn3270eNotifications, tn3270eResPoolElementType=tn3270eResPoolElementType, tn3270eTcpConnFunctions=tn3270eTcpConnFunctions, tn3270eResMapElementType=tn3270eResMapElementType, tn3270eSrvrConfContact=tn3270eSrvrConfContact, tn3270eTcpConnActivationTime=tn3270eTcpConnActivationTime, tn3270eSrvrConfTable=tn3270eSrvrConfTable, tn3270eSrvrStatsUpTime=tn3270eSrvrStatsUpTime, tn3270eSrvrStatsConnErrorRejs=tn3270eSrvrStatsConnErrorRejs, tn3270eSnaMapEntry=tn3270eSnaMapEntry, tn3270eTcpConnTraceData=tn3270eTcpConnTraceData, tn3270eSrvrConfOperStatus=tn3270eSrvrConfOperStatus, tn3270eSrvrFunctionsSupported=tn3270eSrvrFunctionsSupported, tn3270eClientGroupTable=tn3270eClientGroupTable, tn3270eSrvrPort=tn3270eSrvrPort, tn3270eTcpConnDeviceType=tn3270eTcpConnDeviceType, tn3270eClientGroupAddrType=tn3270eClientGroupAddrType, tn3270eSrvrStatsSparePtrs=tn3270eSrvrStatsSparePtrs, tn3270eSessionGroup=tn3270eSessionGroup, tn3270eResPoolName=tn3270eResPoolName, tn3270eCompliance=tn3270eCompliance, tn3270eSrvrPortAddrType=tn3270eSrvrPortAddrType, tn3270eSrvrConfRowStatus=tn3270eSrvrConfRowStatus, tn3270eSrvrConfLastActTime=tn3270eSrvrConfLastActTime, tn3270eSrvrConfInactivityTimeout=tn3270eSrvrConfInactivityTimeout, tn3270eCompliances=tn3270eCompliances, tn3270eResPoolRowStatus=tn3270eResPoolRowStatus, tn3270eTcpConnClientId=tn3270eTcpConnClientId, tn3270eClientGroupPfxLength=tn3270eClientGroupPfxLength, tn3270eSrvrConfTmNopInactTime=tn3270eSrvrConfTmNopInactTime, tn3270eTcpConnResourceType=tn3270eTcpConnResourceType, tn3270eSrvrStatsHCOutOctets=tn3270eSrvrStatsHCOutOctets, tn3270eSrvrPortRowStatus=tn3270eSrvrPortRowStatus, tn3270eTcpConnLastActivity=tn3270eTcpConnLastActivity, tn3270eResPoolTable=tn3270eResPoolTable, tn3270eTcpConnClientIdFormat=tn3270eTcpConnClientIdFormat, tn3270eSrvrPortEntry=tn3270eSrvrPortEntry, tn3270eResMapPort=tn3270eResMapPort, tn3270eTcpConnStateLastDiscReason=tn3270eTcpConnStateLastDiscReason, tn3270eSrvrStatsInUsePtrs=tn3270eSrvrStatsInUsePtrs, tn3270eSrvrConfIndex=tn3270eSrvrConfIndex, tn3270eSrvrStatsInUseTerms=tn3270eSrvrStatsInUseTerms, tn3270eConfSpinLock=tn3270eConfSpinLock, tn3270eSrvrPortTable=tn3270eSrvrPortTable, tn3270eSrvrConfTmNopInterval=tn3270eSrvrConfTmNopInterval, tn3270eResMapEntry=tn3270eResMapEntry, tn3270eTcpConnRemAddress=tn3270eTcpConnRemAddress, tn3270eTcpConnLogInfo=tn3270eTcpConnLogInfo, tn3270eSrvrStatsInConnects=tn3270eSrvrStatsInConnects, tn3270eSrvrStatsDisconnects=tn3270eSrvrStatsDisconnects, tn3270eSrvrStatsEntry=tn3270eSrvrStatsEntry, tn3270eTcpConnRemAddrType=tn3270eTcpConnRemAddrType, tn3270eResMapAddrType=tn3270eResMapAddrType, tn3270eSrvrConfSrvrType=tn3270eSrvrConfSrvrType, tn3270eTcpConnLocalPort=tn3270eTcpConnLocalPort, tn3270eMIB=tn3270eMIB, tn3270eConformance=tn3270eConformance, tn3270eSrvrStatsOutOctets=tn3270eSrvrStatsOutOctets, tn3270eTcpConnLuLuBindImage=tn3270eTcpConnLuLuBindImage, tn3270eResMapElementName=tn3270eResMapElementName, tn3270eResPoolElementName=tn3270eResPoolElementName, tn3270eSnaMapPrimaryLuName=tn3270eSnaMapPrimaryLuName, tn3270eTcpConnRemPort=tn3270eTcpConnRemPort, tn3270eClientGroupEntry=tn3270eClientGroupEntry, tn3270eBasicGroup=tn3270eBasicGroup, tn3270eSrvrStatsTable=tn3270eSrvrStatsTable, tn3270eTcpConnBytesIn=tn3270eTcpConnBytesIn, tn3270eSrvrConfEntry=tn3270eSrvrConfEntry, tn3270eClientGroupRowStatus=tn3270eClientGroupRowStatus, tn3270eTcpConnLocalAddress=tn3270eTcpConnLocalAddress, tn3270eHiCapacityGroup=tn3270eHiCapacityGroup, tn3270eClientResMapEntry=tn3270eClientResMapEntry, tn3270eSrvrConfTmTimeout=tn3270eSrvrConfTmTimeout, tn3270eTcpConnLocalAddrType=tn3270eTcpConnLocalAddrType, tn3270eClientGroupSubnetMask=tn3270eClientGroupSubnetMask, tn3270eResMapGroup=tn3270eResMapGroup, tn3270eResMapAddress=tn3270eResMapAddress, PYSNMP_MODULE_ID=tn3270eMIB, Tn3270eTraceData=Tn3270eTraceData, tn3270eTcpConnEntry=tn3270eTcpConnEntry, tn3270eClientGroupAddress=tn3270eClientGroupAddress, tn3270eTcpConnSrvrConfIndex=tn3270eTcpConnSrvrConfIndex, tn3270eClientResMapPoolName=tn3270eClientResMapPoolName, tn3270eSrvrStatsMaxPtrs=tn3270eSrvrStatsMaxPtrs, tn3270eSrvrConfAdminStatus=tn3270eSrvrConfAdminStatus, tn3270eSrvrPortAddress=tn3270eSrvrPortAddress, tn3270eGroups=tn3270eGroups, tn3270eClientResMapClientGroupName=tn3270eClientResMapClientGroupName, tn3270eSrvrStatsMaxTerms=tn3270eSrvrStatsMaxTerms, tn3270eResMapTable=tn3270eResMapTable, tn3270eSrvrConfSessionTermState=tn3270eSrvrConfSessionTermState, tn3270eResMapSscpSuppliedName=tn3270eResMapSscpSuppliedName, tn3270eClientResMapRowStatus=tn3270eClientResMapRowStatus, SnaResourceName=SnaResourceName, tn3270eObjects=tn3270eObjects, tn3270eClientResMapClientPort=tn3270eClientResMapClientPort, tn3270eSnaMapSscpSuppliedName=tn3270eSnaMapSscpSuppliedName, tn3270eSrvrStatsHCInOctets=tn3270eSrvrStatsHCInOctets, tn3270eTcpConnSnaState=tn3270eTcpConnSnaState, tn3270eTcpConnId=tn3270eTcpConnId, tn3270eSrvrStatsConnResrceRejs=tn3270eSrvrStatsConnResrceRejs, tn3270eTcpConnTable=tn3270eTcpConnTable)
+_Ap='tn3270eHiCapacityGroup'
+_Ao='tn3270eResMapGroup'
+_An='tn3270eSessionGroup'
+_Am='tn3270eBasicGroup'
+_Al='tn3270eSrvrStatsHCOutOctets'
+_Ak='tn3270eSrvrStatsHCInOctets'
+_Aj='tn3270eTcpConnStateLastDiscReason'
+_Ai='tn3270eTcpConnSnaState'
+_Ah='tn3270eTcpConnLuLuBindImage'
+_Ag='tn3270eTcpConnLogInfo'
+_Af='tn3270eTcpConnTraceData'
+_Ae='tn3270eTcpConnClientId'
+_Ad='tn3270eTcpConnClientIdFormat'
+_Ac='tn3270eTcpConnId'
+_Ab='tn3270eClientResMapRowStatus'
+_Aa='tn3270eResPoolRowStatus'
+_AZ='tn3270eResPoolElementType'
+_AY='tn3270eTcpConnActivationTime'
+_AX='tn3270eTcpConnSrvrConfIndex'
+_AW='tn3270eTcpConnFunctions'
+_AV='tn3270eTcpConnDeviceType'
+_AU='tn3270eTcpConnResourceType'
+_AT='tn3270eTcpConnResourceElement'
+_AS='tn3270eTcpConnBytesOut'
+_AR='tn3270eTcpConnBytesIn'
+_AQ='tn3270eTcpConnLastActivity'
+_AP='tn3270eResMapSscpSuppliedName'
+_AO='tn3270eResMapElementType'
+_AN='tn3270eResMapPort'
+_AM='tn3270eResMapAddress'
+_AL='tn3270eResMapAddrType'
+_AK='tn3270eConfSpinLock'
+_AJ='tn3270eSnaMapPrimaryLuName'
+_AI='tn3270eSnaMapLocalName'
+_AH='tn3270eClientGroupRowStatus'
+_AG='tn3270eClientGroupPfxLength'
+_AF='tn3270eClientGroupSubnetMask'
+_AE='tn3270eSrvrStatsConnErrorRejs'
+_AD='tn3270eSrvrStatsOutOctets'
+_AC='tn3270eSrvrStatsInOctets'
+_AB='tn3270eSrvrStatsDisconnects'
+_AA='tn3270eSrvrStatsConnResrceRejs'
+_A9='tn3270eSrvrStatsInConnects'
+_A8='tn3270eSrvrStatsSparePtrs'
+_A7='tn3270eSrvrStatsInUsePtrs'
+_A6='tn3270eSrvrStatsMaxPtrs'
+_A5='tn3270eSrvrStatsSpareTerms'
+_A4='tn3270eSrvrStatsInUseTerms'
+_A3='tn3270eSrvrStatsMaxTerms'
+_A2='tn3270eSrvrStatsUpTime'
+_A1='tn3270eSrvrPortRowStatus'
+_A0='tn3270eSrvrConfTmTimeout'
+_z='tn3270eSrvrConfLastActTime'
+_y='tn3270eSrvrConfRowStatus'
+_x='tn3270eSrvrConfContact'
+_w='tn3270eSrvrConfSrvrType'
+_v='tn3270eSrvrConfSessionTermState'
+_u='tn3270eSrvrConfOperStatus'
+_t='tn3270eSrvrConfAdminStatus'
+_s='tn3270eSrvrFunctionsSupported'
+_r='tn3270eSrvrConfTmNopInterval'
+_q='tn3270eSrvrConfTmNopInactTime'
+_p='tn3270eSrvrConfConnectivityChk'
+_o='tn3270eSrvrConfInactivityTimeout'
+_n='unknown'
+_m='tn3270eTcpConnLocalPort'
+_l='tn3270eTcpConnLocalAddress'
+_k='tn3270eTcpConnLocalAddrType'
+_j='tn3270eTcpConnRemPort'
+_i='tn3270eTcpConnRemAddress'
+_h='tn3270eTcpConnRemAddrType'
+_g='tn3270eResMapElementName'
+_f='tn3270eClientResMapClientPort'
+_e='tn3270eClientResMapClientGroupName'
+_d='tn3270eClientResMapPoolName'
+_c='tn3270eSnaMapSscpSuppliedName'
+_b='tn3270eResPoolElementName'
+_a='tn3270eResPoolName'
+_Z='tn3270eClientGroupAddress'
+_Y='tn3270eClientGroupAddrType'
+_X='tn3270eClientGroupName'
+_W='connection attempts'
+_V='Printer Resources'
+_U='DateAndTime'
+_T='TimeTicks'
+_S='IpAddress'
+_R='SnmpAdminString'
+_Q='IANATn3270Functions'
+_P='LUs'
+_O='tn3270eSrvrPortAddress'
+_N='tn3270eSrvrPortAddrType'
+_M='tn3270eSrvrPort'
+_L='OctetString'
+_K='seconds'
+_J='Utf8String'
+_I='octets'
+_H='Integer32'
+_G='tn3270eSrvrConfIndex'
+_F='Unsigned32'
+_E='read-create'
+_D='not-accessible'
+_C='read-only'
+_B='TN3270E-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_L,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+IANATn3270DeviceType,IANATn3270Functions,IANATn3270ResourceType,IANATn3270eAddrType,IANATn3270eAddress,IANATn3270eClientType,IANATn3270eLogData=mibBuilder.importSymbols('IANATn3270eTC-MIB','IANATn3270DeviceType',_Q,'IANATn3270ResourceType','IANATn3270eAddrType','IANATn3270eAddress','IANATn3270eClientType','IANATn3270eLogData')
+snanauMIB,=mibBuilder.importSymbols('SNA-NAU-MIB','snanauMIB')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_R)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_H,_S,'ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_T,_F,'iso')
+DateAndTime,DisplayString,PhysAddress,RowStatus,TextualConvention,TestAndIncr,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC',_U,'DisplayString','PhysAddress','RowStatus','TextualConvention','TestAndIncr','TimeStamp')
+Utf8String,=mibBuilder.importSymbols('SYSAPPL-MIB',_J)
+tn3270eMIB=ModuleIdentity((1,3,6,1,2,1,34,8))
+if mibBuilder.loadTexts:tn3270eMIB.setRevisions(('2006-01-13 00:00','1998-07-27 00:00'))
+class SnaResourceName(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,17))
+class Tn3270eTraceData(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(3,4096))
+_Tn3270eNotifications_ObjectIdentity=ObjectIdentity
+tn3270eNotifications=_Tn3270eNotifications_ObjectIdentity((1,3,6,1,2,1,34,8,0))
+_Tn3270eObjects_ObjectIdentity=ObjectIdentity
+tn3270eObjects=_Tn3270eObjects_ObjectIdentity((1,3,6,1,2,1,34,8,1))
+_Tn3270eSrvrConfTable_Object=MibTable
+tn3270eSrvrConfTable=_Tn3270eSrvrConfTable_Object((1,3,6,1,2,1,34,8,1,1))
+if mibBuilder.loadTexts:tn3270eSrvrConfTable.setStatus(_A)
+_Tn3270eSrvrConfEntry_Object=MibTableRow
+tn3270eSrvrConfEntry=_Tn3270eSrvrConfEntry_Object((1,3,6,1,2,1,34,8,1,1,1))
+tn3270eSrvrConfEntry.setIndexNames((0,_B,_G))
+if mibBuilder.loadTexts:tn3270eSrvrConfEntry.setStatus(_A)
+class _Tn3270eSrvrConfIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_Tn3270eSrvrConfIndex_Type.__name__=_F
+_Tn3270eSrvrConfIndex_Object=MibTableColumn
+tn3270eSrvrConfIndex=_Tn3270eSrvrConfIndex_Object((1,3,6,1,2,1,34,8,1,1,1,1),_Tn3270eSrvrConfIndex_Type())
+tn3270eSrvrConfIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eSrvrConfIndex.setStatus(_A)
+class _Tn3270eSrvrConfInactivityTimeout_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,99999999))
+_Tn3270eSrvrConfInactivityTimeout_Type.__name__=_F
+_Tn3270eSrvrConfInactivityTimeout_Object=MibTableColumn
+tn3270eSrvrConfInactivityTimeout=_Tn3270eSrvrConfInactivityTimeout_Object((1,3,6,1,2,1,34,8,1,1,1,2),_Tn3270eSrvrConfInactivityTimeout_Type())
+tn3270eSrvrConfInactivityTimeout.setMaxAccess(_E)
+if mibBuilder.loadTexts:tn3270eSrvrConfInactivityTimeout.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrConfInactivityTimeout.setUnits(_K)
+class _Tn3270eSrvrConfConnectivityChk_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('timingMark',1),('nop',2),('noCheck',3)))
+_Tn3270eSrvrConfConnectivityChk_Type.__name__=_H
+_Tn3270eSrvrConfConnectivityChk_Object=MibTableColumn
+tn3270eSrvrConfConnectivityChk=_Tn3270eSrvrConfConnectivityChk_Object((1,3,6,1,2,1,34,8,1,1,1,3),_Tn3270eSrvrConfConnectivityChk_Type())
+tn3270eSrvrConfConnectivityChk.setMaxAccess(_E)
+if mibBuilder.loadTexts:tn3270eSrvrConfConnectivityChk.setStatus(_A)
+class _Tn3270eSrvrConfTmNopInactTime_Type(Unsigned32):defaultValue=600;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,86400))
+_Tn3270eSrvrConfTmNopInactTime_Type.__name__=_F
+_Tn3270eSrvrConfTmNopInactTime_Object=MibTableColumn
+tn3270eSrvrConfTmNopInactTime=_Tn3270eSrvrConfTmNopInactTime_Object((1,3,6,1,2,1,34,8,1,1,1,4),_Tn3270eSrvrConfTmNopInactTime_Type())
+tn3270eSrvrConfTmNopInactTime.setMaxAccess(_E)
+if mibBuilder.loadTexts:tn3270eSrvrConfTmNopInactTime.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrConfTmNopInactTime.setUnits(_K)
+class _Tn3270eSrvrConfTmNopInterval_Type(Unsigned32):defaultValue=120;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,86400))
+_Tn3270eSrvrConfTmNopInterval_Type.__name__=_F
+_Tn3270eSrvrConfTmNopInterval_Object=MibTableColumn
+tn3270eSrvrConfTmNopInterval=_Tn3270eSrvrConfTmNopInterval_Object((1,3,6,1,2,1,34,8,1,1,1,5),_Tn3270eSrvrConfTmNopInterval_Type())
+tn3270eSrvrConfTmNopInterval.setMaxAccess(_E)
+if mibBuilder.loadTexts:tn3270eSrvrConfTmNopInterval.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrConfTmNopInterval.setUnits(_K)
+class _Tn3270eSrvrFunctionsSupported_Type(IANATn3270Functions):defaultBinValue='0000011111'
+_Tn3270eSrvrFunctionsSupported_Type.__name__=_Q
+_Tn3270eSrvrFunctionsSupported_Object=MibTableColumn
+tn3270eSrvrFunctionsSupported=_Tn3270eSrvrFunctionsSupported_Object((1,3,6,1,2,1,34,8,1,1,1,6),_Tn3270eSrvrFunctionsSupported_Type())
+tn3270eSrvrFunctionsSupported.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrFunctionsSupported.setStatus(_A)
+class _Tn3270eSrvrConfAdminStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('up',1),('down',2),('stopImmediate',3)))
+_Tn3270eSrvrConfAdminStatus_Type.__name__=_H
+_Tn3270eSrvrConfAdminStatus_Object=MibTableColumn
+tn3270eSrvrConfAdminStatus=_Tn3270eSrvrConfAdminStatus_Object((1,3,6,1,2,1,34,8,1,1,1,7),_Tn3270eSrvrConfAdminStatus_Type())
+tn3270eSrvrConfAdminStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:tn3270eSrvrConfAdminStatus.setStatus(_A)
+class _Tn3270eSrvrConfOperStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('up',1),('down',2),('busy',3),('shuttingDown',4)))
+_Tn3270eSrvrConfOperStatus_Type.__name__=_H
+_Tn3270eSrvrConfOperStatus_Object=MibTableColumn
+tn3270eSrvrConfOperStatus=_Tn3270eSrvrConfOperStatus_Object((1,3,6,1,2,1,34,8,1,1,1,8),_Tn3270eSrvrConfOperStatus_Type())
+tn3270eSrvrConfOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrConfOperStatus.setStatus(_A)
+class _Tn3270eSrvrConfSessionTermState_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('terminate',1),('luSessionPend',2),('queueSession',3)))
+_Tn3270eSrvrConfSessionTermState_Type.__name__=_H
+_Tn3270eSrvrConfSessionTermState_Object=MibTableColumn
+tn3270eSrvrConfSessionTermState=_Tn3270eSrvrConfSessionTermState_Object((1,3,6,1,2,1,34,8,1,1,1,9),_Tn3270eSrvrConfSessionTermState_Type())
+tn3270eSrvrConfSessionTermState.setMaxAccess(_E)
+if mibBuilder.loadTexts:tn3270eSrvrConfSessionTermState.setStatus(_A)
+class _Tn3270eSrvrConfSrvrType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('host',1),('gateway',2)))
+_Tn3270eSrvrConfSrvrType_Type.__name__=_H
+_Tn3270eSrvrConfSrvrType_Object=MibTableColumn
+tn3270eSrvrConfSrvrType=_Tn3270eSrvrConfSrvrType_Object((1,3,6,1,2,1,34,8,1,1,1,10),_Tn3270eSrvrConfSrvrType_Type())
+tn3270eSrvrConfSrvrType.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrConfSrvrType.setStatus(_A)
+class _Tn3270eSrvrConfContact_Type(SnmpAdminString):defaultHexValue=''
+_Tn3270eSrvrConfContact_Type.__name__=_R
+_Tn3270eSrvrConfContact_Object=MibTableColumn
+tn3270eSrvrConfContact=_Tn3270eSrvrConfContact_Object((1,3,6,1,2,1,34,8,1,1,1,11),_Tn3270eSrvrConfContact_Type())
+tn3270eSrvrConfContact.setMaxAccess(_E)
+if mibBuilder.loadTexts:tn3270eSrvrConfContact.setStatus(_A)
+_Tn3270eSrvrConfRowStatus_Type=RowStatus
+_Tn3270eSrvrConfRowStatus_Object=MibTableColumn
+tn3270eSrvrConfRowStatus=_Tn3270eSrvrConfRowStatus_Object((1,3,6,1,2,1,34,8,1,1,1,12),_Tn3270eSrvrConfRowStatus_Type())
+tn3270eSrvrConfRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:tn3270eSrvrConfRowStatus.setStatus(_A)
+class _Tn3270eSrvrConfLastActTime_Type(DateAndTime):defaultHexValue='0000000000000000'
+_Tn3270eSrvrConfLastActTime_Type.__name__=_U
+_Tn3270eSrvrConfLastActTime_Object=MibTableColumn
+tn3270eSrvrConfLastActTime=_Tn3270eSrvrConfLastActTime_Object((1,3,6,1,2,1,34,8,1,1,1,13),_Tn3270eSrvrConfLastActTime_Type())
+tn3270eSrvrConfLastActTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrConfLastActTime.setStatus(_A)
+class _Tn3270eSrvrConfTmTimeout_Type(Unsigned32):defaultValue=5;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,600))
+_Tn3270eSrvrConfTmTimeout_Type.__name__=_F
+_Tn3270eSrvrConfTmTimeout_Object=MibTableColumn
+tn3270eSrvrConfTmTimeout=_Tn3270eSrvrConfTmTimeout_Object((1,3,6,1,2,1,34,8,1,1,1,14),_Tn3270eSrvrConfTmTimeout_Type())
+tn3270eSrvrConfTmTimeout.setMaxAccess(_E)
+if mibBuilder.loadTexts:tn3270eSrvrConfTmTimeout.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrConfTmTimeout.setUnits(_K)
+_Tn3270eSrvrPortTable_Object=MibTable
+tn3270eSrvrPortTable=_Tn3270eSrvrPortTable_Object((1,3,6,1,2,1,34,8,1,2))
+if mibBuilder.loadTexts:tn3270eSrvrPortTable.setStatus(_A)
+_Tn3270eSrvrPortEntry_Object=MibTableRow
+tn3270eSrvrPortEntry=_Tn3270eSrvrPortEntry_Object((1,3,6,1,2,1,34,8,1,2,1))
+tn3270eSrvrPortEntry.setIndexNames((0,_B,_G),(0,_B,_M),(0,_B,_N),(0,_B,_O))
+if mibBuilder.loadTexts:tn3270eSrvrPortEntry.setStatus(_A)
+class _Tn3270eSrvrPort_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_Tn3270eSrvrPort_Type.__name__=_F
+_Tn3270eSrvrPort_Object=MibTableColumn
+tn3270eSrvrPort=_Tn3270eSrvrPort_Object((1,3,6,1,2,1,34,8,1,2,1,1),_Tn3270eSrvrPort_Type())
+tn3270eSrvrPort.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eSrvrPort.setStatus(_A)
+_Tn3270eSrvrPortAddrType_Type=IANATn3270eAddrType
+_Tn3270eSrvrPortAddrType_Object=MibTableColumn
+tn3270eSrvrPortAddrType=_Tn3270eSrvrPortAddrType_Object((1,3,6,1,2,1,34,8,1,2,1,2),_Tn3270eSrvrPortAddrType_Type())
+tn3270eSrvrPortAddrType.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eSrvrPortAddrType.setStatus(_A)
+_Tn3270eSrvrPortAddress_Type=IANATn3270eAddress
+_Tn3270eSrvrPortAddress_Object=MibTableColumn
+tn3270eSrvrPortAddress=_Tn3270eSrvrPortAddress_Object((1,3,6,1,2,1,34,8,1,2,1,3),_Tn3270eSrvrPortAddress_Type())
+tn3270eSrvrPortAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eSrvrPortAddress.setStatus(_A)
+_Tn3270eSrvrPortRowStatus_Type=RowStatus
+_Tn3270eSrvrPortRowStatus_Object=MibTableColumn
+tn3270eSrvrPortRowStatus=_Tn3270eSrvrPortRowStatus_Object((1,3,6,1,2,1,34,8,1,2,1,4),_Tn3270eSrvrPortRowStatus_Type())
+tn3270eSrvrPortRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:tn3270eSrvrPortRowStatus.setStatus(_A)
+_Tn3270eSrvrStatsTable_Object=MibTable
+tn3270eSrvrStatsTable=_Tn3270eSrvrStatsTable_Object((1,3,6,1,2,1,34,8,1,3))
+if mibBuilder.loadTexts:tn3270eSrvrStatsTable.setStatus(_A)
+_Tn3270eSrvrStatsEntry_Object=MibTableRow
+tn3270eSrvrStatsEntry=_Tn3270eSrvrStatsEntry_Object((1,3,6,1,2,1,34,8,1,3,1))
+tn3270eSrvrStatsEntry.setIndexNames((0,_B,_G),(0,_B,_M),(0,_B,_N),(0,_B,_O))
+if mibBuilder.loadTexts:tn3270eSrvrStatsEntry.setStatus(_A)
+_Tn3270eSrvrStatsUpTime_Type=TimeStamp
+_Tn3270eSrvrStatsUpTime_Object=MibTableColumn
+tn3270eSrvrStatsUpTime=_Tn3270eSrvrStatsUpTime_Object((1,3,6,1,2,1,34,8,1,3,1,2),_Tn3270eSrvrStatsUpTime_Type())
+tn3270eSrvrStatsUpTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrStatsUpTime.setStatus(_A)
+_Tn3270eSrvrStatsMaxTerms_Type=Unsigned32
+_Tn3270eSrvrStatsMaxTerms_Object=MibTableColumn
+tn3270eSrvrStatsMaxTerms=_Tn3270eSrvrStatsMaxTerms_Object((1,3,6,1,2,1,34,8,1,3,1,3),_Tn3270eSrvrStatsMaxTerms_Type())
+tn3270eSrvrStatsMaxTerms.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrStatsMaxTerms.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrStatsMaxTerms.setUnits(_P)
+_Tn3270eSrvrStatsInUseTerms_Type=Gauge32
+_Tn3270eSrvrStatsInUseTerms_Object=MibTableColumn
+tn3270eSrvrStatsInUseTerms=_Tn3270eSrvrStatsInUseTerms_Object((1,3,6,1,2,1,34,8,1,3,1,4),_Tn3270eSrvrStatsInUseTerms_Type())
+tn3270eSrvrStatsInUseTerms.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrStatsInUseTerms.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrStatsInUseTerms.setUnits(_P)
+_Tn3270eSrvrStatsSpareTerms_Type=Gauge32
+_Tn3270eSrvrStatsSpareTerms_Object=MibTableColumn
+tn3270eSrvrStatsSpareTerms=_Tn3270eSrvrStatsSpareTerms_Object((1,3,6,1,2,1,34,8,1,3,1,5),_Tn3270eSrvrStatsSpareTerms_Type())
+tn3270eSrvrStatsSpareTerms.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrStatsSpareTerms.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrStatsSpareTerms.setUnits(_P)
+_Tn3270eSrvrStatsMaxPtrs_Type=Unsigned32
+_Tn3270eSrvrStatsMaxPtrs_Object=MibTableColumn
+tn3270eSrvrStatsMaxPtrs=_Tn3270eSrvrStatsMaxPtrs_Object((1,3,6,1,2,1,34,8,1,3,1,6),_Tn3270eSrvrStatsMaxPtrs_Type())
+tn3270eSrvrStatsMaxPtrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrStatsMaxPtrs.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrStatsMaxPtrs.setUnits(_V)
+_Tn3270eSrvrStatsInUsePtrs_Type=Gauge32
+_Tn3270eSrvrStatsInUsePtrs_Object=MibTableColumn
+tn3270eSrvrStatsInUsePtrs=_Tn3270eSrvrStatsInUsePtrs_Object((1,3,6,1,2,1,34,8,1,3,1,7),_Tn3270eSrvrStatsInUsePtrs_Type())
+tn3270eSrvrStatsInUsePtrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrStatsInUsePtrs.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrStatsInUsePtrs.setUnits(_V)
+_Tn3270eSrvrStatsSparePtrs_Type=Gauge32
+_Tn3270eSrvrStatsSparePtrs_Object=MibTableColumn
+tn3270eSrvrStatsSparePtrs=_Tn3270eSrvrStatsSparePtrs_Object((1,3,6,1,2,1,34,8,1,3,1,8),_Tn3270eSrvrStatsSparePtrs_Type())
+tn3270eSrvrStatsSparePtrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrStatsSparePtrs.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrStatsSparePtrs.setUnits('Spare Printer Resources')
+_Tn3270eSrvrStatsInConnects_Type=Counter32
+_Tn3270eSrvrStatsInConnects_Object=MibTableColumn
+tn3270eSrvrStatsInConnects=_Tn3270eSrvrStatsInConnects_Object((1,3,6,1,2,1,34,8,1,3,1,9),_Tn3270eSrvrStatsInConnects_Type())
+tn3270eSrvrStatsInConnects.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrStatsInConnects.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrStatsInConnects.setUnits('connections')
+_Tn3270eSrvrStatsConnResrceRejs_Type=Counter32
+_Tn3270eSrvrStatsConnResrceRejs_Object=MibTableColumn
+tn3270eSrvrStatsConnResrceRejs=_Tn3270eSrvrStatsConnResrceRejs_Object((1,3,6,1,2,1,34,8,1,3,1,10),_Tn3270eSrvrStatsConnResrceRejs_Type())
+tn3270eSrvrStatsConnResrceRejs.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrStatsConnResrceRejs.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrStatsConnResrceRejs.setUnits(_W)
+_Tn3270eSrvrStatsDisconnects_Type=Counter32
+_Tn3270eSrvrStatsDisconnects_Object=MibTableColumn
+tn3270eSrvrStatsDisconnects=_Tn3270eSrvrStatsDisconnects_Object((1,3,6,1,2,1,34,8,1,3,1,11),_Tn3270eSrvrStatsDisconnects_Type())
+tn3270eSrvrStatsDisconnects.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrStatsDisconnects.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrStatsDisconnects.setUnits('disconnections')
+_Tn3270eSrvrStatsHCInOctets_Type=Counter64
+_Tn3270eSrvrStatsHCInOctets_Object=MibTableColumn
+tn3270eSrvrStatsHCInOctets=_Tn3270eSrvrStatsHCInOctets_Object((1,3,6,1,2,1,34,8,1,3,1,12),_Tn3270eSrvrStatsHCInOctets_Type())
+tn3270eSrvrStatsHCInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrStatsHCInOctets.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrStatsHCInOctets.setUnits(_I)
+_Tn3270eSrvrStatsInOctets_Type=Counter32
+_Tn3270eSrvrStatsInOctets_Object=MibTableColumn
+tn3270eSrvrStatsInOctets=_Tn3270eSrvrStatsInOctets_Object((1,3,6,1,2,1,34,8,1,3,1,13),_Tn3270eSrvrStatsInOctets_Type())
+tn3270eSrvrStatsInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrStatsInOctets.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrStatsInOctets.setUnits(_I)
+_Tn3270eSrvrStatsHCOutOctets_Type=Counter64
+_Tn3270eSrvrStatsHCOutOctets_Object=MibTableColumn
+tn3270eSrvrStatsHCOutOctets=_Tn3270eSrvrStatsHCOutOctets_Object((1,3,6,1,2,1,34,8,1,3,1,14),_Tn3270eSrvrStatsHCOutOctets_Type())
+tn3270eSrvrStatsHCOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrStatsHCOutOctets.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrStatsHCOutOctets.setUnits(_I)
+_Tn3270eSrvrStatsOutOctets_Type=Counter32
+_Tn3270eSrvrStatsOutOctets_Object=MibTableColumn
+tn3270eSrvrStatsOutOctets=_Tn3270eSrvrStatsOutOctets_Object((1,3,6,1,2,1,34,8,1,3,1,15),_Tn3270eSrvrStatsOutOctets_Type())
+tn3270eSrvrStatsOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrStatsOutOctets.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrStatsOutOctets.setUnits(_I)
+_Tn3270eSrvrStatsConnErrorRejs_Type=Counter32
+_Tn3270eSrvrStatsConnErrorRejs_Object=MibTableColumn
+tn3270eSrvrStatsConnErrorRejs=_Tn3270eSrvrStatsConnErrorRejs_Object((1,3,6,1,2,1,34,8,1,3,1,16),_Tn3270eSrvrStatsConnErrorRejs_Type())
+tn3270eSrvrStatsConnErrorRejs.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSrvrStatsConnErrorRejs.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eSrvrStatsConnErrorRejs.setUnits(_W)
+_Tn3270eClientGroupTable_Object=MibTable
+tn3270eClientGroupTable=_Tn3270eClientGroupTable_Object((1,3,6,1,2,1,34,8,1,4))
+if mibBuilder.loadTexts:tn3270eClientGroupTable.setStatus(_A)
+_Tn3270eClientGroupEntry_Object=MibTableRow
+tn3270eClientGroupEntry=_Tn3270eClientGroupEntry_Object((1,3,6,1,2,1,34,8,1,4,1))
+tn3270eClientGroupEntry.setIndexNames((0,_B,_G),(0,_B,_X),(0,_B,_Y),(0,_B,_Z))
+if mibBuilder.loadTexts:tn3270eClientGroupEntry.setStatus(_A)
+class _Tn3270eClientGroupName_Type(Utf8String):subtypeSpec=Utf8String.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,24))
+_Tn3270eClientGroupName_Type.__name__=_J
+_Tn3270eClientGroupName_Object=MibTableColumn
+tn3270eClientGroupName=_Tn3270eClientGroupName_Object((1,3,6,1,2,1,34,8,1,4,1,1),_Tn3270eClientGroupName_Type())
+tn3270eClientGroupName.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eClientGroupName.setStatus(_A)
+_Tn3270eClientGroupAddrType_Type=IANATn3270eAddrType
+_Tn3270eClientGroupAddrType_Object=MibTableColumn
+tn3270eClientGroupAddrType=_Tn3270eClientGroupAddrType_Object((1,3,6,1,2,1,34,8,1,4,1,2),_Tn3270eClientGroupAddrType_Type())
+tn3270eClientGroupAddrType.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eClientGroupAddrType.setStatus(_A)
+_Tn3270eClientGroupAddress_Type=IANATn3270eAddress
+_Tn3270eClientGroupAddress_Object=MibTableColumn
+tn3270eClientGroupAddress=_Tn3270eClientGroupAddress_Object((1,3,6,1,2,1,34,8,1,4,1,3),_Tn3270eClientGroupAddress_Type())
+tn3270eClientGroupAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eClientGroupAddress.setStatus(_A)
+class _Tn3270eClientGroupSubnetMask_Type(IpAddress):defaultHexValue='FFFFFFFF'
+_Tn3270eClientGroupSubnetMask_Type.__name__=_S
+_Tn3270eClientGroupSubnetMask_Object=MibTableColumn
+tn3270eClientGroupSubnetMask=_Tn3270eClientGroupSubnetMask_Object((1,3,6,1,2,1,34,8,1,4,1,4),_Tn3270eClientGroupSubnetMask_Type())
+tn3270eClientGroupSubnetMask.setMaxAccess(_E)
+if mibBuilder.loadTexts:tn3270eClientGroupSubnetMask.setStatus(_A)
+class _Tn3270eClientGroupPfxLength_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
+_Tn3270eClientGroupPfxLength_Type.__name__=_F
+_Tn3270eClientGroupPfxLength_Object=MibTableColumn
+tn3270eClientGroupPfxLength=_Tn3270eClientGroupPfxLength_Object((1,3,6,1,2,1,34,8,1,4,1,5),_Tn3270eClientGroupPfxLength_Type())
+tn3270eClientGroupPfxLength.setMaxAccess(_E)
+if mibBuilder.loadTexts:tn3270eClientGroupPfxLength.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eClientGroupPfxLength.setUnits('bits')
+_Tn3270eClientGroupRowStatus_Type=RowStatus
+_Tn3270eClientGroupRowStatus_Object=MibTableColumn
+tn3270eClientGroupRowStatus=_Tn3270eClientGroupRowStatus_Object((1,3,6,1,2,1,34,8,1,4,1,6),_Tn3270eClientGroupRowStatus_Type())
+tn3270eClientGroupRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:tn3270eClientGroupRowStatus.setStatus(_A)
+_Tn3270eResPoolTable_Object=MibTable
+tn3270eResPoolTable=_Tn3270eResPoolTable_Object((1,3,6,1,2,1,34,8,1,5))
+if mibBuilder.loadTexts:tn3270eResPoolTable.setStatus(_A)
+_Tn3270eResPoolEntry_Object=MibTableRow
+tn3270eResPoolEntry=_Tn3270eResPoolEntry_Object((1,3,6,1,2,1,34,8,1,5,1))
+tn3270eResPoolEntry.setIndexNames((0,_B,_G),(0,_B,_a),(0,_B,_b))
+if mibBuilder.loadTexts:tn3270eResPoolEntry.setStatus(_A)
+class _Tn3270eResPoolName_Type(Utf8String):subtypeSpec=Utf8String.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,24))
+_Tn3270eResPoolName_Type.__name__=_J
+_Tn3270eResPoolName_Object=MibTableColumn
+tn3270eResPoolName=_Tn3270eResPoolName_Object((1,3,6,1,2,1,34,8,1,5,1,1),_Tn3270eResPoolName_Type())
+tn3270eResPoolName.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eResPoolName.setStatus(_A)
+_Tn3270eResPoolElementName_Type=SnaResourceName
+_Tn3270eResPoolElementName_Object=MibTableColumn
+tn3270eResPoolElementName=_Tn3270eResPoolElementName_Object((1,3,6,1,2,1,34,8,1,5,1,2),_Tn3270eResPoolElementName_Type())
+tn3270eResPoolElementName.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eResPoolElementName.setStatus(_A)
+_Tn3270eResPoolElementType_Type=IANATn3270ResourceType
+_Tn3270eResPoolElementType_Object=MibTableColumn
+tn3270eResPoolElementType=_Tn3270eResPoolElementType_Object((1,3,6,1,2,1,34,8,1,5,1,3),_Tn3270eResPoolElementType_Type())
+tn3270eResPoolElementType.setMaxAccess(_E)
+if mibBuilder.loadTexts:tn3270eResPoolElementType.setStatus(_A)
+_Tn3270eResPoolRowStatus_Type=RowStatus
+_Tn3270eResPoolRowStatus_Object=MibTableColumn
+tn3270eResPoolRowStatus=_Tn3270eResPoolRowStatus_Object((1,3,6,1,2,1,34,8,1,5,1,4),_Tn3270eResPoolRowStatus_Type())
+tn3270eResPoolRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:tn3270eResPoolRowStatus.setStatus(_A)
+_Tn3270eSnaMapTable_Object=MibTable
+tn3270eSnaMapTable=_Tn3270eSnaMapTable_Object((1,3,6,1,2,1,34,8,1,6))
+if mibBuilder.loadTexts:tn3270eSnaMapTable.setStatus(_A)
+_Tn3270eSnaMapEntry_Object=MibTableRow
+tn3270eSnaMapEntry=_Tn3270eSnaMapEntry_Object((1,3,6,1,2,1,34,8,1,6,1))
+tn3270eSnaMapEntry.setIndexNames((0,_B,_G),(0,_B,_c))
+if mibBuilder.loadTexts:tn3270eSnaMapEntry.setStatus(_A)
+_Tn3270eSnaMapSscpSuppliedName_Type=SnaResourceName
+_Tn3270eSnaMapSscpSuppliedName_Object=MibTableColumn
+tn3270eSnaMapSscpSuppliedName=_Tn3270eSnaMapSscpSuppliedName_Object((1,3,6,1,2,1,34,8,1,6,1,1),_Tn3270eSnaMapSscpSuppliedName_Type())
+tn3270eSnaMapSscpSuppliedName.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eSnaMapSscpSuppliedName.setStatus(_A)
+_Tn3270eSnaMapLocalName_Type=SnaResourceName
+_Tn3270eSnaMapLocalName_Object=MibTableColumn
+tn3270eSnaMapLocalName=_Tn3270eSnaMapLocalName_Object((1,3,6,1,2,1,34,8,1,6,1,2),_Tn3270eSnaMapLocalName_Type())
+tn3270eSnaMapLocalName.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSnaMapLocalName.setStatus(_A)
+_Tn3270eSnaMapPrimaryLuName_Type=SnaResourceName
+_Tn3270eSnaMapPrimaryLuName_Object=MibTableColumn
+tn3270eSnaMapPrimaryLuName=_Tn3270eSnaMapPrimaryLuName_Object((1,3,6,1,2,1,34,8,1,6,1,3),_Tn3270eSnaMapPrimaryLuName_Type())
+tn3270eSnaMapPrimaryLuName.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eSnaMapPrimaryLuName.setStatus(_A)
+_Tn3270eClientResMapTable_Object=MibTable
+tn3270eClientResMapTable=_Tn3270eClientResMapTable_Object((1,3,6,1,2,1,34,8,1,7))
+if mibBuilder.loadTexts:tn3270eClientResMapTable.setStatus(_A)
+_Tn3270eClientResMapEntry_Object=MibTableRow
+tn3270eClientResMapEntry=_Tn3270eClientResMapEntry_Object((1,3,6,1,2,1,34,8,1,7,1))
+tn3270eClientResMapEntry.setIndexNames((0,_B,_G),(0,_B,_d),(0,_B,_e),(0,_B,_f))
+if mibBuilder.loadTexts:tn3270eClientResMapEntry.setStatus(_A)
+class _Tn3270eClientResMapPoolName_Type(Utf8String):subtypeSpec=Utf8String.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,24))
+_Tn3270eClientResMapPoolName_Type.__name__=_J
+_Tn3270eClientResMapPoolName_Object=MibTableColumn
+tn3270eClientResMapPoolName=_Tn3270eClientResMapPoolName_Object((1,3,6,1,2,1,34,8,1,7,1,1),_Tn3270eClientResMapPoolName_Type())
+tn3270eClientResMapPoolName.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eClientResMapPoolName.setStatus(_A)
+class _Tn3270eClientResMapClientGroupName_Type(Utf8String):subtypeSpec=Utf8String.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,24))
+_Tn3270eClientResMapClientGroupName_Type.__name__=_J
+_Tn3270eClientResMapClientGroupName_Object=MibTableColumn
+tn3270eClientResMapClientGroupName=_Tn3270eClientResMapClientGroupName_Object((1,3,6,1,2,1,34,8,1,7,1,2),_Tn3270eClientResMapClientGroupName_Type())
+tn3270eClientResMapClientGroupName.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eClientResMapClientGroupName.setStatus(_A)
+class _Tn3270eClientResMapClientPort_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_Tn3270eClientResMapClientPort_Type.__name__=_F
+_Tn3270eClientResMapClientPort_Object=MibTableColumn
+tn3270eClientResMapClientPort=_Tn3270eClientResMapClientPort_Object((1,3,6,1,2,1,34,8,1,7,1,3),_Tn3270eClientResMapClientPort_Type())
+tn3270eClientResMapClientPort.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eClientResMapClientPort.setStatus(_A)
+_Tn3270eClientResMapRowStatus_Type=RowStatus
+_Tn3270eClientResMapRowStatus_Object=MibTableColumn
+tn3270eClientResMapRowStatus=_Tn3270eClientResMapRowStatus_Object((1,3,6,1,2,1,34,8,1,7,1,4),_Tn3270eClientResMapRowStatus_Type())
+tn3270eClientResMapRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:tn3270eClientResMapRowStatus.setStatus(_A)
+_Tn3270eResMapTable_Object=MibTable
+tn3270eResMapTable=_Tn3270eResMapTable_Object((1,3,6,1,2,1,34,8,1,8))
+if mibBuilder.loadTexts:tn3270eResMapTable.setStatus(_A)
+_Tn3270eResMapEntry_Object=MibTableRow
+tn3270eResMapEntry=_Tn3270eResMapEntry_Object((1,3,6,1,2,1,34,8,1,8,1))
+tn3270eResMapEntry.setIndexNames((0,_B,_G),(0,_B,_g))
+if mibBuilder.loadTexts:tn3270eResMapEntry.setStatus(_A)
+_Tn3270eResMapElementName_Type=SnaResourceName
+_Tn3270eResMapElementName_Object=MibTableColumn
+tn3270eResMapElementName=_Tn3270eResMapElementName_Object((1,3,6,1,2,1,34,8,1,8,1,1),_Tn3270eResMapElementName_Type())
+tn3270eResMapElementName.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eResMapElementName.setStatus(_A)
+_Tn3270eResMapAddrType_Type=IANATn3270eAddrType
+_Tn3270eResMapAddrType_Object=MibTableColumn
+tn3270eResMapAddrType=_Tn3270eResMapAddrType_Object((1,3,6,1,2,1,34,8,1,8,1,2),_Tn3270eResMapAddrType_Type())
+tn3270eResMapAddrType.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eResMapAddrType.setStatus(_A)
+_Tn3270eResMapAddress_Type=IANATn3270eAddress
+_Tn3270eResMapAddress_Object=MibTableColumn
+tn3270eResMapAddress=_Tn3270eResMapAddress_Object((1,3,6,1,2,1,34,8,1,8,1,3),_Tn3270eResMapAddress_Type())
+tn3270eResMapAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eResMapAddress.setStatus(_A)
+class _Tn3270eResMapPort_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_Tn3270eResMapPort_Type.__name__=_F
+_Tn3270eResMapPort_Object=MibTableColumn
+tn3270eResMapPort=_Tn3270eResMapPort_Object((1,3,6,1,2,1,34,8,1,8,1,4),_Tn3270eResMapPort_Type())
+tn3270eResMapPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eResMapPort.setStatus(_A)
+_Tn3270eResMapElementType_Type=IANATn3270ResourceType
+_Tn3270eResMapElementType_Object=MibTableColumn
+tn3270eResMapElementType=_Tn3270eResMapElementType_Object((1,3,6,1,2,1,34,8,1,8,1,5),_Tn3270eResMapElementType_Type())
+tn3270eResMapElementType.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eResMapElementType.setStatus(_A)
+_Tn3270eResMapSscpSuppliedName_Type=SnaResourceName
+_Tn3270eResMapSscpSuppliedName_Object=MibTableColumn
+tn3270eResMapSscpSuppliedName=_Tn3270eResMapSscpSuppliedName_Object((1,3,6,1,2,1,34,8,1,8,1,6),_Tn3270eResMapSscpSuppliedName_Type())
+tn3270eResMapSscpSuppliedName.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eResMapSscpSuppliedName.setStatus(_A)
+_Tn3270eTcpConnTable_Object=MibTable
+tn3270eTcpConnTable=_Tn3270eTcpConnTable_Object((1,3,6,1,2,1,34,8,1,9))
+if mibBuilder.loadTexts:tn3270eTcpConnTable.setStatus(_A)
+_Tn3270eTcpConnEntry_Object=MibTableRow
+tn3270eTcpConnEntry=_Tn3270eTcpConnEntry_Object((1,3,6,1,2,1,34,8,1,9,1))
+tn3270eTcpConnEntry.setIndexNames((0,_B,_h),(0,_B,_i),(0,_B,_j),(0,_B,_k),(0,_B,_l),(0,_B,_m))
+if mibBuilder.loadTexts:tn3270eTcpConnEntry.setStatus(_A)
+_Tn3270eTcpConnRemAddrType_Type=IANATn3270eAddrType
+_Tn3270eTcpConnRemAddrType_Object=MibTableColumn
+tn3270eTcpConnRemAddrType=_Tn3270eTcpConnRemAddrType_Object((1,3,6,1,2,1,34,8,1,9,1,1),_Tn3270eTcpConnRemAddrType_Type())
+tn3270eTcpConnRemAddrType.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eTcpConnRemAddrType.setStatus(_A)
+_Tn3270eTcpConnRemAddress_Type=IANATn3270eAddress
+_Tn3270eTcpConnRemAddress_Object=MibTableColumn
+tn3270eTcpConnRemAddress=_Tn3270eTcpConnRemAddress_Object((1,3,6,1,2,1,34,8,1,9,1,2),_Tn3270eTcpConnRemAddress_Type())
+tn3270eTcpConnRemAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eTcpConnRemAddress.setStatus(_A)
+class _Tn3270eTcpConnRemPort_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_Tn3270eTcpConnRemPort_Type.__name__=_F
+_Tn3270eTcpConnRemPort_Object=MibTableColumn
+tn3270eTcpConnRemPort=_Tn3270eTcpConnRemPort_Object((1,3,6,1,2,1,34,8,1,9,1,3),_Tn3270eTcpConnRemPort_Type())
+tn3270eTcpConnRemPort.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eTcpConnRemPort.setStatus(_A)
+_Tn3270eTcpConnLocalAddrType_Type=IANATn3270eAddrType
+_Tn3270eTcpConnLocalAddrType_Object=MibTableColumn
+tn3270eTcpConnLocalAddrType=_Tn3270eTcpConnLocalAddrType_Object((1,3,6,1,2,1,34,8,1,9,1,4),_Tn3270eTcpConnLocalAddrType_Type())
+tn3270eTcpConnLocalAddrType.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eTcpConnLocalAddrType.setStatus(_A)
+_Tn3270eTcpConnLocalAddress_Type=IANATn3270eAddress
+_Tn3270eTcpConnLocalAddress_Object=MibTableColumn
+tn3270eTcpConnLocalAddress=_Tn3270eTcpConnLocalAddress_Object((1,3,6,1,2,1,34,8,1,9,1,5),_Tn3270eTcpConnLocalAddress_Type())
+tn3270eTcpConnLocalAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eTcpConnLocalAddress.setStatus(_A)
+class _Tn3270eTcpConnLocalPort_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_Tn3270eTcpConnLocalPort_Type.__name__=_F
+_Tn3270eTcpConnLocalPort_Object=MibTableColumn
+tn3270eTcpConnLocalPort=_Tn3270eTcpConnLocalPort_Object((1,3,6,1,2,1,34,8,1,9,1,6),_Tn3270eTcpConnLocalPort_Type())
+tn3270eTcpConnLocalPort.setMaxAccess(_D)
+if mibBuilder.loadTexts:tn3270eTcpConnLocalPort.setStatus(_A)
+class _Tn3270eTcpConnLastActivity_Type(TimeTicks):defaultValue=0
+_Tn3270eTcpConnLastActivity_Type.__name__=_T
+_Tn3270eTcpConnLastActivity_Object=MibTableColumn
+tn3270eTcpConnLastActivity=_Tn3270eTcpConnLastActivity_Object((1,3,6,1,2,1,34,8,1,9,1,7),_Tn3270eTcpConnLastActivity_Type())
+tn3270eTcpConnLastActivity.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eTcpConnLastActivity.setStatus(_A)
+_Tn3270eTcpConnBytesIn_Type=Counter32
+_Tn3270eTcpConnBytesIn_Object=MibTableColumn
+tn3270eTcpConnBytesIn=_Tn3270eTcpConnBytesIn_Object((1,3,6,1,2,1,34,8,1,9,1,8),_Tn3270eTcpConnBytesIn_Type())
+tn3270eTcpConnBytesIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eTcpConnBytesIn.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eTcpConnBytesIn.setUnits(_I)
+_Tn3270eTcpConnBytesOut_Type=Counter32
+_Tn3270eTcpConnBytesOut_Object=MibTableColumn
+tn3270eTcpConnBytesOut=_Tn3270eTcpConnBytesOut_Object((1,3,6,1,2,1,34,8,1,9,1,9),_Tn3270eTcpConnBytesOut_Type())
+tn3270eTcpConnBytesOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eTcpConnBytesOut.setStatus(_A)
+if mibBuilder.loadTexts:tn3270eTcpConnBytesOut.setUnits(_I)
+_Tn3270eTcpConnResourceElement_Type=SnaResourceName
+_Tn3270eTcpConnResourceElement_Object=MibTableColumn
+tn3270eTcpConnResourceElement=_Tn3270eTcpConnResourceElement_Object((1,3,6,1,2,1,34,8,1,9,1,10),_Tn3270eTcpConnResourceElement_Type())
+tn3270eTcpConnResourceElement.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eTcpConnResourceElement.setStatus(_A)
+_Tn3270eTcpConnResourceType_Type=IANATn3270ResourceType
+_Tn3270eTcpConnResourceType_Object=MibTableColumn
+tn3270eTcpConnResourceType=_Tn3270eTcpConnResourceType_Object((1,3,6,1,2,1,34,8,1,9,1,11),_Tn3270eTcpConnResourceType_Type())
+tn3270eTcpConnResourceType.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eTcpConnResourceType.setStatus(_A)
+_Tn3270eTcpConnDeviceType_Type=IANATn3270DeviceType
+_Tn3270eTcpConnDeviceType_Object=MibTableColumn
+tn3270eTcpConnDeviceType=_Tn3270eTcpConnDeviceType_Object((1,3,6,1,2,1,34,8,1,9,1,12),_Tn3270eTcpConnDeviceType_Type())
+tn3270eTcpConnDeviceType.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eTcpConnDeviceType.setStatus(_A)
+_Tn3270eTcpConnFunctions_Type=IANATn3270Functions
+_Tn3270eTcpConnFunctions_Object=MibTableColumn
+tn3270eTcpConnFunctions=_Tn3270eTcpConnFunctions_Object((1,3,6,1,2,1,34,8,1,9,1,13),_Tn3270eTcpConnFunctions_Type())
+tn3270eTcpConnFunctions.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eTcpConnFunctions.setStatus(_A)
+_Tn3270eTcpConnId_Type=Unsigned32
+_Tn3270eTcpConnId_Object=MibTableColumn
+tn3270eTcpConnId=_Tn3270eTcpConnId_Object((1,3,6,1,2,1,34,8,1,9,1,14),_Tn3270eTcpConnId_Type())
+tn3270eTcpConnId.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eTcpConnId.setStatus(_A)
+_Tn3270eTcpConnClientIdFormat_Type=IANATn3270eClientType
+_Tn3270eTcpConnClientIdFormat_Object=MibTableColumn
+tn3270eTcpConnClientIdFormat=_Tn3270eTcpConnClientIdFormat_Object((1,3,6,1,2,1,34,8,1,9,1,15),_Tn3270eTcpConnClientIdFormat_Type())
+tn3270eTcpConnClientIdFormat.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eTcpConnClientIdFormat.setStatus(_A)
+class _Tn3270eTcpConnClientId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,512))
+_Tn3270eTcpConnClientId_Type.__name__=_L
+_Tn3270eTcpConnClientId_Object=MibTableColumn
+tn3270eTcpConnClientId=_Tn3270eTcpConnClientId_Object((1,3,6,1,2,1,34,8,1,9,1,16),_Tn3270eTcpConnClientId_Type())
+tn3270eTcpConnClientId.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eTcpConnClientId.setStatus(_A)
+_Tn3270eTcpConnTraceData_Type=Tn3270eTraceData
+_Tn3270eTcpConnTraceData_Object=MibTableColumn
+tn3270eTcpConnTraceData=_Tn3270eTcpConnTraceData_Object((1,3,6,1,2,1,34,8,1,9,1,17),_Tn3270eTcpConnTraceData_Type())
+tn3270eTcpConnTraceData.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eTcpConnTraceData.setStatus(_A)
+_Tn3270eTcpConnLogInfo_Type=IANATn3270eLogData
+_Tn3270eTcpConnLogInfo_Object=MibTableColumn
+tn3270eTcpConnLogInfo=_Tn3270eTcpConnLogInfo_Object((1,3,6,1,2,1,34,8,1,9,1,18),_Tn3270eTcpConnLogInfo_Type())
+tn3270eTcpConnLogInfo.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eTcpConnLogInfo.setStatus(_A)
+class _Tn3270eTcpConnLuLuBindImage_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
+_Tn3270eTcpConnLuLuBindImage_Type.__name__=_L
+_Tn3270eTcpConnLuLuBindImage_Object=MibTableColumn
+tn3270eTcpConnLuLuBindImage=_Tn3270eTcpConnLuLuBindImage_Object((1,3,6,1,2,1,34,8,1,9,1,19),_Tn3270eTcpConnLuLuBindImage_Type())
+tn3270eTcpConnLuLuBindImage.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eTcpConnLuLuBindImage.setStatus(_A)
+class _Tn3270eTcpConnSnaState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_n,1),('noSluSession',2),('sscpLuSession',3),('luLuSession',4),('sscpLuSessionAndLuLuSession',5)))
+_Tn3270eTcpConnSnaState_Type.__name__=_H
+_Tn3270eTcpConnSnaState_Object=MibTableColumn
+tn3270eTcpConnSnaState=_Tn3270eTcpConnSnaState_Object((1,3,6,1,2,1,34,8,1,9,1,20),_Tn3270eTcpConnSnaState_Type())
+tn3270eTcpConnSnaState.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eTcpConnSnaState.setStatus(_A)
+class _Tn3270eTcpConnStateLastDiscReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13)));namedValues=NamedValues(*((_n,1),('hostSendsUnbind',2),('hostDontAcceptConnection',3),('outOfResource',4),('clientProtocolError',5),('invalidDeviceName',6),('deviceInUse',7),('inactivityTimeout',8),('hostNotResponding',9),('clientNotResponding',10),('serverClose',11),('sysreqLogoff',12),('serverSpecificHexCode',13)))
+_Tn3270eTcpConnStateLastDiscReason_Type.__name__=_H
+_Tn3270eTcpConnStateLastDiscReason_Object=MibTableColumn
+tn3270eTcpConnStateLastDiscReason=_Tn3270eTcpConnStateLastDiscReason_Object((1,3,6,1,2,1,34,8,1,9,1,21),_Tn3270eTcpConnStateLastDiscReason_Type())
+tn3270eTcpConnStateLastDiscReason.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eTcpConnStateLastDiscReason.setStatus(_A)
+class _Tn3270eTcpConnSrvrConfIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_Tn3270eTcpConnSrvrConfIndex_Type.__name__=_F
+_Tn3270eTcpConnSrvrConfIndex_Object=MibTableColumn
+tn3270eTcpConnSrvrConfIndex=_Tn3270eTcpConnSrvrConfIndex_Object((1,3,6,1,2,1,34,8,1,9,1,22),_Tn3270eTcpConnSrvrConfIndex_Type())
+tn3270eTcpConnSrvrConfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eTcpConnSrvrConfIndex.setStatus(_A)
+_Tn3270eTcpConnActivationTime_Type=TimeStamp
+_Tn3270eTcpConnActivationTime_Object=MibTableColumn
+tn3270eTcpConnActivationTime=_Tn3270eTcpConnActivationTime_Object((1,3,6,1,2,1,34,8,1,9,1,23),_Tn3270eTcpConnActivationTime_Type())
+tn3270eTcpConnActivationTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:tn3270eTcpConnActivationTime.setStatus(_A)
+_Tn3270eConfSpinLock_Type=TestAndIncr
+_Tn3270eConfSpinLock_Object=MibScalar
+tn3270eConfSpinLock=_Tn3270eConfSpinLock_Object((1,3,6,1,2,1,34,8,1,10),_Tn3270eConfSpinLock_Type())
+tn3270eConfSpinLock.setMaxAccess('read-write')
+if mibBuilder.loadTexts:tn3270eConfSpinLock.setStatus(_A)
+_Tn3270eConformance_ObjectIdentity=ObjectIdentity
+tn3270eConformance=_Tn3270eConformance_ObjectIdentity((1,3,6,1,2,1,34,8,3))
+_Tn3270eGroups_ObjectIdentity=ObjectIdentity
+tn3270eGroups=_Tn3270eGroups_ObjectIdentity((1,3,6,1,2,1,34,8,3,1))
+_Tn3270eCompliances_ObjectIdentity=ObjectIdentity
+tn3270eCompliances=_Tn3270eCompliances_ObjectIdentity((1,3,6,1,2,1,34,8,3,2))
+tn3270eBasicGroup=ObjectGroup((1,3,6,1,2,1,34,8,3,1,1))
+tn3270eBasicGroup.setObjects(*((_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK)))
+if mibBuilder.loadTexts:tn3270eBasicGroup.setStatus(_A)
+tn3270eSessionGroup=ObjectGroup((1,3,6,1,2,1,34,8,3,1,2))
+tn3270eSessionGroup.setObjects(*((_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY)))
+if mibBuilder.loadTexts:tn3270eSessionGroup.setStatus(_A)
+tn3270eResMapGroup=ObjectGroup((1,3,6,1,2,1,34,8,3,1,3))
+tn3270eResMapGroup.setObjects(*((_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj)))
+if mibBuilder.loadTexts:tn3270eResMapGroup.setStatus(_A)
+tn3270eHiCapacityGroup=ObjectGroup((1,3,6,1,2,1,34,8,3,1,4))
+tn3270eHiCapacityGroup.setObjects(*((_B,_Ak),(_B,_Al)))
+if mibBuilder.loadTexts:tn3270eHiCapacityGroup.setStatus(_A)
+tn3270eCompliance=ModuleCompliance((1,3,6,1,2,1,34,8,3,2,1))
+tn3270eCompliance.setObjects(*((_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap)))
+if mibBuilder.loadTexts:tn3270eCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'SnaResourceName':SnaResourceName,'Tn3270eTraceData':Tn3270eTraceData,'tn3270eMIB':tn3270eMIB,'tn3270eNotifications':tn3270eNotifications,'tn3270eObjects':tn3270eObjects,'tn3270eSrvrConfTable':tn3270eSrvrConfTable,'tn3270eSrvrConfEntry':tn3270eSrvrConfEntry,_G:tn3270eSrvrConfIndex,_o:tn3270eSrvrConfInactivityTimeout,_p:tn3270eSrvrConfConnectivityChk,_q:tn3270eSrvrConfTmNopInactTime,_r:tn3270eSrvrConfTmNopInterval,_s:tn3270eSrvrFunctionsSupported,_t:tn3270eSrvrConfAdminStatus,_u:tn3270eSrvrConfOperStatus,_v:tn3270eSrvrConfSessionTermState,_w:tn3270eSrvrConfSrvrType,_x:tn3270eSrvrConfContact,_y:tn3270eSrvrConfRowStatus,_z:tn3270eSrvrConfLastActTime,_A0:tn3270eSrvrConfTmTimeout,'tn3270eSrvrPortTable':tn3270eSrvrPortTable,'tn3270eSrvrPortEntry':tn3270eSrvrPortEntry,_M:tn3270eSrvrPort,_N:tn3270eSrvrPortAddrType,_O:tn3270eSrvrPortAddress,_A1:tn3270eSrvrPortRowStatus,'tn3270eSrvrStatsTable':tn3270eSrvrStatsTable,'tn3270eSrvrStatsEntry':tn3270eSrvrStatsEntry,_A2:tn3270eSrvrStatsUpTime,_A3:tn3270eSrvrStatsMaxTerms,_A4:tn3270eSrvrStatsInUseTerms,_A5:tn3270eSrvrStatsSpareTerms,_A6:tn3270eSrvrStatsMaxPtrs,_A7:tn3270eSrvrStatsInUsePtrs,_A8:tn3270eSrvrStatsSparePtrs,_A9:tn3270eSrvrStatsInConnects,_AA:tn3270eSrvrStatsConnResrceRejs,_AB:tn3270eSrvrStatsDisconnects,_Ak:tn3270eSrvrStatsHCInOctets,_AC:tn3270eSrvrStatsInOctets,_Al:tn3270eSrvrStatsHCOutOctets,_AD:tn3270eSrvrStatsOutOctets,_AE:tn3270eSrvrStatsConnErrorRejs,'tn3270eClientGroupTable':tn3270eClientGroupTable,'tn3270eClientGroupEntry':tn3270eClientGroupEntry,_X:tn3270eClientGroupName,_Y:tn3270eClientGroupAddrType,_Z:tn3270eClientGroupAddress,_AF:tn3270eClientGroupSubnetMask,_AG:tn3270eClientGroupPfxLength,_AH:tn3270eClientGroupRowStatus,'tn3270eResPoolTable':tn3270eResPoolTable,'tn3270eResPoolEntry':tn3270eResPoolEntry,_a:tn3270eResPoolName,_b:tn3270eResPoolElementName,_AZ:tn3270eResPoolElementType,_Aa:tn3270eResPoolRowStatus,'tn3270eSnaMapTable':tn3270eSnaMapTable,'tn3270eSnaMapEntry':tn3270eSnaMapEntry,_c:tn3270eSnaMapSscpSuppliedName,_AI:tn3270eSnaMapLocalName,_AJ:tn3270eSnaMapPrimaryLuName,'tn3270eClientResMapTable':tn3270eClientResMapTable,'tn3270eClientResMapEntry':tn3270eClientResMapEntry,_d:tn3270eClientResMapPoolName,_e:tn3270eClientResMapClientGroupName,_f:tn3270eClientResMapClientPort,_Ab:tn3270eClientResMapRowStatus,'tn3270eResMapTable':tn3270eResMapTable,'tn3270eResMapEntry':tn3270eResMapEntry,_g:tn3270eResMapElementName,_AL:tn3270eResMapAddrType,_AM:tn3270eResMapAddress,_AN:tn3270eResMapPort,_AO:tn3270eResMapElementType,_AP:tn3270eResMapSscpSuppliedName,'tn3270eTcpConnTable':tn3270eTcpConnTable,'tn3270eTcpConnEntry':tn3270eTcpConnEntry,_h:tn3270eTcpConnRemAddrType,_i:tn3270eTcpConnRemAddress,_j:tn3270eTcpConnRemPort,_k:tn3270eTcpConnLocalAddrType,_l:tn3270eTcpConnLocalAddress,_m:tn3270eTcpConnLocalPort,_AQ:tn3270eTcpConnLastActivity,_AR:tn3270eTcpConnBytesIn,_AS:tn3270eTcpConnBytesOut,_AT:tn3270eTcpConnResourceElement,_AU:tn3270eTcpConnResourceType,_AV:tn3270eTcpConnDeviceType,_AW:tn3270eTcpConnFunctions,_Ac:tn3270eTcpConnId,_Ad:tn3270eTcpConnClientIdFormat,_Ae:tn3270eTcpConnClientId,_Af:tn3270eTcpConnTraceData,_Ag:tn3270eTcpConnLogInfo,_Ah:tn3270eTcpConnLuLuBindImage,_Ai:tn3270eTcpConnSnaState,_Aj:tn3270eTcpConnStateLastDiscReason,_AX:tn3270eTcpConnSrvrConfIndex,_AY:tn3270eTcpConnActivationTime,_AK:tn3270eConfSpinLock,'tn3270eConformance':tn3270eConformance,'tn3270eGroups':tn3270eGroups,_Am:tn3270eBasicGroup,_An:tn3270eSessionGroup,_Ao:tn3270eResMapGroup,_Ap:tn3270eHiCapacityGroup,'tn3270eCompliances':tn3270eCompliances,'tn3270eCompliance':tn3270eCompliance})

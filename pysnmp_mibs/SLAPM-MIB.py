@@ -1,351 +1,983 @@
-#
-# PySNMP MIB module SLAPM-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/SLAPM-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:28:23 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, ObjectIdentifier, Integer, ) = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( NotificationGroup, ModuleCompliance, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-( NotificationType, Bits, TimeTicks, experimental, ObjectIdentity, IpAddress, MibIdentifier, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, ModuleIdentity, Counter64, Integer32, iso, Counter32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Bits", "TimeTicks", "experimental", "ObjectIdentity", "IpAddress", "MibIdentifier", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "ModuleIdentity", "Counter64", "Integer32", "iso", "Counter32")
-( TestAndIncr, DisplayString, RowStatus, DateAndTime, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "TestAndIncr", "DisplayString", "RowStatus", "DateAndTime", "TextualConvention")
-slapmMIB = ModuleIdentity((1, 3, 6, 1, 3, 88)).setRevisions(("2000-01-24 00:00",))
-if mibBuilder.loadTexts: slapmMIB.setLastUpdated('200001240000Z')
-if mibBuilder.loadTexts: slapmMIB.setOrganization('International Business Machines Corp.')
-if mibBuilder.loadTexts: slapmMIB.setContactInfo('Kenneth White\n\n          International Business Machines Corporation\n          Network Computing Software Division\n          Research Triangle Park, NC, USA\n\n          E-mail: wkenneth@us.ibm.com')
-if mibBuilder.loadTexts: slapmMIB.setDescription('The Service Level Agreement Performance Monitoring MIB\n          (SLAPM-MIB) provides data collection and monitoring\n          capabilities for Service Level Agreements (SLAs)\n          policy definitions.')
-class SlapmNameType(SnmpAdminString, TextualConvention):
-    subtypeSpec = SnmpAdminString.subtypeSpec+ValueSizeConstraint(0,32)
-
-class SlapmStatus(Bits, TextualConvention):
-    namedValues = NamedValues(("slaMinInRateNotAchieved", 0), ("slaMaxInRateExceeded", 1), ("slaMaxDelayExceeded", 2), ("slaMinOutRateNotAchieved", 3), ("slaMaxOutRateExceeded", 4), ("monitorMinInRateNotAchieved", 5), ("monitorMaxInRateExceeded", 6), ("monitorMaxDelayExceeded", 7), ("monitorMinOutRateNotAchieved", 8), ("monitorMaxOutRateExceeded", 9),)
-
-class SlapmPolicyRuleName(OctetString, TextualConvention):
-    displayHint = '1024t'
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,1024)
-
-slapmNotifications = MibIdentifier((1, 3, 6, 1, 3, 88, 0))
-slapmObjects = MibIdentifier((1, 3, 6, 1, 3, 88, 1))
-slapmConformance = MibIdentifier((1, 3, 6, 1, 3, 88, 2))
-slapmBaseObjects = MibIdentifier((1, 3, 6, 1, 3, 88, 1, 1))
-slapmSpinLock = MibScalar((1, 3, 6, 1, 3, 88, 1, 1, 1), TestAndIncr()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: slapmSpinLock.setDescription('An advisory lock used to allow cooperating applications\n         to coordinate their use of the contents of this MIB.  This\n         typically occurs when an application seeks to create an\n         new entry or alter an existing entry in\n         slapmPRMonTable (or old slapmPolicyMonitorTable).  A\n         management implementation MAY utilize the slapmSpinLock to\n         serialize its changes or additions.  This usage is not\n         required.   However, slapmSpinLock MUST be supported by\n         agent implementations.')
-slapmPolicyCountQueries = MibScalar((1, 3, 6, 1, 3, 88, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyCountQueries.setDescription('The total number of times that a policy lookup occurred\n         with respect to a policy agent.\n         This is the number of times that a reference was made to\n         a policy definition at a system and includes the number\n         of times that a policy repository was accessed,\n         slapmPolicyCountAccesses.  The object\n         slapmPolicyCountAccesses should be less than\n         slapmPolicyCountQueries when policy definitions are\n         cached at a system.')
-slapmPolicyCountAccesses = MibScalar((1, 3, 6, 1, 3, 88, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyCountAccesses.setDescription('Total number of times that a policy repository was\n          accessed with respect to a policy agent.\n          The value of this object should be less than\n          slapmPolicyCountQueries, since typically policy entries\n          are cached to minimize repository accesses.')
-slapmPolicyCountSuccessAccesses = MibScalar((1, 3, 6, 1, 3, 88, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyCountSuccessAccesses.setDescription('Total number of successful policy repository accesses\n         with respect to a policy agent.')
-slapmPolicyCountNotFounds = MibScalar((1, 3, 6, 1, 3, 88, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyCountNotFounds.setDescription('Total number of policy repository accesses,\n         with respect to a policy agent, that\n         resulted in an entry not being located.')
-slapmPolicyPurgeTime = MibScalar((1, 3, 6, 1, 3, 88, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,3600)).clone(900)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: slapmPolicyPurgeTime.setDescription('The purpose of this object is to define the amount\n         of time (in seconds) to wait before removing an\n         slapmPolicyRuleStatsEntry (or old slapmPolicyStatsEntry)\n         when a system detects that the associated policy\n         definition has been deleted.  This gives any polling\n         management applications time to complete their last poll\n         before an entry is removed.  An slapmPolicyRuleStatsEntry\n         (or old slapmPolicyStatsEntry) enters the\n         deleteNeeded(3) state via slapmPolicyRuleStatsOperStatus\n         (or old slapmPolicyStatsOperStatus) when a system first\n         detects that the entry needs to be removed.\n\n         Once slapmPolicyPurgeTime has expired for an entry in\n         deleteNeeded(3) state it is removed a long with any\n         dependent slapmPRMonTable (or slapmPolicyMonitorTable)\n         entries.\n\n         A value of 0 for this option disables this function and\n         results in the automatic purging of slapmPRMonTable\n         (or slapmPolicyTable) entries upon transition into\n         deleteNeeded(3) state.\n\n         A slapmPolicyRuleDeleted (or slapmPolicyProfileDeleted)\n         notification is sent when an slapmPolicyRuleStatsEntry (or\n         slapmPolicyStatsEntry) is removed.  Dependent\n         slapmPRMonTable (or slapmPolicyMonitorTable)\n         deletion results in a slapmPolicyRuleMonDeleted (or\n         slapmPolicyMonitorDeleted) notification being sent.\n         These notifications are suppressed if the value of\n         slapmPolicyTrapEnable is disabled(2).')
-slapmPolicyTrapEnable = MibScalar((1, 3, 6, 1, 3, 88, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),)).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: slapmPolicyTrapEnable.setDescription('Indicates whether slapmPolicyRuleDeleted and\n         slapmPolicyRuleMonDeleted (or slapmPolicyProfileDeleted\n         and slapmPolicyMonitorDeleted) notifications should be\n         generated by this system.')
-slapmPolicyTrapFilter = MibScalar((1, 3, 6, 1, 3, 88, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,64)).clone(3)).setUnits('intervals').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: slapmPolicyTrapFilter.setDescription('The purpose of this object is to suppress unnecessary\n         slapmSubcMonitorNotOkay (or\n         slapmSubcomponentMonitoredEventNotAchieved), for example,\n         notifications.  Basically, a monitored event has to\n         not meet its SLA requirement for the number of\n         consecutive intervals indicated by the value of this\n         object.')
-slapmTableObjects = MibIdentifier((1, 3, 6, 1, 3, 88, 1, 2))
-slapmPolicyStatsTable = MibTable((1, 3, 6, 1, 3, 88, 1, 2, 1), )
-if mibBuilder.loadTexts: slapmPolicyStatsTable.setDescription('Provides statistics on all policies known at a\n          system.\n\n          This table has been deprecated and replaced with\n          the slapmPolicyRuleStatsTable.  Older implementations of\n          this MIB are expected to continue their support of this\n          table.')
-slapmPolicyStatsEntry = MibTableRow((1, 3, 6, 1, 3, 88, 1, 2, 1, 1), ).setIndexNames((0, "SLAPM-MIB", "slapmPolicyStatsSystemAddress"), (0, "SLAPM-MIB", "slapmPolicyStatsPolicyName"), (0, "SLAPM-MIB", "slapmPolicyStatsTrafficProfileName"))
-if mibBuilder.loadTexts: slapmPolicyStatsEntry.setDescription('Defines an entry in the slapmPolicyStatsTable.  This table\n          defines a set of statistics that is kept on a per system,\n          policy and traffic profile basis.  A policy can be\n          defined to contain multiple traffic profiles that map to\n          a single action.\n\n          Entries in this table are not created or deleted via SNMP\n          but reflect the set of policy definitions known at a system.')
-slapmPolicyStatsSystemAddress = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 1), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16),)))
-if mibBuilder.loadTexts: slapmPolicyStatsSystemAddress.setDescription('Address of a system that an Policy definition relates to.\n         A zero length octet string must be used to indicate that\n         only a single system is being represented.\n         Otherwise, the length of the octet string must be\n         4 for an ipv4 address or 16 for an ipv6 address.')
-slapmPolicyStatsPolicyName = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 2), SlapmNameType())
-if mibBuilder.loadTexts: slapmPolicyStatsPolicyName.setDescription('Policy name that this entry relates to.')
-slapmPolicyStatsTrafficProfileName = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 3), SlapmNameType())
-if mibBuilder.loadTexts: slapmPolicyStatsTrafficProfileName.setDescription('The name of a traffic profile that is associated with\n         a policy.')
-slapmPolicyStatsOperStatus = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2), ("deleteNeeded", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsOperStatus.setDescription('The state of a policy entry:\n\n           inactive(1)      - An policy entry was either defined\n                              by local system definition or\n                              discovered via a directory search\n                              but has not been activated (not\n                              currently being used).\n           active(2)        - Policy entry is being used to affect\n                              traffic flows.\n           deleteNeeded(3)  - Either though local implementation\n                              dependent methods or by discovering\n                              that the directory entry corresponding\n                              to this table entry no longer\n                              exists and slapmPolicyPurgeTime needs\n                              to expire before attempting to remove\n                              the corresponding slapmPolicyStatsEntry\n                              and any dependent slapmPolicyMonitor\n                              table entries.\n         Note: a policy traffic profile in a state other than\n         active(1) is not being used to affect traffic flows.')
-slapmPolicyStatsActiveConns = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 5), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsActiveConns.setDescription('The number of active TCP connections that are\n         affected by the corresponding policy entry.')
-slapmPolicyStatsTotalConns = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsTotalConns.setDescription('The number of total TCP connections that are\n         affected by the corresponding policy entry.')
-slapmPolicyStatsFirstActivated = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 7), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsFirstActivated.setDescription('The timestamp for when the corresponding policy entry\n         is activated.  The value of this object serves as\n         the discontinuity event indicator when polling entries\n         in this table.  The value of this object is updated on\n         transition of slapmPolicyStatsOperStatus into the active(2)\n         state.')
-slapmPolicyStatsLastMapping = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 8), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsLastMapping.setDescription('The timestamp for when the last time\n         that the associated policy entry was used.')
-slapmPolicyStatsInOctets = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsInOctets.setDescription('The number of octets that was received by IP for an\n         entity that map to this entry.')
-slapmPolicyStatsOutOctets = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsOutOctets.setDescription('The number of octets that was transmitted by IP for an\n\n         entity that map to this entry.')
-slapmPolicyStatsConnectionLimit = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsConnectionLimit.setDescription('The limit for the number of active TCP connections that\n         are allowed for this policy definition.  A value of zero\n         for this object implies that a connection limit has not\n         been specified.')
-slapmPolicyStatsCountAccepts = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsCountAccepts.setDescription("This counter is incremented when a policy action's\n          Permission value is set to Accept and a session\n          (TCP connection) is accepted.")
-slapmPolicyStatsCountDenies = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsCountDenies.setDescription("This counter is incremented when a policy action's\n          Permission value is set to Deny and a session is denied,\n          or when a session (TCP connection) is rejected due to a\n          policy's connection limit (slapmPolicyStatsConnectLimit)\n          being reached.")
-slapmPolicyStatsInDiscards = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsInDiscards.setDescription('This counter counts the number of in octets discarded.\n          This occurs when an error is detected.  Examples of this\n          are buffer overflow, checksum error, or bad packet\n          format.')
-slapmPolicyStatsOutDiscards = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsOutDiscards.setDescription('This counter counts the number of out octets discarded.\n          Examples of this are buffer overflow, checksum error, or\n          bad packet format.')
-slapmPolicyStatsInPackets = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsInPackets.setDescription('This counter counts the number of in packets received\n          that relate to this policy entry from IP.')
-slapmPolicyStatsOutPackets = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsOutPackets.setDescription('This counter counts the number of out packets sent\n          by IP that relate to this policy entry.')
-slapmPolicyStatsInProfileOctets = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsInProfileOctets.setDescription('This counter counts the number of in octets that are\n          determined to be within profile.')
-slapmPolicyStatsOutProfileOctets = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsOutProfileOctets.setDescription('This counter counts the number of out octets that are\n          determined to be within profile.')
-slapmPolicyStatsMinRate = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 20), Integer32()).setUnits('Kilobits per second').setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsMinRate.setDescription('The minimum transfer rate defined for this entry.')
-slapmPolicyStatsMaxRate = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 21), Integer32()).setUnits('Kilobits per second').setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsMaxRate.setDescription('The maximum transfer rate defined for this entry.')
-slapmPolicyStatsMaxDelay = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 1, 1, 22), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyStatsMaxDelay.setDescription('The maximum delay defined for this entry.')
-slapmPolicyMonitorTable = MibTable((1, 3, 6, 1, 3, 88, 1, 2, 2), )
-if mibBuilder.loadTexts: slapmPolicyMonitorTable.setDescription('Provides a method of monitoring policies and their\n          effect at a system.\n\n          This table has been deprecated and replaced with\n          the slapmPRMonTable.  Older implementations of\n          this MIB are expected to continue their support\n          of this table.')
-slapmPolicyMonitorEntry = MibTableRow((1, 3, 6, 1, 3, 88, 1, 2, 2, 1), ).setIndexNames((0, "SLAPM-MIB", "slapmPolicyMonitorOwnerIndex"), (0, "SLAPM-MIB", "slapmPolicyMonitorSystemAddress"), (0, "SLAPM-MIB", "slapmPolicyMonitorPolicyName"), (0, "SLAPM-MIB", "slapmPolicyMonitorTrafficProfileName"))
-if mibBuilder.loadTexts: slapmPolicyMonitorEntry.setDescription('Defines an entry in the slapmPolicyMonitorTable. This\n          table defines which policies should be monitored on a\n          per policy traffic profile basis.')
-slapmPolicyMonitorOwnerIndex = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,16)))
-if mibBuilder.loadTexts: slapmPolicyMonitorOwnerIndex.setDescription("To facilitate the provisioning of access control by a\n         security administrator using the View-Based Access\n         Control Model (RFC 2575, VACM) for tables in which\n         multiple users may need to independently create or modify\n         entries, the initial index is used as an 'owner index'.\n         Such an initial index has a syntax of SnmpAdminString,\n         and can thus be trivially mapped to a securityName or\n         groupName as defined in VACM, in accordance with a\n\n         security policy.\n\n         All entries in that table belonging to a particular user\n         will have the same value for this initial index.  For a\n         given user's entries in a particular table, the object\n         identifiers for the information in these entries will\n         have the same subidentifiers (except for the 'column'\n         subidentifier) up to the end of the encoded owner index.\n         To configure VACM to permit access to this portion of the\n         table, one would create vacmViewTreeFamilyTable entries\n         with the value of vacmViewTreeFamilySubtree including the\n         owner index portion, and vacmViewTreeFamilyMask\n         'wildcarding' the column subidentifier.  More elaborate\n         configurations are possible.")
-slapmPolicyMonitorSystemAddress = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 2), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16),)))
-if mibBuilder.loadTexts: slapmPolicyMonitorSystemAddress.setDescription('Address of a system that an Policy definition relates to.\n         A zero length octet string can be used to indicate that\n         only a single system is being represented.\n         Otherwise, the length of the octet string should be\n         4 for an ipv4 address and 16 for an ipv6 address.')
-slapmPolicyMonitorPolicyName = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 3), SlapmNameType())
-if mibBuilder.loadTexts: slapmPolicyMonitorPolicyName.setDescription('Policy name that this entry relates to.')
-slapmPolicyMonitorTrafficProfileName = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 4), SlapmNameType())
-if mibBuilder.loadTexts: slapmPolicyMonitorTrafficProfileName.setDescription('The corresponding Traffic Profile name.')
-slapmPolicyMonitorControl = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 5), Bits().clone(namedValues=NamedValues(("monitorMinRate", 0), ("monitorMaxRate", 1), ("monitorMaxDelay", 2), ("enableAggregateTraps", 3), ("enableSubcomponentTraps", 4), ("monitorSubcomponents", 5),)).clone(namedValues=NamedValues(("monitorMinRate", 0), ("monitorMaxRate", 1), ("monitorMaxDelay", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPolicyMonitorControl.setDescription("The value of this object determines the type and level\n         of monitoring that is applied to a policy/profile.  The\n         value of this object can't be changed once the table\n         entry that it is a part of is activated via a\n         slapmPolicyMonitorRowStatus transition to active state.\n\n             monitorMinRate(0) - Monitor minimum transfer rate.\n             monitorMaxRate(1) - Monitor maximum transfer rate.\n             monitorMaxDelay(2) - Monitor maximum delay.\n             enableAggregateTraps(3) - The enableAggregateTraps(3)\n                   BITS setting enables notification generation\n                   when monitoring a policy traffic profile as an\n                   aggregate using the values in the corresponding\n                   slapmPolicyStatsEntry.  By default this function\n                   is not enabled.\n             enableSubcomponentTraps(4) - This BITS setting enables\n                   notification generation when monitoring all\n                   subcomponents that are mapped to an corresponding\n                   slapmPolicyStatsEntry.  By default this\n                   function is not enabled.\n             monitorSubcomponents(5) - This BITS setting enables\n                   monitoring of each subcomponent (typically a\n                   TCP connection or UDP listener) individually.")
-slapmPolicyMonitorStatus = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 6), SlapmStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyMonitorStatus.setDescription("The value of this object indicates when a monitored\n         value has not meet a threshold or isn't meeting the\n         defined service level.  The SlapmStatus TEXTUAL-CONVENTION\n         defines two levels of not meeting a threshold.  The first\n         set:\n                     slaMinInRateNotAchieved(0),\n                     slaMaxInRateExceeded(1),\n                     slaMaxDelayExceeded(2),\n\n                     slaMinOutRateNotAchieved(3),\n                     slaMaxOutRateExceeded(4)\n\n         are used to indicate when the SLA as an aggregate is\n         not meeting a threshold while the second set:\n\n                     monitorMinInRateNotAchieved(5),\n                     monitorMaxInRateExceeded(6),\n                     monitorMaxDelayExceeded(7),\n                     monitorMinOutRateNotAchieved(8),\n                     monitorMaxOutRateExceeded(9)\n\n         indicate that at least one subcomponent is not meeting\n         a threshold.")
-slapmPolicyMonitorInterval = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(15,86400)).clone(20)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPolicyMonitorInterval.setDescription('The number of seconds that defines the sample period.')
-slapmPolicyMonitorIntTime = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 8), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyMonitorIntTime.setDescription('The timestamp for when the last interval ended.')
-slapmPolicyMonitorCurrentInRate = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 9), Gauge32()).setUnits('kilobits per second').setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyMonitorCurrentInRate.setDescription('Using the value of the corresponding\n         slapmPolicyMonitorInterval, slapmPolicyStatsInOctets\n         is sampled and then divided by slapmPolicyMonitorInterval\n         to determine the current in transfer rate.')
-slapmPolicyMonitorCurrentOutRate = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 10), Gauge32()).setUnits('kilobits per second').setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyMonitorCurrentOutRate.setDescription('Using the value of the corresponding\n         slapmPolicyMonitorInterval, slapmPolicyStatsOutOctets\n         is sampled and then divided by slapmPolicyMonitorInterval\n         to determine the current out transfer rate.')
-slapmPolicyMonitorMinRateLow = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 11), Integer32()).setUnits('kilobits per second').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPolicyMonitorMinRateLow.setDescription("The threshold for generating a\n         slapmMonitoredEventNotAchieved notification, signalling\n         that a monitored minimum transfer rate has not been meet.\n\n         A slapmMonitoredEventNotAchieved notification is not\n         generated again for an slapmPolicyMonitorEntry until\n         the minimum transfer rate\n         exceeds slapmPolicyMonitorMinRateHigh (a\n         slapmMonitoredEventOkay notification is then transmitted)\n         and then fails below slapmPolicyMonitorMinRateLow.  This\n         behavior reduces the slapmMonitoredEventNotAchieved\n         notifications that are transmitted.\n\n         A value of zero for this object is returned when the\n         slapmPolicyMonitorControl monitorMinRate(0) is not\n         enabled.  When enabled the default value for this object\n         is the min rate value specified in the associated\n         action definition minus 10%.  If the action definition\n         doesn't have a min rate defined then there is no\n         default for this object and a value MUST be specified\n         prior to activating this entry when monitorMinRate(0)\n         is selected.\n\n         Note: The corresponding slapmPolicyMonitorControl\n         BITS setting, enableAggregateTraps(3), MUST be selected in\n         order for any notification relating to this entry to\n         potentially be generated.")
-slapmPolicyMonitorMinRateHigh = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 12), Integer32()).setUnits('kilobits per second').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPolicyMonitorMinRateHigh.setDescription("The threshold for generating a slapmMonitoredEventOkay\n         notification, signalling that a monitored minimum\n         transfer rate has increased to an acceptable level.\n\n         A value of zero for this object is returned when the\n         slapmPolicyMonitorControl monitorMinRate(0) is not\n         enabled.  When enabled the default value for this object\n         is the min rate value specified in the associated\n         action definition plus 10%.  If the action definition\n         doesn't have a min rate defined then there is no\n         default for this object and a value MUST be specified\n         prior to activating this entry when monitorMinRate(0)\n         is selected.\n\n         Note: The corresponding slapmPolicyMonitorControl\n         BITS setting, enableAggregateTraps(3), MUST be selected\n         in order for any notification relating to this entry to\n         potentially be generated.")
-slapmPolicyMonitorMaxRateHigh = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 13), Integer32()).setUnits('kilobits per second').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPolicyMonitorMaxRateHigh.setDescription("The threshold for generating a\n         slapmMonitoredEventNotAchieved notification, signalling\n         that a monitored maximum transfer rate has been exceeded.\n\n         A slapmMonitoredEventNotAchieved notification is not\n         generated again for an slapmPolicyMonitorEntry until the\n         maximum transfer rate fails below\n         slapmPolicyMonitorMaxRateLow (a slapmMonitoredEventOkay\n         notification is then transmitted) and then raises above\n         slapmPolicyMonitorMaxRateHigh.  This behavior reduces the\n         slapmMonitoredEventNotAchieved notifications that are\n         transmitted.\n\n         A value of zero for this object is returned when the\n         slapmPolicyMonitorControl monitorMaxRate(1) is not\n         enabled.  When enabled the default value for this object\n         is the max rate value specified in the associated\n         action definition plus 10%.  If the action definition\n\n         doesn't have a max rate defined then there is no\n         default for this object and a value MUST be specified\n         prior to activating this entry when monitorMaxRate(1)\n         is selected.\n\n         Note: The corresponding slapmPolicyMonitorControl\n         BITS setting, enableAggregateTraps(3), MUST be selected in\n         order for any notification relating to this entry to\n         potentially be generated.")
-slapmPolicyMonitorMaxRateLow = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 14), Integer32()).setUnits('kilobits per second').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPolicyMonitorMaxRateLow.setDescription("The threshold for generating a slapmMonitoredEventOkay\n         notification, signalling that a monitored maximum\n         transfer rate has fallen to an acceptable level.\n\n         A value of zero for this object is returned when the\n         slapmPolicyMonitorControl monitorMaxRate(1) is not\n         enabled.  When enabled the default value for this object\n         is the max rate value specified in the associated\n         action definition minus 10%.  If the action definition\n         doesn't have a max rate defined then there is no\n         default for this object and a value MUST be specified\n         prior to activating this entry when monitorMaxRate(1)\n         is selected.\n\n         Note: The corresponding slapmPolicyMonitorControl\n         BITS setting, enableAggregateTraps(3), MUST be selected in\n         order for any notification relating to this entry to\n         potentially be generated.")
-slapmPolicyMonitorMaxDelayHigh = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 15), Integer32()).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPolicyMonitorMaxDelayHigh.setDescription("The threshold for generating a\n         slapmMonitoredEventNotAchieved notification, signalling\n         that a monitored maximum delay rate has been exceeded.\n\n         A slapmMonitoredEventNotAchieved notification is not\n\n         generated again for an slapmPolicyMonitorEntry until\n         the maximum delay rate falls below\n         slapmPolicyMonitorMaxDelayLow (a slapmMonitoredEventOkay\n         notification is then transmitted) and raises above\n         slapmPolicyMonitorMaxDelayHigh.  This behavior reduces\n         the slapmMonitoredEventNotAchieved notifications that are\n         transmitted.\n\n         A value of zero for this object is returned when the\n         slapmPolicyMonitorControl monitorMaxDelay(4) is not\n         enabled.  When enabled the default value for this object\n         is the max delay value specified in the associated\n         action definition plus 10%.  If the action definition\n         doesn't have a max delay defined then there is no\n         default for this object and a value MUST be specified\n         prior to activating this entry when monitorMaxDelay(4)\n         is selected.\n\n         Note: The corresponding slapmPolicyMonitorControl\n         BITS setting, enableAggregateTraps(3), MUST be selected\n         in order for any notification relating to this entry to\n         potentially be generated.")
-slapmPolicyMonitorMaxDelayLow = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 16), Integer32()).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPolicyMonitorMaxDelayLow.setDescription("The threshold for generating a slapmMonitoredEventOkay\n         notification, signalling that a monitored maximum delay\n         rate has fallen to an acceptable level.\n\n         A value of zero for this object is returned when the\n         slapmPolicyMonitorControl monitorMaxDelay(4) is not\n         enabled.  When enabled the default value for this object\n         is the max delay value specified in the associated\n         action definition minus 10%.  If the action definition\n         doesn't have a max delay defined then there is no\n         default for this object and a value MUST be specified\n         prior to activating this entry when monitorMaxDelay(4)\n         is selected.\n\n         Note: The corresponding slapmPolicyMonitorControl\n         BITS setting, enableAggregateTraps(3), MUST be selected\n         in order for any notification relating to this entry to\n         potentially be generated.")
-slapmPolicyMonitorMinInRateNotAchieves = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyMonitorMinInRateNotAchieves.setDescription('The number of times that a minimum transfer in rate\n          was not achieved.')
-slapmPolicyMonitorMaxInRateExceeds = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyMonitorMaxInRateExceeds.setDescription('The number of times that a maximum transfer in rate\n          was exceeded.')
-slapmPolicyMonitorMaxDelayExceeds = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyMonitorMaxDelayExceeds.setDescription('The number of times that a maximum delay in rate\n          was exceeded.')
-slapmPolicyMonitorMinOutRateNotAchieves = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyMonitorMinOutRateNotAchieves.setDescription('The number of times that a minimum transfer out rate\n          was not achieved.')
-slapmPolicyMonitorMaxOutRateExceeds = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 21), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyMonitorMaxOutRateExceeds.setDescription('The number of times that a maximum transfer out rate\n          was exceeded.')
-slapmPolicyMonitorCurrentDelayRate = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 22), Gauge32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyMonitorCurrentDelayRate.setDescription('The current delay rate for this entry.  This is\n          calculated by taking the average of the TCP\n          round trip times for all associating\n          slapmSubcomponentTable entries within a interval.')
-slapmPolicyMonitorRowStatus = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 2, 1, 23), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPolicyMonitorRowStatus.setDescription('This object allows entries to be created and deleted\n         in the slapmPolicyMonitorTable.  An entry in this table\n         is deleted by setting this object to destroy(6).\n\n         Removal of a corresponding (same policy and traffic profile\n         names) slapmPolicyStatsEntry has the side effect of the\n         automatic deletion an entry in this table.')
-slapmSubcomponentTable = MibTable((1, 3, 6, 1, 3, 88, 1, 2, 3), )
-if mibBuilder.loadTexts: slapmSubcomponentTable.setDescription('Defines a table to provide information on the\n            individually components that are mapped to\n            a policy rule (or old traffic profile).\n\n            The indexing for this table is designed to support\n            the use of an SNMP GET-NEXT operation using only\n            the remote address and remote port as a way for\n            a management station to retrieve the table entries\n            relating to a particular client.')
-slapmSubcomponentEntry = MibTableRow((1, 3, 6, 1, 3, 88, 1, 2, 3, 1), ).setIndexNames((0, "SLAPM-MIB", "slapmSubcomponentRemAddress"), (0, "SLAPM-MIB", "slapmSubcomponentRemPort"), (0, "SLAPM-MIB", "slapmSubcomponentLocalAddress"), (0, "SLAPM-MIB", "slapmSubcomponentLocalPort"))
-if mibBuilder.loadTexts: slapmSubcomponentEntry.setDescription("Describes a particular subcomponent entry.  This\n            table does not have an OwnerIndex as\n            part of its indexing since this table's contents\n            is intended to span multiple users.")
-slapmSubcomponentRemAddress = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 1), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16),)))
-if mibBuilder.loadTexts: slapmSubcomponentRemAddress.setDescription('Indicate the remote address of a subcomponent.\n         A remote address can be either an ipv4 address in which\n         case 4 octets are required or as an ipv6 address that\n\n         requires 16 octets.  The value of this subidentifier\n         is a zero length octet string when this entry relates\n         to a UDP listener.')
-slapmSubcomponentRemPort = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)))
-if mibBuilder.loadTexts: slapmSubcomponentRemPort.setDescription('Indicate the remote port of a subcomponent.\n         The value of this subidentifier\n         is 0 when this entry relates to a UDP listener.')
-slapmSubcomponentLocalAddress = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 3), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16),)))
-if mibBuilder.loadTexts: slapmSubcomponentLocalAddress.setDescription('Indicate the local address of a subcomponent.\n         A local address can be either an ipv4 address in which\n         case 4 octets are required or as an ipv6 address that\n         requires 16 octets.')
-slapmSubcomponentLocalPort = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)))
-if mibBuilder.loadTexts: slapmSubcomponentLocalPort.setDescription('Indicate the local port of a subcomponent.')
-slapmSubcomponentProtocol = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("udpListener", 1), ("tcpConnection", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentProtocol.setDescription('Indicate the protocol in use that identifies the\n         type of subcomponent.')
-slapmSubcomponentSystemAddress = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 6), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentSystemAddress.setDescription('Address of a system that an Policy definition relates to.\n         A zero length octet string can be used to indicate that\n         only a single system is being represented.\n         Otherwise, the length of the octet string should be\n         4 for an ipv4 address and 16 for an ipv6 address.')
-slapmSubcomponentPolicyName = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 7), SlapmNameType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentPolicyName.setDescription('Policy name that this entry relates to.\n\n         This object, along with slapmSubcomponentTrafficProfileName,\n         have been replaced with the use of an unsigned integer\n         index that is mapped to an slapmPolicyNameEntry to actually\n         identify policy naming.')
-slapmSubcomponentTrafficProfileName = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 8), SlapmNameType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentTrafficProfileName.setDescription('The corresponding traffic profile name.\n\n         This object, along with slapmSubcomponentProfileName,\n         have been replaced with the use of an unsigned integer\n         index that is mapped to an slapmPolicyNameEntry to\n         actually identify policy naming.')
-slapmSubcomponentLastActivity = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 9), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentLastActivity.setDescription('The date and timestamp of when this entry was last used.')
-slapmSubcomponentInOctets = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentInOctets.setDescription('The number of octets received from IP for this\n           connection.')
-slapmSubcomponentOutOctets = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentOutOctets.setDescription('The number of octets sent to IP for this connection.')
-slapmSubcomponentTcpOutBufferedOctets = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentTcpOutBufferedOctets.setDescription('Number of outgoing octets buffered.  The value\n           of this object is zero when the entry is not\n           for a TCP connection.')
-slapmSubcomponentTcpInBufferedOctets = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentTcpInBufferedOctets.setDescription('Number of incoming octets buffered.  The value\n           of this object is zero when the entry is not\n           for a TCP connection.')
-slapmSubcomponentTcpReXmts = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentTcpReXmts.setDescription('Number of retransmissions.  The value\n           of this object is zero when the entry is not\n           for a TCP connection.')
-slapmSubcomponentTcpRoundTripTime = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 15), Integer32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentTcpRoundTripTime.setDescription('The amount of time that has elapsed, measured in\n           milliseconds, from when the last TCP segment was\n           transmitted by the TCP Stack until the ACK was\n           received.\n\n           The value of this object is zero when the entry is not\n           for a TCP connection.')
-slapmSubcomponentTcpRoundTripVariance = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 16), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentTcpRoundTripVariance.setDescription('Round trip time variance.\n\n           The value of this object is zero when the entry is not\n           for a TCP connection.')
-slapmSubcomponentInPdus = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentInPdus.setDescription('The number of protocol related data units transferred\n           inbound:\n\n             slapmSubcomponentProtocol    PDU Type\n\n                  udpListener(1)          UDP datagrams\n                  tcpConnection(2)        TCP segments')
-slapmSubcomponentOutPdus = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentOutPdus.setDescription('The number of protocol related data units transferred\n           outbound:\n\n             slapmSubcomponentProtocol    PDU Type\n\n                  udpListener(1)          UDP datagrams\n\n                  tcpConnection(2)        TCP segments')
-slapmSubcomponentApplName = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 19), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentApplName.setDescription('The application name associated with this entry if known,\n           otherwise a zero-length octet string is returned as the\n           value of this object.')
-slapmSubcomponentMonitorStatus = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 20), SlapmStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentMonitorStatus.setDescription("The value of this object indicates when a monitored\n         value has exceeded a threshold or isn't meeting the\n         defined service level.  Only the following SlapmStatus\n         BITS setting can be reported here:\n\n                     monitorMinInRateNotAchieved(5),\n                     monitorMaxInRateExceeded(6),\n                     monitorMaxDelayExceeded(7),\n                     monitorMinOutRateNotAchieved(8),\n                     monitorMaxOutRateExceeded(9)\n\n         This object only has meaning when an corresponding\n         slapmPolicyMonitorEntry exists with the\n         slapmPolicyMonitorControl BITS setting\n         monitorSubcomponents(5) enabled.")
-slapmSubcomponentMonitorIntTime = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 21), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentMonitorIntTime.setDescription('The timestamp for when the last interval ended.\n\n         This object only has meaning when an corresponding\n         slapmPRMonEntry (or old slapmPolicyMonitorEntry)\n         exists with the slapmPRMonControl (or\n         slapmPolicyMonitorControl) BITS setting\n         monitorSubcomponents(5) enabled.  All of the\n         octets returned when monitoring is not in effect\n\n         must be zero.')
-slapmSubcomponentMonitorCurrentInRate = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 22), Gauge32()).setUnits('kilobits per second').setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentMonitorCurrentInRate.setDescription('Using the value of the corresponding\n         slapmPRMonInterval (or slapmPolicyMonitorInterval),\n         slapmSubcomponentStatsInOctets\n         is divided by slapmSubcomponentMonitorInterval to determine\n         the current in transfer rate.\n\n         This object only has meaning when an corresponding\n         slapmPRMonEntry (or slapmPolicyMonitorEntry)\n         exists with the slapmPRMonControl (or\n         slapmPolicyMonitorControl) BITS setting\n         monitorSubcomponents(5) enabled.  The value of this\n         object is zero when monitoring is not in effect.')
-slapmSubcomponentMonitorCurrentOutRate = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 23), Gauge32()).setUnits('kilobits per second').setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentMonitorCurrentOutRate.setDescription('Using the value of the corresponding slapmPRMonInterval (or\n         slapmPolicyMonitorInterva)l, slapmSubcomponentStatsOutOctets\n         is divided by slapmPRMonInterval (or\n         slapmPolicyMonitorInterval) to determine the\n         current out transfer rate.\n\n         This object only has meaning when an corresponding\n         slapmPRMonEntry (or slapmPolicyMonitorEntry) exists with\n         the slapmPRMonControl (or slapmPolicyMonitorControl)\n         BITS setting monitorSubcomponents(5) enabled.  The value\n         of this object is zero when monitoring is not in effect.')
-slapmSubcomponentPolicyRuleIndex = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 3, 1, 24), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmSubcomponentPolicyRuleIndex.setDescription('Points to an slapmPolicyNameEntry when combined with\n        slapmSubcomponentSystemAddress to indicate the\n        policy naming that relates to this entry.\n\n        A value of 0 for this object MUST be returned when\n        the corresponding slapmSubcomponentEntry has no\n        policy rule associated with it.')
-slapmPolicyNameTable = MibTable((1, 3, 6, 1, 3, 88, 1, 2, 4), )
-if mibBuilder.loadTexts: slapmPolicyNameTable.setDescription('Provides the mapping between a policy index as a\n          unsigned 32 bit integer and the unique name associated\n          with a policy rule.')
-slapmPolicyNameEntry = MibTableRow((1, 3, 6, 1, 3, 88, 1, 2, 4, 1), ).setIndexNames((0, "SLAPM-MIB", "slapmPolicyNameSystemAddress"), (0, "SLAPM-MIB", "slapmPolicyNameIndex"))
-if mibBuilder.loadTexts: slapmPolicyNameEntry.setDescription('Defines an entry in the slapmPolicyNameTable.')
-slapmPolicyNameSystemAddress = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 4, 1, 1), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16),)))
-if mibBuilder.loadTexts: slapmPolicyNameSystemAddress.setDescription('Address of a system that an Policy rule definition relates\n         to.  A zero length octet string must be used to indicate\n\n         that only a single system is being represented.\n         Otherwise, the length of the octet string must be\n         4 for an ipv4 address or 16 for an ipv6 address.')
-slapmPolicyNameIndex = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 4, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: slapmPolicyNameIndex.setDescription('A locally arbitrary, but unique identifier associated\n          with this table entry.  This value is not expected to\n          remain constant across reIPLs.')
-slapmPolicyNameOfRule = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 4, 1, 3), SlapmPolicyRuleName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyNameOfRule.setDescription('The unique name that identifies a policy rule definition.')
-slapmPolicyRuleStatsTable = MibTable((1, 3, 6, 1, 3, 88, 1, 2, 5), )
-if mibBuilder.loadTexts: slapmPolicyRuleStatsTable.setDescription('Provides statistics on a per system and a per policy\n          rule basis.')
-slapmPolicyRuleStatsEntry = MibTableRow((1, 3, 6, 1, 3, 88, 1, 2, 5, 1), ).setIndexNames((0, "SLAPM-MIB", "slapmPolicyNameSystemAddress"), (0, "SLAPM-MIB", "slapmPolicyNameIndex"))
-if mibBuilder.loadTexts: slapmPolicyRuleStatsEntry.setDescription('Defines an entry in the slapmPolicyRuleStatsTable.\n          This table defines a set of statistics that is kept\n          on a per system and per policy rule basis.\n\n          Entries in this table are not created or deleted via SNMP\n          but reflect the set of policy rule definitions known\n          at a system.')
-slapmPolicyRuleStatsOperStatus = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2), ("deleteNeeded", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsOperStatus.setDescription('The state of a policy entry:\n\n           inactive(1)      - An policy entry was either defined\n                              by local system definition or\n                              discovered via\n                              a directory search but has not been\n                              activated (not currently being used).\n           active(2)        - Policy entry is being used to affect\n                              traffic flows.\n           deleteNeeded(3)  - Either though local implementation\n\n                              dependent methods or by discovering\n                              that the directory entry corresponding\n                              to this table entry no longer\n                              exists and slapmPolicyPurgeTime needs\n                              to expire before attempting to remove\n                              the corresponding slapmPolicyStatsEntry\n                              and any dependent slapmPolicyMonitor\n                              table entries.\n         Note: a policy rule in a state other than\n         active(2) is not being used to affect traffic flows.')
-slapmPolicyRuleStatsActiveConns = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 2), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsActiveConns.setDescription('The number of active TCP connections that are\n         affected by the corresponding policy entry.')
-slapmPolicyRuleStatsTotalConns = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsTotalConns.setDescription('The number of total TCP connections that are\n         affected by the corresponding policy entry.')
-slapmPolicyRuleStatsLActivated = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 4), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsLActivated.setDescription('The timestamp for when the corresponding policy entry\n         was last activated.  The value of this object serves as\n         the discontinuity event indicator when polling entries\n         in this table.  The value of this object is updated on\n         transition of slapmPolicyRuleStatsOperStatus into the\n         active(2) state.')
-slapmPolicyRuleStatsLastMapping = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 5), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsLastMapping.setDescription('The timestamp for when the last time\n         that the associated policy entry was used.')
-slapmPolicyRuleStatsInOctets = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsInOctets.setDescription('The number of octets that was received by IP for an\n         entity that map to this entry.')
-slapmPolicyRuleStatsOutOctets = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsOutOctets.setDescription('The number of octets that was transmitted by IP for an\n         entity that map to this entry.')
-slapmPolicyRuleStatsConnLimit = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsConnLimit.setDescription('The limit for the number of active TCP connections that\n         are allowed for this policy definition.  A value of zero\n         for this object implies that a connection limit has not\n         been specified.')
-slapmPolicyRuleStatsCountAccepts = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsCountAccepts.setDescription("This counter is incremented when a policy action's\n          Permission value is set to Accept and a session\n          (TCP connection) is accepted.")
-slapmPolicyRuleStatsCountDenies = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsCountDenies.setDescription("This counter is incremented when a policy action's\n          Permission value is set to Deny and a session is denied,\n          or when a session (TCP connection) is rejected due to a\n          policy's connection limit (slapmPolicyRuleStatsConnectLimit)\n          being reached.")
-slapmPolicyRuleStatsInDiscards = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsInDiscards.setDescription('This counter counts the number of in octets discarded.\n          This occurs when an error is detected.  Examples of this\n          are buffer overflow, checksum error, or bad packet\n          format.')
-slapmPolicyRuleStatsOutDiscards = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsOutDiscards.setDescription('This counter counts the number of out octets discarded.\n          Examples of this are buffer overflow, checksum error, or\n          bad packet format.')
-slapmPolicyRuleStatsInPackets = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsInPackets.setDescription('This counter counts the number of in packets received\n          that relate to this policy entry from IP.')
-slapmPolicyRuleStatsOutPackets = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsOutPackets.setDescription('This counter counts the number of out packets sent\n          by IP that relate to this policy entry.')
-slapmPolicyRuleStatsInProOctets = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsInProOctets.setDescription('This counter counts the number of in octets that are\n          determined to be within profile.')
-slapmPolicyRuleStatsOutProOctets = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsOutProOctets.setDescription('This counter counts the number of out octets that are\n          determined to be within profile.')
-slapmPolicyRuleStatsMinRate = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 17), Unsigned32()).setUnits('Kilobits per second').setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsMinRate.setDescription('The minimum transfer rate defined for this entry.')
-slapmPolicyRuleStatsMaxRate = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 18), Unsigned32()).setUnits('Kilobits per second').setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsMaxRate.setDescription('The maximum transfer rate defined for this entry.')
-slapmPolicyRuleStatsMaxDelay = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 19), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsMaxDelay.setDescription('The maximum delay defined for this entry.')
-slapmPolicyRuleStatsTotalRsvpFlows = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsTotalRsvpFlows.setDescription('Total number of RSVP flows that have be activated.')
-slapmPolicyRuleStatsActRsvpFlows = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 5, 1, 21), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPolicyRuleStatsActRsvpFlows.setDescription('Current number of active RSVP flows.')
-slapmPRMonTable = MibTable((1, 3, 6, 1, 3, 88, 1, 2, 6), )
-if mibBuilder.loadTexts: slapmPRMonTable.setDescription('Provides a method of monitoring policies and their\n          effect at a system.')
-slapmPRMonEntry = MibTableRow((1, 3, 6, 1, 3, 88, 1, 2, 6, 1), ).setIndexNames((0, "SLAPM-MIB", "slapmPRMonOwnerIndex"), (0, "SLAPM-MIB", "slapmPRMonSystemAddress"), (0, "SLAPM-MIB", "slapmPRMonIndex"))
-if mibBuilder.loadTexts: slapmPRMonEntry.setDescription('Defines an entry in the slapmPRMonTable. This\n          table defines which policies should be monitored on a\n          per policy rule basis.\n\n          An attempt to set any read-create object defined within an\n          slapmPRMonEntry while the value of slapmPRMonRowStatus is\n          active(1) will result in an inconsistentValue error.')
-slapmPRMonOwnerIndex = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,16)))
-if mibBuilder.loadTexts: slapmPRMonOwnerIndex.setDescription("To facilitate the provisioning of access control by a\n         security administrator using the View-Based Access\n         Control Model (RFC 2575, VACM) for tables in which\n         multiple users may need to independently create or modify\n         entries, the initial index is used as an 'owner index'.\n         Such an initial index has a syntax of SnmpAdminString,\n         and can thus be trivially mapped to a securityName or\n         groupName as defined in VACM, in accordance with a\n         security policy.\n\n         All entries in that table belonging to a particular user\n         will have the same value for this initial index.  For a\n         given user's entries in a particular table, the object\n         identifiers for the information in these entries will\n         have the same subidentifiers (except for the 'column'\n         subidentifier) up to the end of the encoded owner index.\n         To configure VACM to permit access to this portion of the\n         table, one would create vacmViewTreeFamilyTable entries\n         with the value of vacmViewTreeFamilySubtree including the\n         owner index portion, and vacmViewTreeFamilyMask\n         'wildcarding' the column subidentifier.  More elaborate\n         configurations are possible.")
-slapmPRMonSystemAddress = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 2), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16),)))
-if mibBuilder.loadTexts: slapmPRMonSystemAddress.setDescription('Address of a system that an Policy definition relates to.\n         A zero length octet string can be used to indicate that\n         only a single system is being represented.\n         Otherwise, the length of the octet string should be\n         4 for an ipv4 address and 16 for an ipv6 address.')
-slapmPRMonIndex = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 3), Unsigned32())
-if mibBuilder.loadTexts: slapmPRMonIndex.setDescription('An slapmPolicyNameTable index, slapmPolicyNameIndex,\n         that points to the unique name associated with a\n         policy rule definition.')
-slapmPRMonControl = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 4), Bits().clone(namedValues=NamedValues(("monitorMinRate", 0), ("monitorMaxRate", 1), ("monitorMaxDelay", 2), ("enableAggregateTraps", 3), ("enableSubcomponentTraps", 4), ("monitorSubcomponents", 5),)).clone(namedValues=NamedValues(("monitorMinRate", 0), ("monitorMaxRate", 1), ("monitorMaxDelay", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPRMonControl.setDescription("The value of this object determines the type and level\n         of monitoring that is applied to a policy rule.  The\n         value of this object can't be changed once the table\n         entry that it is a part of is activated via a\n         slapmPRMonRowStatus transition to active state.\n\n             monitorMinRate(0) - Monitor minimum transfer rate.\n             monitorMaxRate(1) - Monitor maximum transfer rate.\n             monitorMaxDelay(2) - Monitor maximum delay.\n             enableAggregateTraps(3) - The enableAggregateTraps(3)\n                   BITS setting enables notification generation\n                   when monitoring a policy rule as an\n\n                   aggregate using the values in the corresponding\n                   slapmPRMonStatsEntry.  By default this function\n                   is not enabled.\n             enableSubcomponentTraps(4) - This BITS setting enables\n                   notification generation when monitoring all\n                   subcomponents that are mapped to an corresponding\n                   slapmPRMonStatsEntry.  By default this\n                   function is not enabled.\n             monitorSubcomponents(5) - This BITS setting enables\n                   monitoring of each subcomponent (typically a\n                   TCP connection or UDP listener) individually.")
-slapmPRMonStatus = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 5), SlapmStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPRMonStatus.setDescription("The value of this object indicates when a monitored\n         value has not meet a threshold or isn't meeting the\n         defined service level.  The SlapmStatus TEXTUAL-CONVENTION\n         defines two levels of not meeting a threshold.  The first\n         set:\n                     slaMinInRateNotAchieved(0),\n                     slaMaxInRateExceeded(1),\n                     slaMaxDelayExceeded(2),\n                     slaMinOutRateNotAchieved(3),\n                     slaMaxOutRateExceeded(4)\n\n         are used to indicate when the SLA as an aggregate is\n         not meeting a threshold while the second set:\n\n                     monitorMinInRateNotAchieved(5),\n                     monitorMaxInRateExceeded(6),\n                     monitorMaxDelayExceeded(7),\n                     monitorMinOutRateNotAchieved(8),\n                     monitorMaxOutRateExceeded(9)\n\n         indicate that at least one subcomponent is not meeting\n         a threshold.")
-slapmPRMonInterval = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(15,86400)).clone(20)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPRMonInterval.setDescription('The number of seconds that defines the sample period.')
-slapmPRMonIntTime = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 7), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPRMonIntTime.setDescription('The timestamp for when the last interval ended.')
-slapmPRMonCurrentInRate = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 8), Gauge32()).setUnits('kilobits per second').setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPRMonCurrentInRate.setDescription('Using the value of the corresponding\n         slapmPRMonInterval, slapmPolicyRuleStatsInOctets\n         is sampled and then divided by slapmPRMonInterval\n         to determine the current in transfer rate.')
-slapmPRMonCurrentOutRate = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 9), Gauge32()).setUnits('kilobits per second').setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPRMonCurrentOutRate.setDescription('Using the value of the corresponding\n         slapmPolicyMonInterval, slapmPolicyRuleStatsOutOctets\n         is sampled and then divided by slapmPRMonInterval\n         to determine the current out transfer rate.')
-slapmPRMonMinRateLow = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 10), Unsigned32()).setUnits('kilobits per second').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPRMonMinRateLow.setDescription("The threshold for generating a\n         slapmPolicyRuleMonNotOkay notification, signalling\n         that a monitored minimum transfer rate has not been meet.\n\n         A slapmPolicyRuleMonNotOkay notification is not\n         generated again for an slapmPRMonEntry until\n         the minimum transfer rate\n         exceeds slapmPRMonMinRateHigh (a\n         slapmPolicyRuleMonOkay notification is then transmitted)\n         and then fails below slapmPRMonMinRateLow.  This\n         behavior reduces the slapmPolicyRuleMonNotOkay\n         notifications that are transmitted.\n\n         A value of zero for this object is returned when the\n         slapmPRMonControl monitorMinRate(0) is not\n         enabled.  When enabled the default value for this object\n         is the min rate value specified in the associated\n         action definition minus 10%.  If the action definition\n         doesn't have a min rate defined then there is no\n         default for this object and a value MUST be specified\n         prior to activating this entry when monitorMinRate(0)\n         is selected.\n\n         Note: The corresponding slapmPRMonControl\n         BITS setting, enableAggregateTraps(3), MUST be selected in\n         order for any notification relating to this entry to\n         potentially be generated.")
-slapmPRMonMinRateHigh = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 11), Unsigned32()).setUnits('kilobits per second').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPRMonMinRateHigh.setDescription("The threshold for generating a slapmPolicyRuleMonOkay\n         notification, signalling that a monitored minimum\n         transfer rate has increased to an acceptable level.\n\n         A value of zero for this object is returned when the\n         slapmPRMonControl monitorMinRate(0) is not\n         enabled.  When enabled the default value for this object\n         is the min rate value specified in the associated\n         action definition plus 10%.  If the action definition\n         doesn't have a min rate defined then there is no\n         default for this object and a value MUST be specified\n         prior to activating this entry when monitorMinRate(0)\n         is selected.\n\n         Note: The corresponding slapmPRMonControl\n         BITS setting, enableAggregateTraps(3), MUST be selected\n         in order for any notification relating to this entry to\n\n         potentially be generated.")
-slapmPRMonMaxRateHigh = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 12), Unsigned32()).setUnits('kilobits per second').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPRMonMaxRateHigh.setDescription("The threshold for generating a\n         slapmPolicyRuleMonNotOkay notification, signalling\n         that a monitored maximum transfer rate has been exceeded.\n\n         A slapmPolicyRuleNotOkay notification is not\n         generated again for an slapmPRMonEntry until the\n         maximum transfer rate fails below\n         slapmPRMonMaxRateLow (a slapmPolicyRuleMonOkay\n         notification is then transmitted) and then raises above\n         slapmPRMonMaxRateHigh.  This behavior reduces the\n         slapmPolicyRuleMonNotOkay notifications that are\n         transmitted.\n\n         A value of zero for this object is returned when the\n         slapmPRMonControl monitorMaxRate(1) is not\n         enabled.  When enabled the default value for this object\n         is the max rate value specified in the associated\n         action definition plus 10%.  If the action definition\n         doesn't have a max rate defined then there is no\n         default for this object and a value MUST be specified\n         prior to activating this entry when monitorMaxRate(1)\n         is selected.\n\n         Note: The corresponding slapmPRMonControl\n         BITS setting, enableAggregateTraps(3), MUST be selected in\n         order for any notification relating to this entry to\n         potentially be generated.")
-slapmPRMonMaxRateLow = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 13), Unsigned32()).setUnits('kilobits per second').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPRMonMaxRateLow.setDescription("The threshold for generating a slapmPolicyRuleMonOkay\n         notification, signalling that a monitored maximum\n         transfer rate has fallen to an acceptable level.\n\n\n         A value of zero for this object is returned when the\n         slapmPRMonControl monitorMaxRate(1) is not\n         enabled.  When enabled the default value for this object\n         is the max rate value specified in the associated\n         action definition minus 10%.  If the action definition\n         doesn't have a max rate defined then there is no\n         default for this object and a value MUST be specified\n         prior to activating this entry when monitorMaxRate(1)\n         is selected.\n\n         Note: The corresponding slapmPRMonControl\n         BITS setting, enableAggregateTraps(3), MUST be selected in\n         order for any notification relating to this entry to\n         potentially be generated.")
-slapmPRMonMaxDelayHigh = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 14), Unsigned32()).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPRMonMaxDelayHigh.setDescription("The threshold for generating a\n         slapmPolicyRuleMonNotOkay notification, signalling\n         that a monitored maximum delay rate has been exceeded.\n\n         A slapmPolicyRuleMonNotOkay notification is not\n         generated again for an slapmPRMonEntry until\n         the maximum delay rate falls below\n         slapmPRMonMaxDelayLow (a slapmPolicyRuleMonOkay\n         notification is then transmitted) and raises above\n         slapmPRMonMaxDelayHigh.  This behavior reduces\n         the slapmPolicyRuleMonNotOkay notifications that are\n         transmitted.\n\n         A value of zero for this object is returned when the\n         slapmPRMonControl monitorMaxDelay(4) is not\n         enabled.  When enabled the default value for this object\n         is the max delay value specified in the associated\n         action definition plus 10%.  If the action definition\n         doesn't have a max delay defined then there is no\n         default for this object and a value MUST be specified\n         prior to activating this entry when monitorMaxDelay(4)\n         is selected.\n\n         Note: The corresponding slapmPRMonControl\n         BITS setting, enableAggregateTraps(3), MUST be selected\n         in order for any notification relating to this entry to\n\n         potentially be generated.")
-slapmPRMonMaxDelayLow = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 15), Unsigned32()).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPRMonMaxDelayLow.setDescription("The threshold for generating a slapmPolicyRuleMonOkay\n         notification, signalling that a monitored maximum delay\n         rate has fallen to an acceptable level.\n\n         A value of zero for this object is returned when the\n         slapmPRMonControl monitorMaxDelay(4) is not\n         enabled.  When enabled the default value for this object\n         is the max delay value specified in the associated\n         action definition minus 10%.  If the action definition\n         doesn't have a max delay defined then there is no\n         default for this object and a value MUST be specified\n         prior to activating this entry when monitorMaxDelay(4)\n         is selected.\n\n         Note: The corresponding slapmPRMonControl\n         BITS setting, enableAggregateTraps(3), MUST be selected\n         in order for any notification relating to this entry to\n         potentially be generated.")
-slapmPRMonMinInRateNotAchieves = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPRMonMinInRateNotAchieves.setDescription('The number of times that a minimum transfer in rate\n          was not achieved.')
-slapmPRMonMaxInRateExceeds = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPRMonMaxInRateExceeds.setDescription('The number of times that a maximum transfer in rate\n          was exceeded.')
-slapmPRMonMaxDelayExceeds = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPRMonMaxDelayExceeds.setDescription('The number of times that a maximum delay in rate\n          was exceeded.')
-slapmPRMonMinOutRateNotAchieves = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPRMonMinOutRateNotAchieves.setDescription('The number of times that a minimum transfer out rate\n          was not achieved.')
-slapmPRMonMaxOutRateExceeds = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPRMonMaxOutRateExceeds.setDescription('The number of times that a maximum transfer out rate\n          was exceeded.')
-slapmPRMonCurrentDelayRate = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 21), Gauge32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: slapmPRMonCurrentDelayRate.setDescription('The current delay rate for this entry.  This is\n          calculated by taking the average of the TCP\n          round trip times for all associating\n          slapmSubcomponentTable entries within a interval.')
-slapmPRMonRowStatus = MibTableColumn((1, 3, 6, 1, 3, 88, 1, 2, 6, 1, 22), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: slapmPRMonRowStatus.setDescription('This object allows entries to be created and deleted\n         in the slapmPRMonTable.  An entry in this table\n         is deleted by setting this object to destroy(6).\n\n         Removal of an corresponding (same policy index)\n\n         slapmPolicyRuleStatsEntry has the side effect of the\n         automatic deletion an entry in this table.\n\n         Note that an attempt to set any read-create object\n         defined within an slapmPRMonEntry while the value\n         of slapmPRMonRowStatus is active(1) will result in\n         an inconsistentValue error.')
-slapmMonitoredEventNotAchieved = NotificationType((1, 3, 6, 1, 3, 88, 0, 1)).setObjects(*(("SLAPM-MIB", "slapmPolicyMonitorIntTime"), ("SLAPM-MIB", "slapmPolicyMonitorControl"), ("SLAPM-MIB", "slapmPolicyMonitorStatus"), ("SLAPM-MIB", "slapmPolicyMonitorStatus"), ("SLAPM-MIB", "slapmPolicyMonitorCurrentInRate"), ("SLAPM-MIB", "slapmPolicyMonitorCurrentOutRate"), ("SLAPM-MIB", "slapmPolicyMonitorCurrentDelayRate"),))
-if mibBuilder.loadTexts: slapmMonitoredEventNotAchieved.setDescription('This notification is generated when an monitored event\n         is not achieved with respect to threshold.  This\n         applies only towards monitoring a policy traffic\n         profile as an aggregate via an associating\n         slapmPolicyStatsEntry.  The value\n         of slapmPolicyMonitorControl can be examined to\n         determine what is being monitored.  The first\n         slapmPolicyMonitorStatus value supplies the current\n         monitor status while the 2nd value supplies the\n         previous status.\n\n         Note: The corresponding slapmPolicyMonitorControl\n         BITS setting, enableAggregateTraps(3), MUST be\n         selected in order for this notification to\n         potentially be generated.')
-slapmMonitoredEventOkay = NotificationType((1, 3, 6, 1, 3, 88, 0, 2)).setObjects(*(("SLAPM-MIB", "slapmPolicyMonitorIntTime"), ("SLAPM-MIB", "slapmPolicyMonitorControl"), ("SLAPM-MIB", "slapmPolicyMonitorStatus"), ("SLAPM-MIB", "slapmPolicyMonitorStatus"), ("SLAPM-MIB", "slapmPolicyMonitorCurrentInRate"), ("SLAPM-MIB", "slapmPolicyMonitorCurrentOutRate"), ("SLAPM-MIB", "slapmPolicyMonitorCurrentDelayRate"),))
-if mibBuilder.loadTexts: slapmMonitoredEventOkay.setDescription('This notification is generated when a monitored\n         event has improved to an acceptable level.  This\n         applies only towards monitoring a policy traffic\n         profile as an aggregate via an associating\n         slapmPolicyStatsEntry.  The value\n         of slapmPolicyMonitorControl can be examined to\n         determine what is being monitored.  The first\n         slapmPolicyMonitorStatus value supplies the current\n         monitor status while the 2nd value supplies the\n         previous status.\n\n         Note: The corresponding slapmPolicyMonitorControl\n         BITS setting, enableAggregateTraps(3), MUST be\n         selected in order for this notification to\n         potentially be generated.')
-slapmPolicyProfileDeleted = NotificationType((1, 3, 6, 1, 3, 88, 0, 3)).setObjects(*(("SLAPM-MIB", "slapmPolicyStatsActiveConns"), ("SLAPM-MIB", "slapmPolicyStatsTotalConns"), ("SLAPM-MIB", "slapmPolicyStatsFirstActivated"), ("SLAPM-MIB", "slapmPolicyStatsLastMapping"), ("SLAPM-MIB", "slapmPolicyStatsInOctets"), ("SLAPM-MIB", "slapmPolicyStatsOutOctets"), ("SLAPM-MIB", "slapmPolicyStatsConnectionLimit"), ("SLAPM-MIB", "slapmPolicyStatsCountAccepts"), ("SLAPM-MIB", "slapmPolicyStatsCountDenies"), ("SLAPM-MIB", "slapmPolicyStatsInDiscards"), ("SLAPM-MIB", "slapmPolicyStatsOutDiscards"), ("SLAPM-MIB", "slapmPolicyStatsInPackets"), ("SLAPM-MIB", "slapmPolicyStatsOutPackets"), ("SLAPM-MIB", "slapmPolicyStatsInProfileOctets"), ("SLAPM-MIB", "slapmPolicyStatsOutProfileOctets"), ("SLAPM-MIB", "slapmPolicyStatsMinRate"), ("SLAPM-MIB", "slapmPolicyStatsMaxRate"), ("SLAPM-MIB", "slapmPolicyStatsMaxDelay"),))
-if mibBuilder.loadTexts: slapmPolicyProfileDeleted.setDescription('A slapmPolicyDeleted notification is sent when a\n         slapmPolicyStatsEntry is deleted if the value of\n         slapmPolicyTrapEnable is enabled(1).')
-slapmPolicyMonitorDeleted = NotificationType((1, 3, 6, 1, 3, 88, 0, 4)).setObjects(*(("SLAPM-MIB", "slapmPolicyMonitorStatus"), ("SLAPM-MIB", "slapmPolicyMonitorInterval"), ("SLAPM-MIB", "slapmPolicyMonitorIntTime"), ("SLAPM-MIB", "slapmPolicyMonitorCurrentInRate"), ("SLAPM-MIB", "slapmPolicyMonitorCurrentOutRate"), ("SLAPM-MIB", "slapmPolicyMonitorCurrentDelayRate"), ("SLAPM-MIB", "slapmPolicyMonitorMinRateLow"), ("SLAPM-MIB", "slapmPolicyMonitorMinRateHigh"), ("SLAPM-MIB", "slapmPolicyMonitorMaxRateHigh"), ("SLAPM-MIB", "slapmPolicyMonitorMaxRateLow"), ("SLAPM-MIB", "slapmPolicyMonitorMaxDelayHigh"), ("SLAPM-MIB", "slapmPolicyMonitorMaxDelayLow"), ("SLAPM-MIB", "slapmPolicyMonitorMinInRateNotAchieves"), ("SLAPM-MIB", "slapmPolicyMonitorMaxInRateExceeds"), ("SLAPM-MIB", "slapmPolicyMonitorMaxDelayExceeds"), ("SLAPM-MIB", "slapmPolicyMonitorMinOutRateNotAchieves"), ("SLAPM-MIB", "slapmPolicyMonitorMaxOutRateExceeds"),))
-if mibBuilder.loadTexts: slapmPolicyMonitorDeleted.setDescription('A slapmPolicyMonitorDeleted notification is sent when a\n         slapmPolicyMonitorEntry is deleted if the value of\n         slapmPolicyTrapEnable is enabled(1).')
-slapmSubcomponentMonitoredEventNotAchieved = NotificationType((1, 3, 6, 1, 3, 88, 0, 5)).setObjects(*(("SLAPM-MIB", "slapmSubcomponentSystemAddress"), ("SLAPM-MIB", "slapmSubcomponentPolicyName"), ("SLAPM-MIB", "slapmSubcomponentTrafficProfileName"), ("SLAPM-MIB", "slapmSubcomponentMonitorStatus"), ("SLAPM-MIB", "slapmSubcomponentMonitorStatus"), ("SLAPM-MIB", "slapmSubcomponentMonitorIntTime"), ("SLAPM-MIB", "slapmSubcomponentMonitorCurrentInRate"), ("SLAPM-MIB", "slapmSubcomponentMonitorCurrentOutRate"), ("SLAPM-MIB", "slapmSubcomponentTcpRoundTripTime"),))
-if mibBuilder.loadTexts: slapmSubcomponentMonitoredEventNotAchieved.setDescription('This notification is generated when a monitored value\n         does not achieved a threshold specification.  This\n         applies only towards monitoring the individual components\n         of a policy traffic profile.  The value of the\n         corresponding slapmPolicyMonitorControl can be examined\n         to determine what is being monitored.  The first\n         slapmSubcomponentMonitorStatus value supplies the current\n\n         monitor status while the 2nd value supplies the\n         previous status.\n\n         Note: The corresponding slapmPolicyMonitorControl\n         BITS setting, enableSubcomponentTraps(4), MUST be selected\n         in order for this notification to potentially be generated.')
-slapmSubcomponentMonitoredEventOkay = NotificationType((1, 3, 6, 1, 3, 88, 0, 6)).setObjects(*(("SLAPM-MIB", "slapmSubcomponentSystemAddress"), ("SLAPM-MIB", "slapmSubcomponentPolicyName"), ("SLAPM-MIB", "slapmSubcomponentTrafficProfileName"), ("SLAPM-MIB", "slapmSubcomponentMonitorStatus"), ("SLAPM-MIB", "slapmSubcomponentMonitorStatus"), ("SLAPM-MIB", "slapmSubcomponentMonitorIntTime"), ("SLAPM-MIB", "slapmSubcomponentMonitorCurrentInRate"), ("SLAPM-MIB", "slapmSubcomponentMonitorCurrentOutRate"), ("SLAPM-MIB", "slapmSubcomponentTcpRoundTripTime"),))
-if mibBuilder.loadTexts: slapmSubcomponentMonitoredEventOkay.setDescription('This notification is generated when a monitored value\n         has reached an acceptable level.\n\n         Note: The corresponding slapmPolicyMonitorControl\n         BITS setting, enableSubcomponentTraps(3), MUST be\n         selected in order for this notification to potentially\n         be generated.')
-slapmPolicyRuleMonNotOkay = NotificationType((1, 3, 6, 1, 3, 88, 0, 7)).setObjects(*(("SLAPM-MIB", "slapmPRMonIntTime"), ("SLAPM-MIB", "slapmPRMonControl"), ("SLAPM-MIB", "slapmPRMonStatus"), ("SLAPM-MIB", "slapmPRMonStatus"), ("SLAPM-MIB", "slapmPRMonCurrentInRate"), ("SLAPM-MIB", "slapmPRMonCurrentOutRate"), ("SLAPM-MIB", "slapmPRMonCurrentDelayRate"),))
-if mibBuilder.loadTexts: slapmPolicyRuleMonNotOkay.setDescription('This notification is generated when an monitored event\n         is not achieved with respect to a threshold.  This\n         applies only towards monitoring a policy rule\n         as an aggregate via an associating\n         slapmPolicyRuleStatsEntry.  The value\n\n         of slapmPRMonControl can be examined to\n         determine what is being monitored.  The first\n         slapmPRMonStatus value supplies the current\n         monitor status while the 2nd value supplies the\n         previous status.\n\n         Note: The corresponding slapmPRMonControl\n         BITS setting, enableAggregateTraps(3), MUST be\n         selected in order for this notification to\n         potentially be generated.')
-slapmPolicyRuleMonOkay = NotificationType((1, 3, 6, 1, 3, 88, 0, 8)).setObjects(*(("SLAPM-MIB", "slapmPRMonIntTime"), ("SLAPM-MIB", "slapmPRMonControl"), ("SLAPM-MIB", "slapmPRMonStatus"), ("SLAPM-MIB", "slapmPRMonStatus"), ("SLAPM-MIB", "slapmPRMonCurrentInRate"), ("SLAPM-MIB", "slapmPRMonCurrentOutRate"), ("SLAPM-MIB", "slapmPRMonCurrentDelayRate"),))
-if mibBuilder.loadTexts: slapmPolicyRuleMonOkay.setDescription('This notification is generated when a monitored\n         event has improved to an acceptable level.  This\n         applies only towards monitoring a policy rule\n         as an aggregate via an associating\n         slapmPolicyRuleStatsEntry.  The value\n         of slapmPRMonControl can be examined to\n         determine what is being monitored.  The first\n         slapmPRMonStatus value supplies the current\n         monitor status while the 2nd value supplies the\n         previous status.\n\n         Note: The corresponding slapmPRMonControl\n         BITS setting, enableAggregateTraps(3), MUST be\n         selected in order for this notification to\n         potentially be generated.')
-slapmPolicyRuleDeleted = NotificationType((1, 3, 6, 1, 3, 88, 0, 9)).setObjects(*(("SLAPM-MIB", "slapmPolicyRuleStatsActiveConns"), ("SLAPM-MIB", "slapmPolicyRuleStatsTotalConns"), ("SLAPM-MIB", "slapmPolicyRuleStatsLActivated"), ("SLAPM-MIB", "slapmPolicyRuleStatsLastMapping"), ("SLAPM-MIB", "slapmPolicyRuleStatsInOctets"), ("SLAPM-MIB", "slapmPolicyRuleStatsOutOctets"), ("SLAPM-MIB", "slapmPolicyRuleStatsConnLimit"), ("SLAPM-MIB", "slapmPolicyRuleStatsCountAccepts"), ("SLAPM-MIB", "slapmPolicyRuleStatsCountDenies"), ("SLAPM-MIB", "slapmPolicyRuleStatsInDiscards"), ("SLAPM-MIB", "slapmPolicyRuleStatsOutDiscards"), ("SLAPM-MIB", "slapmPolicyRuleStatsInPackets"), ("SLAPM-MIB", "slapmPolicyRuleStatsOutPackets"), ("SLAPM-MIB", "slapmPolicyRuleStatsInProOctets"), ("SLAPM-MIB", "slapmPolicyRuleStatsOutProOctets"), ("SLAPM-MIB", "slapmPolicyRuleStatsMinRate"), ("SLAPM-MIB", "slapmPolicyRuleStatsMaxRate"), ("SLAPM-MIB", "slapmPolicyRuleStatsMaxDelay"), ("SLAPM-MIB", "slapmPolicyRuleStatsTotalRsvpFlows"), ("SLAPM-MIB", "slapmPolicyRuleStatsActRsvpFlows"),))
-if mibBuilder.loadTexts: slapmPolicyRuleDeleted.setDescription('A slapmPolicyRuleDeleted notification is sent when a\n         slapmPolicyRuleStatsEntry is deleted if the value of\n         slapmPolicyTrapEnable is enabled(1).')
-slapmPolicyRuleMonDeleted = NotificationType((1, 3, 6, 1, 3, 88, 0, 10)).setObjects(*(("SLAPM-MIB", "slapmPRMonControl"), ("SLAPM-MIB", "slapmPRMonStatus"), ("SLAPM-MIB", "slapmPRMonInterval"), ("SLAPM-MIB", "slapmPRMonIntTime"), ("SLAPM-MIB", "slapmPRMonCurrentInRate"), ("SLAPM-MIB", "slapmPRMonCurrentOutRate"), ("SLAPM-MIB", "slapmPRMonCurrentDelayRate"), ("SLAPM-MIB", "slapmPRMonMinRateLow"), ("SLAPM-MIB", "slapmPRMonMinRateHigh"), ("SLAPM-MIB", "slapmPRMonMaxRateHigh"), ("SLAPM-MIB", "slapmPRMonMaxRateLow"), ("SLAPM-MIB", "slapmPRMonMaxDelayHigh"), ("SLAPM-MIB", "slapmPRMonMaxDelayLow"), ("SLAPM-MIB", "slapmPRMonMinInRateNotAchieves"), ("SLAPM-MIB", "slapmPRMonMaxInRateExceeds"), ("SLAPM-MIB", "slapmPRMonMaxDelayExceeds"), ("SLAPM-MIB", "slapmPRMonMinOutRateNotAchieves"), ("SLAPM-MIB", "slapmPRMonMaxOutRateExceeds"),))
-if mibBuilder.loadTexts: slapmPolicyRuleMonDeleted.setDescription('A slapmPolicyRuleMonDeleted notification is sent when a\n         slapmPRMonEntry is deleted if the value of\n\n         slapmPolicyTrapEnable is enabled(1).')
-slapmSubcMonitorNotOkay = NotificationType((1, 3, 6, 1, 3, 88, 0, 11)).setObjects(*(("SLAPM-MIB", "slapmSubcomponentSystemAddress"), ("SLAPM-MIB", "slapmSubcomponentPolicyRuleIndex"), ("SLAPM-MIB", "slapmPRMonControl"), ("SLAPM-MIB", "slapmSubcomponentMonitorStatus"), ("SLAPM-MIB", "slapmSubcomponentMonitorStatus"), ("SLAPM-MIB", "slapmSubcomponentMonitorIntTime"), ("SLAPM-MIB", "slapmSubcomponentMonitorCurrentInRate"), ("SLAPM-MIB", "slapmSubcomponentMonitorCurrentOutRate"), ("SLAPM-MIB", "slapmSubcomponentTcpRoundTripTime"),))
-if mibBuilder.loadTexts: slapmSubcMonitorNotOkay.setDescription('This notification is generated when a monitored value\n         does not achieved a threshold specification.  This\n         applies only towards monitoring the individual components\n         of a policy rule.  The value of the\n         corresponding slapmPRMonControl can be examined\n         to determine what is being monitored.  The first\n         slapmSubcomponentMonitorStatus value supplies the current\n         monitor status while the 2nd value supplies the\n         previous status.\n\n         Note: The corresponding slapmPRMonControl\n         BITS setting, enableSubcomponentTraps(4), MUST be selected\n         in order for this notification to potentially be generated.')
-slapmSubcMonitorOkay = NotificationType((1, 3, 6, 1, 3, 88, 0, 12)).setObjects(*(("SLAPM-MIB", "slapmSubcomponentSystemAddress"), ("SLAPM-MIB", "slapmSubcomponentPolicyRuleIndex"), ("SLAPM-MIB", "slapmPRMonControl"), ("SLAPM-MIB", "slapmSubcomponentMonitorStatus"), ("SLAPM-MIB", "slapmSubcomponentMonitorStatus"), ("SLAPM-MIB", "slapmSubcomponentMonitorIntTime"), ("SLAPM-MIB", "slapmSubcomponentMonitorCurrentInRate"), ("SLAPM-MIB", "slapmSubcomponentMonitorCurrentOutRate"), ("SLAPM-MIB", "slapmSubcomponentTcpRoundTripTime"),))
-if mibBuilder.loadTexts: slapmSubcMonitorOkay.setDescription('This notification is generated when a monitored value\n\n         has reached an acceptable level.\n\n         Note: The corresponding slapmPRMonControl\n         BITS setting, enableSubcomponentTraps(3), MUST be\n         selected in order for this notification to potentially\n         be generated.')
-slapmCompliances = MibIdentifier((1, 3, 6, 1, 3, 88, 2, 1))
-slapmGroups = MibIdentifier((1, 3, 6, 1, 3, 88, 2, 2))
-slapmCompliance = ModuleCompliance((1, 3, 6, 1, 3, 88, 2, 1, 1)).setObjects(*(("SLAPM-MIB", "slapmBaseGroup2"), ("SLAPM-MIB", "slapmNotGroup2"), ("SLAPM-MIB", "slapmEndSystemGroup2"), ("SLAPM-MIB", "slapmEndSystemNotGroup2"), ("SLAPM-MIB", "slapmBaseGroup"), ("SLAPM-MIB", "slapmNotGroup"), ("SLAPM-MIB", "slapmOptionalGroup"), ("SLAPM-MIB", "slapmEndSystemGroup"), ("SLAPM-MIB", "slapmEndSystemNotGroup"),))
-if mibBuilder.loadTexts: slapmCompliance.setDescription('The compliance statement for the SLAPM-MIB.')
-slapmBaseGroup = ObjectGroup((1, 3, 6, 1, 3, 88, 2, 2, 1)).setObjects(*(("SLAPM-MIB", "slapmSpinLock"), ("SLAPM-MIB", "slapmPolicyCountQueries"), ("SLAPM-MIB", "slapmPolicyCountAccesses"), ("SLAPM-MIB", "slapmPolicyCountSuccessAccesses"), ("SLAPM-MIB", "slapmPolicyCountNotFounds"), ("SLAPM-MIB", "slapmPolicyPurgeTime"), ("SLAPM-MIB", "slapmPolicyTrapEnable"), ("SLAPM-MIB", "slapmPolicyStatsOperStatus"), ("SLAPM-MIB", "slapmPolicyStatsActiveConns"), ("SLAPM-MIB", "slapmPolicyStatsFirstActivated"), ("SLAPM-MIB", "slapmPolicyStatsLastMapping"), ("SLAPM-MIB", "slapmPolicyStatsInOctets"), ("SLAPM-MIB", "slapmPolicyStatsOutOctets"), ("SLAPM-MIB", "slapmPolicyStatsConnectionLimit"), ("SLAPM-MIB", "slapmPolicyStatsTotalConns"), ("SLAPM-MIB", "slapmPolicyStatsCountAccepts"), ("SLAPM-MIB", "slapmPolicyStatsCountDenies"), ("SLAPM-MIB", "slapmPolicyStatsInDiscards"), ("SLAPM-MIB", "slapmPolicyStatsOutDiscards"), ("SLAPM-MIB", "slapmPolicyStatsInPackets"), ("SLAPM-MIB", "slapmPolicyStatsOutPackets"), ("SLAPM-MIB", "slapmPolicyStatsMinRate"), ("SLAPM-MIB", "slapmPolicyStatsMaxRate"), ("SLAPM-MIB", "slapmPolicyStatsMaxDelay"), ("SLAPM-MIB", "slapmPolicyMonitorControl"), ("SLAPM-MIB", "slapmPolicyMonitorStatus"), ("SLAPM-MIB", "slapmPolicyMonitorInterval"), ("SLAPM-MIB", "slapmPolicyMonitorIntTime"), ("SLAPM-MIB", "slapmPolicyMonitorCurrentInRate"), ("SLAPM-MIB", "slapmPolicyMonitorCurrentOutRate"), ("SLAPM-MIB", "slapmPolicyMonitorMinRateLow"), ("SLAPM-MIB", "slapmPolicyMonitorMinRateHigh"), ("SLAPM-MIB", "slapmPolicyMonitorMaxRateHigh"), ("SLAPM-MIB", "slapmPolicyMonitorMaxRateLow"), ("SLAPM-MIB", "slapmPolicyMonitorMaxDelayHigh"), ("SLAPM-MIB", "slapmPolicyMonitorMaxDelayLow"), ("SLAPM-MIB", "slapmPolicyMonitorMinInRateNotAchieves"), ("SLAPM-MIB", "slapmPolicyMonitorMaxInRateExceeds"), ("SLAPM-MIB", "slapmPolicyMonitorMaxDelayExceeds"), ("SLAPM-MIB", "slapmPolicyMonitorMinOutRateNotAchieves"), ("SLAPM-MIB", "slapmPolicyMonitorMaxOutRateExceeds"), ("SLAPM-MIB", "slapmPolicyMonitorCurrentDelayRate"), ("SLAPM-MIB", "slapmPolicyMonitorRowStatus"),))
-if mibBuilder.loadTexts: slapmBaseGroup.setDescription('The group of objects defined by this MIB that are\n        required for all implementations to be compliant.')
-slapmOptionalGroup = ObjectGroup((1, 3, 6, 1, 3, 88, 2, 2, 2)).setObjects(*(("SLAPM-MIB", "slapmPolicyStatsInProfileOctets"), ("SLAPM-MIB", "slapmPolicyStatsOutProfileOctets"),))
-if mibBuilder.loadTexts: slapmOptionalGroup.setDescription('The group of objects defined by this MIB that are\n        optional.')
-slapmEndSystemGroup = ObjectGroup((1, 3, 6, 1, 3, 88, 2, 2, 3)).setObjects(*(("SLAPM-MIB", "slapmPolicyTrapFilter"), ("SLAPM-MIB", "slapmSubcomponentProtocol"), ("SLAPM-MIB", "slapmSubcomponentSystemAddress"), ("SLAPM-MIB", "slapmSubcomponentPolicyName"), ("SLAPM-MIB", "slapmSubcomponentTrafficProfileName"), ("SLAPM-MIB", "slapmSubcomponentLastActivity"), ("SLAPM-MIB", "slapmSubcomponentInOctets"), ("SLAPM-MIB", "slapmSubcomponentOutOctets"), ("SLAPM-MIB", "slapmSubcomponentTcpOutBufferedOctets"), ("SLAPM-MIB", "slapmSubcomponentTcpInBufferedOctets"), ("SLAPM-MIB", "slapmSubcomponentTcpReXmts"), ("SLAPM-MIB", "slapmSubcomponentTcpRoundTripTime"), ("SLAPM-MIB", "slapmSubcomponentTcpRoundTripVariance"), ("SLAPM-MIB", "slapmSubcomponentInPdus"), ("SLAPM-MIB", "slapmSubcomponentOutPdus"), ("SLAPM-MIB", "slapmSubcomponentApplName"), ("SLAPM-MIB", "slapmSubcomponentMonitorStatus"), ("SLAPM-MIB", "slapmSubcomponentMonitorIntTime"), ("SLAPM-MIB", "slapmSubcomponentMonitorCurrentOutRate"), ("SLAPM-MIB", "slapmSubcomponentMonitorCurrentInRate"),))
-if mibBuilder.loadTexts: slapmEndSystemGroup.setDescription('The group of objects defined by this MIB that are\n         required for end system implementations.')
-slapmNotGroup = NotificationGroup((1, 3, 6, 1, 3, 88, 2, 2, 4)).setObjects(*(("SLAPM-MIB", "slapmMonitoredEventNotAchieved"), ("SLAPM-MIB", "slapmMonitoredEventOkay"), ("SLAPM-MIB", "slapmPolicyProfileDeleted"), ("SLAPM-MIB", "slapmPolicyMonitorDeleted"),))
-if mibBuilder.loadTexts: slapmNotGroup.setDescription('The group of notifications defined by this MIB that MUST\n         be implemented.')
-slapmEndSystemNotGroup = NotificationGroup((1, 3, 6, 1, 3, 88, 2, 2, 5)).setObjects(*(("SLAPM-MIB", "slapmSubcomponentMonitoredEventNotAchieved"), ("SLAPM-MIB", "slapmSubcomponentMonitoredEventOkay"),))
-if mibBuilder.loadTexts: slapmEndSystemNotGroup.setDescription('The group of objects defined by this MIB that are\n         required for end system implementations.')
-slapmBaseGroup2 = ObjectGroup((1, 3, 6, 1, 3, 88, 2, 2, 6)).setObjects(*(("SLAPM-MIB", "slapmSpinLock"), ("SLAPM-MIB", "slapmPolicyCountQueries"), ("SLAPM-MIB", "slapmPolicyCountAccesses"), ("SLAPM-MIB", "slapmPolicyCountSuccessAccesses"), ("SLAPM-MIB", "slapmPolicyCountNotFounds"), ("SLAPM-MIB", "slapmPolicyPurgeTime"), ("SLAPM-MIB", "slapmPolicyTrapEnable"), ("SLAPM-MIB", "slapmPolicyNameOfRule"), ("SLAPM-MIB", "slapmPolicyRuleStatsOperStatus"), ("SLAPM-MIB", "slapmPolicyRuleStatsActiveConns"), ("SLAPM-MIB", "slapmPolicyRuleStatsTotalConns"), ("SLAPM-MIB", "slapmPolicyRuleStatsLActivated"), ("SLAPM-MIB", "slapmPolicyRuleStatsLastMapping"), ("SLAPM-MIB", "slapmPolicyRuleStatsInOctets"), ("SLAPM-MIB", "slapmPolicyRuleStatsOutOctets"), ("SLAPM-MIB", "slapmPolicyRuleStatsConnLimit"), ("SLAPM-MIB", "slapmPolicyRuleStatsCountAccepts"), ("SLAPM-MIB", "slapmPolicyRuleStatsCountDenies"), ("SLAPM-MIB", "slapmPolicyRuleStatsInDiscards"), ("SLAPM-MIB", "slapmPolicyRuleStatsOutDiscards"), ("SLAPM-MIB", "slapmPolicyRuleStatsInPackets"), ("SLAPM-MIB", "slapmPolicyRuleStatsOutPackets"), ("SLAPM-MIB", "slapmPolicyRuleStatsInProOctets"), ("SLAPM-MIB", "slapmPolicyRuleStatsOutProOctets"), ("SLAPM-MIB", "slapmPolicyRuleStatsMinRate"), ("SLAPM-MIB", "slapmPolicyRuleStatsMaxRate"), ("SLAPM-MIB", "slapmPolicyRuleStatsMaxDelay"), ("SLAPM-MIB", "slapmPolicyRuleStatsTotalRsvpFlows"), ("SLAPM-MIB", "slapmPolicyRuleStatsActRsvpFlows"), ("SLAPM-MIB", "slapmPRMonControl"), ("SLAPM-MIB", "slapmPRMonStatus"), ("SLAPM-MIB", "slapmPRMonInterval"), ("SLAPM-MIB", "slapmPRMonIntTime"), ("SLAPM-MIB", "slapmPRMonCurrentInRate"), ("SLAPM-MIB", "slapmPRMonCurrentOutRate"), ("SLAPM-MIB", "slapmPRMonMinRateLow"), ("SLAPM-MIB", "slapmPRMonMinRateHigh"), ("SLAPM-MIB", "slapmPRMonMaxRateHigh"), ("SLAPM-MIB", "slapmPRMonMaxRateLow"), ("SLAPM-MIB", "slapmPRMonMaxDelayHigh"), ("SLAPM-MIB", "slapmPRMonMaxDelayLow"), ("SLAPM-MIB", "slapmPRMonMinInRateNotAchieves"), ("SLAPM-MIB", "slapmPRMonMaxInRateExceeds"), ("SLAPM-MIB", "slapmPRMonMaxDelayExceeds"), ("SLAPM-MIB", "slapmPRMonMinOutRateNotAchieves"), ("SLAPM-MIB", "slapmPRMonMaxOutRateExceeds"), ("SLAPM-MIB", "slapmPRMonCurrentDelayRate"), ("SLAPM-MIB", "slapmPRMonRowStatus"),))
-if mibBuilder.loadTexts: slapmBaseGroup2.setDescription('The group of objects defined by this MIB that are\n        required for all implementations to be compliant.')
-slapmEndSystemGroup2 = ObjectGroup((1, 3, 6, 1, 3, 88, 2, 2, 7)).setObjects(*(("SLAPM-MIB", "slapmPolicyTrapFilter"), ("SLAPM-MIB", "slapmSubcomponentProtocol"), ("SLAPM-MIB", "slapmSubcomponentSystemAddress"), ("SLAPM-MIB", "slapmSubcomponentLastActivity"), ("SLAPM-MIB", "slapmSubcomponentInOctets"), ("SLAPM-MIB", "slapmSubcomponentOutOctets"), ("SLAPM-MIB", "slapmSubcomponentTcpOutBufferedOctets"), ("SLAPM-MIB", "slapmSubcomponentTcpInBufferedOctets"), ("SLAPM-MIB", "slapmSubcomponentTcpReXmts"), ("SLAPM-MIB", "slapmSubcomponentTcpRoundTripTime"), ("SLAPM-MIB", "slapmSubcomponentTcpRoundTripVariance"), ("SLAPM-MIB", "slapmSubcomponentInPdus"), ("SLAPM-MIB", "slapmSubcomponentOutPdus"), ("SLAPM-MIB", "slapmSubcomponentApplName"), ("SLAPM-MIB", "slapmSubcomponentMonitorStatus"), ("SLAPM-MIB", "slapmSubcomponentMonitorIntTime"), ("SLAPM-MIB", "slapmSubcomponentMonitorCurrentOutRate"), ("SLAPM-MIB", "slapmSubcomponentMonitorCurrentInRate"), ("SLAPM-MIB", "slapmSubcomponentPolicyRuleIndex"),))
-if mibBuilder.loadTexts: slapmEndSystemGroup2.setDescription('The group of objects defined by this MIB that are\n         required for end system implementations.')
-slapmNotGroup2 = NotificationGroup((1, 3, 6, 1, 3, 88, 2, 2, 8)).setObjects(*(("SLAPM-MIB", "slapmPolicyRuleMonNotOkay"), ("SLAPM-MIB", "slapmPolicyRuleMonOkay"), ("SLAPM-MIB", "slapmPolicyRuleDeleted"), ("SLAPM-MIB", "slapmPolicyRuleMonDeleted"),))
-if mibBuilder.loadTexts: slapmNotGroup2.setDescription('The group of notifications defined by this MIB that MUST\n         be implemented.')
-slapmEndSystemNotGroup2 = NotificationGroup((1, 3, 6, 1, 3, 88, 2, 2, 9)).setObjects(*(("SLAPM-MIB", "slapmSubcMonitorNotOkay"), ("SLAPM-MIB", "slapmSubcMonitorOkay"),))
-if mibBuilder.loadTexts: slapmEndSystemNotGroup2.setDescription('The group of objects defined by this MIB that are\n         required for end system implementations.')
-mibBuilder.exportSymbols("SLAPM-MIB", slapmMIB=slapmMIB, slapmBaseGroup=slapmBaseGroup, slapmPolicyRuleStatsMinRate=slapmPolicyRuleStatsMinRate, slapmPolicyMonitorMaxOutRateExceeds=slapmPolicyMonitorMaxOutRateExceeds, slapmPRMonIntTime=slapmPRMonIntTime, slapmSubcomponentMonitorCurrentInRate=slapmSubcomponentMonitorCurrentInRate, slapmNotGroup2=slapmNotGroup2, slapmEndSystemGroup=slapmEndSystemGroup, slapmPRMonMaxDelayLow=slapmPRMonMaxDelayLow, slapmPolicyMonitorMinOutRateNotAchieves=slapmPolicyMonitorMinOutRateNotAchieves, slapmNotGroup=slapmNotGroup, PYSNMP_MODULE_ID=slapmMIB, slapmPolicyMonitorCurrentOutRate=slapmPolicyMonitorCurrentOutRate, slapmPolicyRuleStatsConnLimit=slapmPolicyRuleStatsConnLimit, slapmPolicyRuleStatsTotalRsvpFlows=slapmPolicyRuleStatsTotalRsvpFlows, slapmPolicyStatsFirstActivated=slapmPolicyStatsFirstActivated, slapmPolicyRuleDeleted=slapmPolicyRuleDeleted, slapmSubcMonitorNotOkay=slapmSubcMonitorNotOkay, slapmPolicyRuleStatsActiveConns=slapmPolicyRuleStatsActiveConns, slapmPRMonInterval=slapmPRMonInterval, slapmMonitoredEventNotAchieved=slapmMonitoredEventNotAchieved, slapmPolicyMonitorPolicyName=slapmPolicyMonitorPolicyName, slapmPolicyMonitorMaxDelayExceeds=slapmPolicyMonitorMaxDelayExceeds, slapmEndSystemNotGroup=slapmEndSystemNotGroup, slapmPolicyCountNotFounds=slapmPolicyCountNotFounds, slapmSubcomponentMonitorCurrentOutRate=slapmSubcomponentMonitorCurrentOutRate, slapmPolicyStatsInProfileOctets=slapmPolicyStatsInProfileOctets, slapmTableObjects=slapmTableObjects, slapmSubcomponentOutOctets=slapmSubcomponentOutOctets, slapmEndSystemNotGroup2=slapmEndSystemNotGroup2, slapmSubcomponentLocalAddress=slapmSubcomponentLocalAddress, slapmSubcomponentMonitorStatus=slapmSubcomponentMonitorStatus, slapmPolicyStatsEntry=slapmPolicyStatsEntry, slapmBaseGroup2=slapmBaseGroup2, slapmPolicyMonitorMaxRateHigh=slapmPolicyMonitorMaxRateHigh, slapmCompliance=slapmCompliance, slapmPRMonMinRateLow=slapmPRMonMinRateLow, slapmPolicyNameEntry=slapmPolicyNameEntry, slapmPolicyStatsInOctets=slapmPolicyStatsInOctets, slapmPolicyRuleStatsCountAccepts=slapmPolicyRuleStatsCountAccepts, slapmPolicyMonitorIntTime=slapmPolicyMonitorIntTime, slapmConformance=slapmConformance, slapmSubcomponentEntry=slapmSubcomponentEntry, slapmGroups=slapmGroups, slapmPolicyRuleStatsOutPackets=slapmPolicyRuleStatsOutPackets, slapmBaseObjects=slapmBaseObjects, slapmPRMonMinInRateNotAchieves=slapmPRMonMinInRateNotAchieves, slapmMonitoredEventOkay=slapmMonitoredEventOkay, slapmSubcomponentPolicyRuleIndex=slapmSubcomponentPolicyRuleIndex, slapmPolicyRuleMonDeleted=slapmPolicyRuleMonDeleted, slapmPolicyCountQueries=slapmPolicyCountQueries, slapmPolicyRuleStatsInOctets=slapmPolicyRuleStatsInOctets, slapmPRMonIndex=slapmPRMonIndex, slapmPolicyMonitorMaxInRateExceeds=slapmPolicyMonitorMaxInRateExceeds, slapmPolicyRuleStatsOperStatus=slapmPolicyRuleStatsOperStatus, slapmSubcomponentTrafficProfileName=slapmSubcomponentTrafficProfileName, SlapmNameType=SlapmNameType, slapmPRMonSystemAddress=slapmPRMonSystemAddress, slapmPolicyCountSuccessAccesses=slapmPolicyCountSuccessAccesses, slapmPolicyStatsCountAccepts=slapmPolicyStatsCountAccepts, slapmObjects=slapmObjects, slapmEndSystemGroup2=slapmEndSystemGroup2, slapmSubcomponentInOctets=slapmSubcomponentInOctets, slapmPRMonMinRateHigh=slapmPRMonMinRateHigh, slapmSpinLock=slapmSpinLock, slapmPRMonRowStatus=slapmPRMonRowStatus, slapmSubcomponentMonitorIntTime=slapmSubcomponentMonitorIntTime, slapmPolicyMonitorDeleted=slapmPolicyMonitorDeleted, slapmPolicyRuleStatsOutProOctets=slapmPolicyRuleStatsOutProOctets, slapmPolicyMonitorTable=slapmPolicyMonitorTable, slapmPolicyNameSystemAddress=slapmPolicyNameSystemAddress, slapmPolicyRuleStatsLastMapping=slapmPolicyRuleStatsLastMapping, slapmPolicyMonitorMaxRateLow=slapmPolicyMonitorMaxRateLow, slapmSubcomponentMonitoredEventOkay=slapmSubcomponentMonitoredEventOkay, slapmPRMonCurrentOutRate=slapmPRMonCurrentOutRate, slapmPolicyNameIndex=slapmPolicyNameIndex, slapmPolicyMonitorCurrentDelayRate=slapmPolicyMonitorCurrentDelayRate, slapmSubcomponentLastActivity=slapmSubcomponentLastActivity, slapmPolicyMonitorCurrentInRate=slapmPolicyMonitorCurrentInRate, slapmOptionalGroup=slapmOptionalGroup, slapmPolicyNameTable=slapmPolicyNameTable, slapmPolicyStatsLastMapping=slapmPolicyStatsLastMapping, slapmPolicyStatsOutDiscards=slapmPolicyStatsOutDiscards, slapmPolicyRuleMonNotOkay=slapmPolicyRuleMonNotOkay, slapmPolicyRuleStatsTable=slapmPolicyRuleStatsTable, slapmSubcomponentInPdus=slapmSubcomponentInPdus, slapmPolicyRuleStatsMaxRate=slapmPolicyRuleStatsMaxRate, slapmPRMonMaxOutRateExceeds=slapmPRMonMaxOutRateExceeds, slapmSubcomponentProtocol=slapmSubcomponentProtocol, slapmPRMonCurrentInRate=slapmPRMonCurrentInRate, slapmPolicyTrapEnable=slapmPolicyTrapEnable, slapmPolicyMonitorOwnerIndex=slapmPolicyMonitorOwnerIndex, slapmPolicyRuleStatsInDiscards=slapmPolicyRuleStatsInDiscards, slapmPolicyMonitorControl=slapmPolicyMonitorControl, slapmPRMonControl=slapmPRMonControl, slapmPolicyStatsTrafficProfileName=slapmPolicyStatsTrafficProfileName, slapmSubcomponentPolicyName=slapmSubcomponentPolicyName, slapmSubcomponentTcpRoundTripTime=slapmSubcomponentTcpRoundTripTime, slapmPolicyMonitorMinRateHigh=slapmPolicyMonitorMinRateHigh, slapmSubcomponentTcpInBufferedOctets=slapmSubcomponentTcpInBufferedOctets, slapmPRMonCurrentDelayRate=slapmPRMonCurrentDelayRate, slapmPolicyPurgeTime=slapmPolicyPurgeTime, slapmNotifications=slapmNotifications, slapmPolicyStatsMaxRate=slapmPolicyStatsMaxRate, slapmPolicyMonitorMaxDelayLow=slapmPolicyMonitorMaxDelayLow, slapmPolicyRuleStatsOutOctets=slapmPolicyRuleStatsOutOctets, slapmPRMonMinOutRateNotAchieves=slapmPRMonMinOutRateNotAchieves, slapmPolicyStatsOperStatus=slapmPolicyStatsOperStatus, slapmSubcomponentApplName=slapmSubcomponentApplName, slapmCompliances=slapmCompliances, slapmPolicyRuleStatsEntry=slapmPolicyRuleStatsEntry, slapmSubcomponentRemAddress=slapmSubcomponentRemAddress, slapmSubcomponentRemPort=slapmSubcomponentRemPort, slapmSubcomponentTcpOutBufferedOctets=slapmSubcomponentTcpOutBufferedOctets, slapmPolicyRuleStatsLActivated=slapmPolicyRuleStatsLActivated, slapmPolicyMonitorMinRateLow=slapmPolicyMonitorMinRateLow, slapmPolicyRuleStatsInPackets=slapmPolicyRuleStatsInPackets, slapmPolicyProfileDeleted=slapmPolicyProfileDeleted, slapmPolicyStatsTable=slapmPolicyStatsTable, slapmPRMonTable=slapmPRMonTable, slapmPRMonMaxRateHigh=slapmPRMonMaxRateHigh, slapmPRMonOwnerIndex=slapmPRMonOwnerIndex, slapmPolicyStatsCountDenies=slapmPolicyStatsCountDenies, slapmPolicyRuleStatsInProOctets=slapmPolicyRuleStatsInProOctets, slapmPolicyMonitorSystemAddress=slapmPolicyMonitorSystemAddress, slapmPolicyCountAccesses=slapmPolicyCountAccesses, slapmPRMonMaxRateLow=slapmPRMonMaxRateLow, slapmPolicyRuleMonOkay=slapmPolicyRuleMonOkay, slapmPolicyMonitorRowStatus=slapmPolicyMonitorRowStatus, slapmPolicyStatsMaxDelay=slapmPolicyStatsMaxDelay, slapmSubcomponentMonitoredEventNotAchieved=slapmSubcomponentMonitoredEventNotAchieved, slapmPRMonMaxInRateExceeds=slapmPRMonMaxInRateExceeds, slapmSubcomponentTable=slapmSubcomponentTable, slapmPolicyMonitorStatus=slapmPolicyMonitorStatus, slapmPolicyStatsPolicyName=slapmPolicyStatsPolicyName, slapmPolicyMonitorInterval=slapmPolicyMonitorInterval, slapmPolicyRuleStatsCountDenies=slapmPolicyRuleStatsCountDenies, SlapmPolicyRuleName=SlapmPolicyRuleName, slapmPolicyRuleStatsTotalConns=slapmPolicyRuleStatsTotalConns, slapmPRMonMaxDelayExceeds=slapmPRMonMaxDelayExceeds, slapmPRMonEntry=slapmPRMonEntry, slapmPolicyStatsTotalConns=slapmPolicyStatsTotalConns, slapmPolicyStatsOutOctets=slapmPolicyStatsOutOctets, slapmPRMonStatus=slapmPRMonStatus, slapmPRMonMaxDelayHigh=slapmPRMonMaxDelayHigh, slapmPolicyMonitorMaxDelayHigh=slapmPolicyMonitorMaxDelayHigh, slapmSubcomponentLocalPort=slapmSubcomponentLocalPort, slapmPolicyStatsOutProfileOctets=slapmPolicyStatsOutProfileOctets, slapmPolicyStatsInDiscards=slapmPolicyStatsInDiscards, slapmPolicyMonitorMinInRateNotAchieves=slapmPolicyMonitorMinInRateNotAchieves, slapmPolicyMonitorEntry=slapmPolicyMonitorEntry, slapmSubcomponentSystemAddress=slapmSubcomponentSystemAddress, slapmPolicyStatsConnectionLimit=slapmPolicyStatsConnectionLimit, slapmPolicyNameOfRule=slapmPolicyNameOfRule, slapmSubcomponentOutPdus=slapmSubcomponentOutPdus, SlapmStatus=SlapmStatus, slapmPolicyStatsSystemAddress=slapmPolicyStatsSystemAddress, slapmPolicyTrapFilter=slapmPolicyTrapFilter, slapmPolicyRuleStatsMaxDelay=slapmPolicyRuleStatsMaxDelay, slapmSubcMonitorOkay=slapmSubcMonitorOkay, slapmPolicyStatsActiveConns=slapmPolicyStatsActiveConns, slapmPolicyStatsOutPackets=slapmPolicyStatsOutPackets, slapmPolicyMonitorTrafficProfileName=slapmPolicyMonitorTrafficProfileName, slapmPolicyRuleStatsActRsvpFlows=slapmPolicyRuleStatsActRsvpFlows, slapmPolicyStatsMinRate=slapmPolicyStatsMinRate, slapmSubcomponentTcpRoundTripVariance=slapmSubcomponentTcpRoundTripVariance, slapmPolicyRuleStatsOutDiscards=slapmPolicyRuleStatsOutDiscards, slapmPolicyStatsInPackets=slapmPolicyStatsInPackets, slapmSubcomponentTcpReXmts=slapmSubcomponentTcpReXmts)
+_Br='slapmEndSystemNotGroup'
+_Bq='slapmEndSystemGroup'
+_Bp='slapmOptionalGroup'
+_Bo='slapmNotGroup'
+_Bn='slapmBaseGroup'
+_Bm='slapmEndSystemNotGroup2'
+_Bl='slapmEndSystemGroup2'
+_Bk='slapmNotGroup2'
+_Bj='slapmBaseGroup2'
+_Bi='slapmSubcMonitorOkay'
+_Bh='slapmSubcMonitorNotOkay'
+_Bg='slapmPolicyRuleMonDeleted'
+_Bf='slapmPolicyRuleDeleted'
+_Be='slapmPolicyRuleMonOkay'
+_Bd='slapmPolicyRuleMonNotOkay'
+_Bc='slapmSubcomponentMonitoredEventOkay'
+_Bb='slapmSubcomponentMonitoredEventNotAchieved'
+_Ba='slapmPolicyMonitorDeleted'
+_BZ='slapmPolicyProfileDeleted'
+_BY='slapmMonitoredEventOkay'
+_BX='slapmMonitoredEventNotAchieved'
+_BW='slapmPRMonRowStatus'
+_BV='slapmPolicyRuleStatsOperStatus'
+_BU='slapmPolicyNameOfRule'
+_BT='slapmPolicyMonitorRowStatus'
+_BS='slapmPolicyStatsOperStatus'
+_BR='slapmPRMonIndex'
+_BQ='slapmPRMonSystemAddress'
+_BP='slapmPRMonOwnerIndex'
+_BO='slapmSubcomponentLocalPort'
+_BN='slapmSubcomponentLocalAddress'
+_BM='slapmSubcomponentRemPort'
+_BL='slapmSubcomponentRemAddress'
+_BK='monitorSubcomponents'
+_BJ='enableSubcomponentTraps'
+_BI='enableAggregateTraps'
+_BH='monitorMaxDelay'
+_BG='monitorMaxRate'
+_BF='monitorMinRate'
+_BE='slapmPolicyMonitorTrafficProfileName'
+_BD='slapmPolicyMonitorPolicyName'
+_BC='slapmPolicyMonitorSystemAddress'
+_BB='slapmPolicyMonitorOwnerIndex'
+_BA='deleteNeeded'
+_B9='slapmPolicyStatsTrafficProfileName'
+_B8='slapmPolicyStatsPolicyName'
+_B7='slapmPolicyStatsSystemAddress'
+_B6='slapmPRMonMaxOutRateExceeds'
+_B5='slapmPRMonMinOutRateNotAchieves'
+_B4='slapmPRMonMaxDelayExceeds'
+_B3='slapmPRMonMaxInRateExceeds'
+_B2='slapmPRMonMinInRateNotAchieves'
+_B1='slapmPRMonMaxDelayLow'
+_B0='slapmPRMonMaxDelayHigh'
+_A_='slapmPRMonMaxRateLow'
+_Az='slapmPRMonMaxRateHigh'
+_Ay='slapmPRMonMinRateHigh'
+_Ax='slapmPRMonMinRateLow'
+_Aw='slapmPRMonInterval'
+_Av='slapmPolicyRuleStatsActRsvpFlows'
+_Au='slapmPolicyRuleStatsTotalRsvpFlows'
+_At='slapmPolicyRuleStatsMaxDelay'
+_As='slapmPolicyRuleStatsMaxRate'
+_Ar='slapmPolicyRuleStatsMinRate'
+_Aq='slapmPolicyRuleStatsOutProOctets'
+_Ap='slapmPolicyRuleStatsInProOctets'
+_Ao='slapmPolicyRuleStatsOutPackets'
+_An='slapmPolicyRuleStatsInPackets'
+_Am='slapmPolicyRuleStatsOutDiscards'
+_Al='slapmPolicyRuleStatsInDiscards'
+_Ak='slapmPolicyRuleStatsCountDenies'
+_Aj='slapmPolicyRuleStatsCountAccepts'
+_Ai='slapmPolicyRuleStatsConnLimit'
+_Ah='slapmPolicyRuleStatsOutOctets'
+_Ag='slapmPolicyRuleStatsInOctets'
+_Af='slapmPolicyRuleStatsLastMapping'
+_Ae='slapmPolicyRuleStatsLActivated'
+_Ad='slapmPolicyRuleStatsTotalConns'
+_Ac='slapmPolicyRuleStatsActiveConns'
+_Ab='slapmSubcomponentApplName'
+_Aa='slapmSubcomponentOutPdus'
+_AZ='slapmSubcomponentInPdus'
+_AY='slapmSubcomponentTcpRoundTripVariance'
+_AX='slapmSubcomponentTcpReXmts'
+_AW='slapmSubcomponentTcpInBufferedOctets'
+_AV='slapmSubcomponentTcpOutBufferedOctets'
+_AU='slapmSubcomponentOutOctets'
+_AT='slapmSubcomponentInOctets'
+_AS='slapmSubcomponentLastActivity'
+_AR='slapmSubcomponentProtocol'
+_AQ='slapmPolicyTrapFilter'
+_AP='slapmPolicyStatsOutProfileOctets'
+_AO='slapmPolicyStatsInProfileOctets'
+_AN='slapmPolicyMonitorMaxOutRateExceeds'
+_AM='slapmPolicyMonitorMinOutRateNotAchieves'
+_AL='slapmPolicyMonitorMaxDelayExceeds'
+_AK='slapmPolicyMonitorMaxInRateExceeds'
+_AJ='slapmPolicyMonitorMinInRateNotAchieves'
+_AI='slapmPolicyMonitorMaxDelayLow'
+_AH='slapmPolicyMonitorMaxDelayHigh'
+_AG='slapmPolicyMonitorMaxRateLow'
+_AF='slapmPolicyMonitorMaxRateHigh'
+_AE='slapmPolicyMonitorMinRateHigh'
+_AD='slapmPolicyMonitorMinRateLow'
+_AC='slapmPolicyMonitorInterval'
+_AB='slapmPolicyStatsMaxDelay'
+_AA='slapmPolicyStatsMaxRate'
+_A9='slapmPolicyStatsMinRate'
+_A8='slapmPolicyStatsOutPackets'
+_A7='slapmPolicyStatsInPackets'
+_A6='slapmPolicyStatsOutDiscards'
+_A5='slapmPolicyStatsInDiscards'
+_A4='slapmPolicyStatsCountDenies'
+_A3='slapmPolicyStatsCountAccepts'
+_A2='slapmPolicyStatsTotalConns'
+_A1='slapmPolicyStatsConnectionLimit'
+_A0='slapmPolicyStatsOutOctets'
+_z='slapmPolicyStatsInOctets'
+_y='slapmPolicyStatsLastMapping'
+_x='slapmPolicyStatsFirstActivated'
+_w='slapmPolicyStatsActiveConns'
+_v='slapmPolicyTrapEnable'
+_u='slapmPolicyPurgeTime'
+_t='slapmPolicyCountNotFounds'
+_s='slapmPolicyCountSuccessAccesses'
+_r='slapmPolicyCountAccesses'
+_q='slapmPolicyCountQueries'
+_p='slapmSpinLock'
+_o='slapmPolicyNameIndex'
+_n='slapmPolicyNameSystemAddress'
+_m='seconds'
+_l='Bits'
+_k='slapmSubcomponentPolicyRuleIndex'
+_j='slapmSubcomponentTrafficProfileName'
+_i='slapmSubcomponentPolicyName'
+_h='slapmPolicyMonitorControl'
+_g='Kilobits per second'
+_f='read-write'
+_e='Unsigned32'
+_d='SnmpAdminString'
+_c='slapmPRMonCurrentDelayRate'
+_b='slapmPRMonCurrentOutRate'
+_a='slapmPRMonCurrentInRate'
+_Z='slapmPRMonIntTime'
+_Y='slapmPolicyMonitorCurrentDelayRate'
+_X='slapmPolicyMonitorCurrentOutRate'
+_W='slapmPolicyMonitorCurrentInRate'
+_V='slapmPolicyMonitorIntTime'
+_U='slapmPRMonStatus'
+_T='slapmPRMonControl'
+_S='slapmSubcomponentMonitorCurrentInRate'
+_R='slapmSubcomponentMonitorCurrentOutRate'
+_Q='slapmSubcomponentMonitorIntTime'
+_P='slapmSubcomponentTcpRoundTripTime'
+_O='slapmSubcomponentSystemAddress'
+_N='slapmPolicyMonitorStatus'
+_M='0000000000000000'
+_L='OctetString'
+_K='milliseconds'
+_J='DateAndTime'
+_I='Integer32'
+_H='slapmSubcomponentMonitorStatus'
+_G='kilobits per second'
+_F='not-accessible'
+_E='read-create'
+_D='deprecated'
+_C='read-only'
+_B='current'
+_A='SLAPM-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_L,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_d)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,experimental,iso=mibBuilder.importSymbols('SNMPv2-SMI',_l,'Counter32','Counter64','Gauge32',_I,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_e,'experimental','iso')
+DateAndTime,DisplayString,PhysAddress,RowStatus,TextualConvention,TestAndIncr=mibBuilder.importSymbols('SNMPv2-TC',_J,'DisplayString','PhysAddress','RowStatus','TextualConvention','TestAndIncr')
+slapmMIB=ModuleIdentity((1,3,6,1,3,88))
+if mibBuilder.loadTexts:slapmMIB.setRevisions(('2000-01-24 00:00',))
+class SlapmNameType(SnmpAdminString):status=_D;subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+class SlapmStatus(TextualConvention,Bits):status=_B;namedValues=NamedValues(*(('slaMinInRateNotAchieved',0),('slaMaxInRateExceeded',1),('slaMaxDelayExceeded',2),('slaMinOutRateNotAchieved',3),('slaMaxOutRateExceeded',4),('monitorMinInRateNotAchieved',5),('monitorMaxInRateExceeded',6),('monitorMaxDelayExceeded',7),('monitorMinOutRateNotAchieved',8),('monitorMaxOutRateExceeded',9)))
+class SlapmPolicyRuleName(TextualConvention,OctetString):status=_B;displayHint='1024t';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1024))
+_SlapmNotifications_ObjectIdentity=ObjectIdentity
+slapmNotifications=_SlapmNotifications_ObjectIdentity((1,3,6,1,3,88,0))
+_SlapmObjects_ObjectIdentity=ObjectIdentity
+slapmObjects=_SlapmObjects_ObjectIdentity((1,3,6,1,3,88,1))
+_SlapmBaseObjects_ObjectIdentity=ObjectIdentity
+slapmBaseObjects=_SlapmBaseObjects_ObjectIdentity((1,3,6,1,3,88,1,1))
+_SlapmSpinLock_Type=TestAndIncr
+_SlapmSpinLock_Object=MibScalar
+slapmSpinLock=_SlapmSpinLock_Object((1,3,6,1,3,88,1,1,1),_SlapmSpinLock_Type())
+slapmSpinLock.setMaxAccess(_f)
+if mibBuilder.loadTexts:slapmSpinLock.setStatus(_B)
+_SlapmPolicyCountQueries_Type=Counter32
+_SlapmPolicyCountQueries_Object=MibScalar
+slapmPolicyCountQueries=_SlapmPolicyCountQueries_Object((1,3,6,1,3,88,1,1,2),_SlapmPolicyCountQueries_Type())
+slapmPolicyCountQueries.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyCountQueries.setStatus(_B)
+_SlapmPolicyCountAccesses_Type=Counter32
+_SlapmPolicyCountAccesses_Object=MibScalar
+slapmPolicyCountAccesses=_SlapmPolicyCountAccesses_Object((1,3,6,1,3,88,1,1,3),_SlapmPolicyCountAccesses_Type())
+slapmPolicyCountAccesses.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyCountAccesses.setStatus(_B)
+_SlapmPolicyCountSuccessAccesses_Type=Counter32
+_SlapmPolicyCountSuccessAccesses_Object=MibScalar
+slapmPolicyCountSuccessAccesses=_SlapmPolicyCountSuccessAccesses_Object((1,3,6,1,3,88,1,1,4),_SlapmPolicyCountSuccessAccesses_Type())
+slapmPolicyCountSuccessAccesses.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyCountSuccessAccesses.setStatus(_B)
+_SlapmPolicyCountNotFounds_Type=Counter32
+_SlapmPolicyCountNotFounds_Object=MibScalar
+slapmPolicyCountNotFounds=_SlapmPolicyCountNotFounds_Object((1,3,6,1,3,88,1,1,5),_SlapmPolicyCountNotFounds_Type())
+slapmPolicyCountNotFounds.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyCountNotFounds.setStatus(_B)
+class _SlapmPolicyPurgeTime_Type(Integer32):defaultValue=900;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3600))
+_SlapmPolicyPurgeTime_Type.__name__=_I
+_SlapmPolicyPurgeTime_Object=MibScalar
+slapmPolicyPurgeTime=_SlapmPolicyPurgeTime_Object((1,3,6,1,3,88,1,1,6),_SlapmPolicyPurgeTime_Type())
+slapmPolicyPurgeTime.setMaxAccess(_f)
+if mibBuilder.loadTexts:slapmPolicyPurgeTime.setStatus(_B)
+if mibBuilder.loadTexts:slapmPolicyPurgeTime.setUnits(_m)
+class _SlapmPolicyTrapEnable_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
+_SlapmPolicyTrapEnable_Type.__name__=_I
+_SlapmPolicyTrapEnable_Object=MibScalar
+slapmPolicyTrapEnable=_SlapmPolicyTrapEnable_Object((1,3,6,1,3,88,1,1,7),_SlapmPolicyTrapEnable_Type())
+slapmPolicyTrapEnable.setMaxAccess(_f)
+if mibBuilder.loadTexts:slapmPolicyTrapEnable.setStatus(_B)
+class _SlapmPolicyTrapFilter_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,64))
+_SlapmPolicyTrapFilter_Type.__name__=_I
+_SlapmPolicyTrapFilter_Object=MibScalar
+slapmPolicyTrapFilter=_SlapmPolicyTrapFilter_Object((1,3,6,1,3,88,1,1,8),_SlapmPolicyTrapFilter_Type())
+slapmPolicyTrapFilter.setMaxAccess(_f)
+if mibBuilder.loadTexts:slapmPolicyTrapFilter.setStatus(_B)
+if mibBuilder.loadTexts:slapmPolicyTrapFilter.setUnits('intervals')
+_SlapmTableObjects_ObjectIdentity=ObjectIdentity
+slapmTableObjects=_SlapmTableObjects_ObjectIdentity((1,3,6,1,3,88,1,2))
+_SlapmPolicyStatsTable_Object=MibTable
+slapmPolicyStatsTable=_SlapmPolicyStatsTable_Object((1,3,6,1,3,88,1,2,1))
+if mibBuilder.loadTexts:slapmPolicyStatsTable.setStatus(_D)
+_SlapmPolicyStatsEntry_Object=MibTableRow
+slapmPolicyStatsEntry=_SlapmPolicyStatsEntry_Object((1,3,6,1,3,88,1,2,1,1))
+slapmPolicyStatsEntry.setIndexNames((0,_A,_B7),(0,_A,_B8),(0,_A,_B9))
+if mibBuilder.loadTexts:slapmPolicyStatsEntry.setStatus(_D)
+class _SlapmPolicyStatsSystemAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
+_SlapmPolicyStatsSystemAddress_Type.__name__=_L
+_SlapmPolicyStatsSystemAddress_Object=MibTableColumn
+slapmPolicyStatsSystemAddress=_SlapmPolicyStatsSystemAddress_Object((1,3,6,1,3,88,1,2,1,1,1),_SlapmPolicyStatsSystemAddress_Type())
+slapmPolicyStatsSystemAddress.setMaxAccess(_F)
+if mibBuilder.loadTexts:slapmPolicyStatsSystemAddress.setStatus(_D)
+_SlapmPolicyStatsPolicyName_Type=SlapmNameType
+_SlapmPolicyStatsPolicyName_Object=MibTableColumn
+slapmPolicyStatsPolicyName=_SlapmPolicyStatsPolicyName_Object((1,3,6,1,3,88,1,2,1,1,2),_SlapmPolicyStatsPolicyName_Type())
+slapmPolicyStatsPolicyName.setMaxAccess(_F)
+if mibBuilder.loadTexts:slapmPolicyStatsPolicyName.setStatus(_D)
+_SlapmPolicyStatsTrafficProfileName_Type=SlapmNameType
+_SlapmPolicyStatsTrafficProfileName_Object=MibTableColumn
+slapmPolicyStatsTrafficProfileName=_SlapmPolicyStatsTrafficProfileName_Object((1,3,6,1,3,88,1,2,1,1,3),_SlapmPolicyStatsTrafficProfileName_Type())
+slapmPolicyStatsTrafficProfileName.setMaxAccess(_F)
+if mibBuilder.loadTexts:slapmPolicyStatsTrafficProfileName.setStatus(_D)
+class _SlapmPolicyStatsOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('inactive',1),('active',2),(_BA,3)))
+_SlapmPolicyStatsOperStatus_Type.__name__=_I
+_SlapmPolicyStatsOperStatus_Object=MibTableColumn
+slapmPolicyStatsOperStatus=_SlapmPolicyStatsOperStatus_Object((1,3,6,1,3,88,1,2,1,1,4),_SlapmPolicyStatsOperStatus_Type())
+slapmPolicyStatsOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsOperStatus.setStatus(_D)
+_SlapmPolicyStatsActiveConns_Type=Gauge32
+_SlapmPolicyStatsActiveConns_Object=MibTableColumn
+slapmPolicyStatsActiveConns=_SlapmPolicyStatsActiveConns_Object((1,3,6,1,3,88,1,2,1,1,5),_SlapmPolicyStatsActiveConns_Type())
+slapmPolicyStatsActiveConns.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsActiveConns.setStatus(_D)
+_SlapmPolicyStatsTotalConns_Type=Counter32
+_SlapmPolicyStatsTotalConns_Object=MibTableColumn
+slapmPolicyStatsTotalConns=_SlapmPolicyStatsTotalConns_Object((1,3,6,1,3,88,1,2,1,1,6),_SlapmPolicyStatsTotalConns_Type())
+slapmPolicyStatsTotalConns.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsTotalConns.setStatus(_D)
+class _SlapmPolicyStatsFirstActivated_Type(DateAndTime):defaultHexValue=_M
+_SlapmPolicyStatsFirstActivated_Type.__name__=_J
+_SlapmPolicyStatsFirstActivated_Object=MibTableColumn
+slapmPolicyStatsFirstActivated=_SlapmPolicyStatsFirstActivated_Object((1,3,6,1,3,88,1,2,1,1,7),_SlapmPolicyStatsFirstActivated_Type())
+slapmPolicyStatsFirstActivated.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsFirstActivated.setStatus(_D)
+class _SlapmPolicyStatsLastMapping_Type(DateAndTime):defaultHexValue=_M
+_SlapmPolicyStatsLastMapping_Type.__name__=_J
+_SlapmPolicyStatsLastMapping_Object=MibTableColumn
+slapmPolicyStatsLastMapping=_SlapmPolicyStatsLastMapping_Object((1,3,6,1,3,88,1,2,1,1,8),_SlapmPolicyStatsLastMapping_Type())
+slapmPolicyStatsLastMapping.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsLastMapping.setStatus(_D)
+_SlapmPolicyStatsInOctets_Type=Counter32
+_SlapmPolicyStatsInOctets_Object=MibTableColumn
+slapmPolicyStatsInOctets=_SlapmPolicyStatsInOctets_Object((1,3,6,1,3,88,1,2,1,1,9),_SlapmPolicyStatsInOctets_Type())
+slapmPolicyStatsInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsInOctets.setStatus(_D)
+_SlapmPolicyStatsOutOctets_Type=Counter32
+_SlapmPolicyStatsOutOctets_Object=MibTableColumn
+slapmPolicyStatsOutOctets=_SlapmPolicyStatsOutOctets_Object((1,3,6,1,3,88,1,2,1,1,10),_SlapmPolicyStatsOutOctets_Type())
+slapmPolicyStatsOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsOutOctets.setStatus(_D)
+_SlapmPolicyStatsConnectionLimit_Type=Integer32
+_SlapmPolicyStatsConnectionLimit_Object=MibTableColumn
+slapmPolicyStatsConnectionLimit=_SlapmPolicyStatsConnectionLimit_Object((1,3,6,1,3,88,1,2,1,1,11),_SlapmPolicyStatsConnectionLimit_Type())
+slapmPolicyStatsConnectionLimit.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsConnectionLimit.setStatus(_D)
+_SlapmPolicyStatsCountAccepts_Type=Counter32
+_SlapmPolicyStatsCountAccepts_Object=MibTableColumn
+slapmPolicyStatsCountAccepts=_SlapmPolicyStatsCountAccepts_Object((1,3,6,1,3,88,1,2,1,1,12),_SlapmPolicyStatsCountAccepts_Type())
+slapmPolicyStatsCountAccepts.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsCountAccepts.setStatus(_D)
+_SlapmPolicyStatsCountDenies_Type=Counter32
+_SlapmPolicyStatsCountDenies_Object=MibTableColumn
+slapmPolicyStatsCountDenies=_SlapmPolicyStatsCountDenies_Object((1,3,6,1,3,88,1,2,1,1,13),_SlapmPolicyStatsCountDenies_Type())
+slapmPolicyStatsCountDenies.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsCountDenies.setStatus(_D)
+_SlapmPolicyStatsInDiscards_Type=Counter32
+_SlapmPolicyStatsInDiscards_Object=MibTableColumn
+slapmPolicyStatsInDiscards=_SlapmPolicyStatsInDiscards_Object((1,3,6,1,3,88,1,2,1,1,14),_SlapmPolicyStatsInDiscards_Type())
+slapmPolicyStatsInDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsInDiscards.setStatus(_D)
+_SlapmPolicyStatsOutDiscards_Type=Counter32
+_SlapmPolicyStatsOutDiscards_Object=MibTableColumn
+slapmPolicyStatsOutDiscards=_SlapmPolicyStatsOutDiscards_Object((1,3,6,1,3,88,1,2,1,1,15),_SlapmPolicyStatsOutDiscards_Type())
+slapmPolicyStatsOutDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsOutDiscards.setStatus(_D)
+_SlapmPolicyStatsInPackets_Type=Counter32
+_SlapmPolicyStatsInPackets_Object=MibTableColumn
+slapmPolicyStatsInPackets=_SlapmPolicyStatsInPackets_Object((1,3,6,1,3,88,1,2,1,1,16),_SlapmPolicyStatsInPackets_Type())
+slapmPolicyStatsInPackets.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsInPackets.setStatus(_D)
+_SlapmPolicyStatsOutPackets_Type=Counter32
+_SlapmPolicyStatsOutPackets_Object=MibTableColumn
+slapmPolicyStatsOutPackets=_SlapmPolicyStatsOutPackets_Object((1,3,6,1,3,88,1,2,1,1,17),_SlapmPolicyStatsOutPackets_Type())
+slapmPolicyStatsOutPackets.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsOutPackets.setStatus(_D)
+_SlapmPolicyStatsInProfileOctets_Type=Counter32
+_SlapmPolicyStatsInProfileOctets_Object=MibTableColumn
+slapmPolicyStatsInProfileOctets=_SlapmPolicyStatsInProfileOctets_Object((1,3,6,1,3,88,1,2,1,1,18),_SlapmPolicyStatsInProfileOctets_Type())
+slapmPolicyStatsInProfileOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsInProfileOctets.setStatus(_D)
+_SlapmPolicyStatsOutProfileOctets_Type=Counter32
+_SlapmPolicyStatsOutProfileOctets_Object=MibTableColumn
+slapmPolicyStatsOutProfileOctets=_SlapmPolicyStatsOutProfileOctets_Object((1,3,6,1,3,88,1,2,1,1,19),_SlapmPolicyStatsOutProfileOctets_Type())
+slapmPolicyStatsOutProfileOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsOutProfileOctets.setStatus(_D)
+_SlapmPolicyStatsMinRate_Type=Integer32
+_SlapmPolicyStatsMinRate_Object=MibTableColumn
+slapmPolicyStatsMinRate=_SlapmPolicyStatsMinRate_Object((1,3,6,1,3,88,1,2,1,1,20),_SlapmPolicyStatsMinRate_Type())
+slapmPolicyStatsMinRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsMinRate.setStatus(_D)
+if mibBuilder.loadTexts:slapmPolicyStatsMinRate.setUnits(_g)
+_SlapmPolicyStatsMaxRate_Type=Integer32
+_SlapmPolicyStatsMaxRate_Object=MibTableColumn
+slapmPolicyStatsMaxRate=_SlapmPolicyStatsMaxRate_Object((1,3,6,1,3,88,1,2,1,1,21),_SlapmPolicyStatsMaxRate_Type())
+slapmPolicyStatsMaxRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsMaxRate.setStatus(_D)
+if mibBuilder.loadTexts:slapmPolicyStatsMaxRate.setUnits(_g)
+_SlapmPolicyStatsMaxDelay_Type=Integer32
+_SlapmPolicyStatsMaxDelay_Object=MibTableColumn
+slapmPolicyStatsMaxDelay=_SlapmPolicyStatsMaxDelay_Object((1,3,6,1,3,88,1,2,1,1,22),_SlapmPolicyStatsMaxDelay_Type())
+slapmPolicyStatsMaxDelay.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyStatsMaxDelay.setStatus(_D)
+if mibBuilder.loadTexts:slapmPolicyStatsMaxDelay.setUnits(_K)
+_SlapmPolicyMonitorTable_Object=MibTable
+slapmPolicyMonitorTable=_SlapmPolicyMonitorTable_Object((1,3,6,1,3,88,1,2,2))
+if mibBuilder.loadTexts:slapmPolicyMonitorTable.setStatus(_D)
+_SlapmPolicyMonitorEntry_Object=MibTableRow
+slapmPolicyMonitorEntry=_SlapmPolicyMonitorEntry_Object((1,3,6,1,3,88,1,2,2,1))
+slapmPolicyMonitorEntry.setIndexNames((0,_A,_BB),(0,_A,_BC),(0,_A,_BD),(0,_A,_BE))
+if mibBuilder.loadTexts:slapmPolicyMonitorEntry.setStatus(_D)
+class _SlapmPolicyMonitorOwnerIndex_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_SlapmPolicyMonitorOwnerIndex_Type.__name__=_d
+_SlapmPolicyMonitorOwnerIndex_Object=MibTableColumn
+slapmPolicyMonitorOwnerIndex=_SlapmPolicyMonitorOwnerIndex_Object((1,3,6,1,3,88,1,2,2,1,1),_SlapmPolicyMonitorOwnerIndex_Type())
+slapmPolicyMonitorOwnerIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:slapmPolicyMonitorOwnerIndex.setStatus(_D)
+class _SlapmPolicyMonitorSystemAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
+_SlapmPolicyMonitorSystemAddress_Type.__name__=_L
+_SlapmPolicyMonitorSystemAddress_Object=MibTableColumn
+slapmPolicyMonitorSystemAddress=_SlapmPolicyMonitorSystemAddress_Object((1,3,6,1,3,88,1,2,2,1,2),_SlapmPolicyMonitorSystemAddress_Type())
+slapmPolicyMonitorSystemAddress.setMaxAccess(_F)
+if mibBuilder.loadTexts:slapmPolicyMonitorSystemAddress.setStatus(_D)
+_SlapmPolicyMonitorPolicyName_Type=SlapmNameType
+_SlapmPolicyMonitorPolicyName_Object=MibTableColumn
+slapmPolicyMonitorPolicyName=_SlapmPolicyMonitorPolicyName_Object((1,3,6,1,3,88,1,2,2,1,3),_SlapmPolicyMonitorPolicyName_Type())
+slapmPolicyMonitorPolicyName.setMaxAccess(_F)
+if mibBuilder.loadTexts:slapmPolicyMonitorPolicyName.setStatus(_D)
+_SlapmPolicyMonitorTrafficProfileName_Type=SlapmNameType
+_SlapmPolicyMonitorTrafficProfileName_Object=MibTableColumn
+slapmPolicyMonitorTrafficProfileName=_SlapmPolicyMonitorTrafficProfileName_Object((1,3,6,1,3,88,1,2,2,1,4),_SlapmPolicyMonitorTrafficProfileName_Type())
+slapmPolicyMonitorTrafficProfileName.setMaxAccess(_F)
+if mibBuilder.loadTexts:slapmPolicyMonitorTrafficProfileName.setStatus(_D)
+class _SlapmPolicyMonitorControl_Type(Bits):defaultBinValue='111';namedValues=NamedValues(*((_BF,0),(_BG,1),(_BH,2),(_BI,3),(_BJ,4),(_BK,5)))
+_SlapmPolicyMonitorControl_Type.__name__=_l
+_SlapmPolicyMonitorControl_Object=MibTableColumn
+slapmPolicyMonitorControl=_SlapmPolicyMonitorControl_Object((1,3,6,1,3,88,1,2,2,1,5),_SlapmPolicyMonitorControl_Type())
+slapmPolicyMonitorControl.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPolicyMonitorControl.setStatus(_D)
+_SlapmPolicyMonitorStatus_Type=SlapmStatus
+_SlapmPolicyMonitorStatus_Object=MibTableColumn
+slapmPolicyMonitorStatus=_SlapmPolicyMonitorStatus_Object((1,3,6,1,3,88,1,2,2,1,6),_SlapmPolicyMonitorStatus_Type())
+slapmPolicyMonitorStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyMonitorStatus.setStatus(_D)
+class _SlapmPolicyMonitorInterval_Type(Integer32):defaultValue=20;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(15,86400))
+_SlapmPolicyMonitorInterval_Type.__name__=_I
+_SlapmPolicyMonitorInterval_Object=MibTableColumn
+slapmPolicyMonitorInterval=_SlapmPolicyMonitorInterval_Object((1,3,6,1,3,88,1,2,2,1,7),_SlapmPolicyMonitorInterval_Type())
+slapmPolicyMonitorInterval.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPolicyMonitorInterval.setStatus(_D)
+if mibBuilder.loadTexts:slapmPolicyMonitorInterval.setUnits(_m)
+class _SlapmPolicyMonitorIntTime_Type(DateAndTime):defaultHexValue=_M
+_SlapmPolicyMonitorIntTime_Type.__name__=_J
+_SlapmPolicyMonitorIntTime_Object=MibTableColumn
+slapmPolicyMonitorIntTime=_SlapmPolicyMonitorIntTime_Object((1,3,6,1,3,88,1,2,2,1,8),_SlapmPolicyMonitorIntTime_Type())
+slapmPolicyMonitorIntTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyMonitorIntTime.setStatus(_D)
+_SlapmPolicyMonitorCurrentInRate_Type=Gauge32
+_SlapmPolicyMonitorCurrentInRate_Object=MibTableColumn
+slapmPolicyMonitorCurrentInRate=_SlapmPolicyMonitorCurrentInRate_Object((1,3,6,1,3,88,1,2,2,1,9),_SlapmPolicyMonitorCurrentInRate_Type())
+slapmPolicyMonitorCurrentInRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyMonitorCurrentInRate.setStatus(_D)
+if mibBuilder.loadTexts:slapmPolicyMonitorCurrentInRate.setUnits(_G)
+_SlapmPolicyMonitorCurrentOutRate_Type=Gauge32
+_SlapmPolicyMonitorCurrentOutRate_Object=MibTableColumn
+slapmPolicyMonitorCurrentOutRate=_SlapmPolicyMonitorCurrentOutRate_Object((1,3,6,1,3,88,1,2,2,1,10),_SlapmPolicyMonitorCurrentOutRate_Type())
+slapmPolicyMonitorCurrentOutRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyMonitorCurrentOutRate.setStatus(_D)
+if mibBuilder.loadTexts:slapmPolicyMonitorCurrentOutRate.setUnits(_G)
+_SlapmPolicyMonitorMinRateLow_Type=Integer32
+_SlapmPolicyMonitorMinRateLow_Object=MibTableColumn
+slapmPolicyMonitorMinRateLow=_SlapmPolicyMonitorMinRateLow_Object((1,3,6,1,3,88,1,2,2,1,11),_SlapmPolicyMonitorMinRateLow_Type())
+slapmPolicyMonitorMinRateLow.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPolicyMonitorMinRateLow.setStatus(_D)
+if mibBuilder.loadTexts:slapmPolicyMonitorMinRateLow.setUnits(_G)
+_SlapmPolicyMonitorMinRateHigh_Type=Integer32
+_SlapmPolicyMonitorMinRateHigh_Object=MibTableColumn
+slapmPolicyMonitorMinRateHigh=_SlapmPolicyMonitorMinRateHigh_Object((1,3,6,1,3,88,1,2,2,1,12),_SlapmPolicyMonitorMinRateHigh_Type())
+slapmPolicyMonitorMinRateHigh.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPolicyMonitorMinRateHigh.setStatus(_D)
+if mibBuilder.loadTexts:slapmPolicyMonitorMinRateHigh.setUnits(_G)
+_SlapmPolicyMonitorMaxRateHigh_Type=Integer32
+_SlapmPolicyMonitorMaxRateHigh_Object=MibTableColumn
+slapmPolicyMonitorMaxRateHigh=_SlapmPolicyMonitorMaxRateHigh_Object((1,3,6,1,3,88,1,2,2,1,13),_SlapmPolicyMonitorMaxRateHigh_Type())
+slapmPolicyMonitorMaxRateHigh.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPolicyMonitorMaxRateHigh.setStatus(_D)
+if mibBuilder.loadTexts:slapmPolicyMonitorMaxRateHigh.setUnits(_G)
+_SlapmPolicyMonitorMaxRateLow_Type=Integer32
+_SlapmPolicyMonitorMaxRateLow_Object=MibTableColumn
+slapmPolicyMonitorMaxRateLow=_SlapmPolicyMonitorMaxRateLow_Object((1,3,6,1,3,88,1,2,2,1,14),_SlapmPolicyMonitorMaxRateLow_Type())
+slapmPolicyMonitorMaxRateLow.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPolicyMonitorMaxRateLow.setStatus(_D)
+if mibBuilder.loadTexts:slapmPolicyMonitorMaxRateLow.setUnits(_G)
+_SlapmPolicyMonitorMaxDelayHigh_Type=Integer32
+_SlapmPolicyMonitorMaxDelayHigh_Object=MibTableColumn
+slapmPolicyMonitorMaxDelayHigh=_SlapmPolicyMonitorMaxDelayHigh_Object((1,3,6,1,3,88,1,2,2,1,15),_SlapmPolicyMonitorMaxDelayHigh_Type())
+slapmPolicyMonitorMaxDelayHigh.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPolicyMonitorMaxDelayHigh.setStatus(_D)
+if mibBuilder.loadTexts:slapmPolicyMonitorMaxDelayHigh.setUnits(_K)
+_SlapmPolicyMonitorMaxDelayLow_Type=Integer32
+_SlapmPolicyMonitorMaxDelayLow_Object=MibTableColumn
+slapmPolicyMonitorMaxDelayLow=_SlapmPolicyMonitorMaxDelayLow_Object((1,3,6,1,3,88,1,2,2,1,16),_SlapmPolicyMonitorMaxDelayLow_Type())
+slapmPolicyMonitorMaxDelayLow.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPolicyMonitorMaxDelayLow.setStatus(_D)
+if mibBuilder.loadTexts:slapmPolicyMonitorMaxDelayLow.setUnits(_K)
+_SlapmPolicyMonitorMinInRateNotAchieves_Type=Counter32
+_SlapmPolicyMonitorMinInRateNotAchieves_Object=MibTableColumn
+slapmPolicyMonitorMinInRateNotAchieves=_SlapmPolicyMonitorMinInRateNotAchieves_Object((1,3,6,1,3,88,1,2,2,1,17),_SlapmPolicyMonitorMinInRateNotAchieves_Type())
+slapmPolicyMonitorMinInRateNotAchieves.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyMonitorMinInRateNotAchieves.setStatus(_D)
+_SlapmPolicyMonitorMaxInRateExceeds_Type=Counter32
+_SlapmPolicyMonitorMaxInRateExceeds_Object=MibTableColumn
+slapmPolicyMonitorMaxInRateExceeds=_SlapmPolicyMonitorMaxInRateExceeds_Object((1,3,6,1,3,88,1,2,2,1,18),_SlapmPolicyMonitorMaxInRateExceeds_Type())
+slapmPolicyMonitorMaxInRateExceeds.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyMonitorMaxInRateExceeds.setStatus(_D)
+_SlapmPolicyMonitorMaxDelayExceeds_Type=Counter32
+_SlapmPolicyMonitorMaxDelayExceeds_Object=MibTableColumn
+slapmPolicyMonitorMaxDelayExceeds=_SlapmPolicyMonitorMaxDelayExceeds_Object((1,3,6,1,3,88,1,2,2,1,19),_SlapmPolicyMonitorMaxDelayExceeds_Type())
+slapmPolicyMonitorMaxDelayExceeds.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyMonitorMaxDelayExceeds.setStatus(_D)
+_SlapmPolicyMonitorMinOutRateNotAchieves_Type=Counter32
+_SlapmPolicyMonitorMinOutRateNotAchieves_Object=MibTableColumn
+slapmPolicyMonitorMinOutRateNotAchieves=_SlapmPolicyMonitorMinOutRateNotAchieves_Object((1,3,6,1,3,88,1,2,2,1,20),_SlapmPolicyMonitorMinOutRateNotAchieves_Type())
+slapmPolicyMonitorMinOutRateNotAchieves.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyMonitorMinOutRateNotAchieves.setStatus(_D)
+_SlapmPolicyMonitorMaxOutRateExceeds_Type=Counter32
+_SlapmPolicyMonitorMaxOutRateExceeds_Object=MibTableColumn
+slapmPolicyMonitorMaxOutRateExceeds=_SlapmPolicyMonitorMaxOutRateExceeds_Object((1,3,6,1,3,88,1,2,2,1,21),_SlapmPolicyMonitorMaxOutRateExceeds_Type())
+slapmPolicyMonitorMaxOutRateExceeds.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyMonitorMaxOutRateExceeds.setStatus(_D)
+_SlapmPolicyMonitorCurrentDelayRate_Type=Gauge32
+_SlapmPolicyMonitorCurrentDelayRate_Object=MibTableColumn
+slapmPolicyMonitorCurrentDelayRate=_SlapmPolicyMonitorCurrentDelayRate_Object((1,3,6,1,3,88,1,2,2,1,22),_SlapmPolicyMonitorCurrentDelayRate_Type())
+slapmPolicyMonitorCurrentDelayRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyMonitorCurrentDelayRate.setStatus(_D)
+if mibBuilder.loadTexts:slapmPolicyMonitorCurrentDelayRate.setUnits(_K)
+_SlapmPolicyMonitorRowStatus_Type=RowStatus
+_SlapmPolicyMonitorRowStatus_Object=MibTableColumn
+slapmPolicyMonitorRowStatus=_SlapmPolicyMonitorRowStatus_Object((1,3,6,1,3,88,1,2,2,1,23),_SlapmPolicyMonitorRowStatus_Type())
+slapmPolicyMonitorRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPolicyMonitorRowStatus.setStatus(_D)
+_SlapmSubcomponentTable_Object=MibTable
+slapmSubcomponentTable=_SlapmSubcomponentTable_Object((1,3,6,1,3,88,1,2,3))
+if mibBuilder.loadTexts:slapmSubcomponentTable.setStatus(_B)
+_SlapmSubcomponentEntry_Object=MibTableRow
+slapmSubcomponentEntry=_SlapmSubcomponentEntry_Object((1,3,6,1,3,88,1,2,3,1))
+slapmSubcomponentEntry.setIndexNames((0,_A,_BL),(0,_A,_BM),(0,_A,_BN),(0,_A,_BO))
+if mibBuilder.loadTexts:slapmSubcomponentEntry.setStatus(_B)
+class _SlapmSubcomponentRemAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
+_SlapmSubcomponentRemAddress_Type.__name__=_L
+_SlapmSubcomponentRemAddress_Object=MibTableColumn
+slapmSubcomponentRemAddress=_SlapmSubcomponentRemAddress_Object((1,3,6,1,3,88,1,2,3,1,1),_SlapmSubcomponentRemAddress_Type())
+slapmSubcomponentRemAddress.setMaxAccess(_F)
+if mibBuilder.loadTexts:slapmSubcomponentRemAddress.setStatus(_B)
+class _SlapmSubcomponentRemPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_SlapmSubcomponentRemPort_Type.__name__=_I
+_SlapmSubcomponentRemPort_Object=MibTableColumn
+slapmSubcomponentRemPort=_SlapmSubcomponentRemPort_Object((1,3,6,1,3,88,1,2,3,1,2),_SlapmSubcomponentRemPort_Type())
+slapmSubcomponentRemPort.setMaxAccess(_F)
+if mibBuilder.loadTexts:slapmSubcomponentRemPort.setStatus(_B)
+class _SlapmSubcomponentLocalAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
+_SlapmSubcomponentLocalAddress_Type.__name__=_L
+_SlapmSubcomponentLocalAddress_Object=MibTableColumn
+slapmSubcomponentLocalAddress=_SlapmSubcomponentLocalAddress_Object((1,3,6,1,3,88,1,2,3,1,3),_SlapmSubcomponentLocalAddress_Type())
+slapmSubcomponentLocalAddress.setMaxAccess(_F)
+if mibBuilder.loadTexts:slapmSubcomponentLocalAddress.setStatus(_B)
+class _SlapmSubcomponentLocalPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_SlapmSubcomponentLocalPort_Type.__name__=_I
+_SlapmSubcomponentLocalPort_Object=MibTableColumn
+slapmSubcomponentLocalPort=_SlapmSubcomponentLocalPort_Object((1,3,6,1,3,88,1,2,3,1,4),_SlapmSubcomponentLocalPort_Type())
+slapmSubcomponentLocalPort.setMaxAccess(_F)
+if mibBuilder.loadTexts:slapmSubcomponentLocalPort.setStatus(_B)
+class _SlapmSubcomponentProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('udpListener',1),('tcpConnection',2)))
+_SlapmSubcomponentProtocol_Type.__name__=_I
+_SlapmSubcomponentProtocol_Object=MibTableColumn
+slapmSubcomponentProtocol=_SlapmSubcomponentProtocol_Object((1,3,6,1,3,88,1,2,3,1,5),_SlapmSubcomponentProtocol_Type())
+slapmSubcomponentProtocol.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentProtocol.setStatus(_B)
+class _SlapmSubcomponentSystemAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
+_SlapmSubcomponentSystemAddress_Type.__name__=_L
+_SlapmSubcomponentSystemAddress_Object=MibTableColumn
+slapmSubcomponentSystemAddress=_SlapmSubcomponentSystemAddress_Object((1,3,6,1,3,88,1,2,3,1,6),_SlapmSubcomponentSystemAddress_Type())
+slapmSubcomponentSystemAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentSystemAddress.setStatus(_B)
+_SlapmSubcomponentPolicyName_Type=SlapmNameType
+_SlapmSubcomponentPolicyName_Object=MibTableColumn
+slapmSubcomponentPolicyName=_SlapmSubcomponentPolicyName_Object((1,3,6,1,3,88,1,2,3,1,7),_SlapmSubcomponentPolicyName_Type())
+slapmSubcomponentPolicyName.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentPolicyName.setStatus(_D)
+_SlapmSubcomponentTrafficProfileName_Type=SlapmNameType
+_SlapmSubcomponentTrafficProfileName_Object=MibTableColumn
+slapmSubcomponentTrafficProfileName=_SlapmSubcomponentTrafficProfileName_Object((1,3,6,1,3,88,1,2,3,1,8),_SlapmSubcomponentTrafficProfileName_Type())
+slapmSubcomponentTrafficProfileName.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentTrafficProfileName.setStatus(_D)
+class _SlapmSubcomponentLastActivity_Type(DateAndTime):defaultHexValue=_M
+_SlapmSubcomponentLastActivity_Type.__name__=_J
+_SlapmSubcomponentLastActivity_Object=MibTableColumn
+slapmSubcomponentLastActivity=_SlapmSubcomponentLastActivity_Object((1,3,6,1,3,88,1,2,3,1,9),_SlapmSubcomponentLastActivity_Type())
+slapmSubcomponentLastActivity.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentLastActivity.setStatus(_B)
+_SlapmSubcomponentInOctets_Type=Counter32
+_SlapmSubcomponentInOctets_Object=MibTableColumn
+slapmSubcomponentInOctets=_SlapmSubcomponentInOctets_Object((1,3,6,1,3,88,1,2,3,1,10),_SlapmSubcomponentInOctets_Type())
+slapmSubcomponentInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentInOctets.setStatus(_B)
+_SlapmSubcomponentOutOctets_Type=Counter32
+_SlapmSubcomponentOutOctets_Object=MibTableColumn
+slapmSubcomponentOutOctets=_SlapmSubcomponentOutOctets_Object((1,3,6,1,3,88,1,2,3,1,11),_SlapmSubcomponentOutOctets_Type())
+slapmSubcomponentOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentOutOctets.setStatus(_B)
+_SlapmSubcomponentTcpOutBufferedOctets_Type=Counter32
+_SlapmSubcomponentTcpOutBufferedOctets_Object=MibTableColumn
+slapmSubcomponentTcpOutBufferedOctets=_SlapmSubcomponentTcpOutBufferedOctets_Object((1,3,6,1,3,88,1,2,3,1,12),_SlapmSubcomponentTcpOutBufferedOctets_Type())
+slapmSubcomponentTcpOutBufferedOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentTcpOutBufferedOctets.setStatus(_B)
+_SlapmSubcomponentTcpInBufferedOctets_Type=Counter32
+_SlapmSubcomponentTcpInBufferedOctets_Object=MibTableColumn
+slapmSubcomponentTcpInBufferedOctets=_SlapmSubcomponentTcpInBufferedOctets_Object((1,3,6,1,3,88,1,2,3,1,13),_SlapmSubcomponentTcpInBufferedOctets_Type())
+slapmSubcomponentTcpInBufferedOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentTcpInBufferedOctets.setStatus(_B)
+_SlapmSubcomponentTcpReXmts_Type=Counter32
+_SlapmSubcomponentTcpReXmts_Object=MibTableColumn
+slapmSubcomponentTcpReXmts=_SlapmSubcomponentTcpReXmts_Object((1,3,6,1,3,88,1,2,3,1,14),_SlapmSubcomponentTcpReXmts_Type())
+slapmSubcomponentTcpReXmts.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentTcpReXmts.setStatus(_B)
+_SlapmSubcomponentTcpRoundTripTime_Type=Integer32
+_SlapmSubcomponentTcpRoundTripTime_Object=MibTableColumn
+slapmSubcomponentTcpRoundTripTime=_SlapmSubcomponentTcpRoundTripTime_Object((1,3,6,1,3,88,1,2,3,1,15),_SlapmSubcomponentTcpRoundTripTime_Type())
+slapmSubcomponentTcpRoundTripTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentTcpRoundTripTime.setStatus(_B)
+if mibBuilder.loadTexts:slapmSubcomponentTcpRoundTripTime.setUnits(_K)
+_SlapmSubcomponentTcpRoundTripVariance_Type=Integer32
+_SlapmSubcomponentTcpRoundTripVariance_Object=MibTableColumn
+slapmSubcomponentTcpRoundTripVariance=_SlapmSubcomponentTcpRoundTripVariance_Object((1,3,6,1,3,88,1,2,3,1,16),_SlapmSubcomponentTcpRoundTripVariance_Type())
+slapmSubcomponentTcpRoundTripVariance.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentTcpRoundTripVariance.setStatus(_B)
+_SlapmSubcomponentInPdus_Type=Counter32
+_SlapmSubcomponentInPdus_Object=MibTableColumn
+slapmSubcomponentInPdus=_SlapmSubcomponentInPdus_Object((1,3,6,1,3,88,1,2,3,1,17),_SlapmSubcomponentInPdus_Type())
+slapmSubcomponentInPdus.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentInPdus.setStatus(_B)
+_SlapmSubcomponentOutPdus_Type=Counter32
+_SlapmSubcomponentOutPdus_Object=MibTableColumn
+slapmSubcomponentOutPdus=_SlapmSubcomponentOutPdus_Object((1,3,6,1,3,88,1,2,3,1,18),_SlapmSubcomponentOutPdus_Type())
+slapmSubcomponentOutPdus.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentOutPdus.setStatus(_B)
+class _SlapmSubcomponentApplName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_SlapmSubcomponentApplName_Type.__name__=_d
+_SlapmSubcomponentApplName_Object=MibTableColumn
+slapmSubcomponentApplName=_SlapmSubcomponentApplName_Object((1,3,6,1,3,88,1,2,3,1,19),_SlapmSubcomponentApplName_Type())
+slapmSubcomponentApplName.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentApplName.setStatus(_B)
+_SlapmSubcomponentMonitorStatus_Type=SlapmStatus
+_SlapmSubcomponentMonitorStatus_Object=MibTableColumn
+slapmSubcomponentMonitorStatus=_SlapmSubcomponentMonitorStatus_Object((1,3,6,1,3,88,1,2,3,1,20),_SlapmSubcomponentMonitorStatus_Type())
+slapmSubcomponentMonitorStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentMonitorStatus.setStatus(_B)
+class _SlapmSubcomponentMonitorIntTime_Type(DateAndTime):defaultHexValue=_M
+_SlapmSubcomponentMonitorIntTime_Type.__name__=_J
+_SlapmSubcomponentMonitorIntTime_Object=MibTableColumn
+slapmSubcomponentMonitorIntTime=_SlapmSubcomponentMonitorIntTime_Object((1,3,6,1,3,88,1,2,3,1,21),_SlapmSubcomponentMonitorIntTime_Type())
+slapmSubcomponentMonitorIntTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentMonitorIntTime.setStatus(_B)
+_SlapmSubcomponentMonitorCurrentInRate_Type=Gauge32
+_SlapmSubcomponentMonitorCurrentInRate_Object=MibTableColumn
+slapmSubcomponentMonitorCurrentInRate=_SlapmSubcomponentMonitorCurrentInRate_Object((1,3,6,1,3,88,1,2,3,1,22),_SlapmSubcomponentMonitorCurrentInRate_Type())
+slapmSubcomponentMonitorCurrentInRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentMonitorCurrentInRate.setStatus(_B)
+if mibBuilder.loadTexts:slapmSubcomponentMonitorCurrentInRate.setUnits(_G)
+_SlapmSubcomponentMonitorCurrentOutRate_Type=Gauge32
+_SlapmSubcomponentMonitorCurrentOutRate_Object=MibTableColumn
+slapmSubcomponentMonitorCurrentOutRate=_SlapmSubcomponentMonitorCurrentOutRate_Object((1,3,6,1,3,88,1,2,3,1,23),_SlapmSubcomponentMonitorCurrentOutRate_Type())
+slapmSubcomponentMonitorCurrentOutRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentMonitorCurrentOutRate.setStatus(_B)
+if mibBuilder.loadTexts:slapmSubcomponentMonitorCurrentOutRate.setUnits(_G)
+class _SlapmSubcomponentPolicyRuleIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_SlapmSubcomponentPolicyRuleIndex_Type.__name__=_e
+_SlapmSubcomponentPolicyRuleIndex_Object=MibTableColumn
+slapmSubcomponentPolicyRuleIndex=_SlapmSubcomponentPolicyRuleIndex_Object((1,3,6,1,3,88,1,2,3,1,24),_SlapmSubcomponentPolicyRuleIndex_Type())
+slapmSubcomponentPolicyRuleIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmSubcomponentPolicyRuleIndex.setStatus(_B)
+_SlapmPolicyNameTable_Object=MibTable
+slapmPolicyNameTable=_SlapmPolicyNameTable_Object((1,3,6,1,3,88,1,2,4))
+if mibBuilder.loadTexts:slapmPolicyNameTable.setStatus(_B)
+_SlapmPolicyNameEntry_Object=MibTableRow
+slapmPolicyNameEntry=_SlapmPolicyNameEntry_Object((1,3,6,1,3,88,1,2,4,1))
+slapmPolicyNameEntry.setIndexNames((0,_A,_n),(0,_A,_o))
+if mibBuilder.loadTexts:slapmPolicyNameEntry.setStatus(_B)
+class _SlapmPolicyNameSystemAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
+_SlapmPolicyNameSystemAddress_Type.__name__=_L
+_SlapmPolicyNameSystemAddress_Object=MibTableColumn
+slapmPolicyNameSystemAddress=_SlapmPolicyNameSystemAddress_Object((1,3,6,1,3,88,1,2,4,1,1),_SlapmPolicyNameSystemAddress_Type())
+slapmPolicyNameSystemAddress.setMaxAccess(_F)
+if mibBuilder.loadTexts:slapmPolicyNameSystemAddress.setStatus(_B)
+class _SlapmPolicyNameIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_SlapmPolicyNameIndex_Type.__name__=_e
+_SlapmPolicyNameIndex_Object=MibTableColumn
+slapmPolicyNameIndex=_SlapmPolicyNameIndex_Object((1,3,6,1,3,88,1,2,4,1,2),_SlapmPolicyNameIndex_Type())
+slapmPolicyNameIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:slapmPolicyNameIndex.setStatus(_B)
+_SlapmPolicyNameOfRule_Type=SlapmPolicyRuleName
+_SlapmPolicyNameOfRule_Object=MibTableColumn
+slapmPolicyNameOfRule=_SlapmPolicyNameOfRule_Object((1,3,6,1,3,88,1,2,4,1,3),_SlapmPolicyNameOfRule_Type())
+slapmPolicyNameOfRule.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyNameOfRule.setStatus(_B)
+_SlapmPolicyRuleStatsTable_Object=MibTable
+slapmPolicyRuleStatsTable=_SlapmPolicyRuleStatsTable_Object((1,3,6,1,3,88,1,2,5))
+if mibBuilder.loadTexts:slapmPolicyRuleStatsTable.setStatus(_B)
+_SlapmPolicyRuleStatsEntry_Object=MibTableRow
+slapmPolicyRuleStatsEntry=_SlapmPolicyRuleStatsEntry_Object((1,3,6,1,3,88,1,2,5,1))
+slapmPolicyRuleStatsEntry.setIndexNames((0,_A,_n),(0,_A,_o))
+if mibBuilder.loadTexts:slapmPolicyRuleStatsEntry.setStatus(_B)
+class _SlapmPolicyRuleStatsOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('inactive',1),('active',2),(_BA,3)))
+_SlapmPolicyRuleStatsOperStatus_Type.__name__=_I
+_SlapmPolicyRuleStatsOperStatus_Object=MibTableColumn
+slapmPolicyRuleStatsOperStatus=_SlapmPolicyRuleStatsOperStatus_Object((1,3,6,1,3,88,1,2,5,1,1),_SlapmPolicyRuleStatsOperStatus_Type())
+slapmPolicyRuleStatsOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsOperStatus.setStatus(_B)
+_SlapmPolicyRuleStatsActiveConns_Type=Gauge32
+_SlapmPolicyRuleStatsActiveConns_Object=MibTableColumn
+slapmPolicyRuleStatsActiveConns=_SlapmPolicyRuleStatsActiveConns_Object((1,3,6,1,3,88,1,2,5,1,2),_SlapmPolicyRuleStatsActiveConns_Type())
+slapmPolicyRuleStatsActiveConns.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsActiveConns.setStatus(_B)
+_SlapmPolicyRuleStatsTotalConns_Type=Counter32
+_SlapmPolicyRuleStatsTotalConns_Object=MibTableColumn
+slapmPolicyRuleStatsTotalConns=_SlapmPolicyRuleStatsTotalConns_Object((1,3,6,1,3,88,1,2,5,1,3),_SlapmPolicyRuleStatsTotalConns_Type())
+slapmPolicyRuleStatsTotalConns.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsTotalConns.setStatus(_B)
+class _SlapmPolicyRuleStatsLActivated_Type(DateAndTime):defaultHexValue=_M
+_SlapmPolicyRuleStatsLActivated_Type.__name__=_J
+_SlapmPolicyRuleStatsLActivated_Object=MibTableColumn
+slapmPolicyRuleStatsLActivated=_SlapmPolicyRuleStatsLActivated_Object((1,3,6,1,3,88,1,2,5,1,4),_SlapmPolicyRuleStatsLActivated_Type())
+slapmPolicyRuleStatsLActivated.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsLActivated.setStatus(_B)
+class _SlapmPolicyRuleStatsLastMapping_Type(DateAndTime):defaultHexValue=_M
+_SlapmPolicyRuleStatsLastMapping_Type.__name__=_J
+_SlapmPolicyRuleStatsLastMapping_Object=MibTableColumn
+slapmPolicyRuleStatsLastMapping=_SlapmPolicyRuleStatsLastMapping_Object((1,3,6,1,3,88,1,2,5,1,5),_SlapmPolicyRuleStatsLastMapping_Type())
+slapmPolicyRuleStatsLastMapping.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsLastMapping.setStatus(_B)
+_SlapmPolicyRuleStatsInOctets_Type=Counter32
+_SlapmPolicyRuleStatsInOctets_Object=MibTableColumn
+slapmPolicyRuleStatsInOctets=_SlapmPolicyRuleStatsInOctets_Object((1,3,6,1,3,88,1,2,5,1,6),_SlapmPolicyRuleStatsInOctets_Type())
+slapmPolicyRuleStatsInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsInOctets.setStatus(_B)
+_SlapmPolicyRuleStatsOutOctets_Type=Counter32
+_SlapmPolicyRuleStatsOutOctets_Object=MibTableColumn
+slapmPolicyRuleStatsOutOctets=_SlapmPolicyRuleStatsOutOctets_Object((1,3,6,1,3,88,1,2,5,1,7),_SlapmPolicyRuleStatsOutOctets_Type())
+slapmPolicyRuleStatsOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsOutOctets.setStatus(_B)
+_SlapmPolicyRuleStatsConnLimit_Type=Unsigned32
+_SlapmPolicyRuleStatsConnLimit_Object=MibTableColumn
+slapmPolicyRuleStatsConnLimit=_SlapmPolicyRuleStatsConnLimit_Object((1,3,6,1,3,88,1,2,5,1,8),_SlapmPolicyRuleStatsConnLimit_Type())
+slapmPolicyRuleStatsConnLimit.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsConnLimit.setStatus(_B)
+_SlapmPolicyRuleStatsCountAccepts_Type=Counter32
+_SlapmPolicyRuleStatsCountAccepts_Object=MibTableColumn
+slapmPolicyRuleStatsCountAccepts=_SlapmPolicyRuleStatsCountAccepts_Object((1,3,6,1,3,88,1,2,5,1,9),_SlapmPolicyRuleStatsCountAccepts_Type())
+slapmPolicyRuleStatsCountAccepts.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsCountAccepts.setStatus(_B)
+_SlapmPolicyRuleStatsCountDenies_Type=Counter32
+_SlapmPolicyRuleStatsCountDenies_Object=MibTableColumn
+slapmPolicyRuleStatsCountDenies=_SlapmPolicyRuleStatsCountDenies_Object((1,3,6,1,3,88,1,2,5,1,10),_SlapmPolicyRuleStatsCountDenies_Type())
+slapmPolicyRuleStatsCountDenies.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsCountDenies.setStatus(_B)
+_SlapmPolicyRuleStatsInDiscards_Type=Counter32
+_SlapmPolicyRuleStatsInDiscards_Object=MibTableColumn
+slapmPolicyRuleStatsInDiscards=_SlapmPolicyRuleStatsInDiscards_Object((1,3,6,1,3,88,1,2,5,1,11),_SlapmPolicyRuleStatsInDiscards_Type())
+slapmPolicyRuleStatsInDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsInDiscards.setStatus(_B)
+_SlapmPolicyRuleStatsOutDiscards_Type=Counter32
+_SlapmPolicyRuleStatsOutDiscards_Object=MibTableColumn
+slapmPolicyRuleStatsOutDiscards=_SlapmPolicyRuleStatsOutDiscards_Object((1,3,6,1,3,88,1,2,5,1,12),_SlapmPolicyRuleStatsOutDiscards_Type())
+slapmPolicyRuleStatsOutDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsOutDiscards.setStatus(_B)
+_SlapmPolicyRuleStatsInPackets_Type=Counter32
+_SlapmPolicyRuleStatsInPackets_Object=MibTableColumn
+slapmPolicyRuleStatsInPackets=_SlapmPolicyRuleStatsInPackets_Object((1,3,6,1,3,88,1,2,5,1,13),_SlapmPolicyRuleStatsInPackets_Type())
+slapmPolicyRuleStatsInPackets.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsInPackets.setStatus(_B)
+_SlapmPolicyRuleStatsOutPackets_Type=Counter32
+_SlapmPolicyRuleStatsOutPackets_Object=MibTableColumn
+slapmPolicyRuleStatsOutPackets=_SlapmPolicyRuleStatsOutPackets_Object((1,3,6,1,3,88,1,2,5,1,14),_SlapmPolicyRuleStatsOutPackets_Type())
+slapmPolicyRuleStatsOutPackets.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsOutPackets.setStatus(_B)
+_SlapmPolicyRuleStatsInProOctets_Type=Counter32
+_SlapmPolicyRuleStatsInProOctets_Object=MibTableColumn
+slapmPolicyRuleStatsInProOctets=_SlapmPolicyRuleStatsInProOctets_Object((1,3,6,1,3,88,1,2,5,1,15),_SlapmPolicyRuleStatsInProOctets_Type())
+slapmPolicyRuleStatsInProOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsInProOctets.setStatus(_B)
+_SlapmPolicyRuleStatsOutProOctets_Type=Counter32
+_SlapmPolicyRuleStatsOutProOctets_Object=MibTableColumn
+slapmPolicyRuleStatsOutProOctets=_SlapmPolicyRuleStatsOutProOctets_Object((1,3,6,1,3,88,1,2,5,1,16),_SlapmPolicyRuleStatsOutProOctets_Type())
+slapmPolicyRuleStatsOutProOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsOutProOctets.setStatus(_B)
+_SlapmPolicyRuleStatsMinRate_Type=Unsigned32
+_SlapmPolicyRuleStatsMinRate_Object=MibTableColumn
+slapmPolicyRuleStatsMinRate=_SlapmPolicyRuleStatsMinRate_Object((1,3,6,1,3,88,1,2,5,1,17),_SlapmPolicyRuleStatsMinRate_Type())
+slapmPolicyRuleStatsMinRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsMinRate.setStatus(_B)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsMinRate.setUnits(_g)
+_SlapmPolicyRuleStatsMaxRate_Type=Unsigned32
+_SlapmPolicyRuleStatsMaxRate_Object=MibTableColumn
+slapmPolicyRuleStatsMaxRate=_SlapmPolicyRuleStatsMaxRate_Object((1,3,6,1,3,88,1,2,5,1,18),_SlapmPolicyRuleStatsMaxRate_Type())
+slapmPolicyRuleStatsMaxRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsMaxRate.setStatus(_B)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsMaxRate.setUnits(_g)
+_SlapmPolicyRuleStatsMaxDelay_Type=Unsigned32
+_SlapmPolicyRuleStatsMaxDelay_Object=MibTableColumn
+slapmPolicyRuleStatsMaxDelay=_SlapmPolicyRuleStatsMaxDelay_Object((1,3,6,1,3,88,1,2,5,1,19),_SlapmPolicyRuleStatsMaxDelay_Type())
+slapmPolicyRuleStatsMaxDelay.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsMaxDelay.setStatus(_B)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsMaxDelay.setUnits(_K)
+_SlapmPolicyRuleStatsTotalRsvpFlows_Type=Counter32
+_SlapmPolicyRuleStatsTotalRsvpFlows_Object=MibTableColumn
+slapmPolicyRuleStatsTotalRsvpFlows=_SlapmPolicyRuleStatsTotalRsvpFlows_Object((1,3,6,1,3,88,1,2,5,1,20),_SlapmPolicyRuleStatsTotalRsvpFlows_Type())
+slapmPolicyRuleStatsTotalRsvpFlows.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsTotalRsvpFlows.setStatus(_B)
+_SlapmPolicyRuleStatsActRsvpFlows_Type=Gauge32
+_SlapmPolicyRuleStatsActRsvpFlows_Object=MibTableColumn
+slapmPolicyRuleStatsActRsvpFlows=_SlapmPolicyRuleStatsActRsvpFlows_Object((1,3,6,1,3,88,1,2,5,1,21),_SlapmPolicyRuleStatsActRsvpFlows_Type())
+slapmPolicyRuleStatsActRsvpFlows.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPolicyRuleStatsActRsvpFlows.setStatus(_B)
+_SlapmPRMonTable_Object=MibTable
+slapmPRMonTable=_SlapmPRMonTable_Object((1,3,6,1,3,88,1,2,6))
+if mibBuilder.loadTexts:slapmPRMonTable.setStatus(_B)
+_SlapmPRMonEntry_Object=MibTableRow
+slapmPRMonEntry=_SlapmPRMonEntry_Object((1,3,6,1,3,88,1,2,6,1))
+slapmPRMonEntry.setIndexNames((0,_A,_BP),(0,_A,_BQ),(0,_A,_BR))
+if mibBuilder.loadTexts:slapmPRMonEntry.setStatus(_B)
+class _SlapmPRMonOwnerIndex_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_SlapmPRMonOwnerIndex_Type.__name__=_d
+_SlapmPRMonOwnerIndex_Object=MibTableColumn
+slapmPRMonOwnerIndex=_SlapmPRMonOwnerIndex_Object((1,3,6,1,3,88,1,2,6,1,1),_SlapmPRMonOwnerIndex_Type())
+slapmPRMonOwnerIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:slapmPRMonOwnerIndex.setStatus(_B)
+class _SlapmPRMonSystemAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
+_SlapmPRMonSystemAddress_Type.__name__=_L
+_SlapmPRMonSystemAddress_Object=MibTableColumn
+slapmPRMonSystemAddress=_SlapmPRMonSystemAddress_Object((1,3,6,1,3,88,1,2,6,1,2),_SlapmPRMonSystemAddress_Type())
+slapmPRMonSystemAddress.setMaxAccess(_F)
+if mibBuilder.loadTexts:slapmPRMonSystemAddress.setStatus(_B)
+_SlapmPRMonIndex_Type=Unsigned32
+_SlapmPRMonIndex_Object=MibTableColumn
+slapmPRMonIndex=_SlapmPRMonIndex_Object((1,3,6,1,3,88,1,2,6,1,3),_SlapmPRMonIndex_Type())
+slapmPRMonIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:slapmPRMonIndex.setStatus(_B)
+class _SlapmPRMonControl_Type(Bits):defaultBinValue='111';namedValues=NamedValues(*((_BF,0),(_BG,1),(_BH,2),(_BI,3),(_BJ,4),(_BK,5)))
+_SlapmPRMonControl_Type.__name__=_l
+_SlapmPRMonControl_Object=MibTableColumn
+slapmPRMonControl=_SlapmPRMonControl_Object((1,3,6,1,3,88,1,2,6,1,4),_SlapmPRMonControl_Type())
+slapmPRMonControl.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPRMonControl.setStatus(_B)
+_SlapmPRMonStatus_Type=SlapmStatus
+_SlapmPRMonStatus_Object=MibTableColumn
+slapmPRMonStatus=_SlapmPRMonStatus_Object((1,3,6,1,3,88,1,2,6,1,5),_SlapmPRMonStatus_Type())
+slapmPRMonStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPRMonStatus.setStatus(_B)
+class _SlapmPRMonInterval_Type(Unsigned32):defaultValue=20;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(15,86400))
+_SlapmPRMonInterval_Type.__name__=_e
+_SlapmPRMonInterval_Object=MibTableColumn
+slapmPRMonInterval=_SlapmPRMonInterval_Object((1,3,6,1,3,88,1,2,6,1,6),_SlapmPRMonInterval_Type())
+slapmPRMonInterval.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPRMonInterval.setStatus(_B)
+if mibBuilder.loadTexts:slapmPRMonInterval.setUnits(_m)
+class _SlapmPRMonIntTime_Type(DateAndTime):defaultHexValue=_M
+_SlapmPRMonIntTime_Type.__name__=_J
+_SlapmPRMonIntTime_Object=MibTableColumn
+slapmPRMonIntTime=_SlapmPRMonIntTime_Object((1,3,6,1,3,88,1,2,6,1,7),_SlapmPRMonIntTime_Type())
+slapmPRMonIntTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPRMonIntTime.setStatus(_B)
+_SlapmPRMonCurrentInRate_Type=Gauge32
+_SlapmPRMonCurrentInRate_Object=MibTableColumn
+slapmPRMonCurrentInRate=_SlapmPRMonCurrentInRate_Object((1,3,6,1,3,88,1,2,6,1,8),_SlapmPRMonCurrentInRate_Type())
+slapmPRMonCurrentInRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPRMonCurrentInRate.setStatus(_B)
+if mibBuilder.loadTexts:slapmPRMonCurrentInRate.setUnits(_G)
+_SlapmPRMonCurrentOutRate_Type=Gauge32
+_SlapmPRMonCurrentOutRate_Object=MibTableColumn
+slapmPRMonCurrentOutRate=_SlapmPRMonCurrentOutRate_Object((1,3,6,1,3,88,1,2,6,1,9),_SlapmPRMonCurrentOutRate_Type())
+slapmPRMonCurrentOutRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPRMonCurrentOutRate.setStatus(_B)
+if mibBuilder.loadTexts:slapmPRMonCurrentOutRate.setUnits(_G)
+_SlapmPRMonMinRateLow_Type=Unsigned32
+_SlapmPRMonMinRateLow_Object=MibTableColumn
+slapmPRMonMinRateLow=_SlapmPRMonMinRateLow_Object((1,3,6,1,3,88,1,2,6,1,10),_SlapmPRMonMinRateLow_Type())
+slapmPRMonMinRateLow.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPRMonMinRateLow.setStatus(_B)
+if mibBuilder.loadTexts:slapmPRMonMinRateLow.setUnits(_G)
+_SlapmPRMonMinRateHigh_Type=Unsigned32
+_SlapmPRMonMinRateHigh_Object=MibTableColumn
+slapmPRMonMinRateHigh=_SlapmPRMonMinRateHigh_Object((1,3,6,1,3,88,1,2,6,1,11),_SlapmPRMonMinRateHigh_Type())
+slapmPRMonMinRateHigh.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPRMonMinRateHigh.setStatus(_B)
+if mibBuilder.loadTexts:slapmPRMonMinRateHigh.setUnits(_G)
+_SlapmPRMonMaxRateHigh_Type=Unsigned32
+_SlapmPRMonMaxRateHigh_Object=MibTableColumn
+slapmPRMonMaxRateHigh=_SlapmPRMonMaxRateHigh_Object((1,3,6,1,3,88,1,2,6,1,12),_SlapmPRMonMaxRateHigh_Type())
+slapmPRMonMaxRateHigh.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPRMonMaxRateHigh.setStatus(_B)
+if mibBuilder.loadTexts:slapmPRMonMaxRateHigh.setUnits(_G)
+_SlapmPRMonMaxRateLow_Type=Unsigned32
+_SlapmPRMonMaxRateLow_Object=MibTableColumn
+slapmPRMonMaxRateLow=_SlapmPRMonMaxRateLow_Object((1,3,6,1,3,88,1,2,6,1,13),_SlapmPRMonMaxRateLow_Type())
+slapmPRMonMaxRateLow.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPRMonMaxRateLow.setStatus(_B)
+if mibBuilder.loadTexts:slapmPRMonMaxRateLow.setUnits(_G)
+_SlapmPRMonMaxDelayHigh_Type=Unsigned32
+_SlapmPRMonMaxDelayHigh_Object=MibTableColumn
+slapmPRMonMaxDelayHigh=_SlapmPRMonMaxDelayHigh_Object((1,3,6,1,3,88,1,2,6,1,14),_SlapmPRMonMaxDelayHigh_Type())
+slapmPRMonMaxDelayHigh.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPRMonMaxDelayHigh.setStatus(_B)
+if mibBuilder.loadTexts:slapmPRMonMaxDelayHigh.setUnits(_K)
+_SlapmPRMonMaxDelayLow_Type=Unsigned32
+_SlapmPRMonMaxDelayLow_Object=MibTableColumn
+slapmPRMonMaxDelayLow=_SlapmPRMonMaxDelayLow_Object((1,3,6,1,3,88,1,2,6,1,15),_SlapmPRMonMaxDelayLow_Type())
+slapmPRMonMaxDelayLow.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPRMonMaxDelayLow.setStatus(_B)
+if mibBuilder.loadTexts:slapmPRMonMaxDelayLow.setUnits(_K)
+_SlapmPRMonMinInRateNotAchieves_Type=Counter32
+_SlapmPRMonMinInRateNotAchieves_Object=MibTableColumn
+slapmPRMonMinInRateNotAchieves=_SlapmPRMonMinInRateNotAchieves_Object((1,3,6,1,3,88,1,2,6,1,16),_SlapmPRMonMinInRateNotAchieves_Type())
+slapmPRMonMinInRateNotAchieves.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPRMonMinInRateNotAchieves.setStatus(_B)
+_SlapmPRMonMaxInRateExceeds_Type=Counter32
+_SlapmPRMonMaxInRateExceeds_Object=MibTableColumn
+slapmPRMonMaxInRateExceeds=_SlapmPRMonMaxInRateExceeds_Object((1,3,6,1,3,88,1,2,6,1,17),_SlapmPRMonMaxInRateExceeds_Type())
+slapmPRMonMaxInRateExceeds.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPRMonMaxInRateExceeds.setStatus(_B)
+_SlapmPRMonMaxDelayExceeds_Type=Counter32
+_SlapmPRMonMaxDelayExceeds_Object=MibTableColumn
+slapmPRMonMaxDelayExceeds=_SlapmPRMonMaxDelayExceeds_Object((1,3,6,1,3,88,1,2,6,1,18),_SlapmPRMonMaxDelayExceeds_Type())
+slapmPRMonMaxDelayExceeds.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPRMonMaxDelayExceeds.setStatus(_B)
+_SlapmPRMonMinOutRateNotAchieves_Type=Counter32
+_SlapmPRMonMinOutRateNotAchieves_Object=MibTableColumn
+slapmPRMonMinOutRateNotAchieves=_SlapmPRMonMinOutRateNotAchieves_Object((1,3,6,1,3,88,1,2,6,1,19),_SlapmPRMonMinOutRateNotAchieves_Type())
+slapmPRMonMinOutRateNotAchieves.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPRMonMinOutRateNotAchieves.setStatus(_B)
+_SlapmPRMonMaxOutRateExceeds_Type=Counter32
+_SlapmPRMonMaxOutRateExceeds_Object=MibTableColumn
+slapmPRMonMaxOutRateExceeds=_SlapmPRMonMaxOutRateExceeds_Object((1,3,6,1,3,88,1,2,6,1,20),_SlapmPRMonMaxOutRateExceeds_Type())
+slapmPRMonMaxOutRateExceeds.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPRMonMaxOutRateExceeds.setStatus(_B)
+_SlapmPRMonCurrentDelayRate_Type=Gauge32
+_SlapmPRMonCurrentDelayRate_Object=MibTableColumn
+slapmPRMonCurrentDelayRate=_SlapmPRMonCurrentDelayRate_Object((1,3,6,1,3,88,1,2,6,1,21),_SlapmPRMonCurrentDelayRate_Type())
+slapmPRMonCurrentDelayRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:slapmPRMonCurrentDelayRate.setStatus(_B)
+if mibBuilder.loadTexts:slapmPRMonCurrentDelayRate.setUnits(_K)
+_SlapmPRMonRowStatus_Type=RowStatus
+_SlapmPRMonRowStatus_Object=MibTableColumn
+slapmPRMonRowStatus=_SlapmPRMonRowStatus_Object((1,3,6,1,3,88,1,2,6,1,22),_SlapmPRMonRowStatus_Type())
+slapmPRMonRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:slapmPRMonRowStatus.setStatus(_B)
+_SlapmConformance_ObjectIdentity=ObjectIdentity
+slapmConformance=_SlapmConformance_ObjectIdentity((1,3,6,1,3,88,2))
+_SlapmCompliances_ObjectIdentity=ObjectIdentity
+slapmCompliances=_SlapmCompliances_ObjectIdentity((1,3,6,1,3,88,2,1))
+_SlapmGroups_ObjectIdentity=ObjectIdentity
+slapmGroups=_SlapmGroups_ObjectIdentity((1,3,6,1,3,88,2,2))
+slapmBaseGroup=ObjectGroup((1,3,6,1,3,88,2,2,1))
+slapmBaseGroup.setObjects(*((_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_BS),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_h),(_A,_N),(_A,_AC),(_A,_V),(_A,_W),(_A,_X),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_Y),(_A,_BT)))
+if mibBuilder.loadTexts:slapmBaseGroup.setStatus(_D)
+slapmOptionalGroup=ObjectGroup((1,3,6,1,3,88,2,2,2))
+slapmOptionalGroup.setObjects(*((_A,_AO),(_A,_AP)))
+if mibBuilder.loadTexts:slapmOptionalGroup.setStatus(_D)
+slapmEndSystemGroup=ObjectGroup((1,3,6,1,3,88,2,2,3))
+slapmEndSystemGroup.setObjects(*((_A,_AQ),(_A,_AR),(_A,_O),(_A,_i),(_A,_j),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_P),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_H),(_A,_Q),(_A,_R),(_A,_S)))
+if mibBuilder.loadTexts:slapmEndSystemGroup.setStatus(_D)
+slapmBaseGroup2=ObjectGroup((1,3,6,1,3,88,2,2,6))
+slapmBaseGroup2.setObjects(*((_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_BU),(_A,_BV),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av),(_A,_T),(_A,_U),(_A,_Aw),(_A,_Z),(_A,_a),(_A,_b),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_c),(_A,_BW)))
+if mibBuilder.loadTexts:slapmBaseGroup2.setStatus(_B)
+slapmEndSystemGroup2=ObjectGroup((1,3,6,1,3,88,2,2,7))
+slapmEndSystemGroup2.setObjects(*((_A,_AQ),(_A,_AR),(_A,_O),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_P),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_H),(_A,_Q),(_A,_R),(_A,_S),(_A,_k)))
+if mibBuilder.loadTexts:slapmEndSystemGroup2.setStatus(_B)
+slapmMonitoredEventNotAchieved=NotificationType((1,3,6,1,3,88,0,1))
+slapmMonitoredEventNotAchieved.setObjects(*((_A,_V),(_A,_h),(_A,_N),(_A,_N),(_A,_W),(_A,_X),(_A,_Y)))
+if mibBuilder.loadTexts:slapmMonitoredEventNotAchieved.setStatus(_D)
+slapmMonitoredEventOkay=NotificationType((1,3,6,1,3,88,0,2))
+slapmMonitoredEventOkay.setObjects(*((_A,_V),(_A,_h),(_A,_N),(_A,_N),(_A,_W),(_A,_X),(_A,_Y)))
+if mibBuilder.loadTexts:slapmMonitoredEventOkay.setStatus(_D)
+slapmPolicyProfileDeleted=NotificationType((1,3,6,1,3,88,0,3))
+slapmPolicyProfileDeleted.setObjects(*((_A,_w),(_A,_A2),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_AO),(_A,_AP),(_A,_A9),(_A,_AA),(_A,_AB)))
+if mibBuilder.loadTexts:slapmPolicyProfileDeleted.setStatus(_D)
+slapmPolicyMonitorDeleted=NotificationType((1,3,6,1,3,88,0,4))
+slapmPolicyMonitorDeleted.setObjects(*((_A,_N),(_A,_AC),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN)))
+if mibBuilder.loadTexts:slapmPolicyMonitorDeleted.setStatus(_D)
+slapmSubcomponentMonitoredEventNotAchieved=NotificationType((1,3,6,1,3,88,0,5))
+slapmSubcomponentMonitoredEventNotAchieved.setObjects(*((_A,_O),(_A,_i),(_A,_j),(_A,_H),(_A,_H),(_A,_Q),(_A,_S),(_A,_R),(_A,_P)))
+if mibBuilder.loadTexts:slapmSubcomponentMonitoredEventNotAchieved.setStatus(_D)
+slapmSubcomponentMonitoredEventOkay=NotificationType((1,3,6,1,3,88,0,6))
+slapmSubcomponentMonitoredEventOkay.setObjects(*((_A,_O),(_A,_i),(_A,_j),(_A,_H),(_A,_H),(_A,_Q),(_A,_S),(_A,_R),(_A,_P)))
+if mibBuilder.loadTexts:slapmSubcomponentMonitoredEventOkay.setStatus(_D)
+slapmPolicyRuleMonNotOkay=NotificationType((1,3,6,1,3,88,0,7))
+slapmPolicyRuleMonNotOkay.setObjects(*((_A,_Z),(_A,_T),(_A,_U),(_A,_U),(_A,_a),(_A,_b),(_A,_c)))
+if mibBuilder.loadTexts:slapmPolicyRuleMonNotOkay.setStatus(_B)
+slapmPolicyRuleMonOkay=NotificationType((1,3,6,1,3,88,0,8))
+slapmPolicyRuleMonOkay.setObjects(*((_A,_Z),(_A,_T),(_A,_U),(_A,_U),(_A,_a),(_A,_b),(_A,_c)))
+if mibBuilder.loadTexts:slapmPolicyRuleMonOkay.setStatus(_B)
+slapmPolicyRuleDeleted=NotificationType((1,3,6,1,3,88,0,9))
+slapmPolicyRuleDeleted.setObjects(*((_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av)))
+if mibBuilder.loadTexts:slapmPolicyRuleDeleted.setStatus(_B)
+slapmPolicyRuleMonDeleted=NotificationType((1,3,6,1,3,88,0,10))
+slapmPolicyRuleMonDeleted.setObjects(*((_A,_T),(_A,_U),(_A,_Aw),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6)))
+if mibBuilder.loadTexts:slapmPolicyRuleMonDeleted.setStatus(_B)
+slapmSubcMonitorNotOkay=NotificationType((1,3,6,1,3,88,0,11))
+slapmSubcMonitorNotOkay.setObjects(*((_A,_O),(_A,_k),(_A,_T),(_A,_H),(_A,_H),(_A,_Q),(_A,_S),(_A,_R),(_A,_P)))
+if mibBuilder.loadTexts:slapmSubcMonitorNotOkay.setStatus(_B)
+slapmSubcMonitorOkay=NotificationType((1,3,6,1,3,88,0,12))
+slapmSubcMonitorOkay.setObjects(*((_A,_O),(_A,_k),(_A,_T),(_A,_H),(_A,_H),(_A,_Q),(_A,_S),(_A,_R),(_A,_P)))
+if mibBuilder.loadTexts:slapmSubcMonitorOkay.setStatus(_B)
+slapmNotGroup=NotificationGroup((1,3,6,1,3,88,2,2,4))
+slapmNotGroup.setObjects(*((_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba)))
+if mibBuilder.loadTexts:slapmNotGroup.setStatus(_D)
+slapmEndSystemNotGroup=NotificationGroup((1,3,6,1,3,88,2,2,5))
+slapmEndSystemNotGroup.setObjects(*((_A,_Bb),(_A,_Bc)))
+if mibBuilder.loadTexts:slapmEndSystemNotGroup.setStatus(_D)
+slapmNotGroup2=NotificationGroup((1,3,6,1,3,88,2,2,8))
+slapmNotGroup2.setObjects(*((_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg)))
+if mibBuilder.loadTexts:slapmNotGroup2.setStatus(_B)
+slapmEndSystemNotGroup2=NotificationGroup((1,3,6,1,3,88,2,2,9))
+slapmEndSystemNotGroup2.setObjects(*((_A,_Bh),(_A,_Bi)))
+if mibBuilder.loadTexts:slapmEndSystemNotGroup2.setStatus(_B)
+slapmCompliance=ModuleCompliance((1,3,6,1,3,88,2,1,1))
+slapmCompliance.setObjects(*((_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo),(_A,_Bp),(_A,_Bq),(_A,_Br)))
+if mibBuilder.loadTexts:slapmCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'SlapmNameType':SlapmNameType,'SlapmStatus':SlapmStatus,'SlapmPolicyRuleName':SlapmPolicyRuleName,'slapmMIB':slapmMIB,'slapmNotifications':slapmNotifications,_BX:slapmMonitoredEventNotAchieved,_BY:slapmMonitoredEventOkay,_BZ:slapmPolicyProfileDeleted,_Ba:slapmPolicyMonitorDeleted,_Bb:slapmSubcomponentMonitoredEventNotAchieved,_Bc:slapmSubcomponentMonitoredEventOkay,_Bd:slapmPolicyRuleMonNotOkay,_Be:slapmPolicyRuleMonOkay,_Bf:slapmPolicyRuleDeleted,_Bg:slapmPolicyRuleMonDeleted,_Bh:slapmSubcMonitorNotOkay,_Bi:slapmSubcMonitorOkay,'slapmObjects':slapmObjects,'slapmBaseObjects':slapmBaseObjects,_p:slapmSpinLock,_q:slapmPolicyCountQueries,_r:slapmPolicyCountAccesses,_s:slapmPolicyCountSuccessAccesses,_t:slapmPolicyCountNotFounds,_u:slapmPolicyPurgeTime,_v:slapmPolicyTrapEnable,_AQ:slapmPolicyTrapFilter,'slapmTableObjects':slapmTableObjects,'slapmPolicyStatsTable':slapmPolicyStatsTable,'slapmPolicyStatsEntry':slapmPolicyStatsEntry,_B7:slapmPolicyStatsSystemAddress,_B8:slapmPolicyStatsPolicyName,_B9:slapmPolicyStatsTrafficProfileName,_BS:slapmPolicyStatsOperStatus,_w:slapmPolicyStatsActiveConns,_A2:slapmPolicyStatsTotalConns,_x:slapmPolicyStatsFirstActivated,_y:slapmPolicyStatsLastMapping,_z:slapmPolicyStatsInOctets,_A0:slapmPolicyStatsOutOctets,_A1:slapmPolicyStatsConnectionLimit,_A3:slapmPolicyStatsCountAccepts,_A4:slapmPolicyStatsCountDenies,_A5:slapmPolicyStatsInDiscards,_A6:slapmPolicyStatsOutDiscards,_A7:slapmPolicyStatsInPackets,_A8:slapmPolicyStatsOutPackets,_AO:slapmPolicyStatsInProfileOctets,_AP:slapmPolicyStatsOutProfileOctets,_A9:slapmPolicyStatsMinRate,_AA:slapmPolicyStatsMaxRate,_AB:slapmPolicyStatsMaxDelay,'slapmPolicyMonitorTable':slapmPolicyMonitorTable,'slapmPolicyMonitorEntry':slapmPolicyMonitorEntry,_BB:slapmPolicyMonitorOwnerIndex,_BC:slapmPolicyMonitorSystemAddress,_BD:slapmPolicyMonitorPolicyName,_BE:slapmPolicyMonitorTrafficProfileName,_h:slapmPolicyMonitorControl,_N:slapmPolicyMonitorStatus,_AC:slapmPolicyMonitorInterval,_V:slapmPolicyMonitorIntTime,_W:slapmPolicyMonitorCurrentInRate,_X:slapmPolicyMonitorCurrentOutRate,_AD:slapmPolicyMonitorMinRateLow,_AE:slapmPolicyMonitorMinRateHigh,_AF:slapmPolicyMonitorMaxRateHigh,_AG:slapmPolicyMonitorMaxRateLow,_AH:slapmPolicyMonitorMaxDelayHigh,_AI:slapmPolicyMonitorMaxDelayLow,_AJ:slapmPolicyMonitorMinInRateNotAchieves,_AK:slapmPolicyMonitorMaxInRateExceeds,_AL:slapmPolicyMonitorMaxDelayExceeds,_AM:slapmPolicyMonitorMinOutRateNotAchieves,_AN:slapmPolicyMonitorMaxOutRateExceeds,_Y:slapmPolicyMonitorCurrentDelayRate,_BT:slapmPolicyMonitorRowStatus,'slapmSubcomponentTable':slapmSubcomponentTable,'slapmSubcomponentEntry':slapmSubcomponentEntry,_BL:slapmSubcomponentRemAddress,_BM:slapmSubcomponentRemPort,_BN:slapmSubcomponentLocalAddress,_BO:slapmSubcomponentLocalPort,_AR:slapmSubcomponentProtocol,_O:slapmSubcomponentSystemAddress,_i:slapmSubcomponentPolicyName,_j:slapmSubcomponentTrafficProfileName,_AS:slapmSubcomponentLastActivity,_AT:slapmSubcomponentInOctets,_AU:slapmSubcomponentOutOctets,_AV:slapmSubcomponentTcpOutBufferedOctets,_AW:slapmSubcomponentTcpInBufferedOctets,_AX:slapmSubcomponentTcpReXmts,_P:slapmSubcomponentTcpRoundTripTime,_AY:slapmSubcomponentTcpRoundTripVariance,_AZ:slapmSubcomponentInPdus,_Aa:slapmSubcomponentOutPdus,_Ab:slapmSubcomponentApplName,_H:slapmSubcomponentMonitorStatus,_Q:slapmSubcomponentMonitorIntTime,_S:slapmSubcomponentMonitorCurrentInRate,_R:slapmSubcomponentMonitorCurrentOutRate,_k:slapmSubcomponentPolicyRuleIndex,'slapmPolicyNameTable':slapmPolicyNameTable,'slapmPolicyNameEntry':slapmPolicyNameEntry,_n:slapmPolicyNameSystemAddress,_o:slapmPolicyNameIndex,_BU:slapmPolicyNameOfRule,'slapmPolicyRuleStatsTable':slapmPolicyRuleStatsTable,'slapmPolicyRuleStatsEntry':slapmPolicyRuleStatsEntry,_BV:slapmPolicyRuleStatsOperStatus,_Ac:slapmPolicyRuleStatsActiveConns,_Ad:slapmPolicyRuleStatsTotalConns,_Ae:slapmPolicyRuleStatsLActivated,_Af:slapmPolicyRuleStatsLastMapping,_Ag:slapmPolicyRuleStatsInOctets,_Ah:slapmPolicyRuleStatsOutOctets,_Ai:slapmPolicyRuleStatsConnLimit,_Aj:slapmPolicyRuleStatsCountAccepts,_Ak:slapmPolicyRuleStatsCountDenies,_Al:slapmPolicyRuleStatsInDiscards,_Am:slapmPolicyRuleStatsOutDiscards,_An:slapmPolicyRuleStatsInPackets,_Ao:slapmPolicyRuleStatsOutPackets,_Ap:slapmPolicyRuleStatsInProOctets,_Aq:slapmPolicyRuleStatsOutProOctets,_Ar:slapmPolicyRuleStatsMinRate,_As:slapmPolicyRuleStatsMaxRate,_At:slapmPolicyRuleStatsMaxDelay,_Au:slapmPolicyRuleStatsTotalRsvpFlows,_Av:slapmPolicyRuleStatsActRsvpFlows,'slapmPRMonTable':slapmPRMonTable,'slapmPRMonEntry':slapmPRMonEntry,_BP:slapmPRMonOwnerIndex,_BQ:slapmPRMonSystemAddress,_BR:slapmPRMonIndex,_T:slapmPRMonControl,_U:slapmPRMonStatus,_Aw:slapmPRMonInterval,_Z:slapmPRMonIntTime,_a:slapmPRMonCurrentInRate,_b:slapmPRMonCurrentOutRate,_Ax:slapmPRMonMinRateLow,_Ay:slapmPRMonMinRateHigh,_Az:slapmPRMonMaxRateHigh,_A_:slapmPRMonMaxRateLow,_B0:slapmPRMonMaxDelayHigh,_B1:slapmPRMonMaxDelayLow,_B2:slapmPRMonMinInRateNotAchieves,_B3:slapmPRMonMaxInRateExceeds,_B4:slapmPRMonMaxDelayExceeds,_B5:slapmPRMonMinOutRateNotAchieves,_B6:slapmPRMonMaxOutRateExceeds,_c:slapmPRMonCurrentDelayRate,_BW:slapmPRMonRowStatus,'slapmConformance':slapmConformance,'slapmCompliances':slapmCompliances,'slapmCompliance':slapmCompliance,'slapmGroups':slapmGroups,_Bn:slapmBaseGroup,_Bp:slapmOptionalGroup,_Bq:slapmEndSystemGroup,_Bo:slapmNotGroup,_Br:slapmEndSystemNotGroup,_Bj:slapmBaseGroup2,_Bl:slapmEndSystemGroup2,_Bk:slapmNotGroup2,_Bm:slapmEndSystemNotGroup2})

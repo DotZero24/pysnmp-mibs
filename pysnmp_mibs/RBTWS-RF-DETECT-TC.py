@@ -1,0 +1,16 @@
+_B='ad-hoc'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+rbtwsMibs,=mibBuilder.importSymbols('RBTWS-ROOT-MIB','rbtwsMibs')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+rbtwsRFDetectTc=ModuleIdentity((1,3,6,1,4,1,52,4,15,1,4,11))
+if mibBuilder.loadTexts:rbtwsRFDetectTc.setRevisions(('2007-04-18 00:02','2007-03-28 00:01'))
+class RbtwsRFDetectClassificationReason(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('other',1),('default-classification',2),('rogue-list',3),('ap-in-modo',4),('neighbor-list',5),('ssid-masquerade',6),('seen-in-network',7),(_B,8),('ssid-list',9),('pass-fingerprint',10),('fail-fingerprint',11)))
+class RbtwsRFDetectClassification(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('other',1),('not-classified',2),('member',3),('neighbor',4),('suspect',5),('rogue',6)))
+class RbtwsRFDetectNetworkingMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_B,1),('infrastructure',2)))
+mibBuilder.exportSymbols('RBTWS-RF-DETECT-TC',**{'RbtwsRFDetectClassificationReason':RbtwsRFDetectClassificationReason,'RbtwsRFDetectClassification':RbtwsRFDetectClassification,'RbtwsRFDetectNetworkingMode':RbtwsRFDetectNetworkingMode,'rbtwsRFDetectTc':rbtwsRFDetectTc})

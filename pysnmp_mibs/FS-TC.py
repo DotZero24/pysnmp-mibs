@@ -1,0 +1,16 @@
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+fsModules,=mibBuilder.importSymbols('FS-SMI','fsModules')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+fsTextualConventions=ModuleIdentity((1,3,6,1,4,1,52642,1,1,10,4,1))
+if mibBuilder.loadTexts:fsTextualConventions.setRevisions(('2002-03-20 00:00',))
+class IfIndex(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+class FSTrapType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27)));namedValues=NamedValues(*(('coldFS',1),('warmFS',2),('linkDown',3),('linkUp',4),('authenFailure',5),('newRoot',6),('topoChange',7),('hardChangeDetected',8),('portSecurityViolate',9),('stormAlarm',10),('macNotification',11),('vrrpNewMaster',12),('vrrpAuthFailure',13),('powerStateChange',14),('fanStateChange',15),('ospf',16),('pim',17),('igmp',18),('dvmrp',19),('entity',20),('cluster',21),('temperatureWarning',22),('sysGuard',23),('bgp',24),('lineDetect',25),('bgpReachMaxPrefix',26),('hardwareNotSupport',27)))
+class ConfigStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('valid',1),('invalid',2)))
+class MemberMap(TextualConvention,OctetString):status=_A
+mibBuilder.exportSymbols('FS-TC',**{'IfIndex':IfIndex,'FSTrapType':FSTrapType,'ConfigStatus':ConfigStatus,'MemberMap':MemberMap,'fsTextualConventions':fsTextualConventions})

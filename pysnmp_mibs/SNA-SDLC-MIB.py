@@ -1,343 +1,902 @@
-#
-# PySNMP MIB module SNA-SDLC-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/SNA-SDLC-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:08:34 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, OctetString, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
-( ifAdminStatus, ifOperStatus, ifIndex, ) = mibBuilder.importSymbols("IF-MIB", "ifAdminStatus", "ifOperStatus", "ifIndex")
-( ModuleCompliance, NotificationGroup, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-( MibIdentifier, Bits, mib_2, Gauge32, ObjectIdentity, ModuleIdentity, Counter32, Unsigned32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Integer32, TimeTicks, NotificationType, iso, ) = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Bits", "mib-2", "Gauge32", "ObjectIdentity", "ModuleIdentity", "Counter32", "Unsigned32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Integer32", "TimeTicks", "NotificationType", "iso")
-( TextualConvention, DisplayString, TimeInterval, RowStatus, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TimeInterval", "RowStatus")
-snaDLC = ModuleIdentity((1, 3, 6, 1, 2, 1, 41))
-if mibBuilder.loadTexts: snaDLC.setLastUpdated('9411150000Z')
-if mibBuilder.loadTexts: snaDLC.setOrganization('IETF SNA DLC MIB Working Group')
-if mibBuilder.loadTexts: snaDLC.setContactInfo('        Wayne Clark\n\n                 Postal: cisco Systems, Inc.\n                         3100 Smoketree Ct.\n                         Suite 1000\n                         Raleigh, NC 27604\n                         US\n\n                    Tel: +1 919 878 6958\n\n                 E-Mail: wclark@cisco.com')
-if mibBuilder.loadTexts: snaDLC.setDescription('This is the MIB module for objects used to\n                 manage SDLC devices.')
-sdlc = MibIdentifier((1, 3, 6, 1, 2, 1, 41, 1))
-sdlcPortGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 41, 1, 1))
-sdlcLSGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 41, 1, 2))
-sdlcPortAdminTable = MibTable((1, 3, 6, 1, 2, 1, 41, 1, 1, 1), )
-if mibBuilder.loadTexts: sdlcPortAdminTable.setDescription('This table contains objects that can be\n                        changed to manage an SDLC port.    Changing one\n                        of these parameters may take effect in the\n                        operating port immediately or may wait until\n                        the interface is restarted depending on the\n                        details of the implementation.\n\n                        Most of the objects in this read-write table\n                        have corresponding read-only objects in the\n                        sdlcPortOperTable that return the current\n                        operating value.\n\n                        The operating values may be different from\n                        these configured values if  a configured\n                        parameter was changed after the interface was\n                        started.')
-sdlcPortAdminEntry = MibTableRow((1, 3, 6, 1, 2, 1, 41, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: sdlcPortAdminEntry.setDescription('A list of configured values for an SDLC port.')
-sdlcPortAdminName = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,10))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sdlcPortAdminName.setDescription('An octet string that defines the physical port\n                        to which this interface is assigned.  It has\n                        implementation-specific significance. Its value\n                        shall be unique within the administered\n                        system.  It must contain only ASCII printable\n                        characters.  Should an implementation choose to\n                        accept a write operation  for this object, it\n                        causes the logical port definition associated\n                        with the table instance to be moved to  a\n                        different physical port.  A write operation\n                        shall not take effect until the port is cycled\n                        inactive.')
-sdlcPortAdminRole = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2), ("negotiable", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sdlcPortAdminRole.setDescription('This object describes the role that the link\n                        station shall assume the next time a connection\n                        is established.\n\n                        Even though this is defined as a port object,\n                        it is a link station attribute in the sense\n                        that a role is per link station.  However, it\n                        is not possible to vary link station roles on a\n                        particular port.  For example, if an SDLC port\n                        is configured to primary, all link stations on\n                        that port must be primary.')
-sdlcPortAdminType = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("leased", 1), ("switched", 2),)).clone('leased')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sdlcPortAdminType.setDescription('This parameter defines whether the SDLC port\n                        is to connect to a leased or switched line.  A\n                        write operation to this administrative  value\n                        shall not take effect until the SDLC port has\n                        been cycled inactive.')
-sdlcPortAdminTopology = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("pointToPoint", 1), ("multipoint", 2),)).clone('pointToPoint')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sdlcPortAdminTopology.setDescription('This parameter defines whether the SDLC port is\n                        capable of operating in either a point-to-point\n                        or multipoint topology.\n\n                        sdlcPortAdminTopology == multipoint implies the\n                        port can also operate in a point-to-point\n                        topology.  sdlcPortAdminTopology ==\n                        pointToPoint does not imply the port can\n                        operate in a multipoint topology.\n\n                        A write operation to this administrative value\n                        shall not take effect until the SDLC port has\n                        been cycled inactive.')
-sdlcPortAdminISTATUS = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2),)).clone('active')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sdlcPortAdminISTATUS.setDescription('This parameter controls the initial value of\n                        the administrative status, ifAdminStatus, of\n                        this SDLC port at port start-up.  Depending\n                        on the implementation, a write operation to\n                        this administrative object may not take effect\n                        until the SDLC port has been cycled inactive.')
-sdlcPortAdminACTIVTO = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 1, 1, 6), TimeInterval()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sdlcPortAdminACTIVTO.setDescription('This parameter defines the period of time (in\n                        1/100ths of a second) that the port will allow a\n                        switched line to remain inactive before\n                        disconnecting.  A switched line is considered\n                        to be inactive if there are no I-Frames being\n                        transferred.  A value of zero indicates no\n                        timeout.  Depending on the implementation, a\n                        write operation to this administered value may\n                        not take effect until the port is cycled\n                        inactive.\n\n                        This object only has meaning for SDLC ports\n                        where sdlcPortAdminType == switched\n\n                        The object descriptor contains the name of an\n                        NCP configuration parameter, ACTIVTO.  Please\n                        note that the value of this object represents\n                        1/100ths of a second while the NCP ACTIVTO is\n                        represented in seconds.')
-sdlcPortAdminPAUSE = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 1, 1, 7), TimeInterval().clone(200)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sdlcPortAdminPAUSE.setDescription('This object defines the minimum elapsed time\n                        (in 1/100ths of a second) between any two\n                        traversals of the poll list for a primary SDLC\n                        port.  Depending on the implementation, a write\n                        operation to this administered value  may not\n                        take effect until the port is cycled inactive.\n                        The object descriptor contains the name of an\n                        NCP configuration parameter, PAUSE.  Please\n                        note that the value of this object represents\n                        1/100ths of a second while the NCP PAUSE is\n                        represented in 1/10ths of a second.\n\n                        This object only has meaning for SDLC ports\n                        where sdlcPortAdminRole == primary ')
-sdlcPortAdminSERVLIM = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 1, 1, 8), Integer32().clone(20)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sdlcPortAdminSERVLIM.setDescription('This object defines the number of times the\n                        active poll list will be traversed before\n                        polling a station on the slow poll list for a\n                        primary, multipoint SDLC port.  Depending  on\n                        the implementation, a write operation to this\n                        administered value  may not take effect until\n                        the port is cycled inactive.\n\n                        This object only has meaning for SDLC ports\n                        where\n                            sdlcPortAdminRole == primary\n                        and\n                            sdlcPortAdminTopology == multipoint ')
-sdlcPortAdminSlowPollTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 1, 1, 9), TimeInterval().clone(2000)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sdlcPortAdminSlowPollTimer.setDescription('This object describes the elapsed time (in\n                        1/100ths of a second) between polls for failed\n                        secondary link station addresses.  Depending\n                        on the implementation, a write operation to\n                        this administered value  may not take effect\n                        until the port is cycled inactive.\n\n                        This object only has meaning for SDLC ports\n                        where\n                            sdlcPortAdminRole == primary\n                        and\n                            sdlcPortAdminTopology == multipoint ')
-sdlcPortOperTable = MibTable((1, 3, 6, 1, 2, 1, 41, 1, 1, 2), )
-if mibBuilder.loadTexts: sdlcPortOperTable.setDescription('This table contains current SDLC port\n                        parameters.  Many of these objects have\n                        corresponding objects in the sdlcPortAdminTable.')
-sdlcPortOperEntry = MibTableRow((1, 3, 6, 1, 2, 1, 41, 1, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: sdlcPortOperEntry.setDescription('Currently set parameters for a specific SDLC\n                        port.')
-sdlcPortOperName = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 2, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortOperName.setDescription('An octet string that describes the physical\n                        port to which this interface is currently\n                        attached.  It has  implementation-specific\n                        significance.')
-sdlcPortOperRole = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2), ("undefined", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortOperRole.setDescription('This object describes the role that the link\n                        station has assumed on this connection.\n\n                        Even though this is defined as a port object,\n                        it is a link station attribute in the sense\n                        that a role is per link station.  However, it\n                        is not possible to vary link station roles on a\n                        particular port.  For example, if an SDLC port\n                        is configured to primary, all link stations on\n                        that port must be primary.\n\n                        The value of sdlcPortOperRole is undefined(3)\n                        whenever the link station role has not yet been\n                        established by the mode setting command.')
-sdlcPortOperType = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("leased", 1), ("switched", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortOperType.setDescription('This parameter defines whether the SDLC port\n                        is currently operating as though connected to a\n                        leased or switched line.')
-sdlcPortOperTopology = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("pointToPoint", 1), ("multipoint", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortOperTopology.setDescription('This parameter defines whether the SDLC port is\n                        currently operating in a point-to-point or\n                        multipoint topology.')
-sdlcPortOperISTATUS = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortOperISTATUS.setDescription('This parameter describes the initial value of\n                        the administrative status, ifAdminStatus, of\n                        this SDLC port at last port start-up.')
-sdlcPortOperACTIVTO = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 2, 1, 6), TimeInterval()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortOperACTIVTO.setDescription('This parameter defines the period of time (in\n                        100ths of a second) that the port will allow a\n                        switched line to remain inactive before\n                        disconnecting.  A switched line is considered\n                        to be inactive if there are no I-Frames being\n                        transferred.\n\n                        The object descriptor contains the name of an\n                        NCP configuration parameter, ACTIVTO.  Please\n                        note that the value of this object represents\n                        1/100ths of a second while the NCP ACTIVTO is\n                        represented in seconds.\n                        A value of zero indicates no timeout.')
-sdlcPortOperPAUSE = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 2, 1, 7), TimeInterval()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortOperPAUSE.setDescription('This object describes the current minimum\n                        elapsed time (in 1/100ths of a second) between\n                        any two traversals of the poll list for a\n                        primary SDLC port.\n\n                        The object descriptor contains the name of an\n                        NCP configuration parameter, PAUSE.  Please\n                        note that the value of this object represents\n                        1/100ths of a second while the NCP PAUSE is\n                        represented in 1/10ths of a second.\n\n                        This object only has meaning for SDLC ports\n                        where\n                            sdlcPortAdminRole == primary ')
-sdlcPortOperSlowPollMethod = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("servlim", 1), ("pollpause", 2), ("other", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortOperSlowPollMethod.setDescription('This object defines the exact method that is in\n                        effect for periodically polling failed secondary\n                        link station addresses.\n\n                        If sdlcPortOperSlowPollMethod == servlim, then\n                        sdlcPortOperSERVLIM defines the actual polling\n                        characteristics.\n\n                        If sdlcPortOperSlowPollMethod == pollpause,\n                        then sdlcPortOperSlowPollTimer defines the\n                        actual polling characteristics.\n\n                        If sdlcPortOperSlowPollMethod == other, then\n                        the polling characteristics are modeled in\n                        vendor-specific objects.\n\n                        This object only has meaning for SDLC ports\n                        where\n                            sdlcPortOperRole == primary\n                        and\n                            sdlcPortOperTopology == multipoint ')
-sdlcPortOperSERVLIM = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 2, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortOperSERVLIM.setDescription('This object describes the number of times the\n                        active poll list is currently being traversed\n                        before polling a station on the slow poll list\n                        for a primary, multipoint SDLC port.\n\n                        This object only has meaning for SDLC ports\n                        where\n                            sdlcPortOperRole == primary\n                        and\n                            sdlcPortOperTopology == multipoint ')
-sdlcPortOperSlowPollTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 2, 1, 10), TimeInterval()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortOperSlowPollTimer.setDescription('This object describes the elapsed time (in\n                        1/100ths of a second) between polls for failed\n                        secondary link station addresses.\n\n                        This object only has meaning for SDLC ports\n                        where\n                            sdlcPortOperRole == primary\n                        and\n                            sdlcPortOperTopology == multipoint ')
-sdlcPortOperLastModifyTime = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 2, 1, 11), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortOperLastModifyTime.setDescription('This object describes the value of sysUpTime\n                         when this port definition was last modified.\n                         If the port has not been modified, then this\n                         value shall be zero.')
-sdlcPortOperLastFailTime = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 2, 1, 12), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortOperLastFailTime.setDescription('This object describes the value of sysUpTime\n                        when this SDLC port last failed.  If the port\n                        has not failed, then this value shall be zero.')
-sdlcPortOperLastFailCause = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 2, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("undefined", 1), ("physical", 2),)).clone('undefined')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortOperLastFailCause.setDescription('This enumerated object describes the cause of\n                        the last failure of this SDLC port.  If the\n                        port has not failed, then this object has a\n                        value of undefined(1).')
-sdlcPortStatsTable = MibTable((1, 3, 6, 1, 2, 1, 41, 1, 1, 3), )
-if mibBuilder.loadTexts: sdlcPortStatsTable.setDescription('Each entry in this table contains statistics\n                        for a specific SDLC port.')
-sdlcPortStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: sdlcPortStatsEntry.setDescription('A list of statistics for an SDLC port.')
-sdlcPortStatsPhysicalFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsPhysicalFailures.setDescription('This object reflects the total number of times\n                        this port has failed due to its physical media\n                        since port startup.  At port startup time,\n                        this object must be initialized to zero.')
-sdlcPortStatsInvalidAddresses = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsInvalidAddresses.setDescription('This object reflects the total number of\n                        frames received by this port with invalid link\n                        station addresses.')
-sdlcPortStatsDwarfFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsDwarfFrames.setDescription('This object reflects the total number of\n                        frames received by this port which were\n                        delivered intact by the physical layer but were\n                        too short to be legal.\n\n                        Ignoring the frame check sequence (FCS), a\n                        frame is considered to be too short if it\n                        is less than 2 bytes for sdlcLSOperMODULO of\n                        eight, or if it is less than 3 bytes for\n                        sdlcLSOperMODULO of onetwentyeight.')
-sdlcPortStatsPollsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsPollsIn.setDescription('This object reflects the total number of polls\n                         received by this port since the port was\n                         created.')
-sdlcPortStatsPollsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsPollsOut.setDescription('This object reflects the total number of polls\n                         sent by this port since the port was created.')
-sdlcPortStatsPollRspsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsPollRspsIn.setDescription('This object reflects the total number of poll\n                         responses received by this port since the port\n                         was created.')
-sdlcPortStatsPollRspsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsPollRspsOut.setDescription('This object reflects the total number of poll\n                         responses sent by this port since the port was\n                         created.')
-sdlcPortStatsLocalBusies = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsLocalBusies.setDescription('This object reflects the total number of\n                         times that the local SDLC link stations on\n                         this port have entered a busy state (RNR).\n                         This object is initialized to zero when the\n                         port is created.')
-sdlcPortStatsRemoteBusies = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsRemoteBusies.setDescription('This object reflects the total number of\n                         times that the adjacent (i.e., remote) SDLC\n                         link stations on this port have entered a busy\n                         state (RNR).  This object is initialized to\n                         zero when the port is created.')
-sdlcPortStatsIFramesIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsIFramesIn.setDescription('This object reflects the total number of\n                         I-Frames that have been received by SDLC link\n                         stations on this port.  This object is\n                         initialized to zero when the port is created.')
-sdlcPortStatsIFramesOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsIFramesOut.setDescription('This object reflects the total number of\n                         I-Frames that have been transmitted by SDLC\n                         link stations on this port.  This object is\n                         initialized to zero when the port is created.')
-sdlcPortStatsOctetsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsOctetsIn.setDescription('This object reflects the total octets\n                         received from adjacent SDLC link stations on\n                         this port.  This object covers the address,\n                         control, and information field of I-Frames\n                         only.  This object is initialized to zero when\n                         the port is created.')
-sdlcPortStatsOctetsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsOctetsOut.setDescription('This object reflects the total octets\n                         transmitted to adjacent SDLC link stations on\n                         this port.  This object covers the address,\n                         control, and information field of I-Frames\n                         only.  This object is initialized to zero when\n                         the port is created.')
-sdlcPortStatsProtocolErrs = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsProtocolErrs.setDescription('This object reflects the total number of\n                         times that the SDLC link stations on this port\n                         have deactivated the link as a result of\n                         having received a protocol violation from the\n                         adjacent link station.  This object is\n                         initialized to zero when the port is created.')
-sdlcPortStatsActivityTOs = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsActivityTOs.setDescription('This object reflects the total number of\n                         times that the SDLC link stations on this port\n                         have deactivated the link as a result of no\n                         activity on the link.  This object is\n                         initialized to zero when the port is created.')
-sdlcPortStatsRNRLIMITs = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsRNRLIMITs.setDescription('This object reflects the total number of\n                         times that the SDLC link stations on this port\n                         have deactivated the link as a result of its\n                         RNRLIMIT timer expiring.  This object is\n                         initialized to zero when the port is created.')
-sdlcPortStatsRetriesExps = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsRetriesExps.setDescription('This object reflects the total number of\n                         times that the SDLC link stations on this port\n                         have deactivated the link as a result of a\n                         retry sequence being exhausted.  This object\n                         is initialized to zero when the port is\n                         created.')
-sdlcPortStatsRetransmitsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsRetransmitsIn.setDescription('This object reflects the total number of\n                         I-Frames retransmitted by remote link stations\n                         for all SDLC link stations on this port.  This\n                         object is initialized to zero when the port is\n                         created.')
-sdlcPortStatsRetransmitsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 1, 3, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcPortStatsRetransmitsOut.setDescription('This object reflects the total number of\n                         I-Frames retransmitted by all local SDLC link\n                         stations on this port.  This object is\n                         initialized to zero when the port is created.')
-sdlcLSAdminTable = MibTable((1, 3, 6, 1, 2, 1, 41, 1, 2, 1), )
-if mibBuilder.loadTexts: sdlcLSAdminTable.setDescription('This table contains objects that can be\n                        changed to manage an SDLC link station.\n                        Changing one of these parameters may take\n                        effect in the operating link immediately or may\n                        wait until the link is restarted depending on\n                        the details of the implementation.\n\n                        The entries in sdlcLSAdminTable can be created\n                        either by an agent or a management station. The\n                        management station can create an entry in\n                        sdlcLSAdminTable by setting the appropriate\n                        value in sdlcLSAdminRowStatus.\n\n                        Most of the objects in this read-create table\n                        have corresponding read-only objects in the\n                        sdlcLSOperTable that reflect the current\n                        operating value.\n\n                        The operating values may be different from\n                        these configured values if changed by XID\n                        negotiation or if a configured parameter was\n                        changed after the link was started.')
-sdlcLSAdminEntry = MibTableRow((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "SNA-SDLC-MIB", "sdlcLSAddress"))
-if mibBuilder.loadTexts: sdlcLSAdminEntry.setDescription('A list of configured values for an SDLC link\n                         station.')
-sdlcLSAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAddress.setDescription('This value is the poll address of the\n                         secondary link station for this SDLC link.  It\n                         uniquely identifies the SDLC link station\n                         within a single SDLC port.')
-sdlcLSAdminName = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,10))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminName.setDescription('An octet string that defines the local name of\n                        the SDLC link station.  This field may be sent\n                        in the XID3 control vector 0x0E, type 0xF7.')
-sdlcLSAdminState = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2),)).clone('active')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminState.setDescription('This object controls the desired state of the\n                        SDLC station.  The managed system shall attempt\n                        to keep the operational state, sdlcLSOperState,\n                        consistent with this value.')
-sdlcLSAdminISTATUS = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2),)).clone('active')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminISTATUS.setDescription('This parameter controls the desired state,\n                        sdlcLSAdminState, of the SDLC link station at\n                        link station start-up.')
-sdlcLSAdminMAXDATASend = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 5), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminMAXDATASend.setDescription('This object contains the maximum PDU size that\n                        the local link station thinks it can send to\n                        the adjacent link station before having\n                        received any XID from the ALS.  After the\n                        maximum PDU size that the ALS can receive is\n                        known (via XID exchange) that value is\n                        reflected in sdlcLSOperMAXDATASend and takes\n                        precedence over this object.\n\n                        This value includes the Transmission Header\n                        (TH) and the Request Header (RH).')
-sdlcLSAdminMAXDATARcv = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 6), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminMAXDATARcv.setDescription('This object contains the maximum PDU size that\n                        the local link station can receive from the\n                        adjacent link station.  This value is sent in\n                        the XID to the ALS.\n\n                        This value includes the Transmission Header\n                        (TH) and the Request Header (RH).')
-sdlcLSAdminREPLYTO = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 7), TimeInterval().clone(100)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminREPLYTO.setDescription('This object controls the reply timeout (in\n                        1/100ths of a second) for an SDLC link\n                        station.  If the link station does not receive\n                        a response to a poll or message before the\n                        specified time expires then the appropriate\n                        error recovery shall be initiated.\n\n                        The object descriptor contains the name of an\n                        NCP configuration parameter, REPLYTO.  Please\n                        note that the value of this object represents\n                        1/100ths of a second while the NCP REPLYTO is\n                        represented in 1/10ths of a second.\n\n                        Depending on the implementation, a write\n                        operation to this administered value  may not\n                        change the operational value, sdlcLSOperREPLYTO,\n                        until the link station is cycled inactive.\n\n                        This object only has meaning for SDLC ports\n                        where sdlcPortAdminRole == primary ')
-sdlcLSAdminMAXIN = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,127)).clone(7)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminMAXIN.setDescription('This object controls the maximum number of\n                        unacknowledged I-frames which an SDLC link\n                        station may receive.  This should range from 1\n                        to (sdlcLSAdminMODULO - 1).  This value is sent\n                        in the XID to the ALS.\n\n                        A write operation to this administered value\n                        will not change the operational value,\n                        sdlcLSOperMAXIN, until the link station is\n                        cycled inactive.')
-sdlcLSAdminMAXOUT = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,127)).clone(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminMAXOUT.setDescription('This object controls the maximum number of\n                        consecutive unacknowledged I-frames which an\n                        SDLC link station shall send without an\n                        acknowledgement.  This shall range from 1 to\n                        (sdlcLSAdminMODULO - 1).\n\n                        For link stations on switched SDLC lines,\n                        certain implementations may choose to override\n                        this administered value with the value\n                        received in the XID exchange.\n\n                        Depending on the implementation, a write\n                        operation to this administered value may not\n                        change the operational value,\n                        sdlcLSOperMAXOUT, until the link station is\n                        cycled inactive.\n\n                        An implementation can support only modulo 8,\n                        only modulo 128, or both.')
-sdlcLSAdminMODULO = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(8, 128,))).clone(namedValues=NamedValues(("eight", 8), ("onetwentyeight", 128),)).clone('eight')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminMODULO.setDescription('This object controls the modulus for an SDLC\n                        link station.  This modulus determines the size\n                        of the rotating acknowledgement window used the\n                        SDLC link station pair.\n\n                        A write operation to this administered value\n                        will not change the operational value,\n                        sdlcLSOperMODULO, until the link station is\n                        cycled inactive.\n\n                        An implementation can support only modulo 8,\n                        only modulo 128, or both.')
-sdlcLSAdminRETRIESm = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,128)).clone(15)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminRETRIESm.setDescription('This object controls number of retries in a\n                        retry sequence for the local SDLC link\n                        station.  A retry sequence is a series of\n                        retransmitted frames ( data or control) for\n                        which no positive acknowledgement is received.\n\n                        The number of times that the retry sequence is\n                        to be repeated is controlled by the object:\n                        sdlcLSAdminRETRIESn.  The interval between retry\n                        sequences is controlled by the object:\n                        sdlcLSAdminRETRIESt.\n\n                        A value of zero indicates no retries. If the\n                        value of sdlcLSAdminRETRIESm is zero, then the\n                        values of sdlcLSAdminRETRIESt and\n                        sdlcLSAdminRETRIESn should also be zero.\n\n                        Depending on the implementation, a write\n                        operation to this administered value  may not\n                        change the operational value,\n                        sdlcLSOperRETRIESm, until the link station is\n                        cycled inactive.')
-sdlcLSAdminRETRIESt = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 12), TimeInterval()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminRETRIESt.setDescription('This object controls the interval (in 1/100ths\n                        of a second) between retry sequences for the\n                        local SDLC link station if multiple retry\n                        sequences are specified .  A retry sequence is\n                        a series of retransmitted frames ( data or\n                        control) for which no positive acknowledgement\n                        is received.\n\n                        The number of repeated retries sequences is\n                        controlled by the object: sdlcLSAdminRETRIESn.\n                        The retries per sequence is controlled by the\n                        object:  sdlcLSAdminRETRIESm.\n\n                        The object descriptor contains the name of an\n                        NCP configuration parameter, RETRIESt.  Please\n                        note that the value of this object represents\n                        1/100ths of a second while the NCP RETRIESt is\n                        represented in seconds.\n\n                        Depending on the implementation, a write\n                        operation to this administered value  may not\n                        change the operational value,\n                        sdlcLSOperRETRIESt, until the link station is\n                        cycled inactive.')
-sdlcLSAdminRETRIESn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 13), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminRETRIESn.setDescription('This object controls the number of times that\n                        a retry sequence is repeated for the local SDLC\n                        link station.  A retry sequence is a series of\n                        retransmitted frames ( data or control) for\n                        which no positive acknowledgement is received.\n\n                        The interval between retry sequences is\n                        controlled by the object: sdlcLSAdminRETRIESn.\n                        The retries per sequence is controlled by the\n                        object:  sdlcLSAdminRETRIESm.\n\n                        Depending on the implementation, a write\n                        operation to this administered value  may not\n                        change the operational value,\n                        sdlcLSOperRETRIESn, until the link station is\n                        cycled inactive.')
-sdlcLSAdminRNRLIMIT = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 14), TimeInterval().clone(18000)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminRNRLIMIT.setDescription('This object controls the length of time (in\n                        1/100ths of a second) that an SDLC link station\n                        will allow its adjacent link station to remain\n                        in a busy (RNR) state before declaring it\n                        inoperative.\n\n                        A value of sdlcLSAdminRNRLIMIT == 0 means there\n                        is no limit.\n\n                        The object descriptor contains the name of an\n                        NCP configuration parameter, RNRLIMIT.  Please\n                        note that the value of this object represents\n                        1/100ths of a second while the NCP RNRLIMIT is\n                        represented in minutes.\n\n                        Depending on the implementation, a write\n                        operation to this administered value  may not\n                        change the operational value,\n                        sdlcLSOperRNRLIMIT, until the link station is\n                        cycled inactive.')
-sdlcLSAdminDATMODE = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("half", 1), ("full", 2),)).clone('half')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminDATMODE.setDescription('This object controls whether communications\n                        mode with the adjacent link station is\n                        two-way-alternate (half) or two-way-simultaneous\n                        (full).\n\n                        A write operation to this administered value\n                        will not change the operational value,\n                        sdlcLSOperDATMODE, until the link station is\n                        cycled inactive.')
-sdlcLSAdminGPoll = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,254))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminGPoll.setDescription('This object describes the group poll address\n                        for this link station instance.  If group poll\n                        is not in effect for this link station\n                        instance, the value for sdlcLSAdminGPoll should\n                        be zero.\n\n                        Depending on the implementation, a write\n                        operation to this administered value may not\n                        change the operational value, sdlcLSOperGPoll,\n                        until the link station is cycled inactive.')
-sdlcLSAdminSimRim = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),)).clone('no')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminSimRim.setDescription('This object controls the support for\n                        transmission and receipt of SIM and RIM control\n                        frames for this link station.  The value of\n                        this object controls the setting of the\n                        transmit-receive capability sent in the XID\n                        field.')
-sdlcLSAdminXmitRcvCap = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("twa", 1), ("tws", 2),)).clone('twa')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminXmitRcvCap.setDescription('This object controls the transmit-receive\n                        capabilities for this SDLC link station.  The\n                        value of this object establishes the value of\n                        the transmit-receive capability indicator sent\n                        in the XID image to the adjacent link station.')
-sdlcLSAdminRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 1, 1, 19), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdlcLSAdminRowStatus.setDescription("This object is used by a management station to\n                        create or delete the row entry in\n                        sdlcLSAdminTable following the RowStatus\n                        textual convention.\n\n                        Upon successful creation of the row, an agent\n                        automatically creates a corresponding entry in\n                        the sdlcLSOperTable with sdlcLSOperState equal\n                        to 'discontacted (1)'.")
-sdlcLSOperTable = MibTable((1, 3, 6, 1, 2, 1, 41, 1, 2, 2), )
-if mibBuilder.loadTexts: sdlcLSOperTable.setDescription('This table contains current SDLC link\n                          parameters.  Many of these objects have\n                          corresponding objects in the\n                          sdlcLSAdminTable.')
-sdlcLSOperEntry = MibTableRow((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "SNA-SDLC-MIB", "sdlcLSAddress"))
-if mibBuilder.loadTexts: sdlcLSOperEntry.setDescription('A list of status and control values for an\n                         SDLC link station.')
-sdlcLSOperName = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,10))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperName.setDescription('An octet string that defines the name of the\n                         remote SDLC link station.  This field is\n                         received in the XID3 control vector 0x0E, type\n                         0xF7.')
-sdlcLSOperRole = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2), ("undefined", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperRole.setDescription('This object reflects the current role that the\n                        link station is assuming.\n\n                        The value of sdlcLSOperRole is undefined(3)\n                        whenever the link station role has not yet been\n                        established by the mode setting command.')
-sdlcLSOperState = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("discontacted", 1), ("contactPending", 2), ("contacted", 3), ("discontactPending", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperState.setDescription('This object describes the operational state of\n                        the SDLC link station.  The managed system\n                        shall attempt to keep this value consistent\n                        with the administered state, sdlcLSAdminState')
-sdlcLSOperMAXDATASend = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperMAXDATASend.setDescription('This object contains the actual maximum PDU\n                        size that the local link station can send to\n                        the adjacent link station.  This object is\n                        established from the value received in the XID\n                        from the adjacent link station.  If no XID\n                        is received, then this value is implementation\n                        dependent (for instance, it could be the value\n                        of sdlcLSAdminMAXDATASend).\n\n                        This value includes the Transmission Header\n                        (TH) and the Request Header (RH).')
-sdlcLSOperREPLYTO = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 5), TimeInterval()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperREPLYTO.setDescription('This object reflects the current reply timeout\n                        (in 1/100ths of a second) for an SDLC link\n                        station.  If the link station does not receive\n                        a response to a poll or message before the\n                        specified time expires then the appropriate\n                        error recovery shall be initiated.\n\n                        The object descriptor contains the name of an\n                        NCP configuration parameter, REPLYTO.  Please\n                        note that the value of this object represents\n                        1/100ths of a second while the NCP REPLYTO is\n                        represented in 1/10ths of a second.\n\n                        This object only has meaning for SDLC ports\n                        where sdlcPortOperRole == primary ')
-sdlcLSOperMAXIN = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,127))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperMAXIN.setDescription('This object reflects the current maximum\n                        number of unacknowledged I-frames which an SDLC\n                        link station may receive.  This shall range\n                        from 1 to (sdlcLSOperMODULO - 1).')
-sdlcLSOperMAXOUT = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,127))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperMAXOUT.setDescription('This object controls the maximum number of\n                        consecutive unacknowledged I-frames which an\n                        SDLC link station shall send without an\n                        acknowledgement.  This shall range from 1 to\n                        (sdlcLSAdminMODULO - 1).\n\n                        This value may controlled by the administered\n                        MAXOUT, sdlcLSAdminMAXOUT, or by the MAXIN value\n                        received during the XID exchange.')
-sdlcLSOperMODULO = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(8, 128,))).clone(namedValues=NamedValues(("eight", 8), ("onetwentyeight", 128),)).clone('eight')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperMODULO.setDescription('This object reflects the current modulus for\n                        an SDLC link station.  This modulus determines\n                        the size of rotating acknowledgement window\n                        used by the SDLC link station pair.')
-sdlcLSOperRETRIESm = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperRETRIESm.setDescription('This object controls number of retries in a\n                        retry sequence for an SDLC link station.  A\n                        retry sequence is a series of retransmitted\n                        frames ( data or control) for which no positive\n                        acknowledgement is received.\n\n                        The current number of times that the retry\n                        sequence is to be repeated is reflected by the\n                        object:  sdlcLSOperRETRIESn.  The current\n                        interval between retry sequences is reflected\n                        by the object:  sdlcLSOperRETRIESt.')
-sdlcLSOperRETRIESt = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 10), TimeInterval()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperRETRIESt.setDescription('This object reflects the current interval (in\n                        1/100ths of a second) between retry sequences\n                        for an SDLC link station if multiple retry\n                        sequences are specified.  A retry sequence is a\n                        series of retransmitted frames ( data or\n                        control) for which no positive acknowledgement\n                        is received.\n\n                        The object descriptor contains the name of an\n                        NCP configuration parameter, RETRIESt.  Please\n                        note that the value of this object represents\n                        1/100ths of a second while the NCP RETRIESt is\n                        represented in seconds.\n\n                        The current number of repeated retries\n                        sequences is reflected by the object:\n                        sdlcLSOperRETRIESn.  The current retries per\n                        sequence is reflected by the object:\n                        sdlcLSOperRETRIESm.')
-sdlcLSOperRETRIESn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,127))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperRETRIESn.setDescription('This object reflects the current number of\n                        times that a retry sequence is repeated for an\n                        SDLC link station.  A retry sequence is a\n                        series of retransmitted frames ( data or\n                        control) for which no positive acknowledgement\n                        is received.\n\n                        The current interval between retry sequences is\n                        reflected by the object: sdlcLSOperRETRIESn.\n                        The current retries per sequence is reflected\n                        by the object:  sdlcLSOperRETRIESm.')
-sdlcLSOperRNRLIMIT = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 12), TimeInterval()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperRNRLIMIT.setDescription('This object reflects the current length of\n                        time (in 1/100ths of a second) that an SDLC\n                        link station will allow its adjacent link\n                        station to remain in a busy (RNR) state before\n                        declaring it inoperative.\n\n                        The object descriptor contains the name of an\n                        NCP configuration parameter, RNRLIMIT.  Please\n                        note that the value of this object represents\n                        1/100ths of a second while the NCP RNRLIMIT is\n                        represented in minutes.\n\n                        A value of sdlcLSOperRNRLIMIT == 0 means there\n                        is no limit.')
-sdlcLSOperDATMODE = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("half", 1), ("full", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperDATMODE.setDescription('This object reflects whether the current\n                        communications mode with the adjacent link\n                        station is two-way-alternate (half) or\n                        two-way-simultaneous (full).')
-sdlcLSOperLastModifyTime = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 14), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperLastModifyTime.setDescription('This object describes the value of sysUpTime\n                         when this link station definition was last\n                         modified.  If the link station has not been\n                         modified, then this value shall be zero.')
-sdlcLSOperLastFailTime = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 15), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperLastFailTime.setDescription('This object describes the value of sysUpTime\n                         when this SDLC link station last failed.  If\n                         the link station has not failed, then this\n                         value shall be zero.')
-sdlcLSOperLastFailCause = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8,))).clone(namedValues=NamedValues(("undefined", 1), ("rxFRMR", 2), ("txFRMR", 3), ("noResponse", 4), ("protocolErr", 5), ("noActivity", 6), ("rnrLimit", 7), ("retriesExpired", 8),)).clone('undefined')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperLastFailCause.setDescription('This enumerated object reflects the cause of\n                        the last failure of this SDLC link station.  If\n                        the link station has not failed, then this\n                        object will have a value of undefined(1).')
-sdlcLSOperLastFailCtrlIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 17), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperLastFailCtrlIn.setDescription('This object reflects the last control octet or\n                        octets (depending on modulus) received by this\n                        SDLC link station at the time of the last\n                        failure.  If the link station has not failed,\n                        then this value has no meaning.')
-sdlcLSOperLastFailCtrlOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 18), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperLastFailCtrlOut.setDescription('This object reflects the last control octet or\n                        octets (depending on modulus) sent by this SDLC\n                        link station at the time of the last failure.\n                        If the link station has not failed, then this\n                        value has no meaning.')
-sdlcLSOperLastFailFRMRInfo = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 19), OctetString().subtype(subtypeSpec=ValueSizeConstraint(3,3)).setFixedLength(3)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperLastFailFRMRInfo.setDescription('This object reflects the information field of\n                        the FRMR frame if the last failure for this\n                        SDLC link station was as a result of an invalid\n                        frame.  Otherwise, this field has no meaning.')
-sdlcLSOperLastFailREPLYTOs = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperLastFailREPLYTOs.setDescription('This object reflects the number of times that\n                        the REPLYTO timer had expired for an SDLC link\n                        station at the time of the last failure. If the\n                        link station has not failed, then this value\n                        has no meaning.')
-sdlcLSOperEcho = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),)).clone('no')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperEcho.setDescription('This object identifies whether the echo bit is\n                         in effect for this particular link station.')
-sdlcLSOperGPoll = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 22), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,254))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperGPoll.setDescription('This object describes the group poll address\n                        in effect for this link station instance.')
-sdlcLSOperSimRim = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("no", 1), ("yes", 2),)).clone('no')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperSimRim.setDescription('This object reflects the support for\n                        transmission and receipt of SIM and RIM control\n                        frames for the adjacent link station.  The\n                        value of this object is set from the XID field\n                        received from the adjacent link station.')
-sdlcLSOperXmitRcvCap = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 2, 1, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("twa", 1), ("tws", 2),)).clone('twa')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSOperXmitRcvCap.setDescription('This object reflects the transmit-receive\n                        capabilities for the adjacent SDLC link\n                        station.  The value of this object is the value\n                        of the transmit-receive capability indicator\n                        received in the XID image from the adjacent\n                        link station.')
-sdlcLSStatsTable = MibTable((1, 3, 6, 1, 2, 1, 41, 1, 2, 3), )
-if mibBuilder.loadTexts: sdlcLSStatsTable.setDescription('Each entry in this table contains statistics\n                        for a specific SDLC link station.')
-sdlcLSStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "SNA-SDLC-MIB", "sdlcLSAddress"))
-if mibBuilder.loadTexts: sdlcLSStatsEntry.setDescription('A list of statistics for an SDLC link station.')
-sdlcLSStatsBLUsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsBLUsIn.setDescription('This object reflects the total basic link\n                        units (BLUs; frames) received from an adjacent\n                        SDLC link station since link station startup.\n                        At link station startup time, this object must\n                        be initialized to zero.')
-sdlcLSStatsBLUsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsBLUsOut.setDescription('This object reflects the total basic link\n                        units (BLUs; frames), transmitted to an\n                        adjacent SDLC link station since link station\n                        startup.  At link station startup time, this\n                        object must be initialized to zero.')
-sdlcLSStatsOctetsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsOctetsIn.setDescription('This object reflects the total octets received\n                        from an adjacent SDLC link station since link\n                        station startup.  This object covers the\n                        address, control, and information field of\n                        I-Frames only.  At link station startup time,\n                        this object must be initialized to zero.')
-sdlcLSStatsOctetsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsOctetsOut.setDescription('This object reflects the total octets\n                        transmitted to an adjacent SDLC link station\n                        since link station startup.  This object covers\n                        the address, control, and information field of\n                        I-Frames only.  At link station startup time,\n                        this object must be initialized to zero.')
-sdlcLSStatsPollsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsPollsIn.setDescription('This object reflects the total polls received\n                        from an adjacent SDLC link station since link\n                        station startup.  At link station startup time,\n                        this object must be initialized to zero.')
-sdlcLSStatsPollsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsPollsOut.setDescription('This object reflects the total polls sent to\n                        an adjacent SDLC link station since link\n                        station startup.  At link station startup time,\n                        this object must be initialized to zero.')
-sdlcLSStatsPollRspsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsPollRspsOut.setDescription('This object reflects the total number of poll\n                        responses sent to the adjacent SDLC link\n                        station since link station startup.  This value\n                        includes I-frames that are sent in response to\n                        a poll.\n\n                        At link station startup time, this object must\n                        be initialized to zero.')
-sdlcLSStatsPollRspsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsPollRspsIn.setDescription('This object reflects the total number of poll\n                        responses received from the adjacent SDLC link\n                        station since station startup.  This value\n                        includes I-frames that are received in response\n                        to a poll.\n\n                        At link station startup time, this object must\n                        be initialized to zero.')
-sdlcLSStatsLocalBusies = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsLocalBusies.setDescription('This object reflects the total number of times\n                        that the local SDLC link station has entered a\n                        busy state (RNR) since link station startup.\n                        At link station startup time, this object must\n                        be initialized to zero.')
-sdlcLSStatsRemoteBusies = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsRemoteBusies.setDescription('This object reflects the total number of times\n                        that an adjacent ( remote) SDLC link station\n                        has entered a busy state (RNR) since link\n                        station startup.  At link station startup time,\n                        this object must be initialized to zero.')
-sdlcLSStatsIFramesIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsIFramesIn.setDescription('This object reflects the total I-frames\n                        received from an adjacent SDLC link station\n                        since link station startup.  At link station\n                        startup time, this object must be initialized\n                        to zero.')
-sdlcLSStatsIFramesOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsIFramesOut.setDescription('This object reflects the total I-frames\n                        transmitted to an adjacent SDLC link station\n                        since link station startup.  At link station\n                        startup time, this object must be initialized\n                        to zero.')
-sdlcLSStatsUIFramesIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsUIFramesIn.setDescription('This object reflects the total UI-frames\n                        received from an adjacent SDLC link station\n                        since link station startup.')
-sdlcLSStatsUIFramesOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsUIFramesOut.setDescription('This object reflects the total UI-frames\n                       transmitted to an adjacent SDLC link station\n                       since link station startup.')
-sdlcLSStatsXIDsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsXIDsIn.setDescription('This object reflects the total XID frames\n                        received from an adjacent SDLC link station\n                        since link station startup.')
-sdlcLSStatsXIDsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsXIDsOut.setDescription('This object reflects the total XID frames\n                        transmitted to an adjacent SDLC link station\n                        since link station startup.')
-sdlcLSStatsTESTsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsTESTsIn.setDescription('This object reflects the total TEST frames,\n                        commands or responses, received from an\n                        adjacent SDLC link station since link station\n                        startup.')
-sdlcLSStatsTESTsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsTESTsOut.setDescription('This object reflects the total TEST frames,\n                        commands or responses, transmitted to an\n                        adjacent SDLC link station since link station\n                        startup.')
-sdlcLSStatsREJsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsREJsIn.setDescription('This object reflects the total REJ frames\n                        received from an adjacent SDLC link station\n                        since link station startup.')
-sdlcLSStatsREJsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsREJsOut.setDescription('This object reflects the total REJ frames\n                        transmitted to an adjacent SDLC link station\n                        since link station startup.')
-sdlcLSStatsFRMRsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 21), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsFRMRsIn.setDescription('This object reflects the total frame reject\n                        (FRMR) frames received from an adjacent SDLC\n                        link station since link station startup.')
-sdlcLSStatsFRMRsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 22), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsFRMRsOut.setDescription('This object reflects the total frame reject\n                        (FRMR) frames transmitted to an adjacent SDLC\n                        link station since link station startup.')
-sdlcLSStatsSIMsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 23), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsSIMsIn.setDescription('This object reflects the total set\n                        initialization mode (SIM) frames received from\n                        an adjacent SDLC link station since link station\n                        startup.')
-sdlcLSStatsSIMsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 24), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsSIMsOut.setDescription('This object reflects the total set\n                        initialization mode (SIM) frames transmitted to\n                        an adjacent SDLC link station since link station\n                        startup.  At link station startup time, this\n                        object must be initialized to zero.')
-sdlcLSStatsRIMsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 25), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsRIMsIn.setDescription('This object reflects the total request\n                        initialization mode (RIM) frames received from\n                        an adjacent SDLC link station since link station\n                        startup.  At link station startup time, this\n                        object must be initialized to zero.')
-sdlcLSStatsRIMsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 26), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsRIMsOut.setDescription('This object reflects the total request\n                        initialization mode (RIM) frames transmitted to\n                        an adjacent SDLC link station since link station\n                        startup.  At link station startup time, this\n                        object must be initialized to zero.')
-sdlcLSStatsDISCIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 27), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsDISCIn.setDescription('This object reflects the total number of\n                         disconnect (DISC) requests received from an\n                         adjacent SDLC link station since link station\n                         startup.  At link station startup time, this\n                         object must be initialized to zero.')
-sdlcLSStatsDISCOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 28), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsDISCOut.setDescription('This object reflects the total number of\n                         disconnect (DISC) requests transmitted to an\n                         adjacent SDLC link station since link station\n                         startup.  At link station startup time, this\n                         object must be initialized to zero.')
-sdlcLSStatsUAIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 29), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsUAIn.setDescription('This object reflects the total number of\n                         unnumbered acknowledgements (UA) requests\n                         received from an adjacent SDLC link station\n                         since link station startup.  At link station\n                         startup time, this object must be initialized\n                         to zero.')
-sdlcLSStatsUAOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 30), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsUAOut.setDescription('This object reflects the total number of\n                         unnumbered acknowledgements (UA) requests\n                         transmitted to an adjacent SDLC link station\n                         since link station startup.  At link station\n                         startup time, this object must be initialized\n                         to zero.')
-sdlcLSStatsDMIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 31), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsDMIn.setDescription('This object reflects the total number of\n                         disconnect mode (DM) requests received from an\n                         adjacent SDLC link station since link station\n                         startup.  At link station startup time, this\n                         object must be initialized to zero.')
-sdlcLSStatsDMOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 32), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsDMOut.setDescription('This object reflects the total number of\n                         disconnect mode (DM) requests transmitted to an\n                         adjacent SDLC link station since link station\n                         startup.  At link station startup time, this\n                         object must be initialized to zero.')
-sdlcLSStatsSNRMIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 33), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsSNRMIn.setDescription('This object reflects the total number of\n                         set normal response mode (SNRM/SNRME) requests\n                         received from an adjacent SDLC link station\n                         since link station startup.  At link station\n                         startup time, this object must be initialized\n                         to zero.')
-sdlcLSStatsSNRMOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 34), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsSNRMOut.setDescription('This object reflects the total number of\n                         set normal response mode (SNRM/SNRME) requests\n                         transmitted to an adjacent SDLC link station\n                         since link station startup.  At link station\n                         startup time, this object must be initialized\n                         to zero.')
-sdlcLSStatsProtocolErrs = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 35), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsProtocolErrs.setDescription('This object reflects the total occurrences,\n                        since link station startup, where this SDLC\n                        link station has inactivated the link as a\n                        result of receiving a frame from its adjacent\n                        link station which was in violation of the\n                        protocol.  At link station startup time, this\n                        object must be initialized to zero.')
-sdlcLSStatsActivityTOs = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 36), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsActivityTOs.setDescription('This object reflects the total occurrences,\n                        since startup, where this SDLC link station has\n                        inactivated the link as a result of no activity\n                        on the link.  At link station startup time,\n                        this object must be initialized to zero.')
-sdlcLSStatsRNRLIMITs = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 37), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsRNRLIMITs.setDescription('This object reflects the total occurrences,\n                        since startup, where this SDLC link station has\n                        inactivated the link as a result of its\n                        RNRLIMIT timer expiring.  At link station\n                        startup time, this object must be initialized\n                        to zero.')
-sdlcLSStatsRetriesExps = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 38), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsRetriesExps.setDescription('This object reflects the total occurrences,\n                        since startup, where this SDLC link station has\n                        inactivated the link as a result of a retry\n                        sequence being exhausted.  At link station\n                        startup time, this object must be initialized\n                        to zero.')
-sdlcLSStatsRetransmitsIn = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 39), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsRetransmitsIn.setDescription('This object reflects the total number of\n                         information frames retransmitted by the remote\n                         link station because the N(s) received from\n                         that link station indicated that one or more\n                         information frames sent by that station were\n                         lost.  This event causes the first missing\n                         information frame of a window and all\n                         subsequent information frames to be\n                         retransmitted.  At link station startup time,\n                         this object must be initialized to zero.\n\n                         Management: If the value of\n                         sdlcLSStatsRetransmitsIn grows over time, then\n                         the quality of the serial line is in\n                         question.  You might want to look at\n                         decreasing the value for\n                         sdlcLSAdminMAXDATASend to compensate for the\n                         lower quality line.')
-sdlcLSStatsRetransmitsOut = MibTableColumn((1, 3, 6, 1, 2, 1, 41, 1, 2, 3, 1, 40), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdlcLSStatsRetransmitsOut.setDescription('This object reflects the total number of\n                         information frames retransmitted to a remote\n                         link station because the N(r) received from\n                         that link station indicated that one or more\n                         information frames sent to that station were\n                         lost. This event causes the first missing\n                         information frame of a window and all\n                         subsequent information frames to be\n                         retransmitted.  At link station startup time,\n                         this object must be initialized to zero.\n\n                         Management: If the value of\n                         sdlcLSStatsRetransmitsOut grows over time,\n                         then the quality of the serial line is in\n                         question.  You might want to look at\n                         decreasing the value for sdlcLSAdminMAXDATASend\n                         to compensate for the lower quality line.')
-sdlcTraps = MibIdentifier((1, 3, 6, 1, 2, 1, 41, 1, 3))
-sdlcPortStatusChange = NotificationType((1, 3, 6, 1, 2, 1, 41, 1, 3, 1)).setObjects(*(("SNA-SDLC-MIB", "ifIndex"), ("SNA-SDLC-MIB", "ifAdminStatus"), ("SNA-SDLC-MIB", "ifOperStatus"), ("SNA-SDLC-MIB", "sdlcPortOperLastFailTime"), ("SNA-SDLC-MIB", "sdlcPortOperLastFailCause"),))
-if mibBuilder.loadTexts: sdlcPortStatusChange.setDescription('This trap indicates that the state of an SDLC\n                         port has transitioned to active or inactive.')
-sdlcLSStatusChange = NotificationType((1, 3, 6, 1, 2, 1, 41, 1, 3, 2)).setObjects(*(("SNA-SDLC-MIB", "ifIndex"), ("SNA-SDLC-MIB", "sdlcLSAddress"), ("SNA-SDLC-MIB", "sdlcLSOperState"), ("SNA-SDLC-MIB", "sdlcLSAdminState"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailTime"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailCause"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailFRMRInfo"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailCtrlIn"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailCtrlOut"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailREPLYTOs"),))
-if mibBuilder.loadTexts: sdlcLSStatusChange.setDescription('This trap indicates that the state of an SDLC\n                         link station has transitioned to contacted or\n                         discontacted.')
-sdlcLSStatusChange1 = NotificationType((1, 3, 6, 1, 2, 1, 41, 1, 3, 3)).setObjects(*(("SNA-SDLC-MIB", "sdlcLSOperState"), ("SNA-SDLC-MIB", "sdlcLSAdminState"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailTime"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailCause"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailFRMRInfo"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailCtrlIn"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailCtrlOut"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailREPLYTOs"),))
-if mibBuilder.loadTexts: sdlcLSStatusChange1.setDescription('This trap indicates that the state of an SDLC\n                         link station has transitioned to contacted or\n                         discontacted.')
-sdlcConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 41, 1, 4))
-sdlcCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 41, 1, 4, 1))
-sdlcGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 41, 1, 4, 2))
-sdlcCoreCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 41, 1, 4, 1, 1)).setObjects(*(("SNA-SDLC-MIB", "sdlcCorePortAdminGroup"), ("SNA-SDLC-MIB", "sdlcCorePortOperGroup"), ("SNA-SDLC-MIB", "sdlcCorePortStatsGroup"), ("SNA-SDLC-MIB", "sdlcCoreLSAdminGroup"), ("SNA-SDLC-MIB", "sdlcCoreLSOperGroup"), ("SNA-SDLC-MIB", "sdlcCoreLSStatsGroup"),))
-if mibBuilder.loadTexts: sdlcCoreCompliance.setDescription('The core compliance statement for all SDLC\n                         nodes.')
-sdlcCoreComplianceV11R01 = ModuleCompliance((1, 3, 6, 1, 2, 1, 41, 1, 4, 1, 4)).setObjects(*(("SNA-SDLC-MIB", "sdlcCorePortAdminGroupV11R01"), ("SNA-SDLC-MIB", "sdlcCorePortOperGroupV11R01"), ("SNA-SDLC-MIB", "sdlcCorePortStatsGroupV11R01"), ("SNA-SDLC-MIB", "sdlcCoreLSAdminGroupV11R01"), ("SNA-SDLC-MIB", "sdlcCoreLSOperGroupV11R01"), ("SNA-SDLC-MIB", "sdlcCoreLSStatsGroupV11R01"),))
-if mibBuilder.loadTexts: sdlcCoreComplianceV11R01.setDescription('The core compliance statement for all SDLC\n                         nodes.')
-sdlcPrimaryCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 41, 1, 4, 1, 2)).setObjects(*(("SNA-SDLC-MIB", "sdlcPrimaryGroup"),))
-if mibBuilder.loadTexts: sdlcPrimaryCompliance.setDescription('The compliance statement for all nodes that\n                         are performing the role of a Primary link\n                         station.')
-sdlcPrimaryMultipointCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 41, 1, 4, 1, 3)).setObjects(*(("SNA-SDLC-MIB", "sdlcPrimaryMultipointGroup"),))
-if mibBuilder.loadTexts: sdlcPrimaryMultipointCompliance.setDescription('The compliance statement for all nodes that\n                         are performing the role of a primary link\n                         station on a multipoint line.')
-sdlcCoreGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 41, 1, 4, 2, 1))
-sdlcCorePortAdminGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 41, 1, 4, 2, 1, 1)).setObjects(*(("SNA-SDLC-MIB", "sdlcPortAdminName"), ("SNA-SDLC-MIB", "sdlcPortAdminRole"), ("SNA-SDLC-MIB", "sdlcPortAdminType"), ("SNA-SDLC-MIB", "sdlcPortAdminTopology"), ("SNA-SDLC-MIB", "sdlcPortAdminISTATUS"),))
-if mibBuilder.loadTexts: sdlcCorePortAdminGroup.setDescription('The sdlcCorePortAdminGroup defines objects\n                         which are common to the PortAdmin group of all\n                         compliant link stations.')
-sdlcCorePortAdminGroupV11R01 = ObjectGroup((1, 3, 6, 1, 2, 1, 41, 1, 4, 2, 1, 7)).setObjects(*(("SNA-SDLC-MIB", "sdlcPortAdminName"), ("SNA-SDLC-MIB", "sdlcPortAdminRole"), ("SNA-SDLC-MIB", "sdlcPortAdminType"), ("SNA-SDLC-MIB", "sdlcPortAdminTopology"), ("SNA-SDLC-MIB", "sdlcPortAdminISTATUS"), ("SNA-SDLC-MIB", "sdlcPortAdminACTIVTO"), ("SNA-SDLC-MIB", "sdlcPortAdminPAUSE"), ("SNA-SDLC-MIB", "sdlcPortAdminSERVLIM"),))
-if mibBuilder.loadTexts: sdlcCorePortAdminGroupV11R01.setDescription('The sdlcCorePortAdminGroup defines objects\n                         which are common to the PortAdmin group of all\n                         compliant link stations.')
-sdlcCorePortOperGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 41, 1, 4, 2, 1, 2)).setObjects(*(("SNA-SDLC-MIB", "sdlcPortOperName"), ("SNA-SDLC-MIB", "sdlcPortOperRole"), ("SNA-SDLC-MIB", "sdlcPortOperType"), ("SNA-SDLC-MIB", "sdlcPortOperTopology"), ("SNA-SDLC-MIB", "sdlcPortOperISTATUS"), ("SNA-SDLC-MIB", "sdlcPortOperACTIVTO"), ("SNA-SDLC-MIB", "sdlcPortOperLastFailTime"), ("SNA-SDLC-MIB", "sdlcPortOperLastFailCause"),))
-if mibBuilder.loadTexts: sdlcCorePortOperGroup.setDescription('The sdlcCorePortOperGroup defines objects\n                         which are common to the PortOper group of all\n                         compliant link stations.')
-sdlcCorePortOperGroupV11R01 = ObjectGroup((1, 3, 6, 1, 2, 1, 41, 1, 4, 2, 1, 8)).setObjects(*(("SNA-SDLC-MIB", "sdlcPortOperName"), ("SNA-SDLC-MIB", "sdlcPortOperRole"), ("SNA-SDLC-MIB", "sdlcPortOperType"), ("SNA-SDLC-MIB", "sdlcPortOperTopology"), ("SNA-SDLC-MIB", "sdlcPortOperISTATUS"), ("SNA-SDLC-MIB", "sdlcPortOperACTIVTO"), ("SNA-SDLC-MIB", "sdlcPortOperPAUSE"), ("SNA-SDLC-MIB", "sdlcPortOperSlowPollMethod"), ("SNA-SDLC-MIB", "sdlcPortOperSERVLIM"), ("SNA-SDLC-MIB", "sdlcPortOperSlowPollTimer"), ("SNA-SDLC-MIB", "sdlcPortOperLastModifyTime"), ("SNA-SDLC-MIB", "sdlcPortOperLastFailTime"), ("SNA-SDLC-MIB", "sdlcPortOperLastFailCause"),))
-if mibBuilder.loadTexts: sdlcCorePortOperGroupV11R01.setDescription('The sdlcCorePortOperGroup defines objects\n                         which are common to the PortOper group of all\n                         compliant link stations.')
-sdlcCorePortStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 41, 1, 4, 2, 1, 3)).setObjects(*(("SNA-SDLC-MIB", "sdlcPortStatsPhysicalFailures"), ("SNA-SDLC-MIB", "sdlcPortStatsInvalidAddresses"), ("SNA-SDLC-MIB", "sdlcPortStatsDwarfFrames"),))
-if mibBuilder.loadTexts: sdlcCorePortStatsGroup.setDescription('The sdlcCorePortStatsGroup defines objects\n                         which are common to the PortStats group of all\n                         compliant link stations.')
-sdlcCorePortStatsGroupV11R01 = ObjectGroup((1, 3, 6, 1, 2, 1, 41, 1, 4, 2, 1, 9)).setObjects(*(("SNA-SDLC-MIB", "sdlcPortStatsPhysicalFailures"), ("SNA-SDLC-MIB", "sdlcPortStatsInvalidAddresses"), ("SNA-SDLC-MIB", "sdlcPortStatsDwarfFrames"), ("SNA-SDLC-MIB", "sdlcPortStatsPollsIn"), ("SNA-SDLC-MIB", "sdlcPortStatsPollsOut"), ("SNA-SDLC-MIB", "sdlcPortStatsPollRspsIn"), ("SNA-SDLC-MIB", "sdlcPortStatsPollRspsOut"), ("SNA-SDLC-MIB", "sdlcPortStatsLocalBusies"), ("SNA-SDLC-MIB", "sdlcPortStatsRemoteBusies"), ("SNA-SDLC-MIB", "sdlcPortStatsIFramesIn"), ("SNA-SDLC-MIB", "sdlcPortStatsIFramesOut"), ("SNA-SDLC-MIB", "sdlcPortStatsOctetsIn"), ("SNA-SDLC-MIB", "sdlcPortStatsOctetsOut"), ("SNA-SDLC-MIB", "sdlcPortStatsProtocolErrs"), ("SNA-SDLC-MIB", "sdlcPortStatsActivityTOs"), ("SNA-SDLC-MIB", "sdlcPortStatsRNRLIMITs"), ("SNA-SDLC-MIB", "sdlcPortStatsRetriesExps"), ("SNA-SDLC-MIB", "sdlcPortStatsRetransmitsIn"), ("SNA-SDLC-MIB", "sdlcPortStatsRetransmitsOut"),))
-if mibBuilder.loadTexts: sdlcCorePortStatsGroupV11R01.setDescription('The sdlcCorePortStatsGroup defines objects\n                         which are common to the PortStats group of all\n                         compliant link stations.')
-sdlcCoreLSAdminGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 41, 1, 4, 2, 1, 4)).setObjects(*(("SNA-SDLC-MIB", "sdlcLSAddress"), ("SNA-SDLC-MIB", "sdlcLSAdminName"), ("SNA-SDLC-MIB", "sdlcLSAdminState"), ("SNA-SDLC-MIB", "sdlcLSAdminISTATUS"), ("SNA-SDLC-MIB", "sdlcLSAdminMAXDATASend"), ("SNA-SDLC-MIB", "sdlcLSAdminMAXDATARcv"), ("SNA-SDLC-MIB", "sdlcLSAdminMAXIN"), ("SNA-SDLC-MIB", "sdlcLSAdminMAXOUT"), ("SNA-SDLC-MIB", "sdlcLSAdminMODULO"), ("SNA-SDLC-MIB", "sdlcLSAdminRETRIESm"), ("SNA-SDLC-MIB", "sdlcLSAdminRETRIESt"), ("SNA-SDLC-MIB", "sdlcLSAdminRETRIESn"), ("SNA-SDLC-MIB", "sdlcLSAdminRNRLIMIT"), ("SNA-SDLC-MIB", "sdlcLSAdminDATMODE"), ("SNA-SDLC-MIB", "sdlcLSAdminGPoll"), ("SNA-SDLC-MIB", "sdlcLSAdminSimRim"), ("SNA-SDLC-MIB", "sdlcLSAdminRowStatus"),))
-if mibBuilder.loadTexts: sdlcCoreLSAdminGroup.setDescription('The sdlcCorePortAdminGroup defines objects\n                         which are common to the PortAdmin group of all\n                         compliant link stations.')
-sdlcCoreLSAdminGroupV11R01 = ObjectGroup((1, 3, 6, 1, 2, 1, 41, 1, 4, 2, 1, 10)).setObjects(*(("SNA-SDLC-MIB", "sdlcLSAddress"), ("SNA-SDLC-MIB", "sdlcLSAdminName"), ("SNA-SDLC-MIB", "sdlcLSAdminState"), ("SNA-SDLC-MIB", "sdlcLSAdminISTATUS"), ("SNA-SDLC-MIB", "sdlcLSAdminMAXDATASend"), ("SNA-SDLC-MIB", "sdlcLSAdminMAXDATARcv"), ("SNA-SDLC-MIB", "sdlcLSAdminMAXIN"), ("SNA-SDLC-MIB", "sdlcLSAdminMAXOUT"), ("SNA-SDLC-MIB", "sdlcLSAdminMODULO"), ("SNA-SDLC-MIB", "sdlcLSAdminRETRIESm"), ("SNA-SDLC-MIB", "sdlcLSAdminRETRIESt"), ("SNA-SDLC-MIB", "sdlcLSAdminRETRIESn"), ("SNA-SDLC-MIB", "sdlcLSAdminRNRLIMIT"), ("SNA-SDLC-MIB", "sdlcLSAdminDATMODE"), ("SNA-SDLC-MIB", "sdlcLSAdminGPoll"), ("SNA-SDLC-MIB", "sdlcLSAdminSimRim"), ("SNA-SDLC-MIB", "sdlcLSAdminXmitRcvCap"), ("SNA-SDLC-MIB", "sdlcLSAdminRowStatus"),))
-if mibBuilder.loadTexts: sdlcCoreLSAdminGroupV11R01.setDescription('The sdlcCorePortAdminGroup defines objects\n                         which are common to the PortAdmin group of all\n                         compliant link stations.')
-sdlcCoreLSOperGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 41, 1, 4, 2, 1, 5)).setObjects(*(("SNA-SDLC-MIB", "sdlcLSOperRole"), ("SNA-SDLC-MIB", "sdlcLSOperState"), ("SNA-SDLC-MIB", "sdlcLSOperMAXDATASend"), ("SNA-SDLC-MIB", "sdlcLSOperMAXIN"), ("SNA-SDLC-MIB", "sdlcLSOperMAXOUT"), ("SNA-SDLC-MIB", "sdlcLSOperMODULO"), ("SNA-SDLC-MIB", "sdlcLSOperRETRIESm"), ("SNA-SDLC-MIB", "sdlcLSOperRETRIESt"), ("SNA-SDLC-MIB", "sdlcLSOperRETRIESn"), ("SNA-SDLC-MIB", "sdlcLSOperRNRLIMIT"), ("SNA-SDLC-MIB", "sdlcLSOperDATMODE"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailTime"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailCause"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailCtrlIn"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailCtrlOut"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailFRMRInfo"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailREPLYTOs"), ("SNA-SDLC-MIB", "sdlcLSOperEcho"), ("SNA-SDLC-MIB", "sdlcLSOperGPoll"),))
-if mibBuilder.loadTexts: sdlcCoreLSOperGroup.setDescription('The sdlcCorePortOperGroup defines objects\n                         which are common to the PortOper group of all\n                         compliant link stations.')
-sdlcCoreLSOperGroupV11R01 = ObjectGroup((1, 3, 6, 1, 2, 1, 41, 1, 4, 2, 1, 11)).setObjects(*(("SNA-SDLC-MIB", "sdlcLSOperName"), ("SNA-SDLC-MIB", "sdlcLSOperRole"), ("SNA-SDLC-MIB", "sdlcLSOperState"), ("SNA-SDLC-MIB", "sdlcLSOperMAXDATASend"), ("SNA-SDLC-MIB", "sdlcLSOperMAXIN"), ("SNA-SDLC-MIB", "sdlcLSOperMAXOUT"), ("SNA-SDLC-MIB", "sdlcLSOperMODULO"), ("SNA-SDLC-MIB", "sdlcLSOperRETRIESm"), ("SNA-SDLC-MIB", "sdlcLSOperRETRIESt"), ("SNA-SDLC-MIB", "sdlcLSOperRETRIESn"), ("SNA-SDLC-MIB", "sdlcLSOperRNRLIMIT"), ("SNA-SDLC-MIB", "sdlcLSOperDATMODE"), ("SNA-SDLC-MIB", "sdlcLSOperLastModifyTime"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailTime"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailCause"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailCtrlIn"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailCtrlOut"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailFRMRInfo"), ("SNA-SDLC-MIB", "sdlcLSOperLastFailREPLYTOs"), ("SNA-SDLC-MIB", "sdlcLSOperEcho"), ("SNA-SDLC-MIB", "sdlcLSOperGPoll"), ("SNA-SDLC-MIB", "sdlcLSOperSimRim"), ("SNA-SDLC-MIB", "sdlcLSOperXmitRcvCap"),))
-if mibBuilder.loadTexts: sdlcCoreLSOperGroupV11R01.setDescription('The sdlcCorePortOperGroup defines objects\n                         which are common to the PortOper group of all\n                         compliant link stations.')
-sdlcCoreLSStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 41, 1, 4, 2, 1, 6)).setObjects(*(("SNA-SDLC-MIB", "sdlcLSStatsBLUsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsBLUsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsOctetsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsOctetsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsPollsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsPollsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsPollRspsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsPollRspsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsLocalBusies"), ("SNA-SDLC-MIB", "sdlcLSStatsRemoteBusies"), ("SNA-SDLC-MIB", "sdlcLSStatsIFramesIn"), ("SNA-SDLC-MIB", "sdlcLSStatsIFramesOut"), ("SNA-SDLC-MIB", "sdlcLSStatsRetransmitsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsRetransmitsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsUIFramesIn"), ("SNA-SDLC-MIB", "sdlcLSStatsUIFramesOut"), ("SNA-SDLC-MIB", "sdlcLSStatsXIDsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsXIDsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsTESTsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsTESTsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsREJsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsREJsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsFRMRsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsFRMRsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsSIMsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsSIMsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsRIMsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsRIMsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsProtocolErrs"), ("SNA-SDLC-MIB", "sdlcLSStatsRNRLIMITs"), ("SNA-SDLC-MIB", "sdlcLSStatsRetriesExps"),))
-if mibBuilder.loadTexts: sdlcCoreLSStatsGroup.setDescription('The sdlcCorePortStatsGroup defines objects\n                         which are common to the PortStats group of all\n                         compliant link stations.')
-sdlcCoreLSStatsGroupV11R01 = ObjectGroup((1, 3, 6, 1, 2, 1, 41, 1, 4, 2, 1, 12)).setObjects(*(("SNA-SDLC-MIB", "sdlcLSStatsBLUsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsBLUsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsOctetsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsOctetsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsPollsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsPollsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsPollRspsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsPollRspsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsLocalBusies"), ("SNA-SDLC-MIB", "sdlcLSStatsRemoteBusies"), ("SNA-SDLC-MIB", "sdlcLSStatsIFramesIn"), ("SNA-SDLC-MIB", "sdlcLSStatsIFramesOut"), ("SNA-SDLC-MIB", "sdlcLSStatsRetransmitsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsRetransmitsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsUIFramesIn"), ("SNA-SDLC-MIB", "sdlcLSStatsUIFramesOut"), ("SNA-SDLC-MIB", "sdlcLSStatsXIDsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsXIDsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsTESTsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsTESTsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsREJsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsREJsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsFRMRsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsFRMRsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsSIMsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsSIMsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsRIMsIn"), ("SNA-SDLC-MIB", "sdlcLSStatsRIMsOut"), ("SNA-SDLC-MIB", "sdlcLSStatsDISCIn"), ("SNA-SDLC-MIB", "sdlcLSStatsDISCOut"), ("SNA-SDLC-MIB", "sdlcLSStatsUAIn"), ("SNA-SDLC-MIB", "sdlcLSStatsUAOut"), ("SNA-SDLC-MIB", "sdlcLSStatsDMIn"), ("SNA-SDLC-MIB", "sdlcLSStatsDMOut"), ("SNA-SDLC-MIB", "sdlcLSStatsSNRMIn"), ("SNA-SDLC-MIB", "sdlcLSStatsSNRMOut"), ("SNA-SDLC-MIB", "sdlcLSStatsProtocolErrs"), ("SNA-SDLC-MIB", "sdlcLSStatsActivityTOs"), ("SNA-SDLC-MIB", "sdlcLSStatsRNRLIMITs"), ("SNA-SDLC-MIB", "sdlcLSStatsRetriesExps"),))
-if mibBuilder.loadTexts: sdlcCoreLSStatsGroupV11R01.setDescription('The sdlcCorePortStatsGroup defines objects\n                         which are common to the PortStats group of all\n                         compliant link stations.')
-sdlcPrimaryGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 41, 1, 4, 2, 2))
-sdlcPrimaryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 41, 1, 4, 2, 2, 1)).setObjects(*(("SNA-SDLC-MIB", "sdlcPortAdminPAUSE"), ("SNA-SDLC-MIB", "sdlcPortOperPAUSE"), ("SNA-SDLC-MIB", "sdlcLSAdminREPLYTO"), ("SNA-SDLC-MIB", "sdlcLSOperREPLYTO"),))
-if mibBuilder.loadTexts: sdlcPrimaryGroup.setDescription('The sdlcPrimaryGroup defines objects which\n                         are common to all compliant primary link\n                         stations.')
-sdlcPrimaryMultipointGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 41, 1, 4, 2, 2, 2)).setObjects(*(("SNA-SDLC-MIB", "sdlcPortAdminSERVLIM"), ("SNA-SDLC-MIB", "sdlcPortAdminSlowPollTimer"), ("SNA-SDLC-MIB", "sdlcPortOperSlowPollMethod"), ("SNA-SDLC-MIB", "sdlcPortOperSERVLIM"), ("SNA-SDLC-MIB", "sdlcPortOperSlowPollTimer"),))
-if mibBuilder.loadTexts: sdlcPrimaryMultipointGroup.setDescription('The sdlcPrimaryMultipointGroup defines objects\n                         which are common to all compliant primary link\n                         stations that are in a multipoint topology.')
-mibBuilder.exportSymbols("SNA-SDLC-MIB", sdlcPortStatsPhysicalFailures=sdlcPortStatsPhysicalFailures, sdlcPortStatsActivityTOs=sdlcPortStatsActivityTOs, sdlcLSOperMAXDATASend=sdlcLSOperMAXDATASend, sdlcPrimaryGroups=sdlcPrimaryGroups, sdlcPortStatsIFramesIn=sdlcPortStatsIFramesIn, sdlcLSAdminGPoll=sdlcLSAdminGPoll, sdlcLSStatsUAIn=sdlcLSStatsUAIn, sdlcLSStatsProtocolErrs=sdlcLSStatsProtocolErrs, sdlcPortAdminType=sdlcPortAdminType, sdlcLSStatsIFramesIn=sdlcLSStatsIFramesIn, sdlcLSAdminMAXIN=sdlcLSAdminMAXIN, sdlcCoreLSOperGroup=sdlcCoreLSOperGroup, sdlcLSStatsTESTsIn=sdlcLSStatsTESTsIn, sdlcPortStatsOctetsOut=sdlcPortStatsOctetsOut, sdlcCoreGroups=sdlcCoreGroups, sdlcLSAdminSimRim=sdlcLSAdminSimRim, sdlcLSStatsUIFramesIn=sdlcLSStatsUIFramesIn, sdlcPortOperSlowPollTimer=sdlcPortOperSlowPollTimer, sdlcLSStatsUIFramesOut=sdlcLSStatsUIFramesOut, sdlcCoreLSStatsGroup=sdlcCoreLSStatsGroup, sdlcCorePortOperGroupV11R01=sdlcCorePortOperGroupV11R01, sdlcPortStatsDwarfFrames=sdlcPortStatsDwarfFrames, sdlcPortStatsProtocolErrs=sdlcPortStatsProtocolErrs, sdlcLSStatsActivityTOs=sdlcLSStatsActivityTOs, sdlcPortOperSlowPollMethod=sdlcPortOperSlowPollMethod, sdlc=sdlc, sdlcPortOperACTIVTO=sdlcPortOperACTIVTO, sdlcPortOperSERVLIM=sdlcPortOperSERVLIM, sdlcPortGroup=sdlcPortGroup, sdlcPrimaryMultipointGroup=sdlcPrimaryMultipointGroup, sdlcPortStatsEntry=sdlcPortStatsEntry, sdlcLSAdminMAXDATARcv=sdlcLSAdminMAXDATARcv, sdlcCorePortStatsGroupV11R01=sdlcCorePortStatsGroupV11R01, sdlcLSOperName=sdlcLSOperName, sdlcPortAdminPAUSE=sdlcPortAdminPAUSE, sdlcPortStatsOctetsIn=sdlcPortStatsOctetsIn, sdlcLSOperTable=sdlcLSOperTable, sdlcCoreComplianceV11R01=sdlcCoreComplianceV11R01, sdlcLSStatsLocalBusies=sdlcLSStatsLocalBusies, sdlcPortStatsPollRspsIn=sdlcPortStatsPollRspsIn, sdlcLSAdminRETRIESm=sdlcLSAdminRETRIESm, sdlcPortAdminACTIVTO=sdlcPortAdminACTIVTO, sdlcLSOperMAXIN=sdlcLSOperMAXIN, sdlcLSStatsRNRLIMITs=sdlcLSStatsRNRLIMITs, sdlcLSOperLastFailCtrlOut=sdlcLSOperLastFailCtrlOut, sdlcLSStatsDMOut=sdlcLSStatsDMOut, sdlcLSOperLastFailREPLYTOs=sdlcLSOperLastFailREPLYTOs, sdlcLSStatsBLUsIn=sdlcLSStatsBLUsIn, sdlcPortOperPAUSE=sdlcPortOperPAUSE, sdlcLSAddress=sdlcLSAddress, sdlcLSOperRETRIESm=sdlcLSOperRETRIESm, sdlcLSStatsBLUsOut=sdlcLSStatsBLUsOut, sdlcLSStatsSIMsOut=sdlcLSStatsSIMsOut, sdlcLSStatsREJsIn=sdlcLSStatsREJsIn, sdlcCoreLSOperGroupV11R01=sdlcCoreLSOperGroupV11R01, sdlcLSOperLastModifyTime=sdlcLSOperLastModifyTime, sdlcLSStatsRetransmitsIn=sdlcLSStatsRetransmitsIn, sdlcLSStatsEntry=sdlcLSStatsEntry, sdlcLSStatsSNRMOut=sdlcLSStatsSNRMOut, sdlcLSStatsOctetsIn=sdlcLSStatsOctetsIn, sdlcLSAdminREPLYTO=sdlcLSAdminREPLYTO, sdlcPortAdminEntry=sdlcPortAdminEntry, sdlcLSAdminTable=sdlcLSAdminTable, sdlcLSStatsOctetsOut=sdlcLSStatsOctetsOut, sdlcLSOperState=sdlcLSOperState, sdlcPortStatsRetriesExps=sdlcPortStatsRetriesExps, sdlcPortStatsIFramesOut=sdlcPortStatsIFramesOut, sdlcLSOperLastFailTime=sdlcLSOperLastFailTime, sdlcLSStatsFRMRsOut=sdlcLSStatsFRMRsOut, sdlcLSAdminMODULO=sdlcLSAdminMODULO, sdlcLSStatsRetriesExps=sdlcLSStatsRetriesExps, sdlcPortStatsPollsOut=sdlcPortStatsPollsOut, sdlcLSStatsPollRspsIn=sdlcLSStatsPollRspsIn, sdlcLSStatusChange1=sdlcLSStatusChange1, sdlcCorePortAdminGroupV11R01=sdlcCorePortAdminGroupV11R01, sdlcLSAdminRNRLIMIT=sdlcLSAdminRNRLIMIT, sdlcLSOperLastFailCause=sdlcLSOperLastFailCause, sdlcPortOperISTATUS=sdlcPortOperISTATUS, sdlcLSStatsXIDsIn=sdlcLSStatsXIDsIn, sdlcLSStatsSNRMIn=sdlcLSStatsSNRMIn, sdlcCoreCompliance=sdlcCoreCompliance, sdlcCoreLSStatsGroupV11R01=sdlcCoreLSStatsGroupV11R01, sdlcLSStatsDISCOut=sdlcLSStatsDISCOut, sdlcLSStatsDMIn=sdlcLSStatsDMIn, sdlcPortOperName=sdlcPortOperName, sdlcCorePortOperGroup=sdlcCorePortOperGroup, sdlcLSOperLastFailCtrlIn=sdlcLSOperLastFailCtrlIn, sdlcLSStatsRemoteBusies=sdlcLSStatsRemoteBusies, sdlcLSStatsUAOut=sdlcLSStatsUAOut, sdlcPrimaryMultipointCompliance=sdlcPrimaryMultipointCompliance, sdlcPortStatsPollsIn=sdlcPortStatsPollsIn, sdlcLSAdminMAXDATASend=sdlcLSAdminMAXDATASend, sdlcLSOperSimRim=sdlcLSOperSimRim, sdlcCorePortAdminGroup=sdlcCorePortAdminGroup, sdlcLSStatsREJsOut=sdlcLSStatsREJsOut, sdlcLSStatsSIMsIn=sdlcLSStatsSIMsIn, sdlcLSStatsRetransmitsOut=sdlcLSStatsRetransmitsOut, sdlcLSOperRole=sdlcLSOperRole, sdlcLSOperRETRIESn=sdlcLSOperRETRIESn, sdlcPortAdminRole=sdlcPortAdminRole, sdlcLSOperREPLYTO=sdlcLSOperREPLYTO, sdlcPrimaryGroup=sdlcPrimaryGroup, sdlcPortStatsTable=sdlcPortStatsTable, sdlcPortStatsInvalidAddresses=sdlcPortStatsInvalidAddresses, sdlcLSStatsIFramesOut=sdlcLSStatsIFramesOut, sdlcLSOperEntry=sdlcLSOperEntry, sdlcLSOperEcho=sdlcLSOperEcho, sdlcLSOperXmitRcvCap=sdlcLSOperXmitRcvCap, sdlcPortStatsLocalBusies=sdlcPortStatsLocalBusies, sdlcPortOperRole=sdlcPortOperRole, sdlcPortAdminISTATUS=sdlcPortAdminISTATUS, sdlcPortOperLastFailCause=sdlcPortOperLastFailCause, sdlcLSAdminRowStatus=sdlcLSAdminRowStatus, sdlcLSStatsFRMRsIn=sdlcLSStatsFRMRsIn, sdlcPortStatsPollRspsOut=sdlcPortStatsPollRspsOut, sdlcPortStatsRetransmitsIn=sdlcPortStatsRetransmitsIn, sdlcLSAdminRETRIESn=sdlcLSAdminRETRIESn, sdlcLSAdminName=sdlcLSAdminName, sdlcLSStatsPollsOut=sdlcLSStatsPollsOut, sdlcLSOperMODULO=sdlcLSOperMODULO, sdlcPortOperType=sdlcPortOperType, sdlcLSAdminXmitRcvCap=sdlcLSAdminXmitRcvCap, sdlcLSStatsDISCIn=sdlcLSStatsDISCIn, sdlcCoreLSAdminGroupV11R01=sdlcCoreLSAdminGroupV11R01, sdlcLSStatsTable=sdlcLSStatsTable, sdlcPortAdminTopology=sdlcPortAdminTopology, sdlcConformance=sdlcConformance, sdlcLSOperLastFailFRMRInfo=sdlcLSOperLastFailFRMRInfo, sdlcPortOperTopology=sdlcPortOperTopology, sdlcPortOperLastModifyTime=sdlcPortOperLastModifyTime, sdlcLSAdminMAXOUT=sdlcLSAdminMAXOUT, sdlcLSStatsXIDsOut=sdlcLSStatsXIDsOut, sdlcPortOperEntry=sdlcPortOperEntry, sdlcLSStatsRIMsIn=sdlcLSStatsRIMsIn, sdlcPortStatsRetransmitsOut=sdlcPortStatsRetransmitsOut, sdlcLSOperDATMODE=sdlcLSOperDATMODE, sdlcTraps=sdlcTraps, sdlcLSAdminState=sdlcLSAdminState, sdlcLSOperRNRLIMIT=sdlcLSOperRNRLIMIT, sdlcPortStatsRemoteBusies=sdlcPortStatsRemoteBusies, sdlcLSStatusChange=sdlcLSStatusChange, sdlcPortAdminSERVLIM=sdlcPortAdminSERVLIM, sdlcCoreLSAdminGroup=sdlcCoreLSAdminGroup, sdlcLSStatsTESTsOut=sdlcLSStatsTESTsOut, sdlcPortAdminName=sdlcPortAdminName, sdlcPortOperLastFailTime=sdlcPortOperLastFailTime, sdlcLSGroup=sdlcLSGroup, sdlcPortAdminSlowPollTimer=sdlcPortAdminSlowPollTimer, sdlcLSAdminDATMODE=sdlcLSAdminDATMODE, sdlcPortAdminTable=sdlcPortAdminTable, sdlcLSAdminRETRIESt=sdlcLSAdminRETRIESt, sdlcLSStatsPollRspsOut=sdlcLSStatsPollRspsOut, snaDLC=snaDLC, sdlcLSOperGPoll=sdlcLSOperGPoll, sdlcPortOperTable=sdlcPortOperTable, sdlcPrimaryCompliance=sdlcPrimaryCompliance, sdlcCompliances=sdlcCompliances, sdlcLSAdminISTATUS=sdlcLSAdminISTATUS, sdlcLSStatsRIMsOut=sdlcLSStatsRIMsOut, sdlcGroups=sdlcGroups, sdlcLSStatsPollsIn=sdlcLSStatsPollsIn, sdlcCorePortStatsGroup=sdlcCorePortStatsGroup, sdlcPortStatusChange=sdlcPortStatusChange, PYSNMP_MODULE_ID=snaDLC, sdlcLSAdminEntry=sdlcLSAdminEntry, sdlcLSOperRETRIESt=sdlcLSOperRETRIESt, sdlcLSOperMAXOUT=sdlcLSOperMAXOUT, sdlcPortStatsRNRLIMITs=sdlcPortStatsRNRLIMITs)
+_B8='sdlcPrimaryMultipointGroup'
+_B7='sdlcPrimaryGroup'
+_B6='sdlcCoreLSStatsGroup'
+_B5='sdlcCoreLSOperGroup'
+_B4='sdlcCoreLSAdminGroup'
+_B3='sdlcCorePortStatsGroup'
+_B2='sdlcCorePortOperGroup'
+_B1='sdlcCorePortAdminGroup'
+_B0='sdlcPortOperSlowPollTimer'
+_A_='sdlcPortOperSERVLIM'
+_Az='sdlcPortOperSlowPollMethod'
+_Ay='sdlcPortAdminSlowPollTimer'
+_Ax='sdlcPortAdminSERVLIM'
+_Aw='sdlcLSOperREPLYTO'
+_Av='sdlcLSAdminREPLYTO'
+_Au='sdlcPortOperPAUSE'
+_At='sdlcPortAdminPAUSE'
+_As='sdlcLSStatsRetriesExps'
+_Ar='sdlcLSStatsRNRLIMITs'
+_Aq='sdlcLSStatsProtocolErrs'
+_Ap='sdlcLSStatsRIMsOut'
+_Ao='sdlcLSStatsRIMsIn'
+_An='sdlcLSStatsSIMsOut'
+_Am='sdlcLSStatsSIMsIn'
+_Al='sdlcLSStatsFRMRsOut'
+_Ak='sdlcLSStatsFRMRsIn'
+_Aj='sdlcLSStatsREJsOut'
+_Ai='sdlcLSStatsREJsIn'
+_Ah='sdlcLSStatsTESTsOut'
+_Ag='sdlcLSStatsTESTsIn'
+_Af='sdlcLSStatsXIDsOut'
+_Ae='sdlcLSStatsXIDsIn'
+_Ad='sdlcLSStatsUIFramesOut'
+_Ac='sdlcLSStatsUIFramesIn'
+_Ab='sdlcLSStatsRetransmitsOut'
+_Aa='sdlcLSStatsRetransmitsIn'
+_AZ='sdlcLSStatsIFramesOut'
+_AY='sdlcLSStatsIFramesIn'
+_AX='sdlcLSStatsRemoteBusies'
+_AW='sdlcLSStatsLocalBusies'
+_AV='sdlcLSStatsPollRspsOut'
+_AU='sdlcLSStatsPollRspsIn'
+_AT='sdlcLSStatsPollsOut'
+_AS='sdlcLSStatsPollsIn'
+_AR='sdlcLSStatsOctetsOut'
+_AQ='sdlcLSStatsOctetsIn'
+_AP='sdlcLSStatsBLUsOut'
+_AO='sdlcLSStatsBLUsIn'
+_AN='sdlcLSOperGPoll'
+_AM='sdlcLSOperEcho'
+_AL='sdlcLSOperDATMODE'
+_AK='sdlcLSOperRNRLIMIT'
+_AJ='sdlcLSOperRETRIESn'
+_AI='sdlcLSOperRETRIESt'
+_AH='sdlcLSOperRETRIESm'
+_AG='sdlcLSOperMODULO'
+_AF='sdlcLSOperMAXOUT'
+_AE='sdlcLSOperMAXIN'
+_AD='sdlcLSOperMAXDATASend'
+_AC='sdlcLSOperRole'
+_AB='sdlcLSAdminRowStatus'
+_AA='sdlcLSAdminSimRim'
+_A9='sdlcLSAdminGPoll'
+_A8='sdlcLSAdminDATMODE'
+_A7='sdlcLSAdminRNRLIMIT'
+_A6='sdlcLSAdminRETRIESn'
+_A5='sdlcLSAdminRETRIESt'
+_A4='sdlcLSAdminRETRIESm'
+_A3='sdlcLSAdminMODULO'
+_A2='sdlcLSAdminMAXOUT'
+_A1='sdlcLSAdminMAXIN'
+_A0='sdlcLSAdminMAXDATARcv'
+_z='sdlcLSAdminMAXDATASend'
+_y='sdlcLSAdminISTATUS'
+_x='sdlcLSAdminName'
+_w='sdlcPortStatsDwarfFrames'
+_v='sdlcPortStatsInvalidAddresses'
+_u='sdlcPortStatsPhysicalFailures'
+_t='sdlcPortOperACTIVTO'
+_s='sdlcPortOperISTATUS'
+_r='sdlcPortOperTopology'
+_q='sdlcPortOperType'
+_p='sdlcPortOperRole'
+_o='sdlcPortOperName'
+_n='sdlcPortAdminISTATUS'
+_m='sdlcPortAdminTopology'
+_l='sdlcPortAdminType'
+_k='sdlcPortAdminRole'
+_j='sdlcPortAdminName'
+_i='onetwentyeight'
+_h='multipoint'
+_g='pointToPoint'
+_f='switched'
+_e='leased'
+_d='ifOperStatus'
+_c='ifAdminStatus'
+_b='sdlcLSOperLastFailREPLYTOs'
+_a='sdlcLSOperLastFailFRMRInfo'
+_Z='sdlcLSOperLastFailCtrlOut'
+_Y='sdlcLSOperLastFailCtrlIn'
+_X='sdlcLSOperLastFailCause'
+_W='sdlcLSOperLastFailTime'
+_V='sdlcLSOperState'
+_U='sdlcLSAdminState'
+_T='sdlcPortOperLastFailCause'
+_S='sdlcPortOperLastFailTime'
+_R='yes'
+_Q='secondary'
+_P='primary'
+_O='undefined'
+_N='active'
+_M='inactive'
+_L='OctetString'
+_K='DisplayString'
+_J='sdlcLSAddress'
+_I='TimeInterval'
+_H='read-write'
+_G='ifIndex'
+_F='IF-MIB'
+_E='read-create'
+_D='Integer32'
+_C='read-only'
+_B='SNA-SDLC-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_L,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ifAdminStatus,ifIndex,ifOperStatus=mibBuilder.importSymbols(_F,_c,_G,_d)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TimeInterval=mibBuilder.importSymbols('SNMPv2-TC',_K,'PhysAddress','RowStatus','TextualConvention',_I)
+snaDLC=ModuleIdentity((1,3,6,1,2,1,41))
+_Sdlc_ObjectIdentity=ObjectIdentity
+sdlc=_Sdlc_ObjectIdentity((1,3,6,1,2,1,41,1))
+_SdlcPortGroup_ObjectIdentity=ObjectIdentity
+sdlcPortGroup=_SdlcPortGroup_ObjectIdentity((1,3,6,1,2,1,41,1,1))
+_SdlcPortAdminTable_Object=MibTable
+sdlcPortAdminTable=_SdlcPortAdminTable_Object((1,3,6,1,2,1,41,1,1,1))
+if mibBuilder.loadTexts:sdlcPortAdminTable.setStatus(_A)
+_SdlcPortAdminEntry_Object=MibTableRow
+sdlcPortAdminEntry=_SdlcPortAdminEntry_Object((1,3,6,1,2,1,41,1,1,1,1))
+sdlcPortAdminEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:sdlcPortAdminEntry.setStatus(_A)
+class _SdlcPortAdminName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,10))
+_SdlcPortAdminName_Type.__name__=_K
+_SdlcPortAdminName_Object=MibTableColumn
+sdlcPortAdminName=_SdlcPortAdminName_Object((1,3,6,1,2,1,41,1,1,1,1,1),_SdlcPortAdminName_Type())
+sdlcPortAdminName.setMaxAccess(_H)
+if mibBuilder.loadTexts:sdlcPortAdminName.setStatus(_A)
+class _SdlcPortAdminRole_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_P,1),(_Q,2),('negotiable',3)))
+_SdlcPortAdminRole_Type.__name__=_D
+_SdlcPortAdminRole_Object=MibTableColumn
+sdlcPortAdminRole=_SdlcPortAdminRole_Object((1,3,6,1,2,1,41,1,1,1,1,2),_SdlcPortAdminRole_Type())
+sdlcPortAdminRole.setMaxAccess(_H)
+if mibBuilder.loadTexts:sdlcPortAdminRole.setStatus(_A)
+class _SdlcPortAdminType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_e,1),(_f,2)))
+_SdlcPortAdminType_Type.__name__=_D
+_SdlcPortAdminType_Object=MibTableColumn
+sdlcPortAdminType=_SdlcPortAdminType_Object((1,3,6,1,2,1,41,1,1,1,1,3),_SdlcPortAdminType_Type())
+sdlcPortAdminType.setMaxAccess(_H)
+if mibBuilder.loadTexts:sdlcPortAdminType.setStatus(_A)
+class _SdlcPortAdminTopology_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_g,1),(_h,2)))
+_SdlcPortAdminTopology_Type.__name__=_D
+_SdlcPortAdminTopology_Object=MibTableColumn
+sdlcPortAdminTopology=_SdlcPortAdminTopology_Object((1,3,6,1,2,1,41,1,1,1,1,4),_SdlcPortAdminTopology_Type())
+sdlcPortAdminTopology.setMaxAccess(_H)
+if mibBuilder.loadTexts:sdlcPortAdminTopology.setStatus(_A)
+class _SdlcPortAdminISTATUS_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_M,1),(_N,2)))
+_SdlcPortAdminISTATUS_Type.__name__=_D
+_SdlcPortAdminISTATUS_Object=MibTableColumn
+sdlcPortAdminISTATUS=_SdlcPortAdminISTATUS_Object((1,3,6,1,2,1,41,1,1,1,1,5),_SdlcPortAdminISTATUS_Type())
+sdlcPortAdminISTATUS.setMaxAccess(_H)
+if mibBuilder.loadTexts:sdlcPortAdminISTATUS.setStatus(_A)
+class _SdlcPortAdminACTIVTO_Type(TimeInterval):defaultValue=0
+_SdlcPortAdminACTIVTO_Type.__name__=_I
+_SdlcPortAdminACTIVTO_Object=MibTableColumn
+sdlcPortAdminACTIVTO=_SdlcPortAdminACTIVTO_Object((1,3,6,1,2,1,41,1,1,1,1,6),_SdlcPortAdminACTIVTO_Type())
+sdlcPortAdminACTIVTO.setMaxAccess(_H)
+if mibBuilder.loadTexts:sdlcPortAdminACTIVTO.setStatus(_A)
+class _SdlcPortAdminPAUSE_Type(TimeInterval):defaultValue=200
+_SdlcPortAdminPAUSE_Type.__name__=_I
+_SdlcPortAdminPAUSE_Object=MibTableColumn
+sdlcPortAdminPAUSE=_SdlcPortAdminPAUSE_Object((1,3,6,1,2,1,41,1,1,1,1,7),_SdlcPortAdminPAUSE_Type())
+sdlcPortAdminPAUSE.setMaxAccess(_H)
+if mibBuilder.loadTexts:sdlcPortAdminPAUSE.setStatus(_A)
+class _SdlcPortAdminSERVLIM_Type(Integer32):defaultValue=20
+_SdlcPortAdminSERVLIM_Type.__name__=_D
+_SdlcPortAdminSERVLIM_Object=MibTableColumn
+sdlcPortAdminSERVLIM=_SdlcPortAdminSERVLIM_Object((1,3,6,1,2,1,41,1,1,1,1,8),_SdlcPortAdminSERVLIM_Type())
+sdlcPortAdminSERVLIM.setMaxAccess(_H)
+if mibBuilder.loadTexts:sdlcPortAdminSERVLIM.setStatus(_A)
+class _SdlcPortAdminSlowPollTimer_Type(TimeInterval):defaultValue=2000
+_SdlcPortAdminSlowPollTimer_Type.__name__=_I
+_SdlcPortAdminSlowPollTimer_Object=MibTableColumn
+sdlcPortAdminSlowPollTimer=_SdlcPortAdminSlowPollTimer_Object((1,3,6,1,2,1,41,1,1,1,1,9),_SdlcPortAdminSlowPollTimer_Type())
+sdlcPortAdminSlowPollTimer.setMaxAccess(_H)
+if mibBuilder.loadTexts:sdlcPortAdminSlowPollTimer.setStatus(_A)
+_SdlcPortOperTable_Object=MibTable
+sdlcPortOperTable=_SdlcPortOperTable_Object((1,3,6,1,2,1,41,1,1,2))
+if mibBuilder.loadTexts:sdlcPortOperTable.setStatus(_A)
+_SdlcPortOperEntry_Object=MibTableRow
+sdlcPortOperEntry=_SdlcPortOperEntry_Object((1,3,6,1,2,1,41,1,1,2,1))
+sdlcPortOperEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:sdlcPortOperEntry.setStatus(_A)
+class _SdlcPortOperName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,8))
+_SdlcPortOperName_Type.__name__=_K
+_SdlcPortOperName_Object=MibTableColumn
+sdlcPortOperName=_SdlcPortOperName_Object((1,3,6,1,2,1,41,1,1,2,1,1),_SdlcPortOperName_Type())
+sdlcPortOperName.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortOperName.setStatus(_A)
+class _SdlcPortOperRole_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_P,1),(_Q,2),(_O,3)))
+_SdlcPortOperRole_Type.__name__=_D
+_SdlcPortOperRole_Object=MibTableColumn
+sdlcPortOperRole=_SdlcPortOperRole_Object((1,3,6,1,2,1,41,1,1,2,1,2),_SdlcPortOperRole_Type())
+sdlcPortOperRole.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortOperRole.setStatus(_A)
+class _SdlcPortOperType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_e,1),(_f,2)))
+_SdlcPortOperType_Type.__name__=_D
+_SdlcPortOperType_Object=MibTableColumn
+sdlcPortOperType=_SdlcPortOperType_Object((1,3,6,1,2,1,41,1,1,2,1,3),_SdlcPortOperType_Type())
+sdlcPortOperType.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortOperType.setStatus(_A)
+class _SdlcPortOperTopology_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_g,1),(_h,2)))
+_SdlcPortOperTopology_Type.__name__=_D
+_SdlcPortOperTopology_Object=MibTableColumn
+sdlcPortOperTopology=_SdlcPortOperTopology_Object((1,3,6,1,2,1,41,1,1,2,1,4),_SdlcPortOperTopology_Type())
+sdlcPortOperTopology.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortOperTopology.setStatus(_A)
+class _SdlcPortOperISTATUS_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_M,1),(_N,2)))
+_SdlcPortOperISTATUS_Type.__name__=_D
+_SdlcPortOperISTATUS_Object=MibTableColumn
+sdlcPortOperISTATUS=_SdlcPortOperISTATUS_Object((1,3,6,1,2,1,41,1,1,2,1,5),_SdlcPortOperISTATUS_Type())
+sdlcPortOperISTATUS.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortOperISTATUS.setStatus(_A)
+_SdlcPortOperACTIVTO_Type=TimeInterval
+_SdlcPortOperACTIVTO_Object=MibTableColumn
+sdlcPortOperACTIVTO=_SdlcPortOperACTIVTO_Object((1,3,6,1,2,1,41,1,1,2,1,6),_SdlcPortOperACTIVTO_Type())
+sdlcPortOperACTIVTO.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortOperACTIVTO.setStatus(_A)
+_SdlcPortOperPAUSE_Type=TimeInterval
+_SdlcPortOperPAUSE_Object=MibTableColumn
+sdlcPortOperPAUSE=_SdlcPortOperPAUSE_Object((1,3,6,1,2,1,41,1,1,2,1,7),_SdlcPortOperPAUSE_Type())
+sdlcPortOperPAUSE.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortOperPAUSE.setStatus(_A)
+class _SdlcPortOperSlowPollMethod_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('servlim',1),('pollpause',2),('other',3)))
+_SdlcPortOperSlowPollMethod_Type.__name__=_D
+_SdlcPortOperSlowPollMethod_Object=MibTableColumn
+sdlcPortOperSlowPollMethod=_SdlcPortOperSlowPollMethod_Object((1,3,6,1,2,1,41,1,1,2,1,8),_SdlcPortOperSlowPollMethod_Type())
+sdlcPortOperSlowPollMethod.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortOperSlowPollMethod.setStatus(_A)
+_SdlcPortOperSERVLIM_Type=Integer32
+_SdlcPortOperSERVLIM_Object=MibTableColumn
+sdlcPortOperSERVLIM=_SdlcPortOperSERVLIM_Object((1,3,6,1,2,1,41,1,1,2,1,9),_SdlcPortOperSERVLIM_Type())
+sdlcPortOperSERVLIM.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortOperSERVLIM.setStatus(_A)
+_SdlcPortOperSlowPollTimer_Type=TimeInterval
+_SdlcPortOperSlowPollTimer_Object=MibTableColumn
+sdlcPortOperSlowPollTimer=_SdlcPortOperSlowPollTimer_Object((1,3,6,1,2,1,41,1,1,2,1,10),_SdlcPortOperSlowPollTimer_Type())
+sdlcPortOperSlowPollTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortOperSlowPollTimer.setStatus(_A)
+_SdlcPortOperLastModifyTime_Type=TimeTicks
+_SdlcPortOperLastModifyTime_Object=MibTableColumn
+sdlcPortOperLastModifyTime=_SdlcPortOperLastModifyTime_Object((1,3,6,1,2,1,41,1,1,2,1,11),_SdlcPortOperLastModifyTime_Type())
+sdlcPortOperLastModifyTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortOperLastModifyTime.setStatus(_A)
+_SdlcPortOperLastFailTime_Type=TimeTicks
+_SdlcPortOperLastFailTime_Object=MibTableColumn
+sdlcPortOperLastFailTime=_SdlcPortOperLastFailTime_Object((1,3,6,1,2,1,41,1,1,2,1,12),_SdlcPortOperLastFailTime_Type())
+sdlcPortOperLastFailTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortOperLastFailTime.setStatus(_A)
+class _SdlcPortOperLastFailCause_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_O,1),('physical',2)))
+_SdlcPortOperLastFailCause_Type.__name__=_D
+_SdlcPortOperLastFailCause_Object=MibTableColumn
+sdlcPortOperLastFailCause=_SdlcPortOperLastFailCause_Object((1,3,6,1,2,1,41,1,1,2,1,13),_SdlcPortOperLastFailCause_Type())
+sdlcPortOperLastFailCause.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortOperLastFailCause.setStatus(_A)
+_SdlcPortStatsTable_Object=MibTable
+sdlcPortStatsTable=_SdlcPortStatsTable_Object((1,3,6,1,2,1,41,1,1,3))
+if mibBuilder.loadTexts:sdlcPortStatsTable.setStatus(_A)
+_SdlcPortStatsEntry_Object=MibTableRow
+sdlcPortStatsEntry=_SdlcPortStatsEntry_Object((1,3,6,1,2,1,41,1,1,3,1))
+sdlcPortStatsEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:sdlcPortStatsEntry.setStatus(_A)
+_SdlcPortStatsPhysicalFailures_Type=Counter32
+_SdlcPortStatsPhysicalFailures_Object=MibTableColumn
+sdlcPortStatsPhysicalFailures=_SdlcPortStatsPhysicalFailures_Object((1,3,6,1,2,1,41,1,1,3,1,1),_SdlcPortStatsPhysicalFailures_Type())
+sdlcPortStatsPhysicalFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsPhysicalFailures.setStatus(_A)
+_SdlcPortStatsInvalidAddresses_Type=Counter32
+_SdlcPortStatsInvalidAddresses_Object=MibTableColumn
+sdlcPortStatsInvalidAddresses=_SdlcPortStatsInvalidAddresses_Object((1,3,6,1,2,1,41,1,1,3,1,2),_SdlcPortStatsInvalidAddresses_Type())
+sdlcPortStatsInvalidAddresses.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsInvalidAddresses.setStatus(_A)
+_SdlcPortStatsDwarfFrames_Type=Counter32
+_SdlcPortStatsDwarfFrames_Object=MibTableColumn
+sdlcPortStatsDwarfFrames=_SdlcPortStatsDwarfFrames_Object((1,3,6,1,2,1,41,1,1,3,1,3),_SdlcPortStatsDwarfFrames_Type())
+sdlcPortStatsDwarfFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsDwarfFrames.setStatus(_A)
+_SdlcPortStatsPollsIn_Type=Counter32
+_SdlcPortStatsPollsIn_Object=MibTableColumn
+sdlcPortStatsPollsIn=_SdlcPortStatsPollsIn_Object((1,3,6,1,2,1,41,1,1,3,1,4),_SdlcPortStatsPollsIn_Type())
+sdlcPortStatsPollsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsPollsIn.setStatus(_A)
+_SdlcPortStatsPollsOut_Type=Counter32
+_SdlcPortStatsPollsOut_Object=MibTableColumn
+sdlcPortStatsPollsOut=_SdlcPortStatsPollsOut_Object((1,3,6,1,2,1,41,1,1,3,1,5),_SdlcPortStatsPollsOut_Type())
+sdlcPortStatsPollsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsPollsOut.setStatus(_A)
+_SdlcPortStatsPollRspsIn_Type=Counter32
+_SdlcPortStatsPollRspsIn_Object=MibTableColumn
+sdlcPortStatsPollRspsIn=_SdlcPortStatsPollRspsIn_Object((1,3,6,1,2,1,41,1,1,3,1,6),_SdlcPortStatsPollRspsIn_Type())
+sdlcPortStatsPollRspsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsPollRspsIn.setStatus(_A)
+_SdlcPortStatsPollRspsOut_Type=Counter32
+_SdlcPortStatsPollRspsOut_Object=MibTableColumn
+sdlcPortStatsPollRspsOut=_SdlcPortStatsPollRspsOut_Object((1,3,6,1,2,1,41,1,1,3,1,7),_SdlcPortStatsPollRspsOut_Type())
+sdlcPortStatsPollRspsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsPollRspsOut.setStatus(_A)
+_SdlcPortStatsLocalBusies_Type=Counter32
+_SdlcPortStatsLocalBusies_Object=MibTableColumn
+sdlcPortStatsLocalBusies=_SdlcPortStatsLocalBusies_Object((1,3,6,1,2,1,41,1,1,3,1,8),_SdlcPortStatsLocalBusies_Type())
+sdlcPortStatsLocalBusies.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsLocalBusies.setStatus(_A)
+_SdlcPortStatsRemoteBusies_Type=Counter32
+_SdlcPortStatsRemoteBusies_Object=MibTableColumn
+sdlcPortStatsRemoteBusies=_SdlcPortStatsRemoteBusies_Object((1,3,6,1,2,1,41,1,1,3,1,9),_SdlcPortStatsRemoteBusies_Type())
+sdlcPortStatsRemoteBusies.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsRemoteBusies.setStatus(_A)
+_SdlcPortStatsIFramesIn_Type=Counter32
+_SdlcPortStatsIFramesIn_Object=MibTableColumn
+sdlcPortStatsIFramesIn=_SdlcPortStatsIFramesIn_Object((1,3,6,1,2,1,41,1,1,3,1,10),_SdlcPortStatsIFramesIn_Type())
+sdlcPortStatsIFramesIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsIFramesIn.setStatus(_A)
+_SdlcPortStatsIFramesOut_Type=Counter32
+_SdlcPortStatsIFramesOut_Object=MibTableColumn
+sdlcPortStatsIFramesOut=_SdlcPortStatsIFramesOut_Object((1,3,6,1,2,1,41,1,1,3,1,11),_SdlcPortStatsIFramesOut_Type())
+sdlcPortStatsIFramesOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsIFramesOut.setStatus(_A)
+_SdlcPortStatsOctetsIn_Type=Counter32
+_SdlcPortStatsOctetsIn_Object=MibTableColumn
+sdlcPortStatsOctetsIn=_SdlcPortStatsOctetsIn_Object((1,3,6,1,2,1,41,1,1,3,1,12),_SdlcPortStatsOctetsIn_Type())
+sdlcPortStatsOctetsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsOctetsIn.setStatus(_A)
+_SdlcPortStatsOctetsOut_Type=Counter32
+_SdlcPortStatsOctetsOut_Object=MibTableColumn
+sdlcPortStatsOctetsOut=_SdlcPortStatsOctetsOut_Object((1,3,6,1,2,1,41,1,1,3,1,13),_SdlcPortStatsOctetsOut_Type())
+sdlcPortStatsOctetsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsOctetsOut.setStatus(_A)
+_SdlcPortStatsProtocolErrs_Type=Counter32
+_SdlcPortStatsProtocolErrs_Object=MibTableColumn
+sdlcPortStatsProtocolErrs=_SdlcPortStatsProtocolErrs_Object((1,3,6,1,2,1,41,1,1,3,1,14),_SdlcPortStatsProtocolErrs_Type())
+sdlcPortStatsProtocolErrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsProtocolErrs.setStatus(_A)
+_SdlcPortStatsActivityTOs_Type=Counter32
+_SdlcPortStatsActivityTOs_Object=MibTableColumn
+sdlcPortStatsActivityTOs=_SdlcPortStatsActivityTOs_Object((1,3,6,1,2,1,41,1,1,3,1,15),_SdlcPortStatsActivityTOs_Type())
+sdlcPortStatsActivityTOs.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsActivityTOs.setStatus(_A)
+_SdlcPortStatsRNRLIMITs_Type=Counter32
+_SdlcPortStatsRNRLIMITs_Object=MibTableColumn
+sdlcPortStatsRNRLIMITs=_SdlcPortStatsRNRLIMITs_Object((1,3,6,1,2,1,41,1,1,3,1,16),_SdlcPortStatsRNRLIMITs_Type())
+sdlcPortStatsRNRLIMITs.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsRNRLIMITs.setStatus(_A)
+_SdlcPortStatsRetriesExps_Type=Counter32
+_SdlcPortStatsRetriesExps_Object=MibTableColumn
+sdlcPortStatsRetriesExps=_SdlcPortStatsRetriesExps_Object((1,3,6,1,2,1,41,1,1,3,1,17),_SdlcPortStatsRetriesExps_Type())
+sdlcPortStatsRetriesExps.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsRetriesExps.setStatus(_A)
+_SdlcPortStatsRetransmitsIn_Type=Counter32
+_SdlcPortStatsRetransmitsIn_Object=MibTableColumn
+sdlcPortStatsRetransmitsIn=_SdlcPortStatsRetransmitsIn_Object((1,3,6,1,2,1,41,1,1,3,1,18),_SdlcPortStatsRetransmitsIn_Type())
+sdlcPortStatsRetransmitsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsRetransmitsIn.setStatus(_A)
+_SdlcPortStatsRetransmitsOut_Type=Counter32
+_SdlcPortStatsRetransmitsOut_Object=MibTableColumn
+sdlcPortStatsRetransmitsOut=_SdlcPortStatsRetransmitsOut_Object((1,3,6,1,2,1,41,1,1,3,1,19),_SdlcPortStatsRetransmitsOut_Type())
+sdlcPortStatsRetransmitsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcPortStatsRetransmitsOut.setStatus(_A)
+_SdlcLSGroup_ObjectIdentity=ObjectIdentity
+sdlcLSGroup=_SdlcLSGroup_ObjectIdentity((1,3,6,1,2,1,41,1,2))
+_SdlcLSAdminTable_Object=MibTable
+sdlcLSAdminTable=_SdlcLSAdminTable_Object((1,3,6,1,2,1,41,1,2,1))
+if mibBuilder.loadTexts:sdlcLSAdminTable.setStatus(_A)
+_SdlcLSAdminEntry_Object=MibTableRow
+sdlcLSAdminEntry=_SdlcLSAdminEntry_Object((1,3,6,1,2,1,41,1,2,1,1))
+sdlcLSAdminEntry.setIndexNames((0,_F,_G),(0,_B,_J))
+if mibBuilder.loadTexts:sdlcLSAdminEntry.setStatus(_A)
+class _SdlcLSAddress_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_SdlcLSAddress_Type.__name__=_D
+_SdlcLSAddress_Object=MibTableColumn
+sdlcLSAddress=_SdlcLSAddress_Object((1,3,6,1,2,1,41,1,2,1,1,1),_SdlcLSAddress_Type())
+sdlcLSAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAddress.setStatus(_A)
+class _SdlcLSAdminName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,10))
+_SdlcLSAdminName_Type.__name__=_K
+_SdlcLSAdminName_Object=MibTableColumn
+sdlcLSAdminName=_SdlcLSAdminName_Object((1,3,6,1,2,1,41,1,2,1,1,2),_SdlcLSAdminName_Type())
+sdlcLSAdminName.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminName.setStatus(_A)
+class _SdlcLSAdminState_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_M,1),(_N,2)))
+_SdlcLSAdminState_Type.__name__=_D
+_SdlcLSAdminState_Object=MibTableColumn
+sdlcLSAdminState=_SdlcLSAdminState_Object((1,3,6,1,2,1,41,1,2,1,1,3),_SdlcLSAdminState_Type())
+sdlcLSAdminState.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminState.setStatus(_A)
+class _SdlcLSAdminISTATUS_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_M,1),(_N,2)))
+_SdlcLSAdminISTATUS_Type.__name__=_D
+_SdlcLSAdminISTATUS_Object=MibTableColumn
+sdlcLSAdminISTATUS=_SdlcLSAdminISTATUS_Object((1,3,6,1,2,1,41,1,2,1,1,4),_SdlcLSAdminISTATUS_Type())
+sdlcLSAdminISTATUS.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminISTATUS.setStatus(_A)
+_SdlcLSAdminMAXDATASend_Type=Integer32
+_SdlcLSAdminMAXDATASend_Object=MibTableColumn
+sdlcLSAdminMAXDATASend=_SdlcLSAdminMAXDATASend_Object((1,3,6,1,2,1,41,1,2,1,1,5),_SdlcLSAdminMAXDATASend_Type())
+sdlcLSAdminMAXDATASend.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminMAXDATASend.setStatus(_A)
+_SdlcLSAdminMAXDATARcv_Type=Integer32
+_SdlcLSAdminMAXDATARcv_Object=MibTableColumn
+sdlcLSAdminMAXDATARcv=_SdlcLSAdminMAXDATARcv_Object((1,3,6,1,2,1,41,1,2,1,1,6),_SdlcLSAdminMAXDATARcv_Type())
+sdlcLSAdminMAXDATARcv.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminMAXDATARcv.setStatus(_A)
+class _SdlcLSAdminREPLYTO_Type(TimeInterval):defaultValue=100
+_SdlcLSAdminREPLYTO_Type.__name__=_I
+_SdlcLSAdminREPLYTO_Object=MibTableColumn
+sdlcLSAdminREPLYTO=_SdlcLSAdminREPLYTO_Object((1,3,6,1,2,1,41,1,2,1,1,7),_SdlcLSAdminREPLYTO_Type())
+sdlcLSAdminREPLYTO.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminREPLYTO.setStatus(_A)
+class _SdlcLSAdminMAXIN_Type(Integer32):defaultValue=7;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,127))
+_SdlcLSAdminMAXIN_Type.__name__=_D
+_SdlcLSAdminMAXIN_Object=MibTableColumn
+sdlcLSAdminMAXIN=_SdlcLSAdminMAXIN_Object((1,3,6,1,2,1,41,1,2,1,1,8),_SdlcLSAdminMAXIN_Type())
+sdlcLSAdminMAXIN.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminMAXIN.setStatus(_A)
+class _SdlcLSAdminMAXOUT_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,127))
+_SdlcLSAdminMAXOUT_Type.__name__=_D
+_SdlcLSAdminMAXOUT_Object=MibTableColumn
+sdlcLSAdminMAXOUT=_SdlcLSAdminMAXOUT_Object((1,3,6,1,2,1,41,1,2,1,1,9),_SdlcLSAdminMAXOUT_Type())
+sdlcLSAdminMAXOUT.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminMAXOUT.setStatus(_A)
+class _SdlcLSAdminMODULO_Type(Integer32):defaultValue=8;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(8,128)));namedValues=NamedValues(*(('eight',8),(_i,128)))
+_SdlcLSAdminMODULO_Type.__name__=_D
+_SdlcLSAdminMODULO_Object=MibTableColumn
+sdlcLSAdminMODULO=_SdlcLSAdminMODULO_Object((1,3,6,1,2,1,41,1,2,1,1,10),_SdlcLSAdminMODULO_Type())
+sdlcLSAdminMODULO.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminMODULO.setStatus(_A)
+class _SdlcLSAdminRETRIESm_Type(Integer32):defaultValue=15;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
+_SdlcLSAdminRETRIESm_Type.__name__=_D
+_SdlcLSAdminRETRIESm_Object=MibTableColumn
+sdlcLSAdminRETRIESm=_SdlcLSAdminRETRIESm_Object((1,3,6,1,2,1,41,1,2,1,1,11),_SdlcLSAdminRETRIESm_Type())
+sdlcLSAdminRETRIESm.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminRETRIESm.setStatus(_A)
+class _SdlcLSAdminRETRIESt_Type(TimeInterval):defaultValue=0
+_SdlcLSAdminRETRIESt_Type.__name__=_I
+_SdlcLSAdminRETRIESt_Object=MibTableColumn
+sdlcLSAdminRETRIESt=_SdlcLSAdminRETRIESt_Object((1,3,6,1,2,1,41,1,2,1,1,12),_SdlcLSAdminRETRIESt_Type())
+sdlcLSAdminRETRIESt.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminRETRIESt.setStatus(_A)
+class _SdlcLSAdminRETRIESn_Type(Integer32):defaultValue=0
+_SdlcLSAdminRETRIESn_Type.__name__=_D
+_SdlcLSAdminRETRIESn_Object=MibTableColumn
+sdlcLSAdminRETRIESn=_SdlcLSAdminRETRIESn_Object((1,3,6,1,2,1,41,1,2,1,1,13),_SdlcLSAdminRETRIESn_Type())
+sdlcLSAdminRETRIESn.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminRETRIESn.setStatus(_A)
+class _SdlcLSAdminRNRLIMIT_Type(TimeInterval):defaultValue=18000
+_SdlcLSAdminRNRLIMIT_Type.__name__=_I
+_SdlcLSAdminRNRLIMIT_Object=MibTableColumn
+sdlcLSAdminRNRLIMIT=_SdlcLSAdminRNRLIMIT_Object((1,3,6,1,2,1,41,1,2,1,1,14),_SdlcLSAdminRNRLIMIT_Type())
+sdlcLSAdminRNRLIMIT.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminRNRLIMIT.setStatus(_A)
+class _SdlcLSAdminDATMODE_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('half',1),('full',2)))
+_SdlcLSAdminDATMODE_Type.__name__=_D
+_SdlcLSAdminDATMODE_Object=MibTableColumn
+sdlcLSAdminDATMODE=_SdlcLSAdminDATMODE_Object((1,3,6,1,2,1,41,1,2,1,1,15),_SdlcLSAdminDATMODE_Type())
+sdlcLSAdminDATMODE.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminDATMODE.setStatus(_A)
+class _SdlcLSAdminGPoll_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254))
+_SdlcLSAdminGPoll_Type.__name__=_D
+_SdlcLSAdminGPoll_Object=MibTableColumn
+sdlcLSAdminGPoll=_SdlcLSAdminGPoll_Object((1,3,6,1,2,1,41,1,2,1,1,16),_SdlcLSAdminGPoll_Type())
+sdlcLSAdminGPoll.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminGPoll.setStatus(_A)
+class _SdlcLSAdminSimRim_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('no',1),(_R,2)))
+_SdlcLSAdminSimRim_Type.__name__=_D
+_SdlcLSAdminSimRim_Object=MibTableColumn
+sdlcLSAdminSimRim=_SdlcLSAdminSimRim_Object((1,3,6,1,2,1,41,1,2,1,1,17),_SdlcLSAdminSimRim_Type())
+sdlcLSAdminSimRim.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminSimRim.setStatus(_A)
+class _SdlcLSAdminXmitRcvCap_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('twa',1),('tws',2)))
+_SdlcLSAdminXmitRcvCap_Type.__name__=_D
+_SdlcLSAdminXmitRcvCap_Object=MibTableColumn
+sdlcLSAdminXmitRcvCap=_SdlcLSAdminXmitRcvCap_Object((1,3,6,1,2,1,41,1,2,1,1,18),_SdlcLSAdminXmitRcvCap_Type())
+sdlcLSAdminXmitRcvCap.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminXmitRcvCap.setStatus(_A)
+_SdlcLSAdminRowStatus_Type=RowStatus
+_SdlcLSAdminRowStatus_Object=MibTableColumn
+sdlcLSAdminRowStatus=_SdlcLSAdminRowStatus_Object((1,3,6,1,2,1,41,1,2,1,1,19),_SdlcLSAdminRowStatus_Type())
+sdlcLSAdminRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:sdlcLSAdminRowStatus.setStatus(_A)
+_SdlcLSOperTable_Object=MibTable
+sdlcLSOperTable=_SdlcLSOperTable_Object((1,3,6,1,2,1,41,1,2,2))
+if mibBuilder.loadTexts:sdlcLSOperTable.setStatus(_A)
+_SdlcLSOperEntry_Object=MibTableRow
+sdlcLSOperEntry=_SdlcLSOperEntry_Object((1,3,6,1,2,1,41,1,2,2,1))
+sdlcLSOperEntry.setIndexNames((0,_F,_G),(0,_B,_J))
+if mibBuilder.loadTexts:sdlcLSOperEntry.setStatus(_A)
+class _SdlcLSOperName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,10))
+_SdlcLSOperName_Type.__name__=_K
+_SdlcLSOperName_Object=MibTableColumn
+sdlcLSOperName=_SdlcLSOperName_Object((1,3,6,1,2,1,41,1,2,2,1,1),_SdlcLSOperName_Type())
+sdlcLSOperName.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperName.setStatus(_A)
+class _SdlcLSOperRole_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_P,1),(_Q,2),(_O,3)))
+_SdlcLSOperRole_Type.__name__=_D
+_SdlcLSOperRole_Object=MibTableColumn
+sdlcLSOperRole=_SdlcLSOperRole_Object((1,3,6,1,2,1,41,1,2,2,1,2),_SdlcLSOperRole_Type())
+sdlcLSOperRole.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperRole.setStatus(_A)
+class _SdlcLSOperState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('discontacted',1),('contactPending',2),('contacted',3),('discontactPending',4)))
+_SdlcLSOperState_Type.__name__=_D
+_SdlcLSOperState_Object=MibTableColumn
+sdlcLSOperState=_SdlcLSOperState_Object((1,3,6,1,2,1,41,1,2,2,1,3),_SdlcLSOperState_Type())
+sdlcLSOperState.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperState.setStatus(_A)
+_SdlcLSOperMAXDATASend_Type=Integer32
+_SdlcLSOperMAXDATASend_Object=MibTableColumn
+sdlcLSOperMAXDATASend=_SdlcLSOperMAXDATASend_Object((1,3,6,1,2,1,41,1,2,2,1,4),_SdlcLSOperMAXDATASend_Type())
+sdlcLSOperMAXDATASend.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperMAXDATASend.setStatus(_A)
+_SdlcLSOperREPLYTO_Type=TimeInterval
+_SdlcLSOperREPLYTO_Object=MibTableColumn
+sdlcLSOperREPLYTO=_SdlcLSOperREPLYTO_Object((1,3,6,1,2,1,41,1,2,2,1,5),_SdlcLSOperREPLYTO_Type())
+sdlcLSOperREPLYTO.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperREPLYTO.setStatus(_A)
+class _SdlcLSOperMAXIN_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,127))
+_SdlcLSOperMAXIN_Type.__name__=_D
+_SdlcLSOperMAXIN_Object=MibTableColumn
+sdlcLSOperMAXIN=_SdlcLSOperMAXIN_Object((1,3,6,1,2,1,41,1,2,2,1,6),_SdlcLSOperMAXIN_Type())
+sdlcLSOperMAXIN.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperMAXIN.setStatus(_A)
+class _SdlcLSOperMAXOUT_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,127))
+_SdlcLSOperMAXOUT_Type.__name__=_D
+_SdlcLSOperMAXOUT_Object=MibTableColumn
+sdlcLSOperMAXOUT=_SdlcLSOperMAXOUT_Object((1,3,6,1,2,1,41,1,2,2,1,7),_SdlcLSOperMAXOUT_Type())
+sdlcLSOperMAXOUT.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperMAXOUT.setStatus(_A)
+class _SdlcLSOperMODULO_Type(Integer32):defaultValue=8;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(8,128)));namedValues=NamedValues(*(('eight',8),(_i,128)))
+_SdlcLSOperMODULO_Type.__name__=_D
+_SdlcLSOperMODULO_Object=MibTableColumn
+sdlcLSOperMODULO=_SdlcLSOperMODULO_Object((1,3,6,1,2,1,41,1,2,2,1,8),_SdlcLSOperMODULO_Type())
+sdlcLSOperMODULO.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperMODULO.setStatus(_A)
+class _SdlcLSOperRETRIESm_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,128))
+_SdlcLSOperRETRIESm_Type.__name__=_D
+_SdlcLSOperRETRIESm_Object=MibTableColumn
+sdlcLSOperRETRIESm=_SdlcLSOperRETRIESm_Object((1,3,6,1,2,1,41,1,2,2,1,9),_SdlcLSOperRETRIESm_Type())
+sdlcLSOperRETRIESm.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperRETRIESm.setStatus(_A)
+_SdlcLSOperRETRIESt_Type=TimeInterval
+_SdlcLSOperRETRIESt_Object=MibTableColumn
+sdlcLSOperRETRIESt=_SdlcLSOperRETRIESt_Object((1,3,6,1,2,1,41,1,2,2,1,10),_SdlcLSOperRETRIESt_Type())
+sdlcLSOperRETRIESt.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperRETRIESt.setStatus(_A)
+class _SdlcLSOperRETRIESn_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,127))
+_SdlcLSOperRETRIESn_Type.__name__=_D
+_SdlcLSOperRETRIESn_Object=MibTableColumn
+sdlcLSOperRETRIESn=_SdlcLSOperRETRIESn_Object((1,3,6,1,2,1,41,1,2,2,1,11),_SdlcLSOperRETRIESn_Type())
+sdlcLSOperRETRIESn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperRETRIESn.setStatus(_A)
+_SdlcLSOperRNRLIMIT_Type=TimeInterval
+_SdlcLSOperRNRLIMIT_Object=MibTableColumn
+sdlcLSOperRNRLIMIT=_SdlcLSOperRNRLIMIT_Object((1,3,6,1,2,1,41,1,2,2,1,12),_SdlcLSOperRNRLIMIT_Type())
+sdlcLSOperRNRLIMIT.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperRNRLIMIT.setStatus(_A)
+class _SdlcLSOperDATMODE_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('half',1),('full',2)))
+_SdlcLSOperDATMODE_Type.__name__=_D
+_SdlcLSOperDATMODE_Object=MibTableColumn
+sdlcLSOperDATMODE=_SdlcLSOperDATMODE_Object((1,3,6,1,2,1,41,1,2,2,1,13),_SdlcLSOperDATMODE_Type())
+sdlcLSOperDATMODE.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperDATMODE.setStatus(_A)
+_SdlcLSOperLastModifyTime_Type=TimeTicks
+_SdlcLSOperLastModifyTime_Object=MibTableColumn
+sdlcLSOperLastModifyTime=_SdlcLSOperLastModifyTime_Object((1,3,6,1,2,1,41,1,2,2,1,14),_SdlcLSOperLastModifyTime_Type())
+sdlcLSOperLastModifyTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperLastModifyTime.setStatus(_A)
+_SdlcLSOperLastFailTime_Type=TimeTicks
+_SdlcLSOperLastFailTime_Object=MibTableColumn
+sdlcLSOperLastFailTime=_SdlcLSOperLastFailTime_Object((1,3,6,1,2,1,41,1,2,2,1,15),_SdlcLSOperLastFailTime_Type())
+sdlcLSOperLastFailTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperLastFailTime.setStatus(_A)
+class _SdlcLSOperLastFailCause_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*((_O,1),('rxFRMR',2),('txFRMR',3),('noResponse',4),('protocolErr',5),('noActivity',6),('rnrLimit',7),('retriesExpired',8)))
+_SdlcLSOperLastFailCause_Type.__name__=_D
+_SdlcLSOperLastFailCause_Object=MibTableColumn
+sdlcLSOperLastFailCause=_SdlcLSOperLastFailCause_Object((1,3,6,1,2,1,41,1,2,2,1,16),_SdlcLSOperLastFailCause_Type())
+sdlcLSOperLastFailCause.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperLastFailCause.setStatus(_A)
+class _SdlcLSOperLastFailCtrlIn_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,2))
+_SdlcLSOperLastFailCtrlIn_Type.__name__=_L
+_SdlcLSOperLastFailCtrlIn_Object=MibTableColumn
+sdlcLSOperLastFailCtrlIn=_SdlcLSOperLastFailCtrlIn_Object((1,3,6,1,2,1,41,1,2,2,1,17),_SdlcLSOperLastFailCtrlIn_Type())
+sdlcLSOperLastFailCtrlIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperLastFailCtrlIn.setStatus(_A)
+class _SdlcLSOperLastFailCtrlOut_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,2))
+_SdlcLSOperLastFailCtrlOut_Type.__name__=_L
+_SdlcLSOperLastFailCtrlOut_Object=MibTableColumn
+sdlcLSOperLastFailCtrlOut=_SdlcLSOperLastFailCtrlOut_Object((1,3,6,1,2,1,41,1,2,2,1,18),_SdlcLSOperLastFailCtrlOut_Type())
+sdlcLSOperLastFailCtrlOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperLastFailCtrlOut.setStatus(_A)
+class _SdlcLSOperLastFailFRMRInfo_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,3));fixedLength=3
+_SdlcLSOperLastFailFRMRInfo_Type.__name__=_L
+_SdlcLSOperLastFailFRMRInfo_Object=MibTableColumn
+sdlcLSOperLastFailFRMRInfo=_SdlcLSOperLastFailFRMRInfo_Object((1,3,6,1,2,1,41,1,2,2,1,19),_SdlcLSOperLastFailFRMRInfo_Type())
+sdlcLSOperLastFailFRMRInfo.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperLastFailFRMRInfo.setStatus(_A)
+_SdlcLSOperLastFailREPLYTOs_Type=Counter32
+_SdlcLSOperLastFailREPLYTOs_Object=MibTableColumn
+sdlcLSOperLastFailREPLYTOs=_SdlcLSOperLastFailREPLYTOs_Object((1,3,6,1,2,1,41,1,2,2,1,20),_SdlcLSOperLastFailREPLYTOs_Type())
+sdlcLSOperLastFailREPLYTOs.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperLastFailREPLYTOs.setStatus(_A)
+class _SdlcLSOperEcho_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('no',1),(_R,2)))
+_SdlcLSOperEcho_Type.__name__=_D
+_SdlcLSOperEcho_Object=MibTableColumn
+sdlcLSOperEcho=_SdlcLSOperEcho_Object((1,3,6,1,2,1,41,1,2,2,1,21),_SdlcLSOperEcho_Type())
+sdlcLSOperEcho.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperEcho.setStatus(_A)
+class _SdlcLSOperGPoll_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,254))
+_SdlcLSOperGPoll_Type.__name__=_D
+_SdlcLSOperGPoll_Object=MibTableColumn
+sdlcLSOperGPoll=_SdlcLSOperGPoll_Object((1,3,6,1,2,1,41,1,2,2,1,22),_SdlcLSOperGPoll_Type())
+sdlcLSOperGPoll.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperGPoll.setStatus(_A)
+class _SdlcLSOperSimRim_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('no',1),(_R,2)))
+_SdlcLSOperSimRim_Type.__name__=_D
+_SdlcLSOperSimRim_Object=MibTableColumn
+sdlcLSOperSimRim=_SdlcLSOperSimRim_Object((1,3,6,1,2,1,41,1,2,2,1,23),_SdlcLSOperSimRim_Type())
+sdlcLSOperSimRim.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperSimRim.setStatus(_A)
+class _SdlcLSOperXmitRcvCap_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('twa',1),('tws',2)))
+_SdlcLSOperXmitRcvCap_Type.__name__=_D
+_SdlcLSOperXmitRcvCap_Object=MibTableColumn
+sdlcLSOperXmitRcvCap=_SdlcLSOperXmitRcvCap_Object((1,3,6,1,2,1,41,1,2,2,1,24),_SdlcLSOperXmitRcvCap_Type())
+sdlcLSOperXmitRcvCap.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSOperXmitRcvCap.setStatus(_A)
+_SdlcLSStatsTable_Object=MibTable
+sdlcLSStatsTable=_SdlcLSStatsTable_Object((1,3,6,1,2,1,41,1,2,3))
+if mibBuilder.loadTexts:sdlcLSStatsTable.setStatus(_A)
+_SdlcLSStatsEntry_Object=MibTableRow
+sdlcLSStatsEntry=_SdlcLSStatsEntry_Object((1,3,6,1,2,1,41,1,2,3,1))
+sdlcLSStatsEntry.setIndexNames((0,_F,_G),(0,_B,_J))
+if mibBuilder.loadTexts:sdlcLSStatsEntry.setStatus(_A)
+_SdlcLSStatsBLUsIn_Type=Counter32
+_SdlcLSStatsBLUsIn_Object=MibTableColumn
+sdlcLSStatsBLUsIn=_SdlcLSStatsBLUsIn_Object((1,3,6,1,2,1,41,1,2,3,1,1),_SdlcLSStatsBLUsIn_Type())
+sdlcLSStatsBLUsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsBLUsIn.setStatus(_A)
+_SdlcLSStatsBLUsOut_Type=Counter32
+_SdlcLSStatsBLUsOut_Object=MibTableColumn
+sdlcLSStatsBLUsOut=_SdlcLSStatsBLUsOut_Object((1,3,6,1,2,1,41,1,2,3,1,2),_SdlcLSStatsBLUsOut_Type())
+sdlcLSStatsBLUsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsBLUsOut.setStatus(_A)
+_SdlcLSStatsOctetsIn_Type=Counter32
+_SdlcLSStatsOctetsIn_Object=MibTableColumn
+sdlcLSStatsOctetsIn=_SdlcLSStatsOctetsIn_Object((1,3,6,1,2,1,41,1,2,3,1,3),_SdlcLSStatsOctetsIn_Type())
+sdlcLSStatsOctetsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsOctetsIn.setStatus(_A)
+_SdlcLSStatsOctetsOut_Type=Counter32
+_SdlcLSStatsOctetsOut_Object=MibTableColumn
+sdlcLSStatsOctetsOut=_SdlcLSStatsOctetsOut_Object((1,3,6,1,2,1,41,1,2,3,1,4),_SdlcLSStatsOctetsOut_Type())
+sdlcLSStatsOctetsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsOctetsOut.setStatus(_A)
+_SdlcLSStatsPollsIn_Type=Counter32
+_SdlcLSStatsPollsIn_Object=MibTableColumn
+sdlcLSStatsPollsIn=_SdlcLSStatsPollsIn_Object((1,3,6,1,2,1,41,1,2,3,1,5),_SdlcLSStatsPollsIn_Type())
+sdlcLSStatsPollsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsPollsIn.setStatus(_A)
+_SdlcLSStatsPollsOut_Type=Counter32
+_SdlcLSStatsPollsOut_Object=MibTableColumn
+sdlcLSStatsPollsOut=_SdlcLSStatsPollsOut_Object((1,3,6,1,2,1,41,1,2,3,1,6),_SdlcLSStatsPollsOut_Type())
+sdlcLSStatsPollsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsPollsOut.setStatus(_A)
+_SdlcLSStatsPollRspsOut_Type=Counter32
+_SdlcLSStatsPollRspsOut_Object=MibTableColumn
+sdlcLSStatsPollRspsOut=_SdlcLSStatsPollRspsOut_Object((1,3,6,1,2,1,41,1,2,3,1,7),_SdlcLSStatsPollRspsOut_Type())
+sdlcLSStatsPollRspsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsPollRspsOut.setStatus(_A)
+_SdlcLSStatsPollRspsIn_Type=Counter32
+_SdlcLSStatsPollRspsIn_Object=MibTableColumn
+sdlcLSStatsPollRspsIn=_SdlcLSStatsPollRspsIn_Object((1,3,6,1,2,1,41,1,2,3,1,8),_SdlcLSStatsPollRspsIn_Type())
+sdlcLSStatsPollRspsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsPollRspsIn.setStatus(_A)
+_SdlcLSStatsLocalBusies_Type=Counter32
+_SdlcLSStatsLocalBusies_Object=MibTableColumn
+sdlcLSStatsLocalBusies=_SdlcLSStatsLocalBusies_Object((1,3,6,1,2,1,41,1,2,3,1,9),_SdlcLSStatsLocalBusies_Type())
+sdlcLSStatsLocalBusies.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsLocalBusies.setStatus(_A)
+_SdlcLSStatsRemoteBusies_Type=Counter32
+_SdlcLSStatsRemoteBusies_Object=MibTableColumn
+sdlcLSStatsRemoteBusies=_SdlcLSStatsRemoteBusies_Object((1,3,6,1,2,1,41,1,2,3,1,10),_SdlcLSStatsRemoteBusies_Type())
+sdlcLSStatsRemoteBusies.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsRemoteBusies.setStatus(_A)
+_SdlcLSStatsIFramesIn_Type=Counter32
+_SdlcLSStatsIFramesIn_Object=MibTableColumn
+sdlcLSStatsIFramesIn=_SdlcLSStatsIFramesIn_Object((1,3,6,1,2,1,41,1,2,3,1,11),_SdlcLSStatsIFramesIn_Type())
+sdlcLSStatsIFramesIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsIFramesIn.setStatus(_A)
+_SdlcLSStatsIFramesOut_Type=Counter32
+_SdlcLSStatsIFramesOut_Object=MibTableColumn
+sdlcLSStatsIFramesOut=_SdlcLSStatsIFramesOut_Object((1,3,6,1,2,1,41,1,2,3,1,12),_SdlcLSStatsIFramesOut_Type())
+sdlcLSStatsIFramesOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsIFramesOut.setStatus(_A)
+_SdlcLSStatsUIFramesIn_Type=Counter32
+_SdlcLSStatsUIFramesIn_Object=MibTableColumn
+sdlcLSStatsUIFramesIn=_SdlcLSStatsUIFramesIn_Object((1,3,6,1,2,1,41,1,2,3,1,13),_SdlcLSStatsUIFramesIn_Type())
+sdlcLSStatsUIFramesIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsUIFramesIn.setStatus(_A)
+_SdlcLSStatsUIFramesOut_Type=Counter32
+_SdlcLSStatsUIFramesOut_Object=MibTableColumn
+sdlcLSStatsUIFramesOut=_SdlcLSStatsUIFramesOut_Object((1,3,6,1,2,1,41,1,2,3,1,14),_SdlcLSStatsUIFramesOut_Type())
+sdlcLSStatsUIFramesOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsUIFramesOut.setStatus(_A)
+_SdlcLSStatsXIDsIn_Type=Counter32
+_SdlcLSStatsXIDsIn_Object=MibTableColumn
+sdlcLSStatsXIDsIn=_SdlcLSStatsXIDsIn_Object((1,3,6,1,2,1,41,1,2,3,1,15),_SdlcLSStatsXIDsIn_Type())
+sdlcLSStatsXIDsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsXIDsIn.setStatus(_A)
+_SdlcLSStatsXIDsOut_Type=Counter32
+_SdlcLSStatsXIDsOut_Object=MibTableColumn
+sdlcLSStatsXIDsOut=_SdlcLSStatsXIDsOut_Object((1,3,6,1,2,1,41,1,2,3,1,16),_SdlcLSStatsXIDsOut_Type())
+sdlcLSStatsXIDsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsXIDsOut.setStatus(_A)
+_SdlcLSStatsTESTsIn_Type=Counter32
+_SdlcLSStatsTESTsIn_Object=MibTableColumn
+sdlcLSStatsTESTsIn=_SdlcLSStatsTESTsIn_Object((1,3,6,1,2,1,41,1,2,3,1,17),_SdlcLSStatsTESTsIn_Type())
+sdlcLSStatsTESTsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsTESTsIn.setStatus(_A)
+_SdlcLSStatsTESTsOut_Type=Counter32
+_SdlcLSStatsTESTsOut_Object=MibTableColumn
+sdlcLSStatsTESTsOut=_SdlcLSStatsTESTsOut_Object((1,3,6,1,2,1,41,1,2,3,1,18),_SdlcLSStatsTESTsOut_Type())
+sdlcLSStatsTESTsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsTESTsOut.setStatus(_A)
+_SdlcLSStatsREJsIn_Type=Counter32
+_SdlcLSStatsREJsIn_Object=MibTableColumn
+sdlcLSStatsREJsIn=_SdlcLSStatsREJsIn_Object((1,3,6,1,2,1,41,1,2,3,1,19),_SdlcLSStatsREJsIn_Type())
+sdlcLSStatsREJsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsREJsIn.setStatus(_A)
+_SdlcLSStatsREJsOut_Type=Counter32
+_SdlcLSStatsREJsOut_Object=MibTableColumn
+sdlcLSStatsREJsOut=_SdlcLSStatsREJsOut_Object((1,3,6,1,2,1,41,1,2,3,1,20),_SdlcLSStatsREJsOut_Type())
+sdlcLSStatsREJsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsREJsOut.setStatus(_A)
+_SdlcLSStatsFRMRsIn_Type=Counter32
+_SdlcLSStatsFRMRsIn_Object=MibTableColumn
+sdlcLSStatsFRMRsIn=_SdlcLSStatsFRMRsIn_Object((1,3,6,1,2,1,41,1,2,3,1,21),_SdlcLSStatsFRMRsIn_Type())
+sdlcLSStatsFRMRsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsFRMRsIn.setStatus(_A)
+_SdlcLSStatsFRMRsOut_Type=Counter32
+_SdlcLSStatsFRMRsOut_Object=MibTableColumn
+sdlcLSStatsFRMRsOut=_SdlcLSStatsFRMRsOut_Object((1,3,6,1,2,1,41,1,2,3,1,22),_SdlcLSStatsFRMRsOut_Type())
+sdlcLSStatsFRMRsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsFRMRsOut.setStatus(_A)
+_SdlcLSStatsSIMsIn_Type=Counter32
+_SdlcLSStatsSIMsIn_Object=MibTableColumn
+sdlcLSStatsSIMsIn=_SdlcLSStatsSIMsIn_Object((1,3,6,1,2,1,41,1,2,3,1,23),_SdlcLSStatsSIMsIn_Type())
+sdlcLSStatsSIMsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsSIMsIn.setStatus(_A)
+_SdlcLSStatsSIMsOut_Type=Counter32
+_SdlcLSStatsSIMsOut_Object=MibTableColumn
+sdlcLSStatsSIMsOut=_SdlcLSStatsSIMsOut_Object((1,3,6,1,2,1,41,1,2,3,1,24),_SdlcLSStatsSIMsOut_Type())
+sdlcLSStatsSIMsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsSIMsOut.setStatus(_A)
+_SdlcLSStatsRIMsIn_Type=Counter32
+_SdlcLSStatsRIMsIn_Object=MibTableColumn
+sdlcLSStatsRIMsIn=_SdlcLSStatsRIMsIn_Object((1,3,6,1,2,1,41,1,2,3,1,25),_SdlcLSStatsRIMsIn_Type())
+sdlcLSStatsRIMsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsRIMsIn.setStatus(_A)
+_SdlcLSStatsRIMsOut_Type=Counter32
+_SdlcLSStatsRIMsOut_Object=MibTableColumn
+sdlcLSStatsRIMsOut=_SdlcLSStatsRIMsOut_Object((1,3,6,1,2,1,41,1,2,3,1,26),_SdlcLSStatsRIMsOut_Type())
+sdlcLSStatsRIMsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsRIMsOut.setStatus(_A)
+_SdlcLSStatsDISCIn_Type=Counter32
+_SdlcLSStatsDISCIn_Object=MibTableColumn
+sdlcLSStatsDISCIn=_SdlcLSStatsDISCIn_Object((1,3,6,1,2,1,41,1,2,3,1,27),_SdlcLSStatsDISCIn_Type())
+sdlcLSStatsDISCIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsDISCIn.setStatus(_A)
+_SdlcLSStatsDISCOut_Type=Counter32
+_SdlcLSStatsDISCOut_Object=MibTableColumn
+sdlcLSStatsDISCOut=_SdlcLSStatsDISCOut_Object((1,3,6,1,2,1,41,1,2,3,1,28),_SdlcLSStatsDISCOut_Type())
+sdlcLSStatsDISCOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsDISCOut.setStatus(_A)
+_SdlcLSStatsUAIn_Type=Counter32
+_SdlcLSStatsUAIn_Object=MibTableColumn
+sdlcLSStatsUAIn=_SdlcLSStatsUAIn_Object((1,3,6,1,2,1,41,1,2,3,1,29),_SdlcLSStatsUAIn_Type())
+sdlcLSStatsUAIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsUAIn.setStatus(_A)
+_SdlcLSStatsUAOut_Type=Counter32
+_SdlcLSStatsUAOut_Object=MibTableColumn
+sdlcLSStatsUAOut=_SdlcLSStatsUAOut_Object((1,3,6,1,2,1,41,1,2,3,1,30),_SdlcLSStatsUAOut_Type())
+sdlcLSStatsUAOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsUAOut.setStatus(_A)
+_SdlcLSStatsDMIn_Type=Counter32
+_SdlcLSStatsDMIn_Object=MibTableColumn
+sdlcLSStatsDMIn=_SdlcLSStatsDMIn_Object((1,3,6,1,2,1,41,1,2,3,1,31),_SdlcLSStatsDMIn_Type())
+sdlcLSStatsDMIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsDMIn.setStatus(_A)
+_SdlcLSStatsDMOut_Type=Counter32
+_SdlcLSStatsDMOut_Object=MibTableColumn
+sdlcLSStatsDMOut=_SdlcLSStatsDMOut_Object((1,3,6,1,2,1,41,1,2,3,1,32),_SdlcLSStatsDMOut_Type())
+sdlcLSStatsDMOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsDMOut.setStatus(_A)
+_SdlcLSStatsSNRMIn_Type=Counter32
+_SdlcLSStatsSNRMIn_Object=MibTableColumn
+sdlcLSStatsSNRMIn=_SdlcLSStatsSNRMIn_Object((1,3,6,1,2,1,41,1,2,3,1,33),_SdlcLSStatsSNRMIn_Type())
+sdlcLSStatsSNRMIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsSNRMIn.setStatus(_A)
+_SdlcLSStatsSNRMOut_Type=Counter32
+_SdlcLSStatsSNRMOut_Object=MibTableColumn
+sdlcLSStatsSNRMOut=_SdlcLSStatsSNRMOut_Object((1,3,6,1,2,1,41,1,2,3,1,34),_SdlcLSStatsSNRMOut_Type())
+sdlcLSStatsSNRMOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsSNRMOut.setStatus(_A)
+_SdlcLSStatsProtocolErrs_Type=Counter32
+_SdlcLSStatsProtocolErrs_Object=MibTableColumn
+sdlcLSStatsProtocolErrs=_SdlcLSStatsProtocolErrs_Object((1,3,6,1,2,1,41,1,2,3,1,35),_SdlcLSStatsProtocolErrs_Type())
+sdlcLSStatsProtocolErrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsProtocolErrs.setStatus(_A)
+_SdlcLSStatsActivityTOs_Type=Counter32
+_SdlcLSStatsActivityTOs_Object=MibTableColumn
+sdlcLSStatsActivityTOs=_SdlcLSStatsActivityTOs_Object((1,3,6,1,2,1,41,1,2,3,1,36),_SdlcLSStatsActivityTOs_Type())
+sdlcLSStatsActivityTOs.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsActivityTOs.setStatus(_A)
+_SdlcLSStatsRNRLIMITs_Type=Counter32
+_SdlcLSStatsRNRLIMITs_Object=MibTableColumn
+sdlcLSStatsRNRLIMITs=_SdlcLSStatsRNRLIMITs_Object((1,3,6,1,2,1,41,1,2,3,1,37),_SdlcLSStatsRNRLIMITs_Type())
+sdlcLSStatsRNRLIMITs.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsRNRLIMITs.setStatus(_A)
+_SdlcLSStatsRetriesExps_Type=Counter32
+_SdlcLSStatsRetriesExps_Object=MibTableColumn
+sdlcLSStatsRetriesExps=_SdlcLSStatsRetriesExps_Object((1,3,6,1,2,1,41,1,2,3,1,38),_SdlcLSStatsRetriesExps_Type())
+sdlcLSStatsRetriesExps.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsRetriesExps.setStatus(_A)
+_SdlcLSStatsRetransmitsIn_Type=Counter32
+_SdlcLSStatsRetransmitsIn_Object=MibTableColumn
+sdlcLSStatsRetransmitsIn=_SdlcLSStatsRetransmitsIn_Object((1,3,6,1,2,1,41,1,2,3,1,39),_SdlcLSStatsRetransmitsIn_Type())
+sdlcLSStatsRetransmitsIn.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsRetransmitsIn.setStatus(_A)
+_SdlcLSStatsRetransmitsOut_Type=Counter32
+_SdlcLSStatsRetransmitsOut_Object=MibTableColumn
+sdlcLSStatsRetransmitsOut=_SdlcLSStatsRetransmitsOut_Object((1,3,6,1,2,1,41,1,2,3,1,40),_SdlcLSStatsRetransmitsOut_Type())
+sdlcLSStatsRetransmitsOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sdlcLSStatsRetransmitsOut.setStatus(_A)
+_SdlcTraps_ObjectIdentity=ObjectIdentity
+sdlcTraps=_SdlcTraps_ObjectIdentity((1,3,6,1,2,1,41,1,3))
+_SdlcConformance_ObjectIdentity=ObjectIdentity
+sdlcConformance=_SdlcConformance_ObjectIdentity((1,3,6,1,2,1,41,1,4))
+_SdlcCompliances_ObjectIdentity=ObjectIdentity
+sdlcCompliances=_SdlcCompliances_ObjectIdentity((1,3,6,1,2,1,41,1,4,1))
+_SdlcGroups_ObjectIdentity=ObjectIdentity
+sdlcGroups=_SdlcGroups_ObjectIdentity((1,3,6,1,2,1,41,1,4,2))
+_SdlcCoreGroups_ObjectIdentity=ObjectIdentity
+sdlcCoreGroups=_SdlcCoreGroups_ObjectIdentity((1,3,6,1,2,1,41,1,4,2,1))
+_SdlcPrimaryGroups_ObjectIdentity=ObjectIdentity
+sdlcPrimaryGroups=_SdlcPrimaryGroups_ObjectIdentity((1,3,6,1,2,1,41,1,4,2,2))
+sdlcCorePortAdminGroup=ObjectGroup((1,3,6,1,2,1,41,1,4,2,1,1))
+sdlcCorePortAdminGroup.setObjects(*((_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n)))
+if mibBuilder.loadTexts:sdlcCorePortAdminGroup.setStatus(_A)
+sdlcCorePortOperGroup=ObjectGroup((1,3,6,1,2,1,41,1,4,2,1,2))
+sdlcCorePortOperGroup.setObjects(*((_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_S),(_B,_T)))
+if mibBuilder.loadTexts:sdlcCorePortOperGroup.setStatus(_A)
+sdlcCorePortStatsGroup=ObjectGroup((1,3,6,1,2,1,41,1,4,2,1,3))
+sdlcCorePortStatsGroup.setObjects(*((_B,_u),(_B,_v),(_B,_w)))
+if mibBuilder.loadTexts:sdlcCorePortStatsGroup.setStatus(_A)
+sdlcCoreLSAdminGroup=ObjectGroup((1,3,6,1,2,1,41,1,4,2,1,4))
+sdlcCoreLSAdminGroup.setObjects(*((_B,_J),(_B,_x),(_B,_U),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB)))
+if mibBuilder.loadTexts:sdlcCoreLSAdminGroup.setStatus(_A)
+sdlcCoreLSOperGroup=ObjectGroup((1,3,6,1,2,1,41,1,4,2,1,5))
+sdlcCoreLSOperGroup.setObjects(*((_B,_AC),(_B,_V),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_AM),(_B,_AN)))
+if mibBuilder.loadTexts:sdlcCoreLSOperGroup.setStatus(_A)
+sdlcCoreLSStatsGroup=ObjectGroup((1,3,6,1,2,1,41,1,4,2,1,6))
+sdlcCoreLSStatsGroup.setObjects(*((_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As)))
+if mibBuilder.loadTexts:sdlcCoreLSStatsGroup.setStatus(_A)
+sdlcPrimaryGroup=ObjectGroup((1,3,6,1,2,1,41,1,4,2,2,1))
+sdlcPrimaryGroup.setObjects(*((_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw)))
+if mibBuilder.loadTexts:sdlcPrimaryGroup.setStatus(_A)
+sdlcPrimaryMultipointGroup=ObjectGroup((1,3,6,1,2,1,41,1,4,2,2,2))
+sdlcPrimaryMultipointGroup.setObjects(*((_B,_Ax),(_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0)))
+if mibBuilder.loadTexts:sdlcPrimaryMultipointGroup.setStatus(_A)
+sdlcPortStatusChange=NotificationType((1,3,6,1,2,1,41,1,3,1))
+sdlcPortStatusChange.setObjects(*((_F,_G),(_F,_c),(_F,_d),(_B,_S),(_B,_T)))
+if mibBuilder.loadTexts:sdlcPortStatusChange.setStatus(_A)
+sdlcLSStatusChange=NotificationType((1,3,6,1,2,1,41,1,3,2))
+sdlcLSStatusChange.setObjects(*((_F,_G),(_B,_J),(_B,_V),(_B,_U),(_B,_W),(_B,_X),(_B,_a),(_B,_Y),(_B,_Z),(_B,_b)))
+if mibBuilder.loadTexts:sdlcLSStatusChange.setStatus(_A)
+sdlcCoreCompliance=ModuleCompliance((1,3,6,1,2,1,41,1,4,1,1))
+sdlcCoreCompliance.setObjects(*((_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6)))
+if mibBuilder.loadTexts:sdlcCoreCompliance.setStatus(_A)
+sdlcPrimaryCompliance=ModuleCompliance((1,3,6,1,2,1,41,1,4,1,2))
+sdlcPrimaryCompliance.setObjects((_B,_B7))
+if mibBuilder.loadTexts:sdlcPrimaryCompliance.setStatus(_A)
+sdlcPrimaryMultipointCompliance=ModuleCompliance((1,3,6,1,2,1,41,1,4,1,3))
+sdlcPrimaryMultipointCompliance.setObjects((_B,_B8))
+if mibBuilder.loadTexts:sdlcPrimaryMultipointCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'snaDLC':snaDLC,'sdlc':sdlc,'sdlcPortGroup':sdlcPortGroup,'sdlcPortAdminTable':sdlcPortAdminTable,'sdlcPortAdminEntry':sdlcPortAdminEntry,_j:sdlcPortAdminName,_k:sdlcPortAdminRole,_l:sdlcPortAdminType,_m:sdlcPortAdminTopology,_n:sdlcPortAdminISTATUS,'sdlcPortAdminACTIVTO':sdlcPortAdminACTIVTO,_At:sdlcPortAdminPAUSE,_Ax:sdlcPortAdminSERVLIM,_Ay:sdlcPortAdminSlowPollTimer,'sdlcPortOperTable':sdlcPortOperTable,'sdlcPortOperEntry':sdlcPortOperEntry,_o:sdlcPortOperName,_p:sdlcPortOperRole,_q:sdlcPortOperType,_r:sdlcPortOperTopology,_s:sdlcPortOperISTATUS,_t:sdlcPortOperACTIVTO,_Au:sdlcPortOperPAUSE,_Az:sdlcPortOperSlowPollMethod,_A_:sdlcPortOperSERVLIM,_B0:sdlcPortOperSlowPollTimer,'sdlcPortOperLastModifyTime':sdlcPortOperLastModifyTime,_S:sdlcPortOperLastFailTime,_T:sdlcPortOperLastFailCause,'sdlcPortStatsTable':sdlcPortStatsTable,'sdlcPortStatsEntry':sdlcPortStatsEntry,_u:sdlcPortStatsPhysicalFailures,_v:sdlcPortStatsInvalidAddresses,_w:sdlcPortStatsDwarfFrames,'sdlcPortStatsPollsIn':sdlcPortStatsPollsIn,'sdlcPortStatsPollsOut':sdlcPortStatsPollsOut,'sdlcPortStatsPollRspsIn':sdlcPortStatsPollRspsIn,'sdlcPortStatsPollRspsOut':sdlcPortStatsPollRspsOut,'sdlcPortStatsLocalBusies':sdlcPortStatsLocalBusies,'sdlcPortStatsRemoteBusies':sdlcPortStatsRemoteBusies,'sdlcPortStatsIFramesIn':sdlcPortStatsIFramesIn,'sdlcPortStatsIFramesOut':sdlcPortStatsIFramesOut,'sdlcPortStatsOctetsIn':sdlcPortStatsOctetsIn,'sdlcPortStatsOctetsOut':sdlcPortStatsOctetsOut,'sdlcPortStatsProtocolErrs':sdlcPortStatsProtocolErrs,'sdlcPortStatsActivityTOs':sdlcPortStatsActivityTOs,'sdlcPortStatsRNRLIMITs':sdlcPortStatsRNRLIMITs,'sdlcPortStatsRetriesExps':sdlcPortStatsRetriesExps,'sdlcPortStatsRetransmitsIn':sdlcPortStatsRetransmitsIn,'sdlcPortStatsRetransmitsOut':sdlcPortStatsRetransmitsOut,'sdlcLSGroup':sdlcLSGroup,'sdlcLSAdminTable':sdlcLSAdminTable,'sdlcLSAdminEntry':sdlcLSAdminEntry,_J:sdlcLSAddress,_x:sdlcLSAdminName,_U:sdlcLSAdminState,_y:sdlcLSAdminISTATUS,_z:sdlcLSAdminMAXDATASend,_A0:sdlcLSAdminMAXDATARcv,_Av:sdlcLSAdminREPLYTO,_A1:sdlcLSAdminMAXIN,_A2:sdlcLSAdminMAXOUT,_A3:sdlcLSAdminMODULO,_A4:sdlcLSAdminRETRIESm,_A5:sdlcLSAdminRETRIESt,_A6:sdlcLSAdminRETRIESn,_A7:sdlcLSAdminRNRLIMIT,_A8:sdlcLSAdminDATMODE,_A9:sdlcLSAdminGPoll,_AA:sdlcLSAdminSimRim,'sdlcLSAdminXmitRcvCap':sdlcLSAdminXmitRcvCap,_AB:sdlcLSAdminRowStatus,'sdlcLSOperTable':sdlcLSOperTable,'sdlcLSOperEntry':sdlcLSOperEntry,'sdlcLSOperName':sdlcLSOperName,_AC:sdlcLSOperRole,_V:sdlcLSOperState,_AD:sdlcLSOperMAXDATASend,_Aw:sdlcLSOperREPLYTO,_AE:sdlcLSOperMAXIN,_AF:sdlcLSOperMAXOUT,_AG:sdlcLSOperMODULO,_AH:sdlcLSOperRETRIESm,_AI:sdlcLSOperRETRIESt,_AJ:sdlcLSOperRETRIESn,_AK:sdlcLSOperRNRLIMIT,_AL:sdlcLSOperDATMODE,'sdlcLSOperLastModifyTime':sdlcLSOperLastModifyTime,_W:sdlcLSOperLastFailTime,_X:sdlcLSOperLastFailCause,_Y:sdlcLSOperLastFailCtrlIn,_Z:sdlcLSOperLastFailCtrlOut,_a:sdlcLSOperLastFailFRMRInfo,_b:sdlcLSOperLastFailREPLYTOs,_AM:sdlcLSOperEcho,_AN:sdlcLSOperGPoll,'sdlcLSOperSimRim':sdlcLSOperSimRim,'sdlcLSOperXmitRcvCap':sdlcLSOperXmitRcvCap,'sdlcLSStatsTable':sdlcLSStatsTable,'sdlcLSStatsEntry':sdlcLSStatsEntry,_AO:sdlcLSStatsBLUsIn,_AP:sdlcLSStatsBLUsOut,_AQ:sdlcLSStatsOctetsIn,_AR:sdlcLSStatsOctetsOut,_AS:sdlcLSStatsPollsIn,_AT:sdlcLSStatsPollsOut,_AV:sdlcLSStatsPollRspsOut,_AU:sdlcLSStatsPollRspsIn,_AW:sdlcLSStatsLocalBusies,_AX:sdlcLSStatsRemoteBusies,_AY:sdlcLSStatsIFramesIn,_AZ:sdlcLSStatsIFramesOut,_Ac:sdlcLSStatsUIFramesIn,_Ad:sdlcLSStatsUIFramesOut,_Ae:sdlcLSStatsXIDsIn,_Af:sdlcLSStatsXIDsOut,_Ag:sdlcLSStatsTESTsIn,_Ah:sdlcLSStatsTESTsOut,_Ai:sdlcLSStatsREJsIn,_Aj:sdlcLSStatsREJsOut,_Ak:sdlcLSStatsFRMRsIn,_Al:sdlcLSStatsFRMRsOut,_Am:sdlcLSStatsSIMsIn,_An:sdlcLSStatsSIMsOut,_Ao:sdlcLSStatsRIMsIn,_Ap:sdlcLSStatsRIMsOut,'sdlcLSStatsDISCIn':sdlcLSStatsDISCIn,'sdlcLSStatsDISCOut':sdlcLSStatsDISCOut,'sdlcLSStatsUAIn':sdlcLSStatsUAIn,'sdlcLSStatsUAOut':sdlcLSStatsUAOut,'sdlcLSStatsDMIn':sdlcLSStatsDMIn,'sdlcLSStatsDMOut':sdlcLSStatsDMOut,'sdlcLSStatsSNRMIn':sdlcLSStatsSNRMIn,'sdlcLSStatsSNRMOut':sdlcLSStatsSNRMOut,_Aq:sdlcLSStatsProtocolErrs,'sdlcLSStatsActivityTOs':sdlcLSStatsActivityTOs,_Ar:sdlcLSStatsRNRLIMITs,_As:sdlcLSStatsRetriesExps,_Aa:sdlcLSStatsRetransmitsIn,_Ab:sdlcLSStatsRetransmitsOut,'sdlcTraps':sdlcTraps,'sdlcPortStatusChange':sdlcPortStatusChange,'sdlcLSStatusChange':sdlcLSStatusChange,'sdlcConformance':sdlcConformance,'sdlcCompliances':sdlcCompliances,'sdlcCoreCompliance':sdlcCoreCompliance,'sdlcPrimaryCompliance':sdlcPrimaryCompliance,'sdlcPrimaryMultipointCompliance':sdlcPrimaryMultipointCompliance,'sdlcGroups':sdlcGroups,'sdlcCoreGroups':sdlcCoreGroups,_B1:sdlcCorePortAdminGroup,_B2:sdlcCorePortOperGroup,_B3:sdlcCorePortStatsGroup,_B4:sdlcCoreLSAdminGroup,_B5:sdlcCoreLSOperGroup,_B6:sdlcCoreLSStatsGroup,'sdlcPrimaryGroups':sdlcPrimaryGroups,_B7:sdlcPrimaryGroup,_B8:sdlcPrimaryMultipointGroup})

@@ -1,291 +1,712 @@
-#
-# PySNMP MIB module NAT-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/NAT-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:20:10 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
-( ifIndex, ifCounterDiscontinuityGroup, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifCounterDiscontinuityGroup")
-( InetPortNumber, InetAddressType, InetAddress, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ModuleCompliance, NotificationGroup, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-( iso, Counter32, NotificationType, MibIdentifier, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, mib_2, Bits, Unsigned32, Counter64, ObjectIdentity, IpAddress, Gauge32, ModuleIdentity, ) = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Counter32", "NotificationType", "MibIdentifier", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "mib-2", "Bits", "Unsigned32", "Counter64", "ObjectIdentity", "IpAddress", "Gauge32", "ModuleIdentity")
-( RowStatus, DisplayString, StorageType, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "StorageType", "TextualConvention")
-natMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 123)).setRevisions(("2005-03-21 00:00",))
-if mibBuilder.loadTexts: natMIB.setLastUpdated('200503210000Z')
-if mibBuilder.loadTexts: natMIB.setOrganization('IETF Transport Area')
-if mibBuilder.loadTexts: natMIB.setContactInfo('\n               Rohit\n               Mascon Global Limited\n               #59/2 100 ft Ring Road\n               Banashankari II Stage\n               Bangalore 560 070\n               India\n               Phone: +91 80 2679 6227\n               Email: rrohit74@hotmail.com\n\n               P. Srisuresh\n               Caymas Systems, Inc.\n               1179-A North McDowell Blvd.\n               Petaluma, CA 94954\n               Tel: (707) 283-5063\n               Email: srisuresh@yahoo.com\n\n               Rajiv Raghunarayan\n               Cisco Systems Inc.\n               170 West Tasman Drive\n               San Jose, CA 95134\n               Phone: +1 408 853 9612\n               Email: raraghun@cisco.com\n\n               Nalinaksh Pai\n               Cisco Systems, Inc.\n               Prestige Waterford\n               No. 9, Brunton Road\n               Bangalore - 560 025\n               India\n               Phone: +91 80 532 1300\n               Email: npai@cisco.com\n\n               Cliff Wang\n               Information Security\n               Bank One Corp\n               1111 Polaris Pkwy\n               Columbus, OH 43240\n               Phone: +1 614 213 6117\n               Email: cliffwang2000@yahoo.com\n             ')
-if mibBuilder.loadTexts: natMIB.setDescription('This MIB module defines the generic managed objects\n              for NAT.\n\n              Copyright (C) The Internet Society (2005).  This version\n              of this MIB module is part of RFC 4008;  see the RFC\n              itself for full legal notices.')
-natMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 123, 1))
-class NatProtocolType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))
-    namedValues = NamedValues(("none", 1), ("other", 2), ("icmp", 3), ("udp", 4), ("tcp", 5),)
-
-class NatProtocolMap(Bits, TextualConvention):
-    namedValues = NamedValues(("other", 0), ("icmp", 1), ("udp", 2), ("tcp", 3),)
-
-class NatAddrMapId(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(1,4294967295)
-
-class NatBindIdOrZero(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(0,4294967295)
-
-class NatBindId(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(1,4294967295)
-
-class NatSessionId(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(1,4294967295)
-
-class NatBindMode(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2,))
-    namedValues = NamedValues(("addressBind", 1), ("addressPortBind", 2),)
-
-class NatAssociationType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2,))
-    namedValues = NamedValues(("static", 1), ("dynamic", 2),)
-
-class NatTranslationEntity(Bits, TextualConvention):
-    namedValues = NamedValues(("inboundSrcEndPoint", 0), ("outboundDstEndPoint", 1), ("inboundDstEndPoint", 2), ("outboundSrcEndPoint", 3),)
-
-natDefTimeouts = MibIdentifier((1, 3, 6, 1, 2, 1, 123, 1, 1))
-natNotifCtrl = MibIdentifier((1, 3, 6, 1, 2, 1, 123, 1, 2))
-natBindDefIdleTimeout = MibScalar((1, 3, 6, 1, 2, 1, 123, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: natBindDefIdleTimeout.setDescription('The default Bind (Address Bind or Port Bind) idle\n             timeout parameter.\n\n             If the agent is capable of storing non-volatile\n             configuration, then the value of this object must be\n             restored after a re-initialization of the management\n             system.')
-natUdpDefIdleTimeout = MibScalar((1, 3, 6, 1, 2, 1, 123, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)).clone(300)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: natUdpDefIdleTimeout.setDescription('The default UDP idle timeout parameter.\n\n             If the agent is capable of storing non-volatile\n             configuration, then the value of this object must be\n             restored after a re-initialization of the management\n             system.')
-natIcmpDefIdleTimeout = MibScalar((1, 3, 6, 1, 2, 1, 123, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)).clone(300)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: natIcmpDefIdleTimeout.setDescription('The default ICMP idle timeout parameter.\n\n             If the agent is capable of storing non-volatile\n             configuration, then the value of this object must be\n             restored after a re-initialization of the management\n             system.')
-natOtherDefIdleTimeout = MibScalar((1, 3, 6, 1, 2, 1, 123, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)).clone(60)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: natOtherDefIdleTimeout.setDescription('The default idle timeout parameter for protocols\n             represented by the value other (2) in\n             NatProtocolType.\n\n             If the agent is capable of storing non-volatile\n             configuration, then the value of this object must be\n             restored after a re-initialization of the management\n             system.')
-natTcpDefIdleTimeout = MibScalar((1, 3, 6, 1, 2, 1, 123, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)).clone(86400)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: natTcpDefIdleTimeout.setDescription('The default time interval that a NAT session for an\n             established TCP connection is allowed to remain\n             valid without any activity on the TCP connection.\n\n             If the agent is capable of storing non-volatile\n             configuration, then the value of this object must be\n             restored after a re-initialization of the management\n             system.')
-natTcpDefNegTimeout = MibScalar((1, 3, 6, 1, 2, 1, 123, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)).clone(60)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: natTcpDefNegTimeout.setDescription('The default time interval that a NAT session for a TCP\n             connection that is not in the established state\n             is allowed to remain valid without any activity on\n             the TCP connection.\n\n             If the agent is capable of storing non-volatile\n             configuration, then the value of this object must be\n             restored after a re-initialization of the management\n             system.')
-natNotifThrottlingInterval = MibScalar((1, 3, 6, 1, 2, 1, 123, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(5,3600),))).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: natNotifThrottlingInterval.setDescription("This object controls the generation of the\n             natPacketDiscard notification.\n\n             If this object has a value of zero, then no\n             natPacketDiscard notifications will be transmitted by the\n             agent.\n\n             If this object has a non-zero value, then the agent must\n             not generate more than one natPacketDiscard\n             'notification-event' in the indicated period, where a\n             'notification-event' is the generation of a single\n             notification PDU type to a list of notification\n             destinations.  If additional NAT packets are discarded\n             within the throttling period, then notification-events\n             for these changes must be suppressed by the agent until\n             the current throttling period expires.\n\n             If natNotifThrottlingInterval notification generation\n             is enabled, the suggested default throttling period is\n             60 seconds, but generation of the natPacketDiscard\n             notification should be disabled by default.\n\n             If the agent is capable of storing non-volatile\n             configuration, then the value of this object must be\n             restored after a re-initialization of the management\n             system.\n\n             The actual transmission of notifications is controlled\n             via the MIB modules in RFC 3413.")
-natInterfaceTable = MibTable((1, 3, 6, 1, 2, 1, 123, 1, 3), )
-if mibBuilder.loadTexts: natInterfaceTable.setDescription('This table specifies the attributes for interfaces on a\n             device supporting NAT function.')
-natInterfaceEntry = MibTableRow((1, 3, 6, 1, 2, 1, 123, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: natInterfaceEntry.setDescription('Each entry in the natInterfaceTable holds a set of\n             parameters for an interface, instantiated by\n             ifIndex.  Therefore, the interface index must have been\n             assigned, according to the applicable procedures,\n             before it can be meaningfully used.\n             Generally, this means that the interface must exist.\n\n             When natStorageType is of type nonVolatile, however,\n             this may reflect the configuration for an interface whose\n             ifIndex has been assigned but for which the supporting\n             implementation is not currently present.')
-natInterfaceRealm = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("private", 1), ("public", 2),)).clone('public')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natInterfaceRealm.setDescription('This object identifies whether this interface is\n             connected to the private or the public realm.')
-natInterfaceServiceType = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 3, 1, 2), Bits().clone(namedValues=NamedValues(("basicNat", 0), ("napt", 1), ("bidirectionalNat", 2), ("twiceNat", 3),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natInterfaceServiceType.setDescription('An indication of the direction in which new sessions\n             are permitted and the extent of translation done within\n             the IP and transport headers.')
-natInterfaceInTranslates = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 3, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natInterfaceInTranslates.setDescription('Number of packets received on this interface that\n             were translated.\n             Discontinuities in the value of this counter can occur at\n             reinitialization of the management system and at other\n             times as indicated by the value of\n             ifCounterDiscontinuityTime on the relevant interface.')
-natInterfaceOutTranslates = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 3, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natInterfaceOutTranslates.setDescription('Number of translated packets that were sent out this\n             interface.\n\n             Discontinuities in the value of this counter can occur at\n             reinitialization of the management system and at other\n             times as indicated by the value of\n             ifCounterDiscontinuityTime on the relevant interface.')
-natInterfaceDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 3, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natInterfaceDiscards.setDescription('Number of packets that had to be rejected/dropped due to\n             a lack of resources for this interface.\n\n             Discontinuities in the value of this counter can occur at\n             reinitialization of the management system and at other\n             times as indicated by the value of\n             ifCounterDiscontinuityTime on the relevant interface.')
-natInterfaceStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 3, 1, 6), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natInterfaceStorageType.setDescription("The storage type for this conceptual row.\n             Conceptual rows having the value 'permanent'\n             need not allow write-access to any columnar objects\n             in the row.")
-natInterfaceRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 3, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natInterfaceRowStatus.setDescription("The status of this conceptual row.\n\n             Until instances of all corresponding columns are\n             appropriately configured, the value of the\n             corresponding instance of the natInterfaceRowStatus\n             column is 'notReady'.\n\n\n             In particular, a newly created row cannot be made\n             active until the corresponding instance of\n             natInterfaceServiceType has been set.\n             None of the objects in this row may be modified\n             while the value of this object is active(1).")
-natAddrMapTable = MibTable((1, 3, 6, 1, 2, 1, 123, 1, 4), )
-if mibBuilder.loadTexts: natAddrMapTable.setDescription('This table lists address map parameters for NAT.')
-natAddrMapEntry = MibTableRow((1, 3, 6, 1, 2, 1, 123, 1, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "NAT-MIB", "natAddrMapIndex"))
-if mibBuilder.loadTexts: natAddrMapEntry.setDescription('This entry represents an address map to be used for\n             NAT and contributes to the dynamic and/or static\n             address mapping tables of the NAT device.')
-natAddrMapIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 1), NatAddrMapId())
-if mibBuilder.loadTexts: natAddrMapIndex.setDescription('Along with ifIndex, this object uniquely\n             identifies an entry in the natAddrMapTable.\n             Address map entries are applied in the order\n             specified by natAddrMapIndex.')
-natAddrMapName = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natAddrMapName.setDescription('Name identifying all map entries in the table associated\n             with the same interface.  All map entries with the same\n             ifIndex MUST have the same map name.')
-natAddrMapEntryType = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 3), NatAssociationType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natAddrMapEntryType.setDescription('This parameter can be used to set up static\n             or dynamic address maps.')
-natAddrMapTranslationEntity = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 4), NatTranslationEntity()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natAddrMapTranslationEntity.setDescription('The end-point entity (source or destination) in\n             inbound or outbound sessions (i.e., first packets) that\n             may be translated by an address map entry.\n\n             Session direction (inbound or outbound) is\n             derived from the direction of the first packet\n             of a session traversing a NAT interface.\n             NAT address (and Transport-ID) maps may be defined\n             to effect inbound or outbound sessions.\n\n             Traditionally, address maps for Basic NAT and NAPT are\n             configured on a public interface for outbound sessions,\n             effecting translation of source end-point.  The value of\n             this object must be set to outboundSrcEndPoint for\n             those interfaces.\n\n             Alternately, if address maps for Basic NAT and NAPT were\n             to be configured on a private interface, the desired\n             value for this object for the map entries\n             would be inboundSrcEndPoint (i.e., effecting translation\n             of source end-point for inbound sessions).\n\n             If TwiceNAT were to be configured on a private interface,\n             the desired value for this object for the map entries\n             would be a bitmask of inboundSrcEndPoint and\n             inboundDstEndPoint.')
-natAddrMapLocalAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 5), InetAddressType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natAddrMapLocalAddrType.setDescription('This object specifies the address type used for\n             natAddrMapLocalAddrFrom and natAddrMapLocalAddrTo.')
-natAddrMapLocalAddrFrom = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 6), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natAddrMapLocalAddrFrom.setDescription('This object specifies the first IP address of the range\n             of IP addresses mapped by this translation entry.  The\n             value of this object must be less than or equal to the\n             value of the natAddrMapLocalAddrTo object.\n\n             The type of this address is determined by the value of\n             the natAddrMapLocalAddrType object.')
-natAddrMapLocalAddrTo = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 7), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natAddrMapLocalAddrTo.setDescription('This object specifies the last IP address of the range of\n             IP addresses mapped by this translation entry.  If only\n             a single address is being mapped, the value of this object\n             is equal to the value of natAddrMapLocalAddrFrom.  For a\n             static NAT, the number of addresses in the range defined\n             by natAddrMapLocalAddrFrom and natAddrMapLocalAddrTo must\n             be equal to the number of addresses in the range defined by\n             natAddrMapGlobalAddrFrom and natAddrMapGlobalAddrTo.\n             The value of this object must be greater than or equal to\n             the value of the natAddrMapLocalAddrFrom object.\n\n             The type of this address is determined by the value of\n             the natAddrMapLocalAddrType object.')
-natAddrMapLocalPortFrom = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 8), InetPortNumber()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natAddrMapLocalPortFrom.setDescription('If this conceptual row describes a Basic NAT address\n             mapping, then the value of this object must be zero.  If\n             this conceptual row describes NAPT, then the value of\n             this object specifies the first port number in the range\n             of ports being mapped.\n\n             The value of this object must be less than or equal to the\n             value of the natAddrMapLocalPortTo object.  If the\n             translation specifies a single port, then the value of this\n             object is equal to the value of natAddrMapLocalPortTo.')
-natAddrMapLocalPortTo = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 9), InetPortNumber()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natAddrMapLocalPortTo.setDescription('If this conceptual row describes a Basic NAT address\n             mapping, then the value of this object must be zero.  If\n             this conceptual row describes NAPT, then the value of\n             this object specifies the last port number in the range\n             of ports being mapped.\n\n             The value of this object must be greater than or equal to\n             the value of the natAddrMapLocalPortFrom object.  If the\n             translation specifies a single port, then the value of this\n             object is equal to the value of natAddrMapLocalPortFrom.')
-natAddrMapGlobalAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 10), InetAddressType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natAddrMapGlobalAddrType.setDescription('This object specifies the address type used for\n             natAddrMapGlobalAddrFrom and natAddrMapGlobalAddrTo.')
-natAddrMapGlobalAddrFrom = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 11), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natAddrMapGlobalAddrFrom.setDescription('This object specifies the first IP address of the range of\n             IP addresses being mapped to.  The value of this object\n             must be less than or equal to the value of the\n             natAddrMapGlobalAddrTo object.\n\n             The type of this address is determined by the value of\n             the natAddrMapGlobalAddrType object.')
-natAddrMapGlobalAddrTo = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 12), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natAddrMapGlobalAddrTo.setDescription('This object specifies the last IP address of the range of\n             IP addresses being mapped to.  If only a single address is\n             being mapped to, the value of this object is equal to the\n             value of natAddrMapGlobalAddrFrom.  For a static NAT, the\n             number of addresses in the range defined by\n             natAddrMapGlobalAddrFrom and natAddrMapGlobalAddrTo must be\n             equal to the number of addresses in the range defined by\n             natAddrMapLocalAddrFrom and natAddrMapLocalAddrTo.\n             The value of this object must be greater than or equal to\n             the value of the natAddrMapGlobalAddrFrom object.\n\n             The type of this address is determined by the value of\n             the natAddrMapGlobalAddrType object.')
-natAddrMapGlobalPortFrom = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 13), InetPortNumber()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natAddrMapGlobalPortFrom.setDescription('If this conceptual row describes a Basic NAT address\n             mapping, then the value of this object must be zero.  If\n             this conceptual row describes NAPT, then the value of\n             this object specifies the first port number in the range\n             of ports being mapped to.\n\n\n             The value of this object must be less than or equal to the\n             value of the natAddrMapGlobalPortTo object.  If the\n             translation specifies a single port, then the value of this\n             object is equal to the value natAddrMapGlobalPortTo.')
-natAddrMapGlobalPortTo = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 14), InetPortNumber()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natAddrMapGlobalPortTo.setDescription('If this conceptual row describes a Basic NAT address\n             mapping, then the value of this object must be zero.  If\n             this conceptual row describes NAPT, then the value of this\n             object specifies the last port number in the range of\n             ports being mapped to.\n\n             The value of this object must be greater than or equal to\n             the value of the natAddrMapGlobalPortFrom object.  If the\n             translation specifies a single port, then the value of this\n             object is equal to the value of natAddrMapGlobalPortFrom.')
-natAddrMapProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 15), NatProtocolMap()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natAddrMapProtocol.setDescription('This object specifies a bitmap of protocol identifiers.')
-natAddrMapInTranslates = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 16), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrMapInTranslates.setDescription('The number of inbound packets pertaining to this address\n             map entry that were translated.\n\n             Discontinuities in the value of this counter can occur at\n             reinitialization of the management system and at other\n             times, as indicated by the value of\n             ifCounterDiscontinuityTime on the relevant interface.')
-natAddrMapOutTranslates = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 17), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrMapOutTranslates.setDescription('The number of outbound packets pertaining to this\n             address map entry that were translated.\n\n             Discontinuities in the value of this counter can occur at\n             reinitialization of the management system and at other\n             times, as indicated by the value of\n             ifCounterDiscontinuityTime on the relevant interface.')
-natAddrMapDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 18), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrMapDiscards.setDescription('The number of packets pertaining to this address map\n             entry that were dropped due to lack of addresses in the\n             address pool identified by this address map.  The value of\n             this object must always be zero in case of static\n             address map.\n\n             Discontinuities in the value of this counter can occur at\n             reinitialization of the management system and at other\n             times, as indicated by the value of\n             ifCounterDiscontinuityTime on the relevant interface.')
-natAddrMapAddrUsed = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 19), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrMapAddrUsed.setDescription('The number of addresses pertaining to this address map\n             that are currently being used from the NAT pool.\n             The value of this object must always be zero in the case\n             of a static address map.')
-natAddrMapStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 20), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natAddrMapStorageType.setDescription("The storage type for this conceptual row.\n             Conceptual rows having the value 'permanent'\n             need not allow write-access to any columnar objects\n             in the row.")
-natAddrMapRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 4, 1, 21), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: natAddrMapRowStatus.setDescription("The status of this conceptual row.\n\n             Until instances of all corresponding columns are\n             appropriately configured, the value of the\n             corresponding instance of the natAddrMapRowStatus\n             column is 'notReady'.\n\n             None of the objects in this row may be modified\n             while the value of this object is active(1).")
-natAddrBindNumberOfEntries = MibScalar((1, 3, 6, 1, 2, 1, 123, 1, 5), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrBindNumberOfEntries.setDescription('This object maintains a count of the number of entries\n             that currently exist in the natAddrBindTable.')
-natAddrBindTable = MibTable((1, 3, 6, 1, 2, 1, 123, 1, 6), )
-if mibBuilder.loadTexts: natAddrBindTable.setDescription('This table holds information about the currently\n             active NAT BINDs.')
-natAddrBindEntry = MibTableRow((1, 3, 6, 1, 2, 1, 123, 1, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "NAT-MIB", "natAddrBindLocalAddrType"), (0, "NAT-MIB", "natAddrBindLocalAddr"))
-if mibBuilder.loadTexts: natAddrBindEntry.setDescription('Each entry in this table holds information about\n             an active address BIND.  These entries are lost\n             upon agent restart.\n\n             This row has indexing which may create variables with\n             more than 128 subidentifiers.  Implementers of this table\n             must be careful not to create entries that would result\n             in OIDs which exceed the 128 subidentifier limit.\n             Otherwise, the information cannot be accessed using\n             SNMPv1, SNMPv2c or SNMPv3.')
-natAddrBindLocalAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 6, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: natAddrBindLocalAddrType.setDescription('This object specifies the address type used for\n             natAddrBindLocalAddr.')
-natAddrBindLocalAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 6, 1, 2), InetAddress())
-if mibBuilder.loadTexts: natAddrBindLocalAddr.setDescription('This object represents the private-realm specific network\n             layer address, which maps to the public-realm address\n             represented by natAddrBindGlobalAddr.\n\n             The type of this address is determined by the value of\n             the natAddrBindLocalAddrType object.')
-natAddrBindGlobalAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 6, 1, 3), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrBindGlobalAddrType.setDescription('This object specifies the address type used for\n             natAddrBindGlobalAddr.')
-natAddrBindGlobalAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 6, 1, 4), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrBindGlobalAddr.setDescription('This object represents the public-realm network layer\n             address that maps to the private-realm network layer\n             address represented by natAddrBindLocalAddr.\n\n             The type of this address is determined by the value of\n             the natAddrBindGlobalAddrType object.')
-natAddrBindId = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 6, 1, 5), NatBindId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrBindId.setDescription('This object represents a bind id that is dynamically\n             assigned to each bind by a NAT enabled device.  Each\n             bind is represented by a bind id that is\n             unique across both, the natAddrBindTable and the\n             natAddrPortBindTable.')
-natAddrBindTranslationEntity = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 6, 1, 6), NatTranslationEntity()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrBindTranslationEntity.setDescription('This object represents the direction of sessions\n             for which this bind is applicable and the endpoint entity\n             (source or destination) within the sessions that is\n             subject to translation using the BIND.\n\n             Orientation of the bind can be a superset of\n             translationEntity of the address map entry which\n             forms the basis for this bind.\n\n             For example, if the translationEntity of an\n             address map entry is outboundSrcEndPoint, the\n             translationEntity of a bind derived from this\n             map entry may either be outboundSrcEndPoint or\n             it may be bidirectional (a bitmask of\n             outboundSrcEndPoint and inboundDstEndPoint).')
-natAddrBindType = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 6, 1, 7), NatAssociationType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrBindType.setDescription('This object indicates whether the bind is static or\n             dynamic.')
-natAddrBindMapIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 6, 1, 8), NatAddrMapId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrBindMapIndex.setDescription('This object is a pointer to the natAddrMapTable entry\n             (and the parameters of that entry) which was used in\n             creating this BIND.  This object, in conjunction with the\n             ifIndex (which identifies a unique addrMapName) points to\n             a unique entry in the natAddrMapTable.')
-natAddrBindSessions = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 6, 1, 9), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrBindSessions.setDescription('Number of sessions currently using this BIND.')
-natAddrBindMaxIdleTime = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 6, 1, 10), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrBindMaxIdleTime.setDescription('This object indicates the maximum time for\n             which this bind can be idle with no sessions\n             attached to it.\n\n             The value of this object is of relevance only for\n             dynamic NAT.')
-natAddrBindCurrentIdleTime = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 6, 1, 11), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrBindCurrentIdleTime.setDescription('At any given instance, this object indicates the\n             time that this bind has been idle without any sessions\n             attached to it.\n\n             The value of this object is of relevance only for\n             dynamic NAT.')
-natAddrBindInTranslates = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 6, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrBindInTranslates.setDescription('The number of inbound packets that were successfully\n             translated by using this bind entry.\n\n             Discontinuities in the value of this counter can occur at\n             reinitialization of the management system and at other\n             times, as indicated by the value of\n             ifCounterDiscontinuityTime on the relevant interface.')
-natAddrBindOutTranslates = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 6, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrBindOutTranslates.setDescription('The number of outbound packets that were successfully\n             translated using this bind entry.\n\n             Discontinuities in the value of this counter can occur at\n             reinitialization of the management system and at other\n             times as indicated by the value of\n             ifCounterDiscontinuityTime on the relevant interface.')
-natAddrPortBindNumberOfEntries = MibScalar((1, 3, 6, 1, 2, 1, 123, 1, 7), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrPortBindNumberOfEntries.setDescription('This object maintains a count of the number of entries\n             that currently exist in the natAddrPortBindTable.')
-natAddrPortBindTable = MibTable((1, 3, 6, 1, 2, 1, 123, 1, 8), )
-if mibBuilder.loadTexts: natAddrPortBindTable.setDescription('This table holds information about the currently\n             active NAPT BINDs.')
-natAddrPortBindEntry = MibTableRow((1, 3, 6, 1, 2, 1, 123, 1, 8, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "NAT-MIB", "natAddrPortBindLocalAddrType"), (0, "NAT-MIB", "natAddrPortBindLocalAddr"), (0, "NAT-MIB", "natAddrPortBindLocalPort"), (0, "NAT-MIB", "natAddrPortBindProtocol"))
-if mibBuilder.loadTexts: natAddrPortBindEntry.setDescription('Each entry in the this table holds information\n             about a NAPT bind that is currently active.\n             These entries are lost upon agent restart.\n\n             This row has indexing which may create variables with\n             more than 128 subidentifiers.  Implementers of this table\n             must be careful not to create entries which would result\n             in OIDs that exceed the 128 subidentifier limit.\n             Otherwise, the information cannot be accessed using\n             SNMPv1, SNMPv2c or SNMPv3.')
-natAddrPortBindLocalAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 8, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: natAddrPortBindLocalAddrType.setDescription('This object specifies the address type used for\n             natAddrPortBindLocalAddr.')
-natAddrPortBindLocalAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 8, 1, 2), InetAddress())
-if mibBuilder.loadTexts: natAddrPortBindLocalAddr.setDescription('This object represents the private-realm specific network\n             layer address which, in conjunction with\n             natAddrPortBindLocalPort, maps to the public-realm\n             network layer address and transport id represented by\n             natAddrPortBindGlobalAddr and natAddrPortBindGlobalPort\n             respectively.\n\n\n             The type of this address is determined by the value of\n             the natAddrPortBindLocalAddrType object.')
-natAddrPortBindLocalPort = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 8, 1, 3), InetPortNumber())
-if mibBuilder.loadTexts: natAddrPortBindLocalPort.setDescription('For a protocol value TCP or UDP, this object represents\n             the private-realm specific port number.  On the other\n             hand, for ICMP a bind is created only for query/response\n             type ICMP messages such as ICMP echo, Timestamp, and\n             Information request messages, and this object represents\n             the private-realm specific identifier in the ICMP\n             message, as defined in RFC 792 for ICMPv4 and in RFC\n             2463 for ICMPv6.\n\n             This object, together with natAddrPortBindProtocol,\n             natAddrPortBindLocalAddrType, and natAddrPortBindLocalAddr,\n             constitutes a session endpoint in the private realm.  A\n             bind entry binds a private realm specific endpoint to a\n             public realm specific endpoint, as represented by the\n             tuple of (natAddrPortBindGlobalPort,\n             natAddrPortBindProtocol, natAddrPortBindGlobalAddrType,\n             and natAddrPortBindGlobalAddr).')
-natAddrPortBindProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 8, 1, 4), NatProtocolType())
-if mibBuilder.loadTexts: natAddrPortBindProtocol.setDescription('This object specifies a protocol identifier.  If the\n             value of this object is none(1), then this bind entry\n             applies to all IP traffic.  Any other value of this object\n             specifies the class of IP traffic to which this BIND\n             applies.')
-natAddrPortBindGlobalAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 8, 1, 5), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrPortBindGlobalAddrType.setDescription('This object specifies the address type used for\n             natAddrPortBindGlobalAddr.')
-natAddrPortBindGlobalAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 8, 1, 6), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrPortBindGlobalAddr.setDescription('This object represents the public-realm specific network\n             layer address that, in conjunction with\n             natAddrPortBindGlobalPort, maps to the private-realm\n\n             network layer address and transport id represented by\n             natAddrPortBindLocalAddr and natAddrPortBindLocalPort,\n             respectively.\n\n             The type of this address is determined by the value of\n             the natAddrPortBindGlobalAddrType object.')
-natAddrPortBindGlobalPort = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 8, 1, 7), InetPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrPortBindGlobalPort.setDescription('For a protocol value TCP or UDP, this object represents\n             the public-realm specific port number.  On the other\n             hand, for ICMP a bind is created only for query/response\n             type ICMP messages such as ICMP echo, Timestamp, and\n             Information request messages, and this object represents\n             the public-realm specific identifier in the ICMP message,\n             as defined in RFC 792 for ICMPv4 and in RFC 2463 for\n             ICMPv6.\n\n             This object, together with natAddrPortBindProtocol,\n             natAddrPortBindGlobalAddrType, and\n             natAddrPortBindGlobalAddr, constitutes a session endpoint\n             in the public realm.  A bind entry binds a public realm\n             specific endpoint to a private realm specific endpoint,\n             as represented by the tuple of\n              (natAddrPortBindLocalPort, natAddrPortBindProtocol,\n               natAddrPortBindLocalAddrType, and\n               natAddrPortBindLocalAddr).')
-natAddrPortBindId = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 8, 1, 8), NatBindId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrPortBindId.setDescription('This object represents a bind id that is dynamically\n             assigned to each bind by a NAT enabled device.  Each\n             bind is represented by a unique bind id across both\n             the natAddrBindTable and the natAddrPortBindTable.')
-natAddrPortBindTranslationEntity = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 8, 1, 9), NatTranslationEntity()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrPortBindTranslationEntity.setDescription('This object represents the direction of sessions\n             for which this bind is applicable and the entity\n             (source or destination) within the sessions that is\n             subject to translation with the BIND.\n\n             Orientation of the bind can be a superset of the\n             translationEntity of the address map entry that\n             forms the basis for this bind.\n\n             For example, if the translationEntity of an\n             address map entry is outboundSrcEndPoint, the\n             translationEntity of a bind derived from this\n             map entry may either be outboundSrcEndPoint or\n             may be bidirectional (a bitmask of\n             outboundSrcEndPoint and inboundDstEndPoint).')
-natAddrPortBindType = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 8, 1, 10), NatAssociationType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrPortBindType.setDescription('This object indicates whether the bind is static or\n             dynamic.')
-natAddrPortBindMapIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 8, 1, 11), NatAddrMapId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrPortBindMapIndex.setDescription('This object is a pointer to the natAddrMapTable entry\n             (and the parameters of that entry) used in\n             creating this BIND.  This object, in conjunction with the\n             ifIndex (which identifies a unique addrMapName), points\n             to a unique entry in the natAddrMapTable.')
-natAddrPortBindSessions = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 8, 1, 12), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrPortBindSessions.setDescription('Number of sessions currently using this BIND.')
-natAddrPortBindMaxIdleTime = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 8, 1, 13), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrPortBindMaxIdleTime.setDescription('This object indicates the maximum time for\n             which this bind can be idle without any sessions\n             attached to it.\n             The value of this object is of relevance\n             only for dynamic NAT.')
-natAddrPortBindCurrentIdleTime = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 8, 1, 14), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrPortBindCurrentIdleTime.setDescription('At any given instance, this object indicates the\n             time that this bind has been idle without any sessions\n             attached to it.\n\n             The value of this object is of relevance\n             only for dynamic NAT.')
-natAddrPortBindInTranslates = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 8, 1, 15), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrPortBindInTranslates.setDescription('The number of inbound packets that were translated as per\n             this bind entry.\n\n             Discontinuities in the value of this counter can occur at\n             reinitialization of the management system and at other\n             times, as indicated by the value of\n             ifCounterDiscontinuityTime on the relevant interface.')
-natAddrPortBindOutTranslates = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 8, 1, 16), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natAddrPortBindOutTranslates.setDescription('The number of outbound packets that were translated as per\n             this bind entry.\n\n             Discontinuities in the value of this counter can occur at\n             reinitialization of the management system and at other\n             times, as indicated by the value of\n             ifCounterDiscontinuityTime on the relevant interface.')
-natSessionTable = MibTable((1, 3, 6, 1, 2, 1, 123, 1, 9), )
-if mibBuilder.loadTexts: natSessionTable.setDescription('The (conceptual) table containing one entry for each\n             NAT session currently active on this NAT device.')
-natSessionEntry = MibTableRow((1, 3, 6, 1, 2, 1, 123, 1, 9, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "NAT-MIB", "natSessionIndex"))
-if mibBuilder.loadTexts: natSessionEntry.setDescription('An entry (conceptual row) containing information\n             about an active NAT session on this NAT device.\n             These entries are lost upon agent restart.')
-natSessionIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 1), NatSessionId())
-if mibBuilder.loadTexts: natSessionIndex.setDescription('The session ID for this NAT session.')
-natSessionPrivateSrcEPBindId = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 2), NatBindIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionPrivateSrcEPBindId.setDescription('The bind id associated between private and public\n             source end points.  In the case of Symmetric-NAT,\n             this should be set to zero.')
-natSessionPrivateSrcEPBindMode = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 3), NatBindMode()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionPrivateSrcEPBindMode.setDescription('This object indicates whether the bind indicated\n             by the object natSessionPrivateSrcEPBindId\n             is an address bind or an address port bind.')
-natSessionPrivateDstEPBindId = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 4), NatBindIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionPrivateDstEPBindId.setDescription('The bind id associated between private and public\n             destination end points.')
-natSessionPrivateDstEPBindMode = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 5), NatBindMode()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionPrivateDstEPBindMode.setDescription('This object indicates whether the bind indicated\n             by the object natSessionPrivateDstEPBindId\n             is an address bind or an address port bind.')
-natSessionDirection = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("inbound", 1), ("outbound", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionDirection.setDescription("The direction of this session with respect to the\n             local network.  'inbound' indicates that this session\n             was initiated from the public network into the private\n             network.  'outbound' indicates that this session was\n             initiated from the private network into the public\n             network.")
-natSessionUpTime = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 7), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionUpTime.setDescription('The up time of this session in one-hundredths of a\n             second.')
-natSessionAddrMapIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 8), NatAddrMapId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionAddrMapIndex.setDescription('This object is a pointer to the natAddrMapTable entry\n             (and the parameters of that entry) used in\n             creating this session.  This object, in conjunction with\n             the ifIndex (which identifies a unique addrMapName), points\n             to a unique entry in the natAddrMapTable.')
-natSessionProtocolType = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 9), NatProtocolType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionProtocolType.setDescription('The protocol type of this session.')
-natSessionPrivateAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 10), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionPrivateAddrType.setDescription('This object specifies the address type used for\n             natSessionPrivateSrcAddr and natSessionPrivateDstAddr.')
-natSessionPrivateSrcAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 11), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionPrivateSrcAddr.setDescription('The source IP address of the session endpoint that\n             lies in the private network.\n\n             The value of this object must be zero only when the\n             natSessionPrivateSrcEPBindId object has a zero value.\n             When the value of this object is zero, the NAT session\n             lookup will match any IP address to this field.\n\n             The type of this address is determined by the value of\n             the natSessionPrivateAddrType object.')
-natSessionPrivateSrcPort = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 12), InetPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionPrivateSrcPort.setDescription('When the value of protocol is TCP or UDP, this object\n             represents the source port in the first packet of session\n             while in private-realm.  On the other hand, when the\n             protocol is ICMP, a NAT session is created only for\n             query/response type ICMP messages such as ICMP echo,\n             Timestamp, and Information request messages, and this\n             object represents the private-realm specific identifier\n             in the ICMP message, as defined in RFC 792 for ICMPv4\n             and in RFC 2463 for ICMPv6.\n\n             The value of this object must be zero when the\n             natSessionPrivateSrcEPBindId object has zero value\n             and value of natSessionPrivateSrcEPBindMode is\n             addressPortBind(2).  In such a case, the NAT session\n             lookup will match any port number to this field.\n\n             The value of this object must be zero when the object\n             is not a representative field (SrcPort, DstPort, or\n             ICMP identifier) of the session tuple in either the\n             public realm or the private realm.')
-natSessionPrivateDstAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 13), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionPrivateDstAddr.setDescription('The destination IP address of the session endpoint that\n             lies in the private network.\n\n             The value of this object must be zero when the\n             natSessionPrivateDstEPBindId object has a zero value.\n             In such a scenario, the NAT session lookup will match\n             any IP address to this field.\n\n             The type of this address is determined by the value of\n             the natSessionPrivateAddrType object.')
-natSessionPrivateDstPort = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 14), InetPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionPrivateDstPort.setDescription('When the value of protocol is TCP or UDP, this object\n             represents the destination port in the first packet\n             of session while in private-realm.  On the other hand,\n             when the protocol is ICMP, this object is not relevant\n             and should be set to zero.\n\n             The value of this object must be zero when the\n             natSessionPrivateDstEPBindId object has a zero\n             value and natSessionPrivateDstEPBindMode is set to\n             addressPortBind(2).  In such a case, the NAT session\n             lookup will match any port number to this field.\n\n             The value of this object must be zero when the object\n             is not a representative field (SrcPort, DstPort, or\n             ICMP identifier) of the session tuple in either the\n             public realm or the private realm.')
-natSessionPublicAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 15), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionPublicAddrType.setDescription('This object specifies the address type used for\n             natSessionPublicSrcAddr and natSessionPublicDstAddr.')
-natSessionPublicSrcAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 16), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionPublicSrcAddr.setDescription('The source IP address of the session endpoint that\n             lies in the public network.\n\n             The value of this object must be zero when the\n             natSessionPrivateSrcEPBindId object has a zero value.\n             In such a scenario, the NAT session lookup will match\n             any IP address to this field.\n\n             The type of this address is determined by the value of\n             the natSessionPublicAddrType object.')
-natSessionPublicSrcPort = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 17), InetPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionPublicSrcPort.setDescription('When the value of protocol is TCP or UDP, this object\n             represents the source port in the first packet of\n             session while in public-realm.  On the other hand, when\n             protocol is ICMP, a NAT session is created only for\n             query/response type ICMP messages such as ICMP echo,\n             Timestamp, and Information request messages, and this\n             object represents the public-realm specific identifier\n             in the ICMP message, as defined in RFC 792 for ICMPv4\n             and in RFC 2463 for ICMPv6.\n\n             The value of this object must be zero when the\n             natSessionPrivateSrcEPBindId object has a zero value\n             and natSessionPrivateSrcEPBindMode is set to\n             addressPortBind(2).  In such a scenario, the NAT\n             session lookup will match any port number to this\n             field.\n\n             The value of this object must be zero when the object\n             is not a representative field (SrcPort, DstPort or\n             ICMP identifier) of the session tuple in either the\n             public realm or the private realm.')
-natSessionPublicDstAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 18), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionPublicDstAddr.setDescription('The destination IP address of the session endpoint that\n             lies in the public network.\n\n             The value of this object must be non-zero when the\n             natSessionPrivateDstEPBindId object has a non-zero\n             value.  If the value of this object and the\n             corresponding natSessionPrivateDstEPBindId object value\n             is zero, then the NAT session lookup will match any IP\n             address to this field.\n\n             The type of this address is determined by the value of\n             the natSessionPublicAddrType object.')
-natSessionPublicDstPort = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 19), InetPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionPublicDstPort.setDescription('When the value of protocol is TCP or UDP, this object\n             represents the destination port in the first packet of\n             session while in public-realm.  On the other hand, when\n             the protocol is ICMP, this object is not relevant for\n             translation and should be zero.\n\n             The value of this object must be zero when the\n             natSessionPrivateDstEPBindId object has a zero value\n             and natSessionPrivateDstEPBindMode is\n             addressPortBind(2).  In such a scenario, the NAT\n             session lookup will match any port number to this\n             field.\n\n             The value of this object must be zero when the object\n             is not a representative field (SrcPort, DstPort, or\n             ICMP identifier) of the session tuple in either the\n             public realm or the private realm.')
-natSessionMaxIdleTime = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 20), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionMaxIdleTime.setDescription('The max time for which this session can be idle\n             without detecting a packet.')
-natSessionCurrentIdleTime = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 21), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionCurrentIdleTime.setDescription('The time since a packet belonging to this session was\n            last detected.')
-natSessionInTranslates = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 22), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionInTranslates.setDescription('The number of inbound packets that were translated for\n             this session.\n\n             Discontinuities in the value of this counter can occur at\n             reinitialization of the management system and at other\n             times, as indicated by the value of\n             ifCounterDiscontinuityTime on the relevant interface.')
-natSessionOutTranslates = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 9, 1, 23), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natSessionOutTranslates.setDescription('The number of outbound packets that were translated for\n             this session.\n\n             Discontinuities in the value of this counter can occur at\n             reinitialization of the management system and at other\n             times, as indicated by the value of\n             ifCounterDiscontinuityTime on the relevant interface.')
-natProtocolTable = MibTable((1, 3, 6, 1, 2, 1, 123, 1, 10), )
-if mibBuilder.loadTexts: natProtocolTable.setDescription('The (conceptual) table containing per protocol NAT\n             statistics.')
-natProtocolEntry = MibTableRow((1, 3, 6, 1, 2, 1, 123, 1, 10, 1), ).setIndexNames((0, "NAT-MIB", "natProtocol"))
-if mibBuilder.loadTexts: natProtocolEntry.setDescription('An entry (conceptual row) containing NAT statistics\n             pertaining to a particular protocol.')
-natProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 10, 1, 1), NatProtocolType())
-if mibBuilder.loadTexts: natProtocol.setDescription('This object represents the protocol pertaining to which\n             parameters are reported.')
-natProtocolInTranslates = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 10, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natProtocolInTranslates.setDescription('The number of inbound packets pertaining to the protocol\n             identified by natProtocol that underwent NAT.\n\n             Discontinuities in the value of this counter can occur at\n             reinitialization of the management system and at other\n             times, as indicated by the value of\n             ifCounterDiscontinuityTime on the relevant interface.')
-natProtocolOutTranslates = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 10, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natProtocolOutTranslates.setDescription('The number of outbound packets pertaining to the protocol\n             identified by natProtocol that underwent NAT.\n\n             Discontinuities in the value of this counter can occur at\n             reinitialization of the management system and at other\n             times, as indicated by the value of\n             ifCounterDiscontinuityTime on the relevant interface.')
-natProtocolDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 123, 1, 10, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: natProtocolDiscards.setDescription('The number of packets pertaining to the protocol\n             identified by natProtocol that had to be\n             rejected/dropped due to lack of resources.  These\n             rejections could be due to session timeout, resource\n             unavailability, lack of address space, etc.\n             Discontinuities in the value of this counter can occur at\n             reinitialization of the management system and at other\n             times, as indicated by the value of\n             ifCounterDiscontinuityTime on the relevant interface.')
-natMIBNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 123, 0))
-natPacketDiscard = NotificationType((1, 3, 6, 1, 2, 1, 123, 0, 1)).setObjects(*(("NAT-MIB", "ifIndex"),))
-if mibBuilder.loadTexts: natPacketDiscard.setDescription("This notification is generated when IP packets are\n             discarded by the NAT function; e.g., due to lack of\n             mapping space when NAT is out of addresses or ports.\n\n             Note that the generation of natPacketDiscard\n             notifications is throttled by the agent, as specified\n             by the 'natNotifThrottlingInterval' object.")
-natMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 123, 2))
-natMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 123, 2, 1))
-natMIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 123, 2, 2))
-natConfigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 123, 2, 1, 1)).setObjects(*(("NAT-MIB", "natInterfaceRealm"), ("NAT-MIB", "natInterfaceServiceType"), ("NAT-MIB", "natInterfaceStorageType"), ("NAT-MIB", "natInterfaceRowStatus"), ("NAT-MIB", "natAddrMapName"), ("NAT-MIB", "natAddrMapEntryType"), ("NAT-MIB", "natAddrMapTranslationEntity"), ("NAT-MIB", "natAddrMapLocalAddrType"), ("NAT-MIB", "natAddrMapLocalAddrFrom"), ("NAT-MIB", "natAddrMapLocalAddrTo"), ("NAT-MIB", "natAddrMapLocalPortFrom"), ("NAT-MIB", "natAddrMapLocalPortTo"), ("NAT-MIB", "natAddrMapGlobalAddrType"), ("NAT-MIB", "natAddrMapGlobalAddrFrom"), ("NAT-MIB", "natAddrMapGlobalAddrTo"), ("NAT-MIB", "natAddrMapGlobalPortFrom"), ("NAT-MIB", "natAddrMapGlobalPortTo"), ("NAT-MIB", "natAddrMapProtocol"), ("NAT-MIB", "natAddrMapStorageType"), ("NAT-MIB", "natAddrMapRowStatus"), ("NAT-MIB", "natBindDefIdleTimeout"), ("NAT-MIB", "natUdpDefIdleTimeout"), ("NAT-MIB", "natIcmpDefIdleTimeout"), ("NAT-MIB", "natOtherDefIdleTimeout"), ("NAT-MIB", "natTcpDefIdleTimeout"), ("NAT-MIB", "natTcpDefNegTimeout"), ("NAT-MIB", "natNotifThrottlingInterval"),))
-if mibBuilder.loadTexts: natConfigGroup.setDescription('A collection of configuration-related information\n             required to support management of devices supporting\n             NAT.')
-natTranslationGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 123, 2, 1, 2)).setObjects(*(("NAT-MIB", "natAddrBindNumberOfEntries"), ("NAT-MIB", "natAddrBindGlobalAddrType"), ("NAT-MIB", "natAddrBindGlobalAddr"), ("NAT-MIB", "natAddrBindId"), ("NAT-MIB", "natAddrBindTranslationEntity"), ("NAT-MIB", "natAddrBindType"), ("NAT-MIB", "natAddrBindMapIndex"), ("NAT-MIB", "natAddrBindSessions"), ("NAT-MIB", "natAddrBindMaxIdleTime"), ("NAT-MIB", "natAddrBindCurrentIdleTime"), ("NAT-MIB", "natAddrBindInTranslates"), ("NAT-MIB", "natAddrBindOutTranslates"), ("NAT-MIB", "natAddrPortBindNumberOfEntries"), ("NAT-MIB", "natAddrPortBindGlobalAddrType"), ("NAT-MIB", "natAddrPortBindGlobalAddr"), ("NAT-MIB", "natAddrPortBindGlobalPort"), ("NAT-MIB", "natAddrPortBindId"), ("NAT-MIB", "natAddrPortBindTranslationEntity"), ("NAT-MIB", "natAddrPortBindType"), ("NAT-MIB", "natAddrPortBindMapIndex"), ("NAT-MIB", "natAddrPortBindSessions"), ("NAT-MIB", "natAddrPortBindMaxIdleTime"), ("NAT-MIB", "natAddrPortBindCurrentIdleTime"), ("NAT-MIB", "natAddrPortBindInTranslates"), ("NAT-MIB", "natAddrPortBindOutTranslates"), ("NAT-MIB", "natSessionPrivateSrcEPBindId"), ("NAT-MIB", "natSessionPrivateSrcEPBindMode"), ("NAT-MIB", "natSessionPrivateDstEPBindId"), ("NAT-MIB", "natSessionPrivateDstEPBindMode"), ("NAT-MIB", "natSessionDirection"), ("NAT-MIB", "natSessionUpTime"), ("NAT-MIB", "natSessionAddrMapIndex"), ("NAT-MIB", "natSessionProtocolType"), ("NAT-MIB", "natSessionPrivateAddrType"), ("NAT-MIB", "natSessionPrivateSrcAddr"), ("NAT-MIB", "natSessionPrivateSrcPort"), ("NAT-MIB", "natSessionPrivateDstAddr"), ("NAT-MIB", "natSessionPrivateDstPort"), ("NAT-MIB", "natSessionPublicAddrType"), ("NAT-MIB", "natSessionPublicSrcAddr"), ("NAT-MIB", "natSessionPublicSrcPort"), ("NAT-MIB", "natSessionPublicDstAddr"), ("NAT-MIB", "natSessionPublicDstPort"), ("NAT-MIB", "natSessionMaxIdleTime"), ("NAT-MIB", "natSessionCurrentIdleTime"), ("NAT-MIB", "natSessionInTranslates"), ("NAT-MIB", "natSessionOutTranslates"),))
-if mibBuilder.loadTexts: natTranslationGroup.setDescription('A collection of BIND-related objects required to support\n             management of devices supporting NAT.')
-natStatsInterfaceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 123, 2, 1, 3)).setObjects(*(("NAT-MIB", "natInterfaceInTranslates"), ("NAT-MIB", "natInterfaceOutTranslates"), ("NAT-MIB", "natInterfaceDiscards"),))
-if mibBuilder.loadTexts: natStatsInterfaceGroup.setDescription('A collection of NAT statistics associated with the\n             interface on which NAT is configured, to aid\n             troubleshooting/monitoring of the NAT operation.')
-natStatsProtocolGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 123, 2, 1, 4)).setObjects(*(("NAT-MIB", "natProtocolInTranslates"), ("NAT-MIB", "natProtocolOutTranslates"), ("NAT-MIB", "natProtocolDiscards"),))
-if mibBuilder.loadTexts: natStatsProtocolGroup.setDescription('A collection of protocol specific NAT statistics,\n             to aid troubleshooting/monitoring of NAT operation.')
-natStatsAddrMapGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 123, 2, 1, 5)).setObjects(*(("NAT-MIB", "natAddrMapInTranslates"), ("NAT-MIB", "natAddrMapOutTranslates"), ("NAT-MIB", "natAddrMapDiscards"), ("NAT-MIB", "natAddrMapAddrUsed"),))
-if mibBuilder.loadTexts: natStatsAddrMapGroup.setDescription('A collection of address map specific NAT statistics,\n             to aid troubleshooting/monitoring of NAT operation.')
-natMIBNotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 123, 2, 1, 6)).setObjects(*(("NAT-MIB", "natPacketDiscard"),))
-if mibBuilder.loadTexts: natMIBNotificationGroup.setDescription('A collection of notifications generated by\n            devices supporting this MIB.')
-natMIBFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 123, 2, 2, 1)).setObjects(*(("IF-MIB", "ifCounterDiscontinuityGroup"), ("NAT-MIB", "natConfigGroup"), ("NAT-MIB", "natTranslationGroup"), ("NAT-MIB", "natStatsInterfaceGroup"), ("NAT-MIB", "natStatsProtocolGroup"), ("NAT-MIB", "natStatsAddrMapGroup"), ("NAT-MIB", "natMIBNotificationGroup"),))
-if mibBuilder.loadTexts: natMIBFullCompliance.setDescription('When this MIB is implemented with support for\n             read-create, then such an implementation can claim\n             full compliance.  Such devices can then be both\n             monitored and configured with this MIB.\n\n             The following index objects cannot be added as OBJECT\n             clauses but nevertheless have the compliance\n             requirements:\n                 ')
-natMIBReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 123, 2, 2, 2)).setObjects(*(("IF-MIB", "ifCounterDiscontinuityGroup"), ("NAT-MIB", "natConfigGroup"), ("NAT-MIB", "natTranslationGroup"), ("NAT-MIB", "natStatsInterfaceGroup"), ("NAT-MIB", "natStatsProtocolGroup"), ("NAT-MIB", "natStatsAddrMapGroup"), ("NAT-MIB", "natMIBNotificationGroup"),))
-if mibBuilder.loadTexts: natMIBReadOnlyCompliance.setDescription('When this MIB is implemented without support for\n             read-create (i.e., in read-only mode), then such an\n             implementation can claim read-only compliance.\n             Such a device can then be monitored but cannot be\n             configured with this MIB.\n\n             The following index objects cannot be added as OBJECT\n             clauses but nevertheless have the compliance\n             requirements:\n             ')
-mibBuilder.exportSymbols("NAT-MIB", natAddrPortBindProtocol=natAddrPortBindProtocol, natInterfaceServiceType=natInterfaceServiceType, natAddrBindCurrentIdleTime=natAddrBindCurrentIdleTime, natSessionPrivateDstAddr=natSessionPrivateDstAddr, natAddrMapStorageType=natAddrMapStorageType, natAddrMapDiscards=natAddrMapDiscards, natSessionOutTranslates=natSessionOutTranslates, natAddrMapName=natAddrMapName, natAddrMapLocalPortFrom=natAddrMapLocalPortFrom, natSessionPrivateDstEPBindMode=natSessionPrivateDstEPBindMode, natTcpDefNegTimeout=natTcpDefNegTimeout, natAddrMapTranslationEntity=natAddrMapTranslationEntity, natAddrMapEntryType=natAddrMapEntryType, natSessionPublicAddrType=natSessionPublicAddrType, natNotifThrottlingInterval=natNotifThrottlingInterval, natSessionIndex=natSessionIndex, natSessionPrivateSrcPort=natSessionPrivateSrcPort, natAddrMapRowStatus=natAddrMapRowStatus, natAddrPortBindInTranslates=natAddrPortBindInTranslates, natSessionPrivateSrcAddr=natSessionPrivateSrcAddr, NatProtocolType=NatProtocolType, natAddrPortBindTable=natAddrPortBindTable, NatSessionId=NatSessionId, natAddrBindMapIndex=natAddrBindMapIndex, natSessionPrivateSrcEPBindId=natSessionPrivateSrcEPBindId, natAddrMapAddrUsed=natAddrMapAddrUsed, natAddrPortBindNumberOfEntries=natAddrPortBindNumberOfEntries, natDefTimeouts=natDefTimeouts, natSessionPrivateDstEPBindId=natSessionPrivateDstEPBindId, natAddrMapGlobalPortFrom=natAddrMapGlobalPortFrom, natSessionPrivateDstPort=natSessionPrivateDstPort, natProtocolEntry=natProtocolEntry, natAddrMapProtocol=natAddrMapProtocol, natProtocolDiscards=natProtocolDiscards, NatAddrMapId=NatAddrMapId, natProtocolInTranslates=natProtocolInTranslates, natMIBCompliances=natMIBCompliances, natSessionPublicDstAddr=natSessionPublicDstAddr, natMIBGroups=natMIBGroups, NatBindId=NatBindId, natAddrMapGlobalPortTo=natAddrMapGlobalPortTo, natAddrBindLocalAddrType=natAddrBindLocalAddrType, natSessionMaxIdleTime=natSessionMaxIdleTime, natAddrPortBindMapIndex=natAddrPortBindMapIndex, natAddrPortBindCurrentIdleTime=natAddrPortBindCurrentIdleTime, natProtocolOutTranslates=natProtocolOutTranslates, natMIBConformance=natMIBConformance, natAddrBindInTranslates=natAddrBindInTranslates, natAddrPortBindLocalAddr=natAddrPortBindLocalAddr, natAddrMapIndex=natAddrMapIndex, natSessionPrivateAddrType=natSessionPrivateAddrType, natStatsProtocolGroup=natStatsProtocolGroup, natAddrMapInTranslates=natAddrMapInTranslates, natAddrMapGlobalAddrTo=natAddrMapGlobalAddrTo, natAddrMapOutTranslates=natAddrMapOutTranslates, natAddrPortBindLocalPort=natAddrPortBindLocalPort, natInterfaceTable=natInterfaceTable, natAddrBindEntry=natAddrBindEntry, natAddrPortBindType=natAddrPortBindType, natInterfaceOutTranslates=natInterfaceOutTranslates, natAddrBindId=natAddrBindId, natSessionDirection=natSessionDirection, natSessionUpTime=natSessionUpTime, natAddrPortBindLocalAddrType=natAddrPortBindLocalAddrType, natAddrBindMaxIdleTime=natAddrBindMaxIdleTime, natAddrPortBindGlobalPort=natAddrPortBindGlobalPort, natAddrMapLocalAddrFrom=natAddrMapLocalAddrFrom, natAddrBindType=natAddrBindType, natIcmpDefIdleTimeout=natIcmpDefIdleTimeout, natSessionPublicDstPort=natSessionPublicDstPort, natMIBFullCompliance=natMIBFullCompliance, NatBindIdOrZero=NatBindIdOrZero, natSessionTable=natSessionTable, natAddrPortBindOutTranslates=natAddrPortBindOutTranslates, natMIBObjects=natMIBObjects, natPacketDiscard=natPacketDiscard, natAddrMapLocalPortTo=natAddrMapLocalPortTo, natProtocolTable=natProtocolTable, natAddrPortBindTranslationEntity=natAddrPortBindTranslationEntity, natStatsAddrMapGroup=natStatsAddrMapGroup, natAddrBindNumberOfEntries=natAddrBindNumberOfEntries, natAddrBindOutTranslates=natAddrBindOutTranslates, natSessionPublicSrcAddr=natSessionPublicSrcAddr, natAddrPortBindGlobalAddr=natAddrPortBindGlobalAddr, natNotifCtrl=natNotifCtrl, natAddrBindSessions=natAddrBindSessions, natSessionPrivateSrcEPBindMode=natSessionPrivateSrcEPBindMode, natInterfaceRowStatus=natInterfaceRowStatus, natBindDefIdleTimeout=natBindDefIdleTimeout, natAddrBindGlobalAddr=natAddrBindGlobalAddr, natAddrPortBindMaxIdleTime=natAddrPortBindMaxIdleTime, natAddrMapLocalAddrTo=natAddrMapLocalAddrTo, natInterfaceRealm=natInterfaceRealm, NatProtocolMap=NatProtocolMap, NatTranslationEntity=NatTranslationEntity, natUdpDefIdleTimeout=natUdpDefIdleTimeout, natAddrPortBindEntry=natAddrPortBindEntry, natOtherDefIdleTimeout=natOtherDefIdleTimeout, natTranslationGroup=natTranslationGroup, natInterfaceStorageType=natInterfaceStorageType, PYSNMP_MODULE_ID=natMIB, natMIBReadOnlyCompliance=natMIBReadOnlyCompliance, natSessionCurrentIdleTime=natSessionCurrentIdleTime, natProtocol=natProtocol, NatAssociationType=NatAssociationType, natInterfaceEntry=natInterfaceEntry, natSessionProtocolType=natSessionProtocolType, natStatsInterfaceGroup=natStatsInterfaceGroup, natTcpDefIdleTimeout=natTcpDefIdleTimeout, natAddrMapEntry=natAddrMapEntry, natAddrPortBindId=natAddrPortBindId, natInterfaceInTranslates=natInterfaceInTranslates, natSessionAddrMapIndex=natSessionAddrMapIndex, natSessionInTranslates=natSessionInTranslates, natAddrBindGlobalAddrType=natAddrBindGlobalAddrType, natMIBNotifications=natMIBNotifications, natConfigGroup=natConfigGroup, natAddrMapGlobalAddrFrom=natAddrMapGlobalAddrFrom, natAddrPortBindGlobalAddrType=natAddrPortBindGlobalAddrType, natAddrBindTranslationEntity=natAddrBindTranslationEntity, natAddrBindTable=natAddrBindTable, natAddrPortBindSessions=natAddrPortBindSessions, natAddrMapTable=natAddrMapTable, natAddrMapLocalAddrType=natAddrMapLocalAddrType, natMIB=natMIB, natMIBNotificationGroup=natMIBNotificationGroup, natInterfaceDiscards=natInterfaceDiscards, natSessionPublicSrcPort=natSessionPublicSrcPort, natAddrMapGlobalAddrType=natAddrMapGlobalAddrType, NatBindMode=NatBindMode, natSessionEntry=natSessionEntry, natAddrBindLocalAddr=natAddrBindLocalAddr)
+_B0='natPacketDiscard'
+_A_='natAddrMapAddrUsed'
+_Az='natAddrMapDiscards'
+_Ay='natAddrMapOutTranslates'
+_Ax='natAddrMapInTranslates'
+_Aw='natProtocolDiscards'
+_Av='natProtocolOutTranslates'
+_Au='natProtocolInTranslates'
+_At='natInterfaceDiscards'
+_As='natInterfaceOutTranslates'
+_Ar='natInterfaceInTranslates'
+_Aq='natSessionOutTranslates'
+_Ap='natSessionInTranslates'
+_Ao='natSessionCurrentIdleTime'
+_An='natSessionMaxIdleTime'
+_Am='natSessionPublicDstPort'
+_Al='natSessionPublicDstAddr'
+_Ak='natSessionPublicSrcPort'
+_Aj='natSessionPublicSrcAddr'
+_Ai='natSessionPublicAddrType'
+_Ah='natSessionPrivateDstPort'
+_Ag='natSessionPrivateDstAddr'
+_Af='natSessionPrivateSrcPort'
+_Ae='natSessionPrivateSrcAddr'
+_Ad='natSessionPrivateAddrType'
+_Ac='natSessionProtocolType'
+_Ab='natSessionAddrMapIndex'
+_Aa='natSessionUpTime'
+_AZ='natSessionDirection'
+_AY='natSessionPrivateDstEPBindMode'
+_AX='natSessionPrivateDstEPBindId'
+_AW='natSessionPrivateSrcEPBindMode'
+_AV='natSessionPrivateSrcEPBindId'
+_AU='natAddrPortBindOutTranslates'
+_AT='natAddrPortBindInTranslates'
+_AS='natAddrPortBindCurrentIdleTime'
+_AR='natAddrPortBindMaxIdleTime'
+_AQ='natAddrPortBindSessions'
+_AP='natAddrPortBindMapIndex'
+_AO='natAddrPortBindType'
+_AN='natAddrPortBindTranslationEntity'
+_AM='natAddrPortBindId'
+_AL='natAddrPortBindGlobalPort'
+_AK='natAddrPortBindGlobalAddr'
+_AJ='natAddrPortBindGlobalAddrType'
+_AI='natAddrPortBindNumberOfEntries'
+_AH='natAddrBindOutTranslates'
+_AG='natAddrBindInTranslates'
+_AF='natAddrBindCurrentIdleTime'
+_AE='natAddrBindMaxIdleTime'
+_AD='natAddrBindSessions'
+_AC='natAddrBindMapIndex'
+_AB='natAddrBindType'
+_AA='natAddrBindTranslationEntity'
+_A9='natAddrBindId'
+_A8='natAddrBindGlobalAddr'
+_A7='natAddrBindGlobalAddrType'
+_A6='natAddrBindNumberOfEntries'
+_A5='natNotifThrottlingInterval'
+_A4='natTcpDefNegTimeout'
+_A3='natTcpDefIdleTimeout'
+_A2='natOtherDefIdleTimeout'
+_A1='natIcmpDefIdleTimeout'
+_A0='natUdpDefIdleTimeout'
+_z='natBindDefIdleTimeout'
+_y='natAddrMapRowStatus'
+_x='natAddrMapStorageType'
+_w='natAddrMapProtocol'
+_v='natAddrMapGlobalPortTo'
+_u='natAddrMapGlobalPortFrom'
+_t='natAddrMapGlobalAddrTo'
+_s='natAddrMapGlobalAddrFrom'
+_r='natAddrMapGlobalAddrType'
+_q='natAddrMapLocalPortTo'
+_p='natAddrMapLocalPortFrom'
+_o='natAddrMapLocalAddrTo'
+_n='natAddrMapLocalAddrFrom'
+_m='natAddrMapLocalAddrType'
+_l='natAddrMapTranslationEntity'
+_k='natAddrMapEntryType'
+_j='natAddrMapName'
+_i='natInterfaceRowStatus'
+_h='natInterfaceStorageType'
+_g='natInterfaceServiceType'
+_f='natInterfaceRealm'
+_e='natProtocol'
+_d='natSessionIndex'
+_c='natAddrPortBindProtocol'
+_b='natAddrPortBindLocalPort'
+_a='natAddrPortBindLocalAddr'
+_Z='natAddrPortBindLocalAddrType'
+_Y='natAddrBindLocalAddr'
+_X='natAddrBindLocalAddrType'
+_W='natAddrMapIndex'
+_V='SnmpAdminString'
+_U='natMIBNotificationGroup'
+_T='natStatsAddrMapGroup'
+_S='natStatsProtocolGroup'
+_R='natStatsInterfaceGroup'
+_Q='natTranslationGroup'
+_P='natConfigGroup'
+_O='StorageType'
+_N='InetAddress'
+_M='ifCounterDiscontinuityGroup'
+_L='Integer32'
+_K='InetPortNumber'
+_J='seconds'
+_I='read-write'
+_H='Unsigned32'
+_G='ifIndex'
+_F='not-accessible'
+_E='IF-MIB'
+_D='read-create'
+_C='read-only'
+_B='NAT-MIB'
+_A='deprecated'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ifCounterDiscontinuityGroup,ifIndex=mibBuilder.importSymbols(_E,_M,_G)
+InetAddress,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB',_N,'InetAddressType',_K)
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_V)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_L,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_H,'iso','mib-2')
+DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_O,'TextualConvention')
+natMIB=ModuleIdentity((1,3,6,1,2,1,123))
+if mibBuilder.loadTexts:natMIB.setRevisions(('2015-10-02 00:00','2005-03-21 00:00'))
+class NatProtocolType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('none',1),('other',2),('icmp',3),('udp',4),('tcp',5)))
+class NatProtocolMap(TextualConvention,Bits):status=_A;namedValues=NamedValues(*(('other',0),('icmp',1),('udp',2),('tcp',3)))
+class NatAddrMapId(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+class NatBindIdOrZero(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+class NatBindId(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+class NatSessionId(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+class NatBindMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('addressBind',1),('addressPortBind',2)))
+class NatAssociationType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('static',1),('dynamic',2)))
+class NatTranslationEntity(TextualConvention,Bits):status=_A;namedValues=NamedValues(*(('inboundSrcEndPoint',0),('outboundDstEndPoint',1),('inboundDstEndPoint',2),('outboundSrcEndPoint',3)))
+_NatMIBNotifications_ObjectIdentity=ObjectIdentity
+natMIBNotifications=_NatMIBNotifications_ObjectIdentity((1,3,6,1,2,1,123,0))
+_NatMIBObjects_ObjectIdentity=ObjectIdentity
+natMIBObjects=_NatMIBObjects_ObjectIdentity((1,3,6,1,2,1,123,1))
+_NatDefTimeouts_ObjectIdentity=ObjectIdentity
+natDefTimeouts=_NatDefTimeouts_ObjectIdentity((1,3,6,1,2,1,123,1,1))
+class _NatBindDefIdleTimeout_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_NatBindDefIdleTimeout_Type.__name__=_H
+_NatBindDefIdleTimeout_Object=MibScalar
+natBindDefIdleTimeout=_NatBindDefIdleTimeout_Object((1,3,6,1,2,1,123,1,1,1),_NatBindDefIdleTimeout_Type())
+natBindDefIdleTimeout.setMaxAccess(_I)
+if mibBuilder.loadTexts:natBindDefIdleTimeout.setStatus(_A)
+if mibBuilder.loadTexts:natBindDefIdleTimeout.setUnits(_J)
+class _NatUdpDefIdleTimeout_Type(Unsigned32):defaultValue=300;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_NatUdpDefIdleTimeout_Type.__name__=_H
+_NatUdpDefIdleTimeout_Object=MibScalar
+natUdpDefIdleTimeout=_NatUdpDefIdleTimeout_Object((1,3,6,1,2,1,123,1,1,2),_NatUdpDefIdleTimeout_Type())
+natUdpDefIdleTimeout.setMaxAccess(_I)
+if mibBuilder.loadTexts:natUdpDefIdleTimeout.setStatus(_A)
+if mibBuilder.loadTexts:natUdpDefIdleTimeout.setUnits(_J)
+class _NatIcmpDefIdleTimeout_Type(Unsigned32):defaultValue=300;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_NatIcmpDefIdleTimeout_Type.__name__=_H
+_NatIcmpDefIdleTimeout_Object=MibScalar
+natIcmpDefIdleTimeout=_NatIcmpDefIdleTimeout_Object((1,3,6,1,2,1,123,1,1,3),_NatIcmpDefIdleTimeout_Type())
+natIcmpDefIdleTimeout.setMaxAccess(_I)
+if mibBuilder.loadTexts:natIcmpDefIdleTimeout.setStatus(_A)
+if mibBuilder.loadTexts:natIcmpDefIdleTimeout.setUnits(_J)
+class _NatOtherDefIdleTimeout_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_NatOtherDefIdleTimeout_Type.__name__=_H
+_NatOtherDefIdleTimeout_Object=MibScalar
+natOtherDefIdleTimeout=_NatOtherDefIdleTimeout_Object((1,3,6,1,2,1,123,1,1,4),_NatOtherDefIdleTimeout_Type())
+natOtherDefIdleTimeout.setMaxAccess(_I)
+if mibBuilder.loadTexts:natOtherDefIdleTimeout.setStatus(_A)
+if mibBuilder.loadTexts:natOtherDefIdleTimeout.setUnits(_J)
+class _NatTcpDefIdleTimeout_Type(Unsigned32):defaultValue=86400;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_NatTcpDefIdleTimeout_Type.__name__=_H
+_NatTcpDefIdleTimeout_Object=MibScalar
+natTcpDefIdleTimeout=_NatTcpDefIdleTimeout_Object((1,3,6,1,2,1,123,1,1,5),_NatTcpDefIdleTimeout_Type())
+natTcpDefIdleTimeout.setMaxAccess(_I)
+if mibBuilder.loadTexts:natTcpDefIdleTimeout.setStatus(_A)
+if mibBuilder.loadTexts:natTcpDefIdleTimeout.setUnits(_J)
+class _NatTcpDefNegTimeout_Type(Unsigned32):defaultValue=60;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_NatTcpDefNegTimeout_Type.__name__=_H
+_NatTcpDefNegTimeout_Object=MibScalar
+natTcpDefNegTimeout=_NatTcpDefNegTimeout_Object((1,3,6,1,2,1,123,1,1,6),_NatTcpDefNegTimeout_Type())
+natTcpDefNegTimeout.setMaxAccess(_I)
+if mibBuilder.loadTexts:natTcpDefNegTimeout.setStatus(_A)
+if mibBuilder.loadTexts:natTcpDefNegTimeout.setUnits(_J)
+_NatNotifCtrl_ObjectIdentity=ObjectIdentity
+natNotifCtrl=_NatNotifCtrl_ObjectIdentity((1,3,6,1,2,1,123,1,2))
+class _NatNotifThrottlingInterval_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(5,3600))
+_NatNotifThrottlingInterval_Type.__name__=_L
+_NatNotifThrottlingInterval_Object=MibScalar
+natNotifThrottlingInterval=_NatNotifThrottlingInterval_Object((1,3,6,1,2,1,123,1,2,1),_NatNotifThrottlingInterval_Type())
+natNotifThrottlingInterval.setMaxAccess(_I)
+if mibBuilder.loadTexts:natNotifThrottlingInterval.setStatus(_A)
+if mibBuilder.loadTexts:natNotifThrottlingInterval.setUnits(_J)
+_NatInterfaceTable_Object=MibTable
+natInterfaceTable=_NatInterfaceTable_Object((1,3,6,1,2,1,123,1,3))
+if mibBuilder.loadTexts:natInterfaceTable.setStatus(_A)
+_NatInterfaceEntry_Object=MibTableRow
+natInterfaceEntry=_NatInterfaceEntry_Object((1,3,6,1,2,1,123,1,3,1))
+natInterfaceEntry.setIndexNames((0,_E,_G))
+if mibBuilder.loadTexts:natInterfaceEntry.setStatus(_A)
+class _NatInterfaceRealm_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('private',1),('public',2)))
+_NatInterfaceRealm_Type.__name__=_L
+_NatInterfaceRealm_Object=MibTableColumn
+natInterfaceRealm=_NatInterfaceRealm_Object((1,3,6,1,2,1,123,1,3,1,1),_NatInterfaceRealm_Type())
+natInterfaceRealm.setMaxAccess(_D)
+if mibBuilder.loadTexts:natInterfaceRealm.setStatus(_A)
+class _NatInterfaceServiceType_Type(Bits):namedValues=NamedValues(*(('basicNat',0),('napt',1),('bidirectionalNat',2),('twiceNat',3)))
+_NatInterfaceServiceType_Type.__name__='Bits'
+_NatInterfaceServiceType_Object=MibTableColumn
+natInterfaceServiceType=_NatInterfaceServiceType_Object((1,3,6,1,2,1,123,1,3,1,2),_NatInterfaceServiceType_Type())
+natInterfaceServiceType.setMaxAccess(_D)
+if mibBuilder.loadTexts:natInterfaceServiceType.setStatus(_A)
+_NatInterfaceInTranslates_Type=Counter64
+_NatInterfaceInTranslates_Object=MibTableColumn
+natInterfaceInTranslates=_NatInterfaceInTranslates_Object((1,3,6,1,2,1,123,1,3,1,3),_NatInterfaceInTranslates_Type())
+natInterfaceInTranslates.setMaxAccess(_C)
+if mibBuilder.loadTexts:natInterfaceInTranslates.setStatus(_A)
+_NatInterfaceOutTranslates_Type=Counter64
+_NatInterfaceOutTranslates_Object=MibTableColumn
+natInterfaceOutTranslates=_NatInterfaceOutTranslates_Object((1,3,6,1,2,1,123,1,3,1,4),_NatInterfaceOutTranslates_Type())
+natInterfaceOutTranslates.setMaxAccess(_C)
+if mibBuilder.loadTexts:natInterfaceOutTranslates.setStatus(_A)
+_NatInterfaceDiscards_Type=Counter64
+_NatInterfaceDiscards_Object=MibTableColumn
+natInterfaceDiscards=_NatInterfaceDiscards_Object((1,3,6,1,2,1,123,1,3,1,5),_NatInterfaceDiscards_Type())
+natInterfaceDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:natInterfaceDiscards.setStatus(_A)
+class _NatInterfaceStorageType_Type(StorageType):defaultValue=3
+_NatInterfaceStorageType_Type.__name__=_O
+_NatInterfaceStorageType_Object=MibTableColumn
+natInterfaceStorageType=_NatInterfaceStorageType_Object((1,3,6,1,2,1,123,1,3,1,6),_NatInterfaceStorageType_Type())
+natInterfaceStorageType.setMaxAccess(_D)
+if mibBuilder.loadTexts:natInterfaceStorageType.setStatus(_A)
+_NatInterfaceRowStatus_Type=RowStatus
+_NatInterfaceRowStatus_Object=MibTableColumn
+natInterfaceRowStatus=_NatInterfaceRowStatus_Object((1,3,6,1,2,1,123,1,3,1,7),_NatInterfaceRowStatus_Type())
+natInterfaceRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:natInterfaceRowStatus.setStatus(_A)
+_NatAddrMapTable_Object=MibTable
+natAddrMapTable=_NatAddrMapTable_Object((1,3,6,1,2,1,123,1,4))
+if mibBuilder.loadTexts:natAddrMapTable.setStatus(_A)
+_NatAddrMapEntry_Object=MibTableRow
+natAddrMapEntry=_NatAddrMapEntry_Object((1,3,6,1,2,1,123,1,4,1))
+natAddrMapEntry.setIndexNames((0,_E,_G),(0,_B,_W))
+if mibBuilder.loadTexts:natAddrMapEntry.setStatus(_A)
+_NatAddrMapIndex_Type=NatAddrMapId
+_NatAddrMapIndex_Object=MibTableColumn
+natAddrMapIndex=_NatAddrMapIndex_Object((1,3,6,1,2,1,123,1,4,1,1),_NatAddrMapIndex_Type())
+natAddrMapIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:natAddrMapIndex.setStatus(_A)
+class _NatAddrMapName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_NatAddrMapName_Type.__name__=_V
+_NatAddrMapName_Object=MibTableColumn
+natAddrMapName=_NatAddrMapName_Object((1,3,6,1,2,1,123,1,4,1,2),_NatAddrMapName_Type())
+natAddrMapName.setMaxAccess(_D)
+if mibBuilder.loadTexts:natAddrMapName.setStatus(_A)
+_NatAddrMapEntryType_Type=NatAssociationType
+_NatAddrMapEntryType_Object=MibTableColumn
+natAddrMapEntryType=_NatAddrMapEntryType_Object((1,3,6,1,2,1,123,1,4,1,3),_NatAddrMapEntryType_Type())
+natAddrMapEntryType.setMaxAccess(_D)
+if mibBuilder.loadTexts:natAddrMapEntryType.setStatus(_A)
+_NatAddrMapTranslationEntity_Type=NatTranslationEntity
+_NatAddrMapTranslationEntity_Object=MibTableColumn
+natAddrMapTranslationEntity=_NatAddrMapTranslationEntity_Object((1,3,6,1,2,1,123,1,4,1,4),_NatAddrMapTranslationEntity_Type())
+natAddrMapTranslationEntity.setMaxAccess(_D)
+if mibBuilder.loadTexts:natAddrMapTranslationEntity.setStatus(_A)
+_NatAddrMapLocalAddrType_Type=InetAddressType
+_NatAddrMapLocalAddrType_Object=MibTableColumn
+natAddrMapLocalAddrType=_NatAddrMapLocalAddrType_Object((1,3,6,1,2,1,123,1,4,1,5),_NatAddrMapLocalAddrType_Type())
+natAddrMapLocalAddrType.setMaxAccess(_D)
+if mibBuilder.loadTexts:natAddrMapLocalAddrType.setStatus(_A)
+_NatAddrMapLocalAddrFrom_Type=InetAddress
+_NatAddrMapLocalAddrFrom_Object=MibTableColumn
+natAddrMapLocalAddrFrom=_NatAddrMapLocalAddrFrom_Object((1,3,6,1,2,1,123,1,4,1,6),_NatAddrMapLocalAddrFrom_Type())
+natAddrMapLocalAddrFrom.setMaxAccess(_D)
+if mibBuilder.loadTexts:natAddrMapLocalAddrFrom.setStatus(_A)
+_NatAddrMapLocalAddrTo_Type=InetAddress
+_NatAddrMapLocalAddrTo_Object=MibTableColumn
+natAddrMapLocalAddrTo=_NatAddrMapLocalAddrTo_Object((1,3,6,1,2,1,123,1,4,1,7),_NatAddrMapLocalAddrTo_Type())
+natAddrMapLocalAddrTo.setMaxAccess(_D)
+if mibBuilder.loadTexts:natAddrMapLocalAddrTo.setStatus(_A)
+class _NatAddrMapLocalPortFrom_Type(InetPortNumber):defaultValue=0
+_NatAddrMapLocalPortFrom_Type.__name__=_K
+_NatAddrMapLocalPortFrom_Object=MibTableColumn
+natAddrMapLocalPortFrom=_NatAddrMapLocalPortFrom_Object((1,3,6,1,2,1,123,1,4,1,8),_NatAddrMapLocalPortFrom_Type())
+natAddrMapLocalPortFrom.setMaxAccess(_D)
+if mibBuilder.loadTexts:natAddrMapLocalPortFrom.setStatus(_A)
+class _NatAddrMapLocalPortTo_Type(InetPortNumber):defaultValue=0
+_NatAddrMapLocalPortTo_Type.__name__=_K
+_NatAddrMapLocalPortTo_Object=MibTableColumn
+natAddrMapLocalPortTo=_NatAddrMapLocalPortTo_Object((1,3,6,1,2,1,123,1,4,1,9),_NatAddrMapLocalPortTo_Type())
+natAddrMapLocalPortTo.setMaxAccess(_D)
+if mibBuilder.loadTexts:natAddrMapLocalPortTo.setStatus(_A)
+_NatAddrMapGlobalAddrType_Type=InetAddressType
+_NatAddrMapGlobalAddrType_Object=MibTableColumn
+natAddrMapGlobalAddrType=_NatAddrMapGlobalAddrType_Object((1,3,6,1,2,1,123,1,4,1,10),_NatAddrMapGlobalAddrType_Type())
+natAddrMapGlobalAddrType.setMaxAccess(_D)
+if mibBuilder.loadTexts:natAddrMapGlobalAddrType.setStatus(_A)
+_NatAddrMapGlobalAddrFrom_Type=InetAddress
+_NatAddrMapGlobalAddrFrom_Object=MibTableColumn
+natAddrMapGlobalAddrFrom=_NatAddrMapGlobalAddrFrom_Object((1,3,6,1,2,1,123,1,4,1,11),_NatAddrMapGlobalAddrFrom_Type())
+natAddrMapGlobalAddrFrom.setMaxAccess(_D)
+if mibBuilder.loadTexts:natAddrMapGlobalAddrFrom.setStatus(_A)
+_NatAddrMapGlobalAddrTo_Type=InetAddress
+_NatAddrMapGlobalAddrTo_Object=MibTableColumn
+natAddrMapGlobalAddrTo=_NatAddrMapGlobalAddrTo_Object((1,3,6,1,2,1,123,1,4,1,12),_NatAddrMapGlobalAddrTo_Type())
+natAddrMapGlobalAddrTo.setMaxAccess(_D)
+if mibBuilder.loadTexts:natAddrMapGlobalAddrTo.setStatus(_A)
+class _NatAddrMapGlobalPortFrom_Type(InetPortNumber):defaultValue=0
+_NatAddrMapGlobalPortFrom_Type.__name__=_K
+_NatAddrMapGlobalPortFrom_Object=MibTableColumn
+natAddrMapGlobalPortFrom=_NatAddrMapGlobalPortFrom_Object((1,3,6,1,2,1,123,1,4,1,13),_NatAddrMapGlobalPortFrom_Type())
+natAddrMapGlobalPortFrom.setMaxAccess(_D)
+if mibBuilder.loadTexts:natAddrMapGlobalPortFrom.setStatus(_A)
+class _NatAddrMapGlobalPortTo_Type(InetPortNumber):defaultValue=0
+_NatAddrMapGlobalPortTo_Type.__name__=_K
+_NatAddrMapGlobalPortTo_Object=MibTableColumn
+natAddrMapGlobalPortTo=_NatAddrMapGlobalPortTo_Object((1,3,6,1,2,1,123,1,4,1,14),_NatAddrMapGlobalPortTo_Type())
+natAddrMapGlobalPortTo.setMaxAccess(_D)
+if mibBuilder.loadTexts:natAddrMapGlobalPortTo.setStatus(_A)
+_NatAddrMapProtocol_Type=NatProtocolMap
+_NatAddrMapProtocol_Object=MibTableColumn
+natAddrMapProtocol=_NatAddrMapProtocol_Object((1,3,6,1,2,1,123,1,4,1,15),_NatAddrMapProtocol_Type())
+natAddrMapProtocol.setMaxAccess(_D)
+if mibBuilder.loadTexts:natAddrMapProtocol.setStatus(_A)
+_NatAddrMapInTranslates_Type=Counter64
+_NatAddrMapInTranslates_Object=MibTableColumn
+natAddrMapInTranslates=_NatAddrMapInTranslates_Object((1,3,6,1,2,1,123,1,4,1,16),_NatAddrMapInTranslates_Type())
+natAddrMapInTranslates.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrMapInTranslates.setStatus(_A)
+_NatAddrMapOutTranslates_Type=Counter64
+_NatAddrMapOutTranslates_Object=MibTableColumn
+natAddrMapOutTranslates=_NatAddrMapOutTranslates_Object((1,3,6,1,2,1,123,1,4,1,17),_NatAddrMapOutTranslates_Type())
+natAddrMapOutTranslates.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrMapOutTranslates.setStatus(_A)
+_NatAddrMapDiscards_Type=Counter64
+_NatAddrMapDiscards_Object=MibTableColumn
+natAddrMapDiscards=_NatAddrMapDiscards_Object((1,3,6,1,2,1,123,1,4,1,18),_NatAddrMapDiscards_Type())
+natAddrMapDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrMapDiscards.setStatus(_A)
+_NatAddrMapAddrUsed_Type=Gauge32
+_NatAddrMapAddrUsed_Object=MibTableColumn
+natAddrMapAddrUsed=_NatAddrMapAddrUsed_Object((1,3,6,1,2,1,123,1,4,1,19),_NatAddrMapAddrUsed_Type())
+natAddrMapAddrUsed.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrMapAddrUsed.setStatus(_A)
+class _NatAddrMapStorageType_Type(StorageType):defaultValue=3
+_NatAddrMapStorageType_Type.__name__=_O
+_NatAddrMapStorageType_Object=MibTableColumn
+natAddrMapStorageType=_NatAddrMapStorageType_Object((1,3,6,1,2,1,123,1,4,1,20),_NatAddrMapStorageType_Type())
+natAddrMapStorageType.setMaxAccess(_D)
+if mibBuilder.loadTexts:natAddrMapStorageType.setStatus(_A)
+_NatAddrMapRowStatus_Type=RowStatus
+_NatAddrMapRowStatus_Object=MibTableColumn
+natAddrMapRowStatus=_NatAddrMapRowStatus_Object((1,3,6,1,2,1,123,1,4,1,21),_NatAddrMapRowStatus_Type())
+natAddrMapRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:natAddrMapRowStatus.setStatus(_A)
+_NatAddrBindNumberOfEntries_Type=Gauge32
+_NatAddrBindNumberOfEntries_Object=MibScalar
+natAddrBindNumberOfEntries=_NatAddrBindNumberOfEntries_Object((1,3,6,1,2,1,123,1,5),_NatAddrBindNumberOfEntries_Type())
+natAddrBindNumberOfEntries.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrBindNumberOfEntries.setStatus(_A)
+_NatAddrBindTable_Object=MibTable
+natAddrBindTable=_NatAddrBindTable_Object((1,3,6,1,2,1,123,1,6))
+if mibBuilder.loadTexts:natAddrBindTable.setStatus(_A)
+_NatAddrBindEntry_Object=MibTableRow
+natAddrBindEntry=_NatAddrBindEntry_Object((1,3,6,1,2,1,123,1,6,1))
+natAddrBindEntry.setIndexNames((0,_E,_G),(0,_B,_X),(0,_B,_Y))
+if mibBuilder.loadTexts:natAddrBindEntry.setStatus(_A)
+_NatAddrBindLocalAddrType_Type=InetAddressType
+_NatAddrBindLocalAddrType_Object=MibTableColumn
+natAddrBindLocalAddrType=_NatAddrBindLocalAddrType_Object((1,3,6,1,2,1,123,1,6,1,1),_NatAddrBindLocalAddrType_Type())
+natAddrBindLocalAddrType.setMaxAccess(_F)
+if mibBuilder.loadTexts:natAddrBindLocalAddrType.setStatus(_A)
+class _NatAddrBindLocalAddr_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
+_NatAddrBindLocalAddr_Type.__name__=_N
+_NatAddrBindLocalAddr_Object=MibTableColumn
+natAddrBindLocalAddr=_NatAddrBindLocalAddr_Object((1,3,6,1,2,1,123,1,6,1,2),_NatAddrBindLocalAddr_Type())
+natAddrBindLocalAddr.setMaxAccess(_F)
+if mibBuilder.loadTexts:natAddrBindLocalAddr.setStatus(_A)
+_NatAddrBindGlobalAddrType_Type=InetAddressType
+_NatAddrBindGlobalAddrType_Object=MibTableColumn
+natAddrBindGlobalAddrType=_NatAddrBindGlobalAddrType_Object((1,3,6,1,2,1,123,1,6,1,3),_NatAddrBindGlobalAddrType_Type())
+natAddrBindGlobalAddrType.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrBindGlobalAddrType.setStatus(_A)
+_NatAddrBindGlobalAddr_Type=InetAddress
+_NatAddrBindGlobalAddr_Object=MibTableColumn
+natAddrBindGlobalAddr=_NatAddrBindGlobalAddr_Object((1,3,6,1,2,1,123,1,6,1,4),_NatAddrBindGlobalAddr_Type())
+natAddrBindGlobalAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrBindGlobalAddr.setStatus(_A)
+_NatAddrBindId_Type=NatBindId
+_NatAddrBindId_Object=MibTableColumn
+natAddrBindId=_NatAddrBindId_Object((1,3,6,1,2,1,123,1,6,1,5),_NatAddrBindId_Type())
+natAddrBindId.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrBindId.setStatus(_A)
+_NatAddrBindTranslationEntity_Type=NatTranslationEntity
+_NatAddrBindTranslationEntity_Object=MibTableColumn
+natAddrBindTranslationEntity=_NatAddrBindTranslationEntity_Object((1,3,6,1,2,1,123,1,6,1,6),_NatAddrBindTranslationEntity_Type())
+natAddrBindTranslationEntity.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrBindTranslationEntity.setStatus(_A)
+_NatAddrBindType_Type=NatAssociationType
+_NatAddrBindType_Object=MibTableColumn
+natAddrBindType=_NatAddrBindType_Object((1,3,6,1,2,1,123,1,6,1,7),_NatAddrBindType_Type())
+natAddrBindType.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrBindType.setStatus(_A)
+_NatAddrBindMapIndex_Type=NatAddrMapId
+_NatAddrBindMapIndex_Object=MibTableColumn
+natAddrBindMapIndex=_NatAddrBindMapIndex_Object((1,3,6,1,2,1,123,1,6,1,8),_NatAddrBindMapIndex_Type())
+natAddrBindMapIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrBindMapIndex.setStatus(_A)
+_NatAddrBindSessions_Type=Gauge32
+_NatAddrBindSessions_Object=MibTableColumn
+natAddrBindSessions=_NatAddrBindSessions_Object((1,3,6,1,2,1,123,1,6,1,9),_NatAddrBindSessions_Type())
+natAddrBindSessions.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrBindSessions.setStatus(_A)
+_NatAddrBindMaxIdleTime_Type=TimeTicks
+_NatAddrBindMaxIdleTime_Object=MibTableColumn
+natAddrBindMaxIdleTime=_NatAddrBindMaxIdleTime_Object((1,3,6,1,2,1,123,1,6,1,10),_NatAddrBindMaxIdleTime_Type())
+natAddrBindMaxIdleTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrBindMaxIdleTime.setStatus(_A)
+_NatAddrBindCurrentIdleTime_Type=TimeTicks
+_NatAddrBindCurrentIdleTime_Object=MibTableColumn
+natAddrBindCurrentIdleTime=_NatAddrBindCurrentIdleTime_Object((1,3,6,1,2,1,123,1,6,1,11),_NatAddrBindCurrentIdleTime_Type())
+natAddrBindCurrentIdleTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrBindCurrentIdleTime.setStatus(_A)
+_NatAddrBindInTranslates_Type=Counter64
+_NatAddrBindInTranslates_Object=MibTableColumn
+natAddrBindInTranslates=_NatAddrBindInTranslates_Object((1,3,6,1,2,1,123,1,6,1,12),_NatAddrBindInTranslates_Type())
+natAddrBindInTranslates.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrBindInTranslates.setStatus(_A)
+_NatAddrBindOutTranslates_Type=Counter64
+_NatAddrBindOutTranslates_Object=MibTableColumn
+natAddrBindOutTranslates=_NatAddrBindOutTranslates_Object((1,3,6,1,2,1,123,1,6,1,13),_NatAddrBindOutTranslates_Type())
+natAddrBindOutTranslates.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrBindOutTranslates.setStatus(_A)
+_NatAddrPortBindNumberOfEntries_Type=Gauge32
+_NatAddrPortBindNumberOfEntries_Object=MibScalar
+natAddrPortBindNumberOfEntries=_NatAddrPortBindNumberOfEntries_Object((1,3,6,1,2,1,123,1,7),_NatAddrPortBindNumberOfEntries_Type())
+natAddrPortBindNumberOfEntries.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrPortBindNumberOfEntries.setStatus(_A)
+_NatAddrPortBindTable_Object=MibTable
+natAddrPortBindTable=_NatAddrPortBindTable_Object((1,3,6,1,2,1,123,1,8))
+if mibBuilder.loadTexts:natAddrPortBindTable.setStatus(_A)
+_NatAddrPortBindEntry_Object=MibTableRow
+natAddrPortBindEntry=_NatAddrPortBindEntry_Object((1,3,6,1,2,1,123,1,8,1))
+natAddrPortBindEntry.setIndexNames((0,_E,_G),(0,_B,_Z),(0,_B,_a),(0,_B,_b),(0,_B,_c))
+if mibBuilder.loadTexts:natAddrPortBindEntry.setStatus(_A)
+_NatAddrPortBindLocalAddrType_Type=InetAddressType
+_NatAddrPortBindLocalAddrType_Object=MibTableColumn
+natAddrPortBindLocalAddrType=_NatAddrPortBindLocalAddrType_Object((1,3,6,1,2,1,123,1,8,1,1),_NatAddrPortBindLocalAddrType_Type())
+natAddrPortBindLocalAddrType.setMaxAccess(_F)
+if mibBuilder.loadTexts:natAddrPortBindLocalAddrType.setStatus(_A)
+class _NatAddrPortBindLocalAddr_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4),ValueSizeConstraint(16,16))
+_NatAddrPortBindLocalAddr_Type.__name__=_N
+_NatAddrPortBindLocalAddr_Object=MibTableColumn
+natAddrPortBindLocalAddr=_NatAddrPortBindLocalAddr_Object((1,3,6,1,2,1,123,1,8,1,2),_NatAddrPortBindLocalAddr_Type())
+natAddrPortBindLocalAddr.setMaxAccess(_F)
+if mibBuilder.loadTexts:natAddrPortBindLocalAddr.setStatus(_A)
+_NatAddrPortBindLocalPort_Type=InetPortNumber
+_NatAddrPortBindLocalPort_Object=MibTableColumn
+natAddrPortBindLocalPort=_NatAddrPortBindLocalPort_Object((1,3,6,1,2,1,123,1,8,1,3),_NatAddrPortBindLocalPort_Type())
+natAddrPortBindLocalPort.setMaxAccess(_F)
+if mibBuilder.loadTexts:natAddrPortBindLocalPort.setStatus(_A)
+_NatAddrPortBindProtocol_Type=NatProtocolType
+_NatAddrPortBindProtocol_Object=MibTableColumn
+natAddrPortBindProtocol=_NatAddrPortBindProtocol_Object((1,3,6,1,2,1,123,1,8,1,4),_NatAddrPortBindProtocol_Type())
+natAddrPortBindProtocol.setMaxAccess(_F)
+if mibBuilder.loadTexts:natAddrPortBindProtocol.setStatus(_A)
+_NatAddrPortBindGlobalAddrType_Type=InetAddressType
+_NatAddrPortBindGlobalAddrType_Object=MibTableColumn
+natAddrPortBindGlobalAddrType=_NatAddrPortBindGlobalAddrType_Object((1,3,6,1,2,1,123,1,8,1,5),_NatAddrPortBindGlobalAddrType_Type())
+natAddrPortBindGlobalAddrType.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrPortBindGlobalAddrType.setStatus(_A)
+_NatAddrPortBindGlobalAddr_Type=InetAddress
+_NatAddrPortBindGlobalAddr_Object=MibTableColumn
+natAddrPortBindGlobalAddr=_NatAddrPortBindGlobalAddr_Object((1,3,6,1,2,1,123,1,8,1,6),_NatAddrPortBindGlobalAddr_Type())
+natAddrPortBindGlobalAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrPortBindGlobalAddr.setStatus(_A)
+_NatAddrPortBindGlobalPort_Type=InetPortNumber
+_NatAddrPortBindGlobalPort_Object=MibTableColumn
+natAddrPortBindGlobalPort=_NatAddrPortBindGlobalPort_Object((1,3,6,1,2,1,123,1,8,1,7),_NatAddrPortBindGlobalPort_Type())
+natAddrPortBindGlobalPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrPortBindGlobalPort.setStatus(_A)
+_NatAddrPortBindId_Type=NatBindId
+_NatAddrPortBindId_Object=MibTableColumn
+natAddrPortBindId=_NatAddrPortBindId_Object((1,3,6,1,2,1,123,1,8,1,8),_NatAddrPortBindId_Type())
+natAddrPortBindId.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrPortBindId.setStatus(_A)
+_NatAddrPortBindTranslationEntity_Type=NatTranslationEntity
+_NatAddrPortBindTranslationEntity_Object=MibTableColumn
+natAddrPortBindTranslationEntity=_NatAddrPortBindTranslationEntity_Object((1,3,6,1,2,1,123,1,8,1,9),_NatAddrPortBindTranslationEntity_Type())
+natAddrPortBindTranslationEntity.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrPortBindTranslationEntity.setStatus(_A)
+_NatAddrPortBindType_Type=NatAssociationType
+_NatAddrPortBindType_Object=MibTableColumn
+natAddrPortBindType=_NatAddrPortBindType_Object((1,3,6,1,2,1,123,1,8,1,10),_NatAddrPortBindType_Type())
+natAddrPortBindType.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrPortBindType.setStatus(_A)
+_NatAddrPortBindMapIndex_Type=NatAddrMapId
+_NatAddrPortBindMapIndex_Object=MibTableColumn
+natAddrPortBindMapIndex=_NatAddrPortBindMapIndex_Object((1,3,6,1,2,1,123,1,8,1,11),_NatAddrPortBindMapIndex_Type())
+natAddrPortBindMapIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrPortBindMapIndex.setStatus(_A)
+_NatAddrPortBindSessions_Type=Gauge32
+_NatAddrPortBindSessions_Object=MibTableColumn
+natAddrPortBindSessions=_NatAddrPortBindSessions_Object((1,3,6,1,2,1,123,1,8,1,12),_NatAddrPortBindSessions_Type())
+natAddrPortBindSessions.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrPortBindSessions.setStatus(_A)
+_NatAddrPortBindMaxIdleTime_Type=TimeTicks
+_NatAddrPortBindMaxIdleTime_Object=MibTableColumn
+natAddrPortBindMaxIdleTime=_NatAddrPortBindMaxIdleTime_Object((1,3,6,1,2,1,123,1,8,1,13),_NatAddrPortBindMaxIdleTime_Type())
+natAddrPortBindMaxIdleTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrPortBindMaxIdleTime.setStatus(_A)
+_NatAddrPortBindCurrentIdleTime_Type=TimeTicks
+_NatAddrPortBindCurrentIdleTime_Object=MibTableColumn
+natAddrPortBindCurrentIdleTime=_NatAddrPortBindCurrentIdleTime_Object((1,3,6,1,2,1,123,1,8,1,14),_NatAddrPortBindCurrentIdleTime_Type())
+natAddrPortBindCurrentIdleTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrPortBindCurrentIdleTime.setStatus(_A)
+_NatAddrPortBindInTranslates_Type=Counter64
+_NatAddrPortBindInTranslates_Object=MibTableColumn
+natAddrPortBindInTranslates=_NatAddrPortBindInTranslates_Object((1,3,6,1,2,1,123,1,8,1,15),_NatAddrPortBindInTranslates_Type())
+natAddrPortBindInTranslates.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrPortBindInTranslates.setStatus(_A)
+_NatAddrPortBindOutTranslates_Type=Counter64
+_NatAddrPortBindOutTranslates_Object=MibTableColumn
+natAddrPortBindOutTranslates=_NatAddrPortBindOutTranslates_Object((1,3,6,1,2,1,123,1,8,1,16),_NatAddrPortBindOutTranslates_Type())
+natAddrPortBindOutTranslates.setMaxAccess(_C)
+if mibBuilder.loadTexts:natAddrPortBindOutTranslates.setStatus(_A)
+_NatSessionTable_Object=MibTable
+natSessionTable=_NatSessionTable_Object((1,3,6,1,2,1,123,1,9))
+if mibBuilder.loadTexts:natSessionTable.setStatus(_A)
+_NatSessionEntry_Object=MibTableRow
+natSessionEntry=_NatSessionEntry_Object((1,3,6,1,2,1,123,1,9,1))
+natSessionEntry.setIndexNames((0,_E,_G),(0,_B,_d))
+if mibBuilder.loadTexts:natSessionEntry.setStatus(_A)
+_NatSessionIndex_Type=NatSessionId
+_NatSessionIndex_Object=MibTableColumn
+natSessionIndex=_NatSessionIndex_Object((1,3,6,1,2,1,123,1,9,1,1),_NatSessionIndex_Type())
+natSessionIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:natSessionIndex.setStatus(_A)
+_NatSessionPrivateSrcEPBindId_Type=NatBindIdOrZero
+_NatSessionPrivateSrcEPBindId_Object=MibTableColumn
+natSessionPrivateSrcEPBindId=_NatSessionPrivateSrcEPBindId_Object((1,3,6,1,2,1,123,1,9,1,2),_NatSessionPrivateSrcEPBindId_Type())
+natSessionPrivateSrcEPBindId.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionPrivateSrcEPBindId.setStatus(_A)
+_NatSessionPrivateSrcEPBindMode_Type=NatBindMode
+_NatSessionPrivateSrcEPBindMode_Object=MibTableColumn
+natSessionPrivateSrcEPBindMode=_NatSessionPrivateSrcEPBindMode_Object((1,3,6,1,2,1,123,1,9,1,3),_NatSessionPrivateSrcEPBindMode_Type())
+natSessionPrivateSrcEPBindMode.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionPrivateSrcEPBindMode.setStatus(_A)
+_NatSessionPrivateDstEPBindId_Type=NatBindIdOrZero
+_NatSessionPrivateDstEPBindId_Object=MibTableColumn
+natSessionPrivateDstEPBindId=_NatSessionPrivateDstEPBindId_Object((1,3,6,1,2,1,123,1,9,1,4),_NatSessionPrivateDstEPBindId_Type())
+natSessionPrivateDstEPBindId.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionPrivateDstEPBindId.setStatus(_A)
+_NatSessionPrivateDstEPBindMode_Type=NatBindMode
+_NatSessionPrivateDstEPBindMode_Object=MibTableColumn
+natSessionPrivateDstEPBindMode=_NatSessionPrivateDstEPBindMode_Object((1,3,6,1,2,1,123,1,9,1,5),_NatSessionPrivateDstEPBindMode_Type())
+natSessionPrivateDstEPBindMode.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionPrivateDstEPBindMode.setStatus(_A)
+class _NatSessionDirection_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('inbound',1),('outbound',2)))
+_NatSessionDirection_Type.__name__=_L
+_NatSessionDirection_Object=MibTableColumn
+natSessionDirection=_NatSessionDirection_Object((1,3,6,1,2,1,123,1,9,1,6),_NatSessionDirection_Type())
+natSessionDirection.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionDirection.setStatus(_A)
+_NatSessionUpTime_Type=TimeTicks
+_NatSessionUpTime_Object=MibTableColumn
+natSessionUpTime=_NatSessionUpTime_Object((1,3,6,1,2,1,123,1,9,1,7),_NatSessionUpTime_Type())
+natSessionUpTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionUpTime.setStatus(_A)
+_NatSessionAddrMapIndex_Type=NatAddrMapId
+_NatSessionAddrMapIndex_Object=MibTableColumn
+natSessionAddrMapIndex=_NatSessionAddrMapIndex_Object((1,3,6,1,2,1,123,1,9,1,8),_NatSessionAddrMapIndex_Type())
+natSessionAddrMapIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionAddrMapIndex.setStatus(_A)
+_NatSessionProtocolType_Type=NatProtocolType
+_NatSessionProtocolType_Object=MibTableColumn
+natSessionProtocolType=_NatSessionProtocolType_Object((1,3,6,1,2,1,123,1,9,1,9),_NatSessionProtocolType_Type())
+natSessionProtocolType.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionProtocolType.setStatus(_A)
+_NatSessionPrivateAddrType_Type=InetAddressType
+_NatSessionPrivateAddrType_Object=MibTableColumn
+natSessionPrivateAddrType=_NatSessionPrivateAddrType_Object((1,3,6,1,2,1,123,1,9,1,10),_NatSessionPrivateAddrType_Type())
+natSessionPrivateAddrType.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionPrivateAddrType.setStatus(_A)
+_NatSessionPrivateSrcAddr_Type=InetAddress
+_NatSessionPrivateSrcAddr_Object=MibTableColumn
+natSessionPrivateSrcAddr=_NatSessionPrivateSrcAddr_Object((1,3,6,1,2,1,123,1,9,1,11),_NatSessionPrivateSrcAddr_Type())
+natSessionPrivateSrcAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionPrivateSrcAddr.setStatus(_A)
+_NatSessionPrivateSrcPort_Type=InetPortNumber
+_NatSessionPrivateSrcPort_Object=MibTableColumn
+natSessionPrivateSrcPort=_NatSessionPrivateSrcPort_Object((1,3,6,1,2,1,123,1,9,1,12),_NatSessionPrivateSrcPort_Type())
+natSessionPrivateSrcPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionPrivateSrcPort.setStatus(_A)
+_NatSessionPrivateDstAddr_Type=InetAddress
+_NatSessionPrivateDstAddr_Object=MibTableColumn
+natSessionPrivateDstAddr=_NatSessionPrivateDstAddr_Object((1,3,6,1,2,1,123,1,9,1,13),_NatSessionPrivateDstAddr_Type())
+natSessionPrivateDstAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionPrivateDstAddr.setStatus(_A)
+_NatSessionPrivateDstPort_Type=InetPortNumber
+_NatSessionPrivateDstPort_Object=MibTableColumn
+natSessionPrivateDstPort=_NatSessionPrivateDstPort_Object((1,3,6,1,2,1,123,1,9,1,14),_NatSessionPrivateDstPort_Type())
+natSessionPrivateDstPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionPrivateDstPort.setStatus(_A)
+_NatSessionPublicAddrType_Type=InetAddressType
+_NatSessionPublicAddrType_Object=MibTableColumn
+natSessionPublicAddrType=_NatSessionPublicAddrType_Object((1,3,6,1,2,1,123,1,9,1,15),_NatSessionPublicAddrType_Type())
+natSessionPublicAddrType.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionPublicAddrType.setStatus(_A)
+_NatSessionPublicSrcAddr_Type=InetAddress
+_NatSessionPublicSrcAddr_Object=MibTableColumn
+natSessionPublicSrcAddr=_NatSessionPublicSrcAddr_Object((1,3,6,1,2,1,123,1,9,1,16),_NatSessionPublicSrcAddr_Type())
+natSessionPublicSrcAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionPublicSrcAddr.setStatus(_A)
+_NatSessionPublicSrcPort_Type=InetPortNumber
+_NatSessionPublicSrcPort_Object=MibTableColumn
+natSessionPublicSrcPort=_NatSessionPublicSrcPort_Object((1,3,6,1,2,1,123,1,9,1,17),_NatSessionPublicSrcPort_Type())
+natSessionPublicSrcPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionPublicSrcPort.setStatus(_A)
+_NatSessionPublicDstAddr_Type=InetAddress
+_NatSessionPublicDstAddr_Object=MibTableColumn
+natSessionPublicDstAddr=_NatSessionPublicDstAddr_Object((1,3,6,1,2,1,123,1,9,1,18),_NatSessionPublicDstAddr_Type())
+natSessionPublicDstAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionPublicDstAddr.setStatus(_A)
+_NatSessionPublicDstPort_Type=InetPortNumber
+_NatSessionPublicDstPort_Object=MibTableColumn
+natSessionPublicDstPort=_NatSessionPublicDstPort_Object((1,3,6,1,2,1,123,1,9,1,19),_NatSessionPublicDstPort_Type())
+natSessionPublicDstPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionPublicDstPort.setStatus(_A)
+_NatSessionMaxIdleTime_Type=TimeTicks
+_NatSessionMaxIdleTime_Object=MibTableColumn
+natSessionMaxIdleTime=_NatSessionMaxIdleTime_Object((1,3,6,1,2,1,123,1,9,1,20),_NatSessionMaxIdleTime_Type())
+natSessionMaxIdleTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionMaxIdleTime.setStatus(_A)
+_NatSessionCurrentIdleTime_Type=TimeTicks
+_NatSessionCurrentIdleTime_Object=MibTableColumn
+natSessionCurrentIdleTime=_NatSessionCurrentIdleTime_Object((1,3,6,1,2,1,123,1,9,1,21),_NatSessionCurrentIdleTime_Type())
+natSessionCurrentIdleTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionCurrentIdleTime.setStatus(_A)
+_NatSessionInTranslates_Type=Counter64
+_NatSessionInTranslates_Object=MibTableColumn
+natSessionInTranslates=_NatSessionInTranslates_Object((1,3,6,1,2,1,123,1,9,1,22),_NatSessionInTranslates_Type())
+natSessionInTranslates.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionInTranslates.setStatus(_A)
+_NatSessionOutTranslates_Type=Counter64
+_NatSessionOutTranslates_Object=MibTableColumn
+natSessionOutTranslates=_NatSessionOutTranslates_Object((1,3,6,1,2,1,123,1,9,1,23),_NatSessionOutTranslates_Type())
+natSessionOutTranslates.setMaxAccess(_C)
+if mibBuilder.loadTexts:natSessionOutTranslates.setStatus(_A)
+_NatProtocolTable_Object=MibTable
+natProtocolTable=_NatProtocolTable_Object((1,3,6,1,2,1,123,1,10))
+if mibBuilder.loadTexts:natProtocolTable.setStatus(_A)
+_NatProtocolEntry_Object=MibTableRow
+natProtocolEntry=_NatProtocolEntry_Object((1,3,6,1,2,1,123,1,10,1))
+natProtocolEntry.setIndexNames((0,_B,_e))
+if mibBuilder.loadTexts:natProtocolEntry.setStatus(_A)
+_NatProtocol_Type=NatProtocolType
+_NatProtocol_Object=MibTableColumn
+natProtocol=_NatProtocol_Object((1,3,6,1,2,1,123,1,10,1,1),_NatProtocol_Type())
+natProtocol.setMaxAccess(_F)
+if mibBuilder.loadTexts:natProtocol.setStatus(_A)
+_NatProtocolInTranslates_Type=Counter64
+_NatProtocolInTranslates_Object=MibTableColumn
+natProtocolInTranslates=_NatProtocolInTranslates_Object((1,3,6,1,2,1,123,1,10,1,2),_NatProtocolInTranslates_Type())
+natProtocolInTranslates.setMaxAccess(_C)
+if mibBuilder.loadTexts:natProtocolInTranslates.setStatus(_A)
+_NatProtocolOutTranslates_Type=Counter64
+_NatProtocolOutTranslates_Object=MibTableColumn
+natProtocolOutTranslates=_NatProtocolOutTranslates_Object((1,3,6,1,2,1,123,1,10,1,3),_NatProtocolOutTranslates_Type())
+natProtocolOutTranslates.setMaxAccess(_C)
+if mibBuilder.loadTexts:natProtocolOutTranslates.setStatus(_A)
+_NatProtocolDiscards_Type=Counter64
+_NatProtocolDiscards_Object=MibTableColumn
+natProtocolDiscards=_NatProtocolDiscards_Object((1,3,6,1,2,1,123,1,10,1,4),_NatProtocolDiscards_Type())
+natProtocolDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:natProtocolDiscards.setStatus(_A)
+_NatMIBConformance_ObjectIdentity=ObjectIdentity
+natMIBConformance=_NatMIBConformance_ObjectIdentity((1,3,6,1,2,1,123,2))
+_NatMIBGroups_ObjectIdentity=ObjectIdentity
+natMIBGroups=_NatMIBGroups_ObjectIdentity((1,3,6,1,2,1,123,2,1))
+_NatMIBCompliances_ObjectIdentity=ObjectIdentity
+natMIBCompliances=_NatMIBCompliances_ObjectIdentity((1,3,6,1,2,1,123,2,2))
+natConfigGroup=ObjectGroup((1,3,6,1,2,1,123,2,1,1))
+natConfigGroup.setObjects(*((_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5)))
+if mibBuilder.loadTexts:natConfigGroup.setStatus(_A)
+natTranslationGroup=ObjectGroup((1,3,6,1,2,1,123,2,1,2))
+natTranslationGroup.setObjects(*((_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq)))
+if mibBuilder.loadTexts:natTranslationGroup.setStatus(_A)
+natStatsInterfaceGroup=ObjectGroup((1,3,6,1,2,1,123,2,1,3))
+natStatsInterfaceGroup.setObjects(*((_B,_Ar),(_B,_As),(_B,_At)))
+if mibBuilder.loadTexts:natStatsInterfaceGroup.setStatus(_A)
+natStatsProtocolGroup=ObjectGroup((1,3,6,1,2,1,123,2,1,4))
+natStatsProtocolGroup.setObjects(*((_B,_Au),(_B,_Av),(_B,_Aw)))
+if mibBuilder.loadTexts:natStatsProtocolGroup.setStatus(_A)
+natStatsAddrMapGroup=ObjectGroup((1,3,6,1,2,1,123,2,1,5))
+natStatsAddrMapGroup.setObjects(*((_B,_Ax),(_B,_Ay),(_B,_Az),(_B,_A_)))
+if mibBuilder.loadTexts:natStatsAddrMapGroup.setStatus(_A)
+natPacketDiscard=NotificationType((1,3,6,1,2,1,123,0,1))
+natPacketDiscard.setObjects((_E,_G))
+if mibBuilder.loadTexts:natPacketDiscard.setStatus(_A)
+natMIBNotificationGroup=NotificationGroup((1,3,6,1,2,1,123,2,1,6))
+natMIBNotificationGroup.setObjects((_B,_B0))
+if mibBuilder.loadTexts:natMIBNotificationGroup.setStatus(_A)
+natMIBFullCompliance=ModuleCompliance((1,3,6,1,2,1,123,2,2,1))
+natMIBFullCompliance.setObjects(*((_E,_M),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U)))
+if mibBuilder.loadTexts:natMIBFullCompliance.setStatus(_A)
+natMIBReadOnlyCompliance=ModuleCompliance((1,3,6,1,2,1,123,2,2,2))
+natMIBReadOnlyCompliance.setObjects(*((_E,_M),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U)))
+if mibBuilder.loadTexts:natMIBReadOnlyCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'NatProtocolType':NatProtocolType,'NatProtocolMap':NatProtocolMap,'NatAddrMapId':NatAddrMapId,'NatBindIdOrZero':NatBindIdOrZero,'NatBindId':NatBindId,'NatSessionId':NatSessionId,'NatBindMode':NatBindMode,'NatAssociationType':NatAssociationType,'NatTranslationEntity':NatTranslationEntity,'natMIB':natMIB,'natMIBNotifications':natMIBNotifications,_B0:natPacketDiscard,'natMIBObjects':natMIBObjects,'natDefTimeouts':natDefTimeouts,_z:natBindDefIdleTimeout,_A0:natUdpDefIdleTimeout,_A1:natIcmpDefIdleTimeout,_A2:natOtherDefIdleTimeout,_A3:natTcpDefIdleTimeout,_A4:natTcpDefNegTimeout,'natNotifCtrl':natNotifCtrl,_A5:natNotifThrottlingInterval,'natInterfaceTable':natInterfaceTable,'natInterfaceEntry':natInterfaceEntry,_f:natInterfaceRealm,_g:natInterfaceServiceType,_Ar:natInterfaceInTranslates,_As:natInterfaceOutTranslates,_At:natInterfaceDiscards,_h:natInterfaceStorageType,_i:natInterfaceRowStatus,'natAddrMapTable':natAddrMapTable,'natAddrMapEntry':natAddrMapEntry,_W:natAddrMapIndex,_j:natAddrMapName,_k:natAddrMapEntryType,_l:natAddrMapTranslationEntity,_m:natAddrMapLocalAddrType,_n:natAddrMapLocalAddrFrom,_o:natAddrMapLocalAddrTo,_p:natAddrMapLocalPortFrom,_q:natAddrMapLocalPortTo,_r:natAddrMapGlobalAddrType,_s:natAddrMapGlobalAddrFrom,_t:natAddrMapGlobalAddrTo,_u:natAddrMapGlobalPortFrom,_v:natAddrMapGlobalPortTo,_w:natAddrMapProtocol,_Ax:natAddrMapInTranslates,_Ay:natAddrMapOutTranslates,_Az:natAddrMapDiscards,_A_:natAddrMapAddrUsed,_x:natAddrMapStorageType,_y:natAddrMapRowStatus,_A6:natAddrBindNumberOfEntries,'natAddrBindTable':natAddrBindTable,'natAddrBindEntry':natAddrBindEntry,_X:natAddrBindLocalAddrType,_Y:natAddrBindLocalAddr,_A7:natAddrBindGlobalAddrType,_A8:natAddrBindGlobalAddr,_A9:natAddrBindId,_AA:natAddrBindTranslationEntity,_AB:natAddrBindType,_AC:natAddrBindMapIndex,_AD:natAddrBindSessions,_AE:natAddrBindMaxIdleTime,_AF:natAddrBindCurrentIdleTime,_AG:natAddrBindInTranslates,_AH:natAddrBindOutTranslates,_AI:natAddrPortBindNumberOfEntries,'natAddrPortBindTable':natAddrPortBindTable,'natAddrPortBindEntry':natAddrPortBindEntry,_Z:natAddrPortBindLocalAddrType,_a:natAddrPortBindLocalAddr,_b:natAddrPortBindLocalPort,_c:natAddrPortBindProtocol,_AJ:natAddrPortBindGlobalAddrType,_AK:natAddrPortBindGlobalAddr,_AL:natAddrPortBindGlobalPort,_AM:natAddrPortBindId,_AN:natAddrPortBindTranslationEntity,_AO:natAddrPortBindType,_AP:natAddrPortBindMapIndex,_AQ:natAddrPortBindSessions,_AR:natAddrPortBindMaxIdleTime,_AS:natAddrPortBindCurrentIdleTime,_AT:natAddrPortBindInTranslates,_AU:natAddrPortBindOutTranslates,'natSessionTable':natSessionTable,'natSessionEntry':natSessionEntry,_d:natSessionIndex,_AV:natSessionPrivateSrcEPBindId,_AW:natSessionPrivateSrcEPBindMode,_AX:natSessionPrivateDstEPBindId,_AY:natSessionPrivateDstEPBindMode,_AZ:natSessionDirection,_Aa:natSessionUpTime,_Ab:natSessionAddrMapIndex,_Ac:natSessionProtocolType,_Ad:natSessionPrivateAddrType,_Ae:natSessionPrivateSrcAddr,_Af:natSessionPrivateSrcPort,_Ag:natSessionPrivateDstAddr,_Ah:natSessionPrivateDstPort,_Ai:natSessionPublicAddrType,_Aj:natSessionPublicSrcAddr,_Ak:natSessionPublicSrcPort,_Al:natSessionPublicDstAddr,_Am:natSessionPublicDstPort,_An:natSessionMaxIdleTime,_Ao:natSessionCurrentIdleTime,_Ap:natSessionInTranslates,_Aq:natSessionOutTranslates,'natProtocolTable':natProtocolTable,'natProtocolEntry':natProtocolEntry,_e:natProtocol,_Au:natProtocolInTranslates,_Av:natProtocolOutTranslates,_Aw:natProtocolDiscards,'natMIBConformance':natMIBConformance,'natMIBGroups':natMIBGroups,_P:natConfigGroup,_Q:natTranslationGroup,_R:natStatsInterfaceGroup,_S:natStatsProtocolGroup,_T:natStatsAddrMapGroup,_U:natMIBNotificationGroup,'natMIBCompliances':natMIBCompliances,'natMIBFullCompliance':natMIBFullCompliance,'natMIBReadOnlyCompliance':natMIBReadOnlyCompliance})

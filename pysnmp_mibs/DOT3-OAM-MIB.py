@@ -1,202 +1,554 @@
-#
-# PySNMP MIB module DOT3-OAM-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/DOT3-OAM-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:10:39 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, OctetString, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
-( CounterBasedGauge64, ) = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
-( ifIndex, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-( ObjectGroup, ModuleCompliance, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-( Bits, Gauge32, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, TimeTicks, ModuleIdentity, Unsigned32, IpAddress, NotificationType, iso, mib_2, ObjectIdentity, Integer32, Counter32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Gauge32", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "TimeTicks", "ModuleIdentity", "Unsigned32", "IpAddress", "NotificationType", "iso", "mib-2", "ObjectIdentity", "Integer32", "Counter32")
-( TruthValue, TextualConvention, MacAddress, TimeStamp, DisplayString, ) = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "MacAddress", "TimeStamp", "DisplayString")
-dot3OamMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 158)).setRevisions(("2007-06-14 00:00",))
-if mibBuilder.loadTexts: dot3OamMIB.setLastUpdated('200706140000Z')
-if mibBuilder.loadTexts: dot3OamMIB.setOrganization('IETF Ethernet Interfaces and Hub MIB Working Group')
-if mibBuilder.loadTexts: dot3OamMIB.setContactInfo('WG Charter:\n            http://www.ietf.org/html.charters/hubmib-charter.html\n          Mailing lists:\n            General Discussion: hubmib@ietf.org\n            To Subscribe: hubmib-requests@ietf.org\n            In Body: subscribe your_email_address\n          Chair: Bert Wijnen\n            Alcatel-Lucent\n            Email: bwijnen at alcatel-lucent dot com\n          Editor: Matt Squire\n            Hatteras Networks\n            E-mail: msquire at hatterasnetworks dot com\n          ')
-if mibBuilder.loadTexts: dot3OamMIB.setDescription("The MIB module for managing the new Ethernet OAM features\n          introduced by the Ethernet in the First Mile taskforce (IEEE\n          802.3ah).  The functionality presented here is based on IEEE\n          802.3ah [802.3ah], released in October, 2004.  [802.3ah] was\n          prepared as an addendum to the standing version of IEEE 802.3\n          [802.3-2002].  Since then, [802.3ah] has been\n          merged into the base IEEE 802.3 specification in [802.3-2005].\n\n          In particular, this MIB focuses on the new OAM functions\n          introduced in Clause 57 of [802.3ah].  The OAM functionality\n          of Clause 57 is controlled by new management attributes\n          introduced in Clause 30 of [802.3ah].  The OAM functions are\n          not specific to any particular Ethernet physical layer, and\n          can be generically applied to any Ethernet interface of\n          [802.3-2002].\n\n          An Ethernet OAM protocol data unit is a valid Ethernet frame\n          with a destination MAC address equal to the reserved MAC\n          address for Slow Protocols (See 43B of [802.3ah]), a\n          lengthOrType field equal to the reserved type for Slow\n          Protocols, and a Slow Protocols subtype equal to that of the\n          subtype reserved for Ethernet OAM.  OAMPDU is used throughout\n          this document as an abbreviation for Ethernet OAM protocol\n          data unit.\n\n          The following reference is used throughout this MIB module:\n\n            [802.3ah] refers to:\n              IEEE Std 802.3ah-2004: 'Draft amendment to -\n              Information technology - Telecommunications and\n              information exchange between systems - Local and\n              metropolitan area networks - Specific requirements - Part\n              3: Carrier sense multiple access with collision detection\n              (CSMA/CD) access method and physical layer specifications\n              - Media Access Control Parameters, Physical Layers and\n              Management Parameters for subscriber access networks',\n              October 2004.\n\n            [802.3-2002] refers to:\n              IEEE Std 802.3-2002:\n              'Information technology - Telecommunications and\n              information exchange between systems - Local and\n              metropolitan area networks - Specific requirements - Part\n              3: Carrier sense multiple access with collision detection\n              (CSMA/CD) access method and physical layer specifications\n              - Media Access Control Parameters, Physical Layers and\n              Management Parameters for subscriber access networks',\n              March 2002.\n\n            [802.3-2005] refers to:\n              IEEE Std 802.3-2005:\n              'Information technology - Telecommunications and\n              information exchange between systems - Local and\n              metropolitan area networks - Specific requirements - Part\n              3: Carrier sense multiple access with collision detection\n              (CSMA/CD) access method and physical layer specifications\n              - Media Access Control Parameters, Physical Layers and\n              Management Parameters for subscriber access networks',\n              December 2005.\n\n            [802-2001] refers to:\n              'IEEE Standard for LAN/MAN (Local Area\n              Network/Metropolitan Area Network): Overview and\n              Architecture', IEEE 802, June 2001.\n\n          Copyright (c) The IETF Trust (2007).  This version of\n          this MIB module is part of RFC 4878; See the RFC itself for\n          full legal notices. ")
-dot3OamNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 158, 0))
-dot3OamObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 158, 1))
-dot3OamConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 158, 2))
-class EightOTwoOui(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(3,3)
-    fixedLength = 3
-
-dot3OamTable = MibTable((1, 3, 6, 1, 2, 1, 158, 1, 1), )
-if mibBuilder.loadTexts: dot3OamTable.setDescription('This table contains the primary controls and status for the\n          OAM capabilities of an Ethernet-like interface.  There will be\n          one row in this table for each Ethernet-like interface in the\n          system that supports the OAM functions defined in [802.3ah].\n          ')
-dot3OamEntry = MibTableRow((1, 3, 6, 1, 2, 1, 158, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: dot3OamEntry.setDescription('An entry in the table that contains information on the\n          Ethernet OAM function for a single Ethernet like interface.\n          Entries in the table are created automatically for each\n          interface supporting Ethernet OAM.  The status of the row\n          entry can be determined from dot3OamOperStatus.\n\n          A dot3OamEntry is indexed in the dot3OamTable by the ifIndex\n          object of the Interfaces MIB.\n          ')
-dot3OamAdminState = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamAdminState.setDescription('This object is used to provision the default administrative\n          OAM mode for this interface.  This object represents the\n          desired state of OAM for this interface.\n\n          The dot3OamAdminState always starts in the disabled(2) state\n          until an explicit management action or configuration\n          information retained by the system causes a transition to the\n          enabled(1) state.  When enabled(1), Ethernet OAM will attempt\n          to operate over this interface.\n          ')
-dot3OamOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,))).clone(namedValues=NamedValues(("disabled", 1), ("linkFault", 2), ("passiveWait", 3), ("activeSendLocal", 4), ("sendLocalAndRemote", 5), ("sendLocalAndRemoteOk", 6), ("oamPeeringLocallyRejected", 7), ("oamPeeringRemotelyRejected", 8), ("operational", 9), ("nonOperHalfDuplex", 10),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamOperStatus.setDescription('At initialization and failure conditions, two OAM entities on\n\n          the same full-duplex Ethernet link begin a discovery phase to\n          determine what OAM capabilities may be used on that link.  The\n          progress of this initialization is controlled by the OA\n          sublayer.\n\n          This value is always disabled(1) if OAM is disabled on this\n          interface via the dot3OamAdminState.\n\n          If the link has detected a fault and is transmitting OAMPDUs\n          with a link fault indication, the value is linkFault(2).\n          Also, if the interface is not operational (ifOperStatus is\n          not up(1)), linkFault(2) is returned.  Note that the object\n          ifOperStatus may not be up(1) as a result of link failure or\n          administrative action (ifAdminState being down(2) or\n          testing(3)).\n\n          The passiveWait(3) state is returned only by OAM entities in\n          passive mode (dot3OamMode) and reflects the state in which the\n          OAM entity is waiting to see if the peer device is OA\n          capable.  The activeSendLocal(4) value is used by active mode\n          devices (dot3OamMode) and reflects the OAM entity actively\n          trying to discover whether the peer has OAM capability but has\n          not yet made that determination.\n\n          The state sendLocalAndRemote(5) reflects that the local OA\n          entity has discovered the peer but has not yet accepted or\n          rejected the configuration of the peer.  The local device can,\n          for whatever reason, decide that the peer device is\n          unacceptable and decline OAM peering.  If the local OAM entity\n          rejects the peer OAM entity, the state becomes\n          oamPeeringLocallyRejected(7).  If the OAM peering is allowed\n          by the local device, the state moves to\n          sendLocalAndRemoteOk(6).  Note that both the\n          sendLocalAndRemote(5) and oamPeeringLocallyRejected(7) states\n          fall within the state SEND_LOCAL_REMOTE of the Discovery state\n          diagram [802.3ah, Figure 57-5], with the difference being\n          whether the local OAM client has actively rejected the peering\n          or has just not indicated any decision yet.  Whether a peering\n          decision has been made is indicated via the local flags field\n          in the OAMPDU (reflected in the aOAMLocalFlagsField of\n          30.3.6.1.10).\n\n          If the remote OAM entity rejects the peering, the state\n          becomes oamPeeringRemotelyRejected(8).  Note that both the\n          sendLocalAndRemoteOk(6) and oamPeeringRemotelyRejected(8)\n          states fall within the state SEND_LOCAL_REMOTE_OK of the\n          Discovery state diagram [802.3ah, Figure 57-5], with the\n          difference being whether the remote OAM client has rejected\n\n          the peering or has just not yet decided.  This is indicated\n          via the remote flags field in the OAMPDU (reflected in the\n          aOAMRemoteFlagsField of 30.3.6.1.11).\n\n          When the local OAM entity learns that both it and the remote\n          OAM entity have accepted the peering, the state moves to\n          operational(9) corresponding to the SEND_ANY state of the\n          Discovery state diagram [802.3ah, Figure 57-5].\n\n          Since Ethernet OAM functions are not designed to work\n          completely over half-duplex interfaces, the value\n          nonOperHalfDuplex(10) is returned whenever Ethernet OAM is\n          enabled (dot3OamAdminState is enabled(1)), but the interface\n          is in half-duplex operation.\n          ')
-dot3OamMode = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("passive", 1), ("active", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamMode.setDescription("This object configures the mode of OAM operation for this\n          Ethernet-like interface.  OAM on Ethernet interfaces may be in\n          'active' mode or 'passive' mode.  These two modes differ in\n          that active mode provides additional capabilities to initiate\n          monitoring activities with the remote OAM peer entity, while\n          passive mode generally waits for the peer to initiate OA\n          actions with it.  As an example, an active OAM entity can put\n          the remote OAM entity in a loopback state, where a passive OA\n          entity cannot.\n\n          The default value of dot3OamMode is dependent on the type of\n          system on which this Ethernet-like interface resides.  The\n          default value should be 'active(2)' unless it is known that\n          this system should take on a subservient role to the other\n          device connected over this interface.\n\n          Changing this value results in incrementing the configuration\n          revision field of locally generated OAMPDUs (30.3.6.1.12) and\n          potentially re-doing the OAM discovery process if the\n          dot3OamOperStatus was already operational(9).\n          ")
-dot3OamMaxOamPduSize = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(64,1518))).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamMaxOamPduSize.setDescription('The largest OAMPDU that the OAM entity supports.  OA\n          entities exchange maximum OAMPDU sizes and negotiate to use\n          the smaller of the two maximum OAMPDU sizes between the peers.\n          This value is determined by the local implementation.\n          ')
-dot3OamConfigRevision = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamConfigRevision.setDescription('The configuration revision of the OAM entity as reflected in\n          the latest OAMPDU sent by the OAM entity.  The config revision\n          is used by OAM entities to indicate that configuration changes\n          have occurred, which might require the peer OAM entity to\n          re-evaluate whether OAM peering is allowed.\n          ')
-dot3OamFunctionsSupported = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 1, 1, 6), Bits().clone(namedValues=NamedValues(("unidirectionalSupport", 0), ("loopbackSupport", 1), ("eventSupport", 2), ("variableSupport", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamFunctionsSupported.setDescription("The OAM functions supported on this Ethernet-like interface.\n          OAM consists of separate functional sets beyond the basic\n          discovery process that is always required.  These functional\n          groups can be supported independently by any implementation.\n          These values are communicated to the peer via the local\n          configuration field of Information OAMPDUs.\n\n          Setting 'unidirectionalSupport(0)' indicates that the OA\n\n          entity supports the transmission of OAMPDUs on links that are\n          operating in unidirectional mode (traffic flowing in one\n          direction only).  Setting 'loopbackSupport(1)' indicates that\n          the OAM entity can initiate and respond to loopback commands.\n          Setting 'eventSupport(2)' indicates that the OAM entity can\n          send and receive Event Notification OAMPDUs.  Setting\n          'variableSupport(3)' indicates that the OAM entity can send\n          and receive Variable Request and Response OAMPDUs.\n          ")
-dot3OamPeerTable = MibTable((1, 3, 6, 1, 2, 1, 158, 1, 2), )
-if mibBuilder.loadTexts: dot3OamPeerTable.setDescription('This table contains information about the OAM peer for a\n          particular Ethernet-like interface.  OAM entities communicate\n          with a single OAM peer entity on Ethernet links on which OA\n          is enabled and operating properly.  There is one entry in this\n          table for each entry in the dot3OamTable for which information\n          on the peer OAM entity is available.\n          ')
-dot3OamPeerEntry = MibTableRow((1, 3, 6, 1, 2, 1, 158, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: dot3OamPeerEntry.setDescription('An entry in the table containing information on the peer OA\n          entity for a single Ethernet-like interface.\n\n          Note that there is at most one OAM peer for each Ethernet-like\n          interface.  Entries are automatically created when information\n          about the OAM peer entity becomes available, and automatically\n          deleted when the OAM peer entity is no longer in\n          communication.  Peer information is not available when\n          dot3OamOperStatus is disabled(1), linkFault(2),\n          passiveWait(3), activeSendLocal(4), or nonOperHalfDuplex(10).\n          ')
-dot3OamPeerMacAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 2, 1, 1), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamPeerMacAddress.setDescription('The MAC address of the peer OAM entity.  The MAC address is\n          derived from the most recently received OAMPDU.\n          ')
-dot3OamPeerVendorOui = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 2, 1, 2), EightOTwoOui()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamPeerVendorOui.setDescription('The OUI of the OAM peer as reflected in the latest\n          Information OAMPDU received with a Local Information TLV.  The\n          OUI can be used to identify the vendor of the remote OA\n          entity.  This value is initialized to three octets of zero\n          before any Local Information TLV is received.\n          ')
-dot3OamPeerVendorInfo = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 2, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamPeerVendorInfo.setDescription('The Vendor Info of the OAM peer as reflected in the latest\n          Information OAMPDU received with a Local Information TLV.\n          The semantics of the Vendor Information field is proprietary\n          and specific to the vendor (identified by the\n          dot3OamPeerVendorOui).  This information could, for example,\n\n          be used to identify a specific product or product family.\n          This value is initialized to zero before any Local\n          Information TLV is received.\n          ')
-dot3OamPeerMode = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("passive", 1), ("active", 2), ("unknown", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamPeerMode.setDescription('The mode of the OAM peer as reflected in the latest\n          Information OAMPDU received with a Local Information TLV.  The\n          mode of the peer can be determined from the Configuration\n          field in the Local Information TLV of the last Information\n          OAMPDU received from the peer.  The value is unknown(3)\n          whenever no Local Information TLV has been received.  The\n          values of active(2) and passive(1) are returned when a Local\n          Information TLV has been received indicating that the peer is\n          in active or passive mode, respectively.\n          ')
-dot3OamPeerMaxOamPduSize = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 2, 1, 5), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(64,1518),))).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamPeerMaxOamPduSize.setDescription("The maximum size of OAMPDU supported by the peer as reflected\n          in the latest Information OAMPDU received with a Local\n          Information TLV.  Ethernet OAM on this interface must not use\n          OAMPDUs that exceed this size.  The maximum OAMPDU size can be\n          determined from the PDU Configuration field of the Local\n          Information TLV of the last Information OAMPDU received from\n          the peer.  A value of zero is returned if no Local Information\n          TLV has been received.  Otherwise, the value of the OAM peer's\n          maximum OAMPDU size is returned in this value.\n          ")
-dot3OamPeerConfigRevision = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 2, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamPeerConfigRevision.setDescription('The configuration revision of the OAM peer as reflected in\n          the latest OAMPDU.  This attribute is changed by the peer\n          whenever it has a local configuration change for Ethernet OA\n          on this interface.  The configuration revision can be\n          determined from the Revision field of the Local Information\n          TLV of the most recently received Information OAMPDU with\n          a Local Information TLV.  A value of zero is returned if\n          no Local Information TLV has been received.\n        ')
-dot3OamPeerFunctionsSupported = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 2, 1, 7), Bits().clone(namedValues=NamedValues(("unidirectionalSupport", 0), ("loopbackSupport", 1), ("eventSupport", 2), ("variableSupport", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamPeerFunctionsSupported.setDescription('The OAM functions supported on this Ethernet-like interface.\n          OAM consists of separate functionality sets above the basic\n          discovery process.  This value indicates the capabilities of\n          the peer OAM entity with respect to these functions.  This\n          value is initialized so all bits are clear.\n\n          If unidirectionalSupport(0) is set, then the peer OAM entity\n          supports sending OAM frames on Ethernet interfaces when the\n          receive path is known to be inoperable.  If\n          loopbackSupport(1) is set, then the peer OAM entity can send\n          and receive OAM loopback commands.  If eventSupport(2) is set,\n          then the peer OAM entity can send and receive event OAMPDUs to\n          signal various error conditions.  If variableSupport(3) is\n          set, then the peer OAM entity can send and receive variable\n          requests to monitor the attribute value as described in Clause\n          57 of [802.3ah].\n\n          The capabilities of the OAM peer can be determined from the\n          configuration field of the Local Information TLV of the most\n          recently received Information OAMPDU with a Local Information\n          TLV.  All zeros are returned if no Local Information TLV has\n\n          yet been received.\n          ')
-dot3OamLoopbackTable = MibTable((1, 3, 6, 1, 2, 1, 158, 1, 3), )
-if mibBuilder.loadTexts: dot3OamLoopbackTable.setDescription("This table contains controls for the loopback state of the\n          local link as well as indicates the status of the loopback\n          function.  There is one entry in this table for each entry in\n          dot3OamTable that supports loopback functionality (where\n          dot3OamFunctionsSupported includes the loopbackSupport bit\n          set).\n\n          Loopback can be used to place the remote OAM entity in a state\n          where every received frame (except OAMPDUs) is echoed back\n          over the same interface on which they were received.  In this\n          state, at the remote entity, 'normal' traffic is disabled as\n          only the looped back frames are transmitted on the interface.\n          Loopback is thus an intrusive operation that prohibits normal\n          data flow and should be used accordingly.\n          ")
-dot3OamLoopbackEntry = MibTableRow((1, 3, 6, 1, 2, 1, 158, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: dot3OamLoopbackEntry.setDescription('An entry in the table, containing information on the loopback\n          status for a single Ethernet-like interface.  Entries in the\n          table are automatically created whenever the local OAM entity\n          supports loopback capabilities.  The loopback status on the\n          interface can be determined from the dot3OamLoopbackStatus\n          object.\n          ')
-dot3OamLoopbackStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("noLoopback", 1), ("initiatingLoopback", 2), ("remoteLoopback", 3), ("terminatingLoopback", 4), ("localLoopback", 5), ("unknown", 6),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamLoopbackStatus.setDescription("The loopback status of the OAM entity.  This status is\n          determined by a combination of the local parser and\n          multiplexer states, the remote parser and multiplexer states,\n          as well as by the actions of the local OAM client.  When\n          operating in normal mode with no loopback in progress, the\n          status reads noLoopback(1).\n\n          The values initiatingLoopback(2) and terminatingLoopback(4)\n          can be read or written.  The other values can only be read -\n          they can never be written.  Writing initiatingLoopback causes\n          the local OAM entity to start the loopback process with its\n          peer.  This value can only be written when the status is\n          noLoopback(1).  Writing the value initiatingLoopback(2) in any\n          other state has no effect.  When in remoteLoopback(3), writing\n          terminatingLoopback(4) causes the local OAM entity to initiate\n          the termination of the loopback state.  Writing\n          terminatingLoopack(4) in any other state has no effect.\n\n          If the OAM client initiates a loopback and has sent a\n          Loopback OAMPDU and is waiting for a response, where the local\n          parser and multiplexer states are DISCARD (see [802.3ah,\n          57.2.11.1]), the status is 'initiatingLoopback'.  In this\n          case, the local OAM entity has yet to receive any\n          acknowledgment that the remote OAM entity has received its\n          loopback command request.\n\n          If the local OAM client knows that the remote OAM entity is in\n          loopback mode (via the remote state information as described\n          in [802.3ah, 57.2.11.1, 30.3.6.1.15]), the status is\n          remoteLoopback(3).  If the local OAM client is in the process\n          of terminating the remote loopback [802.3ah, 57.2.11.3,\n          30.3.6.1.14] with its local multiplexer and parser states in\n          DISCARD, the status is terminatingLoopback(4).  If the remote\n          OAM client has put the local OAM entity in loopback mode as\n          indicated by its local parser state, the status is\n          localLoopback(5).\n\n          The unknown(6) status indicates that the parser and\n          multiplexer combination is unexpected.  This status may be\n          returned if the OAM loopback is in a transition state but\n          should not persist.\n\n          The values of this attribute correspond to the following\n          values of the local and remote parser and multiplexer states.\n\n            value            LclPrsr   LclMux    RmtPrsr   RmtMux\n            noLoopback         FWD       FWD       FWD       FWD\n            initLoopback     DISCARD   DISCARD     FWD       FWD\n            rmtLoopback      DISCARD     FWD      LPBK    DISCARD\n            tmtngLoopback    DISCARD   DISCARD    LPBK    DISCARD\n            lclLoopback        LPBK    DISCARD   DISCARD     FWD\n            unknown            ***   any other combination   ***\n          ")
-dot3OamLoopbackIgnoreRx = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("ignore", 1), ("process", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamLoopbackIgnoreRx.setDescription('Since OAM loopback is a disruptive operation (user traffic\n          does not pass), this attribute provides a mechanism to provide\n          controls over whether received OAM loopback commands are\n          processed or ignored.  When the value is ignore(1), received\n          loopback commands are ignored.  When the value is process(2),\n          OAM loopback commands are processed.  The default value is to\n          ignore loopback commands (ignore(1)).\n          ')
-dot3OamStatsTable = MibTable((1, 3, 6, 1, 2, 1, 158, 1, 4), )
-if mibBuilder.loadTexts: dot3OamStatsTable.setDescription('This table contains statistics for the OAM function on a\n          particular Ethernet-like interface.  There is an entry in the\n          table for every entry in the dot3OamTable.\n\n          The counters in this table are defined as 32-bit entries to\n          match the counter size as defined in [802.3ah].  Given that\n          the OA protocol is a slow protocol, the counters increment at\n          a slow rate.\n          ')
-dot3OamStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 158, 1, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: dot3OamStatsEntry.setDescription('An entry in the table containing statistics information on\n          the Ethernet OAM function for a single Ethernet-like\n          interface.  Entries are automatically created for every entry\n          in the dot3OamTable.  Counters are maintained across\n          transitions in dot3OamOperStatus.\n          ')
-dot3OamInformationTx = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 4, 1, 1), Counter32()).setUnits('frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamInformationTx.setDescription('A count of the number of Information OAMPDUs transmitted on\n          this interface.\n\n          Discontinuities of this counter can occur at re-initialization\n          of the management system, and at other times as indicated by\n          the value of the ifCounterDiscontinuityTime.  ')
-dot3OamInformationRx = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 4, 1, 2), Counter32()).setUnits('frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamInformationRx.setDescription('A count of the number of Information OAMPDUs received on this\n          interface.\n\n          Discontinuities of this counter can occur at re-initialization\n          of the management system, and at other times as indicated by\n          the value of the ifCounterDiscontinuityTime.\n          ')
-dot3OamUniqueEventNotificationTx = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 4, 1, 3), Counter32()).setUnits('frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamUniqueEventNotificationTx.setDescription('A count of the number of unique Event OAMPDUs transmitted on\n          this interface.  Event Notifications may be sent in duplicate\n          to increase the probability of successfully being received,\n\n          given the possibility that a frame may be lost in transit.\n          Duplicate Event Notification transmissions are counted by\n          dot3OamDuplicateEventNotificationTx.\n\n          A unique Event Notification OAMPDU is indicated as an Event\n          Notification OAMPDU with a Sequence Number field that is\n          distinct from the previously transmitted Event Notification\n          OAMPDU Sequence Number.\n\n          Discontinuities of this counter can occur at re-initialization\n          of the management system, and at other times as indicated by\n          the value of the ifCounterDiscontinuityTime.\n          ')
-dot3OamUniqueEventNotificationRx = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 4, 1, 4), Counter32()).setUnits('frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamUniqueEventNotificationRx.setDescription('A count of the number of unique Event OAMPDUs received on\n          this interface.  Event Notification OAMPDUs may be sent in\n          duplicate to increase the probability of successfully being\n          received, given the possibility that a frame may be lost in\n          transit.  Duplicate Event Notification receptions are counted\n          by dot3OamDuplicateEventNotificationRx.\n\n          A unique Event Notification OAMPDU is indicated as an Event\n          Notification OAMPDU with a Sequence Number field that is\n          distinct from the previously received Event Notification\n          OAMPDU Sequence Number.\n\n          Discontinuities of this counter can occur at re-initialization\n          of the management system, and at other times as indicated by\n          the value of the ifCounterDiscontinuityTime.\n          ')
-dot3OamDuplicateEventNotificationTx = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 4, 1, 5), Counter32()).setUnits('frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamDuplicateEventNotificationTx.setDescription('A count of the number of duplicate Event OAMPDUs transmitted\n\n          on this interface.  Event Notification OAMPDUs may be sent in\n          duplicate to increase the probability of successfully being\n          received, given the possibility that a frame may be lost in\n          transit.\n\n          A duplicate Event Notification OAMPDU is indicated as an Event\n          Notification OAMPDU with a Sequence Number field that is\n          identical to the previously transmitted Event Notification\n          OAMPDU Sequence Number.\n\n          Discontinuities of this counter can occur at re-initialization\n          of the management system, and at other times as indicated by\n          the value of the ifCounterDiscontinuityTime.\n          ')
-dot3OamDuplicateEventNotificationRx = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 4, 1, 6), Counter32()).setUnits('frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamDuplicateEventNotificationRx.setDescription('A count of the number of duplicate Event OAMPDUs received on\n          this interface.  Event Notification OAMPDUs may be sent in\n          duplicate to increase the probability of successfully being\n          received, given the possibility that a frame may be lost in\n          transit.\n\n          A duplicate Event Notification OAMPDU is indicated as an Event\n          Notification OAMPDU with a Sequence Number field that is\n          identical to the previously received Event Notification OAMPDU\n          Sequence Number.\n\n          Discontinuities of this counter can occur at re-initialization\n          of the management system, and at other times as indicated by\n          the value of the ifCounterDiscontinuityTime.\n          ')
-dot3OamLoopbackControlTx = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 4, 1, 7), Counter32()).setUnits('frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamLoopbackControlTx.setDescription('A count of the number of Loopback Control OAMPDUs transmitted\n\n          on this interface.\n\n          Discontinuities of this counter can occur at re-initialization\n          of the management system, and at other times as indicated by\n          the value of the ifCounterDiscontinuityTime.\n          ')
-dot3OamLoopbackControlRx = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 4, 1, 8), Counter32()).setUnits('frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamLoopbackControlRx.setDescription('A count of the number of Loopback Control OAMPDUs received\n          on this interface.\n\n          Discontinuities of this counter can occur at re-initialization\n          of the management system, and at other times as indicated by\n          the value of the ifCounterDiscontinuityTime.\n          ')
-dot3OamVariableRequestTx = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 4, 1, 9), Counter32()).setUnits('frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamVariableRequestTx.setDescription('A count of the number of Variable Request OAMPDUs transmitted\n          on this interface.\n\n          Discontinuities of this counter can occur at re-initialization\n          of the management system, and at other times as indicated by\n          the value of the ifCounterDiscontinuityTime.\n          ')
-dot3OamVariableRequestRx = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 4, 1, 10), Counter32()).setUnits('frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamVariableRequestRx.setDescription('A count of the number of Variable Request OAMPDUs received on\n\n          this interface.\n\n          Discontinuities of this counter can occur at re-initialization\n          of the management system, and at other times as indicated by\n          the value of the ifCounterDiscontinuityTime.\n          ')
-dot3OamVariableResponseTx = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 4, 1, 11), Counter32()).setUnits('frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamVariableResponseTx.setDescription('A count of the number of Variable Response OAMPDUs\n          transmitted on this interface.\n\n          Discontinuities of this counter can occur at re-initialization\n          of the management system, and at other times as indicated by\n          the value of the ifCounterDiscontinuityTime.\n          ')
-dot3OamVariableResponseRx = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 4, 1, 12), Counter32()).setUnits('frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamVariableResponseRx.setDescription('A count of the number of Variable Response OAMPDUs received\n          on this interface.\n\n          Discontinuities of this counter can occur at re-initialization\n          of the management system, and at other times as indicated by\n          the value of the ifCounterDiscontinuityTime.\n          ')
-dot3OamOrgSpecificTx = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 4, 1, 13), Counter32()).setUnits('frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamOrgSpecificTx.setDescription('A count of the number of Organization Specific OAMPDUs\n\n          transmitted on this interface.\n\n          Discontinuities of this counter can occur at re-initialization\n          of the management system, and at other times as indicated by\n          the value of the ifCounterDiscontinuityTime.\n          ')
-dot3OamOrgSpecificRx = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 4, 1, 14), Counter32()).setUnits('frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamOrgSpecificRx.setDescription('A count of the number of Organization Specific OAMPDUs\n          received on this interface.\n\n          Discontinuities of this counter can occur at re-initialization\n          of the management system, and at other times as indicated by\n          the value of the ifCounterDiscontinuityTime.\n          ')
-dot3OamUnsupportedCodesTx = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 4, 1, 15), Counter32()).setUnits('frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamUnsupportedCodesTx.setDescription('A count of the number of OAMPDUs transmitted on this\n          interface with an unsupported op-code.\n\n          Discontinuities of this counter can occur at re-initialization\n          of the management system, and at other times as indicated by\n          the value of the ifCounterDiscontinuityTime.\n          ')
-dot3OamUnsupportedCodesRx = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 4, 1, 16), Counter32()).setUnits('frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamUnsupportedCodesRx.setDescription('A count of the number of OAMPDUs received on this interface\n\n          with an unsupported op-code.\n\n          Discontinuities of this counter can occur at re-initialization\n          of the management system, and at other times as indicated by\n          the value of the ifCounterDiscontinuityTime.\n          ')
-dot3OamFramesLostDueToOam = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 4, 1, 17), Counter32()).setUnits('frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamFramesLostDueToOam.setDescription("A count of the number of frames that were dropped by the OA\n          multiplexer.  Since the OAM multiplexer has multiple inputs\n          and a single output, there may be cases where frames are\n          dropped due to transmit resource contention.  This counter is\n          incremented whenever a frame is dropped by the OAM layer.\n          Note that any Ethernet frame, not just OAMPDUs, may be dropped\n          by the OAM layer.  This can occur when an OAMPDU takes\n          precedence over a 'normal' frame resulting in the 'normal'\n          frame being dropped.\n\n          When this counter is incremented, no other counters in this\n          MIB are incremented.\n\n          Discontinuities of this counter can occur at re-initialization\n          of the management system, and at other times as indicated by\n          the value of the ifCounterDiscontinuityTime.\n          ")
-dot3OamEventConfigTable = MibTable((1, 3, 6, 1, 2, 1, 158, 1, 5), )
-if mibBuilder.loadTexts: dot3OamEventConfigTable.setDescription('Ethernet OAM includes the ability to generate and receive\n          Event Notification OAMPDUs to indicate various link problems.\n          This table contains the mechanisms to enable Event\n\n          Notifications and configure the thresholds to generate the\n          standard Ethernet OAM events.  There is one entry in the table\n          for every entry in dot3OamTable that supports OAM events\n          (where dot3OamFunctionsSupported includes the eventSupport\n          bit set).  The values in the table are maintained across\n          changes to dot3OamOperStatus.\n\n          The standard threshold crossing events are:\n            - Errored Symbol Period Event.  Generated when the number of\n              symbol errors exceeds a threshold within a given window\n              defined by a number of symbols (for example, 1,000 symbols\n              out of 1,000,000 had errors).\n            - Errored Frame Period Event.  Generated when the number of\n              frame errors exceeds a threshold within a given window\n              defined by a number of frames (for example, 10 frames out\n              of 1000 had errors).\n            - Errored Frame Event.  Generated when the number of frame\n              errors exceeds a threshold within a given window defined\n              by a period of time (for example, 10 frames in 1 second\n              had errors).\n            - Errored Frame Seconds Summary Event.  Generated when the\n              number of errored frame seconds exceeds a threshold within\n              a given time period (for example, 10 errored frame seconds\n              within the last 100 seconds).  An errored frame second is\n              defined as a 1 second interval which had >0 frame errors.\n          There are other events (dying gasp, critical events) that are\n          not threshold crossing events but which can be\n          enabled/disabled via this table.\n          ')
-dot3OamEventConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 158, 1, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: dot3OamEventConfigEntry.setDescription('Entries are automatically created and deleted from this\n          table, and exist whenever the OAM entity supports Ethernet OA\n          events (as indicated by the eventSupport bit in\n          dot3OamFunctionsSuppported).  Values in the table are\n          maintained across changes to the value of dot3OamOperStatus.\n\n          Event configuration controls when the local management entity\n          sends Event Notification OAMPDUs to its OAM peer, and when\n          certain event flags are set or cleared in OAMPDUs.\n          ')
-dot3OamErrSymPeriodWindowHi = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 5, 1, 1), Unsigned32()).setUnits('2^32 symbols').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamErrSymPeriodWindowHi.setDescription('The two objects dot3OamErrSymPeriodWindowHi and\n          dot3OamErrSymPeriodLo together form an unsigned 64-bit\n          integer representing the number of symbols over which this\n          threshold event is defined.  This is defined as\n        dot3OamErrSymPeriodWindow = ((2^32)*dot3OamErrSymPeriodWindowHi)\n                                          + dot3OamErrSymPeriodWindowLo\n\n          If dot3OamErrSymPeriodThreshold symbol errors occur within a\n          window of dot3OamErrSymPeriodWindow symbols, an Event\n          Notification OAMPDU should be generated with an Errored Symbol\n          Period Event TLV indicating that the threshold has been\n          crossed in this window.\n\n          The default value for dot3OamErrSymPeriodWindow is the number\n          of symbols in one second for the underlying physical layer.\n          ')
-dot3OamErrSymPeriodWindowLo = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 5, 1, 2), Unsigned32()).setUnits('symbols').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamErrSymPeriodWindowLo.setDescription('The two objects dot3OamErrSymPeriodWindowHi and\n          dot3OamErrSymPeriodWindowLo together form an unsigned 64-bit\n          integer representing the number of symbols over which this\n          threshold event is defined.  This is defined as\n\n        dot3OamErrSymPeriodWindow = ((2^32)*dot3OamErrSymPeriodWindowHi)\n                                          + dot3OamErrSymPeriodWindowLo\n\n          If dot3OamErrSymPeriodThreshold symbol errors occur within a\n          window of dot3OamErrSymPeriodWindow symbols, an Event\n          Notification OAMPDU should be generated with an Errored Symbol\n          Period Event TLV indicating that the threshold has been\n          crossed in this window.\n\n          The default value for dot3OamErrSymPeriodWindow is the number\n          of symbols in one second for the underlying physical layer.\n          ')
-dot3OamErrSymPeriodThresholdHi = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 5, 1, 3), Unsigned32()).setUnits('2^32 symbols').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamErrSymPeriodThresholdHi.setDescription('The two objects dot3OamErrSymPeriodThresholdHi and\n          dot3OamErrSymPeriodThresholdLo together form an unsigned\n          64-bit integer representing the number of symbol errors that\n          must occur within a given window to cause this event.\n\n          This is defined as\n\n            dot3OamErrSymPeriodThreshold =\n                              ((2^32) * dot3OamErrSymPeriodThresholdHi)\n                                      + dot3OamErrSymPeriodThresholdLo\n\n          If dot3OamErrSymPeriodThreshold symbol errors occur within a\n          window of dot3OamErrSymPeriodWindow symbols, an Event\n          Notification OAMPDU should be generated with an Errored Symbol\n          Period Event TLV indicating that the threshold has been\n          crossed in this window.\n\n          The default value for dot3OamErrSymPeriodThreshold is one\n          symbol errors.  If the threshold value is zero, then an Event\n\n          Notification OAMPDU is sent periodically (at the end of every\n          window).  This can be used as an asynchronous notification to\n          the peer OAM entity of the statistics related to this\n          threshold crossing alarm.\n          ')
-dot3OamErrSymPeriodThresholdLo = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 5, 1, 4), Unsigned32()).setUnits('symbols').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamErrSymPeriodThresholdLo.setDescription('The two objects dot3OamErrSymPeriodThresholdHi and\n          dot3OamErrSymPeriodThresholdLo together form an unsigned\n          64-bit integer representing the number of symbol errors that\n          must occur within a given window to cause this event.\n\n          This is defined as\n\n            dot3OamErrSymPeriodThreshold =\n                              ((2^32) * dot3OamErrSymPeriodThresholdHi)\n                                      + dot3OamErrSymPeriodThresholdLo\n\n          If dot3OamErrSymPeriodThreshold symbol errors occur within a\n          window of dot3OamErrSymPeriodWindow symbols, an Event\n          Notification OAMPDU should be generated with an Errored Symbol\n          Period Event TLV indicating that the threshold has been\n          crossed in this window.\n\n          The default value for dot3OamErrSymPeriodThreshold is one\n          symbol error.  If the threshold value is zero, then an Event\n          Notification OAMPDU is sent periodically (at the end of every\n          window).  This can be used as an asynchronous notification to\n          the peer OAM entity of the statistics related to this\n          threshold crossing alarm.\n          ')
-dot3OamErrSymPeriodEvNotifEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 5, 1, 5), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamErrSymPeriodEvNotifEnable.setDescription('If true, the OAM entity should send an Event Notification\n          OAMPDU when an Errored Symbol Period Event occurs.\n\n          By default, this object should have the value true for\n          Ethernet-like interfaces that support OAM.  If the OAM layer\n          does not support Event Notifications (as indicated via the\n          dot3OamFunctionsSupported attribute), this value is ignored.\n          ')
-dot3OamErrFramePeriodWindow = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 5, 1, 6), Unsigned32()).setUnits('frames').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamErrFramePeriodWindow.setDescription('The number of frames over which the threshold is defined.\n          The default value of the window is the number of minimum size\n          Ethernet frames that can be received over the physical layer\n          in one second.\n\n          If dot3OamErrFramePeriodThreshold frame errors occur within a\n          window of dot3OamErrFramePeriodWindow frames, an Event\n          Notification OAMPDU should be generated with an Errored Frame\n          Period Event TLV indicating that the threshold has been\n          crossed in this window.\n          ')
-dot3OamErrFramePeriodThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 5, 1, 7), Unsigned32()).setUnits('frames').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamErrFramePeriodThreshold.setDescription('The number of frame errors that must occur for this event to\n          be triggered.  The default value is one frame error.  If the\n          threshold value is zero, then an Event Notification OAMPDU is\n          sent periodically (at the end of every window).  This can be\n          used as an asynchronous notification to the peer OAM entity of\n          the statistics related to this threshold crossing alarm.\n\n          If dot3OamErrFramePeriodThreshold frame errors occur within a\n          window of dot3OamErrFramePeriodWindow frames, an Event\n          Notification OAMPDU should be generated with an Errored Frame\n          Period Event TLV indicating that the threshold has been\n          crossed in this window.\n          ')
-dot3OamErrFramePeriodEvNotifEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 5, 1, 8), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamErrFramePeriodEvNotifEnable.setDescription('If true, the OAM entity should send an Event Notification\n          OAMPDU when an Errored Frame Period Event occurs.\n\n          By default, this object should have the value true for\n          Ethernet-like interfaces that support OAM.  If the OAM layer\n          does not support Event Notifications (as indicated via the\n          dot3OamFunctionsSupported attribute), this value is ignored.\n          ')
-dot3OamErrFrameWindow = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 5, 1, 9), Unsigned32().clone(10)).setUnits('tenths of a second').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamErrFrameWindow.setDescription('The amount of time (in 100ms increments) over which the\n          threshold is defined.  The default value is 10 (1 second).\n\n          If dot3OamErrFrameThreshold frame errors occur within a window\n          of dot3OamErrFrameWindow seconds (measured in tenths of\n          seconds), an Event Notification OAMPDU should be generated\n          with an Errored Frame Event TLV indicating that the threshold\n          has been crossed in this window.\n          ')
-dot3OamErrFrameThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 5, 1, 10), Unsigned32().clone(1)).setUnits('frames').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamErrFrameThreshold.setDescription('The number of frame errors that must occur for this event to\n          be triggered.  The default value is one frame error.  If the\n          threshold value is zero, then an Event Notification OAMPDU is\n          sent periodically (at the end of every window).  This can be\n          used as an asynchronous notification to the peer OAM entity of\n          the statistics related to this threshold crossing alarm.\n\n          If dot3OamErrFrameThreshold frame errors occur within a window\n          of dot3OamErrFrameWindow (in tenths of seconds), an Event\n          Notification OAMPDU should be generated with an Errored Frame\n          Event TLV indicating the threshold has been crossed in this\n          window.\n          ')
-dot3OamErrFrameEvNotifEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 5, 1, 11), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamErrFrameEvNotifEnable.setDescription('If true, the OAM entity should send an Event Notification\n          OAMPDU when an Errored Frame Event occurs.\n\n          By default, this object should have the value true for\n          Ethernet-like interfaces that support OAM.  If the OAM layer\n          does not support Event Notifications (as indicated via the\n          dot3OamFunctionsSupported attribute), this value is ignored.\n          ')
-dot3OamErrFrameSecsSummaryWindow = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 5, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(100,9000)).clone(100)).setUnits('tenths of a second').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamErrFrameSecsSummaryWindow.setDescription('The amount of time (in 100 ms intervals) over which the\n          threshold is defined.  The default value is 100 (10 seconds).\n\n          If dot3OamErrFrameSecsSummaryThreshold frame errors occur\n          within a window of dot3OamErrFrameSecsSummaryWindow (in tenths\n          of seconds), an Event Notification OAMPDU should be generated\n          with an Errored Frame Seconds Summary Event TLV indicating\n          that the threshold has been crossed in this window.\n          ')
-dot3OamErrFrameSecsSummaryThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 5, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,900)).clone(1)).setUnits('errored frame seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamErrFrameSecsSummaryThreshold.setDescription('The number of errored frame seconds that must occur for this\n          event to be triggered.  The default value is one errored frame\n          second.  If the threshold value is zero, then an Event\n          Notification OAMPDU is sent periodically (at the end of every\n          window).  This can be used as an asynchronous notification to\n          the peer OAM entity of the statistics related to this\n          threshold crossing alarm.\n\n          If dot3OamErrFrameSecsSummaryThreshold frame errors occur\n          within a window of dot3OamErrFrameSecsSummaryWindow (in tenths\n          of seconds), an Event Notification OAMPDU should be generated\n          with an Errored Frame Seconds Summary Event TLV indicating\n          that the threshold has been crossed in this window.\n          ')
-dot3OamErrFrameSecsEvNotifEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 5, 1, 14), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamErrFrameSecsEvNotifEnable.setDescription('If true, the local OAM entity should send an Event\n          Notification OAMPDU when an Errored Frame Seconds Event\n          occurs.\n\n          By default, this object should have the value true for\n          Ethernet-like interfaces that support OAM.  If the OAM layer\n          does not support Event Notifications (as indicated via the\n          dot3OamFunctionsSupported attribute), this value is ignored.\n          ')
-dot3OamDyingGaspEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 5, 1, 15), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamDyingGaspEnable.setDescription("If true, the local OAM entity should attempt to indicate a\n          dying gasp via the OAMPDU flags field to its peer OAM entity\n          when a dying gasp event occurs.  The exact definition of a\n          dying gasp event is implementation dependent.  If the system\n\n          does not support dying gasp capability, setting this object\n          has no effect, and reading the object should always result in\n          'false'.\n\n          By default, this object should have the value true for\n          Ethernet-like interfaces that support OAM.  If the OAM layer\n          does not support Event Notifications (as indicated via the\n          dot3OamFunctionsSupported attribute), this value is ignored.\n          ")
-dot3OamCriticalEventEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 5, 1, 16), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot3OamCriticalEventEnable.setDescription("If true, the local OAM entity should attempt to indicate a\n          critical event via the OAMPDU flags to its peer OAM entity\n          when a critical event occurs.  The exact definition of a\n          critical event is implementation dependent.  If the system\n          does not support critical event capability, setting this\n          object has no effect, and reading the object should always\n          result in 'false'.\n\n          By default, this object should have the value true for\n          Ethernet-like interfaces that support OAM.  If the OAM layer\n          does not support Event Notifications (as indicated via the\n          dot3OamFunctionsSupported attribute), this value is ignored.\n          ")
-dot3OamEventLogTable = MibTable((1, 3, 6, 1, 2, 1, 158, 1, 6), )
-if mibBuilder.loadTexts: dot3OamEventLogTable.setDescription("This table records a history of the events that have occurred\n          at the Ethernet OAM level.  These events can include locally\n          detected events, which may result in locally generated\n          OAMPDUs, and remotely detected events, which are detected by\n          the OAM peer entity and signaled to the local entity via\n\n          Ethernet OAM.  Ethernet OAM events can be signaled by Event\n          Notification OAMPDUs or by the flags field in any OAMPDU.\n\n          This table contains both threshold crossing events and\n          non-threshold crossing events.  The parameters for the\n          threshold window, threshold value, and actual value\n          (dot3OamEventLogWindowXX, dot3OamEventLogThresholdXX,\n          dot3OamEventLogValue) are only applicable to threshold\n          crossing events, and are returned as all F's (2^32 - 1) for\n          non-threshold crossing events.\n\n          Entries in the table are automatically created when such\n          events are detected.  The size of the table is implementation\n          dependent.  When the table reaches its maximum size, older\n          entries are automatically deleted to make room for newer\n          entries.\n          ")
-dot3OamEventLogEntry = MibTableRow((1, 3, 6, 1, 2, 1, 158, 1, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "DOT3-OAM-MIB", "dot3OamEventLogIndex"))
-if mibBuilder.loadTexts: dot3OamEventLogEntry.setDescription('An entry in the dot3OamEventLogTable.  Entries are\n          automatically created whenever Ethernet OAM events occur at\n          the local OAM entity, and when Event Notification OAMPDUs are\n          received at the local OAM entity (indicating that events have\n          occurred at the peer OAM entity).  The size of the table is\n          implementation dependent, but when the table becomes full,\n          older events are automatically deleted to make room for newer\n          events.  The table index dot3OamEventLogIndex increments for\n          each new entry, and when the maximum value is reached, the\n          value restarts at zero.\n          ')
-dot3OamEventLogIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 6, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: dot3OamEventLogIndex.setDescription('An arbitrary integer for identifying individual events\n          within the event log.  ')
-dot3OamEventLogTimestamp = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 6, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamEventLogTimestamp.setDescription('The value of sysUpTime at the time of the logged event.  For\n          locally generated events, the time of the event can be\n          accurately retrieved from sysUpTime.  For remotely generated\n          events, the time of the event is indicated by the reception of\n          the Event Notification OAMPDU indicating that the event\n          occurred on the peer.  A system may attempt to adjust the\n          timestamp value to more accurately reflect the time of the\n          event at the peer OAM entity by using other information, such\n          as that found in the timestamp found of the Event Notification\n          TLVs, which provides an indication of the relative time\n          between events at the peer entity.  ')
-dot3OamEventLogOui = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 6, 1, 3), EightOTwoOui()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamEventLogOui.setDescription('The OUI of the entity defining the object type.  All IEEE\n          802.3 defined events (as appearing in [802.3ah] except for the\n          Organizationally Unique Event TLVs) use the IEEE 802.3 OUI of\n          0x0180C2.  Organizations defining their own Event Notification\n          TLVs include their OUI in the Event Notification TLV that\n          gets reflected here.  ')
-dot3OamEventLogType = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 6, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamEventLogType.setDescription("The type of event that generated this entry in the event log.\n          When the OUI is the IEEE 802.3 OUI of 0x0180C2, the following\n          event types are defined:\n              erroredSymbolEvent(1),\n              erroredFramePeriodEvent(2),\n              erroredFrameEvent(3),\n              erroredFrameSecondsEvent(4),\n              linkFault(256),\n              dyingGaspEvent(257),\n              criticalLinkEvent(258)\n          The first four are considered threshold crossing events, as\n          they are generated when a metric exceeds a given value within\n          a specified window.  The other three are not threshold\n          crossing events.\n\n          When the OUI is not 71874 (0x0180C2 in hex), then some other\n          organization has defined the event space.  If event subtyping\n          is known to the implementation, it may be reflected here.\n          Otherwise, this value should return all F's (2^32 - 1).\n          ")
-dot3OamEventLogLocation = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 6, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("local", 1), ("remote", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamEventLogLocation.setDescription('Whether this event occurred locally (local(1)), or was\n          received from the OAM peer via Ethernet OAM (remote(2)).\n          ')
-dot3OamEventLogWindowHi = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 6, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamEventLogWindowHi.setDescription("If the event represents a threshold crossing event, the two\n          objects dot3OamEventWindowHi and dot3OamEventWindowLo, form\n          an unsigned 64-bit integer yielding the window over which the\n          value was measured for the threshold crossing event (for\n          example, 5, when 11 occurrences happened in 5 seconds while\n          the threshold was 10).  The two objects are combined as:\n\n          dot3OamEventLogWindow = ((2^32) * dot3OamEventLogWindowHi)\n                                          + dot3OamEventLogWindowLo\n\n          Otherwise, this value is returned as all F's (2^32 - 1) and\n          adds no useful information.\n          ")
-dot3OamEventLogWindowLo = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 6, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamEventLogWindowLo.setDescription("If the event represents a threshold crossing event, the two\n          objects dot3OamEventWindowHi and dot3OamEventWindowLo form an\n          unsigned 64-bit integer yielding the window over which the\n          value was measured for the threshold crossing event (for\n          example, 5, when 11 occurrences happened in 5 seconds while\n          the threshold was 10).  The two objects are combined as:\n\n          dot3OamEventLogWindow = ((2^32) * dot3OamEventLogWindowHi)\n                                          + dot3OamEventLogWindowLo\n\n          Otherwise, this value is returned as all F's (2^32 - 1) and\n          adds no useful information.\n          ")
-dot3OamEventLogThresholdHi = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 6, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamEventLogThresholdHi.setDescription("If the event represents a threshold crossing event, the two\n          objects dot3OamEventThresholdHi and dot3OamEventThresholdLo\n          form an unsigned 64-bit integer yielding the value that was\n          crossed for the threshold crossing event (for example, 10,\n          when 11 occurrences happened in 5 seconds while the threshold\n          was 10).  The two objects are combined as:\n\n        dot3OamEventLogThreshold = ((2^32) * dot3OamEventLogThresholdHi)\n                                           + dot3OamEventLogThresholdLo\n\n          Otherwise, this value is returned as all F's (2^32 -1) and\n          adds no useful information.\n          ")
-dot3OamEventLogThresholdLo = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 6, 1, 9), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamEventLogThresholdLo.setDescription("If the event represents a threshold crossing event, the two\n          objects dot3OamEventThresholdHi and dot3OamEventThresholdLo\n          form an unsigned 64-bit integer yielding the value that was\n          crossed for the threshold crossing event (for example, 10,\n          when 11 occurrences happened in 5 seconds while the threshold\n          was 10).  The two objects are combined as:\n\n        dot3OamEventLogThreshold = ((2^32) * dot3OamEventLogThresholdHi)\n                                           + dot3OamEventLogThresholdLo\n\n          Otherwise, this value is returned as all F's (2^32 - 1) and\n          adds no useful information.\n          ")
-dot3OamEventLogValue = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 6, 1, 10), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamEventLogValue.setDescription("If the event represents a threshold crossing event, this\n          value indicates the value of the parameter within the given\n          window that generated this event (for example, 11, when 11\n          occurrences happened in 5 seconds while the threshold was 10).\n\n          Otherwise, this value is returned as all F's\n          (2^64 - 1) and adds no useful information.\n          ")
-dot3OamEventLogRunningTotal = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 6, 1, 11), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamEventLogRunningTotal.setDescription('Each Event Notification TLV contains a running total of the\n          number of times an event has occurred, as well as the number\n          of times an Event Notification for the event has been\n\n          transmitted.  For non-threshold crossing events, the number of\n          events (dot3OamLogRunningTotal) and the number of resultant\n          Event Notifications (dot3OamLogEventTotal) should be\n          identical.\n\n          For threshold crossing events, since multiple occurrences may\n          be required to cross the threshold, these values are likely\n          different.  This value represents the total number of times\n          this event has happened since the last reset (for example,\n          3253, when 3253 symbol errors have occurred since the last\n          reset, which has resulted in 51 symbol error threshold\n          crossing events since the last reset).\n          ')
-dot3OamEventLogEventTotal = MibTableColumn((1, 3, 6, 1, 2, 1, 158, 1, 6, 1, 12), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot3OamEventLogEventTotal.setDescription('Each Event Notification TLV contains a running total of the\n          number of times an event has occurred, as well as the number\n          of times an Event Notification for the event has been\n          transmitted.  For non-threshold crossing events, the number of\n          events (dot3OamLogRunningTotal) and the number of resultant\n          Event Notifications (dot3OamLogEventTotal) should be\n          identical.\n\n          For threshold crossing events, since multiple occurrences may\n          be required to cross the threshold, these values are likely\n          different.  This value represents the total number of times\n          one or more of these occurrences have resulted in an Event\n          Notification (for example, 51 when 3253 symbol errors have\n          occurred since the last reset, which has resulted in 51 symbol\n          error threshold crossing events since the last reset).\n          ')
-dot3OamThresholdEvent = NotificationType((1, 3, 6, 1, 2, 1, 158, 0, 1)).setObjects(*(("DOT3-OAM-MIB", "dot3OamEventLogTimestamp"), ("DOT3-OAM-MIB", "dot3OamEventLogOui"), ("DOT3-OAM-MIB", "dot3OamEventLogType"), ("DOT3-OAM-MIB", "dot3OamEventLogLocation"), ("DOT3-OAM-MIB", "dot3OamEventLogWindowHi"), ("DOT3-OAM-MIB", "dot3OamEventLogWindowLo"), ("DOT3-OAM-MIB", "dot3OamEventLogThresholdHi"), ("DOT3-OAM-MIB", "dot3OamEventLogThresholdLo"), ("DOT3-OAM-MIB", "dot3OamEventLogValue"), ("DOT3-OAM-MIB", "dot3OamEventLogRunningTotal"), ("DOT3-OAM-MIB", "dot3OamEventLogEventTotal"),))
-if mibBuilder.loadTexts: dot3OamThresholdEvent.setDescription('A dot3OamThresholdEvent notification is sent when a local or\n          remote threshold crossing event is detected.  A local\n          threshold crossing event is detected by the local entity,\n          while a remote threshold crossing event is detected by the\n          reception of an Ethernet OAM Event Notification OAMPDU\n          that indicates a threshold event.\n\n          This notification should not be sent more than once per\n          second.\n\n          The OAM entity can be derived from extracting the ifIndex from\n          the variable bindings.  The objects in the notification\n          correspond to the values in a row instance in the\n          dot3OamEventLogTable.\n\n          The management entity should periodically check\n          dot3OamEventLogTable to detect any missed events.')
-dot3OamNonThresholdEvent = NotificationType((1, 3, 6, 1, 2, 1, 158, 0, 2)).setObjects(*(("DOT3-OAM-MIB", "dot3OamEventLogTimestamp"), ("DOT3-OAM-MIB", "dot3OamEventLogOui"), ("DOT3-OAM-MIB", "dot3OamEventLogType"), ("DOT3-OAM-MIB", "dot3OamEventLogLocation"), ("DOT3-OAM-MIB", "dot3OamEventLogEventTotal"),))
-if mibBuilder.loadTexts: dot3OamNonThresholdEvent.setDescription('A dot3OamNonThresholdEvent notification is sent when a local\n          or remote non-threshold crossing event is detected.  A local\n          event is detected by the local entity, while a remote event is\n          detected by the reception of an Ethernet OAM Event\n          Notification OAMPDU that indicates a non-threshold crossing\n          event.\n\n          This notification should not be sent more than once per\n\n          second.\n\n          The OAM entity can be derived from extracting the ifIndex from\n          the variable bindings.  The objects in the notification\n          correspond to the values in a row instance of the\n          dot3OamEventLogTable.\n\n          The management entity should periodically check\n          dot3OamEventLogTable to detect any missed events.')
-dot3OamGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 158, 2, 1))
-dot3OamCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 158, 2, 2))
-dot3OamCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 158, 2, 2, 1)).setObjects(*(("DOT3-OAM-MIB", "dot3OamControlGroup"), ("DOT3-OAM-MIB", "dot3OamPeerGroup"), ("DOT3-OAM-MIB", "dot3OamStatsBaseGroup"), ("DOT3-OAM-MIB", "dot3OamLoopbackGroup"), ("DOT3-OAM-MIB", "dot3OamErrSymbolPeriodEventGroup"), ("DOT3-OAM-MIB", "dot3OamErrFramePeriodEventGroup"), ("DOT3-OAM-MIB", "dot3OamErrFrameEventGroup"), ("DOT3-OAM-MIB", "dot3OamErrFrameSecsSummaryEventGroup"), ("DOT3-OAM-MIB", "dot3OamFlagEventGroup"), ("DOT3-OAM-MIB", "dot3OamEventLogGroup"), ("DOT3-OAM-MIB", "dot3OamNotificationGroup"),))
-if mibBuilder.loadTexts: dot3OamCompliance.setDescription('The compliance statement for managed entities\n                     supporting OAM on Ethernet-like interfaces.\n                     ')
-dot3OamControlGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 158, 2, 1, 1)).setObjects(*(("DOT3-OAM-MIB", "dot3OamAdminState"), ("DOT3-OAM-MIB", "dot3OamOperStatus"), ("DOT3-OAM-MIB", "dot3OamMode"), ("DOT3-OAM-MIB", "dot3OamMaxOamPduSize"), ("DOT3-OAM-MIB", "dot3OamConfigRevision"), ("DOT3-OAM-MIB", "dot3OamFunctionsSupported"),))
-if mibBuilder.loadTexts: dot3OamControlGroup.setDescription('A collection of objects providing the abilities,\n          configuration, and status of an Ethernet OAM entity.  ')
-dot3OamPeerGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 158, 2, 1, 2)).setObjects(*(("DOT3-OAM-MIB", "dot3OamPeerMacAddress"), ("DOT3-OAM-MIB", "dot3OamPeerVendorOui"), ("DOT3-OAM-MIB", "dot3OamPeerVendorInfo"), ("DOT3-OAM-MIB", "dot3OamPeerMode"), ("DOT3-OAM-MIB", "dot3OamPeerFunctionsSupported"), ("DOT3-OAM-MIB", "dot3OamPeerMaxOamPduSize"), ("DOT3-OAM-MIB", "dot3OamPeerConfigRevision"),))
-if mibBuilder.loadTexts: dot3OamPeerGroup.setDescription('A collection of objects providing the abilities,\n          configuration, and status of a peer Ethernet OAM entity.  ')
-dot3OamStatsBaseGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 158, 2, 1, 3)).setObjects(*(("DOT3-OAM-MIB", "dot3OamInformationTx"), ("DOT3-OAM-MIB", "dot3OamInformationRx"), ("DOT3-OAM-MIB", "dot3OamUniqueEventNotificationTx"), ("DOT3-OAM-MIB", "dot3OamUniqueEventNotificationRx"), ("DOT3-OAM-MIB", "dot3OamDuplicateEventNotificationTx"), ("DOT3-OAM-MIB", "dot3OamDuplicateEventNotificationRx"), ("DOT3-OAM-MIB", "dot3OamLoopbackControlTx"), ("DOT3-OAM-MIB", "dot3OamLoopbackControlRx"), ("DOT3-OAM-MIB", "dot3OamVariableRequestTx"), ("DOT3-OAM-MIB", "dot3OamVariableRequestRx"), ("DOT3-OAM-MIB", "dot3OamVariableResponseTx"), ("DOT3-OAM-MIB", "dot3OamVariableResponseRx"), ("DOT3-OAM-MIB", "dot3OamOrgSpecificTx"), ("DOT3-OAM-MIB", "dot3OamOrgSpecificRx"), ("DOT3-OAM-MIB", "dot3OamUnsupportedCodesTx"), ("DOT3-OAM-MIB", "dot3OamUnsupportedCodesRx"), ("DOT3-OAM-MIB", "dot3OamFramesLostDueToOam"),))
-if mibBuilder.loadTexts: dot3OamStatsBaseGroup.setDescription('A collection of objects providing the statistics for the\n          number of various transmit and receive events for OAM on an\n          Ethernet-like interface.  Note that all of these counters must\n          be supported even if the related function (as described in\n          dot3OamFunctionsSupported) is not supported.  ')
-dot3OamLoopbackGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 158, 2, 1, 4)).setObjects(*(("DOT3-OAM-MIB", "dot3OamLoopbackStatus"), ("DOT3-OAM-MIB", "dot3OamLoopbackIgnoreRx"),))
-if mibBuilder.loadTexts: dot3OamLoopbackGroup.setDescription('A collection of objects for controlling the OAM remote\n\n          loopback function.  ')
-dot3OamErrSymbolPeriodEventGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 158, 2, 1, 5)).setObjects(*(("DOT3-OAM-MIB", "dot3OamErrSymPeriodWindowHi"), ("DOT3-OAM-MIB", "dot3OamErrSymPeriodWindowLo"), ("DOT3-OAM-MIB", "dot3OamErrSymPeriodThresholdHi"), ("DOT3-OAM-MIB", "dot3OamErrSymPeriodThresholdLo"), ("DOT3-OAM-MIB", "dot3OamErrSymPeriodEvNotifEnable"),))
-if mibBuilder.loadTexts: dot3OamErrSymbolPeriodEventGroup.setDescription('A collection of objects for configuring the thresholds for an\n          Errored Symbol Period Event.\n\n          Each [802.3ah] defined Event Notification TLV has its own\n          conformance group because each event can be implemented\n          independently of any other.  ')
-dot3OamErrFramePeriodEventGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 158, 2, 1, 6)).setObjects(*(("DOT3-OAM-MIB", "dot3OamErrFramePeriodWindow"), ("DOT3-OAM-MIB", "dot3OamErrFramePeriodThreshold"), ("DOT3-OAM-MIB", "dot3OamErrFramePeriodEvNotifEnable"),))
-if mibBuilder.loadTexts: dot3OamErrFramePeriodEventGroup.setDescription('A collection of objects for configuring the thresholds for an\n          Errored Frame Period Event.\n\n          Each [802.3ah] defined Event Notification TLV has its own\n          conformance group because each event can be implemented\n          independently of any other.  ')
-dot3OamErrFrameEventGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 158, 2, 1, 7)).setObjects(*(("DOT3-OAM-MIB", "dot3OamErrFrameWindow"), ("DOT3-OAM-MIB", "dot3OamErrFrameThreshold"), ("DOT3-OAM-MIB", "dot3OamErrFrameEvNotifEnable"),))
-if mibBuilder.loadTexts: dot3OamErrFrameEventGroup.setDescription('A collection of objects for configuring the thresholds for an\n          Errored Frame Event.\n\n          Each [802.3ah] defined Event Notification TLV has its own\n          conformance group because each event can be implemented\n          independently of any other.  ')
-dot3OamErrFrameSecsSummaryEventGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 158, 2, 1, 8)).setObjects(*(("DOT3-OAM-MIB", "dot3OamErrFrameSecsSummaryWindow"), ("DOT3-OAM-MIB", "dot3OamErrFrameSecsSummaryThreshold"), ("DOT3-OAM-MIB", "dot3OamErrFrameSecsEvNotifEnable"),))
-if mibBuilder.loadTexts: dot3OamErrFrameSecsSummaryEventGroup.setDescription('A collection of objects for configuring the thresholds for an\n          Errored Frame Seconds Summary Event.\n\n          Each [802.3ah] defined Event Notification TLV has its own\n          conformance group because each event can be implemented\n          independently of any other.  ')
-dot3OamFlagEventGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 158, 2, 1, 9)).setObjects(*(("DOT3-OAM-MIB", "dot3OamDyingGaspEnable"), ("DOT3-OAM-MIB", "dot3OamCriticalEventEnable"),))
-if mibBuilder.loadTexts: dot3OamFlagEventGroup.setDescription('A collection of objects for configuring the sending OAMPDUs\n          with the critical event flag or dying gasp flag enabled.  ')
-dot3OamEventLogGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 158, 2, 1, 10)).setObjects(*(("DOT3-OAM-MIB", "dot3OamEventLogTimestamp"), ("DOT3-OAM-MIB", "dot3OamEventLogOui"), ("DOT3-OAM-MIB", "dot3OamEventLogType"), ("DOT3-OAM-MIB", "dot3OamEventLogLocation"), ("DOT3-OAM-MIB", "dot3OamEventLogWindowHi"), ("DOT3-OAM-MIB", "dot3OamEventLogWindowLo"), ("DOT3-OAM-MIB", "dot3OamEventLogThresholdHi"), ("DOT3-OAM-MIB", "dot3OamEventLogThresholdLo"), ("DOT3-OAM-MIB", "dot3OamEventLogValue"), ("DOT3-OAM-MIB", "dot3OamEventLogRunningTotal"), ("DOT3-OAM-MIB", "dot3OamEventLogEventTotal"),))
-if mibBuilder.loadTexts: dot3OamEventLogGroup.setDescription('A collection of objects for configuring the thresholds for an\n          Errored Frame Seconds Summary Event and maintaining the event\n          information.  ')
-dot3OamNotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 158, 2, 1, 11)).setObjects(*(("DOT3-OAM-MIB", "dot3OamThresholdEvent"), ("DOT3-OAM-MIB", "dot3OamNonThresholdEvent"),))
-if mibBuilder.loadTexts: dot3OamNotificationGroup.setDescription('A collection of notifications used by Ethernet OAM to signal\n         to a management entity that local or remote events have\n         occurred on a specified Ethernet link. ')
-mibBuilder.exportSymbols("DOT3-OAM-MIB", dot3OamLoopbackControlTx=dot3OamLoopbackControlTx, dot3OamEventLogEventTotal=dot3OamEventLogEventTotal, dot3OamEventLogLocation=dot3OamEventLogLocation, dot3OamEventLogEntry=dot3OamEventLogEntry, dot3OamEventLogWindowHi=dot3OamEventLogWindowHi, dot3OamPeerVendorOui=dot3OamPeerVendorOui, dot3OamNonThresholdEvent=dot3OamNonThresholdEvent, dot3OamEventLogRunningTotal=dot3OamEventLogRunningTotal, dot3OamMaxOamPduSize=dot3OamMaxOamPduSize, dot3OamErrSymbolPeriodEventGroup=dot3OamErrSymbolPeriodEventGroup, dot3OamPeerGroup=dot3OamPeerGroup, dot3OamFlagEventGroup=dot3OamFlagEventGroup, dot3OamErrSymPeriodWindowLo=dot3OamErrSymPeriodWindowLo, dot3OamLoopbackEntry=dot3OamLoopbackEntry, dot3OamUniqueEventNotificationTx=dot3OamUniqueEventNotificationTx, dot3OamLoopbackTable=dot3OamLoopbackTable, dot3OamLoopbackGroup=dot3OamLoopbackGroup, dot3OamCompliances=dot3OamCompliances, dot3OamErrSymPeriodWindowHi=dot3OamErrSymPeriodWindowHi, dot3OamErrFramePeriodEventGroup=dot3OamErrFramePeriodEventGroup, dot3OamInformationTx=dot3OamInformationTx, dot3OamPeerMode=dot3OamPeerMode, dot3OamErrSymPeriodThresholdHi=dot3OamErrSymPeriodThresholdHi, dot3OamInformationRx=dot3OamInformationRx, dot3OamFramesLostDueToOam=dot3OamFramesLostDueToOam, dot3OamOrgSpecificRx=dot3OamOrgSpecificRx, dot3OamUniqueEventNotificationRx=dot3OamUniqueEventNotificationRx, dot3OamMode=dot3OamMode, dot3OamUnsupportedCodesRx=dot3OamUnsupportedCodesRx, dot3OamNotificationGroup=dot3OamNotificationGroup, dot3OamPeerVendorInfo=dot3OamPeerVendorInfo, dot3OamEventLogGroup=dot3OamEventLogGroup, dot3OamDuplicateEventNotificationRx=dot3OamDuplicateEventNotificationRx, dot3OamUnsupportedCodesTx=dot3OamUnsupportedCodesTx, dot3OamErrFrameEventGroup=dot3OamErrFrameEventGroup, dot3OamStatsEntry=dot3OamStatsEntry, dot3OamErrFrameSecsSummaryWindow=dot3OamErrFrameSecsSummaryWindow, dot3OamPeerTable=dot3OamPeerTable, dot3OamObjects=dot3OamObjects, dot3OamErrFramePeriodWindow=dot3OamErrFramePeriodWindow, dot3OamErrFrameWindow=dot3OamErrFrameWindow, dot3OamVariableResponseRx=dot3OamVariableResponseRx, dot3OamPeerMacAddress=dot3OamPeerMacAddress, dot3OamVariableRequestTx=dot3OamVariableRequestTx, dot3OamErrFrameThreshold=dot3OamErrFrameThreshold, dot3OamEventLogOui=dot3OamEventLogOui, dot3OamConformance=dot3OamConformance, dot3OamOperStatus=dot3OamOperStatus, dot3OamEventConfigEntry=dot3OamEventConfigEntry, dot3OamErrFrameEvNotifEnable=dot3OamErrFrameEvNotifEnable, dot3OamEventLogWindowLo=dot3OamEventLogWindowLo, dot3OamVariableResponseTx=dot3OamVariableResponseTx, dot3OamTable=dot3OamTable, dot3OamErrFramePeriodEvNotifEnable=dot3OamErrFramePeriodEvNotifEnable, dot3OamEventLogThresholdHi=dot3OamEventLogThresholdHi, dot3OamCompliance=dot3OamCompliance, dot3OamOrgSpecificTx=dot3OamOrgSpecificTx, EightOTwoOui=EightOTwoOui, dot3OamEventLogTimestamp=dot3OamEventLogTimestamp, dot3OamErrSymPeriodEvNotifEnable=dot3OamErrSymPeriodEvNotifEnable, dot3OamErrFrameSecsSummaryEventGroup=dot3OamErrFrameSecsSummaryEventGroup, dot3OamPeerMaxOamPduSize=dot3OamPeerMaxOamPduSize, dot3OamPeerFunctionsSupported=dot3OamPeerFunctionsSupported, dot3OamEventLogType=dot3OamEventLogType, dot3OamStatsBaseGroup=dot3OamStatsBaseGroup, dot3OamLoopbackControlRx=dot3OamLoopbackControlRx, dot3OamPeerEntry=dot3OamPeerEntry, dot3OamCriticalEventEnable=dot3OamCriticalEventEnable, dot3OamErrFrameSecsSummaryThreshold=dot3OamErrFrameSecsSummaryThreshold, dot3OamLoopbackIgnoreRx=dot3OamLoopbackIgnoreRx, dot3OamGroups=dot3OamGroups, dot3OamLoopbackStatus=dot3OamLoopbackStatus, dot3OamConfigRevision=dot3OamConfigRevision, dot3OamEventLogThresholdLo=dot3OamEventLogThresholdLo, dot3OamErrFrameSecsEvNotifEnable=dot3OamErrFrameSecsEvNotifEnable, PYSNMP_MODULE_ID=dot3OamMIB, dot3OamDyingGaspEnable=dot3OamDyingGaspEnable, dot3OamNotifications=dot3OamNotifications, dot3OamPeerConfigRevision=dot3OamPeerConfigRevision, dot3OamEventLogValue=dot3OamEventLogValue, dot3OamEventLogTable=dot3OamEventLogTable, dot3OamThresholdEvent=dot3OamThresholdEvent, dot3OamFunctionsSupported=dot3OamFunctionsSupported, dot3OamVariableRequestRx=dot3OamVariableRequestRx, dot3OamEventConfigTable=dot3OamEventConfigTable, dot3OamDuplicateEventNotificationTx=dot3OamDuplicateEventNotificationTx, dot3OamErrSymPeriodThresholdLo=dot3OamErrSymPeriodThresholdLo, dot3OamControlGroup=dot3OamControlGroup, dot3OamEntry=dot3OamEntry, dot3OamStatsTable=dot3OamStatsTable, dot3OamMIB=dot3OamMIB, dot3OamAdminState=dot3OamAdminState, dot3OamEventLogIndex=dot3OamEventLogIndex, dot3OamErrFramePeriodThreshold=dot3OamErrFramePeriodThreshold)
+_Ah='dot3OamNotificationGroup'
+_Ag='dot3OamEventLogGroup'
+_Af='dot3OamFlagEventGroup'
+_Ae='dot3OamErrFrameSecsSummaryEventGroup'
+_Ad='dot3OamErrFrameEventGroup'
+_Ac='dot3OamErrFramePeriodEventGroup'
+_Ab='dot3OamErrSymbolPeriodEventGroup'
+_Aa='dot3OamLoopbackGroup'
+_AZ='dot3OamStatsBaseGroup'
+_AY='dot3OamPeerGroup'
+_AX='dot3OamControlGroup'
+_AW='dot3OamNonThresholdEvent'
+_AV='dot3OamThresholdEvent'
+_AU='dot3OamCriticalEventEnable'
+_AT='dot3OamDyingGaspEnable'
+_AS='dot3OamErrFrameSecsEvNotifEnable'
+_AR='dot3OamErrFrameSecsSummaryThreshold'
+_AQ='dot3OamErrFrameSecsSummaryWindow'
+_AP='dot3OamErrFrameEvNotifEnable'
+_AO='dot3OamErrFrameThreshold'
+_AN='dot3OamErrFrameWindow'
+_AM='dot3OamErrFramePeriodEvNotifEnable'
+_AL='dot3OamErrFramePeriodThreshold'
+_AK='dot3OamErrFramePeriodWindow'
+_AJ='dot3OamErrSymPeriodEvNotifEnable'
+_AI='dot3OamErrSymPeriodThresholdLo'
+_AH='dot3OamErrSymPeriodThresholdHi'
+_AG='dot3OamErrSymPeriodWindowLo'
+_AF='dot3OamErrSymPeriodWindowHi'
+_AE='dot3OamLoopbackIgnoreRx'
+_AD='dot3OamLoopbackStatus'
+_AC='dot3OamFramesLostDueToOam'
+_AB='dot3OamUnsupportedCodesRx'
+_AA='dot3OamUnsupportedCodesTx'
+_A9='dot3OamOrgSpecificRx'
+_A8='dot3OamOrgSpecificTx'
+_A7='dot3OamVariableResponseRx'
+_A6='dot3OamVariableResponseTx'
+_A5='dot3OamVariableRequestRx'
+_A4='dot3OamVariableRequestTx'
+_A3='dot3OamLoopbackControlRx'
+_A2='dot3OamLoopbackControlTx'
+_A1='dot3OamDuplicateEventNotificationRx'
+_A0='dot3OamDuplicateEventNotificationTx'
+_z='dot3OamUniqueEventNotificationRx'
+_y='dot3OamUniqueEventNotificationTx'
+_x='dot3OamInformationRx'
+_w='dot3OamInformationTx'
+_v='dot3OamPeerConfigRevision'
+_u='dot3OamPeerMaxOamPduSize'
+_t='dot3OamPeerFunctionsSupported'
+_s='dot3OamPeerMode'
+_r='dot3OamPeerVendorInfo'
+_q='dot3OamPeerVendorOui'
+_p='dot3OamPeerMacAddress'
+_o='dot3OamFunctionsSupported'
+_n='dot3OamConfigRevision'
+_m='dot3OamMaxOamPduSize'
+_l='dot3OamMode'
+_k='dot3OamOperStatus'
+_j='dot3OamAdminState'
+_i='dot3OamEventLogIndex'
+_h='tenths of a second'
+_g='symbols'
+_f='2^32 symbols'
+_e='unknown'
+_d='variableSupport'
+_c='eventSupport'
+_b='loopbackSupport'
+_a='unidirectionalSupport'
+_Z='octets'
+_Y='active'
+_X='passive'
+_W='disabled'
+_V='dot3OamEventLogRunningTotal'
+_U='dot3OamEventLogValue'
+_T='dot3OamEventLogThresholdLo'
+_S='dot3OamEventLogThresholdHi'
+_R='dot3OamEventLogWindowLo'
+_Q='dot3OamEventLogWindowHi'
+_P='Bits'
+_O='dot3OamEventLogEventTotal'
+_N='dot3OamEventLogLocation'
+_M='dot3OamEventLogType'
+_L='dot3OamEventLogOui'
+_K='dot3OamEventLogTimestamp'
+_J='TruthValue'
+_I='ifIndex'
+_H='IF-MIB'
+_G='Unsigned32'
+_F='Integer32'
+_E='frames'
+_D='read-write'
+_C='read-only'
+_B='current'
+_A='DOT3-OAM-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+CounterBasedGauge64,=mibBuilder.importSymbols('HCNUM-TC','CounterBasedGauge64')
+ifIndex,=mibBuilder.importSymbols(_H,_I)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI',_P,'Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso','mib-2')
+DisplayString,MacAddress,PhysAddress,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention','TimeStamp',_J)
+dot3OamMIB=ModuleIdentity((1,3,6,1,2,1,158))
+if mibBuilder.loadTexts:dot3OamMIB.setRevisions(('2007-06-14 00:00',))
+class EightOTwoOui(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,3));fixedLength=3
+_Dot3OamNotifications_ObjectIdentity=ObjectIdentity
+dot3OamNotifications=_Dot3OamNotifications_ObjectIdentity((1,3,6,1,2,1,158,0))
+_Dot3OamObjects_ObjectIdentity=ObjectIdentity
+dot3OamObjects=_Dot3OamObjects_ObjectIdentity((1,3,6,1,2,1,158,1))
+_Dot3OamTable_Object=MibTable
+dot3OamTable=_Dot3OamTable_Object((1,3,6,1,2,1,158,1,1))
+if mibBuilder.loadTexts:dot3OamTable.setStatus(_B)
+_Dot3OamEntry_Object=MibTableRow
+dot3OamEntry=_Dot3OamEntry_Object((1,3,6,1,2,1,158,1,1,1))
+dot3OamEntry.setIndexNames((0,_H,_I))
+if mibBuilder.loadTexts:dot3OamEntry.setStatus(_B)
+class _Dot3OamAdminState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),(_W,2)))
+_Dot3OamAdminState_Type.__name__=_F
+_Dot3OamAdminState_Object=MibTableColumn
+dot3OamAdminState=_Dot3OamAdminState_Object((1,3,6,1,2,1,158,1,1,1,1),_Dot3OamAdminState_Type())
+dot3OamAdminState.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamAdminState.setStatus(_B)
+class _Dot3OamOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*((_W,1),('linkFault',2),('passiveWait',3),('activeSendLocal',4),('sendLocalAndRemote',5),('sendLocalAndRemoteOk',6),('oamPeeringLocallyRejected',7),('oamPeeringRemotelyRejected',8),('operational',9),('nonOperHalfDuplex',10)))
+_Dot3OamOperStatus_Type.__name__=_F
+_Dot3OamOperStatus_Object=MibTableColumn
+dot3OamOperStatus=_Dot3OamOperStatus_Object((1,3,6,1,2,1,158,1,1,1,2),_Dot3OamOperStatus_Type())
+dot3OamOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamOperStatus.setStatus(_B)
+class _Dot3OamMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_X,1),(_Y,2)))
+_Dot3OamMode_Type.__name__=_F
+_Dot3OamMode_Object=MibTableColumn
+dot3OamMode=_Dot3OamMode_Object((1,3,6,1,2,1,158,1,1,1,3),_Dot3OamMode_Type())
+dot3OamMode.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamMode.setStatus(_B)
+class _Dot3OamMaxOamPduSize_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(64,1518))
+_Dot3OamMaxOamPduSize_Type.__name__=_G
+_Dot3OamMaxOamPduSize_Object=MibTableColumn
+dot3OamMaxOamPduSize=_Dot3OamMaxOamPduSize_Object((1,3,6,1,2,1,158,1,1,1,4),_Dot3OamMaxOamPduSize_Type())
+dot3OamMaxOamPduSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamMaxOamPduSize.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamMaxOamPduSize.setUnits(_Z)
+class _Dot3OamConfigRevision_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_Dot3OamConfigRevision_Type.__name__=_G
+_Dot3OamConfigRevision_Object=MibTableColumn
+dot3OamConfigRevision=_Dot3OamConfigRevision_Object((1,3,6,1,2,1,158,1,1,1,5),_Dot3OamConfigRevision_Type())
+dot3OamConfigRevision.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamConfigRevision.setStatus(_B)
+class _Dot3OamFunctionsSupported_Type(Bits):namedValues=NamedValues(*((_a,0),(_b,1),(_c,2),(_d,3)))
+_Dot3OamFunctionsSupported_Type.__name__=_P
+_Dot3OamFunctionsSupported_Object=MibTableColumn
+dot3OamFunctionsSupported=_Dot3OamFunctionsSupported_Object((1,3,6,1,2,1,158,1,1,1,6),_Dot3OamFunctionsSupported_Type())
+dot3OamFunctionsSupported.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamFunctionsSupported.setStatus(_B)
+_Dot3OamPeerTable_Object=MibTable
+dot3OamPeerTable=_Dot3OamPeerTable_Object((1,3,6,1,2,1,158,1,2))
+if mibBuilder.loadTexts:dot3OamPeerTable.setStatus(_B)
+_Dot3OamPeerEntry_Object=MibTableRow
+dot3OamPeerEntry=_Dot3OamPeerEntry_Object((1,3,6,1,2,1,158,1,2,1))
+dot3OamPeerEntry.setIndexNames((0,_H,_I))
+if mibBuilder.loadTexts:dot3OamPeerEntry.setStatus(_B)
+_Dot3OamPeerMacAddress_Type=MacAddress
+_Dot3OamPeerMacAddress_Object=MibTableColumn
+dot3OamPeerMacAddress=_Dot3OamPeerMacAddress_Object((1,3,6,1,2,1,158,1,2,1,1),_Dot3OamPeerMacAddress_Type())
+dot3OamPeerMacAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamPeerMacAddress.setStatus(_B)
+_Dot3OamPeerVendorOui_Type=EightOTwoOui
+_Dot3OamPeerVendorOui_Object=MibTableColumn
+dot3OamPeerVendorOui=_Dot3OamPeerVendorOui_Object((1,3,6,1,2,1,158,1,2,1,2),_Dot3OamPeerVendorOui_Type())
+dot3OamPeerVendorOui.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamPeerVendorOui.setStatus(_B)
+_Dot3OamPeerVendorInfo_Type=Unsigned32
+_Dot3OamPeerVendorInfo_Object=MibTableColumn
+dot3OamPeerVendorInfo=_Dot3OamPeerVendorInfo_Object((1,3,6,1,2,1,158,1,2,1,3),_Dot3OamPeerVendorInfo_Type())
+dot3OamPeerVendorInfo.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamPeerVendorInfo.setStatus(_B)
+class _Dot3OamPeerMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_X,1),(_Y,2),(_e,3)))
+_Dot3OamPeerMode_Type.__name__=_F
+_Dot3OamPeerMode_Object=MibTableColumn
+dot3OamPeerMode=_Dot3OamPeerMode_Object((1,3,6,1,2,1,158,1,2,1,4),_Dot3OamPeerMode_Type())
+dot3OamPeerMode.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamPeerMode.setStatus(_B)
+class _Dot3OamPeerMaxOamPduSize_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(64,1518))
+_Dot3OamPeerMaxOamPduSize_Type.__name__=_G
+_Dot3OamPeerMaxOamPduSize_Object=MibTableColumn
+dot3OamPeerMaxOamPduSize=_Dot3OamPeerMaxOamPduSize_Object((1,3,6,1,2,1,158,1,2,1,5),_Dot3OamPeerMaxOamPduSize_Type())
+dot3OamPeerMaxOamPduSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamPeerMaxOamPduSize.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamPeerMaxOamPduSize.setUnits(_Z)
+class _Dot3OamPeerConfigRevision_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_Dot3OamPeerConfigRevision_Type.__name__=_G
+_Dot3OamPeerConfigRevision_Object=MibTableColumn
+dot3OamPeerConfigRevision=_Dot3OamPeerConfigRevision_Object((1,3,6,1,2,1,158,1,2,1,6),_Dot3OamPeerConfigRevision_Type())
+dot3OamPeerConfigRevision.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamPeerConfigRevision.setStatus(_B)
+class _Dot3OamPeerFunctionsSupported_Type(Bits):namedValues=NamedValues(*((_a,0),(_b,1),(_c,2),(_d,3)))
+_Dot3OamPeerFunctionsSupported_Type.__name__=_P
+_Dot3OamPeerFunctionsSupported_Object=MibTableColumn
+dot3OamPeerFunctionsSupported=_Dot3OamPeerFunctionsSupported_Object((1,3,6,1,2,1,158,1,2,1,7),_Dot3OamPeerFunctionsSupported_Type())
+dot3OamPeerFunctionsSupported.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamPeerFunctionsSupported.setStatus(_B)
+_Dot3OamLoopbackTable_Object=MibTable
+dot3OamLoopbackTable=_Dot3OamLoopbackTable_Object((1,3,6,1,2,1,158,1,3))
+if mibBuilder.loadTexts:dot3OamLoopbackTable.setStatus(_B)
+_Dot3OamLoopbackEntry_Object=MibTableRow
+dot3OamLoopbackEntry=_Dot3OamLoopbackEntry_Object((1,3,6,1,2,1,158,1,3,1))
+dot3OamLoopbackEntry.setIndexNames((0,_H,_I))
+if mibBuilder.loadTexts:dot3OamLoopbackEntry.setStatus(_B)
+class _Dot3OamLoopbackStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('noLoopback',1),('initiatingLoopback',2),('remoteLoopback',3),('terminatingLoopback',4),('localLoopback',5),(_e,6)))
+_Dot3OamLoopbackStatus_Type.__name__=_F
+_Dot3OamLoopbackStatus_Object=MibTableColumn
+dot3OamLoopbackStatus=_Dot3OamLoopbackStatus_Object((1,3,6,1,2,1,158,1,3,1,1),_Dot3OamLoopbackStatus_Type())
+dot3OamLoopbackStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamLoopbackStatus.setStatus(_B)
+class _Dot3OamLoopbackIgnoreRx_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ignore',1),('process',2)))
+_Dot3OamLoopbackIgnoreRx_Type.__name__=_F
+_Dot3OamLoopbackIgnoreRx_Object=MibTableColumn
+dot3OamLoopbackIgnoreRx=_Dot3OamLoopbackIgnoreRx_Object((1,3,6,1,2,1,158,1,3,1,2),_Dot3OamLoopbackIgnoreRx_Type())
+dot3OamLoopbackIgnoreRx.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamLoopbackIgnoreRx.setStatus(_B)
+_Dot3OamStatsTable_Object=MibTable
+dot3OamStatsTable=_Dot3OamStatsTable_Object((1,3,6,1,2,1,158,1,4))
+if mibBuilder.loadTexts:dot3OamStatsTable.setStatus(_B)
+_Dot3OamStatsEntry_Object=MibTableRow
+dot3OamStatsEntry=_Dot3OamStatsEntry_Object((1,3,6,1,2,1,158,1,4,1))
+dot3OamStatsEntry.setIndexNames((0,_H,_I))
+if mibBuilder.loadTexts:dot3OamStatsEntry.setStatus(_B)
+_Dot3OamInformationTx_Type=Counter32
+_Dot3OamInformationTx_Object=MibTableColumn
+dot3OamInformationTx=_Dot3OamInformationTx_Object((1,3,6,1,2,1,158,1,4,1,1),_Dot3OamInformationTx_Type())
+dot3OamInformationTx.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamInformationTx.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamInformationTx.setUnits(_E)
+_Dot3OamInformationRx_Type=Counter32
+_Dot3OamInformationRx_Object=MibTableColumn
+dot3OamInformationRx=_Dot3OamInformationRx_Object((1,3,6,1,2,1,158,1,4,1,2),_Dot3OamInformationRx_Type())
+dot3OamInformationRx.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamInformationRx.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamInformationRx.setUnits(_E)
+_Dot3OamUniqueEventNotificationTx_Type=Counter32
+_Dot3OamUniqueEventNotificationTx_Object=MibTableColumn
+dot3OamUniqueEventNotificationTx=_Dot3OamUniqueEventNotificationTx_Object((1,3,6,1,2,1,158,1,4,1,3),_Dot3OamUniqueEventNotificationTx_Type())
+dot3OamUniqueEventNotificationTx.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamUniqueEventNotificationTx.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamUniqueEventNotificationTx.setUnits(_E)
+_Dot3OamUniqueEventNotificationRx_Type=Counter32
+_Dot3OamUniqueEventNotificationRx_Object=MibTableColumn
+dot3OamUniqueEventNotificationRx=_Dot3OamUniqueEventNotificationRx_Object((1,3,6,1,2,1,158,1,4,1,4),_Dot3OamUniqueEventNotificationRx_Type())
+dot3OamUniqueEventNotificationRx.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamUniqueEventNotificationRx.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamUniqueEventNotificationRx.setUnits(_E)
+_Dot3OamDuplicateEventNotificationTx_Type=Counter32
+_Dot3OamDuplicateEventNotificationTx_Object=MibTableColumn
+dot3OamDuplicateEventNotificationTx=_Dot3OamDuplicateEventNotificationTx_Object((1,3,6,1,2,1,158,1,4,1,5),_Dot3OamDuplicateEventNotificationTx_Type())
+dot3OamDuplicateEventNotificationTx.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamDuplicateEventNotificationTx.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamDuplicateEventNotificationTx.setUnits(_E)
+_Dot3OamDuplicateEventNotificationRx_Type=Counter32
+_Dot3OamDuplicateEventNotificationRx_Object=MibTableColumn
+dot3OamDuplicateEventNotificationRx=_Dot3OamDuplicateEventNotificationRx_Object((1,3,6,1,2,1,158,1,4,1,6),_Dot3OamDuplicateEventNotificationRx_Type())
+dot3OamDuplicateEventNotificationRx.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamDuplicateEventNotificationRx.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamDuplicateEventNotificationRx.setUnits(_E)
+_Dot3OamLoopbackControlTx_Type=Counter32
+_Dot3OamLoopbackControlTx_Object=MibTableColumn
+dot3OamLoopbackControlTx=_Dot3OamLoopbackControlTx_Object((1,3,6,1,2,1,158,1,4,1,7),_Dot3OamLoopbackControlTx_Type())
+dot3OamLoopbackControlTx.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamLoopbackControlTx.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamLoopbackControlTx.setUnits(_E)
+_Dot3OamLoopbackControlRx_Type=Counter32
+_Dot3OamLoopbackControlRx_Object=MibTableColumn
+dot3OamLoopbackControlRx=_Dot3OamLoopbackControlRx_Object((1,3,6,1,2,1,158,1,4,1,8),_Dot3OamLoopbackControlRx_Type())
+dot3OamLoopbackControlRx.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamLoopbackControlRx.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamLoopbackControlRx.setUnits(_E)
+_Dot3OamVariableRequestTx_Type=Counter32
+_Dot3OamVariableRequestTx_Object=MibTableColumn
+dot3OamVariableRequestTx=_Dot3OamVariableRequestTx_Object((1,3,6,1,2,1,158,1,4,1,9),_Dot3OamVariableRequestTx_Type())
+dot3OamVariableRequestTx.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamVariableRequestTx.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamVariableRequestTx.setUnits(_E)
+_Dot3OamVariableRequestRx_Type=Counter32
+_Dot3OamVariableRequestRx_Object=MibTableColumn
+dot3OamVariableRequestRx=_Dot3OamVariableRequestRx_Object((1,3,6,1,2,1,158,1,4,1,10),_Dot3OamVariableRequestRx_Type())
+dot3OamVariableRequestRx.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamVariableRequestRx.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamVariableRequestRx.setUnits(_E)
+_Dot3OamVariableResponseTx_Type=Counter32
+_Dot3OamVariableResponseTx_Object=MibTableColumn
+dot3OamVariableResponseTx=_Dot3OamVariableResponseTx_Object((1,3,6,1,2,1,158,1,4,1,11),_Dot3OamVariableResponseTx_Type())
+dot3OamVariableResponseTx.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamVariableResponseTx.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamVariableResponseTx.setUnits(_E)
+_Dot3OamVariableResponseRx_Type=Counter32
+_Dot3OamVariableResponseRx_Object=MibTableColumn
+dot3OamVariableResponseRx=_Dot3OamVariableResponseRx_Object((1,3,6,1,2,1,158,1,4,1,12),_Dot3OamVariableResponseRx_Type())
+dot3OamVariableResponseRx.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamVariableResponseRx.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamVariableResponseRx.setUnits(_E)
+_Dot3OamOrgSpecificTx_Type=Counter32
+_Dot3OamOrgSpecificTx_Object=MibTableColumn
+dot3OamOrgSpecificTx=_Dot3OamOrgSpecificTx_Object((1,3,6,1,2,1,158,1,4,1,13),_Dot3OamOrgSpecificTx_Type())
+dot3OamOrgSpecificTx.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamOrgSpecificTx.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamOrgSpecificTx.setUnits(_E)
+_Dot3OamOrgSpecificRx_Type=Counter32
+_Dot3OamOrgSpecificRx_Object=MibTableColumn
+dot3OamOrgSpecificRx=_Dot3OamOrgSpecificRx_Object((1,3,6,1,2,1,158,1,4,1,14),_Dot3OamOrgSpecificRx_Type())
+dot3OamOrgSpecificRx.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamOrgSpecificRx.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamOrgSpecificRx.setUnits(_E)
+_Dot3OamUnsupportedCodesTx_Type=Counter32
+_Dot3OamUnsupportedCodesTx_Object=MibTableColumn
+dot3OamUnsupportedCodesTx=_Dot3OamUnsupportedCodesTx_Object((1,3,6,1,2,1,158,1,4,1,15),_Dot3OamUnsupportedCodesTx_Type())
+dot3OamUnsupportedCodesTx.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamUnsupportedCodesTx.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamUnsupportedCodesTx.setUnits(_E)
+_Dot3OamUnsupportedCodesRx_Type=Counter32
+_Dot3OamUnsupportedCodesRx_Object=MibTableColumn
+dot3OamUnsupportedCodesRx=_Dot3OamUnsupportedCodesRx_Object((1,3,6,1,2,1,158,1,4,1,16),_Dot3OamUnsupportedCodesRx_Type())
+dot3OamUnsupportedCodesRx.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamUnsupportedCodesRx.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamUnsupportedCodesRx.setUnits(_E)
+_Dot3OamFramesLostDueToOam_Type=Counter32
+_Dot3OamFramesLostDueToOam_Object=MibTableColumn
+dot3OamFramesLostDueToOam=_Dot3OamFramesLostDueToOam_Object((1,3,6,1,2,1,158,1,4,1,17),_Dot3OamFramesLostDueToOam_Type())
+dot3OamFramesLostDueToOam.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamFramesLostDueToOam.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamFramesLostDueToOam.setUnits(_E)
+_Dot3OamEventConfigTable_Object=MibTable
+dot3OamEventConfigTable=_Dot3OamEventConfigTable_Object((1,3,6,1,2,1,158,1,5))
+if mibBuilder.loadTexts:dot3OamEventConfigTable.setStatus(_B)
+_Dot3OamEventConfigEntry_Object=MibTableRow
+dot3OamEventConfigEntry=_Dot3OamEventConfigEntry_Object((1,3,6,1,2,1,158,1,5,1))
+dot3OamEventConfigEntry.setIndexNames((0,_H,_I))
+if mibBuilder.loadTexts:dot3OamEventConfigEntry.setStatus(_B)
+_Dot3OamErrSymPeriodWindowHi_Type=Unsigned32
+_Dot3OamErrSymPeriodWindowHi_Object=MibTableColumn
+dot3OamErrSymPeriodWindowHi=_Dot3OamErrSymPeriodWindowHi_Object((1,3,6,1,2,1,158,1,5,1,1),_Dot3OamErrSymPeriodWindowHi_Type())
+dot3OamErrSymPeriodWindowHi.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamErrSymPeriodWindowHi.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamErrSymPeriodWindowHi.setUnits(_f)
+_Dot3OamErrSymPeriodWindowLo_Type=Unsigned32
+_Dot3OamErrSymPeriodWindowLo_Object=MibTableColumn
+dot3OamErrSymPeriodWindowLo=_Dot3OamErrSymPeriodWindowLo_Object((1,3,6,1,2,1,158,1,5,1,2),_Dot3OamErrSymPeriodWindowLo_Type())
+dot3OamErrSymPeriodWindowLo.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamErrSymPeriodWindowLo.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamErrSymPeriodWindowLo.setUnits(_g)
+_Dot3OamErrSymPeriodThresholdHi_Type=Unsigned32
+_Dot3OamErrSymPeriodThresholdHi_Object=MibTableColumn
+dot3OamErrSymPeriodThresholdHi=_Dot3OamErrSymPeriodThresholdHi_Object((1,3,6,1,2,1,158,1,5,1,3),_Dot3OamErrSymPeriodThresholdHi_Type())
+dot3OamErrSymPeriodThresholdHi.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamErrSymPeriodThresholdHi.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamErrSymPeriodThresholdHi.setUnits(_f)
+_Dot3OamErrSymPeriodThresholdLo_Type=Unsigned32
+_Dot3OamErrSymPeriodThresholdLo_Object=MibTableColumn
+dot3OamErrSymPeriodThresholdLo=_Dot3OamErrSymPeriodThresholdLo_Object((1,3,6,1,2,1,158,1,5,1,4),_Dot3OamErrSymPeriodThresholdLo_Type())
+dot3OamErrSymPeriodThresholdLo.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamErrSymPeriodThresholdLo.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamErrSymPeriodThresholdLo.setUnits(_g)
+_Dot3OamErrSymPeriodEvNotifEnable_Type=TruthValue
+_Dot3OamErrSymPeriodEvNotifEnable_Object=MibTableColumn
+dot3OamErrSymPeriodEvNotifEnable=_Dot3OamErrSymPeriodEvNotifEnable_Object((1,3,6,1,2,1,158,1,5,1,5),_Dot3OamErrSymPeriodEvNotifEnable_Type())
+dot3OamErrSymPeriodEvNotifEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamErrSymPeriodEvNotifEnable.setStatus(_B)
+_Dot3OamErrFramePeriodWindow_Type=Unsigned32
+_Dot3OamErrFramePeriodWindow_Object=MibTableColumn
+dot3OamErrFramePeriodWindow=_Dot3OamErrFramePeriodWindow_Object((1,3,6,1,2,1,158,1,5,1,6),_Dot3OamErrFramePeriodWindow_Type())
+dot3OamErrFramePeriodWindow.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamErrFramePeriodWindow.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamErrFramePeriodWindow.setUnits(_E)
+_Dot3OamErrFramePeriodThreshold_Type=Unsigned32
+_Dot3OamErrFramePeriodThreshold_Object=MibTableColumn
+dot3OamErrFramePeriodThreshold=_Dot3OamErrFramePeriodThreshold_Object((1,3,6,1,2,1,158,1,5,1,7),_Dot3OamErrFramePeriodThreshold_Type())
+dot3OamErrFramePeriodThreshold.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamErrFramePeriodThreshold.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamErrFramePeriodThreshold.setUnits(_E)
+_Dot3OamErrFramePeriodEvNotifEnable_Type=TruthValue
+_Dot3OamErrFramePeriodEvNotifEnable_Object=MibTableColumn
+dot3OamErrFramePeriodEvNotifEnable=_Dot3OamErrFramePeriodEvNotifEnable_Object((1,3,6,1,2,1,158,1,5,1,8),_Dot3OamErrFramePeriodEvNotifEnable_Type())
+dot3OamErrFramePeriodEvNotifEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamErrFramePeriodEvNotifEnable.setStatus(_B)
+class _Dot3OamErrFrameWindow_Type(Unsigned32):defaultValue=10
+_Dot3OamErrFrameWindow_Type.__name__=_G
+_Dot3OamErrFrameWindow_Object=MibTableColumn
+dot3OamErrFrameWindow=_Dot3OamErrFrameWindow_Object((1,3,6,1,2,1,158,1,5,1,9),_Dot3OamErrFrameWindow_Type())
+dot3OamErrFrameWindow.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamErrFrameWindow.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamErrFrameWindow.setUnits(_h)
+class _Dot3OamErrFrameThreshold_Type(Unsigned32):defaultValue=1
+_Dot3OamErrFrameThreshold_Type.__name__=_G
+_Dot3OamErrFrameThreshold_Object=MibTableColumn
+dot3OamErrFrameThreshold=_Dot3OamErrFrameThreshold_Object((1,3,6,1,2,1,158,1,5,1,10),_Dot3OamErrFrameThreshold_Type())
+dot3OamErrFrameThreshold.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamErrFrameThreshold.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamErrFrameThreshold.setUnits(_E)
+class _Dot3OamErrFrameEvNotifEnable_Type(TruthValue):defaultValue=1
+_Dot3OamErrFrameEvNotifEnable_Type.__name__=_J
+_Dot3OamErrFrameEvNotifEnable_Object=MibTableColumn
+dot3OamErrFrameEvNotifEnable=_Dot3OamErrFrameEvNotifEnable_Object((1,3,6,1,2,1,158,1,5,1,11),_Dot3OamErrFrameEvNotifEnable_Type())
+dot3OamErrFrameEvNotifEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamErrFrameEvNotifEnable.setStatus(_B)
+class _Dot3OamErrFrameSecsSummaryWindow_Type(Integer32):defaultValue=100;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,9000))
+_Dot3OamErrFrameSecsSummaryWindow_Type.__name__=_F
+_Dot3OamErrFrameSecsSummaryWindow_Object=MibTableColumn
+dot3OamErrFrameSecsSummaryWindow=_Dot3OamErrFrameSecsSummaryWindow_Object((1,3,6,1,2,1,158,1,5,1,12),_Dot3OamErrFrameSecsSummaryWindow_Type())
+dot3OamErrFrameSecsSummaryWindow.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamErrFrameSecsSummaryWindow.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamErrFrameSecsSummaryWindow.setUnits(_h)
+class _Dot3OamErrFrameSecsSummaryThreshold_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,900))
+_Dot3OamErrFrameSecsSummaryThreshold_Type.__name__=_F
+_Dot3OamErrFrameSecsSummaryThreshold_Object=MibTableColumn
+dot3OamErrFrameSecsSummaryThreshold=_Dot3OamErrFrameSecsSummaryThreshold_Object((1,3,6,1,2,1,158,1,5,1,13),_Dot3OamErrFrameSecsSummaryThreshold_Type())
+dot3OamErrFrameSecsSummaryThreshold.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamErrFrameSecsSummaryThreshold.setStatus(_B)
+if mibBuilder.loadTexts:dot3OamErrFrameSecsSummaryThreshold.setUnits('errored frame seconds')
+class _Dot3OamErrFrameSecsEvNotifEnable_Type(TruthValue):defaultValue=1
+_Dot3OamErrFrameSecsEvNotifEnable_Type.__name__=_J
+_Dot3OamErrFrameSecsEvNotifEnable_Object=MibTableColumn
+dot3OamErrFrameSecsEvNotifEnable=_Dot3OamErrFrameSecsEvNotifEnable_Object((1,3,6,1,2,1,158,1,5,1,14),_Dot3OamErrFrameSecsEvNotifEnable_Type())
+dot3OamErrFrameSecsEvNotifEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamErrFrameSecsEvNotifEnable.setStatus(_B)
+class _Dot3OamDyingGaspEnable_Type(TruthValue):defaultValue=1
+_Dot3OamDyingGaspEnable_Type.__name__=_J
+_Dot3OamDyingGaspEnable_Object=MibTableColumn
+dot3OamDyingGaspEnable=_Dot3OamDyingGaspEnable_Object((1,3,6,1,2,1,158,1,5,1,15),_Dot3OamDyingGaspEnable_Type())
+dot3OamDyingGaspEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamDyingGaspEnable.setStatus(_B)
+class _Dot3OamCriticalEventEnable_Type(TruthValue):defaultValue=1
+_Dot3OamCriticalEventEnable_Type.__name__=_J
+_Dot3OamCriticalEventEnable_Object=MibTableColumn
+dot3OamCriticalEventEnable=_Dot3OamCriticalEventEnable_Object((1,3,6,1,2,1,158,1,5,1,16),_Dot3OamCriticalEventEnable_Type())
+dot3OamCriticalEventEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:dot3OamCriticalEventEnable.setStatus(_B)
+_Dot3OamEventLogTable_Object=MibTable
+dot3OamEventLogTable=_Dot3OamEventLogTable_Object((1,3,6,1,2,1,158,1,6))
+if mibBuilder.loadTexts:dot3OamEventLogTable.setStatus(_B)
+_Dot3OamEventLogEntry_Object=MibTableRow
+dot3OamEventLogEntry=_Dot3OamEventLogEntry_Object((1,3,6,1,2,1,158,1,6,1))
+dot3OamEventLogEntry.setIndexNames((0,_H,_I),(0,_A,_i))
+if mibBuilder.loadTexts:dot3OamEventLogEntry.setStatus(_B)
+class _Dot3OamEventLogIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_Dot3OamEventLogIndex_Type.__name__=_G
+_Dot3OamEventLogIndex_Object=MibTableColumn
+dot3OamEventLogIndex=_Dot3OamEventLogIndex_Object((1,3,6,1,2,1,158,1,6,1,1),_Dot3OamEventLogIndex_Type())
+dot3OamEventLogIndex.setMaxAccess('not-accessible')
+if mibBuilder.loadTexts:dot3OamEventLogIndex.setStatus(_B)
+_Dot3OamEventLogTimestamp_Type=TimeStamp
+_Dot3OamEventLogTimestamp_Object=MibTableColumn
+dot3OamEventLogTimestamp=_Dot3OamEventLogTimestamp_Object((1,3,6,1,2,1,158,1,6,1,2),_Dot3OamEventLogTimestamp_Type())
+dot3OamEventLogTimestamp.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamEventLogTimestamp.setStatus(_B)
+_Dot3OamEventLogOui_Type=EightOTwoOui
+_Dot3OamEventLogOui_Object=MibTableColumn
+dot3OamEventLogOui=_Dot3OamEventLogOui_Object((1,3,6,1,2,1,158,1,6,1,3),_Dot3OamEventLogOui_Type())
+dot3OamEventLogOui.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamEventLogOui.setStatus(_B)
+_Dot3OamEventLogType_Type=Unsigned32
+_Dot3OamEventLogType_Object=MibTableColumn
+dot3OamEventLogType=_Dot3OamEventLogType_Object((1,3,6,1,2,1,158,1,6,1,4),_Dot3OamEventLogType_Type())
+dot3OamEventLogType.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamEventLogType.setStatus(_B)
+class _Dot3OamEventLogLocation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('local',1),('remote',2)))
+_Dot3OamEventLogLocation_Type.__name__=_F
+_Dot3OamEventLogLocation_Object=MibTableColumn
+dot3OamEventLogLocation=_Dot3OamEventLogLocation_Object((1,3,6,1,2,1,158,1,6,1,5),_Dot3OamEventLogLocation_Type())
+dot3OamEventLogLocation.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamEventLogLocation.setStatus(_B)
+_Dot3OamEventLogWindowHi_Type=Unsigned32
+_Dot3OamEventLogWindowHi_Object=MibTableColumn
+dot3OamEventLogWindowHi=_Dot3OamEventLogWindowHi_Object((1,3,6,1,2,1,158,1,6,1,6),_Dot3OamEventLogWindowHi_Type())
+dot3OamEventLogWindowHi.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamEventLogWindowHi.setStatus(_B)
+_Dot3OamEventLogWindowLo_Type=Unsigned32
+_Dot3OamEventLogWindowLo_Object=MibTableColumn
+dot3OamEventLogWindowLo=_Dot3OamEventLogWindowLo_Object((1,3,6,1,2,1,158,1,6,1,7),_Dot3OamEventLogWindowLo_Type())
+dot3OamEventLogWindowLo.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamEventLogWindowLo.setStatus(_B)
+_Dot3OamEventLogThresholdHi_Type=Unsigned32
+_Dot3OamEventLogThresholdHi_Object=MibTableColumn
+dot3OamEventLogThresholdHi=_Dot3OamEventLogThresholdHi_Object((1,3,6,1,2,1,158,1,6,1,8),_Dot3OamEventLogThresholdHi_Type())
+dot3OamEventLogThresholdHi.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamEventLogThresholdHi.setStatus(_B)
+_Dot3OamEventLogThresholdLo_Type=Unsigned32
+_Dot3OamEventLogThresholdLo_Object=MibTableColumn
+dot3OamEventLogThresholdLo=_Dot3OamEventLogThresholdLo_Object((1,3,6,1,2,1,158,1,6,1,9),_Dot3OamEventLogThresholdLo_Type())
+dot3OamEventLogThresholdLo.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamEventLogThresholdLo.setStatus(_B)
+_Dot3OamEventLogValue_Type=CounterBasedGauge64
+_Dot3OamEventLogValue_Object=MibTableColumn
+dot3OamEventLogValue=_Dot3OamEventLogValue_Object((1,3,6,1,2,1,158,1,6,1,10),_Dot3OamEventLogValue_Type())
+dot3OamEventLogValue.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamEventLogValue.setStatus(_B)
+_Dot3OamEventLogRunningTotal_Type=CounterBasedGauge64
+_Dot3OamEventLogRunningTotal_Object=MibTableColumn
+dot3OamEventLogRunningTotal=_Dot3OamEventLogRunningTotal_Object((1,3,6,1,2,1,158,1,6,1,11),_Dot3OamEventLogRunningTotal_Type())
+dot3OamEventLogRunningTotal.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamEventLogRunningTotal.setStatus(_B)
+_Dot3OamEventLogEventTotal_Type=Unsigned32
+_Dot3OamEventLogEventTotal_Object=MibTableColumn
+dot3OamEventLogEventTotal=_Dot3OamEventLogEventTotal_Object((1,3,6,1,2,1,158,1,6,1,12),_Dot3OamEventLogEventTotal_Type())
+dot3OamEventLogEventTotal.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot3OamEventLogEventTotal.setStatus(_B)
+_Dot3OamConformance_ObjectIdentity=ObjectIdentity
+dot3OamConformance=_Dot3OamConformance_ObjectIdentity((1,3,6,1,2,1,158,2))
+_Dot3OamGroups_ObjectIdentity=ObjectIdentity
+dot3OamGroups=_Dot3OamGroups_ObjectIdentity((1,3,6,1,2,1,158,2,1))
+_Dot3OamCompliances_ObjectIdentity=ObjectIdentity
+dot3OamCompliances=_Dot3OamCompliances_ObjectIdentity((1,3,6,1,2,1,158,2,2))
+dot3OamControlGroup=ObjectGroup((1,3,6,1,2,1,158,2,1,1))
+dot3OamControlGroup.setObjects(*((_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o)))
+if mibBuilder.loadTexts:dot3OamControlGroup.setStatus(_B)
+dot3OamPeerGroup=ObjectGroup((1,3,6,1,2,1,158,2,1,2))
+dot3OamPeerGroup.setObjects(*((_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v)))
+if mibBuilder.loadTexts:dot3OamPeerGroup.setStatus(_B)
+dot3OamStatsBaseGroup=ObjectGroup((1,3,6,1,2,1,158,2,1,3))
+dot3OamStatsBaseGroup.setObjects(*((_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC)))
+if mibBuilder.loadTexts:dot3OamStatsBaseGroup.setStatus(_B)
+dot3OamLoopbackGroup=ObjectGroup((1,3,6,1,2,1,158,2,1,4))
+dot3OamLoopbackGroup.setObjects(*((_A,_AD),(_A,_AE)))
+if mibBuilder.loadTexts:dot3OamLoopbackGroup.setStatus(_B)
+dot3OamErrSymbolPeriodEventGroup=ObjectGroup((1,3,6,1,2,1,158,2,1,5))
+dot3OamErrSymbolPeriodEventGroup.setObjects(*((_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ)))
+if mibBuilder.loadTexts:dot3OamErrSymbolPeriodEventGroup.setStatus(_B)
+dot3OamErrFramePeriodEventGroup=ObjectGroup((1,3,6,1,2,1,158,2,1,6))
+dot3OamErrFramePeriodEventGroup.setObjects(*((_A,_AK),(_A,_AL),(_A,_AM)))
+if mibBuilder.loadTexts:dot3OamErrFramePeriodEventGroup.setStatus(_B)
+dot3OamErrFrameEventGroup=ObjectGroup((1,3,6,1,2,1,158,2,1,7))
+dot3OamErrFrameEventGroup.setObjects(*((_A,_AN),(_A,_AO),(_A,_AP)))
+if mibBuilder.loadTexts:dot3OamErrFrameEventGroup.setStatus(_B)
+dot3OamErrFrameSecsSummaryEventGroup=ObjectGroup((1,3,6,1,2,1,158,2,1,8))
+dot3OamErrFrameSecsSummaryEventGroup.setObjects(*((_A,_AQ),(_A,_AR),(_A,_AS)))
+if mibBuilder.loadTexts:dot3OamErrFrameSecsSummaryEventGroup.setStatus(_B)
+dot3OamFlagEventGroup=ObjectGroup((1,3,6,1,2,1,158,2,1,9))
+dot3OamFlagEventGroup.setObjects(*((_A,_AT),(_A,_AU)))
+if mibBuilder.loadTexts:dot3OamFlagEventGroup.setStatus(_B)
+dot3OamEventLogGroup=ObjectGroup((1,3,6,1,2,1,158,2,1,10))
+dot3OamEventLogGroup.setObjects(*((_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_O)))
+if mibBuilder.loadTexts:dot3OamEventLogGroup.setStatus(_B)
+dot3OamThresholdEvent=NotificationType((1,3,6,1,2,1,158,0,1))
+dot3OamThresholdEvent.setObjects(*((_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_O)))
+if mibBuilder.loadTexts:dot3OamThresholdEvent.setStatus(_B)
+dot3OamNonThresholdEvent=NotificationType((1,3,6,1,2,1,158,0,2))
+dot3OamNonThresholdEvent.setObjects(*((_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O)))
+if mibBuilder.loadTexts:dot3OamNonThresholdEvent.setStatus(_B)
+dot3OamNotificationGroup=NotificationGroup((1,3,6,1,2,1,158,2,1,11))
+dot3OamNotificationGroup.setObjects(*((_A,_AV),(_A,_AW)))
+if mibBuilder.loadTexts:dot3OamNotificationGroup.setStatus(_B)
+dot3OamCompliance=ModuleCompliance((1,3,6,1,2,1,158,2,2,1))
+dot3OamCompliance.setObjects(*((_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah)))
+if mibBuilder.loadTexts:dot3OamCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'EightOTwoOui':EightOTwoOui,'dot3OamMIB':dot3OamMIB,'dot3OamNotifications':dot3OamNotifications,_AV:dot3OamThresholdEvent,_AW:dot3OamNonThresholdEvent,'dot3OamObjects':dot3OamObjects,'dot3OamTable':dot3OamTable,'dot3OamEntry':dot3OamEntry,_j:dot3OamAdminState,_k:dot3OamOperStatus,_l:dot3OamMode,_m:dot3OamMaxOamPduSize,_n:dot3OamConfigRevision,_o:dot3OamFunctionsSupported,'dot3OamPeerTable':dot3OamPeerTable,'dot3OamPeerEntry':dot3OamPeerEntry,_p:dot3OamPeerMacAddress,_q:dot3OamPeerVendorOui,_r:dot3OamPeerVendorInfo,_s:dot3OamPeerMode,_u:dot3OamPeerMaxOamPduSize,_v:dot3OamPeerConfigRevision,_t:dot3OamPeerFunctionsSupported,'dot3OamLoopbackTable':dot3OamLoopbackTable,'dot3OamLoopbackEntry':dot3OamLoopbackEntry,_AD:dot3OamLoopbackStatus,_AE:dot3OamLoopbackIgnoreRx,'dot3OamStatsTable':dot3OamStatsTable,'dot3OamStatsEntry':dot3OamStatsEntry,_w:dot3OamInformationTx,_x:dot3OamInformationRx,_y:dot3OamUniqueEventNotificationTx,_z:dot3OamUniqueEventNotificationRx,_A0:dot3OamDuplicateEventNotificationTx,_A1:dot3OamDuplicateEventNotificationRx,_A2:dot3OamLoopbackControlTx,_A3:dot3OamLoopbackControlRx,_A4:dot3OamVariableRequestTx,_A5:dot3OamVariableRequestRx,_A6:dot3OamVariableResponseTx,_A7:dot3OamVariableResponseRx,_A8:dot3OamOrgSpecificTx,_A9:dot3OamOrgSpecificRx,_AA:dot3OamUnsupportedCodesTx,_AB:dot3OamUnsupportedCodesRx,_AC:dot3OamFramesLostDueToOam,'dot3OamEventConfigTable':dot3OamEventConfigTable,'dot3OamEventConfigEntry':dot3OamEventConfigEntry,_AF:dot3OamErrSymPeriodWindowHi,_AG:dot3OamErrSymPeriodWindowLo,_AH:dot3OamErrSymPeriodThresholdHi,_AI:dot3OamErrSymPeriodThresholdLo,_AJ:dot3OamErrSymPeriodEvNotifEnable,_AK:dot3OamErrFramePeriodWindow,_AL:dot3OamErrFramePeriodThreshold,_AM:dot3OamErrFramePeriodEvNotifEnable,_AN:dot3OamErrFrameWindow,_AO:dot3OamErrFrameThreshold,_AP:dot3OamErrFrameEvNotifEnable,_AQ:dot3OamErrFrameSecsSummaryWindow,_AR:dot3OamErrFrameSecsSummaryThreshold,_AS:dot3OamErrFrameSecsEvNotifEnable,_AT:dot3OamDyingGaspEnable,_AU:dot3OamCriticalEventEnable,'dot3OamEventLogTable':dot3OamEventLogTable,'dot3OamEventLogEntry':dot3OamEventLogEntry,_i:dot3OamEventLogIndex,_K:dot3OamEventLogTimestamp,_L:dot3OamEventLogOui,_M:dot3OamEventLogType,_N:dot3OamEventLogLocation,_Q:dot3OamEventLogWindowHi,_R:dot3OamEventLogWindowLo,_S:dot3OamEventLogThresholdHi,_T:dot3OamEventLogThresholdLo,_U:dot3OamEventLogValue,_V:dot3OamEventLogRunningTotal,_O:dot3OamEventLogEventTotal,'dot3OamConformance':dot3OamConformance,'dot3OamGroups':dot3OamGroups,_AX:dot3OamControlGroup,_AY:dot3OamPeerGroup,_AZ:dot3OamStatsBaseGroup,_Aa:dot3OamLoopbackGroup,_Ab:dot3OamErrSymbolPeriodEventGroup,_Ac:dot3OamErrFramePeriodEventGroup,_Ad:dot3OamErrFrameEventGroup,_Ae:dot3OamErrFrameSecsSummaryEventGroup,_Af:dot3OamFlagEventGroup,_Ag:dot3OamEventLogGroup,_Ah:dot3OamNotificationGroup,'dot3OamCompliances':dot3OamCompliances,'dot3OamCompliance':dot3OamCompliance})

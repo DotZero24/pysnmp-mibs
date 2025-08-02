@@ -1,183 +1,486 @@
-#
-# PySNMP MIB module TE-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/TE-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:31:21 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, Integer, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
-( TeHopAddress, MplsBitRate, TeHopAddressType, ) = mibBuilder.importSymbols("MPLS-TC-STD-MIB", "TeHopAddress", "MplsBitRate", "TeHopAddressType")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( TimeTicks, NotificationType, iso, ObjectIdentity, MibIdentifier, Bits, IpAddress, mib_2, Unsigned32, ModuleIdentity, Counter32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Integer32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "NotificationType", "iso", "ObjectIdentity", "MibIdentifier", "Bits", "IpAddress", "mib-2", "Unsigned32", "ModuleIdentity", "Counter32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Integer32")
-( TextualConvention, StorageType, TimeStamp, DisplayString, TruthValue, RowStatus, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "StorageType", "TimeStamp", "DisplayString", "TruthValue", "RowStatus")
-teMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 122)).setRevisions(("2005-01-04 00:00",))
-if mibBuilder.loadTexts: teMIB.setLastUpdated('200501040000Z')
-if mibBuilder.loadTexts: teMIB.setOrganization('IETF Traffic Engineering Working Group')
-if mibBuilder.loadTexts: teMIB.setContactInfo('\n                  Editor:         Kireeti Kompella\n                          Postal: Juniper Networks, Inc.\n                                  1194 Mathilda Ave\n\n\n\n                                  Sunnyvale, CA 94089\n                          Tel:    +1 408 745 2000\n                          E-mail: kireeti@juniper.net\n\n                  The IETF Traffic Engineering Working Group is\n                  chaired by Jim Boyle and Ed Kern.\n\n                  WG Mailing List information:\n\n                    General Discussion: te-wg@ops.ietf.org\n                      To Subscribe:     te-wg-request@ops.ietf.org\n                         In Body:       subscribe\n                      Archive:          ftp://ops.ietf.org/pub/lists\n\n                  Comments on the MIB module should be sent to the\n                  mailing list.  The archives for this mailing list\n                  should be consulted for previous discussion on\n                  this MIB.\n                 ')
-if mibBuilder.loadTexts: teMIB.setDescription('The Traffic Engineering MIB module.\n\n                  Copyright (C) The Internet Society (2005).  This\n                  version of this MIB module is part of RFC 3970;\n                  see the RFC itself for full legal notices.\n                 ')
-teMIBNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 122, 0))
-teMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 122, 1))
-teMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 122, 2))
-teInfo = MibIdentifier((1, 3, 6, 1, 2, 1, 122, 1, 1))
-teDistProtocol = MibScalar((1, 3, 6, 1, 2, 1, 122, 1, 1, 1), Bits().clone(namedValues=NamedValues(("other", 0), ("isis", 1), ("ospf", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teDistProtocol.setDescription('IGP used to distribute Traffic Engineering\n                 information and topology to each device for the\n                 purpose of automatic path computation.  More than\n                 one IGP may be used to distribute TE information.\n                ')
-teSignalingProto = MibScalar((1, 3, 6, 1, 2, 1, 122, 1, 1, 2), Bits().clone(namedValues=NamedValues(("other", 0), ("rsvpte", 1), ("crldp", 2), ("static", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teSignalingProto.setDescription('Traffic Engineering signaling protocols supported\n                 by this device.  More than one protocol may be\n                 supported.\n                ')
-teNotificationEnable = MibScalar((1, 3, 6, 1, 2, 1, 122, 1, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: teNotificationEnable.setDescription('If this object is true, then it enables the\n                 generation of notifications from this MIB module.\n                 Otherwise notifications are not generated.\n                ')
-teNextTunnelIndex = MibScalar((1, 3, 6, 1, 2, 1, 122, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teNextTunnelIndex.setDescription('An integer that may be used as a new Index in the\n\n\n\n                 teTunnelTable.\n\n                 The special value of 0 indicates that no more new\n                 entries can be created in that table.\n\n                 When this MIB module is used for configuration, this\n                 object always contains a legal value (if non-zero)\n                 for an index that is not currently used in that\n                 table.  The Command Generator (Network Management\n                 Application) reads this variable and uses the\n                 (non-zero) value read when creating a new row with\n                 an SNMP SET.  When the SET is performed, the Command\n                 Responder (agent) must determine whether the value\n                 is indeed still unused; Two Network Management\n                 Applications may attempt to create a row\n                 (configuration entry) simultaneously and use the\n                 same value.  If it is currently unused, the SET\n                 succeeds, and the Command Responder (agent) changes\n                 the value of this object according to an\n                 implementation-specific algorithm.  If the value is\n                 in use, however, the SET fails.  The Network\n                 Management Application must then re-read this\n                 variable to obtain a new usable value.\n                ')
-teNextPathHopIndex = MibScalar((1, 3, 6, 1, 2, 1, 122, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teNextPathHopIndex.setDescription('An integer that may be used as a new Index in the\n                 tePathHopTable.\n\n                 The special value of 0 indicates that no more new\n                 entries can be created in that table.\n\n                 When this MIB module is used for configuration, this\n                 object always contains a legal value (if non-zero)\n                 for an index that is not currently used in that\n                 table.  The Command Generator (Network Management\n                 Application) reads this variable and uses the\n                 (non-zero) value read when creating a new row with\n                 an SNMP SET.  When the SET is performed, the Command\n                 Responder (agent) must determine whether the value\n                 is indeed still unused; Two Network Management\n                 Applications may attempt to create a row\n                 (configuration entry) simultaneously and use the\n                 same value.  If it is currently unused, the SET\n\n\n\n                 succeeds, and the Command Responder (agent) changes\n                 the value of this object according to an\n                 implementation-specific algorithm.  If the value is\n                 in use, however, the SET fails.  The Network\n                 Management Application must then re-read this\n                 variable to obtain a new usable value.\n                ')
-teConfiguredTunnels = MibScalar((1, 3, 6, 1, 2, 1, 122, 1, 1, 6), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teConfiguredTunnels.setDescription('Number of currently configured Tunnels.')
-teActiveTunnels = MibScalar((1, 3, 6, 1, 2, 1, 122, 1, 1, 7), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teActiveTunnels.setDescription('Number of currently active Tunnels.')
-tePrimaryTunnels = MibScalar((1, 3, 6, 1, 2, 1, 122, 1, 1, 8), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tePrimaryTunnels.setDescription('Number of currently active Tunnels running on\n                 their primary paths.\n                ')
-teAdminGroupTable = MibTable((1, 3, 6, 1, 2, 1, 122, 1, 1, 9), )
-if mibBuilder.loadTexts: teAdminGroupTable.setDescription('A mapping of configured administrative groups.  Each\n                 entry represents an Administrative Group and\n                 provides a name and index for the group.\n                 Administrative groups are used to label links in the\n                 Traffic Engineering topology in order to place\n                 constraints (include and exclude) on Tunnel paths.\n\n                 A groupName can only be linked to one group number.\n                 The groupNumber is the number assigned to the\n                 administrative group used in constraints,\n                 such as tePathIncludeAny or tePathIncludeAll.\n                ')
-teAdminGroupEntry = MibTableRow((1, 3, 6, 1, 2, 1, 122, 1, 1, 9, 1), ).setIndexNames((0, "TE-MIB", "teAdminGroupNumber"))
-if mibBuilder.loadTexts: teAdminGroupEntry.setDescription('A mapping between a configured group number and\n                 its human-readable name.  The group number should\n                 be between 1 and 32, inclusive.  Group number n\n                 represents bit number (n-1) in the bit vector for\n                 Include/Exclude constraints.\n\n                 All entries in this table MUST be kept in stable\n                 storage so that they will re-appear in case of a\n                 restart/reboot.\n                ')
-teAdminGroupNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 1, 9, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,32)))
-if mibBuilder.loadTexts: teAdminGroupNumber.setDescription('Index of the administrative group.')
-teAdminGroupName = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 1, 9, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teAdminGroupName.setDescription('Name of the administrative group.')
-teAdminGroupRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 1, 9, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teAdminGroupRowStatus.setDescription('The status of this conceptual row.\n\n                 The value of this object has no effect on whether\n                 other objects in this conceptual row can be\n\n\n\n                 modified.\n                ')
-teTunnelTable = MibTable((1, 3, 6, 1, 2, 1, 122, 1, 2), )
-if mibBuilder.loadTexts: teTunnelTable.setDescription('Table of Configured Traffic Tunnels.')
-teTunnelEntry = MibTableRow((1, 3, 6, 1, 2, 1, 122, 1, 2, 1), ).setIndexNames((0, "TE-MIB", "teTunnelIndex"))
-if mibBuilder.loadTexts: teTunnelEntry.setDescription('Entry containing information about a particular\n                 Traffic Tunnel.\n                ')
-teTunnelIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: teTunnelIndex.setDescription('A unique index that identifies a Tunnel.  If the TE\n                 Tunnel is considered an interface, then this index\n                 must match the interface index of the corresponding\n                 interface.  Otherwise, this index must be at least\n                 2^24, so that it does not overlap with any existing\n                 interface index.\n                ')
-teTunnelName = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teTunnelName.setDescription("Name of the Traffic Tunnel.\n\n                 Note that the name of a Tunnel MUST be unique.\n                 When a SET request contains a name that is already\n                 in use for another entry, then the implementation\n                 must return an inconsistentValue error.\n\n                 The value of this object cannot be changed if the\n                 if the value of the corresponding teTunnelRowStatus\n                 object is 'active'.\n                ")
-teTunnelNextPathIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teTunnelNextPathIndex.setDescription('An integer that may be used as a new Index for the\n                 next Path in this Tunnel.\n\n                 The special value of 0 indicates that no more Paths\n                 can be created for this Tunnel, or that no more new\n                 entries can be created in tePathTable.\n\n\n\n\n                 When this MIB module is used for configuration, this\n                 object always contains a legal value (if non-zero)\n                 for an index that is not currently used in that\n                 table.  The Command Generator (Network Management\n                 Application) reads this variable and uses the\n                 (non-zero) value read when creating a new row with\n                 an SNMP SET.  When the SET is performed, the Command\n                 Responder (agent) must determine whether the value\n                 is indeed still unused; Two Network Management\n                 Applications may attempt to create a row\n                 (configuration entry) simultaneously and use the\n                 same value.  If it is currently unused, the SET\n                 succeeds, and the Command Responder (agent) changes\n                 the value of this object according to an\n                 implementation-specific algorithm.  If the value is\n                 in use, however, the SET fails.  The Network\n                 Management Application must then re-read this\n                 variable to obtain a new usable value.\n                ')
-teTunnelRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teTunnelRowStatus.setDescription("The status of this conceptual row.\n\n                 When the value of this object is 'active', then\n                 the values for the corresponding objects\n                 teTunnelName, teTunnelSourceAddressType,\n                 teTunnelSourceAddress,\n                 teTunnelDestinationAddressType, and\n                 teTunnelDestinationAddress cannot be changed.\n                ")
-teTunnelStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 5), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teTunnelStorageType.setDescription("The storage type for this conceptual row.\n\n                 Conceptual rows having the value 'permanent' need\n                 not allow write-access to any columnar objects\n                 in the row.\n                ")
-teTunnelSourceAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 6), TeHopAddressType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teTunnelSourceAddressType.setDescription("The type of Traffic Engineered Tunnel hop address\n                 for the source of this Tunnel.  Typically, this\n                 address type is IPv4 or IPv6, with a prefix length\n                 of 32 or 128, respectively.  If the TE Tunnel path\n                 is being computed by a path computation server,\n                 however, it is possible to use more flexible source\n                 address types, such as AS numbers or prefix lengths\n                 less than host address lengths.\n\n                 The value of this object cannot be changed\n                 if the value of the corresponding teTunnelRowStatus\n                 object is 'active'.\n                ")
-teTunnelSourceAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 7), TeHopAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teTunnelSourceAddress.setDescription("The Source Traffic Engineered Tunnel hop address of\n                 this Tunnel.\n\n                 The type of this address is determined by the value\n                 of the corresponding teTunnelSourceAddressType.\n\n                 Note that the source and destination addresses of a\n                 Tunnel can be different address types.\n\n                 The value of this object cannot be changed\n                 if the value of the corresponding teTunnelRowStatus\n                 object is 'active'.\n                ")
-teTunnelDestinationAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 8), TeHopAddressType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teTunnelDestinationAddressType.setDescription("The type of Traffic Engineered Tunnel hop address\n                 for the destination of this Tunnel.\n\n                 The value of this object cannot be changed\n                 if the value of the corresponding teTunnelRowStatus\n                 object is 'active'.\n\n\n\n                ")
-teTunnelDestinationAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 9), TeHopAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teTunnelDestinationAddress.setDescription("The Destination Traffic Engineered Tunnel hop\n                 address of this Tunnel.\n\n                 The type of this address is determined by the value\n                 of the corresponding teTunnelDestinationAddressType.\n\n                 Note that source and destination addresses of a\n                 Tunnel can be different address types.\n\n                 The value of this object cannot be changed\n                 if the value of the corresponding teTunnelRowStatus\n                 object is 'active'.\n                ")
-teTunnelState = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("unknown", 1), ("up", 2), ("down", 3), ("testing", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teTunnelState.setDescription('The operational state of the Tunnel.')
-teTunnelDiscontinuityTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 11), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teTunnelDiscontinuityTimer.setDescription("The value of sysUpTime on the most recent occasion\n                 at which any one or more of this tunnel's counters\n                 suffered a discontinuity.  The relevant counters\n                 are teTunnelOctets, teTunnelPackets,\n                 teTunnelLPOctets, and teTunnelLPPackets.  If no such\n                 discontinuities have occurred since the last\n                 re-initialization of the local management subsystem\n                 then this object contains a zero value.\n                ")
-teTunnelOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teTunnelOctets.setDescription('The number of octets that have been forwarded over\n                 the Tunnel.\n\n                 Discontinuities in the value of this counter can\n                 occur at re-initialization of the management system,\n                 and at other times, as indicated by the value of\n                 teTunnelDiscontinuityTimer.\n                ')
-teTunnelPackets = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teTunnelPackets.setDescription('The number of packets that have been forwarded over\n                 the Tunnel.\n\n                 Discontinuities in the value of this counter can\n                 occur at re-initialization of the management system\n                 and at other times, as indicated by the value of\n                 teTunnelDiscontinuityTimer.\n                ')
-teTunnelLPOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teTunnelLPOctets.setDescription('The number of octets that have been forwarded over\n                 the Tunnel.\n\n                 Discontinuities in the value of this counter can\n                 occur at re-initialization of the management system\n                 and at other times, as indicated by the value of\n                 teTunnelDiscontinuityTimer.\n                ')
-teTunnelLPPackets = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teTunnelLPPackets.setDescription('The number of packets that have been forwarded over\n                 the Tunnel.\n\n\n\n                 Discontinuities in the value of this counter can\n                 occur at re-initialization of the management system\n                 and at other times, as indicated by the value of\n                 teTunnelDiscontinuityTimer.\n                ')
-teTunnelAge = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 16), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teTunnelAge.setDescription('The age (i.e., time from creation of this conceptual\n                 row till now) of this Tunnel in hundredths of a\n                 second.  Note that because TimeTicks wrap in about\n                 16 months, this value is best used in interval\n                 measurements.\n                ')
-teTunnelTimeUp = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 17), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teTunnelTimeUp.setDescription('The total time in hundredths of a second that this\n                 Tunnel has been operational.  Note that because\n                 TimeTicks wrap in about 16 months, this value is\n                 best used in interval measurements.\n\n                 An example of usage of this object would be to\n                 compute the percentage up time over a period of time\n                 by obtaining values of teTunnelAge and\n                 teTunnelTimeUp at two points in time and computing\n                 the following ratio:\n                 ((teTunnelTimeUp2 - teTunnelTimeUp1)/\n                 (teTunnelAge2 - teTunnelAge1)) * 100 %.  In doing\n                 so, the management station must account for\n                 wrapping of the values of teTunnelAge and\n                 teTunnelTimeUp between the two measurements.\n                ')
-teTunnelPrimaryTimeUp = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 18), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teTunnelPrimaryTimeUp.setDescription("The total time in hundredths of a second that this\n                 Tunnel's primary path has been operational.  Note\n                 that because TimeTicks wrap in about 16 months, this\n\n\n\n                 value is best used in interval measurements.\n\n                 An example of usage of this field would be to\n                 compute what percentage of time that a TE Tunnel was\n                 on the primary path over a period of time by\n                 computing\n                 ((teTunnelPrimaryTimeUp2 - teTunnelPrimaryTimeUp1)/\n                 (teTunnelTimeUp2 - teTunnelTimeUp1))*100 %.  In\n                 doing so, the management station must account for\n                 wrapping of the values of teTunnelPrimaryTimeUp and\n                 teTunnelTimeUp between the two measurements.\n                ")
-teTunnelTransitions = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teTunnelTransitions.setDescription('The number of operational state transitions\n                 (up -> down and down -> up) this Tunnel has\n                 undergone.\n                ')
-teTunnelLastTransition = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 20), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teTunnelLastTransition.setDescription('The time in hundredths of a second since the last\n                 operational state transition occurred on this\n                 Tunnel.\n\n                 Note that if the last transition was over 16\n                 months ago, this value will be inaccurate.\n                ')
-teTunnelPathChanges = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 21), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teTunnelPathChanges.setDescription('The number of path changes this Tunnel has had.')
-teTunnelLastPathChange = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 22), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teTunnelLastPathChange.setDescription('The time in hundredths of a second since the last\n                 path change occurred on this Tunnel.\n\n                 Note that if the last transition was over 16\n                 months ago, this value will be inaccurate.\n\n                 Path changes may be caused by network events or by\n                 reconfiguration that affects the path.\n                ')
-teTunnelConfiguredPaths = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 23), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teTunnelConfiguredPaths.setDescription('The number of paths configured for this Tunnel.')
-teTunnelStandbyPaths = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 24), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teTunnelStandbyPaths.setDescription('The number of standby paths configured for this\n                 Tunnel.\n                ')
-teTunnelOperationalPaths = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 2, 1, 25), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: teTunnelOperationalPaths.setDescription('The number of operational paths for this Tunnel.\n                 This includes the path currently active, as\n                 well as operational standby paths.\n                ')
-tePathTable = MibTable((1, 3, 6, 1, 2, 1, 122, 1, 3), )
-if mibBuilder.loadTexts: tePathTable.setDescription('Table of Configured Traffic Tunnels.')
-tePathEntry = MibTableRow((1, 3, 6, 1, 2, 1, 122, 1, 3, 1), ).setIndexNames((0, "TE-MIB", "teTunnelIndex"), (0, "TE-MIB", "tePathIndex"))
-if mibBuilder.loadTexts: tePathEntry.setDescription('Entry containing information about a particular\n                 Traffic Tunnel.  Each Traffic Tunnel can have zero\n                 or more Traffic Paths.\n\n                 As a Traffic Path can only exist over an existing\n                 Traffic Tunnel, all tePathEntries with\n                 a value of n for teTunnelIndex MUST be removed by\n                 the implementation when the corresponding\n                 teTunnelEntry with a value of n for teTunnelIndex\n                 is removed.\n                ')
-tePathIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: tePathIndex.setDescription('An index that uniquely identifies a path within\n                 a Tunnel.\n\n\n\n                 The combination of <teTunnelIndex, tePathIndex> thus\n                 uniquely identifies a path among all paths on this\n                 router.\n                ')
-tePathName = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 3, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tePathName.setDescription("The name of this path.\n\n                 A pathName must be unique within the set of paths\n                 over a single tunnel.  If a SET request is received\n                 with a duplicate name, then the implementation MUST\n                 return an inconsistentValue error.\n\n                 The value of this object cannot be changed\n                 if the value of the corresponding teTunnelRowStatus\n                 object is 'active'.\n                ")
-tePathRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tePathRowStatus.setDescription("The status of this conceptual row.\n\n                 When the value of this object is 'active', then\n                 the value of tePathName cannot be changed.  All\n                 other writable objects may be changed; however,\n                 these changes may affect traffic going over the TE\n                 tunnel or require the path to be computed and/or\n                 re-signaled.\n                ")
-tePathStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 3, 1, 4), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tePathStorageType.setDescription("The storage type for this conceptual row.\n\n                 Conceptual rows having the value 'permanent' need\n                 not allow write-access to any columnar objects\n                 in the row.\n                ")
-tePathType = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("other", 1), ("primary", 2), ("standby", 3), ("secondary", 4),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tePathType.setDescription('The type for this PathEntry; i.e., whether this path\n                 is a primary path, a standby path, or a secondary\n                 path.\n                ')
-tePathConfiguredRoute = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 3, 1, 6), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tePathConfiguredRoute.setDescription('The route that this TE path is configured to follow;\n                 i.e., an ordered list of hops.  The value of this\n                 object gives the primary index into the Hop Table.\n                 The secondary index is the hop count in the path, so\n                 to get the route, one could get the first hop with\n                 index <tePathConfiguredRoute, 1> in the Hop Table\n                 and do a getnext to get subsequent hops.\n                ')
-tePathBandwidth = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 3, 1, 7), MplsBitRate()).setUnits('Kilobits per second').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tePathBandwidth.setDescription('The configured bandwidth for this Tunnel,\n                 in units of thousands of bits per second (Kbps).\n                ')
-tePathIncludeAny = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 3, 1, 8), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tePathIncludeAny.setDescription('This is a configured set of administrative groups\n                 specified as a bit vector (i.e., bit n is 1 if group\n\n\n\n                 n is in the set, where n = 0 is the LSB).  For each\n                 link that this path goes through, the link must have\n                 at least one of the groups specified in IncludeAny\n                 to be acceptable.  If IncludeAny is zero, all links\n                 are acceptable.\n                ')
-tePathIncludeAll = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 3, 1, 9), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tePathIncludeAll.setDescription('This is a configured set of administrative groups\n                 specified as a bit vector (i.e., bit n is 1 if group\n                 n is in the set, where n = 0 is the LSB).  For each\n                 link that this path goes through, the link must have\n                 all of the groups specified in IncludeAll to be\n                 acceptable.  If IncludeAll is zero, all links are\n                 acceptable.\n                ')
-tePathExclude = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 3, 1, 10), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tePathExclude.setDescription("This is a configured set of administrative groups\n                 specified as a bit vector (i.e., bit n is 1 if group\n                 n is in the set, where n = 0 is the LSB).  For each\n                 link that this path goes through, the link MUST have\n                 groups associated with it, and the intersection of\n                 the link's groups and the 'exclude' set MUST be\n                 null.\n                ")
-tePathSetupPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 3, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,7)).clone(7)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tePathSetupPriority.setDescription('The setup priority configured for this path, with 0\n                 as the highest priority and 7 as the lowest.\n                ')
-tePathHoldPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 3, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tePathHoldPriority.setDescription('The hold priority configured for this path, with 0\n                 as the highest priority and 7 as the lowest.\n                ')
-tePathProperties = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 3, 1, 13), Bits().clone(namedValues=NamedValues(("recordRoute", 0), ("cspf", 1), ("makeBeforeBreak", 2), ("mergeable", 3), ("fastReroute", 4), ("protected", 5),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tePathProperties.setDescription("The set of configured properties for this path,\n                 expressed as a bit map.  For example, if the path\n                 supports 'make before break', then bit 2 is set.\n                ")
-tePathOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 3, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("unknown", 0), ("down", 1), ("testing", 2), ("dormant", 3), ("ready", 4), ("operational", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tePathOperStatus.setDescription('The operational status of the path:\n                 unknown:\n                 down:        Signaling failed.\n                 testing:     Administratively set aside for testing.\n                 dormant:     Not signaled (for a backup tunnel).\n                 ready:       Signaled but not yet carrying traffic.\n                 operational: Signaled and carrying traffic.\n                ')
-tePathAdminStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 3, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("normal", 1), ("testing", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tePathAdminStatus.setDescription('The operational status of the path:\n                 normal:      Used normally for forwarding.\n                 testing:     Administratively set aside for testing.\n                ')
-tePathComputedRoute = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 3, 1, 16), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tePathComputedRoute.setDescription('The route computed for this path, perhaps using\n                 some form of Constraint-based Routing.  The\n                 algorithm is implementation dependent.\n\n                 This object returns the computed route as an ordered\n                 list of hops.  The value of this object gives the\n                 primary index into the Hop Table.  The secondary\n                 index is the hop count in the path, so to get the\n                 route, one could get the first hop with index\n                 <tePathComputedRoute, 1> in the Hop Table and do a\n                 getnext to get subsequent hops.\n\n                 A value of zero (0) means there is no computedRoute.\n                ')
-tePathRecordedRoute = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 3, 1, 17), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tePathRecordedRoute.setDescription('The route actually used for this path, as recorded\n                 by the signaling protocol.  This is again an ordered\n                 list of hops; each hop is expected to be strict.\n\n                 The value of this object gives the primary index\n                 into the Hop Table.  The secondary index is the hop\n                 count in the path, so to get the route, one can get\n                 the first hop with index <tePathRecordedRoute, 1>\n                 in the Hop Table and do a getnext to get subsequent\n\n\n\n                 hops.\n\n                 A value of zero (0) means there is no recordedRoute.\n                ')
-tePathHopTable = MibTable((1, 3, 6, 1, 2, 1, 122, 1, 4), )
-if mibBuilder.loadTexts: tePathHopTable.setDescription('Table of Tunnel Path Hops.')
-tePathHopEntry = MibTableRow((1, 3, 6, 1, 2, 1, 122, 1, 4, 1), ).setIndexNames((0, "TE-MIB", "teHopListIndex"), (0, "TE-MIB", "tePathHopIndex"))
-if mibBuilder.loadTexts: tePathHopEntry.setDescription('Entry containing information about a particular\n                 hop.\n                ')
-teHopListIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 4, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: teHopListIndex.setDescription('An index that identifies a list of hops.  This is\n                 the primary index to access hops.\n                ')
-tePathHopIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 4, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: tePathHopIndex.setDescription('An index that identifies a particular hop among the\n                 list of hops for a path.  An index of i identifies\n                 the ith hop.  This is the secondary index for a hop\n                 entry.\n                ')
-tePathHopRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 4, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tePathHopRowStatus.setDescription("The status of this conceptual row.\n\n                 Any field in this table can be changed, even if the\n                 value of this object is 'active'.  However, such a\n                 change may cause traffic to be rerouted or even\n                 disrupted.\n                ")
-tePathHopStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 4, 1, 4), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tePathHopStorageType.setDescription("The storage type for this conceptual row.\n\n                 Conceptual rows having the value 'permanent' need\n                 not allow write-access to any columnar objects\n                 in the row.\n                ")
-tePathHopAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 4, 1, 5), TeHopAddressType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tePathHopAddrType.setDescription("The type of Traffic Engineered Tunnel hop Address\n                 of this hop.\n\n                 The value of this object cannot be changed\n                 if the value of the corresponding tePathRowStatus\n                 object is 'active'.\n                ")
-tePathHopAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 4, 1, 6), TeHopAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tePathHopAddress.setDescription("The Traffic Engineered Tunnel hop Address of this\n                 hop.\n\n                 The type of this address is determined by the value\n                 of the corresponding tePathHopAddressType.\n\n                 The value of this object cannot be changed\n                 if the value of the corresponding teTunnelRowStatus\n                 object is 'active'.\n                ")
-tePathHopType = MibTableColumn((1, 3, 6, 1, 2, 1, 122, 1, 4, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2,))).clone(namedValues=NamedValues(("unknown", 0), ("loose", 1), ("strict", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tePathHopType.setDescription('The type of hop:\n                 unknown:\n                 loose:    This hop is a LOOSE hop.\n                 strict:   This hop is a STRICT hop.\n                ')
-teTunnelUp = NotificationType((1, 3, 6, 1, 2, 1, 122, 0, 1)).setObjects(*(("TE-MIB", "teTunnelName"), ("TE-MIB", "tePathName"),))
-if mibBuilder.loadTexts: teTunnelUp.setDescription("A teTunnelUp notification is generated when the\n                 Tunnel indexed by teTunnelName transitions to the\n                 'up' state.\n\n                 A tunnel is up when at least one of its paths is up.\n                 The tePathName is the name of the path whose\n                 transition to up made the tunnel go up.\n\n\n\n\n                 This notification MUST be limited to at most one\n                 every minute, in case the tunnel flaps up and down.\n                ")
-teTunnelDown = NotificationType((1, 3, 6, 1, 2, 1, 122, 0, 2)).setObjects(*(("TE-MIB", "teTunnelName"), ("TE-MIB", "tePathName"),))
-if mibBuilder.loadTexts: teTunnelDown.setDescription("A teTunnelDown notification is generated when the\n                 Tunnel indexed by teTunnelName transitions to the\n                 'down' state.\n\n                 A tunnel is up when at least one of its paths is up.\n                 The tePathName is the name of the path whose\n                 transition to down made the tunnel go down.\n\n                 This notification MUST be limited to at most one\n                 every minute, in case the tunnel flaps up and down.\n                ")
-teTunnelChanged = NotificationType((1, 3, 6, 1, 2, 1, 122, 0, 3)).setObjects(*(("TE-MIB", "teTunnelName"), ("TE-MIB", "tePathName"),))
-if mibBuilder.loadTexts: teTunnelChanged.setDescription('A teTunnelChanged notification is generated when an\n                 active path on the Tunnel indexed by teTunnelName\n                 changes or a new path becomes active.  The value\n                 of tePathName is the new active path.\n\n                 This notification MUST be limited to at most one\n                 every minute, in case the tunnel changes quickly.\n                ')
-teTunnelRerouted = NotificationType((1, 3, 6, 1, 2, 1, 122, 0, 4)).setObjects(*(("TE-MIB", "teTunnelName"), ("TE-MIB", "tePathName"),))
-if mibBuilder.loadTexts: teTunnelRerouted.setDescription('A teTunnelRerouted notification is generated when\n                 an active path for the Tunnel indexed by\n                 teTunnelName stays the same, but its route changes.\n\n                 This notification MUST be limited to at most one\n                 every minute, in case the tunnel reroutes quickly.\n                ')
-teGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 122, 2, 1))
-teModuleCompliance = MibIdentifier((1, 3, 6, 1, 2, 1, 122, 2, 2))
-teTrafficEngineeringGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 122, 2, 1, 1)).setObjects(*(("TE-MIB", "teTunnelName"), ("TE-MIB", "teTunnelNextPathIndex"), ("TE-MIB", "teTunnelRowStatus"), ("TE-MIB", "teTunnelStorageType"), ("TE-MIB", "teTunnelSourceAddressType"), ("TE-MIB", "teTunnelSourceAddress"), ("TE-MIB", "teTunnelDestinationAddressType"), ("TE-MIB", "teTunnelDestinationAddress"), ("TE-MIB", "teTunnelState"), ("TE-MIB", "teTunnelDiscontinuityTimer"), ("TE-MIB", "teTunnelOctets"), ("TE-MIB", "teTunnelPackets"), ("TE-MIB", "teTunnelLPOctets"), ("TE-MIB", "teTunnelLPPackets"), ("TE-MIB", "teTunnelAge"), ("TE-MIB", "teTunnelTimeUp"), ("TE-MIB", "teTunnelPrimaryTimeUp"), ("TE-MIB", "teTunnelTransitions"), ("TE-MIB", "teTunnelLastTransition"), ("TE-MIB", "teTunnelPathChanges"), ("TE-MIB", "teTunnelLastPathChange"), ("TE-MIB", "teTunnelConfiguredPaths"), ("TE-MIB", "teTunnelStandbyPaths"), ("TE-MIB", "teTunnelOperationalPaths"), ("TE-MIB", "tePathBandwidth"), ("TE-MIB", "tePathIncludeAny"), ("TE-MIB", "tePathIncludeAll"), ("TE-MIB", "tePathExclude"), ("TE-MIB", "tePathSetupPriority"), ("TE-MIB", "tePathHoldPriority"), ("TE-MIB", "tePathProperties"), ("TE-MIB", "tePathOperStatus"), ("TE-MIB", "tePathAdminStatus"), ("TE-MIB", "tePathComputedRoute"), ("TE-MIB", "tePathRecordedRoute"), ("TE-MIB", "teDistProtocol"), ("TE-MIB", "teSignalingProto"), ("TE-MIB", "teNotificationEnable"), ("TE-MIB", "teNextTunnelIndex"), ("TE-MIB", "teNextPathHopIndex"), ("TE-MIB", "teAdminGroupName"), ("TE-MIB", "teAdminGroupRowStatus"), ("TE-MIB", "teConfiguredTunnels"), ("TE-MIB", "teActiveTunnels"), ("TE-MIB", "tePrimaryTunnels"), ("TE-MIB", "tePathName"), ("TE-MIB", "tePathType"), ("TE-MIB", "tePathRowStatus"), ("TE-MIB", "tePathStorageType"), ("TE-MIB", "tePathConfiguredRoute"), ("TE-MIB", "tePathHopRowStatus"), ("TE-MIB", "tePathHopStorageType"), ("TE-MIB", "tePathHopAddrType"), ("TE-MIB", "tePathHopAddress"), ("TE-MIB", "tePathHopType"),))
-if mibBuilder.loadTexts: teTrafficEngineeringGroup.setDescription('Objects for Traffic Engineering in this MIB module.')
-teNotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 122, 2, 1, 2)).setObjects(*(("TE-MIB", "teTunnelUp"), ("TE-MIB", "teTunnelDown"), ("TE-MIB", "teTunnelChanged"), ("TE-MIB", "teTunnelRerouted"),))
-if mibBuilder.loadTexts: teNotificationGroup.setDescription('Notifications specified in this MIB module.')
-teModuleReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 122, 2, 2, 1)).setObjects(*(("TE-MIB", "teTrafficEngineeringGroup"), ("TE-MIB", "teNotificationGroup"),))
-if mibBuilder.loadTexts: teModuleReadOnlyCompliance.setDescription('When this MIB module is implemented without support\n                 for read-create (i.e., in read-only mode), then such\n                 an implementation can claim read-only compliance.\n                 Such a device can be monitored but cannot be\n                 configured with this MIB module.\n                ')
-teModuleFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 122, 2, 2, 2)).setObjects(*(("TE-MIB", "teTrafficEngineeringGroup"), ("TE-MIB", "teNotificationGroup"),))
-if mibBuilder.loadTexts: teModuleFullCompliance.setDescription('When this MIB module is implemented with support for\n                 read-create, then the implementation can claim\n                 full compliance.  Such devices can be both\n\n\n\n                 monitored and configured with this MIB module.\n                ')
-teModuleServerReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 122, 2, 2, 3)).setObjects(*(("TE-MIB", "teTrafficEngineeringGroup"), ("TE-MIB", "teNotificationGroup"),))
-if mibBuilder.loadTexts: teModuleServerReadOnlyCompliance.setDescription('When this MIB module is implemented by a path\n                 computation server without support for read-create\n                 (i.e., in read-only mode), then the implementation\n                 can claim read-only compliance.  Such\n                 a device can be monitored but cannot be\n                 configured with this MIB module.\n                ')
-teModuleServerFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 122, 2, 2, 4)).setObjects(*(("TE-MIB", "teTrafficEngineeringGroup"), ("TE-MIB", "teNotificationGroup"),))
-if mibBuilder.loadTexts: teModuleServerFullCompliance.setDescription('When this MIB module is implemented by a path\n                 computation server with support for read-create,\n                 then the implementation can claim full\n                 compliance.\n                ')
-mibBuilder.exportSymbols("TE-MIB", teMIBObjects=teMIBObjects, teTunnelPrimaryTimeUp=teTunnelPrimaryTimeUp, tePathComputedRoute=tePathComputedRoute, teMIBNotifications=teMIBNotifications, teTunnelTimeUp=teTunnelTimeUp, teTunnelStandbyPaths=teTunnelStandbyPaths, teTunnelDestinationAddressType=teTunnelDestinationAddressType, tePathHopAddrType=tePathHopAddrType, tePathEntry=tePathEntry, tePathSetupPriority=tePathSetupPriority, tePathHoldPriority=tePathHoldPriority, teTunnelPackets=teTunnelPackets, teSignalingProto=teSignalingProto, teTunnelState=teTunnelState, teTunnelEntry=teTunnelEntry, teTunnelLPOctets=teTunnelLPOctets, tePathStorageType=tePathStorageType, tePathType=tePathType, tePathHopIndex=tePathHopIndex, teTunnelPathChanges=teTunnelPathChanges, teModuleServerFullCompliance=teModuleServerFullCompliance, tePathHopAddress=tePathHopAddress, teTunnelLastTransition=teTunnelLastTransition, tePathTable=tePathTable, teTunnelLastPathChange=teTunnelLastPathChange, teMIBConformance=teMIBConformance, teTunnelLPPackets=teTunnelLPPackets, teTunnelIndex=teTunnelIndex, teTunnelAge=teTunnelAge, teTunnelConfiguredPaths=teTunnelConfiguredPaths, teAdminGroupTable=teAdminGroupTable, teTunnelTransitions=teTunnelTransitions, teTunnelTable=teTunnelTable, tePathHopRowStatus=tePathHopRowStatus, tePrimaryTunnels=tePrimaryTunnels, teTunnelOctets=teTunnelOctets, tePathName=tePathName, PYSNMP_MODULE_ID=teMIB, teNotificationGroup=teNotificationGroup, teTrafficEngineeringGroup=teTrafficEngineeringGroup, teTunnelSourceAddress=teTunnelSourceAddress, teTunnelSourceAddressType=teTunnelSourceAddressType, teGroups=teGroups, teTunnelUp=teTunnelUp, teActiveTunnels=teActiveTunnels, tePathHopTable=tePathHopTable, tePathHopType=tePathHopType, tePathProperties=tePathProperties, teTunnelDestinationAddress=teTunnelDestinationAddress, teInfo=teInfo, teModuleServerReadOnlyCompliance=teModuleServerReadOnlyCompliance, teHopListIndex=teHopListIndex, teAdminGroupNumber=teAdminGroupNumber, teTunnelStorageType=teTunnelStorageType, teModuleCompliance=teModuleCompliance, tePathHopEntry=tePathHopEntry, teAdminGroupEntry=teAdminGroupEntry, tePathAdminStatus=tePathAdminStatus, teNextPathHopIndex=teNextPathHopIndex, teMIB=teMIB, teModuleReadOnlyCompliance=teModuleReadOnlyCompliance, teAdminGroupRowStatus=teAdminGroupRowStatus, teTunnelRowStatus=teTunnelRowStatus, teTunnelNextPathIndex=teTunnelNextPathIndex, tePathIncludeAny=tePathIncludeAny, tePathIndex=tePathIndex, tePathExclude=tePathExclude, teDistProtocol=teDistProtocol, teNotificationEnable=teNotificationEnable, tePathOperStatus=tePathOperStatus, tePathRecordedRoute=tePathRecordedRoute, teAdminGroupName=teAdminGroupName, tePathRowStatus=tePathRowStatus, teConfiguredTunnels=teConfiguredTunnels, tePathIncludeAll=tePathIncludeAll, teModuleFullCompliance=teModuleFullCompliance, teTunnelDiscontinuityTimer=teTunnelDiscontinuityTimer, teTunnelOperationalPaths=teTunnelOperationalPaths, teTunnelChanged=teTunnelChanged, teTunnelDown=teTunnelDown, tePathHopStorageType=tePathHopStorageType, teTunnelName=teTunnelName, teNextTunnelIndex=teNextTunnelIndex, teTunnelRerouted=teTunnelRerouted, tePathBandwidth=tePathBandwidth, tePathConfiguredRoute=tePathConfiguredRoute)
+_AR='teTunnelRerouted'
+_AQ='teTunnelChanged'
+_AP='teTunnelDown'
+_AO='teTunnelUp'
+_AN='tePathHopType'
+_AM='tePathHopAddress'
+_AL='tePathHopAddrType'
+_AK='tePathHopStorageType'
+_AJ='tePathHopRowStatus'
+_AI='tePathConfiguredRoute'
+_AH='tePathStorageType'
+_AG='tePathRowStatus'
+_AF='tePathType'
+_AE='tePrimaryTunnels'
+_AD='teActiveTunnels'
+_AC='teConfiguredTunnels'
+_AB='teAdminGroupRowStatus'
+_AA='teAdminGroupName'
+_A9='teNextPathHopIndex'
+_A8='teNextTunnelIndex'
+_A7='teNotificationEnable'
+_A6='teSignalingProto'
+_A5='teDistProtocol'
+_A4='tePathRecordedRoute'
+_A3='tePathComputedRoute'
+_A2='tePathAdminStatus'
+_A1='tePathOperStatus'
+_A0='tePathProperties'
+_z='tePathHoldPriority'
+_y='tePathSetupPriority'
+_x='tePathExclude'
+_w='tePathIncludeAll'
+_v='tePathIncludeAny'
+_u='tePathBandwidth'
+_t='teTunnelOperationalPaths'
+_s='teTunnelStandbyPaths'
+_r='teTunnelConfiguredPaths'
+_q='teTunnelLastPathChange'
+_p='teTunnelPathChanges'
+_o='teTunnelLastTransition'
+_n='teTunnelTransitions'
+_m='teTunnelPrimaryTimeUp'
+_l='teTunnelTimeUp'
+_k='teTunnelAge'
+_j='teTunnelLPPackets'
+_i='teTunnelLPOctets'
+_h='teTunnelPackets'
+_g='teTunnelOctets'
+_f='teTunnelDiscontinuityTimer'
+_e='teTunnelState'
+_d='teTunnelDestinationAddress'
+_c='teTunnelDestinationAddressType'
+_b='teTunnelSourceAddress'
+_a='teTunnelSourceAddressType'
+_Z='teTunnelStorageType'
+_Y='teTunnelRowStatus'
+_X='teTunnelNextPathIndex'
+_W='tePathHopIndex'
+_V='teHopListIndex'
+_U='tePathIndex'
+_T='teAdminGroupNumber'
+_S='TruthValue'
+_R='MplsBitRate'
+_Q='testing'
+_P='unknown'
+_O='teTunnelIndex'
+_N='other'
+_M='Bits'
+_L='SnmpAdminString'
+_K='teNotificationGroup'
+_J='teTrafficEngineeringGroup'
+_I='not-accessible'
+_H='tePathName'
+_G='teTunnelName'
+_F='Unsigned32'
+_E='Integer32'
+_D='read-create'
+_C='read-only'
+_B='current'
+_A='TE-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+MplsBitRate,TeHopAddress,TeHopAddressType=mibBuilder.importSymbols('MPLS-TC-STD-MIB',_R,'TeHopAddress','TeHopAddressType')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_L)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI',_M,'Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'iso','mib-2')
+DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','StorageType','TextualConvention','TimeStamp',_S)
+teMIB=ModuleIdentity((1,3,6,1,2,1,122))
+if mibBuilder.loadTexts:teMIB.setRevisions(('2005-01-04 00:00',))
+_TeMIBNotifications_ObjectIdentity=ObjectIdentity
+teMIBNotifications=_TeMIBNotifications_ObjectIdentity((1,3,6,1,2,1,122,0))
+_TeMIBObjects_ObjectIdentity=ObjectIdentity
+teMIBObjects=_TeMIBObjects_ObjectIdentity((1,3,6,1,2,1,122,1))
+_TeInfo_ObjectIdentity=ObjectIdentity
+teInfo=_TeInfo_ObjectIdentity((1,3,6,1,2,1,122,1,1))
+class _TeDistProtocol_Type(Bits):namedValues=NamedValues(*((_N,0),('isis',1),('ospf',2)))
+_TeDistProtocol_Type.__name__=_M
+_TeDistProtocol_Object=MibScalar
+teDistProtocol=_TeDistProtocol_Object((1,3,6,1,2,1,122,1,1,1),_TeDistProtocol_Type())
+teDistProtocol.setMaxAccess(_C)
+if mibBuilder.loadTexts:teDistProtocol.setStatus(_B)
+class _TeSignalingProto_Type(Bits):namedValues=NamedValues(*((_N,0),('rsvpte',1),('crldp',2),('static',3)))
+_TeSignalingProto_Type.__name__=_M
+_TeSignalingProto_Object=MibScalar
+teSignalingProto=_TeSignalingProto_Object((1,3,6,1,2,1,122,1,1,2),_TeSignalingProto_Type())
+teSignalingProto.setMaxAccess(_C)
+if mibBuilder.loadTexts:teSignalingProto.setStatus(_B)
+class _TeNotificationEnable_Type(TruthValue):defaultValue=2
+_TeNotificationEnable_Type.__name__=_S
+_TeNotificationEnable_Object=MibScalar
+teNotificationEnable=_TeNotificationEnable_Object((1,3,6,1,2,1,122,1,1,3),_TeNotificationEnable_Type())
+teNotificationEnable.setMaxAccess('read-write')
+if mibBuilder.loadTexts:teNotificationEnable.setStatus(_B)
+_TeNextTunnelIndex_Type=Unsigned32
+_TeNextTunnelIndex_Object=MibScalar
+teNextTunnelIndex=_TeNextTunnelIndex_Object((1,3,6,1,2,1,122,1,1,4),_TeNextTunnelIndex_Type())
+teNextTunnelIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:teNextTunnelIndex.setStatus(_B)
+_TeNextPathHopIndex_Type=Unsigned32
+_TeNextPathHopIndex_Object=MibScalar
+teNextPathHopIndex=_TeNextPathHopIndex_Object((1,3,6,1,2,1,122,1,1,5),_TeNextPathHopIndex_Type())
+teNextPathHopIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:teNextPathHopIndex.setStatus(_B)
+_TeConfiguredTunnels_Type=Gauge32
+_TeConfiguredTunnels_Object=MibScalar
+teConfiguredTunnels=_TeConfiguredTunnels_Object((1,3,6,1,2,1,122,1,1,6),_TeConfiguredTunnels_Type())
+teConfiguredTunnels.setMaxAccess(_C)
+if mibBuilder.loadTexts:teConfiguredTunnels.setStatus(_B)
+_TeActiveTunnels_Type=Gauge32
+_TeActiveTunnels_Object=MibScalar
+teActiveTunnels=_TeActiveTunnels_Object((1,3,6,1,2,1,122,1,1,7),_TeActiveTunnels_Type())
+teActiveTunnels.setMaxAccess(_C)
+if mibBuilder.loadTexts:teActiveTunnels.setStatus(_B)
+_TePrimaryTunnels_Type=Gauge32
+_TePrimaryTunnels_Object=MibScalar
+tePrimaryTunnels=_TePrimaryTunnels_Object((1,3,6,1,2,1,122,1,1,8),_TePrimaryTunnels_Type())
+tePrimaryTunnels.setMaxAccess(_C)
+if mibBuilder.loadTexts:tePrimaryTunnels.setStatus(_B)
+_TeAdminGroupTable_Object=MibTable
+teAdminGroupTable=_TeAdminGroupTable_Object((1,3,6,1,2,1,122,1,1,9))
+if mibBuilder.loadTexts:teAdminGroupTable.setStatus(_B)
+_TeAdminGroupEntry_Object=MibTableRow
+teAdminGroupEntry=_TeAdminGroupEntry_Object((1,3,6,1,2,1,122,1,1,9,1))
+teAdminGroupEntry.setIndexNames((0,_A,_T))
+if mibBuilder.loadTexts:teAdminGroupEntry.setStatus(_B)
+class _TeAdminGroupNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
+_TeAdminGroupNumber_Type.__name__=_E
+_TeAdminGroupNumber_Object=MibTableColumn
+teAdminGroupNumber=_TeAdminGroupNumber_Object((1,3,6,1,2,1,122,1,1,9,1,1),_TeAdminGroupNumber_Type())
+teAdminGroupNumber.setMaxAccess(_I)
+if mibBuilder.loadTexts:teAdminGroupNumber.setStatus(_B)
+class _TeAdminGroupName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_TeAdminGroupName_Type.__name__=_L
+_TeAdminGroupName_Object=MibTableColumn
+teAdminGroupName=_TeAdminGroupName_Object((1,3,6,1,2,1,122,1,1,9,1,2),_TeAdminGroupName_Type())
+teAdminGroupName.setMaxAccess(_D)
+if mibBuilder.loadTexts:teAdminGroupName.setStatus(_B)
+_TeAdminGroupRowStatus_Type=RowStatus
+_TeAdminGroupRowStatus_Object=MibTableColumn
+teAdminGroupRowStatus=_TeAdminGroupRowStatus_Object((1,3,6,1,2,1,122,1,1,9,1,3),_TeAdminGroupRowStatus_Type())
+teAdminGroupRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:teAdminGroupRowStatus.setStatus(_B)
+_TeTunnelTable_Object=MibTable
+teTunnelTable=_TeTunnelTable_Object((1,3,6,1,2,1,122,1,2))
+if mibBuilder.loadTexts:teTunnelTable.setStatus(_B)
+_TeTunnelEntry_Object=MibTableRow
+teTunnelEntry=_TeTunnelEntry_Object((1,3,6,1,2,1,122,1,2,1))
+teTunnelEntry.setIndexNames((0,_A,_O))
+if mibBuilder.loadTexts:teTunnelEntry.setStatus(_B)
+class _TeTunnelIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_TeTunnelIndex_Type.__name__=_F
+_TeTunnelIndex_Object=MibTableColumn
+teTunnelIndex=_TeTunnelIndex_Object((1,3,6,1,2,1,122,1,2,1,1),_TeTunnelIndex_Type())
+teTunnelIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:teTunnelIndex.setStatus(_B)
+class _TeTunnelName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_TeTunnelName_Type.__name__=_L
+_TeTunnelName_Object=MibTableColumn
+teTunnelName=_TeTunnelName_Object((1,3,6,1,2,1,122,1,2,1,2),_TeTunnelName_Type())
+teTunnelName.setMaxAccess(_D)
+if mibBuilder.loadTexts:teTunnelName.setStatus(_B)
+_TeTunnelNextPathIndex_Type=Unsigned32
+_TeTunnelNextPathIndex_Object=MibTableColumn
+teTunnelNextPathIndex=_TeTunnelNextPathIndex_Object((1,3,6,1,2,1,122,1,2,1,3),_TeTunnelNextPathIndex_Type())
+teTunnelNextPathIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:teTunnelNextPathIndex.setStatus(_B)
+_TeTunnelRowStatus_Type=RowStatus
+_TeTunnelRowStatus_Object=MibTableColumn
+teTunnelRowStatus=_TeTunnelRowStatus_Object((1,3,6,1,2,1,122,1,2,1,4),_TeTunnelRowStatus_Type())
+teTunnelRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:teTunnelRowStatus.setStatus(_B)
+_TeTunnelStorageType_Type=StorageType
+_TeTunnelStorageType_Object=MibTableColumn
+teTunnelStorageType=_TeTunnelStorageType_Object((1,3,6,1,2,1,122,1,2,1,5),_TeTunnelStorageType_Type())
+teTunnelStorageType.setMaxAccess(_D)
+if mibBuilder.loadTexts:teTunnelStorageType.setStatus(_B)
+_TeTunnelSourceAddressType_Type=TeHopAddressType
+_TeTunnelSourceAddressType_Object=MibTableColumn
+teTunnelSourceAddressType=_TeTunnelSourceAddressType_Object((1,3,6,1,2,1,122,1,2,1,6),_TeTunnelSourceAddressType_Type())
+teTunnelSourceAddressType.setMaxAccess(_D)
+if mibBuilder.loadTexts:teTunnelSourceAddressType.setStatus(_B)
+_TeTunnelSourceAddress_Type=TeHopAddress
+_TeTunnelSourceAddress_Object=MibTableColumn
+teTunnelSourceAddress=_TeTunnelSourceAddress_Object((1,3,6,1,2,1,122,1,2,1,7),_TeTunnelSourceAddress_Type())
+teTunnelSourceAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:teTunnelSourceAddress.setStatus(_B)
+_TeTunnelDestinationAddressType_Type=TeHopAddressType
+_TeTunnelDestinationAddressType_Object=MibTableColumn
+teTunnelDestinationAddressType=_TeTunnelDestinationAddressType_Object((1,3,6,1,2,1,122,1,2,1,8),_TeTunnelDestinationAddressType_Type())
+teTunnelDestinationAddressType.setMaxAccess(_D)
+if mibBuilder.loadTexts:teTunnelDestinationAddressType.setStatus(_B)
+_TeTunnelDestinationAddress_Type=TeHopAddress
+_TeTunnelDestinationAddress_Object=MibTableColumn
+teTunnelDestinationAddress=_TeTunnelDestinationAddress_Object((1,3,6,1,2,1,122,1,2,1,9),_TeTunnelDestinationAddress_Type())
+teTunnelDestinationAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:teTunnelDestinationAddress.setStatus(_B)
+class _TeTunnelState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_P,1),('up',2),('down',3),(_Q,4)))
+_TeTunnelState_Type.__name__=_E
+_TeTunnelState_Object=MibTableColumn
+teTunnelState=_TeTunnelState_Object((1,3,6,1,2,1,122,1,2,1,10),_TeTunnelState_Type())
+teTunnelState.setMaxAccess(_C)
+if mibBuilder.loadTexts:teTunnelState.setStatus(_B)
+_TeTunnelDiscontinuityTimer_Type=TimeStamp
+_TeTunnelDiscontinuityTimer_Object=MibTableColumn
+teTunnelDiscontinuityTimer=_TeTunnelDiscontinuityTimer_Object((1,3,6,1,2,1,122,1,2,1,11),_TeTunnelDiscontinuityTimer_Type())
+teTunnelDiscontinuityTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:teTunnelDiscontinuityTimer.setStatus(_B)
+_TeTunnelOctets_Type=Counter64
+_TeTunnelOctets_Object=MibTableColumn
+teTunnelOctets=_TeTunnelOctets_Object((1,3,6,1,2,1,122,1,2,1,12),_TeTunnelOctets_Type())
+teTunnelOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:teTunnelOctets.setStatus(_B)
+_TeTunnelPackets_Type=Counter64
+_TeTunnelPackets_Object=MibTableColumn
+teTunnelPackets=_TeTunnelPackets_Object((1,3,6,1,2,1,122,1,2,1,13),_TeTunnelPackets_Type())
+teTunnelPackets.setMaxAccess(_C)
+if mibBuilder.loadTexts:teTunnelPackets.setStatus(_B)
+_TeTunnelLPOctets_Type=Counter32
+_TeTunnelLPOctets_Object=MibTableColumn
+teTunnelLPOctets=_TeTunnelLPOctets_Object((1,3,6,1,2,1,122,1,2,1,14),_TeTunnelLPOctets_Type())
+teTunnelLPOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:teTunnelLPOctets.setStatus(_B)
+_TeTunnelLPPackets_Type=Counter32
+_TeTunnelLPPackets_Object=MibTableColumn
+teTunnelLPPackets=_TeTunnelLPPackets_Object((1,3,6,1,2,1,122,1,2,1,15),_TeTunnelLPPackets_Type())
+teTunnelLPPackets.setMaxAccess(_C)
+if mibBuilder.loadTexts:teTunnelLPPackets.setStatus(_B)
+_TeTunnelAge_Type=TimeTicks
+_TeTunnelAge_Object=MibTableColumn
+teTunnelAge=_TeTunnelAge_Object((1,3,6,1,2,1,122,1,2,1,16),_TeTunnelAge_Type())
+teTunnelAge.setMaxAccess(_C)
+if mibBuilder.loadTexts:teTunnelAge.setStatus(_B)
+_TeTunnelTimeUp_Type=TimeTicks
+_TeTunnelTimeUp_Object=MibTableColumn
+teTunnelTimeUp=_TeTunnelTimeUp_Object((1,3,6,1,2,1,122,1,2,1,17),_TeTunnelTimeUp_Type())
+teTunnelTimeUp.setMaxAccess(_C)
+if mibBuilder.loadTexts:teTunnelTimeUp.setStatus(_B)
+_TeTunnelPrimaryTimeUp_Type=TimeTicks
+_TeTunnelPrimaryTimeUp_Object=MibTableColumn
+teTunnelPrimaryTimeUp=_TeTunnelPrimaryTimeUp_Object((1,3,6,1,2,1,122,1,2,1,18),_TeTunnelPrimaryTimeUp_Type())
+teTunnelPrimaryTimeUp.setMaxAccess(_C)
+if mibBuilder.loadTexts:teTunnelPrimaryTimeUp.setStatus(_B)
+_TeTunnelTransitions_Type=Counter32
+_TeTunnelTransitions_Object=MibTableColumn
+teTunnelTransitions=_TeTunnelTransitions_Object((1,3,6,1,2,1,122,1,2,1,19),_TeTunnelTransitions_Type())
+teTunnelTransitions.setMaxAccess(_C)
+if mibBuilder.loadTexts:teTunnelTransitions.setStatus(_B)
+_TeTunnelLastTransition_Type=TimeTicks
+_TeTunnelLastTransition_Object=MibTableColumn
+teTunnelLastTransition=_TeTunnelLastTransition_Object((1,3,6,1,2,1,122,1,2,1,20),_TeTunnelLastTransition_Type())
+teTunnelLastTransition.setMaxAccess(_C)
+if mibBuilder.loadTexts:teTunnelLastTransition.setStatus(_B)
+_TeTunnelPathChanges_Type=Counter32
+_TeTunnelPathChanges_Object=MibTableColumn
+teTunnelPathChanges=_TeTunnelPathChanges_Object((1,3,6,1,2,1,122,1,2,1,21),_TeTunnelPathChanges_Type())
+teTunnelPathChanges.setMaxAccess(_C)
+if mibBuilder.loadTexts:teTunnelPathChanges.setStatus(_B)
+_TeTunnelLastPathChange_Type=TimeTicks
+_TeTunnelLastPathChange_Object=MibTableColumn
+teTunnelLastPathChange=_TeTunnelLastPathChange_Object((1,3,6,1,2,1,122,1,2,1,22),_TeTunnelLastPathChange_Type())
+teTunnelLastPathChange.setMaxAccess(_C)
+if mibBuilder.loadTexts:teTunnelLastPathChange.setStatus(_B)
+_TeTunnelConfiguredPaths_Type=Gauge32
+_TeTunnelConfiguredPaths_Object=MibTableColumn
+teTunnelConfiguredPaths=_TeTunnelConfiguredPaths_Object((1,3,6,1,2,1,122,1,2,1,23),_TeTunnelConfiguredPaths_Type())
+teTunnelConfiguredPaths.setMaxAccess(_C)
+if mibBuilder.loadTexts:teTunnelConfiguredPaths.setStatus(_B)
+_TeTunnelStandbyPaths_Type=Gauge32
+_TeTunnelStandbyPaths_Object=MibTableColumn
+teTunnelStandbyPaths=_TeTunnelStandbyPaths_Object((1,3,6,1,2,1,122,1,2,1,24),_TeTunnelStandbyPaths_Type())
+teTunnelStandbyPaths.setMaxAccess(_C)
+if mibBuilder.loadTexts:teTunnelStandbyPaths.setStatus(_B)
+_TeTunnelOperationalPaths_Type=Gauge32
+_TeTunnelOperationalPaths_Object=MibTableColumn
+teTunnelOperationalPaths=_TeTunnelOperationalPaths_Object((1,3,6,1,2,1,122,1,2,1,25),_TeTunnelOperationalPaths_Type())
+teTunnelOperationalPaths.setMaxAccess(_C)
+if mibBuilder.loadTexts:teTunnelOperationalPaths.setStatus(_B)
+_TePathTable_Object=MibTable
+tePathTable=_TePathTable_Object((1,3,6,1,2,1,122,1,3))
+if mibBuilder.loadTexts:tePathTable.setStatus(_B)
+_TePathEntry_Object=MibTableRow
+tePathEntry=_TePathEntry_Object((1,3,6,1,2,1,122,1,3,1))
+tePathEntry.setIndexNames((0,_A,_O),(0,_A,_U))
+if mibBuilder.loadTexts:tePathEntry.setStatus(_B)
+class _TePathIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_TePathIndex_Type.__name__=_F
+_TePathIndex_Object=MibTableColumn
+tePathIndex=_TePathIndex_Object((1,3,6,1,2,1,122,1,3,1,1),_TePathIndex_Type())
+tePathIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:tePathIndex.setStatus(_B)
+class _TePathName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_TePathName_Type.__name__=_L
+_TePathName_Object=MibTableColumn
+tePathName=_TePathName_Object((1,3,6,1,2,1,122,1,3,1,2),_TePathName_Type())
+tePathName.setMaxAccess(_D)
+if mibBuilder.loadTexts:tePathName.setStatus(_B)
+_TePathRowStatus_Type=RowStatus
+_TePathRowStatus_Object=MibTableColumn
+tePathRowStatus=_TePathRowStatus_Object((1,3,6,1,2,1,122,1,3,1,3),_TePathRowStatus_Type())
+tePathRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:tePathRowStatus.setStatus(_B)
+_TePathStorageType_Type=StorageType
+_TePathStorageType_Object=MibTableColumn
+tePathStorageType=_TePathStorageType_Object((1,3,6,1,2,1,122,1,3,1,4),_TePathStorageType_Type())
+tePathStorageType.setMaxAccess(_D)
+if mibBuilder.loadTexts:tePathStorageType.setStatus(_B)
+class _TePathType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_N,1),('primary',2),('standby',3),('secondary',4)))
+_TePathType_Type.__name__=_E
+_TePathType_Object=MibTableColumn
+tePathType=_TePathType_Object((1,3,6,1,2,1,122,1,3,1,5),_TePathType_Type())
+tePathType.setMaxAccess(_D)
+if mibBuilder.loadTexts:tePathType.setStatus(_B)
+_TePathConfiguredRoute_Type=Unsigned32
+_TePathConfiguredRoute_Object=MibTableColumn
+tePathConfiguredRoute=_TePathConfiguredRoute_Object((1,3,6,1,2,1,122,1,3,1,6),_TePathConfiguredRoute_Type())
+tePathConfiguredRoute.setMaxAccess(_D)
+if mibBuilder.loadTexts:tePathConfiguredRoute.setStatus(_B)
+class _TePathBandwidth_Type(MplsBitRate):defaultValue=0
+_TePathBandwidth_Type.__name__=_R
+_TePathBandwidth_Object=MibTableColumn
+tePathBandwidth=_TePathBandwidth_Object((1,3,6,1,2,1,122,1,3,1,7),_TePathBandwidth_Type())
+tePathBandwidth.setMaxAccess(_D)
+if mibBuilder.loadTexts:tePathBandwidth.setStatus(_B)
+if mibBuilder.loadTexts:tePathBandwidth.setUnits('Kilobits per second')
+class _TePathIncludeAny_Type(Unsigned32):defaultValue=0
+_TePathIncludeAny_Type.__name__=_F
+_TePathIncludeAny_Object=MibTableColumn
+tePathIncludeAny=_TePathIncludeAny_Object((1,3,6,1,2,1,122,1,3,1,8),_TePathIncludeAny_Type())
+tePathIncludeAny.setMaxAccess(_D)
+if mibBuilder.loadTexts:tePathIncludeAny.setStatus(_B)
+class _TePathIncludeAll_Type(Unsigned32):defaultValue=0
+_TePathIncludeAll_Type.__name__=_F
+_TePathIncludeAll_Object=MibTableColumn
+tePathIncludeAll=_TePathIncludeAll_Object((1,3,6,1,2,1,122,1,3,1,9),_TePathIncludeAll_Type())
+tePathIncludeAll.setMaxAccess(_D)
+if mibBuilder.loadTexts:tePathIncludeAll.setStatus(_B)
+class _TePathExclude_Type(Unsigned32):defaultValue=0
+_TePathExclude_Type.__name__=_F
+_TePathExclude_Object=MibTableColumn
+tePathExclude=_TePathExclude_Object((1,3,6,1,2,1,122,1,3,1,10),_TePathExclude_Type())
+tePathExclude.setMaxAccess(_D)
+if mibBuilder.loadTexts:tePathExclude.setStatus(_B)
+class _TePathSetupPriority_Type(Integer32):defaultValue=7;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
+_TePathSetupPriority_Type.__name__=_E
+_TePathSetupPriority_Object=MibTableColumn
+tePathSetupPriority=_TePathSetupPriority_Object((1,3,6,1,2,1,122,1,3,1,11),_TePathSetupPriority_Type())
+tePathSetupPriority.setMaxAccess(_D)
+if mibBuilder.loadTexts:tePathSetupPriority.setStatus(_B)
+class _TePathHoldPriority_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
+_TePathHoldPriority_Type.__name__=_E
+_TePathHoldPriority_Object=MibTableColumn
+tePathHoldPriority=_TePathHoldPriority_Object((1,3,6,1,2,1,122,1,3,1,12),_TePathHoldPriority_Type())
+tePathHoldPriority.setMaxAccess(_D)
+if mibBuilder.loadTexts:tePathHoldPriority.setStatus(_B)
+class _TePathProperties_Type(Bits):namedValues=NamedValues(*(('recordRoute',0),('cspf',1),('makeBeforeBreak',2),('mergeable',3),('fastReroute',4),('protected',5)))
+_TePathProperties_Type.__name__=_M
+_TePathProperties_Object=MibTableColumn
+tePathProperties=_TePathProperties_Object((1,3,6,1,2,1,122,1,3,1,13),_TePathProperties_Type())
+tePathProperties.setMaxAccess(_D)
+if mibBuilder.loadTexts:tePathProperties.setStatus(_B)
+class _TePathOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*((_P,0),('down',1),(_Q,2),('dormant',3),('ready',4),('operational',5)))
+_TePathOperStatus_Type.__name__=_E
+_TePathOperStatus_Object=MibTableColumn
+tePathOperStatus=_TePathOperStatus_Object((1,3,6,1,2,1,122,1,3,1,14),_TePathOperStatus_Type())
+tePathOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:tePathOperStatus.setStatus(_B)
+class _TePathAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('normal',1),(_Q,2)))
+_TePathAdminStatus_Type.__name__=_E
+_TePathAdminStatus_Object=MibTableColumn
+tePathAdminStatus=_TePathAdminStatus_Object((1,3,6,1,2,1,122,1,3,1,15),_TePathAdminStatus_Type())
+tePathAdminStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:tePathAdminStatus.setStatus(_B)
+_TePathComputedRoute_Type=Unsigned32
+_TePathComputedRoute_Object=MibTableColumn
+tePathComputedRoute=_TePathComputedRoute_Object((1,3,6,1,2,1,122,1,3,1,16),_TePathComputedRoute_Type())
+tePathComputedRoute.setMaxAccess(_C)
+if mibBuilder.loadTexts:tePathComputedRoute.setStatus(_B)
+_TePathRecordedRoute_Type=Unsigned32
+_TePathRecordedRoute_Object=MibTableColumn
+tePathRecordedRoute=_TePathRecordedRoute_Object((1,3,6,1,2,1,122,1,3,1,17),_TePathRecordedRoute_Type())
+tePathRecordedRoute.setMaxAccess(_C)
+if mibBuilder.loadTexts:tePathRecordedRoute.setStatus(_B)
+_TePathHopTable_Object=MibTable
+tePathHopTable=_TePathHopTable_Object((1,3,6,1,2,1,122,1,4))
+if mibBuilder.loadTexts:tePathHopTable.setStatus(_B)
+_TePathHopEntry_Object=MibTableRow
+tePathHopEntry=_TePathHopEntry_Object((1,3,6,1,2,1,122,1,4,1))
+tePathHopEntry.setIndexNames((0,_A,_V),(0,_A,_W))
+if mibBuilder.loadTexts:tePathHopEntry.setStatus(_B)
+class _TeHopListIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_TeHopListIndex_Type.__name__=_F
+_TeHopListIndex_Object=MibTableColumn
+teHopListIndex=_TeHopListIndex_Object((1,3,6,1,2,1,122,1,4,1,1),_TeHopListIndex_Type())
+teHopListIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:teHopListIndex.setStatus(_B)
+class _TePathHopIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_TePathHopIndex_Type.__name__=_F
+_TePathHopIndex_Object=MibTableColumn
+tePathHopIndex=_TePathHopIndex_Object((1,3,6,1,2,1,122,1,4,1,2),_TePathHopIndex_Type())
+tePathHopIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:tePathHopIndex.setStatus(_B)
+_TePathHopRowStatus_Type=RowStatus
+_TePathHopRowStatus_Object=MibTableColumn
+tePathHopRowStatus=_TePathHopRowStatus_Object((1,3,6,1,2,1,122,1,4,1,3),_TePathHopRowStatus_Type())
+tePathHopRowStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:tePathHopRowStatus.setStatus(_B)
+_TePathHopStorageType_Type=StorageType
+_TePathHopStorageType_Object=MibTableColumn
+tePathHopStorageType=_TePathHopStorageType_Object((1,3,6,1,2,1,122,1,4,1,4),_TePathHopStorageType_Type())
+tePathHopStorageType.setMaxAccess(_D)
+if mibBuilder.loadTexts:tePathHopStorageType.setStatus(_B)
+_TePathHopAddrType_Type=TeHopAddressType
+_TePathHopAddrType_Object=MibTableColumn
+tePathHopAddrType=_TePathHopAddrType_Object((1,3,6,1,2,1,122,1,4,1,5),_TePathHopAddrType_Type())
+tePathHopAddrType.setMaxAccess(_D)
+if mibBuilder.loadTexts:tePathHopAddrType.setStatus(_B)
+_TePathHopAddress_Type=TeHopAddress
+_TePathHopAddress_Object=MibTableColumn
+tePathHopAddress=_TePathHopAddress_Object((1,3,6,1,2,1,122,1,4,1,6),_TePathHopAddress_Type())
+tePathHopAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:tePathHopAddress.setStatus(_B)
+class _TePathHopType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_P,0),('loose',1),('strict',2)))
+_TePathHopType_Type.__name__=_E
+_TePathHopType_Object=MibTableColumn
+tePathHopType=_TePathHopType_Object((1,3,6,1,2,1,122,1,4,1,7),_TePathHopType_Type())
+tePathHopType.setMaxAccess(_C)
+if mibBuilder.loadTexts:tePathHopType.setStatus(_B)
+_TeMIBConformance_ObjectIdentity=ObjectIdentity
+teMIBConformance=_TeMIBConformance_ObjectIdentity((1,3,6,1,2,1,122,2))
+_TeGroups_ObjectIdentity=ObjectIdentity
+teGroups=_TeGroups_ObjectIdentity((1,3,6,1,2,1,122,2,1))
+_TeModuleCompliance_ObjectIdentity=ObjectIdentity
+teModuleCompliance=_TeModuleCompliance_ObjectIdentity((1,3,6,1,2,1,122,2,2))
+teTrafficEngineeringGroup=ObjectGroup((1,3,6,1,2,1,122,2,1,1))
+teTrafficEngineeringGroup.setObjects(*((_A,_G),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_H),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN)))
+if mibBuilder.loadTexts:teTrafficEngineeringGroup.setStatus(_B)
+teTunnelUp=NotificationType((1,3,6,1,2,1,122,0,1))
+teTunnelUp.setObjects(*((_A,_G),(_A,_H)))
+if mibBuilder.loadTexts:teTunnelUp.setStatus(_B)
+teTunnelDown=NotificationType((1,3,6,1,2,1,122,0,2))
+teTunnelDown.setObjects(*((_A,_G),(_A,_H)))
+if mibBuilder.loadTexts:teTunnelDown.setStatus(_B)
+teTunnelChanged=NotificationType((1,3,6,1,2,1,122,0,3))
+teTunnelChanged.setObjects(*((_A,_G),(_A,_H)))
+if mibBuilder.loadTexts:teTunnelChanged.setStatus(_B)
+teTunnelRerouted=NotificationType((1,3,6,1,2,1,122,0,4))
+teTunnelRerouted.setObjects(*((_A,_G),(_A,_H)))
+if mibBuilder.loadTexts:teTunnelRerouted.setStatus(_B)
+teNotificationGroup=NotificationGroup((1,3,6,1,2,1,122,2,1,2))
+teNotificationGroup.setObjects(*((_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR)))
+if mibBuilder.loadTexts:teNotificationGroup.setStatus(_B)
+teModuleReadOnlyCompliance=ModuleCompliance((1,3,6,1,2,1,122,2,2,1))
+teModuleReadOnlyCompliance.setObjects(*((_A,_J),(_A,_K)))
+if mibBuilder.loadTexts:teModuleReadOnlyCompliance.setStatus(_B)
+teModuleFullCompliance=ModuleCompliance((1,3,6,1,2,1,122,2,2,2))
+teModuleFullCompliance.setObjects(*((_A,_J),(_A,_K)))
+if mibBuilder.loadTexts:teModuleFullCompliance.setStatus(_B)
+teModuleServerReadOnlyCompliance=ModuleCompliance((1,3,6,1,2,1,122,2,2,3))
+teModuleServerReadOnlyCompliance.setObjects(*((_A,_J),(_A,_K)))
+if mibBuilder.loadTexts:teModuleServerReadOnlyCompliance.setStatus(_B)
+teModuleServerFullCompliance=ModuleCompliance((1,3,6,1,2,1,122,2,2,4))
+teModuleServerFullCompliance.setObjects(*((_A,_J),(_A,_K)))
+if mibBuilder.loadTexts:teModuleServerFullCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'teMIB':teMIB,'teMIBNotifications':teMIBNotifications,_AO:teTunnelUp,_AP:teTunnelDown,_AQ:teTunnelChanged,_AR:teTunnelRerouted,'teMIBObjects':teMIBObjects,'teInfo':teInfo,_A5:teDistProtocol,_A6:teSignalingProto,_A7:teNotificationEnable,_A8:teNextTunnelIndex,_A9:teNextPathHopIndex,_AC:teConfiguredTunnels,_AD:teActiveTunnels,_AE:tePrimaryTunnels,'teAdminGroupTable':teAdminGroupTable,'teAdminGroupEntry':teAdminGroupEntry,_T:teAdminGroupNumber,_AA:teAdminGroupName,_AB:teAdminGroupRowStatus,'teTunnelTable':teTunnelTable,'teTunnelEntry':teTunnelEntry,_O:teTunnelIndex,_G:teTunnelName,_X:teTunnelNextPathIndex,_Y:teTunnelRowStatus,_Z:teTunnelStorageType,_a:teTunnelSourceAddressType,_b:teTunnelSourceAddress,_c:teTunnelDestinationAddressType,_d:teTunnelDestinationAddress,_e:teTunnelState,_f:teTunnelDiscontinuityTimer,_g:teTunnelOctets,_h:teTunnelPackets,_i:teTunnelLPOctets,_j:teTunnelLPPackets,_k:teTunnelAge,_l:teTunnelTimeUp,_m:teTunnelPrimaryTimeUp,_n:teTunnelTransitions,_o:teTunnelLastTransition,_p:teTunnelPathChanges,_q:teTunnelLastPathChange,_r:teTunnelConfiguredPaths,_s:teTunnelStandbyPaths,_t:teTunnelOperationalPaths,'tePathTable':tePathTable,'tePathEntry':tePathEntry,_U:tePathIndex,_H:tePathName,_AG:tePathRowStatus,_AH:tePathStorageType,_AF:tePathType,_AI:tePathConfiguredRoute,_u:tePathBandwidth,_v:tePathIncludeAny,_w:tePathIncludeAll,_x:tePathExclude,_y:tePathSetupPriority,_z:tePathHoldPriority,_A0:tePathProperties,_A1:tePathOperStatus,_A2:tePathAdminStatus,_A3:tePathComputedRoute,_A4:tePathRecordedRoute,'tePathHopTable':tePathHopTable,'tePathHopEntry':tePathHopEntry,_V:teHopListIndex,_W:tePathHopIndex,_AJ:tePathHopRowStatus,_AK:tePathHopStorageType,_AL:tePathHopAddrType,_AM:tePathHopAddress,_AN:tePathHopType,'teMIBConformance':teMIBConformance,'teGroups':teGroups,_J:teTrafficEngineeringGroup,_K:teNotificationGroup,'teModuleCompliance':teModuleCompliance,'teModuleReadOnlyCompliance':teModuleReadOnlyCompliance,'teModuleFullCompliance':teModuleFullCompliance,'teModuleServerReadOnlyCompliance':teModuleServerReadOnlyCompliance,'teModuleServerFullCompliance':teModuleServerFullCompliance})

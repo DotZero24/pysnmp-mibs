@@ -1,0 +1,21 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+fujitsu=ModuleIdentity((1,3,6,1,4,1,211))
+_Product_ObjectIdentity=ObjectIdentity
+product=_Product_ObjectIdentity((1,3,6,1,4,1,211,1))
+_Transport_ObjectIdentity=ObjectIdentity
+transport=_Transport_ObjectIdentity((1,3,6,1,4,1,211,1,24))
+_FssCommon_ObjectIdentity=ObjectIdentity
+fssCommon=_FssCommon_ObjectIdentity((1,3,6,1,4,1,211,1,24,12))
+_FssInterfaces_ObjectIdentity=ObjectIdentity
+fssInterfaces=_FssInterfaces_ObjectIdentity((1,3,6,1,4,1,211,1,24,12,700))
+_FssRouting_ObjectIdentity=ObjectIdentity
+fssRouting=_FssRouting_ObjectIdentity((1,3,6,1,4,1,211,1,24,12,900))
+_FssProtocols_ObjectIdentity=ObjectIdentity
+fssProtocols=_FssProtocols_ObjectIdentity((1,3,6,1,4,1,211,1,24,12,1100))
+mibBuilder.exportSymbols('FSS-COMMON-SMI',**{'fujitsu':fujitsu,'product':product,'transport':transport,'fssCommon':fssCommon,'fssInterfaces':fssInterfaces,'fssRouting':fssRouting,'fssProtocols':fssProtocols})

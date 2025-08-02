@@ -1,0 +1,4479 @@
+_Az='cucsBiosTokenSettingsInstanceId'
+_Ay='cucsBiosTokenParamInstanceId'
+_Ax='cucsBiosTokenFeatureGroupInstanceId'
+_Aw='cucsBiosVfWorkloadConfigurationInstanceId'
+_Av='cucsBiosVfSIOC2OptionROMInstanceId'
+_Au='cucsBiosVfSIOC1OptionROMInstanceId'
+_At='cucsBiosVfSBNVMe1OptionROMInstanceId'
+_As='cucsBiosVfSBMezz1OptionROMInstanceId'
+_Ar='cucsBiosVfRedirectionAfterBIOSPOSTInstanceId'
+_Aq='cucsBiosVfPCIROMCLPInstanceId'
+_Ap='cucsBiosVfOutOfBandManagementInstanceId'
+_Ao='cucsBiosVfIOESlot2OptionROMInstanceId'
+_An='cucsBiosVfIOESlot1OptionROMInstanceId'
+_Am='cucsBiosVfIOENVMe2OptionROMInstanceId'
+_Al='cucsBiosVfIOENVMe1OptionROMInstanceId'
+_Ak='cucsBiosVfIOEMezz1OptionROMInstanceId'
+_Aj='cucsBiosVfEnergyPerformanceTuningInstanceId'
+_Ai='cucsBiosVfProcessorCMCIInstanceId'
+_Ah='cucsBiosVfOnboardGraphicsInstanceId'
+_Ag='cucsBiosVfIntegratedGraphicsApertureSizeInstanceId'
+_Af='cucsBiosVfIntegratedGraphicsInstanceId'
+_Ae='cucsBiosVfCPUHardwarePowerManagementInstanceId'
+_Ad='cucsBiosVfTrustedPlatformModuleInstanceId'
+_Ac='cucsBiosVfTPMPendingOperationInstanceId'
+_Ab='cucsBiosVfPCILOMPortsConfigurationInstanceId'
+_Aa='cucsBiosVfIntelTrustedExecutionTechnologyInstanceId'
+_AZ='cucsBiosVfConsistentDeviceNameControlInstanceId'
+_AY='cucsBiosVfDDR3VoltageSelectionInstanceId'
+_AX='cucsBiosVfASPMSupportInstanceId'
+_AW='cucsBiosVfPCHSATAModeInstanceId'
+_AV='cucsBiosVfEnhancedPowerCappingSupportInstanceId'
+_AU='cucsBiosVfQPISnoopModeInstanceId'
+_AT='cucsBiosVfUSBConfigurationInstanceId'
+_AS='cucsBiosVfTPMSupportInstanceId'
+_AR='cucsBiosVfAltitudeInstanceId'
+_AQ='cucsBiosVfVGAPriorityInstanceId'
+_AP='cucsBiosVfUSBPortConfigurationInstanceId'
+_AO='cucsBiosVfScrubPoliciesInstanceId'
+_AN='cucsBiosVfQPILinkFrequencySelectInstanceId'
+_AM='cucsBiosVfProcessorPrefetchConfigInstanceId'
+_AL='cucsBiosVfProcessorEnergyConfigurationInstanceId'
+_AK='cucsBiosVfPSTATECoordinationInstanceId'
+_AJ='cucsBiosVfPCISlotLinkSpeedInstanceId'
+_AI='cucsBiosVfInterleaveConfigurationInstanceId'
+_AH='cucsBiosVfFrequencyFloorOverrideInstanceId'
+_AG='cucsBiosVfFRB2TimerInstanceId'
+_AF='cucsBiosVfDRAMClockThrottlingInstanceId'
+_AE='cucsBiosVfAllUSBDevicesInstanceId'
+_AD='cucsBiosVfUCSMBootModeControlInstanceId'
+_AC='cucsBiosVfLocalX2ApicInstanceId'
+_AB='cucsBiosVfDramRefreshRateInstanceId'
+_AA='cucsBiosVfSriovConfigInstanceId'
+_A9='cucsBiosVfProcessorCStateInstanceId'
+_A8='cucsBiosVfProcessorC7ReportInstanceId'
+_A7='cucsBiosVfProcessorC1EInstanceId'
+_A6='cucsBiosVfPackageCStateLimitInstanceId'
+_A5='cucsBiosVfPCISlotOptionROMEnableInstanceId'
+_A4='cucsBiosVfOptionROMEnableInstanceId'
+_A3='cucsBiosVfOnboardStorageInstanceId'
+_A2='cucsBiosVfOSBootWatchdogTimerTimeoutInstanceId'
+_A1='cucsBiosVIdentityParamsInstanceId'
+_A0='cucsBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId'
+_z='cucsBiosVfUSBFrontPanelAccessLockInstanceId'
+_y='cucsBiosVfUCSMBootOrderRuleControlInstanceId'
+_x='cucsBiosVfMaxVariableMTRRSettingInstanceId'
+_w='cucsBiosVfOnboardSATAControllerInstanceId'
+_v='cucsBiosVfOSBootWatchdogTimerPolicyInstanceId'
+_u='cucsBiosVfOSBootWatchdogTimerInstanceId'
+_t='cucsBiosVfMemoryMappedIOAbove4GBInstanceId'
+_s='cucsBiosVfMaximumMemoryBelow4GBInstanceId'
+_r='cucsBiosVfPOSTErrorPauseInstanceId'
+_q='cucsBiosVfIntelEntrySASRAIDModuleInstanceId'
+_p='cucsBiosVfSerialPortAEnableInstanceId'
+_o='cucsBiosVfSparingModeInstanceId'
+_n='cucsBiosVfExecuteDisableBitInstanceId'
+_m='cucsBiosVfDirectCacheAccessInstanceId'
+_l='cucsBiosVfUEFIOSUseLegacyVideoInstanceId'
+_k='cucsBiosVfCoreMultiProcessingInstanceId'
+_j='cucsBiosVfUSBBootConfigInstanceId'
+_i='cucsBiosVfBootOptionRetryInstanceId'
+_h='cucsBiosVfCPUPerformanceInstanceId'
+_g='cucsBiosVfAssertNMIOnSERRInstanceId'
+_f='cucsBiosVfAssertNMIOnPERRInstanceId'
+_e='cucsBiosVfACPI10SupportInstanceId'
+_d='cucsBiosVfSelectMemoryRASConfigurationInstanceId'
+_c='cucsBiosVfResumeOnACPowerLossInstanceId'
+_b='cucsBiosVfQuietBootInstanceId'
+_a='cucsBiosVfProcessorC6ReportInstanceId'
+_Z='cucsBiosVfProcessorC3ReportInstanceId'
+_Y='cucsBiosVfNUMAOptimizedInstanceId'
+_X='cucsBiosVfMirroringModeInstanceId'
+_W='cucsBiosVfLvDIMMSupportInstanceId'
+_V='cucsBiosVfIntelVirtualizationTechnologyInstanceId'
+_U='cucsBiosVfIntelVTForDirectedIOInstanceId'
+_T='cucsBiosVfIntelTurboBoostTechInstanceId'
+_S='cucsBiosVfIntelHyperThreadingTechInstanceId'
+_R='cucsBiosVfFrontPanelLockoutInstanceId'
+_Q='cucsBiosVfEnhancedIntelSpeedStepTechInstanceId'
+_P='cucsBiosVfOptionROMLoadInstanceId'
+_O='cucsBiosVfConsoleRedirectionInstanceId'
+_N='cucsBiosVProfileInstanceId'
+_M='cucsBiosUnitInstanceId'
+_L='cucsBiosSettingsInstanceId'
+_K='cucsBiosSettingRefInstanceId'
+_J='cucsBiosRefInstanceId'
+_I='cucsBiosParameterRefInstanceId'
+_H='cucsBiosFeatureRefInstanceId'
+_G='cucsBiosBootDevGrpInstanceId'
+_F='cucsBiosBootDevInstanceId'
+_E='cucsBiosBOTInstanceId'
+_D='not-accessible'
+_C='CISCO-UNIFIED-COMPUTING-BIOS-MIB'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
+CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
+CucsManagedObjectDn,CucsManagedObjectId,ciscoUnifiedComputingMIBObjects=mibBuilder.importSymbols('CISCO-UNIFIED-COMPUTING-MIB','CucsManagedObjectDn','CucsManagedObjectId','ciscoUnifiedComputingMIBObjects')
+CucsBiosBootDevErrorCode,CucsBiosBootDevGrpType,CucsBiosBootDevOrder,CucsBiosDefaultAction,CucsBiosSupportedAction,CucsBiosVfACPI10SupportVpACPI10Support,CucsBiosVfASPMSupportVpASPMSupport,CucsBiosVfAllUSBDevicesVpAllUSBDevices,CucsBiosVfAltitudeVpAltitude,CucsBiosVfAssertNMIOnPERRVpAssertNMIOnPERR,CucsBiosVfAssertNMIOnSERRVpAssertNMIOnSERR,CucsBiosVfBootOptionRetryVpBootOptionRetry,CucsBiosVfCPUHardwarePowerManagementVpCPUHardwarePowerManagement,CucsBiosVfCPUPerformanceVpCPUPerformance,CucsBiosVfConsistentDeviceNameControlVpCDNControl,CucsBiosVfConsoleRedirectionVpBaudRate,CucsBiosVfConsoleRedirectionVpConsoleRedirection,CucsBiosVfConsoleRedirectionVpFlowControl,CucsBiosVfConsoleRedirectionVpLegacyOSRedirection,CucsBiosVfConsoleRedirectionVpPuttyKeyPad,CucsBiosVfConsoleRedirectionVpTerminalType,CucsBiosVfCoreMultiProcessingVpCoreMultiProcessing,CucsBiosVfDDR3VoltageSelectionVpDDR3VoltageSelection,CucsBiosVfDRAMClockThrottlingVpDRAMClockThrottling,CucsBiosVfDirectCacheAccessVpDirectCacheAccess,CucsBiosVfDramRefreshRateVpDramRefreshRate,CucsBiosVfEnergyPerformanceTuningVpPwrPerfTuning,CucsBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech,CucsBiosVfEnhancedPowerCappingSupportVpEnhancedPowerCapping,CucsBiosVfExecuteDisableBitVpExecuteDisableBit,CucsBiosVfFRB2TimerVpFRB2Timer,CucsBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride,CucsBiosVfFrontPanelLockoutVpFrontPanelLockout,CucsBiosVfIOEMezz1OptionROMVpIOEMezz1OptionROM,CucsBiosVfIOENVMe1OptionROMVpIOENVMe1OptionROM,CucsBiosVfIOENVMe2OptionROMVpIOENVMe2OptionROM,CucsBiosVfIOESlot1OptionROMVpIOESlot1OptionROM,CucsBiosVfIOESlot2OptionROMVpIOESlot2OptionROM,CucsBiosVfIntegratedGraphicsApertureSizeVpIntgtGraphApertureSize,CucsBiosVfIntegratedGraphicsVpIntegratedGraphics,CucsBiosVfIntelEntrySASRAIDModuleVpSASRAID,CucsBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule,CucsBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech,CucsBiosVfIntelTrustedExecutionTechnologyVpIntelTstdExecTechSup,CucsBiosVfIntelTurboBoostTechVpIntelTurboBoostTech,CucsBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport,CucsBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport,CucsBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping,CucsBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport,CucsBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO,CucsBiosVfInterleaveConfigurationVpChannelInterleaving,CucsBiosVfInterleaveConfigurationVpMemoryInterleaving,CucsBiosVfInterleaveConfigurationVpRankInterleaving,CucsBiosVfLocalX2ApicVpLocalX2Apic,CucsBiosVfLvDIMMSupportVpLvDDRMode,CucsBiosVfMaxVariableMTRRSettingVpProcessorMtrr,CucsBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB,CucsBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB,CucsBiosVfMirroringModeVpMirroringMode,CucsBiosVfNUMAOptimizedVpNUMAOptimized,CucsBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy,CucsBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout,CucsBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer,CucsBiosVfOnboardGraphicsVpOnboardGraphics,CucsBiosVfOnboardSATAControllerVpOnboardSATAController,CucsBiosVfOnboardSATAControllerVpSATAMode,CucsBiosVfOnboardStorageVpOnboardSCUStorageSupport,CucsBiosVfOptionROMEnableVpState,CucsBiosVfOptionROMLoadVpLoad,CucsBiosVfOutOfBandManagementVpComSpcrEnable,CucsBiosVfPCHSATAModeVpSATAMode,CucsBiosVfPCILOMPortsConfigurationVpPCIe10GLOM2Link,CucsBiosVfPCIROMCLPVpPCIROMCLP,CucsBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed,CucsBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed,CucsBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed,CucsBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed,CucsBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed,CucsBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed,CucsBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed,CucsBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed,CucsBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed,CucsBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed,CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM,CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM,CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM,CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM,CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM,CucsBiosVfPCISlotOptionROMEnableVpSlot10State,CucsBiosVfPCISlotOptionROMEnableVpSlot1State,CucsBiosVfPCISlotOptionROMEnableVpSlot2State,CucsBiosVfPCISlotOptionROMEnableVpSlot3State,CucsBiosVfPCISlotOptionROMEnableVpSlot4State,CucsBiosVfPCISlotOptionROMEnableVpSlot5State,CucsBiosVfPCISlotOptionROMEnableVpSlot6State,CucsBiosVfPCISlotOptionROMEnableVpSlot7State,CucsBiosVfPCISlotOptionROMEnableVpSlot8State,CucsBiosVfPCISlotOptionROMEnableVpSlot9State,CucsBiosVfPCISlotOptionROMEnableVpSlotMezzState,CucsBiosVfPOSTErrorPauseVpPOSTErrorPause,CucsBiosVfPSTATECoordinationVpPSTATECoordination,CucsBiosVfPackageCStateLimitVpPackageCStateLimit,CucsBiosVfProcessorC1EVpProcessorC1E,CucsBiosVfProcessorC3ReportVpProcessorC3Report,CucsBiosVfProcessorC6ReportVpProcessorC6Report,CucsBiosVfProcessorC7ReportVpProcessorC7Report,CucsBiosVfProcessorCMCIVpProcessorCMCI,CucsBiosVfProcessorCStateVpProcessorCState,CucsBiosVfProcessorEnergyConfigurationVpEnergyPerformance,CucsBiosVfProcessorEnergyConfigurationVpPowerTechnology,CucsBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher,CucsBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher,CucsBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch,CucsBiosVfProcessorPrefetchConfigVpHardwarePrefetcher,CucsBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect,CucsBiosVfQPISnoopModeVpQPISnoopMode,CucsBiosVfQuietBootVpQuietBoot,CucsBiosVfRedirectionAfterBIOSPOSTVpRedirectionAfterPOST,CucsBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss,CucsBiosVfSBMezz1OptionROMVpSBMezz1OptionROM,CucsBiosVfSBNVMe1OptionROMVpSBNVMe1OptionROM,CucsBiosVfSIOC1OptionROMVpSIOC1OptionROM,CucsBiosVfSIOC2OptionROMVpSIOC2OptionROM,CucsBiosVfScrubPoliciesVpDemandScrub,CucsBiosVfScrubPoliciesVpPatrolScrub,CucsBiosVfSerialPortAEnableVpSerialPortAEnable,CucsBiosVfSparingModeVpSparingMode,CucsBiosVfSriovConfigVpSriov,CucsBiosVfTPMPendingOperationVpTPMPendingOperation,CucsBiosVfTPMSupportVpTPMSupport,CucsBiosVfTrustedPlatformModuleVpTrustedPlatformModuleSupport,CucsBiosVfUCSMBootModeControlVpUEFIBootMode,CucsBiosVfUCSMBootOrderRuleControlVpUCSMBootOrderRule,CucsBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo,CucsBiosVfUSBBootConfigVpLegacyUSBSupport,CucsBiosVfUSBBootConfigVpMakeDeviceNonBootable,CucsBiosVfUSBConfigurationVpLegacyUSBSupport,CucsBiosVfUSBConfigurationVpXHCIMode,CucsBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock,CucsBiosVfUSBPortConfigurationVpPort6064Emulation,CucsBiosVfUSBPortConfigurationVpUSBPortFront,CucsBiosVfUSBPortConfigurationVpUSBPortInternal,CucsBiosVfUSBPortConfigurationVpUSBPortKVM,CucsBiosVfUSBPortConfigurationVpUSBPortRear,CucsBiosVfUSBPortConfigurationVpUSBPortSDCard,CucsBiosVfUSBPortConfigurationVpUSBPortVMedia,CucsBiosVfUSBSysIdlePowerOptimizingSettingVpUSBIdlePowerOptimize,CucsBiosVfVGAPriorityVpVGAPriority,CucsBiosVfWorkloadConfigurationVpWorkloadConfiguration,CucsBiosVpIntelVirtualizationTechnology,CucsBiosVpSelectMemoryRASConfiguration,CucsPolicyPolicyOwner=mibBuilder.importSymbols('CISCO-UNIFIED-COMPUTING-TC-MIB','CucsBiosBootDevErrorCode','CucsBiosBootDevGrpType','CucsBiosBootDevOrder','CucsBiosDefaultAction','CucsBiosSupportedAction','CucsBiosVfACPI10SupportVpACPI10Support','CucsBiosVfASPMSupportVpASPMSupport','CucsBiosVfAllUSBDevicesVpAllUSBDevices','CucsBiosVfAltitudeVpAltitude','CucsBiosVfAssertNMIOnPERRVpAssertNMIOnPERR','CucsBiosVfAssertNMIOnSERRVpAssertNMIOnSERR','CucsBiosVfBootOptionRetryVpBootOptionRetry','CucsBiosVfCPUHardwarePowerManagementVpCPUHardwarePowerManagement','CucsBiosVfCPUPerformanceVpCPUPerformance','CucsBiosVfConsistentDeviceNameControlVpCDNControl','CucsBiosVfConsoleRedirectionVpBaudRate','CucsBiosVfConsoleRedirectionVpConsoleRedirection','CucsBiosVfConsoleRedirectionVpFlowControl','CucsBiosVfConsoleRedirectionVpLegacyOSRedirection','CucsBiosVfConsoleRedirectionVpPuttyKeyPad','CucsBiosVfConsoleRedirectionVpTerminalType','CucsBiosVfCoreMultiProcessingVpCoreMultiProcessing','CucsBiosVfDDR3VoltageSelectionVpDDR3VoltageSelection','CucsBiosVfDRAMClockThrottlingVpDRAMClockThrottling','CucsBiosVfDirectCacheAccessVpDirectCacheAccess','CucsBiosVfDramRefreshRateVpDramRefreshRate','CucsBiosVfEnergyPerformanceTuningVpPwrPerfTuning','CucsBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech','CucsBiosVfEnhancedPowerCappingSupportVpEnhancedPowerCapping','CucsBiosVfExecuteDisableBitVpExecuteDisableBit','CucsBiosVfFRB2TimerVpFRB2Timer','CucsBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride','CucsBiosVfFrontPanelLockoutVpFrontPanelLockout','CucsBiosVfIOEMezz1OptionROMVpIOEMezz1OptionROM','CucsBiosVfIOENVMe1OptionROMVpIOENVMe1OptionROM','CucsBiosVfIOENVMe2OptionROMVpIOENVMe2OptionROM','CucsBiosVfIOESlot1OptionROMVpIOESlot1OptionROM','CucsBiosVfIOESlot2OptionROMVpIOESlot2OptionROM','CucsBiosVfIntegratedGraphicsApertureSizeVpIntgtGraphApertureSize','CucsBiosVfIntegratedGraphicsVpIntegratedGraphics','CucsBiosVfIntelEntrySASRAIDModuleVpSASRAID','CucsBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule','CucsBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech','CucsBiosVfIntelTrustedExecutionTechnologyVpIntelTstdExecTechSup','CucsBiosVfIntelTurboBoostTechVpIntelTurboBoostTech','CucsBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport','CucsBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport','CucsBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping','CucsBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport','CucsBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO','CucsBiosVfInterleaveConfigurationVpChannelInterleaving','CucsBiosVfInterleaveConfigurationVpMemoryInterleaving','CucsBiosVfInterleaveConfigurationVpRankInterleaving','CucsBiosVfLocalX2ApicVpLocalX2Apic','CucsBiosVfLvDIMMSupportVpLvDDRMode','CucsBiosVfMaxVariableMTRRSettingVpProcessorMtrr','CucsBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB','CucsBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB','CucsBiosVfMirroringModeVpMirroringMode','CucsBiosVfNUMAOptimizedVpNUMAOptimized','CucsBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy','CucsBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout','CucsBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer','CucsBiosVfOnboardGraphicsVpOnboardGraphics','CucsBiosVfOnboardSATAControllerVpOnboardSATAController','CucsBiosVfOnboardSATAControllerVpSATAMode','CucsBiosVfOnboardStorageVpOnboardSCUStorageSupport','CucsBiosVfOptionROMEnableVpState','CucsBiosVfOptionROMLoadVpLoad','CucsBiosVfOutOfBandManagementVpComSpcrEnable','CucsBiosVfPCHSATAModeVpSATAMode','CucsBiosVfPCILOMPortsConfigurationVpPCIe10GLOM2Link','CucsBiosVfPCIROMCLPVpPCIROMCLP','CucsBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed','CucsBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed','CucsBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed','CucsBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed','CucsBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed','CucsBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed','CucsBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed','CucsBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed','CucsBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed','CucsBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed','CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM','CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM','CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM','CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM','CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM','CucsBiosVfPCISlotOptionROMEnableVpSlot10State','CucsBiosVfPCISlotOptionROMEnableVpSlot1State','CucsBiosVfPCISlotOptionROMEnableVpSlot2State','CucsBiosVfPCISlotOptionROMEnableVpSlot3State','CucsBiosVfPCISlotOptionROMEnableVpSlot4State','CucsBiosVfPCISlotOptionROMEnableVpSlot5State','CucsBiosVfPCISlotOptionROMEnableVpSlot6State','CucsBiosVfPCISlotOptionROMEnableVpSlot7State','CucsBiosVfPCISlotOptionROMEnableVpSlot8State','CucsBiosVfPCISlotOptionROMEnableVpSlot9State','CucsBiosVfPCISlotOptionROMEnableVpSlotMezzState','CucsBiosVfPOSTErrorPauseVpPOSTErrorPause','CucsBiosVfPSTATECoordinationVpPSTATECoordination','CucsBiosVfPackageCStateLimitVpPackageCStateLimit','CucsBiosVfProcessorC1EVpProcessorC1E','CucsBiosVfProcessorC3ReportVpProcessorC3Report','CucsBiosVfProcessorC6ReportVpProcessorC6Report','CucsBiosVfProcessorC7ReportVpProcessorC7Report','CucsBiosVfProcessorCMCIVpProcessorCMCI','CucsBiosVfProcessorCStateVpProcessorCState','CucsBiosVfProcessorEnergyConfigurationVpEnergyPerformance','CucsBiosVfProcessorEnergyConfigurationVpPowerTechnology','CucsBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher','CucsBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher','CucsBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch','CucsBiosVfProcessorPrefetchConfigVpHardwarePrefetcher','CucsBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect','CucsBiosVfQPISnoopModeVpQPISnoopMode','CucsBiosVfQuietBootVpQuietBoot','CucsBiosVfRedirectionAfterBIOSPOSTVpRedirectionAfterPOST','CucsBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss','CucsBiosVfSBMezz1OptionROMVpSBMezz1OptionROM','CucsBiosVfSBNVMe1OptionROMVpSBNVMe1OptionROM','CucsBiosVfSIOC1OptionROMVpSIOC1OptionROM','CucsBiosVfSIOC2OptionROMVpSIOC2OptionROM','CucsBiosVfScrubPoliciesVpDemandScrub','CucsBiosVfScrubPoliciesVpPatrolScrub','CucsBiosVfSerialPortAEnableVpSerialPortAEnable','CucsBiosVfSparingModeVpSparingMode','CucsBiosVfSriovConfigVpSriov','CucsBiosVfTPMPendingOperationVpTPMPendingOperation','CucsBiosVfTPMSupportVpTPMSupport','CucsBiosVfTrustedPlatformModuleVpTrustedPlatformModuleSupport','CucsBiosVfUCSMBootModeControlVpUEFIBootMode','CucsBiosVfUCSMBootOrderRuleControlVpUCSMBootOrderRule','CucsBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo','CucsBiosVfUSBBootConfigVpLegacyUSBSupport','CucsBiosVfUSBBootConfigVpMakeDeviceNonBootable','CucsBiosVfUSBConfigurationVpLegacyUSBSupport','CucsBiosVfUSBConfigurationVpXHCIMode','CucsBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock','CucsBiosVfUSBPortConfigurationVpPort6064Emulation','CucsBiosVfUSBPortConfigurationVpUSBPortFront','CucsBiosVfUSBPortConfigurationVpUSBPortInternal','CucsBiosVfUSBPortConfigurationVpUSBPortKVM','CucsBiosVfUSBPortConfigurationVpUSBPortRear','CucsBiosVfUSBPortConfigurationVpUSBPortSDCard','CucsBiosVfUSBPortConfigurationVpUSBPortVMedia','CucsBiosVfUSBSysIdlePowerOptimizingSettingVpUSBIdlePowerOptimize','CucsBiosVfVGAPriorityVpVGAPriority','CucsBiosVfWorkloadConfigurationVpWorkloadConfiguration','CucsBiosVpIntelVirtualizationTechnology','CucsBiosVpSelectMemoryRASConfiguration','CucsPolicyPolicyOwner')
+InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
+cucsBiosObjects=ModuleIdentity((1,3,6,1,4,1,9,9,719,1,4))
+_CucsBiosBOTTable_Object=MibTable
+cucsBiosBOTTable=_CucsBiosBOTTable_Object((1,3,6,1,4,1,9,9,719,1,4,1))
+if mibBuilder.loadTexts:cucsBiosBOTTable.setStatus(_A)
+_CucsBiosBOTEntry_Object=MibTableRow
+cucsBiosBOTEntry=_CucsBiosBOTEntry_Object((1,3,6,1,4,1,9,9,719,1,4,1,1))
+cucsBiosBOTEntry.setIndexNames((0,_C,_E))
+if mibBuilder.loadTexts:cucsBiosBOTEntry.setStatus(_A)
+_CucsBiosBOTInstanceId_Type=CucsManagedObjectId
+_CucsBiosBOTInstanceId_Object=MibTableColumn
+cucsBiosBOTInstanceId=_CucsBiosBOTInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,1,1,1),_CucsBiosBOTInstanceId_Type())
+cucsBiosBOTInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosBOTInstanceId.setStatus(_A)
+_CucsBiosBOTDn_Type=CucsManagedObjectDn
+_CucsBiosBOTDn_Object=MibTableColumn
+cucsBiosBOTDn=_CucsBiosBOTDn_Object((1,3,6,1,4,1,9,9,719,1,4,1,1,2),_CucsBiosBOTDn_Type())
+cucsBiosBOTDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosBOTDn.setStatus(_A)
+_CucsBiosBOTRn_Type=SnmpAdminString
+_CucsBiosBOTRn_Object=MibTableColumn
+cucsBiosBOTRn=_CucsBiosBOTRn_Object((1,3,6,1,4,1,9,9,719,1,4,1,1,3),_CucsBiosBOTRn_Type())
+cucsBiosBOTRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosBOTRn.setStatus(_A)
+_CucsBiosBOTLastUpdate_Type=DateAndTime
+_CucsBiosBOTLastUpdate_Object=MibTableColumn
+cucsBiosBOTLastUpdate=_CucsBiosBOTLastUpdate_Object((1,3,6,1,4,1,9,9,719,1,4,1,1,4),_CucsBiosBOTLastUpdate_Type())
+cucsBiosBOTLastUpdate.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosBOTLastUpdate.setStatus(_A)
+_CucsBiosBootDevTable_Object=MibTable
+cucsBiosBootDevTable=_CucsBiosBootDevTable_Object((1,3,6,1,4,1,9,9,719,1,4,2))
+if mibBuilder.loadTexts:cucsBiosBootDevTable.setStatus(_A)
+_CucsBiosBootDevEntry_Object=MibTableRow
+cucsBiosBootDevEntry=_CucsBiosBootDevEntry_Object((1,3,6,1,4,1,9,9,719,1,4,2,1))
+cucsBiosBootDevEntry.setIndexNames((0,_C,_F))
+if mibBuilder.loadTexts:cucsBiosBootDevEntry.setStatus(_A)
+_CucsBiosBootDevInstanceId_Type=CucsManagedObjectId
+_CucsBiosBootDevInstanceId_Object=MibTableColumn
+cucsBiosBootDevInstanceId=_CucsBiosBootDevInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,2,1,1),_CucsBiosBootDevInstanceId_Type())
+cucsBiosBootDevInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosBootDevInstanceId.setStatus(_A)
+_CucsBiosBootDevDn_Type=CucsManagedObjectDn
+_CucsBiosBootDevDn_Object=MibTableColumn
+cucsBiosBootDevDn=_CucsBiosBootDevDn_Object((1,3,6,1,4,1,9,9,719,1,4,2,1,2),_CucsBiosBootDevDn_Type())
+cucsBiosBootDevDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosBootDevDn.setStatus(_A)
+_CucsBiosBootDevRn_Type=SnmpAdminString
+_CucsBiosBootDevRn_Object=MibTableColumn
+cucsBiosBootDevRn=_CucsBiosBootDevRn_Object((1,3,6,1,4,1,9,9,719,1,4,2,1,3),_CucsBiosBootDevRn_Type())
+cucsBiosBootDevRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosBootDevRn.setStatus(_A)
+_CucsBiosBootDevDescr_Type=SnmpAdminString
+_CucsBiosBootDevDescr_Object=MibTableColumn
+cucsBiosBootDevDescr=_CucsBiosBootDevDescr_Object((1,3,6,1,4,1,9,9,719,1,4,2,1,4),_CucsBiosBootDevDescr_Type())
+cucsBiosBootDevDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosBootDevDescr.setStatus(_A)
+_CucsBiosBootDevOrder_Type=CucsBiosBootDevOrder
+_CucsBiosBootDevOrder_Object=MibTableColumn
+cucsBiosBootDevOrder=_CucsBiosBootDevOrder_Object((1,3,6,1,4,1,9,9,719,1,4,2,1,5),_CucsBiosBootDevOrder_Type())
+cucsBiosBootDevOrder.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosBootDevOrder.setStatus(_A)
+_CucsBiosBootDevDeviceName_Type=SnmpAdminString
+_CucsBiosBootDevDeviceName_Object=MibTableColumn
+cucsBiosBootDevDeviceName=_CucsBiosBootDevDeviceName_Object((1,3,6,1,4,1,9,9,719,1,4,2,1,6),_CucsBiosBootDevDeviceName_Type())
+cucsBiosBootDevDeviceName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosBootDevDeviceName.setStatus(_A)
+_CucsBiosBootDevErrValue_Type=CucsBiosBootDevErrorCode
+_CucsBiosBootDevErrValue_Object=MibTableColumn
+cucsBiosBootDevErrValue=_CucsBiosBootDevErrValue_Object((1,3,6,1,4,1,9,9,719,1,4,2,1,7),_CucsBiosBootDevErrValue_Type())
+cucsBiosBootDevErrValue.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosBootDevErrValue.setStatus(_A)
+_CucsBiosBootDevGrpTable_Object=MibTable
+cucsBiosBootDevGrpTable=_CucsBiosBootDevGrpTable_Object((1,3,6,1,4,1,9,9,719,1,4,3))
+if mibBuilder.loadTexts:cucsBiosBootDevGrpTable.setStatus(_A)
+_CucsBiosBootDevGrpEntry_Object=MibTableRow
+cucsBiosBootDevGrpEntry=_CucsBiosBootDevGrpEntry_Object((1,3,6,1,4,1,9,9,719,1,4,3,1))
+cucsBiosBootDevGrpEntry.setIndexNames((0,_C,_G))
+if mibBuilder.loadTexts:cucsBiosBootDevGrpEntry.setStatus(_A)
+_CucsBiosBootDevGrpInstanceId_Type=CucsManagedObjectId
+_CucsBiosBootDevGrpInstanceId_Object=MibTableColumn
+cucsBiosBootDevGrpInstanceId=_CucsBiosBootDevGrpInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,3,1,1),_CucsBiosBootDevGrpInstanceId_Type())
+cucsBiosBootDevGrpInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosBootDevGrpInstanceId.setStatus(_A)
+_CucsBiosBootDevGrpDn_Type=CucsManagedObjectDn
+_CucsBiosBootDevGrpDn_Object=MibTableColumn
+cucsBiosBootDevGrpDn=_CucsBiosBootDevGrpDn_Object((1,3,6,1,4,1,9,9,719,1,4,3,1,2),_CucsBiosBootDevGrpDn_Type())
+cucsBiosBootDevGrpDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosBootDevGrpDn.setStatus(_A)
+_CucsBiosBootDevGrpRn_Type=SnmpAdminString
+_CucsBiosBootDevGrpRn_Object=MibTableColumn
+cucsBiosBootDevGrpRn=_CucsBiosBootDevGrpRn_Object((1,3,6,1,4,1,9,9,719,1,4,3,1,3),_CucsBiosBootDevGrpRn_Type())
+cucsBiosBootDevGrpRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosBootDevGrpRn.setStatus(_A)
+_CucsBiosBootDevGrpDescr_Type=SnmpAdminString
+_CucsBiosBootDevGrpDescr_Object=MibTableColumn
+cucsBiosBootDevGrpDescr=_CucsBiosBootDevGrpDescr_Object((1,3,6,1,4,1,9,9,719,1,4,3,1,4),_CucsBiosBootDevGrpDescr_Type())
+cucsBiosBootDevGrpDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosBootDevGrpDescr.setStatus(_A)
+_CucsBiosBootDevGrpOrder_Type=CucsBiosBootDevOrder
+_CucsBiosBootDevGrpOrder_Object=MibTableColumn
+cucsBiosBootDevGrpOrder=_CucsBiosBootDevGrpOrder_Object((1,3,6,1,4,1,9,9,719,1,4,3,1,5),_CucsBiosBootDevGrpOrder_Type())
+cucsBiosBootDevGrpOrder.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosBootDevGrpOrder.setStatus(_A)
+_CucsBiosBootDevGrpType_Type=CucsBiosBootDevGrpType
+_CucsBiosBootDevGrpType_Object=MibTableColumn
+cucsBiosBootDevGrpType=_CucsBiosBootDevGrpType_Object((1,3,6,1,4,1,9,9,719,1,4,3,1,6),_CucsBiosBootDevGrpType_Type())
+cucsBiosBootDevGrpType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosBootDevGrpType.setStatus(_A)
+_CucsBiosBootDevGrpDeviceName_Type=SnmpAdminString
+_CucsBiosBootDevGrpDeviceName_Object=MibTableColumn
+cucsBiosBootDevGrpDeviceName=_CucsBiosBootDevGrpDeviceName_Object((1,3,6,1,4,1,9,9,719,1,4,3,1,7),_CucsBiosBootDevGrpDeviceName_Type())
+cucsBiosBootDevGrpDeviceName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosBootDevGrpDeviceName.setStatus(_A)
+_CucsBiosBootDevGrpErrVal_Type=CucsBiosBootDevErrorCode
+_CucsBiosBootDevGrpErrVal_Object=MibTableColumn
+cucsBiosBootDevGrpErrVal=_CucsBiosBootDevGrpErrVal_Object((1,3,6,1,4,1,9,9,719,1,4,3,1,8),_CucsBiosBootDevGrpErrVal_Type())
+cucsBiosBootDevGrpErrVal.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosBootDevGrpErrVal.setStatus(_A)
+_CucsBiosFeatureRefTable_Object=MibTable
+cucsBiosFeatureRefTable=_CucsBiosFeatureRefTable_Object((1,3,6,1,4,1,9,9,719,1,4,4))
+if mibBuilder.loadTexts:cucsBiosFeatureRefTable.setStatus(_A)
+_CucsBiosFeatureRefEntry_Object=MibTableRow
+cucsBiosFeatureRefEntry=_CucsBiosFeatureRefEntry_Object((1,3,6,1,4,1,9,9,719,1,4,4,1))
+cucsBiosFeatureRefEntry.setIndexNames((0,_C,_H))
+if mibBuilder.loadTexts:cucsBiosFeatureRefEntry.setStatus(_A)
+_CucsBiosFeatureRefInstanceId_Type=CucsManagedObjectId
+_CucsBiosFeatureRefInstanceId_Object=MibTableColumn
+cucsBiosFeatureRefInstanceId=_CucsBiosFeatureRefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,4,1,1),_CucsBiosFeatureRefInstanceId_Type())
+cucsBiosFeatureRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosFeatureRefInstanceId.setStatus(_A)
+_CucsBiosFeatureRefDn_Type=CucsManagedObjectDn
+_CucsBiosFeatureRefDn_Object=MibTableColumn
+cucsBiosFeatureRefDn=_CucsBiosFeatureRefDn_Object((1,3,6,1,4,1,9,9,719,1,4,4,1,2),_CucsBiosFeatureRefDn_Type())
+cucsBiosFeatureRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosFeatureRefDn.setStatus(_A)
+_CucsBiosFeatureRefRn_Type=SnmpAdminString
+_CucsBiosFeatureRefRn_Object=MibTableColumn
+cucsBiosFeatureRefRn=_CucsBiosFeatureRefRn_Object((1,3,6,1,4,1,9,9,719,1,4,4,1,3),_CucsBiosFeatureRefRn_Type())
+cucsBiosFeatureRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosFeatureRefRn.setStatus(_A)
+_CucsBiosFeatureRefIsSupported_Type=CucsBiosSupportedAction
+_CucsBiosFeatureRefIsSupported_Object=MibTableColumn
+cucsBiosFeatureRefIsSupported=_CucsBiosFeatureRefIsSupported_Object((1,3,6,1,4,1,9,9,719,1,4,4,1,4),_CucsBiosFeatureRefIsSupported_Type())
+cucsBiosFeatureRefIsSupported.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosFeatureRefIsSupported.setStatus(_A)
+_CucsBiosFeatureRefName_Type=SnmpAdminString
+_CucsBiosFeatureRefName_Object=MibTableColumn
+cucsBiosFeatureRefName=_CucsBiosFeatureRefName_Object((1,3,6,1,4,1,9,9,719,1,4,4,1,5),_CucsBiosFeatureRefName_Type())
+cucsBiosFeatureRefName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosFeatureRefName.setStatus(_A)
+_CucsBiosFeatureRefFtrMoClassName_Type=SnmpAdminString
+_CucsBiosFeatureRefFtrMoClassName_Object=MibTableColumn
+cucsBiosFeatureRefFtrMoClassName=_CucsBiosFeatureRefFtrMoClassName_Object((1,3,6,1,4,1,9,9,719,1,4,4,1,6),_CucsBiosFeatureRefFtrMoClassName_Type())
+cucsBiosFeatureRefFtrMoClassName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosFeatureRefFtrMoClassName.setStatus(_A)
+_CucsBiosParameterRefTable_Object=MibTable
+cucsBiosParameterRefTable=_CucsBiosParameterRefTable_Object((1,3,6,1,4,1,9,9,719,1,4,5))
+if mibBuilder.loadTexts:cucsBiosParameterRefTable.setStatus(_A)
+_CucsBiosParameterRefEntry_Object=MibTableRow
+cucsBiosParameterRefEntry=_CucsBiosParameterRefEntry_Object((1,3,6,1,4,1,9,9,719,1,4,5,1))
+cucsBiosParameterRefEntry.setIndexNames((0,_C,_I))
+if mibBuilder.loadTexts:cucsBiosParameterRefEntry.setStatus(_A)
+_CucsBiosParameterRefInstanceId_Type=CucsManagedObjectId
+_CucsBiosParameterRefInstanceId_Object=MibTableColumn
+cucsBiosParameterRefInstanceId=_CucsBiosParameterRefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,5,1,1),_CucsBiosParameterRefInstanceId_Type())
+cucsBiosParameterRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosParameterRefInstanceId.setStatus(_A)
+_CucsBiosParameterRefDn_Type=CucsManagedObjectDn
+_CucsBiosParameterRefDn_Object=MibTableColumn
+cucsBiosParameterRefDn=_CucsBiosParameterRefDn_Object((1,3,6,1,4,1,9,9,719,1,4,5,1,2),_CucsBiosParameterRefDn_Type())
+cucsBiosParameterRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosParameterRefDn.setStatus(_A)
+_CucsBiosParameterRefRn_Type=SnmpAdminString
+_CucsBiosParameterRefRn_Object=MibTableColumn
+cucsBiosParameterRefRn=_CucsBiosParameterRefRn_Object((1,3,6,1,4,1,9,9,719,1,4,5,1,3),_CucsBiosParameterRefRn_Type())
+cucsBiosParameterRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosParameterRefRn.setStatus(_A)
+_CucsBiosParameterRefIsSupported_Type=CucsBiosSupportedAction
+_CucsBiosParameterRefIsSupported_Object=MibTableColumn
+cucsBiosParameterRefIsSupported=_CucsBiosParameterRefIsSupported_Object((1,3,6,1,4,1,9,9,719,1,4,5,1,4),_CucsBiosParameterRefIsSupported_Type())
+cucsBiosParameterRefIsSupported.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosParameterRefIsSupported.setStatus(_A)
+_CucsBiosParameterRefName_Type=SnmpAdminString
+_CucsBiosParameterRefName_Object=MibTableColumn
+cucsBiosParameterRefName=_CucsBiosParameterRefName_Object((1,3,6,1,4,1,9,9,719,1,4,5,1,5),_CucsBiosParameterRefName_Type())
+cucsBiosParameterRefName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosParameterRefName.setStatus(_A)
+_CucsBiosParameterRefPropertyName_Type=SnmpAdminString
+_CucsBiosParameterRefPropertyName_Object=MibTableColumn
+cucsBiosParameterRefPropertyName=_CucsBiosParameterRefPropertyName_Object((1,3,6,1,4,1,9,9,719,1,4,5,1,6),_CucsBiosParameterRefPropertyName_Type())
+cucsBiosParameterRefPropertyName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosParameterRefPropertyName.setStatus(_A)
+_CucsBiosRefTable_Object=MibTable
+cucsBiosRefTable=_CucsBiosRefTable_Object((1,3,6,1,4,1,9,9,719,1,4,6))
+if mibBuilder.loadTexts:cucsBiosRefTable.setStatus(_A)
+_CucsBiosRefEntry_Object=MibTableRow
+cucsBiosRefEntry=_CucsBiosRefEntry_Object((1,3,6,1,4,1,9,9,719,1,4,6,1))
+cucsBiosRefEntry.setIndexNames((0,_C,_J))
+if mibBuilder.loadTexts:cucsBiosRefEntry.setStatus(_A)
+_CucsBiosRefInstanceId_Type=CucsManagedObjectId
+_CucsBiosRefInstanceId_Object=MibTableColumn
+cucsBiosRefInstanceId=_CucsBiosRefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,6,1,1),_CucsBiosRefInstanceId_Type())
+cucsBiosRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosRefInstanceId.setStatus(_A)
+_CucsBiosRefDn_Type=CucsManagedObjectDn
+_CucsBiosRefDn_Object=MibTableColumn
+cucsBiosRefDn=_CucsBiosRefDn_Object((1,3,6,1,4,1,9,9,719,1,4,6,1,2),_CucsBiosRefDn_Type())
+cucsBiosRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosRefDn.setStatus(_A)
+_CucsBiosRefRn_Type=SnmpAdminString
+_CucsBiosRefRn_Object=MibTableColumn
+cucsBiosRefRn=_CucsBiosRefRn_Object((1,3,6,1,4,1,9,9,719,1,4,6,1,3),_CucsBiosRefRn_Type())
+cucsBiosRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosRefRn.setStatus(_A)
+_CucsBiosRefIsSupported_Type=CucsBiosSupportedAction
+_CucsBiosRefIsSupported_Object=MibTableColumn
+cucsBiosRefIsSupported=_CucsBiosRefIsSupported_Object((1,3,6,1,4,1,9,9,719,1,4,6,1,4),_CucsBiosRefIsSupported_Type())
+cucsBiosRefIsSupported.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosRefIsSupported.setStatus(_A)
+_CucsBiosSettingRefTable_Object=MibTable
+cucsBiosSettingRefTable=_CucsBiosSettingRefTable_Object((1,3,6,1,4,1,9,9,719,1,4,7))
+if mibBuilder.loadTexts:cucsBiosSettingRefTable.setStatus(_A)
+_CucsBiosSettingRefEntry_Object=MibTableRow
+cucsBiosSettingRefEntry=_CucsBiosSettingRefEntry_Object((1,3,6,1,4,1,9,9,719,1,4,7,1))
+cucsBiosSettingRefEntry.setIndexNames((0,_C,_K))
+if mibBuilder.loadTexts:cucsBiosSettingRefEntry.setStatus(_A)
+_CucsBiosSettingRefInstanceId_Type=CucsManagedObjectId
+_CucsBiosSettingRefInstanceId_Object=MibTableColumn
+cucsBiosSettingRefInstanceId=_CucsBiosSettingRefInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,7,1,1),_CucsBiosSettingRefInstanceId_Type())
+cucsBiosSettingRefInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosSettingRefInstanceId.setStatus(_A)
+_CucsBiosSettingRefDn_Type=CucsManagedObjectDn
+_CucsBiosSettingRefDn_Object=MibTableColumn
+cucsBiosSettingRefDn=_CucsBiosSettingRefDn_Object((1,3,6,1,4,1,9,9,719,1,4,7,1,2),_CucsBiosSettingRefDn_Type())
+cucsBiosSettingRefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosSettingRefDn.setStatus(_A)
+_CucsBiosSettingRefRn_Type=SnmpAdminString
+_CucsBiosSettingRefRn_Object=MibTableColumn
+cucsBiosSettingRefRn=_CucsBiosSettingRefRn_Object((1,3,6,1,4,1,9,9,719,1,4,7,1,3),_CucsBiosSettingRefRn_Type())
+cucsBiosSettingRefRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosSettingRefRn.setStatus(_A)
+_CucsBiosSettingRefIsDefault_Type=CucsBiosDefaultAction
+_CucsBiosSettingRefIsDefault_Object=MibTableColumn
+cucsBiosSettingRefIsDefault=_CucsBiosSettingRefIsDefault_Object((1,3,6,1,4,1,9,9,719,1,4,7,1,4),_CucsBiosSettingRefIsDefault_Type())
+cucsBiosSettingRefIsDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosSettingRefIsDefault.setStatus(_A)
+_CucsBiosSettingRefIsSupported_Type=CucsBiosSupportedAction
+_CucsBiosSettingRefIsSupported_Object=MibTableColumn
+cucsBiosSettingRefIsSupported=_CucsBiosSettingRefIsSupported_Object((1,3,6,1,4,1,9,9,719,1,4,7,1,5),_CucsBiosSettingRefIsSupported_Type())
+cucsBiosSettingRefIsSupported.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosSettingRefIsSupported.setStatus(_A)
+_CucsBiosSettingRefName_Type=SnmpAdminString
+_CucsBiosSettingRefName_Object=MibTableColumn
+cucsBiosSettingRefName=_CucsBiosSettingRefName_Object((1,3,6,1,4,1,9,9,719,1,4,7,1,6),_CucsBiosSettingRefName_Type())
+cucsBiosSettingRefName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosSettingRefName.setStatus(_A)
+_CucsBiosSettingRefConstantName_Type=SnmpAdminString
+_CucsBiosSettingRefConstantName_Object=MibTableColumn
+cucsBiosSettingRefConstantName=_CucsBiosSettingRefConstantName_Object((1,3,6,1,4,1,9,9,719,1,4,7,1,7),_CucsBiosSettingRefConstantName_Type())
+cucsBiosSettingRefConstantName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosSettingRefConstantName.setStatus(_A)
+_CucsBiosSettingsTable_Object=MibTable
+cucsBiosSettingsTable=_CucsBiosSettingsTable_Object((1,3,6,1,4,1,9,9,719,1,4,8))
+if mibBuilder.loadTexts:cucsBiosSettingsTable.setStatus(_A)
+_CucsBiosSettingsEntry_Object=MibTableRow
+cucsBiosSettingsEntry=_CucsBiosSettingsEntry_Object((1,3,6,1,4,1,9,9,719,1,4,8,1))
+cucsBiosSettingsEntry.setIndexNames((0,_C,_L))
+if mibBuilder.loadTexts:cucsBiosSettingsEntry.setStatus(_A)
+_CucsBiosSettingsInstanceId_Type=CucsManagedObjectId
+_CucsBiosSettingsInstanceId_Object=MibTableColumn
+cucsBiosSettingsInstanceId=_CucsBiosSettingsInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,8,1,1),_CucsBiosSettingsInstanceId_Type())
+cucsBiosSettingsInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosSettingsInstanceId.setStatus(_A)
+_CucsBiosSettingsDn_Type=CucsManagedObjectDn
+_CucsBiosSettingsDn_Object=MibTableColumn
+cucsBiosSettingsDn=_CucsBiosSettingsDn_Object((1,3,6,1,4,1,9,9,719,1,4,8,1,2),_CucsBiosSettingsDn_Type())
+cucsBiosSettingsDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosSettingsDn.setStatus(_A)
+_CucsBiosSettingsRn_Type=SnmpAdminString
+_CucsBiosSettingsRn_Object=MibTableColumn
+cucsBiosSettingsRn=_CucsBiosSettingsRn_Object((1,3,6,1,4,1,9,9,719,1,4,8,1,3),_CucsBiosSettingsRn_Type())
+cucsBiosSettingsRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosSettingsRn.setStatus(_A)
+_CucsBiosSettingsPropAcl_Type=Unsigned64
+_CucsBiosSettingsPropAcl_Object=MibTableColumn
+cucsBiosSettingsPropAcl=_CucsBiosSettingsPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,8,1,4),_CucsBiosSettingsPropAcl_Type())
+cucsBiosSettingsPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosSettingsPropAcl.setStatus(_A)
+_CucsBiosUnitTable_Object=MibTable
+cucsBiosUnitTable=_CucsBiosUnitTable_Object((1,3,6,1,4,1,9,9,719,1,4,9))
+if mibBuilder.loadTexts:cucsBiosUnitTable.setStatus(_A)
+_CucsBiosUnitEntry_Object=MibTableRow
+cucsBiosUnitEntry=_CucsBiosUnitEntry_Object((1,3,6,1,4,1,9,9,719,1,4,9,1))
+cucsBiosUnitEntry.setIndexNames((0,_C,_M))
+if mibBuilder.loadTexts:cucsBiosUnitEntry.setStatus(_A)
+_CucsBiosUnitInstanceId_Type=CucsManagedObjectId
+_CucsBiosUnitInstanceId_Object=MibTableColumn
+cucsBiosUnitInstanceId=_CucsBiosUnitInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,9,1,1),_CucsBiosUnitInstanceId_Type())
+cucsBiosUnitInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosUnitInstanceId.setStatus(_A)
+_CucsBiosUnitDn_Type=CucsManagedObjectDn
+_CucsBiosUnitDn_Object=MibTableColumn
+cucsBiosUnitDn=_CucsBiosUnitDn_Object((1,3,6,1,4,1,9,9,719,1,4,9,1,2),_CucsBiosUnitDn_Type())
+cucsBiosUnitDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosUnitDn.setStatus(_A)
+_CucsBiosUnitRn_Type=SnmpAdminString
+_CucsBiosUnitRn_Object=MibTableColumn
+cucsBiosUnitRn=_CucsBiosUnitRn_Object((1,3,6,1,4,1,9,9,719,1,4,9,1,3),_CucsBiosUnitRn_Type())
+cucsBiosUnitRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosUnitRn.setStatus(_A)
+_CucsBiosUnitInitSeq_Type=SnmpAdminString
+_CucsBiosUnitInitSeq_Object=MibTableColumn
+cucsBiosUnitInitSeq=_CucsBiosUnitInitSeq_Object((1,3,6,1,4,1,9,9,719,1,4,9,1,4),_CucsBiosUnitInitSeq_Type())
+cucsBiosUnitInitSeq.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosUnitInitSeq.setStatus(_A)
+_CucsBiosUnitInitTs_Type=DateAndTime
+_CucsBiosUnitInitTs_Object=MibTableColumn
+cucsBiosUnitInitTs=_CucsBiosUnitInitTs_Object((1,3,6,1,4,1,9,9,719,1,4,9,1,5),_CucsBiosUnitInitTs_Type())
+cucsBiosUnitInitTs.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosUnitInitTs.setStatus(_A)
+_CucsBiosUnitModel_Type=SnmpAdminString
+_CucsBiosUnitModel_Object=MibTableColumn
+cucsBiosUnitModel=_CucsBiosUnitModel_Object((1,3,6,1,4,1,9,9,719,1,4,9,1,6),_CucsBiosUnitModel_Type())
+cucsBiosUnitModel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosUnitModel.setStatus(_A)
+_CucsBiosUnitRevision_Type=SnmpAdminString
+_CucsBiosUnitRevision_Object=MibTableColumn
+cucsBiosUnitRevision=_CucsBiosUnitRevision_Object((1,3,6,1,4,1,9,9,719,1,4,9,1,7),_CucsBiosUnitRevision_Type())
+cucsBiosUnitRevision.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosUnitRevision.setStatus(_A)
+_CucsBiosUnitSerial_Type=SnmpAdminString
+_CucsBiosUnitSerial_Object=MibTableColumn
+cucsBiosUnitSerial=_CucsBiosUnitSerial_Object((1,3,6,1,4,1,9,9,719,1,4,9,1,8),_CucsBiosUnitSerial_Type())
+cucsBiosUnitSerial.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosUnitSerial.setStatus(_A)
+_CucsBiosUnitVendor_Type=SnmpAdminString
+_CucsBiosUnitVendor_Object=MibTableColumn
+cucsBiosUnitVendor=_CucsBiosUnitVendor_Object((1,3,6,1,4,1,9,9,719,1,4,9,1,9),_CucsBiosUnitVendor_Type())
+cucsBiosUnitVendor.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosUnitVendor.setStatus(_A)
+_CucsBiosVProfileTable_Object=MibTable
+cucsBiosVProfileTable=_CucsBiosVProfileTable_Object((1,3,6,1,4,1,9,9,719,1,4,10))
+if mibBuilder.loadTexts:cucsBiosVProfileTable.setStatus(_A)
+_CucsBiosVProfileEntry_Object=MibTableRow
+cucsBiosVProfileEntry=_CucsBiosVProfileEntry_Object((1,3,6,1,4,1,9,9,719,1,4,10,1))
+cucsBiosVProfileEntry.setIndexNames((0,_C,_N))
+if mibBuilder.loadTexts:cucsBiosVProfileEntry.setStatus(_A)
+_CucsBiosVProfileInstanceId_Type=CucsManagedObjectId
+_CucsBiosVProfileInstanceId_Object=MibTableColumn
+cucsBiosVProfileInstanceId=_CucsBiosVProfileInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,10,1,1),_CucsBiosVProfileInstanceId_Type())
+cucsBiosVProfileInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVProfileInstanceId.setStatus(_A)
+_CucsBiosVProfileDn_Type=CucsManagedObjectDn
+_CucsBiosVProfileDn_Object=MibTableColumn
+cucsBiosVProfileDn=_CucsBiosVProfileDn_Object((1,3,6,1,4,1,9,9,719,1,4,10,1,2),_CucsBiosVProfileDn_Type())
+cucsBiosVProfileDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVProfileDn.setStatus(_A)
+_CucsBiosVProfileRn_Type=SnmpAdminString
+_CucsBiosVProfileRn_Object=MibTableColumn
+cucsBiosVProfileRn=_CucsBiosVProfileRn_Object((1,3,6,1,4,1,9,9,719,1,4,10,1,3),_CucsBiosVProfileRn_Type())
+cucsBiosVProfileRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVProfileRn.setStatus(_A)
+_CucsBiosVProfileDescr_Type=SnmpAdminString
+_CucsBiosVProfileDescr_Object=MibTableColumn
+cucsBiosVProfileDescr=_CucsBiosVProfileDescr_Object((1,3,6,1,4,1,9,9,719,1,4,10,1,4),_CucsBiosVProfileDescr_Type())
+cucsBiosVProfileDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVProfileDescr.setStatus(_A)
+_CucsBiosVProfileIntId_Type=SnmpAdminString
+_CucsBiosVProfileIntId_Object=MibTableColumn
+cucsBiosVProfileIntId=_CucsBiosVProfileIntId_Object((1,3,6,1,4,1,9,9,719,1,4,10,1,5),_CucsBiosVProfileIntId_Type())
+cucsBiosVProfileIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVProfileIntId.setStatus(_A)
+_CucsBiosVProfileName_Type=SnmpAdminString
+_CucsBiosVProfileName_Object=MibTableColumn
+cucsBiosVProfileName=_CucsBiosVProfileName_Object((1,3,6,1,4,1,9,9,719,1,4,10,1,6),_CucsBiosVProfileName_Type())
+cucsBiosVProfileName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVProfileName.setStatus(_A)
+_CucsBiosVProfileRebootOnUpdate_Type=TruthValue
+_CucsBiosVProfileRebootOnUpdate_Object=MibTableColumn
+cucsBiosVProfileRebootOnUpdate=_CucsBiosVProfileRebootOnUpdate_Object((1,3,6,1,4,1,9,9,719,1,4,10,1,7),_CucsBiosVProfileRebootOnUpdate_Type())
+cucsBiosVProfileRebootOnUpdate.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVProfileRebootOnUpdate.setStatus(_A)
+_CucsBiosVProfilePolicyLevel_Type=Gauge32
+_CucsBiosVProfilePolicyLevel_Object=MibTableColumn
+cucsBiosVProfilePolicyLevel=_CucsBiosVProfilePolicyLevel_Object((1,3,6,1,4,1,9,9,719,1,4,10,1,8),_CucsBiosVProfilePolicyLevel_Type())
+cucsBiosVProfilePolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVProfilePolicyLevel.setStatus(_A)
+_CucsBiosVProfilePolicyOwner_Type=CucsPolicyPolicyOwner
+_CucsBiosVProfilePolicyOwner_Object=MibTableColumn
+cucsBiosVProfilePolicyOwner=_CucsBiosVProfilePolicyOwner_Object((1,3,6,1,4,1,9,9,719,1,4,10,1,9),_CucsBiosVProfilePolicyOwner_Type())
+cucsBiosVProfilePolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVProfilePolicyOwner.setStatus(_A)
+_CucsBiosVfConsoleRedirectionTable_Object=MibTable
+cucsBiosVfConsoleRedirectionTable=_CucsBiosVfConsoleRedirectionTable_Object((1,3,6,1,4,1,9,9,719,1,4,11))
+if mibBuilder.loadTexts:cucsBiosVfConsoleRedirectionTable.setStatus(_A)
+_CucsBiosVfConsoleRedirectionEntry_Object=MibTableRow
+cucsBiosVfConsoleRedirectionEntry=_CucsBiosVfConsoleRedirectionEntry_Object((1,3,6,1,4,1,9,9,719,1,4,11,1))
+cucsBiosVfConsoleRedirectionEntry.setIndexNames((0,_C,_O))
+if mibBuilder.loadTexts:cucsBiosVfConsoleRedirectionEntry.setStatus(_A)
+_CucsBiosVfConsoleRedirectionInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfConsoleRedirectionInstanceId_Object=MibTableColumn
+cucsBiosVfConsoleRedirectionInstanceId=_CucsBiosVfConsoleRedirectionInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,11,1,1),_CucsBiosVfConsoleRedirectionInstanceId_Type())
+cucsBiosVfConsoleRedirectionInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfConsoleRedirectionInstanceId.setStatus(_A)
+_CucsBiosVfConsoleRedirectionDn_Type=CucsManagedObjectDn
+_CucsBiosVfConsoleRedirectionDn_Object=MibTableColumn
+cucsBiosVfConsoleRedirectionDn=_CucsBiosVfConsoleRedirectionDn_Object((1,3,6,1,4,1,9,9,719,1,4,11,1,2),_CucsBiosVfConsoleRedirectionDn_Type())
+cucsBiosVfConsoleRedirectionDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfConsoleRedirectionDn.setStatus(_A)
+_CucsBiosVfConsoleRedirectionRn_Type=SnmpAdminString
+_CucsBiosVfConsoleRedirectionRn_Object=MibTableColumn
+cucsBiosVfConsoleRedirectionRn=_CucsBiosVfConsoleRedirectionRn_Object((1,3,6,1,4,1,9,9,719,1,4,11,1,3),_CucsBiosVfConsoleRedirectionRn_Type())
+cucsBiosVfConsoleRedirectionRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfConsoleRedirectionRn.setStatus(_A)
+_CucsBiosVfConsoleRedirectionVpBaudRate_Type=CucsBiosVfConsoleRedirectionVpBaudRate
+_CucsBiosVfConsoleRedirectionVpBaudRate_Object=MibTableColumn
+cucsBiosVfConsoleRedirectionVpBaudRate=_CucsBiosVfConsoleRedirectionVpBaudRate_Object((1,3,6,1,4,1,9,9,719,1,4,11,1,4),_CucsBiosVfConsoleRedirectionVpBaudRate_Type())
+cucsBiosVfConsoleRedirectionVpBaudRate.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfConsoleRedirectionVpBaudRate.setStatus(_A)
+_CucsBiosVfConsoleRedirectionVpConsoleRedirection_Type=CucsBiosVfConsoleRedirectionVpConsoleRedirection
+_CucsBiosVfConsoleRedirectionVpConsoleRedirection_Object=MibTableColumn
+cucsBiosVfConsoleRedirectionVpConsoleRedirection=_CucsBiosVfConsoleRedirectionVpConsoleRedirection_Object((1,3,6,1,4,1,9,9,719,1,4,11,1,5),_CucsBiosVfConsoleRedirectionVpConsoleRedirection_Type())
+cucsBiosVfConsoleRedirectionVpConsoleRedirection.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfConsoleRedirectionVpConsoleRedirection.setStatus(_A)
+_CucsBiosVfConsoleRedirectionVpFlowControl_Type=CucsBiosVfConsoleRedirectionVpFlowControl
+_CucsBiosVfConsoleRedirectionVpFlowControl_Object=MibTableColumn
+cucsBiosVfConsoleRedirectionVpFlowControl=_CucsBiosVfConsoleRedirectionVpFlowControl_Object((1,3,6,1,4,1,9,9,719,1,4,11,1,6),_CucsBiosVfConsoleRedirectionVpFlowControl_Type())
+cucsBiosVfConsoleRedirectionVpFlowControl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfConsoleRedirectionVpFlowControl.setStatus(_A)
+_CucsBiosVfConsoleRedirectionVpLegacyOSRedirection_Type=CucsBiosVfConsoleRedirectionVpLegacyOSRedirection
+_CucsBiosVfConsoleRedirectionVpLegacyOSRedirection_Object=MibTableColumn
+cucsBiosVfConsoleRedirectionVpLegacyOSRedirection=_CucsBiosVfConsoleRedirectionVpLegacyOSRedirection_Object((1,3,6,1,4,1,9,9,719,1,4,11,1,7),_CucsBiosVfConsoleRedirectionVpLegacyOSRedirection_Type())
+cucsBiosVfConsoleRedirectionVpLegacyOSRedirection.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfConsoleRedirectionVpLegacyOSRedirection.setStatus(_A)
+_CucsBiosVfConsoleRedirectionVpTerminalType_Type=CucsBiosVfConsoleRedirectionVpTerminalType
+_CucsBiosVfConsoleRedirectionVpTerminalType_Object=MibTableColumn
+cucsBiosVfConsoleRedirectionVpTerminalType=_CucsBiosVfConsoleRedirectionVpTerminalType_Object((1,3,6,1,4,1,9,9,719,1,4,11,1,8),_CucsBiosVfConsoleRedirectionVpTerminalType_Type())
+cucsBiosVfConsoleRedirectionVpTerminalType.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfConsoleRedirectionVpTerminalType.setStatus(_A)
+_CucsBiosVfConsoleRedirectionVpPuttyKeyPad_Type=CucsBiosVfConsoleRedirectionVpPuttyKeyPad
+_CucsBiosVfConsoleRedirectionVpPuttyKeyPad_Object=MibTableColumn
+cucsBiosVfConsoleRedirectionVpPuttyKeyPad=_CucsBiosVfConsoleRedirectionVpPuttyKeyPad_Object((1,3,6,1,4,1,9,9,719,1,4,11,1,9),_CucsBiosVfConsoleRedirectionVpPuttyKeyPad_Type())
+cucsBiosVfConsoleRedirectionVpPuttyKeyPad.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfConsoleRedirectionVpPuttyKeyPad.setStatus(_A)
+_CucsBiosVfConsoleRedirectionPropAcl_Type=Unsigned64
+_CucsBiosVfConsoleRedirectionPropAcl_Object=MibTableColumn
+cucsBiosVfConsoleRedirectionPropAcl=_CucsBiosVfConsoleRedirectionPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,11,1,10),_CucsBiosVfConsoleRedirectionPropAcl_Type())
+cucsBiosVfConsoleRedirectionPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfConsoleRedirectionPropAcl.setStatus(_A)
+_CucsBiosVfConsoleRedirectionSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfConsoleRedirectionSupportedByDefault_Object=MibTableColumn
+cucsBiosVfConsoleRedirectionSupportedByDefault=_CucsBiosVfConsoleRedirectionSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,11,1,11),_CucsBiosVfConsoleRedirectionSupportedByDefault_Type())
+cucsBiosVfConsoleRedirectionSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfConsoleRedirectionSupportedByDefault.setStatus(_A)
+_CucsBiosVfOptionROMLoadTable_Object=MibTable
+cucsBiosVfOptionROMLoadTable=_CucsBiosVfOptionROMLoadTable_Object((1,3,6,1,4,1,9,9,719,1,4,12))
+if mibBuilder.loadTexts:cucsBiosVfOptionROMLoadTable.setStatus(_A)
+_CucsBiosVfOptionROMLoadEntry_Object=MibTableRow
+cucsBiosVfOptionROMLoadEntry=_CucsBiosVfOptionROMLoadEntry_Object((1,3,6,1,4,1,9,9,719,1,4,12,1))
+cucsBiosVfOptionROMLoadEntry.setIndexNames((0,_C,_P))
+if mibBuilder.loadTexts:cucsBiosVfOptionROMLoadEntry.setStatus(_A)
+_CucsBiosVfOptionROMLoadInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfOptionROMLoadInstanceId_Object=MibTableColumn
+cucsBiosVfOptionROMLoadInstanceId=_CucsBiosVfOptionROMLoadInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,12,1,1),_CucsBiosVfOptionROMLoadInstanceId_Type())
+cucsBiosVfOptionROMLoadInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfOptionROMLoadInstanceId.setStatus(_A)
+_CucsBiosVfOptionROMLoadDn_Type=CucsManagedObjectDn
+_CucsBiosVfOptionROMLoadDn_Object=MibTableColumn
+cucsBiosVfOptionROMLoadDn=_CucsBiosVfOptionROMLoadDn_Object((1,3,6,1,4,1,9,9,719,1,4,12,1,2),_CucsBiosVfOptionROMLoadDn_Type())
+cucsBiosVfOptionROMLoadDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOptionROMLoadDn.setStatus(_A)
+_CucsBiosVfOptionROMLoadRn_Type=SnmpAdminString
+_CucsBiosVfOptionROMLoadRn_Object=MibTableColumn
+cucsBiosVfOptionROMLoadRn=_CucsBiosVfOptionROMLoadRn_Object((1,3,6,1,4,1,9,9,719,1,4,12,1,3),_CucsBiosVfOptionROMLoadRn_Type())
+cucsBiosVfOptionROMLoadRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOptionROMLoadRn.setStatus(_A)
+_CucsBiosVfOptionROMLoadVpLoad_Type=CucsBiosVfOptionROMLoadVpLoad
+_CucsBiosVfOptionROMLoadVpLoad_Object=MibTableColumn
+cucsBiosVfOptionROMLoadVpLoad=_CucsBiosVfOptionROMLoadVpLoad_Object((1,3,6,1,4,1,9,9,719,1,4,12,1,4),_CucsBiosVfOptionROMLoadVpLoad_Type())
+cucsBiosVfOptionROMLoadVpLoad.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOptionROMLoadVpLoad.setStatus(_A)
+_CucsBiosVfOptionROMLoadPropAcl_Type=Unsigned64
+_CucsBiosVfOptionROMLoadPropAcl_Object=MibTableColumn
+cucsBiosVfOptionROMLoadPropAcl=_CucsBiosVfOptionROMLoadPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,12,1,5),_CucsBiosVfOptionROMLoadPropAcl_Type())
+cucsBiosVfOptionROMLoadPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOptionROMLoadPropAcl.setStatus(_A)
+_CucsBiosVfOptionROMLoadSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfOptionROMLoadSupportedByDefault_Object=MibTableColumn
+cucsBiosVfOptionROMLoadSupportedByDefault=_CucsBiosVfOptionROMLoadSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,12,1,6),_CucsBiosVfOptionROMLoadSupportedByDefault_Type())
+cucsBiosVfOptionROMLoadSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOptionROMLoadSupportedByDefault.setStatus(_A)
+_CucsBiosVfEnhancedIntelSpeedStepTechTable_Object=MibTable
+cucsBiosVfEnhancedIntelSpeedStepTechTable=_CucsBiosVfEnhancedIntelSpeedStepTechTable_Object((1,3,6,1,4,1,9,9,719,1,4,13))
+if mibBuilder.loadTexts:cucsBiosVfEnhancedIntelSpeedStepTechTable.setStatus(_A)
+_CucsBiosVfEnhancedIntelSpeedStepTechEntry_Object=MibTableRow
+cucsBiosVfEnhancedIntelSpeedStepTechEntry=_CucsBiosVfEnhancedIntelSpeedStepTechEntry_Object((1,3,6,1,4,1,9,9,719,1,4,13,1))
+cucsBiosVfEnhancedIntelSpeedStepTechEntry.setIndexNames((0,_C,_Q))
+if mibBuilder.loadTexts:cucsBiosVfEnhancedIntelSpeedStepTechEntry.setStatus(_A)
+_CucsBiosVfEnhancedIntelSpeedStepTechInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfEnhancedIntelSpeedStepTechInstanceId_Object=MibTableColumn
+cucsBiosVfEnhancedIntelSpeedStepTechInstanceId=_CucsBiosVfEnhancedIntelSpeedStepTechInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,13,1,1),_CucsBiosVfEnhancedIntelSpeedStepTechInstanceId_Type())
+cucsBiosVfEnhancedIntelSpeedStepTechInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfEnhancedIntelSpeedStepTechInstanceId.setStatus(_A)
+_CucsBiosVfEnhancedIntelSpeedStepTechDn_Type=CucsManagedObjectDn
+_CucsBiosVfEnhancedIntelSpeedStepTechDn_Object=MibTableColumn
+cucsBiosVfEnhancedIntelSpeedStepTechDn=_CucsBiosVfEnhancedIntelSpeedStepTechDn_Object((1,3,6,1,4,1,9,9,719,1,4,13,1,2),_CucsBiosVfEnhancedIntelSpeedStepTechDn_Type())
+cucsBiosVfEnhancedIntelSpeedStepTechDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfEnhancedIntelSpeedStepTechDn.setStatus(_A)
+_CucsBiosVfEnhancedIntelSpeedStepTechRn_Type=SnmpAdminString
+_CucsBiosVfEnhancedIntelSpeedStepTechRn_Object=MibTableColumn
+cucsBiosVfEnhancedIntelSpeedStepTechRn=_CucsBiosVfEnhancedIntelSpeedStepTechRn_Object((1,3,6,1,4,1,9,9,719,1,4,13,1,3),_CucsBiosVfEnhancedIntelSpeedStepTechRn_Type())
+cucsBiosVfEnhancedIntelSpeedStepTechRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfEnhancedIntelSpeedStepTechRn.setStatus(_A)
+_CucsBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech_Type=CucsBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech
+_CucsBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech_Object=MibTableColumn
+cucsBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech=_CucsBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech_Object((1,3,6,1,4,1,9,9,719,1,4,13,1,4),_CucsBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech_Type())
+cucsBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech.setStatus(_A)
+_CucsBiosVfEnhancedIntelSpeedStepTechPropAcl_Type=Unsigned64
+_CucsBiosVfEnhancedIntelSpeedStepTechPropAcl_Object=MibTableColumn
+cucsBiosVfEnhancedIntelSpeedStepTechPropAcl=_CucsBiosVfEnhancedIntelSpeedStepTechPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,13,1,5),_CucsBiosVfEnhancedIntelSpeedStepTechPropAcl_Type())
+cucsBiosVfEnhancedIntelSpeedStepTechPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfEnhancedIntelSpeedStepTechPropAcl.setStatus(_A)
+_CucsBiosVfEnhancedIntelSpeedStepTechSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfEnhancedIntelSpeedStepTechSupportedByDefault_Object=MibTableColumn
+cucsBiosVfEnhancedIntelSpeedStepTechSupportedByDefault=_CucsBiosVfEnhancedIntelSpeedStepTechSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,13,1,6),_CucsBiosVfEnhancedIntelSpeedStepTechSupportedByDefault_Type())
+cucsBiosVfEnhancedIntelSpeedStepTechSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfEnhancedIntelSpeedStepTechSupportedByDefault.setStatus(_A)
+_CucsBiosVfFrontPanelLockoutTable_Object=MibTable
+cucsBiosVfFrontPanelLockoutTable=_CucsBiosVfFrontPanelLockoutTable_Object((1,3,6,1,4,1,9,9,719,1,4,14))
+if mibBuilder.loadTexts:cucsBiosVfFrontPanelLockoutTable.setStatus(_A)
+_CucsBiosVfFrontPanelLockoutEntry_Object=MibTableRow
+cucsBiosVfFrontPanelLockoutEntry=_CucsBiosVfFrontPanelLockoutEntry_Object((1,3,6,1,4,1,9,9,719,1,4,14,1))
+cucsBiosVfFrontPanelLockoutEntry.setIndexNames((0,_C,_R))
+if mibBuilder.loadTexts:cucsBiosVfFrontPanelLockoutEntry.setStatus(_A)
+_CucsBiosVfFrontPanelLockoutInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfFrontPanelLockoutInstanceId_Object=MibTableColumn
+cucsBiosVfFrontPanelLockoutInstanceId=_CucsBiosVfFrontPanelLockoutInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,14,1,1),_CucsBiosVfFrontPanelLockoutInstanceId_Type())
+cucsBiosVfFrontPanelLockoutInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfFrontPanelLockoutInstanceId.setStatus(_A)
+_CucsBiosVfFrontPanelLockoutDn_Type=CucsManagedObjectDn
+_CucsBiosVfFrontPanelLockoutDn_Object=MibTableColumn
+cucsBiosVfFrontPanelLockoutDn=_CucsBiosVfFrontPanelLockoutDn_Object((1,3,6,1,4,1,9,9,719,1,4,14,1,2),_CucsBiosVfFrontPanelLockoutDn_Type())
+cucsBiosVfFrontPanelLockoutDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfFrontPanelLockoutDn.setStatus(_A)
+_CucsBiosVfFrontPanelLockoutRn_Type=SnmpAdminString
+_CucsBiosVfFrontPanelLockoutRn_Object=MibTableColumn
+cucsBiosVfFrontPanelLockoutRn=_CucsBiosVfFrontPanelLockoutRn_Object((1,3,6,1,4,1,9,9,719,1,4,14,1,3),_CucsBiosVfFrontPanelLockoutRn_Type())
+cucsBiosVfFrontPanelLockoutRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfFrontPanelLockoutRn.setStatus(_A)
+_CucsBiosVfFrontPanelLockoutVpFrontPanelLockout_Type=CucsBiosVfFrontPanelLockoutVpFrontPanelLockout
+_CucsBiosVfFrontPanelLockoutVpFrontPanelLockout_Object=MibTableColumn
+cucsBiosVfFrontPanelLockoutVpFrontPanelLockout=_CucsBiosVfFrontPanelLockoutVpFrontPanelLockout_Object((1,3,6,1,4,1,9,9,719,1,4,14,1,4),_CucsBiosVfFrontPanelLockoutVpFrontPanelLockout_Type())
+cucsBiosVfFrontPanelLockoutVpFrontPanelLockout.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfFrontPanelLockoutVpFrontPanelLockout.setStatus(_A)
+_CucsBiosVfFrontPanelLockoutPropAcl_Type=Unsigned64
+_CucsBiosVfFrontPanelLockoutPropAcl_Object=MibTableColumn
+cucsBiosVfFrontPanelLockoutPropAcl=_CucsBiosVfFrontPanelLockoutPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,14,1,5),_CucsBiosVfFrontPanelLockoutPropAcl_Type())
+cucsBiosVfFrontPanelLockoutPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfFrontPanelLockoutPropAcl.setStatus(_A)
+_CucsBiosVfFrontPanelLockoutSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfFrontPanelLockoutSupportedByDefault_Object=MibTableColumn
+cucsBiosVfFrontPanelLockoutSupportedByDefault=_CucsBiosVfFrontPanelLockoutSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,14,1,6),_CucsBiosVfFrontPanelLockoutSupportedByDefault_Type())
+cucsBiosVfFrontPanelLockoutSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfFrontPanelLockoutSupportedByDefault.setStatus(_A)
+_CucsBiosVfIntelHyperThreadingTechTable_Object=MibTable
+cucsBiosVfIntelHyperThreadingTechTable=_CucsBiosVfIntelHyperThreadingTechTable_Object((1,3,6,1,4,1,9,9,719,1,4,15))
+if mibBuilder.loadTexts:cucsBiosVfIntelHyperThreadingTechTable.setStatus(_A)
+_CucsBiosVfIntelHyperThreadingTechEntry_Object=MibTableRow
+cucsBiosVfIntelHyperThreadingTechEntry=_CucsBiosVfIntelHyperThreadingTechEntry_Object((1,3,6,1,4,1,9,9,719,1,4,15,1))
+cucsBiosVfIntelHyperThreadingTechEntry.setIndexNames((0,_C,_S))
+if mibBuilder.loadTexts:cucsBiosVfIntelHyperThreadingTechEntry.setStatus(_A)
+_CucsBiosVfIntelHyperThreadingTechInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfIntelHyperThreadingTechInstanceId_Object=MibTableColumn
+cucsBiosVfIntelHyperThreadingTechInstanceId=_CucsBiosVfIntelHyperThreadingTechInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,15,1,1),_CucsBiosVfIntelHyperThreadingTechInstanceId_Type())
+cucsBiosVfIntelHyperThreadingTechInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfIntelHyperThreadingTechInstanceId.setStatus(_A)
+_CucsBiosVfIntelHyperThreadingTechDn_Type=CucsManagedObjectDn
+_CucsBiosVfIntelHyperThreadingTechDn_Object=MibTableColumn
+cucsBiosVfIntelHyperThreadingTechDn=_CucsBiosVfIntelHyperThreadingTechDn_Object((1,3,6,1,4,1,9,9,719,1,4,15,1,2),_CucsBiosVfIntelHyperThreadingTechDn_Type())
+cucsBiosVfIntelHyperThreadingTechDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelHyperThreadingTechDn.setStatus(_A)
+_CucsBiosVfIntelHyperThreadingTechRn_Type=SnmpAdminString
+_CucsBiosVfIntelHyperThreadingTechRn_Object=MibTableColumn
+cucsBiosVfIntelHyperThreadingTechRn=_CucsBiosVfIntelHyperThreadingTechRn_Object((1,3,6,1,4,1,9,9,719,1,4,15,1,3),_CucsBiosVfIntelHyperThreadingTechRn_Type())
+cucsBiosVfIntelHyperThreadingTechRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelHyperThreadingTechRn.setStatus(_A)
+_CucsBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech_Type=CucsBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech
+_CucsBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech_Object=MibTableColumn
+cucsBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech=_CucsBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech_Object((1,3,6,1,4,1,9,9,719,1,4,15,1,4),_CucsBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech_Type())
+cucsBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech.setStatus(_A)
+_CucsBiosVfIntelHyperThreadingTechPropAcl_Type=Unsigned64
+_CucsBiosVfIntelHyperThreadingTechPropAcl_Object=MibTableColumn
+cucsBiosVfIntelHyperThreadingTechPropAcl=_CucsBiosVfIntelHyperThreadingTechPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,15,1,5),_CucsBiosVfIntelHyperThreadingTechPropAcl_Type())
+cucsBiosVfIntelHyperThreadingTechPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelHyperThreadingTechPropAcl.setStatus(_A)
+_CucsBiosVfIntelHyperThreadingTechSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfIntelHyperThreadingTechSupportedByDefault_Object=MibTableColumn
+cucsBiosVfIntelHyperThreadingTechSupportedByDefault=_CucsBiosVfIntelHyperThreadingTechSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,15,1,6),_CucsBiosVfIntelHyperThreadingTechSupportedByDefault_Type())
+cucsBiosVfIntelHyperThreadingTechSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelHyperThreadingTechSupportedByDefault.setStatus(_A)
+_CucsBiosVfIntelTurboBoostTechTable_Object=MibTable
+cucsBiosVfIntelTurboBoostTechTable=_CucsBiosVfIntelTurboBoostTechTable_Object((1,3,6,1,4,1,9,9,719,1,4,16))
+if mibBuilder.loadTexts:cucsBiosVfIntelTurboBoostTechTable.setStatus(_A)
+_CucsBiosVfIntelTurboBoostTechEntry_Object=MibTableRow
+cucsBiosVfIntelTurboBoostTechEntry=_CucsBiosVfIntelTurboBoostTechEntry_Object((1,3,6,1,4,1,9,9,719,1,4,16,1))
+cucsBiosVfIntelTurboBoostTechEntry.setIndexNames((0,_C,_T))
+if mibBuilder.loadTexts:cucsBiosVfIntelTurboBoostTechEntry.setStatus(_A)
+_CucsBiosVfIntelTurboBoostTechInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfIntelTurboBoostTechInstanceId_Object=MibTableColumn
+cucsBiosVfIntelTurboBoostTechInstanceId=_CucsBiosVfIntelTurboBoostTechInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,16,1,1),_CucsBiosVfIntelTurboBoostTechInstanceId_Type())
+cucsBiosVfIntelTurboBoostTechInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfIntelTurboBoostTechInstanceId.setStatus(_A)
+_CucsBiosVfIntelTurboBoostTechDn_Type=CucsManagedObjectDn
+_CucsBiosVfIntelTurboBoostTechDn_Object=MibTableColumn
+cucsBiosVfIntelTurboBoostTechDn=_CucsBiosVfIntelTurboBoostTechDn_Object((1,3,6,1,4,1,9,9,719,1,4,16,1,2),_CucsBiosVfIntelTurboBoostTechDn_Type())
+cucsBiosVfIntelTurboBoostTechDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelTurboBoostTechDn.setStatus(_A)
+_CucsBiosVfIntelTurboBoostTechRn_Type=SnmpAdminString
+_CucsBiosVfIntelTurboBoostTechRn_Object=MibTableColumn
+cucsBiosVfIntelTurboBoostTechRn=_CucsBiosVfIntelTurboBoostTechRn_Object((1,3,6,1,4,1,9,9,719,1,4,16,1,3),_CucsBiosVfIntelTurboBoostTechRn_Type())
+cucsBiosVfIntelTurboBoostTechRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelTurboBoostTechRn.setStatus(_A)
+_CucsBiosVfIntelTurboBoostTechVpIntelTurboBoostTech_Type=CucsBiosVfIntelTurboBoostTechVpIntelTurboBoostTech
+_CucsBiosVfIntelTurboBoostTechVpIntelTurboBoostTech_Object=MibTableColumn
+cucsBiosVfIntelTurboBoostTechVpIntelTurboBoostTech=_CucsBiosVfIntelTurboBoostTechVpIntelTurboBoostTech_Object((1,3,6,1,4,1,9,9,719,1,4,16,1,4),_CucsBiosVfIntelTurboBoostTechVpIntelTurboBoostTech_Type())
+cucsBiosVfIntelTurboBoostTechVpIntelTurboBoostTech.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelTurboBoostTechVpIntelTurboBoostTech.setStatus(_A)
+_CucsBiosVfIntelTurboBoostTechPropAcl_Type=Unsigned64
+_CucsBiosVfIntelTurboBoostTechPropAcl_Object=MibTableColumn
+cucsBiosVfIntelTurboBoostTechPropAcl=_CucsBiosVfIntelTurboBoostTechPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,16,1,5),_CucsBiosVfIntelTurboBoostTechPropAcl_Type())
+cucsBiosVfIntelTurboBoostTechPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelTurboBoostTechPropAcl.setStatus(_A)
+_CucsBiosVfIntelTurboBoostTechSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfIntelTurboBoostTechSupportedByDefault_Object=MibTableColumn
+cucsBiosVfIntelTurboBoostTechSupportedByDefault=_CucsBiosVfIntelTurboBoostTechSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,16,1,6),_CucsBiosVfIntelTurboBoostTechSupportedByDefault_Type())
+cucsBiosVfIntelTurboBoostTechSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelTurboBoostTechSupportedByDefault.setStatus(_A)
+_CucsBiosVfIntelVTForDirectedIOTable_Object=MibTable
+cucsBiosVfIntelVTForDirectedIOTable=_CucsBiosVfIntelVTForDirectedIOTable_Object((1,3,6,1,4,1,9,9,719,1,4,17))
+if mibBuilder.loadTexts:cucsBiosVfIntelVTForDirectedIOTable.setStatus(_A)
+_CucsBiosVfIntelVTForDirectedIOEntry_Object=MibTableRow
+cucsBiosVfIntelVTForDirectedIOEntry=_CucsBiosVfIntelVTForDirectedIOEntry_Object((1,3,6,1,4,1,9,9,719,1,4,17,1))
+cucsBiosVfIntelVTForDirectedIOEntry.setIndexNames((0,_C,_U))
+if mibBuilder.loadTexts:cucsBiosVfIntelVTForDirectedIOEntry.setStatus(_A)
+_CucsBiosVfIntelVTForDirectedIOInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfIntelVTForDirectedIOInstanceId_Object=MibTableColumn
+cucsBiosVfIntelVTForDirectedIOInstanceId=_CucsBiosVfIntelVTForDirectedIOInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,17,1,1),_CucsBiosVfIntelVTForDirectedIOInstanceId_Type())
+cucsBiosVfIntelVTForDirectedIOInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfIntelVTForDirectedIOInstanceId.setStatus(_A)
+_CucsBiosVfIntelVTForDirectedIODn_Type=CucsManagedObjectDn
+_CucsBiosVfIntelVTForDirectedIODn_Object=MibTableColumn
+cucsBiosVfIntelVTForDirectedIODn=_CucsBiosVfIntelVTForDirectedIODn_Object((1,3,6,1,4,1,9,9,719,1,4,17,1,2),_CucsBiosVfIntelVTForDirectedIODn_Type())
+cucsBiosVfIntelVTForDirectedIODn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelVTForDirectedIODn.setStatus(_A)
+_CucsBiosVfIntelVTForDirectedIORn_Type=SnmpAdminString
+_CucsBiosVfIntelVTForDirectedIORn_Object=MibTableColumn
+cucsBiosVfIntelVTForDirectedIORn=_CucsBiosVfIntelVTForDirectedIORn_Object((1,3,6,1,4,1,9,9,719,1,4,17,1,3),_CucsBiosVfIntelVTForDirectedIORn_Type())
+cucsBiosVfIntelVTForDirectedIORn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelVTForDirectedIORn.setStatus(_A)
+_CucsBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport_Type=CucsBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport
+_CucsBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport_Object=MibTableColumn
+cucsBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport=_CucsBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport_Object((1,3,6,1,4,1,9,9,719,1,4,17,1,4),_CucsBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport_Type())
+cucsBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport.setStatus(_A)
+_CucsBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport_Type=CucsBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport
+_CucsBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport_Object=MibTableColumn
+cucsBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport=_CucsBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport_Object((1,3,6,1,4,1,9,9,719,1,4,17,1,5),_CucsBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport_Type())
+cucsBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport.setStatus(_A)
+_CucsBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping_Type=CucsBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping
+_CucsBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping_Object=MibTableColumn
+cucsBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping=_CucsBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping_Object((1,3,6,1,4,1,9,9,719,1,4,17,1,6),_CucsBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping_Type())
+cucsBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping.setStatus(_A)
+_CucsBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport_Type=CucsBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport
+_CucsBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport_Object=MibTableColumn
+cucsBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport=_CucsBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport_Object((1,3,6,1,4,1,9,9,719,1,4,17,1,7),_CucsBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport_Type())
+cucsBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport.setStatus(_A)
+_CucsBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO_Type=CucsBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO
+_CucsBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO_Object=MibTableColumn
+cucsBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO=_CucsBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO_Object((1,3,6,1,4,1,9,9,719,1,4,17,1,8),_CucsBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO_Type())
+cucsBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO.setStatus(_A)
+_CucsBiosVfIntelVTForDirectedIOPropAcl_Type=Unsigned64
+_CucsBiosVfIntelVTForDirectedIOPropAcl_Object=MibTableColumn
+cucsBiosVfIntelVTForDirectedIOPropAcl=_CucsBiosVfIntelVTForDirectedIOPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,17,1,9),_CucsBiosVfIntelVTForDirectedIOPropAcl_Type())
+cucsBiosVfIntelVTForDirectedIOPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelVTForDirectedIOPropAcl.setStatus(_A)
+_CucsBiosVfIntelVTForDirectedIOSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfIntelVTForDirectedIOSupportedByDefault_Object=MibTableColumn
+cucsBiosVfIntelVTForDirectedIOSupportedByDefault=_CucsBiosVfIntelVTForDirectedIOSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,17,1,10),_CucsBiosVfIntelVTForDirectedIOSupportedByDefault_Type())
+cucsBiosVfIntelVTForDirectedIOSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelVTForDirectedIOSupportedByDefault.setStatus(_A)
+_CucsBiosVfIntelVirtualizationTechnologyTable_Object=MibTable
+cucsBiosVfIntelVirtualizationTechnologyTable=_CucsBiosVfIntelVirtualizationTechnologyTable_Object((1,3,6,1,4,1,9,9,719,1,4,18))
+if mibBuilder.loadTexts:cucsBiosVfIntelVirtualizationTechnologyTable.setStatus(_A)
+_CucsBiosVfIntelVirtualizationTechnologyEntry_Object=MibTableRow
+cucsBiosVfIntelVirtualizationTechnologyEntry=_CucsBiosVfIntelVirtualizationTechnologyEntry_Object((1,3,6,1,4,1,9,9,719,1,4,18,1))
+cucsBiosVfIntelVirtualizationTechnologyEntry.setIndexNames((0,_C,_V))
+if mibBuilder.loadTexts:cucsBiosVfIntelVirtualizationTechnologyEntry.setStatus(_A)
+_CucsBiosVfIntelVirtualizationTechnologyInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfIntelVirtualizationTechnologyInstanceId_Object=MibTableColumn
+cucsBiosVfIntelVirtualizationTechnologyInstanceId=_CucsBiosVfIntelVirtualizationTechnologyInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,18,1,1),_CucsBiosVfIntelVirtualizationTechnologyInstanceId_Type())
+cucsBiosVfIntelVirtualizationTechnologyInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfIntelVirtualizationTechnologyInstanceId.setStatus(_A)
+_CucsBiosVfIntelVirtualizationTechnologyDn_Type=CucsManagedObjectDn
+_CucsBiosVfIntelVirtualizationTechnologyDn_Object=MibTableColumn
+cucsBiosVfIntelVirtualizationTechnologyDn=_CucsBiosVfIntelVirtualizationTechnologyDn_Object((1,3,6,1,4,1,9,9,719,1,4,18,1,2),_CucsBiosVfIntelVirtualizationTechnologyDn_Type())
+cucsBiosVfIntelVirtualizationTechnologyDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelVirtualizationTechnologyDn.setStatus(_A)
+_CucsBiosVfIntelVirtualizationTechnologyRn_Type=SnmpAdminString
+_CucsBiosVfIntelVirtualizationTechnologyRn_Object=MibTableColumn
+cucsBiosVfIntelVirtualizationTechnologyRn=_CucsBiosVfIntelVirtualizationTechnologyRn_Object((1,3,6,1,4,1,9,9,719,1,4,18,1,3),_CucsBiosVfIntelVirtualizationTechnologyRn_Type())
+cucsBiosVfIntelVirtualizationTechnologyRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelVirtualizationTechnologyRn.setStatus(_A)
+_CucsBiosVpIntelVirtualizationTechnology_Type=CucsBiosVpIntelVirtualizationTechnology
+_CucsBiosVpIntelVirtualizationTechnology_Object=MibTableColumn
+cucsBiosVpIntelVirtualizationTechnology=_CucsBiosVpIntelVirtualizationTechnology_Object((1,3,6,1,4,1,9,9,719,1,4,18,1,4),_CucsBiosVpIntelVirtualizationTechnology_Type())
+cucsBiosVpIntelVirtualizationTechnology.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVpIntelVirtualizationTechnology.setStatus(_A)
+_CucsBiosVfIntelVirtualizationTechnologyPropAcl_Type=Unsigned64
+_CucsBiosVfIntelVirtualizationTechnologyPropAcl_Object=MibTableColumn
+cucsBiosVfIntelVirtualizationTechnologyPropAcl=_CucsBiosVfIntelVirtualizationTechnologyPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,18,1,5),_CucsBiosVfIntelVirtualizationTechnologyPropAcl_Type())
+cucsBiosVfIntelVirtualizationTechnologyPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelVirtualizationTechnologyPropAcl.setStatus(_A)
+_CucsBiosVfIntelVirtualizationTechnologySupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfIntelVirtualizationTechnologySupportedByDefault_Object=MibTableColumn
+cucsBiosVfIntelVirtualizationTechnologySupportedByDefault=_CucsBiosVfIntelVirtualizationTechnologySupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,18,1,6),_CucsBiosVfIntelVirtualizationTechnologySupportedByDefault_Type())
+cucsBiosVfIntelVirtualizationTechnologySupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelVirtualizationTechnologySupportedByDefault.setStatus(_A)
+_CucsBiosVfLvDIMMSupportTable_Object=MibTable
+cucsBiosVfLvDIMMSupportTable=_CucsBiosVfLvDIMMSupportTable_Object((1,3,6,1,4,1,9,9,719,1,4,19))
+if mibBuilder.loadTexts:cucsBiosVfLvDIMMSupportTable.setStatus(_A)
+_CucsBiosVfLvDIMMSupportEntry_Object=MibTableRow
+cucsBiosVfLvDIMMSupportEntry=_CucsBiosVfLvDIMMSupportEntry_Object((1,3,6,1,4,1,9,9,719,1,4,19,1))
+cucsBiosVfLvDIMMSupportEntry.setIndexNames((0,_C,_W))
+if mibBuilder.loadTexts:cucsBiosVfLvDIMMSupportEntry.setStatus(_A)
+_CucsBiosVfLvDIMMSupportInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfLvDIMMSupportInstanceId_Object=MibTableColumn
+cucsBiosVfLvDIMMSupportInstanceId=_CucsBiosVfLvDIMMSupportInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,19,1,1),_CucsBiosVfLvDIMMSupportInstanceId_Type())
+cucsBiosVfLvDIMMSupportInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfLvDIMMSupportInstanceId.setStatus(_A)
+_CucsBiosVfLvDIMMSupportDn_Type=CucsManagedObjectDn
+_CucsBiosVfLvDIMMSupportDn_Object=MibTableColumn
+cucsBiosVfLvDIMMSupportDn=_CucsBiosVfLvDIMMSupportDn_Object((1,3,6,1,4,1,9,9,719,1,4,19,1,2),_CucsBiosVfLvDIMMSupportDn_Type())
+cucsBiosVfLvDIMMSupportDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfLvDIMMSupportDn.setStatus(_A)
+_CucsBiosVfLvDIMMSupportRn_Type=SnmpAdminString
+_CucsBiosVfLvDIMMSupportRn_Object=MibTableColumn
+cucsBiosVfLvDIMMSupportRn=_CucsBiosVfLvDIMMSupportRn_Object((1,3,6,1,4,1,9,9,719,1,4,19,1,3),_CucsBiosVfLvDIMMSupportRn_Type())
+cucsBiosVfLvDIMMSupportRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfLvDIMMSupportRn.setStatus(_A)
+_CucsBiosVfLvDIMMSupportVpLvDDRMode_Type=CucsBiosVfLvDIMMSupportVpLvDDRMode
+_CucsBiosVfLvDIMMSupportVpLvDDRMode_Object=MibTableColumn
+cucsBiosVfLvDIMMSupportVpLvDDRMode=_CucsBiosVfLvDIMMSupportVpLvDDRMode_Object((1,3,6,1,4,1,9,9,719,1,4,19,1,4),_CucsBiosVfLvDIMMSupportVpLvDDRMode_Type())
+cucsBiosVfLvDIMMSupportVpLvDDRMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfLvDIMMSupportVpLvDDRMode.setStatus(_A)
+_CucsBiosVfLvDIMMSupportPropAcl_Type=Unsigned64
+_CucsBiosVfLvDIMMSupportPropAcl_Object=MibTableColumn
+cucsBiosVfLvDIMMSupportPropAcl=_CucsBiosVfLvDIMMSupportPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,19,1,5),_CucsBiosVfLvDIMMSupportPropAcl_Type())
+cucsBiosVfLvDIMMSupportPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfLvDIMMSupportPropAcl.setStatus(_A)
+_CucsBiosVfLvDIMMSupportSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfLvDIMMSupportSupportedByDefault_Object=MibTableColumn
+cucsBiosVfLvDIMMSupportSupportedByDefault=_CucsBiosVfLvDIMMSupportSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,19,1,6),_CucsBiosVfLvDIMMSupportSupportedByDefault_Type())
+cucsBiosVfLvDIMMSupportSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfLvDIMMSupportSupportedByDefault.setStatus(_A)
+_CucsBiosVfMirroringModeTable_Object=MibTable
+cucsBiosVfMirroringModeTable=_CucsBiosVfMirroringModeTable_Object((1,3,6,1,4,1,9,9,719,1,4,20))
+if mibBuilder.loadTexts:cucsBiosVfMirroringModeTable.setStatus(_A)
+_CucsBiosVfMirroringModeEntry_Object=MibTableRow
+cucsBiosVfMirroringModeEntry=_CucsBiosVfMirroringModeEntry_Object((1,3,6,1,4,1,9,9,719,1,4,20,1))
+cucsBiosVfMirroringModeEntry.setIndexNames((0,_C,_X))
+if mibBuilder.loadTexts:cucsBiosVfMirroringModeEntry.setStatus(_A)
+_CucsBiosVfMirroringModeInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfMirroringModeInstanceId_Object=MibTableColumn
+cucsBiosVfMirroringModeInstanceId=_CucsBiosVfMirroringModeInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,20,1,1),_CucsBiosVfMirroringModeInstanceId_Type())
+cucsBiosVfMirroringModeInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfMirroringModeInstanceId.setStatus(_A)
+_CucsBiosVfMirroringModeDn_Type=CucsManagedObjectDn
+_CucsBiosVfMirroringModeDn_Object=MibTableColumn
+cucsBiosVfMirroringModeDn=_CucsBiosVfMirroringModeDn_Object((1,3,6,1,4,1,9,9,719,1,4,20,1,2),_CucsBiosVfMirroringModeDn_Type())
+cucsBiosVfMirroringModeDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMirroringModeDn.setStatus(_A)
+_CucsBiosVfMirroringModeRn_Type=SnmpAdminString
+_CucsBiosVfMirroringModeRn_Object=MibTableColumn
+cucsBiosVfMirroringModeRn=_CucsBiosVfMirroringModeRn_Object((1,3,6,1,4,1,9,9,719,1,4,20,1,3),_CucsBiosVfMirroringModeRn_Type())
+cucsBiosVfMirroringModeRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMirroringModeRn.setStatus(_A)
+_CucsBiosVfMirroringModeVpMirroringMode_Type=CucsBiosVfMirroringModeVpMirroringMode
+_CucsBiosVfMirroringModeVpMirroringMode_Object=MibTableColumn
+cucsBiosVfMirroringModeVpMirroringMode=_CucsBiosVfMirroringModeVpMirroringMode_Object((1,3,6,1,4,1,9,9,719,1,4,20,1,4),_CucsBiosVfMirroringModeVpMirroringMode_Type())
+cucsBiosVfMirroringModeVpMirroringMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMirroringModeVpMirroringMode.setStatus(_A)
+_CucsBiosVfMirroringModePropAcl_Type=Unsigned64
+_CucsBiosVfMirroringModePropAcl_Object=MibTableColumn
+cucsBiosVfMirroringModePropAcl=_CucsBiosVfMirroringModePropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,20,1,5),_CucsBiosVfMirroringModePropAcl_Type())
+cucsBiosVfMirroringModePropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMirroringModePropAcl.setStatus(_A)
+_CucsBiosVfMirroringModeSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfMirroringModeSupportedByDefault_Object=MibTableColumn
+cucsBiosVfMirroringModeSupportedByDefault=_CucsBiosVfMirroringModeSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,20,1,6),_CucsBiosVfMirroringModeSupportedByDefault_Type())
+cucsBiosVfMirroringModeSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMirroringModeSupportedByDefault.setStatus(_A)
+_CucsBiosVfNUMAOptimizedTable_Object=MibTable
+cucsBiosVfNUMAOptimizedTable=_CucsBiosVfNUMAOptimizedTable_Object((1,3,6,1,4,1,9,9,719,1,4,21))
+if mibBuilder.loadTexts:cucsBiosVfNUMAOptimizedTable.setStatus(_A)
+_CucsBiosVfNUMAOptimizedEntry_Object=MibTableRow
+cucsBiosVfNUMAOptimizedEntry=_CucsBiosVfNUMAOptimizedEntry_Object((1,3,6,1,4,1,9,9,719,1,4,21,1))
+cucsBiosVfNUMAOptimizedEntry.setIndexNames((0,_C,_Y))
+if mibBuilder.loadTexts:cucsBiosVfNUMAOptimizedEntry.setStatus(_A)
+_CucsBiosVfNUMAOptimizedInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfNUMAOptimizedInstanceId_Object=MibTableColumn
+cucsBiosVfNUMAOptimizedInstanceId=_CucsBiosVfNUMAOptimizedInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,21,1,1),_CucsBiosVfNUMAOptimizedInstanceId_Type())
+cucsBiosVfNUMAOptimizedInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfNUMAOptimizedInstanceId.setStatus(_A)
+_CucsBiosVfNUMAOptimizedDn_Type=CucsManagedObjectDn
+_CucsBiosVfNUMAOptimizedDn_Object=MibTableColumn
+cucsBiosVfNUMAOptimizedDn=_CucsBiosVfNUMAOptimizedDn_Object((1,3,6,1,4,1,9,9,719,1,4,21,1,2),_CucsBiosVfNUMAOptimizedDn_Type())
+cucsBiosVfNUMAOptimizedDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfNUMAOptimizedDn.setStatus(_A)
+_CucsBiosVfNUMAOptimizedRn_Type=SnmpAdminString
+_CucsBiosVfNUMAOptimizedRn_Object=MibTableColumn
+cucsBiosVfNUMAOptimizedRn=_CucsBiosVfNUMAOptimizedRn_Object((1,3,6,1,4,1,9,9,719,1,4,21,1,3),_CucsBiosVfNUMAOptimizedRn_Type())
+cucsBiosVfNUMAOptimizedRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfNUMAOptimizedRn.setStatus(_A)
+_CucsBiosVfNUMAOptimizedVpNUMAOptimized_Type=CucsBiosVfNUMAOptimizedVpNUMAOptimized
+_CucsBiosVfNUMAOptimizedVpNUMAOptimized_Object=MibTableColumn
+cucsBiosVfNUMAOptimizedVpNUMAOptimized=_CucsBiosVfNUMAOptimizedVpNUMAOptimized_Object((1,3,6,1,4,1,9,9,719,1,4,21,1,4),_CucsBiosVfNUMAOptimizedVpNUMAOptimized_Type())
+cucsBiosVfNUMAOptimizedVpNUMAOptimized.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfNUMAOptimizedVpNUMAOptimized.setStatus(_A)
+_CucsBiosVfNUMAOptimizedPropAcl_Type=Unsigned64
+_CucsBiosVfNUMAOptimizedPropAcl_Object=MibTableColumn
+cucsBiosVfNUMAOptimizedPropAcl=_CucsBiosVfNUMAOptimizedPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,21,1,5),_CucsBiosVfNUMAOptimizedPropAcl_Type())
+cucsBiosVfNUMAOptimizedPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfNUMAOptimizedPropAcl.setStatus(_A)
+_CucsBiosVfNUMAOptimizedSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfNUMAOptimizedSupportedByDefault_Object=MibTableColumn
+cucsBiosVfNUMAOptimizedSupportedByDefault=_CucsBiosVfNUMAOptimizedSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,21,1,6),_CucsBiosVfNUMAOptimizedSupportedByDefault_Type())
+cucsBiosVfNUMAOptimizedSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfNUMAOptimizedSupportedByDefault.setStatus(_A)
+_CucsBiosVfProcessorC3ReportTable_Object=MibTable
+cucsBiosVfProcessorC3ReportTable=_CucsBiosVfProcessorC3ReportTable_Object((1,3,6,1,4,1,9,9,719,1,4,22))
+if mibBuilder.loadTexts:cucsBiosVfProcessorC3ReportTable.setStatus(_A)
+_CucsBiosVfProcessorC3ReportEntry_Object=MibTableRow
+cucsBiosVfProcessorC3ReportEntry=_CucsBiosVfProcessorC3ReportEntry_Object((1,3,6,1,4,1,9,9,719,1,4,22,1))
+cucsBiosVfProcessorC3ReportEntry.setIndexNames((0,_C,_Z))
+if mibBuilder.loadTexts:cucsBiosVfProcessorC3ReportEntry.setStatus(_A)
+_CucsBiosVfProcessorC3ReportInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfProcessorC3ReportInstanceId_Object=MibTableColumn
+cucsBiosVfProcessorC3ReportInstanceId=_CucsBiosVfProcessorC3ReportInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,22,1,1),_CucsBiosVfProcessorC3ReportInstanceId_Type())
+cucsBiosVfProcessorC3ReportInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC3ReportInstanceId.setStatus(_A)
+_CucsBiosVfProcessorC3ReportDn_Type=CucsManagedObjectDn
+_CucsBiosVfProcessorC3ReportDn_Object=MibTableColumn
+cucsBiosVfProcessorC3ReportDn=_CucsBiosVfProcessorC3ReportDn_Object((1,3,6,1,4,1,9,9,719,1,4,22,1,2),_CucsBiosVfProcessorC3ReportDn_Type())
+cucsBiosVfProcessorC3ReportDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC3ReportDn.setStatus(_A)
+_CucsBiosVfProcessorC3ReportRn_Type=SnmpAdminString
+_CucsBiosVfProcessorC3ReportRn_Object=MibTableColumn
+cucsBiosVfProcessorC3ReportRn=_CucsBiosVfProcessorC3ReportRn_Object((1,3,6,1,4,1,9,9,719,1,4,22,1,3),_CucsBiosVfProcessorC3ReportRn_Type())
+cucsBiosVfProcessorC3ReportRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC3ReportRn.setStatus(_A)
+_CucsBiosVfProcessorC3ReportVpProcessorC3Report_Type=CucsBiosVfProcessorC3ReportVpProcessorC3Report
+_CucsBiosVfProcessorC3ReportVpProcessorC3Report_Object=MibTableColumn
+cucsBiosVfProcessorC3ReportVpProcessorC3Report=_CucsBiosVfProcessorC3ReportVpProcessorC3Report_Object((1,3,6,1,4,1,9,9,719,1,4,22,1,4),_CucsBiosVfProcessorC3ReportVpProcessorC3Report_Type())
+cucsBiosVfProcessorC3ReportVpProcessorC3Report.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC3ReportVpProcessorC3Report.setStatus(_A)
+_CucsBiosVfProcessorC3ReportPropAcl_Type=Unsigned64
+_CucsBiosVfProcessorC3ReportPropAcl_Object=MibTableColumn
+cucsBiosVfProcessorC3ReportPropAcl=_CucsBiosVfProcessorC3ReportPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,22,1,5),_CucsBiosVfProcessorC3ReportPropAcl_Type())
+cucsBiosVfProcessorC3ReportPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC3ReportPropAcl.setStatus(_A)
+_CucsBiosVfProcessorC3ReportSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfProcessorC3ReportSupportedByDefault_Object=MibTableColumn
+cucsBiosVfProcessorC3ReportSupportedByDefault=_CucsBiosVfProcessorC3ReportSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,22,1,6),_CucsBiosVfProcessorC3ReportSupportedByDefault_Type())
+cucsBiosVfProcessorC3ReportSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC3ReportSupportedByDefault.setStatus(_A)
+_CucsBiosVfProcessorC6ReportTable_Object=MibTable
+cucsBiosVfProcessorC6ReportTable=_CucsBiosVfProcessorC6ReportTable_Object((1,3,6,1,4,1,9,9,719,1,4,23))
+if mibBuilder.loadTexts:cucsBiosVfProcessorC6ReportTable.setStatus(_A)
+_CucsBiosVfProcessorC6ReportEntry_Object=MibTableRow
+cucsBiosVfProcessorC6ReportEntry=_CucsBiosVfProcessorC6ReportEntry_Object((1,3,6,1,4,1,9,9,719,1,4,23,1))
+cucsBiosVfProcessorC6ReportEntry.setIndexNames((0,_C,_a))
+if mibBuilder.loadTexts:cucsBiosVfProcessorC6ReportEntry.setStatus(_A)
+_CucsBiosVfProcessorC6ReportInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfProcessorC6ReportInstanceId_Object=MibTableColumn
+cucsBiosVfProcessorC6ReportInstanceId=_CucsBiosVfProcessorC6ReportInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,23,1,1),_CucsBiosVfProcessorC6ReportInstanceId_Type())
+cucsBiosVfProcessorC6ReportInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC6ReportInstanceId.setStatus(_A)
+_CucsBiosVfProcessorC6ReportDn_Type=CucsManagedObjectDn
+_CucsBiosVfProcessorC6ReportDn_Object=MibTableColumn
+cucsBiosVfProcessorC6ReportDn=_CucsBiosVfProcessorC6ReportDn_Object((1,3,6,1,4,1,9,9,719,1,4,23,1,2),_CucsBiosVfProcessorC6ReportDn_Type())
+cucsBiosVfProcessorC6ReportDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC6ReportDn.setStatus(_A)
+_CucsBiosVfProcessorC6ReportRn_Type=SnmpAdminString
+_CucsBiosVfProcessorC6ReportRn_Object=MibTableColumn
+cucsBiosVfProcessorC6ReportRn=_CucsBiosVfProcessorC6ReportRn_Object((1,3,6,1,4,1,9,9,719,1,4,23,1,3),_CucsBiosVfProcessorC6ReportRn_Type())
+cucsBiosVfProcessorC6ReportRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC6ReportRn.setStatus(_A)
+_CucsBiosVfProcessorC6ReportVpProcessorC6Report_Type=CucsBiosVfProcessorC6ReportVpProcessorC6Report
+_CucsBiosVfProcessorC6ReportVpProcessorC6Report_Object=MibTableColumn
+cucsBiosVfProcessorC6ReportVpProcessorC6Report=_CucsBiosVfProcessorC6ReportVpProcessorC6Report_Object((1,3,6,1,4,1,9,9,719,1,4,23,1,4),_CucsBiosVfProcessorC6ReportVpProcessorC6Report_Type())
+cucsBiosVfProcessorC6ReportVpProcessorC6Report.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC6ReportVpProcessorC6Report.setStatus(_A)
+_CucsBiosVfProcessorC6ReportPropAcl_Type=Unsigned64
+_CucsBiosVfProcessorC6ReportPropAcl_Object=MibTableColumn
+cucsBiosVfProcessorC6ReportPropAcl=_CucsBiosVfProcessorC6ReportPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,23,1,5),_CucsBiosVfProcessorC6ReportPropAcl_Type())
+cucsBiosVfProcessorC6ReportPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC6ReportPropAcl.setStatus(_A)
+_CucsBiosVfProcessorC6ReportSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfProcessorC6ReportSupportedByDefault_Object=MibTableColumn
+cucsBiosVfProcessorC6ReportSupportedByDefault=_CucsBiosVfProcessorC6ReportSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,23,1,6),_CucsBiosVfProcessorC6ReportSupportedByDefault_Type())
+cucsBiosVfProcessorC6ReportSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC6ReportSupportedByDefault.setStatus(_A)
+_CucsBiosVfQuietBootTable_Object=MibTable
+cucsBiosVfQuietBootTable=_CucsBiosVfQuietBootTable_Object((1,3,6,1,4,1,9,9,719,1,4,24))
+if mibBuilder.loadTexts:cucsBiosVfQuietBootTable.setStatus(_A)
+_CucsBiosVfQuietBootEntry_Object=MibTableRow
+cucsBiosVfQuietBootEntry=_CucsBiosVfQuietBootEntry_Object((1,3,6,1,4,1,9,9,719,1,4,24,1))
+cucsBiosVfQuietBootEntry.setIndexNames((0,_C,_b))
+if mibBuilder.loadTexts:cucsBiosVfQuietBootEntry.setStatus(_A)
+_CucsBiosVfQuietBootInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfQuietBootInstanceId_Object=MibTableColumn
+cucsBiosVfQuietBootInstanceId=_CucsBiosVfQuietBootInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,24,1,1),_CucsBiosVfQuietBootInstanceId_Type())
+cucsBiosVfQuietBootInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfQuietBootInstanceId.setStatus(_A)
+_CucsBiosVfQuietBootDn_Type=CucsManagedObjectDn
+_CucsBiosVfQuietBootDn_Object=MibTableColumn
+cucsBiosVfQuietBootDn=_CucsBiosVfQuietBootDn_Object((1,3,6,1,4,1,9,9,719,1,4,24,1,2),_CucsBiosVfQuietBootDn_Type())
+cucsBiosVfQuietBootDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfQuietBootDn.setStatus(_A)
+_CucsBiosVfQuietBootRn_Type=SnmpAdminString
+_CucsBiosVfQuietBootRn_Object=MibTableColumn
+cucsBiosVfQuietBootRn=_CucsBiosVfQuietBootRn_Object((1,3,6,1,4,1,9,9,719,1,4,24,1,3),_CucsBiosVfQuietBootRn_Type())
+cucsBiosVfQuietBootRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfQuietBootRn.setStatus(_A)
+_CucsBiosVfQuietBootVpQuietBoot_Type=CucsBiosVfQuietBootVpQuietBoot
+_CucsBiosVfQuietBootVpQuietBoot_Object=MibTableColumn
+cucsBiosVfQuietBootVpQuietBoot=_CucsBiosVfQuietBootVpQuietBoot_Object((1,3,6,1,4,1,9,9,719,1,4,24,1,4),_CucsBiosVfQuietBootVpQuietBoot_Type())
+cucsBiosVfQuietBootVpQuietBoot.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfQuietBootVpQuietBoot.setStatus(_A)
+_CucsBiosVfQuietBootPropAcl_Type=Unsigned64
+_CucsBiosVfQuietBootPropAcl_Object=MibTableColumn
+cucsBiosVfQuietBootPropAcl=_CucsBiosVfQuietBootPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,24,1,5),_CucsBiosVfQuietBootPropAcl_Type())
+cucsBiosVfQuietBootPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfQuietBootPropAcl.setStatus(_A)
+_CucsBiosVfQuietBootSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfQuietBootSupportedByDefault_Object=MibTableColumn
+cucsBiosVfQuietBootSupportedByDefault=_CucsBiosVfQuietBootSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,24,1,6),_CucsBiosVfQuietBootSupportedByDefault_Type())
+cucsBiosVfQuietBootSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfQuietBootSupportedByDefault.setStatus(_A)
+_CucsBiosVfResumeOnACPowerLossTable_Object=MibTable
+cucsBiosVfResumeOnACPowerLossTable=_CucsBiosVfResumeOnACPowerLossTable_Object((1,3,6,1,4,1,9,9,719,1,4,25))
+if mibBuilder.loadTexts:cucsBiosVfResumeOnACPowerLossTable.setStatus(_A)
+_CucsBiosVfResumeOnACPowerLossEntry_Object=MibTableRow
+cucsBiosVfResumeOnACPowerLossEntry=_CucsBiosVfResumeOnACPowerLossEntry_Object((1,3,6,1,4,1,9,9,719,1,4,25,1))
+cucsBiosVfResumeOnACPowerLossEntry.setIndexNames((0,_C,_c))
+if mibBuilder.loadTexts:cucsBiosVfResumeOnACPowerLossEntry.setStatus(_A)
+_CucsBiosVfResumeOnACPowerLossInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfResumeOnACPowerLossInstanceId_Object=MibTableColumn
+cucsBiosVfResumeOnACPowerLossInstanceId=_CucsBiosVfResumeOnACPowerLossInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,25,1,1),_CucsBiosVfResumeOnACPowerLossInstanceId_Type())
+cucsBiosVfResumeOnACPowerLossInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfResumeOnACPowerLossInstanceId.setStatus(_A)
+_CucsBiosVfResumeOnACPowerLossDn_Type=CucsManagedObjectDn
+_CucsBiosVfResumeOnACPowerLossDn_Object=MibTableColumn
+cucsBiosVfResumeOnACPowerLossDn=_CucsBiosVfResumeOnACPowerLossDn_Object((1,3,6,1,4,1,9,9,719,1,4,25,1,2),_CucsBiosVfResumeOnACPowerLossDn_Type())
+cucsBiosVfResumeOnACPowerLossDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfResumeOnACPowerLossDn.setStatus(_A)
+_CucsBiosVfResumeOnACPowerLossRn_Type=SnmpAdminString
+_CucsBiosVfResumeOnACPowerLossRn_Object=MibTableColumn
+cucsBiosVfResumeOnACPowerLossRn=_CucsBiosVfResumeOnACPowerLossRn_Object((1,3,6,1,4,1,9,9,719,1,4,25,1,3),_CucsBiosVfResumeOnACPowerLossRn_Type())
+cucsBiosVfResumeOnACPowerLossRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfResumeOnACPowerLossRn.setStatus(_A)
+_CucsBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss_Type=CucsBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss
+_CucsBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss_Object=MibTableColumn
+cucsBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss=_CucsBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss_Object((1,3,6,1,4,1,9,9,719,1,4,25,1,4),_CucsBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss_Type())
+cucsBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss.setStatus(_A)
+_CucsBiosVfResumeOnACPowerLossPropAcl_Type=Unsigned64
+_CucsBiosVfResumeOnACPowerLossPropAcl_Object=MibTableColumn
+cucsBiosVfResumeOnACPowerLossPropAcl=_CucsBiosVfResumeOnACPowerLossPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,25,1,5),_CucsBiosVfResumeOnACPowerLossPropAcl_Type())
+cucsBiosVfResumeOnACPowerLossPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfResumeOnACPowerLossPropAcl.setStatus(_A)
+_CucsBiosVfResumeOnACPowerLossSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfResumeOnACPowerLossSupportedByDefault_Object=MibTableColumn
+cucsBiosVfResumeOnACPowerLossSupportedByDefault=_CucsBiosVfResumeOnACPowerLossSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,25,1,6),_CucsBiosVfResumeOnACPowerLossSupportedByDefault_Type())
+cucsBiosVfResumeOnACPowerLossSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfResumeOnACPowerLossSupportedByDefault.setStatus(_A)
+_CucsBiosVfSelectMemoryRASConfigurationTable_Object=MibTable
+cucsBiosVfSelectMemoryRASConfigurationTable=_CucsBiosVfSelectMemoryRASConfigurationTable_Object((1,3,6,1,4,1,9,9,719,1,4,26))
+if mibBuilder.loadTexts:cucsBiosVfSelectMemoryRASConfigurationTable.setStatus(_A)
+_CucsBiosVfSelectMemoryRASConfigurationEntry_Object=MibTableRow
+cucsBiosVfSelectMemoryRASConfigurationEntry=_CucsBiosVfSelectMemoryRASConfigurationEntry_Object((1,3,6,1,4,1,9,9,719,1,4,26,1))
+cucsBiosVfSelectMemoryRASConfigurationEntry.setIndexNames((0,_C,_d))
+if mibBuilder.loadTexts:cucsBiosVfSelectMemoryRASConfigurationEntry.setStatus(_A)
+_CucsBiosVfSelectMemoryRASConfigurationInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfSelectMemoryRASConfigurationInstanceId_Object=MibTableColumn
+cucsBiosVfSelectMemoryRASConfigurationInstanceId=_CucsBiosVfSelectMemoryRASConfigurationInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,26,1,1),_CucsBiosVfSelectMemoryRASConfigurationInstanceId_Type())
+cucsBiosVfSelectMemoryRASConfigurationInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfSelectMemoryRASConfigurationInstanceId.setStatus(_A)
+_CucsBiosVfSelectMemoryRASConfigurationDn_Type=CucsManagedObjectDn
+_CucsBiosVfSelectMemoryRASConfigurationDn_Object=MibTableColumn
+cucsBiosVfSelectMemoryRASConfigurationDn=_CucsBiosVfSelectMemoryRASConfigurationDn_Object((1,3,6,1,4,1,9,9,719,1,4,26,1,2),_CucsBiosVfSelectMemoryRASConfigurationDn_Type())
+cucsBiosVfSelectMemoryRASConfigurationDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSelectMemoryRASConfigurationDn.setStatus(_A)
+_CucsBiosVfSelectMemoryRASConfigurationRn_Type=SnmpAdminString
+_CucsBiosVfSelectMemoryRASConfigurationRn_Object=MibTableColumn
+cucsBiosVfSelectMemoryRASConfigurationRn=_CucsBiosVfSelectMemoryRASConfigurationRn_Object((1,3,6,1,4,1,9,9,719,1,4,26,1,3),_CucsBiosVfSelectMemoryRASConfigurationRn_Type())
+cucsBiosVfSelectMemoryRASConfigurationRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSelectMemoryRASConfigurationRn.setStatus(_A)
+_CucsBiosVpSelectMemoryRASConfiguration_Type=CucsBiosVpSelectMemoryRASConfiguration
+_CucsBiosVpSelectMemoryRASConfiguration_Object=MibTableColumn
+cucsBiosVpSelectMemoryRASConfiguration=_CucsBiosVpSelectMemoryRASConfiguration_Object((1,3,6,1,4,1,9,9,719,1,4,26,1,4),_CucsBiosVpSelectMemoryRASConfiguration_Type())
+cucsBiosVpSelectMemoryRASConfiguration.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVpSelectMemoryRASConfiguration.setStatus(_A)
+_CucsBiosVfSelectMemoryRASConfigurationPropAcl_Type=Unsigned64
+_CucsBiosVfSelectMemoryRASConfigurationPropAcl_Object=MibTableColumn
+cucsBiosVfSelectMemoryRASConfigurationPropAcl=_CucsBiosVfSelectMemoryRASConfigurationPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,26,1,5),_CucsBiosVfSelectMemoryRASConfigurationPropAcl_Type())
+cucsBiosVfSelectMemoryRASConfigurationPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSelectMemoryRASConfigurationPropAcl.setStatus(_A)
+_CucsBiosVfSelectMemoryRASConfigurationSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfSelectMemoryRASConfigurationSupportedByDefault_Object=MibTableColumn
+cucsBiosVfSelectMemoryRASConfigurationSupportedByDefault=_CucsBiosVfSelectMemoryRASConfigurationSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,26,1,6),_CucsBiosVfSelectMemoryRASConfigurationSupportedByDefault_Type())
+cucsBiosVfSelectMemoryRASConfigurationSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSelectMemoryRASConfigurationSupportedByDefault.setStatus(_A)
+_CucsBiosVfACPI10SupportTable_Object=MibTable
+cucsBiosVfACPI10SupportTable=_CucsBiosVfACPI10SupportTable_Object((1,3,6,1,4,1,9,9,719,1,4,27))
+if mibBuilder.loadTexts:cucsBiosVfACPI10SupportTable.setStatus(_A)
+_CucsBiosVfACPI10SupportEntry_Object=MibTableRow
+cucsBiosVfACPI10SupportEntry=_CucsBiosVfACPI10SupportEntry_Object((1,3,6,1,4,1,9,9,719,1,4,27,1))
+cucsBiosVfACPI10SupportEntry.setIndexNames((0,_C,_e))
+if mibBuilder.loadTexts:cucsBiosVfACPI10SupportEntry.setStatus(_A)
+_CucsBiosVfACPI10SupportInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfACPI10SupportInstanceId_Object=MibTableColumn
+cucsBiosVfACPI10SupportInstanceId=_CucsBiosVfACPI10SupportInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,27,1,1),_CucsBiosVfACPI10SupportInstanceId_Type())
+cucsBiosVfACPI10SupportInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfACPI10SupportInstanceId.setStatus(_A)
+_CucsBiosVfACPI10SupportDn_Type=CucsManagedObjectDn
+_CucsBiosVfACPI10SupportDn_Object=MibTableColumn
+cucsBiosVfACPI10SupportDn=_CucsBiosVfACPI10SupportDn_Object((1,3,6,1,4,1,9,9,719,1,4,27,1,2),_CucsBiosVfACPI10SupportDn_Type())
+cucsBiosVfACPI10SupportDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfACPI10SupportDn.setStatus(_A)
+_CucsBiosVfACPI10SupportRn_Type=SnmpAdminString
+_CucsBiosVfACPI10SupportRn_Object=MibTableColumn
+cucsBiosVfACPI10SupportRn=_CucsBiosVfACPI10SupportRn_Object((1,3,6,1,4,1,9,9,719,1,4,27,1,3),_CucsBiosVfACPI10SupportRn_Type())
+cucsBiosVfACPI10SupportRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfACPI10SupportRn.setStatus(_A)
+_CucsBiosVfACPI10SupportVpACPI10Support_Type=CucsBiosVfACPI10SupportVpACPI10Support
+_CucsBiosVfACPI10SupportVpACPI10Support_Object=MibTableColumn
+cucsBiosVfACPI10SupportVpACPI10Support=_CucsBiosVfACPI10SupportVpACPI10Support_Object((1,3,6,1,4,1,9,9,719,1,4,27,1,4),_CucsBiosVfACPI10SupportVpACPI10Support_Type())
+cucsBiosVfACPI10SupportVpACPI10Support.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfACPI10SupportVpACPI10Support.setStatus(_A)
+_CucsBiosVfACPI10SupportPropAcl_Type=Unsigned64
+_CucsBiosVfACPI10SupportPropAcl_Object=MibTableColumn
+cucsBiosVfACPI10SupportPropAcl=_CucsBiosVfACPI10SupportPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,27,1,5),_CucsBiosVfACPI10SupportPropAcl_Type())
+cucsBiosVfACPI10SupportPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfACPI10SupportPropAcl.setStatus(_A)
+_CucsBiosVfACPI10SupportSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfACPI10SupportSupportedByDefault_Object=MibTableColumn
+cucsBiosVfACPI10SupportSupportedByDefault=_CucsBiosVfACPI10SupportSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,27,1,6),_CucsBiosVfACPI10SupportSupportedByDefault_Type())
+cucsBiosVfACPI10SupportSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfACPI10SupportSupportedByDefault.setStatus(_A)
+_CucsBiosVfAssertNMIOnPERRTable_Object=MibTable
+cucsBiosVfAssertNMIOnPERRTable=_CucsBiosVfAssertNMIOnPERRTable_Object((1,3,6,1,4,1,9,9,719,1,4,28))
+if mibBuilder.loadTexts:cucsBiosVfAssertNMIOnPERRTable.setStatus(_A)
+_CucsBiosVfAssertNMIOnPERREntry_Object=MibTableRow
+cucsBiosVfAssertNMIOnPERREntry=_CucsBiosVfAssertNMIOnPERREntry_Object((1,3,6,1,4,1,9,9,719,1,4,28,1))
+cucsBiosVfAssertNMIOnPERREntry.setIndexNames((0,_C,_f))
+if mibBuilder.loadTexts:cucsBiosVfAssertNMIOnPERREntry.setStatus(_A)
+_CucsBiosVfAssertNMIOnPERRInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfAssertNMIOnPERRInstanceId_Object=MibTableColumn
+cucsBiosVfAssertNMIOnPERRInstanceId=_CucsBiosVfAssertNMIOnPERRInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,28,1,1),_CucsBiosVfAssertNMIOnPERRInstanceId_Type())
+cucsBiosVfAssertNMIOnPERRInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfAssertNMIOnPERRInstanceId.setStatus(_A)
+_CucsBiosVfAssertNMIOnPERRDn_Type=CucsManagedObjectDn
+_CucsBiosVfAssertNMIOnPERRDn_Object=MibTableColumn
+cucsBiosVfAssertNMIOnPERRDn=_CucsBiosVfAssertNMIOnPERRDn_Object((1,3,6,1,4,1,9,9,719,1,4,28,1,2),_CucsBiosVfAssertNMIOnPERRDn_Type())
+cucsBiosVfAssertNMIOnPERRDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAssertNMIOnPERRDn.setStatus(_A)
+_CucsBiosVfAssertNMIOnPERRRn_Type=SnmpAdminString
+_CucsBiosVfAssertNMIOnPERRRn_Object=MibTableColumn
+cucsBiosVfAssertNMIOnPERRRn=_CucsBiosVfAssertNMIOnPERRRn_Object((1,3,6,1,4,1,9,9,719,1,4,28,1,3),_CucsBiosVfAssertNMIOnPERRRn_Type())
+cucsBiosVfAssertNMIOnPERRRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAssertNMIOnPERRRn.setStatus(_A)
+_CucsBiosVfAssertNMIOnPERRVpAssertNMIOnPERR_Type=CucsBiosVfAssertNMIOnPERRVpAssertNMIOnPERR
+_CucsBiosVfAssertNMIOnPERRVpAssertNMIOnPERR_Object=MibTableColumn
+cucsBiosVfAssertNMIOnPERRVpAssertNMIOnPERR=_CucsBiosVfAssertNMIOnPERRVpAssertNMIOnPERR_Object((1,3,6,1,4,1,9,9,719,1,4,28,1,4),_CucsBiosVfAssertNMIOnPERRVpAssertNMIOnPERR_Type())
+cucsBiosVfAssertNMIOnPERRVpAssertNMIOnPERR.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAssertNMIOnPERRVpAssertNMIOnPERR.setStatus(_A)
+_CucsBiosVfAssertNMIOnPERRPropAcl_Type=Unsigned64
+_CucsBiosVfAssertNMIOnPERRPropAcl_Object=MibTableColumn
+cucsBiosVfAssertNMIOnPERRPropAcl=_CucsBiosVfAssertNMIOnPERRPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,28,1,5),_CucsBiosVfAssertNMIOnPERRPropAcl_Type())
+cucsBiosVfAssertNMIOnPERRPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAssertNMIOnPERRPropAcl.setStatus(_A)
+_CucsBiosVfAssertNMIOnPERRSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfAssertNMIOnPERRSupportedByDefault_Object=MibTableColumn
+cucsBiosVfAssertNMIOnPERRSupportedByDefault=_CucsBiosVfAssertNMIOnPERRSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,28,1,6),_CucsBiosVfAssertNMIOnPERRSupportedByDefault_Type())
+cucsBiosVfAssertNMIOnPERRSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAssertNMIOnPERRSupportedByDefault.setStatus(_A)
+_CucsBiosVfAssertNMIOnSERRTable_Object=MibTable
+cucsBiosVfAssertNMIOnSERRTable=_CucsBiosVfAssertNMIOnSERRTable_Object((1,3,6,1,4,1,9,9,719,1,4,29))
+if mibBuilder.loadTexts:cucsBiosVfAssertNMIOnSERRTable.setStatus(_A)
+_CucsBiosVfAssertNMIOnSERREntry_Object=MibTableRow
+cucsBiosVfAssertNMIOnSERREntry=_CucsBiosVfAssertNMIOnSERREntry_Object((1,3,6,1,4,1,9,9,719,1,4,29,1))
+cucsBiosVfAssertNMIOnSERREntry.setIndexNames((0,_C,_g))
+if mibBuilder.loadTexts:cucsBiosVfAssertNMIOnSERREntry.setStatus(_A)
+_CucsBiosVfAssertNMIOnSERRInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfAssertNMIOnSERRInstanceId_Object=MibTableColumn
+cucsBiosVfAssertNMIOnSERRInstanceId=_CucsBiosVfAssertNMIOnSERRInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,29,1,1),_CucsBiosVfAssertNMIOnSERRInstanceId_Type())
+cucsBiosVfAssertNMIOnSERRInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfAssertNMIOnSERRInstanceId.setStatus(_A)
+_CucsBiosVfAssertNMIOnSERRDn_Type=CucsManagedObjectDn
+_CucsBiosVfAssertNMIOnSERRDn_Object=MibTableColumn
+cucsBiosVfAssertNMIOnSERRDn=_CucsBiosVfAssertNMIOnSERRDn_Object((1,3,6,1,4,1,9,9,719,1,4,29,1,2),_CucsBiosVfAssertNMIOnSERRDn_Type())
+cucsBiosVfAssertNMIOnSERRDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAssertNMIOnSERRDn.setStatus(_A)
+_CucsBiosVfAssertNMIOnSERRRn_Type=SnmpAdminString
+_CucsBiosVfAssertNMIOnSERRRn_Object=MibTableColumn
+cucsBiosVfAssertNMIOnSERRRn=_CucsBiosVfAssertNMIOnSERRRn_Object((1,3,6,1,4,1,9,9,719,1,4,29,1,3),_CucsBiosVfAssertNMIOnSERRRn_Type())
+cucsBiosVfAssertNMIOnSERRRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAssertNMIOnSERRRn.setStatus(_A)
+_CucsBiosVfAssertNMIOnSERRVpAssertNMIOnSERR_Type=CucsBiosVfAssertNMIOnSERRVpAssertNMIOnSERR
+_CucsBiosVfAssertNMIOnSERRVpAssertNMIOnSERR_Object=MibTableColumn
+cucsBiosVfAssertNMIOnSERRVpAssertNMIOnSERR=_CucsBiosVfAssertNMIOnSERRVpAssertNMIOnSERR_Object((1,3,6,1,4,1,9,9,719,1,4,29,1,4),_CucsBiosVfAssertNMIOnSERRVpAssertNMIOnSERR_Type())
+cucsBiosVfAssertNMIOnSERRVpAssertNMIOnSERR.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAssertNMIOnSERRVpAssertNMIOnSERR.setStatus(_A)
+_CucsBiosVfAssertNMIOnSERRPropAcl_Type=Unsigned64
+_CucsBiosVfAssertNMIOnSERRPropAcl_Object=MibTableColumn
+cucsBiosVfAssertNMIOnSERRPropAcl=_CucsBiosVfAssertNMIOnSERRPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,29,1,5),_CucsBiosVfAssertNMIOnSERRPropAcl_Type())
+cucsBiosVfAssertNMIOnSERRPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAssertNMIOnSERRPropAcl.setStatus(_A)
+_CucsBiosVfAssertNMIOnSERRSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfAssertNMIOnSERRSupportedByDefault_Object=MibTableColumn
+cucsBiosVfAssertNMIOnSERRSupportedByDefault=_CucsBiosVfAssertNMIOnSERRSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,29,1,6),_CucsBiosVfAssertNMIOnSERRSupportedByDefault_Type())
+cucsBiosVfAssertNMIOnSERRSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAssertNMIOnSERRSupportedByDefault.setStatus(_A)
+_CucsBiosVfCPUPerformanceTable_Object=MibTable
+cucsBiosVfCPUPerformanceTable=_CucsBiosVfCPUPerformanceTable_Object((1,3,6,1,4,1,9,9,719,1,4,30))
+if mibBuilder.loadTexts:cucsBiosVfCPUPerformanceTable.setStatus(_A)
+_CucsBiosVfCPUPerformanceEntry_Object=MibTableRow
+cucsBiosVfCPUPerformanceEntry=_CucsBiosVfCPUPerformanceEntry_Object((1,3,6,1,4,1,9,9,719,1,4,30,1))
+cucsBiosVfCPUPerformanceEntry.setIndexNames((0,_C,_h))
+if mibBuilder.loadTexts:cucsBiosVfCPUPerformanceEntry.setStatus(_A)
+_CucsBiosVfCPUPerformanceInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfCPUPerformanceInstanceId_Object=MibTableColumn
+cucsBiosVfCPUPerformanceInstanceId=_CucsBiosVfCPUPerformanceInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,30,1,1),_CucsBiosVfCPUPerformanceInstanceId_Type())
+cucsBiosVfCPUPerformanceInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfCPUPerformanceInstanceId.setStatus(_A)
+_CucsBiosVfCPUPerformanceDn_Type=CucsManagedObjectDn
+_CucsBiosVfCPUPerformanceDn_Object=MibTableColumn
+cucsBiosVfCPUPerformanceDn=_CucsBiosVfCPUPerformanceDn_Object((1,3,6,1,4,1,9,9,719,1,4,30,1,2),_CucsBiosVfCPUPerformanceDn_Type())
+cucsBiosVfCPUPerformanceDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfCPUPerformanceDn.setStatus(_A)
+_CucsBiosVfCPUPerformanceRn_Type=SnmpAdminString
+_CucsBiosVfCPUPerformanceRn_Object=MibTableColumn
+cucsBiosVfCPUPerformanceRn=_CucsBiosVfCPUPerformanceRn_Object((1,3,6,1,4,1,9,9,719,1,4,30,1,3),_CucsBiosVfCPUPerformanceRn_Type())
+cucsBiosVfCPUPerformanceRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfCPUPerformanceRn.setStatus(_A)
+_CucsBiosVfCPUPerformanceVpCPUPerformance_Type=CucsBiosVfCPUPerformanceVpCPUPerformance
+_CucsBiosVfCPUPerformanceVpCPUPerformance_Object=MibTableColumn
+cucsBiosVfCPUPerformanceVpCPUPerformance=_CucsBiosVfCPUPerformanceVpCPUPerformance_Object((1,3,6,1,4,1,9,9,719,1,4,30,1,4),_CucsBiosVfCPUPerformanceVpCPUPerformance_Type())
+cucsBiosVfCPUPerformanceVpCPUPerformance.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfCPUPerformanceVpCPUPerformance.setStatus(_A)
+_CucsBiosVfCPUPerformancePropAcl_Type=Unsigned64
+_CucsBiosVfCPUPerformancePropAcl_Object=MibTableColumn
+cucsBiosVfCPUPerformancePropAcl=_CucsBiosVfCPUPerformancePropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,30,1,5),_CucsBiosVfCPUPerformancePropAcl_Type())
+cucsBiosVfCPUPerformancePropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfCPUPerformancePropAcl.setStatus(_A)
+_CucsBiosVfCPUPerformanceSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfCPUPerformanceSupportedByDefault_Object=MibTableColumn
+cucsBiosVfCPUPerformanceSupportedByDefault=_CucsBiosVfCPUPerformanceSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,30,1,6),_CucsBiosVfCPUPerformanceSupportedByDefault_Type())
+cucsBiosVfCPUPerformanceSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfCPUPerformanceSupportedByDefault.setStatus(_A)
+_CucsBiosVfBootOptionRetryTable_Object=MibTable
+cucsBiosVfBootOptionRetryTable=_CucsBiosVfBootOptionRetryTable_Object((1,3,6,1,4,1,9,9,719,1,4,31))
+if mibBuilder.loadTexts:cucsBiosVfBootOptionRetryTable.setStatus(_A)
+_CucsBiosVfBootOptionRetryEntry_Object=MibTableRow
+cucsBiosVfBootOptionRetryEntry=_CucsBiosVfBootOptionRetryEntry_Object((1,3,6,1,4,1,9,9,719,1,4,31,1))
+cucsBiosVfBootOptionRetryEntry.setIndexNames((0,_C,_i))
+if mibBuilder.loadTexts:cucsBiosVfBootOptionRetryEntry.setStatus(_A)
+_CucsBiosVfBootOptionRetryInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfBootOptionRetryInstanceId_Object=MibTableColumn
+cucsBiosVfBootOptionRetryInstanceId=_CucsBiosVfBootOptionRetryInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,31,1,1),_CucsBiosVfBootOptionRetryInstanceId_Type())
+cucsBiosVfBootOptionRetryInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfBootOptionRetryInstanceId.setStatus(_A)
+_CucsBiosVfBootOptionRetryDn_Type=CucsManagedObjectDn
+_CucsBiosVfBootOptionRetryDn_Object=MibTableColumn
+cucsBiosVfBootOptionRetryDn=_CucsBiosVfBootOptionRetryDn_Object((1,3,6,1,4,1,9,9,719,1,4,31,1,2),_CucsBiosVfBootOptionRetryDn_Type())
+cucsBiosVfBootOptionRetryDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfBootOptionRetryDn.setStatus(_A)
+_CucsBiosVfBootOptionRetryRn_Type=SnmpAdminString
+_CucsBiosVfBootOptionRetryRn_Object=MibTableColumn
+cucsBiosVfBootOptionRetryRn=_CucsBiosVfBootOptionRetryRn_Object((1,3,6,1,4,1,9,9,719,1,4,31,1,3),_CucsBiosVfBootOptionRetryRn_Type())
+cucsBiosVfBootOptionRetryRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfBootOptionRetryRn.setStatus(_A)
+_CucsBiosVfBootOptionRetryVpBootOptionRetry_Type=CucsBiosVfBootOptionRetryVpBootOptionRetry
+_CucsBiosVfBootOptionRetryVpBootOptionRetry_Object=MibTableColumn
+cucsBiosVfBootOptionRetryVpBootOptionRetry=_CucsBiosVfBootOptionRetryVpBootOptionRetry_Object((1,3,6,1,4,1,9,9,719,1,4,31,1,4),_CucsBiosVfBootOptionRetryVpBootOptionRetry_Type())
+cucsBiosVfBootOptionRetryVpBootOptionRetry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfBootOptionRetryVpBootOptionRetry.setStatus(_A)
+_CucsBiosVfBootOptionRetryPropAcl_Type=Unsigned64
+_CucsBiosVfBootOptionRetryPropAcl_Object=MibTableColumn
+cucsBiosVfBootOptionRetryPropAcl=_CucsBiosVfBootOptionRetryPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,31,1,5),_CucsBiosVfBootOptionRetryPropAcl_Type())
+cucsBiosVfBootOptionRetryPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfBootOptionRetryPropAcl.setStatus(_A)
+_CucsBiosVfBootOptionRetrySupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfBootOptionRetrySupportedByDefault_Object=MibTableColumn
+cucsBiosVfBootOptionRetrySupportedByDefault=_CucsBiosVfBootOptionRetrySupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,31,1,6),_CucsBiosVfBootOptionRetrySupportedByDefault_Type())
+cucsBiosVfBootOptionRetrySupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfBootOptionRetrySupportedByDefault.setStatus(_A)
+_CucsBiosVfUSBBootConfigTable_Object=MibTable
+cucsBiosVfUSBBootConfigTable=_CucsBiosVfUSBBootConfigTable_Object((1,3,6,1,4,1,9,9,719,1,4,32))
+if mibBuilder.loadTexts:cucsBiosVfUSBBootConfigTable.setStatus(_A)
+_CucsBiosVfUSBBootConfigEntry_Object=MibTableRow
+cucsBiosVfUSBBootConfigEntry=_CucsBiosVfUSBBootConfigEntry_Object((1,3,6,1,4,1,9,9,719,1,4,32,1))
+cucsBiosVfUSBBootConfigEntry.setIndexNames((0,_C,_j))
+if mibBuilder.loadTexts:cucsBiosVfUSBBootConfigEntry.setStatus(_A)
+_CucsBiosVfUSBBootConfigInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfUSBBootConfigInstanceId_Object=MibTableColumn
+cucsBiosVfUSBBootConfigInstanceId=_CucsBiosVfUSBBootConfigInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,32,1,1),_CucsBiosVfUSBBootConfigInstanceId_Type())
+cucsBiosVfUSBBootConfigInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfUSBBootConfigInstanceId.setStatus(_A)
+_CucsBiosVfUSBBootConfigDn_Type=CucsManagedObjectDn
+_CucsBiosVfUSBBootConfigDn_Object=MibTableColumn
+cucsBiosVfUSBBootConfigDn=_CucsBiosVfUSBBootConfigDn_Object((1,3,6,1,4,1,9,9,719,1,4,32,1,2),_CucsBiosVfUSBBootConfigDn_Type())
+cucsBiosVfUSBBootConfigDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBBootConfigDn.setStatus(_A)
+_CucsBiosVfUSBBootConfigRn_Type=SnmpAdminString
+_CucsBiosVfUSBBootConfigRn_Object=MibTableColumn
+cucsBiosVfUSBBootConfigRn=_CucsBiosVfUSBBootConfigRn_Object((1,3,6,1,4,1,9,9,719,1,4,32,1,3),_CucsBiosVfUSBBootConfigRn_Type())
+cucsBiosVfUSBBootConfigRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBBootConfigRn.setStatus(_A)
+_CucsBiosVfUSBBootConfigVpMakeDeviceNonBootable_Type=CucsBiosVfUSBBootConfigVpMakeDeviceNonBootable
+_CucsBiosVfUSBBootConfigVpMakeDeviceNonBootable_Object=MibTableColumn
+cucsBiosVfUSBBootConfigVpMakeDeviceNonBootable=_CucsBiosVfUSBBootConfigVpMakeDeviceNonBootable_Object((1,3,6,1,4,1,9,9,719,1,4,32,1,4),_CucsBiosVfUSBBootConfigVpMakeDeviceNonBootable_Type())
+cucsBiosVfUSBBootConfigVpMakeDeviceNonBootable.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBBootConfigVpMakeDeviceNonBootable.setStatus(_A)
+_CucsBiosVfUSBBootConfigVpLegacyUSBSupport_Type=CucsBiosVfUSBBootConfigVpLegacyUSBSupport
+_CucsBiosVfUSBBootConfigVpLegacyUSBSupport_Object=MibTableColumn
+cucsBiosVfUSBBootConfigVpLegacyUSBSupport=_CucsBiosVfUSBBootConfigVpLegacyUSBSupport_Object((1,3,6,1,4,1,9,9,719,1,4,32,1,5),_CucsBiosVfUSBBootConfigVpLegacyUSBSupport_Type())
+cucsBiosVfUSBBootConfigVpLegacyUSBSupport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBBootConfigVpLegacyUSBSupport.setStatus(_A)
+_CucsBiosVfUSBBootConfigPropAcl_Type=Unsigned64
+_CucsBiosVfUSBBootConfigPropAcl_Object=MibTableColumn
+cucsBiosVfUSBBootConfigPropAcl=_CucsBiosVfUSBBootConfigPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,32,1,6),_CucsBiosVfUSBBootConfigPropAcl_Type())
+cucsBiosVfUSBBootConfigPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBBootConfigPropAcl.setStatus(_A)
+_CucsBiosVfUSBBootConfigSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfUSBBootConfigSupportedByDefault_Object=MibTableColumn
+cucsBiosVfUSBBootConfigSupportedByDefault=_CucsBiosVfUSBBootConfigSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,32,1,7),_CucsBiosVfUSBBootConfigSupportedByDefault_Type())
+cucsBiosVfUSBBootConfigSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBBootConfigSupportedByDefault.setStatus(_A)
+_CucsBiosVfCoreMultiProcessingTable_Object=MibTable
+cucsBiosVfCoreMultiProcessingTable=_CucsBiosVfCoreMultiProcessingTable_Object((1,3,6,1,4,1,9,9,719,1,4,33))
+if mibBuilder.loadTexts:cucsBiosVfCoreMultiProcessingTable.setStatus(_A)
+_CucsBiosVfCoreMultiProcessingEntry_Object=MibTableRow
+cucsBiosVfCoreMultiProcessingEntry=_CucsBiosVfCoreMultiProcessingEntry_Object((1,3,6,1,4,1,9,9,719,1,4,33,1))
+cucsBiosVfCoreMultiProcessingEntry.setIndexNames((0,_C,_k))
+if mibBuilder.loadTexts:cucsBiosVfCoreMultiProcessingEntry.setStatus(_A)
+_CucsBiosVfCoreMultiProcessingInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfCoreMultiProcessingInstanceId_Object=MibTableColumn
+cucsBiosVfCoreMultiProcessingInstanceId=_CucsBiosVfCoreMultiProcessingInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,33,1,1),_CucsBiosVfCoreMultiProcessingInstanceId_Type())
+cucsBiosVfCoreMultiProcessingInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfCoreMultiProcessingInstanceId.setStatus(_A)
+_CucsBiosVfCoreMultiProcessingDn_Type=CucsManagedObjectDn
+_CucsBiosVfCoreMultiProcessingDn_Object=MibTableColumn
+cucsBiosVfCoreMultiProcessingDn=_CucsBiosVfCoreMultiProcessingDn_Object((1,3,6,1,4,1,9,9,719,1,4,33,1,2),_CucsBiosVfCoreMultiProcessingDn_Type())
+cucsBiosVfCoreMultiProcessingDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfCoreMultiProcessingDn.setStatus(_A)
+_CucsBiosVfCoreMultiProcessingRn_Type=SnmpAdminString
+_CucsBiosVfCoreMultiProcessingRn_Object=MibTableColumn
+cucsBiosVfCoreMultiProcessingRn=_CucsBiosVfCoreMultiProcessingRn_Object((1,3,6,1,4,1,9,9,719,1,4,33,1,3),_CucsBiosVfCoreMultiProcessingRn_Type())
+cucsBiosVfCoreMultiProcessingRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfCoreMultiProcessingRn.setStatus(_A)
+_CucsBiosVfCoreMultiProcessingVpCoreMultiProcessing_Type=CucsBiosVfCoreMultiProcessingVpCoreMultiProcessing
+_CucsBiosVfCoreMultiProcessingVpCoreMultiProcessing_Object=MibTableColumn
+cucsBiosVfCoreMultiProcessingVpCoreMultiProcessing=_CucsBiosVfCoreMultiProcessingVpCoreMultiProcessing_Object((1,3,6,1,4,1,9,9,719,1,4,33,1,4),_CucsBiosVfCoreMultiProcessingVpCoreMultiProcessing_Type())
+cucsBiosVfCoreMultiProcessingVpCoreMultiProcessing.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfCoreMultiProcessingVpCoreMultiProcessing.setStatus(_A)
+_CucsBiosVfCoreMultiProcessingPropAcl_Type=Unsigned64
+_CucsBiosVfCoreMultiProcessingPropAcl_Object=MibTableColumn
+cucsBiosVfCoreMultiProcessingPropAcl=_CucsBiosVfCoreMultiProcessingPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,33,1,5),_CucsBiosVfCoreMultiProcessingPropAcl_Type())
+cucsBiosVfCoreMultiProcessingPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfCoreMultiProcessingPropAcl.setStatus(_A)
+_CucsBiosVfCoreMultiProcessingSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfCoreMultiProcessingSupportedByDefault_Object=MibTableColumn
+cucsBiosVfCoreMultiProcessingSupportedByDefault=_CucsBiosVfCoreMultiProcessingSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,33,1,6),_CucsBiosVfCoreMultiProcessingSupportedByDefault_Type())
+cucsBiosVfCoreMultiProcessingSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfCoreMultiProcessingSupportedByDefault.setStatus(_A)
+_CucsBiosVfUEFIOSUseLegacyVideoTable_Object=MibTable
+cucsBiosVfUEFIOSUseLegacyVideoTable=_CucsBiosVfUEFIOSUseLegacyVideoTable_Object((1,3,6,1,4,1,9,9,719,1,4,34))
+if mibBuilder.loadTexts:cucsBiosVfUEFIOSUseLegacyVideoTable.setStatus(_A)
+_CucsBiosVfUEFIOSUseLegacyVideoEntry_Object=MibTableRow
+cucsBiosVfUEFIOSUseLegacyVideoEntry=_CucsBiosVfUEFIOSUseLegacyVideoEntry_Object((1,3,6,1,4,1,9,9,719,1,4,34,1))
+cucsBiosVfUEFIOSUseLegacyVideoEntry.setIndexNames((0,_C,_l))
+if mibBuilder.loadTexts:cucsBiosVfUEFIOSUseLegacyVideoEntry.setStatus(_A)
+_CucsBiosVfUEFIOSUseLegacyVideoInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfUEFIOSUseLegacyVideoInstanceId_Object=MibTableColumn
+cucsBiosVfUEFIOSUseLegacyVideoInstanceId=_CucsBiosVfUEFIOSUseLegacyVideoInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,34,1,1),_CucsBiosVfUEFIOSUseLegacyVideoInstanceId_Type())
+cucsBiosVfUEFIOSUseLegacyVideoInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfUEFIOSUseLegacyVideoInstanceId.setStatus(_A)
+_CucsBiosVfUEFIOSUseLegacyVideoDn_Type=CucsManagedObjectDn
+_CucsBiosVfUEFIOSUseLegacyVideoDn_Object=MibTableColumn
+cucsBiosVfUEFIOSUseLegacyVideoDn=_CucsBiosVfUEFIOSUseLegacyVideoDn_Object((1,3,6,1,4,1,9,9,719,1,4,34,1,2),_CucsBiosVfUEFIOSUseLegacyVideoDn_Type())
+cucsBiosVfUEFIOSUseLegacyVideoDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUEFIOSUseLegacyVideoDn.setStatus(_A)
+_CucsBiosVfUEFIOSUseLegacyVideoRn_Type=SnmpAdminString
+_CucsBiosVfUEFIOSUseLegacyVideoRn_Object=MibTableColumn
+cucsBiosVfUEFIOSUseLegacyVideoRn=_CucsBiosVfUEFIOSUseLegacyVideoRn_Object((1,3,6,1,4,1,9,9,719,1,4,34,1,3),_CucsBiosVfUEFIOSUseLegacyVideoRn_Type())
+cucsBiosVfUEFIOSUseLegacyVideoRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUEFIOSUseLegacyVideoRn.setStatus(_A)
+_CucsBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo_Type=CucsBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo
+_CucsBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo_Object=MibTableColumn
+cucsBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo=_CucsBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo_Object((1,3,6,1,4,1,9,9,719,1,4,34,1,4),_CucsBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo_Type())
+cucsBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo.setStatus(_A)
+_CucsBiosVfUEFIOSUseLegacyVideoPropAcl_Type=Unsigned64
+_CucsBiosVfUEFIOSUseLegacyVideoPropAcl_Object=MibTableColumn
+cucsBiosVfUEFIOSUseLegacyVideoPropAcl=_CucsBiosVfUEFIOSUseLegacyVideoPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,34,1,5),_CucsBiosVfUEFIOSUseLegacyVideoPropAcl_Type())
+cucsBiosVfUEFIOSUseLegacyVideoPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUEFIOSUseLegacyVideoPropAcl.setStatus(_A)
+_CucsBiosVfUEFIOSUseLegacyVideoSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfUEFIOSUseLegacyVideoSupportedByDefault_Object=MibTableColumn
+cucsBiosVfUEFIOSUseLegacyVideoSupportedByDefault=_CucsBiosVfUEFIOSUseLegacyVideoSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,34,1,6),_CucsBiosVfUEFIOSUseLegacyVideoSupportedByDefault_Type())
+cucsBiosVfUEFIOSUseLegacyVideoSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUEFIOSUseLegacyVideoSupportedByDefault.setStatus(_A)
+_CucsBiosVfDirectCacheAccessTable_Object=MibTable
+cucsBiosVfDirectCacheAccessTable=_CucsBiosVfDirectCacheAccessTable_Object((1,3,6,1,4,1,9,9,719,1,4,35))
+if mibBuilder.loadTexts:cucsBiosVfDirectCacheAccessTable.setStatus(_A)
+_CucsBiosVfDirectCacheAccessEntry_Object=MibTableRow
+cucsBiosVfDirectCacheAccessEntry=_CucsBiosVfDirectCacheAccessEntry_Object((1,3,6,1,4,1,9,9,719,1,4,35,1))
+cucsBiosVfDirectCacheAccessEntry.setIndexNames((0,_C,_m))
+if mibBuilder.loadTexts:cucsBiosVfDirectCacheAccessEntry.setStatus(_A)
+_CucsBiosVfDirectCacheAccessInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfDirectCacheAccessInstanceId_Object=MibTableColumn
+cucsBiosVfDirectCacheAccessInstanceId=_CucsBiosVfDirectCacheAccessInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,35,1,1),_CucsBiosVfDirectCacheAccessInstanceId_Type())
+cucsBiosVfDirectCacheAccessInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfDirectCacheAccessInstanceId.setStatus(_A)
+_CucsBiosVfDirectCacheAccessDn_Type=CucsManagedObjectDn
+_CucsBiosVfDirectCacheAccessDn_Object=MibTableColumn
+cucsBiosVfDirectCacheAccessDn=_CucsBiosVfDirectCacheAccessDn_Object((1,3,6,1,4,1,9,9,719,1,4,35,1,2),_CucsBiosVfDirectCacheAccessDn_Type())
+cucsBiosVfDirectCacheAccessDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDirectCacheAccessDn.setStatus(_A)
+_CucsBiosVfDirectCacheAccessRn_Type=SnmpAdminString
+_CucsBiosVfDirectCacheAccessRn_Object=MibTableColumn
+cucsBiosVfDirectCacheAccessRn=_CucsBiosVfDirectCacheAccessRn_Object((1,3,6,1,4,1,9,9,719,1,4,35,1,3),_CucsBiosVfDirectCacheAccessRn_Type())
+cucsBiosVfDirectCacheAccessRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDirectCacheAccessRn.setStatus(_A)
+_CucsBiosVfDirectCacheAccessVpDirectCacheAccess_Type=CucsBiosVfDirectCacheAccessVpDirectCacheAccess
+_CucsBiosVfDirectCacheAccessVpDirectCacheAccess_Object=MibTableColumn
+cucsBiosVfDirectCacheAccessVpDirectCacheAccess=_CucsBiosVfDirectCacheAccessVpDirectCacheAccess_Object((1,3,6,1,4,1,9,9,719,1,4,35,1,4),_CucsBiosVfDirectCacheAccessVpDirectCacheAccess_Type())
+cucsBiosVfDirectCacheAccessVpDirectCacheAccess.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDirectCacheAccessVpDirectCacheAccess.setStatus(_A)
+_CucsBiosVfDirectCacheAccessPropAcl_Type=Unsigned64
+_CucsBiosVfDirectCacheAccessPropAcl_Object=MibTableColumn
+cucsBiosVfDirectCacheAccessPropAcl=_CucsBiosVfDirectCacheAccessPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,35,1,5),_CucsBiosVfDirectCacheAccessPropAcl_Type())
+cucsBiosVfDirectCacheAccessPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDirectCacheAccessPropAcl.setStatus(_A)
+_CucsBiosVfDirectCacheAccessSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfDirectCacheAccessSupportedByDefault_Object=MibTableColumn
+cucsBiosVfDirectCacheAccessSupportedByDefault=_CucsBiosVfDirectCacheAccessSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,35,1,6),_CucsBiosVfDirectCacheAccessSupportedByDefault_Type())
+cucsBiosVfDirectCacheAccessSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDirectCacheAccessSupportedByDefault.setStatus(_A)
+_CucsBiosVfExecuteDisableBitTable_Object=MibTable
+cucsBiosVfExecuteDisableBitTable=_CucsBiosVfExecuteDisableBitTable_Object((1,3,6,1,4,1,9,9,719,1,4,36))
+if mibBuilder.loadTexts:cucsBiosVfExecuteDisableBitTable.setStatus(_A)
+_CucsBiosVfExecuteDisableBitEntry_Object=MibTableRow
+cucsBiosVfExecuteDisableBitEntry=_CucsBiosVfExecuteDisableBitEntry_Object((1,3,6,1,4,1,9,9,719,1,4,36,1))
+cucsBiosVfExecuteDisableBitEntry.setIndexNames((0,_C,_n))
+if mibBuilder.loadTexts:cucsBiosVfExecuteDisableBitEntry.setStatus(_A)
+_CucsBiosVfExecuteDisableBitInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfExecuteDisableBitInstanceId_Object=MibTableColumn
+cucsBiosVfExecuteDisableBitInstanceId=_CucsBiosVfExecuteDisableBitInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,36,1,1),_CucsBiosVfExecuteDisableBitInstanceId_Type())
+cucsBiosVfExecuteDisableBitInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfExecuteDisableBitInstanceId.setStatus(_A)
+_CucsBiosVfExecuteDisableBitDn_Type=CucsManagedObjectDn
+_CucsBiosVfExecuteDisableBitDn_Object=MibTableColumn
+cucsBiosVfExecuteDisableBitDn=_CucsBiosVfExecuteDisableBitDn_Object((1,3,6,1,4,1,9,9,719,1,4,36,1,2),_CucsBiosVfExecuteDisableBitDn_Type())
+cucsBiosVfExecuteDisableBitDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfExecuteDisableBitDn.setStatus(_A)
+_CucsBiosVfExecuteDisableBitRn_Type=SnmpAdminString
+_CucsBiosVfExecuteDisableBitRn_Object=MibTableColumn
+cucsBiosVfExecuteDisableBitRn=_CucsBiosVfExecuteDisableBitRn_Object((1,3,6,1,4,1,9,9,719,1,4,36,1,3),_CucsBiosVfExecuteDisableBitRn_Type())
+cucsBiosVfExecuteDisableBitRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfExecuteDisableBitRn.setStatus(_A)
+_CucsBiosVfExecuteDisableBitVpExecuteDisableBit_Type=CucsBiosVfExecuteDisableBitVpExecuteDisableBit
+_CucsBiosVfExecuteDisableBitVpExecuteDisableBit_Object=MibTableColumn
+cucsBiosVfExecuteDisableBitVpExecuteDisableBit=_CucsBiosVfExecuteDisableBitVpExecuteDisableBit_Object((1,3,6,1,4,1,9,9,719,1,4,36,1,4),_CucsBiosVfExecuteDisableBitVpExecuteDisableBit_Type())
+cucsBiosVfExecuteDisableBitVpExecuteDisableBit.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfExecuteDisableBitVpExecuteDisableBit.setStatus(_A)
+_CucsBiosVfExecuteDisableBitPropAcl_Type=Unsigned64
+_CucsBiosVfExecuteDisableBitPropAcl_Object=MibTableColumn
+cucsBiosVfExecuteDisableBitPropAcl=_CucsBiosVfExecuteDisableBitPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,36,1,5),_CucsBiosVfExecuteDisableBitPropAcl_Type())
+cucsBiosVfExecuteDisableBitPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfExecuteDisableBitPropAcl.setStatus(_A)
+_CucsBiosVfExecuteDisableBitSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfExecuteDisableBitSupportedByDefault_Object=MibTableColumn
+cucsBiosVfExecuteDisableBitSupportedByDefault=_CucsBiosVfExecuteDisableBitSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,36,1,6),_CucsBiosVfExecuteDisableBitSupportedByDefault_Type())
+cucsBiosVfExecuteDisableBitSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfExecuteDisableBitSupportedByDefault.setStatus(_A)
+_CucsBiosVfSparingModeTable_Object=MibTable
+cucsBiosVfSparingModeTable=_CucsBiosVfSparingModeTable_Object((1,3,6,1,4,1,9,9,719,1,4,37))
+if mibBuilder.loadTexts:cucsBiosVfSparingModeTable.setStatus(_A)
+_CucsBiosVfSparingModeEntry_Object=MibTableRow
+cucsBiosVfSparingModeEntry=_CucsBiosVfSparingModeEntry_Object((1,3,6,1,4,1,9,9,719,1,4,37,1))
+cucsBiosVfSparingModeEntry.setIndexNames((0,_C,_o))
+if mibBuilder.loadTexts:cucsBiosVfSparingModeEntry.setStatus(_A)
+_CucsBiosVfSparingModeInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfSparingModeInstanceId_Object=MibTableColumn
+cucsBiosVfSparingModeInstanceId=_CucsBiosVfSparingModeInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,37,1,1),_CucsBiosVfSparingModeInstanceId_Type())
+cucsBiosVfSparingModeInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfSparingModeInstanceId.setStatus(_A)
+_CucsBiosVfSparingModeDn_Type=CucsManagedObjectDn
+_CucsBiosVfSparingModeDn_Object=MibTableColumn
+cucsBiosVfSparingModeDn=_CucsBiosVfSparingModeDn_Object((1,3,6,1,4,1,9,9,719,1,4,37,1,2),_CucsBiosVfSparingModeDn_Type())
+cucsBiosVfSparingModeDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSparingModeDn.setStatus(_A)
+_CucsBiosVfSparingModeRn_Type=SnmpAdminString
+_CucsBiosVfSparingModeRn_Object=MibTableColumn
+cucsBiosVfSparingModeRn=_CucsBiosVfSparingModeRn_Object((1,3,6,1,4,1,9,9,719,1,4,37,1,3),_CucsBiosVfSparingModeRn_Type())
+cucsBiosVfSparingModeRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSparingModeRn.setStatus(_A)
+_CucsBiosVfSparingModeVpSparingMode_Type=CucsBiosVfSparingModeVpSparingMode
+_CucsBiosVfSparingModeVpSparingMode_Object=MibTableColumn
+cucsBiosVfSparingModeVpSparingMode=_CucsBiosVfSparingModeVpSparingMode_Object((1,3,6,1,4,1,9,9,719,1,4,37,1,4),_CucsBiosVfSparingModeVpSparingMode_Type())
+cucsBiosVfSparingModeVpSparingMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSparingModeVpSparingMode.setStatus(_A)
+_CucsBiosVfSparingModePropAcl_Type=Unsigned64
+_CucsBiosVfSparingModePropAcl_Object=MibTableColumn
+cucsBiosVfSparingModePropAcl=_CucsBiosVfSparingModePropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,37,1,5),_CucsBiosVfSparingModePropAcl_Type())
+cucsBiosVfSparingModePropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSparingModePropAcl.setStatus(_A)
+_CucsBiosVfSparingModeSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfSparingModeSupportedByDefault_Object=MibTableColumn
+cucsBiosVfSparingModeSupportedByDefault=_CucsBiosVfSparingModeSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,37,1,6),_CucsBiosVfSparingModeSupportedByDefault_Type())
+cucsBiosVfSparingModeSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSparingModeSupportedByDefault.setStatus(_A)
+_CucsBiosVfSerialPortAEnableTable_Object=MibTable
+cucsBiosVfSerialPortAEnableTable=_CucsBiosVfSerialPortAEnableTable_Object((1,3,6,1,4,1,9,9,719,1,4,38))
+if mibBuilder.loadTexts:cucsBiosVfSerialPortAEnableTable.setStatus(_A)
+_CucsBiosVfSerialPortAEnableEntry_Object=MibTableRow
+cucsBiosVfSerialPortAEnableEntry=_CucsBiosVfSerialPortAEnableEntry_Object((1,3,6,1,4,1,9,9,719,1,4,38,1))
+cucsBiosVfSerialPortAEnableEntry.setIndexNames((0,_C,_p))
+if mibBuilder.loadTexts:cucsBiosVfSerialPortAEnableEntry.setStatus(_A)
+_CucsBiosVfSerialPortAEnableInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfSerialPortAEnableInstanceId_Object=MibTableColumn
+cucsBiosVfSerialPortAEnableInstanceId=_CucsBiosVfSerialPortAEnableInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,38,1,1),_CucsBiosVfSerialPortAEnableInstanceId_Type())
+cucsBiosVfSerialPortAEnableInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfSerialPortAEnableInstanceId.setStatus(_A)
+_CucsBiosVfSerialPortAEnableDn_Type=CucsManagedObjectDn
+_CucsBiosVfSerialPortAEnableDn_Object=MibTableColumn
+cucsBiosVfSerialPortAEnableDn=_CucsBiosVfSerialPortAEnableDn_Object((1,3,6,1,4,1,9,9,719,1,4,38,1,2),_CucsBiosVfSerialPortAEnableDn_Type())
+cucsBiosVfSerialPortAEnableDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSerialPortAEnableDn.setStatus(_A)
+_CucsBiosVfSerialPortAEnableRn_Type=SnmpAdminString
+_CucsBiosVfSerialPortAEnableRn_Object=MibTableColumn
+cucsBiosVfSerialPortAEnableRn=_CucsBiosVfSerialPortAEnableRn_Object((1,3,6,1,4,1,9,9,719,1,4,38,1,3),_CucsBiosVfSerialPortAEnableRn_Type())
+cucsBiosVfSerialPortAEnableRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSerialPortAEnableRn.setStatus(_A)
+_CucsBiosVfSerialPortAEnableVpSerialPortAEnable_Type=CucsBiosVfSerialPortAEnableVpSerialPortAEnable
+_CucsBiosVfSerialPortAEnableVpSerialPortAEnable_Object=MibTableColumn
+cucsBiosVfSerialPortAEnableVpSerialPortAEnable=_CucsBiosVfSerialPortAEnableVpSerialPortAEnable_Object((1,3,6,1,4,1,9,9,719,1,4,38,1,4),_CucsBiosVfSerialPortAEnableVpSerialPortAEnable_Type())
+cucsBiosVfSerialPortAEnableVpSerialPortAEnable.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSerialPortAEnableVpSerialPortAEnable.setStatus(_A)
+_CucsBiosVfSerialPortAEnablePropAcl_Type=Unsigned64
+_CucsBiosVfSerialPortAEnablePropAcl_Object=MibTableColumn
+cucsBiosVfSerialPortAEnablePropAcl=_CucsBiosVfSerialPortAEnablePropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,38,1,5),_CucsBiosVfSerialPortAEnablePropAcl_Type())
+cucsBiosVfSerialPortAEnablePropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSerialPortAEnablePropAcl.setStatus(_A)
+_CucsBiosVfSerialPortAEnableSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfSerialPortAEnableSupportedByDefault_Object=MibTableColumn
+cucsBiosVfSerialPortAEnableSupportedByDefault=_CucsBiosVfSerialPortAEnableSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,38,1,6),_CucsBiosVfSerialPortAEnableSupportedByDefault_Type())
+cucsBiosVfSerialPortAEnableSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSerialPortAEnableSupportedByDefault.setStatus(_A)
+_CucsBiosVfIntelEntrySASRAIDModuleTable_Object=MibTable
+cucsBiosVfIntelEntrySASRAIDModuleTable=_CucsBiosVfIntelEntrySASRAIDModuleTable_Object((1,3,6,1,4,1,9,9,719,1,4,39))
+if mibBuilder.loadTexts:cucsBiosVfIntelEntrySASRAIDModuleTable.setStatus(_A)
+_CucsBiosVfIntelEntrySASRAIDModuleEntry_Object=MibTableRow
+cucsBiosVfIntelEntrySASRAIDModuleEntry=_CucsBiosVfIntelEntrySASRAIDModuleEntry_Object((1,3,6,1,4,1,9,9,719,1,4,39,1))
+cucsBiosVfIntelEntrySASRAIDModuleEntry.setIndexNames((0,_C,_q))
+if mibBuilder.loadTexts:cucsBiosVfIntelEntrySASRAIDModuleEntry.setStatus(_A)
+_CucsBiosVfIntelEntrySASRAIDModuleInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfIntelEntrySASRAIDModuleInstanceId_Object=MibTableColumn
+cucsBiosVfIntelEntrySASRAIDModuleInstanceId=_CucsBiosVfIntelEntrySASRAIDModuleInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,39,1,1),_CucsBiosVfIntelEntrySASRAIDModuleInstanceId_Type())
+cucsBiosVfIntelEntrySASRAIDModuleInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfIntelEntrySASRAIDModuleInstanceId.setStatus(_A)
+_CucsBiosVfIntelEntrySASRAIDModuleDn_Type=CucsManagedObjectDn
+_CucsBiosVfIntelEntrySASRAIDModuleDn_Object=MibTableColumn
+cucsBiosVfIntelEntrySASRAIDModuleDn=_CucsBiosVfIntelEntrySASRAIDModuleDn_Object((1,3,6,1,4,1,9,9,719,1,4,39,1,2),_CucsBiosVfIntelEntrySASRAIDModuleDn_Type())
+cucsBiosVfIntelEntrySASRAIDModuleDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelEntrySASRAIDModuleDn.setStatus(_A)
+_CucsBiosVfIntelEntrySASRAIDModuleRn_Type=SnmpAdminString
+_CucsBiosVfIntelEntrySASRAIDModuleRn_Object=MibTableColumn
+cucsBiosVfIntelEntrySASRAIDModuleRn=_CucsBiosVfIntelEntrySASRAIDModuleRn_Object((1,3,6,1,4,1,9,9,719,1,4,39,1,3),_CucsBiosVfIntelEntrySASRAIDModuleRn_Type())
+cucsBiosVfIntelEntrySASRAIDModuleRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelEntrySASRAIDModuleRn.setStatus(_A)
+_CucsBiosVfIntelEntrySASRAIDModuleVpSASRAID_Type=CucsBiosVfIntelEntrySASRAIDModuleVpSASRAID
+_CucsBiosVfIntelEntrySASRAIDModuleVpSASRAID_Object=MibTableColumn
+cucsBiosVfIntelEntrySASRAIDModuleVpSASRAID=_CucsBiosVfIntelEntrySASRAIDModuleVpSASRAID_Object((1,3,6,1,4,1,9,9,719,1,4,39,1,4),_CucsBiosVfIntelEntrySASRAIDModuleVpSASRAID_Type())
+cucsBiosVfIntelEntrySASRAIDModuleVpSASRAID.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelEntrySASRAIDModuleVpSASRAID.setStatus(_A)
+_CucsBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule_Type=CucsBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule
+_CucsBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule_Object=MibTableColumn
+cucsBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule=_CucsBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule_Object((1,3,6,1,4,1,9,9,719,1,4,39,1,5),_CucsBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule_Type())
+cucsBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule.setStatus(_A)
+_CucsBiosVfIntelEntrySASRAIDModulePropAcl_Type=Unsigned64
+_CucsBiosVfIntelEntrySASRAIDModulePropAcl_Object=MibTableColumn
+cucsBiosVfIntelEntrySASRAIDModulePropAcl=_CucsBiosVfIntelEntrySASRAIDModulePropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,39,1,6),_CucsBiosVfIntelEntrySASRAIDModulePropAcl_Type())
+cucsBiosVfIntelEntrySASRAIDModulePropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelEntrySASRAIDModulePropAcl.setStatus(_A)
+_CucsBiosVfIntelEntrySASRAIDModuleSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfIntelEntrySASRAIDModuleSupportedByDefault_Object=MibTableColumn
+cucsBiosVfIntelEntrySASRAIDModuleSupportedByDefault=_CucsBiosVfIntelEntrySASRAIDModuleSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,39,1,7),_CucsBiosVfIntelEntrySASRAIDModuleSupportedByDefault_Type())
+cucsBiosVfIntelEntrySASRAIDModuleSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelEntrySASRAIDModuleSupportedByDefault.setStatus(_A)
+_CucsBiosVfPOSTErrorPauseTable_Object=MibTable
+cucsBiosVfPOSTErrorPauseTable=_CucsBiosVfPOSTErrorPauseTable_Object((1,3,6,1,4,1,9,9,719,1,4,40))
+if mibBuilder.loadTexts:cucsBiosVfPOSTErrorPauseTable.setStatus(_A)
+_CucsBiosVfPOSTErrorPauseEntry_Object=MibTableRow
+cucsBiosVfPOSTErrorPauseEntry=_CucsBiosVfPOSTErrorPauseEntry_Object((1,3,6,1,4,1,9,9,719,1,4,40,1))
+cucsBiosVfPOSTErrorPauseEntry.setIndexNames((0,_C,_r))
+if mibBuilder.loadTexts:cucsBiosVfPOSTErrorPauseEntry.setStatus(_A)
+_CucsBiosVfPOSTErrorPauseInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfPOSTErrorPauseInstanceId_Object=MibTableColumn
+cucsBiosVfPOSTErrorPauseInstanceId=_CucsBiosVfPOSTErrorPauseInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,40,1,1),_CucsBiosVfPOSTErrorPauseInstanceId_Type())
+cucsBiosVfPOSTErrorPauseInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfPOSTErrorPauseInstanceId.setStatus(_A)
+_CucsBiosVfPOSTErrorPauseDn_Type=CucsManagedObjectDn
+_CucsBiosVfPOSTErrorPauseDn_Object=MibTableColumn
+cucsBiosVfPOSTErrorPauseDn=_CucsBiosVfPOSTErrorPauseDn_Object((1,3,6,1,4,1,9,9,719,1,4,40,1,2),_CucsBiosVfPOSTErrorPauseDn_Type())
+cucsBiosVfPOSTErrorPauseDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPOSTErrorPauseDn.setStatus(_A)
+_CucsBiosVfPOSTErrorPauseRn_Type=SnmpAdminString
+_CucsBiosVfPOSTErrorPauseRn_Object=MibTableColumn
+cucsBiosVfPOSTErrorPauseRn=_CucsBiosVfPOSTErrorPauseRn_Object((1,3,6,1,4,1,9,9,719,1,4,40,1,3),_CucsBiosVfPOSTErrorPauseRn_Type())
+cucsBiosVfPOSTErrorPauseRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPOSTErrorPauseRn.setStatus(_A)
+_CucsBiosVfPOSTErrorPauseVpPOSTErrorPause_Type=CucsBiosVfPOSTErrorPauseVpPOSTErrorPause
+_CucsBiosVfPOSTErrorPauseVpPOSTErrorPause_Object=MibTableColumn
+cucsBiosVfPOSTErrorPauseVpPOSTErrorPause=_CucsBiosVfPOSTErrorPauseVpPOSTErrorPause_Object((1,3,6,1,4,1,9,9,719,1,4,40,1,4),_CucsBiosVfPOSTErrorPauseVpPOSTErrorPause_Type())
+cucsBiosVfPOSTErrorPauseVpPOSTErrorPause.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPOSTErrorPauseVpPOSTErrorPause.setStatus(_A)
+_CucsBiosVfPOSTErrorPausePropAcl_Type=Unsigned64
+_CucsBiosVfPOSTErrorPausePropAcl_Object=MibTableColumn
+cucsBiosVfPOSTErrorPausePropAcl=_CucsBiosVfPOSTErrorPausePropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,40,1,5),_CucsBiosVfPOSTErrorPausePropAcl_Type())
+cucsBiosVfPOSTErrorPausePropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPOSTErrorPausePropAcl.setStatus(_A)
+_CucsBiosVfPOSTErrorPauseSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfPOSTErrorPauseSupportedByDefault_Object=MibTableColumn
+cucsBiosVfPOSTErrorPauseSupportedByDefault=_CucsBiosVfPOSTErrorPauseSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,40,1,6),_CucsBiosVfPOSTErrorPauseSupportedByDefault_Type())
+cucsBiosVfPOSTErrorPauseSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPOSTErrorPauseSupportedByDefault.setStatus(_A)
+_CucsBiosVfMaximumMemoryBelow4GBTable_Object=MibTable
+cucsBiosVfMaximumMemoryBelow4GBTable=_CucsBiosVfMaximumMemoryBelow4GBTable_Object((1,3,6,1,4,1,9,9,719,1,4,41))
+if mibBuilder.loadTexts:cucsBiosVfMaximumMemoryBelow4GBTable.setStatus(_A)
+_CucsBiosVfMaximumMemoryBelow4GBEntry_Object=MibTableRow
+cucsBiosVfMaximumMemoryBelow4GBEntry=_CucsBiosVfMaximumMemoryBelow4GBEntry_Object((1,3,6,1,4,1,9,9,719,1,4,41,1))
+cucsBiosVfMaximumMemoryBelow4GBEntry.setIndexNames((0,_C,_s))
+if mibBuilder.loadTexts:cucsBiosVfMaximumMemoryBelow4GBEntry.setStatus(_A)
+_CucsBiosVfMaximumMemoryBelow4GBInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfMaximumMemoryBelow4GBInstanceId_Object=MibTableColumn
+cucsBiosVfMaximumMemoryBelow4GBInstanceId=_CucsBiosVfMaximumMemoryBelow4GBInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,41,1,1),_CucsBiosVfMaximumMemoryBelow4GBInstanceId_Type())
+cucsBiosVfMaximumMemoryBelow4GBInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfMaximumMemoryBelow4GBInstanceId.setStatus(_A)
+_CucsBiosVfMaximumMemoryBelow4GBDn_Type=CucsManagedObjectDn
+_CucsBiosVfMaximumMemoryBelow4GBDn_Object=MibTableColumn
+cucsBiosVfMaximumMemoryBelow4GBDn=_CucsBiosVfMaximumMemoryBelow4GBDn_Object((1,3,6,1,4,1,9,9,719,1,4,41,1,2),_CucsBiosVfMaximumMemoryBelow4GBDn_Type())
+cucsBiosVfMaximumMemoryBelow4GBDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMaximumMemoryBelow4GBDn.setStatus(_A)
+_CucsBiosVfMaximumMemoryBelow4GBRn_Type=SnmpAdminString
+_CucsBiosVfMaximumMemoryBelow4GBRn_Object=MibTableColumn
+cucsBiosVfMaximumMemoryBelow4GBRn=_CucsBiosVfMaximumMemoryBelow4GBRn_Object((1,3,6,1,4,1,9,9,719,1,4,41,1,3),_CucsBiosVfMaximumMemoryBelow4GBRn_Type())
+cucsBiosVfMaximumMemoryBelow4GBRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMaximumMemoryBelow4GBRn.setStatus(_A)
+_CucsBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB_Type=CucsBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB
+_CucsBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB_Object=MibTableColumn
+cucsBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB=_CucsBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB_Object((1,3,6,1,4,1,9,9,719,1,4,41,1,4),_CucsBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB_Type())
+cucsBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB.setStatus(_A)
+_CucsBiosVfMaximumMemoryBelow4GBPropAcl_Type=Unsigned64
+_CucsBiosVfMaximumMemoryBelow4GBPropAcl_Object=MibTableColumn
+cucsBiosVfMaximumMemoryBelow4GBPropAcl=_CucsBiosVfMaximumMemoryBelow4GBPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,41,1,5),_CucsBiosVfMaximumMemoryBelow4GBPropAcl_Type())
+cucsBiosVfMaximumMemoryBelow4GBPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMaximumMemoryBelow4GBPropAcl.setStatus(_A)
+_CucsBiosVfMaximumMemoryBelow4GBSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfMaximumMemoryBelow4GBSupportedByDefault_Object=MibTableColumn
+cucsBiosVfMaximumMemoryBelow4GBSupportedByDefault=_CucsBiosVfMaximumMemoryBelow4GBSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,41,1,6),_CucsBiosVfMaximumMemoryBelow4GBSupportedByDefault_Type())
+cucsBiosVfMaximumMemoryBelow4GBSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMaximumMemoryBelow4GBSupportedByDefault.setStatus(_A)
+_CucsBiosVfMemoryMappedIOAbove4GBTable_Object=MibTable
+cucsBiosVfMemoryMappedIOAbove4GBTable=_CucsBiosVfMemoryMappedIOAbove4GBTable_Object((1,3,6,1,4,1,9,9,719,1,4,42))
+if mibBuilder.loadTexts:cucsBiosVfMemoryMappedIOAbove4GBTable.setStatus(_A)
+_CucsBiosVfMemoryMappedIOAbove4GBEntry_Object=MibTableRow
+cucsBiosVfMemoryMappedIOAbove4GBEntry=_CucsBiosVfMemoryMappedIOAbove4GBEntry_Object((1,3,6,1,4,1,9,9,719,1,4,42,1))
+cucsBiosVfMemoryMappedIOAbove4GBEntry.setIndexNames((0,_C,_t))
+if mibBuilder.loadTexts:cucsBiosVfMemoryMappedIOAbove4GBEntry.setStatus(_A)
+_CucsBiosVfMemoryMappedIOAbove4GBInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfMemoryMappedIOAbove4GBInstanceId_Object=MibTableColumn
+cucsBiosVfMemoryMappedIOAbove4GBInstanceId=_CucsBiosVfMemoryMappedIOAbove4GBInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,42,1,1),_CucsBiosVfMemoryMappedIOAbove4GBInstanceId_Type())
+cucsBiosVfMemoryMappedIOAbove4GBInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfMemoryMappedIOAbove4GBInstanceId.setStatus(_A)
+_CucsBiosVfMemoryMappedIOAbove4GBDn_Type=CucsManagedObjectDn
+_CucsBiosVfMemoryMappedIOAbove4GBDn_Object=MibTableColumn
+cucsBiosVfMemoryMappedIOAbove4GBDn=_CucsBiosVfMemoryMappedIOAbove4GBDn_Object((1,3,6,1,4,1,9,9,719,1,4,42,1,2),_CucsBiosVfMemoryMappedIOAbove4GBDn_Type())
+cucsBiosVfMemoryMappedIOAbove4GBDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMemoryMappedIOAbove4GBDn.setStatus(_A)
+_CucsBiosVfMemoryMappedIOAbove4GBRn_Type=SnmpAdminString
+_CucsBiosVfMemoryMappedIOAbove4GBRn_Object=MibTableColumn
+cucsBiosVfMemoryMappedIOAbove4GBRn=_CucsBiosVfMemoryMappedIOAbove4GBRn_Object((1,3,6,1,4,1,9,9,719,1,4,42,1,3),_CucsBiosVfMemoryMappedIOAbove4GBRn_Type())
+cucsBiosVfMemoryMappedIOAbove4GBRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMemoryMappedIOAbove4GBRn.setStatus(_A)
+_CucsBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB_Type=CucsBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB
+_CucsBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB_Object=MibTableColumn
+cucsBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB=_CucsBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB_Object((1,3,6,1,4,1,9,9,719,1,4,42,1,4),_CucsBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB_Type())
+cucsBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB.setStatus(_A)
+_CucsBiosVfMemoryMappedIOAbove4GBPropAcl_Type=Unsigned64
+_CucsBiosVfMemoryMappedIOAbove4GBPropAcl_Object=MibTableColumn
+cucsBiosVfMemoryMappedIOAbove4GBPropAcl=_CucsBiosVfMemoryMappedIOAbove4GBPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,42,1,5),_CucsBiosVfMemoryMappedIOAbove4GBPropAcl_Type())
+cucsBiosVfMemoryMappedIOAbove4GBPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMemoryMappedIOAbove4GBPropAcl.setStatus(_A)
+_CucsBiosVfMemoryMappedIOAbove4GBSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfMemoryMappedIOAbove4GBSupportedByDefault_Object=MibTableColumn
+cucsBiosVfMemoryMappedIOAbove4GBSupportedByDefault=_CucsBiosVfMemoryMappedIOAbove4GBSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,42,1,6),_CucsBiosVfMemoryMappedIOAbove4GBSupportedByDefault_Type())
+cucsBiosVfMemoryMappedIOAbove4GBSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMemoryMappedIOAbove4GBSupportedByDefault.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerTable_Object=MibTable
+cucsBiosVfOSBootWatchdogTimerTable=_CucsBiosVfOSBootWatchdogTimerTable_Object((1,3,6,1,4,1,9,9,719,1,4,43))
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerTable.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerEntry_Object=MibTableRow
+cucsBiosVfOSBootWatchdogTimerEntry=_CucsBiosVfOSBootWatchdogTimerEntry_Object((1,3,6,1,4,1,9,9,719,1,4,43,1))
+cucsBiosVfOSBootWatchdogTimerEntry.setIndexNames((0,_C,_u))
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerEntry.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfOSBootWatchdogTimerInstanceId_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerInstanceId=_CucsBiosVfOSBootWatchdogTimerInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,43,1,1),_CucsBiosVfOSBootWatchdogTimerInstanceId_Type())
+cucsBiosVfOSBootWatchdogTimerInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerInstanceId.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerDn_Type=CucsManagedObjectDn
+_CucsBiosVfOSBootWatchdogTimerDn_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerDn=_CucsBiosVfOSBootWatchdogTimerDn_Object((1,3,6,1,4,1,9,9,719,1,4,43,1,2),_CucsBiosVfOSBootWatchdogTimerDn_Type())
+cucsBiosVfOSBootWatchdogTimerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerDn.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerRn_Type=SnmpAdminString
+_CucsBiosVfOSBootWatchdogTimerRn_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerRn=_CucsBiosVfOSBootWatchdogTimerRn_Object((1,3,6,1,4,1,9,9,719,1,4,43,1,3),_CucsBiosVfOSBootWatchdogTimerRn_Type())
+cucsBiosVfOSBootWatchdogTimerRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerRn.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer_Type=CucsBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer
+_CucsBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer=_CucsBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer_Object((1,3,6,1,4,1,9,9,719,1,4,43,1,4),_CucsBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer_Type())
+cucsBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerPropAcl_Type=Unsigned64
+_CucsBiosVfOSBootWatchdogTimerPropAcl_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerPropAcl=_CucsBiosVfOSBootWatchdogTimerPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,43,1,5),_CucsBiosVfOSBootWatchdogTimerPropAcl_Type())
+cucsBiosVfOSBootWatchdogTimerPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerPropAcl.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfOSBootWatchdogTimerSupportedByDefault_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerSupportedByDefault=_CucsBiosVfOSBootWatchdogTimerSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,43,1,6),_CucsBiosVfOSBootWatchdogTimerSupportedByDefault_Type())
+cucsBiosVfOSBootWatchdogTimerSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerSupportedByDefault.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerPolicyTable_Object=MibTable
+cucsBiosVfOSBootWatchdogTimerPolicyTable=_CucsBiosVfOSBootWatchdogTimerPolicyTable_Object((1,3,6,1,4,1,9,9,719,1,4,44))
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerPolicyTable.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerPolicyEntry_Object=MibTableRow
+cucsBiosVfOSBootWatchdogTimerPolicyEntry=_CucsBiosVfOSBootWatchdogTimerPolicyEntry_Object((1,3,6,1,4,1,9,9,719,1,4,44,1))
+cucsBiosVfOSBootWatchdogTimerPolicyEntry.setIndexNames((0,_C,_v))
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerPolicyEntry.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerPolicyInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfOSBootWatchdogTimerPolicyInstanceId_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerPolicyInstanceId=_CucsBiosVfOSBootWatchdogTimerPolicyInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,44,1,1),_CucsBiosVfOSBootWatchdogTimerPolicyInstanceId_Type())
+cucsBiosVfOSBootWatchdogTimerPolicyInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerPolicyInstanceId.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerPolicyDn_Type=CucsManagedObjectDn
+_CucsBiosVfOSBootWatchdogTimerPolicyDn_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerPolicyDn=_CucsBiosVfOSBootWatchdogTimerPolicyDn_Object((1,3,6,1,4,1,9,9,719,1,4,44,1,2),_CucsBiosVfOSBootWatchdogTimerPolicyDn_Type())
+cucsBiosVfOSBootWatchdogTimerPolicyDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerPolicyDn.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerPolicyRn_Type=SnmpAdminString
+_CucsBiosVfOSBootWatchdogTimerPolicyRn_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerPolicyRn=_CucsBiosVfOSBootWatchdogTimerPolicyRn_Object((1,3,6,1,4,1,9,9,719,1,4,44,1,3),_CucsBiosVfOSBootWatchdogTimerPolicyRn_Type())
+cucsBiosVfOSBootWatchdogTimerPolicyRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerPolicyRn.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy_Type=CucsBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy
+_CucsBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy=_CucsBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy_Object((1,3,6,1,4,1,9,9,719,1,4,44,1,4),_CucsBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy_Type())
+cucsBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerPolicyPropAcl_Type=Unsigned64
+_CucsBiosVfOSBootWatchdogTimerPolicyPropAcl_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerPolicyPropAcl=_CucsBiosVfOSBootWatchdogTimerPolicyPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,44,1,5),_CucsBiosVfOSBootWatchdogTimerPolicyPropAcl_Type())
+cucsBiosVfOSBootWatchdogTimerPolicyPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerPolicyPropAcl.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerPolicySupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfOSBootWatchdogTimerPolicySupportedByDefault_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerPolicySupportedByDefault=_CucsBiosVfOSBootWatchdogTimerPolicySupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,44,1,6),_CucsBiosVfOSBootWatchdogTimerPolicySupportedByDefault_Type())
+cucsBiosVfOSBootWatchdogTimerPolicySupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerPolicySupportedByDefault.setStatus(_A)
+_CucsBiosVfOnboardSATAControllerTable_Object=MibTable
+cucsBiosVfOnboardSATAControllerTable=_CucsBiosVfOnboardSATAControllerTable_Object((1,3,6,1,4,1,9,9,719,1,4,46))
+if mibBuilder.loadTexts:cucsBiosVfOnboardSATAControllerTable.setStatus(_A)
+_CucsBiosVfOnboardSATAControllerEntry_Object=MibTableRow
+cucsBiosVfOnboardSATAControllerEntry=_CucsBiosVfOnboardSATAControllerEntry_Object((1,3,6,1,4,1,9,9,719,1,4,46,1))
+cucsBiosVfOnboardSATAControllerEntry.setIndexNames((0,_C,_w))
+if mibBuilder.loadTexts:cucsBiosVfOnboardSATAControllerEntry.setStatus(_A)
+_CucsBiosVfOnboardSATAControllerInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfOnboardSATAControllerInstanceId_Object=MibTableColumn
+cucsBiosVfOnboardSATAControllerInstanceId=_CucsBiosVfOnboardSATAControllerInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,46,1,1),_CucsBiosVfOnboardSATAControllerInstanceId_Type())
+cucsBiosVfOnboardSATAControllerInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfOnboardSATAControllerInstanceId.setStatus(_A)
+_CucsBiosVfOnboardSATAControllerDn_Type=CucsManagedObjectDn
+_CucsBiosVfOnboardSATAControllerDn_Object=MibTableColumn
+cucsBiosVfOnboardSATAControllerDn=_CucsBiosVfOnboardSATAControllerDn_Object((1,3,6,1,4,1,9,9,719,1,4,46,1,2),_CucsBiosVfOnboardSATAControllerDn_Type())
+cucsBiosVfOnboardSATAControllerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOnboardSATAControllerDn.setStatus(_A)
+_CucsBiosVfOnboardSATAControllerRn_Type=SnmpAdminString
+_CucsBiosVfOnboardSATAControllerRn_Object=MibTableColumn
+cucsBiosVfOnboardSATAControllerRn=_CucsBiosVfOnboardSATAControllerRn_Object((1,3,6,1,4,1,9,9,719,1,4,46,1,3),_CucsBiosVfOnboardSATAControllerRn_Type())
+cucsBiosVfOnboardSATAControllerRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOnboardSATAControllerRn.setStatus(_A)
+_CucsBiosVfOnboardSATAControllerVpOnboardSATAController_Type=CucsBiosVfOnboardSATAControllerVpOnboardSATAController
+_CucsBiosVfOnboardSATAControllerVpOnboardSATAController_Object=MibTableColumn
+cucsBiosVfOnboardSATAControllerVpOnboardSATAController=_CucsBiosVfOnboardSATAControllerVpOnboardSATAController_Object((1,3,6,1,4,1,9,9,719,1,4,46,1,4),_CucsBiosVfOnboardSATAControllerVpOnboardSATAController_Type())
+cucsBiosVfOnboardSATAControllerVpOnboardSATAController.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOnboardSATAControllerVpOnboardSATAController.setStatus(_A)
+_CucsBiosVfOnboardSATAControllerVpSATAMode_Type=CucsBiosVfOnboardSATAControllerVpSATAMode
+_CucsBiosVfOnboardSATAControllerVpSATAMode_Object=MibTableColumn
+cucsBiosVfOnboardSATAControllerVpSATAMode=_CucsBiosVfOnboardSATAControllerVpSATAMode_Object((1,3,6,1,4,1,9,9,719,1,4,46,1,5),_CucsBiosVfOnboardSATAControllerVpSATAMode_Type())
+cucsBiosVfOnboardSATAControllerVpSATAMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOnboardSATAControllerVpSATAMode.setStatus(_A)
+_CucsBiosVfOnboardSATAControllerPropAcl_Type=Unsigned64
+_CucsBiosVfOnboardSATAControllerPropAcl_Object=MibTableColumn
+cucsBiosVfOnboardSATAControllerPropAcl=_CucsBiosVfOnboardSATAControllerPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,46,1,6),_CucsBiosVfOnboardSATAControllerPropAcl_Type())
+cucsBiosVfOnboardSATAControllerPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOnboardSATAControllerPropAcl.setStatus(_A)
+_CucsBiosVfOnboardSATAControllerSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfOnboardSATAControllerSupportedByDefault_Object=MibTableColumn
+cucsBiosVfOnboardSATAControllerSupportedByDefault=_CucsBiosVfOnboardSATAControllerSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,46,1,7),_CucsBiosVfOnboardSATAControllerSupportedByDefault_Type())
+cucsBiosVfOnboardSATAControllerSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOnboardSATAControllerSupportedByDefault.setStatus(_A)
+_CucsBiosVfMaxVariableMTRRSettingTable_Object=MibTable
+cucsBiosVfMaxVariableMTRRSettingTable=_CucsBiosVfMaxVariableMTRRSettingTable_Object((1,3,6,1,4,1,9,9,719,1,4,47))
+if mibBuilder.loadTexts:cucsBiosVfMaxVariableMTRRSettingTable.setStatus(_A)
+_CucsBiosVfMaxVariableMTRRSettingEntry_Object=MibTableRow
+cucsBiosVfMaxVariableMTRRSettingEntry=_CucsBiosVfMaxVariableMTRRSettingEntry_Object((1,3,6,1,4,1,9,9,719,1,4,47,1))
+cucsBiosVfMaxVariableMTRRSettingEntry.setIndexNames((0,_C,_x))
+if mibBuilder.loadTexts:cucsBiosVfMaxVariableMTRRSettingEntry.setStatus(_A)
+_CucsBiosVfMaxVariableMTRRSettingInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfMaxVariableMTRRSettingInstanceId_Object=MibTableColumn
+cucsBiosVfMaxVariableMTRRSettingInstanceId=_CucsBiosVfMaxVariableMTRRSettingInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,47,1,1),_CucsBiosVfMaxVariableMTRRSettingInstanceId_Type())
+cucsBiosVfMaxVariableMTRRSettingInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfMaxVariableMTRRSettingInstanceId.setStatus(_A)
+_CucsBiosVfMaxVariableMTRRSettingDn_Type=CucsManagedObjectDn
+_CucsBiosVfMaxVariableMTRRSettingDn_Object=MibTableColumn
+cucsBiosVfMaxVariableMTRRSettingDn=_CucsBiosVfMaxVariableMTRRSettingDn_Object((1,3,6,1,4,1,9,9,719,1,4,47,1,2),_CucsBiosVfMaxVariableMTRRSettingDn_Type())
+cucsBiosVfMaxVariableMTRRSettingDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMaxVariableMTRRSettingDn.setStatus(_A)
+_CucsBiosVfMaxVariableMTRRSettingRn_Type=SnmpAdminString
+_CucsBiosVfMaxVariableMTRRSettingRn_Object=MibTableColumn
+cucsBiosVfMaxVariableMTRRSettingRn=_CucsBiosVfMaxVariableMTRRSettingRn_Object((1,3,6,1,4,1,9,9,719,1,4,47,1,3),_CucsBiosVfMaxVariableMTRRSettingRn_Type())
+cucsBiosVfMaxVariableMTRRSettingRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMaxVariableMTRRSettingRn.setStatus(_A)
+_CucsBiosVfMaxVariableMTRRSettingVpProcessorMtrr_Type=CucsBiosVfMaxVariableMTRRSettingVpProcessorMtrr
+_CucsBiosVfMaxVariableMTRRSettingVpProcessorMtrr_Object=MibTableColumn
+cucsBiosVfMaxVariableMTRRSettingVpProcessorMtrr=_CucsBiosVfMaxVariableMTRRSettingVpProcessorMtrr_Object((1,3,6,1,4,1,9,9,719,1,4,47,1,4),_CucsBiosVfMaxVariableMTRRSettingVpProcessorMtrr_Type())
+cucsBiosVfMaxVariableMTRRSettingVpProcessorMtrr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMaxVariableMTRRSettingVpProcessorMtrr.setStatus(_A)
+_CucsBiosVfMaxVariableMTRRSettingPropAcl_Type=Unsigned64
+_CucsBiosVfMaxVariableMTRRSettingPropAcl_Object=MibTableColumn
+cucsBiosVfMaxVariableMTRRSettingPropAcl=_CucsBiosVfMaxVariableMTRRSettingPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,47,1,5),_CucsBiosVfMaxVariableMTRRSettingPropAcl_Type())
+cucsBiosVfMaxVariableMTRRSettingPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMaxVariableMTRRSettingPropAcl.setStatus(_A)
+_CucsBiosVfMaxVariableMTRRSettingSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfMaxVariableMTRRSettingSupportedByDefault_Object=MibTableColumn
+cucsBiosVfMaxVariableMTRRSettingSupportedByDefault=_CucsBiosVfMaxVariableMTRRSettingSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,47,1,6),_CucsBiosVfMaxVariableMTRRSettingSupportedByDefault_Type())
+cucsBiosVfMaxVariableMTRRSettingSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfMaxVariableMTRRSettingSupportedByDefault.setStatus(_A)
+_CucsBiosVfUCSMBootOrderRuleControlTable_Object=MibTable
+cucsBiosVfUCSMBootOrderRuleControlTable=_CucsBiosVfUCSMBootOrderRuleControlTable_Object((1,3,6,1,4,1,9,9,719,1,4,48))
+if mibBuilder.loadTexts:cucsBiosVfUCSMBootOrderRuleControlTable.setStatus(_A)
+_CucsBiosVfUCSMBootOrderRuleControlEntry_Object=MibTableRow
+cucsBiosVfUCSMBootOrderRuleControlEntry=_CucsBiosVfUCSMBootOrderRuleControlEntry_Object((1,3,6,1,4,1,9,9,719,1,4,48,1))
+cucsBiosVfUCSMBootOrderRuleControlEntry.setIndexNames((0,_C,_y))
+if mibBuilder.loadTexts:cucsBiosVfUCSMBootOrderRuleControlEntry.setStatus(_A)
+_CucsBiosVfUCSMBootOrderRuleControlInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfUCSMBootOrderRuleControlInstanceId_Object=MibTableColumn
+cucsBiosVfUCSMBootOrderRuleControlInstanceId=_CucsBiosVfUCSMBootOrderRuleControlInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,48,1,1),_CucsBiosVfUCSMBootOrderRuleControlInstanceId_Type())
+cucsBiosVfUCSMBootOrderRuleControlInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfUCSMBootOrderRuleControlInstanceId.setStatus(_A)
+_CucsBiosVfUCSMBootOrderRuleControlDn_Type=CucsManagedObjectDn
+_CucsBiosVfUCSMBootOrderRuleControlDn_Object=MibTableColumn
+cucsBiosVfUCSMBootOrderRuleControlDn=_CucsBiosVfUCSMBootOrderRuleControlDn_Object((1,3,6,1,4,1,9,9,719,1,4,48,1,2),_CucsBiosVfUCSMBootOrderRuleControlDn_Type())
+cucsBiosVfUCSMBootOrderRuleControlDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUCSMBootOrderRuleControlDn.setStatus(_A)
+_CucsBiosVfUCSMBootOrderRuleControlRn_Type=SnmpAdminString
+_CucsBiosVfUCSMBootOrderRuleControlRn_Object=MibTableColumn
+cucsBiosVfUCSMBootOrderRuleControlRn=_CucsBiosVfUCSMBootOrderRuleControlRn_Object((1,3,6,1,4,1,9,9,719,1,4,48,1,3),_CucsBiosVfUCSMBootOrderRuleControlRn_Type())
+cucsBiosVfUCSMBootOrderRuleControlRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUCSMBootOrderRuleControlRn.setStatus(_A)
+_CucsBiosVfUCSMBootOrderRuleControlVpUCSMBootOrderRule_Type=CucsBiosVfUCSMBootOrderRuleControlVpUCSMBootOrderRule
+_CucsBiosVfUCSMBootOrderRuleControlVpUCSMBootOrderRule_Object=MibTableColumn
+cucsBiosVfUCSMBootOrderRuleControlVpUCSMBootOrderRule=_CucsBiosVfUCSMBootOrderRuleControlVpUCSMBootOrderRule_Object((1,3,6,1,4,1,9,9,719,1,4,48,1,4),_CucsBiosVfUCSMBootOrderRuleControlVpUCSMBootOrderRule_Type())
+cucsBiosVfUCSMBootOrderRuleControlVpUCSMBootOrderRule.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUCSMBootOrderRuleControlVpUCSMBootOrderRule.setStatus(_A)
+_CucsBiosVfUCSMBootOrderRuleControlPropAcl_Type=Unsigned64
+_CucsBiosVfUCSMBootOrderRuleControlPropAcl_Object=MibTableColumn
+cucsBiosVfUCSMBootOrderRuleControlPropAcl=_CucsBiosVfUCSMBootOrderRuleControlPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,48,1,5),_CucsBiosVfUCSMBootOrderRuleControlPropAcl_Type())
+cucsBiosVfUCSMBootOrderRuleControlPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUCSMBootOrderRuleControlPropAcl.setStatus(_A)
+_CucsBiosVfUCSMBootOrderRuleControlSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfUCSMBootOrderRuleControlSupportedByDefault_Object=MibTableColumn
+cucsBiosVfUCSMBootOrderRuleControlSupportedByDefault=_CucsBiosVfUCSMBootOrderRuleControlSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,48,1,6),_CucsBiosVfUCSMBootOrderRuleControlSupportedByDefault_Type())
+cucsBiosVfUCSMBootOrderRuleControlSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUCSMBootOrderRuleControlSupportedByDefault.setStatus(_A)
+_CucsBiosVfUSBFrontPanelAccessLockTable_Object=MibTable
+cucsBiosVfUSBFrontPanelAccessLockTable=_CucsBiosVfUSBFrontPanelAccessLockTable_Object((1,3,6,1,4,1,9,9,719,1,4,49))
+if mibBuilder.loadTexts:cucsBiosVfUSBFrontPanelAccessLockTable.setStatus(_A)
+_CucsBiosVfUSBFrontPanelAccessLockEntry_Object=MibTableRow
+cucsBiosVfUSBFrontPanelAccessLockEntry=_CucsBiosVfUSBFrontPanelAccessLockEntry_Object((1,3,6,1,4,1,9,9,719,1,4,49,1))
+cucsBiosVfUSBFrontPanelAccessLockEntry.setIndexNames((0,_C,_z))
+if mibBuilder.loadTexts:cucsBiosVfUSBFrontPanelAccessLockEntry.setStatus(_A)
+_CucsBiosVfUSBFrontPanelAccessLockInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfUSBFrontPanelAccessLockInstanceId_Object=MibTableColumn
+cucsBiosVfUSBFrontPanelAccessLockInstanceId=_CucsBiosVfUSBFrontPanelAccessLockInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,49,1,1),_CucsBiosVfUSBFrontPanelAccessLockInstanceId_Type())
+cucsBiosVfUSBFrontPanelAccessLockInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfUSBFrontPanelAccessLockInstanceId.setStatus(_A)
+_CucsBiosVfUSBFrontPanelAccessLockDn_Type=CucsManagedObjectDn
+_CucsBiosVfUSBFrontPanelAccessLockDn_Object=MibTableColumn
+cucsBiosVfUSBFrontPanelAccessLockDn=_CucsBiosVfUSBFrontPanelAccessLockDn_Object((1,3,6,1,4,1,9,9,719,1,4,49,1,2),_CucsBiosVfUSBFrontPanelAccessLockDn_Type())
+cucsBiosVfUSBFrontPanelAccessLockDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBFrontPanelAccessLockDn.setStatus(_A)
+_CucsBiosVfUSBFrontPanelAccessLockRn_Type=SnmpAdminString
+_CucsBiosVfUSBFrontPanelAccessLockRn_Object=MibTableColumn
+cucsBiosVfUSBFrontPanelAccessLockRn=_CucsBiosVfUSBFrontPanelAccessLockRn_Object((1,3,6,1,4,1,9,9,719,1,4,49,1,3),_CucsBiosVfUSBFrontPanelAccessLockRn_Type())
+cucsBiosVfUSBFrontPanelAccessLockRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBFrontPanelAccessLockRn.setStatus(_A)
+_CucsBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock_Type=CucsBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock
+_CucsBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock_Object=MibTableColumn
+cucsBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock=_CucsBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock_Object((1,3,6,1,4,1,9,9,719,1,4,49,1,4),_CucsBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock_Type())
+cucsBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock.setStatus(_A)
+_CucsBiosVfUSBFrontPanelAccessLockPropAcl_Type=Unsigned64
+_CucsBiosVfUSBFrontPanelAccessLockPropAcl_Object=MibTableColumn
+cucsBiosVfUSBFrontPanelAccessLockPropAcl=_CucsBiosVfUSBFrontPanelAccessLockPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,49,1,5),_CucsBiosVfUSBFrontPanelAccessLockPropAcl_Type())
+cucsBiosVfUSBFrontPanelAccessLockPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBFrontPanelAccessLockPropAcl.setStatus(_A)
+_CucsBiosVfUSBFrontPanelAccessLockSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfUSBFrontPanelAccessLockSupportedByDefault_Object=MibTableColumn
+cucsBiosVfUSBFrontPanelAccessLockSupportedByDefault=_CucsBiosVfUSBFrontPanelAccessLockSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,49,1,6),_CucsBiosVfUSBFrontPanelAccessLockSupportedByDefault_Type())
+cucsBiosVfUSBFrontPanelAccessLockSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBFrontPanelAccessLockSupportedByDefault.setStatus(_A)
+_CucsBiosVfUSBSystemIdlePowerOptimizingSettingTable_Object=MibTable
+cucsBiosVfUSBSystemIdlePowerOptimizingSettingTable=_CucsBiosVfUSBSystemIdlePowerOptimizingSettingTable_Object((1,3,6,1,4,1,9,9,719,1,4,50))
+if mibBuilder.loadTexts:cucsBiosVfUSBSystemIdlePowerOptimizingSettingTable.setStatus(_A)
+_CucsBiosVfUSBSystemIdlePowerOptimizingSettingEntry_Object=MibTableRow
+cucsBiosVfUSBSystemIdlePowerOptimizingSettingEntry=_CucsBiosVfUSBSystemIdlePowerOptimizingSettingEntry_Object((1,3,6,1,4,1,9,9,719,1,4,50,1))
+cucsBiosVfUSBSystemIdlePowerOptimizingSettingEntry.setIndexNames((0,_C,_A0))
+if mibBuilder.loadTexts:cucsBiosVfUSBSystemIdlePowerOptimizingSettingEntry.setStatus(_A)
+_CucsBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId_Object=MibTableColumn
+cucsBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId=_CucsBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,50,1,1),_CucsBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId_Type())
+cucsBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId.setStatus(_A)
+_CucsBiosVfUSBSystemIdlePowerOptimizingSettingDn_Type=CucsManagedObjectDn
+_CucsBiosVfUSBSystemIdlePowerOptimizingSettingDn_Object=MibTableColumn
+cucsBiosVfUSBSystemIdlePowerOptimizingSettingDn=_CucsBiosVfUSBSystemIdlePowerOptimizingSettingDn_Object((1,3,6,1,4,1,9,9,719,1,4,50,1,2),_CucsBiosVfUSBSystemIdlePowerOptimizingSettingDn_Type())
+cucsBiosVfUSBSystemIdlePowerOptimizingSettingDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBSystemIdlePowerOptimizingSettingDn.setStatus(_A)
+_CucsBiosVfUSBSystemIdlePowerOptimizingSettingRn_Type=SnmpAdminString
+_CucsBiosVfUSBSystemIdlePowerOptimizingSettingRn_Object=MibTableColumn
+cucsBiosVfUSBSystemIdlePowerOptimizingSettingRn=_CucsBiosVfUSBSystemIdlePowerOptimizingSettingRn_Object((1,3,6,1,4,1,9,9,719,1,4,50,1,3),_CucsBiosVfUSBSystemIdlePowerOptimizingSettingRn_Type())
+cucsBiosVfUSBSystemIdlePowerOptimizingSettingRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBSystemIdlePowerOptimizingSettingRn.setStatus(_A)
+_CucsBiosVfUSBSysIdlePowerOptimizingSettingVpUSBIdlePowerOptimize_Type=CucsBiosVfUSBSysIdlePowerOptimizingSettingVpUSBIdlePowerOptimize
+_CucsBiosVfUSBSysIdlePowerOptimizingSettingVpUSBIdlePowerOptimize_Object=MibTableColumn
+cucsBiosVfUSBSysIdlePowerOptimizingSettingVpUSBIdlePowerOptimize=_CucsBiosVfUSBSysIdlePowerOptimizingSettingVpUSBIdlePowerOptimize_Object((1,3,6,1,4,1,9,9,719,1,4,50,1,4),_CucsBiosVfUSBSysIdlePowerOptimizingSettingVpUSBIdlePowerOptimize_Type())
+cucsBiosVfUSBSysIdlePowerOptimizingSettingVpUSBIdlePowerOptimize.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBSysIdlePowerOptimizingSettingVpUSBIdlePowerOptimize.setStatus(_A)
+_CucsBiosVfUSBSystemIdlePowerOptimizingSettingPropAcl_Type=Unsigned64
+_CucsBiosVfUSBSystemIdlePowerOptimizingSettingPropAcl_Object=MibTableColumn
+cucsBiosVfUSBSystemIdlePowerOptimizingSettingPropAcl=_CucsBiosVfUSBSystemIdlePowerOptimizingSettingPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,50,1,5),_CucsBiosVfUSBSystemIdlePowerOptimizingSettingPropAcl_Type())
+cucsBiosVfUSBSystemIdlePowerOptimizingSettingPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBSystemIdlePowerOptimizingSettingPropAcl.setStatus(_A)
+_CucsBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault_Object=MibTableColumn
+cucsBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault=_CucsBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,50,1,6),_CucsBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault_Type())
+cucsBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault.setStatus(_A)
+_CucsBiosVIdentityParamsTable_Object=MibTable
+cucsBiosVIdentityParamsTable=_CucsBiosVIdentityParamsTable_Object((1,3,6,1,4,1,9,9,719,1,4,51))
+if mibBuilder.loadTexts:cucsBiosVIdentityParamsTable.setStatus(_A)
+_CucsBiosVIdentityParamsEntry_Object=MibTableRow
+cucsBiosVIdentityParamsEntry=_CucsBiosVIdentityParamsEntry_Object((1,3,6,1,4,1,9,9,719,1,4,51,1))
+cucsBiosVIdentityParamsEntry.setIndexNames((0,_C,_A1))
+if mibBuilder.loadTexts:cucsBiosVIdentityParamsEntry.setStatus(_A)
+_CucsBiosVIdentityParamsInstanceId_Type=CucsManagedObjectId
+_CucsBiosVIdentityParamsInstanceId_Object=MibTableColumn
+cucsBiosVIdentityParamsInstanceId=_CucsBiosVIdentityParamsInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,51,1,1),_CucsBiosVIdentityParamsInstanceId_Type())
+cucsBiosVIdentityParamsInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVIdentityParamsInstanceId.setStatus(_A)
+_CucsBiosVIdentityParamsDn_Type=CucsManagedObjectDn
+_CucsBiosVIdentityParamsDn_Object=MibTableColumn
+cucsBiosVIdentityParamsDn=_CucsBiosVIdentityParamsDn_Object((1,3,6,1,4,1,9,9,719,1,4,51,1,2),_CucsBiosVIdentityParamsDn_Type())
+cucsBiosVIdentityParamsDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVIdentityParamsDn.setStatus(_A)
+_CucsBiosVIdentityParamsRn_Type=SnmpAdminString
+_CucsBiosVIdentityParamsRn_Object=MibTableColumn
+cucsBiosVIdentityParamsRn=_CucsBiosVIdentityParamsRn_Object((1,3,6,1,4,1,9,9,719,1,4,51,1,3),_CucsBiosVIdentityParamsRn_Type())
+cucsBiosVIdentityParamsRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVIdentityParamsRn.setStatus(_A)
+_CucsBiosVIdentityParamsLsServerName_Type=SnmpAdminString
+_CucsBiosVIdentityParamsLsServerName_Object=MibTableColumn
+cucsBiosVIdentityParamsLsServerName=_CucsBiosVIdentityParamsLsServerName_Object((1,3,6,1,4,1,9,9,719,1,4,51,1,4),_CucsBiosVIdentityParamsLsServerName_Type())
+cucsBiosVIdentityParamsLsServerName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVIdentityParamsLsServerName.setStatus(_A)
+_CucsBiosVIdentityParamsLsServerTmplName_Type=SnmpAdminString
+_CucsBiosVIdentityParamsLsServerTmplName_Object=MibTableColumn
+cucsBiosVIdentityParamsLsServerTmplName=_CucsBiosVIdentityParamsLsServerTmplName_Object((1,3,6,1,4,1,9,9,719,1,4,51,1,5),_CucsBiosVIdentityParamsLsServerTmplName_Type())
+cucsBiosVIdentityParamsLsServerTmplName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVIdentityParamsLsServerTmplName.setStatus(_A)
+_CucsBiosVIdentityParamsSysName_Type=SnmpAdminString
+_CucsBiosVIdentityParamsSysName_Object=MibTableColumn
+cucsBiosVIdentityParamsSysName=_CucsBiosVIdentityParamsSysName_Object((1,3,6,1,4,1,9,9,719,1,4,51,1,6),_CucsBiosVIdentityParamsSysName_Type())
+cucsBiosVIdentityParamsSysName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVIdentityParamsSysName.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerTimeoutTable_Object=MibTable
+cucsBiosVfOSBootWatchdogTimerTimeoutTable=_CucsBiosVfOSBootWatchdogTimerTimeoutTable_Object((1,3,6,1,4,1,9,9,719,1,4,52))
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerTimeoutTable.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerTimeoutEntry_Object=MibTableRow
+cucsBiosVfOSBootWatchdogTimerTimeoutEntry=_CucsBiosVfOSBootWatchdogTimerTimeoutEntry_Object((1,3,6,1,4,1,9,9,719,1,4,52,1))
+cucsBiosVfOSBootWatchdogTimerTimeoutEntry.setIndexNames((0,_C,_A2))
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerTimeoutEntry.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerTimeoutInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfOSBootWatchdogTimerTimeoutInstanceId_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerTimeoutInstanceId=_CucsBiosVfOSBootWatchdogTimerTimeoutInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,52,1,1),_CucsBiosVfOSBootWatchdogTimerTimeoutInstanceId_Type())
+cucsBiosVfOSBootWatchdogTimerTimeoutInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerTimeoutInstanceId.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerTimeoutDn_Type=CucsManagedObjectDn
+_CucsBiosVfOSBootWatchdogTimerTimeoutDn_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerTimeoutDn=_CucsBiosVfOSBootWatchdogTimerTimeoutDn_Object((1,3,6,1,4,1,9,9,719,1,4,52,1,2),_CucsBiosVfOSBootWatchdogTimerTimeoutDn_Type())
+cucsBiosVfOSBootWatchdogTimerTimeoutDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerTimeoutDn.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerTimeoutRn_Type=SnmpAdminString
+_CucsBiosVfOSBootWatchdogTimerTimeoutRn_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerTimeoutRn=_CucsBiosVfOSBootWatchdogTimerTimeoutRn_Object((1,3,6,1,4,1,9,9,719,1,4,52,1,3),_CucsBiosVfOSBootWatchdogTimerTimeoutRn_Type())
+cucsBiosVfOSBootWatchdogTimerTimeoutRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerTimeoutRn.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout_Type=CucsBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout
+_CucsBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout=_CucsBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout_Object((1,3,6,1,4,1,9,9,719,1,4,52,1,4),_CucsBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout_Type())
+cucsBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerTimeoutPropAcl_Type=Unsigned64
+_CucsBiosVfOSBootWatchdogTimerTimeoutPropAcl_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerTimeoutPropAcl=_CucsBiosVfOSBootWatchdogTimerTimeoutPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,52,1,5),_CucsBiosVfOSBootWatchdogTimerTimeoutPropAcl_Type())
+cucsBiosVfOSBootWatchdogTimerTimeoutPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerTimeoutPropAcl.setStatus(_A)
+_CucsBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault_Object=MibTableColumn
+cucsBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault=_CucsBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,52,1,6),_CucsBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault_Type())
+cucsBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault.setStatus(_A)
+_CucsBiosVfOnboardStorageTable_Object=MibTable
+cucsBiosVfOnboardStorageTable=_CucsBiosVfOnboardStorageTable_Object((1,3,6,1,4,1,9,9,719,1,4,53))
+if mibBuilder.loadTexts:cucsBiosVfOnboardStorageTable.setStatus(_A)
+_CucsBiosVfOnboardStorageEntry_Object=MibTableRow
+cucsBiosVfOnboardStorageEntry=_CucsBiosVfOnboardStorageEntry_Object((1,3,6,1,4,1,9,9,719,1,4,53,1))
+cucsBiosVfOnboardStorageEntry.setIndexNames((0,_C,_A3))
+if mibBuilder.loadTexts:cucsBiosVfOnboardStorageEntry.setStatus(_A)
+_CucsBiosVfOnboardStorageInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfOnboardStorageInstanceId_Object=MibTableColumn
+cucsBiosVfOnboardStorageInstanceId=_CucsBiosVfOnboardStorageInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,53,1,1),_CucsBiosVfOnboardStorageInstanceId_Type())
+cucsBiosVfOnboardStorageInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfOnboardStorageInstanceId.setStatus(_A)
+_CucsBiosVfOnboardStorageDn_Type=CucsManagedObjectDn
+_CucsBiosVfOnboardStorageDn_Object=MibTableColumn
+cucsBiosVfOnboardStorageDn=_CucsBiosVfOnboardStorageDn_Object((1,3,6,1,4,1,9,9,719,1,4,53,1,2),_CucsBiosVfOnboardStorageDn_Type())
+cucsBiosVfOnboardStorageDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOnboardStorageDn.setStatus(_A)
+_CucsBiosVfOnboardStorageRn_Type=SnmpAdminString
+_CucsBiosVfOnboardStorageRn_Object=MibTableColumn
+cucsBiosVfOnboardStorageRn=_CucsBiosVfOnboardStorageRn_Object((1,3,6,1,4,1,9,9,719,1,4,53,1,3),_CucsBiosVfOnboardStorageRn_Type())
+cucsBiosVfOnboardStorageRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOnboardStorageRn.setStatus(_A)
+_CucsBiosVfOnboardStorageVpOnboardSCUStorageSupport_Type=CucsBiosVfOnboardStorageVpOnboardSCUStorageSupport
+_CucsBiosVfOnboardStorageVpOnboardSCUStorageSupport_Object=MibTableColumn
+cucsBiosVfOnboardStorageVpOnboardSCUStorageSupport=_CucsBiosVfOnboardStorageVpOnboardSCUStorageSupport_Object((1,3,6,1,4,1,9,9,719,1,4,53,1,4),_CucsBiosVfOnboardStorageVpOnboardSCUStorageSupport_Type())
+cucsBiosVfOnboardStorageVpOnboardSCUStorageSupport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOnboardStorageVpOnboardSCUStorageSupport.setStatus(_A)
+_CucsBiosVfOnboardStoragePropAcl_Type=Unsigned64
+_CucsBiosVfOnboardStoragePropAcl_Object=MibTableColumn
+cucsBiosVfOnboardStoragePropAcl=_CucsBiosVfOnboardStoragePropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,53,1,5),_CucsBiosVfOnboardStoragePropAcl_Type())
+cucsBiosVfOnboardStoragePropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOnboardStoragePropAcl.setStatus(_A)
+_CucsBiosVfOnboardStorageSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfOnboardStorageSupportedByDefault_Object=MibTableColumn
+cucsBiosVfOnboardStorageSupportedByDefault=_CucsBiosVfOnboardStorageSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,53,1,6),_CucsBiosVfOnboardStorageSupportedByDefault_Type())
+cucsBiosVfOnboardStorageSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOnboardStorageSupportedByDefault.setStatus(_A)
+_CucsBiosVfOptionROMEnableTable_Object=MibTable
+cucsBiosVfOptionROMEnableTable=_CucsBiosVfOptionROMEnableTable_Object((1,3,6,1,4,1,9,9,719,1,4,54))
+if mibBuilder.loadTexts:cucsBiosVfOptionROMEnableTable.setStatus(_A)
+_CucsBiosVfOptionROMEnableEntry_Object=MibTableRow
+cucsBiosVfOptionROMEnableEntry=_CucsBiosVfOptionROMEnableEntry_Object((1,3,6,1,4,1,9,9,719,1,4,54,1))
+cucsBiosVfOptionROMEnableEntry.setIndexNames((0,_C,_A4))
+if mibBuilder.loadTexts:cucsBiosVfOptionROMEnableEntry.setStatus(_A)
+_CucsBiosVfOptionROMEnableInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfOptionROMEnableInstanceId_Object=MibTableColumn
+cucsBiosVfOptionROMEnableInstanceId=_CucsBiosVfOptionROMEnableInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,54,1,1),_CucsBiosVfOptionROMEnableInstanceId_Type())
+cucsBiosVfOptionROMEnableInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfOptionROMEnableInstanceId.setStatus(_A)
+_CucsBiosVfOptionROMEnableDn_Type=CucsManagedObjectDn
+_CucsBiosVfOptionROMEnableDn_Object=MibTableColumn
+cucsBiosVfOptionROMEnableDn=_CucsBiosVfOptionROMEnableDn_Object((1,3,6,1,4,1,9,9,719,1,4,54,1,2),_CucsBiosVfOptionROMEnableDn_Type())
+cucsBiosVfOptionROMEnableDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOptionROMEnableDn.setStatus(_A)
+_CucsBiosVfOptionROMEnableRn_Type=SnmpAdminString
+_CucsBiosVfOptionROMEnableRn_Object=MibTableColumn
+cucsBiosVfOptionROMEnableRn=_CucsBiosVfOptionROMEnableRn_Object((1,3,6,1,4,1,9,9,719,1,4,54,1,3),_CucsBiosVfOptionROMEnableRn_Type())
+cucsBiosVfOptionROMEnableRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOptionROMEnableRn.setStatus(_A)
+_CucsBiosVfOptionROMEnableVpState_Type=CucsBiosVfOptionROMEnableVpState
+_CucsBiosVfOptionROMEnableVpState_Object=MibTableColumn
+cucsBiosVfOptionROMEnableVpState=_CucsBiosVfOptionROMEnableVpState_Object((1,3,6,1,4,1,9,9,719,1,4,54,1,4),_CucsBiosVfOptionROMEnableVpState_Type())
+cucsBiosVfOptionROMEnableVpState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOptionROMEnableVpState.setStatus(_A)
+_CucsBiosVfOptionROMEnablePropAcl_Type=Unsigned64
+_CucsBiosVfOptionROMEnablePropAcl_Object=MibTableColumn
+cucsBiosVfOptionROMEnablePropAcl=_CucsBiosVfOptionROMEnablePropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,54,1,5),_CucsBiosVfOptionROMEnablePropAcl_Type())
+cucsBiosVfOptionROMEnablePropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOptionROMEnablePropAcl.setStatus(_A)
+_CucsBiosVfOptionROMEnableSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfOptionROMEnableSupportedByDefault_Object=MibTableColumn
+cucsBiosVfOptionROMEnableSupportedByDefault=_CucsBiosVfOptionROMEnableSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,54,1,6),_CucsBiosVfOptionROMEnableSupportedByDefault_Type())
+cucsBiosVfOptionROMEnableSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOptionROMEnableSupportedByDefault.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableTable_Object=MibTable
+cucsBiosVfPCISlotOptionROMEnableTable=_CucsBiosVfPCISlotOptionROMEnableTable_Object((1,3,6,1,4,1,9,9,719,1,4,55))
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableTable.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableEntry_Object=MibTableRow
+cucsBiosVfPCISlotOptionROMEnableEntry=_CucsBiosVfPCISlotOptionROMEnableEntry_Object((1,3,6,1,4,1,9,9,719,1,4,55,1))
+cucsBiosVfPCISlotOptionROMEnableEntry.setIndexNames((0,_C,_A5))
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableEntry.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfPCISlotOptionROMEnableInstanceId_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableInstanceId=_CucsBiosVfPCISlotOptionROMEnableInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,1),_CucsBiosVfPCISlotOptionROMEnableInstanceId_Type())
+cucsBiosVfPCISlotOptionROMEnableInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableInstanceId.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableDn_Type=CucsManagedObjectDn
+_CucsBiosVfPCISlotOptionROMEnableDn_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableDn=_CucsBiosVfPCISlotOptionROMEnableDn_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,2),_CucsBiosVfPCISlotOptionROMEnableDn_Type())
+cucsBiosVfPCISlotOptionROMEnableDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableDn.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableRn_Type=SnmpAdminString
+_CucsBiosVfPCISlotOptionROMEnableRn_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableRn=_CucsBiosVfPCISlotOptionROMEnableRn_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,3),_CucsBiosVfPCISlotOptionROMEnableRn_Type())
+cucsBiosVfPCISlotOptionROMEnableRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableRn.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableVpSlot1State_Type=CucsBiosVfPCISlotOptionROMEnableVpSlot1State
+_CucsBiosVfPCISlotOptionROMEnableVpSlot1State_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableVpSlot1State=_CucsBiosVfPCISlotOptionROMEnableVpSlot1State_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,4),_CucsBiosVfPCISlotOptionROMEnableVpSlot1State_Type())
+cucsBiosVfPCISlotOptionROMEnableVpSlot1State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableVpSlot1State.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableVpSlot2State_Type=CucsBiosVfPCISlotOptionROMEnableVpSlot2State
+_CucsBiosVfPCISlotOptionROMEnableVpSlot2State_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableVpSlot2State=_CucsBiosVfPCISlotOptionROMEnableVpSlot2State_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,5),_CucsBiosVfPCISlotOptionROMEnableVpSlot2State_Type())
+cucsBiosVfPCISlotOptionROMEnableVpSlot2State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableVpSlot2State.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableVpSlot3State_Type=CucsBiosVfPCISlotOptionROMEnableVpSlot3State
+_CucsBiosVfPCISlotOptionROMEnableVpSlot3State_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableVpSlot3State=_CucsBiosVfPCISlotOptionROMEnableVpSlot3State_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,6),_CucsBiosVfPCISlotOptionROMEnableVpSlot3State_Type())
+cucsBiosVfPCISlotOptionROMEnableVpSlot3State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableVpSlot3State.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableVpSlot4State_Type=CucsBiosVfPCISlotOptionROMEnableVpSlot4State
+_CucsBiosVfPCISlotOptionROMEnableVpSlot4State_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableVpSlot4State=_CucsBiosVfPCISlotOptionROMEnableVpSlot4State_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,7),_CucsBiosVfPCISlotOptionROMEnableVpSlot4State_Type())
+cucsBiosVfPCISlotOptionROMEnableVpSlot4State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableVpSlot4State.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableVpSlot5State_Type=CucsBiosVfPCISlotOptionROMEnableVpSlot5State
+_CucsBiosVfPCISlotOptionROMEnableVpSlot5State_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableVpSlot5State=_CucsBiosVfPCISlotOptionROMEnableVpSlot5State_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,8),_CucsBiosVfPCISlotOptionROMEnableVpSlot5State_Type())
+cucsBiosVfPCISlotOptionROMEnableVpSlot5State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableVpSlot5State.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableVpSlotMezzState_Type=CucsBiosVfPCISlotOptionROMEnableVpSlotMezzState
+_CucsBiosVfPCISlotOptionROMEnableVpSlotMezzState_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableVpSlotMezzState=_CucsBiosVfPCISlotOptionROMEnableVpSlotMezzState_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,9),_CucsBiosVfPCISlotOptionROMEnableVpSlotMezzState_Type())
+cucsBiosVfPCISlotOptionROMEnableVpSlotMezzState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableVpSlotMezzState.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableVpSlot6State_Type=CucsBiosVfPCISlotOptionROMEnableVpSlot6State
+_CucsBiosVfPCISlotOptionROMEnableVpSlot6State_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableVpSlot6State=_CucsBiosVfPCISlotOptionROMEnableVpSlot6State_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,10),_CucsBiosVfPCISlotOptionROMEnableVpSlot6State_Type())
+cucsBiosVfPCISlotOptionROMEnableVpSlot6State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableVpSlot6State.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableVpSlot7State_Type=CucsBiosVfPCISlotOptionROMEnableVpSlot7State
+_CucsBiosVfPCISlotOptionROMEnableVpSlot7State_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableVpSlot7State=_CucsBiosVfPCISlotOptionROMEnableVpSlot7State_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,11),_CucsBiosVfPCISlotOptionROMEnableVpSlot7State_Type())
+cucsBiosVfPCISlotOptionROMEnableVpSlot7State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableVpSlot7State.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM_Type=CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM
+_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM=_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,12),_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM_Type())
+cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableVpSlot10State_Type=CucsBiosVfPCISlotOptionROMEnableVpSlot10State
+_CucsBiosVfPCISlotOptionROMEnableVpSlot10State_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableVpSlot10State=_CucsBiosVfPCISlotOptionROMEnableVpSlot10State_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,13),_CucsBiosVfPCISlotOptionROMEnableVpSlot10State_Type())
+cucsBiosVfPCISlotOptionROMEnableVpSlot10State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableVpSlot10State.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableVpSlot8State_Type=CucsBiosVfPCISlotOptionROMEnableVpSlot8State
+_CucsBiosVfPCISlotOptionROMEnableVpSlot8State_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableVpSlot8State=_CucsBiosVfPCISlotOptionROMEnableVpSlot8State_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,14),_CucsBiosVfPCISlotOptionROMEnableVpSlot8State_Type())
+cucsBiosVfPCISlotOptionROMEnableVpSlot8State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableVpSlot8State.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableVpSlot9State_Type=CucsBiosVfPCISlotOptionROMEnableVpSlot9State
+_CucsBiosVfPCISlotOptionROMEnableVpSlot9State_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableVpSlot9State=_CucsBiosVfPCISlotOptionROMEnableVpSlot9State_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,15),_CucsBiosVfPCISlotOptionROMEnableVpSlot9State_Type())
+cucsBiosVfPCISlotOptionROMEnableVpSlot9State.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableVpSlot9State.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM_Type=CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM
+_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM=_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,16),_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM_Type())
+cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM_Type=CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM
+_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM=_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,17),_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM_Type())
+cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM_Type=CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM
+_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM=_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,18),_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM_Type())
+cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM_Type=CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM
+_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM=_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,19),_CucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM_Type())
+cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnablePropAcl_Type=Unsigned64
+_CucsBiosVfPCISlotOptionROMEnablePropAcl_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnablePropAcl=_CucsBiosVfPCISlotOptionROMEnablePropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,20),_CucsBiosVfPCISlotOptionROMEnablePropAcl_Type())
+cucsBiosVfPCISlotOptionROMEnablePropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnablePropAcl.setStatus(_A)
+_CucsBiosVfPCISlotOptionROMEnableSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfPCISlotOptionROMEnableSupportedByDefault_Object=MibTableColumn
+cucsBiosVfPCISlotOptionROMEnableSupportedByDefault=_CucsBiosVfPCISlotOptionROMEnableSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,55,1,21),_CucsBiosVfPCISlotOptionROMEnableSupportedByDefault_Type())
+cucsBiosVfPCISlotOptionROMEnableSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotOptionROMEnableSupportedByDefault.setStatus(_A)
+_CucsBiosVfPackageCStateLimitTable_Object=MibTable
+cucsBiosVfPackageCStateLimitTable=_CucsBiosVfPackageCStateLimitTable_Object((1,3,6,1,4,1,9,9,719,1,4,56))
+if mibBuilder.loadTexts:cucsBiosVfPackageCStateLimitTable.setStatus(_A)
+_CucsBiosVfPackageCStateLimitEntry_Object=MibTableRow
+cucsBiosVfPackageCStateLimitEntry=_CucsBiosVfPackageCStateLimitEntry_Object((1,3,6,1,4,1,9,9,719,1,4,56,1))
+cucsBiosVfPackageCStateLimitEntry.setIndexNames((0,_C,_A6))
+if mibBuilder.loadTexts:cucsBiosVfPackageCStateLimitEntry.setStatus(_A)
+_CucsBiosVfPackageCStateLimitInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfPackageCStateLimitInstanceId_Object=MibTableColumn
+cucsBiosVfPackageCStateLimitInstanceId=_CucsBiosVfPackageCStateLimitInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,56,1,1),_CucsBiosVfPackageCStateLimitInstanceId_Type())
+cucsBiosVfPackageCStateLimitInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfPackageCStateLimitInstanceId.setStatus(_A)
+_CucsBiosVfPackageCStateLimitDn_Type=CucsManagedObjectDn
+_CucsBiosVfPackageCStateLimitDn_Object=MibTableColumn
+cucsBiosVfPackageCStateLimitDn=_CucsBiosVfPackageCStateLimitDn_Object((1,3,6,1,4,1,9,9,719,1,4,56,1,2),_CucsBiosVfPackageCStateLimitDn_Type())
+cucsBiosVfPackageCStateLimitDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPackageCStateLimitDn.setStatus(_A)
+_CucsBiosVfPackageCStateLimitRn_Type=SnmpAdminString
+_CucsBiosVfPackageCStateLimitRn_Object=MibTableColumn
+cucsBiosVfPackageCStateLimitRn=_CucsBiosVfPackageCStateLimitRn_Object((1,3,6,1,4,1,9,9,719,1,4,56,1,3),_CucsBiosVfPackageCStateLimitRn_Type())
+cucsBiosVfPackageCStateLimitRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPackageCStateLimitRn.setStatus(_A)
+_CucsBiosVfPackageCStateLimitVpPackageCStateLimit_Type=CucsBiosVfPackageCStateLimitVpPackageCStateLimit
+_CucsBiosVfPackageCStateLimitVpPackageCStateLimit_Object=MibTableColumn
+cucsBiosVfPackageCStateLimitVpPackageCStateLimit=_CucsBiosVfPackageCStateLimitVpPackageCStateLimit_Object((1,3,6,1,4,1,9,9,719,1,4,56,1,4),_CucsBiosVfPackageCStateLimitVpPackageCStateLimit_Type())
+cucsBiosVfPackageCStateLimitVpPackageCStateLimit.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPackageCStateLimitVpPackageCStateLimit.setStatus(_A)
+_CucsBiosVfPackageCStateLimitPropAcl_Type=Unsigned64
+_CucsBiosVfPackageCStateLimitPropAcl_Object=MibTableColumn
+cucsBiosVfPackageCStateLimitPropAcl=_CucsBiosVfPackageCStateLimitPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,56,1,5),_CucsBiosVfPackageCStateLimitPropAcl_Type())
+cucsBiosVfPackageCStateLimitPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPackageCStateLimitPropAcl.setStatus(_A)
+_CucsBiosVfPackageCStateLimitSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfPackageCStateLimitSupportedByDefault_Object=MibTableColumn
+cucsBiosVfPackageCStateLimitSupportedByDefault=_CucsBiosVfPackageCStateLimitSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,56,1,6),_CucsBiosVfPackageCStateLimitSupportedByDefault_Type())
+cucsBiosVfPackageCStateLimitSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPackageCStateLimitSupportedByDefault.setStatus(_A)
+_CucsBiosVfProcessorC1ETable_Object=MibTable
+cucsBiosVfProcessorC1ETable=_CucsBiosVfProcessorC1ETable_Object((1,3,6,1,4,1,9,9,719,1,4,57))
+if mibBuilder.loadTexts:cucsBiosVfProcessorC1ETable.setStatus(_A)
+_CucsBiosVfProcessorC1EEntry_Object=MibTableRow
+cucsBiosVfProcessorC1EEntry=_CucsBiosVfProcessorC1EEntry_Object((1,3,6,1,4,1,9,9,719,1,4,57,1))
+cucsBiosVfProcessorC1EEntry.setIndexNames((0,_C,_A7))
+if mibBuilder.loadTexts:cucsBiosVfProcessorC1EEntry.setStatus(_A)
+_CucsBiosVfProcessorC1EInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfProcessorC1EInstanceId_Object=MibTableColumn
+cucsBiosVfProcessorC1EInstanceId=_CucsBiosVfProcessorC1EInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,57,1,1),_CucsBiosVfProcessorC1EInstanceId_Type())
+cucsBiosVfProcessorC1EInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC1EInstanceId.setStatus(_A)
+_CucsBiosVfProcessorC1EDn_Type=CucsManagedObjectDn
+_CucsBiosVfProcessorC1EDn_Object=MibTableColumn
+cucsBiosVfProcessorC1EDn=_CucsBiosVfProcessorC1EDn_Object((1,3,6,1,4,1,9,9,719,1,4,57,1,2),_CucsBiosVfProcessorC1EDn_Type())
+cucsBiosVfProcessorC1EDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC1EDn.setStatus(_A)
+_CucsBiosVfProcessorC1ERn_Type=SnmpAdminString
+_CucsBiosVfProcessorC1ERn_Object=MibTableColumn
+cucsBiosVfProcessorC1ERn=_CucsBiosVfProcessorC1ERn_Object((1,3,6,1,4,1,9,9,719,1,4,57,1,3),_CucsBiosVfProcessorC1ERn_Type())
+cucsBiosVfProcessorC1ERn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC1ERn.setStatus(_A)
+_CucsBiosVfProcessorC1EVpProcessorC1E_Type=CucsBiosVfProcessorC1EVpProcessorC1E
+_CucsBiosVfProcessorC1EVpProcessorC1E_Object=MibTableColumn
+cucsBiosVfProcessorC1EVpProcessorC1E=_CucsBiosVfProcessorC1EVpProcessorC1E_Object((1,3,6,1,4,1,9,9,719,1,4,57,1,4),_CucsBiosVfProcessorC1EVpProcessorC1E_Type())
+cucsBiosVfProcessorC1EVpProcessorC1E.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC1EVpProcessorC1E.setStatus(_A)
+_CucsBiosVfProcessorC1EPropAcl_Type=Unsigned64
+_CucsBiosVfProcessorC1EPropAcl_Object=MibTableColumn
+cucsBiosVfProcessorC1EPropAcl=_CucsBiosVfProcessorC1EPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,57,1,5),_CucsBiosVfProcessorC1EPropAcl_Type())
+cucsBiosVfProcessorC1EPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC1EPropAcl.setStatus(_A)
+_CucsBiosVfProcessorC1ESupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfProcessorC1ESupportedByDefault_Object=MibTableColumn
+cucsBiosVfProcessorC1ESupportedByDefault=_CucsBiosVfProcessorC1ESupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,57,1,6),_CucsBiosVfProcessorC1ESupportedByDefault_Type())
+cucsBiosVfProcessorC1ESupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC1ESupportedByDefault.setStatus(_A)
+_CucsBiosVfProcessorC7ReportTable_Object=MibTable
+cucsBiosVfProcessorC7ReportTable=_CucsBiosVfProcessorC7ReportTable_Object((1,3,6,1,4,1,9,9,719,1,4,58))
+if mibBuilder.loadTexts:cucsBiosVfProcessorC7ReportTable.setStatus(_A)
+_CucsBiosVfProcessorC7ReportEntry_Object=MibTableRow
+cucsBiosVfProcessorC7ReportEntry=_CucsBiosVfProcessorC7ReportEntry_Object((1,3,6,1,4,1,9,9,719,1,4,58,1))
+cucsBiosVfProcessorC7ReportEntry.setIndexNames((0,_C,_A8))
+if mibBuilder.loadTexts:cucsBiosVfProcessorC7ReportEntry.setStatus(_A)
+_CucsBiosVfProcessorC7ReportInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfProcessorC7ReportInstanceId_Object=MibTableColumn
+cucsBiosVfProcessorC7ReportInstanceId=_CucsBiosVfProcessorC7ReportInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,58,1,1),_CucsBiosVfProcessorC7ReportInstanceId_Type())
+cucsBiosVfProcessorC7ReportInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC7ReportInstanceId.setStatus(_A)
+_CucsBiosVfProcessorC7ReportDn_Type=CucsManagedObjectDn
+_CucsBiosVfProcessorC7ReportDn_Object=MibTableColumn
+cucsBiosVfProcessorC7ReportDn=_CucsBiosVfProcessorC7ReportDn_Object((1,3,6,1,4,1,9,9,719,1,4,58,1,2),_CucsBiosVfProcessorC7ReportDn_Type())
+cucsBiosVfProcessorC7ReportDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC7ReportDn.setStatus(_A)
+_CucsBiosVfProcessorC7ReportRn_Type=SnmpAdminString
+_CucsBiosVfProcessorC7ReportRn_Object=MibTableColumn
+cucsBiosVfProcessorC7ReportRn=_CucsBiosVfProcessorC7ReportRn_Object((1,3,6,1,4,1,9,9,719,1,4,58,1,3),_CucsBiosVfProcessorC7ReportRn_Type())
+cucsBiosVfProcessorC7ReportRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC7ReportRn.setStatus(_A)
+_CucsBiosVfProcessorC7ReportVpProcessorC7Report_Type=CucsBiosVfProcessorC7ReportVpProcessorC7Report
+_CucsBiosVfProcessorC7ReportVpProcessorC7Report_Object=MibTableColumn
+cucsBiosVfProcessorC7ReportVpProcessorC7Report=_CucsBiosVfProcessorC7ReportVpProcessorC7Report_Object((1,3,6,1,4,1,9,9,719,1,4,58,1,4),_CucsBiosVfProcessorC7ReportVpProcessorC7Report_Type())
+cucsBiosVfProcessorC7ReportVpProcessorC7Report.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC7ReportVpProcessorC7Report.setStatus(_A)
+_CucsBiosVfProcessorC7ReportPropAcl_Type=Unsigned64
+_CucsBiosVfProcessorC7ReportPropAcl_Object=MibTableColumn
+cucsBiosVfProcessorC7ReportPropAcl=_CucsBiosVfProcessorC7ReportPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,58,1,5),_CucsBiosVfProcessorC7ReportPropAcl_Type())
+cucsBiosVfProcessorC7ReportPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC7ReportPropAcl.setStatus(_A)
+_CucsBiosVfProcessorC7ReportSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfProcessorC7ReportSupportedByDefault_Object=MibTableColumn
+cucsBiosVfProcessorC7ReportSupportedByDefault=_CucsBiosVfProcessorC7ReportSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,58,1,6),_CucsBiosVfProcessorC7ReportSupportedByDefault_Type())
+cucsBiosVfProcessorC7ReportSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorC7ReportSupportedByDefault.setStatus(_A)
+_CucsBiosVfProcessorCStateTable_Object=MibTable
+cucsBiosVfProcessorCStateTable=_CucsBiosVfProcessorCStateTable_Object((1,3,6,1,4,1,9,9,719,1,4,59))
+if mibBuilder.loadTexts:cucsBiosVfProcessorCStateTable.setStatus(_A)
+_CucsBiosVfProcessorCStateEntry_Object=MibTableRow
+cucsBiosVfProcessorCStateEntry=_CucsBiosVfProcessorCStateEntry_Object((1,3,6,1,4,1,9,9,719,1,4,59,1))
+cucsBiosVfProcessorCStateEntry.setIndexNames((0,_C,_A9))
+if mibBuilder.loadTexts:cucsBiosVfProcessorCStateEntry.setStatus(_A)
+_CucsBiosVfProcessorCStateInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfProcessorCStateInstanceId_Object=MibTableColumn
+cucsBiosVfProcessorCStateInstanceId=_CucsBiosVfProcessorCStateInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,59,1,1),_CucsBiosVfProcessorCStateInstanceId_Type())
+cucsBiosVfProcessorCStateInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfProcessorCStateInstanceId.setStatus(_A)
+_CucsBiosVfProcessorCStateDn_Type=CucsManagedObjectDn
+_CucsBiosVfProcessorCStateDn_Object=MibTableColumn
+cucsBiosVfProcessorCStateDn=_CucsBiosVfProcessorCStateDn_Object((1,3,6,1,4,1,9,9,719,1,4,59,1,2),_CucsBiosVfProcessorCStateDn_Type())
+cucsBiosVfProcessorCStateDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorCStateDn.setStatus(_A)
+_CucsBiosVfProcessorCStateRn_Type=SnmpAdminString
+_CucsBiosVfProcessorCStateRn_Object=MibTableColumn
+cucsBiosVfProcessorCStateRn=_CucsBiosVfProcessorCStateRn_Object((1,3,6,1,4,1,9,9,719,1,4,59,1,3),_CucsBiosVfProcessorCStateRn_Type())
+cucsBiosVfProcessorCStateRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorCStateRn.setStatus(_A)
+_CucsBiosVfProcessorCStateVpProcessorCState_Type=CucsBiosVfProcessorCStateVpProcessorCState
+_CucsBiosVfProcessorCStateVpProcessorCState_Object=MibTableColumn
+cucsBiosVfProcessorCStateVpProcessorCState=_CucsBiosVfProcessorCStateVpProcessorCState_Object((1,3,6,1,4,1,9,9,719,1,4,59,1,4),_CucsBiosVfProcessorCStateVpProcessorCState_Type())
+cucsBiosVfProcessorCStateVpProcessorCState.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorCStateVpProcessorCState.setStatus(_A)
+_CucsBiosVfProcessorCStatePropAcl_Type=Unsigned64
+_CucsBiosVfProcessorCStatePropAcl_Object=MibTableColumn
+cucsBiosVfProcessorCStatePropAcl=_CucsBiosVfProcessorCStatePropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,59,1,5),_CucsBiosVfProcessorCStatePropAcl_Type())
+cucsBiosVfProcessorCStatePropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorCStatePropAcl.setStatus(_A)
+_CucsBiosVfProcessorCStateSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfProcessorCStateSupportedByDefault_Object=MibTableColumn
+cucsBiosVfProcessorCStateSupportedByDefault=_CucsBiosVfProcessorCStateSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,59,1,6),_CucsBiosVfProcessorCStateSupportedByDefault_Type())
+cucsBiosVfProcessorCStateSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorCStateSupportedByDefault.setStatus(_A)
+_CucsBiosVfSriovConfigTable_Object=MibTable
+cucsBiosVfSriovConfigTable=_CucsBiosVfSriovConfigTable_Object((1,3,6,1,4,1,9,9,719,1,4,60))
+if mibBuilder.loadTexts:cucsBiosVfSriovConfigTable.setStatus(_A)
+_CucsBiosVfSriovConfigEntry_Object=MibTableRow
+cucsBiosVfSriovConfigEntry=_CucsBiosVfSriovConfigEntry_Object((1,3,6,1,4,1,9,9,719,1,4,60,1))
+cucsBiosVfSriovConfigEntry.setIndexNames((0,_C,_AA))
+if mibBuilder.loadTexts:cucsBiosVfSriovConfigEntry.setStatus(_A)
+_CucsBiosVfSriovConfigInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfSriovConfigInstanceId_Object=MibTableColumn
+cucsBiosVfSriovConfigInstanceId=_CucsBiosVfSriovConfigInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,60,1,1),_CucsBiosVfSriovConfigInstanceId_Type())
+cucsBiosVfSriovConfigInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfSriovConfigInstanceId.setStatus(_A)
+_CucsBiosVfSriovConfigDn_Type=CucsManagedObjectDn
+_CucsBiosVfSriovConfigDn_Object=MibTableColumn
+cucsBiosVfSriovConfigDn=_CucsBiosVfSriovConfigDn_Object((1,3,6,1,4,1,9,9,719,1,4,60,1,2),_CucsBiosVfSriovConfigDn_Type())
+cucsBiosVfSriovConfigDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSriovConfigDn.setStatus(_A)
+_CucsBiosVfSriovConfigRn_Type=SnmpAdminString
+_CucsBiosVfSriovConfigRn_Object=MibTableColumn
+cucsBiosVfSriovConfigRn=_CucsBiosVfSriovConfigRn_Object((1,3,6,1,4,1,9,9,719,1,4,60,1,3),_CucsBiosVfSriovConfigRn_Type())
+cucsBiosVfSriovConfigRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSriovConfigRn.setStatus(_A)
+_CucsBiosVfSriovConfigVpSriov_Type=CucsBiosVfSriovConfigVpSriov
+_CucsBiosVfSriovConfigVpSriov_Object=MibTableColumn
+cucsBiosVfSriovConfigVpSriov=_CucsBiosVfSriovConfigVpSriov_Object((1,3,6,1,4,1,9,9,719,1,4,60,1,4),_CucsBiosVfSriovConfigVpSriov_Type())
+cucsBiosVfSriovConfigVpSriov.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSriovConfigVpSriov.setStatus(_A)
+_CucsBiosVfSriovConfigPropAcl_Type=Unsigned64
+_CucsBiosVfSriovConfigPropAcl_Object=MibTableColumn
+cucsBiosVfSriovConfigPropAcl=_CucsBiosVfSriovConfigPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,60,1,5),_CucsBiosVfSriovConfigPropAcl_Type())
+cucsBiosVfSriovConfigPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSriovConfigPropAcl.setStatus(_A)
+_CucsBiosVfSriovConfigSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfSriovConfigSupportedByDefault_Object=MibTableColumn
+cucsBiosVfSriovConfigSupportedByDefault=_CucsBiosVfSriovConfigSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,60,1,6),_CucsBiosVfSriovConfigSupportedByDefault_Type())
+cucsBiosVfSriovConfigSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSriovConfigSupportedByDefault.setStatus(_A)
+_CucsBiosVfDramRefreshRateTable_Object=MibTable
+cucsBiosVfDramRefreshRateTable=_CucsBiosVfDramRefreshRateTable_Object((1,3,6,1,4,1,9,9,719,1,4,61))
+if mibBuilder.loadTexts:cucsBiosVfDramRefreshRateTable.setStatus(_A)
+_CucsBiosVfDramRefreshRateEntry_Object=MibTableRow
+cucsBiosVfDramRefreshRateEntry=_CucsBiosVfDramRefreshRateEntry_Object((1,3,6,1,4,1,9,9,719,1,4,61,1))
+cucsBiosVfDramRefreshRateEntry.setIndexNames((0,_C,_AB))
+if mibBuilder.loadTexts:cucsBiosVfDramRefreshRateEntry.setStatus(_A)
+_CucsBiosVfDramRefreshRateInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfDramRefreshRateInstanceId_Object=MibTableColumn
+cucsBiosVfDramRefreshRateInstanceId=_CucsBiosVfDramRefreshRateInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,61,1,1),_CucsBiosVfDramRefreshRateInstanceId_Type())
+cucsBiosVfDramRefreshRateInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfDramRefreshRateInstanceId.setStatus(_A)
+_CucsBiosVfDramRefreshRateDn_Type=CucsManagedObjectDn
+_CucsBiosVfDramRefreshRateDn_Object=MibTableColumn
+cucsBiosVfDramRefreshRateDn=_CucsBiosVfDramRefreshRateDn_Object((1,3,6,1,4,1,9,9,719,1,4,61,1,2),_CucsBiosVfDramRefreshRateDn_Type())
+cucsBiosVfDramRefreshRateDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDramRefreshRateDn.setStatus(_A)
+_CucsBiosVfDramRefreshRateRn_Type=SnmpAdminString
+_CucsBiosVfDramRefreshRateRn_Object=MibTableColumn
+cucsBiosVfDramRefreshRateRn=_CucsBiosVfDramRefreshRateRn_Object((1,3,6,1,4,1,9,9,719,1,4,61,1,3),_CucsBiosVfDramRefreshRateRn_Type())
+cucsBiosVfDramRefreshRateRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDramRefreshRateRn.setStatus(_A)
+_CucsBiosVfDramRefreshRateVpDramRefreshRate_Type=CucsBiosVfDramRefreshRateVpDramRefreshRate
+_CucsBiosVfDramRefreshRateVpDramRefreshRate_Object=MibTableColumn
+cucsBiosVfDramRefreshRateVpDramRefreshRate=_CucsBiosVfDramRefreshRateVpDramRefreshRate_Object((1,3,6,1,4,1,9,9,719,1,4,61,1,4),_CucsBiosVfDramRefreshRateVpDramRefreshRate_Type())
+cucsBiosVfDramRefreshRateVpDramRefreshRate.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDramRefreshRateVpDramRefreshRate.setStatus(_A)
+_CucsBiosVfDramRefreshRatePropAcl_Type=Unsigned64
+_CucsBiosVfDramRefreshRatePropAcl_Object=MibTableColumn
+cucsBiosVfDramRefreshRatePropAcl=_CucsBiosVfDramRefreshRatePropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,61,1,5),_CucsBiosVfDramRefreshRatePropAcl_Type())
+cucsBiosVfDramRefreshRatePropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDramRefreshRatePropAcl.setStatus(_A)
+_CucsBiosVfDramRefreshRateSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfDramRefreshRateSupportedByDefault_Object=MibTableColumn
+cucsBiosVfDramRefreshRateSupportedByDefault=_CucsBiosVfDramRefreshRateSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,61,1,6),_CucsBiosVfDramRefreshRateSupportedByDefault_Type())
+cucsBiosVfDramRefreshRateSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDramRefreshRateSupportedByDefault.setStatus(_A)
+_CucsBiosVfLocalX2ApicTable_Object=MibTable
+cucsBiosVfLocalX2ApicTable=_CucsBiosVfLocalX2ApicTable_Object((1,3,6,1,4,1,9,9,719,1,4,62))
+if mibBuilder.loadTexts:cucsBiosVfLocalX2ApicTable.setStatus(_A)
+_CucsBiosVfLocalX2ApicEntry_Object=MibTableRow
+cucsBiosVfLocalX2ApicEntry=_CucsBiosVfLocalX2ApicEntry_Object((1,3,6,1,4,1,9,9,719,1,4,62,1))
+cucsBiosVfLocalX2ApicEntry.setIndexNames((0,_C,_AC))
+if mibBuilder.loadTexts:cucsBiosVfLocalX2ApicEntry.setStatus(_A)
+_CucsBiosVfLocalX2ApicInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfLocalX2ApicInstanceId_Object=MibTableColumn
+cucsBiosVfLocalX2ApicInstanceId=_CucsBiosVfLocalX2ApicInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,62,1,1),_CucsBiosVfLocalX2ApicInstanceId_Type())
+cucsBiosVfLocalX2ApicInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfLocalX2ApicInstanceId.setStatus(_A)
+_CucsBiosVfLocalX2ApicDn_Type=CucsManagedObjectDn
+_CucsBiosVfLocalX2ApicDn_Object=MibTableColumn
+cucsBiosVfLocalX2ApicDn=_CucsBiosVfLocalX2ApicDn_Object((1,3,6,1,4,1,9,9,719,1,4,62,1,2),_CucsBiosVfLocalX2ApicDn_Type())
+cucsBiosVfLocalX2ApicDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfLocalX2ApicDn.setStatus(_A)
+_CucsBiosVfLocalX2ApicRn_Type=SnmpAdminString
+_CucsBiosVfLocalX2ApicRn_Object=MibTableColumn
+cucsBiosVfLocalX2ApicRn=_CucsBiosVfLocalX2ApicRn_Object((1,3,6,1,4,1,9,9,719,1,4,62,1,3),_CucsBiosVfLocalX2ApicRn_Type())
+cucsBiosVfLocalX2ApicRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfLocalX2ApicRn.setStatus(_A)
+_CucsBiosVfLocalX2ApicVpLocalX2Apic_Type=CucsBiosVfLocalX2ApicVpLocalX2Apic
+_CucsBiosVfLocalX2ApicVpLocalX2Apic_Object=MibTableColumn
+cucsBiosVfLocalX2ApicVpLocalX2Apic=_CucsBiosVfLocalX2ApicVpLocalX2Apic_Object((1,3,6,1,4,1,9,9,719,1,4,62,1,4),_CucsBiosVfLocalX2ApicVpLocalX2Apic_Type())
+cucsBiosVfLocalX2ApicVpLocalX2Apic.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfLocalX2ApicVpLocalX2Apic.setStatus(_A)
+_CucsBiosVfLocalX2ApicPropAcl_Type=Unsigned64
+_CucsBiosVfLocalX2ApicPropAcl_Object=MibTableColumn
+cucsBiosVfLocalX2ApicPropAcl=_CucsBiosVfLocalX2ApicPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,62,1,5),_CucsBiosVfLocalX2ApicPropAcl_Type())
+cucsBiosVfLocalX2ApicPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfLocalX2ApicPropAcl.setStatus(_A)
+_CucsBiosVfLocalX2ApicSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfLocalX2ApicSupportedByDefault_Object=MibTableColumn
+cucsBiosVfLocalX2ApicSupportedByDefault=_CucsBiosVfLocalX2ApicSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,62,1,6),_CucsBiosVfLocalX2ApicSupportedByDefault_Type())
+cucsBiosVfLocalX2ApicSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfLocalX2ApicSupportedByDefault.setStatus(_A)
+_CucsBiosVfUCSMBootModeControlTable_Object=MibTable
+cucsBiosVfUCSMBootModeControlTable=_CucsBiosVfUCSMBootModeControlTable_Object((1,3,6,1,4,1,9,9,719,1,4,63))
+if mibBuilder.loadTexts:cucsBiosVfUCSMBootModeControlTable.setStatus(_A)
+_CucsBiosVfUCSMBootModeControlEntry_Object=MibTableRow
+cucsBiosVfUCSMBootModeControlEntry=_CucsBiosVfUCSMBootModeControlEntry_Object((1,3,6,1,4,1,9,9,719,1,4,63,1))
+cucsBiosVfUCSMBootModeControlEntry.setIndexNames((0,_C,_AD))
+if mibBuilder.loadTexts:cucsBiosVfUCSMBootModeControlEntry.setStatus(_A)
+_CucsBiosVfUCSMBootModeControlInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfUCSMBootModeControlInstanceId_Object=MibTableColumn
+cucsBiosVfUCSMBootModeControlInstanceId=_CucsBiosVfUCSMBootModeControlInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,63,1,1),_CucsBiosVfUCSMBootModeControlInstanceId_Type())
+cucsBiosVfUCSMBootModeControlInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfUCSMBootModeControlInstanceId.setStatus(_A)
+_CucsBiosVfUCSMBootModeControlDn_Type=CucsManagedObjectDn
+_CucsBiosVfUCSMBootModeControlDn_Object=MibTableColumn
+cucsBiosVfUCSMBootModeControlDn=_CucsBiosVfUCSMBootModeControlDn_Object((1,3,6,1,4,1,9,9,719,1,4,63,1,2),_CucsBiosVfUCSMBootModeControlDn_Type())
+cucsBiosVfUCSMBootModeControlDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUCSMBootModeControlDn.setStatus(_A)
+_CucsBiosVfUCSMBootModeControlRn_Type=SnmpAdminString
+_CucsBiosVfUCSMBootModeControlRn_Object=MibTableColumn
+cucsBiosVfUCSMBootModeControlRn=_CucsBiosVfUCSMBootModeControlRn_Object((1,3,6,1,4,1,9,9,719,1,4,63,1,3),_CucsBiosVfUCSMBootModeControlRn_Type())
+cucsBiosVfUCSMBootModeControlRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUCSMBootModeControlRn.setStatus(_A)
+_CucsBiosVfUCSMBootModeControlVpUEFIBootMode_Type=CucsBiosVfUCSMBootModeControlVpUEFIBootMode
+_CucsBiosVfUCSMBootModeControlVpUEFIBootMode_Object=MibTableColumn
+cucsBiosVfUCSMBootModeControlVpUEFIBootMode=_CucsBiosVfUCSMBootModeControlVpUEFIBootMode_Object((1,3,6,1,4,1,9,9,719,1,4,63,1,4),_CucsBiosVfUCSMBootModeControlVpUEFIBootMode_Type())
+cucsBiosVfUCSMBootModeControlVpUEFIBootMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUCSMBootModeControlVpUEFIBootMode.setStatus(_A)
+_CucsBiosVfUCSMBootModeControlPropAcl_Type=Unsigned64
+_CucsBiosVfUCSMBootModeControlPropAcl_Object=MibTableColumn
+cucsBiosVfUCSMBootModeControlPropAcl=_CucsBiosVfUCSMBootModeControlPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,63,1,5),_CucsBiosVfUCSMBootModeControlPropAcl_Type())
+cucsBiosVfUCSMBootModeControlPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUCSMBootModeControlPropAcl.setStatus(_A)
+_CucsBiosVfUCSMBootModeControlSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfUCSMBootModeControlSupportedByDefault_Object=MibTableColumn
+cucsBiosVfUCSMBootModeControlSupportedByDefault=_CucsBiosVfUCSMBootModeControlSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,63,1,6),_CucsBiosVfUCSMBootModeControlSupportedByDefault_Type())
+cucsBiosVfUCSMBootModeControlSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUCSMBootModeControlSupportedByDefault.setStatus(_A)
+_CucsBiosVfAllUSBDevicesTable_Object=MibTable
+cucsBiosVfAllUSBDevicesTable=_CucsBiosVfAllUSBDevicesTable_Object((1,3,6,1,4,1,9,9,719,1,4,64))
+if mibBuilder.loadTexts:cucsBiosVfAllUSBDevicesTable.setStatus(_A)
+_CucsBiosVfAllUSBDevicesEntry_Object=MibTableRow
+cucsBiosVfAllUSBDevicesEntry=_CucsBiosVfAllUSBDevicesEntry_Object((1,3,6,1,4,1,9,9,719,1,4,64,1))
+cucsBiosVfAllUSBDevicesEntry.setIndexNames((0,_C,_AE))
+if mibBuilder.loadTexts:cucsBiosVfAllUSBDevicesEntry.setStatus(_A)
+_CucsBiosVfAllUSBDevicesInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfAllUSBDevicesInstanceId_Object=MibTableColumn
+cucsBiosVfAllUSBDevicesInstanceId=_CucsBiosVfAllUSBDevicesInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,64,1,1),_CucsBiosVfAllUSBDevicesInstanceId_Type())
+cucsBiosVfAllUSBDevicesInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfAllUSBDevicesInstanceId.setStatus(_A)
+_CucsBiosVfAllUSBDevicesDn_Type=CucsManagedObjectDn
+_CucsBiosVfAllUSBDevicesDn_Object=MibTableColumn
+cucsBiosVfAllUSBDevicesDn=_CucsBiosVfAllUSBDevicesDn_Object((1,3,6,1,4,1,9,9,719,1,4,64,1,2),_CucsBiosVfAllUSBDevicesDn_Type())
+cucsBiosVfAllUSBDevicesDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAllUSBDevicesDn.setStatus(_A)
+_CucsBiosVfAllUSBDevicesRn_Type=SnmpAdminString
+_CucsBiosVfAllUSBDevicesRn_Object=MibTableColumn
+cucsBiosVfAllUSBDevicesRn=_CucsBiosVfAllUSBDevicesRn_Object((1,3,6,1,4,1,9,9,719,1,4,64,1,3),_CucsBiosVfAllUSBDevicesRn_Type())
+cucsBiosVfAllUSBDevicesRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAllUSBDevicesRn.setStatus(_A)
+_CucsBiosVfAllUSBDevicesVpAllUSBDevices_Type=CucsBiosVfAllUSBDevicesVpAllUSBDevices
+_CucsBiosVfAllUSBDevicesVpAllUSBDevices_Object=MibTableColumn
+cucsBiosVfAllUSBDevicesVpAllUSBDevices=_CucsBiosVfAllUSBDevicesVpAllUSBDevices_Object((1,3,6,1,4,1,9,9,719,1,4,64,1,4),_CucsBiosVfAllUSBDevicesVpAllUSBDevices_Type())
+cucsBiosVfAllUSBDevicesVpAllUSBDevices.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAllUSBDevicesVpAllUSBDevices.setStatus(_A)
+_CucsBiosVfAllUSBDevicesPropAcl_Type=Unsigned64
+_CucsBiosVfAllUSBDevicesPropAcl_Object=MibTableColumn
+cucsBiosVfAllUSBDevicesPropAcl=_CucsBiosVfAllUSBDevicesPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,64,1,5),_CucsBiosVfAllUSBDevicesPropAcl_Type())
+cucsBiosVfAllUSBDevicesPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAllUSBDevicesPropAcl.setStatus(_A)
+_CucsBiosVfAllUSBDevicesSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfAllUSBDevicesSupportedByDefault_Object=MibTableColumn
+cucsBiosVfAllUSBDevicesSupportedByDefault=_CucsBiosVfAllUSBDevicesSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,64,1,6),_CucsBiosVfAllUSBDevicesSupportedByDefault_Type())
+cucsBiosVfAllUSBDevicesSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAllUSBDevicesSupportedByDefault.setStatus(_A)
+_CucsBiosVfDRAMClockThrottlingTable_Object=MibTable
+cucsBiosVfDRAMClockThrottlingTable=_CucsBiosVfDRAMClockThrottlingTable_Object((1,3,6,1,4,1,9,9,719,1,4,65))
+if mibBuilder.loadTexts:cucsBiosVfDRAMClockThrottlingTable.setStatus(_A)
+_CucsBiosVfDRAMClockThrottlingEntry_Object=MibTableRow
+cucsBiosVfDRAMClockThrottlingEntry=_CucsBiosVfDRAMClockThrottlingEntry_Object((1,3,6,1,4,1,9,9,719,1,4,65,1))
+cucsBiosVfDRAMClockThrottlingEntry.setIndexNames((0,_C,_AF))
+if mibBuilder.loadTexts:cucsBiosVfDRAMClockThrottlingEntry.setStatus(_A)
+_CucsBiosVfDRAMClockThrottlingInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfDRAMClockThrottlingInstanceId_Object=MibTableColumn
+cucsBiosVfDRAMClockThrottlingInstanceId=_CucsBiosVfDRAMClockThrottlingInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,65,1,1),_CucsBiosVfDRAMClockThrottlingInstanceId_Type())
+cucsBiosVfDRAMClockThrottlingInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfDRAMClockThrottlingInstanceId.setStatus(_A)
+_CucsBiosVfDRAMClockThrottlingDn_Type=CucsManagedObjectDn
+_CucsBiosVfDRAMClockThrottlingDn_Object=MibTableColumn
+cucsBiosVfDRAMClockThrottlingDn=_CucsBiosVfDRAMClockThrottlingDn_Object((1,3,6,1,4,1,9,9,719,1,4,65,1,2),_CucsBiosVfDRAMClockThrottlingDn_Type())
+cucsBiosVfDRAMClockThrottlingDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDRAMClockThrottlingDn.setStatus(_A)
+_CucsBiosVfDRAMClockThrottlingRn_Type=SnmpAdminString
+_CucsBiosVfDRAMClockThrottlingRn_Object=MibTableColumn
+cucsBiosVfDRAMClockThrottlingRn=_CucsBiosVfDRAMClockThrottlingRn_Object((1,3,6,1,4,1,9,9,719,1,4,65,1,3),_CucsBiosVfDRAMClockThrottlingRn_Type())
+cucsBiosVfDRAMClockThrottlingRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDRAMClockThrottlingRn.setStatus(_A)
+_CucsBiosVfDRAMClockThrottlingVpDRAMClockThrottling_Type=CucsBiosVfDRAMClockThrottlingVpDRAMClockThrottling
+_CucsBiosVfDRAMClockThrottlingVpDRAMClockThrottling_Object=MibTableColumn
+cucsBiosVfDRAMClockThrottlingVpDRAMClockThrottling=_CucsBiosVfDRAMClockThrottlingVpDRAMClockThrottling_Object((1,3,6,1,4,1,9,9,719,1,4,65,1,4),_CucsBiosVfDRAMClockThrottlingVpDRAMClockThrottling_Type())
+cucsBiosVfDRAMClockThrottlingVpDRAMClockThrottling.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDRAMClockThrottlingVpDRAMClockThrottling.setStatus(_A)
+_CucsBiosVfDRAMClockThrottlingPropAcl_Type=Unsigned64
+_CucsBiosVfDRAMClockThrottlingPropAcl_Object=MibTableColumn
+cucsBiosVfDRAMClockThrottlingPropAcl=_CucsBiosVfDRAMClockThrottlingPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,65,1,5),_CucsBiosVfDRAMClockThrottlingPropAcl_Type())
+cucsBiosVfDRAMClockThrottlingPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDRAMClockThrottlingPropAcl.setStatus(_A)
+_CucsBiosVfDRAMClockThrottlingSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfDRAMClockThrottlingSupportedByDefault_Object=MibTableColumn
+cucsBiosVfDRAMClockThrottlingSupportedByDefault=_CucsBiosVfDRAMClockThrottlingSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,65,1,6),_CucsBiosVfDRAMClockThrottlingSupportedByDefault_Type())
+cucsBiosVfDRAMClockThrottlingSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDRAMClockThrottlingSupportedByDefault.setStatus(_A)
+_CucsBiosVfFRB2TimerTable_Object=MibTable
+cucsBiosVfFRB2TimerTable=_CucsBiosVfFRB2TimerTable_Object((1,3,6,1,4,1,9,9,719,1,4,66))
+if mibBuilder.loadTexts:cucsBiosVfFRB2TimerTable.setStatus(_A)
+_CucsBiosVfFRB2TimerEntry_Object=MibTableRow
+cucsBiosVfFRB2TimerEntry=_CucsBiosVfFRB2TimerEntry_Object((1,3,6,1,4,1,9,9,719,1,4,66,1))
+cucsBiosVfFRB2TimerEntry.setIndexNames((0,_C,_AG))
+if mibBuilder.loadTexts:cucsBiosVfFRB2TimerEntry.setStatus(_A)
+_CucsBiosVfFRB2TimerInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfFRB2TimerInstanceId_Object=MibTableColumn
+cucsBiosVfFRB2TimerInstanceId=_CucsBiosVfFRB2TimerInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,66,1,1),_CucsBiosVfFRB2TimerInstanceId_Type())
+cucsBiosVfFRB2TimerInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfFRB2TimerInstanceId.setStatus(_A)
+_CucsBiosVfFRB2TimerDn_Type=CucsManagedObjectDn
+_CucsBiosVfFRB2TimerDn_Object=MibTableColumn
+cucsBiosVfFRB2TimerDn=_CucsBiosVfFRB2TimerDn_Object((1,3,6,1,4,1,9,9,719,1,4,66,1,2),_CucsBiosVfFRB2TimerDn_Type())
+cucsBiosVfFRB2TimerDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfFRB2TimerDn.setStatus(_A)
+_CucsBiosVfFRB2TimerRn_Type=SnmpAdminString
+_CucsBiosVfFRB2TimerRn_Object=MibTableColumn
+cucsBiosVfFRB2TimerRn=_CucsBiosVfFRB2TimerRn_Object((1,3,6,1,4,1,9,9,719,1,4,66,1,3),_CucsBiosVfFRB2TimerRn_Type())
+cucsBiosVfFRB2TimerRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfFRB2TimerRn.setStatus(_A)
+_CucsBiosVfFRB2TimerVpFRB2Timer_Type=CucsBiosVfFRB2TimerVpFRB2Timer
+_CucsBiosVfFRB2TimerVpFRB2Timer_Object=MibTableColumn
+cucsBiosVfFRB2TimerVpFRB2Timer=_CucsBiosVfFRB2TimerVpFRB2Timer_Object((1,3,6,1,4,1,9,9,719,1,4,66,1,4),_CucsBiosVfFRB2TimerVpFRB2Timer_Type())
+cucsBiosVfFRB2TimerVpFRB2Timer.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfFRB2TimerVpFRB2Timer.setStatus(_A)
+_CucsBiosVfFRB2TimerPropAcl_Type=Unsigned64
+_CucsBiosVfFRB2TimerPropAcl_Object=MibTableColumn
+cucsBiosVfFRB2TimerPropAcl=_CucsBiosVfFRB2TimerPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,66,1,5),_CucsBiosVfFRB2TimerPropAcl_Type())
+cucsBiosVfFRB2TimerPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfFRB2TimerPropAcl.setStatus(_A)
+_CucsBiosVfFRB2TimerSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfFRB2TimerSupportedByDefault_Object=MibTableColumn
+cucsBiosVfFRB2TimerSupportedByDefault=_CucsBiosVfFRB2TimerSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,66,1,6),_CucsBiosVfFRB2TimerSupportedByDefault_Type())
+cucsBiosVfFRB2TimerSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfFRB2TimerSupportedByDefault.setStatus(_A)
+_CucsBiosVfFrequencyFloorOverrideTable_Object=MibTable
+cucsBiosVfFrequencyFloorOverrideTable=_CucsBiosVfFrequencyFloorOverrideTable_Object((1,3,6,1,4,1,9,9,719,1,4,67))
+if mibBuilder.loadTexts:cucsBiosVfFrequencyFloorOverrideTable.setStatus(_A)
+_CucsBiosVfFrequencyFloorOverrideEntry_Object=MibTableRow
+cucsBiosVfFrequencyFloorOverrideEntry=_CucsBiosVfFrequencyFloorOverrideEntry_Object((1,3,6,1,4,1,9,9,719,1,4,67,1))
+cucsBiosVfFrequencyFloorOverrideEntry.setIndexNames((0,_C,_AH))
+if mibBuilder.loadTexts:cucsBiosVfFrequencyFloorOverrideEntry.setStatus(_A)
+_CucsBiosVfFrequencyFloorOverrideInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfFrequencyFloorOverrideInstanceId_Object=MibTableColumn
+cucsBiosVfFrequencyFloorOverrideInstanceId=_CucsBiosVfFrequencyFloorOverrideInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,67,1,1),_CucsBiosVfFrequencyFloorOverrideInstanceId_Type())
+cucsBiosVfFrequencyFloorOverrideInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfFrequencyFloorOverrideInstanceId.setStatus(_A)
+_CucsBiosVfFrequencyFloorOverrideDn_Type=CucsManagedObjectDn
+_CucsBiosVfFrequencyFloorOverrideDn_Object=MibTableColumn
+cucsBiosVfFrequencyFloorOverrideDn=_CucsBiosVfFrequencyFloorOverrideDn_Object((1,3,6,1,4,1,9,9,719,1,4,67,1,2),_CucsBiosVfFrequencyFloorOverrideDn_Type())
+cucsBiosVfFrequencyFloorOverrideDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfFrequencyFloorOverrideDn.setStatus(_A)
+_CucsBiosVfFrequencyFloorOverrideRn_Type=SnmpAdminString
+_CucsBiosVfFrequencyFloorOverrideRn_Object=MibTableColumn
+cucsBiosVfFrequencyFloorOverrideRn=_CucsBiosVfFrequencyFloorOverrideRn_Object((1,3,6,1,4,1,9,9,719,1,4,67,1,3),_CucsBiosVfFrequencyFloorOverrideRn_Type())
+cucsBiosVfFrequencyFloorOverrideRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfFrequencyFloorOverrideRn.setStatus(_A)
+_CucsBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride_Type=CucsBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride
+_CucsBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride_Object=MibTableColumn
+cucsBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride=_CucsBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride_Object((1,3,6,1,4,1,9,9,719,1,4,67,1,4),_CucsBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride_Type())
+cucsBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride.setStatus(_A)
+_CucsBiosVfFrequencyFloorOverridePropAcl_Type=Unsigned64
+_CucsBiosVfFrequencyFloorOverridePropAcl_Object=MibTableColumn
+cucsBiosVfFrequencyFloorOverridePropAcl=_CucsBiosVfFrequencyFloorOverridePropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,67,1,5),_CucsBiosVfFrequencyFloorOverridePropAcl_Type())
+cucsBiosVfFrequencyFloorOverridePropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfFrequencyFloorOverridePropAcl.setStatus(_A)
+_CucsBiosVfFrequencyFloorOverrideSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfFrequencyFloorOverrideSupportedByDefault_Object=MibTableColumn
+cucsBiosVfFrequencyFloorOverrideSupportedByDefault=_CucsBiosVfFrequencyFloorOverrideSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,67,1,6),_CucsBiosVfFrequencyFloorOverrideSupportedByDefault_Type())
+cucsBiosVfFrequencyFloorOverrideSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfFrequencyFloorOverrideSupportedByDefault.setStatus(_A)
+_CucsBiosVfInterleaveConfigurationTable_Object=MibTable
+cucsBiosVfInterleaveConfigurationTable=_CucsBiosVfInterleaveConfigurationTable_Object((1,3,6,1,4,1,9,9,719,1,4,68))
+if mibBuilder.loadTexts:cucsBiosVfInterleaveConfigurationTable.setStatus(_A)
+_CucsBiosVfInterleaveConfigurationEntry_Object=MibTableRow
+cucsBiosVfInterleaveConfigurationEntry=_CucsBiosVfInterleaveConfigurationEntry_Object((1,3,6,1,4,1,9,9,719,1,4,68,1))
+cucsBiosVfInterleaveConfigurationEntry.setIndexNames((0,_C,_AI))
+if mibBuilder.loadTexts:cucsBiosVfInterleaveConfigurationEntry.setStatus(_A)
+_CucsBiosVfInterleaveConfigurationInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfInterleaveConfigurationInstanceId_Object=MibTableColumn
+cucsBiosVfInterleaveConfigurationInstanceId=_CucsBiosVfInterleaveConfigurationInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,68,1,1),_CucsBiosVfInterleaveConfigurationInstanceId_Type())
+cucsBiosVfInterleaveConfigurationInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfInterleaveConfigurationInstanceId.setStatus(_A)
+_CucsBiosVfInterleaveConfigurationDn_Type=CucsManagedObjectDn
+_CucsBiosVfInterleaveConfigurationDn_Object=MibTableColumn
+cucsBiosVfInterleaveConfigurationDn=_CucsBiosVfInterleaveConfigurationDn_Object((1,3,6,1,4,1,9,9,719,1,4,68,1,2),_CucsBiosVfInterleaveConfigurationDn_Type())
+cucsBiosVfInterleaveConfigurationDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfInterleaveConfigurationDn.setStatus(_A)
+_CucsBiosVfInterleaveConfigurationRn_Type=SnmpAdminString
+_CucsBiosVfInterleaveConfigurationRn_Object=MibTableColumn
+cucsBiosVfInterleaveConfigurationRn=_CucsBiosVfInterleaveConfigurationRn_Object((1,3,6,1,4,1,9,9,719,1,4,68,1,3),_CucsBiosVfInterleaveConfigurationRn_Type())
+cucsBiosVfInterleaveConfigurationRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfInterleaveConfigurationRn.setStatus(_A)
+_CucsBiosVfInterleaveConfigurationVpChannelInterleaving_Type=CucsBiosVfInterleaveConfigurationVpChannelInterleaving
+_CucsBiosVfInterleaveConfigurationVpChannelInterleaving_Object=MibTableColumn
+cucsBiosVfInterleaveConfigurationVpChannelInterleaving=_CucsBiosVfInterleaveConfigurationVpChannelInterleaving_Object((1,3,6,1,4,1,9,9,719,1,4,68,1,4),_CucsBiosVfInterleaveConfigurationVpChannelInterleaving_Type())
+cucsBiosVfInterleaveConfigurationVpChannelInterleaving.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfInterleaveConfigurationVpChannelInterleaving.setStatus(_A)
+_CucsBiosVfInterleaveConfigurationVpMemoryInterleaving_Type=CucsBiosVfInterleaveConfigurationVpMemoryInterleaving
+_CucsBiosVfInterleaveConfigurationVpMemoryInterleaving_Object=MibTableColumn
+cucsBiosVfInterleaveConfigurationVpMemoryInterleaving=_CucsBiosVfInterleaveConfigurationVpMemoryInterleaving_Object((1,3,6,1,4,1,9,9,719,1,4,68,1,5),_CucsBiosVfInterleaveConfigurationVpMemoryInterleaving_Type())
+cucsBiosVfInterleaveConfigurationVpMemoryInterleaving.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfInterleaveConfigurationVpMemoryInterleaving.setStatus(_A)
+_CucsBiosVfInterleaveConfigurationVpRankInterleaving_Type=CucsBiosVfInterleaveConfigurationVpRankInterleaving
+_CucsBiosVfInterleaveConfigurationVpRankInterleaving_Object=MibTableColumn
+cucsBiosVfInterleaveConfigurationVpRankInterleaving=_CucsBiosVfInterleaveConfigurationVpRankInterleaving_Object((1,3,6,1,4,1,9,9,719,1,4,68,1,6),_CucsBiosVfInterleaveConfigurationVpRankInterleaving_Type())
+cucsBiosVfInterleaveConfigurationVpRankInterleaving.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfInterleaveConfigurationVpRankInterleaving.setStatus(_A)
+_CucsBiosVfInterleaveConfigurationPropAcl_Type=Unsigned64
+_CucsBiosVfInterleaveConfigurationPropAcl_Object=MibTableColumn
+cucsBiosVfInterleaveConfigurationPropAcl=_CucsBiosVfInterleaveConfigurationPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,68,1,7),_CucsBiosVfInterleaveConfigurationPropAcl_Type())
+cucsBiosVfInterleaveConfigurationPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfInterleaveConfigurationPropAcl.setStatus(_A)
+_CucsBiosVfInterleaveConfigurationSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfInterleaveConfigurationSupportedByDefault_Object=MibTableColumn
+cucsBiosVfInterleaveConfigurationSupportedByDefault=_CucsBiosVfInterleaveConfigurationSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,68,1,8),_CucsBiosVfInterleaveConfigurationSupportedByDefault_Type())
+cucsBiosVfInterleaveConfigurationSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfInterleaveConfigurationSupportedByDefault.setStatus(_A)
+_CucsBiosVfPCISlotLinkSpeedTable_Object=MibTable
+cucsBiosVfPCISlotLinkSpeedTable=_CucsBiosVfPCISlotLinkSpeedTable_Object((1,3,6,1,4,1,9,9,719,1,4,70))
+if mibBuilder.loadTexts:cucsBiosVfPCISlotLinkSpeedTable.setStatus(_A)
+_CucsBiosVfPCISlotLinkSpeedEntry_Object=MibTableRow
+cucsBiosVfPCISlotLinkSpeedEntry=_CucsBiosVfPCISlotLinkSpeedEntry_Object((1,3,6,1,4,1,9,9,719,1,4,70,1))
+cucsBiosVfPCISlotLinkSpeedEntry.setIndexNames((0,_C,_AJ))
+if mibBuilder.loadTexts:cucsBiosVfPCISlotLinkSpeedEntry.setStatus(_A)
+_CucsBiosVfPCISlotLinkSpeedInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfPCISlotLinkSpeedInstanceId_Object=MibTableColumn
+cucsBiosVfPCISlotLinkSpeedInstanceId=_CucsBiosVfPCISlotLinkSpeedInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,70,1,1),_CucsBiosVfPCISlotLinkSpeedInstanceId_Type())
+cucsBiosVfPCISlotLinkSpeedInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotLinkSpeedInstanceId.setStatus(_A)
+_CucsBiosVfPCISlotLinkSpeedDn_Type=CucsManagedObjectDn
+_CucsBiosVfPCISlotLinkSpeedDn_Object=MibTableColumn
+cucsBiosVfPCISlotLinkSpeedDn=_CucsBiosVfPCISlotLinkSpeedDn_Object((1,3,6,1,4,1,9,9,719,1,4,70,1,2),_CucsBiosVfPCISlotLinkSpeedDn_Type())
+cucsBiosVfPCISlotLinkSpeedDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotLinkSpeedDn.setStatus(_A)
+_CucsBiosVfPCISlotLinkSpeedRn_Type=SnmpAdminString
+_CucsBiosVfPCISlotLinkSpeedRn_Object=MibTableColumn
+cucsBiosVfPCISlotLinkSpeedRn=_CucsBiosVfPCISlotLinkSpeedRn_Object((1,3,6,1,4,1,9,9,719,1,4,70,1,3),_CucsBiosVfPCISlotLinkSpeedRn_Type())
+cucsBiosVfPCISlotLinkSpeedRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotLinkSpeedRn.setStatus(_A)
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed_Type=CucsBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed_Object=MibTableColumn
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed=_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed_Object((1,3,6,1,4,1,9,9,719,1,4,70,1,4),_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed_Type())
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed.setStatus(_A)
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed_Type=CucsBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed_Object=MibTableColumn
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed=_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed_Object((1,3,6,1,4,1,9,9,719,1,4,70,1,5),_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed_Type())
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed.setStatus(_A)
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed_Type=CucsBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed_Object=MibTableColumn
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed=_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed_Object((1,3,6,1,4,1,9,9,719,1,4,70,1,6),_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed_Type())
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed.setStatus(_A)
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed_Type=CucsBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed_Object=MibTableColumn
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed=_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed_Object((1,3,6,1,4,1,9,9,719,1,4,70,1,7),_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed_Type())
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed.setStatus(_A)
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed_Type=CucsBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed_Object=MibTableColumn
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed=_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed_Object((1,3,6,1,4,1,9,9,719,1,4,70,1,8),_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed_Type())
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed.setStatus(_A)
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed_Type=CucsBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed_Object=MibTableColumn
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed=_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed_Object((1,3,6,1,4,1,9,9,719,1,4,70,1,9),_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed_Type())
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed.setStatus(_A)
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed_Type=CucsBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed_Object=MibTableColumn
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed=_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed_Object((1,3,6,1,4,1,9,9,719,1,4,70,1,10),_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed_Type())
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed.setStatus(_A)
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed_Type=CucsBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed_Object=MibTableColumn
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed=_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed_Object((1,3,6,1,4,1,9,9,719,1,4,70,1,11),_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed_Type())
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed.setStatus(_A)
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed_Type=CucsBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed_Object=MibTableColumn
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed=_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed_Object((1,3,6,1,4,1,9,9,719,1,4,70,1,12),_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed_Type())
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed.setStatus(_A)
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed_Type=CucsBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed
+_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed_Object=MibTableColumn
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed=_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed_Object((1,3,6,1,4,1,9,9,719,1,4,70,1,13),_CucsBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed_Type())
+cucsBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed.setStatus(_A)
+_CucsBiosVfPCISlotLinkSpeedPropAcl_Type=Unsigned64
+_CucsBiosVfPCISlotLinkSpeedPropAcl_Object=MibTableColumn
+cucsBiosVfPCISlotLinkSpeedPropAcl=_CucsBiosVfPCISlotLinkSpeedPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,70,1,14),_CucsBiosVfPCISlotLinkSpeedPropAcl_Type())
+cucsBiosVfPCISlotLinkSpeedPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotLinkSpeedPropAcl.setStatus(_A)
+_CucsBiosVfPCISlotLinkSpeedSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfPCISlotLinkSpeedSupportedByDefault_Object=MibTableColumn
+cucsBiosVfPCISlotLinkSpeedSupportedByDefault=_CucsBiosVfPCISlotLinkSpeedSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,70,1,15),_CucsBiosVfPCISlotLinkSpeedSupportedByDefault_Type())
+cucsBiosVfPCISlotLinkSpeedSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCISlotLinkSpeedSupportedByDefault.setStatus(_A)
+_CucsBiosVfPSTATECoordinationTable_Object=MibTable
+cucsBiosVfPSTATECoordinationTable=_CucsBiosVfPSTATECoordinationTable_Object((1,3,6,1,4,1,9,9,719,1,4,71))
+if mibBuilder.loadTexts:cucsBiosVfPSTATECoordinationTable.setStatus(_A)
+_CucsBiosVfPSTATECoordinationEntry_Object=MibTableRow
+cucsBiosVfPSTATECoordinationEntry=_CucsBiosVfPSTATECoordinationEntry_Object((1,3,6,1,4,1,9,9,719,1,4,71,1))
+cucsBiosVfPSTATECoordinationEntry.setIndexNames((0,_C,_AK))
+if mibBuilder.loadTexts:cucsBiosVfPSTATECoordinationEntry.setStatus(_A)
+_CucsBiosVfPSTATECoordinationInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfPSTATECoordinationInstanceId_Object=MibTableColumn
+cucsBiosVfPSTATECoordinationInstanceId=_CucsBiosVfPSTATECoordinationInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,71,1,1),_CucsBiosVfPSTATECoordinationInstanceId_Type())
+cucsBiosVfPSTATECoordinationInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfPSTATECoordinationInstanceId.setStatus(_A)
+_CucsBiosVfPSTATECoordinationDn_Type=CucsManagedObjectDn
+_CucsBiosVfPSTATECoordinationDn_Object=MibTableColumn
+cucsBiosVfPSTATECoordinationDn=_CucsBiosVfPSTATECoordinationDn_Object((1,3,6,1,4,1,9,9,719,1,4,71,1,2),_CucsBiosVfPSTATECoordinationDn_Type())
+cucsBiosVfPSTATECoordinationDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPSTATECoordinationDn.setStatus(_A)
+_CucsBiosVfPSTATECoordinationRn_Type=SnmpAdminString
+_CucsBiosVfPSTATECoordinationRn_Object=MibTableColumn
+cucsBiosVfPSTATECoordinationRn=_CucsBiosVfPSTATECoordinationRn_Object((1,3,6,1,4,1,9,9,719,1,4,71,1,3),_CucsBiosVfPSTATECoordinationRn_Type())
+cucsBiosVfPSTATECoordinationRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPSTATECoordinationRn.setStatus(_A)
+_CucsBiosVfPSTATECoordinationVpPSTATECoordination_Type=CucsBiosVfPSTATECoordinationVpPSTATECoordination
+_CucsBiosVfPSTATECoordinationVpPSTATECoordination_Object=MibTableColumn
+cucsBiosVfPSTATECoordinationVpPSTATECoordination=_CucsBiosVfPSTATECoordinationVpPSTATECoordination_Object((1,3,6,1,4,1,9,9,719,1,4,71,1,4),_CucsBiosVfPSTATECoordinationVpPSTATECoordination_Type())
+cucsBiosVfPSTATECoordinationVpPSTATECoordination.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPSTATECoordinationVpPSTATECoordination.setStatus(_A)
+_CucsBiosVfPSTATECoordinationPropAcl_Type=Unsigned64
+_CucsBiosVfPSTATECoordinationPropAcl_Object=MibTableColumn
+cucsBiosVfPSTATECoordinationPropAcl=_CucsBiosVfPSTATECoordinationPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,71,1,5),_CucsBiosVfPSTATECoordinationPropAcl_Type())
+cucsBiosVfPSTATECoordinationPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPSTATECoordinationPropAcl.setStatus(_A)
+_CucsBiosVfPSTATECoordinationSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfPSTATECoordinationSupportedByDefault_Object=MibTableColumn
+cucsBiosVfPSTATECoordinationSupportedByDefault=_CucsBiosVfPSTATECoordinationSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,71,1,6),_CucsBiosVfPSTATECoordinationSupportedByDefault_Type())
+cucsBiosVfPSTATECoordinationSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPSTATECoordinationSupportedByDefault.setStatus(_A)
+_CucsBiosVfProcessorEnergyConfigurationTable_Object=MibTable
+cucsBiosVfProcessorEnergyConfigurationTable=_CucsBiosVfProcessorEnergyConfigurationTable_Object((1,3,6,1,4,1,9,9,719,1,4,72))
+if mibBuilder.loadTexts:cucsBiosVfProcessorEnergyConfigurationTable.setStatus(_A)
+_CucsBiosVfProcessorEnergyConfigurationEntry_Object=MibTableRow
+cucsBiosVfProcessorEnergyConfigurationEntry=_CucsBiosVfProcessorEnergyConfigurationEntry_Object((1,3,6,1,4,1,9,9,719,1,4,72,1))
+cucsBiosVfProcessorEnergyConfigurationEntry.setIndexNames((0,_C,_AL))
+if mibBuilder.loadTexts:cucsBiosVfProcessorEnergyConfigurationEntry.setStatus(_A)
+_CucsBiosVfProcessorEnergyConfigurationInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfProcessorEnergyConfigurationInstanceId_Object=MibTableColumn
+cucsBiosVfProcessorEnergyConfigurationInstanceId=_CucsBiosVfProcessorEnergyConfigurationInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,72,1,1),_CucsBiosVfProcessorEnergyConfigurationInstanceId_Type())
+cucsBiosVfProcessorEnergyConfigurationInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfProcessorEnergyConfigurationInstanceId.setStatus(_A)
+_CucsBiosVfProcessorEnergyConfigurationDn_Type=CucsManagedObjectDn
+_CucsBiosVfProcessorEnergyConfigurationDn_Object=MibTableColumn
+cucsBiosVfProcessorEnergyConfigurationDn=_CucsBiosVfProcessorEnergyConfigurationDn_Object((1,3,6,1,4,1,9,9,719,1,4,72,1,2),_CucsBiosVfProcessorEnergyConfigurationDn_Type())
+cucsBiosVfProcessorEnergyConfigurationDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorEnergyConfigurationDn.setStatus(_A)
+_CucsBiosVfProcessorEnergyConfigurationRn_Type=SnmpAdminString
+_CucsBiosVfProcessorEnergyConfigurationRn_Object=MibTableColumn
+cucsBiosVfProcessorEnergyConfigurationRn=_CucsBiosVfProcessorEnergyConfigurationRn_Object((1,3,6,1,4,1,9,9,719,1,4,72,1,3),_CucsBiosVfProcessorEnergyConfigurationRn_Type())
+cucsBiosVfProcessorEnergyConfigurationRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorEnergyConfigurationRn.setStatus(_A)
+_CucsBiosVfProcessorEnergyConfigurationVpEnergyPerformance_Type=CucsBiosVfProcessorEnergyConfigurationVpEnergyPerformance
+_CucsBiosVfProcessorEnergyConfigurationVpEnergyPerformance_Object=MibTableColumn
+cucsBiosVfProcessorEnergyConfigurationVpEnergyPerformance=_CucsBiosVfProcessorEnergyConfigurationVpEnergyPerformance_Object((1,3,6,1,4,1,9,9,719,1,4,72,1,4),_CucsBiosVfProcessorEnergyConfigurationVpEnergyPerformance_Type())
+cucsBiosVfProcessorEnergyConfigurationVpEnergyPerformance.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorEnergyConfigurationVpEnergyPerformance.setStatus(_A)
+_CucsBiosVfProcessorEnergyConfigurationVpPowerTechnology_Type=CucsBiosVfProcessorEnergyConfigurationVpPowerTechnology
+_CucsBiosVfProcessorEnergyConfigurationVpPowerTechnology_Object=MibTableColumn
+cucsBiosVfProcessorEnergyConfigurationVpPowerTechnology=_CucsBiosVfProcessorEnergyConfigurationVpPowerTechnology_Object((1,3,6,1,4,1,9,9,719,1,4,72,1,5),_CucsBiosVfProcessorEnergyConfigurationVpPowerTechnology_Type())
+cucsBiosVfProcessorEnergyConfigurationVpPowerTechnology.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorEnergyConfigurationVpPowerTechnology.setStatus(_A)
+_CucsBiosVfProcessorEnergyConfigurationPropAcl_Type=Unsigned64
+_CucsBiosVfProcessorEnergyConfigurationPropAcl_Object=MibTableColumn
+cucsBiosVfProcessorEnergyConfigurationPropAcl=_CucsBiosVfProcessorEnergyConfigurationPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,72,1,6),_CucsBiosVfProcessorEnergyConfigurationPropAcl_Type())
+cucsBiosVfProcessorEnergyConfigurationPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorEnergyConfigurationPropAcl.setStatus(_A)
+_CucsBiosVfProcessorEnergyConfigurationSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfProcessorEnergyConfigurationSupportedByDefault_Object=MibTableColumn
+cucsBiosVfProcessorEnergyConfigurationSupportedByDefault=_CucsBiosVfProcessorEnergyConfigurationSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,72,1,7),_CucsBiosVfProcessorEnergyConfigurationSupportedByDefault_Type())
+cucsBiosVfProcessorEnergyConfigurationSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorEnergyConfigurationSupportedByDefault.setStatus(_A)
+_CucsBiosVfProcessorPrefetchConfigTable_Object=MibTable
+cucsBiosVfProcessorPrefetchConfigTable=_CucsBiosVfProcessorPrefetchConfigTable_Object((1,3,6,1,4,1,9,9,719,1,4,73))
+if mibBuilder.loadTexts:cucsBiosVfProcessorPrefetchConfigTable.setStatus(_A)
+_CucsBiosVfProcessorPrefetchConfigEntry_Object=MibTableRow
+cucsBiosVfProcessorPrefetchConfigEntry=_CucsBiosVfProcessorPrefetchConfigEntry_Object((1,3,6,1,4,1,9,9,719,1,4,73,1))
+cucsBiosVfProcessorPrefetchConfigEntry.setIndexNames((0,_C,_AM))
+if mibBuilder.loadTexts:cucsBiosVfProcessorPrefetchConfigEntry.setStatus(_A)
+_CucsBiosVfProcessorPrefetchConfigInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfProcessorPrefetchConfigInstanceId_Object=MibTableColumn
+cucsBiosVfProcessorPrefetchConfigInstanceId=_CucsBiosVfProcessorPrefetchConfigInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,73,1,1),_CucsBiosVfProcessorPrefetchConfigInstanceId_Type())
+cucsBiosVfProcessorPrefetchConfigInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfProcessorPrefetchConfigInstanceId.setStatus(_A)
+_CucsBiosVfProcessorPrefetchConfigDn_Type=CucsManagedObjectDn
+_CucsBiosVfProcessorPrefetchConfigDn_Object=MibTableColumn
+cucsBiosVfProcessorPrefetchConfigDn=_CucsBiosVfProcessorPrefetchConfigDn_Object((1,3,6,1,4,1,9,9,719,1,4,73,1,2),_CucsBiosVfProcessorPrefetchConfigDn_Type())
+cucsBiosVfProcessorPrefetchConfigDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorPrefetchConfigDn.setStatus(_A)
+_CucsBiosVfProcessorPrefetchConfigRn_Type=SnmpAdminString
+_CucsBiosVfProcessorPrefetchConfigRn_Object=MibTableColumn
+cucsBiosVfProcessorPrefetchConfigRn=_CucsBiosVfProcessorPrefetchConfigRn_Object((1,3,6,1,4,1,9,9,719,1,4,73,1,3),_CucsBiosVfProcessorPrefetchConfigRn_Type())
+cucsBiosVfProcessorPrefetchConfigRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorPrefetchConfigRn.setStatus(_A)
+_CucsBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher_Type=CucsBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher
+_CucsBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher_Object=MibTableColumn
+cucsBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher=_CucsBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher_Object((1,3,6,1,4,1,9,9,719,1,4,73,1,4),_CucsBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher_Type())
+cucsBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher.setStatus(_A)
+_CucsBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher_Type=CucsBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher
+_CucsBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher_Object=MibTableColumn
+cucsBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher=_CucsBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher_Object((1,3,6,1,4,1,9,9,719,1,4,73,1,5),_CucsBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher_Type())
+cucsBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher.setStatus(_A)
+_CucsBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch_Type=CucsBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch
+_CucsBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch_Object=MibTableColumn
+cucsBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch=_CucsBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch_Object((1,3,6,1,4,1,9,9,719,1,4,73,1,6),_CucsBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch_Type())
+cucsBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch.setStatus(_A)
+_CucsBiosVfProcessorPrefetchConfigVpHardwarePrefetcher_Type=CucsBiosVfProcessorPrefetchConfigVpHardwarePrefetcher
+_CucsBiosVfProcessorPrefetchConfigVpHardwarePrefetcher_Object=MibTableColumn
+cucsBiosVfProcessorPrefetchConfigVpHardwarePrefetcher=_CucsBiosVfProcessorPrefetchConfigVpHardwarePrefetcher_Object((1,3,6,1,4,1,9,9,719,1,4,73,1,7),_CucsBiosVfProcessorPrefetchConfigVpHardwarePrefetcher_Type())
+cucsBiosVfProcessorPrefetchConfigVpHardwarePrefetcher.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorPrefetchConfigVpHardwarePrefetcher.setStatus(_A)
+_CucsBiosVfProcessorPrefetchConfigPropAcl_Type=Unsigned64
+_CucsBiosVfProcessorPrefetchConfigPropAcl_Object=MibTableColumn
+cucsBiosVfProcessorPrefetchConfigPropAcl=_CucsBiosVfProcessorPrefetchConfigPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,73,1,8),_CucsBiosVfProcessorPrefetchConfigPropAcl_Type())
+cucsBiosVfProcessorPrefetchConfigPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorPrefetchConfigPropAcl.setStatus(_A)
+_CucsBiosVfProcessorPrefetchConfigSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfProcessorPrefetchConfigSupportedByDefault_Object=MibTableColumn
+cucsBiosVfProcessorPrefetchConfigSupportedByDefault=_CucsBiosVfProcessorPrefetchConfigSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,73,1,9),_CucsBiosVfProcessorPrefetchConfigSupportedByDefault_Type())
+cucsBiosVfProcessorPrefetchConfigSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorPrefetchConfigSupportedByDefault.setStatus(_A)
+_CucsBiosVfQPILinkFrequencySelectTable_Object=MibTable
+cucsBiosVfQPILinkFrequencySelectTable=_CucsBiosVfQPILinkFrequencySelectTable_Object((1,3,6,1,4,1,9,9,719,1,4,74))
+if mibBuilder.loadTexts:cucsBiosVfQPILinkFrequencySelectTable.setStatus(_A)
+_CucsBiosVfQPILinkFrequencySelectEntry_Object=MibTableRow
+cucsBiosVfQPILinkFrequencySelectEntry=_CucsBiosVfQPILinkFrequencySelectEntry_Object((1,3,6,1,4,1,9,9,719,1,4,74,1))
+cucsBiosVfQPILinkFrequencySelectEntry.setIndexNames((0,_C,_AN))
+if mibBuilder.loadTexts:cucsBiosVfQPILinkFrequencySelectEntry.setStatus(_A)
+_CucsBiosVfQPILinkFrequencySelectInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfQPILinkFrequencySelectInstanceId_Object=MibTableColumn
+cucsBiosVfQPILinkFrequencySelectInstanceId=_CucsBiosVfQPILinkFrequencySelectInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,74,1,1),_CucsBiosVfQPILinkFrequencySelectInstanceId_Type())
+cucsBiosVfQPILinkFrequencySelectInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfQPILinkFrequencySelectInstanceId.setStatus(_A)
+_CucsBiosVfQPILinkFrequencySelectDn_Type=CucsManagedObjectDn
+_CucsBiosVfQPILinkFrequencySelectDn_Object=MibTableColumn
+cucsBiosVfQPILinkFrequencySelectDn=_CucsBiosVfQPILinkFrequencySelectDn_Object((1,3,6,1,4,1,9,9,719,1,4,74,1,2),_CucsBiosVfQPILinkFrequencySelectDn_Type())
+cucsBiosVfQPILinkFrequencySelectDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfQPILinkFrequencySelectDn.setStatus(_A)
+_CucsBiosVfQPILinkFrequencySelectRn_Type=SnmpAdminString
+_CucsBiosVfQPILinkFrequencySelectRn_Object=MibTableColumn
+cucsBiosVfQPILinkFrequencySelectRn=_CucsBiosVfQPILinkFrequencySelectRn_Object((1,3,6,1,4,1,9,9,719,1,4,74,1,3),_CucsBiosVfQPILinkFrequencySelectRn_Type())
+cucsBiosVfQPILinkFrequencySelectRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfQPILinkFrequencySelectRn.setStatus(_A)
+_CucsBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect_Type=CucsBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect
+_CucsBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect_Object=MibTableColumn
+cucsBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect=_CucsBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect_Object((1,3,6,1,4,1,9,9,719,1,4,74,1,4),_CucsBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect_Type())
+cucsBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect.setStatus(_A)
+_CucsBiosVfQPILinkFrequencySelectPropAcl_Type=Unsigned64
+_CucsBiosVfQPILinkFrequencySelectPropAcl_Object=MibTableColumn
+cucsBiosVfQPILinkFrequencySelectPropAcl=_CucsBiosVfQPILinkFrequencySelectPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,74,1,5),_CucsBiosVfQPILinkFrequencySelectPropAcl_Type())
+cucsBiosVfQPILinkFrequencySelectPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfQPILinkFrequencySelectPropAcl.setStatus(_A)
+_CucsBiosVfQPILinkFrequencySelectSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfQPILinkFrequencySelectSupportedByDefault_Object=MibTableColumn
+cucsBiosVfQPILinkFrequencySelectSupportedByDefault=_CucsBiosVfQPILinkFrequencySelectSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,74,1,6),_CucsBiosVfQPILinkFrequencySelectSupportedByDefault_Type())
+cucsBiosVfQPILinkFrequencySelectSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfQPILinkFrequencySelectSupportedByDefault.setStatus(_A)
+_CucsBiosVfScrubPoliciesTable_Object=MibTable
+cucsBiosVfScrubPoliciesTable=_CucsBiosVfScrubPoliciesTable_Object((1,3,6,1,4,1,9,9,719,1,4,75))
+if mibBuilder.loadTexts:cucsBiosVfScrubPoliciesTable.setStatus(_A)
+_CucsBiosVfScrubPoliciesEntry_Object=MibTableRow
+cucsBiosVfScrubPoliciesEntry=_CucsBiosVfScrubPoliciesEntry_Object((1,3,6,1,4,1,9,9,719,1,4,75,1))
+cucsBiosVfScrubPoliciesEntry.setIndexNames((0,_C,_AO))
+if mibBuilder.loadTexts:cucsBiosVfScrubPoliciesEntry.setStatus(_A)
+_CucsBiosVfScrubPoliciesInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfScrubPoliciesInstanceId_Object=MibTableColumn
+cucsBiosVfScrubPoliciesInstanceId=_CucsBiosVfScrubPoliciesInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,75,1,1),_CucsBiosVfScrubPoliciesInstanceId_Type())
+cucsBiosVfScrubPoliciesInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfScrubPoliciesInstanceId.setStatus(_A)
+_CucsBiosVfScrubPoliciesDn_Type=CucsManagedObjectDn
+_CucsBiosVfScrubPoliciesDn_Object=MibTableColumn
+cucsBiosVfScrubPoliciesDn=_CucsBiosVfScrubPoliciesDn_Object((1,3,6,1,4,1,9,9,719,1,4,75,1,2),_CucsBiosVfScrubPoliciesDn_Type())
+cucsBiosVfScrubPoliciesDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfScrubPoliciesDn.setStatus(_A)
+_CucsBiosVfScrubPoliciesRn_Type=SnmpAdminString
+_CucsBiosVfScrubPoliciesRn_Object=MibTableColumn
+cucsBiosVfScrubPoliciesRn=_CucsBiosVfScrubPoliciesRn_Object((1,3,6,1,4,1,9,9,719,1,4,75,1,3),_CucsBiosVfScrubPoliciesRn_Type())
+cucsBiosVfScrubPoliciesRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfScrubPoliciesRn.setStatus(_A)
+_CucsBiosVfScrubPoliciesVpDemandScrub_Type=CucsBiosVfScrubPoliciesVpDemandScrub
+_CucsBiosVfScrubPoliciesVpDemandScrub_Object=MibTableColumn
+cucsBiosVfScrubPoliciesVpDemandScrub=_CucsBiosVfScrubPoliciesVpDemandScrub_Object((1,3,6,1,4,1,9,9,719,1,4,75,1,4),_CucsBiosVfScrubPoliciesVpDemandScrub_Type())
+cucsBiosVfScrubPoliciesVpDemandScrub.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfScrubPoliciesVpDemandScrub.setStatus(_A)
+_CucsBiosVfScrubPoliciesVpPatrolScrub_Type=CucsBiosVfScrubPoliciesVpPatrolScrub
+_CucsBiosVfScrubPoliciesVpPatrolScrub_Object=MibTableColumn
+cucsBiosVfScrubPoliciesVpPatrolScrub=_CucsBiosVfScrubPoliciesVpPatrolScrub_Object((1,3,6,1,4,1,9,9,719,1,4,75,1,5),_CucsBiosVfScrubPoliciesVpPatrolScrub_Type())
+cucsBiosVfScrubPoliciesVpPatrolScrub.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfScrubPoliciesVpPatrolScrub.setStatus(_A)
+_CucsBiosVfScrubPoliciesPropAcl_Type=Unsigned64
+_CucsBiosVfScrubPoliciesPropAcl_Object=MibTableColumn
+cucsBiosVfScrubPoliciesPropAcl=_CucsBiosVfScrubPoliciesPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,75,1,6),_CucsBiosVfScrubPoliciesPropAcl_Type())
+cucsBiosVfScrubPoliciesPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfScrubPoliciesPropAcl.setStatus(_A)
+_CucsBiosVfScrubPoliciesSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfScrubPoliciesSupportedByDefault_Object=MibTableColumn
+cucsBiosVfScrubPoliciesSupportedByDefault=_CucsBiosVfScrubPoliciesSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,75,1,7),_CucsBiosVfScrubPoliciesSupportedByDefault_Type())
+cucsBiosVfScrubPoliciesSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfScrubPoliciesSupportedByDefault.setStatus(_A)
+_CucsBiosVfUSBPortConfigurationTable_Object=MibTable
+cucsBiosVfUSBPortConfigurationTable=_CucsBiosVfUSBPortConfigurationTable_Object((1,3,6,1,4,1,9,9,719,1,4,76))
+if mibBuilder.loadTexts:cucsBiosVfUSBPortConfigurationTable.setStatus(_A)
+_CucsBiosVfUSBPortConfigurationEntry_Object=MibTableRow
+cucsBiosVfUSBPortConfigurationEntry=_CucsBiosVfUSBPortConfigurationEntry_Object((1,3,6,1,4,1,9,9,719,1,4,76,1))
+cucsBiosVfUSBPortConfigurationEntry.setIndexNames((0,_C,_AP))
+if mibBuilder.loadTexts:cucsBiosVfUSBPortConfigurationEntry.setStatus(_A)
+_CucsBiosVfUSBPortConfigurationInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfUSBPortConfigurationInstanceId_Object=MibTableColumn
+cucsBiosVfUSBPortConfigurationInstanceId=_CucsBiosVfUSBPortConfigurationInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,76,1,1),_CucsBiosVfUSBPortConfigurationInstanceId_Type())
+cucsBiosVfUSBPortConfigurationInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfUSBPortConfigurationInstanceId.setStatus(_A)
+_CucsBiosVfUSBPortConfigurationDn_Type=CucsManagedObjectDn
+_CucsBiosVfUSBPortConfigurationDn_Object=MibTableColumn
+cucsBiosVfUSBPortConfigurationDn=_CucsBiosVfUSBPortConfigurationDn_Object((1,3,6,1,4,1,9,9,719,1,4,76,1,2),_CucsBiosVfUSBPortConfigurationDn_Type())
+cucsBiosVfUSBPortConfigurationDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBPortConfigurationDn.setStatus(_A)
+_CucsBiosVfUSBPortConfigurationRn_Type=SnmpAdminString
+_CucsBiosVfUSBPortConfigurationRn_Object=MibTableColumn
+cucsBiosVfUSBPortConfigurationRn=_CucsBiosVfUSBPortConfigurationRn_Object((1,3,6,1,4,1,9,9,719,1,4,76,1,3),_CucsBiosVfUSBPortConfigurationRn_Type())
+cucsBiosVfUSBPortConfigurationRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBPortConfigurationRn.setStatus(_A)
+_CucsBiosVfUSBPortConfigurationVpPort6064Emulation_Type=CucsBiosVfUSBPortConfigurationVpPort6064Emulation
+_CucsBiosVfUSBPortConfigurationVpPort6064Emulation_Object=MibTableColumn
+cucsBiosVfUSBPortConfigurationVpPort6064Emulation=_CucsBiosVfUSBPortConfigurationVpPort6064Emulation_Object((1,3,6,1,4,1,9,9,719,1,4,76,1,4),_CucsBiosVfUSBPortConfigurationVpPort6064Emulation_Type())
+cucsBiosVfUSBPortConfigurationVpPort6064Emulation.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBPortConfigurationVpPort6064Emulation.setStatus(_A)
+_CucsBiosVfUSBPortConfigurationVpUSBPortFront_Type=CucsBiosVfUSBPortConfigurationVpUSBPortFront
+_CucsBiosVfUSBPortConfigurationVpUSBPortFront_Object=MibTableColumn
+cucsBiosVfUSBPortConfigurationVpUSBPortFront=_CucsBiosVfUSBPortConfigurationVpUSBPortFront_Object((1,3,6,1,4,1,9,9,719,1,4,76,1,5),_CucsBiosVfUSBPortConfigurationVpUSBPortFront_Type())
+cucsBiosVfUSBPortConfigurationVpUSBPortFront.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBPortConfigurationVpUSBPortFront.setStatus(_A)
+_CucsBiosVfUSBPortConfigurationVpUSBPortInternal_Type=CucsBiosVfUSBPortConfigurationVpUSBPortInternal
+_CucsBiosVfUSBPortConfigurationVpUSBPortInternal_Object=MibTableColumn
+cucsBiosVfUSBPortConfigurationVpUSBPortInternal=_CucsBiosVfUSBPortConfigurationVpUSBPortInternal_Object((1,3,6,1,4,1,9,9,719,1,4,76,1,6),_CucsBiosVfUSBPortConfigurationVpUSBPortInternal_Type())
+cucsBiosVfUSBPortConfigurationVpUSBPortInternal.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBPortConfigurationVpUSBPortInternal.setStatus(_A)
+_CucsBiosVfUSBPortConfigurationVpUSBPortKVM_Type=CucsBiosVfUSBPortConfigurationVpUSBPortKVM
+_CucsBiosVfUSBPortConfigurationVpUSBPortKVM_Object=MibTableColumn
+cucsBiosVfUSBPortConfigurationVpUSBPortKVM=_CucsBiosVfUSBPortConfigurationVpUSBPortKVM_Object((1,3,6,1,4,1,9,9,719,1,4,76,1,7),_CucsBiosVfUSBPortConfigurationVpUSBPortKVM_Type())
+cucsBiosVfUSBPortConfigurationVpUSBPortKVM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBPortConfigurationVpUSBPortKVM.setStatus(_A)
+_CucsBiosVfUSBPortConfigurationVpUSBPortRear_Type=CucsBiosVfUSBPortConfigurationVpUSBPortRear
+_CucsBiosVfUSBPortConfigurationVpUSBPortRear_Object=MibTableColumn
+cucsBiosVfUSBPortConfigurationVpUSBPortRear=_CucsBiosVfUSBPortConfigurationVpUSBPortRear_Object((1,3,6,1,4,1,9,9,719,1,4,76,1,8),_CucsBiosVfUSBPortConfigurationVpUSBPortRear_Type())
+cucsBiosVfUSBPortConfigurationVpUSBPortRear.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBPortConfigurationVpUSBPortRear.setStatus(_A)
+_CucsBiosVfUSBPortConfigurationVpUSBPortSDCard_Type=CucsBiosVfUSBPortConfigurationVpUSBPortSDCard
+_CucsBiosVfUSBPortConfigurationVpUSBPortSDCard_Object=MibTableColumn
+cucsBiosVfUSBPortConfigurationVpUSBPortSDCard=_CucsBiosVfUSBPortConfigurationVpUSBPortSDCard_Object((1,3,6,1,4,1,9,9,719,1,4,76,1,9),_CucsBiosVfUSBPortConfigurationVpUSBPortSDCard_Type())
+cucsBiosVfUSBPortConfigurationVpUSBPortSDCard.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBPortConfigurationVpUSBPortSDCard.setStatus(_A)
+_CucsBiosVfUSBPortConfigurationVpUSBPortVMedia_Type=CucsBiosVfUSBPortConfigurationVpUSBPortVMedia
+_CucsBiosVfUSBPortConfigurationVpUSBPortVMedia_Object=MibTableColumn
+cucsBiosVfUSBPortConfigurationVpUSBPortVMedia=_CucsBiosVfUSBPortConfigurationVpUSBPortVMedia_Object((1,3,6,1,4,1,9,9,719,1,4,76,1,10),_CucsBiosVfUSBPortConfigurationVpUSBPortVMedia_Type())
+cucsBiosVfUSBPortConfigurationVpUSBPortVMedia.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBPortConfigurationVpUSBPortVMedia.setStatus(_A)
+_CucsBiosVfUSBPortConfigurationPropAcl_Type=Unsigned64
+_CucsBiosVfUSBPortConfigurationPropAcl_Object=MibTableColumn
+cucsBiosVfUSBPortConfigurationPropAcl=_CucsBiosVfUSBPortConfigurationPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,76,1,11),_CucsBiosVfUSBPortConfigurationPropAcl_Type())
+cucsBiosVfUSBPortConfigurationPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBPortConfigurationPropAcl.setStatus(_A)
+_CucsBiosVfUSBPortConfigurationSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfUSBPortConfigurationSupportedByDefault_Object=MibTableColumn
+cucsBiosVfUSBPortConfigurationSupportedByDefault=_CucsBiosVfUSBPortConfigurationSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,76,1,12),_CucsBiosVfUSBPortConfigurationSupportedByDefault_Type())
+cucsBiosVfUSBPortConfigurationSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBPortConfigurationSupportedByDefault.setStatus(_A)
+_CucsBiosVfVGAPriorityTable_Object=MibTable
+cucsBiosVfVGAPriorityTable=_CucsBiosVfVGAPriorityTable_Object((1,3,6,1,4,1,9,9,719,1,4,77))
+if mibBuilder.loadTexts:cucsBiosVfVGAPriorityTable.setStatus(_A)
+_CucsBiosVfVGAPriorityEntry_Object=MibTableRow
+cucsBiosVfVGAPriorityEntry=_CucsBiosVfVGAPriorityEntry_Object((1,3,6,1,4,1,9,9,719,1,4,77,1))
+cucsBiosVfVGAPriorityEntry.setIndexNames((0,_C,_AQ))
+if mibBuilder.loadTexts:cucsBiosVfVGAPriorityEntry.setStatus(_A)
+_CucsBiosVfVGAPriorityInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfVGAPriorityInstanceId_Object=MibTableColumn
+cucsBiosVfVGAPriorityInstanceId=_CucsBiosVfVGAPriorityInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,77,1,1),_CucsBiosVfVGAPriorityInstanceId_Type())
+cucsBiosVfVGAPriorityInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfVGAPriorityInstanceId.setStatus(_A)
+_CucsBiosVfVGAPriorityDn_Type=CucsManagedObjectDn
+_CucsBiosVfVGAPriorityDn_Object=MibTableColumn
+cucsBiosVfVGAPriorityDn=_CucsBiosVfVGAPriorityDn_Object((1,3,6,1,4,1,9,9,719,1,4,77,1,2),_CucsBiosVfVGAPriorityDn_Type())
+cucsBiosVfVGAPriorityDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfVGAPriorityDn.setStatus(_A)
+_CucsBiosVfVGAPriorityRn_Type=SnmpAdminString
+_CucsBiosVfVGAPriorityRn_Object=MibTableColumn
+cucsBiosVfVGAPriorityRn=_CucsBiosVfVGAPriorityRn_Object((1,3,6,1,4,1,9,9,719,1,4,77,1,3),_CucsBiosVfVGAPriorityRn_Type())
+cucsBiosVfVGAPriorityRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfVGAPriorityRn.setStatus(_A)
+_CucsBiosVfVGAPriorityVpVGAPriority_Type=CucsBiosVfVGAPriorityVpVGAPriority
+_CucsBiosVfVGAPriorityVpVGAPriority_Object=MibTableColumn
+cucsBiosVfVGAPriorityVpVGAPriority=_CucsBiosVfVGAPriorityVpVGAPriority_Object((1,3,6,1,4,1,9,9,719,1,4,77,1,4),_CucsBiosVfVGAPriorityVpVGAPriority_Type())
+cucsBiosVfVGAPriorityVpVGAPriority.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfVGAPriorityVpVGAPriority.setStatus(_A)
+_CucsBiosVfVGAPriorityPropAcl_Type=Unsigned64
+_CucsBiosVfVGAPriorityPropAcl_Object=MibTableColumn
+cucsBiosVfVGAPriorityPropAcl=_CucsBiosVfVGAPriorityPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,77,1,5),_CucsBiosVfVGAPriorityPropAcl_Type())
+cucsBiosVfVGAPriorityPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfVGAPriorityPropAcl.setStatus(_A)
+_CucsBiosVfVGAPrioritySupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfVGAPrioritySupportedByDefault_Object=MibTableColumn
+cucsBiosVfVGAPrioritySupportedByDefault=_CucsBiosVfVGAPrioritySupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,77,1,6),_CucsBiosVfVGAPrioritySupportedByDefault_Type())
+cucsBiosVfVGAPrioritySupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfVGAPrioritySupportedByDefault.setStatus(_A)
+_CucsBiosVfAltitudeTable_Object=MibTable
+cucsBiosVfAltitudeTable=_CucsBiosVfAltitudeTable_Object((1,3,6,1,4,1,9,9,719,1,4,78))
+if mibBuilder.loadTexts:cucsBiosVfAltitudeTable.setStatus(_A)
+_CucsBiosVfAltitudeEntry_Object=MibTableRow
+cucsBiosVfAltitudeEntry=_CucsBiosVfAltitudeEntry_Object((1,3,6,1,4,1,9,9,719,1,4,78,1))
+cucsBiosVfAltitudeEntry.setIndexNames((0,_C,_AR))
+if mibBuilder.loadTexts:cucsBiosVfAltitudeEntry.setStatus(_A)
+_CucsBiosVfAltitudeInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfAltitudeInstanceId_Object=MibTableColumn
+cucsBiosVfAltitudeInstanceId=_CucsBiosVfAltitudeInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,78,1,1),_CucsBiosVfAltitudeInstanceId_Type())
+cucsBiosVfAltitudeInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfAltitudeInstanceId.setStatus(_A)
+_CucsBiosVfAltitudeDn_Type=CucsManagedObjectDn
+_CucsBiosVfAltitudeDn_Object=MibTableColumn
+cucsBiosVfAltitudeDn=_CucsBiosVfAltitudeDn_Object((1,3,6,1,4,1,9,9,719,1,4,78,1,2),_CucsBiosVfAltitudeDn_Type())
+cucsBiosVfAltitudeDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAltitudeDn.setStatus(_A)
+_CucsBiosVfAltitudeRn_Type=SnmpAdminString
+_CucsBiosVfAltitudeRn_Object=MibTableColumn
+cucsBiosVfAltitudeRn=_CucsBiosVfAltitudeRn_Object((1,3,6,1,4,1,9,9,719,1,4,78,1,3),_CucsBiosVfAltitudeRn_Type())
+cucsBiosVfAltitudeRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAltitudeRn.setStatus(_A)
+_CucsBiosVfAltitudeVpAltitude_Type=CucsBiosVfAltitudeVpAltitude
+_CucsBiosVfAltitudeVpAltitude_Object=MibTableColumn
+cucsBiosVfAltitudeVpAltitude=_CucsBiosVfAltitudeVpAltitude_Object((1,3,6,1,4,1,9,9,719,1,4,78,1,4),_CucsBiosVfAltitudeVpAltitude_Type())
+cucsBiosVfAltitudeVpAltitude.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAltitudeVpAltitude.setStatus(_A)
+_CucsBiosVfAltitudePropAcl_Type=Unsigned64
+_CucsBiosVfAltitudePropAcl_Object=MibTableColumn
+cucsBiosVfAltitudePropAcl=_CucsBiosVfAltitudePropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,78,1,5),_CucsBiosVfAltitudePropAcl_Type())
+cucsBiosVfAltitudePropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAltitudePropAcl.setStatus(_A)
+_CucsBiosVfAltitudeSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfAltitudeSupportedByDefault_Object=MibTableColumn
+cucsBiosVfAltitudeSupportedByDefault=_CucsBiosVfAltitudeSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,78,1,6),_CucsBiosVfAltitudeSupportedByDefault_Type())
+cucsBiosVfAltitudeSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfAltitudeSupportedByDefault.setStatus(_A)
+_CucsBiosVfTPMSupportTable_Object=MibTable
+cucsBiosVfTPMSupportTable=_CucsBiosVfTPMSupportTable_Object((1,3,6,1,4,1,9,9,719,1,4,79))
+if mibBuilder.loadTexts:cucsBiosVfTPMSupportTable.setStatus(_A)
+_CucsBiosVfTPMSupportEntry_Object=MibTableRow
+cucsBiosVfTPMSupportEntry=_CucsBiosVfTPMSupportEntry_Object((1,3,6,1,4,1,9,9,719,1,4,79,1))
+cucsBiosVfTPMSupportEntry.setIndexNames((0,_C,_AS))
+if mibBuilder.loadTexts:cucsBiosVfTPMSupportEntry.setStatus(_A)
+_CucsBiosVfTPMSupportInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfTPMSupportInstanceId_Object=MibTableColumn
+cucsBiosVfTPMSupportInstanceId=_CucsBiosVfTPMSupportInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,79,1,1),_CucsBiosVfTPMSupportInstanceId_Type())
+cucsBiosVfTPMSupportInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfTPMSupportInstanceId.setStatus(_A)
+_CucsBiosVfTPMSupportDn_Type=CucsManagedObjectDn
+_CucsBiosVfTPMSupportDn_Object=MibTableColumn
+cucsBiosVfTPMSupportDn=_CucsBiosVfTPMSupportDn_Object((1,3,6,1,4,1,9,9,719,1,4,79,1,2),_CucsBiosVfTPMSupportDn_Type())
+cucsBiosVfTPMSupportDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfTPMSupportDn.setStatus(_A)
+_CucsBiosVfTPMSupportRn_Type=SnmpAdminString
+_CucsBiosVfTPMSupportRn_Object=MibTableColumn
+cucsBiosVfTPMSupportRn=_CucsBiosVfTPMSupportRn_Object((1,3,6,1,4,1,9,9,719,1,4,79,1,3),_CucsBiosVfTPMSupportRn_Type())
+cucsBiosVfTPMSupportRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfTPMSupportRn.setStatus(_A)
+_CucsBiosVfTPMSupportVpTPMSupport_Type=CucsBiosVfTPMSupportVpTPMSupport
+_CucsBiosVfTPMSupportVpTPMSupport_Object=MibTableColumn
+cucsBiosVfTPMSupportVpTPMSupport=_CucsBiosVfTPMSupportVpTPMSupport_Object((1,3,6,1,4,1,9,9,719,1,4,79,1,4),_CucsBiosVfTPMSupportVpTPMSupport_Type())
+cucsBiosVfTPMSupportVpTPMSupport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfTPMSupportVpTPMSupport.setStatus(_A)
+_CucsBiosVfTPMSupportPropAcl_Type=Unsigned64
+_CucsBiosVfTPMSupportPropAcl_Object=MibTableColumn
+cucsBiosVfTPMSupportPropAcl=_CucsBiosVfTPMSupportPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,79,1,5),_CucsBiosVfTPMSupportPropAcl_Type())
+cucsBiosVfTPMSupportPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfTPMSupportPropAcl.setStatus(_A)
+_CucsBiosVfTPMSupportSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfTPMSupportSupportedByDefault_Object=MibTableColumn
+cucsBiosVfTPMSupportSupportedByDefault=_CucsBiosVfTPMSupportSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,79,1,6),_CucsBiosVfTPMSupportSupportedByDefault_Type())
+cucsBiosVfTPMSupportSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfTPMSupportSupportedByDefault.setStatus(_A)
+_CucsBiosVfUSBConfigurationTable_Object=MibTable
+cucsBiosVfUSBConfigurationTable=_CucsBiosVfUSBConfigurationTable_Object((1,3,6,1,4,1,9,9,719,1,4,80))
+if mibBuilder.loadTexts:cucsBiosVfUSBConfigurationTable.setStatus(_A)
+_CucsBiosVfUSBConfigurationEntry_Object=MibTableRow
+cucsBiosVfUSBConfigurationEntry=_CucsBiosVfUSBConfigurationEntry_Object((1,3,6,1,4,1,9,9,719,1,4,80,1))
+cucsBiosVfUSBConfigurationEntry.setIndexNames((0,_C,_AT))
+if mibBuilder.loadTexts:cucsBiosVfUSBConfigurationEntry.setStatus(_A)
+_CucsBiosVfUSBConfigurationInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfUSBConfigurationInstanceId_Object=MibTableColumn
+cucsBiosVfUSBConfigurationInstanceId=_CucsBiosVfUSBConfigurationInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,80,1,1),_CucsBiosVfUSBConfigurationInstanceId_Type())
+cucsBiosVfUSBConfigurationInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfUSBConfigurationInstanceId.setStatus(_A)
+_CucsBiosVfUSBConfigurationDn_Type=CucsManagedObjectDn
+_CucsBiosVfUSBConfigurationDn_Object=MibTableColumn
+cucsBiosVfUSBConfigurationDn=_CucsBiosVfUSBConfigurationDn_Object((1,3,6,1,4,1,9,9,719,1,4,80,1,2),_CucsBiosVfUSBConfigurationDn_Type())
+cucsBiosVfUSBConfigurationDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBConfigurationDn.setStatus(_A)
+_CucsBiosVfUSBConfigurationRn_Type=SnmpAdminString
+_CucsBiosVfUSBConfigurationRn_Object=MibTableColumn
+cucsBiosVfUSBConfigurationRn=_CucsBiosVfUSBConfigurationRn_Object((1,3,6,1,4,1,9,9,719,1,4,80,1,3),_CucsBiosVfUSBConfigurationRn_Type())
+cucsBiosVfUSBConfigurationRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBConfigurationRn.setStatus(_A)
+_CucsBiosVfUSBConfigurationVpLegacyUSBSupport_Type=CucsBiosVfUSBConfigurationVpLegacyUSBSupport
+_CucsBiosVfUSBConfigurationVpLegacyUSBSupport_Object=MibTableColumn
+cucsBiosVfUSBConfigurationVpLegacyUSBSupport=_CucsBiosVfUSBConfigurationVpLegacyUSBSupport_Object((1,3,6,1,4,1,9,9,719,1,4,80,1,4),_CucsBiosVfUSBConfigurationVpLegacyUSBSupport_Type())
+cucsBiosVfUSBConfigurationVpLegacyUSBSupport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBConfigurationVpLegacyUSBSupport.setStatus(_A)
+_CucsBiosVfUSBConfigurationVpXHCIMode_Type=CucsBiosVfUSBConfigurationVpXHCIMode
+_CucsBiosVfUSBConfigurationVpXHCIMode_Object=MibTableColumn
+cucsBiosVfUSBConfigurationVpXHCIMode=_CucsBiosVfUSBConfigurationVpXHCIMode_Object((1,3,6,1,4,1,9,9,719,1,4,80,1,5),_CucsBiosVfUSBConfigurationVpXHCIMode_Type())
+cucsBiosVfUSBConfigurationVpXHCIMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBConfigurationVpXHCIMode.setStatus(_A)
+_CucsBiosVfUSBConfigurationPropAcl_Type=Unsigned64
+_CucsBiosVfUSBConfigurationPropAcl_Object=MibTableColumn
+cucsBiosVfUSBConfigurationPropAcl=_CucsBiosVfUSBConfigurationPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,80,1,6),_CucsBiosVfUSBConfigurationPropAcl_Type())
+cucsBiosVfUSBConfigurationPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBConfigurationPropAcl.setStatus(_A)
+_CucsBiosVfUSBConfigurationSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfUSBConfigurationSupportedByDefault_Object=MibTableColumn
+cucsBiosVfUSBConfigurationSupportedByDefault=_CucsBiosVfUSBConfigurationSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,80,1,7),_CucsBiosVfUSBConfigurationSupportedByDefault_Type())
+cucsBiosVfUSBConfigurationSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfUSBConfigurationSupportedByDefault.setStatus(_A)
+_CucsBiosVfQPISnoopModeTable_Object=MibTable
+cucsBiosVfQPISnoopModeTable=_CucsBiosVfQPISnoopModeTable_Object((1,3,6,1,4,1,9,9,719,1,4,81))
+if mibBuilder.loadTexts:cucsBiosVfQPISnoopModeTable.setStatus(_A)
+_CucsBiosVfQPISnoopModeEntry_Object=MibTableRow
+cucsBiosVfQPISnoopModeEntry=_CucsBiosVfQPISnoopModeEntry_Object((1,3,6,1,4,1,9,9,719,1,4,81,1))
+cucsBiosVfQPISnoopModeEntry.setIndexNames((0,_C,_AU))
+if mibBuilder.loadTexts:cucsBiosVfQPISnoopModeEntry.setStatus(_A)
+_CucsBiosVfQPISnoopModeInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfQPISnoopModeInstanceId_Object=MibTableColumn
+cucsBiosVfQPISnoopModeInstanceId=_CucsBiosVfQPISnoopModeInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,81,1,1),_CucsBiosVfQPISnoopModeInstanceId_Type())
+cucsBiosVfQPISnoopModeInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfQPISnoopModeInstanceId.setStatus(_A)
+_CucsBiosVfQPISnoopModeDn_Type=CucsManagedObjectDn
+_CucsBiosVfQPISnoopModeDn_Object=MibTableColumn
+cucsBiosVfQPISnoopModeDn=_CucsBiosVfQPISnoopModeDn_Object((1,3,6,1,4,1,9,9,719,1,4,81,1,2),_CucsBiosVfQPISnoopModeDn_Type())
+cucsBiosVfQPISnoopModeDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfQPISnoopModeDn.setStatus(_A)
+_CucsBiosVfQPISnoopModeRn_Type=SnmpAdminString
+_CucsBiosVfQPISnoopModeRn_Object=MibTableColumn
+cucsBiosVfQPISnoopModeRn=_CucsBiosVfQPISnoopModeRn_Object((1,3,6,1,4,1,9,9,719,1,4,81,1,3),_CucsBiosVfQPISnoopModeRn_Type())
+cucsBiosVfQPISnoopModeRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfQPISnoopModeRn.setStatus(_A)
+_CucsBiosVfQPISnoopModeVpQPISnoopMode_Type=CucsBiosVfQPISnoopModeVpQPISnoopMode
+_CucsBiosVfQPISnoopModeVpQPISnoopMode_Object=MibTableColumn
+cucsBiosVfQPISnoopModeVpQPISnoopMode=_CucsBiosVfQPISnoopModeVpQPISnoopMode_Object((1,3,6,1,4,1,9,9,719,1,4,81,1,4),_CucsBiosVfQPISnoopModeVpQPISnoopMode_Type())
+cucsBiosVfQPISnoopModeVpQPISnoopMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfQPISnoopModeVpQPISnoopMode.setStatus(_A)
+_CucsBiosVfQPISnoopModePropAcl_Type=Unsigned64
+_CucsBiosVfQPISnoopModePropAcl_Object=MibTableColumn
+cucsBiosVfQPISnoopModePropAcl=_CucsBiosVfQPISnoopModePropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,81,1,5),_CucsBiosVfQPISnoopModePropAcl_Type())
+cucsBiosVfQPISnoopModePropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfQPISnoopModePropAcl.setStatus(_A)
+_CucsBiosVfQPISnoopModeSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfQPISnoopModeSupportedByDefault_Object=MibTableColumn
+cucsBiosVfQPISnoopModeSupportedByDefault=_CucsBiosVfQPISnoopModeSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,81,1,6),_CucsBiosVfQPISnoopModeSupportedByDefault_Type())
+cucsBiosVfQPISnoopModeSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfQPISnoopModeSupportedByDefault.setStatus(_A)
+_CucsBiosVfEnhancedPowerCappingSupportTable_Object=MibTable
+cucsBiosVfEnhancedPowerCappingSupportTable=_CucsBiosVfEnhancedPowerCappingSupportTable_Object((1,3,6,1,4,1,9,9,719,1,4,83))
+if mibBuilder.loadTexts:cucsBiosVfEnhancedPowerCappingSupportTable.setStatus(_A)
+_CucsBiosVfEnhancedPowerCappingSupportEntry_Object=MibTableRow
+cucsBiosVfEnhancedPowerCappingSupportEntry=_CucsBiosVfEnhancedPowerCappingSupportEntry_Object((1,3,6,1,4,1,9,9,719,1,4,83,1))
+cucsBiosVfEnhancedPowerCappingSupportEntry.setIndexNames((0,_C,_AV))
+if mibBuilder.loadTexts:cucsBiosVfEnhancedPowerCappingSupportEntry.setStatus(_A)
+_CucsBiosVfEnhancedPowerCappingSupportInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfEnhancedPowerCappingSupportInstanceId_Object=MibTableColumn
+cucsBiosVfEnhancedPowerCappingSupportInstanceId=_CucsBiosVfEnhancedPowerCappingSupportInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,83,1,1),_CucsBiosVfEnhancedPowerCappingSupportInstanceId_Type())
+cucsBiosVfEnhancedPowerCappingSupportInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfEnhancedPowerCappingSupportInstanceId.setStatus(_A)
+_CucsBiosVfEnhancedPowerCappingSupportDn_Type=CucsManagedObjectDn
+_CucsBiosVfEnhancedPowerCappingSupportDn_Object=MibTableColumn
+cucsBiosVfEnhancedPowerCappingSupportDn=_CucsBiosVfEnhancedPowerCappingSupportDn_Object((1,3,6,1,4,1,9,9,719,1,4,83,1,2),_CucsBiosVfEnhancedPowerCappingSupportDn_Type())
+cucsBiosVfEnhancedPowerCappingSupportDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfEnhancedPowerCappingSupportDn.setStatus(_A)
+_CucsBiosVfEnhancedPowerCappingSupportRn_Type=SnmpAdminString
+_CucsBiosVfEnhancedPowerCappingSupportRn_Object=MibTableColumn
+cucsBiosVfEnhancedPowerCappingSupportRn=_CucsBiosVfEnhancedPowerCappingSupportRn_Object((1,3,6,1,4,1,9,9,719,1,4,83,1,3),_CucsBiosVfEnhancedPowerCappingSupportRn_Type())
+cucsBiosVfEnhancedPowerCappingSupportRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfEnhancedPowerCappingSupportRn.setStatus(_A)
+_CucsBiosVfEnhancedPowerCappingSupportPropAcl_Type=Unsigned64
+_CucsBiosVfEnhancedPowerCappingSupportPropAcl_Object=MibTableColumn
+cucsBiosVfEnhancedPowerCappingSupportPropAcl=_CucsBiosVfEnhancedPowerCappingSupportPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,83,1,4),_CucsBiosVfEnhancedPowerCappingSupportPropAcl_Type())
+cucsBiosVfEnhancedPowerCappingSupportPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfEnhancedPowerCappingSupportPropAcl.setStatus(_A)
+_CucsBiosVfEnhancedPowerCappingSupportSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfEnhancedPowerCappingSupportSupportedByDefault_Object=MibTableColumn
+cucsBiosVfEnhancedPowerCappingSupportSupportedByDefault=_CucsBiosVfEnhancedPowerCappingSupportSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,83,1,5),_CucsBiosVfEnhancedPowerCappingSupportSupportedByDefault_Type())
+cucsBiosVfEnhancedPowerCappingSupportSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfEnhancedPowerCappingSupportSupportedByDefault.setStatus(_A)
+_CucsBiosVfEnhancedPowerCappingSupportVpEnhancedPowerCapping_Type=CucsBiosVfEnhancedPowerCappingSupportVpEnhancedPowerCapping
+_CucsBiosVfEnhancedPowerCappingSupportVpEnhancedPowerCapping_Object=MibTableColumn
+cucsBiosVfEnhancedPowerCappingSupportVpEnhancedPowerCapping=_CucsBiosVfEnhancedPowerCappingSupportVpEnhancedPowerCapping_Object((1,3,6,1,4,1,9,9,719,1,4,83,1,6),_CucsBiosVfEnhancedPowerCappingSupportVpEnhancedPowerCapping_Type())
+cucsBiosVfEnhancedPowerCappingSupportVpEnhancedPowerCapping.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfEnhancedPowerCappingSupportVpEnhancedPowerCapping.setStatus(_A)
+_CucsBiosVfPCHSATAModeTable_Object=MibTable
+cucsBiosVfPCHSATAModeTable=_CucsBiosVfPCHSATAModeTable_Object((1,3,6,1,4,1,9,9,719,1,4,84))
+if mibBuilder.loadTexts:cucsBiosVfPCHSATAModeTable.setStatus(_A)
+_CucsBiosVfPCHSATAModeEntry_Object=MibTableRow
+cucsBiosVfPCHSATAModeEntry=_CucsBiosVfPCHSATAModeEntry_Object((1,3,6,1,4,1,9,9,719,1,4,84,1))
+cucsBiosVfPCHSATAModeEntry.setIndexNames((0,_C,_AW))
+if mibBuilder.loadTexts:cucsBiosVfPCHSATAModeEntry.setStatus(_A)
+_CucsBiosVfPCHSATAModeInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfPCHSATAModeInstanceId_Object=MibTableColumn
+cucsBiosVfPCHSATAModeInstanceId=_CucsBiosVfPCHSATAModeInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,84,1,1),_CucsBiosVfPCHSATAModeInstanceId_Type())
+cucsBiosVfPCHSATAModeInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfPCHSATAModeInstanceId.setStatus(_A)
+_CucsBiosVfPCHSATAModeDn_Type=CucsManagedObjectDn
+_CucsBiosVfPCHSATAModeDn_Object=MibTableColumn
+cucsBiosVfPCHSATAModeDn=_CucsBiosVfPCHSATAModeDn_Object((1,3,6,1,4,1,9,9,719,1,4,84,1,2),_CucsBiosVfPCHSATAModeDn_Type())
+cucsBiosVfPCHSATAModeDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCHSATAModeDn.setStatus(_A)
+_CucsBiosVfPCHSATAModeRn_Type=SnmpAdminString
+_CucsBiosVfPCHSATAModeRn_Object=MibTableColumn
+cucsBiosVfPCHSATAModeRn=_CucsBiosVfPCHSATAModeRn_Object((1,3,6,1,4,1,9,9,719,1,4,84,1,3),_CucsBiosVfPCHSATAModeRn_Type())
+cucsBiosVfPCHSATAModeRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCHSATAModeRn.setStatus(_A)
+_CucsBiosVfPCHSATAModePropAcl_Type=Unsigned64
+_CucsBiosVfPCHSATAModePropAcl_Object=MibTableColumn
+cucsBiosVfPCHSATAModePropAcl=_CucsBiosVfPCHSATAModePropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,84,1,4),_CucsBiosVfPCHSATAModePropAcl_Type())
+cucsBiosVfPCHSATAModePropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCHSATAModePropAcl.setStatus(_A)
+_CucsBiosVfPCHSATAModeSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfPCHSATAModeSupportedByDefault_Object=MibTableColumn
+cucsBiosVfPCHSATAModeSupportedByDefault=_CucsBiosVfPCHSATAModeSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,84,1,5),_CucsBiosVfPCHSATAModeSupportedByDefault_Type())
+cucsBiosVfPCHSATAModeSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCHSATAModeSupportedByDefault.setStatus(_A)
+_CucsBiosVfPCHSATAModeVpSATAMode_Type=CucsBiosVfPCHSATAModeVpSATAMode
+_CucsBiosVfPCHSATAModeVpSATAMode_Object=MibTableColumn
+cucsBiosVfPCHSATAModeVpSATAMode=_CucsBiosVfPCHSATAModeVpSATAMode_Object((1,3,6,1,4,1,9,9,719,1,4,84,1,7),_CucsBiosVfPCHSATAModeVpSATAMode_Type())
+cucsBiosVfPCHSATAModeVpSATAMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCHSATAModeVpSATAMode.setStatus(_A)
+_CucsBiosVfASPMSupportTable_Object=MibTable
+cucsBiosVfASPMSupportTable=_CucsBiosVfASPMSupportTable_Object((1,3,6,1,4,1,9,9,719,1,4,85))
+if mibBuilder.loadTexts:cucsBiosVfASPMSupportTable.setStatus(_A)
+_CucsBiosVfASPMSupportEntry_Object=MibTableRow
+cucsBiosVfASPMSupportEntry=_CucsBiosVfASPMSupportEntry_Object((1,3,6,1,4,1,9,9,719,1,4,85,1))
+cucsBiosVfASPMSupportEntry.setIndexNames((0,_C,_AX))
+if mibBuilder.loadTexts:cucsBiosVfASPMSupportEntry.setStatus(_A)
+_CucsBiosVfASPMSupportInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfASPMSupportInstanceId_Object=MibTableColumn
+cucsBiosVfASPMSupportInstanceId=_CucsBiosVfASPMSupportInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,85,1,1),_CucsBiosVfASPMSupportInstanceId_Type())
+cucsBiosVfASPMSupportInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfASPMSupportInstanceId.setStatus(_A)
+_CucsBiosVfASPMSupportDn_Type=CucsManagedObjectDn
+_CucsBiosVfASPMSupportDn_Object=MibTableColumn
+cucsBiosVfASPMSupportDn=_CucsBiosVfASPMSupportDn_Object((1,3,6,1,4,1,9,9,719,1,4,85,1,2),_CucsBiosVfASPMSupportDn_Type())
+cucsBiosVfASPMSupportDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfASPMSupportDn.setStatus(_A)
+_CucsBiosVfASPMSupportRn_Type=SnmpAdminString
+_CucsBiosVfASPMSupportRn_Object=MibTableColumn
+cucsBiosVfASPMSupportRn=_CucsBiosVfASPMSupportRn_Object((1,3,6,1,4,1,9,9,719,1,4,85,1,3),_CucsBiosVfASPMSupportRn_Type())
+cucsBiosVfASPMSupportRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfASPMSupportRn.setStatus(_A)
+_CucsBiosVfASPMSupportVpASPMSupport_Type=CucsBiosVfASPMSupportVpASPMSupport
+_CucsBiosVfASPMSupportVpASPMSupport_Object=MibTableColumn
+cucsBiosVfASPMSupportVpASPMSupport=_CucsBiosVfASPMSupportVpASPMSupport_Object((1,3,6,1,4,1,9,9,719,1,4,85,1,4),_CucsBiosVfASPMSupportVpASPMSupport_Type())
+cucsBiosVfASPMSupportVpASPMSupport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfASPMSupportVpASPMSupport.setStatus(_A)
+_CucsBiosVfASPMSupportSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfASPMSupportSupportedByDefault_Object=MibTableColumn
+cucsBiosVfASPMSupportSupportedByDefault=_CucsBiosVfASPMSupportSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,85,1,5),_CucsBiosVfASPMSupportSupportedByDefault_Type())
+cucsBiosVfASPMSupportSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfASPMSupportSupportedByDefault.setStatus(_A)
+_CucsBiosVfASPMSupportPropAcl_Type=Unsigned64
+_CucsBiosVfASPMSupportPropAcl_Object=MibTableColumn
+cucsBiosVfASPMSupportPropAcl=_CucsBiosVfASPMSupportPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,85,1,6),_CucsBiosVfASPMSupportPropAcl_Type())
+cucsBiosVfASPMSupportPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfASPMSupportPropAcl.setStatus(_A)
+_CucsBiosVfDDR3VoltageSelectionTable_Object=MibTable
+cucsBiosVfDDR3VoltageSelectionTable=_CucsBiosVfDDR3VoltageSelectionTable_Object((1,3,6,1,4,1,9,9,719,1,4,86))
+if mibBuilder.loadTexts:cucsBiosVfDDR3VoltageSelectionTable.setStatus(_A)
+_CucsBiosVfDDR3VoltageSelectionEntry_Object=MibTableRow
+cucsBiosVfDDR3VoltageSelectionEntry=_CucsBiosVfDDR3VoltageSelectionEntry_Object((1,3,6,1,4,1,9,9,719,1,4,86,1))
+cucsBiosVfDDR3VoltageSelectionEntry.setIndexNames((0,_C,_AY))
+if mibBuilder.loadTexts:cucsBiosVfDDR3VoltageSelectionEntry.setStatus(_A)
+_CucsBiosVfDDR3VoltageSelectionInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfDDR3VoltageSelectionInstanceId_Object=MibTableColumn
+cucsBiosVfDDR3VoltageSelectionInstanceId=_CucsBiosVfDDR3VoltageSelectionInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,86,1,1),_CucsBiosVfDDR3VoltageSelectionInstanceId_Type())
+cucsBiosVfDDR3VoltageSelectionInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfDDR3VoltageSelectionInstanceId.setStatus(_A)
+_CucsBiosVfDDR3VoltageSelectionDn_Type=CucsManagedObjectDn
+_CucsBiosVfDDR3VoltageSelectionDn_Object=MibTableColumn
+cucsBiosVfDDR3VoltageSelectionDn=_CucsBiosVfDDR3VoltageSelectionDn_Object((1,3,6,1,4,1,9,9,719,1,4,86,1,2),_CucsBiosVfDDR3VoltageSelectionDn_Type())
+cucsBiosVfDDR3VoltageSelectionDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDDR3VoltageSelectionDn.setStatus(_A)
+_CucsBiosVfDDR3VoltageSelectionRn_Type=SnmpAdminString
+_CucsBiosVfDDR3VoltageSelectionRn_Object=MibTableColumn
+cucsBiosVfDDR3VoltageSelectionRn=_CucsBiosVfDDR3VoltageSelectionRn_Object((1,3,6,1,4,1,9,9,719,1,4,86,1,3),_CucsBiosVfDDR3VoltageSelectionRn_Type())
+cucsBiosVfDDR3VoltageSelectionRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDDR3VoltageSelectionRn.setStatus(_A)
+_CucsBiosVfDDR3VoltageSelectionVpDDR3VoltageSelection_Type=CucsBiosVfDDR3VoltageSelectionVpDDR3VoltageSelection
+_CucsBiosVfDDR3VoltageSelectionVpDDR3VoltageSelection_Object=MibTableColumn
+cucsBiosVfDDR3VoltageSelectionVpDDR3VoltageSelection=_CucsBiosVfDDR3VoltageSelectionVpDDR3VoltageSelection_Object((1,3,6,1,4,1,9,9,719,1,4,86,1,4),_CucsBiosVfDDR3VoltageSelectionVpDDR3VoltageSelection_Type())
+cucsBiosVfDDR3VoltageSelectionVpDDR3VoltageSelection.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDDR3VoltageSelectionVpDDR3VoltageSelection.setStatus(_A)
+_CucsBiosVfDDR3VoltageSelectionSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfDDR3VoltageSelectionSupportedByDefault_Object=MibTableColumn
+cucsBiosVfDDR3VoltageSelectionSupportedByDefault=_CucsBiosVfDDR3VoltageSelectionSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,86,1,5),_CucsBiosVfDDR3VoltageSelectionSupportedByDefault_Type())
+cucsBiosVfDDR3VoltageSelectionSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDDR3VoltageSelectionSupportedByDefault.setStatus(_A)
+_CucsBiosVfDDR3VoltageSelectionPropAcl_Type=Unsigned64
+_CucsBiosVfDDR3VoltageSelectionPropAcl_Object=MibTableColumn
+cucsBiosVfDDR3VoltageSelectionPropAcl=_CucsBiosVfDDR3VoltageSelectionPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,86,1,6),_CucsBiosVfDDR3VoltageSelectionPropAcl_Type())
+cucsBiosVfDDR3VoltageSelectionPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfDDR3VoltageSelectionPropAcl.setStatus(_A)
+_CucsBiosVfConsistentDeviceNameControlTable_Object=MibTable
+cucsBiosVfConsistentDeviceNameControlTable=_CucsBiosVfConsistentDeviceNameControlTable_Object((1,3,6,1,4,1,9,9,719,1,4,87))
+if mibBuilder.loadTexts:cucsBiosVfConsistentDeviceNameControlTable.setStatus(_A)
+_CucsBiosVfConsistentDeviceNameControlEntry_Object=MibTableRow
+cucsBiosVfConsistentDeviceNameControlEntry=_CucsBiosVfConsistentDeviceNameControlEntry_Object((1,3,6,1,4,1,9,9,719,1,4,87,1))
+cucsBiosVfConsistentDeviceNameControlEntry.setIndexNames((0,_C,_AZ))
+if mibBuilder.loadTexts:cucsBiosVfConsistentDeviceNameControlEntry.setStatus(_A)
+_CucsBiosVfConsistentDeviceNameControlInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfConsistentDeviceNameControlInstanceId_Object=MibTableColumn
+cucsBiosVfConsistentDeviceNameControlInstanceId=_CucsBiosVfConsistentDeviceNameControlInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,87,1,1),_CucsBiosVfConsistentDeviceNameControlInstanceId_Type())
+cucsBiosVfConsistentDeviceNameControlInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfConsistentDeviceNameControlInstanceId.setStatus(_A)
+_CucsBiosVfConsistentDeviceNameControlDn_Type=CucsManagedObjectDn
+_CucsBiosVfConsistentDeviceNameControlDn_Object=MibTableColumn
+cucsBiosVfConsistentDeviceNameControlDn=_CucsBiosVfConsistentDeviceNameControlDn_Object((1,3,6,1,4,1,9,9,719,1,4,87,1,2),_CucsBiosVfConsistentDeviceNameControlDn_Type())
+cucsBiosVfConsistentDeviceNameControlDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfConsistentDeviceNameControlDn.setStatus(_A)
+_CucsBiosVfConsistentDeviceNameControlRn_Type=SnmpAdminString
+_CucsBiosVfConsistentDeviceNameControlRn_Object=MibTableColumn
+cucsBiosVfConsistentDeviceNameControlRn=_CucsBiosVfConsistentDeviceNameControlRn_Object((1,3,6,1,4,1,9,9,719,1,4,87,1,3),_CucsBiosVfConsistentDeviceNameControlRn_Type())
+cucsBiosVfConsistentDeviceNameControlRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfConsistentDeviceNameControlRn.setStatus(_A)
+_CucsBiosVfConsistentDeviceNameControlVpCDNControl_Type=CucsBiosVfConsistentDeviceNameControlVpCDNControl
+_CucsBiosVfConsistentDeviceNameControlVpCDNControl_Object=MibTableColumn
+cucsBiosVfConsistentDeviceNameControlVpCDNControl=_CucsBiosVfConsistentDeviceNameControlVpCDNControl_Object((1,3,6,1,4,1,9,9,719,1,4,87,1,4),_CucsBiosVfConsistentDeviceNameControlVpCDNControl_Type())
+cucsBiosVfConsistentDeviceNameControlVpCDNControl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfConsistentDeviceNameControlVpCDNControl.setStatus(_A)
+_CucsBiosVfConsistentDeviceNameControlSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfConsistentDeviceNameControlSupportedByDefault_Object=MibTableColumn
+cucsBiosVfConsistentDeviceNameControlSupportedByDefault=_CucsBiosVfConsistentDeviceNameControlSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,87,1,5),_CucsBiosVfConsistentDeviceNameControlSupportedByDefault_Type())
+cucsBiosVfConsistentDeviceNameControlSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfConsistentDeviceNameControlSupportedByDefault.setStatus(_A)
+_CucsBiosVfConsistentDeviceNameControlPropAcl_Type=Unsigned64
+_CucsBiosVfConsistentDeviceNameControlPropAcl_Object=MibTableColumn
+cucsBiosVfConsistentDeviceNameControlPropAcl=_CucsBiosVfConsistentDeviceNameControlPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,87,1,6),_CucsBiosVfConsistentDeviceNameControlPropAcl_Type())
+cucsBiosVfConsistentDeviceNameControlPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfConsistentDeviceNameControlPropAcl.setStatus(_A)
+_CucsBiosVfIntelTrustedExecutionTechnologyTable_Object=MibTable
+cucsBiosVfIntelTrustedExecutionTechnologyTable=_CucsBiosVfIntelTrustedExecutionTechnologyTable_Object((1,3,6,1,4,1,9,9,719,1,4,88))
+if mibBuilder.loadTexts:cucsBiosVfIntelTrustedExecutionTechnologyTable.setStatus(_A)
+_CucsBiosVfIntelTrustedExecutionTechnologyEntry_Object=MibTableRow
+cucsBiosVfIntelTrustedExecutionTechnologyEntry=_CucsBiosVfIntelTrustedExecutionTechnologyEntry_Object((1,3,6,1,4,1,9,9,719,1,4,88,1))
+cucsBiosVfIntelTrustedExecutionTechnologyEntry.setIndexNames((0,_C,_Aa))
+if mibBuilder.loadTexts:cucsBiosVfIntelTrustedExecutionTechnologyEntry.setStatus(_A)
+_CucsBiosVfIntelTrustedExecutionTechnologyInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfIntelTrustedExecutionTechnologyInstanceId_Object=MibTableColumn
+cucsBiosVfIntelTrustedExecutionTechnologyInstanceId=_CucsBiosVfIntelTrustedExecutionTechnologyInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,88,1,1),_CucsBiosVfIntelTrustedExecutionTechnologyInstanceId_Type())
+cucsBiosVfIntelTrustedExecutionTechnologyInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfIntelTrustedExecutionTechnologyInstanceId.setStatus(_A)
+_CucsBiosVfIntelTrustedExecutionTechnologyDn_Type=CucsManagedObjectDn
+_CucsBiosVfIntelTrustedExecutionTechnologyDn_Object=MibTableColumn
+cucsBiosVfIntelTrustedExecutionTechnologyDn=_CucsBiosVfIntelTrustedExecutionTechnologyDn_Object((1,3,6,1,4,1,9,9,719,1,4,88,1,2),_CucsBiosVfIntelTrustedExecutionTechnologyDn_Type())
+cucsBiosVfIntelTrustedExecutionTechnologyDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelTrustedExecutionTechnologyDn.setStatus(_A)
+_CucsBiosVfIntelTrustedExecutionTechnologyRn_Type=SnmpAdminString
+_CucsBiosVfIntelTrustedExecutionTechnologyRn_Object=MibTableColumn
+cucsBiosVfIntelTrustedExecutionTechnologyRn=_CucsBiosVfIntelTrustedExecutionTechnologyRn_Object((1,3,6,1,4,1,9,9,719,1,4,88,1,3),_CucsBiosVfIntelTrustedExecutionTechnologyRn_Type())
+cucsBiosVfIntelTrustedExecutionTechnologyRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelTrustedExecutionTechnologyRn.setStatus(_A)
+_CucsBiosVfIntelTrustedExecutionTechnologyVpIntelTstdExecTechSup_Type=CucsBiosVfIntelTrustedExecutionTechnologyVpIntelTstdExecTechSup
+_CucsBiosVfIntelTrustedExecutionTechnologyVpIntelTstdExecTechSup_Object=MibTableColumn
+cucsBiosVfIntelTrustedExecutionTechnologyVpIntelTstdExecTechSup=_CucsBiosVfIntelTrustedExecutionTechnologyVpIntelTstdExecTechSup_Object((1,3,6,1,4,1,9,9,719,1,4,88,1,4),_CucsBiosVfIntelTrustedExecutionTechnologyVpIntelTstdExecTechSup_Type())
+cucsBiosVfIntelTrustedExecutionTechnologyVpIntelTstdExecTechSup.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelTrustedExecutionTechnologyVpIntelTstdExecTechSup.setStatus(_A)
+_CucsBiosVfIntelTrustedExecutionTechnologySupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfIntelTrustedExecutionTechnologySupportedByDefault_Object=MibTableColumn
+cucsBiosVfIntelTrustedExecutionTechnologySupportedByDefault=_CucsBiosVfIntelTrustedExecutionTechnologySupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,88,1,5),_CucsBiosVfIntelTrustedExecutionTechnologySupportedByDefault_Type())
+cucsBiosVfIntelTrustedExecutionTechnologySupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelTrustedExecutionTechnologySupportedByDefault.setStatus(_A)
+_CucsBiosVfIntelTrustedExecutionTechnologyPropAcl_Type=Unsigned64
+_CucsBiosVfIntelTrustedExecutionTechnologyPropAcl_Object=MibTableColumn
+cucsBiosVfIntelTrustedExecutionTechnologyPropAcl=_CucsBiosVfIntelTrustedExecutionTechnologyPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,88,1,6),_CucsBiosVfIntelTrustedExecutionTechnologyPropAcl_Type())
+cucsBiosVfIntelTrustedExecutionTechnologyPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntelTrustedExecutionTechnologyPropAcl.setStatus(_A)
+_CucsBiosVfPCILOMPortsConfigurationTable_Object=MibTable
+cucsBiosVfPCILOMPortsConfigurationTable=_CucsBiosVfPCILOMPortsConfigurationTable_Object((1,3,6,1,4,1,9,9,719,1,4,89))
+if mibBuilder.loadTexts:cucsBiosVfPCILOMPortsConfigurationTable.setStatus(_A)
+_CucsBiosVfPCILOMPortsConfigurationEntry_Object=MibTableRow
+cucsBiosVfPCILOMPortsConfigurationEntry=_CucsBiosVfPCILOMPortsConfigurationEntry_Object((1,3,6,1,4,1,9,9,719,1,4,89,1))
+cucsBiosVfPCILOMPortsConfigurationEntry.setIndexNames((0,_C,_Ab))
+if mibBuilder.loadTexts:cucsBiosVfPCILOMPortsConfigurationEntry.setStatus(_A)
+_CucsBiosVfPCILOMPortsConfigurationInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfPCILOMPortsConfigurationInstanceId_Object=MibTableColumn
+cucsBiosVfPCILOMPortsConfigurationInstanceId=_CucsBiosVfPCILOMPortsConfigurationInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,89,1,1),_CucsBiosVfPCILOMPortsConfigurationInstanceId_Type())
+cucsBiosVfPCILOMPortsConfigurationInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfPCILOMPortsConfigurationInstanceId.setStatus(_A)
+_CucsBiosVfPCILOMPortsConfigurationDn_Type=CucsManagedObjectDn
+_CucsBiosVfPCILOMPortsConfigurationDn_Object=MibTableColumn
+cucsBiosVfPCILOMPortsConfigurationDn=_CucsBiosVfPCILOMPortsConfigurationDn_Object((1,3,6,1,4,1,9,9,719,1,4,89,1,2),_CucsBiosVfPCILOMPortsConfigurationDn_Type())
+cucsBiosVfPCILOMPortsConfigurationDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCILOMPortsConfigurationDn.setStatus(_A)
+_CucsBiosVfPCILOMPortsConfigurationRn_Type=SnmpAdminString
+_CucsBiosVfPCILOMPortsConfigurationRn_Object=MibTableColumn
+cucsBiosVfPCILOMPortsConfigurationRn=_CucsBiosVfPCILOMPortsConfigurationRn_Object((1,3,6,1,4,1,9,9,719,1,4,89,1,3),_CucsBiosVfPCILOMPortsConfigurationRn_Type())
+cucsBiosVfPCILOMPortsConfigurationRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCILOMPortsConfigurationRn.setStatus(_A)
+_CucsBiosVfPCILOMPortsConfigurationVpPCIe10GLOM2Link_Type=CucsBiosVfPCILOMPortsConfigurationVpPCIe10GLOM2Link
+_CucsBiosVfPCILOMPortsConfigurationVpPCIe10GLOM2Link_Object=MibTableColumn
+cucsBiosVfPCILOMPortsConfigurationVpPCIe10GLOM2Link=_CucsBiosVfPCILOMPortsConfigurationVpPCIe10GLOM2Link_Object((1,3,6,1,4,1,9,9,719,1,4,89,1,4),_CucsBiosVfPCILOMPortsConfigurationVpPCIe10GLOM2Link_Type())
+cucsBiosVfPCILOMPortsConfigurationVpPCIe10GLOM2Link.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCILOMPortsConfigurationVpPCIe10GLOM2Link.setStatus(_A)
+_CucsBiosVfPCILOMPortsConfigurationSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfPCILOMPortsConfigurationSupportedByDefault_Object=MibTableColumn
+cucsBiosVfPCILOMPortsConfigurationSupportedByDefault=_CucsBiosVfPCILOMPortsConfigurationSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,89,1,5),_CucsBiosVfPCILOMPortsConfigurationSupportedByDefault_Type())
+cucsBiosVfPCILOMPortsConfigurationSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCILOMPortsConfigurationSupportedByDefault.setStatus(_A)
+_CucsBiosVfPCILOMPortsConfigurationPropAcl_Type=Unsigned64
+_CucsBiosVfPCILOMPortsConfigurationPropAcl_Object=MibTableColumn
+cucsBiosVfPCILOMPortsConfigurationPropAcl=_CucsBiosVfPCILOMPortsConfigurationPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,89,1,6),_CucsBiosVfPCILOMPortsConfigurationPropAcl_Type())
+cucsBiosVfPCILOMPortsConfigurationPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCILOMPortsConfigurationPropAcl.setStatus(_A)
+_CucsBiosVfTPMPendingOperationTable_Object=MibTable
+cucsBiosVfTPMPendingOperationTable=_CucsBiosVfTPMPendingOperationTable_Object((1,3,6,1,4,1,9,9,719,1,4,90))
+if mibBuilder.loadTexts:cucsBiosVfTPMPendingOperationTable.setStatus(_A)
+_CucsBiosVfTPMPendingOperationEntry_Object=MibTableRow
+cucsBiosVfTPMPendingOperationEntry=_CucsBiosVfTPMPendingOperationEntry_Object((1,3,6,1,4,1,9,9,719,1,4,90,1))
+cucsBiosVfTPMPendingOperationEntry.setIndexNames((0,_C,_Ac))
+if mibBuilder.loadTexts:cucsBiosVfTPMPendingOperationEntry.setStatus(_A)
+_CucsBiosVfTPMPendingOperationInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfTPMPendingOperationInstanceId_Object=MibTableColumn
+cucsBiosVfTPMPendingOperationInstanceId=_CucsBiosVfTPMPendingOperationInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,90,1,1),_CucsBiosVfTPMPendingOperationInstanceId_Type())
+cucsBiosVfTPMPendingOperationInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfTPMPendingOperationInstanceId.setStatus(_A)
+_CucsBiosVfTPMPendingOperationDn_Type=CucsManagedObjectDn
+_CucsBiosVfTPMPendingOperationDn_Object=MibTableColumn
+cucsBiosVfTPMPendingOperationDn=_CucsBiosVfTPMPendingOperationDn_Object((1,3,6,1,4,1,9,9,719,1,4,90,1,2),_CucsBiosVfTPMPendingOperationDn_Type())
+cucsBiosVfTPMPendingOperationDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfTPMPendingOperationDn.setStatus(_A)
+_CucsBiosVfTPMPendingOperationRn_Type=SnmpAdminString
+_CucsBiosVfTPMPendingOperationRn_Object=MibTableColumn
+cucsBiosVfTPMPendingOperationRn=_CucsBiosVfTPMPendingOperationRn_Object((1,3,6,1,4,1,9,9,719,1,4,90,1,3),_CucsBiosVfTPMPendingOperationRn_Type())
+cucsBiosVfTPMPendingOperationRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfTPMPendingOperationRn.setStatus(_A)
+_CucsBiosVfTPMPendingOperationVpTPMPendingOperation_Type=CucsBiosVfTPMPendingOperationVpTPMPendingOperation
+_CucsBiosVfTPMPendingOperationVpTPMPendingOperation_Object=MibTableColumn
+cucsBiosVfTPMPendingOperationVpTPMPendingOperation=_CucsBiosVfTPMPendingOperationVpTPMPendingOperation_Object((1,3,6,1,4,1,9,9,719,1,4,90,1,4),_CucsBiosVfTPMPendingOperationVpTPMPendingOperation_Type())
+cucsBiosVfTPMPendingOperationVpTPMPendingOperation.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfTPMPendingOperationVpTPMPendingOperation.setStatus(_A)
+_CucsBiosVfTPMPendingOperationSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfTPMPendingOperationSupportedByDefault_Object=MibTableColumn
+cucsBiosVfTPMPendingOperationSupportedByDefault=_CucsBiosVfTPMPendingOperationSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,90,1,5),_CucsBiosVfTPMPendingOperationSupportedByDefault_Type())
+cucsBiosVfTPMPendingOperationSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfTPMPendingOperationSupportedByDefault.setStatus(_A)
+_CucsBiosVfTPMPendingOperationPropAcl_Type=Unsigned64
+_CucsBiosVfTPMPendingOperationPropAcl_Object=MibTableColumn
+cucsBiosVfTPMPendingOperationPropAcl=_CucsBiosVfTPMPendingOperationPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,90,1,6),_CucsBiosVfTPMPendingOperationPropAcl_Type())
+cucsBiosVfTPMPendingOperationPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfTPMPendingOperationPropAcl.setStatus(_A)
+_CucsBiosVfTrustedPlatformModuleTable_Object=MibTable
+cucsBiosVfTrustedPlatformModuleTable=_CucsBiosVfTrustedPlatformModuleTable_Object((1,3,6,1,4,1,9,9,719,1,4,91))
+if mibBuilder.loadTexts:cucsBiosVfTrustedPlatformModuleTable.setStatus(_A)
+_CucsBiosVfTrustedPlatformModuleEntry_Object=MibTableRow
+cucsBiosVfTrustedPlatformModuleEntry=_CucsBiosVfTrustedPlatformModuleEntry_Object((1,3,6,1,4,1,9,9,719,1,4,91,1))
+cucsBiosVfTrustedPlatformModuleEntry.setIndexNames((0,_C,_Ad))
+if mibBuilder.loadTexts:cucsBiosVfTrustedPlatformModuleEntry.setStatus(_A)
+_CucsBiosVfTrustedPlatformModuleInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfTrustedPlatformModuleInstanceId_Object=MibTableColumn
+cucsBiosVfTrustedPlatformModuleInstanceId=_CucsBiosVfTrustedPlatformModuleInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,91,1,1),_CucsBiosVfTrustedPlatformModuleInstanceId_Type())
+cucsBiosVfTrustedPlatformModuleInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfTrustedPlatformModuleInstanceId.setStatus(_A)
+_CucsBiosVfTrustedPlatformModuleDn_Type=CucsManagedObjectDn
+_CucsBiosVfTrustedPlatformModuleDn_Object=MibTableColumn
+cucsBiosVfTrustedPlatformModuleDn=_CucsBiosVfTrustedPlatformModuleDn_Object((1,3,6,1,4,1,9,9,719,1,4,91,1,2),_CucsBiosVfTrustedPlatformModuleDn_Type())
+cucsBiosVfTrustedPlatformModuleDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfTrustedPlatformModuleDn.setStatus(_A)
+_CucsBiosVfTrustedPlatformModuleRn_Type=SnmpAdminString
+_CucsBiosVfTrustedPlatformModuleRn_Object=MibTableColumn
+cucsBiosVfTrustedPlatformModuleRn=_CucsBiosVfTrustedPlatformModuleRn_Object((1,3,6,1,4,1,9,9,719,1,4,91,1,3),_CucsBiosVfTrustedPlatformModuleRn_Type())
+cucsBiosVfTrustedPlatformModuleRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfTrustedPlatformModuleRn.setStatus(_A)
+_CucsBiosVfTrustedPlatformModuleVpTrustedPlatformModuleSupport_Type=CucsBiosVfTrustedPlatformModuleVpTrustedPlatformModuleSupport
+_CucsBiosVfTrustedPlatformModuleVpTrustedPlatformModuleSupport_Object=MibTableColumn
+cucsBiosVfTrustedPlatformModuleVpTrustedPlatformModuleSupport=_CucsBiosVfTrustedPlatformModuleVpTrustedPlatformModuleSupport_Object((1,3,6,1,4,1,9,9,719,1,4,91,1,4),_CucsBiosVfTrustedPlatformModuleVpTrustedPlatformModuleSupport_Type())
+cucsBiosVfTrustedPlatformModuleVpTrustedPlatformModuleSupport.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfTrustedPlatformModuleVpTrustedPlatformModuleSupport.setStatus(_A)
+_CucsBiosVfTrustedPlatformModuleSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfTrustedPlatformModuleSupportedByDefault_Object=MibTableColumn
+cucsBiosVfTrustedPlatformModuleSupportedByDefault=_CucsBiosVfTrustedPlatformModuleSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,91,1,5),_CucsBiosVfTrustedPlatformModuleSupportedByDefault_Type())
+cucsBiosVfTrustedPlatformModuleSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfTrustedPlatformModuleSupportedByDefault.setStatus(_A)
+_CucsBiosVfTrustedPlatformModulePropAcl_Type=Unsigned64
+_CucsBiosVfTrustedPlatformModulePropAcl_Object=MibTableColumn
+cucsBiosVfTrustedPlatformModulePropAcl=_CucsBiosVfTrustedPlatformModulePropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,91,1,6),_CucsBiosVfTrustedPlatformModulePropAcl_Type())
+cucsBiosVfTrustedPlatformModulePropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfTrustedPlatformModulePropAcl.setStatus(_A)
+_CucsBiosVfCPUHardwarePowerManagementTable_Object=MibTable
+cucsBiosVfCPUHardwarePowerManagementTable=_CucsBiosVfCPUHardwarePowerManagementTable_Object((1,3,6,1,4,1,9,9,719,1,4,92))
+if mibBuilder.loadTexts:cucsBiosVfCPUHardwarePowerManagementTable.setStatus(_A)
+_CucsBiosVfCPUHardwarePowerManagementEntry_Object=MibTableRow
+cucsBiosVfCPUHardwarePowerManagementEntry=_CucsBiosVfCPUHardwarePowerManagementEntry_Object((1,3,6,1,4,1,9,9,719,1,4,92,1))
+cucsBiosVfCPUHardwarePowerManagementEntry.setIndexNames((0,_C,_Ae))
+if mibBuilder.loadTexts:cucsBiosVfCPUHardwarePowerManagementEntry.setStatus(_A)
+_CucsBiosVfCPUHardwarePowerManagementInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfCPUHardwarePowerManagementInstanceId_Object=MibTableColumn
+cucsBiosVfCPUHardwarePowerManagementInstanceId=_CucsBiosVfCPUHardwarePowerManagementInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,92,1,1),_CucsBiosVfCPUHardwarePowerManagementInstanceId_Type())
+cucsBiosVfCPUHardwarePowerManagementInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfCPUHardwarePowerManagementInstanceId.setStatus(_A)
+_CucsBiosVfCPUHardwarePowerManagementDn_Type=CucsManagedObjectDn
+_CucsBiosVfCPUHardwarePowerManagementDn_Object=MibTableColumn
+cucsBiosVfCPUHardwarePowerManagementDn=_CucsBiosVfCPUHardwarePowerManagementDn_Object((1,3,6,1,4,1,9,9,719,1,4,92,1,2),_CucsBiosVfCPUHardwarePowerManagementDn_Type())
+cucsBiosVfCPUHardwarePowerManagementDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfCPUHardwarePowerManagementDn.setStatus(_A)
+_CucsBiosVfCPUHardwarePowerManagementRn_Type=SnmpAdminString
+_CucsBiosVfCPUHardwarePowerManagementRn_Object=MibTableColumn
+cucsBiosVfCPUHardwarePowerManagementRn=_CucsBiosVfCPUHardwarePowerManagementRn_Object((1,3,6,1,4,1,9,9,719,1,4,92,1,3),_CucsBiosVfCPUHardwarePowerManagementRn_Type())
+cucsBiosVfCPUHardwarePowerManagementRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfCPUHardwarePowerManagementRn.setStatus(_A)
+_CucsBiosVfCPUHardwarePowerManagementSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfCPUHardwarePowerManagementSupportedByDefault_Object=MibTableColumn
+cucsBiosVfCPUHardwarePowerManagementSupportedByDefault=_CucsBiosVfCPUHardwarePowerManagementSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,92,1,4),_CucsBiosVfCPUHardwarePowerManagementSupportedByDefault_Type())
+cucsBiosVfCPUHardwarePowerManagementSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfCPUHardwarePowerManagementSupportedByDefault.setStatus(_A)
+_CucsBiosVfCPUHardwarePowerManagementVpCPUHardwarePowerManagement_Type=CucsBiosVfCPUHardwarePowerManagementVpCPUHardwarePowerManagement
+_CucsBiosVfCPUHardwarePowerManagementVpCPUHardwarePowerManagement_Object=MibTableColumn
+cucsBiosVfCPUHardwarePowerManagementVpCPUHardwarePowerManagement=_CucsBiosVfCPUHardwarePowerManagementVpCPUHardwarePowerManagement_Object((1,3,6,1,4,1,9,9,719,1,4,92,1,5),_CucsBiosVfCPUHardwarePowerManagementVpCPUHardwarePowerManagement_Type())
+cucsBiosVfCPUHardwarePowerManagementVpCPUHardwarePowerManagement.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfCPUHardwarePowerManagementVpCPUHardwarePowerManagement.setStatus(_A)
+_CucsBiosVfCPUHardwarePowerManagementPropAcl_Type=Unsigned64
+_CucsBiosVfCPUHardwarePowerManagementPropAcl_Object=MibTableColumn
+cucsBiosVfCPUHardwarePowerManagementPropAcl=_CucsBiosVfCPUHardwarePowerManagementPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,92,1,6),_CucsBiosVfCPUHardwarePowerManagementPropAcl_Type())
+cucsBiosVfCPUHardwarePowerManagementPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfCPUHardwarePowerManagementPropAcl.setStatus(_A)
+_CucsBiosVfIntegratedGraphicsTable_Object=MibTable
+cucsBiosVfIntegratedGraphicsTable=_CucsBiosVfIntegratedGraphicsTable_Object((1,3,6,1,4,1,9,9,719,1,4,93))
+if mibBuilder.loadTexts:cucsBiosVfIntegratedGraphicsTable.setStatus(_A)
+_CucsBiosVfIntegratedGraphicsEntry_Object=MibTableRow
+cucsBiosVfIntegratedGraphicsEntry=_CucsBiosVfIntegratedGraphicsEntry_Object((1,3,6,1,4,1,9,9,719,1,4,93,1))
+cucsBiosVfIntegratedGraphicsEntry.setIndexNames((0,_C,_Af))
+if mibBuilder.loadTexts:cucsBiosVfIntegratedGraphicsEntry.setStatus(_A)
+_CucsBiosVfIntegratedGraphicsInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfIntegratedGraphicsInstanceId_Object=MibTableColumn
+cucsBiosVfIntegratedGraphicsInstanceId=_CucsBiosVfIntegratedGraphicsInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,93,1,1),_CucsBiosVfIntegratedGraphicsInstanceId_Type())
+cucsBiosVfIntegratedGraphicsInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfIntegratedGraphicsInstanceId.setStatus(_A)
+_CucsBiosVfIntegratedGraphicsDn_Type=CucsManagedObjectDn
+_CucsBiosVfIntegratedGraphicsDn_Object=MibTableColumn
+cucsBiosVfIntegratedGraphicsDn=_CucsBiosVfIntegratedGraphicsDn_Object((1,3,6,1,4,1,9,9,719,1,4,93,1,2),_CucsBiosVfIntegratedGraphicsDn_Type())
+cucsBiosVfIntegratedGraphicsDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntegratedGraphicsDn.setStatus(_A)
+_CucsBiosVfIntegratedGraphicsRn_Type=SnmpAdminString
+_CucsBiosVfIntegratedGraphicsRn_Object=MibTableColumn
+cucsBiosVfIntegratedGraphicsRn=_CucsBiosVfIntegratedGraphicsRn_Object((1,3,6,1,4,1,9,9,719,1,4,93,1,3),_CucsBiosVfIntegratedGraphicsRn_Type())
+cucsBiosVfIntegratedGraphicsRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntegratedGraphicsRn.setStatus(_A)
+_CucsBiosVfIntegratedGraphicsSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfIntegratedGraphicsSupportedByDefault_Object=MibTableColumn
+cucsBiosVfIntegratedGraphicsSupportedByDefault=_CucsBiosVfIntegratedGraphicsSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,93,1,4),_CucsBiosVfIntegratedGraphicsSupportedByDefault_Type())
+cucsBiosVfIntegratedGraphicsSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntegratedGraphicsSupportedByDefault.setStatus(_A)
+_CucsBiosVfIntegratedGraphicsVpIntegratedGraphics_Type=CucsBiosVfIntegratedGraphicsVpIntegratedGraphics
+_CucsBiosVfIntegratedGraphicsVpIntegratedGraphics_Object=MibTableColumn
+cucsBiosVfIntegratedGraphicsVpIntegratedGraphics=_CucsBiosVfIntegratedGraphicsVpIntegratedGraphics_Object((1,3,6,1,4,1,9,9,719,1,4,93,1,5),_CucsBiosVfIntegratedGraphicsVpIntegratedGraphics_Type())
+cucsBiosVfIntegratedGraphicsVpIntegratedGraphics.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntegratedGraphicsVpIntegratedGraphics.setStatus(_A)
+_CucsBiosVfIntegratedGraphicsPropAcl_Type=Unsigned64
+_CucsBiosVfIntegratedGraphicsPropAcl_Object=MibTableColumn
+cucsBiosVfIntegratedGraphicsPropAcl=_CucsBiosVfIntegratedGraphicsPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,93,1,6),_CucsBiosVfIntegratedGraphicsPropAcl_Type())
+cucsBiosVfIntegratedGraphicsPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntegratedGraphicsPropAcl.setStatus(_A)
+_CucsBiosVfIntegratedGraphicsApertureSizeTable_Object=MibTable
+cucsBiosVfIntegratedGraphicsApertureSizeTable=_CucsBiosVfIntegratedGraphicsApertureSizeTable_Object((1,3,6,1,4,1,9,9,719,1,4,94))
+if mibBuilder.loadTexts:cucsBiosVfIntegratedGraphicsApertureSizeTable.setStatus(_A)
+_CucsBiosVfIntegratedGraphicsApertureSizeEntry_Object=MibTableRow
+cucsBiosVfIntegratedGraphicsApertureSizeEntry=_CucsBiosVfIntegratedGraphicsApertureSizeEntry_Object((1,3,6,1,4,1,9,9,719,1,4,94,1))
+cucsBiosVfIntegratedGraphicsApertureSizeEntry.setIndexNames((0,_C,_Ag))
+if mibBuilder.loadTexts:cucsBiosVfIntegratedGraphicsApertureSizeEntry.setStatus(_A)
+_CucsBiosVfIntegratedGraphicsApertureSizeInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfIntegratedGraphicsApertureSizeInstanceId_Object=MibTableColumn
+cucsBiosVfIntegratedGraphicsApertureSizeInstanceId=_CucsBiosVfIntegratedGraphicsApertureSizeInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,94,1,1),_CucsBiosVfIntegratedGraphicsApertureSizeInstanceId_Type())
+cucsBiosVfIntegratedGraphicsApertureSizeInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfIntegratedGraphicsApertureSizeInstanceId.setStatus(_A)
+_CucsBiosVfIntegratedGraphicsApertureSizeDn_Type=CucsManagedObjectDn
+_CucsBiosVfIntegratedGraphicsApertureSizeDn_Object=MibTableColumn
+cucsBiosVfIntegratedGraphicsApertureSizeDn=_CucsBiosVfIntegratedGraphicsApertureSizeDn_Object((1,3,6,1,4,1,9,9,719,1,4,94,1,2),_CucsBiosVfIntegratedGraphicsApertureSizeDn_Type())
+cucsBiosVfIntegratedGraphicsApertureSizeDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntegratedGraphicsApertureSizeDn.setStatus(_A)
+_CucsBiosVfIntegratedGraphicsApertureSizeRn_Type=SnmpAdminString
+_CucsBiosVfIntegratedGraphicsApertureSizeRn_Object=MibTableColumn
+cucsBiosVfIntegratedGraphicsApertureSizeRn=_CucsBiosVfIntegratedGraphicsApertureSizeRn_Object((1,3,6,1,4,1,9,9,719,1,4,94,1,3),_CucsBiosVfIntegratedGraphicsApertureSizeRn_Type())
+cucsBiosVfIntegratedGraphicsApertureSizeRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntegratedGraphicsApertureSizeRn.setStatus(_A)
+_CucsBiosVfIntegratedGraphicsApertureSizeSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfIntegratedGraphicsApertureSizeSupportedByDefault_Object=MibTableColumn
+cucsBiosVfIntegratedGraphicsApertureSizeSupportedByDefault=_CucsBiosVfIntegratedGraphicsApertureSizeSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,94,1,4),_CucsBiosVfIntegratedGraphicsApertureSizeSupportedByDefault_Type())
+cucsBiosVfIntegratedGraphicsApertureSizeSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntegratedGraphicsApertureSizeSupportedByDefault.setStatus(_A)
+_CucsBiosVfIntegratedGraphicsApertureSizeVpIntgtGraphApertureSize_Type=CucsBiosVfIntegratedGraphicsApertureSizeVpIntgtGraphApertureSize
+_CucsBiosVfIntegratedGraphicsApertureSizeVpIntgtGraphApertureSize_Object=MibTableColumn
+cucsBiosVfIntegratedGraphicsApertureSizeVpIntgtGraphApertureSize=_CucsBiosVfIntegratedGraphicsApertureSizeVpIntgtGraphApertureSize_Object((1,3,6,1,4,1,9,9,719,1,4,94,1,5),_CucsBiosVfIntegratedGraphicsApertureSizeVpIntgtGraphApertureSize_Type())
+cucsBiosVfIntegratedGraphicsApertureSizeVpIntgtGraphApertureSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntegratedGraphicsApertureSizeVpIntgtGraphApertureSize.setStatus(_A)
+_CucsBiosVfIntegratedGraphicsApertureSizePropAcl_Type=Unsigned64
+_CucsBiosVfIntegratedGraphicsApertureSizePropAcl_Object=MibTableColumn
+cucsBiosVfIntegratedGraphicsApertureSizePropAcl=_CucsBiosVfIntegratedGraphicsApertureSizePropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,94,1,6),_CucsBiosVfIntegratedGraphicsApertureSizePropAcl_Type())
+cucsBiosVfIntegratedGraphicsApertureSizePropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIntegratedGraphicsApertureSizePropAcl.setStatus(_A)
+_CucsBiosVfOnboardGraphicsTable_Object=MibTable
+cucsBiosVfOnboardGraphicsTable=_CucsBiosVfOnboardGraphicsTable_Object((1,3,6,1,4,1,9,9,719,1,4,95))
+if mibBuilder.loadTexts:cucsBiosVfOnboardGraphicsTable.setStatus(_A)
+_CucsBiosVfOnboardGraphicsEntry_Object=MibTableRow
+cucsBiosVfOnboardGraphicsEntry=_CucsBiosVfOnboardGraphicsEntry_Object((1,3,6,1,4,1,9,9,719,1,4,95,1))
+cucsBiosVfOnboardGraphicsEntry.setIndexNames((0,_C,_Ah))
+if mibBuilder.loadTexts:cucsBiosVfOnboardGraphicsEntry.setStatus(_A)
+_CucsBiosVfOnboardGraphicsInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfOnboardGraphicsInstanceId_Object=MibTableColumn
+cucsBiosVfOnboardGraphicsInstanceId=_CucsBiosVfOnboardGraphicsInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,95,1,1),_CucsBiosVfOnboardGraphicsInstanceId_Type())
+cucsBiosVfOnboardGraphicsInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfOnboardGraphicsInstanceId.setStatus(_A)
+_CucsBiosVfOnboardGraphicsDn_Type=CucsManagedObjectDn
+_CucsBiosVfOnboardGraphicsDn_Object=MibTableColumn
+cucsBiosVfOnboardGraphicsDn=_CucsBiosVfOnboardGraphicsDn_Object((1,3,6,1,4,1,9,9,719,1,4,95,1,2),_CucsBiosVfOnboardGraphicsDn_Type())
+cucsBiosVfOnboardGraphicsDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOnboardGraphicsDn.setStatus(_A)
+_CucsBiosVfOnboardGraphicsRn_Type=SnmpAdminString
+_CucsBiosVfOnboardGraphicsRn_Object=MibTableColumn
+cucsBiosVfOnboardGraphicsRn=_CucsBiosVfOnboardGraphicsRn_Object((1,3,6,1,4,1,9,9,719,1,4,95,1,3),_CucsBiosVfOnboardGraphicsRn_Type())
+cucsBiosVfOnboardGraphicsRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOnboardGraphicsRn.setStatus(_A)
+_CucsBiosVfOnboardGraphicsSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfOnboardGraphicsSupportedByDefault_Object=MibTableColumn
+cucsBiosVfOnboardGraphicsSupportedByDefault=_CucsBiosVfOnboardGraphicsSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,95,1,4),_CucsBiosVfOnboardGraphicsSupportedByDefault_Type())
+cucsBiosVfOnboardGraphicsSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOnboardGraphicsSupportedByDefault.setStatus(_A)
+_CucsBiosVfOnboardGraphicsVpOnboardGraphics_Type=CucsBiosVfOnboardGraphicsVpOnboardGraphics
+_CucsBiosVfOnboardGraphicsVpOnboardGraphics_Object=MibTableColumn
+cucsBiosVfOnboardGraphicsVpOnboardGraphics=_CucsBiosVfOnboardGraphicsVpOnboardGraphics_Object((1,3,6,1,4,1,9,9,719,1,4,95,1,5),_CucsBiosVfOnboardGraphicsVpOnboardGraphics_Type())
+cucsBiosVfOnboardGraphicsVpOnboardGraphics.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOnboardGraphicsVpOnboardGraphics.setStatus(_A)
+_CucsBiosVfOnboardGraphicsPropAcl_Type=Unsigned64
+_CucsBiosVfOnboardGraphicsPropAcl_Object=MibTableColumn
+cucsBiosVfOnboardGraphicsPropAcl=_CucsBiosVfOnboardGraphicsPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,95,1,6),_CucsBiosVfOnboardGraphicsPropAcl_Type())
+cucsBiosVfOnboardGraphicsPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOnboardGraphicsPropAcl.setStatus(_A)
+_CucsBiosVfProcessorCMCITable_Object=MibTable
+cucsBiosVfProcessorCMCITable=_CucsBiosVfProcessorCMCITable_Object((1,3,6,1,4,1,9,9,719,1,4,96))
+if mibBuilder.loadTexts:cucsBiosVfProcessorCMCITable.setStatus(_A)
+_CucsBiosVfProcessorCMCIEntry_Object=MibTableRow
+cucsBiosVfProcessorCMCIEntry=_CucsBiosVfProcessorCMCIEntry_Object((1,3,6,1,4,1,9,9,719,1,4,96,1))
+cucsBiosVfProcessorCMCIEntry.setIndexNames((0,_C,_Ai))
+if mibBuilder.loadTexts:cucsBiosVfProcessorCMCIEntry.setStatus(_A)
+_CucsBiosVfProcessorCMCIInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfProcessorCMCIInstanceId_Object=MibTableColumn
+cucsBiosVfProcessorCMCIInstanceId=_CucsBiosVfProcessorCMCIInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,96,1,1),_CucsBiosVfProcessorCMCIInstanceId_Type())
+cucsBiosVfProcessorCMCIInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfProcessorCMCIInstanceId.setStatus(_A)
+_CucsBiosVfProcessorCMCIDn_Type=CucsManagedObjectDn
+_CucsBiosVfProcessorCMCIDn_Object=MibTableColumn
+cucsBiosVfProcessorCMCIDn=_CucsBiosVfProcessorCMCIDn_Object((1,3,6,1,4,1,9,9,719,1,4,96,1,2),_CucsBiosVfProcessorCMCIDn_Type())
+cucsBiosVfProcessorCMCIDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorCMCIDn.setStatus(_A)
+_CucsBiosVfProcessorCMCIRn_Type=SnmpAdminString
+_CucsBiosVfProcessorCMCIRn_Object=MibTableColumn
+cucsBiosVfProcessorCMCIRn=_CucsBiosVfProcessorCMCIRn_Object((1,3,6,1,4,1,9,9,719,1,4,96,1,3),_CucsBiosVfProcessorCMCIRn_Type())
+cucsBiosVfProcessorCMCIRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorCMCIRn.setStatus(_A)
+_CucsBiosVfProcessorCMCIVpProcessorCMCI_Type=CucsBiosVfProcessorCMCIVpProcessorCMCI
+_CucsBiosVfProcessorCMCIVpProcessorCMCI_Object=MibTableColumn
+cucsBiosVfProcessorCMCIVpProcessorCMCI=_CucsBiosVfProcessorCMCIVpProcessorCMCI_Object((1,3,6,1,4,1,9,9,719,1,4,96,1,4),_CucsBiosVfProcessorCMCIVpProcessorCMCI_Type())
+cucsBiosVfProcessorCMCIVpProcessorCMCI.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorCMCIVpProcessorCMCI.setStatus(_A)
+_CucsBiosVfProcessorCMCIPropAcl_Type=Unsigned64
+_CucsBiosVfProcessorCMCIPropAcl_Object=MibTableColumn
+cucsBiosVfProcessorCMCIPropAcl=_CucsBiosVfProcessorCMCIPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,96,1,5),_CucsBiosVfProcessorCMCIPropAcl_Type())
+cucsBiosVfProcessorCMCIPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorCMCIPropAcl.setStatus(_A)
+_CucsBiosVfProcessorCMCISupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfProcessorCMCISupportedByDefault_Object=MibTableColumn
+cucsBiosVfProcessorCMCISupportedByDefault=_CucsBiosVfProcessorCMCISupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,96,1,6),_CucsBiosVfProcessorCMCISupportedByDefault_Type())
+cucsBiosVfProcessorCMCISupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfProcessorCMCISupportedByDefault.setStatus(_A)
+_CucsBiosVfEnergyPerformanceTuningTable_Object=MibTable
+cucsBiosVfEnergyPerformanceTuningTable=_CucsBiosVfEnergyPerformanceTuningTable_Object((1,3,6,1,4,1,9,9,719,1,4,97))
+if mibBuilder.loadTexts:cucsBiosVfEnergyPerformanceTuningTable.setStatus(_A)
+_CucsBiosVfEnergyPerformanceTuningEntry_Object=MibTableRow
+cucsBiosVfEnergyPerformanceTuningEntry=_CucsBiosVfEnergyPerformanceTuningEntry_Object((1,3,6,1,4,1,9,9,719,1,4,97,1))
+cucsBiosVfEnergyPerformanceTuningEntry.setIndexNames((0,_C,_Aj))
+if mibBuilder.loadTexts:cucsBiosVfEnergyPerformanceTuningEntry.setStatus(_A)
+_CucsBiosVfEnergyPerformanceTuningInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfEnergyPerformanceTuningInstanceId_Object=MibTableColumn
+cucsBiosVfEnergyPerformanceTuningInstanceId=_CucsBiosVfEnergyPerformanceTuningInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,97,1,1),_CucsBiosVfEnergyPerformanceTuningInstanceId_Type())
+cucsBiosVfEnergyPerformanceTuningInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfEnergyPerformanceTuningInstanceId.setStatus(_A)
+_CucsBiosVfEnergyPerformanceTuningDn_Type=CucsManagedObjectDn
+_CucsBiosVfEnergyPerformanceTuningDn_Object=MibTableColumn
+cucsBiosVfEnergyPerformanceTuningDn=_CucsBiosVfEnergyPerformanceTuningDn_Object((1,3,6,1,4,1,9,9,719,1,4,97,1,2),_CucsBiosVfEnergyPerformanceTuningDn_Type())
+cucsBiosVfEnergyPerformanceTuningDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfEnergyPerformanceTuningDn.setStatus(_A)
+_CucsBiosVfEnergyPerformanceTuningRn_Type=SnmpAdminString
+_CucsBiosVfEnergyPerformanceTuningRn_Object=MibTableColumn
+cucsBiosVfEnergyPerformanceTuningRn=_CucsBiosVfEnergyPerformanceTuningRn_Object((1,3,6,1,4,1,9,9,719,1,4,97,1,3),_CucsBiosVfEnergyPerformanceTuningRn_Type())
+cucsBiosVfEnergyPerformanceTuningRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfEnergyPerformanceTuningRn.setStatus(_A)
+_CucsBiosVfEnergyPerformanceTuningPropAcl_Type=Unsigned64
+_CucsBiosVfEnergyPerformanceTuningPropAcl_Object=MibTableColumn
+cucsBiosVfEnergyPerformanceTuningPropAcl=_CucsBiosVfEnergyPerformanceTuningPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,97,1,4),_CucsBiosVfEnergyPerformanceTuningPropAcl_Type())
+cucsBiosVfEnergyPerformanceTuningPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfEnergyPerformanceTuningPropAcl.setStatus(_A)
+_CucsBiosVfEnergyPerformanceTuningSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfEnergyPerformanceTuningSupportedByDefault_Object=MibTableColumn
+cucsBiosVfEnergyPerformanceTuningSupportedByDefault=_CucsBiosVfEnergyPerformanceTuningSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,97,1,5),_CucsBiosVfEnergyPerformanceTuningSupportedByDefault_Type())
+cucsBiosVfEnergyPerformanceTuningSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfEnergyPerformanceTuningSupportedByDefault.setStatus(_A)
+_CucsBiosVfEnergyPerformanceTuningVpPwrPerfTuning_Type=CucsBiosVfEnergyPerformanceTuningVpPwrPerfTuning
+_CucsBiosVfEnergyPerformanceTuningVpPwrPerfTuning_Object=MibTableColumn
+cucsBiosVfEnergyPerformanceTuningVpPwrPerfTuning=_CucsBiosVfEnergyPerformanceTuningVpPwrPerfTuning_Object((1,3,6,1,4,1,9,9,719,1,4,97,1,6),_CucsBiosVfEnergyPerformanceTuningVpPwrPerfTuning_Type())
+cucsBiosVfEnergyPerformanceTuningVpPwrPerfTuning.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfEnergyPerformanceTuningVpPwrPerfTuning.setStatus(_A)
+_CucsBiosVfIOEMezz1OptionROMTable_Object=MibTable
+cucsBiosVfIOEMezz1OptionROMTable=_CucsBiosVfIOEMezz1OptionROMTable_Object((1,3,6,1,4,1,9,9,719,1,4,98))
+if mibBuilder.loadTexts:cucsBiosVfIOEMezz1OptionROMTable.setStatus(_A)
+_CucsBiosVfIOEMezz1OptionROMEntry_Object=MibTableRow
+cucsBiosVfIOEMezz1OptionROMEntry=_CucsBiosVfIOEMezz1OptionROMEntry_Object((1,3,6,1,4,1,9,9,719,1,4,98,1))
+cucsBiosVfIOEMezz1OptionROMEntry.setIndexNames((0,_C,_Ak))
+if mibBuilder.loadTexts:cucsBiosVfIOEMezz1OptionROMEntry.setStatus(_A)
+_CucsBiosVfIOEMezz1OptionROMInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfIOEMezz1OptionROMInstanceId_Object=MibTableColumn
+cucsBiosVfIOEMezz1OptionROMInstanceId=_CucsBiosVfIOEMezz1OptionROMInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,98,1,1),_CucsBiosVfIOEMezz1OptionROMInstanceId_Type())
+cucsBiosVfIOEMezz1OptionROMInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfIOEMezz1OptionROMInstanceId.setStatus(_A)
+_CucsBiosVfIOEMezz1OptionROMDn_Type=CucsManagedObjectDn
+_CucsBiosVfIOEMezz1OptionROMDn_Object=MibTableColumn
+cucsBiosVfIOEMezz1OptionROMDn=_CucsBiosVfIOEMezz1OptionROMDn_Object((1,3,6,1,4,1,9,9,719,1,4,98,1,2),_CucsBiosVfIOEMezz1OptionROMDn_Type())
+cucsBiosVfIOEMezz1OptionROMDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOEMezz1OptionROMDn.setStatus(_A)
+_CucsBiosVfIOEMezz1OptionROMRn_Type=SnmpAdminString
+_CucsBiosVfIOEMezz1OptionROMRn_Object=MibTableColumn
+cucsBiosVfIOEMezz1OptionROMRn=_CucsBiosVfIOEMezz1OptionROMRn_Object((1,3,6,1,4,1,9,9,719,1,4,98,1,3),_CucsBiosVfIOEMezz1OptionROMRn_Type())
+cucsBiosVfIOEMezz1OptionROMRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOEMezz1OptionROMRn.setStatus(_A)
+_CucsBiosVfIOEMezz1OptionROMPropAcl_Type=Unsigned64
+_CucsBiosVfIOEMezz1OptionROMPropAcl_Object=MibTableColumn
+cucsBiosVfIOEMezz1OptionROMPropAcl=_CucsBiosVfIOEMezz1OptionROMPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,98,1,4),_CucsBiosVfIOEMezz1OptionROMPropAcl_Type())
+cucsBiosVfIOEMezz1OptionROMPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOEMezz1OptionROMPropAcl.setStatus(_A)
+_CucsBiosVfIOEMezz1OptionROMSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfIOEMezz1OptionROMSupportedByDefault_Object=MibTableColumn
+cucsBiosVfIOEMezz1OptionROMSupportedByDefault=_CucsBiosVfIOEMezz1OptionROMSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,98,1,5),_CucsBiosVfIOEMezz1OptionROMSupportedByDefault_Type())
+cucsBiosVfIOEMezz1OptionROMSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOEMezz1OptionROMSupportedByDefault.setStatus(_A)
+_CucsBiosVfIOEMezz1OptionROMVpIOEMezz1OptionROM_Type=CucsBiosVfIOEMezz1OptionROMVpIOEMezz1OptionROM
+_CucsBiosVfIOEMezz1OptionROMVpIOEMezz1OptionROM_Object=MibTableColumn
+cucsBiosVfIOEMezz1OptionROMVpIOEMezz1OptionROM=_CucsBiosVfIOEMezz1OptionROMVpIOEMezz1OptionROM_Object((1,3,6,1,4,1,9,9,719,1,4,98,1,6),_CucsBiosVfIOEMezz1OptionROMVpIOEMezz1OptionROM_Type())
+cucsBiosVfIOEMezz1OptionROMVpIOEMezz1OptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOEMezz1OptionROMVpIOEMezz1OptionROM.setStatus(_A)
+_CucsBiosVfIOENVMe1OptionROMTable_Object=MibTable
+cucsBiosVfIOENVMe1OptionROMTable=_CucsBiosVfIOENVMe1OptionROMTable_Object((1,3,6,1,4,1,9,9,719,1,4,99))
+if mibBuilder.loadTexts:cucsBiosVfIOENVMe1OptionROMTable.setStatus(_A)
+_CucsBiosVfIOENVMe1OptionROMEntry_Object=MibTableRow
+cucsBiosVfIOENVMe1OptionROMEntry=_CucsBiosVfIOENVMe1OptionROMEntry_Object((1,3,6,1,4,1,9,9,719,1,4,99,1))
+cucsBiosVfIOENVMe1OptionROMEntry.setIndexNames((0,_C,_Al))
+if mibBuilder.loadTexts:cucsBiosVfIOENVMe1OptionROMEntry.setStatus(_A)
+_CucsBiosVfIOENVMe1OptionROMInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfIOENVMe1OptionROMInstanceId_Object=MibTableColumn
+cucsBiosVfIOENVMe1OptionROMInstanceId=_CucsBiosVfIOENVMe1OptionROMInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,99,1,1),_CucsBiosVfIOENVMe1OptionROMInstanceId_Type())
+cucsBiosVfIOENVMe1OptionROMInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfIOENVMe1OptionROMInstanceId.setStatus(_A)
+_CucsBiosVfIOENVMe1OptionROMDn_Type=CucsManagedObjectDn
+_CucsBiosVfIOENVMe1OptionROMDn_Object=MibTableColumn
+cucsBiosVfIOENVMe1OptionROMDn=_CucsBiosVfIOENVMe1OptionROMDn_Object((1,3,6,1,4,1,9,9,719,1,4,99,1,2),_CucsBiosVfIOENVMe1OptionROMDn_Type())
+cucsBiosVfIOENVMe1OptionROMDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOENVMe1OptionROMDn.setStatus(_A)
+_CucsBiosVfIOENVMe1OptionROMRn_Type=SnmpAdminString
+_CucsBiosVfIOENVMe1OptionROMRn_Object=MibTableColumn
+cucsBiosVfIOENVMe1OptionROMRn=_CucsBiosVfIOENVMe1OptionROMRn_Object((1,3,6,1,4,1,9,9,719,1,4,99,1,3),_CucsBiosVfIOENVMe1OptionROMRn_Type())
+cucsBiosVfIOENVMe1OptionROMRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOENVMe1OptionROMRn.setStatus(_A)
+_CucsBiosVfIOENVMe1OptionROMPropAcl_Type=Unsigned64
+_CucsBiosVfIOENVMe1OptionROMPropAcl_Object=MibTableColumn
+cucsBiosVfIOENVMe1OptionROMPropAcl=_CucsBiosVfIOENVMe1OptionROMPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,99,1,4),_CucsBiosVfIOENVMe1OptionROMPropAcl_Type())
+cucsBiosVfIOENVMe1OptionROMPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOENVMe1OptionROMPropAcl.setStatus(_A)
+_CucsBiosVfIOENVMe1OptionROMSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfIOENVMe1OptionROMSupportedByDefault_Object=MibTableColumn
+cucsBiosVfIOENVMe1OptionROMSupportedByDefault=_CucsBiosVfIOENVMe1OptionROMSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,99,1,5),_CucsBiosVfIOENVMe1OptionROMSupportedByDefault_Type())
+cucsBiosVfIOENVMe1OptionROMSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOENVMe1OptionROMSupportedByDefault.setStatus(_A)
+_CucsBiosVfIOENVMe1OptionROMVpIOENVMe1OptionROM_Type=CucsBiosVfIOENVMe1OptionROMVpIOENVMe1OptionROM
+_CucsBiosVfIOENVMe1OptionROMVpIOENVMe1OptionROM_Object=MibTableColumn
+cucsBiosVfIOENVMe1OptionROMVpIOENVMe1OptionROM=_CucsBiosVfIOENVMe1OptionROMVpIOENVMe1OptionROM_Object((1,3,6,1,4,1,9,9,719,1,4,99,1,6),_CucsBiosVfIOENVMe1OptionROMVpIOENVMe1OptionROM_Type())
+cucsBiosVfIOENVMe1OptionROMVpIOENVMe1OptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOENVMe1OptionROMVpIOENVMe1OptionROM.setStatus(_A)
+_CucsBiosVfIOENVMe2OptionROMTable_Object=MibTable
+cucsBiosVfIOENVMe2OptionROMTable=_CucsBiosVfIOENVMe2OptionROMTable_Object((1,3,6,1,4,1,9,9,719,1,4,100))
+if mibBuilder.loadTexts:cucsBiosVfIOENVMe2OptionROMTable.setStatus(_A)
+_CucsBiosVfIOENVMe2OptionROMEntry_Object=MibTableRow
+cucsBiosVfIOENVMe2OptionROMEntry=_CucsBiosVfIOENVMe2OptionROMEntry_Object((1,3,6,1,4,1,9,9,719,1,4,100,1))
+cucsBiosVfIOENVMe2OptionROMEntry.setIndexNames((0,_C,_Am))
+if mibBuilder.loadTexts:cucsBiosVfIOENVMe2OptionROMEntry.setStatus(_A)
+_CucsBiosVfIOENVMe2OptionROMInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfIOENVMe2OptionROMInstanceId_Object=MibTableColumn
+cucsBiosVfIOENVMe2OptionROMInstanceId=_CucsBiosVfIOENVMe2OptionROMInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,100,1,1),_CucsBiosVfIOENVMe2OptionROMInstanceId_Type())
+cucsBiosVfIOENVMe2OptionROMInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfIOENVMe2OptionROMInstanceId.setStatus(_A)
+_CucsBiosVfIOENVMe2OptionROMDn_Type=CucsManagedObjectDn
+_CucsBiosVfIOENVMe2OptionROMDn_Object=MibTableColumn
+cucsBiosVfIOENVMe2OptionROMDn=_CucsBiosVfIOENVMe2OptionROMDn_Object((1,3,6,1,4,1,9,9,719,1,4,100,1,2),_CucsBiosVfIOENVMe2OptionROMDn_Type())
+cucsBiosVfIOENVMe2OptionROMDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOENVMe2OptionROMDn.setStatus(_A)
+_CucsBiosVfIOENVMe2OptionROMRn_Type=SnmpAdminString
+_CucsBiosVfIOENVMe2OptionROMRn_Object=MibTableColumn
+cucsBiosVfIOENVMe2OptionROMRn=_CucsBiosVfIOENVMe2OptionROMRn_Object((1,3,6,1,4,1,9,9,719,1,4,100,1,3),_CucsBiosVfIOENVMe2OptionROMRn_Type())
+cucsBiosVfIOENVMe2OptionROMRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOENVMe2OptionROMRn.setStatus(_A)
+_CucsBiosVfIOENVMe2OptionROMPropAcl_Type=Unsigned64
+_CucsBiosVfIOENVMe2OptionROMPropAcl_Object=MibTableColumn
+cucsBiosVfIOENVMe2OptionROMPropAcl=_CucsBiosVfIOENVMe2OptionROMPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,100,1,4),_CucsBiosVfIOENVMe2OptionROMPropAcl_Type())
+cucsBiosVfIOENVMe2OptionROMPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOENVMe2OptionROMPropAcl.setStatus(_A)
+_CucsBiosVfIOENVMe2OptionROMSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfIOENVMe2OptionROMSupportedByDefault_Object=MibTableColumn
+cucsBiosVfIOENVMe2OptionROMSupportedByDefault=_CucsBiosVfIOENVMe2OptionROMSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,100,1,5),_CucsBiosVfIOENVMe2OptionROMSupportedByDefault_Type())
+cucsBiosVfIOENVMe2OptionROMSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOENVMe2OptionROMSupportedByDefault.setStatus(_A)
+_CucsBiosVfIOENVMe2OptionROMVpIOENVMe2OptionROM_Type=CucsBiosVfIOENVMe2OptionROMVpIOENVMe2OptionROM
+_CucsBiosVfIOENVMe2OptionROMVpIOENVMe2OptionROM_Object=MibTableColumn
+cucsBiosVfIOENVMe2OptionROMVpIOENVMe2OptionROM=_CucsBiosVfIOENVMe2OptionROMVpIOENVMe2OptionROM_Object((1,3,6,1,4,1,9,9,719,1,4,100,1,6),_CucsBiosVfIOENVMe2OptionROMVpIOENVMe2OptionROM_Type())
+cucsBiosVfIOENVMe2OptionROMVpIOENVMe2OptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOENVMe2OptionROMVpIOENVMe2OptionROM.setStatus(_A)
+_CucsBiosVfIOESlot1OptionROMTable_Object=MibTable
+cucsBiosVfIOESlot1OptionROMTable=_CucsBiosVfIOESlot1OptionROMTable_Object((1,3,6,1,4,1,9,9,719,1,4,101))
+if mibBuilder.loadTexts:cucsBiosVfIOESlot1OptionROMTable.setStatus(_A)
+_CucsBiosVfIOESlot1OptionROMEntry_Object=MibTableRow
+cucsBiosVfIOESlot1OptionROMEntry=_CucsBiosVfIOESlot1OptionROMEntry_Object((1,3,6,1,4,1,9,9,719,1,4,101,1))
+cucsBiosVfIOESlot1OptionROMEntry.setIndexNames((0,_C,_An))
+if mibBuilder.loadTexts:cucsBiosVfIOESlot1OptionROMEntry.setStatus(_A)
+_CucsBiosVfIOESlot1OptionROMInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfIOESlot1OptionROMInstanceId_Object=MibTableColumn
+cucsBiosVfIOESlot1OptionROMInstanceId=_CucsBiosVfIOESlot1OptionROMInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,101,1,1),_CucsBiosVfIOESlot1OptionROMInstanceId_Type())
+cucsBiosVfIOESlot1OptionROMInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfIOESlot1OptionROMInstanceId.setStatus(_A)
+_CucsBiosVfIOESlot1OptionROMDn_Type=CucsManagedObjectDn
+_CucsBiosVfIOESlot1OptionROMDn_Object=MibTableColumn
+cucsBiosVfIOESlot1OptionROMDn=_CucsBiosVfIOESlot1OptionROMDn_Object((1,3,6,1,4,1,9,9,719,1,4,101,1,2),_CucsBiosVfIOESlot1OptionROMDn_Type())
+cucsBiosVfIOESlot1OptionROMDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOESlot1OptionROMDn.setStatus(_A)
+_CucsBiosVfIOESlot1OptionROMRn_Type=SnmpAdminString
+_CucsBiosVfIOESlot1OptionROMRn_Object=MibTableColumn
+cucsBiosVfIOESlot1OptionROMRn=_CucsBiosVfIOESlot1OptionROMRn_Object((1,3,6,1,4,1,9,9,719,1,4,101,1,3),_CucsBiosVfIOESlot1OptionROMRn_Type())
+cucsBiosVfIOESlot1OptionROMRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOESlot1OptionROMRn.setStatus(_A)
+_CucsBiosVfIOESlot1OptionROMPropAcl_Type=Unsigned64
+_CucsBiosVfIOESlot1OptionROMPropAcl_Object=MibTableColumn
+cucsBiosVfIOESlot1OptionROMPropAcl=_CucsBiosVfIOESlot1OptionROMPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,101,1,4),_CucsBiosVfIOESlot1OptionROMPropAcl_Type())
+cucsBiosVfIOESlot1OptionROMPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOESlot1OptionROMPropAcl.setStatus(_A)
+_CucsBiosVfIOESlot1OptionROMSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfIOESlot1OptionROMSupportedByDefault_Object=MibTableColumn
+cucsBiosVfIOESlot1OptionROMSupportedByDefault=_CucsBiosVfIOESlot1OptionROMSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,101,1,5),_CucsBiosVfIOESlot1OptionROMSupportedByDefault_Type())
+cucsBiosVfIOESlot1OptionROMSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOESlot1OptionROMSupportedByDefault.setStatus(_A)
+_CucsBiosVfIOESlot1OptionROMVpIOESlot1OptionROM_Type=CucsBiosVfIOESlot1OptionROMVpIOESlot1OptionROM
+_CucsBiosVfIOESlot1OptionROMVpIOESlot1OptionROM_Object=MibTableColumn
+cucsBiosVfIOESlot1OptionROMVpIOESlot1OptionROM=_CucsBiosVfIOESlot1OptionROMVpIOESlot1OptionROM_Object((1,3,6,1,4,1,9,9,719,1,4,101,1,6),_CucsBiosVfIOESlot1OptionROMVpIOESlot1OptionROM_Type())
+cucsBiosVfIOESlot1OptionROMVpIOESlot1OptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOESlot1OptionROMVpIOESlot1OptionROM.setStatus(_A)
+_CucsBiosVfIOESlot2OptionROMTable_Object=MibTable
+cucsBiosVfIOESlot2OptionROMTable=_CucsBiosVfIOESlot2OptionROMTable_Object((1,3,6,1,4,1,9,9,719,1,4,102))
+if mibBuilder.loadTexts:cucsBiosVfIOESlot2OptionROMTable.setStatus(_A)
+_CucsBiosVfIOESlot2OptionROMEntry_Object=MibTableRow
+cucsBiosVfIOESlot2OptionROMEntry=_CucsBiosVfIOESlot2OptionROMEntry_Object((1,3,6,1,4,1,9,9,719,1,4,102,1))
+cucsBiosVfIOESlot2OptionROMEntry.setIndexNames((0,_C,_Ao))
+if mibBuilder.loadTexts:cucsBiosVfIOESlot2OptionROMEntry.setStatus(_A)
+_CucsBiosVfIOESlot2OptionROMInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfIOESlot2OptionROMInstanceId_Object=MibTableColumn
+cucsBiosVfIOESlot2OptionROMInstanceId=_CucsBiosVfIOESlot2OptionROMInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,102,1,1),_CucsBiosVfIOESlot2OptionROMInstanceId_Type())
+cucsBiosVfIOESlot2OptionROMInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfIOESlot2OptionROMInstanceId.setStatus(_A)
+_CucsBiosVfIOESlot2OptionROMDn_Type=CucsManagedObjectDn
+_CucsBiosVfIOESlot2OptionROMDn_Object=MibTableColumn
+cucsBiosVfIOESlot2OptionROMDn=_CucsBiosVfIOESlot2OptionROMDn_Object((1,3,6,1,4,1,9,9,719,1,4,102,1,2),_CucsBiosVfIOESlot2OptionROMDn_Type())
+cucsBiosVfIOESlot2OptionROMDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOESlot2OptionROMDn.setStatus(_A)
+_CucsBiosVfIOESlot2OptionROMRn_Type=SnmpAdminString
+_CucsBiosVfIOESlot2OptionROMRn_Object=MibTableColumn
+cucsBiosVfIOESlot2OptionROMRn=_CucsBiosVfIOESlot2OptionROMRn_Object((1,3,6,1,4,1,9,9,719,1,4,102,1,3),_CucsBiosVfIOESlot2OptionROMRn_Type())
+cucsBiosVfIOESlot2OptionROMRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOESlot2OptionROMRn.setStatus(_A)
+_CucsBiosVfIOESlot2OptionROMPropAcl_Type=Unsigned64
+_CucsBiosVfIOESlot2OptionROMPropAcl_Object=MibTableColumn
+cucsBiosVfIOESlot2OptionROMPropAcl=_CucsBiosVfIOESlot2OptionROMPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,102,1,4),_CucsBiosVfIOESlot2OptionROMPropAcl_Type())
+cucsBiosVfIOESlot2OptionROMPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOESlot2OptionROMPropAcl.setStatus(_A)
+_CucsBiosVfIOESlot2OptionROMSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfIOESlot2OptionROMSupportedByDefault_Object=MibTableColumn
+cucsBiosVfIOESlot2OptionROMSupportedByDefault=_CucsBiosVfIOESlot2OptionROMSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,102,1,5),_CucsBiosVfIOESlot2OptionROMSupportedByDefault_Type())
+cucsBiosVfIOESlot2OptionROMSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOESlot2OptionROMSupportedByDefault.setStatus(_A)
+_CucsBiosVfIOESlot2OptionROMVpIOESlot2OptionROM_Type=CucsBiosVfIOESlot2OptionROMVpIOESlot2OptionROM
+_CucsBiosVfIOESlot2OptionROMVpIOESlot2OptionROM_Object=MibTableColumn
+cucsBiosVfIOESlot2OptionROMVpIOESlot2OptionROM=_CucsBiosVfIOESlot2OptionROMVpIOESlot2OptionROM_Object((1,3,6,1,4,1,9,9,719,1,4,102,1,6),_CucsBiosVfIOESlot2OptionROMVpIOESlot2OptionROM_Type())
+cucsBiosVfIOESlot2OptionROMVpIOESlot2OptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfIOESlot2OptionROMVpIOESlot2OptionROM.setStatus(_A)
+_CucsBiosVfOutOfBandManagementTable_Object=MibTable
+cucsBiosVfOutOfBandManagementTable=_CucsBiosVfOutOfBandManagementTable_Object((1,3,6,1,4,1,9,9,719,1,4,103))
+if mibBuilder.loadTexts:cucsBiosVfOutOfBandManagementTable.setStatus(_A)
+_CucsBiosVfOutOfBandManagementEntry_Object=MibTableRow
+cucsBiosVfOutOfBandManagementEntry=_CucsBiosVfOutOfBandManagementEntry_Object((1,3,6,1,4,1,9,9,719,1,4,103,1))
+cucsBiosVfOutOfBandManagementEntry.setIndexNames((0,_C,_Ap))
+if mibBuilder.loadTexts:cucsBiosVfOutOfBandManagementEntry.setStatus(_A)
+_CucsBiosVfOutOfBandManagementInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfOutOfBandManagementInstanceId_Object=MibTableColumn
+cucsBiosVfOutOfBandManagementInstanceId=_CucsBiosVfOutOfBandManagementInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,103,1,1),_CucsBiosVfOutOfBandManagementInstanceId_Type())
+cucsBiosVfOutOfBandManagementInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfOutOfBandManagementInstanceId.setStatus(_A)
+_CucsBiosVfOutOfBandManagementDn_Type=CucsManagedObjectDn
+_CucsBiosVfOutOfBandManagementDn_Object=MibTableColumn
+cucsBiosVfOutOfBandManagementDn=_CucsBiosVfOutOfBandManagementDn_Object((1,3,6,1,4,1,9,9,719,1,4,103,1,2),_CucsBiosVfOutOfBandManagementDn_Type())
+cucsBiosVfOutOfBandManagementDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOutOfBandManagementDn.setStatus(_A)
+_CucsBiosVfOutOfBandManagementRn_Type=SnmpAdminString
+_CucsBiosVfOutOfBandManagementRn_Object=MibTableColumn
+cucsBiosVfOutOfBandManagementRn=_CucsBiosVfOutOfBandManagementRn_Object((1,3,6,1,4,1,9,9,719,1,4,103,1,3),_CucsBiosVfOutOfBandManagementRn_Type())
+cucsBiosVfOutOfBandManagementRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOutOfBandManagementRn.setStatus(_A)
+_CucsBiosVfOutOfBandManagementPropAcl_Type=Unsigned64
+_CucsBiosVfOutOfBandManagementPropAcl_Object=MibTableColumn
+cucsBiosVfOutOfBandManagementPropAcl=_CucsBiosVfOutOfBandManagementPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,103,1,4),_CucsBiosVfOutOfBandManagementPropAcl_Type())
+cucsBiosVfOutOfBandManagementPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOutOfBandManagementPropAcl.setStatus(_A)
+_CucsBiosVfOutOfBandManagementSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfOutOfBandManagementSupportedByDefault_Object=MibTableColumn
+cucsBiosVfOutOfBandManagementSupportedByDefault=_CucsBiosVfOutOfBandManagementSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,103,1,5),_CucsBiosVfOutOfBandManagementSupportedByDefault_Type())
+cucsBiosVfOutOfBandManagementSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOutOfBandManagementSupportedByDefault.setStatus(_A)
+_CucsBiosVfOutOfBandManagementVpComSpcrEnable_Type=CucsBiosVfOutOfBandManagementVpComSpcrEnable
+_CucsBiosVfOutOfBandManagementVpComSpcrEnable_Object=MibTableColumn
+cucsBiosVfOutOfBandManagementVpComSpcrEnable=_CucsBiosVfOutOfBandManagementVpComSpcrEnable_Object((1,3,6,1,4,1,9,9,719,1,4,103,1,6),_CucsBiosVfOutOfBandManagementVpComSpcrEnable_Type())
+cucsBiosVfOutOfBandManagementVpComSpcrEnable.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfOutOfBandManagementVpComSpcrEnable.setStatus(_A)
+_CucsBiosVfPCIROMCLPTable_Object=MibTable
+cucsBiosVfPCIROMCLPTable=_CucsBiosVfPCIROMCLPTable_Object((1,3,6,1,4,1,9,9,719,1,4,104))
+if mibBuilder.loadTexts:cucsBiosVfPCIROMCLPTable.setStatus(_A)
+_CucsBiosVfPCIROMCLPEntry_Object=MibTableRow
+cucsBiosVfPCIROMCLPEntry=_CucsBiosVfPCIROMCLPEntry_Object((1,3,6,1,4,1,9,9,719,1,4,104,1))
+cucsBiosVfPCIROMCLPEntry.setIndexNames((0,_C,_Aq))
+if mibBuilder.loadTexts:cucsBiosVfPCIROMCLPEntry.setStatus(_A)
+_CucsBiosVfPCIROMCLPInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfPCIROMCLPInstanceId_Object=MibTableColumn
+cucsBiosVfPCIROMCLPInstanceId=_CucsBiosVfPCIROMCLPInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,104,1,1),_CucsBiosVfPCIROMCLPInstanceId_Type())
+cucsBiosVfPCIROMCLPInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfPCIROMCLPInstanceId.setStatus(_A)
+_CucsBiosVfPCIROMCLPDn_Type=CucsManagedObjectDn
+_CucsBiosVfPCIROMCLPDn_Object=MibTableColumn
+cucsBiosVfPCIROMCLPDn=_CucsBiosVfPCIROMCLPDn_Object((1,3,6,1,4,1,9,9,719,1,4,104,1,2),_CucsBiosVfPCIROMCLPDn_Type())
+cucsBiosVfPCIROMCLPDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCIROMCLPDn.setStatus(_A)
+_CucsBiosVfPCIROMCLPRn_Type=SnmpAdminString
+_CucsBiosVfPCIROMCLPRn_Object=MibTableColumn
+cucsBiosVfPCIROMCLPRn=_CucsBiosVfPCIROMCLPRn_Object((1,3,6,1,4,1,9,9,719,1,4,104,1,3),_CucsBiosVfPCIROMCLPRn_Type())
+cucsBiosVfPCIROMCLPRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCIROMCLPRn.setStatus(_A)
+_CucsBiosVfPCIROMCLPPropAcl_Type=Unsigned64
+_CucsBiosVfPCIROMCLPPropAcl_Object=MibTableColumn
+cucsBiosVfPCIROMCLPPropAcl=_CucsBiosVfPCIROMCLPPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,104,1,4),_CucsBiosVfPCIROMCLPPropAcl_Type())
+cucsBiosVfPCIROMCLPPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCIROMCLPPropAcl.setStatus(_A)
+_CucsBiosVfPCIROMCLPSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfPCIROMCLPSupportedByDefault_Object=MibTableColumn
+cucsBiosVfPCIROMCLPSupportedByDefault=_CucsBiosVfPCIROMCLPSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,104,1,5),_CucsBiosVfPCIROMCLPSupportedByDefault_Type())
+cucsBiosVfPCIROMCLPSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCIROMCLPSupportedByDefault.setStatus(_A)
+_CucsBiosVfPCIROMCLPVpPCIROMCLP_Type=CucsBiosVfPCIROMCLPVpPCIROMCLP
+_CucsBiosVfPCIROMCLPVpPCIROMCLP_Object=MibTableColumn
+cucsBiosVfPCIROMCLPVpPCIROMCLP=_CucsBiosVfPCIROMCLPVpPCIROMCLP_Object((1,3,6,1,4,1,9,9,719,1,4,104,1,6),_CucsBiosVfPCIROMCLPVpPCIROMCLP_Type())
+cucsBiosVfPCIROMCLPVpPCIROMCLP.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfPCIROMCLPVpPCIROMCLP.setStatus(_A)
+_CucsBiosVfRedirectionAfterBIOSPOSTTable_Object=MibTable
+cucsBiosVfRedirectionAfterBIOSPOSTTable=_CucsBiosVfRedirectionAfterBIOSPOSTTable_Object((1,3,6,1,4,1,9,9,719,1,4,105))
+if mibBuilder.loadTexts:cucsBiosVfRedirectionAfterBIOSPOSTTable.setStatus(_A)
+_CucsBiosVfRedirectionAfterBIOSPOSTEntry_Object=MibTableRow
+cucsBiosVfRedirectionAfterBIOSPOSTEntry=_CucsBiosVfRedirectionAfterBIOSPOSTEntry_Object((1,3,6,1,4,1,9,9,719,1,4,105,1))
+cucsBiosVfRedirectionAfterBIOSPOSTEntry.setIndexNames((0,_C,_Ar))
+if mibBuilder.loadTexts:cucsBiosVfRedirectionAfterBIOSPOSTEntry.setStatus(_A)
+_CucsBiosVfRedirectionAfterBIOSPOSTInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfRedirectionAfterBIOSPOSTInstanceId_Object=MibTableColumn
+cucsBiosVfRedirectionAfterBIOSPOSTInstanceId=_CucsBiosVfRedirectionAfterBIOSPOSTInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,105,1,1),_CucsBiosVfRedirectionAfterBIOSPOSTInstanceId_Type())
+cucsBiosVfRedirectionAfterBIOSPOSTInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfRedirectionAfterBIOSPOSTInstanceId.setStatus(_A)
+_CucsBiosVfRedirectionAfterBIOSPOSTDn_Type=CucsManagedObjectDn
+_CucsBiosVfRedirectionAfterBIOSPOSTDn_Object=MibTableColumn
+cucsBiosVfRedirectionAfterBIOSPOSTDn=_CucsBiosVfRedirectionAfterBIOSPOSTDn_Object((1,3,6,1,4,1,9,9,719,1,4,105,1,2),_CucsBiosVfRedirectionAfterBIOSPOSTDn_Type())
+cucsBiosVfRedirectionAfterBIOSPOSTDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfRedirectionAfterBIOSPOSTDn.setStatus(_A)
+_CucsBiosVfRedirectionAfterBIOSPOSTRn_Type=SnmpAdminString
+_CucsBiosVfRedirectionAfterBIOSPOSTRn_Object=MibTableColumn
+cucsBiosVfRedirectionAfterBIOSPOSTRn=_CucsBiosVfRedirectionAfterBIOSPOSTRn_Object((1,3,6,1,4,1,9,9,719,1,4,105,1,3),_CucsBiosVfRedirectionAfterBIOSPOSTRn_Type())
+cucsBiosVfRedirectionAfterBIOSPOSTRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfRedirectionAfterBIOSPOSTRn.setStatus(_A)
+_CucsBiosVfRedirectionAfterBIOSPOSTPropAcl_Type=Unsigned64
+_CucsBiosVfRedirectionAfterBIOSPOSTPropAcl_Object=MibTableColumn
+cucsBiosVfRedirectionAfterBIOSPOSTPropAcl=_CucsBiosVfRedirectionAfterBIOSPOSTPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,105,1,4),_CucsBiosVfRedirectionAfterBIOSPOSTPropAcl_Type())
+cucsBiosVfRedirectionAfterBIOSPOSTPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfRedirectionAfterBIOSPOSTPropAcl.setStatus(_A)
+_CucsBiosVfRedirectionAfterBIOSPOSTSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfRedirectionAfterBIOSPOSTSupportedByDefault_Object=MibTableColumn
+cucsBiosVfRedirectionAfterBIOSPOSTSupportedByDefault=_CucsBiosVfRedirectionAfterBIOSPOSTSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,105,1,5),_CucsBiosVfRedirectionAfterBIOSPOSTSupportedByDefault_Type())
+cucsBiosVfRedirectionAfterBIOSPOSTSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfRedirectionAfterBIOSPOSTSupportedByDefault.setStatus(_A)
+_CucsBiosVfRedirectionAfterBIOSPOSTVpRedirectionAfterPOST_Type=CucsBiosVfRedirectionAfterBIOSPOSTVpRedirectionAfterPOST
+_CucsBiosVfRedirectionAfterBIOSPOSTVpRedirectionAfterPOST_Object=MibTableColumn
+cucsBiosVfRedirectionAfterBIOSPOSTVpRedirectionAfterPOST=_CucsBiosVfRedirectionAfterBIOSPOSTVpRedirectionAfterPOST_Object((1,3,6,1,4,1,9,9,719,1,4,105,1,6),_CucsBiosVfRedirectionAfterBIOSPOSTVpRedirectionAfterPOST_Type())
+cucsBiosVfRedirectionAfterBIOSPOSTVpRedirectionAfterPOST.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfRedirectionAfterBIOSPOSTVpRedirectionAfterPOST.setStatus(_A)
+_CucsBiosVfSBMezz1OptionROMTable_Object=MibTable
+cucsBiosVfSBMezz1OptionROMTable=_CucsBiosVfSBMezz1OptionROMTable_Object((1,3,6,1,4,1,9,9,719,1,4,106))
+if mibBuilder.loadTexts:cucsBiosVfSBMezz1OptionROMTable.setStatus(_A)
+_CucsBiosVfSBMezz1OptionROMEntry_Object=MibTableRow
+cucsBiosVfSBMezz1OptionROMEntry=_CucsBiosVfSBMezz1OptionROMEntry_Object((1,3,6,1,4,1,9,9,719,1,4,106,1))
+cucsBiosVfSBMezz1OptionROMEntry.setIndexNames((0,_C,_As))
+if mibBuilder.loadTexts:cucsBiosVfSBMezz1OptionROMEntry.setStatus(_A)
+_CucsBiosVfSBMezz1OptionROMInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfSBMezz1OptionROMInstanceId_Object=MibTableColumn
+cucsBiosVfSBMezz1OptionROMInstanceId=_CucsBiosVfSBMezz1OptionROMInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,106,1,1),_CucsBiosVfSBMezz1OptionROMInstanceId_Type())
+cucsBiosVfSBMezz1OptionROMInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfSBMezz1OptionROMInstanceId.setStatus(_A)
+_CucsBiosVfSBMezz1OptionROMDn_Type=CucsManagedObjectDn
+_CucsBiosVfSBMezz1OptionROMDn_Object=MibTableColumn
+cucsBiosVfSBMezz1OptionROMDn=_CucsBiosVfSBMezz1OptionROMDn_Object((1,3,6,1,4,1,9,9,719,1,4,106,1,2),_CucsBiosVfSBMezz1OptionROMDn_Type())
+cucsBiosVfSBMezz1OptionROMDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSBMezz1OptionROMDn.setStatus(_A)
+_CucsBiosVfSBMezz1OptionROMRn_Type=SnmpAdminString
+_CucsBiosVfSBMezz1OptionROMRn_Object=MibTableColumn
+cucsBiosVfSBMezz1OptionROMRn=_CucsBiosVfSBMezz1OptionROMRn_Object((1,3,6,1,4,1,9,9,719,1,4,106,1,3),_CucsBiosVfSBMezz1OptionROMRn_Type())
+cucsBiosVfSBMezz1OptionROMRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSBMezz1OptionROMRn.setStatus(_A)
+_CucsBiosVfSBMezz1OptionROMPropAcl_Type=Unsigned64
+_CucsBiosVfSBMezz1OptionROMPropAcl_Object=MibTableColumn
+cucsBiosVfSBMezz1OptionROMPropAcl=_CucsBiosVfSBMezz1OptionROMPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,106,1,4),_CucsBiosVfSBMezz1OptionROMPropAcl_Type())
+cucsBiosVfSBMezz1OptionROMPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSBMezz1OptionROMPropAcl.setStatus(_A)
+_CucsBiosVfSBMezz1OptionROMSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfSBMezz1OptionROMSupportedByDefault_Object=MibTableColumn
+cucsBiosVfSBMezz1OptionROMSupportedByDefault=_CucsBiosVfSBMezz1OptionROMSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,106,1,5),_CucsBiosVfSBMezz1OptionROMSupportedByDefault_Type())
+cucsBiosVfSBMezz1OptionROMSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSBMezz1OptionROMSupportedByDefault.setStatus(_A)
+_CucsBiosVfSBMezz1OptionROMVpSBMezz1OptionROM_Type=CucsBiosVfSBMezz1OptionROMVpSBMezz1OptionROM
+_CucsBiosVfSBMezz1OptionROMVpSBMezz1OptionROM_Object=MibTableColumn
+cucsBiosVfSBMezz1OptionROMVpSBMezz1OptionROM=_CucsBiosVfSBMezz1OptionROMVpSBMezz1OptionROM_Object((1,3,6,1,4,1,9,9,719,1,4,106,1,6),_CucsBiosVfSBMezz1OptionROMVpSBMezz1OptionROM_Type())
+cucsBiosVfSBMezz1OptionROMVpSBMezz1OptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSBMezz1OptionROMVpSBMezz1OptionROM.setStatus(_A)
+_CucsBiosVfSBNVMe1OptionROMTable_Object=MibTable
+cucsBiosVfSBNVMe1OptionROMTable=_CucsBiosVfSBNVMe1OptionROMTable_Object((1,3,6,1,4,1,9,9,719,1,4,107))
+if mibBuilder.loadTexts:cucsBiosVfSBNVMe1OptionROMTable.setStatus(_A)
+_CucsBiosVfSBNVMe1OptionROMEntry_Object=MibTableRow
+cucsBiosVfSBNVMe1OptionROMEntry=_CucsBiosVfSBNVMe1OptionROMEntry_Object((1,3,6,1,4,1,9,9,719,1,4,107,1))
+cucsBiosVfSBNVMe1OptionROMEntry.setIndexNames((0,_C,_At))
+if mibBuilder.loadTexts:cucsBiosVfSBNVMe1OptionROMEntry.setStatus(_A)
+_CucsBiosVfSBNVMe1OptionROMInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfSBNVMe1OptionROMInstanceId_Object=MibTableColumn
+cucsBiosVfSBNVMe1OptionROMInstanceId=_CucsBiosVfSBNVMe1OptionROMInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,107,1,1),_CucsBiosVfSBNVMe1OptionROMInstanceId_Type())
+cucsBiosVfSBNVMe1OptionROMInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfSBNVMe1OptionROMInstanceId.setStatus(_A)
+_CucsBiosVfSBNVMe1OptionROMDn_Type=CucsManagedObjectDn
+_CucsBiosVfSBNVMe1OptionROMDn_Object=MibTableColumn
+cucsBiosVfSBNVMe1OptionROMDn=_CucsBiosVfSBNVMe1OptionROMDn_Object((1,3,6,1,4,1,9,9,719,1,4,107,1,2),_CucsBiosVfSBNVMe1OptionROMDn_Type())
+cucsBiosVfSBNVMe1OptionROMDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSBNVMe1OptionROMDn.setStatus(_A)
+_CucsBiosVfSBNVMe1OptionROMRn_Type=SnmpAdminString
+_CucsBiosVfSBNVMe1OptionROMRn_Object=MibTableColumn
+cucsBiosVfSBNVMe1OptionROMRn=_CucsBiosVfSBNVMe1OptionROMRn_Object((1,3,6,1,4,1,9,9,719,1,4,107,1,3),_CucsBiosVfSBNVMe1OptionROMRn_Type())
+cucsBiosVfSBNVMe1OptionROMRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSBNVMe1OptionROMRn.setStatus(_A)
+_CucsBiosVfSBNVMe1OptionROMPropAcl_Type=Unsigned64
+_CucsBiosVfSBNVMe1OptionROMPropAcl_Object=MibTableColumn
+cucsBiosVfSBNVMe1OptionROMPropAcl=_CucsBiosVfSBNVMe1OptionROMPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,107,1,4),_CucsBiosVfSBNVMe1OptionROMPropAcl_Type())
+cucsBiosVfSBNVMe1OptionROMPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSBNVMe1OptionROMPropAcl.setStatus(_A)
+_CucsBiosVfSBNVMe1OptionROMSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfSBNVMe1OptionROMSupportedByDefault_Object=MibTableColumn
+cucsBiosVfSBNVMe1OptionROMSupportedByDefault=_CucsBiosVfSBNVMe1OptionROMSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,107,1,5),_CucsBiosVfSBNVMe1OptionROMSupportedByDefault_Type())
+cucsBiosVfSBNVMe1OptionROMSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSBNVMe1OptionROMSupportedByDefault.setStatus(_A)
+_CucsBiosVfSBNVMe1OptionROMVpSBNVMe1OptionROM_Type=CucsBiosVfSBNVMe1OptionROMVpSBNVMe1OptionROM
+_CucsBiosVfSBNVMe1OptionROMVpSBNVMe1OptionROM_Object=MibTableColumn
+cucsBiosVfSBNVMe1OptionROMVpSBNVMe1OptionROM=_CucsBiosVfSBNVMe1OptionROMVpSBNVMe1OptionROM_Object((1,3,6,1,4,1,9,9,719,1,4,107,1,6),_CucsBiosVfSBNVMe1OptionROMVpSBNVMe1OptionROM_Type())
+cucsBiosVfSBNVMe1OptionROMVpSBNVMe1OptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSBNVMe1OptionROMVpSBNVMe1OptionROM.setStatus(_A)
+_CucsBiosVfSIOC1OptionROMTable_Object=MibTable
+cucsBiosVfSIOC1OptionROMTable=_CucsBiosVfSIOC1OptionROMTable_Object((1,3,6,1,4,1,9,9,719,1,4,108))
+if mibBuilder.loadTexts:cucsBiosVfSIOC1OptionROMTable.setStatus(_A)
+_CucsBiosVfSIOC1OptionROMEntry_Object=MibTableRow
+cucsBiosVfSIOC1OptionROMEntry=_CucsBiosVfSIOC1OptionROMEntry_Object((1,3,6,1,4,1,9,9,719,1,4,108,1))
+cucsBiosVfSIOC1OptionROMEntry.setIndexNames((0,_C,_Au))
+if mibBuilder.loadTexts:cucsBiosVfSIOC1OptionROMEntry.setStatus(_A)
+_CucsBiosVfSIOC1OptionROMInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfSIOC1OptionROMInstanceId_Object=MibTableColumn
+cucsBiosVfSIOC1OptionROMInstanceId=_CucsBiosVfSIOC1OptionROMInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,108,1,1),_CucsBiosVfSIOC1OptionROMInstanceId_Type())
+cucsBiosVfSIOC1OptionROMInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfSIOC1OptionROMInstanceId.setStatus(_A)
+_CucsBiosVfSIOC1OptionROMDn_Type=CucsManagedObjectDn
+_CucsBiosVfSIOC1OptionROMDn_Object=MibTableColumn
+cucsBiosVfSIOC1OptionROMDn=_CucsBiosVfSIOC1OptionROMDn_Object((1,3,6,1,4,1,9,9,719,1,4,108,1,2),_CucsBiosVfSIOC1OptionROMDn_Type())
+cucsBiosVfSIOC1OptionROMDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSIOC1OptionROMDn.setStatus(_A)
+_CucsBiosVfSIOC1OptionROMRn_Type=SnmpAdminString
+_CucsBiosVfSIOC1OptionROMRn_Object=MibTableColumn
+cucsBiosVfSIOC1OptionROMRn=_CucsBiosVfSIOC1OptionROMRn_Object((1,3,6,1,4,1,9,9,719,1,4,108,1,3),_CucsBiosVfSIOC1OptionROMRn_Type())
+cucsBiosVfSIOC1OptionROMRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSIOC1OptionROMRn.setStatus(_A)
+_CucsBiosVfSIOC1OptionROMPropAcl_Type=Unsigned64
+_CucsBiosVfSIOC1OptionROMPropAcl_Object=MibTableColumn
+cucsBiosVfSIOC1OptionROMPropAcl=_CucsBiosVfSIOC1OptionROMPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,108,1,4),_CucsBiosVfSIOC1OptionROMPropAcl_Type())
+cucsBiosVfSIOC1OptionROMPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSIOC1OptionROMPropAcl.setStatus(_A)
+_CucsBiosVfSIOC1OptionROMSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfSIOC1OptionROMSupportedByDefault_Object=MibTableColumn
+cucsBiosVfSIOC1OptionROMSupportedByDefault=_CucsBiosVfSIOC1OptionROMSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,108,1,5),_CucsBiosVfSIOC1OptionROMSupportedByDefault_Type())
+cucsBiosVfSIOC1OptionROMSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSIOC1OptionROMSupportedByDefault.setStatus(_A)
+_CucsBiosVfSIOC1OptionROMVpSIOC1OptionROM_Type=CucsBiosVfSIOC1OptionROMVpSIOC1OptionROM
+_CucsBiosVfSIOC1OptionROMVpSIOC1OptionROM_Object=MibTableColumn
+cucsBiosVfSIOC1OptionROMVpSIOC1OptionROM=_CucsBiosVfSIOC1OptionROMVpSIOC1OptionROM_Object((1,3,6,1,4,1,9,9,719,1,4,108,1,6),_CucsBiosVfSIOC1OptionROMVpSIOC1OptionROM_Type())
+cucsBiosVfSIOC1OptionROMVpSIOC1OptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSIOC1OptionROMVpSIOC1OptionROM.setStatus(_A)
+_CucsBiosVfSIOC2OptionROMTable_Object=MibTable
+cucsBiosVfSIOC2OptionROMTable=_CucsBiosVfSIOC2OptionROMTable_Object((1,3,6,1,4,1,9,9,719,1,4,109))
+if mibBuilder.loadTexts:cucsBiosVfSIOC2OptionROMTable.setStatus(_A)
+_CucsBiosVfSIOC2OptionROMEntry_Object=MibTableRow
+cucsBiosVfSIOC2OptionROMEntry=_CucsBiosVfSIOC2OptionROMEntry_Object((1,3,6,1,4,1,9,9,719,1,4,109,1))
+cucsBiosVfSIOC2OptionROMEntry.setIndexNames((0,_C,_Av))
+if mibBuilder.loadTexts:cucsBiosVfSIOC2OptionROMEntry.setStatus(_A)
+_CucsBiosVfSIOC2OptionROMInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfSIOC2OptionROMInstanceId_Object=MibTableColumn
+cucsBiosVfSIOC2OptionROMInstanceId=_CucsBiosVfSIOC2OptionROMInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,109,1,1),_CucsBiosVfSIOC2OptionROMInstanceId_Type())
+cucsBiosVfSIOC2OptionROMInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfSIOC2OptionROMInstanceId.setStatus(_A)
+_CucsBiosVfSIOC2OptionROMDn_Type=CucsManagedObjectDn
+_CucsBiosVfSIOC2OptionROMDn_Object=MibTableColumn
+cucsBiosVfSIOC2OptionROMDn=_CucsBiosVfSIOC2OptionROMDn_Object((1,3,6,1,4,1,9,9,719,1,4,109,1,2),_CucsBiosVfSIOC2OptionROMDn_Type())
+cucsBiosVfSIOC2OptionROMDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSIOC2OptionROMDn.setStatus(_A)
+_CucsBiosVfSIOC2OptionROMRn_Type=SnmpAdminString
+_CucsBiosVfSIOC2OptionROMRn_Object=MibTableColumn
+cucsBiosVfSIOC2OptionROMRn=_CucsBiosVfSIOC2OptionROMRn_Object((1,3,6,1,4,1,9,9,719,1,4,109,1,3),_CucsBiosVfSIOC2OptionROMRn_Type())
+cucsBiosVfSIOC2OptionROMRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSIOC2OptionROMRn.setStatus(_A)
+_CucsBiosVfSIOC2OptionROMPropAcl_Type=Unsigned64
+_CucsBiosVfSIOC2OptionROMPropAcl_Object=MibTableColumn
+cucsBiosVfSIOC2OptionROMPropAcl=_CucsBiosVfSIOC2OptionROMPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,109,1,4),_CucsBiosVfSIOC2OptionROMPropAcl_Type())
+cucsBiosVfSIOC2OptionROMPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSIOC2OptionROMPropAcl.setStatus(_A)
+_CucsBiosVfSIOC2OptionROMSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfSIOC2OptionROMSupportedByDefault_Object=MibTableColumn
+cucsBiosVfSIOC2OptionROMSupportedByDefault=_CucsBiosVfSIOC2OptionROMSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,109,1,5),_CucsBiosVfSIOC2OptionROMSupportedByDefault_Type())
+cucsBiosVfSIOC2OptionROMSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSIOC2OptionROMSupportedByDefault.setStatus(_A)
+_CucsBiosVfSIOC2OptionROMVpSIOC2OptionROM_Type=CucsBiosVfSIOC2OptionROMVpSIOC2OptionROM
+_CucsBiosVfSIOC2OptionROMVpSIOC2OptionROM_Object=MibTableColumn
+cucsBiosVfSIOC2OptionROMVpSIOC2OptionROM=_CucsBiosVfSIOC2OptionROMVpSIOC2OptionROM_Object((1,3,6,1,4,1,9,9,719,1,4,109,1,6),_CucsBiosVfSIOC2OptionROMVpSIOC2OptionROM_Type())
+cucsBiosVfSIOC2OptionROMVpSIOC2OptionROM.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfSIOC2OptionROMVpSIOC2OptionROM.setStatus(_A)
+_CucsBiosVfWorkloadConfigurationTable_Object=MibTable
+cucsBiosVfWorkloadConfigurationTable=_CucsBiosVfWorkloadConfigurationTable_Object((1,3,6,1,4,1,9,9,719,1,4,110))
+if mibBuilder.loadTexts:cucsBiosVfWorkloadConfigurationTable.setStatus(_A)
+_CucsBiosVfWorkloadConfigurationEntry_Object=MibTableRow
+cucsBiosVfWorkloadConfigurationEntry=_CucsBiosVfWorkloadConfigurationEntry_Object((1,3,6,1,4,1,9,9,719,1,4,110,1))
+cucsBiosVfWorkloadConfigurationEntry.setIndexNames((0,_C,_Aw))
+if mibBuilder.loadTexts:cucsBiosVfWorkloadConfigurationEntry.setStatus(_A)
+_CucsBiosVfWorkloadConfigurationInstanceId_Type=CucsManagedObjectId
+_CucsBiosVfWorkloadConfigurationInstanceId_Object=MibTableColumn
+cucsBiosVfWorkloadConfigurationInstanceId=_CucsBiosVfWorkloadConfigurationInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,110,1,1),_CucsBiosVfWorkloadConfigurationInstanceId_Type())
+cucsBiosVfWorkloadConfigurationInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosVfWorkloadConfigurationInstanceId.setStatus(_A)
+_CucsBiosVfWorkloadConfigurationDn_Type=CucsManagedObjectDn
+_CucsBiosVfWorkloadConfigurationDn_Object=MibTableColumn
+cucsBiosVfWorkloadConfigurationDn=_CucsBiosVfWorkloadConfigurationDn_Object((1,3,6,1,4,1,9,9,719,1,4,110,1,2),_CucsBiosVfWorkloadConfigurationDn_Type())
+cucsBiosVfWorkloadConfigurationDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfWorkloadConfigurationDn.setStatus(_A)
+_CucsBiosVfWorkloadConfigurationRn_Type=SnmpAdminString
+_CucsBiosVfWorkloadConfigurationRn_Object=MibTableColumn
+cucsBiosVfWorkloadConfigurationRn=_CucsBiosVfWorkloadConfigurationRn_Object((1,3,6,1,4,1,9,9,719,1,4,110,1,3),_CucsBiosVfWorkloadConfigurationRn_Type())
+cucsBiosVfWorkloadConfigurationRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfWorkloadConfigurationRn.setStatus(_A)
+_CucsBiosVfWorkloadConfigurationPropAcl_Type=Unsigned64
+_CucsBiosVfWorkloadConfigurationPropAcl_Object=MibTableColumn
+cucsBiosVfWorkloadConfigurationPropAcl=_CucsBiosVfWorkloadConfigurationPropAcl_Object((1,3,6,1,4,1,9,9,719,1,4,110,1,4),_CucsBiosVfWorkloadConfigurationPropAcl_Type())
+cucsBiosVfWorkloadConfigurationPropAcl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfWorkloadConfigurationPropAcl.setStatus(_A)
+_CucsBiosVfWorkloadConfigurationSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosVfWorkloadConfigurationSupportedByDefault_Object=MibTableColumn
+cucsBiosVfWorkloadConfigurationSupportedByDefault=_CucsBiosVfWorkloadConfigurationSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,110,1,5),_CucsBiosVfWorkloadConfigurationSupportedByDefault_Type())
+cucsBiosVfWorkloadConfigurationSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfWorkloadConfigurationSupportedByDefault.setStatus(_A)
+_CucsBiosVfWorkloadConfigurationVpWorkloadConfiguration_Type=CucsBiosVfWorkloadConfigurationVpWorkloadConfiguration
+_CucsBiosVfWorkloadConfigurationVpWorkloadConfiguration_Object=MibTableColumn
+cucsBiosVfWorkloadConfigurationVpWorkloadConfiguration=_CucsBiosVfWorkloadConfigurationVpWorkloadConfiguration_Object((1,3,6,1,4,1,9,9,719,1,4,110,1,6),_CucsBiosVfWorkloadConfigurationVpWorkloadConfiguration_Type())
+cucsBiosVfWorkloadConfigurationVpWorkloadConfiguration.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosVfWorkloadConfigurationVpWorkloadConfiguration.setStatus(_A)
+_CucsBiosTokenFeatureGroupTable_Object=MibTable
+cucsBiosTokenFeatureGroupTable=_CucsBiosTokenFeatureGroupTable_Object((1,3,6,1,4,1,9,9,719,1,4,111))
+if mibBuilder.loadTexts:cucsBiosTokenFeatureGroupTable.setStatus(_A)
+_CucsBiosTokenFeatureGroupEntry_Object=MibTableRow
+cucsBiosTokenFeatureGroupEntry=_CucsBiosTokenFeatureGroupEntry_Object((1,3,6,1,4,1,9,9,719,1,4,111,1))
+cucsBiosTokenFeatureGroupEntry.setIndexNames((0,_C,_Ax))
+if mibBuilder.loadTexts:cucsBiosTokenFeatureGroupEntry.setStatus(_A)
+_CucsBiosTokenFeatureGroupInstanceId_Type=CucsManagedObjectId
+_CucsBiosTokenFeatureGroupInstanceId_Object=MibTableColumn
+cucsBiosTokenFeatureGroupInstanceId=_CucsBiosTokenFeatureGroupInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,111,1,1),_CucsBiosTokenFeatureGroupInstanceId_Type())
+cucsBiosTokenFeatureGroupInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosTokenFeatureGroupInstanceId.setStatus(_A)
+_CucsBiosTokenFeatureGroupDn_Type=CucsManagedObjectDn
+_CucsBiosTokenFeatureGroupDn_Object=MibTableColumn
+cucsBiosTokenFeatureGroupDn=_CucsBiosTokenFeatureGroupDn_Object((1,3,6,1,4,1,9,9,719,1,4,111,1,2),_CucsBiosTokenFeatureGroupDn_Type())
+cucsBiosTokenFeatureGroupDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosTokenFeatureGroupDn.setStatus(_A)
+_CucsBiosTokenFeatureGroupRn_Type=SnmpAdminString
+_CucsBiosTokenFeatureGroupRn_Object=MibTableColumn
+cucsBiosTokenFeatureGroupRn=_CucsBiosTokenFeatureGroupRn_Object((1,3,6,1,4,1,9,9,719,1,4,111,1,3),_CucsBiosTokenFeatureGroupRn_Type())
+cucsBiosTokenFeatureGroupRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosTokenFeatureGroupRn.setStatus(_A)
+_CucsBiosTokenFeatureGroupName_Type=SnmpAdminString
+_CucsBiosTokenFeatureGroupName_Object=MibTableColumn
+cucsBiosTokenFeatureGroupName=_CucsBiosTokenFeatureGroupName_Object((1,3,6,1,4,1,9,9,719,1,4,111,1,4),_CucsBiosTokenFeatureGroupName_Type())
+cucsBiosTokenFeatureGroupName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosTokenFeatureGroupName.setStatus(_A)
+_CucsBiosTokenFeatureGroupSupportedByDefault_Type=CucsBiosSupportedAction
+_CucsBiosTokenFeatureGroupSupportedByDefault_Object=MibTableColumn
+cucsBiosTokenFeatureGroupSupportedByDefault=_CucsBiosTokenFeatureGroupSupportedByDefault_Object((1,3,6,1,4,1,9,9,719,1,4,111,1,5),_CucsBiosTokenFeatureGroupSupportedByDefault_Type())
+cucsBiosTokenFeatureGroupSupportedByDefault.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosTokenFeatureGroupSupportedByDefault.setStatus(_A)
+_CucsBiosTokenParamTable_Object=MibTable
+cucsBiosTokenParamTable=_CucsBiosTokenParamTable_Object((1,3,6,1,4,1,9,9,719,1,4,112))
+if mibBuilder.loadTexts:cucsBiosTokenParamTable.setStatus(_A)
+_CucsBiosTokenParamEntry_Object=MibTableRow
+cucsBiosTokenParamEntry=_CucsBiosTokenParamEntry_Object((1,3,6,1,4,1,9,9,719,1,4,112,1))
+cucsBiosTokenParamEntry.setIndexNames((0,_C,_Ay))
+if mibBuilder.loadTexts:cucsBiosTokenParamEntry.setStatus(_A)
+_CucsBiosTokenParamInstanceId_Type=CucsManagedObjectId
+_CucsBiosTokenParamInstanceId_Object=MibTableColumn
+cucsBiosTokenParamInstanceId=_CucsBiosTokenParamInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,112,1,1),_CucsBiosTokenParamInstanceId_Type())
+cucsBiosTokenParamInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosTokenParamInstanceId.setStatus(_A)
+_CucsBiosTokenParamDn_Type=CucsManagedObjectDn
+_CucsBiosTokenParamDn_Object=MibTableColumn
+cucsBiosTokenParamDn=_CucsBiosTokenParamDn_Object((1,3,6,1,4,1,9,9,719,1,4,112,1,2),_CucsBiosTokenParamDn_Type())
+cucsBiosTokenParamDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosTokenParamDn.setStatus(_A)
+_CucsBiosTokenParamRn_Type=SnmpAdminString
+_CucsBiosTokenParamRn_Object=MibTableColumn
+cucsBiosTokenParamRn=_CucsBiosTokenParamRn_Object((1,3,6,1,4,1,9,9,719,1,4,112,1,3),_CucsBiosTokenParamRn_Type())
+cucsBiosTokenParamRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosTokenParamRn.setStatus(_A)
+_CucsBiosTokenParamLegacyPropId_Type=SnmpAdminString
+_CucsBiosTokenParamLegacyPropId_Object=MibTableColumn
+cucsBiosTokenParamLegacyPropId=_CucsBiosTokenParamLegacyPropId_Object((1,3,6,1,4,1,9,9,719,1,4,112,1,4),_CucsBiosTokenParamLegacyPropId_Type())
+cucsBiosTokenParamLegacyPropId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosTokenParamLegacyPropId.setStatus(_A)
+_CucsBiosTokenParamParamName_Type=SnmpAdminString
+_CucsBiosTokenParamParamName_Object=MibTableColumn
+cucsBiosTokenParamParamName=_CucsBiosTokenParamParamName_Object((1,3,6,1,4,1,9,9,719,1,4,112,1,5),_CucsBiosTokenParamParamName_Type())
+cucsBiosTokenParamParamName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosTokenParamParamName.setStatus(_A)
+_CucsBiosTokenParamTargetTokenName_Type=SnmpAdminString
+_CucsBiosTokenParamTargetTokenName_Object=MibTableColumn
+cucsBiosTokenParamTargetTokenName=_CucsBiosTokenParamTargetTokenName_Object((1,3,6,1,4,1,9,9,719,1,4,112,1,6),_CucsBiosTokenParamTargetTokenName_Type())
+cucsBiosTokenParamTargetTokenName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosTokenParamTargetTokenName.setStatus(_A)
+_CucsBiosTokenParamUiGroupName_Type=SnmpAdminString
+_CucsBiosTokenParamUiGroupName_Object=MibTableColumn
+cucsBiosTokenParamUiGroupName=_CucsBiosTokenParamUiGroupName_Object((1,3,6,1,4,1,9,9,719,1,4,112,1,7),_CucsBiosTokenParamUiGroupName_Type())
+cucsBiosTokenParamUiGroupName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosTokenParamUiGroupName.setStatus(_A)
+_CucsBiosTokenSettingsTable_Object=MibTable
+cucsBiosTokenSettingsTable=_CucsBiosTokenSettingsTable_Object((1,3,6,1,4,1,9,9,719,1,4,113))
+if mibBuilder.loadTexts:cucsBiosTokenSettingsTable.setStatus(_A)
+_CucsBiosTokenSettingsEntry_Object=MibTableRow
+cucsBiosTokenSettingsEntry=_CucsBiosTokenSettingsEntry_Object((1,3,6,1,4,1,9,9,719,1,4,113,1))
+cucsBiosTokenSettingsEntry.setIndexNames((0,_C,_Az))
+if mibBuilder.loadTexts:cucsBiosTokenSettingsEntry.setStatus(_A)
+_CucsBiosTokenSettingsInstanceId_Type=CucsManagedObjectId
+_CucsBiosTokenSettingsInstanceId_Object=MibTableColumn
+cucsBiosTokenSettingsInstanceId=_CucsBiosTokenSettingsInstanceId_Object((1,3,6,1,4,1,9,9,719,1,4,113,1,1),_CucsBiosTokenSettingsInstanceId_Type())
+cucsBiosTokenSettingsInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cucsBiosTokenSettingsInstanceId.setStatus(_A)
+_CucsBiosTokenSettingsDn_Type=CucsManagedObjectDn
+_CucsBiosTokenSettingsDn_Object=MibTableColumn
+cucsBiosTokenSettingsDn=_CucsBiosTokenSettingsDn_Object((1,3,6,1,4,1,9,9,719,1,4,113,1,2),_CucsBiosTokenSettingsDn_Type())
+cucsBiosTokenSettingsDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosTokenSettingsDn.setStatus(_A)
+_CucsBiosTokenSettingsRn_Type=SnmpAdminString
+_CucsBiosTokenSettingsRn_Object=MibTableColumn
+cucsBiosTokenSettingsRn=_CucsBiosTokenSettingsRn_Object((1,3,6,1,4,1,9,9,719,1,4,113,1,3),_CucsBiosTokenSettingsRn_Type())
+cucsBiosTokenSettingsRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosTokenSettingsRn.setStatus(_A)
+_CucsBiosTokenSettingsBiosRetSettingName_Type=SnmpAdminString
+_CucsBiosTokenSettingsBiosRetSettingName_Object=MibTableColumn
+cucsBiosTokenSettingsBiosRetSettingName=_CucsBiosTokenSettingsBiosRetSettingName_Object((1,3,6,1,4,1,9,9,719,1,4,113,1,4),_CucsBiosTokenSettingsBiosRetSettingName_Type())
+cucsBiosTokenSettingsBiosRetSettingName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosTokenSettingsBiosRetSettingName.setStatus(_A)
+_CucsBiosTokenSettingsIsAssigned_Type=TruthValue
+_CucsBiosTokenSettingsIsAssigned_Object=MibTableColumn
+cucsBiosTokenSettingsIsAssigned=_CucsBiosTokenSettingsIsAssigned_Object((1,3,6,1,4,1,9,9,719,1,4,113,1,5),_CucsBiosTokenSettingsIsAssigned_Type())
+cucsBiosTokenSettingsIsAssigned.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosTokenSettingsIsAssigned.setStatus(_A)
+_CucsBiosTokenSettingsLegacyPropVal_Type=SnmpAdminString
+_CucsBiosTokenSettingsLegacyPropVal_Object=MibTableColumn
+cucsBiosTokenSettingsLegacyPropVal=_CucsBiosTokenSettingsLegacyPropVal_Object((1,3,6,1,4,1,9,9,719,1,4,113,1,6),_CucsBiosTokenSettingsLegacyPropVal_Type())
+cucsBiosTokenSettingsLegacyPropVal.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosTokenSettingsLegacyPropVal.setStatus(_A)
+_CucsBiosTokenSettingsSettingsMoRn_Type=SnmpAdminString
+_CucsBiosTokenSettingsSettingsMoRn_Object=MibTableColumn
+cucsBiosTokenSettingsSettingsMoRn=_CucsBiosTokenSettingsSettingsMoRn_Object((1,3,6,1,4,1,9,9,719,1,4,113,1,7),_CucsBiosTokenSettingsSettingsMoRn_Type())
+cucsBiosTokenSettingsSettingsMoRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosTokenSettingsSettingsMoRn.setStatus(_A)
+_CucsBiosTokenSettingsTargetTokenValue_Type=SnmpAdminString
+_CucsBiosTokenSettingsTargetTokenValue_Object=MibTableColumn
+cucsBiosTokenSettingsTargetTokenValue=_CucsBiosTokenSettingsTargetTokenValue_Object((1,3,6,1,4,1,9,9,719,1,4,113,1,8),_CucsBiosTokenSettingsTargetTokenValue_Type())
+cucsBiosTokenSettingsTargetTokenValue.setMaxAccess(_B)
+if mibBuilder.loadTexts:cucsBiosTokenSettingsTargetTokenValue.setStatus(_A)
+mibBuilder.exportSymbols(_C,**{'cucsBiosObjects':cucsBiosObjects,'cucsBiosBOTTable':cucsBiosBOTTable,'cucsBiosBOTEntry':cucsBiosBOTEntry,_E:cucsBiosBOTInstanceId,'cucsBiosBOTDn':cucsBiosBOTDn,'cucsBiosBOTRn':cucsBiosBOTRn,'cucsBiosBOTLastUpdate':cucsBiosBOTLastUpdate,'cucsBiosBootDevTable':cucsBiosBootDevTable,'cucsBiosBootDevEntry':cucsBiosBootDevEntry,_F:cucsBiosBootDevInstanceId,'cucsBiosBootDevDn':cucsBiosBootDevDn,'cucsBiosBootDevRn':cucsBiosBootDevRn,'cucsBiosBootDevDescr':cucsBiosBootDevDescr,'cucsBiosBootDevOrder':cucsBiosBootDevOrder,'cucsBiosBootDevDeviceName':cucsBiosBootDevDeviceName,'cucsBiosBootDevErrValue':cucsBiosBootDevErrValue,'cucsBiosBootDevGrpTable':cucsBiosBootDevGrpTable,'cucsBiosBootDevGrpEntry':cucsBiosBootDevGrpEntry,_G:cucsBiosBootDevGrpInstanceId,'cucsBiosBootDevGrpDn':cucsBiosBootDevGrpDn,'cucsBiosBootDevGrpRn':cucsBiosBootDevGrpRn,'cucsBiosBootDevGrpDescr':cucsBiosBootDevGrpDescr,'cucsBiosBootDevGrpOrder':cucsBiosBootDevGrpOrder,'cucsBiosBootDevGrpType':cucsBiosBootDevGrpType,'cucsBiosBootDevGrpDeviceName':cucsBiosBootDevGrpDeviceName,'cucsBiosBootDevGrpErrVal':cucsBiosBootDevGrpErrVal,'cucsBiosFeatureRefTable':cucsBiosFeatureRefTable,'cucsBiosFeatureRefEntry':cucsBiosFeatureRefEntry,_H:cucsBiosFeatureRefInstanceId,'cucsBiosFeatureRefDn':cucsBiosFeatureRefDn,'cucsBiosFeatureRefRn':cucsBiosFeatureRefRn,'cucsBiosFeatureRefIsSupported':cucsBiosFeatureRefIsSupported,'cucsBiosFeatureRefName':cucsBiosFeatureRefName,'cucsBiosFeatureRefFtrMoClassName':cucsBiosFeatureRefFtrMoClassName,'cucsBiosParameterRefTable':cucsBiosParameterRefTable,'cucsBiosParameterRefEntry':cucsBiosParameterRefEntry,_I:cucsBiosParameterRefInstanceId,'cucsBiosParameterRefDn':cucsBiosParameterRefDn,'cucsBiosParameterRefRn':cucsBiosParameterRefRn,'cucsBiosParameterRefIsSupported':cucsBiosParameterRefIsSupported,'cucsBiosParameterRefName':cucsBiosParameterRefName,'cucsBiosParameterRefPropertyName':cucsBiosParameterRefPropertyName,'cucsBiosRefTable':cucsBiosRefTable,'cucsBiosRefEntry':cucsBiosRefEntry,_J:cucsBiosRefInstanceId,'cucsBiosRefDn':cucsBiosRefDn,'cucsBiosRefRn':cucsBiosRefRn,'cucsBiosRefIsSupported':cucsBiosRefIsSupported,'cucsBiosSettingRefTable':cucsBiosSettingRefTable,'cucsBiosSettingRefEntry':cucsBiosSettingRefEntry,_K:cucsBiosSettingRefInstanceId,'cucsBiosSettingRefDn':cucsBiosSettingRefDn,'cucsBiosSettingRefRn':cucsBiosSettingRefRn,'cucsBiosSettingRefIsDefault':cucsBiosSettingRefIsDefault,'cucsBiosSettingRefIsSupported':cucsBiosSettingRefIsSupported,'cucsBiosSettingRefName':cucsBiosSettingRefName,'cucsBiosSettingRefConstantName':cucsBiosSettingRefConstantName,'cucsBiosSettingsTable':cucsBiosSettingsTable,'cucsBiosSettingsEntry':cucsBiosSettingsEntry,_L:cucsBiosSettingsInstanceId,'cucsBiosSettingsDn':cucsBiosSettingsDn,'cucsBiosSettingsRn':cucsBiosSettingsRn,'cucsBiosSettingsPropAcl':cucsBiosSettingsPropAcl,'cucsBiosUnitTable':cucsBiosUnitTable,'cucsBiosUnitEntry':cucsBiosUnitEntry,_M:cucsBiosUnitInstanceId,'cucsBiosUnitDn':cucsBiosUnitDn,'cucsBiosUnitRn':cucsBiosUnitRn,'cucsBiosUnitInitSeq':cucsBiosUnitInitSeq,'cucsBiosUnitInitTs':cucsBiosUnitInitTs,'cucsBiosUnitModel':cucsBiosUnitModel,'cucsBiosUnitRevision':cucsBiosUnitRevision,'cucsBiosUnitSerial':cucsBiosUnitSerial,'cucsBiosUnitVendor':cucsBiosUnitVendor,'cucsBiosVProfileTable':cucsBiosVProfileTable,'cucsBiosVProfileEntry':cucsBiosVProfileEntry,_N:cucsBiosVProfileInstanceId,'cucsBiosVProfileDn':cucsBiosVProfileDn,'cucsBiosVProfileRn':cucsBiosVProfileRn,'cucsBiosVProfileDescr':cucsBiosVProfileDescr,'cucsBiosVProfileIntId':cucsBiosVProfileIntId,'cucsBiosVProfileName':cucsBiosVProfileName,'cucsBiosVProfileRebootOnUpdate':cucsBiosVProfileRebootOnUpdate,'cucsBiosVProfilePolicyLevel':cucsBiosVProfilePolicyLevel,'cucsBiosVProfilePolicyOwner':cucsBiosVProfilePolicyOwner,'cucsBiosVfConsoleRedirectionTable':cucsBiosVfConsoleRedirectionTable,'cucsBiosVfConsoleRedirectionEntry':cucsBiosVfConsoleRedirectionEntry,_O:cucsBiosVfConsoleRedirectionInstanceId,'cucsBiosVfConsoleRedirectionDn':cucsBiosVfConsoleRedirectionDn,'cucsBiosVfConsoleRedirectionRn':cucsBiosVfConsoleRedirectionRn,'cucsBiosVfConsoleRedirectionVpBaudRate':cucsBiosVfConsoleRedirectionVpBaudRate,'cucsBiosVfConsoleRedirectionVpConsoleRedirection':cucsBiosVfConsoleRedirectionVpConsoleRedirection,'cucsBiosVfConsoleRedirectionVpFlowControl':cucsBiosVfConsoleRedirectionVpFlowControl,'cucsBiosVfConsoleRedirectionVpLegacyOSRedirection':cucsBiosVfConsoleRedirectionVpLegacyOSRedirection,'cucsBiosVfConsoleRedirectionVpTerminalType':cucsBiosVfConsoleRedirectionVpTerminalType,'cucsBiosVfConsoleRedirectionVpPuttyKeyPad':cucsBiosVfConsoleRedirectionVpPuttyKeyPad,'cucsBiosVfConsoleRedirectionPropAcl':cucsBiosVfConsoleRedirectionPropAcl,'cucsBiosVfConsoleRedirectionSupportedByDefault':cucsBiosVfConsoleRedirectionSupportedByDefault,'cucsBiosVfOptionROMLoadTable':cucsBiosVfOptionROMLoadTable,'cucsBiosVfOptionROMLoadEntry':cucsBiosVfOptionROMLoadEntry,_P:cucsBiosVfOptionROMLoadInstanceId,'cucsBiosVfOptionROMLoadDn':cucsBiosVfOptionROMLoadDn,'cucsBiosVfOptionROMLoadRn':cucsBiosVfOptionROMLoadRn,'cucsBiosVfOptionROMLoadVpLoad':cucsBiosVfOptionROMLoadVpLoad,'cucsBiosVfOptionROMLoadPropAcl':cucsBiosVfOptionROMLoadPropAcl,'cucsBiosVfOptionROMLoadSupportedByDefault':cucsBiosVfOptionROMLoadSupportedByDefault,'cucsBiosVfEnhancedIntelSpeedStepTechTable':cucsBiosVfEnhancedIntelSpeedStepTechTable,'cucsBiosVfEnhancedIntelSpeedStepTechEntry':cucsBiosVfEnhancedIntelSpeedStepTechEntry,_Q:cucsBiosVfEnhancedIntelSpeedStepTechInstanceId,'cucsBiosVfEnhancedIntelSpeedStepTechDn':cucsBiosVfEnhancedIntelSpeedStepTechDn,'cucsBiosVfEnhancedIntelSpeedStepTechRn':cucsBiosVfEnhancedIntelSpeedStepTechRn,'cucsBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech':cucsBiosVfEnhancedIntelSpeedStepTechVpEnhancedIntelSpeedStepTech,'cucsBiosVfEnhancedIntelSpeedStepTechPropAcl':cucsBiosVfEnhancedIntelSpeedStepTechPropAcl,'cucsBiosVfEnhancedIntelSpeedStepTechSupportedByDefault':cucsBiosVfEnhancedIntelSpeedStepTechSupportedByDefault,'cucsBiosVfFrontPanelLockoutTable':cucsBiosVfFrontPanelLockoutTable,'cucsBiosVfFrontPanelLockoutEntry':cucsBiosVfFrontPanelLockoutEntry,_R:cucsBiosVfFrontPanelLockoutInstanceId,'cucsBiosVfFrontPanelLockoutDn':cucsBiosVfFrontPanelLockoutDn,'cucsBiosVfFrontPanelLockoutRn':cucsBiosVfFrontPanelLockoutRn,'cucsBiosVfFrontPanelLockoutVpFrontPanelLockout':cucsBiosVfFrontPanelLockoutVpFrontPanelLockout,'cucsBiosVfFrontPanelLockoutPropAcl':cucsBiosVfFrontPanelLockoutPropAcl,'cucsBiosVfFrontPanelLockoutSupportedByDefault':cucsBiosVfFrontPanelLockoutSupportedByDefault,'cucsBiosVfIntelHyperThreadingTechTable':cucsBiosVfIntelHyperThreadingTechTable,'cucsBiosVfIntelHyperThreadingTechEntry':cucsBiosVfIntelHyperThreadingTechEntry,_S:cucsBiosVfIntelHyperThreadingTechInstanceId,'cucsBiosVfIntelHyperThreadingTechDn':cucsBiosVfIntelHyperThreadingTechDn,'cucsBiosVfIntelHyperThreadingTechRn':cucsBiosVfIntelHyperThreadingTechRn,'cucsBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech':cucsBiosVfIntelHyperThreadingTechVpIntelHyperThreadingTech,'cucsBiosVfIntelHyperThreadingTechPropAcl':cucsBiosVfIntelHyperThreadingTechPropAcl,'cucsBiosVfIntelHyperThreadingTechSupportedByDefault':cucsBiosVfIntelHyperThreadingTechSupportedByDefault,'cucsBiosVfIntelTurboBoostTechTable':cucsBiosVfIntelTurboBoostTechTable,'cucsBiosVfIntelTurboBoostTechEntry':cucsBiosVfIntelTurboBoostTechEntry,_T:cucsBiosVfIntelTurboBoostTechInstanceId,'cucsBiosVfIntelTurboBoostTechDn':cucsBiosVfIntelTurboBoostTechDn,'cucsBiosVfIntelTurboBoostTechRn':cucsBiosVfIntelTurboBoostTechRn,'cucsBiosVfIntelTurboBoostTechVpIntelTurboBoostTech':cucsBiosVfIntelTurboBoostTechVpIntelTurboBoostTech,'cucsBiosVfIntelTurboBoostTechPropAcl':cucsBiosVfIntelTurboBoostTechPropAcl,'cucsBiosVfIntelTurboBoostTechSupportedByDefault':cucsBiosVfIntelTurboBoostTechSupportedByDefault,'cucsBiosVfIntelVTForDirectedIOTable':cucsBiosVfIntelVTForDirectedIOTable,'cucsBiosVfIntelVTForDirectedIOEntry':cucsBiosVfIntelVTForDirectedIOEntry,_U:cucsBiosVfIntelVTForDirectedIOInstanceId,'cucsBiosVfIntelVTForDirectedIODn':cucsBiosVfIntelVTForDirectedIODn,'cucsBiosVfIntelVTForDirectedIORn':cucsBiosVfIntelVTForDirectedIORn,'cucsBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport':cucsBiosVfIntelVTForDirectedIOVpIntelVTDATSSupport,'cucsBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport':cucsBiosVfIntelVTForDirectedIOVpIntelVTDCoherencySupport,'cucsBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping':cucsBiosVfIntelVTForDirectedIOVpIntelVTDInterruptRemapping,'cucsBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport':cucsBiosVfIntelVTForDirectedIOVpIntelVTDPassThroughDMASupport,'cucsBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO':cucsBiosVfIntelVTForDirectedIOVpIntelVTForDirectedIO,'cucsBiosVfIntelVTForDirectedIOPropAcl':cucsBiosVfIntelVTForDirectedIOPropAcl,'cucsBiosVfIntelVTForDirectedIOSupportedByDefault':cucsBiosVfIntelVTForDirectedIOSupportedByDefault,'cucsBiosVfIntelVirtualizationTechnologyTable':cucsBiosVfIntelVirtualizationTechnologyTable,'cucsBiosVfIntelVirtualizationTechnologyEntry':cucsBiosVfIntelVirtualizationTechnologyEntry,_V:cucsBiosVfIntelVirtualizationTechnologyInstanceId,'cucsBiosVfIntelVirtualizationTechnologyDn':cucsBiosVfIntelVirtualizationTechnologyDn,'cucsBiosVfIntelVirtualizationTechnologyRn':cucsBiosVfIntelVirtualizationTechnologyRn,'cucsBiosVpIntelVirtualizationTechnology':cucsBiosVpIntelVirtualizationTechnology,'cucsBiosVfIntelVirtualizationTechnologyPropAcl':cucsBiosVfIntelVirtualizationTechnologyPropAcl,'cucsBiosVfIntelVirtualizationTechnologySupportedByDefault':cucsBiosVfIntelVirtualizationTechnologySupportedByDefault,'cucsBiosVfLvDIMMSupportTable':cucsBiosVfLvDIMMSupportTable,'cucsBiosVfLvDIMMSupportEntry':cucsBiosVfLvDIMMSupportEntry,_W:cucsBiosVfLvDIMMSupportInstanceId,'cucsBiosVfLvDIMMSupportDn':cucsBiosVfLvDIMMSupportDn,'cucsBiosVfLvDIMMSupportRn':cucsBiosVfLvDIMMSupportRn,'cucsBiosVfLvDIMMSupportVpLvDDRMode':cucsBiosVfLvDIMMSupportVpLvDDRMode,'cucsBiosVfLvDIMMSupportPropAcl':cucsBiosVfLvDIMMSupportPropAcl,'cucsBiosVfLvDIMMSupportSupportedByDefault':cucsBiosVfLvDIMMSupportSupportedByDefault,'cucsBiosVfMirroringModeTable':cucsBiosVfMirroringModeTable,'cucsBiosVfMirroringModeEntry':cucsBiosVfMirroringModeEntry,_X:cucsBiosVfMirroringModeInstanceId,'cucsBiosVfMirroringModeDn':cucsBiosVfMirroringModeDn,'cucsBiosVfMirroringModeRn':cucsBiosVfMirroringModeRn,'cucsBiosVfMirroringModeVpMirroringMode':cucsBiosVfMirroringModeVpMirroringMode,'cucsBiosVfMirroringModePropAcl':cucsBiosVfMirroringModePropAcl,'cucsBiosVfMirroringModeSupportedByDefault':cucsBiosVfMirroringModeSupportedByDefault,'cucsBiosVfNUMAOptimizedTable':cucsBiosVfNUMAOptimizedTable,'cucsBiosVfNUMAOptimizedEntry':cucsBiosVfNUMAOptimizedEntry,_Y:cucsBiosVfNUMAOptimizedInstanceId,'cucsBiosVfNUMAOptimizedDn':cucsBiosVfNUMAOptimizedDn,'cucsBiosVfNUMAOptimizedRn':cucsBiosVfNUMAOptimizedRn,'cucsBiosVfNUMAOptimizedVpNUMAOptimized':cucsBiosVfNUMAOptimizedVpNUMAOptimized,'cucsBiosVfNUMAOptimizedPropAcl':cucsBiosVfNUMAOptimizedPropAcl,'cucsBiosVfNUMAOptimizedSupportedByDefault':cucsBiosVfNUMAOptimizedSupportedByDefault,'cucsBiosVfProcessorC3ReportTable':cucsBiosVfProcessorC3ReportTable,'cucsBiosVfProcessorC3ReportEntry':cucsBiosVfProcessorC3ReportEntry,_Z:cucsBiosVfProcessorC3ReportInstanceId,'cucsBiosVfProcessorC3ReportDn':cucsBiosVfProcessorC3ReportDn,'cucsBiosVfProcessorC3ReportRn':cucsBiosVfProcessorC3ReportRn,'cucsBiosVfProcessorC3ReportVpProcessorC3Report':cucsBiosVfProcessorC3ReportVpProcessorC3Report,'cucsBiosVfProcessorC3ReportPropAcl':cucsBiosVfProcessorC3ReportPropAcl,'cucsBiosVfProcessorC3ReportSupportedByDefault':cucsBiosVfProcessorC3ReportSupportedByDefault,'cucsBiosVfProcessorC6ReportTable':cucsBiosVfProcessorC6ReportTable,'cucsBiosVfProcessorC6ReportEntry':cucsBiosVfProcessorC6ReportEntry,_a:cucsBiosVfProcessorC6ReportInstanceId,'cucsBiosVfProcessorC6ReportDn':cucsBiosVfProcessorC6ReportDn,'cucsBiosVfProcessorC6ReportRn':cucsBiosVfProcessorC6ReportRn,'cucsBiosVfProcessorC6ReportVpProcessorC6Report':cucsBiosVfProcessorC6ReportVpProcessorC6Report,'cucsBiosVfProcessorC6ReportPropAcl':cucsBiosVfProcessorC6ReportPropAcl,'cucsBiosVfProcessorC6ReportSupportedByDefault':cucsBiosVfProcessorC6ReportSupportedByDefault,'cucsBiosVfQuietBootTable':cucsBiosVfQuietBootTable,'cucsBiosVfQuietBootEntry':cucsBiosVfQuietBootEntry,_b:cucsBiosVfQuietBootInstanceId,'cucsBiosVfQuietBootDn':cucsBiosVfQuietBootDn,'cucsBiosVfQuietBootRn':cucsBiosVfQuietBootRn,'cucsBiosVfQuietBootVpQuietBoot':cucsBiosVfQuietBootVpQuietBoot,'cucsBiosVfQuietBootPropAcl':cucsBiosVfQuietBootPropAcl,'cucsBiosVfQuietBootSupportedByDefault':cucsBiosVfQuietBootSupportedByDefault,'cucsBiosVfResumeOnACPowerLossTable':cucsBiosVfResumeOnACPowerLossTable,'cucsBiosVfResumeOnACPowerLossEntry':cucsBiosVfResumeOnACPowerLossEntry,_c:cucsBiosVfResumeOnACPowerLossInstanceId,'cucsBiosVfResumeOnACPowerLossDn':cucsBiosVfResumeOnACPowerLossDn,'cucsBiosVfResumeOnACPowerLossRn':cucsBiosVfResumeOnACPowerLossRn,'cucsBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss':cucsBiosVfResumeOnACPowerLossVpResumeOnACPowerLoss,'cucsBiosVfResumeOnACPowerLossPropAcl':cucsBiosVfResumeOnACPowerLossPropAcl,'cucsBiosVfResumeOnACPowerLossSupportedByDefault':cucsBiosVfResumeOnACPowerLossSupportedByDefault,'cucsBiosVfSelectMemoryRASConfigurationTable':cucsBiosVfSelectMemoryRASConfigurationTable,'cucsBiosVfSelectMemoryRASConfigurationEntry':cucsBiosVfSelectMemoryRASConfigurationEntry,_d:cucsBiosVfSelectMemoryRASConfigurationInstanceId,'cucsBiosVfSelectMemoryRASConfigurationDn':cucsBiosVfSelectMemoryRASConfigurationDn,'cucsBiosVfSelectMemoryRASConfigurationRn':cucsBiosVfSelectMemoryRASConfigurationRn,'cucsBiosVpSelectMemoryRASConfiguration':cucsBiosVpSelectMemoryRASConfiguration,'cucsBiosVfSelectMemoryRASConfigurationPropAcl':cucsBiosVfSelectMemoryRASConfigurationPropAcl,'cucsBiosVfSelectMemoryRASConfigurationSupportedByDefault':cucsBiosVfSelectMemoryRASConfigurationSupportedByDefault,'cucsBiosVfACPI10SupportTable':cucsBiosVfACPI10SupportTable,'cucsBiosVfACPI10SupportEntry':cucsBiosVfACPI10SupportEntry,_e:cucsBiosVfACPI10SupportInstanceId,'cucsBiosVfACPI10SupportDn':cucsBiosVfACPI10SupportDn,'cucsBiosVfACPI10SupportRn':cucsBiosVfACPI10SupportRn,'cucsBiosVfACPI10SupportVpACPI10Support':cucsBiosVfACPI10SupportVpACPI10Support,'cucsBiosVfACPI10SupportPropAcl':cucsBiosVfACPI10SupportPropAcl,'cucsBiosVfACPI10SupportSupportedByDefault':cucsBiosVfACPI10SupportSupportedByDefault,'cucsBiosVfAssertNMIOnPERRTable':cucsBiosVfAssertNMIOnPERRTable,'cucsBiosVfAssertNMIOnPERREntry':cucsBiosVfAssertNMIOnPERREntry,_f:cucsBiosVfAssertNMIOnPERRInstanceId,'cucsBiosVfAssertNMIOnPERRDn':cucsBiosVfAssertNMIOnPERRDn,'cucsBiosVfAssertNMIOnPERRRn':cucsBiosVfAssertNMIOnPERRRn,'cucsBiosVfAssertNMIOnPERRVpAssertNMIOnPERR':cucsBiosVfAssertNMIOnPERRVpAssertNMIOnPERR,'cucsBiosVfAssertNMIOnPERRPropAcl':cucsBiosVfAssertNMIOnPERRPropAcl,'cucsBiosVfAssertNMIOnPERRSupportedByDefault':cucsBiosVfAssertNMIOnPERRSupportedByDefault,'cucsBiosVfAssertNMIOnSERRTable':cucsBiosVfAssertNMIOnSERRTable,'cucsBiosVfAssertNMIOnSERREntry':cucsBiosVfAssertNMIOnSERREntry,_g:cucsBiosVfAssertNMIOnSERRInstanceId,'cucsBiosVfAssertNMIOnSERRDn':cucsBiosVfAssertNMIOnSERRDn,'cucsBiosVfAssertNMIOnSERRRn':cucsBiosVfAssertNMIOnSERRRn,'cucsBiosVfAssertNMIOnSERRVpAssertNMIOnSERR':cucsBiosVfAssertNMIOnSERRVpAssertNMIOnSERR,'cucsBiosVfAssertNMIOnSERRPropAcl':cucsBiosVfAssertNMIOnSERRPropAcl,'cucsBiosVfAssertNMIOnSERRSupportedByDefault':cucsBiosVfAssertNMIOnSERRSupportedByDefault,'cucsBiosVfCPUPerformanceTable':cucsBiosVfCPUPerformanceTable,'cucsBiosVfCPUPerformanceEntry':cucsBiosVfCPUPerformanceEntry,_h:cucsBiosVfCPUPerformanceInstanceId,'cucsBiosVfCPUPerformanceDn':cucsBiosVfCPUPerformanceDn,'cucsBiosVfCPUPerformanceRn':cucsBiosVfCPUPerformanceRn,'cucsBiosVfCPUPerformanceVpCPUPerformance':cucsBiosVfCPUPerformanceVpCPUPerformance,'cucsBiosVfCPUPerformancePropAcl':cucsBiosVfCPUPerformancePropAcl,'cucsBiosVfCPUPerformanceSupportedByDefault':cucsBiosVfCPUPerformanceSupportedByDefault,'cucsBiosVfBootOptionRetryTable':cucsBiosVfBootOptionRetryTable,'cucsBiosVfBootOptionRetryEntry':cucsBiosVfBootOptionRetryEntry,_i:cucsBiosVfBootOptionRetryInstanceId,'cucsBiosVfBootOptionRetryDn':cucsBiosVfBootOptionRetryDn,'cucsBiosVfBootOptionRetryRn':cucsBiosVfBootOptionRetryRn,'cucsBiosVfBootOptionRetryVpBootOptionRetry':cucsBiosVfBootOptionRetryVpBootOptionRetry,'cucsBiosVfBootOptionRetryPropAcl':cucsBiosVfBootOptionRetryPropAcl,'cucsBiosVfBootOptionRetrySupportedByDefault':cucsBiosVfBootOptionRetrySupportedByDefault,'cucsBiosVfUSBBootConfigTable':cucsBiosVfUSBBootConfigTable,'cucsBiosVfUSBBootConfigEntry':cucsBiosVfUSBBootConfigEntry,_j:cucsBiosVfUSBBootConfigInstanceId,'cucsBiosVfUSBBootConfigDn':cucsBiosVfUSBBootConfigDn,'cucsBiosVfUSBBootConfigRn':cucsBiosVfUSBBootConfigRn,'cucsBiosVfUSBBootConfigVpMakeDeviceNonBootable':cucsBiosVfUSBBootConfigVpMakeDeviceNonBootable,'cucsBiosVfUSBBootConfigVpLegacyUSBSupport':cucsBiosVfUSBBootConfigVpLegacyUSBSupport,'cucsBiosVfUSBBootConfigPropAcl':cucsBiosVfUSBBootConfigPropAcl,'cucsBiosVfUSBBootConfigSupportedByDefault':cucsBiosVfUSBBootConfigSupportedByDefault,'cucsBiosVfCoreMultiProcessingTable':cucsBiosVfCoreMultiProcessingTable,'cucsBiosVfCoreMultiProcessingEntry':cucsBiosVfCoreMultiProcessingEntry,_k:cucsBiosVfCoreMultiProcessingInstanceId,'cucsBiosVfCoreMultiProcessingDn':cucsBiosVfCoreMultiProcessingDn,'cucsBiosVfCoreMultiProcessingRn':cucsBiosVfCoreMultiProcessingRn,'cucsBiosVfCoreMultiProcessingVpCoreMultiProcessing':cucsBiosVfCoreMultiProcessingVpCoreMultiProcessing,'cucsBiosVfCoreMultiProcessingPropAcl':cucsBiosVfCoreMultiProcessingPropAcl,'cucsBiosVfCoreMultiProcessingSupportedByDefault':cucsBiosVfCoreMultiProcessingSupportedByDefault,'cucsBiosVfUEFIOSUseLegacyVideoTable':cucsBiosVfUEFIOSUseLegacyVideoTable,'cucsBiosVfUEFIOSUseLegacyVideoEntry':cucsBiosVfUEFIOSUseLegacyVideoEntry,_l:cucsBiosVfUEFIOSUseLegacyVideoInstanceId,'cucsBiosVfUEFIOSUseLegacyVideoDn':cucsBiosVfUEFIOSUseLegacyVideoDn,'cucsBiosVfUEFIOSUseLegacyVideoRn':cucsBiosVfUEFIOSUseLegacyVideoRn,'cucsBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo':cucsBiosVfUEFIOSUseLegacyVideoVpUEFIOSUseLegacyVideo,'cucsBiosVfUEFIOSUseLegacyVideoPropAcl':cucsBiosVfUEFIOSUseLegacyVideoPropAcl,'cucsBiosVfUEFIOSUseLegacyVideoSupportedByDefault':cucsBiosVfUEFIOSUseLegacyVideoSupportedByDefault,'cucsBiosVfDirectCacheAccessTable':cucsBiosVfDirectCacheAccessTable,'cucsBiosVfDirectCacheAccessEntry':cucsBiosVfDirectCacheAccessEntry,_m:cucsBiosVfDirectCacheAccessInstanceId,'cucsBiosVfDirectCacheAccessDn':cucsBiosVfDirectCacheAccessDn,'cucsBiosVfDirectCacheAccessRn':cucsBiosVfDirectCacheAccessRn,'cucsBiosVfDirectCacheAccessVpDirectCacheAccess':cucsBiosVfDirectCacheAccessVpDirectCacheAccess,'cucsBiosVfDirectCacheAccessPropAcl':cucsBiosVfDirectCacheAccessPropAcl,'cucsBiosVfDirectCacheAccessSupportedByDefault':cucsBiosVfDirectCacheAccessSupportedByDefault,'cucsBiosVfExecuteDisableBitTable':cucsBiosVfExecuteDisableBitTable,'cucsBiosVfExecuteDisableBitEntry':cucsBiosVfExecuteDisableBitEntry,_n:cucsBiosVfExecuteDisableBitInstanceId,'cucsBiosVfExecuteDisableBitDn':cucsBiosVfExecuteDisableBitDn,'cucsBiosVfExecuteDisableBitRn':cucsBiosVfExecuteDisableBitRn,'cucsBiosVfExecuteDisableBitVpExecuteDisableBit':cucsBiosVfExecuteDisableBitVpExecuteDisableBit,'cucsBiosVfExecuteDisableBitPropAcl':cucsBiosVfExecuteDisableBitPropAcl,'cucsBiosVfExecuteDisableBitSupportedByDefault':cucsBiosVfExecuteDisableBitSupportedByDefault,'cucsBiosVfSparingModeTable':cucsBiosVfSparingModeTable,'cucsBiosVfSparingModeEntry':cucsBiosVfSparingModeEntry,_o:cucsBiosVfSparingModeInstanceId,'cucsBiosVfSparingModeDn':cucsBiosVfSparingModeDn,'cucsBiosVfSparingModeRn':cucsBiosVfSparingModeRn,'cucsBiosVfSparingModeVpSparingMode':cucsBiosVfSparingModeVpSparingMode,'cucsBiosVfSparingModePropAcl':cucsBiosVfSparingModePropAcl,'cucsBiosVfSparingModeSupportedByDefault':cucsBiosVfSparingModeSupportedByDefault,'cucsBiosVfSerialPortAEnableTable':cucsBiosVfSerialPortAEnableTable,'cucsBiosVfSerialPortAEnableEntry':cucsBiosVfSerialPortAEnableEntry,_p:cucsBiosVfSerialPortAEnableInstanceId,'cucsBiosVfSerialPortAEnableDn':cucsBiosVfSerialPortAEnableDn,'cucsBiosVfSerialPortAEnableRn':cucsBiosVfSerialPortAEnableRn,'cucsBiosVfSerialPortAEnableVpSerialPortAEnable':cucsBiosVfSerialPortAEnableVpSerialPortAEnable,'cucsBiosVfSerialPortAEnablePropAcl':cucsBiosVfSerialPortAEnablePropAcl,'cucsBiosVfSerialPortAEnableSupportedByDefault':cucsBiosVfSerialPortAEnableSupportedByDefault,'cucsBiosVfIntelEntrySASRAIDModuleTable':cucsBiosVfIntelEntrySASRAIDModuleTable,'cucsBiosVfIntelEntrySASRAIDModuleEntry':cucsBiosVfIntelEntrySASRAIDModuleEntry,_q:cucsBiosVfIntelEntrySASRAIDModuleInstanceId,'cucsBiosVfIntelEntrySASRAIDModuleDn':cucsBiosVfIntelEntrySASRAIDModuleDn,'cucsBiosVfIntelEntrySASRAIDModuleRn':cucsBiosVfIntelEntrySASRAIDModuleRn,'cucsBiosVfIntelEntrySASRAIDModuleVpSASRAID':cucsBiosVfIntelEntrySASRAIDModuleVpSASRAID,'cucsBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule':cucsBiosVfIntelEntrySASRAIDModuleVpSASRAIDModule,'cucsBiosVfIntelEntrySASRAIDModulePropAcl':cucsBiosVfIntelEntrySASRAIDModulePropAcl,'cucsBiosVfIntelEntrySASRAIDModuleSupportedByDefault':cucsBiosVfIntelEntrySASRAIDModuleSupportedByDefault,'cucsBiosVfPOSTErrorPauseTable':cucsBiosVfPOSTErrorPauseTable,'cucsBiosVfPOSTErrorPauseEntry':cucsBiosVfPOSTErrorPauseEntry,_r:cucsBiosVfPOSTErrorPauseInstanceId,'cucsBiosVfPOSTErrorPauseDn':cucsBiosVfPOSTErrorPauseDn,'cucsBiosVfPOSTErrorPauseRn':cucsBiosVfPOSTErrorPauseRn,'cucsBiosVfPOSTErrorPauseVpPOSTErrorPause':cucsBiosVfPOSTErrorPauseVpPOSTErrorPause,'cucsBiosVfPOSTErrorPausePropAcl':cucsBiosVfPOSTErrorPausePropAcl,'cucsBiosVfPOSTErrorPauseSupportedByDefault':cucsBiosVfPOSTErrorPauseSupportedByDefault,'cucsBiosVfMaximumMemoryBelow4GBTable':cucsBiosVfMaximumMemoryBelow4GBTable,'cucsBiosVfMaximumMemoryBelow4GBEntry':cucsBiosVfMaximumMemoryBelow4GBEntry,_s:cucsBiosVfMaximumMemoryBelow4GBInstanceId,'cucsBiosVfMaximumMemoryBelow4GBDn':cucsBiosVfMaximumMemoryBelow4GBDn,'cucsBiosVfMaximumMemoryBelow4GBRn':cucsBiosVfMaximumMemoryBelow4GBRn,'cucsBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB':cucsBiosVfMaximumMemoryBelow4GBVpMaximumMemoryBelow4GB,'cucsBiosVfMaximumMemoryBelow4GBPropAcl':cucsBiosVfMaximumMemoryBelow4GBPropAcl,'cucsBiosVfMaximumMemoryBelow4GBSupportedByDefault':cucsBiosVfMaximumMemoryBelow4GBSupportedByDefault,'cucsBiosVfMemoryMappedIOAbove4GBTable':cucsBiosVfMemoryMappedIOAbove4GBTable,'cucsBiosVfMemoryMappedIOAbove4GBEntry':cucsBiosVfMemoryMappedIOAbove4GBEntry,_t:cucsBiosVfMemoryMappedIOAbove4GBInstanceId,'cucsBiosVfMemoryMappedIOAbove4GBDn':cucsBiosVfMemoryMappedIOAbove4GBDn,'cucsBiosVfMemoryMappedIOAbove4GBRn':cucsBiosVfMemoryMappedIOAbove4GBRn,'cucsBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB':cucsBiosVfMemoryMappedIOAbove4GBVpMemoryMappedIOAbove4GB,'cucsBiosVfMemoryMappedIOAbove4GBPropAcl':cucsBiosVfMemoryMappedIOAbove4GBPropAcl,'cucsBiosVfMemoryMappedIOAbove4GBSupportedByDefault':cucsBiosVfMemoryMappedIOAbove4GBSupportedByDefault,'cucsBiosVfOSBootWatchdogTimerTable':cucsBiosVfOSBootWatchdogTimerTable,'cucsBiosVfOSBootWatchdogTimerEntry':cucsBiosVfOSBootWatchdogTimerEntry,_u:cucsBiosVfOSBootWatchdogTimerInstanceId,'cucsBiosVfOSBootWatchdogTimerDn':cucsBiosVfOSBootWatchdogTimerDn,'cucsBiosVfOSBootWatchdogTimerRn':cucsBiosVfOSBootWatchdogTimerRn,'cucsBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer':cucsBiosVfOSBootWatchdogTimerVpOSBootWatchdogTimer,'cucsBiosVfOSBootWatchdogTimerPropAcl':cucsBiosVfOSBootWatchdogTimerPropAcl,'cucsBiosVfOSBootWatchdogTimerSupportedByDefault':cucsBiosVfOSBootWatchdogTimerSupportedByDefault,'cucsBiosVfOSBootWatchdogTimerPolicyTable':cucsBiosVfOSBootWatchdogTimerPolicyTable,'cucsBiosVfOSBootWatchdogTimerPolicyEntry':cucsBiosVfOSBootWatchdogTimerPolicyEntry,_v:cucsBiosVfOSBootWatchdogTimerPolicyInstanceId,'cucsBiosVfOSBootWatchdogTimerPolicyDn':cucsBiosVfOSBootWatchdogTimerPolicyDn,'cucsBiosVfOSBootWatchdogTimerPolicyRn':cucsBiosVfOSBootWatchdogTimerPolicyRn,'cucsBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy':cucsBiosVfOSBootWatchdogTimerPolicyVpOSBootWatchdogTimerPolicy,'cucsBiosVfOSBootWatchdogTimerPolicyPropAcl':cucsBiosVfOSBootWatchdogTimerPolicyPropAcl,'cucsBiosVfOSBootWatchdogTimerPolicySupportedByDefault':cucsBiosVfOSBootWatchdogTimerPolicySupportedByDefault,'cucsBiosVfOnboardSATAControllerTable':cucsBiosVfOnboardSATAControllerTable,'cucsBiosVfOnboardSATAControllerEntry':cucsBiosVfOnboardSATAControllerEntry,_w:cucsBiosVfOnboardSATAControllerInstanceId,'cucsBiosVfOnboardSATAControllerDn':cucsBiosVfOnboardSATAControllerDn,'cucsBiosVfOnboardSATAControllerRn':cucsBiosVfOnboardSATAControllerRn,'cucsBiosVfOnboardSATAControllerVpOnboardSATAController':cucsBiosVfOnboardSATAControllerVpOnboardSATAController,'cucsBiosVfOnboardSATAControllerVpSATAMode':cucsBiosVfOnboardSATAControllerVpSATAMode,'cucsBiosVfOnboardSATAControllerPropAcl':cucsBiosVfOnboardSATAControllerPropAcl,'cucsBiosVfOnboardSATAControllerSupportedByDefault':cucsBiosVfOnboardSATAControllerSupportedByDefault,'cucsBiosVfMaxVariableMTRRSettingTable':cucsBiosVfMaxVariableMTRRSettingTable,'cucsBiosVfMaxVariableMTRRSettingEntry':cucsBiosVfMaxVariableMTRRSettingEntry,_x:cucsBiosVfMaxVariableMTRRSettingInstanceId,'cucsBiosVfMaxVariableMTRRSettingDn':cucsBiosVfMaxVariableMTRRSettingDn,'cucsBiosVfMaxVariableMTRRSettingRn':cucsBiosVfMaxVariableMTRRSettingRn,'cucsBiosVfMaxVariableMTRRSettingVpProcessorMtrr':cucsBiosVfMaxVariableMTRRSettingVpProcessorMtrr,'cucsBiosVfMaxVariableMTRRSettingPropAcl':cucsBiosVfMaxVariableMTRRSettingPropAcl,'cucsBiosVfMaxVariableMTRRSettingSupportedByDefault':cucsBiosVfMaxVariableMTRRSettingSupportedByDefault,'cucsBiosVfUCSMBootOrderRuleControlTable':cucsBiosVfUCSMBootOrderRuleControlTable,'cucsBiosVfUCSMBootOrderRuleControlEntry':cucsBiosVfUCSMBootOrderRuleControlEntry,_y:cucsBiosVfUCSMBootOrderRuleControlInstanceId,'cucsBiosVfUCSMBootOrderRuleControlDn':cucsBiosVfUCSMBootOrderRuleControlDn,'cucsBiosVfUCSMBootOrderRuleControlRn':cucsBiosVfUCSMBootOrderRuleControlRn,'cucsBiosVfUCSMBootOrderRuleControlVpUCSMBootOrderRule':cucsBiosVfUCSMBootOrderRuleControlVpUCSMBootOrderRule,'cucsBiosVfUCSMBootOrderRuleControlPropAcl':cucsBiosVfUCSMBootOrderRuleControlPropAcl,'cucsBiosVfUCSMBootOrderRuleControlSupportedByDefault':cucsBiosVfUCSMBootOrderRuleControlSupportedByDefault,'cucsBiosVfUSBFrontPanelAccessLockTable':cucsBiosVfUSBFrontPanelAccessLockTable,'cucsBiosVfUSBFrontPanelAccessLockEntry':cucsBiosVfUSBFrontPanelAccessLockEntry,_z:cucsBiosVfUSBFrontPanelAccessLockInstanceId,'cucsBiosVfUSBFrontPanelAccessLockDn':cucsBiosVfUSBFrontPanelAccessLockDn,'cucsBiosVfUSBFrontPanelAccessLockRn':cucsBiosVfUSBFrontPanelAccessLockRn,'cucsBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock':cucsBiosVfUSBFrontPanelAccessLockVpUSBFrontPanelLock,'cucsBiosVfUSBFrontPanelAccessLockPropAcl':cucsBiosVfUSBFrontPanelAccessLockPropAcl,'cucsBiosVfUSBFrontPanelAccessLockSupportedByDefault':cucsBiosVfUSBFrontPanelAccessLockSupportedByDefault,'cucsBiosVfUSBSystemIdlePowerOptimizingSettingTable':cucsBiosVfUSBSystemIdlePowerOptimizingSettingTable,'cucsBiosVfUSBSystemIdlePowerOptimizingSettingEntry':cucsBiosVfUSBSystemIdlePowerOptimizingSettingEntry,_A0:cucsBiosVfUSBSystemIdlePowerOptimizingSettingInstanceId,'cucsBiosVfUSBSystemIdlePowerOptimizingSettingDn':cucsBiosVfUSBSystemIdlePowerOptimizingSettingDn,'cucsBiosVfUSBSystemIdlePowerOptimizingSettingRn':cucsBiosVfUSBSystemIdlePowerOptimizingSettingRn,'cucsBiosVfUSBSysIdlePowerOptimizingSettingVpUSBIdlePowerOptimize':cucsBiosVfUSBSysIdlePowerOptimizingSettingVpUSBIdlePowerOptimize,'cucsBiosVfUSBSystemIdlePowerOptimizingSettingPropAcl':cucsBiosVfUSBSystemIdlePowerOptimizingSettingPropAcl,'cucsBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault':cucsBiosVfUSBSystemIdlePowerOptimizingSettingSupportedByDefault,'cucsBiosVIdentityParamsTable':cucsBiosVIdentityParamsTable,'cucsBiosVIdentityParamsEntry':cucsBiosVIdentityParamsEntry,_A1:cucsBiosVIdentityParamsInstanceId,'cucsBiosVIdentityParamsDn':cucsBiosVIdentityParamsDn,'cucsBiosVIdentityParamsRn':cucsBiosVIdentityParamsRn,'cucsBiosVIdentityParamsLsServerName':cucsBiosVIdentityParamsLsServerName,'cucsBiosVIdentityParamsLsServerTmplName':cucsBiosVIdentityParamsLsServerTmplName,'cucsBiosVIdentityParamsSysName':cucsBiosVIdentityParamsSysName,'cucsBiosVfOSBootWatchdogTimerTimeoutTable':cucsBiosVfOSBootWatchdogTimerTimeoutTable,'cucsBiosVfOSBootWatchdogTimerTimeoutEntry':cucsBiosVfOSBootWatchdogTimerTimeoutEntry,_A2:cucsBiosVfOSBootWatchdogTimerTimeoutInstanceId,'cucsBiosVfOSBootWatchdogTimerTimeoutDn':cucsBiosVfOSBootWatchdogTimerTimeoutDn,'cucsBiosVfOSBootWatchdogTimerTimeoutRn':cucsBiosVfOSBootWatchdogTimerTimeoutRn,'cucsBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout':cucsBiosVfOSBootWatchdogTimerTimeoutVpOSBootWatchdogTimerTimeout,'cucsBiosVfOSBootWatchdogTimerTimeoutPropAcl':cucsBiosVfOSBootWatchdogTimerTimeoutPropAcl,'cucsBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault':cucsBiosVfOSBootWatchdogTimerTimeoutSupportedByDefault,'cucsBiosVfOnboardStorageTable':cucsBiosVfOnboardStorageTable,'cucsBiosVfOnboardStorageEntry':cucsBiosVfOnboardStorageEntry,_A3:cucsBiosVfOnboardStorageInstanceId,'cucsBiosVfOnboardStorageDn':cucsBiosVfOnboardStorageDn,'cucsBiosVfOnboardStorageRn':cucsBiosVfOnboardStorageRn,'cucsBiosVfOnboardStorageVpOnboardSCUStorageSupport':cucsBiosVfOnboardStorageVpOnboardSCUStorageSupport,'cucsBiosVfOnboardStoragePropAcl':cucsBiosVfOnboardStoragePropAcl,'cucsBiosVfOnboardStorageSupportedByDefault':cucsBiosVfOnboardStorageSupportedByDefault,'cucsBiosVfOptionROMEnableTable':cucsBiosVfOptionROMEnableTable,'cucsBiosVfOptionROMEnableEntry':cucsBiosVfOptionROMEnableEntry,_A4:cucsBiosVfOptionROMEnableInstanceId,'cucsBiosVfOptionROMEnableDn':cucsBiosVfOptionROMEnableDn,'cucsBiosVfOptionROMEnableRn':cucsBiosVfOptionROMEnableRn,'cucsBiosVfOptionROMEnableVpState':cucsBiosVfOptionROMEnableVpState,'cucsBiosVfOptionROMEnablePropAcl':cucsBiosVfOptionROMEnablePropAcl,'cucsBiosVfOptionROMEnableSupportedByDefault':cucsBiosVfOptionROMEnableSupportedByDefault,'cucsBiosVfPCISlotOptionROMEnableTable':cucsBiosVfPCISlotOptionROMEnableTable,'cucsBiosVfPCISlotOptionROMEnableEntry':cucsBiosVfPCISlotOptionROMEnableEntry,_A5:cucsBiosVfPCISlotOptionROMEnableInstanceId,'cucsBiosVfPCISlotOptionROMEnableDn':cucsBiosVfPCISlotOptionROMEnableDn,'cucsBiosVfPCISlotOptionROMEnableRn':cucsBiosVfPCISlotOptionROMEnableRn,'cucsBiosVfPCISlotOptionROMEnableVpSlot1State':cucsBiosVfPCISlotOptionROMEnableVpSlot1State,'cucsBiosVfPCISlotOptionROMEnableVpSlot2State':cucsBiosVfPCISlotOptionROMEnableVpSlot2State,'cucsBiosVfPCISlotOptionROMEnableVpSlot3State':cucsBiosVfPCISlotOptionROMEnableVpSlot3State,'cucsBiosVfPCISlotOptionROMEnableVpSlot4State':cucsBiosVfPCISlotOptionROMEnableVpSlot4State,'cucsBiosVfPCISlotOptionROMEnableVpSlot5State':cucsBiosVfPCISlotOptionROMEnableVpSlot5State,'cucsBiosVfPCISlotOptionROMEnableVpSlotMezzState':cucsBiosVfPCISlotOptionROMEnableVpSlotMezzState,'cucsBiosVfPCISlotOptionROMEnableVpSlot6State':cucsBiosVfPCISlotOptionROMEnableVpSlot6State,'cucsBiosVfPCISlotOptionROMEnableVpSlot7State':cucsBiosVfPCISlotOptionROMEnableVpSlot7State,'cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM':cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotSASOptionROM,'cucsBiosVfPCISlotOptionROMEnableVpSlot10State':cucsBiosVfPCISlotOptionROMEnableVpSlot10State,'cucsBiosVfPCISlotOptionROMEnableVpSlot8State':cucsBiosVfPCISlotOptionROMEnableVpSlot8State,'cucsBiosVfPCISlotOptionROMEnableVpSlot9State':cucsBiosVfPCISlotOptionROMEnableVpSlot9State,'cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM':cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotHBAOptionROM,'cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM':cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotMLOMOptionROM,'cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM':cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN1OptionROM,'cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM':cucsBiosVfPCISlotOptionROMEnableVpPCIeSlotN2OptionROM,'cucsBiosVfPCISlotOptionROMEnablePropAcl':cucsBiosVfPCISlotOptionROMEnablePropAcl,'cucsBiosVfPCISlotOptionROMEnableSupportedByDefault':cucsBiosVfPCISlotOptionROMEnableSupportedByDefault,'cucsBiosVfPackageCStateLimitTable':cucsBiosVfPackageCStateLimitTable,'cucsBiosVfPackageCStateLimitEntry':cucsBiosVfPackageCStateLimitEntry,_A6:cucsBiosVfPackageCStateLimitInstanceId,'cucsBiosVfPackageCStateLimitDn':cucsBiosVfPackageCStateLimitDn,'cucsBiosVfPackageCStateLimitRn':cucsBiosVfPackageCStateLimitRn,'cucsBiosVfPackageCStateLimitVpPackageCStateLimit':cucsBiosVfPackageCStateLimitVpPackageCStateLimit,'cucsBiosVfPackageCStateLimitPropAcl':cucsBiosVfPackageCStateLimitPropAcl,'cucsBiosVfPackageCStateLimitSupportedByDefault':cucsBiosVfPackageCStateLimitSupportedByDefault,'cucsBiosVfProcessorC1ETable':cucsBiosVfProcessorC1ETable,'cucsBiosVfProcessorC1EEntry':cucsBiosVfProcessorC1EEntry,_A7:cucsBiosVfProcessorC1EInstanceId,'cucsBiosVfProcessorC1EDn':cucsBiosVfProcessorC1EDn,'cucsBiosVfProcessorC1ERn':cucsBiosVfProcessorC1ERn,'cucsBiosVfProcessorC1EVpProcessorC1E':cucsBiosVfProcessorC1EVpProcessorC1E,'cucsBiosVfProcessorC1EPropAcl':cucsBiosVfProcessorC1EPropAcl,'cucsBiosVfProcessorC1ESupportedByDefault':cucsBiosVfProcessorC1ESupportedByDefault,'cucsBiosVfProcessorC7ReportTable':cucsBiosVfProcessorC7ReportTable,'cucsBiosVfProcessorC7ReportEntry':cucsBiosVfProcessorC7ReportEntry,_A8:cucsBiosVfProcessorC7ReportInstanceId,'cucsBiosVfProcessorC7ReportDn':cucsBiosVfProcessorC7ReportDn,'cucsBiosVfProcessorC7ReportRn':cucsBiosVfProcessorC7ReportRn,'cucsBiosVfProcessorC7ReportVpProcessorC7Report':cucsBiosVfProcessorC7ReportVpProcessorC7Report,'cucsBiosVfProcessorC7ReportPropAcl':cucsBiosVfProcessorC7ReportPropAcl,'cucsBiosVfProcessorC7ReportSupportedByDefault':cucsBiosVfProcessorC7ReportSupportedByDefault,'cucsBiosVfProcessorCStateTable':cucsBiosVfProcessorCStateTable,'cucsBiosVfProcessorCStateEntry':cucsBiosVfProcessorCStateEntry,_A9:cucsBiosVfProcessorCStateInstanceId,'cucsBiosVfProcessorCStateDn':cucsBiosVfProcessorCStateDn,'cucsBiosVfProcessorCStateRn':cucsBiosVfProcessorCStateRn,'cucsBiosVfProcessorCStateVpProcessorCState':cucsBiosVfProcessorCStateVpProcessorCState,'cucsBiosVfProcessorCStatePropAcl':cucsBiosVfProcessorCStatePropAcl,'cucsBiosVfProcessorCStateSupportedByDefault':cucsBiosVfProcessorCStateSupportedByDefault,'cucsBiosVfSriovConfigTable':cucsBiosVfSriovConfigTable,'cucsBiosVfSriovConfigEntry':cucsBiosVfSriovConfigEntry,_AA:cucsBiosVfSriovConfigInstanceId,'cucsBiosVfSriovConfigDn':cucsBiosVfSriovConfigDn,'cucsBiosVfSriovConfigRn':cucsBiosVfSriovConfigRn,'cucsBiosVfSriovConfigVpSriov':cucsBiosVfSriovConfigVpSriov,'cucsBiosVfSriovConfigPropAcl':cucsBiosVfSriovConfigPropAcl,'cucsBiosVfSriovConfigSupportedByDefault':cucsBiosVfSriovConfigSupportedByDefault,'cucsBiosVfDramRefreshRateTable':cucsBiosVfDramRefreshRateTable,'cucsBiosVfDramRefreshRateEntry':cucsBiosVfDramRefreshRateEntry,_AB:cucsBiosVfDramRefreshRateInstanceId,'cucsBiosVfDramRefreshRateDn':cucsBiosVfDramRefreshRateDn,'cucsBiosVfDramRefreshRateRn':cucsBiosVfDramRefreshRateRn,'cucsBiosVfDramRefreshRateVpDramRefreshRate':cucsBiosVfDramRefreshRateVpDramRefreshRate,'cucsBiosVfDramRefreshRatePropAcl':cucsBiosVfDramRefreshRatePropAcl,'cucsBiosVfDramRefreshRateSupportedByDefault':cucsBiosVfDramRefreshRateSupportedByDefault,'cucsBiosVfLocalX2ApicTable':cucsBiosVfLocalX2ApicTable,'cucsBiosVfLocalX2ApicEntry':cucsBiosVfLocalX2ApicEntry,_AC:cucsBiosVfLocalX2ApicInstanceId,'cucsBiosVfLocalX2ApicDn':cucsBiosVfLocalX2ApicDn,'cucsBiosVfLocalX2ApicRn':cucsBiosVfLocalX2ApicRn,'cucsBiosVfLocalX2ApicVpLocalX2Apic':cucsBiosVfLocalX2ApicVpLocalX2Apic,'cucsBiosVfLocalX2ApicPropAcl':cucsBiosVfLocalX2ApicPropAcl,'cucsBiosVfLocalX2ApicSupportedByDefault':cucsBiosVfLocalX2ApicSupportedByDefault,'cucsBiosVfUCSMBootModeControlTable':cucsBiosVfUCSMBootModeControlTable,'cucsBiosVfUCSMBootModeControlEntry':cucsBiosVfUCSMBootModeControlEntry,_AD:cucsBiosVfUCSMBootModeControlInstanceId,'cucsBiosVfUCSMBootModeControlDn':cucsBiosVfUCSMBootModeControlDn,'cucsBiosVfUCSMBootModeControlRn':cucsBiosVfUCSMBootModeControlRn,'cucsBiosVfUCSMBootModeControlVpUEFIBootMode':cucsBiosVfUCSMBootModeControlVpUEFIBootMode,'cucsBiosVfUCSMBootModeControlPropAcl':cucsBiosVfUCSMBootModeControlPropAcl,'cucsBiosVfUCSMBootModeControlSupportedByDefault':cucsBiosVfUCSMBootModeControlSupportedByDefault,'cucsBiosVfAllUSBDevicesTable':cucsBiosVfAllUSBDevicesTable,'cucsBiosVfAllUSBDevicesEntry':cucsBiosVfAllUSBDevicesEntry,_AE:cucsBiosVfAllUSBDevicesInstanceId,'cucsBiosVfAllUSBDevicesDn':cucsBiosVfAllUSBDevicesDn,'cucsBiosVfAllUSBDevicesRn':cucsBiosVfAllUSBDevicesRn,'cucsBiosVfAllUSBDevicesVpAllUSBDevices':cucsBiosVfAllUSBDevicesVpAllUSBDevices,'cucsBiosVfAllUSBDevicesPropAcl':cucsBiosVfAllUSBDevicesPropAcl,'cucsBiosVfAllUSBDevicesSupportedByDefault':cucsBiosVfAllUSBDevicesSupportedByDefault,'cucsBiosVfDRAMClockThrottlingTable':cucsBiosVfDRAMClockThrottlingTable,'cucsBiosVfDRAMClockThrottlingEntry':cucsBiosVfDRAMClockThrottlingEntry,_AF:cucsBiosVfDRAMClockThrottlingInstanceId,'cucsBiosVfDRAMClockThrottlingDn':cucsBiosVfDRAMClockThrottlingDn,'cucsBiosVfDRAMClockThrottlingRn':cucsBiosVfDRAMClockThrottlingRn,'cucsBiosVfDRAMClockThrottlingVpDRAMClockThrottling':cucsBiosVfDRAMClockThrottlingVpDRAMClockThrottling,'cucsBiosVfDRAMClockThrottlingPropAcl':cucsBiosVfDRAMClockThrottlingPropAcl,'cucsBiosVfDRAMClockThrottlingSupportedByDefault':cucsBiosVfDRAMClockThrottlingSupportedByDefault,'cucsBiosVfFRB2TimerTable':cucsBiosVfFRB2TimerTable,'cucsBiosVfFRB2TimerEntry':cucsBiosVfFRB2TimerEntry,_AG:cucsBiosVfFRB2TimerInstanceId,'cucsBiosVfFRB2TimerDn':cucsBiosVfFRB2TimerDn,'cucsBiosVfFRB2TimerRn':cucsBiosVfFRB2TimerRn,'cucsBiosVfFRB2TimerVpFRB2Timer':cucsBiosVfFRB2TimerVpFRB2Timer,'cucsBiosVfFRB2TimerPropAcl':cucsBiosVfFRB2TimerPropAcl,'cucsBiosVfFRB2TimerSupportedByDefault':cucsBiosVfFRB2TimerSupportedByDefault,'cucsBiosVfFrequencyFloorOverrideTable':cucsBiosVfFrequencyFloorOverrideTable,'cucsBiosVfFrequencyFloorOverrideEntry':cucsBiosVfFrequencyFloorOverrideEntry,_AH:cucsBiosVfFrequencyFloorOverrideInstanceId,'cucsBiosVfFrequencyFloorOverrideDn':cucsBiosVfFrequencyFloorOverrideDn,'cucsBiosVfFrequencyFloorOverrideRn':cucsBiosVfFrequencyFloorOverrideRn,'cucsBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride':cucsBiosVfFrequencyFloorOverrideVpFrequencyFloorOverride,'cucsBiosVfFrequencyFloorOverridePropAcl':cucsBiosVfFrequencyFloorOverridePropAcl,'cucsBiosVfFrequencyFloorOverrideSupportedByDefault':cucsBiosVfFrequencyFloorOverrideSupportedByDefault,'cucsBiosVfInterleaveConfigurationTable':cucsBiosVfInterleaveConfigurationTable,'cucsBiosVfInterleaveConfigurationEntry':cucsBiosVfInterleaveConfigurationEntry,_AI:cucsBiosVfInterleaveConfigurationInstanceId,'cucsBiosVfInterleaveConfigurationDn':cucsBiosVfInterleaveConfigurationDn,'cucsBiosVfInterleaveConfigurationRn':cucsBiosVfInterleaveConfigurationRn,'cucsBiosVfInterleaveConfigurationVpChannelInterleaving':cucsBiosVfInterleaveConfigurationVpChannelInterleaving,'cucsBiosVfInterleaveConfigurationVpMemoryInterleaving':cucsBiosVfInterleaveConfigurationVpMemoryInterleaving,'cucsBiosVfInterleaveConfigurationVpRankInterleaving':cucsBiosVfInterleaveConfigurationVpRankInterleaving,'cucsBiosVfInterleaveConfigurationPropAcl':cucsBiosVfInterleaveConfigurationPropAcl,'cucsBiosVfInterleaveConfigurationSupportedByDefault':cucsBiosVfInterleaveConfigurationSupportedByDefault,'cucsBiosVfPCISlotLinkSpeedTable':cucsBiosVfPCISlotLinkSpeedTable,'cucsBiosVfPCISlotLinkSpeedEntry':cucsBiosVfPCISlotLinkSpeedEntry,_AJ:cucsBiosVfPCISlotLinkSpeedInstanceId,'cucsBiosVfPCISlotLinkSpeedDn':cucsBiosVfPCISlotLinkSpeedDn,'cucsBiosVfPCISlotLinkSpeedRn':cucsBiosVfPCISlotLinkSpeedRn,'cucsBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed':cucsBiosVfPCISlotLinkSpeedVpPCIeSlot10LinkSpeed,'cucsBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed':cucsBiosVfPCISlotLinkSpeedVpPCIeSlot1LinkSpeed,'cucsBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed':cucsBiosVfPCISlotLinkSpeedVpPCIeSlot2LinkSpeed,'cucsBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed':cucsBiosVfPCISlotLinkSpeedVpPCIeSlot3LinkSpeed,'cucsBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed':cucsBiosVfPCISlotLinkSpeedVpPCIeSlot4LinkSpeed,'cucsBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed':cucsBiosVfPCISlotLinkSpeedVpPCIeSlot5LinkSpeed,'cucsBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed':cucsBiosVfPCISlotLinkSpeedVpPCIeSlot6LinkSpeed,'cucsBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed':cucsBiosVfPCISlotLinkSpeedVpPCIeSlot7LinkSpeed,'cucsBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed':cucsBiosVfPCISlotLinkSpeedVpPCIeSlot8LinkSpeed,'cucsBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed':cucsBiosVfPCISlotLinkSpeedVpPCIeSlot9LinkSpeed,'cucsBiosVfPCISlotLinkSpeedPropAcl':cucsBiosVfPCISlotLinkSpeedPropAcl,'cucsBiosVfPCISlotLinkSpeedSupportedByDefault':cucsBiosVfPCISlotLinkSpeedSupportedByDefault,'cucsBiosVfPSTATECoordinationTable':cucsBiosVfPSTATECoordinationTable,'cucsBiosVfPSTATECoordinationEntry':cucsBiosVfPSTATECoordinationEntry,_AK:cucsBiosVfPSTATECoordinationInstanceId,'cucsBiosVfPSTATECoordinationDn':cucsBiosVfPSTATECoordinationDn,'cucsBiosVfPSTATECoordinationRn':cucsBiosVfPSTATECoordinationRn,'cucsBiosVfPSTATECoordinationVpPSTATECoordination':cucsBiosVfPSTATECoordinationVpPSTATECoordination,'cucsBiosVfPSTATECoordinationPropAcl':cucsBiosVfPSTATECoordinationPropAcl,'cucsBiosVfPSTATECoordinationSupportedByDefault':cucsBiosVfPSTATECoordinationSupportedByDefault,'cucsBiosVfProcessorEnergyConfigurationTable':cucsBiosVfProcessorEnergyConfigurationTable,'cucsBiosVfProcessorEnergyConfigurationEntry':cucsBiosVfProcessorEnergyConfigurationEntry,_AL:cucsBiosVfProcessorEnergyConfigurationInstanceId,'cucsBiosVfProcessorEnergyConfigurationDn':cucsBiosVfProcessorEnergyConfigurationDn,'cucsBiosVfProcessorEnergyConfigurationRn':cucsBiosVfProcessorEnergyConfigurationRn,'cucsBiosVfProcessorEnergyConfigurationVpEnergyPerformance':cucsBiosVfProcessorEnergyConfigurationVpEnergyPerformance,'cucsBiosVfProcessorEnergyConfigurationVpPowerTechnology':cucsBiosVfProcessorEnergyConfigurationVpPowerTechnology,'cucsBiosVfProcessorEnergyConfigurationPropAcl':cucsBiosVfProcessorEnergyConfigurationPropAcl,'cucsBiosVfProcessorEnergyConfigurationSupportedByDefault':cucsBiosVfProcessorEnergyConfigurationSupportedByDefault,'cucsBiosVfProcessorPrefetchConfigTable':cucsBiosVfProcessorPrefetchConfigTable,'cucsBiosVfProcessorPrefetchConfigEntry':cucsBiosVfProcessorPrefetchConfigEntry,_AM:cucsBiosVfProcessorPrefetchConfigInstanceId,'cucsBiosVfProcessorPrefetchConfigDn':cucsBiosVfProcessorPrefetchConfigDn,'cucsBiosVfProcessorPrefetchConfigRn':cucsBiosVfProcessorPrefetchConfigRn,'cucsBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher':cucsBiosVfProcessorPrefetchConfigVpAdjacentCacheLinePrefetcher,'cucsBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher':cucsBiosVfProcessorPrefetchConfigVpDCUIPPrefetcher,'cucsBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch':cucsBiosVfProcessorPrefetchConfigVpDCUStreamerPrefetch,'cucsBiosVfProcessorPrefetchConfigVpHardwarePrefetcher':cucsBiosVfProcessorPrefetchConfigVpHardwarePrefetcher,'cucsBiosVfProcessorPrefetchConfigPropAcl':cucsBiosVfProcessorPrefetchConfigPropAcl,'cucsBiosVfProcessorPrefetchConfigSupportedByDefault':cucsBiosVfProcessorPrefetchConfigSupportedByDefault,'cucsBiosVfQPILinkFrequencySelectTable':cucsBiosVfQPILinkFrequencySelectTable,'cucsBiosVfQPILinkFrequencySelectEntry':cucsBiosVfQPILinkFrequencySelectEntry,_AN:cucsBiosVfQPILinkFrequencySelectInstanceId,'cucsBiosVfQPILinkFrequencySelectDn':cucsBiosVfQPILinkFrequencySelectDn,'cucsBiosVfQPILinkFrequencySelectRn':cucsBiosVfQPILinkFrequencySelectRn,'cucsBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect':cucsBiosVfQPILinkFrequencySelectVpQPILinkFrequencySelect,'cucsBiosVfQPILinkFrequencySelectPropAcl':cucsBiosVfQPILinkFrequencySelectPropAcl,'cucsBiosVfQPILinkFrequencySelectSupportedByDefault':cucsBiosVfQPILinkFrequencySelectSupportedByDefault,'cucsBiosVfScrubPoliciesTable':cucsBiosVfScrubPoliciesTable,'cucsBiosVfScrubPoliciesEntry':cucsBiosVfScrubPoliciesEntry,_AO:cucsBiosVfScrubPoliciesInstanceId,'cucsBiosVfScrubPoliciesDn':cucsBiosVfScrubPoliciesDn,'cucsBiosVfScrubPoliciesRn':cucsBiosVfScrubPoliciesRn,'cucsBiosVfScrubPoliciesVpDemandScrub':cucsBiosVfScrubPoliciesVpDemandScrub,'cucsBiosVfScrubPoliciesVpPatrolScrub':cucsBiosVfScrubPoliciesVpPatrolScrub,'cucsBiosVfScrubPoliciesPropAcl':cucsBiosVfScrubPoliciesPropAcl,'cucsBiosVfScrubPoliciesSupportedByDefault':cucsBiosVfScrubPoliciesSupportedByDefault,'cucsBiosVfUSBPortConfigurationTable':cucsBiosVfUSBPortConfigurationTable,'cucsBiosVfUSBPortConfigurationEntry':cucsBiosVfUSBPortConfigurationEntry,_AP:cucsBiosVfUSBPortConfigurationInstanceId,'cucsBiosVfUSBPortConfigurationDn':cucsBiosVfUSBPortConfigurationDn,'cucsBiosVfUSBPortConfigurationRn':cucsBiosVfUSBPortConfigurationRn,'cucsBiosVfUSBPortConfigurationVpPort6064Emulation':cucsBiosVfUSBPortConfigurationVpPort6064Emulation,'cucsBiosVfUSBPortConfigurationVpUSBPortFront':cucsBiosVfUSBPortConfigurationVpUSBPortFront,'cucsBiosVfUSBPortConfigurationVpUSBPortInternal':cucsBiosVfUSBPortConfigurationVpUSBPortInternal,'cucsBiosVfUSBPortConfigurationVpUSBPortKVM':cucsBiosVfUSBPortConfigurationVpUSBPortKVM,'cucsBiosVfUSBPortConfigurationVpUSBPortRear':cucsBiosVfUSBPortConfigurationVpUSBPortRear,'cucsBiosVfUSBPortConfigurationVpUSBPortSDCard':cucsBiosVfUSBPortConfigurationVpUSBPortSDCard,'cucsBiosVfUSBPortConfigurationVpUSBPortVMedia':cucsBiosVfUSBPortConfigurationVpUSBPortVMedia,'cucsBiosVfUSBPortConfigurationPropAcl':cucsBiosVfUSBPortConfigurationPropAcl,'cucsBiosVfUSBPortConfigurationSupportedByDefault':cucsBiosVfUSBPortConfigurationSupportedByDefault,'cucsBiosVfVGAPriorityTable':cucsBiosVfVGAPriorityTable,'cucsBiosVfVGAPriorityEntry':cucsBiosVfVGAPriorityEntry,_AQ:cucsBiosVfVGAPriorityInstanceId,'cucsBiosVfVGAPriorityDn':cucsBiosVfVGAPriorityDn,'cucsBiosVfVGAPriorityRn':cucsBiosVfVGAPriorityRn,'cucsBiosVfVGAPriorityVpVGAPriority':cucsBiosVfVGAPriorityVpVGAPriority,'cucsBiosVfVGAPriorityPropAcl':cucsBiosVfVGAPriorityPropAcl,'cucsBiosVfVGAPrioritySupportedByDefault':cucsBiosVfVGAPrioritySupportedByDefault,'cucsBiosVfAltitudeTable':cucsBiosVfAltitudeTable,'cucsBiosVfAltitudeEntry':cucsBiosVfAltitudeEntry,_AR:cucsBiosVfAltitudeInstanceId,'cucsBiosVfAltitudeDn':cucsBiosVfAltitudeDn,'cucsBiosVfAltitudeRn':cucsBiosVfAltitudeRn,'cucsBiosVfAltitudeVpAltitude':cucsBiosVfAltitudeVpAltitude,'cucsBiosVfAltitudePropAcl':cucsBiosVfAltitudePropAcl,'cucsBiosVfAltitudeSupportedByDefault':cucsBiosVfAltitudeSupportedByDefault,'cucsBiosVfTPMSupportTable':cucsBiosVfTPMSupportTable,'cucsBiosVfTPMSupportEntry':cucsBiosVfTPMSupportEntry,_AS:cucsBiosVfTPMSupportInstanceId,'cucsBiosVfTPMSupportDn':cucsBiosVfTPMSupportDn,'cucsBiosVfTPMSupportRn':cucsBiosVfTPMSupportRn,'cucsBiosVfTPMSupportVpTPMSupport':cucsBiosVfTPMSupportVpTPMSupport,'cucsBiosVfTPMSupportPropAcl':cucsBiosVfTPMSupportPropAcl,'cucsBiosVfTPMSupportSupportedByDefault':cucsBiosVfTPMSupportSupportedByDefault,'cucsBiosVfUSBConfigurationTable':cucsBiosVfUSBConfigurationTable,'cucsBiosVfUSBConfigurationEntry':cucsBiosVfUSBConfigurationEntry,_AT:cucsBiosVfUSBConfigurationInstanceId,'cucsBiosVfUSBConfigurationDn':cucsBiosVfUSBConfigurationDn,'cucsBiosVfUSBConfigurationRn':cucsBiosVfUSBConfigurationRn,'cucsBiosVfUSBConfigurationVpLegacyUSBSupport':cucsBiosVfUSBConfigurationVpLegacyUSBSupport,'cucsBiosVfUSBConfigurationVpXHCIMode':cucsBiosVfUSBConfigurationVpXHCIMode,'cucsBiosVfUSBConfigurationPropAcl':cucsBiosVfUSBConfigurationPropAcl,'cucsBiosVfUSBConfigurationSupportedByDefault':cucsBiosVfUSBConfigurationSupportedByDefault,'cucsBiosVfQPISnoopModeTable':cucsBiosVfQPISnoopModeTable,'cucsBiosVfQPISnoopModeEntry':cucsBiosVfQPISnoopModeEntry,_AU:cucsBiosVfQPISnoopModeInstanceId,'cucsBiosVfQPISnoopModeDn':cucsBiosVfQPISnoopModeDn,'cucsBiosVfQPISnoopModeRn':cucsBiosVfQPISnoopModeRn,'cucsBiosVfQPISnoopModeVpQPISnoopMode':cucsBiosVfQPISnoopModeVpQPISnoopMode,'cucsBiosVfQPISnoopModePropAcl':cucsBiosVfQPISnoopModePropAcl,'cucsBiosVfQPISnoopModeSupportedByDefault':cucsBiosVfQPISnoopModeSupportedByDefault,'cucsBiosVfEnhancedPowerCappingSupportTable':cucsBiosVfEnhancedPowerCappingSupportTable,'cucsBiosVfEnhancedPowerCappingSupportEntry':cucsBiosVfEnhancedPowerCappingSupportEntry,_AV:cucsBiosVfEnhancedPowerCappingSupportInstanceId,'cucsBiosVfEnhancedPowerCappingSupportDn':cucsBiosVfEnhancedPowerCappingSupportDn,'cucsBiosVfEnhancedPowerCappingSupportRn':cucsBiosVfEnhancedPowerCappingSupportRn,'cucsBiosVfEnhancedPowerCappingSupportPropAcl':cucsBiosVfEnhancedPowerCappingSupportPropAcl,'cucsBiosVfEnhancedPowerCappingSupportSupportedByDefault':cucsBiosVfEnhancedPowerCappingSupportSupportedByDefault,'cucsBiosVfEnhancedPowerCappingSupportVpEnhancedPowerCapping':cucsBiosVfEnhancedPowerCappingSupportVpEnhancedPowerCapping,'cucsBiosVfPCHSATAModeTable':cucsBiosVfPCHSATAModeTable,'cucsBiosVfPCHSATAModeEntry':cucsBiosVfPCHSATAModeEntry,_AW:cucsBiosVfPCHSATAModeInstanceId,'cucsBiosVfPCHSATAModeDn':cucsBiosVfPCHSATAModeDn,'cucsBiosVfPCHSATAModeRn':cucsBiosVfPCHSATAModeRn,'cucsBiosVfPCHSATAModePropAcl':cucsBiosVfPCHSATAModePropAcl,'cucsBiosVfPCHSATAModeSupportedByDefault':cucsBiosVfPCHSATAModeSupportedByDefault,'cucsBiosVfPCHSATAModeVpSATAMode':cucsBiosVfPCHSATAModeVpSATAMode,'cucsBiosVfASPMSupportTable':cucsBiosVfASPMSupportTable,'cucsBiosVfASPMSupportEntry':cucsBiosVfASPMSupportEntry,_AX:cucsBiosVfASPMSupportInstanceId,'cucsBiosVfASPMSupportDn':cucsBiosVfASPMSupportDn,'cucsBiosVfASPMSupportRn':cucsBiosVfASPMSupportRn,'cucsBiosVfASPMSupportVpASPMSupport':cucsBiosVfASPMSupportVpASPMSupport,'cucsBiosVfASPMSupportSupportedByDefault':cucsBiosVfASPMSupportSupportedByDefault,'cucsBiosVfASPMSupportPropAcl':cucsBiosVfASPMSupportPropAcl,'cucsBiosVfDDR3VoltageSelectionTable':cucsBiosVfDDR3VoltageSelectionTable,'cucsBiosVfDDR3VoltageSelectionEntry':cucsBiosVfDDR3VoltageSelectionEntry,_AY:cucsBiosVfDDR3VoltageSelectionInstanceId,'cucsBiosVfDDR3VoltageSelectionDn':cucsBiosVfDDR3VoltageSelectionDn,'cucsBiosVfDDR3VoltageSelectionRn':cucsBiosVfDDR3VoltageSelectionRn,'cucsBiosVfDDR3VoltageSelectionVpDDR3VoltageSelection':cucsBiosVfDDR3VoltageSelectionVpDDR3VoltageSelection,'cucsBiosVfDDR3VoltageSelectionSupportedByDefault':cucsBiosVfDDR3VoltageSelectionSupportedByDefault,'cucsBiosVfDDR3VoltageSelectionPropAcl':cucsBiosVfDDR3VoltageSelectionPropAcl,'cucsBiosVfConsistentDeviceNameControlTable':cucsBiosVfConsistentDeviceNameControlTable,'cucsBiosVfConsistentDeviceNameControlEntry':cucsBiosVfConsistentDeviceNameControlEntry,_AZ:cucsBiosVfConsistentDeviceNameControlInstanceId,'cucsBiosVfConsistentDeviceNameControlDn':cucsBiosVfConsistentDeviceNameControlDn,'cucsBiosVfConsistentDeviceNameControlRn':cucsBiosVfConsistentDeviceNameControlRn,'cucsBiosVfConsistentDeviceNameControlVpCDNControl':cucsBiosVfConsistentDeviceNameControlVpCDNControl,'cucsBiosVfConsistentDeviceNameControlSupportedByDefault':cucsBiosVfConsistentDeviceNameControlSupportedByDefault,'cucsBiosVfConsistentDeviceNameControlPropAcl':cucsBiosVfConsistentDeviceNameControlPropAcl,'cucsBiosVfIntelTrustedExecutionTechnologyTable':cucsBiosVfIntelTrustedExecutionTechnologyTable,'cucsBiosVfIntelTrustedExecutionTechnologyEntry':cucsBiosVfIntelTrustedExecutionTechnologyEntry,_Aa:cucsBiosVfIntelTrustedExecutionTechnologyInstanceId,'cucsBiosVfIntelTrustedExecutionTechnologyDn':cucsBiosVfIntelTrustedExecutionTechnologyDn,'cucsBiosVfIntelTrustedExecutionTechnologyRn':cucsBiosVfIntelTrustedExecutionTechnologyRn,'cucsBiosVfIntelTrustedExecutionTechnologyVpIntelTstdExecTechSup':cucsBiosVfIntelTrustedExecutionTechnologyVpIntelTstdExecTechSup,'cucsBiosVfIntelTrustedExecutionTechnologySupportedByDefault':cucsBiosVfIntelTrustedExecutionTechnologySupportedByDefault,'cucsBiosVfIntelTrustedExecutionTechnologyPropAcl':cucsBiosVfIntelTrustedExecutionTechnologyPropAcl,'cucsBiosVfPCILOMPortsConfigurationTable':cucsBiosVfPCILOMPortsConfigurationTable,'cucsBiosVfPCILOMPortsConfigurationEntry':cucsBiosVfPCILOMPortsConfigurationEntry,_Ab:cucsBiosVfPCILOMPortsConfigurationInstanceId,'cucsBiosVfPCILOMPortsConfigurationDn':cucsBiosVfPCILOMPortsConfigurationDn,'cucsBiosVfPCILOMPortsConfigurationRn':cucsBiosVfPCILOMPortsConfigurationRn,'cucsBiosVfPCILOMPortsConfigurationVpPCIe10GLOM2Link':cucsBiosVfPCILOMPortsConfigurationVpPCIe10GLOM2Link,'cucsBiosVfPCILOMPortsConfigurationSupportedByDefault':cucsBiosVfPCILOMPortsConfigurationSupportedByDefault,'cucsBiosVfPCILOMPortsConfigurationPropAcl':cucsBiosVfPCILOMPortsConfigurationPropAcl,'cucsBiosVfTPMPendingOperationTable':cucsBiosVfTPMPendingOperationTable,'cucsBiosVfTPMPendingOperationEntry':cucsBiosVfTPMPendingOperationEntry,_Ac:cucsBiosVfTPMPendingOperationInstanceId,'cucsBiosVfTPMPendingOperationDn':cucsBiosVfTPMPendingOperationDn,'cucsBiosVfTPMPendingOperationRn':cucsBiosVfTPMPendingOperationRn,'cucsBiosVfTPMPendingOperationVpTPMPendingOperation':cucsBiosVfTPMPendingOperationVpTPMPendingOperation,'cucsBiosVfTPMPendingOperationSupportedByDefault':cucsBiosVfTPMPendingOperationSupportedByDefault,'cucsBiosVfTPMPendingOperationPropAcl':cucsBiosVfTPMPendingOperationPropAcl,'cucsBiosVfTrustedPlatformModuleTable':cucsBiosVfTrustedPlatformModuleTable,'cucsBiosVfTrustedPlatformModuleEntry':cucsBiosVfTrustedPlatformModuleEntry,_Ad:cucsBiosVfTrustedPlatformModuleInstanceId,'cucsBiosVfTrustedPlatformModuleDn':cucsBiosVfTrustedPlatformModuleDn,'cucsBiosVfTrustedPlatformModuleRn':cucsBiosVfTrustedPlatformModuleRn,'cucsBiosVfTrustedPlatformModuleVpTrustedPlatformModuleSupport':cucsBiosVfTrustedPlatformModuleVpTrustedPlatformModuleSupport,'cucsBiosVfTrustedPlatformModuleSupportedByDefault':cucsBiosVfTrustedPlatformModuleSupportedByDefault,'cucsBiosVfTrustedPlatformModulePropAcl':cucsBiosVfTrustedPlatformModulePropAcl,'cucsBiosVfCPUHardwarePowerManagementTable':cucsBiosVfCPUHardwarePowerManagementTable,'cucsBiosVfCPUHardwarePowerManagementEntry':cucsBiosVfCPUHardwarePowerManagementEntry,_Ae:cucsBiosVfCPUHardwarePowerManagementInstanceId,'cucsBiosVfCPUHardwarePowerManagementDn':cucsBiosVfCPUHardwarePowerManagementDn,'cucsBiosVfCPUHardwarePowerManagementRn':cucsBiosVfCPUHardwarePowerManagementRn,'cucsBiosVfCPUHardwarePowerManagementSupportedByDefault':cucsBiosVfCPUHardwarePowerManagementSupportedByDefault,'cucsBiosVfCPUHardwarePowerManagementVpCPUHardwarePowerManagement':cucsBiosVfCPUHardwarePowerManagementVpCPUHardwarePowerManagement,'cucsBiosVfCPUHardwarePowerManagementPropAcl':cucsBiosVfCPUHardwarePowerManagementPropAcl,'cucsBiosVfIntegratedGraphicsTable':cucsBiosVfIntegratedGraphicsTable,'cucsBiosVfIntegratedGraphicsEntry':cucsBiosVfIntegratedGraphicsEntry,_Af:cucsBiosVfIntegratedGraphicsInstanceId,'cucsBiosVfIntegratedGraphicsDn':cucsBiosVfIntegratedGraphicsDn,'cucsBiosVfIntegratedGraphicsRn':cucsBiosVfIntegratedGraphicsRn,'cucsBiosVfIntegratedGraphicsSupportedByDefault':cucsBiosVfIntegratedGraphicsSupportedByDefault,'cucsBiosVfIntegratedGraphicsVpIntegratedGraphics':cucsBiosVfIntegratedGraphicsVpIntegratedGraphics,'cucsBiosVfIntegratedGraphicsPropAcl':cucsBiosVfIntegratedGraphicsPropAcl,'cucsBiosVfIntegratedGraphicsApertureSizeTable':cucsBiosVfIntegratedGraphicsApertureSizeTable,'cucsBiosVfIntegratedGraphicsApertureSizeEntry':cucsBiosVfIntegratedGraphicsApertureSizeEntry,_Ag:cucsBiosVfIntegratedGraphicsApertureSizeInstanceId,'cucsBiosVfIntegratedGraphicsApertureSizeDn':cucsBiosVfIntegratedGraphicsApertureSizeDn,'cucsBiosVfIntegratedGraphicsApertureSizeRn':cucsBiosVfIntegratedGraphicsApertureSizeRn,'cucsBiosVfIntegratedGraphicsApertureSizeSupportedByDefault':cucsBiosVfIntegratedGraphicsApertureSizeSupportedByDefault,'cucsBiosVfIntegratedGraphicsApertureSizeVpIntgtGraphApertureSize':cucsBiosVfIntegratedGraphicsApertureSizeVpIntgtGraphApertureSize,'cucsBiosVfIntegratedGraphicsApertureSizePropAcl':cucsBiosVfIntegratedGraphicsApertureSizePropAcl,'cucsBiosVfOnboardGraphicsTable':cucsBiosVfOnboardGraphicsTable,'cucsBiosVfOnboardGraphicsEntry':cucsBiosVfOnboardGraphicsEntry,_Ah:cucsBiosVfOnboardGraphicsInstanceId,'cucsBiosVfOnboardGraphicsDn':cucsBiosVfOnboardGraphicsDn,'cucsBiosVfOnboardGraphicsRn':cucsBiosVfOnboardGraphicsRn,'cucsBiosVfOnboardGraphicsSupportedByDefault':cucsBiosVfOnboardGraphicsSupportedByDefault,'cucsBiosVfOnboardGraphicsVpOnboardGraphics':cucsBiosVfOnboardGraphicsVpOnboardGraphics,'cucsBiosVfOnboardGraphicsPropAcl':cucsBiosVfOnboardGraphicsPropAcl,'cucsBiosVfProcessorCMCITable':cucsBiosVfProcessorCMCITable,'cucsBiosVfProcessorCMCIEntry':cucsBiosVfProcessorCMCIEntry,_Ai:cucsBiosVfProcessorCMCIInstanceId,'cucsBiosVfProcessorCMCIDn':cucsBiosVfProcessorCMCIDn,'cucsBiosVfProcessorCMCIRn':cucsBiosVfProcessorCMCIRn,'cucsBiosVfProcessorCMCIVpProcessorCMCI':cucsBiosVfProcessorCMCIVpProcessorCMCI,'cucsBiosVfProcessorCMCIPropAcl':cucsBiosVfProcessorCMCIPropAcl,'cucsBiosVfProcessorCMCISupportedByDefault':cucsBiosVfProcessorCMCISupportedByDefault,'cucsBiosVfEnergyPerformanceTuningTable':cucsBiosVfEnergyPerformanceTuningTable,'cucsBiosVfEnergyPerformanceTuningEntry':cucsBiosVfEnergyPerformanceTuningEntry,_Aj:cucsBiosVfEnergyPerformanceTuningInstanceId,'cucsBiosVfEnergyPerformanceTuningDn':cucsBiosVfEnergyPerformanceTuningDn,'cucsBiosVfEnergyPerformanceTuningRn':cucsBiosVfEnergyPerformanceTuningRn,'cucsBiosVfEnergyPerformanceTuningPropAcl':cucsBiosVfEnergyPerformanceTuningPropAcl,'cucsBiosVfEnergyPerformanceTuningSupportedByDefault':cucsBiosVfEnergyPerformanceTuningSupportedByDefault,'cucsBiosVfEnergyPerformanceTuningVpPwrPerfTuning':cucsBiosVfEnergyPerformanceTuningVpPwrPerfTuning,'cucsBiosVfIOEMezz1OptionROMTable':cucsBiosVfIOEMezz1OptionROMTable,'cucsBiosVfIOEMezz1OptionROMEntry':cucsBiosVfIOEMezz1OptionROMEntry,_Ak:cucsBiosVfIOEMezz1OptionROMInstanceId,'cucsBiosVfIOEMezz1OptionROMDn':cucsBiosVfIOEMezz1OptionROMDn,'cucsBiosVfIOEMezz1OptionROMRn':cucsBiosVfIOEMezz1OptionROMRn,'cucsBiosVfIOEMezz1OptionROMPropAcl':cucsBiosVfIOEMezz1OptionROMPropAcl,'cucsBiosVfIOEMezz1OptionROMSupportedByDefault':cucsBiosVfIOEMezz1OptionROMSupportedByDefault,'cucsBiosVfIOEMezz1OptionROMVpIOEMezz1OptionROM':cucsBiosVfIOEMezz1OptionROMVpIOEMezz1OptionROM,'cucsBiosVfIOENVMe1OptionROMTable':cucsBiosVfIOENVMe1OptionROMTable,'cucsBiosVfIOENVMe1OptionROMEntry':cucsBiosVfIOENVMe1OptionROMEntry,_Al:cucsBiosVfIOENVMe1OptionROMInstanceId,'cucsBiosVfIOENVMe1OptionROMDn':cucsBiosVfIOENVMe1OptionROMDn,'cucsBiosVfIOENVMe1OptionROMRn':cucsBiosVfIOENVMe1OptionROMRn,'cucsBiosVfIOENVMe1OptionROMPropAcl':cucsBiosVfIOENVMe1OptionROMPropAcl,'cucsBiosVfIOENVMe1OptionROMSupportedByDefault':cucsBiosVfIOENVMe1OptionROMSupportedByDefault,'cucsBiosVfIOENVMe1OptionROMVpIOENVMe1OptionROM':cucsBiosVfIOENVMe1OptionROMVpIOENVMe1OptionROM,'cucsBiosVfIOENVMe2OptionROMTable':cucsBiosVfIOENVMe2OptionROMTable,'cucsBiosVfIOENVMe2OptionROMEntry':cucsBiosVfIOENVMe2OptionROMEntry,_Am:cucsBiosVfIOENVMe2OptionROMInstanceId,'cucsBiosVfIOENVMe2OptionROMDn':cucsBiosVfIOENVMe2OptionROMDn,'cucsBiosVfIOENVMe2OptionROMRn':cucsBiosVfIOENVMe2OptionROMRn,'cucsBiosVfIOENVMe2OptionROMPropAcl':cucsBiosVfIOENVMe2OptionROMPropAcl,'cucsBiosVfIOENVMe2OptionROMSupportedByDefault':cucsBiosVfIOENVMe2OptionROMSupportedByDefault,'cucsBiosVfIOENVMe2OptionROMVpIOENVMe2OptionROM':cucsBiosVfIOENVMe2OptionROMVpIOENVMe2OptionROM,'cucsBiosVfIOESlot1OptionROMTable':cucsBiosVfIOESlot1OptionROMTable,'cucsBiosVfIOESlot1OptionROMEntry':cucsBiosVfIOESlot1OptionROMEntry,_An:cucsBiosVfIOESlot1OptionROMInstanceId,'cucsBiosVfIOESlot1OptionROMDn':cucsBiosVfIOESlot1OptionROMDn,'cucsBiosVfIOESlot1OptionROMRn':cucsBiosVfIOESlot1OptionROMRn,'cucsBiosVfIOESlot1OptionROMPropAcl':cucsBiosVfIOESlot1OptionROMPropAcl,'cucsBiosVfIOESlot1OptionROMSupportedByDefault':cucsBiosVfIOESlot1OptionROMSupportedByDefault,'cucsBiosVfIOESlot1OptionROMVpIOESlot1OptionROM':cucsBiosVfIOESlot1OptionROMVpIOESlot1OptionROM,'cucsBiosVfIOESlot2OptionROMTable':cucsBiosVfIOESlot2OptionROMTable,'cucsBiosVfIOESlot2OptionROMEntry':cucsBiosVfIOESlot2OptionROMEntry,_Ao:cucsBiosVfIOESlot2OptionROMInstanceId,'cucsBiosVfIOESlot2OptionROMDn':cucsBiosVfIOESlot2OptionROMDn,'cucsBiosVfIOESlot2OptionROMRn':cucsBiosVfIOESlot2OptionROMRn,'cucsBiosVfIOESlot2OptionROMPropAcl':cucsBiosVfIOESlot2OptionROMPropAcl,'cucsBiosVfIOESlot2OptionROMSupportedByDefault':cucsBiosVfIOESlot2OptionROMSupportedByDefault,'cucsBiosVfIOESlot2OptionROMVpIOESlot2OptionROM':cucsBiosVfIOESlot2OptionROMVpIOESlot2OptionROM,'cucsBiosVfOutOfBandManagementTable':cucsBiosVfOutOfBandManagementTable,'cucsBiosVfOutOfBandManagementEntry':cucsBiosVfOutOfBandManagementEntry,_Ap:cucsBiosVfOutOfBandManagementInstanceId,'cucsBiosVfOutOfBandManagementDn':cucsBiosVfOutOfBandManagementDn,'cucsBiosVfOutOfBandManagementRn':cucsBiosVfOutOfBandManagementRn,'cucsBiosVfOutOfBandManagementPropAcl':cucsBiosVfOutOfBandManagementPropAcl,'cucsBiosVfOutOfBandManagementSupportedByDefault':cucsBiosVfOutOfBandManagementSupportedByDefault,'cucsBiosVfOutOfBandManagementVpComSpcrEnable':cucsBiosVfOutOfBandManagementVpComSpcrEnable,'cucsBiosVfPCIROMCLPTable':cucsBiosVfPCIROMCLPTable,'cucsBiosVfPCIROMCLPEntry':cucsBiosVfPCIROMCLPEntry,_Aq:cucsBiosVfPCIROMCLPInstanceId,'cucsBiosVfPCIROMCLPDn':cucsBiosVfPCIROMCLPDn,'cucsBiosVfPCIROMCLPRn':cucsBiosVfPCIROMCLPRn,'cucsBiosVfPCIROMCLPPropAcl':cucsBiosVfPCIROMCLPPropAcl,'cucsBiosVfPCIROMCLPSupportedByDefault':cucsBiosVfPCIROMCLPSupportedByDefault,'cucsBiosVfPCIROMCLPVpPCIROMCLP':cucsBiosVfPCIROMCLPVpPCIROMCLP,'cucsBiosVfRedirectionAfterBIOSPOSTTable':cucsBiosVfRedirectionAfterBIOSPOSTTable,'cucsBiosVfRedirectionAfterBIOSPOSTEntry':cucsBiosVfRedirectionAfterBIOSPOSTEntry,_Ar:cucsBiosVfRedirectionAfterBIOSPOSTInstanceId,'cucsBiosVfRedirectionAfterBIOSPOSTDn':cucsBiosVfRedirectionAfterBIOSPOSTDn,'cucsBiosVfRedirectionAfterBIOSPOSTRn':cucsBiosVfRedirectionAfterBIOSPOSTRn,'cucsBiosVfRedirectionAfterBIOSPOSTPropAcl':cucsBiosVfRedirectionAfterBIOSPOSTPropAcl,'cucsBiosVfRedirectionAfterBIOSPOSTSupportedByDefault':cucsBiosVfRedirectionAfterBIOSPOSTSupportedByDefault,'cucsBiosVfRedirectionAfterBIOSPOSTVpRedirectionAfterPOST':cucsBiosVfRedirectionAfterBIOSPOSTVpRedirectionAfterPOST,'cucsBiosVfSBMezz1OptionROMTable':cucsBiosVfSBMezz1OptionROMTable,'cucsBiosVfSBMezz1OptionROMEntry':cucsBiosVfSBMezz1OptionROMEntry,_As:cucsBiosVfSBMezz1OptionROMInstanceId,'cucsBiosVfSBMezz1OptionROMDn':cucsBiosVfSBMezz1OptionROMDn,'cucsBiosVfSBMezz1OptionROMRn':cucsBiosVfSBMezz1OptionROMRn,'cucsBiosVfSBMezz1OptionROMPropAcl':cucsBiosVfSBMezz1OptionROMPropAcl,'cucsBiosVfSBMezz1OptionROMSupportedByDefault':cucsBiosVfSBMezz1OptionROMSupportedByDefault,'cucsBiosVfSBMezz1OptionROMVpSBMezz1OptionROM':cucsBiosVfSBMezz1OptionROMVpSBMezz1OptionROM,'cucsBiosVfSBNVMe1OptionROMTable':cucsBiosVfSBNVMe1OptionROMTable,'cucsBiosVfSBNVMe1OptionROMEntry':cucsBiosVfSBNVMe1OptionROMEntry,_At:cucsBiosVfSBNVMe1OptionROMInstanceId,'cucsBiosVfSBNVMe1OptionROMDn':cucsBiosVfSBNVMe1OptionROMDn,'cucsBiosVfSBNVMe1OptionROMRn':cucsBiosVfSBNVMe1OptionROMRn,'cucsBiosVfSBNVMe1OptionROMPropAcl':cucsBiosVfSBNVMe1OptionROMPropAcl,'cucsBiosVfSBNVMe1OptionROMSupportedByDefault':cucsBiosVfSBNVMe1OptionROMSupportedByDefault,'cucsBiosVfSBNVMe1OptionROMVpSBNVMe1OptionROM':cucsBiosVfSBNVMe1OptionROMVpSBNVMe1OptionROM,'cucsBiosVfSIOC1OptionROMTable':cucsBiosVfSIOC1OptionROMTable,'cucsBiosVfSIOC1OptionROMEntry':cucsBiosVfSIOC1OptionROMEntry,_Au:cucsBiosVfSIOC1OptionROMInstanceId,'cucsBiosVfSIOC1OptionROMDn':cucsBiosVfSIOC1OptionROMDn,'cucsBiosVfSIOC1OptionROMRn':cucsBiosVfSIOC1OptionROMRn,'cucsBiosVfSIOC1OptionROMPropAcl':cucsBiosVfSIOC1OptionROMPropAcl,'cucsBiosVfSIOC1OptionROMSupportedByDefault':cucsBiosVfSIOC1OptionROMSupportedByDefault,'cucsBiosVfSIOC1OptionROMVpSIOC1OptionROM':cucsBiosVfSIOC1OptionROMVpSIOC1OptionROM,'cucsBiosVfSIOC2OptionROMTable':cucsBiosVfSIOC2OptionROMTable,'cucsBiosVfSIOC2OptionROMEntry':cucsBiosVfSIOC2OptionROMEntry,_Av:cucsBiosVfSIOC2OptionROMInstanceId,'cucsBiosVfSIOC2OptionROMDn':cucsBiosVfSIOC2OptionROMDn,'cucsBiosVfSIOC2OptionROMRn':cucsBiosVfSIOC2OptionROMRn,'cucsBiosVfSIOC2OptionROMPropAcl':cucsBiosVfSIOC2OptionROMPropAcl,'cucsBiosVfSIOC2OptionROMSupportedByDefault':cucsBiosVfSIOC2OptionROMSupportedByDefault,'cucsBiosVfSIOC2OptionROMVpSIOC2OptionROM':cucsBiosVfSIOC2OptionROMVpSIOC2OptionROM,'cucsBiosVfWorkloadConfigurationTable':cucsBiosVfWorkloadConfigurationTable,'cucsBiosVfWorkloadConfigurationEntry':cucsBiosVfWorkloadConfigurationEntry,_Aw:cucsBiosVfWorkloadConfigurationInstanceId,'cucsBiosVfWorkloadConfigurationDn':cucsBiosVfWorkloadConfigurationDn,'cucsBiosVfWorkloadConfigurationRn':cucsBiosVfWorkloadConfigurationRn,'cucsBiosVfWorkloadConfigurationPropAcl':cucsBiosVfWorkloadConfigurationPropAcl,'cucsBiosVfWorkloadConfigurationSupportedByDefault':cucsBiosVfWorkloadConfigurationSupportedByDefault,'cucsBiosVfWorkloadConfigurationVpWorkloadConfiguration':cucsBiosVfWorkloadConfigurationVpWorkloadConfiguration,'cucsBiosTokenFeatureGroupTable':cucsBiosTokenFeatureGroupTable,'cucsBiosTokenFeatureGroupEntry':cucsBiosTokenFeatureGroupEntry,_Ax:cucsBiosTokenFeatureGroupInstanceId,'cucsBiosTokenFeatureGroupDn':cucsBiosTokenFeatureGroupDn,'cucsBiosTokenFeatureGroupRn':cucsBiosTokenFeatureGroupRn,'cucsBiosTokenFeatureGroupName':cucsBiosTokenFeatureGroupName,'cucsBiosTokenFeatureGroupSupportedByDefault':cucsBiosTokenFeatureGroupSupportedByDefault,'cucsBiosTokenParamTable':cucsBiosTokenParamTable,'cucsBiosTokenParamEntry':cucsBiosTokenParamEntry,_Ay:cucsBiosTokenParamInstanceId,'cucsBiosTokenParamDn':cucsBiosTokenParamDn,'cucsBiosTokenParamRn':cucsBiosTokenParamRn,'cucsBiosTokenParamLegacyPropId':cucsBiosTokenParamLegacyPropId,'cucsBiosTokenParamParamName':cucsBiosTokenParamParamName,'cucsBiosTokenParamTargetTokenName':cucsBiosTokenParamTargetTokenName,'cucsBiosTokenParamUiGroupName':cucsBiosTokenParamUiGroupName,'cucsBiosTokenSettingsTable':cucsBiosTokenSettingsTable,'cucsBiosTokenSettingsEntry':cucsBiosTokenSettingsEntry,_Az:cucsBiosTokenSettingsInstanceId,'cucsBiosTokenSettingsDn':cucsBiosTokenSettingsDn,'cucsBiosTokenSettingsRn':cucsBiosTokenSettingsRn,'cucsBiosTokenSettingsBiosRetSettingName':cucsBiosTokenSettingsBiosRetSettingName,'cucsBiosTokenSettingsIsAssigned':cucsBiosTokenSettingsIsAssigned,'cucsBiosTokenSettingsLegacyPropVal':cucsBiosTokenSettingsLegacyPropVal,'cucsBiosTokenSettingsSettingsMoRn':cucsBiosTokenSettingsSettingsMoRn,'cucsBiosTokenSettingsTargetTokenValue':cucsBiosTokenSettingsTargetTokenValue})

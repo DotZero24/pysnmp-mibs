@@ -1,0 +1,316 @@
+_w='cie1000DhcpSnoopingStatisticsInterfaceTableInfoGroup'
+_v='cie1000DhcpSnoopingControlInterfaceClearStatisticsTableInfoGroup'
+_u='cie1000DhcpSnoopingStatusAssignedIpTableInfoGroup'
+_t='cie1000DhcpSnoopingConfigInterfaceInfoGroup'
+_s='cie1000DhcpSnoopingConfigGlobalsInfoGroup'
+_r='cie1000DhcpSnoopingStatisticsInterfaceTxLeaseActive'
+_q='cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnknown'
+_p='cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnassigned'
+_o='cie1000DhcpSnoopingStatisticsInterfaceTxLeaseQuery'
+_n='cie1000DhcpSnoopingStatisticsInterfaceTxInform'
+_m='cie1000DhcpSnoopingStatisticsInterfaceTxRelease'
+_l='cie1000DhcpSnoopingStatisticsInterfaceTxNak'
+_k='cie1000DhcpSnoopingStatisticsInterfaceTxAck'
+_j='cie1000DhcpSnoopingStatisticsInterfaceTxDecline'
+_i='cie1000DhcpSnoopingStatisticsInterfaceTxRequest'
+_h='cie1000DhcpSnoopingStatisticsInterfaceTxOffer'
+_g='cie1000DhcpSnoopingStatisticsInterfaceTxDiscover'
+_f='cie1000DhcpSnoopingStatisticsInterfaceRxDiscardUntrust'
+_e='cie1000DhcpSnoopingStatisticsInterfaceRxDiscardChksumErr'
+_d='cie1000DhcpSnoopingStatisticsInterfaceRxLeaseActive'
+_c='cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnknown'
+_b='cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnassigned'
+_a='cie1000DhcpSnoopingStatisticsInterfaceRxLeaseQuery'
+_Z='cie1000DhcpSnoopingStatisticsInterfaceRxInform'
+_Y='cie1000DhcpSnoopingStatisticsInterfaceRxRelease'
+_X='cie1000DhcpSnoopingStatisticsInterfaceRxNak'
+_W='cie1000DhcpSnoopingStatisticsInterfaceRxAck'
+_V='cie1000DhcpSnoopingStatisticsInterfaceRxDecline'
+_U='cie1000DhcpSnoopingStatisticsInterfaceRxRequest'
+_T='cie1000DhcpSnoopingStatisticsInterfaceRxOffer'
+_S='cie1000DhcpSnoopingStatisticsInterfaceRxDiscover'
+_R='cie1000DhcpSnoopingControlInterfaceClearStatisticsClear'
+_Q='cie1000DhcpSnoopingStatusAssignedIpDhcpServerIp'
+_P='cie1000DhcpSnoopingStatusAssignedIpNetmask'
+_O='cie1000DhcpSnoopingStatusAssignedIpIpAddress'
+_N='cie1000DhcpSnoopingStatusAssignedIpIfIndex'
+_M='cie1000DhcpSnoopingConfigInterfaceTrustMode'
+_L='cie1000DhcpSnoopingConfigGlobalsMode'
+_K='Integer32'
+_J='cie1000DhcpSnoopingStatisticsInterfaceIfIndex'
+_I='cie1000DhcpSnoopingControlInterfaceClearStatisticsIfIndex'
+_H='cie1000DhcpSnoopingStatusAssignedIpVlanId'
+_G='cie1000DhcpSnoopingStatusAssignedIpMacAddress'
+_F='cie1000DhcpSnoopingConfigInterfaceIfIndex'
+_E='read-write'
+_D='accessible-for-notify'
+_C='read-only'
+_B='CIE1000-DHCP-SNOOPING-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+CIE1000InterfaceIndex,=mibBuilder.importSymbols('CIE1000-TC','CIE1000InterfaceIndex')
+cie1000SwitchMgmt,=mibBuilder.importSymbols('CISCO-IE1000-MIB','cie1000SwitchMgmt')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_K,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,MacAddress,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention','TruthValue')
+cie1000DhcpSnoopingMib=ModuleIdentity((1,3,6,1,4,1,9,9,832,1,56))
+if mibBuilder.loadTexts:cie1000DhcpSnoopingMib.setRevisions(('2014-10-10 00:00','2014-07-01 00:00'))
+_Cie1000DhcpSnoopingMibObjects_ObjectIdentity=ObjectIdentity
+cie1000DhcpSnoopingMibObjects=_Cie1000DhcpSnoopingMibObjects_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,56,1))
+_Cie1000DhcpSnoopingConfig_ObjectIdentity=ObjectIdentity
+cie1000DhcpSnoopingConfig=_Cie1000DhcpSnoopingConfig_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,56,1,2))
+_Cie1000DhcpSnoopingConfigGlobals_ObjectIdentity=ObjectIdentity
+cie1000DhcpSnoopingConfigGlobals=_Cie1000DhcpSnoopingConfigGlobals_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,56,1,2,1))
+_Cie1000DhcpSnoopingConfigGlobalsMode_Type=TruthValue
+_Cie1000DhcpSnoopingConfigGlobalsMode_Object=MibScalar
+cie1000DhcpSnoopingConfigGlobalsMode=_Cie1000DhcpSnoopingConfigGlobalsMode_Object((1,3,6,1,4,1,9,9,832,1,56,1,2,1,1),_Cie1000DhcpSnoopingConfigGlobalsMode_Type())
+cie1000DhcpSnoopingConfigGlobalsMode.setMaxAccess(_E)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingConfigGlobalsMode.setStatus(_A)
+_Cie1000DhcpSnoopingConfigInterfaceTable_Object=MibTable
+cie1000DhcpSnoopingConfigInterfaceTable=_Cie1000DhcpSnoopingConfigInterfaceTable_Object((1,3,6,1,4,1,9,9,832,1,56,1,2,2))
+if mibBuilder.loadTexts:cie1000DhcpSnoopingConfigInterfaceTable.setStatus(_A)
+_Cie1000DhcpSnoopingConfigInterfaceEntry_Object=MibTableRow
+cie1000DhcpSnoopingConfigInterfaceEntry=_Cie1000DhcpSnoopingConfigInterfaceEntry_Object((1,3,6,1,4,1,9,9,832,1,56,1,2,2,1))
+cie1000DhcpSnoopingConfigInterfaceEntry.setIndexNames((0,_B,_F))
+if mibBuilder.loadTexts:cie1000DhcpSnoopingConfigInterfaceEntry.setStatus(_A)
+_Cie1000DhcpSnoopingConfigInterfaceIfIndex_Type=CIE1000InterfaceIndex
+_Cie1000DhcpSnoopingConfigInterfaceIfIndex_Object=MibTableColumn
+cie1000DhcpSnoopingConfigInterfaceIfIndex=_Cie1000DhcpSnoopingConfigInterfaceIfIndex_Object((1,3,6,1,4,1,9,9,832,1,56,1,2,2,1,1),_Cie1000DhcpSnoopingConfigInterfaceIfIndex_Type())
+cie1000DhcpSnoopingConfigInterfaceIfIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingConfigInterfaceIfIndex.setStatus(_A)
+_Cie1000DhcpSnoopingConfigInterfaceTrustMode_Type=TruthValue
+_Cie1000DhcpSnoopingConfigInterfaceTrustMode_Object=MibTableColumn
+cie1000DhcpSnoopingConfigInterfaceTrustMode=_Cie1000DhcpSnoopingConfigInterfaceTrustMode_Object((1,3,6,1,4,1,9,9,832,1,56,1,2,2,1,2),_Cie1000DhcpSnoopingConfigInterfaceTrustMode_Type())
+cie1000DhcpSnoopingConfigInterfaceTrustMode.setMaxAccess(_E)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingConfigInterfaceTrustMode.setStatus(_A)
+_Cie1000DhcpSnoopingStatus_ObjectIdentity=ObjectIdentity
+cie1000DhcpSnoopingStatus=_Cie1000DhcpSnoopingStatus_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,56,1,3))
+_Cie1000DhcpSnoopingStatusAssignedIpTable_Object=MibTable
+cie1000DhcpSnoopingStatusAssignedIpTable=_Cie1000DhcpSnoopingStatusAssignedIpTable_Object((1,3,6,1,4,1,9,9,832,1,56,1,3,1))
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatusAssignedIpTable.setStatus(_A)
+_Cie1000DhcpSnoopingStatusAssignedIpEntry_Object=MibTableRow
+cie1000DhcpSnoopingStatusAssignedIpEntry=_Cie1000DhcpSnoopingStatusAssignedIpEntry_Object((1,3,6,1,4,1,9,9,832,1,56,1,3,1,1))
+cie1000DhcpSnoopingStatusAssignedIpEntry.setIndexNames((0,_B,_G),(0,_B,_H))
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatusAssignedIpEntry.setStatus(_A)
+_Cie1000DhcpSnoopingStatusAssignedIpMacAddress_Type=MacAddress
+_Cie1000DhcpSnoopingStatusAssignedIpMacAddress_Object=MibTableColumn
+cie1000DhcpSnoopingStatusAssignedIpMacAddress=_Cie1000DhcpSnoopingStatusAssignedIpMacAddress_Object((1,3,6,1,4,1,9,9,832,1,56,1,3,1,1,1),_Cie1000DhcpSnoopingStatusAssignedIpMacAddress_Type())
+cie1000DhcpSnoopingStatusAssignedIpMacAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatusAssignedIpMacAddress.setStatus(_A)
+class _Cie1000DhcpSnoopingStatusAssignedIpVlanId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4095))
+_Cie1000DhcpSnoopingStatusAssignedIpVlanId_Type.__name__=_K
+_Cie1000DhcpSnoopingStatusAssignedIpVlanId_Object=MibTableColumn
+cie1000DhcpSnoopingStatusAssignedIpVlanId=_Cie1000DhcpSnoopingStatusAssignedIpVlanId_Object((1,3,6,1,4,1,9,9,832,1,56,1,3,1,1,2),_Cie1000DhcpSnoopingStatusAssignedIpVlanId_Type())
+cie1000DhcpSnoopingStatusAssignedIpVlanId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatusAssignedIpVlanId.setStatus(_A)
+_Cie1000DhcpSnoopingStatusAssignedIpIfIndex_Type=CIE1000InterfaceIndex
+_Cie1000DhcpSnoopingStatusAssignedIpIfIndex_Object=MibTableColumn
+cie1000DhcpSnoopingStatusAssignedIpIfIndex=_Cie1000DhcpSnoopingStatusAssignedIpIfIndex_Object((1,3,6,1,4,1,9,9,832,1,56,1,3,1,1,3),_Cie1000DhcpSnoopingStatusAssignedIpIfIndex_Type())
+cie1000DhcpSnoopingStatusAssignedIpIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatusAssignedIpIfIndex.setStatus(_A)
+_Cie1000DhcpSnoopingStatusAssignedIpIpAddress_Type=IpAddress
+_Cie1000DhcpSnoopingStatusAssignedIpIpAddress_Object=MibTableColumn
+cie1000DhcpSnoopingStatusAssignedIpIpAddress=_Cie1000DhcpSnoopingStatusAssignedIpIpAddress_Object((1,3,6,1,4,1,9,9,832,1,56,1,3,1,1,4),_Cie1000DhcpSnoopingStatusAssignedIpIpAddress_Type())
+cie1000DhcpSnoopingStatusAssignedIpIpAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatusAssignedIpIpAddress.setStatus(_A)
+_Cie1000DhcpSnoopingStatusAssignedIpNetmask_Type=IpAddress
+_Cie1000DhcpSnoopingStatusAssignedIpNetmask_Object=MibTableColumn
+cie1000DhcpSnoopingStatusAssignedIpNetmask=_Cie1000DhcpSnoopingStatusAssignedIpNetmask_Object((1,3,6,1,4,1,9,9,832,1,56,1,3,1,1,5),_Cie1000DhcpSnoopingStatusAssignedIpNetmask_Type())
+cie1000DhcpSnoopingStatusAssignedIpNetmask.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatusAssignedIpNetmask.setStatus(_A)
+_Cie1000DhcpSnoopingStatusAssignedIpDhcpServerIp_Type=IpAddress
+_Cie1000DhcpSnoopingStatusAssignedIpDhcpServerIp_Object=MibTableColumn
+cie1000DhcpSnoopingStatusAssignedIpDhcpServerIp=_Cie1000DhcpSnoopingStatusAssignedIpDhcpServerIp_Object((1,3,6,1,4,1,9,9,832,1,56,1,3,1,1,6),_Cie1000DhcpSnoopingStatusAssignedIpDhcpServerIp_Type())
+cie1000DhcpSnoopingStatusAssignedIpDhcpServerIp.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatusAssignedIpDhcpServerIp.setStatus(_A)
+_Cie1000DhcpSnoopingControl_ObjectIdentity=ObjectIdentity
+cie1000DhcpSnoopingControl=_Cie1000DhcpSnoopingControl_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,56,1,4))
+_Cie1000DhcpSnoopingControlInterfaceClearStatisticsTable_Object=MibTable
+cie1000DhcpSnoopingControlInterfaceClearStatisticsTable=_Cie1000DhcpSnoopingControlInterfaceClearStatisticsTable_Object((1,3,6,1,4,1,9,9,832,1,56,1,4,1))
+if mibBuilder.loadTexts:cie1000DhcpSnoopingControlInterfaceClearStatisticsTable.setStatus(_A)
+_Cie1000DhcpSnoopingControlInterfaceClearStatisticsEntry_Object=MibTableRow
+cie1000DhcpSnoopingControlInterfaceClearStatisticsEntry=_Cie1000DhcpSnoopingControlInterfaceClearStatisticsEntry_Object((1,3,6,1,4,1,9,9,832,1,56,1,4,1,1))
+cie1000DhcpSnoopingControlInterfaceClearStatisticsEntry.setIndexNames((0,_B,_I))
+if mibBuilder.loadTexts:cie1000DhcpSnoopingControlInterfaceClearStatisticsEntry.setStatus(_A)
+_Cie1000DhcpSnoopingControlInterfaceClearStatisticsIfIndex_Type=CIE1000InterfaceIndex
+_Cie1000DhcpSnoopingControlInterfaceClearStatisticsIfIndex_Object=MibTableColumn
+cie1000DhcpSnoopingControlInterfaceClearStatisticsIfIndex=_Cie1000DhcpSnoopingControlInterfaceClearStatisticsIfIndex_Object((1,3,6,1,4,1,9,9,832,1,56,1,4,1,1,1),_Cie1000DhcpSnoopingControlInterfaceClearStatisticsIfIndex_Type())
+cie1000DhcpSnoopingControlInterfaceClearStatisticsIfIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingControlInterfaceClearStatisticsIfIndex.setStatus(_A)
+_Cie1000DhcpSnoopingControlInterfaceClearStatisticsClear_Type=TruthValue
+_Cie1000DhcpSnoopingControlInterfaceClearStatisticsClear_Object=MibTableColumn
+cie1000DhcpSnoopingControlInterfaceClearStatisticsClear=_Cie1000DhcpSnoopingControlInterfaceClearStatisticsClear_Object((1,3,6,1,4,1,9,9,832,1,56,1,4,1,1,2),_Cie1000DhcpSnoopingControlInterfaceClearStatisticsClear_Type())
+cie1000DhcpSnoopingControlInterfaceClearStatisticsClear.setMaxAccess(_E)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingControlInterfaceClearStatisticsClear.setStatus(_A)
+_Cie1000DhcpSnoopingStatistics_ObjectIdentity=ObjectIdentity
+cie1000DhcpSnoopingStatistics=_Cie1000DhcpSnoopingStatistics_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,56,1,5))
+_Cie1000DhcpSnoopingStatisticsInterfaceTable_Object=MibTable
+cie1000DhcpSnoopingStatisticsInterfaceTable=_Cie1000DhcpSnoopingStatisticsInterfaceTable_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2))
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceTable.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceEntry_Object=MibTableRow
+cie1000DhcpSnoopingStatisticsInterfaceEntry=_Cie1000DhcpSnoopingStatisticsInterfaceEntry_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1))
+cie1000DhcpSnoopingStatisticsInterfaceEntry.setIndexNames((0,_B,_J))
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceEntry.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceIfIndex_Type=CIE1000InterfaceIndex
+_Cie1000DhcpSnoopingStatisticsInterfaceIfIndex_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceIfIndex=_Cie1000DhcpSnoopingStatisticsInterfaceIfIndex_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,1),_Cie1000DhcpSnoopingStatisticsInterfaceIfIndex_Type())
+cie1000DhcpSnoopingStatisticsInterfaceIfIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceIfIndex.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceRxDiscover_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceRxDiscover_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceRxDiscover=_Cie1000DhcpSnoopingStatisticsInterfaceRxDiscover_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,2),_Cie1000DhcpSnoopingStatisticsInterfaceRxDiscover_Type())
+cie1000DhcpSnoopingStatisticsInterfaceRxDiscover.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceRxDiscover.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceRxOffer_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceRxOffer_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceRxOffer=_Cie1000DhcpSnoopingStatisticsInterfaceRxOffer_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,3),_Cie1000DhcpSnoopingStatisticsInterfaceRxOffer_Type())
+cie1000DhcpSnoopingStatisticsInterfaceRxOffer.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceRxOffer.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceRxRequest_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceRxRequest_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceRxRequest=_Cie1000DhcpSnoopingStatisticsInterfaceRxRequest_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,4),_Cie1000DhcpSnoopingStatisticsInterfaceRxRequest_Type())
+cie1000DhcpSnoopingStatisticsInterfaceRxRequest.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceRxRequest.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceRxDecline_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceRxDecline_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceRxDecline=_Cie1000DhcpSnoopingStatisticsInterfaceRxDecline_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,5),_Cie1000DhcpSnoopingStatisticsInterfaceRxDecline_Type())
+cie1000DhcpSnoopingStatisticsInterfaceRxDecline.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceRxDecline.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceRxAck_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceRxAck_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceRxAck=_Cie1000DhcpSnoopingStatisticsInterfaceRxAck_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,6),_Cie1000DhcpSnoopingStatisticsInterfaceRxAck_Type())
+cie1000DhcpSnoopingStatisticsInterfaceRxAck.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceRxAck.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceRxNak_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceRxNak_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceRxNak=_Cie1000DhcpSnoopingStatisticsInterfaceRxNak_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,7),_Cie1000DhcpSnoopingStatisticsInterfaceRxNak_Type())
+cie1000DhcpSnoopingStatisticsInterfaceRxNak.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceRxNak.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceRxRelease_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceRxRelease_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceRxRelease=_Cie1000DhcpSnoopingStatisticsInterfaceRxRelease_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,8),_Cie1000DhcpSnoopingStatisticsInterfaceRxRelease_Type())
+cie1000DhcpSnoopingStatisticsInterfaceRxRelease.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceRxRelease.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceRxInform_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceRxInform_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceRxInform=_Cie1000DhcpSnoopingStatisticsInterfaceRxInform_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,9),_Cie1000DhcpSnoopingStatisticsInterfaceRxInform_Type())
+cie1000DhcpSnoopingStatisticsInterfaceRxInform.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceRxInform.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceRxLeaseQuery_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceRxLeaseQuery_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceRxLeaseQuery=_Cie1000DhcpSnoopingStatisticsInterfaceRxLeaseQuery_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,10),_Cie1000DhcpSnoopingStatisticsInterfaceRxLeaseQuery_Type())
+cie1000DhcpSnoopingStatisticsInterfaceRxLeaseQuery.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceRxLeaseQuery.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnassigned_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnassigned_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnassigned=_Cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnassigned_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,11),_Cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnassigned_Type())
+cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnassigned.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnassigned.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnknown_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnknown_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnknown=_Cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnknown_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,12),_Cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnknown_Type())
+cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnknown.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnknown.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceRxLeaseActive_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceRxLeaseActive_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceRxLeaseActive=_Cie1000DhcpSnoopingStatisticsInterfaceRxLeaseActive_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,13),_Cie1000DhcpSnoopingStatisticsInterfaceRxLeaseActive_Type())
+cie1000DhcpSnoopingStatisticsInterfaceRxLeaseActive.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceRxLeaseActive.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceRxDiscardChksumErr_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceRxDiscardChksumErr_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceRxDiscardChksumErr=_Cie1000DhcpSnoopingStatisticsInterfaceRxDiscardChksumErr_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,14),_Cie1000DhcpSnoopingStatisticsInterfaceRxDiscardChksumErr_Type())
+cie1000DhcpSnoopingStatisticsInterfaceRxDiscardChksumErr.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceRxDiscardChksumErr.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceRxDiscardUntrust_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceRxDiscardUntrust_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceRxDiscardUntrust=_Cie1000DhcpSnoopingStatisticsInterfaceRxDiscardUntrust_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,15),_Cie1000DhcpSnoopingStatisticsInterfaceRxDiscardUntrust_Type())
+cie1000DhcpSnoopingStatisticsInterfaceRxDiscardUntrust.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceRxDiscardUntrust.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceTxDiscover_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceTxDiscover_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceTxDiscover=_Cie1000DhcpSnoopingStatisticsInterfaceTxDiscover_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,16),_Cie1000DhcpSnoopingStatisticsInterfaceTxDiscover_Type())
+cie1000DhcpSnoopingStatisticsInterfaceTxDiscover.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceTxDiscover.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceTxOffer_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceTxOffer_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceTxOffer=_Cie1000DhcpSnoopingStatisticsInterfaceTxOffer_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,17),_Cie1000DhcpSnoopingStatisticsInterfaceTxOffer_Type())
+cie1000DhcpSnoopingStatisticsInterfaceTxOffer.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceTxOffer.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceTxRequest_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceTxRequest_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceTxRequest=_Cie1000DhcpSnoopingStatisticsInterfaceTxRequest_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,18),_Cie1000DhcpSnoopingStatisticsInterfaceTxRequest_Type())
+cie1000DhcpSnoopingStatisticsInterfaceTxRequest.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceTxRequest.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceTxDecline_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceTxDecline_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceTxDecline=_Cie1000DhcpSnoopingStatisticsInterfaceTxDecline_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,19),_Cie1000DhcpSnoopingStatisticsInterfaceTxDecline_Type())
+cie1000DhcpSnoopingStatisticsInterfaceTxDecline.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceTxDecline.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceTxAck_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceTxAck_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceTxAck=_Cie1000DhcpSnoopingStatisticsInterfaceTxAck_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,20),_Cie1000DhcpSnoopingStatisticsInterfaceTxAck_Type())
+cie1000DhcpSnoopingStatisticsInterfaceTxAck.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceTxAck.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceTxNak_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceTxNak_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceTxNak=_Cie1000DhcpSnoopingStatisticsInterfaceTxNak_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,21),_Cie1000DhcpSnoopingStatisticsInterfaceTxNak_Type())
+cie1000DhcpSnoopingStatisticsInterfaceTxNak.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceTxNak.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceTxRelease_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceTxRelease_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceTxRelease=_Cie1000DhcpSnoopingStatisticsInterfaceTxRelease_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,22),_Cie1000DhcpSnoopingStatisticsInterfaceTxRelease_Type())
+cie1000DhcpSnoopingStatisticsInterfaceTxRelease.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceTxRelease.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceTxInform_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceTxInform_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceTxInform=_Cie1000DhcpSnoopingStatisticsInterfaceTxInform_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,23),_Cie1000DhcpSnoopingStatisticsInterfaceTxInform_Type())
+cie1000DhcpSnoopingStatisticsInterfaceTxInform.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceTxInform.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceTxLeaseQuery_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceTxLeaseQuery_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceTxLeaseQuery=_Cie1000DhcpSnoopingStatisticsInterfaceTxLeaseQuery_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,24),_Cie1000DhcpSnoopingStatisticsInterfaceTxLeaseQuery_Type())
+cie1000DhcpSnoopingStatisticsInterfaceTxLeaseQuery.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceTxLeaseQuery.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnassigned_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnassigned_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnassigned=_Cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnassigned_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,25),_Cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnassigned_Type())
+cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnassigned.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnassigned.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnknown_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnknown_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnknown=_Cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnknown_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,26),_Cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnknown_Type())
+cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnknown.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnknown.setStatus(_A)
+_Cie1000DhcpSnoopingStatisticsInterfaceTxLeaseActive_Type=Unsigned32
+_Cie1000DhcpSnoopingStatisticsInterfaceTxLeaseActive_Object=MibTableColumn
+cie1000DhcpSnoopingStatisticsInterfaceTxLeaseActive=_Cie1000DhcpSnoopingStatisticsInterfaceTxLeaseActive_Object((1,3,6,1,4,1,9,9,832,1,56,1,5,2,1,27),_Cie1000DhcpSnoopingStatisticsInterfaceTxLeaseActive_Type())
+cie1000DhcpSnoopingStatisticsInterfaceTxLeaseActive.setMaxAccess(_C)
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceTxLeaseActive.setStatus(_A)
+_Cie1000DhcpSnoopingMibConformance_ObjectIdentity=ObjectIdentity
+cie1000DhcpSnoopingMibConformance=_Cie1000DhcpSnoopingMibConformance_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,56,2))
+_Cie1000DhcpSnoopingMibCompliances_ObjectIdentity=ObjectIdentity
+cie1000DhcpSnoopingMibCompliances=_Cie1000DhcpSnoopingMibCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,56,2,1))
+_Cie1000DhcpSnoopingMibGroups_ObjectIdentity=ObjectIdentity
+cie1000DhcpSnoopingMibGroups=_Cie1000DhcpSnoopingMibGroups_ObjectIdentity((1,3,6,1,4,1,9,9,832,1,56,2,2))
+cie1000DhcpSnoopingConfigGlobalsInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,56,2,2,1))
+cie1000DhcpSnoopingConfigGlobalsInfoGroup.setObjects((_B,_L))
+if mibBuilder.loadTexts:cie1000DhcpSnoopingConfigGlobalsInfoGroup.setStatus(_A)
+cie1000DhcpSnoopingConfigInterfaceInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,56,2,2,2))
+cie1000DhcpSnoopingConfigInterfaceInfoGroup.setObjects(*((_B,_F),(_B,_M)))
+if mibBuilder.loadTexts:cie1000DhcpSnoopingConfigInterfaceInfoGroup.setStatus(_A)
+cie1000DhcpSnoopingStatusAssignedIpTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,56,2,2,3))
+cie1000DhcpSnoopingStatusAssignedIpTableInfoGroup.setObjects(*((_B,_G),(_B,_H),(_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatusAssignedIpTableInfoGroup.setStatus(_A)
+cie1000DhcpSnoopingControlInterfaceClearStatisticsTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,56,2,2,4))
+cie1000DhcpSnoopingControlInterfaceClearStatisticsTableInfoGroup.setObjects(*((_B,_I),(_B,_R)))
+if mibBuilder.loadTexts:cie1000DhcpSnoopingControlInterfaceClearStatisticsTableInfoGroup.setStatus(_A)
+cie1000DhcpSnoopingStatisticsInterfaceTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,832,1,56,2,2,5))
+cie1000DhcpSnoopingStatisticsInterfaceTableInfoGroup.setObjects(*((_B,_J),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r)))
+if mibBuilder.loadTexts:cie1000DhcpSnoopingStatisticsInterfaceTableInfoGroup.setStatus(_A)
+cie1000DhcpSnoopingMibCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,832,1,56,2,1,1))
+cie1000DhcpSnoopingMibCompliance.setObjects(*((_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w)))
+if mibBuilder.loadTexts:cie1000DhcpSnoopingMibCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'cie1000DhcpSnoopingMib':cie1000DhcpSnoopingMib,'cie1000DhcpSnoopingMibObjects':cie1000DhcpSnoopingMibObjects,'cie1000DhcpSnoopingConfig':cie1000DhcpSnoopingConfig,'cie1000DhcpSnoopingConfigGlobals':cie1000DhcpSnoopingConfigGlobals,_L:cie1000DhcpSnoopingConfigGlobalsMode,'cie1000DhcpSnoopingConfigInterfaceTable':cie1000DhcpSnoopingConfigInterfaceTable,'cie1000DhcpSnoopingConfigInterfaceEntry':cie1000DhcpSnoopingConfigInterfaceEntry,_F:cie1000DhcpSnoopingConfigInterfaceIfIndex,_M:cie1000DhcpSnoopingConfigInterfaceTrustMode,'cie1000DhcpSnoopingStatus':cie1000DhcpSnoopingStatus,'cie1000DhcpSnoopingStatusAssignedIpTable':cie1000DhcpSnoopingStatusAssignedIpTable,'cie1000DhcpSnoopingStatusAssignedIpEntry':cie1000DhcpSnoopingStatusAssignedIpEntry,_G:cie1000DhcpSnoopingStatusAssignedIpMacAddress,_H:cie1000DhcpSnoopingStatusAssignedIpVlanId,_N:cie1000DhcpSnoopingStatusAssignedIpIfIndex,_O:cie1000DhcpSnoopingStatusAssignedIpIpAddress,_P:cie1000DhcpSnoopingStatusAssignedIpNetmask,_Q:cie1000DhcpSnoopingStatusAssignedIpDhcpServerIp,'cie1000DhcpSnoopingControl':cie1000DhcpSnoopingControl,'cie1000DhcpSnoopingControlInterfaceClearStatisticsTable':cie1000DhcpSnoopingControlInterfaceClearStatisticsTable,'cie1000DhcpSnoopingControlInterfaceClearStatisticsEntry':cie1000DhcpSnoopingControlInterfaceClearStatisticsEntry,_I:cie1000DhcpSnoopingControlInterfaceClearStatisticsIfIndex,_R:cie1000DhcpSnoopingControlInterfaceClearStatisticsClear,'cie1000DhcpSnoopingStatistics':cie1000DhcpSnoopingStatistics,'cie1000DhcpSnoopingStatisticsInterfaceTable':cie1000DhcpSnoopingStatisticsInterfaceTable,'cie1000DhcpSnoopingStatisticsInterfaceEntry':cie1000DhcpSnoopingStatisticsInterfaceEntry,_J:cie1000DhcpSnoopingStatisticsInterfaceIfIndex,_S:cie1000DhcpSnoopingStatisticsInterfaceRxDiscover,_T:cie1000DhcpSnoopingStatisticsInterfaceRxOffer,_U:cie1000DhcpSnoopingStatisticsInterfaceRxRequest,_V:cie1000DhcpSnoopingStatisticsInterfaceRxDecline,_W:cie1000DhcpSnoopingStatisticsInterfaceRxAck,_X:cie1000DhcpSnoopingStatisticsInterfaceRxNak,_Y:cie1000DhcpSnoopingStatisticsInterfaceRxRelease,_Z:cie1000DhcpSnoopingStatisticsInterfaceRxInform,_a:cie1000DhcpSnoopingStatisticsInterfaceRxLeaseQuery,_b:cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnassigned,_c:cie1000DhcpSnoopingStatisticsInterfaceRxLeaseUnknown,_d:cie1000DhcpSnoopingStatisticsInterfaceRxLeaseActive,_e:cie1000DhcpSnoopingStatisticsInterfaceRxDiscardChksumErr,_f:cie1000DhcpSnoopingStatisticsInterfaceRxDiscardUntrust,_g:cie1000DhcpSnoopingStatisticsInterfaceTxDiscover,_h:cie1000DhcpSnoopingStatisticsInterfaceTxOffer,_i:cie1000DhcpSnoopingStatisticsInterfaceTxRequest,_j:cie1000DhcpSnoopingStatisticsInterfaceTxDecline,_k:cie1000DhcpSnoopingStatisticsInterfaceTxAck,_l:cie1000DhcpSnoopingStatisticsInterfaceTxNak,_m:cie1000DhcpSnoopingStatisticsInterfaceTxRelease,_n:cie1000DhcpSnoopingStatisticsInterfaceTxInform,_o:cie1000DhcpSnoopingStatisticsInterfaceTxLeaseQuery,_p:cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnassigned,_q:cie1000DhcpSnoopingStatisticsInterfaceTxLeaseUnknown,_r:cie1000DhcpSnoopingStatisticsInterfaceTxLeaseActive,'cie1000DhcpSnoopingMibConformance':cie1000DhcpSnoopingMibConformance,'cie1000DhcpSnoopingMibCompliances':cie1000DhcpSnoopingMibCompliances,'cie1000DhcpSnoopingMibCompliance':cie1000DhcpSnoopingMibCompliance,'cie1000DhcpSnoopingMibGroups':cie1000DhcpSnoopingMibGroups,_s:cie1000DhcpSnoopingConfigGlobalsInfoGroup,_t:cie1000DhcpSnoopingConfigInterfaceInfoGroup,_u:cie1000DhcpSnoopingStatusAssignedIpTableInfoGroup,_v:cie1000DhcpSnoopingControlInterfaceClearStatisticsTableInfoGroup,_w:cie1000DhcpSnoopingStatisticsInterfaceTableInfoGroup})

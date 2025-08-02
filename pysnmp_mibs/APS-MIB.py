@@ -1,184 +1,385 @@
-#
-# PySNMP MIB module APS-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/APS-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:05:50 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, OctetString, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
-( ifIndex, InterfaceIndex, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
-( jnxMibs, ) = mibBuilder.importSymbols("JUNIPER-SMI", "jnxMibs")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( NotificationType, transmission, ObjectIdentity, Counter32, Counter64, IpAddress, MibIdentifier, Bits, ModuleIdentity, Gauge32, Unsigned32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Integer32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "transmission", "ObjectIdentity", "Counter32", "Counter64", "IpAddress", "MibIdentifier", "Bits", "ModuleIdentity", "Gauge32", "Unsigned32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Integer32")
-( StorageType, DisplayString, TimeStamp, TextualConvention, RowStatus, ) = mibBuilder.importSymbols("SNMPv2-TC", "StorageType", "DisplayString", "TimeStamp", "TextualConvention", "RowStatus")
-apsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2636, 3, 24)).setRevisions(("2002-05-08 23:00",))
-if mibBuilder.loadTexts: apsMIB.setLastUpdated('200205082300Z')
-if mibBuilder.loadTexts: apsMIB.setOrganization('IETF AToMMIB Working Group')
-if mibBuilder.loadTexts: apsMIB.setContactInfo('       Jeff Johnson\n                Postal: RedBack Networks. Inc.\n                300 Holger Way\n                San Jose, CA 95134-1362\n                Tel: +1 408 750 5460\n                Email: jeff@redback.com\n\n                Michael Thatcher\n                Postal: RedBack Networks. Inc.\n                300 Holger Way\n                San Jose, CA 95134-1362\n                Tel: +1 408 750 5449\n                Email: thatcher@redback.com\n\n                Jim Kuhfeld\n                Postal: RedBack Networks. Inc.\n                300 Holger Way\n                San Jose, CA 95134-1362\n                Tel: +1 408 750 5465\n                Email: jkuhfeld@redback.com')
-if mibBuilder.loadTexts: apsMIB.setDescription('This management information module supports the configuration\n         and management of SONET linear APS groups. The definitions and\n         descriptions used in this MIB have been derived from\n         Synchronous Optical Network (SONET) Transport Systems:\n         Common Generic Criteria, GR-253-CORE Issue 3, September 2000,\n         section 5.3. The MIB is also consistent with the Multiplex\n         Section Protection (MSP) protocol as specified in ITU-T\n         Recommendation G.783, Characteristics of synchronous digital\n         hierarchy (SDH) equipment function blocks, Annex A and B. ')
-apsMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1))
-apsMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 24, 2))
-apsMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 24, 3))
-class ApsK1K2(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(2,2)
-    fixedLength = 2
-
-class ApsSwitchCommand(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8,))
-    namedValues = NamedValues(("noCmd", 1), ("clear", 2), ("lockoutOfProtection", 3), ("forcedSwitchWorkToProtect", 4), ("forcedSwitchProtectToWork", 5), ("manualSwitchWorkToProtect", 6), ("manualSwitchProtectToWork", 7), ("exercise", 8),)
-
-class ApsControlCommand(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3,))
-    namedValues = NamedValues(("noCmd", 1), ("lockoutWorkingChannel", 2), ("clearLockoutWorkingChannel", 3),)
-
-apsConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 1))
-apsConfigGroups = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 1, 1), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsConfigGroups.setDescription('The count of APS groups. This count includes all rows in\n         apsConfigTable, regardless of the value of apsConfigRowStatus.')
-apsConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 1, 2), )
-if mibBuilder.loadTexts: apsConfigTable.setDescription('This table lists the APS groups that have been configured\n         on the system.')
-apsConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 1, 2, 1), ).setIndexNames((1, "APS-MIB", "apsConfigName"))
-if mibBuilder.loadTexts: apsConfigEntry.setDescription('A conceptual row in the apsConfigTable.')
-apsConfigName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 1, 2, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,32)))
-if mibBuilder.loadTexts: apsConfigName.setDescription('A textual name for the APS group.')
-apsConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 1, 2, 1, 2), RowStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsConfigRowStatus.setDescription('The status of this APS group entry.\n\n        An entry may not exist in the active state unless all\n        objects in the entry have an appropriate value. Also,\n        all associated apsChanConfigEntry rows must represent\n        a set of consecutive channel numbers beginning with\n        0 or 1, depending on the selected architecture.\n\n        When set to notInService changes may be made to apsConfigMode,\n        apsConfigRevert, apsConfigDirection, apsConfigExtraTraffic,\n\n\n        apsConfigSdBerThreshold, apsConfigSfBerThreshold,\n        and apsConfigWaitToRestore. Also, associated apsChanConfigTable\n        objects may be added, deleted and modified.')
-apsConfigMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("onePlusOne", 1), ("oneToN", 2), ("onePlusOneCompatible", 3), ("onePlusOneOptimized", 4),)).clone('onePlusOne')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsConfigMode.setDescription('The architecture of the APS group.\n\n        onePlusOne\n\n        The 1+1 architecture permanently bridges the working\n        line to the protection line.\n\n        oneToN\n\n        The 1:n architecture allows one protection channel to\n        protect up to n working channels. When a fault is detected\n        on one of the n working channels that channel is bridged\n        over the protection channel.\n\n        onePlusOneCompatible\n\n        This refers to 1 + 1 bidirectional switching compatible with\n        1:n bidirectional switching as specified in ITU-T\n        Recommendation G.783 (04/97) section A.3.4.1. Since this\n        mode necessitates bidirectional switching, apsConfigDirection\n        must be set to bidirectional whenever onePlusOneCompatible is set.\n\n        onePlusOneOptimized\n\n        This refers to 1 + 1 bidirectional switching optimized\n        for a network using predominantly 1 + 1 bidirectional\n        switching as specified in ITU-T Recommendation G.783 (04/97)\n        section B.1. Since this mode necessitates bidirectional\n        switching, apsConfigDirection must be set to bidirectional\n        whenever onePlusOneOptimized is set.\n\n        This object may not be modified if the associated\n        apsConfigRowStatus object is equal to active(1).')
-apsConfigRevert = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("nonrevertive", 1), ("revertive", 2),)).clone('nonrevertive')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsConfigRevert.setDescription('The revertive mode of the APS group.\n\n        nonrevertive\n\n        Traffic remains on the protection line until another switch\n        request is received.\n\n        revertive\n\n        When the condition that caused a switch to the protection\n        line has been cleared the signal is switched back to the\n        working line. Since switching is revertive with the 1:n\n        architecture, apsConfigRevert must be set to revertive if\n        apsConfigMode is set to oneToN.\n\n        Switching may optionally be revertive with the 1+1 architecture.\n\n        This object may not be modified if the associated\n        apsConfigRowStatus object is equal to active(1). ')
-apsConfigDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("unidirectional", 1), ("bidirectional", 2),)).clone('unidirectional')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsConfigDirection.setDescription('The directional mode of the APS group.\n\n        unidirectional\n\n        The unidirectional mode provides protection in one direction.\n\n        bidirectional\n\n        The bidirectional mode provides protection in both\n        directions.\n\n        This object may not be modified if the associated\n\n\n        apsConfigRowStatus object is equal to active(1). ')
-apsConfigExtraTraffic = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),)).clone('disabled')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsConfigExtraTraffic.setDescription("This object enables or disables the transfer of extra traffic\n        on the protection channel in a 1:n architecture. This object\n        must be set to disabled if the architecture is 1+1. It may be\n        necessary to disable this in order to interwork with other SONET\n        network elements that don't support extra traffic.\n\n        This object may not be modified if the associated\n        apsConfigRowStatus object is equal to active(1). ")
-apsConfigSdBerThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5,9)).clone(5)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsConfigSdBerThreshold.setDescription('The Signal Degrade Bit Error Rate.\n\n         The negated value of this number is used as the exponent of\n         10 for computing the threshold value for the Bit Error Rate\n         (BER). For example, a value of 5 indicates a BER threshold of\n         10^-5.\n\n         This object may be modified if the associated\n         apsConfigRowStatus object is equal to active(1).')
-apsConfigSfBerThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(3,5)).clone(3)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsConfigSfBerThreshold.setDescription('The Signal Failure Bit Error Rate.\n\n         The negated value of this number is used as the exponent of\n\n\n         10 for computing the threshold value for the Bit Error Rate\n         (BER). For example, a value of 5 indicates a BER threshold of\n         10^-5.\n\n         This object may be modified if the associated\n         apsConfigRowStatus object is equal to active(1).')
-apsConfigWaitToRestore = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,720)).clone(300)).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsConfigWaitToRestore.setDescription('The Wait To Restore period in seconds.\n\n         After clearing of a condition that necessitated an\n         automatic switch, the wait to restore period must elapse\n         before reverting. This is intended to avoid rapid switch\n         oscillations.\n\n         GR-253-CORE specifies a Wait To Restore range of 5 to 12\n         minutes. G.783 defines a 5 to 12 minute Wait To Restore\n         range in section 5.4.1.1.3, but also allows for a shorter\n         WTR period in  Table 2-1,\n         WaitToRestore value (MI_WTRtime: 0..(5)..12 minutes).\n\n         This object may not be modified if the associated\n         apsConfigRowStatus object is equal to active(1).')
-apsConfigCreationTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 1, 2, 1, 10), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsConfigCreationTime.setDescription('The value of sysUpTime at the time the row was\n         created')
-apsConfigStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 1, 2, 1, 11), StorageType().clone('nonVolatile')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsConfigStorageType.setDescription("The storage type for this conceptual row.\n\n\n         Conceptual rows having the value 'permanent' need not\n         allow write-access to any columnar objects in the row.")
-apsStatusTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 2), )
-if mibBuilder.loadTexts: apsStatusTable.setDescription('This table provides status information about APS groups that have\n         been configured on the system.')
-apsStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 2, 1), )
-apsConfigEntry.registerAugmentions(("APS-MIB", "apsStatusEntry"))
-apsStatusEntry.setIndexNames(*apsConfigEntry.getIndexNames())
-if mibBuilder.loadTexts: apsStatusEntry.setDescription('A conceptual row in the apsStatusTable.')
-apsStatusK1K2Rcv = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 2, 1, 1), ApsK1K2()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsStatusK1K2Rcv.setDescription('The current value of the K1 and K2 bytes received on the\n\n\n         protection channel.')
-apsStatusK1K2Trans = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 2, 1, 2), ApsK1K2()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsStatusK1K2Trans.setDescription('The current value of the K1 and K2 bytes transmitted on the\n         protection channel.')
-apsStatusCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 2, 1, 3), Bits().clone(namedValues=NamedValues(("modeMismatch", 0), ("channelMismatch", 1), ("psbf", 2), ("feplf", 3), ("extraTraffic", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsStatusCurrent.setDescription('The current status of the APS group.\n\n         modeMismatch\n\n         Modes other than 1+1 unidirectional monitor protection line\n         K2 bit 5, which indicates the architecture and K2 bits\n         6-8, which indicate if the mode is unidirectional or\n         bidirectional. A conflict between the current local mode\n         and the received K2 mode information constitutes a\n         mode mismatch.\n\n         channelMismatch\n\n         This bit indicates a  mismatch between the transmitted K1 channel\n         and the received K2 channel has been detected.\n\n         psbf\n\n         This bit indicates a Protection Switch Byte Failure (PSBF) is\n         in effect. This condition occurs when either an inconsistent\n         APS byte or an invalid code is detected. An inconsistent APS\n         byte occurs when no three consecutive K1 bytes of the last 12\n         successive frames are identical, starting with the last frame\n         containing a previously consistent byte. An invalid code occurs\n         when the incoming K1 byte contains an unused code or a code\n\n\n         irrelevant for the specific switching operation (e.g., Reverse\n         Request while no switching request is outstanding) in three\n         consecutive frames. An invalid code also occurs when the incoming\n         K1 byte contains an invalid channel number in three consecutive\n         frames.\n\n         feplf\n\n         Modes other than 1+1 unidirectional monitor the K1 byte\n         for Far-End Protection-Line failures. A Far-End\n         Protection-Line defect is declared based on receiving\n         SF on the protection line.\n\n         extraTraffic\n\n         This bit indicates whether extra traffic is currently being\n         accepted on the protection line. ')
-apsStatusModeMismatches = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 2, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsStatusModeMismatches.setDescription('A count of Mode Mismatch conditions.\n\n         Discontinuities in the value of this counter can occur at\n         re-initialization of the management system, and at other\n         times as indicated by the value of\n         apsStatusDiscontinuityTime.')
-apsStatusChannelMismatches = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 2, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsStatusChannelMismatches.setDescription('A count of Channel Mismatch conditions.\n\n         Discontinuities in the value of this counter can occur at\n         re-initialization of the management system, and at other\n         times as indicated by the value of\n         apsStatusDiscontinuityTime.')
-apsStatusPSBFs = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 2, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsStatusPSBFs.setDescription('A count of Protection Switch Byte Failure conditions.\n         This condition occurs when either an inconsistent APS\n         byte or an invalid code is detected. An inconsistent APS\n         byte occurs when no three consecutive K1 bytes of the last\n         12 successive frames are identical, starting with the last\n         frame containing a previously consistent byte. An invalid\n         code occurs when the incoming K1 byte contains an unused\n         code or a code irrelevant for the specific switching operation\n         (e.g., Reverse Request while no switching request is outstanding)\n         in three consecutive frames. An invalid code also occurs\n         when the incoming K1 byte contains an invalid channel number\n         in three consecutive frames.\n\n         Discontinuities in the value of this counter can occur at\n         re-initialization of the management system, and at other\n         times as indicated by the value of\n         apsStatusDiscontinuityTime.')
-apsStatusFEPLFs = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 2, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsStatusFEPLFs.setDescription('A count of Far-End Protection-Line Failure conditions.\n         This condition is declared based on receiving SF on\n         the protection line in the K1 byte.\n\n         Discontinuities in the value of this counter can occur at\n         re-initialization of the management system, and at other\n         times as indicated by the value of\n         apsStatusDiscontinuityTime.')
-apsStatusSwitchedChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 2, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsStatusSwitchedChannel.setDescription('This field is set to the number of the channel that is currently\n         switched to protection. The value 0 indicates no channel is\n         switched to protection. The values 1-14 indicate that working\n         channel is switched to protection.')
-apsStatusDiscontinuityTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 2, 1, 9), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsStatusDiscontinuityTime.setDescription("The value of sysUpTime on the most recent occasion at which\n         any one or more of this APS group's counters suffered a\n         discontinuity.  The relevant counters are the specific\n         instances associated with this APS group of any Counter32\n         object contained in apsStatusTable. If no such\n         discontinuities have occurred since the last re-initialization\n         of the local management subsystem, then this object contains\n         a zero value.")
-apsMap = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 3))
-apsChanLTEs = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 3, 1), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsChanLTEs.setDescription('The count of SONET LTE interfaces on the system.\n         Each interface that is included has an ifType value of sonet(39).')
-apsMapTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 3, 2), )
-if mibBuilder.loadTexts: apsMapTable.setDescription('This table lists the SONET LTE interfaces on the system.\n         Each interface that is listed has an ifType value of sonet(39).')
-apsMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 3, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: apsMapEntry.setDescription('A conceptual row in the apsMapTable.')
-apsMapGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 3, 2, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsMapGroupName.setDescription('A textual name for the APS group which this channel is\n         included in. If the channel is not part of an APS group\n         this value is set to a string of size 0.\n\n         When an instance of apsChanConfigIfIndex is set equal to an\n         instance of ifIndex that has an  ifType value of sonet(39),\n         apsMapGroupName is set equal to the corresponding value of\n         apsChanConfigGroupName.\n\n         If an instance of ifIndex that has an  ifType value of sonet(39)\n         ceases to be equal to an instance of apsChanConfigIfIndex, either\n         because of a change in the value of apsChanConfigIfIndex, or\n         because of row deletion in the ApsChanConfigTable, apsMapGroupName\n         is set to a string of size 0.')
-apsMapChanNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 3, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1,14))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsMapChanNumber.setDescription('This field is set to a unique channel number within an APS group.\n         The value 0 indicates the null channel. The values 1-14 define a\n         working channel. If the SONET LTE is not part of an APS group this\n         value is set to -1.\n\n         When an instance of apsChanConfigIfIndex is set equal to an\n         instance of ifIndex that has an  ifType value of sonet(39),\n         apsMapChanNumber is set equal to the corresponding value of\n         apsChanConfigNumber.\n\n         If an instance of ifIndex that has an  ifType value of sonet(39)\n         ceases to be equal to an instance of apsChanConfigIfIndex, either\n         because of a change in the value of apsChanConfigIfIndex, or\n         because of row deletion in the ApsChanConfigTable,\n         apsMapChanNumber is set to -1.')
-apsChanConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 4), )
-if mibBuilder.loadTexts: apsChanConfigTable.setDescription('This table lists the APS channels that have been configured\n         in APS groups.')
-apsChanConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 4, 1), ).setIndexNames((0, "APS-MIB", "apsChanConfigGroupName"), (0, "APS-MIB", "apsChanConfigNumber"))
-if mibBuilder.loadTexts: apsChanConfigEntry.setDescription('A conceptual row in the apsChanConfigTable.')
-apsChanConfigGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 4, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,32)))
-if mibBuilder.loadTexts: apsChanConfigGroupName.setDescription('A textual name for the APS group which this channel is\n         included in.')
-apsChanConfigNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,14)))
-if mibBuilder.loadTexts: apsChanConfigNumber.setDescription('This field is set to a unique channel number within an APS group.\n         The value 0 indicates the null channel. The values 1-14 define a\n         working channel.\n\n         This field must be assigned a unique number within the group.')
-apsChanConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 4, 1, 3), RowStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsChanConfigRowStatus.setDescription('The status of this APS channel entry.\n\n         An entry may not exist in the active state unless all\n         objects in the entry have an appropriate value.\n\n         A row in the apsChanConfigTable may not be created,\n         deleted, set to notInService or otherwise modified\n         if the apsChanConfigGroupName value is equal to an\n         apsConfigName value and the associated apsConfigRowStatus\n         object is equal to active. However, if the apsConfigRowStatus\n         object is equal to notInService, a row may be created, deleted\n         or modified. In other words, a channel may not be added, deleted\n         or modified if the group is active.\n\n         A row may be created with an apsChanConfigGroupName value\n         that is not equal to any existing instance of apsConfigName.\n         This action is the initial step in adding a SONET LTE to a\n         new APS group.\n\n         If this object is set to destroy, the associated instance\n         of apsMapGroupName will be set to a string of size 0 and\n         the apsMapChanNumber will be set to -1. The channel status\n         entry will also be deleted by this action.\n\n         apsChanConfigNumber must be set to a unique channel number within\n         the APS group. The value 0 indicates the null channel.\n         The values 1-14 define a working channel. When an attempt is\n         made to set the  corresponding apsConfigRowStatus field to\n         active the apsChanConfigNumber values of all entries with equal\n         apsChanConfigGroupName fields must represent a set of consecutive\n         integer values beginning with 0 or 1, depending on the architecture\n         of the group, and ending with n, where n is  greater than or\n         equal to 1 and less than or equal to 14. Otherwise, the error\n         inconsistentValue is returned to the apsConfigRowStatus\n         set attempt.')
-apsChanConfigIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 4, 1, 4), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsChanConfigIfIndex.setDescription('The Interface Index assigned to a SONET LTE. This is an\n         interface with ifType sonet(39). The value of this object\n         must be unique among all instances of apsChanConfigIfIndex.\n         In other words, a particular SONET LTE can only be configured in\n         one APS group.\n\n         This object cannot be set if the apsChanConfigGroupName instance\n         associated with this row is equal to an instance of apsConfigName\n         and the corresponding apsConfigRowStatus object is set to active.\n         In other words this value cannot be changed if the APS group is\n         active. However, this value may be changed if the apsConfigRowStatus\n         value is equal to notInService.')
-apsChanConfigPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("low", 1), ("high", 2),)).clone('low')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsChanConfigPriority.setDescription('The priority of the channel.\n\n         This field deterimines whether high or low priority\n         SD and SF codes are used in K1 requests.\n\n         This field is only applicable if the channel is to be included in\n         a group using the 1:n architecture. It is not applicable if the\n         channel is to be included in a group using the 1+1 architecture,\n         and is ignored in that case.\n\n         This object cannot be set if the apsChanConfigGroupName instance\n         associated with this row is equal to an instance of apsConfigName\n         and the corresponding apsConfigRowStatus object is set to active.\n         In other words this value cannot be changed if the APS group is\n         active. However, this value may be changed if the\n         apsConfigRowStatus value is equal to notInService.')
-apsChanConfigStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 4, 1, 6), StorageType().clone('nonVolatile')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsChanConfigStorageType.setDescription("The storage type for this conceptual row.\n         Conceptual rows having the value 'permanent' need not\n         allow write-access to any columnar objects in the row.")
-apsCommandTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 5), )
-if mibBuilder.loadTexts: apsCommandTable.setDescription('This table allows commands to be sent to configured APS groups.')
-apsCommandEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 5, 1), ).setIndexNames((0, "APS-MIB", "apsChanConfigGroupName"), (0, "APS-MIB", "apsChanConfigNumber"))
-if mibBuilder.loadTexts: apsCommandEntry.setDescription('A conceptual row in the apsCommandTable. This row exists only if\n         the associated apsConfigEntry is active.')
-apsCommandSwitch = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 5, 1, 1), ApsSwitchCommand()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsCommandSwitch.setDescription('Allows the initiation of an APS switch command on the\n         APS group and channel specified by the index values.\n\n         When read this object returns the last command written\n         or noCmd if no command has been written to this\n         channel since initialization. The return of the last command\n         written does not imply that this command is currently in effect.\n         This request may have been preempted by a higher priority\n\n\n         local or remote request. In order to determine the\n         current state of the APS group it is necessary to read\n         the objects apsStatusK1K2Rcv and apsStatusK1K2Trans.\n\n         The value lockoutOfProtection should only be applied to the\n         protection line channel since that switch command prevents any of\n         the working channels from switching to the protection line.\n         Following the same logic, forcedSwitchProtectToWork and\n         manualSwitchProtectToWork should only be applied to the protection\n         line channel.\n\n         forcedSwitchWorkToProtect and manualSwitchWorkToProtect\n         should only be applied to a working channel.')
-apsCommandControl = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 5, 1, 2), ApsControlCommand()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsCommandControl.setDescription('Allows the initiation of an APS control command on the\n         APS group and channel specified by the index values.\n\n         When read this object returns the last command written or\n         noCmd if no command has been written to this channel since\n         initialization.\n\n         This object does not apply to the protection line.')
-apsChanStatusTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 6), )
-if mibBuilder.loadTexts: apsChanStatusTable.setDescription('This table contains status information for all SONET LTE\n         interfaces that are included in APS groups.')
-apsChanStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 6, 1), )
-apsChanConfigEntry.registerAugmentions(("APS-MIB", "apsChanStatusEntry"))
-apsChanStatusEntry.setIndexNames(*apsChanConfigEntry.getIndexNames())
-if mibBuilder.loadTexts: apsChanStatusEntry.setDescription('A conceptual row in the apsChanStatusTable.')
-apsChanStatusCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 6, 1, 1), Bits().clone(namedValues=NamedValues(("lockedOut", 0), ("sd", 1), ("sf", 2), ("switched", 3), ("wtr", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsChanStatusCurrent.setDescription('Indicates the current state of the port.\n\n         lockedOut\n\n         This bit, when applied to a working channel, indicates that\n         the channel is prevented from switching to the protection line.\n         When applied to the null channel, this bit indicates that no\n         working channel may switch to the protection line.\n\n         sd\n\n         A signal degrade condition is in effect.\n\n         sf\n\n         A signal failure condition is in effect.\n\n         switched\n\n         The switched bit is applied to a working channel if that\n         channel is currently switched to the protection line.\n\n\n         wtr\n\n         A Wait-to-Restore state is in effect.')
-apsChanStatusSignalDegrades = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 6, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsChanStatusSignalDegrades.setDescription('A count of Signal Degrade conditions. This condition\n         occurs when the line Bit Error Rate exceeds the currently\n         configured value of the relevant instance of\n         apsConfigSdBerThreshold.\n\n         Discontinuities in the value of this counter can occur at\n         re-initialization of the management system, and at other\n         times as indicated by the value of\n         apsChanStatusDiscontinuityTime.')
-apsChanStatusSignalFailures = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 6, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsChanStatusSignalFailures.setDescription('A count of Signal Failure conditions that have been\n         detected on the incoming signal. This condition occurs\n         when a loss of signal, loss of frame, AIS-L or a Line\n         bit error rate exceeding the currently configured value of\n         the relevant instance of apsConfigSfBerThreshold.\n\n         Discontinuities in the value of this counter can occur at\n         re-initialization of the management system, and at other\n         times as indicated by the value of\n         apsChanStatusDiscontinuityTime.')
-apsChanStatusSwitchovers = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 6, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsChanStatusSwitchovers.setDescription('When queried with index value apsChanConfigNumber other than 0,\n         this object will return the number of times this channel has\n\n\n         switched to the protection line.\n\n         When queried with index value apsChanConfigNumber set to 0,\n         which is the protection line, this object will return the\n         number of times that any working channel has been switched\n         back to the working line from this protection line.\n\n         Discontinuities in the value of this counter can occur at\n         re-initialization of the management system, and at other\n         times as indicated by the value of\n         apsChanStatusDiscontinuityTime.')
-apsChanStatusLastSwitchover = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 6, 1, 5), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsChanStatusLastSwitchover.setDescription('When queried with index value apsChanConfigNumber other than 0,\n         this object will return the value of sysUpTime when this\n         channel last completed a switch to the protection line. If this\n         channel has never switched to the protection line, the value\n         0 will be returned.\n\n         When queried with index value apsChanConfigNumber set to 0,\n         which is the protection line, this object will return the\n         value of sysUpTime the last time that a working channel was\n         switched back to the working line from this protection line.\n         If no working channel has ever switched back to the working\n         line from this protection line, the value 0 will be returned.')
-apsChanStatusSwitchoverSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 6, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsChanStatusSwitchoverSeconds.setDescription('The cumulative Protection Switching Duration (PSD) time in\n         seconds. For a working channel, this is the cumulative number\n         of seconds that service was carried on the protection line.\n         For the protection line, this is the cumulative number of\n         seconds that the protection line has been used to carry any\n         working channel traffic. This information is only valid if\n         revertive switching is enabled. The value 0 will be returned\n         otherwise.\n\n         Discontinuities in the value of this counter can occur at\n\n\n         re-initialization of the management system, and at other\n         times as indicated by the value of\n         apsChanStatusDiscontinuityTime. For example, if the value\n         of an instance of apsChanStatusSwitchoverSeconds changes\n         from a non-zero value to zero due to revertive switching\n         being disabled, it is expected that the corresponding\n         value of apsChanStatusDiscontinuityTime will be updated\n         to reflect the time of the configuration change.\n         ')
-apsChanStatusDiscontinuityTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 6, 1, 7), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsChanStatusDiscontinuityTime.setDescription("The value of sysUpTime on the most recent occasion at which\n         any one or more of this channel's counters suffered a\n         discontinuity.  The relevant counters are the specific\n         instances associated with this channel of any Counter32\n         object contained in apsChanStatusTable. If no such\n         discontinuities have occurred since the last re-initialization\n         of the local management subsystem, then this object contains\n         a zero value.")
-apsNotificationEnable = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 24, 1, 7), Bits().clone(namedValues=NamedValues(("switchover", 0), ("modeMismatch", 1), ("channelMismatch", 2), ("psbf", 3), ("feplf", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apsNotificationEnable.setDescription('Provides the ability to enable and disable notifications\n         defined in this MIB.\n\n         switchover\n\n         Indicates  apsEventSwitchover notifications\n         should be generated.\n\n         modeMismatch\n\n         Indicates  apsEventModeMismatch notifications\n\n\n         should be generated.\n\n         channelMismatch\n\n         Indicates  apsEventChannelMismatch notifications\n         should be generated.\n\n         psbf\n\n         Indicates  apsEventPSBF notifications\n         should be generated.\n\n         feplf\n\n         Indicates  apsEventFEPLF notifications\n         should be generated. ')
-apsNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 24, 2, 0))
-apsEventSwitchover = NotificationType((1, 3, 6, 1, 4, 1, 2636, 3, 24, 2, 0, 1)).setObjects(*(("APS-MIB", "apsChanStatusSwitchovers"), ("APS-MIB", "apsChanStatusCurrent"),))
-if mibBuilder.loadTexts: apsEventSwitchover.setDescription('An apsEventSwitchover notification is sent when the\n        value of an instance of apsChanStatusSwitchovers increments.')
-apsEventModeMismatch = NotificationType((1, 3, 6, 1, 4, 1, 2636, 3, 24, 2, 0, 2)).setObjects(*(("APS-MIB", "apsStatusModeMismatches"), ("APS-MIB", "apsStatusCurrent"),))
-if mibBuilder.loadTexts: apsEventModeMismatch.setDescription('An apsEventModeMismatch notification is sent when the\n        value of an instance of apsStatusModeMismatches increments.')
-apsEventChannelMismatch = NotificationType((1, 3, 6, 1, 4, 1, 2636, 3, 24, 2, 0, 3)).setObjects(*(("APS-MIB", "apsStatusChannelMismatches"), ("APS-MIB", "apsStatusCurrent"),))
-if mibBuilder.loadTexts: apsEventChannelMismatch.setDescription('An apsEventChannelMismatch notification is sent when the\n        value of an instance of apsStatusChannelMismatches increments.')
-apsEventPSBF = NotificationType((1, 3, 6, 1, 4, 1, 2636, 3, 24, 2, 0, 4)).setObjects(*(("APS-MIB", "apsStatusPSBFs"), ("APS-MIB", "apsStatusCurrent"),))
-if mibBuilder.loadTexts: apsEventPSBF.setDescription('An apsEventPSBF notification is sent when the\n        value of an instance of apsStatusPSBFs increments.')
-apsEventFEPLF = NotificationType((1, 3, 6, 1, 4, 1, 2636, 3, 24, 2, 0, 5)).setObjects(*(("APS-MIB", "apsStatusFEPLFs"), ("APS-MIB", "apsStatusCurrent"),))
-if mibBuilder.loadTexts: apsEventFEPLF.setDescription('An apsEventFEPLFs notification is sent when the\n        value of an instance of apsStatusFEPLFs increments.')
-apsGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 24, 3, 1))
-apsCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 24, 3, 2))
-apsFullCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2636, 3, 24, 3, 2, 1)).setObjects(*(("APS-MIB", "apsConfigGeneral"), ("APS-MIB", "apsStatusGeneral"), ("APS-MIB", "apsChanGeneral"),))
-if mibBuilder.loadTexts: apsFullCompliance.setDescription('When this MIB is implemented with support for read-create, then\n        such an implementation can claim read/write compliance. Linear APS\n        groups can then be both monitored and configured with this MIB.\n\n        Note that An agent is not required to process SNMP Set Requests that\n        affect multiple control objects within this MIB. This is intended to\n        simplify the processing of Set Requests for the various control\n        tables by eliminating the possibility that a single Set PDU will\n        contain multiple varbinds which are in conflict. ')
-apsReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2636, 3, 24, 3, 2, 2)).setObjects(*(("APS-MIB", "apsConfigGeneral"), ("APS-MIB", "apsStatusGeneral"), ("APS-MIB", "apsChanGeneral"),))
-if mibBuilder.loadTexts: apsReadOnlyCompliance.setDescription('When this MIB is implemented without support for read-create\n         (i.e. in read-only mode), then that implementation can claim\n         read-only compliance. In that case, linear APS groups can be\n         monitored but cannot be configured with this MIB.')
-apsConfigGeneral = ObjectGroup((1, 3, 6, 1, 4, 1, 2636, 3, 24, 3, 1, 1)).setObjects(*(("APS-MIB", "apsConfigMode"), ("APS-MIB", "apsConfigRevert"), ("APS-MIB", "apsConfigDirection"), ("APS-MIB", "apsConfigExtraTraffic"), ("APS-MIB", "apsConfigSdBerThreshold"), ("APS-MIB", "apsConfigSfBerThreshold"), ("APS-MIB", "apsConfigCreationTime"), ("APS-MIB", "apsConfigRowStatus"), ("APS-MIB", "apsConfigStorageType"), ("APS-MIB", "apsNotificationEnable"),))
-if mibBuilder.loadTexts: apsConfigGeneral.setDescription('A collection of apsConfigTable objects providing configuration\n         information applicable to all linear APS groups.')
-apsConfigWtr = ObjectGroup((1, 3, 6, 1, 4, 1, 2636, 3, 24, 3, 1, 2)).setObjects(*(("APS-MIB", "apsConfigWaitToRestore"),))
-if mibBuilder.loadTexts: apsConfigWtr.setDescription('The apsConfigTable object that provides information which is\n         applicable to groups supporting a configurable WTR period.')
-apsCommandOnePlusOne = ObjectGroup((1, 3, 6, 1, 4, 1, 2636, 3, 24, 3, 1, 3)).setObjects(*(("APS-MIB", "apsCommandSwitch"),))
-if mibBuilder.loadTexts: apsCommandOnePlusOne.setDescription('The  apsCommandTable object which is applicable to groups\n         implementing the linear APS 1+1 architecture. Also, set operations\n         must be supported.')
-apsCommandOneToN = ObjectGroup((1, 3, 6, 1, 4, 1, 2636, 3, 24, 3, 1, 4)).setObjects(*(("APS-MIB", "apsCommandSwitch"), ("APS-MIB", "apsCommandControl"),))
-if mibBuilder.loadTexts: apsCommandOneToN.setDescription('A collection of apsCommandTable objects which are applicable to\n\n\n         groups implementing the linear APS 1:n architecture. Also, set\n         operations must be supported.')
-apsStatusGeneral = ObjectGroup((1, 3, 6, 1, 4, 1, 2636, 3, 24, 3, 1, 5)).setObjects(*(("APS-MIB", "apsStatusK1K2Rcv"), ("APS-MIB", "apsStatusK1K2Trans"), ("APS-MIB", "apsStatusCurrent"), ("APS-MIB", "apsStatusModeMismatches"), ("APS-MIB", "apsStatusChannelMismatches"), ("APS-MIB", "apsStatusPSBFs"), ("APS-MIB", "apsStatusFEPLFs"), ("APS-MIB", "apsStatusSwitchedChannel"), ("APS-MIB", "apsStatusDiscontinuityTime"),))
-if mibBuilder.loadTexts: apsStatusGeneral.setDescription('A collection of apsStatusTable objects providing status information\n         applicable to all linear APS groups.')
-apsChanGeneral = ObjectGroup((1, 3, 6, 1, 4, 1, 2636, 3, 24, 3, 1, 6)).setObjects(*(("APS-MIB", "apsChanConfigIfIndex"), ("APS-MIB", "apsChanConfigRowStatus"), ("APS-MIB", "apsChanConfigStorageType"), ("APS-MIB", "apsChanStatusCurrent"), ("APS-MIB", "apsChanStatusSignalDegrades"), ("APS-MIB", "apsChanStatusSignalFailures"), ("APS-MIB", "apsChanStatusSwitchovers"), ("APS-MIB", "apsChanStatusLastSwitchover"), ("APS-MIB", "apsChanStatusSwitchoverSeconds"), ("APS-MIB", "apsChanStatusDiscontinuityTime"),))
-if mibBuilder.loadTexts: apsChanGeneral.setDescription('A collection of channel objects providing information applicable to\n         all linear APS channels.')
-apsChanOneToN = ObjectGroup((1, 3, 6, 1, 4, 1, 2636, 3, 24, 3, 1, 7)).setObjects(*(("APS-MIB", "apsChanConfigPriority"),))
-if mibBuilder.loadTexts: apsChanOneToN.setDescription('The apsChanConfigTable object that provides information which is only\n         applicable to groups implementing the linear APS 1:n architecture.')
-apsTotalsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2636, 3, 24, 3, 1, 8)).setObjects(*(("APS-MIB", "apsConfigGroups"), ("APS-MIB", "apsChanLTEs"),))
-if mibBuilder.loadTexts: apsTotalsGroup.setDescription('A collection of objects providing optional counts of configured APS\n         groups and SONET LTE interfaces.')
-apsMapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2636, 3, 24, 3, 1, 9)).setObjects(*(("APS-MIB", "apsMapGroupName"), ("APS-MIB", "apsMapChanNumber"),))
-if mibBuilder.loadTexts: apsMapGroup.setDescription('A collection of apsMapTable objects providing a mapping\n         from sonet(39) InterfaceIndex to group name and channel\n         number for assigned APS channels and a list of unassigned\n         sonet(39) interfaces.')
-apsEventGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 2636, 3, 24, 3, 1, 10)).setObjects(*(("APS-MIB", "apsEventSwitchover"), ("APS-MIB", "apsEventModeMismatch"), ("APS-MIB", "apsEventChannelMismatch"), ("APS-MIB", "apsEventPSBF"), ("APS-MIB", "apsEventFEPLF"),))
-if mibBuilder.loadTexts: apsEventGroup.setDescription('A collection of SONET linear APS notifications.')
-mibBuilder.exportSymbols("APS-MIB", apsChanStatusCurrent=apsChanStatusCurrent, apsChanStatusSignalDegrades=apsChanStatusSignalDegrades, apsChanLTEs=apsChanLTEs, apsNotificationsPrefix=apsNotificationsPrefix, apsConfigEntry=apsConfigEntry, apsConfigName=apsConfigName, apsChanStatusSignalFailures=apsChanStatusSignalFailures, apsEventPSBF=apsEventPSBF, apsChanConfigPriority=apsChanConfigPriority, apsStatusDiscontinuityTime=apsStatusDiscontinuityTime, apsStatusSwitchedChannel=apsStatusSwitchedChannel, apsMapEntry=apsMapEntry, apsConfigGroups=apsConfigGroups, apsChanConfigTable=apsChanConfigTable, apsStatusGeneral=apsStatusGeneral, apsCommandTable=apsCommandTable, apsChanConfigStorageType=apsChanConfigStorageType, apsFullCompliance=apsFullCompliance, apsConfig=apsConfig, apsChanConfigIfIndex=apsChanConfigIfIndex, apsEventSwitchover=apsEventSwitchover, apsCommandOnePlusOne=apsCommandOnePlusOne, apsCommandSwitch=apsCommandSwitch, apsEventChannelMismatch=apsEventChannelMismatch, apsStatusModeMismatches=apsStatusModeMismatches, apsConfigExtraTraffic=apsConfigExtraTraffic, apsReadOnlyCompliance=apsReadOnlyCompliance, ApsSwitchCommand=ApsSwitchCommand, apsConfigWtr=apsConfigWtr, apsStatusK1K2Trans=apsStatusK1K2Trans, apsStatusFEPLFs=apsStatusFEPLFs, apsGroups=apsGroups, apsMapGroupName=apsMapGroupName, apsStatusEntry=apsStatusEntry, apsStatusTable=apsStatusTable, apsStatusPSBFs=apsStatusPSBFs, PYSNMP_MODULE_ID=apsMIB, apsConfigDirection=apsConfigDirection, apsChanStatusTable=apsChanStatusTable, apsConfigTable=apsConfigTable, apsMapTable=apsMapTable, ApsK1K2=ApsK1K2, apsCommandOneToN=apsCommandOneToN, apsConfigStorageType=apsConfigStorageType, apsConfigSfBerThreshold=apsConfigSfBerThreshold, apsChanStatusDiscontinuityTime=apsChanStatusDiscontinuityTime, apsCommandControl=apsCommandControl, apsChanStatusEntry=apsChanStatusEntry, apsMIBObjects=apsMIBObjects, apsMapGroup=apsMapGroup, apsMapChanNumber=apsMapChanNumber, apsChanConfigRowStatus=apsChanConfigRowStatus, apsTotalsGroup=apsTotalsGroup, apsConfigCreationTime=apsConfigCreationTime, apsStatusCurrent=apsStatusCurrent, apsEventFEPLF=apsEventFEPLF, apsConfigMode=apsConfigMode, ApsControlCommand=ApsControlCommand, apsMap=apsMap, apsConfigRevert=apsConfigRevert, apsChanOneToN=apsChanOneToN, apsChanConfigGroupName=apsChanConfigGroupName, apsCommandEntry=apsCommandEntry, apsEventGroup=apsEventGroup, apsChanGeneral=apsChanGeneral, apsChanStatusLastSwitchover=apsChanStatusLastSwitchover, apsMIBConformance=apsMIBConformance, apsConfigRowStatus=apsConfigRowStatus, apsConfigSdBerThreshold=apsConfigSdBerThreshold, apsChanStatusSwitchovers=apsChanStatusSwitchovers, apsChanStatusSwitchoverSeconds=apsChanStatusSwitchoverSeconds, apsNotificationEnable=apsNotificationEnable, apsConfigGeneral=apsConfigGeneral, apsMIB=apsMIB, apsChanConfigNumber=apsChanConfigNumber, apsCompliances=apsCompliances, apsEventModeMismatch=apsEventModeMismatch, apsStatusK1K2Rcv=apsStatusK1K2Rcv, apsMIBNotifications=apsMIBNotifications, apsChanConfigEntry=apsChanConfigEntry, apsStatusChannelMismatches=apsStatusChannelMismatches, apsConfigWaitToRestore=apsConfigWaitToRestore)
+_A2='apsChanGeneral'
+_A1='apsStatusGeneral'
+_A0='apsConfigGeneral'
+_z='apsEventFEPLF'
+_y='apsEventPSBF'
+_x='apsEventChannelMismatch'
+_w='apsEventModeMismatch'
+_v='apsEventSwitchover'
+_u='apsMapChanNumber'
+_t='apsMapGroupName'
+_s='apsChanLTEs'
+_r='apsConfigGroups'
+_q='apsChanConfigPriority'
+_p='apsChanStatusSwitchoverSeconds'
+_o='apsChanStatusLastSwitchover'
+_n='apsChanStatusSignalFailures'
+_m='apsChanStatusSignalDegrades'
+_l='apsChanConfigRowStatus'
+_k='apsChanConfigIfIndex'
+_j='apsStatusSwitchedChannel'
+_i='apsStatusK1K2Trans'
+_h='apsStatusK1K2Rcv'
+_g='apsCommandControl'
+_f='apsConfigWaitToRestore'
+_e='apsConfigRowStatus'
+_d='apsConfigCreationTime'
+_c='apsConfigSfBerThreshold'
+_b='apsConfigSdBerThreshold'
+_a='apsConfigExtraTraffic'
+_Z='apsConfigDirection'
+_Y='apsConfigRevert'
+_X='apsConfigMode'
+_W='read-write'
+_V='apsMapIfIndex'
+_U='outOfService'
+_T='inService'
+_S='apsChanStatusSwitchovers'
+_R='apsChanStatusCurrent'
+_Q='apsStatusFEPLFs'
+_P='apsStatusPSBFs'
+_O='apsStatusChannelMismatches'
+_N='apsStatusModeMismatches'
+_M='apsCommandSwitch'
+_L='apsConfigName'
+_K='Bits'
+_J='apsChanConfigNumber'
+_I='apsChanConfigGroupName'
+_H='not-accessible'
+_G='SnmpAdminString'
+_F='apsStatusCurrent'
+_E='read-create'
+_D='Integer32'
+_C='read-only'
+_B='APS-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_G)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI',_K,'Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','transmission')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TimeStamp')
+ietfDrafts,=mibBuilder.importSymbols('Zhone','ietfDrafts')
+apsMIB=ModuleIdentity((1,3,6,1,4,1,5504,10,1,1))
+if mibBuilder.loadTexts:apsMIB.setRevisions(('2001-05-24 23:00',))
+class ApsK1K2(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
+class ApsSwitchCommand(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('noCmd',1),('clear',2),('lockoutOfProtection',3),('forcedSwitchWorkToProtect',4),('forcedSwitchProtectToWork',5),('manualSwitchWorkToProtect',6),('manualSwitchProtectToWork',7),('exercise',8)))
+class ApsControlCommand(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('noCmd',1),('lockoutWorkingChannel',2),('clearLockoutWorkingChannel',3)))
+_ApsMIBObjects_ObjectIdentity=ObjectIdentity
+apsMIBObjects=_ApsMIBObjects_ObjectIdentity((1,3,6,1,4,1,5504,10,1,1,1))
+_ApsConfig_ObjectIdentity=ObjectIdentity
+apsConfig=_ApsConfig_ObjectIdentity((1,3,6,1,4,1,5504,10,1,1,1,1))
+_ApsConfigGroups_Type=Gauge32
+_ApsConfigGroups_Object=MibScalar
+apsConfigGroups=_ApsConfigGroups_Object((1,3,6,1,4,1,5504,10,1,1,1,1,1),_ApsConfigGroups_Type())
+apsConfigGroups.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsConfigGroups.setStatus(_A)
+_ApsConfigTable_Object=MibTable
+apsConfigTable=_ApsConfigTable_Object((1,3,6,1,4,1,5504,10,1,1,1,1,2))
+if mibBuilder.loadTexts:apsConfigTable.setStatus(_A)
+_ApsConfigEntry_Object=MibTableRow
+apsConfigEntry=_ApsConfigEntry_Object((1,3,6,1,4,1,5504,10,1,1,1,1,2,1))
+apsConfigEntry.setIndexNames((1,_B,_L))
+if mibBuilder.loadTexts:apsConfigEntry.setStatus(_A)
+class _ApsConfigName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_ApsConfigName_Type.__name__=_G
+_ApsConfigName_Object=MibTableColumn
+apsConfigName=_ApsConfigName_Object((1,3,6,1,4,1,5504,10,1,1,1,1,2,1,1),_ApsConfigName_Type())
+apsConfigName.setMaxAccess(_H)
+if mibBuilder.loadTexts:apsConfigName.setStatus(_A)
+_ApsConfigRowStatus_Type=RowStatus
+_ApsConfigRowStatus_Object=MibTableColumn
+apsConfigRowStatus=_ApsConfigRowStatus_Object((1,3,6,1,4,1,5504,10,1,1,1,1,2,1,2),_ApsConfigRowStatus_Type())
+apsConfigRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:apsConfigRowStatus.setStatus(_A)
+class _ApsConfigMode_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('onePlusOne',1),('oneToN',2),('onePlusOneCompatible',3),('onePlusOneOptimized',4)))
+_ApsConfigMode_Type.__name__=_D
+_ApsConfigMode_Object=MibTableColumn
+apsConfigMode=_ApsConfigMode_Object((1,3,6,1,4,1,5504,10,1,1,1,1,2,1,3),_ApsConfigMode_Type())
+apsConfigMode.setMaxAccess(_E)
+if mibBuilder.loadTexts:apsConfigMode.setStatus(_A)
+class _ApsConfigRevert_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('nonrevertive',1),('revertive',2)))
+_ApsConfigRevert_Type.__name__=_D
+_ApsConfigRevert_Object=MibTableColumn
+apsConfigRevert=_ApsConfigRevert_Object((1,3,6,1,4,1,5504,10,1,1,1,1,2,1,4),_ApsConfigRevert_Type())
+apsConfigRevert.setMaxAccess(_E)
+if mibBuilder.loadTexts:apsConfigRevert.setStatus(_A)
+class _ApsConfigDirection_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('unidirectional',1),('bidirectional',2)))
+_ApsConfigDirection_Type.__name__=_D
+_ApsConfigDirection_Object=MibTableColumn
+apsConfigDirection=_ApsConfigDirection_Object((1,3,6,1,4,1,5504,10,1,1,1,1,2,1,5),_ApsConfigDirection_Type())
+apsConfigDirection.setMaxAccess(_E)
+if mibBuilder.loadTexts:apsConfigDirection.setStatus(_A)
+class _ApsConfigExtraTraffic_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
+_ApsConfigExtraTraffic_Type.__name__=_D
+_ApsConfigExtraTraffic_Object=MibTableColumn
+apsConfigExtraTraffic=_ApsConfigExtraTraffic_Object((1,3,6,1,4,1,5504,10,1,1,1,1,2,1,6),_ApsConfigExtraTraffic_Type())
+apsConfigExtraTraffic.setMaxAccess(_E)
+if mibBuilder.loadTexts:apsConfigExtraTraffic.setStatus(_A)
+class _ApsConfigSdBerThreshold_Type(Integer32):defaultValue=6;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(6,9))
+_ApsConfigSdBerThreshold_Type.__name__=_D
+_ApsConfigSdBerThreshold_Object=MibTableColumn
+apsConfigSdBerThreshold=_ApsConfigSdBerThreshold_Object((1,3,6,1,4,1,5504,10,1,1,1,1,2,1,7),_ApsConfigSdBerThreshold_Type())
+apsConfigSdBerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:apsConfigSdBerThreshold.setStatus(_A)
+class _ApsConfigSfBerThreshold_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(3,5))
+_ApsConfigSfBerThreshold_Type.__name__=_D
+_ApsConfigSfBerThreshold_Object=MibTableColumn
+apsConfigSfBerThreshold=_ApsConfigSfBerThreshold_Object((1,3,6,1,4,1,5504,10,1,1,1,1,2,1,8),_ApsConfigSfBerThreshold_Type())
+apsConfigSfBerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:apsConfigSfBerThreshold.setStatus(_A)
+class _ApsConfigWaitToRestore_Type(Integer32):defaultValue=300;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,720))
+_ApsConfigWaitToRestore_Type.__name__=_D
+_ApsConfigWaitToRestore_Object=MibTableColumn
+apsConfigWaitToRestore=_ApsConfigWaitToRestore_Object((1,3,6,1,4,1,5504,10,1,1,1,1,2,1,9),_ApsConfigWaitToRestore_Type())
+apsConfigWaitToRestore.setMaxAccess(_E)
+if mibBuilder.loadTexts:apsConfigWaitToRestore.setStatus(_A)
+if mibBuilder.loadTexts:apsConfigWaitToRestore.setUnits('seconds')
+_ApsConfigCreationTime_Type=TimeStamp
+_ApsConfigCreationTime_Object=MibTableColumn
+apsConfigCreationTime=_ApsConfigCreationTime_Object((1,3,6,1,4,1,5504,10,1,1,1,1,2,1,10),_ApsConfigCreationTime_Type())
+apsConfigCreationTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsConfigCreationTime.setStatus(_A)
+class _ApsConfigAdminStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_T,1),(_U,2)))
+_ApsConfigAdminStatus_Type.__name__=_D
+_ApsConfigAdminStatus_Object=MibTableColumn
+apsConfigAdminStatus=_ApsConfigAdminStatus_Object((1,3,6,1,4,1,5504,10,1,1,1,1,2,1,11),_ApsConfigAdminStatus_Type())
+apsConfigAdminStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:apsConfigAdminStatus.setStatus(_A)
+_ApsStatusTable_Object=MibTable
+apsStatusTable=_ApsStatusTable_Object((1,3,6,1,4,1,5504,10,1,1,1,2))
+if mibBuilder.loadTexts:apsStatusTable.setStatus(_A)
+_ApsStatusEntry_Object=MibTableRow
+apsStatusEntry=_ApsStatusEntry_Object((1,3,6,1,4,1,5504,10,1,1,1,2,1))
+apsStatusEntry.setIndexNames((1,_B,_L))
+if mibBuilder.loadTexts:apsStatusEntry.setStatus(_A)
+_ApsStatusK1K2Rcv_Type=ApsK1K2
+_ApsStatusK1K2Rcv_Object=MibTableColumn
+apsStatusK1K2Rcv=_ApsStatusK1K2Rcv_Object((1,3,6,1,4,1,5504,10,1,1,1,2,1,1),_ApsStatusK1K2Rcv_Type())
+apsStatusK1K2Rcv.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsStatusK1K2Rcv.setStatus(_A)
+_ApsStatusK1K2Trans_Type=ApsK1K2
+_ApsStatusK1K2Trans_Object=MibTableColumn
+apsStatusK1K2Trans=_ApsStatusK1K2Trans_Object((1,3,6,1,4,1,5504,10,1,1,1,2,1,2),_ApsStatusK1K2Trans_Type())
+apsStatusK1K2Trans.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsStatusK1K2Trans.setStatus(_A)
+class _ApsStatusCurrent_Type(Bits):namedValues=NamedValues(*(('modeMismatch',0),('channelMismatch',1),('psbf',2),('feplf',3),('extraTraffic',4)))
+_ApsStatusCurrent_Type.__name__=_K
+_ApsStatusCurrent_Object=MibTableColumn
+apsStatusCurrent=_ApsStatusCurrent_Object((1,3,6,1,4,1,5504,10,1,1,1,2,1,3),_ApsStatusCurrent_Type())
+apsStatusCurrent.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsStatusCurrent.setStatus(_A)
+_ApsStatusModeMismatches_Type=Counter32
+_ApsStatusModeMismatches_Object=MibTableColumn
+apsStatusModeMismatches=_ApsStatusModeMismatches_Object((1,3,6,1,4,1,5504,10,1,1,1,2,1,4),_ApsStatusModeMismatches_Type())
+apsStatusModeMismatches.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsStatusModeMismatches.setStatus(_A)
+_ApsStatusChannelMismatches_Type=Counter32
+_ApsStatusChannelMismatches_Object=MibTableColumn
+apsStatusChannelMismatches=_ApsStatusChannelMismatches_Object((1,3,6,1,4,1,5504,10,1,1,1,2,1,5),_ApsStatusChannelMismatches_Type())
+apsStatusChannelMismatches.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsStatusChannelMismatches.setStatus(_A)
+_ApsStatusPSBFs_Type=Counter32
+_ApsStatusPSBFs_Object=MibTableColumn
+apsStatusPSBFs=_ApsStatusPSBFs_Object((1,3,6,1,4,1,5504,10,1,1,1,2,1,6),_ApsStatusPSBFs_Type())
+apsStatusPSBFs.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsStatusPSBFs.setStatus(_A)
+_ApsStatusFEPLFs_Type=Counter32
+_ApsStatusFEPLFs_Object=MibTableColumn
+apsStatusFEPLFs=_ApsStatusFEPLFs_Object((1,3,6,1,4,1,5504,10,1,1,1,2,1,7),_ApsStatusFEPLFs_Type())
+apsStatusFEPLFs.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsStatusFEPLFs.setStatus(_A)
+_ApsStatusSwitchedChannel_Type=Integer32
+_ApsStatusSwitchedChannel_Object=MibTableColumn
+apsStatusSwitchedChannel=_ApsStatusSwitchedChannel_Object((1,3,6,1,4,1,5504,10,1,1,1,2,1,8),_ApsStatusSwitchedChannel_Type())
+apsStatusSwitchedChannel.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsStatusSwitchedChannel.setStatus(_A)
+_ApsMap_ObjectIdentity=ObjectIdentity
+apsMap=_ApsMap_ObjectIdentity((1,3,6,1,4,1,5504,10,1,1,1,3))
+_ApsChanLTEs_Type=Gauge32
+_ApsChanLTEs_Object=MibScalar
+apsChanLTEs=_ApsChanLTEs_Object((1,3,6,1,4,1,5504,10,1,1,1,3,1),_ApsChanLTEs_Type())
+apsChanLTEs.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsChanLTEs.setStatus(_A)
+_ApsMapTable_Object=MibTable
+apsMapTable=_ApsMapTable_Object((1,3,6,1,4,1,5504,10,1,1,1,3,2))
+if mibBuilder.loadTexts:apsMapTable.setStatus(_A)
+_ApsMapEntry_Object=MibTableRow
+apsMapEntry=_ApsMapEntry_Object((1,3,6,1,4,1,5504,10,1,1,1,3,2,1))
+apsMapEntry.setIndexNames((0,_B,_V))
+if mibBuilder.loadTexts:apsMapEntry.setStatus(_A)
+_ApsMapIfIndex_Type=InterfaceIndex
+_ApsMapIfIndex_Object=MibTableColumn
+apsMapIfIndex=_ApsMapIfIndex_Object((1,3,6,1,4,1,5504,10,1,1,1,3,2,1,1),_ApsMapIfIndex_Type())
+apsMapIfIndex.setMaxAccess(_H)
+if mibBuilder.loadTexts:apsMapIfIndex.setStatus(_A)
+class _ApsMapGroupName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_ApsMapGroupName_Type.__name__=_G
+_ApsMapGroupName_Object=MibTableColumn
+apsMapGroupName=_ApsMapGroupName_Object((1,3,6,1,4,1,5504,10,1,1,1,3,2,1,2),_ApsMapGroupName_Type())
+apsMapGroupName.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsMapGroupName.setStatus(_A)
+class _ApsMapChanNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,14))
+_ApsMapChanNumber_Type.__name__=_D
+_ApsMapChanNumber_Object=MibTableColumn
+apsMapChanNumber=_ApsMapChanNumber_Object((1,3,6,1,4,1,5504,10,1,1,1,3,2,1,3),_ApsMapChanNumber_Type())
+apsMapChanNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsMapChanNumber.setStatus(_A)
+_ApsChanConfigTable_Object=MibTable
+apsChanConfigTable=_ApsChanConfigTable_Object((1,3,6,1,4,1,5504,10,1,1,1,4))
+if mibBuilder.loadTexts:apsChanConfigTable.setStatus(_A)
+_ApsChanConfigEntry_Object=MibTableRow
+apsChanConfigEntry=_ApsChanConfigEntry_Object((1,3,6,1,4,1,5504,10,1,1,1,4,1))
+apsChanConfigEntry.setIndexNames((0,_B,_I),(0,_B,_J))
+if mibBuilder.loadTexts:apsChanConfigEntry.setStatus(_A)
+class _ApsChanConfigGroupName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_ApsChanConfigGroupName_Type.__name__=_G
+_ApsChanConfigGroupName_Object=MibTableColumn
+apsChanConfigGroupName=_ApsChanConfigGroupName_Object((1,3,6,1,4,1,5504,10,1,1,1,4,1,1),_ApsChanConfigGroupName_Type())
+apsChanConfigGroupName.setMaxAccess(_H)
+if mibBuilder.loadTexts:apsChanConfigGroupName.setStatus(_A)
+class _ApsChanConfigNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,14))
+_ApsChanConfigNumber_Type.__name__=_D
+_ApsChanConfigNumber_Object=MibTableColumn
+apsChanConfigNumber=_ApsChanConfigNumber_Object((1,3,6,1,4,1,5504,10,1,1,1,4,1,2),_ApsChanConfigNumber_Type())
+apsChanConfigNumber.setMaxAccess(_H)
+if mibBuilder.loadTexts:apsChanConfigNumber.setStatus(_A)
+_ApsChanConfigRowStatus_Type=RowStatus
+_ApsChanConfigRowStatus_Object=MibTableColumn
+apsChanConfigRowStatus=_ApsChanConfigRowStatus_Object((1,3,6,1,4,1,5504,10,1,1,1,4,1,3),_ApsChanConfigRowStatus_Type())
+apsChanConfigRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:apsChanConfigRowStatus.setStatus(_A)
+_ApsChanConfigIfIndex_Type=InterfaceIndex
+_ApsChanConfigIfIndex_Object=MibTableColumn
+apsChanConfigIfIndex=_ApsChanConfigIfIndex_Object((1,3,6,1,4,1,5504,10,1,1,1,4,1,4),_ApsChanConfigIfIndex_Type())
+apsChanConfigIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:apsChanConfigIfIndex.setStatus(_A)
+class _ApsChanConfigPriority_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('low',1),('high',2)))
+_ApsChanConfigPriority_Type.__name__=_D
+_ApsChanConfigPriority_Object=MibTableColumn
+apsChanConfigPriority=_ApsChanConfigPriority_Object((1,3,6,1,4,1,5504,10,1,1,1,4,1,5),_ApsChanConfigPriority_Type())
+apsChanConfigPriority.setMaxAccess(_E)
+if mibBuilder.loadTexts:apsChanConfigPriority.setStatus(_A)
+class _ApsChanConfigAdminStatus_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_T,1),(_U,2)))
+_ApsChanConfigAdminStatus_Type.__name__=_D
+_ApsChanConfigAdminStatus_Object=MibTableColumn
+apsChanConfigAdminStatus=_ApsChanConfigAdminStatus_Object((1,3,6,1,4,1,5504,10,1,1,1,4,1,6),_ApsChanConfigAdminStatus_Type())
+apsChanConfigAdminStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:apsChanConfigAdminStatus.setStatus(_A)
+_ApsCommandTable_Object=MibTable
+apsCommandTable=_ApsCommandTable_Object((1,3,6,1,4,1,5504,10,1,1,1,5))
+if mibBuilder.loadTexts:apsCommandTable.setStatus(_A)
+_ApsCommandEntry_Object=MibTableRow
+apsCommandEntry=_ApsCommandEntry_Object((1,3,6,1,4,1,5504,10,1,1,1,5,1))
+apsCommandEntry.setIndexNames((0,_B,_I),(0,_B,_J))
+if mibBuilder.loadTexts:apsCommandEntry.setStatus(_A)
+_ApsCommandSwitch_Type=ApsSwitchCommand
+_ApsCommandSwitch_Object=MibTableColumn
+apsCommandSwitch=_ApsCommandSwitch_Object((1,3,6,1,4,1,5504,10,1,1,1,5,1,1),_ApsCommandSwitch_Type())
+apsCommandSwitch.setMaxAccess(_W)
+if mibBuilder.loadTexts:apsCommandSwitch.setStatus(_A)
+_ApsCommandControl_Type=ApsControlCommand
+_ApsCommandControl_Object=MibTableColumn
+apsCommandControl=_ApsCommandControl_Object((1,3,6,1,4,1,5504,10,1,1,1,5,1,2),_ApsCommandControl_Type())
+apsCommandControl.setMaxAccess(_W)
+if mibBuilder.loadTexts:apsCommandControl.setStatus(_A)
+_ApsChanStatusTable_Object=MibTable
+apsChanStatusTable=_ApsChanStatusTable_Object((1,3,6,1,4,1,5504,10,1,1,1,6))
+if mibBuilder.loadTexts:apsChanStatusTable.setStatus(_A)
+_ApsChanStatusEntry_Object=MibTableRow
+apsChanStatusEntry=_ApsChanStatusEntry_Object((1,3,6,1,4,1,5504,10,1,1,1,6,1))
+apsChanStatusEntry.setIndexNames((0,_B,_I),(0,_B,_J))
+if mibBuilder.loadTexts:apsChanStatusEntry.setStatus(_A)
+class _ApsChanStatusCurrent_Type(Bits):namedValues=NamedValues(*(('lockedOut',0),('sd',1),('sf',2),('switched',3)))
+_ApsChanStatusCurrent_Type.__name__=_K
+_ApsChanStatusCurrent_Object=MibTableColumn
+apsChanStatusCurrent=_ApsChanStatusCurrent_Object((1,3,6,1,4,1,5504,10,1,1,1,6,1,1),_ApsChanStatusCurrent_Type())
+apsChanStatusCurrent.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsChanStatusCurrent.setStatus(_A)
+_ApsChanStatusSignalDegrades_Type=Counter32
+_ApsChanStatusSignalDegrades_Object=MibTableColumn
+apsChanStatusSignalDegrades=_ApsChanStatusSignalDegrades_Object((1,3,6,1,4,1,5504,10,1,1,1,6,1,2),_ApsChanStatusSignalDegrades_Type())
+apsChanStatusSignalDegrades.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsChanStatusSignalDegrades.setStatus(_A)
+_ApsChanStatusSignalFailures_Type=Counter32
+_ApsChanStatusSignalFailures_Object=MibTableColumn
+apsChanStatusSignalFailures=_ApsChanStatusSignalFailures_Object((1,3,6,1,4,1,5504,10,1,1,1,6,1,3),_ApsChanStatusSignalFailures_Type())
+apsChanStatusSignalFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsChanStatusSignalFailures.setStatus(_A)
+_ApsChanStatusSwitchovers_Type=Counter32
+_ApsChanStatusSwitchovers_Object=MibTableColumn
+apsChanStatusSwitchovers=_ApsChanStatusSwitchovers_Object((1,3,6,1,4,1,5504,10,1,1,1,6,1,4),_ApsChanStatusSwitchovers_Type())
+apsChanStatusSwitchovers.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsChanStatusSwitchovers.setStatus(_A)
+_ApsChanStatusLastSwitchover_Type=TimeStamp
+_ApsChanStatusLastSwitchover_Object=MibTableColumn
+apsChanStatusLastSwitchover=_ApsChanStatusLastSwitchover_Object((1,3,6,1,4,1,5504,10,1,1,1,6,1,5),_ApsChanStatusLastSwitchover_Type())
+apsChanStatusLastSwitchover.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsChanStatusLastSwitchover.setStatus(_A)
+_ApsChanStatusSwitchoverSeconds_Type=Counter32
+_ApsChanStatusSwitchoverSeconds_Object=MibTableColumn
+apsChanStatusSwitchoverSeconds=_ApsChanStatusSwitchoverSeconds_Object((1,3,6,1,4,1,5504,10,1,1,1,6,1,6),_ApsChanStatusSwitchoverSeconds_Type())
+apsChanStatusSwitchoverSeconds.setMaxAccess(_C)
+if mibBuilder.loadTexts:apsChanStatusSwitchoverSeconds.setStatus(_A)
+_ApsMIBNotifications_ObjectIdentity=ObjectIdentity
+apsMIBNotifications=_ApsMIBNotifications_ObjectIdentity((1,3,6,1,4,1,5504,10,1,1,2))
+_ApsNotificationsPrefix_ObjectIdentity=ObjectIdentity
+apsNotificationsPrefix=_ApsNotificationsPrefix_ObjectIdentity((1,3,6,1,4,1,5504,10,1,1,2,0))
+_ApsMIBConformance_ObjectIdentity=ObjectIdentity
+apsMIBConformance=_ApsMIBConformance_ObjectIdentity((1,3,6,1,4,1,5504,10,1,1,3))
+_ApsGroups_ObjectIdentity=ObjectIdentity
+apsGroups=_ApsGroups_ObjectIdentity((1,3,6,1,4,1,5504,10,1,1,3,1))
+_ApsCompliances_ObjectIdentity=ObjectIdentity
+apsCompliances=_ApsCompliances_ObjectIdentity((1,3,6,1,4,1,5504,10,1,1,3,2))
+apsConfigGeneral=ObjectGroup((1,3,6,1,4,1,5504,10,1,1,3,1,1))
+apsConfigGeneral.setObjects(*((_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e)))
+if mibBuilder.loadTexts:apsConfigGeneral.setStatus(_A)
+apsConfigWtr=ObjectGroup((1,3,6,1,4,1,5504,10,1,1,3,1,2))
+apsConfigWtr.setObjects((_B,_f))
+if mibBuilder.loadTexts:apsConfigWtr.setStatus(_A)
+apsCommandOnePlusOne=ObjectGroup((1,3,6,1,4,1,5504,10,1,1,3,1,3))
+apsCommandOnePlusOne.setObjects((_B,_M))
+if mibBuilder.loadTexts:apsCommandOnePlusOne.setStatus(_A)
+apsCommandOneToN=ObjectGroup((1,3,6,1,4,1,5504,10,1,1,3,1,4))
+apsCommandOneToN.setObjects(*((_B,_M),(_B,_g)))
+if mibBuilder.loadTexts:apsCommandOneToN.setStatus(_A)
+apsStatusGeneral=ObjectGroup((1,3,6,1,4,1,5504,10,1,1,3,1,5))
+apsStatusGeneral.setObjects(*((_B,_h),(_B,_i),(_B,_F),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_j)))
+if mibBuilder.loadTexts:apsStatusGeneral.setStatus(_A)
+apsChanGeneral=ObjectGroup((1,3,6,1,4,1,5504,10,1,1,3,1,6))
+apsChanGeneral.setObjects(*((_B,_k),(_B,_l),(_B,_R),(_B,_m),(_B,_n),(_B,_S),(_B,_o),(_B,_p)))
+if mibBuilder.loadTexts:apsChanGeneral.setStatus(_A)
+apsChanOneToN=ObjectGroup((1,3,6,1,4,1,5504,10,1,1,3,1,7))
+apsChanOneToN.setObjects((_B,_q))
+if mibBuilder.loadTexts:apsChanOneToN.setStatus(_A)
+apsTotalsGroup=ObjectGroup((1,3,6,1,4,1,5504,10,1,1,3,1,8))
+apsTotalsGroup.setObjects(*((_B,_r),(_B,_s)))
+if mibBuilder.loadTexts:apsTotalsGroup.setStatus(_A)
+apsMapGroup=ObjectGroup((1,3,6,1,4,1,5504,10,1,1,3,1,9))
+apsMapGroup.setObjects(*((_B,_t),(_B,_u)))
+if mibBuilder.loadTexts:apsMapGroup.setStatus(_A)
+apsEventSwitchover=NotificationType((1,3,6,1,4,1,5504,10,1,1,2,0,1))
+apsEventSwitchover.setObjects(*((_B,_S),(_B,_R)))
+if mibBuilder.loadTexts:apsEventSwitchover.setStatus(_A)
+apsEventModeMismatch=NotificationType((1,3,6,1,4,1,5504,10,1,1,2,0,2))
+apsEventModeMismatch.setObjects(*((_B,_N),(_B,_F)))
+if mibBuilder.loadTexts:apsEventModeMismatch.setStatus(_A)
+apsEventChannelMismatch=NotificationType((1,3,6,1,4,1,5504,10,1,1,2,0,3))
+apsEventChannelMismatch.setObjects(*((_B,_O),(_B,_F)))
+if mibBuilder.loadTexts:apsEventChannelMismatch.setStatus(_A)
+apsEventPSBF=NotificationType((1,3,6,1,4,1,5504,10,1,1,2,0,4))
+apsEventPSBF.setObjects(*((_B,_P),(_B,_F)))
+if mibBuilder.loadTexts:apsEventPSBF.setStatus(_A)
+apsEventFEPLF=NotificationType((1,3,6,1,4,1,5504,10,1,1,2,0,5))
+apsEventFEPLF.setObjects(*((_B,_Q),(_B,_F)))
+if mibBuilder.loadTexts:apsEventFEPLF.setStatus(_A)
+apsEventOptional=NotificationGroup((1,3,6,1,4,1,5504,10,1,1,3,1,10))
+apsEventOptional.setObjects(*((_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z)))
+if mibBuilder.loadTexts:apsEventOptional.setStatus(_A)
+apsCompliance=ModuleCompliance((1,3,6,1,4,1,5504,10,1,1,3,2,1))
+apsCompliance.setObjects(*((_B,_A0),(_B,_A1),(_B,_A2)))
+if mibBuilder.loadTexts:apsCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'ApsK1K2':ApsK1K2,'ApsSwitchCommand':ApsSwitchCommand,'ApsControlCommand':ApsControlCommand,'apsMIB':apsMIB,'apsMIBObjects':apsMIBObjects,'apsConfig':apsConfig,_r:apsConfigGroups,'apsConfigTable':apsConfigTable,'apsConfigEntry':apsConfigEntry,_L:apsConfigName,_e:apsConfigRowStatus,_X:apsConfigMode,_Y:apsConfigRevert,_Z:apsConfigDirection,_a:apsConfigExtraTraffic,_b:apsConfigSdBerThreshold,_c:apsConfigSfBerThreshold,_f:apsConfigWaitToRestore,_d:apsConfigCreationTime,'apsConfigAdminStatus':apsConfigAdminStatus,'apsStatusTable':apsStatusTable,'apsStatusEntry':apsStatusEntry,_h:apsStatusK1K2Rcv,_i:apsStatusK1K2Trans,_F:apsStatusCurrent,_N:apsStatusModeMismatches,_O:apsStatusChannelMismatches,_P:apsStatusPSBFs,_Q:apsStatusFEPLFs,_j:apsStatusSwitchedChannel,'apsMap':apsMap,_s:apsChanLTEs,'apsMapTable':apsMapTable,'apsMapEntry':apsMapEntry,_V:apsMapIfIndex,_t:apsMapGroupName,_u:apsMapChanNumber,'apsChanConfigTable':apsChanConfigTable,'apsChanConfigEntry':apsChanConfigEntry,_I:apsChanConfigGroupName,_J:apsChanConfigNumber,_l:apsChanConfigRowStatus,_k:apsChanConfigIfIndex,_q:apsChanConfigPriority,'apsChanConfigAdminStatus':apsChanConfigAdminStatus,'apsCommandTable':apsCommandTable,'apsCommandEntry':apsCommandEntry,_M:apsCommandSwitch,_g:apsCommandControl,'apsChanStatusTable':apsChanStatusTable,'apsChanStatusEntry':apsChanStatusEntry,_R:apsChanStatusCurrent,_m:apsChanStatusSignalDegrades,_n:apsChanStatusSignalFailures,_S:apsChanStatusSwitchovers,_o:apsChanStatusLastSwitchover,_p:apsChanStatusSwitchoverSeconds,'apsMIBNotifications':apsMIBNotifications,'apsNotificationsPrefix':apsNotificationsPrefix,_v:apsEventSwitchover,_w:apsEventModeMismatch,_x:apsEventChannelMismatch,_y:apsEventPSBF,_z:apsEventFEPLF,'apsMIBConformance':apsMIBConformance,'apsGroups':apsGroups,_A0:apsConfigGeneral,'apsConfigWtr':apsConfigWtr,'apsCommandOnePlusOne':apsCommandOnePlusOne,'apsCommandOneToN':apsCommandOneToN,_A1:apsStatusGeneral,_A2:apsChanGeneral,'apsChanOneToN':apsChanOneToN,'apsTotalsGroup':apsTotalsGroup,'apsMapGroup':apsMapGroup,'apsEventOptional':apsEventOptional,'apsCompliances':apsCompliances,'apsCompliance':apsCompliance})

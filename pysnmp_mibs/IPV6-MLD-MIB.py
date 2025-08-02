@@ -1,85 +1,198 @@
-#
-# PySNMP MIB module IPV6-MLD-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/IPV6-MLD-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:18:42 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, Integer, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
-( InterfaceIndexOrZero, InterfaceIndex, ) = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
-( InetAddressIPv6, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6")
-( ModuleCompliance, NotificationGroup, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-( ModuleIdentity, TimeTicks, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, mib_2, iso, Gauge32, Bits, Counter64, NotificationType, MibIdentifier, Unsigned32, Counter32, ObjectIdentity, IpAddress, ) = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "TimeTicks", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "mib-2", "iso", "Gauge32", "Bits", "Counter64", "NotificationType", "MibIdentifier", "Unsigned32", "Counter32", "ObjectIdentity", "IpAddress")
-( RowStatus, TruthValue, DisplayString, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TruthValue", "DisplayString", "TextualConvention")
-mldMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 91)).setRevisions(("2001-01-25 00:00",))
-if mibBuilder.loadTexts: mldMIB.setLastUpdated('200101250000Z')
-if mibBuilder.loadTexts: mldMIB.setOrganization('IETF IPNGWG Working Group.')
-if mibBuilder.loadTexts: mldMIB.setContactInfo(' Brian Haberman\n                 Nortel Networks\n                 4309 Emperor Blvd.\n                 Durham, NC  27703\n                 USA\n\n                 Phone: +1 919 992 4439\n                 e-mail: haberman@nortelnetworks.com')
-if mibBuilder.loadTexts: mldMIB.setDescription('The MIB module for MLD Management.')
-mldMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 91, 1))
-mldInterfaceTable = MibTable((1, 3, 6, 1, 2, 1, 91, 1, 1), )
-if mibBuilder.loadTexts: mldInterfaceTable.setDescription('The (conceptual) table listing the interfaces on which\n                MLD is enabled.')
-mldInterfaceEntry = MibTableRow((1, 3, 6, 1, 2, 1, 91, 1, 1, 1), ).setIndexNames((0, "IPV6-MLD-MIB", "mldInterfaceIfIndex"))
-if mibBuilder.loadTexts: mldInterfaceEntry.setDescription('An entry (conceptual row) representing an interface on\n               which MLD is enabled.')
-mldInterfaceIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 1, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: mldInterfaceIfIndex.setDescription('The internetwork-layer interface value of the interface\n               for which MLD is enabled.')
-mldInterfaceQueryInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 1, 1, 2), Unsigned32().clone(125)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mldInterfaceQueryInterval.setDescription('The frequency at which MLD Host-Query packets are\n               transmitted on this interface.')
-mldInterfaceStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mldInterfaceStatus.setDescription('The activation of a row enables MLD on the interface.\n                The destruction of a row disables MLD on the interface.')
-mldInterfaceVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 1, 1, 4), Unsigned32().clone(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mldInterfaceVersion.setDescription('The version of MLD which is running on this interface.\n                This object is a place holder to allow for new versions\n                of MLD to be introduced.  Version 1 of MLD is defined\n                in RFC 2710.')
-mldInterfaceQuerier = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 1, 1, 5), InetAddressIPv6().subtype(subtypeSpec=ValueSizeConstraint(16,16)).setFixedLength(16)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mldInterfaceQuerier.setDescription('The address of the MLD Querier on the IPv6 subnet to\n                which this interface is attached.')
-mldInterfaceQueryMaxResponseDelay = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 1, 1, 6), Unsigned32().clone(10)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mldInterfaceQueryMaxResponseDelay.setDescription('The maximum query response time advertised in MLD\n               queries on this interface.')
-mldInterfaceJoins = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mldInterfaceJoins.setDescription('The number of times a group membership has been added on\n               this interface; that is, the number of times an entry for\n               this interface has been added to the Cache Table.  This\n               object gives an indication of the amount of MLD activity\n               over time.')
-mldInterfaceGroups = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 1, 1, 8), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mldInterfaceGroups.setDescription('The current number of entries for this interface in the\n               Cache Table.')
-mldInterfaceRobustness = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 1, 1, 9), Unsigned32().clone(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mldInterfaceRobustness.setDescription('The Robustness Variable allows tuning for the expected\n               packet loss on a subnet.  If a subnet is expected to be\n               lossy, the Robustness Variable may be increased.  MLD is\n               robust to (Robustness Variable-1) packet losses.  The\n               discussion of the Robustness Variable is in Section 7.1\n               of RFC 2710.')
-mldInterfaceLastListenQueryIntvl = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 1, 1, 10), Unsigned32().clone(1)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mldInterfaceLastListenQueryIntvl.setDescription('The Last Member Query Interval is the Max Response\n                Delay inserted into Group-Specific Queries sent in\n                response to Leave Group messages, and is also the amount\n                of time between Group-Specific Query messages.  This\n                value may be tuned to modify the leave latency of the\n                network.  A reduced value results in reduced time to\n                detect the loss of the last member of a group.')
-mldInterfaceProxyIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 1, 1, 11), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mldInterfaceProxyIfIndex.setDescription('Some devices implement a form of MLD proxying whereby\n                memberships learned on the interface represented by this\n                row, cause MLD Multicast Listener Reports to be sent on\n                the internetwork-layer interface identified by this\n                object.  Such a device would implement mldRouterMIBGroup\n                only on its router interfaces (those interfaces with\n                non-zero mldInterfaceProxyIfIndex).  Typically, the\n                value of this object is 0, indicating that no proxying\n                is being done.')
-mldInterfaceQuerierUpTime = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 1, 1, 12), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mldInterfaceQuerierUpTime.setDescription('The time since mldInterfaceQuerier was last changed.')
-mldInterfaceQuerierExpiryTime = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 1, 1, 13), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mldInterfaceQuerierExpiryTime.setDescription('The time remaining before the Other Querier Present\n               Timer expires.  If the local system is the querier,\n               the value of this object is zero.')
-mldCacheTable = MibTable((1, 3, 6, 1, 2, 1, 91, 1, 2), )
-if mibBuilder.loadTexts: mldCacheTable.setDescription('The (conceptual) table listing the IPv6 multicast\n                groups for which there are members on a particular\n                interface.')
-mldCacheEntry = MibTableRow((1, 3, 6, 1, 2, 1, 91, 1, 2, 1), ).setIndexNames((0, "IPV6-MLD-MIB", "mldCacheAddress"), (0, "IPV6-MLD-MIB", "mldCacheIfIndex"))
-if mibBuilder.loadTexts: mldCacheEntry.setDescription('An entry (conceptual row) in the mldCacheTable.')
-mldCacheAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 2, 1, 1), InetAddressIPv6().subtype(subtypeSpec=ValueSizeConstraint(16,16)).setFixedLength(16))
-if mibBuilder.loadTexts: mldCacheAddress.setDescription('The IPv6 multicast group address for which this entry\n               contains information.')
-mldCacheIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 2, 1, 2), InterfaceIndex())
-if mibBuilder.loadTexts: mldCacheIfIndex.setDescription('The internetwork-layer interface for which this entry\n                contains information for an IPv6 multicast group\n                address.')
-mldCacheSelf = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 2, 1, 3), TruthValue().clone('true')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mldCacheSelf.setDescription('An indication of whether the local system is a member of\n               this group address on this interface.')
-mldCacheLastReporter = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 2, 1, 4), InetAddressIPv6().subtype(subtypeSpec=ValueSizeConstraint(16,16)).setFixedLength(16)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mldCacheLastReporter.setDescription('The IPv6 address of the source of the last membership\n                report received for this IPv6 Multicast group address on\n                this interface.  If no membership report has been\n                received, this object has the value 0::0.')
-mldCacheUpTime = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 2, 1, 5), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mldCacheUpTime.setDescription('The time elapsed since this entry was created.')
-mldCacheExpiryTime = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 2, 1, 6), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mldCacheExpiryTime.setDescription('The minimum amount of time remaining before this entry\n                will be aged out.  A value of 0 indicates that the entry\n                is only present because mldCacheSelf is true and that if\n                the router left the group, this entry would be aged out\n                immediately.  Note that some implementations may process\n                Membership Reports from the local system in the same way\n                as reports from other hosts, so a value of 0 is not\n                required.')
-mldCacheStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 91, 1, 2, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mldCacheStatus.setDescription('The status of this row, by which new entries may be\n               created, or existing entries deleted from this table.')
-mldMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 91, 2))
-mldMIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 91, 2, 1))
-mldMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 91, 2, 2))
-mldHostMIBCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 91, 2, 1, 1)).setObjects(*(("IPV6-MLD-MIB", "mldBaseMIBGroup"), ("IPV6-MLD-MIB", "mldHostMIBGroup"),))
-if mibBuilder.loadTexts: mldHostMIBCompliance.setDescription('The compliance statement for hosts running MLD and\n               implementing the MLD MIB.')
-mldRouterMIBCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 91, 2, 1, 2)).setObjects(*(("IPV6-MLD-MIB", "mldBaseMIBGroup"), ("IPV6-MLD-MIB", "mldRouterMIBGroup"),))
-if mibBuilder.loadTexts: mldRouterMIBCompliance.setDescription('The compliance statement for routers running MLD and\n               implementing the MLD MIB.')
-mldBaseMIBGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 91, 2, 2, 1)).setObjects(*(("IPV6-MLD-MIB", "mldCacheSelf"), ("IPV6-MLD-MIB", "mldCacheStatus"), ("IPV6-MLD-MIB", "mldInterfaceStatus"),))
-if mibBuilder.loadTexts: mldBaseMIBGroup.setDescription('The basic collection of objects providing management of\n               MLD.  The mldBaseMIBGroup is designed to allow for the\n               manager creation and deletion of MLD cache entries.')
-mldRouterMIBGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 91, 2, 2, 2)).setObjects(*(("IPV6-MLD-MIB", "mldCacheUpTime"), ("IPV6-MLD-MIB", "mldCacheExpiryTime"), ("IPV6-MLD-MIB", "mldInterfaceQueryInterval"), ("IPV6-MLD-MIB", "mldInterfaceJoins"), ("IPV6-MLD-MIB", "mldInterfaceGroups"), ("IPV6-MLD-MIB", "mldCacheLastReporter"), ("IPV6-MLD-MIB", "mldInterfaceQuerierUpTime"), ("IPV6-MLD-MIB", "mldInterfaceQuerierExpiryTime"), ("IPV6-MLD-MIB", "mldInterfaceQuerier"), ("IPV6-MLD-MIB", "mldInterfaceVersion"), ("IPV6-MLD-MIB", "mldInterfaceQueryMaxResponseDelay"), ("IPV6-MLD-MIB", "mldInterfaceRobustness"), ("IPV6-MLD-MIB", "mldInterfaceLastListenQueryIntvl"),))
-if mibBuilder.loadTexts: mldRouterMIBGroup.setDescription('A collection of additional objects for management of MLD\n               in routers.')
-mldHostMIBGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 91, 2, 2, 3)).setObjects(*(("IPV6-MLD-MIB", "mldInterfaceQuerier"),))
-if mibBuilder.loadTexts: mldHostMIBGroup.setDescription('A collection of additional objects for management of MLD\n               in hosts.')
-mldProxyMIBGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 91, 2, 2, 4)).setObjects(*(("IPV6-MLD-MIB", "mldInterfaceProxyIfIndex"),))
-if mibBuilder.loadTexts: mldProxyMIBGroup.setDescription('A collection of additional objects for management of MLD\n               proxy devices.')
-mibBuilder.exportSymbols("IPV6-MLD-MIB", mldInterfaceRobustness=mldInterfaceRobustness, mldInterfaceProxyIfIndex=mldInterfaceProxyIfIndex, mldMIBObjects=mldMIBObjects, mldCacheStatus=mldCacheStatus, mldInterfaceQuerierExpiryTime=mldInterfaceQuerierExpiryTime, mldInterfaceStatus=mldInterfaceStatus, mldInterfaceQuerier=mldInterfaceQuerier, mldCacheAddress=mldCacheAddress, mldInterfaceIfIndex=mldInterfaceIfIndex, mldInterfaceVersion=mldInterfaceVersion, mldMIBGroups=mldMIBGroups, mldInterfaceLastListenQueryIntvl=mldInterfaceLastListenQueryIntvl, mldHostMIBCompliance=mldHostMIBCompliance, mldInterfaceGroups=mldInterfaceGroups, mldCacheTable=mldCacheTable, mldInterfaceQueryMaxResponseDelay=mldInterfaceQueryMaxResponseDelay, mldInterfaceQueryInterval=mldInterfaceQueryInterval, mldCacheLastReporter=mldCacheLastReporter, mldRouterMIBCompliance=mldRouterMIBCompliance, mldCacheEntry=mldCacheEntry, mldMIBCompliances=mldMIBCompliances, mldInterfaceJoins=mldInterfaceJoins, PYSNMP_MODULE_ID=mldMIB, mldCacheSelf=mldCacheSelf, mldHostMIBGroup=mldHostMIBGroup, mldCacheIfIndex=mldCacheIfIndex, mldProxyMIBGroup=mldProxyMIBGroup, mldRouterMIBGroup=mldRouterMIBGroup, mldInterfaceEntry=mldInterfaceEntry, mldCacheUpTime=mldCacheUpTime, mldBaseMIBGroup=mldBaseMIBGroup, mldInterfaceTable=mldInterfaceTable, mldCacheExpiryTime=mldCacheExpiryTime, mldMIB=mldMIB, mldInterfaceQuerierUpTime=mldInterfaceQuerierUpTime, mldMIBConformance=mldMIBConformance)
+_g='mldRouterMIBGroup'
+_f='mldHostMIBGroup'
+_e='mldInterfaceProxyIfIndex'
+_d='mldInterfaceLastListenQueryIntvl'
+_c='mldInterfaceRobustness'
+_b='mldInterfaceQueryMaxResponseDelay'
+_a='mldInterfaceVersion'
+_Z='mldInterfaceQuerierExpiryTime'
+_Y='mldInterfaceQuerierUpTime'
+_X='mldCacheLastReporter'
+_W='mldInterfaceGroups'
+_V='mldInterfaceJoins'
+_U='mldInterfaceQueryInterval'
+_T='mldCacheExpiryTime'
+_S='mldCacheUpTime'
+_R='mldInterfaceStatus'
+_Q='mldCacheStatus'
+_P='mldCacheSelf'
+_O='mldCacheIfIndex'
+_N='mldCacheAddress'
+_M='mldInterfaceIfIndex'
+_L='TruthValue'
+_K='InterfaceIndexOrZero'
+_J='mldBaseMIBGroup'
+_I='mldInterfaceQuerier'
+_H='seconds'
+_G='not-accessible'
+_F='InetAddressIPv6'
+_E='Unsigned32'
+_D='read-only'
+_C='read-create'
+_B='IPV6-MLD-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InterfaceIndex,InterfaceIndexOrZero=mibBuilder.importSymbols('IF-MIB','InterfaceIndex',_K)
+InetAddressIPv6,=mibBuilder.importSymbols('INET-ADDRESS-MIB',_F)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso','mib-2')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_L)
+mldMIB=ModuleIdentity((1,3,6,1,2,1,91))
+if mibBuilder.loadTexts:mldMIB.setRevisions(('2001-01-25 00:00',))
+_MldMIBObjects_ObjectIdentity=ObjectIdentity
+mldMIBObjects=_MldMIBObjects_ObjectIdentity((1,3,6,1,2,1,91,1))
+_MldInterfaceTable_Object=MibTable
+mldInterfaceTable=_MldInterfaceTable_Object((1,3,6,1,2,1,91,1,1))
+if mibBuilder.loadTexts:mldInterfaceTable.setStatus(_A)
+_MldInterfaceEntry_Object=MibTableRow
+mldInterfaceEntry=_MldInterfaceEntry_Object((1,3,6,1,2,1,91,1,1,1))
+mldInterfaceEntry.setIndexNames((0,_B,_M))
+if mibBuilder.loadTexts:mldInterfaceEntry.setStatus(_A)
+_MldInterfaceIfIndex_Type=InterfaceIndex
+_MldInterfaceIfIndex_Object=MibTableColumn
+mldInterfaceIfIndex=_MldInterfaceIfIndex_Object((1,3,6,1,2,1,91,1,1,1,1),_MldInterfaceIfIndex_Type())
+mldInterfaceIfIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:mldInterfaceIfIndex.setStatus(_A)
+class _MldInterfaceQueryInterval_Type(Unsigned32):defaultValue=125
+_MldInterfaceQueryInterval_Type.__name__=_E
+_MldInterfaceQueryInterval_Object=MibTableColumn
+mldInterfaceQueryInterval=_MldInterfaceQueryInterval_Object((1,3,6,1,2,1,91,1,1,1,2),_MldInterfaceQueryInterval_Type())
+mldInterfaceQueryInterval.setMaxAccess(_C)
+if mibBuilder.loadTexts:mldInterfaceQueryInterval.setStatus(_A)
+if mibBuilder.loadTexts:mldInterfaceQueryInterval.setUnits(_H)
+_MldInterfaceStatus_Type=RowStatus
+_MldInterfaceStatus_Object=MibTableColumn
+mldInterfaceStatus=_MldInterfaceStatus_Object((1,3,6,1,2,1,91,1,1,1,3),_MldInterfaceStatus_Type())
+mldInterfaceStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:mldInterfaceStatus.setStatus(_A)
+class _MldInterfaceVersion_Type(Unsigned32):defaultValue=1
+_MldInterfaceVersion_Type.__name__=_E
+_MldInterfaceVersion_Object=MibTableColumn
+mldInterfaceVersion=_MldInterfaceVersion_Object((1,3,6,1,2,1,91,1,1,1,4),_MldInterfaceVersion_Type())
+mldInterfaceVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:mldInterfaceVersion.setStatus(_A)
+class _MldInterfaceQuerier_Type(InetAddressIPv6):subtypeSpec=InetAddressIPv6.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
+_MldInterfaceQuerier_Type.__name__=_F
+_MldInterfaceQuerier_Object=MibTableColumn
+mldInterfaceQuerier=_MldInterfaceQuerier_Object((1,3,6,1,2,1,91,1,1,1,5),_MldInterfaceQuerier_Type())
+mldInterfaceQuerier.setMaxAccess(_D)
+if mibBuilder.loadTexts:mldInterfaceQuerier.setStatus(_A)
+class _MldInterfaceQueryMaxResponseDelay_Type(Unsigned32):defaultValue=10
+_MldInterfaceQueryMaxResponseDelay_Type.__name__=_E
+_MldInterfaceQueryMaxResponseDelay_Object=MibTableColumn
+mldInterfaceQueryMaxResponseDelay=_MldInterfaceQueryMaxResponseDelay_Object((1,3,6,1,2,1,91,1,1,1,6),_MldInterfaceQueryMaxResponseDelay_Type())
+mldInterfaceQueryMaxResponseDelay.setMaxAccess(_C)
+if mibBuilder.loadTexts:mldInterfaceQueryMaxResponseDelay.setStatus(_A)
+if mibBuilder.loadTexts:mldInterfaceQueryMaxResponseDelay.setUnits(_H)
+_MldInterfaceJoins_Type=Counter32
+_MldInterfaceJoins_Object=MibTableColumn
+mldInterfaceJoins=_MldInterfaceJoins_Object((1,3,6,1,2,1,91,1,1,1,7),_MldInterfaceJoins_Type())
+mldInterfaceJoins.setMaxAccess(_D)
+if mibBuilder.loadTexts:mldInterfaceJoins.setStatus(_A)
+_MldInterfaceGroups_Type=Gauge32
+_MldInterfaceGroups_Object=MibTableColumn
+mldInterfaceGroups=_MldInterfaceGroups_Object((1,3,6,1,2,1,91,1,1,1,8),_MldInterfaceGroups_Type())
+mldInterfaceGroups.setMaxAccess(_D)
+if mibBuilder.loadTexts:mldInterfaceGroups.setStatus(_A)
+class _MldInterfaceRobustness_Type(Unsigned32):defaultValue=2
+_MldInterfaceRobustness_Type.__name__=_E
+_MldInterfaceRobustness_Object=MibTableColumn
+mldInterfaceRobustness=_MldInterfaceRobustness_Object((1,3,6,1,2,1,91,1,1,1,9),_MldInterfaceRobustness_Type())
+mldInterfaceRobustness.setMaxAccess(_C)
+if mibBuilder.loadTexts:mldInterfaceRobustness.setStatus(_A)
+class _MldInterfaceLastListenQueryIntvl_Type(Unsigned32):defaultValue=1
+_MldInterfaceLastListenQueryIntvl_Type.__name__=_E
+_MldInterfaceLastListenQueryIntvl_Object=MibTableColumn
+mldInterfaceLastListenQueryIntvl=_MldInterfaceLastListenQueryIntvl_Object((1,3,6,1,2,1,91,1,1,1,10),_MldInterfaceLastListenQueryIntvl_Type())
+mldInterfaceLastListenQueryIntvl.setMaxAccess(_C)
+if mibBuilder.loadTexts:mldInterfaceLastListenQueryIntvl.setStatus(_A)
+if mibBuilder.loadTexts:mldInterfaceLastListenQueryIntvl.setUnits(_H)
+class _MldInterfaceProxyIfIndex_Type(InterfaceIndexOrZero):defaultValue=0
+_MldInterfaceProxyIfIndex_Type.__name__=_K
+_MldInterfaceProxyIfIndex_Object=MibTableColumn
+mldInterfaceProxyIfIndex=_MldInterfaceProxyIfIndex_Object((1,3,6,1,2,1,91,1,1,1,11),_MldInterfaceProxyIfIndex_Type())
+mldInterfaceProxyIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:mldInterfaceProxyIfIndex.setStatus(_A)
+_MldInterfaceQuerierUpTime_Type=TimeTicks
+_MldInterfaceQuerierUpTime_Object=MibTableColumn
+mldInterfaceQuerierUpTime=_MldInterfaceQuerierUpTime_Object((1,3,6,1,2,1,91,1,1,1,12),_MldInterfaceQuerierUpTime_Type())
+mldInterfaceQuerierUpTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:mldInterfaceQuerierUpTime.setStatus(_A)
+_MldInterfaceQuerierExpiryTime_Type=TimeTicks
+_MldInterfaceQuerierExpiryTime_Object=MibTableColumn
+mldInterfaceQuerierExpiryTime=_MldInterfaceQuerierExpiryTime_Object((1,3,6,1,2,1,91,1,1,1,13),_MldInterfaceQuerierExpiryTime_Type())
+mldInterfaceQuerierExpiryTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:mldInterfaceQuerierExpiryTime.setStatus(_A)
+_MldCacheTable_Object=MibTable
+mldCacheTable=_MldCacheTable_Object((1,3,6,1,2,1,91,1,2))
+if mibBuilder.loadTexts:mldCacheTable.setStatus(_A)
+_MldCacheEntry_Object=MibTableRow
+mldCacheEntry=_MldCacheEntry_Object((1,3,6,1,2,1,91,1,2,1))
+mldCacheEntry.setIndexNames((0,_B,_N),(0,_B,_O))
+if mibBuilder.loadTexts:mldCacheEntry.setStatus(_A)
+class _MldCacheAddress_Type(InetAddressIPv6):subtypeSpec=InetAddressIPv6.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
+_MldCacheAddress_Type.__name__=_F
+_MldCacheAddress_Object=MibTableColumn
+mldCacheAddress=_MldCacheAddress_Object((1,3,6,1,2,1,91,1,2,1,1),_MldCacheAddress_Type())
+mldCacheAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:mldCacheAddress.setStatus(_A)
+_MldCacheIfIndex_Type=InterfaceIndex
+_MldCacheIfIndex_Object=MibTableColumn
+mldCacheIfIndex=_MldCacheIfIndex_Object((1,3,6,1,2,1,91,1,2,1,2),_MldCacheIfIndex_Type())
+mldCacheIfIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:mldCacheIfIndex.setStatus(_A)
+class _MldCacheSelf_Type(TruthValue):defaultValue=1
+_MldCacheSelf_Type.__name__=_L
+_MldCacheSelf_Object=MibTableColumn
+mldCacheSelf=_MldCacheSelf_Object((1,3,6,1,2,1,91,1,2,1,3),_MldCacheSelf_Type())
+mldCacheSelf.setMaxAccess(_C)
+if mibBuilder.loadTexts:mldCacheSelf.setStatus(_A)
+class _MldCacheLastReporter_Type(InetAddressIPv6):subtypeSpec=InetAddressIPv6.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
+_MldCacheLastReporter_Type.__name__=_F
+_MldCacheLastReporter_Object=MibTableColumn
+mldCacheLastReporter=_MldCacheLastReporter_Object((1,3,6,1,2,1,91,1,2,1,4),_MldCacheLastReporter_Type())
+mldCacheLastReporter.setMaxAccess(_D)
+if mibBuilder.loadTexts:mldCacheLastReporter.setStatus(_A)
+_MldCacheUpTime_Type=TimeTicks
+_MldCacheUpTime_Object=MibTableColumn
+mldCacheUpTime=_MldCacheUpTime_Object((1,3,6,1,2,1,91,1,2,1,5),_MldCacheUpTime_Type())
+mldCacheUpTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:mldCacheUpTime.setStatus(_A)
+_MldCacheExpiryTime_Type=TimeTicks
+_MldCacheExpiryTime_Object=MibTableColumn
+mldCacheExpiryTime=_MldCacheExpiryTime_Object((1,3,6,1,2,1,91,1,2,1,6),_MldCacheExpiryTime_Type())
+mldCacheExpiryTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:mldCacheExpiryTime.setStatus(_A)
+_MldCacheStatus_Type=RowStatus
+_MldCacheStatus_Object=MibTableColumn
+mldCacheStatus=_MldCacheStatus_Object((1,3,6,1,2,1,91,1,2,1,7),_MldCacheStatus_Type())
+mldCacheStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:mldCacheStatus.setStatus(_A)
+_MldMIBConformance_ObjectIdentity=ObjectIdentity
+mldMIBConformance=_MldMIBConformance_ObjectIdentity((1,3,6,1,2,1,91,2))
+_MldMIBCompliances_ObjectIdentity=ObjectIdentity
+mldMIBCompliances=_MldMIBCompliances_ObjectIdentity((1,3,6,1,2,1,91,2,1))
+_MldMIBGroups_ObjectIdentity=ObjectIdentity
+mldMIBGroups=_MldMIBGroups_ObjectIdentity((1,3,6,1,2,1,91,2,2))
+mldBaseMIBGroup=ObjectGroup((1,3,6,1,2,1,91,2,2,1))
+mldBaseMIBGroup.setObjects(*((_B,_P),(_B,_Q),(_B,_R)))
+if mibBuilder.loadTexts:mldBaseMIBGroup.setStatus(_A)
+mldRouterMIBGroup=ObjectGroup((1,3,6,1,2,1,91,2,2,2))
+mldRouterMIBGroup.setObjects(*((_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_I),(_B,_a),(_B,_b),(_B,_c),(_B,_d)))
+if mibBuilder.loadTexts:mldRouterMIBGroup.setStatus(_A)
+mldHostMIBGroup=ObjectGroup((1,3,6,1,2,1,91,2,2,3))
+mldHostMIBGroup.setObjects((_B,_I))
+if mibBuilder.loadTexts:mldHostMIBGroup.setStatus(_A)
+mldProxyMIBGroup=ObjectGroup((1,3,6,1,2,1,91,2,2,4))
+mldProxyMIBGroup.setObjects((_B,_e))
+if mibBuilder.loadTexts:mldProxyMIBGroup.setStatus(_A)
+mldHostMIBCompliance=ModuleCompliance((1,3,6,1,2,1,91,2,1,1))
+mldHostMIBCompliance.setObjects(*((_B,_J),(_B,_f)))
+if mibBuilder.loadTexts:mldHostMIBCompliance.setStatus(_A)
+mldRouterMIBCompliance=ModuleCompliance((1,3,6,1,2,1,91,2,1,2))
+mldRouterMIBCompliance.setObjects(*((_B,_J),(_B,_g)))
+if mibBuilder.loadTexts:mldRouterMIBCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'mldMIB':mldMIB,'mldMIBObjects':mldMIBObjects,'mldInterfaceTable':mldInterfaceTable,'mldInterfaceEntry':mldInterfaceEntry,_M:mldInterfaceIfIndex,_U:mldInterfaceQueryInterval,_R:mldInterfaceStatus,_a:mldInterfaceVersion,_I:mldInterfaceQuerier,_b:mldInterfaceQueryMaxResponseDelay,_V:mldInterfaceJoins,_W:mldInterfaceGroups,_c:mldInterfaceRobustness,_d:mldInterfaceLastListenQueryIntvl,_e:mldInterfaceProxyIfIndex,_Y:mldInterfaceQuerierUpTime,_Z:mldInterfaceQuerierExpiryTime,'mldCacheTable':mldCacheTable,'mldCacheEntry':mldCacheEntry,_N:mldCacheAddress,_O:mldCacheIfIndex,_P:mldCacheSelf,_X:mldCacheLastReporter,_S:mldCacheUpTime,_T:mldCacheExpiryTime,_Q:mldCacheStatus,'mldMIBConformance':mldMIBConformance,'mldMIBCompliances':mldMIBCompliances,'mldHostMIBCompliance':mldHostMIBCompliance,'mldRouterMIBCompliance':mldRouterMIBCompliance,'mldMIBGroups':mldMIBGroups,_J:mldBaseMIBGroup,_g:mldRouterMIBGroup,_f:mldHostMIBGroup,'mldProxyMIBGroup':mldProxyMIBGroup})

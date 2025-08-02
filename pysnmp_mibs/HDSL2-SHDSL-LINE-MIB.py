@@ -1,350 +1,901 @@
-#
-# PySNMP MIB module HDSL2-SHDSL-LINE-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/HDSL2-SHDSL-LINE-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:15:07 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint")
-( ifIndex, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-( PerfIntervalCount, PerfCurrentCount, ) = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfIntervalCount", "PerfCurrentCount")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( Integer32, ObjectIdentity, TimeTicks, iso, ModuleIdentity, Counter32, Unsigned32, MibIdentifier, Bits, Gauge32, transmission, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, NotificationType, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "ObjectIdentity", "TimeTicks", "iso", "ModuleIdentity", "Counter32", "Unsigned32", "MibIdentifier", "Bits", "Gauge32", "transmission", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "NotificationType")
-( RowStatus, DisplayString, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
-hdsl2ShdslMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 48)).setRevisions(("2011-12-21 00:00", "2005-12-07 00:00", "2002-05-09 00:00",))
-if mibBuilder.loadTexts: hdsl2ShdslMIB.setLastUpdated('201112210000Z')
-if mibBuilder.loadTexts: hdsl2ShdslMIB.setOrganization('ADSLMIB Working Group')
-if mibBuilder.loadTexts: hdsl2ShdslMIB.setContactInfo('WG-email:  adslmib@ietf.org\n            WG-URL:\n               http://www.ietf.org/html.charters/adslmib-charter.html\n            Info:       https://www1.ietf.org/mailman/listinfo/adslmib\n            Chair:      Mike Sneed\n                        Sand Channel Systems\n            Postal:     1210-203 Westview Ln\n                        Raleigh NC 27605  USA\n            Email:      sneedmike@hotmail.com\n            Phone:     +1 206 600 7022\n\n            Co-Chair    Bob Ray\n                        PESA Switching Systems, Inc.\n\n            Postal      330-A Wynn Drive\n                        Huntsville, AL 35805 USA\n            Phone       +1 256 726 9200 ext. 142\n\n            Co-editor:  Clay Sikes\n                        Zhone Technologies, Inc.\n            Postal:     8545 126th Ave. N.\n                        Largo, FL 33772 USA\n            Email:      csikes@zhone.com\n            Phone:      +1 727 530 8257\n\n            Co-editor:  Bob Ray\n                        PESA Switching Systems, Inc.\n            Postal:     330-A Wynn Drive\n                        Huntsville, AL 35805 USA\n            Email:      rray@pesa.com\n            Phone:      +1 256 726 9200 ext. 142\n\n            Co-editor:  Rajesh Abbi\n                        Alcatel USA\n            Postal:     2301 Sugar Bush Road\n                        Raleigh, NC 27612-3339 USA\n\n            Email:      Rajesh.Abbi@alcatel.com\n            Phone:      +1 919 850 6194')
-if mibBuilder.loadTexts: hdsl2ShdslMIB.setDescription('This MIB module defines a collection of objects for managing\n        HDSL2/SHDSL lines.  An agent may reside at either end of the\n        line; however, the MIB module is designed to require no\n        management communication between the modems beyond that\n        inherent in the low-level EOC line protocol as defined in\n        ANSI T1E1.4/2000-006 (for HDSL2 lines) or in ITU G.991.2\n        (for SHDSL lines).\n\n        Copyright (C) The Internet Society (2005).  This version of\n        this MIB module is part of RFC 4319; see the RFC itself for\n        full legal notices.')
-hdsl2ShdslMibObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 48, 1))
-class Hdsl2ShdslPerfCurrDayCount(Gauge32, TextualConvention):
-    displayHint = 'd'
-
-class Hdsl2Shdsl1DayIntervalCount(Gauge32, TextualConvention):
-    displayHint = 'd'
-
-class Hdsl2ShdslPerfTimeElapsed(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(0,86399)
-
-class Hdsl2ShdslPerfIntervalThreshold(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(0,900)
-
-class Hdsl2ShdslUnitId(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,))
-    namedValues = NamedValues(("xtuC", 1), ("xtuR", 2), ("xru1", 3), ("xru2", 4), ("xru3", 5), ("xru4", 6), ("xru5", 7), ("xru6", 8), ("xru7", 9), ("xru8", 10),)
-
-class Hdsl2ShdslUnitSide(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2,))
-    namedValues = NamedValues(("networkSide", 1), ("customerSide", 2),)
-
-class Hdsl2ShdslWirePair(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))
-    namedValues = NamedValues(("wirePair1", 1), ("wirePair2", 2), ("wirePair3", 3), ("wirePair4", 4),)
-
-class Hdsl2ShdslTransmissionModeType(Bits, TextualConvention):
-    namedValues = NamedValues(("region1", 0), ("region2", 1),)
-
-class Hdsl2ShdslClockReferenceType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))
-    namedValues = NamedValues(("localClk", 1), ("networkClk", 2), ("dataOrNetworkClk", 3), ("dataClk", 4),)
-
-hdsl2ShdslSpanConfTable = MibTable((1, 3, 6, 1, 2, 1, 10, 48, 1, 1), )
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfTable.setDescription('This table supports overall configuration of HDSL2/SHDSL\n        spans.  Entries in this table MUST be maintained in a\n        persistent manner.')
-hdsl2ShdslSpanConfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 48, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfEntry.setDescription('An entry in the hdsl2ShdslSpanConfTable.  Each entry\n        represents the complete span in a single HDSL2/SHDSL line.\n        It is indexed by the ifIndex of the associated HDSL2/SHDSL\n        line.')
-hdsl2ShdslSpanConfNumRepeaters = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,8))).setUnits('repeaters').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfNumRepeaters.setDescription('This object provisions the number of repeaters/regenerators\n        in this HDSL2/SHDSL span.')
-hdsl2ShdslSpanConfProfile = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 1, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfProfile.setDescription("This object is a pointer to a span configuration profile in\n        the hdsl2ShdslSpanConfProfileTable, which applies to this\n        span.  The value of this object is the index of the referenced\n        profile in the hdsl2ShdslSpanConfProfileTable.  Note that span\n        configuration profiles are only applicable to SHDSL lines.\n\n        HDSL2 lines MUST reference the default profile, 'DEFVAL'.\n        By default, this object will have the value 'DEFVAL'\n        (the index of the default profile).\n\n        Any attempt to set this object to a value that is not the value\n        of the index for an active entry in the profile table,\n        hdsl2ShdslSpanConfProfileTable, MUST be rejected.")
-hdsl2ShdslSpanConfAlarmProfile = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 1, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfAlarmProfile.setDescription("This object is a pointer to an alarm configuration profile in\n        the hdsl2ShdslEndpointAlarmConfProfileTable.  The value of\n        this object is the index of the referenced profile in the\n        hdsl2ShdslEndpointAlarmConfProfileTable.  The alarm\n        threshold configuration in the referenced profile will be\n        used by default for all segment endpoints in this span.\n        Individual endpoints may override this profile by explicitly\n        specifying some other profile in the\n        hdsl2ShdslEndpointConfTable.  By default, this object will\n        have the value 'DEFVAL' (the index of the default\n        profile).\n\n        Any attempt to set this object to a value that is not the value\n        of the index for an active entry in the profile table,\n        hdsl2ShdslEndpointAlarmConfProfileTable, MUST be rejected.")
-hdsl2ShdslSpanStatusTable = MibTable((1, 3, 6, 1, 2, 1, 10, 48, 1, 2), )
-if mibBuilder.loadTexts: hdsl2ShdslSpanStatusTable.setDescription('This table provides overall status information of\n        HDSL2/SHDSL spans.  This table contains live data from\n        equipment.  As such, it is NOT persistent.')
-hdsl2ShdslSpanStatusEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 48, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: hdsl2ShdslSpanStatusEntry.setDescription('An entry in the hdsl2ShdslSpanStatusTable.  Each entry\n        represents the complete span in a single HDSL2/SHDSL line.\n        It is indexed by the ifIndex of the associated HDSL2/SHDSL\n        line.')
-hdsl2ShdslStatusNumAvailRepeaters = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslStatusNumAvailRepeaters.setDescription('Contains the actual number of repeaters/regenerators\n        discovered in this HDSL2/SHDSL span.')
-hdsl2ShdslStatusMaxAttainableLineRate = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setUnits('bps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslStatusMaxAttainableLineRate.setDescription('Contains the maximum attainable line rate in this HDSL2/SHDSL\n        span.  This object provides the maximum rate the line is\n        capable of achieving.  This is based upon measurements made\n        during line probing.  This rate includes payload (user data)\n        and any applicable framing overhead.')
-hdsl2ShdslStatusActualLineRate = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setUnits('bps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslStatusActualLineRate.setDescription('Contains the actual line rate in this HDSL2/SHDSL span.  This\n        SHOULD equal ifSpeed.  This rate includes payload (user data)\n        and any applicable framing overhead')
-hdsl2ShdslStatusTransmissionModeCurrent = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 2, 1, 4), Hdsl2ShdslTransmissionModeType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslStatusTransmissionModeCurrent.setDescription('Contains the current Power Spectral Density (PSD) regional\n        setting of the HDSL2/SHDSL span.')
-hdsl2ShdslStatusMaxAttainablePayloadRate = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 2, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setUnits('bps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslStatusMaxAttainablePayloadRate.setDescription('Contains the maximum attainable payload (user data)\n        line rate in this HDSL2/SHDSL span.  This object provides\n        the maximum rate the line is capable of achieving.  This\n        is based upon measurements made during line probing.  Any\n        framing overhead is not included.')
-hdsl2ShdslStatusActualPayloadRate = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 2, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setUnits('bps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslStatusActualPayloadRate.setDescription('Contains the actual line rate in this HDSL2/SHDSL span.  Any\n        framing overhead is not included.')
-hdsl2ShdslInventoryTable = MibTable((1, 3, 6, 1, 2, 1, 10, 48, 1, 3), )
-if mibBuilder.loadTexts: hdsl2ShdslInventoryTable.setDescription('This table supports retrieval of unit inventory information\n        available via the EOC from units in an HDSL2/SHDSL line.\n\n        Entries in this table are dynamically created during the\n        line discovery process.  The life cycle for these entries\n        is as follows:\n\n           - xtu discovers a device, either a far-end xtu or an xru\n           - an inventory table entry is created for the device\n           - the line goes down for whatever reason\n           - inventory table entries for unreachable devices are\n             destroyed\n\n        As these entries are created/destroyed dynamically, they\n        are NOT persistent.')
-hdsl2ShdslInventoryEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 48, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvIndex"))
-if mibBuilder.loadTexts: hdsl2ShdslInventoryEntry.setDescription('An entry in the hdsl2ShdslInventoryTable.  Each entry\n        represents inventory information for a single unit in an\n        HDSL2/SHDSL line.  It is indexed by the ifIndex of the\n        HDSL2/SHDSL line and the Hdsl2ShdslUnitId of the\n        associated unit.')
-hdsl2ShdslInvIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 3, 1, 1), Hdsl2ShdslUnitId())
-if mibBuilder.loadTexts: hdsl2ShdslInvIndex.setDescription('Each entry in this table corresponds to a physical element\n        in an HDSL2/SHDSL span.  It is based on the EOC unit addressing\n        scheme with reference to the xtuC.')
-hdsl2ShdslInvVendorID = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 3, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(8,8)).setFixedLength(8)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslInvVendorID.setDescription('Vendor ID as reported in an Inventory Response message.')
-hdsl2ShdslInvVendorModelNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 3, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(12,12)).setFixedLength(12)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslInvVendorModelNumber.setDescription('Vendor model number as reported in an Inventory Response\n        message.')
-hdsl2ShdslInvVendorSerialNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 3, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(12,12)).setFixedLength(12)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslInvVendorSerialNumber.setDescription('Vendor serial number as reported in an Inventory Response\n        message.')
-hdsl2ShdslInvVendorEOCSoftwareVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 3, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslInvVendorEOCSoftwareVersion.setDescription('Vendor EOC version as reported in a Discovery Response\n        message.')
-hdsl2ShdslInvStandardVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 3, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslInvStandardVersion.setDescription('Version of the HDSL2/SHDSL standard implemented, as reported\n        in an Inventory Response message.')
-hdsl2ShdslInvVendorListNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 3, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(3,3)).setFixedLength(3)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslInvVendorListNumber.setDescription('Vendor list number as reported in an Inventory Response\n        message.')
-hdsl2ShdslInvVendorIssueNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 3, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2,2)).setFixedLength(2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslInvVendorIssueNumber.setDescription('Vendor issue number as reported in an Inventory Response\n        message.')
-hdsl2ShdslInvVendorSoftwareVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 3, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6,6)).setFixedLength(6)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslInvVendorSoftwareVersion.setDescription('Vendor software version as reported in an Inventory Response\n        message.')
-hdsl2ShdslInvEquipmentCode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 3, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(10,10)).setFixedLength(10)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslInvEquipmentCode.setDescription('Equipment code conforming to ANSI T1.213, Coded Identification\n        of Equipment Entities.')
-hdsl2ShdslInvVendorOther = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 3, 1, 11), OctetString().subtype(subtypeSpec=ValueSizeConstraint(12,12)).setFixedLength(12)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslInvVendorOther.setDescription('Other vendor information as reported in an Inventory Response\n        message.')
-hdsl2ShdslInvTransmissionModeCapability = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 3, 1, 12), Hdsl2ShdslTransmissionModeType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslInvTransmissionModeCapability.setDescription('Contains the transmission mode capability of the SHDSL unit.')
-hdsl2ShdslEndpointConfTable = MibTable((1, 3, 6, 1, 2, 1, 10, 48, 1, 4), )
-if mibBuilder.loadTexts: hdsl2ShdslEndpointConfTable.setDescription('This table supports configuration parameters for segment\n        endpoints in an HDSL2/SHDSL line.  As this table is indexed\n        by ifIndex, it MUST be maintained in a persistent manner.')
-hdsl2ShdslEndpointConfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 48, 1, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvIndex"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointSide"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointWirePair"))
-if mibBuilder.loadTexts: hdsl2ShdslEndpointConfEntry.setDescription('An entry in the hdsl2ShdslEndpointConfTable.  Each entry\n        represents a single segment endpoint in an HDSL2/SHDSL line.\n        It is indexed by the ifIndex of the HDSL2/SHDSL line, the\n        UnitId of the associated unit, the side of the unit, and the\n        wire pair of the associated modem.')
-hdsl2ShdslEndpointSide = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 4, 1, 1), Hdsl2ShdslUnitSide())
-if mibBuilder.loadTexts: hdsl2ShdslEndpointSide.setDescription('The side of the unit associated with this segment endpoint --\n        Network/Customer side -- as per the Hdsl2ShdslUnitSide textual\n        convention.')
-hdsl2ShdslEndpointWirePair = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 4, 1, 2), Hdsl2ShdslWirePair())
-if mibBuilder.loadTexts: hdsl2ShdslEndpointWirePair.setDescription('The wire pair of the modem associated with this segment\n        endpoint as per the Hdsl2ShdslWirePair textual convention.')
-hdsl2ShdslEndpointAlarmConfProfile = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 4, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointAlarmConfProfile.setDescription('This object configures the alarm threshold values to be used\n        for this segment endpoint.  The values are obtained from the\n        alarm configuration profile referenced by this object.  The\n        value of this object is the index of the referenced profile in\n        the hdsl2ShdslEndpointAlarmConfProfileTable, or NULL (a\n        zero-length SnmpAdminString).  If the value is a zero-length\n        SnmpAdminString, the endpoint uses the default Alarm\n        Configuration Profile for the associated span as per the\n        hdsl2ShdslSpanConfAlarmProfile object in the\n        hdsl2ShdslSpanConfTable.  The default value of this object is\n        a zero-length SnmpAdminString.\n\n        Any attempt to set this object to a value that is not the value\n        of the index for an active entry in the profile table,\n        hdsl2ShdslEndpointAlarmConfProfileTable, MUST be rejected.')
-hdsl2ShdslEndpointCurrTable = MibTable((1, 3, 6, 1, 2, 1, 10, 48, 1, 5), )
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurrTable.setDescription('This table contains current status and performance information\n        for segment endpoints in HDSL2/SHDSL lines.  As with other\n        tables in this MIB module indexed by ifIndex, entries in this\n        table MUST be maintained in a persistent manner.')
-hdsl2ShdslEndpointCurrEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvIndex"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointSide"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointWirePair"))
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurrEntry.setDescription('An entry in the hdsl2ShdslEndpointCurrTable.  Each entry\n        contains status and performance information relating to a\n        single segment endpoint.  It is indexed by the ifIndex of the\n        HDSL2/SHDSL line, the UnitId of the associated unit, the side\n        of the unit, and the wire pair of the associated modem.')
-hdsl2ShdslEndpointCurrAtn = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-127,128))).setUnits('dB').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurrAtn.setDescription('The current loop attenuation for this endpoint as reported in\n        a Network or Customer Side Performance Status message.')
-hdsl2ShdslEndpointCurrSnrMgn = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-127,128))).setUnits('dB').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurrSnrMgn.setDescription('The current SNR margin for this endpoint as reported in a\n        Status Response/SNR message.')
-hdsl2ShdslEndpointCurrStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 3), Bits().clone(namedValues=NamedValues(("noDefect", 0), ("powerBackoff", 1), ("deviceFault", 2), ("dcContinuityFault", 3), ("snrMarginAlarm", 4), ("loopAttenuationAlarm", 5), ("loswFailureAlarm", 6), ("configInitFailure", 7), ("protocolInitFailure", 8), ("noNeighborPresent", 9), ("loopbackActive", 10),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurrStatus.setDescription('Contains the current state of the endpoint.  This is a\n        bit-map of possible conditions.  The various bit positions\n        are as follows:\n\n        noDefect               There are no defects on the line.\n\n        powerBackoff           Indicates enhanced Power Backoff.\n\n        deviceFault            Indicates that a vendor-dependent\n                               diagnostic or self-test fault\n                               has been detected.\n\n        dcContinuityFault      Indicates vendor-dependent\n                               conditions that interfere with\n                               span powering such as short and\n                               open circuits.\n\n        snrMarginAlarm         Indicates that the SNR margin\n                               has dropped below the alarm threshold.\n\n        loopAttenuationAlarm   Indicates that the loop attenuation\n                               exceeds the alarm threshold.\n\n        loswFailureAlarm       Indicates a forward LOSW alarm.\n\n        configInitFailure      Endpoint failure during initialization\n                               due to paired endpoint not able to\n                               support requested configuration.\n\n        protocolInitFailure    Endpoint failure during initialization\n                               due to incompatible protocol used by\n                               the paired endpoint.\n\n        noNeighborPresent      Endpoint failure during initialization\n                               due to no activation sequence detected\n                               from paired endpoint.\n\n        loopbackActive         A loopback is currently active at this\n                               segment endpoint.\n\n        This is intended to supplement ifOperStatus.  Note that there\n        is a 1:1 relationship between the status bits defined in this\n        object and the notification thresholds defined elsewhere in\n        this MIB module.')
-hdsl2ShdslEndpointES = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 4), Counter32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointES.setDescription('Count of Errored Seconds (ES) on this endpoint since the xU\n        was last restarted.')
-hdsl2ShdslEndpointSES = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 5), Counter32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointSES.setDescription('Count of Severely Errored Seconds (SES) on this endpoint\n        since the xU was last restarted.')
-hdsl2ShdslEndpointCRCanomalies = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 6), Counter32()).setUnits('detected CRC Anomalies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCRCanomalies.setDescription('Count of CRC anomalies on this endpoint since the xU was\n        last restarted.')
-hdsl2ShdslEndpointLOSWS = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 7), Counter32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointLOSWS.setDescription('Count of Loss of Sync Word (LOSW) Seconds on this endpoint\n        since the xU was last restarted.')
-hdsl2ShdslEndpointUAS = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 8), Counter32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointUAS.setDescription('Count of Unavailable Seconds (UAS) on this endpoint since\n        the xU was last restarted.')
-hdsl2ShdslEndpointCurr15MinTimeElapsed = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 9), Hdsl2ShdslPerfTimeElapsed()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurr15MinTimeElapsed.setDescription('Total elapsed seconds in the current 15-minute interval.')
-hdsl2ShdslEndpointCurr15MinES = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 10), PerfCurrentCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurr15MinES.setDescription('Count of Errored Seconds (ES) in the current 15-minute\n        interval.')
-hdsl2ShdslEndpointCurr15MinSES = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 11), PerfCurrentCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurr15MinSES.setDescription('Count of Severely Errored Seconds (SES) in the current\n        15-minute interval.')
-hdsl2ShdslEndpointCurr15MinCRCanomalies = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 12), PerfCurrentCount()).setUnits('detected CRC Anomalies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurr15MinCRCanomalies.setDescription('Count of CRC anomalies in the current 15-minute interval.')
-hdsl2ShdslEndpointCurr15MinLOSWS = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 13), PerfCurrentCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurr15MinLOSWS.setDescription('Count of Loss of Sync Word (LOSW) Seconds in the current\n        15-minute interval.')
-hdsl2ShdslEndpointCurr15MinUAS = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 14), PerfCurrentCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurr15MinUAS.setDescription('Count of Unavailable Seconds (UAS) in the current 15-minute\n        interval.')
-hdsl2ShdslEndpointCurr1DayTimeElapsed = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 15), Hdsl2ShdslPerfTimeElapsed()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurr1DayTimeElapsed.setDescription('Number of seconds that have elapsed since the beginning of\n        the current 1-day interval.')
-hdsl2ShdslEndpointCurr1DayES = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 16), Hdsl2ShdslPerfCurrDayCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurr1DayES.setDescription('Count of Errored Seconds (ES) during the current day as\n        measured by hdsl2ShdslEndpointCurr1DayTimeElapsed.')
-hdsl2ShdslEndpointCurr1DaySES = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 17), Hdsl2ShdslPerfCurrDayCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurr1DaySES.setDescription('Count of Severely Errored Seconds (SES) during the current\n        day as measured by hdsl2ShdslEndpointCurr1DayTimeElapsed.')
-hdsl2ShdslEndpointCurr1DayCRCanomalies = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 18), Hdsl2ShdslPerfCurrDayCount()).setUnits('detected CRC Anomalies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurr1DayCRCanomalies.setDescription('Count of CRC anomalies during the current day as measured\n        by hdsl2ShdslEndpointCurr1DayTimeElapsed.')
-hdsl2ShdslEndpointCurr1DayLOSWS = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 19), Hdsl2ShdslPerfCurrDayCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurr1DayLOSWS.setDescription('Count of Loss of Sync Word (LOSW) Seconds during the current\n        day as measured by hdsl2ShdslEndpointCurr1DayTimeElapsed.')
-hdsl2ShdslEndpointCurr1DayUAS = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 20), Hdsl2ShdslPerfCurrDayCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurr1DayUAS.setDescription('Count of Unavailable Seconds (UAS) during the current day as\n        measured by hdsl2ShdslEndpointCurr1DayTimeElapsed.')
-hdsl2ShdslEndpointCurrTipRingReversal = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("normal", 1), ("reversed", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurrTipRingReversal.setDescription('This object indicates the state of the tip/ring for the\n        wire pair.')
-hdsl2ShdslEndpointCurrActivationState = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 5, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("preActivation", 1), ("activation", 2), ("data", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurrActivationState.setDescription('This object indicates the activation or training state of\n        the wire pair.')
-hdsl2Shdsl15MinIntervalTable = MibTable((1, 3, 6, 1, 2, 1, 10, 48, 1, 6), )
-if mibBuilder.loadTexts: hdsl2Shdsl15MinIntervalTable.setDescription('This table provides one row for each HDSL2/SHDSL endpoint\n        performance data collection interval.  This table contains\n        live data from equipment.  As such, it is NOT persistent.')
-hdsl2Shdsl15MinIntervalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 48, 1, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvIndex"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointSide"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointWirePair"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2Shdsl15MinIntervalNumber"))
-if mibBuilder.loadTexts: hdsl2Shdsl15MinIntervalEntry.setDescription('An entry in the hdsl2Shdsl15MinIntervalTable.')
-hdsl2Shdsl15MinIntervalNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 6, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,96)))
-if mibBuilder.loadTexts: hdsl2Shdsl15MinIntervalNumber.setDescription('Performance Data Interval number.  Interval 1 is the most\n        recent previous interval; interval 96 is 24 hours ago.\n        Intervals 2..96 are optional.')
-hdsl2Shdsl15MinIntervalES = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 6, 1, 2), PerfIntervalCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2Shdsl15MinIntervalES.setDescription('Count of Errored Seconds (ES) during the interval.')
-hdsl2Shdsl15MinIntervalSES = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 6, 1, 3), PerfIntervalCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2Shdsl15MinIntervalSES.setDescription('Count of Severely Errored Seconds (SES) during the interval.')
-hdsl2Shdsl15MinIntervalCRCanomalies = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 6, 1, 4), PerfIntervalCount()).setUnits('detected CRC Anomalies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2Shdsl15MinIntervalCRCanomalies.setDescription('Count of CRC anomalies during the interval.')
-hdsl2Shdsl15MinIntervalLOSWS = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 6, 1, 5), PerfIntervalCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2Shdsl15MinIntervalLOSWS.setDescription('Count of Loss of Sync Word (LOSW) Seconds during the\n        interval.')
-hdsl2Shdsl15MinIntervalUAS = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 6, 1, 6), PerfIntervalCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2Shdsl15MinIntervalUAS.setDescription('Count of Unavailable Seconds (UAS) during the interval.')
-hdsl2Shdsl1DayIntervalTable = MibTable((1, 3, 6, 1, 2, 1, 10, 48, 1, 7), )
-if mibBuilder.loadTexts: hdsl2Shdsl1DayIntervalTable.setDescription('This table provides one row for each HDSL2/SHDSL endpoint\n        performance data collection interval.  This table contains\n        live data from equipment.  As such, it is NOT persistent.')
-hdsl2Shdsl1DayIntervalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 48, 1, 7, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvIndex"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointSide"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointWirePair"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2Shdsl1DayIntervalNumber"))
-if mibBuilder.loadTexts: hdsl2Shdsl1DayIntervalEntry.setDescription('An entry in the hdsl2Shdsl1DayIntervalTable.')
-hdsl2Shdsl1DayIntervalNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 7, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,30)))
-if mibBuilder.loadTexts: hdsl2Shdsl1DayIntervalNumber.setDescription('History Data Interval number.  Interval 1 is the most\n        recent previous day; interval 30 is 30 days ago.  Intervals\n        2..30 are optional.')
-hdsl2Shdsl1DayIntervalMoniSecs = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 7, 1, 2), Hdsl2ShdslPerfTimeElapsed()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2Shdsl1DayIntervalMoniSecs.setDescription('The amount of time in the 1-day interval over which the\n        performance monitoring information is actually counted.\n        This value will be the same as the interval duration except\n        in a situation where performance monitoring data could not\n        be collected for any reason.')
-hdsl2Shdsl1DayIntervalES = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 7, 1, 3), Hdsl2Shdsl1DayIntervalCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2Shdsl1DayIntervalES.setDescription('Count of Errored Seconds (ES) during the 1-day interval as\n        measured by hdsl2Shdsl1DayIntervalMoniSecs.')
-hdsl2Shdsl1DayIntervalSES = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 7, 1, 4), Hdsl2Shdsl1DayIntervalCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2Shdsl1DayIntervalSES.setDescription('Count of Severely Errored Seconds (SES) during the 1-day\n        interval as measured by hdsl2Shdsl1DayIntervalMoniSecs.')
-hdsl2Shdsl1DayIntervalCRCanomalies = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 7, 1, 5), Hdsl2Shdsl1DayIntervalCount()).setUnits('detected CRC Anomalies').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2Shdsl1DayIntervalCRCanomalies.setDescription('Count of CRC anomalies during the 1-day interval as\n        measured by hdsl2Shdsl1DayIntervalMoniSecs.')
-hdsl2Shdsl1DayIntervalLOSWS = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 7, 1, 6), Hdsl2Shdsl1DayIntervalCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2Shdsl1DayIntervalLOSWS.setDescription('Count of Loss of Sync Word (LOSW) Seconds during the 1-day\n        interval as measured by hdsl2Shdsl1DayIntervalMoniSecs.')
-hdsl2Shdsl1DayIntervalUAS = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 7, 1, 7), Hdsl2Shdsl1DayIntervalCount()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2Shdsl1DayIntervalUAS.setDescription('Count of Unavailable Seconds (UAS) during the 1-day interval\n        as measured by hdsl2Shdsl1DayIntervalMoniSecs.')
-hdsl2ShdslEndpointMaintTable = MibTable((1, 3, 6, 1, 2, 1, 10, 48, 1, 8), )
-if mibBuilder.loadTexts: hdsl2ShdslEndpointMaintTable.setDescription('This table supports maintenance operations (e.g., loopbacks)\n        to be performed on HDSL2/SHDSL segment endpoints.  This table\n        contains live data from equipment.  As such, it is NOT\n        persistent.')
-hdsl2ShdslEndpointMaintEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 48, 1, 8, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvIndex"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointSide"))
-if mibBuilder.loadTexts: hdsl2ShdslEndpointMaintEntry.setDescription('An entry in the hdsl2ShdslEndpointMaintTable.  Each entry\n        corresponds to a single segment endpoint and is indexed by the\n        ifIndex of the HDSL2/SHDSL line, the UnitId of the associated\n        unit, and the side of the unit.')
-hdsl2ShdslMaintLoopbackConfig = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 8, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("noLoopback", 1), ("normalLoopback", 2), ("specialLoopback", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslMaintLoopbackConfig.setDescription('This object controls configuration of loopbacks for the\n        associated segment endpoint.  The status of the loopback\n        is obtained via the hdsl2ShdslEndpointCurrStatus object.')
-hdsl2ShdslMaintTipRingReversal = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 8, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("normal", 1), ("reversed", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslMaintTipRingReversal.setDescription('This object indicates the state of the tip/ring pair at the\n        associated segment endpoint.')
-hdsl2ShdslMaintPowerBackOff = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 8, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("default", 1), ("enhanced", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslMaintPowerBackOff.setDescription('This object configures the receiver at the associated\n        segment endpoint to operate in default or enhanced power\n        backoff mode.')
-hdsl2ShdslMaintSoftRestart = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 8, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("ready", 1), ("restart", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslMaintSoftRestart.setDescription("This object enables the manager to trigger a soft restart\n        of the modem at the associated segment endpoint.  The\n        manager may only set this object to the 'restart(2)'\n        value, which initiates a restart.  The agent will perform a\n        restart after approximately 5 seconds.  Following the 5 second\n        period, the agent will restore the object to the 'ready(1)'\n        state.")
-hdsl2ShdslUnitMaintTable = MibTable((1, 3, 6, 1, 2, 1, 10, 48, 1, 9), )
-if mibBuilder.loadTexts: hdsl2ShdslUnitMaintTable.setDescription('This table supports maintenance operations for units in a\n        HDSL2/SHDSL line.  Entries in this table MUST be maintained\n        in a persistent manner.')
-hdsl2ShdslUnitMaintEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 48, 1, 9, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvIndex"))
-if mibBuilder.loadTexts: hdsl2ShdslUnitMaintEntry.setDescription('An entry in the hdsl2ShdslUnitMaintTable.  Each entry\n        corresponds to a single unit and is indexed by the\n        ifIndex of the HDSL2/SHDSL line and the UnitId of the\n        associated unit.')
-hdsl2ShdslMaintLoopbackTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 9, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4095))).setUnits('minutes').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslMaintLoopbackTimeout.setDescription('This object configures the timeout value for loopbacks\n        initiated at segments endpoints contained in the associated\n        unit.  A value of 0 disables the timeout.')
-hdsl2ShdslMaintUnitPowerSource = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 9, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("local", 1), ("span", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslMaintUnitPowerSource.setDescription('This object indicates the DC power source being used by the\n        associated unit.')
-hdsl2ShdslSpanConfProfileTable = MibTable((1, 3, 6, 1, 2, 1, 10, 48, 1, 10), )
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfProfileTable.setDescription('This table supports definitions of span configuration\n        profiles for SHDSL lines.  HDSL2 does not support these\n        configuration options.  This table MUST be maintained\n        in a persistent manner.')
-hdsl2ShdslSpanConfProfileEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 48, 1, 10, 1), ).setIndexNames((1, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfProfileName"))
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfProfileEntry.setDescription('Each entry corresponds to a single span configuration\n        profile.  Each profile contains a set of span configuration\n        parameters.  The configuration parameters in a profile are\n        applied to those lines referencing that profile (see the\n        hdsl2ShdslSpanConfProfile object).  Profiles may be\n        created/deleted using the row creation/deletion mechanism\n        via hdsl2ShdslSpanConfProfileRowStatus.  If an active\n        entry is referenced in hdsl2ShdslSpanConfProfile, the\n        entry MUST remain active until all references are removed.')
-hdsl2ShdslSpanConfProfileName = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 10, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,32)))
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfProfileName.setDescription('This object is the unique index associated with this profile.\n        Entries in this table are referenced via the object\n        hdsl2ShdslSpanConfProfile in Hdsl2ShdslSpanConfEntry.')
-hdsl2ShdslSpanConfWireInterface = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 10, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("twoWire", 1), ("fourWire", 2), ("sixWire", 3), ("eightWire", 4),)).clone('twoWire')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfWireInterface.setDescription('This object configures the two-wire or optional four-wire,\n        six-wire, or eight-wire operation for SHDSL lines.')
-hdsl2ShdslSpanConfMinLineRate = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 10, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295)).clone(1552000)).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfMinLineRate.setDescription("This object configures the minimum transmission rate for\n        the associated SHDSL Line in bits-per-second (bps) and includes\n        both payload (user data) and any applicable framing overhead.\n        If the minimum line rate equals the maximum line rate\n        (hdsl2ShdslSpanMaxLineRate), the line rate is considered\n        'fixed'.  If the minimum line rate is less than the\n        maximum line rate, the line rate is considered\n        'rate-adaptive'.")
-hdsl2ShdslSpanConfMaxLineRate = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 10, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295)).clone(1552000)).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfMaxLineRate.setDescription("This object configures the maximum transmission rate for\n        the associated SHDSL Line in bits-per-second (bps) and includes\n        both payload (user data) and any applicable framing overhead.\n        If the minimum line rate equals the maximum line rate\n        (hdsl2ShdslSpanMaxLineRate), the line rate is considered\n        'fixed'.  If the minimum line rate is less than the\n        maximum line rate, the line rate is considered\n        'rate-adaptive'.")
-hdsl2ShdslSpanConfPSD = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 10, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("symmetric", 1), ("asymmetric", 2),)).clone('symmetric')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfPSD.setDescription('This object configures use of symmetric/asymmetric PSD (Power\n        Spectral Density) Mask for the associated SHDSL Line.  Support\n        for symmetric PSD is mandatory for all supported data rates.\n        Support for asymmetric PSD is optional.')
-hdsl2ShdslSpanConfTransmissionMode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 10, 1, 6), Hdsl2ShdslTransmissionModeType().clone(namedValues=NamedValues(("region1", 0),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfTransmissionMode.setDescription('This object specifies the regional setting for the SHDSL\n        line.')
-hdsl2ShdslSpanConfRemoteEnabled = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 10, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),)).clone('enabled')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfRemoteEnabled.setDescription('This object enables/disables support for remote management\n        of the units in an SHDSL line from the STU-R via the EOC.')
-hdsl2ShdslSpanConfPowerFeeding = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 10, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("noPower", 1), ("powerFeed", 2), ("wettingCurrent", 3),)).clone('noPower')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfPowerFeeding.setDescription('This object enables/disables support for optional power\n        feeding in an SHDSL line.')
-hdsl2ShdslSpanConfCurrCondTargetMarginDown = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 10, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-10,21))).setUnits('dB').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfCurrCondTargetMarginDown.setDescription('This object specifies the downstream current condition target\n        SNR margin for an SHDSL line.  The SNR margin is the difference\n        between the desired SNR and the actual SNR.  Target SNR margin\n        is the desired SNR margin for a unit.')
-hdsl2ShdslSpanConfWorstCaseTargetMarginDown = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 10, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-10,21))).setUnits('dB').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfWorstCaseTargetMarginDown.setDescription('This object specifies the downstream worst-case target SNR\n        margin for an SHDSL line.  The SNR margin is the difference\n        between the desired SNR and the actual SNR.  Target SNR\n        margin is the desired SNR margin for a unit.')
-hdsl2ShdslSpanConfCurrCondTargetMarginUp = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 10, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-10,21))).setUnits('dB').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfCurrCondTargetMarginUp.setDescription('This object specifies the upstream current-condition target\n        SNR margin for an SHDSL line.  The SNR margin is the difference\n        between the desired SNR and the actual SNR.  Target SNR margin\n        is the desired SNR margin for a unit.')
-hdsl2ShdslSpanConfWorstCaseTargetMarginUp = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 10, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-10,21))).setUnits('dB').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfWorstCaseTargetMarginUp.setDescription('This object specifies the upstream worst-case target SNR\n        margin for an SHDSL line.  The SNR margin is the difference\n        between the desired SNR and the actual SNR.  Target SNR margin\n        is the desired SNR margin for a unit.')
-hdsl2ShdslSpanConfUsedTargetMargins = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 10, 1, 13), Bits().clone(namedValues=NamedValues(("currCondDown", 0), ("worstCaseDown", 1), ("currCondUp", 2), ("worstCaseUp", 3),)).clone(namedValues=NamedValues(("currCondDown", 0),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfUsedTargetMargins.setDescription('Indicates whether a target SNR margin is enabled or\n        disabled.  This is a bit-map of possible settings.  The\n        various bit positions are as follows:\n\n        currCondDown   - current-condition downstream target SNR\n                         margin enabled\n\n        worstCaseDown  - worst-case downstream target SNR margin\n                         enabled\n\n        currCondUp     - current-condition upstream target SNR\n                         margin enabled\n\n        worstCaseUp    - worst-case upstream target SNR margin\n                         enabled.')
-hdsl2ShdslSpanConfReferenceClock = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 10, 1, 14), Hdsl2ShdslClockReferenceType().clone('localClk')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfReferenceClock.setDescription('This object configures the clock reference for the STU-C\n        in an SHDSL Line.')
-hdsl2ShdslSpanConfLineProbeEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 10, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2),)).clone('disable')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfLineProbeEnable.setDescription('This object enables/disables support for Line Probe of\n        the units in an SHDSL line.  When Line Probe is enabled, the\n        system performs Line Probing to find the best possible\n        rate.  If Line Probe is disabled, the rate adaptation phase\n        is skipped to shorten set up time.')
-hdsl2ShdslSpanConfProfileRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 10, 1, 16), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfProfileRowStatus.setDescription('This object controls creation/deletion of the associated\n        entry in this table per the semantics of RowStatus.  If an\n        active entry is referenced in hdsl2ShdslSpanConfProfile, the\n        entry MUST remain active until all references are removed.')
-hdsl2ShdslEndpointAlarmConfProfileTable = MibTable((1, 3, 6, 1, 2, 1, 10, 48, 1, 11), )
-if mibBuilder.loadTexts: hdsl2ShdslEndpointAlarmConfProfileTable.setDescription('This table supports definitions of alarm configuration\n        profiles for HDSL2/SHDSL segment endpoints.  This table\n        MUST be maintained in a persistent manner.')
-hdsl2ShdslEndpointAlarmConfProfileEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 48, 1, 11, 1), ).setIndexNames((1, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointAlarmConfProfileName"))
-if mibBuilder.loadTexts: hdsl2ShdslEndpointAlarmConfProfileEntry.setDescription('Each entry corresponds to a single alarm configuration profile.\n        Each profile contains a set of parameters for setting alarm\n        thresholds for various performance attributes monitored at\n        HDSL2/SHDSL segment endpoints.  Profiles may be created/deleted\n        using the row creation/deletion mechanism via\n        hdsl2ShdslEndpointAlarmConfProfileRowStatus.  If an active\n        entry is referenced in either hdsl2ShdslSpanConfAlarmProfile\n        or hdsl2ShdslEndpointAlarmConfProfile, the entry MUST remain\n        active until all references are removed.')
-hdsl2ShdslEndpointAlarmConfProfileName = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 11, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,32)))
-if mibBuilder.loadTexts: hdsl2ShdslEndpointAlarmConfProfileName.setDescription('This object is the unique index associated with this profile.')
-hdsl2ShdslEndpointThreshLoopAttenuation = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 11, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-127,128))).setUnits('dB').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointThreshLoopAttenuation.setDescription('This object configures the loop attenuation alarm threshold.\n        When the current value of hdsl2ShdslEndpointCurrAtn reaches\n        or exceeds this threshold, an hdsl2ShdslLoopAttenCrossing\n        MAY be generated.')
-hdsl2ShdslEndpointThreshSNRMargin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 11, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-127,128))).setUnits('dB').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointThreshSNRMargin.setDescription('This object configures the SNR margin alarm threshold.\n        When the current value of hdsl2ShdslEndpointCurrSnrMgn\n        reaches or drops below this threshold, a\n        hdsl2ShdslSNRMarginCrossing MAY be generated.')
-hdsl2ShdslEndpointThreshES = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 11, 1, 4), Hdsl2ShdslPerfIntervalThreshold()).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointThreshES.setDescription('This object configures the threshold for the number of\n        Errored Seconds (ES) within any given 15-minute performance\n        data collection interval.  If the value of Errored Seconds\n        in a particular 15-minute collection interval reaches/\n        exceeds this value, an hdsl2ShdslPerfESThresh MAY be\n        generated.  At most, one notification will be sent per\n        interval per endpoint.')
-hdsl2ShdslEndpointThreshSES = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 11, 1, 5), Hdsl2ShdslPerfIntervalThreshold()).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointThreshSES.setDescription('This object configures the threshold for the number of\n        Severely Errored Seconds (SES) within any given 15-minute\n        performance data collection interval.  If the value of\n        Severely Errored Seconds in a particular 15-minute collection\n        interval reaches/exceeds this value, an hdsl2ShdslPerfSESThresh\n        MAY be generated.  At most, one notification will be sent per\n        interval per endpoint.')
-hdsl2ShdslEndpointThreshCRCanomalies = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 11, 1, 6), Integer32()).setUnits('detected CRC Anomalies').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointThreshCRCanomalies.setDescription('This object configures the threshold for the number of\n        CRC anomalies within any given 15-minute performance data\n        collection interval.  If the value of CRC anomalies in a\n        particular 15-minute collection interval reaches/exceeds\n        this value, an hdsl2ShdslPerfCRCanomaliesThresh MAY be\n        generated.  At most, one notification will be sent per\n        interval per endpoint.')
-hdsl2ShdslEndpointThreshLOSWS = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 11, 1, 7), Hdsl2ShdslPerfIntervalThreshold()).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointThreshLOSWS.setDescription('This object configures the threshold for the number of\n        Loss of Sync Word (LOSW) Seconds within any given 15-minute\n        performance data collection interval.  If the value of LOSW\n        in a particular 15-minute collection interval reaches/exceeds\n        this value, an hdsl2ShdslPerfLOSWSThresh MAY be generated.\n        At most, one notification will be sent per interval per\n        endpoint.')
-hdsl2ShdslEndpointThreshUAS = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 11, 1, 8), Hdsl2ShdslPerfIntervalThreshold()).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointThreshUAS.setDescription('This object configures the threshold for the number of\n        Unavailable Seconds (UAS) within any given 15-minute\n        performance data collection interval.  If the value of UAS\n        in a particular 15-minute collection interval reaches/exceeds\n        this value, an hdsl2ShdslPerfUASThresh MAY be generated.\n        At most, one notification will be sent per interval per\n        endpoint.')
-hdsl2ShdslEndpointAlarmConfProfileRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 48, 1, 11, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointAlarmConfProfileRowStatus.setDescription('This object controls creation/deletion of the associated\n        entry in this table as per the semantics of RowStatus.\n        If an active entry is referenced in either\n        hdsl2ShdslSpanConfAlarmProfile or\n        hdsl2ShdslEndpointAlarmConfProfile, the entry MUST remain\n        active until all references are removed.')
-hdsl2ShdslNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 48, 0))
-hdsl2ShdslLoopAttenCrossing = NotificationType((1, 3, 6, 1, 2, 1, 10, 48, 0, 1)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrAtn"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshLoopAttenuation"),))
-if mibBuilder.loadTexts: hdsl2ShdslLoopAttenCrossing.setDescription('This notification indicates that the loop attenuation\n        threshold (as per the hdsl2ShdslEndpointThreshLoopAttenuation\n        value) has been reached/exceeded for the HDSL2/SHDSL segment\n        endpoint.')
-hdsl2ShdslSNRMarginCrossing = NotificationType((1, 3, 6, 1, 2, 1, 10, 48, 0, 2)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrSnrMgn"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshSNRMargin"),))
-if mibBuilder.loadTexts: hdsl2ShdslSNRMarginCrossing.setDescription('This notification indicates that the SNR margin threshold (as\n        per the hdsl2ShdslEndpointThreshSNRMargin value) has been\n        reached/exceeded for the HDSL2/SHDSL segment endpoint.')
-hdsl2ShdslPerfESThresh = NotificationType((1, 3, 6, 1, 2, 1, 10, 48, 0, 3)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr15MinES"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshES"),))
-if mibBuilder.loadTexts: hdsl2ShdslPerfESThresh.setDescription('This notification indicates that the errored seconds\n        threshold (as per the hdsl2ShdslEndpointThreshES value)\n        has been reached/exceeded for the HDSL2/SHDSL segment\n        endpoint.')
-hdsl2ShdslPerfSESThresh = NotificationType((1, 3, 6, 1, 2, 1, 10, 48, 0, 4)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr15MinSES"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshSES"),))
-if mibBuilder.loadTexts: hdsl2ShdslPerfSESThresh.setDescription('This notification indicates that the severely errored seconds\n        threshold (as per the hdsl2ShdslEndpointThreshSES value) has\n        been reached/exceeded for the HDSL2/SHDSL segment endpoint.')
-hdsl2ShdslPerfCRCanomaliesThresh = NotificationType((1, 3, 6, 1, 2, 1, 10, 48, 0, 5)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr15MinCRCanomalies"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshCRCanomalies"),))
-if mibBuilder.loadTexts: hdsl2ShdslPerfCRCanomaliesThresh.setDescription('This notification indicates that the CRC anomalies threshold\n        (as per the hdsl2ShdslEndpointThreshCRCanomalies value) has\n        been reached/exceeded for the HDSL2/SHDSL segment endpoint.')
-hdsl2ShdslPerfLOSWSThresh = NotificationType((1, 3, 6, 1, 2, 1, 10, 48, 0, 6)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr15MinLOSWS"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshLOSWS"),))
-if mibBuilder.loadTexts: hdsl2ShdslPerfLOSWSThresh.setDescription('This notification indicates that the LOSW Seconds threshold\n        (as per the hdsl2ShdslEndpointThreshLOSWS value) has been\n        reached/exceeded for the HDSL2/SHDSL segment endpoint.')
-hdsl2ShdslPerfUASThresh = NotificationType((1, 3, 6, 1, 2, 1, 10, 48, 0, 7)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr15MinUAS"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshUAS"),))
-if mibBuilder.loadTexts: hdsl2ShdslPerfUASThresh.setDescription('This notification indicates that the unavailable seconds\n        threshold (as per the hdsl2ShdslEndpointThreshUAS value) has\n        been reached/exceeded for the HDSL2/SHDSL segment endpoint.')
-hdsl2ShdslSpanInvalidNumRepeaters = NotificationType((1, 3, 6, 1, 2, 1, 10, 48, 0, 8)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfNumRepeaters"),))
-if mibBuilder.loadTexts: hdsl2ShdslSpanInvalidNumRepeaters.setDescription('This notification indicates that a mismatch has been detected\n        between the number of repeater/regenerator units configured\n        for an HDSL2/SHDSL line via the hdsl2ShdslSpanConfNumRepeaters\n        object and the actual number of repeater/regenerator units\n        discovered via the EOC.')
-hdsl2ShdslLoopbackFailure = NotificationType((1, 3, 6, 1, 2, 1, 10, 48, 0, 9)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslMaintLoopbackConfig"),))
-if mibBuilder.loadTexts: hdsl2ShdslLoopbackFailure.setDescription('This notification indicates that an endpoint maintenance\n        loopback command failed for an HDSL2/SHDSL segment.')
-hdsl2ShdslpowerBackoff = NotificationType((1, 3, 6, 1, 2, 1, 10, 48, 0, 10)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrStatus"),))
-if mibBuilder.loadTexts: hdsl2ShdslpowerBackoff.setDescription('This notification indicates that the bit setting for\n        powerBackoff in the hdsl2ShdslEndpointCurrStatus object for\n        this endpoint has changed.')
-hdsl2ShdsldeviceFault = NotificationType((1, 3, 6, 1, 2, 1, 10, 48, 0, 11)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrStatus"),))
-if mibBuilder.loadTexts: hdsl2ShdsldeviceFault.setDescription('This notification indicates that the bit setting for\n        deviceFault in the hdsl2ShdslEndpointCurrStatus object for\n        this endpoint has changed.')
-hdsl2ShdsldcContinuityFault = NotificationType((1, 3, 6, 1, 2, 1, 10, 48, 0, 12)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrStatus"),))
-if mibBuilder.loadTexts: hdsl2ShdsldcContinuityFault.setDescription('This notification indicates that the bit setting for\n        dcContinuityFault in the hdsl2ShdslEndpointCurrStatus object\n        for this endpoint has changed.')
-hdsl2ShdslconfigInitFailure = NotificationType((1, 3, 6, 1, 2, 1, 10, 48, 0, 13)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrStatus"),))
-if mibBuilder.loadTexts: hdsl2ShdslconfigInitFailure.setDescription('This notification indicates that the bit setting for\n        configInitFailure in the hdsl2ShdslEndpointCurrStatus object\n        for this endpoint has changed.')
-hdsl2ShdslprotocolInitFailure = NotificationType((1, 3, 6, 1, 2, 1, 10, 48, 0, 14)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrStatus"),))
-if mibBuilder.loadTexts: hdsl2ShdslprotocolInitFailure.setDescription('This notification indicates that the bit setting for\n        protocolInitFailure in the hdsl2ShdslEndpointCurrStatus\n        object for this endpoint has changed.')
-hdsl2ShdslnoNeighborPresent = NotificationType((1, 3, 6, 1, 2, 1, 10, 48, 0, 15)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrStatus"),))
-if mibBuilder.loadTexts: hdsl2ShdslnoNeighborPresent.setDescription('This notification indicates that the bit setting for\n        noNeighborPresent in the hdsl2ShdslEndpointCurrStatus object\n        for this endpoint has changed.')
-hdsl2ShdslLocalPowerLoss = NotificationType((1, 3, 6, 1, 2, 1, 10, 48, 0, 16)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvVendorID"),))
-if mibBuilder.loadTexts: hdsl2ShdslLocalPowerLoss.setDescription('This notification indicates impending unit failure due to\n        loss of local power (last gasp).')
-hdsl2ShdslConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 48, 3))
-hdsl2ShdslGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 48, 3, 1))
-hdsl2ShdslCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 48, 3, 2))
-hdsl2ShdslLineMibCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 48, 3, 2, 1)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanStatusGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInventoryGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointConfGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2Shdsl15MinIntervalGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2Shdsl1DayIntervalGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslMaintenanceGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointAlarmConfGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslNotificationGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInventoryShdslGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanShdslStatusGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfProfileGroup"),))
-if mibBuilder.loadTexts: hdsl2ShdslLineMibCompliance.setDescription('The compliance statement for SNMP entities that implement\n        HDSL2 and SHDSL.  The version of SHDSL supported in this\n        compliance statement is g.shdsl.\n\n        **** This compliance statement is deprecated. ****')
-hdsl2GshdslbisLineMibCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 48, 3, 2, 2)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanStatusGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInventoryGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointConfGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2Shdsl15MinIntervalGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2Shdsl1DayIntervalGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslMaintenanceGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointAlarmConfGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslNotificationGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInventoryShdslGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanShdslStatusGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfProfileGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslWirePairGroup"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslPayloadRateGroup"),))
-if mibBuilder.loadTexts: hdsl2GshdslbisLineMibCompliance.setDescription('The compliance statement for SNMP entities that implement\n        HDSL2 and SHDSL.  The version of SHDSL supported in this\n        compliance statement is g.shdsl.bis.')
-hdsl2ShdslSpanConfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 48, 3, 1, 1)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfNumRepeaters"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfProfile"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfAlarmProfile"),))
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfGroup.setDescription('This group supports objects for configuring span-related\n        parameters for HDSL2/SHDSL lines.')
-hdsl2ShdslSpanStatusGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 48, 3, 1, 2)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslStatusNumAvailRepeaters"),))
-if mibBuilder.loadTexts: hdsl2ShdslSpanStatusGroup.setDescription('This group supports objects for retrieving span-related\n        status for HDSL2/SHDSL lines.')
-hdsl2ShdslInventoryShdslGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 48, 3, 1, 3)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvTransmissionModeCapability"),))
-if mibBuilder.loadTexts: hdsl2ShdslInventoryShdslGroup.setDescription('This group supports objects for retrieving SHDSL-specific\n        inventory information.')
-hdsl2ShdslSpanShdslStatusGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 48, 3, 1, 4)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslStatusMaxAttainableLineRate"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslStatusActualLineRate"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslStatusTransmissionModeCurrent"),))
-if mibBuilder.loadTexts: hdsl2ShdslSpanShdslStatusGroup.setDescription('This group supports objects for retrieving SHDSL-specific\n        span-related status.')
-hdsl2ShdslInventoryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 48, 3, 1, 5)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvVendorID"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvVendorModelNumber"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvVendorSerialNumber"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvVendorEOCSoftwareVersion"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvStandardVersion"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvVendorListNumber"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvVendorIssueNumber"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvVendorSoftwareVersion"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvEquipmentCode"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvVendorOther"),))
-if mibBuilder.loadTexts: hdsl2ShdslInventoryGroup.setDescription('This group supports objects that provide unit inventory\n        information about the units in HDSL2/SHDSL lines.')
-hdsl2ShdslEndpointConfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 48, 3, 1, 6)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrAtn"),))
-if mibBuilder.loadTexts: hdsl2ShdslEndpointConfGroup.setDescription('This group supports objects for configuring parameters for\n        segment endpoints in HDSL2/SHDSL lines.')
-hdsl2ShdslEndpointCurrGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 48, 3, 1, 7)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrAtn"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrSnrMgn"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrStatus"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointES"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointSES"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCRCanomalies"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointLOSWS"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointUAS"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr15MinTimeElapsed"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr15MinES"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr15MinSES"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr15MinCRCanomalies"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr15MinLOSWS"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr15MinUAS"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr1DayTimeElapsed"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr1DayES"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr1DaySES"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr1DayCRCanomalies"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr1DayLOSWS"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr1DayUAS"),))
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurrGroup.setDescription('This group supports objects that provide current status and\n        performance measurements relating to segment endpoints in\n        HDSL2/SHDSL lines.')
-hdsl2Shdsl15MinIntervalGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 48, 3, 1, 8)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2Shdsl15MinIntervalES"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2Shdsl15MinIntervalSES"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2Shdsl15MinIntervalCRCanomalies"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2Shdsl15MinIntervalLOSWS"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2Shdsl15MinIntervalUAS"),))
-if mibBuilder.loadTexts: hdsl2Shdsl15MinIntervalGroup.setDescription('This group supports objects that maintain historic\n        performance measurements relating to segment endpoints in\n        HDSL2/SHDSL lines in 15-minute intervals.')
-hdsl2Shdsl1DayIntervalGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 48, 3, 1, 9)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2Shdsl1DayIntervalMoniSecs"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2Shdsl1DayIntervalES"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2Shdsl1DayIntervalSES"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2Shdsl1DayIntervalCRCanomalies"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2Shdsl1DayIntervalLOSWS"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2Shdsl1DayIntervalUAS"),))
-if mibBuilder.loadTexts: hdsl2Shdsl1DayIntervalGroup.setDescription('This group supports objects that maintain historic\n        performance measurements relating to segment endpoints in\n        HDSL2/SHDSL lines in 1-day intervals.')
-hdsl2ShdslMaintenanceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 48, 3, 1, 10)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslMaintLoopbackConfig"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslMaintTipRingReversal"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslMaintPowerBackOff"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslMaintSoftRestart"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslMaintLoopbackTimeout"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslMaintUnitPowerSource"),))
-if mibBuilder.loadTexts: hdsl2ShdslMaintenanceGroup.setDescription('This group supports objects that provide support for\n        maintenance actions for HDSL2/SHDSL lines.')
-hdsl2ShdslEndpointAlarmConfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 48, 3, 1, 11)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointAlarmConfProfile"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshLoopAttenuation"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshSNRMargin"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshES"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshSES"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshCRCanomalies"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshLOSWS"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshUAS"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointAlarmConfProfileRowStatus"),))
-if mibBuilder.loadTexts: hdsl2ShdslEndpointAlarmConfGroup.setDescription('This group supports objects that allow configuration of alarm\n        thresholds for various performance parameters for HDSL2/SHDSL\n        lines.')
-hdsl2ShdslNotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 10, 48, 3, 1, 12)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslLoopAttenCrossing"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSNRMarginCrossing"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslPerfESThresh"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslPerfSESThresh"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslPerfCRCanomaliesThresh"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslPerfLOSWSThresh"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslPerfUASThresh"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanInvalidNumRepeaters"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslLoopbackFailure"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslpowerBackoff"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdsldeviceFault"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdsldcContinuityFault"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslconfigInitFailure"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslprotocolInitFailure"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslnoNeighborPresent"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslLocalPowerLoss"),))
-if mibBuilder.loadTexts: hdsl2ShdslNotificationGroup.setDescription('This group supports notifications of significant conditions\n        associated with HDSL2/SHDSL lines.')
-hdsl2ShdslSpanConfProfileGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 48, 3, 1, 13)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfWireInterface"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfMinLineRate"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfMaxLineRate"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfPSD"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfTransmissionMode"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfRemoteEnabled"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfPowerFeeding"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfCurrCondTargetMarginDown"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfWorstCaseTargetMarginDown"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfCurrCondTargetMarginUp"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfWorstCaseTargetMarginUp"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfUsedTargetMargins"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfReferenceClock"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfLineProbeEnable"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslSpanConfProfileRowStatus"),))
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfProfileGroup.setDescription('This group supports objects that constitute configuration\n        profiles for configuring span-related parameters in SHDSL\n        lines.')
-hdsl2ShdslWirePairGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 48, 3, 1, 14)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrTipRingReversal"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrActivationState"),))
-if mibBuilder.loadTexts: hdsl2ShdslWirePairGroup.setDescription('This group supports objects that provide the status\n        of SHDSL-specific wire pairs.')
-hdsl2ShdslPayloadRateGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 48, 3, 1, 15)).setObjects(*(("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslStatusMaxAttainablePayloadRate"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslStatusActualPayloadRate"),))
-if mibBuilder.loadTexts: hdsl2ShdslPayloadRateGroup.setDescription('This group supports objects for retrieving payload rates\n        that exclude any framing overhead.')
-mibBuilder.exportSymbols("HDSL2-SHDSL-LINE-MIB", hdsl2ShdslInvIndex=hdsl2ShdslInvIndex, hdsl2GshdslbisLineMibCompliance=hdsl2GshdslbisLineMibCompliance, hdsl2ShdslMIB=hdsl2ShdslMIB, hdsl2ShdslEndpointThreshSES=hdsl2ShdslEndpointThreshSES, hdsl2ShdslEndpointWirePair=hdsl2ShdslEndpointWirePair, hdsl2ShdslLineMibCompliance=hdsl2ShdslLineMibCompliance, hdsl2ShdslEndpointCurrAtn=hdsl2ShdslEndpointCurrAtn, hdsl2ShdslSpanConfWireInterface=hdsl2ShdslSpanConfWireInterface, Hdsl2ShdslUnitSide=Hdsl2ShdslUnitSide, hdsl2ShdslEndpointES=hdsl2ShdslEndpointES, Hdsl2ShdslClockReferenceType=Hdsl2ShdslClockReferenceType, hdsl2ShdslEndpointThreshLoopAttenuation=hdsl2ShdslEndpointThreshLoopAttenuation, hdsl2ShdslPerfUASThresh=hdsl2ShdslPerfUASThresh, hdsl2ShdslStatusActualPayloadRate=hdsl2ShdslStatusActualPayloadRate, hdsl2ShdslSpanConfProfileEntry=hdsl2ShdslSpanConfProfileEntry, hdsl2ShdslEndpointSES=hdsl2ShdslEndpointSES, Hdsl2ShdslPerfIntervalThreshold=Hdsl2ShdslPerfIntervalThreshold, hdsl2ShdslEndpointCurrEntry=hdsl2ShdslEndpointCurrEntry, hdsl2Shdsl15MinIntervalSES=hdsl2Shdsl15MinIntervalSES, hdsl2ShdslEndpointAlarmConfProfileRowStatus=hdsl2ShdslEndpointAlarmConfProfileRowStatus, hdsl2Shdsl1DayIntervalEntry=hdsl2Shdsl1DayIntervalEntry, hdsl2ShdslLocalPowerLoss=hdsl2ShdslLocalPowerLoss, hdsl2ShdslEndpointCurr15MinCRCanomalies=hdsl2ShdslEndpointCurr15MinCRCanomalies, hdsl2ShdslSpanConfUsedTargetMargins=hdsl2ShdslSpanConfUsedTargetMargins, hdsl2Shdsl1DayIntervalUAS=hdsl2Shdsl1DayIntervalUAS, hdsl2Shdsl15MinIntervalEntry=hdsl2Shdsl15MinIntervalEntry, Hdsl2ShdslWirePair=Hdsl2ShdslWirePair, hdsl2ShdslEndpointCurr15MinSES=hdsl2ShdslEndpointCurr15MinSES, hdsl2ShdslPerfSESThresh=hdsl2ShdslPerfSESThresh, hdsl2ShdslMaintUnitPowerSource=hdsl2ShdslMaintUnitPowerSource, hdsl2Shdsl1DayIntervalTable=hdsl2Shdsl1DayIntervalTable, hdsl2ShdslStatusNumAvailRepeaters=hdsl2ShdslStatusNumAvailRepeaters, hdsl2ShdslSpanStatusTable=hdsl2ShdslSpanStatusTable, hdsl2ShdslInvVendorID=hdsl2ShdslInvVendorID, hdsl2ShdslEndpointCRCanomalies=hdsl2ShdslEndpointCRCanomalies, hdsl2ShdslEndpointCurr15MinTimeElapsed=hdsl2ShdslEndpointCurr15MinTimeElapsed, hdsl2ShdslUnitMaintTable=hdsl2ShdslUnitMaintTable, hdsl2ShdslEndpointCurr1DayUAS=hdsl2ShdslEndpointCurr1DayUAS, hdsl2ShdslMaintenanceGroup=hdsl2ShdslMaintenanceGroup, Hdsl2Shdsl1DayIntervalCount=Hdsl2Shdsl1DayIntervalCount, hdsl2ShdslMaintTipRingReversal=hdsl2ShdslMaintTipRingReversal, hdsl2Shdsl15MinIntervalCRCanomalies=hdsl2Shdsl15MinIntervalCRCanomalies, hdsl2ShdslStatusMaxAttainableLineRate=hdsl2ShdslStatusMaxAttainableLineRate, hdsl2ShdslPerfCRCanomaliesThresh=hdsl2ShdslPerfCRCanomaliesThresh, hdsl2ShdslMaintPowerBackOff=hdsl2ShdslMaintPowerBackOff, hdsl2ShdslSpanConfLineProbeEnable=hdsl2ShdslSpanConfLineProbeEnable, hdsl2ShdslInvTransmissionModeCapability=hdsl2ShdslInvTransmissionModeCapability, Hdsl2ShdslPerfCurrDayCount=Hdsl2ShdslPerfCurrDayCount, hdsl2ShdslnoNeighborPresent=hdsl2ShdslnoNeighborPresent, hdsl2ShdslSpanConfRemoteEnabled=hdsl2ShdslSpanConfRemoteEnabled, hdsl2ShdslInventoryEntry=hdsl2ShdslInventoryEntry, hdsl2ShdslSpanConfWorstCaseTargetMarginUp=hdsl2ShdslSpanConfWorstCaseTargetMarginUp, hdsl2Shdsl15MinIntervalUAS=hdsl2Shdsl15MinIntervalUAS, hdsl2ShdslNotificationGroup=hdsl2ShdslNotificationGroup, hdsl2ShdslSpanConfProfile=hdsl2ShdslSpanConfProfile, hdsl2ShdslEndpointCurr15MinES=hdsl2ShdslEndpointCurr15MinES, hdsl2ShdslPerfESThresh=hdsl2ShdslPerfESThresh, hdsl2ShdslEndpointAlarmConfProfileEntry=hdsl2ShdslEndpointAlarmConfProfileEntry, hdsl2ShdslEndpointAlarmConfProfile=hdsl2ShdslEndpointAlarmConfProfile, hdsl2ShdslCompliances=hdsl2ShdslCompliances, hdsl2ShdslEndpointThreshUAS=hdsl2ShdslEndpointThreshUAS, hdsl2ShdslEndpointCurrTipRingReversal=hdsl2ShdslEndpointCurrTipRingReversal, hdsl2Shdsl15MinIntervalLOSWS=hdsl2Shdsl15MinIntervalLOSWS, hdsl2ShdslMaintSoftRestart=hdsl2ShdslMaintSoftRestart, hdsl2ShdslSpanConfCurrCondTargetMarginUp=hdsl2ShdslSpanConfCurrCondTargetMarginUp, hdsl2ShdslInvVendorOther=hdsl2ShdslInvVendorOther, Hdsl2ShdslUnitId=Hdsl2ShdslUnitId, hdsl2ShdslNotifications=hdsl2ShdslNotifications, hdsl2ShdslEndpointCurrGroup=hdsl2ShdslEndpointCurrGroup, hdsl2ShdslInvVendorSerialNumber=hdsl2ShdslInvVendorSerialNumber, hdsl2ShdslSpanConfProfileGroup=hdsl2ShdslSpanConfProfileGroup, hdsl2ShdslGroups=hdsl2ShdslGroups, hdsl2ShdslEndpointCurr1DayLOSWS=hdsl2ShdslEndpointCurr1DayLOSWS, hdsl2ShdslStatusActualLineRate=hdsl2ShdslStatusActualLineRate, hdsl2ShdslConformance=hdsl2ShdslConformance, hdsl2Shdsl1DayIntervalGroup=hdsl2Shdsl1DayIntervalGroup, hdsl2ShdslEndpointCurrActivationState=hdsl2ShdslEndpointCurrActivationState, hdsl2ShdslEndpointCurrSnrMgn=hdsl2ShdslEndpointCurrSnrMgn, hdsl2ShdslEndpointCurrStatus=hdsl2ShdslEndpointCurrStatus, hdsl2ShdslEndpointConfGroup=hdsl2ShdslEndpointConfGroup, hdsl2ShdslEndpointThreshLOSWS=hdsl2ShdslEndpointThreshLOSWS, hdsl2Shdsl1DayIntervalSES=hdsl2Shdsl1DayIntervalSES, hdsl2ShdslEndpointAlarmConfProfileTable=hdsl2ShdslEndpointAlarmConfProfileTable, hdsl2ShdslSpanConfTable=hdsl2ShdslSpanConfTable, hdsl2Shdsl15MinIntervalGroup=hdsl2Shdsl15MinIntervalGroup, hdsl2ShdslEndpointCurr1DayTimeElapsed=hdsl2ShdslEndpointCurr1DayTimeElapsed, hdsl2Shdsl1DayIntervalNumber=hdsl2Shdsl1DayIntervalNumber, hdsl2ShdslInvVendorModelNumber=hdsl2ShdslInvVendorModelNumber, hdsl2ShdslSpanConfProfileRowStatus=hdsl2ShdslSpanConfProfileRowStatus, hdsl2ShdslStatusMaxAttainablePayloadRate=hdsl2ShdslStatusMaxAttainablePayloadRate, hdsl2ShdslSpanConfPSD=hdsl2ShdslSpanConfPSD, hdsl2ShdslEndpointCurr15MinUAS=hdsl2ShdslEndpointCurr15MinUAS, hdsl2ShdslSpanConfNumRepeaters=hdsl2ShdslSpanConfNumRepeaters, hdsl2ShdslLoopAttenCrossing=hdsl2ShdslLoopAttenCrossing, hdsl2ShdslEndpointAlarmConfGroup=hdsl2ShdslEndpointAlarmConfGroup, hdsl2Shdsl15MinIntervalES=hdsl2Shdsl15MinIntervalES, hdsl2ShdslPerfLOSWSThresh=hdsl2ShdslPerfLOSWSThresh, hdsl2Shdsl15MinIntervalTable=hdsl2Shdsl15MinIntervalTable, hdsl2ShdsldeviceFault=hdsl2ShdsldeviceFault, hdsl2Shdsl1DayIntervalCRCanomalies=hdsl2Shdsl1DayIntervalCRCanomalies, hdsl2ShdslSpanStatusEntry=hdsl2ShdslSpanStatusEntry, hdsl2ShdslEndpointThreshSNRMargin=hdsl2ShdslEndpointThreshSNRMargin, hdsl2ShdslMibObjects=hdsl2ShdslMibObjects, hdsl2ShdslSpanInvalidNumRepeaters=hdsl2ShdslSpanInvalidNumRepeaters, hdsl2ShdslSpanConfEntry=hdsl2ShdslSpanConfEntry, hdsl2ShdslSpanConfPowerFeeding=hdsl2ShdslSpanConfPowerFeeding, hdsl2ShdslEndpointThreshCRCanomalies=hdsl2ShdslEndpointThreshCRCanomalies, hdsl2ShdslEndpointCurr15MinLOSWS=hdsl2ShdslEndpointCurr15MinLOSWS, hdsl2ShdslSpanConfProfileName=hdsl2ShdslSpanConfProfileName, hdsl2ShdslSpanShdslStatusGroup=hdsl2ShdslSpanShdslStatusGroup, hdsl2Shdsl1DayIntervalES=hdsl2Shdsl1DayIntervalES, hdsl2ShdslInvEquipmentCode=hdsl2ShdslInvEquipmentCode, PYSNMP_MODULE_ID=hdsl2ShdslMIB, hdsl2ShdslInventoryShdslGroup=hdsl2ShdslInventoryShdslGroup, hdsl2ShdslInvVendorListNumber=hdsl2ShdslInvVendorListNumber, hdsl2ShdslInvVendorIssueNumber=hdsl2ShdslInvVendorIssueNumber, hdsl2ShdsldcContinuityFault=hdsl2ShdsldcContinuityFault, hdsl2ShdslWirePairGroup=hdsl2ShdslWirePairGroup, hdsl2ShdslInventoryGroup=hdsl2ShdslInventoryGroup, hdsl2ShdslEndpointAlarmConfProfileName=hdsl2ShdslEndpointAlarmConfProfileName, hdsl2ShdslSpanConfWorstCaseTargetMarginDown=hdsl2ShdslSpanConfWorstCaseTargetMarginDown, hdsl2ShdslEndpointConfTable=hdsl2ShdslEndpointConfTable, hdsl2ShdslprotocolInitFailure=hdsl2ShdslprotocolInitFailure, hdsl2ShdslInvVendorEOCSoftwareVersion=hdsl2ShdslInvVendorEOCSoftwareVersion, hdsl2ShdslSpanConfCurrCondTargetMarginDown=hdsl2ShdslSpanConfCurrCondTargetMarginDown, hdsl2ShdslInventoryTable=hdsl2ShdslInventoryTable, hdsl2Shdsl1DayIntervalMoniSecs=hdsl2Shdsl1DayIntervalMoniSecs, hdsl2ShdslSpanStatusGroup=hdsl2ShdslSpanStatusGroup, hdsl2ShdslSpanConfMinLineRate=hdsl2ShdslSpanConfMinLineRate, hdsl2ShdslPayloadRateGroup=hdsl2ShdslPayloadRateGroup, hdsl2ShdslSpanConfMaxLineRate=hdsl2ShdslSpanConfMaxLineRate, hdsl2ShdslEndpointCurr1DayES=hdsl2ShdslEndpointCurr1DayES, hdsl2ShdslSpanConfTransmissionMode=hdsl2ShdslSpanConfTransmissionMode, hdsl2ShdslEndpointMaintTable=hdsl2ShdslEndpointMaintTable, hdsl2ShdslEndpointConfEntry=hdsl2ShdslEndpointConfEntry, hdsl2ShdslStatusTransmissionModeCurrent=hdsl2ShdslStatusTransmissionModeCurrent, hdsl2ShdslEndpointCurr1DayCRCanomalies=hdsl2ShdslEndpointCurr1DayCRCanomalies, Hdsl2ShdslTransmissionModeType=Hdsl2ShdslTransmissionModeType, hdsl2ShdslEndpointLOSWS=hdsl2ShdslEndpointLOSWS, hdsl2Shdsl1DayIntervalLOSWS=hdsl2Shdsl1DayIntervalLOSWS, hdsl2ShdslEndpointUAS=hdsl2ShdslEndpointUAS, hdsl2ShdslSpanConfGroup=hdsl2ShdslSpanConfGroup, hdsl2ShdslUnitMaintEntry=hdsl2ShdslUnitMaintEntry, hdsl2ShdslInvVendorSoftwareVersion=hdsl2ShdslInvVendorSoftwareVersion, hdsl2ShdslEndpointThreshES=hdsl2ShdslEndpointThreshES, hdsl2ShdslMaintLoopbackTimeout=hdsl2ShdslMaintLoopbackTimeout, hdsl2ShdslLoopbackFailure=hdsl2ShdslLoopbackFailure, hdsl2ShdslInvStandardVersion=hdsl2ShdslInvStandardVersion, hdsl2ShdslSpanConfAlarmProfile=hdsl2ShdslSpanConfAlarmProfile, hdsl2ShdslEndpointCurrTable=hdsl2ShdslEndpointCurrTable, hdsl2ShdslMaintLoopbackConfig=hdsl2ShdslMaintLoopbackConfig, hdsl2ShdslpowerBackoff=hdsl2ShdslpowerBackoff, Hdsl2ShdslPerfTimeElapsed=Hdsl2ShdslPerfTimeElapsed, hdsl2ShdslSNRMarginCrossing=hdsl2ShdslSNRMarginCrossing, hdsl2ShdslSpanConfReferenceClock=hdsl2ShdslSpanConfReferenceClock, hdsl2ShdslEndpointCurr1DaySES=hdsl2ShdslEndpointCurr1DaySES, hdsl2ShdslconfigInitFailure=hdsl2ShdslconfigInitFailure, hdsl2ShdslEndpointSide=hdsl2ShdslEndpointSide, hdsl2Shdsl15MinIntervalNumber=hdsl2Shdsl15MinIntervalNumber, hdsl2ShdslSpanConfProfileTable=hdsl2ShdslSpanConfProfileTable, hdsl2ShdslEndpointMaintEntry=hdsl2ShdslEndpointMaintEntry)
+_BP='hdsl2ShdslPayloadRateGroup'
+_BO='hdsl2ShdslWirePairGroup'
+_BN='hdsl2ShdslLocalPowerLoss'
+_BM='hdsl2ShdslnoNeighborPresent'
+_BL='hdsl2ShdslprotocolInitFailure'
+_BK='hdsl2ShdslconfigInitFailure'
+_BJ='hdsl2ShdsldcContinuityFault'
+_BI='hdsl2ShdsldeviceFault'
+_BH='hdsl2ShdslpowerBackoff'
+_BG='hdsl2ShdslLoopbackFailure'
+_BF='hdsl2ShdslSpanInvalidNumRepeaters'
+_BE='hdsl2ShdslPerfUASThresh'
+_BD='hdsl2ShdslPerfLOSWSThresh'
+_BC='hdsl2ShdslPerfCRCanomaliesThresh'
+_BB='hdsl2ShdslPerfSESThresh'
+_BA='hdsl2ShdslPerfESThresh'
+_B9='hdsl2ShdslSNRMarginCrossing'
+_B8='hdsl2ShdslLoopAttenCrossing'
+_B7='hdsl2ShdslStatusActualPayloadRate'
+_B6='hdsl2ShdslStatusMaxAttainablePayloadRate'
+_B5='hdsl2ShdslEndpointCurrActivationState'
+_B4='hdsl2ShdslEndpointCurrTipRingReversal'
+_B3='hdsl2ShdslSpanConfProfileRowStatus'
+_B2='hdsl2ShdslSpanConfLineProbeEnable'
+_B1='hdsl2ShdslSpanConfReferenceClock'
+_B0='hdsl2ShdslSpanConfUsedTargetMargins'
+_A_='hdsl2ShdslSpanConfWorstCaseTargetMarginUp'
+_Az='hdsl2ShdslSpanConfCurrCondTargetMarginUp'
+_Ay='hdsl2ShdslSpanConfWorstCaseTargetMarginDown'
+_Ax='hdsl2ShdslSpanConfCurrCondTargetMarginDown'
+_Aw='hdsl2ShdslSpanConfPowerFeeding'
+_Av='hdsl2ShdslSpanConfRemoteEnabled'
+_Au='hdsl2ShdslSpanConfTransmissionMode'
+_At='hdsl2ShdslSpanConfPSD'
+_As='hdsl2ShdslSpanConfMaxLineRate'
+_Ar='hdsl2ShdslSpanConfMinLineRate'
+_Aq='hdsl2ShdslSpanConfWireInterface'
+_Ap='hdsl2ShdslEndpointAlarmConfProfileRowStatus'
+_Ao='hdsl2ShdslEndpointAlarmConfProfile'
+_An='hdsl2ShdslMaintUnitPowerSource'
+_Am='hdsl2ShdslMaintLoopbackTimeout'
+_Al='hdsl2ShdslMaintSoftRestart'
+_Ak='hdsl2ShdslMaintPowerBackOff'
+_Aj='hdsl2ShdslMaintTipRingReversal'
+_Ai='hdsl2Shdsl1DayIntervalUAS'
+_Ah='hdsl2Shdsl1DayIntervalLOSWS'
+_Ag='hdsl2Shdsl1DayIntervalCRCanomalies'
+_Af='hdsl2Shdsl1DayIntervalSES'
+_Ae='hdsl2Shdsl1DayIntervalES'
+_Ad='hdsl2Shdsl1DayIntervalMoniSecs'
+_Ac='hdsl2Shdsl15MinIntervalUAS'
+_Ab='hdsl2Shdsl15MinIntervalLOSWS'
+_Aa='hdsl2Shdsl15MinIntervalCRCanomalies'
+_AZ='hdsl2Shdsl15MinIntervalSES'
+_AY='hdsl2Shdsl15MinIntervalES'
+_AX='hdsl2ShdslEndpointCurr1DayUAS'
+_AW='hdsl2ShdslEndpointCurr1DayLOSWS'
+_AV='hdsl2ShdslEndpointCurr1DayCRCanomalies'
+_AU='hdsl2ShdslEndpointCurr1DaySES'
+_AT='hdsl2ShdslEndpointCurr1DayES'
+_AS='hdsl2ShdslEndpointCurr1DayTimeElapsed'
+_AR='hdsl2ShdslEndpointCurr15MinTimeElapsed'
+_AQ='hdsl2ShdslEndpointUAS'
+_AP='hdsl2ShdslEndpointLOSWS'
+_AO='hdsl2ShdslEndpointCRCanomalies'
+_AN='hdsl2ShdslEndpointSES'
+_AM='hdsl2ShdslEndpointES'
+_AL='hdsl2ShdslInvVendorOther'
+_AK='hdsl2ShdslInvEquipmentCode'
+_AJ='hdsl2ShdslInvVendorSoftwareVersion'
+_AI='hdsl2ShdslInvVendorIssueNumber'
+_AH='hdsl2ShdslInvVendorListNumber'
+_AG='hdsl2ShdslInvStandardVersion'
+_AF='hdsl2ShdslInvVendorEOCSoftwareVersion'
+_AE='hdsl2ShdslInvVendorSerialNumber'
+_AD='hdsl2ShdslInvVendorModelNumber'
+_AC='hdsl2ShdslStatusTransmissionModeCurrent'
+_AB='hdsl2ShdslStatusActualLineRate'
+_AA='hdsl2ShdslStatusMaxAttainableLineRate'
+_A9='hdsl2ShdslInvTransmissionModeCapability'
+_A8='hdsl2ShdslStatusNumAvailRepeaters'
+_A7='hdsl2ShdslSpanConfAlarmProfile'
+_A6='hdsl2ShdslSpanConfProfile'
+_A5='hdsl2ShdslEndpointAlarmConfProfileName'
+_A4='Hdsl2ShdslClockReferenceType'
+_A3='Hdsl2ShdslTransmissionModeType'
+_A2='hdsl2ShdslSpanConfProfileName'
+_A1='hdsl2Shdsl1DayIntervalNumber'
+_A0='hdsl2Shdsl15MinIntervalNumber'
+_z='hdsl2ShdslSpanConfProfileGroup'
+_y='hdsl2ShdslSpanShdslStatusGroup'
+_x='hdsl2ShdslInventoryShdslGroup'
+_w='hdsl2ShdslNotificationGroup'
+_v='hdsl2ShdslEndpointAlarmConfGroup'
+_u='hdsl2ShdslMaintenanceGroup'
+_t='hdsl2Shdsl1DayIntervalGroup'
+_s='hdsl2Shdsl15MinIntervalGroup'
+_r='hdsl2ShdslEndpointCurrGroup'
+_q='hdsl2ShdslEndpointConfGroup'
+_p='hdsl2ShdslInventoryGroup'
+_o='hdsl2ShdslSpanStatusGroup'
+_n='hdsl2ShdslSpanConfGroup'
+_m='hdsl2ShdslEndpointThreshUAS'
+_l='hdsl2ShdslEndpointThreshLOSWS'
+_k='hdsl2ShdslEndpointThreshCRCanomalies'
+_j='hdsl2ShdslEndpointThreshSES'
+_i='hdsl2ShdslEndpointThreshES'
+_h='hdsl2ShdslEndpointThreshSNRMargin'
+_g='hdsl2ShdslEndpointThreshLoopAttenuation'
+_f='hdsl2ShdslMaintLoopbackConfig'
+_e='hdsl2ShdslEndpointCurr15MinUAS'
+_d='hdsl2ShdslEndpointCurr15MinLOSWS'
+_c='hdsl2ShdslEndpointCurr15MinCRCanomalies'
+_b='hdsl2ShdslEndpointCurr15MinSES'
+_a='hdsl2ShdslEndpointCurr15MinES'
+_Z='hdsl2ShdslEndpointCurrSnrMgn'
+_Y='hdsl2ShdslInvVendorID'
+_X='hdsl2ShdslSpanConfNumRepeaters'
+_W='Bits'
+_V='hdsl2ShdslEndpointCurrAtn'
+_U='Hdsl2ShdslPerfIntervalThreshold'
+_T='hdsl2ShdslEndpointWirePair'
+_S='detected CRC Anomalies'
+_R='hdsl2ShdslEndpointSide'
+_Q='bps'
+_P='SnmpAdminString'
+_O='not-accessible'
+_N='hdsl2ShdslEndpointCurrStatus'
+_M='dB'
+_L='hdsl2ShdslInvIndex'
+_K='read-write'
+_J='OctetString'
+_I='ifIndex'
+_H='IF-MIB'
+_G='Unsigned32'
+_F='read-create'
+_E='Integer32'
+_D='seconds'
+_C='read-only'
+_B='current'
+_A='HDSL2-SHDSL-LINE-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_J,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ifIndex,=mibBuilder.importSymbols(_H,_I)
+PerfCurrentCount,PerfIntervalCount=mibBuilder.importSymbols('PerfHist-TC-MIB','PerfCurrentCount','PerfIntervalCount')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_P)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI',_W,'Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso','transmission')
+DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
+hdsl2ShdslMIB=ModuleIdentity((1,3,6,1,2,1,10,48))
+if mibBuilder.loadTexts:hdsl2ShdslMIB.setRevisions(('2011-12-21 00:00','2005-12-07 00:00','2002-05-09 00:00'))
+class Hdsl2ShdslPerfCurrDayCount(TextualConvention,Gauge32):status=_B;displayHint='d'
+class Hdsl2Shdsl1DayIntervalCount(TextualConvention,Gauge32):status=_B;displayHint='d'
+class Hdsl2ShdslPerfTimeElapsed(TextualConvention,Unsigned32):status=_B;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,86399))
+class Hdsl2ShdslPerfIntervalThreshold(TextualConvention,Unsigned32):status=_B;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,900))
+class Hdsl2ShdslUnitId(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10)));namedValues=NamedValues(*(('xtuC',1),('xtuR',2),('xru1',3),('xru2',4),('xru3',5),('xru4',6),('xru5',7),('xru6',8),('xru7',9),('xru8',10)))
+class Hdsl2ShdslUnitSide(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('networkSide',1),('customerSide',2)))
+class Hdsl2ShdslWirePair(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('wirePair1',1),('wirePair2',2),('wirePair3',3),('wirePair4',4)))
+class Hdsl2ShdslTransmissionModeType(TextualConvention,Bits):status=_B;namedValues=NamedValues(*(('region1',0),('region2',1)))
+class Hdsl2ShdslClockReferenceType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('localClk',1),('networkClk',2),('dataOrNetworkClk',3),('dataClk',4)))
+_Hdsl2ShdslNotifications_ObjectIdentity=ObjectIdentity
+hdsl2ShdslNotifications=_Hdsl2ShdslNotifications_ObjectIdentity((1,3,6,1,2,1,10,48,0))
+_Hdsl2ShdslMibObjects_ObjectIdentity=ObjectIdentity
+hdsl2ShdslMibObjects=_Hdsl2ShdslMibObjects_ObjectIdentity((1,3,6,1,2,1,10,48,1))
+_Hdsl2ShdslSpanConfTable_Object=MibTable
+hdsl2ShdslSpanConfTable=_Hdsl2ShdslSpanConfTable_Object((1,3,6,1,2,1,10,48,1,1))
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfTable.setStatus(_B)
+_Hdsl2ShdslSpanConfEntry_Object=MibTableRow
+hdsl2ShdslSpanConfEntry=_Hdsl2ShdslSpanConfEntry_Object((1,3,6,1,2,1,10,48,1,1,1))
+hdsl2ShdslSpanConfEntry.setIndexNames((0,_H,_I))
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfEntry.setStatus(_B)
+class _Hdsl2ShdslSpanConfNumRepeaters_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,8))
+_Hdsl2ShdslSpanConfNumRepeaters_Type.__name__=_G
+_Hdsl2ShdslSpanConfNumRepeaters_Object=MibTableColumn
+hdsl2ShdslSpanConfNumRepeaters=_Hdsl2ShdslSpanConfNumRepeaters_Object((1,3,6,1,2,1,10,48,1,1,1,1),_Hdsl2ShdslSpanConfNumRepeaters_Type())
+hdsl2ShdslSpanConfNumRepeaters.setMaxAccess(_K)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfNumRepeaters.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfNumRepeaters.setUnits('repeaters')
+class _Hdsl2ShdslSpanConfProfile_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_Hdsl2ShdslSpanConfProfile_Type.__name__=_P
+_Hdsl2ShdslSpanConfProfile_Object=MibTableColumn
+hdsl2ShdslSpanConfProfile=_Hdsl2ShdslSpanConfProfile_Object((1,3,6,1,2,1,10,48,1,1,1,2),_Hdsl2ShdslSpanConfProfile_Type())
+hdsl2ShdslSpanConfProfile.setMaxAccess(_K)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfProfile.setStatus(_B)
+class _Hdsl2ShdslSpanConfAlarmProfile_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_Hdsl2ShdslSpanConfAlarmProfile_Type.__name__=_P
+_Hdsl2ShdslSpanConfAlarmProfile_Object=MibTableColumn
+hdsl2ShdslSpanConfAlarmProfile=_Hdsl2ShdslSpanConfAlarmProfile_Object((1,3,6,1,2,1,10,48,1,1,1,3),_Hdsl2ShdslSpanConfAlarmProfile_Type())
+hdsl2ShdslSpanConfAlarmProfile.setMaxAccess(_K)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfAlarmProfile.setStatus(_B)
+_Hdsl2ShdslSpanStatusTable_Object=MibTable
+hdsl2ShdslSpanStatusTable=_Hdsl2ShdslSpanStatusTable_Object((1,3,6,1,2,1,10,48,1,2))
+if mibBuilder.loadTexts:hdsl2ShdslSpanStatusTable.setStatus(_B)
+_Hdsl2ShdslSpanStatusEntry_Object=MibTableRow
+hdsl2ShdslSpanStatusEntry=_Hdsl2ShdslSpanStatusEntry_Object((1,3,6,1,2,1,10,48,1,2,1))
+hdsl2ShdslSpanStatusEntry.setIndexNames((0,_H,_I))
+if mibBuilder.loadTexts:hdsl2ShdslSpanStatusEntry.setStatus(_B)
+class _Hdsl2ShdslStatusNumAvailRepeaters_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,8))
+_Hdsl2ShdslStatusNumAvailRepeaters_Type.__name__=_G
+_Hdsl2ShdslStatusNumAvailRepeaters_Object=MibTableColumn
+hdsl2ShdslStatusNumAvailRepeaters=_Hdsl2ShdslStatusNumAvailRepeaters_Object((1,3,6,1,2,1,10,48,1,2,1,1),_Hdsl2ShdslStatusNumAvailRepeaters_Type())
+hdsl2ShdslStatusNumAvailRepeaters.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslStatusNumAvailRepeaters.setStatus(_B)
+class _Hdsl2ShdslStatusMaxAttainableLineRate_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_Hdsl2ShdslStatusMaxAttainableLineRate_Type.__name__=_G
+_Hdsl2ShdslStatusMaxAttainableLineRate_Object=MibTableColumn
+hdsl2ShdslStatusMaxAttainableLineRate=_Hdsl2ShdslStatusMaxAttainableLineRate_Object((1,3,6,1,2,1,10,48,1,2,1,2),_Hdsl2ShdslStatusMaxAttainableLineRate_Type())
+hdsl2ShdslStatusMaxAttainableLineRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslStatusMaxAttainableLineRate.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslStatusMaxAttainableLineRate.setUnits(_Q)
+class _Hdsl2ShdslStatusActualLineRate_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_Hdsl2ShdslStatusActualLineRate_Type.__name__=_G
+_Hdsl2ShdslStatusActualLineRate_Object=MibTableColumn
+hdsl2ShdslStatusActualLineRate=_Hdsl2ShdslStatusActualLineRate_Object((1,3,6,1,2,1,10,48,1,2,1,3),_Hdsl2ShdslStatusActualLineRate_Type())
+hdsl2ShdslStatusActualLineRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslStatusActualLineRate.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslStatusActualLineRate.setUnits(_Q)
+_Hdsl2ShdslStatusTransmissionModeCurrent_Type=Hdsl2ShdslTransmissionModeType
+_Hdsl2ShdslStatusTransmissionModeCurrent_Object=MibTableColumn
+hdsl2ShdslStatusTransmissionModeCurrent=_Hdsl2ShdslStatusTransmissionModeCurrent_Object((1,3,6,1,2,1,10,48,1,2,1,4),_Hdsl2ShdslStatusTransmissionModeCurrent_Type())
+hdsl2ShdslStatusTransmissionModeCurrent.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslStatusTransmissionModeCurrent.setStatus(_B)
+class _Hdsl2ShdslStatusMaxAttainablePayloadRate_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_Hdsl2ShdslStatusMaxAttainablePayloadRate_Type.__name__=_G
+_Hdsl2ShdslStatusMaxAttainablePayloadRate_Object=MibTableColumn
+hdsl2ShdslStatusMaxAttainablePayloadRate=_Hdsl2ShdslStatusMaxAttainablePayloadRate_Object((1,3,6,1,2,1,10,48,1,2,1,5),_Hdsl2ShdslStatusMaxAttainablePayloadRate_Type())
+hdsl2ShdslStatusMaxAttainablePayloadRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslStatusMaxAttainablePayloadRate.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslStatusMaxAttainablePayloadRate.setUnits(_Q)
+class _Hdsl2ShdslStatusActualPayloadRate_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_Hdsl2ShdslStatusActualPayloadRate_Type.__name__=_G
+_Hdsl2ShdslStatusActualPayloadRate_Object=MibTableColumn
+hdsl2ShdslStatusActualPayloadRate=_Hdsl2ShdslStatusActualPayloadRate_Object((1,3,6,1,2,1,10,48,1,2,1,6),_Hdsl2ShdslStatusActualPayloadRate_Type())
+hdsl2ShdslStatusActualPayloadRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslStatusActualPayloadRate.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslStatusActualPayloadRate.setUnits(_Q)
+_Hdsl2ShdslInventoryTable_Object=MibTable
+hdsl2ShdslInventoryTable=_Hdsl2ShdslInventoryTable_Object((1,3,6,1,2,1,10,48,1,3))
+if mibBuilder.loadTexts:hdsl2ShdslInventoryTable.setStatus(_B)
+_Hdsl2ShdslInventoryEntry_Object=MibTableRow
+hdsl2ShdslInventoryEntry=_Hdsl2ShdslInventoryEntry_Object((1,3,6,1,2,1,10,48,1,3,1))
+hdsl2ShdslInventoryEntry.setIndexNames((0,_H,_I),(0,_A,_L))
+if mibBuilder.loadTexts:hdsl2ShdslInventoryEntry.setStatus(_B)
+_Hdsl2ShdslInvIndex_Type=Hdsl2ShdslUnitId
+_Hdsl2ShdslInvIndex_Object=MibTableColumn
+hdsl2ShdslInvIndex=_Hdsl2ShdslInvIndex_Object((1,3,6,1,2,1,10,48,1,3,1,1),_Hdsl2ShdslInvIndex_Type())
+hdsl2ShdslInvIndex.setMaxAccess(_O)
+if mibBuilder.loadTexts:hdsl2ShdslInvIndex.setStatus(_B)
+class _Hdsl2ShdslInvVendorID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
+_Hdsl2ShdslInvVendorID_Type.__name__=_J
+_Hdsl2ShdslInvVendorID_Object=MibTableColumn
+hdsl2ShdslInvVendorID=_Hdsl2ShdslInvVendorID_Object((1,3,6,1,2,1,10,48,1,3,1,2),_Hdsl2ShdslInvVendorID_Type())
+hdsl2ShdslInvVendorID.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslInvVendorID.setStatus(_B)
+class _Hdsl2ShdslInvVendorModelNumber_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(12,12));fixedLength=12
+_Hdsl2ShdslInvVendorModelNumber_Type.__name__=_J
+_Hdsl2ShdslInvVendorModelNumber_Object=MibTableColumn
+hdsl2ShdslInvVendorModelNumber=_Hdsl2ShdslInvVendorModelNumber_Object((1,3,6,1,2,1,10,48,1,3,1,3),_Hdsl2ShdslInvVendorModelNumber_Type())
+hdsl2ShdslInvVendorModelNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslInvVendorModelNumber.setStatus(_B)
+class _Hdsl2ShdslInvVendorSerialNumber_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(12,12));fixedLength=12
+_Hdsl2ShdslInvVendorSerialNumber_Type.__name__=_J
+_Hdsl2ShdslInvVendorSerialNumber_Object=MibTableColumn
+hdsl2ShdslInvVendorSerialNumber=_Hdsl2ShdslInvVendorSerialNumber_Object((1,3,6,1,2,1,10,48,1,3,1,4),_Hdsl2ShdslInvVendorSerialNumber_Type())
+hdsl2ShdslInvVendorSerialNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslInvVendorSerialNumber.setStatus(_B)
+_Hdsl2ShdslInvVendorEOCSoftwareVersion_Type=Integer32
+_Hdsl2ShdslInvVendorEOCSoftwareVersion_Object=MibTableColumn
+hdsl2ShdslInvVendorEOCSoftwareVersion=_Hdsl2ShdslInvVendorEOCSoftwareVersion_Object((1,3,6,1,2,1,10,48,1,3,1,5),_Hdsl2ShdslInvVendorEOCSoftwareVersion_Type())
+hdsl2ShdslInvVendorEOCSoftwareVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslInvVendorEOCSoftwareVersion.setStatus(_B)
+_Hdsl2ShdslInvStandardVersion_Type=Integer32
+_Hdsl2ShdslInvStandardVersion_Object=MibTableColumn
+hdsl2ShdslInvStandardVersion=_Hdsl2ShdslInvStandardVersion_Object((1,3,6,1,2,1,10,48,1,3,1,6),_Hdsl2ShdslInvStandardVersion_Type())
+hdsl2ShdslInvStandardVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslInvStandardVersion.setStatus(_B)
+class _Hdsl2ShdslInvVendorListNumber_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,3));fixedLength=3
+_Hdsl2ShdslInvVendorListNumber_Type.__name__=_J
+_Hdsl2ShdslInvVendorListNumber_Object=MibTableColumn
+hdsl2ShdslInvVendorListNumber=_Hdsl2ShdslInvVendorListNumber_Object((1,3,6,1,2,1,10,48,1,3,1,7),_Hdsl2ShdslInvVendorListNumber_Type())
+hdsl2ShdslInvVendorListNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslInvVendorListNumber.setStatus(_B)
+class _Hdsl2ShdslInvVendorIssueNumber_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
+_Hdsl2ShdslInvVendorIssueNumber_Type.__name__=_J
+_Hdsl2ShdslInvVendorIssueNumber_Object=MibTableColumn
+hdsl2ShdslInvVendorIssueNumber=_Hdsl2ShdslInvVendorIssueNumber_Object((1,3,6,1,2,1,10,48,1,3,1,8),_Hdsl2ShdslInvVendorIssueNumber_Type())
+hdsl2ShdslInvVendorIssueNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslInvVendorIssueNumber.setStatus(_B)
+class _Hdsl2ShdslInvVendorSoftwareVersion_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
+_Hdsl2ShdslInvVendorSoftwareVersion_Type.__name__=_J
+_Hdsl2ShdslInvVendorSoftwareVersion_Object=MibTableColumn
+hdsl2ShdslInvVendorSoftwareVersion=_Hdsl2ShdslInvVendorSoftwareVersion_Object((1,3,6,1,2,1,10,48,1,3,1,9),_Hdsl2ShdslInvVendorSoftwareVersion_Type())
+hdsl2ShdslInvVendorSoftwareVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslInvVendorSoftwareVersion.setStatus(_B)
+class _Hdsl2ShdslInvEquipmentCode_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(10,10));fixedLength=10
+_Hdsl2ShdslInvEquipmentCode_Type.__name__=_J
+_Hdsl2ShdslInvEquipmentCode_Object=MibTableColumn
+hdsl2ShdslInvEquipmentCode=_Hdsl2ShdslInvEquipmentCode_Object((1,3,6,1,2,1,10,48,1,3,1,10),_Hdsl2ShdslInvEquipmentCode_Type())
+hdsl2ShdslInvEquipmentCode.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslInvEquipmentCode.setStatus(_B)
+class _Hdsl2ShdslInvVendorOther_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(12,12));fixedLength=12
+_Hdsl2ShdslInvVendorOther_Type.__name__=_J
+_Hdsl2ShdslInvVendorOther_Object=MibTableColumn
+hdsl2ShdslInvVendorOther=_Hdsl2ShdslInvVendorOther_Object((1,3,6,1,2,1,10,48,1,3,1,11),_Hdsl2ShdslInvVendorOther_Type())
+hdsl2ShdslInvVendorOther.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslInvVendorOther.setStatus(_B)
+_Hdsl2ShdslInvTransmissionModeCapability_Type=Hdsl2ShdslTransmissionModeType
+_Hdsl2ShdslInvTransmissionModeCapability_Object=MibTableColumn
+hdsl2ShdslInvTransmissionModeCapability=_Hdsl2ShdslInvTransmissionModeCapability_Object((1,3,6,1,2,1,10,48,1,3,1,12),_Hdsl2ShdslInvTransmissionModeCapability_Type())
+hdsl2ShdslInvTransmissionModeCapability.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslInvTransmissionModeCapability.setStatus(_B)
+_Hdsl2ShdslEndpointConfTable_Object=MibTable
+hdsl2ShdslEndpointConfTable=_Hdsl2ShdslEndpointConfTable_Object((1,3,6,1,2,1,10,48,1,4))
+if mibBuilder.loadTexts:hdsl2ShdslEndpointConfTable.setStatus(_B)
+_Hdsl2ShdslEndpointConfEntry_Object=MibTableRow
+hdsl2ShdslEndpointConfEntry=_Hdsl2ShdslEndpointConfEntry_Object((1,3,6,1,2,1,10,48,1,4,1))
+hdsl2ShdslEndpointConfEntry.setIndexNames((0,_H,_I),(0,_A,_L),(0,_A,_R),(0,_A,_T))
+if mibBuilder.loadTexts:hdsl2ShdslEndpointConfEntry.setStatus(_B)
+_Hdsl2ShdslEndpointSide_Type=Hdsl2ShdslUnitSide
+_Hdsl2ShdslEndpointSide_Object=MibTableColumn
+hdsl2ShdslEndpointSide=_Hdsl2ShdslEndpointSide_Object((1,3,6,1,2,1,10,48,1,4,1,1),_Hdsl2ShdslEndpointSide_Type())
+hdsl2ShdslEndpointSide.setMaxAccess(_O)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointSide.setStatus(_B)
+_Hdsl2ShdslEndpointWirePair_Type=Hdsl2ShdslWirePair
+_Hdsl2ShdslEndpointWirePair_Object=MibTableColumn
+hdsl2ShdslEndpointWirePair=_Hdsl2ShdslEndpointWirePair_Object((1,3,6,1,2,1,10,48,1,4,1,2),_Hdsl2ShdslEndpointWirePair_Type())
+hdsl2ShdslEndpointWirePair.setMaxAccess(_O)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointWirePair.setStatus(_B)
+class _Hdsl2ShdslEndpointAlarmConfProfile_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_Hdsl2ShdslEndpointAlarmConfProfile_Type.__name__=_P
+_Hdsl2ShdslEndpointAlarmConfProfile_Object=MibTableColumn
+hdsl2ShdslEndpointAlarmConfProfile=_Hdsl2ShdslEndpointAlarmConfProfile_Object((1,3,6,1,2,1,10,48,1,4,1,3),_Hdsl2ShdslEndpointAlarmConfProfile_Type())
+hdsl2ShdslEndpointAlarmConfProfile.setMaxAccess(_K)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointAlarmConfProfile.setStatus(_B)
+_Hdsl2ShdslEndpointCurrTable_Object=MibTable
+hdsl2ShdslEndpointCurrTable=_Hdsl2ShdslEndpointCurrTable_Object((1,3,6,1,2,1,10,48,1,5))
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurrTable.setStatus(_B)
+_Hdsl2ShdslEndpointCurrEntry_Object=MibTableRow
+hdsl2ShdslEndpointCurrEntry=_Hdsl2ShdslEndpointCurrEntry_Object((1,3,6,1,2,1,10,48,1,5,1))
+hdsl2ShdslEndpointCurrEntry.setIndexNames((0,_H,_I),(0,_A,_L),(0,_A,_R),(0,_A,_T))
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurrEntry.setStatus(_B)
+class _Hdsl2ShdslEndpointCurrAtn_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-127,128))
+_Hdsl2ShdslEndpointCurrAtn_Type.__name__=_E
+_Hdsl2ShdslEndpointCurrAtn_Object=MibTableColumn
+hdsl2ShdslEndpointCurrAtn=_Hdsl2ShdslEndpointCurrAtn_Object((1,3,6,1,2,1,10,48,1,5,1,1),_Hdsl2ShdslEndpointCurrAtn_Type())
+hdsl2ShdslEndpointCurrAtn.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurrAtn.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurrAtn.setUnits(_M)
+class _Hdsl2ShdslEndpointCurrSnrMgn_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-127,128))
+_Hdsl2ShdslEndpointCurrSnrMgn_Type.__name__=_E
+_Hdsl2ShdslEndpointCurrSnrMgn_Object=MibTableColumn
+hdsl2ShdslEndpointCurrSnrMgn=_Hdsl2ShdslEndpointCurrSnrMgn_Object((1,3,6,1,2,1,10,48,1,5,1,2),_Hdsl2ShdslEndpointCurrSnrMgn_Type())
+hdsl2ShdslEndpointCurrSnrMgn.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurrSnrMgn.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurrSnrMgn.setUnits(_M)
+class _Hdsl2ShdslEndpointCurrStatus_Type(Bits):namedValues=NamedValues(*(('noDefect',0),('powerBackoff',1),('deviceFault',2),('dcContinuityFault',3),('snrMarginAlarm',4),('loopAttenuationAlarm',5),('loswFailureAlarm',6),('configInitFailure',7),('protocolInitFailure',8),('noNeighborPresent',9),('loopbackActive',10)))
+_Hdsl2ShdslEndpointCurrStatus_Type.__name__=_W
+_Hdsl2ShdslEndpointCurrStatus_Object=MibTableColumn
+hdsl2ShdslEndpointCurrStatus=_Hdsl2ShdslEndpointCurrStatus_Object((1,3,6,1,2,1,10,48,1,5,1,3),_Hdsl2ShdslEndpointCurrStatus_Type())
+hdsl2ShdslEndpointCurrStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurrStatus.setStatus(_B)
+_Hdsl2ShdslEndpointES_Type=Counter32
+_Hdsl2ShdslEndpointES_Object=MibTableColumn
+hdsl2ShdslEndpointES=_Hdsl2ShdslEndpointES_Object((1,3,6,1,2,1,10,48,1,5,1,4),_Hdsl2ShdslEndpointES_Type())
+hdsl2ShdslEndpointES.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointES.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointES.setUnits(_D)
+_Hdsl2ShdslEndpointSES_Type=Counter32
+_Hdsl2ShdslEndpointSES_Object=MibTableColumn
+hdsl2ShdslEndpointSES=_Hdsl2ShdslEndpointSES_Object((1,3,6,1,2,1,10,48,1,5,1,5),_Hdsl2ShdslEndpointSES_Type())
+hdsl2ShdslEndpointSES.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointSES.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointSES.setUnits(_D)
+_Hdsl2ShdslEndpointCRCanomalies_Type=Counter32
+_Hdsl2ShdslEndpointCRCanomalies_Object=MibTableColumn
+hdsl2ShdslEndpointCRCanomalies=_Hdsl2ShdslEndpointCRCanomalies_Object((1,3,6,1,2,1,10,48,1,5,1,6),_Hdsl2ShdslEndpointCRCanomalies_Type())
+hdsl2ShdslEndpointCRCanomalies.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCRCanomalies.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCRCanomalies.setUnits(_S)
+_Hdsl2ShdslEndpointLOSWS_Type=Counter32
+_Hdsl2ShdslEndpointLOSWS_Object=MibTableColumn
+hdsl2ShdslEndpointLOSWS=_Hdsl2ShdslEndpointLOSWS_Object((1,3,6,1,2,1,10,48,1,5,1,7),_Hdsl2ShdslEndpointLOSWS_Type())
+hdsl2ShdslEndpointLOSWS.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointLOSWS.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointLOSWS.setUnits(_D)
+_Hdsl2ShdslEndpointUAS_Type=Counter32
+_Hdsl2ShdslEndpointUAS_Object=MibTableColumn
+hdsl2ShdslEndpointUAS=_Hdsl2ShdslEndpointUAS_Object((1,3,6,1,2,1,10,48,1,5,1,8),_Hdsl2ShdslEndpointUAS_Type())
+hdsl2ShdslEndpointUAS.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointUAS.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointUAS.setUnits(_D)
+_Hdsl2ShdslEndpointCurr15MinTimeElapsed_Type=Hdsl2ShdslPerfTimeElapsed
+_Hdsl2ShdslEndpointCurr15MinTimeElapsed_Object=MibTableColumn
+hdsl2ShdslEndpointCurr15MinTimeElapsed=_Hdsl2ShdslEndpointCurr15MinTimeElapsed_Object((1,3,6,1,2,1,10,48,1,5,1,9),_Hdsl2ShdslEndpointCurr15MinTimeElapsed_Type())
+hdsl2ShdslEndpointCurr15MinTimeElapsed.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr15MinTimeElapsed.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr15MinTimeElapsed.setUnits(_D)
+_Hdsl2ShdslEndpointCurr15MinES_Type=PerfCurrentCount
+_Hdsl2ShdslEndpointCurr15MinES_Object=MibTableColumn
+hdsl2ShdslEndpointCurr15MinES=_Hdsl2ShdslEndpointCurr15MinES_Object((1,3,6,1,2,1,10,48,1,5,1,10),_Hdsl2ShdslEndpointCurr15MinES_Type())
+hdsl2ShdslEndpointCurr15MinES.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr15MinES.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr15MinES.setUnits(_D)
+_Hdsl2ShdslEndpointCurr15MinSES_Type=PerfCurrentCount
+_Hdsl2ShdslEndpointCurr15MinSES_Object=MibTableColumn
+hdsl2ShdslEndpointCurr15MinSES=_Hdsl2ShdslEndpointCurr15MinSES_Object((1,3,6,1,2,1,10,48,1,5,1,11),_Hdsl2ShdslEndpointCurr15MinSES_Type())
+hdsl2ShdslEndpointCurr15MinSES.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr15MinSES.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr15MinSES.setUnits(_D)
+_Hdsl2ShdslEndpointCurr15MinCRCanomalies_Type=PerfCurrentCount
+_Hdsl2ShdslEndpointCurr15MinCRCanomalies_Object=MibTableColumn
+hdsl2ShdslEndpointCurr15MinCRCanomalies=_Hdsl2ShdslEndpointCurr15MinCRCanomalies_Object((1,3,6,1,2,1,10,48,1,5,1,12),_Hdsl2ShdslEndpointCurr15MinCRCanomalies_Type())
+hdsl2ShdslEndpointCurr15MinCRCanomalies.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr15MinCRCanomalies.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr15MinCRCanomalies.setUnits(_S)
+_Hdsl2ShdslEndpointCurr15MinLOSWS_Type=PerfCurrentCount
+_Hdsl2ShdslEndpointCurr15MinLOSWS_Object=MibTableColumn
+hdsl2ShdslEndpointCurr15MinLOSWS=_Hdsl2ShdslEndpointCurr15MinLOSWS_Object((1,3,6,1,2,1,10,48,1,5,1,13),_Hdsl2ShdslEndpointCurr15MinLOSWS_Type())
+hdsl2ShdslEndpointCurr15MinLOSWS.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr15MinLOSWS.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr15MinLOSWS.setUnits(_D)
+_Hdsl2ShdslEndpointCurr15MinUAS_Type=PerfCurrentCount
+_Hdsl2ShdslEndpointCurr15MinUAS_Object=MibTableColumn
+hdsl2ShdslEndpointCurr15MinUAS=_Hdsl2ShdslEndpointCurr15MinUAS_Object((1,3,6,1,2,1,10,48,1,5,1,14),_Hdsl2ShdslEndpointCurr15MinUAS_Type())
+hdsl2ShdslEndpointCurr15MinUAS.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr15MinUAS.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr15MinUAS.setUnits(_D)
+_Hdsl2ShdslEndpointCurr1DayTimeElapsed_Type=Hdsl2ShdslPerfTimeElapsed
+_Hdsl2ShdslEndpointCurr1DayTimeElapsed_Object=MibTableColumn
+hdsl2ShdslEndpointCurr1DayTimeElapsed=_Hdsl2ShdslEndpointCurr1DayTimeElapsed_Object((1,3,6,1,2,1,10,48,1,5,1,15),_Hdsl2ShdslEndpointCurr1DayTimeElapsed_Type())
+hdsl2ShdslEndpointCurr1DayTimeElapsed.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr1DayTimeElapsed.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr1DayTimeElapsed.setUnits(_D)
+_Hdsl2ShdslEndpointCurr1DayES_Type=Hdsl2ShdslPerfCurrDayCount
+_Hdsl2ShdslEndpointCurr1DayES_Object=MibTableColumn
+hdsl2ShdslEndpointCurr1DayES=_Hdsl2ShdslEndpointCurr1DayES_Object((1,3,6,1,2,1,10,48,1,5,1,16),_Hdsl2ShdslEndpointCurr1DayES_Type())
+hdsl2ShdslEndpointCurr1DayES.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr1DayES.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr1DayES.setUnits(_D)
+_Hdsl2ShdslEndpointCurr1DaySES_Type=Hdsl2ShdslPerfCurrDayCount
+_Hdsl2ShdslEndpointCurr1DaySES_Object=MibTableColumn
+hdsl2ShdslEndpointCurr1DaySES=_Hdsl2ShdslEndpointCurr1DaySES_Object((1,3,6,1,2,1,10,48,1,5,1,17),_Hdsl2ShdslEndpointCurr1DaySES_Type())
+hdsl2ShdslEndpointCurr1DaySES.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr1DaySES.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr1DaySES.setUnits(_D)
+_Hdsl2ShdslEndpointCurr1DayCRCanomalies_Type=Hdsl2ShdslPerfCurrDayCount
+_Hdsl2ShdslEndpointCurr1DayCRCanomalies_Object=MibTableColumn
+hdsl2ShdslEndpointCurr1DayCRCanomalies=_Hdsl2ShdslEndpointCurr1DayCRCanomalies_Object((1,3,6,1,2,1,10,48,1,5,1,18),_Hdsl2ShdslEndpointCurr1DayCRCanomalies_Type())
+hdsl2ShdslEndpointCurr1DayCRCanomalies.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr1DayCRCanomalies.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr1DayCRCanomalies.setUnits(_S)
+_Hdsl2ShdslEndpointCurr1DayLOSWS_Type=Hdsl2ShdslPerfCurrDayCount
+_Hdsl2ShdslEndpointCurr1DayLOSWS_Object=MibTableColumn
+hdsl2ShdslEndpointCurr1DayLOSWS=_Hdsl2ShdslEndpointCurr1DayLOSWS_Object((1,3,6,1,2,1,10,48,1,5,1,19),_Hdsl2ShdslEndpointCurr1DayLOSWS_Type())
+hdsl2ShdslEndpointCurr1DayLOSWS.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr1DayLOSWS.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr1DayLOSWS.setUnits(_D)
+_Hdsl2ShdslEndpointCurr1DayUAS_Type=Hdsl2ShdslPerfCurrDayCount
+_Hdsl2ShdslEndpointCurr1DayUAS_Object=MibTableColumn
+hdsl2ShdslEndpointCurr1DayUAS=_Hdsl2ShdslEndpointCurr1DayUAS_Object((1,3,6,1,2,1,10,48,1,5,1,20),_Hdsl2ShdslEndpointCurr1DayUAS_Type())
+hdsl2ShdslEndpointCurr1DayUAS.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr1DayUAS.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurr1DayUAS.setUnits(_D)
+class _Hdsl2ShdslEndpointCurrTipRingReversal_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('normal',1),('reversed',2)))
+_Hdsl2ShdslEndpointCurrTipRingReversal_Type.__name__=_E
+_Hdsl2ShdslEndpointCurrTipRingReversal_Object=MibTableColumn
+hdsl2ShdslEndpointCurrTipRingReversal=_Hdsl2ShdslEndpointCurrTipRingReversal_Object((1,3,6,1,2,1,10,48,1,5,1,21),_Hdsl2ShdslEndpointCurrTipRingReversal_Type())
+hdsl2ShdslEndpointCurrTipRingReversal.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurrTipRingReversal.setStatus(_B)
+class _Hdsl2ShdslEndpointCurrActivationState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('preActivation',1),('activation',2),('data',3)))
+_Hdsl2ShdslEndpointCurrActivationState_Type.__name__=_E
+_Hdsl2ShdslEndpointCurrActivationState_Object=MibTableColumn
+hdsl2ShdslEndpointCurrActivationState=_Hdsl2ShdslEndpointCurrActivationState_Object((1,3,6,1,2,1,10,48,1,5,1,22),_Hdsl2ShdslEndpointCurrActivationState_Type())
+hdsl2ShdslEndpointCurrActivationState.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurrActivationState.setStatus(_B)
+_Hdsl2Shdsl15MinIntervalTable_Object=MibTable
+hdsl2Shdsl15MinIntervalTable=_Hdsl2Shdsl15MinIntervalTable_Object((1,3,6,1,2,1,10,48,1,6))
+if mibBuilder.loadTexts:hdsl2Shdsl15MinIntervalTable.setStatus(_B)
+_Hdsl2Shdsl15MinIntervalEntry_Object=MibTableRow
+hdsl2Shdsl15MinIntervalEntry=_Hdsl2Shdsl15MinIntervalEntry_Object((1,3,6,1,2,1,10,48,1,6,1))
+hdsl2Shdsl15MinIntervalEntry.setIndexNames((0,_H,_I),(0,_A,_L),(0,_A,_R),(0,_A,_T),(0,_A,_A0))
+if mibBuilder.loadTexts:hdsl2Shdsl15MinIntervalEntry.setStatus(_B)
+class _Hdsl2Shdsl15MinIntervalNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,96))
+_Hdsl2Shdsl15MinIntervalNumber_Type.__name__=_G
+_Hdsl2Shdsl15MinIntervalNumber_Object=MibTableColumn
+hdsl2Shdsl15MinIntervalNumber=_Hdsl2Shdsl15MinIntervalNumber_Object((1,3,6,1,2,1,10,48,1,6,1,1),_Hdsl2Shdsl15MinIntervalNumber_Type())
+hdsl2Shdsl15MinIntervalNumber.setMaxAccess(_O)
+if mibBuilder.loadTexts:hdsl2Shdsl15MinIntervalNumber.setStatus(_B)
+_Hdsl2Shdsl15MinIntervalES_Type=PerfIntervalCount
+_Hdsl2Shdsl15MinIntervalES_Object=MibTableColumn
+hdsl2Shdsl15MinIntervalES=_Hdsl2Shdsl15MinIntervalES_Object((1,3,6,1,2,1,10,48,1,6,1,2),_Hdsl2Shdsl15MinIntervalES_Type())
+hdsl2Shdsl15MinIntervalES.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2Shdsl15MinIntervalES.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2Shdsl15MinIntervalES.setUnits(_D)
+_Hdsl2Shdsl15MinIntervalSES_Type=PerfIntervalCount
+_Hdsl2Shdsl15MinIntervalSES_Object=MibTableColumn
+hdsl2Shdsl15MinIntervalSES=_Hdsl2Shdsl15MinIntervalSES_Object((1,3,6,1,2,1,10,48,1,6,1,3),_Hdsl2Shdsl15MinIntervalSES_Type())
+hdsl2Shdsl15MinIntervalSES.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2Shdsl15MinIntervalSES.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2Shdsl15MinIntervalSES.setUnits(_D)
+_Hdsl2Shdsl15MinIntervalCRCanomalies_Type=PerfIntervalCount
+_Hdsl2Shdsl15MinIntervalCRCanomalies_Object=MibTableColumn
+hdsl2Shdsl15MinIntervalCRCanomalies=_Hdsl2Shdsl15MinIntervalCRCanomalies_Object((1,3,6,1,2,1,10,48,1,6,1,4),_Hdsl2Shdsl15MinIntervalCRCanomalies_Type())
+hdsl2Shdsl15MinIntervalCRCanomalies.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2Shdsl15MinIntervalCRCanomalies.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2Shdsl15MinIntervalCRCanomalies.setUnits(_S)
+_Hdsl2Shdsl15MinIntervalLOSWS_Type=PerfIntervalCount
+_Hdsl2Shdsl15MinIntervalLOSWS_Object=MibTableColumn
+hdsl2Shdsl15MinIntervalLOSWS=_Hdsl2Shdsl15MinIntervalLOSWS_Object((1,3,6,1,2,1,10,48,1,6,1,5),_Hdsl2Shdsl15MinIntervalLOSWS_Type())
+hdsl2Shdsl15MinIntervalLOSWS.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2Shdsl15MinIntervalLOSWS.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2Shdsl15MinIntervalLOSWS.setUnits(_D)
+_Hdsl2Shdsl15MinIntervalUAS_Type=PerfIntervalCount
+_Hdsl2Shdsl15MinIntervalUAS_Object=MibTableColumn
+hdsl2Shdsl15MinIntervalUAS=_Hdsl2Shdsl15MinIntervalUAS_Object((1,3,6,1,2,1,10,48,1,6,1,6),_Hdsl2Shdsl15MinIntervalUAS_Type())
+hdsl2Shdsl15MinIntervalUAS.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2Shdsl15MinIntervalUAS.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2Shdsl15MinIntervalUAS.setUnits(_D)
+_Hdsl2Shdsl1DayIntervalTable_Object=MibTable
+hdsl2Shdsl1DayIntervalTable=_Hdsl2Shdsl1DayIntervalTable_Object((1,3,6,1,2,1,10,48,1,7))
+if mibBuilder.loadTexts:hdsl2Shdsl1DayIntervalTable.setStatus(_B)
+_Hdsl2Shdsl1DayIntervalEntry_Object=MibTableRow
+hdsl2Shdsl1DayIntervalEntry=_Hdsl2Shdsl1DayIntervalEntry_Object((1,3,6,1,2,1,10,48,1,7,1))
+hdsl2Shdsl1DayIntervalEntry.setIndexNames((0,_H,_I),(0,_A,_L),(0,_A,_R),(0,_A,_T),(0,_A,_A1))
+if mibBuilder.loadTexts:hdsl2Shdsl1DayIntervalEntry.setStatus(_B)
+class _Hdsl2Shdsl1DayIntervalNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,30))
+_Hdsl2Shdsl1DayIntervalNumber_Type.__name__=_G
+_Hdsl2Shdsl1DayIntervalNumber_Object=MibTableColumn
+hdsl2Shdsl1DayIntervalNumber=_Hdsl2Shdsl1DayIntervalNumber_Object((1,3,6,1,2,1,10,48,1,7,1,1),_Hdsl2Shdsl1DayIntervalNumber_Type())
+hdsl2Shdsl1DayIntervalNumber.setMaxAccess(_O)
+if mibBuilder.loadTexts:hdsl2Shdsl1DayIntervalNumber.setStatus(_B)
+_Hdsl2Shdsl1DayIntervalMoniSecs_Type=Hdsl2ShdslPerfTimeElapsed
+_Hdsl2Shdsl1DayIntervalMoniSecs_Object=MibTableColumn
+hdsl2Shdsl1DayIntervalMoniSecs=_Hdsl2Shdsl1DayIntervalMoniSecs_Object((1,3,6,1,2,1,10,48,1,7,1,2),_Hdsl2Shdsl1DayIntervalMoniSecs_Type())
+hdsl2Shdsl1DayIntervalMoniSecs.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2Shdsl1DayIntervalMoniSecs.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2Shdsl1DayIntervalMoniSecs.setUnits(_D)
+_Hdsl2Shdsl1DayIntervalES_Type=Hdsl2Shdsl1DayIntervalCount
+_Hdsl2Shdsl1DayIntervalES_Object=MibTableColumn
+hdsl2Shdsl1DayIntervalES=_Hdsl2Shdsl1DayIntervalES_Object((1,3,6,1,2,1,10,48,1,7,1,3),_Hdsl2Shdsl1DayIntervalES_Type())
+hdsl2Shdsl1DayIntervalES.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2Shdsl1DayIntervalES.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2Shdsl1DayIntervalES.setUnits(_D)
+_Hdsl2Shdsl1DayIntervalSES_Type=Hdsl2Shdsl1DayIntervalCount
+_Hdsl2Shdsl1DayIntervalSES_Object=MibTableColumn
+hdsl2Shdsl1DayIntervalSES=_Hdsl2Shdsl1DayIntervalSES_Object((1,3,6,1,2,1,10,48,1,7,1,4),_Hdsl2Shdsl1DayIntervalSES_Type())
+hdsl2Shdsl1DayIntervalSES.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2Shdsl1DayIntervalSES.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2Shdsl1DayIntervalSES.setUnits(_D)
+_Hdsl2Shdsl1DayIntervalCRCanomalies_Type=Hdsl2Shdsl1DayIntervalCount
+_Hdsl2Shdsl1DayIntervalCRCanomalies_Object=MibTableColumn
+hdsl2Shdsl1DayIntervalCRCanomalies=_Hdsl2Shdsl1DayIntervalCRCanomalies_Object((1,3,6,1,2,1,10,48,1,7,1,5),_Hdsl2Shdsl1DayIntervalCRCanomalies_Type())
+hdsl2Shdsl1DayIntervalCRCanomalies.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2Shdsl1DayIntervalCRCanomalies.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2Shdsl1DayIntervalCRCanomalies.setUnits(_S)
+_Hdsl2Shdsl1DayIntervalLOSWS_Type=Hdsl2Shdsl1DayIntervalCount
+_Hdsl2Shdsl1DayIntervalLOSWS_Object=MibTableColumn
+hdsl2Shdsl1DayIntervalLOSWS=_Hdsl2Shdsl1DayIntervalLOSWS_Object((1,3,6,1,2,1,10,48,1,7,1,6),_Hdsl2Shdsl1DayIntervalLOSWS_Type())
+hdsl2Shdsl1DayIntervalLOSWS.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2Shdsl1DayIntervalLOSWS.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2Shdsl1DayIntervalLOSWS.setUnits(_D)
+_Hdsl2Shdsl1DayIntervalUAS_Type=Hdsl2Shdsl1DayIntervalCount
+_Hdsl2Shdsl1DayIntervalUAS_Object=MibTableColumn
+hdsl2Shdsl1DayIntervalUAS=_Hdsl2Shdsl1DayIntervalUAS_Object((1,3,6,1,2,1,10,48,1,7,1,7),_Hdsl2Shdsl1DayIntervalUAS_Type())
+hdsl2Shdsl1DayIntervalUAS.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2Shdsl1DayIntervalUAS.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2Shdsl1DayIntervalUAS.setUnits(_D)
+_Hdsl2ShdslEndpointMaintTable_Object=MibTable
+hdsl2ShdslEndpointMaintTable=_Hdsl2ShdslEndpointMaintTable_Object((1,3,6,1,2,1,10,48,1,8))
+if mibBuilder.loadTexts:hdsl2ShdslEndpointMaintTable.setStatus(_B)
+_Hdsl2ShdslEndpointMaintEntry_Object=MibTableRow
+hdsl2ShdslEndpointMaintEntry=_Hdsl2ShdslEndpointMaintEntry_Object((1,3,6,1,2,1,10,48,1,8,1))
+hdsl2ShdslEndpointMaintEntry.setIndexNames((0,_H,_I),(0,_A,_L),(0,_A,_R))
+if mibBuilder.loadTexts:hdsl2ShdslEndpointMaintEntry.setStatus(_B)
+class _Hdsl2ShdslMaintLoopbackConfig_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('noLoopback',1),('normalLoopback',2),('specialLoopback',3)))
+_Hdsl2ShdslMaintLoopbackConfig_Type.__name__=_E
+_Hdsl2ShdslMaintLoopbackConfig_Object=MibTableColumn
+hdsl2ShdslMaintLoopbackConfig=_Hdsl2ShdslMaintLoopbackConfig_Object((1,3,6,1,2,1,10,48,1,8,1,1),_Hdsl2ShdslMaintLoopbackConfig_Type())
+hdsl2ShdslMaintLoopbackConfig.setMaxAccess(_K)
+if mibBuilder.loadTexts:hdsl2ShdslMaintLoopbackConfig.setStatus(_B)
+class _Hdsl2ShdslMaintTipRingReversal_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('normal',1),('reversed',2)))
+_Hdsl2ShdslMaintTipRingReversal_Type.__name__=_E
+_Hdsl2ShdslMaintTipRingReversal_Object=MibTableColumn
+hdsl2ShdslMaintTipRingReversal=_Hdsl2ShdslMaintTipRingReversal_Object((1,3,6,1,2,1,10,48,1,8,1,2),_Hdsl2ShdslMaintTipRingReversal_Type())
+hdsl2ShdslMaintTipRingReversal.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslMaintTipRingReversal.setStatus(_B)
+class _Hdsl2ShdslMaintPowerBackOff_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('default',1),('enhanced',2)))
+_Hdsl2ShdslMaintPowerBackOff_Type.__name__=_E
+_Hdsl2ShdslMaintPowerBackOff_Object=MibTableColumn
+hdsl2ShdslMaintPowerBackOff=_Hdsl2ShdslMaintPowerBackOff_Object((1,3,6,1,2,1,10,48,1,8,1,3),_Hdsl2ShdslMaintPowerBackOff_Type())
+hdsl2ShdslMaintPowerBackOff.setMaxAccess(_K)
+if mibBuilder.loadTexts:hdsl2ShdslMaintPowerBackOff.setStatus(_B)
+class _Hdsl2ShdslMaintSoftRestart_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ready',1),('restart',2)))
+_Hdsl2ShdslMaintSoftRestart_Type.__name__=_E
+_Hdsl2ShdslMaintSoftRestart_Object=MibTableColumn
+hdsl2ShdslMaintSoftRestart=_Hdsl2ShdslMaintSoftRestart_Object((1,3,6,1,2,1,10,48,1,8,1,4),_Hdsl2ShdslMaintSoftRestart_Type())
+hdsl2ShdslMaintSoftRestart.setMaxAccess(_K)
+if mibBuilder.loadTexts:hdsl2ShdslMaintSoftRestart.setStatus(_B)
+_Hdsl2ShdslUnitMaintTable_Object=MibTable
+hdsl2ShdslUnitMaintTable=_Hdsl2ShdslUnitMaintTable_Object((1,3,6,1,2,1,10,48,1,9))
+if mibBuilder.loadTexts:hdsl2ShdslUnitMaintTable.setStatus(_B)
+_Hdsl2ShdslUnitMaintEntry_Object=MibTableRow
+hdsl2ShdslUnitMaintEntry=_Hdsl2ShdslUnitMaintEntry_Object((1,3,6,1,2,1,10,48,1,9,1))
+hdsl2ShdslUnitMaintEntry.setIndexNames((0,_H,_I),(0,_A,_L))
+if mibBuilder.loadTexts:hdsl2ShdslUnitMaintEntry.setStatus(_B)
+class _Hdsl2ShdslMaintLoopbackTimeout_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4095))
+_Hdsl2ShdslMaintLoopbackTimeout_Type.__name__=_E
+_Hdsl2ShdslMaintLoopbackTimeout_Object=MibTableColumn
+hdsl2ShdslMaintLoopbackTimeout=_Hdsl2ShdslMaintLoopbackTimeout_Object((1,3,6,1,2,1,10,48,1,9,1,1),_Hdsl2ShdslMaintLoopbackTimeout_Type())
+hdsl2ShdslMaintLoopbackTimeout.setMaxAccess(_K)
+if mibBuilder.loadTexts:hdsl2ShdslMaintLoopbackTimeout.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslMaintLoopbackTimeout.setUnits('minutes')
+class _Hdsl2ShdslMaintUnitPowerSource_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('local',1),('span',2)))
+_Hdsl2ShdslMaintUnitPowerSource_Type.__name__=_E
+_Hdsl2ShdslMaintUnitPowerSource_Object=MibTableColumn
+hdsl2ShdslMaintUnitPowerSource=_Hdsl2ShdslMaintUnitPowerSource_Object((1,3,6,1,2,1,10,48,1,9,1,2),_Hdsl2ShdslMaintUnitPowerSource_Type())
+hdsl2ShdslMaintUnitPowerSource.setMaxAccess(_C)
+if mibBuilder.loadTexts:hdsl2ShdslMaintUnitPowerSource.setStatus(_B)
+_Hdsl2ShdslSpanConfProfileTable_Object=MibTable
+hdsl2ShdslSpanConfProfileTable=_Hdsl2ShdslSpanConfProfileTable_Object((1,3,6,1,2,1,10,48,1,10))
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfProfileTable.setStatus(_B)
+_Hdsl2ShdslSpanConfProfileEntry_Object=MibTableRow
+hdsl2ShdslSpanConfProfileEntry=_Hdsl2ShdslSpanConfProfileEntry_Object((1,3,6,1,2,1,10,48,1,10,1))
+hdsl2ShdslSpanConfProfileEntry.setIndexNames((1,_A,_A2))
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfProfileEntry.setStatus(_B)
+class _Hdsl2ShdslSpanConfProfileName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_Hdsl2ShdslSpanConfProfileName_Type.__name__=_P
+_Hdsl2ShdslSpanConfProfileName_Object=MibTableColumn
+hdsl2ShdslSpanConfProfileName=_Hdsl2ShdslSpanConfProfileName_Object((1,3,6,1,2,1,10,48,1,10,1,1),_Hdsl2ShdslSpanConfProfileName_Type())
+hdsl2ShdslSpanConfProfileName.setMaxAccess(_O)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfProfileName.setStatus(_B)
+class _Hdsl2ShdslSpanConfWireInterface_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('twoWire',1),('fourWire',2),('sixWire',3),('eightWire',4)))
+_Hdsl2ShdslSpanConfWireInterface_Type.__name__=_E
+_Hdsl2ShdslSpanConfWireInterface_Object=MibTableColumn
+hdsl2ShdslSpanConfWireInterface=_Hdsl2ShdslSpanConfWireInterface_Object((1,3,6,1,2,1,10,48,1,10,1,2),_Hdsl2ShdslSpanConfWireInterface_Type())
+hdsl2ShdslSpanConfWireInterface.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfWireInterface.setStatus(_B)
+class _Hdsl2ShdslSpanConfMinLineRate_Type(Unsigned32):defaultValue=1552000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_Hdsl2ShdslSpanConfMinLineRate_Type.__name__=_G
+_Hdsl2ShdslSpanConfMinLineRate_Object=MibTableColumn
+hdsl2ShdslSpanConfMinLineRate=_Hdsl2ShdslSpanConfMinLineRate_Object((1,3,6,1,2,1,10,48,1,10,1,3),_Hdsl2ShdslSpanConfMinLineRate_Type())
+hdsl2ShdslSpanConfMinLineRate.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfMinLineRate.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfMinLineRate.setUnits(_Q)
+class _Hdsl2ShdslSpanConfMaxLineRate_Type(Unsigned32):defaultValue=1552000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_Hdsl2ShdslSpanConfMaxLineRate_Type.__name__=_G
+_Hdsl2ShdslSpanConfMaxLineRate_Object=MibTableColumn
+hdsl2ShdslSpanConfMaxLineRate=_Hdsl2ShdslSpanConfMaxLineRate_Object((1,3,6,1,2,1,10,48,1,10,1,4),_Hdsl2ShdslSpanConfMaxLineRate_Type())
+hdsl2ShdslSpanConfMaxLineRate.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfMaxLineRate.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfMaxLineRate.setUnits(_Q)
+class _Hdsl2ShdslSpanConfPSD_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('symmetric',1),('asymmetric',2)))
+_Hdsl2ShdslSpanConfPSD_Type.__name__=_E
+_Hdsl2ShdslSpanConfPSD_Object=MibTableColumn
+hdsl2ShdslSpanConfPSD=_Hdsl2ShdslSpanConfPSD_Object((1,3,6,1,2,1,10,48,1,10,1,5),_Hdsl2ShdslSpanConfPSD_Type())
+hdsl2ShdslSpanConfPSD.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfPSD.setStatus(_B)
+class _Hdsl2ShdslSpanConfTransmissionMode_Type(Hdsl2ShdslTransmissionModeType):defaultBinValue='1'
+_Hdsl2ShdslSpanConfTransmissionMode_Type.__name__=_A3
+_Hdsl2ShdslSpanConfTransmissionMode_Object=MibTableColumn
+hdsl2ShdslSpanConfTransmissionMode=_Hdsl2ShdslSpanConfTransmissionMode_Object((1,3,6,1,2,1,10,48,1,10,1,6),_Hdsl2ShdslSpanConfTransmissionMode_Type())
+hdsl2ShdslSpanConfTransmissionMode.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfTransmissionMode.setStatus(_B)
+class _Hdsl2ShdslSpanConfRemoteEnabled_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
+_Hdsl2ShdslSpanConfRemoteEnabled_Type.__name__=_E
+_Hdsl2ShdslSpanConfRemoteEnabled_Object=MibTableColumn
+hdsl2ShdslSpanConfRemoteEnabled=_Hdsl2ShdslSpanConfRemoteEnabled_Object((1,3,6,1,2,1,10,48,1,10,1,7),_Hdsl2ShdslSpanConfRemoteEnabled_Type())
+hdsl2ShdslSpanConfRemoteEnabled.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfRemoteEnabled.setStatus(_B)
+class _Hdsl2ShdslSpanConfPowerFeeding_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('noPower',1),('powerFeed',2),('wettingCurrent',3)))
+_Hdsl2ShdslSpanConfPowerFeeding_Type.__name__=_E
+_Hdsl2ShdslSpanConfPowerFeeding_Object=MibTableColumn
+hdsl2ShdslSpanConfPowerFeeding=_Hdsl2ShdslSpanConfPowerFeeding_Object((1,3,6,1,2,1,10,48,1,10,1,8),_Hdsl2ShdslSpanConfPowerFeeding_Type())
+hdsl2ShdslSpanConfPowerFeeding.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfPowerFeeding.setStatus(_B)
+class _Hdsl2ShdslSpanConfCurrCondTargetMarginDown_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-10,21))
+_Hdsl2ShdslSpanConfCurrCondTargetMarginDown_Type.__name__=_E
+_Hdsl2ShdslSpanConfCurrCondTargetMarginDown_Object=MibTableColumn
+hdsl2ShdslSpanConfCurrCondTargetMarginDown=_Hdsl2ShdslSpanConfCurrCondTargetMarginDown_Object((1,3,6,1,2,1,10,48,1,10,1,9),_Hdsl2ShdslSpanConfCurrCondTargetMarginDown_Type())
+hdsl2ShdslSpanConfCurrCondTargetMarginDown.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfCurrCondTargetMarginDown.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfCurrCondTargetMarginDown.setUnits(_M)
+class _Hdsl2ShdslSpanConfWorstCaseTargetMarginDown_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-10,21))
+_Hdsl2ShdslSpanConfWorstCaseTargetMarginDown_Type.__name__=_E
+_Hdsl2ShdslSpanConfWorstCaseTargetMarginDown_Object=MibTableColumn
+hdsl2ShdslSpanConfWorstCaseTargetMarginDown=_Hdsl2ShdslSpanConfWorstCaseTargetMarginDown_Object((1,3,6,1,2,1,10,48,1,10,1,10),_Hdsl2ShdslSpanConfWorstCaseTargetMarginDown_Type())
+hdsl2ShdslSpanConfWorstCaseTargetMarginDown.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfWorstCaseTargetMarginDown.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfWorstCaseTargetMarginDown.setUnits(_M)
+class _Hdsl2ShdslSpanConfCurrCondTargetMarginUp_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-10,21))
+_Hdsl2ShdslSpanConfCurrCondTargetMarginUp_Type.__name__=_E
+_Hdsl2ShdslSpanConfCurrCondTargetMarginUp_Object=MibTableColumn
+hdsl2ShdslSpanConfCurrCondTargetMarginUp=_Hdsl2ShdslSpanConfCurrCondTargetMarginUp_Object((1,3,6,1,2,1,10,48,1,10,1,11),_Hdsl2ShdslSpanConfCurrCondTargetMarginUp_Type())
+hdsl2ShdslSpanConfCurrCondTargetMarginUp.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfCurrCondTargetMarginUp.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfCurrCondTargetMarginUp.setUnits(_M)
+class _Hdsl2ShdslSpanConfWorstCaseTargetMarginUp_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-10,21))
+_Hdsl2ShdslSpanConfWorstCaseTargetMarginUp_Type.__name__=_E
+_Hdsl2ShdslSpanConfWorstCaseTargetMarginUp_Object=MibTableColumn
+hdsl2ShdslSpanConfWorstCaseTargetMarginUp=_Hdsl2ShdslSpanConfWorstCaseTargetMarginUp_Object((1,3,6,1,2,1,10,48,1,10,1,12),_Hdsl2ShdslSpanConfWorstCaseTargetMarginUp_Type())
+hdsl2ShdslSpanConfWorstCaseTargetMarginUp.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfWorstCaseTargetMarginUp.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfWorstCaseTargetMarginUp.setUnits(_M)
+class _Hdsl2ShdslSpanConfUsedTargetMargins_Type(Bits):defaultBinValue='1';namedValues=NamedValues(*(('currCondDown',0),('worstCaseDown',1),('currCondUp',2),('worstCaseUp',3)))
+_Hdsl2ShdslSpanConfUsedTargetMargins_Type.__name__=_W
+_Hdsl2ShdslSpanConfUsedTargetMargins_Object=MibTableColumn
+hdsl2ShdslSpanConfUsedTargetMargins=_Hdsl2ShdslSpanConfUsedTargetMargins_Object((1,3,6,1,2,1,10,48,1,10,1,13),_Hdsl2ShdslSpanConfUsedTargetMargins_Type())
+hdsl2ShdslSpanConfUsedTargetMargins.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfUsedTargetMargins.setStatus(_B)
+class _Hdsl2ShdslSpanConfReferenceClock_Type(Hdsl2ShdslClockReferenceType):defaultValue=1
+_Hdsl2ShdslSpanConfReferenceClock_Type.__name__=_A4
+_Hdsl2ShdslSpanConfReferenceClock_Object=MibTableColumn
+hdsl2ShdslSpanConfReferenceClock=_Hdsl2ShdslSpanConfReferenceClock_Object((1,3,6,1,2,1,10,48,1,10,1,14),_Hdsl2ShdslSpanConfReferenceClock_Type())
+hdsl2ShdslSpanConfReferenceClock.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfReferenceClock.setStatus(_B)
+class _Hdsl2ShdslSpanConfLineProbeEnable_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('disable',1),('enable',2)))
+_Hdsl2ShdslSpanConfLineProbeEnable_Type.__name__=_E
+_Hdsl2ShdslSpanConfLineProbeEnable_Object=MibTableColumn
+hdsl2ShdslSpanConfLineProbeEnable=_Hdsl2ShdslSpanConfLineProbeEnable_Object((1,3,6,1,2,1,10,48,1,10,1,15),_Hdsl2ShdslSpanConfLineProbeEnable_Type())
+hdsl2ShdslSpanConfLineProbeEnable.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfLineProbeEnable.setStatus(_B)
+_Hdsl2ShdslSpanConfProfileRowStatus_Type=RowStatus
+_Hdsl2ShdslSpanConfProfileRowStatus_Object=MibTableColumn
+hdsl2ShdslSpanConfProfileRowStatus=_Hdsl2ShdslSpanConfProfileRowStatus_Object((1,3,6,1,2,1,10,48,1,10,1,16),_Hdsl2ShdslSpanConfProfileRowStatus_Type())
+hdsl2ShdslSpanConfProfileRowStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfProfileRowStatus.setStatus(_B)
+_Hdsl2ShdslEndpointAlarmConfProfileTable_Object=MibTable
+hdsl2ShdslEndpointAlarmConfProfileTable=_Hdsl2ShdslEndpointAlarmConfProfileTable_Object((1,3,6,1,2,1,10,48,1,11))
+if mibBuilder.loadTexts:hdsl2ShdslEndpointAlarmConfProfileTable.setStatus(_B)
+_Hdsl2ShdslEndpointAlarmConfProfileEntry_Object=MibTableRow
+hdsl2ShdslEndpointAlarmConfProfileEntry=_Hdsl2ShdslEndpointAlarmConfProfileEntry_Object((1,3,6,1,2,1,10,48,1,11,1))
+hdsl2ShdslEndpointAlarmConfProfileEntry.setIndexNames((1,_A,_A5))
+if mibBuilder.loadTexts:hdsl2ShdslEndpointAlarmConfProfileEntry.setStatus(_B)
+class _Hdsl2ShdslEndpointAlarmConfProfileName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_Hdsl2ShdslEndpointAlarmConfProfileName_Type.__name__=_P
+_Hdsl2ShdslEndpointAlarmConfProfileName_Object=MibTableColumn
+hdsl2ShdslEndpointAlarmConfProfileName=_Hdsl2ShdslEndpointAlarmConfProfileName_Object((1,3,6,1,2,1,10,48,1,11,1,1),_Hdsl2ShdslEndpointAlarmConfProfileName_Type())
+hdsl2ShdslEndpointAlarmConfProfileName.setMaxAccess(_O)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointAlarmConfProfileName.setStatus(_B)
+class _Hdsl2ShdslEndpointThreshLoopAttenuation_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-127,128))
+_Hdsl2ShdslEndpointThreshLoopAttenuation_Type.__name__=_E
+_Hdsl2ShdslEndpointThreshLoopAttenuation_Object=MibTableColumn
+hdsl2ShdslEndpointThreshLoopAttenuation=_Hdsl2ShdslEndpointThreshLoopAttenuation_Object((1,3,6,1,2,1,10,48,1,11,1,2),_Hdsl2ShdslEndpointThreshLoopAttenuation_Type())
+hdsl2ShdslEndpointThreshLoopAttenuation.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointThreshLoopAttenuation.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointThreshLoopAttenuation.setUnits(_M)
+class _Hdsl2ShdslEndpointThreshSNRMargin_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-127,128))
+_Hdsl2ShdslEndpointThreshSNRMargin_Type.__name__=_E
+_Hdsl2ShdslEndpointThreshSNRMargin_Object=MibTableColumn
+hdsl2ShdslEndpointThreshSNRMargin=_Hdsl2ShdslEndpointThreshSNRMargin_Object((1,3,6,1,2,1,10,48,1,11,1,3),_Hdsl2ShdslEndpointThreshSNRMargin_Type())
+hdsl2ShdslEndpointThreshSNRMargin.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointThreshSNRMargin.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointThreshSNRMargin.setUnits(_M)
+class _Hdsl2ShdslEndpointThreshES_Type(Hdsl2ShdslPerfIntervalThreshold):defaultValue=0
+_Hdsl2ShdslEndpointThreshES_Type.__name__=_U
+_Hdsl2ShdslEndpointThreshES_Object=MibTableColumn
+hdsl2ShdslEndpointThreshES=_Hdsl2ShdslEndpointThreshES_Object((1,3,6,1,2,1,10,48,1,11,1,4),_Hdsl2ShdslEndpointThreshES_Type())
+hdsl2ShdslEndpointThreshES.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointThreshES.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointThreshES.setUnits(_D)
+class _Hdsl2ShdslEndpointThreshSES_Type(Hdsl2ShdslPerfIntervalThreshold):defaultValue=0
+_Hdsl2ShdslEndpointThreshSES_Type.__name__=_U
+_Hdsl2ShdslEndpointThreshSES_Object=MibTableColumn
+hdsl2ShdslEndpointThreshSES=_Hdsl2ShdslEndpointThreshSES_Object((1,3,6,1,2,1,10,48,1,11,1,5),_Hdsl2ShdslEndpointThreshSES_Type())
+hdsl2ShdslEndpointThreshSES.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointThreshSES.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointThreshSES.setUnits(_D)
+class _Hdsl2ShdslEndpointThreshCRCanomalies_Type(Integer32):defaultValue=0
+_Hdsl2ShdslEndpointThreshCRCanomalies_Type.__name__=_E
+_Hdsl2ShdslEndpointThreshCRCanomalies_Object=MibTableColumn
+hdsl2ShdslEndpointThreshCRCanomalies=_Hdsl2ShdslEndpointThreshCRCanomalies_Object((1,3,6,1,2,1,10,48,1,11,1,6),_Hdsl2ShdslEndpointThreshCRCanomalies_Type())
+hdsl2ShdslEndpointThreshCRCanomalies.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointThreshCRCanomalies.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointThreshCRCanomalies.setUnits(_S)
+class _Hdsl2ShdslEndpointThreshLOSWS_Type(Hdsl2ShdslPerfIntervalThreshold):defaultValue=0
+_Hdsl2ShdslEndpointThreshLOSWS_Type.__name__=_U
+_Hdsl2ShdslEndpointThreshLOSWS_Object=MibTableColumn
+hdsl2ShdslEndpointThreshLOSWS=_Hdsl2ShdslEndpointThreshLOSWS_Object((1,3,6,1,2,1,10,48,1,11,1,7),_Hdsl2ShdslEndpointThreshLOSWS_Type())
+hdsl2ShdslEndpointThreshLOSWS.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointThreshLOSWS.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointThreshLOSWS.setUnits(_D)
+class _Hdsl2ShdslEndpointThreshUAS_Type(Hdsl2ShdslPerfIntervalThreshold):defaultValue=0
+_Hdsl2ShdslEndpointThreshUAS_Type.__name__=_U
+_Hdsl2ShdslEndpointThreshUAS_Object=MibTableColumn
+hdsl2ShdslEndpointThreshUAS=_Hdsl2ShdslEndpointThreshUAS_Object((1,3,6,1,2,1,10,48,1,11,1,8),_Hdsl2ShdslEndpointThreshUAS_Type())
+hdsl2ShdslEndpointThreshUAS.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointThreshUAS.setStatus(_B)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointThreshUAS.setUnits(_D)
+_Hdsl2ShdslEndpointAlarmConfProfileRowStatus_Type=RowStatus
+_Hdsl2ShdslEndpointAlarmConfProfileRowStatus_Object=MibTableColumn
+hdsl2ShdslEndpointAlarmConfProfileRowStatus=_Hdsl2ShdslEndpointAlarmConfProfileRowStatus_Object((1,3,6,1,2,1,10,48,1,11,1,9),_Hdsl2ShdslEndpointAlarmConfProfileRowStatus_Type())
+hdsl2ShdslEndpointAlarmConfProfileRowStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:hdsl2ShdslEndpointAlarmConfProfileRowStatus.setStatus(_B)
+_Hdsl2ShdslConformance_ObjectIdentity=ObjectIdentity
+hdsl2ShdslConformance=_Hdsl2ShdslConformance_ObjectIdentity((1,3,6,1,2,1,10,48,3))
+_Hdsl2ShdslGroups_ObjectIdentity=ObjectIdentity
+hdsl2ShdslGroups=_Hdsl2ShdslGroups_ObjectIdentity((1,3,6,1,2,1,10,48,3,1))
+_Hdsl2ShdslCompliances_ObjectIdentity=ObjectIdentity
+hdsl2ShdslCompliances=_Hdsl2ShdslCompliances_ObjectIdentity((1,3,6,1,2,1,10,48,3,2))
+hdsl2ShdslSpanConfGroup=ObjectGroup((1,3,6,1,2,1,10,48,3,1,1))
+hdsl2ShdslSpanConfGroup.setObjects(*((_A,_X),(_A,_A6),(_A,_A7)))
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfGroup.setStatus(_B)
+hdsl2ShdslSpanStatusGroup=ObjectGroup((1,3,6,1,2,1,10,48,3,1,2))
+hdsl2ShdslSpanStatusGroup.setObjects((_A,_A8))
+if mibBuilder.loadTexts:hdsl2ShdslSpanStatusGroup.setStatus(_B)
+hdsl2ShdslInventoryShdslGroup=ObjectGroup((1,3,6,1,2,1,10,48,3,1,3))
+hdsl2ShdslInventoryShdslGroup.setObjects((_A,_A9))
+if mibBuilder.loadTexts:hdsl2ShdslInventoryShdslGroup.setStatus(_B)
+hdsl2ShdslSpanShdslStatusGroup=ObjectGroup((1,3,6,1,2,1,10,48,3,1,4))
+hdsl2ShdslSpanShdslStatusGroup.setObjects(*((_A,_AA),(_A,_AB),(_A,_AC)))
+if mibBuilder.loadTexts:hdsl2ShdslSpanShdslStatusGroup.setStatus(_B)
+hdsl2ShdslInventoryGroup=ObjectGroup((1,3,6,1,2,1,10,48,3,1,5))
+hdsl2ShdslInventoryGroup.setObjects(*((_A,_Y),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL)))
+if mibBuilder.loadTexts:hdsl2ShdslInventoryGroup.setStatus(_B)
+hdsl2ShdslEndpointConfGroup=ObjectGroup((1,3,6,1,2,1,10,48,3,1,6))
+hdsl2ShdslEndpointConfGroup.setObjects((_A,_V))
+if mibBuilder.loadTexts:hdsl2ShdslEndpointConfGroup.setStatus(_B)
+hdsl2ShdslEndpointCurrGroup=ObjectGroup((1,3,6,1,2,1,10,48,3,1,7))
+hdsl2ShdslEndpointCurrGroup.setObjects(*((_A,_V),(_A,_Z),(_A,_N),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX)))
+if mibBuilder.loadTexts:hdsl2ShdslEndpointCurrGroup.setStatus(_B)
+hdsl2Shdsl15MinIntervalGroup=ObjectGroup((1,3,6,1,2,1,10,48,3,1,8))
+hdsl2Shdsl15MinIntervalGroup.setObjects(*((_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac)))
+if mibBuilder.loadTexts:hdsl2Shdsl15MinIntervalGroup.setStatus(_B)
+hdsl2Shdsl1DayIntervalGroup=ObjectGroup((1,3,6,1,2,1,10,48,3,1,9))
+hdsl2Shdsl1DayIntervalGroup.setObjects(*((_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai)))
+if mibBuilder.loadTexts:hdsl2Shdsl1DayIntervalGroup.setStatus(_B)
+hdsl2ShdslMaintenanceGroup=ObjectGroup((1,3,6,1,2,1,10,48,3,1,10))
+hdsl2ShdslMaintenanceGroup.setObjects(*((_A,_f),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An)))
+if mibBuilder.loadTexts:hdsl2ShdslMaintenanceGroup.setStatus(_B)
+hdsl2ShdslEndpointAlarmConfGroup=ObjectGroup((1,3,6,1,2,1,10,48,3,1,11))
+hdsl2ShdslEndpointAlarmConfGroup.setObjects(*((_A,_Ao),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_Ap)))
+if mibBuilder.loadTexts:hdsl2ShdslEndpointAlarmConfGroup.setStatus(_B)
+hdsl2ShdslSpanConfProfileGroup=ObjectGroup((1,3,6,1,2,1,10,48,3,1,13))
+hdsl2ShdslSpanConfProfileGroup.setObjects(*((_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3)))
+if mibBuilder.loadTexts:hdsl2ShdslSpanConfProfileGroup.setStatus(_B)
+hdsl2ShdslWirePairGroup=ObjectGroup((1,3,6,1,2,1,10,48,3,1,14))
+hdsl2ShdslWirePairGroup.setObjects(*((_A,_B4),(_A,_B5)))
+if mibBuilder.loadTexts:hdsl2ShdslWirePairGroup.setStatus(_B)
+hdsl2ShdslPayloadRateGroup=ObjectGroup((1,3,6,1,2,1,10,48,3,1,15))
+hdsl2ShdslPayloadRateGroup.setObjects(*((_A,_B6),(_A,_B7)))
+if mibBuilder.loadTexts:hdsl2ShdslPayloadRateGroup.setStatus(_B)
+hdsl2ShdslLoopAttenCrossing=NotificationType((1,3,6,1,2,1,10,48,0,1))
+hdsl2ShdslLoopAttenCrossing.setObjects(*((_A,_V),(_A,_g)))
+if mibBuilder.loadTexts:hdsl2ShdslLoopAttenCrossing.setStatus(_B)
+hdsl2ShdslSNRMarginCrossing=NotificationType((1,3,6,1,2,1,10,48,0,2))
+hdsl2ShdslSNRMarginCrossing.setObjects(*((_A,_Z),(_A,_h)))
+if mibBuilder.loadTexts:hdsl2ShdslSNRMarginCrossing.setStatus(_B)
+hdsl2ShdslPerfESThresh=NotificationType((1,3,6,1,2,1,10,48,0,3))
+hdsl2ShdslPerfESThresh.setObjects(*((_A,_a),(_A,_i)))
+if mibBuilder.loadTexts:hdsl2ShdslPerfESThresh.setStatus(_B)
+hdsl2ShdslPerfSESThresh=NotificationType((1,3,6,1,2,1,10,48,0,4))
+hdsl2ShdslPerfSESThresh.setObjects(*((_A,_b),(_A,_j)))
+if mibBuilder.loadTexts:hdsl2ShdslPerfSESThresh.setStatus(_B)
+hdsl2ShdslPerfCRCanomaliesThresh=NotificationType((1,3,6,1,2,1,10,48,0,5))
+hdsl2ShdslPerfCRCanomaliesThresh.setObjects(*((_A,_c),(_A,_k)))
+if mibBuilder.loadTexts:hdsl2ShdslPerfCRCanomaliesThresh.setStatus(_B)
+hdsl2ShdslPerfLOSWSThresh=NotificationType((1,3,6,1,2,1,10,48,0,6))
+hdsl2ShdslPerfLOSWSThresh.setObjects(*((_A,_d),(_A,_l)))
+if mibBuilder.loadTexts:hdsl2ShdslPerfLOSWSThresh.setStatus(_B)
+hdsl2ShdslPerfUASThresh=NotificationType((1,3,6,1,2,1,10,48,0,7))
+hdsl2ShdslPerfUASThresh.setObjects(*((_A,_e),(_A,_m)))
+if mibBuilder.loadTexts:hdsl2ShdslPerfUASThresh.setStatus(_B)
+hdsl2ShdslSpanInvalidNumRepeaters=NotificationType((1,3,6,1,2,1,10,48,0,8))
+hdsl2ShdslSpanInvalidNumRepeaters.setObjects((_A,_X))
+if mibBuilder.loadTexts:hdsl2ShdslSpanInvalidNumRepeaters.setStatus(_B)
+hdsl2ShdslLoopbackFailure=NotificationType((1,3,6,1,2,1,10,48,0,9))
+hdsl2ShdslLoopbackFailure.setObjects((_A,_f))
+if mibBuilder.loadTexts:hdsl2ShdslLoopbackFailure.setStatus(_B)
+hdsl2ShdslpowerBackoff=NotificationType((1,3,6,1,2,1,10,48,0,10))
+hdsl2ShdslpowerBackoff.setObjects((_A,_N))
+if mibBuilder.loadTexts:hdsl2ShdslpowerBackoff.setStatus(_B)
+hdsl2ShdsldeviceFault=NotificationType((1,3,6,1,2,1,10,48,0,11))
+hdsl2ShdsldeviceFault.setObjects((_A,_N))
+if mibBuilder.loadTexts:hdsl2ShdsldeviceFault.setStatus(_B)
+hdsl2ShdsldcContinuityFault=NotificationType((1,3,6,1,2,1,10,48,0,12))
+hdsl2ShdsldcContinuityFault.setObjects((_A,_N))
+if mibBuilder.loadTexts:hdsl2ShdsldcContinuityFault.setStatus(_B)
+hdsl2ShdslconfigInitFailure=NotificationType((1,3,6,1,2,1,10,48,0,13))
+hdsl2ShdslconfigInitFailure.setObjects((_A,_N))
+if mibBuilder.loadTexts:hdsl2ShdslconfigInitFailure.setStatus(_B)
+hdsl2ShdslprotocolInitFailure=NotificationType((1,3,6,1,2,1,10,48,0,14))
+hdsl2ShdslprotocolInitFailure.setObjects((_A,_N))
+if mibBuilder.loadTexts:hdsl2ShdslprotocolInitFailure.setStatus(_B)
+hdsl2ShdslnoNeighborPresent=NotificationType((1,3,6,1,2,1,10,48,0,15))
+hdsl2ShdslnoNeighborPresent.setObjects((_A,_N))
+if mibBuilder.loadTexts:hdsl2ShdslnoNeighborPresent.setStatus(_B)
+hdsl2ShdslLocalPowerLoss=NotificationType((1,3,6,1,2,1,10,48,0,16))
+hdsl2ShdslLocalPowerLoss.setObjects((_A,_Y))
+if mibBuilder.loadTexts:hdsl2ShdslLocalPowerLoss.setStatus(_B)
+hdsl2ShdslNotificationGroup=NotificationGroup((1,3,6,1,2,1,10,48,3,1,12))
+hdsl2ShdslNotificationGroup.setObjects(*((_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BE),(_A,_BF),(_A,_BG),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN)))
+if mibBuilder.loadTexts:hdsl2ShdslNotificationGroup.setStatus(_B)
+hdsl2ShdslLineMibCompliance=ModuleCompliance((1,3,6,1,2,1,10,48,3,2,1))
+hdsl2ShdslLineMibCompliance.setObjects(*((_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z)))
+if mibBuilder.loadTexts:hdsl2ShdslLineMibCompliance.setStatus('deprecated')
+hdsl2GshdslbisLineMibCompliance=ModuleCompliance((1,3,6,1,2,1,10,48,3,2,2))
+hdsl2GshdslbisLineMibCompliance.setObjects(*((_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_BO),(_A,_BP)))
+if mibBuilder.loadTexts:hdsl2GshdslbisLineMibCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'Hdsl2ShdslPerfCurrDayCount':Hdsl2ShdslPerfCurrDayCount,'Hdsl2Shdsl1DayIntervalCount':Hdsl2Shdsl1DayIntervalCount,'Hdsl2ShdslPerfTimeElapsed':Hdsl2ShdslPerfTimeElapsed,_U:Hdsl2ShdslPerfIntervalThreshold,'Hdsl2ShdslUnitId':Hdsl2ShdslUnitId,'Hdsl2ShdslUnitSide':Hdsl2ShdslUnitSide,'Hdsl2ShdslWirePair':Hdsl2ShdslWirePair,_A3:Hdsl2ShdslTransmissionModeType,_A4:Hdsl2ShdslClockReferenceType,'hdsl2ShdslMIB':hdsl2ShdslMIB,'hdsl2ShdslNotifications':hdsl2ShdslNotifications,_B8:hdsl2ShdslLoopAttenCrossing,_B9:hdsl2ShdslSNRMarginCrossing,_BA:hdsl2ShdslPerfESThresh,_BB:hdsl2ShdslPerfSESThresh,_BC:hdsl2ShdslPerfCRCanomaliesThresh,_BD:hdsl2ShdslPerfLOSWSThresh,_BE:hdsl2ShdslPerfUASThresh,_BF:hdsl2ShdslSpanInvalidNumRepeaters,_BG:hdsl2ShdslLoopbackFailure,_BH:hdsl2ShdslpowerBackoff,_BI:hdsl2ShdsldeviceFault,_BJ:hdsl2ShdsldcContinuityFault,_BK:hdsl2ShdslconfigInitFailure,_BL:hdsl2ShdslprotocolInitFailure,_BM:hdsl2ShdslnoNeighborPresent,_BN:hdsl2ShdslLocalPowerLoss,'hdsl2ShdslMibObjects':hdsl2ShdslMibObjects,'hdsl2ShdslSpanConfTable':hdsl2ShdslSpanConfTable,'hdsl2ShdslSpanConfEntry':hdsl2ShdslSpanConfEntry,_X:hdsl2ShdslSpanConfNumRepeaters,_A6:hdsl2ShdslSpanConfProfile,_A7:hdsl2ShdslSpanConfAlarmProfile,'hdsl2ShdslSpanStatusTable':hdsl2ShdslSpanStatusTable,'hdsl2ShdslSpanStatusEntry':hdsl2ShdslSpanStatusEntry,_A8:hdsl2ShdslStatusNumAvailRepeaters,_AA:hdsl2ShdslStatusMaxAttainableLineRate,_AB:hdsl2ShdslStatusActualLineRate,_AC:hdsl2ShdslStatusTransmissionModeCurrent,_B6:hdsl2ShdslStatusMaxAttainablePayloadRate,_B7:hdsl2ShdslStatusActualPayloadRate,'hdsl2ShdslInventoryTable':hdsl2ShdslInventoryTable,'hdsl2ShdslInventoryEntry':hdsl2ShdslInventoryEntry,_L:hdsl2ShdslInvIndex,_Y:hdsl2ShdslInvVendorID,_AD:hdsl2ShdslInvVendorModelNumber,_AE:hdsl2ShdslInvVendorSerialNumber,_AF:hdsl2ShdslInvVendorEOCSoftwareVersion,_AG:hdsl2ShdslInvStandardVersion,_AH:hdsl2ShdslInvVendorListNumber,_AI:hdsl2ShdslInvVendorIssueNumber,_AJ:hdsl2ShdslInvVendorSoftwareVersion,_AK:hdsl2ShdslInvEquipmentCode,_AL:hdsl2ShdslInvVendorOther,_A9:hdsl2ShdslInvTransmissionModeCapability,'hdsl2ShdslEndpointConfTable':hdsl2ShdslEndpointConfTable,'hdsl2ShdslEndpointConfEntry':hdsl2ShdslEndpointConfEntry,_R:hdsl2ShdslEndpointSide,_T:hdsl2ShdslEndpointWirePair,_Ao:hdsl2ShdslEndpointAlarmConfProfile,'hdsl2ShdslEndpointCurrTable':hdsl2ShdslEndpointCurrTable,'hdsl2ShdslEndpointCurrEntry':hdsl2ShdslEndpointCurrEntry,_V:hdsl2ShdslEndpointCurrAtn,_Z:hdsl2ShdslEndpointCurrSnrMgn,_N:hdsl2ShdslEndpointCurrStatus,_AM:hdsl2ShdslEndpointES,_AN:hdsl2ShdslEndpointSES,_AO:hdsl2ShdslEndpointCRCanomalies,_AP:hdsl2ShdslEndpointLOSWS,_AQ:hdsl2ShdslEndpointUAS,_AR:hdsl2ShdslEndpointCurr15MinTimeElapsed,_a:hdsl2ShdslEndpointCurr15MinES,_b:hdsl2ShdslEndpointCurr15MinSES,_c:hdsl2ShdslEndpointCurr15MinCRCanomalies,_d:hdsl2ShdslEndpointCurr15MinLOSWS,_e:hdsl2ShdslEndpointCurr15MinUAS,_AS:hdsl2ShdslEndpointCurr1DayTimeElapsed,_AT:hdsl2ShdslEndpointCurr1DayES,_AU:hdsl2ShdslEndpointCurr1DaySES,_AV:hdsl2ShdslEndpointCurr1DayCRCanomalies,_AW:hdsl2ShdslEndpointCurr1DayLOSWS,_AX:hdsl2ShdslEndpointCurr1DayUAS,_B4:hdsl2ShdslEndpointCurrTipRingReversal,_B5:hdsl2ShdslEndpointCurrActivationState,'hdsl2Shdsl15MinIntervalTable':hdsl2Shdsl15MinIntervalTable,'hdsl2Shdsl15MinIntervalEntry':hdsl2Shdsl15MinIntervalEntry,_A0:hdsl2Shdsl15MinIntervalNumber,_AY:hdsl2Shdsl15MinIntervalES,_AZ:hdsl2Shdsl15MinIntervalSES,_Aa:hdsl2Shdsl15MinIntervalCRCanomalies,_Ab:hdsl2Shdsl15MinIntervalLOSWS,_Ac:hdsl2Shdsl15MinIntervalUAS,'hdsl2Shdsl1DayIntervalTable':hdsl2Shdsl1DayIntervalTable,'hdsl2Shdsl1DayIntervalEntry':hdsl2Shdsl1DayIntervalEntry,_A1:hdsl2Shdsl1DayIntervalNumber,_Ad:hdsl2Shdsl1DayIntervalMoniSecs,_Ae:hdsl2Shdsl1DayIntervalES,_Af:hdsl2Shdsl1DayIntervalSES,_Ag:hdsl2Shdsl1DayIntervalCRCanomalies,_Ah:hdsl2Shdsl1DayIntervalLOSWS,_Ai:hdsl2Shdsl1DayIntervalUAS,'hdsl2ShdslEndpointMaintTable':hdsl2ShdslEndpointMaintTable,'hdsl2ShdslEndpointMaintEntry':hdsl2ShdslEndpointMaintEntry,_f:hdsl2ShdslMaintLoopbackConfig,_Aj:hdsl2ShdslMaintTipRingReversal,_Ak:hdsl2ShdslMaintPowerBackOff,_Al:hdsl2ShdslMaintSoftRestart,'hdsl2ShdslUnitMaintTable':hdsl2ShdslUnitMaintTable,'hdsl2ShdslUnitMaintEntry':hdsl2ShdslUnitMaintEntry,_Am:hdsl2ShdslMaintLoopbackTimeout,_An:hdsl2ShdslMaintUnitPowerSource,'hdsl2ShdslSpanConfProfileTable':hdsl2ShdslSpanConfProfileTable,'hdsl2ShdslSpanConfProfileEntry':hdsl2ShdslSpanConfProfileEntry,_A2:hdsl2ShdslSpanConfProfileName,_Aq:hdsl2ShdslSpanConfWireInterface,_Ar:hdsl2ShdslSpanConfMinLineRate,_As:hdsl2ShdslSpanConfMaxLineRate,_At:hdsl2ShdslSpanConfPSD,_Au:hdsl2ShdslSpanConfTransmissionMode,_Av:hdsl2ShdslSpanConfRemoteEnabled,_Aw:hdsl2ShdslSpanConfPowerFeeding,_Ax:hdsl2ShdslSpanConfCurrCondTargetMarginDown,_Ay:hdsl2ShdslSpanConfWorstCaseTargetMarginDown,_Az:hdsl2ShdslSpanConfCurrCondTargetMarginUp,_A_:hdsl2ShdslSpanConfWorstCaseTargetMarginUp,_B0:hdsl2ShdslSpanConfUsedTargetMargins,_B1:hdsl2ShdslSpanConfReferenceClock,_B2:hdsl2ShdslSpanConfLineProbeEnable,_B3:hdsl2ShdslSpanConfProfileRowStatus,'hdsl2ShdslEndpointAlarmConfProfileTable':hdsl2ShdslEndpointAlarmConfProfileTable,'hdsl2ShdslEndpointAlarmConfProfileEntry':hdsl2ShdslEndpointAlarmConfProfileEntry,_A5:hdsl2ShdslEndpointAlarmConfProfileName,_g:hdsl2ShdslEndpointThreshLoopAttenuation,_h:hdsl2ShdslEndpointThreshSNRMargin,_i:hdsl2ShdslEndpointThreshES,_j:hdsl2ShdslEndpointThreshSES,_k:hdsl2ShdslEndpointThreshCRCanomalies,_l:hdsl2ShdslEndpointThreshLOSWS,_m:hdsl2ShdslEndpointThreshUAS,_Ap:hdsl2ShdslEndpointAlarmConfProfileRowStatus,'hdsl2ShdslConformance':hdsl2ShdslConformance,'hdsl2ShdslGroups':hdsl2ShdslGroups,_n:hdsl2ShdslSpanConfGroup,_o:hdsl2ShdslSpanStatusGroup,_x:hdsl2ShdslInventoryShdslGroup,_y:hdsl2ShdslSpanShdslStatusGroup,_p:hdsl2ShdslInventoryGroup,_q:hdsl2ShdslEndpointConfGroup,_r:hdsl2ShdslEndpointCurrGroup,_s:hdsl2Shdsl15MinIntervalGroup,_t:hdsl2Shdsl1DayIntervalGroup,_u:hdsl2ShdslMaintenanceGroup,_v:hdsl2ShdslEndpointAlarmConfGroup,_w:hdsl2ShdslNotificationGroup,_z:hdsl2ShdslSpanConfProfileGroup,_BO:hdsl2ShdslWirePairGroup,_BP:hdsl2ShdslPayloadRateGroup,'hdsl2ShdslCompliances':hdsl2ShdslCompliances,'hdsl2ShdslLineMibCompliance':hdsl2ShdslLineMibCompliance,'hdsl2GshdslbisLineMibCompliance':hdsl2GshdslbisLineMibCompliance})

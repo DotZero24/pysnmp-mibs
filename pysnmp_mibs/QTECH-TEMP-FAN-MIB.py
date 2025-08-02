@@ -1,0 +1,25 @@
+_C='current'
+_B='qtechSystemTemperatureCurrent'
+_A='QTECH-SYSTEM-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+qtechMgmt,=mibBuilder.importSymbols('QTECH-SMI','qtechMgmt')
+qtechSystemTemperatureCurrent,=mibBuilder.importSymbols(_A,_B)
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+qtechTempFanMIB=ModuleIdentity((1,3,6,1,4,1,27514,1,1,10,2,109))
+if mibBuilder.loadTexts:qtechTempFanMIB.setRevisions(('2002-03-20 00:00',))
+_QtechTempFanTraps_ObjectIdentity=ObjectIdentity
+qtechTempFanTraps=_QtechTempFanTraps_ObjectIdentity((1,3,6,1,4,1,27514,1,1,10,2,109,1))
+temperatureTooHighTrap=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,109,1,1))
+temperatureTooHighTrap.setObjects((_A,_B))
+if mibBuilder.loadTexts:temperatureTooHighTrap.setStatus(_C)
+temperTooHighRecovTrap=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,109,1,2))
+temperTooHighRecovTrap.setObjects((_A,_B))
+if mibBuilder.loadTexts:temperTooHighRecovTrap.setStatus(_C)
+fanFailure=NotificationType((1,3,6,1,4,1,27514,1,1,10,2,109,1,3))
+if mibBuilder.loadTexts:fanFailure.setStatus(_C)
+mibBuilder.exportSymbols('QTECH-TEMP-FAN-MIB',**{'qtechTempFanMIB':qtechTempFanMIB,'qtechTempFanTraps':qtechTempFanTraps,'temperatureTooHighTrap':temperatureTooHighTrap,'temperTooHighRecovTrap':temperTooHighRecovTrap,'fanFailure':fanFailure})

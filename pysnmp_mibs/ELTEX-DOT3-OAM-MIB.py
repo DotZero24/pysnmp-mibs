@@ -1,0 +1,20 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+eltexLtd,=mibBuilder.importSymbols('ELTEX-SMI-ACTUAL','eltexLtd')
+ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
+PortList,=mibBuilder.importSymbols('Q-BRIDGE-MIB','PortList')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,MacAddress,PhysAddress,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','MacAddress','PhysAddress','TextualConvention','TimeStamp','TruthValue')
+eltexDot3OamMIB=ModuleIdentity((1,3,6,1,4,1,35265,30))
+if mibBuilder.loadTexts:eltexDot3OamMIB.setRevisions(('2013-02-22 00:00',))
+_EltexDot3OamObjects_ObjectIdentity=ObjectIdentity
+eltexDot3OamObjects=_EltexDot3OamObjects_ObjectIdentity((1,3,6,1,4,1,35265,30,1))
+_EltexDot3OamClearStatistic_Type=PortList
+_EltexDot3OamClearStatistic_Object=MibScalar
+eltexDot3OamClearStatistic=_EltexDot3OamClearStatistic_Object((1,3,6,1,4,1,35265,30,1,7),_EltexDot3OamClearStatistic_Type())
+eltexDot3OamClearStatistic.setMaxAccess('read-write')
+if mibBuilder.loadTexts:eltexDot3OamClearStatistic.setStatus('current')
+mibBuilder.exportSymbols('ELTEX-DOT3-OAM-MIB',**{'eltexDot3OamMIB':eltexDot3OamMIB,'eltexDot3OamObjects':eltexDot3OamObjects,'eltexDot3OamClearStatistic':eltexDot3OamClearStatistic})

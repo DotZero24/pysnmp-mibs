@@ -1,302 +1,690 @@
-#
-# PySNMP MIB module UPS-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/UPS-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:32:33 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, Integer, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-( ModuleCompliance, NotificationGroup, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-( Unsigned32, mib_2, Bits, Counter32, Integer32, ModuleIdentity, iso, MibIdentifier, ObjectIdentity, TimeTicks, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Counter64, IpAddress, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "mib-2", "Bits", "Counter32", "Integer32", "ModuleIdentity", "iso", "MibIdentifier", "ObjectIdentity", "TimeTicks", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Counter64", "IpAddress")
-( AutonomousType, TestAndIncr, DisplayString, TimeStamp, TextualConvention, TimeInterval, ) = mibBuilder.importSymbols("SNMPv2-TC", "AutonomousType", "TestAndIncr", "DisplayString", "TimeStamp", "TextualConvention", "TimeInterval")
-upsMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 33))
-if mibBuilder.loadTexts: upsMIB.setLastUpdated('9402230000Z')
-if mibBuilder.loadTexts: upsMIB.setOrganization('IETF UPS MIB Working Group')
-if mibBuilder.loadTexts: upsMIB.setContactInfo('        Jeffrey D. Case\n\n                Postal: SNMP Research, Incorporated\n                        3001 Kimberlin Heights Road\n                        Knoxville, TN  37920\n                        US\n\n                   Tel: +1 615 573 1434\n                   Fax: +1 615 573 9197\n\n                E-mail: case@snmp.com')
-if mibBuilder.loadTexts: upsMIB.setDescription('The MIB module to describe Uninterruptible Power\n               Supplies.')
-class PositiveInteger(Integer32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(1,2147483647)
-
-class NonNegativeInteger(Integer32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,2147483647)
-
-upsObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 1))
-upsIdent = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 1, 1))
-upsIdentManufacturer = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsIdentManufacturer.setDescription('The name of the UPS manufacturer.')
-upsIdentModel = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsIdentModel.setDescription('The UPS Model designation.')
-upsIdentUPSSoftwareVersion = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsIdentUPSSoftwareVersion.setDescription('The UPS firmware/software version(s).  This variable\n               may or may not have the same value as\n               upsIdentAgentSoftwareVersion in some implementations.')
-upsIdentAgentSoftwareVersion = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsIdentAgentSoftwareVersion.setDescription('The UPS agent software version.  This variable may or\n               may not have the same value as\n               upsIdentUPSSoftwareVersion in some implementations.')
-upsIdentName = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: upsIdentName.setDescription('A string identifying the UPS.  This object should be\n               set by the administrator.')
-upsIdentAttachedDevices = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,63))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: upsIdentAttachedDevices.setDescription('A string identifying the devices attached to the\n               output(s) of the UPS.  This object should be set by\n               the administrator.')
-upsBattery = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 1, 2))
-upsBatteryStatus = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("unknown", 1), ("batteryNormal", 2), ("batteryLow", 3), ("batteryDepleted", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsBatteryStatus.setDescription("The indication of the capacity remaining in the UPS\n               system's batteries.   A value of batteryNormal\n               indicates that the remaining run-time is greater than\n               upsConfigLowBattTime.  A value of batteryLow indicates\n               that the remaining battery run-time is less than or\n               equal to upsConfigLowBattTime.  A value of\n               batteryDepleted indicates that the UPS will be unable\n               to sustain the present load when and if the utility\n               power is lost (including the possibility that the\n               utility power is currently absent and the UPS is\n               unable to sustain the output).")
-upsSecondsOnBattery = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 2, 2), NonNegativeInteger()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsSecondsOnBattery.setDescription('If the unit is on battery power, the elapsed time\n               since the UPS last switched to battery power, or the\n               time since the network management subsystem was last\n               restarted, whichever is less.  Zero shall be returned\n               if the unit is not on battery power.')
-upsEstimatedMinutesRemaining = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 2, 3), PositiveInteger()).setUnits('minutes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsEstimatedMinutesRemaining.setDescription('An estimate of the time to battery charge depletion\n               under the present load conditions if the utility power\n               is off and remains off, or if it were to be lost and\n               remain off.')
-upsEstimatedChargeRemaining = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,100))).setUnits('percent').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsEstimatedChargeRemaining.setDescription('An estimate of the battery charge remaining expressed\n               as a percent of full charge.')
-upsBatteryVoltage = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 2, 5), NonNegativeInteger()).setUnits('0.1 Volt DC').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsBatteryVoltage.setDescription('The magnitude of the present battery voltage.')
-upsBatteryCurrent = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 2, 6), Integer32()).setUnits('0.1 Amp DC').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsBatteryCurrent.setDescription('The present battery current.')
-upsBatteryTemperature = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 2, 7), Integer32()).setUnits('degrees Centigrade').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsBatteryTemperature.setDescription('The ambient temperature at or near the UPS Battery\n               casing.')
-upsInput = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 1, 3))
-upsInputLineBads = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 3, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsInputLineBads.setDescription('A count of the number of times the input entered an\n               out-of-tolerance condition as defined by the\n               manufacturer.  This count is incremented by one each\n               time the input transitions from zero out-of-tolerance\n               lines to one or more input lines out-of-tolerance.')
-upsInputNumLines = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 3, 2), NonNegativeInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsInputNumLines.setDescription('The number of input lines utilized in this device.\n               This variable indicates the number of rows in the\n               input table.')
-upsInputTable = MibTable((1, 3, 6, 1, 2, 1, 33, 1, 3, 3), )
-if mibBuilder.loadTexts: upsInputTable.setDescription('A list of input table entries.  The number of entries\n               is given by the value of upsInputNumLines.')
-upsInputEntry = MibTableRow((1, 3, 6, 1, 2, 1, 33, 1, 3, 3, 1), ).setIndexNames((0, "UPS-MIB", "upsInputLineIndex"))
-if mibBuilder.loadTexts: upsInputEntry.setDescription('An entry containing information applicable to a\n               particular input line.')
-upsInputLineIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 33, 1, 3, 3, 1, 1), PositiveInteger())
-if mibBuilder.loadTexts: upsInputLineIndex.setDescription('The input line identifier.')
-upsInputFrequency = MibTableColumn((1, 3, 6, 1, 2, 1, 33, 1, 3, 3, 1, 2), NonNegativeInteger()).setUnits('0.1 Hertz').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsInputFrequency.setDescription('The present input frequency.')
-upsInputVoltage = MibTableColumn((1, 3, 6, 1, 2, 1, 33, 1, 3, 3, 1, 3), NonNegativeInteger()).setUnits('RMS Volts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsInputVoltage.setDescription('The magnitude of the present input voltage.')
-upsInputCurrent = MibTableColumn((1, 3, 6, 1, 2, 1, 33, 1, 3, 3, 1, 4), NonNegativeInteger()).setUnits('0.1 RMS Amp').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsInputCurrent.setDescription('The magnitude of the present input current.')
-upsInputTruePower = MibTableColumn((1, 3, 6, 1, 2, 1, 33, 1, 3, 3, 1, 5), NonNegativeInteger()).setUnits('Watts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsInputTruePower.setDescription('The magnitude of the present input true power.')
-upsOutput = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 1, 4))
-upsOutputSource = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 4, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7,))).clone(namedValues=NamedValues(("other", 1), ("none", 2), ("normal", 3), ("bypass", 4), ("battery", 5), ("booster", 6), ("reducer", 7),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsOutputSource.setDescription('The present source of output power.  The enumeration\n               none(2) indicates that there is no source of output\n               power (and therefore no output power), for example,\n               the system has opened the output breaker.')
-upsOutputFrequency = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 4, 2), NonNegativeInteger()).setUnits('0.1 Hertz').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsOutputFrequency.setDescription('The present output frequency.')
-upsOutputNumLines = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 4, 3), NonNegativeInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsOutputNumLines.setDescription('The number of output lines utilized in this device.\n               This variable indicates the number of rows in the\n               output table.')
-upsOutputTable = MibTable((1, 3, 6, 1, 2, 1, 33, 1, 4, 4), )
-if mibBuilder.loadTexts: upsOutputTable.setDescription('A list of output table entries.  The number of\n               entries is given by the value of upsOutputNumLines.')
-upsOutputEntry = MibTableRow((1, 3, 6, 1, 2, 1, 33, 1, 4, 4, 1), ).setIndexNames((0, "UPS-MIB", "upsOutputLineIndex"))
-if mibBuilder.loadTexts: upsOutputEntry.setDescription('An entry containing information applicable to a\n               particular output line.')
-upsOutputLineIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 33, 1, 4, 4, 1, 1), PositiveInteger())
-if mibBuilder.loadTexts: upsOutputLineIndex.setDescription('The output line identifier.')
-upsOutputVoltage = MibTableColumn((1, 3, 6, 1, 2, 1, 33, 1, 4, 4, 1, 2), NonNegativeInteger()).setUnits('RMS Volts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsOutputVoltage.setDescription('The present output voltage.')
-upsOutputCurrent = MibTableColumn((1, 3, 6, 1, 2, 1, 33, 1, 4, 4, 1, 3), NonNegativeInteger()).setUnits('0.1 RMS Amp').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsOutputCurrent.setDescription('The present output current.')
-upsOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 33, 1, 4, 4, 1, 4), NonNegativeInteger()).setUnits('Watts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsOutputPower.setDescription('The present output true power.')
-upsOutputPercentLoad = MibTableColumn((1, 3, 6, 1, 2, 1, 33, 1, 4, 4, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,200))).setUnits('percent').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsOutputPercentLoad.setDescription('The percentage of the UPS power capacity presently\n               being used on this output line, i.e., the greater of\n               the percent load of true power capacity and the\n               percent load of VA.')
-upsBypass = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 1, 5))
-upsBypassFrequency = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 5, 1), NonNegativeInteger()).setUnits('0.1 Hertz').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsBypassFrequency.setDescription('The present bypass frequency.')
-upsBypassNumLines = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 5, 2), NonNegativeInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsBypassNumLines.setDescription('The number of bypass lines utilized in this device.\n               This entry indicates the number of rows in the bypass\n               table.')
-upsBypassTable = MibTable((1, 3, 6, 1, 2, 1, 33, 1, 5, 3), )
-if mibBuilder.loadTexts: upsBypassTable.setDescription('A list of bypass table entries.  The number of\n               entries is given by the value of upsBypassNumLines.')
-upsBypassEntry = MibTableRow((1, 3, 6, 1, 2, 1, 33, 1, 5, 3, 1), ).setIndexNames((0, "UPS-MIB", "upsBypassLineIndex"))
-if mibBuilder.loadTexts: upsBypassEntry.setDescription('An entry containing information applicable to a\n               particular bypass input.')
-upsBypassLineIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 33, 1, 5, 3, 1, 1), PositiveInteger())
-if mibBuilder.loadTexts: upsBypassLineIndex.setDescription('The bypass line identifier.')
-upsBypassVoltage = MibTableColumn((1, 3, 6, 1, 2, 1, 33, 1, 5, 3, 1, 2), NonNegativeInteger()).setUnits('RMS Volts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsBypassVoltage.setDescription('The present bypass voltage.')
-upsBypassCurrent = MibTableColumn((1, 3, 6, 1, 2, 1, 33, 1, 5, 3, 1, 3), NonNegativeInteger()).setUnits('0.1 RMS Amp').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsBypassCurrent.setDescription('The present bypass current.')
-upsBypassPower = MibTableColumn((1, 3, 6, 1, 2, 1, 33, 1, 5, 3, 1, 4), NonNegativeInteger()).setUnits('Watts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsBypassPower.setDescription('The present true power conveyed by the bypass.')
-upsAlarm = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 1, 6))
-upsAlarmsPresent = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 6, 1), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsAlarmsPresent.setDescription('The present number of active alarm conditions.')
-upsAlarmTable = MibTable((1, 3, 6, 1, 2, 1, 33, 1, 6, 2), )
-if mibBuilder.loadTexts: upsAlarmTable.setDescription('A list of alarm table entries.  The table contains\n               zero, one, or many rows at any moment, depending upon\n               the number of alarm conditions in effect.  The table\n               is initially empty at agent startup.  The agent\n               creates a row in the table each time a condition is\n               detected and deletes that row when that condition no\n               longer pertains.  The agent creates the first row with\n               upsAlarmId equal to 1, and increments the value of\n               upsAlarmId each time a new row is created, wrapping to\n               the first free value greater than or equal to 1 when\n               the maximum value of upsAlarmId would otherwise be\n               exceeded.  Consequently, after multiple operations,\n               the table may become sparse, e.g., containing entries\n               for rows 95, 100, 101, and 203 and the entries should\n               not be assumed to be in chronological order because\n               upsAlarmId might have wrapped.\n\n               Alarms are named by an AutonomousType (OBJECT\n               IDENTIFIER), upsAlarmDescr, to allow a single table to\n               reflect well known alarms plus alarms defined by a\n               particular implementation, i.e., as documented in the\n               private enterprise MIB definition for the device.  No\n               two rows will have the same value of upsAlarmDescr,\n               since alarms define conditions.  In order to meet this\n               requirement, care should be taken in the definition of\n               alarm conditions to insure that a system cannot enter\n               the same condition multiple times simultaneously.\n\n               The number of rows in the table at any given time is\n               reflected by the value of upsAlarmsPresent.')
-upsAlarmEntry = MibTableRow((1, 3, 6, 1, 2, 1, 33, 1, 6, 2, 1), ).setIndexNames((0, "UPS-MIB", "upsAlarmId"))
-if mibBuilder.loadTexts: upsAlarmEntry.setDescription('An entry containing information applicable to a\n               particular alarm.')
-upsAlarmId = MibTableColumn((1, 3, 6, 1, 2, 1, 33, 1, 6, 2, 1, 1), PositiveInteger())
-if mibBuilder.loadTexts: upsAlarmId.setDescription('A unique identifier for an alarm condition.  This\n               value must remain constant.')
-upsAlarmDescr = MibTableColumn((1, 3, 6, 1, 2, 1, 33, 1, 6, 2, 1, 2), AutonomousType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsAlarmDescr.setDescription('A reference to an alarm description object.  The\n               object referenced should not be accessible, but rather\n               be used to provide a unique description of the alarm\n               condition.')
-upsAlarmTime = MibTableColumn((1, 3, 6, 1, 2, 1, 33, 1, 6, 2, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsAlarmTime.setDescription('The value of sysUpTime when the alarm condition was\n               detected.  If the alarm condition was detected at the\n               time of agent startup and presumably existed before\n               agent startup, the value of upsAlarmTime shall equal\n               0.')
-upsWellKnownAlarms = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 1, 6, 3))
-upsAlarmBatteryBad = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 1))
-if mibBuilder.loadTexts: upsAlarmBatteryBad.setDescription('One or more batteries have been determined to require\n               replacement.')
-upsAlarmOnBattery = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 2))
-if mibBuilder.loadTexts: upsAlarmOnBattery.setDescription('The UPS is drawing power from the batteries.')
-upsAlarmLowBattery = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 3))
-if mibBuilder.loadTexts: upsAlarmLowBattery.setDescription('The remaining battery run-time is less than or equal\n               to upsConfigLowBattTime.')
-upsAlarmDepletedBattery = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 4))
-if mibBuilder.loadTexts: upsAlarmDepletedBattery.setDescription('The UPS will be unable to sustain the present load\n               when and if the utility power is lost.')
-upsAlarmTempBad = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 5))
-if mibBuilder.loadTexts: upsAlarmTempBad.setDescription('A temperature is out of tolerance.')
-upsAlarmInputBad = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 6))
-if mibBuilder.loadTexts: upsAlarmInputBad.setDescription('An input condition is out of tolerance.')
-upsAlarmOutputBad = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 7))
-if mibBuilder.loadTexts: upsAlarmOutputBad.setDescription('An output condition (other than OutputOverload) is\n               out of tolerance.')
-upsAlarmOutputOverload = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 8))
-if mibBuilder.loadTexts: upsAlarmOutputOverload.setDescription('The output load exceeds the UPS output capacity.')
-upsAlarmOnBypass = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 9))
-if mibBuilder.loadTexts: upsAlarmOnBypass.setDescription('The Bypass is presently engaged on the UPS.')
-upsAlarmBypassBad = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 10))
-if mibBuilder.loadTexts: upsAlarmBypassBad.setDescription('The Bypass is out of tolerance.')
-upsAlarmOutputOffAsRequested = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 11))
-if mibBuilder.loadTexts: upsAlarmOutputOffAsRequested.setDescription('The UPS has shutdown as requested, i.e., the output\n               is off.')
-upsAlarmUpsOffAsRequested = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 12))
-if mibBuilder.loadTexts: upsAlarmUpsOffAsRequested.setDescription('The entire UPS has shutdown as commanded.')
-upsAlarmChargerFailed = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 13))
-if mibBuilder.loadTexts: upsAlarmChargerFailed.setDescription('An uncorrected problem has been detected within the\n               UPS charger subsystem.')
-upsAlarmUpsOutputOff = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 14))
-if mibBuilder.loadTexts: upsAlarmUpsOutputOff.setDescription('The output of the UPS is in the off state.')
-upsAlarmUpsSystemOff = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 15))
-if mibBuilder.loadTexts: upsAlarmUpsSystemOff.setDescription('The UPS system is in the off state.')
-upsAlarmFanFailure = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 16))
-if mibBuilder.loadTexts: upsAlarmFanFailure.setDescription('The failure of one or more fans in the UPS has been\n               detected.')
-upsAlarmFuseFailure = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 17))
-if mibBuilder.loadTexts: upsAlarmFuseFailure.setDescription('The failure of one or more fuses has been detected.')
-upsAlarmGeneralFault = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 18))
-if mibBuilder.loadTexts: upsAlarmGeneralFault.setDescription('A general fault in the UPS has been detected.')
-upsAlarmDiagnosticTestFailed = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 19))
-if mibBuilder.loadTexts: upsAlarmDiagnosticTestFailed.setDescription('The result of the last diagnostic test indicates a\n               failure.')
-upsAlarmCommunicationsLost = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 20))
-if mibBuilder.loadTexts: upsAlarmCommunicationsLost.setDescription('A problem has been encountered in the communications\n               between the agent and the UPS.')
-upsAlarmAwaitingPower = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 21))
-if mibBuilder.loadTexts: upsAlarmAwaitingPower.setDescription('The UPS output is off and the UPS is awaiting the\n               return of input power.')
-upsAlarmShutdownPending = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 22))
-if mibBuilder.loadTexts: upsAlarmShutdownPending.setDescription('A upsShutdownAfterDelay countdown is underway.')
-upsAlarmShutdownImminent = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 23))
-if mibBuilder.loadTexts: upsAlarmShutdownImminent.setDescription('The UPS will turn off power to the load in less than\n               5 seconds; this may be either a timed shutdown or a\n               low battery shutdown.')
-upsAlarmTestInProgress = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 6, 3, 24))
-if mibBuilder.loadTexts: upsAlarmTestInProgress.setDescription('A test is in progress, as initiated and indicated by\n               the Test Group.  Tests initiated via other\n               implementation-specific mechanisms can indicate the\n               presence of the testing in the alarm table, if\n               desired, via a OBJECT-IDENTITY macro in the MIB\n               document specific to that implementation and are\n               outside the scope of this OBJECT-IDENTITY.')
-upsTest = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 1, 7))
-upsTestId = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 7, 1), ObjectIdentifier()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: upsTestId.setDescription('The test is named by an OBJECT IDENTIFIER which\n               allows a standard mechanism for the initiation of\n               tests, including the well known tests identified in\n               this document as well as those introduced by a\n               particular implementation, i.e., as documented in the\n               private enterprise MIB definition for the device.\n\n               Setting this variable initiates the named test. Sets\n               to this variable require the presence of\n               upsTestSpinLock in the same SNMP message.\n\n               The set request will be rejected with an appropriate\n               error message if the requested test cannot be\n               performed, including attempts to start a test when\n               another test is already in progress.  The status of\n               the current or last test is maintained in\n               upsTestResultsSummary. Tests in progress may be\n               aborted by setting the upsTestId variable to\n               upsTestAbortTestInProgress.\n\n               Read operations return the value of the name of the\n               test in progress if a test is in progress or the name\n               of the last test performed if no test is in progress,\n               unless no test has been run, in which case the well\n               known value upsTestNoTestsInitiated is returned.')
-upsTestSpinLock = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 7, 2), TestAndIncr()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: upsTestSpinLock.setDescription("A spin lock on the test subsystem.  The spinlock is\n               used as follows.\n\n               Before starting a test, a manager-station should make\n               sure that a test is not in progress as follows:\n\n                   try_again:\n                     get (upsTestSpinLock)\n                     while (upsTestResultsSummary == inProgress) {\n                       /* loop while a test is running for another\n               manager */\n                       short delay\n                       get (upsTestSpinLock)\n                     }\n                     lock_value = upsTestSpinLock\n                     /* no test in progress, start the test */\n                     set (upsTestSpinLock = lock_value, upsTestId =\n               requested_test)\n                     if (error_index == 1) { /* (upsTestSpinLock\n               failed) */\n                       /* if problem is not access control, then\n                           some other manager slipped in ahead of us\n               */\n                       goto try_again\n                     }\n                     if (error_index == 2) { /* (upsTestId) */\n                       /* cannot perform the test */\n                       give up\n                     }\n                     /* test started ok */\n                     /* wait for test completion by polling\n\n               upsTestResultsSummary */\n                     get (upsTestSpinLock, upsTestResultsSummary,\n               upsTestResultsDetail)\n                     while (upsTestResultsSummary == inProgress) {\n                       short delay\n                       get (upsTestSpinLock, upsTestResultsSummary,\n               upsTestResultsDetail)\n                     }\n                     /* when test completes, retrieve any additional\n               test results */\n                     /* if upsTestSpinLock == lock_value + 1, then\n               these are our test */\n                     /* results (as opposed to another manager's */\n                     The initial value of upsTestSpinLock at agent\n               initialization shall\n                     be 1.")
-upsTestResultsSummary = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 7, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("donePass", 1), ("doneWarning", 2), ("doneError", 3), ("aborted", 4), ("inProgress", 5), ("noTestsInitiated", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsTestResultsSummary.setDescription('The results of the current or last UPS diagnostics\n               test performed.  The values for donePass(1),\n               doneWarning(2), and doneError(3) indicate that the\n               test completed either successfully, with a warning, or\n               with an error, respectively.  The value aborted(4) is\n               returned for tests which are aborted by setting the\n               value of upsTestId to upsTestAbortTestInProgress.\n               Tests which have not yet concluded are indicated by\n               inProgress(5).  The value noTestsInitiated(6)\n               indicates that no previous test results are available,\n               such as is the case when no tests have been run since\n               the last reinitialization of the network management\n               subsystem and the system has no provision for non-\n               volatile storage of test results.')
-upsTestResultsDetail = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 7, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsTestResultsDetail.setDescription('Additional information about upsTestResultsSummary.\n               If no additional information available, a zero length\n               string is returned.')
-upsTestStartTime = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 7, 5), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsTestStartTime.setDescription('The value of sysUpTime at the time the test in\n               progress was initiated, or, if no test is in progress,\n               the time the previous test was initiated.  If the\n               value of upsTestResultsSummary is noTestsInitiated(6),\n               upsTestStartTime has the value 0.')
-upsTestElapsedTime = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 7, 6), TimeInterval()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsTestElapsedTime.setDescription('The amount of time, in TimeTicks, since the test in\n               progress was initiated, or, if no test is in progress,\n               the previous test took to complete.  If the value of\n               upsTestResultsSummary is noTestsInitiated(6),\n               upsTestElapsedTime has the value 0.')
-upsWellKnownTests = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 1, 7, 7))
-upsTestNoTestsInitiated = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 7, 7, 1))
-if mibBuilder.loadTexts: upsTestNoTestsInitiated.setDescription('No tests have been initiated and no test is in\n               progress.')
-upsTestAbortTestInProgress = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 7, 7, 2))
-if mibBuilder.loadTexts: upsTestAbortTestInProgress.setDescription('The test in progress is to be aborted / the test in\n               progress was aborted.')
-upsTestGeneralSystemsTest = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 7, 7, 3))
-if mibBuilder.loadTexts: upsTestGeneralSystemsTest.setDescription("The manufacturer's standard test of UPS device\n               systems.")
-upsTestQuickBatteryTest = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 7, 7, 4))
-if mibBuilder.loadTexts: upsTestQuickBatteryTest.setDescription('A test that is sufficient to determine if the battery\n               needs replacement.')
-upsTestDeepBatteryCalibration = ObjectIdentity((1, 3, 6, 1, 2, 1, 33, 1, 7, 7, 5))
-if mibBuilder.loadTexts: upsTestDeepBatteryCalibration.setDescription('The system is placed on battery to a discharge level,\n               set by the manufacturer, sufficient to determine\n               battery replacement and battery run-time with a high\n               degree of confidence.  WARNING:  this test will leave\n               the battery in a low charge state and will require\n               time for recharging to a level sufficient to provide\n               normal battery duration for the protected load.')
-upsControl = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 1, 8))
-upsShutdownType = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 8, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("output", 1), ("system", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: upsShutdownType.setDescription('This object determines the nature of the action to be\n               taken at the time when the countdown of the\n               upsShutdownAfterDelay and upsRebootWithDuration\n               objects reaches zero.\n\n               Setting this object to output(1) indicates that\n               shutdown requests should cause only the output of the\n               UPS to turn off.  Setting this object to system(2)\n               indicates that shutdown requests will cause the entire\n               UPS system to turn off.')
-upsShutdownAfterDelay = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 8, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1,2147483648))).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: upsShutdownAfterDelay.setDescription('Setting this object will shutdown (i.e., turn off)\n               either the UPS output or the UPS system (as determined\n               by the value of upsShutdownType at the time of\n               shutdown) after the indicated number of seconds, or\n               less if the UPS batteries become depleted. Setting\n               this object to 0 will cause the shutdown to occur\n               immediately.  Setting this object to -1 will abort the\n               countdown.  If the system is already in the desired\n               state at the time the countdown reaches 0, then\n               nothing will happen.  That is, there is no additional\n               action at that time if upsShutdownType = system and\n               the system is already off.  Similarly, there is no\n               additional action at that time if upsShutdownType =\n               output and the output is already off.  When read,\n               upsShutdownAfterDelay will return the number of\n               seconds remaining until shutdown, or -1 if no shutdown\n               countdown is in effect.  On some systems, if the agent\n               is restarted while a shutdown countdown is in effect,\n               the countdown may be aborted.  Sets to this object\n               override any upsShutdownAfterDelay already in effect.')
-upsStartupAfterDelay = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 8, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1,2147483648))).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: upsStartupAfterDelay.setDescription('Setting this object will start the output after the\n               indicated number of seconds, including starting the\n               UPS, if necessary.  Setting this object to 0 will\n               cause the startup to occur immediately.  Setting this\n               object to -1 will abort the countdown.  If the output\n               is already on at the time the countdown reaches 0,\n               then nothing will happen.  Sets to this object\n               override the effect of any upsStartupAfterDelay\n               countdown or upsRebootWithDuration countdown in\n               progress.  When read, upsStartupAfterDelay will return\n               the number of seconds until startup, or -1 if no\n               startup countdown is in effect.  If the countdown\n               expires during a utility failure, the startup shall\n               not occur until the utility power is restored.  On\n               some systems, if the agent is restarted while a\n               startup countdown is in effect, the countdown is\n               aborted.')
-upsRebootWithDuration = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 8, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1,300))).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: upsRebootWithDuration.setDescription('Setting this object will immediately shutdown (i.e.,\n               turn off) either the UPS output or the UPS system (as\n               determined by the value of upsShutdownType at the time\n               of shutdown) for a period equal to the indicated\n               number of seconds, after which time the output will be\n               started, including starting the UPS, if necessary.  If\n               the number of seconds required to perform the request\n               is greater than the requested duration, then the\n               requested shutdown and startup cycle shall be\n               performed in the minimum time possible, but in no case\n               shall this require more than the requested duration\n               plus 60 seconds.  When read, upsRebootWithDuration\n               shall return the number of seconds remaining in the\n               countdown, or -1 if no countdown is in progress.  If\n               the startup should occur during a utility failure, the\n               startup shall not occur until the utility power is\n               restored.')
-upsAutoRestart = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 8, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("on", 1), ("off", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: upsAutoRestart.setDescription("Setting this object to 'on' will cause the UPS system\n               to restart after a shutdown if the shutdown occurred\n               during a power loss as a result of either a\n               upsShutdownAfterDelay or an internal battery depleted\n               condition.  Setting this object to 'off' will prevent\n               the UPS system from restarting after a shutdown until\n               an operator manually or remotely explicitly restarts\n               it.  If the UPS is in a startup or reboot countdown,\n               then the UPS will not restart until that delay has\n               been satisfied.")
-upsConfig = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 1, 9))
-upsConfigInputVoltage = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 9, 1), NonNegativeInteger()).setUnits('RMS Volts').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: upsConfigInputVoltage.setDescription('The magnitude of the nominal input voltage.  On those\n               systems which support read-write access to this\n               object, if there is an attempt to set this variable to\n               a value that is not supported, the request must be\n               rejected and the agent shall respond with an\n               appropriate error message, i.e., badValue for SNMPv1,\n               or inconsistentValue for SNMPv2.')
-upsConfigInputFreq = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 9, 2), NonNegativeInteger()).setUnits('0.1 Hertz').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: upsConfigInputFreq.setDescription('The nominal input frequency.  On those systems which\n               support read-write access to this object, if there is\n               an attempt to set this variable to a value that is not\n               supported, the request must be rejected and the agent\n               shall respond with an appropriate error message, i.e.,\n               badValue for SNMPv1, or inconsistentValue for SNMPv2.')
-upsConfigOutputVoltage = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 9, 3), NonNegativeInteger()).setUnits('RMS Volts').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: upsConfigOutputVoltage.setDescription('The magnitude of the nominal output voltage.  On\n               those systems which support read-write access to this\n               object, if there is an attempt to set this variable to\n               a value that is not supported, the request must be\n               rejected and the agent shall respond with an\n               appropriate error message, i.e., badValue for SNMPv1,\n               or inconsistentValue for SNMPv2.')
-upsConfigOutputFreq = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 9, 4), NonNegativeInteger()).setUnits('0.1 Hertz').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: upsConfigOutputFreq.setDescription('The nominal output frequency.  On those systems which\n               support read-write access to this object, if there is\n               an attempt to set this variable to a value that is not\n               supported, the request must be rejected and the agent\n               shall respond with an appropriate error message, i.e.,\n               badValue for SNMPv1, or inconsistentValue for SNMPv2.')
-upsConfigOutputVA = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 9, 5), NonNegativeInteger()).setUnits('Volt-Amps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsConfigOutputVA.setDescription('The magnitude of the nominal Volt-Amp rating.')
-upsConfigOutputPower = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 9, 6), NonNegativeInteger()).setUnits('Watts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: upsConfigOutputPower.setDescription('The magnitude of the nominal true power rating.')
-upsConfigLowBattTime = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 9, 7), NonNegativeInteger()).setUnits('minutes').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: upsConfigLowBattTime.setDescription('The value of upsEstimatedMinutesRemaining at which a\n               lowBattery condition is declared.  For agents which\n               support only discrete (discontinuous) values, then the\n               agent shall round up to the next supported value.  If\n               the requested value is larger than the largest\n               supported value, then the largest supported value\n               shall be selected.')
-upsConfigAudibleStatus = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 9, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2), ("muted", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: upsConfigAudibleStatus.setDescription('The requested state of the audible alarm.  When in\n               the disabled state, the audible alarm should never\n               sound.  The enabled state is self-describing.  Setting\n               this object to muted(3) when the audible alarm is\n               sounding shall temporarily silence the alarm.  It will\n               remain muted until it would normally stop sounding and\n               the value returned for read operations during this\n               period shall equal muted(3).  At the end of this\n               period, the value shall revert to enabled(2).  Writes\n               of the value muted(3) when the audible alarm is not\n               sounding shall be accepted but otherwise shall have no\n               effect.')
-upsConfigLowVoltageTransferPoint = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 9, 9), NonNegativeInteger()).setUnits('RMS Volts').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: upsConfigLowVoltageTransferPoint.setDescription('The minimum input line voltage allowed before the UPS\n               system transfers to battery backup.')
-upsConfigHighVoltageTransferPoint = MibScalar((1, 3, 6, 1, 2, 1, 33, 1, 9, 10), NonNegativeInteger()).setUnits('RMS Volts').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: upsConfigHighVoltageTransferPoint.setDescription('The maximum line voltage allowed before the UPS\n               system transfers to battery backup.')
-upsTraps = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 2))
-upsTrapOnBattery = NotificationType((1, 3, 6, 1, 2, 1, 33, 2, 1)).setObjects(*(("UPS-MIB", "upsEstimatedMinutesRemaining"), ("UPS-MIB", "upsSecondsOnBattery"), ("UPS-MIB", "upsConfigLowBattTime"),))
-if mibBuilder.loadTexts: upsTrapOnBattery.setDescription('The UPS is operating on battery power.  This trap is\n               persistent and is resent at one minute intervals until\n               the UPS either turns off or is no longer running on\n               battery.')
-upsTrapTestCompleted = NotificationType((1, 3, 6, 1, 2, 1, 33, 2, 2)).setObjects(*(("UPS-MIB", "upsTestId"), ("UPS-MIB", "upsTestSpinLock"), ("UPS-MIB", "upsTestResultsSummary"), ("UPS-MIB", "upsTestResultsDetail"), ("UPS-MIB", "upsTestStartTime"), ("UPS-MIB", "upsTestElapsedTime"),))
-if mibBuilder.loadTexts: upsTrapTestCompleted.setDescription('This trap is sent upon completion of a UPS diagnostic\n               test.')
-upsTrapAlarmEntryAdded = NotificationType((1, 3, 6, 1, 2, 1, 33, 2, 3)).setObjects(*(("UPS-MIB", "upsAlarmId"), ("UPS-MIB", "upsAlarmDescr"),))
-if mibBuilder.loadTexts: upsTrapAlarmEntryAdded.setDescription('This trap is sent each time an alarm is inserted into\n               to the alarm table.  It is sent on the insertion of\n               all alarms except for upsAlarmOnBattery and\n               upsAlarmTestInProgress.')
-upsTrapAlarmEntryRemoved = NotificationType((1, 3, 6, 1, 2, 1, 33, 2, 4)).setObjects(*(("UPS-MIB", "upsAlarmId"), ("UPS-MIB", "upsAlarmDescr"),))
-if mibBuilder.loadTexts: upsTrapAlarmEntryRemoved.setDescription('This trap is sent each time an alarm is removed from\n               the alarm table.  It is sent on the removal of all\n               alarms except for upsAlarmTestInProgress.')
-upsConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 3))
-upsCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 3, 1))
-upsSubsetCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 33, 3, 1, 1)).setObjects(*(("UPS-MIB", "upsSubsetIdentGroup"), ("UPS-MIB", "upsSubsetBatteryGroup"), ("UPS-MIB", "upsSubsetInputGroup"), ("UPS-MIB", "upsSubsetOutputGroup"), ("UPS-MIB", "upsSubsetAlarmGroup"), ("UPS-MIB", "upsSubsetControlGroup"), ("UPS-MIB", "upsSubsetConfigGroup"),))
-if mibBuilder.loadTexts: upsSubsetCompliance.setDescription('The compliance statement for UPSs that only support\n               the two-contact communication protocol.')
-upsBasicCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 33, 3, 1, 2)).setObjects(*(("UPS-MIB", "upsBasicIdentGroup"), ("UPS-MIB", "upsBasicBatteryGroup"), ("UPS-MIB", "upsBasicInputGroup"), ("UPS-MIB", "upsBasicOutputGroup"), ("UPS-MIB", "upsBasicAlarmGroup"), ("UPS-MIB", "upsBasicTestGroup"), ("UPS-MIB", "upsBasicControlGroup"), ("UPS-MIB", "upsBasicConfigGroup"),))
-if mibBuilder.loadTexts: upsBasicCompliance.setDescription('The compliance statement for UPSs that support\n               full-featured functions, such as control.')
-upsFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 33, 3, 1, 3)).setObjects(*(("UPS-MIB", "upsFullIdentGroup"), ("UPS-MIB", "upsFullBatteryGroup"), ("UPS-MIB", "upsFullInputGroup"), ("UPS-MIB", "upsFullOutputGroup"), ("UPS-MIB", "upsFullAlarmGroup"), ("UPS-MIB", "upsFullTestGroup"), ("UPS-MIB", "upsFullControlGroup"), ("UPS-MIB", "upsFullConfigGroup"),))
-if mibBuilder.loadTexts: upsFullCompliance.setDescription('The compliance statement for UPSs that support\n               advanced full-featured functions.')
-upsGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 3, 2))
-upsSubsetGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 3, 2, 1))
-upsSubsetIdentGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 1, 1)).setObjects(*(("UPS-MIB", "upsIdentManufacturer"), ("UPS-MIB", "upsIdentModel"), ("UPS-MIB", "upsIdentAgentSoftwareVersion"), ("UPS-MIB", "upsIdentName"), ("UPS-MIB", "upsIdentAttachedDevices"),))
-if mibBuilder.loadTexts: upsSubsetIdentGroup.setDescription('The upsSubsetIdentGroup defines objects which are\n               common across all UPSs which meet subset compliance.\n               Most devices which conform to the upsSubsetIdentGroup\n               will provide access to these objects via a proxy\n               agent.  If the proxy agent is compatible with multiple\n               UPS types, configuration of the proxy agent will\n               require specifying some of these values, either\n               individually, or as a group (perhaps through a table\n               lookup mechanism based on the UPS model number).')
-upsSubsetBatteryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 1, 2)).setObjects(*(("UPS-MIB", "upsBatteryStatus"), ("UPS-MIB", "upsSecondsOnBattery"),))
-if mibBuilder.loadTexts: upsSubsetBatteryGroup.setDescription('The upsSubsetBatteryGroup defines the objects that\n               are common to battery groups of two-contact UPSs.')
-upsSubsetInputGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 1, 3)).setObjects(*(("UPS-MIB", "upsInputLineBads"),))
-if mibBuilder.loadTexts: upsSubsetInputGroup.setDescription('The upsSubsetInputGroup defines the objects that are\n               common to the Input groups of two-contact UPSs.')
-upsSubsetOutputGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 1, 4)).setObjects(*(("UPS-MIB", "upsOutputSource"),))
-if mibBuilder.loadTexts: upsSubsetOutputGroup.setDescription('The upsSubsetOutputGroup defines the objects that are\n               common to the Output groups of two-contact UPSs.')
-upsSubsetAlarmGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 1, 6)).setObjects(*(("UPS-MIB", "upsAlarmsPresent"), ("UPS-MIB", "upsAlarmDescr"), ("UPS-MIB", "upsAlarmTime"),))
-if mibBuilder.loadTexts: upsSubsetAlarmGroup.setDescription('The upsSubsetAlarmGroup defines the objects that are\n               common to the Alarm groups of two-contact UPSs.')
-upsSubsetControlGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 1, 8)).setObjects(*(("UPS-MIB", "upsShutdownType"), ("UPS-MIB", "upsShutdownAfterDelay"), ("UPS-MIB", "upsAutoRestart"),))
-if mibBuilder.loadTexts: upsSubsetControlGroup.setDescription('The upsSubsetControlGroup defines the objects that\n               are common to the Control groups of two-contact UPSs.')
-upsSubsetConfigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 1, 9)).setObjects(*(("UPS-MIB", "upsConfigInputVoltage"), ("UPS-MIB", "upsConfigInputFreq"), ("UPS-MIB", "upsConfigOutputVoltage"), ("UPS-MIB", "upsConfigOutputFreq"), ("UPS-MIB", "upsConfigOutputVA"), ("UPS-MIB", "upsConfigOutputPower"),))
-if mibBuilder.loadTexts: upsSubsetConfigGroup.setDescription('The upsSubsetConfigGroup defines the objects that are\n               common to the Config groups of two-contact UPSs.')
-upsBasicGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 3, 2, 2))
-upsBasicIdentGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 2, 1)).setObjects(*(("UPS-MIB", "upsIdentManufacturer"), ("UPS-MIB", "upsIdentModel"), ("UPS-MIB", "upsIdentUPSSoftwareVersion"), ("UPS-MIB", "upsIdentAgentSoftwareVersion"), ("UPS-MIB", "upsIdentName"),))
-if mibBuilder.loadTexts: upsBasicIdentGroup.setDescription('The upsBasicIdentGroup defines objects which are\n               common to the Ident group of compliant UPSs which\n               support basic functions.')
-upsBasicBatteryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 2, 2)).setObjects(*(("UPS-MIB", "upsBatteryStatus"), ("UPS-MIB", "upsSecondsOnBattery"),))
-if mibBuilder.loadTexts: upsBasicBatteryGroup.setDescription('The upsBasicBatteryGroup defines the objects that are\n               common to the battery groups of compliant UPSs which\n               support basic functions.')
-upsBasicInputGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 2, 3)).setObjects(*(("UPS-MIB", "upsInputLineBads"), ("UPS-MIB", "upsInputNumLines"), ("UPS-MIB", "upsInputFrequency"), ("UPS-MIB", "upsInputVoltage"),))
-if mibBuilder.loadTexts: upsBasicInputGroup.setDescription('The upsBasicInputGroup defines the objects that are\n               common to the Input groups of compliant UPSs which\n               support basic functions.')
-upsBasicOutputGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 2, 4)).setObjects(*(("UPS-MIB", "upsOutputSource"), ("UPS-MIB", "upsOutputFrequency"), ("UPS-MIB", "upsOutputNumLines"), ("UPS-MIB", "upsOutputVoltage"),))
-if mibBuilder.loadTexts: upsBasicOutputGroup.setDescription('The upsBasicOutputGroup defines the objects that are\n               common to the Output groups of compliant UPSs which\n               support basic functions.')
-upsBasicBypassGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 2, 5)).setObjects(*(("UPS-MIB", "upsBypassFrequency"), ("UPS-MIB", "upsBypassNumLines"), ("UPS-MIB", "upsBypassVoltage"),))
-if mibBuilder.loadTexts: upsBasicBypassGroup.setDescription('The upsBasicBypassGroup defines the objects that are\n               common to the Bypass groups of compliant UPSs which\n               support basic functions.')
-upsBasicAlarmGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 2, 6)).setObjects(*(("UPS-MIB", "upsAlarmsPresent"), ("UPS-MIB", "upsAlarmDescr"), ("UPS-MIB", "upsAlarmTime"),))
-if mibBuilder.loadTexts: upsBasicAlarmGroup.setDescription('The upsBasicAlarmGroup defines the objects that are\n               common to the Alarm  groups of compliant UPSs which\n               support basic functions.')
-upsBasicTestGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 2, 7)).setObjects(*(("UPS-MIB", "upsTestId"), ("UPS-MIB", "upsTestSpinLock"), ("UPS-MIB", "upsTestResultsSummary"), ("UPS-MIB", "upsTestResultsDetail"), ("UPS-MIB", "upsTestStartTime"), ("UPS-MIB", "upsTestElapsedTime"),))
-if mibBuilder.loadTexts: upsBasicTestGroup.setDescription('The upsBasicTestGroup defines the objects that are\n               common to the Test groups of compliant UPSs which\n               support basic functions.')
-upsBasicControlGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 2, 8)).setObjects(*(("UPS-MIB", "upsShutdownType"), ("UPS-MIB", "upsShutdownAfterDelay"), ("UPS-MIB", "upsStartupAfterDelay"), ("UPS-MIB", "upsRebootWithDuration"), ("UPS-MIB", "upsAutoRestart"),))
-if mibBuilder.loadTexts: upsBasicControlGroup.setDescription('The upsBasicControlGroup defines the objects that are\n               common to the Control groups of compliant UPSs which\n               support basic functions.')
-upsBasicConfigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 2, 9)).setObjects(*(("UPS-MIB", "upsConfigInputVoltage"), ("UPS-MIB", "upsConfigInputFreq"), ("UPS-MIB", "upsConfigOutputVoltage"), ("UPS-MIB", "upsConfigOutputFreq"), ("UPS-MIB", "upsConfigOutputVA"), ("UPS-MIB", "upsConfigOutputPower"), ("UPS-MIB", "upsConfigLowBattTime"), ("UPS-MIB", "upsConfigAudibleStatus"),))
-if mibBuilder.loadTexts: upsBasicConfigGroup.setDescription('The upsBasicConfigGroup defines the objects that are\n               common to the Config groups of UPSs which support\n               basic functions.')
-upsFullGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 33, 3, 2, 3))
-upsFullIdentGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 3, 1)).setObjects(*(("UPS-MIB", "upsIdentManufacturer"), ("UPS-MIB", "upsIdentModel"), ("UPS-MIB", "upsIdentUPSSoftwareVersion"), ("UPS-MIB", "upsIdentAgentSoftwareVersion"), ("UPS-MIB", "upsIdentName"), ("UPS-MIB", "upsIdentAttachedDevices"),))
-if mibBuilder.loadTexts: upsFullIdentGroup.setDescription('The upsFullIdentGroup defines objects which are\n               common to the Ident group of fully compliant UPSs.')
-upsFullBatteryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 3, 2)).setObjects(*(("UPS-MIB", "upsBatteryStatus"), ("UPS-MIB", "upsSecondsOnBattery"), ("UPS-MIB", "upsEstimatedMinutesRemaining"), ("UPS-MIB", "upsEstimatedChargeRemaining"),))
-if mibBuilder.loadTexts: upsFullBatteryGroup.setDescription('The upsFullBatteryGroup defines the objects that are\n               common to the battery groups of fully compliant UPSs.')
-upsFullInputGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 3, 3)).setObjects(*(("UPS-MIB", "upsInputLineBads"), ("UPS-MIB", "upsInputNumLines"), ("UPS-MIB", "upsInputFrequency"), ("UPS-MIB", "upsInputVoltage"),))
-if mibBuilder.loadTexts: upsFullInputGroup.setDescription('The upsFullInputGroup defines the objects that are\n               common to the Input groups of fully compliant UPSs.')
-upsFullOutputGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 3, 4)).setObjects(*(("UPS-MIB", "upsOutputSource"), ("UPS-MIB", "upsOutputFrequency"), ("UPS-MIB", "upsOutputNumLines"), ("UPS-MIB", "upsOutputVoltage"), ("UPS-MIB", "upsOutputCurrent"), ("UPS-MIB", "upsOutputPower"), ("UPS-MIB", "upsOutputPercentLoad"),))
-if mibBuilder.loadTexts: upsFullOutputGroup.setDescription('The upsFullOutputGroup defines the objects that are\n               common to the Output groups of fully compliant UPSs.')
-upsFullBypassGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 3, 5)).setObjects(*(("UPS-MIB", "upsBypassFrequency"), ("UPS-MIB", "upsBypassNumLines"), ("UPS-MIB", "upsBypassVoltage"),))
-if mibBuilder.loadTexts: upsFullBypassGroup.setDescription('The upsFullBypassGroup defines the objects that are\n               common to the Bypass groups of fully compliant UPSs.')
-upsFullAlarmGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 3, 6)).setObjects(*(("UPS-MIB", "upsAlarmsPresent"), ("UPS-MIB", "upsAlarmDescr"), ("UPS-MIB", "upsAlarmTime"),))
-if mibBuilder.loadTexts: upsFullAlarmGroup.setDescription('The upsFullAlarmGroup defines the objects that are\n               common to the Alarm  groups of fully compliant UPSs.')
-upsFullTestGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 3, 7)).setObjects(*(("UPS-MIB", "upsTestId"), ("UPS-MIB", "upsTestSpinLock"), ("UPS-MIB", "upsTestResultsSummary"), ("UPS-MIB", "upsTestResultsDetail"), ("UPS-MIB", "upsTestStartTime"), ("UPS-MIB", "upsTestElapsedTime"),))
-if mibBuilder.loadTexts: upsFullTestGroup.setDescription('The upsFullTestGroup defines the objects that are\n               common to the Test groups of fully compliant UPSs.')
-upsFullControlGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 3, 8)).setObjects(*(("UPS-MIB", "upsShutdownType"), ("UPS-MIB", "upsShutdownAfterDelay"), ("UPS-MIB", "upsStartupAfterDelay"), ("UPS-MIB", "upsRebootWithDuration"), ("UPS-MIB", "upsAutoRestart"),))
-if mibBuilder.loadTexts: upsFullControlGroup.setDescription('The upsFullControlGroup defines the objects that are\n   common to the Control groups of fully compliant UPSs.')
-upsFullConfigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 33, 3, 2, 3, 9)).setObjects(*(("UPS-MIB", "upsConfigInputVoltage"), ("UPS-MIB", "upsConfigInputFreq"), ("UPS-MIB", "upsConfigOutputVoltage"), ("UPS-MIB", "upsConfigOutputFreq"), ("UPS-MIB", "upsConfigOutputVA"), ("UPS-MIB", "upsConfigOutputPower"), ("UPS-MIB", "upsConfigLowBattTime"), ("UPS-MIB", "upsConfigAudibleStatus"),))
-if mibBuilder.loadTexts: upsFullConfigGroup.setDescription('The upsFullConfigGroup defines the objects that are\n               common to the Config groups of fully compliant UPSs.')
-mibBuilder.exportSymbols("UPS-MIB", upsInput=upsInput, upsBasicGroups=upsBasicGroups, upsFullControlGroup=upsFullControlGroup, upsAlarmUpsOffAsRequested=upsAlarmUpsOffAsRequested, upsTrapTestCompleted=upsTrapTestCompleted, upsSubsetConfigGroup=upsSubsetConfigGroup, upsBatteryVoltage=upsBatteryVoltage, upsAlarm=upsAlarm, upsConfigLowVoltageTransferPoint=upsConfigLowVoltageTransferPoint, upsBatteryStatus=upsBatteryStatus, upsBasicBypassGroup=upsBasicBypassGroup, upsInputLineIndex=upsInputLineIndex, upsInputFrequency=upsInputFrequency, upsTrapAlarmEntryAdded=upsTrapAlarmEntryAdded, upsBypassTable=upsBypassTable, upsInputTable=upsInputTable, upsTrapOnBattery=upsTrapOnBattery, upsInputVoltage=upsInputVoltage, upsAlarmBypassBad=upsAlarmBypassBad, upsBasicAlarmGroup=upsBasicAlarmGroup, upsBypassVoltage=upsBypassVoltage, upsBypassNumLines=upsBypassNumLines, upsShutdownAfterDelay=upsShutdownAfterDelay, upsAlarmShutdownPending=upsAlarmShutdownPending, upsAlarmTempBad=upsAlarmTempBad, upsSubsetIdentGroup=upsSubsetIdentGroup, upsBattery=upsBattery, upsSecondsOnBattery=upsSecondsOnBattery, upsBypassPower=upsBypassPower, upsTestGeneralSystemsTest=upsTestGeneralSystemsTest, upsBasicOutputGroup=upsBasicOutputGroup, upsAlarmDepletedBattery=upsAlarmDepletedBattery, upsObjects=upsObjects, upsTestElapsedTime=upsTestElapsedTime, upsTestAbortTestInProgress=upsTestAbortTestInProgress, upsOutputNumLines=upsOutputNumLines, upsAlarmsPresent=upsAlarmsPresent, upsOutputPercentLoad=upsOutputPercentLoad, upsIdentAgentSoftwareVersion=upsIdentAgentSoftwareVersion, upsAlarmOutputOffAsRequested=upsAlarmOutputOffAsRequested, upsBatteryTemperature=upsBatteryTemperature, upsOutputLineIndex=upsOutputLineIndex, upsTestResultsDetail=upsTestResultsDetail, upsIdentModel=upsIdentModel, upsAlarmGeneralFault=upsAlarmGeneralFault, upsTestQuickBatteryTest=upsTestQuickBatteryTest, upsIdentUPSSoftwareVersion=upsIdentUPSSoftwareVersion, upsAlarmUpsSystemOff=upsAlarmUpsSystemOff, upsConfigAudibleStatus=upsConfigAudibleStatus, upsEstimatedChargeRemaining=upsEstimatedChargeRemaining, upsInputTruePower=upsInputTruePower, upsBypassLineIndex=upsBypassLineIndex, upsConfigOutputVoltage=upsConfigOutputVoltage, upsTestSpinLock=upsTestSpinLock, upsFullAlarmGroup=upsFullAlarmGroup, PositiveInteger=PositiveInteger, upsSubsetControlGroup=upsSubsetControlGroup, upsOutputCurrent=upsOutputCurrent, upsConfigInputVoltage=upsConfigInputVoltage, upsInputEntry=upsInputEntry, upsAlarmFanFailure=upsAlarmFanFailure, upsTestId=upsTestId, upsBasicIdentGroup=upsBasicIdentGroup, upsOutputSource=upsOutputSource, upsAlarmDiagnosticTestFailed=upsAlarmDiagnosticTestFailed, upsTrapAlarmEntryRemoved=upsTrapAlarmEntryRemoved, upsEstimatedMinutesRemaining=upsEstimatedMinutesRemaining, upsAlarmLowBattery=upsAlarmLowBattery, upsAlarmEntry=upsAlarmEntry, upsConfig=upsConfig, upsOutputEntry=upsOutputEntry, upsAlarmOutputOverload=upsAlarmOutputOverload, upsFullCompliance=upsFullCompliance, upsOutputTable=upsOutputTable, upsConfigOutputVA=upsConfigOutputVA, upsFullTestGroup=upsFullTestGroup, upsIdentName=upsIdentName, upsMIB=upsMIB, upsAlarmTime=upsAlarmTime, upsBypassEntry=upsBypassEntry, upsConfigLowBattTime=upsConfigLowBattTime, upsFullOutputGroup=upsFullOutputGroup, upsFullIdentGroup=upsFullIdentGroup, upsInputCurrent=upsInputCurrent, upsOutput=upsOutput, upsTestStartTime=upsTestStartTime, upsSubsetBatteryGroup=upsSubsetBatteryGroup, upsTestNoTestsInitiated=upsTestNoTestsInitiated, upsAlarmOnBypass=upsAlarmOnBypass, upsBypass=upsBypass, upsTraps=upsTraps, upsOutputVoltage=upsOutputVoltage, upsBasicConfigGroup=upsBasicConfigGroup, upsBasicCompliance=upsBasicCompliance, upsSubsetAlarmGroup=upsSubsetAlarmGroup, upsConfigInputFreq=upsConfigInputFreq, upsBasicTestGroup=upsBasicTestGroup, upsAlarmUpsOutputOff=upsAlarmUpsOutputOff, upsInputLineBads=upsInputLineBads, upsBasicInputGroup=upsBasicInputGroup, upsAutoRestart=upsAutoRestart, upsBasicControlGroup=upsBasicControlGroup, upsAlarmBatteryBad=upsAlarmBatteryBad, upsAlarmOnBattery=upsAlarmOnBattery, upsIdentManufacturer=upsIdentManufacturer, NonNegativeInteger=NonNegativeInteger, upsInputNumLines=upsInputNumLines, upsTestDeepBatteryCalibration=upsTestDeepBatteryCalibration, upsWellKnownAlarms=upsWellKnownAlarms, upsTestResultsSummary=upsTestResultsSummary, upsSubsetCompliance=upsSubsetCompliance, upsBypassCurrent=upsBypassCurrent, upsFullBatteryGroup=upsFullBatteryGroup, upsAlarmDescr=upsAlarmDescr, upsAlarmCommunicationsLost=upsAlarmCommunicationsLost, upsFullConfigGroup=upsFullConfigGroup, upsFullGroups=upsFullGroups, upsAlarmAwaitingPower=upsAlarmAwaitingPower, PYSNMP_MODULE_ID=upsMIB, upsControl=upsControl, upsFullBypassGroup=upsFullBypassGroup, upsSubsetOutputGroup=upsSubsetOutputGroup, upsFullInputGroup=upsFullInputGroup, upsSubsetGroups=upsSubsetGroups, upsShutdownType=upsShutdownType, upsOutputFrequency=upsOutputFrequency, upsCompliances=upsCompliances, upsConfigOutputPower=upsConfigOutputPower, upsAlarmFuseFailure=upsAlarmFuseFailure, upsWellKnownTests=upsWellKnownTests, upsAlarmTestInProgress=upsAlarmTestInProgress, upsTest=upsTest, upsBypassFrequency=upsBypassFrequency, upsBatteryCurrent=upsBatteryCurrent, upsAlarmOutputBad=upsAlarmOutputBad, upsConfigOutputFreq=upsConfigOutputFreq, upsAlarmTable=upsAlarmTable, upsAlarmId=upsAlarmId, upsAlarmChargerFailed=upsAlarmChargerFailed, upsConformance=upsConformance, upsAlarmShutdownImminent=upsAlarmShutdownImminent, upsGroups=upsGroups, upsAlarmInputBad=upsAlarmInputBad, upsIdent=upsIdent, upsStartupAfterDelay=upsStartupAfterDelay, upsRebootWithDuration=upsRebootWithDuration, upsIdentAttachedDevices=upsIdentAttachedDevices, upsSubsetInputGroup=upsSubsetInputGroup, upsOutputPower=upsOutputPower, upsConfigHighVoltageTransferPoint=upsConfigHighVoltageTransferPoint, upsBasicBatteryGroup=upsBasicBatteryGroup)
+_AW='upsFullConfigGroup'
+_AV='upsFullControlGroup'
+_AU='upsFullTestGroup'
+_AT='upsFullAlarmGroup'
+_AS='upsFullOutputGroup'
+_AR='upsFullInputGroup'
+_AQ='upsFullBatteryGroup'
+_AP='upsFullIdentGroup'
+_AO='upsBasicConfigGroup'
+_AN='upsBasicControlGroup'
+_AM='upsBasicTestGroup'
+_AL='upsBasicAlarmGroup'
+_AK='upsBasicOutputGroup'
+_AJ='upsBasicInputGroup'
+_AI='upsBasicBatteryGroup'
+_AH='upsBasicIdentGroup'
+_AG='upsSubsetConfigGroup'
+_AF='upsSubsetControlGroup'
+_AE='upsSubsetAlarmGroup'
+_AD='upsSubsetOutputGroup'
+_AC='upsSubsetInputGroup'
+_AB='upsSubsetBatteryGroup'
+_AA='upsSubsetIdentGroup'
+_A9='upsOutputPercentLoad'
+_A8='upsOutputPower'
+_A7='upsOutputCurrent'
+_A6='upsEstimatedChargeRemaining'
+_A5='upsBypassLineIndex'
+_A4='upsOutputLineIndex'
+_A3='upsInputLineIndex'
+_A2='upsEstimatedMinutesRemaining'
+_A1='upsConfigAudibleStatus'
+_A0='upsRebootWithDuration'
+_z='upsStartupAfterDelay'
+_y='upsBypassVoltage'
+_x='upsBypassNumLines'
+_w='upsBypassFrequency'
+_v='upsOutputVoltage'
+_u='upsOutputNumLines'
+_t='upsOutputFrequency'
+_s='upsInputVoltage'
+_r='upsInputFrequency'
+_q='upsInputNumLines'
+_p='upsIdentUPSSoftwareVersion'
+_o='upsIdentAttachedDevices'
+_n='0.1 RMS Amp'
+_m='upsConfigLowBattTime'
+_l='upsTestElapsedTime'
+_k='upsTestStartTime'
+_j='upsTestResultsDetail'
+_i='upsTestResultsSummary'
+_h='upsTestSpinLock'
+_g='upsTestId'
+_f='upsConfigOutputPower'
+_e='upsConfigOutputVA'
+_d='upsConfigOutputFreq'
+_c='upsConfigOutputVoltage'
+_b='upsConfigInputFreq'
+_a='upsConfigInputVoltage'
+_Z='upsAutoRestart'
+_Y='upsShutdownAfterDelay'
+_X='upsShutdownType'
+_W='upsAlarmTime'
+_V='upsAlarmsPresent'
+_U='upsOutputSource'
+_T='upsInputLineBads'
+_S='upsBatteryStatus'
+_R='upsIdentName'
+_Q='upsIdentAgentSoftwareVersion'
+_P='upsIdentModel'
+_O='upsIdentManufacturer'
+_N='upsAlarmId'
+_M='Watts'
+_L='not-accessible'
+_K='seconds'
+_J='upsSecondsOnBattery'
+_I='0.1 Hertz'
+_H='upsAlarmDescr'
+_G='RMS Volts'
+_F='DisplayString'
+_E='Integer32'
+_D='read-write'
+_C='read-only'
+_B='current'
+_A='UPS-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+AutonomousType,DisplayString,PhysAddress,TextualConvention,TestAndIncr,TimeInterval,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','AutonomousType',_F,'PhysAddress','TextualConvention','TestAndIncr','TimeInterval','TimeStamp')
+upsMIB=ModuleIdentity((1,3,6,1,2,1,33))
+if mibBuilder.loadTexts:upsMIB.setRevisions(('2005-10-14 00:00',))
+class PositiveInteger(TextualConvention,Integer32):status=_B;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+class NonNegativeInteger(TextualConvention,Integer32):status=_B;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_UpsObjects_ObjectIdentity=ObjectIdentity
+upsObjects=_UpsObjects_ObjectIdentity((1,3,6,1,2,1,33,1))
+_UpsIdent_ObjectIdentity=ObjectIdentity
+upsIdent=_UpsIdent_ObjectIdentity((1,3,6,1,2,1,33,1,1))
+class _UpsIdentManufacturer_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
+_UpsIdentManufacturer_Type.__name__=_F
+_UpsIdentManufacturer_Object=MibScalar
+upsIdentManufacturer=_UpsIdentManufacturer_Object((1,3,6,1,2,1,33,1,1,1),_UpsIdentManufacturer_Type())
+upsIdentManufacturer.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsIdentManufacturer.setStatus(_B)
+class _UpsIdentModel_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_UpsIdentModel_Type.__name__=_F
+_UpsIdentModel_Object=MibScalar
+upsIdentModel=_UpsIdentModel_Object((1,3,6,1,2,1,33,1,1,2),_UpsIdentModel_Type())
+upsIdentModel.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsIdentModel.setStatus(_B)
+class _UpsIdentUPSSoftwareVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_UpsIdentUPSSoftwareVersion_Type.__name__=_F
+_UpsIdentUPSSoftwareVersion_Object=MibScalar
+upsIdentUPSSoftwareVersion=_UpsIdentUPSSoftwareVersion_Object((1,3,6,1,2,1,33,1,1,3),_UpsIdentUPSSoftwareVersion_Type())
+upsIdentUPSSoftwareVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsIdentUPSSoftwareVersion.setStatus(_B)
+class _UpsIdentAgentSoftwareVersion_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_UpsIdentAgentSoftwareVersion_Type.__name__=_F
+_UpsIdentAgentSoftwareVersion_Object=MibScalar
+upsIdentAgentSoftwareVersion=_UpsIdentAgentSoftwareVersion_Object((1,3,6,1,2,1,33,1,1,4),_UpsIdentAgentSoftwareVersion_Type())
+upsIdentAgentSoftwareVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsIdentAgentSoftwareVersion.setStatus(_B)
+class _UpsIdentName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_UpsIdentName_Type.__name__=_F
+_UpsIdentName_Object=MibScalar
+upsIdentName=_UpsIdentName_Object((1,3,6,1,2,1,33,1,1,5),_UpsIdentName_Type())
+upsIdentName.setMaxAccess(_D)
+if mibBuilder.loadTexts:upsIdentName.setStatus(_B)
+class _UpsIdentAttachedDevices_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_UpsIdentAttachedDevices_Type.__name__=_F
+_UpsIdentAttachedDevices_Object=MibScalar
+upsIdentAttachedDevices=_UpsIdentAttachedDevices_Object((1,3,6,1,2,1,33,1,1,6),_UpsIdentAttachedDevices_Type())
+upsIdentAttachedDevices.setMaxAccess(_D)
+if mibBuilder.loadTexts:upsIdentAttachedDevices.setStatus(_B)
+_UpsBattery_ObjectIdentity=ObjectIdentity
+upsBattery=_UpsBattery_ObjectIdentity((1,3,6,1,2,1,33,1,2))
+class _UpsBatteryStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('unknown',1),('batteryNormal',2),('batteryLow',3),('batteryDepleted',4)))
+_UpsBatteryStatus_Type.__name__=_E
+_UpsBatteryStatus_Object=MibScalar
+upsBatteryStatus=_UpsBatteryStatus_Object((1,3,6,1,2,1,33,1,2,1),_UpsBatteryStatus_Type())
+upsBatteryStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsBatteryStatus.setStatus(_B)
+_UpsSecondsOnBattery_Type=NonNegativeInteger
+_UpsSecondsOnBattery_Object=MibScalar
+upsSecondsOnBattery=_UpsSecondsOnBattery_Object((1,3,6,1,2,1,33,1,2,2),_UpsSecondsOnBattery_Type())
+upsSecondsOnBattery.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsSecondsOnBattery.setStatus(_B)
+if mibBuilder.loadTexts:upsSecondsOnBattery.setUnits(_K)
+_UpsEstimatedMinutesRemaining_Type=PositiveInteger
+_UpsEstimatedMinutesRemaining_Object=MibScalar
+upsEstimatedMinutesRemaining=_UpsEstimatedMinutesRemaining_Object((1,3,6,1,2,1,33,1,2,3),_UpsEstimatedMinutesRemaining_Type())
+upsEstimatedMinutesRemaining.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsEstimatedMinutesRemaining.setStatus(_B)
+if mibBuilder.loadTexts:upsEstimatedMinutesRemaining.setUnits('minutes')
+class _UpsEstimatedChargeRemaining_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
+_UpsEstimatedChargeRemaining_Type.__name__=_E
+_UpsEstimatedChargeRemaining_Object=MibScalar
+upsEstimatedChargeRemaining=_UpsEstimatedChargeRemaining_Object((1,3,6,1,2,1,33,1,2,4),_UpsEstimatedChargeRemaining_Type())
+upsEstimatedChargeRemaining.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsEstimatedChargeRemaining.setStatus(_B)
+if mibBuilder.loadTexts:upsEstimatedChargeRemaining.setUnits('percent')
+_UpsBatteryVoltage_Type=NonNegativeInteger
+_UpsBatteryVoltage_Object=MibScalar
+upsBatteryVoltage=_UpsBatteryVoltage_Object((1,3,6,1,2,1,33,1,2,5),_UpsBatteryVoltage_Type())
+upsBatteryVoltage.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsBatteryVoltage.setStatus(_B)
+if mibBuilder.loadTexts:upsBatteryVoltage.setUnits('0.1 Volt DC')
+_UpsBatteryCurrent_Type=Integer32
+_UpsBatteryCurrent_Object=MibScalar
+upsBatteryCurrent=_UpsBatteryCurrent_Object((1,3,6,1,2,1,33,1,2,6),_UpsBatteryCurrent_Type())
+upsBatteryCurrent.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsBatteryCurrent.setStatus(_B)
+if mibBuilder.loadTexts:upsBatteryCurrent.setUnits('0.1 Amp DC')
+_UpsBatteryTemperature_Type=Integer32
+_UpsBatteryTemperature_Object=MibScalar
+upsBatteryTemperature=_UpsBatteryTemperature_Object((1,3,6,1,2,1,33,1,2,7),_UpsBatteryTemperature_Type())
+upsBatteryTemperature.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsBatteryTemperature.setStatus(_B)
+if mibBuilder.loadTexts:upsBatteryTemperature.setUnits('degrees Centigrade')
+_UpsInput_ObjectIdentity=ObjectIdentity
+upsInput=_UpsInput_ObjectIdentity((1,3,6,1,2,1,33,1,3))
+_UpsInputLineBads_Type=Counter32
+_UpsInputLineBads_Object=MibScalar
+upsInputLineBads=_UpsInputLineBads_Object((1,3,6,1,2,1,33,1,3,1),_UpsInputLineBads_Type())
+upsInputLineBads.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsInputLineBads.setStatus(_B)
+_UpsInputNumLines_Type=NonNegativeInteger
+_UpsInputNumLines_Object=MibScalar
+upsInputNumLines=_UpsInputNumLines_Object((1,3,6,1,2,1,33,1,3,2),_UpsInputNumLines_Type())
+upsInputNumLines.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsInputNumLines.setStatus(_B)
+_UpsInputTable_Object=MibTable
+upsInputTable=_UpsInputTable_Object((1,3,6,1,2,1,33,1,3,3))
+if mibBuilder.loadTexts:upsInputTable.setStatus(_B)
+_UpsInputEntry_Object=MibTableRow
+upsInputEntry=_UpsInputEntry_Object((1,3,6,1,2,1,33,1,3,3,1))
+upsInputEntry.setIndexNames((0,_A,_A3))
+if mibBuilder.loadTexts:upsInputEntry.setStatus(_B)
+_UpsInputLineIndex_Type=PositiveInteger
+_UpsInputLineIndex_Object=MibTableColumn
+upsInputLineIndex=_UpsInputLineIndex_Object((1,3,6,1,2,1,33,1,3,3,1,1),_UpsInputLineIndex_Type())
+upsInputLineIndex.setMaxAccess(_L)
+if mibBuilder.loadTexts:upsInputLineIndex.setStatus(_B)
+_UpsInputFrequency_Type=NonNegativeInteger
+_UpsInputFrequency_Object=MibTableColumn
+upsInputFrequency=_UpsInputFrequency_Object((1,3,6,1,2,1,33,1,3,3,1,2),_UpsInputFrequency_Type())
+upsInputFrequency.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsInputFrequency.setStatus(_B)
+if mibBuilder.loadTexts:upsInputFrequency.setUnits(_I)
+_UpsInputVoltage_Type=NonNegativeInteger
+_UpsInputVoltage_Object=MibTableColumn
+upsInputVoltage=_UpsInputVoltage_Object((1,3,6,1,2,1,33,1,3,3,1,3),_UpsInputVoltage_Type())
+upsInputVoltage.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsInputVoltage.setStatus(_B)
+if mibBuilder.loadTexts:upsInputVoltage.setUnits(_G)
+_UpsInputCurrent_Type=NonNegativeInteger
+_UpsInputCurrent_Object=MibTableColumn
+upsInputCurrent=_UpsInputCurrent_Object((1,3,6,1,2,1,33,1,3,3,1,4),_UpsInputCurrent_Type())
+upsInputCurrent.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsInputCurrent.setStatus(_B)
+if mibBuilder.loadTexts:upsInputCurrent.setUnits(_n)
+_UpsInputTruePower_Type=NonNegativeInteger
+_UpsInputTruePower_Object=MibTableColumn
+upsInputTruePower=_UpsInputTruePower_Object((1,3,6,1,2,1,33,1,3,3,1,5),_UpsInputTruePower_Type())
+upsInputTruePower.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsInputTruePower.setStatus(_B)
+if mibBuilder.loadTexts:upsInputTruePower.setUnits(_M)
+_UpsOutput_ObjectIdentity=ObjectIdentity
+upsOutput=_UpsOutput_ObjectIdentity((1,3,6,1,2,1,33,1,4))
+class _UpsOutputSource_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('other',1),('none',2),('normal',3),('bypass',4),('battery',5),('booster',6),('reducer',7)))
+_UpsOutputSource_Type.__name__=_E
+_UpsOutputSource_Object=MibScalar
+upsOutputSource=_UpsOutputSource_Object((1,3,6,1,2,1,33,1,4,1),_UpsOutputSource_Type())
+upsOutputSource.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsOutputSource.setStatus(_B)
+_UpsOutputFrequency_Type=NonNegativeInteger
+_UpsOutputFrequency_Object=MibScalar
+upsOutputFrequency=_UpsOutputFrequency_Object((1,3,6,1,2,1,33,1,4,2),_UpsOutputFrequency_Type())
+upsOutputFrequency.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsOutputFrequency.setStatus(_B)
+if mibBuilder.loadTexts:upsOutputFrequency.setUnits(_I)
+_UpsOutputNumLines_Type=NonNegativeInteger
+_UpsOutputNumLines_Object=MibScalar
+upsOutputNumLines=_UpsOutputNumLines_Object((1,3,6,1,2,1,33,1,4,3),_UpsOutputNumLines_Type())
+upsOutputNumLines.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsOutputNumLines.setStatus(_B)
+_UpsOutputTable_Object=MibTable
+upsOutputTable=_UpsOutputTable_Object((1,3,6,1,2,1,33,1,4,4))
+if mibBuilder.loadTexts:upsOutputTable.setStatus(_B)
+_UpsOutputEntry_Object=MibTableRow
+upsOutputEntry=_UpsOutputEntry_Object((1,3,6,1,2,1,33,1,4,4,1))
+upsOutputEntry.setIndexNames((0,_A,_A4))
+if mibBuilder.loadTexts:upsOutputEntry.setStatus(_B)
+_UpsOutputLineIndex_Type=PositiveInteger
+_UpsOutputLineIndex_Object=MibTableColumn
+upsOutputLineIndex=_UpsOutputLineIndex_Object((1,3,6,1,2,1,33,1,4,4,1,1),_UpsOutputLineIndex_Type())
+upsOutputLineIndex.setMaxAccess(_L)
+if mibBuilder.loadTexts:upsOutputLineIndex.setStatus(_B)
+_UpsOutputVoltage_Type=NonNegativeInteger
+_UpsOutputVoltage_Object=MibTableColumn
+upsOutputVoltage=_UpsOutputVoltage_Object((1,3,6,1,2,1,33,1,4,4,1,2),_UpsOutputVoltage_Type())
+upsOutputVoltage.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsOutputVoltage.setStatus(_B)
+if mibBuilder.loadTexts:upsOutputVoltage.setUnits(_G)
+_UpsOutputCurrent_Type=NonNegativeInteger
+_UpsOutputCurrent_Object=MibTableColumn
+upsOutputCurrent=_UpsOutputCurrent_Object((1,3,6,1,2,1,33,1,4,4,1,3),_UpsOutputCurrent_Type())
+upsOutputCurrent.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsOutputCurrent.setStatus(_B)
+if mibBuilder.loadTexts:upsOutputCurrent.setUnits(_n)
+_UpsOutputPower_Type=NonNegativeInteger
+_UpsOutputPower_Object=MibTableColumn
+upsOutputPower=_UpsOutputPower_Object((1,3,6,1,2,1,33,1,4,4,1,4),_UpsOutputPower_Type())
+upsOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsOutputPower.setStatus(_B)
+if mibBuilder.loadTexts:upsOutputPower.setUnits(_M)
+class _UpsOutputPercentLoad_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,200))
+_UpsOutputPercentLoad_Type.__name__=_E
+_UpsOutputPercentLoad_Object=MibTableColumn
+upsOutputPercentLoad=_UpsOutputPercentLoad_Object((1,3,6,1,2,1,33,1,4,4,1,5),_UpsOutputPercentLoad_Type())
+upsOutputPercentLoad.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsOutputPercentLoad.setStatus(_B)
+if mibBuilder.loadTexts:upsOutputPercentLoad.setUnits('percent')
+_UpsBypass_ObjectIdentity=ObjectIdentity
+upsBypass=_UpsBypass_ObjectIdentity((1,3,6,1,2,1,33,1,5))
+_UpsBypassFrequency_Type=NonNegativeInteger
+_UpsBypassFrequency_Object=MibScalar
+upsBypassFrequency=_UpsBypassFrequency_Object((1,3,6,1,2,1,33,1,5,1),_UpsBypassFrequency_Type())
+upsBypassFrequency.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsBypassFrequency.setStatus(_B)
+if mibBuilder.loadTexts:upsBypassFrequency.setUnits(_I)
+_UpsBypassNumLines_Type=NonNegativeInteger
+_UpsBypassNumLines_Object=MibScalar
+upsBypassNumLines=_UpsBypassNumLines_Object((1,3,6,1,2,1,33,1,5,2),_UpsBypassNumLines_Type())
+upsBypassNumLines.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsBypassNumLines.setStatus(_B)
+_UpsBypassTable_Object=MibTable
+upsBypassTable=_UpsBypassTable_Object((1,3,6,1,2,1,33,1,5,3))
+if mibBuilder.loadTexts:upsBypassTable.setStatus(_B)
+_UpsBypassEntry_Object=MibTableRow
+upsBypassEntry=_UpsBypassEntry_Object((1,3,6,1,2,1,33,1,5,3,1))
+upsBypassEntry.setIndexNames((0,_A,_A5))
+if mibBuilder.loadTexts:upsBypassEntry.setStatus(_B)
+_UpsBypassLineIndex_Type=PositiveInteger
+_UpsBypassLineIndex_Object=MibTableColumn
+upsBypassLineIndex=_UpsBypassLineIndex_Object((1,3,6,1,2,1,33,1,5,3,1,1),_UpsBypassLineIndex_Type())
+upsBypassLineIndex.setMaxAccess(_L)
+if mibBuilder.loadTexts:upsBypassLineIndex.setStatus(_B)
+_UpsBypassVoltage_Type=NonNegativeInteger
+_UpsBypassVoltage_Object=MibTableColumn
+upsBypassVoltage=_UpsBypassVoltage_Object((1,3,6,1,2,1,33,1,5,3,1,2),_UpsBypassVoltage_Type())
+upsBypassVoltage.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsBypassVoltage.setStatus(_B)
+if mibBuilder.loadTexts:upsBypassVoltage.setUnits(_G)
+_UpsBypassCurrent_Type=NonNegativeInteger
+_UpsBypassCurrent_Object=MibTableColumn
+upsBypassCurrent=_UpsBypassCurrent_Object((1,3,6,1,2,1,33,1,5,3,1,3),_UpsBypassCurrent_Type())
+upsBypassCurrent.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsBypassCurrent.setStatus(_B)
+if mibBuilder.loadTexts:upsBypassCurrent.setUnits(_n)
+_UpsBypassPower_Type=NonNegativeInteger
+_UpsBypassPower_Object=MibTableColumn
+upsBypassPower=_UpsBypassPower_Object((1,3,6,1,2,1,33,1,5,3,1,4),_UpsBypassPower_Type())
+upsBypassPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsBypassPower.setStatus(_B)
+if mibBuilder.loadTexts:upsBypassPower.setUnits(_M)
+_UpsAlarm_ObjectIdentity=ObjectIdentity
+upsAlarm=_UpsAlarm_ObjectIdentity((1,3,6,1,2,1,33,1,6))
+_UpsAlarmsPresent_Type=Gauge32
+_UpsAlarmsPresent_Object=MibScalar
+upsAlarmsPresent=_UpsAlarmsPresent_Object((1,3,6,1,2,1,33,1,6,1),_UpsAlarmsPresent_Type())
+upsAlarmsPresent.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsAlarmsPresent.setStatus(_B)
+_UpsAlarmTable_Object=MibTable
+upsAlarmTable=_UpsAlarmTable_Object((1,3,6,1,2,1,33,1,6,2))
+if mibBuilder.loadTexts:upsAlarmTable.setStatus(_B)
+_UpsAlarmEntry_Object=MibTableRow
+upsAlarmEntry=_UpsAlarmEntry_Object((1,3,6,1,2,1,33,1,6,2,1))
+upsAlarmEntry.setIndexNames((0,_A,_N))
+if mibBuilder.loadTexts:upsAlarmEntry.setStatus(_B)
+_UpsAlarmId_Type=PositiveInteger
+_UpsAlarmId_Object=MibTableColumn
+upsAlarmId=_UpsAlarmId_Object((1,3,6,1,2,1,33,1,6,2,1,1),_UpsAlarmId_Type())
+upsAlarmId.setMaxAccess(_L)
+if mibBuilder.loadTexts:upsAlarmId.setStatus(_B)
+_UpsAlarmDescr_Type=AutonomousType
+_UpsAlarmDescr_Object=MibTableColumn
+upsAlarmDescr=_UpsAlarmDescr_Object((1,3,6,1,2,1,33,1,6,2,1,2),_UpsAlarmDescr_Type())
+upsAlarmDescr.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsAlarmDescr.setStatus(_B)
+_UpsAlarmTime_Type=TimeStamp
+_UpsAlarmTime_Object=MibTableColumn
+upsAlarmTime=_UpsAlarmTime_Object((1,3,6,1,2,1,33,1,6,2,1,3),_UpsAlarmTime_Type())
+upsAlarmTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsAlarmTime.setStatus(_B)
+_UpsWellKnownAlarms_ObjectIdentity=ObjectIdentity
+upsWellKnownAlarms=_UpsWellKnownAlarms_ObjectIdentity((1,3,6,1,2,1,33,1,6,3))
+_UpsAlarmBatteryBad_ObjectIdentity=ObjectIdentity
+upsAlarmBatteryBad=_UpsAlarmBatteryBad_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,1))
+if mibBuilder.loadTexts:upsAlarmBatteryBad.setStatus(_B)
+_UpsAlarmOnBattery_ObjectIdentity=ObjectIdentity
+upsAlarmOnBattery=_UpsAlarmOnBattery_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,2))
+if mibBuilder.loadTexts:upsAlarmOnBattery.setStatus(_B)
+_UpsAlarmLowBattery_ObjectIdentity=ObjectIdentity
+upsAlarmLowBattery=_UpsAlarmLowBattery_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,3))
+if mibBuilder.loadTexts:upsAlarmLowBattery.setStatus(_B)
+_UpsAlarmDepletedBattery_ObjectIdentity=ObjectIdentity
+upsAlarmDepletedBattery=_UpsAlarmDepletedBattery_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,4))
+if mibBuilder.loadTexts:upsAlarmDepletedBattery.setStatus(_B)
+_UpsAlarmTempBad_ObjectIdentity=ObjectIdentity
+upsAlarmTempBad=_UpsAlarmTempBad_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,5))
+if mibBuilder.loadTexts:upsAlarmTempBad.setStatus(_B)
+_UpsAlarmInputBad_ObjectIdentity=ObjectIdentity
+upsAlarmInputBad=_UpsAlarmInputBad_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,6))
+if mibBuilder.loadTexts:upsAlarmInputBad.setStatus(_B)
+_UpsAlarmOutputBad_ObjectIdentity=ObjectIdentity
+upsAlarmOutputBad=_UpsAlarmOutputBad_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,7))
+if mibBuilder.loadTexts:upsAlarmOutputBad.setStatus(_B)
+_UpsAlarmOutputOverload_ObjectIdentity=ObjectIdentity
+upsAlarmOutputOverload=_UpsAlarmOutputOverload_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,8))
+if mibBuilder.loadTexts:upsAlarmOutputOverload.setStatus(_B)
+_UpsAlarmOnBypass_ObjectIdentity=ObjectIdentity
+upsAlarmOnBypass=_UpsAlarmOnBypass_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,9))
+if mibBuilder.loadTexts:upsAlarmOnBypass.setStatus(_B)
+_UpsAlarmBypassBad_ObjectIdentity=ObjectIdentity
+upsAlarmBypassBad=_UpsAlarmBypassBad_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,10))
+if mibBuilder.loadTexts:upsAlarmBypassBad.setStatus(_B)
+_UpsAlarmOutputOffAsRequested_ObjectIdentity=ObjectIdentity
+upsAlarmOutputOffAsRequested=_UpsAlarmOutputOffAsRequested_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,11))
+if mibBuilder.loadTexts:upsAlarmOutputOffAsRequested.setStatus(_B)
+_UpsAlarmUpsOffAsRequested_ObjectIdentity=ObjectIdentity
+upsAlarmUpsOffAsRequested=_UpsAlarmUpsOffAsRequested_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,12))
+if mibBuilder.loadTexts:upsAlarmUpsOffAsRequested.setStatus(_B)
+_UpsAlarmChargerFailed_ObjectIdentity=ObjectIdentity
+upsAlarmChargerFailed=_UpsAlarmChargerFailed_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,13))
+if mibBuilder.loadTexts:upsAlarmChargerFailed.setStatus(_B)
+_UpsAlarmUpsOutputOff_ObjectIdentity=ObjectIdentity
+upsAlarmUpsOutputOff=_UpsAlarmUpsOutputOff_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,14))
+if mibBuilder.loadTexts:upsAlarmUpsOutputOff.setStatus(_B)
+_UpsAlarmUpsSystemOff_ObjectIdentity=ObjectIdentity
+upsAlarmUpsSystemOff=_UpsAlarmUpsSystemOff_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,15))
+if mibBuilder.loadTexts:upsAlarmUpsSystemOff.setStatus(_B)
+_UpsAlarmFanFailure_ObjectIdentity=ObjectIdentity
+upsAlarmFanFailure=_UpsAlarmFanFailure_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,16))
+if mibBuilder.loadTexts:upsAlarmFanFailure.setStatus(_B)
+_UpsAlarmFuseFailure_ObjectIdentity=ObjectIdentity
+upsAlarmFuseFailure=_UpsAlarmFuseFailure_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,17))
+if mibBuilder.loadTexts:upsAlarmFuseFailure.setStatus(_B)
+_UpsAlarmGeneralFault_ObjectIdentity=ObjectIdentity
+upsAlarmGeneralFault=_UpsAlarmGeneralFault_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,18))
+if mibBuilder.loadTexts:upsAlarmGeneralFault.setStatus(_B)
+_UpsAlarmDiagnosticTestFailed_ObjectIdentity=ObjectIdentity
+upsAlarmDiagnosticTestFailed=_UpsAlarmDiagnosticTestFailed_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,19))
+if mibBuilder.loadTexts:upsAlarmDiagnosticTestFailed.setStatus(_B)
+_UpsAlarmCommunicationsLost_ObjectIdentity=ObjectIdentity
+upsAlarmCommunicationsLost=_UpsAlarmCommunicationsLost_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,20))
+if mibBuilder.loadTexts:upsAlarmCommunicationsLost.setStatus(_B)
+_UpsAlarmAwaitingPower_ObjectIdentity=ObjectIdentity
+upsAlarmAwaitingPower=_UpsAlarmAwaitingPower_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,21))
+if mibBuilder.loadTexts:upsAlarmAwaitingPower.setStatus(_B)
+_UpsAlarmShutdownPending_ObjectIdentity=ObjectIdentity
+upsAlarmShutdownPending=_UpsAlarmShutdownPending_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,22))
+if mibBuilder.loadTexts:upsAlarmShutdownPending.setStatus(_B)
+_UpsAlarmShutdownImminent_ObjectIdentity=ObjectIdentity
+upsAlarmShutdownImminent=_UpsAlarmShutdownImminent_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,23))
+if mibBuilder.loadTexts:upsAlarmShutdownImminent.setStatus(_B)
+_UpsAlarmTestInProgress_ObjectIdentity=ObjectIdentity
+upsAlarmTestInProgress=_UpsAlarmTestInProgress_ObjectIdentity((1,3,6,1,2,1,33,1,6,3,24))
+if mibBuilder.loadTexts:upsAlarmTestInProgress.setStatus(_B)
+_UpsTest_ObjectIdentity=ObjectIdentity
+upsTest=_UpsTest_ObjectIdentity((1,3,6,1,2,1,33,1,7))
+_UpsTestId_Type=ObjectIdentifier
+_UpsTestId_Object=MibScalar
+upsTestId=_UpsTestId_Object((1,3,6,1,2,1,33,1,7,1),_UpsTestId_Type())
+upsTestId.setMaxAccess(_D)
+if mibBuilder.loadTexts:upsTestId.setStatus(_B)
+_UpsTestSpinLock_Type=TestAndIncr
+_UpsTestSpinLock_Object=MibScalar
+upsTestSpinLock=_UpsTestSpinLock_Object((1,3,6,1,2,1,33,1,7,2),_UpsTestSpinLock_Type())
+upsTestSpinLock.setMaxAccess(_D)
+if mibBuilder.loadTexts:upsTestSpinLock.setStatus(_B)
+class _UpsTestResultsSummary_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('donePass',1),('doneWarning',2),('doneError',3),('aborted',4),('inProgress',5),('noTestsInitiated',6)))
+_UpsTestResultsSummary_Type.__name__=_E
+_UpsTestResultsSummary_Object=MibScalar
+upsTestResultsSummary=_UpsTestResultsSummary_Object((1,3,6,1,2,1,33,1,7,3),_UpsTestResultsSummary_Type())
+upsTestResultsSummary.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsTestResultsSummary.setStatus(_B)
+class _UpsTestResultsDetail_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_UpsTestResultsDetail_Type.__name__=_F
+_UpsTestResultsDetail_Object=MibScalar
+upsTestResultsDetail=_UpsTestResultsDetail_Object((1,3,6,1,2,1,33,1,7,4),_UpsTestResultsDetail_Type())
+upsTestResultsDetail.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsTestResultsDetail.setStatus(_B)
+_UpsTestStartTime_Type=TimeStamp
+_UpsTestStartTime_Object=MibScalar
+upsTestStartTime=_UpsTestStartTime_Object((1,3,6,1,2,1,33,1,7,5),_UpsTestStartTime_Type())
+upsTestStartTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsTestStartTime.setStatus(_B)
+_UpsTestElapsedTime_Type=TimeInterval
+_UpsTestElapsedTime_Object=MibScalar
+upsTestElapsedTime=_UpsTestElapsedTime_Object((1,3,6,1,2,1,33,1,7,6),_UpsTestElapsedTime_Type())
+upsTestElapsedTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsTestElapsedTime.setStatus(_B)
+_UpsWellKnownTests_ObjectIdentity=ObjectIdentity
+upsWellKnownTests=_UpsWellKnownTests_ObjectIdentity((1,3,6,1,2,1,33,1,7,7))
+_UpsTestNoTestsInitiated_ObjectIdentity=ObjectIdentity
+upsTestNoTestsInitiated=_UpsTestNoTestsInitiated_ObjectIdentity((1,3,6,1,2,1,33,1,7,7,1))
+if mibBuilder.loadTexts:upsTestNoTestsInitiated.setStatus(_B)
+_UpsTestAbortTestInProgress_ObjectIdentity=ObjectIdentity
+upsTestAbortTestInProgress=_UpsTestAbortTestInProgress_ObjectIdentity((1,3,6,1,2,1,33,1,7,7,2))
+if mibBuilder.loadTexts:upsTestAbortTestInProgress.setStatus(_B)
+_UpsTestGeneralSystemsTest_ObjectIdentity=ObjectIdentity
+upsTestGeneralSystemsTest=_UpsTestGeneralSystemsTest_ObjectIdentity((1,3,6,1,2,1,33,1,7,7,3))
+if mibBuilder.loadTexts:upsTestGeneralSystemsTest.setStatus(_B)
+_UpsTestQuickBatteryTest_ObjectIdentity=ObjectIdentity
+upsTestQuickBatteryTest=_UpsTestQuickBatteryTest_ObjectIdentity((1,3,6,1,2,1,33,1,7,7,4))
+if mibBuilder.loadTexts:upsTestQuickBatteryTest.setStatus(_B)
+_UpsTestDeepBatteryCalibration_ObjectIdentity=ObjectIdentity
+upsTestDeepBatteryCalibration=_UpsTestDeepBatteryCalibration_ObjectIdentity((1,3,6,1,2,1,33,1,7,7,5))
+if mibBuilder.loadTexts:upsTestDeepBatteryCalibration.setStatus(_B)
+_UpsControl_ObjectIdentity=ObjectIdentity
+upsControl=_UpsControl_ObjectIdentity((1,3,6,1,2,1,33,1,8))
+class _UpsShutdownType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('output',1),('system',2)))
+_UpsShutdownType_Type.__name__=_E
+_UpsShutdownType_Object=MibScalar
+upsShutdownType=_UpsShutdownType_Object((1,3,6,1,2,1,33,1,8,1),_UpsShutdownType_Type())
+upsShutdownType.setMaxAccess(_D)
+if mibBuilder.loadTexts:upsShutdownType.setStatus(_B)
+class _UpsShutdownAfterDelay_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
+_UpsShutdownAfterDelay_Type.__name__=_E
+_UpsShutdownAfterDelay_Object=MibScalar
+upsShutdownAfterDelay=_UpsShutdownAfterDelay_Object((1,3,6,1,2,1,33,1,8,2),_UpsShutdownAfterDelay_Type())
+upsShutdownAfterDelay.setMaxAccess(_D)
+if mibBuilder.loadTexts:upsShutdownAfterDelay.setStatus(_B)
+if mibBuilder.loadTexts:upsShutdownAfterDelay.setUnits(_K)
+class _UpsStartupAfterDelay_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
+_UpsStartupAfterDelay_Type.__name__=_E
+_UpsStartupAfterDelay_Object=MibScalar
+upsStartupAfterDelay=_UpsStartupAfterDelay_Object((1,3,6,1,2,1,33,1,8,3),_UpsStartupAfterDelay_Type())
+upsStartupAfterDelay.setMaxAccess(_D)
+if mibBuilder.loadTexts:upsStartupAfterDelay.setStatus(_B)
+if mibBuilder.loadTexts:upsStartupAfterDelay.setUnits(_K)
+class _UpsRebootWithDuration_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,300))
+_UpsRebootWithDuration_Type.__name__=_E
+_UpsRebootWithDuration_Object=MibScalar
+upsRebootWithDuration=_UpsRebootWithDuration_Object((1,3,6,1,2,1,33,1,8,4),_UpsRebootWithDuration_Type())
+upsRebootWithDuration.setMaxAccess(_D)
+if mibBuilder.loadTexts:upsRebootWithDuration.setStatus(_B)
+if mibBuilder.loadTexts:upsRebootWithDuration.setUnits(_K)
+class _UpsAutoRestart_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('on',1),('off',2)))
+_UpsAutoRestart_Type.__name__=_E
+_UpsAutoRestart_Object=MibScalar
+upsAutoRestart=_UpsAutoRestart_Object((1,3,6,1,2,1,33,1,8,5),_UpsAutoRestart_Type())
+upsAutoRestart.setMaxAccess(_D)
+if mibBuilder.loadTexts:upsAutoRestart.setStatus(_B)
+_UpsConfig_ObjectIdentity=ObjectIdentity
+upsConfig=_UpsConfig_ObjectIdentity((1,3,6,1,2,1,33,1,9))
+_UpsConfigInputVoltage_Type=NonNegativeInteger
+_UpsConfigInputVoltage_Object=MibScalar
+upsConfigInputVoltage=_UpsConfigInputVoltage_Object((1,3,6,1,2,1,33,1,9,1),_UpsConfigInputVoltage_Type())
+upsConfigInputVoltage.setMaxAccess(_D)
+if mibBuilder.loadTexts:upsConfigInputVoltage.setStatus(_B)
+if mibBuilder.loadTexts:upsConfigInputVoltage.setUnits(_G)
+_UpsConfigInputFreq_Type=NonNegativeInteger
+_UpsConfigInputFreq_Object=MibScalar
+upsConfigInputFreq=_UpsConfigInputFreq_Object((1,3,6,1,2,1,33,1,9,2),_UpsConfigInputFreq_Type())
+upsConfigInputFreq.setMaxAccess(_D)
+if mibBuilder.loadTexts:upsConfigInputFreq.setStatus(_B)
+if mibBuilder.loadTexts:upsConfigInputFreq.setUnits(_I)
+_UpsConfigOutputVoltage_Type=NonNegativeInteger
+_UpsConfigOutputVoltage_Object=MibScalar
+upsConfigOutputVoltage=_UpsConfigOutputVoltage_Object((1,3,6,1,2,1,33,1,9,3),_UpsConfigOutputVoltage_Type())
+upsConfigOutputVoltage.setMaxAccess(_D)
+if mibBuilder.loadTexts:upsConfigOutputVoltage.setStatus(_B)
+if mibBuilder.loadTexts:upsConfigOutputVoltage.setUnits(_G)
+_UpsConfigOutputFreq_Type=NonNegativeInteger
+_UpsConfigOutputFreq_Object=MibScalar
+upsConfigOutputFreq=_UpsConfigOutputFreq_Object((1,3,6,1,2,1,33,1,9,4),_UpsConfigOutputFreq_Type())
+upsConfigOutputFreq.setMaxAccess(_D)
+if mibBuilder.loadTexts:upsConfigOutputFreq.setStatus(_B)
+if mibBuilder.loadTexts:upsConfigOutputFreq.setUnits(_I)
+_UpsConfigOutputVA_Type=NonNegativeInteger
+_UpsConfigOutputVA_Object=MibScalar
+upsConfigOutputVA=_UpsConfigOutputVA_Object((1,3,6,1,2,1,33,1,9,5),_UpsConfigOutputVA_Type())
+upsConfigOutputVA.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsConfigOutputVA.setStatus(_B)
+if mibBuilder.loadTexts:upsConfigOutputVA.setUnits('Volt-Amps')
+_UpsConfigOutputPower_Type=NonNegativeInteger
+_UpsConfigOutputPower_Object=MibScalar
+upsConfigOutputPower=_UpsConfigOutputPower_Object((1,3,6,1,2,1,33,1,9,6),_UpsConfigOutputPower_Type())
+upsConfigOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:upsConfigOutputPower.setStatus(_B)
+if mibBuilder.loadTexts:upsConfigOutputPower.setUnits(_M)
+_UpsConfigLowBattTime_Type=NonNegativeInteger
+_UpsConfigLowBattTime_Object=MibScalar
+upsConfigLowBattTime=_UpsConfigLowBattTime_Object((1,3,6,1,2,1,33,1,9,7),_UpsConfigLowBattTime_Type())
+upsConfigLowBattTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:upsConfigLowBattTime.setStatus(_B)
+if mibBuilder.loadTexts:upsConfigLowBattTime.setUnits('minutes')
+class _UpsConfigAudibleStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('disabled',1),('enabled',2),('muted',3)))
+_UpsConfigAudibleStatus_Type.__name__=_E
+_UpsConfigAudibleStatus_Object=MibScalar
+upsConfigAudibleStatus=_UpsConfigAudibleStatus_Object((1,3,6,1,2,1,33,1,9,8),_UpsConfigAudibleStatus_Type())
+upsConfigAudibleStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:upsConfigAudibleStatus.setStatus(_B)
+_UpsConfigLowVoltageTransferPoint_Type=NonNegativeInteger
+_UpsConfigLowVoltageTransferPoint_Object=MibScalar
+upsConfigLowVoltageTransferPoint=_UpsConfigLowVoltageTransferPoint_Object((1,3,6,1,2,1,33,1,9,9),_UpsConfigLowVoltageTransferPoint_Type())
+upsConfigLowVoltageTransferPoint.setMaxAccess(_D)
+if mibBuilder.loadTexts:upsConfigLowVoltageTransferPoint.setStatus(_B)
+if mibBuilder.loadTexts:upsConfigLowVoltageTransferPoint.setUnits(_G)
+_UpsConfigHighVoltageTransferPoint_Type=NonNegativeInteger
+_UpsConfigHighVoltageTransferPoint_Object=MibScalar
+upsConfigHighVoltageTransferPoint=_UpsConfigHighVoltageTransferPoint_Object((1,3,6,1,2,1,33,1,9,10),_UpsConfigHighVoltageTransferPoint_Type())
+upsConfigHighVoltageTransferPoint.setMaxAccess(_D)
+if mibBuilder.loadTexts:upsConfigHighVoltageTransferPoint.setStatus(_B)
+if mibBuilder.loadTexts:upsConfigHighVoltageTransferPoint.setUnits(_G)
+_UpsTraps_ObjectIdentity=ObjectIdentity
+upsTraps=_UpsTraps_ObjectIdentity((1,3,6,1,2,1,33,2))
+_UpsConformance_ObjectIdentity=ObjectIdentity
+upsConformance=_UpsConformance_ObjectIdentity((1,3,6,1,2,1,33,3))
+_UpsCompliances_ObjectIdentity=ObjectIdentity
+upsCompliances=_UpsCompliances_ObjectIdentity((1,3,6,1,2,1,33,3,1))
+_UpsGroups_ObjectIdentity=ObjectIdentity
+upsGroups=_UpsGroups_ObjectIdentity((1,3,6,1,2,1,33,3,2))
+_UpsSubsetGroups_ObjectIdentity=ObjectIdentity
+upsSubsetGroups=_UpsSubsetGroups_ObjectIdentity((1,3,6,1,2,1,33,3,2,1))
+_UpsBasicGroups_ObjectIdentity=ObjectIdentity
+upsBasicGroups=_UpsBasicGroups_ObjectIdentity((1,3,6,1,2,1,33,3,2,2))
+_UpsFullGroups_ObjectIdentity=ObjectIdentity
+upsFullGroups=_UpsFullGroups_ObjectIdentity((1,3,6,1,2,1,33,3,2,3))
+upsSubsetIdentGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,1,1))
+upsSubsetIdentGroup.setObjects(*((_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_o)))
+if mibBuilder.loadTexts:upsSubsetIdentGroup.setStatus(_B)
+upsSubsetBatteryGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,1,2))
+upsSubsetBatteryGroup.setObjects(*((_A,_S),(_A,_J)))
+if mibBuilder.loadTexts:upsSubsetBatteryGroup.setStatus(_B)
+upsSubsetInputGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,1,3))
+upsSubsetInputGroup.setObjects((_A,_T))
+if mibBuilder.loadTexts:upsSubsetInputGroup.setStatus(_B)
+upsSubsetOutputGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,1,4))
+upsSubsetOutputGroup.setObjects((_A,_U))
+if mibBuilder.loadTexts:upsSubsetOutputGroup.setStatus(_B)
+upsSubsetAlarmGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,1,6))
+upsSubsetAlarmGroup.setObjects(*((_A,_V),(_A,_H),(_A,_W)))
+if mibBuilder.loadTexts:upsSubsetAlarmGroup.setStatus(_B)
+upsSubsetControlGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,1,8))
+upsSubsetControlGroup.setObjects(*((_A,_X),(_A,_Y),(_A,_Z)))
+if mibBuilder.loadTexts:upsSubsetControlGroup.setStatus(_B)
+upsSubsetConfigGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,1,9))
+upsSubsetConfigGroup.setObjects(*((_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f)))
+if mibBuilder.loadTexts:upsSubsetConfigGroup.setStatus(_B)
+upsBasicIdentGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,2,1))
+upsBasicIdentGroup.setObjects(*((_A,_O),(_A,_P),(_A,_p),(_A,_Q),(_A,_R)))
+if mibBuilder.loadTexts:upsBasicIdentGroup.setStatus(_B)
+upsBasicBatteryGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,2,2))
+upsBasicBatteryGroup.setObjects(*((_A,_S),(_A,_J)))
+if mibBuilder.loadTexts:upsBasicBatteryGroup.setStatus(_B)
+upsBasicInputGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,2,3))
+upsBasicInputGroup.setObjects(*((_A,_T),(_A,_q),(_A,_r),(_A,_s)))
+if mibBuilder.loadTexts:upsBasicInputGroup.setStatus(_B)
+upsBasicOutputGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,2,4))
+upsBasicOutputGroup.setObjects(*((_A,_U),(_A,_t),(_A,_u),(_A,_v)))
+if mibBuilder.loadTexts:upsBasicOutputGroup.setStatus(_B)
+upsBasicBypassGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,2,5))
+upsBasicBypassGroup.setObjects(*((_A,_w),(_A,_x),(_A,_y)))
+if mibBuilder.loadTexts:upsBasicBypassGroup.setStatus(_B)
+upsBasicAlarmGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,2,6))
+upsBasicAlarmGroup.setObjects(*((_A,_V),(_A,_H),(_A,_W)))
+if mibBuilder.loadTexts:upsBasicAlarmGroup.setStatus(_B)
+upsBasicTestGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,2,7))
+upsBasicTestGroup.setObjects(*((_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l)))
+if mibBuilder.loadTexts:upsBasicTestGroup.setStatus(_B)
+upsBasicControlGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,2,8))
+upsBasicControlGroup.setObjects(*((_A,_X),(_A,_Y),(_A,_z),(_A,_A0),(_A,_Z)))
+if mibBuilder.loadTexts:upsBasicControlGroup.setStatus(_B)
+upsBasicConfigGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,2,9))
+upsBasicConfigGroup.setObjects(*((_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_m),(_A,_A1)))
+if mibBuilder.loadTexts:upsBasicConfigGroup.setStatus(_B)
+upsFullIdentGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,3,1))
+upsFullIdentGroup.setObjects(*((_A,_O),(_A,_P),(_A,_p),(_A,_Q),(_A,_R),(_A,_o)))
+if mibBuilder.loadTexts:upsFullIdentGroup.setStatus(_B)
+upsFullBatteryGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,3,2))
+upsFullBatteryGroup.setObjects(*((_A,_S),(_A,_J),(_A,_A2),(_A,_A6)))
+if mibBuilder.loadTexts:upsFullBatteryGroup.setStatus(_B)
+upsFullInputGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,3,3))
+upsFullInputGroup.setObjects(*((_A,_T),(_A,_q),(_A,_r),(_A,_s)))
+if mibBuilder.loadTexts:upsFullInputGroup.setStatus(_B)
+upsFullOutputGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,3,4))
+upsFullOutputGroup.setObjects(*((_A,_U),(_A,_t),(_A,_u),(_A,_v),(_A,_A7),(_A,_A8),(_A,_A9)))
+if mibBuilder.loadTexts:upsFullOutputGroup.setStatus(_B)
+upsFullBypassGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,3,5))
+upsFullBypassGroup.setObjects(*((_A,_w),(_A,_x),(_A,_y)))
+if mibBuilder.loadTexts:upsFullBypassGroup.setStatus(_B)
+upsFullAlarmGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,3,6))
+upsFullAlarmGroup.setObjects(*((_A,_V),(_A,_H),(_A,_W)))
+if mibBuilder.loadTexts:upsFullAlarmGroup.setStatus(_B)
+upsFullTestGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,3,7))
+upsFullTestGroup.setObjects(*((_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l)))
+if mibBuilder.loadTexts:upsFullTestGroup.setStatus(_B)
+upsFullControlGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,3,8))
+upsFullControlGroup.setObjects(*((_A,_X),(_A,_Y),(_A,_z),(_A,_A0),(_A,_Z)))
+if mibBuilder.loadTexts:upsFullControlGroup.setStatus(_B)
+upsFullConfigGroup=ObjectGroup((1,3,6,1,2,1,33,3,2,3,9))
+upsFullConfigGroup.setObjects(*((_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_m),(_A,_A1)))
+if mibBuilder.loadTexts:upsFullConfigGroup.setStatus(_B)
+upsTrapOnBattery=NotificationType((1,3,6,1,2,1,33,2,1))
+upsTrapOnBattery.setObjects(*((_A,_A2),(_A,_J),(_A,_m)))
+if mibBuilder.loadTexts:upsTrapOnBattery.setStatus(_B)
+upsTrapTestCompleted=NotificationType((1,3,6,1,2,1,33,2,2))
+upsTrapTestCompleted.setObjects(*((_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l)))
+if mibBuilder.loadTexts:upsTrapTestCompleted.setStatus(_B)
+upsTrapAlarmEntryAdded=NotificationType((1,3,6,1,2,1,33,2,3))
+upsTrapAlarmEntryAdded.setObjects(*((_A,_N),(_A,_H)))
+if mibBuilder.loadTexts:upsTrapAlarmEntryAdded.setStatus(_B)
+upsTrapAlarmEntryRemoved=NotificationType((1,3,6,1,2,1,33,2,4))
+upsTrapAlarmEntryRemoved.setObjects(*((_A,_N),(_A,_H)))
+if mibBuilder.loadTexts:upsTrapAlarmEntryRemoved.setStatus(_B)
+upsSubsetCompliance=ModuleCompliance((1,3,6,1,2,1,33,3,1,1))
+upsSubsetCompliance.setObjects(*((_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG)))
+if mibBuilder.loadTexts:upsSubsetCompliance.setStatus(_B)
+upsBasicCompliance=ModuleCompliance((1,3,6,1,2,1,33,3,1,2))
+upsBasicCompliance.setObjects(*((_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO)))
+if mibBuilder.loadTexts:upsBasicCompliance.setStatus(_B)
+upsFullCompliance=ModuleCompliance((1,3,6,1,2,1,33,3,1,3))
+upsFullCompliance.setObjects(*((_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW)))
+if mibBuilder.loadTexts:upsFullCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'PositiveInteger':PositiveInteger,'NonNegativeInteger':NonNegativeInteger,'upsMIB':upsMIB,'upsObjects':upsObjects,'upsIdent':upsIdent,_O:upsIdentManufacturer,_P:upsIdentModel,_p:upsIdentUPSSoftwareVersion,_Q:upsIdentAgentSoftwareVersion,_R:upsIdentName,_o:upsIdentAttachedDevices,'upsBattery':upsBattery,_S:upsBatteryStatus,_J:upsSecondsOnBattery,_A2:upsEstimatedMinutesRemaining,_A6:upsEstimatedChargeRemaining,'upsBatteryVoltage':upsBatteryVoltage,'upsBatteryCurrent':upsBatteryCurrent,'upsBatteryTemperature':upsBatteryTemperature,'upsInput':upsInput,_T:upsInputLineBads,_q:upsInputNumLines,'upsInputTable':upsInputTable,'upsInputEntry':upsInputEntry,_A3:upsInputLineIndex,_r:upsInputFrequency,_s:upsInputVoltage,'upsInputCurrent':upsInputCurrent,'upsInputTruePower':upsInputTruePower,'upsOutput':upsOutput,_U:upsOutputSource,_t:upsOutputFrequency,_u:upsOutputNumLines,'upsOutputTable':upsOutputTable,'upsOutputEntry':upsOutputEntry,_A4:upsOutputLineIndex,_v:upsOutputVoltage,_A7:upsOutputCurrent,_A8:upsOutputPower,_A9:upsOutputPercentLoad,'upsBypass':upsBypass,_w:upsBypassFrequency,_x:upsBypassNumLines,'upsBypassTable':upsBypassTable,'upsBypassEntry':upsBypassEntry,_A5:upsBypassLineIndex,_y:upsBypassVoltage,'upsBypassCurrent':upsBypassCurrent,'upsBypassPower':upsBypassPower,'upsAlarm':upsAlarm,_V:upsAlarmsPresent,'upsAlarmTable':upsAlarmTable,'upsAlarmEntry':upsAlarmEntry,_N:upsAlarmId,_H:upsAlarmDescr,_W:upsAlarmTime,'upsWellKnownAlarms':upsWellKnownAlarms,'upsAlarmBatteryBad':upsAlarmBatteryBad,'upsAlarmOnBattery':upsAlarmOnBattery,'upsAlarmLowBattery':upsAlarmLowBattery,'upsAlarmDepletedBattery':upsAlarmDepletedBattery,'upsAlarmTempBad':upsAlarmTempBad,'upsAlarmInputBad':upsAlarmInputBad,'upsAlarmOutputBad':upsAlarmOutputBad,'upsAlarmOutputOverload':upsAlarmOutputOverload,'upsAlarmOnBypass':upsAlarmOnBypass,'upsAlarmBypassBad':upsAlarmBypassBad,'upsAlarmOutputOffAsRequested':upsAlarmOutputOffAsRequested,'upsAlarmUpsOffAsRequested':upsAlarmUpsOffAsRequested,'upsAlarmChargerFailed':upsAlarmChargerFailed,'upsAlarmUpsOutputOff':upsAlarmUpsOutputOff,'upsAlarmUpsSystemOff':upsAlarmUpsSystemOff,'upsAlarmFanFailure':upsAlarmFanFailure,'upsAlarmFuseFailure':upsAlarmFuseFailure,'upsAlarmGeneralFault':upsAlarmGeneralFault,'upsAlarmDiagnosticTestFailed':upsAlarmDiagnosticTestFailed,'upsAlarmCommunicationsLost':upsAlarmCommunicationsLost,'upsAlarmAwaitingPower':upsAlarmAwaitingPower,'upsAlarmShutdownPending':upsAlarmShutdownPending,'upsAlarmShutdownImminent':upsAlarmShutdownImminent,'upsAlarmTestInProgress':upsAlarmTestInProgress,'upsTest':upsTest,_g:upsTestId,_h:upsTestSpinLock,_i:upsTestResultsSummary,_j:upsTestResultsDetail,_k:upsTestStartTime,_l:upsTestElapsedTime,'upsWellKnownTests':upsWellKnownTests,'upsTestNoTestsInitiated':upsTestNoTestsInitiated,'upsTestAbortTestInProgress':upsTestAbortTestInProgress,'upsTestGeneralSystemsTest':upsTestGeneralSystemsTest,'upsTestQuickBatteryTest':upsTestQuickBatteryTest,'upsTestDeepBatteryCalibration':upsTestDeepBatteryCalibration,'upsControl':upsControl,_X:upsShutdownType,_Y:upsShutdownAfterDelay,_z:upsStartupAfterDelay,_A0:upsRebootWithDuration,_Z:upsAutoRestart,'upsConfig':upsConfig,_a:upsConfigInputVoltage,_b:upsConfigInputFreq,_c:upsConfigOutputVoltage,_d:upsConfigOutputFreq,_e:upsConfigOutputVA,_f:upsConfigOutputPower,_m:upsConfigLowBattTime,_A1:upsConfigAudibleStatus,'upsConfigLowVoltageTransferPoint':upsConfigLowVoltageTransferPoint,'upsConfigHighVoltageTransferPoint':upsConfigHighVoltageTransferPoint,'upsTraps':upsTraps,'upsTrapOnBattery':upsTrapOnBattery,'upsTrapTestCompleted':upsTrapTestCompleted,'upsTrapAlarmEntryAdded':upsTrapAlarmEntryAdded,'upsTrapAlarmEntryRemoved':upsTrapAlarmEntryRemoved,'upsConformance':upsConformance,'upsCompliances':upsCompliances,'upsSubsetCompliance':upsSubsetCompliance,'upsBasicCompliance':upsBasicCompliance,'upsFullCompliance':upsFullCompliance,'upsGroups':upsGroups,'upsSubsetGroups':upsSubsetGroups,_AA:upsSubsetIdentGroup,_AB:upsSubsetBatteryGroup,_AC:upsSubsetInputGroup,_AD:upsSubsetOutputGroup,_AE:upsSubsetAlarmGroup,_AF:upsSubsetControlGroup,_AG:upsSubsetConfigGroup,'upsBasicGroups':upsBasicGroups,_AH:upsBasicIdentGroup,_AI:upsBasicBatteryGroup,_AJ:upsBasicInputGroup,_AK:upsBasicOutputGroup,'upsBasicBypassGroup':upsBasicBypassGroup,_AL:upsBasicAlarmGroup,_AM:upsBasicTestGroup,_AN:upsBasicControlGroup,_AO:upsBasicConfigGroup,'upsFullGroups':upsFullGroups,_AP:upsFullIdentGroup,_AQ:upsFullBatteryGroup,_AR:upsFullInputGroup,_AS:upsFullOutputGroup,'upsFullBypassGroup':upsFullBypassGroup,_AT:upsFullAlarmGroup,_AU:upsFullTestGroup,_AV:upsFullControlGroup,_AW:upsFullConfigGroup})

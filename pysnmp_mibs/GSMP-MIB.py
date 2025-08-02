@@ -1,231 +1,576 @@
-#
-# PySNMP MIB module GSMP-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/GSMP-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:14:33 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, ObjectIdentifier, Integer, ) = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-( AtmVcIdentifier, AtmVpIdentifier, ) = mibBuilder.importSymbols("ATM-TC-MIB", "AtmVcIdentifier", "AtmVpIdentifier")
-( InterfaceIndex, ) = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-( InetAddress, InetAddressType, InetPortNumber, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType", "InetPortNumber")
-( ZeroBasedCounter32, ) = mibBuilder.importSymbols("RMON2-MIB", "ZeroBasedCounter32")
-( NotificationGroup, ObjectGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-( Counter32, TimeTicks, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Counter64, mib_2, ModuleIdentity, Bits, Integer32, NotificationType, iso, IpAddress, Gauge32, MibIdentifier, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "TimeTicks", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Counter64", "mib-2", "ModuleIdentity", "Bits", "Integer32", "NotificationType", "iso", "IpAddress", "Gauge32", "MibIdentifier")
-( StorageType, TruthValue, DisplayString, TextualConvention, RowStatus, TimeStamp, ) = mibBuilder.importSymbols("SNMPv2-TC", "StorageType", "TruthValue", "DisplayString", "TextualConvention", "RowStatus", "TimeStamp")
-gsmpMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 98)).setRevisions(("2002-05-31 00:00",))
-if mibBuilder.loadTexts: gsmpMIB.setLastUpdated('200205310000Z')
-if mibBuilder.loadTexts: gsmpMIB.setOrganization('General Switch Management Protocol (gsmp)\n                      Working Group, IETF')
-if mibBuilder.loadTexts: gsmpMIB.setContactInfo('WG Charter:\n               http://www.ietf.org/html.charters/gsmp-charter.html\n\n               WG-email:          gsmp@ietf.org\n               Subscribe:         gsmp-request@ietf.org\n               Email Archive:\n               ftp://ftp.ietf.org/ietf-mail-archive/gsmp/\n\n               WG Chair:    Avri Doria\n               Email:       avri@acm.org\n\n               WG Chair:    Kenneth Sundell\n               Email:       ksundell@nortelnetworks.com\n\n               Editor:      Hans Sjostrand\n               Email:       hans@ipunplugged.com\n\n\n\n\n               Editor:      Joachim Buerkle\n               Email:       joachim.buerkle@nortelnetworks.com\n\n               Editor:      Balaji Srinivasan\n               Email:       balaji@cplane.com')
-if mibBuilder.loadTexts: gsmpMIB.setDescription('This MIB contains managed object definitions for the\n            General Switch Management Protocol, GSMP, version 3')
-gsmpNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 98, 0))
-gsmpObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 98, 1))
-gsmpNotificationsObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 98, 2))
-gsmpConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 98, 3))
-class GsmpNameType(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(6,6)
-    fixedLength = 6
-
-class GsmpPartitionType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3,))
-    namedValues = NamedValues(("noPartition", 1), ("fixedPartitionRequest", 2), ("fixedPartitionAssigned", 3),)
-
-class GsmpPartitionIdType(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(1,1)
-    fixedLength = 1
-
-class GsmpVersion(Unsigned32, TextualConvention):
-    pass
-
-class GsmpLabelType(OctetString, TextualConvention):
-    pass
-
-gsmpControllerTable = MibTable((1, 3, 6, 1, 2, 1, 98, 1, 1), )
-if mibBuilder.loadTexts: gsmpControllerTable.setDescription('This table represents the Switch Controller\n             Entities. An entry in this table needs to be configured\n             (created) before a GSMP session might be started.')
-gsmpControllerEntry = MibTableRow((1, 3, 6, 1, 2, 1, 98, 1, 1, 1), ).setIndexNames((0, "GSMP-MIB", "gsmpControllerEntityId"))
-if mibBuilder.loadTexts: gsmpControllerEntry.setDescription('An entry in the table showing\n              the data for a specific Switch Controller\n              Entity. If partitions are used, one entity\n              corresponds to one specific switch partition.\n              Depending of the encapsulation used,\n              a corresponding row in the gsmpAtmEncapTable or the\n              gsmpTcpIpEncapTable may have been created.')
-gsmpControllerEntityId = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 1, 1, 1), GsmpNameType())
-if mibBuilder.loadTexts: gsmpControllerEntityId.setDescription('The Switch Controller Entity Id is unique\n              within the operational context of the device.')
-gsmpControllerMaxVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 1, 1, 2), GsmpVersion().clone(3)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpControllerMaxVersion.setDescription('The max version number of the GSMP protocol being used\n             in this session. The version is negotiated by the\n             adjacency protocol.')
-gsmpControllerTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,255)).clone(10)).setUnits('100ms').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpControllerTimer.setDescription('The timer specifies the nominal time between\n           periodic adjacency protocol messages. It is a constant\n           for the duration of a GSMP session. The timer is\n           specified in units of 100ms.')
-gsmpControllerPort = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 1, 1, 4), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpControllerPort.setDescription('The local port number for the Switch Controller\n           Entity.')
-gsmpControllerInstance = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,16777215))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpControllerInstance.setDescription('The instance number for the Switch Controller\n           Entity. The Instance number is a 24-bit number\n           that should be guaranteed to be unique within\n           the recent past and to change when the link\n           or node comes back up after going down. Zero is\n           not a valid instance number. ')
-gsmpControllerPartitionType = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 1, 1, 6), GsmpPartitionType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpControllerPartitionType.setDescription('A controller can request the specific partition identifier\n          to the session by setting the Partition Type to\n          fixedPartitionRequest(2). A controller can let the switch\n          decide whether it wants to assign a fixed partition ID or\n\n\n\n          not, by setting the Partition Type to noPartition(1).')
-gsmpControllerPartitionId = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 1, 1, 7), GsmpPartitionIdType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpControllerPartitionId.setDescription('The Id for the specific switch partition that this\n           Switch Controller is concerned with.\n           If partitions are not used or if the controller lets the\n           switch assigns Partition ID, i.e Partition Type =\n           noPartition(1), then this object is undefined.')
-gsmpControllerDoResync = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 1, 1, 8), TruthValue().clone('true')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpControllerDoResync.setDescription('This object specifies whether the controller should\n           resynchronise or reset in case of loss of synchronisation.\n           If this object is set to true then the Controller should\n           resync with PFLAG=2 (recovered adjacency).')
-gsmpControllerNotificationMap = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 1, 1, 9), Bits().clone(namedValues=NamedValues(("sessionDown", 0), ("sessionUp", 1), ("sendFailureIndication", 2), ("receivedFailureIndication", 3), ("portUpEvent", 4), ("portDownEvent", 5), ("invalidLabelEvent", 6), ("newPortEvent", 7), ("deadPortEvent", 8), ("adjacencyUpdateEvent", 9),)).clone(namedValues=NamedValues(("sessionDown", 0), ("sessionUp", 1), ("sendFailureIndication", 2), ("receivedFailureIndication", 3),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpControllerNotificationMap.setDescription('This bitmap defines whether a corresponding SNMP\n           notification should be sent if a GSMP event is received\n           by the Switch Controller. If the bit is set to 1 a\n           notification should be sent. The handling and filtering of\n           the SNMP notifications are then further specified in the\n\n\n\n           SNMP notification originator application. ')
-gsmpControllerSessionState = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("null", 1), ("synsent", 2), ("synrcvd", 3), ("estab", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpControllerSessionState.setDescription('The state for the existing or potential session that\n             this entity is concerned with.\n             The NULL state is returned if the proper encapsulation\n             data is not yet configured, if the row is not in active\n             status or if the session is in NULL state as defined in\n             the GSMP specification.')
-gsmpControllerStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 1, 1, 11), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpControllerStorageType.setDescription("The storage type for this controller entity.\n             Conceptual rows having the value 'permanent' need not allow\n             write-access to any columnar objects in the row.")
-gsmpControllerRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 1, 1, 12), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpControllerRowStatus.setDescription("An object that allows entries in this table to\n              be created and deleted using the\n              RowStatus convention.\n              While the row is in active state it's not\n              possible to modify the value of any object\n              for that row except the gsmpControllerNotificationMap\n              and the gsmpControllerRowStatus objects.")
-gsmpSwitchTable = MibTable((1, 3, 6, 1, 2, 1, 98, 1, 2), )
-if mibBuilder.loadTexts: gsmpSwitchTable.setDescription('This table represents the Switch\n             Entities. An entry in this table needs to be configured\n             (created) before a GSMP session might be started.')
-gsmpSwitchEntry = MibTableRow((1, 3, 6, 1, 2, 1, 98, 1, 2, 1), ).setIndexNames((0, "GSMP-MIB", "gsmpSwitchEntityId"))
-if mibBuilder.loadTexts: gsmpSwitchEntry.setDescription('An entry in the table showing\n             the data for a specific Switch\n             Entity. If partitions are used, one entity\n             corresponds to one specific switch partition.\n             Depending of the encapsulation used,\n             a corresponding row in the gsmpAtmEncapTable or the\n             gsmpTcpIpEncapTable may have been created.')
-gsmpSwitchEntityId = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 2, 1, 1), GsmpNameType())
-if mibBuilder.loadTexts: gsmpSwitchEntityId.setDescription('The Switch Entity Id is unique\n             within the operational context of the device. ')
-gsmpSwitchMaxVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 2, 1, 2), GsmpVersion().clone(3)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpSwitchMaxVersion.setDescription('The max version number of the GSMP protocol being\n           supported by this Switch. The version is negotiated by\n           the adjacency protocol.')
-gsmpSwitchTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,255)).clone(10)).setUnits('100ms').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpSwitchTimer.setDescription('The timer specifies the nominal time between\n           periodic adjacency protocol messages. It is a constant\n           for the duration of a GSMP session. The timer is\n           specified in units of 100ms.')
-gsmpSwitchName = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 2, 1, 4), GsmpNameType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpSwitchName.setDescription('The name of the Switch. The first three octets must be an\n           Organisationally Unique Identifier (OUI) that identifies\n           the manufacturer of the Switch. This is by default set to\n           the same value as the gsmpSwitchId object if not\n           separately specified. ')
-gsmpSwitchPort = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 2, 1, 5), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpSwitchPort.setDescription('The local port number for this Switch Entity.')
-gsmpSwitchInstance = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 2, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,16777215))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSwitchInstance.setDescription('The instance number for the Switch Entity.\n           The Instance number is a 24-bit number\n           that should be guaranteed to be unique within\n           the recent past and to change when the link\n           or node comes back up after going down. Zero is\n           not a valid instance number.')
-gsmpSwitchPartitionType = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 2, 1, 7), GsmpPartitionType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpSwitchPartitionType.setDescription('A switch can assign the specific partition identifier to\n           the session by setting the Partition Type to\n           fixedPartitionAssigned(3). A switch can specify\n           that no partitions are handled in the session by setting\n           the Partition Type to noPartition(1).')
-gsmpSwitchPartitionId = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 2, 1, 8), GsmpPartitionIdType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpSwitchPartitionId.setDescription('The Id for this specific switch partition that the switch\n           entity represents. If partitions are not used, i.e.\n           Partition Type = noPartition(1), then this object is\n           undefined.')
-gsmpSwitchNotificationMap = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 2, 1, 9), Bits().clone(namedValues=NamedValues(("sessionDown", 0), ("sessionUp", 1), ("sendFailureIndication", 2), ("receivedFailureIndication", 3), ("portUpEvent", 4), ("portDownEvent", 5), ("invalidLabelEvent", 6), ("newPortEvent", 7), ("deadPortEvent", 8), ("adjacencyUpdateEvent", 9),)).clone(namedValues=NamedValues(("sessionDown", 0), ("sessionUp", 1), ("sendFailureIndication", 2), ("receivedFailureIndication", 3),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpSwitchNotificationMap.setDescription('This bitmap defines whether a corresponding SNMP\n           notification should be sent if an GSMP event is sent\n           by the Switch Entity. If the bit is set to 1 a\n           notification should be sent. The handling and filtering of\n           the SNMP notifications are then further specified in the\n           SNMP notification originator application. ')
-gsmpSwitchSwitchType = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 2, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2,2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpSwitchSwitchType.setDescription('A 16-bit field allocated by the manufacturer\n           of the switch. The Switch Type\n           identifies the product. When the Switch Type is combined\n           with the OUI from the Switch Name the product is\n           uniquely identified. ')
-gsmpSwitchWindowSize = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 2, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpSwitchWindowSize.setDescription('The maximum number of unacknowledged request messages\n           that may be transmitted by the controller without the\n           possibility of loss. This field is used to prevent\n           request messages from being lost in the switch because of\n           overflow in the receive buffer. The field is a hint to\n           the controller.')
-gsmpSwitchSessionState = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 2, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("null", 1), ("synsent", 2), ("synrcvd", 3), ("estab", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSwitchSessionState.setDescription('The state for the existing or potential session that\n           this entity is concerned with.\n           The NULL state is returned if the proper encapsulation\n           data is not yet configured, if the row is not in active\n           status or if the session is in NULL state as defined in\n           the GSMP specification.')
-gsmpSwitchStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 2, 1, 13), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpSwitchStorageType.setDescription("The storage type for this switch entity.\n             Conceptual rows having the value 'permanent' need not allow\n             write-access to any columnar objects in the row.")
-gsmpSwitchRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 2, 1, 14), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpSwitchRowStatus.setDescription("An object that allows entries in this table to\n              be created and deleted using the\n              RowStatus convention.\n              While the row is in active state it's not\n              possible to modify the value of any object\n              for that row except the gsmpSwitchNotificationMap\n              and the gsmpSwitchRowStatus objects.")
-gsmpAtmEncapTable = MibTable((1, 3, 6, 1, 2, 1, 98, 1, 3), )
-if mibBuilder.loadTexts: gsmpAtmEncapTable.setDescription('This table contains the atm encapsulation data\n              for the Controller or Switch that uses atm aal5 as\n              encapsulation. ')
-gsmpAtmEncapEntry = MibTableRow((1, 3, 6, 1, 2, 1, 98, 1, 3, 1), ).setIndexNames((0, "GSMP-MIB", "gsmpAtmEncapEntityId"))
-if mibBuilder.loadTexts: gsmpAtmEncapEntry.setDescription('An entry in the table showing\n             the encapsulation data for a specific\n             Switch Controller entity or Switch entity.')
-gsmpAtmEncapEntityId = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 3, 1, 1), GsmpNameType())
-if mibBuilder.loadTexts: gsmpAtmEncapEntityId.setDescription('The Controller Id or Switch Id that is unique\n             within the operational context of the device. ')
-gsmpAtmEncapIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 3, 1, 2), InterfaceIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpAtmEncapIfIndex.setDescription('The interface index for the virtual channel over which\n             the GSMP session is established, i.e., the GSMP control\n             channel for LLC/SNAP encapsulated GSMP messages on an\n             ATM data link layer.')
-gsmpAtmEncapVpi = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 3, 1, 3), AtmVpIdentifier()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpAtmEncapVpi.setDescription(' The VPI value for the virtual channel over which the\n             GSMP session is established, i.e., the GSMP control\n             channel for LLC/SNAP encapsulated GSMP messages on an\n             ATM data link layer.')
-gsmpAtmEncapVci = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 3, 1, 4), AtmVcIdentifier().clone(15)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpAtmEncapVci.setDescription(' The VCI value for the virtual channel over which the\n              GSMP session is established, i.e., the GSMP control\n              channel for LLC/SNAP encapsulated GSMP messages on an\n              ATM data link layer.')
-gsmpAtmEncapStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 3, 1, 5), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpAtmEncapStorageType.setDescription('The storage type for this entry. It should have the same\n              value as the StorageType in the referring Switch\n              Controller entity or Switch entity.')
-gsmpAtmEncapRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 3, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpAtmEncapRowStatus.setDescription("An object that allows entries in this table to\n              be created and deleted using the\n              RowStatus convention.\n              While the row is in active state it's not\n              possible to modify the value of any object\n              for that row except the gsmpAtmEncapRowStatus object.")
-gsmpTcpIpEncapTable = MibTable((1, 3, 6, 1, 2, 1, 98, 1, 4), )
-if mibBuilder.loadTexts: gsmpTcpIpEncapTable.setDescription('This table contains the encapsulation data\n              for the Controller or Switch that uses TCP/IP as\n              encapsulation.')
-gsmpTcpIpEncapEntry = MibTableRow((1, 3, 6, 1, 2, 1, 98, 1, 4, 1), ).setIndexNames((0, "GSMP-MIB", "gsmpTcpIpEncapEntityId"))
-if mibBuilder.loadTexts: gsmpTcpIpEncapEntry.setDescription('An entry in the table showing\n             the encapsulation data for a specific\n             Switch Controller entity or Switch entity.')
-gsmpTcpIpEncapEntityId = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 4, 1, 1), GsmpNameType())
-if mibBuilder.loadTexts: gsmpTcpIpEncapEntityId.setDescription('The Controller or Switch Id is unique\n             within the operational context of the device. ')
-gsmpTcpIpEncapAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 4, 1, 2), InetAddressType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpTcpIpEncapAddressType.setDescription('The type of address in gsmpTcpIpEncapAddress.')
-gsmpTcpIpEncapAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 4, 1, 3), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpTcpIpEncapAddress.setDescription('The IPv4 or IPv6 address used for\n             the GSMP session peer.')
-gsmpTcpIpEncapPortNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 4, 1, 4), InetPortNumber().clone(6068)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpTcpIpEncapPortNumber.setDescription('The TCP port number used for the TCP session\n              establishment to the GSMP peer.')
-gsmpTcpIpEncapStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 4, 1, 5), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpTcpIpEncapStorageType.setDescription('The storage type for this entry. It should have the same\n              value as the StorageType in the referring Switch\n              Controller entity or Switch entity.')
-gsmpTcpIpEncapRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 4, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: gsmpTcpIpEncapRowStatus.setDescription("An object that allows entries in this table to\n              be created and deleted using the\n              RowStatus convention.\n              While the row is in active state it's not\n              possible to modify the value of any object\n              for that row except the gsmpTcpIpEncapRowStatus object.")
-gsmpSessionTable = MibTable((1, 3, 6, 1, 2, 1, 98, 1, 5), )
-if mibBuilder.loadTexts: gsmpSessionTable.setDescription('This table represents the sessions between\n              Controller and Switch pairs. ')
-gsmpSessionEntry = MibTableRow((1, 3, 6, 1, 2, 1, 98, 1, 5, 1), ).setIndexNames((0, "GSMP-MIB", "gsmpSessionThisSideId"), (0, "GSMP-MIB", "gsmpSessionFarSideId"))
-if mibBuilder.loadTexts: gsmpSessionEntry.setDescription('An entry in the table showing\n             the session data for a specific Controller and\n             Switch pair. Also, statistics for this specific\n             session is shown.')
-gsmpSessionThisSideId = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 1), GsmpNameType())
-if mibBuilder.loadTexts: gsmpSessionThisSideId.setDescription('This side ID uniquely identifies the entity that this\n             session relates to within the operational\n             context of the device. ')
-gsmpSessionFarSideId = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 2), GsmpNameType())
-if mibBuilder.loadTexts: gsmpSessionFarSideId.setDescription('The Far side ID uniquely identifies the entity that this\n            session is established against. ')
-gsmpSessionVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 3), GsmpVersion()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionVersion.setDescription('The version number of the GSMP protocol being used in\n           this session. The version is the result of the\n           negotiation by the adjacency protocol.')
-gsmpSessionTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 4), Integer32()).setUnits('100ms').setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionTimer.setDescription('The timer specifies the time remaining until the\n           adjacency timer expires. The object could take negative\n           values since if no valid GSMP messages are\n           received in any period of time in excess of three times\n           the value of the Timer negotiated by the adjacency\n           protocol loss of synchronisation may be declared. The\n           timer is specified in units of 100ms.')
-gsmpSessionPartitionId = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 5), GsmpPartitionIdType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionPartitionId.setDescription('The Partition Id for the specific switch partition that\n           this session is concerned with.')
-gsmpSessionAdjacencyCount = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionAdjacencyCount.setDescription('This object specifies the current number of adjacencies\n           that are established with controllers and the switch\n           partition that is used for this session. The value\n           includes this session.')
-gsmpSessionFarSideName = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 7), GsmpNameType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionFarSideName.setDescription('The name of the far side as advertised in the adjacency\n           message.')
-gsmpSessionFarSidePort = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionFarSidePort.setDescription('The local port number of the link across which the\n           message is being sent.')
-gsmpSessionFarSideInstance = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,16777215))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionFarSideInstance.setDescription('The instance number used for the link during this\n           session. The Instance number is a 24-bit number\n           that should be guaranteed to be unique within\n\n\n\n           the recent past and to change when the link\n           or node comes back up after going down. Zero is not\n           a valid instance number.')
-gsmpSessionLastFailureCode = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionLastFailureCode.setDescription('This is the last failure code that was received over\n           this session. If no failure code have been received, the\n           value is zero.')
-gsmpSessionDiscontinuityTime = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 11), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionDiscontinuityTime.setDescription("The value of sysUpTime on the most recent occasion at\n           which one or more of this session's counters\n           suffered a discontinuity. If no such discontinuities have\n           occurred since then, this object contains the same\n           timestamp as gsmpSessionStartUptime .")
-gsmpSessionStartUptime = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 12), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionStartUptime.setDescription(' The value of sysUpTime when the session came to\n           established state.')
-gsmpSessionStatSentMessages = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 13), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionStatSentMessages.setDescription('The number of messages that have been sent in this\n           session. All GSMP messages pertaining to this session after\n           the session came to established state SHALL\n           be counted, also including adjacency protocol messages\n           and failure response messages.\n           When the counter suffers any discontinuity, then\n           the gsmpSessionDiscontinuityTime object indicates when it\n\n\n\n           happened.')
-gsmpSessionStatFailureInds = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 14), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionStatFailureInds.setDescription('The number of messages that have been sent with a\n           failure indication in this session. Warning messages\n           SHALL NOT be counted.\n           When the counter suffers any discontinuity, then\n           the gsmpSessionDiscontinuityTime object indicates when it\n           happened.')
-gsmpSessionStatReceivedMessages = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 15), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionStatReceivedMessages.setDescription('The number of messages that have been received in\n           this session. All legal GSMP messages pertaining to this\n           session after the session came to established state SHALL\n           be counted, also including adjacency protocol messages\n           and failure response messages.\n           When the counter suffers any discontinuity, then\n           the gsmpSessionDiscontinuityTime object indicates when it\n           happened.')
-gsmpSessionStatReceivedFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 16), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionStatReceivedFailures.setDescription('The number of messages that have been received in\n           this session with a failure indication. Warning messages\n           SHALL NOT be counted.\n           When the counter suffers any discontinuity, then\n           the gsmpSessionDiscontinuityTime object indicates when it\n           happened.')
-gsmpSessionStatPortUpEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 17), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionStatPortUpEvents.setDescription('The number of Port Up events that have been sent or\n           received on this session.\n           When the counter suffers any discontinuity, then\n           the gsmpSessionDiscontinuityTime object indicates when it\n           happened.')
-gsmpSessionStatPortDownEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 18), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionStatPortDownEvents.setDescription('The number of Port Down events that have been sent or\n           received on this session.\n           When the counter suffers any discontinuity, then\n           the gsmpSessionDiscontinuityTime object indicates when it\n           happened.')
-gsmpSessionStatInvLabelEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 19), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionStatInvLabelEvents.setDescription('The number of Invalid label events that have been sent\n           or received on this session.\n           When the counter suffers any discontinuity, then\n           the gsmpSessionDiscontinuityTime object indicates when it\n           happened.')
-gsmpSessionStatNewPortEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 20), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionStatNewPortEvents.setDescription('The number of New Port events that have been sent or\n\n\n\n           received on this session.\n           When the counter suffers any discontinuity, then\n           the gsmpSessionDiscontinuityTime object indicates when it\n           happened.')
-gsmpSessionStatDeadPortEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 21), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionStatDeadPortEvents.setDescription('The number of Dead Port events that have been sent or\n           received on this session.\n           When the counter suffers any discontinuity, then\n           the gsmpSessionDiscontinuityTime object indicates when it\n           happened.')
-gsmpSessionStatAdjUpdateEvents = MibTableColumn((1, 3, 6, 1, 2, 1, 98, 1, 5, 1, 22), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: gsmpSessionStatAdjUpdateEvents.setDescription('The number of Adjacency Update events that have been sent\n            or received on this session.\n            When the counter suffers any discontinuity, then\n            the gsmpSessionDiscontinuityTime object indicates when it\n            happened.')
-gsmpEventPort = MibScalar((1, 3, 6, 1, 2, 1, 98, 2, 1), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: gsmpEventPort.setDescription('This object specifies the Port Number that is\n            carried in this event.')
-gsmpEventPortSessionNumber = MibScalar((1, 3, 6, 1, 2, 1, 98, 2, 2), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: gsmpEventPortSessionNumber.setDescription('This object specifies the Port Session Number that is\n            carried in this event.')
-gsmpEventSequenceNumber = MibScalar((1, 3, 6, 1, 2, 1, 98, 2, 3), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: gsmpEventSequenceNumber.setDescription('This object specifies the Event Sequence Number that is\n            carried in this event.')
-gsmpEventLabel = MibScalar((1, 3, 6, 1, 2, 1, 98, 2, 4), GsmpLabelType()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: gsmpEventLabel.setDescription('This object specifies the Label that is\n            carried in this event.')
-gsmpSessionDown = NotificationType((1, 3, 6, 1, 2, 1, 98, 0, 1)).setObjects(*(("GSMP-MIB", "gsmpSessionStartUptime"), ("GSMP-MIB", "gsmpSessionStatSentMessages"), ("GSMP-MIB", "gsmpSessionStatFailureInds"), ("GSMP-MIB", "gsmpSessionStatReceivedMessages"), ("GSMP-MIB", "gsmpSessionStatReceivedFailures"), ("GSMP-MIB", "gsmpSessionStatPortUpEvents"), ("GSMP-MIB", "gsmpSessionStatPortDownEvents"), ("GSMP-MIB", "gsmpSessionStatInvLabelEvents"), ("GSMP-MIB", "gsmpSessionStatNewPortEvents"), ("GSMP-MIB", "gsmpSessionStatDeadPortEvents"), ("GSMP-MIB", "gsmpSessionStatAdjUpdateEvents"),))
-if mibBuilder.loadTexts: gsmpSessionDown.setDescription('When it has been enabled, this notification is\n              generated whenever a session is taken down, regardless\n              of whether the session went down normally or not.\n              Its purpose is to allow a management application\n              (primarily an accounting application) that is\n              monitoring the session statistics to receive the final\n              values of these counters, so that the application can\n              properly account for the amounts the counters were\n              incremented since the last time the application polled\n              them. The gsmpSessionStartUptime object provides the\n              total amount of time that the session was active.\n\n              This notification is not a substitute for polling the\n              session statistic counts. In particular, the count\n              values reported in this notification cannot be assumed\n             to be the complete totals for the life of the session,\n             since they may have wrapped while the\n             session was up.\n\n             The session to which this notification\n             applies is identified by the gsmpSessionThisSideId and\n             gsmpSessionFarSideId which could be inferred from the\n             Object Identifiers of the objects contained in the\n             notification.\n             An instance of this notification will contain exactly\n             one instance of each of its objects, and these objects\n             will all belong to the same conceptual row of the\n             gsmpSessionTable.')
-gsmpSessionUp = NotificationType((1, 3, 6, 1, 2, 1, 98, 0, 2)).setObjects(*(("GSMP-MIB", "gsmpSessionFarSideInstance"),))
-if mibBuilder.loadTexts: gsmpSessionUp.setDescription('When it has been enabled, this notification is\n            generated when new session is established.\n\n            The new session is identified by the gsmpSessionThisSideId\n            and gsmpSessionFarSideId which could be inferred from the\n            Object Identifier of the gsmpSessionFarSideInstance object\n\n\n\n            contained in the notification.')
-gsmpSentFailureInd = NotificationType((1, 3, 6, 1, 2, 1, 98, 0, 3)).setObjects(*(("GSMP-MIB", "gsmpSessionLastFailureCode"), ("GSMP-MIB", "gsmpSessionStatFailureInds"),))
-if mibBuilder.loadTexts: gsmpSentFailureInd.setDescription('When it has been enabled, this notification is\n            generated when a message with a failure indication was\n            sent.\n\n            The notification indicates a change in the value of\n            gsmpSessionStatFailureInds. The\n            gsmpSessionLastFailureCode contains the failure\n            reason.\n\n            The session to which this notification\n            applies is identified by the gsmpSessionThisSideId and\n            gsmpSessionFarSideId which could be inferred from the\n            Object Identifiers of the objects contained in the\n            notification.')
-gsmpReceivedFailureInd = NotificationType((1, 3, 6, 1, 2, 1, 98, 0, 4)).setObjects(*(("GSMP-MIB", "gsmpSessionLastFailureCode"), ("GSMP-MIB", "gsmpSessionStatReceivedFailures"),))
-if mibBuilder.loadTexts: gsmpReceivedFailureInd.setDescription('When it has been enabled, this notification is\n            generate when a message with a failure indication\n            is received.\n\n            The notification indicates a change in the value of\n            gsmpSessionStatReceivedFailures. The\n            gsmpSessionLastFailureCode contains the failure\n            reason.\n\n            The session to which this notification\n            applies is identified by the gsmpSessionThisSideId and\n            gsmpSessionFarSideId which could be inferred from the\n            Object Identifiers of the objects contained in the\n            notification.')
-gsmpPortUpEvent = NotificationType((1, 3, 6, 1, 2, 1, 98, 0, 5)).setObjects(*(("GSMP-MIB", "gsmpSessionStatPortUpEvents"), ("GSMP-MIB", "gsmpEventPort"), ("GSMP-MIB", "gsmpEventPortSessionNumber"), ("GSMP-MIB", "gsmpEventSequenceNumber"),))
-if mibBuilder.loadTexts: gsmpPortUpEvent.setDescription('When it has been enabled, this notification is\n            generated when a Port Up Event occurs.\n\n            The notification indicates a change in the value of\n            gsmpSessionStatPortUpEvents.\n\n            The session to which this notification\n            applies is identified by the gsmpSessionThisSideId and\n            gsmpSessionFarSideId which could be inferred from the\n            Object Identifier of the gsmpSessionStatPortUpEvents\n            object contained in the notification.')
-gsmpPortDownEvent = NotificationType((1, 3, 6, 1, 2, 1, 98, 0, 6)).setObjects(*(("GSMP-MIB", "gsmpSessionStatPortDownEvents"), ("GSMP-MIB", "gsmpEventPort"), ("GSMP-MIB", "gsmpEventPortSessionNumber"), ("GSMP-MIB", "gsmpEventSequenceNumber"),))
-if mibBuilder.loadTexts: gsmpPortDownEvent.setDescription('When it has been enabled, this notification is\n            generated when a Port Down Event occurs.\n\n            The notification indicates a change in the value of\n            gsmpSessionStatPortDownEvents.\n\n            The session to which this notification\n            applies is identified by the gsmpSessionThisSideId and\n            gsmpSessionFarSideId which could be inferred from the\n            Object Identifier of the gsmpSessionStatPortDownEvents\n            object contained in the notification.')
-gsmpInvalidLabelEvent = NotificationType((1, 3, 6, 1, 2, 1, 98, 0, 7)).setObjects(*(("GSMP-MIB", "gsmpSessionStatInvLabelEvents"), ("GSMP-MIB", "gsmpEventPort"), ("GSMP-MIB", "gsmpEventLabel"), ("GSMP-MIB", "gsmpEventSequenceNumber"),))
-if mibBuilder.loadTexts: gsmpInvalidLabelEvent.setDescription('When it has been enabled, this notification is\n            generated when an Invalid Label Event occurs.\n\n            The notification indicates a change in the value of\n            gsmpSessionStatInvLabelEvents.\n\n            The session to which this notification\n            applies is identified by the gsmpSessionThisSideId and\n            gsmpSessionFarSideId which could be inferred from the\n            Object Identifier of the gsmpSessionStatInvLabelEvents\n            object contained in the notification.')
-gsmpNewPortEvent = NotificationType((1, 3, 6, 1, 2, 1, 98, 0, 8)).setObjects(*(("GSMP-MIB", "gsmpSessionStatNewPortEvents"), ("GSMP-MIB", "gsmpEventPort"), ("GSMP-MIB", "gsmpEventPortSessionNumber"), ("GSMP-MIB", "gsmpEventSequenceNumber"),))
-if mibBuilder.loadTexts: gsmpNewPortEvent.setDescription('When it has been enabled, this notification is\n            generated when a New Port Event occurs.\n\n            The notification indicates a change in the value of\n            gsmpSessionStatNewPortEvents.\n\n            The session to which this notification\n            applies is identified by the gsmpSessionThisSideId and\n            gsmpSessionFarSideId which could be inferred from the\n            Object Identifier of the gsmpSessionStatNewPortEvents\n            object contained in the notification.')
-gsmpDeadPortEvent = NotificationType((1, 3, 6, 1, 2, 1, 98, 0, 9)).setObjects(*(("GSMP-MIB", "gsmpSessionStatDeadPortEvents"), ("GSMP-MIB", "gsmpEventPort"), ("GSMP-MIB", "gsmpEventPortSessionNumber"), ("GSMP-MIB", "gsmpEventSequenceNumber"),))
-if mibBuilder.loadTexts: gsmpDeadPortEvent.setDescription('When it has been enabled, this notification is\n            generated when a Dead Port Event occurs.\n\n            The notification indicates a change in the value of\n            gsmpSessionStatDeadPortEvents.\n\n            The session to which this notification\n            applies is identified by the gsmpSessionThisSideId and\n            gsmpSessionFarSideId which could be inferred from the\n            Object Identifier of the gsmpSessionStatDeadPortEvents\n            object contained in the notification.')
-gsmpAdjacencyUpdateEvent = NotificationType((1, 3, 6, 1, 2, 1, 98, 0, 10)).setObjects(*(("GSMP-MIB", "gsmpSessionAdjacencyCount"), ("GSMP-MIB", "gsmpSessionStatAdjUpdateEvents"), ("GSMP-MIB", "gsmpEventSequenceNumber"),))
-if mibBuilder.loadTexts: gsmpAdjacencyUpdateEvent.setDescription('When it has been enabled, this notification is\n            generated when an Adjacency Update Event occurs.\n\n            The gsmpSessionAdjacencyCount contains the new value of\n            the number of adjacencies\n            that are established with controllers and the switch\n            partition that is used for this session.\n\n            The notification indicates a change in the value of\n            gsmpSessionStatAdjUpdateEvents.\n\n            The session to which this notification\n            applies is identified by the gsmpSessionThisSideId and\n            gsmpSessionFarSideId which could be inferred from the\n            Object Identifier of the gsmpSessionAdjacencyCount\n            or the gsmpSessionStatAdjUpdateEvents object contained\n            in the notification.')
-gsmpGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 98, 3, 1))
-gsmpCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 98, 3, 2))
-gsmpModuleCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 98, 3, 2, 1)).setObjects(*(("GSMP-MIB", "gsmpGeneralGroup"), ("GSMP-MIB", "gsmpControllerGroup"), ("GSMP-MIB", "gsmpSwitchGroup"), ("GSMP-MIB", "gsmpAtmEncapGroup"), ("GSMP-MIB", "gsmpTcpIpEncapGroup"), ("GSMP-MIB", "gsmpNotificationObjectsGroup"), ("GSMP-MIB", "gsmpNotificationsGroup"),))
-if mibBuilder.loadTexts: gsmpModuleCompliance.setDescription('The compliance statement for agents that support\n            the GSMP MIB.')
-gsmpGeneralGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 98, 3, 1, 1)).setObjects(*(("GSMP-MIB", "gsmpSessionVersion"), ("GSMP-MIB", "gsmpSessionTimer"), ("GSMP-MIB", "gsmpSessionPartitionId"), ("GSMP-MIB", "gsmpSessionAdjacencyCount"), ("GSMP-MIB", "gsmpSessionFarSideName"), ("GSMP-MIB", "gsmpSessionFarSidePort"), ("GSMP-MIB", "gsmpSessionFarSideInstance"), ("GSMP-MIB", "gsmpSessionLastFailureCode"), ("GSMP-MIB", "gsmpSessionDiscontinuityTime"), ("GSMP-MIB", "gsmpSessionStartUptime"), ("GSMP-MIB", "gsmpSessionStatSentMessages"), ("GSMP-MIB", "gsmpSessionStatFailureInds"), ("GSMP-MIB", "gsmpSessionStatReceivedMessages"), ("GSMP-MIB", "gsmpSessionStatReceivedFailures"), ("GSMP-MIB", "gsmpSessionStatPortUpEvents"), ("GSMP-MIB", "gsmpSessionStatPortDownEvents"), ("GSMP-MIB", "gsmpSessionStatInvLabelEvents"), ("GSMP-MIB", "gsmpSessionStatNewPortEvents"), ("GSMP-MIB", "gsmpSessionStatDeadPortEvents"), ("GSMP-MIB", "gsmpSessionStatAdjUpdateEvents"),))
-if mibBuilder.loadTexts: gsmpGeneralGroup.setDescription('Objects that apply to all GSMP implementations.')
-gsmpControllerGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 98, 3, 1, 2)).setObjects(*(("GSMP-MIB", "gsmpControllerMaxVersion"), ("GSMP-MIB", "gsmpControllerTimer"), ("GSMP-MIB", "gsmpControllerPort"), ("GSMP-MIB", "gsmpControllerInstance"), ("GSMP-MIB", "gsmpControllerPartitionType"), ("GSMP-MIB", "gsmpControllerPartitionId"), ("GSMP-MIB", "gsmpControllerDoResync"), ("GSMP-MIB", "gsmpControllerNotificationMap"), ("GSMP-MIB", "gsmpControllerSessionState"), ("GSMP-MIB", "gsmpControllerStorageType"), ("GSMP-MIB", "gsmpControllerRowStatus"),))
-if mibBuilder.loadTexts: gsmpControllerGroup.setDescription('Objects that apply GSMP implementations of\n             Switch Controllers.')
-gsmpSwitchGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 98, 3, 1, 3)).setObjects(*(("GSMP-MIB", "gsmpSwitchMaxVersion"), ("GSMP-MIB", "gsmpSwitchTimer"), ("GSMP-MIB", "gsmpSwitchName"), ("GSMP-MIB", "gsmpSwitchPort"), ("GSMP-MIB", "gsmpSwitchInstance"), ("GSMP-MIB", "gsmpSwitchPartitionType"), ("GSMP-MIB", "gsmpSwitchPartitionId"), ("GSMP-MIB", "gsmpSwitchNotificationMap"), ("GSMP-MIB", "gsmpSwitchSwitchType"), ("GSMP-MIB", "gsmpSwitchWindowSize"), ("GSMP-MIB", "gsmpSwitchSessionState"), ("GSMP-MIB", "gsmpSwitchStorageType"), ("GSMP-MIB", "gsmpSwitchRowStatus"),))
-if mibBuilder.loadTexts: gsmpSwitchGroup.setDescription('Objects that apply GSMP implementations of\n             Switches.')
-gsmpAtmEncapGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 98, 3, 1, 4)).setObjects(*(("GSMP-MIB", "gsmpAtmEncapIfIndex"), ("GSMP-MIB", "gsmpAtmEncapVpi"), ("GSMP-MIB", "gsmpAtmEncapVci"), ("GSMP-MIB", "gsmpAtmEncapStorageType"), ("GSMP-MIB", "gsmpAtmEncapRowStatus"),))
-if mibBuilder.loadTexts: gsmpAtmEncapGroup.setDescription('Objects that apply to GSMP implementations that\n             supports ATM for GSMP encapsulation.')
-gsmpTcpIpEncapGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 98, 3, 1, 5)).setObjects(*(("GSMP-MIB", "gsmpTcpIpEncapAddressType"), ("GSMP-MIB", "gsmpTcpIpEncapAddress"), ("GSMP-MIB", "gsmpTcpIpEncapPortNumber"), ("GSMP-MIB", "gsmpTcpIpEncapStorageType"), ("GSMP-MIB", "gsmpTcpIpEncapRowStatus"),))
-if mibBuilder.loadTexts: gsmpTcpIpEncapGroup.setDescription('Objects that apply to GSMP implementations that\n             supports TCP/IP for GSMP encapsulation.')
-gsmpNotificationObjectsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 98, 3, 1, 6)).setObjects(*(("GSMP-MIB", "gsmpEventPort"), ("GSMP-MIB", "gsmpEventPortSessionNumber"), ("GSMP-MIB", "gsmpEventSequenceNumber"), ("GSMP-MIB", "gsmpEventLabel"),))
-if mibBuilder.loadTexts: gsmpNotificationObjectsGroup.setDescription('Objects that are contained in the notifications.')
-gsmpNotificationsGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 98, 3, 1, 7)).setObjects(*(("GSMP-MIB", "gsmpSessionDown"), ("GSMP-MIB", "gsmpSessionUp"), ("GSMP-MIB", "gsmpSentFailureInd"), ("GSMP-MIB", "gsmpReceivedFailureInd"), ("GSMP-MIB", "gsmpPortUpEvent"), ("GSMP-MIB", "gsmpPortDownEvent"), ("GSMP-MIB", "gsmpInvalidLabelEvent"), ("GSMP-MIB", "gsmpNewPortEvent"), ("GSMP-MIB", "gsmpDeadPortEvent"), ("GSMP-MIB", "gsmpAdjacencyUpdateEvent"),))
-if mibBuilder.loadTexts: gsmpNotificationsGroup.setDescription('The notifications which indicate specific changes\n             in the value of objects gsmpSessionTable')
-mibBuilder.exportSymbols("GSMP-MIB", gsmpControllerRowStatus=gsmpControllerRowStatus, gsmpControllerSessionState=gsmpControllerSessionState, gsmpSessionStatReceivedFailures=gsmpSessionStatReceivedFailures, gsmpControllerTimer=gsmpControllerTimer, gsmpControllerEntry=gsmpControllerEntry, gsmpControllerTable=gsmpControllerTable, gsmpInvalidLabelEvent=gsmpInvalidLabelEvent, gsmpTcpIpEncapRowStatus=gsmpTcpIpEncapRowStatus, gsmpSwitchPartitionType=gsmpSwitchPartitionType, gsmpSwitchGroup=gsmpSwitchGroup, gsmpSessionLastFailureCode=gsmpSessionLastFailureCode, gsmpSessionPartitionId=gsmpSessionPartitionId, gsmpNotificationsObjects=gsmpNotificationsObjects, gsmpAdjacencyUpdateEvent=gsmpAdjacencyUpdateEvent, gsmpSessionStatPortDownEvents=gsmpSessionStatPortDownEvents, gsmpTcpIpEncapEntityId=gsmpTcpIpEncapEntityId, gsmpTcpIpEncapStorageType=gsmpTcpIpEncapStorageType, gsmpNotificationObjectsGroup=gsmpNotificationObjectsGroup, gsmpSwitchRowStatus=gsmpSwitchRowStatus, gsmpAtmEncapVpi=gsmpAtmEncapVpi, gsmpNotificationsGroup=gsmpNotificationsGroup, gsmpTcpIpEncapPortNumber=gsmpTcpIpEncapPortNumber, gsmpSwitchMaxVersion=gsmpSwitchMaxVersion, GsmpPartitionType=GsmpPartitionType, gsmpSessionStatInvLabelEvents=gsmpSessionStatInvLabelEvents, gsmpMIB=gsmpMIB, gsmpReceivedFailureInd=gsmpReceivedFailureInd, gsmpAtmEncapTable=gsmpAtmEncapTable, gsmpControllerPartitionId=gsmpControllerPartitionId, gsmpAtmEncapStorageType=gsmpAtmEncapStorageType, GsmpNameType=GsmpNameType, gsmpPortDownEvent=gsmpPortDownEvent, gsmpSwitchPort=gsmpSwitchPort, gsmpSwitchSwitchType=gsmpSwitchSwitchType, gsmpTcpIpEncapAddressType=gsmpTcpIpEncapAddressType, gsmpSessionUp=gsmpSessionUp, gsmpControllerPort=gsmpControllerPort, gsmpAtmEncapEntityId=gsmpAtmEncapEntityId, gsmpSwitchName=gsmpSwitchName, gsmpControllerDoResync=gsmpControllerDoResync, gsmpGroups=gsmpGroups, gsmpControllerNotificationMap=gsmpControllerNotificationMap, gsmpSessionEntry=gsmpSessionEntry, gsmpTcpIpEncapGroup=gsmpTcpIpEncapGroup, gsmpAtmEncapIfIndex=gsmpAtmEncapIfIndex, gsmpSwitchNotificationMap=gsmpSwitchNotificationMap, gsmpTcpIpEncapEntry=gsmpTcpIpEncapEntry, gsmpAtmEncapRowStatus=gsmpAtmEncapRowStatus, gsmpSessionStartUptime=gsmpSessionStartUptime, gsmpSessionStatReceivedMessages=gsmpSessionStatReceivedMessages, gsmpSwitchTimer=gsmpSwitchTimer, gsmpAtmEncapGroup=gsmpAtmEncapGroup, gsmpDeadPortEvent=gsmpDeadPortEvent, gsmpSessionStatAdjUpdateEvents=gsmpSessionStatAdjUpdateEvents, gsmpSwitchWindowSize=gsmpSwitchWindowSize, gsmpSwitchEntityId=gsmpSwitchEntityId, gsmpControllerMaxVersion=gsmpControllerMaxVersion, gsmpSessionThisSideId=gsmpSessionThisSideId, gsmpSessionStatDeadPortEvents=gsmpSessionStatDeadPortEvents, gsmpObjects=gsmpObjects, gsmpSessionDown=gsmpSessionDown, PYSNMP_MODULE_ID=gsmpMIB, gsmpTcpIpEncapTable=gsmpTcpIpEncapTable, gsmpSentFailureInd=gsmpSentFailureInd, gsmpControllerEntityId=gsmpControllerEntityId, gsmpSessionStatNewPortEvents=gsmpSessionStatNewPortEvents, gsmpAtmEncapVci=gsmpAtmEncapVci, gsmpConformance=gsmpConformance, gsmpSessionFarSideName=gsmpSessionFarSideName, gsmpSessionStatSentMessages=gsmpSessionStatSentMessages, gsmpSessionAdjacencyCount=gsmpSessionAdjacencyCount, gsmpNewPortEvent=gsmpNewPortEvent, gsmpSessionFarSideInstance=gsmpSessionFarSideInstance, GsmpVersion=GsmpVersion, gsmpSwitchPartitionId=gsmpSwitchPartitionId, gsmpGeneralGroup=gsmpGeneralGroup, gsmpEventLabel=gsmpEventLabel, gsmpSwitchInstance=gsmpSwitchInstance, gsmpTcpIpEncapAddress=gsmpTcpIpEncapAddress, gsmpSessionFarSideId=gsmpSessionFarSideId, GsmpPartitionIdType=GsmpPartitionIdType, GsmpLabelType=GsmpLabelType, gsmpSessionTable=gsmpSessionTable, gsmpSessionTimer=gsmpSessionTimer, gsmpSwitchStorageType=gsmpSwitchStorageType, gsmpEventPort=gsmpEventPort, gsmpSwitchTable=gsmpSwitchTable, gsmpEventPortSessionNumber=gsmpEventPortSessionNumber, gsmpCompliances=gsmpCompliances, gsmpSessionDiscontinuityTime=gsmpSessionDiscontinuityTime, gsmpSessionVersion=gsmpSessionVersion, gsmpNotifications=gsmpNotifications, gsmpEventSequenceNumber=gsmpEventSequenceNumber, gsmpPortUpEvent=gsmpPortUpEvent, gsmpControllerInstance=gsmpControllerInstance, gsmpSessionStatFailureInds=gsmpSessionStatFailureInds, gsmpModuleCompliance=gsmpModuleCompliance, gsmpControllerPartitionType=gsmpControllerPartitionType, gsmpSessionStatPortUpEvents=gsmpSessionStatPortUpEvents, gsmpControllerStorageType=gsmpControllerStorageType, gsmpAtmEncapEntry=gsmpAtmEncapEntry, gsmpSessionFarSidePort=gsmpSessionFarSidePort, gsmpSwitchEntry=gsmpSwitchEntry, gsmpControllerGroup=gsmpControllerGroup, gsmpSwitchSessionState=gsmpSwitchSessionState)
+_Av='gsmpNotificationsGroup'
+_Au='gsmpNotificationObjectsGroup'
+_At='gsmpTcpIpEncapGroup'
+_As='gsmpAtmEncapGroup'
+_Ar='gsmpSwitchGroup'
+_Aq='gsmpControllerGroup'
+_Ap='gsmpGeneralGroup'
+_Ao='gsmpAdjacencyUpdateEvent'
+_An='gsmpDeadPortEvent'
+_Am='gsmpNewPortEvent'
+_Al='gsmpInvalidLabelEvent'
+_Ak='gsmpPortDownEvent'
+_Aj='gsmpPortUpEvent'
+_Ai='gsmpReceivedFailureInd'
+_Ah='gsmpSentFailureInd'
+_Ag='gsmpSessionUp'
+_Af='gsmpSessionDown'
+_Ae='gsmpTcpIpEncapRowStatus'
+_Ad='gsmpTcpIpEncapStorageType'
+_Ac='gsmpTcpIpEncapPortNumber'
+_Ab='gsmpTcpIpEncapAddress'
+_Aa='gsmpTcpIpEncapAddressType'
+_AZ='gsmpAtmEncapRowStatus'
+_AY='gsmpAtmEncapStorageType'
+_AX='gsmpAtmEncapVci'
+_AW='gsmpAtmEncapVpi'
+_AV='gsmpAtmEncapIfIndex'
+_AU='gsmpSwitchRowStatus'
+_AT='gsmpSwitchStorageType'
+_AS='gsmpSwitchSessionState'
+_AR='gsmpSwitchWindowSize'
+_AQ='gsmpSwitchSwitchType'
+_AP='gsmpSwitchNotificationMap'
+_AO='gsmpSwitchPartitionId'
+_AN='gsmpSwitchPartitionType'
+_AM='gsmpSwitchInstance'
+_AL='gsmpSwitchPort'
+_AK='gsmpSwitchName'
+_AJ='gsmpSwitchTimer'
+_AI='gsmpSwitchMaxVersion'
+_AH='gsmpControllerRowStatus'
+_AG='gsmpControllerStorageType'
+_AF='gsmpControllerSessionState'
+_AE='gsmpControllerNotificationMap'
+_AD='gsmpControllerDoResync'
+_AC='gsmpControllerPartitionId'
+_AB='gsmpControllerPartitionType'
+_AA='gsmpControllerInstance'
+_A9='gsmpControllerPort'
+_A8='gsmpControllerTimer'
+_A7='gsmpControllerMaxVersion'
+_A6='gsmpSessionDiscontinuityTime'
+_A5='gsmpSessionFarSidePort'
+_A4='gsmpSessionFarSideName'
+_A3='gsmpSessionPartitionId'
+_A2='gsmpSessionTimer'
+_A1='gsmpSessionVersion'
+_A0='gsmpSessionFarSideId'
+_z='gsmpSessionThisSideId'
+_y='gsmpTcpIpEncapEntityId'
+_x='gsmpAtmEncapEntityId'
+_w='gsmpSwitchEntityId'
+_v='synrcvd'
+_u='synsent'
+_t='adjacencyUpdateEvent'
+_s='deadPortEvent'
+_r='newPortEvent'
+_q='invalidLabelEvent'
+_p='portDownEvent'
+_o='portUpEvent'
+_n='receivedFailureIndication'
+_m='sendFailureIndication'
+_l='sessionUp'
+_k='sessionDown'
+_j='gsmpControllerEntityId'
+_i='TruthValue'
+_h='InetPortNumber'
+_g='AtmVpIdentifier'
+_f='AtmVcIdentifier'
+_e='OctetString'
+_d='gsmpEventLabel'
+_c='gsmpSessionStatReceivedMessages'
+_b='gsmpSessionStatSentMessages'
+_a='gsmpSessionStartUptime'
+_Z='gsmpSessionFarSideInstance'
+_Y='gsmpSessionAdjacencyCount'
+_X='100ms'
+_W='GsmpVersion'
+_V='Integer32'
+_U='Bits'
+_T='gsmpSessionStatAdjUpdateEvents'
+_S='gsmpSessionStatDeadPortEvents'
+_R='gsmpSessionStatNewPortEvents'
+_Q='gsmpSessionStatInvLabelEvents'
+_P='gsmpSessionStatPortDownEvents'
+_O='gsmpSessionStatPortUpEvents'
+_N='gsmpSessionStatReceivedFailures'
+_M='gsmpSessionStatFailureInds'
+_L='gsmpSessionLastFailureCode'
+_K='accessible-for-notify'
+_J='StorageType'
+_I='gsmpEventPortSessionNumber'
+_H='not-accessible'
+_G='gsmpEventPort'
+_F='gsmpEventSequenceNumber'
+_E='Unsigned32'
+_D='read-only'
+_C='read-create'
+_B='current'
+_A='GSMP-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_e,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+AtmVcIdentifier,AtmVpIdentifier=mibBuilder.importSymbols('ATM-TC-MIB',_f,_g)
+InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
+InetAddress,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType',_h)
+ZeroBasedCounter32,=mibBuilder.importSymbols('RMON2-MIB','ZeroBasedCounter32')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI',_U,'Counter32','Counter64','Gauge32',_V,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_E,'iso','mib-2')
+DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_J,'TextualConvention','TimeStamp',_i)
+gsmpMIB=ModuleIdentity((1,3,6,1,2,1,98))
+if mibBuilder.loadTexts:gsmpMIB.setRevisions(('2002-05-31 00:00',))
+class GsmpNameType(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
+class GsmpPartitionType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('noPartition',1),('fixedPartitionRequest',2),('fixedPartitionAssigned',3)))
+class GsmpPartitionIdType(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+class GsmpVersion(TextualConvention,Unsigned32):status=_B
+class GsmpLabelType(TextualConvention,OctetString):status=_B
+_GsmpNotifications_ObjectIdentity=ObjectIdentity
+gsmpNotifications=_GsmpNotifications_ObjectIdentity((1,3,6,1,2,1,98,0))
+_GsmpObjects_ObjectIdentity=ObjectIdentity
+gsmpObjects=_GsmpObjects_ObjectIdentity((1,3,6,1,2,1,98,1))
+_GsmpControllerTable_Object=MibTable
+gsmpControllerTable=_GsmpControllerTable_Object((1,3,6,1,2,1,98,1,1))
+if mibBuilder.loadTexts:gsmpControllerTable.setStatus(_B)
+_GsmpControllerEntry_Object=MibTableRow
+gsmpControllerEntry=_GsmpControllerEntry_Object((1,3,6,1,2,1,98,1,1,1))
+gsmpControllerEntry.setIndexNames((0,_A,_j))
+if mibBuilder.loadTexts:gsmpControllerEntry.setStatus(_B)
+_GsmpControllerEntityId_Type=GsmpNameType
+_GsmpControllerEntityId_Object=MibTableColumn
+gsmpControllerEntityId=_GsmpControllerEntityId_Object((1,3,6,1,2,1,98,1,1,1,1),_GsmpControllerEntityId_Type())
+gsmpControllerEntityId.setMaxAccess(_H)
+if mibBuilder.loadTexts:gsmpControllerEntityId.setStatus(_B)
+class _GsmpControllerMaxVersion_Type(GsmpVersion):defaultValue=3
+_GsmpControllerMaxVersion_Type.__name__=_W
+_GsmpControllerMaxVersion_Object=MibTableColumn
+gsmpControllerMaxVersion=_GsmpControllerMaxVersion_Object((1,3,6,1,2,1,98,1,1,1,2),_GsmpControllerMaxVersion_Type())
+gsmpControllerMaxVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpControllerMaxVersion.setStatus(_B)
+class _GsmpControllerTimer_Type(Unsigned32):defaultValue=10;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_GsmpControllerTimer_Type.__name__=_E
+_GsmpControllerTimer_Object=MibTableColumn
+gsmpControllerTimer=_GsmpControllerTimer_Object((1,3,6,1,2,1,98,1,1,1,3),_GsmpControllerTimer_Type())
+gsmpControllerTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpControllerTimer.setStatus(_B)
+if mibBuilder.loadTexts:gsmpControllerTimer.setUnits(_X)
+_GsmpControllerPort_Type=Unsigned32
+_GsmpControllerPort_Object=MibTableColumn
+gsmpControllerPort=_GsmpControllerPort_Object((1,3,6,1,2,1,98,1,1,1,4),_GsmpControllerPort_Type())
+gsmpControllerPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpControllerPort.setStatus(_B)
+class _GsmpControllerInstance_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16777215))
+_GsmpControllerInstance_Type.__name__=_E
+_GsmpControllerInstance_Object=MibTableColumn
+gsmpControllerInstance=_GsmpControllerInstance_Object((1,3,6,1,2,1,98,1,1,1,5),_GsmpControllerInstance_Type())
+gsmpControllerInstance.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpControllerInstance.setStatus(_B)
+_GsmpControllerPartitionType_Type=GsmpPartitionType
+_GsmpControllerPartitionType_Object=MibTableColumn
+gsmpControllerPartitionType=_GsmpControllerPartitionType_Object((1,3,6,1,2,1,98,1,1,1,6),_GsmpControllerPartitionType_Type())
+gsmpControllerPartitionType.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpControllerPartitionType.setStatus(_B)
+_GsmpControllerPartitionId_Type=GsmpPartitionIdType
+_GsmpControllerPartitionId_Object=MibTableColumn
+gsmpControllerPartitionId=_GsmpControllerPartitionId_Object((1,3,6,1,2,1,98,1,1,1,7),_GsmpControllerPartitionId_Type())
+gsmpControllerPartitionId.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpControllerPartitionId.setStatus(_B)
+class _GsmpControllerDoResync_Type(TruthValue):defaultValue=1
+_GsmpControllerDoResync_Type.__name__=_i
+_GsmpControllerDoResync_Object=MibTableColumn
+gsmpControllerDoResync=_GsmpControllerDoResync_Object((1,3,6,1,2,1,98,1,1,1,8),_GsmpControllerDoResync_Type())
+gsmpControllerDoResync.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpControllerDoResync.setStatus(_B)
+class _GsmpControllerNotificationMap_Type(Bits):defaultBinValue='1111';namedValues=NamedValues(*((_k,0),(_l,1),(_m,2),(_n,3),(_o,4),(_p,5),(_q,6),(_r,7),(_s,8),(_t,9)))
+_GsmpControllerNotificationMap_Type.__name__=_U
+_GsmpControllerNotificationMap_Object=MibTableColumn
+gsmpControllerNotificationMap=_GsmpControllerNotificationMap_Object((1,3,6,1,2,1,98,1,1,1,9),_GsmpControllerNotificationMap_Type())
+gsmpControllerNotificationMap.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpControllerNotificationMap.setStatus(_B)
+class _GsmpControllerSessionState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('null',1),(_u,2),(_v,3),('estab',4)))
+_GsmpControllerSessionState_Type.__name__=_V
+_GsmpControllerSessionState_Object=MibTableColumn
+gsmpControllerSessionState=_GsmpControllerSessionState_Object((1,3,6,1,2,1,98,1,1,1,10),_GsmpControllerSessionState_Type())
+gsmpControllerSessionState.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpControllerSessionState.setStatus(_B)
+class _GsmpControllerStorageType_Type(StorageType):defaultValue=3
+_GsmpControllerStorageType_Type.__name__=_J
+_GsmpControllerStorageType_Object=MibTableColumn
+gsmpControllerStorageType=_GsmpControllerStorageType_Object((1,3,6,1,2,1,98,1,1,1,11),_GsmpControllerStorageType_Type())
+gsmpControllerStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpControllerStorageType.setStatus(_B)
+_GsmpControllerRowStatus_Type=RowStatus
+_GsmpControllerRowStatus_Object=MibTableColumn
+gsmpControllerRowStatus=_GsmpControllerRowStatus_Object((1,3,6,1,2,1,98,1,1,1,12),_GsmpControllerRowStatus_Type())
+gsmpControllerRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpControllerRowStatus.setStatus(_B)
+_GsmpSwitchTable_Object=MibTable
+gsmpSwitchTable=_GsmpSwitchTable_Object((1,3,6,1,2,1,98,1,2))
+if mibBuilder.loadTexts:gsmpSwitchTable.setStatus(_B)
+_GsmpSwitchEntry_Object=MibTableRow
+gsmpSwitchEntry=_GsmpSwitchEntry_Object((1,3,6,1,2,1,98,1,2,1))
+gsmpSwitchEntry.setIndexNames((0,_A,_w))
+if mibBuilder.loadTexts:gsmpSwitchEntry.setStatus(_B)
+_GsmpSwitchEntityId_Type=GsmpNameType
+_GsmpSwitchEntityId_Object=MibTableColumn
+gsmpSwitchEntityId=_GsmpSwitchEntityId_Object((1,3,6,1,2,1,98,1,2,1,1),_GsmpSwitchEntityId_Type())
+gsmpSwitchEntityId.setMaxAccess(_H)
+if mibBuilder.loadTexts:gsmpSwitchEntityId.setStatus(_B)
+class _GsmpSwitchMaxVersion_Type(GsmpVersion):defaultValue=3
+_GsmpSwitchMaxVersion_Type.__name__=_W
+_GsmpSwitchMaxVersion_Object=MibTableColumn
+gsmpSwitchMaxVersion=_GsmpSwitchMaxVersion_Object((1,3,6,1,2,1,98,1,2,1,2),_GsmpSwitchMaxVersion_Type())
+gsmpSwitchMaxVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpSwitchMaxVersion.setStatus(_B)
+class _GsmpSwitchTimer_Type(Unsigned32):defaultValue=10;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_GsmpSwitchTimer_Type.__name__=_E
+_GsmpSwitchTimer_Object=MibTableColumn
+gsmpSwitchTimer=_GsmpSwitchTimer_Object((1,3,6,1,2,1,98,1,2,1,3),_GsmpSwitchTimer_Type())
+gsmpSwitchTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpSwitchTimer.setStatus(_B)
+if mibBuilder.loadTexts:gsmpSwitchTimer.setUnits(_X)
+_GsmpSwitchName_Type=GsmpNameType
+_GsmpSwitchName_Object=MibTableColumn
+gsmpSwitchName=_GsmpSwitchName_Object((1,3,6,1,2,1,98,1,2,1,4),_GsmpSwitchName_Type())
+gsmpSwitchName.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpSwitchName.setStatus(_B)
+_GsmpSwitchPort_Type=Unsigned32
+_GsmpSwitchPort_Object=MibTableColumn
+gsmpSwitchPort=_GsmpSwitchPort_Object((1,3,6,1,2,1,98,1,2,1,5),_GsmpSwitchPort_Type())
+gsmpSwitchPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpSwitchPort.setStatus(_B)
+class _GsmpSwitchInstance_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16777215))
+_GsmpSwitchInstance_Type.__name__=_E
+_GsmpSwitchInstance_Object=MibTableColumn
+gsmpSwitchInstance=_GsmpSwitchInstance_Object((1,3,6,1,2,1,98,1,2,1,6),_GsmpSwitchInstance_Type())
+gsmpSwitchInstance.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSwitchInstance.setStatus(_B)
+_GsmpSwitchPartitionType_Type=GsmpPartitionType
+_GsmpSwitchPartitionType_Object=MibTableColumn
+gsmpSwitchPartitionType=_GsmpSwitchPartitionType_Object((1,3,6,1,2,1,98,1,2,1,7),_GsmpSwitchPartitionType_Type())
+gsmpSwitchPartitionType.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpSwitchPartitionType.setStatus(_B)
+_GsmpSwitchPartitionId_Type=GsmpPartitionIdType
+_GsmpSwitchPartitionId_Object=MibTableColumn
+gsmpSwitchPartitionId=_GsmpSwitchPartitionId_Object((1,3,6,1,2,1,98,1,2,1,8),_GsmpSwitchPartitionId_Type())
+gsmpSwitchPartitionId.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpSwitchPartitionId.setStatus(_B)
+class _GsmpSwitchNotificationMap_Type(Bits):defaultBinValue='1111';namedValues=NamedValues(*((_k,0),(_l,1),(_m,2),(_n,3),(_o,4),(_p,5),(_q,6),(_r,7),(_s,8),(_t,9)))
+_GsmpSwitchNotificationMap_Type.__name__=_U
+_GsmpSwitchNotificationMap_Object=MibTableColumn
+gsmpSwitchNotificationMap=_GsmpSwitchNotificationMap_Object((1,3,6,1,2,1,98,1,2,1,9),_GsmpSwitchNotificationMap_Type())
+gsmpSwitchNotificationMap.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpSwitchNotificationMap.setStatus(_B)
+class _GsmpSwitchSwitchType_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
+_GsmpSwitchSwitchType_Type.__name__=_e
+_GsmpSwitchSwitchType_Object=MibTableColumn
+gsmpSwitchSwitchType=_GsmpSwitchSwitchType_Object((1,3,6,1,2,1,98,1,2,1,10),_GsmpSwitchSwitchType_Type())
+gsmpSwitchSwitchType.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpSwitchSwitchType.setStatus(_B)
+class _GsmpSwitchWindowSize_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_GsmpSwitchWindowSize_Type.__name__=_E
+_GsmpSwitchWindowSize_Object=MibTableColumn
+gsmpSwitchWindowSize=_GsmpSwitchWindowSize_Object((1,3,6,1,2,1,98,1,2,1,11),_GsmpSwitchWindowSize_Type())
+gsmpSwitchWindowSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpSwitchWindowSize.setStatus(_B)
+class _GsmpSwitchSessionState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('null',1),(_u,2),(_v,3),('estab',4)))
+_GsmpSwitchSessionState_Type.__name__=_V
+_GsmpSwitchSessionState_Object=MibTableColumn
+gsmpSwitchSessionState=_GsmpSwitchSessionState_Object((1,3,6,1,2,1,98,1,2,1,12),_GsmpSwitchSessionState_Type())
+gsmpSwitchSessionState.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSwitchSessionState.setStatus(_B)
+class _GsmpSwitchStorageType_Type(StorageType):defaultValue=3
+_GsmpSwitchStorageType_Type.__name__=_J
+_GsmpSwitchStorageType_Object=MibTableColumn
+gsmpSwitchStorageType=_GsmpSwitchStorageType_Object((1,3,6,1,2,1,98,1,2,1,13),_GsmpSwitchStorageType_Type())
+gsmpSwitchStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpSwitchStorageType.setStatus(_B)
+_GsmpSwitchRowStatus_Type=RowStatus
+_GsmpSwitchRowStatus_Object=MibTableColumn
+gsmpSwitchRowStatus=_GsmpSwitchRowStatus_Object((1,3,6,1,2,1,98,1,2,1,14),_GsmpSwitchRowStatus_Type())
+gsmpSwitchRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpSwitchRowStatus.setStatus(_B)
+_GsmpAtmEncapTable_Object=MibTable
+gsmpAtmEncapTable=_GsmpAtmEncapTable_Object((1,3,6,1,2,1,98,1,3))
+if mibBuilder.loadTexts:gsmpAtmEncapTable.setStatus(_B)
+_GsmpAtmEncapEntry_Object=MibTableRow
+gsmpAtmEncapEntry=_GsmpAtmEncapEntry_Object((1,3,6,1,2,1,98,1,3,1))
+gsmpAtmEncapEntry.setIndexNames((0,_A,_x))
+if mibBuilder.loadTexts:gsmpAtmEncapEntry.setStatus(_B)
+_GsmpAtmEncapEntityId_Type=GsmpNameType
+_GsmpAtmEncapEntityId_Object=MibTableColumn
+gsmpAtmEncapEntityId=_GsmpAtmEncapEntityId_Object((1,3,6,1,2,1,98,1,3,1,1),_GsmpAtmEncapEntityId_Type())
+gsmpAtmEncapEntityId.setMaxAccess(_H)
+if mibBuilder.loadTexts:gsmpAtmEncapEntityId.setStatus(_B)
+_GsmpAtmEncapIfIndex_Type=InterfaceIndex
+_GsmpAtmEncapIfIndex_Object=MibTableColumn
+gsmpAtmEncapIfIndex=_GsmpAtmEncapIfIndex_Object((1,3,6,1,2,1,98,1,3,1,2),_GsmpAtmEncapIfIndex_Type())
+gsmpAtmEncapIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpAtmEncapIfIndex.setStatus(_B)
+class _GsmpAtmEncapVpi_Type(AtmVpIdentifier):defaultValue=0
+_GsmpAtmEncapVpi_Type.__name__=_g
+_GsmpAtmEncapVpi_Object=MibTableColumn
+gsmpAtmEncapVpi=_GsmpAtmEncapVpi_Object((1,3,6,1,2,1,98,1,3,1,3),_GsmpAtmEncapVpi_Type())
+gsmpAtmEncapVpi.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpAtmEncapVpi.setStatus(_B)
+class _GsmpAtmEncapVci_Type(AtmVcIdentifier):defaultValue=15
+_GsmpAtmEncapVci_Type.__name__=_f
+_GsmpAtmEncapVci_Object=MibTableColumn
+gsmpAtmEncapVci=_GsmpAtmEncapVci_Object((1,3,6,1,2,1,98,1,3,1,4),_GsmpAtmEncapVci_Type())
+gsmpAtmEncapVci.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpAtmEncapVci.setStatus(_B)
+class _GsmpAtmEncapStorageType_Type(StorageType):defaultValue=3
+_GsmpAtmEncapStorageType_Type.__name__=_J
+_GsmpAtmEncapStorageType_Object=MibTableColumn
+gsmpAtmEncapStorageType=_GsmpAtmEncapStorageType_Object((1,3,6,1,2,1,98,1,3,1,5),_GsmpAtmEncapStorageType_Type())
+gsmpAtmEncapStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpAtmEncapStorageType.setStatus(_B)
+_GsmpAtmEncapRowStatus_Type=RowStatus
+_GsmpAtmEncapRowStatus_Object=MibTableColumn
+gsmpAtmEncapRowStatus=_GsmpAtmEncapRowStatus_Object((1,3,6,1,2,1,98,1,3,1,6),_GsmpAtmEncapRowStatus_Type())
+gsmpAtmEncapRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpAtmEncapRowStatus.setStatus(_B)
+_GsmpTcpIpEncapTable_Object=MibTable
+gsmpTcpIpEncapTable=_GsmpTcpIpEncapTable_Object((1,3,6,1,2,1,98,1,4))
+if mibBuilder.loadTexts:gsmpTcpIpEncapTable.setStatus(_B)
+_GsmpTcpIpEncapEntry_Object=MibTableRow
+gsmpTcpIpEncapEntry=_GsmpTcpIpEncapEntry_Object((1,3,6,1,2,1,98,1,4,1))
+gsmpTcpIpEncapEntry.setIndexNames((0,_A,_y))
+if mibBuilder.loadTexts:gsmpTcpIpEncapEntry.setStatus(_B)
+_GsmpTcpIpEncapEntityId_Type=GsmpNameType
+_GsmpTcpIpEncapEntityId_Object=MibTableColumn
+gsmpTcpIpEncapEntityId=_GsmpTcpIpEncapEntityId_Object((1,3,6,1,2,1,98,1,4,1,1),_GsmpTcpIpEncapEntityId_Type())
+gsmpTcpIpEncapEntityId.setMaxAccess(_H)
+if mibBuilder.loadTexts:gsmpTcpIpEncapEntityId.setStatus(_B)
+_GsmpTcpIpEncapAddressType_Type=InetAddressType
+_GsmpTcpIpEncapAddressType_Object=MibTableColumn
+gsmpTcpIpEncapAddressType=_GsmpTcpIpEncapAddressType_Object((1,3,6,1,2,1,98,1,4,1,2),_GsmpTcpIpEncapAddressType_Type())
+gsmpTcpIpEncapAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpTcpIpEncapAddressType.setStatus(_B)
+_GsmpTcpIpEncapAddress_Type=InetAddress
+_GsmpTcpIpEncapAddress_Object=MibTableColumn
+gsmpTcpIpEncapAddress=_GsmpTcpIpEncapAddress_Object((1,3,6,1,2,1,98,1,4,1,3),_GsmpTcpIpEncapAddress_Type())
+gsmpTcpIpEncapAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpTcpIpEncapAddress.setStatus(_B)
+class _GsmpTcpIpEncapPortNumber_Type(InetPortNumber):defaultValue=6068
+_GsmpTcpIpEncapPortNumber_Type.__name__=_h
+_GsmpTcpIpEncapPortNumber_Object=MibTableColumn
+gsmpTcpIpEncapPortNumber=_GsmpTcpIpEncapPortNumber_Object((1,3,6,1,2,1,98,1,4,1,4),_GsmpTcpIpEncapPortNumber_Type())
+gsmpTcpIpEncapPortNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpTcpIpEncapPortNumber.setStatus(_B)
+class _GsmpTcpIpEncapStorageType_Type(StorageType):defaultValue=3
+_GsmpTcpIpEncapStorageType_Type.__name__=_J
+_GsmpTcpIpEncapStorageType_Object=MibTableColumn
+gsmpTcpIpEncapStorageType=_GsmpTcpIpEncapStorageType_Object((1,3,6,1,2,1,98,1,4,1,5),_GsmpTcpIpEncapStorageType_Type())
+gsmpTcpIpEncapStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpTcpIpEncapStorageType.setStatus(_B)
+_GsmpTcpIpEncapRowStatus_Type=RowStatus
+_GsmpTcpIpEncapRowStatus_Object=MibTableColumn
+gsmpTcpIpEncapRowStatus=_GsmpTcpIpEncapRowStatus_Object((1,3,6,1,2,1,98,1,4,1,6),_GsmpTcpIpEncapRowStatus_Type())
+gsmpTcpIpEncapRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:gsmpTcpIpEncapRowStatus.setStatus(_B)
+_GsmpSessionTable_Object=MibTable
+gsmpSessionTable=_GsmpSessionTable_Object((1,3,6,1,2,1,98,1,5))
+if mibBuilder.loadTexts:gsmpSessionTable.setStatus(_B)
+_GsmpSessionEntry_Object=MibTableRow
+gsmpSessionEntry=_GsmpSessionEntry_Object((1,3,6,1,2,1,98,1,5,1))
+gsmpSessionEntry.setIndexNames((0,_A,_z),(0,_A,_A0))
+if mibBuilder.loadTexts:gsmpSessionEntry.setStatus(_B)
+_GsmpSessionThisSideId_Type=GsmpNameType
+_GsmpSessionThisSideId_Object=MibTableColumn
+gsmpSessionThisSideId=_GsmpSessionThisSideId_Object((1,3,6,1,2,1,98,1,5,1,1),_GsmpSessionThisSideId_Type())
+gsmpSessionThisSideId.setMaxAccess(_H)
+if mibBuilder.loadTexts:gsmpSessionThisSideId.setStatus(_B)
+_GsmpSessionFarSideId_Type=GsmpNameType
+_GsmpSessionFarSideId_Object=MibTableColumn
+gsmpSessionFarSideId=_GsmpSessionFarSideId_Object((1,3,6,1,2,1,98,1,5,1,2),_GsmpSessionFarSideId_Type())
+gsmpSessionFarSideId.setMaxAccess(_H)
+if mibBuilder.loadTexts:gsmpSessionFarSideId.setStatus(_B)
+_GsmpSessionVersion_Type=GsmpVersion
+_GsmpSessionVersion_Object=MibTableColumn
+gsmpSessionVersion=_GsmpSessionVersion_Object((1,3,6,1,2,1,98,1,5,1,3),_GsmpSessionVersion_Type())
+gsmpSessionVersion.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionVersion.setStatus(_B)
+_GsmpSessionTimer_Type=Integer32
+_GsmpSessionTimer_Object=MibTableColumn
+gsmpSessionTimer=_GsmpSessionTimer_Object((1,3,6,1,2,1,98,1,5,1,4),_GsmpSessionTimer_Type())
+gsmpSessionTimer.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionTimer.setStatus(_B)
+if mibBuilder.loadTexts:gsmpSessionTimer.setUnits(_X)
+_GsmpSessionPartitionId_Type=GsmpPartitionIdType
+_GsmpSessionPartitionId_Object=MibTableColumn
+gsmpSessionPartitionId=_GsmpSessionPartitionId_Object((1,3,6,1,2,1,98,1,5,1,5),_GsmpSessionPartitionId_Type())
+gsmpSessionPartitionId.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionPartitionId.setStatus(_B)
+class _GsmpSessionAdjacencyCount_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_GsmpSessionAdjacencyCount_Type.__name__=_E
+_GsmpSessionAdjacencyCount_Object=MibTableColumn
+gsmpSessionAdjacencyCount=_GsmpSessionAdjacencyCount_Object((1,3,6,1,2,1,98,1,5,1,6),_GsmpSessionAdjacencyCount_Type())
+gsmpSessionAdjacencyCount.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionAdjacencyCount.setStatus(_B)
+_GsmpSessionFarSideName_Type=GsmpNameType
+_GsmpSessionFarSideName_Object=MibTableColumn
+gsmpSessionFarSideName=_GsmpSessionFarSideName_Object((1,3,6,1,2,1,98,1,5,1,7),_GsmpSessionFarSideName_Type())
+gsmpSessionFarSideName.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionFarSideName.setStatus(_B)
+_GsmpSessionFarSidePort_Type=Unsigned32
+_GsmpSessionFarSidePort_Object=MibTableColumn
+gsmpSessionFarSidePort=_GsmpSessionFarSidePort_Object((1,3,6,1,2,1,98,1,5,1,8),_GsmpSessionFarSidePort_Type())
+gsmpSessionFarSidePort.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionFarSidePort.setStatus(_B)
+class _GsmpSessionFarSideInstance_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,16777215))
+_GsmpSessionFarSideInstance_Type.__name__=_E
+_GsmpSessionFarSideInstance_Object=MibTableColumn
+gsmpSessionFarSideInstance=_GsmpSessionFarSideInstance_Object((1,3,6,1,2,1,98,1,5,1,9),_GsmpSessionFarSideInstance_Type())
+gsmpSessionFarSideInstance.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionFarSideInstance.setStatus(_B)
+class _GsmpSessionLastFailureCode_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_GsmpSessionLastFailureCode_Type.__name__=_E
+_GsmpSessionLastFailureCode_Object=MibTableColumn
+gsmpSessionLastFailureCode=_GsmpSessionLastFailureCode_Object((1,3,6,1,2,1,98,1,5,1,10),_GsmpSessionLastFailureCode_Type())
+gsmpSessionLastFailureCode.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionLastFailureCode.setStatus(_B)
+_GsmpSessionDiscontinuityTime_Type=TimeStamp
+_GsmpSessionDiscontinuityTime_Object=MibTableColumn
+gsmpSessionDiscontinuityTime=_GsmpSessionDiscontinuityTime_Object((1,3,6,1,2,1,98,1,5,1,11),_GsmpSessionDiscontinuityTime_Type())
+gsmpSessionDiscontinuityTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionDiscontinuityTime.setStatus(_B)
+_GsmpSessionStartUptime_Type=TimeStamp
+_GsmpSessionStartUptime_Object=MibTableColumn
+gsmpSessionStartUptime=_GsmpSessionStartUptime_Object((1,3,6,1,2,1,98,1,5,1,12),_GsmpSessionStartUptime_Type())
+gsmpSessionStartUptime.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionStartUptime.setStatus(_B)
+_GsmpSessionStatSentMessages_Type=ZeroBasedCounter32
+_GsmpSessionStatSentMessages_Object=MibTableColumn
+gsmpSessionStatSentMessages=_GsmpSessionStatSentMessages_Object((1,3,6,1,2,1,98,1,5,1,13),_GsmpSessionStatSentMessages_Type())
+gsmpSessionStatSentMessages.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionStatSentMessages.setStatus(_B)
+_GsmpSessionStatFailureInds_Type=ZeroBasedCounter32
+_GsmpSessionStatFailureInds_Object=MibTableColumn
+gsmpSessionStatFailureInds=_GsmpSessionStatFailureInds_Object((1,3,6,1,2,1,98,1,5,1,14),_GsmpSessionStatFailureInds_Type())
+gsmpSessionStatFailureInds.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionStatFailureInds.setStatus(_B)
+_GsmpSessionStatReceivedMessages_Type=ZeroBasedCounter32
+_GsmpSessionStatReceivedMessages_Object=MibTableColumn
+gsmpSessionStatReceivedMessages=_GsmpSessionStatReceivedMessages_Object((1,3,6,1,2,1,98,1,5,1,15),_GsmpSessionStatReceivedMessages_Type())
+gsmpSessionStatReceivedMessages.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionStatReceivedMessages.setStatus(_B)
+_GsmpSessionStatReceivedFailures_Type=ZeroBasedCounter32
+_GsmpSessionStatReceivedFailures_Object=MibTableColumn
+gsmpSessionStatReceivedFailures=_GsmpSessionStatReceivedFailures_Object((1,3,6,1,2,1,98,1,5,1,16),_GsmpSessionStatReceivedFailures_Type())
+gsmpSessionStatReceivedFailures.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionStatReceivedFailures.setStatus(_B)
+_GsmpSessionStatPortUpEvents_Type=ZeroBasedCounter32
+_GsmpSessionStatPortUpEvents_Object=MibTableColumn
+gsmpSessionStatPortUpEvents=_GsmpSessionStatPortUpEvents_Object((1,3,6,1,2,1,98,1,5,1,17),_GsmpSessionStatPortUpEvents_Type())
+gsmpSessionStatPortUpEvents.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionStatPortUpEvents.setStatus(_B)
+_GsmpSessionStatPortDownEvents_Type=ZeroBasedCounter32
+_GsmpSessionStatPortDownEvents_Object=MibTableColumn
+gsmpSessionStatPortDownEvents=_GsmpSessionStatPortDownEvents_Object((1,3,6,1,2,1,98,1,5,1,18),_GsmpSessionStatPortDownEvents_Type())
+gsmpSessionStatPortDownEvents.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionStatPortDownEvents.setStatus(_B)
+_GsmpSessionStatInvLabelEvents_Type=ZeroBasedCounter32
+_GsmpSessionStatInvLabelEvents_Object=MibTableColumn
+gsmpSessionStatInvLabelEvents=_GsmpSessionStatInvLabelEvents_Object((1,3,6,1,2,1,98,1,5,1,19),_GsmpSessionStatInvLabelEvents_Type())
+gsmpSessionStatInvLabelEvents.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionStatInvLabelEvents.setStatus(_B)
+_GsmpSessionStatNewPortEvents_Type=ZeroBasedCounter32
+_GsmpSessionStatNewPortEvents_Object=MibTableColumn
+gsmpSessionStatNewPortEvents=_GsmpSessionStatNewPortEvents_Object((1,3,6,1,2,1,98,1,5,1,20),_GsmpSessionStatNewPortEvents_Type())
+gsmpSessionStatNewPortEvents.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionStatNewPortEvents.setStatus(_B)
+_GsmpSessionStatDeadPortEvents_Type=ZeroBasedCounter32
+_GsmpSessionStatDeadPortEvents_Object=MibTableColumn
+gsmpSessionStatDeadPortEvents=_GsmpSessionStatDeadPortEvents_Object((1,3,6,1,2,1,98,1,5,1,21),_GsmpSessionStatDeadPortEvents_Type())
+gsmpSessionStatDeadPortEvents.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionStatDeadPortEvents.setStatus(_B)
+_GsmpSessionStatAdjUpdateEvents_Type=ZeroBasedCounter32
+_GsmpSessionStatAdjUpdateEvents_Object=MibTableColumn
+gsmpSessionStatAdjUpdateEvents=_GsmpSessionStatAdjUpdateEvents_Object((1,3,6,1,2,1,98,1,5,1,22),_GsmpSessionStatAdjUpdateEvents_Type())
+gsmpSessionStatAdjUpdateEvents.setMaxAccess(_D)
+if mibBuilder.loadTexts:gsmpSessionStatAdjUpdateEvents.setStatus(_B)
+_GsmpNotificationsObjects_ObjectIdentity=ObjectIdentity
+gsmpNotificationsObjects=_GsmpNotificationsObjects_ObjectIdentity((1,3,6,1,2,1,98,2))
+_GsmpEventPort_Type=Unsigned32
+_GsmpEventPort_Object=MibScalar
+gsmpEventPort=_GsmpEventPort_Object((1,3,6,1,2,1,98,2,1),_GsmpEventPort_Type())
+gsmpEventPort.setMaxAccess(_K)
+if mibBuilder.loadTexts:gsmpEventPort.setStatus(_B)
+_GsmpEventPortSessionNumber_Type=Unsigned32
+_GsmpEventPortSessionNumber_Object=MibScalar
+gsmpEventPortSessionNumber=_GsmpEventPortSessionNumber_Object((1,3,6,1,2,1,98,2,2),_GsmpEventPortSessionNumber_Type())
+gsmpEventPortSessionNumber.setMaxAccess(_K)
+if mibBuilder.loadTexts:gsmpEventPortSessionNumber.setStatus(_B)
+_GsmpEventSequenceNumber_Type=Unsigned32
+_GsmpEventSequenceNumber_Object=MibScalar
+gsmpEventSequenceNumber=_GsmpEventSequenceNumber_Object((1,3,6,1,2,1,98,2,3),_GsmpEventSequenceNumber_Type())
+gsmpEventSequenceNumber.setMaxAccess(_K)
+if mibBuilder.loadTexts:gsmpEventSequenceNumber.setStatus(_B)
+_GsmpEventLabel_Type=GsmpLabelType
+_GsmpEventLabel_Object=MibScalar
+gsmpEventLabel=_GsmpEventLabel_Object((1,3,6,1,2,1,98,2,4),_GsmpEventLabel_Type())
+gsmpEventLabel.setMaxAccess(_K)
+if mibBuilder.loadTexts:gsmpEventLabel.setStatus(_B)
+_GsmpConformance_ObjectIdentity=ObjectIdentity
+gsmpConformance=_GsmpConformance_ObjectIdentity((1,3,6,1,2,1,98,3))
+_GsmpGroups_ObjectIdentity=ObjectIdentity
+gsmpGroups=_GsmpGroups_ObjectIdentity((1,3,6,1,2,1,98,3,1))
+_GsmpCompliances_ObjectIdentity=ObjectIdentity
+gsmpCompliances=_GsmpCompliances_ObjectIdentity((1,3,6,1,2,1,98,3,2))
+gsmpGeneralGroup=ObjectGroup((1,3,6,1,2,1,98,3,1,1))
+gsmpGeneralGroup.setObjects(*((_A,_A1),(_A,_A2),(_A,_A3),(_A,_Y),(_A,_A4),(_A,_A5),(_A,_Z),(_A,_L),(_A,_A6),(_A,_a),(_A,_b),(_A,_M),(_A,_c),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T)))
+if mibBuilder.loadTexts:gsmpGeneralGroup.setStatus(_B)
+gsmpControllerGroup=ObjectGroup((1,3,6,1,2,1,98,3,1,2))
+gsmpControllerGroup.setObjects(*((_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH)))
+if mibBuilder.loadTexts:gsmpControllerGroup.setStatus(_B)
+gsmpSwitchGroup=ObjectGroup((1,3,6,1,2,1,98,3,1,3))
+gsmpSwitchGroup.setObjects(*((_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU)))
+if mibBuilder.loadTexts:gsmpSwitchGroup.setStatus(_B)
+gsmpAtmEncapGroup=ObjectGroup((1,3,6,1,2,1,98,3,1,4))
+gsmpAtmEncapGroup.setObjects(*((_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ)))
+if mibBuilder.loadTexts:gsmpAtmEncapGroup.setStatus(_B)
+gsmpTcpIpEncapGroup=ObjectGroup((1,3,6,1,2,1,98,3,1,5))
+gsmpTcpIpEncapGroup.setObjects(*((_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae)))
+if mibBuilder.loadTexts:gsmpTcpIpEncapGroup.setStatus(_B)
+gsmpNotificationObjectsGroup=ObjectGroup((1,3,6,1,2,1,98,3,1,6))
+gsmpNotificationObjectsGroup.setObjects(*((_A,_G),(_A,_I),(_A,_F),(_A,_d)))
+if mibBuilder.loadTexts:gsmpNotificationObjectsGroup.setStatus(_B)
+gsmpSessionDown=NotificationType((1,3,6,1,2,1,98,0,1))
+gsmpSessionDown.setObjects(*((_A,_a),(_A,_b),(_A,_M),(_A,_c),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T)))
+if mibBuilder.loadTexts:gsmpSessionDown.setStatus(_B)
+gsmpSessionUp=NotificationType((1,3,6,1,2,1,98,0,2))
+gsmpSessionUp.setObjects((_A,_Z))
+if mibBuilder.loadTexts:gsmpSessionUp.setStatus(_B)
+gsmpSentFailureInd=NotificationType((1,3,6,1,2,1,98,0,3))
+gsmpSentFailureInd.setObjects(*((_A,_L),(_A,_M)))
+if mibBuilder.loadTexts:gsmpSentFailureInd.setStatus(_B)
+gsmpReceivedFailureInd=NotificationType((1,3,6,1,2,1,98,0,4))
+gsmpReceivedFailureInd.setObjects(*((_A,_L),(_A,_N)))
+if mibBuilder.loadTexts:gsmpReceivedFailureInd.setStatus(_B)
+gsmpPortUpEvent=NotificationType((1,3,6,1,2,1,98,0,5))
+gsmpPortUpEvent.setObjects(*((_A,_O),(_A,_G),(_A,_I),(_A,_F)))
+if mibBuilder.loadTexts:gsmpPortUpEvent.setStatus(_B)
+gsmpPortDownEvent=NotificationType((1,3,6,1,2,1,98,0,6))
+gsmpPortDownEvent.setObjects(*((_A,_P),(_A,_G),(_A,_I),(_A,_F)))
+if mibBuilder.loadTexts:gsmpPortDownEvent.setStatus(_B)
+gsmpInvalidLabelEvent=NotificationType((1,3,6,1,2,1,98,0,7))
+gsmpInvalidLabelEvent.setObjects(*((_A,_Q),(_A,_G),(_A,_d),(_A,_F)))
+if mibBuilder.loadTexts:gsmpInvalidLabelEvent.setStatus(_B)
+gsmpNewPortEvent=NotificationType((1,3,6,1,2,1,98,0,8))
+gsmpNewPortEvent.setObjects(*((_A,_R),(_A,_G),(_A,_I),(_A,_F)))
+if mibBuilder.loadTexts:gsmpNewPortEvent.setStatus(_B)
+gsmpDeadPortEvent=NotificationType((1,3,6,1,2,1,98,0,9))
+gsmpDeadPortEvent.setObjects(*((_A,_S),(_A,_G),(_A,_I),(_A,_F)))
+if mibBuilder.loadTexts:gsmpDeadPortEvent.setStatus(_B)
+gsmpAdjacencyUpdateEvent=NotificationType((1,3,6,1,2,1,98,0,10))
+gsmpAdjacencyUpdateEvent.setObjects(*((_A,_Y),(_A,_T),(_A,_F)))
+if mibBuilder.loadTexts:gsmpAdjacencyUpdateEvent.setStatus(_B)
+gsmpNotificationsGroup=NotificationGroup((1,3,6,1,2,1,98,3,1,7))
+gsmpNotificationsGroup.setObjects(*((_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao)))
+if mibBuilder.loadTexts:gsmpNotificationsGroup.setStatus(_B)
+gsmpModuleCompliance=ModuleCompliance((1,3,6,1,2,1,98,3,2,1))
+gsmpModuleCompliance.setObjects(*((_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av)))
+if mibBuilder.loadTexts:gsmpModuleCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'GsmpNameType':GsmpNameType,'GsmpPartitionType':GsmpPartitionType,'GsmpPartitionIdType':GsmpPartitionIdType,_W:GsmpVersion,'GsmpLabelType':GsmpLabelType,'gsmpMIB':gsmpMIB,'gsmpNotifications':gsmpNotifications,_Af:gsmpSessionDown,_Ag:gsmpSessionUp,_Ah:gsmpSentFailureInd,_Ai:gsmpReceivedFailureInd,_Aj:gsmpPortUpEvent,_Ak:gsmpPortDownEvent,_Al:gsmpInvalidLabelEvent,_Am:gsmpNewPortEvent,_An:gsmpDeadPortEvent,_Ao:gsmpAdjacencyUpdateEvent,'gsmpObjects':gsmpObjects,'gsmpControllerTable':gsmpControllerTable,'gsmpControllerEntry':gsmpControllerEntry,_j:gsmpControllerEntityId,_A7:gsmpControllerMaxVersion,_A8:gsmpControllerTimer,_A9:gsmpControllerPort,_AA:gsmpControllerInstance,_AB:gsmpControllerPartitionType,_AC:gsmpControllerPartitionId,_AD:gsmpControllerDoResync,_AE:gsmpControllerNotificationMap,_AF:gsmpControllerSessionState,_AG:gsmpControllerStorageType,_AH:gsmpControllerRowStatus,'gsmpSwitchTable':gsmpSwitchTable,'gsmpSwitchEntry':gsmpSwitchEntry,_w:gsmpSwitchEntityId,_AI:gsmpSwitchMaxVersion,_AJ:gsmpSwitchTimer,_AK:gsmpSwitchName,_AL:gsmpSwitchPort,_AM:gsmpSwitchInstance,_AN:gsmpSwitchPartitionType,_AO:gsmpSwitchPartitionId,_AP:gsmpSwitchNotificationMap,_AQ:gsmpSwitchSwitchType,_AR:gsmpSwitchWindowSize,_AS:gsmpSwitchSessionState,_AT:gsmpSwitchStorageType,_AU:gsmpSwitchRowStatus,'gsmpAtmEncapTable':gsmpAtmEncapTable,'gsmpAtmEncapEntry':gsmpAtmEncapEntry,_x:gsmpAtmEncapEntityId,_AV:gsmpAtmEncapIfIndex,_AW:gsmpAtmEncapVpi,_AX:gsmpAtmEncapVci,_AY:gsmpAtmEncapStorageType,_AZ:gsmpAtmEncapRowStatus,'gsmpTcpIpEncapTable':gsmpTcpIpEncapTable,'gsmpTcpIpEncapEntry':gsmpTcpIpEncapEntry,_y:gsmpTcpIpEncapEntityId,_Aa:gsmpTcpIpEncapAddressType,_Ab:gsmpTcpIpEncapAddress,_Ac:gsmpTcpIpEncapPortNumber,_Ad:gsmpTcpIpEncapStorageType,_Ae:gsmpTcpIpEncapRowStatus,'gsmpSessionTable':gsmpSessionTable,'gsmpSessionEntry':gsmpSessionEntry,_z:gsmpSessionThisSideId,_A0:gsmpSessionFarSideId,_A1:gsmpSessionVersion,_A2:gsmpSessionTimer,_A3:gsmpSessionPartitionId,_Y:gsmpSessionAdjacencyCount,_A4:gsmpSessionFarSideName,_A5:gsmpSessionFarSidePort,_Z:gsmpSessionFarSideInstance,_L:gsmpSessionLastFailureCode,_A6:gsmpSessionDiscontinuityTime,_a:gsmpSessionStartUptime,_b:gsmpSessionStatSentMessages,_M:gsmpSessionStatFailureInds,_c:gsmpSessionStatReceivedMessages,_N:gsmpSessionStatReceivedFailures,_O:gsmpSessionStatPortUpEvents,_P:gsmpSessionStatPortDownEvents,_Q:gsmpSessionStatInvLabelEvents,_R:gsmpSessionStatNewPortEvents,_S:gsmpSessionStatDeadPortEvents,_T:gsmpSessionStatAdjUpdateEvents,'gsmpNotificationsObjects':gsmpNotificationsObjects,_G:gsmpEventPort,_I:gsmpEventPortSessionNumber,_F:gsmpEventSequenceNumber,_d:gsmpEventLabel,'gsmpConformance':gsmpConformance,'gsmpGroups':gsmpGroups,_Ap:gsmpGeneralGroup,_Aq:gsmpControllerGroup,_Ar:gsmpSwitchGroup,_As:gsmpAtmEncapGroup,_At:gsmpTcpIpEncapGroup,_Au:gsmpNotificationObjectsGroup,_Av:gsmpNotificationsGroup,'gsmpCompliances':gsmpCompliances,'gsmpModuleCompliance':gsmpModuleCompliance})

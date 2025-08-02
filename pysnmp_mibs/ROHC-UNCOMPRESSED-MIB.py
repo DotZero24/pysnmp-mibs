@@ -1,40 +1,64 @@
-#
-# PySNMP MIB module ROHC-UNCOMPRESSED-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/ROHC-UNCOMPRESSED-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:27:12 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, Integer, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-( rohcContextCID, rohcChannelID, ) = mibBuilder.importSymbols("ROHC-MIB", "rohcContextCID", "rohcChannelID")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Gauge32, Integer32, NotificationType, Unsigned32, iso, mib_2, TimeTicks, ObjectIdentity, IpAddress, Counter64, ModuleIdentity, MibIdentifier, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Gauge32", "Integer32", "NotificationType", "Unsigned32", "iso", "mib-2", "TimeTicks", "ObjectIdentity", "IpAddress", "Counter64", "ModuleIdentity", "MibIdentifier")
-( DisplayString, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-rohcUncmprMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 113)).setRevisions(("2004-06-03 00:00",))
-if mibBuilder.loadTexts: rohcUncmprMIB.setLastUpdated('200406030000Z')
-if mibBuilder.loadTexts: rohcUncmprMIB.setOrganization('IETF Robust Header Compression Working Group')
-if mibBuilder.loadTexts: rohcUncmprMIB.setContactInfo('WG charter:\n          http://www.ietf.org/html.charters/rohc-charter.html\n\n        Mailing Lists:\n          General Discussion: rohc@ietf.org\n          To Subscribe: rohc-request@ietf.org\n          In Body: subscribe your_email_address\n\n        Editor:\n          Juergen Quittek\n          NEC Europe Ltd.\n          Network Laboratories\n          Kurfuersten-Anlage 36\n          69221 Heidelberg\n          Germany\n          Tel: +49 6221 90511-15\n          EMail: quittek@netlab.nec.de')
-if mibBuilder.loadTexts: rohcUncmprMIB.setDescription('This MIB module defines a set of objects for monitoring\n         and configuring RObust Header Compression (ROHC).\n         The objects are specific to ROHC uncompressed\n         (profile 0x0000).\n\n         Copyright (C) The Internet Society (2004). The\n         initial version of this MIB module was published\n         in RFC 3816. For full legal notices see the RFC\n         itself or see:\n         http://www.ietf.org/copyrights/ianamib.html')
-rohcUncmprObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 113, 1))
-rohcUncmprConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 113, 2))
-rohcUncmprContextTable = MibTable((1, 3, 6, 1, 2, 1, 113, 1, 1), )
-if mibBuilder.loadTexts: rohcUncmprContextTable.setDescription('This table lists and describes ROHC uncompressed profile\n         specific properties of compressor contexts and\n         decompressor contexts.  It extends the rohcContextTable\n         of the ROHC-MIB module.')
-rohcUncmprContextEntry = MibTableRow((1, 3, 6, 1, 2, 1, 113, 1, 1, 1), ).setIndexNames((0, "ROHC-MIB", "rohcChannelID"), (0, "ROHC-MIB", "rohcContextCID"))
-if mibBuilder.loadTexts: rohcUncmprContextEntry.setDescription('An entry describing a particular context.')
-rohcUncmprContextState = MibTableColumn((1, 3, 6, 1, 2, 1, 113, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("initAndRefresh", 1), ("normal", 2), ("noContext", 3), ("fullContext", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcUncmprContextState.setDescription('State of the context. States initAndRefresh(1) and normal(2)\n         are states of compressor contexts, states noContext(3)\n         and fullContext(4) are states of decompressor contexts.')
-rohcUncmprContextMode = MibTableColumn((1, 3, 6, 1, 2, 1, 113, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("unidirectional", 1), ("bidirectional", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcUncmprContextMode.setDescription('Mode of the context.')
-rohcUncmprContextACKs = MibTableColumn((1, 3, 6, 1, 2, 1, 113, 1, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rohcUncmprContextACKs.setDescription('The number of all positive feedbacks (ACK) sent or\n         received in this context, respectively.\n\n         Discontinuities in the value of this counter can\n         occur at re-initialization of the management\n         system, and at other times as indicated by the\n         value of ifCounterDiscontinuityTime.  For checking\n         ifCounterDiscontinuityTime, the interface index is\n         required.  It can be determined by reading the\n         rohcChannelTable of the ROHC-MIB.')
-rohcUncmprCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 113, 2, 1))
-rohcUncmprGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 113, 2, 2))
-rohcUncmprCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 113, 2, 1, 1)).setObjects(*(("ROHC-UNCOMPRESSED-MIB", "rohcUncmprContextGroup"), ("ROHC-UNCOMPRESSED-MIB", "rohcUncmprStatisticsGroup"),))
-if mibBuilder.loadTexts: rohcUncmprCompliance.setDescription('The compliance statement for SNMP entities that implement\n         the ROHC-UNCOMPRESSED-MIB.\n\n         Note that compliance with this compliance\n         statement requires compliance with the\n         rohcCompliance MODULE-COMPLIANCE statement of the\n         ROHC-MIB and with the ifCompliance3 MODULE-COMPLIANCE\n         statement of the IF-MIB (RFC2863).')
-rohcUncmprContextGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 113, 2, 2, 1)).setObjects(*(("ROHC-UNCOMPRESSED-MIB", "rohcUncmprContextState"), ("ROHC-UNCOMPRESSED-MIB", "rohcUncmprContextMode"),))
-if mibBuilder.loadTexts: rohcUncmprContextGroup.setDescription('A collection of objects providing information about\n         ROHC uncompressed compressors and decompressors.')
-rohcUncmprStatisticsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 113, 2, 2, 2)).setObjects(*(("ROHC-UNCOMPRESSED-MIB", "rohcUncmprContextACKs"),))
-if mibBuilder.loadTexts: rohcUncmprStatisticsGroup.setDescription('An object providing context statistics.')
-mibBuilder.exportSymbols("ROHC-UNCOMPRESSED-MIB", rohcUncmprCompliances=rohcUncmprCompliances, rohcUncmprObjects=rohcUncmprObjects, rohcUncmprContextTable=rohcUncmprContextTable, rohcUncmprContextState=rohcUncmprContextState, rohcUncmprContextMode=rohcUncmprContextMode, rohcUncmprContextACKs=rohcUncmprContextACKs, PYSNMP_MODULE_ID=rohcUncmprMIB, rohcUncmprContextEntry=rohcUncmprContextEntry, rohcUncmprGroups=rohcUncmprGroups, rohcUncmprStatisticsGroup=rohcUncmprStatisticsGroup, rohcUncmprContextGroup=rohcUncmprContextGroup, rohcUncmprConformance=rohcUncmprConformance, rohcUncmprCompliance=rohcUncmprCompliance, rohcUncmprMIB=rohcUncmprMIB)
+_L='rohcUncmprStatisticsGroup'
+_K='rohcUncmprContextGroup'
+_J='rohcUncmprContextACKs'
+_I='rohcUncmprContextMode'
+_H='rohcUncmprContextState'
+_G='rohcContextCID'
+_F='rohcChannelID'
+_E='read-only'
+_D='Integer32'
+_C='ROHC-MIB'
+_B='ROHC-UNCOMPRESSED-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+rohcChannelID,rohcContextCID=mibBuilder.importSymbols(_C,_F,_G)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+rohcUncmprMIB=ModuleIdentity((1,3,6,1,2,1,113))
+if mibBuilder.loadTexts:rohcUncmprMIB.setRevisions(('2004-06-03 00:00',))
+_RohcUncmprObjects_ObjectIdentity=ObjectIdentity
+rohcUncmprObjects=_RohcUncmprObjects_ObjectIdentity((1,3,6,1,2,1,113,1))
+_RohcUncmprContextTable_Object=MibTable
+rohcUncmprContextTable=_RohcUncmprContextTable_Object((1,3,6,1,2,1,113,1,1))
+if mibBuilder.loadTexts:rohcUncmprContextTable.setStatus(_A)
+_RohcUncmprContextEntry_Object=MibTableRow
+rohcUncmprContextEntry=_RohcUncmprContextEntry_Object((1,3,6,1,2,1,113,1,1,1))
+rohcUncmprContextEntry.setIndexNames((0,_C,_F),(0,_C,_G))
+if mibBuilder.loadTexts:rohcUncmprContextEntry.setStatus(_A)
+class _RohcUncmprContextState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('initAndRefresh',1),('normal',2),('noContext',3),('fullContext',4)))
+_RohcUncmprContextState_Type.__name__=_D
+_RohcUncmprContextState_Object=MibTableColumn
+rohcUncmprContextState=_RohcUncmprContextState_Object((1,3,6,1,2,1,113,1,1,1,3),_RohcUncmprContextState_Type())
+rohcUncmprContextState.setMaxAccess(_E)
+if mibBuilder.loadTexts:rohcUncmprContextState.setStatus(_A)
+class _RohcUncmprContextMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('unidirectional',1),('bidirectional',2)))
+_RohcUncmprContextMode_Type.__name__=_D
+_RohcUncmprContextMode_Object=MibTableColumn
+rohcUncmprContextMode=_RohcUncmprContextMode_Object((1,3,6,1,2,1,113,1,1,1,4),_RohcUncmprContextMode_Type())
+rohcUncmprContextMode.setMaxAccess(_E)
+if mibBuilder.loadTexts:rohcUncmprContextMode.setStatus(_A)
+_RohcUncmprContextACKs_Type=Counter32
+_RohcUncmprContextACKs_Object=MibTableColumn
+rohcUncmprContextACKs=_RohcUncmprContextACKs_Object((1,3,6,1,2,1,113,1,1,1,5),_RohcUncmprContextACKs_Type())
+rohcUncmprContextACKs.setMaxAccess(_E)
+if mibBuilder.loadTexts:rohcUncmprContextACKs.setStatus(_A)
+_RohcUncmprConformance_ObjectIdentity=ObjectIdentity
+rohcUncmprConformance=_RohcUncmprConformance_ObjectIdentity((1,3,6,1,2,1,113,2))
+_RohcUncmprCompliances_ObjectIdentity=ObjectIdentity
+rohcUncmprCompliances=_RohcUncmprCompliances_ObjectIdentity((1,3,6,1,2,1,113,2,1))
+_RohcUncmprGroups_ObjectIdentity=ObjectIdentity
+rohcUncmprGroups=_RohcUncmprGroups_ObjectIdentity((1,3,6,1,2,1,113,2,2))
+rohcUncmprContextGroup=ObjectGroup((1,3,6,1,2,1,113,2,2,1))
+rohcUncmprContextGroup.setObjects(*((_B,_H),(_B,_I)))
+if mibBuilder.loadTexts:rohcUncmprContextGroup.setStatus(_A)
+rohcUncmprStatisticsGroup=ObjectGroup((1,3,6,1,2,1,113,2,2,2))
+rohcUncmprStatisticsGroup.setObjects((_B,_J))
+if mibBuilder.loadTexts:rohcUncmprStatisticsGroup.setStatus(_A)
+rohcUncmprCompliance=ModuleCompliance((1,3,6,1,2,1,113,2,1,1))
+rohcUncmprCompliance.setObjects(*((_B,_K),(_B,_L)))
+if mibBuilder.loadTexts:rohcUncmprCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'rohcUncmprMIB':rohcUncmprMIB,'rohcUncmprObjects':rohcUncmprObjects,'rohcUncmprContextTable':rohcUncmprContextTable,'rohcUncmprContextEntry':rohcUncmprContextEntry,_H:rohcUncmprContextState,_I:rohcUncmprContextMode,_J:rohcUncmprContextACKs,'rohcUncmprConformance':rohcUncmprConformance,'rohcUncmprCompliances':rohcUncmprCompliances,'rohcUncmprCompliance':rohcUncmprCompliance,'rohcUncmprGroups':rohcUncmprGroups,_K:rohcUncmprContextGroup,_L:rohcUncmprStatisticsGroup})

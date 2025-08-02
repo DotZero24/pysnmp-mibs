@@ -1,205 +1,538 @@
-#
-# PySNMP MIB module MALLOC-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/MALLOC-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:19:58 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, Integer, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-( IANAmallocRangeSource, IANAscopeSource, ) = mibBuilder.importSymbols("IANA-MALLOC-MIB", "IANAmallocRangeSource", "IANAscopeSource")
-( InetAddress, InetAddressType, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
-( LanguageTag, ) = mibBuilder.importSymbols("IPMROUTE-STD-MIB", "LanguageTag")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ModuleCompliance, ObjectGroup, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-( Counter64, mib_2, iso, Bits, Integer32, IpAddress, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Counter32, Gauge32, TimeTicks, Unsigned32, ObjectIdentity, NotificationType, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "mib-2", "iso", "Bits", "Integer32", "IpAddress", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Counter32", "Gauge32", "TimeTicks", "Unsigned32", "ObjectIdentity", "NotificationType")
-( StorageType, TextualConvention, TruthValue, DisplayString, RowStatus, ) = mibBuilder.importSymbols("SNMPv2-TC", "StorageType", "TextualConvention", "TruthValue", "DisplayString", "RowStatus")
-mallocMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 101)).setRevisions(("2003-06-09 00:00",))
-if mibBuilder.loadTexts: mallocMIB.setLastUpdated('200306090000Z')
-if mibBuilder.loadTexts: mallocMIB.setOrganization('IETF MALLOC Working Group')
-if mibBuilder.loadTexts: mallocMIB.setContactInfo(' WG-EMail:   malloc@catarina.usc.edu\n              Subscribe:  malloc-request@catarina.usc.edu\n              Archive:    catarina.usc.edu/pub/multicast/malloc/\n\n              Co-chair/editor:\n              Dave Thaler\n              Microsoft Corporation\n              One Microsoft Way\n              Redmond, WA 98052\n              EMail: dthaler@microsoft.com\n\n              Co-chair:\n              Steve Hanna\n              Sun Microsystems, Inc.\n              One Network Drive\n              Burlington, MA 01803\n              EMail: steve.hanna@sun.com')
-if mibBuilder.loadTexts: mallocMIB.setDescription('The MIB module for management of multicast address\n            allocation.\n\n            Copyright (C) The Internet Society (2003).  This version of\n            this MIB module is part of RFC 3559; see the RFC itself for\n            full legal notices.')
-mallocMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 101, 1))
-malloc = MibIdentifier((1, 3, 6, 1, 2, 1, 101, 1, 1))
-madcap = MibIdentifier((1, 3, 6, 1, 2, 1, 101, 1, 2))
-mallocCapabilities = MibScalar((1, 3, 6, 1, 2, 1, 101, 1, 1, 1), Bits().clone(namedValues=NamedValues(("startTime", 0), ("serverMobility", 1), ("retryAfter", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocCapabilities.setDescription('This object describes the capabilities which a client or\n            server supports.  The startTime bit indicates that\n            allocations with a future start time are supported.  The\n            serverMobility bit indicates that allocations can be renewed\n            or released from a server other than the one granting the\n            original allocation.  The retryAfter bit indicates support\n            for a waiting state where the client may check back at a\n            later time to get the status of its request.')
-mallocScopeTable = MibTable((1, 3, 6, 1, 2, 1, 101, 1, 1, 2), )
-if mibBuilder.loadTexts: mallocScopeTable.setDescription('The (conceptual) table containing information on multicast\n            scopes from which addresses may be allocated.  Entries in\n            this table may be dynamically discovered via some other\n\n\n\n            protocol, such as MZAP, or may be statically configured,\n            such as in an isolated network environment.  Each scope is\n            associated with a range of multicast addresses, and ranges\n            for different rows must be disjoint.')
-mallocScopeEntry = MibTableRow((1, 3, 6, 1, 2, 1, 101, 1, 1, 2, 1), ).setIndexNames((0, "MALLOC-MIB", "mallocScopeAddressType"), (0, "MALLOC-MIB", "mallocScopeFirstAddress"))
-if mibBuilder.loadTexts: mallocScopeEntry.setDescription('An entry (conceptual row) containing the information on a\n            particular multicast scope.')
-mallocScopeAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 2, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: mallocScopeAddressType.setDescription('The type of the addresses in the multicast scope range.\n            Legal values correspond to the subset of address families\n            for which multicast address allocation is supported.')
-mallocScopeFirstAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 2, 1, 2), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0,20)))
-if mibBuilder.loadTexts: mallocScopeFirstAddress.setDescription('The first address in the multicast scope range.  The type\n            of this address is determined by the value of the\n            mallocScopeAddressType object.')
-mallocScopeLastAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 2, 1, 3), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0,20))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocScopeLastAddress.setDescription('The last address in the multicast scope range.  The type of\n            this address is determined by the value of the\n            mallocScopeAddressType object.')
-mallocScopeHopLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 2, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,255)).clone(255)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocScopeHopLimit.setDescription('The default IPv4 TTL or IPv6 hop limit which applications\n            should use for groups within the scope.')
-mallocScopeStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocScopeStatus.setDescription("The status of this row, by which new entries may be\n            created, or old entries deleted from this table.  If write\n            access is supported, the other writable objects in this\n            table may be modified even while the status is `active'.")
-mallocScopeSource = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 2, 1, 6), IANAscopeSource()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocScopeSource.setDescription('The method by which this entry was learned.')
-mallocScopeDivisible = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 2, 1, 7), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocScopeDivisible.setDescription('If false, the server may allocate addresses out of the\n            entire range.  If true, the server must not allocate\n\n\n\n            addresses out of the entire range, but may only allocate\n            addresses out of a subrange learned via another method.\n            Creating or deleting a scope which is not divisible has the\n            side effect of creating or deleting the corresponding entry\n            in the mallocAllocRangeTable.  Deleting a scope which is\n            divisible has the side effect of deleting any corresponding\n            entries in the mallocAllocRangeTable, and the\n            mallocRequestTable.')
-mallocScopeServerAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 2, 1, 8), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocScopeServerAddressType.setDescription('The type of the address of a multicast address allocation\n            server to which a request may be sent.')
-mallocScopeServerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 2, 1, 9), InetAddress().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocScopeServerAddress.setDescription('The address of a multicast address allocation server to\n            which a request may be sent.  The default value is an zero-\n            length address, indicating that no server is known.  The\n            type of this address is determined by the value of the\n            mallocScopeServerAddressType object.')
-mallocScopeSSM = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 2, 1, 10), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocScopeSSM.setDescription('Indicates whether the scope is a Source-Specific Multicast\n            (SSM) range.')
-mallocScopeStorage = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 2, 1, 11), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocScopeStorage.setDescription("The storage type for this conceptual row.  Conceptual rows\n            having the value 'permanent' need not allow write-access to\n            any columnar objects in the row.")
-mallocScopeNameTable = MibTable((1, 3, 6, 1, 2, 1, 101, 1, 1, 3), )
-if mibBuilder.loadTexts: mallocScopeNameTable.setDescription('The (conceptual) table containing information on multicast\n            scope names.  Entries in this table may be dynamically\n            discovered via some other protocol, such as MZAP, or may be\n            statically configured, such as in an isolated network\n            environment.')
-mallocScopeNameEntry = MibTableRow((1, 3, 6, 1, 2, 1, 101, 1, 1, 3, 1), ).setIndexNames((0, "MALLOC-MIB", "mallocScopeAddressType"), (0, "MALLOC-MIB", "mallocScopeFirstAddress"), (1, "MALLOC-MIB", "mallocScopeNameLangName"))
-if mibBuilder.loadTexts: mallocScopeNameEntry.setDescription('An entry (conceptual row) containing the information on a\n            particular multicast scope name.')
-mallocScopeNameLangName = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 3, 1, 1), LanguageTag().subtype(subtypeSpec=ValueSizeConstraint(1,94)))
-if mibBuilder.loadTexts: mallocScopeNameLangName.setDescription('The RFC 3066 language tag for the language of the scope\n            name.')
-mallocScopeNameScopeName = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 3, 1, 2), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocScopeNameScopeName.setDescription('The textual name associated with the multicast scope.  The\n            value of this object should be suitable for displaying to\n            end-users, such as when allocating a multicast address in\n            this scope.  If the scope is an IPv4 scope, and no name is\n            specified, the default value of this object should be the\n            string 239.x.x.x/y with x and y replaced appropriately to\n            describe the address and mask length associated with the\n            scope.  If the scope is an IPv6 scope, and no name is\n            specified, the default value of this object should\n            generically describe the scope level (e.g., site).')
-mallocScopeNameDefault = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 3, 1, 3), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocScopeNameDefault.setDescription('If true, indicates a preference that the name in the\n            associated language should be used by applications if no\n            name is available in a desired language.')
-mallocScopeNameStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 3, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocScopeNameStatus.setDescription("The status of this row, by which new entries may be\n            created, or old entries deleted from this table.  If write\n            access is supported, the other writable objects in this\n            table may be modified even while the status is `active'.")
-mallocScopeNameStorage = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 3, 1, 5), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocScopeNameStorage.setDescription("The storage type for this conceptual row.  Conceptual rows\n            having the value 'permanent' need not allow write-access to\n            any columnar objects in the row.")
-mallocAllocRangeTable = MibTable((1, 3, 6, 1, 2, 1, 101, 1, 1, 4), )
-if mibBuilder.loadTexts: mallocAllocRangeTable.setDescription("The (conceptual) table containing information on subranges\n            of addresses from which the device may allocate addresses,\n            if it is a MAAS.  If the device is a Prefix Coordinator, any\n            ranges which the device is advertising to MAAS's will be in\n            this table.  Note that the device may be both a MAAS and a\n            Prefix Coordinator.\n\n            Address ranges for different rows must be disjoint, and must\n            be contained with the address range of the corresponding row\n            of the mallocScopeTable.\n\n            Deleting an allocation range has the side effect of deleting\n            any entries within that range from the mallocAddressTable.")
-mallocAllocRangeEntry = MibTableRow((1, 3, 6, 1, 2, 1, 101, 1, 1, 4, 1), ).setIndexNames((0, "MALLOC-MIB", "mallocScopeAddressType"), (0, "MALLOC-MIB", "mallocScopeFirstAddress"), (0, "MALLOC-MIB", "mallocAllocRangeFirstAddress"))
-if mibBuilder.loadTexts: mallocAllocRangeEntry.setDescription('An entry (conceptual row) containing the information on a\n            particular allocation range.')
-mallocAllocRangeFirstAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 4, 1, 1), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0,20)))
-if mibBuilder.loadTexts: mallocAllocRangeFirstAddress.setDescription('The first address in the allocation range.  The type of\n            this address is determined by the value of the\n            mallocScopeAddressType object.')
-mallocAllocRangeLastAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 4, 1, 2), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0,20))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocAllocRangeLastAddress.setDescription('The last address in the allocation range.  The type of this\n            address is determined by the value of the\n            mallocScopeAddressType object.')
-mallocAllocRangeStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 4, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocAllocRangeStatus.setDescription("The status of this row, by which new entries may be\n            created, or old entries deleted from this table.  If write\n            access is supported, the other writable objects in this\n            table may be modified even while the status is `active'.")
-mallocAllocRangeSource = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 4, 1, 4), IANAmallocRangeSource()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocAllocRangeSource.setDescription('The means by which this entry was learned.')
-mallocAllocRangeLifetime = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 4, 1, 5), Unsigned32()).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocAllocRangeLifetime.setDescription('The number of seconds remaining in the lifetime of the\n            (sub)range out of which addresses are being allocated.  A\n            value of 0 indicates that the range is not subject to\n            aging.')
-mallocAllocRangeMaxLeaseAddrs = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 4, 1, 6), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocAllocRangeMaxLeaseAddrs.setDescription('The maximum number of addresses which the server is willing\n            to grant for each future request in this range.  A value of\n            0 means that no specific limit is enforced, as long as the\n            server has valid addresses to allocate.')
-mallocAllocRangeMaxLeaseTime = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 4, 1, 7), Unsigned32()).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocAllocRangeMaxLeaseTime.setDescription('The maximum lifetime which the server will grant for future\n            requests in this range.  A value of 0 means that no\n            additional limit is enforced beyond that of\n            mallocAllocRangeLifetime.')
-mallocAllocRangeNumAllocatedAddrs = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 4, 1, 8), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocAllocRangeNumAllocatedAddrs.setDescription('The number of addresses in the range which have been\n            allocated.  This value can be used to determine the current\n            address space utilization within the scoped range.  This\n\n\n\n            should match the total number of addresses for this scope\n            covered by entries in the mallocAddressTable.')
-mallocAllocRangeNumOfferedAddrs = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 4, 1, 9), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocAllocRangeNumOfferedAddrs.setDescription('The number of addresses in the range which have been\n            offered.  This number should match the sum of\n            mallocRequestNumAddrs for all entries in the\n            mallocRequestTable in the offered state.  Together with\n            mallocAllocRangeNumAllocatedAddrs and\n            mallocAllocRangeNumTryingAddrs, this can be used to\n            determine the address space utilization within the scoped\n            range in the immediate future.')
-mallocAllocRangeNumWaitingAddrs = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 4, 1, 10), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocAllocRangeNumWaitingAddrs.setDescription('The number of addresses in the range which have been\n            requested, but whose state is waiting, while the server\n            attempts to acquire more address space.')
-mallocAllocRangeNumTryingAddrs = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 4, 1, 11), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocAllocRangeNumTryingAddrs.setDescription('The number of addresses in the scope covered by entries in\n            the mallocRequestTable in the trying state.')
-mallocAllocRangeAdvertisable = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 4, 1, 12), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocAllocRangeAdvertisable.setDescription('The value of this object is true if the range is eligible\n            to be advertised to other MAASs.  When the row is first\n            created, the default value of this object is true if the\n            scope is divisible, and is false otherwise.')
-mallocAllocRangeTotalAllocatedAddrs = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 4, 1, 13), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocAllocRangeTotalAllocatedAddrs.setDescription('The approximate number of addresses in the range which have\n            been allocated by any MAAS, as determined by a Prefix\n            Coordinator.  This object need only be present if\n            mallocAllocRangeAdvertisable is true.  If the number is\n            unknown, a value of 0 may be reported.')
-mallocAllocRangeTotalRequestedAddrs = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 4, 1, 14), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocAllocRangeTotalRequestedAddrs.setDescription('The approximate number of addresses in the range for which\n            there is potential demand among MAASs, as determined by a\n            Prefix Coordinator.  This object need only be present if\n            mallocAllocRangeAdvertisable is true.  If the number is\n            unknown, a value of 0 may be reported.')
-mallocAllocRangeStorage = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 4, 1, 15), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mallocAllocRangeStorage.setDescription("The storage type for this conceptual row.  Conceptual rows\n            having the value 'permanent' need not allow write-access to\n            any columnar objects in the row.")
-mallocRequestTable = MibTable((1, 3, 6, 1, 2, 1, 101, 1, 1, 5), )
-if mibBuilder.loadTexts: mallocRequestTable.setDescription('The (conceptual) table containing information on allocation\n            requests, whether allocated or in progress.  This table may\n            also be used to determine which clients are responsible for\n            high address space utilization within a given scope.\n\n\n\n            Entries in this table reflect requests dynamically received\n            by an address allocation protocol.')
-mallocRequestEntry = MibTableRow((1, 3, 6, 1, 2, 1, 101, 1, 1, 5, 1), ).setIndexNames((0, "MALLOC-MIB", "mallocRequestId"))
-if mibBuilder.loadTexts: mallocRequestEntry.setDescription('An entry (conceptual row) containing the information on a\n            particular allocation request.')
-mallocRequestId = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 5, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: mallocRequestId.setDescription('An arbitrary value identifying this row.')
-mallocRequestScopeAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 5, 1, 2), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocRequestScopeAddressType.setDescription('The type of the first address of the scope to which the\n            request applies.  Legal values correspond to the subset of\n            address families for which multicast address allocation is\n            supported.')
-mallocRequestScopeFirstAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 5, 1, 3), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocRequestScopeFirstAddress.setDescription('The first address of the scope to which the request\n            applies.  This must match mallocScopeFirstAddress for some\n            row in the mallocScopeTable.  The type of this address is\n            determined by the value of the mallocRequestScopeAddressType\n            object.')
-mallocRequestStartTime = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 5, 1, 4), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocRequestStartTime.setDescription('The number of seconds remaining before the start time of\n            the request.  A value of 0 means that the allocation is\n            currently in effect.')
-mallocRequestEndTime = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 5, 1, 5), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocRequestEndTime.setDescription('The number of seconds remaining before the end time of the\n            request.')
-mallocRequestNumAddrs = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 5, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocRequestNumAddrs.setDescription('The number of addresses requested.  If the addresses have\n            been allocated, this number should match the total number of\n            addresses for this request covered by entries in the\n            mallocAddressTable.')
-mallocRequestState = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 5, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("allocated", 1), ("offered", 2), ("waiting", 3), ("trying", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocRequestState.setDescription('The state of the request.  A value of allocated(1)\n            indicates that one or more entries for this request are\n            present in the mallocAddressTable.  A value of offered(2)\n            indicates that addresses have been offered to the client\n            (e.g. via a MADCAP OFFER message), but the allocation has\n            not been committed.  A value of waiting(3) indicates that\n            the allocation is blocked while the server attempts to\n            acquire more space from which it can allocate addresses.  A\n            value of trying(4) means that no addresses have been offered\n            to the client, but that an attempt to allocate is in\n            progress.')
-mallocRequestClientAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 5, 1, 8), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocRequestClientAddressType.setDescription('The type of the address of the client that (last) requested\n            this allocation.')
-mallocRequestClientAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 5, 1, 9), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocRequestClientAddress.setDescription('The address of the client that (last) requested this\n            allocation.  The type of this address is determined by the\n            value of the mallocRequestClientAddressType object.')
-mallocRequestServerAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 5, 1, 10), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocRequestServerAddressType.setDescription('The type of the address of the server to which the request\n            was (last) sent.')
-mallocRequestServerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 5, 1, 11), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocRequestServerAddress.setDescription('The address of the server to which the request was (last)\n            sent.  The type of this address is determined by the value\n            of the mallocRequestServerAddressType object.')
-mallocRequestLeaseIdentifier = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 5, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocRequestLeaseIdentifier.setDescription('The Lease Identifier of this request.  If the allocation\n            mechanism in use does not use Lease Identifiers, then the\n            value is a 0-length string.')
-mallocAddressTable = MibTable((1, 3, 6, 1, 2, 1, 101, 1, 1, 6), )
-if mibBuilder.loadTexts: mallocAddressTable.setDescription('The (conceptual) table containing information on blocks of\n            allocated addresses.  This table may be used to map a given\n            multicast group address to the associated request.')
-mallocAddressEntry = MibTableRow((1, 3, 6, 1, 2, 1, 101, 1, 1, 6, 1), ).setIndexNames((0, "MALLOC-MIB", "mallocAddressAddressType"), (0, "MALLOC-MIB", "mallocAddressFirstAddress"))
-if mibBuilder.loadTexts: mallocAddressEntry.setDescription('An entry (conceptual row) containing the information on a\n            particular block of allocated addresses.  The block of\n            addresses covered by each entry in this table must fall\n            within a range corresponding to an entry in the\n            mallocAllocRangeTable.')
-mallocAddressAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 6, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: mallocAddressAddressType.setDescription('The type of the first address in the allocated block.\n            Legal values correspond to the subset of address families\n            for which multicast address allocation is supported.')
-mallocAddressFirstAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 6, 1, 2), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0,20)))
-if mibBuilder.loadTexts: mallocAddressFirstAddress.setDescription('The first address in the allocated block.  The type of this\n            address is determined by the value of the\n            mallocAddressAddressType object.')
-mallocAddressNumAddrs = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 6, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocAddressNumAddrs.setDescription('The number of addresses in the allocated block.')
-mallocAddressRequestId = MibTableColumn((1, 3, 6, 1, 2, 1, 101, 1, 1, 6, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mallocAddressRequestId.setDescription('The index of the request which caused this block of\n            addresses to be allocated.  This value must match the value\n            of mallocRequestId for some entry in the\n            mallocRequestTable.')
-madcapConfig = ObjectIdentity((1, 3, 6, 1, 2, 1, 101, 1, 2, 1))
-if mibBuilder.loadTexts: madcapConfig.setDescription('Group of objects that count various MADCAP events.')
-madcapConfigExtraAllocationTime = MibScalar((1, 3, 6, 1, 2, 1, 101, 1, 2, 1, 1), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: madcapConfigExtraAllocationTime.setDescription('The amount of extra time on either side of a lease which\n            the MADCAP server allocates to allow for clock skew among\n            clients.')
-madcapConfigNoResponseDelay = MibScalar((1, 3, 6, 1, 2, 1, 101, 1, 2, 1, 2), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: madcapConfigNoResponseDelay.setDescription('The amount of time the MADCAP client allows for receiving a\n            response from a MADCAP server.')
-madcapConfigOfferHold = MibScalar((1, 3, 6, 1, 2, 1, 101, 1, 2, 1, 3), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: madcapConfigOfferHold.setDescription('The amount of time the MADCAP server will reserve an\n            address for after sending an OFFER message in anticipation\n            of receiving a REQUEST message.')
-madcapConfigResponseCacheInterval = MibScalar((1, 3, 6, 1, 2, 1, 101, 1, 2, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,300))).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: madcapConfigResponseCacheInterval.setDescription('The amount of time the MADCAP server uses to detect\n            duplicate messages.')
-madcapConfigClockSkewAllowance = MibScalar((1, 3, 6, 1, 2, 1, 101, 1, 2, 1, 5), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: madcapConfigClockSkewAllowance.setDescription('The clock skew threshold used by the MADCAP server to\n            generate Excessive Clock Skew errors.')
-madcapCounters = ObjectIdentity((1, 3, 6, 1, 2, 1, 101, 1, 2, 2))
-if mibBuilder.loadTexts: madcapCounters.setDescription('A group of objects that count various MADCAP events.')
-madcapTotalErrors = MibScalar((1, 3, 6, 1, 2, 1, 101, 1, 2, 2, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: madcapTotalErrors.setDescription('The total number of transactions for which the MADCAP\n            server has detected an error of any type, regardless of\n            whether the server ignored the request or generated a NAK.')
-madcapRequestsDenied = MibScalar((1, 3, 6, 1, 2, 1, 101, 1, 2, 2, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: madcapRequestsDenied.setDescription('The number of valid requests for which the MADCAP server\n            could not complete an allocation, regardless of whether NAKs\n            were sent.  This corresponds to the Valid Request Could Not\n            Be Completed error code in MADCAP.')
-madcapInvalidRequests = MibScalar((1, 3, 6, 1, 2, 1, 101, 1, 2, 2, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: madcapInvalidRequests.setDescription('The number of invalid requests received by the MADCAP\n            server, regardless of whether NAKs were sent.  This\n            corresponds to the Invalid Request error code in MADCAP.')
-madcapExcessiveClockSkews = MibScalar((1, 3, 6, 1, 2, 1, 101, 1, 2, 2, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: madcapExcessiveClockSkews.setDescription('The number of requests received by the MADCAP server with\n            an excessive clock skew, regardless of whether NAKs were\n            sent.  This corresponds to the Excessive Clock Skew error\n            code in MADCAP.')
-madcapBadLeaseIds = MibScalar((1, 3, 6, 1, 2, 1, 101, 1, 2, 2, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: madcapBadLeaseIds.setDescription('The number of requests received by the MADCAP server with\n            an unrecognized Lease Identifier, regardless of whether NAKs\n            were sent.  This corresponds to the Lease Identifier Not\n            Recognized error code in MADCAP.')
-madcapDiscovers = MibScalar((1, 3, 6, 1, 2, 1, 101, 1, 2, 2, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: madcapDiscovers.setDescription('The number of DISCOVER messages received by the MADCAP\n            server.')
-madcapInforms = MibScalar((1, 3, 6, 1, 2, 1, 101, 1, 2, 2, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: madcapInforms.setDescription('The number of INFORM messages received by the MADCAP\n            server.')
-madcapRequests = MibScalar((1, 3, 6, 1, 2, 1, 101, 1, 2, 2, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: madcapRequests.setDescription('The number of REQUEST messages received by the MADCAP\n            server.')
-madcapRenews = MibScalar((1, 3, 6, 1, 2, 1, 101, 1, 2, 2, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: madcapRenews.setDescription('The number of RENEW messages received by the MADCAP\n            server.')
-madcapReleases = MibScalar((1, 3, 6, 1, 2, 1, 101, 1, 2, 2, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: madcapReleases.setDescription('The number of RELEASE messages received by the MADCAP\n            server.')
-mallocConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 101, 2))
-mallocCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 101, 2, 1))
-mallocGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 101, 2, 2))
-mallocServerReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 101, 2, 1, 1)).setObjects(*(("MALLOC-MIB", "mallocBasicGroup"), ("MALLOC-MIB", "mallocServerGroup"),))
-if mibBuilder.loadTexts: mallocServerReadOnlyCompliance.setDescription('The compliance statement for multicast address allocation\n            servers implementing the MALLOC MIB without support for\n            read-create (i.e., in read-only mode).  Such a server can\n            then be monitored but can not be configured with this MIB.')
-mallocClientReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 101, 2, 1, 2)).setObjects(*(("MALLOC-MIB", "mallocBasicGroup"), ("MALLOC-MIB", "mallocClientGroup"), ("MALLOC-MIB", "mallocClientScopeGroup"), ("MALLOC-MIB", "madcapClientGroup"),))
-if mibBuilder.loadTexts: mallocClientReadOnlyCompliance.setDescription('The compliance statement for clients implementing the\n            MALLOC MIB without support for read-create (i.e., in read-\n            only mode).  Such clients can then be monitored but can not\n            be configured with this MIB.')
-mallocPrefixCoordinatorReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 101, 2, 1, 3)).setObjects(*(("MALLOC-MIB", "mallocBasicGroup"), ("MALLOC-MIB", "mallocPrefixCoordinatorGroup"),))
-if mibBuilder.loadTexts: mallocPrefixCoordinatorReadOnlyCompliance.setDescription('The compliance statement for prefix coordinators\n            implementing the MALLOC MIB without support for read-create\n            (i.e., in read-only mode).  Such devices can then be\n            monitored but can not be configured with this MIB.')
-mallocServerFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 101, 2, 1, 4)).setObjects(*(("MALLOC-MIB", "mallocBasicGroup"), ("MALLOC-MIB", "mallocServerGroup"), ("MALLOC-MIB", "madcapServerGroup"),))
-if mibBuilder.loadTexts: mallocServerFullCompliance.setDescription('The compliance statement for multicast address allocation\n            servers implementing the MALLOC MIB with support for read-\n            create.  Such servers can then be both monitored and\n            configured with this MIB.')
-mallocClientFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 101, 2, 1, 5)).setObjects(*(("MALLOC-MIB", "mallocBasicGroup"), ("MALLOC-MIB", "mallocClientGroup"), ("MALLOC-MIB", "mallocClientScopeGroup"), ("MALLOC-MIB", "madcapClientGroup"),))
-if mibBuilder.loadTexts: mallocClientFullCompliance.setDescription('The compliance statement for hosts implementing the MALLOC\n            MIB with support for read-create.  Such clients can then be\n            both monitored and configured with this MIB.')
-mallocPrefixCoordinatorFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 101, 2, 1, 6)).setObjects(*(("MALLOC-MIB", "mallocBasicGroup"), ("MALLOC-MIB", "mallocPrefixCoordinatorGroup"),))
-if mibBuilder.loadTexts: mallocPrefixCoordinatorFullCompliance.setDescription('The compliance statement for prefix coordinators\n            implementing the MALLOC MIB with support for read-create.\n            Such devices can then be both monitored and configured with\n            this MIB.')
-mallocBasicGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 101, 2, 2, 1)).setObjects(*(("MALLOC-MIB", "mallocCapabilities"), ("MALLOC-MIB", "mallocRequestScopeAddressType"), ("MALLOC-MIB", "mallocRequestScopeFirstAddress"), ("MALLOC-MIB", "mallocRequestStartTime"), ("MALLOC-MIB", "mallocRequestEndTime"), ("MALLOC-MIB", "mallocRequestNumAddrs"), ("MALLOC-MIB", "mallocRequestState"), ("MALLOC-MIB", "mallocAddressNumAddrs"), ("MALLOC-MIB", "mallocAddressRequestId"),))
-if mibBuilder.loadTexts: mallocBasicGroup.setDescription('The basic collection of objects providing management of IP\n            multicast address allocation.')
-mallocServerGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 101, 2, 2, 2)).setObjects(*(("MALLOC-MIB", "mallocScopeLastAddress"), ("MALLOC-MIB", "mallocScopeHopLimit"), ("MALLOC-MIB", "mallocScopeSSM"), ("MALLOC-MIB", "mallocScopeStatus"), ("MALLOC-MIB", "mallocScopeStorage"), ("MALLOC-MIB", "mallocAllocRangeLastAddress"), ("MALLOC-MIB", "mallocAllocRangeLifetime"), ("MALLOC-MIB", "mallocAllocRangeNumAllocatedAddrs"), ("MALLOC-MIB", "mallocAllocRangeNumOfferedAddrs"), ("MALLOC-MIB", "mallocAllocRangeNumWaitingAddrs"), ("MALLOC-MIB", "mallocAllocRangeNumTryingAddrs"), ("MALLOC-MIB", "mallocAllocRangeMaxLeaseAddrs"), ("MALLOC-MIB", "mallocAllocRangeMaxLeaseTime"), ("MALLOC-MIB", "mallocAllocRangeSource"), ("MALLOC-MIB", "mallocAllocRangeStatus"), ("MALLOC-MIB", "mallocAllocRangeStorage"), ("MALLOC-MIB", "mallocScopeDivisible"), ("MALLOC-MIB", "mallocScopeSource"), ("MALLOC-MIB", "mallocScopeNameScopeName"), ("MALLOC-MIB", "mallocScopeNameDefault"), ("MALLOC-MIB", "mallocScopeNameStatus"), ("MALLOC-MIB", "mallocScopeNameStorage"), ("MALLOC-MIB", "mallocRequestClientAddressType"), ("MALLOC-MIB", "mallocRequestClientAddress"),))
-if mibBuilder.loadTexts: mallocServerGroup.setDescription('A collection of objects providing management of multicast\n            address allocation in servers.')
-mallocClientGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 101, 2, 2, 3)).setObjects(*(("MALLOC-MIB", "mallocRequestServerAddressType"), ("MALLOC-MIB", "mallocRequestServerAddress"),))
-if mibBuilder.loadTexts: mallocClientGroup.setDescription('A collection of objects providing management of multicast\n            address allocation in clients.')
-madcapServerGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 101, 2, 2, 4)).setObjects(*(("MALLOC-MIB", "madcapConfigClockSkewAllowance"), ("MALLOC-MIB", "madcapConfigExtraAllocationTime"), ("MALLOC-MIB", "madcapConfigOfferHold"), ("MALLOC-MIB", "madcapConfigResponseCacheInterval"), ("MALLOC-MIB", "madcapTotalErrors"), ("MALLOC-MIB", "madcapRequestsDenied"), ("MALLOC-MIB", "madcapInvalidRequests"), ("MALLOC-MIB", "madcapBadLeaseIds"), ("MALLOC-MIB", "madcapExcessiveClockSkews"), ("MALLOC-MIB", "madcapDiscovers"), ("MALLOC-MIB", "madcapInforms"), ("MALLOC-MIB", "madcapRequests"), ("MALLOC-MIB", "madcapRenews"), ("MALLOC-MIB", "madcapReleases"),))
-if mibBuilder.loadTexts: madcapServerGroup.setDescription('A collection of objects providing management of MADCAP\n            servers.')
-madcapClientGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 101, 2, 2, 5)).setObjects(*(("MALLOC-MIB", "mallocRequestLeaseIdentifier"), ("MALLOC-MIB", "madcapConfigNoResponseDelay"),))
-if mibBuilder.loadTexts: madcapClientGroup.setDescription('A collection of objects providing management of MADCAP\n            clients.')
-mallocClientScopeGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 101, 2, 2, 6)).setObjects(*(("MALLOC-MIB", "mallocScopeLastAddress"), ("MALLOC-MIB", "mallocScopeHopLimit"), ("MALLOC-MIB", "mallocScopeStatus"), ("MALLOC-MIB", "mallocScopeStorage"), ("MALLOC-MIB", "mallocScopeSource"), ("MALLOC-MIB", "mallocScopeServerAddressType"), ("MALLOC-MIB", "mallocScopeServerAddress"), ("MALLOC-MIB", "mallocScopeSSM"), ("MALLOC-MIB", "mallocScopeNameScopeName"), ("MALLOC-MIB", "mallocScopeNameDefault"), ("MALLOC-MIB", "mallocScopeNameStatus"), ("MALLOC-MIB", "mallocScopeNameStorage"),))
-if mibBuilder.loadTexts: mallocClientScopeGroup.setDescription('A collection of objects providing management of multicast\n            scope information in clients.')
-mallocPrefixCoordinatorGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 101, 2, 2, 7)).setObjects(*(("MALLOC-MIB", "mallocAllocRangeLastAddress"), ("MALLOC-MIB", "mallocAllocRangeLifetime"), ("MALLOC-MIB", "mallocAllocRangeStatus"), ("MALLOC-MIB", "mallocAllocRangeStorage"), ("MALLOC-MIB", "mallocAllocRangeSource"), ("MALLOC-MIB", "mallocAllocRangeTotalAllocatedAddrs"), ("MALLOC-MIB", "mallocAllocRangeTotalRequestedAddrs"), ("MALLOC-MIB", "mallocAllocRangeAdvertisable"), ("MALLOC-MIB", "mallocScopeLastAddress"), ("MALLOC-MIB", "mallocScopeDivisible"), ("MALLOC-MIB", "mallocScopeSource"),))
-if mibBuilder.loadTexts: mallocPrefixCoordinatorGroup.setDescription('A collection of objects for managing Prefix Coordinators.')
-mibBuilder.exportSymbols("MALLOC-MIB", mallocRequestScopeFirstAddress=mallocRequestScopeFirstAddress, mallocRequestLeaseIdentifier=mallocRequestLeaseIdentifier, madcapInvalidRequests=madcapInvalidRequests, mallocAllocRangeNumWaitingAddrs=mallocAllocRangeNumWaitingAddrs, mallocAllocRangeStatus=mallocAllocRangeStatus, mallocAddressFirstAddress=mallocAddressFirstAddress, mallocClientReadOnlyCompliance=mallocClientReadOnlyCompliance, mallocAddressAddressType=mallocAddressAddressType, mallocCompliances=mallocCompliances, mallocScopeHopLimit=mallocScopeHopLimit, madcapRequestsDenied=madcapRequestsDenied, mallocRequestClientAddress=mallocRequestClientAddress, PYSNMP_MODULE_ID=mallocMIB, mallocRequestState=mallocRequestState, mallocAllocRangeLastAddress=mallocAllocRangeLastAddress, mallocScopeLastAddress=mallocScopeLastAddress, mallocAllocRangeEntry=mallocAllocRangeEntry, mallocAllocRangeStorage=mallocAllocRangeStorage, mallocAllocRangeTable=mallocAllocRangeTable, madcapClientGroup=madcapClientGroup, mallocServerFullCompliance=mallocServerFullCompliance, mallocClientGroup=mallocClientGroup, mallocScopeSSM=mallocScopeSSM, mallocAddressTable=mallocAddressTable, mallocScopeNameScopeName=mallocScopeNameScopeName, mallocScopeTable=mallocScopeTable, mallocRequestScopeAddressType=mallocRequestScopeAddressType, mallocScopeFirstAddress=mallocScopeFirstAddress, mallocAllocRangeNumAllocatedAddrs=mallocAllocRangeNumAllocatedAddrs, mallocRequestClientAddressType=mallocRequestClientAddressType, madcapCounters=madcapCounters, madcapExcessiveClockSkews=madcapExcessiveClockSkews, mallocCapabilities=mallocCapabilities, mallocClientScopeGroup=mallocClientScopeGroup, mallocAllocRangeNumOfferedAddrs=mallocAllocRangeNumOfferedAddrs, mallocRequestNumAddrs=mallocRequestNumAddrs, madcapTotalErrors=madcapTotalErrors, mallocAllocRangeTotalAllocatedAddrs=mallocAllocRangeTotalAllocatedAddrs, mallocRequestServerAddress=mallocRequestServerAddress, mallocServerGroup=mallocServerGroup, mallocPrefixCoordinatorFullCompliance=mallocPrefixCoordinatorFullCompliance, malloc=malloc, mallocAddressRequestId=mallocAddressRequestId, mallocBasicGroup=mallocBasicGroup, mallocAllocRangeNumTryingAddrs=mallocAllocRangeNumTryingAddrs, mallocScopeNameEntry=mallocScopeNameEntry, mallocAllocRangeAdvertisable=mallocAllocRangeAdvertisable, mallocConformance=mallocConformance, mallocScopeNameLangName=mallocScopeNameLangName, mallocPrefixCoordinatorReadOnlyCompliance=mallocPrefixCoordinatorReadOnlyCompliance, mallocPrefixCoordinatorGroup=mallocPrefixCoordinatorGroup, madcapInforms=madcapInforms, madcapConfigResponseCacheInterval=madcapConfigResponseCacheInterval, mallocAllocRangeMaxLeaseAddrs=mallocAllocRangeMaxLeaseAddrs, mallocRequestStartTime=mallocRequestStartTime, mallocRequestEntry=mallocRequestEntry, madcapConfigNoResponseDelay=madcapConfigNoResponseDelay, mallocClientFullCompliance=mallocClientFullCompliance, mallocAllocRangeTotalRequestedAddrs=mallocAllocRangeTotalRequestedAddrs, madcapServerGroup=madcapServerGroup, madcapConfigExtraAllocationTime=madcapConfigExtraAllocationTime, madcapConfigOfferHold=madcapConfigOfferHold, mallocAddressEntry=mallocAddressEntry, madcapRequests=madcapRequests, madcapConfig=madcapConfig, mallocScopeDivisible=mallocScopeDivisible, mallocScopeServerAddress=mallocScopeServerAddress, mallocScopeStorage=mallocScopeStorage, madcapReleases=madcapReleases, mallocAllocRangeFirstAddress=mallocAllocRangeFirstAddress, mallocScopeSource=mallocScopeSource, mallocRequestTable=mallocRequestTable, mallocGroups=mallocGroups, mallocScopeAddressType=mallocScopeAddressType, mallocRequestEndTime=mallocRequestEndTime, madcapConfigClockSkewAllowance=madcapConfigClockSkewAllowance, mallocScopeStatus=mallocScopeStatus, mallocAddressNumAddrs=mallocAddressNumAddrs, mallocScopeNameDefault=mallocScopeNameDefault, mallocScopeServerAddressType=mallocScopeServerAddressType, mallocRequestServerAddressType=mallocRequestServerAddressType, mallocAllocRangeSource=mallocAllocRangeSource, madcapBadLeaseIds=madcapBadLeaseIds, mallocScopeEntry=mallocScopeEntry, madcapDiscovers=madcapDiscovers, mallocAllocRangeLifetime=mallocAllocRangeLifetime, mallocMIBObjects=mallocMIBObjects, madcap=madcap, mallocScopeNameStorage=mallocScopeNameStorage, mallocScopeNameTable=mallocScopeNameTable, mallocAllocRangeMaxLeaseTime=mallocAllocRangeMaxLeaseTime, mallocRequestId=mallocRequestId, madcapRenews=madcapRenews, mallocScopeNameStatus=mallocScopeNameStatus, mallocServerReadOnlyCompliance=mallocServerReadOnlyCompliance, mallocMIB=mallocMIB)
+_AW='madcapServerGroup'
+_AV='mallocAllocRangeAdvertisable'
+_AU='mallocAllocRangeTotalRequestedAddrs'
+_AT='mallocAllocRangeTotalAllocatedAddrs'
+_AS='mallocScopeServerAddress'
+_AR='mallocScopeServerAddressType'
+_AQ='madcapConfigNoResponseDelay'
+_AP='mallocRequestLeaseIdentifier'
+_AO='madcapReleases'
+_AN='madcapRenews'
+_AM='madcapRequests'
+_AL='madcapInforms'
+_AK='madcapDiscovers'
+_AJ='madcapExcessiveClockSkews'
+_AI='madcapBadLeaseIds'
+_AH='madcapInvalidRequests'
+_AG='madcapRequestsDenied'
+_AF='madcapTotalErrors'
+_AE='madcapConfigResponseCacheInterval'
+_AD='madcapConfigOfferHold'
+_AC='madcapConfigExtraAllocationTime'
+_AB='madcapConfigClockSkewAllowance'
+_AA='mallocRequestServerAddress'
+_A9='mallocRequestServerAddressType'
+_A8='mallocRequestClientAddress'
+_A7='mallocRequestClientAddressType'
+_A6='mallocAllocRangeMaxLeaseTime'
+_A5='mallocAllocRangeMaxLeaseAddrs'
+_A4='mallocAllocRangeNumTryingAddrs'
+_A3='mallocAllocRangeNumWaitingAddrs'
+_A2='mallocAllocRangeNumOfferedAddrs'
+_A1='mallocAllocRangeNumAllocatedAddrs'
+_A0='mallocAddressRequestId'
+_z='mallocAddressNumAddrs'
+_y='mallocRequestState'
+_x='mallocRequestNumAddrs'
+_w='mallocRequestEndTime'
+_v='mallocRequestStartTime'
+_u='mallocRequestScopeFirstAddress'
+_t='mallocRequestScopeAddressType'
+_s='mallocCapabilities'
+_r='mallocAddressFirstAddress'
+_q='mallocAddressAddressType'
+_p='mallocRequestId'
+_o='mallocAllocRangeFirstAddress'
+_n='mallocScopeNameLangName'
+_m='Integer32'
+_l='LanguageTag'
+_k='InetAddressType'
+_j='OctetString'
+_i='mallocPrefixCoordinatorGroup'
+_h='madcapClientGroup'
+_g='mallocClientScopeGroup'
+_f='mallocClientGroup'
+_e='mallocServerGroup'
+_d='mallocScopeNameStorage'
+_c='mallocScopeNameStatus'
+_b='mallocScopeNameDefault'
+_a='mallocScopeNameScopeName'
+_Z='mallocScopeDivisible'
+_Y='mallocAllocRangeStorage'
+_X='mallocAllocRangeStatus'
+_W='mallocAllocRangeSource'
+_V='mallocAllocRangeLifetime'
+_U='mallocAllocRangeLastAddress'
+_T='mallocScopeStorage'
+_S='mallocScopeStatus'
+_R='mallocScopeSSM'
+_Q='mallocScopeHopLimit'
+_P='mallocScopeSource'
+_O='mallocScopeLastAddress'
+_N='mallocScopeFirstAddress'
+_M='mallocScopeAddressType'
+_L='TruthValue'
+_K='StorageType'
+_J='read-write'
+_I='mallocBasicGroup'
+_H='not-accessible'
+_G='Unsigned32'
+_F='InetAddress'
+_E='seconds'
+_D='read-create'
+_C='read-only'
+_B='current'
+_A='MALLOC-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_j,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+IANAmallocRangeSource,IANAscopeSource=mibBuilder.importSymbols('IANA-MALLOC-MIB','IANAmallocRangeSource','IANAscopeSource')
+InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB',_F,_k)
+LanguageTag,=mibBuilder.importSymbols('IPMROUTE-STD-MIB',_l)
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_m,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso','mib-2')
+DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus',_K,'TextualConvention',_L)
+mallocMIB=ModuleIdentity((1,3,6,1,2,1,101))
+if mibBuilder.loadTexts:mallocMIB.setRevisions(('2003-06-09 00:00',))
+_MallocMIBObjects_ObjectIdentity=ObjectIdentity
+mallocMIBObjects=_MallocMIBObjects_ObjectIdentity((1,3,6,1,2,1,101,1))
+_Malloc_ObjectIdentity=ObjectIdentity
+malloc=_Malloc_ObjectIdentity((1,3,6,1,2,1,101,1,1))
+class _MallocCapabilities_Type(Bits):namedValues=NamedValues(*(('startTime',0),('serverMobility',1),('retryAfter',2)))
+_MallocCapabilities_Type.__name__='Bits'
+_MallocCapabilities_Object=MibScalar
+mallocCapabilities=_MallocCapabilities_Object((1,3,6,1,2,1,101,1,1,1),_MallocCapabilities_Type())
+mallocCapabilities.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocCapabilities.setStatus(_B)
+_MallocScopeTable_Object=MibTable
+mallocScopeTable=_MallocScopeTable_Object((1,3,6,1,2,1,101,1,1,2))
+if mibBuilder.loadTexts:mallocScopeTable.setStatus(_B)
+_MallocScopeEntry_Object=MibTableRow
+mallocScopeEntry=_MallocScopeEntry_Object((1,3,6,1,2,1,101,1,1,2,1))
+mallocScopeEntry.setIndexNames((0,_A,_M),(0,_A,_N))
+if mibBuilder.loadTexts:mallocScopeEntry.setStatus(_B)
+_MallocScopeAddressType_Type=InetAddressType
+_MallocScopeAddressType_Object=MibTableColumn
+mallocScopeAddressType=_MallocScopeAddressType_Object((1,3,6,1,2,1,101,1,1,2,1,1),_MallocScopeAddressType_Type())
+mallocScopeAddressType.setMaxAccess(_H)
+if mibBuilder.loadTexts:mallocScopeAddressType.setStatus(_B)
+class _MallocScopeFirstAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
+_MallocScopeFirstAddress_Type.__name__=_F
+_MallocScopeFirstAddress_Object=MibTableColumn
+mallocScopeFirstAddress=_MallocScopeFirstAddress_Object((1,3,6,1,2,1,101,1,1,2,1,2),_MallocScopeFirstAddress_Type())
+mallocScopeFirstAddress.setMaxAccess(_H)
+if mibBuilder.loadTexts:mallocScopeFirstAddress.setStatus(_B)
+class _MallocScopeLastAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
+_MallocScopeLastAddress_Type.__name__=_F
+_MallocScopeLastAddress_Object=MibTableColumn
+mallocScopeLastAddress=_MallocScopeLastAddress_Object((1,3,6,1,2,1,101,1,1,2,1,3),_MallocScopeLastAddress_Type())
+mallocScopeLastAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocScopeLastAddress.setStatus(_B)
+class _MallocScopeHopLimit_Type(Unsigned32):defaultValue=255;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_MallocScopeHopLimit_Type.__name__=_G
+_MallocScopeHopLimit_Object=MibTableColumn
+mallocScopeHopLimit=_MallocScopeHopLimit_Object((1,3,6,1,2,1,101,1,1,2,1,4),_MallocScopeHopLimit_Type())
+mallocScopeHopLimit.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocScopeHopLimit.setStatus(_B)
+_MallocScopeStatus_Type=RowStatus
+_MallocScopeStatus_Object=MibTableColumn
+mallocScopeStatus=_MallocScopeStatus_Object((1,3,6,1,2,1,101,1,1,2,1,5),_MallocScopeStatus_Type())
+mallocScopeStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocScopeStatus.setStatus(_B)
+_MallocScopeSource_Type=IANAscopeSource
+_MallocScopeSource_Object=MibTableColumn
+mallocScopeSource=_MallocScopeSource_Object((1,3,6,1,2,1,101,1,1,2,1,6),_MallocScopeSource_Type())
+mallocScopeSource.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocScopeSource.setStatus(_B)
+class _MallocScopeDivisible_Type(TruthValue):defaultValue=2
+_MallocScopeDivisible_Type.__name__=_L
+_MallocScopeDivisible_Object=MibTableColumn
+mallocScopeDivisible=_MallocScopeDivisible_Object((1,3,6,1,2,1,101,1,1,2,1,7),_MallocScopeDivisible_Type())
+mallocScopeDivisible.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocScopeDivisible.setStatus(_B)
+class _MallocScopeServerAddressType_Type(InetAddressType):defaultValue=0
+_MallocScopeServerAddressType_Type.__name__=_k
+_MallocScopeServerAddressType_Object=MibTableColumn
+mallocScopeServerAddressType=_MallocScopeServerAddressType_Object((1,3,6,1,2,1,101,1,1,2,1,8),_MallocScopeServerAddressType_Type())
+mallocScopeServerAddressType.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocScopeServerAddressType.setStatus(_B)
+class _MallocScopeServerAddress_Type(InetAddress):defaultHexValue=''
+_MallocScopeServerAddress_Type.__name__=_F
+_MallocScopeServerAddress_Object=MibTableColumn
+mallocScopeServerAddress=_MallocScopeServerAddress_Object((1,3,6,1,2,1,101,1,1,2,1,9),_MallocScopeServerAddress_Type())
+mallocScopeServerAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocScopeServerAddress.setStatus(_B)
+class _MallocScopeSSM_Type(TruthValue):defaultValue=2
+_MallocScopeSSM_Type.__name__=_L
+_MallocScopeSSM_Object=MibTableColumn
+mallocScopeSSM=_MallocScopeSSM_Object((1,3,6,1,2,1,101,1,1,2,1,10),_MallocScopeSSM_Type())
+mallocScopeSSM.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocScopeSSM.setStatus(_B)
+class _MallocScopeStorage_Type(StorageType):defaultValue=3
+_MallocScopeStorage_Type.__name__=_K
+_MallocScopeStorage_Object=MibTableColumn
+mallocScopeStorage=_MallocScopeStorage_Object((1,3,6,1,2,1,101,1,1,2,1,11),_MallocScopeStorage_Type())
+mallocScopeStorage.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocScopeStorage.setStatus(_B)
+_MallocScopeNameTable_Object=MibTable
+mallocScopeNameTable=_MallocScopeNameTable_Object((1,3,6,1,2,1,101,1,1,3))
+if mibBuilder.loadTexts:mallocScopeNameTable.setStatus(_B)
+_MallocScopeNameEntry_Object=MibTableRow
+mallocScopeNameEntry=_MallocScopeNameEntry_Object((1,3,6,1,2,1,101,1,1,3,1))
+mallocScopeNameEntry.setIndexNames((0,_A,_M),(0,_A,_N),(1,_A,_n))
+if mibBuilder.loadTexts:mallocScopeNameEntry.setStatus(_B)
+class _MallocScopeNameLangName_Type(LanguageTag):subtypeSpec=LanguageTag.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,94))
+_MallocScopeNameLangName_Type.__name__=_l
+_MallocScopeNameLangName_Object=MibTableColumn
+mallocScopeNameLangName=_MallocScopeNameLangName_Object((1,3,6,1,2,1,101,1,1,3,1,1),_MallocScopeNameLangName_Type())
+mallocScopeNameLangName.setMaxAccess(_H)
+if mibBuilder.loadTexts:mallocScopeNameLangName.setStatus(_B)
+_MallocScopeNameScopeName_Type=SnmpAdminString
+_MallocScopeNameScopeName_Object=MibTableColumn
+mallocScopeNameScopeName=_MallocScopeNameScopeName_Object((1,3,6,1,2,1,101,1,1,3,1,2),_MallocScopeNameScopeName_Type())
+mallocScopeNameScopeName.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocScopeNameScopeName.setStatus(_B)
+class _MallocScopeNameDefault_Type(TruthValue):defaultValue=2
+_MallocScopeNameDefault_Type.__name__=_L
+_MallocScopeNameDefault_Object=MibTableColumn
+mallocScopeNameDefault=_MallocScopeNameDefault_Object((1,3,6,1,2,1,101,1,1,3,1,3),_MallocScopeNameDefault_Type())
+mallocScopeNameDefault.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocScopeNameDefault.setStatus(_B)
+_MallocScopeNameStatus_Type=RowStatus
+_MallocScopeNameStatus_Object=MibTableColumn
+mallocScopeNameStatus=_MallocScopeNameStatus_Object((1,3,6,1,2,1,101,1,1,3,1,4),_MallocScopeNameStatus_Type())
+mallocScopeNameStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocScopeNameStatus.setStatus(_B)
+class _MallocScopeNameStorage_Type(StorageType):defaultValue=3
+_MallocScopeNameStorage_Type.__name__=_K
+_MallocScopeNameStorage_Object=MibTableColumn
+mallocScopeNameStorage=_MallocScopeNameStorage_Object((1,3,6,1,2,1,101,1,1,3,1,5),_MallocScopeNameStorage_Type())
+mallocScopeNameStorage.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocScopeNameStorage.setStatus(_B)
+_MallocAllocRangeTable_Object=MibTable
+mallocAllocRangeTable=_MallocAllocRangeTable_Object((1,3,6,1,2,1,101,1,1,4))
+if mibBuilder.loadTexts:mallocAllocRangeTable.setStatus(_B)
+_MallocAllocRangeEntry_Object=MibTableRow
+mallocAllocRangeEntry=_MallocAllocRangeEntry_Object((1,3,6,1,2,1,101,1,1,4,1))
+mallocAllocRangeEntry.setIndexNames((0,_A,_M),(0,_A,_N),(0,_A,_o))
+if mibBuilder.loadTexts:mallocAllocRangeEntry.setStatus(_B)
+class _MallocAllocRangeFirstAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
+_MallocAllocRangeFirstAddress_Type.__name__=_F
+_MallocAllocRangeFirstAddress_Object=MibTableColumn
+mallocAllocRangeFirstAddress=_MallocAllocRangeFirstAddress_Object((1,3,6,1,2,1,101,1,1,4,1,1),_MallocAllocRangeFirstAddress_Type())
+mallocAllocRangeFirstAddress.setMaxAccess(_H)
+if mibBuilder.loadTexts:mallocAllocRangeFirstAddress.setStatus(_B)
+class _MallocAllocRangeLastAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
+_MallocAllocRangeLastAddress_Type.__name__=_F
+_MallocAllocRangeLastAddress_Object=MibTableColumn
+mallocAllocRangeLastAddress=_MallocAllocRangeLastAddress_Object((1,3,6,1,2,1,101,1,1,4,1,2),_MallocAllocRangeLastAddress_Type())
+mallocAllocRangeLastAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocAllocRangeLastAddress.setStatus(_B)
+_MallocAllocRangeStatus_Type=RowStatus
+_MallocAllocRangeStatus_Object=MibTableColumn
+mallocAllocRangeStatus=_MallocAllocRangeStatus_Object((1,3,6,1,2,1,101,1,1,4,1,3),_MallocAllocRangeStatus_Type())
+mallocAllocRangeStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocAllocRangeStatus.setStatus(_B)
+_MallocAllocRangeSource_Type=IANAmallocRangeSource
+_MallocAllocRangeSource_Object=MibTableColumn
+mallocAllocRangeSource=_MallocAllocRangeSource_Object((1,3,6,1,2,1,101,1,1,4,1,4),_MallocAllocRangeSource_Type())
+mallocAllocRangeSource.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocAllocRangeSource.setStatus(_B)
+class _MallocAllocRangeLifetime_Type(Unsigned32):defaultValue=0
+_MallocAllocRangeLifetime_Type.__name__=_G
+_MallocAllocRangeLifetime_Object=MibTableColumn
+mallocAllocRangeLifetime=_MallocAllocRangeLifetime_Object((1,3,6,1,2,1,101,1,1,4,1,5),_MallocAllocRangeLifetime_Type())
+mallocAllocRangeLifetime.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocAllocRangeLifetime.setStatus(_B)
+if mibBuilder.loadTexts:mallocAllocRangeLifetime.setUnits(_E)
+class _MallocAllocRangeMaxLeaseAddrs_Type(Unsigned32):defaultValue=0
+_MallocAllocRangeMaxLeaseAddrs_Type.__name__=_G
+_MallocAllocRangeMaxLeaseAddrs_Object=MibTableColumn
+mallocAllocRangeMaxLeaseAddrs=_MallocAllocRangeMaxLeaseAddrs_Object((1,3,6,1,2,1,101,1,1,4,1,6),_MallocAllocRangeMaxLeaseAddrs_Type())
+mallocAllocRangeMaxLeaseAddrs.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocAllocRangeMaxLeaseAddrs.setStatus(_B)
+class _MallocAllocRangeMaxLeaseTime_Type(Unsigned32):defaultValue=0
+_MallocAllocRangeMaxLeaseTime_Type.__name__=_G
+_MallocAllocRangeMaxLeaseTime_Object=MibTableColumn
+mallocAllocRangeMaxLeaseTime=_MallocAllocRangeMaxLeaseTime_Object((1,3,6,1,2,1,101,1,1,4,1,7),_MallocAllocRangeMaxLeaseTime_Type())
+mallocAllocRangeMaxLeaseTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocAllocRangeMaxLeaseTime.setStatus(_B)
+if mibBuilder.loadTexts:mallocAllocRangeMaxLeaseTime.setUnits(_E)
+_MallocAllocRangeNumAllocatedAddrs_Type=Gauge32
+_MallocAllocRangeNumAllocatedAddrs_Object=MibTableColumn
+mallocAllocRangeNumAllocatedAddrs=_MallocAllocRangeNumAllocatedAddrs_Object((1,3,6,1,2,1,101,1,1,4,1,8),_MallocAllocRangeNumAllocatedAddrs_Type())
+mallocAllocRangeNumAllocatedAddrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocAllocRangeNumAllocatedAddrs.setStatus(_B)
+_MallocAllocRangeNumOfferedAddrs_Type=Gauge32
+_MallocAllocRangeNumOfferedAddrs_Object=MibTableColumn
+mallocAllocRangeNumOfferedAddrs=_MallocAllocRangeNumOfferedAddrs_Object((1,3,6,1,2,1,101,1,1,4,1,9),_MallocAllocRangeNumOfferedAddrs_Type())
+mallocAllocRangeNumOfferedAddrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocAllocRangeNumOfferedAddrs.setStatus(_B)
+_MallocAllocRangeNumWaitingAddrs_Type=Gauge32
+_MallocAllocRangeNumWaitingAddrs_Object=MibTableColumn
+mallocAllocRangeNumWaitingAddrs=_MallocAllocRangeNumWaitingAddrs_Object((1,3,6,1,2,1,101,1,1,4,1,10),_MallocAllocRangeNumWaitingAddrs_Type())
+mallocAllocRangeNumWaitingAddrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocAllocRangeNumWaitingAddrs.setStatus(_B)
+_MallocAllocRangeNumTryingAddrs_Type=Gauge32
+_MallocAllocRangeNumTryingAddrs_Object=MibTableColumn
+mallocAllocRangeNumTryingAddrs=_MallocAllocRangeNumTryingAddrs_Object((1,3,6,1,2,1,101,1,1,4,1,11),_MallocAllocRangeNumTryingAddrs_Type())
+mallocAllocRangeNumTryingAddrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocAllocRangeNumTryingAddrs.setStatus(_B)
+_MallocAllocRangeAdvertisable_Type=TruthValue
+_MallocAllocRangeAdvertisable_Object=MibTableColumn
+mallocAllocRangeAdvertisable=_MallocAllocRangeAdvertisable_Object((1,3,6,1,2,1,101,1,1,4,1,12),_MallocAllocRangeAdvertisable_Type())
+mallocAllocRangeAdvertisable.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocAllocRangeAdvertisable.setStatus(_B)
+_MallocAllocRangeTotalAllocatedAddrs_Type=Gauge32
+_MallocAllocRangeTotalAllocatedAddrs_Object=MibTableColumn
+mallocAllocRangeTotalAllocatedAddrs=_MallocAllocRangeTotalAllocatedAddrs_Object((1,3,6,1,2,1,101,1,1,4,1,13),_MallocAllocRangeTotalAllocatedAddrs_Type())
+mallocAllocRangeTotalAllocatedAddrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocAllocRangeTotalAllocatedAddrs.setStatus(_B)
+_MallocAllocRangeTotalRequestedAddrs_Type=Gauge32
+_MallocAllocRangeTotalRequestedAddrs_Object=MibTableColumn
+mallocAllocRangeTotalRequestedAddrs=_MallocAllocRangeTotalRequestedAddrs_Object((1,3,6,1,2,1,101,1,1,4,1,14),_MallocAllocRangeTotalRequestedAddrs_Type())
+mallocAllocRangeTotalRequestedAddrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocAllocRangeTotalRequestedAddrs.setStatus(_B)
+class _MallocAllocRangeStorage_Type(StorageType):defaultValue=3
+_MallocAllocRangeStorage_Type.__name__=_K
+_MallocAllocRangeStorage_Object=MibTableColumn
+mallocAllocRangeStorage=_MallocAllocRangeStorage_Object((1,3,6,1,2,1,101,1,1,4,1,15),_MallocAllocRangeStorage_Type())
+mallocAllocRangeStorage.setMaxAccess(_D)
+if mibBuilder.loadTexts:mallocAllocRangeStorage.setStatus(_B)
+_MallocRequestTable_Object=MibTable
+mallocRequestTable=_MallocRequestTable_Object((1,3,6,1,2,1,101,1,1,5))
+if mibBuilder.loadTexts:mallocRequestTable.setStatus(_B)
+_MallocRequestEntry_Object=MibTableRow
+mallocRequestEntry=_MallocRequestEntry_Object((1,3,6,1,2,1,101,1,1,5,1))
+mallocRequestEntry.setIndexNames((0,_A,_p))
+if mibBuilder.loadTexts:mallocRequestEntry.setStatus(_B)
+class _MallocRequestId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_MallocRequestId_Type.__name__=_G
+_MallocRequestId_Object=MibTableColumn
+mallocRequestId=_MallocRequestId_Object((1,3,6,1,2,1,101,1,1,5,1,1),_MallocRequestId_Type())
+mallocRequestId.setMaxAccess(_H)
+if mibBuilder.loadTexts:mallocRequestId.setStatus(_B)
+_MallocRequestScopeAddressType_Type=InetAddressType
+_MallocRequestScopeAddressType_Object=MibTableColumn
+mallocRequestScopeAddressType=_MallocRequestScopeAddressType_Object((1,3,6,1,2,1,101,1,1,5,1,2),_MallocRequestScopeAddressType_Type())
+mallocRequestScopeAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocRequestScopeAddressType.setStatus(_B)
+_MallocRequestScopeFirstAddress_Type=InetAddress
+_MallocRequestScopeFirstAddress_Object=MibTableColumn
+mallocRequestScopeFirstAddress=_MallocRequestScopeFirstAddress_Object((1,3,6,1,2,1,101,1,1,5,1,3),_MallocRequestScopeFirstAddress_Type())
+mallocRequestScopeFirstAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocRequestScopeFirstAddress.setStatus(_B)
+_MallocRequestStartTime_Type=Unsigned32
+_MallocRequestStartTime_Object=MibTableColumn
+mallocRequestStartTime=_MallocRequestStartTime_Object((1,3,6,1,2,1,101,1,1,5,1,4),_MallocRequestStartTime_Type())
+mallocRequestStartTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocRequestStartTime.setStatus(_B)
+if mibBuilder.loadTexts:mallocRequestStartTime.setUnits(_E)
+_MallocRequestEndTime_Type=Unsigned32
+_MallocRequestEndTime_Object=MibTableColumn
+mallocRequestEndTime=_MallocRequestEndTime_Object((1,3,6,1,2,1,101,1,1,5,1,5),_MallocRequestEndTime_Type())
+mallocRequestEndTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocRequestEndTime.setStatus(_B)
+if mibBuilder.loadTexts:mallocRequestEndTime.setUnits(_E)
+_MallocRequestNumAddrs_Type=Unsigned32
+_MallocRequestNumAddrs_Object=MibTableColumn
+mallocRequestNumAddrs=_MallocRequestNumAddrs_Object((1,3,6,1,2,1,101,1,1,5,1,6),_MallocRequestNumAddrs_Type())
+mallocRequestNumAddrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocRequestNumAddrs.setStatus(_B)
+class _MallocRequestState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('allocated',1),('offered',2),('waiting',3),('trying',4)))
+_MallocRequestState_Type.__name__=_m
+_MallocRequestState_Object=MibTableColumn
+mallocRequestState=_MallocRequestState_Object((1,3,6,1,2,1,101,1,1,5,1,7),_MallocRequestState_Type())
+mallocRequestState.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocRequestState.setStatus(_B)
+_MallocRequestClientAddressType_Type=InetAddressType
+_MallocRequestClientAddressType_Object=MibTableColumn
+mallocRequestClientAddressType=_MallocRequestClientAddressType_Object((1,3,6,1,2,1,101,1,1,5,1,8),_MallocRequestClientAddressType_Type())
+mallocRequestClientAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocRequestClientAddressType.setStatus(_B)
+_MallocRequestClientAddress_Type=InetAddress
+_MallocRequestClientAddress_Object=MibTableColumn
+mallocRequestClientAddress=_MallocRequestClientAddress_Object((1,3,6,1,2,1,101,1,1,5,1,9),_MallocRequestClientAddress_Type())
+mallocRequestClientAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocRequestClientAddress.setStatus(_B)
+_MallocRequestServerAddressType_Type=InetAddressType
+_MallocRequestServerAddressType_Object=MibTableColumn
+mallocRequestServerAddressType=_MallocRequestServerAddressType_Object((1,3,6,1,2,1,101,1,1,5,1,10),_MallocRequestServerAddressType_Type())
+mallocRequestServerAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocRequestServerAddressType.setStatus(_B)
+_MallocRequestServerAddress_Type=InetAddress
+_MallocRequestServerAddress_Object=MibTableColumn
+mallocRequestServerAddress=_MallocRequestServerAddress_Object((1,3,6,1,2,1,101,1,1,5,1,11),_MallocRequestServerAddress_Type())
+mallocRequestServerAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocRequestServerAddress.setStatus(_B)
+class _MallocRequestLeaseIdentifier_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_MallocRequestLeaseIdentifier_Type.__name__=_j
+_MallocRequestLeaseIdentifier_Object=MibTableColumn
+mallocRequestLeaseIdentifier=_MallocRequestLeaseIdentifier_Object((1,3,6,1,2,1,101,1,1,5,1,12),_MallocRequestLeaseIdentifier_Type())
+mallocRequestLeaseIdentifier.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocRequestLeaseIdentifier.setStatus(_B)
+_MallocAddressTable_Object=MibTable
+mallocAddressTable=_MallocAddressTable_Object((1,3,6,1,2,1,101,1,1,6))
+if mibBuilder.loadTexts:mallocAddressTable.setStatus(_B)
+_MallocAddressEntry_Object=MibTableRow
+mallocAddressEntry=_MallocAddressEntry_Object((1,3,6,1,2,1,101,1,1,6,1))
+mallocAddressEntry.setIndexNames((0,_A,_q),(0,_A,_r))
+if mibBuilder.loadTexts:mallocAddressEntry.setStatus(_B)
+_MallocAddressAddressType_Type=InetAddressType
+_MallocAddressAddressType_Object=MibTableColumn
+mallocAddressAddressType=_MallocAddressAddressType_Object((1,3,6,1,2,1,101,1,1,6,1,1),_MallocAddressAddressType_Type())
+mallocAddressAddressType.setMaxAccess(_H)
+if mibBuilder.loadTexts:mallocAddressAddressType.setStatus(_B)
+class _MallocAddressFirstAddress_Type(InetAddress):subtypeSpec=InetAddress.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,20))
+_MallocAddressFirstAddress_Type.__name__=_F
+_MallocAddressFirstAddress_Object=MibTableColumn
+mallocAddressFirstAddress=_MallocAddressFirstAddress_Object((1,3,6,1,2,1,101,1,1,6,1,2),_MallocAddressFirstAddress_Type())
+mallocAddressFirstAddress.setMaxAccess(_H)
+if mibBuilder.loadTexts:mallocAddressFirstAddress.setStatus(_B)
+_MallocAddressNumAddrs_Type=Unsigned32
+_MallocAddressNumAddrs_Object=MibTableColumn
+mallocAddressNumAddrs=_MallocAddressNumAddrs_Object((1,3,6,1,2,1,101,1,1,6,1,3),_MallocAddressNumAddrs_Type())
+mallocAddressNumAddrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocAddressNumAddrs.setStatus(_B)
+_MallocAddressRequestId_Type=Unsigned32
+_MallocAddressRequestId_Object=MibTableColumn
+mallocAddressRequestId=_MallocAddressRequestId_Object((1,3,6,1,2,1,101,1,1,6,1,4),_MallocAddressRequestId_Type())
+mallocAddressRequestId.setMaxAccess(_C)
+if mibBuilder.loadTexts:mallocAddressRequestId.setStatus(_B)
+_Madcap_ObjectIdentity=ObjectIdentity
+madcap=_Madcap_ObjectIdentity((1,3,6,1,2,1,101,1,2))
+_MadcapConfig_ObjectIdentity=ObjectIdentity
+madcapConfig=_MadcapConfig_ObjectIdentity((1,3,6,1,2,1,101,1,2,1))
+if mibBuilder.loadTexts:madcapConfig.setStatus(_B)
+_MadcapConfigExtraAllocationTime_Type=Unsigned32
+_MadcapConfigExtraAllocationTime_Object=MibScalar
+madcapConfigExtraAllocationTime=_MadcapConfigExtraAllocationTime_Object((1,3,6,1,2,1,101,1,2,1,1),_MadcapConfigExtraAllocationTime_Type())
+madcapConfigExtraAllocationTime.setMaxAccess(_J)
+if mibBuilder.loadTexts:madcapConfigExtraAllocationTime.setStatus(_B)
+if mibBuilder.loadTexts:madcapConfigExtraAllocationTime.setUnits(_E)
+_MadcapConfigNoResponseDelay_Type=Unsigned32
+_MadcapConfigNoResponseDelay_Object=MibScalar
+madcapConfigNoResponseDelay=_MadcapConfigNoResponseDelay_Object((1,3,6,1,2,1,101,1,2,1,2),_MadcapConfigNoResponseDelay_Type())
+madcapConfigNoResponseDelay.setMaxAccess(_J)
+if mibBuilder.loadTexts:madcapConfigNoResponseDelay.setStatus(_B)
+if mibBuilder.loadTexts:madcapConfigNoResponseDelay.setUnits(_E)
+_MadcapConfigOfferHold_Type=Unsigned32
+_MadcapConfigOfferHold_Object=MibScalar
+madcapConfigOfferHold=_MadcapConfigOfferHold_Object((1,3,6,1,2,1,101,1,2,1,3),_MadcapConfigOfferHold_Type())
+madcapConfigOfferHold.setMaxAccess(_J)
+if mibBuilder.loadTexts:madcapConfigOfferHold.setStatus(_B)
+if mibBuilder.loadTexts:madcapConfigOfferHold.setUnits(_E)
+class _MadcapConfigResponseCacheInterval_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,300))
+_MadcapConfigResponseCacheInterval_Type.__name__=_G
+_MadcapConfigResponseCacheInterval_Object=MibScalar
+madcapConfigResponseCacheInterval=_MadcapConfigResponseCacheInterval_Object((1,3,6,1,2,1,101,1,2,1,4),_MadcapConfigResponseCacheInterval_Type())
+madcapConfigResponseCacheInterval.setMaxAccess(_J)
+if mibBuilder.loadTexts:madcapConfigResponseCacheInterval.setStatus(_B)
+if mibBuilder.loadTexts:madcapConfigResponseCacheInterval.setUnits(_E)
+_MadcapConfigClockSkewAllowance_Type=Unsigned32
+_MadcapConfigClockSkewAllowance_Object=MibScalar
+madcapConfigClockSkewAllowance=_MadcapConfigClockSkewAllowance_Object((1,3,6,1,2,1,101,1,2,1,5),_MadcapConfigClockSkewAllowance_Type())
+madcapConfigClockSkewAllowance.setMaxAccess(_J)
+if mibBuilder.loadTexts:madcapConfigClockSkewAllowance.setStatus(_B)
+if mibBuilder.loadTexts:madcapConfigClockSkewAllowance.setUnits(_E)
+_MadcapCounters_ObjectIdentity=ObjectIdentity
+madcapCounters=_MadcapCounters_ObjectIdentity((1,3,6,1,2,1,101,1,2,2))
+if mibBuilder.loadTexts:madcapCounters.setStatus(_B)
+_MadcapTotalErrors_Type=Counter32
+_MadcapTotalErrors_Object=MibScalar
+madcapTotalErrors=_MadcapTotalErrors_Object((1,3,6,1,2,1,101,1,2,2,1),_MadcapTotalErrors_Type())
+madcapTotalErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:madcapTotalErrors.setStatus(_B)
+_MadcapRequestsDenied_Type=Counter32
+_MadcapRequestsDenied_Object=MibScalar
+madcapRequestsDenied=_MadcapRequestsDenied_Object((1,3,6,1,2,1,101,1,2,2,2),_MadcapRequestsDenied_Type())
+madcapRequestsDenied.setMaxAccess(_C)
+if mibBuilder.loadTexts:madcapRequestsDenied.setStatus(_B)
+_MadcapInvalidRequests_Type=Counter32
+_MadcapInvalidRequests_Object=MibScalar
+madcapInvalidRequests=_MadcapInvalidRequests_Object((1,3,6,1,2,1,101,1,2,2,3),_MadcapInvalidRequests_Type())
+madcapInvalidRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:madcapInvalidRequests.setStatus(_B)
+_MadcapExcessiveClockSkews_Type=Counter32
+_MadcapExcessiveClockSkews_Object=MibScalar
+madcapExcessiveClockSkews=_MadcapExcessiveClockSkews_Object((1,3,6,1,2,1,101,1,2,2,4),_MadcapExcessiveClockSkews_Type())
+madcapExcessiveClockSkews.setMaxAccess(_C)
+if mibBuilder.loadTexts:madcapExcessiveClockSkews.setStatus(_B)
+_MadcapBadLeaseIds_Type=Counter32
+_MadcapBadLeaseIds_Object=MibScalar
+madcapBadLeaseIds=_MadcapBadLeaseIds_Object((1,3,6,1,2,1,101,1,2,2,5),_MadcapBadLeaseIds_Type())
+madcapBadLeaseIds.setMaxAccess(_C)
+if mibBuilder.loadTexts:madcapBadLeaseIds.setStatus(_B)
+_MadcapDiscovers_Type=Counter32
+_MadcapDiscovers_Object=MibScalar
+madcapDiscovers=_MadcapDiscovers_Object((1,3,6,1,2,1,101,1,2,2,6),_MadcapDiscovers_Type())
+madcapDiscovers.setMaxAccess(_C)
+if mibBuilder.loadTexts:madcapDiscovers.setStatus(_B)
+_MadcapInforms_Type=Counter32
+_MadcapInforms_Object=MibScalar
+madcapInforms=_MadcapInforms_Object((1,3,6,1,2,1,101,1,2,2,7),_MadcapInforms_Type())
+madcapInforms.setMaxAccess(_C)
+if mibBuilder.loadTexts:madcapInforms.setStatus(_B)
+_MadcapRequests_Type=Counter32
+_MadcapRequests_Object=MibScalar
+madcapRequests=_MadcapRequests_Object((1,3,6,1,2,1,101,1,2,2,8),_MadcapRequests_Type())
+madcapRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:madcapRequests.setStatus(_B)
+_MadcapRenews_Type=Counter32
+_MadcapRenews_Object=MibScalar
+madcapRenews=_MadcapRenews_Object((1,3,6,1,2,1,101,1,2,2,9),_MadcapRenews_Type())
+madcapRenews.setMaxAccess(_C)
+if mibBuilder.loadTexts:madcapRenews.setStatus(_B)
+_MadcapReleases_Type=Counter32
+_MadcapReleases_Object=MibScalar
+madcapReleases=_MadcapReleases_Object((1,3,6,1,2,1,101,1,2,2,10),_MadcapReleases_Type())
+madcapReleases.setMaxAccess(_C)
+if mibBuilder.loadTexts:madcapReleases.setStatus(_B)
+_MallocConformance_ObjectIdentity=ObjectIdentity
+mallocConformance=_MallocConformance_ObjectIdentity((1,3,6,1,2,1,101,2))
+_MallocCompliances_ObjectIdentity=ObjectIdentity
+mallocCompliances=_MallocCompliances_ObjectIdentity((1,3,6,1,2,1,101,2,1))
+_MallocGroups_ObjectIdentity=ObjectIdentity
+mallocGroups=_MallocGroups_ObjectIdentity((1,3,6,1,2,1,101,2,2))
+mallocBasicGroup=ObjectGroup((1,3,6,1,2,1,101,2,2,1))
+mallocBasicGroup.setObjects(*((_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0)))
+if mibBuilder.loadTexts:mallocBasicGroup.setStatus(_B)
+mallocServerGroup=ObjectGroup((1,3,6,1,2,1,101,2,2,2))
+mallocServerGroup.setObjects(*((_A,_O),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_P),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_A7),(_A,_A8)))
+if mibBuilder.loadTexts:mallocServerGroup.setStatus(_B)
+mallocClientGroup=ObjectGroup((1,3,6,1,2,1,101,2,2,3))
+mallocClientGroup.setObjects(*((_A,_A9),(_A,_AA)))
+if mibBuilder.loadTexts:mallocClientGroup.setStatus(_B)
+madcapServerGroup=ObjectGroup((1,3,6,1,2,1,101,2,2,4))
+madcapServerGroup.setObjects(*((_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO)))
+if mibBuilder.loadTexts:madcapServerGroup.setStatus(_B)
+madcapClientGroup=ObjectGroup((1,3,6,1,2,1,101,2,2,5))
+madcapClientGroup.setObjects(*((_A,_AP),(_A,_AQ)))
+if mibBuilder.loadTexts:madcapClientGroup.setStatus(_B)
+mallocClientScopeGroup=ObjectGroup((1,3,6,1,2,1,101,2,2,6))
+mallocClientScopeGroup.setObjects(*((_A,_O),(_A,_Q),(_A,_S),(_A,_T),(_A,_P),(_A,_AR),(_A,_AS),(_A,_R),(_A,_a),(_A,_b),(_A,_c),(_A,_d)))
+if mibBuilder.loadTexts:mallocClientScopeGroup.setStatus(_B)
+mallocPrefixCoordinatorGroup=ObjectGroup((1,3,6,1,2,1,101,2,2,7))
+mallocPrefixCoordinatorGroup.setObjects(*((_A,_U),(_A,_V),(_A,_X),(_A,_Y),(_A,_W),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_O),(_A,_Z),(_A,_P)))
+if mibBuilder.loadTexts:mallocPrefixCoordinatorGroup.setStatus(_B)
+mallocServerReadOnlyCompliance=ModuleCompliance((1,3,6,1,2,1,101,2,1,1))
+mallocServerReadOnlyCompliance.setObjects(*((_A,_I),(_A,_e)))
+if mibBuilder.loadTexts:mallocServerReadOnlyCompliance.setStatus(_B)
+mallocClientReadOnlyCompliance=ModuleCompliance((1,3,6,1,2,1,101,2,1,2))
+mallocClientReadOnlyCompliance.setObjects(*((_A,_I),(_A,_f),(_A,_g),(_A,_h)))
+if mibBuilder.loadTexts:mallocClientReadOnlyCompliance.setStatus(_B)
+mallocPrefixCoordinatorReadOnlyCompliance=ModuleCompliance((1,3,6,1,2,1,101,2,1,3))
+mallocPrefixCoordinatorReadOnlyCompliance.setObjects(*((_A,_I),(_A,_i)))
+if mibBuilder.loadTexts:mallocPrefixCoordinatorReadOnlyCompliance.setStatus(_B)
+mallocServerFullCompliance=ModuleCompliance((1,3,6,1,2,1,101,2,1,4))
+mallocServerFullCompliance.setObjects(*((_A,_I),(_A,_e),(_A,_AW)))
+if mibBuilder.loadTexts:mallocServerFullCompliance.setStatus(_B)
+mallocClientFullCompliance=ModuleCompliance((1,3,6,1,2,1,101,2,1,5))
+mallocClientFullCompliance.setObjects(*((_A,_I),(_A,_f),(_A,_g),(_A,_h)))
+if mibBuilder.loadTexts:mallocClientFullCompliance.setStatus(_B)
+mallocPrefixCoordinatorFullCompliance=ModuleCompliance((1,3,6,1,2,1,101,2,1,6))
+mallocPrefixCoordinatorFullCompliance.setObjects(*((_A,_I),(_A,_i)))
+if mibBuilder.loadTexts:mallocPrefixCoordinatorFullCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'mallocMIB':mallocMIB,'mallocMIBObjects':mallocMIBObjects,'malloc':malloc,_s:mallocCapabilities,'mallocScopeTable':mallocScopeTable,'mallocScopeEntry':mallocScopeEntry,_M:mallocScopeAddressType,_N:mallocScopeFirstAddress,_O:mallocScopeLastAddress,_Q:mallocScopeHopLimit,_S:mallocScopeStatus,_P:mallocScopeSource,_Z:mallocScopeDivisible,_AR:mallocScopeServerAddressType,_AS:mallocScopeServerAddress,_R:mallocScopeSSM,_T:mallocScopeStorage,'mallocScopeNameTable':mallocScopeNameTable,'mallocScopeNameEntry':mallocScopeNameEntry,_n:mallocScopeNameLangName,_a:mallocScopeNameScopeName,_b:mallocScopeNameDefault,_c:mallocScopeNameStatus,_d:mallocScopeNameStorage,'mallocAllocRangeTable':mallocAllocRangeTable,'mallocAllocRangeEntry':mallocAllocRangeEntry,_o:mallocAllocRangeFirstAddress,_U:mallocAllocRangeLastAddress,_X:mallocAllocRangeStatus,_W:mallocAllocRangeSource,_V:mallocAllocRangeLifetime,_A5:mallocAllocRangeMaxLeaseAddrs,_A6:mallocAllocRangeMaxLeaseTime,_A1:mallocAllocRangeNumAllocatedAddrs,_A2:mallocAllocRangeNumOfferedAddrs,_A3:mallocAllocRangeNumWaitingAddrs,_A4:mallocAllocRangeNumTryingAddrs,_AV:mallocAllocRangeAdvertisable,_AT:mallocAllocRangeTotalAllocatedAddrs,_AU:mallocAllocRangeTotalRequestedAddrs,_Y:mallocAllocRangeStorage,'mallocRequestTable':mallocRequestTable,'mallocRequestEntry':mallocRequestEntry,_p:mallocRequestId,_t:mallocRequestScopeAddressType,_u:mallocRequestScopeFirstAddress,_v:mallocRequestStartTime,_w:mallocRequestEndTime,_x:mallocRequestNumAddrs,_y:mallocRequestState,_A7:mallocRequestClientAddressType,_A8:mallocRequestClientAddress,_A9:mallocRequestServerAddressType,_AA:mallocRequestServerAddress,_AP:mallocRequestLeaseIdentifier,'mallocAddressTable':mallocAddressTable,'mallocAddressEntry':mallocAddressEntry,_q:mallocAddressAddressType,_r:mallocAddressFirstAddress,_z:mallocAddressNumAddrs,_A0:mallocAddressRequestId,'madcap':madcap,'madcapConfig':madcapConfig,_AC:madcapConfigExtraAllocationTime,_AQ:madcapConfigNoResponseDelay,_AD:madcapConfigOfferHold,_AE:madcapConfigResponseCacheInterval,_AB:madcapConfigClockSkewAllowance,'madcapCounters':madcapCounters,_AF:madcapTotalErrors,_AG:madcapRequestsDenied,_AH:madcapInvalidRequests,_AJ:madcapExcessiveClockSkews,_AI:madcapBadLeaseIds,_AK:madcapDiscovers,_AL:madcapInforms,_AM:madcapRequests,_AN:madcapRenews,_AO:madcapReleases,'mallocConformance':mallocConformance,'mallocCompliances':mallocCompliances,'mallocServerReadOnlyCompliance':mallocServerReadOnlyCompliance,'mallocClientReadOnlyCompliance':mallocClientReadOnlyCompliance,'mallocPrefixCoordinatorReadOnlyCompliance':mallocPrefixCoordinatorReadOnlyCompliance,'mallocServerFullCompliance':mallocServerFullCompliance,'mallocClientFullCompliance':mallocClientFullCompliance,'mallocPrefixCoordinatorFullCompliance':mallocPrefixCoordinatorFullCompliance,'mallocGroups':mallocGroups,_I:mallocBasicGroup,_e:mallocServerGroup,_f:mallocClientGroup,_AW:madcapServerGroup,_h:madcapClientGroup,_g:mallocClientScopeGroup,_i:mallocPrefixCoordinatorGroup})

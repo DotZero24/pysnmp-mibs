@@ -1,0 +1,1067 @@
+_Bv='me1200IpmcSnoopingControlStatisticsMldClearByIfIndexInfoGroup'
+_Bu='me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndexInfoGroup'
+_Bt='me1200IpmcSnoopingMldGroupSrcListTableInfoGroup'
+_Bs='me1200IpmcSnoopingMldGroupAddressTableInfoGroup'
+_Br='me1200IpmcSnoopingMldVlanStatusTableInfoGroup'
+_Bq='me1200IpmcSnoopingMldRouterPortTableInfoGroup'
+_Bp='me1200IpmcSnoopingIgmpGroupSrcListTableInfoGroup'
+_Bo='me1200IpmcSnoopingIgmpGroupAddressTableInfoGroup'
+_Bn='me1200IpmcSnoopingIgmpVlanStatusTableInfoGroup'
+_Bm='me1200IpmcSnoopingIgmpRouterPortTableInfoGroup'
+_Bl='me1200IpmcSnoopingGroupAddressCountInfoGroup'
+_Bk='me1200IpmcSnoopingMldInterfaceTableRowEditorInfoGroup'
+_Bj='me1200IpmcSnoopingMldInterfaceTableInfoGroup'
+_Bi='me1200IpmcSnoopingMldPortTableInfoGroup'
+_Bh='me1200IpmcSnoopingMldGlobalsInfoGroup'
+_Bg='me1200IpmcSnoopingIgmpInterfaceTableRowEditorInfoGroup'
+_Bf='me1200IpmcSnoopingIgmpInterfaceTableInfoGroup'
+_Be='me1200IpmcSnoopingIgmpPortTableInfoGroup'
+_Bd='me1200IpmcSnoopingIgmpGlobalsInfoGroup'
+_Bc='me1200IpmcSnoopingControlStatisticsMldClearByIfIndexIfIndex'
+_Bb='me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndexIfIndex'
+_Ba='me1200IpmcSnoopingMldGroupSrcListHardwareFilter'
+_BZ='me1200IpmcSnoopingMldGroupSrcListSourceTimer'
+_BY='me1200IpmcSnoopingMldGroupSrcListSourceType'
+_BX='me1200IpmcSnoopingMldGroupSrcListFilterTimer'
+_BW='me1200IpmcSnoopingMldGroupSrcListGroupFilterMode'
+_BV='me1200IpmcSnoopingMldGroupAddressHardwareSwitch'
+_BU='me1200IpmcSnoopingMldGroupAddressMemberPorts'
+_BT='me1200IpmcSnoopingMldVlanStatusCounterRxErrors'
+_BS='me1200IpmcSnoopingMldVlanStatusCounterRxV2Report'
+_BR='me1200IpmcSnoopingMldVlanStatusCounterRxV1Done'
+_BQ='me1200IpmcSnoopingMldVlanStatusCounterRxV1Report'
+_BP='me1200IpmcSnoopingMldVlanStatusCounterRxQuery'
+_BO='me1200IpmcSnoopingMldVlanStatusCounterTxSpecificQuery'
+_BN='me1200IpmcSnoopingMldVlanStatusCounterTxQuery'
+_BM='me1200IpmcSnoopingMldVlanStatusHostPresentTimeout'
+_BL='me1200IpmcSnoopingMldVlanStatusHostVersion'
+_BK='me1200IpmcSnoopingMldVlanStatusQuerierPresentTimeout'
+_BJ='me1200IpmcSnoopingMldVlanStatusQuerierVersion'
+_BI='me1200IpmcSnoopingMldVlanStatusQuerierExpiryTime'
+_BH='me1200IpmcSnoopingMldVlanStatusStartupQueryCount'
+_BG='me1200IpmcSnoopingMldVlanStatusQueryInterval'
+_BF='me1200IpmcSnoopingMldVlanStatusQuerierUptime'
+_BE='me1200IpmcSnoopingMldVlanStatusActiveQuerierAddress'
+_BD='me1200IpmcSnoopingMldVlanStatusQuerierStatus'
+_BC='me1200IpmcSnoopingMldRouterPortStatus'
+_BB='me1200IpmcSnoopingIgmpGroupSrcListHardwareFilter'
+_BA='me1200IpmcSnoopingIgmpGroupSrcListSourceTimer'
+_B9='me1200IpmcSnoopingIgmpGroupSrcListSourceType'
+_B8='me1200IpmcSnoopingIgmpGroupSrcListFilterTimer'
+_B7='me1200IpmcSnoopingIgmpGroupSrcListGroupFilterMode'
+_B6='me1200IpmcSnoopingIgmpGroupAddressHardwareSwitch'
+_B5='me1200IpmcSnoopingIgmpGroupAddressMemberPorts'
+_B4='me1200IpmcSnoopingIgmpVlanStatusCounterRxErrors'
+_B3='me1200IpmcSnoopingIgmpVlanStatusCounterRxV3Join'
+_B2='me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Leave'
+_B1='me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Join'
+_B0='me1200IpmcSnoopingIgmpVlanStatusCounterRxV1Join'
+_A_='me1200IpmcSnoopingIgmpVlanStatusCounterRxQuery'
+_Az='me1200IpmcSnoopingIgmpVlanStatusCounterTxSpecificQuery'
+_Ay='me1200IpmcSnoopingIgmpVlanStatusCounterTxQuery'
+_Ax='me1200IpmcSnoopingIgmpVlanStatusHostPresentTimeout'
+_Aw='me1200IpmcSnoopingIgmpVlanStatusHostVersion'
+_Av='me1200IpmcSnoopingIgmpVlanStatusQuerierPresentTimeout'
+_Au='me1200IpmcSnoopingIgmpVlanStatusQuerierVersion'
+_At='me1200IpmcSnoopingIgmpVlanStatusQuerierExpiryTime'
+_As='me1200IpmcSnoopingIgmpVlanStatusStartupQueryCount'
+_Ar='me1200IpmcSnoopingIgmpVlanStatusQueryInterval'
+_Aq='me1200IpmcSnoopingIgmpVlanStatusQuerierUptime'
+_Ap='me1200IpmcSnoopingIgmpVlanStatusActiveQuerierAddress'
+_Ao='me1200IpmcSnoopingIgmpVlanStatusQuerierStatus'
+_An='me1200IpmcSnoopingIgmpRouterPortStatus'
+_Am='me1200IpmcSnoopingGroupAddressCountFromMld'
+_Al='me1200IpmcSnoopingGroupAddressCountFromIgmp'
+_Ak='me1200IpmcSnoopingMldInterfaceTableRowEditorAction'
+_Aj='me1200IpmcSnoopingMldInterfaceTableRowEditorUri'
+_Ai='me1200IpmcSnoopingMldInterfaceTableRowEditorLlqi'
+_Ah='me1200IpmcSnoopingMldInterfaceTableRowEditorQri'
+_Ag='me1200IpmcSnoopingMldInterfaceTableRowEditorQi'
+_Af='me1200IpmcSnoopingMldInterfaceTableRowEditorRv'
+_Ae='me1200IpmcSnoopingMldInterfaceTableRowEditorPriority'
+_Ad='me1200IpmcSnoopingMldInterfaceTableRowEditorCompatibility'
+_Ac='me1200IpmcSnoopingMldInterfaceTableRowEditorQuerierElection'
+_Ab='me1200IpmcSnoopingMldInterfaceTableRowEditorAdminState'
+_Aa='me1200IpmcSnoopingMldInterfaceTableRowEditorIfIndex'
+_AZ='me1200IpmcSnoopingMldInterfaceAction'
+_AY='me1200IpmcSnoopingMldInterfaceUri'
+_AX='me1200IpmcSnoopingMldInterfaceLlqi'
+_AW='me1200IpmcSnoopingMldInterfaceQri'
+_AV='me1200IpmcSnoopingMldInterfaceQi'
+_AU='me1200IpmcSnoopingMldInterfaceRv'
+_AT='me1200IpmcSnoopingMldInterfacePriority'
+_AS='me1200IpmcSnoopingMldInterfaceCompatibility'
+_AR='me1200IpmcSnoopingMldInterfaceQuerierElection'
+_AQ='me1200IpmcSnoopingMldInterfaceAdminState'
+_AP='me1200IpmcSnoopingMldPortFilteringProfile'
+_AO='me1200IpmcSnoopingMldPortThrottlingNumber'
+_AN='me1200IpmcSnoopingMldPortDoFastLeave'
+_AM='me1200IpmcSnoopingMldPortAsRouterPort'
+_AL='me1200IpmcSnoopingMldGlobalsLeaveProxy'
+_AK='me1200IpmcSnoopingMldGlobalsProxy'
+_AJ='me1200IpmcSnoopingMldGlobalsSsmRangeMask'
+_AI='me1200IpmcSnoopingMldGlobalsSsmRangeAddress'
+_AH='me1200IpmcSnoopingMldGlobalsUnregisteredFlooding'
+_AG='me1200IpmcSnoopingMldGlobalsAdminState'
+_AF='me1200IpmcSnoopingIgmpInterfaceTableRowEditorAction'
+_AE='me1200IpmcSnoopingIgmpInterfaceTableRowEditorUri'
+_AD='me1200IpmcSnoopingIgmpInterfaceTableRowEditorLmqi'
+_AC='me1200IpmcSnoopingIgmpInterfaceTableRowEditorQri'
+_AB='me1200IpmcSnoopingIgmpInterfaceTableRowEditorQi'
+_AA='me1200IpmcSnoopingIgmpInterfaceTableRowEditorRv'
+_A9='me1200IpmcSnoopingIgmpInterfaceTableRowEditorPriority'
+_A8='me1200IpmcSnoopingIgmpInterfaceTableRowEditorCompatibility'
+_A7='me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierAddress'
+_A6='me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierElection'
+_A5='me1200IpmcSnoopingIgmpInterfaceTableRowEditorAdminState'
+_A4='me1200IpmcSnoopingIgmpInterfaceTableRowEditorIfIndex'
+_A3='me1200IpmcSnoopingIgmpInterfaceAction'
+_A2='me1200IpmcSnoopingIgmpInterfaceUri'
+_A1='me1200IpmcSnoopingIgmpInterfaceLmqi'
+_A0='me1200IpmcSnoopingIgmpInterfaceQri'
+_z='me1200IpmcSnoopingIgmpInterfaceQi'
+_y='me1200IpmcSnoopingIgmpInterfaceRv'
+_x='me1200IpmcSnoopingIgmpInterfacePriority'
+_w='me1200IpmcSnoopingIgmpInterfaceCompatibility'
+_v='me1200IpmcSnoopingIgmpInterfaceQuerierAddress'
+_u='me1200IpmcSnoopingIgmpInterfaceQuerierElection'
+_t='me1200IpmcSnoopingIgmpInterfaceAdminState'
+_s='me1200IpmcSnoopingIgmpPortFilteringProfile'
+_r='me1200IpmcSnoopingIgmpPortThrottlingNumber'
+_q='me1200IpmcSnoopingIgmpPortDoFastLeave'
+_p='me1200IpmcSnoopingIgmpPortAsRouterPort'
+_o='me1200IpmcSnoopingIgmpGlobalsLeaveProxy'
+_n='me1200IpmcSnoopingIgmpGlobalsProxy'
+_m='me1200IpmcSnoopingIgmpGlobalsSsmRangeMask'
+_l='me1200IpmcSnoopingIgmpGlobalsSsmRangeAddress'
+_k='me1200IpmcSnoopingIgmpGlobalsUnregisteredFlooding'
+_j='me1200IpmcSnoopingIgmpGlobalsAdminState'
+_i='me1200IpmcSnoopingMldGroupSrcListHostAddress'
+_h='me1200IpmcSnoopingMldGroupSrcListPortIndex'
+_g='me1200IpmcSnoopingMldGroupSrcListGroupAddress'
+_f='me1200IpmcSnoopingMldGroupSrcListIfIndex'
+_e='me1200IpmcSnoopingMldGroupAddressGroupAddress'
+_d='me1200IpmcSnoopingMldGroupAddressIfIndex'
+_c='me1200IpmcSnoopingMldVlanStatusIfIndex'
+_b='me1200IpmcSnoopingMldRouterPortPortIndex'
+_a='me1200IpmcSnoopingIgmpGroupSrcListHostAddress'
+_Z='me1200IpmcSnoopingIgmpGroupSrcListPortIndex'
+_Y='me1200IpmcSnoopingIgmpGroupSrcListGroupAddress'
+_X='me1200IpmcSnoopingIgmpGroupSrcListIfIndex'
+_W='me1200IpmcSnoopingIgmpGroupAddressGroupAddress'
+_V='me1200IpmcSnoopingIgmpGroupAddressIfIndex'
+_U='me1200IpmcSnoopingIgmpVlanStatusIfIndex'
+_T='me1200IpmcSnoopingIgmpRouterPortPortIndex'
+_S='me1200IpmcSnoopingMldInterfaceIfIndex'
+_R='me1200IpmcSnoopingMldPortPortIndex'
+_Q='me1200IpmcSnoopingIgmpInterfaceIfIndex'
+_P='me1200IpmcSnoopingIgmpPortPortIndex'
+_O='active'
+_N='initial'
+_M='disabled'
+_L='dynamic'
+_K='static'
+_J='permit'
+_I='include'
+_H='exclude'
+_G='ME1200DisplayString'
+_F='none'
+_E='not-accessible'
+_D='read-only'
+_C='read-write'
+_B='ME1200-IPMC-SNOOPING-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+me1200SwitchMgmt,=mibBuilder.importSymbols('CISCOME1200-MIB','me1200SwitchMgmt')
+InetAddressIPv6,=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv6')
+ME1200DisplayString,ME1200InterfaceIndex,ME1200PortListStackable,ME1200RowEditorState,ME1200Unsigned8=mibBuilder.importSymbols('ME1200-TC',_G,'ME1200InterfaceIndex','ME1200PortListStackable','ME1200RowEditorState','ME1200Unsigned8')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
+me1200IpmcSnoopingMib=ModuleIdentity((1,3,6,1,4,1,9,9,815,1,69))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMib.setRevisions(('2014-02-11 00:00','2014-02-05 00:00'))
+class ME1200IpmcSnpIgmpGroupSrcListGroupFilterMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_H,0),(_I,1),(_F,2)))
+class ME1200IpmcSnpIgmpGroupSrcListSourceType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('deny',0),(_J,1)))
+class ME1200IpmcSnpIgmpInterfaceCompatibility(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*(('auto',0),('igmpv1',1),('igmpv2',2),('igmpv3',3)))
+class ME1200IpmcSnpIgmpRouterPortStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_F,0),(_K,1),(_L,2),('both',3)))
+class ME1200IpmcSnpIgmpVlanStatusQuerierStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_M,0),(_N,1),('idle',2),(_O,3)))
+class ME1200IpmcSnpMldGroupSrcListGroupFilterMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*((_H,0),(_I,1),(_F,2)))
+class ME1200IpmcSnpMldGroupSrcListSourceType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('deny',0),(_J,1)))
+class ME1200IpmcSnpMldInterfaceCompatibility(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2)));namedValues=NamedValues(*(('auto',0),('mldv1',1),('mldv2',2)))
+class ME1200IpmcSnpMldRouterPortStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_F,0),(_K,1),(_L,2),('both',3)))
+class ME1200IpmcSnpMldVlanStatusQuerierStatus(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3)));namedValues=NamedValues(*((_M,0),(_N,1),('idle',2),(_O,3)))
+_Me1200IpmcSnoopingMIBObjects_ObjectIdentity=ObjectIdentity
+me1200IpmcSnoopingMIBObjects=_Me1200IpmcSnoopingMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,69,1))
+_Me1200IpmcSnoopingConfig_ObjectIdentity=ObjectIdentity
+me1200IpmcSnoopingConfig=_Me1200IpmcSnoopingConfig_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,69,1,2))
+_Me1200IpmcSnoopingIgmpGlobals_ObjectIdentity=ObjectIdentity
+me1200IpmcSnoopingIgmpGlobals=_Me1200IpmcSnoopingIgmpGlobals_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,69,1,2,1))
+_Me1200IpmcSnoopingIgmpGlobalsAdminState_Type=TruthValue
+_Me1200IpmcSnoopingIgmpGlobalsAdminState_Object=MibScalar
+me1200IpmcSnoopingIgmpGlobalsAdminState=_Me1200IpmcSnoopingIgmpGlobalsAdminState_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,1,1),_Me1200IpmcSnoopingIgmpGlobalsAdminState_Type())
+me1200IpmcSnoopingIgmpGlobalsAdminState.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGlobalsAdminState.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGlobalsUnregisteredFlooding_Type=TruthValue
+_Me1200IpmcSnoopingIgmpGlobalsUnregisteredFlooding_Object=MibScalar
+me1200IpmcSnoopingIgmpGlobalsUnregisteredFlooding=_Me1200IpmcSnoopingIgmpGlobalsUnregisteredFlooding_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,1,2),_Me1200IpmcSnoopingIgmpGlobalsUnregisteredFlooding_Type())
+me1200IpmcSnoopingIgmpGlobalsUnregisteredFlooding.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGlobalsUnregisteredFlooding.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGlobalsSsmRangeAddress_Type=IpAddress
+_Me1200IpmcSnoopingIgmpGlobalsSsmRangeAddress_Object=MibScalar
+me1200IpmcSnoopingIgmpGlobalsSsmRangeAddress=_Me1200IpmcSnoopingIgmpGlobalsSsmRangeAddress_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,1,3),_Me1200IpmcSnoopingIgmpGlobalsSsmRangeAddress_Type())
+me1200IpmcSnoopingIgmpGlobalsSsmRangeAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGlobalsSsmRangeAddress.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGlobalsSsmRangeMask_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpGlobalsSsmRangeMask_Object=MibScalar
+me1200IpmcSnoopingIgmpGlobalsSsmRangeMask=_Me1200IpmcSnoopingIgmpGlobalsSsmRangeMask_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,1,4),_Me1200IpmcSnoopingIgmpGlobalsSsmRangeMask_Type())
+me1200IpmcSnoopingIgmpGlobalsSsmRangeMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGlobalsSsmRangeMask.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGlobalsProxy_Type=TruthValue
+_Me1200IpmcSnoopingIgmpGlobalsProxy_Object=MibScalar
+me1200IpmcSnoopingIgmpGlobalsProxy=_Me1200IpmcSnoopingIgmpGlobalsProxy_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,1,5),_Me1200IpmcSnoopingIgmpGlobalsProxy_Type())
+me1200IpmcSnoopingIgmpGlobalsProxy.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGlobalsProxy.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGlobalsLeaveProxy_Type=TruthValue
+_Me1200IpmcSnoopingIgmpGlobalsLeaveProxy_Object=MibScalar
+me1200IpmcSnoopingIgmpGlobalsLeaveProxy=_Me1200IpmcSnoopingIgmpGlobalsLeaveProxy_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,1,6),_Me1200IpmcSnoopingIgmpGlobalsLeaveProxy_Type())
+me1200IpmcSnoopingIgmpGlobalsLeaveProxy.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGlobalsLeaveProxy.setStatus(_A)
+_Me1200IpmcSnoopingIgmpPortTable_Object=MibTable
+me1200IpmcSnoopingIgmpPortTable=_Me1200IpmcSnoopingIgmpPortTable_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,2))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpPortTable.setStatus(_A)
+_Me1200IpmcSnoopingIgmpPortEntry_Object=MibTableRow
+me1200IpmcSnoopingIgmpPortEntry=_Me1200IpmcSnoopingIgmpPortEntry_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,2,1))
+me1200IpmcSnoopingIgmpPortEntry.setIndexNames((0,_B,_P))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpPortEntry.setStatus(_A)
+_Me1200IpmcSnoopingIgmpPortPortIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingIgmpPortPortIndex_Object=MibTableColumn
+me1200IpmcSnoopingIgmpPortPortIndex=_Me1200IpmcSnoopingIgmpPortPortIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,2,1,1),_Me1200IpmcSnoopingIgmpPortPortIndex_Type())
+me1200IpmcSnoopingIgmpPortPortIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpPortPortIndex.setStatus(_A)
+_Me1200IpmcSnoopingIgmpPortAsRouterPort_Type=TruthValue
+_Me1200IpmcSnoopingIgmpPortAsRouterPort_Object=MibTableColumn
+me1200IpmcSnoopingIgmpPortAsRouterPort=_Me1200IpmcSnoopingIgmpPortAsRouterPort_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,2,1,2),_Me1200IpmcSnoopingIgmpPortAsRouterPort_Type())
+me1200IpmcSnoopingIgmpPortAsRouterPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpPortAsRouterPort.setStatus(_A)
+_Me1200IpmcSnoopingIgmpPortDoFastLeave_Type=TruthValue
+_Me1200IpmcSnoopingIgmpPortDoFastLeave_Object=MibTableColumn
+me1200IpmcSnoopingIgmpPortDoFastLeave=_Me1200IpmcSnoopingIgmpPortDoFastLeave_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,2,1,3),_Me1200IpmcSnoopingIgmpPortDoFastLeave_Type())
+me1200IpmcSnoopingIgmpPortDoFastLeave.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpPortDoFastLeave.setStatus(_A)
+_Me1200IpmcSnoopingIgmpPortThrottlingNumber_Type=Integer32
+_Me1200IpmcSnoopingIgmpPortThrottlingNumber_Object=MibTableColumn
+me1200IpmcSnoopingIgmpPortThrottlingNumber=_Me1200IpmcSnoopingIgmpPortThrottlingNumber_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,2,1,4),_Me1200IpmcSnoopingIgmpPortThrottlingNumber_Type())
+me1200IpmcSnoopingIgmpPortThrottlingNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpPortThrottlingNumber.setStatus(_A)
+class _Me1200IpmcSnoopingIgmpPortFilteringProfile_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200IpmcSnoopingIgmpPortFilteringProfile_Type.__name__=_G
+_Me1200IpmcSnoopingIgmpPortFilteringProfile_Object=MibTableColumn
+me1200IpmcSnoopingIgmpPortFilteringProfile=_Me1200IpmcSnoopingIgmpPortFilteringProfile_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,2,1,5),_Me1200IpmcSnoopingIgmpPortFilteringProfile_Type())
+me1200IpmcSnoopingIgmpPortFilteringProfile.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpPortFilteringProfile.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceTable_Object=MibTable
+me1200IpmcSnoopingIgmpInterfaceTable=_Me1200IpmcSnoopingIgmpInterfaceTable_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,3))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceTable.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceEntry_Object=MibTableRow
+me1200IpmcSnoopingIgmpInterfaceEntry=_Me1200IpmcSnoopingIgmpInterfaceEntry_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,3,1))
+me1200IpmcSnoopingIgmpInterfaceEntry.setIndexNames((0,_B,_Q))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceEntry.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceIfIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingIgmpInterfaceIfIndex_Object=MibTableColumn
+me1200IpmcSnoopingIgmpInterfaceIfIndex=_Me1200IpmcSnoopingIgmpInterfaceIfIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,3,1,1),_Me1200IpmcSnoopingIgmpInterfaceIfIndex_Type())
+me1200IpmcSnoopingIgmpInterfaceIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceIfIndex.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceAdminState_Type=TruthValue
+_Me1200IpmcSnoopingIgmpInterfaceAdminState_Object=MibTableColumn
+me1200IpmcSnoopingIgmpInterfaceAdminState=_Me1200IpmcSnoopingIgmpInterfaceAdminState_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,3,1,2),_Me1200IpmcSnoopingIgmpInterfaceAdminState_Type())
+me1200IpmcSnoopingIgmpInterfaceAdminState.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceAdminState.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceQuerierElection_Type=TruthValue
+_Me1200IpmcSnoopingIgmpInterfaceQuerierElection_Object=MibTableColumn
+me1200IpmcSnoopingIgmpInterfaceQuerierElection=_Me1200IpmcSnoopingIgmpInterfaceQuerierElection_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,3,1,3),_Me1200IpmcSnoopingIgmpInterfaceQuerierElection_Type())
+me1200IpmcSnoopingIgmpInterfaceQuerierElection.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceQuerierElection.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceQuerierAddress_Type=IpAddress
+_Me1200IpmcSnoopingIgmpInterfaceQuerierAddress_Object=MibTableColumn
+me1200IpmcSnoopingIgmpInterfaceQuerierAddress=_Me1200IpmcSnoopingIgmpInterfaceQuerierAddress_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,3,1,4),_Me1200IpmcSnoopingIgmpInterfaceQuerierAddress_Type())
+me1200IpmcSnoopingIgmpInterfaceQuerierAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceQuerierAddress.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceCompatibility_Type=ME1200IpmcSnpIgmpInterfaceCompatibility
+_Me1200IpmcSnoopingIgmpInterfaceCompatibility_Object=MibTableColumn
+me1200IpmcSnoopingIgmpInterfaceCompatibility=_Me1200IpmcSnoopingIgmpInterfaceCompatibility_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,3,1,5),_Me1200IpmcSnoopingIgmpInterfaceCompatibility_Type())
+me1200IpmcSnoopingIgmpInterfaceCompatibility.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceCompatibility.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfacePriority_Type=ME1200Unsigned8
+_Me1200IpmcSnoopingIgmpInterfacePriority_Object=MibTableColumn
+me1200IpmcSnoopingIgmpInterfacePriority=_Me1200IpmcSnoopingIgmpInterfacePriority_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,3,1,6),_Me1200IpmcSnoopingIgmpInterfacePriority_Type())
+me1200IpmcSnoopingIgmpInterfacePriority.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfacePriority.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceRv_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpInterfaceRv_Object=MibTableColumn
+me1200IpmcSnoopingIgmpInterfaceRv=_Me1200IpmcSnoopingIgmpInterfaceRv_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,3,1,7),_Me1200IpmcSnoopingIgmpInterfaceRv_Type())
+me1200IpmcSnoopingIgmpInterfaceRv.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceRv.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceQi_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpInterfaceQi_Object=MibTableColumn
+me1200IpmcSnoopingIgmpInterfaceQi=_Me1200IpmcSnoopingIgmpInterfaceQi_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,3,1,8),_Me1200IpmcSnoopingIgmpInterfaceQi_Type())
+me1200IpmcSnoopingIgmpInterfaceQi.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceQi.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceQri_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpInterfaceQri_Object=MibTableColumn
+me1200IpmcSnoopingIgmpInterfaceQri=_Me1200IpmcSnoopingIgmpInterfaceQri_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,3,1,9),_Me1200IpmcSnoopingIgmpInterfaceQri_Type())
+me1200IpmcSnoopingIgmpInterfaceQri.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceQri.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceLmqi_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpInterfaceLmqi_Object=MibTableColumn
+me1200IpmcSnoopingIgmpInterfaceLmqi=_Me1200IpmcSnoopingIgmpInterfaceLmqi_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,3,1,10),_Me1200IpmcSnoopingIgmpInterfaceLmqi_Type())
+me1200IpmcSnoopingIgmpInterfaceLmqi.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceLmqi.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceUri_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpInterfaceUri_Object=MibTableColumn
+me1200IpmcSnoopingIgmpInterfaceUri=_Me1200IpmcSnoopingIgmpInterfaceUri_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,3,1,11),_Me1200IpmcSnoopingIgmpInterfaceUri_Type())
+me1200IpmcSnoopingIgmpInterfaceUri.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceUri.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceAction_Type=ME1200RowEditorState
+_Me1200IpmcSnoopingIgmpInterfaceAction_Object=MibTableColumn
+me1200IpmcSnoopingIgmpInterfaceAction=_Me1200IpmcSnoopingIgmpInterfaceAction_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,3,1,100),_Me1200IpmcSnoopingIgmpInterfaceAction_Type())
+me1200IpmcSnoopingIgmpInterfaceAction.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceAction.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditor_ObjectIdentity=ObjectIdentity
+me1200IpmcSnoopingIgmpInterfaceTableRowEditor=_Me1200IpmcSnoopingIgmpInterfaceTableRowEditor_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,69,1,2,4))
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorIfIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorIfIndex_Object=MibScalar
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorIfIndex=_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorIfIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,4,1),_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorIfIndex_Type())
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceTableRowEditorIfIndex.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorAdminState_Type=TruthValue
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorAdminState_Object=MibScalar
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorAdminState=_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorAdminState_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,4,2),_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorAdminState_Type())
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorAdminState.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceTableRowEditorAdminState.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierElection_Type=TruthValue
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierElection_Object=MibScalar
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierElection=_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierElection_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,4,3),_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierElection_Type())
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierElection.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierElection.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierAddress_Type=IpAddress
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierAddress_Object=MibScalar
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierAddress=_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierAddress_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,4,4),_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierAddress_Type())
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierAddress.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorCompatibility_Type=ME1200IpmcSnpIgmpInterfaceCompatibility
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorCompatibility_Object=MibScalar
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorCompatibility=_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorCompatibility_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,4,5),_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorCompatibility_Type())
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorCompatibility.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceTableRowEditorCompatibility.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorPriority_Type=ME1200Unsigned8
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorPriority_Object=MibScalar
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorPriority=_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorPriority_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,4,6),_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorPriority_Type())
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorPriority.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceTableRowEditorPriority.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorRv_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorRv_Object=MibScalar
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorRv=_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorRv_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,4,7),_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorRv_Type())
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorRv.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceTableRowEditorRv.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorQi_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorQi_Object=MibScalar
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorQi=_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorQi_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,4,8),_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorQi_Type())
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorQi.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceTableRowEditorQi.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorQri_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorQri_Object=MibScalar
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorQri=_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorQri_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,4,9),_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorQri_Type())
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorQri.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceTableRowEditorQri.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorLmqi_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorLmqi_Object=MibScalar
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorLmqi=_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorLmqi_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,4,10),_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorLmqi_Type())
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorLmqi.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceTableRowEditorLmqi.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorUri_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorUri_Object=MibScalar
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorUri=_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorUri_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,4,11),_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorUri_Type())
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorUri.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceTableRowEditorUri.setStatus(_A)
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorAction_Type=ME1200RowEditorState
+_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorAction_Object=MibScalar
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorAction=_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorAction_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,4,100),_Me1200IpmcSnoopingIgmpInterfaceTableRowEditorAction_Type())
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorAction.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceTableRowEditorAction.setStatus(_A)
+_Me1200IpmcSnoopingMldGlobals_ObjectIdentity=ObjectIdentity
+me1200IpmcSnoopingMldGlobals=_Me1200IpmcSnoopingMldGlobals_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,69,1,2,5))
+_Me1200IpmcSnoopingMldGlobalsAdminState_Type=TruthValue
+_Me1200IpmcSnoopingMldGlobalsAdminState_Object=MibScalar
+me1200IpmcSnoopingMldGlobalsAdminState=_Me1200IpmcSnoopingMldGlobalsAdminState_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,5,1),_Me1200IpmcSnoopingMldGlobalsAdminState_Type())
+me1200IpmcSnoopingMldGlobalsAdminState.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGlobalsAdminState.setStatus(_A)
+_Me1200IpmcSnoopingMldGlobalsUnregisteredFlooding_Type=TruthValue
+_Me1200IpmcSnoopingMldGlobalsUnregisteredFlooding_Object=MibScalar
+me1200IpmcSnoopingMldGlobalsUnregisteredFlooding=_Me1200IpmcSnoopingMldGlobalsUnregisteredFlooding_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,5,2),_Me1200IpmcSnoopingMldGlobalsUnregisteredFlooding_Type())
+me1200IpmcSnoopingMldGlobalsUnregisteredFlooding.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGlobalsUnregisteredFlooding.setStatus(_A)
+_Me1200IpmcSnoopingMldGlobalsSsmRangeAddress_Type=InetAddressIPv6
+_Me1200IpmcSnoopingMldGlobalsSsmRangeAddress_Object=MibScalar
+me1200IpmcSnoopingMldGlobalsSsmRangeAddress=_Me1200IpmcSnoopingMldGlobalsSsmRangeAddress_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,5,3),_Me1200IpmcSnoopingMldGlobalsSsmRangeAddress_Type())
+me1200IpmcSnoopingMldGlobalsSsmRangeAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGlobalsSsmRangeAddress.setStatus(_A)
+_Me1200IpmcSnoopingMldGlobalsSsmRangeMask_Type=Unsigned32
+_Me1200IpmcSnoopingMldGlobalsSsmRangeMask_Object=MibScalar
+me1200IpmcSnoopingMldGlobalsSsmRangeMask=_Me1200IpmcSnoopingMldGlobalsSsmRangeMask_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,5,4),_Me1200IpmcSnoopingMldGlobalsSsmRangeMask_Type())
+me1200IpmcSnoopingMldGlobalsSsmRangeMask.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGlobalsSsmRangeMask.setStatus(_A)
+_Me1200IpmcSnoopingMldGlobalsProxy_Type=TruthValue
+_Me1200IpmcSnoopingMldGlobalsProxy_Object=MibScalar
+me1200IpmcSnoopingMldGlobalsProxy=_Me1200IpmcSnoopingMldGlobalsProxy_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,5,5),_Me1200IpmcSnoopingMldGlobalsProxy_Type())
+me1200IpmcSnoopingMldGlobalsProxy.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGlobalsProxy.setStatus(_A)
+_Me1200IpmcSnoopingMldGlobalsLeaveProxy_Type=TruthValue
+_Me1200IpmcSnoopingMldGlobalsLeaveProxy_Object=MibScalar
+me1200IpmcSnoopingMldGlobalsLeaveProxy=_Me1200IpmcSnoopingMldGlobalsLeaveProxy_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,5,6),_Me1200IpmcSnoopingMldGlobalsLeaveProxy_Type())
+me1200IpmcSnoopingMldGlobalsLeaveProxy.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGlobalsLeaveProxy.setStatus(_A)
+_Me1200IpmcSnoopingMldPortTable_Object=MibTable
+me1200IpmcSnoopingMldPortTable=_Me1200IpmcSnoopingMldPortTable_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,6))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldPortTable.setStatus(_A)
+_Me1200IpmcSnoopingMldPortEntry_Object=MibTableRow
+me1200IpmcSnoopingMldPortEntry=_Me1200IpmcSnoopingMldPortEntry_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,6,1))
+me1200IpmcSnoopingMldPortEntry.setIndexNames((0,_B,_R))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldPortEntry.setStatus(_A)
+_Me1200IpmcSnoopingMldPortPortIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingMldPortPortIndex_Object=MibTableColumn
+me1200IpmcSnoopingMldPortPortIndex=_Me1200IpmcSnoopingMldPortPortIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,6,1,1),_Me1200IpmcSnoopingMldPortPortIndex_Type())
+me1200IpmcSnoopingMldPortPortIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldPortPortIndex.setStatus(_A)
+_Me1200IpmcSnoopingMldPortAsRouterPort_Type=TruthValue
+_Me1200IpmcSnoopingMldPortAsRouterPort_Object=MibTableColumn
+me1200IpmcSnoopingMldPortAsRouterPort=_Me1200IpmcSnoopingMldPortAsRouterPort_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,6,1,2),_Me1200IpmcSnoopingMldPortAsRouterPort_Type())
+me1200IpmcSnoopingMldPortAsRouterPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldPortAsRouterPort.setStatus(_A)
+_Me1200IpmcSnoopingMldPortDoFastLeave_Type=TruthValue
+_Me1200IpmcSnoopingMldPortDoFastLeave_Object=MibTableColumn
+me1200IpmcSnoopingMldPortDoFastLeave=_Me1200IpmcSnoopingMldPortDoFastLeave_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,6,1,3),_Me1200IpmcSnoopingMldPortDoFastLeave_Type())
+me1200IpmcSnoopingMldPortDoFastLeave.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldPortDoFastLeave.setStatus(_A)
+_Me1200IpmcSnoopingMldPortThrottlingNumber_Type=Integer32
+_Me1200IpmcSnoopingMldPortThrottlingNumber_Object=MibTableColumn
+me1200IpmcSnoopingMldPortThrottlingNumber=_Me1200IpmcSnoopingMldPortThrottlingNumber_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,6,1,4),_Me1200IpmcSnoopingMldPortThrottlingNumber_Type())
+me1200IpmcSnoopingMldPortThrottlingNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldPortThrottlingNumber.setStatus(_A)
+class _Me1200IpmcSnoopingMldPortFilteringProfile_Type(ME1200DisplayString):subtypeSpec=ME1200DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,16))
+_Me1200IpmcSnoopingMldPortFilteringProfile_Type.__name__=_G
+_Me1200IpmcSnoopingMldPortFilteringProfile_Object=MibTableColumn
+me1200IpmcSnoopingMldPortFilteringProfile=_Me1200IpmcSnoopingMldPortFilteringProfile_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,6,1,5),_Me1200IpmcSnoopingMldPortFilteringProfile_Type())
+me1200IpmcSnoopingMldPortFilteringProfile.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldPortFilteringProfile.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceTable_Object=MibTable
+me1200IpmcSnoopingMldInterfaceTable=_Me1200IpmcSnoopingMldInterfaceTable_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,7))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceTable.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceEntry_Object=MibTableRow
+me1200IpmcSnoopingMldInterfaceEntry=_Me1200IpmcSnoopingMldInterfaceEntry_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,7,1))
+me1200IpmcSnoopingMldInterfaceEntry.setIndexNames((0,_B,_S))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceEntry.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceIfIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingMldInterfaceIfIndex_Object=MibTableColumn
+me1200IpmcSnoopingMldInterfaceIfIndex=_Me1200IpmcSnoopingMldInterfaceIfIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,7,1,1),_Me1200IpmcSnoopingMldInterfaceIfIndex_Type())
+me1200IpmcSnoopingMldInterfaceIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceIfIndex.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceAdminState_Type=TruthValue
+_Me1200IpmcSnoopingMldInterfaceAdminState_Object=MibTableColumn
+me1200IpmcSnoopingMldInterfaceAdminState=_Me1200IpmcSnoopingMldInterfaceAdminState_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,7,1,2),_Me1200IpmcSnoopingMldInterfaceAdminState_Type())
+me1200IpmcSnoopingMldInterfaceAdminState.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceAdminState.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceQuerierElection_Type=TruthValue
+_Me1200IpmcSnoopingMldInterfaceQuerierElection_Object=MibTableColumn
+me1200IpmcSnoopingMldInterfaceQuerierElection=_Me1200IpmcSnoopingMldInterfaceQuerierElection_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,7,1,3),_Me1200IpmcSnoopingMldInterfaceQuerierElection_Type())
+me1200IpmcSnoopingMldInterfaceQuerierElection.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceQuerierElection.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceCompatibility_Type=ME1200IpmcSnpMldInterfaceCompatibility
+_Me1200IpmcSnoopingMldInterfaceCompatibility_Object=MibTableColumn
+me1200IpmcSnoopingMldInterfaceCompatibility=_Me1200IpmcSnoopingMldInterfaceCompatibility_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,7,1,4),_Me1200IpmcSnoopingMldInterfaceCompatibility_Type())
+me1200IpmcSnoopingMldInterfaceCompatibility.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceCompatibility.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfacePriority_Type=ME1200Unsigned8
+_Me1200IpmcSnoopingMldInterfacePriority_Object=MibTableColumn
+me1200IpmcSnoopingMldInterfacePriority=_Me1200IpmcSnoopingMldInterfacePriority_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,7,1,5),_Me1200IpmcSnoopingMldInterfacePriority_Type())
+me1200IpmcSnoopingMldInterfacePriority.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfacePriority.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceRv_Type=Unsigned32
+_Me1200IpmcSnoopingMldInterfaceRv_Object=MibTableColumn
+me1200IpmcSnoopingMldInterfaceRv=_Me1200IpmcSnoopingMldInterfaceRv_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,7,1,6),_Me1200IpmcSnoopingMldInterfaceRv_Type())
+me1200IpmcSnoopingMldInterfaceRv.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceRv.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceQi_Type=Unsigned32
+_Me1200IpmcSnoopingMldInterfaceQi_Object=MibTableColumn
+me1200IpmcSnoopingMldInterfaceQi=_Me1200IpmcSnoopingMldInterfaceQi_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,7,1,7),_Me1200IpmcSnoopingMldInterfaceQi_Type())
+me1200IpmcSnoopingMldInterfaceQi.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceQi.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceQri_Type=Unsigned32
+_Me1200IpmcSnoopingMldInterfaceQri_Object=MibTableColumn
+me1200IpmcSnoopingMldInterfaceQri=_Me1200IpmcSnoopingMldInterfaceQri_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,7,1,8),_Me1200IpmcSnoopingMldInterfaceQri_Type())
+me1200IpmcSnoopingMldInterfaceQri.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceQri.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceLlqi_Type=Unsigned32
+_Me1200IpmcSnoopingMldInterfaceLlqi_Object=MibTableColumn
+me1200IpmcSnoopingMldInterfaceLlqi=_Me1200IpmcSnoopingMldInterfaceLlqi_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,7,1,9),_Me1200IpmcSnoopingMldInterfaceLlqi_Type())
+me1200IpmcSnoopingMldInterfaceLlqi.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceLlqi.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceUri_Type=Unsigned32
+_Me1200IpmcSnoopingMldInterfaceUri_Object=MibTableColumn
+me1200IpmcSnoopingMldInterfaceUri=_Me1200IpmcSnoopingMldInterfaceUri_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,7,1,10),_Me1200IpmcSnoopingMldInterfaceUri_Type())
+me1200IpmcSnoopingMldInterfaceUri.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceUri.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceAction_Type=ME1200RowEditorState
+_Me1200IpmcSnoopingMldInterfaceAction_Object=MibTableColumn
+me1200IpmcSnoopingMldInterfaceAction=_Me1200IpmcSnoopingMldInterfaceAction_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,7,1,100),_Me1200IpmcSnoopingMldInterfaceAction_Type())
+me1200IpmcSnoopingMldInterfaceAction.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceAction.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceTableRowEditor_ObjectIdentity=ObjectIdentity
+me1200IpmcSnoopingMldInterfaceTableRowEditor=_Me1200IpmcSnoopingMldInterfaceTableRowEditor_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,69,1,2,8))
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorIfIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorIfIndex_Object=MibScalar
+me1200IpmcSnoopingMldInterfaceTableRowEditorIfIndex=_Me1200IpmcSnoopingMldInterfaceTableRowEditorIfIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,8,1),_Me1200IpmcSnoopingMldInterfaceTableRowEditorIfIndex_Type())
+me1200IpmcSnoopingMldInterfaceTableRowEditorIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceTableRowEditorIfIndex.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorAdminState_Type=TruthValue
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorAdminState_Object=MibScalar
+me1200IpmcSnoopingMldInterfaceTableRowEditorAdminState=_Me1200IpmcSnoopingMldInterfaceTableRowEditorAdminState_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,8,2),_Me1200IpmcSnoopingMldInterfaceTableRowEditorAdminState_Type())
+me1200IpmcSnoopingMldInterfaceTableRowEditorAdminState.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceTableRowEditorAdminState.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorQuerierElection_Type=TruthValue
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorQuerierElection_Object=MibScalar
+me1200IpmcSnoopingMldInterfaceTableRowEditorQuerierElection=_Me1200IpmcSnoopingMldInterfaceTableRowEditorQuerierElection_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,8,3),_Me1200IpmcSnoopingMldInterfaceTableRowEditorQuerierElection_Type())
+me1200IpmcSnoopingMldInterfaceTableRowEditorQuerierElection.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceTableRowEditorQuerierElection.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorCompatibility_Type=ME1200IpmcSnpMldInterfaceCompatibility
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorCompatibility_Object=MibScalar
+me1200IpmcSnoopingMldInterfaceTableRowEditorCompatibility=_Me1200IpmcSnoopingMldInterfaceTableRowEditorCompatibility_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,8,4),_Me1200IpmcSnoopingMldInterfaceTableRowEditorCompatibility_Type())
+me1200IpmcSnoopingMldInterfaceTableRowEditorCompatibility.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceTableRowEditorCompatibility.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorPriority_Type=ME1200Unsigned8
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorPriority_Object=MibScalar
+me1200IpmcSnoopingMldInterfaceTableRowEditorPriority=_Me1200IpmcSnoopingMldInterfaceTableRowEditorPriority_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,8,5),_Me1200IpmcSnoopingMldInterfaceTableRowEditorPriority_Type())
+me1200IpmcSnoopingMldInterfaceTableRowEditorPriority.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceTableRowEditorPriority.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorRv_Type=Unsigned32
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorRv_Object=MibScalar
+me1200IpmcSnoopingMldInterfaceTableRowEditorRv=_Me1200IpmcSnoopingMldInterfaceTableRowEditorRv_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,8,6),_Me1200IpmcSnoopingMldInterfaceTableRowEditorRv_Type())
+me1200IpmcSnoopingMldInterfaceTableRowEditorRv.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceTableRowEditorRv.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorQi_Type=Unsigned32
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorQi_Object=MibScalar
+me1200IpmcSnoopingMldInterfaceTableRowEditorQi=_Me1200IpmcSnoopingMldInterfaceTableRowEditorQi_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,8,7),_Me1200IpmcSnoopingMldInterfaceTableRowEditorQi_Type())
+me1200IpmcSnoopingMldInterfaceTableRowEditorQi.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceTableRowEditorQi.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorQri_Type=Unsigned32
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorQri_Object=MibScalar
+me1200IpmcSnoopingMldInterfaceTableRowEditorQri=_Me1200IpmcSnoopingMldInterfaceTableRowEditorQri_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,8,8),_Me1200IpmcSnoopingMldInterfaceTableRowEditorQri_Type())
+me1200IpmcSnoopingMldInterfaceTableRowEditorQri.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceTableRowEditorQri.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorLlqi_Type=Unsigned32
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorLlqi_Object=MibScalar
+me1200IpmcSnoopingMldInterfaceTableRowEditorLlqi=_Me1200IpmcSnoopingMldInterfaceTableRowEditorLlqi_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,8,9),_Me1200IpmcSnoopingMldInterfaceTableRowEditorLlqi_Type())
+me1200IpmcSnoopingMldInterfaceTableRowEditorLlqi.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceTableRowEditorLlqi.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorUri_Type=Unsigned32
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorUri_Object=MibScalar
+me1200IpmcSnoopingMldInterfaceTableRowEditorUri=_Me1200IpmcSnoopingMldInterfaceTableRowEditorUri_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,8,10),_Me1200IpmcSnoopingMldInterfaceTableRowEditorUri_Type())
+me1200IpmcSnoopingMldInterfaceTableRowEditorUri.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceTableRowEditorUri.setStatus(_A)
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorAction_Type=ME1200RowEditorState
+_Me1200IpmcSnoopingMldInterfaceTableRowEditorAction_Object=MibScalar
+me1200IpmcSnoopingMldInterfaceTableRowEditorAction=_Me1200IpmcSnoopingMldInterfaceTableRowEditorAction_Object((1,3,6,1,4,1,9,9,815,1,69,1,2,8,100),_Me1200IpmcSnoopingMldInterfaceTableRowEditorAction_Type())
+me1200IpmcSnoopingMldInterfaceTableRowEditorAction.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceTableRowEditorAction.setStatus(_A)
+_Me1200IpmcSnoopingStatus_ObjectIdentity=ObjectIdentity
+me1200IpmcSnoopingStatus=_Me1200IpmcSnoopingStatus_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,69,1,3))
+_Me1200IpmcSnoopingGroupAddressCount_ObjectIdentity=ObjectIdentity
+me1200IpmcSnoopingGroupAddressCount=_Me1200IpmcSnoopingGroupAddressCount_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,69,1,3,1))
+_Me1200IpmcSnoopingGroupAddressCountFromIgmp_Type=Unsigned32
+_Me1200IpmcSnoopingGroupAddressCountFromIgmp_Object=MibScalar
+me1200IpmcSnoopingGroupAddressCountFromIgmp=_Me1200IpmcSnoopingGroupAddressCountFromIgmp_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,1,1),_Me1200IpmcSnoopingGroupAddressCountFromIgmp_Type())
+me1200IpmcSnoopingGroupAddressCountFromIgmp.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingGroupAddressCountFromIgmp.setStatus(_A)
+_Me1200IpmcSnoopingGroupAddressCountFromMld_Type=Unsigned32
+_Me1200IpmcSnoopingGroupAddressCountFromMld_Object=MibScalar
+me1200IpmcSnoopingGroupAddressCountFromMld=_Me1200IpmcSnoopingGroupAddressCountFromMld_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,1,2),_Me1200IpmcSnoopingGroupAddressCountFromMld_Type())
+me1200IpmcSnoopingGroupAddressCountFromMld.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingGroupAddressCountFromMld.setStatus(_A)
+_Me1200IpmcSnoopingIgmpRouterPortTable_Object=MibTable
+me1200IpmcSnoopingIgmpRouterPortTable=_Me1200IpmcSnoopingIgmpRouterPortTable_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,2))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpRouterPortTable.setStatus(_A)
+_Me1200IpmcSnoopingIgmpRouterPortEntry_Object=MibTableRow
+me1200IpmcSnoopingIgmpRouterPortEntry=_Me1200IpmcSnoopingIgmpRouterPortEntry_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,2,1))
+me1200IpmcSnoopingIgmpRouterPortEntry.setIndexNames((0,_B,_T))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpRouterPortEntry.setStatus(_A)
+_Me1200IpmcSnoopingIgmpRouterPortPortIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingIgmpRouterPortPortIndex_Object=MibTableColumn
+me1200IpmcSnoopingIgmpRouterPortPortIndex=_Me1200IpmcSnoopingIgmpRouterPortPortIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,2,1,1),_Me1200IpmcSnoopingIgmpRouterPortPortIndex_Type())
+me1200IpmcSnoopingIgmpRouterPortPortIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpRouterPortPortIndex.setStatus(_A)
+_Me1200IpmcSnoopingIgmpRouterPortStatus_Type=ME1200IpmcSnpIgmpRouterPortStatus
+_Me1200IpmcSnoopingIgmpRouterPortStatus_Object=MibTableColumn
+me1200IpmcSnoopingIgmpRouterPortStatus=_Me1200IpmcSnoopingIgmpRouterPortStatus_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,2,1,2),_Me1200IpmcSnoopingIgmpRouterPortStatus_Type())
+me1200IpmcSnoopingIgmpRouterPortStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpRouterPortStatus.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusTable_Object=MibTable
+me1200IpmcSnoopingIgmpVlanStatusTable=_Me1200IpmcSnoopingIgmpVlanStatusTable_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusTable.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusEntry_Object=MibTableRow
+me1200IpmcSnoopingIgmpVlanStatusEntry=_Me1200IpmcSnoopingIgmpVlanStatusEntry_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1))
+me1200IpmcSnoopingIgmpVlanStatusEntry.setIndexNames((0,_B,_U))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusEntry.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusIfIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingIgmpVlanStatusIfIndex_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusIfIndex=_Me1200IpmcSnoopingIgmpVlanStatusIfIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,1),_Me1200IpmcSnoopingIgmpVlanStatusIfIndex_Type())
+me1200IpmcSnoopingIgmpVlanStatusIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusIfIndex.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusQuerierStatus_Type=ME1200IpmcSnpIgmpVlanStatusQuerierStatus
+_Me1200IpmcSnoopingIgmpVlanStatusQuerierStatus_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusQuerierStatus=_Me1200IpmcSnoopingIgmpVlanStatusQuerierStatus_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,2),_Me1200IpmcSnoopingIgmpVlanStatusQuerierStatus_Type())
+me1200IpmcSnoopingIgmpVlanStatusQuerierStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusQuerierStatus.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusActiveQuerierAddress_Type=IpAddress
+_Me1200IpmcSnoopingIgmpVlanStatusActiveQuerierAddress_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusActiveQuerierAddress=_Me1200IpmcSnoopingIgmpVlanStatusActiveQuerierAddress_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,3),_Me1200IpmcSnoopingIgmpVlanStatusActiveQuerierAddress_Type())
+me1200IpmcSnoopingIgmpVlanStatusActiveQuerierAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusActiveQuerierAddress.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusQuerierUptime_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpVlanStatusQuerierUptime_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusQuerierUptime=_Me1200IpmcSnoopingIgmpVlanStatusQuerierUptime_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,4),_Me1200IpmcSnoopingIgmpVlanStatusQuerierUptime_Type())
+me1200IpmcSnoopingIgmpVlanStatusQuerierUptime.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusQuerierUptime.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusQueryInterval_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpVlanStatusQueryInterval_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusQueryInterval=_Me1200IpmcSnoopingIgmpVlanStatusQueryInterval_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,5),_Me1200IpmcSnoopingIgmpVlanStatusQueryInterval_Type())
+me1200IpmcSnoopingIgmpVlanStatusQueryInterval.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusQueryInterval.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusStartupQueryCount_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpVlanStatusStartupQueryCount_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusStartupQueryCount=_Me1200IpmcSnoopingIgmpVlanStatusStartupQueryCount_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,6),_Me1200IpmcSnoopingIgmpVlanStatusStartupQueryCount_Type())
+me1200IpmcSnoopingIgmpVlanStatusStartupQueryCount.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusStartupQueryCount.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusQuerierExpiryTime_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpVlanStatusQuerierExpiryTime_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusQuerierExpiryTime=_Me1200IpmcSnoopingIgmpVlanStatusQuerierExpiryTime_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,7),_Me1200IpmcSnoopingIgmpVlanStatusQuerierExpiryTime_Type())
+me1200IpmcSnoopingIgmpVlanStatusQuerierExpiryTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusQuerierExpiryTime.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusQuerierVersion_Type=ME1200Unsigned8
+_Me1200IpmcSnoopingIgmpVlanStatusQuerierVersion_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusQuerierVersion=_Me1200IpmcSnoopingIgmpVlanStatusQuerierVersion_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,8),_Me1200IpmcSnoopingIgmpVlanStatusQuerierVersion_Type())
+me1200IpmcSnoopingIgmpVlanStatusQuerierVersion.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusQuerierVersion.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusQuerierPresentTimeout_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpVlanStatusQuerierPresentTimeout_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusQuerierPresentTimeout=_Me1200IpmcSnoopingIgmpVlanStatusQuerierPresentTimeout_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,9),_Me1200IpmcSnoopingIgmpVlanStatusQuerierPresentTimeout_Type())
+me1200IpmcSnoopingIgmpVlanStatusQuerierPresentTimeout.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusQuerierPresentTimeout.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusHostVersion_Type=ME1200Unsigned8
+_Me1200IpmcSnoopingIgmpVlanStatusHostVersion_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusHostVersion=_Me1200IpmcSnoopingIgmpVlanStatusHostVersion_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,10),_Me1200IpmcSnoopingIgmpVlanStatusHostVersion_Type())
+me1200IpmcSnoopingIgmpVlanStatusHostVersion.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusHostVersion.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusHostPresentTimeout_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpVlanStatusHostPresentTimeout_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusHostPresentTimeout=_Me1200IpmcSnoopingIgmpVlanStatusHostPresentTimeout_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,11),_Me1200IpmcSnoopingIgmpVlanStatusHostPresentTimeout_Type())
+me1200IpmcSnoopingIgmpVlanStatusHostPresentTimeout.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusHostPresentTimeout.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusCounterTxQuery_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpVlanStatusCounterTxQuery_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusCounterTxQuery=_Me1200IpmcSnoopingIgmpVlanStatusCounterTxQuery_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,12),_Me1200IpmcSnoopingIgmpVlanStatusCounterTxQuery_Type())
+me1200IpmcSnoopingIgmpVlanStatusCounterTxQuery.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusCounterTxQuery.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusCounterTxSpecificQuery_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpVlanStatusCounterTxSpecificQuery_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusCounterTxSpecificQuery=_Me1200IpmcSnoopingIgmpVlanStatusCounterTxSpecificQuery_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,13),_Me1200IpmcSnoopingIgmpVlanStatusCounterTxSpecificQuery_Type())
+me1200IpmcSnoopingIgmpVlanStatusCounterTxSpecificQuery.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusCounterTxSpecificQuery.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusCounterRxQuery_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpVlanStatusCounterRxQuery_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusCounterRxQuery=_Me1200IpmcSnoopingIgmpVlanStatusCounterRxQuery_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,14),_Me1200IpmcSnoopingIgmpVlanStatusCounterRxQuery_Type())
+me1200IpmcSnoopingIgmpVlanStatusCounterRxQuery.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusCounterRxQuery.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusCounterRxV1Join_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpVlanStatusCounterRxV1Join_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusCounterRxV1Join=_Me1200IpmcSnoopingIgmpVlanStatusCounterRxV1Join_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,15),_Me1200IpmcSnoopingIgmpVlanStatusCounterRxV1Join_Type())
+me1200IpmcSnoopingIgmpVlanStatusCounterRxV1Join.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusCounterRxV1Join.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Join_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Join_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Join=_Me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Join_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,16),_Me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Join_Type())
+me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Join.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Join.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Leave_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Leave_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Leave=_Me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Leave_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,17),_Me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Leave_Type())
+me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Leave.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Leave.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusCounterRxV3Join_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpVlanStatusCounterRxV3Join_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusCounterRxV3Join=_Me1200IpmcSnoopingIgmpVlanStatusCounterRxV3Join_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,18),_Me1200IpmcSnoopingIgmpVlanStatusCounterRxV3Join_Type())
+me1200IpmcSnoopingIgmpVlanStatusCounterRxV3Join.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusCounterRxV3Join.setStatus(_A)
+_Me1200IpmcSnoopingIgmpVlanStatusCounterRxErrors_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpVlanStatusCounterRxErrors_Object=MibTableColumn
+me1200IpmcSnoopingIgmpVlanStatusCounterRxErrors=_Me1200IpmcSnoopingIgmpVlanStatusCounterRxErrors_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,3,1,19),_Me1200IpmcSnoopingIgmpVlanStatusCounterRxErrors_Type())
+me1200IpmcSnoopingIgmpVlanStatusCounterRxErrors.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusCounterRxErrors.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGroupAddressTable_Object=MibTable
+me1200IpmcSnoopingIgmpGroupAddressTable=_Me1200IpmcSnoopingIgmpGroupAddressTable_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,4))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupAddressTable.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGroupAddressEntry_Object=MibTableRow
+me1200IpmcSnoopingIgmpGroupAddressEntry=_Me1200IpmcSnoopingIgmpGroupAddressEntry_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,4,1))
+me1200IpmcSnoopingIgmpGroupAddressEntry.setIndexNames((0,_B,_V),(0,_B,_W))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupAddressEntry.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGroupAddressIfIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingIgmpGroupAddressIfIndex_Object=MibTableColumn
+me1200IpmcSnoopingIgmpGroupAddressIfIndex=_Me1200IpmcSnoopingIgmpGroupAddressIfIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,4,1,1),_Me1200IpmcSnoopingIgmpGroupAddressIfIndex_Type())
+me1200IpmcSnoopingIgmpGroupAddressIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupAddressIfIndex.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGroupAddressGroupAddress_Type=IpAddress
+_Me1200IpmcSnoopingIgmpGroupAddressGroupAddress_Object=MibTableColumn
+me1200IpmcSnoopingIgmpGroupAddressGroupAddress=_Me1200IpmcSnoopingIgmpGroupAddressGroupAddress_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,4,1,2),_Me1200IpmcSnoopingIgmpGroupAddressGroupAddress_Type())
+me1200IpmcSnoopingIgmpGroupAddressGroupAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupAddressGroupAddress.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGroupAddressMemberPorts_Type=ME1200PortListStackable
+_Me1200IpmcSnoopingIgmpGroupAddressMemberPorts_Object=MibTableColumn
+me1200IpmcSnoopingIgmpGroupAddressMemberPorts=_Me1200IpmcSnoopingIgmpGroupAddressMemberPorts_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,4,1,3),_Me1200IpmcSnoopingIgmpGroupAddressMemberPorts_Type())
+me1200IpmcSnoopingIgmpGroupAddressMemberPorts.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupAddressMemberPorts.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGroupAddressHardwareSwitch_Type=TruthValue
+_Me1200IpmcSnoopingIgmpGroupAddressHardwareSwitch_Object=MibTableColumn
+me1200IpmcSnoopingIgmpGroupAddressHardwareSwitch=_Me1200IpmcSnoopingIgmpGroupAddressHardwareSwitch_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,4,1,4),_Me1200IpmcSnoopingIgmpGroupAddressHardwareSwitch_Type())
+me1200IpmcSnoopingIgmpGroupAddressHardwareSwitch.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupAddressHardwareSwitch.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGroupSrcListTable_Object=MibTable
+me1200IpmcSnoopingIgmpGroupSrcListTable=_Me1200IpmcSnoopingIgmpGroupSrcListTable_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,5))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupSrcListTable.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGroupSrcListEntry_Object=MibTableRow
+me1200IpmcSnoopingIgmpGroupSrcListEntry=_Me1200IpmcSnoopingIgmpGroupSrcListEntry_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,5,1))
+me1200IpmcSnoopingIgmpGroupSrcListEntry.setIndexNames((0,_B,_X),(0,_B,_Y),(0,_B,_Z),(0,_B,_a))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupSrcListEntry.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGroupSrcListIfIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingIgmpGroupSrcListIfIndex_Object=MibTableColumn
+me1200IpmcSnoopingIgmpGroupSrcListIfIndex=_Me1200IpmcSnoopingIgmpGroupSrcListIfIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,5,1,1),_Me1200IpmcSnoopingIgmpGroupSrcListIfIndex_Type())
+me1200IpmcSnoopingIgmpGroupSrcListIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupSrcListIfIndex.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGroupSrcListGroupAddress_Type=IpAddress
+_Me1200IpmcSnoopingIgmpGroupSrcListGroupAddress_Object=MibTableColumn
+me1200IpmcSnoopingIgmpGroupSrcListGroupAddress=_Me1200IpmcSnoopingIgmpGroupSrcListGroupAddress_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,5,1,2),_Me1200IpmcSnoopingIgmpGroupSrcListGroupAddress_Type())
+me1200IpmcSnoopingIgmpGroupSrcListGroupAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupSrcListGroupAddress.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGroupSrcListPortIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingIgmpGroupSrcListPortIndex_Object=MibTableColumn
+me1200IpmcSnoopingIgmpGroupSrcListPortIndex=_Me1200IpmcSnoopingIgmpGroupSrcListPortIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,5,1,3),_Me1200IpmcSnoopingIgmpGroupSrcListPortIndex_Type())
+me1200IpmcSnoopingIgmpGroupSrcListPortIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupSrcListPortIndex.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGroupSrcListHostAddress_Type=IpAddress
+_Me1200IpmcSnoopingIgmpGroupSrcListHostAddress_Object=MibTableColumn
+me1200IpmcSnoopingIgmpGroupSrcListHostAddress=_Me1200IpmcSnoopingIgmpGroupSrcListHostAddress_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,5,1,4),_Me1200IpmcSnoopingIgmpGroupSrcListHostAddress_Type())
+me1200IpmcSnoopingIgmpGroupSrcListHostAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupSrcListHostAddress.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGroupSrcListGroupFilterMode_Type=ME1200IpmcSnpIgmpGroupSrcListGroupFilterMode
+_Me1200IpmcSnoopingIgmpGroupSrcListGroupFilterMode_Object=MibTableColumn
+me1200IpmcSnoopingIgmpGroupSrcListGroupFilterMode=_Me1200IpmcSnoopingIgmpGroupSrcListGroupFilterMode_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,5,1,5),_Me1200IpmcSnoopingIgmpGroupSrcListGroupFilterMode_Type())
+me1200IpmcSnoopingIgmpGroupSrcListGroupFilterMode.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupSrcListGroupFilterMode.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGroupSrcListFilterTimer_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpGroupSrcListFilterTimer_Object=MibTableColumn
+me1200IpmcSnoopingIgmpGroupSrcListFilterTimer=_Me1200IpmcSnoopingIgmpGroupSrcListFilterTimer_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,5,1,6),_Me1200IpmcSnoopingIgmpGroupSrcListFilterTimer_Type())
+me1200IpmcSnoopingIgmpGroupSrcListFilterTimer.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupSrcListFilterTimer.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGroupSrcListSourceType_Type=ME1200IpmcSnpIgmpGroupSrcListSourceType
+_Me1200IpmcSnoopingIgmpGroupSrcListSourceType_Object=MibTableColumn
+me1200IpmcSnoopingIgmpGroupSrcListSourceType=_Me1200IpmcSnoopingIgmpGroupSrcListSourceType_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,5,1,7),_Me1200IpmcSnoopingIgmpGroupSrcListSourceType_Type())
+me1200IpmcSnoopingIgmpGroupSrcListSourceType.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupSrcListSourceType.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGroupSrcListSourceTimer_Type=Unsigned32
+_Me1200IpmcSnoopingIgmpGroupSrcListSourceTimer_Object=MibTableColumn
+me1200IpmcSnoopingIgmpGroupSrcListSourceTimer=_Me1200IpmcSnoopingIgmpGroupSrcListSourceTimer_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,5,1,8),_Me1200IpmcSnoopingIgmpGroupSrcListSourceTimer_Type())
+me1200IpmcSnoopingIgmpGroupSrcListSourceTimer.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupSrcListSourceTimer.setStatus(_A)
+_Me1200IpmcSnoopingIgmpGroupSrcListHardwareFilter_Type=TruthValue
+_Me1200IpmcSnoopingIgmpGroupSrcListHardwareFilter_Object=MibTableColumn
+me1200IpmcSnoopingIgmpGroupSrcListHardwareFilter=_Me1200IpmcSnoopingIgmpGroupSrcListHardwareFilter_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,5,1,9),_Me1200IpmcSnoopingIgmpGroupSrcListHardwareFilter_Type())
+me1200IpmcSnoopingIgmpGroupSrcListHardwareFilter.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupSrcListHardwareFilter.setStatus(_A)
+_Me1200IpmcSnoopingMldRouterPortTable_Object=MibTable
+me1200IpmcSnoopingMldRouterPortTable=_Me1200IpmcSnoopingMldRouterPortTable_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,6))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldRouterPortTable.setStatus(_A)
+_Me1200IpmcSnoopingMldRouterPortEntry_Object=MibTableRow
+me1200IpmcSnoopingMldRouterPortEntry=_Me1200IpmcSnoopingMldRouterPortEntry_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,6,1))
+me1200IpmcSnoopingMldRouterPortEntry.setIndexNames((0,_B,_b))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldRouterPortEntry.setStatus(_A)
+_Me1200IpmcSnoopingMldRouterPortPortIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingMldRouterPortPortIndex_Object=MibTableColumn
+me1200IpmcSnoopingMldRouterPortPortIndex=_Me1200IpmcSnoopingMldRouterPortPortIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,6,1,1),_Me1200IpmcSnoopingMldRouterPortPortIndex_Type())
+me1200IpmcSnoopingMldRouterPortPortIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldRouterPortPortIndex.setStatus(_A)
+_Me1200IpmcSnoopingMldRouterPortStatus_Type=ME1200IpmcSnpMldRouterPortStatus
+_Me1200IpmcSnoopingMldRouterPortStatus_Object=MibTableColumn
+me1200IpmcSnoopingMldRouterPortStatus=_Me1200IpmcSnoopingMldRouterPortStatus_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,6,1,2),_Me1200IpmcSnoopingMldRouterPortStatus_Type())
+me1200IpmcSnoopingMldRouterPortStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldRouterPortStatus.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusTable_Object=MibTable
+me1200IpmcSnoopingMldVlanStatusTable=_Me1200IpmcSnoopingMldVlanStatusTable_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusTable.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusEntry_Object=MibTableRow
+me1200IpmcSnoopingMldVlanStatusEntry=_Me1200IpmcSnoopingMldVlanStatusEntry_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1))
+me1200IpmcSnoopingMldVlanStatusEntry.setIndexNames((0,_B,_c))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusEntry.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusIfIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingMldVlanStatusIfIndex_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusIfIndex=_Me1200IpmcSnoopingMldVlanStatusIfIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,1),_Me1200IpmcSnoopingMldVlanStatusIfIndex_Type())
+me1200IpmcSnoopingMldVlanStatusIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusIfIndex.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusQuerierStatus_Type=ME1200IpmcSnpMldVlanStatusQuerierStatus
+_Me1200IpmcSnoopingMldVlanStatusQuerierStatus_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusQuerierStatus=_Me1200IpmcSnoopingMldVlanStatusQuerierStatus_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,2),_Me1200IpmcSnoopingMldVlanStatusQuerierStatus_Type())
+me1200IpmcSnoopingMldVlanStatusQuerierStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusQuerierStatus.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusActiveQuerierAddress_Type=InetAddressIPv6
+_Me1200IpmcSnoopingMldVlanStatusActiveQuerierAddress_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusActiveQuerierAddress=_Me1200IpmcSnoopingMldVlanStatusActiveQuerierAddress_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,3),_Me1200IpmcSnoopingMldVlanStatusActiveQuerierAddress_Type())
+me1200IpmcSnoopingMldVlanStatusActiveQuerierAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusActiveQuerierAddress.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusQuerierUptime_Type=Unsigned32
+_Me1200IpmcSnoopingMldVlanStatusQuerierUptime_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusQuerierUptime=_Me1200IpmcSnoopingMldVlanStatusQuerierUptime_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,4),_Me1200IpmcSnoopingMldVlanStatusQuerierUptime_Type())
+me1200IpmcSnoopingMldVlanStatusQuerierUptime.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusQuerierUptime.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusQueryInterval_Type=Unsigned32
+_Me1200IpmcSnoopingMldVlanStatusQueryInterval_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusQueryInterval=_Me1200IpmcSnoopingMldVlanStatusQueryInterval_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,5),_Me1200IpmcSnoopingMldVlanStatusQueryInterval_Type())
+me1200IpmcSnoopingMldVlanStatusQueryInterval.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusQueryInterval.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusStartupQueryCount_Type=Unsigned32
+_Me1200IpmcSnoopingMldVlanStatusStartupQueryCount_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusStartupQueryCount=_Me1200IpmcSnoopingMldVlanStatusStartupQueryCount_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,6),_Me1200IpmcSnoopingMldVlanStatusStartupQueryCount_Type())
+me1200IpmcSnoopingMldVlanStatusStartupQueryCount.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusStartupQueryCount.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusQuerierExpiryTime_Type=Unsigned32
+_Me1200IpmcSnoopingMldVlanStatusQuerierExpiryTime_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusQuerierExpiryTime=_Me1200IpmcSnoopingMldVlanStatusQuerierExpiryTime_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,7),_Me1200IpmcSnoopingMldVlanStatusQuerierExpiryTime_Type())
+me1200IpmcSnoopingMldVlanStatusQuerierExpiryTime.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusQuerierExpiryTime.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusQuerierVersion_Type=ME1200Unsigned8
+_Me1200IpmcSnoopingMldVlanStatusQuerierVersion_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusQuerierVersion=_Me1200IpmcSnoopingMldVlanStatusQuerierVersion_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,8),_Me1200IpmcSnoopingMldVlanStatusQuerierVersion_Type())
+me1200IpmcSnoopingMldVlanStatusQuerierVersion.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusQuerierVersion.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusQuerierPresentTimeout_Type=Unsigned32
+_Me1200IpmcSnoopingMldVlanStatusQuerierPresentTimeout_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusQuerierPresentTimeout=_Me1200IpmcSnoopingMldVlanStatusQuerierPresentTimeout_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,9),_Me1200IpmcSnoopingMldVlanStatusQuerierPresentTimeout_Type())
+me1200IpmcSnoopingMldVlanStatusQuerierPresentTimeout.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusQuerierPresentTimeout.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusHostVersion_Type=ME1200Unsigned8
+_Me1200IpmcSnoopingMldVlanStatusHostVersion_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusHostVersion=_Me1200IpmcSnoopingMldVlanStatusHostVersion_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,10),_Me1200IpmcSnoopingMldVlanStatusHostVersion_Type())
+me1200IpmcSnoopingMldVlanStatusHostVersion.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusHostVersion.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusHostPresentTimeout_Type=Unsigned32
+_Me1200IpmcSnoopingMldVlanStatusHostPresentTimeout_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusHostPresentTimeout=_Me1200IpmcSnoopingMldVlanStatusHostPresentTimeout_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,11),_Me1200IpmcSnoopingMldVlanStatusHostPresentTimeout_Type())
+me1200IpmcSnoopingMldVlanStatusHostPresentTimeout.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusHostPresentTimeout.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusCounterTxQuery_Type=Unsigned32
+_Me1200IpmcSnoopingMldVlanStatusCounterTxQuery_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusCounterTxQuery=_Me1200IpmcSnoopingMldVlanStatusCounterTxQuery_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,12),_Me1200IpmcSnoopingMldVlanStatusCounterTxQuery_Type())
+me1200IpmcSnoopingMldVlanStatusCounterTxQuery.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusCounterTxQuery.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusCounterTxSpecificQuery_Type=Unsigned32
+_Me1200IpmcSnoopingMldVlanStatusCounterTxSpecificQuery_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusCounterTxSpecificQuery=_Me1200IpmcSnoopingMldVlanStatusCounterTxSpecificQuery_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,13),_Me1200IpmcSnoopingMldVlanStatusCounterTxSpecificQuery_Type())
+me1200IpmcSnoopingMldVlanStatusCounterTxSpecificQuery.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusCounterTxSpecificQuery.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusCounterRxQuery_Type=Unsigned32
+_Me1200IpmcSnoopingMldVlanStatusCounterRxQuery_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusCounterRxQuery=_Me1200IpmcSnoopingMldVlanStatusCounterRxQuery_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,14),_Me1200IpmcSnoopingMldVlanStatusCounterRxQuery_Type())
+me1200IpmcSnoopingMldVlanStatusCounterRxQuery.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusCounterRxQuery.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusCounterRxV1Report_Type=Unsigned32
+_Me1200IpmcSnoopingMldVlanStatusCounterRxV1Report_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusCounterRxV1Report=_Me1200IpmcSnoopingMldVlanStatusCounterRxV1Report_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,15),_Me1200IpmcSnoopingMldVlanStatusCounterRxV1Report_Type())
+me1200IpmcSnoopingMldVlanStatusCounterRxV1Report.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusCounterRxV1Report.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusCounterRxV1Done_Type=Unsigned32
+_Me1200IpmcSnoopingMldVlanStatusCounterRxV1Done_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusCounterRxV1Done=_Me1200IpmcSnoopingMldVlanStatusCounterRxV1Done_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,16),_Me1200IpmcSnoopingMldVlanStatusCounterRxV1Done_Type())
+me1200IpmcSnoopingMldVlanStatusCounterRxV1Done.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusCounterRxV1Done.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusCounterRxV2Report_Type=Unsigned32
+_Me1200IpmcSnoopingMldVlanStatusCounterRxV2Report_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusCounterRxV2Report=_Me1200IpmcSnoopingMldVlanStatusCounterRxV2Report_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,17),_Me1200IpmcSnoopingMldVlanStatusCounterRxV2Report_Type())
+me1200IpmcSnoopingMldVlanStatusCounterRxV2Report.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusCounterRxV2Report.setStatus(_A)
+_Me1200IpmcSnoopingMldVlanStatusCounterRxErrors_Type=Unsigned32
+_Me1200IpmcSnoopingMldVlanStatusCounterRxErrors_Object=MibTableColumn
+me1200IpmcSnoopingMldVlanStatusCounterRxErrors=_Me1200IpmcSnoopingMldVlanStatusCounterRxErrors_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,7,1,18),_Me1200IpmcSnoopingMldVlanStatusCounterRxErrors_Type())
+me1200IpmcSnoopingMldVlanStatusCounterRxErrors.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusCounterRxErrors.setStatus(_A)
+_Me1200IpmcSnoopingMldGroupAddressTable_Object=MibTable
+me1200IpmcSnoopingMldGroupAddressTable=_Me1200IpmcSnoopingMldGroupAddressTable_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,8))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupAddressTable.setStatus(_A)
+_Me1200IpmcSnoopingMldGroupAddressEntry_Object=MibTableRow
+me1200IpmcSnoopingMldGroupAddressEntry=_Me1200IpmcSnoopingMldGroupAddressEntry_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,8,1))
+me1200IpmcSnoopingMldGroupAddressEntry.setIndexNames((0,_B,_d),(0,_B,_e))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupAddressEntry.setStatus(_A)
+_Me1200IpmcSnoopingMldGroupAddressIfIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingMldGroupAddressIfIndex_Object=MibTableColumn
+me1200IpmcSnoopingMldGroupAddressIfIndex=_Me1200IpmcSnoopingMldGroupAddressIfIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,8,1,1),_Me1200IpmcSnoopingMldGroupAddressIfIndex_Type())
+me1200IpmcSnoopingMldGroupAddressIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupAddressIfIndex.setStatus(_A)
+_Me1200IpmcSnoopingMldGroupAddressGroupAddress_Type=InetAddressIPv6
+_Me1200IpmcSnoopingMldGroupAddressGroupAddress_Object=MibTableColumn
+me1200IpmcSnoopingMldGroupAddressGroupAddress=_Me1200IpmcSnoopingMldGroupAddressGroupAddress_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,8,1,2),_Me1200IpmcSnoopingMldGroupAddressGroupAddress_Type())
+me1200IpmcSnoopingMldGroupAddressGroupAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupAddressGroupAddress.setStatus(_A)
+_Me1200IpmcSnoopingMldGroupAddressMemberPorts_Type=ME1200PortListStackable
+_Me1200IpmcSnoopingMldGroupAddressMemberPorts_Object=MibTableColumn
+me1200IpmcSnoopingMldGroupAddressMemberPorts=_Me1200IpmcSnoopingMldGroupAddressMemberPorts_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,8,1,3),_Me1200IpmcSnoopingMldGroupAddressMemberPorts_Type())
+me1200IpmcSnoopingMldGroupAddressMemberPorts.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupAddressMemberPorts.setStatus(_A)
+_Me1200IpmcSnoopingMldGroupAddressHardwareSwitch_Type=TruthValue
+_Me1200IpmcSnoopingMldGroupAddressHardwareSwitch_Object=MibTableColumn
+me1200IpmcSnoopingMldGroupAddressHardwareSwitch=_Me1200IpmcSnoopingMldGroupAddressHardwareSwitch_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,8,1,4),_Me1200IpmcSnoopingMldGroupAddressHardwareSwitch_Type())
+me1200IpmcSnoopingMldGroupAddressHardwareSwitch.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupAddressHardwareSwitch.setStatus(_A)
+_Me1200IpmcSnoopingMldGroupSrcListTable_Object=MibTable
+me1200IpmcSnoopingMldGroupSrcListTable=_Me1200IpmcSnoopingMldGroupSrcListTable_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,9))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupSrcListTable.setStatus(_A)
+_Me1200IpmcSnoopingMldGroupSrcListEntry_Object=MibTableRow
+me1200IpmcSnoopingMldGroupSrcListEntry=_Me1200IpmcSnoopingMldGroupSrcListEntry_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,9,1))
+me1200IpmcSnoopingMldGroupSrcListEntry.setIndexNames((0,_B,_f),(0,_B,_g),(0,_B,_h),(0,_B,_i))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupSrcListEntry.setStatus(_A)
+_Me1200IpmcSnoopingMldGroupSrcListIfIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingMldGroupSrcListIfIndex_Object=MibTableColumn
+me1200IpmcSnoopingMldGroupSrcListIfIndex=_Me1200IpmcSnoopingMldGroupSrcListIfIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,9,1,1),_Me1200IpmcSnoopingMldGroupSrcListIfIndex_Type())
+me1200IpmcSnoopingMldGroupSrcListIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupSrcListIfIndex.setStatus(_A)
+_Me1200IpmcSnoopingMldGroupSrcListGroupAddress_Type=InetAddressIPv6
+_Me1200IpmcSnoopingMldGroupSrcListGroupAddress_Object=MibTableColumn
+me1200IpmcSnoopingMldGroupSrcListGroupAddress=_Me1200IpmcSnoopingMldGroupSrcListGroupAddress_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,9,1,2),_Me1200IpmcSnoopingMldGroupSrcListGroupAddress_Type())
+me1200IpmcSnoopingMldGroupSrcListGroupAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupSrcListGroupAddress.setStatus(_A)
+_Me1200IpmcSnoopingMldGroupSrcListPortIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingMldGroupSrcListPortIndex_Object=MibTableColumn
+me1200IpmcSnoopingMldGroupSrcListPortIndex=_Me1200IpmcSnoopingMldGroupSrcListPortIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,9,1,3),_Me1200IpmcSnoopingMldGroupSrcListPortIndex_Type())
+me1200IpmcSnoopingMldGroupSrcListPortIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupSrcListPortIndex.setStatus(_A)
+_Me1200IpmcSnoopingMldGroupSrcListHostAddress_Type=InetAddressIPv6
+_Me1200IpmcSnoopingMldGroupSrcListHostAddress_Object=MibTableColumn
+me1200IpmcSnoopingMldGroupSrcListHostAddress=_Me1200IpmcSnoopingMldGroupSrcListHostAddress_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,9,1,4),_Me1200IpmcSnoopingMldGroupSrcListHostAddress_Type())
+me1200IpmcSnoopingMldGroupSrcListHostAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupSrcListHostAddress.setStatus(_A)
+_Me1200IpmcSnoopingMldGroupSrcListGroupFilterMode_Type=ME1200IpmcSnpMldGroupSrcListGroupFilterMode
+_Me1200IpmcSnoopingMldGroupSrcListGroupFilterMode_Object=MibTableColumn
+me1200IpmcSnoopingMldGroupSrcListGroupFilterMode=_Me1200IpmcSnoopingMldGroupSrcListGroupFilterMode_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,9,1,5),_Me1200IpmcSnoopingMldGroupSrcListGroupFilterMode_Type())
+me1200IpmcSnoopingMldGroupSrcListGroupFilterMode.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupSrcListGroupFilterMode.setStatus(_A)
+_Me1200IpmcSnoopingMldGroupSrcListFilterTimer_Type=Unsigned32
+_Me1200IpmcSnoopingMldGroupSrcListFilterTimer_Object=MibTableColumn
+me1200IpmcSnoopingMldGroupSrcListFilterTimer=_Me1200IpmcSnoopingMldGroupSrcListFilterTimer_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,9,1,6),_Me1200IpmcSnoopingMldGroupSrcListFilterTimer_Type())
+me1200IpmcSnoopingMldGroupSrcListFilterTimer.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupSrcListFilterTimer.setStatus(_A)
+_Me1200IpmcSnoopingMldGroupSrcListSourceType_Type=ME1200IpmcSnpMldGroupSrcListSourceType
+_Me1200IpmcSnoopingMldGroupSrcListSourceType_Object=MibTableColumn
+me1200IpmcSnoopingMldGroupSrcListSourceType=_Me1200IpmcSnoopingMldGroupSrcListSourceType_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,9,1,7),_Me1200IpmcSnoopingMldGroupSrcListSourceType_Type())
+me1200IpmcSnoopingMldGroupSrcListSourceType.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupSrcListSourceType.setStatus(_A)
+_Me1200IpmcSnoopingMldGroupSrcListSourceTimer_Type=Unsigned32
+_Me1200IpmcSnoopingMldGroupSrcListSourceTimer_Object=MibTableColumn
+me1200IpmcSnoopingMldGroupSrcListSourceTimer=_Me1200IpmcSnoopingMldGroupSrcListSourceTimer_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,9,1,8),_Me1200IpmcSnoopingMldGroupSrcListSourceTimer_Type())
+me1200IpmcSnoopingMldGroupSrcListSourceTimer.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupSrcListSourceTimer.setStatus(_A)
+_Me1200IpmcSnoopingMldGroupSrcListHardwareFilter_Type=TruthValue
+_Me1200IpmcSnoopingMldGroupSrcListHardwareFilter_Object=MibTableColumn
+me1200IpmcSnoopingMldGroupSrcListHardwareFilter=_Me1200IpmcSnoopingMldGroupSrcListHardwareFilter_Object((1,3,6,1,4,1,9,9,815,1,69,1,3,9,1,9),_Me1200IpmcSnoopingMldGroupSrcListHardwareFilter_Type())
+me1200IpmcSnoopingMldGroupSrcListHardwareFilter.setMaxAccess(_D)
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupSrcListHardwareFilter.setStatus(_A)
+_Me1200IpmcSnoopingControl_ObjectIdentity=ObjectIdentity
+me1200IpmcSnoopingControl=_Me1200IpmcSnoopingControl_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,69,1,4))
+_Me1200IpmcSnoopingControlStatistics_ObjectIdentity=ObjectIdentity
+me1200IpmcSnoopingControlStatistics=_Me1200IpmcSnoopingControlStatistics_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,69,1,4,1))
+_Me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndex_ObjectIdentity=ObjectIdentity
+me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndex=_Me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndex_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,69,1,4,1,1))
+_Me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndexIfIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndexIfIndex_Object=MibScalar
+me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndexIfIndex=_Me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndexIfIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,4,1,1,1),_Me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndexIfIndex_Type())
+me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndexIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndexIfIndex.setStatus(_A)
+_Me1200IpmcSnoopingControlStatisticsMldClearByIfIndex_ObjectIdentity=ObjectIdentity
+me1200IpmcSnoopingControlStatisticsMldClearByIfIndex=_Me1200IpmcSnoopingControlStatisticsMldClearByIfIndex_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,69,1,4,1,2))
+_Me1200IpmcSnoopingControlStatisticsMldClearByIfIndexIfIndex_Type=ME1200InterfaceIndex
+_Me1200IpmcSnoopingControlStatisticsMldClearByIfIndexIfIndex_Object=MibScalar
+me1200IpmcSnoopingControlStatisticsMldClearByIfIndexIfIndex=_Me1200IpmcSnoopingControlStatisticsMldClearByIfIndexIfIndex_Object((1,3,6,1,4,1,9,9,815,1,69,1,4,1,2,1),_Me1200IpmcSnoopingControlStatisticsMldClearByIfIndexIfIndex_Type())
+me1200IpmcSnoopingControlStatisticsMldClearByIfIndexIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:me1200IpmcSnoopingControlStatisticsMldClearByIfIndexIfIndex.setStatus(_A)
+_Me1200IpmcSnoopingMIBConformance_ObjectIdentity=ObjectIdentity
+me1200IpmcSnoopingMIBConformance=_Me1200IpmcSnoopingMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,69,2))
+_Me1200IpmcSnoopingMIBCompliances_ObjectIdentity=ObjectIdentity
+me1200IpmcSnoopingMIBCompliances=_Me1200IpmcSnoopingMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,69,2,1))
+_Me1200IpmcSnoopingMIBGroups_ObjectIdentity=ObjectIdentity
+me1200IpmcSnoopingMIBGroups=_Me1200IpmcSnoopingMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,815,1,69,2,2))
+me1200IpmcSnoopingIgmpGlobalsInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,1))
+me1200IpmcSnoopingIgmpGlobalsInfoGroup.setObjects(*((_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o)))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGlobalsInfoGroup.setStatus(_A)
+me1200IpmcSnoopingIgmpPortTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,2))
+me1200IpmcSnoopingIgmpPortTableInfoGroup.setObjects(*((_B,_p),(_B,_q),(_B,_r),(_B,_s)))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpPortTableInfoGroup.setStatus(_A)
+me1200IpmcSnoopingIgmpInterfaceTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,3))
+me1200IpmcSnoopingIgmpInterfaceTableInfoGroup.setObjects(*((_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3)))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceTableInfoGroup.setStatus(_A)
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,4))
+me1200IpmcSnoopingIgmpInterfaceTableRowEditorInfoGroup.setObjects(*((_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF)))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpInterfaceTableRowEditorInfoGroup.setStatus(_A)
+me1200IpmcSnoopingMldGlobalsInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,5))
+me1200IpmcSnoopingMldGlobalsInfoGroup.setObjects(*((_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL)))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGlobalsInfoGroup.setStatus(_A)
+me1200IpmcSnoopingMldPortTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,6))
+me1200IpmcSnoopingMldPortTableInfoGroup.setObjects(*((_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP)))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldPortTableInfoGroup.setStatus(_A)
+me1200IpmcSnoopingMldInterfaceTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,7))
+me1200IpmcSnoopingMldInterfaceTableInfoGroup.setObjects(*((_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ)))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceTableInfoGroup.setStatus(_A)
+me1200IpmcSnoopingMldInterfaceTableRowEditorInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,8))
+me1200IpmcSnoopingMldInterfaceTableRowEditorInfoGroup.setObjects(*((_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak)))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldInterfaceTableRowEditorInfoGroup.setStatus(_A)
+me1200IpmcSnoopingGroupAddressCountInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,9))
+me1200IpmcSnoopingGroupAddressCountInfoGroup.setObjects(*((_B,_Al),(_B,_Am)))
+if mibBuilder.loadTexts:me1200IpmcSnoopingGroupAddressCountInfoGroup.setStatus(_A)
+me1200IpmcSnoopingIgmpRouterPortTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,10))
+me1200IpmcSnoopingIgmpRouterPortTableInfoGroup.setObjects((_B,_An))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpRouterPortTableInfoGroup.setStatus(_A)
+me1200IpmcSnoopingIgmpVlanStatusTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,11))
+me1200IpmcSnoopingIgmpVlanStatusTableInfoGroup.setObjects(*((_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4)))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpVlanStatusTableInfoGroup.setStatus(_A)
+me1200IpmcSnoopingIgmpGroupAddressTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,12))
+me1200IpmcSnoopingIgmpGroupAddressTableInfoGroup.setObjects(*((_B,_B5),(_B,_B6)))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupAddressTableInfoGroup.setStatus(_A)
+me1200IpmcSnoopingIgmpGroupSrcListTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,13))
+me1200IpmcSnoopingIgmpGroupSrcListTableInfoGroup.setObjects(*((_B,_B7),(_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB)))
+if mibBuilder.loadTexts:me1200IpmcSnoopingIgmpGroupSrcListTableInfoGroup.setStatus(_A)
+me1200IpmcSnoopingMldRouterPortTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,14))
+me1200IpmcSnoopingMldRouterPortTableInfoGroup.setObjects((_B,_BC))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldRouterPortTableInfoGroup.setStatus(_A)
+me1200IpmcSnoopingMldVlanStatusTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,15))
+me1200IpmcSnoopingMldVlanStatusTableInfoGroup.setObjects(*((_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI),(_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_BS),(_B,_BT)))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldVlanStatusTableInfoGroup.setStatus(_A)
+me1200IpmcSnoopingMldGroupAddressTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,16))
+me1200IpmcSnoopingMldGroupAddressTableInfoGroup.setObjects(*((_B,_BU),(_B,_BV)))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupAddressTableInfoGroup.setStatus(_A)
+me1200IpmcSnoopingMldGroupSrcListTableInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,17))
+me1200IpmcSnoopingMldGroupSrcListTableInfoGroup.setObjects(*((_B,_BW),(_B,_BX),(_B,_BY),(_B,_BZ),(_B,_Ba)))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMldGroupSrcListTableInfoGroup.setStatus(_A)
+me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndexInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,18))
+me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndexInfoGroup.setObjects((_B,_Bb))
+if mibBuilder.loadTexts:me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndexInfoGroup.setStatus(_A)
+me1200IpmcSnoopingControlStatisticsMldClearByIfIndexInfoGroup=ObjectGroup((1,3,6,1,4,1,9,9,815,1,69,2,2,19))
+me1200IpmcSnoopingControlStatisticsMldClearByIfIndexInfoGroup.setObjects((_B,_Bc))
+if mibBuilder.loadTexts:me1200IpmcSnoopingControlStatisticsMldClearByIfIndexInfoGroup.setStatus(_A)
+me1200IpmcSnoopingMibCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,815,1,69,2,1,1))
+me1200IpmcSnoopingMibCompliance.setObjects(*((_B,_Bd),(_B,_Be),(_B,_Bf),(_B,_Bg),(_B,_Bh),(_B,_Bi),(_B,_Bj),(_B,_Bk),(_B,_Bl),(_B,_Bm),(_B,_Bn),(_B,_Bo),(_B,_Bp),(_B,_Bq),(_B,_Br),(_B,_Bs),(_B,_Bt),(_B,_Bu),(_B,_Bv)))
+if mibBuilder.loadTexts:me1200IpmcSnoopingMibCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'ME1200IpmcSnpIgmpGroupSrcListGroupFilterMode':ME1200IpmcSnpIgmpGroupSrcListGroupFilterMode,'ME1200IpmcSnpIgmpGroupSrcListSourceType':ME1200IpmcSnpIgmpGroupSrcListSourceType,'ME1200IpmcSnpIgmpInterfaceCompatibility':ME1200IpmcSnpIgmpInterfaceCompatibility,'ME1200IpmcSnpIgmpRouterPortStatus':ME1200IpmcSnpIgmpRouterPortStatus,'ME1200IpmcSnpIgmpVlanStatusQuerierStatus':ME1200IpmcSnpIgmpVlanStatusQuerierStatus,'ME1200IpmcSnpMldGroupSrcListGroupFilterMode':ME1200IpmcSnpMldGroupSrcListGroupFilterMode,'ME1200IpmcSnpMldGroupSrcListSourceType':ME1200IpmcSnpMldGroupSrcListSourceType,'ME1200IpmcSnpMldInterfaceCompatibility':ME1200IpmcSnpMldInterfaceCompatibility,'ME1200IpmcSnpMldRouterPortStatus':ME1200IpmcSnpMldRouterPortStatus,'ME1200IpmcSnpMldVlanStatusQuerierStatus':ME1200IpmcSnpMldVlanStatusQuerierStatus,'me1200IpmcSnoopingMib':me1200IpmcSnoopingMib,'me1200IpmcSnoopingMIBObjects':me1200IpmcSnoopingMIBObjects,'me1200IpmcSnoopingConfig':me1200IpmcSnoopingConfig,'me1200IpmcSnoopingIgmpGlobals':me1200IpmcSnoopingIgmpGlobals,_j:me1200IpmcSnoopingIgmpGlobalsAdminState,_k:me1200IpmcSnoopingIgmpGlobalsUnregisteredFlooding,_l:me1200IpmcSnoopingIgmpGlobalsSsmRangeAddress,_m:me1200IpmcSnoopingIgmpGlobalsSsmRangeMask,_n:me1200IpmcSnoopingIgmpGlobalsProxy,_o:me1200IpmcSnoopingIgmpGlobalsLeaveProxy,'me1200IpmcSnoopingIgmpPortTable':me1200IpmcSnoopingIgmpPortTable,'me1200IpmcSnoopingIgmpPortEntry':me1200IpmcSnoopingIgmpPortEntry,_P:me1200IpmcSnoopingIgmpPortPortIndex,_p:me1200IpmcSnoopingIgmpPortAsRouterPort,_q:me1200IpmcSnoopingIgmpPortDoFastLeave,_r:me1200IpmcSnoopingIgmpPortThrottlingNumber,_s:me1200IpmcSnoopingIgmpPortFilteringProfile,'me1200IpmcSnoopingIgmpInterfaceTable':me1200IpmcSnoopingIgmpInterfaceTable,'me1200IpmcSnoopingIgmpInterfaceEntry':me1200IpmcSnoopingIgmpInterfaceEntry,_Q:me1200IpmcSnoopingIgmpInterfaceIfIndex,_t:me1200IpmcSnoopingIgmpInterfaceAdminState,_u:me1200IpmcSnoopingIgmpInterfaceQuerierElection,_v:me1200IpmcSnoopingIgmpInterfaceQuerierAddress,_w:me1200IpmcSnoopingIgmpInterfaceCompatibility,_x:me1200IpmcSnoopingIgmpInterfacePriority,_y:me1200IpmcSnoopingIgmpInterfaceRv,_z:me1200IpmcSnoopingIgmpInterfaceQi,_A0:me1200IpmcSnoopingIgmpInterfaceQri,_A1:me1200IpmcSnoopingIgmpInterfaceLmqi,_A2:me1200IpmcSnoopingIgmpInterfaceUri,_A3:me1200IpmcSnoopingIgmpInterfaceAction,'me1200IpmcSnoopingIgmpInterfaceTableRowEditor':me1200IpmcSnoopingIgmpInterfaceTableRowEditor,_A4:me1200IpmcSnoopingIgmpInterfaceTableRowEditorIfIndex,_A5:me1200IpmcSnoopingIgmpInterfaceTableRowEditorAdminState,_A6:me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierElection,_A7:me1200IpmcSnoopingIgmpInterfaceTableRowEditorQuerierAddress,_A8:me1200IpmcSnoopingIgmpInterfaceTableRowEditorCompatibility,_A9:me1200IpmcSnoopingIgmpInterfaceTableRowEditorPriority,_AA:me1200IpmcSnoopingIgmpInterfaceTableRowEditorRv,_AB:me1200IpmcSnoopingIgmpInterfaceTableRowEditorQi,_AC:me1200IpmcSnoopingIgmpInterfaceTableRowEditorQri,_AD:me1200IpmcSnoopingIgmpInterfaceTableRowEditorLmqi,_AE:me1200IpmcSnoopingIgmpInterfaceTableRowEditorUri,_AF:me1200IpmcSnoopingIgmpInterfaceTableRowEditorAction,'me1200IpmcSnoopingMldGlobals':me1200IpmcSnoopingMldGlobals,_AG:me1200IpmcSnoopingMldGlobalsAdminState,_AH:me1200IpmcSnoopingMldGlobalsUnregisteredFlooding,_AI:me1200IpmcSnoopingMldGlobalsSsmRangeAddress,_AJ:me1200IpmcSnoopingMldGlobalsSsmRangeMask,_AK:me1200IpmcSnoopingMldGlobalsProxy,_AL:me1200IpmcSnoopingMldGlobalsLeaveProxy,'me1200IpmcSnoopingMldPortTable':me1200IpmcSnoopingMldPortTable,'me1200IpmcSnoopingMldPortEntry':me1200IpmcSnoopingMldPortEntry,_R:me1200IpmcSnoopingMldPortPortIndex,_AM:me1200IpmcSnoopingMldPortAsRouterPort,_AN:me1200IpmcSnoopingMldPortDoFastLeave,_AO:me1200IpmcSnoopingMldPortThrottlingNumber,_AP:me1200IpmcSnoopingMldPortFilteringProfile,'me1200IpmcSnoopingMldInterfaceTable':me1200IpmcSnoopingMldInterfaceTable,'me1200IpmcSnoopingMldInterfaceEntry':me1200IpmcSnoopingMldInterfaceEntry,_S:me1200IpmcSnoopingMldInterfaceIfIndex,_AQ:me1200IpmcSnoopingMldInterfaceAdminState,_AR:me1200IpmcSnoopingMldInterfaceQuerierElection,_AS:me1200IpmcSnoopingMldInterfaceCompatibility,_AT:me1200IpmcSnoopingMldInterfacePriority,_AU:me1200IpmcSnoopingMldInterfaceRv,_AV:me1200IpmcSnoopingMldInterfaceQi,_AW:me1200IpmcSnoopingMldInterfaceQri,_AX:me1200IpmcSnoopingMldInterfaceLlqi,_AY:me1200IpmcSnoopingMldInterfaceUri,_AZ:me1200IpmcSnoopingMldInterfaceAction,'me1200IpmcSnoopingMldInterfaceTableRowEditor':me1200IpmcSnoopingMldInterfaceTableRowEditor,_Aa:me1200IpmcSnoopingMldInterfaceTableRowEditorIfIndex,_Ab:me1200IpmcSnoopingMldInterfaceTableRowEditorAdminState,_Ac:me1200IpmcSnoopingMldInterfaceTableRowEditorQuerierElection,_Ad:me1200IpmcSnoopingMldInterfaceTableRowEditorCompatibility,_Ae:me1200IpmcSnoopingMldInterfaceTableRowEditorPriority,_Af:me1200IpmcSnoopingMldInterfaceTableRowEditorRv,_Ag:me1200IpmcSnoopingMldInterfaceTableRowEditorQi,_Ah:me1200IpmcSnoopingMldInterfaceTableRowEditorQri,_Ai:me1200IpmcSnoopingMldInterfaceTableRowEditorLlqi,_Aj:me1200IpmcSnoopingMldInterfaceTableRowEditorUri,_Ak:me1200IpmcSnoopingMldInterfaceTableRowEditorAction,'me1200IpmcSnoopingStatus':me1200IpmcSnoopingStatus,'me1200IpmcSnoopingGroupAddressCount':me1200IpmcSnoopingGroupAddressCount,_Al:me1200IpmcSnoopingGroupAddressCountFromIgmp,_Am:me1200IpmcSnoopingGroupAddressCountFromMld,'me1200IpmcSnoopingIgmpRouterPortTable':me1200IpmcSnoopingIgmpRouterPortTable,'me1200IpmcSnoopingIgmpRouterPortEntry':me1200IpmcSnoopingIgmpRouterPortEntry,_T:me1200IpmcSnoopingIgmpRouterPortPortIndex,_An:me1200IpmcSnoopingIgmpRouterPortStatus,'me1200IpmcSnoopingIgmpVlanStatusTable':me1200IpmcSnoopingIgmpVlanStatusTable,'me1200IpmcSnoopingIgmpVlanStatusEntry':me1200IpmcSnoopingIgmpVlanStatusEntry,_U:me1200IpmcSnoopingIgmpVlanStatusIfIndex,_Ao:me1200IpmcSnoopingIgmpVlanStatusQuerierStatus,_Ap:me1200IpmcSnoopingIgmpVlanStatusActiveQuerierAddress,_Aq:me1200IpmcSnoopingIgmpVlanStatusQuerierUptime,_Ar:me1200IpmcSnoopingIgmpVlanStatusQueryInterval,_As:me1200IpmcSnoopingIgmpVlanStatusStartupQueryCount,_At:me1200IpmcSnoopingIgmpVlanStatusQuerierExpiryTime,_Au:me1200IpmcSnoopingIgmpVlanStatusQuerierVersion,_Av:me1200IpmcSnoopingIgmpVlanStatusQuerierPresentTimeout,_Aw:me1200IpmcSnoopingIgmpVlanStatusHostVersion,_Ax:me1200IpmcSnoopingIgmpVlanStatusHostPresentTimeout,_Ay:me1200IpmcSnoopingIgmpVlanStatusCounterTxQuery,_Az:me1200IpmcSnoopingIgmpVlanStatusCounterTxSpecificQuery,_A_:me1200IpmcSnoopingIgmpVlanStatusCounterRxQuery,_B0:me1200IpmcSnoopingIgmpVlanStatusCounterRxV1Join,_B1:me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Join,_B2:me1200IpmcSnoopingIgmpVlanStatusCounterRxV2Leave,_B3:me1200IpmcSnoopingIgmpVlanStatusCounterRxV3Join,_B4:me1200IpmcSnoopingIgmpVlanStatusCounterRxErrors,'me1200IpmcSnoopingIgmpGroupAddressTable':me1200IpmcSnoopingIgmpGroupAddressTable,'me1200IpmcSnoopingIgmpGroupAddressEntry':me1200IpmcSnoopingIgmpGroupAddressEntry,_V:me1200IpmcSnoopingIgmpGroupAddressIfIndex,_W:me1200IpmcSnoopingIgmpGroupAddressGroupAddress,_B5:me1200IpmcSnoopingIgmpGroupAddressMemberPorts,_B6:me1200IpmcSnoopingIgmpGroupAddressHardwareSwitch,'me1200IpmcSnoopingIgmpGroupSrcListTable':me1200IpmcSnoopingIgmpGroupSrcListTable,'me1200IpmcSnoopingIgmpGroupSrcListEntry':me1200IpmcSnoopingIgmpGroupSrcListEntry,_X:me1200IpmcSnoopingIgmpGroupSrcListIfIndex,_Y:me1200IpmcSnoopingIgmpGroupSrcListGroupAddress,_Z:me1200IpmcSnoopingIgmpGroupSrcListPortIndex,_a:me1200IpmcSnoopingIgmpGroupSrcListHostAddress,_B7:me1200IpmcSnoopingIgmpGroupSrcListGroupFilterMode,_B8:me1200IpmcSnoopingIgmpGroupSrcListFilterTimer,_B9:me1200IpmcSnoopingIgmpGroupSrcListSourceType,_BA:me1200IpmcSnoopingIgmpGroupSrcListSourceTimer,_BB:me1200IpmcSnoopingIgmpGroupSrcListHardwareFilter,'me1200IpmcSnoopingMldRouterPortTable':me1200IpmcSnoopingMldRouterPortTable,'me1200IpmcSnoopingMldRouterPortEntry':me1200IpmcSnoopingMldRouterPortEntry,_b:me1200IpmcSnoopingMldRouterPortPortIndex,_BC:me1200IpmcSnoopingMldRouterPortStatus,'me1200IpmcSnoopingMldVlanStatusTable':me1200IpmcSnoopingMldVlanStatusTable,'me1200IpmcSnoopingMldVlanStatusEntry':me1200IpmcSnoopingMldVlanStatusEntry,_c:me1200IpmcSnoopingMldVlanStatusIfIndex,_BD:me1200IpmcSnoopingMldVlanStatusQuerierStatus,_BE:me1200IpmcSnoopingMldVlanStatusActiveQuerierAddress,_BF:me1200IpmcSnoopingMldVlanStatusQuerierUptime,_BG:me1200IpmcSnoopingMldVlanStatusQueryInterval,_BH:me1200IpmcSnoopingMldVlanStatusStartupQueryCount,_BI:me1200IpmcSnoopingMldVlanStatusQuerierExpiryTime,_BJ:me1200IpmcSnoopingMldVlanStatusQuerierVersion,_BK:me1200IpmcSnoopingMldVlanStatusQuerierPresentTimeout,_BL:me1200IpmcSnoopingMldVlanStatusHostVersion,_BM:me1200IpmcSnoopingMldVlanStatusHostPresentTimeout,_BN:me1200IpmcSnoopingMldVlanStatusCounterTxQuery,_BO:me1200IpmcSnoopingMldVlanStatusCounterTxSpecificQuery,_BP:me1200IpmcSnoopingMldVlanStatusCounterRxQuery,_BQ:me1200IpmcSnoopingMldVlanStatusCounterRxV1Report,_BR:me1200IpmcSnoopingMldVlanStatusCounterRxV1Done,_BS:me1200IpmcSnoopingMldVlanStatusCounterRxV2Report,_BT:me1200IpmcSnoopingMldVlanStatusCounterRxErrors,'me1200IpmcSnoopingMldGroupAddressTable':me1200IpmcSnoopingMldGroupAddressTable,'me1200IpmcSnoopingMldGroupAddressEntry':me1200IpmcSnoopingMldGroupAddressEntry,_d:me1200IpmcSnoopingMldGroupAddressIfIndex,_e:me1200IpmcSnoopingMldGroupAddressGroupAddress,_BU:me1200IpmcSnoopingMldGroupAddressMemberPorts,_BV:me1200IpmcSnoopingMldGroupAddressHardwareSwitch,'me1200IpmcSnoopingMldGroupSrcListTable':me1200IpmcSnoopingMldGroupSrcListTable,'me1200IpmcSnoopingMldGroupSrcListEntry':me1200IpmcSnoopingMldGroupSrcListEntry,_f:me1200IpmcSnoopingMldGroupSrcListIfIndex,_g:me1200IpmcSnoopingMldGroupSrcListGroupAddress,_h:me1200IpmcSnoopingMldGroupSrcListPortIndex,_i:me1200IpmcSnoopingMldGroupSrcListHostAddress,_BW:me1200IpmcSnoopingMldGroupSrcListGroupFilterMode,_BX:me1200IpmcSnoopingMldGroupSrcListFilterTimer,_BY:me1200IpmcSnoopingMldGroupSrcListSourceType,_BZ:me1200IpmcSnoopingMldGroupSrcListSourceTimer,_Ba:me1200IpmcSnoopingMldGroupSrcListHardwareFilter,'me1200IpmcSnoopingControl':me1200IpmcSnoopingControl,'me1200IpmcSnoopingControlStatistics':me1200IpmcSnoopingControlStatistics,'me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndex':me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndex,_Bb:me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndexIfIndex,'me1200IpmcSnoopingControlStatisticsMldClearByIfIndex':me1200IpmcSnoopingControlStatisticsMldClearByIfIndex,_Bc:me1200IpmcSnoopingControlStatisticsMldClearByIfIndexIfIndex,'me1200IpmcSnoopingMIBConformance':me1200IpmcSnoopingMIBConformance,'me1200IpmcSnoopingMIBCompliances':me1200IpmcSnoopingMIBCompliances,'me1200IpmcSnoopingMibCompliance':me1200IpmcSnoopingMibCompliance,'me1200IpmcSnoopingMIBGroups':me1200IpmcSnoopingMIBGroups,_Bd:me1200IpmcSnoopingIgmpGlobalsInfoGroup,_Be:me1200IpmcSnoopingIgmpPortTableInfoGroup,_Bf:me1200IpmcSnoopingIgmpInterfaceTableInfoGroup,_Bg:me1200IpmcSnoopingIgmpInterfaceTableRowEditorInfoGroup,_Bh:me1200IpmcSnoopingMldGlobalsInfoGroup,_Bi:me1200IpmcSnoopingMldPortTableInfoGroup,_Bj:me1200IpmcSnoopingMldInterfaceTableInfoGroup,_Bk:me1200IpmcSnoopingMldInterfaceTableRowEditorInfoGroup,_Bl:me1200IpmcSnoopingGroupAddressCountInfoGroup,_Bm:me1200IpmcSnoopingIgmpRouterPortTableInfoGroup,_Bn:me1200IpmcSnoopingIgmpVlanStatusTableInfoGroup,_Bo:me1200IpmcSnoopingIgmpGroupAddressTableInfoGroup,_Bp:me1200IpmcSnoopingIgmpGroupSrcListTableInfoGroup,_Bq:me1200IpmcSnoopingMldRouterPortTableInfoGroup,_Br:me1200IpmcSnoopingMldVlanStatusTableInfoGroup,_Bs:me1200IpmcSnoopingMldGroupAddressTableInfoGroup,_Bt:me1200IpmcSnoopingMldGroupSrcListTableInfoGroup,_Bu:me1200IpmcSnoopingControlStatisticsIgmpClearByIfIndexInfoGroup,_Bv:me1200IpmcSnoopingControlStatisticsMldClearByIfIndexInfoGroup})

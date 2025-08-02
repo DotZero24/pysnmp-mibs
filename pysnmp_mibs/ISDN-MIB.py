@@ -1,170 +1,420 @@
-#
-# PySNMP MIB module ISDN-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/ISDN-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:19:03 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, Integer, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint")
-( IANAifType, ) = mibBuilder.importSymbols("IANAifType-MIB", "IANAifType")
-( InterfaceIndex, ifIndex, ) = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex", "ifIndex")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( TimeTicks, MibIdentifier, Counter64, Unsigned32, transmission, iso, Integer32, ObjectIdentity, IpAddress, Gauge32, Counter32, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, ModuleIdentity, ) = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "MibIdentifier", "Counter64", "Unsigned32", "transmission", "iso", "Integer32", "ObjectIdentity", "IpAddress", "Gauge32", "Counter32", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "ModuleIdentity")
-( TimeStamp, TruthValue, TestAndIncr, DisplayString, TextualConvention, RowStatus, ) = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "TruthValue", "TestAndIncr", "DisplayString", "TextualConvention", "RowStatus")
-isdnMib = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 20))
-if mibBuilder.loadTexts: isdnMib.setLastUpdated('9609231642Z')
-if mibBuilder.loadTexts: isdnMib.setOrganization('IETF ISDN MIB Working Group')
-if mibBuilder.loadTexts: isdnMib.setContactInfo('        Guenter Roeck\n             Postal: cisco Systems\n                     170 West Tasman Drive\n                     San Jose, CA 95134\n                     U.S.A.\n             Phone:  +1 408 527 3143\n             E-mail: groeck@cisco.com')
-if mibBuilder.loadTexts: isdnMib.setDescription('The MIB module to describe the\n             management of ISDN interfaces.')
-class IsdnSignalingProtocol(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,))
-    namedValues = NamedValues(("other", 1), ("dss1", 2), ("etsi", 3), ("dass2", 4), ("ess4", 5), ("ess5", 6), ("dms100", 7), ("dms250", 8), ("ni1", 9), ("ni2", 10), ("ni3", 11), ("vn2", 12), ("vn3", 13), ("vn4", 14), ("vn6", 15), ("kdd", 16), ("ins64", 17), ("ins1500", 18), ("itr6", 19), ("cornet", 20), ("ts013", 21), ("ts014", 22), ("qsig", 23), ("swissnet2", 24), ("swissnet3", 25),)
-
-isdnMibObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 20, 1))
-isdnBasicRateGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 20, 1, 1))
-isdnBasicRateTable = MibTable((1, 3, 6, 1, 2, 1, 10, 20, 1, 1, 1), )
-if mibBuilder.loadTexts: isdnBasicRateTable.setDescription('Table containing configuration and operational\n             parameters for all physical Basic Rate\n             interfaces on this managed device.')
-isdnBasicRateEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 20, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: isdnBasicRateEntry.setDescription('An entry in the ISDN Basic Rate Table.')
-isdnBasicRateIfType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(75, 76,))).clone(namedValues=NamedValues(("isdns", 75), ("isdnu", 76),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: isdnBasicRateIfType.setDescription("The physical interface type. For 'S/T' interfaces,\n             also called 'Four-wire Basic Access Interface',\n             the value of this object is isdns(75).\n             For 'U' interfaces, also called 'Two-wire Basic\n             Access Interface', the value of this object is\n             isdnu(76).")
-isdnBasicRateLineTopology = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("pointToPoint", 1), ("pointToMultipoint", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: isdnBasicRateLineTopology.setDescription('The line topology to be used for this interface.\n             Note that setting isdnBasicRateIfType to isdns(75)\n             does not necessarily mean a line topology of\n             point-to-multipoint.')
-isdnBasicRateIfMode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("te", 1), ("nt", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: isdnBasicRateIfMode.setDescription('The physical interface mode. For TE mode, the value\n             of this object is te(1). For NT mode, the value\n             of this object is nt(2).')
-isdnBasicRateSignalMode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: isdnBasicRateSignalMode.setDescription('The signaling channel operational mode for this interface.\n             If active(1) there is a signaling channel on this\n             interface. If inactive(2) a signaling channel is\n             not available.')
-isdnBearerGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 20, 1, 2))
-isdnBearerTable = MibTable((1, 3, 6, 1, 2, 1, 10, 20, 1, 2, 1), )
-if mibBuilder.loadTexts: isdnBearerTable.setDescription('This table defines port specific operational, statistics\n             and active call data for ISDN B channels. Each entry\n             in this table describes one B (bearer) channel.')
-isdnBearerEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 20, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: isdnBearerEntry.setDescription('Operational and statistics information relating to\n             one port. A port is a single B channel.')
-isdnBearerChannelType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("dialup", 1), ("leased", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: isdnBearerChannelType.setDescription('The B channel type. If the B channel is connected\n             to a dialup line, this object has a value of\n             dialup(1). In this case, it is controlled by\n             an associated signaling channel. If the B channel\n             is connected to a leased line, this object has\n             a value of leased(2). For leased line B channels, there\n             is no signaling channel control available.')
-isdnBearerOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("idle", 1), ("connecting", 2), ("connected", 3), ("active", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnBearerOperStatus.setDescription('The current call control state for this port.\n             idle(1):       The B channel is idle.\n                            No call or call attempt is going on.\n             connecting(2): A connection attempt (outgoing call)\n                            is being made on this interface.\n             connected(3):  An incoming call is in the process\n                            of validation.\n             active(4):     A call is active on this interface.')
-isdnBearerChannelNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,30))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnBearerChannelNumber.setDescription('The identifier being used by a signaling protocol\n             to identify this B channel, also referred to as\n             B channel number. If the Agent also supports the DS0 MIB,\n             the values of isdnBearerChannelNumber and dsx0Ds0Number\n             must be identical for a given B channel.')
-isdnBearerPeerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 2, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnBearerPeerAddress.setDescription("The ISDN address the current or last call is or was\n             connected to.\n\n             In some cases, the format of this information can not\n             be predicted, since it largely depends on the type\n             of switch or PBX the device is connected to. Therefore,\n             the detailed format of this information is not\n             specified and is implementation dependent.\n\n             If possible, the agent should supply this information\n             using the E.164 format. In this case, the number must\n             start with '+'. Otherwise, IA5 number digits must be used.\n\n             If the peer ISDN address is not available,\n             this object has a length of zero.")
-isdnBearerPeerSubAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 2, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnBearerPeerSubAddress.setDescription('The ISDN subaddress the current or last call is or was\n             connected to.\n\n             The subaddress is an user supplied string of up to 20\n             IA5 characters and is transmitted transparently through\n             the network.\n\n             If the peer subaddress is not available, this object\n             has a length of zero.')
-isdnBearerCallOrigin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("unknown", 1), ("originate", 2), ("answer", 3), ("callback", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnBearerCallOrigin.setDescription('The call origin for the current or last call. If since\n             system startup there was no call on this interface,\n             this object has a value of unknown(1).')
-isdnBearerInfoType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9,))).clone(namedValues=NamedValues(("unknown", 1), ("speech", 2), ("unrestrictedDigital", 3), ("unrestrictedDigital56", 4), ("restrictedDigital", 5), ("audio31", 6), ("audio7", 7), ("video", 8), ("packetSwitched", 9),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnBearerInfoType.setDescription("The Information Transfer Capability for the current\n             or last call.\n\n             speech(2) refers to a non-data connection, whereas\n             audio31(6) and audio7(7) refer to data mode connections.\n\n             Note that Q.931, chapter 4.5.5, originally defined\n             audio7(7) as '7 kHz audio' and now defines it as\n             'Unrestricted digital information with tones/\n             announcements'.\n\n             If since system startup there has been no call on this\n             interface, this object has a value of unknown(1).")
-isdnBearerMultirate = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 2, 1, 1, 8), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnBearerMultirate.setDescription('This flag indicates if the current or last call used\n             multirate. The actual information transfer rate,\n             in detail specified in octet 4.1 (rate multiplier),\n             is the sum of all B channel ifSpeed values for\n             the hyperchannel.\n\n             If since system startup there was no call on this\n             interface, this object has a value of false(2).')
-isdnBearerCallSetupTime = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 2, 1, 1, 9), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnBearerCallSetupTime.setDescription('The value of sysUpTime when the ISDN setup message for\n             the current or last call was sent or received. If since\n             system startup there has been no call on this interface,\n             this object has a value of zero.')
-isdnBearerCallConnectTime = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 2, 1, 1, 10), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnBearerCallConnectTime.setDescription('The value of sysUpTime when the ISDN connect message for\n             the current or last call was sent or received. If since\n             system startup there has been no call on this interface,\n             this object has a value of zero.')
-isdnBearerChargedUnits = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 2, 1, 1, 11), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnBearerChargedUnits.setDescription('The number of charged units for the current or last\n             connection. For incoming calls or if charging information\n             is not supplied by the switch, the value of this object\n             is zero.')
-isdnSignalingGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 20, 1, 3))
-isdnSignalingGetIndex = MibScalar((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 1), TestAndIncr()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: isdnSignalingGetIndex.setDescription('The recommended procedure for selecting a new index for\n             isdnSignalingTable row creation is to GET the value of\n             this object, and then to SET the object with the same\n             value. If the SET operation succeeds, the manager can use\n             this value as an index to create a new row in this table.')
-isdnSignalingTable = MibTable((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 2), )
-if mibBuilder.loadTexts: isdnSignalingTable.setDescription('ISDN signaling table containing configuration and\n             operational parameters for all ISDN signaling\n             channels on this managed device.')
-isdnSignalingEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 2, 1), ).setIndexNames((0, "ISDN-MIB", "isdnSignalingIndex"))
-if mibBuilder.loadTexts: isdnSignalingEntry.setDescription('An entry in the ISDN Signaling Table. To create a new\n             entry, only isdnSignalingProtocol needs to be specified\n             before isdnSignalingStatus can become active(1).')
-isdnSignalingIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: isdnSignalingIndex.setDescription('The index value which uniquely identifies an entry\n             in the isdnSignalingTable.')
-isdnSignalingIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 2, 1, 2), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnSignalingIfIndex.setDescription('The ifIndex value of the interface associated with this\n             signaling channel.')
-isdnSignalingProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 2, 1, 3), IsdnSignalingProtocol()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnSignalingProtocol.setDescription('The particular protocol type supported by the\n             switch providing access to the ISDN network\n             to which this signaling channel is connected.')
-isdnSignalingCallingAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 2, 1, 4), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnSignalingCallingAddress.setDescription("The ISDN Address to be assigned to this signaling\n             channel. More specifically, this is the 'Calling Address\n             information element' as being passed to the switch\n             in outgoing call setup messages.\n\n             It can be an EAZ (1TR6), a calling number (DSS1, ETSI)\n             or any other number necessary to identify a signaling\n             interface. If there is no such number defined or required,\n             this is a zero length string. It is represented in\n             DisplayString form.\n\n             Incoming calls can also be identified by this number.\n             If the Directory Number, i.e. the Called Number in\n             incoming calls, is different to this number, the\n             isdnDirectoryTable has to be used to specify all\n             possible Directory Numbers.\n\n             The format of this information largely depends on the type\n             of switch or PBX the device is connected to. Therefore,\n             the detailed format of this information is not\n             specified and is implementation dependent.\n\n             If possible, the agent should implement this information\n             using the E.164 number format. In this case, the number\n             must start with '+'. Otherwise, IA5 number digits must\n             be used.")
-isdnSignalingSubAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 2, 1, 5), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnSignalingSubAddress.setDescription('Supplementary information to the ISDN address assigned\n             to this signaling channel. Usually, this is the\n             subaddress as defined in Q.931.\n             If there is no such number defined or required, this is\n             a zero length string.\n             The subaddress is used for incoming calls as well as\n             for outgoing calls.\n             The subaddress is an user supplied string of up to 20\n             IA5 characters and is transmitted transparently through\n             the network.')
-isdnSignalingBchannelCount = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnSignalingBchannelCount.setDescription('The total number of B channels (bearer channels)\n             managed by this signaling channel. The default value\n             of this object depends on the physical interface type\n             and is either 2 for Basic Rate interfaces or\n             24 (30) for Primary Rate interfaces.')
-isdnSignalingInfoTrapEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),)).clone('disabled')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnSignalingInfoTrapEnable.setDescription('Indicates whether isdnMibCallInformation traps\n             should be generated for calls on this signaling\n             channel.')
-isdnSignalingStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 2, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnSignalingStatus.setDescription('This object is used to create and delete rows in the\n             isdnSignalingTable.')
-isdnSignalingStatsTable = MibTable((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 3), )
-if mibBuilder.loadTexts: isdnSignalingStatsTable.setDescription('ISDN signaling table containing statistics\n             information for all ISDN signaling channels\n             on this managed device.\n             Only statistical information which is not already being\n             counted in the ifTable is being defined in this table.')
-isdnSignalingStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 3, 1), )
-isdnSignalingEntry.registerAugmentions(("ISDN-MIB", "isdnSignalingStatsEntry"))
+_AD='isdnMibDirectoryGroup'
+_AC='isdnMibEndpointGroup'
+_AB='isdnMibBasicRateGroup'
+_AA='isdnMibNotificationsGroup'
+_A9='isdnMibBearerGroup'
+_A8='isdnMibSignalingGroup'
+_A7='isdnMibCallInformation'
+_A6='isdnDirectoryStatus'
+_A5='isdnDirectorySigIndex'
+_A4='isdnDirectoryNumber'
+_A3='isdnEndpointStatus'
+_A2='isdnEndpointSpid'
+_A1='isdnEndpointTeiValue'
+_A0='isdnEndpointTeiType'
+_z='isdnEndpointIfType'
+_y='isdnEndpointIfIndex'
+_x='isdnEndpointGetIndex'
+_w='isdnLapdRecvdFrmr'
+_v='isdnLapdPeerSabme'
+_u='isdnLapdOperStatus'
+_t='isdnLapdPrimaryChannel'
+_s='isdnSigStatsChargedUnits'
+_r='isdnSigStatsOutConnected'
+_q='isdnSigStatsOutCalls'
+_p='isdnSigStatsInConnected'
+_o='isdnSigStatsInCalls'
+_n='isdnSignalingStatus'
+_m='isdnSignalingInfoTrapEnable'
+_l='isdnSignalingBchannelCount'
+_k='isdnSignalingSubAddress'
+_j='isdnSignalingCallingAddress'
+_i='isdnSignalingProtocol'
+_h='isdnSignalingIfIndex'
+_g='isdnSignalingGetIndex'
+_f='isdnBearerChargedUnits'
+_e='isdnBearerCallConnectTime'
+_d='isdnBearerMultirate'
+_c='isdnBearerChannelNumber'
+_b='isdnBearerChannelType'
+_a='isdnBasicRateSignalMode'
+_Z='isdnBasicRateIfMode'
+_Y='isdnBasicRateLineTopology'
+_X='isdnBasicRateIfType'
+_W='isdnSignalingStatsEntry'
+_V='isdnDirectoryIndex'
+_U='isdnEndpointIndex'
+_T='isdnSignalingIndex'
+_S='unknown'
+_R='inactive'
+_Q='active'
+_P='isdnBearerCallSetupTime'
+_O='isdnBearerInfoType'
+_N='isdnBearerCallOrigin'
+_M='isdnBearerPeerSubAddress'
+_L='isdnBearerPeerAddress'
+_K='isdnBearerOperStatus'
+_J='not-accessible'
+_I='DisplayString'
+_H='ifIndex'
+_G='IF-MIB'
+_F='read-write'
+_E='read-create'
+_D='Integer32'
+_C='read-only'
+_B='ISDN-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+IANAifType,=mibBuilder.importSymbols('IANAifType-MIB','IANAifType')
+InterfaceIndex,ifIndex=mibBuilder.importSymbols(_G,'InterfaceIndex',_H)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','transmission')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TestAndIncr,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_I,'PhysAddress','RowStatus','TextualConvention','TestAndIncr','TimeStamp','TruthValue')
+isdnMib=ModuleIdentity((1,3,6,1,2,1,10,20))
+class IsdnSignalingProtocol(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25)));namedValues=NamedValues(*(('other',1),('dss1',2),('etsi',3),('dass2',4),('ess4',5),('ess5',6),('dms100',7),('dms250',8),('ni1',9),('ni2',10),('ni3',11),('vn2',12),('vn3',13),('vn4',14),('vn6',15),('kdd',16),('ins64',17),('ins1500',18),('itr6',19),('cornet',20),('ts013',21),('ts014',22),('qsig',23),('swissnet2',24),('swissnet3',25)))
+_IsdnMibObjects_ObjectIdentity=ObjectIdentity
+isdnMibObjects=_IsdnMibObjects_ObjectIdentity((1,3,6,1,2,1,10,20,1))
+_IsdnBasicRateGroup_ObjectIdentity=ObjectIdentity
+isdnBasicRateGroup=_IsdnBasicRateGroup_ObjectIdentity((1,3,6,1,2,1,10,20,1,1))
+_IsdnBasicRateTable_Object=MibTable
+isdnBasicRateTable=_IsdnBasicRateTable_Object((1,3,6,1,2,1,10,20,1,1,1))
+if mibBuilder.loadTexts:isdnBasicRateTable.setStatus(_A)
+_IsdnBasicRateEntry_Object=MibTableRow
+isdnBasicRateEntry=_IsdnBasicRateEntry_Object((1,3,6,1,2,1,10,20,1,1,1,1))
+isdnBasicRateEntry.setIndexNames((0,_G,_H))
+if mibBuilder.loadTexts:isdnBasicRateEntry.setStatus(_A)
+class _IsdnBasicRateIfType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(75,76)));namedValues=NamedValues(*(('isdns',75),('isdnu',76)))
+_IsdnBasicRateIfType_Type.__name__=_D
+_IsdnBasicRateIfType_Object=MibTableColumn
+isdnBasicRateIfType=_IsdnBasicRateIfType_Object((1,3,6,1,2,1,10,20,1,1,1,1,1),_IsdnBasicRateIfType_Type())
+isdnBasicRateIfType.setMaxAccess(_F)
+if mibBuilder.loadTexts:isdnBasicRateIfType.setStatus(_A)
+class _IsdnBasicRateLineTopology_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('pointToPoint',1),('pointToMultipoint',2)))
+_IsdnBasicRateLineTopology_Type.__name__=_D
+_IsdnBasicRateLineTopology_Object=MibTableColumn
+isdnBasicRateLineTopology=_IsdnBasicRateLineTopology_Object((1,3,6,1,2,1,10,20,1,1,1,1,2),_IsdnBasicRateLineTopology_Type())
+isdnBasicRateLineTopology.setMaxAccess(_F)
+if mibBuilder.loadTexts:isdnBasicRateLineTopology.setStatus(_A)
+class _IsdnBasicRateIfMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('te',1),('nt',2)))
+_IsdnBasicRateIfMode_Type.__name__=_D
+_IsdnBasicRateIfMode_Object=MibTableColumn
+isdnBasicRateIfMode=_IsdnBasicRateIfMode_Object((1,3,6,1,2,1,10,20,1,1,1,1,3),_IsdnBasicRateIfMode_Type())
+isdnBasicRateIfMode.setMaxAccess(_F)
+if mibBuilder.loadTexts:isdnBasicRateIfMode.setStatus(_A)
+class _IsdnBasicRateSignalMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_Q,1),(_R,2)))
+_IsdnBasicRateSignalMode_Type.__name__=_D
+_IsdnBasicRateSignalMode_Object=MibTableColumn
+isdnBasicRateSignalMode=_IsdnBasicRateSignalMode_Object((1,3,6,1,2,1,10,20,1,1,1,1,4),_IsdnBasicRateSignalMode_Type())
+isdnBasicRateSignalMode.setMaxAccess(_F)
+if mibBuilder.loadTexts:isdnBasicRateSignalMode.setStatus(_A)
+_IsdnBearerGroup_ObjectIdentity=ObjectIdentity
+isdnBearerGroup=_IsdnBearerGroup_ObjectIdentity((1,3,6,1,2,1,10,20,1,2))
+_IsdnBearerTable_Object=MibTable
+isdnBearerTable=_IsdnBearerTable_Object((1,3,6,1,2,1,10,20,1,2,1))
+if mibBuilder.loadTexts:isdnBearerTable.setStatus(_A)
+_IsdnBearerEntry_Object=MibTableRow
+isdnBearerEntry=_IsdnBearerEntry_Object((1,3,6,1,2,1,10,20,1,2,1,1))
+isdnBearerEntry.setIndexNames((0,_G,_H))
+if mibBuilder.loadTexts:isdnBearerEntry.setStatus(_A)
+class _IsdnBearerChannelType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('dialup',1),('leased',2)))
+_IsdnBearerChannelType_Type.__name__=_D
+_IsdnBearerChannelType_Object=MibTableColumn
+isdnBearerChannelType=_IsdnBearerChannelType_Object((1,3,6,1,2,1,10,20,1,2,1,1,1),_IsdnBearerChannelType_Type())
+isdnBearerChannelType.setMaxAccess(_F)
+if mibBuilder.loadTexts:isdnBearerChannelType.setStatus(_A)
+class _IsdnBearerOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('idle',1),('connecting',2),('connected',3),(_Q,4)))
+_IsdnBearerOperStatus_Type.__name__=_D
+_IsdnBearerOperStatus_Object=MibTableColumn
+isdnBearerOperStatus=_IsdnBearerOperStatus_Object((1,3,6,1,2,1,10,20,1,2,1,1,2),_IsdnBearerOperStatus_Type())
+isdnBearerOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnBearerOperStatus.setStatus(_A)
+class _IsdnBearerChannelNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,30))
+_IsdnBearerChannelNumber_Type.__name__=_D
+_IsdnBearerChannelNumber_Object=MibTableColumn
+isdnBearerChannelNumber=_IsdnBearerChannelNumber_Object((1,3,6,1,2,1,10,20,1,2,1,1,3),_IsdnBearerChannelNumber_Type())
+isdnBearerChannelNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnBearerChannelNumber.setStatus(_A)
+_IsdnBearerPeerAddress_Type=DisplayString
+_IsdnBearerPeerAddress_Object=MibTableColumn
+isdnBearerPeerAddress=_IsdnBearerPeerAddress_Object((1,3,6,1,2,1,10,20,1,2,1,1,4),_IsdnBearerPeerAddress_Type())
+isdnBearerPeerAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnBearerPeerAddress.setStatus(_A)
+_IsdnBearerPeerSubAddress_Type=DisplayString
+_IsdnBearerPeerSubAddress_Object=MibTableColumn
+isdnBearerPeerSubAddress=_IsdnBearerPeerSubAddress_Object((1,3,6,1,2,1,10,20,1,2,1,1,5),_IsdnBearerPeerSubAddress_Type())
+isdnBearerPeerSubAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnBearerPeerSubAddress.setStatus(_A)
+class _IsdnBearerCallOrigin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_S,1),('originate',2),('answer',3),('callback',4)))
+_IsdnBearerCallOrigin_Type.__name__=_D
+_IsdnBearerCallOrigin_Object=MibTableColumn
+isdnBearerCallOrigin=_IsdnBearerCallOrigin_Object((1,3,6,1,2,1,10,20,1,2,1,1,6),_IsdnBearerCallOrigin_Type())
+isdnBearerCallOrigin.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnBearerCallOrigin.setStatus(_A)
+class _IsdnBearerInfoType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*((_S,1),('speech',2),('unrestrictedDigital',3),('unrestrictedDigital56',4),('restrictedDigital',5),('audio31',6),('audio7',7),('video',8),('packetSwitched',9)))
+_IsdnBearerInfoType_Type.__name__=_D
+_IsdnBearerInfoType_Object=MibTableColumn
+isdnBearerInfoType=_IsdnBearerInfoType_Object((1,3,6,1,2,1,10,20,1,2,1,1,7),_IsdnBearerInfoType_Type())
+isdnBearerInfoType.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnBearerInfoType.setStatus(_A)
+_IsdnBearerMultirate_Type=TruthValue
+_IsdnBearerMultirate_Object=MibTableColumn
+isdnBearerMultirate=_IsdnBearerMultirate_Object((1,3,6,1,2,1,10,20,1,2,1,1,8),_IsdnBearerMultirate_Type())
+isdnBearerMultirate.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnBearerMultirate.setStatus(_A)
+_IsdnBearerCallSetupTime_Type=TimeStamp
+_IsdnBearerCallSetupTime_Object=MibTableColumn
+isdnBearerCallSetupTime=_IsdnBearerCallSetupTime_Object((1,3,6,1,2,1,10,20,1,2,1,1,9),_IsdnBearerCallSetupTime_Type())
+isdnBearerCallSetupTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnBearerCallSetupTime.setStatus(_A)
+_IsdnBearerCallConnectTime_Type=TimeStamp
+_IsdnBearerCallConnectTime_Object=MibTableColumn
+isdnBearerCallConnectTime=_IsdnBearerCallConnectTime_Object((1,3,6,1,2,1,10,20,1,2,1,1,10),_IsdnBearerCallConnectTime_Type())
+isdnBearerCallConnectTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnBearerCallConnectTime.setStatus(_A)
+_IsdnBearerChargedUnits_Type=Gauge32
+_IsdnBearerChargedUnits_Object=MibTableColumn
+isdnBearerChargedUnits=_IsdnBearerChargedUnits_Object((1,3,6,1,2,1,10,20,1,2,1,1,11),_IsdnBearerChargedUnits_Type())
+isdnBearerChargedUnits.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnBearerChargedUnits.setStatus(_A)
+_IsdnSignalingGroup_ObjectIdentity=ObjectIdentity
+isdnSignalingGroup=_IsdnSignalingGroup_ObjectIdentity((1,3,6,1,2,1,10,20,1,3))
+_IsdnSignalingGetIndex_Type=TestAndIncr
+_IsdnSignalingGetIndex_Object=MibScalar
+isdnSignalingGetIndex=_IsdnSignalingGetIndex_Object((1,3,6,1,2,1,10,20,1,3,1),_IsdnSignalingGetIndex_Type())
+isdnSignalingGetIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:isdnSignalingGetIndex.setStatus(_A)
+_IsdnSignalingTable_Object=MibTable
+isdnSignalingTable=_IsdnSignalingTable_Object((1,3,6,1,2,1,10,20,1,3,2))
+if mibBuilder.loadTexts:isdnSignalingTable.setStatus(_A)
+_IsdnSignalingEntry_Object=MibTableRow
+isdnSignalingEntry=_IsdnSignalingEntry_Object((1,3,6,1,2,1,10,20,1,3,2,1))
+isdnSignalingEntry.setIndexNames((0,_B,_T))
+if mibBuilder.loadTexts:isdnSignalingEntry.setStatus(_A)
+class _IsdnSignalingIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_IsdnSignalingIndex_Type.__name__=_D
+_IsdnSignalingIndex_Object=MibTableColumn
+isdnSignalingIndex=_IsdnSignalingIndex_Object((1,3,6,1,2,1,10,20,1,3,2,1,1),_IsdnSignalingIndex_Type())
+isdnSignalingIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:isdnSignalingIndex.setStatus(_A)
+_IsdnSignalingIfIndex_Type=InterfaceIndex
+_IsdnSignalingIfIndex_Object=MibTableColumn
+isdnSignalingIfIndex=_IsdnSignalingIfIndex_Object((1,3,6,1,2,1,10,20,1,3,2,1,2),_IsdnSignalingIfIndex_Type())
+isdnSignalingIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnSignalingIfIndex.setStatus(_A)
+_IsdnSignalingProtocol_Type=IsdnSignalingProtocol
+_IsdnSignalingProtocol_Object=MibTableColumn
+isdnSignalingProtocol=_IsdnSignalingProtocol_Object((1,3,6,1,2,1,10,20,1,3,2,1,3),_IsdnSignalingProtocol_Type())
+isdnSignalingProtocol.setMaxAccess(_E)
+if mibBuilder.loadTexts:isdnSignalingProtocol.setStatus(_A)
+class _IsdnSignalingCallingAddress_Type(DisplayString):defaultValue=OctetString('')
+_IsdnSignalingCallingAddress_Type.__name__=_I
+_IsdnSignalingCallingAddress_Object=MibTableColumn
+isdnSignalingCallingAddress=_IsdnSignalingCallingAddress_Object((1,3,6,1,2,1,10,20,1,3,2,1,4),_IsdnSignalingCallingAddress_Type())
+isdnSignalingCallingAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:isdnSignalingCallingAddress.setStatus(_A)
+class _IsdnSignalingSubAddress_Type(DisplayString):defaultValue=OctetString('')
+_IsdnSignalingSubAddress_Type.__name__=_I
+_IsdnSignalingSubAddress_Object=MibTableColumn
+isdnSignalingSubAddress=_IsdnSignalingSubAddress_Object((1,3,6,1,2,1,10,20,1,3,2,1,5),_IsdnSignalingSubAddress_Type())
+isdnSignalingSubAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:isdnSignalingSubAddress.setStatus(_A)
+class _IsdnSignalingBchannelCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_IsdnSignalingBchannelCount_Type.__name__=_D
+_IsdnSignalingBchannelCount_Object=MibTableColumn
+isdnSignalingBchannelCount=_IsdnSignalingBchannelCount_Object((1,3,6,1,2,1,10,20,1,3,2,1,6),_IsdnSignalingBchannelCount_Type())
+isdnSignalingBchannelCount.setMaxAccess(_E)
+if mibBuilder.loadTexts:isdnSignalingBchannelCount.setStatus(_A)
+class _IsdnSignalingInfoTrapEnable_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enabled',1),('disabled',2)))
+_IsdnSignalingInfoTrapEnable_Type.__name__=_D
+_IsdnSignalingInfoTrapEnable_Object=MibTableColumn
+isdnSignalingInfoTrapEnable=_IsdnSignalingInfoTrapEnable_Object((1,3,6,1,2,1,10,20,1,3,2,1,7),_IsdnSignalingInfoTrapEnable_Type())
+isdnSignalingInfoTrapEnable.setMaxAccess(_E)
+if mibBuilder.loadTexts:isdnSignalingInfoTrapEnable.setStatus(_A)
+_IsdnSignalingStatus_Type=RowStatus
+_IsdnSignalingStatus_Object=MibTableColumn
+isdnSignalingStatus=_IsdnSignalingStatus_Object((1,3,6,1,2,1,10,20,1,3,2,1,8),_IsdnSignalingStatus_Type())
+isdnSignalingStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:isdnSignalingStatus.setStatus(_A)
+_IsdnSignalingStatsTable_Object=MibTable
+isdnSignalingStatsTable=_IsdnSignalingStatsTable_Object((1,3,6,1,2,1,10,20,1,3,3))
+if mibBuilder.loadTexts:isdnSignalingStatsTable.setStatus(_A)
+_IsdnSignalingStatsEntry_Object=MibTableRow
+isdnSignalingStatsEntry=_IsdnSignalingStatsEntry_Object((1,3,6,1,2,1,10,20,1,3,3,1))
+if mibBuilder.loadTexts:isdnSignalingStatsEntry.setStatus(_A)
+_IsdnSigStatsInCalls_Type=Counter32
+_IsdnSigStatsInCalls_Object=MibTableColumn
+isdnSigStatsInCalls=_IsdnSigStatsInCalls_Object((1,3,6,1,2,1,10,20,1,3,3,1,1),_IsdnSigStatsInCalls_Type())
+isdnSigStatsInCalls.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnSigStatsInCalls.setStatus(_A)
+_IsdnSigStatsInConnected_Type=Counter32
+_IsdnSigStatsInConnected_Object=MibTableColumn
+isdnSigStatsInConnected=_IsdnSigStatsInConnected_Object((1,3,6,1,2,1,10,20,1,3,3,1,2),_IsdnSigStatsInConnected_Type())
+isdnSigStatsInConnected.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnSigStatsInConnected.setStatus(_A)
+_IsdnSigStatsOutCalls_Type=Counter32
+_IsdnSigStatsOutCalls_Object=MibTableColumn
+isdnSigStatsOutCalls=_IsdnSigStatsOutCalls_Object((1,3,6,1,2,1,10,20,1,3,3,1,3),_IsdnSigStatsOutCalls_Type())
+isdnSigStatsOutCalls.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnSigStatsOutCalls.setStatus(_A)
+_IsdnSigStatsOutConnected_Type=Counter32
+_IsdnSigStatsOutConnected_Object=MibTableColumn
+isdnSigStatsOutConnected=_IsdnSigStatsOutConnected_Object((1,3,6,1,2,1,10,20,1,3,3,1,4),_IsdnSigStatsOutConnected_Type())
+isdnSigStatsOutConnected.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnSigStatsOutConnected.setStatus(_A)
+_IsdnSigStatsChargedUnits_Type=Counter32
+_IsdnSigStatsChargedUnits_Object=MibTableColumn
+isdnSigStatsChargedUnits=_IsdnSigStatsChargedUnits_Object((1,3,6,1,2,1,10,20,1,3,3,1,5),_IsdnSigStatsChargedUnits_Type())
+isdnSigStatsChargedUnits.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnSigStatsChargedUnits.setStatus(_A)
+_IsdnLapdTable_Object=MibTable
+isdnLapdTable=_IsdnLapdTable_Object((1,3,6,1,2,1,10,20,1,3,4))
+if mibBuilder.loadTexts:isdnLapdTable.setStatus(_A)
+_IsdnLapdEntry_Object=MibTableRow
+isdnLapdEntry=_IsdnLapdEntry_Object((1,3,6,1,2,1,10,20,1,3,4,1))
+isdnLapdEntry.setIndexNames((0,_G,_H))
+if mibBuilder.loadTexts:isdnLapdEntry.setStatus(_A)
+_IsdnLapdPrimaryChannel_Type=TruthValue
+_IsdnLapdPrimaryChannel_Object=MibTableColumn
+isdnLapdPrimaryChannel=_IsdnLapdPrimaryChannel_Object((1,3,6,1,2,1,10,20,1,3,4,1,1),_IsdnLapdPrimaryChannel_Type())
+isdnLapdPrimaryChannel.setMaxAccess(_F)
+if mibBuilder.loadTexts:isdnLapdPrimaryChannel.setStatus(_A)
+class _IsdnLapdOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_R,1),('l1Active',2),('l2Active',3)))
+_IsdnLapdOperStatus_Type.__name__=_D
+_IsdnLapdOperStatus_Object=MibTableColumn
+isdnLapdOperStatus=_IsdnLapdOperStatus_Object((1,3,6,1,2,1,10,20,1,3,4,1,2),_IsdnLapdOperStatus_Type())
+isdnLapdOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnLapdOperStatus.setStatus(_A)
+_IsdnLapdPeerSabme_Type=Counter32
+_IsdnLapdPeerSabme_Object=MibTableColumn
+isdnLapdPeerSabme=_IsdnLapdPeerSabme_Object((1,3,6,1,2,1,10,20,1,3,4,1,3),_IsdnLapdPeerSabme_Type())
+isdnLapdPeerSabme.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnLapdPeerSabme.setStatus(_A)
+_IsdnLapdRecvdFrmr_Type=Counter32
+_IsdnLapdRecvdFrmr_Object=MibTableColumn
+isdnLapdRecvdFrmr=_IsdnLapdRecvdFrmr_Object((1,3,6,1,2,1,10,20,1,3,4,1,4),_IsdnLapdRecvdFrmr_Type())
+isdnLapdRecvdFrmr.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnLapdRecvdFrmr.setStatus(_A)
+_IsdnEndpointGroup_ObjectIdentity=ObjectIdentity
+isdnEndpointGroup=_IsdnEndpointGroup_ObjectIdentity((1,3,6,1,2,1,10,20,1,4))
+_IsdnEndpointGetIndex_Type=TestAndIncr
+_IsdnEndpointGetIndex_Object=MibScalar
+isdnEndpointGetIndex=_IsdnEndpointGetIndex_Object((1,3,6,1,2,1,10,20,1,4,1),_IsdnEndpointGetIndex_Type())
+isdnEndpointGetIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:isdnEndpointGetIndex.setStatus(_A)
+_IsdnEndpointTable_Object=MibTable
+isdnEndpointTable=_IsdnEndpointTable_Object((1,3,6,1,2,1,10,20,1,4,2))
+if mibBuilder.loadTexts:isdnEndpointTable.setStatus(_A)
+_IsdnEndpointEntry_Object=MibTableRow
+isdnEndpointEntry=_IsdnEndpointEntry_Object((1,3,6,1,2,1,10,20,1,4,2,1))
+isdnEndpointEntry.setIndexNames((0,_B,_U))
+if mibBuilder.loadTexts:isdnEndpointEntry.setStatus(_A)
+class _IsdnEndpointIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_IsdnEndpointIndex_Type.__name__=_D
+_IsdnEndpointIndex_Object=MibTableColumn
+isdnEndpointIndex=_IsdnEndpointIndex_Object((1,3,6,1,2,1,10,20,1,4,2,1,1),_IsdnEndpointIndex_Type())
+isdnEndpointIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:isdnEndpointIndex.setStatus(_A)
+_IsdnEndpointIfIndex_Type=InterfaceIndex
+_IsdnEndpointIfIndex_Object=MibTableColumn
+isdnEndpointIfIndex=_IsdnEndpointIfIndex_Object((1,3,6,1,2,1,10,20,1,4,2,1,2),_IsdnEndpointIfIndex_Type())
+isdnEndpointIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:isdnEndpointIfIndex.setStatus(_A)
+_IsdnEndpointIfType_Type=IANAifType
+_IsdnEndpointIfType_Object=MibTableColumn
+isdnEndpointIfType=_IsdnEndpointIfType_Object((1,3,6,1,2,1,10,20,1,4,2,1,3),_IsdnEndpointIfType_Type())
+isdnEndpointIfType.setMaxAccess(_E)
+if mibBuilder.loadTexts:isdnEndpointIfType.setStatus(_A)
+class _IsdnEndpointTeiType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('dynamic',1),('static',2)))
+_IsdnEndpointTeiType_Type.__name__=_D
+_IsdnEndpointTeiType_Object=MibTableColumn
+isdnEndpointTeiType=_IsdnEndpointTeiType_Object((1,3,6,1,2,1,10,20,1,4,2,1,4),_IsdnEndpointTeiType_Type())
+isdnEndpointTeiType.setMaxAccess(_E)
+if mibBuilder.loadTexts:isdnEndpointTeiType.setStatus(_A)
+class _IsdnEndpointTeiValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_IsdnEndpointTeiValue_Type.__name__=_D
+_IsdnEndpointTeiValue_Object=MibTableColumn
+isdnEndpointTeiValue=_IsdnEndpointTeiValue_Object((1,3,6,1,2,1,10,20,1,4,2,1,5),_IsdnEndpointTeiValue_Type())
+isdnEndpointTeiValue.setMaxAccess(_E)
+if mibBuilder.loadTexts:isdnEndpointTeiValue.setStatus(_A)
+class _IsdnEndpointSpid_Type(DisplayString):defaultValue=OctetString('')
+_IsdnEndpointSpid_Type.__name__=_I
+_IsdnEndpointSpid_Object=MibTableColumn
+isdnEndpointSpid=_IsdnEndpointSpid_Object((1,3,6,1,2,1,10,20,1,4,2,1,6),_IsdnEndpointSpid_Type())
+isdnEndpointSpid.setMaxAccess(_E)
+if mibBuilder.loadTexts:isdnEndpointSpid.setStatus(_A)
+_IsdnEndpointStatus_Type=RowStatus
+_IsdnEndpointStatus_Object=MibTableColumn
+isdnEndpointStatus=_IsdnEndpointStatus_Object((1,3,6,1,2,1,10,20,1,4,2,1,7),_IsdnEndpointStatus_Type())
+isdnEndpointStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:isdnEndpointStatus.setStatus(_A)
+_IsdnDirectoryGroup_ObjectIdentity=ObjectIdentity
+isdnDirectoryGroup=_IsdnDirectoryGroup_ObjectIdentity((1,3,6,1,2,1,10,20,1,5))
+_IsdnDirectoryTable_Object=MibTable
+isdnDirectoryTable=_IsdnDirectoryTable_Object((1,3,6,1,2,1,10,20,1,5,1))
+if mibBuilder.loadTexts:isdnDirectoryTable.setStatus(_A)
+_IsdnDirectoryEntry_Object=MibTableRow
+isdnDirectoryEntry=_IsdnDirectoryEntry_Object((1,3,6,1,2,1,10,20,1,5,1,1))
+isdnDirectoryEntry.setIndexNames((0,_B,_V))
+if mibBuilder.loadTexts:isdnDirectoryEntry.setStatus(_A)
+class _IsdnDirectoryIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_IsdnDirectoryIndex_Type.__name__=_D
+_IsdnDirectoryIndex_Object=MibTableColumn
+isdnDirectoryIndex=_IsdnDirectoryIndex_Object((1,3,6,1,2,1,10,20,1,5,1,1,1),_IsdnDirectoryIndex_Type())
+isdnDirectoryIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:isdnDirectoryIndex.setStatus(_A)
+_IsdnDirectoryNumber_Type=DisplayString
+_IsdnDirectoryNumber_Object=MibTableColumn
+isdnDirectoryNumber=_IsdnDirectoryNumber_Object((1,3,6,1,2,1,10,20,1,5,1,1,2),_IsdnDirectoryNumber_Type())
+isdnDirectoryNumber.setMaxAccess(_E)
+if mibBuilder.loadTexts:isdnDirectoryNumber.setStatus(_A)
+class _IsdnDirectorySigIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_IsdnDirectorySigIndex_Type.__name__=_D
+_IsdnDirectorySigIndex_Object=MibTableColumn
+isdnDirectorySigIndex=_IsdnDirectorySigIndex_Object((1,3,6,1,2,1,10,20,1,5,1,1,3),_IsdnDirectorySigIndex_Type())
+isdnDirectorySigIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:isdnDirectorySigIndex.setStatus(_A)
+_IsdnDirectoryStatus_Type=RowStatus
+_IsdnDirectoryStatus_Object=MibTableColumn
+isdnDirectoryStatus=_IsdnDirectoryStatus_Object((1,3,6,1,2,1,10,20,1,5,1,1,4),_IsdnDirectoryStatus_Type())
+isdnDirectoryStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:isdnDirectoryStatus.setStatus(_A)
+_IsdnMibTrapPrefix_ObjectIdentity=ObjectIdentity
+isdnMibTrapPrefix=_IsdnMibTrapPrefix_ObjectIdentity((1,3,6,1,2,1,10,20,2))
+_IsdnMibConformance_ObjectIdentity=ObjectIdentity
+isdnMibConformance=_IsdnMibConformance_ObjectIdentity((1,3,6,1,2,1,10,20,2))
+_IsdnMibTraps_ObjectIdentity=ObjectIdentity
+isdnMibTraps=_IsdnMibTraps_ObjectIdentity((1,3,6,1,2,1,10,20,2,0))
+_IsdnMibCompliances_ObjectIdentity=ObjectIdentity
+isdnMibCompliances=_IsdnMibCompliances_ObjectIdentity((1,3,6,1,2,1,10,20,2,1))
+_IsdnMibGroups_ObjectIdentity=ObjectIdentity
+isdnMibGroups=_IsdnMibGroups_ObjectIdentity((1,3,6,1,2,1,10,20,2,2))
+isdnSignalingEntry.registerAugmentions((_B,_W))
 isdnSignalingStatsEntry.setIndexNames(*isdnSignalingEntry.getIndexNames())
-if mibBuilder.loadTexts: isdnSignalingStatsEntry.setDescription('An entry in the ISDN Signaling statistics Table.')
-isdnSigStatsInCalls = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 3, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnSigStatsInCalls.setDescription('The number of incoming calls on this interface.')
-isdnSigStatsInConnected = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 3, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnSigStatsInConnected.setDescription('The number of incoming calls on this interface\n             which were actually connected.')
-isdnSigStatsOutCalls = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 3, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnSigStatsOutCalls.setDescription('The number of outgoing calls on this interface.')
-isdnSigStatsOutConnected = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 3, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnSigStatsOutConnected.setDescription('The number of outgoing calls on this interface\n             which were actually connected.')
-isdnSigStatsChargedUnits = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 3, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnSigStatsChargedUnits.setDescription("The number of charging units on this interface since\n             system startup.\n             Only the charging units applying to the local interface,\n             i.e. for originated calls or for calls with 'Reverse\n             charging' being active, are counted here.")
-isdnLapdTable = MibTable((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 4), )
-if mibBuilder.loadTexts: isdnLapdTable.setDescription('Table containing configuration and statistics\n             information for all LAPD (D channel Data Link)\n             interfaces on this managed device.\n             Only statistical information which is not already being\n             counted in the ifTable is being defined in this table.')
-isdnLapdEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: isdnLapdEntry.setDescription('An entry in the LAPD Table.')
-isdnLapdPrimaryChannel = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 4, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: isdnLapdPrimaryChannel.setDescription('If set to true(1), this D channel is the designated\n             primary D channel if D channel backup is active.\n             There must be exactly one primary D channel\n             configured. If D channel backup is not used, this\n             object has a value of true(1).')
-isdnLapdOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("inactive", 1), ("l1Active", 2), ("l2Active", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnLapdOperStatus.setDescription('The operational status of this interface:\n\n             inactive  all layers are inactive\n             l1Active  layer 1 is activated,\n                       layer 2 datalink not established\n             l2Active  layer 1 is activated,\n                       layer 2 datalink established.')
-isdnLapdPeerSabme = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 4, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnLapdPeerSabme.setDescription('The number of peer SABME frames received on this\n             interface. This is the number of peer-initiated\n             new connections on this interface.')
-isdnLapdRecvdFrmr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 3, 4, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnLapdRecvdFrmr.setDescription('The number of LAPD FRMR response frames received.\n             This is the number of framing errors on this\n             interface.')
-isdnEndpointGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 20, 1, 4))
-isdnEndpointGetIndex = MibScalar((1, 3, 6, 1, 2, 1, 10, 20, 1, 4, 1), TestAndIncr()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: isdnEndpointGetIndex.setDescription('The recommended procedure for selecting a new index for\n             isdnEndpointTable row creation is to GET the value of\n             this object, and then to SET the object with the same\n             value. If the SET operation succeeds, the manager can use\n             this value as an index to create a new row in this table.')
-isdnEndpointTable = MibTable((1, 3, 6, 1, 2, 1, 10, 20, 1, 4, 2), )
-if mibBuilder.loadTexts: isdnEndpointTable.setDescription('Table containing configuration for Terminal\n             Endpoints.')
-isdnEndpointEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 20, 1, 4, 2, 1), ).setIndexNames((0, "ISDN-MIB", "isdnEndpointIndex"))
-if mibBuilder.loadTexts: isdnEndpointEntry.setDescription('An entry in the Terminal Endpoint Table. The value\n             of isdnEndpointIfType must be supplied for a row\n             in this table to become active.')
-isdnEndpointIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 4, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: isdnEndpointIndex.setDescription('The index value which uniquely identifies an entry\n             in the isdnEndpointTable.')
-isdnEndpointIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 4, 2, 1, 2), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnEndpointIfIndex.setDescription('The ifIndex value of the interface associated with this\n             Terminal Endpoint.')
-isdnEndpointIfType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 4, 2, 1, 3), IANAifType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnEndpointIfType.setDescription('The interface type for this Terminal Endpoint.\n             Interface types of x25ple(40) and isdn(63) are allowed.\n             The interface type is identical to the value of\n             ifType in the associated ifEntry.')
-isdnEndpointTeiType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 4, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("dynamic", 1), ("static", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnEndpointTeiType.setDescription('The type of TEI (Terminal Endpoint Identifier)\n             used for this Terminal Endpoint. In case of dynamic(1),\n             the TEI value is selected by the switch. In\n             case of static(2), a valid TEI value has to be\n             entered in the isdnEndpointTeiValue object.\n             The default value for this object depends on the\n             interface type as well as the Terminal Endpoint type.\n             On Primary Rate interfaces the default value is\n             static(2). On Basic Rate interfaces the default value\n             is dynamic(1) for isdn(63) Terminal Endpoints and\n             static(2) for x25ple(40) Terminal Endpoints.')
-isdnEndpointTeiValue = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 4, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnEndpointTeiValue.setDescription('The TEI (Terminal Endpoint Identifier) value\n             for this Terminal Endpoint. If isdnEndpointTeiType\n             is set to static(2), valid numbers are 0..63,\n             while otherwise the value is set internally.\n             The default value of this object is 0 for static\n             TEI assignment.\n             The default value for dynamic TEI assignment is also\n             0 as long as no TEI has been assigned. After TEI\n             assignment, the assigned TEI value is returned.')
-isdnEndpointSpid = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 4, 2, 1, 6), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnEndpointSpid.setDescription('The Service profile IDentifier (SPID) information\n             for this Terminal Endpoint.\n\n             The SPID is composed of 9-20 numeric characters.\n\n             This information has to be defined in addition to\n             the local number for some switch protocol types,\n             e.g. Bellcore NI-1 and NI-2.\n\n             If this object is not required, it is a\n             zero length string.')
-isdnEndpointStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 4, 2, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnEndpointStatus.setDescription('This object is used to create and delete rows in the\n             isdnEndpointTable.')
-isdnDirectoryGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 20, 1, 5))
-isdnDirectoryTable = MibTable((1, 3, 6, 1, 2, 1, 10, 20, 1, 5, 1), )
-if mibBuilder.loadTexts: isdnDirectoryTable.setDescription('Table containing Directory Numbers.')
-isdnDirectoryEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 20, 1, 5, 1, 1), ).setIndexNames((0, "ISDN-MIB", "isdnDirectoryIndex"))
-if mibBuilder.loadTexts: isdnDirectoryEntry.setDescription('An entry in the Directory Number Table. All objects\n             in an entry must be set for a new row to become active.')
-isdnDirectoryIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 5, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: isdnDirectoryIndex.setDescription('The index value which uniquely identifies an entry\n             in the isdnDirectoryTable.')
-isdnDirectoryNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 5, 1, 1, 2), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnDirectoryNumber.setDescription("A Directory Number. Directory Numbers are used\n             to identify incoming calls on the signaling\n             channel given in isdnDirectorySigIndex.\n\n             The format of this information largely depends on the type\n             of switch or PBX the device is connected to. Therefore,\n             the detailed format of this information is not\n             specified and is implementation dependent.\n\n             If possible, the agent should implement this information\n             using the E.164 number format. In this case, the number\n             must start with '+'. Otherwise, IA5 number digits must\n             be used.")
-isdnDirectorySigIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnDirectorySigIndex.setDescription('An index pointing to an ISDN signaling channel.\n             Incoming calls are accepted on this\n             signaling channel if the isdnDirectoryNumber is\n             presented as Called Number in the SETUP message.')
-isdnDirectoryStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 20, 1, 5, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnDirectoryStatus.setDescription('This object is used to create and delete rows in the\n             isdnDirectoryTable.')
-isdnMibTrapPrefix = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 20, 2))
-isdnMibTraps = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 20, 2, 0))
-isdnMibCallInformation = NotificationType((1, 3, 6, 1, 2, 1, 10, 20, 2, 0, 1)).setObjects(*(("ISDN-MIB", "ifIndex"), ("ISDN-MIB", "isdnBearerOperStatus"), ("ISDN-MIB", "isdnBearerPeerAddress"), ("ISDN-MIB", "isdnBearerPeerSubAddress"), ("ISDN-MIB", "isdnBearerCallSetupTime"), ("ISDN-MIB", "isdnBearerInfoType"), ("ISDN-MIB", "isdnBearerCallOrigin"),))
-if mibBuilder.loadTexts: isdnMibCallInformation.setDescription('This trap/inform is sent to the manager under the\n             following condidions:\n             - on incoming calls for each call which is rejected for\n               policy reasons (e.g. unknown neighbor or access\n               violation)\n             - on outgoing calls whenever a call attempt is determined\n               to have ultimately failed. In the event that call retry\n               is active, then this will be after all retry attempts\n               have failed.\n             - whenever a call connects. In this case, the object\n               isdnBearerCallConnectTime should be included in the\n               trap.\n\n             Only one such trap is sent in between successful or\n             unsuccessful call attempts from or to a single neighbor;\n             subsequent call attempts result in no trap.\n\n             If the Dial Control MIB objects dialCtlNbrCfgId and\n             dialCtlNbrCfgIndex are known by the entity generating\n             this trap, both objects should be included in the trap\n             as well. The receipt of this trap with no dial neighbor\n             information indicates that the manager must poll the\n             callHistoryTable of the Dial Control MIB to see what\n             changed.')
-isdnMibConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 20, 3))
-isdnMibCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 20, 3, 1))
-isdnMibGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 20, 3, 2))
-isdnMibCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 20, 3, 1, 1)).setObjects(*(("ISDN-MIB", "isdnMibSignalingGroup"), ("ISDN-MIB", "isdnMibBearerGroup"), ("ISDN-MIB", "isdnMibBasicRateGroup"), ("ISDN-MIB", "isdnMibEndpointGroup"), ("ISDN-MIB", "isdnMibDirectoryGroup"),))
-if mibBuilder.loadTexts: isdnMibCompliance.setDescription('The compliance statement for entities which implement\n             the ISDN MIB.')
-isdnMibBasicRateGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 20, 3, 2, 1)).setObjects(*(("ISDN-MIB", "isdnBasicRateIfType"), ("ISDN-MIB", "isdnBasicRateLineTopology"), ("ISDN-MIB", "isdnBasicRateIfMode"), ("ISDN-MIB", "isdnBasicRateSignalMode"),))
-if mibBuilder.loadTexts: isdnMibBasicRateGroup.setDescription('A collection of objects required for ISDN Basic Rate\n             physical interface configuration and statistics.')
-isdnMibBearerGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 20, 3, 2, 2)).setObjects(*(("ISDN-MIB", "isdnBearerChannelType"), ("ISDN-MIB", "isdnBearerOperStatus"), ("ISDN-MIB", "isdnBearerChannelNumber"), ("ISDN-MIB", "isdnBearerPeerAddress"), ("ISDN-MIB", "isdnBearerPeerSubAddress"), ("ISDN-MIB", "isdnBearerCallOrigin"), ("ISDN-MIB", "isdnBearerInfoType"), ("ISDN-MIB", "isdnBearerMultirate"), ("ISDN-MIB", "isdnBearerCallSetupTime"), ("ISDN-MIB", "isdnBearerCallConnectTime"), ("ISDN-MIB", "isdnBearerChargedUnits"),))
-if mibBuilder.loadTexts: isdnMibBearerGroup.setDescription('A collection of objects required for ISDN Bearer channel\n             control and statistics.')
-isdnMibSignalingGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 20, 3, 2, 3)).setObjects(*(("ISDN-MIB", "isdnSignalingGetIndex"), ("ISDN-MIB", "isdnSignalingIfIndex"), ("ISDN-MIB", "isdnSignalingProtocol"), ("ISDN-MIB", "isdnSignalingCallingAddress"), ("ISDN-MIB", "isdnSignalingSubAddress"), ("ISDN-MIB", "isdnSignalingBchannelCount"), ("ISDN-MIB", "isdnSignalingInfoTrapEnable"), ("ISDN-MIB", "isdnSignalingStatus"), ("ISDN-MIB", "isdnSigStatsInCalls"), ("ISDN-MIB", "isdnSigStatsInConnected"), ("ISDN-MIB", "isdnSigStatsOutCalls"), ("ISDN-MIB", "isdnSigStatsOutConnected"), ("ISDN-MIB", "isdnSigStatsChargedUnits"), ("ISDN-MIB", "isdnLapdPrimaryChannel"), ("ISDN-MIB", "isdnLapdOperStatus"), ("ISDN-MIB", "isdnLapdPeerSabme"), ("ISDN-MIB", "isdnLapdRecvdFrmr"),))
-if mibBuilder.loadTexts: isdnMibSignalingGroup.setDescription('A collection of objects required for ISDN D channel\n             configuration and statistics.')
-isdnMibEndpointGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 20, 3, 2, 4)).setObjects(*(("ISDN-MIB", "isdnEndpointGetIndex"), ("ISDN-MIB", "isdnEndpointIfIndex"), ("ISDN-MIB", "isdnEndpointIfType"), ("ISDN-MIB", "isdnEndpointTeiType"), ("ISDN-MIB", "isdnEndpointTeiValue"), ("ISDN-MIB", "isdnEndpointSpid"), ("ISDN-MIB", "isdnEndpointStatus"),))
-if mibBuilder.loadTexts: isdnMibEndpointGroup.setDescription('A collection of objects describing Terminal Endpoints.')
-isdnMibDirectoryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 20, 3, 2, 5)).setObjects(*(("ISDN-MIB", "isdnDirectoryNumber"), ("ISDN-MIB", "isdnDirectorySigIndex"), ("ISDN-MIB", "isdnDirectoryStatus"),))
-if mibBuilder.loadTexts: isdnMibDirectoryGroup.setDescription('A collection of objects describing directory numbers.')
-mibBuilder.exportSymbols("ISDN-MIB", isdnBearerGroup=isdnBearerGroup, isdnMib=isdnMib, isdnBasicRateGroup=isdnBasicRateGroup, isdnLapdRecvdFrmr=isdnLapdRecvdFrmr, PYSNMP_MODULE_ID=isdnMib, isdnBasicRateIfType=isdnBasicRateIfType, isdnEndpointGetIndex=isdnEndpointGetIndex, isdnDirectoryStatus=isdnDirectoryStatus, isdnEndpointIndex=isdnEndpointIndex, isdnDirectoryNumber=isdnDirectoryNumber, isdnSignalingProtocol=isdnSignalingProtocol, isdnBearerEntry=isdnBearerEntry, isdnBearerMultirate=isdnBearerMultirate, isdnLapdTable=isdnLapdTable, isdnSignalingGroup=isdnSignalingGroup, isdnBasicRateIfMode=isdnBasicRateIfMode, isdnEndpointSpid=isdnEndpointSpid, isdnMibSignalingGroup=isdnMibSignalingGroup, isdnBearerCallConnectTime=isdnBearerCallConnectTime, isdnSignalingStatus=isdnSignalingStatus, isdnEndpointTeiValue=isdnEndpointTeiValue, isdnMibTrapPrefix=isdnMibTrapPrefix, isdnBearerInfoType=isdnBearerInfoType, isdnLapdPrimaryChannel=isdnLapdPrimaryChannel, isdnSignalingEntry=isdnSignalingEntry, isdnMibObjects=isdnMibObjects, isdnEndpointIfType=isdnEndpointIfType, isdnBearerPeerSubAddress=isdnBearerPeerSubAddress, isdnSignalingIfIndex=isdnSignalingIfIndex, isdnSignalingBchannelCount=isdnSignalingBchannelCount, isdnDirectoryTable=isdnDirectoryTable, isdnBasicRateEntry=isdnBasicRateEntry, isdnMibCallInformation=isdnMibCallInformation, isdnSigStatsOutConnected=isdnSigStatsOutConnected, isdnEndpointStatus=isdnEndpointStatus, isdnBearerChannelNumber=isdnBearerChannelNumber, isdnMibCompliances=isdnMibCompliances, isdnMibBearerGroup=isdnMibBearerGroup, isdnSigStatsInConnected=isdnSigStatsInConnected, isdnEndpointIfIndex=isdnEndpointIfIndex, isdnBearerCallOrigin=isdnBearerCallOrigin, isdnSignalingCallingAddress=isdnSignalingCallingAddress, IsdnSignalingProtocol=IsdnSignalingProtocol, isdnBearerChannelType=isdnBearerChannelType, isdnMibGroups=isdnMibGroups, isdnBasicRateTable=isdnBasicRateTable, isdnBasicRateLineTopology=isdnBasicRateLineTopology, isdnBearerTable=isdnBearerTable, isdnEndpointTable=isdnEndpointTable, isdnEndpointEntry=isdnEndpointEntry, isdnSignalingTable=isdnSignalingTable, isdnBearerPeerAddress=isdnBearerPeerAddress, isdnSigStatsOutCalls=isdnSigStatsOutCalls, isdnMibCompliance=isdnMibCompliance, isdnDirectorySigIndex=isdnDirectorySigIndex, isdnMibBasicRateGroup=isdnMibBasicRateGroup, isdnDirectoryGroup=isdnDirectoryGroup, isdnSigStatsChargedUnits=isdnSigStatsChargedUnits, isdnMibConformance=isdnMibConformance, isdnSignalingIndex=isdnSignalingIndex, isdnMibDirectoryGroup=isdnMibDirectoryGroup, isdnSigStatsInCalls=isdnSigStatsInCalls, isdnLapdOperStatus=isdnLapdOperStatus, isdnSignalingStatsEntry=isdnSignalingStatsEntry, isdnDirectoryIndex=isdnDirectoryIndex, isdnMibEndpointGroup=isdnMibEndpointGroup, isdnMibTraps=isdnMibTraps, isdnBearerOperStatus=isdnBearerOperStatus, isdnBearerCallSetupTime=isdnBearerCallSetupTime, isdnEndpointTeiType=isdnEndpointTeiType, isdnBasicRateSignalMode=isdnBasicRateSignalMode, isdnSignalingInfoTrapEnable=isdnSignalingInfoTrapEnable, isdnSignalingGetIndex=isdnSignalingGetIndex, isdnSignalingStatsTable=isdnSignalingStatsTable, isdnEndpointGroup=isdnEndpointGroup, isdnDirectoryEntry=isdnDirectoryEntry, isdnBearerChargedUnits=isdnBearerChargedUnits, isdnSignalingSubAddress=isdnSignalingSubAddress, isdnLapdEntry=isdnLapdEntry, isdnLapdPeerSabme=isdnLapdPeerSabme)
+isdnMibBasicRateGroup=ObjectGroup((1,3,6,1,2,1,10,20,2,2,1))
+isdnMibBasicRateGroup.setObjects(*((_B,_X),(_B,_Y),(_B,_Z),(_B,_a)))
+if mibBuilder.loadTexts:isdnMibBasicRateGroup.setStatus(_A)
+isdnMibBearerGroup=ObjectGroup((1,3,6,1,2,1,10,20,2,2,2))
+isdnMibBearerGroup.setObjects(*((_B,_b),(_B,_K),(_B,_c),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_d),(_B,_P),(_B,_e),(_B,_f)))
+if mibBuilder.loadTexts:isdnMibBearerGroup.setStatus(_A)
+isdnMibSignalingGroup=ObjectGroup((1,3,6,1,2,1,10,20,2,2,3))
+isdnMibSignalingGroup.setObjects(*((_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w)))
+if mibBuilder.loadTexts:isdnMibSignalingGroup.setStatus(_A)
+isdnMibEndpointGroup=ObjectGroup((1,3,6,1,2,1,10,20,2,2,4))
+isdnMibEndpointGroup.setObjects(*((_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3)))
+if mibBuilder.loadTexts:isdnMibEndpointGroup.setStatus(_A)
+isdnMibDirectoryGroup=ObjectGroup((1,3,6,1,2,1,10,20,2,2,5))
+isdnMibDirectoryGroup.setObjects(*((_B,_A4),(_B,_A5),(_B,_A6)))
+if mibBuilder.loadTexts:isdnMibDirectoryGroup.setStatus(_A)
+isdnMibCallInformation=NotificationType((1,3,6,1,2,1,10,20,2,0,1))
+isdnMibCallInformation.setObjects(*((_G,_H),(_B,_K),(_B,_L),(_B,_M),(_B,_P),(_B,_O),(_B,_N)))
+if mibBuilder.loadTexts:isdnMibCallInformation.setStatus(_A)
+isdnMibNotificationsGroup=NotificationGroup((1,3,6,1,2,1,10,20,2,2,6))
+isdnMibNotificationsGroup.setObjects((_B,_A7))
+if mibBuilder.loadTexts:isdnMibNotificationsGroup.setStatus(_A)
+isdnMibCompliance=ModuleCompliance((1,3,6,1,2,1,10,20,2,1,1))
+isdnMibCompliance.setObjects(*((_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD)))
+if mibBuilder.loadTexts:isdnMibCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'IsdnSignalingProtocol':IsdnSignalingProtocol,'isdnMib':isdnMib,'isdnMibObjects':isdnMibObjects,'isdnBasicRateGroup':isdnBasicRateGroup,'isdnBasicRateTable':isdnBasicRateTable,'isdnBasicRateEntry':isdnBasicRateEntry,_X:isdnBasicRateIfType,_Y:isdnBasicRateLineTopology,_Z:isdnBasicRateIfMode,_a:isdnBasicRateSignalMode,'isdnBearerGroup':isdnBearerGroup,'isdnBearerTable':isdnBearerTable,'isdnBearerEntry':isdnBearerEntry,_b:isdnBearerChannelType,_K:isdnBearerOperStatus,_c:isdnBearerChannelNumber,_L:isdnBearerPeerAddress,_M:isdnBearerPeerSubAddress,_N:isdnBearerCallOrigin,_O:isdnBearerInfoType,_d:isdnBearerMultirate,_P:isdnBearerCallSetupTime,_e:isdnBearerCallConnectTime,_f:isdnBearerChargedUnits,'isdnSignalingGroup':isdnSignalingGroup,_g:isdnSignalingGetIndex,'isdnSignalingTable':isdnSignalingTable,'isdnSignalingEntry':isdnSignalingEntry,_T:isdnSignalingIndex,_h:isdnSignalingIfIndex,_i:isdnSignalingProtocol,_j:isdnSignalingCallingAddress,_k:isdnSignalingSubAddress,_l:isdnSignalingBchannelCount,_m:isdnSignalingInfoTrapEnable,_n:isdnSignalingStatus,'isdnSignalingStatsTable':isdnSignalingStatsTable,_W:isdnSignalingStatsEntry,_o:isdnSigStatsInCalls,_p:isdnSigStatsInConnected,_q:isdnSigStatsOutCalls,_r:isdnSigStatsOutConnected,_s:isdnSigStatsChargedUnits,'isdnLapdTable':isdnLapdTable,'isdnLapdEntry':isdnLapdEntry,_t:isdnLapdPrimaryChannel,_u:isdnLapdOperStatus,_v:isdnLapdPeerSabme,_w:isdnLapdRecvdFrmr,'isdnEndpointGroup':isdnEndpointGroup,_x:isdnEndpointGetIndex,'isdnEndpointTable':isdnEndpointTable,'isdnEndpointEntry':isdnEndpointEntry,_U:isdnEndpointIndex,_y:isdnEndpointIfIndex,_z:isdnEndpointIfType,_A0:isdnEndpointTeiType,_A1:isdnEndpointTeiValue,_A2:isdnEndpointSpid,_A3:isdnEndpointStatus,'isdnDirectoryGroup':isdnDirectoryGroup,'isdnDirectoryTable':isdnDirectoryTable,'isdnDirectoryEntry':isdnDirectoryEntry,_V:isdnDirectoryIndex,_A4:isdnDirectoryNumber,_A5:isdnDirectorySigIndex,_A6:isdnDirectoryStatus,'isdnMibTrapPrefix':isdnMibTrapPrefix,'isdnMibConformance':isdnMibConformance,'isdnMibTraps':isdnMibTraps,_A7:isdnMibCallInformation,'isdnMibCompliances':isdnMibCompliances,'isdnMibCompliance':isdnMibCompliance,'isdnMibGroups':isdnMibGroups,_AB:isdnMibBasicRateGroup,_A9:isdnMibBearerGroup,_A8:isdnMibSignalingGroup,_AC:isdnMibEndpointGroup,_AD:isdnMibDirectoryGroup,_AA:isdnMibNotificationsGroup})

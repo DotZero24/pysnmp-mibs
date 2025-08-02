@@ -1,72 +1,160 @@
-#
-# PySNMP MIB module SOURCE-ROUTING-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/SOURCE-ROUTING-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:29:10 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, OctetString, Integer, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-( dot1dBridge, dot1dSr, ) = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBridge", "dot1dSr")
-( ModuleCompliance, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-( MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, IpAddress, Counter64, NotificationType, Gauge32, MibIdentifier, ObjectIdentity, Unsigned32, ModuleIdentity, Bits, Counter32, Integer32, iso, ) = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "IpAddress", "Counter64", "NotificationType", "Gauge32", "MibIdentifier", "ObjectIdentity", "Unsigned32", "ModuleIdentity", "Bits", "Counter32", "Integer32", "iso")
-( TextualConvention, DisplayString, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-dot1dPortPair = MibIdentifier((1, 3, 6, 1, 2, 1, 17, 10))
-dot1dSrPortTable = MibTable((1, 3, 6, 1, 2, 1, 17, 3, 1), )
-if mibBuilder.loadTexts: dot1dSrPortTable.setDescription('A table that contains information about every\n                      port that is associated with this source route\n                      bridge.')
-dot1dSrPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 17, 3, 1, 1), ).setIndexNames((0, "SOURCE-ROUTING-MIB", "dot1dSrPort"))
-if mibBuilder.loadTexts: dot1dSrPortEntry.setDescription('A list of information for each port of a source\n                      route bridge.')
-dot1dSrPort = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dSrPort.setDescription('The port number of the port for which this entry\n\n\n\n\n\n                      contains Source Route management information.')
-dot1dSrPortHopCount = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1dSrPortHopCount.setDescription('The maximum number of routing descriptors allowed\n                      in an All Paths or Spanning Tree Explorer frames.')
-dot1dSrPortLocalSegment = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1dSrPortLocalSegment.setDescription('The segment number that uniquely identifies the\n                      segment to which this port is connected. Current\n                      source routing protocols limit this value to the\n                      range: 0 through 4095. (The value 0 is used by\n                      some management applications for special test\n                      cases.) A value of 65535 signifies that no segment\n                      number is assigned to this port.')
-dot1dSrPortBridgeNum = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1dSrPortBridgeNum.setDescription('A bridge number uniquely identifies a bridge when\n                      more than one bridge is used to span the same two\n                      segments.  Current source routing protocols limit\n                      this value to the range: 0 through 15. A value of\n                      65535 signifies that no bridge number is assigned\n                      to this bridge.')
-dot1dSrPortTargetSegment = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1dSrPortTargetSegment.setDescription('The segment number that corresponds to the target\n                      segment this port is considered to be connected to\n                      by the bridge.  Current source routing protocols\n                      limit this value to the range: 0 through 4095.\n\n\n\n\n\n                      (The value 0 is used by some management\n                      applications for special test cases.) A value of\n                      65535 signifies that no target segment is assigned\n                      to this port.')
-dot1dSrPortLargestFrame = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1dSrPortLargestFrame.setDescription('The maximum size of the INFO field (LLC and\n                      above) that this port can send/receive.  It does\n                      not include any MAC level (framing) octets.  The\n                      value of this object is used by this bridge to\n                      determine whether a modification of the\n                      LargestFrame (LF, see [14]) field of the Routing\n                      Control field of the Routing Information Field is\n                      necessary.\n\n                      64 valid values are defined by the IEEE 802.5M SRT\n                      Addendum: 516, 635, 754, 873, 993, 1112, 1231,\n                      1350, 1470, 1542, 1615, 1688, 1761, 1833, 1906,\n                      1979, 2052, 2345, 2638, 2932, 3225, 3518, 3812,\n                      4105, 4399, 4865, 5331, 5798, 6264, 6730, 7197,\n                      7663, 8130, 8539, 8949, 9358, 9768, 10178, 10587,\n                      10997, 11407, 12199, 12992, 13785, 14578, 15370,\n                      16163, 16956, 17749, 20730, 23711, 26693, 29674,\n                      32655, 35637, 38618, 41600, 44591, 47583, 50575,\n                      53567, 56559, 59551, and 65535.\n\n                      An illegal value will not be accepted by the\n                      bridge.')
-dot1dSrPortSTESpanMode = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("auto-span", 1), ("disabled", 2), ("forced", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1dSrPortSTESpanMode.setDescription("Determines how this port behaves when presented\n                      with a Spanning Tree Explorer frame.  The value\n                      'disabled(2)' indicates that the port will not\n                      accept or send Spanning Tree Explorer packets; any\n                      STE packets received will be silently discarded.\n                      The value 'forced(3)' indicates the port will\n                      always accept and propagate Spanning Tree Explorer\n                      frames.  This allows a manually configured\n                      Spanning Tree for this class of packet to be\n                      configured.  Note that unlike transparent\n                      bridging, this is not catastrophic to the network\n                      if there are loops.  The value 'auto-span(1)' can\n                      only be returned by a bridge that both implements\n                      the Spanning Tree Protocol and has use of the\n                      protocol enabled on this port. The behavior of the\n                      port for Spanning Tree Explorer frames is\n                      determined by the state of dot1dStpPortState.  If\n                      the port is in the 'forwarding' state, the frame\n                      will be accepted or propagated.  Otherwise, it\n                      will be silently discarded.")
-dot1dSrPortSpecInFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dSrPortSpecInFrames.setDescription("The number of Specifically Routed frames, also\n                      referred to as Source Routed Frames, that have\n                      been received from this port's segment.")
-dot1dSrPortSpecOutFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dSrPortSpecOutFrames.setDescription('The number of Specifically Routed frames, also\n                      referred to as Source Routed Frames, that this\n                      port has transmitted on its segment.')
-dot1dSrPortApeInFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dSrPortApeInFrames.setDescription('The number of All Paths Explorer frames, also\n                      referred to as All Routes Explorer frames, that\n                      have been received by this port from its segment.')
-dot1dSrPortApeOutFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dSrPortApeOutFrames.setDescription('The number of all Paths Explorer Frames, also\n                      referred to as All Routes Explorer frames, that\n                      have been transmitted by this port on its\n                      segment.')
-dot1dSrPortSteInFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dSrPortSteInFrames.setDescription('The number of spanning tree explorer frames that\n                      have been received by this port from its segment.')
-dot1dSrPortSteOutFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dSrPortSteOutFrames.setDescription('The number of spanning tree explorer frames that\n                      have been transmitted by this port on its\n                      segment.')
-dot1dSrPortSegmentMismatchDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dSrPortSegmentMismatchDiscards.setDescription('The number of explorer frames that have been\n                      discarded by this port because the routing\n                      descriptor field contained an invalid adjacent\n                      segment value.')
-dot1dSrPortDuplicateSegmentDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dSrPortDuplicateSegmentDiscards.setDescription('The number of frames that have been discarded by\n                      this port because the routing descriptor field\n                      contained a duplicate segment identifier.')
-dot1dSrPortHopCountExceededDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dSrPortHopCountExceededDiscards.setDescription('The number of explorer frames that have been\n                      discarded by this port because the Routing\n                      Information Field has exceeded the maximum route\n                      descriptor length.')
-dot1dSrPortDupLanIdOrTreeErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dSrPortDupLanIdOrTreeErrors.setDescription('The number of duplicate LAN IDs or Tree errors.\n                      This helps in detection of problems in networks\n                      containing older IBM Source Routing Bridges.')
-dot1dSrPortLanIdMismatches = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 3, 1, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dSrPortLanIdMismatches.setDescription('The number of ARE and STE frames that were\n                      discarded because the last LAN ID in the routing\n                      information field did not equal the LAN-in ID.\n                      This error can occur in implementations which do\n                      only a LAN-in ID and Bridge Number check instead\n                      of a LAN-in ID, Bridge Number, and LAN-out ID\n                      check before they forward broadcast frames.')
-dot1dSrBridgeLfMode = MibScalar((1, 3, 6, 1, 2, 1, 17, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("mode3", 1), ("mode6", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1dSrBridgeLfMode.setDescription('Indicates whether the bridge operates using older\n                      3 bit length negotiation fields or the newer 6 bit\n                      length field in its RIF.')
-dot1dPortPairTableSize = MibScalar((1, 3, 6, 1, 2, 1, 17, 10, 1), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dot1dPortPairTableSize.setDescription('The total number of entries in the Bridge Port\n                      Pair Database.')
-dot1dPortPairTable = MibTable((1, 3, 6, 1, 2, 1, 17, 10, 2), )
-if mibBuilder.loadTexts: dot1dPortPairTable.setDescription('A table that contains information about every\n\n\n\n\n\n                      port pair database entity associated with this\n                      source routing bridge.')
-dot1dPortPairEntry = MibTableRow((1, 3, 6, 1, 2, 1, 17, 10, 2, 1), ).setIndexNames((0, "SOURCE-ROUTING-MIB", "dot1dPortPairLowPort"), (0, "SOURCE-ROUTING-MIB", "dot1dPortPairHighPort"))
-if mibBuilder.loadTexts: dot1dPortPairEntry.setDescription('A list of information for each port pair entity\n                      of a bridge.')
-dot1dPortPairLowPort = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 10, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1dPortPairLowPort.setDescription('The port number of the lower numbered port for\n                      which this entry contains port pair database\n                      information.')
-dot1dPortPairHighPort = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 10, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1dPortPairHighPort.setDescription('The port number of the higher numbered port for\n                      which this entry contains port pair database\n                      information.')
-dot1dPortPairBridgeNum = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 10, 2, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1dPortPairBridgeNum.setDescription('A bridge number that uniquely identifies the path\n                      provided by this source routing bridge between the\n                      segments connected to dot1dPortPairLowPort and\n                      dot1dPortPairHighPort.  The purpose of bridge\n                      number is to disambiguate between multiple paths\n                      connecting the same two LANs.')
-dot1dPortPairBridgeState = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 10, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2), ("invalid", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1dPortPairBridgeState.setDescription("The state of dot1dPortPairBridgeNum.  Writing\n                      'invalid(3)' to this object removes the\n                      corresponding entry.")
-mibBuilder.exportSymbols("SOURCE-ROUTING-MIB", dot1dSrPortApeInFrames=dot1dSrPortApeInFrames, dot1dSrPort=dot1dSrPort, dot1dPortPairTableSize=dot1dPortPairTableSize, dot1dPortPairBridgeState=dot1dPortPairBridgeState, dot1dSrPortEntry=dot1dSrPortEntry, dot1dSrPortLargestFrame=dot1dSrPortLargestFrame, dot1dSrPortHopCount=dot1dSrPortHopCount, dot1dSrBridgeLfMode=dot1dSrBridgeLfMode, dot1dSrPortLanIdMismatches=dot1dSrPortLanIdMismatches, dot1dPortPairEntry=dot1dPortPairEntry, dot1dPortPairHighPort=dot1dPortPairHighPort, dot1dSrPortSpecOutFrames=dot1dSrPortSpecOutFrames, dot1dSrPortSteOutFrames=dot1dSrPortSteOutFrames, dot1dSrPortBridgeNum=dot1dSrPortBridgeNum, dot1dSrPortSteInFrames=dot1dSrPortSteInFrames, dot1dSrPortDupLanIdOrTreeErrors=dot1dSrPortDupLanIdOrTreeErrors, dot1dSrPortHopCountExceededDiscards=dot1dSrPortHopCountExceededDiscards, dot1dSrPortTargetSegment=dot1dSrPortTargetSegment, dot1dSrPortSpecInFrames=dot1dSrPortSpecInFrames, dot1dSrPortSTESpanMode=dot1dSrPortSTESpanMode, dot1dPortPairLowPort=dot1dPortPairLowPort, dot1dSrPortLocalSegment=dot1dSrPortLocalSegment, dot1dSrPortApeOutFrames=dot1dSrPortApeOutFrames, dot1dSrPortDuplicateSegmentDiscards=dot1dSrPortDuplicateSegmentDiscards, dot1dPortPairTable=dot1dPortPairTable, dot1dPortPair=dot1dPortPair, dot1dSrPortSegmentMismatchDiscards=dot1dSrPortSegmentMismatchDiscards, dot1dSrPortTable=dot1dSrPortTable, dot1dPortPairBridgeNum=dot1dPortPairBridgeNum)
+_I='dot1dPortPairHighPort'
+_H='dot1dPortPairLowPort'
+_G='disabled'
+_F='dot1dSrPort'
+_E='SOURCE-ROUTING-MIB'
+_D='Integer32'
+_C='read-write'
+_B='read-only'
+_A='mandatory'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+dot1dBridge,dot1dSr=mibBuilder.importSymbols('BRIDGE-MIB','dot1dBridge','dot1dSr')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+_Dot1dSrPortTable_Object=MibTable
+dot1dSrPortTable=_Dot1dSrPortTable_Object((1,3,6,1,2,1,17,3,1))
+if mibBuilder.loadTexts:dot1dSrPortTable.setStatus(_A)
+_Dot1dSrPortEntry_Object=MibTableRow
+dot1dSrPortEntry=_Dot1dSrPortEntry_Object((1,3,6,1,2,1,17,3,1,1))
+dot1dSrPortEntry.setIndexNames((0,_E,_F))
+if mibBuilder.loadTexts:dot1dSrPortEntry.setStatus(_A)
+class _Dot1dSrPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_Dot1dSrPort_Type.__name__=_D
+_Dot1dSrPort_Object=MibTableColumn
+dot1dSrPort=_Dot1dSrPort_Object((1,3,6,1,2,1,17,3,1,1,1),_Dot1dSrPort_Type())
+dot1dSrPort.setMaxAccess(_B)
+if mibBuilder.loadTexts:dot1dSrPort.setStatus(_A)
+_Dot1dSrPortHopCount_Type=Integer32
+_Dot1dSrPortHopCount_Object=MibTableColumn
+dot1dSrPortHopCount=_Dot1dSrPortHopCount_Object((1,3,6,1,2,1,17,3,1,1,2),_Dot1dSrPortHopCount_Type())
+dot1dSrPortHopCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot1dSrPortHopCount.setStatus(_A)
+_Dot1dSrPortLocalSegment_Type=Integer32
+_Dot1dSrPortLocalSegment_Object=MibTableColumn
+dot1dSrPortLocalSegment=_Dot1dSrPortLocalSegment_Object((1,3,6,1,2,1,17,3,1,1,3),_Dot1dSrPortLocalSegment_Type())
+dot1dSrPortLocalSegment.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot1dSrPortLocalSegment.setStatus(_A)
+_Dot1dSrPortBridgeNum_Type=Integer32
+_Dot1dSrPortBridgeNum_Object=MibTableColumn
+dot1dSrPortBridgeNum=_Dot1dSrPortBridgeNum_Object((1,3,6,1,2,1,17,3,1,1,4),_Dot1dSrPortBridgeNum_Type())
+dot1dSrPortBridgeNum.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot1dSrPortBridgeNum.setStatus(_A)
+_Dot1dSrPortTargetSegment_Type=Integer32
+_Dot1dSrPortTargetSegment_Object=MibTableColumn
+dot1dSrPortTargetSegment=_Dot1dSrPortTargetSegment_Object((1,3,6,1,2,1,17,3,1,1,5),_Dot1dSrPortTargetSegment_Type())
+dot1dSrPortTargetSegment.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot1dSrPortTargetSegment.setStatus(_A)
+_Dot1dSrPortLargestFrame_Type=Integer32
+_Dot1dSrPortLargestFrame_Object=MibTableColumn
+dot1dSrPortLargestFrame=_Dot1dSrPortLargestFrame_Object((1,3,6,1,2,1,17,3,1,1,6),_Dot1dSrPortLargestFrame_Type())
+dot1dSrPortLargestFrame.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot1dSrPortLargestFrame.setStatus(_A)
+class _Dot1dSrPortSTESpanMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('auto-span',1),(_G,2),('forced',3)))
+_Dot1dSrPortSTESpanMode_Type.__name__=_D
+_Dot1dSrPortSTESpanMode_Object=MibTableColumn
+dot1dSrPortSTESpanMode=_Dot1dSrPortSTESpanMode_Object((1,3,6,1,2,1,17,3,1,1,7),_Dot1dSrPortSTESpanMode_Type())
+dot1dSrPortSTESpanMode.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot1dSrPortSTESpanMode.setStatus(_A)
+_Dot1dSrPortSpecInFrames_Type=Counter32
+_Dot1dSrPortSpecInFrames_Object=MibTableColumn
+dot1dSrPortSpecInFrames=_Dot1dSrPortSpecInFrames_Object((1,3,6,1,2,1,17,3,1,1,8),_Dot1dSrPortSpecInFrames_Type())
+dot1dSrPortSpecInFrames.setMaxAccess(_B)
+if mibBuilder.loadTexts:dot1dSrPortSpecInFrames.setStatus(_A)
+_Dot1dSrPortSpecOutFrames_Type=Counter32
+_Dot1dSrPortSpecOutFrames_Object=MibTableColumn
+dot1dSrPortSpecOutFrames=_Dot1dSrPortSpecOutFrames_Object((1,3,6,1,2,1,17,3,1,1,9),_Dot1dSrPortSpecOutFrames_Type())
+dot1dSrPortSpecOutFrames.setMaxAccess(_B)
+if mibBuilder.loadTexts:dot1dSrPortSpecOutFrames.setStatus(_A)
+_Dot1dSrPortApeInFrames_Type=Counter32
+_Dot1dSrPortApeInFrames_Object=MibTableColumn
+dot1dSrPortApeInFrames=_Dot1dSrPortApeInFrames_Object((1,3,6,1,2,1,17,3,1,1,10),_Dot1dSrPortApeInFrames_Type())
+dot1dSrPortApeInFrames.setMaxAccess(_B)
+if mibBuilder.loadTexts:dot1dSrPortApeInFrames.setStatus(_A)
+_Dot1dSrPortApeOutFrames_Type=Counter32
+_Dot1dSrPortApeOutFrames_Object=MibTableColumn
+dot1dSrPortApeOutFrames=_Dot1dSrPortApeOutFrames_Object((1,3,6,1,2,1,17,3,1,1,11),_Dot1dSrPortApeOutFrames_Type())
+dot1dSrPortApeOutFrames.setMaxAccess(_B)
+if mibBuilder.loadTexts:dot1dSrPortApeOutFrames.setStatus(_A)
+_Dot1dSrPortSteInFrames_Type=Counter32
+_Dot1dSrPortSteInFrames_Object=MibTableColumn
+dot1dSrPortSteInFrames=_Dot1dSrPortSteInFrames_Object((1,3,6,1,2,1,17,3,1,1,12),_Dot1dSrPortSteInFrames_Type())
+dot1dSrPortSteInFrames.setMaxAccess(_B)
+if mibBuilder.loadTexts:dot1dSrPortSteInFrames.setStatus(_A)
+_Dot1dSrPortSteOutFrames_Type=Counter32
+_Dot1dSrPortSteOutFrames_Object=MibTableColumn
+dot1dSrPortSteOutFrames=_Dot1dSrPortSteOutFrames_Object((1,3,6,1,2,1,17,3,1,1,13),_Dot1dSrPortSteOutFrames_Type())
+dot1dSrPortSteOutFrames.setMaxAccess(_B)
+if mibBuilder.loadTexts:dot1dSrPortSteOutFrames.setStatus(_A)
+_Dot1dSrPortSegmentMismatchDiscards_Type=Counter32
+_Dot1dSrPortSegmentMismatchDiscards_Object=MibTableColumn
+dot1dSrPortSegmentMismatchDiscards=_Dot1dSrPortSegmentMismatchDiscards_Object((1,3,6,1,2,1,17,3,1,1,14),_Dot1dSrPortSegmentMismatchDiscards_Type())
+dot1dSrPortSegmentMismatchDiscards.setMaxAccess(_B)
+if mibBuilder.loadTexts:dot1dSrPortSegmentMismatchDiscards.setStatus(_A)
+_Dot1dSrPortDuplicateSegmentDiscards_Type=Counter32
+_Dot1dSrPortDuplicateSegmentDiscards_Object=MibTableColumn
+dot1dSrPortDuplicateSegmentDiscards=_Dot1dSrPortDuplicateSegmentDiscards_Object((1,3,6,1,2,1,17,3,1,1,15),_Dot1dSrPortDuplicateSegmentDiscards_Type())
+dot1dSrPortDuplicateSegmentDiscards.setMaxAccess(_B)
+if mibBuilder.loadTexts:dot1dSrPortDuplicateSegmentDiscards.setStatus(_A)
+_Dot1dSrPortHopCountExceededDiscards_Type=Counter32
+_Dot1dSrPortHopCountExceededDiscards_Object=MibTableColumn
+dot1dSrPortHopCountExceededDiscards=_Dot1dSrPortHopCountExceededDiscards_Object((1,3,6,1,2,1,17,3,1,1,16),_Dot1dSrPortHopCountExceededDiscards_Type())
+dot1dSrPortHopCountExceededDiscards.setMaxAccess(_B)
+if mibBuilder.loadTexts:dot1dSrPortHopCountExceededDiscards.setStatus(_A)
+_Dot1dSrPortDupLanIdOrTreeErrors_Type=Counter32
+_Dot1dSrPortDupLanIdOrTreeErrors_Object=MibTableColumn
+dot1dSrPortDupLanIdOrTreeErrors=_Dot1dSrPortDupLanIdOrTreeErrors_Object((1,3,6,1,2,1,17,3,1,1,17),_Dot1dSrPortDupLanIdOrTreeErrors_Type())
+dot1dSrPortDupLanIdOrTreeErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:dot1dSrPortDupLanIdOrTreeErrors.setStatus(_A)
+_Dot1dSrPortLanIdMismatches_Type=Counter32
+_Dot1dSrPortLanIdMismatches_Object=MibTableColumn
+dot1dSrPortLanIdMismatches=_Dot1dSrPortLanIdMismatches_Object((1,3,6,1,2,1,17,3,1,1,18),_Dot1dSrPortLanIdMismatches_Type())
+dot1dSrPortLanIdMismatches.setMaxAccess(_B)
+if mibBuilder.loadTexts:dot1dSrPortLanIdMismatches.setStatus(_A)
+class _Dot1dSrBridgeLfMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('mode3',1),('mode6',2)))
+_Dot1dSrBridgeLfMode_Type.__name__=_D
+_Dot1dSrBridgeLfMode_Object=MibScalar
+dot1dSrBridgeLfMode=_Dot1dSrBridgeLfMode_Object((1,3,6,1,2,1,17,3,2),_Dot1dSrBridgeLfMode_Type())
+dot1dSrBridgeLfMode.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot1dSrBridgeLfMode.setStatus(_A)
+_Dot1dPortPair_ObjectIdentity=ObjectIdentity
+dot1dPortPair=_Dot1dPortPair_ObjectIdentity((1,3,6,1,2,1,17,10))
+_Dot1dPortPairTableSize_Type=Gauge32
+_Dot1dPortPairTableSize_Object=MibScalar
+dot1dPortPairTableSize=_Dot1dPortPairTableSize_Object((1,3,6,1,2,1,17,10,1),_Dot1dPortPairTableSize_Type())
+dot1dPortPairTableSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:dot1dPortPairTableSize.setStatus(_A)
+_Dot1dPortPairTable_Object=MibTable
+dot1dPortPairTable=_Dot1dPortPairTable_Object((1,3,6,1,2,1,17,10,2))
+if mibBuilder.loadTexts:dot1dPortPairTable.setStatus(_A)
+_Dot1dPortPairEntry_Object=MibTableRow
+dot1dPortPairEntry=_Dot1dPortPairEntry_Object((1,3,6,1,2,1,17,10,2,1))
+dot1dPortPairEntry.setIndexNames((0,_E,_H),(0,_E,_I))
+if mibBuilder.loadTexts:dot1dPortPairEntry.setStatus(_A)
+class _Dot1dPortPairLowPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_Dot1dPortPairLowPort_Type.__name__=_D
+_Dot1dPortPairLowPort_Object=MibTableColumn
+dot1dPortPairLowPort=_Dot1dPortPairLowPort_Object((1,3,6,1,2,1,17,10,2,1,1),_Dot1dPortPairLowPort_Type())
+dot1dPortPairLowPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot1dPortPairLowPort.setStatus(_A)
+class _Dot1dPortPairHighPort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_Dot1dPortPairHighPort_Type.__name__=_D
+_Dot1dPortPairHighPort_Object=MibTableColumn
+dot1dPortPairHighPort=_Dot1dPortPairHighPort_Object((1,3,6,1,2,1,17,10,2,1,2),_Dot1dPortPairHighPort_Type())
+dot1dPortPairHighPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot1dPortPairHighPort.setStatus(_A)
+_Dot1dPortPairBridgeNum_Type=Integer32
+_Dot1dPortPairBridgeNum_Object=MibTableColumn
+dot1dPortPairBridgeNum=_Dot1dPortPairBridgeNum_Object((1,3,6,1,2,1,17,10,2,1,3),_Dot1dPortPairBridgeNum_Type())
+dot1dPortPairBridgeNum.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot1dPortPairBridgeNum.setStatus(_A)
+class _Dot1dPortPairBridgeState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('enabled',1),(_G,2),('invalid',3)))
+_Dot1dPortPairBridgeState_Type.__name__=_D
+_Dot1dPortPairBridgeState_Object=MibTableColumn
+dot1dPortPairBridgeState=_Dot1dPortPairBridgeState_Object((1,3,6,1,2,1,17,10,2,1,4),_Dot1dPortPairBridgeState_Type())
+dot1dPortPairBridgeState.setMaxAccess(_C)
+if mibBuilder.loadTexts:dot1dPortPairBridgeState.setStatus(_A)
+mibBuilder.exportSymbols(_E,**{'dot1dSrPortTable':dot1dSrPortTable,'dot1dSrPortEntry':dot1dSrPortEntry,_F:dot1dSrPort,'dot1dSrPortHopCount':dot1dSrPortHopCount,'dot1dSrPortLocalSegment':dot1dSrPortLocalSegment,'dot1dSrPortBridgeNum':dot1dSrPortBridgeNum,'dot1dSrPortTargetSegment':dot1dSrPortTargetSegment,'dot1dSrPortLargestFrame':dot1dSrPortLargestFrame,'dot1dSrPortSTESpanMode':dot1dSrPortSTESpanMode,'dot1dSrPortSpecInFrames':dot1dSrPortSpecInFrames,'dot1dSrPortSpecOutFrames':dot1dSrPortSpecOutFrames,'dot1dSrPortApeInFrames':dot1dSrPortApeInFrames,'dot1dSrPortApeOutFrames':dot1dSrPortApeOutFrames,'dot1dSrPortSteInFrames':dot1dSrPortSteInFrames,'dot1dSrPortSteOutFrames':dot1dSrPortSteOutFrames,'dot1dSrPortSegmentMismatchDiscards':dot1dSrPortSegmentMismatchDiscards,'dot1dSrPortDuplicateSegmentDiscards':dot1dSrPortDuplicateSegmentDiscards,'dot1dSrPortHopCountExceededDiscards':dot1dSrPortHopCountExceededDiscards,'dot1dSrPortDupLanIdOrTreeErrors':dot1dSrPortDupLanIdOrTreeErrors,'dot1dSrPortLanIdMismatches':dot1dSrPortLanIdMismatches,'dot1dSrBridgeLfMode':dot1dSrBridgeLfMode,'dot1dPortPair':dot1dPortPair,'dot1dPortPairTableSize':dot1dPortPairTableSize,'dot1dPortPairTable':dot1dPortPairTable,'dot1dPortPairEntry':dot1dPortPairEntry,_H:dot1dPortPairLowPort,_I:dot1dPortPairHighPort,'dot1dPortPairBridgeNum':dot1dPortPairBridgeNum,'dot1dPortPairBridgeState':dot1dPortPairBridgeState})

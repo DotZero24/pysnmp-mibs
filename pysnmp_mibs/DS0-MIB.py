@@ -1,53 +1,105 @@
-#
-# PySNMP MIB module DS0-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/DS0-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:10:48 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
-( InterfaceIndex, ifIndex, InterfaceIndexOrZero, ) = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex", "ifIndex", "InterfaceIndexOrZero")
-( NotificationGroup, ModuleCompliance, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-( Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Unsigned32, Gauge32, ModuleIdentity, transmission, Counter64, iso, IpAddress, NotificationType, Bits, ObjectIdentity, Counter32, TimeTicks, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Unsigned32", "Gauge32", "ModuleIdentity", "transmission", "Counter64", "iso", "IpAddress", "NotificationType", "Bits", "ObjectIdentity", "Counter32", "TimeTicks")
-( DisplayString, TextualConvention, TruthValue, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
-ds0 = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 81)).setRevisions(("1998-05-24 20:10",))
-if mibBuilder.loadTexts: ds0.setLastUpdated('9807161630Z')
-if mibBuilder.loadTexts: ds0.setOrganization('IETF Trunk MIB Working Group')
-if mibBuilder.loadTexts: ds0.setContactInfo('        David Fowler\n\n          Postal: Newbridge Networks Corporation\n                  600 March Road\n                  Kanata, Ontario, Canada K2K 2E6\n\n                  Tel: +1 613 591 3600\n                  Fax: +1 613 599 3619\n\n          E-mail: davef@newbridge.com')
-if mibBuilder.loadTexts: ds0.setDescription('The MIB module to describe\n             DS0 interfaces objects.')
-dsx0ConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 81, 1), )
-if mibBuilder.loadTexts: dsx0ConfigTable.setDescription('The DS0 Configuration table.')
-dsx0ConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 81, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: dsx0ConfigEntry.setDescription('An entry in the DS0 Configuration table.  There\n               is an entry in this table for each DS0 interface.')
-dsx0Ds0ChannelNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 81, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx0Ds0ChannelNumber.setDescription('This object indicates the channel number of the\n               ds0 on its DS1/E1.')
-dsx0RobbedBitSignalling = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 81, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx0RobbedBitSignalling.setDescription('This object indicates if Robbed Bit Signalling is\n               turned on or off for a given ds0.  This only\n               applies to DS0s on a DS1 link.  For E1 links the\n               value is always off (false).')
-dsx0CircuitIdentifier = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 81, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx0CircuitIdentifier.setDescription("This object contains the transmission vendor's\n               circuit identifier, for the purpose of\n               facilitating troubleshooting.")
-dsx0IdleCode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 81, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx0IdleCode.setDescription('This object contains the code transmitted in the\n               ABCD bits when the ds0 is not connected and\n               dsx0TransmitCodesEnable is enabled.  The object is\n               a bitmap and the various bit positions are:\n                     1     D bit\n                     2     C bit\n                     4     B bit\n                     8     A bit')
-dsx0SeizedCode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 81, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx0SeizedCode.setDescription('This object contains the code transmitted in the\n               ABCD bits when the ds0 is connected and\n               dsx0TransmitCodesEnable is enabled.  The object is\n               a bitmap and the various bit positions are:\n                     1     D bit\n                     2     C bit\n                     4     B bit\n                     8     A bit')
-dsx0ReceivedCode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 81, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,15))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx0ReceivedCode.setDescription('This object contains the code being received in\n               the ABCD bits.  The object is a bitmap and the\n               various bit positions are:\n                     1     D bit\n                     2     C bit\n                     4     B bit\n                     8     A bit')
-dsx0TransmitCodesEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 81, 1, 1, 7), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dsx0TransmitCodesEnable.setDescription('This object determines if the idle and seized\n               codes are transmitted. If the value of this object\n               is true then the codes are transmitted.')
-dsx0Ds0BundleMappedIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 81, 1, 1, 8), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx0Ds0BundleMappedIfIndex.setDescription('This object indicates the ifIndex value assigned\n               by the agent for the ds0Bundle(82) ifEntry to\n               which the given ds0(81) ifEntry may belong.\n\n               If the given ds0(81) ifEntry does not belong to\n               any ds0Bundle(82) ifEntry, then this object has a\n               value of zero.\n\n               While this object provides information that can\n               also be found in the ifStackTable, it provides\n               this same information with a single table lookup,\n               rather than by walking the ifStackTable to find\n               the possibly non-existent ds0Bundle(82) ifEntry\n               that may be stacked above the given ds0(81)\n               ifTable entry.')
-dsx0ChanMappingTable = MibTable((1, 3, 6, 1, 2, 1, 10, 81, 3), )
-if mibBuilder.loadTexts: dsx0ChanMappingTable.setDescription('The DS0 Channel Mapping table.  This table maps a\n               DS0 channel number on a particular DS1/E1 into an\n               ifIndex.')
-dsx0ChanMappingEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 81, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "DS0-MIB", "dsx0Ds0ChannelNumber"))
-if mibBuilder.loadTexts: dsx0ChanMappingEntry.setDescription('An entry in the DS0 Channel Mapping table.  There\n               is an entry in this table corresponding to each\n               ds0 ifEntry within any interface that is\n               channelized to the individual ds0 ifEntry level.\n\n               This table is intended to facilitate mapping from\n               channelized interface / channel number to DS0\n               ifEntry.  (e.g. mapping (DS1 ifIndex, DS0 Channel\n               Number) -> ifIndex)\n\n               While this table provides information that can\n               also be found in the ifStackTable and\n               dsx0ConfigTable, it provides this same information\n               with a single table lookup, rather than by walking\n               the ifStackTable to find the various constituent\n               ds0 ifTable entries, and testing various\n               dsx0ConfigTable entries to check for the entry\n               with the applicable DS0 channel number.')
-dsx0ChanMappedIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 81, 3, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dsx0ChanMappedIfIndex.setDescription('This object indicates the ifIndex value assigned\n               by the agent for the individual ds0 ifEntry that\n               corresponds to the given DS0 channel number\n               (specified by the INDEX element\n               dsx0Ds0ChannelNumber) of the given channelized\n               interface (specified by INDEX element ifIndex).')
-ds0Conformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 81, 2))
-ds0Groups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 81, 2, 1))
-ds0Compliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 81, 2, 2))
-ds0Compliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 81, 2, 2, 1)).setObjects(*(("DS0-MIB", "ds0ConfigGroup"),))
-if mibBuilder.loadTexts: ds0Compliance.setDescription('The compliance statement for DS0 interfaces.')
-ds0ConfigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 81, 2, 1, 1)).setObjects(*(("DS0-MIB", "dsx0Ds0ChannelNumber"), ("DS0-MIB", "dsx0RobbedBitSignalling"), ("DS0-MIB", "dsx0CircuitIdentifier"), ("DS0-MIB", "dsx0IdleCode"), ("DS0-MIB", "dsx0SeizedCode"), ("DS0-MIB", "dsx0ReceivedCode"), ("DS0-MIB", "dsx0TransmitCodesEnable"), ("DS0-MIB", "dsx0Ds0BundleMappedIfIndex"), ("DS0-MIB", "dsx0ChanMappedIfIndex"),))
-if mibBuilder.loadTexts: ds0ConfigGroup.setDescription('A collection of objects providing configuration\n               information applicable to all DS0 interfaces.')
-mibBuilder.exportSymbols("DS0-MIB", dsx0ChanMappingTable=dsx0ChanMappingTable, dsx0ChanMappedIfIndex=dsx0ChanMappedIfIndex, dsx0RobbedBitSignalling=dsx0RobbedBitSignalling, dsx0ChanMappingEntry=dsx0ChanMappingEntry, dsx0ConfigEntry=dsx0ConfigEntry, dsx0Ds0ChannelNumber=dsx0Ds0ChannelNumber, dsx0SeizedCode=dsx0SeizedCode, ds0Compliance=ds0Compliance, ds0Conformance=ds0Conformance, dsx0ConfigTable=dsx0ConfigTable, dsx0CircuitIdentifier=dsx0CircuitIdentifier, dsx0TransmitCodesEnable=dsx0TransmitCodesEnable, dsx0ReceivedCode=dsx0ReceivedCode, ds0Groups=ds0Groups, ds0Compliances=ds0Compliances, ds0=ds0, dsx0IdleCode=dsx0IdleCode, PYSNMP_MODULE_ID=ds0, dsx0Ds0BundleMappedIfIndex=dsx0Ds0BundleMappedIfIndex, ds0ConfigGroup=ds0ConfigGroup)
+_R='ds0ConfigGroup'
+_Q='dsx0ChanMappedIfIndex'
+_P='dsx0Ds0BundleMappedIfIndex'
+_O='dsx0TransmitCodesEnable'
+_N='dsx0ReceivedCode'
+_M='dsx0SeizedCode'
+_L='dsx0IdleCode'
+_K='dsx0CircuitIdentifier'
+_J='dsx0RobbedBitSignalling'
+_I='DisplayString'
+_H='dsx0Ds0ChannelNumber'
+_G='ifIndex'
+_F='IF-MIB'
+_E='read-only'
+_D='read-write'
+_C='Integer32'
+_B='DS0-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InterfaceIndex,InterfaceIndexOrZero,ifIndex=mibBuilder.importSymbols(_F,'InterfaceIndex','InterfaceIndexOrZero',_G)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','transmission')
+DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_I,'PhysAddress','TextualConvention','TruthValue')
+ds0=ModuleIdentity((1,3,6,1,2,1,10,81))
+if mibBuilder.loadTexts:ds0.setRevisions(('1998-05-24 20:10',))
+_Dsx0ConfigTable_Object=MibTable
+dsx0ConfigTable=_Dsx0ConfigTable_Object((1,3,6,1,2,1,10,81,1))
+if mibBuilder.loadTexts:dsx0ConfigTable.setStatus(_A)
+_Dsx0ConfigEntry_Object=MibTableRow
+dsx0ConfigEntry=_Dsx0ConfigEntry_Object((1,3,6,1,2,1,10,81,1,1))
+dsx0ConfigEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:dsx0ConfigEntry.setStatus(_A)
+class _Dsx0Ds0ChannelNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,31))
+_Dsx0Ds0ChannelNumber_Type.__name__=_C
+_Dsx0Ds0ChannelNumber_Object=MibTableColumn
+dsx0Ds0ChannelNumber=_Dsx0Ds0ChannelNumber_Object((1,3,6,1,2,1,10,81,1,1,1),_Dsx0Ds0ChannelNumber_Type())
+dsx0Ds0ChannelNumber.setMaxAccess(_E)
+if mibBuilder.loadTexts:dsx0Ds0ChannelNumber.setStatus(_A)
+_Dsx0RobbedBitSignalling_Type=TruthValue
+_Dsx0RobbedBitSignalling_Object=MibTableColumn
+dsx0RobbedBitSignalling=_Dsx0RobbedBitSignalling_Object((1,3,6,1,2,1,10,81,1,1,2),_Dsx0RobbedBitSignalling_Type())
+dsx0RobbedBitSignalling.setMaxAccess(_D)
+if mibBuilder.loadTexts:dsx0RobbedBitSignalling.setStatus(_A)
+class _Dsx0CircuitIdentifier_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_Dsx0CircuitIdentifier_Type.__name__=_I
+_Dsx0CircuitIdentifier_Object=MibTableColumn
+dsx0CircuitIdentifier=_Dsx0CircuitIdentifier_Object((1,3,6,1,2,1,10,81,1,1,3),_Dsx0CircuitIdentifier_Type())
+dsx0CircuitIdentifier.setMaxAccess(_D)
+if mibBuilder.loadTexts:dsx0CircuitIdentifier.setStatus(_A)
+class _Dsx0IdleCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
+_Dsx0IdleCode_Type.__name__=_C
+_Dsx0IdleCode_Object=MibTableColumn
+dsx0IdleCode=_Dsx0IdleCode_Object((1,3,6,1,2,1,10,81,1,1,4),_Dsx0IdleCode_Type())
+dsx0IdleCode.setMaxAccess(_D)
+if mibBuilder.loadTexts:dsx0IdleCode.setStatus(_A)
+class _Dsx0SeizedCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
+_Dsx0SeizedCode_Type.__name__=_C
+_Dsx0SeizedCode_Object=MibTableColumn
+dsx0SeizedCode=_Dsx0SeizedCode_Object((1,3,6,1,2,1,10,81,1,1,5),_Dsx0SeizedCode_Type())
+dsx0SeizedCode.setMaxAccess(_D)
+if mibBuilder.loadTexts:dsx0SeizedCode.setStatus(_A)
+class _Dsx0ReceivedCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
+_Dsx0ReceivedCode_Type.__name__=_C
+_Dsx0ReceivedCode_Object=MibTableColumn
+dsx0ReceivedCode=_Dsx0ReceivedCode_Object((1,3,6,1,2,1,10,81,1,1,6),_Dsx0ReceivedCode_Type())
+dsx0ReceivedCode.setMaxAccess(_E)
+if mibBuilder.loadTexts:dsx0ReceivedCode.setStatus(_A)
+_Dsx0TransmitCodesEnable_Type=TruthValue
+_Dsx0TransmitCodesEnable_Object=MibTableColumn
+dsx0TransmitCodesEnable=_Dsx0TransmitCodesEnable_Object((1,3,6,1,2,1,10,81,1,1,7),_Dsx0TransmitCodesEnable_Type())
+dsx0TransmitCodesEnable.setMaxAccess(_D)
+if mibBuilder.loadTexts:dsx0TransmitCodesEnable.setStatus(_A)
+_Dsx0Ds0BundleMappedIfIndex_Type=InterfaceIndexOrZero
+_Dsx0Ds0BundleMappedIfIndex_Object=MibTableColumn
+dsx0Ds0BundleMappedIfIndex=_Dsx0Ds0BundleMappedIfIndex_Object((1,3,6,1,2,1,10,81,1,1,8),_Dsx0Ds0BundleMappedIfIndex_Type())
+dsx0Ds0BundleMappedIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:dsx0Ds0BundleMappedIfIndex.setStatus(_A)
+_Ds0Conformance_ObjectIdentity=ObjectIdentity
+ds0Conformance=_Ds0Conformance_ObjectIdentity((1,3,6,1,2,1,10,81,2))
+_Ds0Groups_ObjectIdentity=ObjectIdentity
+ds0Groups=_Ds0Groups_ObjectIdentity((1,3,6,1,2,1,10,81,2,1))
+_Ds0Compliances_ObjectIdentity=ObjectIdentity
+ds0Compliances=_Ds0Compliances_ObjectIdentity((1,3,6,1,2,1,10,81,2,2))
+_Dsx0ChanMappingTable_Object=MibTable
+dsx0ChanMappingTable=_Dsx0ChanMappingTable_Object((1,3,6,1,2,1,10,81,3))
+if mibBuilder.loadTexts:dsx0ChanMappingTable.setStatus(_A)
+_Dsx0ChanMappingEntry_Object=MibTableRow
+dsx0ChanMappingEntry=_Dsx0ChanMappingEntry_Object((1,3,6,1,2,1,10,81,3,1))
+dsx0ChanMappingEntry.setIndexNames((0,_F,_G),(0,_B,_H))
+if mibBuilder.loadTexts:dsx0ChanMappingEntry.setStatus(_A)
+_Dsx0ChanMappedIfIndex_Type=InterfaceIndex
+_Dsx0ChanMappedIfIndex_Object=MibTableColumn
+dsx0ChanMappedIfIndex=_Dsx0ChanMappedIfIndex_Object((1,3,6,1,2,1,10,81,3,1,1),_Dsx0ChanMappedIfIndex_Type())
+dsx0ChanMappedIfIndex.setMaxAccess(_E)
+if mibBuilder.loadTexts:dsx0ChanMappedIfIndex.setStatus(_A)
+ds0ConfigGroup=ObjectGroup((1,3,6,1,2,1,10,81,2,1,1))
+ds0ConfigGroup.setObjects(*((_B,_H),(_B,_J),(_B,_K),(_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q)))
+if mibBuilder.loadTexts:ds0ConfigGroup.setStatus(_A)
+ds0Compliance=ModuleCompliance((1,3,6,1,2,1,10,81,2,2,1))
+ds0Compliance.setObjects((_B,_R))
+if mibBuilder.loadTexts:ds0Compliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'ds0':ds0,'dsx0ConfigTable':dsx0ConfigTable,'dsx0ConfigEntry':dsx0ConfigEntry,_H:dsx0Ds0ChannelNumber,_J:dsx0RobbedBitSignalling,_K:dsx0CircuitIdentifier,_L:dsx0IdleCode,_M:dsx0SeizedCode,_N:dsx0ReceivedCode,_O:dsx0TransmitCodesEnable,_P:dsx0Ds0BundleMappedIfIndex,'ds0Conformance':ds0Conformance,'ds0Groups':ds0Groups,_R:ds0ConfigGroup,'ds0Compliances':ds0Compliances,'ds0Compliance':ds0Compliance,'dsx0ChanMappingTable':dsx0ChanMappingTable,'dsx0ChanMappingEntry':dsx0ChanMappingEntry,_Q:dsx0ChanMappedIfIndex})

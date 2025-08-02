@@ -1,0 +1,142 @@
+_V='cwfFeederGroup2'
+_U='cwfFeederGroup'
+_T='cwfLMIType'
+_S='deprecated'
+_R='cwfFeederIfNum'
+_Q='cwfFeederRowStatus'
+_P='cwfFeederNodeAlarm'
+_O='cwfLMIOperStatus'
+_N='cwfLMIAdminStatus'
+_M='cwfModelNumber'
+_L='cwfFeederType'
+_K='cwfRemotePort'
+_J='cwfRemoteSlot'
+_I='cwfRemoteShelf'
+_H='cwfNetIP'
+_G='cwfLanIP'
+_F='cwfFeederName'
+_E='read-create'
+_D='read-only'
+_C='Integer32'
+_B='current'
+_A='CISCO-WAN-FEEDER-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ciscoWan,=mibBuilder.importSymbols('CISCOWAN-SMI','ciscoWan')
+InterfaceIndex,=mibBuilder.importSymbols('IF-MIB','InterfaceIndex')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
+ciscoWanFeederMIB=ModuleIdentity((1,3,6,1,4,1,351,150,15))
+if mibBuilder.loadTexts:ciscoWanFeederMIB.setRevisions(('2003-03-27 00:00','2000-10-10 00:00','2000-04-25 00:00'))
+_CwfMIBObjects_ObjectIdentity=ObjectIdentity
+cwfMIBObjects=_CwfMIBObjects_ObjectIdentity((1,3,6,1,4,1,351,150,15,1))
+_CwfFeeder_ObjectIdentity=ObjectIdentity
+cwfFeeder=_CwfFeeder_ObjectIdentity((1,3,6,1,4,1,351,150,15,1,1))
+_CwfFeederTable_Object=MibTable
+cwfFeederTable=_CwfFeederTable_Object((1,3,6,1,4,1,351,150,15,1,1,1))
+if mibBuilder.loadTexts:cwfFeederTable.setStatus(_B)
+_CwfFeederEntry_Object=MibTableRow
+cwfFeederEntry=_CwfFeederEntry_Object((1,3,6,1,4,1,351,150,15,1,1,1,1))
+cwfFeederEntry.setIndexNames((0,_A,_R))
+if mibBuilder.loadTexts:cwfFeederEntry.setStatus(_B)
+_CwfFeederIfNum_Type=InterfaceIndex
+_CwfFeederIfNum_Object=MibTableColumn
+cwfFeederIfNum=_CwfFeederIfNum_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,1),_CwfFeederIfNum_Type())
+cwfFeederIfNum.setMaxAccess('not-accessible')
+if mibBuilder.loadTexts:cwfFeederIfNum.setStatus(_B)
+_CwfFeederName_Type=DisplayString
+_CwfFeederName_Object=MibTableColumn
+cwfFeederName=_CwfFeederName_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,2),_CwfFeederName_Type())
+cwfFeederName.setMaxAccess(_D)
+if mibBuilder.loadTexts:cwfFeederName.setStatus(_B)
+_CwfLanIP_Type=IpAddress
+_CwfLanIP_Object=MibTableColumn
+cwfLanIP=_CwfLanIP_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,3),_CwfLanIP_Type())
+cwfLanIP.setMaxAccess(_D)
+if mibBuilder.loadTexts:cwfLanIP.setStatus(_B)
+_CwfNetIP_Type=IpAddress
+_CwfNetIP_Object=MibTableColumn
+cwfNetIP=_CwfNetIP_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,4),_CwfNetIP_Type())
+cwfNetIP.setMaxAccess(_D)
+if mibBuilder.loadTexts:cwfNetIP.setStatus(_B)
+class _CwfRemoteShelf_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
+_CwfRemoteShelf_Type.__name__=_C
+_CwfRemoteShelf_Object=MibTableColumn
+cwfRemoteShelf=_CwfRemoteShelf_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,5),_CwfRemoteShelf_Type())
+cwfRemoteShelf.setMaxAccess(_D)
+if mibBuilder.loadTexts:cwfRemoteShelf.setStatus(_B)
+class _CwfRemoteSlot_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32))
+_CwfRemoteSlot_Type.__name__=_C
+_CwfRemoteSlot_Object=MibTableColumn
+cwfRemoteSlot=_CwfRemoteSlot_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,6),_CwfRemoteSlot_Type())
+cwfRemoteSlot.setMaxAccess(_D)
+if mibBuilder.loadTexts:cwfRemoteSlot.setStatus(_B)
+class _CwfRemotePort_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,64))
+_CwfRemotePort_Type.__name__=_C
+_CwfRemotePort_Object=MibTableColumn
+cwfRemotePort=_CwfRemotePort_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,7),_CwfRemotePort_Type())
+cwfRemotePort.setMaxAccess(_D)
+if mibBuilder.loadTexts:cwfRemotePort.setStatus(_B)
+class _CwfFeederType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12)));namedValues=NamedValues(*(('fdrIPX',1),('fdrBPX',2),('fdrIpxAF',3),('fdrBASIS',4),('fdrUNKNOWN',5),('fdrUNI',6),('fdrAPS',7),('fdrIGX',8),('fdrIgxAF',9),('fdrVSI',10),('fdrPAR',11),('fdrNON',12)))
+_CwfFeederType_Type.__name__=_C
+_CwfFeederType_Object=MibTableColumn
+cwfFeederType=_CwfFeederType_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,8),_CwfFeederType_Type())
+cwfFeederType.setMaxAccess(_D)
+if mibBuilder.loadTexts:cwfFeederType.setStatus(_B)
+class _CwfModelNumber_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_CwfModelNumber_Type.__name__=_C
+_CwfModelNumber_Object=MibTableColumn
+cwfModelNumber=_CwfModelNumber_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,9),_CwfModelNumber_Type())
+cwfModelNumber.setMaxAccess(_D)
+if mibBuilder.loadTexts:cwfModelNumber.setStatus(_B)
+class _CwfLMIAdminStatus_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
+_CwfLMIAdminStatus_Type.__name__=_C
+_CwfLMIAdminStatus_Object=MibTableColumn
+cwfLMIAdminStatus=_CwfLMIAdminStatus_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,10),_CwfLMIAdminStatus_Type())
+cwfLMIAdminStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:cwfLMIAdminStatus.setStatus(_B)
+class _CwfLMIOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('up',1),('down',2)))
+_CwfLMIOperStatus_Type.__name__=_C
+_CwfLMIOperStatus_Object=MibTableColumn
+cwfLMIOperStatus=_CwfLMIOperStatus_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,11),_CwfLMIOperStatus_Type())
+cwfLMIOperStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:cwfLMIOperStatus.setStatus(_B)
+class _CwfFeederNodeAlarm_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('clear',1),('minor',2),('major',3),('critical',4),('unknown',5)))
+_CwfFeederNodeAlarm_Type.__name__=_C
+_CwfFeederNodeAlarm_Object=MibTableColumn
+cwfFeederNodeAlarm=_CwfFeederNodeAlarm_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,12),_CwfFeederNodeAlarm_Type())
+cwfFeederNodeAlarm.setMaxAccess(_D)
+if mibBuilder.loadTexts:cwfFeederNodeAlarm.setStatus(_B)
+_CwfFeederRowStatus_Type=RowStatus
+_CwfFeederRowStatus_Object=MibTableColumn
+cwfFeederRowStatus=_CwfFeederRowStatus_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,13),_CwfFeederRowStatus_Type())
+cwfFeederRowStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:cwfFeederRowStatus.setStatus(_B)
+class _CwfLMIType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('feeder',1),('xLMI',2)))
+_CwfLMIType_Type.__name__=_C
+_CwfLMIType_Object=MibTableColumn
+cwfLMIType=_CwfLMIType_Object((1,3,6,1,4,1,351,150,15,1,1,1,1,14),_CwfLMIType_Type())
+cwfLMIType.setMaxAccess(_E)
+if mibBuilder.loadTexts:cwfLMIType.setStatus(_B)
+_CwfMIBConformance_ObjectIdentity=ObjectIdentity
+cwfMIBConformance=_CwfMIBConformance_ObjectIdentity((1,3,6,1,4,1,351,150,15,3))
+_CwfMIBCompliances_ObjectIdentity=ObjectIdentity
+cwfMIBCompliances=_CwfMIBCompliances_ObjectIdentity((1,3,6,1,4,1,351,150,15,3,1))
+_CwfMIBGroups_ObjectIdentity=ObjectIdentity
+cwfMIBGroups=_CwfMIBGroups_ObjectIdentity((1,3,6,1,4,1,351,150,15,3,2))
+cwfFeederGroup=ObjectGroup((1,3,6,1,4,1,351,150,15,3,2,1))
+cwfFeederGroup.setObjects(*((_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q)))
+if mibBuilder.loadTexts:cwfFeederGroup.setStatus(_S)
+cwfFeederGroup2=ObjectGroup((1,3,6,1,4,1,351,150,15,3,2,2))
+cwfFeederGroup2.setObjects(*((_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_T)))
+if mibBuilder.loadTexts:cwfFeederGroup2.setStatus(_B)
+cwfMIBCompliance=ModuleCompliance((1,3,6,1,4,1,351,150,15,3,1,1))
+cwfMIBCompliance.setObjects((_A,_U))
+if mibBuilder.loadTexts:cwfMIBCompliance.setStatus(_S)
+cwfMIBCompliance2=ModuleCompliance((1,3,6,1,4,1,351,150,15,3,1,2))
+cwfMIBCompliance2.setObjects((_A,_V))
+if mibBuilder.loadTexts:cwfMIBCompliance2.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'ciscoWanFeederMIB':ciscoWanFeederMIB,'cwfMIBObjects':cwfMIBObjects,'cwfFeeder':cwfFeeder,'cwfFeederTable':cwfFeederTable,'cwfFeederEntry':cwfFeederEntry,_R:cwfFeederIfNum,_F:cwfFeederName,_G:cwfLanIP,_H:cwfNetIP,_I:cwfRemoteShelf,_J:cwfRemoteSlot,_K:cwfRemotePort,_L:cwfFeederType,_M:cwfModelNumber,_N:cwfLMIAdminStatus,_O:cwfLMIOperStatus,_P:cwfFeederNodeAlarm,_Q:cwfFeederRowStatus,_T:cwfLMIType,'cwfMIBConformance':cwfMIBConformance,'cwfMIBCompliances':cwfMIBCompliances,'cwfMIBCompliance':cwfMIBCompliance,'cwfMIBCompliance2':cwfMIBCompliance2,'cwfMIBGroups':cwfMIBGroups,_U:cwfFeederGroup,_V:cwfFeederGroup2})

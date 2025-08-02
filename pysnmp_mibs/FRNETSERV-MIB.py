@@ -1,265 +1,801 @@
-#
-# PySNMP MIB module FRNETSERV-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/FRNETSERV-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:13:33 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, OctetString, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
-( InterfaceIndex, ifIndex, ) = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex", "ifIndex")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ModuleCompliance, ObjectGroup, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-( MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, MibIdentifier, ObjectIdentity, Gauge32, IpAddress, TimeTicks, ModuleIdentity, NotificationType, Integer32, iso, Counter64, Bits, transmission, Counter32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "MibIdentifier", "ObjectIdentity", "Gauge32", "IpAddress", "TimeTicks", "ModuleIdentity", "NotificationType", "Integer32", "iso", "Counter64", "Bits", "transmission", "Counter32")
-( DisplayString, TimeStamp, TextualConvention, RowStatus, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "TextualConvention", "RowStatus")
-frnetservMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 44)).setRevisions(("2000-09-28 00:00", "1993-11-16 12:00",))
-if mibBuilder.loadTexts: frnetservMIB.setLastUpdated('200009280000Z')
-if mibBuilder.loadTexts: frnetservMIB.setOrganization('IETF Frame Relay Service MIB Working Group')
-if mibBuilder.loadTexts: frnetservMIB.setContactInfo('WG Charter:\n                   http://www.ietf.org/html.charters/frnetmib-charter\n                 WG-email:\n                   frnetmib@sunroof.eng.sun.com\n\n                 Subscribe:\n                   frnetmib-request@sunroof.eng.sun.com\n                 Email Archive:\n                   ftp://ftp.ietf.org/ietf-mail-archive/frnetmib\n\n                 Chair:      Andy Malis\n                             Vivace Networks, Inc.\n                 Email:      Andy.Malis@vivacenetworks.com\n\n                 WG editor:  Kenneth Rehbehn\n                             Megisto Systems, Inc.\n                 Email:      krehbehn@megisto.com\n\n                 Co-author:  David Fowler\n                             Syndesis Limited,\n                 EMail:      fowler@syndesis.com')
-if mibBuilder.loadTexts: frnetservMIB.setDescription('The MIB module to describe generic objects for\n                  Frame Relay Network Service.')
-frnetservObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 44, 1))
-frnetservTraps = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 44, 2))
-frnetservTrapsPrefix = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 44, 2, 0))
-frLportTable = MibTable((1, 3, 6, 1, 2, 1, 10, 44, 1, 1), )
-if mibBuilder.loadTexts: frLportTable.setDescription('The Frame Relay Logical Port Information table is\n                    an interface-specific addendum to the generic\n                    ifTable of the Interface MIB.')
-frLportEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 44, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: frLportEntry.setDescription('An entry in the Frame Relay Logical Port\n                    Information table.')
-frLportNumPlan = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("other", 1), ("e164", 2), ("x121", 3), ("none", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frLportNumPlan.setDescription('The value of this object identifies the network\n                    address numbering plan for this UNI/NNI logical\n                    port. The network address is the object\n                    ifPhysAddress. The value none(4) implies that\n                    there is no ifPhysAddress.  The FRS agent will\n                    return an octet string of zero length for\n                    ifPhysAddress.  The value other(1) means that an\n                    address has been assigned to this interface, but\n                    the numbering plan is not enumerated here.')
-frLportContact = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frLportContact.setDescription('The value of this object identifies the network\n                    contact for this UNI/NNI logical port.')
-frLportLocation = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frLportLocation.setDescription('The value of this object identifies the frame\n                    relay network location for this UNI/NNI logical\n                    port.')
-frLportType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("uni", 1), ("nni", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frLportType.setDescription('The value of this object identifies the type of\n                    network interface for this logical port.')
-frLportAddrDLCILen = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("twoOctets10Bits", 1), ("threeOctets10Bits", 2), ("threeOctets16Bits", 3), ("fourOctets17Bits", 4), ("fourOctets23Bits", 5),))).setUnits('Octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frLportAddrDLCILen.setDescription('The value of this object identifies the Q.922\n                    Address field length and DLCI length for this\n                    UNI/NNI logical port.')
-frLportVCSigProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("none", 1), ("lmi", 2), ("ansiT1617D", 3), ("ansiT1617B", 4), ("ccittQ933A", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frLportVCSigProtocol.setDescription('The value of this object identifies the Local\n                    In-Channel Signaling Protocol that is used for\n                    this frame relay UNI/NNI logical port.\n\n                    none(1):        Interface does not use a PVC\n                                    signaling protocol\n\n                    lmi(2):         Interface operates the Stratacom/\n                                    Nortel/DEC Local Management\n                                    Interface Specification protocol\n\n                    ansiT1617D(3):  Interface operates the ANSI T1.617\n                                    Annex D PVC status protocol\n\n                      ansiT1617B(4):  Interface operates the ANSI\nT1.617\n                                      Annex B procedures\n\n                      ccittQ933A(5):  Interface operates the ITU Q.933\n                                      Annex A PVC status protocol')
-frLportVCSigPointer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 1, 1, 7), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frLportVCSigPointer.setDescription('The value of this object is used as a pointer to\n                    the table that contains the Local In-Channel\n                    Signaling Protocol parameters and errors for this\n                    UNI/NNI logical port.\n\n                    This object has been deprecated to reflect the\n                    fact that the local in-channel signaling\n                    parameters are accessed from a single table\n                    (frMgtVCSigTable) that includes parameters for all\n                    possible signaling protocols.  Early design\n                    anticipated multiple tables, one for each\n                    signaling protocol.')
-frLportDLCIIndexValue = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(16,4194303))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frLportDLCIIndexValue.setDescription('This object contains a hint to be used for\n                    frPVCEndptDLCIIndex when creating entries in the\n                    frPVCEndptTable.  The SYNTAX of this object\n                    matches the SYNTAX of the frPVCEndptDLCIIndex - an\n                    object that is restricted to legal Q.922 DLCI\n                    values for the size of the address field.\n\n                    The value 0 indicates that no unassigned entries\n                    are available.\n\n                    To obtain the frPVCEndptDLCIIndex value for a new\n                    entry, the manager issues a management protocol\n                    retrieval operation to obtain the current value of\n\n                    this object.  After each retrieval, the agent must\n                    modify the value to the next unassigned index to\n                    prevent assignment of the same value to multiple\n                    management systems.\n\n                    A management system should repeat the read to\n                    obtain a new value should an attempt to create the\n                    new row using the previously returned hint fail.')
-frLportTypeAdmin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("uni", 1), ("nni", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: frLportTypeAdmin.setDescription('The value of this object desired identifies the\n                    type of network interface for this logical port.')
-frLportVCSigProtocolAdmin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("none", 1), ("lmi", 2), ("ansiT1617D", 3), ("ansiT1617B", 4), ("ccittQ933A", 5),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: frLportVCSigProtocolAdmin.setDescription('The value of this object identifies the desired\n                    Local In-Channel Signaling Protocol that is used\n                    for this frame relay UNI/NNI logical port.  This\n                    value must be made the active protocol as soon as\n                    possible on the device.\n\n                    Refer to frLportVCSigProtocol for a description of\n                    each signaling protocol choices.')
-frLportFragControl = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("on", 1), ("off", 2),)).clone('off')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: frLportFragControl.setDescription('This object controls the transmission and\n                    reception of fragmentation frames for this UNI or\n                    NNI interface.\n\n                    on(1)   Frames are fragmented using the interface\n                            fragmentation format\n                            Note:  The customer side of the interface\n                            must also be configured to fragment\n                            frames.\n\n                    off(2)  Frames are not fragmented using the\n                            interface fragmentation format.')
-frLportFragSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,4096))).setUnits('Octets').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: frLportFragSize.setDescription('The value of this object is the size in octets of\n                    the maximum size of each fragment to be sent when\n                    fragmenting.  This object is only used by the\n                    fragmentation transmitter, and the two sides of\n                    the interface may differ.  The fragment size\n                    includes the octets for the frame relay header,\n                    the UI octet, the NLPID, the fragmentation header,\n                    and the fragment payload. If frLportFragControl is\n                    set to off, this value should be zero.')
-frMgtVCSigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 44, 1, 2), )
-if mibBuilder.loadTexts: frMgtVCSigTable.setDescription('The Frame Relay Management VC Signaling\n                    Parameters and Errors table.')
-frMgtVCSigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: frMgtVCSigEntry.setDescription('An entry in the Frame Relay Management VC\n                    Signaling Parameters Errors table.')
-frMgtVCSigProced = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("u2nnet", 1), ("bidirect", 2), ("u2nuser", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigProced.setDescription('The value of this object identifies the local\n                    in-channel signaling procedural role that is used\n                    for this UNI/NNI logical port.  Bidirectional\n                    procedures implies that both user-side and\n                    network-side procedural roles are used.\n\n                    u2nnet(1)   Logical port operates user to network\n                                procedure in the role of the network\n                                side\n\n                    bidirect(2) Logical port operates the\n                                bidirectional procedure (both user\n                                and network side roles)\n\n                    u2nuser(3)  Logical port operates user to network\n                                procedure in the role of the user\n                                side')
-frMgtVCSigUserN391 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,255)).clone(6)).setUnits('Polls').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigUserN391.setDescription('The value of this object identifies the User-side\n                    N391 full status polling cycle value for this\n                    UNI/NNI logical port.  If the logical port is not\n                    performing user-side (bidirectional) procedures,\n                    then this object is not instantiated and an\n                    attempt to read will result in the noSuchInstance\n                    exception response.')
-frMgtVCSigUserN392 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,10)).clone(3)).setUnits('Events').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigUserN392.setDescription('The value of this object identifies the User-side\n                    N392 error threshold value for this UNI/NNI\n                    logical port.  If the logical port is not\n                    performing user-side (bidirectional) procedures,\n                    then this object is not instantiated.')
-frMgtVCSigUserN393 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,10)).clone(4)).setUnits('Events').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigUserN393.setDescription('The value of this object identifies the User-side\n                    N393 monitored events count value for this UNI/NNI\n                    logical port.  If the logical port is not\n                    performing user-side (bidirectional) procedures,\n                    then this object is not instantiated.')
-frMgtVCSigUserT391 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5,30)).clone(10)).setUnits('Seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigUserT391.setDescription('The value of this object identifies the User-side\n                    T391 link integrity verification polling timer\n                    value for this UNI/NNI logical port.  If the\n                    logical port is not performing user-side\n                    procedures, then this object is not instantiated.')
-frMgtVCSigNetN392 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,10)).clone(3)).setUnits('Events').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigNetN392.setDescription('The value of this object identifies the Network-\n                    side N392 error threshold value (nN2 for LMI) for\n                    this UNI/NNI logical port.  If the logical port is\n                    not performing network-side procedures, then this\n                    object is not instantiated.')
-frMgtVCSigNetN393 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,10)).clone(4)).setUnits('Events').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigNetN393.setDescription('The value of this object identifies the Network-\n                    side N393 monitored events count value (nN3 for\n                    LMI) for this UNI/NNI logical port.  If the\n                    logical port is not performing network-side\n                    procedures, then this object is not instantiated.')
-frMgtVCSigNetT392 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5,30)).clone(15)).setUnits('Seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigNetT392.setDescription('The value of this object identifies the Network-\n                    side T392 polling verification timer value (nT2\n                    for LMI)  for this UNI/NNI logical port.  If the\n                    logical port is not performing network-side\n                    procedures, then this object is not instantiated.')
-frMgtVCSigNetnN4 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5,5))).setUnits('Events').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigNetnN4.setDescription('The value of this object identifies the Network-\n                    side nN4 maximum status enquires received value\n                    for this UNI/NNI logical port.  If the logical\n                    port is not performing network-side procedures or\n                    is not performing LMI procedures, then this object\n                    is not instantiated.\n\n                    This object applies only to LMI and always has a\n                    value of 5.')
-frMgtVCSigNetnT3 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(5,5),ValueRangeConstraint(10,10),ValueRangeConstraint(15,15),ValueRangeConstraint(20,20),ValueRangeConstraint(25,25),ValueRangeConstraint(30,30),)).clone(20)).setUnits('Seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigNetnT3.setDescription('The value of this object identifies the Network-\n                    side nT3 timer (for nN4 status enquires received)\n                    value for this UNI/NNI logical port.  If the\n                    logical port is not performing network-side\n                    procedures or is not performing LMI procedures,\n                    then this object is not instantiated.\n\n                      This object applies only to LMI.')
-frMgtVCSigUserLinkRelErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 11), Counter32()).setUnits('Errors').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigUserLinkRelErrors.setDescription('The number of user-side local in-channel\n                    signaling link reliability errors (i.e., non-\n                    receipt of Status/Status Enquiry messages or\n                    invalid sequence numbers in a Link Integrity\n                    Verification Information Element) for this UNI/NNI\n                    logical port.  If the logical port is not\n\n                    performing user-side procedures, then this object\n                    is not instantiated.')
-frMgtVCSigUserProtErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 12), Counter32()).setUnits('Errors').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigUserProtErrors.setDescription('The number of user-side local in-channel\n                    signaling protocol errors (i.e., protocol\n                    discriminator, unnumbered information, message\n                    type, call reference, and mandatory information\n                    element errors) for this UNI/NNI logical port. If\n                    the logical port is not performing user-side\n                    procedures, then this object is not instantiated.')
-frMgtVCSigUserChanInactive = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 13), Counter32()).setUnits('Events').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigUserChanInactive.setDescription('The number of times the user-side channel was\n                    declared inactive (i.e., N392 errors in N393\n                    events) for this UNI/NNI logical port. If the\n                    logical port is not performing user-side\n                    procedures, then this object is not instantiated.')
-frMgtVCSigNetLinkRelErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 14), Counter32()).setUnits('Errors').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigNetLinkRelErrors.setDescription('The number of network-side local in-channel\n                    signaling link reliability errors (i.e., non-\n                    receipt of Status/Status Enquiry messages or\n                    invalid sequence numbers in a Link Integrity\n                    Verification Information Element) for this UNI/NNI\n                    logical port.')
-frMgtVCSigNetProtErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 15), Counter32()).setUnits('Errors').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigNetProtErrors.setDescription('The number of network-side local in-channel\n                    signaling protocol errors (i.e., protocol\n                    discriminator, message type, call reference, and\n                    mandatory information element errors) for this\n                    UNI/NNI logical port.')
-frMgtVCSigNetChanInactive = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 16), Counter32()).setUnits('Events').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frMgtVCSigNetChanInactive.setDescription('The number of times the network-side channel was\n                    declared inactive (i.e., N392 errors in N393\n                    events) for this UNI/NNI logical port.')
-frMgtVCSigProcedAdmin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("u2nnet", 1), ("bidirect", 2), ("u2nuser", 3),)).clone('u2nnet')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: frMgtVCSigProcedAdmin.setDescription('The value of this object identifies the local\n                    in-channel signaling procedural role that is used\n                    for this UNI/NNI logical port.  Bidirectional\n                    procedures implies that both user-side and\n                    network-side procedural roles are used.\n\n                    u2nnet(1)   Logical port operates user to network\n                                procedure in the role of the network\n                                side\n\n                    bidirect(2) Logical port operates the\n                                bidirectional procedure (both user\n                                and network side roles)\n\n                    u2nuser(3)  Logical port operates user to network\n                                procedure in the role of the user\n                                side')
-frMgtVCSigUserN391Admin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,255))).setUnits('Polls').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: frMgtVCSigUserN391Admin.setDescription('The value of this object identifies the desired\n                    User-side N391 full status polling cycle value for\n                    this UNI/NNI logical port.  If the logical port is\n                    not performing user-side (bidirectional)\n                    procedures, then this object is not instantiated.')
-frMgtVCSigUserN392Admin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,10))).setUnits('Events').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: frMgtVCSigUserN392Admin.setDescription('The value of this object identifies the desired\n                    User-side N392 error threshold value for this\n                    UNI/NNI logical port.  If the logical port is not\n                    performing user-side (bidirectional) procedures,\n                    then this object is not instantiated.')
-frMgtVCSigUserN393Admin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,10))).setUnits('Events').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: frMgtVCSigUserN393Admin.setDescription('The value of this object identifies the desired\n                    User-side N393 monitored events count value for\n                    this UNI/NNI logical port.  If the logical port is\n                    not performing user-side (bidirectional)\n                    procedures, then this object is not instantiated.')
-frMgtVCSigUserT391Admin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5,30))).setUnits('Seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: frMgtVCSigUserT391Admin.setDescription('The value of this object identifies the desired\n                    User-side T391 link integrity verification polling\n                    timer value for this UNI/NNI logical port.  If the\n                    logical port is not performing user-side\n                    procedures, then this object is not instantiated.')
-frMgtVCSigNetN392Admin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 22), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,10))).setUnits('Events').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: frMgtVCSigNetN392Admin.setDescription('The value of this object identifies the desired\n                    Network-side N392 error threshold value (nN2 for\n                    LMI) for this UNI/NNI logical port.  If the\n                    logical port is not performing network-side\n                    procedures, then this object is not instantiated.')
-frMgtVCSigNetN393Admin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 23), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,10))).setUnits('Events').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: frMgtVCSigNetN393Admin.setDescription('The value of this object identifies the desired\n                    Network-side N393 monitored events count value\n                    (nN3 for LMI) for this UNI/NNI logical port.  If\n                    the logical port is not performing network-side\n                    procedures, then this object is not instantiated.')
-frMgtVCSigNetT392Admin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 24), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5,30))).setUnits('Seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: frMgtVCSigNetT392Admin.setDescription('The value of this object identifies the desired\n                    Network-side T392 polling verification timer value\n                    (nT2 for LMI)  for this UNI/NNI logical port. If\n                    the logical port is not performing network-side\n                    procedures, then this object is not instantiated.')
-frMgtVCSigNetnT3Admin = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 2, 1, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(5,5),ValueRangeConstraint(10,10),ValueRangeConstraint(15,15),ValueRangeConstraint(20,20),ValueRangeConstraint(25,25),ValueRangeConstraint(30,30),))).setUnits('Seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: frMgtVCSigNetnT3Admin.setDescription('The value of this object identifies the desired\n                    Network-side nT3 timer (for nN4 status enquires\n                    received) value for this UNI/NNI logical port. If\n                    the logical port is not performing network-side\n                    procedures or is not performing LMI procedures,\n                    then this object is not instantiated.  This object\n                    applies only to LMI.')
-frPVCEndptTable = MibTable((1, 3, 6, 1, 2, 1, 10, 44, 1, 3), )
-if mibBuilder.loadTexts: frPVCEndptTable.setDescription("The Frame Relay PVC End-Point table.  This table\n                    is used to model a PVC end-point.  This table\n                    contains the traffic parameters and statistics for\n                    a PVC end-point.\n\n                    This table is used to identify the traffic\n                    parameters for a bi-directional PVC segment end-\n\n                    point, and it also provides statistics for a PVC\n                    segment end-point.\n\n                    A PVC segment end-point is identified by a UNI/NNI\n                    logical port index value and DLCI index value.\n\n                    If the frame relay service provider allows the\n                    frame relay CNM subscriber to create, modify or\n                    delete PVCs using SNMP, then this table is used to\n                    identify and reserve the requested traffic\n                    parameters of each PVC segment end-point.  The\n                    Connection table is used to 'connect' the end-\n                    points together.  Not all implementations will\n                    support the capability of\n                    creating/modifying/deleting PVCs using SNMP as a\n                    feature of frame relay CNM service.\n\n                    Uni-directional PVCs are modeled with zero valued\n                    traffic parameters in one of the directions (In or\n                     Out direction) in this table.\n\n                    To create a PVC, the following procedures shall be\n                    followed:\n\n                    1)  Create the entries for the PVC segment\n                        endpoints in the frPVCEndptTable by specifying\n                        the traffic parameters for the bi-directional\n                        PVC segment endpoints. As shown in figure 2, a\n                        point-to-point PVC has two endpoints, thus two\n                        entries in this table.  Uni-directional PVCs\n                        are modeled with zero valued traffic\n                        parameters in one direction; all the `In'\n                        direction parameters for one frame relay PVC\n                        End-point or all the `Out' direction\n                        parameters for the other frame relay PVC\n                        Endpoint.\n\n                        In    _____________________________  Out\n                       >>>>>>|                             |>>>>>>>>\n                       ______|    Frame Relay Network      |________\n                        Out  |                             |  In\n                       <<<<<<|_____________________________|<<<<<<<<\n                     Frame Relay                         Frame Relay\n                         PVC                                 PVC\n                       Endpoint                            Endpoint\n\n                                Figure 2, PVC Terminology\n\n\n                    2)  Go to the Frame Relay Connection Group.")
-frPVCEndptEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "FRNETSERV-MIB", "frPVCEndptDLCIIndex"))
-if mibBuilder.loadTexts: frPVCEndptEntry.setDescription('An entry in the Frame Relay PVC Endpoint table.')
-frPVCEndptDLCIIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(16,4194303)))
-if mibBuilder.loadTexts: frPVCEndptDLCIIndex.setDescription('The value of this object is equal to the DLCI\n                    value for this PVC end-point.\n\n                    The values are restricted to the legal range for\n                    the size of address field supported by the logical\n                    port (frLportAddrDLCILen).')
-frPVCEndptInMaxFrameSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,4096)).clone(1600)).setUnits('Octets').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptInMaxFrameSize.setDescription('The value of this object is the size in octets of\n                    the largest frame relay information field for this\n                    PVC end-point in the ingress direction (into the\n                    frame relay network).  The value of\n                    frPVCEndptInMaxFrameSize must be less than or\n                    equal to the corresponding ifMtu for this frame\n                    relay UNI/NNI logical port.')
-frPVCEndptInBc = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setUnits('Bits').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptInBc.setDescription('The value of this object is equal to the\n                    committed burst size (Bc) parameter (measured in\n                    bits) for this PVC end-point in the ingress\n                    direction (into the frame relay network).\n\n                    Note that the max value of this range is lower\n                    than the max value allowed by Q.933 (16383 *\n                    10**6).\n\n\n                    Note that the value is encoded in bits whilst the\n                    Q.933 Link layer core parameters information\n                    element encodes this information using octet\n                    units.')
-frPVCEndptInBe = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setUnits('Bits').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptInBe.setDescription('The value of this object is equal to the excess\n                    burst size (Be) parameter (measured in bits) for\n                    this PVC end-point in the ingress direction (into\n                    the frame relay network).\n\n                    Note that the max value of this range is lower\n                    than the max value allowed by Q.933 (16383 *\n                    10**6).\n\n                    Note that the value is encoded in bits whilst the\n                    Q.933 Link layer core parameters information\n                    element encodes this information using octet\n                    units.')
-frPVCEndptInCIR = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setUnits('Bits per Second').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptInCIR.setDescription('The value of this object is equal to the\n                    committed information rate (CIR) parameter\n                    (measured in bits per second) for this PVC end-\n                    point in the ingress direction (into the frame\n                    relay network).\n\n                    Note that the max value of this range is lower\n                    than the max value allowed by Q.933 (2047 *\n                    10**6).')
-frPVCEndptOutMaxFrameSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,4096)).clone(1600)).setUnits('Octets').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptOutMaxFrameSize.setDescription('The value of this object is the size in octets of\n                    the largest frame relay information field for this\n                    PVC end-point in the egress direction (out of the\n                    frame relay network).  The value of\n                    frPVCEndptOutMaxFrameSize must be less than or\n                    equal to the corresponding ifMtu for this frame\n                    relay UNI/NNI logical port.')
-frPVCEndptOutBc = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setUnits('Bits').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptOutBc.setDescription('The value of this object is equal to the\n                    committed burst size (Bc) parameter (measured in\n                    bits) for this PVC end-point in the egress\n                    direction (out of the frame relay network).\n\n                    Note that the max value of this range is lower\n                    than the max value allowed by Q.933 (16383 *\n                    10**6).\n\n                    Note that the value is encoded in bits whilst the\n                    Q.933 Link layer core parameters information\n                    element encodes this information using octet\n                    units.')
-frPVCEndptOutBe = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setUnits('Bits').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptOutBe.setDescription('The value of this object is equal to the excess\n                    burst size (Be) parameter (measured in bits) for\n\n                    this PVC end-point in the egress direction (out of\n                    the frame relay network).\n\n                    Note that the max value of this range is lower\n                    than the max value allowed by Q.933 (16383 *\n                    10**6).\n\n                    Note that the value is encoded in bits whilst the\n                    Q.933 Link layer core parameters information\n                    element encodes this information using octet\n                    units.')
-frPVCEndptOutCIR = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setUnits('Bits per Second').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptOutCIR.setDescription('The value of this object is equal to the\n                    committed information rate (CIR) parameter\n                    (measured in bits per second) for this PVC end-\n                    point in the egress direction (out of the frame\n                    relay network).\n\n                    Note that the max value of this range is lower\n                    than the max value allowed by Q.933 (2047 *\n                    10**6).')
-frPVCEndptConnectIdentifier = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptConnectIdentifier.setDescription('This object is used to associate PVC end-points\n                    as being part of one PVC segment connection. This\n                    value of this object is equal to the value of\n                    frPVCConnectIndex, which is used as one of the\n                    indices into the frPVCConnectTable.\n\n                    A connection that has been cross-connected via the\n                    FR/ATM PVC Service IWF cross-connect table will\n                    return the value zero when this object is read. In\n                    case of these interworked connections, the\n                    frPVCEndptAtmIwfConnIndex object must be accessed\n\n                    to select the entry in the FR/ATM PVC Service IWF\n                    cross-connect table.\n\n                    The value of this object is provided by the agent,\n                    after the associated entries in the\n                    frPVCConnectTable or frAtmIwfConnectionTable have\n                    been created.')
-frPVCEndptRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 11), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCEndptRowStatus.setDescription("This object is used to create new rows in this\n                    table, modify existing rows, and to delete\n                    existing rows.  To create a new PVC, the entries\n                    for the PVC segment end-points in the\n                    frPVCEndptTable must first be created.  Next, the\n                    frPVCConnectTable is used to associate the frame\n                    relay PVC segment end-points.  In order for the\n                    manager to have the necessary error diagnostics,\n                    the frPVCEndptRowStatus object must initially be\n                    set to `createAndWait(5)'.  While the\n                    frPVCEndptRowStatus object is in the\n                    `createAndWait(5)' state, the manager can set each\n                    columnar object and get the necessary error\n                    diagnostics.  The frPVCEndptRowStatus object may\n                    not be set to `active(1)' unless the following\n                    columnar objects exist in this row:\n                    frPVCEndptInMaxFrameSize, frPVCEndptInBc,\n                    frPVCEndptInBe, frPVCEndptInCIR,\n                    frPVCEndptOutMaxFrameSize, frPVCEndptOutBc,\n                    frPVCEndptOutBe, and frPVCEndptOutCIR.")
-frPVCEndptRcvdSigStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("deleted", 1), ("active", 2), ("inactive", 3), ("none", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptRcvdSigStatus.setDescription('The value of this object identifies the PVC\n                    status received via the local in-channel signaling\n\n                    procedures for this PVC end-point.  This object is\n                    only pertinent for interfaces that perform the\n                    bidirectional procedures.\n\n                    Each value has the following meaning:\n                      deleted(1):  This PVC is not listed in the full\n                                   status reports received from the\n                                   user device.  The object retains\n                                   this value for as long as the PVC\n                                   is not listed in the full status\n                                   reports\n\n                    active(2):   This PVC is reported as active, or\n                                   operational, by the user device.\n\n                      inactive(3): This PVC is reported as inactive,\n                                   or non-operational, by the user\n                                   device.\n\n                      none(4):     This interface is only using the\n                                   network-side in-channel signaling\n                                   procedures, so this object does\n                                   not apply.')
-frPVCEndptInFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 13), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptInFrames.setDescription('The number of frames received by the network\n                    (ingress) for this PVC end-point. This includes\n                    any frames discarded by the network due to\n                    submitting more than Bc + Be data or due to any\n                    network congestion recovery procedures.')
-frPVCEndptOutFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 14), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptOutFrames.setDescription('The number of frames sent by the network (egress)\n                    regardless of whether they are Bc or Be frames for\n                    this PVC end-point.')
-frPVCEndptInDEFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 15), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptInDEFrames.setDescription('The number of frames received by the network\n                    (ingress) with the DE bit set to (1) for this PVC\n                    end-point.')
-frPVCEndptInExcessFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 16), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptInExcessFrames.setDescription('The number of frames received by the network\n                    (ingress) for this PVC end-point which were\n                    treated as excess traffic.  Frames which are sent\n                    to the network with DE set to zero are treated as\n                    excess when more than Bc bits are submitted to the\n                    network during the Committed Information Rate\n                    Measurement Interval (Tc).  Excess traffic may or\n                    may not be discarded at the ingress if more than\n                    Bc + Be bits are submitted to the network during\n                    Tc.  Traffic discarded at the ingress is not\n                    recorded in frPVCEndptInExcessFrames.  Frames\n                    which are sent to the network with DE set to one\n                    are also treated as excess traffic.')
-frPVCEndptOutExcessFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 17), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptOutExcessFrames.setDescription('The number of frames sent by the network (egress)\n                    for this PVC end-point which were treated as\n                    excess traffic.  (The DE bit may be set to one.)')
-frPVCEndptInDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 18), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptInDiscards.setDescription('The number of frames received by the network\n                    (ingress) that were discarded due to traffic\n                    enforcement for this PVC end-point.  Congestion\n                    discards are not counted in this object.')
-frPVCEndptInOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 19), Counter32()).setUnits('Octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptInOctets.setDescription('The number of octets received by the network\n                    (ingress) for this PVC end-point.  This counter\n                    should only count octets from the beginning of the\n                    frame relay header field to the end of user data.\n                    If the network supporting frame relay can not\n                    count octets, then this count should be an\n                    approximation.')
-frPVCEndptOutOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 20), Counter32()).setUnits('Octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptOutOctets.setDescription('The number of octets sent by the network (egress)\n                    for this PVC end-point.  This counter should only\n                    count octets from the beginning of the frame relay\n                    header field to the end of user data.  If the\n                    network supporting frame relay can not count\n                    octets, then this count should be an\n                    approximation.')
-frPVCEndptInDiscardsDESet = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 21), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptInDiscardsDESet.setDescription('The number of frames received by the network\n                    (ingress) that were discarded with the DE bit set\n                    due to traffic enforcement for this PVC end-point.\n                    Congestion discards are not counted in this\n                    object.')
-frPVCEndptInFramesFECNSet = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 22), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptInFramesFECNSet.setDescription('The number of frames received by the network\n                    (ingress) that have the FECN bit set for this PVC\n                    end-point.')
-frPVCEndptOutFramesFECNSet = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 23), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptOutFramesFECNSet.setDescription('The number of frames sent by the network (egress)\n                    that have the FECN bit set for this PVC end-\n                    point.')
-frPVCEndptInFramesBECNSet = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 24), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptInFramesBECNSet.setDescription('The number of frames received by the network\n                    (ingress) that have the BECN bit set for this PVC\n                    end-point.')
-frPVCEndptOutFramesBECNSet = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 25), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptOutFramesBECNSet.setDescription('The number of frames sent by the network (egress)\n                    that have the BECN bit set for this PVC end-\n                    point.')
-frPVCEndptInCongDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 26), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptInCongDiscards.setDescription('The number of frames received by the network\n                    (ingress) that were discarded due to input buffer\n                    congestion, rather than traffic enforcement, for\n                    this PVC end-point.')
-frPVCEndptInDECongDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 27), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptInDECongDiscards.setDescription('The number of frames counted by\n                    frPVCEndptInCongDiscards with the DE bit set to\n                    (1).')
-frPVCEndptOutCongDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 28), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptOutCongDiscards.setDescription('The number of frames sent by the network (egress)\n                    that were discarded due to output buffer\n                    congestion for this PVC end-point.')
-frPVCEndptOutDECongDiscards = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 29), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptOutDECongDiscards.setDescription('The number of frames counted by\n                    frPVCEndptOutCongDiscards with the DE bit set to\n                    (1).')
-frPVCEndptOutDEFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 30), Counter32()).setUnits('Frames').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptOutDEFrames.setDescription('The number of frames sent by the network (egress)\n                    with the DE bit set to (1) for this PVC end-\n                    point.')
-frPVCEndptAtmIwfConnIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 3, 1, 31), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCEndptAtmIwfConnIndex.setDescription('This object contains the index value of the\n                    FR/ATM cross-connect table entry used to link the\n                    frame relay PVC with an ATM PVC.\n\n                    Each row of the frPVCEndptTable that is not\n                    cross-connected with an ATM PVC must return the\n                    value zero when this object is read.\n\n                    The value of this object is initialized by the\n                    agent after the associated entries in the\n                    frAtmIwfConnectionTable have been created.\n\n                    The value of this object is reset to zero\n                    following destruction of the associated entry in\n                    the frAtmIwfConnectionTable')
-frPVCConnectIndexValue = MibScalar((1, 3, 6, 1, 2, 1, 10, 44, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCConnectIndexValue.setDescription('This object returns a hint to be used for\n                    frPVCConnectIndex when creating entries in the\n                    frPVCConnectTable.\n\n                    The value 0 indicates that no unassigned entries\n                    are available.\n\n                    To obtain the frPVCConnectIndex value for a new\n                    entry, the manager issues a management protocol\n                    retrieval operation to obtain the current value of\n                    this object.  After each retrieval, the agent must\n\n                    modify the value to the next unassigned index to\n                    prevent assignment of the same value to multiple\n                    management systems.\n\n                    A management system should repeat the read to\n                    obtain a new value should an attempt to create the\n                    new row using the previously returned hint fail.')
-frPVCConnectTable = MibTable((1, 3, 6, 1, 2, 1, 10, 44, 1, 5), )
-if mibBuilder.loadTexts: frPVCConnectTable.setDescription("The Frame Relay PVC Connect Table is used to\n                    model the bi-directional PVC segment flows\n                    including:  point-to-point PVCs, point-to-\n                    multipoint PVCs, and multipoint-to-multipoint\n                    PVCs.\n\n                    This table has read-create access and is used to\n                    associate PVC end-points together as belonging to\n                    one connection.  The frPVCConnectIndex is used to\n                    associate all the bi-directional flows.  Not all\n                    implementations will support the capability of\n                    creating/modifying/deleting PVCs using SNMP as a\n                    feature of frame relay CNM service.\n\n                    Once the entries in the frPVCEndptTable are\n                    created, the following step are used to associate\n                    the PVC end-points as belonging to one PVC\n                    connection:\n\n                    1)  Obtain a unique frPVCConnectIndex\n                        using the frPVCConnectIndexValue object.\n\n                    2)  Connect the PVC segment endpoints together\n                        with the applicable frPVCConnectIndex value\n                        obtained via  frPVCConnectIndexValue.  The\n                        entries in this table are created by using\n                        the frPVCConnectRowStatus object.\n\n                    3)  The agent will provide the value of the\n                        corresponding instances of\n                        frPVCEndptConnectIdentifier with the\n                        frPVCConnectIndex value.\n\n                    4)  Set frPVCConnectAdminStatus to `active(1)' in\n\n                        all rows for this PVC segment to turn the\n                        PVC on.\n\n                    For example, the Frame Relay PVC Connection Group\n                    models a bi-directional, point-to-point PVC\n                    segment as one entry in this table.\n\n                    Frame Relay                           Frame Relay\n                     Network                                 Network\n                     Low Port                               High Port\n                             __________________________________\n                            |                                  |\n                       _____| >> from low to high PVC flow  >> |_____\n                            | << from high to low PVC flow  << |\n                            |__________________________________|\n\n                    The terms low and high are chosen to represent\n                    numerical ordering of a PVC segment's endpoints\n                    for representation in this table.  That is, the\n                    endpoint with the lower value of ifIndex is termed\n                    'low', while the opposite endpoint of the segment\n                    is termed 'high'.  This terminology is to provide\n                    directional information; for example the\n                    frPVCConnectL2hOperStatus and\n                    frPVCConnectH2lOperStatus as illustrated above.\n\n                    If the Frame Relay Connection table is used to\n                    model a unidirectional PVC, then one direction\n                    (either from low to high or from high to low) has\n                     its Operational Status equal to down.\n\n                     A PVC segment is a portion of a PVC that traverses\n                    one Frame Relay Network, and a PVC segment is\n                    identified by its two end-points (UNI/NNI logical\n                    port index value and DLCI index value) through one\n                    Frame Relay Network.")
-frPVCConnectEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 44, 1, 5, 1), ).setIndexNames((0, "FRNETSERV-MIB", "frPVCConnectIndex"), (0, "FRNETSERV-MIB", "frPVCConnectLowIfIndex"), (0, "FRNETSERV-MIB", "frPVCConnectLowDLCIIndex"), (0, "FRNETSERV-MIB", "frPVCConnectHighIfIndex"), (0, "FRNETSERV-MIB", "frPVCConnectHighDLCIIndex"))
-if mibBuilder.loadTexts: frPVCConnectEntry.setDescription('An entry in the Frame Relay PVC Connect table.\n                    This entry is used to model a PVC segment in two\n                    directions.')
-frPVCConnectIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647)))
-if mibBuilder.loadTexts: frPVCConnectIndex.setDescription('The value of this object is equal to the\n                      frPVCConnectIndexValue obtained to uniquely\n                      identify this PVC segment connection.')
-frPVCConnectLowIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 5, 1, 2), InterfaceIndex())
-if mibBuilder.loadTexts: frPVCConnectLowIfIndex.setDescription('The value of this object is equal to IF-MIB\n                    ifIndex value of the UNI/NNI logical port for this\n                    PVC segment.  The term low implies that this PVC\n                    segment end-point has the numerically lower\n                    ifIndex value than the connected/associated PVC\n                    segment end-point.\n\n                    RFC 1604 permitted a zero value for this object to\n                    identify termination at a non-frame relay\n                    interface.  However, this cross-connect table is\n                    limited to frame relay connections.  See the frame\n\n                    relay/ATM IWF MIB [28] for the cross-connect table\n                    used for those types of connections.')
-frPVCConnectLowDLCIIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 5, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(16,4194303)))
-if mibBuilder.loadTexts: frPVCConnectLowDLCIIndex.setDescription('The value of this object is equal to the DLCI\n                    value for this end-point of the PVC segment.')
-frPVCConnectHighIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 5, 1, 4), InterfaceIndex())
-if mibBuilder.loadTexts: frPVCConnectHighIfIndex.setDescription('The value of this object is equal to IF-MIB\n                    ifIndex value for the UNI/NNI logical port for\n                    this PVC segment.  The term high implies that this\n                    PVC segment end-point has the numerically higher\n                    ifIndex value than the connected/associated PVC\n                    segment end-point.')
-frPVCConnectHighDLCIIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 5, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(16,4194303)))
-if mibBuilder.loadTexts: frPVCConnectHighDLCIIndex.setDescription('The value of this object is equal to the egress\n                    DLCI value for this end-point of the PVC segment.')
-frPVCConnectAdminStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 5, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2), ("testing", 3),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCConnectAdminStatus.setDescription("The value of this object identifies the desired\n                    administrative status of this bi-directional PVC\n\n                    segment.  The active(1) state means the PVC\n                    segment is currently operational; the inactive(2)\n                    state means the PVC segment is currently not\n                    operational; the testing(3) state means the PVC\n                    segment is currently undergoing a test.  This\n                    state is set by an administrative entity.  This\n                    value affects the PVC status indicated across the\n                    ingress NNI/UNI of both end-points of the bi-\n                    directional PVC segment.  When a PVC segment\n                    connection is created using this table, this\n                    object is initially set to `inactive(2)'.  After\n                    the frPVCConnectRowStatus object is set to\n                    `active(1)' (and the corresponding/associated\n                    entries in the frPVCEndptTable have their\n                    frPVCEndptRowStatus object set to `active(1)'),\n                    the frPVCConnectAdminStatus object may be set to\n                    `active(1)' to turn on the PVC segment\n                    connection.")
-frPVCConnectL2hOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 5, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2), ("testing", 3), ("unknown", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCConnectL2hOperStatus.setDescription('The value of this object identifies the current\n                    operational status of the PVC segment connection\n                    in one direction; (i.e., in the low to high\n                    direction). This value affects the PVC status\n                    indicated across the ingress NNI/UNI (low side) of\n                    the PVC segment.\n\n                    The values mean:\n\n                    active(1)   - PVC is currently operational\n\n                    inactive(2) - PVC is currently not operational.\n                                  This may be because of an underlying\n                                  LMI or DS1 failure.\n\n                    testing(3)  - PVC is currently undergoing a test.\n                                  This may be because of an underlying\n                                  frLport or DS1 undergoing a test.\n\n                    unknown(4)  - the status of the PVC currently can\n                                  not be determined.')
-frPVCConnectH2lOperStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 5, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2), ("testing", 3), ("unknown", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCConnectH2lOperStatus.setDescription('The value of this object identifies the current\n                    operational status of the PVC segment connection\n                    in one direction; (i.e., in the high to low\n                    direction)..  This value affects the PVC status\n                    indicated across the ingress NNI/UNI (high side)\n                    of the PVC segment.\n\n                    The values mean:\n\n                    active(1)   - PVC is currently operational\n\n                    inactive(2) - PVC is currently not operational.\n                                  This may be because of an underlying\n                                  LMI or DS1 failure.\n\n                    testing(3)  - PVC is currently undergoing a test.\n                                  This may be because of an underlying\n                                  frLport or DS1 undergoing a test.\n\n                    unknown(4)  - the status of the PVC currently can\n                                  not be determined.')
-frPVCConnectL2hLastChange = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 5, 1, 9), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCConnectL2hLastChange.setDescription("The value of the Interface MIB's sysUpTime object\n                    at the time this PVC segment entered its current\n                    operational state in the low to high direction.\n                    If the current state was entered prior to the last\n                    re-initialization of the FRS agent, then this\n                    object contains a zero value.")
-frPVCConnectH2lLastChange = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 5, 1, 10), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: frPVCConnectH2lLastChange.setDescription("The value of the Interface MIB's sysUpTime object\n                    at the time this PVC segment entered its current\n                    operational state in the high to low direction.\n                    If the current state was entered prior to the last\n                    re-initialization of the FRS agent, then this\n                    object contains a zero value.")
-frPVCConnectRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 5, 1, 11), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCConnectRowStatus.setDescription("The status of this entry in the\n                    frPVCConnectTable.  This variable is used to\n                    create new connections for the PVC end-points and\n                    to change existing connections of the PVC end-\n                    points.  This object must be initially set to\n                    `createAndWait(5)'. In this state, the agent\n                    checks the parameters in the associated entries in\n                    the frPVCEndptTable to verify that the PVC end-\n                    points can be connected (i.e., the In parameters\n                    for one PVC end-point are equal to the Out\n                    parameters for the other PVC end-point).  This\n                    object can not be set to `active(1)' unless the\n                    following columnar object exists in this row:\n                    frPVCConnectAdminStatus.  The agent also supplies\n                    the associated value of frPVCConnectIndex for the\n                    frPVCEndptConnectIdentifier instances.  To turn on\n                    a PVC segment connection, the\n                    frPVCConnectAdminStatus is set to `active(1)'.")
-frPVCConnectUserName = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 5, 1, 12), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCConnectUserName.setDescription('This is a service user assigned textual\n                    representation of a PVC.')
-frPVCConnectProviderName = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 5, 1, 13), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: frPVCConnectProviderName.setDescription('This is a system supplied textual representation\n                    of PVC.  It is assigned by the service provider.')
-frAccountPVCTable = MibTable((1, 3, 6, 1, 2, 1, 10, 44, 1, 6), )
-if mibBuilder.loadTexts: frAccountPVCTable.setDescription('The Frame Relay Accounting PVC table.  This table\n                    is used to perform accounting on a PVC segment\n                    end-point basis.')
-frAccountPVCEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 44, 1, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "FRNETSERV-MIB", "frAccountPVCDLCIIndex"))
-if mibBuilder.loadTexts: frAccountPVCEntry.setDescription('An entry in the Frame Relay Accounting PVC\n                    table.')
-frAccountPVCDLCIIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(16,4194303)))
-if mibBuilder.loadTexts: frAccountPVCDLCIIndex.setDescription('The value of this object is equal to the DLCI\n\n                    value for this PVC segment end-point.')
-frAccountPVCSegmentSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 6, 1, 2), Integer32()).setUnits('Octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAccountPVCSegmentSize.setDescription('The value of this object is equal to the Segment\n                    Size for this PVC segment end-point.')
-frAccountPVCInSegments = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 6, 1, 3), Counter32()).setUnits('Segments').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAccountPVCInSegments.setDescription('The value of this object is equal to the number\n                    of segments received by this PVC segment end-\n                    point.')
-frAccountPVCOutSegments = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 6, 1, 4), Counter32()).setUnits('Segments').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAccountPVCOutSegments.setDescription('The value of this object is equal to the number\n                    of segments sent by this PVC segment end-point.')
-frAccountLportTable = MibTable((1, 3, 6, 1, 2, 1, 10, 44, 1, 7), )
-if mibBuilder.loadTexts: frAccountLportTable.setDescription('The Frame Relay Accounting Logical Port table.\n                    This table is used to perform accounting on a\n                    UNI/NNI Logical Port basis.')
-frAccountLportEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 44, 1, 7, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: frAccountLportEntry.setDescription('An entry in the Frame Relay Accounting Logical\n                    Port table.')
-frAccountLportSegmentSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 7, 1, 1), Integer32()).setUnits('Octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAccountLportSegmentSize.setDescription('The value of this object is equal to the Segment\n                    Size for this UNI/NNI logical port.')
-frAccountLportInSegments = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 7, 1, 2), Counter32()).setUnits('Segments').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAccountLportInSegments.setDescription('The value of this object is equal to the number\n                    of segments received by this UNI/NNI logical\n                    port.')
-frAccountLportOutSegments = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 44, 1, 7, 1, 3), Counter32()).setUnits('Segments').setMaxAccess("readonly")
-if mibBuilder.loadTexts: frAccountLportOutSegments.setDescription('The value of this object is equal to the number\n\n                    of segments sent by this UNI/NNI logical port.')
-frPVCConnectStatusChange = NotificationType((1, 3, 6, 1, 2, 1, 10, 44, 2, 1)).setObjects(*(("FRNETSERV-MIB", "frPVCConnectIndex"), ("FRNETSERV-MIB", "frPVCConnectLowIfIndex"), ("FRNETSERV-MIB", "frPVCConnectLowDLCIIndex"), ("FRNETSERV-MIB", "frPVCConnectHighIfIndex"), ("FRNETSERV-MIB", "frPVCConnectHighDLCIIndex"), ("FRNETSERV-MIB", "frPVCConnectL2hOperStatus"), ("FRNETSERV-MIB", "frPVCConnectH2lOperStatus"), ("FRNETSERV-MIB", "frPVCEndptRcvdSigStatus"),))
-if mibBuilder.loadTexts: frPVCConnectStatusChange.setDescription('Refer to the description of the\n                    frPVCConnectStatusNotif notification that has\n                    replaced this notification.  The notification is\n                    deprecated due to the incorrect inclusion of index\n                    values and to take advantage of the trap prefix\n                    for automatic conversion from SMIv2 to SMIv1 by\n                    making the one but last sub-ID a zero (i.e. the\n                    so-called trap prefix).')
-frPVCConnectStatusNotif = NotificationType((1, 3, 6, 1, 2, 1, 10, 44, 2, 0, 2)).setObjects(*(("FRNETSERV-MIB", "frPVCConnectL2hOperStatus"), ("FRNETSERV-MIB", "frPVCConnectH2lOperStatus"), ("FRNETSERV-MIB", "frPVCEndptRcvdSigStatus"),))
-if mibBuilder.loadTexts: frPVCConnectStatusNotif.setDescription('This notification indicates that the indicated\n                    PVC has changed state.\n\n                    This notification is not sent if an FR-UNI changes\n                    state; a linkDown or linkUp notification should be\n                    sent instead.  The first instance of\n                    frPVCEndptRcvdSigStatus is for the endpoint with\n                    LowIfIndex, LowDLCIIndex.  The second instance of\n                    frPVCEndptRcvdSigStatus is for the endpoint with\n                    HighIfIndex, HighDLCIIndex')
-frnetservConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 44, 3))
-frnetservGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 44, 3, 1))
-frnetservCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 44, 3, 2))
-frnetservCompliance2 = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 44, 3, 2, 2)).setObjects(*(("FRNETSERV-MIB", "frnetservLportGroup2"), ("FRNETSERV-MIB", "frnetservMgtVCSigGroup"), ("FRNETSERV-MIB", "frnetservPVCEndptGroup"), ("FRNETSERV-MIB", "frnetservPVCEndptGroup2"), ("FRNETSERV-MIB", "frnetservPVCConnectGroup"), ("FRNETSERV-MIB", "frnetservPVCConnectNamesGroup"), ("FRNETSERV-MIB", "frnetservPVCNotifGroup2"), ("FRNETSERV-MIB", "frnetservAccountPVCGroup"), ("FRNETSERV-MIB", "frnetservAccountLportGroup"),))
-if mibBuilder.loadTexts: frnetservCompliance2.setDescription("The compliance statement for SNMP entities which\n                    have Frame Relay Network Service Interfaces.\n\n                    The distinction between 'service' and 'switch' is\n                    that a 'switch' is configured via this MIB.\n                    Hence, the various read/write objects have write\n                    capability.  A 'service' represents a passive\n                    monitor-only customer network management\n                    interface.  The various read/write objects are\n                    restricted to read-only capability.")
-frnetSwitchCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 44, 3, 2, 3)).setObjects(*(("FRNETSERV-MIB", "frnetservLportGroup2"), ("FRNETSERV-MIB", "frnetservLportAdminGroup"), ("FRNETSERV-MIB", "frnetservMgtVCSigGroup"), ("FRNETSERV-MIB", "frnetservMgtVCSigAdminGroup"), ("FRNETSERV-MIB", "frnetservPVCEndptGroup"), ("FRNETSERV-MIB", "frnetservPVCEndptGroup2"), ("FRNETSERV-MIB", "frnetservPVCConnectGroup"), ("FRNETSERV-MIB", "frnetservPVCConnectNamesGroup"), ("FRNETSERV-MIB", "frnetservPVCNotifGroup2"), ("FRNETSERV-MIB", "frnetservAccountPVCGroup"), ("FRNETSERV-MIB", "frnetservAccountLportGroup"),))
-if mibBuilder.loadTexts: frnetSwitchCompliance.setDescription("The compliance statement for SNMP entities which\n                    have Frame Relay Network Switch objects.\n\n                    The distinction between 'service' and 'switch' is\n                    that a 'switch' is configured via this MIB.\n\n                    Hence, the various read/write objects have write\n                    capability.  A 'service' represents a passive\n                    monitor-only customer network management\n                    interface.  The various read/write objects are\n                    restricted to read-only capability.")
-frnetservCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 44, 3, 2, 1)).setObjects(*(("FRNETSERV-MIB", "frnetservLportGroup"), ("FRNETSERV-MIB", "frnetservMgtVCSigGroup"), ("FRNETSERV-MIB", "frnetservPVCEndptGroup"), ("FRNETSERV-MIB", "frnetservPVCConnectGroup"), ("FRNETSERV-MIB", "frnetservAccountPVCGroup"), ("FRNETSERV-MIB", "frnetservAccountLportGroup"),))
-if mibBuilder.loadTexts: frnetservCompliance.setDescription('The compliance statement for SNMP entities which\n                    have Frame Relay Network Service Interfaces.\n\n                    This compliance statement has been deprecated in\n                    favor of frnetservCompliance2.  The new compliance\n                    module expands the mandatory groups to include\n                    notification and other new objects.')
-frnetservLportGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 44, 3, 1, 1)).setObjects(*(("FRNETSERV-MIB", "frLportNumPlan"), ("FRNETSERV-MIB", "frLportContact"), ("FRNETSERV-MIB", "frLportLocation"), ("FRNETSERV-MIB", "frLportType"), ("FRNETSERV-MIB", "frLportAddrDLCILen"), ("FRNETSERV-MIB", "frLportVCSigProtocol"), ("FRNETSERV-MIB", "frLportVCSigPointer"),))
-if mibBuilder.loadTexts: frnetservLportGroup.setDescription('A collection of objects providing information\n                     applicable to a Frame Relay Logical Port.  This\n                     group has been deprecated to eliminate reference\n\n                     to the object frLportVCSigPointer.\n\n                     Use the new group frnetservLportGroup2 as a\n                     replacement for this group.')
-frnetservMgtVCSigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 44, 3, 1, 2)).setObjects(*(("FRNETSERV-MIB", "frMgtVCSigProced"), ("FRNETSERV-MIB", "frMgtVCSigUserN391"), ("FRNETSERV-MIB", "frMgtVCSigUserN392"), ("FRNETSERV-MIB", "frMgtVCSigUserN393"), ("FRNETSERV-MIB", "frMgtVCSigUserT391"), ("FRNETSERV-MIB", "frMgtVCSigNetN392"), ("FRNETSERV-MIB", "frMgtVCSigNetN393"), ("FRNETSERV-MIB", "frMgtVCSigNetT392"), ("FRNETSERV-MIB", "frMgtVCSigNetnN4"), ("FRNETSERV-MIB", "frMgtVCSigNetnT3"), ("FRNETSERV-MIB", "frMgtVCSigUserLinkRelErrors"), ("FRNETSERV-MIB", "frMgtVCSigUserProtErrors"), ("FRNETSERV-MIB", "frMgtVCSigUserChanInactive"), ("FRNETSERV-MIB", "frMgtVCSigNetLinkRelErrors"), ("FRNETSERV-MIB", "frMgtVCSigNetProtErrors"), ("FRNETSERV-MIB", "frMgtVCSigNetChanInactive"),))
-if mibBuilder.loadTexts: frnetservMgtVCSigGroup.setDescription('A collection of objects providing information\n                    applicable to the Local In-Channel Signaling\n                    Procedures used for a UNI/NNI logical port.')
-frnetservPVCEndptGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 44, 3, 1, 3)).setObjects(*(("FRNETSERV-MIB", "frPVCConnectIndexValue"), ("FRNETSERV-MIB", "frPVCEndptInMaxFrameSize"), ("FRNETSERV-MIB", "frPVCEndptInBc"), ("FRNETSERV-MIB", "frPVCEndptInBe"), ("FRNETSERV-MIB", "frPVCEndptInCIR"), ("FRNETSERV-MIB", "frPVCEndptOutMaxFrameSize"), ("FRNETSERV-MIB", "frPVCEndptOutBc"), ("FRNETSERV-MIB", "frPVCEndptOutBe"), ("FRNETSERV-MIB", "frPVCEndptOutCIR"), ("FRNETSERV-MIB", "frPVCEndptConnectIdentifier"), ("FRNETSERV-MIB", "frPVCEndptRowStatus"), ("FRNETSERV-MIB", "frPVCEndptRcvdSigStatus"), ("FRNETSERV-MIB", "frPVCEndptInFrames"), ("FRNETSERV-MIB", "frPVCEndptOutFrames"), ("FRNETSERV-MIB", "frPVCEndptInDEFrames"), ("FRNETSERV-MIB", "frPVCEndptInExcessFrames"), ("FRNETSERV-MIB", "frPVCEndptOutExcessFrames"), ("FRNETSERV-MIB", "frPVCEndptInDiscards"), ("FRNETSERV-MIB", "frPVCEndptInOctets"), ("FRNETSERV-MIB", "frPVCEndptOutOctets"),))
-if mibBuilder.loadTexts: frnetservPVCEndptGroup.setDescription('A collection of objects providing information\n                    applicable to a Frame Relay PVC end-point.')
-frnetservPVCConnectGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 44, 3, 1, 4)).setObjects(*(("FRNETSERV-MIB", "frPVCConnectAdminStatus"), ("FRNETSERV-MIB", "frPVCConnectL2hOperStatus"), ("FRNETSERV-MIB", "frPVCConnectH2lOperStatus"), ("FRNETSERV-MIB", "frPVCConnectL2hLastChange"), ("FRNETSERV-MIB", "frPVCConnectH2lLastChange"), ("FRNETSERV-MIB", "frPVCConnectRowStatus"),))
-if mibBuilder.loadTexts: frnetservPVCConnectGroup.setDescription('A collection of objects providing information\n                    applicable to a Frame Relay PVC connection.')
-frnetservAccountPVCGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 44, 3, 1, 5)).setObjects(*(("FRNETSERV-MIB", "frAccountPVCSegmentSize"), ("FRNETSERV-MIB", "frAccountPVCInSegments"), ("FRNETSERV-MIB", "frAccountPVCOutSegments"),))
-if mibBuilder.loadTexts: frnetservAccountPVCGroup.setDescription('A collection of objects providing accounting\n                    information application to a Frame Relay PVC end-\n                    point.')
-frnetservAccountLportGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 44, 3, 1, 6)).setObjects(*(("FRNETSERV-MIB", "frAccountLportSegmentSize"), ("FRNETSERV-MIB", "frAccountLportInSegments"), ("FRNETSERV-MIB", "frAccountLportOutSegments"),))
-if mibBuilder.loadTexts: frnetservAccountLportGroup.setDescription('A collection of objects providing accounting\n                    information application to a Frame Relay logical\n                    port.')
-frnetservLportGroup2 = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 44, 3, 1, 7)).setObjects(*(("FRNETSERV-MIB", "frLportNumPlan"), ("FRNETSERV-MIB", "frLportContact"), ("FRNETSERV-MIB", "frLportLocation"), ("FRNETSERV-MIB", "frLportType"), ("FRNETSERV-MIB", "frLportAddrDLCILen"), ("FRNETSERV-MIB", "frLportVCSigProtocol"), ("FRNETSERV-MIB", "frLportFragControl"), ("FRNETSERV-MIB", "frLportFragSize"),))
-if mibBuilder.loadTexts: frnetservLportGroup2.setDescription('A collection of objects providing information\n                    applicable to a Frame Relay Logical Port.\n\n                    This new version of the Logical Port Group\n                    eliminates the frLportVCSigPointer and adds\n                    support for fragmentation.')
-frnetservPVCEndptGroup2 = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 44, 3, 1, 8)).setObjects(*(("FRNETSERV-MIB", "frPVCEndptInDiscardsDESet"), ("FRNETSERV-MIB", "frPVCEndptInFramesFECNSet"), ("FRNETSERV-MIB", "frPVCEndptOutFramesFECNSet"), ("FRNETSERV-MIB", "frPVCEndptInFramesBECNSet"), ("FRNETSERV-MIB", "frPVCEndptOutFramesBECNSet"), ("FRNETSERV-MIB", "frPVCEndptInCongDiscards"), ("FRNETSERV-MIB", "frPVCEndptInDECongDiscards"), ("FRNETSERV-MIB", "frPVCEndptOutCongDiscards"), ("FRNETSERV-MIB", "frPVCEndptOutDECongDiscards"), ("FRNETSERV-MIB", "frPVCEndptOutDEFrames"), ("FRNETSERV-MIB", "frPVCEndptAtmIwfConnIndex"),))
-if mibBuilder.loadTexts: frnetservPVCEndptGroup2.setDescription('Additions to the PVC end-point group.  These\n                    additions provide new frame counters to track\n                    frame loss.  In addition, the new FR/ATM IWF MIB\n                    cross-connect index is included.')
-frnetservPVCConnectNamesGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 44, 3, 1, 9)).setObjects(*(("FRNETSERV-MIB", "frPVCConnectUserName"), ("FRNETSERV-MIB", "frPVCConnectProviderName"),))
-if mibBuilder.loadTexts: frnetservPVCConnectNamesGroup.setDescription('Additions to the PVC Connect Group.')
-frnetservLportAdminGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 44, 3, 1, 10)).setObjects(*(("FRNETSERV-MIB", "frLportDLCIIndexValue"), ("FRNETSERV-MIB", "frLportTypeAdmin"), ("FRNETSERV-MIB", "frLportVCSigProtocolAdmin"),))
-if mibBuilder.loadTexts: frnetservLportAdminGroup.setDescription('Administrative (R/W) objects for creating a\n                    switch logical port.')
-frnetservMgtVCSigAdminGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 44, 3, 1, 11)).setObjects(*(("FRNETSERV-MIB", "frMgtVCSigProcedAdmin"), ("FRNETSERV-MIB", "frMgtVCSigUserN391Admin"), ("FRNETSERV-MIB", "frMgtVCSigUserN392Admin"), ("FRNETSERV-MIB", "frMgtVCSigUserN393Admin"), ("FRNETSERV-MIB", "frMgtVCSigUserT391Admin"), ("FRNETSERV-MIB", "frMgtVCSigNetN392Admin"), ("FRNETSERV-MIB", "frMgtVCSigNetN393Admin"), ("FRNETSERV-MIB", "frMgtVCSigNetT392Admin"), ("FRNETSERV-MIB", "frMgtVCSigNetnT3Admin"),))
-if mibBuilder.loadTexts: frnetservMgtVCSigAdminGroup.setDescription('A collection of objects providing information\n                    applicable to the Local In-Channel Signaling\n                    Procedures used for a UNI/NNI logical port.')
-frnetservPVCNotifGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 10, 44, 3, 1, 12)).setObjects(*(("FRNETSERV-MIB", "frPVCConnectStatusChange"),))
-if mibBuilder.loadTexts: frnetservPVCNotifGroup.setDescription('Deprecated notification group.  The\n                    frPVCConnectStatusChange notification was flawed\n                    because it included redundant indexes and was not\n                    properly encoded for SMIv1 conversion.')
-frnetservPVCNotifGroup2 = NotificationGroup((1, 3, 6, 1, 2, 1, 10, 44, 3, 1, 13)).setObjects(*(("FRNETSERV-MIB", "frPVCConnectStatusNotif"),))
-if mibBuilder.loadTexts: frnetservPVCNotifGroup2.setDescription('A collection of notifications that apply to frame\n                    relay PVC Connections ')
-mibBuilder.exportSymbols("FRNETSERV-MIB", frPVCConnectHighIfIndex=frPVCConnectHighIfIndex, frAccountPVCDLCIIndex=frAccountPVCDLCIIndex, frnetservPVCConnectNamesGroup=frnetservPVCConnectNamesGroup, frMgtVCSigUserProtErrors=frMgtVCSigUserProtErrors, frMgtVCSigProced=frMgtVCSigProced, frPVCEndptOutOctets=frPVCEndptOutOctets, frMgtVCSigUserN393=frMgtVCSigUserN393, frPVCEndptInDEFrames=frPVCEndptInDEFrames, frPVCConnectIndexValue=frPVCConnectIndexValue, frnetservPVCNotifGroup=frnetservPVCNotifGroup, frMgtVCSigUserN391=frMgtVCSigUserN391, frnetservGroups=frnetservGroups, frMgtVCSigUserN393Admin=frMgtVCSigUserN393Admin, frPVCConnectLowIfIndex=frPVCConnectLowIfIndex, frMgtVCSigUserT391Admin=frMgtVCSigUserT391Admin, frLportTypeAdmin=frLportTypeAdmin, frPVCEndptOutFrames=frPVCEndptOutFrames, frnetservCompliance2=frnetservCompliance2, frPVCEndptOutDEFrames=frPVCEndptOutDEFrames, frPVCConnectStatusChange=frPVCConnectStatusChange, frMgtVCSigNetN392Admin=frMgtVCSigNetN392Admin, frPVCEndptOutBc=frPVCEndptOutBc, frLportType=frLportType, frAccountPVCInSegments=frAccountPVCInSegments, frPVCConnectH2lOperStatus=frPVCConnectH2lOperStatus, frPVCEndptRowStatus=frPVCEndptRowStatus, frMgtVCSigUserChanInactive=frMgtVCSigUserChanInactive, frPVCEndptOutCIR=frPVCEndptOutCIR, frPVCEndptInDiscardsDESet=frPVCEndptInDiscardsDESet, frnetservLportGroup=frnetservLportGroup, frLportFragControl=frLportFragControl, frPVCConnectProviderName=frPVCConnectProviderName, frPVCConnectHighDLCIIndex=frPVCConnectHighDLCIIndex, frnetservObjects=frnetservObjects, frPVCConnectIndex=frPVCConnectIndex, frPVCConnectTable=frPVCConnectTable, frMgtVCSigUserT391=frMgtVCSigUserT391, frPVCConnectEntry=frPVCConnectEntry, frPVCEndptOutExcessFrames=frPVCEndptOutExcessFrames, frAccountPVCOutSegments=frAccountPVCOutSegments, frMgtVCSigTable=frMgtVCSigTable, frLportVCSigProtocolAdmin=frLportVCSigProtocolAdmin, frPVCEndptInDiscards=frPVCEndptInDiscards, frMgtVCSigNetProtErrors=frMgtVCSigNetProtErrors, frnetservMIB=frnetservMIB, frPVCConnectL2hOperStatus=frPVCConnectL2hOperStatus, frAccountLportSegmentSize=frAccountLportSegmentSize, frPVCEndptOutFramesBECNSet=frPVCEndptOutFramesBECNSet, frnetservLportAdminGroup=frnetservLportAdminGroup, frMgtVCSigNetnT3=frMgtVCSigNetnT3, frPVCEndptOutFramesFECNSet=frPVCEndptOutFramesFECNSet, frMgtVCSigNetChanInactive=frMgtVCSigNetChanInactive, frnetservLportGroup2=frnetservLportGroup2, frLportEntry=frLportEntry, frPVCEndptRcvdSigStatus=frPVCEndptRcvdSigStatus, frPVCEndptTable=frPVCEndptTable, frPVCEndptInDECongDiscards=frPVCEndptInDECongDiscards, frnetservPVCNotifGroup2=frnetservPVCNotifGroup2, frPVCEndptInOctets=frPVCEndptInOctets, frPVCConnectRowStatus=frPVCConnectRowStatus, frPVCEndptInFramesFECNSet=frPVCEndptInFramesFECNSet, frPVCEndptOutCongDiscards=frPVCEndptOutCongDiscards, frnetservPVCEndptGroup=frnetservPVCEndptGroup, frMgtVCSigNetnT3Admin=frMgtVCSigNetnT3Admin, frMgtVCSigUserN392=frMgtVCSigUserN392, frMgtVCSigUserLinkRelErrors=frMgtVCSigUserLinkRelErrors, frAccountLportTable=frAccountLportTable, frMgtVCSigNetN392=frMgtVCSigNetN392, frPVCEndptInFrames=frPVCEndptInFrames, frnetservAccountLportGroup=frnetservAccountLportGroup, frPVCConnectLowDLCIIndex=frPVCConnectLowDLCIIndex, frAccountLportInSegments=frAccountLportInSegments, frnetSwitchCompliance=frnetSwitchCompliance, frnetservMgtVCSigGroup=frnetservMgtVCSigGroup, frLportTable=frLportTable, frPVCEndptOutBe=frPVCEndptOutBe, frPVCEndptInExcessFrames=frPVCEndptInExcessFrames, frnetservPVCEndptGroup2=frnetservPVCEndptGroup2, frAccountPVCEntry=frAccountPVCEntry, frMgtVCSigEntry=frMgtVCSigEntry, frPVCEndptEntry=frPVCEndptEntry, frPVCConnectAdminStatus=frPVCConnectAdminStatus, frnetservCompliances=frnetservCompliances, frAccountLportOutSegments=frAccountLportOutSegments, frMgtVCSigNetnN4=frMgtVCSigNetnN4, frMgtVCSigUserN392Admin=frMgtVCSigUserN392Admin, frMgtVCSigProcedAdmin=frMgtVCSigProcedAdmin, frPVCEndptInMaxFrameSize=frPVCEndptInMaxFrameSize, frPVCEndptOutMaxFrameSize=frPVCEndptOutMaxFrameSize, frnetservAccountPVCGroup=frnetservAccountPVCGroup, PYSNMP_MODULE_ID=frnetservMIB, frPVCEndptOutDECongDiscards=frPVCEndptOutDECongDiscards, frLportNumPlan=frLportNumPlan, frPVCEndptInCIR=frPVCEndptInCIR, frnetservPVCConnectGroup=frnetservPVCConnectGroup, frLportVCSigProtocol=frLportVCSigProtocol, frLportLocation=frLportLocation, frMgtVCSigNetT392=frMgtVCSigNetT392, frPVCEndptConnectIdentifier=frPVCEndptConnectIdentifier, frMgtVCSigUserN391Admin=frMgtVCSigUserN391Admin, frMgtVCSigNetLinkRelErrors=frMgtVCSigNetLinkRelErrors, frLportVCSigPointer=frLportVCSigPointer, frAccountPVCSegmentSize=frAccountPVCSegmentSize, frnetservCompliance=frnetservCompliance, frPVCEndptDLCIIndex=frPVCEndptDLCIIndex, frPVCConnectH2lLastChange=frPVCConnectH2lLastChange, frnetservTraps=frnetservTraps, frLportFragSize=frLportFragSize, frMgtVCSigNetN393Admin=frMgtVCSigNetN393Admin, frnetservConformance=frnetservConformance, frnetservMgtVCSigAdminGroup=frnetservMgtVCSigAdminGroup, frPVCConnectL2hLastChange=frPVCConnectL2hLastChange, frnetservTrapsPrefix=frnetservTrapsPrefix, frPVCEndptAtmIwfConnIndex=frPVCEndptAtmIwfConnIndex, frLportAddrDLCILen=frLportAddrDLCILen, frLportDLCIIndexValue=frLportDLCIIndexValue, frMgtVCSigNetT392Admin=frMgtVCSigNetT392Admin, frPVCConnectUserName=frPVCConnectUserName, frAccountPVCTable=frAccountPVCTable, frPVCEndptInFramesBECNSet=frPVCEndptInFramesBECNSet, frPVCEndptInBe=frPVCEndptInBe, frLportContact=frLportContact, frMgtVCSigNetN393=frMgtVCSigNetN393, frPVCEndptInCongDiscards=frPVCEndptInCongDiscards, frPVCConnectStatusNotif=frPVCConnectStatusNotif, frAccountLportEntry=frAccountLportEntry, frPVCEndptInBc=frPVCEndptInBc)
+_BF='frnetservMgtVCSigAdminGroup'
+_BE='frnetservLportAdminGroup'
+_BD='frnetservLportGroup'
+_BC='frPVCConnectStatusNotif'
+_BB='frPVCConnectStatusChange'
+_BA='frMgtVCSigNetnT3Admin'
+_B9='frMgtVCSigNetT392Admin'
+_B8='frMgtVCSigNetN393Admin'
+_B7='frMgtVCSigNetN392Admin'
+_B6='frMgtVCSigUserT391Admin'
+_B5='frMgtVCSigUserN393Admin'
+_B4='frMgtVCSigUserN392Admin'
+_B3='frMgtVCSigUserN391Admin'
+_B2='frMgtVCSigProcedAdmin'
+_B1='frLportVCSigProtocolAdmin'
+_B0='frLportTypeAdmin'
+_A_='frLportDLCIIndexValue'
+_Az='frPVCConnectProviderName'
+_Ay='frPVCConnectUserName'
+_Ax='frPVCEndptAtmIwfConnIndex'
+_Aw='frPVCEndptOutDEFrames'
+_Av='frPVCEndptOutDECongDiscards'
+_Au='frPVCEndptOutCongDiscards'
+_At='frPVCEndptInDECongDiscards'
+_As='frPVCEndptInCongDiscards'
+_Ar='frPVCEndptOutFramesBECNSet'
+_Aq='frPVCEndptInFramesBECNSet'
+_Ap='frPVCEndptOutFramesFECNSet'
+_Ao='frPVCEndptInFramesFECNSet'
+_An='frPVCEndptInDiscardsDESet'
+_Am='frLportFragSize'
+_Al='frLportFragControl'
+_Ak='frAccountLportOutSegments'
+_Aj='frAccountLportInSegments'
+_Ai='frAccountLportSegmentSize'
+_Ah='frAccountPVCOutSegments'
+_Ag='frAccountPVCInSegments'
+_Af='frAccountPVCSegmentSize'
+_Ae='frPVCConnectRowStatus'
+_Ad='frPVCConnectH2lLastChange'
+_Ac='frPVCConnectL2hLastChange'
+_Ab='frPVCConnectAdminStatus'
+_Aa='frPVCEndptOutOctets'
+_AZ='frPVCEndptInOctets'
+_AY='frPVCEndptInDiscards'
+_AX='frPVCEndptOutExcessFrames'
+_AW='frPVCEndptInExcessFrames'
+_AV='frPVCEndptInDEFrames'
+_AU='frPVCEndptOutFrames'
+_AT='frPVCEndptInFrames'
+_AS='frPVCEndptRowStatus'
+_AR='frPVCEndptConnectIdentifier'
+_AQ='frPVCEndptOutCIR'
+_AP='frPVCEndptOutBe'
+_AO='frPVCEndptOutBc'
+_AN='frPVCEndptOutMaxFrameSize'
+_AM='frPVCEndptInCIR'
+_AL='frPVCEndptInBe'
+_AK='frPVCEndptInBc'
+_AJ='frPVCEndptInMaxFrameSize'
+_AI='frPVCConnectIndexValue'
+_AH='frMgtVCSigNetChanInactive'
+_AG='frMgtVCSigNetProtErrors'
+_AF='frMgtVCSigNetLinkRelErrors'
+_AE='frMgtVCSigUserChanInactive'
+_AD='frMgtVCSigUserProtErrors'
+_AC='frMgtVCSigUserLinkRelErrors'
+_AB='frMgtVCSigNetnT3'
+_AA='frMgtVCSigNetnN4'
+_A9='frMgtVCSigNetT392'
+_A8='frMgtVCSigNetN393'
+_A7='frMgtVCSigNetN392'
+_A6='frMgtVCSigUserT391'
+_A5='frMgtVCSigUserN393'
+_A4='frMgtVCSigUserN392'
+_A3='frMgtVCSigUserN391'
+_A2='frMgtVCSigProced'
+_A1='frLportVCSigPointer'
+_A0='frAccountPVCDLCIIndex'
+_z='Bits per Second'
+_y='frPVCEndptDLCIIndex'
+_x='u2nuser'
+_w='bidirect'
+_v='u2nnet'
+_u='ccittQ933A'
+_t='ansiT1617B'
+_s='ansiT1617D'
+_r='frnetservPVCNotifGroup2'
+_q='frnetservPVCConnectNamesGroup'
+_p='frnetservPVCEndptGroup2'
+_o='frnetservLportGroup2'
+_n='frLportVCSigProtocol'
+_m='frLportAddrDLCILen'
+_l='frLportType'
+_k='frLportLocation'
+_j='frLportContact'
+_i='frLportNumPlan'
+_h='testing'
+_g='frPVCConnectHighDLCIIndex'
+_f='frPVCConnectHighIfIndex'
+_e='frPVCConnectLowDLCIIndex'
+_d='frPVCConnectLowIfIndex'
+_c='frPVCConnectIndex'
+_b='frnetservAccountLportGroup'
+_a='frnetservAccountPVCGroup'
+_Z='frnetservPVCConnectGroup'
+_Y='frnetservPVCEndptGroup'
+_X='frnetservMgtVCSigGroup'
+_W='frPVCConnectH2lOperStatus'
+_V='frPVCConnectL2hOperStatus'
+_U='frPVCEndptRcvdSigStatus'
+_T='Segments'
+_S='inactive'
+_R='active'
+_Q='Errors'
+_P='none'
+_O='deprecated'
+_N='Bits'
+_M='Seconds'
+_L='ifIndex'
+_K='IF-MIB'
+_J='not-accessible'
+_I='Octets'
+_H='Events'
+_G='read-create'
+_F='read-write'
+_E='Frames'
+_D='Integer32'
+_C='read-only'
+_B='current'
+_A='FRNETSERV-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InterfaceIndex,ifIndex=mibBuilder.importSymbols(_K,'InterfaceIndex',_L)
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI',_N,'Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','transmission')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TimeStamp')
+frnetservMIB=ModuleIdentity((1,3,6,1,2,1,10,44))
+if mibBuilder.loadTexts:frnetservMIB.setRevisions(('2000-09-28 00:00','1993-11-16 12:00'))
+_FrnetservObjects_ObjectIdentity=ObjectIdentity
+frnetservObjects=_FrnetservObjects_ObjectIdentity((1,3,6,1,2,1,10,44,1))
+_FrLportTable_Object=MibTable
+frLportTable=_FrLportTable_Object((1,3,6,1,2,1,10,44,1,1))
+if mibBuilder.loadTexts:frLportTable.setStatus(_B)
+_FrLportEntry_Object=MibTableRow
+frLportEntry=_FrLportEntry_Object((1,3,6,1,2,1,10,44,1,1,1))
+frLportEntry.setIndexNames((0,_K,_L))
+if mibBuilder.loadTexts:frLportEntry.setStatus(_B)
+class _FrLportNumPlan_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('other',1),('e164',2),('x121',3),(_P,4)))
+_FrLportNumPlan_Type.__name__=_D
+_FrLportNumPlan_Object=MibTableColumn
+frLportNumPlan=_FrLportNumPlan_Object((1,3,6,1,2,1,10,44,1,1,1,1),_FrLportNumPlan_Type())
+frLportNumPlan.setMaxAccess(_C)
+if mibBuilder.loadTexts:frLportNumPlan.setStatus(_B)
+_FrLportContact_Type=SnmpAdminString
+_FrLportContact_Object=MibTableColumn
+frLportContact=_FrLportContact_Object((1,3,6,1,2,1,10,44,1,1,1,2),_FrLportContact_Type())
+frLportContact.setMaxAccess(_C)
+if mibBuilder.loadTexts:frLportContact.setStatus(_B)
+_FrLportLocation_Type=SnmpAdminString
+_FrLportLocation_Object=MibTableColumn
+frLportLocation=_FrLportLocation_Object((1,3,6,1,2,1,10,44,1,1,1,3),_FrLportLocation_Type())
+frLportLocation.setMaxAccess(_C)
+if mibBuilder.loadTexts:frLportLocation.setStatus(_B)
+class _FrLportType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('uni',1),('nni',2)))
+_FrLportType_Type.__name__=_D
+_FrLportType_Object=MibTableColumn
+frLportType=_FrLportType_Object((1,3,6,1,2,1,10,44,1,1,1,4),_FrLportType_Type())
+frLportType.setMaxAccess(_C)
+if mibBuilder.loadTexts:frLportType.setStatus(_B)
+class _FrLportAddrDLCILen_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('twoOctets10Bits',1),('threeOctets10Bits',2),('threeOctets16Bits',3),('fourOctets17Bits',4),('fourOctets23Bits',5)))
+_FrLportAddrDLCILen_Type.__name__=_D
+_FrLportAddrDLCILen_Object=MibTableColumn
+frLportAddrDLCILen=_FrLportAddrDLCILen_Object((1,3,6,1,2,1,10,44,1,1,1,5),_FrLportAddrDLCILen_Type())
+frLportAddrDLCILen.setMaxAccess(_C)
+if mibBuilder.loadTexts:frLportAddrDLCILen.setStatus(_B)
+if mibBuilder.loadTexts:frLportAddrDLCILen.setUnits(_I)
+class _FrLportVCSigProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_P,1),('lmi',2),(_s,3),(_t,4),(_u,5)))
+_FrLportVCSigProtocol_Type.__name__=_D
+_FrLportVCSigProtocol_Object=MibTableColumn
+frLportVCSigProtocol=_FrLportVCSigProtocol_Object((1,3,6,1,2,1,10,44,1,1,1,6),_FrLportVCSigProtocol_Type())
+frLportVCSigProtocol.setMaxAccess(_C)
+if mibBuilder.loadTexts:frLportVCSigProtocol.setStatus(_B)
+_FrLportVCSigPointer_Type=ObjectIdentifier
+_FrLportVCSigPointer_Object=MibTableColumn
+frLportVCSigPointer=_FrLportVCSigPointer_Object((1,3,6,1,2,1,10,44,1,1,1,7),_FrLportVCSigPointer_Type())
+frLportVCSigPointer.setMaxAccess(_C)
+if mibBuilder.loadTexts:frLportVCSigPointer.setStatus(_O)
+class _FrLportDLCIIndexValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(16,4194303))
+_FrLportDLCIIndexValue_Type.__name__=_D
+_FrLportDLCIIndexValue_Object=MibTableColumn
+frLportDLCIIndexValue=_FrLportDLCIIndexValue_Object((1,3,6,1,2,1,10,44,1,1,1,8),_FrLportDLCIIndexValue_Type())
+frLportDLCIIndexValue.setMaxAccess(_C)
+if mibBuilder.loadTexts:frLportDLCIIndexValue.setStatus(_B)
+class _FrLportTypeAdmin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('uni',1),('nni',2)))
+_FrLportTypeAdmin_Type.__name__=_D
+_FrLportTypeAdmin_Object=MibTableColumn
+frLportTypeAdmin=_FrLportTypeAdmin_Object((1,3,6,1,2,1,10,44,1,1,1,9),_FrLportTypeAdmin_Type())
+frLportTypeAdmin.setMaxAccess(_F)
+if mibBuilder.loadTexts:frLportTypeAdmin.setStatus(_B)
+class _FrLportVCSigProtocolAdmin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_P,1),('lmi',2),(_s,3),(_t,4),(_u,5)))
+_FrLportVCSigProtocolAdmin_Type.__name__=_D
+_FrLportVCSigProtocolAdmin_Object=MibTableColumn
+frLportVCSigProtocolAdmin=_FrLportVCSigProtocolAdmin_Object((1,3,6,1,2,1,10,44,1,1,1,10),_FrLportVCSigProtocolAdmin_Type())
+frLportVCSigProtocolAdmin.setMaxAccess(_F)
+if mibBuilder.loadTexts:frLportVCSigProtocolAdmin.setStatus(_B)
+class _FrLportFragControl_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('on',1),('off',2)))
+_FrLportFragControl_Type.__name__=_D
+_FrLportFragControl_Object=MibTableColumn
+frLportFragControl=_FrLportFragControl_Object((1,3,6,1,2,1,10,44,1,1,1,11),_FrLportFragControl_Type())
+frLportFragControl.setMaxAccess(_F)
+if mibBuilder.loadTexts:frLportFragControl.setStatus(_B)
+class _FrLportFragSize_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4096))
+_FrLportFragSize_Type.__name__=_D
+_FrLportFragSize_Object=MibTableColumn
+frLportFragSize=_FrLportFragSize_Object((1,3,6,1,2,1,10,44,1,1,1,12),_FrLportFragSize_Type())
+frLportFragSize.setMaxAccess(_F)
+if mibBuilder.loadTexts:frLportFragSize.setStatus(_B)
+if mibBuilder.loadTexts:frLportFragSize.setUnits(_I)
+_FrMgtVCSigTable_Object=MibTable
+frMgtVCSigTable=_FrMgtVCSigTable_Object((1,3,6,1,2,1,10,44,1,2))
+if mibBuilder.loadTexts:frMgtVCSigTable.setStatus(_B)
+_FrMgtVCSigEntry_Object=MibTableRow
+frMgtVCSigEntry=_FrMgtVCSigEntry_Object((1,3,6,1,2,1,10,44,1,2,1))
+frMgtVCSigEntry.setIndexNames((0,_K,_L))
+if mibBuilder.loadTexts:frMgtVCSigEntry.setStatus(_B)
+class _FrMgtVCSigProced_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_v,1),(_w,2),(_x,3)))
+_FrMgtVCSigProced_Type.__name__=_D
+_FrMgtVCSigProced_Object=MibTableColumn
+frMgtVCSigProced=_FrMgtVCSigProced_Object((1,3,6,1,2,1,10,44,1,2,1,1),_FrMgtVCSigProced_Type())
+frMgtVCSigProced.setMaxAccess(_C)
+if mibBuilder.loadTexts:frMgtVCSigProced.setStatus(_B)
+class _FrMgtVCSigUserN391_Type(Integer32):defaultValue=6;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_FrMgtVCSigUserN391_Type.__name__=_D
+_FrMgtVCSigUserN391_Object=MibTableColumn
+frMgtVCSigUserN391=_FrMgtVCSigUserN391_Object((1,3,6,1,2,1,10,44,1,2,1,2),_FrMgtVCSigUserN391_Type())
+frMgtVCSigUserN391.setMaxAccess(_C)
+if mibBuilder.loadTexts:frMgtVCSigUserN391.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigUserN391.setUnits('Polls')
+class _FrMgtVCSigUserN392_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
+_FrMgtVCSigUserN392_Type.__name__=_D
+_FrMgtVCSigUserN392_Object=MibTableColumn
+frMgtVCSigUserN392=_FrMgtVCSigUserN392_Object((1,3,6,1,2,1,10,44,1,2,1,3),_FrMgtVCSigUserN392_Type())
+frMgtVCSigUserN392.setMaxAccess(_C)
+if mibBuilder.loadTexts:frMgtVCSigUserN392.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigUserN392.setUnits(_H)
+class _FrMgtVCSigUserN393_Type(Integer32):defaultValue=4;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
+_FrMgtVCSigUserN393_Type.__name__=_D
+_FrMgtVCSigUserN393_Object=MibTableColumn
+frMgtVCSigUserN393=_FrMgtVCSigUserN393_Object((1,3,6,1,2,1,10,44,1,2,1,4),_FrMgtVCSigUserN393_Type())
+frMgtVCSigUserN393.setMaxAccess(_C)
+if mibBuilder.loadTexts:frMgtVCSigUserN393.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigUserN393.setUnits(_H)
+class _FrMgtVCSigUserT391_Type(Integer32):defaultValue=10;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,30))
+_FrMgtVCSigUserT391_Type.__name__=_D
+_FrMgtVCSigUserT391_Object=MibTableColumn
+frMgtVCSigUserT391=_FrMgtVCSigUserT391_Object((1,3,6,1,2,1,10,44,1,2,1,5),_FrMgtVCSigUserT391_Type())
+frMgtVCSigUserT391.setMaxAccess(_C)
+if mibBuilder.loadTexts:frMgtVCSigUserT391.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigUserT391.setUnits(_M)
+class _FrMgtVCSigNetN392_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
+_FrMgtVCSigNetN392_Type.__name__=_D
+_FrMgtVCSigNetN392_Object=MibTableColumn
+frMgtVCSigNetN392=_FrMgtVCSigNetN392_Object((1,3,6,1,2,1,10,44,1,2,1,6),_FrMgtVCSigNetN392_Type())
+frMgtVCSigNetN392.setMaxAccess(_C)
+if mibBuilder.loadTexts:frMgtVCSigNetN392.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigNetN392.setUnits(_H)
+class _FrMgtVCSigNetN393_Type(Integer32):defaultValue=4;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
+_FrMgtVCSigNetN393_Type.__name__=_D
+_FrMgtVCSigNetN393_Object=MibTableColumn
+frMgtVCSigNetN393=_FrMgtVCSigNetN393_Object((1,3,6,1,2,1,10,44,1,2,1,7),_FrMgtVCSigNetN393_Type())
+frMgtVCSigNetN393.setMaxAccess(_C)
+if mibBuilder.loadTexts:frMgtVCSigNetN393.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigNetN393.setUnits(_H)
+class _FrMgtVCSigNetT392_Type(Integer32):defaultValue=15;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,30))
+_FrMgtVCSigNetT392_Type.__name__=_D
+_FrMgtVCSigNetT392_Object=MibTableColumn
+frMgtVCSigNetT392=_FrMgtVCSigNetT392_Object((1,3,6,1,2,1,10,44,1,2,1,8),_FrMgtVCSigNetT392_Type())
+frMgtVCSigNetT392.setMaxAccess(_C)
+if mibBuilder.loadTexts:frMgtVCSigNetT392.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigNetT392.setUnits(_M)
+class _FrMgtVCSigNetnN4_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,5))
+_FrMgtVCSigNetnN4_Type.__name__=_D
+_FrMgtVCSigNetnN4_Object=MibTableColumn
+frMgtVCSigNetnN4=_FrMgtVCSigNetnN4_Object((1,3,6,1,2,1,10,44,1,2,1,9),_FrMgtVCSigNetnN4_Type())
+frMgtVCSigNetnN4.setMaxAccess(_C)
+if mibBuilder.loadTexts:frMgtVCSigNetnN4.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigNetnN4.setUnits(_H)
+class _FrMgtVCSigNetnT3_Type(Integer32):defaultValue=20;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,5),ValueRangeConstraint(10,10),ValueRangeConstraint(15,15),ValueRangeConstraint(20,20),ValueRangeConstraint(25,25),ValueRangeConstraint(30,30))
+_FrMgtVCSigNetnT3_Type.__name__=_D
+_FrMgtVCSigNetnT3_Object=MibTableColumn
+frMgtVCSigNetnT3=_FrMgtVCSigNetnT3_Object((1,3,6,1,2,1,10,44,1,2,1,10),_FrMgtVCSigNetnT3_Type())
+frMgtVCSigNetnT3.setMaxAccess(_C)
+if mibBuilder.loadTexts:frMgtVCSigNetnT3.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigNetnT3.setUnits(_M)
+_FrMgtVCSigUserLinkRelErrors_Type=Counter32
+_FrMgtVCSigUserLinkRelErrors_Object=MibTableColumn
+frMgtVCSigUserLinkRelErrors=_FrMgtVCSigUserLinkRelErrors_Object((1,3,6,1,2,1,10,44,1,2,1,11),_FrMgtVCSigUserLinkRelErrors_Type())
+frMgtVCSigUserLinkRelErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:frMgtVCSigUserLinkRelErrors.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigUserLinkRelErrors.setUnits(_Q)
+_FrMgtVCSigUserProtErrors_Type=Counter32
+_FrMgtVCSigUserProtErrors_Object=MibTableColumn
+frMgtVCSigUserProtErrors=_FrMgtVCSigUserProtErrors_Object((1,3,6,1,2,1,10,44,1,2,1,12),_FrMgtVCSigUserProtErrors_Type())
+frMgtVCSigUserProtErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:frMgtVCSigUserProtErrors.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigUserProtErrors.setUnits(_Q)
+_FrMgtVCSigUserChanInactive_Type=Counter32
+_FrMgtVCSigUserChanInactive_Object=MibTableColumn
+frMgtVCSigUserChanInactive=_FrMgtVCSigUserChanInactive_Object((1,3,6,1,2,1,10,44,1,2,1,13),_FrMgtVCSigUserChanInactive_Type())
+frMgtVCSigUserChanInactive.setMaxAccess(_C)
+if mibBuilder.loadTexts:frMgtVCSigUserChanInactive.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigUserChanInactive.setUnits(_H)
+_FrMgtVCSigNetLinkRelErrors_Type=Counter32
+_FrMgtVCSigNetLinkRelErrors_Object=MibTableColumn
+frMgtVCSigNetLinkRelErrors=_FrMgtVCSigNetLinkRelErrors_Object((1,3,6,1,2,1,10,44,1,2,1,14),_FrMgtVCSigNetLinkRelErrors_Type())
+frMgtVCSigNetLinkRelErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:frMgtVCSigNetLinkRelErrors.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigNetLinkRelErrors.setUnits(_Q)
+_FrMgtVCSigNetProtErrors_Type=Counter32
+_FrMgtVCSigNetProtErrors_Object=MibTableColumn
+frMgtVCSigNetProtErrors=_FrMgtVCSigNetProtErrors_Object((1,3,6,1,2,1,10,44,1,2,1,15),_FrMgtVCSigNetProtErrors_Type())
+frMgtVCSigNetProtErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:frMgtVCSigNetProtErrors.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigNetProtErrors.setUnits(_Q)
+_FrMgtVCSigNetChanInactive_Type=Counter32
+_FrMgtVCSigNetChanInactive_Object=MibTableColumn
+frMgtVCSigNetChanInactive=_FrMgtVCSigNetChanInactive_Object((1,3,6,1,2,1,10,44,1,2,1,16),_FrMgtVCSigNetChanInactive_Type())
+frMgtVCSigNetChanInactive.setMaxAccess(_C)
+if mibBuilder.loadTexts:frMgtVCSigNetChanInactive.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigNetChanInactive.setUnits(_H)
+class _FrMgtVCSigProcedAdmin_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_v,1),(_w,2),(_x,3)))
+_FrMgtVCSigProcedAdmin_Type.__name__=_D
+_FrMgtVCSigProcedAdmin_Object=MibTableColumn
+frMgtVCSigProcedAdmin=_FrMgtVCSigProcedAdmin_Object((1,3,6,1,2,1,10,44,1,2,1,17),_FrMgtVCSigProcedAdmin_Type())
+frMgtVCSigProcedAdmin.setMaxAccess(_F)
+if mibBuilder.loadTexts:frMgtVCSigProcedAdmin.setStatus(_B)
+class _FrMgtVCSigUserN391Admin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_FrMgtVCSigUserN391Admin_Type.__name__=_D
+_FrMgtVCSigUserN391Admin_Object=MibTableColumn
+frMgtVCSigUserN391Admin=_FrMgtVCSigUserN391Admin_Object((1,3,6,1,2,1,10,44,1,2,1,18),_FrMgtVCSigUserN391Admin_Type())
+frMgtVCSigUserN391Admin.setMaxAccess(_F)
+if mibBuilder.loadTexts:frMgtVCSigUserN391Admin.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigUserN391Admin.setUnits('Polls')
+class _FrMgtVCSigUserN392Admin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
+_FrMgtVCSigUserN392Admin_Type.__name__=_D
+_FrMgtVCSigUserN392Admin_Object=MibTableColumn
+frMgtVCSigUserN392Admin=_FrMgtVCSigUserN392Admin_Object((1,3,6,1,2,1,10,44,1,2,1,19),_FrMgtVCSigUserN392Admin_Type())
+frMgtVCSigUserN392Admin.setMaxAccess(_F)
+if mibBuilder.loadTexts:frMgtVCSigUserN392Admin.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigUserN392Admin.setUnits(_H)
+class _FrMgtVCSigUserN393Admin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
+_FrMgtVCSigUserN393Admin_Type.__name__=_D
+_FrMgtVCSigUserN393Admin_Object=MibTableColumn
+frMgtVCSigUserN393Admin=_FrMgtVCSigUserN393Admin_Object((1,3,6,1,2,1,10,44,1,2,1,20),_FrMgtVCSigUserN393Admin_Type())
+frMgtVCSigUserN393Admin.setMaxAccess(_F)
+if mibBuilder.loadTexts:frMgtVCSigUserN393Admin.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigUserN393Admin.setUnits(_H)
+class _FrMgtVCSigUserT391Admin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,30))
+_FrMgtVCSigUserT391Admin_Type.__name__=_D
+_FrMgtVCSigUserT391Admin_Object=MibTableColumn
+frMgtVCSigUserT391Admin=_FrMgtVCSigUserT391Admin_Object((1,3,6,1,2,1,10,44,1,2,1,21),_FrMgtVCSigUserT391Admin_Type())
+frMgtVCSigUserT391Admin.setMaxAccess(_F)
+if mibBuilder.loadTexts:frMgtVCSigUserT391Admin.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigUserT391Admin.setUnits(_M)
+class _FrMgtVCSigNetN392Admin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
+_FrMgtVCSigNetN392Admin_Type.__name__=_D
+_FrMgtVCSigNetN392Admin_Object=MibTableColumn
+frMgtVCSigNetN392Admin=_FrMgtVCSigNetN392Admin_Object((1,3,6,1,2,1,10,44,1,2,1,22),_FrMgtVCSigNetN392Admin_Type())
+frMgtVCSigNetN392Admin.setMaxAccess(_F)
+if mibBuilder.loadTexts:frMgtVCSigNetN392Admin.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigNetN392Admin.setUnits(_H)
+class _FrMgtVCSigNetN393Admin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,10))
+_FrMgtVCSigNetN393Admin_Type.__name__=_D
+_FrMgtVCSigNetN393Admin_Object=MibTableColumn
+frMgtVCSigNetN393Admin=_FrMgtVCSigNetN393Admin_Object((1,3,6,1,2,1,10,44,1,2,1,23),_FrMgtVCSigNetN393Admin_Type())
+frMgtVCSigNetN393Admin.setMaxAccess(_F)
+if mibBuilder.loadTexts:frMgtVCSigNetN393Admin.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigNetN393Admin.setUnits(_H)
+class _FrMgtVCSigNetT392Admin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,30))
+_FrMgtVCSigNetT392Admin_Type.__name__=_D
+_FrMgtVCSigNetT392Admin_Object=MibTableColumn
+frMgtVCSigNetT392Admin=_FrMgtVCSigNetT392Admin_Object((1,3,6,1,2,1,10,44,1,2,1,24),_FrMgtVCSigNetT392Admin_Type())
+frMgtVCSigNetT392Admin.setMaxAccess(_F)
+if mibBuilder.loadTexts:frMgtVCSigNetT392Admin.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigNetT392Admin.setUnits(_M)
+class _FrMgtVCSigNetnT3Admin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(5,5),ValueRangeConstraint(10,10),ValueRangeConstraint(15,15),ValueRangeConstraint(20,20),ValueRangeConstraint(25,25),ValueRangeConstraint(30,30))
+_FrMgtVCSigNetnT3Admin_Type.__name__=_D
+_FrMgtVCSigNetnT3Admin_Object=MibTableColumn
+frMgtVCSigNetnT3Admin=_FrMgtVCSigNetnT3Admin_Object((1,3,6,1,2,1,10,44,1,2,1,25),_FrMgtVCSigNetnT3Admin_Type())
+frMgtVCSigNetnT3Admin.setMaxAccess(_F)
+if mibBuilder.loadTexts:frMgtVCSigNetnT3Admin.setStatus(_B)
+if mibBuilder.loadTexts:frMgtVCSigNetnT3Admin.setUnits(_M)
+_FrPVCEndptTable_Object=MibTable
+frPVCEndptTable=_FrPVCEndptTable_Object((1,3,6,1,2,1,10,44,1,3))
+if mibBuilder.loadTexts:frPVCEndptTable.setStatus(_B)
+_FrPVCEndptEntry_Object=MibTableRow
+frPVCEndptEntry=_FrPVCEndptEntry_Object((1,3,6,1,2,1,10,44,1,3,1))
+frPVCEndptEntry.setIndexNames((0,_K,_L),(0,_A,_y))
+if mibBuilder.loadTexts:frPVCEndptEntry.setStatus(_B)
+class _FrPVCEndptDLCIIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(16,4194303))
+_FrPVCEndptDLCIIndex_Type.__name__=_D
+_FrPVCEndptDLCIIndex_Object=MibTableColumn
+frPVCEndptDLCIIndex=_FrPVCEndptDLCIIndex_Object((1,3,6,1,2,1,10,44,1,3,1,1),_FrPVCEndptDLCIIndex_Type())
+frPVCEndptDLCIIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:frPVCEndptDLCIIndex.setStatus(_B)
+class _FrPVCEndptInMaxFrameSize_Type(Integer32):defaultValue=1600;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4096))
+_FrPVCEndptInMaxFrameSize_Type.__name__=_D
+_FrPVCEndptInMaxFrameSize_Object=MibTableColumn
+frPVCEndptInMaxFrameSize=_FrPVCEndptInMaxFrameSize_Object((1,3,6,1,2,1,10,44,1,3,1,2),_FrPVCEndptInMaxFrameSize_Type())
+frPVCEndptInMaxFrameSize.setMaxAccess(_G)
+if mibBuilder.loadTexts:frPVCEndptInMaxFrameSize.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptInMaxFrameSize.setUnits(_I)
+class _FrPVCEndptInBc_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FrPVCEndptInBc_Type.__name__=_D
+_FrPVCEndptInBc_Object=MibTableColumn
+frPVCEndptInBc=_FrPVCEndptInBc_Object((1,3,6,1,2,1,10,44,1,3,1,3),_FrPVCEndptInBc_Type())
+frPVCEndptInBc.setMaxAccess(_G)
+if mibBuilder.loadTexts:frPVCEndptInBc.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptInBc.setUnits(_N)
+class _FrPVCEndptInBe_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FrPVCEndptInBe_Type.__name__=_D
+_FrPVCEndptInBe_Object=MibTableColumn
+frPVCEndptInBe=_FrPVCEndptInBe_Object((1,3,6,1,2,1,10,44,1,3,1,4),_FrPVCEndptInBe_Type())
+frPVCEndptInBe.setMaxAccess(_G)
+if mibBuilder.loadTexts:frPVCEndptInBe.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptInBe.setUnits(_N)
+class _FrPVCEndptInCIR_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FrPVCEndptInCIR_Type.__name__=_D
+_FrPVCEndptInCIR_Object=MibTableColumn
+frPVCEndptInCIR=_FrPVCEndptInCIR_Object((1,3,6,1,2,1,10,44,1,3,1,5),_FrPVCEndptInCIR_Type())
+frPVCEndptInCIR.setMaxAccess(_G)
+if mibBuilder.loadTexts:frPVCEndptInCIR.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptInCIR.setUnits(_z)
+class _FrPVCEndptOutMaxFrameSize_Type(Integer32):defaultValue=1600;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4096))
+_FrPVCEndptOutMaxFrameSize_Type.__name__=_D
+_FrPVCEndptOutMaxFrameSize_Object=MibTableColumn
+frPVCEndptOutMaxFrameSize=_FrPVCEndptOutMaxFrameSize_Object((1,3,6,1,2,1,10,44,1,3,1,6),_FrPVCEndptOutMaxFrameSize_Type())
+frPVCEndptOutMaxFrameSize.setMaxAccess(_G)
+if mibBuilder.loadTexts:frPVCEndptOutMaxFrameSize.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptOutMaxFrameSize.setUnits(_I)
+class _FrPVCEndptOutBc_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FrPVCEndptOutBc_Type.__name__=_D
+_FrPVCEndptOutBc_Object=MibTableColumn
+frPVCEndptOutBc=_FrPVCEndptOutBc_Object((1,3,6,1,2,1,10,44,1,3,1,7),_FrPVCEndptOutBc_Type())
+frPVCEndptOutBc.setMaxAccess(_G)
+if mibBuilder.loadTexts:frPVCEndptOutBc.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptOutBc.setUnits(_N)
+class _FrPVCEndptOutBe_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FrPVCEndptOutBe_Type.__name__=_D
+_FrPVCEndptOutBe_Object=MibTableColumn
+frPVCEndptOutBe=_FrPVCEndptOutBe_Object((1,3,6,1,2,1,10,44,1,3,1,8),_FrPVCEndptOutBe_Type())
+frPVCEndptOutBe.setMaxAccess(_G)
+if mibBuilder.loadTexts:frPVCEndptOutBe.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptOutBe.setUnits(_N)
+class _FrPVCEndptOutCIR_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_FrPVCEndptOutCIR_Type.__name__=_D
+_FrPVCEndptOutCIR_Object=MibTableColumn
+frPVCEndptOutCIR=_FrPVCEndptOutCIR_Object((1,3,6,1,2,1,10,44,1,3,1,9),_FrPVCEndptOutCIR_Type())
+frPVCEndptOutCIR.setMaxAccess(_G)
+if mibBuilder.loadTexts:frPVCEndptOutCIR.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptOutCIR.setUnits(_z)
+class _FrPVCEndptConnectIdentifier_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_FrPVCEndptConnectIdentifier_Type.__name__=_D
+_FrPVCEndptConnectIdentifier_Object=MibTableColumn
+frPVCEndptConnectIdentifier=_FrPVCEndptConnectIdentifier_Object((1,3,6,1,2,1,10,44,1,3,1,10),_FrPVCEndptConnectIdentifier_Type())
+frPVCEndptConnectIdentifier.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptConnectIdentifier.setStatus(_B)
+_FrPVCEndptRowStatus_Type=RowStatus
+_FrPVCEndptRowStatus_Object=MibTableColumn
+frPVCEndptRowStatus=_FrPVCEndptRowStatus_Object((1,3,6,1,2,1,10,44,1,3,1,11),_FrPVCEndptRowStatus_Type())
+frPVCEndptRowStatus.setMaxAccess(_G)
+if mibBuilder.loadTexts:frPVCEndptRowStatus.setStatus(_B)
+class _FrPVCEndptRcvdSigStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('deleted',1),(_R,2),(_S,3),(_P,4)))
+_FrPVCEndptRcvdSigStatus_Type.__name__=_D
+_FrPVCEndptRcvdSigStatus_Object=MibTableColumn
+frPVCEndptRcvdSigStatus=_FrPVCEndptRcvdSigStatus_Object((1,3,6,1,2,1,10,44,1,3,1,12),_FrPVCEndptRcvdSigStatus_Type())
+frPVCEndptRcvdSigStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptRcvdSigStatus.setStatus(_B)
+_FrPVCEndptInFrames_Type=Counter32
+_FrPVCEndptInFrames_Object=MibTableColumn
+frPVCEndptInFrames=_FrPVCEndptInFrames_Object((1,3,6,1,2,1,10,44,1,3,1,13),_FrPVCEndptInFrames_Type())
+frPVCEndptInFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptInFrames.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptInFrames.setUnits(_E)
+_FrPVCEndptOutFrames_Type=Counter32
+_FrPVCEndptOutFrames_Object=MibTableColumn
+frPVCEndptOutFrames=_FrPVCEndptOutFrames_Object((1,3,6,1,2,1,10,44,1,3,1,14),_FrPVCEndptOutFrames_Type())
+frPVCEndptOutFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptOutFrames.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptOutFrames.setUnits(_E)
+_FrPVCEndptInDEFrames_Type=Counter32
+_FrPVCEndptInDEFrames_Object=MibTableColumn
+frPVCEndptInDEFrames=_FrPVCEndptInDEFrames_Object((1,3,6,1,2,1,10,44,1,3,1,15),_FrPVCEndptInDEFrames_Type())
+frPVCEndptInDEFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptInDEFrames.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptInDEFrames.setUnits(_E)
+_FrPVCEndptInExcessFrames_Type=Counter32
+_FrPVCEndptInExcessFrames_Object=MibTableColumn
+frPVCEndptInExcessFrames=_FrPVCEndptInExcessFrames_Object((1,3,6,1,2,1,10,44,1,3,1,16),_FrPVCEndptInExcessFrames_Type())
+frPVCEndptInExcessFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptInExcessFrames.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptInExcessFrames.setUnits(_E)
+_FrPVCEndptOutExcessFrames_Type=Counter32
+_FrPVCEndptOutExcessFrames_Object=MibTableColumn
+frPVCEndptOutExcessFrames=_FrPVCEndptOutExcessFrames_Object((1,3,6,1,2,1,10,44,1,3,1,17),_FrPVCEndptOutExcessFrames_Type())
+frPVCEndptOutExcessFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptOutExcessFrames.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptOutExcessFrames.setUnits(_E)
+_FrPVCEndptInDiscards_Type=Counter32
+_FrPVCEndptInDiscards_Object=MibTableColumn
+frPVCEndptInDiscards=_FrPVCEndptInDiscards_Object((1,3,6,1,2,1,10,44,1,3,1,18),_FrPVCEndptInDiscards_Type())
+frPVCEndptInDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptInDiscards.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptInDiscards.setUnits(_E)
+_FrPVCEndptInOctets_Type=Counter32
+_FrPVCEndptInOctets_Object=MibTableColumn
+frPVCEndptInOctets=_FrPVCEndptInOctets_Object((1,3,6,1,2,1,10,44,1,3,1,19),_FrPVCEndptInOctets_Type())
+frPVCEndptInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptInOctets.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptInOctets.setUnits(_I)
+_FrPVCEndptOutOctets_Type=Counter32
+_FrPVCEndptOutOctets_Object=MibTableColumn
+frPVCEndptOutOctets=_FrPVCEndptOutOctets_Object((1,3,6,1,2,1,10,44,1,3,1,20),_FrPVCEndptOutOctets_Type())
+frPVCEndptOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptOutOctets.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptOutOctets.setUnits(_I)
+_FrPVCEndptInDiscardsDESet_Type=Counter32
+_FrPVCEndptInDiscardsDESet_Object=MibTableColumn
+frPVCEndptInDiscardsDESet=_FrPVCEndptInDiscardsDESet_Object((1,3,6,1,2,1,10,44,1,3,1,21),_FrPVCEndptInDiscardsDESet_Type())
+frPVCEndptInDiscardsDESet.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptInDiscardsDESet.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptInDiscardsDESet.setUnits(_E)
+_FrPVCEndptInFramesFECNSet_Type=Counter32
+_FrPVCEndptInFramesFECNSet_Object=MibTableColumn
+frPVCEndptInFramesFECNSet=_FrPVCEndptInFramesFECNSet_Object((1,3,6,1,2,1,10,44,1,3,1,22),_FrPVCEndptInFramesFECNSet_Type())
+frPVCEndptInFramesFECNSet.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptInFramesFECNSet.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptInFramesFECNSet.setUnits(_E)
+_FrPVCEndptOutFramesFECNSet_Type=Counter32
+_FrPVCEndptOutFramesFECNSet_Object=MibTableColumn
+frPVCEndptOutFramesFECNSet=_FrPVCEndptOutFramesFECNSet_Object((1,3,6,1,2,1,10,44,1,3,1,23),_FrPVCEndptOutFramesFECNSet_Type())
+frPVCEndptOutFramesFECNSet.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptOutFramesFECNSet.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptOutFramesFECNSet.setUnits(_E)
+_FrPVCEndptInFramesBECNSet_Type=Counter32
+_FrPVCEndptInFramesBECNSet_Object=MibTableColumn
+frPVCEndptInFramesBECNSet=_FrPVCEndptInFramesBECNSet_Object((1,3,6,1,2,1,10,44,1,3,1,24),_FrPVCEndptInFramesBECNSet_Type())
+frPVCEndptInFramesBECNSet.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptInFramesBECNSet.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptInFramesBECNSet.setUnits(_E)
+_FrPVCEndptOutFramesBECNSet_Type=Counter32
+_FrPVCEndptOutFramesBECNSet_Object=MibTableColumn
+frPVCEndptOutFramesBECNSet=_FrPVCEndptOutFramesBECNSet_Object((1,3,6,1,2,1,10,44,1,3,1,25),_FrPVCEndptOutFramesBECNSet_Type())
+frPVCEndptOutFramesBECNSet.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptOutFramesBECNSet.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptOutFramesBECNSet.setUnits(_E)
+_FrPVCEndptInCongDiscards_Type=Counter32
+_FrPVCEndptInCongDiscards_Object=MibTableColumn
+frPVCEndptInCongDiscards=_FrPVCEndptInCongDiscards_Object((1,3,6,1,2,1,10,44,1,3,1,26),_FrPVCEndptInCongDiscards_Type())
+frPVCEndptInCongDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptInCongDiscards.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptInCongDiscards.setUnits(_E)
+_FrPVCEndptInDECongDiscards_Type=Counter32
+_FrPVCEndptInDECongDiscards_Object=MibTableColumn
+frPVCEndptInDECongDiscards=_FrPVCEndptInDECongDiscards_Object((1,3,6,1,2,1,10,44,1,3,1,27),_FrPVCEndptInDECongDiscards_Type())
+frPVCEndptInDECongDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptInDECongDiscards.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptInDECongDiscards.setUnits(_E)
+_FrPVCEndptOutCongDiscards_Type=Counter32
+_FrPVCEndptOutCongDiscards_Object=MibTableColumn
+frPVCEndptOutCongDiscards=_FrPVCEndptOutCongDiscards_Object((1,3,6,1,2,1,10,44,1,3,1,28),_FrPVCEndptOutCongDiscards_Type())
+frPVCEndptOutCongDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptOutCongDiscards.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptOutCongDiscards.setUnits(_E)
+_FrPVCEndptOutDECongDiscards_Type=Counter32
+_FrPVCEndptOutDECongDiscards_Object=MibTableColumn
+frPVCEndptOutDECongDiscards=_FrPVCEndptOutDECongDiscards_Object((1,3,6,1,2,1,10,44,1,3,1,29),_FrPVCEndptOutDECongDiscards_Type())
+frPVCEndptOutDECongDiscards.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptOutDECongDiscards.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptOutDECongDiscards.setUnits(_E)
+_FrPVCEndptOutDEFrames_Type=Counter32
+_FrPVCEndptOutDEFrames_Object=MibTableColumn
+frPVCEndptOutDEFrames=_FrPVCEndptOutDEFrames_Object((1,3,6,1,2,1,10,44,1,3,1,30),_FrPVCEndptOutDEFrames_Type())
+frPVCEndptOutDEFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptOutDEFrames.setStatus(_B)
+if mibBuilder.loadTexts:frPVCEndptOutDEFrames.setUnits(_E)
+class _FrPVCEndptAtmIwfConnIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_FrPVCEndptAtmIwfConnIndex_Type.__name__=_D
+_FrPVCEndptAtmIwfConnIndex_Object=MibTableColumn
+frPVCEndptAtmIwfConnIndex=_FrPVCEndptAtmIwfConnIndex_Object((1,3,6,1,2,1,10,44,1,3,1,31),_FrPVCEndptAtmIwfConnIndex_Type())
+frPVCEndptAtmIwfConnIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCEndptAtmIwfConnIndex.setStatus(_B)
+class _FrPVCConnectIndexValue_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_FrPVCConnectIndexValue_Type.__name__=_D
+_FrPVCConnectIndexValue_Object=MibScalar
+frPVCConnectIndexValue=_FrPVCConnectIndexValue_Object((1,3,6,1,2,1,10,44,1,4),_FrPVCConnectIndexValue_Type())
+frPVCConnectIndexValue.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCConnectIndexValue.setStatus(_B)
+_FrPVCConnectTable_Object=MibTable
+frPVCConnectTable=_FrPVCConnectTable_Object((1,3,6,1,2,1,10,44,1,5))
+if mibBuilder.loadTexts:frPVCConnectTable.setStatus(_B)
+_FrPVCConnectEntry_Object=MibTableRow
+frPVCConnectEntry=_FrPVCConnectEntry_Object((1,3,6,1,2,1,10,44,1,5,1))
+frPVCConnectEntry.setIndexNames((0,_A,_c),(0,_A,_d),(0,_A,_e),(0,_A,_f),(0,_A,_g))
+if mibBuilder.loadTexts:frPVCConnectEntry.setStatus(_B)
+class _FrPVCConnectIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_FrPVCConnectIndex_Type.__name__=_D
+_FrPVCConnectIndex_Object=MibTableColumn
+frPVCConnectIndex=_FrPVCConnectIndex_Object((1,3,6,1,2,1,10,44,1,5,1,1),_FrPVCConnectIndex_Type())
+frPVCConnectIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:frPVCConnectIndex.setStatus(_B)
+_FrPVCConnectLowIfIndex_Type=InterfaceIndex
+_FrPVCConnectLowIfIndex_Object=MibTableColumn
+frPVCConnectLowIfIndex=_FrPVCConnectLowIfIndex_Object((1,3,6,1,2,1,10,44,1,5,1,2),_FrPVCConnectLowIfIndex_Type())
+frPVCConnectLowIfIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:frPVCConnectLowIfIndex.setStatus(_B)
+class _FrPVCConnectLowDLCIIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(16,4194303))
+_FrPVCConnectLowDLCIIndex_Type.__name__=_D
+_FrPVCConnectLowDLCIIndex_Object=MibTableColumn
+frPVCConnectLowDLCIIndex=_FrPVCConnectLowDLCIIndex_Object((1,3,6,1,2,1,10,44,1,5,1,3),_FrPVCConnectLowDLCIIndex_Type())
+frPVCConnectLowDLCIIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:frPVCConnectLowDLCIIndex.setStatus(_B)
+_FrPVCConnectHighIfIndex_Type=InterfaceIndex
+_FrPVCConnectHighIfIndex_Object=MibTableColumn
+frPVCConnectHighIfIndex=_FrPVCConnectHighIfIndex_Object((1,3,6,1,2,1,10,44,1,5,1,4),_FrPVCConnectHighIfIndex_Type())
+frPVCConnectHighIfIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:frPVCConnectHighIfIndex.setStatus(_B)
+class _FrPVCConnectHighDLCIIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(16,4194303))
+_FrPVCConnectHighDLCIIndex_Type.__name__=_D
+_FrPVCConnectHighDLCIIndex_Object=MibTableColumn
+frPVCConnectHighDLCIIndex=_FrPVCConnectHighDLCIIndex_Object((1,3,6,1,2,1,10,44,1,5,1,5),_FrPVCConnectHighDLCIIndex_Type())
+frPVCConnectHighDLCIIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:frPVCConnectHighDLCIIndex.setStatus(_B)
+class _FrPVCConnectAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_R,1),(_S,2),(_h,3)))
+_FrPVCConnectAdminStatus_Type.__name__=_D
+_FrPVCConnectAdminStatus_Object=MibTableColumn
+frPVCConnectAdminStatus=_FrPVCConnectAdminStatus_Object((1,3,6,1,2,1,10,44,1,5,1,6),_FrPVCConnectAdminStatus_Type())
+frPVCConnectAdminStatus.setMaxAccess(_G)
+if mibBuilder.loadTexts:frPVCConnectAdminStatus.setStatus(_B)
+class _FrPVCConnectL2hOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_R,1),(_S,2),(_h,3),('unknown',4)))
+_FrPVCConnectL2hOperStatus_Type.__name__=_D
+_FrPVCConnectL2hOperStatus_Object=MibTableColumn
+frPVCConnectL2hOperStatus=_FrPVCConnectL2hOperStatus_Object((1,3,6,1,2,1,10,44,1,5,1,7),_FrPVCConnectL2hOperStatus_Type())
+frPVCConnectL2hOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCConnectL2hOperStatus.setStatus(_B)
+class _FrPVCConnectH2lOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_R,1),(_S,2),(_h,3),('unknown',4)))
+_FrPVCConnectH2lOperStatus_Type.__name__=_D
+_FrPVCConnectH2lOperStatus_Object=MibTableColumn
+frPVCConnectH2lOperStatus=_FrPVCConnectH2lOperStatus_Object((1,3,6,1,2,1,10,44,1,5,1,8),_FrPVCConnectH2lOperStatus_Type())
+frPVCConnectH2lOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCConnectH2lOperStatus.setStatus(_B)
+_FrPVCConnectL2hLastChange_Type=TimeStamp
+_FrPVCConnectL2hLastChange_Object=MibTableColumn
+frPVCConnectL2hLastChange=_FrPVCConnectL2hLastChange_Object((1,3,6,1,2,1,10,44,1,5,1,9),_FrPVCConnectL2hLastChange_Type())
+frPVCConnectL2hLastChange.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCConnectL2hLastChange.setStatus(_B)
+_FrPVCConnectH2lLastChange_Type=TimeStamp
+_FrPVCConnectH2lLastChange_Object=MibTableColumn
+frPVCConnectH2lLastChange=_FrPVCConnectH2lLastChange_Object((1,3,6,1,2,1,10,44,1,5,1,10),_FrPVCConnectH2lLastChange_Type())
+frPVCConnectH2lLastChange.setMaxAccess(_C)
+if mibBuilder.loadTexts:frPVCConnectH2lLastChange.setStatus(_B)
+_FrPVCConnectRowStatus_Type=RowStatus
+_FrPVCConnectRowStatus_Object=MibTableColumn
+frPVCConnectRowStatus=_FrPVCConnectRowStatus_Object((1,3,6,1,2,1,10,44,1,5,1,11),_FrPVCConnectRowStatus_Type())
+frPVCConnectRowStatus.setMaxAccess(_G)
+if mibBuilder.loadTexts:frPVCConnectRowStatus.setStatus(_B)
+_FrPVCConnectUserName_Type=SnmpAdminString
+_FrPVCConnectUserName_Object=MibTableColumn
+frPVCConnectUserName=_FrPVCConnectUserName_Object((1,3,6,1,2,1,10,44,1,5,1,12),_FrPVCConnectUserName_Type())
+frPVCConnectUserName.setMaxAccess(_G)
+if mibBuilder.loadTexts:frPVCConnectUserName.setStatus(_B)
+_FrPVCConnectProviderName_Type=SnmpAdminString
+_FrPVCConnectProviderName_Object=MibTableColumn
+frPVCConnectProviderName=_FrPVCConnectProviderName_Object((1,3,6,1,2,1,10,44,1,5,1,13),_FrPVCConnectProviderName_Type())
+frPVCConnectProviderName.setMaxAccess(_G)
+if mibBuilder.loadTexts:frPVCConnectProviderName.setStatus(_B)
+_FrAccountPVCTable_Object=MibTable
+frAccountPVCTable=_FrAccountPVCTable_Object((1,3,6,1,2,1,10,44,1,6))
+if mibBuilder.loadTexts:frAccountPVCTable.setStatus(_B)
+_FrAccountPVCEntry_Object=MibTableRow
+frAccountPVCEntry=_FrAccountPVCEntry_Object((1,3,6,1,2,1,10,44,1,6,1))
+frAccountPVCEntry.setIndexNames((0,_K,_L),(0,_A,_A0))
+if mibBuilder.loadTexts:frAccountPVCEntry.setStatus(_B)
+class _FrAccountPVCDLCIIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(16,4194303))
+_FrAccountPVCDLCIIndex_Type.__name__=_D
+_FrAccountPVCDLCIIndex_Object=MibTableColumn
+frAccountPVCDLCIIndex=_FrAccountPVCDLCIIndex_Object((1,3,6,1,2,1,10,44,1,6,1,1),_FrAccountPVCDLCIIndex_Type())
+frAccountPVCDLCIIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:frAccountPVCDLCIIndex.setStatus(_B)
+_FrAccountPVCSegmentSize_Type=Integer32
+_FrAccountPVCSegmentSize_Object=MibTableColumn
+frAccountPVCSegmentSize=_FrAccountPVCSegmentSize_Object((1,3,6,1,2,1,10,44,1,6,1,2),_FrAccountPVCSegmentSize_Type())
+frAccountPVCSegmentSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:frAccountPVCSegmentSize.setStatus(_B)
+if mibBuilder.loadTexts:frAccountPVCSegmentSize.setUnits(_I)
+_FrAccountPVCInSegments_Type=Counter32
+_FrAccountPVCInSegments_Object=MibTableColumn
+frAccountPVCInSegments=_FrAccountPVCInSegments_Object((1,3,6,1,2,1,10,44,1,6,1,3),_FrAccountPVCInSegments_Type())
+frAccountPVCInSegments.setMaxAccess(_C)
+if mibBuilder.loadTexts:frAccountPVCInSegments.setStatus(_B)
+if mibBuilder.loadTexts:frAccountPVCInSegments.setUnits(_T)
+_FrAccountPVCOutSegments_Type=Counter32
+_FrAccountPVCOutSegments_Object=MibTableColumn
+frAccountPVCOutSegments=_FrAccountPVCOutSegments_Object((1,3,6,1,2,1,10,44,1,6,1,4),_FrAccountPVCOutSegments_Type())
+frAccountPVCOutSegments.setMaxAccess(_C)
+if mibBuilder.loadTexts:frAccountPVCOutSegments.setStatus(_B)
+if mibBuilder.loadTexts:frAccountPVCOutSegments.setUnits(_T)
+_FrAccountLportTable_Object=MibTable
+frAccountLportTable=_FrAccountLportTable_Object((1,3,6,1,2,1,10,44,1,7))
+if mibBuilder.loadTexts:frAccountLportTable.setStatus(_B)
+_FrAccountLportEntry_Object=MibTableRow
+frAccountLportEntry=_FrAccountLportEntry_Object((1,3,6,1,2,1,10,44,1,7,1))
+frAccountLportEntry.setIndexNames((0,_K,_L))
+if mibBuilder.loadTexts:frAccountLportEntry.setStatus(_B)
+_FrAccountLportSegmentSize_Type=Integer32
+_FrAccountLportSegmentSize_Object=MibTableColumn
+frAccountLportSegmentSize=_FrAccountLportSegmentSize_Object((1,3,6,1,2,1,10,44,1,7,1,1),_FrAccountLportSegmentSize_Type())
+frAccountLportSegmentSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:frAccountLportSegmentSize.setStatus(_B)
+if mibBuilder.loadTexts:frAccountLportSegmentSize.setUnits(_I)
+_FrAccountLportInSegments_Type=Counter32
+_FrAccountLportInSegments_Object=MibTableColumn
+frAccountLportInSegments=_FrAccountLportInSegments_Object((1,3,6,1,2,1,10,44,1,7,1,2),_FrAccountLportInSegments_Type())
+frAccountLportInSegments.setMaxAccess(_C)
+if mibBuilder.loadTexts:frAccountLportInSegments.setStatus(_B)
+if mibBuilder.loadTexts:frAccountLportInSegments.setUnits(_T)
+_FrAccountLportOutSegments_Type=Counter32
+_FrAccountLportOutSegments_Object=MibTableColumn
+frAccountLportOutSegments=_FrAccountLportOutSegments_Object((1,3,6,1,2,1,10,44,1,7,1,3),_FrAccountLportOutSegments_Type())
+frAccountLportOutSegments.setMaxAccess(_C)
+if mibBuilder.loadTexts:frAccountLportOutSegments.setStatus(_B)
+if mibBuilder.loadTexts:frAccountLportOutSegments.setUnits(_T)
+_FrnetservTraps_ObjectIdentity=ObjectIdentity
+frnetservTraps=_FrnetservTraps_ObjectIdentity((1,3,6,1,2,1,10,44,2))
+_FrnetservTrapsPrefix_ObjectIdentity=ObjectIdentity
+frnetservTrapsPrefix=_FrnetservTrapsPrefix_ObjectIdentity((1,3,6,1,2,1,10,44,2,0))
+_FrnetservConformance_ObjectIdentity=ObjectIdentity
+frnetservConformance=_FrnetservConformance_ObjectIdentity((1,3,6,1,2,1,10,44,3))
+_FrnetservGroups_ObjectIdentity=ObjectIdentity
+frnetservGroups=_FrnetservGroups_ObjectIdentity((1,3,6,1,2,1,10,44,3,1))
+_FrnetservCompliances_ObjectIdentity=ObjectIdentity
+frnetservCompliances=_FrnetservCompliances_ObjectIdentity((1,3,6,1,2,1,10,44,3,2))
+frnetservLportGroup=ObjectGroup((1,3,6,1,2,1,10,44,3,1,1))
+frnetservLportGroup.setObjects(*((_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_A1)))
+if mibBuilder.loadTexts:frnetservLportGroup.setStatus(_O)
+frnetservMgtVCSigGroup=ObjectGroup((1,3,6,1,2,1,10,44,3,1,2))
+frnetservMgtVCSigGroup.setObjects(*((_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH)))
+if mibBuilder.loadTexts:frnetservMgtVCSigGroup.setStatus(_B)
+frnetservPVCEndptGroup=ObjectGroup((1,3,6,1,2,1,10,44,3,1,3))
+frnetservPVCEndptGroup.setObjects(*((_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_U),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa)))
+if mibBuilder.loadTexts:frnetservPVCEndptGroup.setStatus(_B)
+frnetservPVCConnectGroup=ObjectGroup((1,3,6,1,2,1,10,44,3,1,4))
+frnetservPVCConnectGroup.setObjects(*((_A,_Ab),(_A,_V),(_A,_W),(_A,_Ac),(_A,_Ad),(_A,_Ae)))
+if mibBuilder.loadTexts:frnetservPVCConnectGroup.setStatus(_B)
+frnetservAccountPVCGroup=ObjectGroup((1,3,6,1,2,1,10,44,3,1,5))
+frnetservAccountPVCGroup.setObjects(*((_A,_Af),(_A,_Ag),(_A,_Ah)))
+if mibBuilder.loadTexts:frnetservAccountPVCGroup.setStatus(_B)
+frnetservAccountLportGroup=ObjectGroup((1,3,6,1,2,1,10,44,3,1,6))
+frnetservAccountLportGroup.setObjects(*((_A,_Ai),(_A,_Aj),(_A,_Ak)))
+if mibBuilder.loadTexts:frnetservAccountLportGroup.setStatus(_B)
+frnetservLportGroup2=ObjectGroup((1,3,6,1,2,1,10,44,3,1,7))
+frnetservLportGroup2.setObjects(*((_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_Al),(_A,_Am)))
+if mibBuilder.loadTexts:frnetservLportGroup2.setStatus(_B)
+frnetservPVCEndptGroup2=ObjectGroup((1,3,6,1,2,1,10,44,3,1,8))
+frnetservPVCEndptGroup2.setObjects(*((_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av),(_A,_Aw),(_A,_Ax)))
+if mibBuilder.loadTexts:frnetservPVCEndptGroup2.setStatus(_B)
+frnetservPVCConnectNamesGroup=ObjectGroup((1,3,6,1,2,1,10,44,3,1,9))
+frnetservPVCConnectNamesGroup.setObjects(*((_A,_Ay),(_A,_Az)))
+if mibBuilder.loadTexts:frnetservPVCConnectNamesGroup.setStatus(_B)
+frnetservLportAdminGroup=ObjectGroup((1,3,6,1,2,1,10,44,3,1,10))
+frnetservLportAdminGroup.setObjects(*((_A,_A_),(_A,_B0),(_A,_B1)))
+if mibBuilder.loadTexts:frnetservLportAdminGroup.setStatus(_B)
+frnetservMgtVCSigAdminGroup=ObjectGroup((1,3,6,1,2,1,10,44,3,1,11))
+frnetservMgtVCSigAdminGroup.setObjects(*((_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA)))
+if mibBuilder.loadTexts:frnetservMgtVCSigAdminGroup.setStatus(_B)
+frPVCConnectStatusNotif=NotificationType((1,3,6,1,2,1,10,44,2,0,2))
+frPVCConnectStatusNotif.setObjects(*((_A,_V),(_A,_W),(_A,_U)))
+if mibBuilder.loadTexts:frPVCConnectStatusNotif.setStatus(_B)
+frPVCConnectStatusChange=NotificationType((1,3,6,1,2,1,10,44,2,1))
+frPVCConnectStatusChange.setObjects(*((_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_V),(_A,_W),(_A,_U)))
+if mibBuilder.loadTexts:frPVCConnectStatusChange.setStatus(_O)
+frnetservPVCNotifGroup=NotificationGroup((1,3,6,1,2,1,10,44,3,1,12))
+frnetservPVCNotifGroup.setObjects((_A,_BB))
+if mibBuilder.loadTexts:frnetservPVCNotifGroup.setStatus(_O)
+frnetservPVCNotifGroup2=NotificationGroup((1,3,6,1,2,1,10,44,3,1,13))
+frnetservPVCNotifGroup2.setObjects((_A,_BC))
+if mibBuilder.loadTexts:frnetservPVCNotifGroup2.setStatus(_B)
+frnetservCompliance=ModuleCompliance((1,3,6,1,2,1,10,44,3,2,1))
+frnetservCompliance.setObjects(*((_A,_BD),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b)))
+if mibBuilder.loadTexts:frnetservCompliance.setStatus(_O)
+frnetservCompliance2=ModuleCompliance((1,3,6,1,2,1,10,44,3,2,2))
+frnetservCompliance2.setObjects(*((_A,_o),(_A,_X),(_A,_Y),(_A,_p),(_A,_Z),(_A,_q),(_A,_r),(_A,_a),(_A,_b)))
+if mibBuilder.loadTexts:frnetservCompliance2.setStatus(_B)
+frnetSwitchCompliance=ModuleCompliance((1,3,6,1,2,1,10,44,3,2,3))
+frnetSwitchCompliance.setObjects(*((_A,_o),(_A,_BE),(_A,_X),(_A,_BF),(_A,_Y),(_A,_p),(_A,_Z),(_A,_q),(_A,_r),(_A,_a),(_A,_b)))
+if mibBuilder.loadTexts:frnetSwitchCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'frnetservMIB':frnetservMIB,'frnetservObjects':frnetservObjects,'frLportTable':frLportTable,'frLportEntry':frLportEntry,_i:frLportNumPlan,_j:frLportContact,_k:frLportLocation,_l:frLportType,_m:frLportAddrDLCILen,_n:frLportVCSigProtocol,_A1:frLportVCSigPointer,_A_:frLportDLCIIndexValue,_B0:frLportTypeAdmin,_B1:frLportVCSigProtocolAdmin,_Al:frLportFragControl,_Am:frLportFragSize,'frMgtVCSigTable':frMgtVCSigTable,'frMgtVCSigEntry':frMgtVCSigEntry,_A2:frMgtVCSigProced,_A3:frMgtVCSigUserN391,_A4:frMgtVCSigUserN392,_A5:frMgtVCSigUserN393,_A6:frMgtVCSigUserT391,_A7:frMgtVCSigNetN392,_A8:frMgtVCSigNetN393,_A9:frMgtVCSigNetT392,_AA:frMgtVCSigNetnN4,_AB:frMgtVCSigNetnT3,_AC:frMgtVCSigUserLinkRelErrors,_AD:frMgtVCSigUserProtErrors,_AE:frMgtVCSigUserChanInactive,_AF:frMgtVCSigNetLinkRelErrors,_AG:frMgtVCSigNetProtErrors,_AH:frMgtVCSigNetChanInactive,_B2:frMgtVCSigProcedAdmin,_B3:frMgtVCSigUserN391Admin,_B4:frMgtVCSigUserN392Admin,_B5:frMgtVCSigUserN393Admin,_B6:frMgtVCSigUserT391Admin,_B7:frMgtVCSigNetN392Admin,_B8:frMgtVCSigNetN393Admin,_B9:frMgtVCSigNetT392Admin,_BA:frMgtVCSigNetnT3Admin,'frPVCEndptTable':frPVCEndptTable,'frPVCEndptEntry':frPVCEndptEntry,_y:frPVCEndptDLCIIndex,_AJ:frPVCEndptInMaxFrameSize,_AK:frPVCEndptInBc,_AL:frPVCEndptInBe,_AM:frPVCEndptInCIR,_AN:frPVCEndptOutMaxFrameSize,_AO:frPVCEndptOutBc,_AP:frPVCEndptOutBe,_AQ:frPVCEndptOutCIR,_AR:frPVCEndptConnectIdentifier,_AS:frPVCEndptRowStatus,_U:frPVCEndptRcvdSigStatus,_AT:frPVCEndptInFrames,_AU:frPVCEndptOutFrames,_AV:frPVCEndptInDEFrames,_AW:frPVCEndptInExcessFrames,_AX:frPVCEndptOutExcessFrames,_AY:frPVCEndptInDiscards,_AZ:frPVCEndptInOctets,_Aa:frPVCEndptOutOctets,_An:frPVCEndptInDiscardsDESet,_Ao:frPVCEndptInFramesFECNSet,_Ap:frPVCEndptOutFramesFECNSet,_Aq:frPVCEndptInFramesBECNSet,_Ar:frPVCEndptOutFramesBECNSet,_As:frPVCEndptInCongDiscards,_At:frPVCEndptInDECongDiscards,_Au:frPVCEndptOutCongDiscards,_Av:frPVCEndptOutDECongDiscards,_Aw:frPVCEndptOutDEFrames,_Ax:frPVCEndptAtmIwfConnIndex,_AI:frPVCConnectIndexValue,'frPVCConnectTable':frPVCConnectTable,'frPVCConnectEntry':frPVCConnectEntry,_c:frPVCConnectIndex,_d:frPVCConnectLowIfIndex,_e:frPVCConnectLowDLCIIndex,_f:frPVCConnectHighIfIndex,_g:frPVCConnectHighDLCIIndex,_Ab:frPVCConnectAdminStatus,_V:frPVCConnectL2hOperStatus,_W:frPVCConnectH2lOperStatus,_Ac:frPVCConnectL2hLastChange,_Ad:frPVCConnectH2lLastChange,_Ae:frPVCConnectRowStatus,_Ay:frPVCConnectUserName,_Az:frPVCConnectProviderName,'frAccountPVCTable':frAccountPVCTable,'frAccountPVCEntry':frAccountPVCEntry,_A0:frAccountPVCDLCIIndex,_Af:frAccountPVCSegmentSize,_Ag:frAccountPVCInSegments,_Ah:frAccountPVCOutSegments,'frAccountLportTable':frAccountLportTable,'frAccountLportEntry':frAccountLportEntry,_Ai:frAccountLportSegmentSize,_Aj:frAccountLportInSegments,_Ak:frAccountLportOutSegments,'frnetservTraps':frnetservTraps,'frnetservTrapsPrefix':frnetservTrapsPrefix,_BC:frPVCConnectStatusNotif,_BB:frPVCConnectStatusChange,'frnetservConformance':frnetservConformance,'frnetservGroups':frnetservGroups,_BD:frnetservLportGroup,_X:frnetservMgtVCSigGroup,_Y:frnetservPVCEndptGroup,_Z:frnetservPVCConnectGroup,_a:frnetservAccountPVCGroup,_b:frnetservAccountLportGroup,_o:frnetservLportGroup2,_p:frnetservPVCEndptGroup2,_q:frnetservPVCConnectNamesGroup,_BE:frnetservLportAdminGroup,_BF:frnetservMgtVCSigAdminGroup,'frnetservPVCNotifGroup':frnetservPVCNotifGroup,_r:frnetservPVCNotifGroup2,'frnetservCompliances':frnetservCompliances,'frnetservCompliance':frnetservCompliance,'frnetservCompliance2':frnetservCompliance2,'frnetSwitchCompliance':frnetSwitchCompliance})

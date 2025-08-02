@@ -1,0 +1,22 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+BridgeId,MacAddress,Timeout=mibBuilder.importSymbols('BRIDGE-MIB','BridgeId','MacAddress','Timeout')
+ifIndex,=mibBuilder.importSymbols('IF-MIB','ifIndex')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TruthValue')
+utsGeponBBS4000,=mibBuilder.importSymbols('UTS-BBS-COMMON-MIB','utsGeponBBS4000')
+utsGeponBBS4000Security=ModuleIdentity((1,3,6,1,4,1,1949,1,3,10,200,6,5))
+_UtsEfmPonSecurityExt_ObjectIdentity=ObjectIdentity
+utsEfmPonSecurityExt=_UtsEfmPonSecurityExt_ObjectIdentity((1,3,6,1,4,1,1949,1,3,10,200,6,5,1))
+_UtsEponSecExtObjects_ObjectIdentity=ObjectIdentity
+utsEponSecExtObjects=_UtsEponSecExtObjects_ObjectIdentity((1,3,6,1,4,1,1949,1,3,10,200,6,5,1,1))
+_UtsDot3SecurityMIB_ObjectIdentity=ObjectIdentity
+utsDot3SecurityMIB=_UtsDot3SecurityMIB_ObjectIdentity((1,3,6,1,4,1,1949,1,3,10,200,6,5,1,1,1))
+_UtsDot3SecurityObjects_ObjectIdentity=ObjectIdentity
+utsDot3SecurityObjects=_UtsDot3SecurityObjects_ObjectIdentity((1,3,6,1,4,1,1949,1,3,10,200,6,5,1,1,1,1))
+_UtsDot3SecurityOltObjects_ObjectIdentity=ObjectIdentity
+utsDot3SecurityOltObjects=_UtsDot3SecurityOltObjects_ObjectIdentity((1,3,6,1,4,1,1949,1,3,10,200,6,5,1,1,1,1,1))
+mibBuilder.exportSymbols('UTEPON4000SECURITY-MIB',**{'utsGeponBBS4000Security':utsGeponBBS4000Security,'utsEfmPonSecurityExt':utsEfmPonSecurityExt,'utsEponSecExtObjects':utsEponSecExtObjects,'utsDot3SecurityMIB':utsDot3SecurityMIB,'utsDot3SecurityObjects':utsDot3SecurityObjects,'utsDot3SecurityOltObjects':utsDot3SecurityOltObjects})

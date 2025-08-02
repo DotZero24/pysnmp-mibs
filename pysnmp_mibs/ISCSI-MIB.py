@@ -1,466 +1,1139 @@
-#
-# PySNMP MIB module ISCSI-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/ISCSI-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:18:55 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, OctetString, Integer, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
-( InetAddress, InetPortNumber, InetAddressType, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetPortNumber", "InetAddressType")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( Counter32, Counter64, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ObjectIdentity, Gauge32, mib_2, Integer32, TimeTicks, ModuleIdentity, IpAddress, Bits, MibIdentifier, NotificationType, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Counter64", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ObjectIdentity", "Gauge32", "mib-2", "Integer32", "TimeTicks", "ModuleIdentity", "IpAddress", "Bits", "MibIdentifier", "NotificationType")
-( RowPointer, DisplayString, RowStatus, AutonomousType, TimeStamp, TextualConvention, StorageType, TruthValue, ) = mibBuilder.importSymbols("SNMPv2-TC", "RowPointer", "DisplayString", "RowStatus", "AutonomousType", "TimeStamp", "TextualConvention", "StorageType", "TruthValue")
-iscsiMibModule = ModuleIdentity((1, 3, 6, 1, 2, 1, 142)).setRevisions(("2006-05-22 00:00",))
-if mibBuilder.loadTexts: iscsiMibModule.setLastUpdated('200605220000Z')
-if mibBuilder.loadTexts: iscsiMibModule.setOrganization('IETF IPS Working Group')
-if mibBuilder.loadTexts: iscsiMibModule.setContactInfo('\n    Mark Bakke\n    Cisco Systems, Inc\n    7900 International Drive, Suite 400\n    Bloomington, MN\n    USA 55425\n\n    E-mail: mbakke@cisco.com\n\n    Marjorie Krueger\n    Hewlett-Packard\n    Networked Storage Architecture\n    Networked Storage Solutions Org.\n    8000 Foothills Blvd.\n    Roseville, CA 95747\n\n    E-mail: marjorie_krueger@hp.com\n\n    Tom McSweeney\n    IBM Corporation\n    600 Park Offices Drive\n    Research Triangle Park, NC\n    USA 27709\n\n    E-mail: tommcs@us.ibm.com\n\n    James Muchow\n    Qlogic Corp.\n    6321 Bury Dr.\n    Eden Prairie, MN\n    USA 55346\n\n    E-mail: james.muchow@qlogic.com')
-if mibBuilder.loadTexts: iscsiMibModule.setDescription('The iSCSI Protocol MIB module.\n         Copyright (C) The Internet Society (2006).  This version of\n         this MIB module is part of RFC 4544;  see the RFC itself for\n         full legal notices.')
-iscsiNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 0))
-iscsiObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 1))
-iscsiConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 2))
-iscsiAdmin = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 3))
-class IscsiTransportProtocol(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(0,255)
-
-class IscsiDigestMethod(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))
-    namedValues = NamedValues(("none", 1), ("other", 2), ("noDigest", 3), ("crc32c", 4),)
-
-class IscsiName(OctetString, TextualConvention):
-    displayHint = '223t'
-    subtypeSpec = OctetString.subtypeSpec+ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(16,223),)
-iscsiDescriptors = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 3, 1))
-iscsiHeaderIntegrityTypes = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 3, 1, 1))
-iscsiHdrIntegrityNone = ObjectIdentity((1, 3, 6, 1, 2, 1, 142, 3, 1, 1, 1))
-if mibBuilder.loadTexts: iscsiHdrIntegrityNone.setDescription('The authoritative identifier when no integrity\n        scheme (for either the header or data) is being\n\n        used.')
-iscsiHdrIntegrityCrc32c = ObjectIdentity((1, 3, 6, 1, 2, 1, 142, 3, 1, 1, 2))
-if mibBuilder.loadTexts: iscsiHdrIntegrityCrc32c.setDescription('The authoritative identifier when the integrity\n        scheme (for either the header or data) is CRC32c.')
-iscsiDataIntegrityTypes = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 3, 1, 2))
-iscsiDataIntegrityNone = ObjectIdentity((1, 3, 6, 1, 2, 1, 142, 3, 1, 2, 1))
-if mibBuilder.loadTexts: iscsiDataIntegrityNone.setDescription('The authoritative identifier when no integrity\n        scheme (for either the header or data) is being\n        used.')
-iscsiDataIntegrityCrc32c = ObjectIdentity((1, 3, 6, 1, 2, 1, 142, 3, 1, 2, 2))
-if mibBuilder.loadTexts: iscsiDataIntegrityCrc32c.setDescription('The authoritative identifier when the integrity\n        scheme (for either the header or data) is CRC32c.')
-iscsiInstance = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 1, 1))
-iscsiInstanceAttributesTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 1, 1), )
-if mibBuilder.loadTexts: iscsiInstanceAttributesTable.setDescription('A list of iSCSI instances present on the system.')
-iscsiInstanceAttributesEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 1, 1, 1), ).setIndexNames((0, "ISCSI-MIB", "iscsiInstIndex"))
-if mibBuilder.loadTexts: iscsiInstanceAttributesEntry.setDescription('An entry (row) containing management information applicable\n        to a particular iSCSI instance.')
-iscsiInstIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: iscsiInstIndex.setDescription('An arbitrary integer used to uniquely identify a particular\n        iSCSI instance.  This index value must not be modified or\n        reused by an agent unless a reboot has occurred.  An agent\n        should attempt to keep this value persistent across reboots.')
-iscsiInstDescr = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 1, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiInstDescr.setDescription('A UTF-8 string, determined by the implementation to\n        describe the iSCSI instance.  When only a single instance\n        is present, this object may be set to the zero-length\n        string; with multiple iSCSI instances, it may be used in\n        an implementation-dependent manner to describe the purpose\n        of the respective instance.')
-iscsiInstVersionMin = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 1, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiInstVersionMin.setDescription('The minimum version number of the iSCSI specification\n        such that this iSCSI instance supports this minimum\n        value, the maximum value indicated by the corresponding\n        instance in iscsiInstVersionMax, and all versions in\n        between.')
-iscsiInstVersionMax = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 1, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiInstVersionMax.setDescription('The maximum version number of the iSCSI specification\n        such that this iSCSI instance supports this maximum\n        value, the minimum value indicated by the corresponding\n        instance in iscsiInstVersionMin, and all versions in\n        between.')
-iscsiInstVendorID = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 1, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiInstVendorID.setDescription('A UTF-8 string describing the manufacturer of the\n        implementation of this instance.')
-iscsiInstVendorVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 1, 1, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiInstVendorVersion.setDescription('A UTF-8 string set by the manufacturer describing the\n        version of the implementation of this instance.  The\n        format of this string is determined solely by the\n        manufacturer, and is for informational purposes only.\n\n        It is unrelated to the iSCSI specification version numbers.')
-iscsiInstPortalNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 1, 1, 1, 7), Unsigned32()).setUnits('transport endpoints').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiInstPortalNumber.setDescription('The number of rows in the iscsiPortalAttributesTable\n        that are currently associated with this iSCSI instance.')
-iscsiInstNodeNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 1, 1, 1, 8), Unsigned32()).setUnits('iSCSI nodes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiInstNodeNumber.setDescription('The number of rows in the iscsiNodeAttributesTable\n        that are currently associated with this iSCSI instance.')
-iscsiInstSessionNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 1, 1, 1, 9), Unsigned32()).setUnits('sessions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiInstSessionNumber.setDescription('The number of rows in the iscsiSessionAttributesTable\n        that are currently associated with this iSCSI instance.')
-iscsiInstSsnFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 1, 1, 1, 10), Counter32()).setUnits('sessions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiInstSsnFailures.setDescription('This object counts the number of times a session belonging\n        to this instance has been failed.  If this counter has\n        suffered a discontinuity, the time of the last discontinuity\n        is indicated in iscsiInstDiscontinuityTime.')
-iscsiInstLastSsnFailureType = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 1, 1, 1, 11), AutonomousType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiInstLastSsnFailureType.setDescription('The counter object in the iscsiInstSsnErrorStatsTable\n        that was incremented when the last session failure occurred.\n\n        If the reason for failure is not found in the\n        iscsiInstSsnErrorStatsTable, the value { 0.0 } is\n        used instead.')
-iscsiInstLastSsnRmtNodeName = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 1, 1, 1, 12), IscsiName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiInstLastSsnRmtNodeName.setDescription('The iSCSI name of the remote node from the failed\n        session.')
-iscsiInstDiscontinuityTime = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 1, 1, 1, 13), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiInstDiscontinuityTime.setDescription("The value of SysUpTime on the most recent occasion\n        at which any one or more of this instance's counters\n        suffered a discontinuity.\n\n        If no such discontinuities have occurred since the last\n        re-initialization of the local management subsystem,\n        then this object contains a zero value.")
-iscsiInstanceSsnErrorStatsTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 1, 2), )
-if mibBuilder.loadTexts: iscsiInstanceSsnErrorStatsTable.setDescription('Statistics regarding the occurrences of error types\n        that result in a session failure.')
-iscsiInstanceSsnErrorStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 1, 2, 1), )
-iscsiInstanceAttributesEntry.registerAugmentions(("ISCSI-MIB", "iscsiInstanceSsnErrorStatsEntry"))
+_Bw='iscsiInitiatorAuthGroup'
+_Bv='iscsiIntrLgnNotificationsGroup'
+_Bu='iscsiInitiatorLogoutStatsGroup'
+_Bt='iscsiInitiatorLoginStatsGroup'
+_Bs='iscsiInitiatorAttributesGroup'
+_Br='iscsiIntrPortalAttributesGroup'
+_Bq='iscsiTargetAuthGroup'
+_Bp='iscsiTgtLgnNotificationsGroup'
+_Bo='iscsiTargetLogoutStatsGroup'
+_Bn='iscsiTargetLoginStatsGroup'
+_Bm='iscsiTargetAttributesGroup'
+_Bl='iscsiTgtPortalAttributesGroup'
+_Bk='iscsiSsnFlrNotificationsGroup'
+_Bj='iscsiConnectionAttributesGroup'
+_Bi='iscsiSessionCxnErrorStatsGroup'
+_Bh='iscsiSessionStatsGroup'
+_Bg='iscsiSessionAttributesGroup'
+_Bf='iscsiNodeAttributesGroup'
+_Be='iscsiPortalAttributesGroup'
+_Bd='iscsiInstanceAttributesGroup'
+_Bc='iscsiInstSessionFailure'
+_Bb='iscsiIntrLoginFailure'
+_Ba='iscsiTgtLoginFailure'
+_BZ='iscsiCxnSendMarker'
+_BY='iscsiCxnRecvMarker'
+_BX='iscsiCxnDataIntegrity'
+_BW='iscsiCxnHeaderIntegrity'
+_BV='iscsiCxnMaxRecvDataSegLength'
+_BU='iscsiCxnRemotePort'
+_BT='iscsiCxnRemoteAddr'
+_BS='iscsiCxnRemoteAddrType'
+_BR='iscsiCxnLocalPort'
+_BQ='iscsiCxnLocalAddr'
+_BP='iscsiCxnLocalAddrType'
+_BO='iscsiCxnProtocol'
+_BN='iscsiCxnState'
+_BM='iscsiCxnCid'
+_BL='iscsiSsnCxnTimeoutErrors'
+_BK='iscsiSsnDigestErrors'
+_BJ='iscsiSsnRxDataOctets'
+_BI='iscsiSsnTxDataOctets'
+_BH='iscsiSsnRspPdus'
+_BG='iscsiSsnCmdPdus'
+_BF='iscsiSsnErrorRecoveryLevel'
+_BE='iscsiSsnDataPduInOrder'
+_BD='iscsiSsnDataSequenceInOrder'
+_BC='iscsiSsnAuthIdentity'
+_BB='iscsiSsnConnectionNumber'
+_BA='iscsiSsnMaxBurstSize'
+_B9='iscsiSsnFirstBurstSize'
+_B8='iscsiSsnMaxOutstandingR2T'
+_B7='iscsiSsnType'
+_B6='iscsiSsnImmediateData'
+_B5='iscsiSsnBidiInitialR2T'
+_B4='iscsiSsnInitialR2T'
+_B3='iscsiSsnTargetAlias'
+_B2='iscsiSsnInitiatorAlias'
+_B1='iscsiSsnIsid'
+_B0='iscsiSsnTsih'
+_A_='iscsiSsnTargetName'
+_Az='iscsiSsnInitiatorName'
+_Ay='iscsiSsnDirection'
+_Ax='iscsiIntrAuthIdentity'
+_Aw='iscsiIntrAuthRowStatus'
+_Av='iscsiIntrLogoutOthers'
+_Au='iscsiIntrLogoutNormals'
+_At='iscsiIntrLoginNegotiateFails'
+_As='iscsiIntrLoginAuthenticateFails'
+_Ar='iscsiIntrLoginAuthFailRsps'
+_Aq='iscsiIntrLoginRedirectRsps'
+_Ap='iscsiIntrLoginOtherFailRsps'
+_Ao='iscsiIntrLoginAcceptRsps'
+_An='iscsiIntrLastFailureTime'
+_Am='iscsiTgtAuthIdentity'
+_Al='iscsiTgtAuthRowStatus'
+_Ak='iscsiTgtLogoutOthers'
+_Aj='iscsiTgtLogoutNormals'
+_Ai='iscsiTgtLoginNegotiateFails'
+_Ah='iscsiTgtLoginAuthenticateFails'
+_Ag='iscsiTgtLoginAuthorizeFails'
+_Af='iscsiTgtLoginRedirects'
+_Ae='iscsiTgtLoginOtherFails'
+_Ad='iscsiTgtLoginAccepts'
+_Ac='iscsiTgtLastFailureTime'
+_Ab='iscsiNodeErrorRecoveryLevel'
+_Aa='iscsiNodeDefaultTime2Retain'
+_AZ='iscsiNodeDefaultTime2Wait'
+_AY='iscsiNodeDataPduInOrder'
+_AX='iscsiNodeDataSequenceInOrder'
+_AW='iscsiNodeMaxConnections'
+_AV='iscsiNodeMaxBurstSize'
+_AU='iscsiNodeFirstBurstSize'
+_AT='iscsiNodeMaxOutstandingR2T'
+_AS='iscsiNodeImmediateData'
+_AR='iscsiNodeBidiInitialR2T'
+_AQ='iscsiNodeInitialR2T'
+_AP='iscsiNodeTransportType'
+_AO='iscsiNodeRoles'
+_AN='iscsiNodeAlias'
+_AM='iscsiNodeName'
+_AL='iscsiIntrPortalTag'
+_AK='iscsiTgtPortalTag'
+_AJ='iscsiTgtPortalPort'
+_AI='iscsiPortalRecvMarker'
+_AH='iscsiPortalSecondaryDataDigest'
+_AG='iscsiPortalSecondaryHdrDigest'
+_AF='iscsiPortalPrimaryDataDigest'
+_AE='iscsiPortalPrimaryHdrDigest'
+_AD='iscsiPortalMaxRecvDataSegLength'
+_AC='iscsiPortalProtocol'
+_AB='iscsiPortalAddr'
+_AA='iscsiPortalAddrType'
+_A9='iscsiPortalRoles'
+_A8='iscsiInstSsnFormatErrors'
+_A7='iscsiInstSsnCxnTimeoutErrors'
+_A6='iscsiInstSsnDigestErrors'
+_A5='iscsiInstSessionNumber'
+_A4='iscsiInstNodeNumber'
+_A3='iscsiInstPortalNumber'
+_A2='iscsiInstVendorVersion'
+_A1='iscsiInstVendorID'
+_A0='iscsiInstVersionMax'
+_z='iscsiInstVersionMin'
+_y='iscsiInstDescr'
+_x='iscsiSessionCxnErrorStatsEntry'
+_w='iscsiSessionStatsEntry'
+_v='iscsiInitiatorLogoutStatsEntry'
+_u='iscsiInitiatorLoginStatsEntry'
+_t='iscsiTargetLogoutStatsEntry'
+_s='iscsiTargetLoginStatsEntry'
+_r='iscsiInstanceSsnErrorStatsEntry'
+_q='iscsiCxnIndex'
+_p='octets'
+_o='iscsiIntrAuthIndex'
+_n='iscsiTgtAuthIndex'
+_m='abnormal logouts'
+_l='normal logouts'
+_k='successful logins'
+_j='connections'
+_i='Gauge32'
+_h='OctetString'
+_g='iscsiIntrLastTgtFailureAddr'
+_f='iscsiIntrLastTgtFailureAddrType'
+_e='iscsiIntrLastTgtFailureName'
+_d='iscsiIntrLastFailureType'
+_c='iscsiIntrLoginFailures'
+_b='iscsiTgtLastIntrFailureAddr'
+_a='iscsiTgtLastIntrFailureAddrType'
+_Z='iscsiTgtLastIntrFailureName'
+_Y='iscsiTgtLastFailureType'
+_X='iscsiTgtLoginFailures'
+_W='iscsiInstLastSsnRmtNodeName'
+_V='iscsiInstLastSsnFailureType'
+_U='iscsiInstSsnFailures'
+_T='PDUs'
+_S='iscsiSsnIndex'
+_R='IscsiTransportProtocols'
+_Q='Bits'
+_P='iscsiPortalIndex'
+_O='bytes'
+_N='IscsiDigestMethod'
+_M='sessions'
+_L='TruthValue'
+_K='not-accessible'
+_J='iscsiNodeIndex'
+_I='failed logins'
+_H='read-create'
+_G='iscsiInstIndex'
+_F='Unsigned32'
+_E='read-write'
+_D='Integer32'
+_C='read-only'
+_B='ISCSI-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_h,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,experimental,iso=mibBuilder.importSymbols('SNMPv2-SMI',_Q,'Counter32','Counter64',_i,_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_F,'experimental','iso')
+DisplayString,PhysAddress,RowPointer,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowPointer','RowStatus','TextualConvention','TimeStamp',_L)
+iscsiModule=ModuleIdentity((1,3,6,1,3,9999))
+if mibBuilder.loadTexts:iscsiModule.setRevisions(('2002-06-26 00:00',))
+class IscsiTransportProtocols(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+class IscsiDigestMethod(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('none',1),('other',2),('noDigest',3),('crc32c',4)))
+_IscsiObjects_ObjectIdentity=ObjectIdentity
+iscsiObjects=_IscsiObjects_ObjectIdentity((1,3,6,1,3,9999,1))
+_IscsiDescriptors_ObjectIdentity=ObjectIdentity
+iscsiDescriptors=_IscsiDescriptors_ObjectIdentity((1,3,6,1,3,9999,1,1))
+_IscsiHeaderIntegrityTypes_ObjectIdentity=ObjectIdentity
+iscsiHeaderIntegrityTypes=_IscsiHeaderIntegrityTypes_ObjectIdentity((1,3,6,1,3,9999,1,1,1))
+_IscsiHdrIntegrityNone_ObjectIdentity=ObjectIdentity
+iscsiHdrIntegrityNone=_IscsiHdrIntegrityNone_ObjectIdentity((1,3,6,1,3,9999,1,1,1,1))
+if mibBuilder.loadTexts:iscsiHdrIntegrityNone.setStatus(_A)
+_IscsiHdrIntegrityCrc32c_ObjectIdentity=ObjectIdentity
+iscsiHdrIntegrityCrc32c=_IscsiHdrIntegrityCrc32c_ObjectIdentity((1,3,6,1,3,9999,1,1,1,2))
+if mibBuilder.loadTexts:iscsiHdrIntegrityCrc32c.setStatus(_A)
+_IscsiDataIntegrityTypes_ObjectIdentity=ObjectIdentity
+iscsiDataIntegrityTypes=_IscsiDataIntegrityTypes_ObjectIdentity((1,3,6,1,3,9999,1,1,2))
+_IscsiDataIntegrityNone_ObjectIdentity=ObjectIdentity
+iscsiDataIntegrityNone=_IscsiDataIntegrityNone_ObjectIdentity((1,3,6,1,3,9999,1,1,2,1))
+if mibBuilder.loadTexts:iscsiDataIntegrityNone.setStatus(_A)
+_IscsiDataIntegrityCrc32c_ObjectIdentity=ObjectIdentity
+iscsiDataIntegrityCrc32c=_IscsiDataIntegrityCrc32c_ObjectIdentity((1,3,6,1,3,9999,1,1,2,2))
+if mibBuilder.loadTexts:iscsiDataIntegrityCrc32c.setStatus(_A)
+_IscsiInstance_ObjectIdentity=ObjectIdentity
+iscsiInstance=_IscsiInstance_ObjectIdentity((1,3,6,1,3,9999,1,2))
+_IscsiInstanceAttributesTable_Object=MibTable
+iscsiInstanceAttributesTable=_IscsiInstanceAttributesTable_Object((1,3,6,1,3,9999,1,2,1))
+if mibBuilder.loadTexts:iscsiInstanceAttributesTable.setStatus(_A)
+_IscsiInstanceAttributesEntry_Object=MibTableRow
+iscsiInstanceAttributesEntry=_IscsiInstanceAttributesEntry_Object((1,3,6,1,3,9999,1,2,1,1))
+iscsiInstanceAttributesEntry.setIndexNames((0,_B,_G))
+if mibBuilder.loadTexts:iscsiInstanceAttributesEntry.setStatus(_A)
+class _IscsiInstIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_IscsiInstIndex_Type.__name__=_F
+_IscsiInstIndex_Object=MibTableColumn
+iscsiInstIndex=_IscsiInstIndex_Object((1,3,6,1,3,9999,1,2,1,1,1),_IscsiInstIndex_Type())
+iscsiInstIndex.setMaxAccess(_K)
+if mibBuilder.loadTexts:iscsiInstIndex.setStatus(_A)
+_IscsiInstDescr_Type=SnmpAdminString
+_IscsiInstDescr_Object=MibTableColumn
+iscsiInstDescr=_IscsiInstDescr_Object((1,3,6,1,3,9999,1,2,1,1,2),_IscsiInstDescr_Type())
+iscsiInstDescr.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiInstDescr.setStatus(_A)
+class _IscsiInstVersionMin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_IscsiInstVersionMin_Type.__name__=_D
+_IscsiInstVersionMin_Object=MibTableColumn
+iscsiInstVersionMin=_IscsiInstVersionMin_Object((1,3,6,1,3,9999,1,2,1,1,3),_IscsiInstVersionMin_Type())
+iscsiInstVersionMin.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiInstVersionMin.setStatus(_A)
+class _IscsiInstVersionMax_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_IscsiInstVersionMax_Type.__name__=_D
+_IscsiInstVersionMax_Object=MibTableColumn
+iscsiInstVersionMax=_IscsiInstVersionMax_Object((1,3,6,1,3,9999,1,2,1,1,4),_IscsiInstVersionMax_Type())
+iscsiInstVersionMax.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiInstVersionMax.setStatus(_A)
+_IscsiInstVendorID_Type=SnmpAdminString
+_IscsiInstVendorID_Object=MibTableColumn
+iscsiInstVendorID=_IscsiInstVendorID_Object((1,3,6,1,3,9999,1,2,1,1,5),_IscsiInstVendorID_Type())
+iscsiInstVendorID.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiInstVendorID.setStatus(_A)
+_IscsiInstVendorVersion_Type=SnmpAdminString
+_IscsiInstVendorVersion_Object=MibTableColumn
+iscsiInstVendorVersion=_IscsiInstVendorVersion_Object((1,3,6,1,3,9999,1,2,1,1,6),_IscsiInstVendorVersion_Type())
+iscsiInstVendorVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiInstVendorVersion.setStatus(_A)
+class _IscsiInstPortalNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_IscsiInstPortalNumber_Type.__name__=_F
+_IscsiInstPortalNumber_Object=MibTableColumn
+iscsiInstPortalNumber=_IscsiInstPortalNumber_Object((1,3,6,1,3,9999,1,2,1,1,7),_IscsiInstPortalNumber_Type())
+iscsiInstPortalNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiInstPortalNumber.setStatus(_A)
+if mibBuilder.loadTexts:iscsiInstPortalNumber.setUnits('transport endpoints')
+class _IscsiInstNodeNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_IscsiInstNodeNumber_Type.__name__=_F
+_IscsiInstNodeNumber_Object=MibTableColumn
+iscsiInstNodeNumber=_IscsiInstNodeNumber_Object((1,3,6,1,3,9999,1,2,1,1,8),_IscsiInstNodeNumber_Type())
+iscsiInstNodeNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiInstNodeNumber.setStatus(_A)
+if mibBuilder.loadTexts:iscsiInstNodeNumber.setUnits('Internet Network Addresses')
+class _IscsiInstSessionNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_IscsiInstSessionNumber_Type.__name__=_F
+_IscsiInstSessionNumber_Object=MibTableColumn
+iscsiInstSessionNumber=_IscsiInstSessionNumber_Object((1,3,6,1,3,9999,1,2,1,1,9),_IscsiInstSessionNumber_Type())
+iscsiInstSessionNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiInstSessionNumber.setStatus(_A)
+if mibBuilder.loadTexts:iscsiInstSessionNumber.setUnits(_M)
+_IscsiInstSsnFailures_Type=Counter32
+_IscsiInstSsnFailures_Object=MibTableColumn
+iscsiInstSsnFailures=_IscsiInstSsnFailures_Object((1,3,6,1,3,9999,1,2,1,1,10),_IscsiInstSsnFailures_Type())
+iscsiInstSsnFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiInstSsnFailures.setStatus(_A)
+if mibBuilder.loadTexts:iscsiInstSsnFailures.setUnits(_M)
+_IscsiInstLastSsnFailureType_Type=Integer32
+_IscsiInstLastSsnFailureType_Object=MibTableColumn
+iscsiInstLastSsnFailureType=_IscsiInstLastSsnFailureType_Object((1,3,6,1,3,9999,1,2,1,1,11),_IscsiInstLastSsnFailureType_Type())
+iscsiInstLastSsnFailureType.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiInstLastSsnFailureType.setStatus(_A)
+_IscsiInstLastSsnRmtNodeName_Type=SnmpAdminString
+_IscsiInstLastSsnRmtNodeName_Object=MibTableColumn
+iscsiInstLastSsnRmtNodeName=_IscsiInstLastSsnRmtNodeName_Object((1,3,6,1,3,9999,1,2,1,1,12),_IscsiInstLastSsnRmtNodeName_Type())
+iscsiInstLastSsnRmtNodeName.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiInstLastSsnRmtNodeName.setStatus(_A)
+_IscsiInstanceSsnErrorStatsTable_Object=MibTable
+iscsiInstanceSsnErrorStatsTable=_IscsiInstanceSsnErrorStatsTable_Object((1,3,6,1,3,9999,1,2,2))
+if mibBuilder.loadTexts:iscsiInstanceSsnErrorStatsTable.setStatus(_A)
+_IscsiInstanceSsnErrorStatsEntry_Object=MibTableRow
+iscsiInstanceSsnErrorStatsEntry=_IscsiInstanceSsnErrorStatsEntry_Object((1,3,6,1,3,9999,1,2,2,1))
+if mibBuilder.loadTexts:iscsiInstanceSsnErrorStatsEntry.setStatus(_A)
+_IscsiInstSsnDigestErrors_Type=Counter32
+_IscsiInstSsnDigestErrors_Object=MibTableColumn
+iscsiInstSsnDigestErrors=_IscsiInstSsnDigestErrors_Object((1,3,6,1,3,9999,1,2,2,1,1),_IscsiInstSsnDigestErrors_Type())
+iscsiInstSsnDigestErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiInstSsnDigestErrors.setStatus(_A)
+if mibBuilder.loadTexts:iscsiInstSsnDigestErrors.setUnits(_M)
+_IscsiInstSsnCxnTimeoutErrors_Type=Counter32
+_IscsiInstSsnCxnTimeoutErrors_Object=MibTableColumn
+iscsiInstSsnCxnTimeoutErrors=_IscsiInstSsnCxnTimeoutErrors_Object((1,3,6,1,3,9999,1,2,2,1,2),_IscsiInstSsnCxnTimeoutErrors_Type())
+iscsiInstSsnCxnTimeoutErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiInstSsnCxnTimeoutErrors.setStatus(_A)
+if mibBuilder.loadTexts:iscsiInstSsnCxnTimeoutErrors.setUnits(_M)
+_IscsiInstSsnFormatErrors_Type=Counter32
+_IscsiInstSsnFormatErrors_Object=MibTableColumn
+iscsiInstSsnFormatErrors=_IscsiInstSsnFormatErrors_Object((1,3,6,1,3,9999,1,2,2,1,3),_IscsiInstSsnFormatErrors_Type())
+iscsiInstSsnFormatErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiInstSsnFormatErrors.setStatus(_A)
+if mibBuilder.loadTexts:iscsiInstSsnFormatErrors.setUnits(_M)
+_IscsiPortal_ObjectIdentity=ObjectIdentity
+iscsiPortal=_IscsiPortal_ObjectIdentity((1,3,6,1,3,9999,1,3))
+_IscsiPortalAttributesTable_Object=MibTable
+iscsiPortalAttributesTable=_IscsiPortalAttributesTable_Object((1,3,6,1,3,9999,1,3,1))
+if mibBuilder.loadTexts:iscsiPortalAttributesTable.setStatus(_A)
+_IscsiPortalAttributesEntry_Object=MibTableRow
+iscsiPortalAttributesEntry=_IscsiPortalAttributesEntry_Object((1,3,6,1,3,9999,1,3,1,1))
+iscsiPortalAttributesEntry.setIndexNames((0,_B,_G),(0,_B,_P))
+if mibBuilder.loadTexts:iscsiPortalAttributesEntry.setStatus(_A)
+class _IscsiPortalIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_IscsiPortalIndex_Type.__name__=_F
+_IscsiPortalIndex_Object=MibTableColumn
+iscsiPortalIndex=_IscsiPortalIndex_Object((1,3,6,1,3,9999,1,3,1,1,1),_IscsiPortalIndex_Type())
+iscsiPortalIndex.setMaxAccess(_K)
+if mibBuilder.loadTexts:iscsiPortalIndex.setStatus(_A)
+class _IscsiPortalRoles_Type(Bits):namedValues=NamedValues(*(('targetTypePortal',0),('initiatorTypePortal',1)))
+_IscsiPortalRoles_Type.__name__=_Q
+_IscsiPortalRoles_Object=MibTableColumn
+iscsiPortalRoles=_IscsiPortalRoles_Object((1,3,6,1,3,9999,1,3,1,1,3),_IscsiPortalRoles_Type())
+iscsiPortalRoles.setMaxAccess(_H)
+if mibBuilder.loadTexts:iscsiPortalRoles.setStatus(_A)
+_IscsiPortalAddrType_Type=InetAddressType
+_IscsiPortalAddrType_Object=MibTableColumn
+iscsiPortalAddrType=_IscsiPortalAddrType_Object((1,3,6,1,3,9999,1,3,1,1,4),_IscsiPortalAddrType_Type())
+iscsiPortalAddrType.setMaxAccess(_H)
+if mibBuilder.loadTexts:iscsiPortalAddrType.setStatus(_A)
+_IscsiPortalAddr_Type=InetAddress
+_IscsiPortalAddr_Object=MibTableColumn
+iscsiPortalAddr=_IscsiPortalAddr_Object((1,3,6,1,3,9999,1,3,1,1,5),_IscsiPortalAddr_Type())
+iscsiPortalAddr.setMaxAccess(_H)
+if mibBuilder.loadTexts:iscsiPortalAddr.setStatus(_A)
+class _IscsiPortalProtocol_Type(IscsiTransportProtocols):defaultValue=6
+_IscsiPortalProtocol_Type.__name__=_R
+_IscsiPortalProtocol_Object=MibTableColumn
+iscsiPortalProtocol=_IscsiPortalProtocol_Object((1,3,6,1,3,9999,1,3,1,1,6),_IscsiPortalProtocol_Type())
+iscsiPortalProtocol.setMaxAccess(_H)
+if mibBuilder.loadTexts:iscsiPortalProtocol.setStatus(_A)
+class _IscsiPortalMaxRecvDataSegLength_Type(Integer32):defaultValue=8192;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(512,16777215))
+_IscsiPortalMaxRecvDataSegLength_Type.__name__=_D
+_IscsiPortalMaxRecvDataSegLength_Object=MibTableColumn
+iscsiPortalMaxRecvDataSegLength=_IscsiPortalMaxRecvDataSegLength_Object((1,3,6,1,3,9999,1,3,1,1,7),_IscsiPortalMaxRecvDataSegLength_Type())
+iscsiPortalMaxRecvDataSegLength.setMaxAccess(_H)
+if mibBuilder.loadTexts:iscsiPortalMaxRecvDataSegLength.setStatus(_A)
+class _IscsiPortalPrimaryHdrDigest_Type(IscsiDigestMethod):defaultValue=3
+_IscsiPortalPrimaryHdrDigest_Type.__name__=_N
+_IscsiPortalPrimaryHdrDigest_Object=MibTableColumn
+iscsiPortalPrimaryHdrDigest=_IscsiPortalPrimaryHdrDigest_Object((1,3,6,1,3,9999,1,3,1,1,8),_IscsiPortalPrimaryHdrDigest_Type())
+iscsiPortalPrimaryHdrDigest.setMaxAccess(_H)
+if mibBuilder.loadTexts:iscsiPortalPrimaryHdrDigest.setStatus(_A)
+class _IscsiPortalPrimaryDataDigest_Type(IscsiDigestMethod):defaultValue=3
+_IscsiPortalPrimaryDataDigest_Type.__name__=_N
+_IscsiPortalPrimaryDataDigest_Object=MibTableColumn
+iscsiPortalPrimaryDataDigest=_IscsiPortalPrimaryDataDigest_Object((1,3,6,1,3,9999,1,3,1,1,9),_IscsiPortalPrimaryDataDigest_Type())
+iscsiPortalPrimaryDataDigest.setMaxAccess(_H)
+if mibBuilder.loadTexts:iscsiPortalPrimaryDataDigest.setStatus(_A)
+class _IscsiPortalSecondaryHdrDigest_Type(IscsiDigestMethod):defaultValue=1
+_IscsiPortalSecondaryHdrDigest_Type.__name__=_N
+_IscsiPortalSecondaryHdrDigest_Object=MibTableColumn
+iscsiPortalSecondaryHdrDigest=_IscsiPortalSecondaryHdrDigest_Object((1,3,6,1,3,9999,1,3,1,1,10),_IscsiPortalSecondaryHdrDigest_Type())
+iscsiPortalSecondaryHdrDigest.setMaxAccess(_H)
+if mibBuilder.loadTexts:iscsiPortalSecondaryHdrDigest.setStatus(_A)
+class _IscsiPortalSecondaryDataDigest_Type(IscsiDigestMethod):defaultValue=1
+_IscsiPortalSecondaryDataDigest_Type.__name__=_N
+_IscsiPortalSecondaryDataDigest_Object=MibTableColumn
+iscsiPortalSecondaryDataDigest=_IscsiPortalSecondaryDataDigest_Object((1,3,6,1,3,9999,1,3,1,1,11),_IscsiPortalSecondaryDataDigest_Type())
+iscsiPortalSecondaryDataDigest.setMaxAccess(_H)
+if mibBuilder.loadTexts:iscsiPortalSecondaryDataDigest.setStatus(_A)
+_IscsiPortalRecvMarker_Type=TruthValue
+_IscsiPortalRecvMarker_Object=MibTableColumn
+iscsiPortalRecvMarker=_IscsiPortalRecvMarker_Object((1,3,6,1,3,9999,1,3,1,1,12),_IscsiPortalRecvMarker_Type())
+iscsiPortalRecvMarker.setMaxAccess(_H)
+if mibBuilder.loadTexts:iscsiPortalRecvMarker.setStatus(_A)
+_IscsiTargetPortal_ObjectIdentity=ObjectIdentity
+iscsiTargetPortal=_IscsiTargetPortal_ObjectIdentity((1,3,6,1,3,9999,1,4))
+_IscsiTgtPortalAttributesTable_Object=MibTable
+iscsiTgtPortalAttributesTable=_IscsiTgtPortalAttributesTable_Object((1,3,6,1,3,9999,1,4,1))
+if mibBuilder.loadTexts:iscsiTgtPortalAttributesTable.setStatus(_A)
+_IscsiTgtPortalAttributesEntry_Object=MibTableRow
+iscsiTgtPortalAttributesEntry=_IscsiTgtPortalAttributesEntry_Object((1,3,6,1,3,9999,1,4,1,1))
+iscsiTgtPortalAttributesEntry.setIndexNames((0,_B,_G),(0,_B,_P))
+if mibBuilder.loadTexts:iscsiTgtPortalAttributesEntry.setStatus(_A)
+class _IscsiTgtPortalPort_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_IscsiTgtPortalPort_Type.__name__=_F
+_IscsiTgtPortalPort_Object=MibTableColumn
+iscsiTgtPortalPort=_IscsiTgtPortalPort_Object((1,3,6,1,3,9999,1,4,1,1,1),_IscsiTgtPortalPort_Type())
+iscsiTgtPortalPort.setMaxAccess(_E)
+if mibBuilder.loadTexts:iscsiTgtPortalPort.setStatus(_A)
+class _IscsiTgtPortalTag_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_IscsiTgtPortalTag_Type.__name__=_D
+_IscsiTgtPortalTag_Object=MibTableColumn
+iscsiTgtPortalTag=_IscsiTgtPortalTag_Object((1,3,6,1,3,9999,1,4,1,1,2),_IscsiTgtPortalTag_Type())
+iscsiTgtPortalTag.setMaxAccess(_E)
+if mibBuilder.loadTexts:iscsiTgtPortalTag.setStatus(_A)
+_IscsiInitiatorPortal_ObjectIdentity=ObjectIdentity
+iscsiInitiatorPortal=_IscsiInitiatorPortal_ObjectIdentity((1,3,6,1,3,9999,1,5))
+_IscsiIntrPortalAttributesTable_Object=MibTable
+iscsiIntrPortalAttributesTable=_IscsiIntrPortalAttributesTable_Object((1,3,6,1,3,9999,1,5,1))
+if mibBuilder.loadTexts:iscsiIntrPortalAttributesTable.setStatus(_A)
+_IscsiIntrPortalAttributesEntry_Object=MibTableRow
+iscsiIntrPortalAttributesEntry=_IscsiIntrPortalAttributesEntry_Object((1,3,6,1,3,9999,1,5,1,1))
+iscsiIntrPortalAttributesEntry.setIndexNames((0,_B,_G),(0,_B,_P))
+if mibBuilder.loadTexts:iscsiIntrPortalAttributesEntry.setStatus(_A)
+class _IscsiIntrPortalTag_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_IscsiIntrPortalTag_Type.__name__=_D
+_IscsiIntrPortalTag_Object=MibTableColumn
+iscsiIntrPortalTag=_IscsiIntrPortalTag_Object((1,3,6,1,3,9999,1,5,1,1,1),_IscsiIntrPortalTag_Type())
+iscsiIntrPortalTag.setMaxAccess(_E)
+if mibBuilder.loadTexts:iscsiIntrPortalTag.setStatus(_A)
+_IscsiNode_ObjectIdentity=ObjectIdentity
+iscsiNode=_IscsiNode_ObjectIdentity((1,3,6,1,3,9999,1,6))
+_IscsiNodeAttributesTable_Object=MibTable
+iscsiNodeAttributesTable=_IscsiNodeAttributesTable_Object((1,3,6,1,3,9999,1,6,1))
+if mibBuilder.loadTexts:iscsiNodeAttributesTable.setStatus(_A)
+_IscsiNodeAttributesEntry_Object=MibTableRow
+iscsiNodeAttributesEntry=_IscsiNodeAttributesEntry_Object((1,3,6,1,3,9999,1,6,1,1))
+iscsiNodeAttributesEntry.setIndexNames((0,_B,_G),(0,_B,_J))
+if mibBuilder.loadTexts:iscsiNodeAttributesEntry.setStatus(_A)
+class _IscsiNodeIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_IscsiNodeIndex_Type.__name__=_F
+_IscsiNodeIndex_Object=MibTableColumn
+iscsiNodeIndex=_IscsiNodeIndex_Object((1,3,6,1,3,9999,1,6,1,1,1),_IscsiNodeIndex_Type())
+iscsiNodeIndex.setMaxAccess(_K)
+if mibBuilder.loadTexts:iscsiNodeIndex.setStatus(_A)
+_IscsiNodeName_Type=SnmpAdminString
+_IscsiNodeName_Object=MibTableColumn
+iscsiNodeName=_IscsiNodeName_Object((1,3,6,1,3,9999,1,6,1,1,2),_IscsiNodeName_Type())
+iscsiNodeName.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiNodeName.setStatus(_A)
+_IscsiNodeAlias_Type=SnmpAdminString
+_IscsiNodeAlias_Object=MibTableColumn
+iscsiNodeAlias=_IscsiNodeAlias_Object((1,3,6,1,3,9999,1,6,1,1,3),_IscsiNodeAlias_Type())
+iscsiNodeAlias.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiNodeAlias.setStatus(_A)
+class _IscsiNodeRoles_Type(Bits):namedValues=NamedValues(*(('targetTypeNode',0),('initiatorTypeNode',1)))
+_IscsiNodeRoles_Type.__name__=_Q
+_IscsiNodeRoles_Object=MibTableColumn
+iscsiNodeRoles=_IscsiNodeRoles_Object((1,3,6,1,3,9999,1,6,1,1,4),_IscsiNodeRoles_Type())
+iscsiNodeRoles.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiNodeRoles.setStatus(_A)
+_IscsiNodeTransportType_Type=RowPointer
+_IscsiNodeTransportType_Object=MibTableColumn
+iscsiNodeTransportType=_IscsiNodeTransportType_Object((1,3,6,1,3,9999,1,6,1,1,5),_IscsiNodeTransportType_Type())
+iscsiNodeTransportType.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiNodeTransportType.setStatus(_A)
+class _IscsiNodeInitialR2T_Type(TruthValue):defaultValue=1
+_IscsiNodeInitialR2T_Type.__name__=_L
+_IscsiNodeInitialR2T_Object=MibTableColumn
+iscsiNodeInitialR2T=_IscsiNodeInitialR2T_Object((1,3,6,1,3,9999,1,6,1,1,6),_IscsiNodeInitialR2T_Type())
+iscsiNodeInitialR2T.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiNodeInitialR2T.setStatus(_A)
+class _IscsiNodeBidiInitialR2T_Type(TruthValue):defaultValue=1
+_IscsiNodeBidiInitialR2T_Type.__name__=_L
+_IscsiNodeBidiInitialR2T_Object=MibTableColumn
+iscsiNodeBidiInitialR2T=_IscsiNodeBidiInitialR2T_Object((1,3,6,1,3,9999,1,6,1,1,7),_IscsiNodeBidiInitialR2T_Type())
+iscsiNodeBidiInitialR2T.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiNodeBidiInitialR2T.setStatus(_A)
+class _IscsiNodeImmediateData_Type(TruthValue):defaultValue=1
+_IscsiNodeImmediateData_Type.__name__=_L
+_IscsiNodeImmediateData_Object=MibTableColumn
+iscsiNodeImmediateData=_IscsiNodeImmediateData_Object((1,3,6,1,3,9999,1,6,1,1,8),_IscsiNodeImmediateData_Type())
+iscsiNodeImmediateData.setMaxAccess(_E)
+if mibBuilder.loadTexts:iscsiNodeImmediateData.setStatus(_A)
+class _IscsiNodeMaxOutstandingR2T_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_IscsiNodeMaxOutstandingR2T_Type.__name__=_D
+_IscsiNodeMaxOutstandingR2T_Object=MibTableColumn
+iscsiNodeMaxOutstandingR2T=_IscsiNodeMaxOutstandingR2T_Object((1,3,6,1,3,9999,1,6,1,1,9),_IscsiNodeMaxOutstandingR2T_Type())
+iscsiNodeMaxOutstandingR2T.setMaxAccess(_E)
+if mibBuilder.loadTexts:iscsiNodeMaxOutstandingR2T.setStatus(_A)
+class _IscsiNodeFirstBurstSize_Type(Integer32):defaultValue=65536;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(512,16777215))
+_IscsiNodeFirstBurstSize_Type.__name__=_D
+_IscsiNodeFirstBurstSize_Object=MibTableColumn
+iscsiNodeFirstBurstSize=_IscsiNodeFirstBurstSize_Object((1,3,6,1,3,9999,1,6,1,1,10),_IscsiNodeFirstBurstSize_Type())
+iscsiNodeFirstBurstSize.setMaxAccess(_E)
+if mibBuilder.loadTexts:iscsiNodeFirstBurstSize.setStatus(_A)
+if mibBuilder.loadTexts:iscsiNodeFirstBurstSize.setUnits(_O)
+class _IscsiNodeMaxBurstSize_Type(Integer32):defaultValue=262144;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(512,16777215))
+_IscsiNodeMaxBurstSize_Type.__name__=_D
+_IscsiNodeMaxBurstSize_Object=MibTableColumn
+iscsiNodeMaxBurstSize=_IscsiNodeMaxBurstSize_Object((1,3,6,1,3,9999,1,6,1,1,11),_IscsiNodeMaxBurstSize_Type())
+iscsiNodeMaxBurstSize.setMaxAccess(_E)
+if mibBuilder.loadTexts:iscsiNodeMaxBurstSize.setStatus(_A)
+if mibBuilder.loadTexts:iscsiNodeMaxBurstSize.setUnits(_O)
+class _IscsiNodeMaxConnections_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_IscsiNodeMaxConnections_Type.__name__=_D
+_IscsiNodeMaxConnections_Object=MibTableColumn
+iscsiNodeMaxConnections=_IscsiNodeMaxConnections_Object((1,3,6,1,3,9999,1,6,1,1,12),_IscsiNodeMaxConnections_Type())
+iscsiNodeMaxConnections.setMaxAccess(_E)
+if mibBuilder.loadTexts:iscsiNodeMaxConnections.setStatus(_A)
+if mibBuilder.loadTexts:iscsiNodeMaxConnections.setUnits(_j)
+class _IscsiNodeDataSequenceInOrder_Type(TruthValue):defaultValue=1
+_IscsiNodeDataSequenceInOrder_Type.__name__=_L
+_IscsiNodeDataSequenceInOrder_Object=MibTableColumn
+iscsiNodeDataSequenceInOrder=_IscsiNodeDataSequenceInOrder_Object((1,3,6,1,3,9999,1,6,1,1,13),_IscsiNodeDataSequenceInOrder_Type())
+iscsiNodeDataSequenceInOrder.setMaxAccess(_E)
+if mibBuilder.loadTexts:iscsiNodeDataSequenceInOrder.setStatus(_A)
+class _IscsiNodeDataPduInOrder_Type(TruthValue):defaultValue=1
+_IscsiNodeDataPduInOrder_Type.__name__=_L
+_IscsiNodeDataPduInOrder_Object=MibTableColumn
+iscsiNodeDataPduInOrder=_IscsiNodeDataPduInOrder_Object((1,3,6,1,3,9999,1,6,1,1,14),_IscsiNodeDataPduInOrder_Type())
+iscsiNodeDataPduInOrder.setMaxAccess(_E)
+if mibBuilder.loadTexts:iscsiNodeDataPduInOrder.setStatus(_A)
+class _IscsiNodeDefaultTime2Wait_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3600))
+_IscsiNodeDefaultTime2Wait_Type.__name__=_D
+_IscsiNodeDefaultTime2Wait_Object=MibTableColumn
+iscsiNodeDefaultTime2Wait=_IscsiNodeDefaultTime2Wait_Object((1,3,6,1,3,9999,1,6,1,1,15),_IscsiNodeDefaultTime2Wait_Type())
+iscsiNodeDefaultTime2Wait.setMaxAccess(_E)
+if mibBuilder.loadTexts:iscsiNodeDefaultTime2Wait.setStatus(_A)
+class _IscsiNodeDefaultTime2Retain_Type(Integer32):defaultValue=20;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,3600))
+_IscsiNodeDefaultTime2Retain_Type.__name__=_D
+_IscsiNodeDefaultTime2Retain_Object=MibTableColumn
+iscsiNodeDefaultTime2Retain=_IscsiNodeDefaultTime2Retain_Object((1,3,6,1,3,9999,1,6,1,1,16),_IscsiNodeDefaultTime2Retain_Type())
+iscsiNodeDefaultTime2Retain.setMaxAccess(_E)
+if mibBuilder.loadTexts:iscsiNodeDefaultTime2Retain.setStatus(_A)
+class _IscsiNodeErrorRecoveryLevel_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_IscsiNodeErrorRecoveryLevel_Type.__name__=_D
+_IscsiNodeErrorRecoveryLevel_Object=MibTableColumn
+iscsiNodeErrorRecoveryLevel=_IscsiNodeErrorRecoveryLevel_Object((1,3,6,1,3,9999,1,6,1,1,17),_IscsiNodeErrorRecoveryLevel_Type())
+iscsiNodeErrorRecoveryLevel.setMaxAccess(_E)
+if mibBuilder.loadTexts:iscsiNodeErrorRecoveryLevel.setStatus(_A)
+_IscsiTarget_ObjectIdentity=ObjectIdentity
+iscsiTarget=_IscsiTarget_ObjectIdentity((1,3,6,1,3,9999,1,7))
+_IscsiTargetAttributesTable_Object=MibTable
+iscsiTargetAttributesTable=_IscsiTargetAttributesTable_Object((1,3,6,1,3,9999,1,7,1))
+if mibBuilder.loadTexts:iscsiTargetAttributesTable.setStatus(_A)
+_IscsiTargetAttributesEntry_Object=MibTableRow
+iscsiTargetAttributesEntry=_IscsiTargetAttributesEntry_Object((1,3,6,1,3,9999,1,7,1,1))
+iscsiTargetAttributesEntry.setIndexNames((0,_B,_G),(0,_B,_J))
+if mibBuilder.loadTexts:iscsiTargetAttributesEntry.setStatus(_A)
+_IscsiTgtLoginFailures_Type=Counter32
+_IscsiTgtLoginFailures_Object=MibTableColumn
+iscsiTgtLoginFailures=_IscsiTgtLoginFailures_Object((1,3,6,1,3,9999,1,7,1,1,1),_IscsiTgtLoginFailures_Type())
+iscsiTgtLoginFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiTgtLoginFailures.setStatus(_A)
+if mibBuilder.loadTexts:iscsiTgtLoginFailures.setUnits('failed login attempts')
+_IscsiTgtLastFailureTime_Type=TimeStamp
+_IscsiTgtLastFailureTime_Object=MibTableColumn
+iscsiTgtLastFailureTime=_IscsiTgtLastFailureTime_Object((1,3,6,1,3,9999,1,7,1,1,2),_IscsiTgtLastFailureTime_Type())
+iscsiTgtLastFailureTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiTgtLastFailureTime.setStatus(_A)
+_IscsiTgtLastFailureType_Type=Integer32
+_IscsiTgtLastFailureType_Object=MibTableColumn
+iscsiTgtLastFailureType=_IscsiTgtLastFailureType_Object((1,3,6,1,3,9999,1,7,1,1,3),_IscsiTgtLastFailureType_Type())
+iscsiTgtLastFailureType.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiTgtLastFailureType.setStatus(_A)
+_IscsiTgtLastIntrFailureName_Type=SnmpAdminString
+_IscsiTgtLastIntrFailureName_Object=MibTableColumn
+iscsiTgtLastIntrFailureName=_IscsiTgtLastIntrFailureName_Object((1,3,6,1,3,9999,1,7,1,1,4),_IscsiTgtLastIntrFailureName_Type())
+iscsiTgtLastIntrFailureName.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiTgtLastIntrFailureName.setStatus(_A)
+_IscsiTgtLastIntrFailureAddrType_Type=InetAddressType
+_IscsiTgtLastIntrFailureAddrType_Object=MibTableColumn
+iscsiTgtLastIntrFailureAddrType=_IscsiTgtLastIntrFailureAddrType_Object((1,3,6,1,3,9999,1,7,1,1,5),_IscsiTgtLastIntrFailureAddrType_Type())
+iscsiTgtLastIntrFailureAddrType.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiTgtLastIntrFailureAddrType.setStatus(_A)
+_IscsiTgtLastIntrFailureAddr_Type=InetAddress
+_IscsiTgtLastIntrFailureAddr_Object=MibTableColumn
+iscsiTgtLastIntrFailureAddr=_IscsiTgtLastIntrFailureAddr_Object((1,3,6,1,3,9999,1,7,1,1,6),_IscsiTgtLastIntrFailureAddr_Type())
+iscsiTgtLastIntrFailureAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiTgtLastIntrFailureAddr.setStatus(_A)
+_IscsiTargetLoginStatsTable_Object=MibTable
+iscsiTargetLoginStatsTable=_IscsiTargetLoginStatsTable_Object((1,3,6,1,3,9999,1,7,2))
+if mibBuilder.loadTexts:iscsiTargetLoginStatsTable.setStatus(_A)
+_IscsiTargetLoginStatsEntry_Object=MibTableRow
+iscsiTargetLoginStatsEntry=_IscsiTargetLoginStatsEntry_Object((1,3,6,1,3,9999,1,7,2,1))
+if mibBuilder.loadTexts:iscsiTargetLoginStatsEntry.setStatus(_A)
+_IscsiTgtLoginAccepts_Type=Counter32
+_IscsiTgtLoginAccepts_Object=MibTableColumn
+iscsiTgtLoginAccepts=_IscsiTgtLoginAccepts_Object((1,3,6,1,3,9999,1,7,2,1,1),_IscsiTgtLoginAccepts_Type())
+iscsiTgtLoginAccepts.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiTgtLoginAccepts.setStatus(_A)
+if mibBuilder.loadTexts:iscsiTgtLoginAccepts.setUnits(_k)
+_IscsiTgtLoginOtherFails_Type=Counter32
+_IscsiTgtLoginOtherFails_Object=MibTableColumn
+iscsiTgtLoginOtherFails=_IscsiTgtLoginOtherFails_Object((1,3,6,1,3,9999,1,7,2,1,2),_IscsiTgtLoginOtherFails_Type())
+iscsiTgtLoginOtherFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiTgtLoginOtherFails.setStatus(_A)
+if mibBuilder.loadTexts:iscsiTgtLoginOtherFails.setUnits(_I)
+_IscsiTgtLoginRedirects_Type=Counter32
+_IscsiTgtLoginRedirects_Object=MibTableColumn
+iscsiTgtLoginRedirects=_IscsiTgtLoginRedirects_Object((1,3,6,1,3,9999,1,7,2,1,3),_IscsiTgtLoginRedirects_Type())
+iscsiTgtLoginRedirects.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiTgtLoginRedirects.setStatus(_A)
+if mibBuilder.loadTexts:iscsiTgtLoginRedirects.setUnits(_I)
+_IscsiTgtLoginAuthorizeFails_Type=Counter32
+_IscsiTgtLoginAuthorizeFails_Object=MibTableColumn
+iscsiTgtLoginAuthorizeFails=_IscsiTgtLoginAuthorizeFails_Object((1,3,6,1,3,9999,1,7,2,1,4),_IscsiTgtLoginAuthorizeFails_Type())
+iscsiTgtLoginAuthorizeFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiTgtLoginAuthorizeFails.setStatus(_A)
+if mibBuilder.loadTexts:iscsiTgtLoginAuthorizeFails.setUnits(_I)
+_IscsiTgtLoginAuthenticateFails_Type=Counter32
+_IscsiTgtLoginAuthenticateFails_Object=MibTableColumn
+iscsiTgtLoginAuthenticateFails=_IscsiTgtLoginAuthenticateFails_Object((1,3,6,1,3,9999,1,7,2,1,5),_IscsiTgtLoginAuthenticateFails_Type())
+iscsiTgtLoginAuthenticateFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiTgtLoginAuthenticateFails.setStatus(_A)
+if mibBuilder.loadTexts:iscsiTgtLoginAuthenticateFails.setUnits(_I)
+_IscsiTgtLoginNegotiateFails_Type=Counter32
+_IscsiTgtLoginNegotiateFails_Object=MibTableColumn
+iscsiTgtLoginNegotiateFails=_IscsiTgtLoginNegotiateFails_Object((1,3,6,1,3,9999,1,7,2,1,6),_IscsiTgtLoginNegotiateFails_Type())
+iscsiTgtLoginNegotiateFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiTgtLoginNegotiateFails.setStatus(_A)
+if mibBuilder.loadTexts:iscsiTgtLoginNegotiateFails.setUnits(_I)
+_IscsiTargetLogoutStatsTable_Object=MibTable
+iscsiTargetLogoutStatsTable=_IscsiTargetLogoutStatsTable_Object((1,3,6,1,3,9999,1,7,3))
+if mibBuilder.loadTexts:iscsiTargetLogoutStatsTable.setStatus(_A)
+_IscsiTargetLogoutStatsEntry_Object=MibTableRow
+iscsiTargetLogoutStatsEntry=_IscsiTargetLogoutStatsEntry_Object((1,3,6,1,3,9999,1,7,3,1))
+if mibBuilder.loadTexts:iscsiTargetLogoutStatsEntry.setStatus(_A)
+_IscsiTgtLogoutNormals_Type=Counter32
+_IscsiTgtLogoutNormals_Object=MibTableColumn
+iscsiTgtLogoutNormals=_IscsiTgtLogoutNormals_Object((1,3,6,1,3,9999,1,7,3,1,1),_IscsiTgtLogoutNormals_Type())
+iscsiTgtLogoutNormals.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiTgtLogoutNormals.setStatus(_A)
+if mibBuilder.loadTexts:iscsiTgtLogoutNormals.setUnits(_l)
+_IscsiTgtLogoutOthers_Type=Counter32
+_IscsiTgtLogoutOthers_Object=MibTableColumn
+iscsiTgtLogoutOthers=_IscsiTgtLogoutOthers_Object((1,3,6,1,3,9999,1,7,3,1,2),_IscsiTgtLogoutOthers_Type())
+iscsiTgtLogoutOthers.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiTgtLogoutOthers.setStatus(_A)
+if mibBuilder.loadTexts:iscsiTgtLogoutOthers.setUnits(_m)
+_IscsiTgtAuthorization_ObjectIdentity=ObjectIdentity
+iscsiTgtAuthorization=_IscsiTgtAuthorization_ObjectIdentity((1,3,6,1,3,9999,1,8))
+_IscsiTgtAuthAttributesTable_Object=MibTable
+iscsiTgtAuthAttributesTable=_IscsiTgtAuthAttributesTable_Object((1,3,6,1,3,9999,1,8,1))
+if mibBuilder.loadTexts:iscsiTgtAuthAttributesTable.setStatus(_A)
+_IscsiTgtAuthAttributesEntry_Object=MibTableRow
+iscsiTgtAuthAttributesEntry=_IscsiTgtAuthAttributesEntry_Object((1,3,6,1,3,9999,1,8,1,1))
+iscsiTgtAuthAttributesEntry.setIndexNames((0,_B,_G),(0,_B,_J),(0,_B,_n))
+if mibBuilder.loadTexts:iscsiTgtAuthAttributesEntry.setStatus(_A)
+class _IscsiTgtAuthIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_IscsiTgtAuthIndex_Type.__name__=_F
+_IscsiTgtAuthIndex_Object=MibTableColumn
+iscsiTgtAuthIndex=_IscsiTgtAuthIndex_Object((1,3,6,1,3,9999,1,8,1,1,1),_IscsiTgtAuthIndex_Type())
+iscsiTgtAuthIndex.setMaxAccess(_K)
+if mibBuilder.loadTexts:iscsiTgtAuthIndex.setStatus(_A)
+_IscsiTgtAuthRowStatus_Type=RowStatus
+_IscsiTgtAuthRowStatus_Object=MibTableColumn
+iscsiTgtAuthRowStatus=_IscsiTgtAuthRowStatus_Object((1,3,6,1,3,9999,1,8,1,1,2),_IscsiTgtAuthRowStatus_Type())
+iscsiTgtAuthRowStatus.setMaxAccess(_H)
+if mibBuilder.loadTexts:iscsiTgtAuthRowStatus.setStatus(_A)
+_IscsiTgtAuthIdentity_Type=RowPointer
+_IscsiTgtAuthIdentity_Object=MibTableColumn
+iscsiTgtAuthIdentity=_IscsiTgtAuthIdentity_Object((1,3,6,1,3,9999,1,8,1,1,3),_IscsiTgtAuthIdentity_Type())
+iscsiTgtAuthIdentity.setMaxAccess(_H)
+if mibBuilder.loadTexts:iscsiTgtAuthIdentity.setStatus(_A)
+_IscsiInitiator_ObjectIdentity=ObjectIdentity
+iscsiInitiator=_IscsiInitiator_ObjectIdentity((1,3,6,1,3,9999,1,9))
+_IscsiInitiatorAttributesTable_Object=MibTable
+iscsiInitiatorAttributesTable=_IscsiInitiatorAttributesTable_Object((1,3,6,1,3,9999,1,9,1))
+if mibBuilder.loadTexts:iscsiInitiatorAttributesTable.setStatus(_A)
+_IscsiInitiatorAttributesEntry_Object=MibTableRow
+iscsiInitiatorAttributesEntry=_IscsiInitiatorAttributesEntry_Object((1,3,6,1,3,9999,1,9,1,1))
+iscsiInitiatorAttributesEntry.setIndexNames((0,_B,_G),(0,_B,_J))
+if mibBuilder.loadTexts:iscsiInitiatorAttributesEntry.setStatus(_A)
+_IscsiIntrLoginFailures_Type=Counter32
+_IscsiIntrLoginFailures_Object=MibTableColumn
+iscsiIntrLoginFailures=_IscsiIntrLoginFailures_Object((1,3,6,1,3,9999,1,9,1,1,1),_IscsiIntrLoginFailures_Type())
+iscsiIntrLoginFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiIntrLoginFailures.setStatus(_A)
+if mibBuilder.loadTexts:iscsiIntrLoginFailures.setUnits(_I)
+_IscsiIntrLastFailureTime_Type=TimeStamp
+_IscsiIntrLastFailureTime_Object=MibTableColumn
+iscsiIntrLastFailureTime=_IscsiIntrLastFailureTime_Object((1,3,6,1,3,9999,1,9,1,1,2),_IscsiIntrLastFailureTime_Type())
+iscsiIntrLastFailureTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiIntrLastFailureTime.setStatus(_A)
+_IscsiIntrLastFailureType_Type=Integer32
+_IscsiIntrLastFailureType_Object=MibTableColumn
+iscsiIntrLastFailureType=_IscsiIntrLastFailureType_Object((1,3,6,1,3,9999,1,9,1,1,3),_IscsiIntrLastFailureType_Type())
+iscsiIntrLastFailureType.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiIntrLastFailureType.setStatus(_A)
+_IscsiIntrLastTgtFailureName_Type=SnmpAdminString
+_IscsiIntrLastTgtFailureName_Object=MibTableColumn
+iscsiIntrLastTgtFailureName=_IscsiIntrLastTgtFailureName_Object((1,3,6,1,3,9999,1,9,1,1,4),_IscsiIntrLastTgtFailureName_Type())
+iscsiIntrLastTgtFailureName.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiIntrLastTgtFailureName.setStatus(_A)
+_IscsiIntrLastTgtFailureAddrType_Type=InetAddressType
+_IscsiIntrLastTgtFailureAddrType_Object=MibTableColumn
+iscsiIntrLastTgtFailureAddrType=_IscsiIntrLastTgtFailureAddrType_Object((1,3,6,1,3,9999,1,9,1,1,5),_IscsiIntrLastTgtFailureAddrType_Type())
+iscsiIntrLastTgtFailureAddrType.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiIntrLastTgtFailureAddrType.setStatus(_A)
+_IscsiIntrLastTgtFailureAddr_Type=InetAddress
+_IscsiIntrLastTgtFailureAddr_Object=MibTableColumn
+iscsiIntrLastTgtFailureAddr=_IscsiIntrLastTgtFailureAddr_Object((1,3,6,1,3,9999,1,9,1,1,6),_IscsiIntrLastTgtFailureAddr_Type())
+iscsiIntrLastTgtFailureAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiIntrLastTgtFailureAddr.setStatus(_A)
+_IscsiInitiatorLoginStatsTable_Object=MibTable
+iscsiInitiatorLoginStatsTable=_IscsiInitiatorLoginStatsTable_Object((1,3,6,1,3,9999,1,9,2))
+if mibBuilder.loadTexts:iscsiInitiatorLoginStatsTable.setStatus(_A)
+_IscsiInitiatorLoginStatsEntry_Object=MibTableRow
+iscsiInitiatorLoginStatsEntry=_IscsiInitiatorLoginStatsEntry_Object((1,3,6,1,3,9999,1,9,2,1))
+if mibBuilder.loadTexts:iscsiInitiatorLoginStatsEntry.setStatus(_A)
+_IscsiIntrLoginAcceptRsps_Type=Counter32
+_IscsiIntrLoginAcceptRsps_Object=MibTableColumn
+iscsiIntrLoginAcceptRsps=_IscsiIntrLoginAcceptRsps_Object((1,3,6,1,3,9999,1,9,2,1,1),_IscsiIntrLoginAcceptRsps_Type())
+iscsiIntrLoginAcceptRsps.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiIntrLoginAcceptRsps.setStatus(_A)
+if mibBuilder.loadTexts:iscsiIntrLoginAcceptRsps.setUnits(_k)
+_IscsiIntrLoginOtherFailRsps_Type=Counter32
+_IscsiIntrLoginOtherFailRsps_Object=MibTableColumn
+iscsiIntrLoginOtherFailRsps=_IscsiIntrLoginOtherFailRsps_Object((1,3,6,1,3,9999,1,9,2,1,2),_IscsiIntrLoginOtherFailRsps_Type())
+iscsiIntrLoginOtherFailRsps.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiIntrLoginOtherFailRsps.setStatus(_A)
+if mibBuilder.loadTexts:iscsiIntrLoginOtherFailRsps.setUnits(_I)
+_IscsiIntrLoginRedirectRsps_Type=Counter32
+_IscsiIntrLoginRedirectRsps_Object=MibTableColumn
+iscsiIntrLoginRedirectRsps=_IscsiIntrLoginRedirectRsps_Object((1,3,6,1,3,9999,1,9,2,1,3),_IscsiIntrLoginRedirectRsps_Type())
+iscsiIntrLoginRedirectRsps.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiIntrLoginRedirectRsps.setStatus(_A)
+if mibBuilder.loadTexts:iscsiIntrLoginRedirectRsps.setUnits(_I)
+_IscsiIntrLoginAuthFailRsps_Type=Counter32
+_IscsiIntrLoginAuthFailRsps_Object=MibTableColumn
+iscsiIntrLoginAuthFailRsps=_IscsiIntrLoginAuthFailRsps_Object((1,3,6,1,3,9999,1,9,2,1,4),_IscsiIntrLoginAuthFailRsps_Type())
+iscsiIntrLoginAuthFailRsps.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiIntrLoginAuthFailRsps.setStatus(_A)
+if mibBuilder.loadTexts:iscsiIntrLoginAuthFailRsps.setUnits(_I)
+_IscsiIntrLoginAuthenticateFails_Type=Counter32
+_IscsiIntrLoginAuthenticateFails_Object=MibTableColumn
+iscsiIntrLoginAuthenticateFails=_IscsiIntrLoginAuthenticateFails_Object((1,3,6,1,3,9999,1,9,2,1,5),_IscsiIntrLoginAuthenticateFails_Type())
+iscsiIntrLoginAuthenticateFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiIntrLoginAuthenticateFails.setStatus(_A)
+if mibBuilder.loadTexts:iscsiIntrLoginAuthenticateFails.setUnits(_I)
+_IscsiIntrLoginNegotiateFails_Type=Counter32
+_IscsiIntrLoginNegotiateFails_Object=MibTableColumn
+iscsiIntrLoginNegotiateFails=_IscsiIntrLoginNegotiateFails_Object((1,3,6,1,3,9999,1,9,2,1,6),_IscsiIntrLoginNegotiateFails_Type())
+iscsiIntrLoginNegotiateFails.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiIntrLoginNegotiateFails.setStatus(_A)
+if mibBuilder.loadTexts:iscsiIntrLoginNegotiateFails.setUnits(_I)
+_IscsiInitiatorLogoutStatsTable_Object=MibTable
+iscsiInitiatorLogoutStatsTable=_IscsiInitiatorLogoutStatsTable_Object((1,3,6,1,3,9999,1,9,3))
+if mibBuilder.loadTexts:iscsiInitiatorLogoutStatsTable.setStatus(_A)
+_IscsiInitiatorLogoutStatsEntry_Object=MibTableRow
+iscsiInitiatorLogoutStatsEntry=_IscsiInitiatorLogoutStatsEntry_Object((1,3,6,1,3,9999,1,9,3,1))
+if mibBuilder.loadTexts:iscsiInitiatorLogoutStatsEntry.setStatus(_A)
+_IscsiIntrLogoutNormals_Type=Counter32
+_IscsiIntrLogoutNormals_Object=MibTableColumn
+iscsiIntrLogoutNormals=_IscsiIntrLogoutNormals_Object((1,3,6,1,3,9999,1,9,3,1,1),_IscsiIntrLogoutNormals_Type())
+iscsiIntrLogoutNormals.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiIntrLogoutNormals.setStatus(_A)
+if mibBuilder.loadTexts:iscsiIntrLogoutNormals.setUnits(_l)
+_IscsiIntrLogoutOthers_Type=Counter32
+_IscsiIntrLogoutOthers_Object=MibTableColumn
+iscsiIntrLogoutOthers=_IscsiIntrLogoutOthers_Object((1,3,6,1,3,9999,1,9,3,1,2),_IscsiIntrLogoutOthers_Type())
+iscsiIntrLogoutOthers.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiIntrLogoutOthers.setStatus(_A)
+if mibBuilder.loadTexts:iscsiIntrLogoutOthers.setUnits(_m)
+_IscsiIntrAuthorization_ObjectIdentity=ObjectIdentity
+iscsiIntrAuthorization=_IscsiIntrAuthorization_ObjectIdentity((1,3,6,1,3,9999,1,10))
+_IscsiIntrAuthAttributesTable_Object=MibTable
+iscsiIntrAuthAttributesTable=_IscsiIntrAuthAttributesTable_Object((1,3,6,1,3,9999,1,10,1))
+if mibBuilder.loadTexts:iscsiIntrAuthAttributesTable.setStatus(_A)
+_IscsiIntrAuthAttributesEntry_Object=MibTableRow
+iscsiIntrAuthAttributesEntry=_IscsiIntrAuthAttributesEntry_Object((1,3,6,1,3,9999,1,10,1,1))
+iscsiIntrAuthAttributesEntry.setIndexNames((0,_B,_G),(0,_B,_J),(0,_B,_o))
+if mibBuilder.loadTexts:iscsiIntrAuthAttributesEntry.setStatus(_A)
+class _IscsiIntrAuthIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_IscsiIntrAuthIndex_Type.__name__=_F
+_IscsiIntrAuthIndex_Object=MibTableColumn
+iscsiIntrAuthIndex=_IscsiIntrAuthIndex_Object((1,3,6,1,3,9999,1,10,1,1,1),_IscsiIntrAuthIndex_Type())
+iscsiIntrAuthIndex.setMaxAccess(_K)
+if mibBuilder.loadTexts:iscsiIntrAuthIndex.setStatus(_A)
+_IscsiIntrAuthRowStatus_Type=RowStatus
+_IscsiIntrAuthRowStatus_Object=MibTableColumn
+iscsiIntrAuthRowStatus=_IscsiIntrAuthRowStatus_Object((1,3,6,1,3,9999,1,10,1,1,2),_IscsiIntrAuthRowStatus_Type())
+iscsiIntrAuthRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiIntrAuthRowStatus.setStatus(_A)
+_IscsiIntrAuthIdentity_Type=RowPointer
+_IscsiIntrAuthIdentity_Object=MibTableColumn
+iscsiIntrAuthIdentity=_IscsiIntrAuthIdentity_Object((1,3,6,1,3,9999,1,10,1,1,3),_IscsiIntrAuthIdentity_Type())
+iscsiIntrAuthIdentity.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiIntrAuthIdentity.setStatus(_A)
+_IscsiSession_ObjectIdentity=ObjectIdentity
+iscsiSession=_IscsiSession_ObjectIdentity((1,3,6,1,3,9999,1,11))
+_IscsiSessionAttributesTable_Object=MibTable
+iscsiSessionAttributesTable=_IscsiSessionAttributesTable_Object((1,3,6,1,3,9999,1,11,1))
+if mibBuilder.loadTexts:iscsiSessionAttributesTable.setStatus(_A)
+_IscsiSessionAttributesEntry_Object=MibTableRow
+iscsiSessionAttributesEntry=_IscsiSessionAttributesEntry_Object((1,3,6,1,3,9999,1,11,1,1))
+iscsiSessionAttributesEntry.setIndexNames((0,_B,_G),(0,_B,_J),(0,_B,_S))
+if mibBuilder.loadTexts:iscsiSessionAttributesEntry.setStatus(_A)
+class _IscsiSsnIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_IscsiSsnIndex_Type.__name__=_F
+_IscsiSsnIndex_Object=MibTableColumn
+iscsiSsnIndex=_IscsiSsnIndex_Object((1,3,6,1,3,9999,1,11,1,1,1),_IscsiSsnIndex_Type())
+iscsiSsnIndex.setMaxAccess(_K)
+if mibBuilder.loadTexts:iscsiSsnIndex.setStatus(_A)
+class _IscsiSsnDirection_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('inboundSession',1),('outboundSession',2)))
+_IscsiSsnDirection_Type.__name__=_D
+_IscsiSsnDirection_Object=MibTableColumn
+iscsiSsnDirection=_IscsiSsnDirection_Object((1,3,6,1,3,9999,1,11,1,1,2),_IscsiSsnDirection_Type())
+iscsiSsnDirection.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnDirection.setStatus(_A)
+_IscsiSsnInitiatorName_Type=SnmpAdminString
+_IscsiSsnInitiatorName_Object=MibTableColumn
+iscsiSsnInitiatorName=_IscsiSsnInitiatorName_Object((1,3,6,1,3,9999,1,11,1,1,3),_IscsiSsnInitiatorName_Type())
+iscsiSsnInitiatorName.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnInitiatorName.setStatus(_A)
+_IscsiSsnTargetName_Type=SnmpAdminString
+_IscsiSsnTargetName_Object=MibTableColumn
+iscsiSsnTargetName=_IscsiSsnTargetName_Object((1,3,6,1,3,9999,1,11,1,1,4),_IscsiSsnTargetName_Type())
+iscsiSsnTargetName.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnTargetName.setStatus(_A)
+class _IscsiSsnTsih_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_IscsiSsnTsih_Type.__name__=_D
+_IscsiSsnTsih_Object=MibTableColumn
+iscsiSsnTsih=_IscsiSsnTsih_Object((1,3,6,1,3,9999,1,11,1,1,5),_IscsiSsnTsih_Type())
+iscsiSsnTsih.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnTsih.setStatus(_A)
+class _IscsiSsnIsid_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(6,6));fixedLength=6
+_IscsiSsnIsid_Type.__name__=_h
+_IscsiSsnIsid_Object=MibTableColumn
+iscsiSsnIsid=_IscsiSsnIsid_Object((1,3,6,1,3,9999,1,11,1,1,6),_IscsiSsnIsid_Type())
+iscsiSsnIsid.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnIsid.setStatus(_A)
+_IscsiSsnInitiatorAlias_Type=SnmpAdminString
+_IscsiSsnInitiatorAlias_Object=MibTableColumn
+iscsiSsnInitiatorAlias=_IscsiSsnInitiatorAlias_Object((1,3,6,1,3,9999,1,11,1,1,7),_IscsiSsnInitiatorAlias_Type())
+iscsiSsnInitiatorAlias.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnInitiatorAlias.setStatus(_A)
+_IscsiSsnTargetAlias_Type=SnmpAdminString
+_IscsiSsnTargetAlias_Object=MibTableColumn
+iscsiSsnTargetAlias=_IscsiSsnTargetAlias_Object((1,3,6,1,3,9999,1,11,1,1,8),_IscsiSsnTargetAlias_Type())
+iscsiSsnTargetAlias.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnTargetAlias.setStatus(_A)
+_IscsiSsnInitialR2T_Type=TruthValue
+_IscsiSsnInitialR2T_Object=MibTableColumn
+iscsiSsnInitialR2T=_IscsiSsnInitialR2T_Object((1,3,6,1,3,9999,1,11,1,1,9),_IscsiSsnInitialR2T_Type())
+iscsiSsnInitialR2T.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnInitialR2T.setStatus(_A)
+_IscsiSsnBidiInitialR2T_Type=TruthValue
+_IscsiSsnBidiInitialR2T_Object=MibTableColumn
+iscsiSsnBidiInitialR2T=_IscsiSsnBidiInitialR2T_Object((1,3,6,1,3,9999,1,11,1,1,10),_IscsiSsnBidiInitialR2T_Type())
+iscsiSsnBidiInitialR2T.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnBidiInitialR2T.setStatus(_A)
+_IscsiSsnImmediateData_Type=TruthValue
+_IscsiSsnImmediateData_Object=MibTableColumn
+iscsiSsnImmediateData=_IscsiSsnImmediateData_Object((1,3,6,1,3,9999,1,11,1,1,11),_IscsiSsnImmediateData_Type())
+iscsiSsnImmediateData.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnImmediateData.setStatus(_A)
+class _IscsiSsnType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('normalSession',1),('discoverySession',2)))
+_IscsiSsnType_Type.__name__=_D
+_IscsiSsnType_Object=MibTableColumn
+iscsiSsnType=_IscsiSsnType_Object((1,3,6,1,3,9999,1,11,1,1,12),_IscsiSsnType_Type())
+iscsiSsnType.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnType.setStatus(_A)
+class _IscsiSsnMaxOutstandingR2T_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_IscsiSsnMaxOutstandingR2T_Type.__name__=_D
+_IscsiSsnMaxOutstandingR2T_Object=MibTableColumn
+iscsiSsnMaxOutstandingR2T=_IscsiSsnMaxOutstandingR2T_Object((1,3,6,1,3,9999,1,11,1,1,13),_IscsiSsnMaxOutstandingR2T_Type())
+iscsiSsnMaxOutstandingR2T.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnMaxOutstandingR2T.setStatus(_A)
+class _IscsiSsnFirstBurstSize_Type(Integer32):defaultValue=65536;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(512,16777215))
+_IscsiSsnFirstBurstSize_Type.__name__=_D
+_IscsiSsnFirstBurstSize_Object=MibTableColumn
+iscsiSsnFirstBurstSize=_IscsiSsnFirstBurstSize_Object((1,3,6,1,3,9999,1,11,1,1,14),_IscsiSsnFirstBurstSize_Type())
+iscsiSsnFirstBurstSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnFirstBurstSize.setStatus(_A)
+if mibBuilder.loadTexts:iscsiSsnFirstBurstSize.setUnits(_O)
+class _IscsiSsnMaxBurstSize_Type(Integer32):defaultValue=262144;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(512,16777215))
+_IscsiSsnMaxBurstSize_Type.__name__=_D
+_IscsiSsnMaxBurstSize_Object=MibTableColumn
+iscsiSsnMaxBurstSize=_IscsiSsnMaxBurstSize_Object((1,3,6,1,3,9999,1,11,1,1,15),_IscsiSsnMaxBurstSize_Type())
+iscsiSsnMaxBurstSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnMaxBurstSize.setStatus(_A)
+if mibBuilder.loadTexts:iscsiSsnMaxBurstSize.setUnits(_O)
+class _IscsiSsnConnectionNumber_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_IscsiSsnConnectionNumber_Type.__name__=_i
+_IscsiSsnConnectionNumber_Object=MibTableColumn
+iscsiSsnConnectionNumber=_IscsiSsnConnectionNumber_Object((1,3,6,1,3,9999,1,11,1,1,16),_IscsiSsnConnectionNumber_Type())
+iscsiSsnConnectionNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnConnectionNumber.setStatus(_A)
+if mibBuilder.loadTexts:iscsiSsnConnectionNumber.setUnits(_j)
+_IscsiSsnAuthIdentity_Type=RowPointer
+_IscsiSsnAuthIdentity_Object=MibTableColumn
+iscsiSsnAuthIdentity=_IscsiSsnAuthIdentity_Object((1,3,6,1,3,9999,1,11,1,1,17),_IscsiSsnAuthIdentity_Type())
+iscsiSsnAuthIdentity.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnAuthIdentity.setStatus(_A)
+_IscsiSsnDataSequenceInOrder_Type=TruthValue
+_IscsiSsnDataSequenceInOrder_Object=MibTableColumn
+iscsiSsnDataSequenceInOrder=_IscsiSsnDataSequenceInOrder_Object((1,3,6,1,3,9999,1,11,1,1,18),_IscsiSsnDataSequenceInOrder_Type())
+iscsiSsnDataSequenceInOrder.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnDataSequenceInOrder.setStatus(_A)
+_IscsiSsnDataPduInOrder_Type=TruthValue
+_IscsiSsnDataPduInOrder_Object=MibTableColumn
+iscsiSsnDataPduInOrder=_IscsiSsnDataPduInOrder_Object((1,3,6,1,3,9999,1,11,1,1,19),_IscsiSsnDataPduInOrder_Type())
+iscsiSsnDataPduInOrder.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnDataPduInOrder.setStatus(_A)
+class _IscsiSsnErrorRecoveryLevel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_IscsiSsnErrorRecoveryLevel_Type.__name__=_D
+_IscsiSsnErrorRecoveryLevel_Object=MibTableColumn
+iscsiSsnErrorRecoveryLevel=_IscsiSsnErrorRecoveryLevel_Object((1,3,6,1,3,9999,1,11,1,1,20),_IscsiSsnErrorRecoveryLevel_Type())
+iscsiSsnErrorRecoveryLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnErrorRecoveryLevel.setStatus(_A)
+_IscsiSessionStatsTable_Object=MibTable
+iscsiSessionStatsTable=_IscsiSessionStatsTable_Object((1,3,6,1,3,9999,1,11,2))
+if mibBuilder.loadTexts:iscsiSessionStatsTable.setStatus(_A)
+_IscsiSessionStatsEntry_Object=MibTableRow
+iscsiSessionStatsEntry=_IscsiSessionStatsEntry_Object((1,3,6,1,3,9999,1,11,2,1))
+if mibBuilder.loadTexts:iscsiSessionStatsEntry.setStatus(_A)
+_IscsiSsnCmdPdus_Type=Counter32
+_IscsiSsnCmdPdus_Object=MibTableColumn
+iscsiSsnCmdPdus=_IscsiSsnCmdPdus_Object((1,3,6,1,3,9999,1,11,2,1,1),_IscsiSsnCmdPdus_Type())
+iscsiSsnCmdPdus.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnCmdPdus.setStatus(_A)
+if mibBuilder.loadTexts:iscsiSsnCmdPdus.setUnits(_T)
+_IscsiSsnRspPdus_Type=Counter32
+_IscsiSsnRspPdus_Object=MibTableColumn
+iscsiSsnRspPdus=_IscsiSsnRspPdus_Object((1,3,6,1,3,9999,1,11,2,1,2),_IscsiSsnRspPdus_Type())
+iscsiSsnRspPdus.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnRspPdus.setStatus(_A)
+if mibBuilder.loadTexts:iscsiSsnRspPdus.setUnits(_T)
+_IscsiSsnTxDataOctets_Type=Counter64
+_IscsiSsnTxDataOctets_Object=MibTableColumn
+iscsiSsnTxDataOctets=_IscsiSsnTxDataOctets_Object((1,3,6,1,3,9999,1,11,2,1,3),_IscsiSsnTxDataOctets_Type())
+iscsiSsnTxDataOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnTxDataOctets.setStatus(_A)
+if mibBuilder.loadTexts:iscsiSsnTxDataOctets.setUnits(_p)
+_IscsiSsnRxDataOctets_Type=Counter64
+_IscsiSsnRxDataOctets_Object=MibTableColumn
+iscsiSsnRxDataOctets=_IscsiSsnRxDataOctets_Object((1,3,6,1,3,9999,1,11,2,1,4),_IscsiSsnRxDataOctets_Type())
+iscsiSsnRxDataOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnRxDataOctets.setStatus(_A)
+if mibBuilder.loadTexts:iscsiSsnRxDataOctets.setUnits(_p)
+_IscsiSessionCxnErrorStatsTable_Object=MibTable
+iscsiSessionCxnErrorStatsTable=_IscsiSessionCxnErrorStatsTable_Object((1,3,6,1,3,9999,1,11,3))
+if mibBuilder.loadTexts:iscsiSessionCxnErrorStatsTable.setStatus(_A)
+_IscsiSessionCxnErrorStatsEntry_Object=MibTableRow
+iscsiSessionCxnErrorStatsEntry=_IscsiSessionCxnErrorStatsEntry_Object((1,3,6,1,3,9999,1,11,3,1))
+if mibBuilder.loadTexts:iscsiSessionCxnErrorStatsEntry.setStatus(_A)
+_IscsiSsnDigestErrors_Type=Counter32
+_IscsiSsnDigestErrors_Object=MibTableColumn
+iscsiSsnDigestErrors=_IscsiSsnDigestErrors_Object((1,3,6,1,3,9999,1,11,3,1,1),_IscsiSsnDigestErrors_Type())
+iscsiSsnDigestErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnDigestErrors.setStatus(_A)
+if mibBuilder.loadTexts:iscsiSsnDigestErrors.setUnits(_T)
+_IscsiSsnCxnTimeoutErrors_Type=Counter32
+_IscsiSsnCxnTimeoutErrors_Object=MibTableColumn
+iscsiSsnCxnTimeoutErrors=_IscsiSsnCxnTimeoutErrors_Object((1,3,6,1,3,9999,1,11,3,1,2),_IscsiSsnCxnTimeoutErrors_Type())
+iscsiSsnCxnTimeoutErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiSsnCxnTimeoutErrors.setStatus(_A)
+if mibBuilder.loadTexts:iscsiSsnCxnTimeoutErrors.setUnits('sequences')
+_IscsiConnection_ObjectIdentity=ObjectIdentity
+iscsiConnection=_IscsiConnection_ObjectIdentity((1,3,6,1,3,9999,1,12))
+_IscsiConnectionAttributesTable_Object=MibTable
+iscsiConnectionAttributesTable=_IscsiConnectionAttributesTable_Object((1,3,6,1,3,9999,1,12,1))
+if mibBuilder.loadTexts:iscsiConnectionAttributesTable.setStatus(_A)
+_IscsiConnectionAttributesEntry_Object=MibTableRow
+iscsiConnectionAttributesEntry=_IscsiConnectionAttributesEntry_Object((1,3,6,1,3,9999,1,12,1,1))
+iscsiConnectionAttributesEntry.setIndexNames((0,_B,_G),(0,_B,_J),(0,_B,_S),(0,_B,_q))
+if mibBuilder.loadTexts:iscsiConnectionAttributesEntry.setStatus(_A)
+class _IscsiCxnIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_IscsiCxnIndex_Type.__name__=_F
+_IscsiCxnIndex_Object=MibTableColumn
+iscsiCxnIndex=_IscsiCxnIndex_Object((1,3,6,1,3,9999,1,12,1,1,1),_IscsiCxnIndex_Type())
+iscsiCxnIndex.setMaxAccess(_K)
+if mibBuilder.loadTexts:iscsiCxnIndex.setStatus(_A)
+class _IscsiCxnCid_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_IscsiCxnCid_Type.__name__=_D
+_IscsiCxnCid_Object=MibTableColumn
+iscsiCxnCid=_IscsiCxnCid_Object((1,3,6,1,3,9999,1,12,1,1,2),_IscsiCxnCid_Type())
+iscsiCxnCid.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiCxnCid.setStatus(_A)
+class _IscsiCxnState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('login',1),('full',2),('logout',3)))
+_IscsiCxnState_Type.__name__=_D
+_IscsiCxnState_Object=MibTableColumn
+iscsiCxnState=_IscsiCxnState_Object((1,3,6,1,3,9999,1,12,1,1,3),_IscsiCxnState_Type())
+iscsiCxnState.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiCxnState.setStatus(_A)
+_IscsiCxnLocalAddrType_Type=InetAddressType
+_IscsiCxnLocalAddrType_Object=MibTableColumn
+iscsiCxnLocalAddrType=_IscsiCxnLocalAddrType_Object((1,3,6,1,3,9999,1,12,1,1,4),_IscsiCxnLocalAddrType_Type())
+iscsiCxnLocalAddrType.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiCxnLocalAddrType.setStatus(_A)
+_IscsiCxnLocalAddr_Type=InetAddress
+_IscsiCxnLocalAddr_Object=MibTableColumn
+iscsiCxnLocalAddr=_IscsiCxnLocalAddr_Object((1,3,6,1,3,9999,1,12,1,1,5),_IscsiCxnLocalAddr_Type())
+iscsiCxnLocalAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiCxnLocalAddr.setStatus(_A)
+class _IscsiCxnProtocol_Type(IscsiTransportProtocols):defaultValue=6
+_IscsiCxnProtocol_Type.__name__=_R
+_IscsiCxnProtocol_Object=MibTableColumn
+iscsiCxnProtocol=_IscsiCxnProtocol_Object((1,3,6,1,3,9999,1,12,1,1,6),_IscsiCxnProtocol_Type())
+iscsiCxnProtocol.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiCxnProtocol.setStatus(_A)
+_IscsiCxnLocalPort_Type=Unsigned32
+_IscsiCxnLocalPort_Object=MibTableColumn
+iscsiCxnLocalPort=_IscsiCxnLocalPort_Object((1,3,6,1,3,9999,1,12,1,1,7),_IscsiCxnLocalPort_Type())
+iscsiCxnLocalPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiCxnLocalPort.setStatus(_A)
+_IscsiCxnRemoteAddrType_Type=InetAddressType
+_IscsiCxnRemoteAddrType_Object=MibTableColumn
+iscsiCxnRemoteAddrType=_IscsiCxnRemoteAddrType_Object((1,3,6,1,3,9999,1,12,1,1,8),_IscsiCxnRemoteAddrType_Type())
+iscsiCxnRemoteAddrType.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiCxnRemoteAddrType.setStatus(_A)
+_IscsiCxnRemoteAddr_Type=InetAddress
+_IscsiCxnRemoteAddr_Object=MibTableColumn
+iscsiCxnRemoteAddr=_IscsiCxnRemoteAddr_Object((1,3,6,1,3,9999,1,12,1,1,9),_IscsiCxnRemoteAddr_Type())
+iscsiCxnRemoteAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiCxnRemoteAddr.setStatus(_A)
+_IscsiCxnRemotePort_Type=Unsigned32
+_IscsiCxnRemotePort_Object=MibTableColumn
+iscsiCxnRemotePort=_IscsiCxnRemotePort_Object((1,3,6,1,3,9999,1,12,1,1,10),_IscsiCxnRemotePort_Type())
+iscsiCxnRemotePort.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiCxnRemotePort.setStatus(_A)
+class _IscsiCxnMaxRecvDataSegLength_Type(Integer32):defaultValue=8192;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(512,16777215))
+_IscsiCxnMaxRecvDataSegLength_Type.__name__=_D
+_IscsiCxnMaxRecvDataSegLength_Object=MibTableColumn
+iscsiCxnMaxRecvDataSegLength=_IscsiCxnMaxRecvDataSegLength_Object((1,3,6,1,3,9999,1,12,1,1,11),_IscsiCxnMaxRecvDataSegLength_Type())
+iscsiCxnMaxRecvDataSegLength.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiCxnMaxRecvDataSegLength.setStatus(_A)
+if mibBuilder.loadTexts:iscsiCxnMaxRecvDataSegLength.setUnits(_O)
+_IscsiCxnHeaderIntegrity_Type=IscsiDigestMethod
+_IscsiCxnHeaderIntegrity_Object=MibTableColumn
+iscsiCxnHeaderIntegrity=_IscsiCxnHeaderIntegrity_Object((1,3,6,1,3,9999,1,12,1,1,12),_IscsiCxnHeaderIntegrity_Type())
+iscsiCxnHeaderIntegrity.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiCxnHeaderIntegrity.setStatus(_A)
+_IscsiCxnDataIntegrity_Type=IscsiDigestMethod
+_IscsiCxnDataIntegrity_Object=MibTableColumn
+iscsiCxnDataIntegrity=_IscsiCxnDataIntegrity_Object((1,3,6,1,3,9999,1,12,1,1,13),_IscsiCxnDataIntegrity_Type())
+iscsiCxnDataIntegrity.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiCxnDataIntegrity.setStatus(_A)
+_IscsiCxnRecvMarker_Type=TruthValue
+_IscsiCxnRecvMarker_Object=MibTableColumn
+iscsiCxnRecvMarker=_IscsiCxnRecvMarker_Object((1,3,6,1,3,9999,1,12,1,1,14),_IscsiCxnRecvMarker_Type())
+iscsiCxnRecvMarker.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiCxnRecvMarker.setStatus(_A)
+_IscsiCxnSendMarker_Type=TruthValue
+_IscsiCxnSendMarker_Object=MibTableColumn
+iscsiCxnSendMarker=_IscsiCxnSendMarker_Object((1,3,6,1,3,9999,1,12,1,1,15),_IscsiCxnSendMarker_Type())
+iscsiCxnSendMarker.setMaxAccess(_C)
+if mibBuilder.loadTexts:iscsiCxnSendMarker.setStatus(_A)
+_IscsiNotifications_ObjectIdentity=ObjectIdentity
+iscsiNotifications=_IscsiNotifications_ObjectIdentity((1,3,6,1,3,9999,2))
+_IscsiNotificationsPrefix_ObjectIdentity=ObjectIdentity
+iscsiNotificationsPrefix=_IscsiNotificationsPrefix_ObjectIdentity((1,3,6,1,3,9999,2,0))
+_IscsiConformance_ObjectIdentity=ObjectIdentity
+iscsiConformance=_IscsiConformance_ObjectIdentity((1,3,6,1,3,9999,3))
+_IscsiGroups_ObjectIdentity=ObjectIdentity
+iscsiGroups=_IscsiGroups_ObjectIdentity((1,3,6,1,3,9999,3,1))
+_IscsiCompliances_ObjectIdentity=ObjectIdentity
+iscsiCompliances=_IscsiCompliances_ObjectIdentity((1,3,6,1,3,9999,3,2))
+iscsiInstanceAttributesEntry.registerAugmentions((_B,_r))
 iscsiInstanceSsnErrorStatsEntry.setIndexNames(*iscsiInstanceAttributesEntry.getIndexNames())
-if mibBuilder.loadTexts: iscsiInstanceSsnErrorStatsEntry.setDescription('An entry (row) containing management information applicable\n        to a particular iSCSI instance.')
-iscsiInstSsnDigestErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 1, 2, 1, 1), Counter32()).setUnits('sessions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiInstSsnDigestErrors.setDescription('The count of sessions that were failed due to receipt of\n        a PDU containing header or data digest errors.  If this\n        counter has suffered a discontinuity, the time of the last\n        discontinuity is indicated in iscsiInstDiscontinuityTime.')
-iscsiInstSsnCxnTimeoutErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 1, 2, 1, 2), Counter32()).setUnits('sessions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiInstSsnCxnTimeoutErrors.setDescription('The count of sessions that were failed due to a sequence\n        exceeding a time limit.  If this counter has suffered a\n        discontinuity, the time of the last discontinuity\n        is indicated in iscsiInstDiscontinuityTime.')
-iscsiInstSsnFormatErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 1, 2, 1, 3), Counter32()).setUnits('sessions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiInstSsnFormatErrors.setDescription('The count of sessions that were failed due to receipt of\n        a PDU that contained a format error.  If this counter has\n        suffered a discontinuity, the time of the last discontinuity\n        is indicated in iscsiInstDiscontinuityTime.')
-iscsiPortal = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 1, 2))
-iscsiPortalAttributesTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 2, 1), )
-if mibBuilder.loadTexts: iscsiPortalAttributesTable.setDescription('A list of transport endpoints (using TCP or another transport\n        protocol) used by this iSCSI instance.  An iSCSI instance may\n        use a portal to listen for incoming connections to its targets,\n        to initiate connections to other targets, or both.')
-iscsiPortalAttributesEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 2, 1, 1), ).setIndexNames((0, "ISCSI-MIB", "iscsiInstIndex"), (0, "ISCSI-MIB", "iscsiPortalIndex"))
-if mibBuilder.loadTexts: iscsiPortalAttributesEntry.setDescription('An entry (row) containing management information applicable\n        to a particular portal instance.')
-iscsiPortalIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 2, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: iscsiPortalIndex.setDescription('An arbitrary integer used to uniquely identify a particular\n        transport endpoint within this iSCSI instance.  This index\n        value must not be modified or reused by an agent unless a\n        reboot has occurred.  An agent should attempt to keep this\n        value persistent across reboots.')
-iscsiPortalRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 2, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiPortalRowStatus.setDescription("This field allows entries to be dynamically added and\n        removed from this table via SNMP.  When adding a row to\n        this table, all non-Index/RowStatus objects must be set.\n        When the value of this object is 'active', the values of\n        the other objects in this table cannot be changed.\n        Rows may be discarded using RowStatus.\n\n        Note that creating a row in this table will typically\n        cause the agent to create one or more rows in\n        iscsiTgtPortalAttributesTable and/or\n        iscsiIntrPortalAttributesTable.")
-iscsiPortalRoles = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 2, 1, 1, 3), Bits().clone(namedValues=NamedValues(("targetTypePortal", 0), ("initiatorTypePortal", 1),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiPortalRoles.setDescription('A portal can operate in one or both of two roles:\n        as a target portal and/or an initiator portal.  If\n        the portal will operate in both roles, both bits\n        must be set.\n\n        This object will define a corresponding row that\n\n        will exist or must be created in the\n        iscsiTgtPortalAttributesTable, the\n        iscsiIntrPortalAttributesTable or both.  If the\n        targetTypePortal bit is set, one or more corresponding\n        iscsiTgtPortalAttributesEntry rows will be found or\n        created.  If the initiatorTypePortal bit is set,\n        one or more corresponding iscsiIntrPortalAttributesEntry\n        rows will be found or created.  If both bits are set, one\n        or more corresponding rows will be found or created in\n        one of the above tables.')
-iscsiPortalAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 2, 1, 1, 4), InetAddressType().clone('ipv4')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiPortalAddrType.setDescription('The type of Internet Network Address contained in the\n        corresponding instance of the iscsiPortalAddr.')
-iscsiPortalAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 2, 1, 1, 5), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiPortalAddr.setDescription("The portal's Internet Network Address, of the type\n        specified by the object iscsiPortalAddrType.  If\n        iscsiPortalAddrType has the value 'dns', this address\n        gets resolved to an IP address whenever a new iSCSI\n        connection is established using this portal.")
-iscsiPortalProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 2, 1, 1, 6), IscsiTransportProtocol().clone(6)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiPortalProtocol.setDescription("The portal's transport protocol.")
-iscsiPortalMaxRecvDataSegLength = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 2, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(512,16777215)).clone(8192)).setUnits('bytes').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiPortalMaxRecvDataSegLength.setDescription('The maximum PDU length this portal can receive.\n        This may be constrained by hardware characteristics\n        and individual implementations may choose not to\n        allow this object to be changed.')
-iscsiPortalPrimaryHdrDigest = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 2, 1, 1, 8), IscsiDigestMethod().clone('crc32c')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiPortalPrimaryHdrDigest.setDescription('The preferred header digest for this portal.')
-iscsiPortalPrimaryDataDigest = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 2, 1, 1, 9), IscsiDigestMethod().clone('crc32c')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiPortalPrimaryDataDigest.setDescription('The preferred data digest method for this portal.')
-iscsiPortalSecondaryHdrDigest = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 2, 1, 1, 10), IscsiDigestMethod().clone('noDigest')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiPortalSecondaryHdrDigest.setDescription('An alternate header digest preference for this portal.')
-iscsiPortalSecondaryDataDigest = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 2, 1, 1, 11), IscsiDigestMethod().clone('noDigest')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiPortalSecondaryDataDigest.setDescription('An alternate data digest preference for this portal.')
-iscsiPortalRecvMarker = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 2, 1, 1, 12), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiPortalRecvMarker.setDescription('This object indicates whether or not this portal will\n        request markers in its incoming data stream.')
-iscsiPortalStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 2, 1, 1, 13), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiPortalStorageType.setDescription("The storage type for this row.  Rows in this table that were\n         created through an external process may have a storage type of\n         readOnly or permanent.\n\n         Conceptual rows having the value 'permanent' need not\n         allow write access to any columnar objects in the row.")
-iscsiTargetPortal = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 1, 3))
-iscsiTgtPortalAttributesTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 3, 1), )
-if mibBuilder.loadTexts: iscsiTgtPortalAttributesTable.setDescription('A list of transport endpoints (using TCP or another transport\n        protocol) on which this iSCSI instance listens for incoming\n        connections to its targets.')
-iscsiTgtPortalAttributesEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 3, 1, 1), ).setIndexNames((0, "ISCSI-MIB", "iscsiInstIndex"), (0, "ISCSI-MIB", "iscsiPortalIndex"), (0, "ISCSI-MIB", "iscsiTgtPortalNodeIndexOrZero"))
-if mibBuilder.loadTexts: iscsiTgtPortalAttributesEntry.setDescription('An entry (row) containing management information applicable\n        to a particular portal instance that is used to listen for\n        incoming connections to local targets.  One or more rows in\n        this table is populated by the agent for each\n\n        iscsiPortalAttributesEntry row that has the bit\n        targetTypePortal set in its iscsiPortalRoles column.')
-iscsiTgtPortalNodeIndexOrZero = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 3, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295)))
-if mibBuilder.loadTexts: iscsiTgtPortalNodeIndexOrZero.setDescription('An arbitrary integer used to uniquely identify a\n        particular node within an iSCSI instance present\n        on the local system.\n\n        For implementations where each {portal, node} tuple\n        can have a different portal tag, this value will\n        map to the iscsiNodeIndex.\n\n        For implementations where the portal tag is the\n        same for a given portal regardless of which node\n        is using the portal, the value 0 (zero) is used.')
-iscsiTgtPortalPort = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 3, 1, 1, 2), InetPortNumber().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: iscsiTgtPortalPort.setDescription("The portal's transport protocol port number on which the\n        portal listens for incoming iSCSI connections when the\n        portal is used as a target portal.  This object's storage\n        type is specified in iscsiPortalStorageType.")
-iscsiTgtPortalTag = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 3, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: iscsiTgtPortalTag.setDescription("The portal's aggregation tag when the portal is used as\n        a target portal.  Multiple-connection sessions may\n\n        be aggregated over portals sharing an identical\n        aggregation tag.  This object's storage type is\n        specified in iscsiPortalStorageType.")
-iscsiInitiatorPortal = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 1, 4))
-iscsiIntrPortalAttributesTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 4, 1), )
-if mibBuilder.loadTexts: iscsiIntrPortalAttributesTable.setDescription('A list of Internet Network Addresses (using TCP or another\n        transport protocol) from which this iSCSI instance may\n        initiate connections to other targets.')
-iscsiIntrPortalAttributesEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 4, 1, 1), ).setIndexNames((0, "ISCSI-MIB", "iscsiInstIndex"), (0, "ISCSI-MIB", "iscsiPortalIndex"), (0, "ISCSI-MIB", "iscsiIntrPortalNodeIndexOrZero"))
-if mibBuilder.loadTexts: iscsiIntrPortalAttributesEntry.setDescription('An entry (row) containing management information applicable\n        to a particular portal instance that is used to initiate\n        connections to iSCSI targets.  One or more rows in\n        this table is populated by the agent for each\n        iscsiPortalAttributesEntry row that has the bit\n        initiatorTypePortal set in its iscsiPortalRoles column.')
-iscsiIntrPortalNodeIndexOrZero = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 4, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295)))
-if mibBuilder.loadTexts: iscsiIntrPortalNodeIndexOrZero.setDescription('An arbitrary integer used to uniquely identify a\n        particular node within an iSCSI instance present\n        on the local system.\n\n        For implementations where each {portal, node} tuple\n        can have a different portal tag, this value will\n        map to the iscsiNodeIndex.\n\n        For implementations where the portal tag is the\n        same for a given portal regardless of which node\n        is using the portal, the value 0 (zero) is used.')
-iscsiIntrPortalTag = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 4, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: iscsiIntrPortalTag.setDescription("The portal's aggregation tag when the portal is used as\n        an initiator portal.  Multiple-connection sessions may\n        be aggregated over portals sharing an identical\n        aggregation tag.  This object's storage type is\n        specified in iscsiPortalStorageType.")
-iscsiNode = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 1, 5))
-iscsiNodeAttributesTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 5, 1), )
-if mibBuilder.loadTexts: iscsiNodeAttributesTable.setDescription('A list of iSCSI nodes belonging to each iSCSI instance\n        present on the local system.  An iSCSI node can act as\n        an initiator, a target, or both.')
-iscsiNodeAttributesEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1), ).setIndexNames((0, "ISCSI-MIB", "iscsiInstIndex"), (0, "ISCSI-MIB", "iscsiNodeIndex"))
-if mibBuilder.loadTexts: iscsiNodeAttributesEntry.setDescription('An entry (row) containing management information applicable\n        to a particular iSCSI node.')
-iscsiNodeIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: iscsiNodeIndex.setDescription('An arbitrary integer used to uniquely identify a particular\n        node within an iSCSI instance.  This index value must not be\n        modified or reused by an agent unless a reboot has occurred.\n        An agent should attempt to keep this value persistent across\n        reboots.')
-iscsiNodeName = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 2), IscsiName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiNodeName.setDescription("This node's iSCSI name, which is independent of the location\n        of the node, and can be resolved into a set of addresses\n        through various discovery services.")
-iscsiNodeAlias = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiNodeAlias.setDescription("A character string that is a human-readable name or\n        description of the iSCSI node.  If configured, this alias\n        may be communicated to the initiator or target node at\n        the remote end of the connection during a Login Request\n        or Response message.  This string is not used as an\n        identifier, but can be displayed by the system's user\n        interface in a list of initiators and/or targets to\n        which it is connected.\n\n        If no alias exists, the value is a zero-length string.")
-iscsiNodeRoles = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 4), Bits().clone(namedValues=NamedValues(("targetTypeNode", 0), ("initiatorTypeNode", 1),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiNodeRoles.setDescription('A node can operate in one or both of two roles:\n        a target role and/or an initiator role.  If the node\n        will operate in both roles, both bits must be set.\n\n        This object will also define the corresponding rows that\n        will exist in the iscsiTargetAttributesTable, the\n        iscsiInitiatorAttributesTable or both.  If the\n        targetTypeNode bit is set, there will be a corresponding\n        iscsiTargetAttributesEntry.  If the initiatorTypeNode bit\n        is set, there will be a corresponding\n        iscsiInitiatorAttributesEntry.  If both bits are set,\n        there will be a corresponding iscsiTgtPortalAttributesEntry\n        and iscsiPortalAttributesEntry.')
-iscsiNodeTransportType = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 5), RowPointer()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiNodeTransportType.setDescription('A pointer to the corresponding row in the appropriate\n\n        table for this SCSI transport, thereby allowing management\n        stations to locate the SCSI-level device that is represented\n        by this iscsiNode.  For example, it will usually point to the\n        corresponding scsiTrnspt object in the SCSI MIB module.\n\n        If no corresponding row exists, the value 0.0 must be\n        used to indicate this.')
-iscsiNodeInitialR2T = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 6), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiNodeInitialR2T.setDescription('This object indicates the InitialR2T preference for this\n        node:\n        true = YES,\n        false = will try to negotiate NO, will accept YES ')
-iscsiNodeImmediateData = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 7), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: iscsiNodeImmediateData.setDescription('This object indicates ImmediateData preference for this\n        node:\n        true = YES (but will accept NO),\n        false = NO ')
-iscsiNodeMaxOutstandingR2T = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)).clone(1)).setUnits('R2Ts').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: iscsiNodeMaxOutstandingR2T.setDescription('Maximum number of outstanding requests-to-transmit (R2Ts)\n        allowed per iSCSI task.')
-iscsiNodeFirstBurstLength = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(512,16777215)).clone(65536)).setUnits('bytes').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: iscsiNodeFirstBurstLength.setDescription('The maximum length (bytes) supported for unsolicited data\n        to/from this node.')
-iscsiNodeMaxBurstLength = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(512,16777215)).clone(262144)).setUnits('bytes').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: iscsiNodeMaxBurstLength.setDescription('The maximum number of bytes that can be sent within\n     a single sequence of Data-In or Data-Out PDUs.')
-iscsiNodeMaxConnections = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)).clone(1)).setUnits('connections').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: iscsiNodeMaxConnections.setDescription('The maximum number of connections allowed in each\n        session to and/or from this node.')
-iscsiNodeDataSequenceInOrder = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 12), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: iscsiNodeDataSequenceInOrder.setDescription('The DataSequenceInOrder preference of this node.\n\n        False (=No) indicates that iSCSI data PDU sequences may\n        be transferred in any order.  True (=Yes) indicates that\n        data PDU sequences must be transferred using\n        continuously increasing offsets, except during\n        error recovery.')
-iscsiNodeDataPDUInOrder = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 13), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: iscsiNodeDataPDUInOrder.setDescription('The DataPDUInOrder preference of this node.\n        False (=No) indicates that iSCSI data PDUs within sequences\n        may be in any order.  True (=Yes) indicates that data PDUs\n        within sequences must be at continuously increasing\n        addresses, with no gaps or overlay between PDUs.')
-iscsiNodeDefaultTime2Wait = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,3600)).clone(2)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: iscsiNodeDefaultTime2Wait.setDescription('The DefaultTime2Wait preference of this node.  This is the\n        minimum time, in seconds, to wait before attempting an\n        explicit/implicit logout or active iSCSI task reassignment\n        after an unexpected connection termination or a connection\n        reset.')
-iscsiNodeDefaultTime2Retain = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,3600)).clone(20)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: iscsiNodeDefaultTime2Retain.setDescription('The DefaultTime2Retain preference of this node.  This is\n\n        the maximum time, in seconds after an initial wait\n        (Time2Wait), before which an active iSCSI task reassignment\n        is still possible after an unexpected connection termination\n        or a connection reset.')
-iscsiNodeErrorRecoveryLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 16), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: iscsiNodeErrorRecoveryLevel.setDescription('The ErrorRecoveryLevel preference of this node.\n        Currently, only 0-2 are valid.\n\n        This object is designed to accommodate future error recovery\n        levels.\n\n        Higher error recovery levels imply support in addition to\n        support for the lower error level functions.  In other words,\n        error level 2 implies support for levels 0-1, since those\n        functions are subsets of error level 2.')
-iscsiNodeDiscontinuityTime = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 17), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiNodeDiscontinuityTime.setDescription("The value of SysUpTime on the most recent occasion\n        at which any one or more of this node's counters\n        suffered a discontinuity.\n\n        If no such discontinuities have occurred since the last\n        re-initialization of the local management subsystem,\n        then this object contains a zero value.")
-iscsiNodeStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 5, 1, 1, 18), StorageType().clone('volatile')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: iscsiNodeStorageType.setDescription("The storage type for all read-write objects within this\n        row.  Rows in this table are always created via an\n        external process, and may have a storage type of readOnly\n        or permanent.  Conceptual rows having the value 'permanent'\n        need not allow write access to any columnar objects in\n        the row.\n\n        If this object has the value 'volatile', modifications\n        to read-write objects in this row are not persistent\n        across reboots.  If this object has the value\n        'nonVolatile', modifications to objects in this row\n        are persistent.\n\n        An implementation may choose to allow this object\n        to be set to either 'nonVolatile' or 'volatile',\n        allowing the management application to choose this\n        behavior.")
-iscsiTarget = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 1, 6))
-iscsiTargetAttributesTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 6, 1), )
-if mibBuilder.loadTexts: iscsiTargetAttributesTable.setDescription('A list of iSCSI nodes that can take on a target role,\n        belonging to each iSCSI instance present on the local\n        system.')
-iscsiTargetAttributesEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 6, 1, 1), ).setIndexNames((0, "ISCSI-MIB", "iscsiInstIndex"), (0, "ISCSI-MIB", "iscsiNodeIndex"))
-if mibBuilder.loadTexts: iscsiTargetAttributesEntry.setDescription('An entry (row) containing management information applicable\n        to a particular node that can take on a target role.')
-iscsiTgtLoginFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 6, 1, 1, 1), Counter32()).setUnits('failed login attempts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiTgtLoginFailures.setDescription('This object counts the number of times a login attempt to this\n        local target has failed.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiTgtLastFailureTime = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 6, 1, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiTgtLastFailureTime.setDescription('The timestamp of the most recent failure of a login attempt\n        to this target.  A value of zero indicates that no such\n        failures have occurred since the last system boot.')
-iscsiTgtLastFailureType = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 6, 1, 1, 3), AutonomousType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiTgtLastFailureType.setDescription('The type of the most recent failure of a login attempt\n        to this target, represented as the OID of the counter\n        object in iscsiTargetLoginStatsTable for which the\n        relevant instance was incremented.  A value of 0.0\n        indicates a type that is not represented by any of\n        the counters in iscsiTargetLoginStatsTable.')
-iscsiTgtLastIntrFailureName = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 6, 1, 1, 4), IscsiName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiTgtLastIntrFailureName.setDescription('The iSCSI name of the initiator that failed the last\n        login attempt.')
-iscsiTgtLastIntrFailureAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 6, 1, 1, 5), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiTgtLastIntrFailureAddrType.setDescription("The type of Internet Network Address contained in the\n        corresponding instance of the iscsiTgtLastIntrFailureAddr.\n        The value 'dns' is not allowed.")
-iscsiTgtLastIntrFailureAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 6, 1, 1, 6), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiTgtLastIntrFailureAddr.setDescription('An Internet Network Address, of the type specified by\n        the object iscsiTgtLastIntrFailureAddrType, giving the\n        host address of the initiator that failed the last login\n        attempt.')
-iscsiTargetLoginStatsTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 6, 2), )
-if mibBuilder.loadTexts: iscsiTargetLoginStatsTable.setDescription("A table of counters that keep a record of the results\n        of initiators' login attempts to this target.")
-iscsiTargetLoginStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 6, 2, 1), )
-iscsiTargetAttributesEntry.registerAugmentions(("ISCSI-MIB", "iscsiTargetLoginStatsEntry"))
+iscsiTargetAttributesEntry.registerAugmentions((_B,_s))
 iscsiTargetLoginStatsEntry.setIndexNames(*iscsiTargetAttributesEntry.getIndexNames())
-if mibBuilder.loadTexts: iscsiTargetLoginStatsEntry.setDescription('An entry (row) containing counters for each result of\n        a login attempt to this target.')
-iscsiTgtLoginAccepts = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 6, 2, 1, 1), Counter32()).setUnits('successful logins').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiTgtLoginAccepts.setDescription('The count of Login Response PDUs with status\n        0x0000, Accept Login, transmitted by this\n        target.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiTgtLoginOtherFails = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 6, 2, 1, 2), Counter32()).setUnits('failed logins').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiTgtLoginOtherFails.setDescription('The number of Login Response PDUs that were transmitted\n        by this target and that were not counted by any other\n        object in the row.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiTgtLoginRedirects = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 6, 2, 1, 3), Counter32()).setUnits('redirected logins').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiTgtLoginRedirects.setDescription('The count of Login Response PDUs with status class 0x01,\n        Redirection, transmitted by this target.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiTgtLoginAuthorizeFails = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 6, 2, 1, 4), Counter32()).setUnits('failed logins').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiTgtLoginAuthorizeFails.setDescription('The count of Login Response PDUs with status 0x0202,\n        Forbidden Target, transmitted by this target.\n\n        If this counter is incremented, an iscsiTgtLoginFailure\n        notification should be generated.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiTgtLoginAuthenticateFails = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 6, 2, 1, 5), Counter32()).setUnits('failed logins').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiTgtLoginAuthenticateFails.setDescription('The count of Login Response PDUs with status 0x0201,\n        Authentication Failed, transmitted by this target.\n\n        If this counter is incremented, an iscsiTgtLoginFailure\n        notification should be generated.\n\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiTgtLoginNegotiateFails = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 6, 2, 1, 6), Counter32()).setUnits('failed logins').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiTgtLoginNegotiateFails.setDescription('The number of times a target has effectively refused a\n        login because the parameter negotiation failed.\n\n        If this counter is incremented, an iscsiTgtLoginFailure\n        notification should be generated.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiTargetLogoutStatsTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 6, 3), )
-if mibBuilder.loadTexts: iscsiTargetLogoutStatsTable.setDescription('When a target receives a Logout command, it responds\n        with a Logout Response that carries a status code.\n        This table contains counters for both normal and\n        abnormal logout requests received by this target.')
-iscsiTargetLogoutStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 6, 3, 1), )
-iscsiTargetAttributesEntry.registerAugmentions(("ISCSI-MIB", "iscsiTargetLogoutStatsEntry"))
+iscsiTargetAttributesEntry.registerAugmentions((_B,_t))
 iscsiTargetLogoutStatsEntry.setIndexNames(*iscsiTargetAttributesEntry.getIndexNames())
-if mibBuilder.loadTexts: iscsiTargetLogoutStatsEntry.setDescription('An entry (row) containing counters of Logout Response\n        PDUs that were received by this target.')
-iscsiTgtLogoutNormals = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 6, 3, 1, 1), Counter32()).setUnits('normal logouts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiTgtLogoutNormals.setDescription('The count of Logout Command PDUs received by this target,\n        with reason code 0 (closes the session).\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiTgtLogoutOthers = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 6, 3, 1, 2), Counter32()).setUnits('abnormal logouts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiTgtLogoutOthers.setDescription('The count of Logout Command PDUs received by this target,\n        with any reason code other than 0.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiTgtAuthorization = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 1, 7))
-iscsiTgtAuthAttributesTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 7, 1), )
-if mibBuilder.loadTexts: iscsiTgtAuthAttributesTable.setDescription('A list of initiator identities that are authorized to\n        access each target node within each iSCSI instance\n        present on the local system.')
-iscsiTgtAuthAttributesEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 7, 1, 1), ).setIndexNames((0, "ISCSI-MIB", "iscsiInstIndex"), (0, "ISCSI-MIB", "iscsiNodeIndex"), (0, "ISCSI-MIB", "iscsiTgtAuthIndex"))
-if mibBuilder.loadTexts: iscsiTgtAuthAttributesEntry.setDescription("An entry (row) containing management information\n        applicable to a particular target node's authorized\n        initiator identity.")
-iscsiTgtAuthIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 7, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: iscsiTgtAuthIndex.setDescription("An arbitrary integer used to uniquely identify a particular\n        target's authorized initiator identity within an iSCSI\n        instance present on the local system.  This index value must\n        not be modified or reused by an agent unless a reboot has\n        occurred.  An agent should attempt to keep this value\n        persistent across reboots.")
-iscsiTgtAuthRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 7, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiTgtAuthRowStatus.setDescription("This field allows entries to be dynamically added and\n        removed from this table via SNMP.  When adding a row to\n        this table, all non-Index/RowStatus objects must be set.\n        When the value of this object is 'active', the values of\n        the other objects in this table cannot be changed.\n        Rows may be discarded using RowStatus.")
-iscsiTgtAuthIdentity = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 7, 1, 1, 3), RowPointer()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiTgtAuthIdentity.setDescription('A pointer to the corresponding user entry in the IPS-AUTH\n        MIB module that will be allowed to access this iSCSI target.')
-iscsiTgtAuthStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 7, 1, 1, 4), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiTgtAuthStorageType.setDescription("The storage type for this row.  Rows in this table that were\n         created through an external process may have a storage type of\n         readOnly or permanent.\n\n         Conceptual rows having the value 'permanent' need not\n         allow write access to any columnar objects in the row.")
-iscsiInitiator = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 1, 8))
-iscsiInitiatorAttributesTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 8, 1), )
-if mibBuilder.loadTexts: iscsiInitiatorAttributesTable.setDescription('A list of iSCSI nodes that can take on an initiator\n        role, belonging to each iSCSI instance present on\n        the local system.')
-iscsiInitiatorAttributesEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 8, 1, 1), ).setIndexNames((0, "ISCSI-MIB", "iscsiInstIndex"), (0, "ISCSI-MIB", "iscsiNodeIndex"))
-if mibBuilder.loadTexts: iscsiInitiatorAttributesEntry.setDescription('An entry (row) containing management information\n        applicable to a particular iSCSI node that has\n        initiator capabilities.')
-iscsiIntrLoginFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 8, 1, 1, 1), Counter32()).setUnits('failed logins').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiIntrLoginFailures.setDescription('This object counts the number of times a login attempt from\n        this local initiator has failed.\n        If this counter has suffered a discontinuity, the time of the\n\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiIntrLastFailureTime = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 8, 1, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiIntrLastFailureTime.setDescription('The timestamp of the most recent failure of a login attempt\n        from this initiator.  A value of zero indicates that no such\n        failures have occurred since the last system boot.')
-iscsiIntrLastFailureType = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 8, 1, 1, 3), AutonomousType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiIntrLastFailureType.setDescription('The type of the most recent failure of a login attempt\n        from this initiator, represented as the OID of the counter\n        object in iscsiInitiatorLoginStatsTable for which the\n        relevant instance was incremented.  A value of 0.0\n        indicates a type that is not represented by any of\n        the counters in iscsiInitiatorLoginStatsTable.')
-iscsiIntrLastTgtFailureName = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 8, 1, 1, 4), IscsiName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiIntrLastTgtFailureName.setDescription('A UTF-8 string giving the name of the target that failed\n        the last login attempt.')
-iscsiIntrLastTgtFailureAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 8, 1, 1, 5), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiIntrLastTgtFailureAddrType.setDescription("The type of Internet Network Address contained in the\n        corresponding instance of the iscsiIntrLastTgtFailureAddr.\n        The value 'dns' is not allowed.")
-iscsiIntrLastTgtFailureAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 8, 1, 1, 6), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiIntrLastTgtFailureAddr.setDescription('An Internet Network Address, of the type specified by the\n        object iscsiIntrLastTgtFailureAddrType, giving the host\n        address of the target that failed the last login attempt.')
-iscsiInitiatorLoginStatsTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 8, 2), )
-if mibBuilder.loadTexts: iscsiInitiatorLoginStatsTable.setDescription("A table of counters which keep track of the results of\n        this initiator's login attempts.")
-iscsiInitiatorLoginStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 8, 2, 1), )
-iscsiInitiatorAttributesEntry.registerAugmentions(("ISCSI-MIB", "iscsiInitiatorLoginStatsEntry"))
+iscsiInitiatorAttributesEntry.registerAugmentions((_B,_u))
 iscsiInitiatorLoginStatsEntry.setIndexNames(*iscsiInitiatorAttributesEntry.getIndexNames())
-if mibBuilder.loadTexts: iscsiInitiatorLoginStatsEntry.setDescription("An entry (row) containing counters of each result\n        of this initiator's login attempts.")
-iscsiIntrLoginAcceptRsps = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 8, 2, 1, 1), Counter32()).setUnits('successful logins').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiIntrLoginAcceptRsps.setDescription('The count of Login Response PDUs with status\n        0x0000, Accept Login, received by this initiator.\n        If this counter has suffered a discontinuity, the time of the\n\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiIntrLoginOtherFailRsps = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 8, 2, 1, 2), Counter32()).setUnits('failed logins').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiIntrLoginOtherFailRsps.setDescription('The count of Login Response PDUs received by this\n        initiator with any status code not counted in the\n        objects below.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiIntrLoginRedirectRsps = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 8, 2, 1, 3), Counter32()).setUnits('failed logins').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiIntrLoginRedirectRsps.setDescription('The count of Login Response PDUs with status class 0x01,\n        Redirection, received by this initiator.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiIntrLoginAuthFailRsps = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 8, 2, 1, 4), Counter32()).setUnits('failed logins').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiIntrLoginAuthFailRsps.setDescription('The count of Login Response PDUs with status class 0x201,\n        Authentication Failed, received by this initiator.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiIntrLoginAuthenticateFails = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 8, 2, 1, 5), Counter32()).setUnits('failed logins').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiIntrLoginAuthenticateFails.setDescription('The number of times the initiator has aborted a\n        login because the target could not be authenticated.\n\n        No response is generated.\n\n        If this counter is incremented, an iscsiIntrLoginFailure\n        notification should be generated.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiIntrLoginNegotiateFails = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 8, 2, 1, 6), Counter32()).setUnits('failed logins').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiIntrLoginNegotiateFails.setDescription('The number of times the initiator has aborted a\n        login because parameter negotiation with the target\n        failed.\n\n        No response is generated.\n\n        If this counter is incremented, an iscsiIntrLoginFailure\n        notification should be generated.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiInitiatorLogoutStatsTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 8, 3), )
-if mibBuilder.loadTexts: iscsiInitiatorLogoutStatsTable.setDescription('When an initiator attempts to send a Logout command, the target\n        responds with a Logout Response that carries a status code.\n\n        This table contains a list of counters of Logout Response\n        PDUs of each status code that was received by each\n        initiator belonging to this iSCSI instance present on this\n        system.')
-iscsiInitiatorLogoutStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 8, 3, 1), )
-iscsiInitiatorAttributesEntry.registerAugmentions(("ISCSI-MIB", "iscsiInitiatorLogoutStatsEntry"))
+iscsiInitiatorAttributesEntry.registerAugmentions((_B,_v))
 iscsiInitiatorLogoutStatsEntry.setIndexNames(*iscsiInitiatorAttributesEntry.getIndexNames())
-if mibBuilder.loadTexts: iscsiInitiatorLogoutStatsEntry.setDescription('An entry (row) containing counters of Logout Response\n        PDUs of each status code that was generated by this\n        initiator.')
-iscsiIntrLogoutNormals = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 8, 3, 1, 1), Counter32()).setUnits('normal logouts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiIntrLogoutNormals.setDescription('The count of Logout Command PDUs generated by this initiator\n        with reason code 0 (closes the session).\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiIntrLogoutOthers = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 8, 3, 1, 2), Counter32()).setUnits('abnormal logouts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiIntrLogoutOthers.setDescription('The count of Logout Command PDUs generated by this initiator\n        with any status code other than 0.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiNodeDiscontinuityTime.')
-iscsiIntrAuthorization = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 1, 9))
-iscsiIntrAuthAttributesTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 9, 1), )
-if mibBuilder.loadTexts: iscsiIntrAuthAttributesTable.setDescription('A list of target identities that each initiator\n        on the local system may access.')
-iscsiIntrAuthAttributesEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 9, 1, 1), ).setIndexNames((0, "ISCSI-MIB", "iscsiInstIndex"), (0, "ISCSI-MIB", "iscsiNodeIndex"), (0, "ISCSI-MIB", "iscsiIntrAuthIndex"))
-if mibBuilder.loadTexts: iscsiIntrAuthAttributesEntry.setDescription("An entry (row) containing management information applicable\n        to a particular initiator node's authorized target identity.")
-iscsiIntrAuthIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 9, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: iscsiIntrAuthIndex.setDescription("An arbitrary integer used to uniquely identify a\n        particular initiator node's authorized target\n        identity within an iSCSI instance present on the\n        local system.  This index value must not be modified\n        or reused by an agent unless a reboot has occurred.\n        An agent should attempt to keep this value persistent\n        across reboots.")
-iscsiIntrAuthRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 9, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiIntrAuthRowStatus.setDescription("This field allows entries to be dynamically added and\n        removed from this table via SNMP.  When adding a row to\n        this table, all non-Index/RowStatus objects must be set.\n        When the value of this object is 'active', the values of\n        the other objects in this table cannot be changed.\n        Rows may be discarded using RowStatus.")
-iscsiIntrAuthIdentity = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 9, 1, 1, 3), RowPointer()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiIntrAuthIdentity.setDescription('A pointer to the corresponding user entry in the IPS-AUTH\n        MIB module to which this initiator node should attempt to\n        establish an iSCSI session.')
-iscsiIntrAuthStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 9, 1, 1, 4), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: iscsiIntrAuthStorageType.setDescription("The storage type for this row.  Rows in this table that were\n        created through an external process may have a storage type of\n        readOnly or permanent.\n\n        Conceptual rows having the value 'permanent' need not\n        allow write access to any columnar objects in the row.")
-iscsiSession = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 1, 10))
-iscsiSessionAttributesTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 10, 1), )
-if mibBuilder.loadTexts: iscsiSessionAttributesTable.setDescription('A list of sessions belonging to each iSCSI instance\n        present on the system.')
-iscsiSessionAttributesEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1), ).setIndexNames((0, "ISCSI-MIB", "iscsiInstIndex"), (0, "ISCSI-MIB", "iscsiSsnNodeIndex"), (0, "ISCSI-MIB", "iscsiSsnIndex"))
-if mibBuilder.loadTexts: iscsiSessionAttributesEntry.setDescription('An entry (row) containing management information applicable\n        to a particular session.\n\n        If this session is a discovery session that is not attached\n        to any particular node, the iscsiSsnNodeIndex will be zero.\n        Otherwise, the iscsiSsnNodeIndex will have the same value as\n        iscsiNodeIndex.')
-iscsiSsnNodeIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295)))
-if mibBuilder.loadTexts: iscsiSsnNodeIndex.setDescription('An arbitrary integer used to uniquely identify a\n        particular node within an iSCSI instance present\n        on the local system.  For normal, non-discovery\n        sessions, this value will map to the iscsiNodeIndex.\n        For discovery sessions that do not have a node\n        associated, the value 0 (zero) is used.')
-iscsiSsnIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: iscsiSsnIndex.setDescription('An arbitrary integer used to uniquely identify a\n        particular session within an iSCSI instance present\n        on the local system.  An agent should attempt to\n        not reuse index values unless a reboot has occurred.\n        iSCSI sessions are destroyed during a reboot; rows\n        in this table are not persistent across reboots.')
-iscsiSsnDirection = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("inboundSession", 1), ("outboundSession", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnDirection.setDescription('Direction of iSCSI session:\n        inboundSession  - session is established from an external\n                          initiator to a target within this iSCSI\n                          instance.\n        outboundSession - session is established from an initiator\n                          within this iSCSI instance to an external\n                          target.')
-iscsiSsnInitiatorName = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 4), IscsiName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnInitiatorName.setDescription('If iscsiSsnDirection is Inbound, this object is a\n        UTF-8 string that will contain the name of the remote\n        initiator.  If this session is a discovery session that\n\n        does not specify a particular initiator, this object\n        will contain a zero-length string.\n\n        If iscsiSsnDirection is Outbound, this object will\n        contain a zero-length string.')
-iscsiSsnTargetName = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 5), IscsiName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnTargetName.setDescription('If iscsiSsnDirection is Outbound, this object is a\n        UTF-8 string that will contain the name of the remote\n        target.  If this session is a discovery session that\n        does not specify a particular target, this object will\n        contain a zero-length string.\n\n        If iscsiSsnDirection is Inbound, this object will\n        contain a zero-length string.')
-iscsiSsnTSIH = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnTSIH.setDescription('The target-defined identification handle for this session.')
-iscsiSsnISID = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6,6)).setFixedLength(6)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnISID.setDescription('The initiator-defined portion of the iSCSI Session ID.')
-iscsiSsnInitiatorAlias = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnInitiatorAlias.setDescription('A UTF-8 string that gives the alias communicated by the\n\n        initiator end of the session during the login phase.\n\n        If no alias exists, the value is a zero-length string.')
-iscsiSsnTargetAlias = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnTargetAlias.setDescription('A UTF-8 string that gives the alias communicated by the\n        target end of the session during the login phase.\n\n        If no alias exists, the value is a zero-length string.')
-iscsiSsnInitialR2T = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 10), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnInitialR2T.setDescription('If set to true, indicates that the initiator must wait\n        for an R2T before sending to the target.  If set to false,\n        the initiator may send data immediately, within limits set\n        by iscsiSsnFirstBurstLength and the expected data transfer\n        length of the request.')
-iscsiSsnImmediateData = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 11), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnImmediateData.setDescription('Indicates whether the initiator and target have agreed to\n        support immediate data on this session.')
-iscsiSsnType = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("normalSession", 1), ("discoverySession", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnType.setDescription('Type of iSCSI session:\n        normalSession    - session is a normal iSCSI session\n        discoverySession - session is being used only for discovery.')
-iscsiSsnMaxOutstandingR2T = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setUnits('R2Ts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnMaxOutstandingR2T.setDescription('The maximum number of outstanding requests-to-transmit\n        (R2Ts) per iSCSI task within this session.')
-iscsiSsnFirstBurstLength = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(512,16777215))).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnFirstBurstLength.setDescription('The maximum length supported for unsolicited data sent\n        within this session.')
-iscsiSsnMaxBurstLength = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(512,16777215))).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnMaxBurstLength.setDescription('The maximum number of bytes that can be sent within\n        a single sequence of Data-In or Data-Out PDUs.')
-iscsiSsnConnectionNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 16), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnConnectionNumber.setDescription('The number of transport protocol connections that currently\n        belong to this session.')
-iscsiSsnAuthIdentity = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 17), RowPointer()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnAuthIdentity.setDescription('This object contains a pointer to a row in the\n        IPS-AUTH MIB module that identifies the authentication\n        method being used on this session, as communicated\n        during the login phase.')
-iscsiSsnDataSequenceInOrder = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 18), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnDataSequenceInOrder.setDescription('False indicates that iSCSI data PDU sequences may\n        be transferred in any order.  True indicates that\n        data PDU sequences must be transferred using\n        continuously increasing offsets, except during\n        error recovery.')
-iscsiSsnDataPDUInOrder = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 19), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnDataPDUInOrder.setDescription('False indicates that iSCSI data PDUs within sequences\n        may be in any order.  True indicates that data PDUs\n        within sequences must be at continuously increasing\n        addresses, with no gaps or overlay between PDUs.\n\n        Default is true.')
-iscsiSsnErrorRecoveryLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 20), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnErrorRecoveryLevel.setDescription('The level of error recovery negotiated between\n        the initiator and the target.  Higher numbers\n        represent more detailed recovery schemes.')
-iscsiSsnDiscontinuityTime = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 1, 1, 21), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnDiscontinuityTime.setDescription("The value of SysUpTime on the most recent occasion\n        at which any one or more of this session's counters\n        suffered a discontinuity.\n        When a session is established, and this object is\n        created, it is initialized to the current value\n        of SysUpTime.")
-iscsiSessionStatsTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 10, 2), )
-if mibBuilder.loadTexts: iscsiSessionStatsTable.setDescription('A list of general iSCSI traffic counters for each of the\n        sessions present on the system.')
-iscsiSessionStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 10, 2, 1), )
-iscsiSessionAttributesEntry.registerAugmentions(("ISCSI-MIB", "iscsiSessionStatsEntry"))
+iscsiSessionAttributesEntry.registerAugmentions((_B,_w))
 iscsiSessionStatsEntry.setIndexNames(*iscsiSessionAttributesEntry.getIndexNames())
-if mibBuilder.loadTexts: iscsiSessionStatsEntry.setDescription('An entry (row) containing general iSCSI traffic counters\n        for a particular session.')
-iscsiSsnCmdPDUs = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 2, 1, 1), Counter32()).setUnits('PDUs').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnCmdPDUs.setDescription('The count of Command PDUs transferred on this session.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiSsnDiscontinuityTime.')
-iscsiSsnRspPDUs = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 2, 1, 2), Counter32()).setUnits('PDUs').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnRspPDUs.setDescription('The count of Response PDUs transferred on this session.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiSsnDiscontinuityTime.')
-iscsiSsnTxDataOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 2, 1, 3), Counter64()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnTxDataOctets.setDescription('The count of data octets that were transmitted by\n        the local iSCSI node on this session.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiSsnDiscontinuityTime.')
-iscsiSsnRxDataOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 2, 1, 4), Counter64()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnRxDataOctets.setDescription('The count of data octets that were received by\n        the local iSCSI node on this session.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiSsnDiscontinuityTime.')
-iscsiSsnLCTxDataOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 2, 1, 5), Counter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnLCTxDataOctets.setDescription("A Low Capacity shadow object of iscsiSsnTxDataOctets\n        for those systems that don't support Counter64.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiSsnDiscontinuityTime.")
-iscsiSsnLCRxDataOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 2, 1, 6), Counter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnLCRxDataOctets.setDescription("A Low Capacity shadow object of iscsiSsnRxDataOctets\n        for those systems that don't support Counter64.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiSsnDiscontinuityTime.")
-iscsiSessionCxnErrorStatsTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 10, 3), )
-if mibBuilder.loadTexts: iscsiSessionCxnErrorStatsTable.setDescription('A list of error counters for each of the sessions\n        present on this system.')
-iscsiSessionCxnErrorStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 10, 3, 1), )
-iscsiSessionAttributesEntry.registerAugmentions(("ISCSI-MIB", "iscsiSessionCxnErrorStatsEntry"))
+iscsiSessionAttributesEntry.registerAugmentions((_B,_x))
 iscsiSessionCxnErrorStatsEntry.setIndexNames(*iscsiSessionAttributesEntry.getIndexNames())
-if mibBuilder.loadTexts: iscsiSessionCxnErrorStatsEntry.setDescription('An entry (row) containing error counters for\n        a particular session.')
-iscsiSsnCxnDigestErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 3, 1, 1), Counter32()).setUnits('PDUs').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnCxnDigestErrors.setDescription('The count of PDUs that were received on the session and\n        contained header or data digest errors.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiSsnDiscontinuityTime.')
-iscsiSsnCxnTimeoutErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 10, 3, 1, 2), Counter32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiSsnCxnTimeoutErrors.setDescription('The count of connections within this session\n        that have been terminated due to timeout.\n        If this counter has suffered a discontinuity, the time of the\n        last discontinuity is indicated in iscsiSsnDiscontinuityTime.')
-iscsiConnection = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 1, 11))
-iscsiConnectionAttributesTable = MibTable((1, 3, 6, 1, 2, 1, 142, 1, 11, 1), )
-if mibBuilder.loadTexts: iscsiConnectionAttributesTable.setDescription('A list of connections belonging to each iSCSI instance\n        present on the system.')
-iscsiConnectionAttributesEntry = MibTableRow((1, 3, 6, 1, 2, 1, 142, 1, 11, 1, 1), ).setIndexNames((0, "ISCSI-MIB", "iscsiInstIndex"), (0, "ISCSI-MIB", "iscsiSsnNodeIndex"), (0, "ISCSI-MIB", "iscsiSsnIndex"), (0, "ISCSI-MIB", "iscsiCxnIndex"))
-if mibBuilder.loadTexts: iscsiConnectionAttributesEntry.setDescription('An entry (row) containing management information applicable\n        to a particular connection.')
-iscsiCxnIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 11, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: iscsiCxnIndex.setDescription('An arbitrary integer used to uniquely identify a\n        particular connection of a particular session within\n        an iSCSI instance present on the local system.  An\n        agent should attempt to not reuse index values unless\n        a reboot has occurred.  iSCSI connections are destroyed\n        during a reboot; rows in this table are not persistent\n        across reboots.')
-iscsiCxnCid = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 11, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiCxnCid.setDescription('The iSCSI Connection ID for this connection.')
-iscsiCxnState = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 11, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("login", 1), ("full", 2), ("logout", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiCxnState.setDescription('The current state of this connection, from an iSCSI negotiation\n        point of view.  Here are the states:\n\n        login  - The transport protocol connection has been established,\n                 but a valid iSCSI login response with the final bit set\n                 has not been sent or received.\n        full   - A valid iSCSI login response with the final bit set\n                 has been sent or received.\n        logout - A valid iSCSI logout command has been sent or\n                 received, but the transport protocol connection has\n                 not yet been closed.')
-iscsiCxnAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 11, 1, 1, 4), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiCxnAddrType.setDescription("The type of Internet Network Addresses contained in the\n        corresponding instances of iscsiCxnLocalAddr and\n        iscsiCxnRemoteAddr.\n        The value 'dns' is not allowed.")
-iscsiCxnLocalAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 11, 1, 1, 5), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiCxnLocalAddr.setDescription('The local Internet Network Address, of the type specified\n        by iscsiCxnAddrType, used by this connection.')
-iscsiCxnProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 11, 1, 1, 6), IscsiTransportProtocol()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiCxnProtocol.setDescription('The transport protocol over which this connection is\n        running.')
-iscsiCxnLocalPort = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 11, 1, 1, 7), InetPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiCxnLocalPort.setDescription('The local transport protocol port used by this connection.\n        This object cannot have the value zero, since it represents\n        an established connection.')
-iscsiCxnRemoteAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 11, 1, 1, 8), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiCxnRemoteAddr.setDescription('The remote Internet Network Address, of the type specified\n        by iscsiCxnAddrType, used by this connection.')
-iscsiCxnRemotePort = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 11, 1, 1, 9), InetPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiCxnRemotePort.setDescription('The remote transport protocol port used by this connection.\n        This object cannot have the value zero, since it represents\n        an established connection.')
-iscsiCxnMaxRecvDataSegLength = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 11, 1, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(512,16777215))).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiCxnMaxRecvDataSegLength.setDescription('The maximum data payload size supported for command\n        or data PDUs able to be received on this connection.')
-iscsiCxnMaxXmitDataSegLength = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 11, 1, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(512,16777215))).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiCxnMaxXmitDataSegLength.setDescription('The maximum data payload size supported for command\n        or data PDUs to be sent on this connection.')
-iscsiCxnHeaderIntegrity = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 11, 1, 1, 12), IscsiDigestMethod()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiCxnHeaderIntegrity.setDescription('This object identifies the iSCSI header\n        digest scheme in use within this connection.')
-iscsiCxnDataIntegrity = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 11, 1, 1, 13), IscsiDigestMethod()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiCxnDataIntegrity.setDescription('This object identifies the iSCSI data\n        digest scheme in use within this connection.')
-iscsiCxnRecvMarker = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 11, 1, 1, 14), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiCxnRecvMarker.setDescription('This object indicates whether or not this connection\n        is receiving markers in its incoming data stream.')
-iscsiCxnSendMarker = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 11, 1, 1, 15), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiCxnSendMarker.setDescription('This object indicates whether or not this connection\n        is inserting markers in its outgoing data stream.')
-iscsiCxnVersionActive = MibTableColumn((1, 3, 6, 1, 2, 1, 142, 1, 11, 1, 1, 16), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: iscsiCxnVersionActive.setDescription('Active version number of the iSCSI specification negotiated\n        on this connection.')
-iscsiTgtLoginFailure = NotificationType((1, 3, 6, 1, 2, 1, 142, 0, 1)).setObjects(*(("ISCSI-MIB", "iscsiTgtLoginFailures"), ("ISCSI-MIB", "iscsiTgtLastFailureType"), ("ISCSI-MIB", "iscsiTgtLastIntrFailureName"), ("ISCSI-MIB", "iscsiTgtLastIntrFailureAddrType"), ("ISCSI-MIB", "iscsiTgtLastIntrFailureAddr"),))
-if mibBuilder.loadTexts: iscsiTgtLoginFailure.setDescription('Sent when a login is failed by a target.\n\n        To avoid sending an excessive number of notifications due\n        to multiple errors counted, an SNMP agent implementing this\n        notification SHOULD NOT send more than 3 notifications of\n        this type in any 10-second time period.')
-iscsiIntrLoginFailure = NotificationType((1, 3, 6, 1, 2, 1, 142, 0, 2)).setObjects(*(("ISCSI-MIB", "iscsiIntrLoginFailures"), ("ISCSI-MIB", "iscsiIntrLastFailureType"), ("ISCSI-MIB", "iscsiIntrLastTgtFailureName"), ("ISCSI-MIB", "iscsiIntrLastTgtFailureAddrType"), ("ISCSI-MIB", "iscsiIntrLastTgtFailureAddr"),))
-if mibBuilder.loadTexts: iscsiIntrLoginFailure.setDescription('Sent when a login is failed by an initiator.\n\n        To avoid sending an excessive number of notifications due\n        to multiple errors counted, an SNMP agent implementing this\n        notification SHOULD NOT send more than 3 notifications of\n        this type in any 10-second time period.')
-iscsiInstSessionFailure = NotificationType((1, 3, 6, 1, 2, 1, 142, 0, 3)).setObjects(*(("ISCSI-MIB", "iscsiInstSsnFailures"), ("ISCSI-MIB", "iscsiInstLastSsnFailureType"), ("ISCSI-MIB", "iscsiInstLastSsnRmtNodeName"),))
-if mibBuilder.loadTexts: iscsiInstSessionFailure.setDescription('Sent when an active session is failed by either the initiator\n        or the target.\n\n        To avoid sending an excessive number of notifications due\n        to multiple errors counted, an SNMP agent implementing this\n        notification SHOULD NOT send more than 3 notifications of\n        this type in any 10-second time period.')
-iscsiCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 2, 1))
-iscsiGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 142, 2, 2))
-iscsiInstanceAttributesGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 1)).setObjects(*(("ISCSI-MIB", "iscsiInstDescr"), ("ISCSI-MIB", "iscsiInstVersionMin"), ("ISCSI-MIB", "iscsiInstVersionMax"), ("ISCSI-MIB", "iscsiInstVendorID"), ("ISCSI-MIB", "iscsiInstVendorVersion"), ("ISCSI-MIB", "iscsiInstPortalNumber"), ("ISCSI-MIB", "iscsiInstNodeNumber"), ("ISCSI-MIB", "iscsiInstSessionNumber"), ("ISCSI-MIB", "iscsiInstSsnFailures"), ("ISCSI-MIB", "iscsiInstLastSsnFailureType"), ("ISCSI-MIB", "iscsiInstLastSsnRmtNodeName"), ("ISCSI-MIB", "iscsiInstDiscontinuityTime"),))
-if mibBuilder.loadTexts: iscsiInstanceAttributesGroup.setDescription('A collection of objects providing information about iSCSI\n        instances.')
-iscsiInstanceSsnErrorStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 2)).setObjects(*(("ISCSI-MIB", "iscsiInstSsnDigestErrors"), ("ISCSI-MIB", "iscsiInstSsnCxnTimeoutErrors"), ("ISCSI-MIB", "iscsiInstSsnFormatErrors"),))
-if mibBuilder.loadTexts: iscsiInstanceSsnErrorStatsGroup.setDescription('A collection of objects providing information about\n        errors that have caused a session failure for an\n        iSCSI instance.')
-iscsiPortalAttributesGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 3)).setObjects(*(("ISCSI-MIB", "iscsiPortalRowStatus"), ("ISCSI-MIB", "iscsiPortalStorageType"), ("ISCSI-MIB", "iscsiPortalRoles"), ("ISCSI-MIB", "iscsiPortalAddrType"), ("ISCSI-MIB", "iscsiPortalAddr"), ("ISCSI-MIB", "iscsiPortalProtocol"), ("ISCSI-MIB", "iscsiPortalMaxRecvDataSegLength"), ("ISCSI-MIB", "iscsiPortalPrimaryHdrDigest"), ("ISCSI-MIB", "iscsiPortalPrimaryDataDigest"), ("ISCSI-MIB", "iscsiPortalSecondaryHdrDigest"), ("ISCSI-MIB", "iscsiPortalSecondaryDataDigest"), ("ISCSI-MIB", "iscsiPortalRecvMarker"),))
-if mibBuilder.loadTexts: iscsiPortalAttributesGroup.setDescription('A collection of objects providing information about\n        the transport protocol endpoints of the local targets.')
-iscsiTgtPortalAttributesGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 4)).setObjects(*(("ISCSI-MIB", "iscsiTgtPortalPort"), ("ISCSI-MIB", "iscsiTgtPortalTag"),))
-if mibBuilder.loadTexts: iscsiTgtPortalAttributesGroup.setDescription('A collection of objects providing information about\n        the transport protocol endpoints of the local targets.')
-iscsiIntrPortalAttributesGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 5)).setObjects(*(("ISCSI-MIB", "iscsiIntrPortalTag"),))
-if mibBuilder.loadTexts: iscsiIntrPortalAttributesGroup.setDescription('An object providing information about\n        the portal tags used by the local initiators.')
-iscsiNodeAttributesGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 6)).setObjects(*(("ISCSI-MIB", "iscsiNodeName"), ("ISCSI-MIB", "iscsiNodeAlias"), ("ISCSI-MIB", "iscsiNodeRoles"), ("ISCSI-MIB", "iscsiNodeTransportType"), ("ISCSI-MIB", "iscsiNodeInitialR2T"), ("ISCSI-MIB", "iscsiNodeImmediateData"), ("ISCSI-MIB", "iscsiNodeMaxOutstandingR2T"), ("ISCSI-MIB", "iscsiNodeFirstBurstLength"), ("ISCSI-MIB", "iscsiNodeMaxBurstLength"), ("ISCSI-MIB", "iscsiNodeMaxConnections"), ("ISCSI-MIB", "iscsiNodeDataSequenceInOrder"), ("ISCSI-MIB", "iscsiNodeDataPDUInOrder"), ("ISCSI-MIB", "iscsiNodeDefaultTime2Wait"), ("ISCSI-MIB", "iscsiNodeDefaultTime2Retain"), ("ISCSI-MIB", "iscsiNodeErrorRecoveryLevel"), ("ISCSI-MIB", "iscsiNodeDiscontinuityTime"), ("ISCSI-MIB", "iscsiNodeStorageType"),))
-if mibBuilder.loadTexts: iscsiNodeAttributesGroup.setDescription('A collection of objects providing information about all\n        local targets.')
-iscsiTargetAttributesGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 7)).setObjects(*(("ISCSI-MIB", "iscsiTgtLoginFailures"), ("ISCSI-MIB", "iscsiTgtLastFailureTime"), ("ISCSI-MIB", "iscsiTgtLastFailureType"), ("ISCSI-MIB", "iscsiTgtLastIntrFailureName"), ("ISCSI-MIB", "iscsiTgtLastIntrFailureAddrType"), ("ISCSI-MIB", "iscsiTgtLastIntrFailureAddr"),))
-if mibBuilder.loadTexts: iscsiTargetAttributesGroup.setDescription('A collection of objects providing information about all\n        local targets.')
-iscsiTargetLoginStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 8)).setObjects(*(("ISCSI-MIB", "iscsiTgtLoginAccepts"), ("ISCSI-MIB", "iscsiTgtLoginOtherFails"), ("ISCSI-MIB", "iscsiTgtLoginRedirects"), ("ISCSI-MIB", "iscsiTgtLoginAuthorizeFails"), ("ISCSI-MIB", "iscsiTgtLoginAuthenticateFails"), ("ISCSI-MIB", "iscsiTgtLoginNegotiateFails"),))
-if mibBuilder.loadTexts: iscsiTargetLoginStatsGroup.setDescription('A collection of objects providing information about all\n        login attempts by remote initiators to local targets.')
-iscsiTargetLogoutStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 9)).setObjects(*(("ISCSI-MIB", "iscsiTgtLogoutNormals"), ("ISCSI-MIB", "iscsiTgtLogoutOthers"),))
-if mibBuilder.loadTexts: iscsiTargetLogoutStatsGroup.setDescription('A collection of objects providing information about all\n        logout events between remote initiators and local targets.')
-iscsiTargetAuthGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 10)).setObjects(*(("ISCSI-MIB", "iscsiTgtAuthRowStatus"), ("ISCSI-MIB", "iscsiTgtAuthStorageType"), ("ISCSI-MIB", "iscsiTgtAuthIdentity"),))
-if mibBuilder.loadTexts: iscsiTargetAuthGroup.setDescription('A collection of objects providing information about all\n        remote initiators that are authorized to connect to local\n        targets.')
-iscsiInitiatorAttributesGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 11)).setObjects(*(("ISCSI-MIB", "iscsiIntrLoginFailures"), ("ISCSI-MIB", "iscsiIntrLastFailureTime"), ("ISCSI-MIB", "iscsiIntrLastFailureType"), ("ISCSI-MIB", "iscsiIntrLastTgtFailureName"), ("ISCSI-MIB", "iscsiIntrLastTgtFailureAddrType"), ("ISCSI-MIB", "iscsiIntrLastTgtFailureAddr"),))
-if mibBuilder.loadTexts: iscsiInitiatorAttributesGroup.setDescription('A collection of objects providing information about\n        all local initiators.')
-iscsiInitiatorLoginStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 12)).setObjects(*(("ISCSI-MIB", "iscsiIntrLoginAcceptRsps"), ("ISCSI-MIB", "iscsiIntrLoginOtherFailRsps"), ("ISCSI-MIB", "iscsiIntrLoginRedirectRsps"), ("ISCSI-MIB", "iscsiIntrLoginAuthFailRsps"), ("ISCSI-MIB", "iscsiIntrLoginAuthenticateFails"), ("ISCSI-MIB", "iscsiIntrLoginNegotiateFails"),))
-if mibBuilder.loadTexts: iscsiInitiatorLoginStatsGroup.setDescription('A collection of objects providing information about all\n        login attempts by local initiators to remote targets.')
-iscsiInitiatorLogoutStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 13)).setObjects(*(("ISCSI-MIB", "iscsiIntrLogoutNormals"), ("ISCSI-MIB", "iscsiIntrLogoutOthers"),))
-if mibBuilder.loadTexts: iscsiInitiatorLogoutStatsGroup.setDescription('A collection of objects providing information about all\n        logout events between local initiators and remote targets.')
-iscsiInitiatorAuthGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 14)).setObjects(*(("ISCSI-MIB", "iscsiIntrAuthRowStatus"), ("ISCSI-MIB", "iscsiIntrAuthStorageType"), ("ISCSI-MIB", "iscsiIntrAuthIdentity"),))
-if mibBuilder.loadTexts: iscsiInitiatorAuthGroup.setDescription('A collection of objects providing information about all\n        remote targets that are initiators of the local system\n        that they are authorized to access.')
-iscsiSessionAttributesGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 15)).setObjects(*(("ISCSI-MIB", "iscsiSsnDirection"), ("ISCSI-MIB", "iscsiSsnInitiatorName"), ("ISCSI-MIB", "iscsiSsnTargetName"), ("ISCSI-MIB", "iscsiSsnTSIH"), ("ISCSI-MIB", "iscsiSsnISID"), ("ISCSI-MIB", "iscsiSsnInitiatorAlias"), ("ISCSI-MIB", "iscsiSsnTargetAlias"), ("ISCSI-MIB", "iscsiSsnInitialR2T"), ("ISCSI-MIB", "iscsiSsnImmediateData"), ("ISCSI-MIB", "iscsiSsnType"), ("ISCSI-MIB", "iscsiSsnMaxOutstandingR2T"), ("ISCSI-MIB", "iscsiSsnFirstBurstLength"), ("ISCSI-MIB", "iscsiSsnMaxBurstLength"), ("ISCSI-MIB", "iscsiSsnConnectionNumber"), ("ISCSI-MIB", "iscsiSsnAuthIdentity"), ("ISCSI-MIB", "iscsiSsnDataSequenceInOrder"), ("ISCSI-MIB", "iscsiSsnDataPDUInOrder"), ("ISCSI-MIB", "iscsiSsnErrorRecoveryLevel"), ("ISCSI-MIB", "iscsiSsnDiscontinuityTime"),))
-if mibBuilder.loadTexts: iscsiSessionAttributesGroup.setDescription('A collection of objects providing information applicable to\n        all sessions.')
-iscsiSessionPDUStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 16)).setObjects(*(("ISCSI-MIB", "iscsiSsnCmdPDUs"), ("ISCSI-MIB", "iscsiSsnRspPDUs"),))
-if mibBuilder.loadTexts: iscsiSessionPDUStatsGroup.setDescription('A collection of objects providing information about PDU\n        traffic for each session.')
-iscsiSessionOctetStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 17)).setObjects(*(("ISCSI-MIB", "iscsiSsnTxDataOctets"), ("ISCSI-MIB", "iscsiSsnRxDataOctets"),))
-if mibBuilder.loadTexts: iscsiSessionOctetStatsGroup.setDescription('A collection of objects providing information about octet\n        traffic for each session using a Counter64 data type.')
-iscsiSessionLCOctetStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 18)).setObjects(*(("ISCSI-MIB", "iscsiSsnLCTxDataOctets"), ("ISCSI-MIB", "iscsiSsnLCRxDataOctets"),))
-if mibBuilder.loadTexts: iscsiSessionLCOctetStatsGroup.setDescription('A collection of objects providing information about octet\n        traffic for each session using a Counter32 data type.')
-iscsiSessionCxnErrorStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 19)).setObjects(*(("ISCSI-MIB", "iscsiSsnCxnDigestErrors"), ("ISCSI-MIB", "iscsiSsnCxnTimeoutErrors"),))
-if mibBuilder.loadTexts: iscsiSessionCxnErrorStatsGroup.setDescription('A collection of objects providing information about connection\n        errors for all sessions.')
-iscsiConnectionAttributesGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 20)).setObjects(*(("ISCSI-MIB", "iscsiCxnCid"), ("ISCSI-MIB", "iscsiCxnState"), ("ISCSI-MIB", "iscsiCxnProtocol"), ("ISCSI-MIB", "iscsiCxnAddrType"), ("ISCSI-MIB", "iscsiCxnLocalAddr"), ("ISCSI-MIB", "iscsiCxnLocalPort"), ("ISCSI-MIB", "iscsiCxnRemoteAddr"), ("ISCSI-MIB", "iscsiCxnRemotePort"), ("ISCSI-MIB", "iscsiCxnMaxRecvDataSegLength"), ("ISCSI-MIB", "iscsiCxnMaxXmitDataSegLength"), ("ISCSI-MIB", "iscsiCxnHeaderIntegrity"), ("ISCSI-MIB", "iscsiCxnDataIntegrity"), ("ISCSI-MIB", "iscsiCxnRecvMarker"), ("ISCSI-MIB", "iscsiCxnSendMarker"), ("ISCSI-MIB", "iscsiCxnVersionActive"),))
-if mibBuilder.loadTexts: iscsiConnectionAttributesGroup.setDescription('A collection of objects providing information about all\n        connections used by all sessions.')
-iscsiTgtLgnNotificationsGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 21)).setObjects(*(("ISCSI-MIB", "iscsiTgtLoginFailure"),))
-if mibBuilder.loadTexts: iscsiTgtLgnNotificationsGroup.setDescription('A collection of notifications that indicate a login\n        failure from a remote initiator to a local target.')
-iscsiIntrLgnNotificationsGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 22)).setObjects(*(("ISCSI-MIB", "iscsiIntrLoginFailure"),))
-if mibBuilder.loadTexts: iscsiIntrLgnNotificationsGroup.setDescription('A collection of notifications that indicate a login\n        failure from a local initiator to a remote target.')
-iscsiSsnFlrNotificationsGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 142, 2, 2, 23)).setObjects(*(("ISCSI-MIB", "iscsiInstSessionFailure"),))
-if mibBuilder.loadTexts: iscsiSsnFlrNotificationsGroup.setDescription('A collection of notifications that indicate session\n        failures occurring after login.')
-iscsiComplianceV1 = ModuleCompliance((1, 3, 6, 1, 2, 1, 142, 2, 1, 1)).setObjects(*(("ISCSI-MIB", "iscsiInstanceAttributesGroup"), ("ISCSI-MIB", "iscsiInstanceSsnErrorStatsGroup"), ("ISCSI-MIB", "iscsiPortalAttributesGroup"), ("ISCSI-MIB", "iscsiNodeAttributesGroup"), ("ISCSI-MIB", "iscsiSessionAttributesGroup"), ("ISCSI-MIB", "iscsiSessionPDUStatsGroup"), ("ISCSI-MIB", "iscsiSessionCxnErrorStatsGroup"), ("ISCSI-MIB", "iscsiConnectionAttributesGroup"), ("ISCSI-MIB", "iscsiSsnFlrNotificationsGroup"), ("ISCSI-MIB", "iscsiSessionOctetStatsGroup"), ("ISCSI-MIB", "iscsiSessionLCOctetStatsGroup"), ("ISCSI-MIB", "iscsiTgtPortalAttributesGroup"), ("ISCSI-MIB", "iscsiTargetAttributesGroup"), ("ISCSI-MIB", "iscsiTargetLoginStatsGroup"), ("ISCSI-MIB", "iscsiTargetLogoutStatsGroup"), ("ISCSI-MIB", "iscsiTgtLgnNotificationsGroup"), ("ISCSI-MIB", "iscsiTargetAuthGroup"), ("ISCSI-MIB", "iscsiIntrPortalAttributesGroup"), ("ISCSI-MIB", "iscsiInitiatorAttributesGroup"), ("ISCSI-MIB", "iscsiInitiatorLoginStatsGroup"), ("ISCSI-MIB", "iscsiInitiatorLogoutStatsGroup"), ("ISCSI-MIB", "iscsiIntrLgnNotificationsGroup"), ("ISCSI-MIB", "iscsiInitiatorAuthGroup"),))
-if mibBuilder.loadTexts: iscsiComplianceV1.setDescription('Initial version of compliance statement based on\n        initial version of this MIB module.\n\n        If an implementation can be both a target and an\n        initiator, all groups are mandatory.')
-mibBuilder.exportSymbols("ISCSI-MIB", iscsiTgtAuthRowStatus=iscsiTgtAuthRowStatus, iscsiTarget=iscsiTarget, iscsiTgtLoginAuthenticateFails=iscsiTgtLoginAuthenticateFails, iscsiIntrPortalAttributesTable=iscsiIntrPortalAttributesTable, iscsiCxnAddrType=iscsiCxnAddrType, iscsiObjects=iscsiObjects, iscsiNodeAttributesEntry=iscsiNodeAttributesEntry, iscsiPortalMaxRecvDataSegLength=iscsiPortalMaxRecvDataSegLength, iscsiSsnErrorRecoveryLevel=iscsiSsnErrorRecoveryLevel, iscsiTgtLoginAccepts=iscsiTgtLoginAccepts, iscsiTgtLastIntrFailureName=iscsiTgtLastIntrFailureName, iscsiSsnTargetAlias=iscsiSsnTargetAlias, iscsiSsnImmediateData=iscsiSsnImmediateData, iscsiIntrLoginFailure=iscsiIntrLoginFailure, iscsiSessionCxnErrorStatsGroup=iscsiSessionCxnErrorStatsGroup, iscsiSessionPDUStatsGroup=iscsiSessionPDUStatsGroup, iscsiNodeDataSequenceInOrder=iscsiNodeDataSequenceInOrder, iscsiSsnCxnTimeoutErrors=iscsiSsnCxnTimeoutErrors, iscsiTgtLoginFailures=iscsiTgtLoginFailures, iscsiGroups=iscsiGroups, iscsiInitiatorLoginStatsTable=iscsiInitiatorLoginStatsTable, iscsiInstSsnFailures=iscsiInstSsnFailures, iscsiIntrLastFailureType=iscsiIntrLastFailureType, iscsiSsnFirstBurstLength=iscsiSsnFirstBurstLength, iscsiSsnMaxOutstandingR2T=iscsiSsnMaxOutstandingR2T, iscsiPortalPrimaryHdrDigest=iscsiPortalPrimaryHdrDigest, iscsiNodeDefaultTime2Retain=iscsiNodeDefaultTime2Retain, IscsiDigestMethod=IscsiDigestMethod, iscsiInitiatorLogoutStatsEntry=iscsiInitiatorLogoutStatsEntry, iscsiSsnLCTxDataOctets=iscsiSsnLCTxDataOctets, iscsiCxnCid=iscsiCxnCid, iscsiIntrAuthRowStatus=iscsiIntrAuthRowStatus, iscsiSessionAttributesEntry=iscsiSessionAttributesEntry, iscsiTgtLastFailureType=iscsiTgtLastFailureType, iscsiTgtAuthAttributesTable=iscsiTgtAuthAttributesTable, iscsiPortalAttributesTable=iscsiPortalAttributesTable, iscsiCxnIndex=iscsiCxnIndex, iscsiInstIndex=iscsiInstIndex, iscsiIntrLastTgtFailureName=iscsiIntrLastTgtFailureName, iscsiNodeFirstBurstLength=iscsiNodeFirstBurstLength, iscsiTargetLogoutStatsTable=iscsiTargetLogoutStatsTable, iscsiSsnNodeIndex=iscsiSsnNodeIndex, iscsiInstSessionFailure=iscsiInstSessionFailure, iscsiTgtAuthAttributesEntry=iscsiTgtAuthAttributesEntry, iscsiTargetAttributesEntry=iscsiTargetAttributesEntry, iscsiIntrAuthIndex=iscsiIntrAuthIndex, iscsiNode=iscsiNode, iscsiCxnRemoteAddr=iscsiCxnRemoteAddr, iscsiIntrLoginAuthenticateFails=iscsiIntrLoginAuthenticateFails, iscsiInitiatorAttributesEntry=iscsiInitiatorAttributesEntry, iscsiIntrLoginAuthFailRsps=iscsiIntrLoginAuthFailRsps, iscsiMibModule=iscsiMibModule, iscsiSsnInitialR2T=iscsiSsnInitialR2T, iscsiIntrLoginOtherFailRsps=iscsiIntrLoginOtherFailRsps, iscsiSsnTSIH=iscsiSsnTSIH, iscsiInstSessionNumber=iscsiInstSessionNumber, iscsiPortalSecondaryHdrDigest=iscsiPortalSecondaryHdrDigest, iscsiInitiatorAuthGroup=iscsiInitiatorAuthGroup, iscsiIntrLoginRedirectRsps=iscsiIntrLoginRedirectRsps, iscsiNodeMaxOutstandingR2T=iscsiNodeMaxOutstandingR2T, iscsiTargetPortal=iscsiTargetPortal, iscsiInstLastSsnRmtNodeName=iscsiInstLastSsnRmtNodeName, iscsiSessionCxnErrorStatsEntry=iscsiSessionCxnErrorStatsEntry, iscsiNodeDiscontinuityTime=iscsiNodeDiscontinuityTime, iscsiTgtAuthorization=iscsiTgtAuthorization, iscsiHdrIntegrityNone=iscsiHdrIntegrityNone, iscsiIntrLastTgtFailureAddrType=iscsiIntrLastTgtFailureAddrType, iscsiInstVersionMin=iscsiInstVersionMin, iscsiDescriptors=iscsiDescriptors, iscsiHdrIntegrityCrc32c=iscsiHdrIntegrityCrc32c, iscsiInstVersionMax=iscsiInstVersionMax, iscsiTgtPortalPort=iscsiTgtPortalPort, iscsiTgtPortalTag=iscsiTgtPortalTag, iscsiNodeIndex=iscsiNodeIndex, iscsiInstVendorVersion=iscsiInstVendorVersion, iscsiTargetLogoutStatsEntry=iscsiTargetLogoutStatsEntry, iscsiComplianceV1=iscsiComplianceV1, iscsiTargetLoginStatsTable=iscsiTargetLoginStatsTable, PYSNMP_MODULE_ID=iscsiMibModule, iscsiInitiatorLoginStatsGroup=iscsiInitiatorLoginStatsGroup, iscsiTgtLogoutOthers=iscsiTgtLogoutOthers, iscsiSsnRspPDUs=iscsiSsnRspPDUs, iscsiTargetAuthGroup=iscsiTargetAuthGroup, iscsiInitiatorLoginStatsEntry=iscsiInitiatorLoginStatsEntry, iscsiInstanceSsnErrorStatsTable=iscsiInstanceSsnErrorStatsTable, iscsiInstance=iscsiInstance, iscsiCxnLocalAddr=iscsiCxnLocalAddr, iscsiTgtLgnNotificationsGroup=iscsiTgtLgnNotificationsGroup, iscsiIntrPortalAttributesEntry=iscsiIntrPortalAttributesEntry, iscsiCxnLocalPort=iscsiCxnLocalPort, iscsiIntrLastFailureTime=iscsiIntrLastFailureTime, iscsiSsnCxnDigestErrors=iscsiSsnCxnDigestErrors, iscsiSessionAttributesTable=iscsiSessionAttributesTable, iscsiIntrLoginFailures=iscsiIntrLoginFailures, iscsiInitiatorLogoutStatsTable=iscsiInitiatorLogoutStatsTable, iscsiNotifications=iscsiNotifications, iscsiInstDescr=iscsiInstDescr, iscsiPortalAttributesGroup=iscsiPortalAttributesGroup, iscsiDataIntegrityNone=iscsiDataIntegrityNone, iscsiPortalIndex=iscsiPortalIndex, iscsiSsnInitiatorName=iscsiSsnInitiatorName, iscsiConnectionAttributesGroup=iscsiConnectionAttributesGroup, iscsiNodeMaxBurstLength=iscsiNodeMaxBurstLength, iscsiIntrLogoutOthers=iscsiIntrLogoutOthers, iscsiPortalAddr=iscsiPortalAddr, iscsiTgtAuthIdentity=iscsiTgtAuthIdentity, iscsiIntrAuthIdentity=iscsiIntrAuthIdentity, iscsiSession=iscsiSession, iscsiTgtPortalAttributesTable=iscsiTgtPortalAttributesTable, iscsiTgtPortalAttributesEntry=iscsiTgtPortalAttributesEntry, iscsiNodeAlias=iscsiNodeAlias, iscsiCxnMaxRecvDataSegLength=iscsiCxnMaxRecvDataSegLength, iscsiTgtLoginRedirects=iscsiTgtLoginRedirects, iscsiIntrLgnNotificationsGroup=iscsiIntrLgnNotificationsGroup, iscsiTargetAttributesTable=iscsiTargetAttributesTable, iscsiIntrLoginNegotiateFails=iscsiIntrLoginNegotiateFails, iscsiInstSsnDigestErrors=iscsiInstSsnDigestErrors, iscsiIntrPortalNodeIndexOrZero=iscsiIntrPortalNodeIndexOrZero, iscsiTgtLoginOtherFails=iscsiTgtLoginOtherFails, iscsiSessionCxnErrorStatsTable=iscsiSessionCxnErrorStatsTable, iscsiInitiator=iscsiInitiator, iscsiSsnConnectionNumber=iscsiSsnConnectionNumber, iscsiSessionStatsEntry=iscsiSessionStatsEntry, iscsiSsnCmdPDUs=iscsiSsnCmdPDUs, iscsiSsnTargetName=iscsiSsnTargetName, iscsiIntrLogoutNormals=iscsiIntrLogoutNormals, iscsiCxnSendMarker=iscsiCxnSendMarker, iscsiSsnRxDataOctets=iscsiSsnRxDataOctets, iscsiInstanceSsnErrorStatsGroup=iscsiInstanceSsnErrorStatsGroup, iscsiTargetAttributesGroup=iscsiTargetAttributesGroup, iscsiSessionOctetStatsGroup=iscsiSessionOctetStatsGroup, iscsiSsnDataSequenceInOrder=iscsiSsnDataSequenceInOrder, iscsiSsnLCRxDataOctets=iscsiSsnLCRxDataOctets, iscsiTgtPortalNodeIndexOrZero=iscsiTgtPortalNodeIndexOrZero, iscsiNodeInitialR2T=iscsiNodeInitialR2T, iscsiConnection=iscsiConnection, iscsiInstSsnFormatErrors=iscsiInstSsnFormatErrors, iscsiNodeRoles=iscsiNodeRoles, iscsiTgtAuthStorageType=iscsiTgtAuthStorageType, iscsiTgtLoginAuthorizeFails=iscsiTgtLoginAuthorizeFails, iscsiPortalAttributesEntry=iscsiPortalAttributesEntry, iscsiSessionLCOctetStatsGroup=iscsiSessionLCOctetStatsGroup, iscsiTargetLoginStatsEntry=iscsiTargetLoginStatsEntry, iscsiIntrLastTgtFailureAddr=iscsiIntrLastTgtFailureAddr, iscsiNodeErrorRecoveryLevel=iscsiNodeErrorRecoveryLevel, iscsiNodeDataPDUInOrder=iscsiNodeDataPDUInOrder, iscsiIntrLoginAcceptRsps=iscsiIntrLoginAcceptRsps, iscsiNodeName=iscsiNodeName, iscsiSsnDiscontinuityTime=iscsiSsnDiscontinuityTime, iscsiTgtLastFailureTime=iscsiTgtLastFailureTime, iscsiInitiatorAttributesTable=iscsiInitiatorAttributesTable, iscsiTgtLastIntrFailureAddr=iscsiTgtLastIntrFailureAddr, iscsiSessionStatsTable=iscsiSessionStatsTable, iscsiCxnProtocol=iscsiCxnProtocol, iscsiInstDiscontinuityTime=iscsiInstDiscontinuityTime, iscsiSsnISID=iscsiSsnISID, iscsiAdmin=iscsiAdmin, iscsiHeaderIntegrityTypes=iscsiHeaderIntegrityTypes, iscsiPortalProtocol=iscsiPortalProtocol, iscsiIntrAuthAttributesEntry=iscsiIntrAuthAttributesEntry, iscsiCxnHeaderIntegrity=iscsiCxnHeaderIntegrity, iscsiPortalStorageType=iscsiPortalStorageType, iscsiNodeTransportType=iscsiNodeTransportType, iscsiNodeImmediateData=iscsiNodeImmediateData, iscsiNodeDefaultTime2Wait=iscsiNodeDefaultTime2Wait, iscsiInstNodeNumber=iscsiInstNodeNumber, iscsiTgtAuthIndex=iscsiTgtAuthIndex, iscsiCxnVersionActive=iscsiCxnVersionActive, iscsiSsnType=iscsiSsnType, iscsiCxnState=iscsiCxnState, iscsiIntrAuthStorageType=iscsiIntrAuthStorageType, iscsiInitiatorPortal=iscsiInitiatorPortal, iscsiPortal=iscsiPortal, iscsiSsnTxDataOctets=iscsiSsnTxDataOctets, iscsiInstLastSsnFailureType=iscsiInstLastSsnFailureType, iscsiPortalSecondaryDataDigest=iscsiPortalSecondaryDataDigest, iscsiSsnIndex=iscsiSsnIndex, iscsiCxnRecvMarker=iscsiCxnRecvMarker, iscsiInstanceAttributesTable=iscsiInstanceAttributesTable, iscsiPortalAddrType=iscsiPortalAddrType, iscsiIntrPortalAttributesGroup=iscsiIntrPortalAttributesGroup, iscsiTgtPortalAttributesGroup=iscsiTgtPortalAttributesGroup, iscsiPortalPrimaryDataDigest=iscsiPortalPrimaryDataDigest, iscsiInstPortalNumber=iscsiInstPortalNumber, iscsiInstanceAttributesEntry=iscsiInstanceAttributesEntry, iscsiPortalRoles=iscsiPortalRoles, iscsiInstanceSsnErrorStatsEntry=iscsiInstanceSsnErrorStatsEntry, iscsiIntrPortalTag=iscsiIntrPortalTag, iscsiNodeAttributesGroup=iscsiNodeAttributesGroup, iscsiSsnFlrNotificationsGroup=iscsiSsnFlrNotificationsGroup, iscsiConnectionAttributesEntry=iscsiConnectionAttributesEntry, iscsiInstVendorID=iscsiInstVendorID, iscsiSsnDirection=iscsiSsnDirection, iscsiPortalRecvMarker=iscsiPortalRecvMarker, iscsiPortalRowStatus=iscsiPortalRowStatus, iscsiConnectionAttributesTable=iscsiConnectionAttributesTable, iscsiInitiatorAttributesGroup=iscsiInitiatorAttributesGroup, IscsiName=IscsiName, iscsiNodeMaxConnections=iscsiNodeMaxConnections, iscsiCxnMaxXmitDataSegLength=iscsiCxnMaxXmitDataSegLength, iscsiTargetLogoutStatsGroup=iscsiTargetLogoutStatsGroup, iscsiCxnRemotePort=iscsiCxnRemotePort, iscsiTargetLoginStatsGroup=iscsiTargetLoginStatsGroup, iscsiSessionAttributesGroup=iscsiSessionAttributesGroup, iscsiNodeStorageType=iscsiNodeStorageType, iscsiTgtLoginFailure=iscsiTgtLoginFailure, iscsiInstanceAttributesGroup=iscsiInstanceAttributesGroup, iscsiCxnDataIntegrity=iscsiCxnDataIntegrity, iscsiInstSsnCxnTimeoutErrors=iscsiInstSsnCxnTimeoutErrors, iscsiSsnAuthIdentity=iscsiSsnAuthIdentity, iscsiTgtLogoutNormals=iscsiTgtLogoutNormals, iscsiSsnInitiatorAlias=iscsiSsnInitiatorAlias, iscsiDataIntegrityCrc32c=iscsiDataIntegrityCrc32c, iscsiDataIntegrityTypes=iscsiDataIntegrityTypes, iscsiNodeAttributesTable=iscsiNodeAttributesTable, iscsiCompliances=iscsiCompliances, iscsiSsnMaxBurstLength=iscsiSsnMaxBurstLength, iscsiTgtLastIntrFailureAddrType=iscsiTgtLastIntrFailureAddrType, iscsiIntrAuthAttributesTable=iscsiIntrAuthAttributesTable, iscsiIntrAuthorization=iscsiIntrAuthorization, iscsiConformance=iscsiConformance, IscsiTransportProtocol=IscsiTransportProtocol, iscsiInitiatorLogoutStatsGroup=iscsiInitiatorLogoutStatsGroup, iscsiTgtLoginNegotiateFails=iscsiTgtLoginNegotiateFails, iscsiSsnDataPDUInOrder=iscsiSsnDataPDUInOrder)
+iscsiInstanceAttributesGroup=ObjectGroup((1,3,6,1,3,9999,3,1,1))
+iscsiInstanceAttributesGroup.setObjects(*((_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_U),(_B,_V),(_B,_W)))
+if mibBuilder.loadTexts:iscsiInstanceAttributesGroup.setStatus(_A)
+iscsiInstanceSsnErrorStatsGroup=ObjectGroup((1,3,6,1,3,9999,3,1,2))
+iscsiInstanceSsnErrorStatsGroup.setObjects(*((_B,_A6),(_B,_A7),(_B,_A8)))
+if mibBuilder.loadTexts:iscsiInstanceSsnErrorStatsGroup.setStatus(_A)
+iscsiPortalAttributesGroup=ObjectGroup((1,3,6,1,3,9999,3,1,3))
+iscsiPortalAttributesGroup.setObjects(*((_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI)))
+if mibBuilder.loadTexts:iscsiPortalAttributesGroup.setStatus(_A)
+iscsiTgtPortalAttributesGroup=ObjectGroup((1,3,6,1,3,9999,3,1,4))
+iscsiTgtPortalAttributesGroup.setObjects(*((_B,_AJ),(_B,_AK)))
+if mibBuilder.loadTexts:iscsiTgtPortalAttributesGroup.setStatus(_A)
+iscsiIntrPortalAttributesGroup=ObjectGroup((1,3,6,1,3,9999,3,1,5))
+iscsiIntrPortalAttributesGroup.setObjects((_B,_AL))
+if mibBuilder.loadTexts:iscsiIntrPortalAttributesGroup.setStatus(_A)
+iscsiNodeAttributesGroup=ObjectGroup((1,3,6,1,3,9999,3,1,6))
+iscsiNodeAttributesGroup.setObjects(*((_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ),(_B,_Aa),(_B,_Ab)))
+if mibBuilder.loadTexts:iscsiNodeAttributesGroup.setStatus(_A)
+iscsiTargetAttributesGroup=ObjectGroup((1,3,6,1,3,9999,3,1,7))
+iscsiTargetAttributesGroup.setObjects(*((_B,_X),(_B,_Ac),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b)))
+if mibBuilder.loadTexts:iscsiTargetAttributesGroup.setStatus(_A)
+iscsiTargetLoginStatsGroup=ObjectGroup((1,3,6,1,3,9999,3,1,8))
+iscsiTargetLoginStatsGroup.setObjects(*((_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai)))
+if mibBuilder.loadTexts:iscsiTargetLoginStatsGroup.setStatus(_A)
+iscsiTargetLogoutStatsGroup=ObjectGroup((1,3,6,1,3,9999,3,1,9))
+iscsiTargetLogoutStatsGroup.setObjects(*((_B,_Aj),(_B,_Ak)))
+if mibBuilder.loadTexts:iscsiTargetLogoutStatsGroup.setStatus(_A)
+iscsiTargetAuthGroup=ObjectGroup((1,3,6,1,3,9999,3,1,10))
+iscsiTargetAuthGroup.setObjects(*((_B,_Al),(_B,_Am)))
+if mibBuilder.loadTexts:iscsiTargetAuthGroup.setStatus(_A)
+iscsiInitiatorAttributesGroup=ObjectGroup((1,3,6,1,3,9999,3,1,11))
+iscsiInitiatorAttributesGroup.setObjects(*((_B,_c),(_B,_An),(_B,_d),(_B,_e),(_B,_f),(_B,_g)))
+if mibBuilder.loadTexts:iscsiInitiatorAttributesGroup.setStatus(_A)
+iscsiInitiatorLoginStatsGroup=ObjectGroup((1,3,6,1,3,9999,3,1,12))
+iscsiInitiatorLoginStatsGroup.setObjects(*((_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At)))
+if mibBuilder.loadTexts:iscsiInitiatorLoginStatsGroup.setStatus(_A)
+iscsiInitiatorLogoutStatsGroup=ObjectGroup((1,3,6,1,3,9999,3,1,13))
+iscsiInitiatorLogoutStatsGroup.setObjects(*((_B,_Au),(_B,_Av)))
+if mibBuilder.loadTexts:iscsiInitiatorLogoutStatsGroup.setStatus(_A)
+iscsiInitiatorAuthGroup=ObjectGroup((1,3,6,1,3,9999,3,1,14))
+iscsiInitiatorAuthGroup.setObjects(*((_B,_Aw),(_B,_Ax)))
+if mibBuilder.loadTexts:iscsiInitiatorAuthGroup.setStatus(_A)
+iscsiSessionAttributesGroup=ObjectGroup((1,3,6,1,3,9999,3,1,15))
+iscsiSessionAttributesGroup.setObjects(*((_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7),(_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF)))
+if mibBuilder.loadTexts:iscsiSessionAttributesGroup.setStatus(_A)
+iscsiSessionStatsGroup=ObjectGroup((1,3,6,1,3,9999,3,1,16))
+iscsiSessionStatsGroup.setObjects(*((_B,_BG),(_B,_BH),(_B,_BI),(_B,_BJ)))
+if mibBuilder.loadTexts:iscsiSessionStatsGroup.setStatus(_A)
+iscsiSessionCxnErrorStatsGroup=ObjectGroup((1,3,6,1,3,9999,3,1,17))
+iscsiSessionCxnErrorStatsGroup.setObjects(*((_B,_BK),(_B,_BL)))
+if mibBuilder.loadTexts:iscsiSessionCxnErrorStatsGroup.setStatus(_A)
+iscsiConnectionAttributesGroup=ObjectGroup((1,3,6,1,3,9999,3,1,18))
+iscsiConnectionAttributesGroup.setObjects(*((_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_BS),(_B,_BT),(_B,_BU),(_B,_BV),(_B,_BW),(_B,_BX),(_B,_BY),(_B,_BZ)))
+if mibBuilder.loadTexts:iscsiConnectionAttributesGroup.setStatus(_A)
+iscsiTgtLoginFailure=NotificationType((1,3,6,1,3,9999,2,0,1))
+iscsiTgtLoginFailure.setObjects(*((_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b)))
+if mibBuilder.loadTexts:iscsiTgtLoginFailure.setStatus(_A)
+iscsiIntrLoginFailure=NotificationType((1,3,6,1,3,9999,2,0,2))
+iscsiIntrLoginFailure.setObjects(*((_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g)))
+if mibBuilder.loadTexts:iscsiIntrLoginFailure.setStatus(_A)
+iscsiInstSessionFailure=NotificationType((1,3,6,1,3,9999,2,0,3))
+iscsiInstSessionFailure.setObjects(*((_B,_U),(_B,_V),(_B,_W)))
+if mibBuilder.loadTexts:iscsiInstSessionFailure.setStatus(_A)
+iscsiTgtLgnNotificationsGroup=NotificationGroup((1,3,6,1,3,9999,3,1,19))
+iscsiTgtLgnNotificationsGroup.setObjects((_B,_Ba))
+if mibBuilder.loadTexts:iscsiTgtLgnNotificationsGroup.setStatus(_A)
+iscsiIntrLgnNotificationsGroup=NotificationGroup((1,3,6,1,3,9999,3,1,20))
+iscsiIntrLgnNotificationsGroup.setObjects((_B,_Bb))
+if mibBuilder.loadTexts:iscsiIntrLgnNotificationsGroup.setStatus(_A)
+iscsiSsnFlrNotificationsGroup=NotificationGroup((1,3,6,1,3,9999,3,1,21))
+iscsiSsnFlrNotificationsGroup.setObjects((_B,_Bc))
+if mibBuilder.loadTexts:iscsiSsnFlrNotificationsGroup.setStatus(_A)
+iscsiComplianceV1=ModuleCompliance((1,3,6,1,3,9999,3,2,1))
+iscsiComplianceV1.setObjects(*((_B,_Bd),(_B,_Be),(_B,_Bf),(_B,_Bg),(_B,_Bh),(_B,_Bi),(_B,_Bj),(_B,_Bk),(_B,_Bl),(_B,_Bm),(_B,_Bn),(_B,_Bo),(_B,_Bp),(_B,_Bq),(_B,_Br),(_B,_Bs),(_B,_Bt),(_B,_Bu),(_B,_Bv),(_B,_Bw)))
+if mibBuilder.loadTexts:iscsiComplianceV1.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{_R:IscsiTransportProtocols,_N:IscsiDigestMethod,'iscsiModule':iscsiModule,'iscsiObjects':iscsiObjects,'iscsiDescriptors':iscsiDescriptors,'iscsiHeaderIntegrityTypes':iscsiHeaderIntegrityTypes,'iscsiHdrIntegrityNone':iscsiHdrIntegrityNone,'iscsiHdrIntegrityCrc32c':iscsiHdrIntegrityCrc32c,'iscsiDataIntegrityTypes':iscsiDataIntegrityTypes,'iscsiDataIntegrityNone':iscsiDataIntegrityNone,'iscsiDataIntegrityCrc32c':iscsiDataIntegrityCrc32c,'iscsiInstance':iscsiInstance,'iscsiInstanceAttributesTable':iscsiInstanceAttributesTable,'iscsiInstanceAttributesEntry':iscsiInstanceAttributesEntry,_G:iscsiInstIndex,_y:iscsiInstDescr,_z:iscsiInstVersionMin,_A0:iscsiInstVersionMax,_A1:iscsiInstVendorID,_A2:iscsiInstVendorVersion,_A3:iscsiInstPortalNumber,_A4:iscsiInstNodeNumber,_A5:iscsiInstSessionNumber,_U:iscsiInstSsnFailures,_V:iscsiInstLastSsnFailureType,_W:iscsiInstLastSsnRmtNodeName,'iscsiInstanceSsnErrorStatsTable':iscsiInstanceSsnErrorStatsTable,_r:iscsiInstanceSsnErrorStatsEntry,_A6:iscsiInstSsnDigestErrors,_A7:iscsiInstSsnCxnTimeoutErrors,_A8:iscsiInstSsnFormatErrors,'iscsiPortal':iscsiPortal,'iscsiPortalAttributesTable':iscsiPortalAttributesTable,'iscsiPortalAttributesEntry':iscsiPortalAttributesEntry,_P:iscsiPortalIndex,_A9:iscsiPortalRoles,_AA:iscsiPortalAddrType,_AB:iscsiPortalAddr,_AC:iscsiPortalProtocol,_AD:iscsiPortalMaxRecvDataSegLength,_AE:iscsiPortalPrimaryHdrDigest,_AF:iscsiPortalPrimaryDataDigest,_AG:iscsiPortalSecondaryHdrDigest,_AH:iscsiPortalSecondaryDataDigest,_AI:iscsiPortalRecvMarker,'iscsiTargetPortal':iscsiTargetPortal,'iscsiTgtPortalAttributesTable':iscsiTgtPortalAttributesTable,'iscsiTgtPortalAttributesEntry':iscsiTgtPortalAttributesEntry,_AJ:iscsiTgtPortalPort,_AK:iscsiTgtPortalTag,'iscsiInitiatorPortal':iscsiInitiatorPortal,'iscsiIntrPortalAttributesTable':iscsiIntrPortalAttributesTable,'iscsiIntrPortalAttributesEntry':iscsiIntrPortalAttributesEntry,_AL:iscsiIntrPortalTag,'iscsiNode':iscsiNode,'iscsiNodeAttributesTable':iscsiNodeAttributesTable,'iscsiNodeAttributesEntry':iscsiNodeAttributesEntry,_J:iscsiNodeIndex,_AM:iscsiNodeName,_AN:iscsiNodeAlias,_AO:iscsiNodeRoles,_AP:iscsiNodeTransportType,_AQ:iscsiNodeInitialR2T,_AR:iscsiNodeBidiInitialR2T,_AS:iscsiNodeImmediateData,_AT:iscsiNodeMaxOutstandingR2T,_AU:iscsiNodeFirstBurstSize,_AV:iscsiNodeMaxBurstSize,_AW:iscsiNodeMaxConnections,_AX:iscsiNodeDataSequenceInOrder,_AY:iscsiNodeDataPduInOrder,_AZ:iscsiNodeDefaultTime2Wait,_Aa:iscsiNodeDefaultTime2Retain,_Ab:iscsiNodeErrorRecoveryLevel,'iscsiTarget':iscsiTarget,'iscsiTargetAttributesTable':iscsiTargetAttributesTable,'iscsiTargetAttributesEntry':iscsiTargetAttributesEntry,_X:iscsiTgtLoginFailures,_Ac:iscsiTgtLastFailureTime,_Y:iscsiTgtLastFailureType,_Z:iscsiTgtLastIntrFailureName,_a:iscsiTgtLastIntrFailureAddrType,_b:iscsiTgtLastIntrFailureAddr,'iscsiTargetLoginStatsTable':iscsiTargetLoginStatsTable,_s:iscsiTargetLoginStatsEntry,_Ad:iscsiTgtLoginAccepts,_Ae:iscsiTgtLoginOtherFails,_Af:iscsiTgtLoginRedirects,_Ag:iscsiTgtLoginAuthorizeFails,_Ah:iscsiTgtLoginAuthenticateFails,_Ai:iscsiTgtLoginNegotiateFails,'iscsiTargetLogoutStatsTable':iscsiTargetLogoutStatsTable,_t:iscsiTargetLogoutStatsEntry,_Aj:iscsiTgtLogoutNormals,_Ak:iscsiTgtLogoutOthers,'iscsiTgtAuthorization':iscsiTgtAuthorization,'iscsiTgtAuthAttributesTable':iscsiTgtAuthAttributesTable,'iscsiTgtAuthAttributesEntry':iscsiTgtAuthAttributesEntry,_n:iscsiTgtAuthIndex,_Al:iscsiTgtAuthRowStatus,_Am:iscsiTgtAuthIdentity,'iscsiInitiator':iscsiInitiator,'iscsiInitiatorAttributesTable':iscsiInitiatorAttributesTable,'iscsiInitiatorAttributesEntry':iscsiInitiatorAttributesEntry,_c:iscsiIntrLoginFailures,_An:iscsiIntrLastFailureTime,_d:iscsiIntrLastFailureType,_e:iscsiIntrLastTgtFailureName,_f:iscsiIntrLastTgtFailureAddrType,_g:iscsiIntrLastTgtFailureAddr,'iscsiInitiatorLoginStatsTable':iscsiInitiatorLoginStatsTable,_u:iscsiInitiatorLoginStatsEntry,_Ao:iscsiIntrLoginAcceptRsps,_Ap:iscsiIntrLoginOtherFailRsps,_Aq:iscsiIntrLoginRedirectRsps,_Ar:iscsiIntrLoginAuthFailRsps,_As:iscsiIntrLoginAuthenticateFails,_At:iscsiIntrLoginNegotiateFails,'iscsiInitiatorLogoutStatsTable':iscsiInitiatorLogoutStatsTable,_v:iscsiInitiatorLogoutStatsEntry,_Au:iscsiIntrLogoutNormals,_Av:iscsiIntrLogoutOthers,'iscsiIntrAuthorization':iscsiIntrAuthorization,'iscsiIntrAuthAttributesTable':iscsiIntrAuthAttributesTable,'iscsiIntrAuthAttributesEntry':iscsiIntrAuthAttributesEntry,_o:iscsiIntrAuthIndex,_Aw:iscsiIntrAuthRowStatus,_Ax:iscsiIntrAuthIdentity,'iscsiSession':iscsiSession,'iscsiSessionAttributesTable':iscsiSessionAttributesTable,'iscsiSessionAttributesEntry':iscsiSessionAttributesEntry,_S:iscsiSsnIndex,_Ay:iscsiSsnDirection,_Az:iscsiSsnInitiatorName,_A_:iscsiSsnTargetName,_B0:iscsiSsnTsih,_B1:iscsiSsnIsid,_B2:iscsiSsnInitiatorAlias,_B3:iscsiSsnTargetAlias,_B4:iscsiSsnInitialR2T,_B5:iscsiSsnBidiInitialR2T,_B6:iscsiSsnImmediateData,_B7:iscsiSsnType,_B8:iscsiSsnMaxOutstandingR2T,_B9:iscsiSsnFirstBurstSize,_BA:iscsiSsnMaxBurstSize,_BB:iscsiSsnConnectionNumber,_BC:iscsiSsnAuthIdentity,_BD:iscsiSsnDataSequenceInOrder,_BE:iscsiSsnDataPduInOrder,_BF:iscsiSsnErrorRecoveryLevel,'iscsiSessionStatsTable':iscsiSessionStatsTable,_w:iscsiSessionStatsEntry,_BG:iscsiSsnCmdPdus,_BH:iscsiSsnRspPdus,_BI:iscsiSsnTxDataOctets,_BJ:iscsiSsnRxDataOctets,'iscsiSessionCxnErrorStatsTable':iscsiSessionCxnErrorStatsTable,_x:iscsiSessionCxnErrorStatsEntry,_BK:iscsiSsnDigestErrors,_BL:iscsiSsnCxnTimeoutErrors,'iscsiConnection':iscsiConnection,'iscsiConnectionAttributesTable':iscsiConnectionAttributesTable,'iscsiConnectionAttributesEntry':iscsiConnectionAttributesEntry,_q:iscsiCxnIndex,_BM:iscsiCxnCid,_BN:iscsiCxnState,_BP:iscsiCxnLocalAddrType,_BQ:iscsiCxnLocalAddr,_BO:iscsiCxnProtocol,_BR:iscsiCxnLocalPort,_BS:iscsiCxnRemoteAddrType,_BT:iscsiCxnRemoteAddr,_BU:iscsiCxnRemotePort,_BV:iscsiCxnMaxRecvDataSegLength,_BW:iscsiCxnHeaderIntegrity,_BX:iscsiCxnDataIntegrity,_BY:iscsiCxnRecvMarker,_BZ:iscsiCxnSendMarker,'iscsiNotifications':iscsiNotifications,'iscsiNotificationsPrefix':iscsiNotificationsPrefix,_Ba:iscsiTgtLoginFailure,_Bb:iscsiIntrLoginFailure,_Bc:iscsiInstSessionFailure,'iscsiConformance':iscsiConformance,'iscsiGroups':iscsiGroups,_Bd:iscsiInstanceAttributesGroup,'iscsiInstanceSsnErrorStatsGroup':iscsiInstanceSsnErrorStatsGroup,_Be:iscsiPortalAttributesGroup,_Bl:iscsiTgtPortalAttributesGroup,_Br:iscsiIntrPortalAttributesGroup,_Bf:iscsiNodeAttributesGroup,_Bm:iscsiTargetAttributesGroup,_Bn:iscsiTargetLoginStatsGroup,_Bo:iscsiTargetLogoutStatsGroup,_Bq:iscsiTargetAuthGroup,_Bs:iscsiInitiatorAttributesGroup,_Bt:iscsiInitiatorLoginStatsGroup,_Bu:iscsiInitiatorLogoutStatsGroup,_Bw:iscsiInitiatorAuthGroup,_Bg:iscsiSessionAttributesGroup,_Bh:iscsiSessionStatsGroup,_Bi:iscsiSessionCxnErrorStatsGroup,_Bj:iscsiConnectionAttributesGroup,_Bp:iscsiTgtLgnNotificationsGroup,_Bv:iscsiIntrLgnNotificationsGroup,_Bk:iscsiSsnFlrNotificationsGroup,'iscsiCompliances':iscsiCompliances,'iscsiComplianceV1':iscsiComplianceV1})

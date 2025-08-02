@@ -1,0 +1,252 @@
+_G='DisplayString'
+_F='NotificationType'
+_E='ifIndex'
+_D='IF-MIB'
+_C='Integer32'
+_B='read-write'
+_A='mandatory'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ifIndex,=mibBuilder.importSymbols(_D,_E)
+pdn_xdsl,=mibBuilder.importSymbols('PDN-HEADER-MIB','pdn-xdsl')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,NotificationType,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier',_F,'ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn',_F,'TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC',_G,'PhysAddress','TextualConvention')
+_XdslIfConfigMIBObjects_ObjectIdentity=ObjectIdentity
+xdslIfConfigMIBObjects=_XdslIfConfigMIBObjects_ObjectIdentity((1,3,6,1,4,1,1795,2,24,9,2))
+_XdslDevGenericIfConfig_ObjectIdentity=ObjectIdentity
+xdslDevGenericIfConfig=_XdslDevGenericIfConfig_ObjectIdentity((1,3,6,1,4,1,1795,2,24,9,2,1))
+_XdslDevGenericIfConfigTable_Object=MibTable
+xdslDevGenericIfConfigTable=_XdslDevGenericIfConfigTable_Object((1,3,6,1,4,1,1795,2,24,9,2,1,1))
+if mibBuilder.loadTexts:xdslDevGenericIfConfigTable.setStatus(_A)
+_XdslDevGenericIfConfigEntry_Object=MibTableRow
+xdslDevGenericIfConfigEntry=_XdslDevGenericIfConfigEntry_Object((1,3,6,1,4,1,1795,2,24,9,2,1,1,1))
+xdslDevGenericIfConfigEntry.setIndexNames((0,_D,_E))
+if mibBuilder.loadTexts:xdslDevGenericIfConfigEntry.setStatus(_A)
+class _XdslDevGenericIfConfigPortSpeedBehaviour_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('fixed',1),('adaptive',2)))
+_XdslDevGenericIfConfigPortSpeedBehaviour_Type.__name__=_C
+_XdslDevGenericIfConfigPortSpeedBehaviour_Object=MibTableColumn
+xdslDevGenericIfConfigPortSpeedBehaviour=_XdslDevGenericIfConfigPortSpeedBehaviour_Object((1,3,6,1,4,1,1795,2,24,9,2,1,1,1,1),_XdslDevGenericIfConfigPortSpeedBehaviour_Type())
+xdslDevGenericIfConfigPortSpeedBehaviour.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevGenericIfConfigPortSpeedBehaviour.setStatus(_A)
+_XdslDevGenericIfConfigMarginThreshold_Type=Integer32
+_XdslDevGenericIfConfigMarginThreshold_Object=MibTableColumn
+xdslDevGenericIfConfigMarginThreshold=_XdslDevGenericIfConfigMarginThreshold_Object((1,3,6,1,4,1,1795,2,24,9,2,1,1,1,2),_XdslDevGenericIfConfigMarginThreshold_Type())
+xdslDevGenericIfConfigMarginThreshold.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevGenericIfConfigMarginThreshold.setStatus(_A)
+class _XdslDevGenericIfConfigPortID_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,40))
+_XdslDevGenericIfConfigPortID_Type.__name__=_G
+_XdslDevGenericIfConfigPortID_Object=MibTableColumn
+xdslDevGenericIfConfigPortID=_XdslDevGenericIfConfigPortID_Object((1,3,6,1,4,1,1795,2,24,9,2,1,1,1,3),_XdslDevGenericIfConfigPortID_Type())
+xdslDevGenericIfConfigPortID.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevGenericIfConfigPortID.setStatus(_A)
+_XdslDevGenericIfConfigLinkUpDownTransitionThreshold_Type=Integer32
+_XdslDevGenericIfConfigLinkUpDownTransitionThreshold_Object=MibTableColumn
+xdslDevGenericIfConfigLinkUpDownTransitionThreshold=_XdslDevGenericIfConfigLinkUpDownTransitionThreshold_Object((1,3,6,1,4,1,1795,2,24,9,2,1,1,1,4),_XdslDevGenericIfConfigLinkUpDownTransitionThreshold_Type())
+xdslDevGenericIfConfigLinkUpDownTransitionThreshold.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevGenericIfConfigLinkUpDownTransitionThreshold.setStatus(_A)
+class _XdslDevGenericIfConfigLineEncodeType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('other',1),('cap',2),('twoB1q',3),('mvl',4),('g-lite',5),('dmt',6)))
+_XdslDevGenericIfConfigLineEncodeType_Type.__name__=_C
+_XdslDevGenericIfConfigLineEncodeType_Object=MibTableColumn
+xdslDevGenericIfConfigLineEncodeType=_XdslDevGenericIfConfigLineEncodeType_Object((1,3,6,1,4,1,1795,2,24,9,2,1,1,1,5),_XdslDevGenericIfConfigLineEncodeType_Type())
+xdslDevGenericIfConfigLineEncodeType.setMaxAccess('read-only')
+if mibBuilder.loadTexts:xdslDevGenericIfConfigLineEncodeType.setStatus(_A)
+class _XdslDevGenericIfConfigLineRateMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('standard',1),('nx128',2)))
+_XdslDevGenericIfConfigLineRateMode_Type.__name__=_C
+_XdslDevGenericIfConfigLineRateMode_Object=MibTableColumn
+xdslDevGenericIfConfigLineRateMode=_XdslDevGenericIfConfigLineRateMode_Object((1,3,6,1,4,1,1795,2,24,9,2,1,1,1,6),_XdslDevGenericIfConfigLineRateMode_Type())
+xdslDevGenericIfConfigLineRateMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevGenericIfConfigLineRateMode.setStatus(_A)
+class _XdslDevGenericIfConfigLinkEncapType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)));namedValues=NamedValues(*(('linkNone',1),('ethernet',2),('ppp',3),('slip',4),('frameRelay-PLL',5),('x23PVC',6),('x25SVC',7),('hdlc',8),('etherHDLC',9),('rfc1483-MPOA',10),('funi-MPOA',11),('frf5',12),('frf8',13),('pppoAVC-Mux',14),('pppoALLC',15)))
+_XdslDevGenericIfConfigLinkEncapType_Type.__name__=_C
+_XdslDevGenericIfConfigLinkEncapType_Object=MibTableColumn
+xdslDevGenericIfConfigLinkEncapType=_XdslDevGenericIfConfigLinkEncapType_Object((1,3,6,1,4,1,1795,2,24,9,2,1,1,1,7),_XdslDevGenericIfConfigLinkEncapType_Type())
+xdslDevGenericIfConfigLinkEncapType.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevGenericIfConfigLinkEncapType.setStatus(_A)
+_XdslDevGenericIfConfigSnType_Type=ObjectIdentifier
+_XdslDevGenericIfConfigSnType_Object=MibTableColumn
+xdslDevGenericIfConfigSnType=_XdslDevGenericIfConfigSnType_Object((1,3,6,1,4,1,1795,2,24,9,2,1,1,1,8),_XdslDevGenericIfConfigSnType_Type())
+xdslDevGenericIfConfigSnType.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevGenericIfConfigSnType.setStatus(_A)
+_XdslDevRADSLSpecificIfConfig_ObjectIdentity=ObjectIdentity
+xdslDevRADSLSpecificIfConfig=_XdslDevRADSLSpecificIfConfig_ObjectIdentity((1,3,6,1,4,1,1795,2,24,9,2,2))
+_XdslDevRADSLSpecificIfConfigTable_Object=MibTable
+xdslDevRADSLSpecificIfConfigTable=_XdslDevRADSLSpecificIfConfigTable_Object((1,3,6,1,4,1,1795,2,24,9,2,2,1))
+if mibBuilder.loadTexts:xdslDevRADSLSpecificIfConfigTable.setStatus(_A)
+_XdslDevRADSLSpecificIfConfigEntry_Object=MibTableRow
+xdslDevRADSLSpecificIfConfigEntry=_XdslDevRADSLSpecificIfConfigEntry_Object((1,3,6,1,4,1,1795,2,24,9,2,2,1,1))
+xdslDevRADSLSpecificIfConfigEntry.setIndexNames((0,_D,_E))
+if mibBuilder.loadTexts:xdslDevRADSLSpecificIfConfigEntry.setStatus(_A)
+_XdslDevRADSLSpecificIfConfigUpFixedPortSpeed_Type=Integer32
+_XdslDevRADSLSpecificIfConfigUpFixedPortSpeed_Object=MibTableColumn
+xdslDevRADSLSpecificIfConfigUpFixedPortSpeed=_XdslDevRADSLSpecificIfConfigUpFixedPortSpeed_Object((1,3,6,1,4,1,1795,2,24,9,2,2,1,1,1),_XdslDevRADSLSpecificIfConfigUpFixedPortSpeed_Type())
+xdslDevRADSLSpecificIfConfigUpFixedPortSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevRADSLSpecificIfConfigUpFixedPortSpeed.setStatus(_A)
+_XdslDevRADSLSpecificIfConfigDownFixedPortSpeed_Type=Integer32
+_XdslDevRADSLSpecificIfConfigDownFixedPortSpeed_Object=MibTableColumn
+xdslDevRADSLSpecificIfConfigDownFixedPortSpeed=_XdslDevRADSLSpecificIfConfigDownFixedPortSpeed_Object((1,3,6,1,4,1,1795,2,24,9,2,2,1,1,2),_XdslDevRADSLSpecificIfConfigDownFixedPortSpeed_Type())
+xdslDevRADSLSpecificIfConfigDownFixedPortSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevRADSLSpecificIfConfigDownFixedPortSpeed.setStatus(_A)
+_XdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed_Type=Integer32
+_XdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed_Object=MibTableColumn
+xdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed=_XdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed_Object((1,3,6,1,4,1,1795,2,24,9,2,2,1,1,3),_XdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed_Type())
+xdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed.setStatus(_A)
+_XdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed_Type=Integer32
+_XdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed_Object=MibTableColumn
+xdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed=_XdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed_Object((1,3,6,1,4,1,1795,2,24,9,2,2,1,1,4),_XdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed_Type())
+xdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed.setStatus(_A)
+_XdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed_Type=Integer32
+_XdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed_Object=MibTableColumn
+xdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed=_XdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed_Object((1,3,6,1,4,1,1795,2,24,9,2,2,1,1,5),_XdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed_Type())
+xdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed.setStatus(_A)
+_XdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed_Type=Integer32
+_XdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed_Object=MibTableColumn
+xdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed=_XdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed_Object((1,3,6,1,4,1,1795,2,24,9,2,2,1,1,6),_XdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed_Type())
+xdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed.setStatus(_A)
+class _XdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('minimizeError',1),('minimizeDelay',2),('reedSolomonNotSupported',3)))
+_XdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection_Type.__name__=_C
+_XdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection_Object=MibTableColumn
+xdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection=_XdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection_Object((1,3,6,1,4,1,1795,2,24,9,2,2,1,1,7),_XdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection_Type())
+xdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection.setStatus(_A)
+class _XdslDevRADSLSpecificIfConfigStartUpMargin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-3,9))
+_XdslDevRADSLSpecificIfConfigStartUpMargin_Type.__name__=_C
+_XdslDevRADSLSpecificIfConfigStartUpMargin_Object=MibTableColumn
+xdslDevRADSLSpecificIfConfigStartUpMargin=_XdslDevRADSLSpecificIfConfigStartUpMargin_Object((1,3,6,1,4,1,1795,2,24,9,2,2,1,1,8),_XdslDevRADSLSpecificIfConfigStartUpMargin_Type())
+xdslDevRADSLSpecificIfConfigStartUpMargin.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevRADSLSpecificIfConfigStartUpMargin.setStatus(_A)
+_XdslDevRADSLSpecificIfConfigTxPowerAttenuation_Type=Integer32
+_XdslDevRADSLSpecificIfConfigTxPowerAttenuation_Object=MibTableColumn
+xdslDevRADSLSpecificIfConfigTxPowerAttenuation=_XdslDevRADSLSpecificIfConfigTxPowerAttenuation_Object((1,3,6,1,4,1,1795,2,24,9,2,2,1,1,9),_XdslDevRADSLSpecificIfConfigTxPowerAttenuation_Type())
+xdslDevRADSLSpecificIfConfigTxPowerAttenuation.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevRADSLSpecificIfConfigTxPowerAttenuation.setStatus(_A)
+_XdslDevRADSLSpecificIfConfigSnTxPowerAttenuation_Type=Integer32
+_XdslDevRADSLSpecificIfConfigSnTxPowerAttenuation_Object=MibTableColumn
+xdslDevRADSLSpecificIfConfigSnTxPowerAttenuation=_XdslDevRADSLSpecificIfConfigSnTxPowerAttenuation_Object((1,3,6,1,4,1,1795,2,24,9,2,2,1,1,10),_XdslDevRADSLSpecificIfConfigSnTxPowerAttenuation_Type())
+xdslDevRADSLSpecificIfConfigSnTxPowerAttenuation.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevRADSLSpecificIfConfigSnTxPowerAttenuation.setStatus(_A)
+_XdslDevMVLSpecificIfConfig_ObjectIdentity=ObjectIdentity
+xdslDevMVLSpecificIfConfig=_XdslDevMVLSpecificIfConfig_ObjectIdentity((1,3,6,1,4,1,1795,2,24,9,2,3))
+_XdslDevMVLSpecificIfConfigTable_Object=MibTable
+xdslDevMVLSpecificIfConfigTable=_XdslDevMVLSpecificIfConfigTable_Object((1,3,6,1,4,1,1795,2,24,9,2,3,1))
+if mibBuilder.loadTexts:xdslDevMVLSpecificIfConfigTable.setStatus(_A)
+_XdslDevMVLSpecificIfConfigEntry_Object=MibTableRow
+xdslDevMVLSpecificIfConfigEntry=_XdslDevMVLSpecificIfConfigEntry_Object((1,3,6,1,4,1,1795,2,24,9,2,3,1,1))
+xdslDevMVLSpecificIfConfigEntry.setIndexNames((0,_D,_E))
+if mibBuilder.loadTexts:xdslDevMVLSpecificIfConfigEntry.setStatus(_A)
+_XdslDevMVLSpecificIfConfigMaxPortSpeed_Type=Integer32
+_XdslDevMVLSpecificIfConfigMaxPortSpeed_Object=MibTableColumn
+xdslDevMVLSpecificIfConfigMaxPortSpeed=_XdslDevMVLSpecificIfConfigMaxPortSpeed_Object((1,3,6,1,4,1,1795,2,24,9,2,3,1,1,1),_XdslDevMVLSpecificIfConfigMaxPortSpeed_Type())
+xdslDevMVLSpecificIfConfigMaxPortSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevMVLSpecificIfConfigMaxPortSpeed.setStatus('deprecated')
+_XdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation_Type=Integer32
+_XdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation_Object=MibTableColumn
+xdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation=_XdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation_Object((1,3,6,1,4,1,1795,2,24,9,2,3,1,1,2),_XdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation_Type())
+xdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation.setStatus(_A)
+_XdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation_Type=Integer32
+_XdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation_Object=MibTableColumn
+xdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation=_XdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation_Object((1,3,6,1,4,1,1795,2,24,9,2,3,1,1,3),_XdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation_Type())
+xdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation.setStatus(_A)
+_XdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue_Type=Integer32
+_XdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue_Object=MibTableColumn
+xdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue=_XdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue_Object((1,3,6,1,4,1,1795,2,24,9,2,3,1,1,4),_XdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue_Type())
+xdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue.setStatus(_A)
+_XdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue_Type=Integer32
+_XdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue_Object=MibTableColumn
+xdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue=_XdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue_Object((1,3,6,1,4,1,1795,2,24,9,2,3,1,1,5),_XdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue_Type())
+xdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue.setStatus(_A)
+_XdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed_Type=Integer32
+_XdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed_Object=MibTableColumn
+xdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed=_XdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed_Object((1,3,6,1,4,1,1795,2,24,9,2,3,1,1,6),_XdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed_Type())
+xdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed.setStatus(_A)
+_XdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed_Type=Integer32
+_XdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed_Object=MibTableColumn
+xdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed=_XdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed_Object((1,3,6,1,4,1,1795,2,24,9,2,3,1,1,7),_XdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed_Type())
+xdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed.setStatus(_A)
+_XdslDevSDSLSpecificIfConfig_ObjectIdentity=ObjectIdentity
+xdslDevSDSLSpecificIfConfig=_XdslDevSDSLSpecificIfConfig_ObjectIdentity((1,3,6,1,4,1,1795,2,24,9,2,4))
+_XdslDevSDSLSpecificIfConfigTable_Object=MibTable
+xdslDevSDSLSpecificIfConfigTable=_XdslDevSDSLSpecificIfConfigTable_Object((1,3,6,1,4,1,1795,2,24,9,2,4,1))
+if mibBuilder.loadTexts:xdslDevSDSLSpecificIfConfigTable.setStatus(_A)
+_XdslDevSDSLSpecificIfConfigEntry_Object=MibTableRow
+xdslDevSDSLSpecificIfConfigEntry=_XdslDevSDSLSpecificIfConfigEntry_Object((1,3,6,1,4,1,1795,2,24,9,2,4,1,1))
+xdslDevSDSLSpecificIfConfigEntry.setIndexNames((0,_D,_E))
+if mibBuilder.loadTexts:xdslDevSDSLSpecificIfConfigEntry.setStatus(_A)
+_XdslDevSDSLSpecificIfConfigFixedPortSpeed_Type=Integer32
+_XdslDevSDSLSpecificIfConfigFixedPortSpeed_Object=MibTableColumn
+xdslDevSDSLSpecificIfConfigFixedPortSpeed=_XdslDevSDSLSpecificIfConfigFixedPortSpeed_Object((1,3,6,1,4,1,1795,2,24,9,2,4,1,1,1),_XdslDevSDSLSpecificIfConfigFixedPortSpeed_Type())
+xdslDevSDSLSpecificIfConfigFixedPortSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevSDSLSpecificIfConfigFixedPortSpeed.setStatus(_A)
+_XdslDevSDSLSpecificIfConfigMaxPortSpeed_Type=Integer32
+_XdslDevSDSLSpecificIfConfigMaxPortSpeed_Object=MibTableColumn
+xdslDevSDSLSpecificIfConfigMaxPortSpeed=_XdslDevSDSLSpecificIfConfigMaxPortSpeed_Object((1,3,6,1,4,1,1795,2,24,9,2,4,1,1,2),_XdslDevSDSLSpecificIfConfigMaxPortSpeed_Type())
+xdslDevSDSLSpecificIfConfigMaxPortSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevSDSLSpecificIfConfigMaxPortSpeed.setStatus(_A)
+class _XdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_XdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode_Type.__name__=_C
+_XdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode_Object=MibTableColumn
+xdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode=_XdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode_Object((1,3,6,1,4,1,1795,2,24,9,2,4,1,1,3),_XdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode_Type())
+xdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode.setStatus(_A)
+class _XdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_XdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode_Type.__name__=_C
+_XdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode_Object=MibTableColumn
+xdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode=_XdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode_Object((1,3,6,1,4,1,1795,2,24,9,2,4,1,1,4),_XdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode_Type())
+xdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode.setStatus(_A)
+class _XdslDevSDSLSpecificIfConfigMinSnrMargin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
+_XdslDevSDSLSpecificIfConfigMinSnrMargin_Type.__name__=_C
+_XdslDevSDSLSpecificIfConfigMinSnrMargin_Object=MibTableColumn
+xdslDevSDSLSpecificIfConfigMinSnrMargin=_XdslDevSDSLSpecificIfConfigMinSnrMargin_Object((1,3,6,1,4,1,1795,2,24,9,2,4,1,1,5),_XdslDevSDSLSpecificIfConfigMinSnrMargin_Type())
+xdslDevSDSLSpecificIfConfigMinSnrMargin.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevSDSLSpecificIfConfigMinSnrMargin.setStatus(_A)
+class _XdslDevSDSLSpecificIfConfigTargetSnrMargin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,15))
+_XdslDevSDSLSpecificIfConfigTargetSnrMargin_Type.__name__=_C
+_XdslDevSDSLSpecificIfConfigTargetSnrMargin_Object=MibTableColumn
+xdslDevSDSLSpecificIfConfigTargetSnrMargin=_XdslDevSDSLSpecificIfConfigTargetSnrMargin_Object((1,3,6,1,4,1,1795,2,24,9,2,4,1,1,6),_XdslDevSDSLSpecificIfConfigTargetSnrMargin_Type())
+xdslDevSDSLSpecificIfConfigTargetSnrMargin.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevSDSLSpecificIfConfigTargetSnrMargin.setStatus(_A)
+_XdslDevIDSLSpecificIfConfig_ObjectIdentity=ObjectIdentity
+xdslDevIDSLSpecificIfConfig=_XdslDevIDSLSpecificIfConfig_ObjectIdentity((1,3,6,1,4,1,1795,2,24,9,2,5))
+_XdslDevIDSLSpecificIfConfigTable_Object=MibTable
+xdslDevIDSLSpecificIfConfigTable=_XdslDevIDSLSpecificIfConfigTable_Object((1,3,6,1,4,1,1795,2,24,9,2,5,1))
+if mibBuilder.loadTexts:xdslDevIDSLSpecificIfConfigTable.setStatus(_A)
+_XdslDevIDSLSpecificIfConfigEntry_Object=MibTableRow
+xdslDevIDSLSpecificIfConfigEntry=_XdslDevIDSLSpecificIfConfigEntry_Object((1,3,6,1,4,1,1795,2,24,9,2,5,1,1))
+xdslDevIDSLSpecificIfConfigEntry.setIndexNames((0,_D,_E))
+if mibBuilder.loadTexts:xdslDevIDSLSpecificIfConfigEntry.setStatus(_A)
+_XdslDevIDSLSpecificIfConfigPortSpeed_Type=Integer32
+_XdslDevIDSLSpecificIfConfigPortSpeed_Object=MibTableColumn
+xdslDevIDSLSpecificIfConfigPortSpeed=_XdslDevIDSLSpecificIfConfigPortSpeed_Object((1,3,6,1,4,1,1795,2,24,9,2,5,1,1,1),_XdslDevIDSLSpecificIfConfigPortSpeed_Type())
+xdslDevIDSLSpecificIfConfigPortSpeed.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevIDSLSpecificIfConfigPortSpeed.setStatus(_A)
+class _XdslDevIDSLSpecificIfConfigTimingPortTransceiverMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('networkTiming',1),('localTiming',2)))
+_XdslDevIDSLSpecificIfConfigTimingPortTransceiverMode_Type.__name__=_C
+_XdslDevIDSLSpecificIfConfigTimingPortTransceiverMode_Object=MibTableColumn
+xdslDevIDSLSpecificIfConfigTimingPortTransceiverMode=_XdslDevIDSLSpecificIfConfigTimingPortTransceiverMode_Object((1,3,6,1,4,1,1795,2,24,9,2,5,1,1,2),_XdslDevIDSLSpecificIfConfigTimingPortTransceiverMode_Type())
+xdslDevIDSLSpecificIfConfigTimingPortTransceiverMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevIDSLSpecificIfConfigTimingPortTransceiverMode.setStatus(_A)
+class _XdslDevIDSLSpecificChannel_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('b1',1),('b2',2),('noOp',3)))
+_XdslDevIDSLSpecificChannel_Type.__name__=_C
+_XdslDevIDSLSpecificChannel_Object=MibTableColumn
+xdslDevIDSLSpecificChannel=_XdslDevIDSLSpecificChannel_Object((1,3,6,1,4,1,1795,2,24,9,2,5,1,1,3),_XdslDevIDSLSpecificChannel_Type())
+xdslDevIDSLSpecificChannel.setMaxAccess(_B)
+if mibBuilder.loadTexts:xdslDevIDSLSpecificChannel.setStatus(_A)
+_XdslIfConfigMIBTraps_ObjectIdentity=ObjectIdentity
+xdslIfConfigMIBTraps=_XdslIfConfigMIBTraps_ObjectIdentity((1,3,6,1,4,1,1795,2,24,9,4))
+xdslLinkUpDownTransitions=NotificationType((1,3,6,1,4,1,1795,2,24,9,4,0,1))
+xdslLinkUpDownTransitions.setObjects((_D,_E))
+if mibBuilder.loadTexts:xdslLinkUpDownTransitions.setStatus('')
+mibBuilder.exportSymbols('PDN-XDSL-INTERFACE-MIB',**{'xdslIfConfigMIBObjects':xdslIfConfigMIBObjects,'xdslDevGenericIfConfig':xdslDevGenericIfConfig,'xdslDevGenericIfConfigTable':xdslDevGenericIfConfigTable,'xdslDevGenericIfConfigEntry':xdslDevGenericIfConfigEntry,'xdslDevGenericIfConfigPortSpeedBehaviour':xdslDevGenericIfConfigPortSpeedBehaviour,'xdslDevGenericIfConfigMarginThreshold':xdslDevGenericIfConfigMarginThreshold,'xdslDevGenericIfConfigPortID':xdslDevGenericIfConfigPortID,'xdslDevGenericIfConfigLinkUpDownTransitionThreshold':xdslDevGenericIfConfigLinkUpDownTransitionThreshold,'xdslDevGenericIfConfigLineEncodeType':xdslDevGenericIfConfigLineEncodeType,'xdslDevGenericIfConfigLineRateMode':xdslDevGenericIfConfigLineRateMode,'xdslDevGenericIfConfigLinkEncapType':xdslDevGenericIfConfigLinkEncapType,'xdslDevGenericIfConfigSnType':xdslDevGenericIfConfigSnType,'xdslDevRADSLSpecificIfConfig':xdslDevRADSLSpecificIfConfig,'xdslDevRADSLSpecificIfConfigTable':xdslDevRADSLSpecificIfConfigTable,'xdslDevRADSLSpecificIfConfigEntry':xdslDevRADSLSpecificIfConfigEntry,'xdslDevRADSLSpecificIfConfigUpFixedPortSpeed':xdslDevRADSLSpecificIfConfigUpFixedPortSpeed,'xdslDevRADSLSpecificIfConfigDownFixedPortSpeed':xdslDevRADSLSpecificIfConfigDownFixedPortSpeed,'xdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed':xdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed,'xdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed':xdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed,'xdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed':xdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed,'xdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed':xdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed,'xdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection':xdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection,'xdslDevRADSLSpecificIfConfigStartUpMargin':xdslDevRADSLSpecificIfConfigStartUpMargin,'xdslDevRADSLSpecificIfConfigTxPowerAttenuation':xdslDevRADSLSpecificIfConfigTxPowerAttenuation,'xdslDevRADSLSpecificIfConfigSnTxPowerAttenuation':xdslDevRADSLSpecificIfConfigSnTxPowerAttenuation,'xdslDevMVLSpecificIfConfig':xdslDevMVLSpecificIfConfig,'xdslDevMVLSpecificIfConfigTable':xdslDevMVLSpecificIfConfigTable,'xdslDevMVLSpecificIfConfigEntry':xdslDevMVLSpecificIfConfigEntry,'xdslDevMVLSpecificIfConfigMaxPortSpeed':xdslDevMVLSpecificIfConfigMaxPortSpeed,'xdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation':xdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation,'xdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation':xdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation,'xdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue':xdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue,'xdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue':xdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue,'xdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed':xdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed,'xdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed':xdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed,'xdslDevSDSLSpecificIfConfig':xdslDevSDSLSpecificIfConfig,'xdslDevSDSLSpecificIfConfigTable':xdslDevSDSLSpecificIfConfigTable,'xdslDevSDSLSpecificIfConfigEntry':xdslDevSDSLSpecificIfConfigEntry,'xdslDevSDSLSpecificIfConfigFixedPortSpeed':xdslDevSDSLSpecificIfConfigFixedPortSpeed,'xdslDevSDSLSpecificIfConfigMaxPortSpeed':xdslDevSDSLSpecificIfConfigMaxPortSpeed,'xdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode':xdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode,'xdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode':xdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode,'xdslDevSDSLSpecificIfConfigMinSnrMargin':xdslDevSDSLSpecificIfConfigMinSnrMargin,'xdslDevSDSLSpecificIfConfigTargetSnrMargin':xdslDevSDSLSpecificIfConfigTargetSnrMargin,'xdslDevIDSLSpecificIfConfig':xdslDevIDSLSpecificIfConfig,'xdslDevIDSLSpecificIfConfigTable':xdslDevIDSLSpecificIfConfigTable,'xdslDevIDSLSpecificIfConfigEntry':xdslDevIDSLSpecificIfConfigEntry,'xdslDevIDSLSpecificIfConfigPortSpeed':xdslDevIDSLSpecificIfConfigPortSpeed,'xdslDevIDSLSpecificIfConfigTimingPortTransceiverMode':xdslDevIDSLSpecificIfConfigTimingPortTransceiverMode,'xdslDevIDSLSpecificChannel':xdslDevIDSLSpecificChannel,'xdslIfConfigMIBTraps':xdslIfConfigMIBTraps,'xdslLinkUpDownTransitions':xdslLinkUpDownTransitions})

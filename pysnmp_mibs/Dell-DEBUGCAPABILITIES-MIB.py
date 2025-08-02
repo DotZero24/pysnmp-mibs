@@ -1,0 +1,16 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+rnd,=mibBuilder.importSymbols('Dell-MIB','rnd')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+rlDebugCapabilities=ModuleIdentity((1,3,6,1,4,1,89,206))
+if mibBuilder.loadTexts:rlDebugCapabilities.setRevisions(('2011-01-05 00:00',))
+_RlDebugCapabilitiesPassword_Type=DisplayString
+_RlDebugCapabilitiesPassword_Object=MibScalar
+rlDebugCapabilitiesPassword=_RlDebugCapabilitiesPassword_Object((1,3,6,1,4,1,89,206,1),_RlDebugCapabilitiesPassword_Type())
+rlDebugCapabilitiesPassword.setMaxAccess('read-write')
+if mibBuilder.loadTexts:rlDebugCapabilitiesPassword.setStatus('current')
+mibBuilder.exportSymbols('Dell-DEBUGCAPABILITIES-MIB',**{'rlDebugCapabilities':rlDebugCapabilities,'rlDebugCapabilitiesPassword':rlDebugCapabilitiesPassword})

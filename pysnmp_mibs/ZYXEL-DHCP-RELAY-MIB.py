@@ -1,0 +1,167 @@
+_K='zyDhcpRelayVlanRelayRemoteServerIpAddress'
+_J='zyDhcpRelayGlobalRelayRemoteServerIpAddress'
+_I='not-accessible'
+_H='dot1dBasePort'
+_G='BRIDGE-MIB'
+_F='read-create'
+_E='read-write'
+_D='zyDhcpRelayVlanRelayRemoteServerServeVid'
+_C='read-only'
+_B='ZYXEL-DHCP-RELAY-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+dot1dBasePort,=mibBuilder.importSymbols(_G,_H)
+EnabledStatus,=mibBuilder.importSymbols('P-BRIDGE-MIB','EnabledStatus')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,RowStatus,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention')
+esMgmt,=mibBuilder.importSymbols('ZYXEL-ES-SMI','esMgmt')
+zyxelDhcpRelay=ModuleIdentity((1,3,6,1,4,1,890,1,15,3,18))
+_ZyxelDhcpRelaySetup_ObjectIdentity=ObjectIdentity
+zyxelDhcpRelaySetup=_ZyxelDhcpRelaySetup_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,18,1))
+_ZyxelDhcpRelayGlobalRelay_ObjectIdentity=ObjectIdentity
+zyxelDhcpRelayGlobalRelay=_ZyxelDhcpRelayGlobalRelay_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,18,1,1))
+_ZyDhcpRelayGlobalRelayState_Type=EnabledStatus
+_ZyDhcpRelayGlobalRelayState_Object=MibScalar
+zyDhcpRelayGlobalRelayState=_ZyDhcpRelayGlobalRelayState_Object((1,3,6,1,4,1,890,1,15,3,18,1,1,1),_ZyDhcpRelayGlobalRelayState_Type())
+zyDhcpRelayGlobalRelayState.setMaxAccess(_E)
+if mibBuilder.loadTexts:zyDhcpRelayGlobalRelayState.setStatus(_A)
+_ZyDhcpRelayGlobalRelayRemoteServerMaxNumberOfServers_Type=Integer32
+_ZyDhcpRelayGlobalRelayRemoteServerMaxNumberOfServers_Object=MibScalar
+zyDhcpRelayGlobalRelayRemoteServerMaxNumberOfServers=_ZyDhcpRelayGlobalRelayRemoteServerMaxNumberOfServers_Object((1,3,6,1,4,1,890,1,15,3,18,1,1,2),_ZyDhcpRelayGlobalRelayRemoteServerMaxNumberOfServers_Type())
+zyDhcpRelayGlobalRelayRemoteServerMaxNumberOfServers.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyDhcpRelayGlobalRelayRemoteServerMaxNumberOfServers.setStatus(_A)
+_ZyxelDhcpRelayGlobalRelayRemoteServerTable_Object=MibTable
+zyxelDhcpRelayGlobalRelayRemoteServerTable=_ZyxelDhcpRelayGlobalRelayRemoteServerTable_Object((1,3,6,1,4,1,890,1,15,3,18,1,1,3))
+if mibBuilder.loadTexts:zyxelDhcpRelayGlobalRelayRemoteServerTable.setStatus(_A)
+_ZyxelDhcpRelayGlobalRelayRemoteServerEntry_Object=MibTableRow
+zyxelDhcpRelayGlobalRelayRemoteServerEntry=_ZyxelDhcpRelayGlobalRelayRemoteServerEntry_Object((1,3,6,1,4,1,890,1,15,3,18,1,1,3,1))
+zyxelDhcpRelayGlobalRelayRemoteServerEntry.setIndexNames((0,_B,_J))
+if mibBuilder.loadTexts:zyxelDhcpRelayGlobalRelayRemoteServerEntry.setStatus(_A)
+_ZyDhcpRelayGlobalRelayRemoteServerIpAddress_Type=IpAddress
+_ZyDhcpRelayGlobalRelayRemoteServerIpAddress_Object=MibTableColumn
+zyDhcpRelayGlobalRelayRemoteServerIpAddress=_ZyDhcpRelayGlobalRelayRemoteServerIpAddress_Object((1,3,6,1,4,1,890,1,15,3,18,1,1,3,1,1),_ZyDhcpRelayGlobalRelayRemoteServerIpAddress_Type())
+zyDhcpRelayGlobalRelayRemoteServerIpAddress.setMaxAccess(_I)
+if mibBuilder.loadTexts:zyDhcpRelayGlobalRelayRemoteServerIpAddress.setStatus(_A)
+_ZyDhcpRelayGlobalRelayRemoteServerRowStatus_Type=RowStatus
+_ZyDhcpRelayGlobalRelayRemoteServerRowStatus_Object=MibTableColumn
+zyDhcpRelayGlobalRelayRemoteServerRowStatus=_ZyDhcpRelayGlobalRelayRemoteServerRowStatus_Object((1,3,6,1,4,1,890,1,15,3,18,1,1,3,1,2),_ZyDhcpRelayGlobalRelayRemoteServerRowStatus_Type())
+zyDhcpRelayGlobalRelayRemoteServerRowStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:zyDhcpRelayGlobalRelayRemoteServerRowStatus.setStatus(_A)
+_ZyDhcpRelayGlobalRelayOption82Profile_Type=DisplayString
+_ZyDhcpRelayGlobalRelayOption82Profile_Object=MibScalar
+zyDhcpRelayGlobalRelayOption82Profile=_ZyDhcpRelayGlobalRelayOption82Profile_Object((1,3,6,1,4,1,890,1,15,3,18,1,1,4),_ZyDhcpRelayGlobalRelayOption82Profile_Type())
+zyDhcpRelayGlobalRelayOption82Profile.setMaxAccess(_E)
+if mibBuilder.loadTexts:zyDhcpRelayGlobalRelayOption82Profile.setStatus(_A)
+_ZyDhcpRelayGlobalRelayMaxNumberOfOption82Port_Type=Integer32
+_ZyDhcpRelayGlobalRelayMaxNumberOfOption82Port_Object=MibScalar
+zyDhcpRelayGlobalRelayMaxNumberOfOption82Port=_ZyDhcpRelayGlobalRelayMaxNumberOfOption82Port_Object((1,3,6,1,4,1,890,1,15,3,18,1,1,5),_ZyDhcpRelayGlobalRelayMaxNumberOfOption82Port_Type())
+zyDhcpRelayGlobalRelayMaxNumberOfOption82Port.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyDhcpRelayGlobalRelayMaxNumberOfOption82Port.setStatus(_A)
+_ZyxelDhcpRelayGlobalRelayOption82PortTable_Object=MibTable
+zyxelDhcpRelayGlobalRelayOption82PortTable=_ZyxelDhcpRelayGlobalRelayOption82PortTable_Object((1,3,6,1,4,1,890,1,15,3,18,1,1,6))
+if mibBuilder.loadTexts:zyxelDhcpRelayGlobalRelayOption82PortTable.setStatus(_A)
+_ZyxelDhcpRelayGlobalRelayOption82PortEntry_Object=MibTableRow
+zyxelDhcpRelayGlobalRelayOption82PortEntry=_ZyxelDhcpRelayGlobalRelayOption82PortEntry_Object((1,3,6,1,4,1,890,1,15,3,18,1,1,6,1))
+zyxelDhcpRelayGlobalRelayOption82PortEntry.setIndexNames((0,_G,_H))
+if mibBuilder.loadTexts:zyxelDhcpRelayGlobalRelayOption82PortEntry.setStatus(_A)
+_ZyDhcpRelayGlobalRelayOption82PortProfile_Type=DisplayString
+_ZyDhcpRelayGlobalRelayOption82PortProfile_Object=MibTableColumn
+zyDhcpRelayGlobalRelayOption82PortProfile=_ZyDhcpRelayGlobalRelayOption82PortProfile_Object((1,3,6,1,4,1,890,1,15,3,18,1,1,6,1,1),_ZyDhcpRelayGlobalRelayOption82PortProfile_Type())
+zyDhcpRelayGlobalRelayOption82PortProfile.setMaxAccess(_F)
+if mibBuilder.loadTexts:zyDhcpRelayGlobalRelayOption82PortProfile.setStatus(_A)
+_ZyxelDhcpRelayVlanRelay_ObjectIdentity=ObjectIdentity
+zyxelDhcpRelayVlanRelay=_ZyxelDhcpRelayVlanRelay_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,18,1,2))
+_ZyDhcpRelayVlanRelayMaxNumberOfRelays_Type=Integer32
+_ZyDhcpRelayVlanRelayMaxNumberOfRelays_Object=MibScalar
+zyDhcpRelayVlanRelayMaxNumberOfRelays=_ZyDhcpRelayVlanRelayMaxNumberOfRelays_Object((1,3,6,1,4,1,890,1,15,3,18,1,2,1),_ZyDhcpRelayVlanRelayMaxNumberOfRelays_Type())
+zyDhcpRelayVlanRelayMaxNumberOfRelays.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyDhcpRelayVlanRelayMaxNumberOfRelays.setStatus(_A)
+_ZyDhcpRelayVlanRelayRemoteServerMaxNumberOfServers_Type=Integer32
+_ZyDhcpRelayVlanRelayRemoteServerMaxNumberOfServers_Object=MibScalar
+zyDhcpRelayVlanRelayRemoteServerMaxNumberOfServers=_ZyDhcpRelayVlanRelayRemoteServerMaxNumberOfServers_Object((1,3,6,1,4,1,890,1,15,3,18,1,2,2),_ZyDhcpRelayVlanRelayRemoteServerMaxNumberOfServers_Type())
+zyDhcpRelayVlanRelayRemoteServerMaxNumberOfServers.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyDhcpRelayVlanRelayRemoteServerMaxNumberOfServers.setStatus(_A)
+_ZyxelDhcpRelayVlanRelayRemoteServerTable_Object=MibTable
+zyxelDhcpRelayVlanRelayRemoteServerTable=_ZyxelDhcpRelayVlanRelayRemoteServerTable_Object((1,3,6,1,4,1,890,1,15,3,18,1,2,3))
+if mibBuilder.loadTexts:zyxelDhcpRelayVlanRelayRemoteServerTable.setStatus(_A)
+_ZyxelDhcpRelayVlanRelayRemoteServerEntry_Object=MibTableRow
+zyxelDhcpRelayVlanRelayRemoteServerEntry=_ZyxelDhcpRelayVlanRelayRemoteServerEntry_Object((1,3,6,1,4,1,890,1,15,3,18,1,2,3,1))
+zyxelDhcpRelayVlanRelayRemoteServerEntry.setIndexNames((0,_B,_D),(0,_B,_K))
+if mibBuilder.loadTexts:zyxelDhcpRelayVlanRelayRemoteServerEntry.setStatus(_A)
+_ZyDhcpRelayVlanRelayRemoteServerServeVid_Type=Integer32
+_ZyDhcpRelayVlanRelayRemoteServerServeVid_Object=MibTableColumn
+zyDhcpRelayVlanRelayRemoteServerServeVid=_ZyDhcpRelayVlanRelayRemoteServerServeVid_Object((1,3,6,1,4,1,890,1,15,3,18,1,2,3,1,1),_ZyDhcpRelayVlanRelayRemoteServerServeVid_Type())
+zyDhcpRelayVlanRelayRemoteServerServeVid.setMaxAccess(_I)
+if mibBuilder.loadTexts:zyDhcpRelayVlanRelayRemoteServerServeVid.setStatus(_A)
+_ZyDhcpRelayVlanRelayRemoteServerIpAddress_Type=IpAddress
+_ZyDhcpRelayVlanRelayRemoteServerIpAddress_Object=MibTableColumn
+zyDhcpRelayVlanRelayRemoteServerIpAddress=_ZyDhcpRelayVlanRelayRemoteServerIpAddress_Object((1,3,6,1,4,1,890,1,15,3,18,1,2,3,1,2),_ZyDhcpRelayVlanRelayRemoteServerIpAddress_Type())
+zyDhcpRelayVlanRelayRemoteServerIpAddress.setMaxAccess(_I)
+if mibBuilder.loadTexts:zyDhcpRelayVlanRelayRemoteServerIpAddress.setStatus(_A)
+_ZyDhcpRelayVlanRelayRemoteServerRowStatus_Type=RowStatus
+_ZyDhcpRelayVlanRelayRemoteServerRowStatus_Object=MibTableColumn
+zyDhcpRelayVlanRelayRemoteServerRowStatus=_ZyDhcpRelayVlanRelayRemoteServerRowStatus_Object((1,3,6,1,4,1,890,1,15,3,18,1,2,3,1,3),_ZyDhcpRelayVlanRelayRemoteServerRowStatus_Type())
+zyDhcpRelayVlanRelayRemoteServerRowStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:zyDhcpRelayVlanRelayRemoteServerRowStatus.setStatus(_A)
+_ZyxelDhcpRelayVlanRelayTable_Object=MibTable
+zyxelDhcpRelayVlanRelayTable=_ZyxelDhcpRelayVlanRelayTable_Object((1,3,6,1,4,1,890,1,15,3,18,1,2,4))
+if mibBuilder.loadTexts:zyxelDhcpRelayVlanRelayTable.setStatus(_A)
+_ZyxelDhcpRelayVlanRelayEntry_Object=MibTableRow
+zyxelDhcpRelayVlanRelayEntry=_ZyxelDhcpRelayVlanRelayEntry_Object((1,3,6,1,4,1,890,1,15,3,18,1,2,4,1))
+zyxelDhcpRelayVlanRelayEntry.setIndexNames((0,_B,_D))
+if mibBuilder.loadTexts:zyxelDhcpRelayVlanRelayEntry.setStatus(_A)
+_ZyDhcpRelayVlanRelayOption82Profile_Type=DisplayString
+_ZyDhcpRelayVlanRelayOption82Profile_Object=MibTableColumn
+zyDhcpRelayVlanRelayOption82Profile=_ZyDhcpRelayVlanRelayOption82Profile_Object((1,3,6,1,4,1,890,1,15,3,18,1,2,4,1,1),_ZyDhcpRelayVlanRelayOption82Profile_Type())
+zyDhcpRelayVlanRelayOption82Profile.setMaxAccess(_E)
+if mibBuilder.loadTexts:zyDhcpRelayVlanRelayOption82Profile.setStatus(_A)
+_ZyDhcpRelayVlanRelayMaxNumberOfOption82VlanPort_Type=Integer32
+_ZyDhcpRelayVlanRelayMaxNumberOfOption82VlanPort_Object=MibScalar
+zyDhcpRelayVlanRelayMaxNumberOfOption82VlanPort=_ZyDhcpRelayVlanRelayMaxNumberOfOption82VlanPort_Object((1,3,6,1,4,1,890,1,15,3,18,1,2,5),_ZyDhcpRelayVlanRelayMaxNumberOfOption82VlanPort_Type())
+zyDhcpRelayVlanRelayMaxNumberOfOption82VlanPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyDhcpRelayVlanRelayMaxNumberOfOption82VlanPort.setStatus(_A)
+_ZyxelDhcpRelayVlanRelayOption82VlanPortTable_Object=MibTable
+zyxelDhcpRelayVlanRelayOption82VlanPortTable=_ZyxelDhcpRelayVlanRelayOption82VlanPortTable_Object((1,3,6,1,4,1,890,1,15,3,18,1,2,6))
+if mibBuilder.loadTexts:zyxelDhcpRelayVlanRelayOption82VlanPortTable.setStatus(_A)
+_ZyxelDhcpRelayVlanRelayOption82VlanPortEntry_Object=MibTableRow
+zyxelDhcpRelayVlanRelayOption82VlanPortEntry=_ZyxelDhcpRelayVlanRelayOption82VlanPortEntry_Object((1,3,6,1,4,1,890,1,15,3,18,1,2,6,1))
+zyxelDhcpRelayVlanRelayOption82VlanPortEntry.setIndexNames((0,_B,_D),(0,_G,_H))
+if mibBuilder.loadTexts:zyxelDhcpRelayVlanRelayOption82VlanPortEntry.setStatus(_A)
+_ZyDhcpRelayVlanRelayOption82VlanPortProfile_Type=DisplayString
+_ZyDhcpRelayVlanRelayOption82VlanPortProfile_Object=MibTableColumn
+zyDhcpRelayVlanRelayOption82VlanPortProfile=_ZyDhcpRelayVlanRelayOption82VlanPortProfile_Object((1,3,6,1,4,1,890,1,15,3,18,1,2,6,1,1),_ZyDhcpRelayVlanRelayOption82VlanPortProfile_Type())
+zyDhcpRelayVlanRelayOption82VlanPortProfile.setMaxAccess(_F)
+if mibBuilder.loadTexts:zyDhcpRelayVlanRelayOption82VlanPortProfile.setStatus(_A)
+_ZyxelDhcpRelayVlanRelaySourceAddressTable_Object=MibTable
+zyxelDhcpRelayVlanRelaySourceAddressTable=_ZyxelDhcpRelayVlanRelaySourceAddressTable_Object((1,3,6,1,4,1,890,1,15,3,18,1,2,7))
+if mibBuilder.loadTexts:zyxelDhcpRelayVlanRelaySourceAddressTable.setStatus(_A)
+_ZyxelDhcpRelayVlanRelaySourceAddressEntry_Object=MibTableRow
+zyxelDhcpRelayVlanRelaySourceAddressEntry=_ZyxelDhcpRelayVlanRelaySourceAddressEntry_Object((1,3,6,1,4,1,890,1,15,3,18,1,2,7,1))
+zyxelDhcpRelayVlanRelaySourceAddressEntry.setIndexNames((0,_B,_D))
+if mibBuilder.loadTexts:zyxelDhcpRelayVlanRelaySourceAddressEntry.setStatus(_A)
+_ZyDhcpRelayVlanRelaySourceAddress_Type=IpAddress
+_ZyDhcpRelayVlanRelaySourceAddress_Object=MibTableColumn
+zyDhcpRelayVlanRelaySourceAddress=_ZyDhcpRelayVlanRelaySourceAddress_Object((1,3,6,1,4,1,890,1,15,3,18,1,2,7,1,1),_ZyDhcpRelayVlanRelaySourceAddress_Type())
+zyDhcpRelayVlanRelaySourceAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:zyDhcpRelayVlanRelaySourceAddress.setStatus(_A)
+_ZyxelDhcpRelayStatus_ObjectIdentity=ObjectIdentity
+zyxelDhcpRelayStatus=_ZyxelDhcpRelayStatus_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,18,2))
+_ZyxelDhcpRelayVlanRelayInfo_ObjectIdentity=ObjectIdentity
+zyxelDhcpRelayVlanRelayInfo=_ZyxelDhcpRelayVlanRelayInfo_ObjectIdentity((1,3,6,1,4,1,890,1,15,3,18,2,1))
+_ZyxelDhcpRelayVlanRelaySourceAddressInfoTable_Object=MibTable
+zyxelDhcpRelayVlanRelaySourceAddressInfoTable=_ZyxelDhcpRelayVlanRelaySourceAddressInfoTable_Object((1,3,6,1,4,1,890,1,15,3,18,2,1,1))
+if mibBuilder.loadTexts:zyxelDhcpRelayVlanRelaySourceAddressInfoTable.setStatus(_A)
+_ZyxelDhcpRelayVlanRelaySourceAddressInfoEntry_Object=MibTableRow
+zyxelDhcpRelayVlanRelaySourceAddressInfoEntry=_ZyxelDhcpRelayVlanRelaySourceAddressInfoEntry_Object((1,3,6,1,4,1,890,1,15,3,18,2,1,1,1))
+zyxelDhcpRelayVlanRelaySourceAddressInfoEntry.setIndexNames((0,_B,_D))
+if mibBuilder.loadTexts:zyxelDhcpRelayVlanRelaySourceAddressInfoEntry.setStatus(_A)
+_ZyDhcpRelayVlanRelayCurrentSourceAddress_Type=IpAddress
+_ZyDhcpRelayVlanRelayCurrentSourceAddress_Object=MibTableColumn
+zyDhcpRelayVlanRelayCurrentSourceAddress=_ZyDhcpRelayVlanRelayCurrentSourceAddress_Object((1,3,6,1,4,1,890,1,15,3,18,2,1,1,1,1),_ZyDhcpRelayVlanRelayCurrentSourceAddress_Type())
+zyDhcpRelayVlanRelayCurrentSourceAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:zyDhcpRelayVlanRelayCurrentSourceAddress.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'zyxelDhcpRelay':zyxelDhcpRelay,'zyxelDhcpRelaySetup':zyxelDhcpRelaySetup,'zyxelDhcpRelayGlobalRelay':zyxelDhcpRelayGlobalRelay,'zyDhcpRelayGlobalRelayState':zyDhcpRelayGlobalRelayState,'zyDhcpRelayGlobalRelayRemoteServerMaxNumberOfServers':zyDhcpRelayGlobalRelayRemoteServerMaxNumberOfServers,'zyxelDhcpRelayGlobalRelayRemoteServerTable':zyxelDhcpRelayGlobalRelayRemoteServerTable,'zyxelDhcpRelayGlobalRelayRemoteServerEntry':zyxelDhcpRelayGlobalRelayRemoteServerEntry,_J:zyDhcpRelayGlobalRelayRemoteServerIpAddress,'zyDhcpRelayGlobalRelayRemoteServerRowStatus':zyDhcpRelayGlobalRelayRemoteServerRowStatus,'zyDhcpRelayGlobalRelayOption82Profile':zyDhcpRelayGlobalRelayOption82Profile,'zyDhcpRelayGlobalRelayMaxNumberOfOption82Port':zyDhcpRelayGlobalRelayMaxNumberOfOption82Port,'zyxelDhcpRelayGlobalRelayOption82PortTable':zyxelDhcpRelayGlobalRelayOption82PortTable,'zyxelDhcpRelayGlobalRelayOption82PortEntry':zyxelDhcpRelayGlobalRelayOption82PortEntry,'zyDhcpRelayGlobalRelayOption82PortProfile':zyDhcpRelayGlobalRelayOption82PortProfile,'zyxelDhcpRelayVlanRelay':zyxelDhcpRelayVlanRelay,'zyDhcpRelayVlanRelayMaxNumberOfRelays':zyDhcpRelayVlanRelayMaxNumberOfRelays,'zyDhcpRelayVlanRelayRemoteServerMaxNumberOfServers':zyDhcpRelayVlanRelayRemoteServerMaxNumberOfServers,'zyxelDhcpRelayVlanRelayRemoteServerTable':zyxelDhcpRelayVlanRelayRemoteServerTable,'zyxelDhcpRelayVlanRelayRemoteServerEntry':zyxelDhcpRelayVlanRelayRemoteServerEntry,_D:zyDhcpRelayVlanRelayRemoteServerServeVid,_K:zyDhcpRelayVlanRelayRemoteServerIpAddress,'zyDhcpRelayVlanRelayRemoteServerRowStatus':zyDhcpRelayVlanRelayRemoteServerRowStatus,'zyxelDhcpRelayVlanRelayTable':zyxelDhcpRelayVlanRelayTable,'zyxelDhcpRelayVlanRelayEntry':zyxelDhcpRelayVlanRelayEntry,'zyDhcpRelayVlanRelayOption82Profile':zyDhcpRelayVlanRelayOption82Profile,'zyDhcpRelayVlanRelayMaxNumberOfOption82VlanPort':zyDhcpRelayVlanRelayMaxNumberOfOption82VlanPort,'zyxelDhcpRelayVlanRelayOption82VlanPortTable':zyxelDhcpRelayVlanRelayOption82VlanPortTable,'zyxelDhcpRelayVlanRelayOption82VlanPortEntry':zyxelDhcpRelayVlanRelayOption82VlanPortEntry,'zyDhcpRelayVlanRelayOption82VlanPortProfile':zyDhcpRelayVlanRelayOption82VlanPortProfile,'zyxelDhcpRelayVlanRelaySourceAddressTable':zyxelDhcpRelayVlanRelaySourceAddressTable,'zyxelDhcpRelayVlanRelaySourceAddressEntry':zyxelDhcpRelayVlanRelaySourceAddressEntry,'zyDhcpRelayVlanRelaySourceAddress':zyDhcpRelayVlanRelaySourceAddress,'zyxelDhcpRelayStatus':zyxelDhcpRelayStatus,'zyxelDhcpRelayVlanRelayInfo':zyxelDhcpRelayVlanRelayInfo,'zyxelDhcpRelayVlanRelaySourceAddressInfoTable':zyxelDhcpRelayVlanRelaySourceAddressInfoTable,'zyxelDhcpRelayVlanRelaySourceAddressInfoEntry':zyxelDhcpRelayVlanRelaySourceAddressInfoEntry,'zyDhcpRelayVlanRelayCurrentSourceAddress':zyDhcpRelayVlanRelayCurrentSourceAddress})

@@ -1,112 +1,263 @@
-#
-# PySNMP MIB module T11-FC-RSCN-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/T11-FC-RSCN-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:30:30 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, ObjectIdentifier, OctetString, ) = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-( FcAddressIdOrZero, fcmInstanceIndex, fcmSwitchIndex, FcNameIdOrZero, ) = mibBuilder.importSymbols("FC-MGMT-MIB", "FcAddressIdOrZero", "fcmInstanceIndex", "fcmSwitchIndex", "FcNameIdOrZero")
-( NotificationGroup, ObjectGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-( Counter64, mib_2, Bits, TimeTicks, NotificationType, ModuleIdentity, Unsigned32, Gauge32, Integer32, Counter32, IpAddress, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, ObjectIdentity, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "mib-2", "Bits", "TimeTicks", "NotificationType", "ModuleIdentity", "Unsigned32", "Gauge32", "Integer32", "Counter32", "IpAddress", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "ObjectIdentity")
-( DisplayString, TruthValue, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention")
-( T11NsGs4RejectReasonCode, ) = mibBuilder.importSymbols("T11-FC-NAME-SERVER-MIB", "T11NsGs4RejectReasonCode")
-( T11FabricIndex, ) = mibBuilder.importSymbols("T11-TC-MIB", "T11FabricIndex")
-t11FcRscnMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 161)).setRevisions(("2007-01-08 00:00",))
-if mibBuilder.loadTexts: t11FcRscnMIB.setLastUpdated('200701080000Z')
-if mibBuilder.loadTexts: t11FcRscnMIB.setOrganization("For the initial versions, T11.\n                  For later versions, the IETF's IMSS Working Group.")
-if mibBuilder.loadTexts: t11FcRscnMIB.setContactInfo('     Claudio DeSanti\n                  Cisco Systems, Inc.\n                  170 West Tasman Drive\n                  San Jose, CA 95134 USA\n                  EMail: cds@cisco.com\n\n                  Keith McCloghrie\n                  Cisco Systems, Inc.\n                  170 West Tasman Drive\n                  San Jose, CA 95134 USA\n                  EMail: kzm@cisco.com')
-if mibBuilder.loadTexts: t11FcRscnMIB.setDescription('The MIB module for the management of registrations\n\n\n\n           by Nx_Ports to receive RSCNs (Registered State Change\n           Notifications) on a Fibre Channel Fabric, as defined\n           in FC-LS, and for the monitoring of RSCNs sent/received\n           or rejected in a Fibre Channel Fabric.\n\n           Copyright (C) The Internet Society (2007).  This version of\n           this MIB module is part of RFC 4983;  see the RFC itself for\n           full legal notices.')
-t11FcRscnNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 161, 0))
-t11FcRscnObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 161, 1))
-t11FcRscnConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 161, 2))
-t11FcRscnRegistrations = MibIdentifier((1, 3, 6, 1, 2, 1, 161, 1, 1))
-t11FcRscnStats = MibIdentifier((1, 3, 6, 1, 2, 1, 161, 1, 2))
-t11FcRscnInformation = MibIdentifier((1, 3, 6, 1, 2, 1, 161, 1, 3))
-t11FcRscnRegTable = MibTable((1, 3, 6, 1, 2, 1, 161, 1, 1, 1), )
-if mibBuilder.loadTexts: t11FcRscnRegTable.setDescription('A table of Nx_Ports that have registered to receive\n           RSCNs on all Fabrics configured on one or more Fibre\n           Channel switches.')
-t11FcRscnRegEntry = MibTableRow((1, 3, 6, 1, 2, 1, 161, 1, 1, 1, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-RSCN-MIB", "t11FcRscnFabricIndex"), (0, "T11-FC-RSCN-MIB", "t11FcRscnRegFcId"))
-if mibBuilder.loadTexts: t11FcRscnRegEntry.setDescription('An entry containing information about one Nx_Port that\n           has registered with a particular switch (identified by\n           values of fcmInstanceIndex and fcmSwitchIndex) for a\n           particular Fabric (identified by a t11FcRscnFabricIndex\n           value).')
-t11FcRscnFabricIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 1, 1, 1, 1), T11FabricIndex())
-if mibBuilder.loadTexts: t11FcRscnFabricIndex.setDescription('An index value that uniquely identifies a particular\n           Fabric.\n\n           In a Fabric conformant to FC-SW-4, multiple Virtual Fabrics\n           can operate within one (or more) physical infrastructures.\n           In such a case, this index value is used to uniquely\n           identify a particular Fabric within a physical\n           infrastructure.\n\n           In a Fabric that has (or can have) only a single Fabric\n           operating within the physical infrastructure, the\n           value of this Fabric Index will always be 1.')
-t11FcRscnRegFcId = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 1, 1, 1, 2), FcAddressIdOrZero().subtype(subtypeSpec=ValueSizeConstraint(3,3)).setFixedLength(3))
-if mibBuilder.loadTexts: t11FcRscnRegFcId.setDescription('The Fibre Channel Address Identifier of the\n           registering Nx_Port.')
-t11FcRscnRegType = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 1, 1, 1, 3), Bits().clone(namedValues=NamedValues(("fromFabricController", 0), ("fromNxPort", 1),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnRegType.setDescription("This object indicates the type of registration\n           desired by the registering Nx_Port, one bit per type:\n\n           'fromFabricController' -- RSCNs generated for events\n\n\n\n                                  detected by the Fabric Controller.\n\n           'fromNxPorts'          -- RSCNs generated for events\n                                  detected by the affected Nx_Port.")
-t11FcRscnStatsTable = MibTable((1, 3, 6, 1, 2, 1, 161, 1, 2, 1), )
-if mibBuilder.loadTexts: t11FcRscnStatsTable.setDescription("The RSCN-related statistics on all Fabrics configured\n           on one or more Fibre Channel switches.\n\n           Two levels of statistics are included:\n\n              1) counters at the message-type level, for:\n                 - the number of SCRs received/rejected,\n                 - the number of RSCNs sent/received/rejected,\n                 - the number of SW_RSCNs sent/received/rejected.\n\n              2) counters of sent/received RSCNs per 'Event\n                 Qualifier' value.  Note that if and when several\n                 RSCN events are coalesced into a single RSCN\n                 message, then that message may be counted in\n                 more than one of these counters.")
-t11FcRscnStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-RSCN-MIB", "t11FcRscnFabricIndex"))
-if mibBuilder.loadTexts: t11FcRscnStatsEntry.setDescription('An entry containing statistics for a particular Fabric\n           (identified by a t11FcRscnFabricIndex value) on a particular\n           switch (identified by values of fcmInstanceIndex and\n           fcmSwitchIndex).')
-t11FcRscnInScrs = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnInScrs.setDescription('The number of SCRs received from Nx_Ports\n           by this switch on this Fabric.\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.')
-t11FcRscnInRscns = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnInRscns.setDescription('The number of RSCNs received from Nx_Ports\n           by this switch on this Fabric.\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.')
-t11FcRscnOutRscns = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnOutRscns.setDescription('The number of RSCNs transmitted to Nx_Ports\n           by this switch on this Fabric.\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.')
-t11FcRscnInSwRscns = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnInSwRscns.setDescription('The number of SW_RSCNs received by this switch from\n           other switches on this Fabric.\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.')
-t11FcRscnOutSwRscns = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnOutSwRscns.setDescription('The number of SW_RSCNs transmitted by this switch\n           from other switches on this Fabric.\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.')
-t11FcRscnScrRejects = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnScrRejects.setDescription('The number of SCRs rejected by this switch on\n           this Fabric.\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.')
-t11FcRscnRscnRejects = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnRscnRejects.setDescription('The number of RSCNs rejected by this switch on this\n           Fabric.\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.')
-t11FcRscnSwRscnRejects = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnSwRscnRejects.setDescription('The number of SW_RSCN rejected by this switch on this\n           Fabric.\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.')
-t11FcRscnInUnspecifiedRscns = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnInUnspecifiedRscns.setDescription("The number of Registered State Change Notifications\n           (RSCNs) received by this switch on this Fabric which\n           contained an RSCN Event Qualifier value of '0000'b\n           meaning 'Event is not specified'.\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.")
-t11FcRscnOutUnspecifiedRscns = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnOutUnspecifiedRscns.setDescription("The number of Registered State Change Notifications\n           (RSCNs) sent by this switch on this Fabric which\n           contained an RSCN Event Qualifier value of '0000'b\n           meaning 'Event is not specified'.\n\n\n\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.")
-t11FcRscnInChangedAttribRscns = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnInChangedAttribRscns.setDescription("The number of Registered State Change Notifications\n           (RSCNs) received by this switch on this Fabric which\n           contained an RSCN Event Qualifier value of '0002'b\n           meaning 'Changed Port Attribute'.\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.")
-t11FcRscnOutChangedAttribRscns = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnOutChangedAttribRscns.setDescription("The number of Registered State Change Notifications\n           (RSCNs) sent by this switch on this Fabric which\n           contained an RSCN Event Qualifier value of '0002'b\n           meaning 'Changed Port Attribute'.\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.")
-t11FcRscnInChangedServiceRscns = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnInChangedServiceRscns.setDescription("The number of Registered State Change Notifications\n           (RSCNs) received by this switch on this Fabric which\n\n\n\n           contained an RSCN Event Qualifier value of '0003'b\n           meaning 'Changed Service Object'.\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.")
-t11FcRscnOutChangedServiceRscns = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnOutChangedServiceRscns.setDescription("The number of Registered State Change Notifications\n           (RSCNs) sent by this switch on this Fabric which\n           contained an RSCN Event Qualifier value of '0003'b\n           meaning 'Changed Service Object'.\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.")
-t11FcRscnInChangedSwitchRscns = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnInChangedSwitchRscns.setDescription("The number of Registered State Change Notifications\n           (RSCNs) received by this switch on this Fabric which\n           contained an RSCN Event Qualifier value of '0004'b\n           meaning 'Changed Switch Configuration'.\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.")
-t11FcRscnOutChangedSwitchRscns = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnOutChangedSwitchRscns.setDescription("The number of Registered State Change Notifications\n           (RSCNs) sent by this switch on this Fabric which\n           contained an RSCN Event Qualifier value of '0004'b\n           meaning 'Changed Switch Configuration'.\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.")
-t11FcRscnInRemovedRscns = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnInRemovedRscns.setDescription("The number of Registered State Change Notifications\n           (RSCNs) received by this switch on this Fabric which\n           contained an RSCN Event Qualifier value of '0005'b\n           meaning 'Removed Object'.\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.")
-t11FcRscnOutRemovedRscns = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 2, 1, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnOutRemovedRscns.setDescription("The number of Registered State Change Notifications\n           (RSCNs) sent by this switch on this Fabric which\n           contained an RSCN Event Qualifier value of '0005'b\n           meaning 'Removed Object'.\n\n           This counter has no discontinuities other than\n           those that all Counter32s have when sysUpTime=0.")
-t11FcRscnNotifyControlTable = MibTable((1, 3, 6, 1, 2, 1, 161, 1, 3, 1), )
-if mibBuilder.loadTexts: t11FcRscnNotifyControlTable.setDescription('A table of control information for notifications\n           generated due to the rejection of an SCR or RSCN.')
-t11FcRscnNotifyControlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 161, 1, 3, 1, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-RSCN-MIB", "t11FcRscnFabricIndex"))
-if mibBuilder.loadTexts: t11FcRscnNotifyControlEntry.setDescription('Each entry contains notification control information\n           concerning the rejection of RSCN/SCRs for a particular\n           Fabric (identified by the value of t11FcRscnFabricIndex)\n           by a particular switch (identified by values of\n           fcmInstanceIndex and fcmSwitchIndex).')
-t11FcRscnIlsRejectNotifyEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 3, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FcRscnIlsRejectNotifyEnable.setDescription('This object specifies if a t11FcRscnIlsRejectReqNotify\n           notification should be generated when this switch\n           rejects an SW_RSCN on this Fabric.\n\n           Values written to this object should be retained\n           over agent reboots.')
-t11FcRscnElsRejectNotifyEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 3, 1, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FcRscnElsRejectNotifyEnable.setDescription('This object specifies if a t11FcRscnElsRejectReqNotify\n           notification should be generated when this switch\n           rejects an RSCN or SCR on this Fabric.\n\n           Values written to this object should be retained\n           over agent reboots.')
-t11FcRscnRejectedRequestString = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 3, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnRejectedRequestString.setDescription('The binary content of the RSCN, SCR, or SW_RSCN that\n           was most recently rejected by this switch on this Fabric.\n           The value is formatted as an octet string (in network\n           byte order) as described in the relevant Fibre Channel\n           standard, containing the payload (which is typically a\n           list of affected ports and error codes) of the rejected\n           RSCN or SCR as described in FC-LS, or the rejected\n           SW_RSCN as described in FC-SW-4.\n\n           This object contains the zero-length string if and when\n           the RSCN/SCR/SW_RSCN payload is unavailable.  When the\n           length of this object is 255 octets, it contains the\n           first 255 octets of the payload (in network byte order).')
-t11FcRscnRejectedRequestSource = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 3, 1, 1, 4), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnRejectedRequestSource.setDescription('The WWN that was the source of the RSCN, SCR, or\n           SW_RSCN that was most recently rejected by this switch\n           on this Fabric.')
-t11FcRscnRejectReasonCode = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 3, 1, 1, 5), T11NsGs4RejectReasonCode()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnRejectReasonCode.setDescription('This object contains the Reason Code of the most recent\n           rejection by this switch of an RSCN, SCR or SW_RSCN on\n           this Fabric.')
-t11FcRscnRejectReasonCodeExp = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 3, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnRejectReasonCodeExp.setDescription('This object contains the Reason Code Explanation\n           of the most recent rejection by this switch of an\n           RSCN, SCR or SW_RSCN on this Fabric.')
-t11FcRscnRejectReasonVendorCode = MibTableColumn((1, 3, 6, 1, 2, 1, 161, 1, 3, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FcRscnRejectReasonVendorCode.setDescription('This object contains the Reason Vendor Specific\n           Code of the most recent rejection by this switch\n           of an RSCN, SCR or SW_RSCN on this Fabric.')
-t11FcRscnElsRejectReqNotify = NotificationType((1, 3, 6, 1, 2, 1, 161, 0, 1)).setObjects(*(("T11-FC-RSCN-MIB", "t11FcRscnRejectedRequestString"), ("T11-FC-RSCN-MIB", "t11FcRscnRejectedRequestSource"), ("T11-FC-RSCN-MIB", "t11FcRscnRejectReasonCode"), ("T11-FC-RSCN-MIB", "t11FcRscnRejectReasonCodeExp"), ("T11-FC-RSCN-MIB", "t11FcRscnRejectReasonVendorCode"),))
-if mibBuilder.loadTexts: t11FcRscnElsRejectReqNotify.setDescription('This notification is generated when a switch rejects\n           an SCR or RSCN.\n\n           The value of t11FcRscnRejectedRequestString indicates the\n           binary content of the rejected request if available, or\n           the zero-length string otherwise.  The source of the\n           rejected request is given by t11FcRscnRejectedRequestSource,\n           and the reason for rejection is given by the values of\n           t11FcRscnRejectReasonCode, t11FcRscnRejectReasonCodeExp\n           and t11FcRscnRejectReasonVendorCode.')
-t11FcRscnIlsRejectReqNotify = NotificationType((1, 3, 6, 1, 2, 1, 161, 0, 2)).setObjects(*(("T11-FC-RSCN-MIB", "t11FcRscnRejectedRequestString"), ("T11-FC-RSCN-MIB", "t11FcRscnRejectedRequestSource"), ("T11-FC-RSCN-MIB", "t11FcRscnRejectReasonCode"), ("T11-FC-RSCN-MIB", "t11FcRscnRejectReasonCodeExp"), ("T11-FC-RSCN-MIB", "t11FcRscnRejectReasonVendorCode"),))
-if mibBuilder.loadTexts: t11FcRscnIlsRejectReqNotify.setDescription('This notification is generated when a switch rejects\n           an SW_RSCN.\n\n           The value of t11FcRscnRejectedRequestString indicates the\n           binary content of the rejected request if available, or\n           the zero-length string otherwise.  The source of the\n           rejected request is given by t11FcRscnRejectedRequestSource,\n           and the reason for rejection is given by the values of\n           t11FcRscnRejectReasonCode, t11FcRscnRejectReasonCodeExp\n           and t11FcRscnRejectReasonVendorCode.')
-t11FcRscnCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 161, 2, 1))
-t11FcRscnGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 161, 2, 2))
-t11FcRscnCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 161, 2, 1, 1)).setObjects(*(("T11-FC-RSCN-MIB", "t11FcRscnRegistrationGroup"), ("T11-FC-RSCN-MIB", "t11FcRscnNotifyControlGroup"), ("T11-FC-RSCN-MIB", "t11FcRscnNotifyGroup"), ("T11-FC-RSCN-MIB", "t11FcRscnStatsGroup"),))
-if mibBuilder.loadTexts: t11FcRscnCompliance.setDescription('The compliance statement for entities that implement\n           this MIB.')
-t11FcRscnRegistrationGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 161, 2, 2, 1)).setObjects(*(("T11-FC-RSCN-MIB", "t11FcRscnRegType"),))
-if mibBuilder.loadTexts: t11FcRscnRegistrationGroup.setDescription('A collection of objects for monitoring RSCN\n           registrations.')
-t11FcRscnStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 161, 2, 2, 2)).setObjects(*(("T11-FC-RSCN-MIB", "t11FcRscnInScrs"), ("T11-FC-RSCN-MIB", "t11FcRscnInRscns"), ("T11-FC-RSCN-MIB", "t11FcRscnOutRscns"), ("T11-FC-RSCN-MIB", "t11FcRscnInSwRscns"), ("T11-FC-RSCN-MIB", "t11FcRscnOutSwRscns"), ("T11-FC-RSCN-MIB", "t11FcRscnScrRejects"), ("T11-FC-RSCN-MIB", "t11FcRscnRscnRejects"), ("T11-FC-RSCN-MIB", "t11FcRscnSwRscnRejects"), ("T11-FC-RSCN-MIB", "t11FcRscnInUnspecifiedRscns"), ("T11-FC-RSCN-MIB", "t11FcRscnOutUnspecifiedRscns"), ("T11-FC-RSCN-MIB", "t11FcRscnInChangedAttribRscns"), ("T11-FC-RSCN-MIB", "t11FcRscnOutChangedAttribRscns"), ("T11-FC-RSCN-MIB", "t11FcRscnInChangedServiceRscns"), ("T11-FC-RSCN-MIB", "t11FcRscnOutChangedServiceRscns"), ("T11-FC-RSCN-MIB", "t11FcRscnInChangedSwitchRscns"), ("T11-FC-RSCN-MIB", "t11FcRscnOutChangedSwitchRscns"), ("T11-FC-RSCN-MIB", "t11FcRscnInRemovedRscns"), ("T11-FC-RSCN-MIB", "t11FcRscnOutRemovedRscns"),))
-if mibBuilder.loadTexts: t11FcRscnStatsGroup.setDescription('A collection of objects for collecting RSCN-related\n           statistics.')
-t11FcRscnNotifyControlGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 161, 2, 2, 3)).setObjects(*(("T11-FC-RSCN-MIB", "t11FcRscnIlsRejectNotifyEnable"), ("T11-FC-RSCN-MIB", "t11FcRscnElsRejectNotifyEnable"), ("T11-FC-RSCN-MIB", "t11FcRscnRejectedRequestString"), ("T11-FC-RSCN-MIB", "t11FcRscnRejectedRequestSource"), ("T11-FC-RSCN-MIB", "t11FcRscnRejectReasonCode"), ("T11-FC-RSCN-MIB", "t11FcRscnRejectReasonCodeExp"), ("T11-FC-RSCN-MIB", "t11FcRscnRejectReasonVendorCode"),))
-if mibBuilder.loadTexts: t11FcRscnNotifyControlGroup.setDescription('A collection of notification control and\n           notification information objects.')
-t11FcRscnNotifyGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 161, 2, 2, 4)).setObjects(*(("T11-FC-RSCN-MIB", "t11FcRscnIlsRejectReqNotify"), ("T11-FC-RSCN-MIB", "t11FcRscnElsRejectReqNotify"),))
-if mibBuilder.loadTexts: t11FcRscnNotifyGroup.setDescription('A collection of notifications for monitoring\n           ILS and ELS rejections by the RSCN module.')
-mibBuilder.exportSymbols("T11-FC-RSCN-MIB", t11FcRscnInformation=t11FcRscnInformation, t11FcRscnRegEntry=t11FcRscnRegEntry, t11FcRscnInRemovedRscns=t11FcRscnInRemovedRscns, t11FcRscnNotifyControlTable=t11FcRscnNotifyControlTable, t11FcRscnRejectReasonCodeExp=t11FcRscnRejectReasonCodeExp, t11FcRscnElsRejectNotifyEnable=t11FcRscnElsRejectNotifyEnable, t11FcRscnSwRscnRejects=t11FcRscnSwRscnRejects, t11FcRscnRscnRejects=t11FcRscnRscnRejects, t11FcRscnInChangedServiceRscns=t11FcRscnInChangedServiceRscns, t11FcRscnCompliance=t11FcRscnCompliance, t11FcRscnOutRscns=t11FcRscnOutRscns, t11FcRscnStatsEntry=t11FcRscnStatsEntry, t11FcRscnRejectReasonCode=t11FcRscnRejectReasonCode, t11FcRscnRegistrationGroup=t11FcRscnRegistrationGroup, t11FcRscnConformance=t11FcRscnConformance, t11FcRscnInChangedAttribRscns=t11FcRscnInChangedAttribRscns, t11FcRscnRegistrations=t11FcRscnRegistrations, t11FcRscnCompliances=t11FcRscnCompliances, t11FcRscnStatsGroup=t11FcRscnStatsGroup, t11FcRscnInSwRscns=t11FcRscnInSwRscns, t11FcRscnInRscns=t11FcRscnInRscns, t11FcRscnIlsRejectReqNotify=t11FcRscnIlsRejectReqNotify, t11FcRscnNotifyGroup=t11FcRscnNotifyGroup, t11FcRscnRegType=t11FcRscnRegType, t11FcRscnOutRemovedRscns=t11FcRscnOutRemovedRscns, t11FcRscnInChangedSwitchRscns=t11FcRscnInChangedSwitchRscns, t11FcRscnStatsTable=t11FcRscnStatsTable, t11FcRscnInUnspecifiedRscns=t11FcRscnInUnspecifiedRscns, t11FcRscnStats=t11FcRscnStats, t11FcRscnNotifyControlEntry=t11FcRscnNotifyControlEntry, t11FcRscnNotifyControlGroup=t11FcRscnNotifyControlGroup, t11FcRscnElsRejectReqNotify=t11FcRscnElsRejectReqNotify, t11FcRscnInScrs=t11FcRscnInScrs, t11FcRscnRejectedRequestSource=t11FcRscnRejectedRequestSource, t11FcRscnGroups=t11FcRscnGroups, t11FcRscnMIB=t11FcRscnMIB, t11FcRscnRegFcId=t11FcRscnRegFcId, t11FcRscnObjects=t11FcRscnObjects, t11FcRscnRejectedRequestString=t11FcRscnRejectedRequestString, t11FcRscnOutSwRscns=t11FcRscnOutSwRscns, PYSNMP_MODULE_ID=t11FcRscnMIB, t11FcRscnOutChangedServiceRscns=t11FcRscnOutChangedServiceRscns, t11FcRscnOutChangedSwitchRscns=t11FcRscnOutChangedSwitchRscns, t11FcRscnNotifications=t11FcRscnNotifications, t11FcRscnOutUnspecifiedRscns=t11FcRscnOutUnspecifiedRscns, t11FcRscnScrRejects=t11FcRscnScrRejects, t11FcRscnRegTable=t11FcRscnRegTable, t11FcRscnIlsRejectNotifyEnable=t11FcRscnIlsRejectNotifyEnable, t11FcRscnOutChangedAttribRscns=t11FcRscnOutChangedAttribRscns, t11FcRscnFabricIndex=t11FcRscnFabricIndex, t11FcRscnRejectReasonVendorCode=t11FcRscnRejectReasonVendorCode)
+_s='t11FcRscnStatsGroup'
+_r='t11FcRscnNotifyGroup'
+_q='t11FcRscnNotifyControlGroup'
+_p='t11FcRscnRegistrationGroup'
+_o='t11FcRscnElsRejectReqNotify'
+_n='t11FcRscnIlsRejectReqNotify'
+_m='t11FcRscnElsRejectNotifyEnable'
+_l='t11FcRscnIlsRejectNotifyEnable'
+_k='t11FcRscnOutRemovedRscns'
+_j='t11FcRscnInRemovedRscns'
+_i='t11FcRscnOutChangedSwitchRscns'
+_h='t11FcRscnInChangedSwitchRscns'
+_g='t11FcRscnOutChangedServiceRscns'
+_f='t11FcRscnInChangedServiceRscns'
+_e='t11FcRscnOutChangedAttribRscns'
+_d='t11FcRscnInChangedAttribRscns'
+_c='t11FcRscnOutUnspecifiedRscns'
+_b='t11FcRscnInUnspecifiedRscns'
+_a='t11FcRscnSwRscnRejects'
+_Z='t11FcRscnRscnRejects'
+_Y='t11FcRscnScrRejects'
+_X='t11FcRscnOutSwRscns'
+_W='t11FcRscnInSwRscns'
+_V='t11FcRscnOutRscns'
+_U='t11FcRscnInRscns'
+_T='t11FcRscnInScrs'
+_S='t11FcRscnRegType'
+_R='read-write'
+_Q='not-accessible'
+_P='t11FcRscnRegFcId'
+_O='FcAddressIdOrZero'
+_N='TruthValue'
+_M='t11FcRscnRejectReasonVendorCode'
+_L='t11FcRscnRejectReasonCodeExp'
+_K='t11FcRscnRejectReasonCode'
+_J='t11FcRscnRejectedRequestSource'
+_I='t11FcRscnRejectedRequestString'
+_H='t11FcRscnFabricIndex'
+_G='fcmSwitchIndex'
+_F='fcmInstanceIndex'
+_E='OctetString'
+_D='FC-MGMT-MIB'
+_C='read-only'
+_B='current'
+_A='T11-FC-RSCN-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+FcAddressIdOrZero,FcNameIdOrZero,fcmInstanceIndex,fcmSwitchIndex=mibBuilder.importSymbols(_D,_O,'FcNameIdOrZero',_F,_G)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_N)
+T11NsGs4RejectReasonCode,=mibBuilder.importSymbols('T11-FC-NAME-SERVER-MIB','T11NsGs4RejectReasonCode')
+T11FabricIndex,=mibBuilder.importSymbols('T11-TC-MIB','T11FabricIndex')
+t11FcRscnMIB=ModuleIdentity((1,3,6,1,2,1,161))
+if mibBuilder.loadTexts:t11FcRscnMIB.setRevisions(('2007-01-08 00:00',))
+_T11FcRscnNotifications_ObjectIdentity=ObjectIdentity
+t11FcRscnNotifications=_T11FcRscnNotifications_ObjectIdentity((1,3,6,1,2,1,161,0))
+_T11FcRscnObjects_ObjectIdentity=ObjectIdentity
+t11FcRscnObjects=_T11FcRscnObjects_ObjectIdentity((1,3,6,1,2,1,161,1))
+_T11FcRscnRegistrations_ObjectIdentity=ObjectIdentity
+t11FcRscnRegistrations=_T11FcRscnRegistrations_ObjectIdentity((1,3,6,1,2,1,161,1,1))
+_T11FcRscnRegTable_Object=MibTable
+t11FcRscnRegTable=_T11FcRscnRegTable_Object((1,3,6,1,2,1,161,1,1,1))
+if mibBuilder.loadTexts:t11FcRscnRegTable.setStatus(_B)
+_T11FcRscnRegEntry_Object=MibTableRow
+t11FcRscnRegEntry=_T11FcRscnRegEntry_Object((1,3,6,1,2,1,161,1,1,1,1))
+t11FcRscnRegEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_A,_H),(0,_A,_P))
+if mibBuilder.loadTexts:t11FcRscnRegEntry.setStatus(_B)
+_T11FcRscnFabricIndex_Type=T11FabricIndex
+_T11FcRscnFabricIndex_Object=MibTableColumn
+t11FcRscnFabricIndex=_T11FcRscnFabricIndex_Object((1,3,6,1,2,1,161,1,1,1,1,1),_T11FcRscnFabricIndex_Type())
+t11FcRscnFabricIndex.setMaxAccess(_Q)
+if mibBuilder.loadTexts:t11FcRscnFabricIndex.setStatus(_B)
+class _T11FcRscnRegFcId_Type(FcAddressIdOrZero):subtypeSpec=FcAddressIdOrZero.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,3));fixedLength=3
+_T11FcRscnRegFcId_Type.__name__=_O
+_T11FcRscnRegFcId_Object=MibTableColumn
+t11FcRscnRegFcId=_T11FcRscnRegFcId_Object((1,3,6,1,2,1,161,1,1,1,1,2),_T11FcRscnRegFcId_Type())
+t11FcRscnRegFcId.setMaxAccess(_Q)
+if mibBuilder.loadTexts:t11FcRscnRegFcId.setStatus(_B)
+class _T11FcRscnRegType_Type(Bits):namedValues=NamedValues(*(('fromFabricController',0),('fromNxPort',1)))
+_T11FcRscnRegType_Type.__name__='Bits'
+_T11FcRscnRegType_Object=MibTableColumn
+t11FcRscnRegType=_T11FcRscnRegType_Object((1,3,6,1,2,1,161,1,1,1,1,3),_T11FcRscnRegType_Type())
+t11FcRscnRegType.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnRegType.setStatus(_B)
+_T11FcRscnStats_ObjectIdentity=ObjectIdentity
+t11FcRscnStats=_T11FcRscnStats_ObjectIdentity((1,3,6,1,2,1,161,1,2))
+_T11FcRscnStatsTable_Object=MibTable
+t11FcRscnStatsTable=_T11FcRscnStatsTable_Object((1,3,6,1,2,1,161,1,2,1))
+if mibBuilder.loadTexts:t11FcRscnStatsTable.setStatus(_B)
+_T11FcRscnStatsEntry_Object=MibTableRow
+t11FcRscnStatsEntry=_T11FcRscnStatsEntry_Object((1,3,6,1,2,1,161,1,2,1,1))
+t11FcRscnStatsEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_A,_H))
+if mibBuilder.loadTexts:t11FcRscnStatsEntry.setStatus(_B)
+_T11FcRscnInScrs_Type=Counter32
+_T11FcRscnInScrs_Object=MibTableColumn
+t11FcRscnInScrs=_T11FcRscnInScrs_Object((1,3,6,1,2,1,161,1,2,1,1,1),_T11FcRscnInScrs_Type())
+t11FcRscnInScrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnInScrs.setStatus(_B)
+_T11FcRscnInRscns_Type=Counter32
+_T11FcRscnInRscns_Object=MibTableColumn
+t11FcRscnInRscns=_T11FcRscnInRscns_Object((1,3,6,1,2,1,161,1,2,1,1,2),_T11FcRscnInRscns_Type())
+t11FcRscnInRscns.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnInRscns.setStatus(_B)
+_T11FcRscnOutRscns_Type=Counter32
+_T11FcRscnOutRscns_Object=MibTableColumn
+t11FcRscnOutRscns=_T11FcRscnOutRscns_Object((1,3,6,1,2,1,161,1,2,1,1,3),_T11FcRscnOutRscns_Type())
+t11FcRscnOutRscns.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnOutRscns.setStatus(_B)
+_T11FcRscnInSwRscns_Type=Counter32
+_T11FcRscnInSwRscns_Object=MibTableColumn
+t11FcRscnInSwRscns=_T11FcRscnInSwRscns_Object((1,3,6,1,2,1,161,1,2,1,1,4),_T11FcRscnInSwRscns_Type())
+t11FcRscnInSwRscns.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnInSwRscns.setStatus(_B)
+_T11FcRscnOutSwRscns_Type=Counter32
+_T11FcRscnOutSwRscns_Object=MibTableColumn
+t11FcRscnOutSwRscns=_T11FcRscnOutSwRscns_Object((1,3,6,1,2,1,161,1,2,1,1,5),_T11FcRscnOutSwRscns_Type())
+t11FcRscnOutSwRscns.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnOutSwRscns.setStatus(_B)
+_T11FcRscnScrRejects_Type=Counter32
+_T11FcRscnScrRejects_Object=MibTableColumn
+t11FcRscnScrRejects=_T11FcRscnScrRejects_Object((1,3,6,1,2,1,161,1,2,1,1,6),_T11FcRscnScrRejects_Type())
+t11FcRscnScrRejects.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnScrRejects.setStatus(_B)
+_T11FcRscnRscnRejects_Type=Counter32
+_T11FcRscnRscnRejects_Object=MibTableColumn
+t11FcRscnRscnRejects=_T11FcRscnRscnRejects_Object((1,3,6,1,2,1,161,1,2,1,1,7),_T11FcRscnRscnRejects_Type())
+t11FcRscnRscnRejects.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnRscnRejects.setStatus(_B)
+_T11FcRscnSwRscnRejects_Type=Counter32
+_T11FcRscnSwRscnRejects_Object=MibTableColumn
+t11FcRscnSwRscnRejects=_T11FcRscnSwRscnRejects_Object((1,3,6,1,2,1,161,1,2,1,1,8),_T11FcRscnSwRscnRejects_Type())
+t11FcRscnSwRscnRejects.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnSwRscnRejects.setStatus(_B)
+_T11FcRscnInUnspecifiedRscns_Type=Counter32
+_T11FcRscnInUnspecifiedRscns_Object=MibTableColumn
+t11FcRscnInUnspecifiedRscns=_T11FcRscnInUnspecifiedRscns_Object((1,3,6,1,2,1,161,1,2,1,1,9),_T11FcRscnInUnspecifiedRscns_Type())
+t11FcRscnInUnspecifiedRscns.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnInUnspecifiedRscns.setStatus(_B)
+_T11FcRscnOutUnspecifiedRscns_Type=Counter32
+_T11FcRscnOutUnspecifiedRscns_Object=MibTableColumn
+t11FcRscnOutUnspecifiedRscns=_T11FcRscnOutUnspecifiedRscns_Object((1,3,6,1,2,1,161,1,2,1,1,10),_T11FcRscnOutUnspecifiedRscns_Type())
+t11FcRscnOutUnspecifiedRscns.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnOutUnspecifiedRscns.setStatus(_B)
+_T11FcRscnInChangedAttribRscns_Type=Counter32
+_T11FcRscnInChangedAttribRscns_Object=MibTableColumn
+t11FcRscnInChangedAttribRscns=_T11FcRscnInChangedAttribRscns_Object((1,3,6,1,2,1,161,1,2,1,1,11),_T11FcRscnInChangedAttribRscns_Type())
+t11FcRscnInChangedAttribRscns.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnInChangedAttribRscns.setStatus(_B)
+_T11FcRscnOutChangedAttribRscns_Type=Counter32
+_T11FcRscnOutChangedAttribRscns_Object=MibTableColumn
+t11FcRscnOutChangedAttribRscns=_T11FcRscnOutChangedAttribRscns_Object((1,3,6,1,2,1,161,1,2,1,1,12),_T11FcRscnOutChangedAttribRscns_Type())
+t11FcRscnOutChangedAttribRscns.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnOutChangedAttribRscns.setStatus(_B)
+_T11FcRscnInChangedServiceRscns_Type=Counter32
+_T11FcRscnInChangedServiceRscns_Object=MibTableColumn
+t11FcRscnInChangedServiceRscns=_T11FcRscnInChangedServiceRscns_Object((1,3,6,1,2,1,161,1,2,1,1,13),_T11FcRscnInChangedServiceRscns_Type())
+t11FcRscnInChangedServiceRscns.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnInChangedServiceRscns.setStatus(_B)
+_T11FcRscnOutChangedServiceRscns_Type=Counter32
+_T11FcRscnOutChangedServiceRscns_Object=MibTableColumn
+t11FcRscnOutChangedServiceRscns=_T11FcRscnOutChangedServiceRscns_Object((1,3,6,1,2,1,161,1,2,1,1,14),_T11FcRscnOutChangedServiceRscns_Type())
+t11FcRscnOutChangedServiceRscns.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnOutChangedServiceRscns.setStatus(_B)
+_T11FcRscnInChangedSwitchRscns_Type=Counter32
+_T11FcRscnInChangedSwitchRscns_Object=MibTableColumn
+t11FcRscnInChangedSwitchRscns=_T11FcRscnInChangedSwitchRscns_Object((1,3,6,1,2,1,161,1,2,1,1,15),_T11FcRscnInChangedSwitchRscns_Type())
+t11FcRscnInChangedSwitchRscns.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnInChangedSwitchRscns.setStatus(_B)
+_T11FcRscnOutChangedSwitchRscns_Type=Counter32
+_T11FcRscnOutChangedSwitchRscns_Object=MibTableColumn
+t11FcRscnOutChangedSwitchRscns=_T11FcRscnOutChangedSwitchRscns_Object((1,3,6,1,2,1,161,1,2,1,1,16),_T11FcRscnOutChangedSwitchRscns_Type())
+t11FcRscnOutChangedSwitchRscns.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnOutChangedSwitchRscns.setStatus(_B)
+_T11FcRscnInRemovedRscns_Type=Counter32
+_T11FcRscnInRemovedRscns_Object=MibTableColumn
+t11FcRscnInRemovedRscns=_T11FcRscnInRemovedRscns_Object((1,3,6,1,2,1,161,1,2,1,1,17),_T11FcRscnInRemovedRscns_Type())
+t11FcRscnInRemovedRscns.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnInRemovedRscns.setStatus(_B)
+_T11FcRscnOutRemovedRscns_Type=Counter32
+_T11FcRscnOutRemovedRscns_Object=MibTableColumn
+t11FcRscnOutRemovedRscns=_T11FcRscnOutRemovedRscns_Object((1,3,6,1,2,1,161,1,2,1,1,18),_T11FcRscnOutRemovedRscns_Type())
+t11FcRscnOutRemovedRscns.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnOutRemovedRscns.setStatus(_B)
+_T11FcRscnInformation_ObjectIdentity=ObjectIdentity
+t11FcRscnInformation=_T11FcRscnInformation_ObjectIdentity((1,3,6,1,2,1,161,1,3))
+_T11FcRscnNotifyControlTable_Object=MibTable
+t11FcRscnNotifyControlTable=_T11FcRscnNotifyControlTable_Object((1,3,6,1,2,1,161,1,3,1))
+if mibBuilder.loadTexts:t11FcRscnNotifyControlTable.setStatus(_B)
+_T11FcRscnNotifyControlEntry_Object=MibTableRow
+t11FcRscnNotifyControlEntry=_T11FcRscnNotifyControlEntry_Object((1,3,6,1,2,1,161,1,3,1,1))
+t11FcRscnNotifyControlEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_A,_H))
+if mibBuilder.loadTexts:t11FcRscnNotifyControlEntry.setStatus(_B)
+class _T11FcRscnIlsRejectNotifyEnable_Type(TruthValue):defaultValue=2
+_T11FcRscnIlsRejectNotifyEnable_Type.__name__=_N
+_T11FcRscnIlsRejectNotifyEnable_Object=MibTableColumn
+t11FcRscnIlsRejectNotifyEnable=_T11FcRscnIlsRejectNotifyEnable_Object((1,3,6,1,2,1,161,1,3,1,1,1),_T11FcRscnIlsRejectNotifyEnable_Type())
+t11FcRscnIlsRejectNotifyEnable.setMaxAccess(_R)
+if mibBuilder.loadTexts:t11FcRscnIlsRejectNotifyEnable.setStatus(_B)
+class _T11FcRscnElsRejectNotifyEnable_Type(TruthValue):defaultValue=2
+_T11FcRscnElsRejectNotifyEnable_Type.__name__=_N
+_T11FcRscnElsRejectNotifyEnable_Object=MibTableColumn
+t11FcRscnElsRejectNotifyEnable=_T11FcRscnElsRejectNotifyEnable_Object((1,3,6,1,2,1,161,1,3,1,1,2),_T11FcRscnElsRejectNotifyEnable_Type())
+t11FcRscnElsRejectNotifyEnable.setMaxAccess(_R)
+if mibBuilder.loadTexts:t11FcRscnElsRejectNotifyEnable.setStatus(_B)
+class _T11FcRscnRejectedRequestString_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_T11FcRscnRejectedRequestString_Type.__name__=_E
+_T11FcRscnRejectedRequestString_Object=MibTableColumn
+t11FcRscnRejectedRequestString=_T11FcRscnRejectedRequestString_Object((1,3,6,1,2,1,161,1,3,1,1,3),_T11FcRscnRejectedRequestString_Type())
+t11FcRscnRejectedRequestString.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnRejectedRequestString.setStatus(_B)
+_T11FcRscnRejectedRequestSource_Type=FcNameIdOrZero
+_T11FcRscnRejectedRequestSource_Object=MibTableColumn
+t11FcRscnRejectedRequestSource=_T11FcRscnRejectedRequestSource_Object((1,3,6,1,2,1,161,1,3,1,1,4),_T11FcRscnRejectedRequestSource_Type())
+t11FcRscnRejectedRequestSource.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnRejectedRequestSource.setStatus(_B)
+_T11FcRscnRejectReasonCode_Type=T11NsGs4RejectReasonCode
+_T11FcRscnRejectReasonCode_Object=MibTableColumn
+t11FcRscnRejectReasonCode=_T11FcRscnRejectReasonCode_Object((1,3,6,1,2,1,161,1,3,1,1,5),_T11FcRscnRejectReasonCode_Type())
+t11FcRscnRejectReasonCode.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnRejectReasonCode.setStatus(_B)
+class _T11FcRscnRejectReasonCodeExp_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_T11FcRscnRejectReasonCodeExp_Type.__name__=_E
+_T11FcRscnRejectReasonCodeExp_Object=MibTableColumn
+t11FcRscnRejectReasonCodeExp=_T11FcRscnRejectReasonCodeExp_Object((1,3,6,1,2,1,161,1,3,1,1,6),_T11FcRscnRejectReasonCodeExp_Type())
+t11FcRscnRejectReasonCodeExp.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnRejectReasonCodeExp.setStatus(_B)
+class _T11FcRscnRejectReasonVendorCode_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+_T11FcRscnRejectReasonVendorCode_Type.__name__=_E
+_T11FcRscnRejectReasonVendorCode_Object=MibTableColumn
+t11FcRscnRejectReasonVendorCode=_T11FcRscnRejectReasonVendorCode_Object((1,3,6,1,2,1,161,1,3,1,1,7),_T11FcRscnRejectReasonVendorCode_Type())
+t11FcRscnRejectReasonVendorCode.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FcRscnRejectReasonVendorCode.setStatus(_B)
+_T11FcRscnConformance_ObjectIdentity=ObjectIdentity
+t11FcRscnConformance=_T11FcRscnConformance_ObjectIdentity((1,3,6,1,2,1,161,2))
+_T11FcRscnCompliances_ObjectIdentity=ObjectIdentity
+t11FcRscnCompliances=_T11FcRscnCompliances_ObjectIdentity((1,3,6,1,2,1,161,2,1))
+_T11FcRscnGroups_ObjectIdentity=ObjectIdentity
+t11FcRscnGroups=_T11FcRscnGroups_ObjectIdentity((1,3,6,1,2,1,161,2,2))
+t11FcRscnRegistrationGroup=ObjectGroup((1,3,6,1,2,1,161,2,2,1))
+t11FcRscnRegistrationGroup.setObjects((_A,_S))
+if mibBuilder.loadTexts:t11FcRscnRegistrationGroup.setStatus(_B)
+t11FcRscnStatsGroup=ObjectGroup((1,3,6,1,2,1,161,2,2,2))
+t11FcRscnStatsGroup.setObjects(*((_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k)))
+if mibBuilder.loadTexts:t11FcRscnStatsGroup.setStatus(_B)
+t11FcRscnNotifyControlGroup=ObjectGroup((1,3,6,1,2,1,161,2,2,3))
+t11FcRscnNotifyControlGroup.setObjects(*((_A,_l),(_A,_m),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M)))
+if mibBuilder.loadTexts:t11FcRscnNotifyControlGroup.setStatus(_B)
+t11FcRscnElsRejectReqNotify=NotificationType((1,3,6,1,2,1,161,0,1))
+t11FcRscnElsRejectReqNotify.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M)))
+if mibBuilder.loadTexts:t11FcRscnElsRejectReqNotify.setStatus(_B)
+t11FcRscnIlsRejectReqNotify=NotificationType((1,3,6,1,2,1,161,0,2))
+t11FcRscnIlsRejectReqNotify.setObjects(*((_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_M)))
+if mibBuilder.loadTexts:t11FcRscnIlsRejectReqNotify.setStatus(_B)
+t11FcRscnNotifyGroup=NotificationGroup((1,3,6,1,2,1,161,2,2,4))
+t11FcRscnNotifyGroup.setObjects(*((_A,_n),(_A,_o)))
+if mibBuilder.loadTexts:t11FcRscnNotifyGroup.setStatus(_B)
+t11FcRscnCompliance=ModuleCompliance((1,3,6,1,2,1,161,2,1,1))
+t11FcRscnCompliance.setObjects(*((_A,_p),(_A,_q),(_A,_r),(_A,_s)))
+if mibBuilder.loadTexts:t11FcRscnCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'t11FcRscnMIB':t11FcRscnMIB,'t11FcRscnNotifications':t11FcRscnNotifications,_o:t11FcRscnElsRejectReqNotify,_n:t11FcRscnIlsRejectReqNotify,'t11FcRscnObjects':t11FcRscnObjects,'t11FcRscnRegistrations':t11FcRscnRegistrations,'t11FcRscnRegTable':t11FcRscnRegTable,'t11FcRscnRegEntry':t11FcRscnRegEntry,_H:t11FcRscnFabricIndex,_P:t11FcRscnRegFcId,_S:t11FcRscnRegType,'t11FcRscnStats':t11FcRscnStats,'t11FcRscnStatsTable':t11FcRscnStatsTable,'t11FcRscnStatsEntry':t11FcRscnStatsEntry,_T:t11FcRscnInScrs,_U:t11FcRscnInRscns,_V:t11FcRscnOutRscns,_W:t11FcRscnInSwRscns,_X:t11FcRscnOutSwRscns,_Y:t11FcRscnScrRejects,_Z:t11FcRscnRscnRejects,_a:t11FcRscnSwRscnRejects,_b:t11FcRscnInUnspecifiedRscns,_c:t11FcRscnOutUnspecifiedRscns,_d:t11FcRscnInChangedAttribRscns,_e:t11FcRscnOutChangedAttribRscns,_f:t11FcRscnInChangedServiceRscns,_g:t11FcRscnOutChangedServiceRscns,_h:t11FcRscnInChangedSwitchRscns,_i:t11FcRscnOutChangedSwitchRscns,_j:t11FcRscnInRemovedRscns,_k:t11FcRscnOutRemovedRscns,'t11FcRscnInformation':t11FcRscnInformation,'t11FcRscnNotifyControlTable':t11FcRscnNotifyControlTable,'t11FcRscnNotifyControlEntry':t11FcRscnNotifyControlEntry,_l:t11FcRscnIlsRejectNotifyEnable,_m:t11FcRscnElsRejectNotifyEnable,_I:t11FcRscnRejectedRequestString,_J:t11FcRscnRejectedRequestSource,_K:t11FcRscnRejectReasonCode,_L:t11FcRscnRejectReasonCodeExp,_M:t11FcRscnRejectReasonVendorCode,'t11FcRscnConformance':t11FcRscnConformance,'t11FcRscnCompliances':t11FcRscnCompliances,'t11FcRscnCompliance':t11FcRscnCompliance,'t11FcRscnGroups':t11FcRscnGroups,_p:t11FcRscnRegistrationGroup,_s:t11FcRscnStatsGroup,_q:t11FcRscnNotifyControlGroup,_r:t11FcRscnNotifyGroup})

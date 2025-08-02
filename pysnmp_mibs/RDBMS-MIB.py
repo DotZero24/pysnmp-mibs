@@ -1,181 +1,452 @@
-#
-# PySNMP MIB module RDBMS-MIB (http://pysnmp.sf.net)
-# ASN.1 source file:///home/tt/fixed_mibs/RDBMS-MIB
-# Produced by pysmi-0.0.2 at Mon Jun 22 23:35:21 2015
-# On host cray platform Linux version 2.6.37.6-smp by user tt
-# Using Python version 2.7.2 (default, Apr  2 2012, 20:32:47) 
-#
-( Integer, ObjectIdentifier, OctetString, ) = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
-( applIndex, ) = mibBuilder.importSymbols("NETWORK-SERVICES-MIB", "applIndex")
-( ModuleCompliance, NotificationGroup, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-( Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, MibTableColumn, MibScalar, MibIdentifier, mib_2, Unsigned32, TimeTicks, Counter64, MibTable, NotificationType, ModuleIdentity, IpAddress, MibTableRow, ModuleIdentity, Gauge32, iso, Bits, ObjectIdentity, Counter32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "MibTableColumn", "MibScalar", "MibIdentifier", "mib-2", "Unsigned32", "TimeTicks", "Counter64", "MibTable", "NotificationType", "ModuleIdentity", "IpAddress", "MibTableRow", "ModuleIdentity", "Gauge32", "iso", "Bits", "ObjectIdentity", "Counter32")
-( DisplayString, TextualConvention, AutonomousType, DateAndTime, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "AutonomousType", "DateAndTime")
-rdbmsMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 39))
-if mibBuilder.loadTexts: rdbmsMIB.setOrganization('IETF RDBMSMIB Working Group')
-if mibBuilder.loadTexts: rdbmsMIB.setContactInfo('           David Brower\n\n                  Postal: The ASK Group, INGRES DBMS Development\n                          1080 Marina Village Parkway\n                          Alameda, CA  94501\n                          US\n\n                     Tel: +1 510 748 3418\n                     Fax: +1 510 748 2770\n\n                  E-mail: daveb@ingres.com')
-if mibBuilder.loadTexts: rdbmsMIB.setDescription('The MIB module to describe objects for generic relational\n           databases.')
-rdbmsObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 39, 1))
-rdbmsDbTable = MibTable((1, 3, 6, 1, 2, 1, 39, 1, 1), )
-if mibBuilder.loadTexts: rdbmsDbTable.setDescription('The table of databases installed on a system.')
-rdbmsDbEntry = MibTableRow((1, 3, 6, 1, 2, 1, 39, 1, 1, 1), ).setIndexNames((0, "RDBMS-MIB", "rdbmsDbIndex"))
-if mibBuilder.loadTexts: rdbmsDbEntry.setDescription("An entry for a single database on the host.  Whether a\n           particular database is represented by a row in rdbmsDbTable\n           may be dependent on the activity level of that database,\n           according to the product's implementation.  An instance of\n           rdbmsRelState having the value active, other, or restricted\n           implies that an entry, corresponding to that instance, will\n           be present.")
-rdbmsDbIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: rdbmsDbIndex.setDescription('A numeric index, unique among all the databases from all\n           products on this host.  This value is a surrogate for the\n           conceptually unique key, which is {PrivateMibOID,\n           databasename}')
-rdbmsDbPrivateMibOID = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 1, 1, 2), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsDbPrivateMibOID.setDescription('The authoritative identification for the private MIB for\n          this database, presumably based on the vendor, e.g., {\n          enterprises 111 <optional subidentifiers>} for Oracle\n          databases, {enterprises 757 <optional subidentifiers>} for\n          Ingres databases, { enterprises 897 <optional\n          subidentifiers>} for Sybase databases, etc.\n\n          If no OBJECT IDENTIFIER exists for the private MIB, attempts\n          to access this object will return noSuchName (SNMPv1)\n          or noSuchInstance (SNMPv2).')
-rdbmsDbVendorName = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsDbVendorName.setDescription('The name of the vendor whose RDBMS manages this database,\n           for informational purposes.')
-rdbmsDbName = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsDbName.setDescription("The name of this database, in a product specific format.  The\n           product may need to qualify the name in some way to resolve\n           conflicts if it is possible for a database name to be\n           duplicated on a host.  It might be necessary to construct a\n           hierarchical name embedding the RDBMS instance/installation\n           on the host, and/or the owner of the database.  For instance,\n           '/test-installation/database-owner/database-name'.")
-rdbmsDbContact = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 1, 1, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rdbmsDbContact.setDescription('The textual identification of the contact person for this\n           managed database, together with information on how to contact\n           this person.\n\n           Note: if there is no server associated with this database, an\n           agent may need to keep this in other persistent storage,\n           e.g., a configuration file.\n\n           Note that a compliant agent does not need to\n           allow write access to this object.')
-rdbmsDbInfoTable = MibTable((1, 3, 6, 1, 2, 1, 39, 1, 2), )
-if mibBuilder.loadTexts: rdbmsDbInfoTable.setDescription('The table of additional information about databases present\n           on the host.')
-rdbmsDbInfoEntry = MibTableRow((1, 3, 6, 1, 2, 1, 39, 1, 2, 1), ).setIndexNames((0, "RDBMS-MIB", "rdbmsDbIndex"))
-if mibBuilder.loadTexts: rdbmsDbInfoEntry.setDescription("Information that must be present if the database is actively\n           opened.  If the database is not actively opened, then\n           attempts to access corresponding instances in this table may\n           result in either noSuchName (SNMPv1) or noSuchInstance\n           (SNMPv2).  'Actively opened' means at least one of the\n           rdbmsRelState entries for this database in the rdbmsRelTable\n           is active(2).")
-rdbmsDbInfoProductName = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 2, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsDbInfoProductName.setDescription('The textual product name of the server that created or last\n           restructured this database.  The format is product specific.')
-rdbmsDbInfoVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsDbInfoVersion.setDescription('The version number of the server that created or last\n           restructured this database.  The format is product specific.')
-rdbmsDbInfoSizeUnits = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=SingleValueConstraint(1, 2, 3, 4, 5,)).clone(namedValues=NamedValues(("bytes", 1), ("kbytes", 2), ("mbytes", 3), ("gbytes", 4), ("tbytes", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsDbInfoSizeUnits.setDescription('Identification of the units used to measure the size of this\n           database in rdbmsDbInfoSizeAllocated and rdbmsDbInfoSizeUsed.\n           bytes(1) indicates individual bytes, kbytes(2) indicates\n           units of kilobytes, mbytes(3) indicates units of megabytes,\n           gbytes(4) indicates units of gigabytes, and tbytes(5)\n           indicates units of terabytes.  All are binary multiples -- 1K\n           = 1024.  If writable, changes here are reflected in the get\n           values of the associated objects.')
-rdbmsDbInfoSizeAllocated = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rdbmsDbInfoSizeAllocated.setDescription('The estimated size of this database (in\n           rdbmsDbInfoSizeUnits), which is the disk space that has been\n           allocated to it and is no longer available to users on this\n           host.  rdbmsDbInfoSize does not necessarily indicate the\n           amount of space actually in use for database data.  Some\n           databases may support extending allocated size, and others\n           may not.\n\n           Note that a compliant agent does not need to\n           allow write access to this object.')
-rdbmsDbInfoSizeUsed = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsDbInfoSizeUsed.setDescription('The estimated size of this database, in rdbmsDbInfoSizeUnits,\n           which is actually in use for database data.')
-rdbmsDbInfoLastBackup = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 2, 1, 6), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsDbInfoLastBackup.setDescription('The date and time that the latest complete or partial backup\n           of the database was taken. If a database has never been\n           backed up, then attempts to access this object will\n           result in either noSuchName (SNMPv1) or noSuchInstance\n           (SNMPv2).')
-rdbmsDbParamTable = MibTable((1, 3, 6, 1, 2, 1, 39, 1, 3), )
-if mibBuilder.loadTexts: rdbmsDbParamTable.setDescription('The table of configuration parameters for a database.\n           Entries should be populated according to the following\n           guidelines:\n           (1) The value should be specified through administrative\n               (human) intervention.\n           (2) It should be configured on a per-database basis.\n           (3) One of the following is true:\n               (a) The parameter has a non-numeric value;\n               (b) The current value is numeric, but it only changes due\n                   to human intervention;\n               (c) The current value is numeric and dynamic, but the\n                   RDBMS does not track access/allocation failures\n                   related to the parameter;\n               (d) The current value is numeric and dynamic, the\n                   RDBMS tracks changes in access/allocation failures\n                   related to the parameter, but the failure has no\n                   significant impact on RDBMS performance or\n                   availability.\n               (e) The current value is numeric and dynamic, the\n                   RDBMS tracks changes in access/allocation failures\n                   related to the parameter, the failure has\n                   significant impact on RDBMS performance or\n                   availability, and is shown in the\n                   rdbmsDbLimitedResource table.')
-rdbmsDbParamEntry = MibTableRow((1, 3, 6, 1, 2, 1, 39, 1, 3, 1), ).setIndexNames((0, "RDBMS-MIB", "rdbmsDbIndex"), (0, "RDBMS-MIB", "rdbmsDbParamName"), (0, "RDBMS-MIB", "rdbmsDbParamSubIndex"))
-if mibBuilder.loadTexts: rdbmsDbParamEntry.setDescription("An entry for a single configuration parameter for a database.\n           Parameters with single values have a subindex value of one.\n           If the parameter is naturally considered to contain a\n           variable number of members of a class, e.g.  members of the\n           DBA user group, or files which are part of the database, then\n           it must be presented as a set of rows.  If, on the other\n           hand, the parameter represents a set of choices from a class,\n           e.g. the permissions on a file or the options chosen out of\n           the set of all options allowed, AND is guaranteed to always\n           fit in the 255 character length of a DisplayString, then it\n           may be presented as a comma separated list with a subindex\n           value of one.  Zero may not be used as a subindex value.\n\n           If the database is not actively opened, then attempts\n           to access corresponding instances in this table may result in\n           either noSuchName (SNMPv1) or noSuchInstance (SNMPv2).\n           'Actively opened' means at least one of the\n           rdbmsRelState entries for this database in the rdbmsRelTable\n           is active(2).")
-rdbmsDbParamName = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 3, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,64)))
-if mibBuilder.loadTexts: rdbmsDbParamName.setDescription('The name of a configuration parameter for a database.  This\n           name is product-specific.  The length is limited to 64\n           characters to constrain the number of sub-identifiers needed\n           for instance identification (and to minimize network\n           traffic).')
-rdbmsDbParamSubIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: rdbmsDbParamSubIndex.setDescription('The subindex value for this parameter.  If the parameter is\n           naturally considered to contain a variable number of members\n           of a class, e.g.  members of the DBA user group, or files\n           which are part of the database, then it must be presented as\n           a set of rows.  If, on the other hand, the parameter\n           represents a set of choices from a class, e.g. the\n           permissions on a file or the options chosen out of the set of\n           all options allowed, AND is guaranteed to always fit in the\n           255 character length of a DisplayString, then it may be\n           presented as a comma separated list with a subindex value of\n           one.  Zero may not be used as a value.')
-rdbmsDbParamID = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 3, 1, 3), AutonomousType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsDbParamID.setDescription('The ID of the parameter which may be described in some other\n           MIB (e.g., an enterprise-specific MIB module).  If there is\n           no ID for this rdbmsDbParamName, attempts to access this\n           object will return noSuchName (SNMPv1) or noSuchInstance\n           (SNMPv2).')
-rdbmsDbParamCurrValue = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 3, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rdbmsDbParamCurrValue.setDescription('The value for a configuration parameter now in effect, the\n           actual setting for the database.  While there may multiple\n           values in the temporal domain of interest (for instance, the\n           value to take effect at the next restart), this is the\n           current setting.\n\n           Note that a compliant agent does not need to\n           allow write access to this object.')
-rdbmsDbParamComment = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 3, 1, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rdbmsDbParamComment.setDescription("Annotation which describes the purpose of a configuration\n           parameter or the reason for a particular parameter's\n           setting.\n\n           Note that a compliant agent does not need to\n           allow write access to this object.")
-rdbmsDbLimitedResourceTable = MibTable((1, 3, 6, 1, 2, 1, 39, 1, 4), )
-if mibBuilder.loadTexts: rdbmsDbLimitedResourceTable.setDescription('The table of limited resources that are kept per-database.')
-rdbmsDbLimitedResourceEntry = MibTableRow((1, 3, 6, 1, 2, 1, 39, 1, 4, 1), ).setIndexNames((0, "RDBMS-MIB", "rdbmsDbIndex"), (0, "RDBMS-MIB", "rdbmsDbLimitedResourceName"))
-if mibBuilder.loadTexts: rdbmsDbLimitedResourceEntry.setDescription("An entry for a single limited resource kept per-database.\n           A limited resource has maximum use determined by a parameter\n           that might or might not be changeable at run time, or visible\n           in the rdbmsDbParamTable. Examples would be the number of\n           available locks, or disk space on a partition.  Arrays of\n           resources are supported through an integer sub index, which\n           should have the value of one for single-instance names.\n\n           Limited resources that are shared across databases, are best\n           put in the rdbmsSvrLimitedResourceTable instead of this one.\n           If the database is not actively opened, then attempts to\n           access corresponding instances in this table may result in\n           either noSuchName (SNMPv1) or noSuchInstance (SNMPv2).\n           'Actively opened' means at least one of the rdbmsRelState\n           entries for this database in the rdbmsRelTable is active(2).")
-rdbmsDbLimitedResourceName = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 4, 1, 1), DisplayString())
-if mibBuilder.loadTexts: rdbmsDbLimitedResourceName.setDescription("The name of the resource, for instance 'global locks' or\n           'locks for the FOO database', or 'data space on /dev/rdsk/5s0\n           for FOO'. The length is limited to 64 characters to constrain\n           the number of sub-identifiers needed for instance\n           identification (and to minimize network traffic).")
-rdbmsDbLimitedResourceID = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 4, 1, 2), AutonomousType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsDbLimitedResourceID.setDescription('The ID of the resource which may be described in some other\n           MIB (e.g., an enterprise-specific MIB module).  If there is\n           no ID for this rdbmsDbLimitedResourceName, attempts to access\n           this object will return noSuchName (SNMPv1) or noSuchInstance\n           (SNMPv2).')
-rdbmsDbLimitedResourceLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rdbmsDbLimitedResourceLimit.setDescription('The maximum value the resource use may attain.\n\n           Note that a compliant agent does not need to\n           allow write access to this object.')
-rdbmsDbLimitedResourceCurrent = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 4, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsDbLimitedResourceCurrent.setDescription('The current value for the resource.')
-rdbmsDbLimitedResourceHighwater = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsDbLimitedResourceHighwater.setDescription('The maximum value of the resource seen since applUpTime\n           was reset for the earliest server which has the database\n           actively opened.\n\n           If there are two servers with the database open, and the\n           oldest one dies, the proper way to invalidate the value is by\n           resetting sysUpTime.')
-rdbmsDbLimitedResourceFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 4, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsDbLimitedResourceFailures.setDescription('The number of times the system wanted to exceed the limit of\n           the resource since applUpTime was reset for the earliest\n           server which has the database actively opened.\n\n           If there are two servers with the DB open, and the\n           oldest one dies, the proper way to invalidate the value is by\n           resetting sysUpTime.')
-rdbmsDbLimitedResourceDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 4, 1, 7), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rdbmsDbLimitedResourceDescription.setDescription('A description of the resource and the meaning of the integer\n           units used for Limit, Current, and Highwater.\n\n           Note that a compliant agent does not need to\n           allow write access to this object.')
-rdbmsSrvTable = MibTable((1, 3, 6, 1, 2, 1, 39, 1, 5), )
-if mibBuilder.loadTexts: rdbmsSrvTable.setDescription('The table of database servers running or installed\n           on a system.')
-rdbmsSrvEntry = MibTableRow((1, 3, 6, 1, 2, 1, 39, 1, 5, 1), ).setIndexNames((0, "RDBMS-MIB", "applIndex"))
-if mibBuilder.loadTexts: rdbmsSrvEntry.setDescription("An entry for a single database server.  A server is an\n           independent entity that provides access to one or more\n           databases.  Failure of one does not affect access to\n           databases through any other servers.  There might be one or\n           more servers providing access to a database.  A server may be\n           a 'process' or collection of 'processes', as interpreted by\n           the product.")
-rdbmsSrvPrivateMibOID = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 5, 1, 1), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvPrivateMibOID.setDescription('The authoritative identification for the private MIB for this\n           server, presumably based on the vendor, e.g., { enterprises\n           111 <optional subidentifiers>} for Oracle servers, {\n           enterprises 757 <optional subidentifiers>} for Ingres\n           servers, { enterprises 897 <optional subidentifiers>} for\n           Sybase servers, etc.\n\n           If no OBJECT IDENTIFIER exists for the private MIB, attempts\n           to access this object will return noSuchName (SNMPv1)\n           or noSuchInstance (SNMPv2).')
-rdbmsSrvVendorName = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 5, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvVendorName.setDescription('The name of the vendor whose RDBMS manages this database,\n           for informational purposes.')
-rdbmsSrvProductName = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 5, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvProductName.setDescription("The product name of this server.  This is normally the\n           vendor's formal name for the product, in product specific\n           format.")
-rdbmsSrvContact = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 5, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rdbmsSrvContact.setDescription('The textual identification of the contact person for this\n           managed server, together with information on how to contact\n           this person.\n\n           Note: if there is no active server associated with this\n           object, an agent may need to keep this in other persistent\n           storage, e.g., a configuration file.\n\n           Note that a compliant agent does not need to\n           allow write access to this object.')
-rdbmsSrvInfoTable = MibTable((1, 3, 6, 1, 2, 1, 39, 1, 6), )
-if mibBuilder.loadTexts: rdbmsSrvInfoTable.setDescription("The table of additional information about database servers.\n\n           Entries in this table correspond to applications in the\n           APPLICATION-MIB applTable.  Some objects in that table are\n           application-specific.  When they are associated with an RDBMS\n           server in this table, the objects have the following\n           meanings.\n\n           applName - The name of this server, i.e., the process or\n           group of processes providing access to this database.  The\n           exact format will be product and host specific.\n\n           applVersion - The version number of this server, in product\n           specific format.\n\n           applOperStatus - up(1) means operational and available for\n           general use.  down(2) means the server is not available for\n           use, but is known to the agent.  The other states have broad\n           meaning, and may need to be supplemented by the vendor\n           private MIB.  Halted(3) implies an administrative state of\n           unavailability.  Congested(4) implies a resource or or\n           administrative limit is prohibiting new inbound associations.\n           The 'available soon' description of restarting(5) may include\n           an indeterminate amount of recovery.\n\n           applLastChange is the time the agent noticed the most recent\n           change to applOperStatus.\n\n           applInboundAssociation is the number of currently active\n           local and remote conversations (usually SQL connects).\n\n           applOutboundAssociations is not provided by this MIB.\n\n           applAccumulatedInboundAssociations is the total number of\n           local and remote conversations started since the server came\n           up.\n\n           applAccumulatedOutbound associations is not provided by this\n           MIB.\n\n           applLastInboundActivity is the time the most recent local or\n           remote conversation was attempted or disconnected.\n\n           applLastOutboundActivity is not provided by this MIB.\n\n           applRejectedInboundAssociations is the number of local or\n           remote conversations rejected by the server for\n           administrative reasons or because of resource limitations.\n\n           applFailedOutboundAssociations is not provided by this MIB.")
-rdbmsSrvInfoEntry = MibTableRow((1, 3, 6, 1, 2, 1, 39, 1, 6, 1), ).setIndexNames((0, "RDBMS-MIB", "applIndex"))
-if mibBuilder.loadTexts: rdbmsSrvInfoEntry.setDescription("Information that must be present for a single 'up' database\n           server, with visibility determined by the value of the\n           corresponding applOperStatus object.  If an instance of\n           applOperStatus is not up(1), then attempts to access\n           corresponding instances in this table may result in either\n           noSuchName (SNMPv1) or noSuchInstance (SNMPv2) being returned\n           by the agent.")
-rdbmsSrvInfoStartupTime = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 6, 1, 1), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvInfoStartupTime.setDescription('The date and time at which this server was last started.')
-rdbmsSrvInfoFinishedTransactions = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 6, 1, 2), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvInfoFinishedTransactions.setDescription('The number of transactions visible to this server that have\n           been completed by either commit or abort.  Some database\n           operations, such as read-only queries, may not result in the\n           creation of a transaction.')
-rdbmsSrvInfoDiskReads = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 6, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvInfoDiskReads.setDescription('The total number of reads of database files issued to the\n           operating system by this server since startup.  Numbers are\n           not comparable between products.  What constitutes a\n           readand how it is accounted is product-specific.')
-rdbmsSrvInfoLogicalReads = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 6, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvInfoLogicalReads.setDescription('The total number of logical reads of database files made\n           internally by this server since startup.  The values of this\n           object and those of rdbmsSrvInfoDiskReads reveal the effect\n           of caching on read operation. Numbers are not comparable\n           between products, and may only be meaningful when aggregated\n           across all servers sharing a common cache.')
-rdbmsSrvInfoDiskWrites = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 6, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvInfoDiskWrites.setDescription('The total number of writes to database files issued to the\n           operating system by this server since startup.  Numbers are\n           not comparable between products.')
-rdbmsSrvInfoLogicalWrites = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 6, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvInfoLogicalWrites.setDescription("The total number of times parts of the database files have\n           been marked 'dirty' and in need of writing to the disk.  This\n           value and rdbmsSrvInfoDiskWrites give some indication of the\n           effect of 'write-behind' strategies in reducing the number of\n           disk writes compared to database operations.  Because the\n           writes may be done by servers other than those marking the\n           parts of the database files dirty, these values may only be\n           meaningful when aggregated across all servers sharing a\n           common cache.  Numbers are not comparable between products.")
-rdbmsSrvInfoPageReads = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 6, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvInfoPageReads.setDescription("The total number of pages in database files read by this\n           server since startup.  'Pages' are product specific units of\n           disk i/o operations.  This value, along with\n           rdbmsSrvInfoDiskReads, reveals the effect of any grouping\n           read-ahead that may be used to enhance performance of some\n           queries, such as scans.")
-rdbmsSrvInfoPageWrites = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 6, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvInfoPageWrites.setDescription('The total number of pages in database files written by this\n           server since startup.  Pages are product-specific units of\n           disk I/O.  This value, with rdbmsSrvInfoDiskWrites, shows the\n           effect of write strategies that collapse logical writes of\n           contiguous pages into single calls to the operating system.')
-rdbmsSrvInfoDiskOutOfSpaces = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 6, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvInfoDiskOutOfSpaces.setDescription('The total number of times the server has been unable to\n           obtain disk space that it wanted, since server startup.  This\n           would be inspected by an agent on receipt of an\n           rdbmsOutOfSpace trap.')
-rdbmsSrvInfoHandledRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 6, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvInfoHandledRequests.setDescription("The total number of requests made to the server on inbound\n           associations.  The meaning of 'requests' is product specific,\n           and is not comparable between products.\n\n           This is intended to encapsulate high level semantic\n           operations between clients and servers, or between peers.\n           For instance, one request might correspond to a 'select' or\n           an 'insert' statement.  It is not intended to capture disk\n           i/o described in rdbmsSrvInfoDiskReads and\n           rdbmsSrvInfoDiskWrites.")
-rdbmsSrvInfoRequestRecvs = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 6, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvInfoRequestRecvs.setDescription("The number of receive operations made processing any requests\n           on inbound associations. The meaning of operations is product\n           specific, and is not comparable between products.\n\n           This is intended to capture lower-level i/o operations than\n           shown by HandledRequests, between clients and servers, or\n           between peers.  For instance, it might roughly correspond to\n           the amount of data given with an 'insert' statement.  It is\n           not intended to capture disk i/o described in\n           rdbmsSrvInfoDiskReads and rdbmsSrvInfoDiskWrites.")
-rdbmsSrvInfoRequestSends = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 6, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvInfoRequestSends.setDescription("The number of send operations made processing requests\n           handled on inbound associations.  The meaning of operations\n           is product specific, and is not comparable between products.\n           This is intended to capture lower-level i/o operations than\n           shown by HandledRequests, between between clients and\n           servers, or between peers.  It might roughly correspond to\n           the number of rows returned by a 'select' statement.  It is\n           not intended to capture disk i/o described in DiskReads.")
-rdbmsSrvInfoHighwaterInboundAssociations = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 6, 1, 13), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvInfoHighwaterInboundAssociations.setDescription('The greatest number of inbound associations that have been\n           simultaneously open to this server since startup.')
-rdbmsSrvInfoMaxInboundAssociations = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 6, 1, 14), Gauge32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rdbmsSrvInfoMaxInboundAssociations.setDescription('The greatest number of inbound associations that can be\n           simultaneously open with this server.  If there is no limit,\n           then the value should be zero.\n\n           Note that a compliant agent does not need to\n           allow write access to this object.')
-rdbmsSrvParamTable = MibTable((1, 3, 6, 1, 2, 1, 39, 1, 7), )
-if mibBuilder.loadTexts: rdbmsSrvParamTable.setDescription('The table of configuration parameters for a server.  Entries\n           should be populated according to the following guidelines:\n           (1) The value should be specified through administrative\n               (human) intervention.\n           (2) It should be configured on a per-server or a more global\n               basis, with duplicate entries for each server sharing\n               use of the parameter.\n           (3) One of the following is true:\n               (a) The parameter has a non-numeric value;\n               (b) The current value is numeric, but it only changes due\n                   to human intervention;\n\n               (c) The current value is numeric and dynamic, but the\n                   RDBMS does not track access/allocation failures\n                   related to the parameter;\n               (d) The current value is numeric and dynamic, the\n                   RDBMS tracks changes in access/allocation failures\n                   related to the parameter, but the failure has no\n                   significant impact on RDBMS performance or\n                   availability.\n               (e) The current value is numeric and dynamic, the\n                   RDBMS tracks changes in access/allocation failures\n                   related to the parameter, the failure has\n                   significant impact on RDBMS performance or\n                   availability, and is shown in the\n                   rdbmsSrvLimitedResource table.')
-rdbmsSrvParamEntry = MibTableRow((1, 3, 6, 1, 2, 1, 39, 1, 7, 1), ).setIndexNames((0, "RDBMS-MIB", "applIndex"), (0, "RDBMS-MIB", "rdbmsSrvParamName"), (0, "RDBMS-MIB", "rdbmsSrvParamSubIndex"))
-if mibBuilder.loadTexts: rdbmsSrvParamEntry.setDescription('An entry for a single configuration parameter for a server.\n           Parameters with single values have a subindex value of one.\n           If the parameter is naturally considered to contain a\n           variable number of members of a class, e.g.  members of the\n           DBA user group, or tracepoints active in the server, then it\n           must be presented as a set of rows.  If, on the other hand,\n           the parameter represents a set of choices from a class,\n           e.g. the permissions on a file or the options chosen out of\n           the set of all options allowed, AND is guaranteed to always\n           fit in the 255 character length of a DisplayString, then it\n           may be presented as a comma separated list with a subindex\n           value of one.  Zero may not be used as a subindex value.\n\n           Entries for a server must be present if the value of the\n           corresponding applOperStatus object is up(1).  If an instance\n           of applOperStatus is not up(1), then attempts to access\n           corresponding instances in this table may result in either\n           noSuchName (SNMPv1) or noSuchInstance (SNMPv2) being returned\n           by the agent.')
-rdbmsSrvParamName = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 7, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,64)))
-if mibBuilder.loadTexts: rdbmsSrvParamName.setDescription('The name of a configuration parameter for a server.  This\n           name is product-specific. The length is limited to 64\n           characters to constrain the number of sub-identifiers needed\n           for instance identification (and to minimize network\n           traffic).')
-rdbmsSrvParamSubIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 7, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: rdbmsSrvParamSubIndex.setDescription('The subindex value for this parameter.  If the parameter is\n           naturally considered to contain a variable number of members\n           of a class, e.g.  members of the DBA user group, or files\n           which are part of the database, then it must be presented as\n           a set of rows.  If, on the other hand, the parameter\n           represents a set of choices from a class, e.g. the\n           permissions on a file or the options chosen out of the set of\n           all options allowed, AND is guaranteed to always fit in the\n           255 character length of a DisplayString, then it may be\n           presented as a comma separated list with a subindex value of\n           one.  Zero may not be used as a value.')
-rdbmsSrvParamID = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 7, 1, 3), AutonomousType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvParamID.setDescription('The ID of the parameter which may be described in some\n           other MIB.  If there is no ID for this rdbmsSrvParamName,\n           attempts to access this object will return noSuchName\n           (SNMPv1) or noSuchInstance (SNMPv2).')
-rdbmsSrvParamCurrValue = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 7, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rdbmsSrvParamCurrValue.setDescription('The value for a configuration parameter now in effect, the\n           actual setting for the server.  While there may multiple\n           values in the temporal domain of interest (for instance, the\n           value to take effect at the next restart), this is the\n           current setting.\n\n           Note that a compliant agent does not need to\n           allow write access to this object.')
-rdbmsSrvParamComment = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 7, 1, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rdbmsSrvParamComment.setDescription("Annotation which describes the purpose of a configuration\n           parameter or the reason for a particular parameter's\n           setting.\n\n           Note that a compliant agent does not need to\n           allow write access to this object.")
-rdbmsSrvLimitedResourceTable = MibTable((1, 3, 6, 1, 2, 1, 39, 1, 8), )
-if mibBuilder.loadTexts: rdbmsSrvLimitedResourceTable.setDescription('The table of limited resources relevant to a server.')
-rdbmsSrvLimitedResourceEntry = MibTableRow((1, 3, 6, 1, 2, 1, 39, 1, 8, 1), ).setIndexNames((0, "RDBMS-MIB", "applIndex"), (0, "RDBMS-MIB", "rdbmsSrvLimitedResourceName"))
-if mibBuilder.loadTexts: rdbmsSrvLimitedResourceEntry.setDescription('An entry for a single limited resource kept by the server.\n           A limited resource has maximum use determined by a parameter\n           that might or might not changeable at run time, or visible in\n           the rbmsSrvParamTable.  Examples would be the number of\n           available locks, or number of concurrent executions allowed\n           in a server.  Arrays of resources are supported through an\n           integer subindex, which should have the value of one for\n           single-instance names.\n\n           Limited resources that are shared across servers or databases\n           are best duplicated in this table across\n           all servers accessing the resource.')
-rdbmsSrvLimitedResourceName = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 8, 1, 1), DisplayString())
-if mibBuilder.loadTexts: rdbmsSrvLimitedResourceName.setDescription("The name of the resource, for instance 'threads' or\n           'semaphores', or 'buffer pages'")
-rdbmsSrvLimitedResourceID = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 8, 1, 2), AutonomousType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvLimitedResourceID.setDescription('The ID of the resource which may be described in some other\n           MIB.  If there is no ID for this rdbmsSrvLimitedResourceName,\n           attempts to access this object will return noSuchName\n           (SNMPv1) or noSuchInstance (SNMPv2).')
-rdbmsSrvLimitedResourceLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 8, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rdbmsSrvLimitedResourceLimit.setDescription('The maximum value the resource use may attain.\n\n           Note that a compliant agent does not need to\n           allow write access to this object.')
-rdbmsSrvLimitedResourceCurrent = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 8, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvLimitedResourceCurrent.setDescription('The current value for the resource.')
-rdbmsSrvLimitedResourceHighwater = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 8, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvLimitedResourceHighwater.setDescription('The maximum value of the resource seen since applUpTime\n           was reset.')
-rdbmsSrvLimitedResourceFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 8, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsSrvLimitedResourceFailures.setDescription('The number of times the system wanted to exceed the limit of\n           the resource since applUpTime was reset.')
-rdbmsSrvLimitedResourceDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 8, 1, 7), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rdbmsSrvLimitedResourceDescription.setDescription('A description of the resource and the meaning of the integer\n           units used for Limit, Current, and Highwater.\n\n           Note that a compliant agent does not need to\n           allow write access to this object.')
-rdbmsRelTable = MibTable((1, 3, 6, 1, 2, 1, 39, 1, 9), )
-if mibBuilder.loadTexts: rdbmsRelTable.setDescription('A table relating databases and servers present on a host.')
-rdbmsRelEntry = MibTableRow((1, 3, 6, 1, 2, 1, 39, 1, 9, 1), ).setIndexNames((0, "RDBMS-MIB", "rdbmsDbIndex"), (0, "RDBMS-MIB", "applIndex"))
-if mibBuilder.loadTexts: rdbmsRelEntry.setDescription("An entry relating a single database server to a single\n           database to which it may provide access.  The table is\n           indexed first by the index of rdbmsDbTable, and then\n           rdbmsSrvTable, so that all servers capable of providing\n           access to a given database may be found by SNMP traversal\n           operations (get-next and get-bulk).  The makeup of this table\n           depends on the product's architecture, e.g. if it is one\n           server - many databases, then each server will appear n\n           times, where n is the number of databases it may access, and\n           each database will appear once.  If the architecture is one\n           database - many servers, then each server will appear once\n           and each database will appear n times, where n is the number\n           of servers that may be accessing it.")
-rdbmsRelState = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 9, 1, 1), Integer32().subtype(subtypeSpec=SingleValueConstraint(1, 2, 3, 4, 5,)).clone(namedValues=NamedValues(("other", 1), ("active", 2), ("available", 3), ("restricted", 4), ("unavailable", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsRelState.setDescription("The state of this server's access to this database.\n           Active(2) means the server is actively using the database.\n           Available(3) means the server could use the database if\n           necessary.  Restricted(4) means the database is in some\n           administratively determined state of less-than-complete\n           availability.  Unavailable(5) means the database is not\n           available through this server.  Other(1) means the\n           database/server is in some other condition, possibly\n           described in the vendor private MIB.")
-rdbmsRelActiveTime = MibTableColumn((1, 3, 6, 1, 2, 1, 39, 1, 9, 1, 2), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rdbmsRelActiveTime.setDescription('The time the database was made active by the server.  If an\n           instance of rdbmsRelState is not active(1), then attempts to\n           access the corresponding instance of this object may result\n           in either noSuchName (SNMPv1) or noSuchInstance (SNMPv2)\n           being returned by the agent.')
-rdbmsWellKnownLimitedResources = MibIdentifier((1, 3, 6, 1, 2, 1, 39, 1, 10))
-rdbmsLogSpace = ObjectIdentity((1, 3, 6, 1, 2, 1, 39, 1, 10, 1))
-if mibBuilder.loadTexts: rdbmsLogSpace.setDescription('Storage allocated for redo and undo logs.')
-rdbmsTraps = MibIdentifier((1, 3, 6, 1, 2, 1, 39, 2))
-rdbmsStateChange = NotificationType((1, 3, 6, 1, 2, 1, 39, 2, 1)).setObjects(*(("RDBMS-MIB", "rdbmsRelState"),))
-if mibBuilder.loadTexts: rdbmsStateChange.setDescription('An rdbmsStateChange trap signifies that one of the database\n           server/databases managed by this agent has changed its\n           rdbmsRelState in a way that makes it less accessible for use.\n           For these purposes, both active(2) and available(3) are\n           considered fully accessible.  The state sent with the trap is\n           the new, less accessible state.')
-rdbmsOutOfSpace = NotificationType((1, 3, 6, 1, 2, 1, 39, 2, 2)).setObjects(*(("RDBMS-MIB", "rdbmsSrvInfoDiskOutOfSpaces"),))
-if mibBuilder.loadTexts: rdbmsOutOfSpace.setDescription('An rdbmsOutOfSpace trap signifies that one of the database\n           servers managed by this agent has been unable to allocate\n           space for one of the databases managed by this agent.  Care\n           should be taken to avoid flooding the network with these\n           traps.')
-rdbmsConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 39, 3))
-rdbmsCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 39, 3, 1))
-rdbmsGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 39, 3, 2))
-rdbmsCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 39, 3, 1, 1)).setObjects(*(("HOST-RESOURCES-MIB", "hrSystem"), ("APPLICATION-MIB", "applGroup"), ("RDBMS-MIB", "rdbmsGroup"), ("RDBMS-MIB", "rdbmsGroup"),))
-if mibBuilder.loadTexts: rdbmsCompliance.setDescription('The compliance statement for SNMP entities which\n           implement the RDBMS MIB')
-rdbmsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 39, 3, 2, 1)).setObjects(*(("RDBMS-MIB", "rdbmsDbPrivateMibOID"), ("RDBMS-MIB", "rdbmsDbVendorName"), ("RDBMS-MIB", "rdbmsDbName"), ("RDBMS-MIB", "rdbmsDbContact"), ("RDBMS-MIB", "rdbmsDbInfoProductName"), ("RDBMS-MIB", "rdbmsDbInfoVersion"), ("RDBMS-MIB", "rdbmsDbInfoSizeUnits"), ("RDBMS-MIB", "rdbmsDbInfoSizeAllocated"), ("RDBMS-MIB", "rdbmsDbInfoSizeUsed"), ("RDBMS-MIB", "rdbmsDbInfoLastBackup"), ("RDBMS-MIB", "rdbmsDbParamCurrValue"), ("RDBMS-MIB", "rdbmsDbParamComment"), ("RDBMS-MIB", "rdbmsDbLimitedResourceLimit"), ("RDBMS-MIB", "rdbmsDbLimitedResourceCurrent"), ("RDBMS-MIB", "rdbmsDbLimitedResourceHighwater"), ("RDBMS-MIB", "rdbmsDbLimitedResourceFailures"), ("RDBMS-MIB", "rdbmsDbLimitedResourceDescription"), ("RDBMS-MIB", "rdbmsSrvPrivateMibOID"), ("RDBMS-MIB", "rdbmsSrvVendorName"), ("RDBMS-MIB", "rdbmsSrvProductName"), ("RDBMS-MIB", "rdbmsSrvContact"), ("RDBMS-MIB", "rdbmsSrvInfoStartupTime"), ("RDBMS-MIB", "rdbmsSrvInfoFinishedTransactions"), ("RDBMS-MIB", "rdbmsSrvInfoDiskReads"), ("RDBMS-MIB", "rdbmsSrvInfoDiskWrites"), ("RDBMS-MIB", "rdbmsSrvInfoLogicalReads"), ("RDBMS-MIB", "rdbmsSrvInfoLogicalWrites"), ("RDBMS-MIB", "rdbmsSrvInfoPageReads"), ("RDBMS-MIB", "rdbmsSrvInfoPageWrites"), ("RDBMS-MIB", "rdbmsSrvInfoHandledRequests"), ("RDBMS-MIB", "rdbmsSrvInfoRequestRecvs"), ("RDBMS-MIB", "rdbmsSrvInfoRequestSends"), ("RDBMS-MIB", "rdbmsSrvInfoHighwaterInboundAssociations"), ("RDBMS-MIB", "rdbmsSrvInfoMaxInboundAssociations"), ("RDBMS-MIB", "rdbmsSrvParamCurrValue"), ("RDBMS-MIB", "rdbmsSrvParamComment"), ("RDBMS-MIB", "rdbmsSrvLimitedResourceLimit"), ("RDBMS-MIB", "rdbmsSrvLimitedResourceCurrent"), ("RDBMS-MIB", "rdbmsSrvLimitedResourceHighwater"), ("RDBMS-MIB", "rdbmsSrvLimitedResourceFailures"), ("RDBMS-MIB", "rdbmsSrvLimitedResourceDescription"), ("RDBMS-MIB", "rdbmsRelState"), ("RDBMS-MIB", "rdbmsRelActiveTime"),))
-if mibBuilder.loadTexts: rdbmsGroup.setDescription('A collection of objects providing basic instrumentation of an\n           RDBMS entity.')
-mibBuilder.exportSymbols("RDBMS-MIB", rdbmsDbLimitedResourceFailures=rdbmsDbLimitedResourceFailures, rdbmsDbParamID=rdbmsDbParamID, rdbmsSrvParamSubIndex=rdbmsSrvParamSubIndex, rdbmsSrvVendorName=rdbmsSrvVendorName, rdbmsOutOfSpace=rdbmsOutOfSpace, rdbmsDbLimitedResourceDescription=rdbmsDbLimitedResourceDescription, rdbmsDbParamSubIndex=rdbmsDbParamSubIndex, rdbmsTraps=rdbmsTraps, rdbmsDbInfoVersion=rdbmsDbInfoVersion, rdbmsDbPrivateMibOID=rdbmsDbPrivateMibOID, rdbmsDbInfoProductName=rdbmsDbInfoProductName, rdbmsDbParamComment=rdbmsDbParamComment, rdbmsConformance=rdbmsConformance, rdbmsLogSpace=rdbmsLogSpace, rdbmsCompliance=rdbmsCompliance, rdbmsDbParamTable=rdbmsDbParamTable, rdbmsSrvInfoRequestSends=rdbmsSrvInfoRequestSends, rdbmsDbIndex=rdbmsDbIndex, rdbmsDbLimitedResourceName=rdbmsDbLimitedResourceName, rdbmsDbParamEntry=rdbmsDbParamEntry, rdbmsDbLimitedResourceID=rdbmsDbLimitedResourceID, rdbmsSrvParamName=rdbmsSrvParamName, rdbmsSrvLimitedResourceLimit=rdbmsSrvLimitedResourceLimit, rdbmsGroup=rdbmsGroup, rdbmsSrvProductName=rdbmsSrvProductName, rdbmsSrvInfoStartupTime=rdbmsSrvInfoStartupTime, rdbmsMIB=rdbmsMIB, rdbmsObjects=rdbmsObjects, rdbmsSrvInfoTable=rdbmsSrvInfoTable, rdbmsSrvTable=rdbmsSrvTable, rdbmsSrvLimitedResourceEntry=rdbmsSrvLimitedResourceEntry, rdbmsDbVendorName=rdbmsDbVendorName, rdbmsSrvLimitedResourceHighwater=rdbmsSrvLimitedResourceHighwater, rdbmsSrvInfoDiskReads=rdbmsSrvInfoDiskReads, rdbmsDbInfoSizeAllocated=rdbmsDbInfoSizeAllocated, rdbmsDbLimitedResourceCurrent=rdbmsDbLimitedResourceCurrent, rdbmsDbInfoSizeUsed=rdbmsDbInfoSizeUsed, rdbmsGroups=rdbmsGroups, rdbmsDbInfoSizeUnits=rdbmsDbInfoSizeUnits, rdbmsDbInfoLastBackup=rdbmsDbInfoLastBackup, rdbmsSrvLimitedResourceTable=rdbmsSrvLimitedResourceTable, rdbmsDbTable=rdbmsDbTable, rdbmsDbEntry=rdbmsDbEntry, rdbmsSrvContact=rdbmsSrvContact, rdbmsSrvParamCurrValue=rdbmsSrvParamCurrValue, rdbmsDbInfoTable=rdbmsDbInfoTable, rdbmsSrvLimitedResourceFailures=rdbmsSrvLimitedResourceFailures, PYSNMP_MODULE_ID=rdbmsMIB, rdbmsDbContact=rdbmsDbContact, rdbmsSrvInfoPageWrites=rdbmsSrvInfoPageWrites, rdbmsSrvInfoEntry=rdbmsSrvInfoEntry, rdbmsDbParamCurrValue=rdbmsDbParamCurrValue, rdbmsSrvParamTable=rdbmsSrvParamTable, rdbmsSrvInfoHandledRequests=rdbmsSrvInfoHandledRequests, rdbmsSrvLimitedResourceID=rdbmsSrvLimitedResourceID, rdbmsSrvInfoLogicalReads=rdbmsSrvInfoLogicalReads, rdbmsWellKnownLimitedResources=rdbmsWellKnownLimitedResources, rdbmsSrvInfoHighwaterInboundAssociations=rdbmsSrvInfoHighwaterInboundAssociations, rdbmsSrvParamID=rdbmsSrvParamID, rdbmsSrvInfoFinishedTransactions=rdbmsSrvInfoFinishedTransactions, rdbmsDbLimitedResourceEntry=rdbmsDbLimitedResourceEntry, rdbmsDbName=rdbmsDbName, rdbmsRelActiveTime=rdbmsRelActiveTime, rdbmsSrvInfoMaxInboundAssociations=rdbmsSrvInfoMaxInboundAssociations, rdbmsSrvParamEntry=rdbmsSrvParamEntry, rdbmsDbLimitedResourceHighwater=rdbmsDbLimitedResourceHighwater, rdbmsSrvInfoDiskOutOfSpaces=rdbmsSrvInfoDiskOutOfSpaces, rdbmsSrvPrivateMibOID=rdbmsSrvPrivateMibOID, rdbmsSrvParamComment=rdbmsSrvParamComment, rdbmsDbParamName=rdbmsDbParamName, rdbmsSrvLimitedResourceName=rdbmsSrvLimitedResourceName, rdbmsSrvInfoPageReads=rdbmsSrvInfoPageReads, rdbmsSrvInfoRequestRecvs=rdbmsSrvInfoRequestRecvs, rdbmsDbLimitedResourceLimit=rdbmsDbLimitedResourceLimit, rdbmsCompliances=rdbmsCompliances, rdbmsSrvInfoLogicalWrites=rdbmsSrvInfoLogicalWrites, rdbmsDbInfoEntry=rdbmsDbInfoEntry, rdbmsSrvLimitedResourceCurrent=rdbmsSrvLimitedResourceCurrent, rdbmsDbLimitedResourceTable=rdbmsDbLimitedResourceTable, rdbmsSrvInfoDiskWrites=rdbmsSrvInfoDiskWrites, rdbmsRelEntry=rdbmsRelEntry, rdbmsStateChange=rdbmsStateChange, rdbmsSrvEntry=rdbmsSrvEntry, rdbmsRelState=rdbmsRelState, rdbmsSrvLimitedResourceDescription=rdbmsSrvLimitedResourceDescription, rdbmsRelTable=rdbmsRelTable)
+_A9='rdbmsSrvInfoDiskOutOfSpaces'
+_A8='rdbmsRelActiveTime'
+_A7='rdbmsSrvLimitedResourceDescription'
+_A6='rdbmsSrvLimitedResourceFailures'
+_A5='rdbmsSrvLimitedResourceHighwater'
+_A4='rdbmsSrvLimitedResourceCurrent'
+_A3='rdbmsSrvLimitedResourceLimit'
+_A2='rdbmsSrvParamComment'
+_A1='rdbmsSrvParamCurrValue'
+_A0='rdbmsSrvInfoMaxInboundAssociations'
+_z='rdbmsSrvInfoHighwaterInboundAssociations'
+_y='rdbmsSrvInfoRequestSends'
+_x='rdbmsSrvInfoRequestRecvs'
+_w='rdbmsSrvInfoHandledRequests'
+_v='rdbmsSrvInfoPageWrites'
+_u='rdbmsSrvInfoPageReads'
+_t='rdbmsSrvInfoLogicalWrites'
+_s='rdbmsSrvInfoLogicalReads'
+_r='rdbmsSrvInfoDiskWrites'
+_q='rdbmsSrvInfoDiskReads'
+_p='rdbmsSrvInfoFinishedTransactions'
+_o='rdbmsSrvInfoStartupTime'
+_n='rdbmsSrvContact'
+_m='rdbmsSrvProductName'
+_l='rdbmsSrvVendorName'
+_k='rdbmsSrvPrivateMibOID'
+_j='rdbmsDbLimitedResourceDescription'
+_i='rdbmsDbLimitedResourceFailures'
+_h='rdbmsDbLimitedResourceHighwater'
+_g='rdbmsDbLimitedResourceCurrent'
+_f='rdbmsDbLimitedResourceLimit'
+_e='rdbmsDbParamComment'
+_d='rdbmsDbParamCurrValue'
+_c='rdbmsDbInfoLastBackup'
+_b='rdbmsDbInfoSizeUsed'
+_a='rdbmsDbInfoSizeAllocated'
+_Z='rdbmsDbInfoSizeUnits'
+_Y='rdbmsDbInfoVersion'
+_X='rdbmsDbInfoProductName'
+_W='rdbmsDbContact'
+_V='rdbmsDbName'
+_U='rdbmsDbVendorName'
+_T='rdbmsDbPrivateMibOID'
+_S='rdbmsSrvLimitedResourceName'
+_R='rdbmsSrvParamSubIndex'
+_Q='rdbmsSrvParamName'
+_P='rdbmsDbLimitedResourceName'
+_O='rdbmsDbParamSubIndex'
+_N='rdbmsDbParamName'
+_M='applGroups'
+_L='rdbmsGroup'
+_K='rdbmsRelState'
+_J='DisplayString'
+_I='rdbmsDbIndex'
+_H='applIndex'
+_G='not-accessible'
+_F='NETWORK-SERVICES-MIB'
+_E='read-write'
+_D='Integer32'
+_C='read-only'
+_B='RDBMS-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+applGroups,applIndex=mibBuilder.importSymbols(_F,_M,_H)
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+AutonomousType,DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','AutonomousType','DateAndTime',_J,'PhysAddress','TextualConvention')
+rdbmsMIB=ModuleIdentity((1,3,6,1,2,1,39))
+_RdbmsObjects_ObjectIdentity=ObjectIdentity
+rdbmsObjects=_RdbmsObjects_ObjectIdentity((1,3,6,1,2,1,39,1))
+_RdbmsDbTable_Object=MibTable
+rdbmsDbTable=_RdbmsDbTable_Object((1,3,6,1,2,1,39,1,1))
+if mibBuilder.loadTexts:rdbmsDbTable.setStatus(_A)
+_RdbmsDbEntry_Object=MibTableRow
+rdbmsDbEntry=_RdbmsDbEntry_Object((1,3,6,1,2,1,39,1,1,1))
+rdbmsDbEntry.setIndexNames((0,_B,_I))
+if mibBuilder.loadTexts:rdbmsDbEntry.setStatus(_A)
+class _RdbmsDbIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_RdbmsDbIndex_Type.__name__=_D
+_RdbmsDbIndex_Object=MibTableColumn
+rdbmsDbIndex=_RdbmsDbIndex_Object((1,3,6,1,2,1,39,1,1,1,1),_RdbmsDbIndex_Type())
+rdbmsDbIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:rdbmsDbIndex.setStatus(_A)
+_RdbmsDbPrivateMibOID_Type=ObjectIdentifier
+_RdbmsDbPrivateMibOID_Object=MibTableColumn
+rdbmsDbPrivateMibOID=_RdbmsDbPrivateMibOID_Object((1,3,6,1,2,1,39,1,1,1,2),_RdbmsDbPrivateMibOID_Type())
+rdbmsDbPrivateMibOID.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsDbPrivateMibOID.setStatus(_A)
+_RdbmsDbVendorName_Type=DisplayString
+_RdbmsDbVendorName_Object=MibTableColumn
+rdbmsDbVendorName=_RdbmsDbVendorName_Object((1,3,6,1,2,1,39,1,1,1,3),_RdbmsDbVendorName_Type())
+rdbmsDbVendorName.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsDbVendorName.setStatus(_A)
+_RdbmsDbName_Type=DisplayString
+_RdbmsDbName_Object=MibTableColumn
+rdbmsDbName=_RdbmsDbName_Object((1,3,6,1,2,1,39,1,1,1,4),_RdbmsDbName_Type())
+rdbmsDbName.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsDbName.setStatus(_A)
+_RdbmsDbContact_Type=DisplayString
+_RdbmsDbContact_Object=MibTableColumn
+rdbmsDbContact=_RdbmsDbContact_Object((1,3,6,1,2,1,39,1,1,1,5),_RdbmsDbContact_Type())
+rdbmsDbContact.setMaxAccess(_E)
+if mibBuilder.loadTexts:rdbmsDbContact.setStatus(_A)
+_RdbmsDbInfoTable_Object=MibTable
+rdbmsDbInfoTable=_RdbmsDbInfoTable_Object((1,3,6,1,2,1,39,1,2))
+if mibBuilder.loadTexts:rdbmsDbInfoTable.setStatus(_A)
+_RdbmsDbInfoEntry_Object=MibTableRow
+rdbmsDbInfoEntry=_RdbmsDbInfoEntry_Object((1,3,6,1,2,1,39,1,2,1))
+rdbmsDbInfoEntry.setIndexNames((0,_B,_I))
+if mibBuilder.loadTexts:rdbmsDbInfoEntry.setStatus(_A)
+_RdbmsDbInfoProductName_Type=DisplayString
+_RdbmsDbInfoProductName_Object=MibTableColumn
+rdbmsDbInfoProductName=_RdbmsDbInfoProductName_Object((1,3,6,1,2,1,39,1,2,1,1),_RdbmsDbInfoProductName_Type())
+rdbmsDbInfoProductName.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsDbInfoProductName.setStatus(_A)
+_RdbmsDbInfoVersion_Type=DisplayString
+_RdbmsDbInfoVersion_Object=MibTableColumn
+rdbmsDbInfoVersion=_RdbmsDbInfoVersion_Object((1,3,6,1,2,1,39,1,2,1,2),_RdbmsDbInfoVersion_Type())
+rdbmsDbInfoVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsDbInfoVersion.setStatus(_A)
+class _RdbmsDbInfoSizeUnits_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('bytes',1),('kbytes',2),('mbytes',3),('gbytes',4),('tbytes',5)))
+_RdbmsDbInfoSizeUnits_Type.__name__=_D
+_RdbmsDbInfoSizeUnits_Object=MibTableColumn
+rdbmsDbInfoSizeUnits=_RdbmsDbInfoSizeUnits_Object((1,3,6,1,2,1,39,1,2,1,3),_RdbmsDbInfoSizeUnits_Type())
+rdbmsDbInfoSizeUnits.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsDbInfoSizeUnits.setStatus(_A)
+class _RdbmsDbInfoSizeAllocated_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_RdbmsDbInfoSizeAllocated_Type.__name__=_D
+_RdbmsDbInfoSizeAllocated_Object=MibTableColumn
+rdbmsDbInfoSizeAllocated=_RdbmsDbInfoSizeAllocated_Object((1,3,6,1,2,1,39,1,2,1,4),_RdbmsDbInfoSizeAllocated_Type())
+rdbmsDbInfoSizeAllocated.setMaxAccess(_E)
+if mibBuilder.loadTexts:rdbmsDbInfoSizeAllocated.setStatus(_A)
+class _RdbmsDbInfoSizeUsed_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_RdbmsDbInfoSizeUsed_Type.__name__=_D
+_RdbmsDbInfoSizeUsed_Object=MibTableColumn
+rdbmsDbInfoSizeUsed=_RdbmsDbInfoSizeUsed_Object((1,3,6,1,2,1,39,1,2,1,5),_RdbmsDbInfoSizeUsed_Type())
+rdbmsDbInfoSizeUsed.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsDbInfoSizeUsed.setStatus(_A)
+_RdbmsDbInfoLastBackup_Type=DateAndTime
+_RdbmsDbInfoLastBackup_Object=MibTableColumn
+rdbmsDbInfoLastBackup=_RdbmsDbInfoLastBackup_Object((1,3,6,1,2,1,39,1,2,1,6),_RdbmsDbInfoLastBackup_Type())
+rdbmsDbInfoLastBackup.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsDbInfoLastBackup.setStatus(_A)
+_RdbmsDbParamTable_Object=MibTable
+rdbmsDbParamTable=_RdbmsDbParamTable_Object((1,3,6,1,2,1,39,1,3))
+if mibBuilder.loadTexts:rdbmsDbParamTable.setStatus(_A)
+_RdbmsDbParamEntry_Object=MibTableRow
+rdbmsDbParamEntry=_RdbmsDbParamEntry_Object((1,3,6,1,2,1,39,1,3,1))
+rdbmsDbParamEntry.setIndexNames((0,_B,_I),(0,_B,_N),(0,_B,_O))
+if mibBuilder.loadTexts:rdbmsDbParamEntry.setStatus(_A)
+class _RdbmsDbParamName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
+_RdbmsDbParamName_Type.__name__=_J
+_RdbmsDbParamName_Object=MibTableColumn
+rdbmsDbParamName=_RdbmsDbParamName_Object((1,3,6,1,2,1,39,1,3,1,1),_RdbmsDbParamName_Type())
+rdbmsDbParamName.setMaxAccess(_G)
+if mibBuilder.loadTexts:rdbmsDbParamName.setStatus(_A)
+class _RdbmsDbParamSubIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_RdbmsDbParamSubIndex_Type.__name__=_D
+_RdbmsDbParamSubIndex_Object=MibTableColumn
+rdbmsDbParamSubIndex=_RdbmsDbParamSubIndex_Object((1,3,6,1,2,1,39,1,3,1,2),_RdbmsDbParamSubIndex_Type())
+rdbmsDbParamSubIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:rdbmsDbParamSubIndex.setStatus(_A)
+_RdbmsDbParamID_Type=AutonomousType
+_RdbmsDbParamID_Object=MibTableColumn
+rdbmsDbParamID=_RdbmsDbParamID_Object((1,3,6,1,2,1,39,1,3,1,3),_RdbmsDbParamID_Type())
+rdbmsDbParamID.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsDbParamID.setStatus(_A)
+_RdbmsDbParamCurrValue_Type=DisplayString
+_RdbmsDbParamCurrValue_Object=MibTableColumn
+rdbmsDbParamCurrValue=_RdbmsDbParamCurrValue_Object((1,3,6,1,2,1,39,1,3,1,4),_RdbmsDbParamCurrValue_Type())
+rdbmsDbParamCurrValue.setMaxAccess(_E)
+if mibBuilder.loadTexts:rdbmsDbParamCurrValue.setStatus(_A)
+_RdbmsDbParamComment_Type=DisplayString
+_RdbmsDbParamComment_Object=MibTableColumn
+rdbmsDbParamComment=_RdbmsDbParamComment_Object((1,3,6,1,2,1,39,1,3,1,5),_RdbmsDbParamComment_Type())
+rdbmsDbParamComment.setMaxAccess(_E)
+if mibBuilder.loadTexts:rdbmsDbParamComment.setStatus(_A)
+_RdbmsDbLimitedResourceTable_Object=MibTable
+rdbmsDbLimitedResourceTable=_RdbmsDbLimitedResourceTable_Object((1,3,6,1,2,1,39,1,4))
+if mibBuilder.loadTexts:rdbmsDbLimitedResourceTable.setStatus(_A)
+_RdbmsDbLimitedResourceEntry_Object=MibTableRow
+rdbmsDbLimitedResourceEntry=_RdbmsDbLimitedResourceEntry_Object((1,3,6,1,2,1,39,1,4,1))
+rdbmsDbLimitedResourceEntry.setIndexNames((0,_B,_I),(0,_B,_P))
+if mibBuilder.loadTexts:rdbmsDbLimitedResourceEntry.setStatus(_A)
+_RdbmsDbLimitedResourceName_Type=DisplayString
+_RdbmsDbLimitedResourceName_Object=MibTableColumn
+rdbmsDbLimitedResourceName=_RdbmsDbLimitedResourceName_Object((1,3,6,1,2,1,39,1,4,1,1),_RdbmsDbLimitedResourceName_Type())
+rdbmsDbLimitedResourceName.setMaxAccess(_G)
+if mibBuilder.loadTexts:rdbmsDbLimitedResourceName.setStatus(_A)
+_RdbmsDbLimitedResourceID_Type=AutonomousType
+_RdbmsDbLimitedResourceID_Object=MibTableColumn
+rdbmsDbLimitedResourceID=_RdbmsDbLimitedResourceID_Object((1,3,6,1,2,1,39,1,4,1,2),_RdbmsDbLimitedResourceID_Type())
+rdbmsDbLimitedResourceID.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsDbLimitedResourceID.setStatus(_A)
+class _RdbmsDbLimitedResourceLimit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_RdbmsDbLimitedResourceLimit_Type.__name__=_D
+_RdbmsDbLimitedResourceLimit_Object=MibTableColumn
+rdbmsDbLimitedResourceLimit=_RdbmsDbLimitedResourceLimit_Object((1,3,6,1,2,1,39,1,4,1,3),_RdbmsDbLimitedResourceLimit_Type())
+rdbmsDbLimitedResourceLimit.setMaxAccess(_E)
+if mibBuilder.loadTexts:rdbmsDbLimitedResourceLimit.setStatus(_A)
+class _RdbmsDbLimitedResourceCurrent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_RdbmsDbLimitedResourceCurrent_Type.__name__=_D
+_RdbmsDbLimitedResourceCurrent_Object=MibTableColumn
+rdbmsDbLimitedResourceCurrent=_RdbmsDbLimitedResourceCurrent_Object((1,3,6,1,2,1,39,1,4,1,4),_RdbmsDbLimitedResourceCurrent_Type())
+rdbmsDbLimitedResourceCurrent.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsDbLimitedResourceCurrent.setStatus(_A)
+class _RdbmsDbLimitedResourceHighwater_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_RdbmsDbLimitedResourceHighwater_Type.__name__=_D
+_RdbmsDbLimitedResourceHighwater_Object=MibTableColumn
+rdbmsDbLimitedResourceHighwater=_RdbmsDbLimitedResourceHighwater_Object((1,3,6,1,2,1,39,1,4,1,5),_RdbmsDbLimitedResourceHighwater_Type())
+rdbmsDbLimitedResourceHighwater.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsDbLimitedResourceHighwater.setStatus(_A)
+_RdbmsDbLimitedResourceFailures_Type=Counter32
+_RdbmsDbLimitedResourceFailures_Object=MibTableColumn
+rdbmsDbLimitedResourceFailures=_RdbmsDbLimitedResourceFailures_Object((1,3,6,1,2,1,39,1,4,1,6),_RdbmsDbLimitedResourceFailures_Type())
+rdbmsDbLimitedResourceFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsDbLimitedResourceFailures.setStatus(_A)
+_RdbmsDbLimitedResourceDescription_Type=DisplayString
+_RdbmsDbLimitedResourceDescription_Object=MibTableColumn
+rdbmsDbLimitedResourceDescription=_RdbmsDbLimitedResourceDescription_Object((1,3,6,1,2,1,39,1,4,1,7),_RdbmsDbLimitedResourceDescription_Type())
+rdbmsDbLimitedResourceDescription.setMaxAccess(_E)
+if mibBuilder.loadTexts:rdbmsDbLimitedResourceDescription.setStatus(_A)
+_RdbmsSrvTable_Object=MibTable
+rdbmsSrvTable=_RdbmsSrvTable_Object((1,3,6,1,2,1,39,1,5))
+if mibBuilder.loadTexts:rdbmsSrvTable.setStatus(_A)
+_RdbmsSrvEntry_Object=MibTableRow
+rdbmsSrvEntry=_RdbmsSrvEntry_Object((1,3,6,1,2,1,39,1,5,1))
+rdbmsSrvEntry.setIndexNames((0,_F,_H))
+if mibBuilder.loadTexts:rdbmsSrvEntry.setStatus(_A)
+_RdbmsSrvPrivateMibOID_Type=ObjectIdentifier
+_RdbmsSrvPrivateMibOID_Object=MibTableColumn
+rdbmsSrvPrivateMibOID=_RdbmsSrvPrivateMibOID_Object((1,3,6,1,2,1,39,1,5,1,1),_RdbmsSrvPrivateMibOID_Type())
+rdbmsSrvPrivateMibOID.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvPrivateMibOID.setStatus(_A)
+_RdbmsSrvVendorName_Type=DisplayString
+_RdbmsSrvVendorName_Object=MibTableColumn
+rdbmsSrvVendorName=_RdbmsSrvVendorName_Object((1,3,6,1,2,1,39,1,5,1,2),_RdbmsSrvVendorName_Type())
+rdbmsSrvVendorName.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvVendorName.setStatus(_A)
+_RdbmsSrvProductName_Type=DisplayString
+_RdbmsSrvProductName_Object=MibTableColumn
+rdbmsSrvProductName=_RdbmsSrvProductName_Object((1,3,6,1,2,1,39,1,5,1,3),_RdbmsSrvProductName_Type())
+rdbmsSrvProductName.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvProductName.setStatus(_A)
+_RdbmsSrvContact_Type=DisplayString
+_RdbmsSrvContact_Object=MibTableColumn
+rdbmsSrvContact=_RdbmsSrvContact_Object((1,3,6,1,2,1,39,1,5,1,4),_RdbmsSrvContact_Type())
+rdbmsSrvContact.setMaxAccess(_E)
+if mibBuilder.loadTexts:rdbmsSrvContact.setStatus(_A)
+_RdbmsSrvInfoTable_Object=MibTable
+rdbmsSrvInfoTable=_RdbmsSrvInfoTable_Object((1,3,6,1,2,1,39,1,6))
+if mibBuilder.loadTexts:rdbmsSrvInfoTable.setStatus(_A)
+_RdbmsSrvInfoEntry_Object=MibTableRow
+rdbmsSrvInfoEntry=_RdbmsSrvInfoEntry_Object((1,3,6,1,2,1,39,1,6,1))
+rdbmsSrvInfoEntry.setIndexNames((0,_F,_H))
+if mibBuilder.loadTexts:rdbmsSrvInfoEntry.setStatus(_A)
+_RdbmsSrvInfoStartupTime_Type=DateAndTime
+_RdbmsSrvInfoStartupTime_Object=MibTableColumn
+rdbmsSrvInfoStartupTime=_RdbmsSrvInfoStartupTime_Object((1,3,6,1,2,1,39,1,6,1,1),_RdbmsSrvInfoStartupTime_Type())
+rdbmsSrvInfoStartupTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvInfoStartupTime.setStatus(_A)
+_RdbmsSrvInfoFinishedTransactions_Type=Gauge32
+_RdbmsSrvInfoFinishedTransactions_Object=MibTableColumn
+rdbmsSrvInfoFinishedTransactions=_RdbmsSrvInfoFinishedTransactions_Object((1,3,6,1,2,1,39,1,6,1,2),_RdbmsSrvInfoFinishedTransactions_Type())
+rdbmsSrvInfoFinishedTransactions.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvInfoFinishedTransactions.setStatus(_A)
+_RdbmsSrvInfoDiskReads_Type=Counter32
+_RdbmsSrvInfoDiskReads_Object=MibTableColumn
+rdbmsSrvInfoDiskReads=_RdbmsSrvInfoDiskReads_Object((1,3,6,1,2,1,39,1,6,1,3),_RdbmsSrvInfoDiskReads_Type())
+rdbmsSrvInfoDiskReads.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvInfoDiskReads.setStatus(_A)
+_RdbmsSrvInfoLogicalReads_Type=Counter32
+_RdbmsSrvInfoLogicalReads_Object=MibTableColumn
+rdbmsSrvInfoLogicalReads=_RdbmsSrvInfoLogicalReads_Object((1,3,6,1,2,1,39,1,6,1,4),_RdbmsSrvInfoLogicalReads_Type())
+rdbmsSrvInfoLogicalReads.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvInfoLogicalReads.setStatus(_A)
+_RdbmsSrvInfoDiskWrites_Type=Counter32
+_RdbmsSrvInfoDiskWrites_Object=MibTableColumn
+rdbmsSrvInfoDiskWrites=_RdbmsSrvInfoDiskWrites_Object((1,3,6,1,2,1,39,1,6,1,5),_RdbmsSrvInfoDiskWrites_Type())
+rdbmsSrvInfoDiskWrites.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvInfoDiskWrites.setStatus(_A)
+_RdbmsSrvInfoLogicalWrites_Type=Counter32
+_RdbmsSrvInfoLogicalWrites_Object=MibTableColumn
+rdbmsSrvInfoLogicalWrites=_RdbmsSrvInfoLogicalWrites_Object((1,3,6,1,2,1,39,1,6,1,6),_RdbmsSrvInfoLogicalWrites_Type())
+rdbmsSrvInfoLogicalWrites.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvInfoLogicalWrites.setStatus(_A)
+_RdbmsSrvInfoPageReads_Type=Counter32
+_RdbmsSrvInfoPageReads_Object=MibTableColumn
+rdbmsSrvInfoPageReads=_RdbmsSrvInfoPageReads_Object((1,3,6,1,2,1,39,1,6,1,7),_RdbmsSrvInfoPageReads_Type())
+rdbmsSrvInfoPageReads.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvInfoPageReads.setStatus(_A)
+_RdbmsSrvInfoPageWrites_Type=Counter32
+_RdbmsSrvInfoPageWrites_Object=MibTableColumn
+rdbmsSrvInfoPageWrites=_RdbmsSrvInfoPageWrites_Object((1,3,6,1,2,1,39,1,6,1,8),_RdbmsSrvInfoPageWrites_Type())
+rdbmsSrvInfoPageWrites.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvInfoPageWrites.setStatus(_A)
+_RdbmsSrvInfoDiskOutOfSpaces_Type=Counter32
+_RdbmsSrvInfoDiskOutOfSpaces_Object=MibTableColumn
+rdbmsSrvInfoDiskOutOfSpaces=_RdbmsSrvInfoDiskOutOfSpaces_Object((1,3,6,1,2,1,39,1,6,1,9),_RdbmsSrvInfoDiskOutOfSpaces_Type())
+rdbmsSrvInfoDiskOutOfSpaces.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvInfoDiskOutOfSpaces.setStatus(_A)
+_RdbmsSrvInfoHandledRequests_Type=Counter32
+_RdbmsSrvInfoHandledRequests_Object=MibTableColumn
+rdbmsSrvInfoHandledRequests=_RdbmsSrvInfoHandledRequests_Object((1,3,6,1,2,1,39,1,6,1,10),_RdbmsSrvInfoHandledRequests_Type())
+rdbmsSrvInfoHandledRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvInfoHandledRequests.setStatus(_A)
+_RdbmsSrvInfoRequestRecvs_Type=Counter32
+_RdbmsSrvInfoRequestRecvs_Object=MibTableColumn
+rdbmsSrvInfoRequestRecvs=_RdbmsSrvInfoRequestRecvs_Object((1,3,6,1,2,1,39,1,6,1,11),_RdbmsSrvInfoRequestRecvs_Type())
+rdbmsSrvInfoRequestRecvs.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvInfoRequestRecvs.setStatus(_A)
+_RdbmsSrvInfoRequestSends_Type=Counter32
+_RdbmsSrvInfoRequestSends_Object=MibTableColumn
+rdbmsSrvInfoRequestSends=_RdbmsSrvInfoRequestSends_Object((1,3,6,1,2,1,39,1,6,1,12),_RdbmsSrvInfoRequestSends_Type())
+rdbmsSrvInfoRequestSends.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvInfoRequestSends.setStatus(_A)
+_RdbmsSrvInfoHighwaterInboundAssociations_Type=Gauge32
+_RdbmsSrvInfoHighwaterInboundAssociations_Object=MibTableColumn
+rdbmsSrvInfoHighwaterInboundAssociations=_RdbmsSrvInfoHighwaterInboundAssociations_Object((1,3,6,1,2,1,39,1,6,1,13),_RdbmsSrvInfoHighwaterInboundAssociations_Type())
+rdbmsSrvInfoHighwaterInboundAssociations.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvInfoHighwaterInboundAssociations.setStatus(_A)
+_RdbmsSrvInfoMaxInboundAssociations_Type=Gauge32
+_RdbmsSrvInfoMaxInboundAssociations_Object=MibTableColumn
+rdbmsSrvInfoMaxInboundAssociations=_RdbmsSrvInfoMaxInboundAssociations_Object((1,3,6,1,2,1,39,1,6,1,14),_RdbmsSrvInfoMaxInboundAssociations_Type())
+rdbmsSrvInfoMaxInboundAssociations.setMaxAccess(_E)
+if mibBuilder.loadTexts:rdbmsSrvInfoMaxInboundAssociations.setStatus(_A)
+_RdbmsSrvParamTable_Object=MibTable
+rdbmsSrvParamTable=_RdbmsSrvParamTable_Object((1,3,6,1,2,1,39,1,7))
+if mibBuilder.loadTexts:rdbmsSrvParamTable.setStatus(_A)
+_RdbmsSrvParamEntry_Object=MibTableRow
+rdbmsSrvParamEntry=_RdbmsSrvParamEntry_Object((1,3,6,1,2,1,39,1,7,1))
+rdbmsSrvParamEntry.setIndexNames((0,_F,_H),(0,_B,_Q),(0,_B,_R))
+if mibBuilder.loadTexts:rdbmsSrvParamEntry.setStatus(_A)
+class _RdbmsSrvParamName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
+_RdbmsSrvParamName_Type.__name__=_J
+_RdbmsSrvParamName_Object=MibTableColumn
+rdbmsSrvParamName=_RdbmsSrvParamName_Object((1,3,6,1,2,1,39,1,7,1,1),_RdbmsSrvParamName_Type())
+rdbmsSrvParamName.setMaxAccess(_G)
+if mibBuilder.loadTexts:rdbmsSrvParamName.setStatus(_A)
+class _RdbmsSrvParamSubIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_RdbmsSrvParamSubIndex_Type.__name__=_D
+_RdbmsSrvParamSubIndex_Object=MibTableColumn
+rdbmsSrvParamSubIndex=_RdbmsSrvParamSubIndex_Object((1,3,6,1,2,1,39,1,7,1,2),_RdbmsSrvParamSubIndex_Type())
+rdbmsSrvParamSubIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:rdbmsSrvParamSubIndex.setStatus(_A)
+_RdbmsSrvParamID_Type=AutonomousType
+_RdbmsSrvParamID_Object=MibTableColumn
+rdbmsSrvParamID=_RdbmsSrvParamID_Object((1,3,6,1,2,1,39,1,7,1,3),_RdbmsSrvParamID_Type())
+rdbmsSrvParamID.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvParamID.setStatus(_A)
+_RdbmsSrvParamCurrValue_Type=DisplayString
+_RdbmsSrvParamCurrValue_Object=MibTableColumn
+rdbmsSrvParamCurrValue=_RdbmsSrvParamCurrValue_Object((1,3,6,1,2,1,39,1,7,1,4),_RdbmsSrvParamCurrValue_Type())
+rdbmsSrvParamCurrValue.setMaxAccess(_E)
+if mibBuilder.loadTexts:rdbmsSrvParamCurrValue.setStatus(_A)
+_RdbmsSrvParamComment_Type=DisplayString
+_RdbmsSrvParamComment_Object=MibTableColumn
+rdbmsSrvParamComment=_RdbmsSrvParamComment_Object((1,3,6,1,2,1,39,1,7,1,5),_RdbmsSrvParamComment_Type())
+rdbmsSrvParamComment.setMaxAccess(_E)
+if mibBuilder.loadTexts:rdbmsSrvParamComment.setStatus(_A)
+_RdbmsSrvLimitedResourceTable_Object=MibTable
+rdbmsSrvLimitedResourceTable=_RdbmsSrvLimitedResourceTable_Object((1,3,6,1,2,1,39,1,8))
+if mibBuilder.loadTexts:rdbmsSrvLimitedResourceTable.setStatus(_A)
+_RdbmsSrvLimitedResourceEntry_Object=MibTableRow
+rdbmsSrvLimitedResourceEntry=_RdbmsSrvLimitedResourceEntry_Object((1,3,6,1,2,1,39,1,8,1))
+rdbmsSrvLimitedResourceEntry.setIndexNames((0,_F,_H),(0,_B,_S))
+if mibBuilder.loadTexts:rdbmsSrvLimitedResourceEntry.setStatus(_A)
+_RdbmsSrvLimitedResourceName_Type=DisplayString
+_RdbmsSrvLimitedResourceName_Object=MibTableColumn
+rdbmsSrvLimitedResourceName=_RdbmsSrvLimitedResourceName_Object((1,3,6,1,2,1,39,1,8,1,1),_RdbmsSrvLimitedResourceName_Type())
+rdbmsSrvLimitedResourceName.setMaxAccess(_G)
+if mibBuilder.loadTexts:rdbmsSrvLimitedResourceName.setStatus(_A)
+_RdbmsSrvLimitedResourceID_Type=AutonomousType
+_RdbmsSrvLimitedResourceID_Object=MibTableColumn
+rdbmsSrvLimitedResourceID=_RdbmsSrvLimitedResourceID_Object((1,3,6,1,2,1,39,1,8,1,2),_RdbmsSrvLimitedResourceID_Type())
+rdbmsSrvLimitedResourceID.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvLimitedResourceID.setStatus(_A)
+class _RdbmsSrvLimitedResourceLimit_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_RdbmsSrvLimitedResourceLimit_Type.__name__=_D
+_RdbmsSrvLimitedResourceLimit_Object=MibTableColumn
+rdbmsSrvLimitedResourceLimit=_RdbmsSrvLimitedResourceLimit_Object((1,3,6,1,2,1,39,1,8,1,3),_RdbmsSrvLimitedResourceLimit_Type())
+rdbmsSrvLimitedResourceLimit.setMaxAccess(_E)
+if mibBuilder.loadTexts:rdbmsSrvLimitedResourceLimit.setStatus(_A)
+class _RdbmsSrvLimitedResourceCurrent_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_RdbmsSrvLimitedResourceCurrent_Type.__name__=_D
+_RdbmsSrvLimitedResourceCurrent_Object=MibTableColumn
+rdbmsSrvLimitedResourceCurrent=_RdbmsSrvLimitedResourceCurrent_Object((1,3,6,1,2,1,39,1,8,1,4),_RdbmsSrvLimitedResourceCurrent_Type())
+rdbmsSrvLimitedResourceCurrent.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvLimitedResourceCurrent.setStatus(_A)
+class _RdbmsSrvLimitedResourceHighwater_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_RdbmsSrvLimitedResourceHighwater_Type.__name__=_D
+_RdbmsSrvLimitedResourceHighwater_Object=MibTableColumn
+rdbmsSrvLimitedResourceHighwater=_RdbmsSrvLimitedResourceHighwater_Object((1,3,6,1,2,1,39,1,8,1,5),_RdbmsSrvLimitedResourceHighwater_Type())
+rdbmsSrvLimitedResourceHighwater.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvLimitedResourceHighwater.setStatus(_A)
+_RdbmsSrvLimitedResourceFailures_Type=Counter32
+_RdbmsSrvLimitedResourceFailures_Object=MibTableColumn
+rdbmsSrvLimitedResourceFailures=_RdbmsSrvLimitedResourceFailures_Object((1,3,6,1,2,1,39,1,8,1,6),_RdbmsSrvLimitedResourceFailures_Type())
+rdbmsSrvLimitedResourceFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsSrvLimitedResourceFailures.setStatus(_A)
+_RdbmsSrvLimitedResourceDescription_Type=DisplayString
+_RdbmsSrvLimitedResourceDescription_Object=MibTableColumn
+rdbmsSrvLimitedResourceDescription=_RdbmsSrvLimitedResourceDescription_Object((1,3,6,1,2,1,39,1,8,1,7),_RdbmsSrvLimitedResourceDescription_Type())
+rdbmsSrvLimitedResourceDescription.setMaxAccess(_E)
+if mibBuilder.loadTexts:rdbmsSrvLimitedResourceDescription.setStatus(_A)
+_RdbmsRelTable_Object=MibTable
+rdbmsRelTable=_RdbmsRelTable_Object((1,3,6,1,2,1,39,1,9))
+if mibBuilder.loadTexts:rdbmsRelTable.setStatus(_A)
+_RdbmsRelEntry_Object=MibTableRow
+rdbmsRelEntry=_RdbmsRelEntry_Object((1,3,6,1,2,1,39,1,9,1))
+rdbmsRelEntry.setIndexNames((0,_B,_I),(0,_F,_H))
+if mibBuilder.loadTexts:rdbmsRelEntry.setStatus(_A)
+class _RdbmsRelState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('other',1),('active',2),('available',3),('restricted',4),('unavailable',5)))
+_RdbmsRelState_Type.__name__=_D
+_RdbmsRelState_Object=MibTableColumn
+rdbmsRelState=_RdbmsRelState_Object((1,3,6,1,2,1,39,1,9,1,1),_RdbmsRelState_Type())
+rdbmsRelState.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsRelState.setStatus(_A)
+_RdbmsRelActiveTime_Type=DateAndTime
+_RdbmsRelActiveTime_Object=MibTableColumn
+rdbmsRelActiveTime=_RdbmsRelActiveTime_Object((1,3,6,1,2,1,39,1,9,1,2),_RdbmsRelActiveTime_Type())
+rdbmsRelActiveTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:rdbmsRelActiveTime.setStatus(_A)
+_RdbmsWellKnownLimitedResources_ObjectIdentity=ObjectIdentity
+rdbmsWellKnownLimitedResources=_RdbmsWellKnownLimitedResources_ObjectIdentity((1,3,6,1,2,1,39,1,10))
+_RdbmsLogSpace_ObjectIdentity=ObjectIdentity
+rdbmsLogSpace=_RdbmsLogSpace_ObjectIdentity((1,3,6,1,2,1,39,1,10,1))
+if mibBuilder.loadTexts:rdbmsLogSpace.setStatus(_A)
+_RdbmsTraps_ObjectIdentity=ObjectIdentity
+rdbmsTraps=_RdbmsTraps_ObjectIdentity((1,3,6,1,2,1,39,2))
+_RdbmsConformance_ObjectIdentity=ObjectIdentity
+rdbmsConformance=_RdbmsConformance_ObjectIdentity((1,3,6,1,2,1,39,3))
+_RdbmsCompliances_ObjectIdentity=ObjectIdentity
+rdbmsCompliances=_RdbmsCompliances_ObjectIdentity((1,3,6,1,2,1,39,3,1))
+_RdbmsGroups_ObjectIdentity=ObjectIdentity
+rdbmsGroups=_RdbmsGroups_ObjectIdentity((1,3,6,1,2,1,39,3,2))
+rdbmsGroup=ObjectGroup((1,3,6,1,2,1,39,3,2,1))
+rdbmsGroup.setObjects(*((_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_K),(_B,_A8)))
+if mibBuilder.loadTexts:rdbmsGroup.setStatus(_A)
+rdbmsStateChange=NotificationType((1,3,6,1,2,1,39,2,1))
+rdbmsStateChange.setObjects((_B,_K))
+if mibBuilder.loadTexts:rdbmsStateChange.setStatus(_A)
+rdbmsOutOfSpace=NotificationType((1,3,6,1,2,1,39,2,2))
+rdbmsOutOfSpace.setObjects((_B,_A9))
+if mibBuilder.loadTexts:rdbmsOutOfSpace.setStatus(_A)
+rdbmsCompliance=ModuleCompliance((1,3,6,1,2,1,39,3,1,1))
+rdbmsCompliance.setObjects(*(('HOST-RESOURCES-MIB','hrSystem'),(_F,_M),(_B,_L),(_B,_L)))
+if mibBuilder.loadTexts:rdbmsCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'rdbmsMIB':rdbmsMIB,'rdbmsObjects':rdbmsObjects,'rdbmsDbTable':rdbmsDbTable,'rdbmsDbEntry':rdbmsDbEntry,_I:rdbmsDbIndex,_T:rdbmsDbPrivateMibOID,_U:rdbmsDbVendorName,_V:rdbmsDbName,_W:rdbmsDbContact,'rdbmsDbInfoTable':rdbmsDbInfoTable,'rdbmsDbInfoEntry':rdbmsDbInfoEntry,_X:rdbmsDbInfoProductName,_Y:rdbmsDbInfoVersion,_Z:rdbmsDbInfoSizeUnits,_a:rdbmsDbInfoSizeAllocated,_b:rdbmsDbInfoSizeUsed,_c:rdbmsDbInfoLastBackup,'rdbmsDbParamTable':rdbmsDbParamTable,'rdbmsDbParamEntry':rdbmsDbParamEntry,_N:rdbmsDbParamName,_O:rdbmsDbParamSubIndex,'rdbmsDbParamID':rdbmsDbParamID,_d:rdbmsDbParamCurrValue,_e:rdbmsDbParamComment,'rdbmsDbLimitedResourceTable':rdbmsDbLimitedResourceTable,'rdbmsDbLimitedResourceEntry':rdbmsDbLimitedResourceEntry,_P:rdbmsDbLimitedResourceName,'rdbmsDbLimitedResourceID':rdbmsDbLimitedResourceID,_f:rdbmsDbLimitedResourceLimit,_g:rdbmsDbLimitedResourceCurrent,_h:rdbmsDbLimitedResourceHighwater,_i:rdbmsDbLimitedResourceFailures,_j:rdbmsDbLimitedResourceDescription,'rdbmsSrvTable':rdbmsSrvTable,'rdbmsSrvEntry':rdbmsSrvEntry,_k:rdbmsSrvPrivateMibOID,_l:rdbmsSrvVendorName,_m:rdbmsSrvProductName,_n:rdbmsSrvContact,'rdbmsSrvInfoTable':rdbmsSrvInfoTable,'rdbmsSrvInfoEntry':rdbmsSrvInfoEntry,_o:rdbmsSrvInfoStartupTime,_p:rdbmsSrvInfoFinishedTransactions,_q:rdbmsSrvInfoDiskReads,_s:rdbmsSrvInfoLogicalReads,_r:rdbmsSrvInfoDiskWrites,_t:rdbmsSrvInfoLogicalWrites,_u:rdbmsSrvInfoPageReads,_v:rdbmsSrvInfoPageWrites,_A9:rdbmsSrvInfoDiskOutOfSpaces,_w:rdbmsSrvInfoHandledRequests,_x:rdbmsSrvInfoRequestRecvs,_y:rdbmsSrvInfoRequestSends,_z:rdbmsSrvInfoHighwaterInboundAssociations,_A0:rdbmsSrvInfoMaxInboundAssociations,'rdbmsSrvParamTable':rdbmsSrvParamTable,'rdbmsSrvParamEntry':rdbmsSrvParamEntry,_Q:rdbmsSrvParamName,_R:rdbmsSrvParamSubIndex,'rdbmsSrvParamID':rdbmsSrvParamID,_A1:rdbmsSrvParamCurrValue,_A2:rdbmsSrvParamComment,'rdbmsSrvLimitedResourceTable':rdbmsSrvLimitedResourceTable,'rdbmsSrvLimitedResourceEntry':rdbmsSrvLimitedResourceEntry,_S:rdbmsSrvLimitedResourceName,'rdbmsSrvLimitedResourceID':rdbmsSrvLimitedResourceID,_A3:rdbmsSrvLimitedResourceLimit,_A4:rdbmsSrvLimitedResourceCurrent,_A5:rdbmsSrvLimitedResourceHighwater,_A6:rdbmsSrvLimitedResourceFailures,_A7:rdbmsSrvLimitedResourceDescription,'rdbmsRelTable':rdbmsRelTable,'rdbmsRelEntry':rdbmsRelEntry,_K:rdbmsRelState,_A8:rdbmsRelActiveTime,'rdbmsWellKnownLimitedResources':rdbmsWellKnownLimitedResources,'rdbmsLogSpace':rdbmsLogSpace,'rdbmsTraps':rdbmsTraps,'rdbmsStateChange':rdbmsStateChange,'rdbmsOutOfSpace':rdbmsOutOfSpace,'rdbmsConformance':rdbmsConformance,'rdbmsCompliances':rdbmsCompliances,'rdbmsCompliance':rdbmsCompliance,'rdbmsGroups':rdbmsGroups,_L:rdbmsGroup})

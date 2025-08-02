@@ -1,214 +1,506 @@
-#
-# PySNMP MIB module TE-LINK-STD-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/TE-LINK-STD-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:19:51 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, OctetString, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
-( InterfaceIndexOrZero, ifIndex, ) = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "ifIndex")
-( InetAddressType, InetAddress, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Unsigned32, ModuleIdentity, Bits, Counter32, Counter64, ObjectIdentity, transmission, TimeTicks, NotificationType, Gauge32, MibIdentifier, IpAddress, Integer32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Unsigned32", "ModuleIdentity", "Bits", "Counter32", "Counter64", "ObjectIdentity", "transmission", "TimeTicks", "NotificationType", "Gauge32", "MibIdentifier", "IpAddress", "Integer32")
-( RowStatus, DisplayString, TextualConvention, StorageType, ) = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention", "StorageType")
-teLinkStdMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 200)).setRevisions(("2005-10-11 00:00",))
-if mibBuilder.loadTexts: teLinkStdMIB.setLastUpdated('200510110000Z')
-if mibBuilder.loadTexts: teLinkStdMIB.setOrganization('Multiprotocol Label Switching (MPLS) Working Group')
-if mibBuilder.loadTexts: teLinkStdMIB.setContactInfo('        Martin Dubuc\n        Email:  mdubuc@ncf.ca\n\n                Thomas D. Nadeau\n        Email:  tnadeau@cisco.com\n\n\n\n\n                Jonathan P. Lang\n        Email:  jplang@ieee.org\n\n        Comments about this document should be emailed directly to\n        the MPLS working group mailing list at mpls@uu.net.')
-if mibBuilder.loadTexts: teLinkStdMIB.setDescription("Copyright (C) 2005 The Internet Society.  This version of\n        this MIB module is part of RFC 4220; see the RFC\n        itself for full legal notices.\n\n        This MIB module contains managed object definitions for\n        MPLS traffic engineering links as defined in\n        'Link Bundling in MPLS Traffic Engineering (TE)'.")
-class TeLinkBandwidth(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(4,4)
-    fixedLength = 4
-
-class TeLinkPriority(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(0,7)
-
-class TeLinkProtection(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2,))
-    namedValues = NamedValues(("primary", 1), ("secondary", 2),)
-
-class TeLinkSwitchingCapability(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 51, 100, 150, 200,))
-    namedValues = NamedValues(("packetSwitch1", 1), ("packetSwitch2", 2), ("packetSwitch3", 3), ("packetSwitch4", 4), ("layer2Switch", 51), ("tdm", 100), ("lambdaSwitch", 150), ("fiberSwitch", 200),)
-
-class TeLinkEncodingType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 5, 7, 8, 9, 11,))
-    namedValues = NamedValues(("packet", 1), ("ethernet", 2), ("ansiEtsiPdh", 3), ("sdhItuSonetAnsi", 5), ("digitalWrapper", 7), ("lambda", 8), ("fiber", 9), ("fiberChannel", 11),)
-
-class TeLinkSonetSdhIndication(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(0, 1,))
-    namedValues = NamedValues(("standard", 0), ("arbitrary", 1),)
-
-teLinkNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 200, 0))
-teLinkObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 200, 1))
-teLinkConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 200, 2))
-teLinkTable = MibTable((1, 3, 6, 1, 2, 1, 10, 200, 1, 1), )
-if mibBuilder.loadTexts: teLinkTable.setDescription('This table specifies the grouping of component links into\n        TE links and the grouping of TE links into bundled links.')
-teLinkEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 200, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: teLinkEntry.setDescription('An entry in this table exists for each ifEntry with an\n        ifType of teLink(200), i.e., for every TE link.  An ifEntry\n        in the ifTable must exist before a teLinkEntry is created\n        with the corresponding ifIndex.  If a TE link entry in the\n        ifTable is destroyed, then so is the corresponding entry\n        in the teLinkTable.  The administrative and operational\n        status values are controlled from the ifEntry.')
-teLinkAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 1, 1, 1), InetAddressType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkAddressType.setDescription('The type of Internet address for the TE link.')
-teLinkLocalIpAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 1, 1, 2), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkLocalIpAddr.setDescription('The local Internet address for numbered links.  The type of\n        this address is determined by the value of the\n        teLinkAddressType object.\n\n        For IPv4 and IPv6 numbered links, this object represents the\n        local IP address associated with the TE link.  For an\n        unnumbered link, the local address is of type unknown, this\n        object is set to the zero length string, and the\n        teLinkOutgoingIfId object then identifies the unnumbered\n        address.\n\n        If the TE link is a Forwarding Adjacency (FA), the local\n        IP address is set to the head-end address of the FA-LSP.\n\n        If ipAddrTable is implemented, this object must have the\n        same value as the ipAdEntAddr object that belongs to the\n        row in ipAddrTable where ipAdEntIfIndex is equal to\n\n\n\n        ifIndex.')
-teLinkRemoteIpAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 1, 1, 3), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkRemoteIpAddr.setDescription('The remote Internet address for numbered links.  The type of\n        this address is determined by the value of the\n        teLinkAddressType object.\n\n        The remote IP address associated with the TE link (IPv4 and\n        IPv6 numbered links).  For an unnumbered link, the remote\n        address is of type unknown, this object is set to the\n        zero length string, and the teLinkIncomingIfId object then\n        identifies the unnumbered address.\n\n        If the TE link is a Forwarding Adjacency, the remote IP\n        address is set to the tail-end address of the FA-LSP.')
-teLinkMetric = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 1, 1, 4), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkMetric.setDescription('The traffic engineering metric for the TE link is\n        derived from its component links.  All component links\n        within the TE link must have the same traffic\n        engineering metric.')
-teLinkMaximumReservableBandwidth = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 1, 1, 5), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: teLinkMaximumReservableBandwidth.setDescription('This attribute specifies the maximum reservable bandwidth on\n        the TE link.  This is the union of the maximum reservable\n        bandwidth of all the component links within the\n        TE link that can be used to carry live traffic.')
-teLinkProtectionType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))).clone(namedValues=NamedValues(("extraTraffic", 1), ("unprotected", 2), ("shared", 3), ("dedicated1For1", 4), ("dedicated1Plus1", 5), ("enhanced", 6),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkProtectionType.setDescription("This attribute specifies the link protection type of the\n        TE link.  Descriptions of the different protection types can\n        be found in the 'Routing Extensions in Support of\n        Generalized Multi-Protocol Label Switching (GMPLS)'\n        document.")
-teLinkWorkingPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 1, 1, 7), TeLinkPriority()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkWorkingPriority.setDescription('This object represents a priority value such that a new\n        connection with a higher priority, i.e., numerically lower\n        than this value, is guaranteed to be setup on a primary\n        link and not on a secondary link.')
-teLinkResourceClass = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 1, 1, 8), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkResourceClass.setDescription("This attribute specifies the TE link resource class.\n        The resource class is a 32 bit bitfield.  The resource class\n        for a link bundle is derived from the resource class of its\n\n\n\n        TE links.  All TE links within a link bundle must have the\n        same resource class.  Encoding of the resource class is\n        described in the 'Traffic Engineering (TE) Extensions to\n        OSPF Version 2' document.")
-teLinkIncomingIfId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkIncomingIfId.setDescription('For unnumbered links, the incoming interface is set to the\n        outgoing interface identifier chosen by the neighboring LSR\n        for the reverse link corresponding to this TE link.  If the\n        link is numbered, the value of this object is 0 and the\n        address is stored in the teLinkRemoteIpAddr instead.')
-teLinkOutgoingIfId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 1, 1, 10), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkOutgoingIfId.setDescription('If the link is unnumbered, the outgoing interface identifier\n        is set to the outgoing interface identifier chosen for the\n        TE link by the advertising LSR.  If the link is numbered, the\n        value of this object is 0 and the address is stored in the\n        teLinkLocalIpAddr instead.')
-teLinkRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 1, 1, 11), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkRowStatus.setDescription('This variable is used to create, modify, and/or\n        delete a row in this table.  None of the writable objects in\n        a row can be changed if status is active(1).')
-teLinkStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 1, 1, 12), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkStorageType.setDescription("The storage type for this conceptual row in the\n        teLinkTable.  Conceptual rows having the value\n        'permanent' need not allow write-access to any\n        columnar object in the row.")
-teLinkDescriptorTable = MibTable((1, 3, 6, 1, 2, 1, 10, 200, 1, 2), )
-if mibBuilder.loadTexts: teLinkDescriptorTable.setDescription('This table specifies the interface switching capability\n        descriptors associated with the TE links.')
-teLinkDescriptorEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 200, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "TE-LINK-STD-MIB", "teLinkDescriptorId"))
-if mibBuilder.loadTexts: teLinkDescriptorEntry.setDescription('An entry in this table is created for every TE link interface\n        switching capability descriptor.  An ifEntry in the ifTable\n        must exist before a teLinkDescriptorEntry using the same\n        ifIndex is created.  ifType of ifEntry must be teLink(200).\n        If a TE link entry in the ifTable is destroyed, then so are\n        all of the entries in the teLinkDescriptorTable that use the\n        ifIndex of this TE link.')
-teLinkDescriptorId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: teLinkDescriptorId.setDescription('This object specifies the link descriptor identifier.')
-teLinkDescrSwitchingCapability = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 2, 1, 2), TeLinkSwitchingCapability()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkDescrSwitchingCapability.setDescription('This attribute specifies interface switching capability of\n        the TE link, which is derived from its component links.')
-teLinkDescrEncodingType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 2, 1, 3), TeLinkEncodingType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkDescrEncodingType.setDescription('This attribute specifies the TE link encoding type.')
-teLinkDescrMinLspBandwidth = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 2, 1, 4), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkDescrMinLspBandwidth.setDescription('This attribute specifies the minimum LSP bandwidth on\n        the TE link.  This is derived from the union of the\n        minimum LSP bandwidth of all the component links\n        associated with the TE link that can be used to carry\n        live traffic.')
-teLinkDescrMaxLspBandwidthPrio0 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 2, 1, 5), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkDescrMaxLspBandwidthPrio0.setDescription('This attribute specifies the maximum LSP bandwidth at\n        priority 0 on the TE link.  This is the union of the maximum\n        LSP bandwidth at priority 0 of all the component links within\n        the TE link that can be used to carry live traffic.')
-teLinkDescrMaxLspBandwidthPrio1 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 2, 1, 6), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkDescrMaxLspBandwidthPrio1.setDescription('This attribute specifies the maximum LSP bandwidth at\n        priority 1 on the TE link.  This is the union of the maximum\n        LSP bandwidth at priority 1 of all the component links within\n        the TE link that can be used to carry live traffic.')
-teLinkDescrMaxLspBandwidthPrio2 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 2, 1, 7), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkDescrMaxLspBandwidthPrio2.setDescription('This attribute specifies the maximum LSP bandwidth at\n        priority 2 on the TE link.  This is the union of the maximum\n\n\n\n        LSP bandwidth at priority 2 of all the component links within\n        the TE link that can be used to carry live traffic.')
-teLinkDescrMaxLspBandwidthPrio3 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 2, 1, 8), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkDescrMaxLspBandwidthPrio3.setDescription('This attribute specifies the maximum LSP bandwidth at\n        priority 3 on the TE link.  This is the union of the maximum\n        LSP bandwidth at priority 3 of all the component links within\n        the TE link that can be used to carry live traffic.')
-teLinkDescrMaxLspBandwidthPrio4 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 2, 1, 9), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkDescrMaxLspBandwidthPrio4.setDescription('This attribute specifies the maximum LSP bandwidth at\n        priority 4 on the TE link.  This is the union of the maximum\n        LSP bandwidth at priority 4 of all the component links within\n        the TE link that can be used to carry live traffic.')
-teLinkDescrMaxLspBandwidthPrio5 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 2, 1, 10), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkDescrMaxLspBandwidthPrio5.setDescription('This attribute specifies the maximum LSP bandwidth at\n        priority 5 on the TE link.  This is the union of the maximum\n        LSP bandwidth at priority 5 of all the component links within\n        the TE link that can be used to carry live traffic.')
-teLinkDescrMaxLspBandwidthPrio6 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 2, 1, 11), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkDescrMaxLspBandwidthPrio6.setDescription('This attribute specifies the maximum LSP bandwidth at\n        priority 6 on the TE link.  This is the union of the maximum\n        LSP bandwidth at priority 6 of all the component links within\n        the TE link that can be used to carry live traffic.')
-teLinkDescrMaxLspBandwidthPrio7 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 2, 1, 12), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkDescrMaxLspBandwidthPrio7.setDescription('This attribute specifies the maximum LSP bandwidth at\n        priority 7 on the TE link.  This is the union of the maximum\n        LSP bandwidth at priority 7 of all the component links within\n        the TE link that can be used to carry live traffic.')
-teLinkDescrInterfaceMtu = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 2, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkDescrInterfaceMtu.setDescription('This attribute specifies the interface MTU for the TE\n        link descriptor.')
-teLinkDescrIndication = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 2, 1, 14), TeLinkSonetSdhIndication()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkDescrIndication.setDescription('This attribute specifies whether this interface supports\n        Standard or Arbitrary SONET/SDH.')
-teLinkDescrRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 2, 1, 15), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkDescrRowStatus.setDescription('This variable is used to create, modify, and/or\n        delete a row in this table.  No read-create object\n        can be changed if teLinkDescrRowStatus is in the active(1)\n        state.')
-teLinkDescrStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 2, 1, 16), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkDescrStorageType.setDescription("The storage type for this conceptual row in the\n        teLinkDescriptorTable.  Conceptual rows having the value\n        'permanent' need not allow write-access to any\n        columnar object in the row.")
-teLinkSrlgTable = MibTable((1, 3, 6, 1, 2, 1, 10, 200, 1, 3), )
-if mibBuilder.loadTexts: teLinkSrlgTable.setDescription('This table specifies the SRLGs associated with TE links.')
-teLinkSrlgEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 200, 1, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "TE-LINK-STD-MIB", "teLinkSrlg"))
-if mibBuilder.loadTexts: teLinkSrlgEntry.setDescription('An entry in this table contains information about an\n        SRLG associated with a TE link.\n        An ifEntry in the ifTable must exist before a\n        teLinkSrlgEntry using the same ifIndex is created.\n        The ifType of ifEntry must be teLink(200).\n        If a TE link entry in the ifTable is destroyed, then so\n        are all of the entries in the teLinkSrlgTable that use the\n        ifIndex of this TE link.')
-teLinkSrlg = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295)))
-if mibBuilder.loadTexts: teLinkSrlg.setDescription('This identifies an SRLG supported by the TE link.  An SRLG is\n        identified with a 32-bit number that is unique within an IGP\n        domain.  Zero is a valid SRLG number.')
-teLinkSrlgRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkSrlgRowStatus.setDescription('This variable is used to create, modify, and/or\n        delete a row in this table.  No read-create object can\n        be modified if teLinkSrlgRowStatus is active(1).')
-teLinkSrlgStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 3, 1, 3), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkSrlgStorageType.setDescription("The storage type for this conceptual row in the\n\n\n\n        teLinkSrlgTable.  Conceptual rows having the value\n        'permanent' need not allow write-access to any\n        columnar object in the row.")
-teLinkBandwidthTable = MibTable((1, 3, 6, 1, 2, 1, 10, 200, 1, 4), )
-if mibBuilder.loadTexts: teLinkBandwidthTable.setDescription('This table specifies the priority-based bandwidth table\n        for TE links.')
-teLinkBandwidthEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 200, 1, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "TE-LINK-STD-MIB", "teLinkBandwidthPriority"))
-if mibBuilder.loadTexts: teLinkBandwidthEntry.setDescription('An entry in this table contains information about\n        the priority-based bandwidth of TE links.  An ifEntry in the\n        ifTable must exist before a teLinkBandwidthEntry using the\n        same ifIndex is created.  The ifType of ifEntry must be\n        teLink(200).  If a TE link entry in the ifTable is destroyed,\n        then so are all of the entries in the teLinkBandwidthTable\n        that use the ifIndex of this TE link.')
-teLinkBandwidthPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 4, 1, 1), TeLinkPriority())
-if mibBuilder.loadTexts: teLinkBandwidthPriority.setDescription("This attribute specifies the priority.  A value of 0 is valid\n        as specified in the 'Traffic Engineering (TE) Extensions to\n\n\n\n        OSPF Version 2' document.")
-teLinkBandwidthUnreserved = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 4, 1, 2), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: teLinkBandwidthUnreserved.setDescription('This attribute specifies the TE link unreserved\n        bandwidth at priority p.  It is the sum of the unreserved\n        bandwidths at priority p of all component links associated\n        with the TE link (excluding all links that are strictly\n        used as protecting links).')
-teLinkBandwidthRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 4, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkBandwidthRowStatus.setDescription('This variable is used to create, modify, and/or\n        delete a row in this table.  No read-create object\n        can be modified when teLinkBandwidthRowStatus is active(1).')
-teLinkBandwidthStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 4, 1, 4), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: teLinkBandwidthStorageType.setDescription("The storage type for this conceptual row in the\n        teLinkBandwidthTable.  Conceptual rows having the value\n        'permanent' need not allow write-access to any\n        columnar object in the row.")
-componentLinkTable = MibTable((1, 3, 6, 1, 2, 1, 10, 200, 1, 5), )
-if mibBuilder.loadTexts: componentLinkTable.setDescription('This table specifies the component link parameters.')
-componentLinkEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 200, 1, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: componentLinkEntry.setDescription("An entry in this table exists for each ifEntry that\n        represents a component link.  An ifEntry must exist in\n        the ifTable before a componentLinkEntry is created with\n        the corresponding ifIndex.  ifEntry's ifType can be\n        of any interface type that has been defined for TE Link\n        interworking.  Examples include ATM, Frame Relay, Ethernet,\n        etc.  If an entry representing a component link is destroyed\n        in the ifTable, then so is the corresponding entry in the\n        componentLinkTable.  The administrative and operational\n        status values are controlled from the ifEntry.")
-componentLinkMaxResBandwidth = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 5, 1, 1), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkMaxResBandwidth.setDescription('This attribute specifies the maximum reservable bandwidth on\n        the component link.')
-componentLinkPreferredProtection = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 5, 1, 2), TeLinkProtection()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkPreferredProtection.setDescription('This attribute specifies whether this component link is\n        a primary or secondary entity.')
-componentLinkCurrentProtection = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 5, 1, 3), TeLinkProtection()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: componentLinkCurrentProtection.setDescription('This attribute specifies whether this component link is\n        currently used as primary or secondary link.')
-componentLinkRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 5, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkRowStatus.setDescription('This variable is used to create, modify, and/or\n        delete a row in this table.  No read-create object\n        can be modified when componentLinkRowStatus is active(1).')
-componentLinkStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 5, 1, 5), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkStorageType.setDescription("The storage type for this conceptual row in the\n        componentLinkTable.  Conceptual rows having the value\n        'permanent' need not allow write-access to any\n        columnar object in the row.")
-componentLinkDescriptorTable = MibTable((1, 3, 6, 1, 2, 1, 10, 200, 1, 6), )
-if mibBuilder.loadTexts: componentLinkDescriptorTable.setDescription('This table specifies the interface switching capability\n        descriptors associated with the component links.')
-componentLinkDescriptorEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 200, 1, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "TE-LINK-STD-MIB", "componentLinkDescrId"))
-if mibBuilder.loadTexts: componentLinkDescriptorEntry.setDescription("An entry in this table is created for every component link\n        descriptor.  An ifEntry in the ifTable must exist before a\n        componentLinkDescriptorEntry using the same ifIndex is\n        created.  ifEntry's ifType can be of any interface type that\n        has been defined for TE Link interworking.  Examples include\n        ATM, Frame Relay, Ethernet, etc.  If a component link entry\n        in the ifTable is destroyed, then so are all entries in the\n        componentLinkDescriptorTable that use the ifIndex of this\n        component link.")
-componentLinkDescrId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 6, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: componentLinkDescrId.setDescription('This object specifies the link descriptor identifier.')
-componentLinkDescrSwitchingCapability = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 6, 1, 2), TeLinkSwitchingCapability()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkDescrSwitchingCapability.setDescription('This attribute specifies link multiplexing capabilities of\n        the component link.')
-componentLinkDescrEncodingType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 6, 1, 3), TeLinkEncodingType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkDescrEncodingType.setDescription('This attribute specifies the component link encoding type.')
-componentLinkDescrMinLspBandwidth = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 6, 1, 4), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkDescrMinLspBandwidth.setDescription('This attribute specifies the minimum LSP bandwidth on\n        the component link.')
-componentLinkDescrMaxLspBandwidthPrio0 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 6, 1, 5), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkDescrMaxLspBandwidthPrio0.setDescription('This attribute specifies the maximum LSP bandwidth at\n        priority 0 on the component link.')
-componentLinkDescrMaxLspBandwidthPrio1 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 6, 1, 6), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkDescrMaxLspBandwidthPrio1.setDescription('This attribute specifies the maximum LSP bandwidth at\n        priority 1 on the component link.')
-componentLinkDescrMaxLspBandwidthPrio2 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 6, 1, 7), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkDescrMaxLspBandwidthPrio2.setDescription('This attribute specifies the maximum LSP bandwidth at\n        priority 2 on the component link.')
-componentLinkDescrMaxLspBandwidthPrio3 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 6, 1, 8), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkDescrMaxLspBandwidthPrio3.setDescription('This attribute specifies the maximum LSP bandwidth at\n        priority 3 on the component link.')
-componentLinkDescrMaxLspBandwidthPrio4 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 6, 1, 9), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkDescrMaxLspBandwidthPrio4.setDescription('This attribute specifies the maximum LSP bandwidth at\n        priority 4 on the component link.')
-componentLinkDescrMaxLspBandwidthPrio5 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 6, 1, 10), TeLinkBandwidth()).setUnits('thousand bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkDescrMaxLspBandwidthPrio5.setDescription('This attribute specifies the maximum LSP bandwidth at\n        priority 5 on the component link.')
-componentLinkDescrMaxLspBandwidthPrio6 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 6, 1, 11), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkDescrMaxLspBandwidthPrio6.setDescription('This attribute specifies the maximum LSP bandwidth at\n        priority 6 on the component link.')
-componentLinkDescrMaxLspBandwidthPrio7 = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 6, 1, 12), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkDescrMaxLspBandwidthPrio7.setDescription('This attribute specifies the maximum LSP bandwidth at\n        priority 7 on the component link.')
-componentLinkDescrInterfaceMtu = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 6, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkDescrInterfaceMtu.setDescription('This attribute specifies the interface MTU for the component\n        link descriptor.')
-componentLinkDescrIndication = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 6, 1, 14), TeLinkSonetSdhIndication()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkDescrIndication.setDescription('This attribute specifies whether this interface supports\n        Standard or Arbitrary SONET/SDH.')
-componentLinkDescrRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 6, 1, 15), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkDescrRowStatus.setDescription('This variable is used to create, modify, and/or\n        delete a row in this table.  No read-create object\n        can be modified when componentLinkDescrRowStatus\n        is active(1).')
-componentLinkDescrStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 6, 1, 16), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkDescrStorageType.setDescription("The storage type for this conceptual row in the\n        componentLinkDescriptorTable.  Conceptual rows\n        having the value 'permanent' need not allow write-access\n        to any columnar object in the row.")
-componentLinkBandwidthTable = MibTable((1, 3, 6, 1, 2, 1, 10, 200, 1, 7), )
-if mibBuilder.loadTexts: componentLinkBandwidthTable.setDescription('This table specifies the priority-based bandwidth\n        for component links.')
-componentLinkBandwidthEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 200, 1, 7, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "TE-LINK-STD-MIB", "componentLinkBandwidthPriority"))
-if mibBuilder.loadTexts: componentLinkBandwidthEntry.setDescription("An entry in this table contains information about\n        the priority-based bandwidth on component links.\n        An ifEntry in the ifTable must exist before a\n        componentLinkBandwidthEntry using the same ifIndex is\n        created.  ifEntry's ifType can be of any interface type that\n        has been defined for TE Link interworking.  Examples\n        include ATM, Frame Relay, Ethernet, etc.  If a component link\n        entry in the ifTable is destroyed, then so are all entries\n        in the componentLinkBandwidthTable that use the ifIndex of\n        this component link.")
-componentLinkBandwidthPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 7, 1, 1), TeLinkPriority())
-if mibBuilder.loadTexts: componentLinkBandwidthPriority.setDescription("This attribute specifies the priority.  A value of 0 is valid\n        as specified in the 'Traffic Engineering (TE) Extensions to\n         OSPF Version 2' document.")
-componentLinkBandwidthUnreserved = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 7, 1, 2), TeLinkBandwidth()).setUnits('bps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: componentLinkBandwidthUnreserved.setDescription('This attribute specifies the component link unreserved\n        bandwidth at priority p.')
-componentLinkBandwidthRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 7, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkBandwidthRowStatus.setDescription('This variable is used to create, modify, and/or\n        delete a row in this table.  No read-create object can\n        be modified when componentLinkBandwidthRowStatus is\n        active(1).')
-componentLinkBandwidthStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 200, 1, 7, 1, 4), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: componentLinkBandwidthStorageType.setDescription("The storage type for this conceptual row in the\n        componentLinkBandwidthTable.  Conceptual rows\n        having the value 'permanent' need not allow write-access\n        to any columnar object in the row.")
-teLinkCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 200, 2, 1))
-teLinkGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 200, 2, 2))
-teLinkModuleFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 200, 2, 1, 1)).setObjects(*(("TE-LINK-STD-MIB", "teLinkGroup"), ("TE-LINK-STD-MIB", "teLinkBandwidthGroup"), ("TE-LINK-STD-MIB", "componentLinkBandwidthGroup"), ("TE-LINK-STD-MIB", "teLinkSrlgGroup"), ("TE-LINK-STD-MIB", "teLinkPscGroup"), ("TE-LINK-STD-MIB", "teLinkTdmGroup"),))
-if mibBuilder.loadTexts: teLinkModuleFullCompliance.setDescription('Compliance statement for agents that support read-create\n        so that both configuration and monitoring of TE links can\n        be accomplished via this MIB module.')
-teLinkModuleReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 200, 2, 1, 2)).setObjects(*(("TE-LINK-STD-MIB", "teLinkGroup"), ("TE-LINK-STD-MIB", "teLinkBandwidthGroup"), ("TE-LINK-STD-MIB", "componentLinkBandwidthGroup"), ("TE-LINK-STD-MIB", "teLinkSrlgGroup"), ("TE-LINK-STD-MIB", "teLinkPscGroup"), ("TE-LINK-STD-MIB", "teLinkTdmGroup"),))
-if mibBuilder.loadTexts: teLinkModuleReadOnlyCompliance.setDescription('Compliance statement for agents that support the\n        monitoring of the TE link MIB module.')
-teLinkGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 200, 2, 2, 1)).setObjects(*(("TE-LINK-STD-MIB", "teLinkAddressType"), ("TE-LINK-STD-MIB", "teLinkLocalIpAddr"), ("TE-LINK-STD-MIB", "teLinkRemoteIpAddr"), ("TE-LINK-STD-MIB", "teLinkMetric"), ("TE-LINK-STD-MIB", "teLinkProtectionType"), ("TE-LINK-STD-MIB", "teLinkWorkingPriority"), ("TE-LINK-STD-MIB", "teLinkResourceClass"), ("TE-LINK-STD-MIB", "teLinkIncomingIfId"), ("TE-LINK-STD-MIB", "teLinkOutgoingIfId"), ("TE-LINK-STD-MIB", "teLinkRowStatus"), ("TE-LINK-STD-MIB", "teLinkStorageType"), ("TE-LINK-STD-MIB", "teLinkDescrSwitchingCapability"), ("TE-LINK-STD-MIB", "teLinkDescrEncodingType"), ("TE-LINK-STD-MIB", "teLinkDescrRowStatus"), ("TE-LINK-STD-MIB", "teLinkDescrStorageType"), ("TE-LINK-STD-MIB", "componentLinkPreferredProtection"), ("TE-LINK-STD-MIB", "componentLinkCurrentProtection"), ("TE-LINK-STD-MIB", "componentLinkRowStatus"), ("TE-LINK-STD-MIB", "componentLinkStorageType"), ("TE-LINK-STD-MIB", "componentLinkDescrSwitchingCapability"), ("TE-LINK-STD-MIB", "componentLinkDescrEncodingType"), ("TE-LINK-STD-MIB", "componentLinkDescrRowStatus"), ("TE-LINK-STD-MIB", "componentLinkDescrStorageType"),))
-if mibBuilder.loadTexts: teLinkGroup.setDescription('Collection of objects needed for the management of\n           resources associated with TE links.')
-teLinkSrlgGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 200, 2, 2, 2)).setObjects(*(("TE-LINK-STD-MIB", "teLinkSrlgRowStatus"), ("TE-LINK-STD-MIB", "teLinkSrlgStorageType"),))
-if mibBuilder.loadTexts: teLinkSrlgGroup.setDescription('Collection of objects needed for the management of\n           SRLG resources associated with TE links.')
-teLinkBandwidthGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 200, 2, 2, 3)).setObjects(*(("TE-LINK-STD-MIB", "teLinkMaximumReservableBandwidth"), ("TE-LINK-STD-MIB", "teLinkDescrMaxLspBandwidthPrio0"), ("TE-LINK-STD-MIB", "teLinkDescrMaxLspBandwidthPrio1"), ("TE-LINK-STD-MIB", "teLinkDescrMaxLspBandwidthPrio2"), ("TE-LINK-STD-MIB", "teLinkDescrMaxLspBandwidthPrio3"), ("TE-LINK-STD-MIB", "teLinkDescrMaxLspBandwidthPrio4"), ("TE-LINK-STD-MIB", "teLinkDescrMaxLspBandwidthPrio5"), ("TE-LINK-STD-MIB", "teLinkDescrMaxLspBandwidthPrio6"), ("TE-LINK-STD-MIB", "teLinkDescrMaxLspBandwidthPrio7"), ("TE-LINK-STD-MIB", "teLinkBandwidthUnreserved"), ("TE-LINK-STD-MIB", "teLinkBandwidthRowStatus"), ("TE-LINK-STD-MIB", "teLinkBandwidthStorageType"),))
-if mibBuilder.loadTexts: teLinkBandwidthGroup.setDescription('Collection of objects needed for the management of\n           the bandwidth resources associated with TE links and\n           component links.')
-componentLinkBandwidthGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 200, 2, 2, 4)).setObjects(*(("TE-LINK-STD-MIB", "componentLinkMaxResBandwidth"), ("TE-LINK-STD-MIB", "componentLinkDescrMaxLspBandwidthPrio0"), ("TE-LINK-STD-MIB", "componentLinkDescrMaxLspBandwidthPrio1"), ("TE-LINK-STD-MIB", "componentLinkDescrMaxLspBandwidthPrio2"), ("TE-LINK-STD-MIB", "componentLinkDescrMaxLspBandwidthPrio3"), ("TE-LINK-STD-MIB", "componentLinkDescrMaxLspBandwidthPrio4"), ("TE-LINK-STD-MIB", "componentLinkDescrMaxLspBandwidthPrio5"), ("TE-LINK-STD-MIB", "componentLinkDescrMaxLspBandwidthPrio6"), ("TE-LINK-STD-MIB", "componentLinkDescrMaxLspBandwidthPrio7"), ("TE-LINK-STD-MIB", "componentLinkBandwidthUnreserved"), ("TE-LINK-STD-MIB", "componentLinkBandwidthRowStatus"), ("TE-LINK-STD-MIB", "componentLinkBandwidthStorageType"),))
-if mibBuilder.loadTexts: componentLinkBandwidthGroup.setDescription('Collection of objects needed for the management of the\n           bandwidth parameters associated with component links.')
-teLinkPscGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 200, 2, 2, 5)).setObjects(*(("TE-LINK-STD-MIB", "teLinkDescrMinLspBandwidth"), ("TE-LINK-STD-MIB", "teLinkDescrInterfaceMtu"), ("TE-LINK-STD-MIB", "componentLinkDescrMinLspBandwidth"), ("TE-LINK-STD-MIB", "componentLinkDescrInterfaceMtu"),))
-if mibBuilder.loadTexts: teLinkPscGroup.setDescription('Collection of objects needed for devices that are\n           packet switch capable.')
-teLinkTdmGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 200, 2, 2, 6)).setObjects(*(("TE-LINK-STD-MIB", "teLinkDescrMinLspBandwidth"), ("TE-LINK-STD-MIB", "teLinkDescrIndication"), ("TE-LINK-STD-MIB", "componentLinkDescrMinLspBandwidth"), ("TE-LINK-STD-MIB", "componentLinkDescrIndication"),))
-if mibBuilder.loadTexts: teLinkTdmGroup.setDescription('Collection of objects needed for devices that are\n           TDM switching capable.')
-mibBuilder.exportSymbols("TE-LINK-STD-MIB", teLinkSrlgRowStatus=teLinkSrlgRowStatus, componentLinkBandwidthRowStatus=componentLinkBandwidthRowStatus, teLinkDescrMinLspBandwidth=teLinkDescrMinLspBandwidth, componentLinkDescrMaxLspBandwidthPrio5=componentLinkDescrMaxLspBandwidthPrio5, teLinkStdMIB=teLinkStdMIB, teLinkTdmGroup=teLinkTdmGroup, teLinkSrlgEntry=teLinkSrlgEntry, componentLinkEntry=componentLinkEntry, componentLinkDescrMaxLspBandwidthPrio2=componentLinkDescrMaxLspBandwidthPrio2, TeLinkSonetSdhIndication=TeLinkSonetSdhIndication, componentLinkDescrSwitchingCapability=componentLinkDescrSwitchingCapability, componentLinkDescrMaxLspBandwidthPrio0=componentLinkDescrMaxLspBandwidthPrio0, TeLinkProtection=TeLinkProtection, componentLinkDescrMaxLspBandwidthPrio1=componentLinkDescrMaxLspBandwidthPrio1, teLinkAddressType=teLinkAddressType, teLinkResourceClass=teLinkResourceClass, teLinkBandwidthPriority=teLinkBandwidthPriority, componentLinkDescrEncodingType=componentLinkDescrEncodingType, teLinkTable=teLinkTable, teLinkLocalIpAddr=teLinkLocalIpAddr, teLinkDescrStorageType=teLinkDescrStorageType, teLinkNotifications=teLinkNotifications, teLinkCompliances=teLinkCompliances, teLinkProtectionType=teLinkProtectionType, teLinkBandwidthEntry=teLinkBandwidthEntry, teLinkMaximumReservableBandwidth=teLinkMaximumReservableBandwidth, teLinkDescrMaxLspBandwidthPrio3=teLinkDescrMaxLspBandwidthPrio3, componentLinkBandwidthUnreserved=componentLinkBandwidthUnreserved, teLinkDescrIndication=teLinkDescrIndication, teLinkDescrMaxLspBandwidthPrio4=teLinkDescrMaxLspBandwidthPrio4, teLinkConformance=teLinkConformance, componentLinkBandwidthGroup=componentLinkBandwidthGroup, componentLinkDescrId=componentLinkDescrId, teLinkSrlgGroup=teLinkSrlgGroup, componentLinkDescrMaxLspBandwidthPrio6=componentLinkDescrMaxLspBandwidthPrio6, teLinkDescrSwitchingCapability=teLinkDescrSwitchingCapability, componentLinkDescrMaxLspBandwidthPrio4=componentLinkDescrMaxLspBandwidthPrio4, componentLinkMaxResBandwidth=componentLinkMaxResBandwidth, componentLinkBandwidthStorageType=componentLinkBandwidthStorageType, componentLinkDescrRowStatus=componentLinkDescrRowStatus, TeLinkPriority=TeLinkPriority, teLinkDescrRowStatus=teLinkDescrRowStatus, teLinkBandwidthUnreserved=teLinkBandwidthUnreserved, teLinkGroup=teLinkGroup, teLinkGroups=teLinkGroups, teLinkDescrInterfaceMtu=teLinkDescrInterfaceMtu, teLinkPscGroup=teLinkPscGroup, teLinkOutgoingIfId=teLinkOutgoingIfId, componentLinkBandwidthEntry=componentLinkBandwidthEntry, teLinkDescrMaxLspBandwidthPrio1=teLinkDescrMaxLspBandwidthPrio1, componentLinkBandwidthPriority=componentLinkBandwidthPriority, TeLinkEncodingType=TeLinkEncodingType, teLinkObjects=teLinkObjects, teLinkModuleReadOnlyCompliance=teLinkModuleReadOnlyCompliance, teLinkDescrMaxLspBandwidthPrio0=teLinkDescrMaxLspBandwidthPrio0, teLinkDescrMaxLspBandwidthPrio5=teLinkDescrMaxLspBandwidthPrio5, teLinkRemoteIpAddr=teLinkRemoteIpAddr, teLinkBandwidthGroup=teLinkBandwidthGroup, TeLinkSwitchingCapability=TeLinkSwitchingCapability, teLinkDescriptorTable=teLinkDescriptorTable, teLinkDescrMaxLspBandwidthPrio7=teLinkDescrMaxLspBandwidthPrio7, componentLinkCurrentProtection=componentLinkCurrentProtection, teLinkBandwidthTable=teLinkBandwidthTable, PYSNMP_MODULE_ID=teLinkStdMIB, teLinkBandwidthRowStatus=teLinkBandwidthRowStatus, teLinkSrlg=teLinkSrlg, teLinkDescrMaxLspBandwidthPrio6=teLinkDescrMaxLspBandwidthPrio6, componentLinkDescrStorageType=componentLinkDescrStorageType, componentLinkDescrIndication=componentLinkDescrIndication, componentLinkStorageType=componentLinkStorageType, teLinkSrlgStorageType=teLinkSrlgStorageType, teLinkWorkingPriority=teLinkWorkingPriority, componentLinkBandwidthTable=componentLinkBandwidthTable, componentLinkRowStatus=componentLinkRowStatus, teLinkMetric=teLinkMetric, componentLinkTable=componentLinkTable, teLinkEntry=teLinkEntry, teLinkDescriptorEntry=teLinkDescriptorEntry, componentLinkPreferredProtection=componentLinkPreferredProtection, componentLinkDescriptorEntry=componentLinkDescriptorEntry, teLinkDescrEncodingType=teLinkDescrEncodingType, teLinkSrlgTable=teLinkSrlgTable, componentLinkDescrInterfaceMtu=componentLinkDescrInterfaceMtu, teLinkIncomingIfId=teLinkIncomingIfId, componentLinkDescriptorTable=componentLinkDescriptorTable, teLinkBandwidthStorageType=teLinkBandwidthStorageType, teLinkDescrMaxLspBandwidthPrio2=teLinkDescrMaxLspBandwidthPrio2, teLinkDescriptorId=teLinkDescriptorId, TeLinkBandwidth=TeLinkBandwidth, teLinkStorageType=teLinkStorageType, componentLinkDescrMaxLspBandwidthPrio3=componentLinkDescrMaxLspBandwidthPrio3, componentLinkDescrMaxLspBandwidthPrio7=componentLinkDescrMaxLspBandwidthPrio7, teLinkRowStatus=teLinkRowStatus, teLinkModuleFullCompliance=teLinkModuleFullCompliance, componentLinkDescrMinLspBandwidth=componentLinkDescrMinLspBandwidth)
+_AN='componentLinkDescrIndication'
+_AM='teLinkDescrIndication'
+_AL='componentLinkDescrInterfaceMtu'
+_AK='teLinkDescrInterfaceMtu'
+_AJ='componentLinkBandwidthStorageType'
+_AI='componentLinkBandwidthRowStatus'
+_AH='componentLinkBandwidthUnreserved'
+_AG='componentLinkDescrMaxLspBandwidthPrio7'
+_AF='componentLinkDescrMaxLspBandwidthPrio6'
+_AE='componentLinkDescrMaxLspBandwidthPrio5'
+_AD='componentLinkDescrMaxLspBandwidthPrio4'
+_AC='componentLinkDescrMaxLspBandwidthPrio3'
+_AB='componentLinkDescrMaxLspBandwidthPrio2'
+_AA='componentLinkDescrMaxLspBandwidthPrio1'
+_A9='componentLinkDescrMaxLspBandwidthPrio0'
+_A8='componentLinkMaxResBandwidth'
+_A7='teLinkBandwidthStorageType'
+_A6='teLinkBandwidthRowStatus'
+_A5='teLinkBandwidthUnreserved'
+_A4='teLinkDescrMaxLspBandwidthPrio7'
+_A3='teLinkDescrMaxLspBandwidthPrio6'
+_A2='teLinkDescrMaxLspBandwidthPrio5'
+_A1='teLinkDescrMaxLspBandwidthPrio4'
+_A0='teLinkDescrMaxLspBandwidthPrio3'
+_z='teLinkDescrMaxLspBandwidthPrio2'
+_y='teLinkDescrMaxLspBandwidthPrio1'
+_x='teLinkDescrMaxLspBandwidthPrio0'
+_w='teLinkMaximumReservableBandwidth'
+_v='teLinkSrlgStorageType'
+_u='teLinkSrlgRowStatus'
+_t='componentLinkDescrStorageType'
+_s='componentLinkDescrRowStatus'
+_r='componentLinkDescrEncodingType'
+_q='componentLinkDescrSwitchingCapability'
+_p='componentLinkStorageType'
+_o='componentLinkRowStatus'
+_n='componentLinkCurrentProtection'
+_m='componentLinkPreferredProtection'
+_l='teLinkDescrStorageType'
+_k='teLinkDescrRowStatus'
+_j='teLinkDescrEncodingType'
+_i='teLinkDescrSwitchingCapability'
+_h='teLinkStorageType'
+_g='teLinkRowStatus'
+_f='teLinkOutgoingIfId'
+_e='teLinkIncomingIfId'
+_d='teLinkResourceClass'
+_c='teLinkWorkingPriority'
+_b='teLinkProtectionType'
+_a='teLinkMetric'
+_Z='teLinkRemoteIpAddr'
+_Y='teLinkLocalIpAddr'
+_X='teLinkAddressType'
+_W='componentLinkBandwidthPriority'
+_V='componentLinkDescrId'
+_U='teLinkBandwidthPriority'
+_T='teLinkSrlg'
+_S='teLinkDescriptorId'
+_R='teLinkTdmGroup'
+_Q='teLinkPscGroup'
+_P='teLinkSrlgGroup'
+_O='componentLinkBandwidthGroup'
+_N='teLinkBandwidthGroup'
+_M='teLinkGroup'
+_L='componentLinkDescrMinLspBandwidth'
+_K='teLinkDescrMinLspBandwidth'
+_J='Integer32'
+_I='read-only'
+_H='not-accessible'
+_G='Unsigned32'
+_F='ifIndex'
+_E='IF-MIB'
+_D='bps'
+_C='read-create'
+_B='TE-LINK-STD-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InterfaceIndexOrZero,ifIndex=mibBuilder.importSymbols(_E,'InterfaceIndexOrZero',_F)
+InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_J,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso','transmission')
+DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','StorageType','TextualConvention')
+teLinkStdMIB=ModuleIdentity((1,3,6,1,2,1,10,200))
+if mibBuilder.loadTexts:teLinkStdMIB.setRevisions(('2005-10-11 00:00',))
+class TeLinkBandwidth(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,4));fixedLength=4
+class TeLinkPriority(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
+class TeLinkProtection(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('primary',1),('secondary',2)))
+class TeLinkSwitchingCapability(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,51,100,150,200)));namedValues=NamedValues(*(('packetSwitch1',1),('packetSwitch2',2),('packetSwitch3',3),('packetSwitch4',4),('layer2Switch',51),('tdm',100),('lambdaSwitch',150),('fiberSwitch',200)))
+class TeLinkEncodingType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,5,7,8,9,11)));namedValues=NamedValues(*(('packet',1),('ethernet',2),('ansiEtsiPdh',3),('sdhItuSonetAnsi',5),('digitalWrapper',7),('lambda',8),('fiber',9),('fiberChannel',11)))
+class TeLinkSonetSdhIndication(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('standard',0),('arbitrary',1)))
+_TeLinkNotifications_ObjectIdentity=ObjectIdentity
+teLinkNotifications=_TeLinkNotifications_ObjectIdentity((1,3,6,1,2,1,10,200,0))
+_TeLinkObjects_ObjectIdentity=ObjectIdentity
+teLinkObjects=_TeLinkObjects_ObjectIdentity((1,3,6,1,2,1,10,200,1))
+_TeLinkTable_Object=MibTable
+teLinkTable=_TeLinkTable_Object((1,3,6,1,2,1,10,200,1,1))
+if mibBuilder.loadTexts:teLinkTable.setStatus(_A)
+_TeLinkEntry_Object=MibTableRow
+teLinkEntry=_TeLinkEntry_Object((1,3,6,1,2,1,10,200,1,1,1))
+teLinkEntry.setIndexNames((0,_E,_F))
+if mibBuilder.loadTexts:teLinkEntry.setStatus(_A)
+_TeLinkAddressType_Type=InetAddressType
+_TeLinkAddressType_Object=MibTableColumn
+teLinkAddressType=_TeLinkAddressType_Object((1,3,6,1,2,1,10,200,1,1,1,1),_TeLinkAddressType_Type())
+teLinkAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkAddressType.setStatus(_A)
+_TeLinkLocalIpAddr_Type=InetAddress
+_TeLinkLocalIpAddr_Object=MibTableColumn
+teLinkLocalIpAddr=_TeLinkLocalIpAddr_Object((1,3,6,1,2,1,10,200,1,1,1,2),_TeLinkLocalIpAddr_Type())
+teLinkLocalIpAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkLocalIpAddr.setStatus(_A)
+_TeLinkRemoteIpAddr_Type=InetAddress
+_TeLinkRemoteIpAddr_Object=MibTableColumn
+teLinkRemoteIpAddr=_TeLinkRemoteIpAddr_Object((1,3,6,1,2,1,10,200,1,1,1,3),_TeLinkRemoteIpAddr_Type())
+teLinkRemoteIpAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkRemoteIpAddr.setStatus(_A)
+_TeLinkMetric_Type=Unsigned32
+_TeLinkMetric_Object=MibTableColumn
+teLinkMetric=_TeLinkMetric_Object((1,3,6,1,2,1,10,200,1,1,1,4),_TeLinkMetric_Type())
+teLinkMetric.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkMetric.setStatus(_A)
+_TeLinkMaximumReservableBandwidth_Type=TeLinkBandwidth
+_TeLinkMaximumReservableBandwidth_Object=MibTableColumn
+teLinkMaximumReservableBandwidth=_TeLinkMaximumReservableBandwidth_Object((1,3,6,1,2,1,10,200,1,1,1,5),_TeLinkMaximumReservableBandwidth_Type())
+teLinkMaximumReservableBandwidth.setMaxAccess(_I)
+if mibBuilder.loadTexts:teLinkMaximumReservableBandwidth.setStatus(_A)
+if mibBuilder.loadTexts:teLinkMaximumReservableBandwidth.setUnits(_D)
+class _TeLinkProtectionType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('extraTraffic',1),('unprotected',2),('shared',3),('dedicated1For1',4),('dedicated1Plus1',5),('enhanced',6)))
+_TeLinkProtectionType_Type.__name__=_J
+_TeLinkProtectionType_Object=MibTableColumn
+teLinkProtectionType=_TeLinkProtectionType_Object((1,3,6,1,2,1,10,200,1,1,1,6),_TeLinkProtectionType_Type())
+teLinkProtectionType.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkProtectionType.setStatus(_A)
+_TeLinkWorkingPriority_Type=TeLinkPriority
+_TeLinkWorkingPriority_Object=MibTableColumn
+teLinkWorkingPriority=_TeLinkWorkingPriority_Object((1,3,6,1,2,1,10,200,1,1,1,7),_TeLinkWorkingPriority_Type())
+teLinkWorkingPriority.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkWorkingPriority.setStatus(_A)
+_TeLinkResourceClass_Type=Unsigned32
+_TeLinkResourceClass_Object=MibTableColumn
+teLinkResourceClass=_TeLinkResourceClass_Object((1,3,6,1,2,1,10,200,1,1,1,8),_TeLinkResourceClass_Type())
+teLinkResourceClass.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkResourceClass.setStatus(_A)
+class _TeLinkIncomingIfId_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_TeLinkIncomingIfId_Type.__name__=_J
+_TeLinkIncomingIfId_Object=MibTableColumn
+teLinkIncomingIfId=_TeLinkIncomingIfId_Object((1,3,6,1,2,1,10,200,1,1,1,9),_TeLinkIncomingIfId_Type())
+teLinkIncomingIfId.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkIncomingIfId.setStatus(_A)
+_TeLinkOutgoingIfId_Type=InterfaceIndexOrZero
+_TeLinkOutgoingIfId_Object=MibTableColumn
+teLinkOutgoingIfId=_TeLinkOutgoingIfId_Object((1,3,6,1,2,1,10,200,1,1,1,10),_TeLinkOutgoingIfId_Type())
+teLinkOutgoingIfId.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkOutgoingIfId.setStatus(_A)
+_TeLinkRowStatus_Type=RowStatus
+_TeLinkRowStatus_Object=MibTableColumn
+teLinkRowStatus=_TeLinkRowStatus_Object((1,3,6,1,2,1,10,200,1,1,1,11),_TeLinkRowStatus_Type())
+teLinkRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkRowStatus.setStatus(_A)
+_TeLinkStorageType_Type=StorageType
+_TeLinkStorageType_Object=MibTableColumn
+teLinkStorageType=_TeLinkStorageType_Object((1,3,6,1,2,1,10,200,1,1,1,12),_TeLinkStorageType_Type())
+teLinkStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkStorageType.setStatus(_A)
+_TeLinkDescriptorTable_Object=MibTable
+teLinkDescriptorTable=_TeLinkDescriptorTable_Object((1,3,6,1,2,1,10,200,1,2))
+if mibBuilder.loadTexts:teLinkDescriptorTable.setStatus(_A)
+_TeLinkDescriptorEntry_Object=MibTableRow
+teLinkDescriptorEntry=_TeLinkDescriptorEntry_Object((1,3,6,1,2,1,10,200,1,2,1))
+teLinkDescriptorEntry.setIndexNames((0,_E,_F),(0,_B,_S))
+if mibBuilder.loadTexts:teLinkDescriptorEntry.setStatus(_A)
+class _TeLinkDescriptorId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_TeLinkDescriptorId_Type.__name__=_G
+_TeLinkDescriptorId_Object=MibTableColumn
+teLinkDescriptorId=_TeLinkDescriptorId_Object((1,3,6,1,2,1,10,200,1,2,1,1),_TeLinkDescriptorId_Type())
+teLinkDescriptorId.setMaxAccess(_H)
+if mibBuilder.loadTexts:teLinkDescriptorId.setStatus(_A)
+_TeLinkDescrSwitchingCapability_Type=TeLinkSwitchingCapability
+_TeLinkDescrSwitchingCapability_Object=MibTableColumn
+teLinkDescrSwitchingCapability=_TeLinkDescrSwitchingCapability_Object((1,3,6,1,2,1,10,200,1,2,1,2),_TeLinkDescrSwitchingCapability_Type())
+teLinkDescrSwitchingCapability.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkDescrSwitchingCapability.setStatus(_A)
+_TeLinkDescrEncodingType_Type=TeLinkEncodingType
+_TeLinkDescrEncodingType_Object=MibTableColumn
+teLinkDescrEncodingType=_TeLinkDescrEncodingType_Object((1,3,6,1,2,1,10,200,1,2,1,3),_TeLinkDescrEncodingType_Type())
+teLinkDescrEncodingType.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkDescrEncodingType.setStatus(_A)
+_TeLinkDescrMinLspBandwidth_Type=TeLinkBandwidth
+_TeLinkDescrMinLspBandwidth_Object=MibTableColumn
+teLinkDescrMinLspBandwidth=_TeLinkDescrMinLspBandwidth_Object((1,3,6,1,2,1,10,200,1,2,1,4),_TeLinkDescrMinLspBandwidth_Type())
+teLinkDescrMinLspBandwidth.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkDescrMinLspBandwidth.setStatus(_A)
+if mibBuilder.loadTexts:teLinkDescrMinLspBandwidth.setUnits(_D)
+_TeLinkDescrMaxLspBandwidthPrio0_Type=TeLinkBandwidth
+_TeLinkDescrMaxLspBandwidthPrio0_Object=MibTableColumn
+teLinkDescrMaxLspBandwidthPrio0=_TeLinkDescrMaxLspBandwidthPrio0_Object((1,3,6,1,2,1,10,200,1,2,1,5),_TeLinkDescrMaxLspBandwidthPrio0_Type())
+teLinkDescrMaxLspBandwidthPrio0.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkDescrMaxLspBandwidthPrio0.setStatus(_A)
+if mibBuilder.loadTexts:teLinkDescrMaxLspBandwidthPrio0.setUnits(_D)
+_TeLinkDescrMaxLspBandwidthPrio1_Type=TeLinkBandwidth
+_TeLinkDescrMaxLspBandwidthPrio1_Object=MibTableColumn
+teLinkDescrMaxLspBandwidthPrio1=_TeLinkDescrMaxLspBandwidthPrio1_Object((1,3,6,1,2,1,10,200,1,2,1,6),_TeLinkDescrMaxLspBandwidthPrio1_Type())
+teLinkDescrMaxLspBandwidthPrio1.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkDescrMaxLspBandwidthPrio1.setStatus(_A)
+if mibBuilder.loadTexts:teLinkDescrMaxLspBandwidthPrio1.setUnits(_D)
+_TeLinkDescrMaxLspBandwidthPrio2_Type=TeLinkBandwidth
+_TeLinkDescrMaxLspBandwidthPrio2_Object=MibTableColumn
+teLinkDescrMaxLspBandwidthPrio2=_TeLinkDescrMaxLspBandwidthPrio2_Object((1,3,6,1,2,1,10,200,1,2,1,7),_TeLinkDescrMaxLspBandwidthPrio2_Type())
+teLinkDescrMaxLspBandwidthPrio2.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkDescrMaxLspBandwidthPrio2.setStatus(_A)
+if mibBuilder.loadTexts:teLinkDescrMaxLspBandwidthPrio2.setUnits(_D)
+_TeLinkDescrMaxLspBandwidthPrio3_Type=TeLinkBandwidth
+_TeLinkDescrMaxLspBandwidthPrio3_Object=MibTableColumn
+teLinkDescrMaxLspBandwidthPrio3=_TeLinkDescrMaxLspBandwidthPrio3_Object((1,3,6,1,2,1,10,200,1,2,1,8),_TeLinkDescrMaxLspBandwidthPrio3_Type())
+teLinkDescrMaxLspBandwidthPrio3.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkDescrMaxLspBandwidthPrio3.setStatus(_A)
+if mibBuilder.loadTexts:teLinkDescrMaxLspBandwidthPrio3.setUnits(_D)
+_TeLinkDescrMaxLspBandwidthPrio4_Type=TeLinkBandwidth
+_TeLinkDescrMaxLspBandwidthPrio4_Object=MibTableColumn
+teLinkDescrMaxLspBandwidthPrio4=_TeLinkDescrMaxLspBandwidthPrio4_Object((1,3,6,1,2,1,10,200,1,2,1,9),_TeLinkDescrMaxLspBandwidthPrio4_Type())
+teLinkDescrMaxLspBandwidthPrio4.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkDescrMaxLspBandwidthPrio4.setStatus(_A)
+if mibBuilder.loadTexts:teLinkDescrMaxLspBandwidthPrio4.setUnits(_D)
+_TeLinkDescrMaxLspBandwidthPrio5_Type=TeLinkBandwidth
+_TeLinkDescrMaxLspBandwidthPrio5_Object=MibTableColumn
+teLinkDescrMaxLspBandwidthPrio5=_TeLinkDescrMaxLspBandwidthPrio5_Object((1,3,6,1,2,1,10,200,1,2,1,10),_TeLinkDescrMaxLspBandwidthPrio5_Type())
+teLinkDescrMaxLspBandwidthPrio5.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkDescrMaxLspBandwidthPrio5.setStatus(_A)
+if mibBuilder.loadTexts:teLinkDescrMaxLspBandwidthPrio5.setUnits(_D)
+_TeLinkDescrMaxLspBandwidthPrio6_Type=TeLinkBandwidth
+_TeLinkDescrMaxLspBandwidthPrio6_Object=MibTableColumn
+teLinkDescrMaxLspBandwidthPrio6=_TeLinkDescrMaxLspBandwidthPrio6_Object((1,3,6,1,2,1,10,200,1,2,1,11),_TeLinkDescrMaxLspBandwidthPrio6_Type())
+teLinkDescrMaxLspBandwidthPrio6.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkDescrMaxLspBandwidthPrio6.setStatus(_A)
+if mibBuilder.loadTexts:teLinkDescrMaxLspBandwidthPrio6.setUnits(_D)
+_TeLinkDescrMaxLspBandwidthPrio7_Type=TeLinkBandwidth
+_TeLinkDescrMaxLspBandwidthPrio7_Object=MibTableColumn
+teLinkDescrMaxLspBandwidthPrio7=_TeLinkDescrMaxLspBandwidthPrio7_Object((1,3,6,1,2,1,10,200,1,2,1,12),_TeLinkDescrMaxLspBandwidthPrio7_Type())
+teLinkDescrMaxLspBandwidthPrio7.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkDescrMaxLspBandwidthPrio7.setStatus(_A)
+if mibBuilder.loadTexts:teLinkDescrMaxLspBandwidthPrio7.setUnits(_D)
+class _TeLinkDescrInterfaceMtu_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_TeLinkDescrInterfaceMtu_Type.__name__=_G
+_TeLinkDescrInterfaceMtu_Object=MibTableColumn
+teLinkDescrInterfaceMtu=_TeLinkDescrInterfaceMtu_Object((1,3,6,1,2,1,10,200,1,2,1,13),_TeLinkDescrInterfaceMtu_Type())
+teLinkDescrInterfaceMtu.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkDescrInterfaceMtu.setStatus(_A)
+_TeLinkDescrIndication_Type=TeLinkSonetSdhIndication
+_TeLinkDescrIndication_Object=MibTableColumn
+teLinkDescrIndication=_TeLinkDescrIndication_Object((1,3,6,1,2,1,10,200,1,2,1,14),_TeLinkDescrIndication_Type())
+teLinkDescrIndication.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkDescrIndication.setStatus(_A)
+_TeLinkDescrRowStatus_Type=RowStatus
+_TeLinkDescrRowStatus_Object=MibTableColumn
+teLinkDescrRowStatus=_TeLinkDescrRowStatus_Object((1,3,6,1,2,1,10,200,1,2,1,15),_TeLinkDescrRowStatus_Type())
+teLinkDescrRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkDescrRowStatus.setStatus(_A)
+_TeLinkDescrStorageType_Type=StorageType
+_TeLinkDescrStorageType_Object=MibTableColumn
+teLinkDescrStorageType=_TeLinkDescrStorageType_Object((1,3,6,1,2,1,10,200,1,2,1,16),_TeLinkDescrStorageType_Type())
+teLinkDescrStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkDescrStorageType.setStatus(_A)
+_TeLinkSrlgTable_Object=MibTable
+teLinkSrlgTable=_TeLinkSrlgTable_Object((1,3,6,1,2,1,10,200,1,3))
+if mibBuilder.loadTexts:teLinkSrlgTable.setStatus(_A)
+_TeLinkSrlgEntry_Object=MibTableRow
+teLinkSrlgEntry=_TeLinkSrlgEntry_Object((1,3,6,1,2,1,10,200,1,3,1))
+teLinkSrlgEntry.setIndexNames((0,_E,_F),(0,_B,_T))
+if mibBuilder.loadTexts:teLinkSrlgEntry.setStatus(_A)
+class _TeLinkSrlg_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_TeLinkSrlg_Type.__name__=_G
+_TeLinkSrlg_Object=MibTableColumn
+teLinkSrlg=_TeLinkSrlg_Object((1,3,6,1,2,1,10,200,1,3,1,1),_TeLinkSrlg_Type())
+teLinkSrlg.setMaxAccess(_H)
+if mibBuilder.loadTexts:teLinkSrlg.setStatus(_A)
+_TeLinkSrlgRowStatus_Type=RowStatus
+_TeLinkSrlgRowStatus_Object=MibTableColumn
+teLinkSrlgRowStatus=_TeLinkSrlgRowStatus_Object((1,3,6,1,2,1,10,200,1,3,1,2),_TeLinkSrlgRowStatus_Type())
+teLinkSrlgRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkSrlgRowStatus.setStatus(_A)
+_TeLinkSrlgStorageType_Type=StorageType
+_TeLinkSrlgStorageType_Object=MibTableColumn
+teLinkSrlgStorageType=_TeLinkSrlgStorageType_Object((1,3,6,1,2,1,10,200,1,3,1,3),_TeLinkSrlgStorageType_Type())
+teLinkSrlgStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkSrlgStorageType.setStatus(_A)
+_TeLinkBandwidthTable_Object=MibTable
+teLinkBandwidthTable=_TeLinkBandwidthTable_Object((1,3,6,1,2,1,10,200,1,4))
+if mibBuilder.loadTexts:teLinkBandwidthTable.setStatus(_A)
+_TeLinkBandwidthEntry_Object=MibTableRow
+teLinkBandwidthEntry=_TeLinkBandwidthEntry_Object((1,3,6,1,2,1,10,200,1,4,1))
+teLinkBandwidthEntry.setIndexNames((0,_E,_F),(0,_B,_U))
+if mibBuilder.loadTexts:teLinkBandwidthEntry.setStatus(_A)
+_TeLinkBandwidthPriority_Type=TeLinkPriority
+_TeLinkBandwidthPriority_Object=MibTableColumn
+teLinkBandwidthPriority=_TeLinkBandwidthPriority_Object((1,3,6,1,2,1,10,200,1,4,1,1),_TeLinkBandwidthPriority_Type())
+teLinkBandwidthPriority.setMaxAccess(_H)
+if mibBuilder.loadTexts:teLinkBandwidthPriority.setStatus(_A)
+_TeLinkBandwidthUnreserved_Type=TeLinkBandwidth
+_TeLinkBandwidthUnreserved_Object=MibTableColumn
+teLinkBandwidthUnreserved=_TeLinkBandwidthUnreserved_Object((1,3,6,1,2,1,10,200,1,4,1,2),_TeLinkBandwidthUnreserved_Type())
+teLinkBandwidthUnreserved.setMaxAccess(_I)
+if mibBuilder.loadTexts:teLinkBandwidthUnreserved.setStatus(_A)
+if mibBuilder.loadTexts:teLinkBandwidthUnreserved.setUnits(_D)
+_TeLinkBandwidthRowStatus_Type=RowStatus
+_TeLinkBandwidthRowStatus_Object=MibTableColumn
+teLinkBandwidthRowStatus=_TeLinkBandwidthRowStatus_Object((1,3,6,1,2,1,10,200,1,4,1,3),_TeLinkBandwidthRowStatus_Type())
+teLinkBandwidthRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkBandwidthRowStatus.setStatus(_A)
+_TeLinkBandwidthStorageType_Type=StorageType
+_TeLinkBandwidthStorageType_Object=MibTableColumn
+teLinkBandwidthStorageType=_TeLinkBandwidthStorageType_Object((1,3,6,1,2,1,10,200,1,4,1,4),_TeLinkBandwidthStorageType_Type())
+teLinkBandwidthStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:teLinkBandwidthStorageType.setStatus(_A)
+_ComponentLinkTable_Object=MibTable
+componentLinkTable=_ComponentLinkTable_Object((1,3,6,1,2,1,10,200,1,5))
+if mibBuilder.loadTexts:componentLinkTable.setStatus(_A)
+_ComponentLinkEntry_Object=MibTableRow
+componentLinkEntry=_ComponentLinkEntry_Object((1,3,6,1,2,1,10,200,1,5,1))
+componentLinkEntry.setIndexNames((0,_E,_F))
+if mibBuilder.loadTexts:componentLinkEntry.setStatus(_A)
+_ComponentLinkMaxResBandwidth_Type=TeLinkBandwidth
+_ComponentLinkMaxResBandwidth_Object=MibTableColumn
+componentLinkMaxResBandwidth=_ComponentLinkMaxResBandwidth_Object((1,3,6,1,2,1,10,200,1,5,1,1),_ComponentLinkMaxResBandwidth_Type())
+componentLinkMaxResBandwidth.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkMaxResBandwidth.setStatus(_A)
+if mibBuilder.loadTexts:componentLinkMaxResBandwidth.setUnits(_D)
+_ComponentLinkPreferredProtection_Type=TeLinkProtection
+_ComponentLinkPreferredProtection_Object=MibTableColumn
+componentLinkPreferredProtection=_ComponentLinkPreferredProtection_Object((1,3,6,1,2,1,10,200,1,5,1,2),_ComponentLinkPreferredProtection_Type())
+componentLinkPreferredProtection.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkPreferredProtection.setStatus(_A)
+_ComponentLinkCurrentProtection_Type=TeLinkProtection
+_ComponentLinkCurrentProtection_Object=MibTableColumn
+componentLinkCurrentProtection=_ComponentLinkCurrentProtection_Object((1,3,6,1,2,1,10,200,1,5,1,3),_ComponentLinkCurrentProtection_Type())
+componentLinkCurrentProtection.setMaxAccess(_I)
+if mibBuilder.loadTexts:componentLinkCurrentProtection.setStatus(_A)
+_ComponentLinkRowStatus_Type=RowStatus
+_ComponentLinkRowStatus_Object=MibTableColumn
+componentLinkRowStatus=_ComponentLinkRowStatus_Object((1,3,6,1,2,1,10,200,1,5,1,4),_ComponentLinkRowStatus_Type())
+componentLinkRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkRowStatus.setStatus(_A)
+_ComponentLinkStorageType_Type=StorageType
+_ComponentLinkStorageType_Object=MibTableColumn
+componentLinkStorageType=_ComponentLinkStorageType_Object((1,3,6,1,2,1,10,200,1,5,1,5),_ComponentLinkStorageType_Type())
+componentLinkStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkStorageType.setStatus(_A)
+_ComponentLinkDescriptorTable_Object=MibTable
+componentLinkDescriptorTable=_ComponentLinkDescriptorTable_Object((1,3,6,1,2,1,10,200,1,6))
+if mibBuilder.loadTexts:componentLinkDescriptorTable.setStatus(_A)
+_ComponentLinkDescriptorEntry_Object=MibTableRow
+componentLinkDescriptorEntry=_ComponentLinkDescriptorEntry_Object((1,3,6,1,2,1,10,200,1,6,1))
+componentLinkDescriptorEntry.setIndexNames((0,_E,_F),(0,_B,_V))
+if mibBuilder.loadTexts:componentLinkDescriptorEntry.setStatus(_A)
+class _ComponentLinkDescrId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_ComponentLinkDescrId_Type.__name__=_G
+_ComponentLinkDescrId_Object=MibTableColumn
+componentLinkDescrId=_ComponentLinkDescrId_Object((1,3,6,1,2,1,10,200,1,6,1,1),_ComponentLinkDescrId_Type())
+componentLinkDescrId.setMaxAccess(_H)
+if mibBuilder.loadTexts:componentLinkDescrId.setStatus(_A)
+_ComponentLinkDescrSwitchingCapability_Type=TeLinkSwitchingCapability
+_ComponentLinkDescrSwitchingCapability_Object=MibTableColumn
+componentLinkDescrSwitchingCapability=_ComponentLinkDescrSwitchingCapability_Object((1,3,6,1,2,1,10,200,1,6,1,2),_ComponentLinkDescrSwitchingCapability_Type())
+componentLinkDescrSwitchingCapability.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkDescrSwitchingCapability.setStatus(_A)
+_ComponentLinkDescrEncodingType_Type=TeLinkEncodingType
+_ComponentLinkDescrEncodingType_Object=MibTableColumn
+componentLinkDescrEncodingType=_ComponentLinkDescrEncodingType_Object((1,3,6,1,2,1,10,200,1,6,1,3),_ComponentLinkDescrEncodingType_Type())
+componentLinkDescrEncodingType.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkDescrEncodingType.setStatus(_A)
+_ComponentLinkDescrMinLspBandwidth_Type=TeLinkBandwidth
+_ComponentLinkDescrMinLspBandwidth_Object=MibTableColumn
+componentLinkDescrMinLspBandwidth=_ComponentLinkDescrMinLspBandwidth_Object((1,3,6,1,2,1,10,200,1,6,1,4),_ComponentLinkDescrMinLspBandwidth_Type())
+componentLinkDescrMinLspBandwidth.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkDescrMinLspBandwidth.setStatus(_A)
+if mibBuilder.loadTexts:componentLinkDescrMinLspBandwidth.setUnits(_D)
+_ComponentLinkDescrMaxLspBandwidthPrio0_Type=TeLinkBandwidth
+_ComponentLinkDescrMaxLspBandwidthPrio0_Object=MibTableColumn
+componentLinkDescrMaxLspBandwidthPrio0=_ComponentLinkDescrMaxLspBandwidthPrio0_Object((1,3,6,1,2,1,10,200,1,6,1,5),_ComponentLinkDescrMaxLspBandwidthPrio0_Type())
+componentLinkDescrMaxLspBandwidthPrio0.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkDescrMaxLspBandwidthPrio0.setStatus(_A)
+if mibBuilder.loadTexts:componentLinkDescrMaxLspBandwidthPrio0.setUnits(_D)
+_ComponentLinkDescrMaxLspBandwidthPrio1_Type=TeLinkBandwidth
+_ComponentLinkDescrMaxLspBandwidthPrio1_Object=MibTableColumn
+componentLinkDescrMaxLspBandwidthPrio1=_ComponentLinkDescrMaxLspBandwidthPrio1_Object((1,3,6,1,2,1,10,200,1,6,1,6),_ComponentLinkDescrMaxLspBandwidthPrio1_Type())
+componentLinkDescrMaxLspBandwidthPrio1.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkDescrMaxLspBandwidthPrio1.setStatus(_A)
+if mibBuilder.loadTexts:componentLinkDescrMaxLspBandwidthPrio1.setUnits(_D)
+_ComponentLinkDescrMaxLspBandwidthPrio2_Type=TeLinkBandwidth
+_ComponentLinkDescrMaxLspBandwidthPrio2_Object=MibTableColumn
+componentLinkDescrMaxLspBandwidthPrio2=_ComponentLinkDescrMaxLspBandwidthPrio2_Object((1,3,6,1,2,1,10,200,1,6,1,7),_ComponentLinkDescrMaxLspBandwidthPrio2_Type())
+componentLinkDescrMaxLspBandwidthPrio2.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkDescrMaxLspBandwidthPrio2.setStatus(_A)
+if mibBuilder.loadTexts:componentLinkDescrMaxLspBandwidthPrio2.setUnits(_D)
+_ComponentLinkDescrMaxLspBandwidthPrio3_Type=TeLinkBandwidth
+_ComponentLinkDescrMaxLspBandwidthPrio3_Object=MibTableColumn
+componentLinkDescrMaxLspBandwidthPrio3=_ComponentLinkDescrMaxLspBandwidthPrio3_Object((1,3,6,1,2,1,10,200,1,6,1,8),_ComponentLinkDescrMaxLspBandwidthPrio3_Type())
+componentLinkDescrMaxLspBandwidthPrio3.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkDescrMaxLspBandwidthPrio3.setStatus(_A)
+if mibBuilder.loadTexts:componentLinkDescrMaxLspBandwidthPrio3.setUnits(_D)
+_ComponentLinkDescrMaxLspBandwidthPrio4_Type=TeLinkBandwidth
+_ComponentLinkDescrMaxLspBandwidthPrio4_Object=MibTableColumn
+componentLinkDescrMaxLspBandwidthPrio4=_ComponentLinkDescrMaxLspBandwidthPrio4_Object((1,3,6,1,2,1,10,200,1,6,1,9),_ComponentLinkDescrMaxLspBandwidthPrio4_Type())
+componentLinkDescrMaxLspBandwidthPrio4.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkDescrMaxLspBandwidthPrio4.setStatus(_A)
+if mibBuilder.loadTexts:componentLinkDescrMaxLspBandwidthPrio4.setUnits(_D)
+_ComponentLinkDescrMaxLspBandwidthPrio5_Type=TeLinkBandwidth
+_ComponentLinkDescrMaxLspBandwidthPrio5_Object=MibTableColumn
+componentLinkDescrMaxLspBandwidthPrio5=_ComponentLinkDescrMaxLspBandwidthPrio5_Object((1,3,6,1,2,1,10,200,1,6,1,10),_ComponentLinkDescrMaxLspBandwidthPrio5_Type())
+componentLinkDescrMaxLspBandwidthPrio5.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkDescrMaxLspBandwidthPrio5.setStatus(_A)
+if mibBuilder.loadTexts:componentLinkDescrMaxLspBandwidthPrio5.setUnits('thousand bps')
+_ComponentLinkDescrMaxLspBandwidthPrio6_Type=TeLinkBandwidth
+_ComponentLinkDescrMaxLspBandwidthPrio6_Object=MibTableColumn
+componentLinkDescrMaxLspBandwidthPrio6=_ComponentLinkDescrMaxLspBandwidthPrio6_Object((1,3,6,1,2,1,10,200,1,6,1,11),_ComponentLinkDescrMaxLspBandwidthPrio6_Type())
+componentLinkDescrMaxLspBandwidthPrio6.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkDescrMaxLspBandwidthPrio6.setStatus(_A)
+if mibBuilder.loadTexts:componentLinkDescrMaxLspBandwidthPrio6.setUnits(_D)
+_ComponentLinkDescrMaxLspBandwidthPrio7_Type=TeLinkBandwidth
+_ComponentLinkDescrMaxLspBandwidthPrio7_Object=MibTableColumn
+componentLinkDescrMaxLspBandwidthPrio7=_ComponentLinkDescrMaxLspBandwidthPrio7_Object((1,3,6,1,2,1,10,200,1,6,1,12),_ComponentLinkDescrMaxLspBandwidthPrio7_Type())
+componentLinkDescrMaxLspBandwidthPrio7.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkDescrMaxLspBandwidthPrio7.setStatus(_A)
+if mibBuilder.loadTexts:componentLinkDescrMaxLspBandwidthPrio7.setUnits(_D)
+class _ComponentLinkDescrInterfaceMtu_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_ComponentLinkDescrInterfaceMtu_Type.__name__=_G
+_ComponentLinkDescrInterfaceMtu_Object=MibTableColumn
+componentLinkDescrInterfaceMtu=_ComponentLinkDescrInterfaceMtu_Object((1,3,6,1,2,1,10,200,1,6,1,13),_ComponentLinkDescrInterfaceMtu_Type())
+componentLinkDescrInterfaceMtu.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkDescrInterfaceMtu.setStatus(_A)
+_ComponentLinkDescrIndication_Type=TeLinkSonetSdhIndication
+_ComponentLinkDescrIndication_Object=MibTableColumn
+componentLinkDescrIndication=_ComponentLinkDescrIndication_Object((1,3,6,1,2,1,10,200,1,6,1,14),_ComponentLinkDescrIndication_Type())
+componentLinkDescrIndication.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkDescrIndication.setStatus(_A)
+_ComponentLinkDescrRowStatus_Type=RowStatus
+_ComponentLinkDescrRowStatus_Object=MibTableColumn
+componentLinkDescrRowStatus=_ComponentLinkDescrRowStatus_Object((1,3,6,1,2,1,10,200,1,6,1,15),_ComponentLinkDescrRowStatus_Type())
+componentLinkDescrRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkDescrRowStatus.setStatus(_A)
+_ComponentLinkDescrStorageType_Type=StorageType
+_ComponentLinkDescrStorageType_Object=MibTableColumn
+componentLinkDescrStorageType=_ComponentLinkDescrStorageType_Object((1,3,6,1,2,1,10,200,1,6,1,16),_ComponentLinkDescrStorageType_Type())
+componentLinkDescrStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkDescrStorageType.setStatus(_A)
+_ComponentLinkBandwidthTable_Object=MibTable
+componentLinkBandwidthTable=_ComponentLinkBandwidthTable_Object((1,3,6,1,2,1,10,200,1,7))
+if mibBuilder.loadTexts:componentLinkBandwidthTable.setStatus(_A)
+_ComponentLinkBandwidthEntry_Object=MibTableRow
+componentLinkBandwidthEntry=_ComponentLinkBandwidthEntry_Object((1,3,6,1,2,1,10,200,1,7,1))
+componentLinkBandwidthEntry.setIndexNames((0,_E,_F),(0,_B,_W))
+if mibBuilder.loadTexts:componentLinkBandwidthEntry.setStatus(_A)
+_ComponentLinkBandwidthPriority_Type=TeLinkPriority
+_ComponentLinkBandwidthPriority_Object=MibTableColumn
+componentLinkBandwidthPriority=_ComponentLinkBandwidthPriority_Object((1,3,6,1,2,1,10,200,1,7,1,1),_ComponentLinkBandwidthPriority_Type())
+componentLinkBandwidthPriority.setMaxAccess(_H)
+if mibBuilder.loadTexts:componentLinkBandwidthPriority.setStatus(_A)
+_ComponentLinkBandwidthUnreserved_Type=TeLinkBandwidth
+_ComponentLinkBandwidthUnreserved_Object=MibTableColumn
+componentLinkBandwidthUnreserved=_ComponentLinkBandwidthUnreserved_Object((1,3,6,1,2,1,10,200,1,7,1,2),_ComponentLinkBandwidthUnreserved_Type())
+componentLinkBandwidthUnreserved.setMaxAccess(_I)
+if mibBuilder.loadTexts:componentLinkBandwidthUnreserved.setStatus(_A)
+if mibBuilder.loadTexts:componentLinkBandwidthUnreserved.setUnits(_D)
+_ComponentLinkBandwidthRowStatus_Type=RowStatus
+_ComponentLinkBandwidthRowStatus_Object=MibTableColumn
+componentLinkBandwidthRowStatus=_ComponentLinkBandwidthRowStatus_Object((1,3,6,1,2,1,10,200,1,7,1,3),_ComponentLinkBandwidthRowStatus_Type())
+componentLinkBandwidthRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkBandwidthRowStatus.setStatus(_A)
+_ComponentLinkBandwidthStorageType_Type=StorageType
+_ComponentLinkBandwidthStorageType_Object=MibTableColumn
+componentLinkBandwidthStorageType=_ComponentLinkBandwidthStorageType_Object((1,3,6,1,2,1,10,200,1,7,1,4),_ComponentLinkBandwidthStorageType_Type())
+componentLinkBandwidthStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:componentLinkBandwidthStorageType.setStatus(_A)
+_TeLinkConformance_ObjectIdentity=ObjectIdentity
+teLinkConformance=_TeLinkConformance_ObjectIdentity((1,3,6,1,2,1,10,200,2))
+_TeLinkCompliances_ObjectIdentity=ObjectIdentity
+teLinkCompliances=_TeLinkCompliances_ObjectIdentity((1,3,6,1,2,1,10,200,2,1))
+_TeLinkGroups_ObjectIdentity=ObjectIdentity
+teLinkGroups=_TeLinkGroups_ObjectIdentity((1,3,6,1,2,1,10,200,2,2))
+teLinkGroup=ObjectGroup((1,3,6,1,2,1,10,200,2,2,1))
+teLinkGroup.setObjects(*((_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t)))
+if mibBuilder.loadTexts:teLinkGroup.setStatus(_A)
+teLinkSrlgGroup=ObjectGroup((1,3,6,1,2,1,10,200,2,2,2))
+teLinkSrlgGroup.setObjects(*((_B,_u),(_B,_v)))
+if mibBuilder.loadTexts:teLinkSrlgGroup.setStatus(_A)
+teLinkBandwidthGroup=ObjectGroup((1,3,6,1,2,1,10,200,2,2,3))
+teLinkBandwidthGroup.setObjects(*((_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7)))
+if mibBuilder.loadTexts:teLinkBandwidthGroup.setStatus(_A)
+componentLinkBandwidthGroup=ObjectGroup((1,3,6,1,2,1,10,200,2,2,4))
+componentLinkBandwidthGroup.setObjects(*((_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ)))
+if mibBuilder.loadTexts:componentLinkBandwidthGroup.setStatus(_A)
+teLinkPscGroup=ObjectGroup((1,3,6,1,2,1,10,200,2,2,5))
+teLinkPscGroup.setObjects(*((_B,_K),(_B,_AK),(_B,_L),(_B,_AL)))
+if mibBuilder.loadTexts:teLinkPscGroup.setStatus(_A)
+teLinkTdmGroup=ObjectGroup((1,3,6,1,2,1,10,200,2,2,6))
+teLinkTdmGroup.setObjects(*((_B,_K),(_B,_AM),(_B,_L),(_B,_AN)))
+if mibBuilder.loadTexts:teLinkTdmGroup.setStatus(_A)
+teLinkModuleFullCompliance=ModuleCompliance((1,3,6,1,2,1,10,200,2,1,1))
+teLinkModuleFullCompliance.setObjects(*((_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R)))
+if mibBuilder.loadTexts:teLinkModuleFullCompliance.setStatus(_A)
+teLinkModuleReadOnlyCompliance=ModuleCompliance((1,3,6,1,2,1,10,200,2,1,2))
+teLinkModuleReadOnlyCompliance.setObjects(*((_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R)))
+if mibBuilder.loadTexts:teLinkModuleReadOnlyCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'TeLinkBandwidth':TeLinkBandwidth,'TeLinkPriority':TeLinkPriority,'TeLinkProtection':TeLinkProtection,'TeLinkSwitchingCapability':TeLinkSwitchingCapability,'TeLinkEncodingType':TeLinkEncodingType,'TeLinkSonetSdhIndication':TeLinkSonetSdhIndication,'teLinkStdMIB':teLinkStdMIB,'teLinkNotifications':teLinkNotifications,'teLinkObjects':teLinkObjects,'teLinkTable':teLinkTable,'teLinkEntry':teLinkEntry,_X:teLinkAddressType,_Y:teLinkLocalIpAddr,_Z:teLinkRemoteIpAddr,_a:teLinkMetric,_w:teLinkMaximumReservableBandwidth,_b:teLinkProtectionType,_c:teLinkWorkingPriority,_d:teLinkResourceClass,_e:teLinkIncomingIfId,_f:teLinkOutgoingIfId,_g:teLinkRowStatus,_h:teLinkStorageType,'teLinkDescriptorTable':teLinkDescriptorTable,'teLinkDescriptorEntry':teLinkDescriptorEntry,_S:teLinkDescriptorId,_i:teLinkDescrSwitchingCapability,_j:teLinkDescrEncodingType,_K:teLinkDescrMinLspBandwidth,_x:teLinkDescrMaxLspBandwidthPrio0,_y:teLinkDescrMaxLspBandwidthPrio1,_z:teLinkDescrMaxLspBandwidthPrio2,_A0:teLinkDescrMaxLspBandwidthPrio3,_A1:teLinkDescrMaxLspBandwidthPrio4,_A2:teLinkDescrMaxLspBandwidthPrio5,_A3:teLinkDescrMaxLspBandwidthPrio6,_A4:teLinkDescrMaxLspBandwidthPrio7,_AK:teLinkDescrInterfaceMtu,_AM:teLinkDescrIndication,_k:teLinkDescrRowStatus,_l:teLinkDescrStorageType,'teLinkSrlgTable':teLinkSrlgTable,'teLinkSrlgEntry':teLinkSrlgEntry,_T:teLinkSrlg,_u:teLinkSrlgRowStatus,_v:teLinkSrlgStorageType,'teLinkBandwidthTable':teLinkBandwidthTable,'teLinkBandwidthEntry':teLinkBandwidthEntry,_U:teLinkBandwidthPriority,_A5:teLinkBandwidthUnreserved,_A6:teLinkBandwidthRowStatus,_A7:teLinkBandwidthStorageType,'componentLinkTable':componentLinkTable,'componentLinkEntry':componentLinkEntry,_A8:componentLinkMaxResBandwidth,_m:componentLinkPreferredProtection,_n:componentLinkCurrentProtection,_o:componentLinkRowStatus,_p:componentLinkStorageType,'componentLinkDescriptorTable':componentLinkDescriptorTable,'componentLinkDescriptorEntry':componentLinkDescriptorEntry,_V:componentLinkDescrId,_q:componentLinkDescrSwitchingCapability,_r:componentLinkDescrEncodingType,_L:componentLinkDescrMinLspBandwidth,_A9:componentLinkDescrMaxLspBandwidthPrio0,_AA:componentLinkDescrMaxLspBandwidthPrio1,_AB:componentLinkDescrMaxLspBandwidthPrio2,_AC:componentLinkDescrMaxLspBandwidthPrio3,_AD:componentLinkDescrMaxLspBandwidthPrio4,_AE:componentLinkDescrMaxLspBandwidthPrio5,_AF:componentLinkDescrMaxLspBandwidthPrio6,_AG:componentLinkDescrMaxLspBandwidthPrio7,_AL:componentLinkDescrInterfaceMtu,_AN:componentLinkDescrIndication,_s:componentLinkDescrRowStatus,_t:componentLinkDescrStorageType,'componentLinkBandwidthTable':componentLinkBandwidthTable,'componentLinkBandwidthEntry':componentLinkBandwidthEntry,_W:componentLinkBandwidthPriority,_AH:componentLinkBandwidthUnreserved,_AI:componentLinkBandwidthRowStatus,_AJ:componentLinkBandwidthStorageType,'teLinkConformance':teLinkConformance,'teLinkCompliances':teLinkCompliances,'teLinkModuleFullCompliance':teLinkModuleFullCompliance,'teLinkModuleReadOnlyCompliance':teLinkModuleReadOnlyCompliance,'teLinkGroups':teLinkGroups,_M:teLinkGroup,_P:teLinkSrlgGroup,_N:teLinkBandwidthGroup,_O:componentLinkBandwidthGroup,_Q:teLinkPscGroup,_R:teLinkTdmGroup})

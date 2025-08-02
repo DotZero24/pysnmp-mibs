@@ -1,0 +1,183 @@
+_g='ieee8021TsnRemoteMgmtMrpExternalControlGroup'
+_f='ieee8021TsnRemoteMgmtStaticTreesGroup'
+_e='ieee8021TsnRemoteMgmtPropagationDelayGroup'
+_d='ieee8021TsnRemoteMgmtBridgeDelayGroup'
+_c='ieee8021TsnRemoteMgmtMrpOperRequestListLength'
+_b='ieee8021TsnRemoteMgmtMrpOperRequestList'
+_a='ieee8021TsnRemoteMgmtMrpAdminRequestListLength'
+_Z='ieee8021TsnRemoteMgmtMrpAdminRequestList'
+_Y='ieee8021TsnRemoteMgmtMrpIndicationChangeCounter'
+_X='ieee8021TsnRemoteMgmtMrpIndicationListLength'
+_W='ieee8021TsnRemoteMgmtMrpIndicationList'
+_V='ieee8021TsnRemoteMgmtMsrpMrpExternalControl'
+_U='ieee8021TsnRemoteMgmtStaticTreesSupported'
+_T='ieee8021TsnRemoteMgmtTxPropagationDelay'
+_S='ieee8021TsnRemoteMgmtDependentDelayMax'
+_R='ieee8021TsnRemoteMgmtDependentDelayMin'
+_Q='ieee8021TsnRemoteMgmtIndependentDelayMax'
+_P='ieee8021TsnRemoteMgmtIndependentDelayMin'
+_O='not-accessible'
+_N='ieee8021TsnRemoteMgmtBridgeEgressPort'
+_M='ieee8021TsnRemoteMgmtBridgeIngressPort'
+_L='TruthValue'
+_K='Unsigned32'
+_J='ieee8021QBridgeVlanIndex'
+_I='IEEE8021-Q-BRIDGE-MIB'
+_H='ieee8021BridgeTrafficClass'
+_G='OctetString'
+_F='ieee8021BridgeBasePort'
+_E='ieee8021BridgeBaseComponentId'
+_D='IEEE8021-BRIDGE-MIB'
+_C='read-only'
+_B='IEEE8021-TSN-REMOTE-MANAGEMENT-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_G,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ieee8021BridgeBaseComponentId,ieee8021BridgeBasePort,ieee8021BridgeTrafficClass=mibBuilder.importSymbols(_D,_E,_F,_H)
+ieee8021QBridgeVlanIndex,=mibBuilder.importSymbols(_I,_J)
+IEEE8021BridgePortNumber,ieee802dot1mibs=mibBuilder.importSymbols('IEEE8021-TC-MIB','IEEE8021BridgePortNumber','ieee802dot1mibs')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_K,'iso')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_L)
+ieee8021TsnRemoteMgmtMib=ModuleIdentity((1,3,111,2,802,1,1,32))
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtMib.setRevisions(('2018-10-04 00:00',))
+_Ieee8021TsnRemoteMgmtNotifications_ObjectIdentity=ObjectIdentity
+ieee8021TsnRemoteMgmtNotifications=_Ieee8021TsnRemoteMgmtNotifications_ObjectIdentity((1,3,111,2,802,1,1,32,0))
+_Ieee8021TsnRemoteMgmtObjects_ObjectIdentity=ObjectIdentity
+ieee8021TsnRemoteMgmtObjects=_Ieee8021TsnRemoteMgmtObjects_ObjectIdentity((1,3,111,2,802,1,1,32,1))
+_Ieee8021TsnRemoteMgmtBridgeDelay_ObjectIdentity=ObjectIdentity
+ieee8021TsnRemoteMgmtBridgeDelay=_Ieee8021TsnRemoteMgmtBridgeDelay_ObjectIdentity((1,3,111,2,802,1,1,32,1,1))
+_Ieee8021TsnRemoteMgmtBridgeDelayTable_Object=MibTable
+ieee8021TsnRemoteMgmtBridgeDelayTable=_Ieee8021TsnRemoteMgmtBridgeDelayTable_Object((1,3,111,2,802,1,1,32,1,1,1))
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtBridgeDelayTable.setStatus(_A)
+_Ieee8021TsnRemoteMgmtBridgeDelayEntry_Object=MibTableRow
+ieee8021TsnRemoteMgmtBridgeDelayEntry=_Ieee8021TsnRemoteMgmtBridgeDelayEntry_Object((1,3,111,2,802,1,1,32,1,1,1,1))
+ieee8021TsnRemoteMgmtBridgeDelayEntry.setIndexNames((0,_D,_E),(0,_D,_H),(0,_B,_M),(0,_B,_N))
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtBridgeDelayEntry.setStatus(_A)
+_Ieee8021TsnRemoteMgmtBridgeIngressPort_Type=IEEE8021BridgePortNumber
+_Ieee8021TsnRemoteMgmtBridgeIngressPort_Object=MibTableColumn
+ieee8021TsnRemoteMgmtBridgeIngressPort=_Ieee8021TsnRemoteMgmtBridgeIngressPort_Object((1,3,111,2,802,1,1,32,1,1,1,1,1),_Ieee8021TsnRemoteMgmtBridgeIngressPort_Type())
+ieee8021TsnRemoteMgmtBridgeIngressPort.setMaxAccess(_O)
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtBridgeIngressPort.setStatus(_A)
+_Ieee8021TsnRemoteMgmtBridgeEgressPort_Type=IEEE8021BridgePortNumber
+_Ieee8021TsnRemoteMgmtBridgeEgressPort_Object=MibTableColumn
+ieee8021TsnRemoteMgmtBridgeEgressPort=_Ieee8021TsnRemoteMgmtBridgeEgressPort_Object((1,3,111,2,802,1,1,32,1,1,1,1,2),_Ieee8021TsnRemoteMgmtBridgeEgressPort_Type())
+ieee8021TsnRemoteMgmtBridgeEgressPort.setMaxAccess(_O)
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtBridgeEgressPort.setStatus(_A)
+_Ieee8021TsnRemoteMgmtIndependentDelayMin_Type=Unsigned32
+_Ieee8021TsnRemoteMgmtIndependentDelayMin_Object=MibTableColumn
+ieee8021TsnRemoteMgmtIndependentDelayMin=_Ieee8021TsnRemoteMgmtIndependentDelayMin_Object((1,3,111,2,802,1,1,32,1,1,1,1,3),_Ieee8021TsnRemoteMgmtIndependentDelayMin_Type())
+ieee8021TsnRemoteMgmtIndependentDelayMin.setMaxAccess(_C)
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtIndependentDelayMin.setStatus(_A)
+_Ieee8021TsnRemoteMgmtIndependentDelayMax_Type=Unsigned32
+_Ieee8021TsnRemoteMgmtIndependentDelayMax_Object=MibTableColumn
+ieee8021TsnRemoteMgmtIndependentDelayMax=_Ieee8021TsnRemoteMgmtIndependentDelayMax_Object((1,3,111,2,802,1,1,32,1,1,1,1,4),_Ieee8021TsnRemoteMgmtIndependentDelayMax_Type())
+ieee8021TsnRemoteMgmtIndependentDelayMax.setMaxAccess(_C)
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtIndependentDelayMax.setStatus(_A)
+_Ieee8021TsnRemoteMgmtDependentDelayMin_Type=Unsigned32
+_Ieee8021TsnRemoteMgmtDependentDelayMin_Object=MibTableColumn
+ieee8021TsnRemoteMgmtDependentDelayMin=_Ieee8021TsnRemoteMgmtDependentDelayMin_Object((1,3,111,2,802,1,1,32,1,1,1,1,5),_Ieee8021TsnRemoteMgmtDependentDelayMin_Type())
+ieee8021TsnRemoteMgmtDependentDelayMin.setMaxAccess(_C)
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtDependentDelayMin.setStatus(_A)
+_Ieee8021TsnRemoteMgmtDependentDelayMax_Type=Unsigned32
+_Ieee8021TsnRemoteMgmtDependentDelayMax_Object=MibTableColumn
+ieee8021TsnRemoteMgmtDependentDelayMax=_Ieee8021TsnRemoteMgmtDependentDelayMax_Object((1,3,111,2,802,1,1,32,1,1,1,1,6),_Ieee8021TsnRemoteMgmtDependentDelayMax_Type())
+ieee8021TsnRemoteMgmtDependentDelayMax.setMaxAccess(_C)
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtDependentDelayMax.setStatus(_A)
+_Ieee8021TsnRemoteMgmtPropagationDelay_ObjectIdentity=ObjectIdentity
+ieee8021TsnRemoteMgmtPropagationDelay=_Ieee8021TsnRemoteMgmtPropagationDelay_ObjectIdentity((1,3,111,2,802,1,1,32,1,2))
+_Ieee8021TsnRemoteMgmtPropagationDelayTable_Object=MibTable
+ieee8021TsnRemoteMgmtPropagationDelayTable=_Ieee8021TsnRemoteMgmtPropagationDelayTable_Object((1,3,111,2,802,1,1,32,1,2,1))
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtPropagationDelayTable.setStatus(_A)
+_Ieee8021TsnRemoteMgmtPropagationDelayEntry_Object=MibTableRow
+ieee8021TsnRemoteMgmtPropagationDelayEntry=_Ieee8021TsnRemoteMgmtPropagationDelayEntry_Object((1,3,111,2,802,1,1,32,1,2,1,1))
+ieee8021TsnRemoteMgmtPropagationDelayEntry.setIndexNames((0,_D,_F))
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtPropagationDelayEntry.setStatus(_A)
+_Ieee8021TsnRemoteMgmtTxPropagationDelay_Type=Unsigned32
+_Ieee8021TsnRemoteMgmtTxPropagationDelay_Object=MibTableColumn
+ieee8021TsnRemoteMgmtTxPropagationDelay=_Ieee8021TsnRemoteMgmtTxPropagationDelay_Object((1,3,111,2,802,1,1,32,1,2,1,1,1),_Ieee8021TsnRemoteMgmtTxPropagationDelay_Type())
+ieee8021TsnRemoteMgmtTxPropagationDelay.setMaxAccess(_C)
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtTxPropagationDelay.setStatus(_A)
+_Ieee8021TsnRemoteMgmtStaticTrees_ObjectIdentity=ObjectIdentity
+ieee8021TsnRemoteMgmtStaticTrees=_Ieee8021TsnRemoteMgmtStaticTrees_ObjectIdentity((1,3,111,2,802,1,1,32,1,3))
+_Ieee8021TsnRemoteMgmtStaticTreesSupported_Type=TruthValue
+_Ieee8021TsnRemoteMgmtStaticTreesSupported_Object=MibScalar
+ieee8021TsnRemoteMgmtStaticTreesSupported=_Ieee8021TsnRemoteMgmtStaticTreesSupported_Object((1,3,111,2,802,1,1,32,1,3,1),_Ieee8021TsnRemoteMgmtStaticTreesSupported_Type())
+ieee8021TsnRemoteMgmtStaticTreesSupported.setMaxAccess(_C)
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtStaticTreesSupported.setStatus(_A)
+_Ieee8021TsnRemoteMgmtMrpExternalControl_ObjectIdentity=ObjectIdentity
+ieee8021TsnRemoteMgmtMrpExternalControl=_Ieee8021TsnRemoteMgmtMrpExternalControl_ObjectIdentity((1,3,111,2,802,1,1,32,1,4))
+_Ieee8021TsnRemoteMgmtMsrpMrpExternalControlTable_Object=MibTable
+ieee8021TsnRemoteMgmtMsrpMrpExternalControlTable=_Ieee8021TsnRemoteMgmtMsrpMrpExternalControlTable_Object((1,3,111,2,802,1,1,32,1,4,1))
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtMsrpMrpExternalControlTable.setStatus(_A)
+_Ieee8021TsnRemoteMgmtMsrpMrpExternalControlEntry_Object=MibTableRow
+ieee8021TsnRemoteMgmtMsrpMrpExternalControlEntry=_Ieee8021TsnRemoteMgmtMsrpMrpExternalControlEntry_Object((1,3,111,2,802,1,1,32,1,4,1,1))
+ieee8021TsnRemoteMgmtMsrpMrpExternalControlEntry.setIndexNames((0,_D,_E),(0,_D,_F),(0,_I,_J))
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtMsrpMrpExternalControlEntry.setStatus(_A)
+class _Ieee8021TsnRemoteMgmtMsrpMrpExternalControl_Type(TruthValue):defaultValue=2
+_Ieee8021TsnRemoteMgmtMsrpMrpExternalControl_Type.__name__=_L
+_Ieee8021TsnRemoteMgmtMsrpMrpExternalControl_Object=MibTableColumn
+ieee8021TsnRemoteMgmtMsrpMrpExternalControl=_Ieee8021TsnRemoteMgmtMsrpMrpExternalControl_Object((1,3,111,2,802,1,1,32,1,4,1,1,1),_Ieee8021TsnRemoteMgmtMsrpMrpExternalControl_Type())
+ieee8021TsnRemoteMgmtMsrpMrpExternalControl.setMaxAccess('read-write')
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtMsrpMrpExternalControl.setStatus(_A)
+_Ieee8021TsnRemoteMgmtMrpIndicationList_Type=OctetString
+_Ieee8021TsnRemoteMgmtMrpIndicationList_Object=MibTableColumn
+ieee8021TsnRemoteMgmtMrpIndicationList=_Ieee8021TsnRemoteMgmtMrpIndicationList_Object((1,3,111,2,802,1,1,32,1,4,1,1,2),_Ieee8021TsnRemoteMgmtMrpIndicationList_Type())
+ieee8021TsnRemoteMgmtMrpIndicationList.setMaxAccess(_C)
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtMrpIndicationList.setStatus(_A)
+_Ieee8021TsnRemoteMgmtMrpIndicationListLength_Type=Unsigned32
+_Ieee8021TsnRemoteMgmtMrpIndicationListLength_Object=MibTableColumn
+ieee8021TsnRemoteMgmtMrpIndicationListLength=_Ieee8021TsnRemoteMgmtMrpIndicationListLength_Object((1,3,111,2,802,1,1,32,1,4,1,1,3),_Ieee8021TsnRemoteMgmtMrpIndicationListLength_Type())
+ieee8021TsnRemoteMgmtMrpIndicationListLength.setMaxAccess(_C)
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtMrpIndicationListLength.setStatus(_A)
+_Ieee8021TsnRemoteMgmtMrpIndicationChangeCounter_Type=Counter64
+_Ieee8021TsnRemoteMgmtMrpIndicationChangeCounter_Object=MibTableColumn
+ieee8021TsnRemoteMgmtMrpIndicationChangeCounter=_Ieee8021TsnRemoteMgmtMrpIndicationChangeCounter_Object((1,3,111,2,802,1,1,32,1,4,1,1,4),_Ieee8021TsnRemoteMgmtMrpIndicationChangeCounter_Type())
+ieee8021TsnRemoteMgmtMrpIndicationChangeCounter.setMaxAccess(_C)
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtMrpIndicationChangeCounter.setStatus(_A)
+class _Ieee8021TsnRemoteMgmtMrpAdminRequestList_Type(OctetString):defaultValue=OctetString('')
+_Ieee8021TsnRemoteMgmtMrpAdminRequestList_Type.__name__=_G
+_Ieee8021TsnRemoteMgmtMrpAdminRequestList_Object=MibTableColumn
+ieee8021TsnRemoteMgmtMrpAdminRequestList=_Ieee8021TsnRemoteMgmtMrpAdminRequestList_Object((1,3,111,2,802,1,1,32,1,4,1,1,5),_Ieee8021TsnRemoteMgmtMrpAdminRequestList_Type())
+ieee8021TsnRemoteMgmtMrpAdminRequestList.setMaxAccess(_C)
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtMrpAdminRequestList.setStatus(_A)
+class _Ieee8021TsnRemoteMgmtMrpAdminRequestListLength_Type(Unsigned32):defaultValue=0
+_Ieee8021TsnRemoteMgmtMrpAdminRequestListLength_Type.__name__=_K
+_Ieee8021TsnRemoteMgmtMrpAdminRequestListLength_Object=MibTableColumn
+ieee8021TsnRemoteMgmtMrpAdminRequestListLength=_Ieee8021TsnRemoteMgmtMrpAdminRequestListLength_Object((1,3,111,2,802,1,1,32,1,4,1,1,6),_Ieee8021TsnRemoteMgmtMrpAdminRequestListLength_Type())
+ieee8021TsnRemoteMgmtMrpAdminRequestListLength.setMaxAccess(_C)
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtMrpAdminRequestListLength.setStatus(_A)
+_Ieee8021TsnRemoteMgmtMrpOperRequestList_Type=OctetString
+_Ieee8021TsnRemoteMgmtMrpOperRequestList_Object=MibTableColumn
+ieee8021TsnRemoteMgmtMrpOperRequestList=_Ieee8021TsnRemoteMgmtMrpOperRequestList_Object((1,3,111,2,802,1,1,32,1,4,1,1,7),_Ieee8021TsnRemoteMgmtMrpOperRequestList_Type())
+ieee8021TsnRemoteMgmtMrpOperRequestList.setMaxAccess(_C)
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtMrpOperRequestList.setStatus(_A)
+_Ieee8021TsnRemoteMgmtMrpOperRequestListLength_Type=Unsigned32
+_Ieee8021TsnRemoteMgmtMrpOperRequestListLength_Object=MibTableColumn
+ieee8021TsnRemoteMgmtMrpOperRequestListLength=_Ieee8021TsnRemoteMgmtMrpOperRequestListLength_Object((1,3,111,2,802,1,1,32,1,4,1,1,8),_Ieee8021TsnRemoteMgmtMrpOperRequestListLength_Type())
+ieee8021TsnRemoteMgmtMrpOperRequestListLength.setMaxAccess(_C)
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtMrpOperRequestListLength.setStatus(_A)
+_Ieee8021TsnRemoteMgmtConformance_ObjectIdentity=ObjectIdentity
+ieee8021TsnRemoteMgmtConformance=_Ieee8021TsnRemoteMgmtConformance_ObjectIdentity((1,3,111,2,802,1,1,32,2))
+_Ieee8021TsnRemoteMgmtCompliances_ObjectIdentity=ObjectIdentity
+ieee8021TsnRemoteMgmtCompliances=_Ieee8021TsnRemoteMgmtCompliances_ObjectIdentity((1,3,111,2,802,1,1,32,2,1))
+_Ieee8021TsnRemoteMgmtGroups_ObjectIdentity=ObjectIdentity
+ieee8021TsnRemoteMgmtGroups=_Ieee8021TsnRemoteMgmtGroups_ObjectIdentity((1,3,111,2,802,1,1,32,2,2))
+ieee8021TsnRemoteMgmtBridgeDelayGroup=ObjectGroup((1,3,111,2,802,1,1,32,2,2,1))
+ieee8021TsnRemoteMgmtBridgeDelayGroup.setObjects(*((_B,_P),(_B,_Q),(_B,_R),(_B,_S)))
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtBridgeDelayGroup.setStatus(_A)
+ieee8021TsnRemoteMgmtPropagationDelayGroup=ObjectGroup((1,3,111,2,802,1,1,32,2,2,2))
+ieee8021TsnRemoteMgmtPropagationDelayGroup.setObjects((_B,_T))
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtPropagationDelayGroup.setStatus(_A)
+ieee8021TsnRemoteMgmtStaticTreesGroup=ObjectGroup((1,3,111,2,802,1,1,32,2,2,3))
+ieee8021TsnRemoteMgmtStaticTreesGroup.setObjects((_B,_U))
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtStaticTreesGroup.setStatus(_A)
+ieee8021TsnRemoteMgmtMrpExternalControlGroup=ObjectGroup((1,3,111,2,802,1,1,32,2,2,4))
+ieee8021TsnRemoteMgmtMrpExternalControlGroup.setObjects(*((_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c)))
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtMrpExternalControlGroup.setStatus(_A)
+ieee8021TsnRemoteMgmtCompliance=ModuleCompliance((1,3,111,2,802,1,1,32,2,1,1))
+ieee8021TsnRemoteMgmtCompliance.setObjects(*((_B,_d),(_B,_e),(_B,_f),(_B,_g)))
+if mibBuilder.loadTexts:ieee8021TsnRemoteMgmtCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'ieee8021TsnRemoteMgmtMib':ieee8021TsnRemoteMgmtMib,'ieee8021TsnRemoteMgmtNotifications':ieee8021TsnRemoteMgmtNotifications,'ieee8021TsnRemoteMgmtObjects':ieee8021TsnRemoteMgmtObjects,'ieee8021TsnRemoteMgmtBridgeDelay':ieee8021TsnRemoteMgmtBridgeDelay,'ieee8021TsnRemoteMgmtBridgeDelayTable':ieee8021TsnRemoteMgmtBridgeDelayTable,'ieee8021TsnRemoteMgmtBridgeDelayEntry':ieee8021TsnRemoteMgmtBridgeDelayEntry,_M:ieee8021TsnRemoteMgmtBridgeIngressPort,_N:ieee8021TsnRemoteMgmtBridgeEgressPort,_P:ieee8021TsnRemoteMgmtIndependentDelayMin,_Q:ieee8021TsnRemoteMgmtIndependentDelayMax,_R:ieee8021TsnRemoteMgmtDependentDelayMin,_S:ieee8021TsnRemoteMgmtDependentDelayMax,'ieee8021TsnRemoteMgmtPropagationDelay':ieee8021TsnRemoteMgmtPropagationDelay,'ieee8021TsnRemoteMgmtPropagationDelayTable':ieee8021TsnRemoteMgmtPropagationDelayTable,'ieee8021TsnRemoteMgmtPropagationDelayEntry':ieee8021TsnRemoteMgmtPropagationDelayEntry,_T:ieee8021TsnRemoteMgmtTxPropagationDelay,'ieee8021TsnRemoteMgmtStaticTrees':ieee8021TsnRemoteMgmtStaticTrees,_U:ieee8021TsnRemoteMgmtStaticTreesSupported,'ieee8021TsnRemoteMgmtMrpExternalControl':ieee8021TsnRemoteMgmtMrpExternalControl,'ieee8021TsnRemoteMgmtMsrpMrpExternalControlTable':ieee8021TsnRemoteMgmtMsrpMrpExternalControlTable,'ieee8021TsnRemoteMgmtMsrpMrpExternalControlEntry':ieee8021TsnRemoteMgmtMsrpMrpExternalControlEntry,_V:ieee8021TsnRemoteMgmtMsrpMrpExternalControl,_W:ieee8021TsnRemoteMgmtMrpIndicationList,_X:ieee8021TsnRemoteMgmtMrpIndicationListLength,_Y:ieee8021TsnRemoteMgmtMrpIndicationChangeCounter,_Z:ieee8021TsnRemoteMgmtMrpAdminRequestList,_a:ieee8021TsnRemoteMgmtMrpAdminRequestListLength,_b:ieee8021TsnRemoteMgmtMrpOperRequestList,_c:ieee8021TsnRemoteMgmtMrpOperRequestListLength,'ieee8021TsnRemoteMgmtConformance':ieee8021TsnRemoteMgmtConformance,'ieee8021TsnRemoteMgmtCompliances':ieee8021TsnRemoteMgmtCompliances,'ieee8021TsnRemoteMgmtCompliance':ieee8021TsnRemoteMgmtCompliance,'ieee8021TsnRemoteMgmtGroups':ieee8021TsnRemoteMgmtGroups,_d:ieee8021TsnRemoteMgmtBridgeDelayGroup,_e:ieee8021TsnRemoteMgmtPropagationDelayGroup,_f:ieee8021TsnRemoteMgmtStaticTreesGroup,_g:ieee8021TsnRemoteMgmtMrpExternalControlGroup})

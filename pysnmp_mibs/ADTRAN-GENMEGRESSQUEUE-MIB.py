@@ -1,0 +1,160 @@
+_M='adGenMEgressQueueCongestionMgmtQueueIndex'
+_L='adGenMEgressQueueSchedulerQueueIndex'
+_K='adGenSlotInfoIndex'
+_J='ADTRAN-GENSLOT-MIB'
+_I='writeToHardwareFailed'
+_H='noError'
+_G='ADTRAN-GENMEGRESSQUEUE-MIB'
+_F='ifIndex'
+_E='IF-MIB'
+_D='read-only'
+_C='read-write'
+_B='Integer32'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+adGenSlotInfoIndex,=mibBuilder.importSymbols(_J,_K)
+adGenMEgressQueue,adGenMEgressQueueID=mibBuilder.importSymbols('ADTRAN-SHARED-CND-SYSTEM-MIB','adGenMEgressQueue','adGenMEgressQueueID')
+ifIndex,=mibBuilder.importSymbols(_E,_F)
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+adGenMEgressQueueIdentity=ModuleIdentity((1,3,6,1,4,1,664,6,10000,70,36,1))
+if mibBuilder.loadTexts:adGenMEgressQueueIdentity.setRevisions(('2010-11-05 14:13',))
+_AdGenMEgressQueueSchedulerProvisioning_ObjectIdentity=ObjectIdentity
+adGenMEgressQueueSchedulerProvisioning=_AdGenMEgressQueueSchedulerProvisioning_ObjectIdentity((1,3,6,1,4,1,664,5,70,36,1))
+_AdGenMEgressQueueSchedulerTable_Object=MibTable
+adGenMEgressQueueSchedulerTable=_AdGenMEgressQueueSchedulerTable_Object((1,3,6,1,4,1,664,5,70,36,1,1))
+if mibBuilder.loadTexts:adGenMEgressQueueSchedulerTable.setStatus(_A)
+_AdGenMEgressQueueSchedulerEntry_Object=MibTableRow
+adGenMEgressQueueSchedulerEntry=_AdGenMEgressQueueSchedulerEntry_Object((1,3,6,1,4,1,664,5,70,36,1,1,1))
+adGenMEgressQueueSchedulerEntry.setIndexNames((0,_E,_F),(0,_G,_L))
+if mibBuilder.loadTexts:adGenMEgressQueueSchedulerEntry.setStatus(_A)
+_AdGenMEgressQueueSchedulerQueueIndex_Type=Unsigned32
+_AdGenMEgressQueueSchedulerQueueIndex_Object=MibTableColumn
+adGenMEgressQueueSchedulerQueueIndex=_AdGenMEgressQueueSchedulerQueueIndex_Object((1,3,6,1,4,1,664,5,70,36,1,1,1,1),_AdGenMEgressQueueSchedulerQueueIndex_Type())
+adGenMEgressQueueSchedulerQueueIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenMEgressQueueSchedulerQueueIndex.setStatus(_A)
+class _AdGenMEgressQueueSchedulerCos_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,7))
+_AdGenMEgressQueueSchedulerCos_Type.__name__=_B
+_AdGenMEgressQueueSchedulerCos_Object=MibTableColumn
+adGenMEgressQueueSchedulerCos=_AdGenMEgressQueueSchedulerCos_Object((1,3,6,1,4,1,664,5,70,36,1,1,1,2),_AdGenMEgressQueueSchedulerCos_Type())
+adGenMEgressQueueSchedulerCos.setMaxAccess(_C)
+if mibBuilder.loadTexts:adGenMEgressQueueSchedulerCos.setStatus(_A)
+class _AdGenMEgressQueueSchedulerWeight_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,101))
+_AdGenMEgressQueueSchedulerWeight_Type.__name__=_B
+_AdGenMEgressQueueSchedulerWeight_Object=MibTableColumn
+adGenMEgressQueueSchedulerWeight=_AdGenMEgressQueueSchedulerWeight_Object((1,3,6,1,4,1,664,5,70,36,1,1,1,3),_AdGenMEgressQueueSchedulerWeight_Type())
+adGenMEgressQueueSchedulerWeight.setMaxAccess(_C)
+if mibBuilder.loadTexts:adGenMEgressQueueSchedulerWeight.setStatus(_A)
+_AdGenMEgressQueueSchedulerLastError_Type=DisplayString
+_AdGenMEgressQueueSchedulerLastError_Object=MibTableColumn
+adGenMEgressQueueSchedulerLastError=_AdGenMEgressQueueSchedulerLastError_Object((1,3,6,1,4,1,664,5,70,36,1,1,1,4),_AdGenMEgressQueueSchedulerLastError_Type())
+adGenMEgressQueueSchedulerLastError.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenMEgressQueueSchedulerLastError.setStatus(_A)
+class _AdGenMEgressQueueSchedulerErrorCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*((_H,1),(_I,2),('weightSpreadExceeded',3),('weightExceed100',4)))
+_AdGenMEgressQueueSchedulerErrorCode_Type.__name__=_B
+_AdGenMEgressQueueSchedulerErrorCode_Object=MibTableColumn
+adGenMEgressQueueSchedulerErrorCode=_AdGenMEgressQueueSchedulerErrorCode_Object((1,3,6,1,4,1,664,5,70,36,1,1,1,5),_AdGenMEgressQueueSchedulerErrorCode_Type())
+adGenMEgressQueueSchedulerErrorCode.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenMEgressQueueSchedulerErrorCode.setStatus(_A)
+_AdGenMEgressQueueCongestionMgmtProvisioning_ObjectIdentity=ObjectIdentity
+adGenMEgressQueueCongestionMgmtProvisioning=_AdGenMEgressQueueCongestionMgmtProvisioning_ObjectIdentity((1,3,6,1,4,1,664,5,70,36,2))
+_AdGenMEgressQueueCongestionMgmtWREDTimeConstantTable_Object=MibTable
+adGenMEgressQueueCongestionMgmtWREDTimeConstantTable=_AdGenMEgressQueueCongestionMgmtWREDTimeConstantTable_Object((1,3,6,1,4,1,664,5,70,36,2,1))
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtWREDTimeConstantTable.setStatus(_A)
+_AdGenMEgressQueueCongestionMgmtWREDTimeConstantEntry_Object=MibTableRow
+adGenMEgressQueueCongestionMgmtWREDTimeConstantEntry=_AdGenMEgressQueueCongestionMgmtWREDTimeConstantEntry_Object((1,3,6,1,4,1,664,5,70,36,2,1,1))
+adGenMEgressQueueCongestionMgmtWREDTimeConstantEntry.setIndexNames((0,_J,_K))
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtWREDTimeConstantEntry.setStatus(_A)
+class _AdGenMEgressQueueCongestionMgmtWREDTimeConstant_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('delay2ms',1),('delay4ms',2),('delay8ms',3),('delay16ms',4),('delay32ms',5),('delay62ms',6),('delay125ms',7),('delay250ms',8),('delay500ms',9)))
+_AdGenMEgressQueueCongestionMgmtWREDTimeConstant_Type.__name__=_B
+_AdGenMEgressQueueCongestionMgmtWREDTimeConstant_Object=MibTableColumn
+adGenMEgressQueueCongestionMgmtWREDTimeConstant=_AdGenMEgressQueueCongestionMgmtWREDTimeConstant_Object((1,3,6,1,4,1,664,5,70,36,2,1,1,1),_AdGenMEgressQueueCongestionMgmtWREDTimeConstant_Type())
+adGenMEgressQueueCongestionMgmtWREDTimeConstant.setMaxAccess(_C)
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtWREDTimeConstant.setStatus(_A)
+_AdGenMEgressQueueCongestionMgmtWREDTimeConstantLastError_Type=DisplayString
+_AdGenMEgressQueueCongestionMgmtWREDTimeConstantLastError_Object=MibTableColumn
+adGenMEgressQueueCongestionMgmtWREDTimeConstantLastError=_AdGenMEgressQueueCongestionMgmtWREDTimeConstantLastError_Object((1,3,6,1,4,1,664,5,70,36,2,1,1,2),_AdGenMEgressQueueCongestionMgmtWREDTimeConstantLastError_Type())
+adGenMEgressQueueCongestionMgmtWREDTimeConstantLastError.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtWREDTimeConstantLastError.setStatus(_A)
+class _AdGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_H,1),(_I,2),('invalidTimeConstant',3)))
+_AdGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode_Type.__name__=_B
+_AdGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode_Object=MibTableColumn
+adGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode=_AdGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode_Object((1,3,6,1,4,1,664,5,70,36,2,1,1,3),_AdGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode_Type())
+adGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode.setStatus(_A)
+_AdGenMEgressQueueCongestionMgmtTable_Object=MibTable
+adGenMEgressQueueCongestionMgmtTable=_AdGenMEgressQueueCongestionMgmtTable_Object((1,3,6,1,4,1,664,5,70,36,2,2))
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtTable.setStatus(_A)
+_AdGenMEgressQueueCongestionMgmtEntry_Object=MibTableRow
+adGenMEgressQueueCongestionMgmtEntry=_AdGenMEgressQueueCongestionMgmtEntry_Object((1,3,6,1,4,1,664,5,70,36,2,2,1))
+adGenMEgressQueueCongestionMgmtEntry.setIndexNames((0,_E,_F),(0,_G,_M))
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtEntry.setStatus(_A)
+_AdGenMEgressQueueCongestionMgmtQueueIndex_Type=Unsigned32
+_AdGenMEgressQueueCongestionMgmtQueueIndex_Object=MibTableColumn
+adGenMEgressQueueCongestionMgmtQueueIndex=_AdGenMEgressQueueCongestionMgmtQueueIndex_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,1),_AdGenMEgressQueueCongestionMgmtQueueIndex_Type())
+adGenMEgressQueueCongestionMgmtQueueIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtQueueIndex.setStatus(_A)
+class _AdGenMEgressQueueCongestionMgmtQueueMaxDepth_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_AdGenMEgressQueueCongestionMgmtQueueMaxDepth_Type.__name__=_B
+_AdGenMEgressQueueCongestionMgmtQueueMaxDepth_Object=MibTableColumn
+adGenMEgressQueueCongestionMgmtQueueMaxDepth=_AdGenMEgressQueueCongestionMgmtQueueMaxDepth_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,2),_AdGenMEgressQueueCongestionMgmtQueueMaxDepth_Type())
+adGenMEgressQueueCongestionMgmtQueueMaxDepth.setMaxAccess(_C)
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtQueueMaxDepth.setStatus(_A)
+class _AdGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
+_AdGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen_Type.__name__=_B
+_AdGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen_Object=MibTableColumn
+adGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen=_AdGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,3),_AdGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen_Type())
+adGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen.setMaxAccess(_C)
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen.setStatus(_A)
+class _AdGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
+_AdGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow_Type.__name__=_B
+_AdGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow_Object=MibTableColumn
+adGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow=_AdGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,4),_AdGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow_Type())
+adGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow.setMaxAccess(_C)
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow.setStatus(_A)
+class _AdGenMEgressQueueCongestionMgmtThresholdGreenMax_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_AdGenMEgressQueueCongestionMgmtThresholdGreenMax_Type.__name__=_B
+_AdGenMEgressQueueCongestionMgmtThresholdGreenMax_Object=MibTableColumn
+adGenMEgressQueueCongestionMgmtThresholdGreenMax=_AdGenMEgressQueueCongestionMgmtThresholdGreenMax_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,5),_AdGenMEgressQueueCongestionMgmtThresholdGreenMax_Type())
+adGenMEgressQueueCongestionMgmtThresholdGreenMax.setMaxAccess(_C)
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtThresholdGreenMax.setStatus(_A)
+class _AdGenMEgressQueueCongestionMgmtThresholdGreenMin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_AdGenMEgressQueueCongestionMgmtThresholdGreenMin_Type.__name__=_B
+_AdGenMEgressQueueCongestionMgmtThresholdGreenMin_Object=MibTableColumn
+adGenMEgressQueueCongestionMgmtThresholdGreenMin=_AdGenMEgressQueueCongestionMgmtThresholdGreenMin_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,6),_AdGenMEgressQueueCongestionMgmtThresholdGreenMin_Type())
+adGenMEgressQueueCongestionMgmtThresholdGreenMin.setMaxAccess(_C)
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtThresholdGreenMin.setStatus(_A)
+class _AdGenMEgressQueueCongestionMgmtThresholdYellowMax_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_AdGenMEgressQueueCongestionMgmtThresholdYellowMax_Type.__name__=_B
+_AdGenMEgressQueueCongestionMgmtThresholdYellowMax_Object=MibTableColumn
+adGenMEgressQueueCongestionMgmtThresholdYellowMax=_AdGenMEgressQueueCongestionMgmtThresholdYellowMax_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,7),_AdGenMEgressQueueCongestionMgmtThresholdYellowMax_Type())
+adGenMEgressQueueCongestionMgmtThresholdYellowMax.setMaxAccess(_C)
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtThresholdYellowMax.setStatus(_A)
+class _AdGenMEgressQueueCongestionMgmtThresholdYellowMin_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_AdGenMEgressQueueCongestionMgmtThresholdYellowMin_Type.__name__=_B
+_AdGenMEgressQueueCongestionMgmtThresholdYellowMin_Object=MibTableColumn
+adGenMEgressQueueCongestionMgmtThresholdYellowMin=_AdGenMEgressQueueCongestionMgmtThresholdYellowMin_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,8),_AdGenMEgressQueueCongestionMgmtThresholdYellowMin_Type())
+adGenMEgressQueueCongestionMgmtThresholdYellowMin.setMaxAccess(_C)
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtThresholdYellowMin.setStatus(_A)
+class _AdGenMEgressQueueCongestionMgmtAlgorithm_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('tailDrop',1),('weightedRandomEarlyDetection',2)))
+_AdGenMEgressQueueCongestionMgmtAlgorithm_Type.__name__=_B
+_AdGenMEgressQueueCongestionMgmtAlgorithm_Object=MibTableColumn
+adGenMEgressQueueCongestionMgmtAlgorithm=_AdGenMEgressQueueCongestionMgmtAlgorithm_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,9),_AdGenMEgressQueueCongestionMgmtAlgorithm_Type())
+adGenMEgressQueueCongestionMgmtAlgorithm.setMaxAccess(_C)
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtAlgorithm.setStatus(_A)
+_AdGenMEgressQueueCongestionMgmtLastError_Type=DisplayString
+_AdGenMEgressQueueCongestionMgmtLastError_Object=MibTableColumn
+adGenMEgressQueueCongestionMgmtLastError=_AdGenMEgressQueueCongestionMgmtLastError_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,10),_AdGenMEgressQueueCongestionMgmtLastError_Type())
+adGenMEgressQueueCongestionMgmtLastError.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtLastError.setStatus(_A)
+class _AdGenMEgressQueueCongestionMgmtErrorCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_H,1),(_I,2)))
+_AdGenMEgressQueueCongestionMgmtErrorCode_Type.__name__=_B
+_AdGenMEgressQueueCongestionMgmtErrorCode_Object=MibTableColumn
+adGenMEgressQueueCongestionMgmtErrorCode=_AdGenMEgressQueueCongestionMgmtErrorCode_Object((1,3,6,1,4,1,664,5,70,36,2,2,1,11),_AdGenMEgressQueueCongestionMgmtErrorCode_Type())
+adGenMEgressQueueCongestionMgmtErrorCode.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenMEgressQueueCongestionMgmtErrorCode.setStatus(_A)
+mibBuilder.exportSymbols(_G,**{'adGenMEgressQueueSchedulerProvisioning':adGenMEgressQueueSchedulerProvisioning,'adGenMEgressQueueSchedulerTable':adGenMEgressQueueSchedulerTable,'adGenMEgressQueueSchedulerEntry':adGenMEgressQueueSchedulerEntry,_L:adGenMEgressQueueSchedulerQueueIndex,'adGenMEgressQueueSchedulerCos':adGenMEgressQueueSchedulerCos,'adGenMEgressQueueSchedulerWeight':adGenMEgressQueueSchedulerWeight,'adGenMEgressQueueSchedulerLastError':adGenMEgressQueueSchedulerLastError,'adGenMEgressQueueSchedulerErrorCode':adGenMEgressQueueSchedulerErrorCode,'adGenMEgressQueueCongestionMgmtProvisioning':adGenMEgressQueueCongestionMgmtProvisioning,'adGenMEgressQueueCongestionMgmtWREDTimeConstantTable':adGenMEgressQueueCongestionMgmtWREDTimeConstantTable,'adGenMEgressQueueCongestionMgmtWREDTimeConstantEntry':adGenMEgressQueueCongestionMgmtWREDTimeConstantEntry,'adGenMEgressQueueCongestionMgmtWREDTimeConstant':adGenMEgressQueueCongestionMgmtWREDTimeConstant,'adGenMEgressQueueCongestionMgmtWREDTimeConstantLastError':adGenMEgressQueueCongestionMgmtWREDTimeConstantLastError,'adGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode':adGenMEgressQueueCongestionMgmtWREDTimeConstantErrorCode,'adGenMEgressQueueCongestionMgmtTable':adGenMEgressQueueCongestionMgmtTable,'adGenMEgressQueueCongestionMgmtEntry':adGenMEgressQueueCongestionMgmtEntry,_M:adGenMEgressQueueCongestionMgmtQueueIndex,'adGenMEgressQueueCongestionMgmtQueueMaxDepth':adGenMEgressQueueCongestionMgmtQueueMaxDepth,'adGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen':adGenMEgressQueueCongestionMgmtWREDDropProbabilityGreen,'adGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow':adGenMEgressQueueCongestionMgmtWREDDropProbabilityYellow,'adGenMEgressQueueCongestionMgmtThresholdGreenMax':adGenMEgressQueueCongestionMgmtThresholdGreenMax,'adGenMEgressQueueCongestionMgmtThresholdGreenMin':adGenMEgressQueueCongestionMgmtThresholdGreenMin,'adGenMEgressQueueCongestionMgmtThresholdYellowMax':adGenMEgressQueueCongestionMgmtThresholdYellowMax,'adGenMEgressQueueCongestionMgmtThresholdYellowMin':adGenMEgressQueueCongestionMgmtThresholdYellowMin,'adGenMEgressQueueCongestionMgmtAlgorithm':adGenMEgressQueueCongestionMgmtAlgorithm,'adGenMEgressQueueCongestionMgmtLastError':adGenMEgressQueueCongestionMgmtLastError,'adGenMEgressQueueCongestionMgmtErrorCode':adGenMEgressQueueCongestionMgmtErrorCode,'adGenMEgressQueueIdentity':adGenMEgressQueueIdentity})

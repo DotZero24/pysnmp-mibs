@@ -1,636 +1,1655 @@
-#
-# PySNMP MIB module RMON2-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/RMON2-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:04:40 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
-( ifIndex, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-( history, etherStatsEntry, filterEntry, OwnerString, historyControlEntry, statistics, matrix, filter, matrixControlEntry, channelEntry, hostControlEntry, hosts, ) = mibBuilder.importSymbols("RMON-MIB", "history", "etherStatsEntry", "filterEntry", "OwnerString", "historyControlEntry", "statistics", "matrix", "filter", "matrixControlEntry", "channelEntry", "hostControlEntry", "hosts")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, mib_2, Counter32, ObjectIdentity, MibIdentifier, Bits, iso, IpAddress, Integer32, Gauge32, NotificationType, Unsigned32, Bits, ModuleIdentity, Counter64, ) = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "mib-2", "Counter32", "ObjectIdentity", "MibIdentifier", "Bits", "iso", "IpAddress", "Integer32", "Gauge32", "NotificationType", "Unsigned32", "Bits", "ModuleIdentity", "Counter64")
-( DisplayString, TextualConvention, TimeStamp, RowStatus, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TimeStamp", "RowStatus")
-( tokenRingPStatsEntry, ringStationControlEntry, sourceRoutingStatsEntry, tokenRingMLStatsEntry, tokenRing, ) = mibBuilder.importSymbols("TOKEN-RING-RMON-MIB", "tokenRingPStatsEntry", "ringStationControlEntry", "sourceRoutingStatsEntry", "tokenRingMLStatsEntry", "tokenRing")
-rmon = ModuleIdentity((1, 3, 6, 1, 2, 1, 16))
-if mibBuilder.loadTexts: rmon.setLastUpdated('9605270000Z')
-if mibBuilder.loadTexts: rmon.setOrganization('IETF RMON MIB Working Group')
-if mibBuilder.loadTexts: rmon.setContactInfo('Steve Waldbusser   (WG Editor)\n             Postal: International Network Services\n             650 Castro Street, Suite 260\n             Mountain View, CA 94041\n             Phone:  +1 415 254 4251\n             Email:  waldbusser@ins.com\n\n             Andy Bierman   (WG Chair)\n             Phone:  +1 805 648 2028\n             Email:  abierman@west.net')
-if mibBuilder.loadTexts: rmon.setDescription('The MIB module for managing remote monitoring\n             device implementations. This MIB module\n             augments the original RMON MIB as specified in\n             RFC 1757.')
-protocolDir = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 11))
-protocolDist = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 12))
-addressMap = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 13))
-nlHost = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 14))
-nlMatrix = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 15))
-alHost = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 16))
-alMatrix = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 17))
-usrHistory = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 18))
-probeConfig = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 19))
-rmonConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 20))
-class ZeroBasedCounter32(Gauge32, TextualConvention):
-    pass
-
-class LastCreateTime(TimeStamp, TextualConvention):
-    pass
-
-class TimeFilter(TimeTicks, TextualConvention):
-    pass
-
-class DataSource(ObjectIdentifier, TextualConvention):
-    pass
-
-protocolDirLastChange = MibScalar((1, 3, 6, 1, 2, 1, 16, 11, 1), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: protocolDirLastChange.setDescription('The value of sysUpTime at the time the protocol directory\n            was last modified, either through insertions or deletions,\n            or through modifications of either the\n            protocolDirAddressMapConfig, protocolDirHostConfig, or\n            protocolDirMatrixConfig.')
-protocolDirTable = MibTable((1, 3, 6, 1, 2, 1, 16, 11, 2), )
-if mibBuilder.loadTexts: protocolDirTable.setDescription("This table lists the protocols that this agent has the\n            capability to decode and count.  There is one entry in this\n            table for each such protocol.  These protocols represent\n            different network layer, transport layer, and higher-layer\n            protocols.  The agent should boot up with this table\n            preconfigured with those protocols that it knows about and\n            wishes to monitor.  Implementations are strongly encouraged to\n            support protocols higher than the network layer (at least for\n            the protocol distribution group), even for implementations\n            that don't support the application layer groups.")
-protocolDirEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 11, 2, 1), ).setIndexNames((0, "RMON2-MIB", "protocolDirID"), (0, "RMON2-MIB", "protocolDirParameters"))
-if mibBuilder.loadTexts: protocolDirEntry.setDescription('A conceptual row in the protocolDirTable.\n    \n             An example of the indexing of this entry is\n             protocolDirLocalIndex.8.0.0.0.1.0.0.8.0.2.0.0, which is the\n             encoding of a length of 8, followed by 8 subids encoding the\n             protocolDirID of 1.2048, followed by a length of 2 and the\n             2 subids encoding zero-valued parameters.')
-protocolDirID = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 11, 2, 1, 1), OctetString())
-if mibBuilder.loadTexts: protocolDirID.setDescription("A unique identifier for a particular protocol.  Standard\n            identifiers will be defined in a manner such that they\n            can often be used as specifications for new protocols - i.e.\n            a tree-structured assignment mechanism that matches the\n            protocol encapsulation `tree' and which has algorithmic\n            assignment mechanisms for certain subtrees. See RFC XXX for\n            more details.\n    \n            Despite the algorithmic mechanism, the probe will only place\n            entries in here for those protocols it chooses to collect.  In\n            other words, it need not populate this table with all of the\n            possible ethernet protocol types, nor need it create them on\n            the fly when it sees them.  Whether or not it does these\n            things is a matter of product definition (cost/benefit,\n            usability), and is up to the designer of the product.\n    \n            If an entry is written to this table with a protocolDirID that\n            the agent doesn't understand, either directly or\n            algorithmically, the SET request will be rejected with an\n            inconsistentName or badValue (for SNMPv1) error.")
-protocolDirParameters = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 11, 2, 1, 2), OctetString())
-if mibBuilder.loadTexts: protocolDirParameters.setDescription('A set of parameters for the associated protocolDirID.\n            See the associated RMON2 Protocol Identifiers document\n            for a description of the possible parameters. There\n            will be one octet in this string for each sub-identifier in\n            the protocolDirID, and the parameters will appear here in the\n            same order as the associated sub-identifiers appear in the\n            protocolDirID.\n    \n            Every node in the protocolDirID tree has a different, optional\n            set of parameters defined (that is, the definition of\n            parameters for a node is optional).  The proper parameter\n            value for each node is included in this string.  Note that the\n            inclusion of a parameter value in this string for each node is\n            not optional - what is optional is that a node may have no\n            parameters defined, in which case the parameter field for that\n            node will be zero.')
-protocolDirLocalIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 11, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: protocolDirLocalIndex.setDescription("The locally arbitrary, but unique identifier associated\n            with this protocolDir entry.\n    \n            The value for each supported protocol must remain constant at\n            least from one re-initialization of the entity's network\n            management system to the next re-initialization, except that\n            if a protocol is deleted and re-created, it must be re-created\n            with a new value that has not been used since the last\n            re-initialization.\n    \n            The specific value is meaningful only within a given SNMP\n            entity. A protocolDirLocalIndex must not be re-used until the\n            next agent-restart in the event the protocol directory entry\n            is deleted.")
-protocolDirDescr = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 11, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,64))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: protocolDirDescr.setDescription('A textual description of the protocol encapsulation.\n            A probe may choose to describe only a subset of the\n            entire encapsulation (e.g. only the highest layer).\n    \n            This object is intended for human consumption only.\n    \n            This object may not be modified if the associated\n            protocolDirStatus object is equal to active(1).')
-protocolDirType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 11, 2, 1, 5), Bits().clone(namedValues=NamedValues(("extensible", 0), ("addressRecognitionCapable", 1),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: protocolDirType.setDescription("This object describes 2 attributes of this protocol\n             directory entry.\n    \n             The presence or absence of the `extensible' bit describes\n             whether or not this protocol directory entry can be extended\n             by the user by creating protocol directory entries which are\n             children of this protocol.\n    \n             An example of an entry that will often allow extensibility is\n             `ip.udp'.  The probe may automatically populate some children\n             of this node such as `ip.udp.snmp' and `ip.udp.dns'.\n             A probe administrator or user may also populate additional\n             children via remote SNMP requests that create entries in this\n             table.  When a child node is added for a protocol for which the\n             probe has no built in support, extending a parent node (for\n             which the probe does have built in support),\n             that child node is not extendible.  This is termed `limited\n             extensibility'.\n    \n             When a child node is added through this extensibility\n             mechanism, the values of protocolDirLocalIndex and\n             protocolDirType shall be assigned by the agent.\n    \n             The other objects in the entry will be assigned by the\n             manager who is creating the new entry.\n    \n             This object also describes whether or not this agent can\n             recognize addresses for this protocol, should it be a network\n             level protocol.  That is, while a probe may be able to\n             recognize packets of a particular network layer protocol and\n             count them, it takes additional logic to be able to recognize\n             the addresses in this protocol and to populate network layer\n             or application layer tables with the addresses in this\n             protocol.  If this bit is set, the agent will recognize\n             network layer addresses for this protoocl and populate the\n             network and application layer host and matrix tables with\n             these protocols.\n    \n             Note that when an entry is created, the agent will supply\n             values for the bits that match the capabilities of the agent\n             with respect to this protocol.  Note that since row creations\n             usually exercise the limited extensibility feature, these\n             bits will usually be set to zero.")
-protocolDirAddressMapConfig = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 11, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("notSupported", 1), ("supportedOff", 2), ("supportedOn", 3),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: protocolDirAddressMapConfig.setDescription("This object describes and configures the probe's support for\n            address mapping for this protocol.  When the probe creates\n            entries in this table for all protocols that it understands,\n            it will set the entry to notSupported(1) if it doesn't have\n            the capability to perform address mapping for the protocol or\n            if this protocol is not a network-layer protocol.  When\n            an entry is created in this table by a management operation as\n            part of the limited extensibility feature, the probe must set\n            this value to notSupported(1), because limited extensibility\n            of the protocolDirTable does not extend to interpreting\n            addresses of the extended protocols.\n    \n            If the value of this object is notSupported(1), the probe\n            will not perform address mapping for this protocol and\n            shall not allow this object to be changed to any other value.\n            If the value of this object is supportedOn(3), the probe\n            supports address mapping for this protocol and is configured\n            to perform address mapping for this protocol for all\n            addressMappingControlEntries and all interfaces.\n            If the value of this object is supportedOff(2), the probe\n            supports address mapping for this protocol but is configured\n            to not perform address mapping for this protocol for any\n            addressMappingControlEntries and all interfaces.\n            Whenever this value changes from supportedOn(3) to\n            supportedOff(2), the probe shall delete all related entries in\n            the addressMappingTable.")
-protocolDirHostConfig = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 11, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("notSupported", 1), ("supportedOff", 2), ("supportedOn", 3),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: protocolDirHostConfig.setDescription("This object describes and configures the probe's support for\n            the network layer and application layer host tables for this\n            protocol.  When the probe creates entries in this table for\n            all protocols that it understands, it will set the entry to\n            notSupported(1) if it doesn't have the capability to track the\n            nlHostTable for this protocol or if the alHostTable is\n            implemented but doesn't have the capability to track this\n            protocol.  Note that if the alHostTable is implemented, the\n            probe may only support a protocol if it is supported in both\n            the nlHostTable and the alHostTable.\n    \n            If the associated protocolDirType object has the\n            addressRecognitionCapable bit set, then this is a network\n            layer protocol for which the probe recognizes addresses, and\n            thus the probe will populate the nlHostTable and alHostTable\n            with addresses it discovers for this protocol.\n    \n            If the value of this object is notSupported(1), the probe\n            will not track the nlHostTable or alHostTable for this\n            protocol and shall not allow this object to be changed to any\n            other value. If the value of this object is supportedOn(3),\n            the probe supports tracking of the nlHostTable and alHostTable\n            for this protocol and is configured to track both tables\n            for this protocol for all control entries and all interfaces.\n            If the value of this object is supportedOff(2), the probe\n            supports tracking of the nlHostTable and alHostTable for this\n            protocol but is configured to not track these tables\n            for any control entries or interfaces.\n            Whenever this value changes from supportedOn(3) to\n            supportedOff(2), the probe shall delete all related entries in\n            the nlHostTable and alHostTable.\n    \n            Note that since each alHostEntry references 2 protocol\n            directory entries, one for the network address and one for the\n            type of the highest protocol recognized, that an entry will\n            only be created in that table if this value is supportedOn(3)\n            for both protocols.")
-protocolDirMatrixConfig = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 11, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("notSupported", 1), ("supportedOff", 2), ("supportedOn", 3),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: protocolDirMatrixConfig.setDescription("This object describes and configures the probe's support for\n            the network layer and application layer matrix tables for this\n            protocol.  When the probe creates entries in this table for\n            all protocols that it understands, it will set the entry to\n            notSupported(1) if it doesn't have the capability to track the\n            nlMatrixTables for this protocol or if the alMatrixTables are\n            implemented but don't have the capability to track this\n            protocol.  Note that if the alMatrix tables are implemented,\n            the probe may only support a protocol if it is supported in\n            the the both of the nlMatrixTables and both of the\n            alMatrixTables.\n    \n            If the associated protocolDirType object has the\n            addressRecognitionCapable bit set, then this is a network\n            layer protocol for which the probe recognizes addresses, and\n            thus the probe will populate both of the nlMatrixTables and\n            both of the alMatrixTables with addresses it discovers for\n            this protocol.\n    \n            If the value of this object is notSupported(1), the probe\n            will not track either of the nlMatrixTables or the\n            alMatrixTables for this protocol and shall not allow this\n            object to be changed to any other value. If the value of this\n            object is supportedOn(3), the probe supports tracking of both\n            of the nlMatrixTables and (if implemented) both of the\n            alMatrixTables for this protocol and is configured to track\n            these tables for this protocol for all control entries and all\n            interfaces. If the value of this object is supportedOff(2),\n            the probe supports tracking of both of the nlMatrixTables and\n            (if implemented) both of the alMatrixTables for this protocol\n            but is configured to not track these tables for this\n            protocol for any control entries or interfaces.\n            Whenever this value changes from supportedOn(3) to\n            supportedOff(2), the probe shall delete all related entries in\n            the nlMatrixTables and the alMatrixTables.\n    \n            Note that since each alMatrixEntry references 2 protocol\n            directory entries, one for the network address and one for the\n            type of the highest protocol recognized, that an entry will\n            only be created in that table if this value is supportedOn(3)\n            for both protocols.")
-protocolDirOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 11, 2, 1, 9), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: protocolDirOwner.setDescription('The entity that configured this entry and is\n            therefore using the resources assigned to it.')
-protocolDirStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 11, 2, 1, 10), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: protocolDirStatus.setDescription('The status of this protocol directory entry.\n    \n            An entry may not exist in the active state unless all\n            objects in the entry have an appropriate value.\n    \n            If this object is not equal to active(1), all associated\n            entries in the nlHostTable, nlMatrixSDTable, nlMatrixDSTable,\n            alHostTable, alMatrixSDTable, and alMatrixDSTable shall be\n            deleted.')
-protocolDistControlTable = MibTable((1, 3, 6, 1, 2, 1, 16, 12, 1), )
-if mibBuilder.loadTexts: protocolDistControlTable.setDescription('Controls the setup of protocol type distribution statistics\n            tables.\n    \n            Implementations are encouraged to add an entry per monitored\n            interface upon initialization so that a default collection\n            of protocol statistics is available.\n    \n            Rationale:\n            This table controls collection of very basic statistics\n            for any or all of the protocols detected on a given interface.\n            An NMS can use this table to quickly determine bandwidth\n            allocation utilized by different protocols.\n    \n            A media-specific statistics collection could also\n            be configured (e.g. etherStats, trPStats) to easily obtain\n            total frame, octet, and droppedEvents for the same\n            interface.')
-protocolDistControlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 12, 1, 1), ).setIndexNames((0, "RMON2-MIB", "protocolDistControlIndex"))
-if mibBuilder.loadTexts: protocolDistControlEntry.setDescription('A conceptual row in the protocolDistControlTable.\n    \n             An example of the indexing of this entry is\n             protocolDistControlDroppedFrames.7')
-protocolDistControlIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 12, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: protocolDistControlIndex.setDescription('A unique index for this protocolDistControlEntry.')
-protocolDistControlDataSource = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 12, 1, 1, 2), DataSource()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: protocolDistControlDataSource.setDescription('The source of data for the this protocol distribution.\n    \n            The statistics in this group reflect all packets\n            on the local network segment attached to the\n            identified interface.\n    \n            This object may not be modified if the associated\n            protocolDistControlStatus object is equal to active(1).')
-protocolDistControlDroppedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 12, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: protocolDistControlDroppedFrames.setDescription('The total number of frames which were received by the probe\n            and therefore not accounted for in the *StatsDropEvents, but\n            for which the probe chose not to count for this entry for\n            whatever reason.  Most often, this event occurs when the probe\n            is out of some resources and decides to shed load from this\n            collection.\n    \n            This count does not include packets that were not counted\n            because they had MAC-layer errors.\n    \n            Note that, unlike the dropEvents counter, this number is the\n            exact number of frames dropped.')
-protocolDistControlCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 12, 1, 1, 4), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: protocolDistControlCreateTime.setDescription('The value of sysUpTime when this control entry was last\n            activated. This can be used by the management station to\n            ensure that the table has not been deleted and recreated\n            between polls.')
-protocolDistControlOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 12, 1, 1, 5), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: protocolDistControlOwner.setDescription('The entity that configured this entry and is\n            therefore using the resources assigned to it.')
-protocolDistControlStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 12, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: protocolDistControlStatus.setDescription('The status of this row.\n    \n            An entry may not exist in the active state unless all\n            objects in the entry have an appropriate value.\n    \n            If this object is not equal to active(1), all associated\n            entries in the protocolDistStatsTable shall be deleted.')
-protocolDistStatsTable = MibTable((1, 3, 6, 1, 2, 1, 16, 12, 2), )
-if mibBuilder.loadTexts: protocolDistStatsTable.setDescription('An entry is made in this table for every protocol in the\n            protocolDirTable which has been seen in at least one packet.\n            Counters are updated in this table for every protocol type\n            that is encountered when parsing a packet, but no counters are\n            updated for packets with MAC-layer errors.\n    \n            Note that if a protocolDirEntry is deleted, all associated\n            entries in this table are removed.')
-protocolDistStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 12, 2, 1), ).setIndexNames((0, "RMON2-MIB", "protocolDistControlIndex"), (0, "RMON2-MIB", "protocolDirLocalIndex"))
-if mibBuilder.loadTexts: protocolDistStatsEntry.setDescription('A conceptual row in the protocolDistStatsTable.\n    \n            The index is composed of the protocolDistControlIndex of the\n            associated protocolDistControlEntry followed by the\n            protocolDirLocalIndex of the associated protocol that this\n            entry represents.  In other words, the index identifies the\n            protocol distribution an entry is a part of as well as the\n            particular protocol that it represents.\n    \n            An example of the indexing of this entry is\n            protocolDistStatsPkts.1.18')
-protocolDistStatsPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 12, 2, 1, 1), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: protocolDistStatsPkts.setDescription('The number of packets without errors received of this\n            protocol type.  Note that this is the number of link-layer\n            packets, so if a single network-layer packet is fragmented\n            into several link-layer frames, this counter is incremented\n            several times.')
-protocolDistStatsOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 12, 2, 1, 2), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: protocolDistStatsOctets.setDescription("The number of octets in packets received of this protocol\n            type since it was added to the protocolDistStatsTable\n            (excluding framing bits but including FCS octets), except for\n            those octets in packets that contained errors.\n    \n            Note this doesn't count just those octets in the particular\n            protocol frames, but includes the entire packet that contained\n            the protocol.")
-addressMapInserts = MibScalar((1, 3, 6, 1, 2, 1, 16, 13, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: addressMapInserts.setDescription('The number of times an address mapping entry has been\n            inserted into the addressMapTable.  If an entry is inserted,\n            then deleted, and then inserted, this counter will be\n            incremented by 2.\n    \n            Note that the table size can be determined by subtracting\n            addressMapDeletes from addressMapInserts.')
-addressMapDeletes = MibScalar((1, 3, 6, 1, 2, 1, 16, 13, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: addressMapDeletes.setDescription('The number of times an address mapping entry has been\n            deleted from the addressMapTable (for any reason).  If\n            an entry is deleted, then inserted, and then deleted, this\n            counter will be incremented by 2.\n    \n            Note that the table size can be determined by subtracting\n            addressMapDeletes from addressMapInserts.')
-addressMapMaxDesiredEntries = MibScalar((1, 3, 6, 1, 2, 1, 16, 13, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1,2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: addressMapMaxDesiredEntries.setDescription('The maximum number of entries that are desired in the\n            addressMapTable. The probe will not create more than\n            this number of entries in the table, but may choose to create\n            fewer entries in this table for any reason including the lack\n            of resources.\n    \n            If this object is set to a value less than the current number\n            of entries, enough entries are chosen in an\n            implementation-dependent manner and deleted so that the number\n            of entries in the table equals the value of this object.\n    \n            If this value is set to -1, the probe may create any number\n            of entries in this table.\n    \n            This object may be used to control how resources are allocated\n            on the probe for the various RMON functions.')
-addressMapControlTable = MibTable((1, 3, 6, 1, 2, 1, 16, 13, 4), )
-if mibBuilder.loadTexts: addressMapControlTable.setDescription('A table to control the collection of network layer address to\n            physical address to interface mappings.\n    \n            Note that this is not like the typical RMON\n            controlTable and dataTable in which each entry creates\n            its own data table.  Each entry in this table enables the\n            discovery of addresses on a new interface and the placement\n            of address mappings into the central addressMapTable.\n    \n            Implementations are encouraged to add an entry per monitored\n            interface upon initialization so that a default collection\n            of address mappings is available.')
-addressMapControlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 13, 4, 1), ).setIndexNames((0, "RMON2-MIB", "addressMapControlIndex"))
-if mibBuilder.loadTexts: addressMapControlEntry.setDescription('A conceptual row in the addressMapControlTable.\n            An example of the indexing of this entry is\n            addressMapControlDroppedFrames.1')
-addressMapControlIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 13, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: addressMapControlIndex.setDescription('A unique index for this entry in the addressMapControlTable.')
-addressMapControlDataSource = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 13, 4, 1, 2), DataSource()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: addressMapControlDataSource.setDescription('The source of data for this addressMapControlEntry.')
-addressMapControlDroppedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 13, 4, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: addressMapControlDroppedFrames.setDescription('The total number of frames which were received by the probe\n            and therefore not accounted for in the *StatsDropEvents, but\n            for which the probe chose not to count for this entry for\n            whatever reason.  Most often, this event occurs when the probe\n            is out of some resources and decides to shed load from this\n            collection.\n    \n            This count does not include packets that were not counted\n            because they had MAC-layer errors.\n    \n            Note that, unlike the dropEvents counter, this number is the\n            exact number of frames dropped.')
-addressMapControlOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 13, 4, 1, 4), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: addressMapControlOwner.setDescription('The entity that configured this entry and is\n            therefore using the resources assigned to it.')
-addressMapControlStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 13, 4, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: addressMapControlStatus.setDescription('The status of this addressMap control entry.\n    \n            An entry may not exist in the active state unless all\n            objects in the entry have an appropriate value.\n    \n            If this object is not equal to active(1), all associated\n            entries in the addressMapTable shall be deleted.')
-addressMapTable = MibTable((1, 3, 6, 1, 2, 1, 16, 13, 5), )
-if mibBuilder.loadTexts: addressMapTable.setDescription('A table of network layer address to physical address to\n            interface mappings.\n    \n            The probe will add entries to this table based on the source\n            MAC and network addresses seen in packets without MAC-level\n            errors. The probe will populate this table for all protocols\n            in the protocol directory table whose value of\n            protocolDirAddressMapConfig is equal to supportedOn(3), and\n            will delete any entries whose protocolDirEntry is deleted or\n            has a protocolDirAddressMapConfig value of supportedOff(2).')
-addressMapEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 13, 5, 1), ).setIndexNames((0, "RMON2-MIB", "addressMapTimeMark"), (0, "RMON2-MIB", "protocolDirLocalIndex"), (0, "RMON2-MIB", "addressMapNetworkAddress"), (0, "RMON2-MIB", "addressMapSource"))
-if mibBuilder.loadTexts: addressMapEntry.setDescription('A conceptual row in the addressMapTable.\n            The protocolDirLocalIndex in the index identifies the network\n            layer protocol of the addressMapNetworkAddress.\n            An example of the indexing of this entry is\n            addressMapSource.783495.18.4.128.2.6.6.11.1.3.6.1.2.1.2.2.1.1.1')
-addressMapTimeMark = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 13, 5, 1, 1), TimeFilter())
-if mibBuilder.loadTexts: addressMapTimeMark.setDescription('A TimeFilter for this entry.  See the TimeFilter textual\n            convention to see how this works.')
-addressMapNetworkAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 13, 5, 1, 2), OctetString())
-if mibBuilder.loadTexts: addressMapNetworkAddress.setDescription('The network address for this relation.\n    \n            This is represented as an octet string with\n            specific semantics and length as identified\n            by the protocolDirLocalIndex component of the\n            index.\n    \n            For example, if the protocolDirLocalIndex indicates an\n            encapsulation of ip, this object is encoded as a length\n            octet of 4, followed by the 4 octets of the ip address,\n            in network byte order.')
-addressMapSource = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 13, 5, 1, 3), ObjectIdentifier())
-if mibBuilder.loadTexts: addressMapSource.setDescription('The interface or port on which the associated network\n            address was most recently seen.\n    \n            If this address mapping was discovered on an interface, this\n            object shall identify the instance of the ifIndex\n            object, defined in [3,5], for the desired interface.\n            For example, if an entry were to receive data from\n            interface #1, this object would be set to ifIndex.1.\n    \n            If this address mapping was discovered on a port, this\n            object shall identify the instance of the rptrGroupPortIndex\n            object, defined in [RFC1516], for the desired port.\n            For example, if an entry were to receive data from\n            group #1, port #1, this object would be set to\n            rptrGroupPortIndex.1.1.\n    \n            Note that while the dataSource associated with this entry\n            may only point to index objects, this object may at times\n            point to repeater port objects. This situation occurs when\n            the dataSource points to an interface which is a locally\n            attached repeater and the agent has additional information\n            about the source port of traffic seen on that repeater.')
-addressMapPhysicalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 13, 5, 1, 4), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: addressMapPhysicalAddress.setDescription('The last source physical address on which the associated\n            network address was seen.  If the protocol of the associated\n            network address was encapsulated inside of a network-level or\n            higher protocol, this will be the address of the next-lower\n            protocol with the addressRecognitionCapable bit enabled and\n            will be formatted as specified for that protocol.')
-addressMapLastChange = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 13, 5, 1, 5), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: addressMapLastChange.setDescription('The value of sysUpTime at the time this entry was last\n            created or the values of the physical address changed.\n    \n            This can be used to help detect duplicate address problems, in\n            which case this object will be updated frequently.')
-hlHostControlTable = MibTable((1, 3, 6, 1, 2, 1, 16, 14, 1), )
-if mibBuilder.loadTexts: hlHostControlTable.setDescription('A list of higher layer (i.e. non-MAC) host table control entries.\n    \n            These entries will enable the collection of the network and\n            application level host tables indexed by network addresses.\n            Both the network and application level host tables are\n            controlled by this table is so that they will both be created\n            and deleted at the same time, further increasing the ease with\n            which they can be implemented as a single datastore (note that\n            if an implementation stores application layer host records in\n            memory, it can derive network layer host records from them).\n    \n            Entries in the nlHostTable will be created on behalf of each\n            entry in this table. Additionally, if this probe implements\n            the alHostTable, entries in the alHostTable will be created on\n            behalf of each entry in this table.\n    \n            Implementations are encouraged to add an entry per monitored\n            interface upon initialization so that a default collection\n            of host statistics is available.')
-hlHostControlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 14, 1, 1), ).setIndexNames((0, "RMON2-MIB", "hlHostControlIndex"))
-if mibBuilder.loadTexts: hlHostControlEntry.setDescription('A conceptual row in the hlHostControlTable.\n    \n            An example of the indexing of this entry is\n            hlHostControlNlDroppedFrames.1')
-hlHostControlIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: hlHostControlIndex.setDescription('An index that uniquely identifies an entry in the\n            hlHostControlTable.  Each such entry defines\n            a function that discovers hosts on a particular\n            interface and places statistics about them in the\n            nlHostTable, and optionally in the alHostTable, on\n            behalf of this hlHostControlEntry.')
-hlHostControlDataSource = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 1, 1, 2), DataSource()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hlHostControlDataSource.setDescription('The source of data for the associated host tables.\n    \n            The statistics in this group reflect all packets\n            on the local network segment attached to the\n            identified interface.\n    \n            This object may not be modified if the associated\n            hlHostControlStatus object is equal to active(1).')
-hlHostControlNlDroppedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hlHostControlNlDroppedFrames.setDescription('The total number of frames which were received by the probe\n            and therefore not accounted for in the *StatsDropEvents, but\n            for which the probe chose not to count for the associated\n            nlHost entries for whatever reason.  Most often, this event\n            occurs when the probe is out of some resources and decides to\n            shed load from this collection.\n    \n            This count does not include packets that were not counted\n            because they had MAC-layer errors.\n    \n            Note that if the nlHostTable is inactive because no protocols\n            are enabled in the protocol directory, this value should be 0.\n    \n            Note that, unlike the dropEvents counter, this number is the\n            exact number of frames dropped.')
-hlHostControlNlInserts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hlHostControlNlInserts.setDescription('The number of times an nlHost entry has been\n            inserted into the nlHost table.  If an entry is inserted, then\n            deleted, and then inserted, this counter will be incremented\n            by 2.\n    \n            To allow for efficient implementation strategies, agents may\n            delay updating this object for short periods of time.  For\n            example, an implementation strategy may allow internal\n            data structures to differ from those visible via SNMP for\n            short periods of time.  This counter may reflect the internal\n            data structures for those short periods of time.\n    \n            Note that the table size can be determined by subtracting\n            hlHostControlNlDeletes from hlHostControlNlInserts.')
-hlHostControlNlDeletes = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hlHostControlNlDeletes.setDescription('The number of times an nlHost entry has been\n            deleted from the nlHost table (for any reason).  If an entry\n            is deleted, then inserted, and then deleted, this counter will\n            be incremented by 2.\n    \n            To allow for efficient implementation strategies, agents may\n            delay updating this object for short periods of time.  For\n            example, an implementation strategy may allow internal\n            data structures to differ from those visible via SNMP for\n            short periods of time.  This counter may reflect the internal\n            data structures for those short periods of time.\n    \n            Note that the table size can be determined by subtracting\n            hlHostControlNlDeletes from hlHostControlNlInserts.')
-hlHostControlNlMaxDesiredEntries = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1,2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hlHostControlNlMaxDesiredEntries.setDescription("The maximum number of entries that are desired in the\n            nlHostTable on behalf of this control entry. The probe will\n            not create more than this number of associated entries in the\n            table, but may choose to create fewer entries in this table\n            for any reason including the lack of resources.\n    \n            If this object is set to a value less than the current number\n            of entries, enough entries are chosen in an\n            implementation-dependent manner and deleted so that the number\n            of entries in the table equals the value of this object.\n    \n            If this value is set to -1, the probe may create any number\n            of entries in this table.  If the associated\n            hlHostControlStatus object is equal to `active', this\n            object may not be modified.\n    \n            This object may be used to control how resources are allocated\n            on the probe for the various RMON functions.")
-hlHostControlAlDroppedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hlHostControlAlDroppedFrames.setDescription('The total number of frames which were received by the probe\n            and therefore not accounted for in the *StatsDropEvents, but\n            for which the probe chose not to count for the associated\n            alHost entries for whatever reason.  Most often, this event\n            occurs when the probe is out of some resources and decides to\n            shed load from this collection.\n    \n            This count does not include packets that were not counted\n            because they had MAC-layer errors.\n    \n            Note that if the alHostTable is not implemented or is inactive\n            because no protocols are enabled in the protocol directory,\n            this value should be 0.\n    \n            Note that, unlike the dropEvents counter, this number is the\n            exact number of frames dropped.')
-hlHostControlAlInserts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 1, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hlHostControlAlInserts.setDescription('The number of times an alHost entry has been\n            inserted into the alHost table.  If an entry is inserted, then\n            deleted, and then inserted, this counter will be incremented\n            by 2.\n    \n            To allow for efficient implementation strategies, agents may\n            delay updating this object for short periods of time.  For\n            example, an implementation strategy may allow internal\n            data structures to differ from those visible via SNMP for\n            short periods of time.  This counter may reflect the internal\n            data structures for those short periods of time.\n    \n            Note that the table size can be determined by subtracting\n            hlHostControlAlDeletes from hlHostControlAlInserts.')
-hlHostControlAlDeletes = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hlHostControlAlDeletes.setDescription('The number of times an alHost entry has been\n            deleted from the alHost table (for any reason).  If an entry\n            is deleted, then inserted, and then deleted, this counter will\n            be incremented by 2.\n    \n            To allow for efficient implementation strategies, agents may\n            delay updating this object for short periods of time.  For\n            example, an implementation strategy may allow internal\n            data structures to differ from those visible via SNMP for\n            short periods of time.  This counter may reflect the internal\n            data structures for those short periods of time.\n    \n            Note that the table size can be determined by subtracting\n            hlHostControlAlDeletes from hlHostControlAlInserts.')
-hlHostControlAlMaxDesiredEntries = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1,2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hlHostControlAlMaxDesiredEntries.setDescription("The maximum number of entries that are desired in the alHost\n            table on behalf of this control entry. The probe will not\n            create more than this number of associated entries in the\n            table, but may choose to create fewer entries in this table\n            for any reason including the lack of resources.\n    \n            If this object is set to a value less than the current number\n            of entries, enough entries are chosen in an\n            implementation-dependent manner and deleted so that the number\n            of entries in the table equals the value of this object.\n    \n            If this value is set to -1, the probe may create any number\n            of entries in this table.  If the associated\n            hlHostControlStatus object is equal to `active', this\n            object may not be modified.\n    \n            This object may be used to control how resources are allocated\n            on the probe for the various RMON functions.")
-hlHostControlOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 1, 1, 11), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hlHostControlOwner.setDescription('The entity that configured this entry and is\n            therefore using the resources assigned to it.')
-hlHostControlStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 1, 1, 12), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hlHostControlStatus.setDescription('The status of this hlHostControlEntry.\n    \n            An entry may not exist in the active state unless all\n            objects in the entry have an appropriate value.\n    \n            If this object is not equal to active(1), all associated\n            entries in the nlHostTable and alHostTable shall be deleted.')
-nlHostTable = MibTable((1, 3, 6, 1, 2, 1, 16, 14, 2), )
-if mibBuilder.loadTexts: nlHostTable.setDescription('A collection of statistics for a particular network layer\n            address that has been discovered on an interface of this\n            device.\n    \n            The probe will populate this table for all network layer\n            protocols in the protocol directory table whose value of\n            protocolDirHostConfig is equal to supportedOn(3), and\n            will delete any entries whose protocolDirEntry is deleted or\n            has a protocolDirHostConfig value of supportedOff(2).\n    \n            The probe will add to this table all addresses seen\n            as the source or destination address in all packets with no\n            MAC errors, and will increment octet and packet counts in the\n            table for all packets with no MAC errors.')
-nlHostEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 14, 2, 1), ).setIndexNames((0, "RMON2-MIB", "hlHostControlIndex"), (0, "RMON2-MIB", "nlHostTimeMark"), (0, "RMON2-MIB", "protocolDirLocalIndex"), (0, "RMON2-MIB", "nlHostAddress"))
-if mibBuilder.loadTexts: nlHostEntry.setDescription('A conceptual row in the nlHostTable.\n    \n            The hlHostControlIndex value in the index identifies the\n            hlHostControlEntry on whose behalf this entry was created.\n            The protocolDirLocalIndex value in the index identifies the\n            network layer protocol of the nlHostAddress.\n    \n            An example of the indexing of this entry is\n            nlHostOutPkts.1.783495.18.4.128.2.6.6.')
-nlHostTimeMark = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 2, 1, 1), TimeFilter())
-if mibBuilder.loadTexts: nlHostTimeMark.setDescription('A TimeFilter for this entry.  See the TimeFilter textual\n            convention to see how this works.')
-nlHostAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 2, 1, 2), OctetString())
-if mibBuilder.loadTexts: nlHostAddress.setDescription('The network address for this nlHostEntry.\n    \n            This is represented as an octet string with\n            specific semantics and length as identified\n            by the protocolDirLocalIndex component of the index.\n    \n            For example, if the protocolDirLocalIndex indicates an\n            encapsulation of ip, this object is encoded as a length\n            octet of 4, followed by the 4 octets of the ip address,\n            in network byte order.')
-nlHostInPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 2, 1, 3), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlHostInPkts.setDescription('The number of packets without errors transmitted to\n            this address since it was added to the nlHostTable.  Note that\n            this is the number of link-layer packets, so if a single\n            network-layer packet is fragmented into several link-layer\n            frames, this counter is incremented several times.')
-nlHostOutPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 2, 1, 4), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlHostOutPkts.setDescription('The number of packets without errors transmitted by\n            this address since it was added to the nlHostTable.  Note that\n            this is the number of link-layer packets, so if a single\n            network-layer packet is fragmented into several link-layer\n            frames, this counter is incremented several times.')
-nlHostInOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 2, 1, 5), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlHostInOctets.setDescription("The number of octets transmitted to this address\n            since it was added to the nlHostTable (excluding\n            framing bits but including FCS octets), excluding\n            those octets in packets that contained errors.\n    \n            Note this doesn't count just those octets in the particular\n            protocol frames, but includes the entire packet that contained\n            the protocol.")
-nlHostOutOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 2, 1, 6), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlHostOutOctets.setDescription("The number of octets transmitted by this address\n            since it was added to the nlHostTable (excluding\n            framing bits but including FCS octets), excluding\n            those octets in packets that contained errors.\n    \n            Note this doesn't count just those octets in the particular\n            protocol frames, but includes the entire packet that contained\n            the protocol.")
-nlHostOutMacNonUnicastPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 2, 1, 7), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlHostOutMacNonUnicastPkts.setDescription('The number of packets without errors transmitted by this\n            address that were directed to any MAC broadcast addresses\n            or to any MAC multicast addresses since this host was\n            added to the nlHostTable. Note that this is the number of\n            link-layer packets, so if a single network-layer packet is\n            fragmented into several link-layer frames, this counter is\n            incremented several times.')
-nlHostCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 14, 2, 1, 8), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlHostCreateTime.setDescription('The value of sysUpTime when this entry was last activated.\n            This can be used by the management station to ensure that the\n            entry has not been deleted and recreated between polls.')
-hlMatrixControlTable = MibTable((1, 3, 6, 1, 2, 1, 16, 15, 1), )
-if mibBuilder.loadTexts: hlMatrixControlTable.setDescription('A list of higher layer (i.e. non-MAC) matrix control entries.\n    \n            These entries will enable the collection of the network and\n            application level matrix tables containing conversation\n            statistics indexed by pairs of network addresses.\n            Both the network and application level matrix tables are\n            controlled by this table is so that they will both be created\n            and deleted at the same time, further increasing the ease with\n            which they can be implemented as a single datastore (note that\n            if an implementation stores application layer matrix records\n            in memory, it can derive network layer matrix records from\n            them).\n    \n            Entries in the nlMatrixSDTable and nlMatrixDSTable will be\n            created on behalf of each entry in this table.  Additionally,\n            if this probe implements the alMatrix tables, entries in the\n            alMatrix tables will be created on behalf of each entry in\n            this table.')
-hlMatrixControlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 15, 1, 1), ).setIndexNames((0, "RMON2-MIB", "hlMatrixControlIndex"))
-if mibBuilder.loadTexts: hlMatrixControlEntry.setDescription('A conceptual row in the hlMatrixControlTable.\n    \n            An example of indexing of this entry is\n            hlMatrixControlNlDroppedFrames.1')
-hlMatrixControlIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: hlMatrixControlIndex.setDescription('An index that uniquely identifies an entry in the\n            hlMatrixControlTable.  Each such entry defines\n            a function that discovers conversations on a particular\n            interface and places statistics about them in the\n            nlMatrixSDTable and the nlMatrixDSTable, and optionally the\n            alMatrixSDTable and alMatrixDSTable, on behalf of this\n            hlMatrixControlEntry.')
-hlMatrixControlDataSource = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 1, 1, 2), DataSource()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hlMatrixControlDataSource.setDescription('The source of the data for the associated matrix tables.\n    \n            The statistics in this group reflect all packets\n            on the local network segment attached to the\n            identified interface.\n    \n            This object may not be modified if the associated\n            hlMatrixControlStatus object is equal to active(1).')
-hlMatrixControlNlDroppedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hlMatrixControlNlDroppedFrames.setDescription('The total number of frames which were received by the probe\n            and therefore not accounted for in the *StatsDropEvents, but\n            for which the probe chose not to count for this entry for\n            whatever reason.  Most often, this event occurs when the probe\n            is out of some resources and decides to shed load from this\n            collection.\n    \n            This count does not include packets that were not counted\n            because they had MAC-layer errors.\n    \n            Note that if the nlMatrixTables are inactive because no\n            protocols are enabled in the protocol directory, this value\n            should be 0.\n    \n            Note that, unlike the dropEvents counter, this number is the\n            exact number of frames dropped.')
-hlMatrixControlNlInserts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hlMatrixControlNlInserts.setDescription('The number of times an nlMatrix entry has been\n            inserted into the nlMatrix tables.  If an entry is inserted,\n            then deleted, and then inserted, this counter will be\n            incremented by 2.  The addition of a conversation into both\n            the nlMatrixSDTable and nlMatrixDSTable shall be counted as\n            two insertions (even though every addition into one table must\n            be accompanied by an insertion into the other).\n    \n            To allow for efficient implementation strategies, agents may\n            delay updating this object for short periods of time.  For\n            example, an implementation strategy may allow internal\n            data structures to differ from those visible via SNMP for\n            short periods of time.  This counter may reflect the internal\n            data structures for those short periods of time.\n    \n            Note that the sum of then nlMatrixSDTable and nlMatrixDSTable\n            sizes can be determined by subtracting\n            hlMatrixControlNlDeletes from hlMatrixControlNlInserts.')
-hlMatrixControlNlDeletes = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hlMatrixControlNlDeletes.setDescription('The number of times an nlMatrix entry has been\n            deleted from the nlMatrix tables (for any reason).  If an\n            entry is deleted, then inserted, and then deleted, this\n            counter will be incremented by 2.  The deletion of a\n            conversation from both the nlMatrixSDTable and nlMatrixDSTable\n            shall be counted as two deletions (even though every deletion\n            from one table must be accompanied by a deletion from the\n            other).\n    \n            To allow for efficient implementation strategies, agents may\n            delay updating this object for short periods of time.  For\n            example, an implementation strategy may allow internal\n            data structures to differ from those visible via SNMP for\n            short periods of time.  This counter may reflect the internal\n            data structures for those short periods of time.\n    \n            Note that the table size can be determined by subtracting\n            hlMatrixControlNlDeletes from hlMatrixControlNlInserts.')
-hlMatrixControlNlMaxDesiredEntries = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1,2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hlMatrixControlNlMaxDesiredEntries.setDescription("The maximum number of entries that are desired in the\n            nlMatrix tables on behalf of this control entry. The probe\n            will not create more than this number of associated entries in\n            the table, but may choose to create fewer entries in this\n            table for any reason including the lack of resources.\n    \n            If this object is set to a value less than the current number\n            of entries, enough entries are chosen in an\n            implementation-dependent manner and deleted so that the number\n            of entries in the table equals the value of this object.\n    \n            If this value is set to -1, the probe may create any number\n            of entries in this table.  If the associated\n            hlMatrixControlStatus object is equal to `active', this\n            object may not be modified.\n    \n            This object may be used to control how resources are allocated\n            on the probe for the various RMON functions.")
-hlMatrixControlAlDroppedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hlMatrixControlAlDroppedFrames.setDescription('The total number of frames which were received by the probe\n            and therefore not accounted for in the *StatsDropEvents, but\n            for which the probe chose not to count for this entry for\n            whatever reason.  Most often, this event occurs when the probe\n            is out of some resources and decides to shed load from this\n            collection.\n    \n            This count does not include packets that were not counted\n            because they had MAC-layer errors.\n    \n            Note that if the alMatrixTables are not implemented or are\n            inactive because no protocols are enabled in the protocol\n            directory, this value should be 0.\n    \n            Note that, unlike the dropEvents counter, this number is the\n            exact number of frames dropped.')
-hlMatrixControlAlInserts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 1, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hlMatrixControlAlInserts.setDescription('The number of times an alMatrix entry has been\n            inserted into the alMatrix tables.  If an entry is inserted,\n            then deleted, and then inserted, this counter will be\n            incremented by 2.  The addition of a conversation into both\n            the alMatrixSDTable and alMatrixDSTable shall be counted as\n            two insertions (even though every addition into one table must\n            be accompanied by an insertion into the other).\n    \n            To allow for efficient implementation strategies, agents may\n            delay updating this object for short periods of time.  For\n            example, an implementation strategy may allow internal\n            data structures to differ from those visible via SNMP for\n            short periods of time.  This counter may reflect the internal\n            data structures for those short periods of time.\n    \n            Note that the table size can be determined by subtracting\n            hlMatrixControlAlDeletes from hlMatrixControlAlInserts.')
-hlMatrixControlAlDeletes = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hlMatrixControlAlDeletes.setDescription('The number of times an alMatrix entry has been\n            deleted from the alMatrix tables.  If an entry is deleted,\n            then inserted, and then deleted, this counter will be\n            incremented by 2.  The deletion of a conversation from both\n            the alMatrixSDTable and alMatrixDSTable shall be counted as\n            two deletions (even though every deletion from one table must\n            be accompanied by a deletion from the other).\n    \n            To allow for efficient implementation strategies, agents may\n            delay updating this object for short periods of time.  For\n            example, an implementation strategy may allow internal\n            data structures to differ from those visible via SNMP for\n            short periods of time.  This counter may reflect the internal\n            data structures for those short periods of time.\n    \n            Note that the table size can be determined by subtracting\n            hlMatrixControlAlDeletes from hlMatrixControlAlInserts.')
-hlMatrixControlAlMaxDesiredEntries = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1,2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hlMatrixControlAlMaxDesiredEntries.setDescription("The maximum number of entries that are desired in the\n            alMatrix tables on behalf of this control entry. The probe\n            will not create more than this number of associated entries in\n            the table, but may choose to create fewer entries in this\n            table for any reason including the lack of resources.\n    \n            If this object is set to a value less than the current number\n            of entries, enough entries are chosen in an\n            implementation-dependent manner and deleted so that the number\n            of entries in the table equals the value of this object.\n    \n            If this value is set to -1, the probe may create any number\n            of entries in this table.  If the associated\n            hlMatrixControlStatus object is equal to `active', this\n            object may not be modified.\n    \n            This object may be used to control how resources are allocated\n            on the probe for the various RMON functions.")
-hlMatrixControlOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 1, 1, 11), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hlMatrixControlOwner.setDescription('The entity that configured this entry and is\n            therefore using the resources assigned to it.')
-hlMatrixControlStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 1, 1, 12), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hlMatrixControlStatus.setDescription('The status of this hlMatrixControlEntry.\n    \n            An entry may not exist in the active state unless all\n            objects in the entry have an appropriate value.\n    \n            If this object is not equal to active(1), all\n            associated entries in the nlMatrixSDTable,\n            nlMatrixDSTable, alMatrixSDTable, and the alMatrixDSTable\n            shall be deleted by the agent.')
-nlMatrixSDTable = MibTable((1, 3, 6, 1, 2, 1, 16, 15, 2), )
-if mibBuilder.loadTexts: nlMatrixSDTable.setDescription('A list of traffic matrix entries which collect statistics for\n            conversations between two network-level addresses.  This table\n            is indexed first by the source address and then by the\n            destination address to make it convenient to collect all\n            conversations from a particular address.\n    \n            The probe will populate this table for all network layer\n            protocols in the protocol directory table whose value of\n            protocolDirMatrixConfig is equal to supportedOn(3), and\n            will delete any entries whose protocolDirEntry is deleted or\n            has a protocolDirMatrixConfig value of supportedOff(2).\n    \n            The probe will add to this table all pairs of addresses\n            seen in all packets with no MAC errors, and will increment\n            octet and packet counts in the table for all packets with no\n            MAC errors.\n    \n            Further, this table will only contain entries that have a\n            corresponding entry in the nlMatrixDSTable with the same\n            source address and destination address.')
-nlMatrixSDEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 15, 2, 1), ).setIndexNames((0, "RMON2-MIB", "hlMatrixControlIndex"), (0, "RMON2-MIB", "nlMatrixSDTimeMark"), (0, "RMON2-MIB", "protocolDirLocalIndex"), (0, "RMON2-MIB", "nlMatrixSDSourceAddress"), (0, "RMON2-MIB", "nlMatrixSDDestAddress"))
-if mibBuilder.loadTexts: nlMatrixSDEntry.setDescription('A conceptual row in the nlMatrixSDTable.\n    \n            The hlMatrixControlIndex value in the index identifies the\n            hlMatrixControlEntry on whose behalf this entry was created.\n            The protocolDirLocalIndex value in the index identifies the\n            network layer protocol of the nlMatrixSDSourceAddress and\n            nlMatrixSDDestAddress.\n    \n            An example of the indexing of this table is\n            nlMatrixSDPkts.1.783495.18.4.128.2.6.6.4.128.2.6.7')
-nlMatrixSDTimeMark = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 2, 1, 1), TimeFilter())
-if mibBuilder.loadTexts: nlMatrixSDTimeMark.setDescription('A TimeFilter for this entry.  See the TimeFilter textual\n            convention to see how this works.')
-nlMatrixSDSourceAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 2, 1, 2), OctetString())
-if mibBuilder.loadTexts: nlMatrixSDSourceAddress.setDescription('The network source address for this nlMatrixSDEntry.\n    \n            This is represented as an octet string with\n            specific semantics and length as identified\n            by the protocolDirLocalIndex component of the index.\n    \n            For example, if the protocolDirLocalIndex indicates an\n            encapsulation of ip, this object is encoded as a length\n            octet of 4, followed by the 4 octets of the ip address,\n            in network byte order.')
-nlMatrixSDDestAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 2, 1, 3), OctetString())
-if mibBuilder.loadTexts: nlMatrixSDDestAddress.setDescription('The network destination address for this\n            nlMatrixSDEntry.\n    \n            This is represented as an octet string with\n            specific semantics and length as identified\n            by the protocolDirLocalIndex component of the index.\n    \n            For example, if the protocolDirLocalIndex indicates an\n            encapsulation of ip, this object is encoded as a length\n            octet of 4, followed by the 4 octets of the ip address,\n            in network byte order.')
-nlMatrixSDPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 2, 1, 4), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlMatrixSDPkts.setDescription('The number of packets without errors transmitted from the\n            source address to the destination address since this entry was\n            added to the nlMatrixSDTable.  Note that this is the number of\n            link-layer packets, so if a single network-layer packet is\n            fragmented into several link-layer frames, this counter is\n            incremented several times.')
-nlMatrixSDOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 2, 1, 5), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlMatrixSDOctets.setDescription("The number of octets transmitted from the source address to\n            the destination address since this entry was added to the\n            nlMatrixSDTable (excluding framing bits but\n            including FCS octets), excluding those octets in packets that\n            contained errors.\n    \n            Note this doesn't count just those octets in the particular\n            protocol frames, but includes the entire packet that contained\n            the protocol.")
-nlMatrixSDCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 2, 1, 6), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlMatrixSDCreateTime.setDescription('The value of sysUpTime when this entry was last activated.\n            This can be used by the management station to ensure that the\n            entry has not been deleted and recreated between polls.')
-nlMatrixDSTable = MibTable((1, 3, 6, 1, 2, 1, 16, 15, 3), )
-if mibBuilder.loadTexts: nlMatrixDSTable.setDescription('A list of traffic matrix entries which collect statistics for\n            conversations between two network-level addresses.  This table\n            is indexed first by the destination address and then by the\n            source address to make it convenient to collect all\n            conversations to a particular address.\n    \n            The probe will populate this table for all network layer\n            protocols in the protocol directory table whose value of\n            protocolDirMatrixConfig is equal to supportedOn(3), and\n            will delete any entries whose protocolDirEntry is deleted or\n            has a protocolDirMatrixConfig value of supportedOff(2).\n    \n            The probe will add to this table all pairs of addresses\n            seen in all packets with no MAC errors, and will increment\n            octet and packet counts in the table for all packets with no\n            MAC errors.\n    \n            Further, this table will only contain entries that have a\n            corresponding entry in the nlMatrixSDTable with the same\n            source address and destination address.')
-nlMatrixDSEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 15, 3, 1), ).setIndexNames((0, "RMON2-MIB", "hlMatrixControlIndex"), (0, "RMON2-MIB", "nlMatrixDSTimeMark"), (0, "RMON2-MIB", "protocolDirLocalIndex"), (0, "RMON2-MIB", "nlMatrixDSDestAddress"), (0, "RMON2-MIB", "nlMatrixDSSourceAddress"))
-if mibBuilder.loadTexts: nlMatrixDSEntry.setDescription('A conceptual row in the nlMatrixDSTable.\n    \n            The hlMatrixControlIndex value in the index identifies the\n            hlMatrixControlEntry on whose behalf this entry was created.\n            The protocolDirLocalIndex value in the index identifies the\n            network layer protocol of the nlMatrixDSSourceAddress and\n            nlMatrixDSDestAddress.\n    \n            An example of the indexing of this table is\n            nlMatrixDSPkts.1.783495.18.4.128.2.6.7.4.128.2.6.6')
-nlMatrixDSTimeMark = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 3, 1, 1), TimeFilter())
-if mibBuilder.loadTexts: nlMatrixDSTimeMark.setDescription('A TimeFilter for this entry.  See the TimeFilter textual\n            convention to see how this works.')
-nlMatrixDSSourceAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 3, 1, 2), OctetString())
-if mibBuilder.loadTexts: nlMatrixDSSourceAddress.setDescription('The network source address for this nlMatrixDSEntry.\n    \n            This is represented as an octet string with\n            specific semantics and length as identified\n            by the protocolDirLocalIndex component of the index.\n    \n            For example, if the protocolDirLocalIndex indicates an\n            encapsulation of ip, this object is encoded as a length\n            octet of 4, followed by the 4 octets of the ip address,\n            in network byte order.')
-nlMatrixDSDestAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 3, 1, 3), OctetString())
-if mibBuilder.loadTexts: nlMatrixDSDestAddress.setDescription('The network destination address for this\n            nlMatrixDSEntry.\n    \n            This is represented as an octet string with\n            specific semantics and length as identified\n            by the protocolDirLocalIndex component of the index.\n    \n            For example, if the protocolDirLocalIndex indicates an\n            encapsulation of ip, this object is encoded as a length\n            octet of 4, followed by the 4 octets of the ip address,\n            in network byte order.')
-nlMatrixDSPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 3, 1, 4), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlMatrixDSPkts.setDescription('The number of packets without errors transmitted from the\n            source address to the destination address since this entry was\n            added to the nlMatrixDSTable.  Note that this is the number of\n            link-layer packets, so if a single network-layer packet is\n            fragmented into several link-layer frames, this counter is\n            incremented several times.')
-nlMatrixDSOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 3, 1, 5), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlMatrixDSOctets.setDescription("The number of octets transmitted from the source address\n            to the destination address since this entry was added to the\n            nlMatrixDSTable (excluding framing bits but\n            including FCS octets), excluding those octets in packets that\n            contained errors.\n    \n            Note this doesn't count just those octets in the particular\n            protocol frames, but includes the entire packet that contained\n            the protocol.")
-nlMatrixDSCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 3, 1, 6), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlMatrixDSCreateTime.setDescription('The value of sysUpTime when this entry was last activated.\n            This can be used by the management station to ensure that the\n            entry has not been deleted and recreated between polls.')
-nlMatrixTopNControlTable = MibTable((1, 3, 6, 1, 2, 1, 16, 15, 4), )
-if mibBuilder.loadTexts: nlMatrixTopNControlTable.setDescription('A set of parameters that control the creation of a\n            report of the top N matrix entries according to\n            a selected metric.')
-nlMatrixTopNControlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 15, 4, 1), ).setIndexNames((0, "RMON2-MIB", "nlMatrixTopNControlIndex"))
-if mibBuilder.loadTexts: nlMatrixTopNControlEntry.setDescription('A conceptual row in the nlMatrixTopNControlTable.\n    \n            An example of the indexing of this table is\n            nlMatrixTopNControlDuration.3')
-nlMatrixTopNControlIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: nlMatrixTopNControlIndex.setDescription('An index that uniquely identifies an entry\n            in the nlMatrixTopNControlTable.  Each such\n            entry defines one top N report prepared for\n            one interface.')
-nlMatrixTopNControlMatrixIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nlMatrixTopNControlMatrixIndex.setDescription('The nlMatrix[SD/DS] table for which a top N report will be\n            prepared on behalf of this entry.  The nlMatrix[SD/DS] table\n            is identified by the value of the hlMatrixControlIndex\n            for that table - that value is used here to identify the\n            particular table.\n    \n            This object may not be modified if the associated\n            nlMatrixTopNControlStatus object is equal to active(1).')
-nlMatrixTopNControlRateBase = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("nlMatrixTopNPkts", 1), ("nlMatrixTopNOctets", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nlMatrixTopNControlRateBase.setDescription('The variable for each nlMatrix[SD/DS] entry that the\n            nlMatrixTopNEntries are sorted by.\n    \n            This object may not be modified if the associated\n            nlMatrixTopNControlStatus object is equal to active(1).')
-nlMatrixTopNControlTimeRemaining = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 4, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647)).clone(1800)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nlMatrixTopNControlTimeRemaining.setDescription('The number of seconds left in the report currently\n            being collected.  When this object is modified by\n            the management station, a new collection is started,\n            possibly aborting a currently running report.  The\n            new value is used as the requested duration of this\n            report, and is immediately loaded into the associated\n            nlMatrixTopNControlDuration object.\n            When the report finishes, the probe will automatically\n            start another collection with the same initial value\n            of nlMatrixTopNControlTimeRemaining.  Thus the management\n            station may simply read the resulting reports repeatedly,\n            checking the startTime and duration each time to ensure that a\n            report was not missed or that the report parameters were not\n            changed.\n    \n            While the value of this object is non-zero, it decrements\n            by one per second until it reaches zero.  At the time\n            that this object decrements to zero, the report is made\n            accessible in the nlMatrixTopNTable, overwriting any report\n            that may be there.\n    \n            When this object is modified by the management station, any\n            associated entries in the nlMatrixTopNTable shall be deleted.\n    \n            (Note that this is a different algorithm than the one used in\n            the hostTopNTable).')
-nlMatrixTopNControlGeneratedReports = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 4, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlMatrixTopNControlGeneratedReports.setDescription('The number of reports that have been generated by this entry.')
-nlMatrixTopNControlDuration = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 4, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlMatrixTopNControlDuration.setDescription('The number of seconds that this report has collected\n            during the last sampling interval.\n    \n            When the associated nlMatrixTopNControlTimeRemaining object is\n            set, this object shall be set by the probe to the\n            same value and shall not be modified until the next\n            time the nlMatrixTopNControlTimeRemaining is set.\n            This value shall be zero if no reports have been\n            requested for this nlMatrixTopNControlEntry.')
-nlMatrixTopNControlRequestedSize = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 4, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647)).clone(150)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nlMatrixTopNControlRequestedSize.setDescription('The maximum number of matrix entries requested for this report.\n    \n            When this object is created or modified, the probe\n            should set nlMatrixTopNControlGrantedSize as closely to this\n            object as is possible for the particular probe\n            implementation and available resources.')
-nlMatrixTopNControlGrantedSize = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 4, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlMatrixTopNControlGrantedSize.setDescription('The maximum number of matrix entries in this report.\n    \n            When the associated nlMatrixTopNControlRequestedSize object is\n            created or modified, the probe should set this\n            object as closely to the requested value as is\n            possible for the particular implementation and\n            available resources. The probe must not lower this\n            value except as a result of a set to the associated\n            nlMatrixTopNControlRequestedSize object.\n    \n            If the value of nlMatrixTopNControlRateBase is equal to\n            nlMatrixTopNPkts, when the next topN report is generated,\n            matrix entries with the highest value of nlMatrixTopNPktRate\n            shall be placed in this table in decreasing order of this rate\n            until there is no more room or until there are no more\n            matrix entries.\n    \n            If the value of nlMatrixTopNControlRateBase is equal to\n            nlMatrixTopNOctets, when the next topN report is generated,\n            matrix entries with the highest value of nlMatrixTopNOctetRate\n            shall be placed in this table in decreasing order of this rate\n            until there is no more room or until there are no more\n            matrix entries.\n    \n            It is an implementation-specific matter how entries with the\n            same value of nlMatrixTopNPktRate or nlMatrixTopNOctetRate are\n            sorted.  It is also an implementation-specific matter as to\n            whether or not zero-valued entries are available.')
-nlMatrixTopNControlStartTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 4, 1, 9), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlMatrixTopNControlStartTime.setDescription('The value of sysUpTime when this top N report was\n            last started.  In other words, this is the time that\n            the associated nlMatrixTopNControlTimeRemaining object was\n            modified to start the requested report or the time\n            the report was last automatically (re)started.\n    \n            This object may be used by the management station to\n            determine if a report was missed or not.')
-nlMatrixTopNControlOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 4, 1, 10), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nlMatrixTopNControlOwner.setDescription('The entity that configured this entry and is\n            therefore using the resources assigned to it.')
-nlMatrixTopNControlStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 4, 1, 11), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nlMatrixTopNControlStatus.setDescription('The status of this nlMatrixTopNControlEntry.\n    \n            An entry may not exist in the active state unless all\n            objects in the entry have an appropriate value.\n    \n            If this object is not equal to active(1), all\n            associated entries in the nlMatrixTopNTable shall be deleted\n            by the agent.')
-nlMatrixTopNTable = MibTable((1, 3, 6, 1, 2, 1, 16, 15, 5), )
-if mibBuilder.loadTexts: nlMatrixTopNTable.setDescription('A set of statistics for those network layer matrix entries\n            that have counted the highest number of octets or packets.')
-nlMatrixTopNEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 15, 5, 1), ).setIndexNames((0, "RMON2-MIB", "nlMatrixTopNControlIndex"), (0, "RMON2-MIB", "nlMatrixTopNIndex"))
-if mibBuilder.loadTexts: nlMatrixTopNEntry.setDescription('A conceptual row in the nlMatrixTopNTable.\n    \n            The nlMatrixTopNControlIndex value in the index identifies the\n            nlMatrixTopNControlEntry on whose behalf this entry was\n            created.\n    \n            An example of the indexing of this table is\n            nlMatrixTopNPktRate.3.10')
-nlMatrixTopNIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: nlMatrixTopNIndex.setDescription('An index that uniquely identifies an entry in\n            the nlMatrixTopNTable among those in the same report.\n    \n            This index is between 1 and N, where N is the\n            number of entries in this report.\n    \n            If the value of nlMatrixTopNControlRateBase is equal to\n            nlMatrixTopNPkts, increasing values of nlMatrixTopNIndex shall\n            be assigned to entries with decreasing values of\n            nlMatrixTopNPktRate until index N is assigned or there are no\n            more nlMatrixTopNEntries.\n    \n            If the value of nlMatrixTopNControlRateBase is equal to\n            nlMatrixTopNOctets, increasing values of nlMatrixTopNIndex\n            shall be assigned to entries with decreasing values of\n            nlMatrixTopNOctetRate until index N is assigned or there are\n            no more nlMatrixTopNEntries.')
-nlMatrixTopNProtocolDirLocalIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlMatrixTopNProtocolDirLocalIndex.setDescription("The protocolDirLocalIndex of the network layer protocol of\n            this entry's network address.")
-nlMatrixTopNSourceAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 5, 1, 3), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlMatrixTopNSourceAddress.setDescription('The network layer address of the source host in this\n            conversation.\n    \n            This is represented as an octet string with\n            specific semantics and length as identified\n            by the associated nlMatrixTopNProtocolDirLocalIndex.\n    \n            For example, if the protocolDirLocalIndex indicates an\n            encapsulation of ip, this object is encoded as a length\n            octet of 4, followed by the 4 octets of the ip address,\n            in network byte order.')
-nlMatrixTopNDestAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 5, 1, 4), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlMatrixTopNDestAddress.setDescription('The network layer address of the destination host in this\n            conversation.\n    \n            This is represented as an octet string with\n            specific semantics and length as identified\n            by the associated nlMatrixTopNProtocolDirLocalIndex.\n    \n            For example, if the nlMatrixTopNProtocolDirLocalIndex\n            indicates an encapsulation of ip, this object is encoded as a\n            length octet of 4, followed by the 4 octets of the ip address,\n            in network byte order.')
-nlMatrixTopNPktRate = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 5, 1, 5), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlMatrixTopNPktRate.setDescription('The number of packets seen from the source host\n            to the destination host during this sampling interval, counted\n            using the rules for counting the nlMatrixSDPkts object.\n            If the value of nlMatrixTopNControlRateBase is\n            nlMatrixTopNPkts, this variable will be used to sort this\n            report.')
-nlMatrixTopNReversePktRate = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 5, 1, 6), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlMatrixTopNReversePktRate.setDescription('The number of packets seen from the destination host to the\n            source host during this sampling interval, counted\n            using the rules for counting the nlMatrixSDPkts object (note\n            that the corresponding nlMatrixSDPkts object selected is the\n            one whose source address is equal to nlMatrixTopNDestAddress\n            and whose destination address is equal to\n            nlMatrixTopNSourceAddress.)\n    \n            Note that if the value of nlMatrixTopNControlRateBase is equal\n            to nlMatrixTopNPkts, the sort of topN entries is based\n            entirely on nlMatrixTopNPktRate, and not on the value of this\n            object.')
-nlMatrixTopNOctetRate = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 5, 1, 7), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlMatrixTopNOctetRate.setDescription('The number of octets seen from the source host\n            to the destination host during this sampling interval, counted\n            using the rules for counting the nlMatrixSDOctets object.  If\n            the value of nlMatrixTopNControlRateBase is\n            nlMatrixTopNOctets, this variable will be used to sort this\n            report.')
-nlMatrixTopNReverseOctetRate = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 15, 5, 1, 8), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nlMatrixTopNReverseOctetRate.setDescription('The number of octets seen from the destination host to the\n            source host during this sampling interval, counted\n            using the rules for counting the nlMatrixDSOctets object (note\n            that the corresponding nlMatrixSDOctets object selected is the\n            one whose source address is equal to nlMatrixTopNDestAddress\n            and whose destination address is equal to\n            nlMatrixTopNSourceAddress.)\n    \n            Note that if the value of nlMatrixTopNControlRateBase is equal\n            to nlMatrixTopNOctets, the sort of topN entries is based\n            entirely on nlMatrixTopNOctetRate, and not on the value of\n            this object.')
-alHostTable = MibTable((1, 3, 6, 1, 2, 1, 16, 16, 1), )
-if mibBuilder.loadTexts: alHostTable.setDescription('A collection of statistics for a particular protocol from a\n            particular network address that has been discovered on an\n            interface of this device.\n    \n            The probe will populate this table for all protocols in the\n            protocol directory table whose value of\n            protocolDirHostConfig is equal to supportedOn(3), and\n            will delete any entries whose protocolDirEntry is deleted or\n            has a protocolDirHostConfig value of supportedOff(2).\n    \n            The probe will add to this table all addresses\n            seen as the source or destination address in all packets with\n            no MAC errors, and will increment octet and packet counts in\n            the table for all packets with no MAC errors.  Further,\n            entries will only be added to this table if their address\n            exists in the nlHostTable and will be deleted from this table\n            if their address is deleted from the nlHostTable.')
-alHostEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 16, 1, 1), ).setIndexNames((0, "RMON2-MIB", "hlHostControlIndex"), (0, "RMON2-MIB", "alHostTimeMark"), (0, "RMON2-MIB", "protocolDirLocalIndex"), (0, "RMON2-MIB", "nlHostAddress"), (0, "RMON2-MIB", "protocolDirLocalIndex"))
-if mibBuilder.loadTexts: alHostEntry.setDescription('A conceptual row in the alHostTable.\n    \n            The hlHostControlIndex value in the index identifies the\n            hlHostControlEntry on whose behalf this entry was created.\n            The first protocolDirLocalIndex value in the index identifies\n            the network layer protocol of the address.\n            The nlHostAddress value in the index identifies the network\n            layer address of this entry.\n            The second protocolDirLocalIndex value in the index identifies\n            the protocol that is counted by this entry.\n    \n            An example of the indexing in this entry is\n            alHostOutPkts.1.783495.18.4.128.2.6.6.34')
-alHostTimeMark = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 16, 1, 1, 1), TimeFilter())
-if mibBuilder.loadTexts: alHostTimeMark.setDescription('A TimeFilter for this entry.  See the TimeFilter textual\n            convention to see how this works.')
-alHostInPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 16, 1, 1, 2), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alHostInPkts.setDescription('The number of packets of this protocol type without errors\n            transmitted to this address since it was added to the\n            alHostTable.  Note that this is the number of link-layer\n            packets, so if a single network-layer packet is fragmented\n            into several link-layer frames, this counter is incremented\n            several times.')
-alHostOutPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 16, 1, 1, 3), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alHostOutPkts.setDescription('The number of packets of this protocol type without errors\n            transmitted by this address since it was added to the\n            alHostTable.  Note that this is the number of link-layer\n            packets, so if a single network-layer packet is fragmented\n            into several link-layer frames, this counter is incremented\n            several times.')
-alHostInOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 16, 1, 1, 4), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alHostInOctets.setDescription("The number of octets transmitted to this address\n            of this protocol type since it was added to the\n            alHostTable (excluding framing bits but including\n            FCS octets), excluding those octets in packets that\n            contained errors.\n    \n            Note this doesn't count just those octets in the particular\n            protocol frames, but includes the entire packet that contained\n            the protocol.")
-alHostOutOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 16, 1, 1, 5), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alHostOutOctets.setDescription("The number of octets transmitted by this address\n            of this protocol type since it was added to the\n            alHostTable (excluding framing bits but including\n            FCS octets), excluding those octets in packets that\n            contained errors.\n    \n            Note this doesn't count just those octets in the particular\n            protocol frames, but includes the entire packet that contained\n            the protocol.")
-alHostCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 16, 1, 1, 6), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alHostCreateTime.setDescription('The value of sysUpTime when this entry was last activated.\n            This can be used by the management station to ensure that the\n            entry has not been deleted and recreated between polls.')
-alMatrixSDTable = MibTable((1, 3, 6, 1, 2, 1, 16, 17, 1), )
-if mibBuilder.loadTexts: alMatrixSDTable.setDescription('A list of application traffic matrix entries which collect\n            statistics for conversations of a particular protocol between\n            two network-level addresses.  This table is indexed first by\n            the source address and then by the destination address to make\n            it convenient to collect all statistics from a particular\n            address.\n    \n            The probe will populate this table for all protocols in the\n            protocol directory table whose value of\n            protocolDirMatrixConfig is equal to supportedOn(3), and\n            will delete any entries whose protocolDirEntry is deleted or\n            has a protocolDirMatrixConfig value of supportedOff(2).\n    \n            The probe will add to this table all pairs of addresses for\n            all protocols seen in all packets with no MAC errors, and will\n            increment octet and packet counts in the table for all packets\n            with no MAC errors.  Further, entries will only be added to\n            this table if their address pair exists in the nlMatrixSDTable\n            and will be deleted from this table if the address pair is\n            deleted from the nlMatrixSDTable.')
-alMatrixSDEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 17, 1, 1), ).setIndexNames((0, "RMON2-MIB", "hlMatrixControlIndex"), (0, "RMON2-MIB", "alMatrixSDTimeMark"), (0, "RMON2-MIB", "protocolDirLocalIndex"), (0, "RMON2-MIB", "nlMatrixSDSourceAddress"), (0, "RMON2-MIB", "nlMatrixSDDestAddress"), (0, "RMON2-MIB", "protocolDirLocalIndex"))
-if mibBuilder.loadTexts: alMatrixSDEntry.setDescription('A conceptual row in the alMatrixSDTable.\n    \n            The hlMatrixControlIndex value in the index identifies the\n            hlMatrixControlEntry on whose behalf this entry was created.\n            The first protocolDirLocalIndex value in the index identifies\n            the network layer protocol of the nlMatrixSDSourceAddress and\n            nlMatrixSDDestAddress.\n            The nlMatrixSDSourceAddress value in the index identifies the\n            network layer address of the source host in this conversation.\n            The nlMatrixSDDestAddress value in the index identifies the\n            network layer address of the destination host in this\n            conversation.\n            The second protocolDirLocalIndex value in the index identifies\n            the protocol that is counted by this entry.\n    \n            An example of the indexing of this entry is\n            alMatrixSDPkts.1.783495.18.4.128.2.6.6.4.128.2.6.7.34')
-alMatrixSDTimeMark = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 1, 1, 1), TimeFilter())
-if mibBuilder.loadTexts: alMatrixSDTimeMark.setDescription('A TimeFilter for this entry.  See the TimeFilter textual\n            convention to see how this works.')
-alMatrixSDPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 1, 1, 2), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixSDPkts.setDescription('The number of packets of this protocol type without errors\n            transmitted from the source address to the destination address\n            since this entry was added to the alMatrixSDTable.  Note that\n            this is the number of link-layer packets, so if a single\n            network-layer packet is fragmented into several link-layer\n            frames, this counter is incremented several times.')
-alMatrixSDOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 1, 1, 3), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixSDOctets.setDescription("The number of octets in packets of this protocol type\n            transmitted from the source address to the destination address\n            since this entry was added to the alMatrixSDTable (excluding\n            framing bits but including FCS octets), excluding those octets\n            in packets that contained errors.\n    \n            Note this doesn't count just those octets in the particular\n            protocol frames, but includes the entire packet that contained\n            the protocol.")
-alMatrixSDCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 1, 1, 4), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixSDCreateTime.setDescription('The value of sysUpTime when this entry was last activated.\n            This can be used by the management station to ensure that the\n            entry has not been deleted and recreated between polls.')
-alMatrixDSTable = MibTable((1, 3, 6, 1, 2, 1, 16, 17, 2), )
-if mibBuilder.loadTexts: alMatrixDSTable.setDescription('A list of application traffic matrix entries which collect\n            statistics for conversations of a particular protocol between\n            two network-level addresses.  This table is indexed first by\n            the destination address and then by the source address to make\n            it convenient to collect all statistics to a particular\n            address.\n    \n            The probe will populate this table for all protocols in the\n            protocol directory table whose value of\n            protocolDirMatrixConfig is equal to supportedOn(3), and\n            will delete any entries whose protocolDirEntry is deleted or\n            has a protocolDirMatrixConfig value of supportedOff(2).\n    \n            The probe will add to this table all pairs of addresses for\n            all protocols seen in all packets with no MAC errors, and will\n            increment octet and packet counts in the table for all packets\n            with no MAC errors.  Further, entries will only be added to\n            this table if their address pair exists in the nlMatrixDSTable\n            and will be deleted from this table if the address pair is\n            deleted from the nlMatrixDSTable.')
-alMatrixDSEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 17, 2, 1), ).setIndexNames((0, "RMON2-MIB", "hlMatrixControlIndex"), (0, "RMON2-MIB", "alMatrixDSTimeMark"), (0, "RMON2-MIB", "protocolDirLocalIndex"), (0, "RMON2-MIB", "nlMatrixDSDestAddress"), (0, "RMON2-MIB", "nlMatrixDSSourceAddress"), (0, "RMON2-MIB", "protocolDirLocalIndex"))
-if mibBuilder.loadTexts: alMatrixDSEntry.setDescription('A conceptual row in the alMatrixDSTable.\n    \n            The hlMatrixControlIndex value in the index identifies the\n            hlMatrixControlEntry on whose behalf this entry was created.\n            The first protocolDirLocalIndex value in the index identifies\n            the network layer protocol of the alMatrixDSSourceAddress and\n            alMatrixDSDestAddress.\n    \n            The nlMatrixDSDestAddress value in the index identifies the\n            network layer address of the destination host in this\n            conversation.\n            The nlMatrixDSSourceAddress value in the index identifies the\n            network layer address of the source host in this conversation.\n            The second protocolDirLocalIndex value in the index identifies\n            the protocol that is counted by this entry.\n    \n            An example of the indexing of this entry is\n            alMatrixDSPkts.1.783495.18.4.128.2.6.7.4.128.2.6.6.34')
-alMatrixDSTimeMark = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 2, 1, 1), TimeFilter())
-if mibBuilder.loadTexts: alMatrixDSTimeMark.setDescription('A TimeFilter for this entry.  See the TimeFilter textual\n            convention to see how this works.')
-alMatrixDSPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 2, 1, 2), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixDSPkts.setDescription('The number of packets of this protocol type without errors\n            transmitted from the source address to the destination address\n            since this entry was added to the alMatrixDSTable.  Note that\n            this is the number of link-layer packets, so if a single\n            network-layer packet is fragmented into several link-layer\n            frames, this counter is incremented several times.')
-alMatrixDSOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 2, 1, 3), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixDSOctets.setDescription("The number of octets in packets of this protocol type\n            transmitted from the source address to the destination address\n            since this entry was added to the alMatrixDSTable (excluding\n            framing bits but including FCS octets), excluding those octets\n            in packets that contained errors.\n    \n            Note this doesn't count just those octets in the particular\n            protocol frames, but includes the entire packet that contained\n            the protocol.")
-alMatrixDSCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 2, 1, 4), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixDSCreateTime.setDescription('The value of sysUpTime when this entry was last activated.\n            This can be used by the management station to ensure that the\n            entry has not been deleted and recreated between polls.')
-alMatrixTopNControlTable = MibTable((1, 3, 6, 1, 2, 1, 16, 17, 3), )
-if mibBuilder.loadTexts: alMatrixTopNControlTable.setDescription('A set of parameters that control the creation of a\n            report of the top N matrix entries according to\n            a selected metric.')
-alMatrixTopNControlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 17, 3, 1), ).setIndexNames((0, "RMON2-MIB", "alMatrixTopNControlIndex"))
-if mibBuilder.loadTexts: alMatrixTopNControlEntry.setDescription('A conceptual row in the alMatrixTopNControlTable.\n    \n            An example of the indexing of this table is\n            alMatrixTopNControlDuration.3')
-alMatrixTopNControlIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: alMatrixTopNControlIndex.setDescription('An index that uniquely identifies an entry\n            in the alMatrixTopNControlTable.  Each such\n            entry defines one top N report prepared for\n            one interface.')
-alMatrixTopNControlMatrixIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alMatrixTopNControlMatrixIndex.setDescription('The alMatrix[SD/DS] table for which a top N report will be\n            prepared on behalf of this entry.  The alMatrix[SD/DS] table\n            is identified by the value of the hlMatrixControlIndex\n            for that table - that value is used here to identify the\n            particular table.\n    \n            This object may not be modified if the associated\n            alMatrixTopNControlStatus object is equal to active(1).')
-alMatrixTopNControlRateBase = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("alMatrixTopNTerminalsPkts", 1), ("alMatrixTopNTerminalsOctets", 2), ("alMatrixTopNAllPkts", 3), ("alMatrixTopNAllOctets", 4),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alMatrixTopNControlRateBase.setDescription('The variable for each alMatrix[SD/DS] entry that the\n            alMatrixTopNEntries are sorted by, as well as the\n            selector of the view of the matrix table that will be\n            used.\n    \n            The values alMatrixTopNTerminalsPkts and\n            alMatrixTopNTerminalsOctets cause collection only from\n            protocols that have no child protocols that are counted.  The\n            values alMatrixTopNAllPkts and alMatrixTopNAllOctets cause\n            collection from all alMatrix entries.\n    \n            This object may not be modified if the associated\n            alMatrixTopNControlStatus object is equal to active(1).')
-alMatrixTopNControlTimeRemaining = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647)).clone(1800)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alMatrixTopNControlTimeRemaining.setDescription('The number of seconds left in the report currently\n            being collected.  When this object is modified by\n            the management station, a new collection is started,\n            possibly aborting a currently running report.  The\n            new value is used as the requested duration of this\n            report, and is immediately loaded into the associated\n            alMatrixTopNControlDuration object.\n            When the report finishes, the probe will automatically\n            start another collection with the same initial value\n            of alMatrixTopNControlTimeRemaining.  Thus the management\n            station may simply read the resulting reports repeatedly,\n            checking the startTime and duration each time to ensure that a\n            report was not missed or that the report parameters were not\n            changed.\n    \n            While the value of this object is non-zero, it decrements\n            by one per second until it reaches zero.  At the time\n            that this object decrements to zero, the report is made\n            accessible in the alMatrixTopNTable, overwriting any report\n            that may be there.\n    \n            When this object is modified by the management station, any\n            associated entries in the alMatrixTopNTable shall be deleted.\n    \n            (Note that this is a different algorithm than the one used in\n            the hostTopNTable).')
-alMatrixTopNControlGeneratedReports = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 3, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixTopNControlGeneratedReports.setDescription('The number of reports that have been generated by this entry.')
-alMatrixTopNControlDuration = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 3, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixTopNControlDuration.setDescription('The number of seconds that this report has collected\n            during the last sampling interval.\n    \n            When the associated alMatrixTopNControlTimeRemaining object\n            is set, this object shall be set by the probe to the\n            same value and shall not be modified until the next\n            time the alMatrixTopNControlTimeRemaining is set.\n    \n            This value shall be zero if no reports have been\n            requested for this alMatrixTopNControlEntry.')
-alMatrixTopNControlRequestedSize = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 3, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647)).clone(150)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alMatrixTopNControlRequestedSize.setDescription('The maximum number of matrix entries requested for this report.\n    \n            When this object is created or modified, the probe\n            should set alMatrixTopNControlGrantedSize as closely to this\n            object as is possible for the particular probe\n            implementation and available resources.')
-alMatrixTopNControlGrantedSize = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 3, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixTopNControlGrantedSize.setDescription('The maximum number of matrix entries in this report.\n    \n            When the associated alMatrixTopNControlRequestedSize object\n            is created or modified, the probe should set this\n            object as closely to the requested value as is\n            possible for the particular implementation and\n            available resources. The probe must not lower this\n            value except as a result of a set to the associated\n            alMatrixTopNControlRequestedSize object.\n    \n            If the value of alMatrixTopNControlRateBase is equal to\n            alMatrixTopNTerminalsPkts or alMatrixTopNAllPkts, when the\n            next topN report is generated, matrix entries with the highest\n            value of alMatrixTopNPktRate shall be placed in this table in\n            decreasing order of this rate until there is no more room or\n            until there are no more matrix entries.\n    \n            If the value of alMatrixTopNControlRateBase is equal to\n            alMatrixTopNTerminalsOctets or alMatrixTopNAllOctets, when the\n            next topN report is generated, matrix entries with the highest\n            value of alMatrixTopNOctetRate shall be placed in this table\n            in decreasing order of this rate until there is no more room\n            or until there are no more matrix entries.\n    \n            It is an implementation-specific matter how entries with the\n            same value of alMatrixTopNPktRate or alMatrixTopNOctetRate are\n            sorted.  It is also an implementation-specific matter as to\n            whether or not zero-valued entries are available.')
-alMatrixTopNControlStartTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 3, 1, 9), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixTopNControlStartTime.setDescription('The value of sysUpTime when this top N report was\n            last started.  In other words, this is the time that\n            the associated alMatrixTopNControlTimeRemaining object\n            was modified to start the requested report or the time\n            the report was last automatically (re)started.\n    \n            This object may be used by the management station to\n            determine if a report was missed or not.')
-alMatrixTopNControlOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 3, 1, 10), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alMatrixTopNControlOwner.setDescription('The entity that configured this entry and is\n            therefore using the resources assigned to it.')
-alMatrixTopNControlStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 3, 1, 11), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alMatrixTopNControlStatus.setDescription('The status of this alMatrixTopNControlEntry.\n    \n            An entry may not exist in the active state unless all\n            objects in the entry have an appropriate value.\n    \n            If this object is not equal to active(1), all\n            associated entries in the alMatrixTopNTable shall be\n            deleted by the agent.')
-alMatrixTopNTable = MibTable((1, 3, 6, 1, 2, 1, 16, 17, 4), )
-if mibBuilder.loadTexts: alMatrixTopNTable.setDescription('A set of statistics for those application layer matrix\n            entries that have counted the highest number of octets or\n            packets.')
-alMatrixTopNEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 17, 4, 1), ).setIndexNames((0, "RMON2-MIB", "alMatrixTopNControlIndex"), (0, "RMON2-MIB", "alMatrixTopNIndex"))
-if mibBuilder.loadTexts: alMatrixTopNEntry.setDescription('A conceptual row in the alMatrixTopNTable.\n    \n            The alMatrixTopNControlIndex value in the index identifies\n            the alMatrixTopNControlEntry on whose behalf this entry was\n            created.\n    \n            An example of the indexing of this table is\n            alMatrixTopNPktRate.3.10')
-alMatrixTopNIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: alMatrixTopNIndex.setDescription('An index that uniquely identifies an entry in\n            the alMatrixTopNTable among those in the same report.\n            This index is between 1 and N, where N is the\n            number of entries in this report.\n    \n            If the value of alMatrixTopNControlRateBase is equal to\n            alMatrixTopNTerminalsPkts or alMatrixTopNAllPkts, increasing\n            values of alMatrixTopNIndex shall be assigned to entries with\n            decreasing values of alMatrixTopNPktRate until index N is\n            assigned or there are no more alMatrixTopNEntries.\n    \n            If the value of alMatrixTopNControlRateBase is equal to\n            alMatrixTopNTerminalsOctets or alMatrixTopNAllOctets,\n            increasing values of alMatrixTopNIndex shall be assigned to\n            entries with decreasing values of alMatrixTopNOctetRate until\n            index N is assigned or there are no more alMatrixTopNEntries.')
-alMatrixTopNProtocolDirLocalIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixTopNProtocolDirLocalIndex.setDescription("The protocolDirLocalIndex of the network layer protocol of\n            this entry's network address.")
-alMatrixTopNSourceAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 4, 1, 3), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixTopNSourceAddress.setDescription('The network layer address of the source host in this\n            conversation.\n            This is represented as an octet string with\n            specific semantics and length as identified\n            by the associated alMatrixTopNProtocolDirLocalIndex.\n    \n            For example, if the alMatrixTopNProtocolDirLocalIndex\n            indicates an encapsulation of ip, this object is encoded as a\n            length octet of 4, followed by the 4 octets of the ip address,\n            in network byte order.')
-alMatrixTopNDestAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 4, 1, 4), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixTopNDestAddress.setDescription('The network layer address of the destination host in this\n            conversation.\n    \n            This is represented as an octet string with\n            specific semantics and length as identified\n            by the associated alMatrixTopNProtocolDirLocalIndex.\n    \n            For example, if the alMatrixTopNProtocolDirLocalIndex\n            indicates an encapsulation of ip, this object is encoded as a\n            length octet of 4, followed by the 4 octets of the ip address,\n            in network byte order.')
-alMatrixTopNAppProtocolDirLocalIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 4, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixTopNAppProtocolDirLocalIndex.setDescription('The type of the protocol counted by this matrix entry.')
-alMatrixTopNPktRate = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 4, 1, 6), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixTopNPktRate.setDescription('The number of packets seen of this protocol from the source\n            host to the destination host during this sampling interval,\n            counted using the rules for counting the alMatrixSDPkts\n            object.\n    \n            If the value of alMatrixTopNControlRateBase is\n            alMatrixTopNTerminalsPkts or alMatrixTopNAllPkts, this\n            variable will be used to sort this report.')
-alMatrixTopNReversePktRate = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 4, 1, 7), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixTopNReversePktRate.setDescription('The number of packets seen of this protocol from the\n            destination host to the source host during this sampling\n            interval, counted using the rules for counting the\n            alMatrixDSPkts object  (note that the corresponding\n            alMatrixSDPkts object selected is the one whose source address\n            is equal to alMatrixTopNDestAddress and whose destination\n            address is equal to alMatrixTopNSourceAddress.)\n    \n            Note that if the value of alMatrixTopNControlRateBase is equal\n            to alMatrixTopNTerminalsPkts or alMatrixTopNAllPkts, the sort\n            of topN entries is based entirely on alMatrixTopNPktRate, and\n            not on the value of this object.')
-alMatrixTopNOctetRate = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 4, 1, 8), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixTopNOctetRate.setDescription('The number of octets seen of this protocol from the source\n            host to the destination host during this sampling interval,\n            counted using the rules for counting the alMatrixSDOctets\n            object.\n    \n            If the value of alMatrixTopNControlRateBase is\n            alMatrixTopNTerminalsOctets or alMatrixTopNAllOctets, this\n            variable will be used to sort this report.')
-alMatrixTopNReverseOctetRate = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 17, 4, 1, 9), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alMatrixTopNReverseOctetRate.setDescription('The number of octets seen of this protocol from the\n            destination host to the source host during this sampling\n            interval, counted using the rules for counting the\n            alMatrixDSOctets object  (note that the corresponding\n            alMatrixSDOctets object selected is the one whose source\n            address is equal to alMatrixTopNDestAddress and whose\n            destination address is equal to alMatrixTopNSourceAddress.)\n    \n            Note that if the value of alMatrixTopNControlRateBase is equal\n            to alMatrixTopNTerminalsOctets or alMatrixTopNAllOctets, the\n            sort of topN entries is based entirely on\n            alMatrixTopNOctetRate, and not on the value of this object.')
-usrHistoryControlTable = MibTable((1, 3, 6, 1, 2, 1, 16, 18, 1), )
-if mibBuilder.loadTexts: usrHistoryControlTable.setDescription('A list of data-collection configuration entries.')
-usrHistoryControlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 18, 1, 1), ).setIndexNames((0, "RMON2-MIB", "usrHistoryControlIndex"))
-if mibBuilder.loadTexts: usrHistoryControlEntry.setDescription('A list of parameters that set up a group of user-defined\n            MIB objects to be sampled periodically (called a\n            bucket-group).\n    \n            For example, an instance of usrHistoryControlInterval\n            might be named usrHistoryControlInterval.1')
-usrHistoryControlIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 18, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: usrHistoryControlIndex.setDescription('An index that uniquely identifies an entry in the\n            usrHistoryControlTable.  Each such entry defines a\n            set of samples at a particular interval for a specified\n            set of MIB instances available from the managed system.')
-usrHistoryControlObjects = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 18, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usrHistoryControlObjects.setDescription('The number of MIB objects to be collected\n            in the portion of usrHistoryTable associated with this\n            usrHistoryControlEntry.\n    \n            This object may not be modified if the associated instance\n            of usrHistoryControlStatus is equal to active(1).')
-usrHistoryControlBucketsRequested = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 18, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)).clone(50)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usrHistoryControlBucketsRequested.setDescription('The requested number of discrete time intervals\n            over which data is to be saved in the part of the\n            usrHistoryTable associated with this usrHistoryControlEntry.\n    \n            When this object is created or modified, the probe\n            should set usrHistoryControlBucketsGranted as closely to\n            this object as is possible for the particular probe\n            implementation and available resources.')
-usrHistoryControlBucketsGranted = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 18, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: usrHistoryControlBucketsGranted.setDescription('The number of discrete sampling intervals\n            over which data shall be saved in the part of\n            the usrHistoryTable associated with this\n            usrHistoryControlEntry.\n    \n            When the associated usrHistoryControlBucketsRequested\n            object is created or modified, the probe should set\n            this object as closely to the requested value as is\n            possible for the particular  probe implementation and\n            available resources.  The probe must not lower this\n            value except as a result of a modification to the associated\n            usrHistoryControlBucketsRequested object.\n    \n            The associated usrHistoryControlBucketsRequested object\n            should be set before or at the same time as this object\n            to allow the probe to accurately estimate the resources\n            required for this usrHistoryControlEntry.\n    \n            There will be times when the actual number of buckets\n            associated with this entry is less than the value of\n            this object.  In this case, at the end of each sampling\n            interval, a new bucket will be added to the usrHistoryTable.\n    \n            When the number of buckets reaches the value of this object\n            and a new bucket is to be added to the usrHistoryTable,\n            the oldest bucket associated with this usrHistoryControlEntry\n            shall be deleted by the agent so that the new bucket can be\n            added.\n    \n            When the value of this object changes to a value less than\n            the current value, entries are deleted from the\n            usrHistoryTable associated with this usrHistoryControlEntry.\n            Enough of the oldest of these entries shall be deleted by the\n            agent so that their number remains less than or equal to the\n            new value of this object.\n    \n            When the value of this object changes to a value greater\n            than the current value, the number of associated usrHistory\n            entries may be allowed to grow.')
-usrHistoryControlInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 18, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)).clone(1800)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usrHistoryControlInterval.setDescription('The interval in seconds over which the data is\n            sampled for each bucket in the part of the usrHistory\n            table associated with this usrHistoryControlEntry.\n    \n            Because the counters in a bucket may overflow at their\n            maximum value with no indication, a prudent manager will\n            take into account the possibility of overflow in any of\n            the associated counters. It is important to consider the\n            minimum time in which any counter could overflow on a\n            particular media type and set the usrHistoryControlInterval\n            object to a value less than this interval.\n    \n            This object may not be modified if the associated\n            usrHistoryControlStatus object is equal to active(1).')
-usrHistoryControlOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 18, 1, 1, 6), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usrHistoryControlOwner.setDescription('The entity that configured this entry and is\n            therefore using the resources assigned to it.')
-usrHistoryControlStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 18, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usrHistoryControlStatus.setDescription('The status of this variable history control entry.\n    \n            An entry may not exist in the active state unless all\n            objects in the entry have an appropriate value.\n    \n            If this object is not equal to active(1), all associated\n            entries in the usrHistoryTable shall be deleted.')
-usrHistoryObjectTable = MibTable((1, 3, 6, 1, 2, 1, 16, 18, 2), )
-if mibBuilder.loadTexts: usrHistoryObjectTable.setDescription('A list of data-collection configuration entries.')
-usrHistoryObjectEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 18, 2, 1), ).setIndexNames((0, "RMON2-MIB", "usrHistoryControlIndex"), (0, "RMON2-MIB", "usrHistoryObjectIndex"))
-if mibBuilder.loadTexts: usrHistoryObjectEntry.setDescription('A list of MIB instances to be sampled periodically.\n    \n            Entries in this table are created when an associated\n            usrHistoryControlObjects object is created.\n    \n            The usrHistoryControlIndex value in the index is\n            that of the associated usrHistoryControlEntry.\n    \n            For example, an instance of usrHistoryObjectVariable might be\n            usrHistoryObjectVariable.1.3')
-usrHistoryObjectIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 18, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: usrHistoryObjectIndex.setDescription('An index used to uniquely identify an entry in the\n            usrHistoryObject table.  Each such entry defines a\n            MIB instance to be collected periodically.')
-usrHistoryObjectVariable = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 18, 2, 1, 2), ObjectIdentifier()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usrHistoryObjectVariable.setDescription('The object identifier of the particular variable to be\n            sampled.\n    \n            Only variables that resolve to an ASN.1 primitive type of\n            Integer32 (Integer32, Counter, Gauge, or TimeTicks) may be\n            sampled.\n    \n            Because SNMP access control is articulated entirely in terms\n            of the contents of MIB views, no access control mechanism\n            exists that can restrict the value of this object to identify\n            only those objects that exist in a particular MIB view.\n            Because there is thus no acceptable means of restricting the\n            read access that could be obtained through the user history\n            mechanism, the probe must only grant write access to this\n            object in those views that have read access to all objects on\n            the probe.\n    \n            During a set operation, if the supplied variable name is not\n            available in the selected MIB view, a badValue error must be\n            returned.\n    \n            This object may not be modified if the associated\n            usrHistoryControlStatus object is equal to active(1).')
-usrHistoryObjectSampleType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 18, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("absoluteValue", 1), ("deltaValue", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: usrHistoryObjectSampleType.setDescription('The method of sampling the selected variable for storage in\n            the usrHistoryTable.\n    \n            If the value of this object is absoluteValue(1), the value of\n            the selected variable will be copied directly into the history\n            bucket.\n    \n            If the value of this object is deltaValue(2), the value of the\n            selected variable at the last sample will be subtracted from\n            the current value, and the difference will be stored in the\n            history bucket. If the associated usrHistoryObjectVariable\n            instance could not be obtained at the previous sample\n            interval, then a delta sample is not possible, and the value\n            of the associated usrHistoryValStatus object for this interval\n            will be valueNotAvailable(1).\n    \n            This object may not be modified if the associated\n            usrHistoryControlStatus object is equal to active(1).')
-usrHistoryTable = MibTable((1, 3, 6, 1, 2, 1, 16, 18, 3), )
-if mibBuilder.loadTexts: usrHistoryTable.setDescription('A list of user defined history entries.')
-usrHistoryEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 18, 3, 1), ).setIndexNames((0, "RMON2-MIB", "usrHistoryControlIndex"), (0, "RMON2-MIB", "usrHistorySampleIndex"), (0, "RMON2-MIB", "usrHistoryObjectIndex"))
-if mibBuilder.loadTexts: usrHistoryEntry.setDescription('A historical sample of user-defined variables.  This sample\n            is associated with the usrHistoryControlEntry which set up the\n            parameters for a regular collection of these samples.\n    \n            The usrHistoryControlIndex value in the index identifies the\n            usrHistoryControlEntry on whose behalf this entry was created.\n    \n            The usrHistoryObjectIndex value in the index identifies the\n            usrHistoryObjectEntry on whose behalf this entry was created.\n    \n            For example, an instance of usrHistoryAbsValue, which represents\n            the 14th sample of a variable collected as specified by\n            usrHistoryControlEntry.1 and usrHistoryObjectEntry.1.5,\n            would be named usrHistoryAbsValue.1.14.5')
-usrHistorySampleIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 18, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: usrHistorySampleIndex.setDescription('An index that uniquely identifies the particular sample this\n            entry represents among all samples associated with the same\n            usrHistoryControlEntry. This index starts at 1 and increases\n            by one as each new sample is taken.')
-usrHistoryIntervalStart = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 18, 3, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: usrHistoryIntervalStart.setDescription('The value of sysUpTime at the start of the interval over\n            which this sample was measured.  If the probe keeps track of\n            the time of day, it should start the first sample of the\n            history at a time such that when the next hour of the day\n            begins, a sample is started at that instant.\n    \n            Note that following this rule may require the probe to delay\n            collecting the first sample of the history, as each sample\n            must be of the same interval. Also note that the sample which\n            is currently being collected is not accessible in this table\n            until the end of its interval.')
-usrHistoryIntervalEnd = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 18, 3, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: usrHistoryIntervalEnd.setDescription('The value of sysUpTime at the end of the interval over which\n            this sample was measured.')
-usrHistoryAbsValue = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 18, 3, 1, 4), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: usrHistoryAbsValue.setDescription("The absolute value (i.e. unsigned value) of the\n            user-specified statistic during the last sampling period. The\n            value during the current sampling period is not made available\n            until the period is completed.\n    \n            To obtain the true value for this sampling interval, the\n            associated instance of usrHistoryValStatus must be checked,\n            and usrHistoryAbsValue adjusted as necessary.\n    \n            If the MIB instance could not be accessed during the sampling\n            interval, then this object will have a value of zero and the\n            associated instance of usrHistoryValStatus will be set to\n            'valueNotAvailable(1)'.")
-usrHistoryValStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 18, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("valueNotAvailable", 1), ("valuePositive", 2), ("valueNegative", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: usrHistoryValStatus.setDescription("This object indicates the validity and sign of the data in\n            the associated instance of usrHistoryAbsValue.\n    \n            If the MIB instance could not be accessed during the sampling\n            interval, then 'valueNotAvailable(1)' will be returned.\n    \n            If the sample is valid and actual value of the sample is\n            greater than or equal to zero then 'valuePositive(2)' is\n            returned.\n    \n            If the sample is valid and the actual value of the sample is\n            less than zero, 'valueNegative(3)' will be returned. The\n            associated instance of usrHistoryAbsValue should be multiplied\n            by -1 to obtain the true sample value.")
-class ControlString(DisplayString, TextualConvention):
-    pass
-
-probeCapabilities = MibScalar((1, 3, 6, 1, 2, 1, 16, 19, 1), Bits().clone(namedValues=NamedValues(("etherStats", 0), ("historyControl", 1), ("etherHistory", 2), ("alarm", 3), ("hosts", 4), ("hostTopN", 5), ("matrix", 6), ("filter", 7), ("capture", 8), ("event", 9), ("tokenRingMLStats", 10), ("tokenRingPStats", 11), ("tokenRingMLHistory", 12), ("tokenRingPHistory", 13), ("ringStation", 14), ("ringStationOrder", 15), ("ringStationConfig", 16), ("sourceRouting", 17), ("protocolDirectory", 18), ("protocolDistribution", 19), ("addressMapping", 20), ("nlHost", 21), ("nlMatrix", 22), ("alHost", 23), ("alMatrix", 24), ("usrHistory", 25), ("probeConfig", 26),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: probeCapabilities.setDescription('An indication of the RMON MIB groups supported\n            on at least one interface by this probe.')
-probeSoftwareRev = MibScalar((1, 3, 6, 1, 2, 1, 16, 19, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,15))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: probeSoftwareRev.setDescription('The software revision of this device.  This string will have\n            a zero length if the revision is unknown.')
-probeHardwareRev = MibScalar((1, 3, 6, 1, 2, 1, 16, 19, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: probeHardwareRev.setDescription('The hardware revision of this device.  This string will have\n            a zero length if the revision is unknown.')
-probeDateTime = MibScalar((1, 3, 6, 1, 2, 1, 16, 19, 4), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(8,8),ValueSizeConstraint(11,11),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: probeDateTime.setDescription("Probe's current date and time.\n    \n             field  octets  contents                  range\n             -----  ------  --------                  -----\n               1      1-2   year                      0..65536\n               2       3    month                     1..12\n               3       4    day                       1..31\n               4       5    hour                      0..23\n               5       6    minutes                   0..59\n               6       7    seconds                   0..60\n                             (use 60 for leap-second)\n               7       8    deci-seconds              0..9\n               8       9    direction from UTC        '+' / '-'\n               9      10    hours from UTC            0..11\n              10      11    minutes from UTC          0..59\n    \n             For example, Tuesday May 26, 1992 at 1:30:15 PM\n             EDT would be displayed as:\n    \n                         1992-5-26,13:30:15.0,-4:0\n    \n             Note that if only local time is known, then\n             timezone information (fields 8-10) is not\n             present, and if no time information is known, the null\n             string is returned.")
-probeResetControl = MibScalar((1, 3, 6, 1, 2, 1, 16, 19, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("running", 1), ("warmBoot", 2), ("coldBoot", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: probeResetControl.setDescription('Setting this object to warmBoot(2) causes the device to\n            restart the application software with current configuration\n            parameters saved in non-volatile memory.  Setting this\n            object to coldBoot(3) causes the device to reinitialize\n            configuration parameters in non-volatile memory to default\n            values and restart the application software.  When the device\n            is running normally, this variable has a value of\n            running(1).')
-probeDownloadFile = MibScalar((1, 3, 6, 1, 2, 1, 16, 19, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,127))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: probeDownloadFile.setDescription('The file name to be downloaded from the TFTP server when a\n            download is next requested via this MIB.  This value is set to\n            the zero length string when no file name has been specified.')
-probeDownloadTFTPServer = MibScalar((1, 3, 6, 1, 2, 1, 16, 19, 7), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: probeDownloadTFTPServer.setDescription("The IP address of the TFTP server that contains the boot\n            image to load when a download is next requested via this MIB.\n            This value is set to `0.0.0.0' when no IP address has been\n            specified.")
-probeDownloadAction = MibScalar((1, 3, 6, 1, 2, 1, 16, 19, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("notDownloading", 1), ("downloadToPROM", 2), ("downloadToRAM", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: probeDownloadAction.setDescription('When this object is set to downloadToRAM(2) or\n            downloadToPROM(3), the device will discontinue its\n            normal operation and begin download of the image specified\n            by probeDownloadFile from the server specified by\n            probeDownloadTFTPServer using the TFTP protocol.  If\n            downloadToRAM(2) is specified, the new image is copied\n            to RAM only (the old image remains unaltered in the flash\n            EPROM).  If downloadToPROM(3) is specified\n            the new image is written to the flash EPROM\n            memory after its checksum has been verified to be correct.\n            When the download process is completed, the device will\n            warm boot to restart the newly loaded application.\n            When the device is not downloading, this object will have\n            a value of notDownloading(1).')
-probeDownloadStatus = MibScalar((1, 3, 6, 1, 2, 1, 16, 19, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8,))).clone(namedValues=NamedValues(("downloadSuccess", 1), ("downloadStatusUnknown", 2), ("downloadGeneralError", 3), ("downloadNoResponseFromServer", 4), ("downloadChecksumError", 5), ("downloadIncompatibleImage", 6), ("downloadTftpFileNotFound", 7), ("downloadTftpAccessViolation", 8),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: probeDownloadStatus.setDescription('The status of the last download procedure, if any.  This\n            object will have a value of downloadStatusUnknown(2) if no\n            download process has been performed.')
-serialConfigTable = MibTable((1, 3, 6, 1, 2, 1, 16, 19, 10), )
-if mibBuilder.loadTexts: serialConfigTable.setDescription('A table of serial interface configuration entries.  This data\n            will be stored in non-volatile memory and preserved across\n            probe resets or power loss.')
-serialConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 19, 10, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: serialConfigEntry.setDescription('A set of configuration parameters for a particular\n            serial interface on this device. If the device has no serial\n            interfaces, this table is empty.\n    \n            The index is composed of the ifIndex assigned to this serial\n            line interface.')
-serialMode = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 10, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("direct", 1), ("modem", 2),)).clone('direct')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serialMode.setDescription('The type of incoming connection to expect on this serial\n            interface.')
-serialProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 10, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("other", 1), ("slip", 2), ("ppp", 3),)).clone('slip')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serialProtocol.setDescription('The type of data link encapsulation to be used on this\n            serial interface.')
-serialTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 10, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)).clone(300)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serialTimeout.setDescription('This timeout value is used when the Management Station has\n            initiated the conversation over the serial link. This variable\n            represents the number of seconds of inactivity allowed before\n            terminating the connection on this serial interface. Use the\n            serialDialoutTimeout in the case where the probe has initiated\n            the connection for the purpose of sending a trap.')
-serialModemInitString = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 10, 1, 4), ControlString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serialModemInitString.setDescription("A control string which controls how a modem attached to this\n            serial interface should be initialized.  The initialization\n            is performed once during startup and again after each\n            connection is terminated if the associated serialMode has the\n            value of modem(2).\n    \n            A control string that is appropriate for a wide variety of\n            modems is: '^s^MATE0Q0V1X4 S0=1 S2=43^M'.")
-serialModemHangUpString = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 10, 1, 5), ControlString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serialModemHangUpString.setDescription("A control string which specifies how to disconnect a modem\n             connection on this serial interface.  This object is only\n             meaningful if the associated serialMode has the value\n             of modem(2).\n             A control string that is appropriate for a wide variety of\n             modems is: '^d2^s+++^d2^sATH0^M^d2'.")
-serialModemConnectResp = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 10, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serialModemConnectResp.setDescription("An ASCII string containing substrings that describe the\n            expected modem connection response code and associated bps\n            rate.  The substrings are delimited by the first character\n            in the string, for example:\n               /CONNECT/300/CONNECT 1200/1200/CONNECT 2400/2400/\n               CONNECT 4800/4800/CONNECT 9600/9600\n            will be interpreted as:\n                response code    bps rate\n                CONNECT            300\n                CONNECT 1200      1200\n                CONNECT 2400      2400\n                CONNECT 4800      4800\n                CONNECT 9600      9600\n            The agent will use the information in this string to adjust\n            the bps rate of this serial interface once a modem connection\n            is established.\n    \n            A value that is appropriate for a wide variety of modems is:\n            '/CONNECT/300/CONNECT 1200/1200/CONNECT 2400/2400/\n             CONNECT 4800/4800/CONNECT 9600/9600/CONNECT 14400/14400/\n            CONNECT 19200/19200/CONNECT 38400/38400/'.")
-serialModemNoConnectResp = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 10, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serialModemNoConnectResp.setDescription("An ASCII string containing response codes that may be\n            generated by a modem to report the reason why a connection\n            attempt has failed.  The response codes are delimited by\n            the first character in the string, for example:\n               /NO CARRIER/BUSY/NO DIALTONE/NO ANSWER/ERROR/\n            If one of these response codes is received via this serial\n            interface while attempting to make a modem connection,\n            the agent will issue the hang up command as specified by\n            serialModemHangUpString.\n    \n            A value that is appropriate for a wide variety of modems is:\n            '/NO CARRIER/BUSY/NO DIALTONE/NO ANSWER/ERROR/'.")
-serialDialoutTimeout = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 10, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)).clone(20)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serialDialoutTimeout.setDescription('This timeout value is used when the probe initiates the\n            serial connection with the intention of contacting a\n            management station. This variable represents the number\n            of seconds of inactivity allowed before terminating the\n            connection on this serial interface.')
-serialStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 10, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serialStatus.setDescription('The status of this serialConfigEntry.\n    \n            An entry may not exist in the active state unless all\n            objects in the entry have an appropriate value.')
-netConfigTable = MibTable((1, 3, 6, 1, 2, 1, 16, 19, 11), )
-if mibBuilder.loadTexts: netConfigTable.setDescription('A table of netConfigEntries.')
-netConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 19, 11, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: netConfigEntry.setDescription('A set of configuration parameters for a particular\n            network interface on this device. If the device has no network\n            interface, this table is empty.\n    \n            The index is composed of the ifIndex assigned to the\n            corresponding interface.')
-netConfigIPAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 11, 1, 1), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: netConfigIPAddress.setDescription('The IP address of this Net interface.  The default value\n            for this object is 0.0.0.0.  If either the netConfigIPAddress\n            or netConfigSubnetMask are 0.0.0.0, then when the device\n            boots, it may use BOOTP to try to figure out what these\n            values should be. If BOOTP fails, before the device\n            can talk on the network, this value must be configured\n            (e.g., through a terminal attached to the device). If BOOTP is\n            used, care should be taken to not send BOOTP broadcasts too\n            frequently and to eventually send very infrequently if no\n            replies are received.')
-netConfigSubnetMask = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 11, 1, 2), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: netConfigSubnetMask.setDescription('The subnet mask of this Net interface.  The default value\n            for this object is 0.0.0.0.  If either the netConfigIPAddress\n            or netConfigSubnetMask are 0.0.0.0, then when the device\n            boots, it may use BOOTP to try to figure out what these\n            values should be. If BOOTP fails, before the device\n            can talk on the network, this value must be configured\n            (e.g., through a terminal attached to the device). If BOOTP is\n            used, care should be taken to not send BOOTP broadcasts too\n            frequently and to eventually send very infrequently if no\n            replies are received.')
-netConfigStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 11, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: netConfigStatus.setDescription('The status of this netConfigEntry.\n    \n            An entry may not exist in the active state unless all\n            objects in the entry have an appropriate value.')
-netDefaultGateway = MibScalar((1, 3, 6, 1, 2, 1, 16, 19, 12), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: netDefaultGateway.setDescription('The IP Address of the default gateway.  If this value is\n            undefined or unknown, it shall have the value 0.0.0.0.')
-trapDestTable = MibTable((1, 3, 6, 1, 2, 1, 16, 19, 13), )
-if mibBuilder.loadTexts: trapDestTable.setDescription('A list of trap destination entries.')
-trapDestEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 19, 13, 1), ).setIndexNames((0, "RMON2-MIB", "trapDestIndex"))
-if mibBuilder.loadTexts: trapDestEntry.setDescription('This entry includes a destination IP address to which to send\n            traps for this community.')
-trapDestIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 13, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: trapDestIndex.setDescription('A value that uniquely identifies this trapDestEntry.')
-trapDestCommunity = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 13, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,127))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: trapDestCommunity.setDescription('A community to which this destination address belongs.\n            This entry is associated with any eventEntries in the RMON\n            MIB whose value of eventCommunity is equal to the value of\n            this object.  Every time an associated event entry sends a\n            trap due to an event, that trap will be sent to each\n            address in the trapDestTable with a trapDestCommunity equal to\n            eventCommunity.\n    \n            This object may not be modified if the associated\n            trapDestStatus object is equal to active(1).')
-trapDestProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 13, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("ip", 1), ("ipx", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: trapDestProtocol.setDescription('The protocol with which to send this trap.')
-trapDestAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 13, 1, 4), OctetString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: trapDestAddress.setDescription('The address to send traps on behalf of this entry.\n    \n            If the associated trapDestProtocol object is equal to ip(1),\n            the encoding of this object is the same as the snmpUDPAddress\n            textual convention in [RFC1906]:\n              -- for a SnmpUDPAddress of length 6:\n              --\n              -- octets   contents        encoding\n              --  1-4     IP-address      network-byte order\n              --  5-6     UDP-port        network-byte order\n    \n            If the associated trapDestProtocol object is equal to ipx(2),\n            the encoding of this object is the same as the snmpIPXAddress\n            textual convention in [RFC1906]:\n              -- for a SnmpIPXAddress of length 12:\n              --\n              -- octets   contents            encoding\n              --  1-4     network-number      network-byte order\n              --  5-10    physical-address    network-byte order\n              -- 11-12    socket-number       network-byte order\n    \n            This object may not be modified if the associated\n            trapDestStatus object is equal to active(1).')
-trapDestOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 13, 1, 5), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: trapDestOwner.setDescription('The entity that configured this entry and is\n            therefore using the resources assigned to it.')
-trapDestStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 13, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: trapDestStatus.setDescription('The status of this trap destination entry.\n    \n            An entry may not exist in the active state unless all\n            objects in the entry have an appropriate value.')
-serialConnectionTable = MibTable((1, 3, 6, 1, 2, 1, 16, 19, 14), )
-if mibBuilder.loadTexts: serialConnectionTable.setDescription('A list of serialConnectionEntries.')
-serialConnectionEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 19, 14, 1), ).setIndexNames((0, "RMON2-MIB", "serialConnectIndex"))
-if mibBuilder.loadTexts: serialConnectionEntry.setDescription('Configuration for a SLIP link over a serial line.')
-serialConnectIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 14, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: serialConnectIndex.setDescription('A value that uniquely identifies this serialConnection\n            entry.')
-serialConnectDestIpAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 14, 1, 2), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serialConnectDestIpAddress.setDescription('The IP Address that can be reached at the other end of this\n            serial connection.\n            This object may not be modified if the associated\n            serialConnectStatus object is equal to active(1).')
-serialConnectType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 14, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("direct", 1), ("modem", 2), ("switch", 3), ("modemSwitch", 4),)).clone('direct')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serialConnectType.setDescription('The type of outgoing connection to make.  If this object\n            has the value direct(1), then a direct serial connection\n            is assumed.  If this object has the value modem(2),\n            then serialConnectDialString will be used to make a modem\n            connection.  If this object has the value switch(3),\n            then serialConnectSwitchConnectSeq will be used to establish\n            the connection over a serial data switch, and\n            serialConnectSwitchDisconnectSeq will be used to terminate\n            the connection.  If this object has the value\n            modem-switch(4), then a modem connection will be made first\n            followed by the switch connection.\n    \n            This object may not be modified if the associated\n            serialConnectStatus object is equal to active(1).')
-serialConnectDialString = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 14, 1, 4), ControlString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serialConnectDialString.setDescription("A control string which specifies how to dial the phone\n            number in order to establish a modem connection.  The\n            string should include dialing prefix and suffix.  For\n            example: ``^s^MATD9,888-1234^M'' will instruct the Probe\n            to send a carriage return followed by the dialing prefix\n            ``ATD'', the phone number ``9,888-1234'', and a carriage\n            return as the dialing suffix.\n            This object may not be modified if the associated\n            serialConnectStatus object is equal to active(1).")
-serialConnectSwitchConnectSeq = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 14, 1, 5), ControlString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serialConnectSwitchConnectSeq.setDescription('A control string which specifies how to establish a\n            data switch connection.\n            This object may not be modified if the associated\n            serialConnectStatus object is equal to active(1).')
-serialConnectSwitchDisconnectSeq = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 14, 1, 6), ControlString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serialConnectSwitchDisconnectSeq.setDescription('A control string which specifies how to terminate a\n            data switch connection.\n            This object may not be modified if the associated\n            serialConnectStatus object is equal to active(1).')
-serialConnectSwitchResetSeq = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 14, 1, 7), ControlString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serialConnectSwitchResetSeq.setDescription('A control string which specifies how to reset a data\n            switch in the event of a timeout.\n            This object may not be modified if the associated\n            serialConnectStatus object is equal to active(1).')
-serialConnectOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 14, 1, 8), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serialConnectOwner.setDescription('The entity that configured this entry and is\n            therefore using the resources assigned to it.')
-serialConnectStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 19, 14, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: serialConnectStatus.setDescription('The status of this serialConnectionEntry.\n    \n            If the manager attempts to set this object to active(1) when\n            the serialConnectType is set to modem(2) or modem-switch(4)\n            and the serialConnectDialString is a zero-length string or\n            cannot be correctly parsed as a ConnectString, the set\n            request will be rejected with badValue(3).\n    \n            If the manager attempts to set this object to active(1) when\n            the serialConnectType is set to switch(3) or modem-switch(4)\n            and the serialConnectSwitchConnectSeq,\n            the serialConnectSwitchDisconnectSeq, or\n            the serialConnectSwitchResetSeq are zero-length strings\n            or cannot be correctly parsed as ConnectStrings, the set\n            request will be rejected with badValue(3).\n    \n            An entry may not exist in the active state unless all\n            objects in the entry have an appropriate value.')
-etherStats2Table = MibTable((1, 3, 6, 1, 2, 1, 16, 1, 4), )
-if mibBuilder.loadTexts: etherStats2Table.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-etherStats2Entry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 1, 4, 1), )
-etherStatsEntry.registerAugmentions(("RMON2-MIB", "etherStats2Entry"))
+_Cz='alMatrixGroup'
+_Cy='alHostGroup'
+_Cx='sourceRoutingStatsCreateTime'
+_Cw='sourceRoutingStatsDroppedFrames'
+_Cv='ringStationControlCreateTime'
+_Cu='ringStationControlDroppedFrames'
+_Ct='tokenRingPStatsCreateTime'
+_Cs='tokenRingPStatsDroppedFrames'
+_Cr='tokenRingMLStatsCreateTime'
+_Cq='tokenRingMLStatsDroppedFrames'
+_Cp='etherStatsCreateTime'
+_Co='etherStatsDroppedFrames'
+_Cn='filterProtocolDirLocalIndex'
+_Cm='filterProtocolDirDataLocalIndex'
+_Cl='channelCreateTime'
+_Ck='channelDroppedFrames'
+_Cj='matrixControlCreateTime'
+_Ci='matrixControlDroppedFrames'
+_Ch='hostControlCreateTime'
+_Cg='hostControlDroppedFrames'
+_Cf='historyControlDroppedFrames'
+_Ce='serialConnectStatus'
+_Cd='serialConnectOwner'
+_Cc='serialConnectSwitchResetSeq'
+_Cb='serialConnectSwitchDisconnectSeq'
+_Ca='serialConnectSwitchConnectSeq'
+_CZ='serialConnectDialString'
+_CY='serialConnectType'
+_CX='serialConnectDestIpAddress'
+_CW='trapDestStatus'
+_CV='trapDestOwner'
+_CU='trapDestAddress'
+_CT='trapDestProtocol'
+_CS='trapDestCommunity'
+_CR='netDefaultGateway'
+_CQ='netConfigStatus'
+_CP='netConfigSubnetMask'
+_CO='netConfigIPAddress'
+_CN='serialStatus'
+_CM='serialDialoutTimeout'
+_CL='serialModemNoConnectResp'
+_CK='serialModemConnectResp'
+_CJ='serialModemHangUpString'
+_CI='serialModemInitString'
+_CH='serialTimeout'
+_CG='serialProtocol'
+_CF='serialMode'
+_CE='probeDownloadStatus'
+_CD='probeDownloadAction'
+_CC='probeDownloadTFTPServer'
+_CB='probeDownloadFile'
+_CA='probeResetControl'
+_C9='probeDateTime'
+_C8='probeHardwareRev'
+_C7='probeSoftwareRev'
+_C6='probeCapabilities'
+_C5='usrHistoryValStatus'
+_C4='usrHistoryAbsValue'
+_C3='usrHistoryIntervalEnd'
+_C2='usrHistoryIntervalStart'
+_C1='usrHistoryObjectSampleType'
+_C0='usrHistoryObjectVariable'
+_B_='usrHistoryControlStatus'
+_Bz='usrHistoryControlOwner'
+_By='usrHistoryControlInterval'
+_Bx='usrHistoryControlBucketsGranted'
+_Bw='usrHistoryControlBucketsRequested'
+_Bv='usrHistoryControlObjects'
+_Bu='alMatrixTopNReverseOctetRate'
+_Bt='alMatrixTopNOctetRate'
+_Bs='alMatrixTopNReversePktRate'
+_Br='alMatrixTopNPktRate'
+_Bq='alMatrixTopNAppProtocolDirLocalIndex'
+_Bp='alMatrixTopNDestAddress'
+_Bo='alMatrixTopNSourceAddress'
+_Bn='alMatrixTopNProtocolDirLocalIndex'
+_Bm='alMatrixTopNControlStatus'
+_Bl='alMatrixTopNControlOwner'
+_Bk='alMatrixTopNControlStartTime'
+_Bj='alMatrixTopNControlGrantedSize'
+_Bi='alMatrixTopNControlRequestedSize'
+_Bh='alMatrixTopNControlDuration'
+_Bg='alMatrixTopNControlGeneratedReports'
+_Bf='alMatrixTopNControlTimeRemaining'
+_Be='alMatrixTopNControlRateBase'
+_Bd='alMatrixTopNControlMatrixIndex'
+_Bc='alMatrixDSCreateTime'
+_Bb='alMatrixDSOctets'
+_Ba='alMatrixDSPkts'
+_BZ='alMatrixSDCreateTime'
+_BY='alMatrixSDOctets'
+_BX='alMatrixSDPkts'
+_BW='alHostCreateTime'
+_BV='alHostOutOctets'
+_BU='alHostInOctets'
+_BT='alHostOutPkts'
+_BS='alHostInPkts'
+_BR='nlMatrixTopNReverseOctetRate'
+_BQ='nlMatrixTopNOctetRate'
+_BP='nlMatrixTopNReversePktRate'
+_BO='nlMatrixTopNPktRate'
+_BN='nlMatrixTopNDestAddress'
+_BM='nlMatrixTopNSourceAddress'
+_BL='nlMatrixTopNProtocolDirLocalIndex'
+_BK='nlMatrixTopNControlStatus'
+_BJ='nlMatrixTopNControlOwner'
+_BI='nlMatrixTopNControlStartTime'
+_BH='nlMatrixTopNControlGrantedSize'
+_BG='nlMatrixTopNControlRequestedSize'
+_BF='nlMatrixTopNControlDuration'
+_BE='nlMatrixTopNControlGeneratedReports'
+_BD='nlMatrixTopNControlTimeRemaining'
+_BC='nlMatrixTopNControlRateBase'
+_BB='nlMatrixTopNControlMatrixIndex'
+_BA='nlMatrixDSCreateTime'
+_B9='nlMatrixDSOctets'
+_B8='nlMatrixDSPkts'
+_B7='nlMatrixSDCreateTime'
+_B6='nlMatrixSDOctets'
+_B5='nlMatrixSDPkts'
+_B4='hlMatrixControlStatus'
+_B3='hlMatrixControlOwner'
+_B2='hlMatrixControlAlMaxDesiredEntries'
+_B1='hlMatrixControlAlDeletes'
+_B0='hlMatrixControlAlInserts'
+_A_='hlMatrixControlAlDroppedFrames'
+_Az='hlMatrixControlNlMaxDesiredEntries'
+_Ay='hlMatrixControlNlDeletes'
+_Ax='hlMatrixControlNlInserts'
+_Aw='hlMatrixControlNlDroppedFrames'
+_Av='hlMatrixControlDataSource'
+_Au='nlHostCreateTime'
+_At='nlHostOutMacNonUnicastPkts'
+_As='nlHostOutOctets'
+_Ar='nlHostInOctets'
+_Aq='nlHostOutPkts'
+_Ap='nlHostInPkts'
+_Ao='hlHostControlStatus'
+_An='hlHostControlOwner'
+_Am='hlHostControlAlMaxDesiredEntries'
+_Al='hlHostControlAlDeletes'
+_Ak='hlHostControlAlInserts'
+_Aj='hlHostControlAlDroppedFrames'
+_Ai='hlHostControlNlMaxDesiredEntries'
+_Ah='hlHostControlNlDeletes'
+_Ag='hlHostControlNlInserts'
+_Af='hlHostControlNlDroppedFrames'
+_Ae='hlHostControlDataSource'
+_Ad='addressMapLastChange'
+_Ac='addressMapPhysicalAddress'
+_Ab='addressMapControlStatus'
+_Aa='addressMapControlOwner'
+_AZ='addressMapControlDroppedFrames'
+_AY='addressMapControlDataSource'
+_AX='addressMapMaxDesiredEntries'
+_AW='addressMapDeletes'
+_AV='addressMapInserts'
+_AU='protocolDistStatsOctets'
+_AT='protocolDistStatsPkts'
+_AS='protocolDistControlStatus'
+_AR='protocolDistControlOwner'
+_AQ='protocolDistControlCreateTime'
+_AP='protocolDistControlDroppedFrames'
+_AO='protocolDistControlDataSource'
+_AN='protocolDirStatus'
+_AM='protocolDirOwner'
+_AL='protocolDirMatrixConfig'
+_AK='protocolDirHostConfig'
+_AJ='protocolDirAddressMapConfig'
+_AI='protocolDirType'
+_AH='protocolDirDescr'
+_AG='protocolDirLastChange'
+_AF='sourceRoutingStats2Entry'
+_AE='ringStationControl2Entry'
+_AD='filter2Entry'
+_AC='channel2Entry'
+_AB='matrixControl2Entry'
+_AA='hostControl2Entry'
+_A9='historyControl2Entry'
+_A8='tokenRingPStats2Entry'
+_A7='tokenRingMLStats2Entry'
+_A6='etherStats2Entry'
+_A5='serialConnectIndex'
+_A4='trapDestIndex'
+_A3='probeConfig'
+_A2='usrHistory'
+_A1='usrHistorySampleIndex'
+_A0='alMatrixTopNIndex'
+_z='alMatrixDSTimeMark'
+_y='alMatrixSDTimeMark'
+_x='alHostTimeMark'
+_w='nlMatrixTopNIndex'
+_v='nlMatrixDSTimeMark'
+_u='nlMatrixSDTimeMark'
+_t='nlHostTimeMark'
+_s='addressMapSource'
+_r='addressMapNetworkAddress'
+_q='addressMapTimeMark'
+_p='addressMapControlIndex'
+_o='protocolDirParameters'
+_n='protocolDirID'
+_m='matrix'
+_l='filter'
+_k='probeInformationGroup'
+_j='usrHistoryGroup'
+_i='nlMatrixGroup'
+_h='nlHostGroup'
+_g='addressMapGroup'
+_f='protocolDistributionGroup'
+_e='protocolDirectoryGroup'
+_d='usrHistoryObjectIndex'
+_c='alMatrixTopNControlIndex'
+_b='nlMatrixTopNControlIndex'
+_a='nlMatrixDSSourceAddress'
+_Z='nlMatrixDSDestAddress'
+_Y='nlMatrixSDDestAddress'
+_X='nlMatrixSDSourceAddress'
+_W='nlHostAddress'
+_V='protocolDistControlIndex'
+_U='supportedOn'
+_T='supportedOff'
+_S='notSupported'
+_R='Bits'
+_Q='ifIndex'
+_P='IF-MIB'
+_O='usrHistoryControlIndex'
+_N='hlHostControlIndex'
+_M='hlMatrixControlIndex'
+_L='ControlString'
+_K='read-write'
+_J='DisplayString'
+_I='protocolDirLocalIndex'
+_H='OctetString'
+_G='not-accessible'
+_F='Integer32'
+_E='deprecated'
+_D='read-create'
+_C='read-only'
+_B='current'
+_A='RMON2-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_H,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ifIndex,=mibBuilder.importSymbols(_P,_Q)
+OwnerString,channelEntry,etherStatsEntry,filter,filterEntry,history,historyControlEntry,hostControlEntry,hosts,matrix,matrixControlEntry,statistics=mibBuilder.importSymbols('RMON-MIB','OwnerString','channelEntry','etherStatsEntry',_l,'filterEntry','history','historyControlEntry','hostControlEntry','hosts',_m,'matrixControlEntry','statistics')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI',_R,'Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC',_J,'PhysAddress','RowStatus','TextualConvention','TimeStamp')
+ringStationControlEntry,sourceRoutingStatsEntry,tokenRing,tokenRingMLStatsEntry,tokenRingPStatsEntry=mibBuilder.importSymbols('TOKEN-RING-RMON-MIB','ringStationControlEntry','sourceRoutingStatsEntry','tokenRing','tokenRingMLStatsEntry','tokenRingPStatsEntry')
+rmon=ModuleIdentity((1,3,6,1,2,1,16))
+if mibBuilder.loadTexts:rmon.setRevisions(('2006-05-02 00:00','2002-07-08 00:00','1996-05-27 00:00'))
+class ZeroBasedCounter32(TextualConvention,Gauge32):status=_B
+class LastCreateTime(TextualConvention,TimeTicks):status=_B
+class TimeFilter(TextualConvention,TimeTicks):status=_B
+class DataSource(TextualConvention,ObjectIdentifier):status=_B
+class ControlString(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_EtherStats2Table_Object=MibTable
+etherStats2Table=_EtherStats2Table_Object((1,3,6,1,2,1,16,1,4))
+if mibBuilder.loadTexts:etherStats2Table.setStatus(_B)
+_EtherStats2Entry_Object=MibTableRow
+etherStats2Entry=_EtherStats2Entry_Object((1,3,6,1,2,1,16,1,4,1))
+if mibBuilder.loadTexts:etherStats2Entry.setStatus(_B)
+_EtherStatsDroppedFrames_Type=Counter32
+_EtherStatsDroppedFrames_Object=MibTableColumn
+etherStatsDroppedFrames=_EtherStatsDroppedFrames_Object((1,3,6,1,2,1,16,1,4,1,1),_EtherStatsDroppedFrames_Type())
+etherStatsDroppedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:etherStatsDroppedFrames.setStatus(_B)
+_EtherStatsCreateTime_Type=LastCreateTime
+_EtherStatsCreateTime_Object=MibTableColumn
+etherStatsCreateTime=_EtherStatsCreateTime_Object((1,3,6,1,2,1,16,1,4,1,2),_EtherStatsCreateTime_Type())
+etherStatsCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:etherStatsCreateTime.setStatus(_B)
+_TokenRingMLStats2Table_Object=MibTable
+tokenRingMLStats2Table=_TokenRingMLStats2Table_Object((1,3,6,1,2,1,16,1,5))
+if mibBuilder.loadTexts:tokenRingMLStats2Table.setStatus(_E)
+_TokenRingMLStats2Entry_Object=MibTableRow
+tokenRingMLStats2Entry=_TokenRingMLStats2Entry_Object((1,3,6,1,2,1,16,1,5,1))
+if mibBuilder.loadTexts:tokenRingMLStats2Entry.setStatus(_E)
+_TokenRingMLStatsDroppedFrames_Type=Counter32
+_TokenRingMLStatsDroppedFrames_Object=MibTableColumn
+tokenRingMLStatsDroppedFrames=_TokenRingMLStatsDroppedFrames_Object((1,3,6,1,2,1,16,1,5,1,1),_TokenRingMLStatsDroppedFrames_Type())
+tokenRingMLStatsDroppedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:tokenRingMLStatsDroppedFrames.setStatus(_E)
+_TokenRingMLStatsCreateTime_Type=LastCreateTime
+_TokenRingMLStatsCreateTime_Object=MibTableColumn
+tokenRingMLStatsCreateTime=_TokenRingMLStatsCreateTime_Object((1,3,6,1,2,1,16,1,5,1,2),_TokenRingMLStatsCreateTime_Type())
+tokenRingMLStatsCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:tokenRingMLStatsCreateTime.setStatus(_E)
+_TokenRingPStats2Table_Object=MibTable
+tokenRingPStats2Table=_TokenRingPStats2Table_Object((1,3,6,1,2,1,16,1,6))
+if mibBuilder.loadTexts:tokenRingPStats2Table.setStatus(_E)
+_TokenRingPStats2Entry_Object=MibTableRow
+tokenRingPStats2Entry=_TokenRingPStats2Entry_Object((1,3,6,1,2,1,16,1,6,1))
+if mibBuilder.loadTexts:tokenRingPStats2Entry.setStatus(_E)
+_TokenRingPStatsDroppedFrames_Type=Counter32
+_TokenRingPStatsDroppedFrames_Object=MibTableColumn
+tokenRingPStatsDroppedFrames=_TokenRingPStatsDroppedFrames_Object((1,3,6,1,2,1,16,1,6,1,1),_TokenRingPStatsDroppedFrames_Type())
+tokenRingPStatsDroppedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:tokenRingPStatsDroppedFrames.setStatus(_E)
+_TokenRingPStatsCreateTime_Type=LastCreateTime
+_TokenRingPStatsCreateTime_Object=MibTableColumn
+tokenRingPStatsCreateTime=_TokenRingPStatsCreateTime_Object((1,3,6,1,2,1,16,1,6,1,2),_TokenRingPStatsCreateTime_Type())
+tokenRingPStatsCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:tokenRingPStatsCreateTime.setStatus(_E)
+_HistoryControl2Table_Object=MibTable
+historyControl2Table=_HistoryControl2Table_Object((1,3,6,1,2,1,16,2,5))
+if mibBuilder.loadTexts:historyControl2Table.setStatus(_B)
+_HistoryControl2Entry_Object=MibTableRow
+historyControl2Entry=_HistoryControl2Entry_Object((1,3,6,1,2,1,16,2,5,1))
+if mibBuilder.loadTexts:historyControl2Entry.setStatus(_B)
+_HistoryControlDroppedFrames_Type=Counter32
+_HistoryControlDroppedFrames_Object=MibTableColumn
+historyControlDroppedFrames=_HistoryControlDroppedFrames_Object((1,3,6,1,2,1,16,2,5,1,1),_HistoryControlDroppedFrames_Type())
+historyControlDroppedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:historyControlDroppedFrames.setStatus(_B)
+_HostControl2Table_Object=MibTable
+hostControl2Table=_HostControl2Table_Object((1,3,6,1,2,1,16,4,4))
+if mibBuilder.loadTexts:hostControl2Table.setStatus(_B)
+_HostControl2Entry_Object=MibTableRow
+hostControl2Entry=_HostControl2Entry_Object((1,3,6,1,2,1,16,4,4,1))
+if mibBuilder.loadTexts:hostControl2Entry.setStatus(_B)
+_HostControlDroppedFrames_Type=Counter32
+_HostControlDroppedFrames_Object=MibTableColumn
+hostControlDroppedFrames=_HostControlDroppedFrames_Object((1,3,6,1,2,1,16,4,4,1,1),_HostControlDroppedFrames_Type())
+hostControlDroppedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:hostControlDroppedFrames.setStatus(_B)
+_HostControlCreateTime_Type=LastCreateTime
+_HostControlCreateTime_Object=MibTableColumn
+hostControlCreateTime=_HostControlCreateTime_Object((1,3,6,1,2,1,16,4,4,1,2),_HostControlCreateTime_Type())
+hostControlCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:hostControlCreateTime.setStatus(_B)
+_MatrixControl2Table_Object=MibTable
+matrixControl2Table=_MatrixControl2Table_Object((1,3,6,1,2,1,16,6,4))
+if mibBuilder.loadTexts:matrixControl2Table.setStatus(_B)
+_MatrixControl2Entry_Object=MibTableRow
+matrixControl2Entry=_MatrixControl2Entry_Object((1,3,6,1,2,1,16,6,4,1))
+if mibBuilder.loadTexts:matrixControl2Entry.setStatus(_B)
+_MatrixControlDroppedFrames_Type=Counter32
+_MatrixControlDroppedFrames_Object=MibTableColumn
+matrixControlDroppedFrames=_MatrixControlDroppedFrames_Object((1,3,6,1,2,1,16,6,4,1,1),_MatrixControlDroppedFrames_Type())
+matrixControlDroppedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:matrixControlDroppedFrames.setStatus(_B)
+_MatrixControlCreateTime_Type=LastCreateTime
+_MatrixControlCreateTime_Object=MibTableColumn
+matrixControlCreateTime=_MatrixControlCreateTime_Object((1,3,6,1,2,1,16,6,4,1,2),_MatrixControlCreateTime_Type())
+matrixControlCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:matrixControlCreateTime.setStatus(_B)
+_Channel2Table_Object=MibTable
+channel2Table=_Channel2Table_Object((1,3,6,1,2,1,16,7,3))
+if mibBuilder.loadTexts:channel2Table.setStatus(_B)
+_Channel2Entry_Object=MibTableRow
+channel2Entry=_Channel2Entry_Object((1,3,6,1,2,1,16,7,3,1))
+if mibBuilder.loadTexts:channel2Entry.setStatus(_B)
+_ChannelDroppedFrames_Type=Counter32
+_ChannelDroppedFrames_Object=MibTableColumn
+channelDroppedFrames=_ChannelDroppedFrames_Object((1,3,6,1,2,1,16,7,3,1,1),_ChannelDroppedFrames_Type())
+channelDroppedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:channelDroppedFrames.setStatus(_B)
+_ChannelCreateTime_Type=LastCreateTime
+_ChannelCreateTime_Object=MibTableColumn
+channelCreateTime=_ChannelCreateTime_Object((1,3,6,1,2,1,16,7,3,1,2),_ChannelCreateTime_Type())
+channelCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:channelCreateTime.setStatus(_B)
+_Filter2Table_Object=MibTable
+filter2Table=_Filter2Table_Object((1,3,6,1,2,1,16,7,4))
+if mibBuilder.loadTexts:filter2Table.setStatus(_B)
+_Filter2Entry_Object=MibTableRow
+filter2Entry=_Filter2Entry_Object((1,3,6,1,2,1,16,7,4,1))
+if mibBuilder.loadTexts:filter2Entry.setStatus(_B)
+class _FilterProtocolDirDataLocalIndex_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_FilterProtocolDirDataLocalIndex_Type.__name__=_F
+_FilterProtocolDirDataLocalIndex_Object=MibTableColumn
+filterProtocolDirDataLocalIndex=_FilterProtocolDirDataLocalIndex_Object((1,3,6,1,2,1,16,7,4,1,1),_FilterProtocolDirDataLocalIndex_Type())
+filterProtocolDirDataLocalIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:filterProtocolDirDataLocalIndex.setStatus(_B)
+class _FilterProtocolDirLocalIndex_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_FilterProtocolDirLocalIndex_Type.__name__=_F
+_FilterProtocolDirLocalIndex_Object=MibTableColumn
+filterProtocolDirLocalIndex=_FilterProtocolDirLocalIndex_Object((1,3,6,1,2,1,16,7,4,1,2),_FilterProtocolDirLocalIndex_Type())
+filterProtocolDirLocalIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:filterProtocolDirLocalIndex.setStatus(_B)
+_RingStationControl2Table_Object=MibTable
+ringStationControl2Table=_RingStationControl2Table_Object((1,3,6,1,2,1,16,10,7))
+if mibBuilder.loadTexts:ringStationControl2Table.setStatus(_E)
+_RingStationControl2Entry_Object=MibTableRow
+ringStationControl2Entry=_RingStationControl2Entry_Object((1,3,6,1,2,1,16,10,7,1))
+if mibBuilder.loadTexts:ringStationControl2Entry.setStatus(_E)
+_RingStationControlDroppedFrames_Type=Counter32
+_RingStationControlDroppedFrames_Object=MibTableColumn
+ringStationControlDroppedFrames=_RingStationControlDroppedFrames_Object((1,3,6,1,2,1,16,10,7,1,1),_RingStationControlDroppedFrames_Type())
+ringStationControlDroppedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:ringStationControlDroppedFrames.setStatus(_E)
+_RingStationControlCreateTime_Type=LastCreateTime
+_RingStationControlCreateTime_Object=MibTableColumn
+ringStationControlCreateTime=_RingStationControlCreateTime_Object((1,3,6,1,2,1,16,10,7,1,2),_RingStationControlCreateTime_Type())
+ringStationControlCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:ringStationControlCreateTime.setStatus(_E)
+_SourceRoutingStats2Table_Object=MibTable
+sourceRoutingStats2Table=_SourceRoutingStats2Table_Object((1,3,6,1,2,1,16,10,8))
+if mibBuilder.loadTexts:sourceRoutingStats2Table.setStatus(_E)
+_SourceRoutingStats2Entry_Object=MibTableRow
+sourceRoutingStats2Entry=_SourceRoutingStats2Entry_Object((1,3,6,1,2,1,16,10,8,1))
+if mibBuilder.loadTexts:sourceRoutingStats2Entry.setStatus(_E)
+_SourceRoutingStatsDroppedFrames_Type=Counter32
+_SourceRoutingStatsDroppedFrames_Object=MibTableColumn
+sourceRoutingStatsDroppedFrames=_SourceRoutingStatsDroppedFrames_Object((1,3,6,1,2,1,16,10,8,1,1),_SourceRoutingStatsDroppedFrames_Type())
+sourceRoutingStatsDroppedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:sourceRoutingStatsDroppedFrames.setStatus(_E)
+_SourceRoutingStatsCreateTime_Type=LastCreateTime
+_SourceRoutingStatsCreateTime_Object=MibTableColumn
+sourceRoutingStatsCreateTime=_SourceRoutingStatsCreateTime_Object((1,3,6,1,2,1,16,10,8,1,2),_SourceRoutingStatsCreateTime_Type())
+sourceRoutingStatsCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:sourceRoutingStatsCreateTime.setStatus(_E)
+_ProtocolDir_ObjectIdentity=ObjectIdentity
+protocolDir=_ProtocolDir_ObjectIdentity((1,3,6,1,2,1,16,11))
+_ProtocolDirLastChange_Type=TimeStamp
+_ProtocolDirLastChange_Object=MibScalar
+protocolDirLastChange=_ProtocolDirLastChange_Object((1,3,6,1,2,1,16,11,1),_ProtocolDirLastChange_Type())
+protocolDirLastChange.setMaxAccess(_C)
+if mibBuilder.loadTexts:protocolDirLastChange.setStatus(_B)
+_ProtocolDirTable_Object=MibTable
+protocolDirTable=_ProtocolDirTable_Object((1,3,6,1,2,1,16,11,2))
+if mibBuilder.loadTexts:protocolDirTable.setStatus(_B)
+_ProtocolDirEntry_Object=MibTableRow
+protocolDirEntry=_ProtocolDirEntry_Object((1,3,6,1,2,1,16,11,2,1))
+protocolDirEntry.setIndexNames((0,_A,_n),(0,_A,_o))
+if mibBuilder.loadTexts:protocolDirEntry.setStatus(_B)
+class _ProtocolDirID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,128))
+_ProtocolDirID_Type.__name__=_H
+_ProtocolDirID_Object=MibTableColumn
+protocolDirID=_ProtocolDirID_Object((1,3,6,1,2,1,16,11,2,1,1),_ProtocolDirID_Type())
+protocolDirID.setMaxAccess(_G)
+if mibBuilder.loadTexts:protocolDirID.setStatus(_B)
+class _ProtocolDirParameters_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_ProtocolDirParameters_Type.__name__=_H
+_ProtocolDirParameters_Object=MibTableColumn
+protocolDirParameters=_ProtocolDirParameters_Object((1,3,6,1,2,1,16,11,2,1,2),_ProtocolDirParameters_Type())
+protocolDirParameters.setMaxAccess(_G)
+if mibBuilder.loadTexts:protocolDirParameters.setStatus(_B)
+class _ProtocolDirLocalIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_ProtocolDirLocalIndex_Type.__name__=_F
+_ProtocolDirLocalIndex_Object=MibTableColumn
+protocolDirLocalIndex=_ProtocolDirLocalIndex_Object((1,3,6,1,2,1,16,11,2,1,3),_ProtocolDirLocalIndex_Type())
+protocolDirLocalIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:protocolDirLocalIndex.setStatus(_B)
+class _ProtocolDirDescr_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,64))
+_ProtocolDirDescr_Type.__name__=_J
+_ProtocolDirDescr_Object=MibTableColumn
+protocolDirDescr=_ProtocolDirDescr_Object((1,3,6,1,2,1,16,11,2,1,4),_ProtocolDirDescr_Type())
+protocolDirDescr.setMaxAccess(_D)
+if mibBuilder.loadTexts:protocolDirDescr.setStatus(_B)
+class _ProtocolDirType_Type(Bits):namedValues=NamedValues(*(('extensible',0),('addressRecognitionCapable',1)))
+_ProtocolDirType_Type.__name__=_R
+_ProtocolDirType_Object=MibTableColumn
+protocolDirType=_ProtocolDirType_Object((1,3,6,1,2,1,16,11,2,1,5),_ProtocolDirType_Type())
+protocolDirType.setMaxAccess(_C)
+if mibBuilder.loadTexts:protocolDirType.setStatus(_B)
+class _ProtocolDirAddressMapConfig_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_S,1),(_T,2),(_U,3)))
+_ProtocolDirAddressMapConfig_Type.__name__=_F
+_ProtocolDirAddressMapConfig_Object=MibTableColumn
+protocolDirAddressMapConfig=_ProtocolDirAddressMapConfig_Object((1,3,6,1,2,1,16,11,2,1,6),_ProtocolDirAddressMapConfig_Type())
+protocolDirAddressMapConfig.setMaxAccess(_D)
+if mibBuilder.loadTexts:protocolDirAddressMapConfig.setStatus(_B)
+class _ProtocolDirHostConfig_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_S,1),(_T,2),(_U,3)))
+_ProtocolDirHostConfig_Type.__name__=_F
+_ProtocolDirHostConfig_Object=MibTableColumn
+protocolDirHostConfig=_ProtocolDirHostConfig_Object((1,3,6,1,2,1,16,11,2,1,7),_ProtocolDirHostConfig_Type())
+protocolDirHostConfig.setMaxAccess(_D)
+if mibBuilder.loadTexts:protocolDirHostConfig.setStatus(_B)
+class _ProtocolDirMatrixConfig_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_S,1),(_T,2),(_U,3)))
+_ProtocolDirMatrixConfig_Type.__name__=_F
+_ProtocolDirMatrixConfig_Object=MibTableColumn
+protocolDirMatrixConfig=_ProtocolDirMatrixConfig_Object((1,3,6,1,2,1,16,11,2,1,8),_ProtocolDirMatrixConfig_Type())
+protocolDirMatrixConfig.setMaxAccess(_D)
+if mibBuilder.loadTexts:protocolDirMatrixConfig.setStatus(_B)
+_ProtocolDirOwner_Type=OwnerString
+_ProtocolDirOwner_Object=MibTableColumn
+protocolDirOwner=_ProtocolDirOwner_Object((1,3,6,1,2,1,16,11,2,1,9),_ProtocolDirOwner_Type())
+protocolDirOwner.setMaxAccess(_D)
+if mibBuilder.loadTexts:protocolDirOwner.setStatus(_B)
+_ProtocolDirStatus_Type=RowStatus
+_ProtocolDirStatus_Object=MibTableColumn
+protocolDirStatus=_ProtocolDirStatus_Object((1,3,6,1,2,1,16,11,2,1,10),_ProtocolDirStatus_Type())
+protocolDirStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:protocolDirStatus.setStatus(_B)
+_ProtocolDist_ObjectIdentity=ObjectIdentity
+protocolDist=_ProtocolDist_ObjectIdentity((1,3,6,1,2,1,16,12))
+_ProtocolDistControlTable_Object=MibTable
+protocolDistControlTable=_ProtocolDistControlTable_Object((1,3,6,1,2,1,16,12,1))
+if mibBuilder.loadTexts:protocolDistControlTable.setStatus(_B)
+_ProtocolDistControlEntry_Object=MibTableRow
+protocolDistControlEntry=_ProtocolDistControlEntry_Object((1,3,6,1,2,1,16,12,1,1))
+protocolDistControlEntry.setIndexNames((0,_A,_V))
+if mibBuilder.loadTexts:protocolDistControlEntry.setStatus(_B)
+class _ProtocolDistControlIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_ProtocolDistControlIndex_Type.__name__=_F
+_ProtocolDistControlIndex_Object=MibTableColumn
+protocolDistControlIndex=_ProtocolDistControlIndex_Object((1,3,6,1,2,1,16,12,1,1,1),_ProtocolDistControlIndex_Type())
+protocolDistControlIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:protocolDistControlIndex.setStatus(_B)
+_ProtocolDistControlDataSource_Type=DataSource
+_ProtocolDistControlDataSource_Object=MibTableColumn
+protocolDistControlDataSource=_ProtocolDistControlDataSource_Object((1,3,6,1,2,1,16,12,1,1,2),_ProtocolDistControlDataSource_Type())
+protocolDistControlDataSource.setMaxAccess(_D)
+if mibBuilder.loadTexts:protocolDistControlDataSource.setStatus(_B)
+_ProtocolDistControlDroppedFrames_Type=Counter32
+_ProtocolDistControlDroppedFrames_Object=MibTableColumn
+protocolDistControlDroppedFrames=_ProtocolDistControlDroppedFrames_Object((1,3,6,1,2,1,16,12,1,1,3),_ProtocolDistControlDroppedFrames_Type())
+protocolDistControlDroppedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:protocolDistControlDroppedFrames.setStatus(_B)
+_ProtocolDistControlCreateTime_Type=LastCreateTime
+_ProtocolDistControlCreateTime_Object=MibTableColumn
+protocolDistControlCreateTime=_ProtocolDistControlCreateTime_Object((1,3,6,1,2,1,16,12,1,1,4),_ProtocolDistControlCreateTime_Type())
+protocolDistControlCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:protocolDistControlCreateTime.setStatus(_B)
+_ProtocolDistControlOwner_Type=OwnerString
+_ProtocolDistControlOwner_Object=MibTableColumn
+protocolDistControlOwner=_ProtocolDistControlOwner_Object((1,3,6,1,2,1,16,12,1,1,5),_ProtocolDistControlOwner_Type())
+protocolDistControlOwner.setMaxAccess(_D)
+if mibBuilder.loadTexts:protocolDistControlOwner.setStatus(_B)
+_ProtocolDistControlStatus_Type=RowStatus
+_ProtocolDistControlStatus_Object=MibTableColumn
+protocolDistControlStatus=_ProtocolDistControlStatus_Object((1,3,6,1,2,1,16,12,1,1,6),_ProtocolDistControlStatus_Type())
+protocolDistControlStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:protocolDistControlStatus.setStatus(_B)
+_ProtocolDistStatsTable_Object=MibTable
+protocolDistStatsTable=_ProtocolDistStatsTable_Object((1,3,6,1,2,1,16,12,2))
+if mibBuilder.loadTexts:protocolDistStatsTable.setStatus(_B)
+_ProtocolDistStatsEntry_Object=MibTableRow
+protocolDistStatsEntry=_ProtocolDistStatsEntry_Object((1,3,6,1,2,1,16,12,2,1))
+protocolDistStatsEntry.setIndexNames((0,_A,_V),(0,_A,_I))
+if mibBuilder.loadTexts:protocolDistStatsEntry.setStatus(_B)
+_ProtocolDistStatsPkts_Type=ZeroBasedCounter32
+_ProtocolDistStatsPkts_Object=MibTableColumn
+protocolDistStatsPkts=_ProtocolDistStatsPkts_Object((1,3,6,1,2,1,16,12,2,1,1),_ProtocolDistStatsPkts_Type())
+protocolDistStatsPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:protocolDistStatsPkts.setStatus(_B)
+_ProtocolDistStatsOctets_Type=ZeroBasedCounter32
+_ProtocolDistStatsOctets_Object=MibTableColumn
+protocolDistStatsOctets=_ProtocolDistStatsOctets_Object((1,3,6,1,2,1,16,12,2,1,2),_ProtocolDistStatsOctets_Type())
+protocolDistStatsOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:protocolDistStatsOctets.setStatus(_B)
+_AddressMap_ObjectIdentity=ObjectIdentity
+addressMap=_AddressMap_ObjectIdentity((1,3,6,1,2,1,16,13))
+_AddressMapInserts_Type=Counter32
+_AddressMapInserts_Object=MibScalar
+addressMapInserts=_AddressMapInserts_Object((1,3,6,1,2,1,16,13,1),_AddressMapInserts_Type())
+addressMapInserts.setMaxAccess(_C)
+if mibBuilder.loadTexts:addressMapInserts.setStatus(_B)
+_AddressMapDeletes_Type=Counter32
+_AddressMapDeletes_Object=MibScalar
+addressMapDeletes=_AddressMapDeletes_Object((1,3,6,1,2,1,16,13,2),_AddressMapDeletes_Type())
+addressMapDeletes.setMaxAccess(_C)
+if mibBuilder.loadTexts:addressMapDeletes.setStatus(_B)
+class _AddressMapMaxDesiredEntries_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
+_AddressMapMaxDesiredEntries_Type.__name__=_F
+_AddressMapMaxDesiredEntries_Object=MibScalar
+addressMapMaxDesiredEntries=_AddressMapMaxDesiredEntries_Object((1,3,6,1,2,1,16,13,3),_AddressMapMaxDesiredEntries_Type())
+addressMapMaxDesiredEntries.setMaxAccess(_K)
+if mibBuilder.loadTexts:addressMapMaxDesiredEntries.setStatus(_B)
+_AddressMapControlTable_Object=MibTable
+addressMapControlTable=_AddressMapControlTable_Object((1,3,6,1,2,1,16,13,4))
+if mibBuilder.loadTexts:addressMapControlTable.setStatus(_B)
+_AddressMapControlEntry_Object=MibTableRow
+addressMapControlEntry=_AddressMapControlEntry_Object((1,3,6,1,2,1,16,13,4,1))
+addressMapControlEntry.setIndexNames((0,_A,_p))
+if mibBuilder.loadTexts:addressMapControlEntry.setStatus(_B)
+class _AddressMapControlIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_AddressMapControlIndex_Type.__name__=_F
+_AddressMapControlIndex_Object=MibTableColumn
+addressMapControlIndex=_AddressMapControlIndex_Object((1,3,6,1,2,1,16,13,4,1,1),_AddressMapControlIndex_Type())
+addressMapControlIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:addressMapControlIndex.setStatus(_B)
+_AddressMapControlDataSource_Type=DataSource
+_AddressMapControlDataSource_Object=MibTableColumn
+addressMapControlDataSource=_AddressMapControlDataSource_Object((1,3,6,1,2,1,16,13,4,1,2),_AddressMapControlDataSource_Type())
+addressMapControlDataSource.setMaxAccess(_D)
+if mibBuilder.loadTexts:addressMapControlDataSource.setStatus(_B)
+_AddressMapControlDroppedFrames_Type=Counter32
+_AddressMapControlDroppedFrames_Object=MibTableColumn
+addressMapControlDroppedFrames=_AddressMapControlDroppedFrames_Object((1,3,6,1,2,1,16,13,4,1,3),_AddressMapControlDroppedFrames_Type())
+addressMapControlDroppedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:addressMapControlDroppedFrames.setStatus(_B)
+_AddressMapControlOwner_Type=OwnerString
+_AddressMapControlOwner_Object=MibTableColumn
+addressMapControlOwner=_AddressMapControlOwner_Object((1,3,6,1,2,1,16,13,4,1,4),_AddressMapControlOwner_Type())
+addressMapControlOwner.setMaxAccess(_D)
+if mibBuilder.loadTexts:addressMapControlOwner.setStatus(_B)
+_AddressMapControlStatus_Type=RowStatus
+_AddressMapControlStatus_Object=MibTableColumn
+addressMapControlStatus=_AddressMapControlStatus_Object((1,3,6,1,2,1,16,13,4,1,5),_AddressMapControlStatus_Type())
+addressMapControlStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:addressMapControlStatus.setStatus(_B)
+_AddressMapTable_Object=MibTable
+addressMapTable=_AddressMapTable_Object((1,3,6,1,2,1,16,13,5))
+if mibBuilder.loadTexts:addressMapTable.setStatus(_B)
+_AddressMapEntry_Object=MibTableRow
+addressMapEntry=_AddressMapEntry_Object((1,3,6,1,2,1,16,13,5,1))
+addressMapEntry.setIndexNames((0,_A,_q),(0,_A,_I),(0,_A,_r),(0,_A,_s))
+if mibBuilder.loadTexts:addressMapEntry.setStatus(_B)
+_AddressMapTimeMark_Type=TimeFilter
+_AddressMapTimeMark_Object=MibTableColumn
+addressMapTimeMark=_AddressMapTimeMark_Object((1,3,6,1,2,1,16,13,5,1,1),_AddressMapTimeMark_Type())
+addressMapTimeMark.setMaxAccess(_G)
+if mibBuilder.loadTexts:addressMapTimeMark.setStatus(_B)
+class _AddressMapNetworkAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_AddressMapNetworkAddress_Type.__name__=_H
+_AddressMapNetworkAddress_Object=MibTableColumn
+addressMapNetworkAddress=_AddressMapNetworkAddress_Object((1,3,6,1,2,1,16,13,5,1,2),_AddressMapNetworkAddress_Type())
+addressMapNetworkAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:addressMapNetworkAddress.setStatus(_B)
+_AddressMapSource_Type=ObjectIdentifier
+_AddressMapSource_Object=MibTableColumn
+addressMapSource=_AddressMapSource_Object((1,3,6,1,2,1,16,13,5,1,3),_AddressMapSource_Type())
+addressMapSource.setMaxAccess(_G)
+if mibBuilder.loadTexts:addressMapSource.setStatus(_B)
+_AddressMapPhysicalAddress_Type=OctetString
+_AddressMapPhysicalAddress_Object=MibTableColumn
+addressMapPhysicalAddress=_AddressMapPhysicalAddress_Object((1,3,6,1,2,1,16,13,5,1,4),_AddressMapPhysicalAddress_Type())
+addressMapPhysicalAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:addressMapPhysicalAddress.setStatus(_B)
+_AddressMapLastChange_Type=TimeStamp
+_AddressMapLastChange_Object=MibTableColumn
+addressMapLastChange=_AddressMapLastChange_Object((1,3,6,1,2,1,16,13,5,1,5),_AddressMapLastChange_Type())
+addressMapLastChange.setMaxAccess(_C)
+if mibBuilder.loadTexts:addressMapLastChange.setStatus(_B)
+_NlHost_ObjectIdentity=ObjectIdentity
+nlHost=_NlHost_ObjectIdentity((1,3,6,1,2,1,16,14))
+_HlHostControlTable_Object=MibTable
+hlHostControlTable=_HlHostControlTable_Object((1,3,6,1,2,1,16,14,1))
+if mibBuilder.loadTexts:hlHostControlTable.setStatus(_B)
+_HlHostControlEntry_Object=MibTableRow
+hlHostControlEntry=_HlHostControlEntry_Object((1,3,6,1,2,1,16,14,1,1))
+hlHostControlEntry.setIndexNames((0,_A,_N))
+if mibBuilder.loadTexts:hlHostControlEntry.setStatus(_B)
+class _HlHostControlIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_HlHostControlIndex_Type.__name__=_F
+_HlHostControlIndex_Object=MibTableColumn
+hlHostControlIndex=_HlHostControlIndex_Object((1,3,6,1,2,1,16,14,1,1,1),_HlHostControlIndex_Type())
+hlHostControlIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:hlHostControlIndex.setStatus(_B)
+_HlHostControlDataSource_Type=DataSource
+_HlHostControlDataSource_Object=MibTableColumn
+hlHostControlDataSource=_HlHostControlDataSource_Object((1,3,6,1,2,1,16,14,1,1,2),_HlHostControlDataSource_Type())
+hlHostControlDataSource.setMaxAccess(_D)
+if mibBuilder.loadTexts:hlHostControlDataSource.setStatus(_B)
+_HlHostControlNlDroppedFrames_Type=Counter32
+_HlHostControlNlDroppedFrames_Object=MibTableColumn
+hlHostControlNlDroppedFrames=_HlHostControlNlDroppedFrames_Object((1,3,6,1,2,1,16,14,1,1,3),_HlHostControlNlDroppedFrames_Type())
+hlHostControlNlDroppedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:hlHostControlNlDroppedFrames.setStatus(_B)
+_HlHostControlNlInserts_Type=Counter32
+_HlHostControlNlInserts_Object=MibTableColumn
+hlHostControlNlInserts=_HlHostControlNlInserts_Object((1,3,6,1,2,1,16,14,1,1,4),_HlHostControlNlInserts_Type())
+hlHostControlNlInserts.setMaxAccess(_C)
+if mibBuilder.loadTexts:hlHostControlNlInserts.setStatus(_B)
+_HlHostControlNlDeletes_Type=Counter32
+_HlHostControlNlDeletes_Object=MibTableColumn
+hlHostControlNlDeletes=_HlHostControlNlDeletes_Object((1,3,6,1,2,1,16,14,1,1,5),_HlHostControlNlDeletes_Type())
+hlHostControlNlDeletes.setMaxAccess(_C)
+if mibBuilder.loadTexts:hlHostControlNlDeletes.setStatus(_B)
+class _HlHostControlNlMaxDesiredEntries_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
+_HlHostControlNlMaxDesiredEntries_Type.__name__=_F
+_HlHostControlNlMaxDesiredEntries_Object=MibTableColumn
+hlHostControlNlMaxDesiredEntries=_HlHostControlNlMaxDesiredEntries_Object((1,3,6,1,2,1,16,14,1,1,6),_HlHostControlNlMaxDesiredEntries_Type())
+hlHostControlNlMaxDesiredEntries.setMaxAccess(_D)
+if mibBuilder.loadTexts:hlHostControlNlMaxDesiredEntries.setStatus(_B)
+_HlHostControlAlDroppedFrames_Type=Counter32
+_HlHostControlAlDroppedFrames_Object=MibTableColumn
+hlHostControlAlDroppedFrames=_HlHostControlAlDroppedFrames_Object((1,3,6,1,2,1,16,14,1,1,7),_HlHostControlAlDroppedFrames_Type())
+hlHostControlAlDroppedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:hlHostControlAlDroppedFrames.setStatus(_B)
+_HlHostControlAlInserts_Type=Counter32
+_HlHostControlAlInserts_Object=MibTableColumn
+hlHostControlAlInserts=_HlHostControlAlInserts_Object((1,3,6,1,2,1,16,14,1,1,8),_HlHostControlAlInserts_Type())
+hlHostControlAlInserts.setMaxAccess(_C)
+if mibBuilder.loadTexts:hlHostControlAlInserts.setStatus(_B)
+_HlHostControlAlDeletes_Type=Counter32
+_HlHostControlAlDeletes_Object=MibTableColumn
+hlHostControlAlDeletes=_HlHostControlAlDeletes_Object((1,3,6,1,2,1,16,14,1,1,9),_HlHostControlAlDeletes_Type())
+hlHostControlAlDeletes.setMaxAccess(_C)
+if mibBuilder.loadTexts:hlHostControlAlDeletes.setStatus(_B)
+class _HlHostControlAlMaxDesiredEntries_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
+_HlHostControlAlMaxDesiredEntries_Type.__name__=_F
+_HlHostControlAlMaxDesiredEntries_Object=MibTableColumn
+hlHostControlAlMaxDesiredEntries=_HlHostControlAlMaxDesiredEntries_Object((1,3,6,1,2,1,16,14,1,1,10),_HlHostControlAlMaxDesiredEntries_Type())
+hlHostControlAlMaxDesiredEntries.setMaxAccess(_D)
+if mibBuilder.loadTexts:hlHostControlAlMaxDesiredEntries.setStatus(_B)
+_HlHostControlOwner_Type=OwnerString
+_HlHostControlOwner_Object=MibTableColumn
+hlHostControlOwner=_HlHostControlOwner_Object((1,3,6,1,2,1,16,14,1,1,11),_HlHostControlOwner_Type())
+hlHostControlOwner.setMaxAccess(_D)
+if mibBuilder.loadTexts:hlHostControlOwner.setStatus(_B)
+_HlHostControlStatus_Type=RowStatus
+_HlHostControlStatus_Object=MibTableColumn
+hlHostControlStatus=_HlHostControlStatus_Object((1,3,6,1,2,1,16,14,1,1,12),_HlHostControlStatus_Type())
+hlHostControlStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:hlHostControlStatus.setStatus(_B)
+_NlHostTable_Object=MibTable
+nlHostTable=_NlHostTable_Object((1,3,6,1,2,1,16,14,2))
+if mibBuilder.loadTexts:nlHostTable.setStatus(_B)
+_NlHostEntry_Object=MibTableRow
+nlHostEntry=_NlHostEntry_Object((1,3,6,1,2,1,16,14,2,1))
+nlHostEntry.setIndexNames((0,_A,_N),(0,_A,_t),(0,_A,_I),(0,_A,_W))
+if mibBuilder.loadTexts:nlHostEntry.setStatus(_B)
+_NlHostTimeMark_Type=TimeFilter
+_NlHostTimeMark_Object=MibTableColumn
+nlHostTimeMark=_NlHostTimeMark_Object((1,3,6,1,2,1,16,14,2,1,1),_NlHostTimeMark_Type())
+nlHostTimeMark.setMaxAccess(_G)
+if mibBuilder.loadTexts:nlHostTimeMark.setStatus(_B)
+class _NlHostAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_NlHostAddress_Type.__name__=_H
+_NlHostAddress_Object=MibTableColumn
+nlHostAddress=_NlHostAddress_Object((1,3,6,1,2,1,16,14,2,1,2),_NlHostAddress_Type())
+nlHostAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:nlHostAddress.setStatus(_B)
+_NlHostInPkts_Type=ZeroBasedCounter32
+_NlHostInPkts_Object=MibTableColumn
+nlHostInPkts=_NlHostInPkts_Object((1,3,6,1,2,1,16,14,2,1,3),_NlHostInPkts_Type())
+nlHostInPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlHostInPkts.setStatus(_B)
+_NlHostOutPkts_Type=ZeroBasedCounter32
+_NlHostOutPkts_Object=MibTableColumn
+nlHostOutPkts=_NlHostOutPkts_Object((1,3,6,1,2,1,16,14,2,1,4),_NlHostOutPkts_Type())
+nlHostOutPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlHostOutPkts.setStatus(_B)
+_NlHostInOctets_Type=ZeroBasedCounter32
+_NlHostInOctets_Object=MibTableColumn
+nlHostInOctets=_NlHostInOctets_Object((1,3,6,1,2,1,16,14,2,1,5),_NlHostInOctets_Type())
+nlHostInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlHostInOctets.setStatus(_B)
+_NlHostOutOctets_Type=ZeroBasedCounter32
+_NlHostOutOctets_Object=MibTableColumn
+nlHostOutOctets=_NlHostOutOctets_Object((1,3,6,1,2,1,16,14,2,1,6),_NlHostOutOctets_Type())
+nlHostOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlHostOutOctets.setStatus(_B)
+_NlHostOutMacNonUnicastPkts_Type=ZeroBasedCounter32
+_NlHostOutMacNonUnicastPkts_Object=MibTableColumn
+nlHostOutMacNonUnicastPkts=_NlHostOutMacNonUnicastPkts_Object((1,3,6,1,2,1,16,14,2,1,7),_NlHostOutMacNonUnicastPkts_Type())
+nlHostOutMacNonUnicastPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlHostOutMacNonUnicastPkts.setStatus(_B)
+_NlHostCreateTime_Type=LastCreateTime
+_NlHostCreateTime_Object=MibTableColumn
+nlHostCreateTime=_NlHostCreateTime_Object((1,3,6,1,2,1,16,14,2,1,8),_NlHostCreateTime_Type())
+nlHostCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlHostCreateTime.setStatus(_B)
+_NlMatrix_ObjectIdentity=ObjectIdentity
+nlMatrix=_NlMatrix_ObjectIdentity((1,3,6,1,2,1,16,15))
+_HlMatrixControlTable_Object=MibTable
+hlMatrixControlTable=_HlMatrixControlTable_Object((1,3,6,1,2,1,16,15,1))
+if mibBuilder.loadTexts:hlMatrixControlTable.setStatus(_B)
+_HlMatrixControlEntry_Object=MibTableRow
+hlMatrixControlEntry=_HlMatrixControlEntry_Object((1,3,6,1,2,1,16,15,1,1))
+hlMatrixControlEntry.setIndexNames((0,_A,_M))
+if mibBuilder.loadTexts:hlMatrixControlEntry.setStatus(_B)
+class _HlMatrixControlIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_HlMatrixControlIndex_Type.__name__=_F
+_HlMatrixControlIndex_Object=MibTableColumn
+hlMatrixControlIndex=_HlMatrixControlIndex_Object((1,3,6,1,2,1,16,15,1,1,1),_HlMatrixControlIndex_Type())
+hlMatrixControlIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:hlMatrixControlIndex.setStatus(_B)
+_HlMatrixControlDataSource_Type=DataSource
+_HlMatrixControlDataSource_Object=MibTableColumn
+hlMatrixControlDataSource=_HlMatrixControlDataSource_Object((1,3,6,1,2,1,16,15,1,1,2),_HlMatrixControlDataSource_Type())
+hlMatrixControlDataSource.setMaxAccess(_D)
+if mibBuilder.loadTexts:hlMatrixControlDataSource.setStatus(_B)
+_HlMatrixControlNlDroppedFrames_Type=Counter32
+_HlMatrixControlNlDroppedFrames_Object=MibTableColumn
+hlMatrixControlNlDroppedFrames=_HlMatrixControlNlDroppedFrames_Object((1,3,6,1,2,1,16,15,1,1,3),_HlMatrixControlNlDroppedFrames_Type())
+hlMatrixControlNlDroppedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:hlMatrixControlNlDroppedFrames.setStatus(_B)
+_HlMatrixControlNlInserts_Type=Counter32
+_HlMatrixControlNlInserts_Object=MibTableColumn
+hlMatrixControlNlInserts=_HlMatrixControlNlInserts_Object((1,3,6,1,2,1,16,15,1,1,4),_HlMatrixControlNlInserts_Type())
+hlMatrixControlNlInserts.setMaxAccess(_C)
+if mibBuilder.loadTexts:hlMatrixControlNlInserts.setStatus(_B)
+_HlMatrixControlNlDeletes_Type=Counter32
+_HlMatrixControlNlDeletes_Object=MibTableColumn
+hlMatrixControlNlDeletes=_HlMatrixControlNlDeletes_Object((1,3,6,1,2,1,16,15,1,1,5),_HlMatrixControlNlDeletes_Type())
+hlMatrixControlNlDeletes.setMaxAccess(_C)
+if mibBuilder.loadTexts:hlMatrixControlNlDeletes.setStatus(_B)
+class _HlMatrixControlNlMaxDesiredEntries_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
+_HlMatrixControlNlMaxDesiredEntries_Type.__name__=_F
+_HlMatrixControlNlMaxDesiredEntries_Object=MibTableColumn
+hlMatrixControlNlMaxDesiredEntries=_HlMatrixControlNlMaxDesiredEntries_Object((1,3,6,1,2,1,16,15,1,1,6),_HlMatrixControlNlMaxDesiredEntries_Type())
+hlMatrixControlNlMaxDesiredEntries.setMaxAccess(_D)
+if mibBuilder.loadTexts:hlMatrixControlNlMaxDesiredEntries.setStatus(_B)
+_HlMatrixControlAlDroppedFrames_Type=Counter32
+_HlMatrixControlAlDroppedFrames_Object=MibTableColumn
+hlMatrixControlAlDroppedFrames=_HlMatrixControlAlDroppedFrames_Object((1,3,6,1,2,1,16,15,1,1,7),_HlMatrixControlAlDroppedFrames_Type())
+hlMatrixControlAlDroppedFrames.setMaxAccess(_C)
+if mibBuilder.loadTexts:hlMatrixControlAlDroppedFrames.setStatus(_B)
+_HlMatrixControlAlInserts_Type=Counter32
+_HlMatrixControlAlInserts_Object=MibTableColumn
+hlMatrixControlAlInserts=_HlMatrixControlAlInserts_Object((1,3,6,1,2,1,16,15,1,1,8),_HlMatrixControlAlInserts_Type())
+hlMatrixControlAlInserts.setMaxAccess(_C)
+if mibBuilder.loadTexts:hlMatrixControlAlInserts.setStatus(_B)
+_HlMatrixControlAlDeletes_Type=Counter32
+_HlMatrixControlAlDeletes_Object=MibTableColumn
+hlMatrixControlAlDeletes=_HlMatrixControlAlDeletes_Object((1,3,6,1,2,1,16,15,1,1,9),_HlMatrixControlAlDeletes_Type())
+hlMatrixControlAlDeletes.setMaxAccess(_C)
+if mibBuilder.loadTexts:hlMatrixControlAlDeletes.setStatus(_B)
+class _HlMatrixControlAlMaxDesiredEntries_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,2147483647))
+_HlMatrixControlAlMaxDesiredEntries_Type.__name__=_F
+_HlMatrixControlAlMaxDesiredEntries_Object=MibTableColumn
+hlMatrixControlAlMaxDesiredEntries=_HlMatrixControlAlMaxDesiredEntries_Object((1,3,6,1,2,1,16,15,1,1,10),_HlMatrixControlAlMaxDesiredEntries_Type())
+hlMatrixControlAlMaxDesiredEntries.setMaxAccess(_D)
+if mibBuilder.loadTexts:hlMatrixControlAlMaxDesiredEntries.setStatus(_B)
+_HlMatrixControlOwner_Type=OwnerString
+_HlMatrixControlOwner_Object=MibTableColumn
+hlMatrixControlOwner=_HlMatrixControlOwner_Object((1,3,6,1,2,1,16,15,1,1,11),_HlMatrixControlOwner_Type())
+hlMatrixControlOwner.setMaxAccess(_D)
+if mibBuilder.loadTexts:hlMatrixControlOwner.setStatus(_B)
+_HlMatrixControlStatus_Type=RowStatus
+_HlMatrixControlStatus_Object=MibTableColumn
+hlMatrixControlStatus=_HlMatrixControlStatus_Object((1,3,6,1,2,1,16,15,1,1,12),_HlMatrixControlStatus_Type())
+hlMatrixControlStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:hlMatrixControlStatus.setStatus(_B)
+_NlMatrixSDTable_Object=MibTable
+nlMatrixSDTable=_NlMatrixSDTable_Object((1,3,6,1,2,1,16,15,2))
+if mibBuilder.loadTexts:nlMatrixSDTable.setStatus(_B)
+_NlMatrixSDEntry_Object=MibTableRow
+nlMatrixSDEntry=_NlMatrixSDEntry_Object((1,3,6,1,2,1,16,15,2,1))
+nlMatrixSDEntry.setIndexNames((0,_A,_M),(0,_A,_u),(0,_A,_I),(0,_A,_X),(0,_A,_Y))
+if mibBuilder.loadTexts:nlMatrixSDEntry.setStatus(_B)
+_NlMatrixSDTimeMark_Type=TimeFilter
+_NlMatrixSDTimeMark_Object=MibTableColumn
+nlMatrixSDTimeMark=_NlMatrixSDTimeMark_Object((1,3,6,1,2,1,16,15,2,1,1),_NlMatrixSDTimeMark_Type())
+nlMatrixSDTimeMark.setMaxAccess(_G)
+if mibBuilder.loadTexts:nlMatrixSDTimeMark.setStatus(_B)
+class _NlMatrixSDSourceAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_NlMatrixSDSourceAddress_Type.__name__=_H
+_NlMatrixSDSourceAddress_Object=MibTableColumn
+nlMatrixSDSourceAddress=_NlMatrixSDSourceAddress_Object((1,3,6,1,2,1,16,15,2,1,2),_NlMatrixSDSourceAddress_Type())
+nlMatrixSDSourceAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:nlMatrixSDSourceAddress.setStatus(_B)
+class _NlMatrixSDDestAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_NlMatrixSDDestAddress_Type.__name__=_H
+_NlMatrixSDDestAddress_Object=MibTableColumn
+nlMatrixSDDestAddress=_NlMatrixSDDestAddress_Object((1,3,6,1,2,1,16,15,2,1,3),_NlMatrixSDDestAddress_Type())
+nlMatrixSDDestAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:nlMatrixSDDestAddress.setStatus(_B)
+_NlMatrixSDPkts_Type=ZeroBasedCounter32
+_NlMatrixSDPkts_Object=MibTableColumn
+nlMatrixSDPkts=_NlMatrixSDPkts_Object((1,3,6,1,2,1,16,15,2,1,4),_NlMatrixSDPkts_Type())
+nlMatrixSDPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlMatrixSDPkts.setStatus(_B)
+_NlMatrixSDOctets_Type=ZeroBasedCounter32
+_NlMatrixSDOctets_Object=MibTableColumn
+nlMatrixSDOctets=_NlMatrixSDOctets_Object((1,3,6,1,2,1,16,15,2,1,5),_NlMatrixSDOctets_Type())
+nlMatrixSDOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlMatrixSDOctets.setStatus(_B)
+_NlMatrixSDCreateTime_Type=LastCreateTime
+_NlMatrixSDCreateTime_Object=MibTableColumn
+nlMatrixSDCreateTime=_NlMatrixSDCreateTime_Object((1,3,6,1,2,1,16,15,2,1,6),_NlMatrixSDCreateTime_Type())
+nlMatrixSDCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlMatrixSDCreateTime.setStatus(_B)
+_NlMatrixDSTable_Object=MibTable
+nlMatrixDSTable=_NlMatrixDSTable_Object((1,3,6,1,2,1,16,15,3))
+if mibBuilder.loadTexts:nlMatrixDSTable.setStatus(_B)
+_NlMatrixDSEntry_Object=MibTableRow
+nlMatrixDSEntry=_NlMatrixDSEntry_Object((1,3,6,1,2,1,16,15,3,1))
+nlMatrixDSEntry.setIndexNames((0,_A,_M),(0,_A,_v),(0,_A,_I),(0,_A,_Z),(0,_A,_a))
+if mibBuilder.loadTexts:nlMatrixDSEntry.setStatus(_B)
+_NlMatrixDSTimeMark_Type=TimeFilter
+_NlMatrixDSTimeMark_Object=MibTableColumn
+nlMatrixDSTimeMark=_NlMatrixDSTimeMark_Object((1,3,6,1,2,1,16,15,3,1,1),_NlMatrixDSTimeMark_Type())
+nlMatrixDSTimeMark.setMaxAccess(_G)
+if mibBuilder.loadTexts:nlMatrixDSTimeMark.setStatus(_B)
+class _NlMatrixDSSourceAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_NlMatrixDSSourceAddress_Type.__name__=_H
+_NlMatrixDSSourceAddress_Object=MibTableColumn
+nlMatrixDSSourceAddress=_NlMatrixDSSourceAddress_Object((1,3,6,1,2,1,16,15,3,1,2),_NlMatrixDSSourceAddress_Type())
+nlMatrixDSSourceAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:nlMatrixDSSourceAddress.setStatus(_B)
+class _NlMatrixDSDestAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_NlMatrixDSDestAddress_Type.__name__=_H
+_NlMatrixDSDestAddress_Object=MibTableColumn
+nlMatrixDSDestAddress=_NlMatrixDSDestAddress_Object((1,3,6,1,2,1,16,15,3,1,3),_NlMatrixDSDestAddress_Type())
+nlMatrixDSDestAddress.setMaxAccess(_G)
+if mibBuilder.loadTexts:nlMatrixDSDestAddress.setStatus(_B)
+_NlMatrixDSPkts_Type=ZeroBasedCounter32
+_NlMatrixDSPkts_Object=MibTableColumn
+nlMatrixDSPkts=_NlMatrixDSPkts_Object((1,3,6,1,2,1,16,15,3,1,4),_NlMatrixDSPkts_Type())
+nlMatrixDSPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlMatrixDSPkts.setStatus(_B)
+_NlMatrixDSOctets_Type=ZeroBasedCounter32
+_NlMatrixDSOctets_Object=MibTableColumn
+nlMatrixDSOctets=_NlMatrixDSOctets_Object((1,3,6,1,2,1,16,15,3,1,5),_NlMatrixDSOctets_Type())
+nlMatrixDSOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlMatrixDSOctets.setStatus(_B)
+_NlMatrixDSCreateTime_Type=LastCreateTime
+_NlMatrixDSCreateTime_Object=MibTableColumn
+nlMatrixDSCreateTime=_NlMatrixDSCreateTime_Object((1,3,6,1,2,1,16,15,3,1,6),_NlMatrixDSCreateTime_Type())
+nlMatrixDSCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlMatrixDSCreateTime.setStatus(_B)
+_NlMatrixTopNControlTable_Object=MibTable
+nlMatrixTopNControlTable=_NlMatrixTopNControlTable_Object((1,3,6,1,2,1,16,15,4))
+if mibBuilder.loadTexts:nlMatrixTopNControlTable.setStatus(_B)
+_NlMatrixTopNControlEntry_Object=MibTableRow
+nlMatrixTopNControlEntry=_NlMatrixTopNControlEntry_Object((1,3,6,1,2,1,16,15,4,1))
+nlMatrixTopNControlEntry.setIndexNames((0,_A,_b))
+if mibBuilder.loadTexts:nlMatrixTopNControlEntry.setStatus(_B)
+class _NlMatrixTopNControlIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_NlMatrixTopNControlIndex_Type.__name__=_F
+_NlMatrixTopNControlIndex_Object=MibTableColumn
+nlMatrixTopNControlIndex=_NlMatrixTopNControlIndex_Object((1,3,6,1,2,1,16,15,4,1,1),_NlMatrixTopNControlIndex_Type())
+nlMatrixTopNControlIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:nlMatrixTopNControlIndex.setStatus(_B)
+class _NlMatrixTopNControlMatrixIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_NlMatrixTopNControlMatrixIndex_Type.__name__=_F
+_NlMatrixTopNControlMatrixIndex_Object=MibTableColumn
+nlMatrixTopNControlMatrixIndex=_NlMatrixTopNControlMatrixIndex_Object((1,3,6,1,2,1,16,15,4,1,2),_NlMatrixTopNControlMatrixIndex_Type())
+nlMatrixTopNControlMatrixIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:nlMatrixTopNControlMatrixIndex.setStatus(_B)
+class _NlMatrixTopNControlRateBase_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('nlMatrixTopNPkts',1),('nlMatrixTopNOctets',2),('nlMatrixTopNHighCapacityPkts',3),('nlMatrixTopNHighCapacityOctets',4)))
+_NlMatrixTopNControlRateBase_Type.__name__=_F
+_NlMatrixTopNControlRateBase_Object=MibTableColumn
+nlMatrixTopNControlRateBase=_NlMatrixTopNControlRateBase_Object((1,3,6,1,2,1,16,15,4,1,3),_NlMatrixTopNControlRateBase_Type())
+nlMatrixTopNControlRateBase.setMaxAccess(_D)
+if mibBuilder.loadTexts:nlMatrixTopNControlRateBase.setStatus(_B)
+class _NlMatrixTopNControlTimeRemaining_Type(Integer32):defaultValue=1800;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_NlMatrixTopNControlTimeRemaining_Type.__name__=_F
+_NlMatrixTopNControlTimeRemaining_Object=MibTableColumn
+nlMatrixTopNControlTimeRemaining=_NlMatrixTopNControlTimeRemaining_Object((1,3,6,1,2,1,16,15,4,1,4),_NlMatrixTopNControlTimeRemaining_Type())
+nlMatrixTopNControlTimeRemaining.setMaxAccess(_D)
+if mibBuilder.loadTexts:nlMatrixTopNControlTimeRemaining.setStatus(_B)
+_NlMatrixTopNControlGeneratedReports_Type=Counter32
+_NlMatrixTopNControlGeneratedReports_Object=MibTableColumn
+nlMatrixTopNControlGeneratedReports=_NlMatrixTopNControlGeneratedReports_Object((1,3,6,1,2,1,16,15,4,1,5),_NlMatrixTopNControlGeneratedReports_Type())
+nlMatrixTopNControlGeneratedReports.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlMatrixTopNControlGeneratedReports.setStatus(_B)
+_NlMatrixTopNControlDuration_Type=Integer32
+_NlMatrixTopNControlDuration_Object=MibTableColumn
+nlMatrixTopNControlDuration=_NlMatrixTopNControlDuration_Object((1,3,6,1,2,1,16,15,4,1,6),_NlMatrixTopNControlDuration_Type())
+nlMatrixTopNControlDuration.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlMatrixTopNControlDuration.setStatus(_B)
+class _NlMatrixTopNControlRequestedSize_Type(Integer32):defaultValue=150;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_NlMatrixTopNControlRequestedSize_Type.__name__=_F
+_NlMatrixTopNControlRequestedSize_Object=MibTableColumn
+nlMatrixTopNControlRequestedSize=_NlMatrixTopNControlRequestedSize_Object((1,3,6,1,2,1,16,15,4,1,7),_NlMatrixTopNControlRequestedSize_Type())
+nlMatrixTopNControlRequestedSize.setMaxAccess(_D)
+if mibBuilder.loadTexts:nlMatrixTopNControlRequestedSize.setStatus(_B)
+class _NlMatrixTopNControlGrantedSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_NlMatrixTopNControlGrantedSize_Type.__name__=_F
+_NlMatrixTopNControlGrantedSize_Object=MibTableColumn
+nlMatrixTopNControlGrantedSize=_NlMatrixTopNControlGrantedSize_Object((1,3,6,1,2,1,16,15,4,1,8),_NlMatrixTopNControlGrantedSize_Type())
+nlMatrixTopNControlGrantedSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlMatrixTopNControlGrantedSize.setStatus(_B)
+_NlMatrixTopNControlStartTime_Type=TimeStamp
+_NlMatrixTopNControlStartTime_Object=MibTableColumn
+nlMatrixTopNControlStartTime=_NlMatrixTopNControlStartTime_Object((1,3,6,1,2,1,16,15,4,1,9),_NlMatrixTopNControlStartTime_Type())
+nlMatrixTopNControlStartTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlMatrixTopNControlStartTime.setStatus(_B)
+_NlMatrixTopNControlOwner_Type=OwnerString
+_NlMatrixTopNControlOwner_Object=MibTableColumn
+nlMatrixTopNControlOwner=_NlMatrixTopNControlOwner_Object((1,3,6,1,2,1,16,15,4,1,10),_NlMatrixTopNControlOwner_Type())
+nlMatrixTopNControlOwner.setMaxAccess(_D)
+if mibBuilder.loadTexts:nlMatrixTopNControlOwner.setStatus(_B)
+_NlMatrixTopNControlStatus_Type=RowStatus
+_NlMatrixTopNControlStatus_Object=MibTableColumn
+nlMatrixTopNControlStatus=_NlMatrixTopNControlStatus_Object((1,3,6,1,2,1,16,15,4,1,11),_NlMatrixTopNControlStatus_Type())
+nlMatrixTopNControlStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:nlMatrixTopNControlStatus.setStatus(_B)
+_NlMatrixTopNTable_Object=MibTable
+nlMatrixTopNTable=_NlMatrixTopNTable_Object((1,3,6,1,2,1,16,15,5))
+if mibBuilder.loadTexts:nlMatrixTopNTable.setStatus(_B)
+_NlMatrixTopNEntry_Object=MibTableRow
+nlMatrixTopNEntry=_NlMatrixTopNEntry_Object((1,3,6,1,2,1,16,15,5,1))
+nlMatrixTopNEntry.setIndexNames((0,_A,_b),(0,_A,_w))
+if mibBuilder.loadTexts:nlMatrixTopNEntry.setStatus(_B)
+class _NlMatrixTopNIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_NlMatrixTopNIndex_Type.__name__=_F
+_NlMatrixTopNIndex_Object=MibTableColumn
+nlMatrixTopNIndex=_NlMatrixTopNIndex_Object((1,3,6,1,2,1,16,15,5,1,1),_NlMatrixTopNIndex_Type())
+nlMatrixTopNIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:nlMatrixTopNIndex.setStatus(_B)
+class _NlMatrixTopNProtocolDirLocalIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_NlMatrixTopNProtocolDirLocalIndex_Type.__name__=_F
+_NlMatrixTopNProtocolDirLocalIndex_Object=MibTableColumn
+nlMatrixTopNProtocolDirLocalIndex=_NlMatrixTopNProtocolDirLocalIndex_Object((1,3,6,1,2,1,16,15,5,1,2),_NlMatrixTopNProtocolDirLocalIndex_Type())
+nlMatrixTopNProtocolDirLocalIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlMatrixTopNProtocolDirLocalIndex.setStatus(_B)
+class _NlMatrixTopNSourceAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_NlMatrixTopNSourceAddress_Type.__name__=_H
+_NlMatrixTopNSourceAddress_Object=MibTableColumn
+nlMatrixTopNSourceAddress=_NlMatrixTopNSourceAddress_Object((1,3,6,1,2,1,16,15,5,1,3),_NlMatrixTopNSourceAddress_Type())
+nlMatrixTopNSourceAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlMatrixTopNSourceAddress.setStatus(_B)
+class _NlMatrixTopNDestAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_NlMatrixTopNDestAddress_Type.__name__=_H
+_NlMatrixTopNDestAddress_Object=MibTableColumn
+nlMatrixTopNDestAddress=_NlMatrixTopNDestAddress_Object((1,3,6,1,2,1,16,15,5,1,4),_NlMatrixTopNDestAddress_Type())
+nlMatrixTopNDestAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlMatrixTopNDestAddress.setStatus(_B)
+_NlMatrixTopNPktRate_Type=Gauge32
+_NlMatrixTopNPktRate_Object=MibTableColumn
+nlMatrixTopNPktRate=_NlMatrixTopNPktRate_Object((1,3,6,1,2,1,16,15,5,1,5),_NlMatrixTopNPktRate_Type())
+nlMatrixTopNPktRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlMatrixTopNPktRate.setStatus(_B)
+_NlMatrixTopNReversePktRate_Type=Gauge32
+_NlMatrixTopNReversePktRate_Object=MibTableColumn
+nlMatrixTopNReversePktRate=_NlMatrixTopNReversePktRate_Object((1,3,6,1,2,1,16,15,5,1,6),_NlMatrixTopNReversePktRate_Type())
+nlMatrixTopNReversePktRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlMatrixTopNReversePktRate.setStatus(_B)
+_NlMatrixTopNOctetRate_Type=Gauge32
+_NlMatrixTopNOctetRate_Object=MibTableColumn
+nlMatrixTopNOctetRate=_NlMatrixTopNOctetRate_Object((1,3,6,1,2,1,16,15,5,1,7),_NlMatrixTopNOctetRate_Type())
+nlMatrixTopNOctetRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlMatrixTopNOctetRate.setStatus(_B)
+_NlMatrixTopNReverseOctetRate_Type=Gauge32
+_NlMatrixTopNReverseOctetRate_Object=MibTableColumn
+nlMatrixTopNReverseOctetRate=_NlMatrixTopNReverseOctetRate_Object((1,3,6,1,2,1,16,15,5,1,8),_NlMatrixTopNReverseOctetRate_Type())
+nlMatrixTopNReverseOctetRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:nlMatrixTopNReverseOctetRate.setStatus(_B)
+_AlHost_ObjectIdentity=ObjectIdentity
+alHost=_AlHost_ObjectIdentity((1,3,6,1,2,1,16,16))
+_AlHostTable_Object=MibTable
+alHostTable=_AlHostTable_Object((1,3,6,1,2,1,16,16,1))
+if mibBuilder.loadTexts:alHostTable.setStatus(_B)
+_AlHostEntry_Object=MibTableRow
+alHostEntry=_AlHostEntry_Object((1,3,6,1,2,1,16,16,1,1))
+alHostEntry.setIndexNames((0,_A,_N),(0,_A,_x),(0,_A,_I),(0,_A,_W),(0,_A,_I))
+if mibBuilder.loadTexts:alHostEntry.setStatus(_B)
+_AlHostTimeMark_Type=TimeFilter
+_AlHostTimeMark_Object=MibTableColumn
+alHostTimeMark=_AlHostTimeMark_Object((1,3,6,1,2,1,16,16,1,1,1),_AlHostTimeMark_Type())
+alHostTimeMark.setMaxAccess(_G)
+if mibBuilder.loadTexts:alHostTimeMark.setStatus(_B)
+_AlHostInPkts_Type=ZeroBasedCounter32
+_AlHostInPkts_Object=MibTableColumn
+alHostInPkts=_AlHostInPkts_Object((1,3,6,1,2,1,16,16,1,1,2),_AlHostInPkts_Type())
+alHostInPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:alHostInPkts.setStatus(_B)
+_AlHostOutPkts_Type=ZeroBasedCounter32
+_AlHostOutPkts_Object=MibTableColumn
+alHostOutPkts=_AlHostOutPkts_Object((1,3,6,1,2,1,16,16,1,1,3),_AlHostOutPkts_Type())
+alHostOutPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:alHostOutPkts.setStatus(_B)
+_AlHostInOctets_Type=ZeroBasedCounter32
+_AlHostInOctets_Object=MibTableColumn
+alHostInOctets=_AlHostInOctets_Object((1,3,6,1,2,1,16,16,1,1,4),_AlHostInOctets_Type())
+alHostInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:alHostInOctets.setStatus(_B)
+_AlHostOutOctets_Type=ZeroBasedCounter32
+_AlHostOutOctets_Object=MibTableColumn
+alHostOutOctets=_AlHostOutOctets_Object((1,3,6,1,2,1,16,16,1,1,5),_AlHostOutOctets_Type())
+alHostOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:alHostOutOctets.setStatus(_B)
+_AlHostCreateTime_Type=LastCreateTime
+_AlHostCreateTime_Object=MibTableColumn
+alHostCreateTime=_AlHostCreateTime_Object((1,3,6,1,2,1,16,16,1,1,6),_AlHostCreateTime_Type())
+alHostCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:alHostCreateTime.setStatus(_B)
+_AlMatrix_ObjectIdentity=ObjectIdentity
+alMatrix=_AlMatrix_ObjectIdentity((1,3,6,1,2,1,16,17))
+_AlMatrixSDTable_Object=MibTable
+alMatrixSDTable=_AlMatrixSDTable_Object((1,3,6,1,2,1,16,17,1))
+if mibBuilder.loadTexts:alMatrixSDTable.setStatus(_B)
+_AlMatrixSDEntry_Object=MibTableRow
+alMatrixSDEntry=_AlMatrixSDEntry_Object((1,3,6,1,2,1,16,17,1,1))
+alMatrixSDEntry.setIndexNames((0,_A,_M),(0,_A,_y),(0,_A,_I),(0,_A,_X),(0,_A,_Y),(0,_A,_I))
+if mibBuilder.loadTexts:alMatrixSDEntry.setStatus(_B)
+_AlMatrixSDTimeMark_Type=TimeFilter
+_AlMatrixSDTimeMark_Object=MibTableColumn
+alMatrixSDTimeMark=_AlMatrixSDTimeMark_Object((1,3,6,1,2,1,16,17,1,1,1),_AlMatrixSDTimeMark_Type())
+alMatrixSDTimeMark.setMaxAccess(_G)
+if mibBuilder.loadTexts:alMatrixSDTimeMark.setStatus(_B)
+_AlMatrixSDPkts_Type=ZeroBasedCounter32
+_AlMatrixSDPkts_Object=MibTableColumn
+alMatrixSDPkts=_AlMatrixSDPkts_Object((1,3,6,1,2,1,16,17,1,1,2),_AlMatrixSDPkts_Type())
+alMatrixSDPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixSDPkts.setStatus(_B)
+_AlMatrixSDOctets_Type=ZeroBasedCounter32
+_AlMatrixSDOctets_Object=MibTableColumn
+alMatrixSDOctets=_AlMatrixSDOctets_Object((1,3,6,1,2,1,16,17,1,1,3),_AlMatrixSDOctets_Type())
+alMatrixSDOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixSDOctets.setStatus(_B)
+_AlMatrixSDCreateTime_Type=LastCreateTime
+_AlMatrixSDCreateTime_Object=MibTableColumn
+alMatrixSDCreateTime=_AlMatrixSDCreateTime_Object((1,3,6,1,2,1,16,17,1,1,4),_AlMatrixSDCreateTime_Type())
+alMatrixSDCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixSDCreateTime.setStatus(_B)
+_AlMatrixDSTable_Object=MibTable
+alMatrixDSTable=_AlMatrixDSTable_Object((1,3,6,1,2,1,16,17,2))
+if mibBuilder.loadTexts:alMatrixDSTable.setStatus(_B)
+_AlMatrixDSEntry_Object=MibTableRow
+alMatrixDSEntry=_AlMatrixDSEntry_Object((1,3,6,1,2,1,16,17,2,1))
+alMatrixDSEntry.setIndexNames((0,_A,_M),(0,_A,_z),(0,_A,_I),(0,_A,_Z),(0,_A,_a),(0,_A,_I))
+if mibBuilder.loadTexts:alMatrixDSEntry.setStatus(_B)
+_AlMatrixDSTimeMark_Type=TimeFilter
+_AlMatrixDSTimeMark_Object=MibTableColumn
+alMatrixDSTimeMark=_AlMatrixDSTimeMark_Object((1,3,6,1,2,1,16,17,2,1,1),_AlMatrixDSTimeMark_Type())
+alMatrixDSTimeMark.setMaxAccess(_G)
+if mibBuilder.loadTexts:alMatrixDSTimeMark.setStatus(_B)
+_AlMatrixDSPkts_Type=ZeroBasedCounter32
+_AlMatrixDSPkts_Object=MibTableColumn
+alMatrixDSPkts=_AlMatrixDSPkts_Object((1,3,6,1,2,1,16,17,2,1,2),_AlMatrixDSPkts_Type())
+alMatrixDSPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixDSPkts.setStatus(_B)
+_AlMatrixDSOctets_Type=ZeroBasedCounter32
+_AlMatrixDSOctets_Object=MibTableColumn
+alMatrixDSOctets=_AlMatrixDSOctets_Object((1,3,6,1,2,1,16,17,2,1,3),_AlMatrixDSOctets_Type())
+alMatrixDSOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixDSOctets.setStatus(_B)
+_AlMatrixDSCreateTime_Type=LastCreateTime
+_AlMatrixDSCreateTime_Object=MibTableColumn
+alMatrixDSCreateTime=_AlMatrixDSCreateTime_Object((1,3,6,1,2,1,16,17,2,1,4),_AlMatrixDSCreateTime_Type())
+alMatrixDSCreateTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixDSCreateTime.setStatus(_B)
+_AlMatrixTopNControlTable_Object=MibTable
+alMatrixTopNControlTable=_AlMatrixTopNControlTable_Object((1,3,6,1,2,1,16,17,3))
+if mibBuilder.loadTexts:alMatrixTopNControlTable.setStatus(_B)
+_AlMatrixTopNControlEntry_Object=MibTableRow
+alMatrixTopNControlEntry=_AlMatrixTopNControlEntry_Object((1,3,6,1,2,1,16,17,3,1))
+alMatrixTopNControlEntry.setIndexNames((0,_A,_c))
+if mibBuilder.loadTexts:alMatrixTopNControlEntry.setStatus(_B)
+class _AlMatrixTopNControlIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_AlMatrixTopNControlIndex_Type.__name__=_F
+_AlMatrixTopNControlIndex_Object=MibTableColumn
+alMatrixTopNControlIndex=_AlMatrixTopNControlIndex_Object((1,3,6,1,2,1,16,17,3,1,1),_AlMatrixTopNControlIndex_Type())
+alMatrixTopNControlIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:alMatrixTopNControlIndex.setStatus(_B)
+class _AlMatrixTopNControlMatrixIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_AlMatrixTopNControlMatrixIndex_Type.__name__=_F
+_AlMatrixTopNControlMatrixIndex_Object=MibTableColumn
+alMatrixTopNControlMatrixIndex=_AlMatrixTopNControlMatrixIndex_Object((1,3,6,1,2,1,16,17,3,1,2),_AlMatrixTopNControlMatrixIndex_Type())
+alMatrixTopNControlMatrixIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:alMatrixTopNControlMatrixIndex.setStatus(_B)
+class _AlMatrixTopNControlRateBase_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('alMatrixTopNTerminalsPkts',1),('alMatrixTopNTerminalsOctets',2),('alMatrixTopNAllPkts',3),('alMatrixTopNAllOctets',4),('alMatrixTopNTerminalsHighCapacityPkts',5),('alMatrixTopNTerminalsHighCapacityOctets',6),('alMatrixTopNAllHighCapacityPkts',7),('alMatrixTopNAllHighCapacityOctets',8)))
+_AlMatrixTopNControlRateBase_Type.__name__=_F
+_AlMatrixTopNControlRateBase_Object=MibTableColumn
+alMatrixTopNControlRateBase=_AlMatrixTopNControlRateBase_Object((1,3,6,1,2,1,16,17,3,1,3),_AlMatrixTopNControlRateBase_Type())
+alMatrixTopNControlRateBase.setMaxAccess(_D)
+if mibBuilder.loadTexts:alMatrixTopNControlRateBase.setStatus(_B)
+class _AlMatrixTopNControlTimeRemaining_Type(Integer32):defaultValue=1800;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_AlMatrixTopNControlTimeRemaining_Type.__name__=_F
+_AlMatrixTopNControlTimeRemaining_Object=MibTableColumn
+alMatrixTopNControlTimeRemaining=_AlMatrixTopNControlTimeRemaining_Object((1,3,6,1,2,1,16,17,3,1,4),_AlMatrixTopNControlTimeRemaining_Type())
+alMatrixTopNControlTimeRemaining.setMaxAccess(_D)
+if mibBuilder.loadTexts:alMatrixTopNControlTimeRemaining.setStatus(_B)
+_AlMatrixTopNControlGeneratedReports_Type=Counter32
+_AlMatrixTopNControlGeneratedReports_Object=MibTableColumn
+alMatrixTopNControlGeneratedReports=_AlMatrixTopNControlGeneratedReports_Object((1,3,6,1,2,1,16,17,3,1,5),_AlMatrixTopNControlGeneratedReports_Type())
+alMatrixTopNControlGeneratedReports.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixTopNControlGeneratedReports.setStatus(_B)
+_AlMatrixTopNControlDuration_Type=Integer32
+_AlMatrixTopNControlDuration_Object=MibTableColumn
+alMatrixTopNControlDuration=_AlMatrixTopNControlDuration_Object((1,3,6,1,2,1,16,17,3,1,6),_AlMatrixTopNControlDuration_Type())
+alMatrixTopNControlDuration.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixTopNControlDuration.setStatus(_B)
+class _AlMatrixTopNControlRequestedSize_Type(Integer32):defaultValue=150;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_AlMatrixTopNControlRequestedSize_Type.__name__=_F
+_AlMatrixTopNControlRequestedSize_Object=MibTableColumn
+alMatrixTopNControlRequestedSize=_AlMatrixTopNControlRequestedSize_Object((1,3,6,1,2,1,16,17,3,1,7),_AlMatrixTopNControlRequestedSize_Type())
+alMatrixTopNControlRequestedSize.setMaxAccess(_D)
+if mibBuilder.loadTexts:alMatrixTopNControlRequestedSize.setStatus(_B)
+class _AlMatrixTopNControlGrantedSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_AlMatrixTopNControlGrantedSize_Type.__name__=_F
+_AlMatrixTopNControlGrantedSize_Object=MibTableColumn
+alMatrixTopNControlGrantedSize=_AlMatrixTopNControlGrantedSize_Object((1,3,6,1,2,1,16,17,3,1,8),_AlMatrixTopNControlGrantedSize_Type())
+alMatrixTopNControlGrantedSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixTopNControlGrantedSize.setStatus(_B)
+_AlMatrixTopNControlStartTime_Type=TimeStamp
+_AlMatrixTopNControlStartTime_Object=MibTableColumn
+alMatrixTopNControlStartTime=_AlMatrixTopNControlStartTime_Object((1,3,6,1,2,1,16,17,3,1,9),_AlMatrixTopNControlStartTime_Type())
+alMatrixTopNControlStartTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixTopNControlStartTime.setStatus(_B)
+_AlMatrixTopNControlOwner_Type=OwnerString
+_AlMatrixTopNControlOwner_Object=MibTableColumn
+alMatrixTopNControlOwner=_AlMatrixTopNControlOwner_Object((1,3,6,1,2,1,16,17,3,1,10),_AlMatrixTopNControlOwner_Type())
+alMatrixTopNControlOwner.setMaxAccess(_D)
+if mibBuilder.loadTexts:alMatrixTopNControlOwner.setStatus(_B)
+_AlMatrixTopNControlStatus_Type=RowStatus
+_AlMatrixTopNControlStatus_Object=MibTableColumn
+alMatrixTopNControlStatus=_AlMatrixTopNControlStatus_Object((1,3,6,1,2,1,16,17,3,1,11),_AlMatrixTopNControlStatus_Type())
+alMatrixTopNControlStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:alMatrixTopNControlStatus.setStatus(_B)
+_AlMatrixTopNTable_Object=MibTable
+alMatrixTopNTable=_AlMatrixTopNTable_Object((1,3,6,1,2,1,16,17,4))
+if mibBuilder.loadTexts:alMatrixTopNTable.setStatus(_B)
+_AlMatrixTopNEntry_Object=MibTableRow
+alMatrixTopNEntry=_AlMatrixTopNEntry_Object((1,3,6,1,2,1,16,17,4,1))
+alMatrixTopNEntry.setIndexNames((0,_A,_c),(0,_A,_A0))
+if mibBuilder.loadTexts:alMatrixTopNEntry.setStatus(_B)
+class _AlMatrixTopNIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_AlMatrixTopNIndex_Type.__name__=_F
+_AlMatrixTopNIndex_Object=MibTableColumn
+alMatrixTopNIndex=_AlMatrixTopNIndex_Object((1,3,6,1,2,1,16,17,4,1,1),_AlMatrixTopNIndex_Type())
+alMatrixTopNIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:alMatrixTopNIndex.setStatus(_B)
+class _AlMatrixTopNProtocolDirLocalIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_AlMatrixTopNProtocolDirLocalIndex_Type.__name__=_F
+_AlMatrixTopNProtocolDirLocalIndex_Object=MibTableColumn
+alMatrixTopNProtocolDirLocalIndex=_AlMatrixTopNProtocolDirLocalIndex_Object((1,3,6,1,2,1,16,17,4,1,2),_AlMatrixTopNProtocolDirLocalIndex_Type())
+alMatrixTopNProtocolDirLocalIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixTopNProtocolDirLocalIndex.setStatus(_B)
+class _AlMatrixTopNSourceAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_AlMatrixTopNSourceAddress_Type.__name__=_H
+_AlMatrixTopNSourceAddress_Object=MibTableColumn
+alMatrixTopNSourceAddress=_AlMatrixTopNSourceAddress_Object((1,3,6,1,2,1,16,17,4,1,3),_AlMatrixTopNSourceAddress_Type())
+alMatrixTopNSourceAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixTopNSourceAddress.setStatus(_B)
+class _AlMatrixTopNDestAddress_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,255))
+_AlMatrixTopNDestAddress_Type.__name__=_H
+_AlMatrixTopNDestAddress_Object=MibTableColumn
+alMatrixTopNDestAddress=_AlMatrixTopNDestAddress_Object((1,3,6,1,2,1,16,17,4,1,4),_AlMatrixTopNDestAddress_Type())
+alMatrixTopNDestAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixTopNDestAddress.setStatus(_B)
+class _AlMatrixTopNAppProtocolDirLocalIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_AlMatrixTopNAppProtocolDirLocalIndex_Type.__name__=_F
+_AlMatrixTopNAppProtocolDirLocalIndex_Object=MibTableColumn
+alMatrixTopNAppProtocolDirLocalIndex=_AlMatrixTopNAppProtocolDirLocalIndex_Object((1,3,6,1,2,1,16,17,4,1,5),_AlMatrixTopNAppProtocolDirLocalIndex_Type())
+alMatrixTopNAppProtocolDirLocalIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixTopNAppProtocolDirLocalIndex.setStatus(_B)
+_AlMatrixTopNPktRate_Type=Gauge32
+_AlMatrixTopNPktRate_Object=MibTableColumn
+alMatrixTopNPktRate=_AlMatrixTopNPktRate_Object((1,3,6,1,2,1,16,17,4,1,6),_AlMatrixTopNPktRate_Type())
+alMatrixTopNPktRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixTopNPktRate.setStatus(_B)
+_AlMatrixTopNReversePktRate_Type=Gauge32
+_AlMatrixTopNReversePktRate_Object=MibTableColumn
+alMatrixTopNReversePktRate=_AlMatrixTopNReversePktRate_Object((1,3,6,1,2,1,16,17,4,1,7),_AlMatrixTopNReversePktRate_Type())
+alMatrixTopNReversePktRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixTopNReversePktRate.setStatus(_B)
+_AlMatrixTopNOctetRate_Type=Gauge32
+_AlMatrixTopNOctetRate_Object=MibTableColumn
+alMatrixTopNOctetRate=_AlMatrixTopNOctetRate_Object((1,3,6,1,2,1,16,17,4,1,8),_AlMatrixTopNOctetRate_Type())
+alMatrixTopNOctetRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixTopNOctetRate.setStatus(_B)
+_AlMatrixTopNReverseOctetRate_Type=Gauge32
+_AlMatrixTopNReverseOctetRate_Object=MibTableColumn
+alMatrixTopNReverseOctetRate=_AlMatrixTopNReverseOctetRate_Object((1,3,6,1,2,1,16,17,4,1,9),_AlMatrixTopNReverseOctetRate_Type())
+alMatrixTopNReverseOctetRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:alMatrixTopNReverseOctetRate.setStatus(_B)
+_UsrHistory_ObjectIdentity=ObjectIdentity
+usrHistory=_UsrHistory_ObjectIdentity((1,3,6,1,2,1,16,18))
+_UsrHistoryControlTable_Object=MibTable
+usrHistoryControlTable=_UsrHistoryControlTable_Object((1,3,6,1,2,1,16,18,1))
+if mibBuilder.loadTexts:usrHistoryControlTable.setStatus(_B)
+_UsrHistoryControlEntry_Object=MibTableRow
+usrHistoryControlEntry=_UsrHistoryControlEntry_Object((1,3,6,1,2,1,16,18,1,1))
+usrHistoryControlEntry.setIndexNames((0,_A,_O))
+if mibBuilder.loadTexts:usrHistoryControlEntry.setStatus(_B)
+class _UsrHistoryControlIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_UsrHistoryControlIndex_Type.__name__=_F
+_UsrHistoryControlIndex_Object=MibTableColumn
+usrHistoryControlIndex=_UsrHistoryControlIndex_Object((1,3,6,1,2,1,16,18,1,1,1),_UsrHistoryControlIndex_Type())
+usrHistoryControlIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:usrHistoryControlIndex.setStatus(_B)
+class _UsrHistoryControlObjects_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_UsrHistoryControlObjects_Type.__name__=_F
+_UsrHistoryControlObjects_Object=MibTableColumn
+usrHistoryControlObjects=_UsrHistoryControlObjects_Object((1,3,6,1,2,1,16,18,1,1,2),_UsrHistoryControlObjects_Type())
+usrHistoryControlObjects.setMaxAccess(_D)
+if mibBuilder.loadTexts:usrHistoryControlObjects.setStatus(_B)
+class _UsrHistoryControlBucketsRequested_Type(Integer32):defaultValue=50;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_UsrHistoryControlBucketsRequested_Type.__name__=_F
+_UsrHistoryControlBucketsRequested_Object=MibTableColumn
+usrHistoryControlBucketsRequested=_UsrHistoryControlBucketsRequested_Object((1,3,6,1,2,1,16,18,1,1,3),_UsrHistoryControlBucketsRequested_Type())
+usrHistoryControlBucketsRequested.setMaxAccess(_D)
+if mibBuilder.loadTexts:usrHistoryControlBucketsRequested.setStatus(_B)
+class _UsrHistoryControlBucketsGranted_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_UsrHistoryControlBucketsGranted_Type.__name__=_F
+_UsrHistoryControlBucketsGranted_Object=MibTableColumn
+usrHistoryControlBucketsGranted=_UsrHistoryControlBucketsGranted_Object((1,3,6,1,2,1,16,18,1,1,4),_UsrHistoryControlBucketsGranted_Type())
+usrHistoryControlBucketsGranted.setMaxAccess(_C)
+if mibBuilder.loadTexts:usrHistoryControlBucketsGranted.setStatus(_B)
+class _UsrHistoryControlInterval_Type(Integer32):defaultValue=1800;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_UsrHistoryControlInterval_Type.__name__=_F
+_UsrHistoryControlInterval_Object=MibTableColumn
+usrHistoryControlInterval=_UsrHistoryControlInterval_Object((1,3,6,1,2,1,16,18,1,1,5),_UsrHistoryControlInterval_Type())
+usrHistoryControlInterval.setMaxAccess(_D)
+if mibBuilder.loadTexts:usrHistoryControlInterval.setStatus(_B)
+_UsrHistoryControlOwner_Type=OwnerString
+_UsrHistoryControlOwner_Object=MibTableColumn
+usrHistoryControlOwner=_UsrHistoryControlOwner_Object((1,3,6,1,2,1,16,18,1,1,6),_UsrHistoryControlOwner_Type())
+usrHistoryControlOwner.setMaxAccess(_D)
+if mibBuilder.loadTexts:usrHistoryControlOwner.setStatus(_B)
+_UsrHistoryControlStatus_Type=RowStatus
+_UsrHistoryControlStatus_Object=MibTableColumn
+usrHistoryControlStatus=_UsrHistoryControlStatus_Object((1,3,6,1,2,1,16,18,1,1,7),_UsrHistoryControlStatus_Type())
+usrHistoryControlStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:usrHistoryControlStatus.setStatus(_B)
+_UsrHistoryObjectTable_Object=MibTable
+usrHistoryObjectTable=_UsrHistoryObjectTable_Object((1,3,6,1,2,1,16,18,2))
+if mibBuilder.loadTexts:usrHistoryObjectTable.setStatus(_B)
+_UsrHistoryObjectEntry_Object=MibTableRow
+usrHistoryObjectEntry=_UsrHistoryObjectEntry_Object((1,3,6,1,2,1,16,18,2,1))
+usrHistoryObjectEntry.setIndexNames((0,_A,_O),(0,_A,_d))
+if mibBuilder.loadTexts:usrHistoryObjectEntry.setStatus(_B)
+class _UsrHistoryObjectIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_UsrHistoryObjectIndex_Type.__name__=_F
+_UsrHistoryObjectIndex_Object=MibTableColumn
+usrHistoryObjectIndex=_UsrHistoryObjectIndex_Object((1,3,6,1,2,1,16,18,2,1,1),_UsrHistoryObjectIndex_Type())
+usrHistoryObjectIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:usrHistoryObjectIndex.setStatus(_B)
+_UsrHistoryObjectVariable_Type=ObjectIdentifier
+_UsrHistoryObjectVariable_Object=MibTableColumn
+usrHistoryObjectVariable=_UsrHistoryObjectVariable_Object((1,3,6,1,2,1,16,18,2,1,2),_UsrHistoryObjectVariable_Type())
+usrHistoryObjectVariable.setMaxAccess(_D)
+if mibBuilder.loadTexts:usrHistoryObjectVariable.setStatus(_B)
+class _UsrHistoryObjectSampleType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('absoluteValue',1),('deltaValue',2)))
+_UsrHistoryObjectSampleType_Type.__name__=_F
+_UsrHistoryObjectSampleType_Object=MibTableColumn
+usrHistoryObjectSampleType=_UsrHistoryObjectSampleType_Object((1,3,6,1,2,1,16,18,2,1,3),_UsrHistoryObjectSampleType_Type())
+usrHistoryObjectSampleType.setMaxAccess(_D)
+if mibBuilder.loadTexts:usrHistoryObjectSampleType.setStatus(_B)
+_UsrHistoryTable_Object=MibTable
+usrHistoryTable=_UsrHistoryTable_Object((1,3,6,1,2,1,16,18,3))
+if mibBuilder.loadTexts:usrHistoryTable.setStatus(_B)
+_UsrHistoryEntry_Object=MibTableRow
+usrHistoryEntry=_UsrHistoryEntry_Object((1,3,6,1,2,1,16,18,3,1))
+usrHistoryEntry.setIndexNames((0,_A,_O),(0,_A,_A1),(0,_A,_d))
+if mibBuilder.loadTexts:usrHistoryEntry.setStatus(_B)
+class _UsrHistorySampleIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_UsrHistorySampleIndex_Type.__name__=_F
+_UsrHistorySampleIndex_Object=MibTableColumn
+usrHistorySampleIndex=_UsrHistorySampleIndex_Object((1,3,6,1,2,1,16,18,3,1,1),_UsrHistorySampleIndex_Type())
+usrHistorySampleIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:usrHistorySampleIndex.setStatus(_B)
+_UsrHistoryIntervalStart_Type=TimeStamp
+_UsrHistoryIntervalStart_Object=MibTableColumn
+usrHistoryIntervalStart=_UsrHistoryIntervalStart_Object((1,3,6,1,2,1,16,18,3,1,2),_UsrHistoryIntervalStart_Type())
+usrHistoryIntervalStart.setMaxAccess(_C)
+if mibBuilder.loadTexts:usrHistoryIntervalStart.setStatus(_B)
+_UsrHistoryIntervalEnd_Type=TimeStamp
+_UsrHistoryIntervalEnd_Object=MibTableColumn
+usrHistoryIntervalEnd=_UsrHistoryIntervalEnd_Object((1,3,6,1,2,1,16,18,3,1,3),_UsrHistoryIntervalEnd_Type())
+usrHistoryIntervalEnd.setMaxAccess(_C)
+if mibBuilder.loadTexts:usrHistoryIntervalEnd.setStatus(_B)
+_UsrHistoryAbsValue_Type=Gauge32
+_UsrHistoryAbsValue_Object=MibTableColumn
+usrHistoryAbsValue=_UsrHistoryAbsValue_Object((1,3,6,1,2,1,16,18,3,1,4),_UsrHistoryAbsValue_Type())
+usrHistoryAbsValue.setMaxAccess(_C)
+if mibBuilder.loadTexts:usrHistoryAbsValue.setStatus(_B)
+class _UsrHistoryValStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('valueNotAvailable',1),('valuePositive',2),('valueNegative',3)))
+_UsrHistoryValStatus_Type.__name__=_F
+_UsrHistoryValStatus_Object=MibTableColumn
+usrHistoryValStatus=_UsrHistoryValStatus_Object((1,3,6,1,2,1,16,18,3,1,5),_UsrHistoryValStatus_Type())
+usrHistoryValStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:usrHistoryValStatus.setStatus(_B)
+_ProbeConfig_ObjectIdentity=ObjectIdentity
+probeConfig=_ProbeConfig_ObjectIdentity((1,3,6,1,2,1,16,19))
+class _ProbeCapabilities_Type(Bits):namedValues=NamedValues(*(('etherStats',0),('historyControl',1),('etherHistory',2),('alarm',3),('hosts',4),('hostTopN',5),(_m,6),(_l,7),('capture',8),('event',9),('tokenRingMLStats',10),('tokenRingPStats',11),('tokenRingMLHistory',12),('tokenRingPHistory',13),('ringStation',14),('ringStationOrder',15),('ringStationConfig',16),('sourceRouting',17),('protocolDirectory',18),('protocolDistribution',19),('addressMapping',20),('nlHost',21),('nlMatrix',22),('alHost',23),('alMatrix',24),(_A2,25),(_A3,26)))
+_ProbeCapabilities_Type.__name__=_R
+_ProbeCapabilities_Object=MibScalar
+probeCapabilities=_ProbeCapabilities_Object((1,3,6,1,2,1,16,19,1),_ProbeCapabilities_Type())
+probeCapabilities.setMaxAccess(_C)
+if mibBuilder.loadTexts:probeCapabilities.setStatus(_B)
+class _ProbeSoftwareRev_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,15))
+_ProbeSoftwareRev_Type.__name__=_J
+_ProbeSoftwareRev_Object=MibScalar
+probeSoftwareRev=_ProbeSoftwareRev_Object((1,3,6,1,2,1,16,19,2),_ProbeSoftwareRev_Type())
+probeSoftwareRev.setMaxAccess(_C)
+if mibBuilder.loadTexts:probeSoftwareRev.setStatus(_B)
+class _ProbeHardwareRev_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,31))
+_ProbeHardwareRev_Type.__name__=_J
+_ProbeHardwareRev_Object=MibScalar
+probeHardwareRev=_ProbeHardwareRev_Object((1,3,6,1,2,1,16,19,3),_ProbeHardwareRev_Type())
+probeHardwareRev.setMaxAccess(_C)
+if mibBuilder.loadTexts:probeHardwareRev.setStatus(_B)
+class _ProbeDateTime_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,0),ValueSizeConstraint(8,8),ValueSizeConstraint(11,11))
+_ProbeDateTime_Type.__name__=_H
+_ProbeDateTime_Object=MibScalar
+probeDateTime=_ProbeDateTime_Object((1,3,6,1,2,1,16,19,4),_ProbeDateTime_Type())
+probeDateTime.setMaxAccess(_K)
+if mibBuilder.loadTexts:probeDateTime.setStatus(_B)
+class _ProbeResetControl_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('running',1),('warmBoot',2),('coldBoot',3)))
+_ProbeResetControl_Type.__name__=_F
+_ProbeResetControl_Object=MibScalar
+probeResetControl=_ProbeResetControl_Object((1,3,6,1,2,1,16,19,5),_ProbeResetControl_Type())
+probeResetControl.setMaxAccess(_K)
+if mibBuilder.loadTexts:probeResetControl.setStatus(_B)
+class _ProbeDownloadFile_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
+_ProbeDownloadFile_Type.__name__=_J
+_ProbeDownloadFile_Object=MibScalar
+probeDownloadFile=_ProbeDownloadFile_Object((1,3,6,1,2,1,16,19,6),_ProbeDownloadFile_Type())
+probeDownloadFile.setMaxAccess(_K)
+if mibBuilder.loadTexts:probeDownloadFile.setStatus(_E)
+_ProbeDownloadTFTPServer_Type=IpAddress
+_ProbeDownloadTFTPServer_Object=MibScalar
+probeDownloadTFTPServer=_ProbeDownloadTFTPServer_Object((1,3,6,1,2,1,16,19,7),_ProbeDownloadTFTPServer_Type())
+probeDownloadTFTPServer.setMaxAccess(_K)
+if mibBuilder.loadTexts:probeDownloadTFTPServer.setStatus(_E)
+class _ProbeDownloadAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('notDownloading',1),('downloadToPROM',2),('downloadToRAM',3)))
+_ProbeDownloadAction_Type.__name__=_F
+_ProbeDownloadAction_Object=MibScalar
+probeDownloadAction=_ProbeDownloadAction_Object((1,3,6,1,2,1,16,19,8),_ProbeDownloadAction_Type())
+probeDownloadAction.setMaxAccess(_K)
+if mibBuilder.loadTexts:probeDownloadAction.setStatus(_E)
+class _ProbeDownloadStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('downloadSuccess',1),('downloadStatusUnknown',2),('downloadGeneralError',3),('downloadNoResponseFromServer',4),('downloadChecksumError',5),('downloadIncompatibleImage',6),('downloadTftpFileNotFound',7),('downloadTftpAccessViolation',8)))
+_ProbeDownloadStatus_Type.__name__=_F
+_ProbeDownloadStatus_Object=MibScalar
+probeDownloadStatus=_ProbeDownloadStatus_Object((1,3,6,1,2,1,16,19,9),_ProbeDownloadStatus_Type())
+probeDownloadStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:probeDownloadStatus.setStatus(_E)
+_SerialConfigTable_Object=MibTable
+serialConfigTable=_SerialConfigTable_Object((1,3,6,1,2,1,16,19,10))
+if mibBuilder.loadTexts:serialConfigTable.setStatus(_E)
+_SerialConfigEntry_Object=MibTableRow
+serialConfigEntry=_SerialConfigEntry_Object((1,3,6,1,2,1,16,19,10,1))
+serialConfigEntry.setIndexNames((0,_P,_Q))
+if mibBuilder.loadTexts:serialConfigEntry.setStatus(_E)
+class _SerialMode_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('direct',1),('modem',2)))
+_SerialMode_Type.__name__=_F
+_SerialMode_Object=MibTableColumn
+serialMode=_SerialMode_Object((1,3,6,1,2,1,16,19,10,1,1),_SerialMode_Type())
+serialMode.setMaxAccess(_D)
+if mibBuilder.loadTexts:serialMode.setStatus(_E)
+class _SerialProtocol_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('other',1),('slip',2),('ppp',3)))
+_SerialProtocol_Type.__name__=_F
+_SerialProtocol_Object=MibTableColumn
+serialProtocol=_SerialProtocol_Object((1,3,6,1,2,1,16,19,10,1,2),_SerialProtocol_Type())
+serialProtocol.setMaxAccess(_D)
+if mibBuilder.loadTexts:serialProtocol.setStatus(_E)
+class _SerialTimeout_Type(Integer32):defaultValue=300;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_SerialTimeout_Type.__name__=_F
+_SerialTimeout_Object=MibTableColumn
+serialTimeout=_SerialTimeout_Object((1,3,6,1,2,1,16,19,10,1,3),_SerialTimeout_Type())
+serialTimeout.setMaxAccess(_D)
+if mibBuilder.loadTexts:serialTimeout.setStatus(_E)
+class _SerialModemInitString_Type(ControlString):subtypeSpec=ControlString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_SerialModemInitString_Type.__name__=_L
+_SerialModemInitString_Object=MibTableColumn
+serialModemInitString=_SerialModemInitString_Object((1,3,6,1,2,1,16,19,10,1,4),_SerialModemInitString_Type())
+serialModemInitString.setMaxAccess(_D)
+if mibBuilder.loadTexts:serialModemInitString.setStatus(_E)
+class _SerialModemHangUpString_Type(ControlString):subtypeSpec=ControlString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_SerialModemHangUpString_Type.__name__=_L
+_SerialModemHangUpString_Object=MibTableColumn
+serialModemHangUpString=_SerialModemHangUpString_Object((1,3,6,1,2,1,16,19,10,1,5),_SerialModemHangUpString_Type())
+serialModemHangUpString.setMaxAccess(_D)
+if mibBuilder.loadTexts:serialModemHangUpString.setStatus(_E)
+class _SerialModemConnectResp_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_SerialModemConnectResp_Type.__name__=_J
+_SerialModemConnectResp_Object=MibTableColumn
+serialModemConnectResp=_SerialModemConnectResp_Object((1,3,6,1,2,1,16,19,10,1,6),_SerialModemConnectResp_Type())
+serialModemConnectResp.setMaxAccess(_D)
+if mibBuilder.loadTexts:serialModemConnectResp.setStatus(_E)
+class _SerialModemNoConnectResp_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_SerialModemNoConnectResp_Type.__name__=_J
+_SerialModemNoConnectResp_Object=MibTableColumn
+serialModemNoConnectResp=_SerialModemNoConnectResp_Object((1,3,6,1,2,1,16,19,10,1,7),_SerialModemNoConnectResp_Type())
+serialModemNoConnectResp.setMaxAccess(_D)
+if mibBuilder.loadTexts:serialModemNoConnectResp.setStatus(_E)
+class _SerialDialoutTimeout_Type(Integer32):defaultValue=20;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_SerialDialoutTimeout_Type.__name__=_F
+_SerialDialoutTimeout_Object=MibTableColumn
+serialDialoutTimeout=_SerialDialoutTimeout_Object((1,3,6,1,2,1,16,19,10,1,8),_SerialDialoutTimeout_Type())
+serialDialoutTimeout.setMaxAccess(_D)
+if mibBuilder.loadTexts:serialDialoutTimeout.setStatus(_E)
+_SerialStatus_Type=RowStatus
+_SerialStatus_Object=MibTableColumn
+serialStatus=_SerialStatus_Object((1,3,6,1,2,1,16,19,10,1,9),_SerialStatus_Type())
+serialStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:serialStatus.setStatus(_E)
+_NetConfigTable_Object=MibTable
+netConfigTable=_NetConfigTable_Object((1,3,6,1,2,1,16,19,11))
+if mibBuilder.loadTexts:netConfigTable.setStatus(_E)
+_NetConfigEntry_Object=MibTableRow
+netConfigEntry=_NetConfigEntry_Object((1,3,6,1,2,1,16,19,11,1))
+netConfigEntry.setIndexNames((0,_P,_Q))
+if mibBuilder.loadTexts:netConfigEntry.setStatus(_E)
+_NetConfigIPAddress_Type=IpAddress
+_NetConfigIPAddress_Object=MibTableColumn
+netConfigIPAddress=_NetConfigIPAddress_Object((1,3,6,1,2,1,16,19,11,1,1),_NetConfigIPAddress_Type())
+netConfigIPAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:netConfigIPAddress.setStatus(_E)
+_NetConfigSubnetMask_Type=IpAddress
+_NetConfigSubnetMask_Object=MibTableColumn
+netConfigSubnetMask=_NetConfigSubnetMask_Object((1,3,6,1,2,1,16,19,11,1,2),_NetConfigSubnetMask_Type())
+netConfigSubnetMask.setMaxAccess(_D)
+if mibBuilder.loadTexts:netConfigSubnetMask.setStatus(_E)
+_NetConfigStatus_Type=RowStatus
+_NetConfigStatus_Object=MibTableColumn
+netConfigStatus=_NetConfigStatus_Object((1,3,6,1,2,1,16,19,11,1,3),_NetConfigStatus_Type())
+netConfigStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:netConfigStatus.setStatus(_E)
+_NetDefaultGateway_Type=IpAddress
+_NetDefaultGateway_Object=MibScalar
+netDefaultGateway=_NetDefaultGateway_Object((1,3,6,1,2,1,16,19,12),_NetDefaultGateway_Type())
+netDefaultGateway.setMaxAccess(_K)
+if mibBuilder.loadTexts:netDefaultGateway.setStatus(_E)
+_TrapDestTable_Object=MibTable
+trapDestTable=_TrapDestTable_Object((1,3,6,1,2,1,16,19,13))
+if mibBuilder.loadTexts:trapDestTable.setStatus(_E)
+_TrapDestEntry_Object=MibTableRow
+trapDestEntry=_TrapDestEntry_Object((1,3,6,1,2,1,16,19,13,1))
+trapDestEntry.setIndexNames((0,_A,_A4))
+if mibBuilder.loadTexts:trapDestEntry.setStatus(_E)
+class _TrapDestIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_TrapDestIndex_Type.__name__=_F
+_TrapDestIndex_Object=MibTableColumn
+trapDestIndex=_TrapDestIndex_Object((1,3,6,1,2,1,16,19,13,1,1),_TrapDestIndex_Type())
+trapDestIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:trapDestIndex.setStatus(_E)
+class _TrapDestCommunity_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
+_TrapDestCommunity_Type.__name__=_H
+_TrapDestCommunity_Object=MibTableColumn
+trapDestCommunity=_TrapDestCommunity_Object((1,3,6,1,2,1,16,19,13,1,2),_TrapDestCommunity_Type())
+trapDestCommunity.setMaxAccess(_D)
+if mibBuilder.loadTexts:trapDestCommunity.setStatus(_E)
+class _TrapDestProtocol_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('ip',1),('ipx',2)))
+_TrapDestProtocol_Type.__name__=_F
+_TrapDestProtocol_Object=MibTableColumn
+trapDestProtocol=_TrapDestProtocol_Object((1,3,6,1,2,1,16,19,13,1,3),_TrapDestProtocol_Type())
+trapDestProtocol.setMaxAccess(_D)
+if mibBuilder.loadTexts:trapDestProtocol.setStatus(_E)
+_TrapDestAddress_Type=OctetString
+_TrapDestAddress_Object=MibTableColumn
+trapDestAddress=_TrapDestAddress_Object((1,3,6,1,2,1,16,19,13,1,4),_TrapDestAddress_Type())
+trapDestAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:trapDestAddress.setStatus(_E)
+_TrapDestOwner_Type=OwnerString
+_TrapDestOwner_Object=MibTableColumn
+trapDestOwner=_TrapDestOwner_Object((1,3,6,1,2,1,16,19,13,1,5),_TrapDestOwner_Type())
+trapDestOwner.setMaxAccess(_D)
+if mibBuilder.loadTexts:trapDestOwner.setStatus(_E)
+_TrapDestStatus_Type=RowStatus
+_TrapDestStatus_Object=MibTableColumn
+trapDestStatus=_TrapDestStatus_Object((1,3,6,1,2,1,16,19,13,1,6),_TrapDestStatus_Type())
+trapDestStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:trapDestStatus.setStatus(_E)
+_SerialConnectionTable_Object=MibTable
+serialConnectionTable=_SerialConnectionTable_Object((1,3,6,1,2,1,16,19,14))
+if mibBuilder.loadTexts:serialConnectionTable.setStatus(_E)
+_SerialConnectionEntry_Object=MibTableRow
+serialConnectionEntry=_SerialConnectionEntry_Object((1,3,6,1,2,1,16,19,14,1))
+serialConnectionEntry.setIndexNames((0,_A,_A5))
+if mibBuilder.loadTexts:serialConnectionEntry.setStatus(_E)
+class _SerialConnectIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_SerialConnectIndex_Type.__name__=_F
+_SerialConnectIndex_Object=MibTableColumn
+serialConnectIndex=_SerialConnectIndex_Object((1,3,6,1,2,1,16,19,14,1,1),_SerialConnectIndex_Type())
+serialConnectIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:serialConnectIndex.setStatus(_E)
+_SerialConnectDestIpAddress_Type=IpAddress
+_SerialConnectDestIpAddress_Object=MibTableColumn
+serialConnectDestIpAddress=_SerialConnectDestIpAddress_Object((1,3,6,1,2,1,16,19,14,1,2),_SerialConnectDestIpAddress_Type())
+serialConnectDestIpAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:serialConnectDestIpAddress.setStatus(_E)
+class _SerialConnectType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('direct',1),('modem',2),('switch',3),('modemSwitch',4)))
+_SerialConnectType_Type.__name__=_F
+_SerialConnectType_Object=MibTableColumn
+serialConnectType=_SerialConnectType_Object((1,3,6,1,2,1,16,19,14,1,3),_SerialConnectType_Type())
+serialConnectType.setMaxAccess(_D)
+if mibBuilder.loadTexts:serialConnectType.setStatus(_E)
+class _SerialConnectDialString_Type(ControlString):subtypeSpec=ControlString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_SerialConnectDialString_Type.__name__=_L
+_SerialConnectDialString_Object=MibTableColumn
+serialConnectDialString=_SerialConnectDialString_Object((1,3,6,1,2,1,16,19,14,1,4),_SerialConnectDialString_Type())
+serialConnectDialString.setMaxAccess(_D)
+if mibBuilder.loadTexts:serialConnectDialString.setStatus(_E)
+class _SerialConnectSwitchConnectSeq_Type(ControlString):subtypeSpec=ControlString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_SerialConnectSwitchConnectSeq_Type.__name__=_L
+_SerialConnectSwitchConnectSeq_Object=MibTableColumn
+serialConnectSwitchConnectSeq=_SerialConnectSwitchConnectSeq_Object((1,3,6,1,2,1,16,19,14,1,5),_SerialConnectSwitchConnectSeq_Type())
+serialConnectSwitchConnectSeq.setMaxAccess(_D)
+if mibBuilder.loadTexts:serialConnectSwitchConnectSeq.setStatus(_E)
+class _SerialConnectSwitchDisconnectSeq_Type(ControlString):subtypeSpec=ControlString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_SerialConnectSwitchDisconnectSeq_Type.__name__=_L
+_SerialConnectSwitchDisconnectSeq_Object=MibTableColumn
+serialConnectSwitchDisconnectSeq=_SerialConnectSwitchDisconnectSeq_Object((1,3,6,1,2,1,16,19,14,1,6),_SerialConnectSwitchDisconnectSeq_Type())
+serialConnectSwitchDisconnectSeq.setMaxAccess(_D)
+if mibBuilder.loadTexts:serialConnectSwitchDisconnectSeq.setStatus(_E)
+class _SerialConnectSwitchResetSeq_Type(ControlString):subtypeSpec=ControlString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_SerialConnectSwitchResetSeq_Type.__name__=_L
+_SerialConnectSwitchResetSeq_Object=MibTableColumn
+serialConnectSwitchResetSeq=_SerialConnectSwitchResetSeq_Object((1,3,6,1,2,1,16,19,14,1,7),_SerialConnectSwitchResetSeq_Type())
+serialConnectSwitchResetSeq.setMaxAccess(_D)
+if mibBuilder.loadTexts:serialConnectSwitchResetSeq.setStatus(_E)
+_SerialConnectOwner_Type=OwnerString
+_SerialConnectOwner_Object=MibTableColumn
+serialConnectOwner=_SerialConnectOwner_Object((1,3,6,1,2,1,16,19,14,1,8),_SerialConnectOwner_Type())
+serialConnectOwner.setMaxAccess(_D)
+if mibBuilder.loadTexts:serialConnectOwner.setStatus(_E)
+_SerialConnectStatus_Type=RowStatus
+_SerialConnectStatus_Object=MibTableColumn
+serialConnectStatus=_SerialConnectStatus_Object((1,3,6,1,2,1,16,19,14,1,9),_SerialConnectStatus_Type())
+serialConnectStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:serialConnectStatus.setStatus(_E)
+_RmonConformance_ObjectIdentity=ObjectIdentity
+rmonConformance=_RmonConformance_ObjectIdentity((1,3,6,1,2,1,16,20))
+_Rmon2MIBCompliances_ObjectIdentity=ObjectIdentity
+rmon2MIBCompliances=_Rmon2MIBCompliances_ObjectIdentity((1,3,6,1,2,1,16,20,1))
+_Rmon2MIBGroups_ObjectIdentity=ObjectIdentity
+rmon2MIBGroups=_Rmon2MIBGroups_ObjectIdentity((1,3,6,1,2,1,16,20,2))
+etherStatsEntry.registerAugmentions((_A,_A6))
 etherStats2Entry.setIndexNames(*etherStatsEntry.getIndexNames())
-if mibBuilder.loadTexts: etherStats2Entry.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-etherStatsDroppedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 1, 4, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etherStatsDroppedFrames.setDescription('The total number of frames which were received by the probe\n            and therefore not accounted for in the *StatsDropEvents, but\n            for which the probe chose not to count for this entry for\n            whatever reason.  Most often, this event occurs when the probe\n            is out of some resources and decides to shed load from this\n            collection.\n    \n            This count does not include packets that were not counted\n            because they had MAC-layer errors.\n    \n            Note that, unlike the dropEvents counter, this number is the\n            exact number of frames dropped.')
-etherStatsCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 1, 4, 1, 2), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etherStatsCreateTime.setDescription('The value of sysUpTime when this control entry was last\n            activated. This can be used by the management station to\n            ensure that the table has not been deleted and recreated\n            between polls.')
-historyControl2Table = MibTable((1, 3, 6, 1, 2, 1, 16, 2, 5), )
-if mibBuilder.loadTexts: historyControl2Table.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-historyControl2Entry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 2, 5, 1), )
-historyControlEntry.registerAugmentions(("RMON2-MIB", "historyControl2Entry"))
-historyControl2Entry.setIndexNames(*historyControlEntry.getIndexNames())
-if mibBuilder.loadTexts: historyControl2Entry.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-historyControlDroppedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 2, 5, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: historyControlDroppedFrames.setDescription('The total number of frames which were received by the probe\n            and therefore not accounted for in the *StatsDropEvents, but\n            for which the probe chose not to count for this entry for\n            whatever reason.  Most often, this event occurs when the probe\n            is out of some resources and decides to shed load from this\n            collection.\n    \n            This count does not include packets that were not counted\n            because they had MAC-layer errors.\n    \n            Note that, unlike the dropEvents counter, this number is the\n            exact number of frames dropped.')
-hostControl2Table = MibTable((1, 3, 6, 1, 2, 1, 16, 4, 4), )
-if mibBuilder.loadTexts: hostControl2Table.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-hostControl2Entry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 4, 4, 1), )
-hostControlEntry.registerAugmentions(("RMON2-MIB", "hostControl2Entry"))
-hostControl2Entry.setIndexNames(*hostControlEntry.getIndexNames())
-if mibBuilder.loadTexts: hostControl2Entry.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-hostControlDroppedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 4, 4, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hostControlDroppedFrames.setDescription('The total number of frames which were received by the probe\n            and therefore not accounted for in the *StatsDropEvents, but\n            for which the probe chose not to count for this entry for\n            whatever reason.  Most often, this event occurs when the probe\n            is out of some resources and decides to shed load from this\n            collection.\n    \n            This count does not include packets that were not counted\n            because they had MAC-layer errors.\n    \n            Note that, unlike the dropEvents counter, this number is the\n            exact number of frames dropped.')
-hostControlCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 4, 4, 1, 2), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hostControlCreateTime.setDescription('The value of sysUpTime when this control entry was last\n            activated. This can be used by the management station to\n            ensure that the table has not been deleted and recreated\n            between polls.')
-matrixControl2Table = MibTable((1, 3, 6, 1, 2, 1, 16, 6, 4), )
-if mibBuilder.loadTexts: matrixControl2Table.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-matrixControl2Entry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 6, 4, 1), )
-matrixControlEntry.registerAugmentions(("RMON2-MIB", "matrixControl2Entry"))
-matrixControl2Entry.setIndexNames(*matrixControlEntry.getIndexNames())
-if mibBuilder.loadTexts: matrixControl2Entry.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-matrixControlDroppedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 6, 4, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: matrixControlDroppedFrames.setDescription('The total number of frames which were received by the probe\n            and therefore not accounted for in the *StatsDropEvents, but\n            for which the probe chose not to count for this entry for\n            whatever reason.  Most often, this event occurs when the probe\n            is out of some resources and decides to shed load from this\n            collection.\n    \n            This count does not include packets that were not counted\n            because they had MAC-layer errors.\n    \n            Note that, unlike the dropEvents counter, this number is the\n            exact number of frames dropped.')
-matrixControlCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 6, 4, 1, 2), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: matrixControlCreateTime.setDescription('The value of sysUpTime when this control entry was last\n            activated. This can be used by the management station to\n            ensure that the table has not been deleted and recreated\n            between polls.')
-channel2Table = MibTable((1, 3, 6, 1, 2, 1, 16, 7, 3), )
-if mibBuilder.loadTexts: channel2Table.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-channel2Entry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 7, 3, 1), )
-channelEntry.registerAugmentions(("RMON2-MIB", "channel2Entry"))
-channel2Entry.setIndexNames(*channelEntry.getIndexNames())
-if mibBuilder.loadTexts: channel2Entry.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-channelDroppedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 7, 3, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: channelDroppedFrames.setDescription('The total number of frames which were received by the probe\n            and therefore not accounted for in the *StatsDropEvents, but\n            for which the probe chose not to count for this entry for\n            whatever reason.  Most often, this event occurs when the probe\n            is out of some resources and decides to shed load from this\n            collection.\n    \n            This count does not include packets that were not counted\n            because they had MAC-layer errors.\n    \n            Note that, unlike the dropEvents counter, this number is the\n            exact number of frames dropped.')
-channelCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 7, 3, 1, 2), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: channelCreateTime.setDescription('The value of sysUpTime when this control entry was last\n            activated. This can be used by the management station to\n            ensure that the table has not been deleted and recreated\n            between polls.')
-tokenRingMLStats2Table = MibTable((1, 3, 6, 1, 2, 1, 16, 1, 5), )
-if mibBuilder.loadTexts: tokenRingMLStats2Table.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-tokenRingMLStats2Entry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 1, 5, 1), )
-tokenRingMLStatsEntry.registerAugmentions(("RMON2-MIB", "tokenRingMLStats2Entry"))
+tokenRingMLStatsEntry.registerAugmentions((_A,_A7))
 tokenRingMLStats2Entry.setIndexNames(*tokenRingMLStatsEntry.getIndexNames())
-if mibBuilder.loadTexts: tokenRingMLStats2Entry.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-tokenRingMLStatsDroppedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 1, 5, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tokenRingMLStatsDroppedFrames.setDescription('The total number of frames which were received by the probe\n            and therefore not accounted for in the *StatsDropEvents, but\n            for which the probe chose not to count for this entry for\n            whatever reason.  Most often, this event occurs when the probe\n            is out of some resources and decides to shed load from this\n            collection.\n    \n            This count does not include packets that were not counted\n            because they had MAC-layer errors.\n    \n            Note that, unlike the dropEvents counter, this number is the\n            exact number of frames dropped.')
-tokenRingMLStatsCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 1, 5, 1, 2), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tokenRingMLStatsCreateTime.setDescription('The value of sysUpTime when this control entry was last activated.\n            This can be used by the management station to ensure that the\n            table has not been deleted and recreated between polls.')
-tokenRingPStats2Table = MibTable((1, 3, 6, 1, 2, 1, 16, 1, 6), )
-if mibBuilder.loadTexts: tokenRingPStats2Table.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-tokenRingPStats2Entry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 1, 6, 1), )
-tokenRingPStatsEntry.registerAugmentions(("RMON2-MIB", "tokenRingPStats2Entry"))
+tokenRingPStatsEntry.registerAugmentions((_A,_A8))
 tokenRingPStats2Entry.setIndexNames(*tokenRingPStatsEntry.getIndexNames())
-if mibBuilder.loadTexts: tokenRingPStats2Entry.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-tokenRingPStatsDroppedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 1, 6, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tokenRingPStatsDroppedFrames.setDescription('The total number of frames which were received by the probe\n            and therefore not accounted for in the *StatsDropEvents, but\n            for which the probe chose not to count for this entry for\n            whatever reason.  Most often, this event occurs when the probe\n            is out of some resources and decides to shed load from this\n            collection.\n    \n            This count does not include packets that were not counted\n            because they had MAC-layer errors.\n    \n            Note that, unlike the dropEvents counter, this number is the\n            exact number of frames dropped.')
-tokenRingPStatsCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 1, 6, 1, 2), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tokenRingPStatsCreateTime.setDescription('The value of sysUpTime when this control entry was last activated.\n            This can be used by the management station to ensure that the\n            table has not been deleted and recreated between polls.')
-ringStationControl2Table = MibTable((1, 3, 6, 1, 2, 1, 16, 10, 7), )
-if mibBuilder.loadTexts: ringStationControl2Table.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-ringStationControl2Entry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 10, 7, 1), )
-ringStationControlEntry.registerAugmentions(("RMON2-MIB", "ringStationControl2Entry"))
-ringStationControl2Entry.setIndexNames(*ringStationControlEntry.getIndexNames())
-if mibBuilder.loadTexts: ringStationControl2Entry.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-ringStationControlDroppedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 10, 7, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ringStationControlDroppedFrames.setDescription('The total number of frames which were received by the probe\n            and therefore not accounted for in the *StatsDropEvents, but\n            for which the probe chose not to count for this entry for\n            whatever reason.  Most often, this event occurs when the probe\n            is out of some resources and decides to shed load from this\n            collection.\n    \n            This count does not include packets that were not counted\n            because they had MAC-layer errors.\n    \n            Note that, unlike the dropEvents counter, this number is the\n            exact number of frames dropped.')
-ringStationControlCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 10, 7, 1, 2), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ringStationControlCreateTime.setDescription('The value of sysUpTime when this control entry was last activated.\n            This can be used by the management station to ensure that the\n            table has not been deleted and recreated between polls.')
-sourceRoutingStats2Table = MibTable((1, 3, 6, 1, 2, 1, 16, 10, 8), )
-if mibBuilder.loadTexts: sourceRoutingStats2Table.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-sourceRoutingStats2Entry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 10, 8, 1), )
-sourceRoutingStatsEntry.registerAugmentions(("RMON2-MIB", "sourceRoutingStats2Entry"))
-sourceRoutingStats2Entry.setIndexNames(*sourceRoutingStatsEntry.getIndexNames())
-if mibBuilder.loadTexts: sourceRoutingStats2Entry.setDescription('Contains the RMON-2 augmentations to RMON-1.')
-sourceRoutingStatsDroppedFrames = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 10, 8, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sourceRoutingStatsDroppedFrames.setDescription('The total number of frames which were received by the probe\n            and therefore not accounted for in the *StatsDropEvents, but\n            for which the probe chose not to count for this entry for\n            whatever reason.  Most often, this event occurs when the probe\n            is out of some resources and decides to shed load from this\n            collection.\n    \n            This count does not include packets that were not counted\n            because they had MAC-layer errors.\n    \n            Note that, unlike the dropEvents counter, this number is the\n            exact number of frames dropped.')
-sourceRoutingStatsCreateTime = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 10, 8, 1, 2), LastCreateTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sourceRoutingStatsCreateTime.setDescription('The value of sysUpTime when this control entry was last activated.\n            This can be used by the management station to ensure that the\n            table has not been deleted and recreated between polls.')
-filter2Table = MibTable((1, 3, 6, 1, 2, 1, 16, 7, 4), )
-if mibBuilder.loadTexts: filter2Table.setDescription('Provides a variable-length packet filter feature to the\n            RMON-1 filter table.')
-filter2Entry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 7, 4, 1), )
-filterEntry.registerAugmentions(("RMON2-MIB", "filter2Entry"))
+historyControlEntry.registerAugmentions((_A,_A9))
+historyControl2Entry.setIndexNames(*historyControlEntry.getIndexNames())
+hostControlEntry.registerAugmentions((_A,_AA))
+hostControl2Entry.setIndexNames(*hostControlEntry.getIndexNames())
+matrixControlEntry.registerAugmentions((_A,_AB))
+matrixControl2Entry.setIndexNames(*matrixControlEntry.getIndexNames())
+channelEntry.registerAugmentions((_A,_AC))
+channel2Entry.setIndexNames(*channelEntry.getIndexNames())
+filterEntry.registerAugmentions((_A,_AD))
 filter2Entry.setIndexNames(*filterEntry.getIndexNames())
-if mibBuilder.loadTexts: filter2Entry.setDescription('Provides a variable-length packet filter feature to the\n            RMON-1 filter table.')
-filterProtocolDirDataLocalIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 7, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: filterProtocolDirDataLocalIndex.setDescription("When this object is set to a non-zero value, the filter that\n            it is associated with performs the following operations on\n            every packet:\n    \n            1) - If the packet doesn't match the protocol directory entry\n                 identified by this object, discard the packet and exit\n                 (i.e., discard the packet if it is not of the identified\n                 protocol).\n            2) - If the associated filterProtocolDirLocalIndex is non-zero\n                 and the packet doesn't match the protocol directory\n                 entry identified by that object, discard the packet and\n                 exit\n            3) - If the packet matches, perform the regular filter\n                 algorithm as if the beginning of this named protocol is\n                 the beginning of the packet, potentially applying the\n                 filterOffset value to move further into the packet.")
-filterProtocolDirLocalIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 7, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: filterProtocolDirLocalIndex.setDescription("When this object is set to a non-zero value, the filter that\n            it is associated with will discard the packet if the packet\n            doesn't match this protocol directory entry.")
-rmon2MIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 20, 1))
-rmon2MIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 20, 2))
-rmon2MIBCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 16, 20, 1, 1)).setObjects(*(("RMON2-MIB", "protocolDirectoryGroup"), ("RMON2-MIB", "protocolDistributionGroup"), ("RMON2-MIB", "addressMapGroup"), ("RMON2-MIB", "nlHostGroup"), ("RMON2-MIB", "nlMatrixGroup"), ("RMON2-MIB", "usrHistoryGroup"), ("RMON2-MIB", "probeInformationGroup"), ("RMON2-MIB", "rmon1EnhancementGroup"),))
-if mibBuilder.loadTexts: rmon2MIBCompliance.setDescription('Describes the requirements for conformance to\n            the RMON2 MIB')
-rmon2MIBApplicationLayerCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 16, 20, 1, 2)).setObjects(*(("RMON2-MIB", "protocolDirectoryGroup"), ("RMON2-MIB", "protocolDistributionGroup"), ("RMON2-MIB", "addressMapGroup"), ("RMON2-MIB", "nlHostGroup"), ("RMON2-MIB", "nlMatrixGroup"), ("RMON2-MIB", "alHostGroup"), ("RMON2-MIB", "alMatrixGroup"), ("RMON2-MIB", "usrHistoryGroup"), ("RMON2-MIB", "probeInformationGroup"), ("RMON2-MIB", "rmon1EnhancementGroup"),))
-if mibBuilder.loadTexts: rmon2MIBApplicationLayerCompliance.setDescription('Describes the requirements for conformance to\n            the RMON2 MIB with Application Layer Enhancements.')
-protocolDirectoryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 2, 1)).setObjects(*(("RMON2-MIB", "protocolDirLastChange"), ("RMON2-MIB", "protocolDirLocalIndex"), ("RMON2-MIB", "protocolDirDescr"), ("RMON2-MIB", "protocolDirType"), ("RMON2-MIB", "protocolDirAddressMapConfig"), ("RMON2-MIB", "protocolDirHostConfig"), ("RMON2-MIB", "protocolDirMatrixConfig"), ("RMON2-MIB", "protocolDirOwner"), ("RMON2-MIB", "protocolDirStatus"),))
-if mibBuilder.loadTexts: protocolDirectoryGroup.setDescription('Lists the inventory of protocols the probe has the capability\n            of monitoring and allows the addition, deletion, and\n            configuration of entries in this list.')
-protocolDistributionGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 2, 2)).setObjects(*(("RMON2-MIB", "protocolDistControlDataSource"), ("RMON2-MIB", "protocolDistControlDroppedFrames"), ("RMON2-MIB", "protocolDistControlCreateTime"), ("RMON2-MIB", "protocolDistControlOwner"), ("RMON2-MIB", "protocolDistControlStatus"), ("RMON2-MIB", "protocolDistStatsPkts"), ("RMON2-MIB", "protocolDistStatsOctets"),))
-if mibBuilder.loadTexts: protocolDistributionGroup.setDescription('Collects the relative amounts of octets and packets for the\n            different protocols detected on a network segment.')
-addressMapGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 2, 3)).setObjects(*(("RMON2-MIB", "addressMapInserts"), ("RMON2-MIB", "addressMapDeletes"), ("RMON2-MIB", "addressMapMaxDesiredEntries"), ("RMON2-MIB", "addressMapControlDataSource"), ("RMON2-MIB", "addressMapControlDroppedFrames"), ("RMON2-MIB", "addressMapControlOwner"), ("RMON2-MIB", "addressMapControlStatus"), ("RMON2-MIB", "addressMapPhysicalAddress"), ("RMON2-MIB", "addressMapLastChange"),))
-if mibBuilder.loadTexts: addressMapGroup.setDescription('Lists MAC address to network address bindings discovered by\n            the probe and what interface they were last seen on.')
-nlHostGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 2, 4)).setObjects(*(("RMON2-MIB", "hlHostControlDataSource"), ("RMON2-MIB", "hlHostControlNlDroppedFrames"), ("RMON2-MIB", "hlHostControlNlInserts"), ("RMON2-MIB", "hlHostControlNlDeletes"), ("RMON2-MIB", "hlHostControlNlMaxDesiredEntries"), ("RMON2-MIB", "hlHostControlAlDroppedFrames"), ("RMON2-MIB", "hlHostControlAlInserts"), ("RMON2-MIB", "hlHostControlAlDeletes"), ("RMON2-MIB", "hlHostControlAlMaxDesiredEntries"), ("RMON2-MIB", "hlHostControlOwner"), ("RMON2-MIB", "hlHostControlStatus"), ("RMON2-MIB", "nlHostInPkts"), ("RMON2-MIB", "nlHostOutPkts"), ("RMON2-MIB", "nlHostInOctets"), ("RMON2-MIB", "nlHostOutOctets"), ("RMON2-MIB", "nlHostOutMacNonUnicastPkts"), ("RMON2-MIB", "nlHostCreateTime"),))
-if mibBuilder.loadTexts: nlHostGroup.setDescription('Counts the amount of traffic sent from and to each network\n            address discovered by the probe. Note that while the\n            hlHostControlTable also has objects that control an optional\n            alHostTable, implementation of the alHostTable is not required\n            to fully implement this group.')
-nlMatrixGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 2, 5)).setObjects(*(("RMON2-MIB", "hlMatrixControlDataSource"), ("RMON2-MIB", "hlMatrixControlNlDroppedFrames"), ("RMON2-MIB", "hlMatrixControlNlInserts"), ("RMON2-MIB", "hlMatrixControlNlDeletes"), ("RMON2-MIB", "hlMatrixControlNlMaxDesiredEntries"), ("RMON2-MIB", "hlMatrixControlAlDroppedFrames"), ("RMON2-MIB", "hlMatrixControlAlInserts"), ("RMON2-MIB", "hlMatrixControlAlDeletes"), ("RMON2-MIB", "hlMatrixControlAlMaxDesiredEntries"), ("RMON2-MIB", "hlMatrixControlOwner"), ("RMON2-MIB", "hlMatrixControlStatus"), ("RMON2-MIB", "nlMatrixSDPkts"), ("RMON2-MIB", "nlMatrixSDOctets"), ("RMON2-MIB", "nlMatrixSDCreateTime"), ("RMON2-MIB", "nlMatrixDSPkts"), ("RMON2-MIB", "nlMatrixDSOctets"), ("RMON2-MIB", "nlMatrixDSCreateTime"), ("RMON2-MIB", "nlMatrixTopNControlMatrixIndex"), ("RMON2-MIB", "nlMatrixTopNControlRateBase"), ("RMON2-MIB", "nlMatrixTopNControlTimeRemaining"), ("RMON2-MIB", "nlMatrixTopNControlGeneratedReports"), ("RMON2-MIB", "nlMatrixTopNControlDuration"), ("RMON2-MIB", "nlMatrixTopNControlRequestedSize"), ("RMON2-MIB", "nlMatrixTopNControlGrantedSize"), ("RMON2-MIB", "nlMatrixTopNControlStartTime"), ("RMON2-MIB", "nlMatrixTopNControlOwner"), ("RMON2-MIB", "nlMatrixTopNControlStatus"), ("RMON2-MIB", "nlMatrixTopNProtocolDirLocalIndex"), ("RMON2-MIB", "nlMatrixTopNSourceAddress"), ("RMON2-MIB", "nlMatrixTopNDestAddress"), ("RMON2-MIB", "nlMatrixTopNPktRate"), ("RMON2-MIB", "nlMatrixTopNReversePktRate"), ("RMON2-MIB", "nlMatrixTopNOctetRate"), ("RMON2-MIB", "nlMatrixTopNReverseOctetRate"),))
-if mibBuilder.loadTexts: nlMatrixGroup.setDescription('Counts the amount of traffic sent between each pair of\n            network addresses discovered by the probe. Note that while the\n            hlMatrixControlTable also has objects that control optional\n            alMatrixTables, implementation of the alMatrixTables is not\n            required to fully implement this group.')
-alHostGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 2, 6)).setObjects(*(("RMON2-MIB", "alHostInPkts"), ("RMON2-MIB", "alHostOutPkts"), ("RMON2-MIB", "alHostInOctets"), ("RMON2-MIB", "alHostOutOctets"), ("RMON2-MIB", "alHostCreateTime"),))
-if mibBuilder.loadTexts: alHostGroup.setDescription('Counts the amount of traffic, by protocol, sent from and to\n            each network address discovered by the probe. Implementation\n            of this group requires implementation of the Network Layer\n            Host Group.')
-alMatrixGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 2, 7)).setObjects(*(("RMON2-MIB", "alMatrixSDPkts"), ("RMON2-MIB", "alMatrixSDOctets"), ("RMON2-MIB", "alMatrixSDCreateTime"), ("RMON2-MIB", "alMatrixDSPkts"), ("RMON2-MIB", "alMatrixDSOctets"), ("RMON2-MIB", "alMatrixDSCreateTime"), ("RMON2-MIB", "alMatrixTopNControlMatrixIndex"), ("RMON2-MIB", "alMatrixTopNControlRateBase"), ("RMON2-MIB", "alMatrixTopNControlTimeRemaining"), ("RMON2-MIB", "alMatrixTopNControlGeneratedReports"), ("RMON2-MIB", "alMatrixTopNControlDuration"), ("RMON2-MIB", "alMatrixTopNControlRequestedSize"), ("RMON2-MIB", "alMatrixTopNControlGrantedSize"), ("RMON2-MIB", "alMatrixTopNControlStartTime"), ("RMON2-MIB", "alMatrixTopNControlOwner"), ("RMON2-MIB", "alMatrixTopNControlStatus"), ("RMON2-MIB", "alMatrixTopNProtocolDirLocalIndex"), ("RMON2-MIB", "alMatrixTopNSourceAddress"), ("RMON2-MIB", "alMatrixTopNDestAddress"), ("RMON2-MIB", "alMatrixTopNAppProtocolDirLocalIndex"), ("RMON2-MIB", "alMatrixTopNPktRate"), ("RMON2-MIB", "alMatrixTopNReversePktRate"), ("RMON2-MIB", "alMatrixTopNOctetRate"), ("RMON2-MIB", "alMatrixTopNReverseOctetRate"),))
-if mibBuilder.loadTexts: alMatrixGroup.setDescription('Counts the amount of traffic, by protocol, sent between each\n            pair of network addresses discovered by the\n            probe. Implementation of this group requires implementation of\n            the Network Layer Matrix Group.')
-usrHistoryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 2, 8)).setObjects(*(("RMON2-MIB", "usrHistoryControlObjects"), ("RMON2-MIB", "usrHistoryControlBucketsRequested"), ("RMON2-MIB", "usrHistoryControlBucketsGranted"), ("RMON2-MIB", "usrHistoryControlInterval"), ("RMON2-MIB", "usrHistoryControlOwner"), ("RMON2-MIB", "usrHistoryControlStatus"), ("RMON2-MIB", "usrHistoryObjectVariable"), ("RMON2-MIB", "usrHistoryObjectSampleType"), ("RMON2-MIB", "usrHistoryIntervalStart"), ("RMON2-MIB", "usrHistoryIntervalEnd"), ("RMON2-MIB", "usrHistoryAbsValue"), ("RMON2-MIB", "usrHistoryValStatus"),))
-if mibBuilder.loadTexts: usrHistoryGroup.setDescription('The usrHistoryGroup provides user-defined collection of\n            historical information from MIB objects on the probe.')
-probeInformationGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 2, 9)).setObjects(*(("RMON2-MIB", "probeCapabilities"), ("RMON2-MIB", "probeSoftwareRev"), ("RMON2-MIB", "probeHardwareRev"), ("RMON2-MIB", "probeDateTime"),))
-if mibBuilder.loadTexts: probeInformationGroup.setDescription('This group describes various operating parameters of the\n            probe as well as controlling the local time of the probe.')
-probeConfigurationGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 2, 10)).setObjects(*(("RMON2-MIB", "probeResetControl"), ("RMON2-MIB", "probeDownloadFile"), ("RMON2-MIB", "probeDownloadTFTPServer"), ("RMON2-MIB", "probeDownloadAction"), ("RMON2-MIB", "probeDownloadStatus"), ("RMON2-MIB", "serialMode"), ("RMON2-MIB", "serialProtocol"), ("RMON2-MIB", "serialTimeout"), ("RMON2-MIB", "serialModemInitString"), ("RMON2-MIB", "serialModemHangUpString"), ("RMON2-MIB", "serialModemConnectResp"), ("RMON2-MIB", "serialModemNoConnectResp"), ("RMON2-MIB", "serialDialoutTimeout"), ("RMON2-MIB", "serialStatus"), ("RMON2-MIB", "netConfigIPAddress"), ("RMON2-MIB", "netConfigSubnetMask"), ("RMON2-MIB", "netConfigStatus"), ("RMON2-MIB", "netDefaultGateway"), ("RMON2-MIB", "trapDestCommunity"), ("RMON2-MIB", "trapDestProtocol"), ("RMON2-MIB", "trapDestAddress"), ("RMON2-MIB", "trapDestOwner"), ("RMON2-MIB", "trapDestStatus"), ("RMON2-MIB", "serialConnectDestIpAddress"), ("RMON2-MIB", "serialConnectType"), ("RMON2-MIB", "serialConnectDialString"), ("RMON2-MIB", "serialConnectSwitchConnectSeq"), ("RMON2-MIB", "serialConnectSwitchDisconnectSeq"), ("RMON2-MIB", "serialConnectSwitchResetSeq"), ("RMON2-MIB", "serialConnectOwner"), ("RMON2-MIB", "serialConnectStatus"),))
-if mibBuilder.loadTexts: probeConfigurationGroup.setDescription('This group controls the configuration of various operating\n            parameters of the probe.')
-rmon1EnhancementGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 2, 11)).setObjects(*(("RMON2-MIB", "historyControlDroppedFrames"), ("RMON2-MIB", "hostControlDroppedFrames"), ("RMON2-MIB", "hostControlCreateTime"), ("RMON2-MIB", "matrixControlDroppedFrames"), ("RMON2-MIB", "matrixControlCreateTime"), ("RMON2-MIB", "channelDroppedFrames"), ("RMON2-MIB", "channelCreateTime"), ("RMON2-MIB", "filterProtocolDirDataLocalIndex"), ("RMON2-MIB", "filterProtocolDirLocalIndex"),))
-if mibBuilder.loadTexts: rmon1EnhancementGroup.setDescription('This group adds some enhancements to RMON-1 that help\n            management stations.')
-rmon1EthernetEnhancementGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 2, 12)).setObjects(*(("RMON2-MIB", "etherStatsDroppedFrames"), ("RMON2-MIB", "etherStatsCreateTime"),))
-if mibBuilder.loadTexts: rmon1EthernetEnhancementGroup.setDescription('This group adds some enhancements to RMON-1 that help\n            management stations.')
-rmon1TokenRingEnhancementGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 20, 2, 13)).setObjects(*(("RMON2-MIB", "tokenRingMLStatsDroppedFrames"), ("RMON2-MIB", "tokenRingMLStatsCreateTime"), ("RMON2-MIB", "tokenRingPStatsDroppedFrames"), ("RMON2-MIB", "tokenRingPStatsCreateTime"), ("RMON2-MIB", "ringStationControlDroppedFrames"), ("RMON2-MIB", "ringStationControlCreateTime"), ("RMON2-MIB", "sourceRoutingStatsDroppedFrames"), ("RMON2-MIB", "sourceRoutingStatsCreateTime"),))
-if mibBuilder.loadTexts: rmon1TokenRingEnhancementGroup.setDescription('This group adds some enhancements to RMON-1 that help\n            management stations.')
-mibBuilder.exportSymbols("RMON2-MIB", addressMapDeletes=addressMapDeletes, nlHostAddress=nlHostAddress, hlMatrixControlIndex=hlMatrixControlIndex, rmon=rmon, nlMatrixSDDestAddress=nlMatrixSDDestAddress, probeHardwareRev=probeHardwareRev, nlMatrixTopNControlTable=nlMatrixTopNControlTable, alMatrixDSTable=alMatrixDSTable, DataSource=DataSource, addressMapControlIndex=addressMapControlIndex, netDefaultGateway=netDefaultGateway, sourceRoutingStats2Entry=sourceRoutingStats2Entry, nlMatrixGroup=nlMatrixGroup, hlHostControlDataSource=hlHostControlDataSource, usrHistoryGroup=usrHistoryGroup, alMatrixTopNControlStatus=alMatrixTopNControlStatus, usrHistoryControlBucketsGranted=usrHistoryControlBucketsGranted, probeCapabilities=probeCapabilities, protocolDistStatsEntry=protocolDistStatsEntry, hlMatrixControlEntry=hlMatrixControlEntry, hlHostControlEntry=hlHostControlEntry, nlMatrixTopNControlStatus=nlMatrixTopNControlStatus, alMatrixTopNProtocolDirLocalIndex=alMatrixTopNProtocolDirLocalIndex, alMatrixTopNControlRateBase=alMatrixTopNControlRateBase, alMatrixTopNDestAddress=alMatrixTopNDestAddress, serialModemInitString=serialModemInitString, alMatrixTopNEntry=alMatrixTopNEntry, hostControlDroppedFrames=hostControlDroppedFrames, alHostTimeMark=alHostTimeMark, hlMatrixControlTable=hlMatrixControlTable, addressMapControlDroppedFrames=addressMapControlDroppedFrames, nlMatrixDSCreateTime=nlMatrixDSCreateTime, protocolDirDescr=protocolDirDescr, alMatrixTopNSourceAddress=alMatrixTopNSourceAddress, hlMatrixControlDataSource=hlMatrixControlDataSource, netConfigStatus=netConfigStatus, rmon2MIBGroups=rmon2MIBGroups, nlHostOutMacNonUnicastPkts=nlHostOutMacNonUnicastPkts, trapDestIndex=trapDestIndex, protocolDistControlEntry=protocolDistControlEntry, tokenRingMLStats2Entry=tokenRingMLStats2Entry, rmon1EnhancementGroup=rmon1EnhancementGroup, usrHistoryControlEntry=usrHistoryControlEntry, alMatrixTopNPktRate=alMatrixTopNPktRate, alMatrixTopNReversePktRate=alMatrixTopNReversePktRate, usrHistoryControlObjects=usrHistoryControlObjects, nlMatrixSDTimeMark=nlMatrixSDTimeMark, nlMatrixDSSourceAddress=nlMatrixDSSourceAddress, alMatrixSDPkts=alMatrixSDPkts, alMatrixDSOctets=alMatrixDSOctets, netConfigEntry=netConfigEntry, nlMatrixTopNControlOwner=nlMatrixTopNControlOwner, alMatrixTopNAppProtocolDirLocalIndex=alMatrixTopNAppProtocolDirLocalIndex, usrHistoryObjectVariable=usrHistoryObjectVariable, channel2Entry=channel2Entry, serialConnectIndex=serialConnectIndex, serialConnectDestIpAddress=serialConnectDestIpAddress, addressMapControlDataSource=addressMapControlDataSource, hlHostControlTable=hlHostControlTable, alHostCreateTime=alHostCreateTime, alHost=alHost, protocolDistributionGroup=protocolDistributionGroup, channel2Table=channel2Table, LastCreateTime=LastCreateTime, ControlString=ControlString, matrixControlCreateTime=matrixControlCreateTime, protocolDirID=protocolDirID, usrHistoryIntervalEnd=usrHistoryIntervalEnd, nlHostTable=nlHostTable, historyControl2Entry=historyControl2Entry, etherStatsDroppedFrames=etherStatsDroppedFrames, protocolDistControlTable=protocolDistControlTable, addressMapEntry=addressMapEntry, nlMatrixTopNIndex=nlMatrixTopNIndex, addressMapControlStatus=addressMapControlStatus, serialConnectStatus=serialConnectStatus, nlMatrixSDCreateTime=nlMatrixSDCreateTime, addressMapLastChange=addressMapLastChange, nlMatrixTopNControlRateBase=nlMatrixTopNControlRateBase, matrixControl2Entry=matrixControl2Entry, rmon1EthernetEnhancementGroup=rmon1EthernetEnhancementGroup, nlMatrixTopNDestAddress=nlMatrixTopNDestAddress, sourceRoutingStatsCreateTime=sourceRoutingStatsCreateTime, nlMatrixTopNControlStartTime=nlMatrixTopNControlStartTime, hlHostControlAlInserts=hlHostControlAlInserts, usrHistoryControlTable=usrHistoryControlTable, alHostTable=alHostTable, serialProtocol=serialProtocol, protocolDistStatsTable=protocolDistStatsTable, tokenRingMLStatsDroppedFrames=tokenRingMLStatsDroppedFrames, hlHostControlOwner=hlHostControlOwner, nlMatrixSDPkts=nlMatrixSDPkts, alMatrixTopNReverseOctetRate=alMatrixTopNReverseOctetRate, hlMatrixControlAlDeletes=hlMatrixControlAlDeletes, protocolDist=protocolDist, protocolDistControlCreateTime=protocolDistControlCreateTime, hlMatrixControlAlDroppedFrames=hlMatrixControlAlDroppedFrames, nlHostInPkts=nlHostInPkts, alHostInOctets=alHostInOctets, usrHistoryControlOwner=usrHistoryControlOwner, hlMatrixControlNlMaxDesiredEntries=hlMatrixControlNlMaxDesiredEntries, usrHistoryValStatus=usrHistoryValStatus, hlHostControlStatus=hlHostControlStatus, alMatrixTopNControlGeneratedReports=alMatrixTopNControlGeneratedReports, usrHistoryControlStatus=usrHistoryControlStatus, nlMatrixTopNControlIndex=nlMatrixTopNControlIndex, nlMatrixTopNSourceAddress=nlMatrixTopNSourceAddress, serialConfigTable=serialConfigTable, serialDialoutTimeout=serialDialoutTimeout, nlMatrixSDTable=nlMatrixSDTable, serialConnectSwitchResetSeq=serialConnectSwitchResetSeq, ringStationControl2Entry=ringStationControl2Entry, addressMapControlOwner=addressMapControlOwner, nlMatrixDSDestAddress=nlMatrixDSDestAddress, nlMatrixTopNControlMatrixIndex=nlMatrixTopNControlMatrixIndex, nlMatrixTopNControlEntry=nlMatrixTopNControlEntry, alHostInPkts=alHostInPkts, nlMatrixDSTable=nlMatrixDSTable, nlMatrixTopNControlDuration=nlMatrixTopNControlDuration, usrHistoryControlIndex=usrHistoryControlIndex, nlHostOutOctets=nlHostOutOctets, historyControl2Table=historyControl2Table, hlMatrixControlAlInserts=hlMatrixControlAlInserts, hlMatrixControlStatus=hlMatrixControlStatus, protocolDirHostConfig=protocolDirHostConfig, alMatrix=alMatrix, hlMatrixControlAlMaxDesiredEntries=hlMatrixControlAlMaxDesiredEntries, hlHostControlNlDeletes=hlHostControlNlDeletes, alMatrixTopNControlStartTime=alMatrixTopNControlStartTime, probeDownloadAction=probeDownloadAction, serialMode=serialMode, channelDroppedFrames=channelDroppedFrames, protocolDistControlStatus=protocolDistControlStatus, filterProtocolDirDataLocalIndex=filterProtocolDirDataLocalIndex, addressMapSource=addressMapSource, rmon1TokenRingEnhancementGroup=rmon1TokenRingEnhancementGroup, trapDestEntry=trapDestEntry, protocolDistStatsOctets=protocolDistStatsOctets, serialStatus=serialStatus, addressMapControlEntry=addressMapControlEntry, probeDownloadTFTPServer=probeDownloadTFTPServer, alMatrixTopNControlRequestedSize=alMatrixTopNControlRequestedSize, trapDestCommunity=trapDestCommunity, trapDestProtocol=trapDestProtocol, nlMatrixTopNReversePktRate=nlMatrixTopNReversePktRate, nlHostOutPkts=nlHostOutPkts, usrHistorySampleIndex=usrHistorySampleIndex, serialConnectSwitchConnectSeq=serialConnectSwitchConnectSeq, matrixControl2Table=matrixControl2Table, usrHistoryObjectEntry=usrHistoryObjectEntry, tokenRingPStatsCreateTime=tokenRingPStatsCreateTime, addressMapControlTable=addressMapControlTable, nlMatrixTopNControlRequestedSize=nlMatrixTopNControlRequestedSize, etherStats2Entry=etherStats2Entry, nlMatrixTopNControlTimeRemaining=nlMatrixTopNControlTimeRemaining, ringStationControl2Table=ringStationControl2Table, nlMatrixSDEntry=nlMatrixSDEntry, hlHostControlNlInserts=hlHostControlNlInserts, hostControlCreateTime=hostControlCreateTime, usrHistoryObjectIndex=usrHistoryObjectIndex, addressMapNetworkAddress=addressMapNetworkAddress, protocolDirParameters=protocolDirParameters, hlHostControlAlDroppedFrames=hlHostControlAlDroppedFrames, addressMap=addressMap, alMatrixDSCreateTime=alMatrixDSCreateTime, protocolDistControlDroppedFrames=protocolDistControlDroppedFrames, trapDestTable=trapDestTable, addressMapTable=addressMapTable, trapDestAddress=trapDestAddress, hostControl2Entry=hostControl2Entry, addressMapInserts=addressMapInserts, hlMatrixControlOwner=hlMatrixControlOwner, protocolDirAddressMapConfig=protocolDirAddressMapConfig, alMatrixSDTable=alMatrixSDTable, alMatrixTopNControlOwner=alMatrixTopNControlOwner, PYSNMP_MODULE_ID=rmon, nlMatrixTopNEntry=nlMatrixTopNEntry, alMatrixSDCreateTime=alMatrixSDCreateTime, channelCreateTime=channelCreateTime, filter2Entry=filter2Entry, nlHostGroup=nlHostGroup, alHostOutOctets=alHostOutOctets, alMatrixSDTimeMark=alMatrixSDTimeMark, trapDestStatus=trapDestStatus, probeConfig=probeConfig, serialConnectionTable=serialConnectionTable, serialConfigEntry=serialConfigEntry, probeInformationGroup=probeInformationGroup, hostControl2Table=hostControl2Table, serialModemConnectResp=serialModemConnectResp, addressMapGroup=addressMapGroup, probeDateTime=probeDateTime, nlHostEntry=nlHostEntry, filterProtocolDirLocalIndex=filterProtocolDirLocalIndex, hlHostControlAlMaxDesiredEntries=hlHostControlAlMaxDesiredEntries, alMatrixSDEntry=alMatrixSDEntry, alMatrixTopNControlMatrixIndex=alMatrixTopNControlMatrixIndex, hlHostControlAlDeletes=hlHostControlAlDeletes, alMatrixDSEntry=alMatrixDSEntry, hlMatrixControlNlDeletes=hlMatrixControlNlDeletes, probeResetControl=probeResetControl, serialConnectDialString=serialConnectDialString, usrHistoryTable=usrHistoryTable, addressMapMaxDesiredEntries=addressMapMaxDesiredEntries, nlMatrixTopNPktRate=nlMatrixTopNPktRate, nlMatrixTopNOctetRate=nlMatrixTopNOctetRate, addressMapTimeMark=addressMapTimeMark, alHostEntry=alHostEntry, usrHistoryAbsValue=usrHistoryAbsValue, tokenRingPStats2Table=tokenRingPStats2Table, nlMatrixDSOctets=nlMatrixDSOctets, usrHistory=usrHistory, hlHostControlNlDroppedFrames=hlHostControlNlDroppedFrames, nlMatrixDSPkts=nlMatrixDSPkts, nlMatrixTopNProtocolDirLocalIndex=nlMatrixTopNProtocolDirLocalIndex, usrHistoryIntervalStart=usrHistoryIntervalStart, serialConnectOwner=serialConnectOwner, nlHostInOctets=nlHostInOctets, rmon2MIBApplicationLayerCompliance=rmon2MIBApplicationLayerCompliance, usrHistoryControlBucketsRequested=usrHistoryControlBucketsRequested, usrHistoryObjectTable=usrHistoryObjectTable, hlMatrixControlNlDroppedFrames=hlMatrixControlNlDroppedFrames, trapDestOwner=trapDestOwner, rmon2MIBCompliance=rmon2MIBCompliance, protocolDirEntry=protocolDirEntry, serialConnectType=serialConnectType, ringStationControlCreateTime=ringStationControlCreateTime, protocolDirectoryGroup=protocolDirectoryGroup, rmonConformance=rmonConformance, netConfigIPAddress=netConfigIPAddress, protocolDirLocalIndex=protocolDirLocalIndex, nlMatrixDSEntry=nlMatrixDSEntry, usrHistoryControlInterval=usrHistoryControlInterval, nlMatrixTopNReverseOctetRate=nlMatrixTopNReverseOctetRate, serialConnectSwitchDisconnectSeq=serialConnectSwitchDisconnectSeq, serialTimeout=serialTimeout, protocolDirTable=protocolDirTable, hlHostControlNlMaxDesiredEntries=hlHostControlNlMaxDesiredEntries, alMatrixTopNTable=alMatrixTopNTable, sourceRoutingStatsDroppedFrames=sourceRoutingStatsDroppedFrames, TimeFilter=TimeFilter, nlHostTimeMark=nlHostTimeMark, alMatrixTopNControlGrantedSize=alMatrixTopNControlGrantedSize, alMatrixTopNControlDuration=alMatrixTopNControlDuration, sourceRoutingStats2Table=sourceRoutingStats2Table, protocolDir=protocolDir, protocolDistControlIndex=protocolDistControlIndex, protocolDirMatrixConfig=protocolDirMatrixConfig, alHostOutPkts=alHostOutPkts, alMatrixDSTimeMark=alMatrixDSTimeMark, probeSoftwareRev=probeSoftwareRev, tokenRingPStatsDroppedFrames=tokenRingPStatsDroppedFrames, matrixControlDroppedFrames=matrixControlDroppedFrames, filter2Table=filter2Table)
-mibBuilder.exportSymbols("RMON2-MIB", protocolDistControlDataSource=protocolDistControlDataSource, protocolDistStatsPkts=protocolDistStatsPkts, alMatrixTopNIndex=alMatrixTopNIndex, protocolDistControlOwner=protocolDistControlOwner, nlHost=nlHost, addressMapPhysicalAddress=addressMapPhysicalAddress, serialModemHangUpString=serialModemHangUpString, tokenRingMLStats2Table=tokenRingMLStats2Table, nlMatrixTopNControlGeneratedReports=nlMatrixTopNControlGeneratedReports, alMatrixGroup=alMatrixGroup, nlMatrix=nlMatrix, hlMatrixControlNlInserts=hlMatrixControlNlInserts, alMatrixTopNControlEntry=alMatrixTopNControlEntry, historyControlDroppedFrames=historyControlDroppedFrames, hlHostControlIndex=hlHostControlIndex, ZeroBasedCounter32=ZeroBasedCounter32, nlMatrixSDOctets=nlMatrixSDOctets, netConfigTable=netConfigTable, usrHistoryObjectSampleType=usrHistoryObjectSampleType, netConfigSubnetMask=netConfigSubnetMask, serialConnectionEntry=serialConnectionEntry, probeDownloadStatus=probeDownloadStatus, nlMatrixTopNControlGrantedSize=nlMatrixTopNControlGrantedSize, etherStatsCreateTime=etherStatsCreateTime, rmon2MIBCompliances=rmon2MIBCompliances, alMatrixTopNControlTable=alMatrixTopNControlTable, protocolDirStatus=protocolDirStatus, serialModemNoConnectResp=serialModemNoConnectResp, etherStats2Table=etherStats2Table, nlHostCreateTime=nlHostCreateTime, nlMatrixTopNTable=nlMatrixTopNTable, nlMatrixDSTimeMark=nlMatrixDSTimeMark, alMatrixTopNControlIndex=alMatrixTopNControlIndex, protocolDirLastChange=protocolDirLastChange, usrHistoryEntry=usrHistoryEntry, alMatrixSDOctets=alMatrixSDOctets, probeDownloadFile=probeDownloadFile, ringStationControlDroppedFrames=ringStationControlDroppedFrames, nlMatrixSDSourceAddress=nlMatrixSDSourceAddress, tokenRingPStats2Entry=tokenRingPStats2Entry, alMatrixDSPkts=alMatrixDSPkts, protocolDirOwner=protocolDirOwner, alHostGroup=alHostGroup, probeConfigurationGroup=probeConfigurationGroup, tokenRingMLStatsCreateTime=tokenRingMLStatsCreateTime, protocolDirType=protocolDirType, alMatrixTopNControlTimeRemaining=alMatrixTopNControlTimeRemaining, alMatrixTopNOctetRate=alMatrixTopNOctetRate)
+ringStationControlEntry.registerAugmentions((_A,_AE))
+ringStationControl2Entry.setIndexNames(*ringStationControlEntry.getIndexNames())
+sourceRoutingStatsEntry.registerAugmentions((_A,_AF))
+sourceRoutingStats2Entry.setIndexNames(*sourceRoutingStatsEntry.getIndexNames())
+protocolDirectoryGroup=ObjectGroup((1,3,6,1,2,1,16,20,2,1))
+protocolDirectoryGroup.setObjects(*((_A,_AG),(_A,_I),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN)))
+if mibBuilder.loadTexts:protocolDirectoryGroup.setStatus(_B)
+protocolDistributionGroup=ObjectGroup((1,3,6,1,2,1,16,20,2,2))
+protocolDistributionGroup.setObjects(*((_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU)))
+if mibBuilder.loadTexts:protocolDistributionGroup.setStatus(_B)
+addressMapGroup=ObjectGroup((1,3,6,1,2,1,16,20,2,3))
+addressMapGroup.setObjects(*((_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad)))
+if mibBuilder.loadTexts:addressMapGroup.setStatus(_B)
+nlHostGroup=ObjectGroup((1,3,6,1,2,1,16,20,2,4))
+nlHostGroup.setObjects(*((_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au)))
+if mibBuilder.loadTexts:nlHostGroup.setStatus(_B)
+nlMatrixGroup=ObjectGroup((1,3,6,1,2,1,16,20,2,5))
+nlMatrixGroup.setObjects(*((_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC),(_A,_BD),(_A,_BE),(_A,_BF),(_A,_BG),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_BQ),(_A,_BR)))
+if mibBuilder.loadTexts:nlMatrixGroup.setStatus(_B)
+alHostGroup=ObjectGroup((1,3,6,1,2,1,16,20,2,6))
+alHostGroup.setObjects(*((_A,_BS),(_A,_BT),(_A,_BU),(_A,_BV),(_A,_BW)))
+if mibBuilder.loadTexts:alHostGroup.setStatus(_B)
+alMatrixGroup=ObjectGroup((1,3,6,1,2,1,16,20,2,7))
+alMatrixGroup.setObjects(*((_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk),(_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo),(_A,_Bp),(_A,_Bq),(_A,_Br),(_A,_Bs),(_A,_Bt),(_A,_Bu)))
+if mibBuilder.loadTexts:alMatrixGroup.setStatus(_B)
+usrHistoryGroup=ObjectGroup((1,3,6,1,2,1,16,20,2,8))
+usrHistoryGroup.setObjects(*((_A,_Bv),(_A,_Bw),(_A,_Bx),(_A,_By),(_A,_Bz),(_A,_B_),(_A,_C0),(_A,_C1),(_A,_C2),(_A,_C3),(_A,_C4),(_A,_C5)))
+if mibBuilder.loadTexts:usrHistoryGroup.setStatus(_B)
+probeInformationGroup=ObjectGroup((1,3,6,1,2,1,16,20,2,9))
+probeInformationGroup.setObjects(*((_A,_C6),(_A,_C7),(_A,_C8),(_A,_C9)))
+if mibBuilder.loadTexts:probeInformationGroup.setStatus(_B)
+probeConfigurationGroup=ObjectGroup((1,3,6,1,2,1,16,20,2,10))
+probeConfigurationGroup.setObjects(*((_A,_CA),(_A,_CB),(_A,_CC),(_A,_CD),(_A,_CE),(_A,_CF),(_A,_CG),(_A,_CH),(_A,_CI),(_A,_CJ),(_A,_CK),(_A,_CL),(_A,_CM),(_A,_CN),(_A,_CO),(_A,_CP),(_A,_CQ),(_A,_CR),(_A,_CS),(_A,_CT),(_A,_CU),(_A,_CV),(_A,_CW),(_A,_CX),(_A,_CY),(_A,_CZ),(_A,_Ca),(_A,_Cb),(_A,_Cc),(_A,_Cd),(_A,_Ce)))
+if mibBuilder.loadTexts:probeConfigurationGroup.setStatus(_E)
+rmon1EnhancementGroup=ObjectGroup((1,3,6,1,2,1,16,20,2,11))
+rmon1EnhancementGroup.setObjects(*((_A,_Cf),(_A,_Cg),(_A,_Ch),(_A,_Ci),(_A,_Cj),(_A,_Ck),(_A,_Cl),(_A,_Cm),(_A,_Cn)))
+if mibBuilder.loadTexts:rmon1EnhancementGroup.setStatus(_B)
+rmon1EthernetEnhancementGroup=ObjectGroup((1,3,6,1,2,1,16,20,2,12))
+rmon1EthernetEnhancementGroup.setObjects(*((_A,_Co),(_A,_Cp)))
+if mibBuilder.loadTexts:rmon1EthernetEnhancementGroup.setStatus(_B)
+rmon1TokenRingEnhancementGroup=ObjectGroup((1,3,6,1,2,1,16,20,2,13))
+rmon1TokenRingEnhancementGroup.setObjects(*((_A,_Cq),(_A,_Cr),(_A,_Cs),(_A,_Ct),(_A,_Cu),(_A,_Cv),(_A,_Cw),(_A,_Cx)))
+if mibBuilder.loadTexts:rmon1TokenRingEnhancementGroup.setStatus(_E)
+rmon2MIBCompliance=ModuleCompliance((1,3,6,1,2,1,16,20,1,1))
+rmon2MIBCompliance.setObjects(*((_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k)))
+if mibBuilder.loadTexts:rmon2MIBCompliance.setStatus(_B)
+rmon2MIBApplicationLayerCompliance=ModuleCompliance((1,3,6,1,2,1,16,20,1,2))
+rmon2MIBApplicationLayerCompliance.setObjects(*((_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_Cy),(_A,_Cz),(_A,_j),(_A,_k)))
+if mibBuilder.loadTexts:rmon2MIBApplicationLayerCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'ZeroBasedCounter32':ZeroBasedCounter32,'LastCreateTime':LastCreateTime,'TimeFilter':TimeFilter,'DataSource':DataSource,_L:ControlString,'rmon':rmon,'etherStats2Table':etherStats2Table,_A6:etherStats2Entry,_Co:etherStatsDroppedFrames,_Cp:etherStatsCreateTime,'tokenRingMLStats2Table':tokenRingMLStats2Table,_A7:tokenRingMLStats2Entry,_Cq:tokenRingMLStatsDroppedFrames,_Cr:tokenRingMLStatsCreateTime,'tokenRingPStats2Table':tokenRingPStats2Table,_A8:tokenRingPStats2Entry,_Cs:tokenRingPStatsDroppedFrames,_Ct:tokenRingPStatsCreateTime,'historyControl2Table':historyControl2Table,_A9:historyControl2Entry,_Cf:historyControlDroppedFrames,'hostControl2Table':hostControl2Table,_AA:hostControl2Entry,_Cg:hostControlDroppedFrames,_Ch:hostControlCreateTime,'matrixControl2Table':matrixControl2Table,_AB:matrixControl2Entry,_Ci:matrixControlDroppedFrames,_Cj:matrixControlCreateTime,'channel2Table':channel2Table,_AC:channel2Entry,_Ck:channelDroppedFrames,_Cl:channelCreateTime,'filter2Table':filter2Table,_AD:filter2Entry,_Cm:filterProtocolDirDataLocalIndex,_Cn:filterProtocolDirLocalIndex,'ringStationControl2Table':ringStationControl2Table,_AE:ringStationControl2Entry,_Cu:ringStationControlDroppedFrames,_Cv:ringStationControlCreateTime,'sourceRoutingStats2Table':sourceRoutingStats2Table,_AF:sourceRoutingStats2Entry,_Cw:sourceRoutingStatsDroppedFrames,_Cx:sourceRoutingStatsCreateTime,'protocolDir':protocolDir,_AG:protocolDirLastChange,'protocolDirTable':protocolDirTable,'protocolDirEntry':protocolDirEntry,_n:protocolDirID,_o:protocolDirParameters,_I:protocolDirLocalIndex,_AH:protocolDirDescr,_AI:protocolDirType,_AJ:protocolDirAddressMapConfig,_AK:protocolDirHostConfig,_AL:protocolDirMatrixConfig,_AM:protocolDirOwner,_AN:protocolDirStatus,'protocolDist':protocolDist,'protocolDistControlTable':protocolDistControlTable,'protocolDistControlEntry':protocolDistControlEntry,_V:protocolDistControlIndex,_AO:protocolDistControlDataSource,_AP:protocolDistControlDroppedFrames,_AQ:protocolDistControlCreateTime,_AR:protocolDistControlOwner,_AS:protocolDistControlStatus,'protocolDistStatsTable':protocolDistStatsTable,'protocolDistStatsEntry':protocolDistStatsEntry,_AT:protocolDistStatsPkts,_AU:protocolDistStatsOctets,'addressMap':addressMap,_AV:addressMapInserts,_AW:addressMapDeletes,_AX:addressMapMaxDesiredEntries,'addressMapControlTable':addressMapControlTable,'addressMapControlEntry':addressMapControlEntry,_p:addressMapControlIndex,_AY:addressMapControlDataSource,_AZ:addressMapControlDroppedFrames,_Aa:addressMapControlOwner,_Ab:addressMapControlStatus,'addressMapTable':addressMapTable,'addressMapEntry':addressMapEntry,_q:addressMapTimeMark,_r:addressMapNetworkAddress,_s:addressMapSource,_Ac:addressMapPhysicalAddress,_Ad:addressMapLastChange,'nlHost':nlHost,'hlHostControlTable':hlHostControlTable,'hlHostControlEntry':hlHostControlEntry,_N:hlHostControlIndex,_Ae:hlHostControlDataSource,_Af:hlHostControlNlDroppedFrames,_Ag:hlHostControlNlInserts,_Ah:hlHostControlNlDeletes,_Ai:hlHostControlNlMaxDesiredEntries,_Aj:hlHostControlAlDroppedFrames,_Ak:hlHostControlAlInserts,_Al:hlHostControlAlDeletes,_Am:hlHostControlAlMaxDesiredEntries,_An:hlHostControlOwner,_Ao:hlHostControlStatus,'nlHostTable':nlHostTable,'nlHostEntry':nlHostEntry,_t:nlHostTimeMark,_W:nlHostAddress,_Ap:nlHostInPkts,_Aq:nlHostOutPkts,_Ar:nlHostInOctets,_As:nlHostOutOctets,_At:nlHostOutMacNonUnicastPkts,_Au:nlHostCreateTime,'nlMatrix':nlMatrix,'hlMatrixControlTable':hlMatrixControlTable,'hlMatrixControlEntry':hlMatrixControlEntry,_M:hlMatrixControlIndex,_Av:hlMatrixControlDataSource,_Aw:hlMatrixControlNlDroppedFrames,_Ax:hlMatrixControlNlInserts,_Ay:hlMatrixControlNlDeletes,_Az:hlMatrixControlNlMaxDesiredEntries,_A_:hlMatrixControlAlDroppedFrames,_B0:hlMatrixControlAlInserts,_B1:hlMatrixControlAlDeletes,_B2:hlMatrixControlAlMaxDesiredEntries,_B3:hlMatrixControlOwner,_B4:hlMatrixControlStatus,'nlMatrixSDTable':nlMatrixSDTable,'nlMatrixSDEntry':nlMatrixSDEntry,_u:nlMatrixSDTimeMark,_X:nlMatrixSDSourceAddress,_Y:nlMatrixSDDestAddress,_B5:nlMatrixSDPkts,_B6:nlMatrixSDOctets,_B7:nlMatrixSDCreateTime,'nlMatrixDSTable':nlMatrixDSTable,'nlMatrixDSEntry':nlMatrixDSEntry,_v:nlMatrixDSTimeMark,_a:nlMatrixDSSourceAddress,_Z:nlMatrixDSDestAddress,_B8:nlMatrixDSPkts,_B9:nlMatrixDSOctets,_BA:nlMatrixDSCreateTime,'nlMatrixTopNControlTable':nlMatrixTopNControlTable,'nlMatrixTopNControlEntry':nlMatrixTopNControlEntry,_b:nlMatrixTopNControlIndex,_BB:nlMatrixTopNControlMatrixIndex,_BC:nlMatrixTopNControlRateBase,_BD:nlMatrixTopNControlTimeRemaining,_BE:nlMatrixTopNControlGeneratedReports,_BF:nlMatrixTopNControlDuration,_BG:nlMatrixTopNControlRequestedSize,_BH:nlMatrixTopNControlGrantedSize,_BI:nlMatrixTopNControlStartTime,_BJ:nlMatrixTopNControlOwner,_BK:nlMatrixTopNControlStatus,'nlMatrixTopNTable':nlMatrixTopNTable,'nlMatrixTopNEntry':nlMatrixTopNEntry,_w:nlMatrixTopNIndex,_BL:nlMatrixTopNProtocolDirLocalIndex,_BM:nlMatrixTopNSourceAddress,_BN:nlMatrixTopNDestAddress,_BO:nlMatrixTopNPktRate,_BP:nlMatrixTopNReversePktRate,_BQ:nlMatrixTopNOctetRate,_BR:nlMatrixTopNReverseOctetRate,'alHost':alHost,'alHostTable':alHostTable,'alHostEntry':alHostEntry,_x:alHostTimeMark,_BS:alHostInPkts,_BT:alHostOutPkts,_BU:alHostInOctets,_BV:alHostOutOctets,_BW:alHostCreateTime,'alMatrix':alMatrix,'alMatrixSDTable':alMatrixSDTable,'alMatrixSDEntry':alMatrixSDEntry,_y:alMatrixSDTimeMark,_BX:alMatrixSDPkts,_BY:alMatrixSDOctets,_BZ:alMatrixSDCreateTime,'alMatrixDSTable':alMatrixDSTable,'alMatrixDSEntry':alMatrixDSEntry,_z:alMatrixDSTimeMark,_Ba:alMatrixDSPkts,_Bb:alMatrixDSOctets,_Bc:alMatrixDSCreateTime,'alMatrixTopNControlTable':alMatrixTopNControlTable,'alMatrixTopNControlEntry':alMatrixTopNControlEntry,_c:alMatrixTopNControlIndex,_Bd:alMatrixTopNControlMatrixIndex,_Be:alMatrixTopNControlRateBase,_Bf:alMatrixTopNControlTimeRemaining,_Bg:alMatrixTopNControlGeneratedReports,_Bh:alMatrixTopNControlDuration,_Bi:alMatrixTopNControlRequestedSize,_Bj:alMatrixTopNControlGrantedSize,_Bk:alMatrixTopNControlStartTime,_Bl:alMatrixTopNControlOwner,_Bm:alMatrixTopNControlStatus,'alMatrixTopNTable':alMatrixTopNTable,'alMatrixTopNEntry':alMatrixTopNEntry,_A0:alMatrixTopNIndex,_Bn:alMatrixTopNProtocolDirLocalIndex,_Bo:alMatrixTopNSourceAddress,_Bp:alMatrixTopNDestAddress,_Bq:alMatrixTopNAppProtocolDirLocalIndex,_Br:alMatrixTopNPktRate,_Bs:alMatrixTopNReversePktRate,_Bt:alMatrixTopNOctetRate,_Bu:alMatrixTopNReverseOctetRate,_A2:usrHistory,'usrHistoryControlTable':usrHistoryControlTable,'usrHistoryControlEntry':usrHistoryControlEntry,_O:usrHistoryControlIndex,_Bv:usrHistoryControlObjects,_Bw:usrHistoryControlBucketsRequested,_Bx:usrHistoryControlBucketsGranted,_By:usrHistoryControlInterval,_Bz:usrHistoryControlOwner,_B_:usrHistoryControlStatus,'usrHistoryObjectTable':usrHistoryObjectTable,'usrHistoryObjectEntry':usrHistoryObjectEntry,_d:usrHistoryObjectIndex,_C0:usrHistoryObjectVariable,_C1:usrHistoryObjectSampleType,'usrHistoryTable':usrHistoryTable,'usrHistoryEntry':usrHistoryEntry,_A1:usrHistorySampleIndex,_C2:usrHistoryIntervalStart,_C3:usrHistoryIntervalEnd,_C4:usrHistoryAbsValue,_C5:usrHistoryValStatus,_A3:probeConfig,_C6:probeCapabilities,_C7:probeSoftwareRev,_C8:probeHardwareRev,_C9:probeDateTime,_CA:probeResetControl,_CB:probeDownloadFile,_CC:probeDownloadTFTPServer,_CD:probeDownloadAction,_CE:probeDownloadStatus,'serialConfigTable':serialConfigTable,'serialConfigEntry':serialConfigEntry,_CF:serialMode,_CG:serialProtocol,_CH:serialTimeout,_CI:serialModemInitString,_CJ:serialModemHangUpString,_CK:serialModemConnectResp,_CL:serialModemNoConnectResp,_CM:serialDialoutTimeout,_CN:serialStatus,'netConfigTable':netConfigTable,'netConfigEntry':netConfigEntry,_CO:netConfigIPAddress,_CP:netConfigSubnetMask,_CQ:netConfigStatus,_CR:netDefaultGateway,'trapDestTable':trapDestTable,'trapDestEntry':trapDestEntry,_A4:trapDestIndex,_CS:trapDestCommunity,_CT:trapDestProtocol,_CU:trapDestAddress,_CV:trapDestOwner,_CW:trapDestStatus,'serialConnectionTable':serialConnectionTable,'serialConnectionEntry':serialConnectionEntry,_A5:serialConnectIndex,_CX:serialConnectDestIpAddress,_CY:serialConnectType,_CZ:serialConnectDialString,_Ca:serialConnectSwitchConnectSeq,_Cb:serialConnectSwitchDisconnectSeq,_Cc:serialConnectSwitchResetSeq,_Cd:serialConnectOwner,_Ce:serialConnectStatus,'rmonConformance':rmonConformance,'rmon2MIBCompliances':rmon2MIBCompliances,'rmon2MIBCompliance':rmon2MIBCompliance,'rmon2MIBApplicationLayerCompliance':rmon2MIBApplicationLayerCompliance,'rmon2MIBGroups':rmon2MIBGroups,_e:protocolDirectoryGroup,_f:protocolDistributionGroup,_g:addressMapGroup,_h:nlHostGroup,_i:nlMatrixGroup,_Cy:alHostGroup,_Cz:alMatrixGroup,_j:usrHistoryGroup,_k:probeInformationGroup,'probeConfigurationGroup':probeConfigurationGroup,'rmon1EnhancementGroup':rmon1EnhancementGroup,'rmon1EthernetEnhancementGroup':rmon1EthernetEnhancementGroup,'rmon1TokenRingEnhancementGroup':rmon1TokenRingEnhancementGroup})

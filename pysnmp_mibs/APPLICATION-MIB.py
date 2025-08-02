@@ -1,358 +1,1012 @@
-#
-# PySNMP MIB module APPLICATION-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/APPLICATION-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:05:15 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, ObjectIdentifier, OctetString, ) = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ObjectGroup, ModuleCompliance, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-( MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Counter64, zeroDotZero, iso, Integer32, TimeTicks, Unsigned32, mib_2, ObjectIdentity, NotificationType, MibIdentifier, Bits, Counter32, IpAddress, Gauge32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Counter64", "zeroDotZero", "iso", "Integer32", "TimeTicks", "Unsigned32", "mib-2", "ObjectIdentity", "NotificationType", "MibIdentifier", "Bits", "Counter32", "IpAddress", "Gauge32")
-( TextualConvention, TruthValue, TestAndIncr, DisplayString, DateAndTime, TimeStamp, TDomain, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TruthValue", "TestAndIncr", "DisplayString", "DateAndTime", "TimeStamp", "TDomain")
-( LongUtf8String, sysApplElmtRunIndex, ) = mibBuilder.importSymbols("SYSAPPL-MIB", "LongUtf8String", "sysApplElmtRunIndex")
-applicationMib = ModuleIdentity((1, 3, 6, 1, 2, 1, 62))
-if mibBuilder.loadTexts: applicationMib.setLastUpdated('9811171815Z')
-if mibBuilder.loadTexts: applicationMib.setOrganization('Application MIB Working Group')
-if mibBuilder.loadTexts: applicationMib.setContactInfo('http://www.ietf.org/html.charters/applmib-charter.html\n\n           Randy Presuhn\n           BMC Software, Inc.\n           965 Stewart Drive\n           Sunnyvale, CA 94086\n           USA\n\n           Telephone: +1 408 616-3100\n           Facsimile: +1 408 616-3101\n           EMail: randy_presuhn@bmc.com\n          ')
-if mibBuilder.loadTexts: applicationMib.setDescription('This MIB defines objects representing generic aspects of\n           applications that are of interest to management but typically\n           require instrumentation within managed application elements.\n          ')
-applicationMibObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 62, 1))
-applicationMibConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 62, 2))
-applServiceGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 62, 1, 1))
-applChannelGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 62, 1, 2))
-applPastChannelGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 62, 1, 3))
-applElmtRunControlGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 62, 1, 4))
-class Unsigned64TC(Counter64, TextualConvention):
-    pass
-
-class ApplTAddress(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,255)
-
-applSrvNameToSrvInstTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 1, 1), )
-if mibBuilder.loadTexts: applSrvNameToSrvInstTable.setDescription('The service name to service instance table uses\n               service name as its primary key, and service instance\n               identifier as its secondary key.  It facilitates the\n               identification and lookup of the instances of a given\n               service in a system.')
-applSrvNameToSrvInstEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 1, 1, 1), ).setIndexNames((0, "APPLICATION-MIB", "applSrvName"), (0, "APPLICATION-MIB", "applSrvIndex"))
-if mibBuilder.loadTexts: applSrvNameToSrvInstEntry.setDescription('An applSrvNameToSrvInstEntry identifies an instance of\n               a given service.  The allocation and reservation\n               of unique values for applSrvIndex is an administrative\n               issue.\n\n               An applSrvNameToSrvInstEntry exists for the lifetime of\n               that instance of that service; the index values may not\n               change during that lifetime.  ')
-applSrvInstQual = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 1, 1, 1, 1), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applSrvInstQual.setDescription('The value of applSrcInstQual provides additional\n               information about this particular instance of this\n               service.\n\n               Although not used for indexing purposes, the value of\n               this attribute should be sufficiently unique to be\n               helpful to an administrator in distinguishing among\n               service instances.  ')
-applSrvInstToSrvNameTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 1, 2), )
-if mibBuilder.loadTexts: applSrvInstToSrvNameTable.setDescription('The service instance to service name table uses\n               service instance identifier as its primary key, and\n               service name as its secondary key.  Given a service\n               instance identifier, it facilitates the lookup of the\n               name of the service being provided.')
-applSrvInstToSrvNameEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 1, 2, 1), ).setIndexNames((0, "APPLICATION-MIB", "applSrvIndex"), (0, "APPLICATION-MIB", "applSrvName"))
-if mibBuilder.loadTexts: applSrvInstToSrvNameEntry.setDescription('An applSrvInstToSrvNameEntry maps a service instance\n               identifier back to a service name.')
-applSrvName = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 1, 2, 1, 1), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applSrvName.setDescription('The human-readable name of a service.  Where\n               appropriate, as in the case where a service can be\n               identified in terms of a single protocol, the strings\n               should be established names such as those assigned by\n               IANA and found in STD 2 [13], or defined by some other\n               authority.  In some cases private conventions apply\n               and the string should in these cases be consistent\n               with these non-standard conventions.   An applicability\n               statement may specify the service name(s) to be used.\n              ')
-applSrvInstToRunApplElmtTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 1, 3), )
-if mibBuilder.loadTexts: applSrvInstToRunApplElmtTable.setDescription('The service instance to running application element\n               table uses the service instance identifier as its primary\n               key, and the running application element index as its\n               secondary key.  This facilitates the identification\n               of the set of running application elements providing a\n               given instance of a service.')
-applSrvInstToRunApplElmtEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 1, 3, 1), ).setIndexNames((0, "APPLICATION-MIB", "applSrvIndex"), (0, "SYSAPPL-MIB", "sysApplElmtRunIndex"))
-if mibBuilder.loadTexts: applSrvInstToRunApplElmtEntry.setDescription('An applSrvInstToRunApplElmtEntry identifies a running\n               application element providing an instance of a service.\n               Note that there may be multiple running application\n               elements involved in the provision of an instance of\n               a service.')
-applSrvIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 1, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applSrvIndex.setDescription('An applSrvIndex is the system-unique identifier of\n                an instance of a service.  The value is unique not only\n                across all instances of a given service, but also across\n                all services in a system.\n\n                Re-use of values for this index should be avoided.\n                No two service instances in a given system shall\n                concurrently have the same value for this index.\n\n                The value zero is excluded from the set of permitted\n                values for this index.  This allows other tables to\n                potentially represent things which cannot be associated\n                with a specific service instance.\n               ')
-applRunApplElmtToSrvInstTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 1, 4), )
-if mibBuilder.loadTexts: applRunApplElmtToSrvInstTable.setDescription('The running application element to service instance\n               table uses the running application element index as\n               its primary key and the service instance identifier as\n               its secondary key.  It identifies the set of services\n               provided by a given running application element.')
-applRunApplElmtToSrvInstEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 1, 4, 1), ).setIndexNames((0, "SYSAPPL-MIB", "sysApplElmtRunIndex"), (0, "APPLICATION-MIB", "applSrvInstance"))
-if mibBuilder.loadTexts: applRunApplElmtToSrvInstEntry.setDescription('An applRunApplElmtToSrvInstEntry serves to identify an\n               instance of a service being provided by a given running\n               application element.  Note that a particular running\n               application element may provide multiple services.')
-applSrvInstance = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 1, 4, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applSrvInstance.setDescription('An applSrvInstance is the system-unique identifier of an\n               instance of a service.  The value is unique not only\n               across all instances of a given service, but also across\n               all services.\n\n               Re-use of values for this index should be avoided.\n               No two service instances in a given system shall\n               concurrently have the same value for this index.\n               The value zero is excluded from the set of permitted\n               values for this index.  This allows other tables to\n               potentially represent things which cannot be associated\n               with a specific service instance.\n\n               This attribute is semantically identical to\n               applSrvIndex.')
-applOpenChannelTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 2, 1), )
-if mibBuilder.loadTexts: applOpenChannelTable.setDescription('The applOpenChannelTable reports information on open\n               channels for running application elements\n               and for service instances.  This table is\n               indexed by applElmtOrSvc, applElmtOrSvcId, and\n               applOpenChannelIndex. This effectively groups all\n               entries for a given running application element\n               or service instance together.  ApplChannelIndex uniquely\n               identifies an open channel (and, consequently, a file\n               or connection) within the context of a particular\n               running application element or service instance.\n\n               Some of the information in this table is available\n               through both sixty-four and thirty-two bit counters.\n               The sixty-four bit counters are not accessible in\n               protocols that do not support this data type.')
-applOpenChannelEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 2, 1, 1), ).setIndexNames((0, "APPLICATION-MIB", "applElmtOrSvc"), (0, "APPLICATION-MIB", "applElmtOrSvcId"), (0, "APPLICATION-MIB", "applOpenChannelIndex"))
-if mibBuilder.loadTexts: applOpenChannelEntry.setDescription('An applOpenChannelEntry indicates that a channel has been\n               opened by this running application element or service\n               instance and is still open.  Note that if a file has been\n               opened multiple times, even by the same process, it will\n               have multiple channel entries.')
-applElmtOrSvc = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("service", 1), ("element", 2),)))
-if mibBuilder.loadTexts: applElmtOrSvc.setDescription('The applElmtOrSvc attribute serves as an index for tables\n               that can hold information both for individual running\n               application elements as well as for service instances.\n\n               If the value is service(1), the row contains information\n               gathered at the level of a service.\n\n               If the value is element(2), the row contains information\n               for an individual running application element.')
-applElmtOrSvcId = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: applElmtOrSvcId.setDescription("The applElmtOrSvcId attribute is used as an index in\n               conjunction with the applElmtOrSvc attribute.\n\n               When the value of applElmtOrSvc is service(1), this\n               attribute's value corresponds to that of applSrvIndex,\n               when the value of applElmtOrSvc is element(2), this\n               attribute's value corresponds to sysApplElmtRunIndex.")
-applOpenChannelIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 1, 1, 3), Unsigned32())
-if mibBuilder.loadTexts: applOpenChannelIndex.setDescription("This attribute serves to uniquely identify this open\n               connection in the context of the running application\n               element or service instance.  Where suitable, the\n               application's native descriptor number should be used.")
-applOpenChannelOpenTime = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 1, 1, 4), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenChannelOpenTime.setDescription('This attribute records the value of sysUpTime.0\n               when this channel was opened and this entry was added to\n               this table.  This attribute serves as a discontinuity\n               indicator for the counter attributes in this entry\n               and for any corresponding entries in the\n               applOpenConnectionTable, applOpenFileTable, and the\n               applTransactionStreamTable.')
-applOpenChannelReadRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 1, 1, 5), Counter64()).setUnits('read requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenChannelReadRequests.setDescription('This attribute reports the number of read requests\n               for this channel.  All read requests for this channel\n               by this entity, regardless of completion status, are\n               included in this count.\n\n               Read requests are counted in terms of system calls,\n               rather than API calls.\n\n               Discontinuities in this counter can be detected by\n               monitoring the applOpenChannelOpenTime value for this\n               entry.')
-applOpenChannelReadRequestsLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 1, 1, 6), Counter32()).setUnits('read requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenChannelReadRequestsLow.setDescription('This attribute reports the low thirty-two bits of\n               applOpenChannelReadRequests.\n\n               Discontinuities in this counter can be detected by\n               monitoring the applOpenChannelOpenTime value for this\n               entry.')
-applOpenChannelReadFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 1, 1, 7), Counter32()).setUnits('failed read requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenChannelReadFailures.setDescription('This attribute reports the number of failed read\n               requests.\n\n               Discontinuities in this counter can be detected by\n               monitoring the applOpenChannelOpenTime value for this\n               entry.')
-applOpenChannelBytesRead = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 1, 1, 8), Counter64()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenChannelBytesRead.setDescription('This attribute reports the number of bytes read from\n               this channel.  Only bytes successfully read are included\n               in this count.\n\n               Discontinuities in this counter can be detected by\n               monitoring the applOpenChannelOpenTime value for this\n               entry.')
-applOpenChannelBytesReadLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 1, 1, 9), Counter32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenChannelBytesReadLow.setDescription('This attribute corresponds to the low thirty-two bits\n               of applOpenChannelBytesRead.\n\n               Discontinuities in this counter can be detected by\n               monitoring the applOpenChannelOpenTime value for this\n               entry.')
-applOpenChannelLastReadTime = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 1, 1, 10), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenChannelLastReadTime.setDescription("This attribute reports the time of the most recent read\n               request made by this entity, regardless of completion\n               status, for this open channel.\n\n               If no read requests have been made the value of this\n               attribute shall be '0000000000000000'H ")
-applOpenChannelWriteRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 1, 1, 11), Counter64()).setUnits('write requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenChannelWriteRequests.setDescription('This attribute reports the number of write requests for\n               this channel made by this entity.  All write requests\n               for this channel, regardless of completion status, are\n               included in this count.\n\n               Write requests are counted in terms of system calls,\n               rather than API calls.\n\n               Discontinuities in this counter can be detected by\n               monitoring the applOpenChannelOpenTime value for this\n               entry.')
-applOpenChannelWriteRequestsLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 1, 1, 12), Counter32()).setUnits('write requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenChannelWriteRequestsLow.setDescription('This attribute corresponds to the low thirty-two bits\n               of applOpenChannelWriteRequests.\n\n               Discontinuities in this counter can be detected\n               by monitoring the applOpenChannelOpenTime value for\n               this entry.')
-applOpenChannelWriteFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 1, 1, 13), Counter32()).setUnits('failed write requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenChannelWriteFailures.setDescription('This attribute reports the number of failed write\n               requests.\n\n               Discontinuities in this counter can be detected\n               by monitoring the applOpenChannelOpenTime value for\n               this entry.')
-applOpenChannelBytesWritten = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 1, 1, 14), Counter64()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenChannelBytesWritten.setDescription('This attribute reports the number of bytes written to\n               this channel.  Only bytes successfully written (without\n               errors reported by the system to the API in use by the\n               application) are included in this count.\n\n               Discontinuities in this counter can be detected by\n               monitoring the applOpenChannelOpenTime value for this\n               entry.')
-applOpenChannelBytesWrittenLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 1, 1, 15), Counter32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenChannelBytesWrittenLow.setDescription('This attribute corresponds to the low thirty-two bits\n               of applOpenChannelBytesWritten.\n\n               Discontinuities in this counter can be detected by\n               monitoring the applOpenChannelOpenTime value for this\n               entry.')
-applOpenChannelLastWriteTime = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 1, 1, 16), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenChannelLastWriteTime.setDescription("This attribute reports the time of the most recent write\n               request made by this running application element or\n               service instance, regardless of completion status, for\n               this open channel.\n               If no write requests have been made, the value\n               of this attribute shall be '0000000000000000'H ")
-applOpenFileTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 2, 2), )
-if mibBuilder.loadTexts: applOpenFileTable.setDescription('The applOpenFileTable reports information on open files\n               for service instances or application elements.  This\n               table is indexed by applElmtOrSvc and applElmtOrSvcId,\n               effectively grouping all entries for a given running\n               service instance or application element together, and\n               by applOpenChannelIndex, uniquely identifying an open\n               channel (and, consequently, a file) within the context\n               of a particular service instance or application element.\n\n               Elements in this table correspond to elements in the\n               applOpenChannelTable that represent files.  For rows in\n               the applOpenChannelTable that do not represent files,\n               corresponding rows in this table will not exist.')
-applOpenFileEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 2, 2, 1), ).setIndexNames((0, "APPLICATION-MIB", "applElmtOrSvc"), (0, "APPLICATION-MIB", "applElmtOrSvcId"), (0, "APPLICATION-MIB", "applOpenChannelIndex"))
-if mibBuilder.loadTexts: applOpenFileEntry.setDescription('An applOpenFileEntry indicates that a file has been\n               opened by this running application element and is\n               still open.  Note that if a file has been opened\n               multiple times, even by the same process, it will have\n               multiple entries.')
-applOpenFileName = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 2, 1, 1), LongUtf8String()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenFileName.setDescription("This attribute reports the name of this open file.\n              Wherever practical, a fully qualified path name should\n              be reported.\n\n              The values 'stdin', 'stdout', and 'stderr' are reserved\n              in accordance with common usage when the fully qualified\n              path name cannot be determined.")
-applOpenFileSizeHigh = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 2, 1, 2), Unsigned32()).setUnits('2^32 byte blocks').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenFileSizeHigh.setDescription("This file's current size in 2^32 byte blocks.\n\n              For example, for a file with a total size of 4,294,967,296\n              bytes, this attribute would have a value of 1; for a file\n              with a total size of 4,294,967,295 bytes this attribute's\n              value would be 0.")
-applOpenFileSizeLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 2, 1, 3), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenFileSizeLow.setDescription("This file's current size modulo 2^32 bytes.\n\n               For example, for a file with a total size of\n               4,294,967,296 bytes this attribute would have a value\n               of 0; for a file with a total size of 4,294,967,295\n               bytes this attribute's value would be 4,294,967,295.")
-applOpenFileMode = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("read", 1), ("write", 2), ("readWrite", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenFileMode.setDescription("This attribute reports the current mode of this file from\n               the perspective of this running application element.\n\n               These values have the following meanings:\n\n                   read(1) - file opened for reading only\n                   write(2) - file opened for writing only\n                   readWrite(3) - file opened for read and write.\n\n               These values correspond to the POSIX/ANSI C library\n               function fopen() 'type' parameter, using the following\n               mappings:\n\n                   r -> read(1)\n                   w -> write(2)\n                   a -> write(2)\n                   + -> readWrite(3)\n             ")
-applOpenConnectionTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 2, 3), )
-if mibBuilder.loadTexts: applOpenConnectionTable.setDescription('The applOpenConnectionTable provides information about\n               open and listening connections from the perspective\n               of a running application element or service instance.\n               Entries in this table are indexed by applElmtOrSvc,\n               applElmtOrSvcID, and by applOpenChannelIndex, which\n               serves to uniquely identify each connection in the\n               context of a service instance or running application\n               element.\n\n               For each row in this table, a corresponding row will\n               exist in the applOpenChannel table.  For rows in the\n               applOpenChannelTable which do not represent open or\n               listening connections, no corresponding rows will exist\n               in this table.')
-applOpenConnectionEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 2, 3, 1), ).setIndexNames((0, "APPLICATION-MIB", "applElmtOrSvc"), (0, "APPLICATION-MIB", "applElmtOrSvcId"), (0, "APPLICATION-MIB", "applOpenChannelIndex"))
-if mibBuilder.loadTexts: applOpenConnectionEntry.setDescription("An applOpenConnectionEntry indicates that a running\n               application element or service instance has an open\n               connection.  The entry has information describing that\n               connection.\n\n               In the case of a TCP transport, the element\n               applOpenConnectionNearEndAddr and that row's\n               applOpenConnectionFarEndAddr would correspond\n               to a tcpConnEntry.  For a UDP transport, a\n               similar relationship exists with respect to\n               a udpEntry.")
-applOpenConnectionTransport = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 3, 1, 1), TDomain().clone((0, 0))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenConnectionTransport.setDescription("The applOpenConnectionTransport attribute identifies the\n               transport protocol in use for this connection.  If it is\n               not practical to determine the underlying transport, this\n               attribute's value shall have a value of {0 0}.")
-applOpenConnectionNearEndAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 3, 1, 2), ApplTAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenConnectionNearEndAddr.setDescription('The applOpenConnectionNearEndAddr attribute reports the\n               transport address and port information for the near end\n               of this connection.\n\n               If the value is not known, the value has a  length\n               of zero.')
-applOpenConnectionNearEndpoint = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 3, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenConnectionNearEndpoint.setDescription('The applOpenConnectionNearEndpoint attribute reports the\n               fully-qualified domain name and port information for the\n               near end of this connection.\n\n               The format of this attribute for TCP and UDP-based\n               protocols is the fully-qualified domain name immediately\n               followed by a colon which is immediately followed by\n               the decimal representation of the port number.\n\n               If the value is not known, the value has a  length\n               of zero.')
-applOpenConnectionFarEndAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 3, 1, 4), ApplTAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenConnectionFarEndAddr.setDescription('The applOpenConnectionFarEndAddr attribute reports the\n               transport address and port information for the far end\n               of this connection.\n\n               If not known, as in the case of a connectionless\n               transport, the value of this attribute shall be a\n               zero-length string.')
-applOpenConnectionFarEndpoint = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 3, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenConnectionFarEndpoint.setDescription('The applOpenConnectionFarEndpoint attribute reports\n               the fully-qualified domain name and port information\n               for the far end of this connection.\n\n               The format of this attribute for TCP and UDP-based\n               protocols is the fully-qualified domain name immediately\n               followed by a colon which is immediately followed by\n               the decimal representation of the port number.\n\n               If not known, as in the case of a connectionless\n               transport, the value of this attribute shall be a\n               zero-length string.')
-applOpenConnectionApplication = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 3, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applOpenConnectionApplication.setDescription("The applOpenConnectionApplication attribute identifies\n               the application layer protocol in use.  If not known,\n               the value of this attribute shall be a zero-length\n               string.\n\n               When possible, protocol names should be those used in\n               the 'ASSIGNED NUMBERS' [13].  For example, an SMTP mail\n               server would use 'SMTP'.")
-applTransactionStreamTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 2, 4), )
-if mibBuilder.loadTexts: applTransactionStreamTable.setDescription('The applTransactionStreamTable contains common\n               information for transaction statistic accumulation.')
-applTransactionStreamEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 2, 4, 1), ).setIndexNames((0, "APPLICATION-MIB", "applElmtOrSvc"), (0, "APPLICATION-MIB", "applElmtOrSvcId"), (0, "APPLICATION-MIB", "applOpenChannelIndex"))
-if mibBuilder.loadTexts: applTransactionStreamEntry.setDescription('An applTransactionStreamEntry contains information for\n               a single transaction stream.  A transaction stream\n               can be a network connection, file, or other source\n               of transactions.')
-applTransactStreamDescr = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 4, 1, 1), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactStreamDescr.setDescription("The applTransactStreamDescr attribute provides a\n               human-readable description of this transaction stream.\n               If no descriptive information is available, this\n               attribute's value shall be a zero-length string.")
-applTransactStreamUnitOfWork = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 4, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactStreamUnitOfWork.setDescription("The applTransactStreamUnitOfWork attribute provides a\n               human-readable definition of what the unit of work is\n               for this transaction stream.\n\n               If no descriptive information is available, this\n               attribute's value shall be a zero-length string.")
-applTransactStreamInvokes = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 4, 1, 3), Counter64()).setUnits('transactions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactStreamInvokes.setDescription('Cumulative count of requests / invocations issued.\n\n               Discontinuities in this counter can be detected\n               by monitoring the corresponding instance of\n               applOpenChannelOpenTime.')
-applTransactStreamInvokesLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 4, 1, 4), Counter32()).setUnits('transactions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactStreamInvokesLow.setDescription('This counter corresponds to the low thirty-two\n               bits of applTransactStreamInvokes.\n\n               Discontinuities in this counter can be detected\n               by monitoring the corresponding instance of\n               applOpenChannelOpenTime.')
-applTransactStreamInvCumTimes = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 4, 1, 5), Counter32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactStreamInvCumTimes.setDescription('The applTransactStreamInvCumTimes attribute reports the\n               cumulative sum of the lengths of the intervals measured\n               between the transmission of requests and the receipt of\n               (the first of) the corresponding response(s).\n\n               Discontinuities in this counter can be detected\n               by monitoring the corresponding instance of\n               applOpenChannelOpenTime.')
-applTransactStreamInvRspTimes = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 4, 1, 6), Counter32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactStreamInvRspTimes.setDescription('The applTransactStreamInvRspTimes attribute reports the\n               cumulative sum of the lengths of the intervals measured\n               between the receipt of the first and last of multiple\n               responses to a request.\n\n               For transaction streams which do not permit multiple\n               responses to a single request, this attribute will be\n               constant.\n\n               Discontinuities in this counter can be detected\n               by monitoring the corresponding instance of\n               applOpenChannelOpenTime.')
-applTransactStreamPerforms = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 4, 1, 7), Counter64()).setUnits('transactions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactStreamPerforms.setDescription('Cumulative count of transactions performed.\n\n               Discontinuities in this counter can be detected\n               by monitoring the corresponding instance of\n               applOpenChannelOpenTime.')
-applTransactStreamPerformsLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 4, 1, 8), Counter32()).setUnits('transactions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactStreamPerformsLow.setDescription('This counter reports the low thirty-two bits of\n               applTransactStreamPerforms.\n\n               Discontinuities in this counter can be detected\n               by monitoring the corresponding instance of\n               applOpenChannelOpenTime.')
-applTransactStreamPrfCumTimes = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 4, 1, 9), Counter32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactStreamPrfCumTimes.setDescription('The applTransactStreamPrfCumTimes attribute reports the\n               cumulative sum of the interval lengths measured between\n               receipt of requests and the transmission of the\n               corresponding responses.\n\n               Discontinuities in this counter can be detected\n               by monitoring the corresponding instance of\n               applOpenChannelOpenTime.')
-applTransactStreamPrfRspTimes = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 4, 1, 10), Counter32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactStreamPrfRspTimes.setDescription('For each transaction performed, the elapsed time between\n               when the first response is enqueued and when the last\n               response is enqueued is added to this cumulative sum.\n\n               For single-response protocols, the value of\n               applTransactStreamPrfRspTimes will be constant.\n\n               Discontinuities in this counter can be detected\n               by monitoring the corresponding instance of\n               applOpenChannelOpenTime.')
-applTransactFlowTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 2, 5), )
-if mibBuilder.loadTexts: applTransactFlowTable.setDescription('The applTransactFlowTable contains entries, organized by\n               application instance or running application element,\n               direction of flow, and type (request/response) for each\n               open transaction stream.\n\n               The simple model of a transaction used here looks like\n               this:\n\n                   invoker  |   Request     | performer\n                            | - - - - - - > |\n                            |               |\n                            |   Response    |\n                            | < - - - - - - |\n                            |               |\n\n               Since in some protocols it is possible for an entity\n               to take on both the invoker and performer roles,\n               information here is accumulated for transmitted and\n               received requests, as well as for transmitted and\n               received responses.  Counts are maintained for both\n               transactions and bytes transferred.')
-applTransactFlowEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 2, 5, 1), ).setIndexNames((0, "APPLICATION-MIB", "applElmtOrSvc"), (0, "APPLICATION-MIB", "applElmtOrSvcId"), (0, "APPLICATION-MIB", "applOpenChannelIndex"), (0, "APPLICATION-MIB", "applTransactFlowDirection"), (0, "APPLICATION-MIB", "applTransactFlowReqRsp"))
-if mibBuilder.loadTexts: applTransactFlowEntry.setDescription('An applTransactFlowEntry reports transaction throughput\n               information for requests or response in a particular\n               direction (transmit / receive) for a transaction stream.\n\n               Entries in this table correspond to those in the\n               applTransactionStreamTable with identical values for the\n               applElmtOrSvc, applElmtOrSvcId, and applOpenChannelIndex.\n\n               For all counter objects in one of these entries,\n               the corresponding (same value for applElmtOrSvc,\n               applElmtOrSvcId, and applOpenChannelIndex)\n               applOpenChannelOpenTime object serves as a discontinuity\n               indicator.  ')
-applTransactFlowDirection = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 5, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("transmit", 1), ("receive", 2),)))
-if mibBuilder.loadTexts: applTransactFlowDirection.setDescription('The applTransactFlowDirection index serves to identify\n                an entry as containing information pertaining to the\n                transmit (1) or receive (2) flow of a transaction\n                stream.')
-applTransactFlowReqRsp = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("request", 1), ("response", 2),)))
-if mibBuilder.loadTexts: applTransactFlowReqRsp.setDescription('The value of the applTransactFlowReqRsp index indicates\n               whether this entry contains information on requests\n               (1), or responses (2).')
-applTransactFlowTrans = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 5, 1, 3), Counter64()).setUnits('transactions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactFlowTrans.setDescription('The applTransactFlowTrans attribute reports the number\n                of request/response transactions (as indicated by\n                the applTransactFlowReqRsp index) received/generated\n                (as indicated by the applTransactFlowDirection index)\n                that this service instance or running application\n                element has processed for this transaction stream.\n\n                Discontinuities in this counter can be detected\n                by monitoring the corresponding instance of\n                applOpenChannelOpenTime.')
-applTransactFlowTransLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 5, 1, 4), Counter32()).setUnits('transactions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactFlowTransLow.setDescription('This attribute corresponds to the low thirty-two\n                bits of applTransactFlowTrans.\n\n                Discontinuities in this counter can be detected\n                by monitoring the corresponding instance of\n                applOpenChannelOpenTime.')
-applTransactFlowBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 5, 1, 5), Counter64()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactFlowBytes.setDescription('The applTransactFlowBytes attribute reports the number\n               of request/response (as indicated by the\n               applTransactFlowReqRsp index) bytes received/generated\n               (as indicated by the applTransactFlowDirection index)\n               handled by this application element or service instance\n               on this transaction stream.\n\n               All application layer bytes are included in this count,\n               including any application layer wrappers, headers, or\n               other overhead.\n\n               Discontinuities in this counter can be detected\n               by monitoring the corresponding instance of\n               applOpenChannelOpenTime.')
-applTransactFlowBytesLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 5, 1, 6), Counter32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactFlowBytesLow.setDescription('This attribute corresponds to the low thirty-two\n               bits of applTransactFlowBytes.\n\n               Discontinuities in this counter can be detected\n               by monitoring the corresponding instance of\n               applOpenChannelOpenTime.')
-applTransactFlowTime = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 5, 1, 7), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactFlowTime.setDescription("The applTransactFlowTime attribute records the time of\n               the processing (receipt or transmission as indicated\n               by the applTransactFlowDirection index) by this\n               running application element or service instance of\n               the most recent request/response (as indicated by\n               the applTransactFlowReqRsp index) on this transaction\n               stream.\n\n               If no requests/responses been received/transmitted by\n               this entity over this transaction stream, the value\n               of this attribute shall be '0000000000000000'H ")
-applTransactKindTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 2, 6), )
-if mibBuilder.loadTexts: applTransactKindTable.setDescription('The applTransactKindTable provides transaction statistics\n               broken down by kinds of transaction.  The definition of\n               the kinds of transactions is specific to the application\n               protocol in use, and may be documented in the form of an\n               applicability statement.  ')
-applTransactKindEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 2, 6, 1), ).setIndexNames((0, "APPLICATION-MIB", "applElmtOrSvc"), (0, "APPLICATION-MIB", "applElmtOrSvcId"), (0, "APPLICATION-MIB", "applOpenChannelIndex"), (0, "APPLICATION-MIB", "applTransactFlowDirection"), (0, "APPLICATION-MIB", "applTransactFlowReqRsp"), (0, "APPLICATION-MIB", "applTransactKind"))
-if mibBuilder.loadTexts: applTransactKindEntry.setDescription("An applTransactKindEntry reports information for a\n               specific service instance or running application\n               element's use of a specific transaction stream in\n               a particular direction in requests or responses\n               (as indicated by the applTransactFlowReqRsp index)\n               broken down by transaction kind, as indicated by the\n               applTransactKind index.\n\n               Discontinuities in any of the counters in an entry can\n               be detected by monitoring the corresponding instance of\n               applOpenChannelOpenTime.")
-applTransactKind = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 6, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,32)))
-if mibBuilder.loadTexts: applTransactKind.setDescription('The applTransactKind index is the human-readable\n               identifier for a particular transaction kind within\n               the context of an application protocol.  The values\n               to be used for a particular protocol may be identified\n               in an applicability statement.')
-applTransactKindTrans = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 6, 1, 2), Counter64()).setUnits('transactions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactKindTrans.setDescription('The applTransactKindTrans attribute reports the number\n               of request/response (as indicated by the\n               applTransactFlowReqRsp index) transactions\n               received/generated (as indicated by the\n               applTransactFlowDirection index) handled by this\n               application instance or application element on this\n               transaction stream for this transaction kind.\n\n               Discontinuities in this counter can be detected\n               by monitoring the corresponding instance of\n               applOpenChannelOpenTime.')
-applTransactKindTransLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 6, 1, 3), Counter32()).setUnits('transactions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactKindTransLow.setDescription('The applTransactKindTransLow attribute reports\n               the low thirty-two bits of applTransactKindTrans.\n\n               Discontinuities in this counter can be detected\n               by monitoring the corresponding instance of\n               applOpenChannelOpenTime.')
-applTransactKindBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 6, 1, 4), Counter64()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactKindBytes.setDescription('The applTransactKindBytes attribute reports the number\n               of request/response (as indicated by the\n               applTransactFlowReqRsp index) bytes received/generated\n               (as indicated by the applTransactFlowDirection index)\n               handled by this application element on this transaction\n               stream for this transaction kind.\n\n               All application layer bytes are included in this count,\n               including any application layer wrappers, headers, or\n               other overhead.\n\n               Discontinuities in this counter can be detected\n               by monitoring the corresponding instance of\n               applOpenChannelOpenTime.')
-applTransactKindBytesLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 6, 1, 5), Counter32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactKindBytesLow.setDescription('The applTransactKindBytesLow attribute corresponds\n               to the low thirty-two bits of applTransactKindBytes.\n\n               Discontinuities in this counter can be detected\n               by monitoring the corresponding instance of\n               applOpenChannelOpenTime.')
-applTransactKindTime = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 2, 6, 1, 6), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applTransactKindTime.setDescription("The applTransactKindTime attribute records the time of\n               the processing (receipt or transmission as indicated\n               by the applTransactFlowDirection index) by this\n               running application element or service instance of\n               the most recent request/response (as indicated by\n               the applTransactFlowReqRsp index) of this kind of\n               transaction on this transaction stream.\n\n               If no requests/responses of this kind been\n               received/transmitted by this running application element\n               or service instance over this transaction stream, the\n               value of this attribute shall be '0000000000000000'H ")
-applPastChannelControlTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 3, 1), )
-if mibBuilder.loadTexts: applPastChannelControlTable.setDescription('The applPastChannelControlTable controls the\n               accumulation of history information about channels\n               from the perspective of service instances and running\n               application elements.  Entries in this table are indexed\n               by applElmtOrSvc and applElmtOrSvcId, giving control\n               of channel history accumulation at the level of each\n               service instance and running application element.')
-applPastChannelControlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 3, 1, 1), ).setIndexNames((0, "APPLICATION-MIB", "applElmtOrSvc"), (0, "APPLICATION-MIB", "applElmtOrSvcId"))
-if mibBuilder.loadTexts: applPastChannelControlEntry.setDescription('An applPastChannelControlEntry provides the ability\n               to control the retention of channel history information\n               by service instances and running application elements.')
-applPastChannelControlCollect = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("enabled", 1), ("frozen", 2), ("disabled", 3),)).clone('enabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: applPastChannelControlCollect.setDescription("When the value of applPastChannelControlCollect is\n               'enabled', each time the corresponding running\n               application element or service instance closes\n               an open channel a new entry will be added to the\n               applPastChannelTable.\n\n               When the value of applPastChannelControlCollect\n               is 'frozen', no new entries are added to the\n               applPastChannelTable for this running application\n               element or service instance, and old entries are not\n               aged out.\n\n               When the value of applPastChannelControlCollect\n               is 'disabled', all entries are removed from\n               applPastChannelTable for this running application or\n               service instance, and no new entries are added.")
-applPastChannelControlMaxRows = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 1, 1, 2), Unsigned32().clone(500)).setUnits('channel history entries').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: applPastChannelControlMaxRows.setDescription('The maximum number of entries allowed in the\n               applPastChannelTable for this running application element\n               or service instance.  Once the number of rows for this\n               running application element or service instance in the\n               applPastChannelTable reaches this value, when new\n               entries are to be added the management subsystem will\n               make room for them by removing the oldest entries.\n               Entries will be removed on the basis of oldest\n               applPastChannelCloseTime value first.')
-applPastChannelControlTimeLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 1, 1, 3), Unsigned32().clone(7200)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: applPastChannelControlTimeLimit.setDescription("The maximum time in seconds which an entry for this\n               running application element or service instance\n               may exist in the applPastChannelTable before it\n               is removed.  Any entry that is older than this value\n               will be removed (aged out) from the table, unless the\n               applPastChannelControlCollect is set to 'frozen'.\n\n               Note that an entry may be aged out prior to reaching\n               this time limit if it is the oldest entry in the table\n               and must be removed to make space for a new entry so\n               as to not exceed applPastChannelControlMaxRows, or if the\n               applPastChannelControlCollect is set to 'disabled'.")
-applPastChannelControlRemItems = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 1, 1, 4), Counter32()).setUnits('channel history entries').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastChannelControlRemItems.setDescription("The applPastChannelControlRemItems attribute reports the\n               number of applPastChannelControlTable entries for this\n               running application element or service instance that\n               were deleted in order to make room for new history\n               entries.\n\n               This count does NOT include entries deleted for the\n               following reasons:\n                   - the corresponding applPastChannelControlCollect\n                     attribute has been set to 'disabled'\n\n                   - the entry has been in the table longer that the\n                     time limit indicated by the corresponding\n                     applPastChannelControlTimeLimit.\n             ")
-applPastChannelTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 3, 2), )
-if mibBuilder.loadTexts: applPastChannelTable.setDescription("The applPastChannelTable provides history information\n               about channels from the perspective of running\n               application elements and service instances.\n               Entries in this table are indexed by applElmtOrSvc,\n               applElmtOrSvcId, and by applPastChannelIndex, which\n               serves to uniquely identify each former channel in the\n               context of a running application element or service\n               instance.\n\n               Note that the value of applPastChannelIndex is\n               independent of the value applOpenChannelIndex had when\n               this channel was open.\n\n               Entries for closed channels for a given running\n               application element or service instance can\n               be added to this table only if its entry in the\n               applPastChannelControlTable has the value 'enabled'\n               for the attribute applPastChannelControlCollect.\n\n               Entries for closed channels are removed under the\n               following circumstances:\n\n                   - the running application element or service\n                     instance no longer exists\n\n                   - the corresponding applPastChannelControlCollect\n                     attribute has been set to 'disabled'\n\n                   - the entry has been in the table longer that the\n                     time limit indicated by the corresponding\n                     applPastChannelControlTimeLimit and the value of\n                     applPastChannelControlCollect is not 'frozen'\n\n                   - this is the oldest entry for the running\n                     application element or service instance in\n                     question and the addition of a new element would\n                     otherwise cause applPastChannelControlMaxRows to\n                     be exceeded for this running application element\n                     or service instance.\n\n                   - a value of applPastChannelIndex has been re-used.\n                     Note that under normal circumstances, this is\n                     unlikely.\n\n               Removal/replacement of an entry under the\n               last two conditions causes the corresponding\n               applPastChannelControlRemItems to be incremented.")
-applPastChannelEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 3, 2, 1), ).setIndexNames((0, "APPLICATION-MIB", "applElmtOrSvc"), (0, "APPLICATION-MIB", "applElmtOrSvcId"), (0, "APPLICATION-MIB", "applPastChannelIndex"))
-if mibBuilder.loadTexts: applPastChannelEntry.setDescription('An applPastChannelEntry indicates that a running\n              application element or service instance once had an open\n              channel, which is now closed.  The entry has information\n              describing that channel.')
-applPastChannelIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: applPastChannelIndex.setDescription('This attribute serves to uniquely identify this closed\n               channel in the context of the running application\n               element or service instance.  This attribute has no\n               other semantics.\n\n               Note that the value of applPastChannelIndex is\n               independent of the value applOpenChannelIndex had when\n               this channel was active.\n\n               In issuing this index value, the implementation must\n               avoid re-issuing an index value which has already been\n               assigned to an entry which has not yet been deleted due\n               to age or space considerations.\n\n               The value zero is excluded from the set of permitted\n               values for this index in order to permit other tables to\n               possibly represent information that cannot be associated\n               with a specific entry in this table.  ')
-applPastChannelOpenTime = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 2, 1, 2), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastChannelOpenTime.setDescription('This attribute records the time when this channel was\n               originally opened.  Note that this information is quite\n               different from applOpenChannelOpenTime, which is used\n               for the detection of counter discontinuities.')
-applPastChannelCloseTime = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 2, 1, 3), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastChannelCloseTime.setDescription('This attribute records the time when this channel\n               was closed.')
-applPastChannelReadRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 2, 1, 4), Unsigned64TC()).setUnits('read requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastChannelReadRequests.setDescription('This attribute records the number of read requests for\n               this channel made by this running application element or\n               service instance.  All read requests for this channel by\n               this running application element or service instance,\n               regardless of completion status, are included in this\n               count.  Read requests are counted in terms of system\n               calls, rather than API calls.')
-applPastChannelReadReqsLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 2, 1, 5), Unsigned32()).setUnits('read requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastChannelReadReqsLow.setDescription('This attribute corresponds to the low thirty-two bits\n               of applPastChannelReadRequests.')
-applPastChannelReadFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 2, 1, 6), Unsigned32()).setUnits('failed read requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastChannelReadFailures.setDescription('This attribute reports the number of failed read\n               requests.')
-applPastChannelBytesRead = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 2, 1, 7), Unsigned64TC()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastChannelBytesRead.setDescription('This attribute reports the number of bytes read from this\n               channel by this running application element or service\n               instance.  Only bytes successfully read are included in\n               this count. ')
-applPastChannelBytesReadLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 2, 1, 8), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastChannelBytesReadLow.setDescription('This attribute corresponds to the low thirty-two bits\n               of applPastChannelBytesRead.')
-applPastChannelLastReadTime = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 2, 1, 9), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastChannelLastReadTime.setDescription("This attribute reports the time of the most recent read\n               request made by this running application element or\n               service instance regardless of completion status, for\n               this former channel.\n\n               If no read requests have been made , the value of this\n               attribute shall be '0000000000000000'H ")
-applPastChannelWriteRequests = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 2, 1, 10), Unsigned64TC()).setUnits('write requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastChannelWriteRequests.setDescription('The applPastChannelWriteRequests attribute reports\n               the number of write requests, regardless of completion\n               status, made by this running application element or\n               service instance for this former channel.\n\n               Write requests are counted in terms of system calls,\n               rather than API calls.')
-applPastChannelWriteReqsLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 2, 1, 11), Unsigned32()).setUnits('write requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastChannelWriteReqsLow.setDescription('This attribute corresponds to the low thirty-two\n               bits of applPastChannelWriteRequests.')
-applPastChannelWriteFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 2, 1, 12), Unsigned32()).setUnits('failed write requests').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastChannelWriteFailures.setDescription('This attribute reports the number of failed write\n               requests.')
-applPastChannelBytesWritten = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 2, 1, 13), Unsigned64TC()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastChannelBytesWritten.setDescription('This attribute reports the number of bytes written to\n               this former channel by this running application element\n               or service instance.  Only bytes successfully written\n               (no errors reported by the API in use by the application)\n               are included in this count.')
-applPastChannelBytesWritLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 2, 1, 14), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastChannelBytesWritLow.setDescription('This attribute corresponds to the low thirty-two bits of\n               applPastChannelBytesWritten.')
-applPastChannelLastWriteTime = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 2, 1, 15), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastChannelLastWriteTime.setDescription("The applPastChannelLastWriteTime attribute reports\n               the time of the most recent write request made by\n               this running application element or service instance,\n               regardless of completion status, for this former\n               channel.\n\n               If no write requests have been made the value of this\n               attribute shall be '0000000000000000'H ")
-applPastFileTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 3, 3), )
-if mibBuilder.loadTexts: applPastFileTable.setDescription('The applPastFileTable supplements the\n               applPastChannelTable for entries corresponding to\n               channels which were files.  The indexing structure is\n               identical to applPastChannelTable.  An entry exists in\n               the applPastFileTable only if there is a corresponding\n               (same index values) entry in the applPastChannelTable\n               and if the channel was a file.\n\n               Entries for closed files are removed when the\n               corresponding entries are removed from the\n               applPastChannelTable.')
-applPastFileEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 3, 3, 1), ).setIndexNames((0, "APPLICATION-MIB", "applElmtOrSvc"), (0, "APPLICATION-MIB", "applElmtOrSvcId"), (0, "APPLICATION-MIB", "applPastChannelIndex"))
-if mibBuilder.loadTexts: applPastFileEntry.setDescription('An applPastFileEntry provides additional, file-specific\n              information to complement the corresponding\n              applPastChannelEntry for a channel which was a file.')
-applPastFileName = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 3, 1, 1), LongUtf8String()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastFileName.setDescription('This attribute records the last known value of\n              applOpenFileName before the channel was closed.')
-applPastFileSizeHigh = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 3, 1, 2), Unsigned32()).setUnits('2^32 byte blocks').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastFileSizeHigh.setDescription("This attribute records the value of applOpenFileSizeHigh\n              at the time this channel was closed.\n\n              For example, for a file with a total size of\n              4,294,967,296 bytes, this attribute would have a value\n              of 1; for a file with a total size of 4,294,967,295\n              bytes this attribute's value would be 0.")
-applPastFileSizeLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 3, 1, 3), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastFileSizeLow.setDescription("This attribute records the value of applOpenFileSizeLow\n               at the time this channel was closed.\n\n               For example, for a file with a total size of\n               4,294,967,296 bytes this attribute would have a value\n               of 0; for a file with a total size of 4,294,967,295\n               bytes this attribute's value would be 4,294,967,295.")
-applPastFileMode = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("read", 1), ("write", 2), ("readWrite", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastFileMode.setDescription('This attribute records the value of applOpenFileMode\n               at the time this channel was closed.  ')
-applPastConTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 3, 4), )
-if mibBuilder.loadTexts: applPastConTable.setDescription('The applPastConTable supplements the applPastChannelTable\n               for entries corresponding to channels which were\n               connections.  The indexing structure is identical\n               to applPastChannelTable.  An entry exists in the\n               applPastConTable only if there is a corresponding\n               (same index values) entry in the applPastChannelTable\n               and if the channel was a connection.\n\n               Entries for closed connections are removed when\n               the corresponding entries are removed from the\n               applPastChannelTable.')
-applPastConEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 3, 4, 1), ).setIndexNames((0, "APPLICATION-MIB", "applElmtOrSvc"), (0, "APPLICATION-MIB", "applElmtOrSvcId"), (0, "APPLICATION-MIB", "applPastChannelIndex"))
-if mibBuilder.loadTexts: applPastConEntry.setDescription('An applPastConEntry provides additional,\n              connection-specific information to complement the\n              corresponding applPastChannelEntry for a channel which\n              was a connection.')
-applPastConTransport = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 4, 1, 1), TDomain().clone((0, 0))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastConTransport.setDescription('The applPastConTransport attribute identifies the\n               transport protocol that was in use for this former\n               connection.  If the transport protocol could not be\n               determined, the value { 0 0 } shall be used.')
-applPastConNearEndAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 4, 1, 2), ApplTAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastConNearEndAddr.setDescription('The applPastConNearEndAddr attribute reports the\n               transport address and port information for the near\n               end of this former connection.\n\n               If the information could not be determined, the value\n               shall be a zero-length string.')
-applPastConNearEndpoint = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 4, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastConNearEndpoint.setDescription('The applPastConNearEndpoint attribute reports the\n               fully-qualified domain name and port information for the\n               near end of this former connection.\n\n               The format of this attribute for TCP and UDP-based\n               protocols is the fully-qualified domain name immediately\n               followed by a colon which is immediately followed by\n               the decimal representation of the port number.\n\n               If the information could not be determined, the value\n               shall be a zero-length string.')
-applPastConFarEndAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 4, 1, 4), ApplTAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastConFarEndAddr.setDescription('The applPastConFarEnd attribute reports the transport\n               address and port information for the far end of this\n               former connection.\n\n               If not known, as in the case of a connectionless\n               transport, the value of this attribute shall be a\n               zero-length string.')
-applPastConFarEndpoint = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 4, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastConFarEndpoint.setDescription('The applPastConFarEndpoint attribute reports the\n               transport address and port information for the far\n               end of this former connection.\n\n               The format of this attribute for TCP and UDP-based\n               protocols is the fully-qualified domain name immediately\n               followed by a colon which is immediately followed by\n               the decimal representation of the port number.\n\n               If not known, as in the case of a connectionless\n               transport, the value of this attribute shall be a\n               zero-length string.')
-applPastConApplication = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 4, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastConApplication.setDescription('The applPastConApplication attribute identifies the\n               application layer protocol that was in use.  Where\n               possible, the values defined in [13] shall be used.\n               If not known, the value of this attribute shall be a\n               zero-length string.')
-applPastTransStreamTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 3, 5), )
-if mibBuilder.loadTexts: applPastTransStreamTable.setDescription('The applPastTransStreamTable contains common\n               information for historical transaction statistics.')
-applPastTransStreamEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 3, 5, 1), ).setIndexNames((0, "APPLICATION-MIB", "applElmtOrSvc"), (0, "APPLICATION-MIB", "applElmtOrSvcId"), (0, "APPLICATION-MIB", "applPastChannelIndex"))
-if mibBuilder.loadTexts: applPastTransStreamEntry.setDescription('An applPastTransStreamEntry contains information for\n               a single former transaction stream.  A transaction\n               stream could have been a network connection, file, or\n               other source of transactions.')
-applPastTransStreamDescr = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 5, 1, 1), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransStreamDescr.setDescription("The applPastTransStreamDescr attribute provides a\n               human-readable description of this transaction stream.\n\n               If no descriptive information is available, this\n               attribute's value shall be a zero-length string.")
-applPastTransStreamUnitOfWork = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 5, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransStreamUnitOfWork.setDescription("The applPastTransStreamUnitOfWork attribute provides a\n               human-readable definition of what the unit of work is\n               for this transaction stream.\n\n               If no descriptive information is available, this\n               attribute's value shall be a zero-length string.")
-applPastTransStreamInvokes = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 5, 1, 3), Unsigned64TC()).setUnits('transactions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransStreamInvokes.setDescription('Cumulative count of requests / invocations issued\n               for this transaction stream when it was active.')
-applPastTransStreamInvokesLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 5, 1, 4), Unsigned32()).setUnits('transactions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransStreamInvokesLow.setDescription('This object corresponds to the low thirty-two\n               bits of applPastTransStreamInvokes.')
-applPastTransStreamInvCumTimes = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 5, 1, 5), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransStreamInvCumTimes.setDescription('The applPastTransStreamInvCumTimes attribute reports the\n               cumulative sum of the lengths of the intervals times\n               measured between the transmission of requests and the\n               receipt of (the first of) the corresponding response(s).')
-applPastTransStreamInvRspTimes = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 5, 1, 6), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransStreamInvRspTimes.setDescription('The applPastTransStreamInvRspTimes attribute reports the\n               cumulative sum of the lengths of the intervals measured\n               between the receipt of the first and last of multiple\n               responses to a request.\n\n               For transaction streams which do not permit multiple\n               responses to a single request, this attribute will be\n               zero.')
-applPastTransStreamPerforms = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 5, 1, 7), Unsigned64TC()).setUnits('transactions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransStreamPerforms.setDescription('Total number of transactions performed.')
-applPastTransStreamPerformsLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 5, 1, 8), Unsigned32()).setUnits('transactions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransStreamPerformsLow.setDescription('This objecy reports the low thirty-two bits of\n               applPastTransStreamPerforms.')
-applPastTransStreamPrfCumTimes = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 5, 1, 9), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransStreamPrfCumTimes.setDescription('The applPastTransStreamPrfCumTimes attribute reports the\n               cumulative sum of the lengths of the intervals measured\n               between receipt of requests and the transmission of the\n               corresponding responses.')
-applPastTransStreamPrfRspTimes = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 5, 1, 10), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransStreamPrfRspTimes.setDescription('For each transaction performed, the elapsed time between\n               when the first response is enqueued and when the last\n               response is enqueued is added to this cumulative sum.\n\n               For single-response protocols, the value of\n               applPastTransStreamPrfRspTimes will be zero.')
-applPastTransFlowTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 3, 6), )
-if mibBuilder.loadTexts: applPastTransFlowTable.setDescription('The applPastTransFlowTable contains entries, organized by\n               application instance or running application element,\n               direction of flow, and type (request/response) for each\n               former transaction stream.\n\n               The simple model of a transaction used here looks like\n               this:\n\n                   invoker  |   Request     | performer\n                            | - - - - - - > |\n                            |               |\n                            |   Response    |\n                            | < - - - - - - |\n                            |               |\n\n               Since in some protocols it is possible for an entity\n               to take on both the invoker and performer roles,\n               information here is accumulated for transmitted and\n               received requests, as well as for transmitted and\n               received responses.  Counts are maintained for both\n               transactions and bytes transferred.')
-applPastTransFlowEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 3, 6, 1), ).setIndexNames((0, "APPLICATION-MIB", "applElmtOrSvc"), (0, "APPLICATION-MIB", "applElmtOrSvcId"), (0, "APPLICATION-MIB", "applPastChannelIndex"), (0, "APPLICATION-MIB", "applPastTransFlowDirection"), (0, "APPLICATION-MIB", "applPastTransFlowReqRsp"))
-if mibBuilder.loadTexts: applPastTransFlowEntry.setDescription('An applPastTransFlowEntry records transaction throughput\n               information for requests or response in a particular\n               direction (transmit / receive) for a transaction stream.\n\n               Entries in this table correspond to those in the\n               applPastTransStreamTable with identical values\n               for the applElmtOrSvc, applElmtOrSvcId, and the\n               applPastChannelIndex.')
-applPastTransFlowDirection = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 6, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("transmit", 1), ("receive", 2),)))
-if mibBuilder.loadTexts: applPastTransFlowDirection.setDescription('The applPastTransFlowDirection index serves\n                to identify an entry as containing information\n                pertaining to the transmit (1) or receive (2) flow\n                of a past transaction stream.  This index corresponds\n                to applTransactFlowDirection.')
-applPastTransFlowReqRsp = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("request", 1), ("response", 2),)))
-if mibBuilder.loadTexts: applPastTransFlowReqRsp.setDescription('The value of the applPastTransFlowReqRsp index indicates\n               whether this entry contains information on requests\n               (1), or responses (2).  This index corresponds to\n               applTransactFlowReqRsp.')
-applPastTransFlowTrans = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 6, 1, 3), Unsigned64TC()).setUnits('transactions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransFlowTrans.setDescription('The applPastTransFlowTrans attribute reports the number\n                of request/response (as indicated by the\n                applPastTransFlowReqRsp index) transactions\n                received/generated (as indicated by the\n                applPastTransFlowDirection index) handled on this\n                transaction stream.')
-applPastTransFlowTransLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 6, 1, 4), Unsigned32()).setUnits('transactions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransFlowTransLow.setDescription('This attribute corresponds to the low thirty-two\n                bits of applPastTransFlowTrans.')
-applPastTransFlowBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 6, 1, 5), Unsigned64TC()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransFlowBytes.setDescription('The applPastTransFlowBytes attribute reports the number\n               of request/response (as indicated by the\n               applPastTransFlowReqRsp index) bytes received/generated\n               (as indicated by the applPastTransFlowDirection index)\n               handled on this transaction stream.\n\n               All application layer bytes are included in this count,\n               including any application layer wrappers, headers, or\n               other overhead.')
-applPastTransFlowBytesLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 6, 1, 6), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransFlowBytesLow.setDescription('This attribute corresponds to the low thirty-two\n               bits of applPastTransFlowBytes.')
-applPastTransFlowTime = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 6, 1, 7), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransFlowTime.setDescription("The applPastTransFlowTime attribute records the time of\n               the processing (receipt or transmission as\n               indicated by the applPastTransFlowDirection index)\n               of the last request/response (as indicated by the\n               applPastTransFlowReqRsp index) on this transaction\n               stream.\n\n               If no requests/responses been received/transmitted by\n               this entity over this transaction stream, the value\n               of this attribute shall be '0000000000000000'H ")
-applPastTransKindTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 3, 7), )
-if mibBuilder.loadTexts: applPastTransKindTable.setDescription('The applPastTransKindTable provides transaction\n               statistics broken down by kinds of transaction.\n               The definition of the kinds of transactions is\n               specific to the application protocol in use, and may be\n               documented in the form of an applicability statement.  ')
-applPastTransKindEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 3, 7, 1), ).setIndexNames((0, "APPLICATION-MIB", "applElmtOrSvc"), (0, "APPLICATION-MIB", "applElmtOrSvcId"), (0, "APPLICATION-MIB", "applPastChannelIndex"), (0, "APPLICATION-MIB", "applPastTransFlowDirection"), (0, "APPLICATION-MIB", "applPastTransFlowReqRsp"), (0, "APPLICATION-MIB", "applPastTransKind"))
-if mibBuilder.loadTexts: applPastTransKindEntry.setDescription("An applPastTransKindEntry reports historical data for a\n               specific service instance or running application\n               element's use of a specific transaction stream in\n               a particular direction in requests or responses\n               (as indicated by the applPastTransFlowReqRsp index)\n               broken down by transaction kind, as indicated by the\n               applPastTransKind index.")
-applPastTransKind = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 7, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,32)))
-if mibBuilder.loadTexts: applPastTransKind.setDescription('The applPastTransKind index is the human-readable\n               identifier for a particular transaction kind within\n               the context of an application protocol.  The values\n               to be used for a particular protocol may be identified\n               in an applicability statement.  This index corresponds\n               to applTransactKind.')
-applPastTransKindTrans = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 7, 1, 2), Unsigned64TC()).setUnits('transactions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransKindTrans.setDescription('For this transaction stream, this attribute records\n               the total number of transactions of the type\n               identified by the indexes.  The type is characterized\n               according to the receive/transmit direction\n               (applPastTransFlowDirecton), whether it was a request\n               or a response (applPastTransFlowReqRsp), and the\n               protocol-specific transaction kind (applPastTransKind).\n               stream for this transaction kind.')
-applPastTransKindTransLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 7, 1, 3), Unsigned32()).setUnits('transactions').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransKindTransLow.setDescription('The applPastTransKindTransLow attribute reports\n               the low thirty-two bits of applPastTransKindTrans.')
-applPastTransKindBytes = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 7, 1, 4), Unsigned64TC()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransKindBytes.setDescription('For this transaction stream and transaction kind, the\n               applPastTransKindBytes attribute reports the number\n               of bytes received or generated (as indicated by\n               the applPastTransFlowDirection index) in requests or\n               responses (as indicated by the applPastTransFlowReqRsp\n               index).\n\n               All application layer bytes are included in this count,\n               including any application layer wrappers, headers, or\n               other overhead.')
-applPastTransKindBytesLow = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 7, 1, 5), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransKindBytesLow.setDescription('The applPastTransKindBytesLow attribute corresponds\n               to the low thirty-two bits of applPastTransKindBytes.')
-applPastTransKindTime = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 3, 7, 1, 6), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applPastTransKindTime.setDescription("The applPastTransKindTime attribute records the time of\n               the processing (receipt or transmission as\n               indicated by the applPastTransFlowDirection index)\n               of the last request/response (as indicated by the\n               applPastTransFlowReqRsp index) of this kind of\n               transaction on this transaction stream.\n\n               If no requests/responses of this kind were\n               received/transmitted over this transaction stream, the\n               value of this attribute shall be '0000000000000000'H ")
-applElmtRunStatusTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 4, 1), )
-if mibBuilder.loadTexts: applElmtRunStatusTable.setDescription('This table provides information on running application\n               elements, complementing information available in the\n               correspondingly indexed sysApplElmtRunTable [31].')
-applElmtRunStatusEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 4, 1, 1), ).setIndexNames((0, "SYSAPPL-MIB", "sysApplElmtRunIndex"))
-if mibBuilder.loadTexts: applElmtRunStatusEntry.setDescription('An applElmtRunStatusEntry contains information to support\n              the control and monitoring of a single running application\n              element.')
-applElmtRunStatusSuspended = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 4, 1, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applElmtRunStatusSuspended.setDescription('The applElmtRunStatusSuspended attribute reports\n               whether processing by this running application element\n               has been suspended, whether by management request or by\n               other means.')
-applElmtRunStatusHeapUsage = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 4, 1, 1, 2), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applElmtRunStatusHeapUsage.setDescription('The applElmtRunStatusHeapUsage reports the current\n               approximate heap usage by this running application\n               element.')
-applElmtRunStatusOpenConnections = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 4, 1, 1, 3), Unsigned32()).setUnits('connections').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applElmtRunStatusOpenConnections.setDescription('The applElmtRunStatusOpenConnections attribute reports\n               the current number of open connections in use by this\n               running application element.')
-applElmtRunStatusOpenFiles = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 4, 1, 1, 4), Gauge32()).setUnits('files').setMaxAccess("readonly")
-if mibBuilder.loadTexts: applElmtRunStatusOpenFiles.setDescription('The applElmtRunStatusOpenFiles attribute reports the\n               current number of open files in use by this running\n               application element.')
-applElmtRunStatusLastErrorMsg = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 4, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applElmtRunStatusLastErrorMsg.setDescription('The applElmtRunStatusLastErrorMessage attribute reports\n               the most recent error message (typically written to\n               stderr or a system error logging facility) from this\n               running application element.  If no such message has yet\n               been generated, the value of this attribute shall be a\n               zero-length string.')
-applElmtRunStatusLastErrorTime = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 4, 1, 1, 6), DateAndTime().clone(hexValue="0000000000000000")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: applElmtRunStatusLastErrorTime.setDescription("The applElmtRunStatusLastErrorTime attribute reports the\n               time of the most recent error message in\n               applElmtRunStatusLastErrorMsg.\n\n               If no such message has yet been generated, the value\n               of this attribute shall be '0000000000000000'H ")
-applElmtRunControlTable = MibTable((1, 3, 6, 1, 2, 1, 62, 1, 4, 2), )
-if mibBuilder.loadTexts: applElmtRunControlTable.setDescription('This table provides the ability to control application\n               elements, complementing information available in the\n               correspondingly indexed sysApplElmtRunTable [31].')
-applElmtRunControlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 62, 1, 4, 2, 1), ).setIndexNames((0, "SYSAPPL-MIB", "sysApplElmtRunIndex"))
-if mibBuilder.loadTexts: applElmtRunControlEntry.setDescription('An applElmtRunControlEntry contains information to\n              support the control of a single running application\n              element.')
-applElmtRunControlSuspend = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 4, 2, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: applElmtRunControlSuspend.setDescription("Setting this variable to 'true' requests the suspension\n               of processing by this running application element.\n               Setting this variable to 'false' requests that processing\n               be resumed.  The effect, if any, will be reported by the\n               applElmtRunStatusSuspended attribute.")
-applElmtRunControlReconfigure = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 4, 2, 1, 2), TestAndIncr()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: applElmtRunControlReconfigure.setDescription('Changing the value of this variable requests that the\n               running application element re-load its configuration\n               (like SIGHUP for many UNIX-based daemons).\n\n               Note that completion of a SET on this object only implies\n               that configuration reload was initiated, not necessarily\n               that the reload has been completed.')
-applElmtRunControlTerminate = MibTableColumn((1, 3, 6, 1, 2, 1, 62, 1, 4, 2, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: applElmtRunControlTerminate.setDescription("Setting the value of applElmtRunControlTerminate to\n               'true' requests that the running application element\n               terminate processing and exit in an orderly manner.\n               This is a 'polite' shutdown request.\n\n               When read, this object's value will be 'false' except\n               when orderly termination is in progress.\n\n               Note that completion of a SET on this object only implies\n               that termination was initiated, not necessarily that the\n               termination has been completed.")
-applicationMibGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 62, 2, 1))
-applicationMonitorGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 62, 2, 1, 1)).setObjects(*(("APPLICATION-MIB", "applSrvInstQual"), ("APPLICATION-MIB", "applSrvName"), ("APPLICATION-MIB", "applSrvIndex"), ("APPLICATION-MIB", "applSrvInstance"), ("APPLICATION-MIB", "applOpenChannelOpenTime"), ("APPLICATION-MIB", "applOpenChannelReadRequestsLow"), ("APPLICATION-MIB", "applOpenChannelReadFailures"), ("APPLICATION-MIB", "applOpenChannelBytesReadLow"), ("APPLICATION-MIB", "applOpenChannelLastReadTime"), ("APPLICATION-MIB", "applOpenChannelWriteRequestsLow"), ("APPLICATION-MIB", "applOpenChannelWriteFailures"), ("APPLICATION-MIB", "applOpenChannelBytesWrittenLow"), ("APPLICATION-MIB", "applOpenChannelLastWriteTime"), ("APPLICATION-MIB", "applOpenFileName"), ("APPLICATION-MIB", "applOpenFileSizeHigh"), ("APPLICATION-MIB", "applOpenFileSizeLow"), ("APPLICATION-MIB", "applOpenFileMode"), ("APPLICATION-MIB", "applOpenConnectionTransport"), ("APPLICATION-MIB", "applOpenConnectionNearEndAddr"), ("APPLICATION-MIB", "applOpenConnectionNearEndpoint"), ("APPLICATION-MIB", "applOpenConnectionFarEndAddr"), ("APPLICATION-MIB", "applOpenConnectionFarEndpoint"), ("APPLICATION-MIB", "applOpenConnectionApplication"),))
-if mibBuilder.loadTexts: applicationMonitorGroup.setDescription('This group represents the basic capabilities of this MIB.')
-applicationFastMonitorGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 62, 2, 1, 2)).setObjects(*(("APPLICATION-MIB", "applOpenChannelReadRequests"), ("APPLICATION-MIB", "applOpenChannelBytesRead"), ("APPLICATION-MIB", "applOpenChannelWriteRequests"), ("APPLICATION-MIB", "applOpenChannelBytesWritten"),))
-if mibBuilder.loadTexts: applicationFastMonitorGroup.setDescription('This group comprises 64-bit counters mandatory in\n            high-throughput environments, where 32-bit counters\n            could wrap in less than an hour.')
-applicationTransactGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 62, 2, 1, 3)).setObjects(*(("APPLICATION-MIB", "applTransactStreamDescr"), ("APPLICATION-MIB", "applTransactStreamUnitOfWork"), ("APPLICATION-MIB", "applTransactStreamInvokesLow"), ("APPLICATION-MIB", "applTransactStreamInvCumTimes"), ("APPLICATION-MIB", "applTransactStreamInvRspTimes"), ("APPLICATION-MIB", "applTransactStreamPerformsLow"), ("APPLICATION-MIB", "applTransactStreamPrfCumTimes"), ("APPLICATION-MIB", "applTransactStreamPrfRspTimes"), ("APPLICATION-MIB", "applTransactFlowTransLow"), ("APPLICATION-MIB", "applTransactFlowBytesLow"), ("APPLICATION-MIB", "applTransactFlowTime"), ("APPLICATION-MIB", "applTransactKindTransLow"), ("APPLICATION-MIB", "applTransactKindBytesLow"), ("APPLICATION-MIB", "applTransactKindTime"),))
-if mibBuilder.loadTexts: applicationTransactGroup.setDescription('This group comprises objects appropriate from monitoring\n            transaction-structured flows.')
-applicationFastTransactGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 62, 2, 1, 4)).setObjects(*(("APPLICATION-MIB", "applTransactStreamInvokes"), ("APPLICATION-MIB", "applTransactStreamPerforms"), ("APPLICATION-MIB", "applTransactFlowTrans"), ("APPLICATION-MIB", "applTransactFlowBytes"), ("APPLICATION-MIB", "applTransactKindTrans"), ("APPLICATION-MIB", "applTransactKindBytes"),))
-if mibBuilder.loadTexts: applicationFastTransactGroup.setDescription('This group comprises 64-bit transaction counters required in\n            high-throughput environments, where 32-bit counters could\n            wrap in less than an hour.')
-applicationHistoryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 62, 2, 1, 5)).setObjects(*(("APPLICATION-MIB", "applPastChannelControlCollect"), ("APPLICATION-MIB", "applPastChannelControlMaxRows"), ("APPLICATION-MIB", "applPastChannelControlTimeLimit"), ("APPLICATION-MIB", "applPastChannelControlRemItems"), ("APPLICATION-MIB", "applPastChannelOpenTime"), ("APPLICATION-MIB", "applPastChannelCloseTime"), ("APPLICATION-MIB", "applPastChannelReadReqsLow"), ("APPLICATION-MIB", "applPastChannelReadFailures"), ("APPLICATION-MIB", "applPastChannelBytesReadLow"), ("APPLICATION-MIB", "applPastChannelLastReadTime"), ("APPLICATION-MIB", "applPastChannelWriteReqsLow"), ("APPLICATION-MIB", "applPastChannelWriteFailures"), ("APPLICATION-MIB", "applPastChannelBytesWritLow"), ("APPLICATION-MIB", "applPastChannelLastWriteTime"), ("APPLICATION-MIB", "applPastFileName"), ("APPLICATION-MIB", "applPastFileSizeHigh"), ("APPLICATION-MIB", "applPastFileSizeLow"), ("APPLICATION-MIB", "applPastFileMode"), ("APPLICATION-MIB", "applPastConTransport"), ("APPLICATION-MIB", "applPastConNearEndAddr"), ("APPLICATION-MIB", "applPastConNearEndpoint"), ("APPLICATION-MIB", "applPastConFarEndAddr"), ("APPLICATION-MIB", "applPastConFarEndpoint"), ("APPLICATION-MIB", "applPastConApplication"),))
-if mibBuilder.loadTexts: applicationHistoryGroup.setDescription('This group models basic historical data.')
-applicationFastHistoryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 62, 2, 1, 6)).setObjects(*(("APPLICATION-MIB", "applPastChannelReadRequests"), ("APPLICATION-MIB", "applPastChannelBytesRead"), ("APPLICATION-MIB", "applPastChannelWriteRequests"), ("APPLICATION-MIB", "applPastChannelBytesWritten"),))
-if mibBuilder.loadTexts: applicationFastHistoryGroup.setDescription('This group comprises additional 64-bit objects required\n            for recording historical data in high-volume environments,\n            where a 32-bit integer would be insufficient.')
-applicationTransHistoryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 62, 2, 1, 7)).setObjects(*(("APPLICATION-MIB", "applPastTransStreamDescr"), ("APPLICATION-MIB", "applPastTransStreamUnitOfWork"), ("APPLICATION-MIB", "applPastTransStreamInvokesLow"), ("APPLICATION-MIB", "applPastTransStreamInvCumTimes"), ("APPLICATION-MIB", "applPastTransStreamInvRspTimes"), ("APPLICATION-MIB", "applPastTransStreamPerformsLow"), ("APPLICATION-MIB", "applPastTransStreamPrfCumTimes"), ("APPLICATION-MIB", "applPastTransStreamPrfRspTimes"), ("APPLICATION-MIB", "applPastTransFlowTransLow"), ("APPLICATION-MIB", "applPastTransFlowBytesLow"), ("APPLICATION-MIB", "applPastTransFlowTime"), ("APPLICATION-MIB", "applPastTransKindTransLow"), ("APPLICATION-MIB", "applPastTransKindBytesLow"), ("APPLICATION-MIB", "applPastTransKindTime"),))
-if mibBuilder.loadTexts: applicationTransHistoryGroup.setDescription('This group represents historical data for transaction-\n            structured information streams.')
-applicationFastTransHistoryGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 62, 2, 1, 8)).setObjects(*(("APPLICATION-MIB", "applPastTransFlowTrans"), ("APPLICATION-MIB", "applPastTransFlowBytes"), ("APPLICATION-MIB", "applPastTransKindTrans"), ("APPLICATION-MIB", "applPastTransKindBytes"), ("APPLICATION-MIB", "applPastTransStreamPerforms"), ("APPLICATION-MIB", "applPastTransStreamInvokes"),))
-if mibBuilder.loadTexts: applicationFastTransHistoryGroup.setDescription('This group contains 64-bit objects required for historical\n            records on high-volume transaction-structured streams,\n            where 32-bit integers would be insufficient.')
-applicationRunGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 62, 2, 1, 9)).setObjects(*(("APPLICATION-MIB", "applElmtRunStatusSuspended"), ("APPLICATION-MIB", "applElmtRunStatusHeapUsage"), ("APPLICATION-MIB", "applElmtRunStatusOpenConnections"), ("APPLICATION-MIB", "applElmtRunStatusOpenFiles"), ("APPLICATION-MIB", "applElmtRunStatusLastErrorMsg"), ("APPLICATION-MIB", "applElmtRunStatusLastErrorTime"), ("APPLICATION-MIB", "applElmtRunControlSuspend"), ("APPLICATION-MIB", "applElmtRunControlReconfigure"), ("APPLICATION-MIB", "applElmtRunControlTerminate"),))
-if mibBuilder.loadTexts: applicationRunGroup.setDescription('This group represents extensions to the system application\n            MIB.')
-applicationMibCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 62, 2, 2)).setObjects(*(("APPLICATION-MIB", "applicationMonitorGroup"), ("APPLICATION-MIB", "applicationHistoryGroup"), ("APPLICATION-MIB", "applicationRunGroup"),))
-if mibBuilder.loadTexts: applicationMibCompliance.setDescription('The compliance statement for the application MIB.')
-mibBuilder.exportSymbols("APPLICATION-MIB", applPastTransStreamInvCumTimes=applPastTransStreamInvCumTimes, applPastFileTable=applPastFileTable, applicationHistoryGroup=applicationHistoryGroup, applicationFastTransactGroup=applicationFastTransactGroup, applPastConFarEndAddr=applPastConFarEndAddr, applTransactFlowTime=applTransactFlowTime, applSrvNameToSrvInstEntry=applSrvNameToSrvInstEntry, applPastTransKindTransLow=applPastTransKindTransLow, applOpenChannelIndex=applOpenChannelIndex, applTransactStreamInvokes=applTransactStreamInvokes, applOpenFileMode=applOpenFileMode, applTransactKindTrans=applTransactKindTrans, applPastChannelControlEntry=applPastChannelControlEntry, applPastChannelBytesRead=applPastChannelBytesRead, applPastChannelWriteFailures=applPastChannelWriteFailures, applPastChannelBytesReadLow=applPastChannelBytesReadLow, applPastTransKindBytes=applPastTransKindBytes, applPastTransStreamInvRspTimes=applPastTransStreamInvRspTimes, applicationMibCompliance=applicationMibCompliance, applicationFastMonitorGroup=applicationFastMonitorGroup, applElmtRunStatusOpenConnections=applElmtRunStatusOpenConnections, applElmtRunControlSuspend=applElmtRunControlSuspend, applPastTransFlowTable=applPastTransFlowTable, applPastTransKindTrans=applPastTransKindTrans, applTransactStreamInvokesLow=applTransactStreamInvokesLow, applPastChannelLastReadTime=applPastChannelLastReadTime, applOpenChannelBytesWritten=applOpenChannelBytesWritten, applOpenConnectionFarEndpoint=applOpenConnectionFarEndpoint, applTransactKindEntry=applTransactKindEntry, applSrvInstToSrvNameEntry=applSrvInstToSrvNameEntry, applPastChannelReadRequests=applPastChannelReadRequests, applPastTransStreamDescr=applPastTransStreamDescr, applTransactKindBytes=applTransactKindBytes, applPastTransStreamPrfRspTimes=applPastTransStreamPrfRspTimes, applPastFileMode=applPastFileMode, applOpenChannelOpenTime=applOpenChannelOpenTime, applSrvInstToRunApplElmtTable=applSrvInstToRunApplElmtTable, ApplTAddress=ApplTAddress, applOpenChannelBytesReadLow=applOpenChannelBytesReadLow, applicationFastTransHistoryGroup=applicationFastTransHistoryGroup, applPastConNearEndAddr=applPastConNearEndAddr, applPastChannelCloseTime=applPastChannelCloseTime, applPastChannelControlTimeLimit=applPastChannelControlTimeLimit, applOpenConnectionTransport=applOpenConnectionTransport, applSrvIndex=applSrvIndex, applTransactStreamUnitOfWork=applTransactStreamUnitOfWork, applOpenChannelReadFailures=applOpenChannelReadFailures, applOpenChannelTable=applOpenChannelTable, applSrvInstToSrvNameTable=applSrvInstToSrvNameTable, applOpenChannelReadRequests=applOpenChannelReadRequests, applElmtOrSvc=applElmtOrSvc, applElmtRunStatusLastErrorTime=applElmtRunStatusLastErrorTime, applPastChannelControlTable=applPastChannelControlTable, applPastChannelBytesWritLow=applPastChannelBytesWritLow, applPastTransKindBytesLow=applPastTransKindBytesLow, applPastConApplication=applPastConApplication, applPastConTable=applPastConTable, applPastTransFlowDirection=applPastTransFlowDirection, applSrvNameToSrvInstTable=applSrvNameToSrvInstTable, applPastChannelControlMaxRows=applPastChannelControlMaxRows, applTransactKindTime=applTransactKindTime, applTransactFlowBytes=applTransactFlowBytes, applPastChannelControlCollect=applPastChannelControlCollect, applPastConFarEndpoint=applPastConFarEndpoint, applPastTransFlowTrans=applPastTransFlowTrans, applOpenChannelReadRequestsLow=applOpenChannelReadRequestsLow, applTransactFlowTrans=applTransactFlowTrans, applPastChannelReadFailures=applPastChannelReadFailures, applElmtRunControlTerminate=applElmtRunControlTerminate, applTransactFlowTransLow=applTransactFlowTransLow, applOpenChannelWriteRequests=applOpenChannelWriteRequests, applOpenConnectionFarEndAddr=applOpenConnectionFarEndAddr, applPastTransStreamInvokesLow=applPastTransStreamInvokesLow, applTransactStreamInvRspTimes=applTransactStreamInvRspTimes, applTransactKindTransLow=applTransactKindTransLow, applicationMonitorGroup=applicationMonitorGroup, applicationFastHistoryGroup=applicationFastHistoryGroup, applPastChannelBytesWritten=applPastChannelBytesWritten, applicationTransHistoryGroup=applicationTransHistoryGroup, applTransactFlowReqRsp=applTransactFlowReqRsp, applOpenChannelBytesRead=applOpenChannelBytesRead, applOpenFileSizeLow=applOpenFileSizeLow, applicationRunGroup=applicationRunGroup, applPastChannelTable=applPastChannelTable, applOpenConnectionEntry=applOpenConnectionEntry, applPastFileName=applPastFileName, applicationMibObjects=applicationMibObjects, applElmtRunStatusSuspended=applElmtRunStatusSuspended, applPastTransKindEntry=applPastTransKindEntry, applPastTransStreamPerforms=applPastTransStreamPerforms, applPastTransFlowEntry=applPastTransFlowEntry, applElmtRunControlGroup=applElmtRunControlGroup, applPastChannelEntry=applPastChannelEntry, applPastChannelWriteRequests=applPastChannelWriteRequests, applPastChannelControlRemItems=applPastChannelControlRemItems, applSrvInstance=applSrvInstance, applPastConTransport=applPastConTransport, applPastTransKind=applPastTransKind, applOpenChannelLastWriteTime=applOpenChannelLastWriteTime, applOpenChannelEntry=applOpenChannelEntry, applOpenFileEntry=applOpenFileEntry, applElmtRunControlEntry=applElmtRunControlEntry, applTransactKind=applTransactKind, applPastConEntry=applPastConEntry, applOpenFileName=applOpenFileName, applTransactKindBytesLow=applTransactKindBytesLow, applSrvName=applSrvName, applElmtRunStatusLastErrorMsg=applElmtRunStatusLastErrorMsg, applServiceGroup=applServiceGroup, applPastChannelLastWriteTime=applPastChannelLastWriteTime, applTransactionStreamTable=applTransactionStreamTable, applPastFileSizeLow=applPastFileSizeLow, applOpenConnectionNearEndAddr=applOpenConnectionNearEndAddr, applTransactFlowDirection=applTransactFlowDirection, applPastTransKindTable=applPastTransKindTable, applOpenChannelWriteRequestsLow=applOpenChannelWriteRequestsLow, applPastChannelWriteReqsLow=applPastChannelWriteReqsLow, applOpenChannelBytesWrittenLow=applOpenChannelBytesWrittenLow, applTransactFlowBytesLow=applTransactFlowBytesLow, applPastTransKindTime=applPastTransKindTime, applPastTransFlowBytes=applPastTransFlowBytes, applTransactStreamPrfRspTimes=applTransactStreamPrfRspTimes, applElmtRunStatusTable=applElmtRunStatusTable, applPastChannelGroup=applPastChannelGroup, applPastTransStreamEntry=applPastTransStreamEntry, applPastTransFlowBytesLow=applPastTransFlowBytesLow, applPastFileSizeHigh=applPastFileSizeHigh, applTransactFlowEntry=applTransactFlowEntry, applTransactStreamInvCumTimes=applTransactStreamInvCumTimes, applPastConNearEndpoint=applPastConNearEndpoint, PYSNMP_MODULE_ID=applicationMib, applPastTransStreamInvokes=applPastTransStreamInvokes, applicationMibGroups=applicationMibGroups, applOpenChannelWriteFailures=applOpenChannelWriteFailures, applTransactStreamDescr=applTransactStreamDescr, applElmtOrSvcId=applElmtOrSvcId, applPastTransFlowReqRsp=applPastTransFlowReqRsp, applicationMib=applicationMib, applPastTransStreamPrfCumTimes=applPastTransStreamPrfCumTimes, applOpenFileTable=applOpenFileTable, applPastTransFlowTransLow=applPastTransFlowTransLow, applicationTransactGroup=applicationTransactGroup, applChannelGroup=applChannelGroup, applTransactStreamPerforms=applTransactStreamPerforms, applicationMibConformance=applicationMibConformance, applElmtRunControlReconfigure=applElmtRunControlReconfigure, applRunApplElmtToSrvInstEntry=applRunApplElmtToSrvInstEntry, applPastTransStreamUnitOfWork=applPastTransStreamUnitOfWork, applRunApplElmtToSrvInstTable=applRunApplElmtToSrvInstTable, applOpenConnectionApplication=applOpenConnectionApplication, applPastFileEntry=applPastFileEntry, applSrvInstToRunApplElmtEntry=applSrvInstToRunApplElmtEntry, applOpenConnectionNearEndpoint=applOpenConnectionNearEndpoint, applOpenChannelLastReadTime=applOpenChannelLastReadTime, Unsigned64TC=Unsigned64TC, applPastTransStreamPerformsLow=applPastTransStreamPerformsLow, applElmtRunStatusOpenFiles=applElmtRunStatusOpenFiles, applTransactStreamPerformsLow=applTransactStreamPerformsLow, applTransactStreamPrfCumTimes=applTransactStreamPrfCumTimes, applSrvInstQual=applSrvInstQual, applElmtRunControlTable=applElmtRunControlTable, applElmtRunStatusEntry=applElmtRunStatusEntry, applPastChannelOpenTime=applPastChannelOpenTime, applPastTransFlowTime=applPastTransFlowTime, applOpenFileSizeHigh=applOpenFileSizeHigh, applOpenConnectionTable=applOpenConnectionTable, applPastChannelReadReqsLow=applPastChannelReadReqsLow, applPastTransStreamTable=applPastTransStreamTable, applPastChannelIndex=applPastChannelIndex, applTransactFlowTable=applTransactFlowTable, applTransactKindTable=applTransactKindTable, applElmtRunStatusHeapUsage=applElmtRunStatusHeapUsage, applTransactionStreamEntry=applTransactionStreamEntry)
+_BU='applicationRunGroup'
+_BT='applicationHistoryGroup'
+_BS='applicationMonitorGroup'
+_BR='applElmtRunControlTerminate'
+_BQ='applElmtRunControlReconfigure'
+_BP='applElmtRunControlSuspend'
+_BO='applElmtRunStatusLastErrorTime'
+_BN='applElmtRunStatusLastErrorMsg'
+_BM='applElmtRunStatusOpenFiles'
+_BL='applElmtRunStatusOpenConnections'
+_BK='applElmtRunStatusHeapUsage'
+_BJ='applElmtRunStatusSuspended'
+_BI='applPastTransStreamInvokes'
+_BH='applPastTransStreamPerforms'
+_BG='applPastTransKindBytes'
+_BF='applPastTransKindTrans'
+_BE='applPastTransFlowBytes'
+_BD='applPastTransFlowTrans'
+_BC='applPastTransKindTime'
+_BB='applPastTransKindBytesLow'
+_BA='applPastTransKindTransLow'
+_B9='applPastTransFlowTime'
+_B8='applPastTransFlowBytesLow'
+_B7='applPastTransFlowTransLow'
+_B6='applPastTransStreamPrfRspTimes'
+_B5='applPastTransStreamPrfCumTimes'
+_B4='applPastTransStreamPerformsLow'
+_B3='applPastTransStreamInvRspTimes'
+_B2='applPastTransStreamInvCumTimes'
+_B1='applPastTransStreamInvokesLow'
+_B0='applPastTransStreamUnitOfWork'
+_A_='applPastTransStreamDescr'
+_Az='applPastChannelBytesWritten'
+_Ay='applPastChannelWriteRequests'
+_Ax='applPastChannelBytesRead'
+_Aw='applPastChannelReadRequests'
+_Av='applPastConApplication'
+_Au='applPastConFarEndpoint'
+_At='applPastConFarEndAddr'
+_As='applPastConNearEndpoint'
+_Ar='applPastConNearEndAddr'
+_Aq='applPastConTransport'
+_Ap='applPastFileMode'
+_Ao='applPastFileSizeLow'
+_An='applPastFileSizeHigh'
+_Am='applPastFileName'
+_Al='applPastChannelLastWriteTime'
+_Ak='applPastChannelBytesWritLow'
+_Aj='applPastChannelWriteFailures'
+_Ai='applPastChannelWriteReqsLow'
+_Ah='applPastChannelLastReadTime'
+_Ag='applPastChannelBytesReadLow'
+_Af='applPastChannelReadFailures'
+_Ae='applPastChannelReadReqsLow'
+_Ad='applPastChannelCloseTime'
+_Ac='applPastChannelOpenTime'
+_Ab='applPastChannelControlRemItems'
+_Aa='applPastChannelControlTimeLimit'
+_AZ='applPastChannelControlMaxRows'
+_AY='applPastChannelControlCollect'
+_AX='applTransactKindBytes'
+_AW='applTransactKindTrans'
+_AV='applTransactFlowBytes'
+_AU='applTransactFlowTrans'
+_AT='applTransactStreamPerforms'
+_AS='applTransactStreamInvokes'
+_AR='applTransactKindTime'
+_AQ='applTransactKindBytesLow'
+_AP='applTransactKindTransLow'
+_AO='applTransactFlowTime'
+_AN='applTransactFlowBytesLow'
+_AM='applTransactFlowTransLow'
+_AL='applTransactStreamPrfRspTimes'
+_AK='applTransactStreamPrfCumTimes'
+_AJ='applTransactStreamPerformsLow'
+_AI='applTransactStreamInvRspTimes'
+_AH='applTransactStreamInvCumTimes'
+_AG='applTransactStreamInvokesLow'
+_AF='applTransactStreamUnitOfWork'
+_AE='applTransactStreamDescr'
+_AD='applOpenChannelBytesWritten'
+_AC='applOpenChannelWriteRequests'
+_AB='applOpenChannelBytesRead'
+_AA='applOpenChannelReadRequests'
+_A9='applOpenConnectionApplication'
+_A8='applOpenConnectionFarEndpoint'
+_A7='applOpenConnectionFarEndAddr'
+_A6='applOpenConnectionNearEndpoint'
+_A5='applOpenConnectionNearEndAddr'
+_A4='applOpenConnectionTransport'
+_A3='applOpenFileMode'
+_A2='applOpenFileSizeLow'
+_A1='applOpenFileSizeHigh'
+_A0='applOpenFileName'
+_z='applOpenChannelLastWriteTime'
+_y='applOpenChannelBytesWrittenLow'
+_x='applOpenChannelWriteFailures'
+_w='applOpenChannelWriteRequestsLow'
+_v='applOpenChannelLastReadTime'
+_u='applOpenChannelBytesReadLow'
+_t='applOpenChannelReadFailures'
+_s='applOpenChannelReadRequestsLow'
+_r='applOpenChannelOpenTime'
+_q='applSrvInstQual'
+_p='applPastTransKind'
+_o='channel history entries'
+_n='applTransactKind'
+_m='response'
+_l='request'
+_k='receive'
+_j='transmit'
+_i='readWrite'
+_h='2^32 byte blocks'
+_g='failed write requests'
+_f='failed read requests'
+_e='applPastTransFlowReqRsp'
+_d='applPastTransFlowDirection'
+_c='applTransactFlowReqRsp'
+_b='applTransactFlowDirection'
+_a='applSrvInstance'
+_Z='TruthValue'
+_Y='TDomain'
+_X='write requests'
+_W='read requests'
+_V='applSrvName'
+_U='ApplTAddress'
+_T='applSrvIndex'
+_S='sysApplElmtRunIndex'
+_R='SYSAPPL-MIB'
+_Q='read-write'
+_P='applPastChannelIndex'
+_O='applOpenChannelIndex'
+_N='Unsigned32'
+_M='milliseconds'
+_L='0000000000000000'
+_K='Integer32'
+_J='not-accessible'
+_I='DateAndTime'
+_H='applElmtOrSvcId'
+_G='applElmtOrSvc'
+_F='SnmpAdminString'
+_E='transactions'
+_D='bytes'
+_C='read-only'
+_B='APPLICATION-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_F)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2,zeroDotZero=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_K,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_N,'iso','mib-2','zeroDotZero')
+DateAndTime,DisplayString,PhysAddress,TDomain,TextualConvention,TestAndIncr,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_I,'DisplayString','PhysAddress',_Y,'TextualConvention','TestAndIncr','TimeStamp',_Z)
+LongUtf8String,sysApplElmtRunIndex=mibBuilder.importSymbols(_R,'LongUtf8String',_S)
+applicationMib=ModuleIdentity((1,3,6,1,2,1,62))
+class Unsigned64TC(TextualConvention,Counter64):status=_A
+class ApplTAddress(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_ApplicationMibObjects_ObjectIdentity=ObjectIdentity
+applicationMibObjects=_ApplicationMibObjects_ObjectIdentity((1,3,6,1,2,1,62,1))
+_ApplServiceGroup_ObjectIdentity=ObjectIdentity
+applServiceGroup=_ApplServiceGroup_ObjectIdentity((1,3,6,1,2,1,62,1,1))
+_ApplSrvNameToSrvInstTable_Object=MibTable
+applSrvNameToSrvInstTable=_ApplSrvNameToSrvInstTable_Object((1,3,6,1,2,1,62,1,1,1))
+if mibBuilder.loadTexts:applSrvNameToSrvInstTable.setStatus(_A)
+_ApplSrvNameToSrvInstEntry_Object=MibTableRow
+applSrvNameToSrvInstEntry=_ApplSrvNameToSrvInstEntry_Object((1,3,6,1,2,1,62,1,1,1,1))
+applSrvNameToSrvInstEntry.setIndexNames((0,_B,_V),(0,_B,_T))
+if mibBuilder.loadTexts:applSrvNameToSrvInstEntry.setStatus(_A)
+_ApplSrvInstQual_Type=SnmpAdminString
+_ApplSrvInstQual_Object=MibTableColumn
+applSrvInstQual=_ApplSrvInstQual_Object((1,3,6,1,2,1,62,1,1,1,1,1),_ApplSrvInstQual_Type())
+applSrvInstQual.setMaxAccess(_C)
+if mibBuilder.loadTexts:applSrvInstQual.setStatus(_A)
+_ApplSrvInstToSrvNameTable_Object=MibTable
+applSrvInstToSrvNameTable=_ApplSrvInstToSrvNameTable_Object((1,3,6,1,2,1,62,1,1,2))
+if mibBuilder.loadTexts:applSrvInstToSrvNameTable.setStatus(_A)
+_ApplSrvInstToSrvNameEntry_Object=MibTableRow
+applSrvInstToSrvNameEntry=_ApplSrvInstToSrvNameEntry_Object((1,3,6,1,2,1,62,1,1,2,1))
+applSrvInstToSrvNameEntry.setIndexNames((0,_B,_T),(0,_B,_V))
+if mibBuilder.loadTexts:applSrvInstToSrvNameEntry.setStatus(_A)
+_ApplSrvName_Type=SnmpAdminString
+_ApplSrvName_Object=MibTableColumn
+applSrvName=_ApplSrvName_Object((1,3,6,1,2,1,62,1,1,2,1,1),_ApplSrvName_Type())
+applSrvName.setMaxAccess(_C)
+if mibBuilder.loadTexts:applSrvName.setStatus(_A)
+_ApplSrvInstToRunApplElmtTable_Object=MibTable
+applSrvInstToRunApplElmtTable=_ApplSrvInstToRunApplElmtTable_Object((1,3,6,1,2,1,62,1,1,3))
+if mibBuilder.loadTexts:applSrvInstToRunApplElmtTable.setStatus(_A)
+_ApplSrvInstToRunApplElmtEntry_Object=MibTableRow
+applSrvInstToRunApplElmtEntry=_ApplSrvInstToRunApplElmtEntry_Object((1,3,6,1,2,1,62,1,1,3,1))
+applSrvInstToRunApplElmtEntry.setIndexNames((0,_B,_T),(0,_R,_S))
+if mibBuilder.loadTexts:applSrvInstToRunApplElmtEntry.setStatus(_A)
+class _ApplSrvIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_ApplSrvIndex_Type.__name__=_N
+_ApplSrvIndex_Object=MibTableColumn
+applSrvIndex=_ApplSrvIndex_Object((1,3,6,1,2,1,62,1,1,3,1,1),_ApplSrvIndex_Type())
+applSrvIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:applSrvIndex.setStatus(_A)
+_ApplRunApplElmtToSrvInstTable_Object=MibTable
+applRunApplElmtToSrvInstTable=_ApplRunApplElmtToSrvInstTable_Object((1,3,6,1,2,1,62,1,1,4))
+if mibBuilder.loadTexts:applRunApplElmtToSrvInstTable.setStatus(_A)
+_ApplRunApplElmtToSrvInstEntry_Object=MibTableRow
+applRunApplElmtToSrvInstEntry=_ApplRunApplElmtToSrvInstEntry_Object((1,3,6,1,2,1,62,1,1,4,1))
+applRunApplElmtToSrvInstEntry.setIndexNames((0,_R,_S),(0,_B,_a))
+if mibBuilder.loadTexts:applRunApplElmtToSrvInstEntry.setStatus(_A)
+class _ApplSrvInstance_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_ApplSrvInstance_Type.__name__=_N
+_ApplSrvInstance_Object=MibTableColumn
+applSrvInstance=_ApplSrvInstance_Object((1,3,6,1,2,1,62,1,1,4,1,1),_ApplSrvInstance_Type())
+applSrvInstance.setMaxAccess(_C)
+if mibBuilder.loadTexts:applSrvInstance.setStatus(_A)
+_ApplChannelGroup_ObjectIdentity=ObjectIdentity
+applChannelGroup=_ApplChannelGroup_ObjectIdentity((1,3,6,1,2,1,62,1,2))
+_ApplOpenChannelTable_Object=MibTable
+applOpenChannelTable=_ApplOpenChannelTable_Object((1,3,6,1,2,1,62,1,2,1))
+if mibBuilder.loadTexts:applOpenChannelTable.setStatus(_A)
+_ApplOpenChannelEntry_Object=MibTableRow
+applOpenChannelEntry=_ApplOpenChannelEntry_Object((1,3,6,1,2,1,62,1,2,1,1))
+applOpenChannelEntry.setIndexNames((0,_B,_G),(0,_B,_H),(0,_B,_O))
+if mibBuilder.loadTexts:applOpenChannelEntry.setStatus(_A)
+class _ApplElmtOrSvc_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('service',1),('element',2)))
+_ApplElmtOrSvc_Type.__name__=_K
+_ApplElmtOrSvc_Object=MibTableColumn
+applElmtOrSvc=_ApplElmtOrSvc_Object((1,3,6,1,2,1,62,1,2,1,1,1),_ApplElmtOrSvc_Type())
+applElmtOrSvc.setMaxAccess(_J)
+if mibBuilder.loadTexts:applElmtOrSvc.setStatus(_A)
+class _ApplElmtOrSvcId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_ApplElmtOrSvcId_Type.__name__=_N
+_ApplElmtOrSvcId_Object=MibTableColumn
+applElmtOrSvcId=_ApplElmtOrSvcId_Object((1,3,6,1,2,1,62,1,2,1,1,2),_ApplElmtOrSvcId_Type())
+applElmtOrSvcId.setMaxAccess(_J)
+if mibBuilder.loadTexts:applElmtOrSvcId.setStatus(_A)
+_ApplOpenChannelIndex_Type=Unsigned32
+_ApplOpenChannelIndex_Object=MibTableColumn
+applOpenChannelIndex=_ApplOpenChannelIndex_Object((1,3,6,1,2,1,62,1,2,1,1,3),_ApplOpenChannelIndex_Type())
+applOpenChannelIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:applOpenChannelIndex.setStatus(_A)
+_ApplOpenChannelOpenTime_Type=TimeStamp
+_ApplOpenChannelOpenTime_Object=MibTableColumn
+applOpenChannelOpenTime=_ApplOpenChannelOpenTime_Object((1,3,6,1,2,1,62,1,2,1,1,4),_ApplOpenChannelOpenTime_Type())
+applOpenChannelOpenTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenChannelOpenTime.setStatus(_A)
+_ApplOpenChannelReadRequests_Type=Counter64
+_ApplOpenChannelReadRequests_Object=MibTableColumn
+applOpenChannelReadRequests=_ApplOpenChannelReadRequests_Object((1,3,6,1,2,1,62,1,2,1,1,5),_ApplOpenChannelReadRequests_Type())
+applOpenChannelReadRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenChannelReadRequests.setStatus(_A)
+if mibBuilder.loadTexts:applOpenChannelReadRequests.setUnits(_W)
+_ApplOpenChannelReadRequestsLow_Type=Counter32
+_ApplOpenChannelReadRequestsLow_Object=MibTableColumn
+applOpenChannelReadRequestsLow=_ApplOpenChannelReadRequestsLow_Object((1,3,6,1,2,1,62,1,2,1,1,6),_ApplOpenChannelReadRequestsLow_Type())
+applOpenChannelReadRequestsLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenChannelReadRequestsLow.setStatus(_A)
+if mibBuilder.loadTexts:applOpenChannelReadRequestsLow.setUnits(_W)
+_ApplOpenChannelReadFailures_Type=Counter32
+_ApplOpenChannelReadFailures_Object=MibTableColumn
+applOpenChannelReadFailures=_ApplOpenChannelReadFailures_Object((1,3,6,1,2,1,62,1,2,1,1,7),_ApplOpenChannelReadFailures_Type())
+applOpenChannelReadFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenChannelReadFailures.setStatus(_A)
+if mibBuilder.loadTexts:applOpenChannelReadFailures.setUnits(_f)
+_ApplOpenChannelBytesRead_Type=Counter64
+_ApplOpenChannelBytesRead_Object=MibTableColumn
+applOpenChannelBytesRead=_ApplOpenChannelBytesRead_Object((1,3,6,1,2,1,62,1,2,1,1,8),_ApplOpenChannelBytesRead_Type())
+applOpenChannelBytesRead.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenChannelBytesRead.setStatus(_A)
+if mibBuilder.loadTexts:applOpenChannelBytesRead.setUnits(_D)
+_ApplOpenChannelBytesReadLow_Type=Counter32
+_ApplOpenChannelBytesReadLow_Object=MibTableColumn
+applOpenChannelBytesReadLow=_ApplOpenChannelBytesReadLow_Object((1,3,6,1,2,1,62,1,2,1,1,9),_ApplOpenChannelBytesReadLow_Type())
+applOpenChannelBytesReadLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenChannelBytesReadLow.setStatus(_A)
+if mibBuilder.loadTexts:applOpenChannelBytesReadLow.setUnits(_D)
+class _ApplOpenChannelLastReadTime_Type(DateAndTime):defaultHexValue=_L
+_ApplOpenChannelLastReadTime_Type.__name__=_I
+_ApplOpenChannelLastReadTime_Object=MibTableColumn
+applOpenChannelLastReadTime=_ApplOpenChannelLastReadTime_Object((1,3,6,1,2,1,62,1,2,1,1,10),_ApplOpenChannelLastReadTime_Type())
+applOpenChannelLastReadTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenChannelLastReadTime.setStatus(_A)
+_ApplOpenChannelWriteRequests_Type=Counter64
+_ApplOpenChannelWriteRequests_Object=MibTableColumn
+applOpenChannelWriteRequests=_ApplOpenChannelWriteRequests_Object((1,3,6,1,2,1,62,1,2,1,1,11),_ApplOpenChannelWriteRequests_Type())
+applOpenChannelWriteRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenChannelWriteRequests.setStatus(_A)
+if mibBuilder.loadTexts:applOpenChannelWriteRequests.setUnits(_X)
+_ApplOpenChannelWriteRequestsLow_Type=Counter32
+_ApplOpenChannelWriteRequestsLow_Object=MibTableColumn
+applOpenChannelWriteRequestsLow=_ApplOpenChannelWriteRequestsLow_Object((1,3,6,1,2,1,62,1,2,1,1,12),_ApplOpenChannelWriteRequestsLow_Type())
+applOpenChannelWriteRequestsLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenChannelWriteRequestsLow.setStatus(_A)
+if mibBuilder.loadTexts:applOpenChannelWriteRequestsLow.setUnits(_X)
+_ApplOpenChannelWriteFailures_Type=Counter32
+_ApplOpenChannelWriteFailures_Object=MibTableColumn
+applOpenChannelWriteFailures=_ApplOpenChannelWriteFailures_Object((1,3,6,1,2,1,62,1,2,1,1,13),_ApplOpenChannelWriteFailures_Type())
+applOpenChannelWriteFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenChannelWriteFailures.setStatus(_A)
+if mibBuilder.loadTexts:applOpenChannelWriteFailures.setUnits(_g)
+_ApplOpenChannelBytesWritten_Type=Counter64
+_ApplOpenChannelBytesWritten_Object=MibTableColumn
+applOpenChannelBytesWritten=_ApplOpenChannelBytesWritten_Object((1,3,6,1,2,1,62,1,2,1,1,14),_ApplOpenChannelBytesWritten_Type())
+applOpenChannelBytesWritten.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenChannelBytesWritten.setStatus(_A)
+if mibBuilder.loadTexts:applOpenChannelBytesWritten.setUnits(_D)
+_ApplOpenChannelBytesWrittenLow_Type=Counter32
+_ApplOpenChannelBytesWrittenLow_Object=MibTableColumn
+applOpenChannelBytesWrittenLow=_ApplOpenChannelBytesWrittenLow_Object((1,3,6,1,2,1,62,1,2,1,1,15),_ApplOpenChannelBytesWrittenLow_Type())
+applOpenChannelBytesWrittenLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenChannelBytesWrittenLow.setStatus(_A)
+if mibBuilder.loadTexts:applOpenChannelBytesWrittenLow.setUnits(_D)
+class _ApplOpenChannelLastWriteTime_Type(DateAndTime):defaultHexValue=_L
+_ApplOpenChannelLastWriteTime_Type.__name__=_I
+_ApplOpenChannelLastWriteTime_Object=MibTableColumn
+applOpenChannelLastWriteTime=_ApplOpenChannelLastWriteTime_Object((1,3,6,1,2,1,62,1,2,1,1,16),_ApplOpenChannelLastWriteTime_Type())
+applOpenChannelLastWriteTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenChannelLastWriteTime.setStatus(_A)
+_ApplOpenFileTable_Object=MibTable
+applOpenFileTable=_ApplOpenFileTable_Object((1,3,6,1,2,1,62,1,2,2))
+if mibBuilder.loadTexts:applOpenFileTable.setStatus(_A)
+_ApplOpenFileEntry_Object=MibTableRow
+applOpenFileEntry=_ApplOpenFileEntry_Object((1,3,6,1,2,1,62,1,2,2,1))
+applOpenFileEntry.setIndexNames((0,_B,_G),(0,_B,_H),(0,_B,_O))
+if mibBuilder.loadTexts:applOpenFileEntry.setStatus(_A)
+_ApplOpenFileName_Type=LongUtf8String
+_ApplOpenFileName_Object=MibTableColumn
+applOpenFileName=_ApplOpenFileName_Object((1,3,6,1,2,1,62,1,2,2,1,1),_ApplOpenFileName_Type())
+applOpenFileName.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenFileName.setStatus(_A)
+_ApplOpenFileSizeHigh_Type=Unsigned32
+_ApplOpenFileSizeHigh_Object=MibTableColumn
+applOpenFileSizeHigh=_ApplOpenFileSizeHigh_Object((1,3,6,1,2,1,62,1,2,2,1,2),_ApplOpenFileSizeHigh_Type())
+applOpenFileSizeHigh.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenFileSizeHigh.setStatus(_A)
+if mibBuilder.loadTexts:applOpenFileSizeHigh.setUnits(_h)
+_ApplOpenFileSizeLow_Type=Unsigned32
+_ApplOpenFileSizeLow_Object=MibTableColumn
+applOpenFileSizeLow=_ApplOpenFileSizeLow_Object((1,3,6,1,2,1,62,1,2,2,1,3),_ApplOpenFileSizeLow_Type())
+applOpenFileSizeLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenFileSizeLow.setStatus(_A)
+if mibBuilder.loadTexts:applOpenFileSizeLow.setUnits(_D)
+class _ApplOpenFileMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('read',1),('write',2),(_i,3)))
+_ApplOpenFileMode_Type.__name__=_K
+_ApplOpenFileMode_Object=MibTableColumn
+applOpenFileMode=_ApplOpenFileMode_Object((1,3,6,1,2,1,62,1,2,2,1,4),_ApplOpenFileMode_Type())
+applOpenFileMode.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenFileMode.setStatus(_A)
+_ApplOpenConnectionTable_Object=MibTable
+applOpenConnectionTable=_ApplOpenConnectionTable_Object((1,3,6,1,2,1,62,1,2,3))
+if mibBuilder.loadTexts:applOpenConnectionTable.setStatus(_A)
+_ApplOpenConnectionEntry_Object=MibTableRow
+applOpenConnectionEntry=_ApplOpenConnectionEntry_Object((1,3,6,1,2,1,62,1,2,3,1))
+applOpenConnectionEntry.setIndexNames((0,_B,_G),(0,_B,_H),(0,_B,_O))
+if mibBuilder.loadTexts:applOpenConnectionEntry.setStatus(_A)
+class _ApplOpenConnectionTransport_Type(TDomain):defaultValue=0,0
+_ApplOpenConnectionTransport_Type.__name__=_Y
+_ApplOpenConnectionTransport_Object=MibTableColumn
+applOpenConnectionTransport=_ApplOpenConnectionTransport_Object((1,3,6,1,2,1,62,1,2,3,1,1),_ApplOpenConnectionTransport_Type())
+applOpenConnectionTransport.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenConnectionTransport.setStatus(_A)
+class _ApplOpenConnectionNearEndAddr_Type(ApplTAddress):defaultValue=OctetString('')
+_ApplOpenConnectionNearEndAddr_Type.__name__=_U
+_ApplOpenConnectionNearEndAddr_Object=MibTableColumn
+applOpenConnectionNearEndAddr=_ApplOpenConnectionNearEndAddr_Object((1,3,6,1,2,1,62,1,2,3,1,2),_ApplOpenConnectionNearEndAddr_Type())
+applOpenConnectionNearEndAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenConnectionNearEndAddr.setStatus(_A)
+class _ApplOpenConnectionNearEndpoint_Type(SnmpAdminString):defaultValue=OctetString('')
+_ApplOpenConnectionNearEndpoint_Type.__name__=_F
+_ApplOpenConnectionNearEndpoint_Object=MibTableColumn
+applOpenConnectionNearEndpoint=_ApplOpenConnectionNearEndpoint_Object((1,3,6,1,2,1,62,1,2,3,1,3),_ApplOpenConnectionNearEndpoint_Type())
+applOpenConnectionNearEndpoint.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenConnectionNearEndpoint.setStatus(_A)
+class _ApplOpenConnectionFarEndAddr_Type(ApplTAddress):defaultValue=OctetString('')
+_ApplOpenConnectionFarEndAddr_Type.__name__=_U
+_ApplOpenConnectionFarEndAddr_Object=MibTableColumn
+applOpenConnectionFarEndAddr=_ApplOpenConnectionFarEndAddr_Object((1,3,6,1,2,1,62,1,2,3,1,4),_ApplOpenConnectionFarEndAddr_Type())
+applOpenConnectionFarEndAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenConnectionFarEndAddr.setStatus(_A)
+class _ApplOpenConnectionFarEndpoint_Type(SnmpAdminString):defaultValue=OctetString('')
+_ApplOpenConnectionFarEndpoint_Type.__name__=_F
+_ApplOpenConnectionFarEndpoint_Object=MibTableColumn
+applOpenConnectionFarEndpoint=_ApplOpenConnectionFarEndpoint_Object((1,3,6,1,2,1,62,1,2,3,1,5),_ApplOpenConnectionFarEndpoint_Type())
+applOpenConnectionFarEndpoint.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenConnectionFarEndpoint.setStatus(_A)
+class _ApplOpenConnectionApplication_Type(SnmpAdminString):defaultValue=OctetString('')
+_ApplOpenConnectionApplication_Type.__name__=_F
+_ApplOpenConnectionApplication_Object=MibTableColumn
+applOpenConnectionApplication=_ApplOpenConnectionApplication_Object((1,3,6,1,2,1,62,1,2,3,1,6),_ApplOpenConnectionApplication_Type())
+applOpenConnectionApplication.setMaxAccess(_C)
+if mibBuilder.loadTexts:applOpenConnectionApplication.setStatus(_A)
+_ApplTransactionStreamTable_Object=MibTable
+applTransactionStreamTable=_ApplTransactionStreamTable_Object((1,3,6,1,2,1,62,1,2,4))
+if mibBuilder.loadTexts:applTransactionStreamTable.setStatus(_A)
+_ApplTransactionStreamEntry_Object=MibTableRow
+applTransactionStreamEntry=_ApplTransactionStreamEntry_Object((1,3,6,1,2,1,62,1,2,4,1))
+applTransactionStreamEntry.setIndexNames((0,_B,_G),(0,_B,_H),(0,_B,_O))
+if mibBuilder.loadTexts:applTransactionStreamEntry.setStatus(_A)
+class _ApplTransactStreamDescr_Type(SnmpAdminString):defaultValue=OctetString('')
+_ApplTransactStreamDescr_Type.__name__=_F
+_ApplTransactStreamDescr_Object=MibTableColumn
+applTransactStreamDescr=_ApplTransactStreamDescr_Object((1,3,6,1,2,1,62,1,2,4,1,1),_ApplTransactStreamDescr_Type())
+applTransactStreamDescr.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactStreamDescr.setStatus(_A)
+class _ApplTransactStreamUnitOfWork_Type(SnmpAdminString):defaultValue=OctetString('')
+_ApplTransactStreamUnitOfWork_Type.__name__=_F
+_ApplTransactStreamUnitOfWork_Object=MibTableColumn
+applTransactStreamUnitOfWork=_ApplTransactStreamUnitOfWork_Object((1,3,6,1,2,1,62,1,2,4,1,2),_ApplTransactStreamUnitOfWork_Type())
+applTransactStreamUnitOfWork.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactStreamUnitOfWork.setStatus(_A)
+_ApplTransactStreamInvokes_Type=Counter64
+_ApplTransactStreamInvokes_Object=MibTableColumn
+applTransactStreamInvokes=_ApplTransactStreamInvokes_Object((1,3,6,1,2,1,62,1,2,4,1,3),_ApplTransactStreamInvokes_Type())
+applTransactStreamInvokes.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactStreamInvokes.setStatus(_A)
+if mibBuilder.loadTexts:applTransactStreamInvokes.setUnits(_E)
+_ApplTransactStreamInvokesLow_Type=Counter32
+_ApplTransactStreamInvokesLow_Object=MibTableColumn
+applTransactStreamInvokesLow=_ApplTransactStreamInvokesLow_Object((1,3,6,1,2,1,62,1,2,4,1,4),_ApplTransactStreamInvokesLow_Type())
+applTransactStreamInvokesLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactStreamInvokesLow.setStatus(_A)
+if mibBuilder.loadTexts:applTransactStreamInvokesLow.setUnits(_E)
+_ApplTransactStreamInvCumTimes_Type=Counter32
+_ApplTransactStreamInvCumTimes_Object=MibTableColumn
+applTransactStreamInvCumTimes=_ApplTransactStreamInvCumTimes_Object((1,3,6,1,2,1,62,1,2,4,1,5),_ApplTransactStreamInvCumTimes_Type())
+applTransactStreamInvCumTimes.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactStreamInvCumTimes.setStatus(_A)
+if mibBuilder.loadTexts:applTransactStreamInvCumTimes.setUnits(_M)
+_ApplTransactStreamInvRspTimes_Type=Counter32
+_ApplTransactStreamInvRspTimes_Object=MibTableColumn
+applTransactStreamInvRspTimes=_ApplTransactStreamInvRspTimes_Object((1,3,6,1,2,1,62,1,2,4,1,6),_ApplTransactStreamInvRspTimes_Type())
+applTransactStreamInvRspTimes.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactStreamInvRspTimes.setStatus(_A)
+if mibBuilder.loadTexts:applTransactStreamInvRspTimes.setUnits(_M)
+_ApplTransactStreamPerforms_Type=Counter64
+_ApplTransactStreamPerforms_Object=MibTableColumn
+applTransactStreamPerforms=_ApplTransactStreamPerforms_Object((1,3,6,1,2,1,62,1,2,4,1,7),_ApplTransactStreamPerforms_Type())
+applTransactStreamPerforms.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactStreamPerforms.setStatus(_A)
+if mibBuilder.loadTexts:applTransactStreamPerforms.setUnits(_E)
+_ApplTransactStreamPerformsLow_Type=Counter32
+_ApplTransactStreamPerformsLow_Object=MibTableColumn
+applTransactStreamPerformsLow=_ApplTransactStreamPerformsLow_Object((1,3,6,1,2,1,62,1,2,4,1,8),_ApplTransactStreamPerformsLow_Type())
+applTransactStreamPerformsLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactStreamPerformsLow.setStatus(_A)
+if mibBuilder.loadTexts:applTransactStreamPerformsLow.setUnits(_E)
+_ApplTransactStreamPrfCumTimes_Type=Counter32
+_ApplTransactStreamPrfCumTimes_Object=MibTableColumn
+applTransactStreamPrfCumTimes=_ApplTransactStreamPrfCumTimes_Object((1,3,6,1,2,1,62,1,2,4,1,9),_ApplTransactStreamPrfCumTimes_Type())
+applTransactStreamPrfCumTimes.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactStreamPrfCumTimes.setStatus(_A)
+if mibBuilder.loadTexts:applTransactStreamPrfCumTimes.setUnits(_M)
+_ApplTransactStreamPrfRspTimes_Type=Counter32
+_ApplTransactStreamPrfRspTimes_Object=MibTableColumn
+applTransactStreamPrfRspTimes=_ApplTransactStreamPrfRspTimes_Object((1,3,6,1,2,1,62,1,2,4,1,10),_ApplTransactStreamPrfRspTimes_Type())
+applTransactStreamPrfRspTimes.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactStreamPrfRspTimes.setStatus(_A)
+if mibBuilder.loadTexts:applTransactStreamPrfRspTimes.setUnits(_M)
+_ApplTransactFlowTable_Object=MibTable
+applTransactFlowTable=_ApplTransactFlowTable_Object((1,3,6,1,2,1,62,1,2,5))
+if mibBuilder.loadTexts:applTransactFlowTable.setStatus(_A)
+_ApplTransactFlowEntry_Object=MibTableRow
+applTransactFlowEntry=_ApplTransactFlowEntry_Object((1,3,6,1,2,1,62,1,2,5,1))
+applTransactFlowEntry.setIndexNames((0,_B,_G),(0,_B,_H),(0,_B,_O),(0,_B,_b),(0,_B,_c))
+if mibBuilder.loadTexts:applTransactFlowEntry.setStatus(_A)
+class _ApplTransactFlowDirection_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_j,1),(_k,2)))
+_ApplTransactFlowDirection_Type.__name__=_K
+_ApplTransactFlowDirection_Object=MibTableColumn
+applTransactFlowDirection=_ApplTransactFlowDirection_Object((1,3,6,1,2,1,62,1,2,5,1,1),_ApplTransactFlowDirection_Type())
+applTransactFlowDirection.setMaxAccess(_J)
+if mibBuilder.loadTexts:applTransactFlowDirection.setStatus(_A)
+class _ApplTransactFlowReqRsp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_l,1),(_m,2)))
+_ApplTransactFlowReqRsp_Type.__name__=_K
+_ApplTransactFlowReqRsp_Object=MibTableColumn
+applTransactFlowReqRsp=_ApplTransactFlowReqRsp_Object((1,3,6,1,2,1,62,1,2,5,1,2),_ApplTransactFlowReqRsp_Type())
+applTransactFlowReqRsp.setMaxAccess(_J)
+if mibBuilder.loadTexts:applTransactFlowReqRsp.setStatus(_A)
+_ApplTransactFlowTrans_Type=Counter64
+_ApplTransactFlowTrans_Object=MibTableColumn
+applTransactFlowTrans=_ApplTransactFlowTrans_Object((1,3,6,1,2,1,62,1,2,5,1,3),_ApplTransactFlowTrans_Type())
+applTransactFlowTrans.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactFlowTrans.setStatus(_A)
+if mibBuilder.loadTexts:applTransactFlowTrans.setUnits(_E)
+_ApplTransactFlowTransLow_Type=Counter32
+_ApplTransactFlowTransLow_Object=MibTableColumn
+applTransactFlowTransLow=_ApplTransactFlowTransLow_Object((1,3,6,1,2,1,62,1,2,5,1,4),_ApplTransactFlowTransLow_Type())
+applTransactFlowTransLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactFlowTransLow.setStatus(_A)
+if mibBuilder.loadTexts:applTransactFlowTransLow.setUnits(_E)
+_ApplTransactFlowBytes_Type=Counter64
+_ApplTransactFlowBytes_Object=MibTableColumn
+applTransactFlowBytes=_ApplTransactFlowBytes_Object((1,3,6,1,2,1,62,1,2,5,1,5),_ApplTransactFlowBytes_Type())
+applTransactFlowBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactFlowBytes.setStatus(_A)
+if mibBuilder.loadTexts:applTransactFlowBytes.setUnits(_D)
+_ApplTransactFlowBytesLow_Type=Counter32
+_ApplTransactFlowBytesLow_Object=MibTableColumn
+applTransactFlowBytesLow=_ApplTransactFlowBytesLow_Object((1,3,6,1,2,1,62,1,2,5,1,6),_ApplTransactFlowBytesLow_Type())
+applTransactFlowBytesLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactFlowBytesLow.setStatus(_A)
+if mibBuilder.loadTexts:applTransactFlowBytesLow.setUnits(_D)
+class _ApplTransactFlowTime_Type(DateAndTime):defaultHexValue=_L
+_ApplTransactFlowTime_Type.__name__=_I
+_ApplTransactFlowTime_Object=MibTableColumn
+applTransactFlowTime=_ApplTransactFlowTime_Object((1,3,6,1,2,1,62,1,2,5,1,7),_ApplTransactFlowTime_Type())
+applTransactFlowTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactFlowTime.setStatus(_A)
+_ApplTransactKindTable_Object=MibTable
+applTransactKindTable=_ApplTransactKindTable_Object((1,3,6,1,2,1,62,1,2,6))
+if mibBuilder.loadTexts:applTransactKindTable.setStatus(_A)
+_ApplTransactKindEntry_Object=MibTableRow
+applTransactKindEntry=_ApplTransactKindEntry_Object((1,3,6,1,2,1,62,1,2,6,1))
+applTransactKindEntry.setIndexNames((0,_B,_G),(0,_B,_H),(0,_B,_O),(0,_B,_b),(0,_B,_c),(0,_B,_n))
+if mibBuilder.loadTexts:applTransactKindEntry.setStatus(_A)
+class _ApplTransactKind_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_ApplTransactKind_Type.__name__=_F
+_ApplTransactKind_Object=MibTableColumn
+applTransactKind=_ApplTransactKind_Object((1,3,6,1,2,1,62,1,2,6,1,1),_ApplTransactKind_Type())
+applTransactKind.setMaxAccess(_J)
+if mibBuilder.loadTexts:applTransactKind.setStatus(_A)
+_ApplTransactKindTrans_Type=Counter64
+_ApplTransactKindTrans_Object=MibTableColumn
+applTransactKindTrans=_ApplTransactKindTrans_Object((1,3,6,1,2,1,62,1,2,6,1,2),_ApplTransactKindTrans_Type())
+applTransactKindTrans.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactKindTrans.setStatus(_A)
+if mibBuilder.loadTexts:applTransactKindTrans.setUnits(_E)
+_ApplTransactKindTransLow_Type=Counter32
+_ApplTransactKindTransLow_Object=MibTableColumn
+applTransactKindTransLow=_ApplTransactKindTransLow_Object((1,3,6,1,2,1,62,1,2,6,1,3),_ApplTransactKindTransLow_Type())
+applTransactKindTransLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactKindTransLow.setStatus(_A)
+if mibBuilder.loadTexts:applTransactKindTransLow.setUnits(_E)
+_ApplTransactKindBytes_Type=Counter64
+_ApplTransactKindBytes_Object=MibTableColumn
+applTransactKindBytes=_ApplTransactKindBytes_Object((1,3,6,1,2,1,62,1,2,6,1,4),_ApplTransactKindBytes_Type())
+applTransactKindBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactKindBytes.setStatus(_A)
+if mibBuilder.loadTexts:applTransactKindBytes.setUnits(_D)
+_ApplTransactKindBytesLow_Type=Counter32
+_ApplTransactKindBytesLow_Object=MibTableColumn
+applTransactKindBytesLow=_ApplTransactKindBytesLow_Object((1,3,6,1,2,1,62,1,2,6,1,5),_ApplTransactKindBytesLow_Type())
+applTransactKindBytesLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactKindBytesLow.setStatus(_A)
+if mibBuilder.loadTexts:applTransactKindBytesLow.setUnits(_D)
+class _ApplTransactKindTime_Type(DateAndTime):defaultHexValue=_L
+_ApplTransactKindTime_Type.__name__=_I
+_ApplTransactKindTime_Object=MibTableColumn
+applTransactKindTime=_ApplTransactKindTime_Object((1,3,6,1,2,1,62,1,2,6,1,6),_ApplTransactKindTime_Type())
+applTransactKindTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:applTransactKindTime.setStatus(_A)
+_ApplPastChannelGroup_ObjectIdentity=ObjectIdentity
+applPastChannelGroup=_ApplPastChannelGroup_ObjectIdentity((1,3,6,1,2,1,62,1,3))
+_ApplPastChannelControlTable_Object=MibTable
+applPastChannelControlTable=_ApplPastChannelControlTable_Object((1,3,6,1,2,1,62,1,3,1))
+if mibBuilder.loadTexts:applPastChannelControlTable.setStatus(_A)
+_ApplPastChannelControlEntry_Object=MibTableRow
+applPastChannelControlEntry=_ApplPastChannelControlEntry_Object((1,3,6,1,2,1,62,1,3,1,1))
+applPastChannelControlEntry.setIndexNames((0,_B,_G),(0,_B,_H))
+if mibBuilder.loadTexts:applPastChannelControlEntry.setStatus(_A)
+class _ApplPastChannelControlCollect_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('enabled',1),('frozen',2),('disabled',3)))
+_ApplPastChannelControlCollect_Type.__name__=_K
+_ApplPastChannelControlCollect_Object=MibTableColumn
+applPastChannelControlCollect=_ApplPastChannelControlCollect_Object((1,3,6,1,2,1,62,1,3,1,1,1),_ApplPastChannelControlCollect_Type())
+applPastChannelControlCollect.setMaxAccess(_Q)
+if mibBuilder.loadTexts:applPastChannelControlCollect.setStatus(_A)
+class _ApplPastChannelControlMaxRows_Type(Unsigned32):defaultValue=500
+_ApplPastChannelControlMaxRows_Type.__name__=_N
+_ApplPastChannelControlMaxRows_Object=MibTableColumn
+applPastChannelControlMaxRows=_ApplPastChannelControlMaxRows_Object((1,3,6,1,2,1,62,1,3,1,1,2),_ApplPastChannelControlMaxRows_Type())
+applPastChannelControlMaxRows.setMaxAccess(_Q)
+if mibBuilder.loadTexts:applPastChannelControlMaxRows.setStatus(_A)
+if mibBuilder.loadTexts:applPastChannelControlMaxRows.setUnits(_o)
+class _ApplPastChannelControlTimeLimit_Type(Unsigned32):defaultValue=7200
+_ApplPastChannelControlTimeLimit_Type.__name__=_N
+_ApplPastChannelControlTimeLimit_Object=MibTableColumn
+applPastChannelControlTimeLimit=_ApplPastChannelControlTimeLimit_Object((1,3,6,1,2,1,62,1,3,1,1,3),_ApplPastChannelControlTimeLimit_Type())
+applPastChannelControlTimeLimit.setMaxAccess(_Q)
+if mibBuilder.loadTexts:applPastChannelControlTimeLimit.setStatus(_A)
+if mibBuilder.loadTexts:applPastChannelControlTimeLimit.setUnits('seconds')
+_ApplPastChannelControlRemItems_Type=Counter32
+_ApplPastChannelControlRemItems_Object=MibTableColumn
+applPastChannelControlRemItems=_ApplPastChannelControlRemItems_Object((1,3,6,1,2,1,62,1,3,1,1,4),_ApplPastChannelControlRemItems_Type())
+applPastChannelControlRemItems.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastChannelControlRemItems.setStatus(_A)
+if mibBuilder.loadTexts:applPastChannelControlRemItems.setUnits(_o)
+_ApplPastChannelTable_Object=MibTable
+applPastChannelTable=_ApplPastChannelTable_Object((1,3,6,1,2,1,62,1,3,2))
+if mibBuilder.loadTexts:applPastChannelTable.setStatus(_A)
+_ApplPastChannelEntry_Object=MibTableRow
+applPastChannelEntry=_ApplPastChannelEntry_Object((1,3,6,1,2,1,62,1,3,2,1))
+applPastChannelEntry.setIndexNames((0,_B,_G),(0,_B,_H),(0,_B,_P))
+if mibBuilder.loadTexts:applPastChannelEntry.setStatus(_A)
+class _ApplPastChannelIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_ApplPastChannelIndex_Type.__name__=_N
+_ApplPastChannelIndex_Object=MibTableColumn
+applPastChannelIndex=_ApplPastChannelIndex_Object((1,3,6,1,2,1,62,1,3,2,1,1),_ApplPastChannelIndex_Type())
+applPastChannelIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:applPastChannelIndex.setStatus(_A)
+_ApplPastChannelOpenTime_Type=DateAndTime
+_ApplPastChannelOpenTime_Object=MibTableColumn
+applPastChannelOpenTime=_ApplPastChannelOpenTime_Object((1,3,6,1,2,1,62,1,3,2,1,2),_ApplPastChannelOpenTime_Type())
+applPastChannelOpenTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastChannelOpenTime.setStatus(_A)
+_ApplPastChannelCloseTime_Type=DateAndTime
+_ApplPastChannelCloseTime_Object=MibTableColumn
+applPastChannelCloseTime=_ApplPastChannelCloseTime_Object((1,3,6,1,2,1,62,1,3,2,1,3),_ApplPastChannelCloseTime_Type())
+applPastChannelCloseTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastChannelCloseTime.setStatus(_A)
+_ApplPastChannelReadRequests_Type=Unsigned64TC
+_ApplPastChannelReadRequests_Object=MibTableColumn
+applPastChannelReadRequests=_ApplPastChannelReadRequests_Object((1,3,6,1,2,1,62,1,3,2,1,4),_ApplPastChannelReadRequests_Type())
+applPastChannelReadRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastChannelReadRequests.setStatus(_A)
+if mibBuilder.loadTexts:applPastChannelReadRequests.setUnits(_W)
+_ApplPastChannelReadReqsLow_Type=Unsigned32
+_ApplPastChannelReadReqsLow_Object=MibTableColumn
+applPastChannelReadReqsLow=_ApplPastChannelReadReqsLow_Object((1,3,6,1,2,1,62,1,3,2,1,5),_ApplPastChannelReadReqsLow_Type())
+applPastChannelReadReqsLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastChannelReadReqsLow.setStatus(_A)
+if mibBuilder.loadTexts:applPastChannelReadReqsLow.setUnits(_W)
+_ApplPastChannelReadFailures_Type=Unsigned32
+_ApplPastChannelReadFailures_Object=MibTableColumn
+applPastChannelReadFailures=_ApplPastChannelReadFailures_Object((1,3,6,1,2,1,62,1,3,2,1,6),_ApplPastChannelReadFailures_Type())
+applPastChannelReadFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastChannelReadFailures.setStatus(_A)
+if mibBuilder.loadTexts:applPastChannelReadFailures.setUnits(_f)
+_ApplPastChannelBytesRead_Type=Unsigned64TC
+_ApplPastChannelBytesRead_Object=MibTableColumn
+applPastChannelBytesRead=_ApplPastChannelBytesRead_Object((1,3,6,1,2,1,62,1,3,2,1,7),_ApplPastChannelBytesRead_Type())
+applPastChannelBytesRead.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastChannelBytesRead.setStatus(_A)
+if mibBuilder.loadTexts:applPastChannelBytesRead.setUnits(_D)
+_ApplPastChannelBytesReadLow_Type=Unsigned32
+_ApplPastChannelBytesReadLow_Object=MibTableColumn
+applPastChannelBytesReadLow=_ApplPastChannelBytesReadLow_Object((1,3,6,1,2,1,62,1,3,2,1,8),_ApplPastChannelBytesReadLow_Type())
+applPastChannelBytesReadLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastChannelBytesReadLow.setStatus(_A)
+if mibBuilder.loadTexts:applPastChannelBytesReadLow.setUnits(_D)
+class _ApplPastChannelLastReadTime_Type(DateAndTime):defaultHexValue=_L
+_ApplPastChannelLastReadTime_Type.__name__=_I
+_ApplPastChannelLastReadTime_Object=MibTableColumn
+applPastChannelLastReadTime=_ApplPastChannelLastReadTime_Object((1,3,6,1,2,1,62,1,3,2,1,9),_ApplPastChannelLastReadTime_Type())
+applPastChannelLastReadTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastChannelLastReadTime.setStatus(_A)
+_ApplPastChannelWriteRequests_Type=Unsigned64TC
+_ApplPastChannelWriteRequests_Object=MibTableColumn
+applPastChannelWriteRequests=_ApplPastChannelWriteRequests_Object((1,3,6,1,2,1,62,1,3,2,1,10),_ApplPastChannelWriteRequests_Type())
+applPastChannelWriteRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastChannelWriteRequests.setStatus(_A)
+if mibBuilder.loadTexts:applPastChannelWriteRequests.setUnits(_X)
+_ApplPastChannelWriteReqsLow_Type=Unsigned32
+_ApplPastChannelWriteReqsLow_Object=MibTableColumn
+applPastChannelWriteReqsLow=_ApplPastChannelWriteReqsLow_Object((1,3,6,1,2,1,62,1,3,2,1,11),_ApplPastChannelWriteReqsLow_Type())
+applPastChannelWriteReqsLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastChannelWriteReqsLow.setStatus(_A)
+if mibBuilder.loadTexts:applPastChannelWriteReqsLow.setUnits(_X)
+_ApplPastChannelWriteFailures_Type=Unsigned32
+_ApplPastChannelWriteFailures_Object=MibTableColumn
+applPastChannelWriteFailures=_ApplPastChannelWriteFailures_Object((1,3,6,1,2,1,62,1,3,2,1,12),_ApplPastChannelWriteFailures_Type())
+applPastChannelWriteFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastChannelWriteFailures.setStatus(_A)
+if mibBuilder.loadTexts:applPastChannelWriteFailures.setUnits(_g)
+_ApplPastChannelBytesWritten_Type=Unsigned64TC
+_ApplPastChannelBytesWritten_Object=MibTableColumn
+applPastChannelBytesWritten=_ApplPastChannelBytesWritten_Object((1,3,6,1,2,1,62,1,3,2,1,13),_ApplPastChannelBytesWritten_Type())
+applPastChannelBytesWritten.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastChannelBytesWritten.setStatus(_A)
+if mibBuilder.loadTexts:applPastChannelBytesWritten.setUnits(_D)
+_ApplPastChannelBytesWritLow_Type=Unsigned32
+_ApplPastChannelBytesWritLow_Object=MibTableColumn
+applPastChannelBytesWritLow=_ApplPastChannelBytesWritLow_Object((1,3,6,1,2,1,62,1,3,2,1,14),_ApplPastChannelBytesWritLow_Type())
+applPastChannelBytesWritLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastChannelBytesWritLow.setStatus(_A)
+if mibBuilder.loadTexts:applPastChannelBytesWritLow.setUnits(_D)
+class _ApplPastChannelLastWriteTime_Type(DateAndTime):defaultHexValue=_L
+_ApplPastChannelLastWriteTime_Type.__name__=_I
+_ApplPastChannelLastWriteTime_Object=MibTableColumn
+applPastChannelLastWriteTime=_ApplPastChannelLastWriteTime_Object((1,3,6,1,2,1,62,1,3,2,1,15),_ApplPastChannelLastWriteTime_Type())
+applPastChannelLastWriteTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastChannelLastWriteTime.setStatus(_A)
+_ApplPastFileTable_Object=MibTable
+applPastFileTable=_ApplPastFileTable_Object((1,3,6,1,2,1,62,1,3,3))
+if mibBuilder.loadTexts:applPastFileTable.setStatus(_A)
+_ApplPastFileEntry_Object=MibTableRow
+applPastFileEntry=_ApplPastFileEntry_Object((1,3,6,1,2,1,62,1,3,3,1))
+applPastFileEntry.setIndexNames((0,_B,_G),(0,_B,_H),(0,_B,_P))
+if mibBuilder.loadTexts:applPastFileEntry.setStatus(_A)
+_ApplPastFileName_Type=LongUtf8String
+_ApplPastFileName_Object=MibTableColumn
+applPastFileName=_ApplPastFileName_Object((1,3,6,1,2,1,62,1,3,3,1,1),_ApplPastFileName_Type())
+applPastFileName.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastFileName.setStatus(_A)
+_ApplPastFileSizeHigh_Type=Unsigned32
+_ApplPastFileSizeHigh_Object=MibTableColumn
+applPastFileSizeHigh=_ApplPastFileSizeHigh_Object((1,3,6,1,2,1,62,1,3,3,1,2),_ApplPastFileSizeHigh_Type())
+applPastFileSizeHigh.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastFileSizeHigh.setStatus(_A)
+if mibBuilder.loadTexts:applPastFileSizeHigh.setUnits(_h)
+_ApplPastFileSizeLow_Type=Unsigned32
+_ApplPastFileSizeLow_Object=MibTableColumn
+applPastFileSizeLow=_ApplPastFileSizeLow_Object((1,3,6,1,2,1,62,1,3,3,1,3),_ApplPastFileSizeLow_Type())
+applPastFileSizeLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastFileSizeLow.setStatus(_A)
+if mibBuilder.loadTexts:applPastFileSizeLow.setUnits(_D)
+class _ApplPastFileMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('read',1),('write',2),(_i,3)))
+_ApplPastFileMode_Type.__name__=_K
+_ApplPastFileMode_Object=MibTableColumn
+applPastFileMode=_ApplPastFileMode_Object((1,3,6,1,2,1,62,1,3,3,1,4),_ApplPastFileMode_Type())
+applPastFileMode.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastFileMode.setStatus(_A)
+_ApplPastConTable_Object=MibTable
+applPastConTable=_ApplPastConTable_Object((1,3,6,1,2,1,62,1,3,4))
+if mibBuilder.loadTexts:applPastConTable.setStatus(_A)
+_ApplPastConEntry_Object=MibTableRow
+applPastConEntry=_ApplPastConEntry_Object((1,3,6,1,2,1,62,1,3,4,1))
+applPastConEntry.setIndexNames((0,_B,_G),(0,_B,_H),(0,_B,_P))
+if mibBuilder.loadTexts:applPastConEntry.setStatus(_A)
+class _ApplPastConTransport_Type(TDomain):defaultValue=0,0
+_ApplPastConTransport_Type.__name__=_Y
+_ApplPastConTransport_Object=MibTableColumn
+applPastConTransport=_ApplPastConTransport_Object((1,3,6,1,2,1,62,1,3,4,1,1),_ApplPastConTransport_Type())
+applPastConTransport.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastConTransport.setStatus(_A)
+class _ApplPastConNearEndAddr_Type(ApplTAddress):defaultValue=OctetString('')
+_ApplPastConNearEndAddr_Type.__name__=_U
+_ApplPastConNearEndAddr_Object=MibTableColumn
+applPastConNearEndAddr=_ApplPastConNearEndAddr_Object((1,3,6,1,2,1,62,1,3,4,1,2),_ApplPastConNearEndAddr_Type())
+applPastConNearEndAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastConNearEndAddr.setStatus(_A)
+class _ApplPastConNearEndpoint_Type(SnmpAdminString):defaultValue=OctetString('')
+_ApplPastConNearEndpoint_Type.__name__=_F
+_ApplPastConNearEndpoint_Object=MibTableColumn
+applPastConNearEndpoint=_ApplPastConNearEndpoint_Object((1,3,6,1,2,1,62,1,3,4,1,3),_ApplPastConNearEndpoint_Type())
+applPastConNearEndpoint.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastConNearEndpoint.setStatus(_A)
+class _ApplPastConFarEndAddr_Type(ApplTAddress):defaultValue=OctetString('')
+_ApplPastConFarEndAddr_Type.__name__=_U
+_ApplPastConFarEndAddr_Object=MibTableColumn
+applPastConFarEndAddr=_ApplPastConFarEndAddr_Object((1,3,6,1,2,1,62,1,3,4,1,4),_ApplPastConFarEndAddr_Type())
+applPastConFarEndAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastConFarEndAddr.setStatus(_A)
+class _ApplPastConFarEndpoint_Type(SnmpAdminString):defaultValue=OctetString('')
+_ApplPastConFarEndpoint_Type.__name__=_F
+_ApplPastConFarEndpoint_Object=MibTableColumn
+applPastConFarEndpoint=_ApplPastConFarEndpoint_Object((1,3,6,1,2,1,62,1,3,4,1,5),_ApplPastConFarEndpoint_Type())
+applPastConFarEndpoint.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastConFarEndpoint.setStatus(_A)
+class _ApplPastConApplication_Type(SnmpAdminString):defaultValue=OctetString('')
+_ApplPastConApplication_Type.__name__=_F
+_ApplPastConApplication_Object=MibTableColumn
+applPastConApplication=_ApplPastConApplication_Object((1,3,6,1,2,1,62,1,3,4,1,6),_ApplPastConApplication_Type())
+applPastConApplication.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastConApplication.setStatus(_A)
+_ApplPastTransStreamTable_Object=MibTable
+applPastTransStreamTable=_ApplPastTransStreamTable_Object((1,3,6,1,2,1,62,1,3,5))
+if mibBuilder.loadTexts:applPastTransStreamTable.setStatus(_A)
+_ApplPastTransStreamEntry_Object=MibTableRow
+applPastTransStreamEntry=_ApplPastTransStreamEntry_Object((1,3,6,1,2,1,62,1,3,5,1))
+applPastTransStreamEntry.setIndexNames((0,_B,_G),(0,_B,_H),(0,_B,_P))
+if mibBuilder.loadTexts:applPastTransStreamEntry.setStatus(_A)
+class _ApplPastTransStreamDescr_Type(SnmpAdminString):defaultValue=OctetString('')
+_ApplPastTransStreamDescr_Type.__name__=_F
+_ApplPastTransStreamDescr_Object=MibTableColumn
+applPastTransStreamDescr=_ApplPastTransStreamDescr_Object((1,3,6,1,2,1,62,1,3,5,1,1),_ApplPastTransStreamDescr_Type())
+applPastTransStreamDescr.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransStreamDescr.setStatus(_A)
+class _ApplPastTransStreamUnitOfWork_Type(SnmpAdminString):defaultValue=OctetString('')
+_ApplPastTransStreamUnitOfWork_Type.__name__=_F
+_ApplPastTransStreamUnitOfWork_Object=MibTableColumn
+applPastTransStreamUnitOfWork=_ApplPastTransStreamUnitOfWork_Object((1,3,6,1,2,1,62,1,3,5,1,2),_ApplPastTransStreamUnitOfWork_Type())
+applPastTransStreamUnitOfWork.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransStreamUnitOfWork.setStatus(_A)
+_ApplPastTransStreamInvokes_Type=Unsigned64TC
+_ApplPastTransStreamInvokes_Object=MibTableColumn
+applPastTransStreamInvokes=_ApplPastTransStreamInvokes_Object((1,3,6,1,2,1,62,1,3,5,1,3),_ApplPastTransStreamInvokes_Type())
+applPastTransStreamInvokes.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransStreamInvokes.setStatus(_A)
+if mibBuilder.loadTexts:applPastTransStreamInvokes.setUnits(_E)
+_ApplPastTransStreamInvokesLow_Type=Unsigned32
+_ApplPastTransStreamInvokesLow_Object=MibTableColumn
+applPastTransStreamInvokesLow=_ApplPastTransStreamInvokesLow_Object((1,3,6,1,2,1,62,1,3,5,1,4),_ApplPastTransStreamInvokesLow_Type())
+applPastTransStreamInvokesLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransStreamInvokesLow.setStatus(_A)
+if mibBuilder.loadTexts:applPastTransStreamInvokesLow.setUnits(_E)
+_ApplPastTransStreamInvCumTimes_Type=Unsigned32
+_ApplPastTransStreamInvCumTimes_Object=MibTableColumn
+applPastTransStreamInvCumTimes=_ApplPastTransStreamInvCumTimes_Object((1,3,6,1,2,1,62,1,3,5,1,5),_ApplPastTransStreamInvCumTimes_Type())
+applPastTransStreamInvCumTimes.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransStreamInvCumTimes.setStatus(_A)
+if mibBuilder.loadTexts:applPastTransStreamInvCumTimes.setUnits(_M)
+_ApplPastTransStreamInvRspTimes_Type=Unsigned32
+_ApplPastTransStreamInvRspTimes_Object=MibTableColumn
+applPastTransStreamInvRspTimes=_ApplPastTransStreamInvRspTimes_Object((1,3,6,1,2,1,62,1,3,5,1,6),_ApplPastTransStreamInvRspTimes_Type())
+applPastTransStreamInvRspTimes.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransStreamInvRspTimes.setStatus(_A)
+if mibBuilder.loadTexts:applPastTransStreamInvRspTimes.setUnits(_M)
+_ApplPastTransStreamPerforms_Type=Unsigned64TC
+_ApplPastTransStreamPerforms_Object=MibTableColumn
+applPastTransStreamPerforms=_ApplPastTransStreamPerforms_Object((1,3,6,1,2,1,62,1,3,5,1,7),_ApplPastTransStreamPerforms_Type())
+applPastTransStreamPerforms.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransStreamPerforms.setStatus(_A)
+if mibBuilder.loadTexts:applPastTransStreamPerforms.setUnits(_E)
+_ApplPastTransStreamPerformsLow_Type=Unsigned32
+_ApplPastTransStreamPerformsLow_Object=MibTableColumn
+applPastTransStreamPerformsLow=_ApplPastTransStreamPerformsLow_Object((1,3,6,1,2,1,62,1,3,5,1,8),_ApplPastTransStreamPerformsLow_Type())
+applPastTransStreamPerformsLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransStreamPerformsLow.setStatus(_A)
+if mibBuilder.loadTexts:applPastTransStreamPerformsLow.setUnits(_E)
+_ApplPastTransStreamPrfCumTimes_Type=Unsigned32
+_ApplPastTransStreamPrfCumTimes_Object=MibTableColumn
+applPastTransStreamPrfCumTimes=_ApplPastTransStreamPrfCumTimes_Object((1,3,6,1,2,1,62,1,3,5,1,9),_ApplPastTransStreamPrfCumTimes_Type())
+applPastTransStreamPrfCumTimes.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransStreamPrfCumTimes.setStatus(_A)
+if mibBuilder.loadTexts:applPastTransStreamPrfCumTimes.setUnits(_M)
+_ApplPastTransStreamPrfRspTimes_Type=Unsigned32
+_ApplPastTransStreamPrfRspTimes_Object=MibTableColumn
+applPastTransStreamPrfRspTimes=_ApplPastTransStreamPrfRspTimes_Object((1,3,6,1,2,1,62,1,3,5,1,10),_ApplPastTransStreamPrfRspTimes_Type())
+applPastTransStreamPrfRspTimes.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransStreamPrfRspTimes.setStatus(_A)
+if mibBuilder.loadTexts:applPastTransStreamPrfRspTimes.setUnits(_M)
+_ApplPastTransFlowTable_Object=MibTable
+applPastTransFlowTable=_ApplPastTransFlowTable_Object((1,3,6,1,2,1,62,1,3,6))
+if mibBuilder.loadTexts:applPastTransFlowTable.setStatus(_A)
+_ApplPastTransFlowEntry_Object=MibTableRow
+applPastTransFlowEntry=_ApplPastTransFlowEntry_Object((1,3,6,1,2,1,62,1,3,6,1))
+applPastTransFlowEntry.setIndexNames((0,_B,_G),(0,_B,_H),(0,_B,_P),(0,_B,_d),(0,_B,_e))
+if mibBuilder.loadTexts:applPastTransFlowEntry.setStatus(_A)
+class _ApplPastTransFlowDirection_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_j,1),(_k,2)))
+_ApplPastTransFlowDirection_Type.__name__=_K
+_ApplPastTransFlowDirection_Object=MibTableColumn
+applPastTransFlowDirection=_ApplPastTransFlowDirection_Object((1,3,6,1,2,1,62,1,3,6,1,1),_ApplPastTransFlowDirection_Type())
+applPastTransFlowDirection.setMaxAccess(_J)
+if mibBuilder.loadTexts:applPastTransFlowDirection.setStatus(_A)
+class _ApplPastTransFlowReqRsp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_l,1),(_m,2)))
+_ApplPastTransFlowReqRsp_Type.__name__=_K
+_ApplPastTransFlowReqRsp_Object=MibTableColumn
+applPastTransFlowReqRsp=_ApplPastTransFlowReqRsp_Object((1,3,6,1,2,1,62,1,3,6,1,2),_ApplPastTransFlowReqRsp_Type())
+applPastTransFlowReqRsp.setMaxAccess(_J)
+if mibBuilder.loadTexts:applPastTransFlowReqRsp.setStatus(_A)
+_ApplPastTransFlowTrans_Type=Unsigned64TC
+_ApplPastTransFlowTrans_Object=MibTableColumn
+applPastTransFlowTrans=_ApplPastTransFlowTrans_Object((1,3,6,1,2,1,62,1,3,6,1,3),_ApplPastTransFlowTrans_Type())
+applPastTransFlowTrans.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransFlowTrans.setStatus(_A)
+if mibBuilder.loadTexts:applPastTransFlowTrans.setUnits(_E)
+_ApplPastTransFlowTransLow_Type=Unsigned32
+_ApplPastTransFlowTransLow_Object=MibTableColumn
+applPastTransFlowTransLow=_ApplPastTransFlowTransLow_Object((1,3,6,1,2,1,62,1,3,6,1,4),_ApplPastTransFlowTransLow_Type())
+applPastTransFlowTransLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransFlowTransLow.setStatus(_A)
+if mibBuilder.loadTexts:applPastTransFlowTransLow.setUnits(_E)
+_ApplPastTransFlowBytes_Type=Unsigned64TC
+_ApplPastTransFlowBytes_Object=MibTableColumn
+applPastTransFlowBytes=_ApplPastTransFlowBytes_Object((1,3,6,1,2,1,62,1,3,6,1,5),_ApplPastTransFlowBytes_Type())
+applPastTransFlowBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransFlowBytes.setStatus(_A)
+if mibBuilder.loadTexts:applPastTransFlowBytes.setUnits(_D)
+_ApplPastTransFlowBytesLow_Type=Unsigned32
+_ApplPastTransFlowBytesLow_Object=MibTableColumn
+applPastTransFlowBytesLow=_ApplPastTransFlowBytesLow_Object((1,3,6,1,2,1,62,1,3,6,1,6),_ApplPastTransFlowBytesLow_Type())
+applPastTransFlowBytesLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransFlowBytesLow.setStatus(_A)
+if mibBuilder.loadTexts:applPastTransFlowBytesLow.setUnits(_D)
+class _ApplPastTransFlowTime_Type(DateAndTime):defaultHexValue=_L
+_ApplPastTransFlowTime_Type.__name__=_I
+_ApplPastTransFlowTime_Object=MibTableColumn
+applPastTransFlowTime=_ApplPastTransFlowTime_Object((1,3,6,1,2,1,62,1,3,6,1,7),_ApplPastTransFlowTime_Type())
+applPastTransFlowTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransFlowTime.setStatus(_A)
+_ApplPastTransKindTable_Object=MibTable
+applPastTransKindTable=_ApplPastTransKindTable_Object((1,3,6,1,2,1,62,1,3,7))
+if mibBuilder.loadTexts:applPastTransKindTable.setStatus(_A)
+_ApplPastTransKindEntry_Object=MibTableRow
+applPastTransKindEntry=_ApplPastTransKindEntry_Object((1,3,6,1,2,1,62,1,3,7,1))
+applPastTransKindEntry.setIndexNames((0,_B,_G),(0,_B,_H),(0,_B,_P),(0,_B,_d),(0,_B,_e),(0,_B,_p))
+if mibBuilder.loadTexts:applPastTransKindEntry.setStatus(_A)
+class _ApplPastTransKind_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_ApplPastTransKind_Type.__name__=_F
+_ApplPastTransKind_Object=MibTableColumn
+applPastTransKind=_ApplPastTransKind_Object((1,3,6,1,2,1,62,1,3,7,1,1),_ApplPastTransKind_Type())
+applPastTransKind.setMaxAccess(_J)
+if mibBuilder.loadTexts:applPastTransKind.setStatus(_A)
+_ApplPastTransKindTrans_Type=Unsigned64TC
+_ApplPastTransKindTrans_Object=MibTableColumn
+applPastTransKindTrans=_ApplPastTransKindTrans_Object((1,3,6,1,2,1,62,1,3,7,1,2),_ApplPastTransKindTrans_Type())
+applPastTransKindTrans.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransKindTrans.setStatus(_A)
+if mibBuilder.loadTexts:applPastTransKindTrans.setUnits(_E)
+_ApplPastTransKindTransLow_Type=Unsigned32
+_ApplPastTransKindTransLow_Object=MibTableColumn
+applPastTransKindTransLow=_ApplPastTransKindTransLow_Object((1,3,6,1,2,1,62,1,3,7,1,3),_ApplPastTransKindTransLow_Type())
+applPastTransKindTransLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransKindTransLow.setStatus(_A)
+if mibBuilder.loadTexts:applPastTransKindTransLow.setUnits(_E)
+_ApplPastTransKindBytes_Type=Unsigned64TC
+_ApplPastTransKindBytes_Object=MibTableColumn
+applPastTransKindBytes=_ApplPastTransKindBytes_Object((1,3,6,1,2,1,62,1,3,7,1,4),_ApplPastTransKindBytes_Type())
+applPastTransKindBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransKindBytes.setStatus(_A)
+if mibBuilder.loadTexts:applPastTransKindBytes.setUnits(_D)
+_ApplPastTransKindBytesLow_Type=Unsigned32
+_ApplPastTransKindBytesLow_Object=MibTableColumn
+applPastTransKindBytesLow=_ApplPastTransKindBytesLow_Object((1,3,6,1,2,1,62,1,3,7,1,5),_ApplPastTransKindBytesLow_Type())
+applPastTransKindBytesLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransKindBytesLow.setStatus(_A)
+if mibBuilder.loadTexts:applPastTransKindBytesLow.setUnits(_D)
+class _ApplPastTransKindTime_Type(DateAndTime):defaultHexValue=_L
+_ApplPastTransKindTime_Type.__name__=_I
+_ApplPastTransKindTime_Object=MibTableColumn
+applPastTransKindTime=_ApplPastTransKindTime_Object((1,3,6,1,2,1,62,1,3,7,1,6),_ApplPastTransKindTime_Type())
+applPastTransKindTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:applPastTransKindTime.setStatus(_A)
+_ApplElmtRunControlGroup_ObjectIdentity=ObjectIdentity
+applElmtRunControlGroup=_ApplElmtRunControlGroup_ObjectIdentity((1,3,6,1,2,1,62,1,4))
+_ApplElmtRunStatusTable_Object=MibTable
+applElmtRunStatusTable=_ApplElmtRunStatusTable_Object((1,3,6,1,2,1,62,1,4,1))
+if mibBuilder.loadTexts:applElmtRunStatusTable.setStatus(_A)
+_ApplElmtRunStatusEntry_Object=MibTableRow
+applElmtRunStatusEntry=_ApplElmtRunStatusEntry_Object((1,3,6,1,2,1,62,1,4,1,1))
+applElmtRunStatusEntry.setIndexNames((0,_R,_S))
+if mibBuilder.loadTexts:applElmtRunStatusEntry.setStatus(_A)
+_ApplElmtRunStatusSuspended_Type=TruthValue
+_ApplElmtRunStatusSuspended_Object=MibTableColumn
+applElmtRunStatusSuspended=_ApplElmtRunStatusSuspended_Object((1,3,6,1,2,1,62,1,4,1,1,1),_ApplElmtRunStatusSuspended_Type())
+applElmtRunStatusSuspended.setMaxAccess(_C)
+if mibBuilder.loadTexts:applElmtRunStatusSuspended.setStatus(_A)
+_ApplElmtRunStatusHeapUsage_Type=Unsigned32
+_ApplElmtRunStatusHeapUsage_Object=MibTableColumn
+applElmtRunStatusHeapUsage=_ApplElmtRunStatusHeapUsage_Object((1,3,6,1,2,1,62,1,4,1,1,2),_ApplElmtRunStatusHeapUsage_Type())
+applElmtRunStatusHeapUsage.setMaxAccess(_C)
+if mibBuilder.loadTexts:applElmtRunStatusHeapUsage.setStatus(_A)
+if mibBuilder.loadTexts:applElmtRunStatusHeapUsage.setUnits(_D)
+_ApplElmtRunStatusOpenConnections_Type=Unsigned32
+_ApplElmtRunStatusOpenConnections_Object=MibTableColumn
+applElmtRunStatusOpenConnections=_ApplElmtRunStatusOpenConnections_Object((1,3,6,1,2,1,62,1,4,1,1,3),_ApplElmtRunStatusOpenConnections_Type())
+applElmtRunStatusOpenConnections.setMaxAccess(_C)
+if mibBuilder.loadTexts:applElmtRunStatusOpenConnections.setStatus(_A)
+if mibBuilder.loadTexts:applElmtRunStatusOpenConnections.setUnits('connections')
+_ApplElmtRunStatusOpenFiles_Type=Gauge32
+_ApplElmtRunStatusOpenFiles_Object=MibTableColumn
+applElmtRunStatusOpenFiles=_ApplElmtRunStatusOpenFiles_Object((1,3,6,1,2,1,62,1,4,1,1,4),_ApplElmtRunStatusOpenFiles_Type())
+applElmtRunStatusOpenFiles.setMaxAccess(_C)
+if mibBuilder.loadTexts:applElmtRunStatusOpenFiles.setStatus(_A)
+if mibBuilder.loadTexts:applElmtRunStatusOpenFiles.setUnits('files')
+class _ApplElmtRunStatusLastErrorMsg_Type(SnmpAdminString):defaultValue=OctetString('')
+_ApplElmtRunStatusLastErrorMsg_Type.__name__=_F
+_ApplElmtRunStatusLastErrorMsg_Object=MibTableColumn
+applElmtRunStatusLastErrorMsg=_ApplElmtRunStatusLastErrorMsg_Object((1,3,6,1,2,1,62,1,4,1,1,5),_ApplElmtRunStatusLastErrorMsg_Type())
+applElmtRunStatusLastErrorMsg.setMaxAccess(_C)
+if mibBuilder.loadTexts:applElmtRunStatusLastErrorMsg.setStatus(_A)
+class _ApplElmtRunStatusLastErrorTime_Type(DateAndTime):defaultHexValue=_L
+_ApplElmtRunStatusLastErrorTime_Type.__name__=_I
+_ApplElmtRunStatusLastErrorTime_Object=MibTableColumn
+applElmtRunStatusLastErrorTime=_ApplElmtRunStatusLastErrorTime_Object((1,3,6,1,2,1,62,1,4,1,1,6),_ApplElmtRunStatusLastErrorTime_Type())
+applElmtRunStatusLastErrorTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:applElmtRunStatusLastErrorTime.setStatus(_A)
+_ApplElmtRunControlTable_Object=MibTable
+applElmtRunControlTable=_ApplElmtRunControlTable_Object((1,3,6,1,2,1,62,1,4,2))
+if mibBuilder.loadTexts:applElmtRunControlTable.setStatus(_A)
+_ApplElmtRunControlEntry_Object=MibTableRow
+applElmtRunControlEntry=_ApplElmtRunControlEntry_Object((1,3,6,1,2,1,62,1,4,2,1))
+applElmtRunControlEntry.setIndexNames((0,_R,_S))
+if mibBuilder.loadTexts:applElmtRunControlEntry.setStatus(_A)
+class _ApplElmtRunControlSuspend_Type(TruthValue):defaultValue=2
+_ApplElmtRunControlSuspend_Type.__name__=_Z
+_ApplElmtRunControlSuspend_Object=MibTableColumn
+applElmtRunControlSuspend=_ApplElmtRunControlSuspend_Object((1,3,6,1,2,1,62,1,4,2,1,1),_ApplElmtRunControlSuspend_Type())
+applElmtRunControlSuspend.setMaxAccess(_Q)
+if mibBuilder.loadTexts:applElmtRunControlSuspend.setStatus(_A)
+_ApplElmtRunControlReconfigure_Type=TestAndIncr
+_ApplElmtRunControlReconfigure_Object=MibTableColumn
+applElmtRunControlReconfigure=_ApplElmtRunControlReconfigure_Object((1,3,6,1,2,1,62,1,4,2,1,2),_ApplElmtRunControlReconfigure_Type())
+applElmtRunControlReconfigure.setMaxAccess(_Q)
+if mibBuilder.loadTexts:applElmtRunControlReconfigure.setStatus(_A)
+class _ApplElmtRunControlTerminate_Type(TruthValue):defaultValue=2
+_ApplElmtRunControlTerminate_Type.__name__=_Z
+_ApplElmtRunControlTerminate_Object=MibTableColumn
+applElmtRunControlTerminate=_ApplElmtRunControlTerminate_Object((1,3,6,1,2,1,62,1,4,2,1,3),_ApplElmtRunControlTerminate_Type())
+applElmtRunControlTerminate.setMaxAccess(_Q)
+if mibBuilder.loadTexts:applElmtRunControlTerminate.setStatus(_A)
+_ApplicationMibConformance_ObjectIdentity=ObjectIdentity
+applicationMibConformance=_ApplicationMibConformance_ObjectIdentity((1,3,6,1,2,1,62,2))
+_ApplicationMibGroups_ObjectIdentity=ObjectIdentity
+applicationMibGroups=_ApplicationMibGroups_ObjectIdentity((1,3,6,1,2,1,62,2,1))
+applicationMonitorGroup=ObjectGroup((1,3,6,1,2,1,62,2,1,1))
+applicationMonitorGroup.setObjects(*((_B,_q),(_B,_V),(_B,_T),(_B,_a),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9)))
+if mibBuilder.loadTexts:applicationMonitorGroup.setStatus(_A)
+applicationFastMonitorGroup=ObjectGroup((1,3,6,1,2,1,62,2,1,2))
+applicationFastMonitorGroup.setObjects(*((_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD)))
+if mibBuilder.loadTexts:applicationFastMonitorGroup.setStatus(_A)
+applicationTransactGroup=ObjectGroup((1,3,6,1,2,1,62,2,1,3))
+applicationTransactGroup.setObjects(*((_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR)))
+if mibBuilder.loadTexts:applicationTransactGroup.setStatus(_A)
+applicationFastTransactGroup=ObjectGroup((1,3,6,1,2,1,62,2,1,4))
+applicationFastTransactGroup.setObjects(*((_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX)))
+if mibBuilder.loadTexts:applicationFastTransactGroup.setStatus(_A)
+applicationHistoryGroup=ObjectGroup((1,3,6,1,2,1,62,2,1,5))
+applicationHistoryGroup.setObjects(*((_B,_AY),(_B,_AZ),(_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad),(_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av)))
+if mibBuilder.loadTexts:applicationHistoryGroup.setStatus(_A)
+applicationFastHistoryGroup=ObjectGroup((1,3,6,1,2,1,62,2,1,6))
+applicationFastHistoryGroup.setObjects(*((_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az)))
+if mibBuilder.loadTexts:applicationFastHistoryGroup.setStatus(_A)
+applicationTransHistoryGroup=ObjectGroup((1,3,6,1,2,1,62,2,1,7))
+applicationTransHistoryGroup.setObjects(*((_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2),(_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6),(_B,_B7),(_B,_B8),(_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC)))
+if mibBuilder.loadTexts:applicationTransHistoryGroup.setStatus(_A)
+applicationFastTransHistoryGroup=ObjectGroup((1,3,6,1,2,1,62,2,1,8))
+applicationFastTransHistoryGroup.setObjects(*((_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI)))
+if mibBuilder.loadTexts:applicationFastTransHistoryGroup.setStatus(_A)
+applicationRunGroup=ObjectGroup((1,3,6,1,2,1,62,2,1,9))
+applicationRunGroup.setObjects(*((_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR)))
+if mibBuilder.loadTexts:applicationRunGroup.setStatus(_A)
+applicationMibCompliance=ModuleCompliance((1,3,6,1,2,1,62,2,2))
+applicationMibCompliance.setObjects(*((_B,_BS),(_B,_BT),(_B,_BU)))
+if mibBuilder.loadTexts:applicationMibCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'Unsigned64TC':Unsigned64TC,_U:ApplTAddress,'applicationMib':applicationMib,'applicationMibObjects':applicationMibObjects,'applServiceGroup':applServiceGroup,'applSrvNameToSrvInstTable':applSrvNameToSrvInstTable,'applSrvNameToSrvInstEntry':applSrvNameToSrvInstEntry,_q:applSrvInstQual,'applSrvInstToSrvNameTable':applSrvInstToSrvNameTable,'applSrvInstToSrvNameEntry':applSrvInstToSrvNameEntry,_V:applSrvName,'applSrvInstToRunApplElmtTable':applSrvInstToRunApplElmtTable,'applSrvInstToRunApplElmtEntry':applSrvInstToRunApplElmtEntry,_T:applSrvIndex,'applRunApplElmtToSrvInstTable':applRunApplElmtToSrvInstTable,'applRunApplElmtToSrvInstEntry':applRunApplElmtToSrvInstEntry,_a:applSrvInstance,'applChannelGroup':applChannelGroup,'applOpenChannelTable':applOpenChannelTable,'applOpenChannelEntry':applOpenChannelEntry,_G:applElmtOrSvc,_H:applElmtOrSvcId,_O:applOpenChannelIndex,_r:applOpenChannelOpenTime,_AA:applOpenChannelReadRequests,_s:applOpenChannelReadRequestsLow,_t:applOpenChannelReadFailures,_AB:applOpenChannelBytesRead,_u:applOpenChannelBytesReadLow,_v:applOpenChannelLastReadTime,_AC:applOpenChannelWriteRequests,_w:applOpenChannelWriteRequestsLow,_x:applOpenChannelWriteFailures,_AD:applOpenChannelBytesWritten,_y:applOpenChannelBytesWrittenLow,_z:applOpenChannelLastWriteTime,'applOpenFileTable':applOpenFileTable,'applOpenFileEntry':applOpenFileEntry,_A0:applOpenFileName,_A1:applOpenFileSizeHigh,_A2:applOpenFileSizeLow,_A3:applOpenFileMode,'applOpenConnectionTable':applOpenConnectionTable,'applOpenConnectionEntry':applOpenConnectionEntry,_A4:applOpenConnectionTransport,_A5:applOpenConnectionNearEndAddr,_A6:applOpenConnectionNearEndpoint,_A7:applOpenConnectionFarEndAddr,_A8:applOpenConnectionFarEndpoint,_A9:applOpenConnectionApplication,'applTransactionStreamTable':applTransactionStreamTable,'applTransactionStreamEntry':applTransactionStreamEntry,_AE:applTransactStreamDescr,_AF:applTransactStreamUnitOfWork,_AS:applTransactStreamInvokes,_AG:applTransactStreamInvokesLow,_AH:applTransactStreamInvCumTimes,_AI:applTransactStreamInvRspTimes,_AT:applTransactStreamPerforms,_AJ:applTransactStreamPerformsLow,_AK:applTransactStreamPrfCumTimes,_AL:applTransactStreamPrfRspTimes,'applTransactFlowTable':applTransactFlowTable,'applTransactFlowEntry':applTransactFlowEntry,_b:applTransactFlowDirection,_c:applTransactFlowReqRsp,_AU:applTransactFlowTrans,_AM:applTransactFlowTransLow,_AV:applTransactFlowBytes,_AN:applTransactFlowBytesLow,_AO:applTransactFlowTime,'applTransactKindTable':applTransactKindTable,'applTransactKindEntry':applTransactKindEntry,_n:applTransactKind,_AW:applTransactKindTrans,_AP:applTransactKindTransLow,_AX:applTransactKindBytes,_AQ:applTransactKindBytesLow,_AR:applTransactKindTime,'applPastChannelGroup':applPastChannelGroup,'applPastChannelControlTable':applPastChannelControlTable,'applPastChannelControlEntry':applPastChannelControlEntry,_AY:applPastChannelControlCollect,_AZ:applPastChannelControlMaxRows,_Aa:applPastChannelControlTimeLimit,_Ab:applPastChannelControlRemItems,'applPastChannelTable':applPastChannelTable,'applPastChannelEntry':applPastChannelEntry,_P:applPastChannelIndex,_Ac:applPastChannelOpenTime,_Ad:applPastChannelCloseTime,_Aw:applPastChannelReadRequests,_Ae:applPastChannelReadReqsLow,_Af:applPastChannelReadFailures,_Ax:applPastChannelBytesRead,_Ag:applPastChannelBytesReadLow,_Ah:applPastChannelLastReadTime,_Ay:applPastChannelWriteRequests,_Ai:applPastChannelWriteReqsLow,_Aj:applPastChannelWriteFailures,_Az:applPastChannelBytesWritten,_Ak:applPastChannelBytesWritLow,_Al:applPastChannelLastWriteTime,'applPastFileTable':applPastFileTable,'applPastFileEntry':applPastFileEntry,_Am:applPastFileName,_An:applPastFileSizeHigh,_Ao:applPastFileSizeLow,_Ap:applPastFileMode,'applPastConTable':applPastConTable,'applPastConEntry':applPastConEntry,_Aq:applPastConTransport,_Ar:applPastConNearEndAddr,_As:applPastConNearEndpoint,_At:applPastConFarEndAddr,_Au:applPastConFarEndpoint,_Av:applPastConApplication,'applPastTransStreamTable':applPastTransStreamTable,'applPastTransStreamEntry':applPastTransStreamEntry,_A_:applPastTransStreamDescr,_B0:applPastTransStreamUnitOfWork,_BI:applPastTransStreamInvokes,_B1:applPastTransStreamInvokesLow,_B2:applPastTransStreamInvCumTimes,_B3:applPastTransStreamInvRspTimes,_BH:applPastTransStreamPerforms,_B4:applPastTransStreamPerformsLow,_B5:applPastTransStreamPrfCumTimes,_B6:applPastTransStreamPrfRspTimes,'applPastTransFlowTable':applPastTransFlowTable,'applPastTransFlowEntry':applPastTransFlowEntry,_d:applPastTransFlowDirection,_e:applPastTransFlowReqRsp,_BD:applPastTransFlowTrans,_B7:applPastTransFlowTransLow,_BE:applPastTransFlowBytes,_B8:applPastTransFlowBytesLow,_B9:applPastTransFlowTime,'applPastTransKindTable':applPastTransKindTable,'applPastTransKindEntry':applPastTransKindEntry,_p:applPastTransKind,_BF:applPastTransKindTrans,_BA:applPastTransKindTransLow,_BG:applPastTransKindBytes,_BB:applPastTransKindBytesLow,_BC:applPastTransKindTime,'applElmtRunControlGroup':applElmtRunControlGroup,'applElmtRunStatusTable':applElmtRunStatusTable,'applElmtRunStatusEntry':applElmtRunStatusEntry,_BJ:applElmtRunStatusSuspended,_BK:applElmtRunStatusHeapUsage,_BL:applElmtRunStatusOpenConnections,_BM:applElmtRunStatusOpenFiles,_BN:applElmtRunStatusLastErrorMsg,_BO:applElmtRunStatusLastErrorTime,'applElmtRunControlTable':applElmtRunControlTable,'applElmtRunControlEntry':applElmtRunControlEntry,_BP:applElmtRunControlSuspend,_BQ:applElmtRunControlReconfigure,_BR:applElmtRunControlTerminate,'applicationMibConformance':applicationMibConformance,'applicationMibGroups':applicationMibGroups,_BS:applicationMonitorGroup,'applicationFastMonitorGroup':applicationFastMonitorGroup,'applicationTransactGroup':applicationTransactGroup,'applicationFastTransactGroup':applicationFastTransactGroup,_BT:applicationHistoryGroup,'applicationFastHistoryGroup':applicationFastHistoryGroup,'applicationTransHistoryGroup':applicationTransHistoryGroup,'applicationFastTransHistoryGroup':applicationFastTransHistoryGroup,_BU:applicationRunGroup,'applicationMibCompliance':applicationMibCompliance})

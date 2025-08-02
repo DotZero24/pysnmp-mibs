@@ -1,0 +1,731 @@
+_B2='ciscoCdmaExtSystemPdsnGroupSupR02'
+_B1='ciscoCdmaExtPdsnPcfSoRpRegGroupSupR01'
+_B0='ciscoCdmaExtLoadHighReachedNotif'
+_A_='ciscoCdmaExtLoadLowReachedNotif'
+_Az='ccpCdmaExtRegReqNoCIDAvailable'
+_Ay='ccpCdmaExtPcfSoRpRegStatsNoCIDAvailable'
+_Ax='ccpCdmaExtRohcAuxA10sCount'
+_Aw='ccpCdmaExtRohcDeCompOutIpBytes'
+_Av='ccpCdmaExtRohcDeCompOutIpPkts'
+_Au='ccpCdmaExtRohcDeCompFailuresCount'
+_At='ccpCdmaExtRohcDeCompSuccessCount'
+_As='ccpCdmaExtRohcOutIpBytes'
+_Ar='ccpCdmaExtRohcOutIpPkts'
+_Aq='ccpCdmaExtRohcFailuresCount'
+_Ap='ccpCdmaExtRohcSuccessCount'
+_Ao='ccpCdmaExtRohcEnabled'
+_An='ccpCdmaExtPcfSoPppRenegOtherReasonReqs'
+_Am='ccpCdmaExtPcfSoPppRenegGreChangeReqs'
+_Al='ccpCdmaExtPcfSoPppRenegAccessNwIdChanges'
+_Ak='ccpCdmaExtPcfSoPppRenegAddrMismatchReqs'
+_Aj='ccpCdmaExtPcfSoPppRenegConnectionsAborted'
+_Ai='ccpCdmaExtPcfSoPppRenegFailures'
+_Ah='ccpCdmaExtPcfSoPppRenegSuccesses'
+_Ag='ccpCdmaExtPcfSoPppRenegByMobileReqs'
+_Af='ccpCdmaExtPcfSoPppRenegByPdsnReqs'
+_Ae='ccpCdmaExtPcfSoPppRenegTotalReqs'
+_Ad='ccpCdmaExtPcfSoPppIpcpIpResourceFail'
+_Ac='ccpCdmaExtPcfSoPppIpcpPcfA10Rls'
+_Ab='ccpCdmaExtPcfSoPppIpcpPhaseRxTermreqs'
+_Aa='ccpCdmaExtPcfSoPppIpcpFailuresUnknown'
+_AZ='ccpCdmaExtPcfSoPppIpcpFailuresMaxRetrans'
+_AY='ccpCdmaExtPcfSoPppIpcpOptionIssueFailures'
+_AX='ccpCdmaExtPcfSoPppAuthPcfA10Rls'
+_AW='ccpCdmaExtPcfSoPppAuthFailuresUnknown'
+_AV='ccpCdmaExtPcfSoPppAuthPhaseRxTermreqs'
+_AU='ccpCdmaExtPcfSoPppAuthMaxRetransFailures'
+_AT='ccpCdmaExtPcfSoPppAuthAAATimeouts'
+_AS='ccpCdmaExtPcfSoPppAuthFailures'
+_AR='ccpCdmaExtPcfSoPppLcpPcfA10Rls'
+_AQ='ccpCdmaExtPcfSoPppLcpPhaseRxTermreqs'
+_AP='ccpCdmaExtPcfSoPppLcpFailuresUnknown'
+_AO='ccpCdmaExtPcfSoPppLcpFailuresMaxRetrans'
+_AN='ccpCdmaExtPcfSoPppLcpOptionIssueFailures'
+_AM='ccpCdmaExtPcfSoPppPreLCPPcfA10Rls'
+_AL='ccpCdmaExtPcfSoPppPreLCPPdsnA10Rls'
+_AK='ccpCdmaExtCacEnabled'
+_AJ='ccpCdmaExtPcfSoRpRegStatsBwUnavailableSess'
+_AI='ccpCdmaExtPcfSoRpRegStatsNonExistA10s'
+_AH='ccpCdmaExtPcfSoRpRegStatsUnsupportedSOs'
+_AG='ccpCdmaExtPcfSoRpRegStatsMaxServiceFlows'
+_AF='ccpCdmaExtPcfSoRpRegStatsSessionUpdSubQoses'
+_AE='ccpCdmaExtPcfSoRpReRegStatsRemapFlows'
+_AD='ccpCdmaExtPcfSoRpReRegStatsCloseAuxConnections'
+_AC='ccpCdmaExtPcfSoRpReRegStatsNewAuxConnections'
+_AB='ccpCdmaExtPcfSoRpRegStatsNewAuxConnections'
+_AA='ccpCdmaExtPcfSoStatsTotalAuxConnections'
+_A9='ccpCdmaExtRegReqBwUnavailableSess'
+_A8='ccpCdmaExtRegReqNonExistA10s'
+_A7='ccpCdmaExtRegReqUnSupportedSOs'
+_A6='ccpCdmaExtRegReqMaxServiceFlows'
+_A5='ccpCdmaExtRpSessionUpdSubQoses'
+_A4='ccpCdmaExtSessionMaxAuxConnectionsAllowed'
+_A3='ccpCdmaExtLoadHighReachedNotifEnabled'
+_A2='ccpCdmaExtSessionAuxConnectionsEnabled'
+_A1='ccpCdmaExtAllocatedBandwidth'
+_A0='ccpCdmaExtTotalBandwidth'
+_z='ccpCdmaExtPolicingEnabled'
+_y='ccpCdmaExtAvailableBandwidth'
+_x='ccpCdmaExtSessionAuxConnectionsTotal'
+_w='ccpCdmaExtRpRegNewAuxConnections'
+_v='ccpCdmaExtRpReRegRemapFlows'
+_u='ccpCdmaExtRpReRegCloseAuxConnections'
+_t='ccpCdmaExtRpReRegNewAuxConnections'
+_s='ccpCdmaExtBandwidthPolicyInstallSuccesses'
+_r='ccpCdmaExtBandwidthPolicyRemoves'
+_q='ccpCdmaExtBandwidthPolicyInstallFailures'
+_p='ccpCdmaExtDscpSession'
+_o='ccpCdmaExtPolicingSessionTotal'
+_n='ccpCdmaExtAuxSessionTotal'
+_m='ccpCdmaExtQosDscpRemarkedPkts'
+_l='ccpCdmaExtQosFailures'
+_k='ccpCdmaExtQosSuccesses'
+_j='ccpCdmaExtRsvpUnAuthorizeTfts'
+_i='ccpCdmaExtRsvpCreationSuccessTfts'
+_h='ccpCdmaExtRsvpMaxPacketFiltersReachedTfts'
+_g='ccpCdmaExtRsvpTreatmentUnsupportedTfts'
+_f='ccpCdmaExtRsvpPrecedenceContentionTfts'
+_e='ccpCdmaExtRsvpUnableToParseTfts'
+_d='ccpCdmaExtRsvpPacketFilterAddBeforeCreationTfts'
+_c='ccpCdmaExtRsvpPacketFilterReplaceFailureTfts'
+_b='ccpCdmaExtRsvpPacketFilterUnavailableTfts'
+_a='ccpCdmaExtRsvpPacketFilterAddFailureTfts'
+_Z='ccpCdmaExtRsvpCreationFailureTfts'
+_Y='ccpCdmaExtPcfSoPppSetupStatsEntry'
+_X='ccpCdmaExtPcfSoRpRegStatsEntry'
+_W='accessible-for-notify'
+_V='Integer32'
+_U='ciscoCdmaExtSystemPdsnGroupSupR01'
+_T='deprecated'
+_S='packets'
+_R='bits/sec'
+_Q='TruthValue'
+_P='cCdmaServingPdsnHostname'
+_O='CISCO-CDMA-PDSN-MIB'
+_N='ciscoCdmaExtSystemPdsnCacGroup'
+_M='ciscoCdmaExtPdsnPcfSoPppGroup'
+_L='ccpCdmaExtNotifReasonCurrentValue'
+_K='ccpCdmaExtNotifReason'
+_J='ciscoCdmaExtNotifPdsnGroup'
+_I='ciscoCdmaExtPdsnPcfSoRpRegGroup'
+_H='ciscoCdmaExtSystemPdsnGroup'
+_G='read-write'
+_F='passes'
+_E='failures'
+_D='messages'
+_C='read-only'
+_B='current'
+_A='CISCO-CDMA-PDSN-EXT-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+cCdmaPcfSoPppSetupStatsEntry,cCdmaPcfSoRpRegStatsEntry,cCdmaServingPdsnHostname=mibBuilder.importSymbols(_O,'cCdmaPcfSoPppSetupStatsEntry','cCdmaPcfSoRpRegStatsEntry',_P)
+ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
+ZeroBasedCounter32,=mibBuilder.importSymbols('RMON2-MIB','ZeroBasedCounter32')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_V,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention',_Q)
+ciscoCdmaPdsnExtMIB=ModuleIdentity((1,3,6,1,4,1,9,9,669))
+if mibBuilder.loadTexts:ciscoCdmaPdsnExtMIB.setRevisions(('2010-07-20 00:00','2010-06-08 00:00','2009-09-17 00:00','2008-08-08 00:00'))
+_CiscoCdmaPdsnExtMIBNotifs_ObjectIdentity=ObjectIdentity
+ciscoCdmaPdsnExtMIBNotifs=_CiscoCdmaPdsnExtMIBNotifs_ObjectIdentity((1,3,6,1,4,1,9,9,669,0))
+_CiscoCdmaPdsnExtMIBObjects_ObjectIdentity=ObjectIdentity
+ciscoCdmaPdsnExtMIBObjects=_CiscoCdmaPdsnExtMIBObjects_ObjectIdentity((1,3,6,1,4,1,9,9,669,1))
+_CcpCdmaExtSystemInfo_ObjectIdentity=ObjectIdentity
+ccpCdmaExtSystemInfo=_CcpCdmaExtSystemInfo_ObjectIdentity((1,3,6,1,4,1,9,9,669,1,1))
+_CcpCdmaExtTotalBandwidth_Type=Gauge32
+_CcpCdmaExtTotalBandwidth_Object=MibScalar
+ccpCdmaExtTotalBandwidth=_CcpCdmaExtTotalBandwidth_Object((1,3,6,1,4,1,9,9,669,1,1,1),_CcpCdmaExtTotalBandwidth_Type())
+ccpCdmaExtTotalBandwidth.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtTotalBandwidth.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtTotalBandwidth.setUnits(_R)
+_CcpCdmaExtAvailableBandwidth_Type=Gauge32
+_CcpCdmaExtAvailableBandwidth_Object=MibScalar
+ccpCdmaExtAvailableBandwidth=_CcpCdmaExtAvailableBandwidth_Object((1,3,6,1,4,1,9,9,669,1,1,2),_CcpCdmaExtAvailableBandwidth_Type())
+ccpCdmaExtAvailableBandwidth.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtAvailableBandwidth.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtAvailableBandwidth.setUnits(_R)
+_CcpCdmaExtAllocatedBandwidth_Type=Gauge32
+_CcpCdmaExtAllocatedBandwidth_Object=MibScalar
+ccpCdmaExtAllocatedBandwidth=_CcpCdmaExtAllocatedBandwidth_Object((1,3,6,1,4,1,9,9,669,1,1,3),_CcpCdmaExtAllocatedBandwidth_Type())
+ccpCdmaExtAllocatedBandwidth.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtAllocatedBandwidth.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtAllocatedBandwidth.setUnits(_R)
+_CcpCdmaExtSessionAuxConnectionsEnabled_Type=TruthValue
+_CcpCdmaExtSessionAuxConnectionsEnabled_Object=MibScalar
+ccpCdmaExtSessionAuxConnectionsEnabled=_CcpCdmaExtSessionAuxConnectionsEnabled_Object((1,3,6,1,4,1,9,9,669,1,1,4),_CcpCdmaExtSessionAuxConnectionsEnabled_Type())
+ccpCdmaExtSessionAuxConnectionsEnabled.setMaxAccess(_G)
+if mibBuilder.loadTexts:ccpCdmaExtSessionAuxConnectionsEnabled.setStatus(_B)
+_CcpCdmaExtSessionMaxAuxConnectionsAllowed_Type=Unsigned32
+_CcpCdmaExtSessionMaxAuxConnectionsAllowed_Object=MibScalar
+ccpCdmaExtSessionMaxAuxConnectionsAllowed=_CcpCdmaExtSessionMaxAuxConnectionsAllowed_Object((1,3,6,1,4,1,9,9,669,1,1,5),_CcpCdmaExtSessionMaxAuxConnectionsAllowed_Type())
+ccpCdmaExtSessionMaxAuxConnectionsAllowed.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtSessionMaxAuxConnectionsAllowed.setStatus(_B)
+_CcpCdmaExtSessionAuxConnectionsTotal_Type=Gauge32
+_CcpCdmaExtSessionAuxConnectionsTotal_Object=MibScalar
+ccpCdmaExtSessionAuxConnectionsTotal=_CcpCdmaExtSessionAuxConnectionsTotal_Object((1,3,6,1,4,1,9,9,669,1,1,6),_CcpCdmaExtSessionAuxConnectionsTotal_Type())
+ccpCdmaExtSessionAuxConnectionsTotal.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtSessionAuxConnectionsTotal.setStatus(_B)
+_CcpCdmaExtPolicingEnabled_Type=TruthValue
+_CcpCdmaExtPolicingEnabled_Object=MibScalar
+ccpCdmaExtPolicingEnabled=_CcpCdmaExtPolicingEnabled_Object((1,3,6,1,4,1,9,9,669,1,1,7),_CcpCdmaExtPolicingEnabled_Type())
+ccpCdmaExtPolicingEnabled.setMaxAccess(_G)
+if mibBuilder.loadTexts:ccpCdmaExtPolicingEnabled.setStatus(_B)
+_CcpCdmaExtAuxSessionTotal_Type=Gauge32
+_CcpCdmaExtAuxSessionTotal_Object=MibScalar
+ccpCdmaExtAuxSessionTotal=_CcpCdmaExtAuxSessionTotal_Object((1,3,6,1,4,1,9,9,669,1,1,8),_CcpCdmaExtAuxSessionTotal_Type())
+ccpCdmaExtAuxSessionTotal.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtAuxSessionTotal.setStatus(_B)
+_CcpCdmaExtPolicingSessionTotal_Type=Gauge32
+_CcpCdmaExtPolicingSessionTotal_Object=MibScalar
+ccpCdmaExtPolicingSessionTotal=_CcpCdmaExtPolicingSessionTotal_Object((1,3,6,1,4,1,9,9,669,1,1,9),_CcpCdmaExtPolicingSessionTotal_Type())
+ccpCdmaExtPolicingSessionTotal.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPolicingSessionTotal.setStatus(_B)
+_CcpCdmaExtDscpSession_Type=Gauge32
+_CcpCdmaExtDscpSession_Object=MibScalar
+ccpCdmaExtDscpSession=_CcpCdmaExtDscpSession_Object((1,3,6,1,4,1,9,9,669,1,1,10),_CcpCdmaExtDscpSession_Type())
+ccpCdmaExtDscpSession.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtDscpSession.setStatus(_B)
+class _CcpCdmaExtLoadHighReachedNotifEnabled_Type(TruthValue):defaultValue=2
+_CcpCdmaExtLoadHighReachedNotifEnabled_Type.__name__=_Q
+_CcpCdmaExtLoadHighReachedNotifEnabled_Object=MibScalar
+ccpCdmaExtLoadHighReachedNotifEnabled=_CcpCdmaExtLoadHighReachedNotifEnabled_Object((1,3,6,1,4,1,9,9,669,1,1,11),_CcpCdmaExtLoadHighReachedNotifEnabled_Type())
+ccpCdmaExtLoadHighReachedNotifEnabled.setMaxAccess(_G)
+if mibBuilder.loadTexts:ccpCdmaExtLoadHighReachedNotifEnabled.setStatus(_B)
+_CcpCdmaExtCacEnabled_Type=TruthValue
+_CcpCdmaExtCacEnabled_Object=MibScalar
+ccpCdmaExtCacEnabled=_CcpCdmaExtCacEnabled_Object((1,3,6,1,4,1,9,9,669,1,1,12),_CcpCdmaExtCacEnabled_Type())
+ccpCdmaExtCacEnabled.setMaxAccess(_G)
+if mibBuilder.loadTexts:ccpCdmaExtCacEnabled.setStatus(_B)
+class _CcpCdmaExtRohcEnabled_Type(TruthValue):defaultValue=2
+_CcpCdmaExtRohcEnabled_Type.__name__=_Q
+_CcpCdmaExtRohcEnabled_Object=MibScalar
+ccpCdmaExtRohcEnabled=_CcpCdmaExtRohcEnabled_Object((1,3,6,1,4,1,9,9,669,1,1,13),_CcpCdmaExtRohcEnabled_Type())
+ccpCdmaExtRohcEnabled.setMaxAccess(_G)
+if mibBuilder.loadTexts:ccpCdmaExtRohcEnabled.setStatus(_B)
+_CcpCdmaExtRohcAuxA10sCount_Type=Gauge32
+_CcpCdmaExtRohcAuxA10sCount_Object=MibScalar
+ccpCdmaExtRohcAuxA10sCount=_CcpCdmaExtRohcAuxA10sCount_Object((1,3,6,1,4,1,9,9,669,1,1,14),_CcpCdmaExtRohcAuxA10sCount_Type())
+ccpCdmaExtRohcAuxA10sCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRohcAuxA10sCount.setStatus(_B)
+_CcpCdmaExtPerformanceStats_ObjectIdentity=ObjectIdentity
+ccpCdmaExtPerformanceStats=_CcpCdmaExtPerformanceStats_ObjectIdentity((1,3,6,1,4,1,9,9,669,1,2))
+_CcpCdmaExtRsvpStats_ObjectIdentity=ObjectIdentity
+ccpCdmaExtRsvpStats=_CcpCdmaExtRsvpStats_ObjectIdentity((1,3,6,1,4,1,9,9,669,1,2,1))
+_CcpCdmaExtRsvpCreationSuccessTfts_Type=Counter32
+_CcpCdmaExtRsvpCreationSuccessTfts_Object=MibScalar
+ccpCdmaExtRsvpCreationSuccessTfts=_CcpCdmaExtRsvpCreationSuccessTfts_Object((1,3,6,1,4,1,9,9,669,1,2,1,1),_CcpCdmaExtRsvpCreationSuccessTfts_Type())
+ccpCdmaExtRsvpCreationSuccessTfts.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpCreationSuccessTfts.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpCreationSuccessTfts.setUnits(_F)
+_CcpCdmaExtRsvpCreationFailureTfts_Type=Counter32
+_CcpCdmaExtRsvpCreationFailureTfts_Object=MibScalar
+ccpCdmaExtRsvpCreationFailureTfts=_CcpCdmaExtRsvpCreationFailureTfts_Object((1,3,6,1,4,1,9,9,669,1,2,1,2),_CcpCdmaExtRsvpCreationFailureTfts_Type())
+ccpCdmaExtRsvpCreationFailureTfts.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpCreationFailureTfts.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpCreationFailureTfts.setUnits(_E)
+_CcpCdmaExtRsvpPacketFilterAddFailureTfts_Type=Counter32
+_CcpCdmaExtRsvpPacketFilterAddFailureTfts_Object=MibScalar
+ccpCdmaExtRsvpPacketFilterAddFailureTfts=_CcpCdmaExtRsvpPacketFilterAddFailureTfts_Object((1,3,6,1,4,1,9,9,669,1,2,1,3),_CcpCdmaExtRsvpPacketFilterAddFailureTfts_Type())
+ccpCdmaExtRsvpPacketFilterAddFailureTfts.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpPacketFilterAddFailureTfts.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpPacketFilterAddFailureTfts.setUnits(_E)
+_CcpCdmaExtRsvpPacketFilterUnavailableTfts_Type=Counter32
+_CcpCdmaExtRsvpPacketFilterUnavailableTfts_Object=MibScalar
+ccpCdmaExtRsvpPacketFilterUnavailableTfts=_CcpCdmaExtRsvpPacketFilterUnavailableTfts_Object((1,3,6,1,4,1,9,9,669,1,2,1,4),_CcpCdmaExtRsvpPacketFilterUnavailableTfts_Type())
+ccpCdmaExtRsvpPacketFilterUnavailableTfts.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpPacketFilterUnavailableTfts.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpPacketFilterUnavailableTfts.setUnits(_E)
+_CcpCdmaExtRsvpPacketFilterReplaceFailureTfts_Type=Counter32
+_CcpCdmaExtRsvpPacketFilterReplaceFailureTfts_Object=MibScalar
+ccpCdmaExtRsvpPacketFilterReplaceFailureTfts=_CcpCdmaExtRsvpPacketFilterReplaceFailureTfts_Object((1,3,6,1,4,1,9,9,669,1,2,1,5),_CcpCdmaExtRsvpPacketFilterReplaceFailureTfts_Type())
+ccpCdmaExtRsvpPacketFilterReplaceFailureTfts.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpPacketFilterReplaceFailureTfts.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpPacketFilterReplaceFailureTfts.setUnits(_E)
+_CcpCdmaExtRsvpPacketFilterAddBeforeCreationTfts_Type=Counter32
+_CcpCdmaExtRsvpPacketFilterAddBeforeCreationTfts_Object=MibScalar
+ccpCdmaExtRsvpPacketFilterAddBeforeCreationTfts=_CcpCdmaExtRsvpPacketFilterAddBeforeCreationTfts_Object((1,3,6,1,4,1,9,9,669,1,2,1,6),_CcpCdmaExtRsvpPacketFilterAddBeforeCreationTfts_Type())
+ccpCdmaExtRsvpPacketFilterAddBeforeCreationTfts.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpPacketFilterAddBeforeCreationTfts.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpPacketFilterAddBeforeCreationTfts.setUnits(_E)
+_CcpCdmaExtRsvpUnableToParseTfts_Type=Counter32
+_CcpCdmaExtRsvpUnableToParseTfts_Object=MibScalar
+ccpCdmaExtRsvpUnableToParseTfts=_CcpCdmaExtRsvpUnableToParseTfts_Object((1,3,6,1,4,1,9,9,669,1,2,1,7),_CcpCdmaExtRsvpUnableToParseTfts_Type())
+ccpCdmaExtRsvpUnableToParseTfts.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpUnableToParseTfts.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpUnableToParseTfts.setUnits(_E)
+_CcpCdmaExtRsvpPrecedenceContentionTfts_Type=Counter32
+_CcpCdmaExtRsvpPrecedenceContentionTfts_Object=MibScalar
+ccpCdmaExtRsvpPrecedenceContentionTfts=_CcpCdmaExtRsvpPrecedenceContentionTfts_Object((1,3,6,1,4,1,9,9,669,1,2,1,8),_CcpCdmaExtRsvpPrecedenceContentionTfts_Type())
+ccpCdmaExtRsvpPrecedenceContentionTfts.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpPrecedenceContentionTfts.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpPrecedenceContentionTfts.setUnits(_E)
+_CcpCdmaExtRsvpTreatmentUnsupportedTfts_Type=Counter32
+_CcpCdmaExtRsvpTreatmentUnsupportedTfts_Object=MibScalar
+ccpCdmaExtRsvpTreatmentUnsupportedTfts=_CcpCdmaExtRsvpTreatmentUnsupportedTfts_Object((1,3,6,1,4,1,9,9,669,1,2,1,9),_CcpCdmaExtRsvpTreatmentUnsupportedTfts_Type())
+ccpCdmaExtRsvpTreatmentUnsupportedTfts.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpTreatmentUnsupportedTfts.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpTreatmentUnsupportedTfts.setUnits(_E)
+_CcpCdmaExtRsvpMaxPacketFiltersReachedTfts_Type=Counter32
+_CcpCdmaExtRsvpMaxPacketFiltersReachedTfts_Object=MibScalar
+ccpCdmaExtRsvpMaxPacketFiltersReachedTfts=_CcpCdmaExtRsvpMaxPacketFiltersReachedTfts_Object((1,3,6,1,4,1,9,9,669,1,2,1,10),_CcpCdmaExtRsvpMaxPacketFiltersReachedTfts_Type())
+ccpCdmaExtRsvpMaxPacketFiltersReachedTfts.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpMaxPacketFiltersReachedTfts.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpMaxPacketFiltersReachedTfts.setUnits(_E)
+_CcpCdmaExtRsvpUnAuthorizeTfts_Type=Counter32
+_CcpCdmaExtRsvpUnAuthorizeTfts_Object=MibScalar
+ccpCdmaExtRsvpUnAuthorizeTfts=_CcpCdmaExtRsvpUnAuthorizeTfts_Object((1,3,6,1,4,1,9,9,669,1,2,1,11),_CcpCdmaExtRsvpUnAuthorizeTfts_Type())
+ccpCdmaExtRsvpUnAuthorizeTfts.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpUnAuthorizeTfts.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRsvpUnAuthorizeTfts.setUnits(_E)
+_CcpCdmaExtQosStats_ObjectIdentity=ObjectIdentity
+ccpCdmaExtQosStats=_CcpCdmaExtQosStats_ObjectIdentity((1,3,6,1,4,1,9,9,669,1,2,2))
+_CcpCdmaExtQosSuccesses_Type=Counter32
+_CcpCdmaExtQosSuccesses_Object=MibScalar
+ccpCdmaExtQosSuccesses=_CcpCdmaExtQosSuccesses_Object((1,3,6,1,4,1,9,9,669,1,2,2,1),_CcpCdmaExtQosSuccesses_Type())
+ccpCdmaExtQosSuccesses.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtQosSuccesses.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtQosSuccesses.setUnits(_F)
+_CcpCdmaExtQosFailures_Type=Counter32
+_CcpCdmaExtQosFailures_Object=MibScalar
+ccpCdmaExtQosFailures=_CcpCdmaExtQosFailures_Object((1,3,6,1,4,1,9,9,669,1,2,2,2),_CcpCdmaExtQosFailures_Type())
+ccpCdmaExtQosFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtQosFailures.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtQosFailures.setUnits(_E)
+_CcpCdmaExtQosDscpRemarkedPkts_Type=Counter32
+_CcpCdmaExtQosDscpRemarkedPkts_Object=MibScalar
+ccpCdmaExtQosDscpRemarkedPkts=_CcpCdmaExtQosDscpRemarkedPkts_Object((1,3,6,1,4,1,9,9,669,1,2,2,3),_CcpCdmaExtQosDscpRemarkedPkts_Type())
+ccpCdmaExtQosDscpRemarkedPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtQosDscpRemarkedPkts.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtQosDscpRemarkedPkts.setUnits(_S)
+_CcpCdmaExtBandwidthPolicyStats_ObjectIdentity=ObjectIdentity
+ccpCdmaExtBandwidthPolicyStats=_CcpCdmaExtBandwidthPolicyStats_ObjectIdentity((1,3,6,1,4,1,9,9,669,1,2,3))
+_CcpCdmaExtBandwidthPolicyInstallSuccesses_Type=Counter32
+_CcpCdmaExtBandwidthPolicyInstallSuccesses_Object=MibScalar
+ccpCdmaExtBandwidthPolicyInstallSuccesses=_CcpCdmaExtBandwidthPolicyInstallSuccesses_Object((1,3,6,1,4,1,9,9,669,1,2,3,1),_CcpCdmaExtBandwidthPolicyInstallSuccesses_Type())
+ccpCdmaExtBandwidthPolicyInstallSuccesses.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtBandwidthPolicyInstallSuccesses.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtBandwidthPolicyInstallSuccesses.setUnits(_F)
+_CcpCdmaExtBandwidthPolicyInstallFailures_Type=Counter32
+_CcpCdmaExtBandwidthPolicyInstallFailures_Object=MibScalar
+ccpCdmaExtBandwidthPolicyInstallFailures=_CcpCdmaExtBandwidthPolicyInstallFailures_Object((1,3,6,1,4,1,9,9,669,1,2,3,2),_CcpCdmaExtBandwidthPolicyInstallFailures_Type())
+ccpCdmaExtBandwidthPolicyInstallFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtBandwidthPolicyInstallFailures.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtBandwidthPolicyInstallFailures.setUnits(_E)
+_CcpCdmaExtBandwidthPolicyRemoves_Type=Counter32
+_CcpCdmaExtBandwidthPolicyRemoves_Object=MibScalar
+ccpCdmaExtBandwidthPolicyRemoves=_CcpCdmaExtBandwidthPolicyRemoves_Object((1,3,6,1,4,1,9,9,669,1,2,3,3),_CcpCdmaExtBandwidthPolicyRemoves_Type())
+ccpCdmaExtBandwidthPolicyRemoves.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtBandwidthPolicyRemoves.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtBandwidthPolicyRemoves.setUnits(_F)
+_CcpCdmaExtRpRegStats_ObjectIdentity=ObjectIdentity
+ccpCdmaExtRpRegStats=_CcpCdmaExtRpRegStats_ObjectIdentity((1,3,6,1,4,1,9,9,669,1,2,4))
+_CcpCdmaExtRpReRegNewAuxConnections_Type=Counter32
+_CcpCdmaExtRpReRegNewAuxConnections_Object=MibScalar
+ccpCdmaExtRpReRegNewAuxConnections=_CcpCdmaExtRpReRegNewAuxConnections_Object((1,3,6,1,4,1,9,9,669,1,2,4,1),_CcpCdmaExtRpReRegNewAuxConnections_Type())
+ccpCdmaExtRpReRegNewAuxConnections.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRpReRegNewAuxConnections.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRpReRegNewAuxConnections.setUnits(_D)
+_CcpCdmaExtRpReRegCloseAuxConnections_Type=Counter32
+_CcpCdmaExtRpReRegCloseAuxConnections_Object=MibScalar
+ccpCdmaExtRpReRegCloseAuxConnections=_CcpCdmaExtRpReRegCloseAuxConnections_Object((1,3,6,1,4,1,9,9,669,1,2,4,2),_CcpCdmaExtRpReRegCloseAuxConnections_Type())
+ccpCdmaExtRpReRegCloseAuxConnections.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRpReRegCloseAuxConnections.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRpReRegCloseAuxConnections.setUnits(_D)
+_CcpCdmaExtRpReRegRemapFlows_Type=Counter32
+_CcpCdmaExtRpReRegRemapFlows_Object=MibScalar
+ccpCdmaExtRpReRegRemapFlows=_CcpCdmaExtRpReRegRemapFlows_Object((1,3,6,1,4,1,9,9,669,1,2,4,4),_CcpCdmaExtRpReRegRemapFlows_Type())
+ccpCdmaExtRpReRegRemapFlows.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRpReRegRemapFlows.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRpReRegRemapFlows.setUnits(_D)
+_CcpCdmaExtRpRegNewAuxConnections_Type=Counter32
+_CcpCdmaExtRpRegNewAuxConnections_Object=MibScalar
+ccpCdmaExtRpRegNewAuxConnections=_CcpCdmaExtRpRegNewAuxConnections_Object((1,3,6,1,4,1,9,9,669,1,2,4,5),_CcpCdmaExtRpRegNewAuxConnections_Type())
+ccpCdmaExtRpRegNewAuxConnections.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRpRegNewAuxConnections.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRpRegNewAuxConnections.setUnits(_D)
+_CcpCdmaExtRpSessUpdStats_ObjectIdentity=ObjectIdentity
+ccpCdmaExtRpSessUpdStats=_CcpCdmaExtRpSessUpdStats_ObjectIdentity((1,3,6,1,4,1,9,9,669,1,2,5))
+_CcpCdmaExtRpSessionUpdSubQoses_Type=ZeroBasedCounter32
+_CcpCdmaExtRpSessionUpdSubQoses_Object=MibScalar
+ccpCdmaExtRpSessionUpdSubQoses=_CcpCdmaExtRpSessionUpdSubQoses_Object((1,3,6,1,4,1,9,9,669,1,2,5,1),_CcpCdmaExtRpSessionUpdSubQoses_Type())
+ccpCdmaExtRpSessionUpdSubQoses.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRpSessionUpdSubQoses.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRpSessionUpdSubQoses.setUnits(_D)
+_CcpCdmaExtPcfSoRpRegStats_ObjectIdentity=ObjectIdentity
+ccpCdmaExtPcfSoRpRegStats=_CcpCdmaExtPcfSoRpRegStats_ObjectIdentity((1,3,6,1,4,1,9,9,669,1,2,6))
+_CcpCdmaExtPcfSoRpRegStatsTable_Object=MibTable
+ccpCdmaExtPcfSoRpRegStatsTable=_CcpCdmaExtPcfSoRpRegStatsTable_Object((1,3,6,1,4,1,9,9,669,1,2,6,1))
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpRegStatsTable.setStatus(_B)
+_CcpCdmaExtPcfSoRpRegStatsEntry_Object=MibTableRow
+ccpCdmaExtPcfSoRpRegStatsEntry=_CcpCdmaExtPcfSoRpRegStatsEntry_Object((1,3,6,1,4,1,9,9,669,1,2,6,1,1))
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpRegStatsEntry.setStatus(_B)
+_CcpCdmaExtPcfSoStatsTotalAuxConnections_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoStatsTotalAuxConnections_Object=MibTableColumn
+ccpCdmaExtPcfSoStatsTotalAuxConnections=_CcpCdmaExtPcfSoStatsTotalAuxConnections_Object((1,3,6,1,4,1,9,9,669,1,2,6,1,1,1),_CcpCdmaExtPcfSoStatsTotalAuxConnections_Type())
+ccpCdmaExtPcfSoStatsTotalAuxConnections.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoStatsTotalAuxConnections.setStatus(_B)
+_CcpCdmaExtPcfSoRpRegStatsNewAuxConnections_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoRpRegStatsNewAuxConnections_Object=MibTableColumn
+ccpCdmaExtPcfSoRpRegStatsNewAuxConnections=_CcpCdmaExtPcfSoRpRegStatsNewAuxConnections_Object((1,3,6,1,4,1,9,9,669,1,2,6,1,1,2),_CcpCdmaExtPcfSoRpRegStatsNewAuxConnections_Type())
+ccpCdmaExtPcfSoRpRegStatsNewAuxConnections.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpRegStatsNewAuxConnections.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpRegStatsNewAuxConnections.setUnits(_D)
+_CcpCdmaExtPcfSoRpReRegStatsNewAuxConnections_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoRpReRegStatsNewAuxConnections_Object=MibTableColumn
+ccpCdmaExtPcfSoRpReRegStatsNewAuxConnections=_CcpCdmaExtPcfSoRpReRegStatsNewAuxConnections_Object((1,3,6,1,4,1,9,9,669,1,2,6,1,1,3),_CcpCdmaExtPcfSoRpReRegStatsNewAuxConnections_Type())
+ccpCdmaExtPcfSoRpReRegStatsNewAuxConnections.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpReRegStatsNewAuxConnections.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpReRegStatsNewAuxConnections.setUnits(_D)
+_CcpCdmaExtPcfSoRpReRegStatsCloseAuxConnections_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoRpReRegStatsCloseAuxConnections_Object=MibTableColumn
+ccpCdmaExtPcfSoRpReRegStatsCloseAuxConnections=_CcpCdmaExtPcfSoRpReRegStatsCloseAuxConnections_Object((1,3,6,1,4,1,9,9,669,1,2,6,1,1,4),_CcpCdmaExtPcfSoRpReRegStatsCloseAuxConnections_Type())
+ccpCdmaExtPcfSoRpReRegStatsCloseAuxConnections.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpReRegStatsCloseAuxConnections.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpReRegStatsCloseAuxConnections.setUnits(_D)
+_CcpCdmaExtPcfSoRpReRegStatsRemapFlows_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoRpReRegStatsRemapFlows_Object=MibTableColumn
+ccpCdmaExtPcfSoRpReRegStatsRemapFlows=_CcpCdmaExtPcfSoRpReRegStatsRemapFlows_Object((1,3,6,1,4,1,9,9,669,1,2,6,1,1,5),_CcpCdmaExtPcfSoRpReRegStatsRemapFlows_Type())
+ccpCdmaExtPcfSoRpReRegStatsRemapFlows.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpReRegStatsRemapFlows.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpReRegStatsRemapFlows.setUnits(_D)
+_CcpCdmaExtPcfSoRpRegStatsBwUnavailableSess_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoRpRegStatsBwUnavailableSess_Object=MibTableColumn
+ccpCdmaExtPcfSoRpRegStatsBwUnavailableSess=_CcpCdmaExtPcfSoRpRegStatsBwUnavailableSess_Object((1,3,6,1,4,1,9,9,669,1,2,6,1,1,6),_CcpCdmaExtPcfSoRpRegStatsBwUnavailableSess_Type())
+ccpCdmaExtPcfSoRpRegStatsBwUnavailableSess.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpRegStatsBwUnavailableSess.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpRegStatsBwUnavailableSess.setUnits(_D)
+_CcpCdmaExtPcfSoRpRegStatsSessionUpdSubQoses_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoRpRegStatsSessionUpdSubQoses_Object=MibTableColumn
+ccpCdmaExtPcfSoRpRegStatsSessionUpdSubQoses=_CcpCdmaExtPcfSoRpRegStatsSessionUpdSubQoses_Object((1,3,6,1,4,1,9,9,669,1,2,6,1,1,7),_CcpCdmaExtPcfSoRpRegStatsSessionUpdSubQoses_Type())
+ccpCdmaExtPcfSoRpRegStatsSessionUpdSubQoses.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpRegStatsSessionUpdSubQoses.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpRegStatsSessionUpdSubQoses.setUnits(_D)
+_CcpCdmaExtPcfSoRpRegStatsMaxServiceFlows_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoRpRegStatsMaxServiceFlows_Object=MibTableColumn
+ccpCdmaExtPcfSoRpRegStatsMaxServiceFlows=_CcpCdmaExtPcfSoRpRegStatsMaxServiceFlows_Object((1,3,6,1,4,1,9,9,669,1,2,6,1,1,8),_CcpCdmaExtPcfSoRpRegStatsMaxServiceFlows_Type())
+ccpCdmaExtPcfSoRpRegStatsMaxServiceFlows.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpRegStatsMaxServiceFlows.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpRegStatsMaxServiceFlows.setUnits(_D)
+_CcpCdmaExtPcfSoRpRegStatsUnsupportedSOs_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoRpRegStatsUnsupportedSOs_Object=MibTableColumn
+ccpCdmaExtPcfSoRpRegStatsUnsupportedSOs=_CcpCdmaExtPcfSoRpRegStatsUnsupportedSOs_Object((1,3,6,1,4,1,9,9,669,1,2,6,1,1,9),_CcpCdmaExtPcfSoRpRegStatsUnsupportedSOs_Type())
+ccpCdmaExtPcfSoRpRegStatsUnsupportedSOs.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpRegStatsUnsupportedSOs.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpRegStatsUnsupportedSOs.setUnits(_D)
+_CcpCdmaExtPcfSoRpRegStatsNonExistA10s_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoRpRegStatsNonExistA10s_Object=MibTableColumn
+ccpCdmaExtPcfSoRpRegStatsNonExistA10s=_CcpCdmaExtPcfSoRpRegStatsNonExistA10s_Object((1,3,6,1,4,1,9,9,669,1,2,6,1,1,10),_CcpCdmaExtPcfSoRpRegStatsNonExistA10s_Type())
+ccpCdmaExtPcfSoRpRegStatsNonExistA10s.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpRegStatsNonExistA10s.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpRegStatsNonExistA10s.setUnits(_D)
+_CcpCdmaExtPcfSoRpRegStatsNoCIDAvailable_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoRpRegStatsNoCIDAvailable_Object=MibTableColumn
+ccpCdmaExtPcfSoRpRegStatsNoCIDAvailable=_CcpCdmaExtPcfSoRpRegStatsNoCIDAvailable_Object((1,3,6,1,4,1,9,9,669,1,2,6,1,1,11),_CcpCdmaExtPcfSoRpRegStatsNoCIDAvailable_Type())
+ccpCdmaExtPcfSoRpRegStatsNoCIDAvailable.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpRegStatsNoCIDAvailable.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoRpRegStatsNoCIDAvailable.setUnits(_D)
+_CcpCdmaExtPcfSoPppSetupStats_ObjectIdentity=ObjectIdentity
+ccpCdmaExtPcfSoPppSetupStats=_CcpCdmaExtPcfSoPppSetupStats_ObjectIdentity((1,3,6,1,4,1,9,9,669,1,2,7))
+_CcpCdmaExtPcfSoPppSetupStatsTable_Object=MibTable
+ccpCdmaExtPcfSoPppSetupStatsTable=_CcpCdmaExtPcfSoPppSetupStatsTable_Object((1,3,6,1,4,1,9,9,669,1,2,7,1))
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppSetupStatsTable.setStatus(_B)
+_CcpCdmaExtPcfSoPppSetupStatsEntry_Object=MibTableRow
+ccpCdmaExtPcfSoPppSetupStatsEntry=_CcpCdmaExtPcfSoPppSetupStatsEntry_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1))
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppSetupStatsEntry.setStatus(_B)
+_CcpCdmaExtPcfSoPppPreLCPPdsnA10Rls_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppPreLCPPdsnA10Rls_Object=MibTableColumn
+ccpCdmaExtPcfSoPppPreLCPPdsnA10Rls=_CcpCdmaExtPcfSoPppPreLCPPdsnA10Rls_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,1),_CcpCdmaExtPcfSoPppPreLCPPdsnA10Rls_Type())
+ccpCdmaExtPcfSoPppPreLCPPdsnA10Rls.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppPreLCPPdsnA10Rls.setStatus(_B)
+_CcpCdmaExtPcfSoPppPreLCPPcfA10Rls_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppPreLCPPcfA10Rls_Object=MibTableColumn
+ccpCdmaExtPcfSoPppPreLCPPcfA10Rls=_CcpCdmaExtPcfSoPppPreLCPPcfA10Rls_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,2),_CcpCdmaExtPcfSoPppPreLCPPcfA10Rls_Type())
+ccpCdmaExtPcfSoPppPreLCPPcfA10Rls.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppPreLCPPcfA10Rls.setStatus(_B)
+_CcpCdmaExtPcfSoPppLcpOptionIssueFailures_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppLcpOptionIssueFailures_Object=MibTableColumn
+ccpCdmaExtPcfSoPppLcpOptionIssueFailures=_CcpCdmaExtPcfSoPppLcpOptionIssueFailures_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,3),_CcpCdmaExtPcfSoPppLcpOptionIssueFailures_Type())
+ccpCdmaExtPcfSoPppLcpOptionIssueFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppLcpOptionIssueFailures.setStatus(_B)
+_CcpCdmaExtPcfSoPppLcpFailuresMaxRetrans_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppLcpFailuresMaxRetrans_Object=MibTableColumn
+ccpCdmaExtPcfSoPppLcpFailuresMaxRetrans=_CcpCdmaExtPcfSoPppLcpFailuresMaxRetrans_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,4),_CcpCdmaExtPcfSoPppLcpFailuresMaxRetrans_Type())
+ccpCdmaExtPcfSoPppLcpFailuresMaxRetrans.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppLcpFailuresMaxRetrans.setStatus(_B)
+_CcpCdmaExtPcfSoPppLcpFailuresUnknown_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppLcpFailuresUnknown_Object=MibTableColumn
+ccpCdmaExtPcfSoPppLcpFailuresUnknown=_CcpCdmaExtPcfSoPppLcpFailuresUnknown_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,5),_CcpCdmaExtPcfSoPppLcpFailuresUnknown_Type())
+ccpCdmaExtPcfSoPppLcpFailuresUnknown.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppLcpFailuresUnknown.setStatus(_B)
+_CcpCdmaExtPcfSoPppLcpPhaseRxTermreqs_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppLcpPhaseRxTermreqs_Object=MibTableColumn
+ccpCdmaExtPcfSoPppLcpPhaseRxTermreqs=_CcpCdmaExtPcfSoPppLcpPhaseRxTermreqs_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,6),_CcpCdmaExtPcfSoPppLcpPhaseRxTermreqs_Type())
+ccpCdmaExtPcfSoPppLcpPhaseRxTermreqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppLcpPhaseRxTermreqs.setStatus(_B)
+_CcpCdmaExtPcfSoPppLcpPcfA10Rls_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppLcpPcfA10Rls_Object=MibTableColumn
+ccpCdmaExtPcfSoPppLcpPcfA10Rls=_CcpCdmaExtPcfSoPppLcpPcfA10Rls_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,7),_CcpCdmaExtPcfSoPppLcpPcfA10Rls_Type())
+ccpCdmaExtPcfSoPppLcpPcfA10Rls.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppLcpPcfA10Rls.setStatus(_B)
+_CcpCdmaExtPcfSoPppAuthFailures_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppAuthFailures_Object=MibTableColumn
+ccpCdmaExtPcfSoPppAuthFailures=_CcpCdmaExtPcfSoPppAuthFailures_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,8),_CcpCdmaExtPcfSoPppAuthFailures_Type())
+ccpCdmaExtPcfSoPppAuthFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppAuthFailures.setStatus(_B)
+_CcpCdmaExtPcfSoPppAuthAAATimeouts_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppAuthAAATimeouts_Object=MibTableColumn
+ccpCdmaExtPcfSoPppAuthAAATimeouts=_CcpCdmaExtPcfSoPppAuthAAATimeouts_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,9),_CcpCdmaExtPcfSoPppAuthAAATimeouts_Type())
+ccpCdmaExtPcfSoPppAuthAAATimeouts.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppAuthAAATimeouts.setStatus(_B)
+_CcpCdmaExtPcfSoPppAuthFailuresUnknown_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppAuthFailuresUnknown_Object=MibTableColumn
+ccpCdmaExtPcfSoPppAuthFailuresUnknown=_CcpCdmaExtPcfSoPppAuthFailuresUnknown_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,10),_CcpCdmaExtPcfSoPppAuthFailuresUnknown_Type())
+ccpCdmaExtPcfSoPppAuthFailuresUnknown.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppAuthFailuresUnknown.setStatus(_B)
+_CcpCdmaExtPcfSoPppAuthMaxRetransFailures_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppAuthMaxRetransFailures_Object=MibTableColumn
+ccpCdmaExtPcfSoPppAuthMaxRetransFailures=_CcpCdmaExtPcfSoPppAuthMaxRetransFailures_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,11),_CcpCdmaExtPcfSoPppAuthMaxRetransFailures_Type())
+ccpCdmaExtPcfSoPppAuthMaxRetransFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppAuthMaxRetransFailures.setStatus(_B)
+_CcpCdmaExtPcfSoPppAuthPhaseRxTermreqs_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppAuthPhaseRxTermreqs_Object=MibTableColumn
+ccpCdmaExtPcfSoPppAuthPhaseRxTermreqs=_CcpCdmaExtPcfSoPppAuthPhaseRxTermreqs_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,12),_CcpCdmaExtPcfSoPppAuthPhaseRxTermreqs_Type())
+ccpCdmaExtPcfSoPppAuthPhaseRxTermreqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppAuthPhaseRxTermreqs.setStatus(_B)
+_CcpCdmaExtPcfSoPppAuthPcfA10Rls_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppAuthPcfA10Rls_Object=MibTableColumn
+ccpCdmaExtPcfSoPppAuthPcfA10Rls=_CcpCdmaExtPcfSoPppAuthPcfA10Rls_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,13),_CcpCdmaExtPcfSoPppAuthPcfA10Rls_Type())
+ccpCdmaExtPcfSoPppAuthPcfA10Rls.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppAuthPcfA10Rls.setStatus(_B)
+_CcpCdmaExtPcfSoPppIpcpOptionIssueFailures_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppIpcpOptionIssueFailures_Object=MibTableColumn
+ccpCdmaExtPcfSoPppIpcpOptionIssueFailures=_CcpCdmaExtPcfSoPppIpcpOptionIssueFailures_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,14),_CcpCdmaExtPcfSoPppIpcpOptionIssueFailures_Type())
+ccpCdmaExtPcfSoPppIpcpOptionIssueFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppIpcpOptionIssueFailures.setStatus(_B)
+_CcpCdmaExtPcfSoPppIpcpFailuresMaxRetrans_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppIpcpFailuresMaxRetrans_Object=MibTableColumn
+ccpCdmaExtPcfSoPppIpcpFailuresMaxRetrans=_CcpCdmaExtPcfSoPppIpcpFailuresMaxRetrans_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,15),_CcpCdmaExtPcfSoPppIpcpFailuresMaxRetrans_Type())
+ccpCdmaExtPcfSoPppIpcpFailuresMaxRetrans.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppIpcpFailuresMaxRetrans.setStatus(_B)
+_CcpCdmaExtPcfSoPppIpcpFailuresUnknown_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppIpcpFailuresUnknown_Object=MibTableColumn
+ccpCdmaExtPcfSoPppIpcpFailuresUnknown=_CcpCdmaExtPcfSoPppIpcpFailuresUnknown_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,16),_CcpCdmaExtPcfSoPppIpcpFailuresUnknown_Type())
+ccpCdmaExtPcfSoPppIpcpFailuresUnknown.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppIpcpFailuresUnknown.setStatus(_B)
+_CcpCdmaExtPcfSoPppIpcpPhaseRxTermreqs_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppIpcpPhaseRxTermreqs_Object=MibTableColumn
+ccpCdmaExtPcfSoPppIpcpPhaseRxTermreqs=_CcpCdmaExtPcfSoPppIpcpPhaseRxTermreqs_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,17),_CcpCdmaExtPcfSoPppIpcpPhaseRxTermreqs_Type())
+ccpCdmaExtPcfSoPppIpcpPhaseRxTermreqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppIpcpPhaseRxTermreqs.setStatus(_B)
+_CcpCdmaExtPcfSoPppIpcpPcfA10Rls_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppIpcpPcfA10Rls_Object=MibTableColumn
+ccpCdmaExtPcfSoPppIpcpPcfA10Rls=_CcpCdmaExtPcfSoPppIpcpPcfA10Rls_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,18),_CcpCdmaExtPcfSoPppIpcpPcfA10Rls_Type())
+ccpCdmaExtPcfSoPppIpcpPcfA10Rls.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppIpcpPcfA10Rls.setStatus(_B)
+_CcpCdmaExtPcfSoPppIpcpIpResourceFail_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppIpcpIpResourceFail_Object=MibTableColumn
+ccpCdmaExtPcfSoPppIpcpIpResourceFail=_CcpCdmaExtPcfSoPppIpcpIpResourceFail_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,19),_CcpCdmaExtPcfSoPppIpcpIpResourceFail_Type())
+ccpCdmaExtPcfSoPppIpcpIpResourceFail.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppIpcpIpResourceFail.setStatus(_B)
+_CcpCdmaExtPcfSoPppRenegTotalReqs_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppRenegTotalReqs_Object=MibTableColumn
+ccpCdmaExtPcfSoPppRenegTotalReqs=_CcpCdmaExtPcfSoPppRenegTotalReqs_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,20),_CcpCdmaExtPcfSoPppRenegTotalReqs_Type())
+ccpCdmaExtPcfSoPppRenegTotalReqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppRenegTotalReqs.setStatus(_B)
+_CcpCdmaExtPcfSoPppRenegByPdsnReqs_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppRenegByPdsnReqs_Object=MibTableColumn
+ccpCdmaExtPcfSoPppRenegByPdsnReqs=_CcpCdmaExtPcfSoPppRenegByPdsnReqs_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,21),_CcpCdmaExtPcfSoPppRenegByPdsnReqs_Type())
+ccpCdmaExtPcfSoPppRenegByPdsnReqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppRenegByPdsnReqs.setStatus(_B)
+_CcpCdmaExtPcfSoPppRenegByMobileReqs_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppRenegByMobileReqs_Object=MibTableColumn
+ccpCdmaExtPcfSoPppRenegByMobileReqs=_CcpCdmaExtPcfSoPppRenegByMobileReqs_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,22),_CcpCdmaExtPcfSoPppRenegByMobileReqs_Type())
+ccpCdmaExtPcfSoPppRenegByMobileReqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppRenegByMobileReqs.setStatus(_B)
+_CcpCdmaExtPcfSoPppRenegSuccesses_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppRenegSuccesses_Object=MibTableColumn
+ccpCdmaExtPcfSoPppRenegSuccesses=_CcpCdmaExtPcfSoPppRenegSuccesses_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,23),_CcpCdmaExtPcfSoPppRenegSuccesses_Type())
+ccpCdmaExtPcfSoPppRenegSuccesses.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppRenegSuccesses.setStatus(_B)
+_CcpCdmaExtPcfSoPppRenegFailures_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppRenegFailures_Object=MibTableColumn
+ccpCdmaExtPcfSoPppRenegFailures=_CcpCdmaExtPcfSoPppRenegFailures_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,24),_CcpCdmaExtPcfSoPppRenegFailures_Type())
+ccpCdmaExtPcfSoPppRenegFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppRenegFailures.setStatus(_B)
+_CcpCdmaExtPcfSoPppRenegConnectionsAborted_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppRenegConnectionsAborted_Object=MibTableColumn
+ccpCdmaExtPcfSoPppRenegConnectionsAborted=_CcpCdmaExtPcfSoPppRenegConnectionsAborted_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,25),_CcpCdmaExtPcfSoPppRenegConnectionsAborted_Type())
+ccpCdmaExtPcfSoPppRenegConnectionsAborted.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppRenegConnectionsAborted.setStatus(_B)
+_CcpCdmaExtPcfSoPppRenegAddrMismatchReqs_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppRenegAddrMismatchReqs_Object=MibTableColumn
+ccpCdmaExtPcfSoPppRenegAddrMismatchReqs=_CcpCdmaExtPcfSoPppRenegAddrMismatchReqs_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,26),_CcpCdmaExtPcfSoPppRenegAddrMismatchReqs_Type())
+ccpCdmaExtPcfSoPppRenegAddrMismatchReqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppRenegAddrMismatchReqs.setStatus(_B)
+_CcpCdmaExtPcfSoPppRenegAccessNwIdChanges_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppRenegAccessNwIdChanges_Object=MibTableColumn
+ccpCdmaExtPcfSoPppRenegAccessNwIdChanges=_CcpCdmaExtPcfSoPppRenegAccessNwIdChanges_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,27),_CcpCdmaExtPcfSoPppRenegAccessNwIdChanges_Type())
+ccpCdmaExtPcfSoPppRenegAccessNwIdChanges.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppRenegAccessNwIdChanges.setStatus(_B)
+_CcpCdmaExtPcfSoPppRenegGreChangeReqs_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppRenegGreChangeReqs_Object=MibTableColumn
+ccpCdmaExtPcfSoPppRenegGreChangeReqs=_CcpCdmaExtPcfSoPppRenegGreChangeReqs_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,28),_CcpCdmaExtPcfSoPppRenegGreChangeReqs_Type())
+ccpCdmaExtPcfSoPppRenegGreChangeReqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppRenegGreChangeReqs.setStatus(_B)
+_CcpCdmaExtPcfSoPppRenegOtherReasonReqs_Type=ZeroBasedCounter32
+_CcpCdmaExtPcfSoPppRenegOtherReasonReqs_Object=MibTableColumn
+ccpCdmaExtPcfSoPppRenegOtherReasonReqs=_CcpCdmaExtPcfSoPppRenegOtherReasonReqs_Object((1,3,6,1,4,1,9,9,669,1,2,7,1,1,29),_CcpCdmaExtPcfSoPppRenegOtherReasonReqs_Type())
+ccpCdmaExtPcfSoPppRenegOtherReasonReqs.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtPcfSoPppRenegOtherReasonReqs.setStatus(_B)
+_CcpCdmaExtRohcStats_ObjectIdentity=ObjectIdentity
+ccpCdmaExtRohcStats=_CcpCdmaExtRohcStats_ObjectIdentity((1,3,6,1,4,1,9,9,669,1,2,8))
+_CcpCdmaExtRohcSuccessCount_Type=Counter32
+_CcpCdmaExtRohcSuccessCount_Object=MibScalar
+ccpCdmaExtRohcSuccessCount=_CcpCdmaExtRohcSuccessCount_Object((1,3,6,1,4,1,9,9,669,1,2,8,1),_CcpCdmaExtRohcSuccessCount_Type())
+ccpCdmaExtRohcSuccessCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRohcSuccessCount.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRohcSuccessCount.setUnits(_F)
+_CcpCdmaExtRohcFailuresCount_Type=Counter32
+_CcpCdmaExtRohcFailuresCount_Object=MibScalar
+ccpCdmaExtRohcFailuresCount=_CcpCdmaExtRohcFailuresCount_Object((1,3,6,1,4,1,9,9,669,1,2,8,2),_CcpCdmaExtRohcFailuresCount_Type())
+ccpCdmaExtRohcFailuresCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRohcFailuresCount.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRohcFailuresCount.setUnits(_E)
+_CcpCdmaExtRohcOutIpPkts_Type=Counter32
+_CcpCdmaExtRohcOutIpPkts_Object=MibScalar
+ccpCdmaExtRohcOutIpPkts=_CcpCdmaExtRohcOutIpPkts_Object((1,3,6,1,4,1,9,9,669,1,2,8,3),_CcpCdmaExtRohcOutIpPkts_Type())
+ccpCdmaExtRohcOutIpPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRohcOutIpPkts.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRohcOutIpPkts.setUnits(_S)
+_CcpCdmaExtRohcOutIpBytes_Type=Counter32
+_CcpCdmaExtRohcOutIpBytes_Object=MibScalar
+ccpCdmaExtRohcOutIpBytes=_CcpCdmaExtRohcOutIpBytes_Object((1,3,6,1,4,1,9,9,669,1,2,8,4),_CcpCdmaExtRohcOutIpBytes_Type())
+ccpCdmaExtRohcOutIpBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRohcOutIpBytes.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRohcOutIpBytes.setUnits('bytes')
+_CcpCdmaExtRohcDeCompSuccessCount_Type=Counter32
+_CcpCdmaExtRohcDeCompSuccessCount_Object=MibScalar
+ccpCdmaExtRohcDeCompSuccessCount=_CcpCdmaExtRohcDeCompSuccessCount_Object((1,3,6,1,4,1,9,9,669,1,2,8,5),_CcpCdmaExtRohcDeCompSuccessCount_Type())
+ccpCdmaExtRohcDeCompSuccessCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRohcDeCompSuccessCount.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRohcDeCompSuccessCount.setUnits(_F)
+_CcpCdmaExtRohcDeCompFailuresCount_Type=Counter32
+_CcpCdmaExtRohcDeCompFailuresCount_Object=MibScalar
+ccpCdmaExtRohcDeCompFailuresCount=_CcpCdmaExtRohcDeCompFailuresCount_Object((1,3,6,1,4,1,9,9,669,1,2,8,6),_CcpCdmaExtRohcDeCompFailuresCount_Type())
+ccpCdmaExtRohcDeCompFailuresCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRohcDeCompFailuresCount.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRohcDeCompFailuresCount.setUnits(_E)
+_CcpCdmaExtRohcDeCompOutIpPkts_Type=Counter32
+_CcpCdmaExtRohcDeCompOutIpPkts_Object=MibScalar
+ccpCdmaExtRohcDeCompOutIpPkts=_CcpCdmaExtRohcDeCompOutIpPkts_Object((1,3,6,1,4,1,9,9,669,1,2,8,7),_CcpCdmaExtRohcDeCompOutIpPkts_Type())
+ccpCdmaExtRohcDeCompOutIpPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRohcDeCompOutIpPkts.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRohcDeCompOutIpPkts.setUnits(_S)
+_CcpCdmaExtRohcDeCompOutIpBytes_Type=Counter32
+_CcpCdmaExtRohcDeCompOutIpBytes_Object=MibScalar
+ccpCdmaExtRohcDeCompOutIpBytes=_CcpCdmaExtRohcDeCompOutIpBytes_Object((1,3,6,1,4,1,9,9,669,1,2,8,8),_CcpCdmaExtRohcDeCompOutIpBytes_Type())
+ccpCdmaExtRohcDeCompOutIpBytes.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRohcDeCompOutIpBytes.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRohcDeCompOutIpBytes.setUnits('bytes')
+_CcpCdmaExtRpErrors_ObjectIdentity=ObjectIdentity
+ccpCdmaExtRpErrors=_CcpCdmaExtRpErrors_ObjectIdentity((1,3,6,1,4,1,9,9,669,1,3))
+_CcpCdmaExtRPRegReqErrors_ObjectIdentity=ObjectIdentity
+ccpCdmaExtRPRegReqErrors=_CcpCdmaExtRPRegReqErrors_ObjectIdentity((1,3,6,1,4,1,9,9,669,1,3,1))
+_CcpCdmaExtRegReqBwUnavailableSess_Type=ZeroBasedCounter32
+_CcpCdmaExtRegReqBwUnavailableSess_Object=MibScalar
+ccpCdmaExtRegReqBwUnavailableSess=_CcpCdmaExtRegReqBwUnavailableSess_Object((1,3,6,1,4,1,9,9,669,1,3,1,1),_CcpCdmaExtRegReqBwUnavailableSess_Type())
+ccpCdmaExtRegReqBwUnavailableSess.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRegReqBwUnavailableSess.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRegReqBwUnavailableSess.setUnits(_D)
+_CcpCdmaExtRegReqMaxServiceFlows_Type=ZeroBasedCounter32
+_CcpCdmaExtRegReqMaxServiceFlows_Object=MibScalar
+ccpCdmaExtRegReqMaxServiceFlows=_CcpCdmaExtRegReqMaxServiceFlows_Object((1,3,6,1,4,1,9,9,669,1,3,1,2),_CcpCdmaExtRegReqMaxServiceFlows_Type())
+ccpCdmaExtRegReqMaxServiceFlows.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRegReqMaxServiceFlows.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRegReqMaxServiceFlows.setUnits(_D)
+_CcpCdmaExtRegReqUnSupportedSOs_Type=ZeroBasedCounter32
+_CcpCdmaExtRegReqUnSupportedSOs_Object=MibScalar
+ccpCdmaExtRegReqUnSupportedSOs=_CcpCdmaExtRegReqUnSupportedSOs_Object((1,3,6,1,4,1,9,9,669,1,3,1,3),_CcpCdmaExtRegReqUnSupportedSOs_Type())
+ccpCdmaExtRegReqUnSupportedSOs.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRegReqUnSupportedSOs.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRegReqUnSupportedSOs.setUnits(_D)
+_CcpCdmaExtRegReqNonExistA10s_Type=ZeroBasedCounter32
+_CcpCdmaExtRegReqNonExistA10s_Object=MibScalar
+ccpCdmaExtRegReqNonExistA10s=_CcpCdmaExtRegReqNonExistA10s_Object((1,3,6,1,4,1,9,9,669,1,3,1,4),_CcpCdmaExtRegReqNonExistA10s_Type())
+ccpCdmaExtRegReqNonExistA10s.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRegReqNonExistA10s.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRegReqNonExistA10s.setUnits(_D)
+_CcpCdmaExtRegReqNoCIDAvailable_Type=ZeroBasedCounter32
+_CcpCdmaExtRegReqNoCIDAvailable_Object=MibScalar
+ccpCdmaExtRegReqNoCIDAvailable=_CcpCdmaExtRegReqNoCIDAvailable_Object((1,3,6,1,4,1,9,9,669,1,3,1,5),_CcpCdmaExtRegReqNoCIDAvailable_Type())
+ccpCdmaExtRegReqNoCIDAvailable.setMaxAccess(_C)
+if mibBuilder.loadTexts:ccpCdmaExtRegReqNoCIDAvailable.setStatus(_B)
+if mibBuilder.loadTexts:ccpCdmaExtRegReqNoCIDAvailable.setUnits(_D)
+_CcpCdmaExtNotifObjects_ObjectIdentity=ObjectIdentity
+ccpCdmaExtNotifObjects=_CcpCdmaExtNotifObjects_ObjectIdentity((1,3,6,1,4,1,9,9,669,1,4))
+class _CcpCdmaExtNotifReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('bandwidth',1),('cputhreshold',2),('procthreshold',3),('iomemthreshold',4)))
+_CcpCdmaExtNotifReason_Type.__name__=_V
+_CcpCdmaExtNotifReason_Object=MibScalar
+ccpCdmaExtNotifReason=_CcpCdmaExtNotifReason_Object((1,3,6,1,4,1,9,9,669,1,4,3),_CcpCdmaExtNotifReason_Type())
+ccpCdmaExtNotifReason.setMaxAccess(_W)
+if mibBuilder.loadTexts:ccpCdmaExtNotifReason.setStatus(_B)
+_CcpCdmaExtNotifReasonCurrentValue_Type=Gauge32
+_CcpCdmaExtNotifReasonCurrentValue_Object=MibScalar
+ccpCdmaExtNotifReasonCurrentValue=_CcpCdmaExtNotifReasonCurrentValue_Object((1,3,6,1,4,1,9,9,669,1,4,4),_CcpCdmaExtNotifReasonCurrentValue_Type())
+ccpCdmaExtNotifReasonCurrentValue.setMaxAccess(_W)
+if mibBuilder.loadTexts:ccpCdmaExtNotifReasonCurrentValue.setStatus(_B)
+_CiscoCdmaPdsnExtMIBConformance_ObjectIdentity=ObjectIdentity
+ciscoCdmaPdsnExtMIBConformance=_CiscoCdmaPdsnExtMIBConformance_ObjectIdentity((1,3,6,1,4,1,9,9,669,2))
+_CiscoCdmaPdsnExtMIBCompliances_ObjectIdentity=ObjectIdentity
+ciscoCdmaPdsnExtMIBCompliances=_CiscoCdmaPdsnExtMIBCompliances_ObjectIdentity((1,3,6,1,4,1,9,9,669,2,1))
+_CiscoCdmaPdsnExtMIBGroups_ObjectIdentity=ObjectIdentity
+ciscoCdmaPdsnExtMIBGroups=_CiscoCdmaPdsnExtMIBGroups_ObjectIdentity((1,3,6,1,4,1,9,9,669,2,2))
+cCdmaPcfSoRpRegStatsEntry.registerAugmentions((_A,_X))
+ccpCdmaExtPcfSoRpRegStatsEntry.setIndexNames(*cCdmaPcfSoRpRegStatsEntry.getIndexNames())
+cCdmaPcfSoPppSetupStatsEntry.registerAugmentions((_A,_Y))
+ccpCdmaExtPcfSoPppSetupStatsEntry.setIndexNames(*cCdmaPcfSoPppSetupStatsEntry.getIndexNames())
+ciscoCdmaExtSystemPdsnGroup=ObjectGroup((1,3,6,1,4,1,9,9,669,2,2,1))
+ciscoCdmaExtSystemPdsnGroup.setObjects(*((_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_K),(_A,_L),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9)))
+if mibBuilder.loadTexts:ciscoCdmaExtSystemPdsnGroup.setStatus(_B)
+ciscoCdmaExtPdsnPcfSoRpRegGroup=ObjectGroup((1,3,6,1,4,1,9,9,669,2,2,3))
+ciscoCdmaExtPdsnPcfSoRpRegGroup.setObjects(*((_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ)))
+if mibBuilder.loadTexts:ciscoCdmaExtPdsnPcfSoRpRegGroup.setStatus(_B)
+ciscoCdmaExtSystemPdsnCacGroup=ObjectGroup((1,3,6,1,4,1,9,9,669,2,2,4))
+ciscoCdmaExtSystemPdsnCacGroup.setObjects((_A,_AK))
+if mibBuilder.loadTexts:ciscoCdmaExtSystemPdsnCacGroup.setStatus(_B)
+ciscoCdmaExtPdsnPcfSoPppGroup=ObjectGroup((1,3,6,1,4,1,9,9,669,2,2,5))
+ciscoCdmaExtPdsnPcfSoPppGroup.setObjects(*((_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An)))
+if mibBuilder.loadTexts:ciscoCdmaExtPdsnPcfSoPppGroup.setStatus(_B)
+ciscoCdmaExtSystemPdsnGroupSupR01=ObjectGroup((1,3,6,1,4,1,9,9,669,2,2,6))
+ciscoCdmaExtSystemPdsnGroupSupR01.setObjects(*((_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av),(_A,_Aw),(_A,_Ax)))
+if mibBuilder.loadTexts:ciscoCdmaExtSystemPdsnGroupSupR01.setStatus(_B)
+ciscoCdmaExtPdsnPcfSoRpRegGroupSupR01=ObjectGroup((1,3,6,1,4,1,9,9,669,2,2,7))
+ciscoCdmaExtPdsnPcfSoRpRegGroupSupR01.setObjects((_A,_Ay))
+if mibBuilder.loadTexts:ciscoCdmaExtPdsnPcfSoRpRegGroupSupR01.setStatus(_B)
+ciscoCdmaExtSystemPdsnGroupSupR02=ObjectGroup((1,3,6,1,4,1,9,9,669,2,2,8))
+ciscoCdmaExtSystemPdsnGroupSupR02.setObjects((_A,_Az))
+if mibBuilder.loadTexts:ciscoCdmaExtSystemPdsnGroupSupR02.setStatus(_B)
+ciscoCdmaExtLoadLowReachedNotif=NotificationType((1,3,6,1,4,1,9,9,669,0,1))
+ciscoCdmaExtLoadLowReachedNotif.setObjects(*((_O,_P),(_A,_K),(_A,_L)))
+if mibBuilder.loadTexts:ciscoCdmaExtLoadLowReachedNotif.setStatus(_B)
+ciscoCdmaExtLoadHighReachedNotif=NotificationType((1,3,6,1,4,1,9,9,669,0,2))
+ciscoCdmaExtLoadHighReachedNotif.setObjects(*((_O,_P),(_A,_K),(_A,_L)))
+if mibBuilder.loadTexts:ciscoCdmaExtLoadHighReachedNotif.setStatus(_B)
+ciscoCdmaExtNotifPdsnGroup=NotificationGroup((1,3,6,1,4,1,9,9,669,2,2,2))
+ciscoCdmaExtNotifPdsnGroup.setObjects(*((_A,_A_),(_A,_B0)))
+if mibBuilder.loadTexts:ciscoCdmaExtNotifPdsnGroup.setStatus(_B)
+ciscoCdmaPdsnExtMIBCompliance=ModuleCompliance((1,3,6,1,4,1,9,9,669,2,1,1))
+ciscoCdmaPdsnExtMIBCompliance.setObjects(*((_A,_H),(_A,_I),(_A,_J)))
+if mibBuilder.loadTexts:ciscoCdmaPdsnExtMIBCompliance.setStatus(_T)
+ciscoCdmaPdsnExtMIBComplianceRev1=ModuleCompliance((1,3,6,1,4,1,9,9,669,2,1,2))
+ciscoCdmaPdsnExtMIBComplianceRev1.setObjects(*((_A,_H),(_A,_I),(_A,_M),(_A,_N),(_A,_J)))
+if mibBuilder.loadTexts:ciscoCdmaPdsnExtMIBComplianceRev1.setStatus(_T)
+ciscoCdmaPdsnExtMIBComplianceRev2=ModuleCompliance((1,3,6,1,4,1,9,9,669,2,1,3))
+ciscoCdmaPdsnExtMIBComplianceRev2.setObjects(*((_A,_H),(_A,_I),(_A,_M),(_A,_N),(_A,_J),(_A,_U)))
+if mibBuilder.loadTexts:ciscoCdmaPdsnExtMIBComplianceRev2.setStatus(_T)
+ciscoCdmaPdsnExtMIBComplianceRev3=ModuleCompliance((1,3,6,1,4,1,9,9,669,2,1,4))
+ciscoCdmaPdsnExtMIBComplianceRev3.setObjects(*((_A,_H),(_A,_I),(_A,_M),(_A,_N),(_A,_J),(_A,_U),(_A,_B1),(_A,_B2)))
+if mibBuilder.loadTexts:ciscoCdmaPdsnExtMIBComplianceRev3.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'ciscoCdmaPdsnExtMIB':ciscoCdmaPdsnExtMIB,'ciscoCdmaPdsnExtMIBNotifs':ciscoCdmaPdsnExtMIBNotifs,_A_:ciscoCdmaExtLoadLowReachedNotif,_B0:ciscoCdmaExtLoadHighReachedNotif,'ciscoCdmaPdsnExtMIBObjects':ciscoCdmaPdsnExtMIBObjects,'ccpCdmaExtSystemInfo':ccpCdmaExtSystemInfo,_A0:ccpCdmaExtTotalBandwidth,_y:ccpCdmaExtAvailableBandwidth,_A1:ccpCdmaExtAllocatedBandwidth,_A2:ccpCdmaExtSessionAuxConnectionsEnabled,_A4:ccpCdmaExtSessionMaxAuxConnectionsAllowed,_x:ccpCdmaExtSessionAuxConnectionsTotal,_z:ccpCdmaExtPolicingEnabled,_n:ccpCdmaExtAuxSessionTotal,_o:ccpCdmaExtPolicingSessionTotal,_p:ccpCdmaExtDscpSession,_A3:ccpCdmaExtLoadHighReachedNotifEnabled,_AK:ccpCdmaExtCacEnabled,_Ao:ccpCdmaExtRohcEnabled,_Ax:ccpCdmaExtRohcAuxA10sCount,'ccpCdmaExtPerformanceStats':ccpCdmaExtPerformanceStats,'ccpCdmaExtRsvpStats':ccpCdmaExtRsvpStats,_i:ccpCdmaExtRsvpCreationSuccessTfts,_Z:ccpCdmaExtRsvpCreationFailureTfts,_a:ccpCdmaExtRsvpPacketFilterAddFailureTfts,_b:ccpCdmaExtRsvpPacketFilterUnavailableTfts,_c:ccpCdmaExtRsvpPacketFilterReplaceFailureTfts,_d:ccpCdmaExtRsvpPacketFilterAddBeforeCreationTfts,_e:ccpCdmaExtRsvpUnableToParseTfts,_f:ccpCdmaExtRsvpPrecedenceContentionTfts,_g:ccpCdmaExtRsvpTreatmentUnsupportedTfts,_h:ccpCdmaExtRsvpMaxPacketFiltersReachedTfts,_j:ccpCdmaExtRsvpUnAuthorizeTfts,'ccpCdmaExtQosStats':ccpCdmaExtQosStats,_k:ccpCdmaExtQosSuccesses,_l:ccpCdmaExtQosFailures,_m:ccpCdmaExtQosDscpRemarkedPkts,'ccpCdmaExtBandwidthPolicyStats':ccpCdmaExtBandwidthPolicyStats,_s:ccpCdmaExtBandwidthPolicyInstallSuccesses,_q:ccpCdmaExtBandwidthPolicyInstallFailures,_r:ccpCdmaExtBandwidthPolicyRemoves,'ccpCdmaExtRpRegStats':ccpCdmaExtRpRegStats,_t:ccpCdmaExtRpReRegNewAuxConnections,_u:ccpCdmaExtRpReRegCloseAuxConnections,_v:ccpCdmaExtRpReRegRemapFlows,_w:ccpCdmaExtRpRegNewAuxConnections,'ccpCdmaExtRpSessUpdStats':ccpCdmaExtRpSessUpdStats,_A5:ccpCdmaExtRpSessionUpdSubQoses,'ccpCdmaExtPcfSoRpRegStats':ccpCdmaExtPcfSoRpRegStats,'ccpCdmaExtPcfSoRpRegStatsTable':ccpCdmaExtPcfSoRpRegStatsTable,_X:ccpCdmaExtPcfSoRpRegStatsEntry,_AA:ccpCdmaExtPcfSoStatsTotalAuxConnections,_AB:ccpCdmaExtPcfSoRpRegStatsNewAuxConnections,_AC:ccpCdmaExtPcfSoRpReRegStatsNewAuxConnections,_AD:ccpCdmaExtPcfSoRpReRegStatsCloseAuxConnections,_AE:ccpCdmaExtPcfSoRpReRegStatsRemapFlows,_AJ:ccpCdmaExtPcfSoRpRegStatsBwUnavailableSess,_AF:ccpCdmaExtPcfSoRpRegStatsSessionUpdSubQoses,_AG:ccpCdmaExtPcfSoRpRegStatsMaxServiceFlows,_AH:ccpCdmaExtPcfSoRpRegStatsUnsupportedSOs,_AI:ccpCdmaExtPcfSoRpRegStatsNonExistA10s,_Ay:ccpCdmaExtPcfSoRpRegStatsNoCIDAvailable,'ccpCdmaExtPcfSoPppSetupStats':ccpCdmaExtPcfSoPppSetupStats,'ccpCdmaExtPcfSoPppSetupStatsTable':ccpCdmaExtPcfSoPppSetupStatsTable,_Y:ccpCdmaExtPcfSoPppSetupStatsEntry,_AL:ccpCdmaExtPcfSoPppPreLCPPdsnA10Rls,_AM:ccpCdmaExtPcfSoPppPreLCPPcfA10Rls,_AN:ccpCdmaExtPcfSoPppLcpOptionIssueFailures,_AO:ccpCdmaExtPcfSoPppLcpFailuresMaxRetrans,_AP:ccpCdmaExtPcfSoPppLcpFailuresUnknown,_AQ:ccpCdmaExtPcfSoPppLcpPhaseRxTermreqs,_AR:ccpCdmaExtPcfSoPppLcpPcfA10Rls,_AS:ccpCdmaExtPcfSoPppAuthFailures,_AT:ccpCdmaExtPcfSoPppAuthAAATimeouts,_AW:ccpCdmaExtPcfSoPppAuthFailuresUnknown,_AU:ccpCdmaExtPcfSoPppAuthMaxRetransFailures,_AV:ccpCdmaExtPcfSoPppAuthPhaseRxTermreqs,_AX:ccpCdmaExtPcfSoPppAuthPcfA10Rls,_AY:ccpCdmaExtPcfSoPppIpcpOptionIssueFailures,_AZ:ccpCdmaExtPcfSoPppIpcpFailuresMaxRetrans,_Aa:ccpCdmaExtPcfSoPppIpcpFailuresUnknown,_Ab:ccpCdmaExtPcfSoPppIpcpPhaseRxTermreqs,_Ac:ccpCdmaExtPcfSoPppIpcpPcfA10Rls,_Ad:ccpCdmaExtPcfSoPppIpcpIpResourceFail,_Ae:ccpCdmaExtPcfSoPppRenegTotalReqs,_Af:ccpCdmaExtPcfSoPppRenegByPdsnReqs,_Ag:ccpCdmaExtPcfSoPppRenegByMobileReqs,_Ah:ccpCdmaExtPcfSoPppRenegSuccesses,_Ai:ccpCdmaExtPcfSoPppRenegFailures,_Aj:ccpCdmaExtPcfSoPppRenegConnectionsAborted,_Ak:ccpCdmaExtPcfSoPppRenegAddrMismatchReqs,_Al:ccpCdmaExtPcfSoPppRenegAccessNwIdChanges,_Am:ccpCdmaExtPcfSoPppRenegGreChangeReqs,_An:ccpCdmaExtPcfSoPppRenegOtherReasonReqs,'ccpCdmaExtRohcStats':ccpCdmaExtRohcStats,_Ap:ccpCdmaExtRohcSuccessCount,_Aq:ccpCdmaExtRohcFailuresCount,_Ar:ccpCdmaExtRohcOutIpPkts,_As:ccpCdmaExtRohcOutIpBytes,_At:ccpCdmaExtRohcDeCompSuccessCount,_Au:ccpCdmaExtRohcDeCompFailuresCount,_Av:ccpCdmaExtRohcDeCompOutIpPkts,_Aw:ccpCdmaExtRohcDeCompOutIpBytes,'ccpCdmaExtRpErrors':ccpCdmaExtRpErrors,'ccpCdmaExtRPRegReqErrors':ccpCdmaExtRPRegReqErrors,_A9:ccpCdmaExtRegReqBwUnavailableSess,_A6:ccpCdmaExtRegReqMaxServiceFlows,_A7:ccpCdmaExtRegReqUnSupportedSOs,_A8:ccpCdmaExtRegReqNonExistA10s,_Az:ccpCdmaExtRegReqNoCIDAvailable,'ccpCdmaExtNotifObjects':ccpCdmaExtNotifObjects,_K:ccpCdmaExtNotifReason,_L:ccpCdmaExtNotifReasonCurrentValue,'ciscoCdmaPdsnExtMIBConformance':ciscoCdmaPdsnExtMIBConformance,'ciscoCdmaPdsnExtMIBCompliances':ciscoCdmaPdsnExtMIBCompliances,'ciscoCdmaPdsnExtMIBCompliance':ciscoCdmaPdsnExtMIBCompliance,'ciscoCdmaPdsnExtMIBComplianceRev1':ciscoCdmaPdsnExtMIBComplianceRev1,'ciscoCdmaPdsnExtMIBComplianceRev2':ciscoCdmaPdsnExtMIBComplianceRev2,'ciscoCdmaPdsnExtMIBComplianceRev3':ciscoCdmaPdsnExtMIBComplianceRev3,'ciscoCdmaPdsnExtMIBGroups':ciscoCdmaPdsnExtMIBGroups,_H:ciscoCdmaExtSystemPdsnGroup,_J:ciscoCdmaExtNotifPdsnGroup,_I:ciscoCdmaExtPdsnPcfSoRpRegGroup,_N:ciscoCdmaExtSystemPdsnCacGroup,_M:ciscoCdmaExtPdsnPcfSoPppGroup,_U:ciscoCdmaExtSystemPdsnGroupSupR01,_B1:ciscoCdmaExtPdsnPcfSoRpRegGroupSupR01,_B2:ciscoCdmaExtSystemPdsnGroupSupR02})

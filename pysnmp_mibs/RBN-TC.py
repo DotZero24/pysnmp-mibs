@@ -1,0 +1,20 @@
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+rbnModules,=mibBuilder.importSymbols('RBN-SMI','rbnModules')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+rbnTC=ModuleIdentity((1,3,6,1,4,1,2352,5,2))
+if mibBuilder.loadTexts:rbnTC.setRevisions(('2011-01-19 18:00','2009-10-20 17:00','2004-06-19 17:00','2003-03-17 17:00','2002-11-11 00:00','2002-06-26 00:00','2000-07-14 00:00'))
+class RbnCircuitHandle(TextualConvention,OctetString):status=_A;displayHint='1d:1d:2x-2x-2x';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
+class RbnKBytes(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+class RbnPercentage(TextualConvention,Integer32):status=_A;displayHint='d%';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
+class RbnSlot(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+class RbnPort(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+class RbnVidOrUntagged(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4096))
+class RbnPortMediumType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,11,12,13,14)));namedValues=NamedValues(*(('unknown',0),('dsl',11),('cable',12),('wireless',13),('satellite',14)))
+class RbnUnsigned64(TextualConvention,OctetString):status=_A;displayHint='8d';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(8,8));fixedLength=8
+mibBuilder.exportSymbols('RBN-TC',**{'RbnCircuitHandle':RbnCircuitHandle,'RbnKBytes':RbnKBytes,'RbnPercentage':RbnPercentage,'RbnSlot':RbnSlot,'RbnPort':RbnPort,'RbnVidOrUntagged':RbnVidOrUntagged,'RbnPortMediumType':RbnPortMediumType,'RbnUnsigned64':RbnUnsigned64,'rbnTC':rbnTC})

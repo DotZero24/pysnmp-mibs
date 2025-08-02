@@ -1,0 +1,27 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+mediatrixProducts,=mibBuilder.importSymbols('MX-SMI2','mediatrixProducts')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+_Mediatrix3000Series_ObjectIdentity=ObjectIdentity
+mediatrix3000Series=_Mediatrix3000Series_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,100,100))
+_Mediatrix4400Series_ObjectIdentity=ObjectIdentity
+mediatrix4400Series=_Mediatrix4400Series_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,100,200))
+_Mediatrix4100Series_ObjectIdentity=ObjectIdentity
+mediatrix4100Series=_Mediatrix4100Series_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,100,300))
+_MediatrixLPSeries_ObjectIdentity=ObjectIdentity
+mediatrixLPSeries=_MediatrixLPSeries_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,100,400))
+_MediatrixiPBXSeries_ObjectIdentity=ObjectIdentity
+mediatrixiPBXSeries=_MediatrixiPBXSeries_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,100,500))
+_MediatrixC7Series_ObjectIdentity=ObjectIdentity
+mediatrixC7Series=_MediatrixC7Series_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,100,600))
+_MediatrixSentinelSeries_ObjectIdentity=ObjectIdentity
+mediatrixSentinelSeries=_MediatrixSentinelSeries_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,100,700))
+_MediatrixG7Series_ObjectIdentity=ObjectIdentity
+mediatrixG7Series=_MediatrixG7Series_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,100,800))
+_MediatrixS7Series_ObjectIdentity=ObjectIdentity
+mediatrixS7Series=_MediatrixS7Series_ObjectIdentity((1,3,6,1,4,1,4935,1000,100,100,900))
+mibBuilder.exportSymbols('MX-PRODUCTS2-MIB',**{'mediatrix3000Series':mediatrix3000Series,'mediatrix4400Series':mediatrix4400Series,'mediatrix4100Series':mediatrix4100Series,'mediatrixLPSeries':mediatrixLPSeries,'mediatrixiPBXSeries':mediatrixiPBXSeries,'mediatrixC7Series':mediatrixC7Series,'mediatrixSentinelSeries':mediatrixSentinelSeries,'mediatrixG7Series':mediatrixG7Series,'mediatrixS7Series':mediatrixS7Series})

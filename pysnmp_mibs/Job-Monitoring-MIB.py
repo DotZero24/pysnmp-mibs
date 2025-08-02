@@ -1,171 +1,268 @@
-#
-# PySNMP MIB module Job-Monitoring-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/Job-Monitoring-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:19:35 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
-( ModuleCompliance, ObjectGroup, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-( NotificationType, Bits, Counter64, Gauge32, Unsigned32, Counter32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, iso, MibIdentifier, Integer32, ModuleIdentity, ObjectIdentity, enterprises, ) = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Bits", "Counter64", "Gauge32", "Unsigned32", "Counter32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "iso", "MibIdentifier", "Integer32", "ModuleIdentity", "ObjectIdentity", "enterprises")
-( DisplayString, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-jobmonMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2699, 1, 1)).setRevisions(("1999-02-19 00:00",))
-if mibBuilder.loadTexts: jobmonMIB.setLastUpdated('9902190000Z')
-if mibBuilder.loadTexts: jobmonMIB.setOrganization('Printer Working Group (PWG)')
-if mibBuilder.loadTexts: jobmonMIB.setContactInfo("Tom Hastings\n        Postal:  Xerox Corp.\n                 Mail stop ESAE-231\n                 701 S. Aviation Blvd.\n                 El Segundo, CA 90245\n\n        Tel:     (301)333-6413\n        Fax:     (301)333-5514\n        E-mail:  hastings@cp10.es.xerox.com\n\n        Send questions and comments to the Printer Working Group (PWG)\n        using the Job Monitoring Project (JMP) Mailing List:\n        jmp@pwg.org\n\n        For further information, including how to subscribe to the\n        jmp mailing list, access the PWG web page under 'JMP':\n\n            http://www.pwg.org/\n\n        Implementers of this specification are encouraged to join the\n        jmp mailing list in order to participate in discussions on any\n        clarifications needed and registration proposals being reviewed\n\n        in order to achieve consensus.")
-if mibBuilder.loadTexts: jobmonMIB.setDescription('The MIB module for monitoring job in servers, printers, and\n        other devices.\n\n        Version: 1.0')
-class JmUTF8StringTC(OctetString, TextualConvention):
-    displayHint = '255a'
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,63)
-
-class JmJobStringTC(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,63)
-
-class JmNaturalLanguageTagTC(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,63)
-
-class JmTimeStampTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,2147483647)
-
-class JmJobSourcePlatformTypeTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("sptUNIX", 3), ("sptOS2", 4), ("sptPCDOS", 5), ("sptNT", 6), ("sptMVS", 7), ("sptVM", 8), ("sptOS400", 9), ("sptVMS", 10), ("sptWindows", 11), ("sptNetWare", 12),)
-
-class JmFinishingTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7,))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("none", 3), ("staple", 4), ("punch", 5), ("cover", 6), ("bind", 7),)
-
-class JmPrintQualityTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("draft", 3), ("normal", 4), ("high", 5),)
-
-class JmPrinterResolutionTC(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(9,9)
-    fixedLength = 9
-
-class JmTonerEconomyTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(2, 3, 4,))
-    namedValues = NamedValues(("unknown", 2), ("off", 3), ("on", 4),)
-
-class JmBooleanTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(2, 3, 4,))
-    namedValues = NamedValues(("unknown", 2), ("false", 3), ("true", 4),)
-
-class JmMediumTypeTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("stationery", 3), ("transparency", 4), ("envelope", 5), ("envelopePlain", 6), ("envelopeWindow", 7), ("continuousLong", 8), ("continuousShort", 9), ("tabStock", 10), ("multiPartForm", 11), ("labels", 12), ("multiLayer", 13),)
-
-class JmJobCollationTypeTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("uncollatedSheets", 3), ("collatedDocuments", 4), ("uncollatedDocuments", 5),)
-
-class JmJobSubmissionIDTypeTC(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(1,1)
-    fixedLength = 1
-
-class JmJobStateTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(2, 3, 4, 5, 6, 7, 8, 9,))
-    namedValues = NamedValues(("unknown", 2), ("pending", 3), ("pendingHeld", 4), ("processing", 5), ("processingStopped", 6), ("canceled", 7), ("aborted", 8), ("completed", 9),)
-
-class JmAttributeTypeTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 3, 4, 5, 6, 7, 8, 9, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 50, 51, 52, 53, 54, 55, 56, 70, 71, 72, 73, 74, 75, 76, 77, 90, 91, 92, 93, 94, 95, 96, 97, 110, 111, 112, 113, 114, 115, 130, 131, 132, 150, 151, 152, 170, 171, 172, 173, 174, 175, 190, 191, 192, 193, 194, 195,))
-    namedValues = NamedValues(("other", 1), ("jobStateReasons2", 3), ("jobStateReasons3", 4), ("jobStateReasons4", 5), ("processingMessage", 6), ("processingMessageNaturalLangTag", 7), ("jobCodedCharSet", 8), ("jobNaturalLanguageTag", 9), ("jobURI", 20), ("jobAccountName", 21), ("serverAssignedJobName", 22), ("jobName", 23), ("jobServiceTypes", 24), ("jobSourceChannelIndex", 25), ("jobSourcePlatformType", 26), ("submittingServerName", 27), ("submittingApplicationName", 28), ("jobOriginatingHost", 29), ("deviceNameRequested", 30), ("queueNameRequested", 31), ("physicalDevice", 32), ("numberOfDocuments", 33), ("fileName", 34), ("documentName", 35), ("jobComment", 36), ("documentFormatIndex", 37), ("documentFormat", 38), ("jobPriority", 50), ("jobProcessAfterDateAndTime", 51), ("jobHold", 52), ("jobHoldUntil", 53), ("outputBin", 54), ("sides", 55), ("finishing", 56), ("printQualityRequested", 70), ("printQualityUsed", 71), ("printerResolutionRequested", 72), ("printerResolutionUsed", 73), ("tonerEcomonyRequested", 74), ("tonerEcomonyUsed", 75), ("tonerDensityRequested", 76), ("tonerDensityUsed", 77), ("jobCopiesRequested", 90), ("jobCopiesCompleted", 91), ("documentCopiesRequested", 92), ("documentCopiesCompleted", 93), ("jobKOctetsTransferred", 94), ("sheetCompletedCopyNumber", 95), ("sheetCompletedDocumentNumber", 96), ("jobCollationType", 97), ("impressionsSpooled", 110), ("impressionsSentToDevice", 111), ("impressionsInterpreted", 112), ("impressionsCompletedCurrentCopy", 113), ("fullColorImpressionsCompleted", 114), ("highlightColorImpressionsCompleted", 115), ("pagesRequested", 130), ("pagesCompleted", 131), ("pagesCompletedCurrentCopy", 132), ("sheetsRequested", 150), ("sheetsCompleted", 151), ("sheetsCompletedCurrentCopy", 152), ("mediumRequested", 170), ("mediumConsumed", 171), ("colorantRequested", 172), ("colorantConsumed", 173), ("mediumTypeConsumed", 174), ("mediumSizeConsumed", 175), ("jobSubmissionToServerTime", 190), ("jobSubmissionTime", 191), ("jobStartedBeingHeldTime", 192), ("jobStartedProcessingTime", 193), ("jobCompletionTime", 194), ("jobProcessingCPUTime", 195),)
-
-class JmJobServiceTypesTC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,2147483647)
-
-class JmJobStateReasons1TC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,2147483647)
-
-class JmJobStateReasons2TC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,2147483647)
-
-class JmJobStateReasons3TC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,2147483647)
-
-class JmJobStateReasons4TC(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,2147483647)
-
-jobmonMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1))
-jmGeneral = MibIdentifier((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 1))
-jmGeneralTable = MibTable((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 1, 1), )
-if mibBuilder.loadTexts: jmGeneralTable.setDescription("The jmGeneralTable consists of information of a general nature\n        that are per-job-set, but are not per-job.  See Section 2\n        entitled 'Terminology and Job Model' for the definition of a\n        job set.\n\n        The MANDATORY-GROUP macro specifies that this group is\n        MANDATORY.")
-jmGeneralEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 1, 1, 1), ).setIndexNames((0, "Job-Monitoring-MIB", "jmGeneralJobSetIndex"))
-if mibBuilder.loadTexts: jmGeneralEntry.setDescription('Information about a job set (queue).\n\n        An entry SHALL exist in this table for each job set.')
-jmGeneralJobSetIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,32767)))
-if mibBuilder.loadTexts: jmGeneralJobSetIndex.setDescription("A unique value for each job set in this MIB.  The jmJobTable\n        and jmAttributeTable tables have this same index as their\n        primary index.\n\n        The value(s) of the jmGeneralJobSetIndex SHALL be persistent\n        across power cycles, so that clients that have retained\n        jmGeneralJobSetIndex values will access the same job sets upon\n        subsequent power-up.\n\n        An implementation that has only one job set, such as a printer\n\n        with a single queue, SHALL hard code this object with the value\n        1.\n\n        See Section 2 entitled 'Terminology and Job Model' for the\n        definition of a job set.\n        Corresponds to the first index in jmJobTable and\n        jmAttributeTable.")
-jmGeneralNumberOfActiveJobs = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmGeneralNumberOfActiveJobs.setDescription("The current number of 'active' jobs in the jmJobIDTable,\n        jmJobTable, and jmAttributeTable, i.e., the total number of\n        jobs that are in the pending, processing, or processingStopped\n        states.  See the JmJobStateTC textual-convention for the exact\n        specification of the semantics of the job states.")
-jmGeneralOldestActiveJobIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmGeneralOldestActiveJobIndex.setDescription("The jmJobIndex of the oldest job that is still in one of the\n        'active' states (pending, processing, or processingStopped).\n        In other words, the index of the 'active' job that has been in\n        the job tables the longest.\n\n        If there are no active jobs, the agent SHALL set the value of\n        this object to 0.\n\n        See Section 3.2 entitled 'The Job Tables and the Oldest Active\n        and Newest Active Indexes' for a description of the usage of\n        this object.")
-jmGeneralNewestActiveJobIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmGeneralNewestActiveJobIndex.setDescription("The jmJobIndex of the newest job that is in one of the\n        'active' states (pending, processing, or processingStopped).\n        In other words, the index of the 'active' job that has been\n        most recently added to the job tables.\n\n        When all jobs become 'inactive', i.e., enter the pendingHeld,\n        completed, canceled, or aborted states, the agent SHALL set the\n        value of this object to 0.\n\n        See Section 3.2 entitled 'The Job Tables and the Oldest Active\n        and Newest Active Indexes' for a description of the usage of\n        this object.")
-jmGeneralJobPersistence = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(15,2147483647)).clone(60)).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmGeneralJobPersistence.setDescription('The minimum time in seconds for this instance of the Job Set\n        that an entry SHALL remain in the jmJobIDTable and jmJobTable\n        after processing has completed, i.e., the minimum time in\n        seconds starting when the job enters the completed, canceled,\n        or aborted state.\n\n        Configuring this object is implementation-dependent.\n\n        This value SHALL be equal to or greater than the value of\n        jmGeneralAttributePersistence.  This value SHOULD be at least\n        60 which gives a monitoring or accounting application one\n        minute in which to poll for job data.')
-jmGeneralAttributePersistence = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(15,2147483647)).clone(60)).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmGeneralAttributePersistence.setDescription('The minimum time in seconds for this instance of the Job Set\n        that an entry SHALL remain in the jmAttributeTable after\n        processing has completed , i.e., the time in seconds starting\n        when the job enters the completed, canceled, or aborted state.\n\n        Configuring this object is implementation-dependent.\n\n        This value SHOULD be at least 60 which gives a monitoring or\n        accounting application one minute in which to poll for job\n        data.')
-jmGeneralJobSetName = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 1, 1, 1, 7), JmUTF8StringTC().subtype(subtypeSpec=ValueSizeConstraint(0,63)).clone(hexValue="")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmGeneralJobSetName.setDescription("The human readable name of this job set assigned by the system\n        administrator (by means outside of this MIB).  Typically, this\n        name SHOULD be the name of the job queue.  If a server or\n        device has only a single job set, this object can be the\n        administratively assigned name of the server or device itself.\n        This name does not need to be unique, though each job set in a\n        single Job Monitoring MIB SHOULD have distinct names.\n\n        NOTE - If the job set corresponds to a single printer and the\n        Printer MIB is implemented, this value SHOULD be the same as\n        the prtGeneralPrinterName object in the draft Printer MIB\n        [print-mib-draft].  If the job set corresponds to an IPP\n        Printer, this value SHOULD be the same as the IPP 'printer-\n        name' Printer attribute.\n\n        NOTE - The purpose of this object is to help the user of the\n        job monitoring application distinguish between several job sets\n        in implementations that support more than one job set.\n\n        See the OBJECT compliance macro for the minimum maximum length\n        required for conformance.")
-jmJobID = MibIdentifier((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 2))
-jmJobIDTable = MibTable((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 2, 1), )
-if mibBuilder.loadTexts: jmJobIDTable.setDescription('The jmJobIDTable provides a correspondence map (1) between the\n        job submission ID that a client uses to refer to a job and (2)\n        the jmGeneralJobSetIndex and jmJobIndex that the Job Monitoring\n        MIB agent assigned to the job and that are used to access the\n        job in all of the other tables in the MIB.  If a monitoring\n        application already knows the jmGeneralJobSetIndex and the\n        jmJobIndex of the job it is querying, that application NEED NOT\n        use the jmJobIDTable.\n\n        The MANDATORY-GROUP macro specifies that this group is\n        MANDATORY.')
-jmJobIDEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 2, 1, 1), ).setIndexNames((0, "Job-Monitoring-MIB", "jmJobSubmissionID"))
-if mibBuilder.loadTexts: jmJobIDEntry.setDescription('The map from (1) the jmJobSubmissionID to (2) the\n        jmGeneralJobSetIndex and jmJobIndex.\n\n        An entry SHALL exist in this table for each job currently known\n        to the agent for all job sets and job states.  There MAY be\n        more than one jmJobIDEntry that maps to a single job.  This\n        many to one mapping can occur when more than one network entity\n        along the job submission path supplies a job submission ID.\n        See Section 3.5.  However, each job SHALL appear once and in\n        one and only one job set.')
-jmJobSubmissionID = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 2, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(48,48)).setFixedLength(48))
-if mibBuilder.loadTexts: jmJobSubmissionID.setDescription("A quasi-unique 48-octet fixed-length string ID which\n        identifies the job within a particular client-server\n        environment.  There are multiple formats for the\n        jmJobSubmissionID.  Each format SHALL be uniquely identified.\n        See the JmJobSubmissionIDTypeTC textual convention.  Each\n        format SHALL be registered using the procedures of a type 2\n        enum.  See section 3.7.3 entitled: 'PWG Registration of Job\n        Submission Id Formats'.\n\n        If the requester (client or server) does not supply a job\n        submission ID in the job submission protocol, then the\n        recipient (server or device) SHALL assign a job submission ID\n        using any of the standard formats that have been reserved for\n        agents and adding the final 8 octets to distinguish the ID from\n        others submitted from the same requester.\n\n        The monitoring application, whether in the client or running\n        separately, MAY use the job submission ID to help identify\n        which jmJobIndex was assigned by the agent, i.e., in which row\n        the job information is in the other tables.\n\n        NOTE - fixed-length is used so that a management application\n        can use a shortened GetNext varbind (in SNMPv1 and SNMPv2) in\n        order to get the next submission ID, disregarding the remainder\n        of the ID in order to access jobs independent of the trailing\n        identifier part, e.g., to get all jobs submitted by a\n        particular jmJobOwner or submitted from a particular MAC\n        address.\n\n        See the JmJobSubmissionIDTypeTC textual convention.\n        See APPENDIX B - Support of Job Submission Protocols.")
-jmJobIDJobSetIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,32767))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmJobIDJobSetIndex.setDescription('This object contains the value of the jmGeneralJobSetIndex for\n        the job with the jmJobSubmissionID value, i.e., the job set\n        index of the job set in which the job was placed when that\n        server or device accepted the job.  This 16-bit value in\n\n        combination with the jmJobIDJobIndex value permits the\n        management application to access the other tables to obtain the\n        job-specific objects for this job.\n\n        See jmGeneralJobSetIndex in the jmGeneralTable.')
-jmJobIDJobIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmJobIDJobIndex.setDescription('This object contains the value of the jmJobIndex for the job\n        with the jmJobSubmissionID value, i.e., the job index for the\n        job when the server or device accepted the job.  This value, in\n        combination with the jmJobIDJobSetIndex value, permits the\n        management application to access the other tables to obtain the\n        job-specific objects for this job.\n\n        See jmJobIndex in the jmJobTable.')
-jmJob = MibIdentifier((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 3))
-jmJobTable = MibTable((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 3, 1), )
-if mibBuilder.loadTexts: jmJobTable.setDescription('The jmJobTable consists of basic job state and status\n        information for each job in a job set that (1) monitoring\n        applications need to be able to access in a single SNMP Get\n        operation, (2) that have a single value per job, and (3) that\n        SHALL always be implemented.\n\n        The MANDATORY-GROUP macro specifies that this group is\n        MANDATORY.')
-jmJobEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 3, 1, 1), ).setIndexNames((0, "Job-Monitoring-MIB", "jmGeneralJobSetIndex"), (0, "Job-Monitoring-MIB", "jmJobIndex"))
-if mibBuilder.loadTexts: jmJobEntry.setDescription("Basic per-job state and status information.\n\n        An entry SHALL exist in this table for each job, no matter what\n        the state of the job is.  Each job SHALL appear in one and only\n        one job set.\n\n        See Section 3.2 entitled 'The Job Tables'.")
-jmJobIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: jmJobIndex.setDescription("The sequential, monatonically increasing identifier index for\n        the job generated by the server or device when that server or\n        device accepted the job.  This index value permits the\n        management application to access the other tables to obtain the\n        job-specific row entries.\n\n        See Section 3.2 entitled 'The Job Tables and the Oldest Active\n        and Newest Active Indexes'.\n        See Section 3.5 entitled 'Job Identification'.\n        See also jmGeneralNewestActiveJobIndex for the largest value of\n        jmJobIndex.\n        See JmJobSubmissionIDTypeTC for a limit on the size of this\n        index if the agent represents it as an 8-digit decimal number.")
-jmJobState = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 3, 1, 1, 2), JmJobStateTC().clone('unknown')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmJobState.setDescription('The current state of the job (pending, processing, completed,\n        etc.).  Agents SHALL implement only those states which are\n        appropriate for the particular implementation.  However,\n        management applications SHALL be prepared to receive all the\n        standard job states.\n\n        The final value for this object SHALL be one of: completed,\n        canceled, or aborted.  The minimum length of time that the\n        agent SHALL maintain MIB data for a job in the completed,\n        canceled, or aborted state before removing the job data from\n        the jmJobIDTable and jmJobTable is specified by the value of\n        the jmGeneralJobPersistence object.')
-jmJobStateReasons1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 3, 1, 1, 3), JmJobStateReasons1TC()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmJobStateReasons1.setDescription("Additional information about the job's current state, i.e.,\n        information that augments the value of the job's jmJobState\n        object.\n\n        Implementation of any reason values is OPTIONAL, but an agent\n        SHOULD return any reason information available.  These values\n        MAY be used with any job state or states for which the reason\n        makes sense.  Since the Job State Reasons will be more dynamic\n        than the Job State, it is recommended that a job monitoring\n        application read this object every time jmJobState is read.\n        When the agent cannot provide a reason for the current state of\n        the job, the value of the jmJobStateReasons1 object and\n        jobStateReasonsN attributes SHALL be 0.\n\n        The jobStateReasonsN (N=2..4) attributes provide further\n        additional information about the job's current state.")
-jmNumberOfInterveningJobs = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-2,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmNumberOfInterveningJobs.setDescription("The number of jobs that are expected to complete processing\n        before this job has completed processing according to the\n        implementation's queuing algorithm, if no other jobs were to be\n        submitted.  In other words, this value is the job's queue\n        position.  The agent SHALL return a value of 0 for this\n        attribute when the job is the next job to complete processing\n        (or has completed processing).")
-jmJobKOctetsPerCopyRequested = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-2,2147483647)).clone(-2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmJobKOctetsPerCopyRequested.setDescription("The total size in K (1024) octets of the document(s) being\n        requested to be processed in the job.  The agent SHALL round\n        the actual number of octets up to the next highest K.  Thus 0\n        octets is represented as '0', 1-1024 octets is represented as\n        '1', 1025-2048 is represented as '2', etc.\n\n        In computing this value, the server/device SHALL NOT include\n        the multiplicative factors contributed by (1) the number of\n        document copies, and (2) the number of job copies, independent\n        of whether the device can process multiple copies of the job or\n        document without making multiple passes over the job or\n        document data and independent of whether the output is collated\n        or not.  Thus the server/device computation is independent of\n        the implementation and indicates the size of the document(s)\n        measured in K octets independent of the number of copies.")
-jmJobKOctetsProcessed = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 3, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-2,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmJobKOctetsProcessed.setDescription("The total number of octets processed by the server or device\n\n        measured in units of K (1024) octets so far.  The agent SHALL\n        round the actual number of octets processed up to the next\n        higher K.  Thus 0 octets is represented as '0', 1-1024 octets\n        is represented as '1', 1025-2048 octets is '2', etc.  For\n        printing devices, this value is the number interpreted by the\n        page description language interpreter rather than what has been\n        marked on media.\n\n        For implementations where multiple copies are produced by the\n        interpreter with only a single pass over the data, the final\n        value SHALL be equal to the value of the\n        jmJobKOctetsPerCopyRequested object.  For implementations where\n        multiple copies are produced by the interpreter by processing\n        the data for each copy, the final value SHALL be a multiple of\n        the value of the jmJobKOctetsPerCopyRequested object.\n\n        NOTE - See the impressionsCompletedCurrentCopy and\n        pagesCompletedCurrentCopy attributes for attributes that are\n        reset on each document copy.\n\n        NOTE - The jmJobKOctetsProcessed object can be used with the\n        jmJobKOctetsPerCopyRequested object to provide an indication of\n        the relative progress of the job, provided that the\n        multiplicative factor is taken into account for some\n        implementations of multiple copies.")
-jmJobImpressionsPerCopyRequested = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 3, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-2,2147483647)).clone(-2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmJobImpressionsPerCopyRequested.setDescription("The total size in number of impressions of the document(s)\n        submitted.\n\n        In computing this value, the server/device SHALL NOT include\n        the multiplicative factors contributed by (1) the number of\n        document copies, and (2) the number of job copies, independent\n        of whether the device can process multiple copies of the job or\n        document without making multiple passes over the job or\n        document data and independent of whether the output is collated\n        or not.  Thus the server/device computation is independent of\n        the implementation and reflects the size of the document(s)\n        measured in impressions independent of the number of copies.\n\n        See the definition of the term 'impression' in Section 2.")
-jmJobImpressionsCompleted = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 3, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-2,2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmJobImpressionsCompleted.setDescription("The total number of impressions completed for this job so far.\n        For printing devices, the impressions completed includes\n        interpreting, marking, and stacking the output.  For other\n        types of job services, the number of impressions completed\n        includes the number of impressions processed.\n\n        NOTE - See the impressionsCompletedCurrentCopy and\n        pagesCompletedCurrentCopy attributes for attributes that are\n        reset on each document copy.\n\n        NOTE - The jmJobImpressionsCompleted object can be used with\n        the jmJobImpressionsPerCopyRequested object to provide an\n        indication of the relative progress of the job, provided that\n        the multiplicative factor is taken into account for some\n        implementations of multiple copies.\n\n        See the definition of the term 'impression' in Section 2 and\n        the counting example in Section 3.4 entitled 'Monitoring Job\n        Progress'.")
-jmJobOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 3, 1, 1, 9), JmJobStringTC().subtype(subtypeSpec=ValueSizeConstraint(0,63)).clone(hexValue="")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmJobOwner.setDescription('The coded character set name of the user that submitted the\n        job.  The method of assigning this user name will be system\n        and/or site specific but the method MUST ensure that the name\n        is unique to the network that is visible to the client and\n        target device.\n\n        This value SHOULD be the most authenticated name of the user\n        submitting the job.\n\n        See the OBJECT compliance macro for the minimum maximum length\n\n        required for conformance.')
-jmAttribute = MibIdentifier((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 4))
-jmAttributeTable = MibTable((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 4, 1), )
-if mibBuilder.loadTexts: jmAttributeTable.setDescription('The jmAttributeTable SHALL contain attributes of the job and\n        document(s) for each job in a job set.  Instead of allocating\n        distinct objects for each attribute, each attribute is\n        represented as a separate row in the jmAttributeTable.\n\n        The MANDATORY-GROUP macro specifies that this group is\n        MANDATORY.  An agent SHALL implement any attribute if (1) the\n        server or device supports the functionality represented by the\n        attribute and (2) the information is available to the agent. ')
-jmAttributeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 4, 1, 1), ).setIndexNames((0, "Job-Monitoring-MIB", "jmGeneralJobSetIndex"), (0, "Job-Monitoring-MIB", "jmJobIndex"), (0, "Job-Monitoring-MIB", "jmAttributeTypeIndex"), (0, "Job-Monitoring-MIB", "jmAttributeInstanceIndex"))
-if mibBuilder.loadTexts: jmAttributeEntry.setDescription("Attributes representing information about the job and\n        document(s) or resources required and/or consumed.\n\n        Each entry in the jmAttributeTable is a per-job entry with an\n        extra index for each type of attribute (jmAttributeTypeIndex)\n        that a job can have and an additional index\n        (jmAttributeInstanceIndex) for those attributes that can have\n\n        multiple instances per job.  The jmAttributeTypeIndex object\n        SHALL contain an enum type that indicates the type of attribute\n        (see the JmAttributeTypeTC textual-convention).  The value of\n        the attribute SHALL be represented in either the\n        jmAttributeValueAsInteger or jmAttributeValueAsOctets objects,\n        and/or both, as specified in the JmAttributeTypeTC textual-\n        convention.\n\n        The agent SHALL create rows in the jmAttributeTable as the\n        server or device is able to discover the attributes either from\n        the job submission protocol itself or from the document PDL.\n        As the documents are interpreted, the interpreter MAY discover\n        additional attributes and so the agent adds additional rows to\n        this table.  As the attributes that represent resources are\n        actually consumed, the usage counter contained in the\n        jmAttributeValueAsInteger object is incremented according to\n        the units indicated in the description of the JmAttributeTypeTC\n        enum.\n\n        The agent SHALL maintain each row in the jmAttributeTable for\n        at least the minimum time after a job completes as specified by\n        the jmGeneralAttributePersistence object.\n\n        Zero or more entries SHALL exist in this table for each job in\n        a job set.\n\n        See Section 3.3 entitled 'The Attribute Mechanism' for a\n        description of the jmAttributeTable.")
-jmAttributeTypeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 4, 1, 1, 1), JmAttributeTypeTC())
-if mibBuilder.loadTexts: jmAttributeTypeIndex.setDescription('The type of attribute that this row entry represents.\n\n        The type MAY identify information about the job or document(s)\n\n        or MAY identify a resource required to process the job before\n        the job start processing and/or consumed by the job as the job\n        is processed.\n\n        Examples of job attributes (i.e., apply to the job as a whole)\n        that have only one instance per job include:\n        jobCopiesRequested(90), documentCopiesRequested(92),\n        jobCopiesCompleted(91), documentCopiesCompleted(93), while\n        examples of job attributes that may have more than one instance\n        per job include:  documentFormatIndex(37), and\n        documentFormat(38).\n\n        Examples of document attributes (one instance per document)\n        include: fileName(34), and documentName(35).\n\n        Examples of required and consumed resource attributes include:\n        pagesRequested(130), mediumRequested(170), pagesCompleted(131),\n        and mediumConsumed(171), respectively.')
-jmAttributeInstanceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 4, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,32767)))
-if mibBuilder.loadTexts: jmAttributeInstanceIndex.setDescription('A running 16-bit index of the attributes of the same type for\n        each job.  For those attributes with only a single instance per\n        job, this index value SHALL be 1.  For those attributes that\n        are a single value per document, the index value SHALL be the\n        document number, starting with 1 for the first document in the\n        job.  Jobs with only a single document SHALL use the index\n        value of 1.  For those attributes that can have multiple values\n        per job or per document, such as documentFormatIndex(37) or\n        documentFormat(38), the index SHALL be a running index for the\n        job as a whole, starting at 1.')
-jmAttributeValueAsInteger = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 4, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-2,2147483647)).clone(-2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmAttributeValueAsInteger.setDescription("The integer value of the attribute.  The value of the\n        attribute SHALL be represented as an integer if the enum\n\n        description in the JmAttributeTypeTC textual-convention\n        definition has the tag: 'INTEGER:'.\n\n        Depending on the enum definition, this object value MAY be an\n        integer, a counter, an index, or an enum, depending on the\n        jmAttributeTypeIndex value.  The units of this value are\n        specified in the enum description.\n\n        For those attributes that are accumulating job consumption as\n        the job is processed as specified in the JmAttributeTypeTC\n        textual-convention, SHALL contain the final value after the job\n        completes processing, i.e., this value SHALL indicate the total\n        usage of this resource made by the job.\n\n        A monitoring application is able to copy this value to a\n        suitable longer term storage for later processing as part of an\n        accounting system.\n\n        Since the agent MAY add attributes representing resources to\n        this table while the job is waiting to be processed or being\n        processed, which can be a long time before any of the resources\n        are actually used, the agent SHALL set the value of the\n        jmAttributeValueAsInteger object to 0 for resources that the\n        job has not yet consumed.\n\n        Attributes for which the concept of an integer value is\n        meaningless, such as fileName(34), jobName, and\n        processingMessage, do not have the 'INTEGER:' tag in the\n        JmAttributeTypeTC definition and so an agent SHALL always\n        return a value of '-1' to indicate 'other' for the value of the\n        jmAttributeValueAsInteger object for these attributes.\n\n        For attributes which do have the 'INTEGER:' tag in the\n        JmAttributeTypeTC definition, if the integer value is not (yet)\n        known, the agent either (1) SHALL not materialize the row in\n        the jmAttributeTable until the value is known or (2) SHALL\n        return a '-2' to represent an 'unknown' counting integer value,\n        a '0' to represent an 'unknown' index value, and a '2' to\n        represent an 'unknown(2)' enum value.")
-jmAttributeValueAsOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2699, 1, 1, 1, 4, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,63)).clone(hexValue="")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jmAttributeValueAsOctets.setDescription("The octet string value of the attribute.  The value of the\n        attribute SHALL be represented as an OCTET STRING if the enum\n        description in the JmAttributeTypeTC textual-convention\n        definition has the tag: 'OCTETS:'.\n\n        Depending on the enum definition, this object value MAY be a\n        coded character set string (text), such as 'JmUTF8StringTC', or\n        a binary octet string, such as 'DateAndTime'.\n\n        Attributes for which the concept of an octet string value is\n        meaningless, such as pagesCompleted, do not have the tag\n        'OCTETS:' in the JmAttributeTypeTC definition and so the agent\n        SHALL always return a zero length string for the value of the\n        jmAttributeValueAsOctets object.\n\n        For attributes which do have the 'OCTETS:' tag in the\n        JmAttributeTypeTC definition, if the OCTET STRING value is not\n        (yet) known, the agent either SHALL NOT materialize the row in\n        the jmAttributeTable until the value is known or SHALL return a\n        zero-length string.")
-jobmonMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 2699, 1, 1, 2))
-jmMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2699, 1, 1, 3))
-jmMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2699, 1, 1, 3, 1)).setObjects(*(("Job-Monitoring-MIB", "jmGeneralGroup"), ("Job-Monitoring-MIB", "jmJobIDGroup"), ("Job-Monitoring-MIB", "jmJobGroup"), ("Job-Monitoring-MIB", "jmAttributeGroup"),))
-if mibBuilder.loadTexts: jmMIBCompliance.setDescription('The compliance statement for agents that implement the\n        job monitoring MIB.')
-jmMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2699, 1, 1, 3, 2))
-jmGeneralGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2699, 1, 1, 3, 2, 1)).setObjects(*(("Job-Monitoring-MIB", "jmGeneralNumberOfActiveJobs"), ("Job-Monitoring-MIB", "jmGeneralOldestActiveJobIndex"), ("Job-Monitoring-MIB", "jmGeneralNewestActiveJobIndex"), ("Job-Monitoring-MIB", "jmGeneralJobPersistence"), ("Job-Monitoring-MIB", "jmGeneralAttributePersistence"), ("Job-Monitoring-MIB", "jmGeneralJobSetName"),))
-if mibBuilder.loadTexts: jmGeneralGroup.setDescription('The general group.')
-jmJobIDGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2699, 1, 1, 3, 2, 2)).setObjects(*(("Job-Monitoring-MIB", "jmJobIDJobSetIndex"), ("Job-Monitoring-MIB", "jmJobIDJobIndex"),))
-if mibBuilder.loadTexts: jmJobIDGroup.setDescription('The job ID group.')
-jmJobGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2699, 1, 1, 3, 2, 3)).setObjects(*(("Job-Monitoring-MIB", "jmJobState"), ("Job-Monitoring-MIB", "jmJobStateReasons1"), ("Job-Monitoring-MIB", "jmNumberOfInterveningJobs"), ("Job-Monitoring-MIB", "jmJobKOctetsPerCopyRequested"), ("Job-Monitoring-MIB", "jmJobKOctetsProcessed"), ("Job-Monitoring-MIB", "jmJobImpressionsPerCopyRequested"), ("Job-Monitoring-MIB", "jmJobImpressionsCompleted"), ("Job-Monitoring-MIB", "jmJobOwner"),))
-if mibBuilder.loadTexts: jmJobGroup.setDescription('The job group.')
-jmAttributeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2699, 1, 1, 3, 2, 4)).setObjects(*(("Job-Monitoring-MIB", "jmAttributeValueAsInteger"), ("Job-Monitoring-MIB", "jmAttributeValueAsOctets"),))
-if mibBuilder.loadTexts: jmAttributeGroup.setDescription('The attribute group.')
-mibBuilder.exportSymbols("Job-Monitoring-MIB", PYSNMP_MODULE_ID=jobmonMIB, JmUTF8StringTC=JmUTF8StringTC, jmGeneralJobSetIndex=jmGeneralJobSetIndex, jmAttribute=jmAttribute, jmGeneralJobSetName=jmGeneralJobSetName, jmJobIDJobSetIndex=jmJobIDJobSetIndex, jmJob=jmJob, jmGeneral=jmGeneral, jmJobTable=jmJobTable, jmGeneralGroup=jmGeneralGroup, JmBooleanTC=JmBooleanTC, jmAttributeEntry=jmAttributeEntry, jmJobIDGroup=jmJobIDGroup, JmPrinterResolutionTC=JmPrinterResolutionTC, jmGeneralOldestActiveJobIndex=jmGeneralOldestActiveJobIndex, JmNaturalLanguageTagTC=JmNaturalLanguageTagTC, jmJobStateReasons1=jmJobStateReasons1, jmGeneralEntry=jmGeneralEntry, jmAttributeGroup=jmAttributeGroup, JmJobSubmissionIDTypeTC=JmJobSubmissionIDTypeTC, JmJobServiceTypesTC=JmJobServiceTypesTC, JmJobStateTC=JmJobStateTC, JmAttributeTypeTC=JmAttributeTypeTC, JmTimeStampTC=JmTimeStampTC, JmPrintQualityTC=JmPrintQualityTC, jmGeneralTable=jmGeneralTable, jmMIBGroups=jmMIBGroups, jmJobKOctetsProcessed=jmJobKOctetsProcessed, jmJobGroup=jmJobGroup, JmTonerEconomyTC=JmTonerEconomyTC, jmJobImpressionsCompleted=jmJobImpressionsCompleted, JmFinishingTC=JmFinishingTC, JmJobCollationTypeTC=JmJobCollationTypeTC, JmJobSourcePlatformTypeTC=JmJobSourcePlatformTypeTC, jmGeneralAttributePersistence=jmGeneralAttributePersistence, jmJobID=jmJobID, jmAttributeTable=jmAttributeTable, JmJobStateReasons2TC=JmJobStateReasons2TC, jmJobSubmissionID=jmJobSubmissionID, jmGeneralNumberOfActiveJobs=jmGeneralNumberOfActiveJobs, jmJobEntry=jmJobEntry, jmAttributeValueAsInteger=jmAttributeValueAsInteger, jmJobState=jmJobState, jmJobKOctetsPerCopyRequested=jmJobKOctetsPerCopyRequested, jobmonMIB=jobmonMIB, jmAttributeValueAsOctets=jmAttributeValueAsOctets, jmMIBConformance=jmMIBConformance, JmMediumTypeTC=JmMediumTypeTC, jmGeneralNewestActiveJobIndex=jmGeneralNewestActiveJobIndex, jmAttributeTypeIndex=jmAttributeTypeIndex, jmJobImpressionsPerCopyRequested=jmJobImpressionsPerCopyRequested, jmJobIDEntry=jmJobIDEntry, JmJobStateReasons4TC=JmJobStateReasons4TC, jmJobIndex=jmJobIndex, jmJobOwner=jmJobOwner, jmAttributeInstanceIndex=jmAttributeInstanceIndex, JmJobStateReasons1TC=JmJobStateReasons1TC, jmJobIDJobIndex=jmJobIDJobIndex, JmJobStateReasons3TC=JmJobStateReasons3TC, jobmonMIBNotifications=jobmonMIBNotifications, jmJobIDTable=jmJobIDTable, jmGeneralJobPersistence=jmGeneralJobPersistence, JmJobStringTC=JmJobStringTC, jmMIBCompliance=jmMIBCompliance, jobmonMIBObjects=jobmonMIBObjects, jmNumberOfInterveningJobs=jmNumberOfInterveningJobs)
+_n='jmAttributeGroup'
+_m='jmJobGroup'
+_l='jmJobIDGroup'
+_k='jmGeneralGroup'
+_j='jmAttributeValueAsOctets'
+_i='jmAttributeValueAsInteger'
+_h='jmJobOwner'
+_g='jmJobImpressionsCompleted'
+_f='jmJobImpressionsPerCopyRequested'
+_e='jmJobKOctetsProcessed'
+_d='jmJobKOctetsPerCopyRequested'
+_c='jmNumberOfInterveningJobs'
+_b='jmJobStateReasons1'
+_a='jmJobState'
+_Z='jmJobIDJobIndex'
+_Y='jmJobIDJobSetIndex'
+_X='jmGeneralJobSetName'
+_W='jmGeneralAttributePersistence'
+_V='jmGeneralJobPersistence'
+_U='jmGeneralNewestActiveJobIndex'
+_T='jmGeneralOldestActiveJobIndex'
+_S='jmGeneralNumberOfActiveJobs'
+_R='jmAttributeInstanceIndex'
+_Q='jmAttributeTypeIndex'
+_P='JmJobStringTC'
+_O='JmJobStateReasons1TC'
+_N='JmJobStateTC'
+_M='jmJobSubmissionID'
+_L='JmUTF8StringTC'
+_K='seconds'
+_J='jmJobIndex'
+_I='OctetString'
+_H='jmGeneralJobSetIndex'
+_G='not-accessible'
+_F='other'
+_E='unknown'
+_D='Integer32'
+_C='read-only'
+_B='Job-Monitoring-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_I,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+jobmonMIB=ModuleIdentity((1,3,6,1,4,1,2699,1,1))
+if mibBuilder.loadTexts:jobmonMIB.setRevisions(('1999-02-19 00:00',))
+class JmUTF8StringTC(TextualConvention,OctetString):status=_A;displayHint='255a';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+class JmJobStringTC(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+class JmNaturalLanguageTagTC(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+class JmTimeStampTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+class JmJobSourcePlatformTypeTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12)));namedValues=NamedValues(*((_F,1),(_E,2),('sptUNIX',3),('sptOS2',4),('sptPCDOS',5),('sptNT',6),('sptMVS',7),('sptVM',8),('sptOS400',9),('sptVMS',10),('sptWindows',11),('sptNetWare',12)))
+class JmFinishingTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*((_F,1),(_E,2),('none',3),('staple',4),('punch',5),('cover',6),('bind',7)))
+class JmPrintQualityTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_F,1),(_E,2),('draft',3),('normal',4),('high',5)))
+class JmPrinterResolutionTC(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(9,9));fixedLength=9
+class JmTonerEconomyTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3,4)));namedValues=NamedValues(*((_E,2),('off',3),('on',4)))
+class JmBooleanTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3,4)));namedValues=NamedValues(*((_E,2),('false',3),('true',4)))
+class JmMediumTypeTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13)));namedValues=NamedValues(*((_F,1),(_E,2),('stationery',3),('transparency',4),('envelope',5),('envelopePlain',6),('envelopeWindow',7),('continuousLong',8),('continuousShort',9),('tabStock',10),('multiPartForm',11),('labels',12),('multiLayer',13)))
+class JmJobCollationTypeTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_F,1),(_E,2),('uncollatedSheets',3),('collatedDocuments',4),('uncollatedDocuments',5)))
+class JmJobSubmissionIDTypeTC(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1));fixedLength=1
+class JmJobStateTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(2,3,4,5,6,7,8,9)));namedValues=NamedValues(*((_E,2),('pending',3),('pendingHeld',4),('processing',5),('processingStopped',6),('canceled',7),('aborted',8),('completed',9)))
+class JmAttributeTypeTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,3,4,5,6,7,8,9,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,50,51,52,53,54,55,56,70,71,72,73,74,75,76,77,90,91,92,93,94,95,96,97,110,111,112,113,114,115,130,131,132,150,151,152,170,171,172,173,174,175,190,191,192,193,194,195)));namedValues=NamedValues(*((_F,1),('jobStateReasons2',3),('jobStateReasons3',4),('jobStateReasons4',5),('processingMessage',6),('processingMessageNaturalLangTag',7),('jobCodedCharSet',8),('jobNaturalLanguageTag',9),('jobURI',20),('jobAccountName',21),('serverAssignedJobName',22),('jobName',23),('jobServiceTypes',24),('jobSourceChannelIndex',25),('jobSourcePlatformType',26),('submittingServerName',27),('submittingApplicationName',28),('jobOriginatingHost',29),('deviceNameRequested',30),('queueNameRequested',31),('physicalDevice',32),('numberOfDocuments',33),('fileName',34),('documentName',35),('jobComment',36),('documentFormatIndex',37),('documentFormat',38),('jobPriority',50),('jobProcessAfterDateAndTime',51),('jobHold',52),('jobHoldUntil',53),('outputBin',54),('sides',55),('finishing',56),('printQualityRequested',70),('printQualityUsed',71),('printerResolutionRequested',72),('printerResolutionUsed',73),('tonerEcomonyRequested',74),('tonerEcomonyUsed',75),('tonerDensityRequested',76),('tonerDensityUsed',77),('jobCopiesRequested',90),('jobCopiesCompleted',91),('documentCopiesRequested',92),('documentCopiesCompleted',93),('jobKOctetsTransferred',94),('sheetCompletedCopyNumber',95),('sheetCompletedDocumentNumber',96),('jobCollationType',97),('impressionsSpooled',110),('impressionsSentToDevice',111),('impressionsInterpreted',112),('impressionsCompletedCurrentCopy',113),('fullColorImpressionsCompleted',114),('highlightColorImpressionsCompleted',115),('pagesRequested',130),('pagesCompleted',131),('pagesCompletedCurrentCopy',132),('sheetsRequested',150),('sheetsCompleted',151),('sheetsCompletedCurrentCopy',152),('mediumRequested',170),('mediumConsumed',171),('colorantRequested',172),('colorantConsumed',173),('mediumTypeConsumed',174),('mediumSizeConsumed',175),('jobSubmissionToServerTime',190),('jobSubmissionTime',191),('jobStartedBeingHeldTime',192),('jobStartedProcessingTime',193),('jobCompletionTime',194),('jobProcessingCPUTime',195)))
+class JmJobServiceTypesTC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+class JmJobStateReasons1TC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+class JmJobStateReasons2TC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+class JmJobStateReasons3TC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+class JmJobStateReasons4TC(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_JobmonMIBObjects_ObjectIdentity=ObjectIdentity
+jobmonMIBObjects=_JobmonMIBObjects_ObjectIdentity((1,3,6,1,4,1,2699,1,1,1))
+_JmGeneral_ObjectIdentity=ObjectIdentity
+jmGeneral=_JmGeneral_ObjectIdentity((1,3,6,1,4,1,2699,1,1,1,1))
+_JmGeneralTable_Object=MibTable
+jmGeneralTable=_JmGeneralTable_Object((1,3,6,1,4,1,2699,1,1,1,1,1))
+if mibBuilder.loadTexts:jmGeneralTable.setStatus(_A)
+_JmGeneralEntry_Object=MibTableRow
+jmGeneralEntry=_JmGeneralEntry_Object((1,3,6,1,4,1,2699,1,1,1,1,1,1))
+jmGeneralEntry.setIndexNames((0,_B,_H))
+if mibBuilder.loadTexts:jmGeneralEntry.setStatus(_A)
+class _JmGeneralJobSetIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32767))
+_JmGeneralJobSetIndex_Type.__name__=_D
+_JmGeneralJobSetIndex_Object=MibTableColumn
+jmGeneralJobSetIndex=_JmGeneralJobSetIndex_Object((1,3,6,1,4,1,2699,1,1,1,1,1,1,1),_JmGeneralJobSetIndex_Type())
+jmGeneralJobSetIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:jmGeneralJobSetIndex.setStatus(_A)
+class _JmGeneralNumberOfActiveJobs_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_JmGeneralNumberOfActiveJobs_Type.__name__=_D
+_JmGeneralNumberOfActiveJobs_Object=MibTableColumn
+jmGeneralNumberOfActiveJobs=_JmGeneralNumberOfActiveJobs_Object((1,3,6,1,4,1,2699,1,1,1,1,1,1,2),_JmGeneralNumberOfActiveJobs_Type())
+jmGeneralNumberOfActiveJobs.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmGeneralNumberOfActiveJobs.setStatus(_A)
+class _JmGeneralOldestActiveJobIndex_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_JmGeneralOldestActiveJobIndex_Type.__name__=_D
+_JmGeneralOldestActiveJobIndex_Object=MibTableColumn
+jmGeneralOldestActiveJobIndex=_JmGeneralOldestActiveJobIndex_Object((1,3,6,1,4,1,2699,1,1,1,1,1,1,3),_JmGeneralOldestActiveJobIndex_Type())
+jmGeneralOldestActiveJobIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmGeneralOldestActiveJobIndex.setStatus(_A)
+class _JmGeneralNewestActiveJobIndex_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_JmGeneralNewestActiveJobIndex_Type.__name__=_D
+_JmGeneralNewestActiveJobIndex_Object=MibTableColumn
+jmGeneralNewestActiveJobIndex=_JmGeneralNewestActiveJobIndex_Object((1,3,6,1,4,1,2699,1,1,1,1,1,1,4),_JmGeneralNewestActiveJobIndex_Type())
+jmGeneralNewestActiveJobIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmGeneralNewestActiveJobIndex.setStatus(_A)
+class _JmGeneralJobPersistence_Type(Integer32):defaultValue=60;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(15,2147483647))
+_JmGeneralJobPersistence_Type.__name__=_D
+_JmGeneralJobPersistence_Object=MibTableColumn
+jmGeneralJobPersistence=_JmGeneralJobPersistence_Object((1,3,6,1,4,1,2699,1,1,1,1,1,1,5),_JmGeneralJobPersistence_Type())
+jmGeneralJobPersistence.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmGeneralJobPersistence.setStatus(_A)
+if mibBuilder.loadTexts:jmGeneralJobPersistence.setUnits(_K)
+class _JmGeneralAttributePersistence_Type(Integer32):defaultValue=60;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(15,2147483647))
+_JmGeneralAttributePersistence_Type.__name__=_D
+_JmGeneralAttributePersistence_Object=MibTableColumn
+jmGeneralAttributePersistence=_JmGeneralAttributePersistence_Object((1,3,6,1,4,1,2699,1,1,1,1,1,1,6),_JmGeneralAttributePersistence_Type())
+jmGeneralAttributePersistence.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmGeneralAttributePersistence.setStatus(_A)
+if mibBuilder.loadTexts:jmGeneralAttributePersistence.setUnits(_K)
+class _JmGeneralJobSetName_Type(JmUTF8StringTC):defaultHexValue='';subtypeSpec=JmUTF8StringTC.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_JmGeneralJobSetName_Type.__name__=_L
+_JmGeneralJobSetName_Object=MibTableColumn
+jmGeneralJobSetName=_JmGeneralJobSetName_Object((1,3,6,1,4,1,2699,1,1,1,1,1,1,7),_JmGeneralJobSetName_Type())
+jmGeneralJobSetName.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmGeneralJobSetName.setStatus(_A)
+_JmJobID_ObjectIdentity=ObjectIdentity
+jmJobID=_JmJobID_ObjectIdentity((1,3,6,1,4,1,2699,1,1,1,2))
+_JmJobIDTable_Object=MibTable
+jmJobIDTable=_JmJobIDTable_Object((1,3,6,1,4,1,2699,1,1,1,2,1))
+if mibBuilder.loadTexts:jmJobIDTable.setStatus(_A)
+_JmJobIDEntry_Object=MibTableRow
+jmJobIDEntry=_JmJobIDEntry_Object((1,3,6,1,4,1,2699,1,1,1,2,1,1))
+jmJobIDEntry.setIndexNames((0,_B,_M))
+if mibBuilder.loadTexts:jmJobIDEntry.setStatus(_A)
+class _JmJobSubmissionID_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(48,48));fixedLength=48
+_JmJobSubmissionID_Type.__name__=_I
+_JmJobSubmissionID_Object=MibTableColumn
+jmJobSubmissionID=_JmJobSubmissionID_Object((1,3,6,1,4,1,2699,1,1,1,2,1,1,1),_JmJobSubmissionID_Type())
+jmJobSubmissionID.setMaxAccess(_G)
+if mibBuilder.loadTexts:jmJobSubmissionID.setStatus(_A)
+class _JmJobIDJobSetIndex_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,32767))
+_JmJobIDJobSetIndex_Type.__name__=_D
+_JmJobIDJobSetIndex_Object=MibTableColumn
+jmJobIDJobSetIndex=_JmJobIDJobSetIndex_Object((1,3,6,1,4,1,2699,1,1,1,2,1,1,2),_JmJobIDJobSetIndex_Type())
+jmJobIDJobSetIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmJobIDJobSetIndex.setStatus(_A)
+class _JmJobIDJobIndex_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_JmJobIDJobIndex_Type.__name__=_D
+_JmJobIDJobIndex_Object=MibTableColumn
+jmJobIDJobIndex=_JmJobIDJobIndex_Object((1,3,6,1,4,1,2699,1,1,1,2,1,1,3),_JmJobIDJobIndex_Type())
+jmJobIDJobIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmJobIDJobIndex.setStatus(_A)
+_JmJob_ObjectIdentity=ObjectIdentity
+jmJob=_JmJob_ObjectIdentity((1,3,6,1,4,1,2699,1,1,1,3))
+_JmJobTable_Object=MibTable
+jmJobTable=_JmJobTable_Object((1,3,6,1,4,1,2699,1,1,1,3,1))
+if mibBuilder.loadTexts:jmJobTable.setStatus(_A)
+_JmJobEntry_Object=MibTableRow
+jmJobEntry=_JmJobEntry_Object((1,3,6,1,4,1,2699,1,1,1,3,1,1))
+jmJobEntry.setIndexNames((0,_B,_H),(0,_B,_J))
+if mibBuilder.loadTexts:jmJobEntry.setStatus(_A)
+class _JmJobIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_JmJobIndex_Type.__name__=_D
+_JmJobIndex_Object=MibTableColumn
+jmJobIndex=_JmJobIndex_Object((1,3,6,1,4,1,2699,1,1,1,3,1,1,1),_JmJobIndex_Type())
+jmJobIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:jmJobIndex.setStatus(_A)
+class _JmJobState_Type(JmJobStateTC):defaultValue=2
+_JmJobState_Type.__name__=_N
+_JmJobState_Object=MibTableColumn
+jmJobState=_JmJobState_Object((1,3,6,1,4,1,2699,1,1,1,3,1,1,2),_JmJobState_Type())
+jmJobState.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmJobState.setStatus(_A)
+class _JmJobStateReasons1_Type(JmJobStateReasons1TC):defaultValue=0
+_JmJobStateReasons1_Type.__name__=_O
+_JmJobStateReasons1_Object=MibTableColumn
+jmJobStateReasons1=_JmJobStateReasons1_Object((1,3,6,1,4,1,2699,1,1,1,3,1,1,3),_JmJobStateReasons1_Type())
+jmJobStateReasons1.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmJobStateReasons1.setStatus(_A)
+class _JmNumberOfInterveningJobs_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_JmNumberOfInterveningJobs_Type.__name__=_D
+_JmNumberOfInterveningJobs_Object=MibTableColumn
+jmNumberOfInterveningJobs=_JmNumberOfInterveningJobs_Object((1,3,6,1,4,1,2699,1,1,1,3,1,1,4),_JmNumberOfInterveningJobs_Type())
+jmNumberOfInterveningJobs.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmNumberOfInterveningJobs.setStatus(_A)
+class _JmJobKOctetsPerCopyRequested_Type(Integer32):defaultValue=-2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_JmJobKOctetsPerCopyRequested_Type.__name__=_D
+_JmJobKOctetsPerCopyRequested_Object=MibTableColumn
+jmJobKOctetsPerCopyRequested=_JmJobKOctetsPerCopyRequested_Object((1,3,6,1,4,1,2699,1,1,1,3,1,1,5),_JmJobKOctetsPerCopyRequested_Type())
+jmJobKOctetsPerCopyRequested.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmJobKOctetsPerCopyRequested.setStatus(_A)
+class _JmJobKOctetsProcessed_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_JmJobKOctetsProcessed_Type.__name__=_D
+_JmJobKOctetsProcessed_Object=MibTableColumn
+jmJobKOctetsProcessed=_JmJobKOctetsProcessed_Object((1,3,6,1,4,1,2699,1,1,1,3,1,1,6),_JmJobKOctetsProcessed_Type())
+jmJobKOctetsProcessed.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmJobKOctetsProcessed.setStatus(_A)
+class _JmJobImpressionsPerCopyRequested_Type(Integer32):defaultValue=-2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_JmJobImpressionsPerCopyRequested_Type.__name__=_D
+_JmJobImpressionsPerCopyRequested_Object=MibTableColumn
+jmJobImpressionsPerCopyRequested=_JmJobImpressionsPerCopyRequested_Object((1,3,6,1,4,1,2699,1,1,1,3,1,1,7),_JmJobImpressionsPerCopyRequested_Type())
+jmJobImpressionsPerCopyRequested.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmJobImpressionsPerCopyRequested.setStatus(_A)
+class _JmJobImpressionsCompleted_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_JmJobImpressionsCompleted_Type.__name__=_D
+_JmJobImpressionsCompleted_Object=MibTableColumn
+jmJobImpressionsCompleted=_JmJobImpressionsCompleted_Object((1,3,6,1,4,1,2699,1,1,1,3,1,1,8),_JmJobImpressionsCompleted_Type())
+jmJobImpressionsCompleted.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmJobImpressionsCompleted.setStatus(_A)
+class _JmJobOwner_Type(JmJobStringTC):defaultHexValue='';subtypeSpec=JmJobStringTC.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_JmJobOwner_Type.__name__=_P
+_JmJobOwner_Object=MibTableColumn
+jmJobOwner=_JmJobOwner_Object((1,3,6,1,4,1,2699,1,1,1,3,1,1,9),_JmJobOwner_Type())
+jmJobOwner.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmJobOwner.setStatus(_A)
+_JmAttribute_ObjectIdentity=ObjectIdentity
+jmAttribute=_JmAttribute_ObjectIdentity((1,3,6,1,4,1,2699,1,1,1,4))
+_JmAttributeTable_Object=MibTable
+jmAttributeTable=_JmAttributeTable_Object((1,3,6,1,4,1,2699,1,1,1,4,1))
+if mibBuilder.loadTexts:jmAttributeTable.setStatus(_A)
+_JmAttributeEntry_Object=MibTableRow
+jmAttributeEntry=_JmAttributeEntry_Object((1,3,6,1,4,1,2699,1,1,1,4,1,1))
+jmAttributeEntry.setIndexNames((0,_B,_H),(0,_B,_J),(0,_B,_Q),(0,_B,_R))
+if mibBuilder.loadTexts:jmAttributeEntry.setStatus(_A)
+_JmAttributeTypeIndex_Type=JmAttributeTypeTC
+_JmAttributeTypeIndex_Object=MibTableColumn
+jmAttributeTypeIndex=_JmAttributeTypeIndex_Object((1,3,6,1,4,1,2699,1,1,1,4,1,1,1),_JmAttributeTypeIndex_Type())
+jmAttributeTypeIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:jmAttributeTypeIndex.setStatus(_A)
+class _JmAttributeInstanceIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,32767))
+_JmAttributeInstanceIndex_Type.__name__=_D
+_JmAttributeInstanceIndex_Object=MibTableColumn
+jmAttributeInstanceIndex=_JmAttributeInstanceIndex_Object((1,3,6,1,4,1,2699,1,1,1,4,1,1,2),_JmAttributeInstanceIndex_Type())
+jmAttributeInstanceIndex.setMaxAccess(_G)
+if mibBuilder.loadTexts:jmAttributeInstanceIndex.setStatus(_A)
+class _JmAttributeValueAsInteger_Type(Integer32):defaultValue=-2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-2,2147483647))
+_JmAttributeValueAsInteger_Type.__name__=_D
+_JmAttributeValueAsInteger_Object=MibTableColumn
+jmAttributeValueAsInteger=_JmAttributeValueAsInteger_Object((1,3,6,1,4,1,2699,1,1,1,4,1,1,3),_JmAttributeValueAsInteger_Type())
+jmAttributeValueAsInteger.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmAttributeValueAsInteger.setStatus(_A)
+class _JmAttributeValueAsOctets_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_JmAttributeValueAsOctets_Type.__name__=_I
+_JmAttributeValueAsOctets_Object=MibTableColumn
+jmAttributeValueAsOctets=_JmAttributeValueAsOctets_Object((1,3,6,1,4,1,2699,1,1,1,4,1,1,4),_JmAttributeValueAsOctets_Type())
+jmAttributeValueAsOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:jmAttributeValueAsOctets.setStatus(_A)
+_JobmonMIBNotifications_ObjectIdentity=ObjectIdentity
+jobmonMIBNotifications=_JobmonMIBNotifications_ObjectIdentity((1,3,6,1,4,1,2699,1,1,2))
+_JmMIBConformance_ObjectIdentity=ObjectIdentity
+jmMIBConformance=_JmMIBConformance_ObjectIdentity((1,3,6,1,4,1,2699,1,1,3))
+_JmMIBGroups_ObjectIdentity=ObjectIdentity
+jmMIBGroups=_JmMIBGroups_ObjectIdentity((1,3,6,1,4,1,2699,1,1,3,2))
+jmGeneralGroup=ObjectGroup((1,3,6,1,4,1,2699,1,1,3,2,1))
+jmGeneralGroup.setObjects(*((_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X)))
+if mibBuilder.loadTexts:jmGeneralGroup.setStatus(_A)
+jmJobIDGroup=ObjectGroup((1,3,6,1,4,1,2699,1,1,3,2,2))
+jmJobIDGroup.setObjects(*((_B,_Y),(_B,_Z)))
+if mibBuilder.loadTexts:jmJobIDGroup.setStatus(_A)
+jmJobGroup=ObjectGroup((1,3,6,1,4,1,2699,1,1,3,2,3))
+jmJobGroup.setObjects(*((_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h)))
+if mibBuilder.loadTexts:jmJobGroup.setStatus(_A)
+jmAttributeGroup=ObjectGroup((1,3,6,1,4,1,2699,1,1,3,2,4))
+jmAttributeGroup.setObjects(*((_B,_i),(_B,_j)))
+if mibBuilder.loadTexts:jmAttributeGroup.setStatus(_A)
+jmMIBCompliance=ModuleCompliance((1,3,6,1,4,1,2699,1,1,3,1))
+jmMIBCompliance.setObjects(*((_B,_k),(_B,_l),(_B,_m),(_B,_n)))
+if mibBuilder.loadTexts:jmMIBCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{_L:JmUTF8StringTC,_P:JmJobStringTC,'JmNaturalLanguageTagTC':JmNaturalLanguageTagTC,'JmTimeStampTC':JmTimeStampTC,'JmJobSourcePlatformTypeTC':JmJobSourcePlatformTypeTC,'JmFinishingTC':JmFinishingTC,'JmPrintQualityTC':JmPrintQualityTC,'JmPrinterResolutionTC':JmPrinterResolutionTC,'JmTonerEconomyTC':JmTonerEconomyTC,'JmBooleanTC':JmBooleanTC,'JmMediumTypeTC':JmMediumTypeTC,'JmJobCollationTypeTC':JmJobCollationTypeTC,'JmJobSubmissionIDTypeTC':JmJobSubmissionIDTypeTC,_N:JmJobStateTC,'JmAttributeTypeTC':JmAttributeTypeTC,'JmJobServiceTypesTC':JmJobServiceTypesTC,_O:JmJobStateReasons1TC,'JmJobStateReasons2TC':JmJobStateReasons2TC,'JmJobStateReasons3TC':JmJobStateReasons3TC,'JmJobStateReasons4TC':JmJobStateReasons4TC,'jobmonMIB':jobmonMIB,'jobmonMIBObjects':jobmonMIBObjects,'jmGeneral':jmGeneral,'jmGeneralTable':jmGeneralTable,'jmGeneralEntry':jmGeneralEntry,_H:jmGeneralJobSetIndex,_S:jmGeneralNumberOfActiveJobs,_T:jmGeneralOldestActiveJobIndex,_U:jmGeneralNewestActiveJobIndex,_V:jmGeneralJobPersistence,_W:jmGeneralAttributePersistence,_X:jmGeneralJobSetName,'jmJobID':jmJobID,'jmJobIDTable':jmJobIDTable,'jmJobIDEntry':jmJobIDEntry,_M:jmJobSubmissionID,_Y:jmJobIDJobSetIndex,_Z:jmJobIDJobIndex,'jmJob':jmJob,'jmJobTable':jmJobTable,'jmJobEntry':jmJobEntry,_J:jmJobIndex,_a:jmJobState,_b:jmJobStateReasons1,_c:jmNumberOfInterveningJobs,_d:jmJobKOctetsPerCopyRequested,_e:jmJobKOctetsProcessed,_f:jmJobImpressionsPerCopyRequested,_g:jmJobImpressionsCompleted,_h:jmJobOwner,'jmAttribute':jmAttribute,'jmAttributeTable':jmAttributeTable,'jmAttributeEntry':jmAttributeEntry,_Q:jmAttributeTypeIndex,_R:jmAttributeInstanceIndex,_i:jmAttributeValueAsInteger,_j:jmAttributeValueAsOctets,'jobmonMIBNotifications':jobmonMIBNotifications,'jmMIBConformance':jmMIBConformance,'jmMIBCompliance':jmMIBCompliance,'jmMIBGroups':jmMIBGroups,_k:jmGeneralGroup,_l:jmJobIDGroup,_m:jmJobGroup,_n:jmAttributeGroup})

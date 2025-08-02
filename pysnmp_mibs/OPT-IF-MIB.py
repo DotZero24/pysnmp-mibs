@@ -1,997 +1,2726 @@
-#
-# PySNMP MIB module OPT-IF-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/OPT-IF-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:22:58 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, Integer, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
-( ifIndex, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ObjectGroup, ModuleCompliance, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-( ModuleIdentity, MibIdentifier, Counter64, iso, Unsigned32, Gauge32, transmission, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Counter32, TimeTicks, ObjectIdentity, Bits, NotificationType, ) = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibIdentifier", "Counter64", "iso", "Unsigned32", "Gauge32", "transmission", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Counter32", "TimeTicks", "ObjectIdentity", "Bits", "NotificationType")
-( RowPointer, RowStatus, TextualConvention, DisplayString, TruthValue, ) = mibBuilder.importSymbols("SNMPv2-TC", "RowPointer", "RowStatus", "TextualConvention", "DisplayString", "TruthValue")
-optIfMibModule = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 133)).setRevisions(("2003-08-13 00:00",))
-if mibBuilder.loadTexts: optIfMibModule.setLastUpdated('200308130000Z')
-if mibBuilder.loadTexts: optIfMibModule.setOrganization('IETF AToM MIB Working Group')
-if mibBuilder.loadTexts: optIfMibModule.setContactInfo('WG charter:\n          http://www.ietf.org/html.charters/atommib-charter.html\n\n        Mailing Lists:\n           General Discussion: atommib@research.telcordia.com\n           To Subscribe: atommib-request@research.telcordia.com\n\n\n\n\n\n        Editor: Hing-Kam Lam\n        Postal: Lucent Technologies, Room 4C-616\n                101 Crawfords Corner Road\n                Holmdel, NJ 07733\n           Tel: +1 732 949 8338\n         Email: hklam@lucent.com')
-if mibBuilder.loadTexts: optIfMibModule.setDescription('The MIB module to describe pre-OTN and OTN interfaces.\n\n        Copyright (C) The Internet Society (2003).  This version\n        of this MIB module is part of RFC 3591;  see the RFC\n        itself for full legal notices.')
-class OptIfAcTI(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(64,64)
-    fixedLength = 64
-
-class OptIfBitRateK(Integer32, TextualConvention):
-    pass
-
-class OptIfDEGM(Unsigned32, TextualConvention):
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(2,10)
-
-class OptIfDEGThr(Unsigned32, TextualConvention):
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(1,100)
-
-class OptIfDirectionality(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3,))
-    namedValues = NamedValues(("sink", 1), ("source", 2), ("bidirectional", 3),)
-
-class OptIfSinkOrSource(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2,))
-    namedValues = NamedValues(("sink", 1), ("source", 2),)
-
-class OptIfExDAPI(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(16,16)
-    fixedLength = 16
-
-class OptIfExSAPI(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(16,16)
-    fixedLength = 16
-
-class OptIfIntervalNumber(Unsigned32, TextualConvention):
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(1,96)
-
-class OptIfTIMDetMode(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))
-    namedValues = NamedValues(("off", 1), ("dapi", 2), ("sapi", 3), ("both", 4),)
-
-class OptIfTxTI(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(64,64)
-    fixedLength = 64
-
-optIfObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 133, 1))
-optIfConfs = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 133, 2))
-optIfOTMn = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 133, 1, 1))
-optIfPerfMon = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 133, 1, 2))
-optIfOTSn = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 133, 1, 3))
-optIfOMSn = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 133, 1, 4))
-optIfOChGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 133, 1, 5))
-optIfOCh = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 133, 1, 6))
-optIfOTUk = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 133, 1, 7))
-optIfODUk = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 133, 1, 8))
-optIfODUkT = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 133, 1, 9))
-optIfGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 133, 2, 1))
-optIfCompl = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 133, 2, 2))
-optIfOTMnTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 1, 1), )
-if mibBuilder.loadTexts: optIfOTMnTable.setDescription('A table of OTMn structure information.')
-optIfOTMnEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOTMnEntry.setDescription('A conceptual row that contains the OTMn structure\n     information of an optical interface.')
-optIfOTMnOrder = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,900))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTMnOrder.setDescription('This object indicates the order of the OTM, which\n     represents the maximum number of wavelengths that can be\n     supported at the bit rate(s) supported on the interface.')
-optIfOTMnReduced = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 1, 1, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTMnReduced.setDescription('This object indicates whether a reduced or full\n     functionality is supported at the interface.  A value of\n     true means reduced.  A value of false means full.')
-optIfOTMnBitRates = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 1, 1, 1, 3), Bits().clone(namedValues=NamedValues(("bitRateK1", 0), ("bitRateK2", 1), ("bitRateK3", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTMnBitRates.setDescription('This attribute is a bit map representing the bit\n     rate or set of bit rates supported on the interface.\n     The meaning of each bit position is as follows:\n       bitRateK1(0) is set if the 2.5 Gbit/s rate is supported\n       bitRateK2(1) is set if the 10 Gbit/s rate is supported\n       bitRateK3(2) is set if the 40 Gbit/s rate is supported\n     Note that each bit position corresponds to one possible\n     value of the type OptIfBitRateK.\n     The default value of this attribute is system specific.')
-optIfOTMnInterfaceType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 1, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTMnInterfaceType.setDescription("This object identifies the type of interface.  The value of\n     this attribute will affect the behavior of the OTM with\n     respect to presence/absence of OTM Overhead Signal (OOS)\n     processing and TCM activation.  For an IrDI interface,\n     there is no OOS processing and TCM activation is limited\n     to n levels as specified by a TCM level threshold.\n\n     This object contains two fields that are separated by\n     whitespace.  The possible values are:\n          field 1: one of the 4-character ASCII strings\n                    'IrDI' or 'IaDI'\n          field 2: free-form text consisting of printable\n                   UTF-8 encoded characters\n\n     Note that field 2 is optional.  If it is not present then there\n     is no requirement for trailing whitespace after field 1.\n\n     The default values are as follows:\n          field 1:  'IaDI'\n          field 2: an empty string.")
-optIfOTMnTcmMax = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 1, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,6))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTMnTcmMax.setDescription("This object identifies the maximum number of TCM\n     levels allowed for any Optical Channel contained\n     in this OTM.  A new TCM activation will be rejected\n     if the requested level is greater than the threshold.\n     If InterfaceType object specifies a type of 'IaDI'\n     for this OTM, then this attribute is irrelevant.\n\n     Possible values:  unsigned integers in the range\n                       from 0 to 6 inclusive.\n     Default value:    3.")
-optIfOTMnOpticalReach = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("intraOffice", 1), ("shortHaul", 2), ("longHaul", 3), ("veryLongHaul", 4), ("ultraLongHaul", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTMnOpticalReach.setDescription('This object indicates the length the optical signal\n     may travel before requiring termination or regeneration.\n     The meaning of the enumeration are:\n       intraOffice(1)  - intra-office (as defined in ITU-T G.957)\n       shortHaul(2)    - short haul (as defined in ITU-T G.957)\n       longHaul(3)     - long haul (as defined in ITU-T G.957)\n       veryLongHaul(4) - very long haul (as defined in ITU-T G.691)\n       ultraLongHaul(5)- ultra long haul (as defined in ITU-T G.691)')
-optIfPerfMonIntervalTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 2, 1), )
-if mibBuilder.loadTexts: optIfPerfMonIntervalTable.setDescription('A table of 15-minute performance monitoring interval\n     information.')
-optIfPerfMonIntervalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfPerfMonIntervalEntry.setDescription('A conceptual row that contains 15-minute performance\n     monitoring interval information of an interface.')
-optIfPerfMonCurrentTimeElapsed = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 2, 1, 1, 1), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,900))).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfPerfMonCurrentTimeElapsed.setDescription("Number of seconds elapsed in the current 15-minute\n     performance monitoring interval.\n     If, for some reason, such as an adjustment in the NE's\n     time-of-day clock, the number of seconds elapsed exceeds\n     the maximum value, then the maximum value will be returned.")
-optIfPerfMonCurDayTimeElapsed = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 2, 1, 1, 2), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0,86400))).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfPerfMonCurDayTimeElapsed.setDescription("Number of seconds elapsed in the current 24-hour interval\n     performance monitoring period.\n     If, for some reason, such as an adjustment in the NE's\n     time-of-day clock, the number of seconds elapsed exceeds\n     the maximum value, then the maximum value will be returned.")
-optIfPerfMonIntervalNumIntervals = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 2, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,96))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfPerfMonIntervalNumIntervals.setDescription('The number of 15-minute intervals for which performance\n     monitoring data is available.  The number is the same for all\n     the associated sub layers of the interface.\n\n\n\n     An optical interface must be capable of supporting at least\n     n intervals, where n is defined as follows:\n         The minimum value of n is 4.\n         The default of n is 32.\n         The maximum value of n is 96.\n\n     The value of this object will be n unless performance\n     monitoring was (re-)started for the interface within the last\n     (n*15) minutes, in which case the value will be the number of\n     complete 15-minute intervals since measurement was\n     (re-)started.')
-optIfPerfMonIntervalNumInvalidIntervals = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 2, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,96))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfPerfMonIntervalNumInvalidIntervals.setDescription('The number of intervals in the range from 0 to\n     optIfPerfMonIntervalNumIntervals for which no performance\n     monitoring data is available and/or the data is invalid.')
-optIfOTSnConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 1), )
-if mibBuilder.loadTexts: optIfOTSnConfigTable.setDescription('A table of OTSn configuration information.')
-optIfOTSnConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOTSnConfigEntry.setDescription('A conceptual row that contains OTSn configuration\n     information of an interface.')
-optIfOTSnDirectionality = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 1, 1, 1), OptIfDirectionality()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnDirectionality.setDescription('Indicates the directionality of the entity.')
-optIfOTSnAprStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnAprStatus.setDescription("This attribute indicates the status of the Automatic\n     Power Reduction (APR) function of the entity.  Valid\n     values are 'on' and 'off'.")
-optIfOTSnAprControl = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 1, 1, 3), SnmpAdminString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTSnAprControl.setDescription('This object is a UTF-8 encoded string that specifies Automatic\n     Power Reduction (APR) control actions requested of this entity\n     (when written) and that returns the current APR control state\n     of this entity (when read).  The values are implementation-defined.\n     Any implementation that instantiates this object must document the\n     set of values that it allows to be written, the set of values\n     that it will return, and what each of those values means.')
-optIfOTSnTraceIdentifierTransmitted = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 1, 1, 4), OptIfTxTI()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTSnTraceIdentifierTransmitted.setDescription("The trace identifier transmitted.\n     This object is applicable when optIfOTSnDirectionality has the\n     value source(2) or bidirectional(3).\n     This object does not apply to reduced-capability systems (i.e.,\n     those for which optIfOTMnReduced has the value true(1)) or\n     at IrDI interfaces (i.e., when optIfOTMnInterfaceType field 1\n     has the value 'IrDI').\n     If no value is ever set by a management entity for the object\n     optIfOTSnTraceIdentifierTransmitted, system-specific default\n     value will be used.  Any implementation that instantiates this\n     object must document the system-specific default value or how it\n     is derived.")
-optIfOTSnDAPIExpected = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 1, 1, 5), OptIfExDAPI()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTSnDAPIExpected.setDescription("The DAPI expected by the receiver.\n     This object is applicable when optIfOTSnDirectionality has the\n     value sink(1) or bidirectional(3).  It has no effect if\n     optIfOTSnTIMDetMode has the value off(1) or sapi(3).\n     This object does not apply to reduced-capability systems (i.e.,\n     those for which optIfOTMnReduced has the value true(1)) or\n     at IrDI interfaces (i.e., when optIfOTMnInterfaceType field 1\n     has the value 'IrDI').")
-optIfOTSnSAPIExpected = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 1, 1, 6), OptIfExSAPI()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTSnSAPIExpected.setDescription("The SAPI expected by the receiver.\n     This object is applicable when optIfOTSnDirectionality has the\n     value sink(1) or bidirectional(3).  It has no effect if\n     optIfOTSnTIMDetMode has the value off(1) or dapi(2).\n     This object does not apply to reduced-capability systems (i.e.,\n     those for which optIfOTMnReduced has the value true(1)) or\n     at IrDI interfaces (i.e., when optIfOTMnInterfaceType field 1\n     has the value 'IrDI').")
-optIfOTSnTraceIdentifierAccepted = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 1, 1, 7), OptIfAcTI()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnTraceIdentifierAccepted.setDescription("The actual trace identifier received.\n     This object is applicable when optIfOTSnDirectionality has the\n     value sink(1) or bidirectional(3).  Its value is unspecified\n     if optIfOTSnCurrentStatus has either or both of the\n     losO(5) and los(6) bits set.\n     This object does not apply to reduced-capability systems (i.e.,\n     those for which optIfOTMnReduced has the value true(1)) or\n     at IrDI interfaces (i.e., when optIfOTMnInterfaceType field 1\n     has the value 'IrDI').")
-optIfOTSnTIMDetMode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 1, 1, 8), OptIfTIMDetMode()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTSnTIMDetMode.setDescription("Indicates the mode of the Trace Identifier Mismatch (TIM)\n     Detection function.  This object is applicable\n     when optIfOTSnDirectionality has the value sink(1)\n     or bidirectional(3).  The default value is off(1).\n     This object does not apply to reduced-capability systems (i.e.,\n     those for which optIfOTMnReduced has the value true(1)) or\n     at IrDI interfaces (i.e., when optIfOTMnInterfaceType field 1\n     has the value 'IrDI').\n     The default value of this object is off(1).")
-optIfOTSnTIMActEnabled = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 1, 1, 9), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTSnTIMActEnabled.setDescription("Indicates whether the Trace Identifier Mismatch (TIM)\n     Consequent Action function is enabled.  This object\n     is applicable when optIfOTSnDirectionality has the\n     value sink(1) or bidirectional(3).  It has no effect\n     when the value of optIfOTSnTIMDetMode is off(1).\n     This object does not apply to reduced-capability systems (i.e.,\n     those for which optIfOTMnReduced has the value true(1)) or\n     at IrDI interfaces (i.e., when optIfOTMnInterfaceType field 1\n     has the value 'IrDI').\n     The default value of this object is false(2).")
-optIfOTSnCurrentStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 1, 1, 10), Bits().clone(namedValues=NamedValues(("bdiP", 0), ("bdiO", 1), ("bdi", 2), ("tim", 3), ("losP", 4), ("losO", 5), ("los", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnCurrentStatus.setDescription('Indicates the defect condition of the entity, if any.\n     This object is applicable when optIfOTSnDirectionality\n     has the value sink(1) or bidirectional(3).  In\n     reduced-capability systems or at IrDI interfaces\n     the only bit position that may be set is los(6).')
-optIfOTSnSinkCurrentTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 2), )
-if mibBuilder.loadTexts: optIfOTSnSinkCurrentTable.setDescription('A table of OTSn sink performance monitoring information for\n     the current 15-minute interval.')
-optIfOTSnSinkCurrentEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOTSnSinkCurrentEntry.setDescription('A conceptual row that contains OTSn sink performance\n     monitoring information of an interface for the current\n     15-minute interval.')
-optIfOTSnSinkCurrentSuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 2, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkCurrentSuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOTSnSinkCurrentInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 2, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkCurrentInputPower.setDescription('The optical power monitored at the input.')
-optIfOTSnSinkCurrentLowInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 2, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkCurrentLowInputPower.setDescription('The lowest optical power monitored at the input during the\n     current 15-minute interval.')
-optIfOTSnSinkCurrentHighInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 2, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkCurrentHighInputPower.setDescription('The highest optical power monitored at the input during the\n     current 15-minute interval.')
-optIfOTSnSinkCurrentLowerInputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 2, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTSnSinkCurrentLowerInputPowerThreshold.setDescription('The lower limit threshold on input power.  If\n     optIfOTSnSinkCurrentInputPower drops to this value or below,\n     a Threshold Crossing Alert (TCA) should be sent.')
-optIfOTSnSinkCurrentUpperInputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 2, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTSnSinkCurrentUpperInputPowerThreshold.setDescription('The upper limit threshold on input power.  If\n     optIfOTSnSinkCurrentInputPower reaches or exceeds this value,\n     a Threshold Crossing Alert (TCA) should be sent.')
-optIfOTSnSinkCurrentOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 2, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkCurrentOutputPower.setDescription('The optical power monitored at the output.')
-optIfOTSnSinkCurrentLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 2, 1, 8), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkCurrentLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     current 15-minute interval.')
-optIfOTSnSinkCurrentHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 2, 1, 9), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkCurrentHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     current 15-minute interval.')
-optIfOTSnSinkCurrentLowerOutputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 2, 1, 10), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTSnSinkCurrentLowerOutputPowerThreshold.setDescription('The lower limit threshold on output power.  If\n     optIfOTSnSinkCurrentOutputPower drops to this value or below,\n     a Threshold Crossing Alert (TCA) should be sent.')
-optIfOTSnSinkCurrentUpperOutputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 2, 1, 11), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTSnSinkCurrentUpperOutputPowerThreshold.setDescription('The upper limit threshold on output power.  If\n     optIfOTSnSinkCurrentOutputPower reaches or exceeds this value,\n     a Threshold Crossing Alert (TCA) should be sent.')
-optIfOTSnSinkIntervalTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 3), )
-if mibBuilder.loadTexts: optIfOTSnSinkIntervalTable.setDescription('A table of historical OTSn sink performance monitoring\n     information.')
-optIfOTSnSinkIntervalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "OPT-IF-MIB", "optIfOTSnSinkIntervalNumber"))
-if mibBuilder.loadTexts: optIfOTSnSinkIntervalEntry.setDescription('A conceptual row that contains OTSn sink performance\n     monitoring information of an interface during a particular\n     historical interval.')
-optIfOTSnSinkIntervalNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 3, 1, 1), OptIfIntervalNumber())
-if mibBuilder.loadTexts: optIfOTSnSinkIntervalNumber.setDescription('Uniquely identifies the interval.')
-optIfOTSnSinkIntervalSuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 3, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkIntervalSuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOTSnSinkIntervalLastInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 3, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkIntervalLastInputPower.setDescription('The last optical power monitored at the input during the\n     interval.')
-optIfOTSnSinkIntervalLowInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 3, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkIntervalLowInputPower.setDescription('The lowest optical power monitored at the input during the\n     interval.')
-optIfOTSnSinkIntervalHighInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 3, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkIntervalHighInputPower.setDescription('The highest optical power monitored at the input during the\n     interval.')
-optIfOTSnSinkIntervalLastOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 3, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkIntervalLastOutputPower.setDescription('The last optical power monitored at the output during the\n     interval.')
-optIfOTSnSinkIntervalLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 3, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkIntervalLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     interval.')
-optIfOTSnSinkIntervalHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 3, 1, 8), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkIntervalHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     interval.')
-optIfOTSnSinkCurDayTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 4), )
-if mibBuilder.loadTexts: optIfOTSnSinkCurDayTable.setDescription('A table of OTSn sink performance monitoring information for\n     the current 24-hour interval.')
-optIfOTSnSinkCurDayEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOTSnSinkCurDayEntry.setDescription('A conceptual row that contains OTSn sink performance\n     monitoring information of an interface for the current\n     24-hour interval.')
-optIfOTSnSinkCurDaySuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 4, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkCurDaySuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOTSnSinkCurDayLowInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 4, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkCurDayLowInputPower.setDescription('The lowest optical power monitored at the input during the\n     current 24-hour interval.')
-optIfOTSnSinkCurDayHighInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 4, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkCurDayHighInputPower.setDescription('The highest optical power monitored at the input during the\n     current 24-hour interval.')
-optIfOTSnSinkCurDayLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 4, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkCurDayLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     current 24-hour interval.')
-optIfOTSnSinkCurDayHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 4, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkCurDayHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     current 24-hour interval.')
-optIfOTSnSinkPrevDayTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 5), )
-if mibBuilder.loadTexts: optIfOTSnSinkPrevDayTable.setDescription('A table of OTSn sink performance monitoring information for\n     the previous 24-hour interval.')
-optIfOTSnSinkPrevDayEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOTSnSinkPrevDayEntry.setDescription('A conceptual row that contains OTSn sink performance\n     monitoring information of an interface for the previous\n     24-hour interval.')
-optIfOTSnSinkPrevDaySuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 5, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkPrevDaySuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOTSnSinkPrevDayLastInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 5, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkPrevDayLastInputPower.setDescription('The last optical power monitored at the input during the\n     previous 24-hour interval.')
-optIfOTSnSinkPrevDayLowInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 5, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkPrevDayLowInputPower.setDescription('The lowest optical power monitored at the input during the\n     previous 24-hour interval.')
-optIfOTSnSinkPrevDayHighInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 5, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkPrevDayHighInputPower.setDescription('The highest optical power monitored at the input during the\n     previous 24-hour interval.')
-optIfOTSnSinkPrevDayLastOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 5, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkPrevDayLastOutputPower.setDescription('The last optical power monitored at the output during the\n     previous 24-hour interval.')
-optIfOTSnSinkPrevDayLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 5, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkPrevDayLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     previous 24-hour interval.')
-optIfOTSnSinkPrevDayHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 5, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSinkPrevDayHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     previous 24-hour interval.')
-optIfOTSnSrcCurrentTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 6), )
-if mibBuilder.loadTexts: optIfOTSnSrcCurrentTable.setDescription('A table of OTSn source performance monitoring information for\n     the current 15-minute interval.')
-optIfOTSnSrcCurrentEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOTSnSrcCurrentEntry.setDescription('A conceptual row that contains OTSn source performance\n     monitoring information of an interface for the current\n     15-minute interval.')
-optIfOTSnSrcCurrentSuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 6, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcCurrentSuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOTSnSrcCurrentOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 6, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcCurrentOutputPower.setDescription('The optical power monitored at the output.')
-optIfOTSnSrcCurrentLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 6, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcCurrentLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     current 15-minute interval.')
-optIfOTSnSrcCurrentHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 6, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcCurrentHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     current 15-minute interval.')
-optIfOTSnSrcCurrentLowerOutputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 6, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTSnSrcCurrentLowerOutputPowerThreshold.setDescription('The lower limit threshold on output power.  If\n     optIfOTSnSrcCurrentOutputPower drops to this value or below,\n     a Threshold Crossing Alert (TCA) should be sent.')
-optIfOTSnSrcCurrentUpperOutputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 6, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTSnSrcCurrentUpperOutputPowerThreshold.setDescription('The upper limit threshold on output power.  If\n     optIfOTSnSrcCurrentOutputPower reaches or exceeds this value,\n     a Threshold Crossing Alert (TCA) should be sent.')
-optIfOTSnSrcCurrentInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 6, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcCurrentInputPower.setDescription('The optical power monitored at the input.')
-optIfOTSnSrcCurrentLowInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 6, 1, 8), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcCurrentLowInputPower.setDescription('The lowest optical power monitored at the input during the\n     current 15-minute interval.')
-optIfOTSnSrcCurrentHighInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 6, 1, 9), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcCurrentHighInputPower.setDescription('The highest optical power monitored at the input during the\n     current 15-minute interval.')
-optIfOTSnSrcCurrentLowerInputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 6, 1, 10), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTSnSrcCurrentLowerInputPowerThreshold.setDescription('The lower limit threshold on input power.  If\n     optIfOTSnSrcCurrentInputPower drops to this value or below,\n     a Threshold Crossing Alert (TCA) should be sent.')
-optIfOTSnSrcCurrentUpperInputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 6, 1, 11), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTSnSrcCurrentUpperInputPowerThreshold.setDescription('The upper limit threshold on input power.  If\n     optIfOTSnSrcCurrentInputPower reaches or exceeds this value,\n     a Threshold Crossing Alert (TCA) should be sent.')
-optIfOTSnSrcIntervalTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 7), )
-if mibBuilder.loadTexts: optIfOTSnSrcIntervalTable.setDescription('A table of historical OTSn source performance monitoring\n     information.')
-optIfOTSnSrcIntervalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 7, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "OPT-IF-MIB", "optIfOTSnSrcIntervalNumber"))
-if mibBuilder.loadTexts: optIfOTSnSrcIntervalEntry.setDescription('A conceptual row that contains OTSn source performance\n     monitoring information of an interface during a particular\n     historical interval.')
-optIfOTSnSrcIntervalNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 7, 1, 1), OptIfIntervalNumber())
-if mibBuilder.loadTexts: optIfOTSnSrcIntervalNumber.setDescription('Uniquely identifies the interval.')
-optIfOTSnSrcIntervalSuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 7, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcIntervalSuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOTSnSrcIntervalLastOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 7, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcIntervalLastOutputPower.setDescription('The last optical power monitored at the output during the\n     interval.')
-optIfOTSnSrcIntervalLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 7, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcIntervalLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     interval.')
-optIfOTSnSrcIntervalHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 7, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcIntervalHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     interval.')
-optIfOTSnSrcIntervalLastInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 7, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcIntervalLastInputPower.setDescription('The last optical power monitored at the input during the\n     interval.')
-optIfOTSnSrcIntervalLowInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 7, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcIntervalLowInputPower.setDescription('The lowest optical power monitored at the input during the\n     interval.')
-optIfOTSnSrcIntervalHighInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 7, 1, 8), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcIntervalHighInputPower.setDescription('The highest optical power monitored at the input during the\n     interval.')
-optIfOTSnSrcCurDayTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 8), )
-if mibBuilder.loadTexts: optIfOTSnSrcCurDayTable.setDescription('A table of OTSn source performance monitoring information for\n     the current 24-hour interval.')
-optIfOTSnSrcCurDayEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 8, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOTSnSrcCurDayEntry.setDescription('A conceptual row that contains OTSn source performance\n     monitoring information of an interface for the current\n     24-hour interval.')
-optIfOTSnSrcCurDaySuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 8, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcCurDaySuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOTSnSrcCurDayLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 8, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcCurDayLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     current 24-hour interval.')
-optIfOTSnSrcCurDayHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 8, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcCurDayHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     current 24-hour interval.')
-optIfOTSnSrcCurDayLowInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 8, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcCurDayLowInputPower.setDescription('The lowest optical power monitored at the input during the\n     current 24-hour interval.')
-optIfOTSnSrcCurDayHighInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 8, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcCurDayHighInputPower.setDescription('The highest optical power monitored at the input during the\n     current 24-hour interval.')
-optIfOTSnSrcPrevDayTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 9), )
-if mibBuilder.loadTexts: optIfOTSnSrcPrevDayTable.setDescription('A table of OTSn source performance monitoring information for\n     the previous 24-hour interval.')
-optIfOTSnSrcPrevDayEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 9, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOTSnSrcPrevDayEntry.setDescription('A conceptual row that contains OTSn source performance\n     monitoring information of an interface for the previous\n     24-hour interval.')
-optIfOTSnSrcPrevDaySuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 9, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcPrevDaySuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOTSnSrcPrevDayLastOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 9, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcPrevDayLastOutputPower.setDescription('The last optical power monitored at the output during the\n     previous 24-hour interval.')
-optIfOTSnSrcPrevDayLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 9, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcPrevDayLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     previous 24-hour interval.')
-optIfOTSnSrcPrevDayHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 9, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcPrevDayHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     previous 24-hour interval.')
-optIfOTSnSrcPrevDayLastInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 9, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcPrevDayLastInputPower.setDescription('The last optical power monitored at the input during the\n     previous 24-hour interval.')
-optIfOTSnSrcPrevDayLowInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 9, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcPrevDayLowInputPower.setDescription('The lowest optical power monitored at the input during the\n     previous 24-hour interval.')
-optIfOTSnSrcPrevDayHighInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 3, 9, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTSnSrcPrevDayHighInputPower.setDescription('The highest optical power monitored at the input during the\n     previous 24-hour interval.')
-optIfOMSnConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 1), )
-if mibBuilder.loadTexts: optIfOMSnConfigTable.setDescription('A table of OMSn configuration information.')
-optIfOMSnConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOMSnConfigEntry.setDescription('A conceptual row that contains OMSn configuration\n     information of an interface.')
-optIfOMSnDirectionality = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 1, 1, 1), OptIfDirectionality()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnDirectionality.setDescription('Indicates the directionality of the entity.')
-optIfOMSnCurrentStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 1, 1, 2), Bits().clone(namedValues=NamedValues(("ssfP", 0), ("ssfO", 1), ("ssf", 2), ("bdiP", 3), ("bdiO", 4), ("bdi", 5), ("losP", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnCurrentStatus.setDescription('Indicates the defect condition of the entity, if any.\n     This object is applicable only to full capability\n     systems whose interface type is IaDI and for which\n\n\n\n     optIfOMSnDirectionality has the value sink(1) or\n     bidirectional(3).')
-optIfOMSnSinkCurrentTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 2), )
-if mibBuilder.loadTexts: optIfOMSnSinkCurrentTable.setDescription('A table of OMSn sink performance monitoring information for\n     the current 15-minute interval.')
-optIfOMSnSinkCurrentEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOMSnSinkCurrentEntry.setDescription('A conceptual row that contains OMSn sink performance\n     monitoring information of an interface for the current\n     15-minute interval.')
-optIfOMSnSinkCurrentSuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 2, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkCurrentSuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOMSnSinkCurrentAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 2, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkCurrentAggregatedInputPower.setDescription('The aggregated optical power of all the DWDM input\n     channels.')
-optIfOMSnSinkCurrentLowAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 2, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkCurrentLowAggregatedInputPower.setDescription('The lowest aggregated optical power of all the DWDM input\n     channels during the current 15-minute interval.')
-optIfOMSnSinkCurrentHighAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 2, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkCurrentHighAggregatedInputPower.setDescription('The highest aggregated optical power of all the DWDM input\n     channels during the current 15-minute interval.')
-optIfOMSnSinkCurrentLowerInputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 2, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOMSnSinkCurrentLowerInputPowerThreshold.setDescription('The lower limit threshold on aggregated input power.  If\n     optIfOMSnSinkCurrentAggregatedInputPower drops to this value\n     or below, a Threshold Crossing Alert (TCA) should be sent.')
-optIfOMSnSinkCurrentUpperInputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 2, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOMSnSinkCurrentUpperInputPowerThreshold.setDescription('The upper limit threshold on aggregated input power.  If\n     optIfOMSnSinkCurrentAggregatedInputPower reaches or exceeds\n     this value, a Threshold Crossing Alert (TCA) should be sent.')
-optIfOMSnSinkCurrentOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 2, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkCurrentOutputPower.setDescription('The optical power monitored at the output.')
-optIfOMSnSinkCurrentLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 2, 1, 8), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkCurrentLowOutputPower.setDescription('The lowest optical power monitored at the output\n     during the current 15-minute interval.')
-optIfOMSnSinkCurrentHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 2, 1, 9), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkCurrentHighOutputPower.setDescription('The highest optical power monitored at the output\n     during the current 15-minute interval.')
-optIfOMSnSinkCurrentLowerOutputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 2, 1, 10), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOMSnSinkCurrentLowerOutputPowerThreshold.setDescription('The lower limit threshold on output power.  If\n     optIfOMSnSinkCurrentOutputPower drops to this value\n     or below, a Threshold Crossing Alert (TCA) should be sent.')
-optIfOMSnSinkCurrentUpperOutputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 2, 1, 11), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOMSnSinkCurrentUpperOutputPowerThreshold.setDescription('The upper limit threshold on output power.  If\n     optIfOMSnSinkCurrentOutputPower reaches or exceeds\n     this value, a Threshold Crossing Alert (TCA) should be sent.')
-optIfOMSnSinkIntervalTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 3), )
-if mibBuilder.loadTexts: optIfOMSnSinkIntervalTable.setDescription('A table of historical OMSn sink performance monitoring\n     information.')
-optIfOMSnSinkIntervalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "OPT-IF-MIB", "optIfOMSnSinkIntervalNumber"))
-if mibBuilder.loadTexts: optIfOMSnSinkIntervalEntry.setDescription('A conceptual row that contains OMSn sink performance\n     monitoring information of an interface during a particular\n     historical interval.')
-optIfOMSnSinkIntervalNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 3, 1, 1), OptIfIntervalNumber())
-if mibBuilder.loadTexts: optIfOMSnSinkIntervalNumber.setDescription('Uniquely identifies the interval.')
-optIfOMSnSinkIntervalSuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 3, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkIntervalSuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOMSnSinkIntervalLastAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 3, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkIntervalLastAggregatedInputPower.setDescription('The last aggregated optical power of all the DWDM input\n     channels during the interval.')
-optIfOMSnSinkIntervalLowAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 3, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkIntervalLowAggregatedInputPower.setDescription('The lowest aggregated optical power of all the DWDM input\n     channels during the interval.')
-optIfOMSnSinkIntervalHighAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 3, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkIntervalHighAggregatedInputPower.setDescription('The highest aggregated optical power of all the DWDM input\n     channels during the interval.')
-optIfOMSnSinkIntervalLastOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 3, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkIntervalLastOutputPower.setDescription('The last optical power at the output\n     during the interval.')
-optIfOMSnSinkIntervalLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 3, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkIntervalLowOutputPower.setDescription('The lowest optical power at the output\n     during the interval.')
-optIfOMSnSinkIntervalHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 3, 1, 8), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkIntervalHighOutputPower.setDescription('The highest optical power at the output\n     during the interval.')
-optIfOMSnSinkCurDayTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 4), )
-if mibBuilder.loadTexts: optIfOMSnSinkCurDayTable.setDescription('A table of OMSn sink performance monitoring information for\n     the current 24-hour interval.')
-optIfOMSnSinkCurDayEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOMSnSinkCurDayEntry.setDescription('A conceptual row that contains OMSn sink performance\n     monitoring information of an interface for the current\n     24-hour interval.')
-optIfOMSnSinkCurDaySuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 4, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkCurDaySuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOMSnSinkCurDayLowAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 4, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkCurDayLowAggregatedInputPower.setDescription('The lowest aggregated optical power of all the DWDM input\n     channels during the current 24-hour interval.')
-optIfOMSnSinkCurDayHighAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 4, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkCurDayHighAggregatedInputPower.setDescription('The highest aggregated optical power of all the DWDM input\n     channels during the current 24-hour interval.')
-optIfOMSnSinkCurDayLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 4, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkCurDayLowOutputPower.setDescription('The lowest optical power at the output\n     during the current 24-hour interval.')
-optIfOMSnSinkCurDayHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 4, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkCurDayHighOutputPower.setDescription('The highest  optical power at the output\n     during the current 24-hour interval.')
-optIfOMSnSinkPrevDayTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 5), )
-if mibBuilder.loadTexts: optIfOMSnSinkPrevDayTable.setDescription('A table of OMSn sink performance monitoring information for\n     the previous 24-hour interval.')
-optIfOMSnSinkPrevDayEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOMSnSinkPrevDayEntry.setDescription('A conceptual row that contains OMSn sink performance\n     monitoring information of an interface for the previous\n     24-hour interval.')
-optIfOMSnSinkPrevDaySuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 5, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkPrevDaySuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOMSnSinkPrevDayLastAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 5, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkPrevDayLastAggregatedInputPower.setDescription('The last aggregated optical power of all the DWDM input\n     channels during the previous 24-hour interval.')
-optIfOMSnSinkPrevDayLowAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 5, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkPrevDayLowAggregatedInputPower.setDescription('The lowest aggregated optical power of all the DWDM input\n     channels during the previous 24-hour interval.')
-optIfOMSnSinkPrevDayHighAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 5, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkPrevDayHighAggregatedInputPower.setDescription('The highest aggregated optical power of all the DWDM input\n     channels during the previous 24-hour interval.')
-optIfOMSnSinkPrevDayLastOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 5, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkPrevDayLastOutputPower.setDescription('The last  optical power at the output\n     during the previous 24-hour interval.')
-optIfOMSnSinkPrevDayLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 5, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkPrevDayLowOutputPower.setDescription('The lowest optical power at the output\n     during the previous 24-hour interval.')
-optIfOMSnSinkPrevDayHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 5, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSinkPrevDayHighOutputPower.setDescription('The highest optical power at the output\n     during the previous 24-hour interval.')
-optIfOMSnSrcCurrentTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 6), )
-if mibBuilder.loadTexts: optIfOMSnSrcCurrentTable.setDescription('A table of OMSn source performance monitoring information for\n     the current 15-minute interval.')
-optIfOMSnSrcCurrentEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOMSnSrcCurrentEntry.setDescription('A conceptual row that contains OMSn source performance\n     monitoring information of an interface for the current\n     15-minute interval.')
-optIfOMSnSrcCurrentSuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 6, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcCurrentSuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOMSnSrcCurrentOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 6, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcCurrentOutputPower.setDescription('The optical power monitored at the output.')
-optIfOMSnSrcCurrentLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 6, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcCurrentLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     current 15-minute interval.')
-optIfOMSnSrcCurrentHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 6, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcCurrentHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     current 15-minute interval.')
-optIfOMSnSrcCurrentLowerOutputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 6, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOMSnSrcCurrentLowerOutputPowerThreshold.setDescription('The lower limit threshold on output power.  If\n     optIfOMSnSrcCurrentOutputPower drops to this value or below,\n     a Threshold Crossing Alert (TCA) should be sent.')
-optIfOMSnSrcCurrentUpperOutputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 6, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOMSnSrcCurrentUpperOutputPowerThreshold.setDescription('The upper limit threshold on output power.  If\n     optIfOMSnSrcCurrentOutputPower reaches or exceeds this value,\n     a Threshold Crossing Alert (TCA) should be sent.')
-optIfOMSnSrcCurrentAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 6, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcCurrentAggregatedInputPower.setDescription('The aggregated optical power at the input.')
-optIfOMSnSrcCurrentLowAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 6, 1, 8), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcCurrentLowAggregatedInputPower.setDescription('The lowest aggregated optical power at the input\n     during the current 15-minute interval.')
-optIfOMSnSrcCurrentHighAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 6, 1, 9), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcCurrentHighAggregatedInputPower.setDescription('The highest aggregated optical power at the input\n     during the current 15-minute interval.')
-optIfOMSnSrcCurrentLowerInputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 6, 1, 10), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOMSnSrcCurrentLowerInputPowerThreshold.setDescription('The lower limit threshold on aggregated input power.  If\n     optIfOMSnSrcCurrentAggregatedInputPower drops to this value\n     or below, a Threshold Crossing Alert (TCA) should be sent.')
-optIfOMSnSrcCurrentUpperInputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 6, 1, 11), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOMSnSrcCurrentUpperInputPowerThreshold.setDescription('The upper limit threshold on aggregated input power.  If\n     optIfOMSnSrcCurrentAggregatedInputPower reaches or exceeds\n     this value, a Threshold Crossing Alert (TCA) should be sent.')
-optIfOMSnSrcIntervalTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 7), )
-if mibBuilder.loadTexts: optIfOMSnSrcIntervalTable.setDescription('A table of historical OMSn source performance monitoring\n     information.')
-optIfOMSnSrcIntervalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 7, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "OPT-IF-MIB", "optIfOMSnSrcIntervalNumber"))
-if mibBuilder.loadTexts: optIfOMSnSrcIntervalEntry.setDescription('A conceptual row that contains OMSn source performance\n     monitoring information of an interface during a particular\n     historical interval.')
-optIfOMSnSrcIntervalNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 7, 1, 1), OptIfIntervalNumber())
-if mibBuilder.loadTexts: optIfOMSnSrcIntervalNumber.setDescription('Uniquely identifies the interval.')
-optIfOMSnSrcIntervalSuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 7, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcIntervalSuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOMSnSrcIntervalLastOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 7, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcIntervalLastOutputPower.setDescription('The last optical power monitored at the output during the\n     interval.')
-optIfOMSnSrcIntervalLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 7, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcIntervalLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     interval.')
-optIfOMSnSrcIntervalHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 7, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcIntervalHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     interval.')
-optIfOMSnSrcIntervalLastAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 7, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcIntervalLastAggregatedInputPower.setDescription('The last aggregated optical power at the input\n     during the interval.')
-optIfOMSnSrcIntervalLowAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 7, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcIntervalLowAggregatedInputPower.setDescription('The lowest aggregated optical power at the input\n     during the interval.')
-optIfOMSnSrcIntervalHighAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 7, 1, 8), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcIntervalHighAggregatedInputPower.setDescription('The highest aggregated optical power at the input\n     during the interval.')
-optIfOMSnSrcCurDayTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 8), )
-if mibBuilder.loadTexts: optIfOMSnSrcCurDayTable.setDescription('A table of OMSn source performance monitoring information for\n     the current 24-hour interval.')
-optIfOMSnSrcCurDayEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 8, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOMSnSrcCurDayEntry.setDescription('A conceptual row that contains OMSn source performance\n     monitoring information of an interface for the current\n     24-hour interval.')
-optIfOMSnSrcCurDaySuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 8, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcCurDaySuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOMSnSrcCurDayLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 8, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcCurDayLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     current 24-hour interval.')
-optIfOMSnSrcCurDayHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 8, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcCurDayHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     current 24-hour interval.')
-optIfOMSnSrcCurDayLowAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 8, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcCurDayLowAggregatedInputPower.setDescription('The lowest aggregated optical power at the input\n     during the current 24-hour interval.')
-optIfOMSnSrcCurDayHighAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 8, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcCurDayHighAggregatedInputPower.setDescription('The highest aggregated optical power at the input\n     during the current 24-hour interval.')
-optIfOMSnSrcPrevDayTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 9), )
-if mibBuilder.loadTexts: optIfOMSnSrcPrevDayTable.setDescription('A table of OMSn source performance monitoring information for\n     the previous 24-hour interval.')
-optIfOMSnSrcPrevDayEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 9, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOMSnSrcPrevDayEntry.setDescription('A conceptual row that contains OMSn source performance\n     monitoring information of an interface for the previous\n     24-hour interval.')
-optIfOMSnSrcPrevDaySuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 9, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcPrevDaySuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOMSnSrcPrevDayLastOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 9, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcPrevDayLastOutputPower.setDescription('The last optical power monitored at the output during the\n     previous 24-hour interval.')
-optIfOMSnSrcPrevDayLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 9, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcPrevDayLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     previous 24-hour interval.')
-optIfOMSnSrcPrevDayHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 9, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcPrevDayHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     previous 24-hour interval.')
-optIfOMSnSrcPrevDayLastAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 9, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcPrevDayLastAggregatedInputPower.setDescription('The last aggregated optical power at the input during the\n     previous 24-hour interval.')
-optIfOMSnSrcPrevDayLowAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 9, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcPrevDayLowAggregatedInputPower.setDescription('The lowest aggregated optical power at the input during the\n     previous 24-hour interval.')
-optIfOMSnSrcPrevDayHighAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 4, 9, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOMSnSrcPrevDayHighAggregatedInputPower.setDescription('The highest aggregated optical power at the input during the\n     previous 24-hour interval.')
-optIfOChGroupConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 1), )
-if mibBuilder.loadTexts: optIfOChGroupConfigTable.setDescription('A table of OChGroup configuration information.')
-optIfOChGroupConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOChGroupConfigEntry.setDescription('A conceptual row that contains OChGroup configuration\n     information of an interface.')
-optIfOChGroupDirectionality = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 1, 1, 1), OptIfDirectionality()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupDirectionality.setDescription('Indicates the directionality of the entity.')
-optIfOChGroupSinkCurrentTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 2), )
-if mibBuilder.loadTexts: optIfOChGroupSinkCurrentTable.setDescription('A table of OChGroup sink performance monitoring information for\n     the current 15-minute interval.')
-optIfOChGroupSinkCurrentEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOChGroupSinkCurrentEntry.setDescription('A conceptual row that contains OChGroup sink performance\n     monitoring information of an interface for the current\n     15-minute interval.')
-optIfOChGroupSinkCurrentSuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 2, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkCurrentSuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOChGroupSinkCurrentAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 2, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkCurrentAggregatedInputPower.setDescription('The aggregated optical power of all the DWDM input\n     channels in the OChGroup.')
-optIfOChGroupSinkCurrentLowAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 2, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkCurrentLowAggregatedInputPower.setDescription('The lowest aggregated optical power of all the DWDM input\n     channels in the OChGroup during the current 15-minute interval.')
-optIfOChGroupSinkCurrentHighAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 2, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkCurrentHighAggregatedInputPower.setDescription('The highest aggregated optical power of all the DWDM input\n     channels in the OChGroup during the current 15-minute interval.')
-optIfOChGroupSinkCurrentLowerInputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 2, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOChGroupSinkCurrentLowerInputPowerThreshold.setDescription('The lower limit threshold on aggregated input power.  If\n     optIfOChGroupSinkCurrentAggregatedInputPower drops to this value\n     or below, a Threshold Crossing Alert (TCA) should be sent.')
-optIfOChGroupSinkCurrentUpperInputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 2, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOChGroupSinkCurrentUpperInputPowerThreshold.setDescription('The upper limit threshold on aggregated input power.  If\n     optIfOChGroupSinkCurrentAggregatedInputPower reaches or exceeds\n     this value, a Threshold Crossing Alert (TCA) should be sent.')
-optIfOChGroupSinkCurrentOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 2, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkCurrentOutputPower.setDescription('The optical power monitored at the output\n     in the OChGroup.')
-optIfOChGroupSinkCurrentLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 2, 1, 8), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkCurrentLowOutputPower.setDescription('The lowest optical power monitored at the output\n     in the OChGroup during the current 15-minute interval.')
-optIfOChGroupSinkCurrentHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 2, 1, 9), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkCurrentHighOutputPower.setDescription('The highest optical power monitored at the output\n     in the OChGroup during the current 15-minute interval.')
-optIfOChGroupSinkCurrentLowerOutputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 2, 1, 10), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOChGroupSinkCurrentLowerOutputPowerThreshold.setDescription('The lower limit threshold on the output power.  If\n     optIfOChGroupSinkCurrentOutputPower drops to this value\n     or below, a Threshold Crossing Alert (TCA) should be sent.')
-optIfOChGroupSinkCurrentUpperOutputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 2, 1, 11), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOChGroupSinkCurrentUpperOutputPowerThreshold.setDescription('The upper limit threshold on the output power.  If\n     optIfOChGroupSinkCurrentOutputPower reaches or exceeds\n     this value, a Threshold Crossing Alert (TCA) should be sent.')
-optIfOChGroupSinkIntervalTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 3), )
-if mibBuilder.loadTexts: optIfOChGroupSinkIntervalTable.setDescription('A table of historical OChGroup sink performance monitoring\n     information.')
-optIfOChGroupSinkIntervalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "OPT-IF-MIB", "optIfOChGroupSinkIntervalNumber"))
-if mibBuilder.loadTexts: optIfOChGroupSinkIntervalEntry.setDescription('A conceptual row that contains OChGroup sink performance\n     monitoring information of an interface during a particular\n     historical interval.')
-optIfOChGroupSinkIntervalNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 3, 1, 1), OptIfIntervalNumber())
-if mibBuilder.loadTexts: optIfOChGroupSinkIntervalNumber.setDescription('Uniquely identifies the interval.')
-optIfOChGroupSinkIntervalSuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 3, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkIntervalSuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOChGroupSinkIntervalLastAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 3, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkIntervalLastAggregatedInputPower.setDescription('The last aggregated optical power of all the DWDM input\n     channels in the OChGroup during the interval.')
-optIfOChGroupSinkIntervalLowAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 3, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkIntervalLowAggregatedInputPower.setDescription('The lowest aggregated optical power of all the DWDM input\n     channels in the OChGroup during the interval.')
-optIfOChGroupSinkIntervalHighAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 3, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkIntervalHighAggregatedInputPower.setDescription('The highest aggregated optical power of all the DWDM input\n     channels in the OChGroup during the interval.')
-optIfOChGroupSinkIntervalLastOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 3, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkIntervalLastOutputPower.setDescription('The last optical power monitored at the output\n     in the OChGroup during the interval.')
-optIfOChGroupSinkIntervalLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 3, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkIntervalLowOutputPower.setDescription('The lowest optical power monitored at the output\n     in the OChGroup during the interval.')
-optIfOChGroupSinkIntervalHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 3, 1, 8), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkIntervalHighOutputPower.setDescription('The highest optical power monitored at the output\n     in the OChGroup during the interval.')
-optIfOChGroupSinkCurDayTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 4), )
-if mibBuilder.loadTexts: optIfOChGroupSinkCurDayTable.setDescription('A table of OChGroup sink performance monitoring information for\n     the current 24-hour interval.')
-optIfOChGroupSinkCurDayEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOChGroupSinkCurDayEntry.setDescription('A conceptual row that contains OChGroup sink performance\n     monitoring information of an interface for the current\n     24-hour interval.')
-optIfOChGroupSinkCurDaySuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 4, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkCurDaySuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOChGroupSinkCurDayLowAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 4, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkCurDayLowAggregatedInputPower.setDescription('The lowest aggregated optical power of all the DWDM input\n     channels in the OChGroup during the current 24-hour interval.')
-optIfOChGroupSinkCurDayHighAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 4, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkCurDayHighAggregatedInputPower.setDescription('The highest aggregated optical power of all the DWDM input\n     channels in the OChGroup during the current 24-hour interval.')
-optIfOChGroupSinkCurDayLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 4, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkCurDayLowOutputPower.setDescription('The lowest optical power monitored at the output\n     in the OChGroup during the current 24-hour interval.')
-optIfOChGroupSinkCurDayHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 4, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkCurDayHighOutputPower.setDescription('The highest optical power monitored at the output\n     in the OChGroup during the current 24-hour interval.')
-optIfOChGroupSinkPrevDayTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 5), )
-if mibBuilder.loadTexts: optIfOChGroupSinkPrevDayTable.setDescription('A table of OChGroup sink performance monitoring information for\n     the previous 24-hour interval.')
-optIfOChGroupSinkPrevDayEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOChGroupSinkPrevDayEntry.setDescription('A conceptual row that contains OChGroup sink performance\n     monitoring information of an interface for the previous\n     24-hour interval.')
-optIfOChGroupSinkPrevDaySuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 5, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkPrevDaySuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOChGroupSinkPrevDayLastAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 5, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkPrevDayLastAggregatedInputPower.setDescription('The last aggregated optical power of all the DWDM input\n     channels in the OChGroup during the previous 24-hour interval.')
-optIfOChGroupSinkPrevDayLowAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 5, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkPrevDayLowAggregatedInputPower.setDescription('The lowest aggregated optical power of all the DWDM input\n     channels in the OChGroup during the previous 24-hour interval.')
-optIfOChGroupSinkPrevDayHighAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 5, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkPrevDayHighAggregatedInputPower.setDescription('The highest aggregated optical power of all the DWDM input\n     channels in the OChGroup during the previous 24-hour interval.')
-optIfOChGroupSinkPrevDayLastOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 5, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkPrevDayLastOutputPower.setDescription('The last optical power monitored at the output\n     in the OChGroup during the previous 24-hour interval.')
-optIfOChGroupSinkPrevDayLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 5, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkPrevDayLowOutputPower.setDescription('The lowest optical power monitored at the output\n     in the OChGroup during the previous 24-hour interval.')
-optIfOChGroupSinkPrevDayHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 5, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSinkPrevDayHighOutputPower.setDescription('The highest optical power monitored at the output\n     in the OChGroup during the previous 24-hour interval.')
-optIfOChGroupSrcCurrentTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 6), )
-if mibBuilder.loadTexts: optIfOChGroupSrcCurrentTable.setDescription('A table of OChGroup source performance monitoring information for\n     the current 15-minute interval.')
-optIfOChGroupSrcCurrentEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOChGroupSrcCurrentEntry.setDescription('A conceptual row that contains OChGroup source performance\n     monitoring information of an interface for the current\n     15-minute interval.')
-optIfOChGroupSrcCurrentSuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 6, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcCurrentSuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOChGroupSrcCurrentOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 6, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcCurrentOutputPower.setDescription('The optical power monitored at the output.')
-optIfOChGroupSrcCurrentLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 6, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcCurrentLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     current 15-minute interval.')
-optIfOChGroupSrcCurrentHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 6, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcCurrentHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     current 15-minute interval.')
-optIfOChGroupSrcCurrentLowerOutputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 6, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOChGroupSrcCurrentLowerOutputPowerThreshold.setDescription('The lower limit threshold on output power.  If\n     optIfOChGroupSrcCurrentOutputPower drops to this value or below,\n     a Threshold Crossing Alert (TCA) should be sent.')
-optIfOChGroupSrcCurrentUpperOutputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 6, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOChGroupSrcCurrentUpperOutputPowerThreshold.setDescription('The upper limit threshold on output power.  If\n     optIfOChGroupSrcCurrentOutputPower reaches or exceeds this value,\n     a Threshold Crossing Alert (TCA) should be sent.')
-optIfOChGroupSrcCurrentAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 6, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcCurrentAggregatedInputPower.setDescription('The aggregated optical power monitored at the input.')
-optIfOChGroupSrcCurrentLowAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 6, 1, 8), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcCurrentLowAggregatedInputPower.setDescription('The lowest aggregated optical power monitored at the input\n     during the current 15-minute interval.')
-optIfOChGroupSrcCurrentHighAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 6, 1, 9), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcCurrentHighAggregatedInputPower.setDescription('The highest aggregated optical power monitored at the input\n     during the current 15-minute interval.')
-optIfOChGroupSrcCurrentLowerInputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 6, 1, 10), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOChGroupSrcCurrentLowerInputPowerThreshold.setDescription('The lower limit threshold on input power.  If\n     optIfOChGroupSrcCurrentAggregatedInputPower drops to this value\n     or below, a Threshold Crossing Alert (TCA) should be sent.')
-optIfOChGroupSrcCurrentUpperInputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 6, 1, 11), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOChGroupSrcCurrentUpperInputPowerThreshold.setDescription('The upper limit threshold on input power.  If\n     optIfOChGroupSrcCurrentAggregatedInputPower reaches or exceeds\n     this value, a Threshold Crossing Alert (TCA) should be sent.')
-optIfOChGroupSrcIntervalTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 7), )
-if mibBuilder.loadTexts: optIfOChGroupSrcIntervalTable.setDescription('A table of historical OChGroup source performance monitoring\n     information.')
-optIfOChGroupSrcIntervalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 7, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "OPT-IF-MIB", "optIfOChGroupSrcIntervalNumber"))
-if mibBuilder.loadTexts: optIfOChGroupSrcIntervalEntry.setDescription('A conceptual row that contains OChGroup source performance\n     monitoring information of an interface during a particular\n     historical interval.')
-optIfOChGroupSrcIntervalNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 7, 1, 1), OptIfIntervalNumber())
-if mibBuilder.loadTexts: optIfOChGroupSrcIntervalNumber.setDescription('Uniquely identifies the interval.')
-optIfOChGroupSrcIntervalSuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 7, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcIntervalSuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOChGroupSrcIntervalLastOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 7, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcIntervalLastOutputPower.setDescription('The last optical power monitored at the output during the\n     interval.')
-optIfOChGroupSrcIntervalLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 7, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcIntervalLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     interval.')
-optIfOChGroupSrcIntervalHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 7, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcIntervalHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     interval.')
-optIfOChGroupSrcIntervalLastAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 7, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcIntervalLastAggregatedInputPower.setDescription('The last aggregated optical power monitored at the input\n     during the interval.')
-optIfOChGroupSrcIntervalLowAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 7, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcIntervalLowAggregatedInputPower.setDescription('The lowest aggregated optical power monitored at the input\n     during the interval.')
-optIfOChGroupSrcIntervalHighAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 7, 1, 8), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcIntervalHighAggregatedInputPower.setDescription('The highest aggregated optical power monitored at the input\n     during the interval.')
-optIfOChGroupSrcCurDayTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 8), )
-if mibBuilder.loadTexts: optIfOChGroupSrcCurDayTable.setDescription('A table of OChGroup source performance monitoring information for\n     the current 24-hour interval.')
-optIfOChGroupSrcCurDayEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 8, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOChGroupSrcCurDayEntry.setDescription('A conceptual row that contains OChGroup source performance\n     monitoring information of an interface for the current\n     24-hour interval.')
-optIfOChGroupSrcCurDaySuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 8, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcCurDaySuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOChGroupSrcCurDayLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 8, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcCurDayLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     current 24-hour interval.')
-optIfOChGroupSrcCurDayHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 8, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcCurDayHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     current 24-hour interval.')
-optIfOChGroupSrcCurDayLowAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 8, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcCurDayLowAggregatedInputPower.setDescription('The lowest aggregated optical power monitored at the input\n     during the current 24-hour interval.')
-optIfOChGroupSrcCurDayHighAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 8, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcCurDayHighAggregatedInputPower.setDescription('The highest aggregated optical power monitored at the input\n     during the current 24-hour interval.')
-optIfOChGroupSrcPrevDayTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 9), )
-if mibBuilder.loadTexts: optIfOChGroupSrcPrevDayTable.setDescription('A table of OChGroup source performance monitoring information for\n     the previous 24-hour interval.')
-optIfOChGroupSrcPrevDayEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 9, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOChGroupSrcPrevDayEntry.setDescription('A conceptual row that contains OChGroup source performance\n     monitoring information of an interface for the previous\n     24-hour interval.')
-optIfOChGroupSrcPrevDaySuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 9, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcPrevDaySuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOChGroupSrcPrevDayLastOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 9, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcPrevDayLastOutputPower.setDescription('The last optical power monitored at the output during the\n     previous 24-hour interval.')
-optIfOChGroupSrcPrevDayLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 9, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcPrevDayLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     previous 24-hour interval.')
-optIfOChGroupSrcPrevDayHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 9, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcPrevDayHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     previous 24-hour interval.')
-optIfOChGroupSrcPrevDayLastAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 9, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcPrevDayLastAggregatedInputPower.setDescription('The last aggregated optical power monitored at the input\n     during the previous 24-hour interval.')
-optIfOChGroupSrcPrevDayLowAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 9, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcPrevDayLowAggregatedInputPower.setDescription('The lowest aggregated optical power monitored at the input\n     during the previous 24-hour interval.')
-optIfOChGroupSrcPrevDayHighAggregatedInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 5, 9, 1, 7), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChGroupSrcPrevDayHighAggregatedInputPower.setDescription('The highest aggregated optical power monitored at the input\n     during the previous 24-hour interval.')
-optIfOChConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 1), )
-if mibBuilder.loadTexts: optIfOChConfigTable.setDescription('A table of OCh configuration information.')
-optIfOChConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOChConfigEntry.setDescription('A conceptual row that contains OCh configuration\n     information of an interface.')
-optIfOChDirectionality = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 1, 1, 1), OptIfDirectionality()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChDirectionality.setDescription('Indicates the directionality of the entity.')
-optIfOChCurrentStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 1, 1, 2), Bits().clone(namedValues=NamedValues(("losP", 0), ("los", 1), ("oci", 2), ("ssfP", 3), ("ssfO", 4), ("ssf", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChCurrentStatus.setDescription('Indicates the defect condition of the entity, if any.\n     This object is applicable when optIfOChDirectionality\n     has the value sink(1) or bidirectional(3).\n     In full-capability systems the bit position los(1) is not used.\n     In reduced-capability systems or at IrDI interfaces only\n     the bit positions los(1) and ssfP(3) are used.')
-optIfOChSinkCurrentTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 2), )
-if mibBuilder.loadTexts: optIfOChSinkCurrentTable.setDescription('A table of OCh sink performance monitoring information for\n     the current 15-minute interval.')
-optIfOChSinkCurrentEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOChSinkCurrentEntry.setDescription('A conceptual row that contains OCh sink performance\n     monitoring information for an interface for the current\n     15-minute interval.')
-optIfOChSinkCurrentSuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 2, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSinkCurrentSuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOChSinkCurrentInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 2, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSinkCurrentInputPower.setDescription('The optical power monitored at the input.')
-optIfOChSinkCurrentLowInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 2, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSinkCurrentLowInputPower.setDescription('The lowest optical power monitored at the input during the\n     current 15-minute interval.')
-optIfOChSinkCurrentHighInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 2, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSinkCurrentHighInputPower.setDescription('The highest optical power monitored at the input during the\n     current 15-minute interval.')
-optIfOChSinkCurrentLowerInputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 2, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOChSinkCurrentLowerInputPowerThreshold.setDescription('The lower limit threshold on input power.  If\n     optIfOChSinkCurrentInputPower drops to this value or below,\n     a Threshold Crossing Alert (TCA) should be sent.')
-optIfOChSinkCurrentUpperInputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 2, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOChSinkCurrentUpperInputPowerThreshold.setDescription('The upper limit threshold on input power.  If\n     optIfOChSinkCurrentInputPower reaches or exceeds this value,\n     a Threshold Crossing Alert (TCA) should be sent.')
-optIfOChSinkIntervalTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 3), )
-if mibBuilder.loadTexts: optIfOChSinkIntervalTable.setDescription('A table of historical OCh sink performance monitoring\n     information.')
-optIfOChSinkIntervalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "OPT-IF-MIB", "optIfOChSinkIntervalNumber"))
-if mibBuilder.loadTexts: optIfOChSinkIntervalEntry.setDescription('A conceptual row that contains OCh sink performance\n     monitoring information of an interface during a particular\n     historical interval.')
-optIfOChSinkIntervalNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 3, 1, 1), OptIfIntervalNumber())
-if mibBuilder.loadTexts: optIfOChSinkIntervalNumber.setDescription('Uniquely identifies the interval.')
-optIfOChSinkIntervalSuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 3, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSinkIntervalSuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOChSinkIntervalLastInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 3, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSinkIntervalLastInputPower.setDescription('The last optical power monitored at the input during the\n     interval.')
-optIfOChSinkIntervalLowInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 3, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSinkIntervalLowInputPower.setDescription('The lowest optical power monitored at the input during the\n     interval.')
-optIfOChSinkIntervalHighInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 3, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSinkIntervalHighInputPower.setDescription('The highest optical power monitored at the input during the\n     interval.')
-optIfOChSinkCurDayTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 4), )
-if mibBuilder.loadTexts: optIfOChSinkCurDayTable.setDescription('A table of OCh sink performance monitoring information for\n     the current 24-hour interval.')
-optIfOChSinkCurDayEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOChSinkCurDayEntry.setDescription('A conceptual row that contains OCh sink performance\n     monitoring information of an interface for the current\n     24-hour interval.')
-optIfOChSinkCurDaySuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 4, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSinkCurDaySuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOChSinkCurDayLowInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 4, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSinkCurDayLowInputPower.setDescription('The lowest optical power monitored at the input during the\n     current 24-hour interval.')
-optIfOChSinkCurDayHighInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 4, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSinkCurDayHighInputPower.setDescription('The highest optical power monitored at the input during the\n     current 24-hour interval.')
-optIfOChSinkPrevDayTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 5), )
-if mibBuilder.loadTexts: optIfOChSinkPrevDayTable.setDescription('A table of OCh sink performance monitoring information for\n     the previous 24-hour interval.')
-optIfOChSinkPrevDayEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOChSinkPrevDayEntry.setDescription('A conceptual row that contains OCh sink performance\n     monitoring information of an interface for the previous\n     24-hour interval.')
-optIfOChSinkPrevDaySuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 5, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSinkPrevDaySuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOChSinkPrevDayLastInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 5, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSinkPrevDayLastInputPower.setDescription('The last optical power monitored at the input during the\n     previous 24-hour interval.')
-optIfOChSinkPrevDayLowInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 5, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSinkPrevDayLowInputPower.setDescription('The lowest optical power monitored at the input during the\n     previous 24-hour interval.')
-optIfOChSinkPrevDayHighInputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 5, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSinkPrevDayHighInputPower.setDescription('The highest optical power monitored at the input during the\n     previous 24-hour interval.')
-optIfOChSrcCurrentTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 6), )
-if mibBuilder.loadTexts: optIfOChSrcCurrentTable.setDescription('A table of OCh source performance monitoring information for\n     the current 15-minute interval.')
-optIfOChSrcCurrentEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOChSrcCurrentEntry.setDescription('A conceptual row that contains OCh source performance\n     monitoring information of an interface for the current\n     15-minute interval.')
-optIfOChSrcCurrentSuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 6, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSrcCurrentSuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOChSrcCurrentOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 6, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSrcCurrentOutputPower.setDescription('The optical power monitored at the output.')
-optIfOChSrcCurrentLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 6, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSrcCurrentLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     current 15-minute interval.')
-optIfOChSrcCurrentHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 6, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSrcCurrentHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     current 15-minute interval.')
-optIfOChSrcCurrentLowerOutputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 6, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOChSrcCurrentLowerOutputPowerThreshold.setDescription('The lower limit threshold on output power.  If\n     optIfOChSrcCurrentOutputPower drops to this value or below,\n     a Threshold Crossing Alert (TCA) should be sent.')
-optIfOChSrcCurrentUpperOutputPowerThreshold = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 6, 1, 6), Integer32()).setUnits('0.1 dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOChSrcCurrentUpperOutputPowerThreshold.setDescription('The upper limit threshold on output power.  If\n     optIfOChSrcCurrentOutputPower reaches or exceeds this value,\n     a Threshold Crossing Alert (TCA) should be sent.')
-optIfOChSrcIntervalTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 7), )
-if mibBuilder.loadTexts: optIfOChSrcIntervalTable.setDescription('A table of historical OCh source performance monitoring\n     information.')
-optIfOChSrcIntervalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 7, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "OPT-IF-MIB", "optIfOChSrcIntervalNumber"))
-if mibBuilder.loadTexts: optIfOChSrcIntervalEntry.setDescription('A conceptual row that contains OCh source performance\n     monitoring information of an interface during a particular\n     historical interval.')
-optIfOChSrcIntervalNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 7, 1, 1), OptIfIntervalNumber())
-if mibBuilder.loadTexts: optIfOChSrcIntervalNumber.setDescription('Uniquely identifies the interval.')
-optIfOChSrcIntervalSuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 7, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSrcIntervalSuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOChSrcIntervalLastOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 7, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSrcIntervalLastOutputPower.setDescription('The last optical power monitored at the output during the\n     interval.')
-optIfOChSrcIntervalLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 7, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSrcIntervalLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     interval.')
-optIfOChSrcIntervalHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 7, 1, 5), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSrcIntervalHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     interval.')
-optIfOChSrcCurDayTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 8), )
-if mibBuilder.loadTexts: optIfOChSrcCurDayTable.setDescription('A table of OCh source performance monitoring information for\n     the current 24-hour interval.')
-optIfOChSrcCurDayEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 8, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOChSrcCurDayEntry.setDescription('A conceptual row that contains OCh source performance\n     monitoring information of an interface for the current\n     24-hour interval.')
-optIfOChSrcCurDaySuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 8, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSrcCurDaySuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOChSrcCurDayLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 8, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSrcCurDayLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n\n\n\n     current 24-hour interval.')
-optIfOChSrcCurDayHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 8, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSrcCurDayHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     current 24-hour interval.')
-optIfOChSrcPrevDayTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 9), )
-if mibBuilder.loadTexts: optIfOChSrcPrevDayTable.setDescription('A table of OCh source performance monitoring information for\n     the previous 24-hour interval.')
-optIfOChSrcPrevDayEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 9, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOChSrcPrevDayEntry.setDescription('A conceptual row that contains OCh source performance\n     monitoring information of an interface for the previous\n     24-hour interval.')
-optIfOChSrcPrevDaySuspectedFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 9, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSrcPrevDaySuspectedFlag.setDescription('If true, the data in this entry may be unreliable.')
-optIfOChSrcPrevDayLastOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 9, 1, 2), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSrcPrevDayLastOutputPower.setDescription('The last optical power monitored at the output during the\n     previous 24-hour interval.')
-optIfOChSrcPrevDayLowOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 9, 1, 3), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSrcPrevDayLowOutputPower.setDescription('The lowest optical power monitored at the output during the\n     previous 24-hour interval.')
-optIfOChSrcPrevDayHighOutputPower = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 6, 9, 1, 4), Integer32()).setUnits('0.1 dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOChSrcPrevDayHighOutputPower.setDescription('The highest optical power monitored at the output during the\n     previous 24-hour interval.')
-optIfOTUkConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 1), )
-if mibBuilder.loadTexts: optIfOTUkConfigTable.setDescription('A table of OTUk configuration information.')
-optIfOTUkConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfOTUkConfigEntry.setDescription('A conceptual row that contains OTUk configuration\n     information of an interface.')
-optIfOTUkDirectionality = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 1, 1, 1), OptIfDirectionality()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTUkDirectionality.setDescription('Indicates the directionality of the entity.')
-optIfOTUkBitRateK = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 1, 1, 2), OptIfBitRateK()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTUkBitRateK.setDescription('Indicates the bit rate of the entity.')
-optIfOTUkTraceIdentifierTransmitted = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 1, 1, 3), OptIfTxTI()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTUkTraceIdentifierTransmitted.setDescription('The trace identifier transmitted.\n     This object is applicable when optIfOTUkDirectionality\n     has the value source(2) or bidirectional(3).  It must not\n     be instantiated in rows where optIfOTUkDirectionality\n     has the value sink(1).\n     If no value is ever set by a management entity for this\n     object, system-specific default value will be used.\n     Any implementation that instantiates this object must\n     document the system-specific default value or how it\n     is derived.')
-optIfOTUkDAPIExpected = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 1, 1, 4), OptIfExDAPI()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTUkDAPIExpected.setDescription('The DAPI expected by the receiver.\n     This object is only applicable to the sink function, i.e.,\n     only when optIfOTUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfOTUkDirectionality has the value source(2).\n     This object has no effect when optIfOTUkTIMDetMode has\n     the value off(1).')
-optIfOTUkSAPIExpected = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 1, 1, 5), OptIfExSAPI()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTUkSAPIExpected.setDescription('The SAPI expected by the receiver.\n     This object is only applicable to the sink function, i.e.,\n     only when optIfOTUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfOTUkDirectionality has the value source(2).\n     This object has no effect when optIfOTUkTIMDetMode has\n     the value off(1).')
-optIfOTUkTraceIdentifierAccepted = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 1, 1, 6), OptIfAcTI()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTUkTraceIdentifierAccepted.setDescription('The actual trace identifier accepted.\n     This object is only applicable to the sink function, i.e.,\n\n\n\n     only when optIfOTUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfOTUkDirectionality has the value source(2).\n     The value of this object is unspecified when\n     optIfOTUkCurrentStatus indicates a near-end defect\n     (i.e., ssf(3), lof(4), ais(5), lom(6)) that prevents\n     extraction of the trace message.')
-optIfOTUkTIMDetMode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 1, 1, 7), OptIfTIMDetMode()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTUkTIMDetMode.setDescription('Indicates the mode of the Trace Identifier Mismatch (TIM)\n     Detection function.\n     This object is only applicable to the sink function, i.e.,\n     only when optIfOTUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfOTUkDirectionality has the value source(2).\n     The default value of this object is off(1).')
-optIfOTUkTIMActEnabled = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 1, 1, 8), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTUkTIMActEnabled.setDescription('Indicates whether the Trace Identifier Mismatch (TIM)\n     Consequent Action function is enabled.\n     This object is only applicable to the sink function, i.e.,\n     only when optIfOTUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfOTUkDirectionality has the value source(2).\n     This object has no effect when optIfOTUkTIMDetMode has\n     the value off(1).\n     The default value of this object is false(2).')
-optIfOTUkDEGThr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 1, 1, 9), OptIfDEGThr()).setUnits('percentage').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTUkDEGThr.setDescription('Indicates the threshold level for declaring a performance\n     monitoring (PM) Second to be bad.  A PM Second is declared bad if\n     the percentage of detected errored blocks in that second is\n\n\n\n     greater than or equal to optIfOTUkDEGThr.\n     This object is only applicable to the sink function, i.e.,\n     only when optIfOTUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfOTUkDirectionality has the value source(2).\n     The default value of this object is Severely Errored Second\n     (SES) Estimator (See ITU-T G.7710).')
-optIfOTUkDEGM = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 1, 1, 10), OptIfDEGM()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTUkDEGM.setDescription('Indicates the threshold level for declaring a Degraded Signal\n     defect (dDEG).  A dDEG shall be declared if optIfOTUkDEGM\n     consecutive bad PM Seconds are detected.\n     This object is only applicable to the sink function, i.e.,\n     only when optIfOTUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfOTUkDirectionality has the value source(2).\n     The default value of this object is 7 (See ITU-T G.7710).')
-optIfOTUkSinkAdaptActive = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 1, 1, 11), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTUkSinkAdaptActive.setDescription('Indicates whether the sink adaptation function is activated or\n     not.\n     This object is only applicable to the sink function, i.e.,\n     only when optIfOTUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfOTUkDirectionality has the value source(2).\n     The default value of this object is false(2).')
-optIfOTUkSourceAdaptActive = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 1, 1, 12), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTUkSourceAdaptActive.setDescription('Indicates whether the source adaptation function is activated or\n     not.\n     This object is only applicable to the source function, i.e.,\n     only when optIfOTUkDirectionality has the value source(2)\n     or bidirectional(3).  It must not be instantiated in rows\n\n\n\n     where optIfOTUkDirectionality has the value sink(1).\n     The default value of this object is false(2).')
-optIfOTUkSinkFECEnabled = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 1, 1, 13), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfOTUkSinkFECEnabled.setDescription('If Forward Error Correction (FEC) is supported, this object\n     indicates whether FEC at the OTUk sink adaptation function is\n     enabled or not.\n     This object is only applicable to the sink function, i.e.,\n     only when optIfOTUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfOTUkDirectionality has the value source(2).\n     The default value of this object is true(1).')
-optIfOTUkCurrentStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 1, 1, 14), Bits().clone(namedValues=NamedValues(("tim", 0), ("deg", 1), ("bdi", 2), ("ssf", 3), ("lof", 4), ("ais", 5), ("lom", 6),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfOTUkCurrentStatus.setDescription('Indicates the defect condition of the entity, if any.\n     This object is only applicable to the sink function, i.e.,\n     only when optIfOTUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfOTUkDirectionality has the value source(2).')
-optIfGCC0ConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 2), )
-if mibBuilder.loadTexts: optIfGCC0ConfigTable.setDescription('A table of GCC0 configuration information.')
-optIfGCC0ConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "OPT-IF-MIB", "optIfGCC0Directionality"))
-if mibBuilder.loadTexts: optIfGCC0ConfigEntry.setDescription('A conceptual row that contains GCC0 configuration\n     information of an interface.  Each instance must\n     correspond to an instance of optIfOTUkConfigEntry.\n     Separate source and/or sink instances may exist\n     for a given ifIndex value, or a single bidirectional\n     instance may exist, but a bidirectional instance may\n     not coexist with a source or sink instance.\n     Instances of this conceptual row persist across\n     agent restarts.')
-optIfGCC0Directionality = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 2, 1, 1), OptIfDirectionality())
-if mibBuilder.loadTexts: optIfGCC0Directionality.setDescription('Indicates the directionality of the entity.\n     The values source(2) and bidirectional(3) are\n     not allowed if the corresponding instance of\n     optIfOTUkDirectionality has the value sink(1).\n     The values sink(1) and bidirectional(3) are\n     not allowed if the corresponding instance of\n     optIfOTUkDirectionality has the value source(2).')
-optIfGCC0Application = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 2, 1, 2), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfGCC0Application.setDescription('Indicates the application transported by the GCC0 entity.\n     Example applications are ECC, User data channel.\n\n     The value of this object may not be changed when\n     optIfGCC0RowStatus has the value active(1).')
-optIfGCC0RowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 7, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfGCC0RowStatus.setDescription('This columnar object is used for creating and deleting a\n     conceptual row of the optIfGCC0 config table.\n     It is used to model the addGCC0Access and removeGCC0Access\n     operations of an OTUk_TTP for GCC0 access control as defined\n     in G.874.1.  Setting RowStatus to createAndGo or createAndWait\n     implies addGCC0Access.  Setting RowStatus to destroy implies\n     removeGCC0Access.')
-optIfODUkConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 1), )
-if mibBuilder.loadTexts: optIfODUkConfigTable.setDescription('A table of ODUk configuration information.')
-optIfODUkConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfODUkConfigEntry.setDescription('A conceptual row that contains ODUk configuration\n     information of an interface.')
-optIfODUkDirectionality = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 1, 1, 1), OptIfDirectionality()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfODUkDirectionality.setDescription('Indicates the directionality of the entity.')
-optIfODUkBitRateK = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 1, 1, 2), OptIfBitRateK()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfODUkBitRateK.setDescription('Indicates the bit rate of the entity.')
-optIfODUkTcmFieldsInUse = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 1, 1, 3), Bits().clone(namedValues=NamedValues(("tcmField1", 0), ("tcmField2", 1), ("tcmField3", 2), ("tcmField4", 3), ("tcmField5", 4), ("tcmField6", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfODUkTcmFieldsInUse.setDescription('Indicates the TCM field(s) that are currently in use.\n     The positions of the bits correspond to the TCM fields.\n     A bit that is set to 1 means that the corresponding TCM\n     field is used.  This object will be updated when rows are\n     created in or deleted from the optIfODUkTConfigTable, or\n     the optIfODUkTNimConfigTable.')
-optIfODUkPositionSeqCurrentSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfODUkPositionSeqCurrentSize.setDescription('This variable indicates the current size of the position\n     sequence (i.e., number of TCM function and/or GCC12\n     access that have been created in the ODUk interface).\n     When the value of this variable is greater than zero,\n     it means that one or more TCM function and/or GCC12\n     access have been created in the ODUk interface.  In this\n     case, there will be as many rows in the\n\n\n\n     optIfODUkPositionSeqTable as the value of\n     optIfODUkPositionSeqCurrentSize  corresponding to this\n     ODUk interface, one row for each TCM function or GCC12\n     access.  The position of the TCM function and/or\n     GCC12 access within the sequence is indicated by the\n     optIfODUkPositionSeqPosition variable in\n     optIfODUkPositionSeqTable.\n     The optIfODUkPositionSeqTable also provides pointers\n     to the corresponding TCM function (optIfODUkT) and\n     GCC12 access (optIfGCC12) entities.')
-optIfODUkTtpPresent = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 1, 1, 5), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfODUkTtpPresent.setDescription('This object has the value true(1) if the ifEntry under which\n     it is instantiated contains an ODUk Trail Termination Point,\n     i.e., is the endpoint of an ODUk path.  In that case there\n     will be a corresponding row in the ODUk TTP config table and\n     it will not be possible to create corresponding rows in the\n     ODUk NIM config table.  This object has the value false(2)\n     if the ifEntry under which it is instantiated contains an\n     intermediate ODUk Connection Termination Point.  In that case\n     there is no corresponding row in the ODUk TTP config table,\n     but it will be possible to create corresponding rows in the\n     ODUk NIM config table.  This object also affects the allowable\n     options in rows created in the GCC12 config table and in the\n     ODUkT config table, as specified in the DESCRIPTION clauses\n     of the columns in those tables.')
-optIfODUkTtpConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 2), )
-if mibBuilder.loadTexts: optIfODUkTtpConfigTable.setDescription('A table of ODUk TTP configuration information.')
-optIfODUkTtpConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: optIfODUkTtpConfigEntry.setDescription('A conceptual row that contains ODUk TTP configuration\n     information of an interface.')
-optIfODUkTtpTraceIdentifierTransmitted = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 2, 1, 1), OptIfTxTI()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfODUkTtpTraceIdentifierTransmitted.setDescription('The trace identifier transmitted.\n     This object is applicable when optIfODUkDirectionality\n     has the value source(2) or bidirectional(3).  It must not\n     be instantiated in rows where optIfODUkDirectionality\n     has the value sink(1).\n     If no value is ever set by a management entity for this\n     object, system-specific default value will be used.\n     Any implementation that instantiates this object must\n     document the system-specific default value or how it\n     is derived.')
-optIfODUkTtpDAPIExpected = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 2, 1, 2), OptIfExDAPI()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfODUkTtpDAPIExpected.setDescription('The DAPI expected by the receiver.\n     This object is only applicable to the sink function, i.e.,\n     only when optIfODUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfODUkDirectionality has the value source(2).\n     This object has no effect when optIfODUkTtpTIMDetMode has\n     the value off(1).')
-optIfODUkTtpSAPIExpected = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 2, 1, 3), OptIfExSAPI()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfODUkTtpSAPIExpected.setDescription('The SAPI expected by the receiver.\n     This object is only applicable to the sink function, i.e.,\n     only when optIfODUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfODUkDirectionality has the value source(2).\n     This object has no effect when optIfODUkTtpTIMDetMode has\n     the value off(1).')
-optIfODUkTtpTraceIdentifierAccepted = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 2, 1, 4), OptIfAcTI()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfODUkTtpTraceIdentifierAccepted.setDescription('The actual trace identifier accepted.\n     This object is only applicable to the sink function, i.e.,\n     only when optIfODUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfODUkDirectionality has the value source(2).\n     The value of this object is unspecified when\n     optIfODUkTtpCurrentStatus indicates a near-end defect\n     (i.e., oci(0), lck(1), ssf(5)) that prevents extraction\n     of the trace message.')
-optIfODUkTtpTIMDetMode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 2, 1, 5), OptIfTIMDetMode()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfODUkTtpTIMDetMode.setDescription('Indicates the mode of the Trace Identifier Mismatch (TIM)\n     Detection function.\n     This object is only applicable to the sink function, i.e.,\n     only when optIfODUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfODUkDirectionality has the value source(2).\n     The default value of this object is off(1).')
-optIfODUkTtpTIMActEnabled = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 2, 1, 6), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfODUkTtpTIMActEnabled.setDescription('Indicates whether the Trace Identifier Mismatch (TIM)\n     Consequent Action function is enabled.\n     This object is only applicable to the sink function, i.e.,\n     only when optIfODUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfODUkDirectionality has the value source(2).\n     This object has no effect when optIfODUkTtpTIMDetMode has\n     the value off(1).\n     The default value of this object is false(2).')
-optIfODUkTtpDEGThr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 2, 1, 7), OptIfDEGThr()).setUnits('percentage').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfODUkTtpDEGThr.setDescription('Indicates the threshold level for declaring a performance\n     monitoring (PM) Second to be bad.  A PM Second is declared bad if\n     the percentage of detected errored blocks in that second is\n     greater than or equal to optIfODUkDEGThr.\n     This object is only applicable to the sink function, i.e.,\n     only when optIfODUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfODUkDirectionality has the value source(2).\n     The default value of this object is Severely Errored Second\n     (SES) Estimator (See ITU-T G.7710).')
-optIfODUkTtpDEGM = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 2, 1, 8), OptIfDEGM()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: optIfODUkTtpDEGM.setDescription('Indicates the threshold level for declaring a Degraded Signal\n     defect (dDEG).  A dDEG shall be declared if optIfODUkDEGM\n     consecutive bad PM Seconds are detected.\n     This object is only applicable to the sink function, i.e.,\n     only when optIfODUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfODUkDirectionality has the value source(2).\n     The default value of this object is 7 (See ITU-T G.7710).')
-optIfODUkTtpCurrentStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 2, 1, 9), Bits().clone(namedValues=NamedValues(("oci", 0), ("lck", 1), ("tim", 2), ("deg", 3), ("bdi", 4), ("ssf", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfODUkTtpCurrentStatus.setDescription('Indicates the defect condition of the entity, if any.\n     This object is only applicable to the sink function, i.e.,\n     only when optIfODUkDirectionality has the value sink(1)\n     or bidirectional(3).  It must not be instantiated in rows\n     where optIfODUkDirectionality has the value source(2).')
-optIfODUkPositionSeqTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 3), )
-if mibBuilder.loadTexts: optIfODUkPositionSeqTable.setDescription('A table of ODUk Position Sequence information.')
-optIfODUkPositionSeqEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "OPT-IF-MIB", "optIfODUkPositionSeqIndex"))
-if mibBuilder.loadTexts: optIfODUkPositionSeqEntry.setDescription('A conceptual row that contains ODUk position sequence\n     information of an ODUk interface.  The ODUk interface\n     is identified by the ifIndex.  Associated with each\n     ODUk interface there may be one of more conceptual\n     rows in the optIfODUkPositionSeqTable.  Each row\n     represents a TCM or GCC12 access function within the\n     associated ODUk interface.  Rows of the\n     optIfODUkPositionSeqTable table are created/deleted\n     as the result of the creation/deletion of the optIfODUkT\n     or optIfGCC12 entities.')
-optIfODUkPositionSeqIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: optIfODUkPositionSeqIndex.setDescription('This variable identifies a row in the\n     optIfODUkPositionSeqTable Table.\n     Each row of the optIfODUkPositionSeqTable Table\n     represents a TCM or GCC12 access function within the\n     associated ODUk interface.')
-optIfODUkPositionSeqPosition = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 3, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfODUkPositionSeqPosition.setDescription('This variable indicates the position of the TCM or\n     GCC12 access function within the sequence of TCMs &\n     GCC12 access functions of the associated ODUk\n     interface.  The TCM or GCC12 presented by this row is\n     referenced by the optIfODUkPositionSeqPointer variable.')
-optIfODUkPositionSeqPointer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 3, 1, 3), RowPointer()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfODUkPositionSeqPointer.setDescription('This variable identifies the TCM or GCC12 access function\n     by pointing to the corresponding optIfODUkT or optIfGCC12\n     entity.')
-optIfODUkNimConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 4), )
-if mibBuilder.loadTexts: optIfODUkNimConfigTable.setDescription('A table of ODUkNim configuration information.')
-optIfODUkNimConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "OPT-IF-MIB", "optIfODUkNimDirectionality"))
-if mibBuilder.loadTexts: optIfODUkNimConfigEntry.setDescription('A conceptual row that contains ODUkNim configuration\n     information of an interface.  Each instance must\n     correspond to an instance of optIfODUkConfigEntry\n     for which optIfODUkTtpPresent has the value false(2).\n\n     Instances of this conceptual row persist across\n     agent restarts, and read-create columns other\n     than the status column may be modified while the\n     row is active.')
-optIfODUkNimDirectionality = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 4, 1, 1), OptIfSinkOrSource())
-if mibBuilder.loadTexts: optIfODUkNimDirectionality.setDescription('Specifies the monitor point for the ODUk Path non-intrusive\n     monitoring function.  The value source(2) is not allowed\n     if the corresponding instance of optIfODUkDirectionality\n     has the value sink(1), and the value sink(1) is not allowed\n     if the corresponding instance of optIfODUkDirectionality\n     has the value source(2).  Either the value sink(1) or\n     source(2) is allowed if the corresponding instance of\n     optIfODUkDirectionality has the value bidirectional(3).\n\n     The value sink(1) means monitoring at the sink direction\n     path signal of the ODUk CTP.\n\n     The value source(2) means monitoring at the source direction\n\n\n\n     path signal of the ODUk CTP.  Monitoring the source direction\n     of an ODUk CTP is necessary in those cases where the ODUk CTP\n     is at an SNCP (Subnetwork Connection Protection) end (e.g., see\n     Figure I.1.2/G.874.1).  If one would like to get the performance\n     of the protected connection, one cannot use the NIM function\n     at both ODUk CTP sinks (before the matrix), instead one should\n     monitor the signal at the source ODUk CTP after the matrix.')
-optIfODUkNimDAPIExpected = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 4, 1, 2), OptIfExDAPI()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkNimDAPIExpected.setDescription('The DAPI expected by the receiver.\n     This object has no effect if optIfODUkNimTIMDetMode has\n     the value off(1) or sapi(3).')
-optIfODUkNimSAPIExpected = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 4, 1, 3), OptIfExSAPI()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkNimSAPIExpected.setDescription('The SAPI expected by the receiver.\n     This object has no effect if optIfODUkNimTIMDetMode has\n     the value off(1) or dapi(2).')
-optIfODUkNimTraceIdentifierAccepted = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 4, 1, 4), OptIfAcTI()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfODUkNimTraceIdentifierAccepted.setDescription('The actual trace identifier accepted.  The value of\n     this object is unspecified if optIfODUkNimCurrentStatus\n     has any of the bit positions oci(0), lck(1), or ssf(5)\n     set or if optIfODUkNimRowStatus has any value other\n     than active(1).')
-optIfODUkNimTIMDetMode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 4, 1, 5), OptIfTIMDetMode()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkNimTIMDetMode.setDescription('Indicates the mode of the Trace Identifier Mismatch (TIM)\n     Detection function.')
-optIfODUkNimTIMActEnabled = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 4, 1, 6), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkNimTIMActEnabled.setDescription('Indicates whether the Trace Identifier Mismatch (TIM)\n     Consequent Action function is enabled.')
-optIfODUkNimDEGThr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 4, 1, 7), OptIfDEGThr()).setUnits('percentage').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkNimDEGThr.setDescription('Indicates the threshold level for declaring a performance\n     monitoring (PM) Second to be bad.  A PM Second is declared bad\n     if the percentage of detected errored blocks in that second is\n     greater than or equal to optIfODUkNimDEGThr.')
-optIfODUkNimDEGM = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 4, 1, 8), OptIfDEGM()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkNimDEGM.setDescription('Indicates the threshold level for declaring a Degraded Signal\n     defect (dDEG).  A dDEG shall be declared if optIfODUkNimDEGM\n     consecutive bad PM Seconds are detected.')
-optIfODUkNimCurrentStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 4, 1, 9), Bits().clone(namedValues=NamedValues(("oci", 0), ("lck", 1), ("tim", 2), ("deg", 3), ("bdi", 4), ("ssf", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfODUkNimCurrentStatus.setDescription('Indicates the defect condition of the entity, if\n     any.  The value of this object is unspecified if\n     optIfODUkNimRowStatus has any value other than\n\n\n\n     active(1).')
-optIfODUkNimRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 4, 1, 10), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkNimRowStatus.setDescription('This columnar object is used for creating and deleting\n     a conceptual row of the optIfODUkNim config table.\n     It is used to model the activateNim and deactivateNim\n     operations of an OTUk_CTP for non-intrusive monitoring\n     control as defined in G.874.1.  Setting RowStatus to\n     createAndGo or createAndWait implies activateNim.\n     Setting RowStatus to destroy implies deactivateNim.')
-optIfGCC12ConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 5), )
-if mibBuilder.loadTexts: optIfGCC12ConfigTable.setDescription('A table of GCC12 configuration information.\n     The GCC function processes the GCC overhead bytes passing\n     through them but leave the remainder of the ODUk overhead\n     and payload data alone.')
-optIfGCC12ConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "OPT-IF-MIB", "optIfGCC12Codirectional"), (0, "OPT-IF-MIB", "optIfGCC12GCCAccess"))
-if mibBuilder.loadTexts: optIfGCC12ConfigEntry.setDescription('A conceptual row that contains GCC12 configuration\n     information of an interface.  Each instance must\n     correspond to an instance of optIfODUkConfigEntry.\n     Separate instances providing GCC1-only access and\n     GCC2-only access may exist for a given ifIndex value,\n     or a single instance providing GCC1 + GCC2 may exist,\n     but a GCC1 + GCC2 instance may not coexist with a\n     GCC1-only or GCC2-only instance.\n\n     Instances of this conceptual row persist across agent\n     restarts.')
-optIfGCC12Codirectional = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 5, 1, 1), TruthValue())
-if mibBuilder.loadTexts: optIfGCC12Codirectional.setDescription('Indicates the directionality of the GCC12 termination with\n     respect to the associated ODUk CTP.  The value true(1) means\n     that the sink part of the GCC12 extracts COMMS data from the\n     signal at the input to the ODUk CTP sink and the source part\n     of the GCC12 inserts COMMS data into the signal at the output\n     of the ODUk CTP source.  The value false(2) means that the\n     sink part of the GCC12 extracts COMMS data from the signal at\n     the output of the ODUk CTP source and the source part of the\n     GCC12 inserts COMMS data into the signal at the input of the\n     ODUk CTP sink.  This attribute may assume either value when\n     the corresponding instance of optIfODUkTtpPresent has the\n     value false(2).  When the value of the corresponding instance\n     of optIfODUkTtpPresent is true(1) then the only value allowed\n     for this attribute is true(1).')
-optIfGCC12GCCAccess = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("gcc1", 1), ("gcc2", 2), ("gcc1and2", 3),)))
-if mibBuilder.loadTexts: optIfGCC12GCCAccess.setDescription('Indicates the GCC access represented by the entity.')
-optIfGCC12GCCPassThrough = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 5, 1, 3), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfGCC12GCCPassThrough.setDescription('Controls whether the selected GCC overhead bytes are passed\n\n\n\n     through or modified.  The value true(1) means that the selected\n     GCC overhead bytes are passed through unmodified from the ODUk\n     CTP input to the ODUk CTP output.  The value false(2) means that\n     the selected GCC overhead bytes are set to zero at the ODUk CTP\n     output after the extraction of the COMMS data.  This object has\n     no effect if the corresponding instance of optIfODUkTtpPresent\n     has the value true(1).\n\n     The value of this object may not be changed when\n     optIfGCC12RowStatus has the value active(1).')
-optIfGCC12Application = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 5, 1, 4), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfGCC12Application.setDescription('Indicates the application transported by the GCC12 entity.\n     Example applications are ECC, User data channel.\n\n     The value of this object may not be changed when\n     optIfGCC12RowStatus has the value active(1).')
-optIfGCC12RowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 8, 5, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfGCC12RowStatus.setDescription('This columnar object is used for creating and deleting\n     a conceptual row of the optIfGCC12 config table.  It is\n     used to model the addGCC12Access and removeGCC12Access\n     operations of an ODUk_CTP or ODUk_TTP for GCC12 access\n     control as defined in G.874.1.  Setting RowStatus to\n     createAndGo or createAndWait implies addGCC12Access.\n     Setting RowStatus to destroy implies removeGCC12Access.\n     Successful addition/removal of the GCC12 access function\n     will result in updating the\n     optIfODUkPositionSeqCurrentSize variable and the\n     optIfODUkPositionSeqTable table of the associated\n     ODUk entry in the optIfODUkConfigTable.')
-optIfODUkTConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 1), )
-if mibBuilder.loadTexts: optIfODUkTConfigTable.setDescription('A table of ODUkT configuration information.')
-optIfODUkTConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "OPT-IF-MIB", "optIfODUkTTcmField"), (0, "OPT-IF-MIB", "optIfODUkTCodirectional"))
-if mibBuilder.loadTexts: optIfODUkTConfigEntry.setDescription('A conceptual row that contains ODUkT configuration\n     information of an interface.  Each instance must\n     correspond to an instance of optIfODUkConfigEntry.\n     Rows in this table are mutually exclusive with rows\n     in the ODUkT NIM config table -- in other words, this\n     row object may not be instantiated for a given pair\n     of ifIndex and TCM field values if a corresponding\n     instance of optIfODUkTNimConfigEntry already exists.\n\n     Instances of this conceptual row persist across agent\n     restarts.  Except where noted otherwise, read-create\n     columns other than the status column may be modified\n     while the row is active.')
-optIfODUkTTcmField = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,6)))
-if mibBuilder.loadTexts: optIfODUkTTcmField.setDescription('Indicates the tandem connection monitoring\n     field of the ODUk OH.  Valid values are\n     integers from 1 to 6.')
-optIfODUkTCodirectional = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 1, 1, 2), TruthValue())
-if mibBuilder.loadTexts: optIfODUkTCodirectional.setDescription('Indicates the directionality of the ODUkT termination point with\n     respect to the associated ODUk CTP.  The value true(1) means\n     that the sink part of the ODUkT TP extracts TCM data from the\n     signal at the input to the ODUk CTP sink and the source part\n     of the ODUkT TP inserts TCM data into the signal at the output\n     of the ODUk CTP source.  The value false(2) means that the\n     sink part of the ODUkT TP extracts TCM data from the signal at\n     the output of the ODUk CTP source and the source part of the\n     ODUkT TP inserts TCM data into the signal at the input of the\n     ODUk CTP sink.  This attribute may assume either value when\n     the corresponding instance of optIfODUkTtpPresent has the\n     value false(2).  When the value of the corresponding instance\n     of optIfODUkTtpPresent is true(1) then the only value allowed\n     for this attribute is true(1).')
-optIfODUkTTraceIdentifierTransmitted = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 1, 1, 3), OptIfTxTI()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTTraceIdentifierTransmitted.setDescription('The trace identifier transmitted.\n     This object is applicable only to the following three cases.\n       (i) optIfODUkDirectionality has the value bidirectional(3), or\n       (ii) optIfODUkDirectionality has the value sink(1) and\n            optIfODUkTCodirectional has the value false(2), or\n       (iii) optIfODUkDirectionality has the value source(3) and\n             optIfODUkTCodirectional has the value true(1).\n     It must not be instantiated in rows for all other cases.')
-optIfODUkTDAPIExpected = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 1, 1, 4), OptIfExDAPI()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTDAPIExpected.setDescription('The DAPI expected by the receiver.\n     This object is applicable only to the following three cases.\n       (i) optIfODUkDirectionality has the value bidirectional(3), or\n       (ii) optIfODUkDirectionality has the value sink(1) and\n            optIfODUkTCodirectional has the value true(1), or\n       (iii) optIfODUkDirectionality has the value source(3) and\n             optIfODUkTCodirectional has the value false(2).\n     It must not be instantiated in rows for all other cases.\n     This object has no effect when optIfODUkTTIMDetMode has\n     the value off(1).')
-optIfODUkTSAPIExpected = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 1, 1, 5), OptIfExSAPI()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTSAPIExpected.setDescription('The SAPI expected by the receiver.\n     This object is applicable only to the following three cases.\n       (i) optIfODUkDirectionality has the value bidirectional(3), or\n       (ii) optIfODUkDirectionality has the value sink(1) and\n            optIfODUkTCodirectional has the value true(1), or\n       (iii) optIfODUkDirectionality has the value source(3) and\n             optIfODUkTCodirectional has the value false(2).\n     It must not be instantiated in rows for all other cases.\n     This object has no effect when optIfODUkTTIMDetMode has\n     the value off(1).')
-optIfODUkTTraceIdentifierAccepted = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 1, 1, 6), OptIfAcTI()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfODUkTTraceIdentifierAccepted.setDescription('The actual trace identifier accepted.\n     This object is applicable only to the following three cases.\n       (i) optIfODUkDirectionality has the value bidirectional(3), or\n       (ii) optIfODUkDirectionality has the value sink(1) and\n            optIfODUkTCodirectional has the value true(1), or\n       (iii) optIfODUkDirectionality has the value source(3) and\n             optIfODUkTCodirectional has the value false(2).\n     It must not be instantiated in rows for all other cases.\n     The value of this object is unspecified when\n     optIfODUkTCurrentStatus indicates a near-end defect\n     (i.e., oci(0), lck(1), ssf(5)) that prevents extraction\n\n\n\n     of the trace message.')
-optIfODUkTTIMDetMode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 1, 1, 7), OptIfTIMDetMode()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTTIMDetMode.setDescription('Indicates the mode of the Trace Identifier Mismatch (TIM)\n     Detection function.\n     This object is applicable only to the following three cases.\n       (i) optIfODUkDirectionality has the value bidirectional(3), or\n       (ii) optIfODUkDirectionality has the value sink(1) and\n            optIfODUkTCodirectional has the value true(1), or\n       (iii) optIfODUkDirectionality has the value source(3) and\n             optIfODUkTCodirectional has the value false(2).\n     It must not be instantiated in rows for all other cases.\n     The default value of this object is off(1).')
-optIfODUkTTIMActEnabled = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 1, 1, 8), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTTIMActEnabled.setDescription('Indicates whether the Trace Identifier Mismatch (TIM)\n     Consequent Action function is enabled.\n     This object is applicable only to the following three cases.\n       (i) optIfODUkDirectionality has the value bidirectional(3), or\n       (ii) optIfODUkDirectionality has the value sink(1) and\n            optIfODUkTCodirectional has the value true(1), or\n       (iii) optIfODUkDirectionality has the value source(3) and\n             optIfODUkTCodirectional has the value false(2).\n     It must not be instantiated in rows for all other cases.\n     This object has no effect when optIfODUkTTIMDetMode has\n     the value off(1).\n     The default value of this object is false(2).')
-optIfODUkTDEGThr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 1, 1, 9), OptIfDEGThr()).setUnits('percentage').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTDEGThr.setDescription('Indicates the threshold level for declaring a performance\n     monitoring (PM) Second to be bad.  A PM Second is declared bad if\n     the percentage of detected errored blocks in that second is\n\n\n\n     greater than or equal to optIfODUkTDEGThr.\n     This object is applicable only to the following three cases.\n       (i) optIfODUkDirectionality has the value bidirectional(3), or\n       (ii) optIfODUkDirectionality has the value sink(1) and\n            optIfODUkTCodirectional has the value true(1), or\n       (iii) optIfODUkDirectionality has the value source(3) and\n             optIfODUkTCodirectional has the value false(2).\n     It must not be instantiated in rows for all other cases.\n     The default value of this object is Severely Errored Second\n     (SES) Estimator (See ITU-T G.7710).')
-optIfODUkTDEGM = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 1, 1, 10), OptIfDEGM()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTDEGM.setDescription('Indicates the threshold level for declaring a Degraded Signal\n     defect (dDEG).  A dDEG shall be declared if optIfODUkTDEGM\n     consecutive bad PM Seconds are detected.\n     This object is applicable only to the following three cases.\n       (i) optIfODUkDirectionality has the value bidirectional(3), or\n       (ii) optIfODUkDirectionality has the value sink(1) and\n            optIfODUkTCodirectional has the value true(1), or\n       (iii) optIfODUkDirectionality has the value source(3) and\n             optIfODUkTCodirectional has the value false(2).\n     It must not be instantiated in rows for all other cases.\n     The default value of this object is 7 (See ITU-T G.7710).')
-optIfODUkTSinkMode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("operational", 1), ("monitor", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTSinkMode.setDescription('This variable specifies the TCM mode at the entity.\n     The value operational(1) means that TCM Overhead (TCMOH)\n     processes (see ITU-T G.798) shall be\n     performed and consequent actions for AIS, Trail\n     Signal Fail (TSF), Trail Signal Degraded (TSD) shall be\n     initiated in case of defects.\n     The value monitor(2) means that TCMOH processes shall be\n     performed but consequent actions for AIS, Trail\n     Server Failure (TSF), Trail Server Degraded (TSD) shall _not_ be\n     initiated in case of defects.\n\n\n\n     This object is applicable only when the value of\n     optIfODUkTtpPresent is false(2) and also either one of the\n     following three cases holds:\n       (i) optIfODUkDirectionality has the value bidirectional(3), or\n       (ii) optIfODUkDirectionality has the value sink(1) and\n            optIfODUkTCodirectional has the value true(1), or\n       (iii) optIfODUkDirectionality has the value source(3) and\n             optIfODUkTCodirectional has the value false(2).\n     It must not be instantiated in rows for all other cases.')
-optIfODUkTSinkLockSignalAdminState = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("locked", 1), ("normal", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTSinkLockSignalAdminState.setDescription('Provides the capability to provision the LOCK signal, which\n     is one of the ODUk maintenance signals, at the ODUKT sink.  When\n     a Tandem Connection endpoint is set to admin state locked,\n     it inserts the ODUk-LCK signal in the sink direction.\n\n     This object is applicable only when the value of\n     optIfODUkTtpPresent is false(2) and also either one of the\n     following three cases holds:\n       (i) optIfODUkDirectionality has the value bidirectional(3), or\n       (ii) optIfODUkDirectionality has the value sink(1) and\n            optIfODUkTCodirectional has the value true(1), or\n       (iii) optIfODUkDirectionality has the value source(3) and\n             optIfODUkTCodirectional has the value false(2).\n     It must not be instantiated in rows for all other cases.')
-optIfODUkTSourceLockSignalAdminState = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("locked", 1), ("normal", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTSourceLockSignalAdminState.setDescription('Provides the capability to provision the LOCK signal, which\n     is one of the ODUk maintenance signals, at the source.\n     When a Tandem Connection endpoint is set to admin state\n     locked, it inserts the ODUk-LCK signal in the source\n     direction.\n\n\n\n     This object is applicable only when either one of the\n     following three cases holds:\n       (i) optIfODUkDirectionality has the value bidirectional(3), or\n       (ii) optIfODUkDirectionality has the value sink(1) and\n            optIfODUkTCodirectional has the value false(2), or\n       (iii) optIfODUkDirectionality has the value source(3) and\n             optIfODUkTCodirectional has the value true(1).\n     It must not be instantiated in rows for all other cases.')
-optIfODUkTCurrentStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 1, 1, 14), Bits().clone(namedValues=NamedValues(("oci", 0), ("lck", 1), ("tim", 2), ("deg", 3), ("bdi", 4), ("ssf", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfODUkTCurrentStatus.setDescription('Indicates the defect condition of the entity, if any.\n     This object is applicable only when either one of the\n     following three cases holds:\n       (i) optIfODUkDirectionality has the value bidirectional(3), or\n       (ii) optIfODUkDirectionality has the value sink(1) and\n            optIfODUkTCodirectional has the value true(1), or\n       (iii) optIfODUkDirectionality has the value source(3) and\n             optIfODUkTCodirectional has the value false(2).\n     It must not be instantiated in rows for all other cases.')
-optIfODUkTRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 1, 1, 15), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTRowStatus.setDescription('This columnar object is used for creating and deleting a\n     conceptual row of the optIfODUkT config table.\n     It is used to model the addTCM and removeTCM operations of an\n     ODUk_CTP or ODUk_TTP for Tandem connection monitoring as defined\n     in ITU-T G.874.1.\n     Setting RowStatus to createAndGo or createAndWait implies addTCM.\n     Setting RowStatus to destroy implies removeTCM.\n     Successful addition/removal of TCM will result in updating the\n     optIfODUkTcmFieldsInUse and optIfODUkPositionSeqCurrentSize\n     variables and the optIfODUkPositionSeqTable table of the\n\n\n\n     associated ODUk entry in the optIfODUkConfigTable.')
-optIfODUkTNimConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 2), )
-if mibBuilder.loadTexts: optIfODUkTNimConfigTable.setDescription('A table of ODUkTNim configuration information.')
-optIfODUkTNimConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "OPT-IF-MIB", "optIfODUkTNimTcmField"), (0, "OPT-IF-MIB", "optIfODUkTNimDirectionality"))
-if mibBuilder.loadTexts: optIfODUkTNimConfigEntry.setDescription('A conceptual row that contains ODUkTNim configuration\n     information of an interface.  Each instance must\n     correspond to an instance of optIfODUkConfigEntry.\n     Rows in this table are mutually exclusive with rows\n     in the ODUkT config table -- in other words, this\n     row object may not be instantiated for a given pair\n     of ifIndex and TCM field values if a corresponding\n     instance of optIfODUkTConfigEntry already exists.\n\n     Instances of this conceptual row persist across\n     agent restarts, and read-create columns other\n     than the status column may be modified while the\n     row is active.')
-optIfODUkTNimTcmField = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,6)))
-if mibBuilder.loadTexts: optIfODUkTNimTcmField.setDescription('Indicates the tandem connection monitoring\n     field of the ODUk OH on which non-intrusive monitoring\n     is performed.  Valid values are\n     integers from 1 to 6.')
-optIfODUkTNimDirectionality = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 2, 1, 2), OptIfSinkOrSource())
-if mibBuilder.loadTexts: optIfODUkTNimDirectionality.setDescription('Specifies the monitor point for the ODUk TCM non-intrusive\n     monitoring function.  The value source(2) is not allowed\n     if the corresponding instance of optIfODUkDirectionality\n     has the value sink(1), and the value sink(1) is not allowed\n     if the corresponding instance of optIfODUkDirectionality\n     has the value source(2).  Either the value sink(1) or\n     source(2) is allowed if the corresponding instance of\n     optIfODUkDirectionality has the value bidirectional(3).\n     The value sink(1) means monitoring at the sink direction\n     TCM signal of the ODUk CTP.\n     The value source(2) means monitoring at the source direction\n     path signal of the ODUk CTP.')
-optIfODUkTNimDAPIExpected = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 2, 1, 3), OptIfExDAPI()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTNimDAPIExpected.setDescription('The DAPI expected by the receiver.\n     This object has no effect if optIfODUkTNimTIMDetMode has\n     the value off(1) or sapi(3).')
-optIfODUkTNimSAPIExpected = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 2, 1, 4), OptIfExSAPI()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTNimSAPIExpected.setDescription('The SAPI expected by the receiver.\n     This object has no effect if optIfODUkTNimTIMDetMode has\n     the value off(1) or dapi(2).')
-optIfODUkTNimTraceIdentifierAccepted = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 2, 1, 5), OptIfAcTI()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfODUkTNimTraceIdentifierAccepted.setDescription('The actual trace identifier accepted.  The value of\n     this object is unspecified if optIfODUkTNimCurrentStatus\n     has any of the bit positions oci(0), lck(1), or ssf(5)\n     set or if optIfODUkTNimRowStatus has any value other\n     than active(1).')
-optIfODUkTNimTIMDetMode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 2, 1, 6), OptIfTIMDetMode()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTNimTIMDetMode.setDescription('Indicates the mode of the Trace Identifier Mismatch (TIM)\n     Detection function.')
-optIfODUkTNimTIMActEnabled = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 2, 1, 7), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTNimTIMActEnabled.setDescription('Indicates whether the Trace Identifier Mismatch (TIM)\n     Consequent Action function is enabled.')
-optIfODUkTNimDEGThr = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 2, 1, 8), OptIfDEGThr()).setUnits('percentage').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTNimDEGThr.setDescription('Indicates the threshold level for declaring a performance\n     monitoring (PM) Second to be bad.  A PM Second is declared bad if\n     the percentage of detected errored blocks in that second is\n     greater than or equal to optIfODUkTNimDEGThr.')
-optIfODUkTNimDEGM = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 2, 1, 9), OptIfDEGM()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTNimDEGM.setDescription('Indicates the threshold level for declaring a Degraded Signal\n     defect (dDEG).  A dDEG shall be declared if optIfODUkTNimDEGM\n     consecutive bad PM Seconds are detected.')
-optIfODUkTNimCurrentStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 2, 1, 10), Bits().clone(namedValues=NamedValues(("oci", 0), ("lck", 1), ("tim", 2), ("deg", 3), ("bdi", 4), ("ssf", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: optIfODUkTNimCurrentStatus.setDescription('Indicates the defect condition of the entity, if any.\n     The value of this object is unspecified if\n     optIfODUkTNimRowStatus has any value other than\n     active(1).')
-optIfODUkTNimRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 133, 1, 9, 2, 1, 11), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: optIfODUkTNimRowStatus.setDescription('This columnar object is used for creating and deleting a\n     conceptual row of the optIfODUkTNim config table.\n     It is used to model the addTCM and removeTCM operations of an\n     ODUk_CTP or ODUk_TTP for non-intrusive Tandem connection\n     monitoring as defined in ITU-T G.874.1.\n     Setting RowStatus to createAndGo or createAndWait implies addTCM.\n     Setting RowStatus to destroy implies removeTCM.\n     Successful addition/removal of Nim TCM will result in updating\n     the optIfODUkPositionSeqCurrentSize variable and the\n     optIfODUkPositionSeqTable table of the associated ODUk entry\n     in the optIfODUkConfigTable.')
-optIfOTMnGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 1)).setObjects(*(("OPT-IF-MIB", "optIfOTMnOrder"), ("OPT-IF-MIB", "optIfOTMnReduced"), ("OPT-IF-MIB", "optIfOTMnBitRates"), ("OPT-IF-MIB", "optIfOTMnInterfaceType"), ("OPT-IF-MIB", "optIfOTMnTcmMax"), ("OPT-IF-MIB", "optIfOTMnOpticalReach"),))
-if mibBuilder.loadTexts: optIfOTMnGroup.setDescription('A collection of OTMn structure information objects.')
-optIfPerfMonGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 2)).setObjects(*(("OPT-IF-MIB", "optIfPerfMonCurrentTimeElapsed"), ("OPT-IF-MIB", "optIfPerfMonCurDayTimeElapsed"), ("OPT-IF-MIB", "optIfPerfMonIntervalNumIntervals"), ("OPT-IF-MIB", "optIfPerfMonIntervalNumInvalidIntervals"),))
-if mibBuilder.loadTexts: optIfPerfMonGroup.setDescription('A collection of performance monitoring interval objects.')
-optIfOTSnCommonGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 3)).setObjects(*(("OPT-IF-MIB", "optIfOTSnDirectionality"),))
-if mibBuilder.loadTexts: optIfOTSnCommonGroup.setDescription('A collection of configuration objects\n     applicable to all OTSn interfaces.')
-optIfOTSnSourceGroupFull = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 4)).setObjects(*(("OPT-IF-MIB", "optIfOTSnTraceIdentifierTransmitted"),))
-if mibBuilder.loadTexts: optIfOTSnSourceGroupFull.setDescription('A collection of configuration objects\n     applicable to full-functionality/IaDI OTSn\n     interfaces that support source functions.')
-optIfOTSnAPRStatusGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 5)).setObjects(*(("OPT-IF-MIB", "optIfOTSnAprStatus"),))
-if mibBuilder.loadTexts: optIfOTSnAPRStatusGroup.setDescription('A collection of objects applicable to\n     OTSn interfaces that support Automatic\n     Power Reduction functions.')
-optIfOTSnAPRControlGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 6)).setObjects(*(("OPT-IF-MIB", "optIfOTSnAprControl"),))
-if mibBuilder.loadTexts: optIfOTSnAPRControlGroup.setDescription('A collection of objects applicable to\n     OTSn interfaces that provide Automatic\n     Power Reduction control functions.')
-optIfOTSnSinkGroupBasic = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 7)).setObjects(*(("OPT-IF-MIB", "optIfOTSnCurrentStatus"),))
-if mibBuilder.loadTexts: optIfOTSnSinkGroupBasic.setDescription('A collection of configuration objects\n     applicable to all OTSn interfaces that\n     support sink functions.')
-optIfOTSnSinkGroupFull = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 8)).setObjects(*(("OPT-IF-MIB", "optIfOTSnDAPIExpected"), ("OPT-IF-MIB", "optIfOTSnSAPIExpected"), ("OPT-IF-MIB", "optIfOTSnTraceIdentifierAccepted"), ("OPT-IF-MIB", "optIfOTSnTIMDetMode"), ("OPT-IF-MIB", "optIfOTSnTIMActEnabled"),))
-if mibBuilder.loadTexts: optIfOTSnSinkGroupFull.setDescription('A collection of configuration objects\n     applicable to full-functionality/IaDI OTSn\n     interfaces that support sink functions.')
-optIfOTSnSinkPreOtnPMGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 9)).setObjects(*(("OPT-IF-MIB", "optIfOTSnSinkCurrentSuspectedFlag"), ("OPT-IF-MIB", "optIfOTSnSinkCurrentInputPower"), ("OPT-IF-MIB", "optIfOTSnSinkCurrentLowInputPower"), ("OPT-IF-MIB", "optIfOTSnSinkCurrentHighInputPower"), ("OPT-IF-MIB", "optIfOTSnSinkCurrentOutputPower"), ("OPT-IF-MIB", "optIfOTSnSinkCurrentLowOutputPower"), ("OPT-IF-MIB", "optIfOTSnSinkCurrentHighOutputPower"), ("OPT-IF-MIB", "optIfOTSnSinkIntervalSuspectedFlag"), ("OPT-IF-MIB", "optIfOTSnSinkIntervalLastInputPower"), ("OPT-IF-MIB", "optIfOTSnSinkIntervalLowInputPower"), ("OPT-IF-MIB", "optIfOTSnSinkIntervalHighInputPower"), ("OPT-IF-MIB", "optIfOTSnSinkIntervalLastOutputPower"), ("OPT-IF-MIB", "optIfOTSnSinkIntervalLowOutputPower"), ("OPT-IF-MIB", "optIfOTSnSinkIntervalHighOutputPower"), ("OPT-IF-MIB", "optIfOTSnSinkCurDaySuspectedFlag"), ("OPT-IF-MIB", "optIfOTSnSinkCurDayLowInputPower"), ("OPT-IF-MIB", "optIfOTSnSinkCurDayHighInputPower"), ("OPT-IF-MIB", "optIfOTSnSinkCurDayLowOutputPower"), ("OPT-IF-MIB", "optIfOTSnSinkCurDayHighOutputPower"), ("OPT-IF-MIB", "optIfOTSnSinkPrevDaySuspectedFlag"), ("OPT-IF-MIB", "optIfOTSnSinkPrevDayLastInputPower"), ("OPT-IF-MIB", "optIfOTSnSinkPrevDayLowInputPower"), ("OPT-IF-MIB", "optIfOTSnSinkPrevDayHighInputPower"), ("OPT-IF-MIB", "optIfOTSnSinkPrevDayLastOutputPower"), ("OPT-IF-MIB", "optIfOTSnSinkPrevDayLowOutputPower"), ("OPT-IF-MIB", "optIfOTSnSinkPrevDayHighOutputPower"),))
-if mibBuilder.loadTexts: optIfOTSnSinkPreOtnPMGroup.setDescription('A collection of pre-OTN performance monitoring\n     objects applicable to OTSn interfaces that\n     support sink functions.')
-optIfOTSnSinkPreOtnPMThresholdGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 10)).setObjects(*(("OPT-IF-MIB", "optIfOTSnSinkCurrentLowerInputPowerThreshold"), ("OPT-IF-MIB", "optIfOTSnSinkCurrentUpperInputPowerThreshold"), ("OPT-IF-MIB", "optIfOTSnSinkCurrentLowerOutputPowerThreshold"), ("OPT-IF-MIB", "optIfOTSnSinkCurrentUpperOutputPowerThreshold"),))
-if mibBuilder.loadTexts: optIfOTSnSinkPreOtnPMThresholdGroup.setDescription('A collection of pre-OTN performance monitoring\n     threshold objects applicable to OTSn interfaces\n     that support sink functions.')
-optIfOTSnSourcePreOtnPMGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 11)).setObjects(*(("OPT-IF-MIB", "optIfOTSnSrcCurrentSuspectedFlag"), ("OPT-IF-MIB", "optIfOTSnSrcCurrentOutputPower"), ("OPT-IF-MIB", "optIfOTSnSrcCurrentLowOutputPower"), ("OPT-IF-MIB", "optIfOTSnSrcCurrentHighOutputPower"), ("OPT-IF-MIB", "optIfOTSnSrcCurrentInputPower"), ("OPT-IF-MIB", "optIfOTSnSrcCurrentLowInputPower"), ("OPT-IF-MIB", "optIfOTSnSrcCurrentHighInputPower"), ("OPT-IF-MIB", "optIfOTSnSrcIntervalSuspectedFlag"), ("OPT-IF-MIB", "optIfOTSnSrcIntervalLastOutputPower"), ("OPT-IF-MIB", "optIfOTSnSrcIntervalLowOutputPower"), ("OPT-IF-MIB", "optIfOTSnSrcIntervalHighOutputPower"), ("OPT-IF-MIB", "optIfOTSnSrcIntervalLastInputPower"), ("OPT-IF-MIB", "optIfOTSnSrcIntervalLowInputPower"), ("OPT-IF-MIB", "optIfOTSnSrcIntervalHighInputPower"), ("OPT-IF-MIB", "optIfOTSnSrcCurDaySuspectedFlag"), ("OPT-IF-MIB", "optIfOTSnSrcCurDayLowOutputPower"), ("OPT-IF-MIB", "optIfOTSnSrcCurDayHighOutputPower"), ("OPT-IF-MIB", "optIfOTSnSrcCurDayLowInputPower"), ("OPT-IF-MIB", "optIfOTSnSrcCurDayHighInputPower"), ("OPT-IF-MIB", "optIfOTSnSrcPrevDaySuspectedFlag"), ("OPT-IF-MIB", "optIfOTSnSrcPrevDayLastOutputPower"), ("OPT-IF-MIB", "optIfOTSnSrcPrevDayLowOutputPower"), ("OPT-IF-MIB", "optIfOTSnSrcPrevDayHighOutputPower"), ("OPT-IF-MIB", "optIfOTSnSrcPrevDayLastInputPower"), ("OPT-IF-MIB", "optIfOTSnSrcPrevDayLowInputPower"), ("OPT-IF-MIB", "optIfOTSnSrcPrevDayHighInputPower"),))
-if mibBuilder.loadTexts: optIfOTSnSourcePreOtnPMGroup.setDescription('A collection of pre-OTN performance monitoring\n     objects applicable to OTSn interfaces that\n     support source functions.')
-optIfOTSnSourcePreOtnPMThresholdGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 12)).setObjects(*(("OPT-IF-MIB", "optIfOTSnSrcCurrentLowerOutputPowerThreshold"), ("OPT-IF-MIB", "optIfOTSnSrcCurrentUpperOutputPowerThreshold"), ("OPT-IF-MIB", "optIfOTSnSrcCurrentLowerInputPowerThreshold"), ("OPT-IF-MIB", "optIfOTSnSrcCurrentUpperInputPowerThreshold"),))
-if mibBuilder.loadTexts: optIfOTSnSourcePreOtnPMThresholdGroup.setDescription('A collection of pre-OTN performance monitoring\n     threshold objects applicable to OTSn interfaces\n     that support source functions.')
-optIfOMSnCommonGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 13)).setObjects(*(("OPT-IF-MIB", "optIfOMSnDirectionality"),))
-if mibBuilder.loadTexts: optIfOMSnCommonGroup.setDescription('A collection of configuration objects\n     applicable to all OMSn interfaces.')
-optIfOMSnSinkGroupBasic = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 14)).setObjects(*(("OPT-IF-MIB", "optIfOMSnCurrentStatus"),))
-if mibBuilder.loadTexts: optIfOMSnSinkGroupBasic.setDescription('A collection of configuration objects\n     applicable to all OMSn interfaces that\n     support sink functions.')
-optIfOMSnSinkPreOtnPMGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 15)).setObjects(*(("OPT-IF-MIB", "optIfOMSnSinkCurrentSuspectedFlag"), ("OPT-IF-MIB", "optIfOMSnSinkCurrentAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSinkCurrentLowAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSinkCurrentHighAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSinkCurrentOutputPower"), ("OPT-IF-MIB", "optIfOMSnSinkCurrentLowOutputPower"), ("OPT-IF-MIB", "optIfOMSnSinkCurrentHighOutputPower"), ("OPT-IF-MIB", "optIfOMSnSinkIntervalSuspectedFlag"), ("OPT-IF-MIB", "optIfOMSnSinkIntervalLastAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSinkIntervalLowAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSinkIntervalHighAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSinkIntervalLastOutputPower"), ("OPT-IF-MIB", "optIfOMSnSinkIntervalLowOutputPower"), ("OPT-IF-MIB", "optIfOMSnSinkIntervalHighOutputPower"), ("OPT-IF-MIB", "optIfOMSnSinkCurDaySuspectedFlag"), ("OPT-IF-MIB", "optIfOMSnSinkCurDayLowAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSinkCurDayHighAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSinkCurDayLowOutputPower"), ("OPT-IF-MIB", "optIfOMSnSinkCurDayHighOutputPower"), ("OPT-IF-MIB", "optIfOMSnSinkPrevDaySuspectedFlag"), ("OPT-IF-MIB", "optIfOMSnSinkPrevDayLastAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSinkPrevDayLowAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSinkPrevDayHighAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSinkPrevDayLastOutputPower"), ("OPT-IF-MIB", "optIfOMSnSinkPrevDayLowOutputPower"), ("OPT-IF-MIB", "optIfOMSnSinkPrevDayHighOutputPower"),))
-if mibBuilder.loadTexts: optIfOMSnSinkPreOtnPMGroup.setDescription('A collection of pre-OTN performance monitoring\n     objects applicable to OMSn interfaces that\n     support sink functions.')
-optIfOMSnSinkPreOtnPMThresholdGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 16)).setObjects(*(("OPT-IF-MIB", "optIfOMSnSinkCurrentLowerInputPowerThreshold"), ("OPT-IF-MIB", "optIfOMSnSinkCurrentUpperInputPowerThreshold"), ("OPT-IF-MIB", "optIfOMSnSinkCurrentLowerOutputPowerThreshold"), ("OPT-IF-MIB", "optIfOMSnSinkCurrentUpperOutputPowerThreshold"),))
-if mibBuilder.loadTexts: optIfOMSnSinkPreOtnPMThresholdGroup.setDescription('A collection of pre-OTN performance monitoring\n     threshold objects applicable to OMSn interfaces\n     that support sink functions.')
-optIfOMSnSourcePreOtnPMGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 17)).setObjects(*(("OPT-IF-MIB", "optIfOMSnSrcCurrentSuspectedFlag"), ("OPT-IF-MIB", "optIfOMSnSrcCurrentOutputPower"), ("OPT-IF-MIB", "optIfOMSnSrcCurrentLowOutputPower"), ("OPT-IF-MIB", "optIfOMSnSrcCurrentHighOutputPower"), ("OPT-IF-MIB", "optIfOMSnSrcCurrentAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSrcCurrentLowAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSrcCurrentHighAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSrcIntervalSuspectedFlag"), ("OPT-IF-MIB", "optIfOMSnSrcIntervalLastOutputPower"), ("OPT-IF-MIB", "optIfOMSnSrcIntervalLowOutputPower"), ("OPT-IF-MIB", "optIfOMSnSrcIntervalHighOutputPower"), ("OPT-IF-MIB", "optIfOMSnSrcIntervalLastAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSrcIntervalLowAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSrcIntervalHighAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSrcCurDaySuspectedFlag"), ("OPT-IF-MIB", "optIfOMSnSrcCurDayLowOutputPower"), ("OPT-IF-MIB", "optIfOMSnSrcCurDayHighOutputPower"), ("OPT-IF-MIB", "optIfOMSnSrcCurDayLowAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSrcCurDayHighAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSrcPrevDaySuspectedFlag"), ("OPT-IF-MIB", "optIfOMSnSrcPrevDayLastOutputPower"), ("OPT-IF-MIB", "optIfOMSnSrcPrevDayLowOutputPower"), ("OPT-IF-MIB", "optIfOMSnSrcPrevDayHighOutputPower"), ("OPT-IF-MIB", "optIfOMSnSrcPrevDayLastAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSrcPrevDayLowAggregatedInputPower"), ("OPT-IF-MIB", "optIfOMSnSrcPrevDayHighAggregatedInputPower"),))
-if mibBuilder.loadTexts: optIfOMSnSourcePreOtnPMGroup.setDescription('A collection of pre-OTN performance monitoring\n     objects applicable to OMSn interfaces that\n     support source functions.')
-optIfOMSnSourcePreOtnPMThresholdGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 18)).setObjects(*(("OPT-IF-MIB", "optIfOMSnSrcCurrentLowerOutputPowerThreshold"), ("OPT-IF-MIB", "optIfOMSnSrcCurrentUpperOutputPowerThreshold"), ("OPT-IF-MIB", "optIfOMSnSrcCurrentLowerInputPowerThreshold"), ("OPT-IF-MIB", "optIfOMSnSrcCurrentUpperInputPowerThreshold"),))
-if mibBuilder.loadTexts: optIfOMSnSourcePreOtnPMThresholdGroup.setDescription('A collection of pre-OTN performance monitoring\n     threshold objects applicable to OMSn interfaces that\n     that support source functions.')
-optIfOChGroupCommonGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 19)).setObjects(*(("OPT-IF-MIB", "optIfOChGroupDirectionality"),))
-if mibBuilder.loadTexts: optIfOChGroupCommonGroup.setDescription('A collection of configuration objects\n     applicable to all OChGroup interfaces.')
-optIfOChGroupSinkPreOtnPMGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 20)).setObjects(*(("OPT-IF-MIB", "optIfOChGroupSinkCurrentSuspectedFlag"), ("OPT-IF-MIB", "optIfOChGroupSinkCurrentAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkCurrentLowAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkCurrentHighAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkCurrentOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkCurrentLowOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkCurrentHighOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkIntervalSuspectedFlag"), ("OPT-IF-MIB", "optIfOChGroupSinkIntervalLastAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkIntervalLowAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkIntervalHighAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkIntervalLastOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkIntervalLowOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkIntervalHighOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkCurDaySuspectedFlag"), ("OPT-IF-MIB", "optIfOChGroupSinkCurDayLowAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkCurDayHighAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkCurDayLowOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkCurDayHighOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkPrevDaySuspectedFlag"), ("OPT-IF-MIB", "optIfOChGroupSinkPrevDayLastAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkPrevDayLowAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkPrevDayHighAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkPrevDayLastOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkPrevDayLowOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSinkPrevDayHighOutputPower"),))
-if mibBuilder.loadTexts: optIfOChGroupSinkPreOtnPMGroup.setDescription('A collection of pre-OTN performance monitoring\n     objects applicable to OChGroup interfaces that\n     support sink functions.')
-optIfOChGroupSinkPreOtnPMThresholdGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 21)).setObjects(*(("OPT-IF-MIB", "optIfOChGroupSinkCurrentLowerInputPowerThreshold"), ("OPT-IF-MIB", "optIfOChGroupSinkCurrentUpperInputPowerThreshold"), ("OPT-IF-MIB", "optIfOChGroupSinkCurrentLowerOutputPowerThreshold"), ("OPT-IF-MIB", "optIfOChGroupSinkCurrentUpperOutputPowerThreshold"),))
-if mibBuilder.loadTexts: optIfOChGroupSinkPreOtnPMThresholdGroup.setDescription('A collection of pre-OTN performance monitoring\n     threshold objects applicable to OChGroup interfaces\n     that support sink functions.')
-optIfOChGroupSourcePreOtnPMGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 22)).setObjects(*(("OPT-IF-MIB", "optIfOChGroupSrcCurrentSuspectedFlag"), ("OPT-IF-MIB", "optIfOChGroupSrcCurrentOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcCurrentLowOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcCurrentHighOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcCurrentAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcCurrentLowAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcCurrentHighAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcIntervalSuspectedFlag"), ("OPT-IF-MIB", "optIfOChGroupSrcIntervalLastOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcIntervalLowOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcIntervalHighOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcIntervalLastAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcIntervalLowAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcIntervalHighAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcCurDaySuspectedFlag"), ("OPT-IF-MIB", "optIfOChGroupSrcCurDayLowOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcCurDayHighOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcCurDayLowAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcCurDayHighAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcPrevDaySuspectedFlag"), ("OPT-IF-MIB", "optIfOChGroupSrcPrevDayLastOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcPrevDayLowOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcPrevDayHighOutputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcPrevDayLastAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcPrevDayLowAggregatedInputPower"), ("OPT-IF-MIB", "optIfOChGroupSrcPrevDayHighAggregatedInputPower"),))
-if mibBuilder.loadTexts: optIfOChGroupSourcePreOtnPMGroup.setDescription('A collection of pre-OTN performance monitoring\n     objects applicable to OChGroup interfaces that\n     support source functions.')
-optIfOChGroupSourcePreOtnPMThresholdGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 23)).setObjects(*(("OPT-IF-MIB", "optIfOChGroupSrcCurrentLowerOutputPowerThreshold"), ("OPT-IF-MIB", "optIfOChGroupSrcCurrentUpperOutputPowerThreshold"), ("OPT-IF-MIB", "optIfOChGroupSrcCurrentLowerInputPowerThreshold"), ("OPT-IF-MIB", "optIfOChGroupSrcCurrentUpperInputPowerThreshold"),))
-if mibBuilder.loadTexts: optIfOChGroupSourcePreOtnPMThresholdGroup.setDescription('A collection of pre-OTN performance monitoring\n     threshold objects applicable to OChGroup interfaces that\n     that support source functions.')
-optIfOChCommonGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 24)).setObjects(*(("OPT-IF-MIB", "optIfOChDirectionality"),))
-if mibBuilder.loadTexts: optIfOChCommonGroup.setDescription('A collection of configuration objects\n     applicable to all OCh interfaces.')
-optIfOChSinkGroupBasic = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 25)).setObjects(*(("OPT-IF-MIB", "optIfOChCurrentStatus"),))
-if mibBuilder.loadTexts: optIfOChSinkGroupBasic.setDescription('A collection of configuration objects\n     applicable to all OCh interfaces that\n     support sink functions.')
-optIfOChSinkPreOtnPMGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 26)).setObjects(*(("OPT-IF-MIB", "optIfOChSinkCurrentSuspectedFlag"), ("OPT-IF-MIB", "optIfOChSinkCurrentInputPower"), ("OPT-IF-MIB", "optIfOChSinkCurrentLowInputPower"), ("OPT-IF-MIB", "optIfOChSinkCurrentHighInputPower"), ("OPT-IF-MIB", "optIfOChSinkIntervalSuspectedFlag"), ("OPT-IF-MIB", "optIfOChSinkIntervalLastInputPower"), ("OPT-IF-MIB", "optIfOChSinkIntervalLowInputPower"), ("OPT-IF-MIB", "optIfOChSinkIntervalHighInputPower"), ("OPT-IF-MIB", "optIfOChSinkCurDaySuspectedFlag"), ("OPT-IF-MIB", "optIfOChSinkCurDayLowInputPower"), ("OPT-IF-MIB", "optIfOChSinkCurDayHighInputPower"), ("OPT-IF-MIB", "optIfOChSinkPrevDaySuspectedFlag"), ("OPT-IF-MIB", "optIfOChSinkPrevDayLastInputPower"), ("OPT-IF-MIB", "optIfOChSinkPrevDayLowInputPower"), ("OPT-IF-MIB", "optIfOChSinkPrevDayHighInputPower"),))
-if mibBuilder.loadTexts: optIfOChSinkPreOtnPMGroup.setDescription('A collection of pre-OTN performance monitoring\n     objects applicable to OCh interfaces that\n     support sink functions.')
-optIfOChSinkPreOtnPMThresholdGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 27)).setObjects(*(("OPT-IF-MIB", "optIfOChSinkCurrentLowerInputPowerThreshold"), ("OPT-IF-MIB", "optIfOChSinkCurrentUpperInputPowerThreshold"),))
-if mibBuilder.loadTexts: optIfOChSinkPreOtnPMThresholdGroup.setDescription('A collection of pre-OTN performance monitoring\n     threshold objects applicable to OCh interfaces\n     that support sink functions.')
-optIfOChSourcePreOtnPMGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 28)).setObjects(*(("OPT-IF-MIB", "optIfOChSrcCurrentSuspectedFlag"), ("OPT-IF-MIB", "optIfOChSrcCurrentOutputPower"), ("OPT-IF-MIB", "optIfOChSrcCurrentLowOutputPower"), ("OPT-IF-MIB", "optIfOChSrcCurrentHighOutputPower"), ("OPT-IF-MIB", "optIfOChSrcIntervalSuspectedFlag"), ("OPT-IF-MIB", "optIfOChSrcIntervalLastOutputPower"), ("OPT-IF-MIB", "optIfOChSrcIntervalLowOutputPower"), ("OPT-IF-MIB", "optIfOChSrcIntervalHighOutputPower"), ("OPT-IF-MIB", "optIfOChSrcCurDaySuspectedFlag"), ("OPT-IF-MIB", "optIfOChSrcCurDayLowOutputPower"), ("OPT-IF-MIB", "optIfOChSrcCurDayHighOutputPower"), ("OPT-IF-MIB", "optIfOChSrcPrevDaySuspectedFlag"), ("OPT-IF-MIB", "optIfOChSrcPrevDayLastOutputPower"), ("OPT-IF-MIB", "optIfOChSrcPrevDayLowOutputPower"), ("OPT-IF-MIB", "optIfOChSrcPrevDayHighOutputPower"),))
-if mibBuilder.loadTexts: optIfOChSourcePreOtnPMGroup.setDescription('A collection of pre-OTN performance monitoring\n     objects applicable to OCh interfaces that\n     support source functions.')
-optIfOChSourcePreOtnPMThresholdGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 29)).setObjects(*(("OPT-IF-MIB", "optIfOChSrcCurrentLowerOutputPowerThreshold"), ("OPT-IF-MIB", "optIfOChSrcCurrentUpperOutputPowerThreshold"),))
-if mibBuilder.loadTexts: optIfOChSourcePreOtnPMThresholdGroup.setDescription('A collection of pre-OTN performance monitoring\n     threshold objects applicable to OCh interfaces\n     that support source functions.')
-optIfOTUkCommonGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 30)).setObjects(*(("OPT-IF-MIB", "optIfOTUkDirectionality"), ("OPT-IF-MIB", "optIfOTUkBitRateK"),))
-if mibBuilder.loadTexts: optIfOTUkCommonGroup.setDescription('A collection of configuration objects\n     applicable to all OTUk interfaces.')
-optIfOTUkSourceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 31)).setObjects(*(("OPT-IF-MIB", "optIfOTUkTraceIdentifierTransmitted"), ("OPT-IF-MIB", "optIfOTUkSourceAdaptActive"),))
-if mibBuilder.loadTexts: optIfOTUkSourceGroup.setDescription('A collection of configuration objects\n     applicable to OTUk interfaces that\n     support source functions.')
-optIfOTUkSinkGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 32)).setObjects(*(("OPT-IF-MIB", "optIfOTUkDAPIExpected"), ("OPT-IF-MIB", "optIfOTUkSAPIExpected"), ("OPT-IF-MIB", "optIfOTUkTraceIdentifierAccepted"), ("OPT-IF-MIB", "optIfOTUkTIMDetMode"), ("OPT-IF-MIB", "optIfOTUkTIMActEnabled"), ("OPT-IF-MIB", "optIfOTUkDEGThr"), ("OPT-IF-MIB", "optIfOTUkDEGM"), ("OPT-IF-MIB", "optIfOTUkSinkAdaptActive"), ("OPT-IF-MIB", "optIfOTUkSinkFECEnabled"), ("OPT-IF-MIB", "optIfOTUkCurrentStatus"),))
-if mibBuilder.loadTexts: optIfOTUkSinkGroup.setDescription('A collection of configuration objects\n     applicable to OTUk interfaces that\n     support sink functions.')
-optIfGCC0Group = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 33)).setObjects(*(("OPT-IF-MIB", "optIfGCC0Application"), ("OPT-IF-MIB", "optIfGCC0RowStatus"),))
-if mibBuilder.loadTexts: optIfGCC0Group.setDescription('A collection of GCC0 configuration objects.')
-optIfODUkGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 34)).setObjects(*(("OPT-IF-MIB", "optIfODUkDirectionality"), ("OPT-IF-MIB", "optIfODUkBitRateK"), ("OPT-IF-MIB", "optIfODUkTcmFieldsInUse"), ("OPT-IF-MIB", "optIfODUkPositionSeqCurrentSize"), ("OPT-IF-MIB", "optIfODUkPositionSeqPosition"), ("OPT-IF-MIB", "optIfODUkPositionSeqPointer"), ("OPT-IF-MIB", "optIfODUkTtpPresent"),))
-if mibBuilder.loadTexts: optIfODUkGroup.setDescription('A collection of configuration objects\n     applicable to all ODUk interfaces.')
-optIfODUkTtpSourceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 35)).setObjects(*(("OPT-IF-MIB", "optIfODUkTtpTraceIdentifierTransmitted"),))
-if mibBuilder.loadTexts: optIfODUkTtpSourceGroup.setDescription('A collection of configuration objects\n     applicable to all interfaces that support\n     ODUk trail termination source functions.')
-optIfODUkTtpSinkGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 36)).setObjects(*(("OPT-IF-MIB", "optIfODUkTtpDAPIExpected"), ("OPT-IF-MIB", "optIfODUkTtpSAPIExpected"), ("OPT-IF-MIB", "optIfODUkTtpTraceIdentifierAccepted"), ("OPT-IF-MIB", "optIfODUkTtpTIMDetMode"), ("OPT-IF-MIB", "optIfODUkTtpTIMActEnabled"), ("OPT-IF-MIB", "optIfODUkTtpDEGThr"), ("OPT-IF-MIB", "optIfODUkTtpDEGM"), ("OPT-IF-MIB", "optIfODUkTtpCurrentStatus"),))
-if mibBuilder.loadTexts: optIfODUkTtpSinkGroup.setDescription('A collection of ODUk configuration objects\n     applicable to all interfaces that support\n     ODUk trail termination sink functions.')
-optIfODUkNimGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 37)).setObjects(*(("OPT-IF-MIB", "optIfODUkNimDAPIExpected"), ("OPT-IF-MIB", "optIfODUkNimSAPIExpected"), ("OPT-IF-MIB", "optIfODUkNimTraceIdentifierAccepted"), ("OPT-IF-MIB", "optIfODUkNimTIMDetMode"), ("OPT-IF-MIB", "optIfODUkNimTIMActEnabled"), ("OPT-IF-MIB", "optIfODUkNimDEGThr"), ("OPT-IF-MIB", "optIfODUkNimDEGM"), ("OPT-IF-MIB", "optIfODUkNimCurrentStatus"), ("OPT-IF-MIB", "optIfODUkNimRowStatus"),))
-if mibBuilder.loadTexts: optIfODUkNimGroup.setDescription('A collection of ODUk Nim configuration objects.')
-optIfGCC12Group = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 38)).setObjects(*(("OPT-IF-MIB", "optIfGCC12GCCPassThrough"), ("OPT-IF-MIB", "optIfGCC12Application"), ("OPT-IF-MIB", "optIfGCC12RowStatus"),))
-if mibBuilder.loadTexts: optIfGCC12Group.setDescription('A collection of GCC12 configuration objects.')
-optIfODUkTCommonGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 39)).setObjects(*(("OPT-IF-MIB", "optIfODUkTRowStatus"),))
-if mibBuilder.loadTexts: optIfODUkTCommonGroup.setDescription('A collection of configuration objects\n     applicable to all ODUkT instances.')
-optIfODUkTSourceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 40)).setObjects(*(("OPT-IF-MIB", "optIfODUkTTraceIdentifierTransmitted"), ("OPT-IF-MIB", "optIfODUkTSourceLockSignalAdminState"),))
-if mibBuilder.loadTexts: optIfODUkTSourceGroup.setDescription('A collection of configuration objects\n     applicable to all ODUkT instances\n     that provide source functions.')
-optIfODUkTSinkGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 41)).setObjects(*(("OPT-IF-MIB", "optIfODUkTDAPIExpected"), ("OPT-IF-MIB", "optIfODUkTSAPIExpected"), ("OPT-IF-MIB", "optIfODUkTTraceIdentifierAccepted"), ("OPT-IF-MIB", "optIfODUkTTIMDetMode"), ("OPT-IF-MIB", "optIfODUkTTIMActEnabled"), ("OPT-IF-MIB", "optIfODUkTDEGThr"), ("OPT-IF-MIB", "optIfODUkTDEGM"), ("OPT-IF-MIB", "optIfODUkTCurrentStatus"),))
-if mibBuilder.loadTexts: optIfODUkTSinkGroup.setDescription('A collection of configuration objects\n     applicable to all ODUkT instances\n     that provide sink functions.')
-optIfODUkTSinkGroupCtp = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 42)).setObjects(*(("OPT-IF-MIB", "optIfODUkTSinkMode"), ("OPT-IF-MIB", "optIfODUkTSinkLockSignalAdminState"),))
-if mibBuilder.loadTexts: optIfODUkTSinkGroupCtp.setDescription('A collection of configuration objects\n     applicable to ODUkT instances not\n     colocated with an ODUk TTP that\n     provide sink functions.')
-optIfODUkTNimGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 133, 2, 1, 43)).setObjects(*(("OPT-IF-MIB", "optIfODUkTNimDAPIExpected"), ("OPT-IF-MIB", "optIfODUkTNimSAPIExpected"), ("OPT-IF-MIB", "optIfODUkTNimTraceIdentifierAccepted"), ("OPT-IF-MIB", "optIfODUkTNimTIMDetMode"), ("OPT-IF-MIB", "optIfODUkTNimTIMActEnabled"), ("OPT-IF-MIB", "optIfODUkTNimDEGThr"), ("OPT-IF-MIB", "optIfODUkTNimDEGM"), ("OPT-IF-MIB", "optIfODUkTNimCurrentStatus"), ("OPT-IF-MIB", "optIfODUkTNimRowStatus"),))
-if mibBuilder.loadTexts: optIfODUkTNimGroup.setDescription('A collection of ODUkT Nim configuration objects.')
-optIfOtnConfigCompl = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 133, 2, 2, 1)).setObjects(*(("OPT-IF-MIB", "optIfOTMnGroup"), ("OPT-IF-MIB", "optIfOTSnCommonGroup"), ("OPT-IF-MIB", "optIfOTSnSourceGroupFull"), ("OPT-IF-MIB", "optIfOTSnAPRStatusGroup"), ("OPT-IF-MIB", "optIfOTSnAPRControlGroup"), ("OPT-IF-MIB", "optIfOTSnSinkGroupBasic"), ("OPT-IF-MIB", "optIfOTSnSinkGroupFull"), ("OPT-IF-MIB", "optIfOMSnCommonGroup"), ("OPT-IF-MIB", "optIfOMSnSinkGroupBasic"), ("OPT-IF-MIB", "optIfOChGroupCommonGroup"), ("OPT-IF-MIB", "optIfOChCommonGroup"), ("OPT-IF-MIB", "optIfOChSinkGroupBasic"), ("OPT-IF-MIB", "optIfOTUkCommonGroup"), ("OPT-IF-MIB", "optIfOTUkSourceGroup"), ("OPT-IF-MIB", "optIfOTUkSinkGroup"), ("OPT-IF-MIB", "optIfGCC0Group"), ("OPT-IF-MIB", "optIfODUkGroup"), ("OPT-IF-MIB", "optIfODUkTtpSourceGroup"), ("OPT-IF-MIB", "optIfODUkTtpSinkGroup"), ("OPT-IF-MIB", "optIfODUkNimGroup"), ("OPT-IF-MIB", "optIfGCC12Group"), ("OPT-IF-MIB", "optIfODUkTCommonGroup"), ("OPT-IF-MIB", "optIfODUkTSourceGroup"), ("OPT-IF-MIB", "optIfODUkTSinkGroup"), ("OPT-IF-MIB", "optIfODUkTSinkGroupCtp"), ("OPT-IF-MIB", "optIfODUkTNimGroup"),))
-if mibBuilder.loadTexts: optIfOtnConfigCompl.setDescription('Implementation requirements for the OTN configuration\n     functions defined in this MIB module.')
-optIfPreOtnPMCompl = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 133, 2, 2, 2)).setObjects(*(("OPT-IF-MIB", "optIfPerfMonGroup"), ("OPT-IF-MIB", "optIfOTSnSinkPreOtnPMGroup"), ("OPT-IF-MIB", "optIfOTSnSinkPreOtnPMThresholdGroup"), ("OPT-IF-MIB", "optIfOTSnSourcePreOtnPMGroup"), ("OPT-IF-MIB", "optIfOTSnSourcePreOtnPMThresholdGroup"), ("OPT-IF-MIB", "optIfOMSnSinkPreOtnPMGroup"), ("OPT-IF-MIB", "optIfOMSnSinkPreOtnPMThresholdGroup"), ("OPT-IF-MIB", "optIfOMSnSourcePreOtnPMGroup"), ("OPT-IF-MIB", "optIfOMSnSourcePreOtnPMThresholdGroup"), ("OPT-IF-MIB", "optIfOChGroupSinkPreOtnPMGroup"), ("OPT-IF-MIB", "optIfOChGroupSinkPreOtnPMThresholdGroup"), ("OPT-IF-MIB", "optIfOChGroupSourcePreOtnPMGroup"), ("OPT-IF-MIB", "optIfOChGroupSourcePreOtnPMThresholdGroup"), ("OPT-IF-MIB", "optIfOChSinkPreOtnPMGroup"), ("OPT-IF-MIB", "optIfOChSinkPreOtnPMThresholdGroup"), ("OPT-IF-MIB", "optIfOChSourcePreOtnPMGroup"), ("OPT-IF-MIB", "optIfOChSourcePreOtnPMThresholdGroup"),))
-if mibBuilder.loadTexts: optIfPreOtnPMCompl.setDescription('Implementation requirements for Pre-OTN performance\n     monitoring functions defined in this MIB module.')
-mibBuilder.exportSymbols("OPT-IF-MIB", optIfOChGroupSourcePreOtnPMThresholdGroup=optIfOChGroupSourcePreOtnPMThresholdGroup, optIfOTSnSinkIntervalHighInputPower=optIfOTSnSinkIntervalHighInputPower, optIfOTMnGroup=optIfOTMnGroup, optIfOChGroupSinkCurrentLowerOutputPowerThreshold=optIfOChGroupSinkCurrentLowerOutputPowerThreshold, optIfGCC0RowStatus=optIfGCC0RowStatus, optIfODUkNimRowStatus=optIfODUkNimRowStatus, optIfODUkTTraceIdentifierAccepted=optIfODUkTTraceIdentifierAccepted, optIfODUkTTraceIdentifierTransmitted=optIfODUkTTraceIdentifierTransmitted, OptIfSinkOrSource=OptIfSinkOrSource, optIfODUkTtpDEGM=optIfODUkTtpDEGM, optIfOMSnSinkCurrentHighAggregatedInputPower=optIfOMSnSinkCurrentHighAggregatedInputPower, optIfOChGroupSrcCurrentUpperOutputPowerThreshold=optIfOChGroupSrcCurrentUpperOutputPowerThreshold, optIfOTSnSinkCurrentEntry=optIfOTSnSinkCurrentEntry, optIfOChGroupSrcPrevDayEntry=optIfOChGroupSrcPrevDayEntry, optIfOTSnSrcCurrentOutputPower=optIfOTSnSrcCurrentOutputPower, optIfOChGroupSinkCurrentLowAggregatedInputPower=optIfOChGroupSinkCurrentLowAggregatedInputPower, optIfODUkTtpTIMDetMode=optIfODUkTtpTIMDetMode, optIfGCC0ConfigTable=optIfGCC0ConfigTable, optIfODUkTDEGThr=optIfODUkTDEGThr, optIfOTSnSinkPreOtnPMThresholdGroup=optIfOTSnSinkPreOtnPMThresholdGroup, optIfOChGroupSinkIntervalHighAggregatedInputPower=optIfOChGroupSinkIntervalHighAggregatedInputPower, optIfOTSnSinkPrevDayHighInputPower=optIfOTSnSinkPrevDayHighInputPower, optIfOMSnSinkPrevDayLastAggregatedInputPower=optIfOMSnSinkPrevDayLastAggregatedInputPower, optIfOTSnSrcCurDayHighOutputPower=optIfOTSnSrcCurDayHighOutputPower, optIfOTSnSrcCurrentLowerOutputPowerThreshold=optIfOTSnSrcCurrentLowerOutputPowerThreshold, optIfOTMn=optIfOTMn, optIfOChGroupSrcIntervalSuspectedFlag=optIfOChGroupSrcIntervalSuspectedFlag, optIfOTSnSrcPrevDayLowOutputPower=optIfOTSnSrcPrevDayLowOutputPower, optIfODUkTSinkLockSignalAdminState=optIfODUkTSinkLockSignalAdminState, optIfGCC0ConfigEntry=optIfGCC0ConfigEntry, optIfOChGroupSrcIntervalEntry=optIfOChGroupSrcIntervalEntry, optIfODUkTNimDEGThr=optIfODUkTNimDEGThr, optIfOTSnSinkCurDayEntry=optIfOTSnSinkCurDayEntry, optIfODUkTNimCurrentStatus=optIfODUkTNimCurrentStatus, optIfOTSnSrcCurDayTable=optIfOTSnSrcCurDayTable, optIfOTMnInterfaceType=optIfOTMnInterfaceType, optIfOTSnSrcPrevDayEntry=optIfOTSnSrcPrevDayEntry, optIfODUkNimDirectionality=optIfODUkNimDirectionality, optIfOChSourcePreOtnPMThresholdGroup=optIfOChSourcePreOtnPMThresholdGroup, optIfODUkPositionSeqIndex=optIfODUkPositionSeqIndex, optIfOTSnSinkPrevDaySuspectedFlag=optIfOTSnSinkPrevDaySuspectedFlag, optIfODUkTSAPIExpected=optIfODUkTSAPIExpected, optIfGCC12GCCPassThrough=optIfGCC12GCCPassThrough, optIfGCC12RowStatus=optIfGCC12RowStatus, optIfOTUk=optIfOTUk, optIfOMSnSinkCurDaySuspectedFlag=optIfOMSnSinkCurDaySuspectedFlag, optIfOChGroupSinkCurrentSuspectedFlag=optIfOChGroupSinkCurrentSuspectedFlag, optIfODUkTtpConfigEntry=optIfODUkTtpConfigEntry, optIfOChSrcIntervalLowOutputPower=optIfOChSrcIntervalLowOutputPower, optIfOTSnSourcePreOtnPMThresholdGroup=optIfOTSnSourcePreOtnPMThresholdGroup, optIfODUkNimCurrentStatus=optIfODUkNimCurrentStatus, optIfOTSnSinkIntervalLowOutputPower=optIfOTSnSinkIntervalLowOutputPower, optIfOChGroupSrcCurrentLowerInputPowerThreshold=optIfOChGroupSrcCurrentLowerInputPowerThreshold, optIfOTSnSinkCurDaySuspectedFlag=optIfOTSnSinkCurDaySuspectedFlag, optIfOMSnSinkPrevDayLowOutputPower=optIfOMSnSinkPrevDayLowOutputPower, optIfOTSn=optIfOTSn, optIfODUkTNimConfigTable=optIfODUkTNimConfigTable, optIfOMSnSrcCurrentUpperOutputPowerThreshold=optIfOMSnSrcCurrentUpperOutputPowerThreshold, optIfOMSnSinkPreOtnPMThresholdGroup=optIfOMSnSinkPreOtnPMThresholdGroup, optIfODUkTCommonGroup=optIfODUkTCommonGroup, optIfOChGroupSinkIntervalLowAggregatedInputPower=optIfOChGroupSinkIntervalLowAggregatedInputPower, optIfOChGroupSinkIntervalLowOutputPower=optIfOChGroupSinkIntervalLowOutputPower, optIfConfs=optIfConfs, optIfOTSnAPRStatusGroup=optIfOTSnAPRStatusGroup, optIfODUkTSinkGroup=optIfODUkTSinkGroup, optIfOChGroupSrcPrevDayLowOutputPower=optIfOChGroupSrcPrevDayLowOutputPower, optIfOTUkDAPIExpected=optIfOTUkDAPIExpected, optIfOMSnSrcCurrentLowerOutputPowerThreshold=optIfOMSnSrcCurrentLowerOutputPowerThreshold, optIfOMSnSrcCurrentUpperInputPowerThreshold=optIfOMSnSrcCurrentUpperInputPowerThreshold, optIfOMSnSrcCurDayLowOutputPower=optIfOMSnSrcCurDayLowOutputPower, optIfODUkTSourceLockSignalAdminState=optIfODUkTSourceLockSignalAdminState, optIfOChGroupSinkCurDayEntry=optIfOChGroupSinkCurDayEntry, optIfOMSnSinkCurDayEntry=optIfOMSnSinkCurDayEntry, OptIfDirectionality=OptIfDirectionality, optIfOTSnAprControl=optIfOTSnAprControl, optIfOChSinkIntervalNumber=optIfOChSinkIntervalNumber, optIfOChSinkCurrentEntry=optIfOChSinkCurrentEntry, optIfODUkNimTraceIdentifierAccepted=optIfODUkNimTraceIdentifierAccepted, optIfGCC0Directionality=optIfGCC0Directionality, optIfOMSnSrcCurDayTable=optIfOMSnSrcCurDayTable, optIfOTSnSinkCurDayTable=optIfOTSnSinkCurDayTable, PYSNMP_MODULE_ID=optIfMibModule, optIfOMSnSinkPrevDayLastOutputPower=optIfOMSnSinkPrevDayLastOutputPower, optIfOMSnSrcIntervalNumber=optIfOMSnSrcIntervalNumber, optIfOChGroupSinkPrevDayHighOutputPower=optIfOChGroupSinkPrevDayHighOutputPower, optIfODUkPositionSeqPointer=optIfODUkPositionSeqPointer, OptIfTxTI=OptIfTxTI, optIfOChGroupSrcCurDayTable=optIfOChGroupSrcCurDayTable, optIfOMSnSrcIntervalEntry=optIfOMSnSrcIntervalEntry, optIfOChSrcPrevDayTable=optIfOChSrcPrevDayTable, optIfOTSnSourceGroupFull=optIfOTSnSourceGroupFull, optIfOChGroupSinkIntervalSuspectedFlag=optIfOChGroupSinkIntervalSuspectedFlag, optIfOTSnSinkCurDayLowOutputPower=optIfOTSnSinkCurDayLowOutputPower, optIfODUkPositionSeqTable=optIfODUkPositionSeqTable, optIfOTUkSinkGroup=optIfOTUkSinkGroup, optIfOChGroupSrcCurrentAggregatedInputPower=optIfOChGroupSrcCurrentAggregatedInputPower, optIfOTSnTIMActEnabled=optIfOTSnTIMActEnabled, optIfOChDirectionality=optIfOChDirectionality, optIfODUkTTIMDetMode=optIfODUkTTIMDetMode, optIfODUkTtpPresent=optIfODUkTtpPresent, optIfODUkTSourceGroup=optIfODUkTSourceGroup, optIfOChSrcPrevDayLastOutputPower=optIfOChSrcPrevDayLastOutputPower, optIfOChGroupSinkCurDayTable=optIfOChGroupSinkCurDayTable, optIfOChGroupSrcPrevDayTable=optIfOChGroupSrcPrevDayTable, optIfOMSnSrcCurrentHighAggregatedInputPower=optIfOMSnSrcCurrentHighAggregatedInputPower, optIfOTSnSinkCurrentLowerOutputPowerThreshold=optIfOTSnSinkCurrentLowerOutputPowerThreshold, optIfODUkTNimTraceIdentifierAccepted=optIfODUkTNimTraceIdentifierAccepted, optIfOChGroupSinkCurrentHighAggregatedInputPower=optIfOChGroupSinkCurrentHighAggregatedInputPower, optIfOChSrcCurDayEntry=optIfOChSrcCurDayEntry, optIfODUkTSinkMode=optIfODUkTSinkMode, optIfOChSrcIntervalSuspectedFlag=optIfOChSrcIntervalSuspectedFlag, optIfOTSnSrcCurrentLowerInputPowerThreshold=optIfOTSnSrcCurrentLowerInputPowerThreshold, optIfOCh=optIfOCh, optIfOChGroupSinkPrevDayLastOutputPower=optIfOChGroupSinkPrevDayLastOutputPower, optIfOChSinkPrevDayEntry=optIfOChSinkPrevDayEntry, optIfODUkTConfigEntry=optIfODUkTConfigEntry, optIfOChGroupSinkPrevDayLowOutputPower=optIfOChGroupSinkPrevDayLowOutputPower, optIfOChGroupDirectionality=optIfOChGroupDirectionality, optIfOTUkSourceGroup=optIfOTUkSourceGroup, optIfOChSinkCurrentUpperInputPowerThreshold=optIfOChSinkCurrentUpperInputPowerThreshold, optIfOMSnConfigTable=optIfOMSnConfigTable, optIfODUkNimConfigEntry=optIfODUkNimConfigEntry, optIfOMSnCommonGroup=optIfOMSnCommonGroup, optIfGCC0Application=optIfGCC0Application, optIfOTSnSrcCurrentHighOutputPower=optIfOTSnSrcCurrentHighOutputPower, optIfOMSnSinkCurrentLowerInputPowerThreshold=optIfOMSnSinkCurrentLowerInputPowerThreshold, optIfOTUkTIMActEnabled=optIfOTUkTIMActEnabled, optIfGCC12Codirectional=optIfGCC12Codirectional, optIfOTSnSinkCurrentHighInputPower=optIfOTSnSinkCurrentHighInputPower, optIfOChGroupSinkCurrentTable=optIfOChGroupSinkCurrentTable, optIfPerfMonIntervalNumIntervals=optIfPerfMonIntervalNumIntervals, optIfOChSrcCurrentSuspectedFlag=optIfOChSrcCurrentSuspectedFlag, optIfOChGroupSinkPreOtnPMThresholdGroup=optIfOChGroupSinkPreOtnPMThresholdGroup, optIfOTSnAPRControlGroup=optIfOTSnAPRControlGroup, optIfOTUkDirectionality=optIfOTUkDirectionality, optIfOChGroupSrcPrevDayHighAggregatedInputPower=optIfOChGroupSrcPrevDayHighAggregatedInputPower, optIfODUkTtpTraceIdentifierAccepted=optIfODUkTtpTraceIdentifierAccepted, optIfOChGroupSrcPrevDaySuspectedFlag=optIfOChGroupSrcPrevDaySuspectedFlag, OptIfAcTI=OptIfAcTI, optIfOChConfigTable=optIfOChConfigTable, optIfOTSnSinkCurrentTable=optIfOTSnSinkCurrentTable, optIfOTSnTraceIdentifierTransmitted=optIfOTSnTraceIdentifierTransmitted, optIfOTSnSinkPrevDayTable=optIfOTSnSinkPrevDayTable, optIfOChGroupSrcCurrentLowerOutputPowerThreshold=optIfOChGroupSrcCurrentLowerOutputPowerThreshold, optIfOMSnSinkCurDayLowAggregatedInputPower=optIfOMSnSinkCurDayLowAggregatedInputPower, optIfODUkNimDAPIExpected=optIfODUkNimDAPIExpected, optIfOChSrcPrevDayLowOutputPower=optIfOChSrcPrevDayLowOutputPower, optIfOChGroupSinkCurDayHighAggregatedInputPower=optIfOChGroupSinkCurDayHighAggregatedInputPower, optIfODUkTcmFieldsInUse=optIfODUkTcmFieldsInUse, OptIfBitRateK=OptIfBitRateK, optIfOChSrcIntervalHighOutputPower=optIfOChSrcIntervalHighOutputPower, optIfOTSnSinkCurDayHighInputPower=optIfOTSnSinkCurDayHighInputPower, optIfOTSnSrcCurrentLowInputPower=optIfOTSnSrcCurrentLowInputPower, optIfOChSinkPreOtnPMGroup=optIfOChSinkPreOtnPMGroup, optIfODUkTtpSAPIExpected=optIfODUkTtpSAPIExpected, optIfODUkNimConfigTable=optIfODUkNimConfigTable, optIfOTSnSinkPreOtnPMGroup=optIfOTSnSinkPreOtnPMGroup, optIfOTSnSrcPrevDayLowInputPower=optIfOTSnSrcPrevDayLowInputPower, optIfOTSnSrcCurDaySuspectedFlag=optIfOTSnSrcCurDaySuspectedFlag, optIfOMSnSrcCurDayLowAggregatedInputPower=optIfOMSnSrcCurDayLowAggregatedInputPower, optIfOTMnTcmMax=optIfOTMnTcmMax, optIfOMSnSrcCurrentSuspectedFlag=optIfOMSnSrcCurrentSuspectedFlag, optIfODUkConfigEntry=optIfODUkConfigEntry, optIfOChGroupSinkCurrentLowerInputPowerThreshold=optIfOChGroupSinkCurrentLowerInputPowerThreshold, optIfODUkTtpSourceGroup=optIfODUkTtpSourceGroup, optIfOChSrcCurrentEntry=optIfOChSrcCurrentEntry, optIfOMSnSinkCurrentOutputPower=optIfOMSnSinkCurrentOutputPower, optIfOChSinkCurDaySuspectedFlag=optIfOChSinkCurDaySuspectedFlag, optIfOChGroupSinkCurrentLowOutputPower=optIfOChGroupSinkCurrentLowOutputPower, optIfOMSnSinkIntervalSuspectedFlag=optIfOMSnSinkIntervalSuspectedFlag, optIfODUkTNimGroup=optIfODUkTNimGroup, optIfOTSnSrcIntervalLastInputPower=optIfOTSnSrcIntervalLastInputPower, optIfOTSnSinkIntervalHighOutputPower=optIfOTSnSinkIntervalHighOutputPower, optIfOMSnSrcPrevDayHighAggregatedInputPower=optIfOMSnSrcPrevDayHighAggregatedInputPower, optIfOTSnSinkCurrentLowInputPower=optIfOTSnSinkCurrentLowInputPower, optIfOTSnSrcCurDayLowOutputPower=optIfOTSnSrcCurDayLowOutputPower, optIfOMSnSrcIntervalSuspectedFlag=optIfOMSnSrcIntervalSuspectedFlag, optIfODUkTNimConfigEntry=optIfODUkTNimConfigEntry, optIfODUkTNimDEGM=optIfODUkTNimDEGM, optIfOChSinkPrevDayLastInputPower=optIfOChSinkPrevDayLastInputPower, optIfOTUkTraceIdentifierTransmitted=optIfOTUkTraceIdentifierTransmitted, optIfOChGroupSinkCurDayLowAggregatedInputPower=optIfOChGroupSinkCurDayLowAggregatedInputPower, optIfOChGroupSrcPrevDayHighOutputPower=optIfOChGroupSrcPrevDayHighOutputPower, optIfOChSinkIntervalHighInputPower=optIfOChSinkIntervalHighInputPower, optIfPreOtnPMCompl=optIfPreOtnPMCompl, optIfODUkTtpSinkGroup=optIfODUkTtpSinkGroup, optIfOMSnSinkPrevDayHighAggregatedInputPower=optIfOMSnSinkPrevDayHighAggregatedInputPower, optIfOMSnSourcePreOtnPMGroup=optIfOMSnSourcePreOtnPMGroup, optIfOChGroupSrcIntervalLastOutputPower=optIfOChGroupSrcIntervalLastOutputPower, optIfOChGroupSrcCurrentHighAggregatedInputPower=optIfOChGroupSrcCurrentHighAggregatedInputPower, optIfObjects=optIfObjects, optIfODUkTDAPIExpected=optIfODUkTDAPIExpected, optIfOMSnSrcIntervalLastAggregatedInputPower=optIfOMSnSrcIntervalLastAggregatedInputPower, optIfOChSrcCurDaySuspectedFlag=optIfOChSrcCurDaySuspectedFlag, optIfOTSnSrcIntervalSuspectedFlag=optIfOTSnSrcIntervalSuspectedFlag, optIfODUkTCodirectional=optIfODUkTCodirectional, optIfOChCurrentStatus=optIfOChCurrentStatus, optIfOTSnSinkCurrentLowOutputPower=optIfOTSnSinkCurrentLowOutputPower, optIfOTSnCommonGroup=optIfOTSnCommonGroup, optIfOTSnSinkCurrentUpperInputPowerThreshold=optIfOTSnSinkCurrentUpperInputPowerThreshold, optIfOChSinkPrevDayLowInputPower=optIfOChSinkPrevDayLowInputPower, optIfOChGroupSrcCurrentUpperInputPowerThreshold=optIfOChGroupSrcCurrentUpperInputPowerThreshold, optIfOChGroupSrcCurDayHighOutputPower=optIfOChGroupSrcCurDayHighOutputPower, optIfOMSnSinkPrevDayLowAggregatedInputPower=optIfOMSnSinkPrevDayLowAggregatedInputPower, optIfOTSnSinkCurrentHighOutputPower=optIfOTSnSinkCurrentHighOutputPower, optIfOMSnSinkIntervalLastAggregatedInputPower=optIfOMSnSinkIntervalLastAggregatedInputPower, optIfOChGroupSinkPrevDayTable=optIfOChGroupSinkPrevDayTable, optIfODUkNimTIMActEnabled=optIfODUkNimTIMActEnabled, optIfPerfMonGroup=optIfPerfMonGroup, optIfOTSnSinkPrevDayHighOutputPower=optIfOTSnSinkPrevDayHighOutputPower, optIfOMSnSinkCurDayTable=optIfOMSnSinkCurDayTable, OptIfTIMDetMode=OptIfTIMDetMode, optIfOTUkCurrentStatus=optIfOTUkCurrentStatus, optIfODUkTtpDEGThr=optIfODUkTtpDEGThr, optIfCompl=optIfCompl, optIfOChSinkPrevDayHighInputPower=optIfOChSinkPrevDayHighInputPower, optIfODUkTNimTIMDetMode=optIfODUkTNimTIMDetMode, optIfOTSnSinkPrevDayLowInputPower=optIfOTSnSinkPrevDayLowInputPower, optIfOChGroupSinkIntervalNumber=optIfOChGroupSinkIntervalNumber, optIfOChCommonGroup=optIfOChCommonGroup, optIfOChGroupSinkIntervalTable=optIfOChGroupSinkIntervalTable, optIfOMSnSrcIntervalTable=optIfOMSnSrcIntervalTable, optIfOChGroupSrcIntervalHighAggregatedInputPower=optIfOChGroupSrcIntervalHighAggregatedInputPower, optIfGCC12ConfigEntry=optIfGCC12ConfigEntry, optIfOChSrcCurrentOutputPower=optIfOChSrcCurrentOutputPower, optIfOMSnSrcCurrentLowAggregatedInputPower=optIfOMSnSrcCurrentLowAggregatedInputPower, optIfODUkNimGroup=optIfODUkNimGroup, optIfOChGroupSrcCurrentEntry=optIfOChGroupSrcCurrentEntry, optIfOTUkTIMDetMode=optIfOTUkTIMDetMode, optIfOTSnSrcCurrentLowOutputPower=optIfOTSnSrcCurrentLowOutputPower, optIfOChSrcCurDayHighOutputPower=optIfOChSrcCurDayHighOutputPower, optIfOTSnSinkCurDayLowInputPower=optIfOTSnSinkCurDayLowInputPower, optIfOChGroupSrcCurDayHighAggregatedInputPower=optIfOChGroupSrcCurDayHighAggregatedInputPower, optIfODUkConfigTable=optIfODUkConfigTable, optIfOChSrcIntervalLastOutputPower=optIfOChSrcIntervalLastOutputPower, optIfOTSnSrcCurrentUpperOutputPowerThreshold=optIfOTSnSrcCurrentUpperOutputPowerThreshold, optIfOChSrcCurDayLowOutputPower=optIfOChSrcCurDayLowOutputPower, optIfOMSnSinkIntervalHighOutputPower=optIfOMSnSinkIntervalHighOutputPower, optIfODUkGroup=optIfODUkGroup, optIfOChSinkCurrentSuspectedFlag=optIfOChSinkCurrentSuspectedFlag, optIfOMSnSrcPrevDayEntry=optIfOMSnSrcPrevDayEntry, optIfOChSrcCurrentLowerOutputPowerThreshold=optIfOChSrcCurrentLowerOutputPowerThreshold, optIfODUkNimDEGM=optIfODUkNimDEGM, optIfOChGroupSinkIntervalLastOutputPower=optIfOChGroupSinkIntervalLastOutputPower, optIfOMSnSinkCurrentLowAggregatedInputPower=optIfOMSnSinkCurrentLowAggregatedInputPower, optIfOTSnSinkIntervalTable=optIfOTSnSinkIntervalTable, optIfOChSrcIntervalEntry=optIfOChSrcIntervalEntry, optIfGCC0Group=optIfGCC0Group, optIfODUkTtpDAPIExpected=optIfODUkTtpDAPIExpected, optIfOMSnSrcIntervalLastOutputPower=optIfOMSnSrcIntervalLastOutputPower, optIfOChGroupSourcePreOtnPMGroup=optIfOChGroupSourcePreOtnPMGroup, optIfOMSnSinkCurrentLowerOutputPowerThreshold=optIfOMSnSinkCurrentLowerOutputPowerThreshold, optIfOChGroupSinkPrevDaySuspectedFlag=optIfOChGroupSinkPrevDaySuspectedFlag, optIfOMSnSinkIntervalTable=optIfOMSnSinkIntervalTable)
-mibBuilder.exportSymbols("OPT-IF-MIB", optIfOMSnSrcCurrentOutputPower=optIfOMSnSrcCurrentOutputPower, optIfOMSnSrcCurrentLowOutputPower=optIfOMSnSrcCurrentLowOutputPower, optIfOChSrcPrevDayEntry=optIfOChSrcPrevDayEntry, optIfOTUkSourceAdaptActive=optIfOTUkSourceAdaptActive, optIfOTSnSinkPrevDayLastOutputPower=optIfOTSnSinkPrevDayLastOutputPower, optIfOChSinkIntervalTable=optIfOChSinkIntervalTable, optIfOTMnTable=optIfOTMnTable, optIfOChGroupSrcIntervalLastAggregatedInputPower=optIfOChGroupSrcIntervalLastAggregatedInputPower, optIfOTSnConfigEntry=optIfOTSnConfigEntry, optIfOMSnSrcPrevDayHighOutputPower=optIfOMSnSrcPrevDayHighOutputPower, optIfOChSinkIntervalLastInputPower=optIfOChSinkIntervalLastInputPower, optIfOMSnSinkGroupBasic=optIfOMSnSinkGroupBasic, optIfOTSnSinkPrevDayEntry=optIfOTSnSinkPrevDayEntry, optIfOMSnSrcCurDaySuspectedFlag=optIfOMSnSrcCurDaySuspectedFlag, optIfOChSrcIntervalTable=optIfOChSrcIntervalTable, optIfOChSinkCurDayEntry=optIfOChSinkCurDayEntry, optIfOChSinkCurrentHighInputPower=optIfOChSinkCurrentHighInputPower, optIfOTSnSrcIntervalEntry=optIfOTSnSrcIntervalEntry, optIfOChGroupSinkCurrentUpperInputPowerThreshold=optIfOChGroupSinkCurrentUpperInputPowerThreshold, optIfOChGroupSrcCurrentTable=optIfOChGroupSrcCurrentTable, optIfOTUkSinkFECEnabled=optIfOTUkSinkFECEnabled, optIfODUkTDEGM=optIfODUkTDEGM, optIfODUkTTIMActEnabled=optIfODUkTTIMActEnabled, optIfOMSnSrcIntervalLowOutputPower=optIfOMSnSrcIntervalLowOutputPower, optIfOChConfigEntry=optIfOChConfigEntry, optIfODUkNimDEGThr=optIfODUkNimDEGThr, optIfOChGroupSinkIntervalLastAggregatedInputPower=optIfOChGroupSinkIntervalLastAggregatedInputPower, optIfOChSrcCurrentUpperOutputPowerThreshold=optIfOChSrcCurrentUpperOutputPowerThreshold, optIfOTSnSrcPrevDayTable=optIfOTSnSrcPrevDayTable, optIfOChSrcIntervalNumber=optIfOChSrcIntervalNumber, optIfOTSnSrcCurrentEntry=optIfOTSnSrcCurrentEntry, optIfOTSnSrcCurrentUpperInputPowerThreshold=optIfOTSnSrcCurrentUpperInputPowerThreshold, optIfOChGroupSrcPrevDayLastOutputPower=optIfOChGroupSrcPrevDayLastOutputPower, optIfODUkTtpTraceIdentifierTransmitted=optIfODUkTtpTraceIdentifierTransmitted, optIfODUkNimTIMDetMode=optIfODUkNimTIMDetMode, optIfPerfMonCurDayTimeElapsed=optIfPerfMonCurDayTimeElapsed, optIfOTSnDAPIExpected=optIfOTSnDAPIExpected, optIfOTSnSrcIntervalHighInputPower=optIfOTSnSrcIntervalHighInputPower, optIfGCC12GCCAccess=optIfGCC12GCCAccess, optIfOMSnSourcePreOtnPMThresholdGroup=optIfOMSnSourcePreOtnPMThresholdGroup, optIfOMSnConfigEntry=optIfOMSnConfigEntry, optIfOChGroupSrcIntervalNumber=optIfOChGroupSrcIntervalNumber, optIfOTSnSinkGroupBasic=optIfOTSnSinkGroupBasic, optIfOChSinkPrevDayTable=optIfOChSinkPrevDayTable, optIfOChGroupSrcCurrentLowOutputPower=optIfOChGroupSrcCurrentLowOutputPower, optIfOMSnSinkPrevDayEntry=optIfOMSnSinkPrevDayEntry, optIfODUkTCurrentStatus=optIfODUkTCurrentStatus, optIfOChSinkIntervalEntry=optIfOChSinkIntervalEntry, optIfOMSnSinkPrevDaySuspectedFlag=optIfOMSnSinkPrevDaySuspectedFlag, optIfOTSnSrcCurrentTable=optIfOTSnSrcCurrentTable, optIfODUkTConfigTable=optIfODUkTConfigTable, optIfOTSnSinkCurrentOutputPower=optIfOTSnSinkCurrentOutputPower, optIfOTSnSinkCurrentSuspectedFlag=optIfOTSnSinkCurrentSuspectedFlag, optIfOMSnSrcPrevDayLastOutputPower=optIfOMSnSrcPrevDayLastOutputPower, optIfOTSnSAPIExpected=optIfOTSnSAPIExpected, optIfOMSnSinkIntervalLowAggregatedInputPower=optIfOMSnSinkIntervalLowAggregatedInputPower, optIfOTUkConfigEntry=optIfOTUkConfigEntry, optIfODUkPositionSeqPosition=optIfODUkPositionSeqPosition, optIfOTSnSrcCurDayEntry=optIfOTSnSrcCurDayEntry, optIfOTMnBitRates=optIfOTMnBitRates, optIfOChGroupSrcCurrentSuspectedFlag=optIfOChGroupSrcCurrentSuspectedFlag, optIfOChGroupCommonGroup=optIfOChGroupCommonGroup, optIfOChGroupSrcCurDayLowAggregatedInputPower=optIfOChGroupSrcCurDayLowAggregatedInputPower, optIfOChGroupSinkPrevDayHighAggregatedInputPower=optIfOChGroupSinkPrevDayHighAggregatedInputPower, optIfOChGroupSinkPreOtnPMGroup=optIfOChGroupSinkPreOtnPMGroup, OptIfIntervalNumber=OptIfIntervalNumber, optIfOChSinkIntervalLowInputPower=optIfOChSinkIntervalLowInputPower, optIfOTSnSinkIntervalLastOutputPower=optIfOTSnSinkIntervalLastOutputPower, optIfMibModule=optIfMibModule, optIfOChGroupSinkPrevDayLastAggregatedInputPower=optIfOChGroupSinkPrevDayLastAggregatedInputPower, optIfOChSinkCurrentInputPower=optIfOChSinkCurrentInputPower, optIfOMSnSinkCurrentEntry=optIfOMSnSinkCurrentEntry, optIfPerfMonIntervalTable=optIfPerfMonIntervalTable, optIfOTSnSinkIntervalEntry=optIfOTSnSinkIntervalEntry, optIfOMSnSrcCurrentLowerInputPowerThreshold=optIfOMSnSrcCurrentLowerInputPowerThreshold, optIfOTSnSinkIntervalSuspectedFlag=optIfOTSnSinkIntervalSuspectedFlag, optIfOTMnOrder=optIfOTMnOrder, optIfOChSrcCurrentTable=optIfOChSrcCurrentTable, optIfOTSnCurrentStatus=optIfOTSnCurrentStatus, optIfODUkTNimRowStatus=optIfODUkTNimRowStatus, optIfOTSnSinkCurrentLowerInputPowerThreshold=optIfOTSnSinkCurrentLowerInputPowerThreshold, OptIfDEGThr=OptIfDEGThr, optIfOMSnSinkCurDayHighAggregatedInputPower=optIfOMSnSinkCurDayHighAggregatedInputPower, optIfOChGroupSrcCurDayLowOutputPower=optIfOChGroupSrcCurDayLowOutputPower, optIfOTSnSrcCurrentInputPower=optIfOTSnSrcCurrentInputPower, optIfOChGroupSinkPrevDayEntry=optIfOChGroupSinkPrevDayEntry, optIfOTSnSrcIntervalNumber=optIfOTSnSrcIntervalNumber, optIfODUkDirectionality=optIfODUkDirectionality, optIfOMSnSinkPreOtnPMGroup=optIfOMSnSinkPreOtnPMGroup, optIfOChSrcCurrentHighOutputPower=optIfOChSrcCurrentHighOutputPower, optIfOChGroupSinkCurrentEntry=optIfOChGroupSinkCurrentEntry, optIfPerfMonIntervalEntry=optIfPerfMonIntervalEntry, optIfOChGroupSinkCurDaySuspectedFlag=optIfOChGroupSinkCurDaySuspectedFlag, optIfOMSnSinkPrevDayHighOutputPower=optIfOMSnSinkPrevDayHighOutputPower, optIfOMSnSrcPrevDayTable=optIfOMSnSrcPrevDayTable, optIfOChGroupSinkCurrentUpperOutputPowerThreshold=optIfOChGroupSinkCurrentUpperOutputPowerThreshold, optIfOMSnSrcPrevDayLowAggregatedInputPower=optIfOMSnSrcPrevDayLowAggregatedInputPower, optIfOMSnSrcPrevDaySuspectedFlag=optIfOMSnSrcPrevDaySuspectedFlag, optIfOChGroupSrcPrevDayLastAggregatedInputPower=optIfOChGroupSrcPrevDayLastAggregatedInputPower, optIfODUkTNimDAPIExpected=optIfODUkTNimDAPIExpected, optIfOTSnSinkIntervalLowInputPower=optIfOTSnSinkIntervalLowInputPower, optIfOMSnSinkCurrentHighOutputPower=optIfOMSnSinkCurrentHighOutputPower, optIfOChGroupSinkCurDayHighOutputPower=optIfOChGroupSinkCurDayHighOutputPower, optIfOTUkBitRateK=optIfOTUkBitRateK, optIfOChGroupSinkIntervalEntry=optIfOChGroupSinkIntervalEntry, optIfOTSnDirectionality=optIfOTSnDirectionality, optIfODUkTNimSAPIExpected=optIfODUkTNimSAPIExpected, optIfOMSnSinkIntervalLastOutputPower=optIfOMSnSinkIntervalLastOutputPower, optIfOTSnSrcCurDayLowInputPower=optIfOTSnSrcCurDayLowInputPower, optIfOTSnSinkCurDayHighOutputPower=optIfOTSnSinkCurDayHighOutputPower, optIfOMSnSinkCurrentAggregatedInputPower=optIfOMSnSinkCurrentAggregatedInputPower, optIfODUkT=optIfODUkT, optIfOChGroupSrcIntervalLowOutputPower=optIfOChGroupSrcIntervalLowOutputPower, optIfODUkPositionSeqEntry=optIfODUkPositionSeqEntry, optIfOMSnSinkCurrentUpperOutputPowerThreshold=optIfOMSnSinkCurrentUpperOutputPowerThreshold, optIfOChSinkPrevDaySuspectedFlag=optIfOChSinkPrevDaySuspectedFlag, optIfOChGroupSrcIntervalLowAggregatedInputPower=optIfOChGroupSrcIntervalLowAggregatedInputPower, optIfOMSnCurrentStatus=optIfOMSnCurrentStatus, optIfOTSnSinkIntervalNumber=optIfOTSnSinkIntervalNumber, optIfOMSnSinkCurDayLowOutputPower=optIfOMSnSinkCurDayLowOutputPower, optIfODUkTNimDirectionality=optIfODUkTNimDirectionality, optIfOTSnSrcCurDayHighInputPower=optIfOTSnSrcCurDayHighInputPower, optIfOChSinkCurDayLowInputPower=optIfOChSinkCurDayLowInputPower, optIfODUkTTcmField=optIfODUkTTcmField, optIfOChSourcePreOtnPMGroup=optIfOChSourcePreOtnPMGroup, optIfOTSnSrcPrevDayLastOutputPower=optIfOTSnSrcPrevDayLastOutputPower, optIfPerfMonIntervalNumInvalidIntervals=optIfPerfMonIntervalNumInvalidIntervals, optIfOMSnSinkCurrentTable=optIfOMSnSinkCurrentTable, optIfOTMnOpticalReach=optIfOTMnOpticalReach, optIfOTSnSinkPrevDayLowOutputPower=optIfOTSnSinkPrevDayLowOutputPower, optIfODUkTtpConfigTable=optIfODUkTtpConfigTable, optIfOChSinkIntervalSuspectedFlag=optIfOChSinkIntervalSuspectedFlag, optIfOTSnSrcIntervalLowOutputPower=optIfOTSnSrcIntervalLowOutputPower, optIfODUkPositionSeqCurrentSize=optIfODUkPositionSeqCurrentSize, optIfOMSnSrcCurDayHighOutputPower=optIfOMSnSrcCurDayHighOutputPower, optIfOMSnSinkCurrentLowOutputPower=optIfOMSnSinkCurrentLowOutputPower, optIfODUkTNimTIMActEnabled=optIfODUkTNimTIMActEnabled, optIfOTSnTraceIdentifierAccepted=optIfOTSnTraceIdentifierAccepted, optIfOMSn=optIfOMSn, optIfODUkTRowStatus=optIfODUkTRowStatus, optIfOTUkTraceIdentifierAccepted=optIfOTUkTraceIdentifierAccepted, optIfOChGroupConfigEntry=optIfOChGroupConfigEntry, optIfOMSnSrcCurrentEntry=optIfOMSnSrcCurrentEntry, optIfOChSrcPrevDayHighOutputPower=optIfOChSrcPrevDayHighOutputPower, OptIfDEGM=OptIfDEGM, optIfOTSnSinkCurrentInputPower=optIfOTSnSinkCurrentInputPower, optIfOChSinkCurrentTable=optIfOChSinkCurrentTable, optIfGCC12ConfigTable=optIfGCC12ConfigTable, optIfOChGroupSinkPrevDayLowAggregatedInputPower=optIfOChGroupSinkPrevDayLowAggregatedInputPower, optIfOChGroupSrcCurDayEntry=optIfOChGroupSrcCurDayEntry, optIfPerfMonCurrentTimeElapsed=optIfPerfMonCurrentTimeElapsed, optIfOMSnSrcIntervalHighAggregatedInputPower=optIfOMSnSrcIntervalHighAggregatedInputPower, optIfOChSinkCurrentLowerInputPowerThreshold=optIfOChSinkCurrentLowerInputPowerThreshold, optIfOTUkDEGThr=optIfOTUkDEGThr, optIfODUkTtpTIMActEnabled=optIfODUkTtpTIMActEnabled, optIfOTMnEntry=optIfOTMnEntry, optIfOMSnSrcCurDayHighAggregatedInputPower=optIfOMSnSrcCurDayHighAggregatedInputPower, optIfOChGroupSrcCurrentOutputPower=optIfOChGroupSrcCurrentOutputPower, optIfOTSnSrcIntervalLowInputPower=optIfOTSnSrcIntervalLowInputPower, optIfOTUkCommonGroup=optIfOTUkCommonGroup, optIfOChGroupSrcCurrentLowAggregatedInputPower=optIfOChGroupSrcCurrentLowAggregatedInputPower, optIfOTSnSinkPrevDayLastInputPower=optIfOTSnSinkPrevDayLastInputPower, optIfOMSnSinkIntervalEntry=optIfOMSnSinkIntervalEntry, optIfOTSnSinkCurrentUpperOutputPowerThreshold=optIfOTSnSinkCurrentUpperOutputPowerThreshold, optIfOChGroupSrcPrevDayLowAggregatedInputPower=optIfOChGroupSrcPrevDayLowAggregatedInputPower, optIfOChSinkCurDayTable=optIfOChSinkCurDayTable, optIfOChSrcCurDayTable=optIfOChSrcCurDayTable, optIfOMSnSinkIntervalHighAggregatedInputPower=optIfOMSnSinkIntervalHighAggregatedInputPower, optIfOChSinkCurrentLowInputPower=optIfOChSinkCurrentLowInputPower, optIfGCC12Application=optIfGCC12Application, OptIfExSAPI=OptIfExSAPI, optIfOMSnSinkPrevDayTable=optIfOMSnSinkPrevDayTable, optIfOChGroupSrcIntervalTable=optIfOChGroupSrcIntervalTable, optIfODUkTtpCurrentStatus=optIfODUkTtpCurrentStatus, optIfOMSnSrcCurrentAggregatedInputPower=optIfOMSnSrcCurrentAggregatedInputPower, optIfOTSnSinkIntervalLastInputPower=optIfOTSnSinkIntervalLastInputPower, optIfOChSinkGroupBasic=optIfOChSinkGroupBasic, optIfOTSnSrcCurrentSuspectedFlag=optIfOTSnSrcCurrentSuspectedFlag, optIfOChSrcPrevDaySuspectedFlag=optIfOChSrcPrevDaySuspectedFlag, optIfOMSnSrcPrevDayLowOutputPower=optIfOMSnSrcPrevDayLowOutputPower, optIfODUkTNimTcmField=optIfODUkTNimTcmField, optIfOMSnSinkCurrentSuspectedFlag=optIfOMSnSinkCurrentSuspectedFlag, optIfOChGroupSrcIntervalHighOutputPower=optIfOChGroupSrcIntervalHighOutputPower, optIfOChGroupSinkCurDayLowOutputPower=optIfOChGroupSinkCurDayLowOutputPower, optIfOTSnConfigTable=optIfOTSnConfigTable, optIfOTUkDEGM=optIfOTUkDEGM, optIfOTSnSrcPrevDayLastInputPower=optIfOTSnSrcPrevDayLastInputPower, OptIfExDAPI=OptIfExDAPI, optIfOTSnSrcPrevDayHighOutputPower=optIfOTSnSrcPrevDayHighOutputPower, optIfOMSnSrcCurDayEntry=optIfOMSnSrcCurDayEntry, optIfOMSnSrcPrevDayLastAggregatedInputPower=optIfOMSnSrcPrevDayLastAggregatedInputPower, optIfOMSnSinkIntervalLowOutputPower=optIfOMSnSinkIntervalLowOutputPower, optIfOChSinkPreOtnPMThresholdGroup=optIfOChSinkPreOtnPMThresholdGroup, optIfOTUkSinkAdaptActive=optIfOTUkSinkAdaptActive, optIfOChGroupSinkCurrentAggregatedInputPower=optIfOChGroupSinkCurrentAggregatedInputPower, optIfOMSnSrcCurrentTable=optIfOMSnSrcCurrentTable, optIfOChGroupSrcCurDaySuspectedFlag=optIfOChGroupSrcCurDaySuspectedFlag, optIfOTSnSourcePreOtnPMGroup=optIfOTSnSourcePreOtnPMGroup, optIfOTSnSrcIntervalHighOutputPower=optIfOTSnSrcIntervalHighOutputPower, optIfOMSnSrcIntervalLowAggregatedInputPower=optIfOMSnSrcIntervalLowAggregatedInputPower, optIfOChSrcCurrentLowOutputPower=optIfOChSrcCurrentLowOutputPower, optIfOChGroupSinkIntervalHighOutputPower=optIfOChGroupSinkIntervalHighOutputPower, optIfOtnConfigCompl=optIfOtnConfigCompl, optIfOTSnSrcPrevDaySuspectedFlag=optIfOTSnSrcPrevDaySuspectedFlag, optIfOChGroup=optIfOChGroup, optIfODUkTSinkGroupCtp=optIfODUkTSinkGroupCtp, optIfOTSnSrcIntervalTable=optIfOTSnSrcIntervalTable, optIfOTUkSAPIExpected=optIfOTUkSAPIExpected, optIfOChGroupSinkCurrentOutputPower=optIfOChGroupSinkCurrentOutputPower, optIfOMSnDirectionality=optIfOMSnDirectionality, optIfOTSnAprStatus=optIfOTSnAprStatus, optIfOMSnSrcCurrentHighOutputPower=optIfOMSnSrcCurrentHighOutputPower, optIfOChGroupConfigTable=optIfOChGroupConfigTable, optIfOTSnSrcIntervalLastOutputPower=optIfOTSnSrcIntervalLastOutputPower, optIfODUkBitRateK=optIfODUkBitRateK, optIfODUkNimSAPIExpected=optIfODUkNimSAPIExpected, optIfOTSnSrcCurrentHighInputPower=optIfOTSnSrcCurrentHighInputPower, optIfOMSnSrcIntervalHighOutputPower=optIfOMSnSrcIntervalHighOutputPower, optIfGroups=optIfGroups, optIfOMSnSinkCurrentUpperInputPowerThreshold=optIfOMSnSinkCurrentUpperInputPowerThreshold, optIfOTSnSrcPrevDayHighInputPower=optIfOTSnSrcPrevDayHighInputPower, optIfOChSinkCurDayHighInputPower=optIfOChSinkCurDayHighInputPower, optIfOTSnTIMDetMode=optIfOTSnTIMDetMode, optIfOMSnSinkCurDayHighOutputPower=optIfOMSnSinkCurDayHighOutputPower, optIfPerfMon=optIfPerfMon, optIfOTSnSinkGroupFull=optIfOTSnSinkGroupFull, optIfOChGroupSrcCurrentHighOutputPower=optIfOChGroupSrcCurrentHighOutputPower, optIfGCC12Group=optIfGCC12Group, optIfOMSnSinkIntervalNumber=optIfOMSnSinkIntervalNumber, optIfOTUkConfigTable=optIfOTUkConfigTable, optIfOTMnReduced=optIfOTMnReduced, optIfODUk=optIfODUk, optIfOChGroupSinkCurrentHighOutputPower=optIfOChGroupSinkCurrentHighOutputPower)
+_FM='optIfOChSourcePreOtnPMThresholdGroup'
+_FL='optIfOChSourcePreOtnPMGroup'
+_FK='optIfOChSinkPreOtnPMThresholdGroup'
+_FJ='optIfOChSinkPreOtnPMGroup'
+_FI='optIfOChGroupSourcePreOtnPMThresholdGroup'
+_FH='optIfOChGroupSourcePreOtnPMGroup'
+_FG='optIfOChGroupSinkPreOtnPMThresholdGroup'
+_FF='optIfOChGroupSinkPreOtnPMGroup'
+_FE='optIfOMSnSourcePreOtnPMThresholdGroup'
+_FD='optIfOMSnSourcePreOtnPMGroup'
+_FC='optIfOMSnSinkPreOtnPMThresholdGroup'
+_FB='optIfOMSnSinkPreOtnPMGroup'
+_FA='optIfOTSnSourcePreOtnPMThresholdGroup'
+_F9='optIfOTSnSourcePreOtnPMGroup'
+_F8='optIfOTSnSinkPreOtnPMThresholdGroup'
+_F7='optIfOTSnSinkPreOtnPMGroup'
+_F6='optIfPerfMonGroup'
+_F5='optIfODUkTNimGroup'
+_F4='optIfODUkTSinkGroupCtp'
+_F3='optIfODUkTSinkGroup'
+_F2='optIfODUkTSourceGroup'
+_F1='optIfODUkTCommonGroup'
+_F0='optIfGCC12Group'
+_E_='optIfODUkNimGroup'
+_Ez='optIfODUkTtpSinkGroup'
+_Ey='optIfODUkTtpSourceGroup'
+_Ex='optIfODUkGroup'
+_Ew='optIfGCC0Group'
+_Ev='optIfOTUkSinkGroup'
+_Eu='optIfOTUkSourceGroup'
+_Et='optIfOTUkCommonGroup'
+_Es='optIfOChSinkGroupBasic'
+_Er='optIfOChCommonGroup'
+_Eq='optIfOChGroupCommonGroup'
+_Ep='optIfOMSnSinkGroupBasic'
+_Eo='optIfOMSnCommonGroup'
+_En='optIfOTSnSinkGroupFull'
+_Em='optIfOTSnSinkGroupBasic'
+_El='optIfOTSnAPRControlGroup'
+_Ek='optIfOTSnAPRStatusGroup'
+_Ej='optIfOTSnSourceGroupFull'
+_Ei='optIfOTSnCommonGroup'
+_Eh='optIfOTMnGroup'
+_Eg='optIfODUkTNimRowStatus'
+_Ef='optIfODUkTNimCurrentStatus'
+_Ee='optIfODUkTNimDEGM'
+_Ed='optIfODUkTNimDEGThr'
+_Ec='optIfODUkTNimTIMActEnabled'
+_Eb='optIfODUkTNimTIMDetMode'
+_Ea='optIfODUkTNimTraceIdentifierAccepted'
+_EZ='optIfODUkTNimSAPIExpected'
+_EY='optIfODUkTNimDAPIExpected'
+_EX='optIfODUkTSinkLockSignalAdminState'
+_EW='optIfODUkTSinkMode'
+_EV='optIfODUkTCurrentStatus'
+_EU='optIfODUkTDEGM'
+_ET='optIfODUkTDEGThr'
+_ES='optIfODUkTTIMActEnabled'
+_ER='optIfODUkTTIMDetMode'
+_EQ='optIfODUkTTraceIdentifierAccepted'
+_EP='optIfODUkTSAPIExpected'
+_EO='optIfODUkTDAPIExpected'
+_EN='optIfODUkTSourceLockSignalAdminState'
+_EM='optIfODUkTTraceIdentifierTransmitted'
+_EL='optIfODUkTRowStatus'
+_EK='optIfGCC12RowStatus'
+_EJ='optIfGCC12Application'
+_EI='optIfGCC12GCCPassThrough'
+_EH='optIfODUkNimRowStatus'
+_EG='optIfODUkNimCurrentStatus'
+_EF='optIfODUkNimDEGM'
+_EE='optIfODUkNimDEGThr'
+_ED='optIfODUkNimTIMActEnabled'
+_EC='optIfODUkNimTIMDetMode'
+_EB='optIfODUkNimTraceIdentifierAccepted'
+_EA='optIfODUkNimSAPIExpected'
+_E9='optIfODUkNimDAPIExpected'
+_E8='optIfODUkTtpCurrentStatus'
+_E7='optIfODUkTtpDEGM'
+_E6='optIfODUkTtpDEGThr'
+_E5='optIfODUkTtpTIMActEnabled'
+_E4='optIfODUkTtpTIMDetMode'
+_E3='optIfODUkTtpTraceIdentifierAccepted'
+_E2='optIfODUkTtpSAPIExpected'
+_E1='optIfODUkTtpDAPIExpected'
+_E0='optIfODUkTtpTraceIdentifierTransmitted'
+_D_='optIfODUkTtpPresent'
+_Dz='optIfODUkPositionSeqPointer'
+_Dy='optIfODUkPositionSeqPosition'
+_Dx='optIfODUkPositionSeqCurrentSize'
+_Dw='optIfODUkTcmFieldsInUse'
+_Dv='optIfODUkBitRateK'
+_Du='optIfODUkDirectionality'
+_Dt='optIfGCC0RowStatus'
+_Ds='optIfGCC0Application'
+_Dr='optIfOTUkCurrentStatus'
+_Dq='optIfOTUkSinkFECEnabled'
+_Dp='optIfOTUkSinkAdaptActive'
+_Do='optIfOTUkDEGM'
+_Dn='optIfOTUkDEGThr'
+_Dm='optIfOTUkTIMActEnabled'
+_Dl='optIfOTUkTIMDetMode'
+_Dk='optIfOTUkTraceIdentifierAccepted'
+_Dj='optIfOTUkSAPIExpected'
+_Di='optIfOTUkDAPIExpected'
+_Dh='optIfOTUkSourceAdaptActive'
+_Dg='optIfOTUkTraceIdentifierTransmitted'
+_Df='optIfOTUkBitRateK'
+_De='optIfOTUkDirectionality'
+_Dd='optIfOChSrcCurrentUpperOutputPowerThreshold'
+_Dc='optIfOChSrcCurrentLowerOutputPowerThreshold'
+_Db='optIfOChSrcPrevDayHighOutputPower'
+_Da='optIfOChSrcPrevDayLowOutputPower'
+_DZ='optIfOChSrcPrevDayLastOutputPower'
+_DY='optIfOChSrcPrevDaySuspectedFlag'
+_DX='optIfOChSrcCurDayHighOutputPower'
+_DW='optIfOChSrcCurDayLowOutputPower'
+_DV='optIfOChSrcCurDaySuspectedFlag'
+_DU='optIfOChSrcIntervalHighOutputPower'
+_DT='optIfOChSrcIntervalLowOutputPower'
+_DS='optIfOChSrcIntervalLastOutputPower'
+_DR='optIfOChSrcIntervalSuspectedFlag'
+_DQ='optIfOChSrcCurrentHighOutputPower'
+_DP='optIfOChSrcCurrentLowOutputPower'
+_DO='optIfOChSrcCurrentOutputPower'
+_DN='optIfOChSrcCurrentSuspectedFlag'
+_DM='optIfOChSinkCurrentUpperInputPowerThreshold'
+_DL='optIfOChSinkCurrentLowerInputPowerThreshold'
+_DK='optIfOChSinkPrevDayHighInputPower'
+_DJ='optIfOChSinkPrevDayLowInputPower'
+_DI='optIfOChSinkPrevDayLastInputPower'
+_DH='optIfOChSinkPrevDaySuspectedFlag'
+_DG='optIfOChSinkCurDayHighInputPower'
+_DF='optIfOChSinkCurDayLowInputPower'
+_DE='optIfOChSinkCurDaySuspectedFlag'
+_DD='optIfOChSinkIntervalHighInputPower'
+_DC='optIfOChSinkIntervalLowInputPower'
+_DB='optIfOChSinkIntervalLastInputPower'
+_DA='optIfOChSinkIntervalSuspectedFlag'
+_D9='optIfOChSinkCurrentHighInputPower'
+_D8='optIfOChSinkCurrentLowInputPower'
+_D7='optIfOChSinkCurrentInputPower'
+_D6='optIfOChSinkCurrentSuspectedFlag'
+_D5='optIfOChCurrentStatus'
+_D4='optIfOChDirectionality'
+_D3='optIfOChGroupSrcCurrentUpperInputPowerThreshold'
+_D2='optIfOChGroupSrcCurrentLowerInputPowerThreshold'
+_D1='optIfOChGroupSrcCurrentUpperOutputPowerThreshold'
+_D0='optIfOChGroupSrcCurrentLowerOutputPowerThreshold'
+_C_='optIfOChGroupSrcPrevDayHighAggregatedInputPower'
+_Cz='optIfOChGroupSrcPrevDayLowAggregatedInputPower'
+_Cy='optIfOChGroupSrcPrevDayLastAggregatedInputPower'
+_Cx='optIfOChGroupSrcPrevDayHighOutputPower'
+_Cw='optIfOChGroupSrcPrevDayLowOutputPower'
+_Cv='optIfOChGroupSrcPrevDayLastOutputPower'
+_Cu='optIfOChGroupSrcPrevDaySuspectedFlag'
+_Ct='optIfOChGroupSrcCurDayHighAggregatedInputPower'
+_Cs='optIfOChGroupSrcCurDayLowAggregatedInputPower'
+_Cr='optIfOChGroupSrcCurDayHighOutputPower'
+_Cq='optIfOChGroupSrcCurDayLowOutputPower'
+_Cp='optIfOChGroupSrcCurDaySuspectedFlag'
+_Co='optIfOChGroupSrcIntervalHighAggregatedInputPower'
+_Cn='optIfOChGroupSrcIntervalLowAggregatedInputPower'
+_Cm='optIfOChGroupSrcIntervalLastAggregatedInputPower'
+_Cl='optIfOChGroupSrcIntervalHighOutputPower'
+_Ck='optIfOChGroupSrcIntervalLowOutputPower'
+_Cj='optIfOChGroupSrcIntervalLastOutputPower'
+_Ci='optIfOChGroupSrcIntervalSuspectedFlag'
+_Ch='optIfOChGroupSrcCurrentHighAggregatedInputPower'
+_Cg='optIfOChGroupSrcCurrentLowAggregatedInputPower'
+_Cf='optIfOChGroupSrcCurrentAggregatedInputPower'
+_Ce='optIfOChGroupSrcCurrentHighOutputPower'
+_Cd='optIfOChGroupSrcCurrentLowOutputPower'
+_Cc='optIfOChGroupSrcCurrentOutputPower'
+_Cb='optIfOChGroupSrcCurrentSuspectedFlag'
+_Ca='optIfOChGroupSinkCurrentUpperOutputPowerThreshold'
+_CZ='optIfOChGroupSinkCurrentLowerOutputPowerThreshold'
+_CY='optIfOChGroupSinkCurrentUpperInputPowerThreshold'
+_CX='optIfOChGroupSinkCurrentLowerInputPowerThreshold'
+_CW='optIfOChGroupSinkPrevDayHighOutputPower'
+_CV='optIfOChGroupSinkPrevDayLowOutputPower'
+_CU='optIfOChGroupSinkPrevDayLastOutputPower'
+_CT='optIfOChGroupSinkPrevDayHighAggregatedInputPower'
+_CS='optIfOChGroupSinkPrevDayLowAggregatedInputPower'
+_CR='optIfOChGroupSinkPrevDayLastAggregatedInputPower'
+_CQ='optIfOChGroupSinkPrevDaySuspectedFlag'
+_CP='optIfOChGroupSinkCurDayHighOutputPower'
+_CO='optIfOChGroupSinkCurDayLowOutputPower'
+_CN='optIfOChGroupSinkCurDayHighAggregatedInputPower'
+_CM='optIfOChGroupSinkCurDayLowAggregatedInputPower'
+_CL='optIfOChGroupSinkCurDaySuspectedFlag'
+_CK='optIfOChGroupSinkIntervalHighOutputPower'
+_CJ='optIfOChGroupSinkIntervalLowOutputPower'
+_CI='optIfOChGroupSinkIntervalLastOutputPower'
+_CH='optIfOChGroupSinkIntervalHighAggregatedInputPower'
+_CG='optIfOChGroupSinkIntervalLowAggregatedInputPower'
+_CF='optIfOChGroupSinkIntervalLastAggregatedInputPower'
+_CE='optIfOChGroupSinkIntervalSuspectedFlag'
+_CD='optIfOChGroupSinkCurrentHighOutputPower'
+_CC='optIfOChGroupSinkCurrentLowOutputPower'
+_CB='optIfOChGroupSinkCurrentOutputPower'
+_CA='optIfOChGroupSinkCurrentHighAggregatedInputPower'
+_C9='optIfOChGroupSinkCurrentLowAggregatedInputPower'
+_C8='optIfOChGroupSinkCurrentAggregatedInputPower'
+_C7='optIfOChGroupSinkCurrentSuspectedFlag'
+_C6='optIfOChGroupDirectionality'
+_C5='optIfOMSnSrcCurrentUpperInputPowerThreshold'
+_C4='optIfOMSnSrcCurrentLowerInputPowerThreshold'
+_C3='optIfOMSnSrcCurrentUpperOutputPowerThreshold'
+_C2='optIfOMSnSrcCurrentLowerOutputPowerThreshold'
+_C1='optIfOMSnSrcPrevDayHighAggregatedInputPower'
+_C0='optIfOMSnSrcPrevDayLowAggregatedInputPower'
+_B_='optIfOMSnSrcPrevDayLastAggregatedInputPower'
+_Bz='optIfOMSnSrcPrevDayHighOutputPower'
+_By='optIfOMSnSrcPrevDayLowOutputPower'
+_Bx='optIfOMSnSrcPrevDayLastOutputPower'
+_Bw='optIfOMSnSrcPrevDaySuspectedFlag'
+_Bv='optIfOMSnSrcCurDayHighAggregatedInputPower'
+_Bu='optIfOMSnSrcCurDayLowAggregatedInputPower'
+_Bt='optIfOMSnSrcCurDayHighOutputPower'
+_Bs='optIfOMSnSrcCurDayLowOutputPower'
+_Br='optIfOMSnSrcCurDaySuspectedFlag'
+_Bq='optIfOMSnSrcIntervalHighAggregatedInputPower'
+_Bp='optIfOMSnSrcIntervalLowAggregatedInputPower'
+_Bo='optIfOMSnSrcIntervalLastAggregatedInputPower'
+_Bn='optIfOMSnSrcIntervalHighOutputPower'
+_Bm='optIfOMSnSrcIntervalLowOutputPower'
+_Bl='optIfOMSnSrcIntervalLastOutputPower'
+_Bk='optIfOMSnSrcIntervalSuspectedFlag'
+_Bj='optIfOMSnSrcCurrentHighAggregatedInputPower'
+_Bi='optIfOMSnSrcCurrentLowAggregatedInputPower'
+_Bh='optIfOMSnSrcCurrentAggregatedInputPower'
+_Bg='optIfOMSnSrcCurrentHighOutputPower'
+_Bf='optIfOMSnSrcCurrentLowOutputPower'
+_Be='optIfOMSnSrcCurrentOutputPower'
+_Bd='optIfOMSnSrcCurrentSuspectedFlag'
+_Bc='optIfOMSnSinkCurrentUpperOutputPowerThreshold'
+_Bb='optIfOMSnSinkCurrentLowerOutputPowerThreshold'
+_Ba='optIfOMSnSinkCurrentUpperInputPowerThreshold'
+_BZ='optIfOMSnSinkCurrentLowerInputPowerThreshold'
+_BY='optIfOMSnSinkPrevDayHighOutputPower'
+_BX='optIfOMSnSinkPrevDayLowOutputPower'
+_BW='optIfOMSnSinkPrevDayLastOutputPower'
+_BV='optIfOMSnSinkPrevDayHighAggregatedInputPower'
+_BU='optIfOMSnSinkPrevDayLowAggregatedInputPower'
+_BT='optIfOMSnSinkPrevDayLastAggregatedInputPower'
+_BS='optIfOMSnSinkPrevDaySuspectedFlag'
+_BR='optIfOMSnSinkCurDayHighOutputPower'
+_BQ='optIfOMSnSinkCurDayLowOutputPower'
+_BP='optIfOMSnSinkCurDayHighAggregatedInputPower'
+_BO='optIfOMSnSinkCurDayLowAggregatedInputPower'
+_BN='optIfOMSnSinkCurDaySuspectedFlag'
+_BM='optIfOMSnSinkIntervalHighOutputPower'
+_BL='optIfOMSnSinkIntervalLowOutputPower'
+_BK='optIfOMSnSinkIntervalLastOutputPower'
+_BJ='optIfOMSnSinkIntervalHighAggregatedInputPower'
+_BI='optIfOMSnSinkIntervalLowAggregatedInputPower'
+_BH='optIfOMSnSinkIntervalLastAggregatedInputPower'
+_BG='optIfOMSnSinkIntervalSuspectedFlag'
+_BF='optIfOMSnSinkCurrentHighOutputPower'
+_BE='optIfOMSnSinkCurrentLowOutputPower'
+_BD='optIfOMSnSinkCurrentOutputPower'
+_BC='optIfOMSnSinkCurrentHighAggregatedInputPower'
+_BB='optIfOMSnSinkCurrentLowAggregatedInputPower'
+_BA='optIfOMSnSinkCurrentAggregatedInputPower'
+_B9='optIfOMSnSinkCurrentSuspectedFlag'
+_B8='optIfOMSnCurrentStatus'
+_B7='optIfOMSnDirectionality'
+_B6='optIfOTSnSrcCurrentUpperInputPowerThreshold'
+_B5='optIfOTSnSrcCurrentLowerInputPowerThreshold'
+_B4='optIfOTSnSrcCurrentUpperOutputPowerThreshold'
+_B3='optIfOTSnSrcCurrentLowerOutputPowerThreshold'
+_B2='optIfOTSnSrcPrevDayHighInputPower'
+_B1='optIfOTSnSrcPrevDayLowInputPower'
+_B0='optIfOTSnSrcPrevDayLastInputPower'
+_A_='optIfOTSnSrcPrevDayHighOutputPower'
+_Az='optIfOTSnSrcPrevDayLowOutputPower'
+_Ay='optIfOTSnSrcPrevDayLastOutputPower'
+_Ax='optIfOTSnSrcPrevDaySuspectedFlag'
+_Aw='optIfOTSnSrcCurDayHighInputPower'
+_Av='optIfOTSnSrcCurDayLowInputPower'
+_Au='optIfOTSnSrcCurDayHighOutputPower'
+_At='optIfOTSnSrcCurDayLowOutputPower'
+_As='optIfOTSnSrcCurDaySuspectedFlag'
+_Ar='optIfOTSnSrcIntervalHighInputPower'
+_Aq='optIfOTSnSrcIntervalLowInputPower'
+_Ap='optIfOTSnSrcIntervalLastInputPower'
+_Ao='optIfOTSnSrcIntervalHighOutputPower'
+_An='optIfOTSnSrcIntervalLowOutputPower'
+_Am='optIfOTSnSrcIntervalLastOutputPower'
+_Al='optIfOTSnSrcIntervalSuspectedFlag'
+_Ak='optIfOTSnSrcCurrentHighInputPower'
+_Aj='optIfOTSnSrcCurrentLowInputPower'
+_Ai='optIfOTSnSrcCurrentInputPower'
+_Ah='optIfOTSnSrcCurrentHighOutputPower'
+_Ag='optIfOTSnSrcCurrentLowOutputPower'
+_Af='optIfOTSnSrcCurrentOutputPower'
+_Ae='optIfOTSnSrcCurrentSuspectedFlag'
+_Ad='optIfOTSnSinkCurrentUpperOutputPowerThreshold'
+_Ac='optIfOTSnSinkCurrentLowerOutputPowerThreshold'
+_Ab='optIfOTSnSinkCurrentUpperInputPowerThreshold'
+_Aa='optIfOTSnSinkCurrentLowerInputPowerThreshold'
+_AZ='optIfOTSnSinkPrevDayHighOutputPower'
+_AY='optIfOTSnSinkPrevDayLowOutputPower'
+_AX='optIfOTSnSinkPrevDayLastOutputPower'
+_AW='optIfOTSnSinkPrevDayHighInputPower'
+_AV='optIfOTSnSinkPrevDayLowInputPower'
+_AU='optIfOTSnSinkPrevDayLastInputPower'
+_AT='optIfOTSnSinkPrevDaySuspectedFlag'
+_AS='optIfOTSnSinkCurDayHighOutputPower'
+_AR='optIfOTSnSinkCurDayLowOutputPower'
+_AQ='optIfOTSnSinkCurDayHighInputPower'
+_AP='optIfOTSnSinkCurDayLowInputPower'
+_AO='optIfOTSnSinkCurDaySuspectedFlag'
+_AN='optIfOTSnSinkIntervalHighOutputPower'
+_AM='optIfOTSnSinkIntervalLowOutputPower'
+_AL='optIfOTSnSinkIntervalLastOutputPower'
+_AK='optIfOTSnSinkIntervalHighInputPower'
+_AJ='optIfOTSnSinkIntervalLowInputPower'
+_AI='optIfOTSnSinkIntervalLastInputPower'
+_AH='optIfOTSnSinkIntervalSuspectedFlag'
+_AG='optIfOTSnSinkCurrentHighOutputPower'
+_AF='optIfOTSnSinkCurrentLowOutputPower'
+_AE='optIfOTSnSinkCurrentOutputPower'
+_AD='optIfOTSnSinkCurrentHighInputPower'
+_AC='optIfOTSnSinkCurrentLowInputPower'
+_AB='optIfOTSnSinkCurrentInputPower'
+_AA='optIfOTSnSinkCurrentSuspectedFlag'
+_A9='optIfOTSnTIMActEnabled'
+_A8='optIfOTSnTIMDetMode'
+_A7='optIfOTSnTraceIdentifierAccepted'
+_A6='optIfOTSnSAPIExpected'
+_A5='optIfOTSnDAPIExpected'
+_A4='optIfOTSnCurrentStatus'
+_A3='optIfOTSnAprControl'
+_A2='optIfOTSnAprStatus'
+_A1='optIfOTSnTraceIdentifierTransmitted'
+_A0='optIfOTSnDirectionality'
+_z='optIfPerfMonIntervalNumInvalidIntervals'
+_y='optIfPerfMonIntervalNumIntervals'
+_x='optIfPerfMonCurDayTimeElapsed'
+_w='optIfPerfMonCurrentTimeElapsed'
+_v='optIfOTMnOpticalReach'
+_u='optIfOTMnTcmMax'
+_t='optIfOTMnInterfaceType'
+_s='optIfOTMnBitRates'
+_r='optIfOTMnReduced'
+_q='optIfOTMnOrder'
+_p='optIfODUkTNimDirectionality'
+_o='optIfODUkTNimTcmField'
+_n='normal'
+_m='locked'
+_l='optIfODUkTCodirectional'
+_k='optIfODUkTTcmField'
+_j='optIfGCC12GCCAccess'
+_i='optIfGCC12Codirectional'
+_h='optIfODUkNimDirectionality'
+_g='optIfODUkPositionSeqIndex'
+_f='optIfGCC0Directionality'
+_e='optIfOChSrcIntervalNumber'
+_d='optIfOChSinkIntervalNumber'
+_c='optIfOChGroupSrcIntervalNumber'
+_b='optIfOChGroupSinkIntervalNumber'
+_a='optIfOMSnSrcIntervalNumber'
+_Z='optIfOMSnSinkIntervalNumber'
+_Y='optIfOTSnSrcIntervalNumber'
+_X='optIfOTSnSinkIntervalNumber'
+_W='seconds'
+_V='source'
+_U='losP'
+_T='Gauge32'
+_S='lck'
+_R='deg'
+_Q='percentage'
+_P='oci'
+_O='tim'
+_N='Integer32'
+_M='ssf'
+_L='bdi'
+_K='Unsigned32'
+_J='Bits'
+_I='not-accessible'
+_H='read-create'
+_G='ifIndex'
+_F='IF-MIB'
+_E='read-write'
+_D='0.1 dbm'
+_C='read-only'
+_B='OPT-IF-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ifIndex,=mibBuilder.importSymbols(_F,_G)
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI',_J,'Counter32','Counter64',_T,_N,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_K,'iso','transmission')
+DisplayString,PhysAddress,RowPointer,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowPointer','RowStatus','TextualConvention','TruthValue')
+optIfMibModule=ModuleIdentity((1,3,6,1,2,1,10,133))
+if mibBuilder.loadTexts:optIfMibModule.setRevisions(('2003-08-13 00:00',))
+class OptIfAcTI(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(64,64));fixedLength=64
+class OptIfBitRateK(TextualConvention,Integer32):status=_A
+class OptIfDEGM(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(2,10))
+class OptIfDEGThr(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
+class OptIfDirectionality(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('sink',1),(_V,2),('bidirectional',3)))
+class OptIfSinkOrSource(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('sink',1),(_V,2)))
+class OptIfExDAPI(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
+class OptIfExSAPI(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(16,16));fixedLength=16
+class OptIfIntervalNumber(TextualConvention,Unsigned32):status=_A;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,96))
+class OptIfTIMDetMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('off',1),('dapi',2),('sapi',3),('both',4)))
+class OptIfTxTI(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(64,64));fixedLength=64
+_OptIfObjects_ObjectIdentity=ObjectIdentity
+optIfObjects=_OptIfObjects_ObjectIdentity((1,3,6,1,2,1,10,133,1))
+_OptIfOTMn_ObjectIdentity=ObjectIdentity
+optIfOTMn=_OptIfOTMn_ObjectIdentity((1,3,6,1,2,1,10,133,1,1))
+_OptIfOTMnTable_Object=MibTable
+optIfOTMnTable=_OptIfOTMnTable_Object((1,3,6,1,2,1,10,133,1,1,1))
+if mibBuilder.loadTexts:optIfOTMnTable.setStatus(_A)
+_OptIfOTMnEntry_Object=MibTableRow
+optIfOTMnEntry=_OptIfOTMnEntry_Object((1,3,6,1,2,1,10,133,1,1,1,1))
+optIfOTMnEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOTMnEntry.setStatus(_A)
+class _OptIfOTMnOrder_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,900))
+_OptIfOTMnOrder_Type.__name__=_K
+_OptIfOTMnOrder_Object=MibTableColumn
+optIfOTMnOrder=_OptIfOTMnOrder_Object((1,3,6,1,2,1,10,133,1,1,1,1,1),_OptIfOTMnOrder_Type())
+optIfOTMnOrder.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTMnOrder.setStatus(_A)
+_OptIfOTMnReduced_Type=TruthValue
+_OptIfOTMnReduced_Object=MibTableColumn
+optIfOTMnReduced=_OptIfOTMnReduced_Object((1,3,6,1,2,1,10,133,1,1,1,1,2),_OptIfOTMnReduced_Type())
+optIfOTMnReduced.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTMnReduced.setStatus(_A)
+class _OptIfOTMnBitRates_Type(Bits):namedValues=NamedValues(*(('bitRateK1',0),('bitRateK2',1),('bitRateK3',2)))
+_OptIfOTMnBitRates_Type.__name__=_J
+_OptIfOTMnBitRates_Object=MibTableColumn
+optIfOTMnBitRates=_OptIfOTMnBitRates_Object((1,3,6,1,2,1,10,133,1,1,1,1,3),_OptIfOTMnBitRates_Type())
+optIfOTMnBitRates.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTMnBitRates.setStatus(_A)
+_OptIfOTMnInterfaceType_Type=SnmpAdminString
+_OptIfOTMnInterfaceType_Object=MibTableColumn
+optIfOTMnInterfaceType=_OptIfOTMnInterfaceType_Object((1,3,6,1,2,1,10,133,1,1,1,1,4),_OptIfOTMnInterfaceType_Type())
+optIfOTMnInterfaceType.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTMnInterfaceType.setStatus(_A)
+class _OptIfOTMnTcmMax_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,6))
+_OptIfOTMnTcmMax_Type.__name__=_K
+_OptIfOTMnTcmMax_Object=MibTableColumn
+optIfOTMnTcmMax=_OptIfOTMnTcmMax_Object((1,3,6,1,2,1,10,133,1,1,1,1,5),_OptIfOTMnTcmMax_Type())
+optIfOTMnTcmMax.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTMnTcmMax.setStatus(_A)
+class _OptIfOTMnOpticalReach_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('intraOffice',1),('shortHaul',2),('longHaul',3),('veryLongHaul',4),('ultraLongHaul',5)))
+_OptIfOTMnOpticalReach_Type.__name__=_N
+_OptIfOTMnOpticalReach_Object=MibTableColumn
+optIfOTMnOpticalReach=_OptIfOTMnOpticalReach_Object((1,3,6,1,2,1,10,133,1,1,1,1,6),_OptIfOTMnOpticalReach_Type())
+optIfOTMnOpticalReach.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTMnOpticalReach.setStatus(_A)
+_OptIfPerfMon_ObjectIdentity=ObjectIdentity
+optIfPerfMon=_OptIfPerfMon_ObjectIdentity((1,3,6,1,2,1,10,133,1,2))
+_OptIfPerfMonIntervalTable_Object=MibTable
+optIfPerfMonIntervalTable=_OptIfPerfMonIntervalTable_Object((1,3,6,1,2,1,10,133,1,2,1))
+if mibBuilder.loadTexts:optIfPerfMonIntervalTable.setStatus(_A)
+_OptIfPerfMonIntervalEntry_Object=MibTableRow
+optIfPerfMonIntervalEntry=_OptIfPerfMonIntervalEntry_Object((1,3,6,1,2,1,10,133,1,2,1,1))
+optIfPerfMonIntervalEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfPerfMonIntervalEntry.setStatus(_A)
+class _OptIfPerfMonCurrentTimeElapsed_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,900))
+_OptIfPerfMonCurrentTimeElapsed_Type.__name__=_T
+_OptIfPerfMonCurrentTimeElapsed_Object=MibTableColumn
+optIfPerfMonCurrentTimeElapsed=_OptIfPerfMonCurrentTimeElapsed_Object((1,3,6,1,2,1,10,133,1,2,1,1,1),_OptIfPerfMonCurrentTimeElapsed_Type())
+optIfPerfMonCurrentTimeElapsed.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfPerfMonCurrentTimeElapsed.setStatus(_A)
+if mibBuilder.loadTexts:optIfPerfMonCurrentTimeElapsed.setUnits(_W)
+class _OptIfPerfMonCurDayTimeElapsed_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,86400))
+_OptIfPerfMonCurDayTimeElapsed_Type.__name__=_T
+_OptIfPerfMonCurDayTimeElapsed_Object=MibTableColumn
+optIfPerfMonCurDayTimeElapsed=_OptIfPerfMonCurDayTimeElapsed_Object((1,3,6,1,2,1,10,133,1,2,1,1,2),_OptIfPerfMonCurDayTimeElapsed_Type())
+optIfPerfMonCurDayTimeElapsed.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfPerfMonCurDayTimeElapsed.setStatus(_A)
+if mibBuilder.loadTexts:optIfPerfMonCurDayTimeElapsed.setUnits(_W)
+class _OptIfPerfMonIntervalNumIntervals_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,96))
+_OptIfPerfMonIntervalNumIntervals_Type.__name__=_K
+_OptIfPerfMonIntervalNumIntervals_Object=MibTableColumn
+optIfPerfMonIntervalNumIntervals=_OptIfPerfMonIntervalNumIntervals_Object((1,3,6,1,2,1,10,133,1,2,1,1,3),_OptIfPerfMonIntervalNumIntervals_Type())
+optIfPerfMonIntervalNumIntervals.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfPerfMonIntervalNumIntervals.setStatus(_A)
+class _OptIfPerfMonIntervalNumInvalidIntervals_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,96))
+_OptIfPerfMonIntervalNumInvalidIntervals_Type.__name__=_K
+_OptIfPerfMonIntervalNumInvalidIntervals_Object=MibTableColumn
+optIfPerfMonIntervalNumInvalidIntervals=_OptIfPerfMonIntervalNumInvalidIntervals_Object((1,3,6,1,2,1,10,133,1,2,1,1,4),_OptIfPerfMonIntervalNumInvalidIntervals_Type())
+optIfPerfMonIntervalNumInvalidIntervals.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfPerfMonIntervalNumInvalidIntervals.setStatus(_A)
+_OptIfOTSn_ObjectIdentity=ObjectIdentity
+optIfOTSn=_OptIfOTSn_ObjectIdentity((1,3,6,1,2,1,10,133,1,3))
+_OptIfOTSnConfigTable_Object=MibTable
+optIfOTSnConfigTable=_OptIfOTSnConfigTable_Object((1,3,6,1,2,1,10,133,1,3,1))
+if mibBuilder.loadTexts:optIfOTSnConfigTable.setStatus(_A)
+_OptIfOTSnConfigEntry_Object=MibTableRow
+optIfOTSnConfigEntry=_OptIfOTSnConfigEntry_Object((1,3,6,1,2,1,10,133,1,3,1,1))
+optIfOTSnConfigEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOTSnConfigEntry.setStatus(_A)
+_OptIfOTSnDirectionality_Type=OptIfDirectionality
+_OptIfOTSnDirectionality_Object=MibTableColumn
+optIfOTSnDirectionality=_OptIfOTSnDirectionality_Object((1,3,6,1,2,1,10,133,1,3,1,1,1),_OptIfOTSnDirectionality_Type())
+optIfOTSnDirectionality.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnDirectionality.setStatus(_A)
+_OptIfOTSnAprStatus_Type=SnmpAdminString
+_OptIfOTSnAprStatus_Object=MibTableColumn
+optIfOTSnAprStatus=_OptIfOTSnAprStatus_Object((1,3,6,1,2,1,10,133,1,3,1,1,2),_OptIfOTSnAprStatus_Type())
+optIfOTSnAprStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnAprStatus.setStatus(_A)
+_OptIfOTSnAprControl_Type=SnmpAdminString
+_OptIfOTSnAprControl_Object=MibTableColumn
+optIfOTSnAprControl=_OptIfOTSnAprControl_Object((1,3,6,1,2,1,10,133,1,3,1,1,3),_OptIfOTSnAprControl_Type())
+optIfOTSnAprControl.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTSnAprControl.setStatus(_A)
+_OptIfOTSnTraceIdentifierTransmitted_Type=OptIfTxTI
+_OptIfOTSnTraceIdentifierTransmitted_Object=MibTableColumn
+optIfOTSnTraceIdentifierTransmitted=_OptIfOTSnTraceIdentifierTransmitted_Object((1,3,6,1,2,1,10,133,1,3,1,1,4),_OptIfOTSnTraceIdentifierTransmitted_Type())
+optIfOTSnTraceIdentifierTransmitted.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTSnTraceIdentifierTransmitted.setStatus(_A)
+_OptIfOTSnDAPIExpected_Type=OptIfExDAPI
+_OptIfOTSnDAPIExpected_Object=MibTableColumn
+optIfOTSnDAPIExpected=_OptIfOTSnDAPIExpected_Object((1,3,6,1,2,1,10,133,1,3,1,1,5),_OptIfOTSnDAPIExpected_Type())
+optIfOTSnDAPIExpected.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTSnDAPIExpected.setStatus(_A)
+_OptIfOTSnSAPIExpected_Type=OptIfExSAPI
+_OptIfOTSnSAPIExpected_Object=MibTableColumn
+optIfOTSnSAPIExpected=_OptIfOTSnSAPIExpected_Object((1,3,6,1,2,1,10,133,1,3,1,1,6),_OptIfOTSnSAPIExpected_Type())
+optIfOTSnSAPIExpected.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTSnSAPIExpected.setStatus(_A)
+_OptIfOTSnTraceIdentifierAccepted_Type=OptIfAcTI
+_OptIfOTSnTraceIdentifierAccepted_Object=MibTableColumn
+optIfOTSnTraceIdentifierAccepted=_OptIfOTSnTraceIdentifierAccepted_Object((1,3,6,1,2,1,10,133,1,3,1,1,7),_OptIfOTSnTraceIdentifierAccepted_Type())
+optIfOTSnTraceIdentifierAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnTraceIdentifierAccepted.setStatus(_A)
+_OptIfOTSnTIMDetMode_Type=OptIfTIMDetMode
+_OptIfOTSnTIMDetMode_Object=MibTableColumn
+optIfOTSnTIMDetMode=_OptIfOTSnTIMDetMode_Object((1,3,6,1,2,1,10,133,1,3,1,1,8),_OptIfOTSnTIMDetMode_Type())
+optIfOTSnTIMDetMode.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTSnTIMDetMode.setStatus(_A)
+_OptIfOTSnTIMActEnabled_Type=TruthValue
+_OptIfOTSnTIMActEnabled_Object=MibTableColumn
+optIfOTSnTIMActEnabled=_OptIfOTSnTIMActEnabled_Object((1,3,6,1,2,1,10,133,1,3,1,1,9),_OptIfOTSnTIMActEnabled_Type())
+optIfOTSnTIMActEnabled.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTSnTIMActEnabled.setStatus(_A)
+class _OptIfOTSnCurrentStatus_Type(Bits):namedValues=NamedValues(*(('bdiP',0),('bdiO',1),(_L,2),(_O,3),(_U,4),('losO',5),('los',6)))
+_OptIfOTSnCurrentStatus_Type.__name__=_J
+_OptIfOTSnCurrentStatus_Object=MibTableColumn
+optIfOTSnCurrentStatus=_OptIfOTSnCurrentStatus_Object((1,3,6,1,2,1,10,133,1,3,1,1,10),_OptIfOTSnCurrentStatus_Type())
+optIfOTSnCurrentStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnCurrentStatus.setStatus(_A)
+_OptIfOTSnSinkCurrentTable_Object=MibTable
+optIfOTSnSinkCurrentTable=_OptIfOTSnSinkCurrentTable_Object((1,3,6,1,2,1,10,133,1,3,2))
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentTable.setStatus(_A)
+_OptIfOTSnSinkCurrentEntry_Object=MibTableRow
+optIfOTSnSinkCurrentEntry=_OptIfOTSnSinkCurrentEntry_Object((1,3,6,1,2,1,10,133,1,3,2,1))
+optIfOTSnSinkCurrentEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentEntry.setStatus(_A)
+_OptIfOTSnSinkCurrentSuspectedFlag_Type=TruthValue
+_OptIfOTSnSinkCurrentSuspectedFlag_Object=MibTableColumn
+optIfOTSnSinkCurrentSuspectedFlag=_OptIfOTSnSinkCurrentSuspectedFlag_Object((1,3,6,1,2,1,10,133,1,3,2,1,1),_OptIfOTSnSinkCurrentSuspectedFlag_Type())
+optIfOTSnSinkCurrentSuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentSuspectedFlag.setStatus(_A)
+_OptIfOTSnSinkCurrentInputPower_Type=Integer32
+_OptIfOTSnSinkCurrentInputPower_Object=MibTableColumn
+optIfOTSnSinkCurrentInputPower=_OptIfOTSnSinkCurrentInputPower_Object((1,3,6,1,2,1,10,133,1,3,2,1,2),_OptIfOTSnSinkCurrentInputPower_Type())
+optIfOTSnSinkCurrentInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentInputPower.setUnits(_D)
+_OptIfOTSnSinkCurrentLowInputPower_Type=Integer32
+_OptIfOTSnSinkCurrentLowInputPower_Object=MibTableColumn
+optIfOTSnSinkCurrentLowInputPower=_OptIfOTSnSinkCurrentLowInputPower_Object((1,3,6,1,2,1,10,133,1,3,2,1,3),_OptIfOTSnSinkCurrentLowInputPower_Type())
+optIfOTSnSinkCurrentLowInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentLowInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentLowInputPower.setUnits(_D)
+_OptIfOTSnSinkCurrentHighInputPower_Type=Integer32
+_OptIfOTSnSinkCurrentHighInputPower_Object=MibTableColumn
+optIfOTSnSinkCurrentHighInputPower=_OptIfOTSnSinkCurrentHighInputPower_Object((1,3,6,1,2,1,10,133,1,3,2,1,4),_OptIfOTSnSinkCurrentHighInputPower_Type())
+optIfOTSnSinkCurrentHighInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentHighInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentHighInputPower.setUnits(_D)
+_OptIfOTSnSinkCurrentLowerInputPowerThreshold_Type=Integer32
+_OptIfOTSnSinkCurrentLowerInputPowerThreshold_Object=MibTableColumn
+optIfOTSnSinkCurrentLowerInputPowerThreshold=_OptIfOTSnSinkCurrentLowerInputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,3,2,1,5),_OptIfOTSnSinkCurrentLowerInputPowerThreshold_Type())
+optIfOTSnSinkCurrentLowerInputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentLowerInputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentLowerInputPowerThreshold.setUnits(_D)
+_OptIfOTSnSinkCurrentUpperInputPowerThreshold_Type=Integer32
+_OptIfOTSnSinkCurrentUpperInputPowerThreshold_Object=MibTableColumn
+optIfOTSnSinkCurrentUpperInputPowerThreshold=_OptIfOTSnSinkCurrentUpperInputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,3,2,1,6),_OptIfOTSnSinkCurrentUpperInputPowerThreshold_Type())
+optIfOTSnSinkCurrentUpperInputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentUpperInputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentUpperInputPowerThreshold.setUnits(_D)
+_OptIfOTSnSinkCurrentOutputPower_Type=Integer32
+_OptIfOTSnSinkCurrentOutputPower_Object=MibTableColumn
+optIfOTSnSinkCurrentOutputPower=_OptIfOTSnSinkCurrentOutputPower_Object((1,3,6,1,2,1,10,133,1,3,2,1,7),_OptIfOTSnSinkCurrentOutputPower_Type())
+optIfOTSnSinkCurrentOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentOutputPower.setUnits(_D)
+_OptIfOTSnSinkCurrentLowOutputPower_Type=Integer32
+_OptIfOTSnSinkCurrentLowOutputPower_Object=MibTableColumn
+optIfOTSnSinkCurrentLowOutputPower=_OptIfOTSnSinkCurrentLowOutputPower_Object((1,3,6,1,2,1,10,133,1,3,2,1,8),_OptIfOTSnSinkCurrentLowOutputPower_Type())
+optIfOTSnSinkCurrentLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentLowOutputPower.setUnits(_D)
+_OptIfOTSnSinkCurrentHighOutputPower_Type=Integer32
+_OptIfOTSnSinkCurrentHighOutputPower_Object=MibTableColumn
+optIfOTSnSinkCurrentHighOutputPower=_OptIfOTSnSinkCurrentHighOutputPower_Object((1,3,6,1,2,1,10,133,1,3,2,1,9),_OptIfOTSnSinkCurrentHighOutputPower_Type())
+optIfOTSnSinkCurrentHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentHighOutputPower.setUnits(_D)
+_OptIfOTSnSinkCurrentLowerOutputPowerThreshold_Type=Integer32
+_OptIfOTSnSinkCurrentLowerOutputPowerThreshold_Object=MibTableColumn
+optIfOTSnSinkCurrentLowerOutputPowerThreshold=_OptIfOTSnSinkCurrentLowerOutputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,3,2,1,10),_OptIfOTSnSinkCurrentLowerOutputPowerThreshold_Type())
+optIfOTSnSinkCurrentLowerOutputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentLowerOutputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentLowerOutputPowerThreshold.setUnits(_D)
+_OptIfOTSnSinkCurrentUpperOutputPowerThreshold_Type=Integer32
+_OptIfOTSnSinkCurrentUpperOutputPowerThreshold_Object=MibTableColumn
+optIfOTSnSinkCurrentUpperOutputPowerThreshold=_OptIfOTSnSinkCurrentUpperOutputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,3,2,1,11),_OptIfOTSnSinkCurrentUpperOutputPowerThreshold_Type())
+optIfOTSnSinkCurrentUpperOutputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentUpperOutputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkCurrentUpperOutputPowerThreshold.setUnits(_D)
+_OptIfOTSnSinkIntervalTable_Object=MibTable
+optIfOTSnSinkIntervalTable=_OptIfOTSnSinkIntervalTable_Object((1,3,6,1,2,1,10,133,1,3,3))
+if mibBuilder.loadTexts:optIfOTSnSinkIntervalTable.setStatus(_A)
+_OptIfOTSnSinkIntervalEntry_Object=MibTableRow
+optIfOTSnSinkIntervalEntry=_OptIfOTSnSinkIntervalEntry_Object((1,3,6,1,2,1,10,133,1,3,3,1))
+optIfOTSnSinkIntervalEntry.setIndexNames((0,_F,_G),(0,_B,_X))
+if mibBuilder.loadTexts:optIfOTSnSinkIntervalEntry.setStatus(_A)
+_OptIfOTSnSinkIntervalNumber_Type=OptIfIntervalNumber
+_OptIfOTSnSinkIntervalNumber_Object=MibTableColumn
+optIfOTSnSinkIntervalNumber=_OptIfOTSnSinkIntervalNumber_Object((1,3,6,1,2,1,10,133,1,3,3,1,1),_OptIfOTSnSinkIntervalNumber_Type())
+optIfOTSnSinkIntervalNumber.setMaxAccess(_I)
+if mibBuilder.loadTexts:optIfOTSnSinkIntervalNumber.setStatus(_A)
+_OptIfOTSnSinkIntervalSuspectedFlag_Type=TruthValue
+_OptIfOTSnSinkIntervalSuspectedFlag_Object=MibTableColumn
+optIfOTSnSinkIntervalSuspectedFlag=_OptIfOTSnSinkIntervalSuspectedFlag_Object((1,3,6,1,2,1,10,133,1,3,3,1,2),_OptIfOTSnSinkIntervalSuspectedFlag_Type())
+optIfOTSnSinkIntervalSuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkIntervalSuspectedFlag.setStatus(_A)
+_OptIfOTSnSinkIntervalLastInputPower_Type=Integer32
+_OptIfOTSnSinkIntervalLastInputPower_Object=MibTableColumn
+optIfOTSnSinkIntervalLastInputPower=_OptIfOTSnSinkIntervalLastInputPower_Object((1,3,6,1,2,1,10,133,1,3,3,1,3),_OptIfOTSnSinkIntervalLastInputPower_Type())
+optIfOTSnSinkIntervalLastInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkIntervalLastInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkIntervalLastInputPower.setUnits(_D)
+_OptIfOTSnSinkIntervalLowInputPower_Type=Integer32
+_OptIfOTSnSinkIntervalLowInputPower_Object=MibTableColumn
+optIfOTSnSinkIntervalLowInputPower=_OptIfOTSnSinkIntervalLowInputPower_Object((1,3,6,1,2,1,10,133,1,3,3,1,4),_OptIfOTSnSinkIntervalLowInputPower_Type())
+optIfOTSnSinkIntervalLowInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkIntervalLowInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkIntervalLowInputPower.setUnits(_D)
+_OptIfOTSnSinkIntervalHighInputPower_Type=Integer32
+_OptIfOTSnSinkIntervalHighInputPower_Object=MibTableColumn
+optIfOTSnSinkIntervalHighInputPower=_OptIfOTSnSinkIntervalHighInputPower_Object((1,3,6,1,2,1,10,133,1,3,3,1,5),_OptIfOTSnSinkIntervalHighInputPower_Type())
+optIfOTSnSinkIntervalHighInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkIntervalHighInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkIntervalHighInputPower.setUnits(_D)
+_OptIfOTSnSinkIntervalLastOutputPower_Type=Integer32
+_OptIfOTSnSinkIntervalLastOutputPower_Object=MibTableColumn
+optIfOTSnSinkIntervalLastOutputPower=_OptIfOTSnSinkIntervalLastOutputPower_Object((1,3,6,1,2,1,10,133,1,3,3,1,6),_OptIfOTSnSinkIntervalLastOutputPower_Type())
+optIfOTSnSinkIntervalLastOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkIntervalLastOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkIntervalLastOutputPower.setUnits(_D)
+_OptIfOTSnSinkIntervalLowOutputPower_Type=Integer32
+_OptIfOTSnSinkIntervalLowOutputPower_Object=MibTableColumn
+optIfOTSnSinkIntervalLowOutputPower=_OptIfOTSnSinkIntervalLowOutputPower_Object((1,3,6,1,2,1,10,133,1,3,3,1,7),_OptIfOTSnSinkIntervalLowOutputPower_Type())
+optIfOTSnSinkIntervalLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkIntervalLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkIntervalLowOutputPower.setUnits(_D)
+_OptIfOTSnSinkIntervalHighOutputPower_Type=Integer32
+_OptIfOTSnSinkIntervalHighOutputPower_Object=MibTableColumn
+optIfOTSnSinkIntervalHighOutputPower=_OptIfOTSnSinkIntervalHighOutputPower_Object((1,3,6,1,2,1,10,133,1,3,3,1,8),_OptIfOTSnSinkIntervalHighOutputPower_Type())
+optIfOTSnSinkIntervalHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkIntervalHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkIntervalHighOutputPower.setUnits(_D)
+_OptIfOTSnSinkCurDayTable_Object=MibTable
+optIfOTSnSinkCurDayTable=_OptIfOTSnSinkCurDayTable_Object((1,3,6,1,2,1,10,133,1,3,4))
+if mibBuilder.loadTexts:optIfOTSnSinkCurDayTable.setStatus(_A)
+_OptIfOTSnSinkCurDayEntry_Object=MibTableRow
+optIfOTSnSinkCurDayEntry=_OptIfOTSnSinkCurDayEntry_Object((1,3,6,1,2,1,10,133,1,3,4,1))
+optIfOTSnSinkCurDayEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOTSnSinkCurDayEntry.setStatus(_A)
+_OptIfOTSnSinkCurDaySuspectedFlag_Type=TruthValue
+_OptIfOTSnSinkCurDaySuspectedFlag_Object=MibTableColumn
+optIfOTSnSinkCurDaySuspectedFlag=_OptIfOTSnSinkCurDaySuspectedFlag_Object((1,3,6,1,2,1,10,133,1,3,4,1,1),_OptIfOTSnSinkCurDaySuspectedFlag_Type())
+optIfOTSnSinkCurDaySuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkCurDaySuspectedFlag.setStatus(_A)
+_OptIfOTSnSinkCurDayLowInputPower_Type=Integer32
+_OptIfOTSnSinkCurDayLowInputPower_Object=MibTableColumn
+optIfOTSnSinkCurDayLowInputPower=_OptIfOTSnSinkCurDayLowInputPower_Object((1,3,6,1,2,1,10,133,1,3,4,1,2),_OptIfOTSnSinkCurDayLowInputPower_Type())
+optIfOTSnSinkCurDayLowInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkCurDayLowInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkCurDayLowInputPower.setUnits(_D)
+_OptIfOTSnSinkCurDayHighInputPower_Type=Integer32
+_OptIfOTSnSinkCurDayHighInputPower_Object=MibTableColumn
+optIfOTSnSinkCurDayHighInputPower=_OptIfOTSnSinkCurDayHighInputPower_Object((1,3,6,1,2,1,10,133,1,3,4,1,3),_OptIfOTSnSinkCurDayHighInputPower_Type())
+optIfOTSnSinkCurDayHighInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkCurDayHighInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkCurDayHighInputPower.setUnits(_D)
+_OptIfOTSnSinkCurDayLowOutputPower_Type=Integer32
+_OptIfOTSnSinkCurDayLowOutputPower_Object=MibTableColumn
+optIfOTSnSinkCurDayLowOutputPower=_OptIfOTSnSinkCurDayLowOutputPower_Object((1,3,6,1,2,1,10,133,1,3,4,1,4),_OptIfOTSnSinkCurDayLowOutputPower_Type())
+optIfOTSnSinkCurDayLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkCurDayLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkCurDayLowOutputPower.setUnits(_D)
+_OptIfOTSnSinkCurDayHighOutputPower_Type=Integer32
+_OptIfOTSnSinkCurDayHighOutputPower_Object=MibTableColumn
+optIfOTSnSinkCurDayHighOutputPower=_OptIfOTSnSinkCurDayHighOutputPower_Object((1,3,6,1,2,1,10,133,1,3,4,1,5),_OptIfOTSnSinkCurDayHighOutputPower_Type())
+optIfOTSnSinkCurDayHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkCurDayHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkCurDayHighOutputPower.setUnits(_D)
+_OptIfOTSnSinkPrevDayTable_Object=MibTable
+optIfOTSnSinkPrevDayTable=_OptIfOTSnSinkPrevDayTable_Object((1,3,6,1,2,1,10,133,1,3,5))
+if mibBuilder.loadTexts:optIfOTSnSinkPrevDayTable.setStatus(_A)
+_OptIfOTSnSinkPrevDayEntry_Object=MibTableRow
+optIfOTSnSinkPrevDayEntry=_OptIfOTSnSinkPrevDayEntry_Object((1,3,6,1,2,1,10,133,1,3,5,1))
+optIfOTSnSinkPrevDayEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOTSnSinkPrevDayEntry.setStatus(_A)
+_OptIfOTSnSinkPrevDaySuspectedFlag_Type=TruthValue
+_OptIfOTSnSinkPrevDaySuspectedFlag_Object=MibTableColumn
+optIfOTSnSinkPrevDaySuspectedFlag=_OptIfOTSnSinkPrevDaySuspectedFlag_Object((1,3,6,1,2,1,10,133,1,3,5,1,1),_OptIfOTSnSinkPrevDaySuspectedFlag_Type())
+optIfOTSnSinkPrevDaySuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkPrevDaySuspectedFlag.setStatus(_A)
+_OptIfOTSnSinkPrevDayLastInputPower_Type=Integer32
+_OptIfOTSnSinkPrevDayLastInputPower_Object=MibTableColumn
+optIfOTSnSinkPrevDayLastInputPower=_OptIfOTSnSinkPrevDayLastInputPower_Object((1,3,6,1,2,1,10,133,1,3,5,1,2),_OptIfOTSnSinkPrevDayLastInputPower_Type())
+optIfOTSnSinkPrevDayLastInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkPrevDayLastInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkPrevDayLastInputPower.setUnits(_D)
+_OptIfOTSnSinkPrevDayLowInputPower_Type=Integer32
+_OptIfOTSnSinkPrevDayLowInputPower_Object=MibTableColumn
+optIfOTSnSinkPrevDayLowInputPower=_OptIfOTSnSinkPrevDayLowInputPower_Object((1,3,6,1,2,1,10,133,1,3,5,1,3),_OptIfOTSnSinkPrevDayLowInputPower_Type())
+optIfOTSnSinkPrevDayLowInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkPrevDayLowInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkPrevDayLowInputPower.setUnits(_D)
+_OptIfOTSnSinkPrevDayHighInputPower_Type=Integer32
+_OptIfOTSnSinkPrevDayHighInputPower_Object=MibTableColumn
+optIfOTSnSinkPrevDayHighInputPower=_OptIfOTSnSinkPrevDayHighInputPower_Object((1,3,6,1,2,1,10,133,1,3,5,1,4),_OptIfOTSnSinkPrevDayHighInputPower_Type())
+optIfOTSnSinkPrevDayHighInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkPrevDayHighInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkPrevDayHighInputPower.setUnits(_D)
+_OptIfOTSnSinkPrevDayLastOutputPower_Type=Integer32
+_OptIfOTSnSinkPrevDayLastOutputPower_Object=MibTableColumn
+optIfOTSnSinkPrevDayLastOutputPower=_OptIfOTSnSinkPrevDayLastOutputPower_Object((1,3,6,1,2,1,10,133,1,3,5,1,5),_OptIfOTSnSinkPrevDayLastOutputPower_Type())
+optIfOTSnSinkPrevDayLastOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkPrevDayLastOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkPrevDayLastOutputPower.setUnits(_D)
+_OptIfOTSnSinkPrevDayLowOutputPower_Type=Integer32
+_OptIfOTSnSinkPrevDayLowOutputPower_Object=MibTableColumn
+optIfOTSnSinkPrevDayLowOutputPower=_OptIfOTSnSinkPrevDayLowOutputPower_Object((1,3,6,1,2,1,10,133,1,3,5,1,6),_OptIfOTSnSinkPrevDayLowOutputPower_Type())
+optIfOTSnSinkPrevDayLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkPrevDayLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkPrevDayLowOutputPower.setUnits(_D)
+_OptIfOTSnSinkPrevDayHighOutputPower_Type=Integer32
+_OptIfOTSnSinkPrevDayHighOutputPower_Object=MibTableColumn
+optIfOTSnSinkPrevDayHighOutputPower=_OptIfOTSnSinkPrevDayHighOutputPower_Object((1,3,6,1,2,1,10,133,1,3,5,1,7),_OptIfOTSnSinkPrevDayHighOutputPower_Type())
+optIfOTSnSinkPrevDayHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSinkPrevDayHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSinkPrevDayHighOutputPower.setUnits(_D)
+_OptIfOTSnSrcCurrentTable_Object=MibTable
+optIfOTSnSrcCurrentTable=_OptIfOTSnSrcCurrentTable_Object((1,3,6,1,2,1,10,133,1,3,6))
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentTable.setStatus(_A)
+_OptIfOTSnSrcCurrentEntry_Object=MibTableRow
+optIfOTSnSrcCurrentEntry=_OptIfOTSnSrcCurrentEntry_Object((1,3,6,1,2,1,10,133,1,3,6,1))
+optIfOTSnSrcCurrentEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentEntry.setStatus(_A)
+_OptIfOTSnSrcCurrentSuspectedFlag_Type=TruthValue
+_OptIfOTSnSrcCurrentSuspectedFlag_Object=MibTableColumn
+optIfOTSnSrcCurrentSuspectedFlag=_OptIfOTSnSrcCurrentSuspectedFlag_Object((1,3,6,1,2,1,10,133,1,3,6,1,1),_OptIfOTSnSrcCurrentSuspectedFlag_Type())
+optIfOTSnSrcCurrentSuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentSuspectedFlag.setStatus(_A)
+_OptIfOTSnSrcCurrentOutputPower_Type=Integer32
+_OptIfOTSnSrcCurrentOutputPower_Object=MibTableColumn
+optIfOTSnSrcCurrentOutputPower=_OptIfOTSnSrcCurrentOutputPower_Object((1,3,6,1,2,1,10,133,1,3,6,1,2),_OptIfOTSnSrcCurrentOutputPower_Type())
+optIfOTSnSrcCurrentOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentOutputPower.setUnits(_D)
+_OptIfOTSnSrcCurrentLowOutputPower_Type=Integer32
+_OptIfOTSnSrcCurrentLowOutputPower_Object=MibTableColumn
+optIfOTSnSrcCurrentLowOutputPower=_OptIfOTSnSrcCurrentLowOutputPower_Object((1,3,6,1,2,1,10,133,1,3,6,1,3),_OptIfOTSnSrcCurrentLowOutputPower_Type())
+optIfOTSnSrcCurrentLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentLowOutputPower.setUnits(_D)
+_OptIfOTSnSrcCurrentHighOutputPower_Type=Integer32
+_OptIfOTSnSrcCurrentHighOutputPower_Object=MibTableColumn
+optIfOTSnSrcCurrentHighOutputPower=_OptIfOTSnSrcCurrentHighOutputPower_Object((1,3,6,1,2,1,10,133,1,3,6,1,4),_OptIfOTSnSrcCurrentHighOutputPower_Type())
+optIfOTSnSrcCurrentHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentHighOutputPower.setUnits(_D)
+_OptIfOTSnSrcCurrentLowerOutputPowerThreshold_Type=Integer32
+_OptIfOTSnSrcCurrentLowerOutputPowerThreshold_Object=MibTableColumn
+optIfOTSnSrcCurrentLowerOutputPowerThreshold=_OptIfOTSnSrcCurrentLowerOutputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,3,6,1,5),_OptIfOTSnSrcCurrentLowerOutputPowerThreshold_Type())
+optIfOTSnSrcCurrentLowerOutputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentLowerOutputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentLowerOutputPowerThreshold.setUnits(_D)
+_OptIfOTSnSrcCurrentUpperOutputPowerThreshold_Type=Integer32
+_OptIfOTSnSrcCurrentUpperOutputPowerThreshold_Object=MibTableColumn
+optIfOTSnSrcCurrentUpperOutputPowerThreshold=_OptIfOTSnSrcCurrentUpperOutputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,3,6,1,6),_OptIfOTSnSrcCurrentUpperOutputPowerThreshold_Type())
+optIfOTSnSrcCurrentUpperOutputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentUpperOutputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentUpperOutputPowerThreshold.setUnits(_D)
+_OptIfOTSnSrcCurrentInputPower_Type=Integer32
+_OptIfOTSnSrcCurrentInputPower_Object=MibTableColumn
+optIfOTSnSrcCurrentInputPower=_OptIfOTSnSrcCurrentInputPower_Object((1,3,6,1,2,1,10,133,1,3,6,1,7),_OptIfOTSnSrcCurrentInputPower_Type())
+optIfOTSnSrcCurrentInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentInputPower.setUnits(_D)
+_OptIfOTSnSrcCurrentLowInputPower_Type=Integer32
+_OptIfOTSnSrcCurrentLowInputPower_Object=MibTableColumn
+optIfOTSnSrcCurrentLowInputPower=_OptIfOTSnSrcCurrentLowInputPower_Object((1,3,6,1,2,1,10,133,1,3,6,1,8),_OptIfOTSnSrcCurrentLowInputPower_Type())
+optIfOTSnSrcCurrentLowInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentLowInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentLowInputPower.setUnits(_D)
+_OptIfOTSnSrcCurrentHighInputPower_Type=Integer32
+_OptIfOTSnSrcCurrentHighInputPower_Object=MibTableColumn
+optIfOTSnSrcCurrentHighInputPower=_OptIfOTSnSrcCurrentHighInputPower_Object((1,3,6,1,2,1,10,133,1,3,6,1,9),_OptIfOTSnSrcCurrentHighInputPower_Type())
+optIfOTSnSrcCurrentHighInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentHighInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentHighInputPower.setUnits(_D)
+_OptIfOTSnSrcCurrentLowerInputPowerThreshold_Type=Integer32
+_OptIfOTSnSrcCurrentLowerInputPowerThreshold_Object=MibTableColumn
+optIfOTSnSrcCurrentLowerInputPowerThreshold=_OptIfOTSnSrcCurrentLowerInputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,3,6,1,10),_OptIfOTSnSrcCurrentLowerInputPowerThreshold_Type())
+optIfOTSnSrcCurrentLowerInputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentLowerInputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentLowerInputPowerThreshold.setUnits(_D)
+_OptIfOTSnSrcCurrentUpperInputPowerThreshold_Type=Integer32
+_OptIfOTSnSrcCurrentUpperInputPowerThreshold_Object=MibTableColumn
+optIfOTSnSrcCurrentUpperInputPowerThreshold=_OptIfOTSnSrcCurrentUpperInputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,3,6,1,11),_OptIfOTSnSrcCurrentUpperInputPowerThreshold_Type())
+optIfOTSnSrcCurrentUpperInputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentUpperInputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcCurrentUpperInputPowerThreshold.setUnits(_D)
+_OptIfOTSnSrcIntervalTable_Object=MibTable
+optIfOTSnSrcIntervalTable=_OptIfOTSnSrcIntervalTable_Object((1,3,6,1,2,1,10,133,1,3,7))
+if mibBuilder.loadTexts:optIfOTSnSrcIntervalTable.setStatus(_A)
+_OptIfOTSnSrcIntervalEntry_Object=MibTableRow
+optIfOTSnSrcIntervalEntry=_OptIfOTSnSrcIntervalEntry_Object((1,3,6,1,2,1,10,133,1,3,7,1))
+optIfOTSnSrcIntervalEntry.setIndexNames((0,_F,_G),(0,_B,_Y))
+if mibBuilder.loadTexts:optIfOTSnSrcIntervalEntry.setStatus(_A)
+_OptIfOTSnSrcIntervalNumber_Type=OptIfIntervalNumber
+_OptIfOTSnSrcIntervalNumber_Object=MibTableColumn
+optIfOTSnSrcIntervalNumber=_OptIfOTSnSrcIntervalNumber_Object((1,3,6,1,2,1,10,133,1,3,7,1,1),_OptIfOTSnSrcIntervalNumber_Type())
+optIfOTSnSrcIntervalNumber.setMaxAccess(_I)
+if mibBuilder.loadTexts:optIfOTSnSrcIntervalNumber.setStatus(_A)
+_OptIfOTSnSrcIntervalSuspectedFlag_Type=TruthValue
+_OptIfOTSnSrcIntervalSuspectedFlag_Object=MibTableColumn
+optIfOTSnSrcIntervalSuspectedFlag=_OptIfOTSnSrcIntervalSuspectedFlag_Object((1,3,6,1,2,1,10,133,1,3,7,1,2),_OptIfOTSnSrcIntervalSuspectedFlag_Type())
+optIfOTSnSrcIntervalSuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcIntervalSuspectedFlag.setStatus(_A)
+_OptIfOTSnSrcIntervalLastOutputPower_Type=Integer32
+_OptIfOTSnSrcIntervalLastOutputPower_Object=MibTableColumn
+optIfOTSnSrcIntervalLastOutputPower=_OptIfOTSnSrcIntervalLastOutputPower_Object((1,3,6,1,2,1,10,133,1,3,7,1,3),_OptIfOTSnSrcIntervalLastOutputPower_Type())
+optIfOTSnSrcIntervalLastOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcIntervalLastOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcIntervalLastOutputPower.setUnits(_D)
+_OptIfOTSnSrcIntervalLowOutputPower_Type=Integer32
+_OptIfOTSnSrcIntervalLowOutputPower_Object=MibTableColumn
+optIfOTSnSrcIntervalLowOutputPower=_OptIfOTSnSrcIntervalLowOutputPower_Object((1,3,6,1,2,1,10,133,1,3,7,1,4),_OptIfOTSnSrcIntervalLowOutputPower_Type())
+optIfOTSnSrcIntervalLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcIntervalLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcIntervalLowOutputPower.setUnits(_D)
+_OptIfOTSnSrcIntervalHighOutputPower_Type=Integer32
+_OptIfOTSnSrcIntervalHighOutputPower_Object=MibTableColumn
+optIfOTSnSrcIntervalHighOutputPower=_OptIfOTSnSrcIntervalHighOutputPower_Object((1,3,6,1,2,1,10,133,1,3,7,1,5),_OptIfOTSnSrcIntervalHighOutputPower_Type())
+optIfOTSnSrcIntervalHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcIntervalHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcIntervalHighOutputPower.setUnits(_D)
+_OptIfOTSnSrcIntervalLastInputPower_Type=Integer32
+_OptIfOTSnSrcIntervalLastInputPower_Object=MibTableColumn
+optIfOTSnSrcIntervalLastInputPower=_OptIfOTSnSrcIntervalLastInputPower_Object((1,3,6,1,2,1,10,133,1,3,7,1,6),_OptIfOTSnSrcIntervalLastInputPower_Type())
+optIfOTSnSrcIntervalLastInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcIntervalLastInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcIntervalLastInputPower.setUnits(_D)
+_OptIfOTSnSrcIntervalLowInputPower_Type=Integer32
+_OptIfOTSnSrcIntervalLowInputPower_Object=MibTableColumn
+optIfOTSnSrcIntervalLowInputPower=_OptIfOTSnSrcIntervalLowInputPower_Object((1,3,6,1,2,1,10,133,1,3,7,1,7),_OptIfOTSnSrcIntervalLowInputPower_Type())
+optIfOTSnSrcIntervalLowInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcIntervalLowInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcIntervalLowInputPower.setUnits(_D)
+_OptIfOTSnSrcIntervalHighInputPower_Type=Integer32
+_OptIfOTSnSrcIntervalHighInputPower_Object=MibTableColumn
+optIfOTSnSrcIntervalHighInputPower=_OptIfOTSnSrcIntervalHighInputPower_Object((1,3,6,1,2,1,10,133,1,3,7,1,8),_OptIfOTSnSrcIntervalHighInputPower_Type())
+optIfOTSnSrcIntervalHighInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcIntervalHighInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcIntervalHighInputPower.setUnits(_D)
+_OptIfOTSnSrcCurDayTable_Object=MibTable
+optIfOTSnSrcCurDayTable=_OptIfOTSnSrcCurDayTable_Object((1,3,6,1,2,1,10,133,1,3,8))
+if mibBuilder.loadTexts:optIfOTSnSrcCurDayTable.setStatus(_A)
+_OptIfOTSnSrcCurDayEntry_Object=MibTableRow
+optIfOTSnSrcCurDayEntry=_OptIfOTSnSrcCurDayEntry_Object((1,3,6,1,2,1,10,133,1,3,8,1))
+optIfOTSnSrcCurDayEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOTSnSrcCurDayEntry.setStatus(_A)
+_OptIfOTSnSrcCurDaySuspectedFlag_Type=TruthValue
+_OptIfOTSnSrcCurDaySuspectedFlag_Object=MibTableColumn
+optIfOTSnSrcCurDaySuspectedFlag=_OptIfOTSnSrcCurDaySuspectedFlag_Object((1,3,6,1,2,1,10,133,1,3,8,1,1),_OptIfOTSnSrcCurDaySuspectedFlag_Type())
+optIfOTSnSrcCurDaySuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcCurDaySuspectedFlag.setStatus(_A)
+_OptIfOTSnSrcCurDayLowOutputPower_Type=Integer32
+_OptIfOTSnSrcCurDayLowOutputPower_Object=MibTableColumn
+optIfOTSnSrcCurDayLowOutputPower=_OptIfOTSnSrcCurDayLowOutputPower_Object((1,3,6,1,2,1,10,133,1,3,8,1,2),_OptIfOTSnSrcCurDayLowOutputPower_Type())
+optIfOTSnSrcCurDayLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcCurDayLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcCurDayLowOutputPower.setUnits(_D)
+_OptIfOTSnSrcCurDayHighOutputPower_Type=Integer32
+_OptIfOTSnSrcCurDayHighOutputPower_Object=MibTableColumn
+optIfOTSnSrcCurDayHighOutputPower=_OptIfOTSnSrcCurDayHighOutputPower_Object((1,3,6,1,2,1,10,133,1,3,8,1,3),_OptIfOTSnSrcCurDayHighOutputPower_Type())
+optIfOTSnSrcCurDayHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcCurDayHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcCurDayHighOutputPower.setUnits(_D)
+_OptIfOTSnSrcCurDayLowInputPower_Type=Integer32
+_OptIfOTSnSrcCurDayLowInputPower_Object=MibTableColumn
+optIfOTSnSrcCurDayLowInputPower=_OptIfOTSnSrcCurDayLowInputPower_Object((1,3,6,1,2,1,10,133,1,3,8,1,4),_OptIfOTSnSrcCurDayLowInputPower_Type())
+optIfOTSnSrcCurDayLowInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcCurDayLowInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcCurDayLowInputPower.setUnits(_D)
+_OptIfOTSnSrcCurDayHighInputPower_Type=Integer32
+_OptIfOTSnSrcCurDayHighInputPower_Object=MibTableColumn
+optIfOTSnSrcCurDayHighInputPower=_OptIfOTSnSrcCurDayHighInputPower_Object((1,3,6,1,2,1,10,133,1,3,8,1,5),_OptIfOTSnSrcCurDayHighInputPower_Type())
+optIfOTSnSrcCurDayHighInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcCurDayHighInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcCurDayHighInputPower.setUnits(_D)
+_OptIfOTSnSrcPrevDayTable_Object=MibTable
+optIfOTSnSrcPrevDayTable=_OptIfOTSnSrcPrevDayTable_Object((1,3,6,1,2,1,10,133,1,3,9))
+if mibBuilder.loadTexts:optIfOTSnSrcPrevDayTable.setStatus(_A)
+_OptIfOTSnSrcPrevDayEntry_Object=MibTableRow
+optIfOTSnSrcPrevDayEntry=_OptIfOTSnSrcPrevDayEntry_Object((1,3,6,1,2,1,10,133,1,3,9,1))
+optIfOTSnSrcPrevDayEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOTSnSrcPrevDayEntry.setStatus(_A)
+_OptIfOTSnSrcPrevDaySuspectedFlag_Type=TruthValue
+_OptIfOTSnSrcPrevDaySuspectedFlag_Object=MibTableColumn
+optIfOTSnSrcPrevDaySuspectedFlag=_OptIfOTSnSrcPrevDaySuspectedFlag_Object((1,3,6,1,2,1,10,133,1,3,9,1,1),_OptIfOTSnSrcPrevDaySuspectedFlag_Type())
+optIfOTSnSrcPrevDaySuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcPrevDaySuspectedFlag.setStatus(_A)
+_OptIfOTSnSrcPrevDayLastOutputPower_Type=Integer32
+_OptIfOTSnSrcPrevDayLastOutputPower_Object=MibTableColumn
+optIfOTSnSrcPrevDayLastOutputPower=_OptIfOTSnSrcPrevDayLastOutputPower_Object((1,3,6,1,2,1,10,133,1,3,9,1,2),_OptIfOTSnSrcPrevDayLastOutputPower_Type())
+optIfOTSnSrcPrevDayLastOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcPrevDayLastOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcPrevDayLastOutputPower.setUnits(_D)
+_OptIfOTSnSrcPrevDayLowOutputPower_Type=Integer32
+_OptIfOTSnSrcPrevDayLowOutputPower_Object=MibTableColumn
+optIfOTSnSrcPrevDayLowOutputPower=_OptIfOTSnSrcPrevDayLowOutputPower_Object((1,3,6,1,2,1,10,133,1,3,9,1,3),_OptIfOTSnSrcPrevDayLowOutputPower_Type())
+optIfOTSnSrcPrevDayLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcPrevDayLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcPrevDayLowOutputPower.setUnits(_D)
+_OptIfOTSnSrcPrevDayHighOutputPower_Type=Integer32
+_OptIfOTSnSrcPrevDayHighOutputPower_Object=MibTableColumn
+optIfOTSnSrcPrevDayHighOutputPower=_OptIfOTSnSrcPrevDayHighOutputPower_Object((1,3,6,1,2,1,10,133,1,3,9,1,4),_OptIfOTSnSrcPrevDayHighOutputPower_Type())
+optIfOTSnSrcPrevDayHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcPrevDayHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcPrevDayHighOutputPower.setUnits(_D)
+_OptIfOTSnSrcPrevDayLastInputPower_Type=Integer32
+_OptIfOTSnSrcPrevDayLastInputPower_Object=MibTableColumn
+optIfOTSnSrcPrevDayLastInputPower=_OptIfOTSnSrcPrevDayLastInputPower_Object((1,3,6,1,2,1,10,133,1,3,9,1,5),_OptIfOTSnSrcPrevDayLastInputPower_Type())
+optIfOTSnSrcPrevDayLastInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcPrevDayLastInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcPrevDayLastInputPower.setUnits(_D)
+_OptIfOTSnSrcPrevDayLowInputPower_Type=Integer32
+_OptIfOTSnSrcPrevDayLowInputPower_Object=MibTableColumn
+optIfOTSnSrcPrevDayLowInputPower=_OptIfOTSnSrcPrevDayLowInputPower_Object((1,3,6,1,2,1,10,133,1,3,9,1,6),_OptIfOTSnSrcPrevDayLowInputPower_Type())
+optIfOTSnSrcPrevDayLowInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcPrevDayLowInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcPrevDayLowInputPower.setUnits(_D)
+_OptIfOTSnSrcPrevDayHighInputPower_Type=Integer32
+_OptIfOTSnSrcPrevDayHighInputPower_Object=MibTableColumn
+optIfOTSnSrcPrevDayHighInputPower=_OptIfOTSnSrcPrevDayHighInputPower_Object((1,3,6,1,2,1,10,133,1,3,9,1,7),_OptIfOTSnSrcPrevDayHighInputPower_Type())
+optIfOTSnSrcPrevDayHighInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTSnSrcPrevDayHighInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTSnSrcPrevDayHighInputPower.setUnits(_D)
+_OptIfOMSn_ObjectIdentity=ObjectIdentity
+optIfOMSn=_OptIfOMSn_ObjectIdentity((1,3,6,1,2,1,10,133,1,4))
+_OptIfOMSnConfigTable_Object=MibTable
+optIfOMSnConfigTable=_OptIfOMSnConfigTable_Object((1,3,6,1,2,1,10,133,1,4,1))
+if mibBuilder.loadTexts:optIfOMSnConfigTable.setStatus(_A)
+_OptIfOMSnConfigEntry_Object=MibTableRow
+optIfOMSnConfigEntry=_OptIfOMSnConfigEntry_Object((1,3,6,1,2,1,10,133,1,4,1,1))
+optIfOMSnConfigEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOMSnConfigEntry.setStatus(_A)
+_OptIfOMSnDirectionality_Type=OptIfDirectionality
+_OptIfOMSnDirectionality_Object=MibTableColumn
+optIfOMSnDirectionality=_OptIfOMSnDirectionality_Object((1,3,6,1,2,1,10,133,1,4,1,1,1),_OptIfOMSnDirectionality_Type())
+optIfOMSnDirectionality.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnDirectionality.setStatus(_A)
+class _OptIfOMSnCurrentStatus_Type(Bits):namedValues=NamedValues(*(('ssfP',0),('ssfO',1),(_M,2),('bdiP',3),('bdiO',4),(_L,5),(_U,6)))
+_OptIfOMSnCurrentStatus_Type.__name__=_J
+_OptIfOMSnCurrentStatus_Object=MibTableColumn
+optIfOMSnCurrentStatus=_OptIfOMSnCurrentStatus_Object((1,3,6,1,2,1,10,133,1,4,1,1,2),_OptIfOMSnCurrentStatus_Type())
+optIfOMSnCurrentStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnCurrentStatus.setStatus(_A)
+_OptIfOMSnSinkCurrentTable_Object=MibTable
+optIfOMSnSinkCurrentTable=_OptIfOMSnSinkCurrentTable_Object((1,3,6,1,2,1,10,133,1,4,2))
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentTable.setStatus(_A)
+_OptIfOMSnSinkCurrentEntry_Object=MibTableRow
+optIfOMSnSinkCurrentEntry=_OptIfOMSnSinkCurrentEntry_Object((1,3,6,1,2,1,10,133,1,4,2,1))
+optIfOMSnSinkCurrentEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentEntry.setStatus(_A)
+_OptIfOMSnSinkCurrentSuspectedFlag_Type=TruthValue
+_OptIfOMSnSinkCurrentSuspectedFlag_Object=MibTableColumn
+optIfOMSnSinkCurrentSuspectedFlag=_OptIfOMSnSinkCurrentSuspectedFlag_Object((1,3,6,1,2,1,10,133,1,4,2,1,1),_OptIfOMSnSinkCurrentSuspectedFlag_Type())
+optIfOMSnSinkCurrentSuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentSuspectedFlag.setStatus(_A)
+_OptIfOMSnSinkCurrentAggregatedInputPower_Type=Integer32
+_OptIfOMSnSinkCurrentAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSinkCurrentAggregatedInputPower=_OptIfOMSnSinkCurrentAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,2,1,2),_OptIfOMSnSinkCurrentAggregatedInputPower_Type())
+optIfOMSnSinkCurrentAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSinkCurrentLowAggregatedInputPower_Type=Integer32
+_OptIfOMSnSinkCurrentLowAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSinkCurrentLowAggregatedInputPower=_OptIfOMSnSinkCurrentLowAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,2,1,3),_OptIfOMSnSinkCurrentLowAggregatedInputPower_Type())
+optIfOMSnSinkCurrentLowAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentLowAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentLowAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSinkCurrentHighAggregatedInputPower_Type=Integer32
+_OptIfOMSnSinkCurrentHighAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSinkCurrentHighAggregatedInputPower=_OptIfOMSnSinkCurrentHighAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,2,1,4),_OptIfOMSnSinkCurrentHighAggregatedInputPower_Type())
+optIfOMSnSinkCurrentHighAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentHighAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentHighAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSinkCurrentLowerInputPowerThreshold_Type=Integer32
+_OptIfOMSnSinkCurrentLowerInputPowerThreshold_Object=MibTableColumn
+optIfOMSnSinkCurrentLowerInputPowerThreshold=_OptIfOMSnSinkCurrentLowerInputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,4,2,1,5),_OptIfOMSnSinkCurrentLowerInputPowerThreshold_Type())
+optIfOMSnSinkCurrentLowerInputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentLowerInputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentLowerInputPowerThreshold.setUnits(_D)
+_OptIfOMSnSinkCurrentUpperInputPowerThreshold_Type=Integer32
+_OptIfOMSnSinkCurrentUpperInputPowerThreshold_Object=MibTableColumn
+optIfOMSnSinkCurrentUpperInputPowerThreshold=_OptIfOMSnSinkCurrentUpperInputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,4,2,1,6),_OptIfOMSnSinkCurrentUpperInputPowerThreshold_Type())
+optIfOMSnSinkCurrentUpperInputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentUpperInputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentUpperInputPowerThreshold.setUnits(_D)
+_OptIfOMSnSinkCurrentOutputPower_Type=Integer32
+_OptIfOMSnSinkCurrentOutputPower_Object=MibTableColumn
+optIfOMSnSinkCurrentOutputPower=_OptIfOMSnSinkCurrentOutputPower_Object((1,3,6,1,2,1,10,133,1,4,2,1,7),_OptIfOMSnSinkCurrentOutputPower_Type())
+optIfOMSnSinkCurrentOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentOutputPower.setUnits(_D)
+_OptIfOMSnSinkCurrentLowOutputPower_Type=Integer32
+_OptIfOMSnSinkCurrentLowOutputPower_Object=MibTableColumn
+optIfOMSnSinkCurrentLowOutputPower=_OptIfOMSnSinkCurrentLowOutputPower_Object((1,3,6,1,2,1,10,133,1,4,2,1,8),_OptIfOMSnSinkCurrentLowOutputPower_Type())
+optIfOMSnSinkCurrentLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentLowOutputPower.setUnits(_D)
+_OptIfOMSnSinkCurrentHighOutputPower_Type=Integer32
+_OptIfOMSnSinkCurrentHighOutputPower_Object=MibTableColumn
+optIfOMSnSinkCurrentHighOutputPower=_OptIfOMSnSinkCurrentHighOutputPower_Object((1,3,6,1,2,1,10,133,1,4,2,1,9),_OptIfOMSnSinkCurrentHighOutputPower_Type())
+optIfOMSnSinkCurrentHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentHighOutputPower.setUnits(_D)
+_OptIfOMSnSinkCurrentLowerOutputPowerThreshold_Type=Integer32
+_OptIfOMSnSinkCurrentLowerOutputPowerThreshold_Object=MibTableColumn
+optIfOMSnSinkCurrentLowerOutputPowerThreshold=_OptIfOMSnSinkCurrentLowerOutputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,4,2,1,10),_OptIfOMSnSinkCurrentLowerOutputPowerThreshold_Type())
+optIfOMSnSinkCurrentLowerOutputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentLowerOutputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentLowerOutputPowerThreshold.setUnits(_D)
+_OptIfOMSnSinkCurrentUpperOutputPowerThreshold_Type=Integer32
+_OptIfOMSnSinkCurrentUpperOutputPowerThreshold_Object=MibTableColumn
+optIfOMSnSinkCurrentUpperOutputPowerThreshold=_OptIfOMSnSinkCurrentUpperOutputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,4,2,1,11),_OptIfOMSnSinkCurrentUpperOutputPowerThreshold_Type())
+optIfOMSnSinkCurrentUpperOutputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentUpperOutputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkCurrentUpperOutputPowerThreshold.setUnits(_D)
+_OptIfOMSnSinkIntervalTable_Object=MibTable
+optIfOMSnSinkIntervalTable=_OptIfOMSnSinkIntervalTable_Object((1,3,6,1,2,1,10,133,1,4,3))
+if mibBuilder.loadTexts:optIfOMSnSinkIntervalTable.setStatus(_A)
+_OptIfOMSnSinkIntervalEntry_Object=MibTableRow
+optIfOMSnSinkIntervalEntry=_OptIfOMSnSinkIntervalEntry_Object((1,3,6,1,2,1,10,133,1,4,3,1))
+optIfOMSnSinkIntervalEntry.setIndexNames((0,_F,_G),(0,_B,_Z))
+if mibBuilder.loadTexts:optIfOMSnSinkIntervalEntry.setStatus(_A)
+_OptIfOMSnSinkIntervalNumber_Type=OptIfIntervalNumber
+_OptIfOMSnSinkIntervalNumber_Object=MibTableColumn
+optIfOMSnSinkIntervalNumber=_OptIfOMSnSinkIntervalNumber_Object((1,3,6,1,2,1,10,133,1,4,3,1,1),_OptIfOMSnSinkIntervalNumber_Type())
+optIfOMSnSinkIntervalNumber.setMaxAccess(_I)
+if mibBuilder.loadTexts:optIfOMSnSinkIntervalNumber.setStatus(_A)
+_OptIfOMSnSinkIntervalSuspectedFlag_Type=TruthValue
+_OptIfOMSnSinkIntervalSuspectedFlag_Object=MibTableColumn
+optIfOMSnSinkIntervalSuspectedFlag=_OptIfOMSnSinkIntervalSuspectedFlag_Object((1,3,6,1,2,1,10,133,1,4,3,1,2),_OptIfOMSnSinkIntervalSuspectedFlag_Type())
+optIfOMSnSinkIntervalSuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkIntervalSuspectedFlag.setStatus(_A)
+_OptIfOMSnSinkIntervalLastAggregatedInputPower_Type=Integer32
+_OptIfOMSnSinkIntervalLastAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSinkIntervalLastAggregatedInputPower=_OptIfOMSnSinkIntervalLastAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,3,1,3),_OptIfOMSnSinkIntervalLastAggregatedInputPower_Type())
+optIfOMSnSinkIntervalLastAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkIntervalLastAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkIntervalLastAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSinkIntervalLowAggregatedInputPower_Type=Integer32
+_OptIfOMSnSinkIntervalLowAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSinkIntervalLowAggregatedInputPower=_OptIfOMSnSinkIntervalLowAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,3,1,4),_OptIfOMSnSinkIntervalLowAggregatedInputPower_Type())
+optIfOMSnSinkIntervalLowAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkIntervalLowAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkIntervalLowAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSinkIntervalHighAggregatedInputPower_Type=Integer32
+_OptIfOMSnSinkIntervalHighAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSinkIntervalHighAggregatedInputPower=_OptIfOMSnSinkIntervalHighAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,3,1,5),_OptIfOMSnSinkIntervalHighAggregatedInputPower_Type())
+optIfOMSnSinkIntervalHighAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkIntervalHighAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkIntervalHighAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSinkIntervalLastOutputPower_Type=Integer32
+_OptIfOMSnSinkIntervalLastOutputPower_Object=MibTableColumn
+optIfOMSnSinkIntervalLastOutputPower=_OptIfOMSnSinkIntervalLastOutputPower_Object((1,3,6,1,2,1,10,133,1,4,3,1,6),_OptIfOMSnSinkIntervalLastOutputPower_Type())
+optIfOMSnSinkIntervalLastOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkIntervalLastOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkIntervalLastOutputPower.setUnits(_D)
+_OptIfOMSnSinkIntervalLowOutputPower_Type=Integer32
+_OptIfOMSnSinkIntervalLowOutputPower_Object=MibTableColumn
+optIfOMSnSinkIntervalLowOutputPower=_OptIfOMSnSinkIntervalLowOutputPower_Object((1,3,6,1,2,1,10,133,1,4,3,1,7),_OptIfOMSnSinkIntervalLowOutputPower_Type())
+optIfOMSnSinkIntervalLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkIntervalLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkIntervalLowOutputPower.setUnits(_D)
+_OptIfOMSnSinkIntervalHighOutputPower_Type=Integer32
+_OptIfOMSnSinkIntervalHighOutputPower_Object=MibTableColumn
+optIfOMSnSinkIntervalHighOutputPower=_OptIfOMSnSinkIntervalHighOutputPower_Object((1,3,6,1,2,1,10,133,1,4,3,1,8),_OptIfOMSnSinkIntervalHighOutputPower_Type())
+optIfOMSnSinkIntervalHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkIntervalHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkIntervalHighOutputPower.setUnits(_D)
+_OptIfOMSnSinkCurDayTable_Object=MibTable
+optIfOMSnSinkCurDayTable=_OptIfOMSnSinkCurDayTable_Object((1,3,6,1,2,1,10,133,1,4,4))
+if mibBuilder.loadTexts:optIfOMSnSinkCurDayTable.setStatus(_A)
+_OptIfOMSnSinkCurDayEntry_Object=MibTableRow
+optIfOMSnSinkCurDayEntry=_OptIfOMSnSinkCurDayEntry_Object((1,3,6,1,2,1,10,133,1,4,4,1))
+optIfOMSnSinkCurDayEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOMSnSinkCurDayEntry.setStatus(_A)
+_OptIfOMSnSinkCurDaySuspectedFlag_Type=TruthValue
+_OptIfOMSnSinkCurDaySuspectedFlag_Object=MibTableColumn
+optIfOMSnSinkCurDaySuspectedFlag=_OptIfOMSnSinkCurDaySuspectedFlag_Object((1,3,6,1,2,1,10,133,1,4,4,1,1),_OptIfOMSnSinkCurDaySuspectedFlag_Type())
+optIfOMSnSinkCurDaySuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkCurDaySuspectedFlag.setStatus(_A)
+_OptIfOMSnSinkCurDayLowAggregatedInputPower_Type=Integer32
+_OptIfOMSnSinkCurDayLowAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSinkCurDayLowAggregatedInputPower=_OptIfOMSnSinkCurDayLowAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,4,1,2),_OptIfOMSnSinkCurDayLowAggregatedInputPower_Type())
+optIfOMSnSinkCurDayLowAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkCurDayLowAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkCurDayLowAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSinkCurDayHighAggregatedInputPower_Type=Integer32
+_OptIfOMSnSinkCurDayHighAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSinkCurDayHighAggregatedInputPower=_OptIfOMSnSinkCurDayHighAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,4,1,3),_OptIfOMSnSinkCurDayHighAggregatedInputPower_Type())
+optIfOMSnSinkCurDayHighAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkCurDayHighAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkCurDayHighAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSinkCurDayLowOutputPower_Type=Integer32
+_OptIfOMSnSinkCurDayLowOutputPower_Object=MibTableColumn
+optIfOMSnSinkCurDayLowOutputPower=_OptIfOMSnSinkCurDayLowOutputPower_Object((1,3,6,1,2,1,10,133,1,4,4,1,4),_OptIfOMSnSinkCurDayLowOutputPower_Type())
+optIfOMSnSinkCurDayLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkCurDayLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkCurDayLowOutputPower.setUnits(_D)
+_OptIfOMSnSinkCurDayHighOutputPower_Type=Integer32
+_OptIfOMSnSinkCurDayHighOutputPower_Object=MibTableColumn
+optIfOMSnSinkCurDayHighOutputPower=_OptIfOMSnSinkCurDayHighOutputPower_Object((1,3,6,1,2,1,10,133,1,4,4,1,5),_OptIfOMSnSinkCurDayHighOutputPower_Type())
+optIfOMSnSinkCurDayHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkCurDayHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkCurDayHighOutputPower.setUnits(_D)
+_OptIfOMSnSinkPrevDayTable_Object=MibTable
+optIfOMSnSinkPrevDayTable=_OptIfOMSnSinkPrevDayTable_Object((1,3,6,1,2,1,10,133,1,4,5))
+if mibBuilder.loadTexts:optIfOMSnSinkPrevDayTable.setStatus(_A)
+_OptIfOMSnSinkPrevDayEntry_Object=MibTableRow
+optIfOMSnSinkPrevDayEntry=_OptIfOMSnSinkPrevDayEntry_Object((1,3,6,1,2,1,10,133,1,4,5,1))
+optIfOMSnSinkPrevDayEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOMSnSinkPrevDayEntry.setStatus(_A)
+_OptIfOMSnSinkPrevDaySuspectedFlag_Type=TruthValue
+_OptIfOMSnSinkPrevDaySuspectedFlag_Object=MibTableColumn
+optIfOMSnSinkPrevDaySuspectedFlag=_OptIfOMSnSinkPrevDaySuspectedFlag_Object((1,3,6,1,2,1,10,133,1,4,5,1,1),_OptIfOMSnSinkPrevDaySuspectedFlag_Type())
+optIfOMSnSinkPrevDaySuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkPrevDaySuspectedFlag.setStatus(_A)
+_OptIfOMSnSinkPrevDayLastAggregatedInputPower_Type=Integer32
+_OptIfOMSnSinkPrevDayLastAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSinkPrevDayLastAggregatedInputPower=_OptIfOMSnSinkPrevDayLastAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,5,1,2),_OptIfOMSnSinkPrevDayLastAggregatedInputPower_Type())
+optIfOMSnSinkPrevDayLastAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkPrevDayLastAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkPrevDayLastAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSinkPrevDayLowAggregatedInputPower_Type=Integer32
+_OptIfOMSnSinkPrevDayLowAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSinkPrevDayLowAggregatedInputPower=_OptIfOMSnSinkPrevDayLowAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,5,1,3),_OptIfOMSnSinkPrevDayLowAggregatedInputPower_Type())
+optIfOMSnSinkPrevDayLowAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkPrevDayLowAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkPrevDayLowAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSinkPrevDayHighAggregatedInputPower_Type=Integer32
+_OptIfOMSnSinkPrevDayHighAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSinkPrevDayHighAggregatedInputPower=_OptIfOMSnSinkPrevDayHighAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,5,1,4),_OptIfOMSnSinkPrevDayHighAggregatedInputPower_Type())
+optIfOMSnSinkPrevDayHighAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkPrevDayHighAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkPrevDayHighAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSinkPrevDayLastOutputPower_Type=Integer32
+_OptIfOMSnSinkPrevDayLastOutputPower_Object=MibTableColumn
+optIfOMSnSinkPrevDayLastOutputPower=_OptIfOMSnSinkPrevDayLastOutputPower_Object((1,3,6,1,2,1,10,133,1,4,5,1,5),_OptIfOMSnSinkPrevDayLastOutputPower_Type())
+optIfOMSnSinkPrevDayLastOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkPrevDayLastOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkPrevDayLastOutputPower.setUnits(_D)
+_OptIfOMSnSinkPrevDayLowOutputPower_Type=Integer32
+_OptIfOMSnSinkPrevDayLowOutputPower_Object=MibTableColumn
+optIfOMSnSinkPrevDayLowOutputPower=_OptIfOMSnSinkPrevDayLowOutputPower_Object((1,3,6,1,2,1,10,133,1,4,5,1,6),_OptIfOMSnSinkPrevDayLowOutputPower_Type())
+optIfOMSnSinkPrevDayLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkPrevDayLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkPrevDayLowOutputPower.setUnits(_D)
+_OptIfOMSnSinkPrevDayHighOutputPower_Type=Integer32
+_OptIfOMSnSinkPrevDayHighOutputPower_Object=MibTableColumn
+optIfOMSnSinkPrevDayHighOutputPower=_OptIfOMSnSinkPrevDayHighOutputPower_Object((1,3,6,1,2,1,10,133,1,4,5,1,7),_OptIfOMSnSinkPrevDayHighOutputPower_Type())
+optIfOMSnSinkPrevDayHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSinkPrevDayHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSinkPrevDayHighOutputPower.setUnits(_D)
+_OptIfOMSnSrcCurrentTable_Object=MibTable
+optIfOMSnSrcCurrentTable=_OptIfOMSnSrcCurrentTable_Object((1,3,6,1,2,1,10,133,1,4,6))
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentTable.setStatus(_A)
+_OptIfOMSnSrcCurrentEntry_Object=MibTableRow
+optIfOMSnSrcCurrentEntry=_OptIfOMSnSrcCurrentEntry_Object((1,3,6,1,2,1,10,133,1,4,6,1))
+optIfOMSnSrcCurrentEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentEntry.setStatus(_A)
+_OptIfOMSnSrcCurrentSuspectedFlag_Type=TruthValue
+_OptIfOMSnSrcCurrentSuspectedFlag_Object=MibTableColumn
+optIfOMSnSrcCurrentSuspectedFlag=_OptIfOMSnSrcCurrentSuspectedFlag_Object((1,3,6,1,2,1,10,133,1,4,6,1,1),_OptIfOMSnSrcCurrentSuspectedFlag_Type())
+optIfOMSnSrcCurrentSuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentSuspectedFlag.setStatus(_A)
+_OptIfOMSnSrcCurrentOutputPower_Type=Integer32
+_OptIfOMSnSrcCurrentOutputPower_Object=MibTableColumn
+optIfOMSnSrcCurrentOutputPower=_OptIfOMSnSrcCurrentOutputPower_Object((1,3,6,1,2,1,10,133,1,4,6,1,2),_OptIfOMSnSrcCurrentOutputPower_Type())
+optIfOMSnSrcCurrentOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentOutputPower.setUnits(_D)
+_OptIfOMSnSrcCurrentLowOutputPower_Type=Integer32
+_OptIfOMSnSrcCurrentLowOutputPower_Object=MibTableColumn
+optIfOMSnSrcCurrentLowOutputPower=_OptIfOMSnSrcCurrentLowOutputPower_Object((1,3,6,1,2,1,10,133,1,4,6,1,3),_OptIfOMSnSrcCurrentLowOutputPower_Type())
+optIfOMSnSrcCurrentLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentLowOutputPower.setUnits(_D)
+_OptIfOMSnSrcCurrentHighOutputPower_Type=Integer32
+_OptIfOMSnSrcCurrentHighOutputPower_Object=MibTableColumn
+optIfOMSnSrcCurrentHighOutputPower=_OptIfOMSnSrcCurrentHighOutputPower_Object((1,3,6,1,2,1,10,133,1,4,6,1,4),_OptIfOMSnSrcCurrentHighOutputPower_Type())
+optIfOMSnSrcCurrentHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentHighOutputPower.setUnits(_D)
+_OptIfOMSnSrcCurrentLowerOutputPowerThreshold_Type=Integer32
+_OptIfOMSnSrcCurrentLowerOutputPowerThreshold_Object=MibTableColumn
+optIfOMSnSrcCurrentLowerOutputPowerThreshold=_OptIfOMSnSrcCurrentLowerOutputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,4,6,1,5),_OptIfOMSnSrcCurrentLowerOutputPowerThreshold_Type())
+optIfOMSnSrcCurrentLowerOutputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentLowerOutputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentLowerOutputPowerThreshold.setUnits(_D)
+_OptIfOMSnSrcCurrentUpperOutputPowerThreshold_Type=Integer32
+_OptIfOMSnSrcCurrentUpperOutputPowerThreshold_Object=MibTableColumn
+optIfOMSnSrcCurrentUpperOutputPowerThreshold=_OptIfOMSnSrcCurrentUpperOutputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,4,6,1,6),_OptIfOMSnSrcCurrentUpperOutputPowerThreshold_Type())
+optIfOMSnSrcCurrentUpperOutputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentUpperOutputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentUpperOutputPowerThreshold.setUnits(_D)
+_OptIfOMSnSrcCurrentAggregatedInputPower_Type=Integer32
+_OptIfOMSnSrcCurrentAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSrcCurrentAggregatedInputPower=_OptIfOMSnSrcCurrentAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,6,1,7),_OptIfOMSnSrcCurrentAggregatedInputPower_Type())
+optIfOMSnSrcCurrentAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSrcCurrentLowAggregatedInputPower_Type=Integer32
+_OptIfOMSnSrcCurrentLowAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSrcCurrentLowAggregatedInputPower=_OptIfOMSnSrcCurrentLowAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,6,1,8),_OptIfOMSnSrcCurrentLowAggregatedInputPower_Type())
+optIfOMSnSrcCurrentLowAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentLowAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentLowAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSrcCurrentHighAggregatedInputPower_Type=Integer32
+_OptIfOMSnSrcCurrentHighAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSrcCurrentHighAggregatedInputPower=_OptIfOMSnSrcCurrentHighAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,6,1,9),_OptIfOMSnSrcCurrentHighAggregatedInputPower_Type())
+optIfOMSnSrcCurrentHighAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentHighAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentHighAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSrcCurrentLowerInputPowerThreshold_Type=Integer32
+_OptIfOMSnSrcCurrentLowerInputPowerThreshold_Object=MibTableColumn
+optIfOMSnSrcCurrentLowerInputPowerThreshold=_OptIfOMSnSrcCurrentLowerInputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,4,6,1,10),_OptIfOMSnSrcCurrentLowerInputPowerThreshold_Type())
+optIfOMSnSrcCurrentLowerInputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentLowerInputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentLowerInputPowerThreshold.setUnits(_D)
+_OptIfOMSnSrcCurrentUpperInputPowerThreshold_Type=Integer32
+_OptIfOMSnSrcCurrentUpperInputPowerThreshold_Object=MibTableColumn
+optIfOMSnSrcCurrentUpperInputPowerThreshold=_OptIfOMSnSrcCurrentUpperInputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,4,6,1,11),_OptIfOMSnSrcCurrentUpperInputPowerThreshold_Type())
+optIfOMSnSrcCurrentUpperInputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentUpperInputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcCurrentUpperInputPowerThreshold.setUnits(_D)
+_OptIfOMSnSrcIntervalTable_Object=MibTable
+optIfOMSnSrcIntervalTable=_OptIfOMSnSrcIntervalTable_Object((1,3,6,1,2,1,10,133,1,4,7))
+if mibBuilder.loadTexts:optIfOMSnSrcIntervalTable.setStatus(_A)
+_OptIfOMSnSrcIntervalEntry_Object=MibTableRow
+optIfOMSnSrcIntervalEntry=_OptIfOMSnSrcIntervalEntry_Object((1,3,6,1,2,1,10,133,1,4,7,1))
+optIfOMSnSrcIntervalEntry.setIndexNames((0,_F,_G),(0,_B,_a))
+if mibBuilder.loadTexts:optIfOMSnSrcIntervalEntry.setStatus(_A)
+_OptIfOMSnSrcIntervalNumber_Type=OptIfIntervalNumber
+_OptIfOMSnSrcIntervalNumber_Object=MibTableColumn
+optIfOMSnSrcIntervalNumber=_OptIfOMSnSrcIntervalNumber_Object((1,3,6,1,2,1,10,133,1,4,7,1,1),_OptIfOMSnSrcIntervalNumber_Type())
+optIfOMSnSrcIntervalNumber.setMaxAccess(_I)
+if mibBuilder.loadTexts:optIfOMSnSrcIntervalNumber.setStatus(_A)
+_OptIfOMSnSrcIntervalSuspectedFlag_Type=TruthValue
+_OptIfOMSnSrcIntervalSuspectedFlag_Object=MibTableColumn
+optIfOMSnSrcIntervalSuspectedFlag=_OptIfOMSnSrcIntervalSuspectedFlag_Object((1,3,6,1,2,1,10,133,1,4,7,1,2),_OptIfOMSnSrcIntervalSuspectedFlag_Type())
+optIfOMSnSrcIntervalSuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcIntervalSuspectedFlag.setStatus(_A)
+_OptIfOMSnSrcIntervalLastOutputPower_Type=Integer32
+_OptIfOMSnSrcIntervalLastOutputPower_Object=MibTableColumn
+optIfOMSnSrcIntervalLastOutputPower=_OptIfOMSnSrcIntervalLastOutputPower_Object((1,3,6,1,2,1,10,133,1,4,7,1,3),_OptIfOMSnSrcIntervalLastOutputPower_Type())
+optIfOMSnSrcIntervalLastOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcIntervalLastOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcIntervalLastOutputPower.setUnits(_D)
+_OptIfOMSnSrcIntervalLowOutputPower_Type=Integer32
+_OptIfOMSnSrcIntervalLowOutputPower_Object=MibTableColumn
+optIfOMSnSrcIntervalLowOutputPower=_OptIfOMSnSrcIntervalLowOutputPower_Object((1,3,6,1,2,1,10,133,1,4,7,1,4),_OptIfOMSnSrcIntervalLowOutputPower_Type())
+optIfOMSnSrcIntervalLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcIntervalLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcIntervalLowOutputPower.setUnits(_D)
+_OptIfOMSnSrcIntervalHighOutputPower_Type=Integer32
+_OptIfOMSnSrcIntervalHighOutputPower_Object=MibTableColumn
+optIfOMSnSrcIntervalHighOutputPower=_OptIfOMSnSrcIntervalHighOutputPower_Object((1,3,6,1,2,1,10,133,1,4,7,1,5),_OptIfOMSnSrcIntervalHighOutputPower_Type())
+optIfOMSnSrcIntervalHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcIntervalHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcIntervalHighOutputPower.setUnits(_D)
+_OptIfOMSnSrcIntervalLastAggregatedInputPower_Type=Integer32
+_OptIfOMSnSrcIntervalLastAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSrcIntervalLastAggregatedInputPower=_OptIfOMSnSrcIntervalLastAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,7,1,6),_OptIfOMSnSrcIntervalLastAggregatedInputPower_Type())
+optIfOMSnSrcIntervalLastAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcIntervalLastAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcIntervalLastAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSrcIntervalLowAggregatedInputPower_Type=Integer32
+_OptIfOMSnSrcIntervalLowAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSrcIntervalLowAggregatedInputPower=_OptIfOMSnSrcIntervalLowAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,7,1,7),_OptIfOMSnSrcIntervalLowAggregatedInputPower_Type())
+optIfOMSnSrcIntervalLowAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcIntervalLowAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcIntervalLowAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSrcIntervalHighAggregatedInputPower_Type=Integer32
+_OptIfOMSnSrcIntervalHighAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSrcIntervalHighAggregatedInputPower=_OptIfOMSnSrcIntervalHighAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,7,1,8),_OptIfOMSnSrcIntervalHighAggregatedInputPower_Type())
+optIfOMSnSrcIntervalHighAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcIntervalHighAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcIntervalHighAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSrcCurDayTable_Object=MibTable
+optIfOMSnSrcCurDayTable=_OptIfOMSnSrcCurDayTable_Object((1,3,6,1,2,1,10,133,1,4,8))
+if mibBuilder.loadTexts:optIfOMSnSrcCurDayTable.setStatus(_A)
+_OptIfOMSnSrcCurDayEntry_Object=MibTableRow
+optIfOMSnSrcCurDayEntry=_OptIfOMSnSrcCurDayEntry_Object((1,3,6,1,2,1,10,133,1,4,8,1))
+optIfOMSnSrcCurDayEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOMSnSrcCurDayEntry.setStatus(_A)
+_OptIfOMSnSrcCurDaySuspectedFlag_Type=TruthValue
+_OptIfOMSnSrcCurDaySuspectedFlag_Object=MibTableColumn
+optIfOMSnSrcCurDaySuspectedFlag=_OptIfOMSnSrcCurDaySuspectedFlag_Object((1,3,6,1,2,1,10,133,1,4,8,1,1),_OptIfOMSnSrcCurDaySuspectedFlag_Type())
+optIfOMSnSrcCurDaySuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcCurDaySuspectedFlag.setStatus(_A)
+_OptIfOMSnSrcCurDayLowOutputPower_Type=Integer32
+_OptIfOMSnSrcCurDayLowOutputPower_Object=MibTableColumn
+optIfOMSnSrcCurDayLowOutputPower=_OptIfOMSnSrcCurDayLowOutputPower_Object((1,3,6,1,2,1,10,133,1,4,8,1,2),_OptIfOMSnSrcCurDayLowOutputPower_Type())
+optIfOMSnSrcCurDayLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcCurDayLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcCurDayLowOutputPower.setUnits(_D)
+_OptIfOMSnSrcCurDayHighOutputPower_Type=Integer32
+_OptIfOMSnSrcCurDayHighOutputPower_Object=MibTableColumn
+optIfOMSnSrcCurDayHighOutputPower=_OptIfOMSnSrcCurDayHighOutputPower_Object((1,3,6,1,2,1,10,133,1,4,8,1,3),_OptIfOMSnSrcCurDayHighOutputPower_Type())
+optIfOMSnSrcCurDayHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcCurDayHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcCurDayHighOutputPower.setUnits(_D)
+_OptIfOMSnSrcCurDayLowAggregatedInputPower_Type=Integer32
+_OptIfOMSnSrcCurDayLowAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSrcCurDayLowAggregatedInputPower=_OptIfOMSnSrcCurDayLowAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,8,1,4),_OptIfOMSnSrcCurDayLowAggregatedInputPower_Type())
+optIfOMSnSrcCurDayLowAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcCurDayLowAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcCurDayLowAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSrcCurDayHighAggregatedInputPower_Type=Integer32
+_OptIfOMSnSrcCurDayHighAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSrcCurDayHighAggregatedInputPower=_OptIfOMSnSrcCurDayHighAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,8,1,5),_OptIfOMSnSrcCurDayHighAggregatedInputPower_Type())
+optIfOMSnSrcCurDayHighAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcCurDayHighAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcCurDayHighAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSrcPrevDayTable_Object=MibTable
+optIfOMSnSrcPrevDayTable=_OptIfOMSnSrcPrevDayTable_Object((1,3,6,1,2,1,10,133,1,4,9))
+if mibBuilder.loadTexts:optIfOMSnSrcPrevDayTable.setStatus(_A)
+_OptIfOMSnSrcPrevDayEntry_Object=MibTableRow
+optIfOMSnSrcPrevDayEntry=_OptIfOMSnSrcPrevDayEntry_Object((1,3,6,1,2,1,10,133,1,4,9,1))
+optIfOMSnSrcPrevDayEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOMSnSrcPrevDayEntry.setStatus(_A)
+_OptIfOMSnSrcPrevDaySuspectedFlag_Type=TruthValue
+_OptIfOMSnSrcPrevDaySuspectedFlag_Object=MibTableColumn
+optIfOMSnSrcPrevDaySuspectedFlag=_OptIfOMSnSrcPrevDaySuspectedFlag_Object((1,3,6,1,2,1,10,133,1,4,9,1,1),_OptIfOMSnSrcPrevDaySuspectedFlag_Type())
+optIfOMSnSrcPrevDaySuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcPrevDaySuspectedFlag.setStatus(_A)
+_OptIfOMSnSrcPrevDayLastOutputPower_Type=Integer32
+_OptIfOMSnSrcPrevDayLastOutputPower_Object=MibTableColumn
+optIfOMSnSrcPrevDayLastOutputPower=_OptIfOMSnSrcPrevDayLastOutputPower_Object((1,3,6,1,2,1,10,133,1,4,9,1,2),_OptIfOMSnSrcPrevDayLastOutputPower_Type())
+optIfOMSnSrcPrevDayLastOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcPrevDayLastOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcPrevDayLastOutputPower.setUnits(_D)
+_OptIfOMSnSrcPrevDayLowOutputPower_Type=Integer32
+_OptIfOMSnSrcPrevDayLowOutputPower_Object=MibTableColumn
+optIfOMSnSrcPrevDayLowOutputPower=_OptIfOMSnSrcPrevDayLowOutputPower_Object((1,3,6,1,2,1,10,133,1,4,9,1,3),_OptIfOMSnSrcPrevDayLowOutputPower_Type())
+optIfOMSnSrcPrevDayLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcPrevDayLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcPrevDayLowOutputPower.setUnits(_D)
+_OptIfOMSnSrcPrevDayHighOutputPower_Type=Integer32
+_OptIfOMSnSrcPrevDayHighOutputPower_Object=MibTableColumn
+optIfOMSnSrcPrevDayHighOutputPower=_OptIfOMSnSrcPrevDayHighOutputPower_Object((1,3,6,1,2,1,10,133,1,4,9,1,4),_OptIfOMSnSrcPrevDayHighOutputPower_Type())
+optIfOMSnSrcPrevDayHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcPrevDayHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcPrevDayHighOutputPower.setUnits(_D)
+_OptIfOMSnSrcPrevDayLastAggregatedInputPower_Type=Integer32
+_OptIfOMSnSrcPrevDayLastAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSrcPrevDayLastAggregatedInputPower=_OptIfOMSnSrcPrevDayLastAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,9,1,5),_OptIfOMSnSrcPrevDayLastAggregatedInputPower_Type())
+optIfOMSnSrcPrevDayLastAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcPrevDayLastAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcPrevDayLastAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSrcPrevDayLowAggregatedInputPower_Type=Integer32
+_OptIfOMSnSrcPrevDayLowAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSrcPrevDayLowAggregatedInputPower=_OptIfOMSnSrcPrevDayLowAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,9,1,6),_OptIfOMSnSrcPrevDayLowAggregatedInputPower_Type())
+optIfOMSnSrcPrevDayLowAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcPrevDayLowAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcPrevDayLowAggregatedInputPower.setUnits(_D)
+_OptIfOMSnSrcPrevDayHighAggregatedInputPower_Type=Integer32
+_OptIfOMSnSrcPrevDayHighAggregatedInputPower_Object=MibTableColumn
+optIfOMSnSrcPrevDayHighAggregatedInputPower=_OptIfOMSnSrcPrevDayHighAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,4,9,1,7),_OptIfOMSnSrcPrevDayHighAggregatedInputPower_Type())
+optIfOMSnSrcPrevDayHighAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOMSnSrcPrevDayHighAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOMSnSrcPrevDayHighAggregatedInputPower.setUnits(_D)
+_OptIfOChGroup_ObjectIdentity=ObjectIdentity
+optIfOChGroup=_OptIfOChGroup_ObjectIdentity((1,3,6,1,2,1,10,133,1,5))
+_OptIfOChGroupConfigTable_Object=MibTable
+optIfOChGroupConfigTable=_OptIfOChGroupConfigTable_Object((1,3,6,1,2,1,10,133,1,5,1))
+if mibBuilder.loadTexts:optIfOChGroupConfigTable.setStatus(_A)
+_OptIfOChGroupConfigEntry_Object=MibTableRow
+optIfOChGroupConfigEntry=_OptIfOChGroupConfigEntry_Object((1,3,6,1,2,1,10,133,1,5,1,1))
+optIfOChGroupConfigEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOChGroupConfigEntry.setStatus(_A)
+_OptIfOChGroupDirectionality_Type=OptIfDirectionality
+_OptIfOChGroupDirectionality_Object=MibTableColumn
+optIfOChGroupDirectionality=_OptIfOChGroupDirectionality_Object((1,3,6,1,2,1,10,133,1,5,1,1,1),_OptIfOChGroupDirectionality_Type())
+optIfOChGroupDirectionality.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupDirectionality.setStatus(_A)
+_OptIfOChGroupSinkCurrentTable_Object=MibTable
+optIfOChGroupSinkCurrentTable=_OptIfOChGroupSinkCurrentTable_Object((1,3,6,1,2,1,10,133,1,5,2))
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentTable.setStatus(_A)
+_OptIfOChGroupSinkCurrentEntry_Object=MibTableRow
+optIfOChGroupSinkCurrentEntry=_OptIfOChGroupSinkCurrentEntry_Object((1,3,6,1,2,1,10,133,1,5,2,1))
+optIfOChGroupSinkCurrentEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentEntry.setStatus(_A)
+_OptIfOChGroupSinkCurrentSuspectedFlag_Type=TruthValue
+_OptIfOChGroupSinkCurrentSuspectedFlag_Object=MibTableColumn
+optIfOChGroupSinkCurrentSuspectedFlag=_OptIfOChGroupSinkCurrentSuspectedFlag_Object((1,3,6,1,2,1,10,133,1,5,2,1,1),_OptIfOChGroupSinkCurrentSuspectedFlag_Type())
+optIfOChGroupSinkCurrentSuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentSuspectedFlag.setStatus(_A)
+_OptIfOChGroupSinkCurrentAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSinkCurrentAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSinkCurrentAggregatedInputPower=_OptIfOChGroupSinkCurrentAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,2,1,2),_OptIfOChGroupSinkCurrentAggregatedInputPower_Type())
+optIfOChGroupSinkCurrentAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSinkCurrentLowAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSinkCurrentLowAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSinkCurrentLowAggregatedInputPower=_OptIfOChGroupSinkCurrentLowAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,2,1,3),_OptIfOChGroupSinkCurrentLowAggregatedInputPower_Type())
+optIfOChGroupSinkCurrentLowAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentLowAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentLowAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSinkCurrentHighAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSinkCurrentHighAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSinkCurrentHighAggregatedInputPower=_OptIfOChGroupSinkCurrentHighAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,2,1,4),_OptIfOChGroupSinkCurrentHighAggregatedInputPower_Type())
+optIfOChGroupSinkCurrentHighAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentHighAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentHighAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSinkCurrentLowerInputPowerThreshold_Type=Integer32
+_OptIfOChGroupSinkCurrentLowerInputPowerThreshold_Object=MibTableColumn
+optIfOChGroupSinkCurrentLowerInputPowerThreshold=_OptIfOChGroupSinkCurrentLowerInputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,5,2,1,5),_OptIfOChGroupSinkCurrentLowerInputPowerThreshold_Type())
+optIfOChGroupSinkCurrentLowerInputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentLowerInputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentLowerInputPowerThreshold.setUnits(_D)
+_OptIfOChGroupSinkCurrentUpperInputPowerThreshold_Type=Integer32
+_OptIfOChGroupSinkCurrentUpperInputPowerThreshold_Object=MibTableColumn
+optIfOChGroupSinkCurrentUpperInputPowerThreshold=_OptIfOChGroupSinkCurrentUpperInputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,5,2,1,6),_OptIfOChGroupSinkCurrentUpperInputPowerThreshold_Type())
+optIfOChGroupSinkCurrentUpperInputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentUpperInputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentUpperInputPowerThreshold.setUnits(_D)
+_OptIfOChGroupSinkCurrentOutputPower_Type=Integer32
+_OptIfOChGroupSinkCurrentOutputPower_Object=MibTableColumn
+optIfOChGroupSinkCurrentOutputPower=_OptIfOChGroupSinkCurrentOutputPower_Object((1,3,6,1,2,1,10,133,1,5,2,1,7),_OptIfOChGroupSinkCurrentOutputPower_Type())
+optIfOChGroupSinkCurrentOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentOutputPower.setUnits(_D)
+_OptIfOChGroupSinkCurrentLowOutputPower_Type=Integer32
+_OptIfOChGroupSinkCurrentLowOutputPower_Object=MibTableColumn
+optIfOChGroupSinkCurrentLowOutputPower=_OptIfOChGroupSinkCurrentLowOutputPower_Object((1,3,6,1,2,1,10,133,1,5,2,1,8),_OptIfOChGroupSinkCurrentLowOutputPower_Type())
+optIfOChGroupSinkCurrentLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentLowOutputPower.setUnits(_D)
+_OptIfOChGroupSinkCurrentHighOutputPower_Type=Integer32
+_OptIfOChGroupSinkCurrentHighOutputPower_Object=MibTableColumn
+optIfOChGroupSinkCurrentHighOutputPower=_OptIfOChGroupSinkCurrentHighOutputPower_Object((1,3,6,1,2,1,10,133,1,5,2,1,9),_OptIfOChGroupSinkCurrentHighOutputPower_Type())
+optIfOChGroupSinkCurrentHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentHighOutputPower.setUnits(_D)
+_OptIfOChGroupSinkCurrentLowerOutputPowerThreshold_Type=Integer32
+_OptIfOChGroupSinkCurrentLowerOutputPowerThreshold_Object=MibTableColumn
+optIfOChGroupSinkCurrentLowerOutputPowerThreshold=_OptIfOChGroupSinkCurrentLowerOutputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,5,2,1,10),_OptIfOChGroupSinkCurrentLowerOutputPowerThreshold_Type())
+optIfOChGroupSinkCurrentLowerOutputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentLowerOutputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentLowerOutputPowerThreshold.setUnits(_D)
+_OptIfOChGroupSinkCurrentUpperOutputPowerThreshold_Type=Integer32
+_OptIfOChGroupSinkCurrentUpperOutputPowerThreshold_Object=MibTableColumn
+optIfOChGroupSinkCurrentUpperOutputPowerThreshold=_OptIfOChGroupSinkCurrentUpperOutputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,5,2,1,11),_OptIfOChGroupSinkCurrentUpperOutputPowerThreshold_Type())
+optIfOChGroupSinkCurrentUpperOutputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentUpperOutputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurrentUpperOutputPowerThreshold.setUnits(_D)
+_OptIfOChGroupSinkIntervalTable_Object=MibTable
+optIfOChGroupSinkIntervalTable=_OptIfOChGroupSinkIntervalTable_Object((1,3,6,1,2,1,10,133,1,5,3))
+if mibBuilder.loadTexts:optIfOChGroupSinkIntervalTable.setStatus(_A)
+_OptIfOChGroupSinkIntervalEntry_Object=MibTableRow
+optIfOChGroupSinkIntervalEntry=_OptIfOChGroupSinkIntervalEntry_Object((1,3,6,1,2,1,10,133,1,5,3,1))
+optIfOChGroupSinkIntervalEntry.setIndexNames((0,_F,_G),(0,_B,_b))
+if mibBuilder.loadTexts:optIfOChGroupSinkIntervalEntry.setStatus(_A)
+_OptIfOChGroupSinkIntervalNumber_Type=OptIfIntervalNumber
+_OptIfOChGroupSinkIntervalNumber_Object=MibTableColumn
+optIfOChGroupSinkIntervalNumber=_OptIfOChGroupSinkIntervalNumber_Object((1,3,6,1,2,1,10,133,1,5,3,1,1),_OptIfOChGroupSinkIntervalNumber_Type())
+optIfOChGroupSinkIntervalNumber.setMaxAccess(_I)
+if mibBuilder.loadTexts:optIfOChGroupSinkIntervalNumber.setStatus(_A)
+_OptIfOChGroupSinkIntervalSuspectedFlag_Type=TruthValue
+_OptIfOChGroupSinkIntervalSuspectedFlag_Object=MibTableColumn
+optIfOChGroupSinkIntervalSuspectedFlag=_OptIfOChGroupSinkIntervalSuspectedFlag_Object((1,3,6,1,2,1,10,133,1,5,3,1,2),_OptIfOChGroupSinkIntervalSuspectedFlag_Type())
+optIfOChGroupSinkIntervalSuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkIntervalSuspectedFlag.setStatus(_A)
+_OptIfOChGroupSinkIntervalLastAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSinkIntervalLastAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSinkIntervalLastAggregatedInputPower=_OptIfOChGroupSinkIntervalLastAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,3,1,3),_OptIfOChGroupSinkIntervalLastAggregatedInputPower_Type())
+optIfOChGroupSinkIntervalLastAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkIntervalLastAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkIntervalLastAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSinkIntervalLowAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSinkIntervalLowAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSinkIntervalLowAggregatedInputPower=_OptIfOChGroupSinkIntervalLowAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,3,1,4),_OptIfOChGroupSinkIntervalLowAggregatedInputPower_Type())
+optIfOChGroupSinkIntervalLowAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkIntervalLowAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkIntervalLowAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSinkIntervalHighAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSinkIntervalHighAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSinkIntervalHighAggregatedInputPower=_OptIfOChGroupSinkIntervalHighAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,3,1,5),_OptIfOChGroupSinkIntervalHighAggregatedInputPower_Type())
+optIfOChGroupSinkIntervalHighAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkIntervalHighAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkIntervalHighAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSinkIntervalLastOutputPower_Type=Integer32
+_OptIfOChGroupSinkIntervalLastOutputPower_Object=MibTableColumn
+optIfOChGroupSinkIntervalLastOutputPower=_OptIfOChGroupSinkIntervalLastOutputPower_Object((1,3,6,1,2,1,10,133,1,5,3,1,6),_OptIfOChGroupSinkIntervalLastOutputPower_Type())
+optIfOChGroupSinkIntervalLastOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkIntervalLastOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkIntervalLastOutputPower.setUnits(_D)
+_OptIfOChGroupSinkIntervalLowOutputPower_Type=Integer32
+_OptIfOChGroupSinkIntervalLowOutputPower_Object=MibTableColumn
+optIfOChGroupSinkIntervalLowOutputPower=_OptIfOChGroupSinkIntervalLowOutputPower_Object((1,3,6,1,2,1,10,133,1,5,3,1,7),_OptIfOChGroupSinkIntervalLowOutputPower_Type())
+optIfOChGroupSinkIntervalLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkIntervalLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkIntervalLowOutputPower.setUnits(_D)
+_OptIfOChGroupSinkIntervalHighOutputPower_Type=Integer32
+_OptIfOChGroupSinkIntervalHighOutputPower_Object=MibTableColumn
+optIfOChGroupSinkIntervalHighOutputPower=_OptIfOChGroupSinkIntervalHighOutputPower_Object((1,3,6,1,2,1,10,133,1,5,3,1,8),_OptIfOChGroupSinkIntervalHighOutputPower_Type())
+optIfOChGroupSinkIntervalHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkIntervalHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkIntervalHighOutputPower.setUnits(_D)
+_OptIfOChGroupSinkCurDayTable_Object=MibTable
+optIfOChGroupSinkCurDayTable=_OptIfOChGroupSinkCurDayTable_Object((1,3,6,1,2,1,10,133,1,5,4))
+if mibBuilder.loadTexts:optIfOChGroupSinkCurDayTable.setStatus(_A)
+_OptIfOChGroupSinkCurDayEntry_Object=MibTableRow
+optIfOChGroupSinkCurDayEntry=_OptIfOChGroupSinkCurDayEntry_Object((1,3,6,1,2,1,10,133,1,5,4,1))
+optIfOChGroupSinkCurDayEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOChGroupSinkCurDayEntry.setStatus(_A)
+_OptIfOChGroupSinkCurDaySuspectedFlag_Type=TruthValue
+_OptIfOChGroupSinkCurDaySuspectedFlag_Object=MibTableColumn
+optIfOChGroupSinkCurDaySuspectedFlag=_OptIfOChGroupSinkCurDaySuspectedFlag_Object((1,3,6,1,2,1,10,133,1,5,4,1,1),_OptIfOChGroupSinkCurDaySuspectedFlag_Type())
+optIfOChGroupSinkCurDaySuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurDaySuspectedFlag.setStatus(_A)
+_OptIfOChGroupSinkCurDayLowAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSinkCurDayLowAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSinkCurDayLowAggregatedInputPower=_OptIfOChGroupSinkCurDayLowAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,4,1,2),_OptIfOChGroupSinkCurDayLowAggregatedInputPower_Type())
+optIfOChGroupSinkCurDayLowAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurDayLowAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurDayLowAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSinkCurDayHighAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSinkCurDayHighAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSinkCurDayHighAggregatedInputPower=_OptIfOChGroupSinkCurDayHighAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,4,1,3),_OptIfOChGroupSinkCurDayHighAggregatedInputPower_Type())
+optIfOChGroupSinkCurDayHighAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurDayHighAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurDayHighAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSinkCurDayLowOutputPower_Type=Integer32
+_OptIfOChGroupSinkCurDayLowOutputPower_Object=MibTableColumn
+optIfOChGroupSinkCurDayLowOutputPower=_OptIfOChGroupSinkCurDayLowOutputPower_Object((1,3,6,1,2,1,10,133,1,5,4,1,4),_OptIfOChGroupSinkCurDayLowOutputPower_Type())
+optIfOChGroupSinkCurDayLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurDayLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurDayLowOutputPower.setUnits(_D)
+_OptIfOChGroupSinkCurDayHighOutputPower_Type=Integer32
+_OptIfOChGroupSinkCurDayHighOutputPower_Object=MibTableColumn
+optIfOChGroupSinkCurDayHighOutputPower=_OptIfOChGroupSinkCurDayHighOutputPower_Object((1,3,6,1,2,1,10,133,1,5,4,1,5),_OptIfOChGroupSinkCurDayHighOutputPower_Type())
+optIfOChGroupSinkCurDayHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurDayHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkCurDayHighOutputPower.setUnits(_D)
+_OptIfOChGroupSinkPrevDayTable_Object=MibTable
+optIfOChGroupSinkPrevDayTable=_OptIfOChGroupSinkPrevDayTable_Object((1,3,6,1,2,1,10,133,1,5,5))
+if mibBuilder.loadTexts:optIfOChGroupSinkPrevDayTable.setStatus(_A)
+_OptIfOChGroupSinkPrevDayEntry_Object=MibTableRow
+optIfOChGroupSinkPrevDayEntry=_OptIfOChGroupSinkPrevDayEntry_Object((1,3,6,1,2,1,10,133,1,5,5,1))
+optIfOChGroupSinkPrevDayEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOChGroupSinkPrevDayEntry.setStatus(_A)
+_OptIfOChGroupSinkPrevDaySuspectedFlag_Type=TruthValue
+_OptIfOChGroupSinkPrevDaySuspectedFlag_Object=MibTableColumn
+optIfOChGroupSinkPrevDaySuspectedFlag=_OptIfOChGroupSinkPrevDaySuspectedFlag_Object((1,3,6,1,2,1,10,133,1,5,5,1,1),_OptIfOChGroupSinkPrevDaySuspectedFlag_Type())
+optIfOChGroupSinkPrevDaySuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkPrevDaySuspectedFlag.setStatus(_A)
+_OptIfOChGroupSinkPrevDayLastAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSinkPrevDayLastAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSinkPrevDayLastAggregatedInputPower=_OptIfOChGroupSinkPrevDayLastAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,5,1,2),_OptIfOChGroupSinkPrevDayLastAggregatedInputPower_Type())
+optIfOChGroupSinkPrevDayLastAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkPrevDayLastAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkPrevDayLastAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSinkPrevDayLowAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSinkPrevDayLowAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSinkPrevDayLowAggregatedInputPower=_OptIfOChGroupSinkPrevDayLowAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,5,1,3),_OptIfOChGroupSinkPrevDayLowAggregatedInputPower_Type())
+optIfOChGroupSinkPrevDayLowAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkPrevDayLowAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkPrevDayLowAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSinkPrevDayHighAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSinkPrevDayHighAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSinkPrevDayHighAggregatedInputPower=_OptIfOChGroupSinkPrevDayHighAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,5,1,4),_OptIfOChGroupSinkPrevDayHighAggregatedInputPower_Type())
+optIfOChGroupSinkPrevDayHighAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkPrevDayHighAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkPrevDayHighAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSinkPrevDayLastOutputPower_Type=Integer32
+_OptIfOChGroupSinkPrevDayLastOutputPower_Object=MibTableColumn
+optIfOChGroupSinkPrevDayLastOutputPower=_OptIfOChGroupSinkPrevDayLastOutputPower_Object((1,3,6,1,2,1,10,133,1,5,5,1,5),_OptIfOChGroupSinkPrevDayLastOutputPower_Type())
+optIfOChGroupSinkPrevDayLastOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkPrevDayLastOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkPrevDayLastOutputPower.setUnits(_D)
+_OptIfOChGroupSinkPrevDayLowOutputPower_Type=Integer32
+_OptIfOChGroupSinkPrevDayLowOutputPower_Object=MibTableColumn
+optIfOChGroupSinkPrevDayLowOutputPower=_OptIfOChGroupSinkPrevDayLowOutputPower_Object((1,3,6,1,2,1,10,133,1,5,5,1,6),_OptIfOChGroupSinkPrevDayLowOutputPower_Type())
+optIfOChGroupSinkPrevDayLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkPrevDayLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkPrevDayLowOutputPower.setUnits(_D)
+_OptIfOChGroupSinkPrevDayHighOutputPower_Type=Integer32
+_OptIfOChGroupSinkPrevDayHighOutputPower_Object=MibTableColumn
+optIfOChGroupSinkPrevDayHighOutputPower=_OptIfOChGroupSinkPrevDayHighOutputPower_Object((1,3,6,1,2,1,10,133,1,5,5,1,7),_OptIfOChGroupSinkPrevDayHighOutputPower_Type())
+optIfOChGroupSinkPrevDayHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSinkPrevDayHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSinkPrevDayHighOutputPower.setUnits(_D)
+_OptIfOChGroupSrcCurrentTable_Object=MibTable
+optIfOChGroupSrcCurrentTable=_OptIfOChGroupSrcCurrentTable_Object((1,3,6,1,2,1,10,133,1,5,6))
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentTable.setStatus(_A)
+_OptIfOChGroupSrcCurrentEntry_Object=MibTableRow
+optIfOChGroupSrcCurrentEntry=_OptIfOChGroupSrcCurrentEntry_Object((1,3,6,1,2,1,10,133,1,5,6,1))
+optIfOChGroupSrcCurrentEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentEntry.setStatus(_A)
+_OptIfOChGroupSrcCurrentSuspectedFlag_Type=TruthValue
+_OptIfOChGroupSrcCurrentSuspectedFlag_Object=MibTableColumn
+optIfOChGroupSrcCurrentSuspectedFlag=_OptIfOChGroupSrcCurrentSuspectedFlag_Object((1,3,6,1,2,1,10,133,1,5,6,1,1),_OptIfOChGroupSrcCurrentSuspectedFlag_Type())
+optIfOChGroupSrcCurrentSuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentSuspectedFlag.setStatus(_A)
+_OptIfOChGroupSrcCurrentOutputPower_Type=Integer32
+_OptIfOChGroupSrcCurrentOutputPower_Object=MibTableColumn
+optIfOChGroupSrcCurrentOutputPower=_OptIfOChGroupSrcCurrentOutputPower_Object((1,3,6,1,2,1,10,133,1,5,6,1,2),_OptIfOChGroupSrcCurrentOutputPower_Type())
+optIfOChGroupSrcCurrentOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentOutputPower.setUnits(_D)
+_OptIfOChGroupSrcCurrentLowOutputPower_Type=Integer32
+_OptIfOChGroupSrcCurrentLowOutputPower_Object=MibTableColumn
+optIfOChGroupSrcCurrentLowOutputPower=_OptIfOChGroupSrcCurrentLowOutputPower_Object((1,3,6,1,2,1,10,133,1,5,6,1,3),_OptIfOChGroupSrcCurrentLowOutputPower_Type())
+optIfOChGroupSrcCurrentLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentLowOutputPower.setUnits(_D)
+_OptIfOChGroupSrcCurrentHighOutputPower_Type=Integer32
+_OptIfOChGroupSrcCurrentHighOutputPower_Object=MibTableColumn
+optIfOChGroupSrcCurrentHighOutputPower=_OptIfOChGroupSrcCurrentHighOutputPower_Object((1,3,6,1,2,1,10,133,1,5,6,1,4),_OptIfOChGroupSrcCurrentHighOutputPower_Type())
+optIfOChGroupSrcCurrentHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentHighOutputPower.setUnits(_D)
+_OptIfOChGroupSrcCurrentLowerOutputPowerThreshold_Type=Integer32
+_OptIfOChGroupSrcCurrentLowerOutputPowerThreshold_Object=MibTableColumn
+optIfOChGroupSrcCurrentLowerOutputPowerThreshold=_OptIfOChGroupSrcCurrentLowerOutputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,5,6,1,5),_OptIfOChGroupSrcCurrentLowerOutputPowerThreshold_Type())
+optIfOChGroupSrcCurrentLowerOutputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentLowerOutputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentLowerOutputPowerThreshold.setUnits(_D)
+_OptIfOChGroupSrcCurrentUpperOutputPowerThreshold_Type=Integer32
+_OptIfOChGroupSrcCurrentUpperOutputPowerThreshold_Object=MibTableColumn
+optIfOChGroupSrcCurrentUpperOutputPowerThreshold=_OptIfOChGroupSrcCurrentUpperOutputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,5,6,1,6),_OptIfOChGroupSrcCurrentUpperOutputPowerThreshold_Type())
+optIfOChGroupSrcCurrentUpperOutputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentUpperOutputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentUpperOutputPowerThreshold.setUnits(_D)
+_OptIfOChGroupSrcCurrentAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSrcCurrentAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSrcCurrentAggregatedInputPower=_OptIfOChGroupSrcCurrentAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,6,1,7),_OptIfOChGroupSrcCurrentAggregatedInputPower_Type())
+optIfOChGroupSrcCurrentAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSrcCurrentLowAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSrcCurrentLowAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSrcCurrentLowAggregatedInputPower=_OptIfOChGroupSrcCurrentLowAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,6,1,8),_OptIfOChGroupSrcCurrentLowAggregatedInputPower_Type())
+optIfOChGroupSrcCurrentLowAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentLowAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentLowAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSrcCurrentHighAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSrcCurrentHighAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSrcCurrentHighAggregatedInputPower=_OptIfOChGroupSrcCurrentHighAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,6,1,9),_OptIfOChGroupSrcCurrentHighAggregatedInputPower_Type())
+optIfOChGroupSrcCurrentHighAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentHighAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentHighAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSrcCurrentLowerInputPowerThreshold_Type=Integer32
+_OptIfOChGroupSrcCurrentLowerInputPowerThreshold_Object=MibTableColumn
+optIfOChGroupSrcCurrentLowerInputPowerThreshold=_OptIfOChGroupSrcCurrentLowerInputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,5,6,1,10),_OptIfOChGroupSrcCurrentLowerInputPowerThreshold_Type())
+optIfOChGroupSrcCurrentLowerInputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentLowerInputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentLowerInputPowerThreshold.setUnits(_D)
+_OptIfOChGroupSrcCurrentUpperInputPowerThreshold_Type=Integer32
+_OptIfOChGroupSrcCurrentUpperInputPowerThreshold_Object=MibTableColumn
+optIfOChGroupSrcCurrentUpperInputPowerThreshold=_OptIfOChGroupSrcCurrentUpperInputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,5,6,1,11),_OptIfOChGroupSrcCurrentUpperInputPowerThreshold_Type())
+optIfOChGroupSrcCurrentUpperInputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentUpperInputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurrentUpperInputPowerThreshold.setUnits(_D)
+_OptIfOChGroupSrcIntervalTable_Object=MibTable
+optIfOChGroupSrcIntervalTable=_OptIfOChGroupSrcIntervalTable_Object((1,3,6,1,2,1,10,133,1,5,7))
+if mibBuilder.loadTexts:optIfOChGroupSrcIntervalTable.setStatus(_A)
+_OptIfOChGroupSrcIntervalEntry_Object=MibTableRow
+optIfOChGroupSrcIntervalEntry=_OptIfOChGroupSrcIntervalEntry_Object((1,3,6,1,2,1,10,133,1,5,7,1))
+optIfOChGroupSrcIntervalEntry.setIndexNames((0,_F,_G),(0,_B,_c))
+if mibBuilder.loadTexts:optIfOChGroupSrcIntervalEntry.setStatus(_A)
+_OptIfOChGroupSrcIntervalNumber_Type=OptIfIntervalNumber
+_OptIfOChGroupSrcIntervalNumber_Object=MibTableColumn
+optIfOChGroupSrcIntervalNumber=_OptIfOChGroupSrcIntervalNumber_Object((1,3,6,1,2,1,10,133,1,5,7,1,1),_OptIfOChGroupSrcIntervalNumber_Type())
+optIfOChGroupSrcIntervalNumber.setMaxAccess(_I)
+if mibBuilder.loadTexts:optIfOChGroupSrcIntervalNumber.setStatus(_A)
+_OptIfOChGroupSrcIntervalSuspectedFlag_Type=TruthValue
+_OptIfOChGroupSrcIntervalSuspectedFlag_Object=MibTableColumn
+optIfOChGroupSrcIntervalSuspectedFlag=_OptIfOChGroupSrcIntervalSuspectedFlag_Object((1,3,6,1,2,1,10,133,1,5,7,1,2),_OptIfOChGroupSrcIntervalSuspectedFlag_Type())
+optIfOChGroupSrcIntervalSuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcIntervalSuspectedFlag.setStatus(_A)
+_OptIfOChGroupSrcIntervalLastOutputPower_Type=Integer32
+_OptIfOChGroupSrcIntervalLastOutputPower_Object=MibTableColumn
+optIfOChGroupSrcIntervalLastOutputPower=_OptIfOChGroupSrcIntervalLastOutputPower_Object((1,3,6,1,2,1,10,133,1,5,7,1,3),_OptIfOChGroupSrcIntervalLastOutputPower_Type())
+optIfOChGroupSrcIntervalLastOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcIntervalLastOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcIntervalLastOutputPower.setUnits(_D)
+_OptIfOChGroupSrcIntervalLowOutputPower_Type=Integer32
+_OptIfOChGroupSrcIntervalLowOutputPower_Object=MibTableColumn
+optIfOChGroupSrcIntervalLowOutputPower=_OptIfOChGroupSrcIntervalLowOutputPower_Object((1,3,6,1,2,1,10,133,1,5,7,1,4),_OptIfOChGroupSrcIntervalLowOutputPower_Type())
+optIfOChGroupSrcIntervalLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcIntervalLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcIntervalLowOutputPower.setUnits(_D)
+_OptIfOChGroupSrcIntervalHighOutputPower_Type=Integer32
+_OptIfOChGroupSrcIntervalHighOutputPower_Object=MibTableColumn
+optIfOChGroupSrcIntervalHighOutputPower=_OptIfOChGroupSrcIntervalHighOutputPower_Object((1,3,6,1,2,1,10,133,1,5,7,1,5),_OptIfOChGroupSrcIntervalHighOutputPower_Type())
+optIfOChGroupSrcIntervalHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcIntervalHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcIntervalHighOutputPower.setUnits(_D)
+_OptIfOChGroupSrcIntervalLastAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSrcIntervalLastAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSrcIntervalLastAggregatedInputPower=_OptIfOChGroupSrcIntervalLastAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,7,1,6),_OptIfOChGroupSrcIntervalLastAggregatedInputPower_Type())
+optIfOChGroupSrcIntervalLastAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcIntervalLastAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcIntervalLastAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSrcIntervalLowAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSrcIntervalLowAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSrcIntervalLowAggregatedInputPower=_OptIfOChGroupSrcIntervalLowAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,7,1,7),_OptIfOChGroupSrcIntervalLowAggregatedInputPower_Type())
+optIfOChGroupSrcIntervalLowAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcIntervalLowAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcIntervalLowAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSrcIntervalHighAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSrcIntervalHighAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSrcIntervalHighAggregatedInputPower=_OptIfOChGroupSrcIntervalHighAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,7,1,8),_OptIfOChGroupSrcIntervalHighAggregatedInputPower_Type())
+optIfOChGroupSrcIntervalHighAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcIntervalHighAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcIntervalHighAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSrcCurDayTable_Object=MibTable
+optIfOChGroupSrcCurDayTable=_OptIfOChGroupSrcCurDayTable_Object((1,3,6,1,2,1,10,133,1,5,8))
+if mibBuilder.loadTexts:optIfOChGroupSrcCurDayTable.setStatus(_A)
+_OptIfOChGroupSrcCurDayEntry_Object=MibTableRow
+optIfOChGroupSrcCurDayEntry=_OptIfOChGroupSrcCurDayEntry_Object((1,3,6,1,2,1,10,133,1,5,8,1))
+optIfOChGroupSrcCurDayEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOChGroupSrcCurDayEntry.setStatus(_A)
+_OptIfOChGroupSrcCurDaySuspectedFlag_Type=TruthValue
+_OptIfOChGroupSrcCurDaySuspectedFlag_Object=MibTableColumn
+optIfOChGroupSrcCurDaySuspectedFlag=_OptIfOChGroupSrcCurDaySuspectedFlag_Object((1,3,6,1,2,1,10,133,1,5,8,1,1),_OptIfOChGroupSrcCurDaySuspectedFlag_Type())
+optIfOChGroupSrcCurDaySuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurDaySuspectedFlag.setStatus(_A)
+_OptIfOChGroupSrcCurDayLowOutputPower_Type=Integer32
+_OptIfOChGroupSrcCurDayLowOutputPower_Object=MibTableColumn
+optIfOChGroupSrcCurDayLowOutputPower=_OptIfOChGroupSrcCurDayLowOutputPower_Object((1,3,6,1,2,1,10,133,1,5,8,1,2),_OptIfOChGroupSrcCurDayLowOutputPower_Type())
+optIfOChGroupSrcCurDayLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurDayLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurDayLowOutputPower.setUnits(_D)
+_OptIfOChGroupSrcCurDayHighOutputPower_Type=Integer32
+_OptIfOChGroupSrcCurDayHighOutputPower_Object=MibTableColumn
+optIfOChGroupSrcCurDayHighOutputPower=_OptIfOChGroupSrcCurDayHighOutputPower_Object((1,3,6,1,2,1,10,133,1,5,8,1,3),_OptIfOChGroupSrcCurDayHighOutputPower_Type())
+optIfOChGroupSrcCurDayHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurDayHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurDayHighOutputPower.setUnits(_D)
+_OptIfOChGroupSrcCurDayLowAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSrcCurDayLowAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSrcCurDayLowAggregatedInputPower=_OptIfOChGroupSrcCurDayLowAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,8,1,4),_OptIfOChGroupSrcCurDayLowAggregatedInputPower_Type())
+optIfOChGroupSrcCurDayLowAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurDayLowAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurDayLowAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSrcCurDayHighAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSrcCurDayHighAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSrcCurDayHighAggregatedInputPower=_OptIfOChGroupSrcCurDayHighAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,8,1,5),_OptIfOChGroupSrcCurDayHighAggregatedInputPower_Type())
+optIfOChGroupSrcCurDayHighAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurDayHighAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcCurDayHighAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSrcPrevDayTable_Object=MibTable
+optIfOChGroupSrcPrevDayTable=_OptIfOChGroupSrcPrevDayTable_Object((1,3,6,1,2,1,10,133,1,5,9))
+if mibBuilder.loadTexts:optIfOChGroupSrcPrevDayTable.setStatus(_A)
+_OptIfOChGroupSrcPrevDayEntry_Object=MibTableRow
+optIfOChGroupSrcPrevDayEntry=_OptIfOChGroupSrcPrevDayEntry_Object((1,3,6,1,2,1,10,133,1,5,9,1))
+optIfOChGroupSrcPrevDayEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOChGroupSrcPrevDayEntry.setStatus(_A)
+_OptIfOChGroupSrcPrevDaySuspectedFlag_Type=TruthValue
+_OptIfOChGroupSrcPrevDaySuspectedFlag_Object=MibTableColumn
+optIfOChGroupSrcPrevDaySuspectedFlag=_OptIfOChGroupSrcPrevDaySuspectedFlag_Object((1,3,6,1,2,1,10,133,1,5,9,1,1),_OptIfOChGroupSrcPrevDaySuspectedFlag_Type())
+optIfOChGroupSrcPrevDaySuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcPrevDaySuspectedFlag.setStatus(_A)
+_OptIfOChGroupSrcPrevDayLastOutputPower_Type=Integer32
+_OptIfOChGroupSrcPrevDayLastOutputPower_Object=MibTableColumn
+optIfOChGroupSrcPrevDayLastOutputPower=_OptIfOChGroupSrcPrevDayLastOutputPower_Object((1,3,6,1,2,1,10,133,1,5,9,1,2),_OptIfOChGroupSrcPrevDayLastOutputPower_Type())
+optIfOChGroupSrcPrevDayLastOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcPrevDayLastOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcPrevDayLastOutputPower.setUnits(_D)
+_OptIfOChGroupSrcPrevDayLowOutputPower_Type=Integer32
+_OptIfOChGroupSrcPrevDayLowOutputPower_Object=MibTableColumn
+optIfOChGroupSrcPrevDayLowOutputPower=_OptIfOChGroupSrcPrevDayLowOutputPower_Object((1,3,6,1,2,1,10,133,1,5,9,1,3),_OptIfOChGroupSrcPrevDayLowOutputPower_Type())
+optIfOChGroupSrcPrevDayLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcPrevDayLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcPrevDayLowOutputPower.setUnits(_D)
+_OptIfOChGroupSrcPrevDayHighOutputPower_Type=Integer32
+_OptIfOChGroupSrcPrevDayHighOutputPower_Object=MibTableColumn
+optIfOChGroupSrcPrevDayHighOutputPower=_OptIfOChGroupSrcPrevDayHighOutputPower_Object((1,3,6,1,2,1,10,133,1,5,9,1,4),_OptIfOChGroupSrcPrevDayHighOutputPower_Type())
+optIfOChGroupSrcPrevDayHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcPrevDayHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcPrevDayHighOutputPower.setUnits(_D)
+_OptIfOChGroupSrcPrevDayLastAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSrcPrevDayLastAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSrcPrevDayLastAggregatedInputPower=_OptIfOChGroupSrcPrevDayLastAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,9,1,5),_OptIfOChGroupSrcPrevDayLastAggregatedInputPower_Type())
+optIfOChGroupSrcPrevDayLastAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcPrevDayLastAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcPrevDayLastAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSrcPrevDayLowAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSrcPrevDayLowAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSrcPrevDayLowAggregatedInputPower=_OptIfOChGroupSrcPrevDayLowAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,9,1,6),_OptIfOChGroupSrcPrevDayLowAggregatedInputPower_Type())
+optIfOChGroupSrcPrevDayLowAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcPrevDayLowAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcPrevDayLowAggregatedInputPower.setUnits(_D)
+_OptIfOChGroupSrcPrevDayHighAggregatedInputPower_Type=Integer32
+_OptIfOChGroupSrcPrevDayHighAggregatedInputPower_Object=MibTableColumn
+optIfOChGroupSrcPrevDayHighAggregatedInputPower=_OptIfOChGroupSrcPrevDayHighAggregatedInputPower_Object((1,3,6,1,2,1,10,133,1,5,9,1,7),_OptIfOChGroupSrcPrevDayHighAggregatedInputPower_Type())
+optIfOChGroupSrcPrevDayHighAggregatedInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChGroupSrcPrevDayHighAggregatedInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChGroupSrcPrevDayHighAggregatedInputPower.setUnits(_D)
+_OptIfOCh_ObjectIdentity=ObjectIdentity
+optIfOCh=_OptIfOCh_ObjectIdentity((1,3,6,1,2,1,10,133,1,6))
+_OptIfOChConfigTable_Object=MibTable
+optIfOChConfigTable=_OptIfOChConfigTable_Object((1,3,6,1,2,1,10,133,1,6,1))
+if mibBuilder.loadTexts:optIfOChConfigTable.setStatus(_A)
+_OptIfOChConfigEntry_Object=MibTableRow
+optIfOChConfigEntry=_OptIfOChConfigEntry_Object((1,3,6,1,2,1,10,133,1,6,1,1))
+optIfOChConfigEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOChConfigEntry.setStatus(_A)
+_OptIfOChDirectionality_Type=OptIfDirectionality
+_OptIfOChDirectionality_Object=MibTableColumn
+optIfOChDirectionality=_OptIfOChDirectionality_Object((1,3,6,1,2,1,10,133,1,6,1,1,1),_OptIfOChDirectionality_Type())
+optIfOChDirectionality.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChDirectionality.setStatus(_A)
+class _OptIfOChCurrentStatus_Type(Bits):namedValues=NamedValues(*((_U,0),('los',1),(_P,2),('ssfP',3),('ssfO',4),(_M,5)))
+_OptIfOChCurrentStatus_Type.__name__=_J
+_OptIfOChCurrentStatus_Object=MibTableColumn
+optIfOChCurrentStatus=_OptIfOChCurrentStatus_Object((1,3,6,1,2,1,10,133,1,6,1,1,2),_OptIfOChCurrentStatus_Type())
+optIfOChCurrentStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChCurrentStatus.setStatus(_A)
+_OptIfOChSinkCurrentTable_Object=MibTable
+optIfOChSinkCurrentTable=_OptIfOChSinkCurrentTable_Object((1,3,6,1,2,1,10,133,1,6,2))
+if mibBuilder.loadTexts:optIfOChSinkCurrentTable.setStatus(_A)
+_OptIfOChSinkCurrentEntry_Object=MibTableRow
+optIfOChSinkCurrentEntry=_OptIfOChSinkCurrentEntry_Object((1,3,6,1,2,1,10,133,1,6,2,1))
+optIfOChSinkCurrentEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOChSinkCurrentEntry.setStatus(_A)
+_OptIfOChSinkCurrentSuspectedFlag_Type=TruthValue
+_OptIfOChSinkCurrentSuspectedFlag_Object=MibTableColumn
+optIfOChSinkCurrentSuspectedFlag=_OptIfOChSinkCurrentSuspectedFlag_Object((1,3,6,1,2,1,10,133,1,6,2,1,1),_OptIfOChSinkCurrentSuspectedFlag_Type())
+optIfOChSinkCurrentSuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSinkCurrentSuspectedFlag.setStatus(_A)
+_OptIfOChSinkCurrentInputPower_Type=Integer32
+_OptIfOChSinkCurrentInputPower_Object=MibTableColumn
+optIfOChSinkCurrentInputPower=_OptIfOChSinkCurrentInputPower_Object((1,3,6,1,2,1,10,133,1,6,2,1,2),_OptIfOChSinkCurrentInputPower_Type())
+optIfOChSinkCurrentInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSinkCurrentInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSinkCurrentInputPower.setUnits(_D)
+_OptIfOChSinkCurrentLowInputPower_Type=Integer32
+_OptIfOChSinkCurrentLowInputPower_Object=MibTableColumn
+optIfOChSinkCurrentLowInputPower=_OptIfOChSinkCurrentLowInputPower_Object((1,3,6,1,2,1,10,133,1,6,2,1,3),_OptIfOChSinkCurrentLowInputPower_Type())
+optIfOChSinkCurrentLowInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSinkCurrentLowInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSinkCurrentLowInputPower.setUnits(_D)
+_OptIfOChSinkCurrentHighInputPower_Type=Integer32
+_OptIfOChSinkCurrentHighInputPower_Object=MibTableColumn
+optIfOChSinkCurrentHighInputPower=_OptIfOChSinkCurrentHighInputPower_Object((1,3,6,1,2,1,10,133,1,6,2,1,4),_OptIfOChSinkCurrentHighInputPower_Type())
+optIfOChSinkCurrentHighInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSinkCurrentHighInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSinkCurrentHighInputPower.setUnits(_D)
+_OptIfOChSinkCurrentLowerInputPowerThreshold_Type=Integer32
+_OptIfOChSinkCurrentLowerInputPowerThreshold_Object=MibTableColumn
+optIfOChSinkCurrentLowerInputPowerThreshold=_OptIfOChSinkCurrentLowerInputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,6,2,1,5),_OptIfOChSinkCurrentLowerInputPowerThreshold_Type())
+optIfOChSinkCurrentLowerInputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOChSinkCurrentLowerInputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSinkCurrentLowerInputPowerThreshold.setUnits(_D)
+_OptIfOChSinkCurrentUpperInputPowerThreshold_Type=Integer32
+_OptIfOChSinkCurrentUpperInputPowerThreshold_Object=MibTableColumn
+optIfOChSinkCurrentUpperInputPowerThreshold=_OptIfOChSinkCurrentUpperInputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,6,2,1,6),_OptIfOChSinkCurrentUpperInputPowerThreshold_Type())
+optIfOChSinkCurrentUpperInputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOChSinkCurrentUpperInputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSinkCurrentUpperInputPowerThreshold.setUnits(_D)
+_OptIfOChSinkIntervalTable_Object=MibTable
+optIfOChSinkIntervalTable=_OptIfOChSinkIntervalTable_Object((1,3,6,1,2,1,10,133,1,6,3))
+if mibBuilder.loadTexts:optIfOChSinkIntervalTable.setStatus(_A)
+_OptIfOChSinkIntervalEntry_Object=MibTableRow
+optIfOChSinkIntervalEntry=_OptIfOChSinkIntervalEntry_Object((1,3,6,1,2,1,10,133,1,6,3,1))
+optIfOChSinkIntervalEntry.setIndexNames((0,_F,_G),(0,_B,_d))
+if mibBuilder.loadTexts:optIfOChSinkIntervalEntry.setStatus(_A)
+_OptIfOChSinkIntervalNumber_Type=OptIfIntervalNumber
+_OptIfOChSinkIntervalNumber_Object=MibTableColumn
+optIfOChSinkIntervalNumber=_OptIfOChSinkIntervalNumber_Object((1,3,6,1,2,1,10,133,1,6,3,1,1),_OptIfOChSinkIntervalNumber_Type())
+optIfOChSinkIntervalNumber.setMaxAccess(_I)
+if mibBuilder.loadTexts:optIfOChSinkIntervalNumber.setStatus(_A)
+_OptIfOChSinkIntervalSuspectedFlag_Type=TruthValue
+_OptIfOChSinkIntervalSuspectedFlag_Object=MibTableColumn
+optIfOChSinkIntervalSuspectedFlag=_OptIfOChSinkIntervalSuspectedFlag_Object((1,3,6,1,2,1,10,133,1,6,3,1,2),_OptIfOChSinkIntervalSuspectedFlag_Type())
+optIfOChSinkIntervalSuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSinkIntervalSuspectedFlag.setStatus(_A)
+_OptIfOChSinkIntervalLastInputPower_Type=Integer32
+_OptIfOChSinkIntervalLastInputPower_Object=MibTableColumn
+optIfOChSinkIntervalLastInputPower=_OptIfOChSinkIntervalLastInputPower_Object((1,3,6,1,2,1,10,133,1,6,3,1,3),_OptIfOChSinkIntervalLastInputPower_Type())
+optIfOChSinkIntervalLastInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSinkIntervalLastInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSinkIntervalLastInputPower.setUnits(_D)
+_OptIfOChSinkIntervalLowInputPower_Type=Integer32
+_OptIfOChSinkIntervalLowInputPower_Object=MibTableColumn
+optIfOChSinkIntervalLowInputPower=_OptIfOChSinkIntervalLowInputPower_Object((1,3,6,1,2,1,10,133,1,6,3,1,4),_OptIfOChSinkIntervalLowInputPower_Type())
+optIfOChSinkIntervalLowInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSinkIntervalLowInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSinkIntervalLowInputPower.setUnits(_D)
+_OptIfOChSinkIntervalHighInputPower_Type=Integer32
+_OptIfOChSinkIntervalHighInputPower_Object=MibTableColumn
+optIfOChSinkIntervalHighInputPower=_OptIfOChSinkIntervalHighInputPower_Object((1,3,6,1,2,1,10,133,1,6,3,1,5),_OptIfOChSinkIntervalHighInputPower_Type())
+optIfOChSinkIntervalHighInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSinkIntervalHighInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSinkIntervalHighInputPower.setUnits(_D)
+_OptIfOChSinkCurDayTable_Object=MibTable
+optIfOChSinkCurDayTable=_OptIfOChSinkCurDayTable_Object((1,3,6,1,2,1,10,133,1,6,4))
+if mibBuilder.loadTexts:optIfOChSinkCurDayTable.setStatus(_A)
+_OptIfOChSinkCurDayEntry_Object=MibTableRow
+optIfOChSinkCurDayEntry=_OptIfOChSinkCurDayEntry_Object((1,3,6,1,2,1,10,133,1,6,4,1))
+optIfOChSinkCurDayEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOChSinkCurDayEntry.setStatus(_A)
+_OptIfOChSinkCurDaySuspectedFlag_Type=TruthValue
+_OptIfOChSinkCurDaySuspectedFlag_Object=MibTableColumn
+optIfOChSinkCurDaySuspectedFlag=_OptIfOChSinkCurDaySuspectedFlag_Object((1,3,6,1,2,1,10,133,1,6,4,1,1),_OptIfOChSinkCurDaySuspectedFlag_Type())
+optIfOChSinkCurDaySuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSinkCurDaySuspectedFlag.setStatus(_A)
+_OptIfOChSinkCurDayLowInputPower_Type=Integer32
+_OptIfOChSinkCurDayLowInputPower_Object=MibTableColumn
+optIfOChSinkCurDayLowInputPower=_OptIfOChSinkCurDayLowInputPower_Object((1,3,6,1,2,1,10,133,1,6,4,1,2),_OptIfOChSinkCurDayLowInputPower_Type())
+optIfOChSinkCurDayLowInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSinkCurDayLowInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSinkCurDayLowInputPower.setUnits(_D)
+_OptIfOChSinkCurDayHighInputPower_Type=Integer32
+_OptIfOChSinkCurDayHighInputPower_Object=MibTableColumn
+optIfOChSinkCurDayHighInputPower=_OptIfOChSinkCurDayHighInputPower_Object((1,3,6,1,2,1,10,133,1,6,4,1,3),_OptIfOChSinkCurDayHighInputPower_Type())
+optIfOChSinkCurDayHighInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSinkCurDayHighInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSinkCurDayHighInputPower.setUnits(_D)
+_OptIfOChSinkPrevDayTable_Object=MibTable
+optIfOChSinkPrevDayTable=_OptIfOChSinkPrevDayTable_Object((1,3,6,1,2,1,10,133,1,6,5))
+if mibBuilder.loadTexts:optIfOChSinkPrevDayTable.setStatus(_A)
+_OptIfOChSinkPrevDayEntry_Object=MibTableRow
+optIfOChSinkPrevDayEntry=_OptIfOChSinkPrevDayEntry_Object((1,3,6,1,2,1,10,133,1,6,5,1))
+optIfOChSinkPrevDayEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOChSinkPrevDayEntry.setStatus(_A)
+_OptIfOChSinkPrevDaySuspectedFlag_Type=TruthValue
+_OptIfOChSinkPrevDaySuspectedFlag_Object=MibTableColumn
+optIfOChSinkPrevDaySuspectedFlag=_OptIfOChSinkPrevDaySuspectedFlag_Object((1,3,6,1,2,1,10,133,1,6,5,1,1),_OptIfOChSinkPrevDaySuspectedFlag_Type())
+optIfOChSinkPrevDaySuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSinkPrevDaySuspectedFlag.setStatus(_A)
+_OptIfOChSinkPrevDayLastInputPower_Type=Integer32
+_OptIfOChSinkPrevDayLastInputPower_Object=MibTableColumn
+optIfOChSinkPrevDayLastInputPower=_OptIfOChSinkPrevDayLastInputPower_Object((1,3,6,1,2,1,10,133,1,6,5,1,2),_OptIfOChSinkPrevDayLastInputPower_Type())
+optIfOChSinkPrevDayLastInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSinkPrevDayLastInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSinkPrevDayLastInputPower.setUnits(_D)
+_OptIfOChSinkPrevDayLowInputPower_Type=Integer32
+_OptIfOChSinkPrevDayLowInputPower_Object=MibTableColumn
+optIfOChSinkPrevDayLowInputPower=_OptIfOChSinkPrevDayLowInputPower_Object((1,3,6,1,2,1,10,133,1,6,5,1,3),_OptIfOChSinkPrevDayLowInputPower_Type())
+optIfOChSinkPrevDayLowInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSinkPrevDayLowInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSinkPrevDayLowInputPower.setUnits(_D)
+_OptIfOChSinkPrevDayHighInputPower_Type=Integer32
+_OptIfOChSinkPrevDayHighInputPower_Object=MibTableColumn
+optIfOChSinkPrevDayHighInputPower=_OptIfOChSinkPrevDayHighInputPower_Object((1,3,6,1,2,1,10,133,1,6,5,1,4),_OptIfOChSinkPrevDayHighInputPower_Type())
+optIfOChSinkPrevDayHighInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSinkPrevDayHighInputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSinkPrevDayHighInputPower.setUnits(_D)
+_OptIfOChSrcCurrentTable_Object=MibTable
+optIfOChSrcCurrentTable=_OptIfOChSrcCurrentTable_Object((1,3,6,1,2,1,10,133,1,6,6))
+if mibBuilder.loadTexts:optIfOChSrcCurrentTable.setStatus(_A)
+_OptIfOChSrcCurrentEntry_Object=MibTableRow
+optIfOChSrcCurrentEntry=_OptIfOChSrcCurrentEntry_Object((1,3,6,1,2,1,10,133,1,6,6,1))
+optIfOChSrcCurrentEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOChSrcCurrentEntry.setStatus(_A)
+_OptIfOChSrcCurrentSuspectedFlag_Type=TruthValue
+_OptIfOChSrcCurrentSuspectedFlag_Object=MibTableColumn
+optIfOChSrcCurrentSuspectedFlag=_OptIfOChSrcCurrentSuspectedFlag_Object((1,3,6,1,2,1,10,133,1,6,6,1,1),_OptIfOChSrcCurrentSuspectedFlag_Type())
+optIfOChSrcCurrentSuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSrcCurrentSuspectedFlag.setStatus(_A)
+_OptIfOChSrcCurrentOutputPower_Type=Integer32
+_OptIfOChSrcCurrentOutputPower_Object=MibTableColumn
+optIfOChSrcCurrentOutputPower=_OptIfOChSrcCurrentOutputPower_Object((1,3,6,1,2,1,10,133,1,6,6,1,2),_OptIfOChSrcCurrentOutputPower_Type())
+optIfOChSrcCurrentOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSrcCurrentOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSrcCurrentOutputPower.setUnits(_D)
+_OptIfOChSrcCurrentLowOutputPower_Type=Integer32
+_OptIfOChSrcCurrentLowOutputPower_Object=MibTableColumn
+optIfOChSrcCurrentLowOutputPower=_OptIfOChSrcCurrentLowOutputPower_Object((1,3,6,1,2,1,10,133,1,6,6,1,3),_OptIfOChSrcCurrentLowOutputPower_Type())
+optIfOChSrcCurrentLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSrcCurrentLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSrcCurrentLowOutputPower.setUnits(_D)
+_OptIfOChSrcCurrentHighOutputPower_Type=Integer32
+_OptIfOChSrcCurrentHighOutputPower_Object=MibTableColumn
+optIfOChSrcCurrentHighOutputPower=_OptIfOChSrcCurrentHighOutputPower_Object((1,3,6,1,2,1,10,133,1,6,6,1,4),_OptIfOChSrcCurrentHighOutputPower_Type())
+optIfOChSrcCurrentHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSrcCurrentHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSrcCurrentHighOutputPower.setUnits(_D)
+_OptIfOChSrcCurrentLowerOutputPowerThreshold_Type=Integer32
+_OptIfOChSrcCurrentLowerOutputPowerThreshold_Object=MibTableColumn
+optIfOChSrcCurrentLowerOutputPowerThreshold=_OptIfOChSrcCurrentLowerOutputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,6,6,1,5),_OptIfOChSrcCurrentLowerOutputPowerThreshold_Type())
+optIfOChSrcCurrentLowerOutputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOChSrcCurrentLowerOutputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSrcCurrentLowerOutputPowerThreshold.setUnits(_D)
+_OptIfOChSrcCurrentUpperOutputPowerThreshold_Type=Integer32
+_OptIfOChSrcCurrentUpperOutputPowerThreshold_Object=MibTableColumn
+optIfOChSrcCurrentUpperOutputPowerThreshold=_OptIfOChSrcCurrentUpperOutputPowerThreshold_Object((1,3,6,1,2,1,10,133,1,6,6,1,6),_OptIfOChSrcCurrentUpperOutputPowerThreshold_Type())
+optIfOChSrcCurrentUpperOutputPowerThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOChSrcCurrentUpperOutputPowerThreshold.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSrcCurrentUpperOutputPowerThreshold.setUnits(_D)
+_OptIfOChSrcIntervalTable_Object=MibTable
+optIfOChSrcIntervalTable=_OptIfOChSrcIntervalTable_Object((1,3,6,1,2,1,10,133,1,6,7))
+if mibBuilder.loadTexts:optIfOChSrcIntervalTable.setStatus(_A)
+_OptIfOChSrcIntervalEntry_Object=MibTableRow
+optIfOChSrcIntervalEntry=_OptIfOChSrcIntervalEntry_Object((1,3,6,1,2,1,10,133,1,6,7,1))
+optIfOChSrcIntervalEntry.setIndexNames((0,_F,_G),(0,_B,_e))
+if mibBuilder.loadTexts:optIfOChSrcIntervalEntry.setStatus(_A)
+_OptIfOChSrcIntervalNumber_Type=OptIfIntervalNumber
+_OptIfOChSrcIntervalNumber_Object=MibTableColumn
+optIfOChSrcIntervalNumber=_OptIfOChSrcIntervalNumber_Object((1,3,6,1,2,1,10,133,1,6,7,1,1),_OptIfOChSrcIntervalNumber_Type())
+optIfOChSrcIntervalNumber.setMaxAccess(_I)
+if mibBuilder.loadTexts:optIfOChSrcIntervalNumber.setStatus(_A)
+_OptIfOChSrcIntervalSuspectedFlag_Type=TruthValue
+_OptIfOChSrcIntervalSuspectedFlag_Object=MibTableColumn
+optIfOChSrcIntervalSuspectedFlag=_OptIfOChSrcIntervalSuspectedFlag_Object((1,3,6,1,2,1,10,133,1,6,7,1,2),_OptIfOChSrcIntervalSuspectedFlag_Type())
+optIfOChSrcIntervalSuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSrcIntervalSuspectedFlag.setStatus(_A)
+_OptIfOChSrcIntervalLastOutputPower_Type=Integer32
+_OptIfOChSrcIntervalLastOutputPower_Object=MibTableColumn
+optIfOChSrcIntervalLastOutputPower=_OptIfOChSrcIntervalLastOutputPower_Object((1,3,6,1,2,1,10,133,1,6,7,1,3),_OptIfOChSrcIntervalLastOutputPower_Type())
+optIfOChSrcIntervalLastOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSrcIntervalLastOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSrcIntervalLastOutputPower.setUnits(_D)
+_OptIfOChSrcIntervalLowOutputPower_Type=Integer32
+_OptIfOChSrcIntervalLowOutputPower_Object=MibTableColumn
+optIfOChSrcIntervalLowOutputPower=_OptIfOChSrcIntervalLowOutputPower_Object((1,3,6,1,2,1,10,133,1,6,7,1,4),_OptIfOChSrcIntervalLowOutputPower_Type())
+optIfOChSrcIntervalLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSrcIntervalLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSrcIntervalLowOutputPower.setUnits(_D)
+_OptIfOChSrcIntervalHighOutputPower_Type=Integer32
+_OptIfOChSrcIntervalHighOutputPower_Object=MibTableColumn
+optIfOChSrcIntervalHighOutputPower=_OptIfOChSrcIntervalHighOutputPower_Object((1,3,6,1,2,1,10,133,1,6,7,1,5),_OptIfOChSrcIntervalHighOutputPower_Type())
+optIfOChSrcIntervalHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSrcIntervalHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSrcIntervalHighOutputPower.setUnits(_D)
+_OptIfOChSrcCurDayTable_Object=MibTable
+optIfOChSrcCurDayTable=_OptIfOChSrcCurDayTable_Object((1,3,6,1,2,1,10,133,1,6,8))
+if mibBuilder.loadTexts:optIfOChSrcCurDayTable.setStatus(_A)
+_OptIfOChSrcCurDayEntry_Object=MibTableRow
+optIfOChSrcCurDayEntry=_OptIfOChSrcCurDayEntry_Object((1,3,6,1,2,1,10,133,1,6,8,1))
+optIfOChSrcCurDayEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOChSrcCurDayEntry.setStatus(_A)
+_OptIfOChSrcCurDaySuspectedFlag_Type=TruthValue
+_OptIfOChSrcCurDaySuspectedFlag_Object=MibTableColumn
+optIfOChSrcCurDaySuspectedFlag=_OptIfOChSrcCurDaySuspectedFlag_Object((1,3,6,1,2,1,10,133,1,6,8,1,1),_OptIfOChSrcCurDaySuspectedFlag_Type())
+optIfOChSrcCurDaySuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSrcCurDaySuspectedFlag.setStatus(_A)
+_OptIfOChSrcCurDayLowOutputPower_Type=Integer32
+_OptIfOChSrcCurDayLowOutputPower_Object=MibTableColumn
+optIfOChSrcCurDayLowOutputPower=_OptIfOChSrcCurDayLowOutputPower_Object((1,3,6,1,2,1,10,133,1,6,8,1,2),_OptIfOChSrcCurDayLowOutputPower_Type())
+optIfOChSrcCurDayLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSrcCurDayLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSrcCurDayLowOutputPower.setUnits(_D)
+_OptIfOChSrcCurDayHighOutputPower_Type=Integer32
+_OptIfOChSrcCurDayHighOutputPower_Object=MibTableColumn
+optIfOChSrcCurDayHighOutputPower=_OptIfOChSrcCurDayHighOutputPower_Object((1,3,6,1,2,1,10,133,1,6,8,1,3),_OptIfOChSrcCurDayHighOutputPower_Type())
+optIfOChSrcCurDayHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSrcCurDayHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSrcCurDayHighOutputPower.setUnits(_D)
+_OptIfOChSrcPrevDayTable_Object=MibTable
+optIfOChSrcPrevDayTable=_OptIfOChSrcPrevDayTable_Object((1,3,6,1,2,1,10,133,1,6,9))
+if mibBuilder.loadTexts:optIfOChSrcPrevDayTable.setStatus(_A)
+_OptIfOChSrcPrevDayEntry_Object=MibTableRow
+optIfOChSrcPrevDayEntry=_OptIfOChSrcPrevDayEntry_Object((1,3,6,1,2,1,10,133,1,6,9,1))
+optIfOChSrcPrevDayEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOChSrcPrevDayEntry.setStatus(_A)
+_OptIfOChSrcPrevDaySuspectedFlag_Type=TruthValue
+_OptIfOChSrcPrevDaySuspectedFlag_Object=MibTableColumn
+optIfOChSrcPrevDaySuspectedFlag=_OptIfOChSrcPrevDaySuspectedFlag_Object((1,3,6,1,2,1,10,133,1,6,9,1,1),_OptIfOChSrcPrevDaySuspectedFlag_Type())
+optIfOChSrcPrevDaySuspectedFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSrcPrevDaySuspectedFlag.setStatus(_A)
+_OptIfOChSrcPrevDayLastOutputPower_Type=Integer32
+_OptIfOChSrcPrevDayLastOutputPower_Object=MibTableColumn
+optIfOChSrcPrevDayLastOutputPower=_OptIfOChSrcPrevDayLastOutputPower_Object((1,3,6,1,2,1,10,133,1,6,9,1,2),_OptIfOChSrcPrevDayLastOutputPower_Type())
+optIfOChSrcPrevDayLastOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSrcPrevDayLastOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSrcPrevDayLastOutputPower.setUnits(_D)
+_OptIfOChSrcPrevDayLowOutputPower_Type=Integer32
+_OptIfOChSrcPrevDayLowOutputPower_Object=MibTableColumn
+optIfOChSrcPrevDayLowOutputPower=_OptIfOChSrcPrevDayLowOutputPower_Object((1,3,6,1,2,1,10,133,1,6,9,1,3),_OptIfOChSrcPrevDayLowOutputPower_Type())
+optIfOChSrcPrevDayLowOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSrcPrevDayLowOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSrcPrevDayLowOutputPower.setUnits(_D)
+_OptIfOChSrcPrevDayHighOutputPower_Type=Integer32
+_OptIfOChSrcPrevDayHighOutputPower_Object=MibTableColumn
+optIfOChSrcPrevDayHighOutputPower=_OptIfOChSrcPrevDayHighOutputPower_Object((1,3,6,1,2,1,10,133,1,6,9,1,4),_OptIfOChSrcPrevDayHighOutputPower_Type())
+optIfOChSrcPrevDayHighOutputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOChSrcPrevDayHighOutputPower.setStatus(_A)
+if mibBuilder.loadTexts:optIfOChSrcPrevDayHighOutputPower.setUnits(_D)
+_OptIfOTUk_ObjectIdentity=ObjectIdentity
+optIfOTUk=_OptIfOTUk_ObjectIdentity((1,3,6,1,2,1,10,133,1,7))
+_OptIfOTUkConfigTable_Object=MibTable
+optIfOTUkConfigTable=_OptIfOTUkConfigTable_Object((1,3,6,1,2,1,10,133,1,7,1))
+if mibBuilder.loadTexts:optIfOTUkConfigTable.setStatus(_A)
+_OptIfOTUkConfigEntry_Object=MibTableRow
+optIfOTUkConfigEntry=_OptIfOTUkConfigEntry_Object((1,3,6,1,2,1,10,133,1,7,1,1))
+optIfOTUkConfigEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfOTUkConfigEntry.setStatus(_A)
+_OptIfOTUkDirectionality_Type=OptIfDirectionality
+_OptIfOTUkDirectionality_Object=MibTableColumn
+optIfOTUkDirectionality=_OptIfOTUkDirectionality_Object((1,3,6,1,2,1,10,133,1,7,1,1,1),_OptIfOTUkDirectionality_Type())
+optIfOTUkDirectionality.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTUkDirectionality.setStatus(_A)
+_OptIfOTUkBitRateK_Type=OptIfBitRateK
+_OptIfOTUkBitRateK_Object=MibTableColumn
+optIfOTUkBitRateK=_OptIfOTUkBitRateK_Object((1,3,6,1,2,1,10,133,1,7,1,1,2),_OptIfOTUkBitRateK_Type())
+optIfOTUkBitRateK.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTUkBitRateK.setStatus(_A)
+_OptIfOTUkTraceIdentifierTransmitted_Type=OptIfTxTI
+_OptIfOTUkTraceIdentifierTransmitted_Object=MibTableColumn
+optIfOTUkTraceIdentifierTransmitted=_OptIfOTUkTraceIdentifierTransmitted_Object((1,3,6,1,2,1,10,133,1,7,1,1,3),_OptIfOTUkTraceIdentifierTransmitted_Type())
+optIfOTUkTraceIdentifierTransmitted.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTUkTraceIdentifierTransmitted.setStatus(_A)
+_OptIfOTUkDAPIExpected_Type=OptIfExDAPI
+_OptIfOTUkDAPIExpected_Object=MibTableColumn
+optIfOTUkDAPIExpected=_OptIfOTUkDAPIExpected_Object((1,3,6,1,2,1,10,133,1,7,1,1,4),_OptIfOTUkDAPIExpected_Type())
+optIfOTUkDAPIExpected.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTUkDAPIExpected.setStatus(_A)
+_OptIfOTUkSAPIExpected_Type=OptIfExSAPI
+_OptIfOTUkSAPIExpected_Object=MibTableColumn
+optIfOTUkSAPIExpected=_OptIfOTUkSAPIExpected_Object((1,3,6,1,2,1,10,133,1,7,1,1,5),_OptIfOTUkSAPIExpected_Type())
+optIfOTUkSAPIExpected.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTUkSAPIExpected.setStatus(_A)
+_OptIfOTUkTraceIdentifierAccepted_Type=OptIfAcTI
+_OptIfOTUkTraceIdentifierAccepted_Object=MibTableColumn
+optIfOTUkTraceIdentifierAccepted=_OptIfOTUkTraceIdentifierAccepted_Object((1,3,6,1,2,1,10,133,1,7,1,1,6),_OptIfOTUkTraceIdentifierAccepted_Type())
+optIfOTUkTraceIdentifierAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTUkTraceIdentifierAccepted.setStatus(_A)
+_OptIfOTUkTIMDetMode_Type=OptIfTIMDetMode
+_OptIfOTUkTIMDetMode_Object=MibTableColumn
+optIfOTUkTIMDetMode=_OptIfOTUkTIMDetMode_Object((1,3,6,1,2,1,10,133,1,7,1,1,7),_OptIfOTUkTIMDetMode_Type())
+optIfOTUkTIMDetMode.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTUkTIMDetMode.setStatus(_A)
+_OptIfOTUkTIMActEnabled_Type=TruthValue
+_OptIfOTUkTIMActEnabled_Object=MibTableColumn
+optIfOTUkTIMActEnabled=_OptIfOTUkTIMActEnabled_Object((1,3,6,1,2,1,10,133,1,7,1,1,8),_OptIfOTUkTIMActEnabled_Type())
+optIfOTUkTIMActEnabled.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTUkTIMActEnabled.setStatus(_A)
+_OptIfOTUkDEGThr_Type=OptIfDEGThr
+_OptIfOTUkDEGThr_Object=MibTableColumn
+optIfOTUkDEGThr=_OptIfOTUkDEGThr_Object((1,3,6,1,2,1,10,133,1,7,1,1,9),_OptIfOTUkDEGThr_Type())
+optIfOTUkDEGThr.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTUkDEGThr.setStatus(_A)
+if mibBuilder.loadTexts:optIfOTUkDEGThr.setUnits(_Q)
+_OptIfOTUkDEGM_Type=OptIfDEGM
+_OptIfOTUkDEGM_Object=MibTableColumn
+optIfOTUkDEGM=_OptIfOTUkDEGM_Object((1,3,6,1,2,1,10,133,1,7,1,1,10),_OptIfOTUkDEGM_Type())
+optIfOTUkDEGM.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTUkDEGM.setStatus(_A)
+_OptIfOTUkSinkAdaptActive_Type=TruthValue
+_OptIfOTUkSinkAdaptActive_Object=MibTableColumn
+optIfOTUkSinkAdaptActive=_OptIfOTUkSinkAdaptActive_Object((1,3,6,1,2,1,10,133,1,7,1,1,11),_OptIfOTUkSinkAdaptActive_Type())
+optIfOTUkSinkAdaptActive.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTUkSinkAdaptActive.setStatus(_A)
+_OptIfOTUkSourceAdaptActive_Type=TruthValue
+_OptIfOTUkSourceAdaptActive_Object=MibTableColumn
+optIfOTUkSourceAdaptActive=_OptIfOTUkSourceAdaptActive_Object((1,3,6,1,2,1,10,133,1,7,1,1,12),_OptIfOTUkSourceAdaptActive_Type())
+optIfOTUkSourceAdaptActive.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTUkSourceAdaptActive.setStatus(_A)
+_OptIfOTUkSinkFECEnabled_Type=TruthValue
+_OptIfOTUkSinkFECEnabled_Object=MibTableColumn
+optIfOTUkSinkFECEnabled=_OptIfOTUkSinkFECEnabled_Object((1,3,6,1,2,1,10,133,1,7,1,1,13),_OptIfOTUkSinkFECEnabled_Type())
+optIfOTUkSinkFECEnabled.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfOTUkSinkFECEnabled.setStatus(_A)
+class _OptIfOTUkCurrentStatus_Type(Bits):namedValues=NamedValues(*((_O,0),(_R,1),(_L,2),(_M,3),('lof',4),('ais',5),('lom',6)))
+_OptIfOTUkCurrentStatus_Type.__name__=_J
+_OptIfOTUkCurrentStatus_Object=MibTableColumn
+optIfOTUkCurrentStatus=_OptIfOTUkCurrentStatus_Object((1,3,6,1,2,1,10,133,1,7,1,1,14),_OptIfOTUkCurrentStatus_Type())
+optIfOTUkCurrentStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfOTUkCurrentStatus.setStatus(_A)
+_OptIfGCC0ConfigTable_Object=MibTable
+optIfGCC0ConfigTable=_OptIfGCC0ConfigTable_Object((1,3,6,1,2,1,10,133,1,7,2))
+if mibBuilder.loadTexts:optIfGCC0ConfigTable.setStatus(_A)
+_OptIfGCC0ConfigEntry_Object=MibTableRow
+optIfGCC0ConfigEntry=_OptIfGCC0ConfigEntry_Object((1,3,6,1,2,1,10,133,1,7,2,1))
+optIfGCC0ConfigEntry.setIndexNames((0,_F,_G),(0,_B,_f))
+if mibBuilder.loadTexts:optIfGCC0ConfigEntry.setStatus(_A)
+_OptIfGCC0Directionality_Type=OptIfDirectionality
+_OptIfGCC0Directionality_Object=MibTableColumn
+optIfGCC0Directionality=_OptIfGCC0Directionality_Object((1,3,6,1,2,1,10,133,1,7,2,1,1),_OptIfGCC0Directionality_Type())
+optIfGCC0Directionality.setMaxAccess(_I)
+if mibBuilder.loadTexts:optIfGCC0Directionality.setStatus(_A)
+_OptIfGCC0Application_Type=SnmpAdminString
+_OptIfGCC0Application_Object=MibTableColumn
+optIfGCC0Application=_OptIfGCC0Application_Object((1,3,6,1,2,1,10,133,1,7,2,1,2),_OptIfGCC0Application_Type())
+optIfGCC0Application.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfGCC0Application.setStatus(_A)
+_OptIfGCC0RowStatus_Type=RowStatus
+_OptIfGCC0RowStatus_Object=MibTableColumn
+optIfGCC0RowStatus=_OptIfGCC0RowStatus_Object((1,3,6,1,2,1,10,133,1,7,2,1,3),_OptIfGCC0RowStatus_Type())
+optIfGCC0RowStatus.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfGCC0RowStatus.setStatus(_A)
+_OptIfODUk_ObjectIdentity=ObjectIdentity
+optIfODUk=_OptIfODUk_ObjectIdentity((1,3,6,1,2,1,10,133,1,8))
+_OptIfODUkConfigTable_Object=MibTable
+optIfODUkConfigTable=_OptIfODUkConfigTable_Object((1,3,6,1,2,1,10,133,1,8,1))
+if mibBuilder.loadTexts:optIfODUkConfigTable.setStatus(_A)
+_OptIfODUkConfigEntry_Object=MibTableRow
+optIfODUkConfigEntry=_OptIfODUkConfigEntry_Object((1,3,6,1,2,1,10,133,1,8,1,1))
+optIfODUkConfigEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfODUkConfigEntry.setStatus(_A)
+_OptIfODUkDirectionality_Type=OptIfDirectionality
+_OptIfODUkDirectionality_Object=MibTableColumn
+optIfODUkDirectionality=_OptIfODUkDirectionality_Object((1,3,6,1,2,1,10,133,1,8,1,1,1),_OptIfODUkDirectionality_Type())
+optIfODUkDirectionality.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfODUkDirectionality.setStatus(_A)
+_OptIfODUkBitRateK_Type=OptIfBitRateK
+_OptIfODUkBitRateK_Object=MibTableColumn
+optIfODUkBitRateK=_OptIfODUkBitRateK_Object((1,3,6,1,2,1,10,133,1,8,1,1,2),_OptIfODUkBitRateK_Type())
+optIfODUkBitRateK.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfODUkBitRateK.setStatus(_A)
+class _OptIfODUkTcmFieldsInUse_Type(Bits):namedValues=NamedValues(*(('tcmField1',0),('tcmField2',1),('tcmField3',2),('tcmField4',3),('tcmField5',4),('tcmField6',5)))
+_OptIfODUkTcmFieldsInUse_Type.__name__=_J
+_OptIfODUkTcmFieldsInUse_Object=MibTableColumn
+optIfODUkTcmFieldsInUse=_OptIfODUkTcmFieldsInUse_Object((1,3,6,1,2,1,10,133,1,8,1,1,3),_OptIfODUkTcmFieldsInUse_Type())
+optIfODUkTcmFieldsInUse.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfODUkTcmFieldsInUse.setStatus(_A)
+_OptIfODUkPositionSeqCurrentSize_Type=Unsigned32
+_OptIfODUkPositionSeqCurrentSize_Object=MibTableColumn
+optIfODUkPositionSeqCurrentSize=_OptIfODUkPositionSeqCurrentSize_Object((1,3,6,1,2,1,10,133,1,8,1,1,4),_OptIfODUkPositionSeqCurrentSize_Type())
+optIfODUkPositionSeqCurrentSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfODUkPositionSeqCurrentSize.setStatus(_A)
+_OptIfODUkTtpPresent_Type=TruthValue
+_OptIfODUkTtpPresent_Object=MibTableColumn
+optIfODUkTtpPresent=_OptIfODUkTtpPresent_Object((1,3,6,1,2,1,10,133,1,8,1,1,5),_OptIfODUkTtpPresent_Type())
+optIfODUkTtpPresent.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfODUkTtpPresent.setStatus(_A)
+_OptIfODUkTtpConfigTable_Object=MibTable
+optIfODUkTtpConfigTable=_OptIfODUkTtpConfigTable_Object((1,3,6,1,2,1,10,133,1,8,2))
+if mibBuilder.loadTexts:optIfODUkTtpConfigTable.setStatus(_A)
+_OptIfODUkTtpConfigEntry_Object=MibTableRow
+optIfODUkTtpConfigEntry=_OptIfODUkTtpConfigEntry_Object((1,3,6,1,2,1,10,133,1,8,2,1))
+optIfODUkTtpConfigEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:optIfODUkTtpConfigEntry.setStatus(_A)
+_OptIfODUkTtpTraceIdentifierTransmitted_Type=OptIfTxTI
+_OptIfODUkTtpTraceIdentifierTransmitted_Object=MibTableColumn
+optIfODUkTtpTraceIdentifierTransmitted=_OptIfODUkTtpTraceIdentifierTransmitted_Object((1,3,6,1,2,1,10,133,1,8,2,1,1),_OptIfODUkTtpTraceIdentifierTransmitted_Type())
+optIfODUkTtpTraceIdentifierTransmitted.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfODUkTtpTraceIdentifierTransmitted.setStatus(_A)
+_OptIfODUkTtpDAPIExpected_Type=OptIfExDAPI
+_OptIfODUkTtpDAPIExpected_Object=MibTableColumn
+optIfODUkTtpDAPIExpected=_OptIfODUkTtpDAPIExpected_Object((1,3,6,1,2,1,10,133,1,8,2,1,2),_OptIfODUkTtpDAPIExpected_Type())
+optIfODUkTtpDAPIExpected.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfODUkTtpDAPIExpected.setStatus(_A)
+_OptIfODUkTtpSAPIExpected_Type=OptIfExSAPI
+_OptIfODUkTtpSAPIExpected_Object=MibTableColumn
+optIfODUkTtpSAPIExpected=_OptIfODUkTtpSAPIExpected_Object((1,3,6,1,2,1,10,133,1,8,2,1,3),_OptIfODUkTtpSAPIExpected_Type())
+optIfODUkTtpSAPIExpected.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfODUkTtpSAPIExpected.setStatus(_A)
+_OptIfODUkTtpTraceIdentifierAccepted_Type=OptIfAcTI
+_OptIfODUkTtpTraceIdentifierAccepted_Object=MibTableColumn
+optIfODUkTtpTraceIdentifierAccepted=_OptIfODUkTtpTraceIdentifierAccepted_Object((1,3,6,1,2,1,10,133,1,8,2,1,4),_OptIfODUkTtpTraceIdentifierAccepted_Type())
+optIfODUkTtpTraceIdentifierAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfODUkTtpTraceIdentifierAccepted.setStatus(_A)
+_OptIfODUkTtpTIMDetMode_Type=OptIfTIMDetMode
+_OptIfODUkTtpTIMDetMode_Object=MibTableColumn
+optIfODUkTtpTIMDetMode=_OptIfODUkTtpTIMDetMode_Object((1,3,6,1,2,1,10,133,1,8,2,1,5),_OptIfODUkTtpTIMDetMode_Type())
+optIfODUkTtpTIMDetMode.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfODUkTtpTIMDetMode.setStatus(_A)
+_OptIfODUkTtpTIMActEnabled_Type=TruthValue
+_OptIfODUkTtpTIMActEnabled_Object=MibTableColumn
+optIfODUkTtpTIMActEnabled=_OptIfODUkTtpTIMActEnabled_Object((1,3,6,1,2,1,10,133,1,8,2,1,6),_OptIfODUkTtpTIMActEnabled_Type())
+optIfODUkTtpTIMActEnabled.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfODUkTtpTIMActEnabled.setStatus(_A)
+_OptIfODUkTtpDEGThr_Type=OptIfDEGThr
+_OptIfODUkTtpDEGThr_Object=MibTableColumn
+optIfODUkTtpDEGThr=_OptIfODUkTtpDEGThr_Object((1,3,6,1,2,1,10,133,1,8,2,1,7),_OptIfODUkTtpDEGThr_Type())
+optIfODUkTtpDEGThr.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfODUkTtpDEGThr.setStatus(_A)
+if mibBuilder.loadTexts:optIfODUkTtpDEGThr.setUnits(_Q)
+_OptIfODUkTtpDEGM_Type=OptIfDEGM
+_OptIfODUkTtpDEGM_Object=MibTableColumn
+optIfODUkTtpDEGM=_OptIfODUkTtpDEGM_Object((1,3,6,1,2,1,10,133,1,8,2,1,8),_OptIfODUkTtpDEGM_Type())
+optIfODUkTtpDEGM.setMaxAccess(_E)
+if mibBuilder.loadTexts:optIfODUkTtpDEGM.setStatus(_A)
+class _OptIfODUkTtpCurrentStatus_Type(Bits):namedValues=NamedValues(*((_P,0),(_S,1),(_O,2),(_R,3),(_L,4),(_M,5)))
+_OptIfODUkTtpCurrentStatus_Type.__name__=_J
+_OptIfODUkTtpCurrentStatus_Object=MibTableColumn
+optIfODUkTtpCurrentStatus=_OptIfODUkTtpCurrentStatus_Object((1,3,6,1,2,1,10,133,1,8,2,1,9),_OptIfODUkTtpCurrentStatus_Type())
+optIfODUkTtpCurrentStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfODUkTtpCurrentStatus.setStatus(_A)
+_OptIfODUkPositionSeqTable_Object=MibTable
+optIfODUkPositionSeqTable=_OptIfODUkPositionSeqTable_Object((1,3,6,1,2,1,10,133,1,8,3))
+if mibBuilder.loadTexts:optIfODUkPositionSeqTable.setStatus(_A)
+_OptIfODUkPositionSeqEntry_Object=MibTableRow
+optIfODUkPositionSeqEntry=_OptIfODUkPositionSeqEntry_Object((1,3,6,1,2,1,10,133,1,8,3,1))
+optIfODUkPositionSeqEntry.setIndexNames((0,_F,_G),(0,_B,_g))
+if mibBuilder.loadTexts:optIfODUkPositionSeqEntry.setStatus(_A)
+class _OptIfODUkPositionSeqIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_OptIfODUkPositionSeqIndex_Type.__name__=_K
+_OptIfODUkPositionSeqIndex_Object=MibTableColumn
+optIfODUkPositionSeqIndex=_OptIfODUkPositionSeqIndex_Object((1,3,6,1,2,1,10,133,1,8,3,1,1),_OptIfODUkPositionSeqIndex_Type())
+optIfODUkPositionSeqIndex.setMaxAccess(_I)
+if mibBuilder.loadTexts:optIfODUkPositionSeqIndex.setStatus(_A)
+_OptIfODUkPositionSeqPosition_Type=Unsigned32
+_OptIfODUkPositionSeqPosition_Object=MibTableColumn
+optIfODUkPositionSeqPosition=_OptIfODUkPositionSeqPosition_Object((1,3,6,1,2,1,10,133,1,8,3,1,2),_OptIfODUkPositionSeqPosition_Type())
+optIfODUkPositionSeqPosition.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfODUkPositionSeqPosition.setStatus(_A)
+_OptIfODUkPositionSeqPointer_Type=RowPointer
+_OptIfODUkPositionSeqPointer_Object=MibTableColumn
+optIfODUkPositionSeqPointer=_OptIfODUkPositionSeqPointer_Object((1,3,6,1,2,1,10,133,1,8,3,1,3),_OptIfODUkPositionSeqPointer_Type())
+optIfODUkPositionSeqPointer.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfODUkPositionSeqPointer.setStatus(_A)
+_OptIfODUkNimConfigTable_Object=MibTable
+optIfODUkNimConfigTable=_OptIfODUkNimConfigTable_Object((1,3,6,1,2,1,10,133,1,8,4))
+if mibBuilder.loadTexts:optIfODUkNimConfigTable.setStatus(_A)
+_OptIfODUkNimConfigEntry_Object=MibTableRow
+optIfODUkNimConfigEntry=_OptIfODUkNimConfigEntry_Object((1,3,6,1,2,1,10,133,1,8,4,1))
+optIfODUkNimConfigEntry.setIndexNames((0,_F,_G),(0,_B,_h))
+if mibBuilder.loadTexts:optIfODUkNimConfigEntry.setStatus(_A)
+_OptIfODUkNimDirectionality_Type=OptIfSinkOrSource
+_OptIfODUkNimDirectionality_Object=MibTableColumn
+optIfODUkNimDirectionality=_OptIfODUkNimDirectionality_Object((1,3,6,1,2,1,10,133,1,8,4,1,1),_OptIfODUkNimDirectionality_Type())
+optIfODUkNimDirectionality.setMaxAccess(_I)
+if mibBuilder.loadTexts:optIfODUkNimDirectionality.setStatus(_A)
+_OptIfODUkNimDAPIExpected_Type=OptIfExDAPI
+_OptIfODUkNimDAPIExpected_Object=MibTableColumn
+optIfODUkNimDAPIExpected=_OptIfODUkNimDAPIExpected_Object((1,3,6,1,2,1,10,133,1,8,4,1,2),_OptIfODUkNimDAPIExpected_Type())
+optIfODUkNimDAPIExpected.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkNimDAPIExpected.setStatus(_A)
+_OptIfODUkNimSAPIExpected_Type=OptIfExSAPI
+_OptIfODUkNimSAPIExpected_Object=MibTableColumn
+optIfODUkNimSAPIExpected=_OptIfODUkNimSAPIExpected_Object((1,3,6,1,2,1,10,133,1,8,4,1,3),_OptIfODUkNimSAPIExpected_Type())
+optIfODUkNimSAPIExpected.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkNimSAPIExpected.setStatus(_A)
+_OptIfODUkNimTraceIdentifierAccepted_Type=OptIfAcTI
+_OptIfODUkNimTraceIdentifierAccepted_Object=MibTableColumn
+optIfODUkNimTraceIdentifierAccepted=_OptIfODUkNimTraceIdentifierAccepted_Object((1,3,6,1,2,1,10,133,1,8,4,1,4),_OptIfODUkNimTraceIdentifierAccepted_Type())
+optIfODUkNimTraceIdentifierAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfODUkNimTraceIdentifierAccepted.setStatus(_A)
+_OptIfODUkNimTIMDetMode_Type=OptIfTIMDetMode
+_OptIfODUkNimTIMDetMode_Object=MibTableColumn
+optIfODUkNimTIMDetMode=_OptIfODUkNimTIMDetMode_Object((1,3,6,1,2,1,10,133,1,8,4,1,5),_OptIfODUkNimTIMDetMode_Type())
+optIfODUkNimTIMDetMode.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkNimTIMDetMode.setStatus(_A)
+_OptIfODUkNimTIMActEnabled_Type=TruthValue
+_OptIfODUkNimTIMActEnabled_Object=MibTableColumn
+optIfODUkNimTIMActEnabled=_OptIfODUkNimTIMActEnabled_Object((1,3,6,1,2,1,10,133,1,8,4,1,6),_OptIfODUkNimTIMActEnabled_Type())
+optIfODUkNimTIMActEnabled.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkNimTIMActEnabled.setStatus(_A)
+_OptIfODUkNimDEGThr_Type=OptIfDEGThr
+_OptIfODUkNimDEGThr_Object=MibTableColumn
+optIfODUkNimDEGThr=_OptIfODUkNimDEGThr_Object((1,3,6,1,2,1,10,133,1,8,4,1,7),_OptIfODUkNimDEGThr_Type())
+optIfODUkNimDEGThr.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkNimDEGThr.setStatus(_A)
+if mibBuilder.loadTexts:optIfODUkNimDEGThr.setUnits(_Q)
+_OptIfODUkNimDEGM_Type=OptIfDEGM
+_OptIfODUkNimDEGM_Object=MibTableColumn
+optIfODUkNimDEGM=_OptIfODUkNimDEGM_Object((1,3,6,1,2,1,10,133,1,8,4,1,8),_OptIfODUkNimDEGM_Type())
+optIfODUkNimDEGM.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkNimDEGM.setStatus(_A)
+class _OptIfODUkNimCurrentStatus_Type(Bits):namedValues=NamedValues(*((_P,0),(_S,1),(_O,2),(_R,3),(_L,4),(_M,5)))
+_OptIfODUkNimCurrentStatus_Type.__name__=_J
+_OptIfODUkNimCurrentStatus_Object=MibTableColumn
+optIfODUkNimCurrentStatus=_OptIfODUkNimCurrentStatus_Object((1,3,6,1,2,1,10,133,1,8,4,1,9),_OptIfODUkNimCurrentStatus_Type())
+optIfODUkNimCurrentStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfODUkNimCurrentStatus.setStatus(_A)
+_OptIfODUkNimRowStatus_Type=RowStatus
+_OptIfODUkNimRowStatus_Object=MibTableColumn
+optIfODUkNimRowStatus=_OptIfODUkNimRowStatus_Object((1,3,6,1,2,1,10,133,1,8,4,1,10),_OptIfODUkNimRowStatus_Type())
+optIfODUkNimRowStatus.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkNimRowStatus.setStatus(_A)
+_OptIfGCC12ConfigTable_Object=MibTable
+optIfGCC12ConfigTable=_OptIfGCC12ConfigTable_Object((1,3,6,1,2,1,10,133,1,8,5))
+if mibBuilder.loadTexts:optIfGCC12ConfigTable.setStatus(_A)
+_OptIfGCC12ConfigEntry_Object=MibTableRow
+optIfGCC12ConfigEntry=_OptIfGCC12ConfigEntry_Object((1,3,6,1,2,1,10,133,1,8,5,1))
+optIfGCC12ConfigEntry.setIndexNames((0,_F,_G),(0,_B,_i),(0,_B,_j))
+if mibBuilder.loadTexts:optIfGCC12ConfigEntry.setStatus(_A)
+_OptIfGCC12Codirectional_Type=TruthValue
+_OptIfGCC12Codirectional_Object=MibTableColumn
+optIfGCC12Codirectional=_OptIfGCC12Codirectional_Object((1,3,6,1,2,1,10,133,1,8,5,1,1),_OptIfGCC12Codirectional_Type())
+optIfGCC12Codirectional.setMaxAccess(_I)
+if mibBuilder.loadTexts:optIfGCC12Codirectional.setStatus(_A)
+class _OptIfGCC12GCCAccess_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('gcc1',1),('gcc2',2),('gcc1and2',3)))
+_OptIfGCC12GCCAccess_Type.__name__=_N
+_OptIfGCC12GCCAccess_Object=MibTableColumn
+optIfGCC12GCCAccess=_OptIfGCC12GCCAccess_Object((1,3,6,1,2,1,10,133,1,8,5,1,2),_OptIfGCC12GCCAccess_Type())
+optIfGCC12GCCAccess.setMaxAccess(_I)
+if mibBuilder.loadTexts:optIfGCC12GCCAccess.setStatus(_A)
+_OptIfGCC12GCCPassThrough_Type=TruthValue
+_OptIfGCC12GCCPassThrough_Object=MibTableColumn
+optIfGCC12GCCPassThrough=_OptIfGCC12GCCPassThrough_Object((1,3,6,1,2,1,10,133,1,8,5,1,3),_OptIfGCC12GCCPassThrough_Type())
+optIfGCC12GCCPassThrough.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfGCC12GCCPassThrough.setStatus(_A)
+_OptIfGCC12Application_Type=SnmpAdminString
+_OptIfGCC12Application_Object=MibTableColumn
+optIfGCC12Application=_OptIfGCC12Application_Object((1,3,6,1,2,1,10,133,1,8,5,1,4),_OptIfGCC12Application_Type())
+optIfGCC12Application.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfGCC12Application.setStatus(_A)
+_OptIfGCC12RowStatus_Type=RowStatus
+_OptIfGCC12RowStatus_Object=MibTableColumn
+optIfGCC12RowStatus=_OptIfGCC12RowStatus_Object((1,3,6,1,2,1,10,133,1,8,5,1,5),_OptIfGCC12RowStatus_Type())
+optIfGCC12RowStatus.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfGCC12RowStatus.setStatus(_A)
+_OptIfODUkT_ObjectIdentity=ObjectIdentity
+optIfODUkT=_OptIfODUkT_ObjectIdentity((1,3,6,1,2,1,10,133,1,9))
+_OptIfODUkTConfigTable_Object=MibTable
+optIfODUkTConfigTable=_OptIfODUkTConfigTable_Object((1,3,6,1,2,1,10,133,1,9,1))
+if mibBuilder.loadTexts:optIfODUkTConfigTable.setStatus(_A)
+_OptIfODUkTConfigEntry_Object=MibTableRow
+optIfODUkTConfigEntry=_OptIfODUkTConfigEntry_Object((1,3,6,1,2,1,10,133,1,9,1,1))
+optIfODUkTConfigEntry.setIndexNames((0,_F,_G),(0,_B,_k),(0,_B,_l))
+if mibBuilder.loadTexts:optIfODUkTConfigEntry.setStatus(_A)
+class _OptIfODUkTTcmField_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,6))
+_OptIfODUkTTcmField_Type.__name__=_K
+_OptIfODUkTTcmField_Object=MibTableColumn
+optIfODUkTTcmField=_OptIfODUkTTcmField_Object((1,3,6,1,2,1,10,133,1,9,1,1,1),_OptIfODUkTTcmField_Type())
+optIfODUkTTcmField.setMaxAccess(_I)
+if mibBuilder.loadTexts:optIfODUkTTcmField.setStatus(_A)
+_OptIfODUkTCodirectional_Type=TruthValue
+_OptIfODUkTCodirectional_Object=MibTableColumn
+optIfODUkTCodirectional=_OptIfODUkTCodirectional_Object((1,3,6,1,2,1,10,133,1,9,1,1,2),_OptIfODUkTCodirectional_Type())
+optIfODUkTCodirectional.setMaxAccess(_I)
+if mibBuilder.loadTexts:optIfODUkTCodirectional.setStatus(_A)
+_OptIfODUkTTraceIdentifierTransmitted_Type=OptIfTxTI
+_OptIfODUkTTraceIdentifierTransmitted_Object=MibTableColumn
+optIfODUkTTraceIdentifierTransmitted=_OptIfODUkTTraceIdentifierTransmitted_Object((1,3,6,1,2,1,10,133,1,9,1,1,3),_OptIfODUkTTraceIdentifierTransmitted_Type())
+optIfODUkTTraceIdentifierTransmitted.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTTraceIdentifierTransmitted.setStatus(_A)
+_OptIfODUkTDAPIExpected_Type=OptIfExDAPI
+_OptIfODUkTDAPIExpected_Object=MibTableColumn
+optIfODUkTDAPIExpected=_OptIfODUkTDAPIExpected_Object((1,3,6,1,2,1,10,133,1,9,1,1,4),_OptIfODUkTDAPIExpected_Type())
+optIfODUkTDAPIExpected.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTDAPIExpected.setStatus(_A)
+_OptIfODUkTSAPIExpected_Type=OptIfExSAPI
+_OptIfODUkTSAPIExpected_Object=MibTableColumn
+optIfODUkTSAPIExpected=_OptIfODUkTSAPIExpected_Object((1,3,6,1,2,1,10,133,1,9,1,1,5),_OptIfODUkTSAPIExpected_Type())
+optIfODUkTSAPIExpected.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTSAPIExpected.setStatus(_A)
+_OptIfODUkTTraceIdentifierAccepted_Type=OptIfAcTI
+_OptIfODUkTTraceIdentifierAccepted_Object=MibTableColumn
+optIfODUkTTraceIdentifierAccepted=_OptIfODUkTTraceIdentifierAccepted_Object((1,3,6,1,2,1,10,133,1,9,1,1,6),_OptIfODUkTTraceIdentifierAccepted_Type())
+optIfODUkTTraceIdentifierAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfODUkTTraceIdentifierAccepted.setStatus(_A)
+_OptIfODUkTTIMDetMode_Type=OptIfTIMDetMode
+_OptIfODUkTTIMDetMode_Object=MibTableColumn
+optIfODUkTTIMDetMode=_OptIfODUkTTIMDetMode_Object((1,3,6,1,2,1,10,133,1,9,1,1,7),_OptIfODUkTTIMDetMode_Type())
+optIfODUkTTIMDetMode.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTTIMDetMode.setStatus(_A)
+_OptIfODUkTTIMActEnabled_Type=TruthValue
+_OptIfODUkTTIMActEnabled_Object=MibTableColumn
+optIfODUkTTIMActEnabled=_OptIfODUkTTIMActEnabled_Object((1,3,6,1,2,1,10,133,1,9,1,1,8),_OptIfODUkTTIMActEnabled_Type())
+optIfODUkTTIMActEnabled.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTTIMActEnabled.setStatus(_A)
+_OptIfODUkTDEGThr_Type=OptIfDEGThr
+_OptIfODUkTDEGThr_Object=MibTableColumn
+optIfODUkTDEGThr=_OptIfODUkTDEGThr_Object((1,3,6,1,2,1,10,133,1,9,1,1,9),_OptIfODUkTDEGThr_Type())
+optIfODUkTDEGThr.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTDEGThr.setStatus(_A)
+if mibBuilder.loadTexts:optIfODUkTDEGThr.setUnits(_Q)
+_OptIfODUkTDEGM_Type=OptIfDEGM
+_OptIfODUkTDEGM_Object=MibTableColumn
+optIfODUkTDEGM=_OptIfODUkTDEGM_Object((1,3,6,1,2,1,10,133,1,9,1,1,10),_OptIfODUkTDEGM_Type())
+optIfODUkTDEGM.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTDEGM.setStatus(_A)
+class _OptIfODUkTSinkMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('operational',1),('monitor',2)))
+_OptIfODUkTSinkMode_Type.__name__=_N
+_OptIfODUkTSinkMode_Object=MibTableColumn
+optIfODUkTSinkMode=_OptIfODUkTSinkMode_Object((1,3,6,1,2,1,10,133,1,9,1,1,11),_OptIfODUkTSinkMode_Type())
+optIfODUkTSinkMode.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTSinkMode.setStatus(_A)
+class _OptIfODUkTSinkLockSignalAdminState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_m,1),(_n,2)))
+_OptIfODUkTSinkLockSignalAdminState_Type.__name__=_N
+_OptIfODUkTSinkLockSignalAdminState_Object=MibTableColumn
+optIfODUkTSinkLockSignalAdminState=_OptIfODUkTSinkLockSignalAdminState_Object((1,3,6,1,2,1,10,133,1,9,1,1,12),_OptIfODUkTSinkLockSignalAdminState_Type())
+optIfODUkTSinkLockSignalAdminState.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTSinkLockSignalAdminState.setStatus(_A)
+class _OptIfODUkTSourceLockSignalAdminState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_m,1),(_n,2)))
+_OptIfODUkTSourceLockSignalAdminState_Type.__name__=_N
+_OptIfODUkTSourceLockSignalAdminState_Object=MibTableColumn
+optIfODUkTSourceLockSignalAdminState=_OptIfODUkTSourceLockSignalAdminState_Object((1,3,6,1,2,1,10,133,1,9,1,1,13),_OptIfODUkTSourceLockSignalAdminState_Type())
+optIfODUkTSourceLockSignalAdminState.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTSourceLockSignalAdminState.setStatus(_A)
+class _OptIfODUkTCurrentStatus_Type(Bits):namedValues=NamedValues(*((_P,0),(_S,1),(_O,2),(_R,3),(_L,4),(_M,5)))
+_OptIfODUkTCurrentStatus_Type.__name__=_J
+_OptIfODUkTCurrentStatus_Object=MibTableColumn
+optIfODUkTCurrentStatus=_OptIfODUkTCurrentStatus_Object((1,3,6,1,2,1,10,133,1,9,1,1,14),_OptIfODUkTCurrentStatus_Type())
+optIfODUkTCurrentStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfODUkTCurrentStatus.setStatus(_A)
+_OptIfODUkTRowStatus_Type=RowStatus
+_OptIfODUkTRowStatus_Object=MibTableColumn
+optIfODUkTRowStatus=_OptIfODUkTRowStatus_Object((1,3,6,1,2,1,10,133,1,9,1,1,15),_OptIfODUkTRowStatus_Type())
+optIfODUkTRowStatus.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTRowStatus.setStatus(_A)
+_OptIfODUkTNimConfigTable_Object=MibTable
+optIfODUkTNimConfigTable=_OptIfODUkTNimConfigTable_Object((1,3,6,1,2,1,10,133,1,9,2))
+if mibBuilder.loadTexts:optIfODUkTNimConfigTable.setStatus(_A)
+_OptIfODUkTNimConfigEntry_Object=MibTableRow
+optIfODUkTNimConfigEntry=_OptIfODUkTNimConfigEntry_Object((1,3,6,1,2,1,10,133,1,9,2,1))
+optIfODUkTNimConfigEntry.setIndexNames((0,_F,_G),(0,_B,_o),(0,_B,_p))
+if mibBuilder.loadTexts:optIfODUkTNimConfigEntry.setStatus(_A)
+class _OptIfODUkTNimTcmField_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,6))
+_OptIfODUkTNimTcmField_Type.__name__=_K
+_OptIfODUkTNimTcmField_Object=MibTableColumn
+optIfODUkTNimTcmField=_OptIfODUkTNimTcmField_Object((1,3,6,1,2,1,10,133,1,9,2,1,1),_OptIfODUkTNimTcmField_Type())
+optIfODUkTNimTcmField.setMaxAccess(_I)
+if mibBuilder.loadTexts:optIfODUkTNimTcmField.setStatus(_A)
+_OptIfODUkTNimDirectionality_Type=OptIfSinkOrSource
+_OptIfODUkTNimDirectionality_Object=MibTableColumn
+optIfODUkTNimDirectionality=_OptIfODUkTNimDirectionality_Object((1,3,6,1,2,1,10,133,1,9,2,1,2),_OptIfODUkTNimDirectionality_Type())
+optIfODUkTNimDirectionality.setMaxAccess(_I)
+if mibBuilder.loadTexts:optIfODUkTNimDirectionality.setStatus(_A)
+_OptIfODUkTNimDAPIExpected_Type=OptIfExDAPI
+_OptIfODUkTNimDAPIExpected_Object=MibTableColumn
+optIfODUkTNimDAPIExpected=_OptIfODUkTNimDAPIExpected_Object((1,3,6,1,2,1,10,133,1,9,2,1,3),_OptIfODUkTNimDAPIExpected_Type())
+optIfODUkTNimDAPIExpected.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTNimDAPIExpected.setStatus(_A)
+_OptIfODUkTNimSAPIExpected_Type=OptIfExSAPI
+_OptIfODUkTNimSAPIExpected_Object=MibTableColumn
+optIfODUkTNimSAPIExpected=_OptIfODUkTNimSAPIExpected_Object((1,3,6,1,2,1,10,133,1,9,2,1,4),_OptIfODUkTNimSAPIExpected_Type())
+optIfODUkTNimSAPIExpected.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTNimSAPIExpected.setStatus(_A)
+_OptIfODUkTNimTraceIdentifierAccepted_Type=OptIfAcTI
+_OptIfODUkTNimTraceIdentifierAccepted_Object=MibTableColumn
+optIfODUkTNimTraceIdentifierAccepted=_OptIfODUkTNimTraceIdentifierAccepted_Object((1,3,6,1,2,1,10,133,1,9,2,1,5),_OptIfODUkTNimTraceIdentifierAccepted_Type())
+optIfODUkTNimTraceIdentifierAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfODUkTNimTraceIdentifierAccepted.setStatus(_A)
+_OptIfODUkTNimTIMDetMode_Type=OptIfTIMDetMode
+_OptIfODUkTNimTIMDetMode_Object=MibTableColumn
+optIfODUkTNimTIMDetMode=_OptIfODUkTNimTIMDetMode_Object((1,3,6,1,2,1,10,133,1,9,2,1,6),_OptIfODUkTNimTIMDetMode_Type())
+optIfODUkTNimTIMDetMode.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTNimTIMDetMode.setStatus(_A)
+_OptIfODUkTNimTIMActEnabled_Type=TruthValue
+_OptIfODUkTNimTIMActEnabled_Object=MibTableColumn
+optIfODUkTNimTIMActEnabled=_OptIfODUkTNimTIMActEnabled_Object((1,3,6,1,2,1,10,133,1,9,2,1,7),_OptIfODUkTNimTIMActEnabled_Type())
+optIfODUkTNimTIMActEnabled.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTNimTIMActEnabled.setStatus(_A)
+_OptIfODUkTNimDEGThr_Type=OptIfDEGThr
+_OptIfODUkTNimDEGThr_Object=MibTableColumn
+optIfODUkTNimDEGThr=_OptIfODUkTNimDEGThr_Object((1,3,6,1,2,1,10,133,1,9,2,1,8),_OptIfODUkTNimDEGThr_Type())
+optIfODUkTNimDEGThr.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTNimDEGThr.setStatus(_A)
+if mibBuilder.loadTexts:optIfODUkTNimDEGThr.setUnits(_Q)
+_OptIfODUkTNimDEGM_Type=OptIfDEGM
+_OptIfODUkTNimDEGM_Object=MibTableColumn
+optIfODUkTNimDEGM=_OptIfODUkTNimDEGM_Object((1,3,6,1,2,1,10,133,1,9,2,1,9),_OptIfODUkTNimDEGM_Type())
+optIfODUkTNimDEGM.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTNimDEGM.setStatus(_A)
+class _OptIfODUkTNimCurrentStatus_Type(Bits):namedValues=NamedValues(*((_P,0),(_S,1),(_O,2),(_R,3),(_L,4),(_M,5)))
+_OptIfODUkTNimCurrentStatus_Type.__name__=_J
+_OptIfODUkTNimCurrentStatus_Object=MibTableColumn
+optIfODUkTNimCurrentStatus=_OptIfODUkTNimCurrentStatus_Object((1,3,6,1,2,1,10,133,1,9,2,1,10),_OptIfODUkTNimCurrentStatus_Type())
+optIfODUkTNimCurrentStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:optIfODUkTNimCurrentStatus.setStatus(_A)
+_OptIfODUkTNimRowStatus_Type=RowStatus
+_OptIfODUkTNimRowStatus_Object=MibTableColumn
+optIfODUkTNimRowStatus=_OptIfODUkTNimRowStatus_Object((1,3,6,1,2,1,10,133,1,9,2,1,11),_OptIfODUkTNimRowStatus_Type())
+optIfODUkTNimRowStatus.setMaxAccess(_H)
+if mibBuilder.loadTexts:optIfODUkTNimRowStatus.setStatus(_A)
+_OptIfConfs_ObjectIdentity=ObjectIdentity
+optIfConfs=_OptIfConfs_ObjectIdentity((1,3,6,1,2,1,10,133,2))
+_OptIfGroups_ObjectIdentity=ObjectIdentity
+optIfGroups=_OptIfGroups_ObjectIdentity((1,3,6,1,2,1,10,133,2,1))
+_OptIfCompl_ObjectIdentity=ObjectIdentity
+optIfCompl=_OptIfCompl_ObjectIdentity((1,3,6,1,2,1,10,133,2,2))
+optIfOTMnGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,1))
+optIfOTMnGroup.setObjects(*((_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v)))
+if mibBuilder.loadTexts:optIfOTMnGroup.setStatus(_A)
+optIfPerfMonGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,2))
+optIfPerfMonGroup.setObjects(*((_B,_w),(_B,_x),(_B,_y),(_B,_z)))
+if mibBuilder.loadTexts:optIfPerfMonGroup.setStatus(_A)
+optIfOTSnCommonGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,3))
+optIfOTSnCommonGroup.setObjects((_B,_A0))
+if mibBuilder.loadTexts:optIfOTSnCommonGroup.setStatus(_A)
+optIfOTSnSourceGroupFull=ObjectGroup((1,3,6,1,2,1,10,133,2,1,4))
+optIfOTSnSourceGroupFull.setObjects((_B,_A1))
+if mibBuilder.loadTexts:optIfOTSnSourceGroupFull.setStatus(_A)
+optIfOTSnAPRStatusGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,5))
+optIfOTSnAPRStatusGroup.setObjects((_B,_A2))
+if mibBuilder.loadTexts:optIfOTSnAPRStatusGroup.setStatus(_A)
+optIfOTSnAPRControlGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,6))
+optIfOTSnAPRControlGroup.setObjects((_B,_A3))
+if mibBuilder.loadTexts:optIfOTSnAPRControlGroup.setStatus(_A)
+optIfOTSnSinkGroupBasic=ObjectGroup((1,3,6,1,2,1,10,133,2,1,7))
+optIfOTSnSinkGroupBasic.setObjects((_B,_A4))
+if mibBuilder.loadTexts:optIfOTSnSinkGroupBasic.setStatus(_A)
+optIfOTSnSinkGroupFull=ObjectGroup((1,3,6,1,2,1,10,133,2,1,8))
+optIfOTSnSinkGroupFull.setObjects(*((_B,_A5),(_B,_A6),(_B,_A7),(_B,_A8),(_B,_A9)))
+if mibBuilder.loadTexts:optIfOTSnSinkGroupFull.setStatus(_A)
+optIfOTSnSinkPreOtnPMGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,9))
+optIfOTSnSinkPreOtnPMGroup.setObjects(*((_B,_AA),(_B,_AB),(_B,_AC),(_B,_AD),(_B,_AE),(_B,_AF),(_B,_AG),(_B,_AH),(_B,_AI),(_B,_AJ),(_B,_AK),(_B,_AL),(_B,_AM),(_B,_AN),(_B,_AO),(_B,_AP),(_B,_AQ),(_B,_AR),(_B,_AS),(_B,_AT),(_B,_AU),(_B,_AV),(_B,_AW),(_B,_AX),(_B,_AY),(_B,_AZ)))
+if mibBuilder.loadTexts:optIfOTSnSinkPreOtnPMGroup.setStatus(_A)
+optIfOTSnSinkPreOtnPMThresholdGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,10))
+optIfOTSnSinkPreOtnPMThresholdGroup.setObjects(*((_B,_Aa),(_B,_Ab),(_B,_Ac),(_B,_Ad)))
+if mibBuilder.loadTexts:optIfOTSnSinkPreOtnPMThresholdGroup.setStatus(_A)
+optIfOTSnSourcePreOtnPMGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,11))
+optIfOTSnSourcePreOtnPMGroup.setObjects(*((_B,_Ae),(_B,_Af),(_B,_Ag),(_B,_Ah),(_B,_Ai),(_B,_Aj),(_B,_Ak),(_B,_Al),(_B,_Am),(_B,_An),(_B,_Ao),(_B,_Ap),(_B,_Aq),(_B,_Ar),(_B,_As),(_B,_At),(_B,_Au),(_B,_Av),(_B,_Aw),(_B,_Ax),(_B,_Ay),(_B,_Az),(_B,_A_),(_B,_B0),(_B,_B1),(_B,_B2)))
+if mibBuilder.loadTexts:optIfOTSnSourcePreOtnPMGroup.setStatus(_A)
+optIfOTSnSourcePreOtnPMThresholdGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,12))
+optIfOTSnSourcePreOtnPMThresholdGroup.setObjects(*((_B,_B3),(_B,_B4),(_B,_B5),(_B,_B6)))
+if mibBuilder.loadTexts:optIfOTSnSourcePreOtnPMThresholdGroup.setStatus(_A)
+optIfOMSnCommonGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,13))
+optIfOMSnCommonGroup.setObjects((_B,_B7))
+if mibBuilder.loadTexts:optIfOMSnCommonGroup.setStatus(_A)
+optIfOMSnSinkGroupBasic=ObjectGroup((1,3,6,1,2,1,10,133,2,1,14))
+optIfOMSnSinkGroupBasic.setObjects((_B,_B8))
+if mibBuilder.loadTexts:optIfOMSnSinkGroupBasic.setStatus(_A)
+optIfOMSnSinkPreOtnPMGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,15))
+optIfOMSnSinkPreOtnPMGroup.setObjects(*((_B,_B9),(_B,_BA),(_B,_BB),(_B,_BC),(_B,_BD),(_B,_BE),(_B,_BF),(_B,_BG),(_B,_BH),(_B,_BI),(_B,_BJ),(_B,_BK),(_B,_BL),(_B,_BM),(_B,_BN),(_B,_BO),(_B,_BP),(_B,_BQ),(_B,_BR),(_B,_BS),(_B,_BT),(_B,_BU),(_B,_BV),(_B,_BW),(_B,_BX),(_B,_BY)))
+if mibBuilder.loadTexts:optIfOMSnSinkPreOtnPMGroup.setStatus(_A)
+optIfOMSnSinkPreOtnPMThresholdGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,16))
+optIfOMSnSinkPreOtnPMThresholdGroup.setObjects(*((_B,_BZ),(_B,_Ba),(_B,_Bb),(_B,_Bc)))
+if mibBuilder.loadTexts:optIfOMSnSinkPreOtnPMThresholdGroup.setStatus(_A)
+optIfOMSnSourcePreOtnPMGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,17))
+optIfOMSnSourcePreOtnPMGroup.setObjects(*((_B,_Bd),(_B,_Be),(_B,_Bf),(_B,_Bg),(_B,_Bh),(_B,_Bi),(_B,_Bj),(_B,_Bk),(_B,_Bl),(_B,_Bm),(_B,_Bn),(_B,_Bo),(_B,_Bp),(_B,_Bq),(_B,_Br),(_B,_Bs),(_B,_Bt),(_B,_Bu),(_B,_Bv),(_B,_Bw),(_B,_Bx),(_B,_By),(_B,_Bz),(_B,_B_),(_B,_C0),(_B,_C1)))
+if mibBuilder.loadTexts:optIfOMSnSourcePreOtnPMGroup.setStatus(_A)
+optIfOMSnSourcePreOtnPMThresholdGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,18))
+optIfOMSnSourcePreOtnPMThresholdGroup.setObjects(*((_B,_C2),(_B,_C3),(_B,_C4),(_B,_C5)))
+if mibBuilder.loadTexts:optIfOMSnSourcePreOtnPMThresholdGroup.setStatus(_A)
+optIfOChGroupCommonGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,19))
+optIfOChGroupCommonGroup.setObjects((_B,_C6))
+if mibBuilder.loadTexts:optIfOChGroupCommonGroup.setStatus(_A)
+optIfOChGroupSinkPreOtnPMGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,20))
+optIfOChGroupSinkPreOtnPMGroup.setObjects(*((_B,_C7),(_B,_C8),(_B,_C9),(_B,_CA),(_B,_CB),(_B,_CC),(_B,_CD),(_B,_CE),(_B,_CF),(_B,_CG),(_B,_CH),(_B,_CI),(_B,_CJ),(_B,_CK),(_B,_CL),(_B,_CM),(_B,_CN),(_B,_CO),(_B,_CP),(_B,_CQ),(_B,_CR),(_B,_CS),(_B,_CT),(_B,_CU),(_B,_CV),(_B,_CW)))
+if mibBuilder.loadTexts:optIfOChGroupSinkPreOtnPMGroup.setStatus(_A)
+optIfOChGroupSinkPreOtnPMThresholdGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,21))
+optIfOChGroupSinkPreOtnPMThresholdGroup.setObjects(*((_B,_CX),(_B,_CY),(_B,_CZ),(_B,_Ca)))
+if mibBuilder.loadTexts:optIfOChGroupSinkPreOtnPMThresholdGroup.setStatus(_A)
+optIfOChGroupSourcePreOtnPMGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,22))
+optIfOChGroupSourcePreOtnPMGroup.setObjects(*((_B,_Cb),(_B,_Cc),(_B,_Cd),(_B,_Ce),(_B,_Cf),(_B,_Cg),(_B,_Ch),(_B,_Ci),(_B,_Cj),(_B,_Ck),(_B,_Cl),(_B,_Cm),(_B,_Cn),(_B,_Co),(_B,_Cp),(_B,_Cq),(_B,_Cr),(_B,_Cs),(_B,_Ct),(_B,_Cu),(_B,_Cv),(_B,_Cw),(_B,_Cx),(_B,_Cy),(_B,_Cz),(_B,_C_)))
+if mibBuilder.loadTexts:optIfOChGroupSourcePreOtnPMGroup.setStatus(_A)
+optIfOChGroupSourcePreOtnPMThresholdGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,23))
+optIfOChGroupSourcePreOtnPMThresholdGroup.setObjects(*((_B,_D0),(_B,_D1),(_B,_D2),(_B,_D3)))
+if mibBuilder.loadTexts:optIfOChGroupSourcePreOtnPMThresholdGroup.setStatus(_A)
+optIfOChCommonGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,24))
+optIfOChCommonGroup.setObjects((_B,_D4))
+if mibBuilder.loadTexts:optIfOChCommonGroup.setStatus(_A)
+optIfOChSinkGroupBasic=ObjectGroup((1,3,6,1,2,1,10,133,2,1,25))
+optIfOChSinkGroupBasic.setObjects((_B,_D5))
+if mibBuilder.loadTexts:optIfOChSinkGroupBasic.setStatus(_A)
+optIfOChSinkPreOtnPMGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,26))
+optIfOChSinkPreOtnPMGroup.setObjects(*((_B,_D6),(_B,_D7),(_B,_D8),(_B,_D9),(_B,_DA),(_B,_DB),(_B,_DC),(_B,_DD),(_B,_DE),(_B,_DF),(_B,_DG),(_B,_DH),(_B,_DI),(_B,_DJ),(_B,_DK)))
+if mibBuilder.loadTexts:optIfOChSinkPreOtnPMGroup.setStatus(_A)
+optIfOChSinkPreOtnPMThresholdGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,27))
+optIfOChSinkPreOtnPMThresholdGroup.setObjects(*((_B,_DL),(_B,_DM)))
+if mibBuilder.loadTexts:optIfOChSinkPreOtnPMThresholdGroup.setStatus(_A)
+optIfOChSourcePreOtnPMGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,28))
+optIfOChSourcePreOtnPMGroup.setObjects(*((_B,_DN),(_B,_DO),(_B,_DP),(_B,_DQ),(_B,_DR),(_B,_DS),(_B,_DT),(_B,_DU),(_B,_DV),(_B,_DW),(_B,_DX),(_B,_DY),(_B,_DZ),(_B,_Da),(_B,_Db)))
+if mibBuilder.loadTexts:optIfOChSourcePreOtnPMGroup.setStatus(_A)
+optIfOChSourcePreOtnPMThresholdGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,29))
+optIfOChSourcePreOtnPMThresholdGroup.setObjects(*((_B,_Dc),(_B,_Dd)))
+if mibBuilder.loadTexts:optIfOChSourcePreOtnPMThresholdGroup.setStatus(_A)
+optIfOTUkCommonGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,30))
+optIfOTUkCommonGroup.setObjects(*((_B,_De),(_B,_Df)))
+if mibBuilder.loadTexts:optIfOTUkCommonGroup.setStatus(_A)
+optIfOTUkSourceGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,31))
+optIfOTUkSourceGroup.setObjects(*((_B,_Dg),(_B,_Dh)))
+if mibBuilder.loadTexts:optIfOTUkSourceGroup.setStatus(_A)
+optIfOTUkSinkGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,32))
+optIfOTUkSinkGroup.setObjects(*((_B,_Di),(_B,_Dj),(_B,_Dk),(_B,_Dl),(_B,_Dm),(_B,_Dn),(_B,_Do),(_B,_Dp),(_B,_Dq),(_B,_Dr)))
+if mibBuilder.loadTexts:optIfOTUkSinkGroup.setStatus(_A)
+optIfGCC0Group=ObjectGroup((1,3,6,1,2,1,10,133,2,1,33))
+optIfGCC0Group.setObjects(*((_B,_Ds),(_B,_Dt)))
+if mibBuilder.loadTexts:optIfGCC0Group.setStatus(_A)
+optIfODUkGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,34))
+optIfODUkGroup.setObjects(*((_B,_Du),(_B,_Dv),(_B,_Dw),(_B,_Dx),(_B,_Dy),(_B,_Dz),(_B,_D_)))
+if mibBuilder.loadTexts:optIfODUkGroup.setStatus(_A)
+optIfODUkTtpSourceGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,35))
+optIfODUkTtpSourceGroup.setObjects((_B,_E0))
+if mibBuilder.loadTexts:optIfODUkTtpSourceGroup.setStatus(_A)
+optIfODUkTtpSinkGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,36))
+optIfODUkTtpSinkGroup.setObjects(*((_B,_E1),(_B,_E2),(_B,_E3),(_B,_E4),(_B,_E5),(_B,_E6),(_B,_E7),(_B,_E8)))
+if mibBuilder.loadTexts:optIfODUkTtpSinkGroup.setStatus(_A)
+optIfODUkNimGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,37))
+optIfODUkNimGroup.setObjects(*((_B,_E9),(_B,_EA),(_B,_EB),(_B,_EC),(_B,_ED),(_B,_EE),(_B,_EF),(_B,_EG),(_B,_EH)))
+if mibBuilder.loadTexts:optIfODUkNimGroup.setStatus(_A)
+optIfGCC12Group=ObjectGroup((1,3,6,1,2,1,10,133,2,1,38))
+optIfGCC12Group.setObjects(*((_B,_EI),(_B,_EJ),(_B,_EK)))
+if mibBuilder.loadTexts:optIfGCC12Group.setStatus(_A)
+optIfODUkTCommonGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,39))
+optIfODUkTCommonGroup.setObjects((_B,_EL))
+if mibBuilder.loadTexts:optIfODUkTCommonGroup.setStatus(_A)
+optIfODUkTSourceGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,40))
+optIfODUkTSourceGroup.setObjects(*((_B,_EM),(_B,_EN)))
+if mibBuilder.loadTexts:optIfODUkTSourceGroup.setStatus(_A)
+optIfODUkTSinkGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,41))
+optIfODUkTSinkGroup.setObjects(*((_B,_EO),(_B,_EP),(_B,_EQ),(_B,_ER),(_B,_ES),(_B,_ET),(_B,_EU),(_B,_EV)))
+if mibBuilder.loadTexts:optIfODUkTSinkGroup.setStatus(_A)
+optIfODUkTSinkGroupCtp=ObjectGroup((1,3,6,1,2,1,10,133,2,1,42))
+optIfODUkTSinkGroupCtp.setObjects(*((_B,_EW),(_B,_EX)))
+if mibBuilder.loadTexts:optIfODUkTSinkGroupCtp.setStatus(_A)
+optIfODUkTNimGroup=ObjectGroup((1,3,6,1,2,1,10,133,2,1,43))
+optIfODUkTNimGroup.setObjects(*((_B,_EY),(_B,_EZ),(_B,_Ea),(_B,_Eb),(_B,_Ec),(_B,_Ed),(_B,_Ee),(_B,_Ef),(_B,_Eg)))
+if mibBuilder.loadTexts:optIfODUkTNimGroup.setStatus(_A)
+optIfOtnConfigCompl=ModuleCompliance((1,3,6,1,2,1,10,133,2,2,1))
+optIfOtnConfigCompl.setObjects(*((_B,_Eh),(_B,_Ei),(_B,_Ej),(_B,_Ek),(_B,_El),(_B,_Em),(_B,_En),(_B,_Eo),(_B,_Ep),(_B,_Eq),(_B,_Er),(_B,_Es),(_B,_Et),(_B,_Eu),(_B,_Ev),(_B,_Ew),(_B,_Ex),(_B,_Ey),(_B,_Ez),(_B,_E_),(_B,_F0),(_B,_F1),(_B,_F2),(_B,_F3),(_B,_F4),(_B,_F5)))
+if mibBuilder.loadTexts:optIfOtnConfigCompl.setStatus(_A)
+optIfPreOtnPMCompl=ModuleCompliance((1,3,6,1,2,1,10,133,2,2,2))
+optIfPreOtnPMCompl.setObjects(*((_B,_F6),(_B,_F7),(_B,_F8),(_B,_F9),(_B,_FA),(_B,_FB),(_B,_FC),(_B,_FD),(_B,_FE),(_B,_FF),(_B,_FG),(_B,_FH),(_B,_FI),(_B,_FJ),(_B,_FK),(_B,_FL),(_B,_FM)))
+if mibBuilder.loadTexts:optIfPreOtnPMCompl.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'OptIfAcTI':OptIfAcTI,'OptIfBitRateK':OptIfBitRateK,'OptIfDEGM':OptIfDEGM,'OptIfDEGThr':OptIfDEGThr,'OptIfDirectionality':OptIfDirectionality,'OptIfSinkOrSource':OptIfSinkOrSource,'OptIfExDAPI':OptIfExDAPI,'OptIfExSAPI':OptIfExSAPI,'OptIfIntervalNumber':OptIfIntervalNumber,'OptIfTIMDetMode':OptIfTIMDetMode,'OptIfTxTI':OptIfTxTI,'optIfMibModule':optIfMibModule,'optIfObjects':optIfObjects,'optIfOTMn':optIfOTMn,'optIfOTMnTable':optIfOTMnTable,'optIfOTMnEntry':optIfOTMnEntry,_q:optIfOTMnOrder,_r:optIfOTMnReduced,_s:optIfOTMnBitRates,_t:optIfOTMnInterfaceType,_u:optIfOTMnTcmMax,_v:optIfOTMnOpticalReach,'optIfPerfMon':optIfPerfMon,'optIfPerfMonIntervalTable':optIfPerfMonIntervalTable,'optIfPerfMonIntervalEntry':optIfPerfMonIntervalEntry,_w:optIfPerfMonCurrentTimeElapsed,_x:optIfPerfMonCurDayTimeElapsed,_y:optIfPerfMonIntervalNumIntervals,_z:optIfPerfMonIntervalNumInvalidIntervals,'optIfOTSn':optIfOTSn,'optIfOTSnConfigTable':optIfOTSnConfigTable,'optIfOTSnConfigEntry':optIfOTSnConfigEntry,_A0:optIfOTSnDirectionality,_A2:optIfOTSnAprStatus,_A3:optIfOTSnAprControl,_A1:optIfOTSnTraceIdentifierTransmitted,_A5:optIfOTSnDAPIExpected,_A6:optIfOTSnSAPIExpected,_A7:optIfOTSnTraceIdentifierAccepted,_A8:optIfOTSnTIMDetMode,_A9:optIfOTSnTIMActEnabled,_A4:optIfOTSnCurrentStatus,'optIfOTSnSinkCurrentTable':optIfOTSnSinkCurrentTable,'optIfOTSnSinkCurrentEntry':optIfOTSnSinkCurrentEntry,_AA:optIfOTSnSinkCurrentSuspectedFlag,_AB:optIfOTSnSinkCurrentInputPower,_AC:optIfOTSnSinkCurrentLowInputPower,_AD:optIfOTSnSinkCurrentHighInputPower,_Aa:optIfOTSnSinkCurrentLowerInputPowerThreshold,_Ab:optIfOTSnSinkCurrentUpperInputPowerThreshold,_AE:optIfOTSnSinkCurrentOutputPower,_AF:optIfOTSnSinkCurrentLowOutputPower,_AG:optIfOTSnSinkCurrentHighOutputPower,_Ac:optIfOTSnSinkCurrentLowerOutputPowerThreshold,_Ad:optIfOTSnSinkCurrentUpperOutputPowerThreshold,'optIfOTSnSinkIntervalTable':optIfOTSnSinkIntervalTable,'optIfOTSnSinkIntervalEntry':optIfOTSnSinkIntervalEntry,_X:optIfOTSnSinkIntervalNumber,_AH:optIfOTSnSinkIntervalSuspectedFlag,_AI:optIfOTSnSinkIntervalLastInputPower,_AJ:optIfOTSnSinkIntervalLowInputPower,_AK:optIfOTSnSinkIntervalHighInputPower,_AL:optIfOTSnSinkIntervalLastOutputPower,_AM:optIfOTSnSinkIntervalLowOutputPower,_AN:optIfOTSnSinkIntervalHighOutputPower,'optIfOTSnSinkCurDayTable':optIfOTSnSinkCurDayTable,'optIfOTSnSinkCurDayEntry':optIfOTSnSinkCurDayEntry,_AO:optIfOTSnSinkCurDaySuspectedFlag,_AP:optIfOTSnSinkCurDayLowInputPower,_AQ:optIfOTSnSinkCurDayHighInputPower,_AR:optIfOTSnSinkCurDayLowOutputPower,_AS:optIfOTSnSinkCurDayHighOutputPower,'optIfOTSnSinkPrevDayTable':optIfOTSnSinkPrevDayTable,'optIfOTSnSinkPrevDayEntry':optIfOTSnSinkPrevDayEntry,_AT:optIfOTSnSinkPrevDaySuspectedFlag,_AU:optIfOTSnSinkPrevDayLastInputPower,_AV:optIfOTSnSinkPrevDayLowInputPower,_AW:optIfOTSnSinkPrevDayHighInputPower,_AX:optIfOTSnSinkPrevDayLastOutputPower,_AY:optIfOTSnSinkPrevDayLowOutputPower,_AZ:optIfOTSnSinkPrevDayHighOutputPower,'optIfOTSnSrcCurrentTable':optIfOTSnSrcCurrentTable,'optIfOTSnSrcCurrentEntry':optIfOTSnSrcCurrentEntry,_Ae:optIfOTSnSrcCurrentSuspectedFlag,_Af:optIfOTSnSrcCurrentOutputPower,_Ag:optIfOTSnSrcCurrentLowOutputPower,_Ah:optIfOTSnSrcCurrentHighOutputPower,_B3:optIfOTSnSrcCurrentLowerOutputPowerThreshold,_B4:optIfOTSnSrcCurrentUpperOutputPowerThreshold,_Ai:optIfOTSnSrcCurrentInputPower,_Aj:optIfOTSnSrcCurrentLowInputPower,_Ak:optIfOTSnSrcCurrentHighInputPower,_B5:optIfOTSnSrcCurrentLowerInputPowerThreshold,_B6:optIfOTSnSrcCurrentUpperInputPowerThreshold,'optIfOTSnSrcIntervalTable':optIfOTSnSrcIntervalTable,'optIfOTSnSrcIntervalEntry':optIfOTSnSrcIntervalEntry,_Y:optIfOTSnSrcIntervalNumber,_Al:optIfOTSnSrcIntervalSuspectedFlag,_Am:optIfOTSnSrcIntervalLastOutputPower,_An:optIfOTSnSrcIntervalLowOutputPower,_Ao:optIfOTSnSrcIntervalHighOutputPower,_Ap:optIfOTSnSrcIntervalLastInputPower,_Aq:optIfOTSnSrcIntervalLowInputPower,_Ar:optIfOTSnSrcIntervalHighInputPower,'optIfOTSnSrcCurDayTable':optIfOTSnSrcCurDayTable,'optIfOTSnSrcCurDayEntry':optIfOTSnSrcCurDayEntry,_As:optIfOTSnSrcCurDaySuspectedFlag,_At:optIfOTSnSrcCurDayLowOutputPower,_Au:optIfOTSnSrcCurDayHighOutputPower,_Av:optIfOTSnSrcCurDayLowInputPower,_Aw:optIfOTSnSrcCurDayHighInputPower,'optIfOTSnSrcPrevDayTable':optIfOTSnSrcPrevDayTable,'optIfOTSnSrcPrevDayEntry':optIfOTSnSrcPrevDayEntry,_Ax:optIfOTSnSrcPrevDaySuspectedFlag,_Ay:optIfOTSnSrcPrevDayLastOutputPower,_Az:optIfOTSnSrcPrevDayLowOutputPower,_A_:optIfOTSnSrcPrevDayHighOutputPower,_B0:optIfOTSnSrcPrevDayLastInputPower,_B1:optIfOTSnSrcPrevDayLowInputPower,_B2:optIfOTSnSrcPrevDayHighInputPower,'optIfOMSn':optIfOMSn,'optIfOMSnConfigTable':optIfOMSnConfigTable,'optIfOMSnConfigEntry':optIfOMSnConfigEntry,_B7:optIfOMSnDirectionality,_B8:optIfOMSnCurrentStatus,'optIfOMSnSinkCurrentTable':optIfOMSnSinkCurrentTable,'optIfOMSnSinkCurrentEntry':optIfOMSnSinkCurrentEntry,_B9:optIfOMSnSinkCurrentSuspectedFlag,_BA:optIfOMSnSinkCurrentAggregatedInputPower,_BB:optIfOMSnSinkCurrentLowAggregatedInputPower,_BC:optIfOMSnSinkCurrentHighAggregatedInputPower,_BZ:optIfOMSnSinkCurrentLowerInputPowerThreshold,_Ba:optIfOMSnSinkCurrentUpperInputPowerThreshold,_BD:optIfOMSnSinkCurrentOutputPower,_BE:optIfOMSnSinkCurrentLowOutputPower,_BF:optIfOMSnSinkCurrentHighOutputPower,_Bb:optIfOMSnSinkCurrentLowerOutputPowerThreshold,_Bc:optIfOMSnSinkCurrentUpperOutputPowerThreshold,'optIfOMSnSinkIntervalTable':optIfOMSnSinkIntervalTable,'optIfOMSnSinkIntervalEntry':optIfOMSnSinkIntervalEntry,_Z:optIfOMSnSinkIntervalNumber,_BG:optIfOMSnSinkIntervalSuspectedFlag,_BH:optIfOMSnSinkIntervalLastAggregatedInputPower,_BI:optIfOMSnSinkIntervalLowAggregatedInputPower,_BJ:optIfOMSnSinkIntervalHighAggregatedInputPower,_BK:optIfOMSnSinkIntervalLastOutputPower,_BL:optIfOMSnSinkIntervalLowOutputPower,_BM:optIfOMSnSinkIntervalHighOutputPower,'optIfOMSnSinkCurDayTable':optIfOMSnSinkCurDayTable,'optIfOMSnSinkCurDayEntry':optIfOMSnSinkCurDayEntry,_BN:optIfOMSnSinkCurDaySuspectedFlag,_BO:optIfOMSnSinkCurDayLowAggregatedInputPower,_BP:optIfOMSnSinkCurDayHighAggregatedInputPower,_BQ:optIfOMSnSinkCurDayLowOutputPower,_BR:optIfOMSnSinkCurDayHighOutputPower,'optIfOMSnSinkPrevDayTable':optIfOMSnSinkPrevDayTable,'optIfOMSnSinkPrevDayEntry':optIfOMSnSinkPrevDayEntry,_BS:optIfOMSnSinkPrevDaySuspectedFlag,_BT:optIfOMSnSinkPrevDayLastAggregatedInputPower,_BU:optIfOMSnSinkPrevDayLowAggregatedInputPower,_BV:optIfOMSnSinkPrevDayHighAggregatedInputPower,_BW:optIfOMSnSinkPrevDayLastOutputPower,_BX:optIfOMSnSinkPrevDayLowOutputPower,_BY:optIfOMSnSinkPrevDayHighOutputPower,'optIfOMSnSrcCurrentTable':optIfOMSnSrcCurrentTable,'optIfOMSnSrcCurrentEntry':optIfOMSnSrcCurrentEntry,_Bd:optIfOMSnSrcCurrentSuspectedFlag,_Be:optIfOMSnSrcCurrentOutputPower,_Bf:optIfOMSnSrcCurrentLowOutputPower,_Bg:optIfOMSnSrcCurrentHighOutputPower,_C2:optIfOMSnSrcCurrentLowerOutputPowerThreshold,_C3:optIfOMSnSrcCurrentUpperOutputPowerThreshold,_Bh:optIfOMSnSrcCurrentAggregatedInputPower,_Bi:optIfOMSnSrcCurrentLowAggregatedInputPower,_Bj:optIfOMSnSrcCurrentHighAggregatedInputPower,_C4:optIfOMSnSrcCurrentLowerInputPowerThreshold,_C5:optIfOMSnSrcCurrentUpperInputPowerThreshold,'optIfOMSnSrcIntervalTable':optIfOMSnSrcIntervalTable,'optIfOMSnSrcIntervalEntry':optIfOMSnSrcIntervalEntry,_a:optIfOMSnSrcIntervalNumber,_Bk:optIfOMSnSrcIntervalSuspectedFlag,_Bl:optIfOMSnSrcIntervalLastOutputPower,_Bm:optIfOMSnSrcIntervalLowOutputPower,_Bn:optIfOMSnSrcIntervalHighOutputPower,_Bo:optIfOMSnSrcIntervalLastAggregatedInputPower,_Bp:optIfOMSnSrcIntervalLowAggregatedInputPower,_Bq:optIfOMSnSrcIntervalHighAggregatedInputPower,'optIfOMSnSrcCurDayTable':optIfOMSnSrcCurDayTable,'optIfOMSnSrcCurDayEntry':optIfOMSnSrcCurDayEntry,_Br:optIfOMSnSrcCurDaySuspectedFlag,_Bs:optIfOMSnSrcCurDayLowOutputPower,_Bt:optIfOMSnSrcCurDayHighOutputPower,_Bu:optIfOMSnSrcCurDayLowAggregatedInputPower,_Bv:optIfOMSnSrcCurDayHighAggregatedInputPower,'optIfOMSnSrcPrevDayTable':optIfOMSnSrcPrevDayTable,'optIfOMSnSrcPrevDayEntry':optIfOMSnSrcPrevDayEntry,_Bw:optIfOMSnSrcPrevDaySuspectedFlag,_Bx:optIfOMSnSrcPrevDayLastOutputPower,_By:optIfOMSnSrcPrevDayLowOutputPower,_Bz:optIfOMSnSrcPrevDayHighOutputPower,_B_:optIfOMSnSrcPrevDayLastAggregatedInputPower,_C0:optIfOMSnSrcPrevDayLowAggregatedInputPower,_C1:optIfOMSnSrcPrevDayHighAggregatedInputPower,'optIfOChGroup':optIfOChGroup,'optIfOChGroupConfigTable':optIfOChGroupConfigTable,'optIfOChGroupConfigEntry':optIfOChGroupConfigEntry,_C6:optIfOChGroupDirectionality,'optIfOChGroupSinkCurrentTable':optIfOChGroupSinkCurrentTable,'optIfOChGroupSinkCurrentEntry':optIfOChGroupSinkCurrentEntry,_C7:optIfOChGroupSinkCurrentSuspectedFlag,_C8:optIfOChGroupSinkCurrentAggregatedInputPower,_C9:optIfOChGroupSinkCurrentLowAggregatedInputPower,_CA:optIfOChGroupSinkCurrentHighAggregatedInputPower,_CX:optIfOChGroupSinkCurrentLowerInputPowerThreshold,_CY:optIfOChGroupSinkCurrentUpperInputPowerThreshold,_CB:optIfOChGroupSinkCurrentOutputPower,_CC:optIfOChGroupSinkCurrentLowOutputPower,_CD:optIfOChGroupSinkCurrentHighOutputPower,_CZ:optIfOChGroupSinkCurrentLowerOutputPowerThreshold,_Ca:optIfOChGroupSinkCurrentUpperOutputPowerThreshold,'optIfOChGroupSinkIntervalTable':optIfOChGroupSinkIntervalTable,'optIfOChGroupSinkIntervalEntry':optIfOChGroupSinkIntervalEntry,_b:optIfOChGroupSinkIntervalNumber,_CE:optIfOChGroupSinkIntervalSuspectedFlag,_CF:optIfOChGroupSinkIntervalLastAggregatedInputPower,_CG:optIfOChGroupSinkIntervalLowAggregatedInputPower,_CH:optIfOChGroupSinkIntervalHighAggregatedInputPower,_CI:optIfOChGroupSinkIntervalLastOutputPower,_CJ:optIfOChGroupSinkIntervalLowOutputPower,_CK:optIfOChGroupSinkIntervalHighOutputPower,'optIfOChGroupSinkCurDayTable':optIfOChGroupSinkCurDayTable,'optIfOChGroupSinkCurDayEntry':optIfOChGroupSinkCurDayEntry,_CL:optIfOChGroupSinkCurDaySuspectedFlag,_CM:optIfOChGroupSinkCurDayLowAggregatedInputPower,_CN:optIfOChGroupSinkCurDayHighAggregatedInputPower,_CO:optIfOChGroupSinkCurDayLowOutputPower,_CP:optIfOChGroupSinkCurDayHighOutputPower,'optIfOChGroupSinkPrevDayTable':optIfOChGroupSinkPrevDayTable,'optIfOChGroupSinkPrevDayEntry':optIfOChGroupSinkPrevDayEntry,_CQ:optIfOChGroupSinkPrevDaySuspectedFlag,_CR:optIfOChGroupSinkPrevDayLastAggregatedInputPower,_CS:optIfOChGroupSinkPrevDayLowAggregatedInputPower,_CT:optIfOChGroupSinkPrevDayHighAggregatedInputPower,_CU:optIfOChGroupSinkPrevDayLastOutputPower,_CV:optIfOChGroupSinkPrevDayLowOutputPower,_CW:optIfOChGroupSinkPrevDayHighOutputPower,'optIfOChGroupSrcCurrentTable':optIfOChGroupSrcCurrentTable,'optIfOChGroupSrcCurrentEntry':optIfOChGroupSrcCurrentEntry,_Cb:optIfOChGroupSrcCurrentSuspectedFlag,_Cc:optIfOChGroupSrcCurrentOutputPower,_Cd:optIfOChGroupSrcCurrentLowOutputPower,_Ce:optIfOChGroupSrcCurrentHighOutputPower,_D0:optIfOChGroupSrcCurrentLowerOutputPowerThreshold,_D1:optIfOChGroupSrcCurrentUpperOutputPowerThreshold,_Cf:optIfOChGroupSrcCurrentAggregatedInputPower,_Cg:optIfOChGroupSrcCurrentLowAggregatedInputPower,_Ch:optIfOChGroupSrcCurrentHighAggregatedInputPower,_D2:optIfOChGroupSrcCurrentLowerInputPowerThreshold,_D3:optIfOChGroupSrcCurrentUpperInputPowerThreshold,'optIfOChGroupSrcIntervalTable':optIfOChGroupSrcIntervalTable,'optIfOChGroupSrcIntervalEntry':optIfOChGroupSrcIntervalEntry,_c:optIfOChGroupSrcIntervalNumber,_Ci:optIfOChGroupSrcIntervalSuspectedFlag,_Cj:optIfOChGroupSrcIntervalLastOutputPower,_Ck:optIfOChGroupSrcIntervalLowOutputPower,_Cl:optIfOChGroupSrcIntervalHighOutputPower,_Cm:optIfOChGroupSrcIntervalLastAggregatedInputPower,_Cn:optIfOChGroupSrcIntervalLowAggregatedInputPower,_Co:optIfOChGroupSrcIntervalHighAggregatedInputPower,'optIfOChGroupSrcCurDayTable':optIfOChGroupSrcCurDayTable,'optIfOChGroupSrcCurDayEntry':optIfOChGroupSrcCurDayEntry,_Cp:optIfOChGroupSrcCurDaySuspectedFlag,_Cq:optIfOChGroupSrcCurDayLowOutputPower,_Cr:optIfOChGroupSrcCurDayHighOutputPower,_Cs:optIfOChGroupSrcCurDayLowAggregatedInputPower,_Ct:optIfOChGroupSrcCurDayHighAggregatedInputPower,'optIfOChGroupSrcPrevDayTable':optIfOChGroupSrcPrevDayTable,'optIfOChGroupSrcPrevDayEntry':optIfOChGroupSrcPrevDayEntry,_Cu:optIfOChGroupSrcPrevDaySuspectedFlag,_Cv:optIfOChGroupSrcPrevDayLastOutputPower,_Cw:optIfOChGroupSrcPrevDayLowOutputPower,_Cx:optIfOChGroupSrcPrevDayHighOutputPower,_Cy:optIfOChGroupSrcPrevDayLastAggregatedInputPower,_Cz:optIfOChGroupSrcPrevDayLowAggregatedInputPower,_C_:optIfOChGroupSrcPrevDayHighAggregatedInputPower,'optIfOCh':optIfOCh,'optIfOChConfigTable':optIfOChConfigTable,'optIfOChConfigEntry':optIfOChConfigEntry,_D4:optIfOChDirectionality,_D5:optIfOChCurrentStatus,'optIfOChSinkCurrentTable':optIfOChSinkCurrentTable,'optIfOChSinkCurrentEntry':optIfOChSinkCurrentEntry,_D6:optIfOChSinkCurrentSuspectedFlag,_D7:optIfOChSinkCurrentInputPower,_D8:optIfOChSinkCurrentLowInputPower,_D9:optIfOChSinkCurrentHighInputPower,_DL:optIfOChSinkCurrentLowerInputPowerThreshold,_DM:optIfOChSinkCurrentUpperInputPowerThreshold,'optIfOChSinkIntervalTable':optIfOChSinkIntervalTable,'optIfOChSinkIntervalEntry':optIfOChSinkIntervalEntry,_d:optIfOChSinkIntervalNumber,_DA:optIfOChSinkIntervalSuspectedFlag,_DB:optIfOChSinkIntervalLastInputPower,_DC:optIfOChSinkIntervalLowInputPower,_DD:optIfOChSinkIntervalHighInputPower,'optIfOChSinkCurDayTable':optIfOChSinkCurDayTable,'optIfOChSinkCurDayEntry':optIfOChSinkCurDayEntry,_DE:optIfOChSinkCurDaySuspectedFlag,_DF:optIfOChSinkCurDayLowInputPower,_DG:optIfOChSinkCurDayHighInputPower,'optIfOChSinkPrevDayTable':optIfOChSinkPrevDayTable,'optIfOChSinkPrevDayEntry':optIfOChSinkPrevDayEntry,_DH:optIfOChSinkPrevDaySuspectedFlag,_DI:optIfOChSinkPrevDayLastInputPower,_DJ:optIfOChSinkPrevDayLowInputPower,_DK:optIfOChSinkPrevDayHighInputPower,'optIfOChSrcCurrentTable':optIfOChSrcCurrentTable,'optIfOChSrcCurrentEntry':optIfOChSrcCurrentEntry,_DN:optIfOChSrcCurrentSuspectedFlag,_DO:optIfOChSrcCurrentOutputPower,_DP:optIfOChSrcCurrentLowOutputPower,_DQ:optIfOChSrcCurrentHighOutputPower,_Dc:optIfOChSrcCurrentLowerOutputPowerThreshold,_Dd:optIfOChSrcCurrentUpperOutputPowerThreshold,'optIfOChSrcIntervalTable':optIfOChSrcIntervalTable,'optIfOChSrcIntervalEntry':optIfOChSrcIntervalEntry,_e:optIfOChSrcIntervalNumber,_DR:optIfOChSrcIntervalSuspectedFlag,_DS:optIfOChSrcIntervalLastOutputPower,_DT:optIfOChSrcIntervalLowOutputPower,_DU:optIfOChSrcIntervalHighOutputPower,'optIfOChSrcCurDayTable':optIfOChSrcCurDayTable,'optIfOChSrcCurDayEntry':optIfOChSrcCurDayEntry,_DV:optIfOChSrcCurDaySuspectedFlag,_DW:optIfOChSrcCurDayLowOutputPower,_DX:optIfOChSrcCurDayHighOutputPower,'optIfOChSrcPrevDayTable':optIfOChSrcPrevDayTable,'optIfOChSrcPrevDayEntry':optIfOChSrcPrevDayEntry,_DY:optIfOChSrcPrevDaySuspectedFlag,_DZ:optIfOChSrcPrevDayLastOutputPower,_Da:optIfOChSrcPrevDayLowOutputPower,_Db:optIfOChSrcPrevDayHighOutputPower,'optIfOTUk':optIfOTUk,'optIfOTUkConfigTable':optIfOTUkConfigTable,'optIfOTUkConfigEntry':optIfOTUkConfigEntry,_De:optIfOTUkDirectionality,_Df:optIfOTUkBitRateK,_Dg:optIfOTUkTraceIdentifierTransmitted,_Di:optIfOTUkDAPIExpected,_Dj:optIfOTUkSAPIExpected,_Dk:optIfOTUkTraceIdentifierAccepted,_Dl:optIfOTUkTIMDetMode,_Dm:optIfOTUkTIMActEnabled,_Dn:optIfOTUkDEGThr,_Do:optIfOTUkDEGM,_Dp:optIfOTUkSinkAdaptActive,_Dh:optIfOTUkSourceAdaptActive,_Dq:optIfOTUkSinkFECEnabled,_Dr:optIfOTUkCurrentStatus,'optIfGCC0ConfigTable':optIfGCC0ConfigTable,'optIfGCC0ConfigEntry':optIfGCC0ConfigEntry,_f:optIfGCC0Directionality,_Ds:optIfGCC0Application,_Dt:optIfGCC0RowStatus,'optIfODUk':optIfODUk,'optIfODUkConfigTable':optIfODUkConfigTable,'optIfODUkConfigEntry':optIfODUkConfigEntry,_Du:optIfODUkDirectionality,_Dv:optIfODUkBitRateK,_Dw:optIfODUkTcmFieldsInUse,_Dx:optIfODUkPositionSeqCurrentSize,_D_:optIfODUkTtpPresent,'optIfODUkTtpConfigTable':optIfODUkTtpConfigTable,'optIfODUkTtpConfigEntry':optIfODUkTtpConfigEntry,_E0:optIfODUkTtpTraceIdentifierTransmitted,_E1:optIfODUkTtpDAPIExpected,_E2:optIfODUkTtpSAPIExpected,_E3:optIfODUkTtpTraceIdentifierAccepted,_E4:optIfODUkTtpTIMDetMode,_E5:optIfODUkTtpTIMActEnabled,_E6:optIfODUkTtpDEGThr,_E7:optIfODUkTtpDEGM,_E8:optIfODUkTtpCurrentStatus,'optIfODUkPositionSeqTable':optIfODUkPositionSeqTable,'optIfODUkPositionSeqEntry':optIfODUkPositionSeqEntry,_g:optIfODUkPositionSeqIndex,_Dy:optIfODUkPositionSeqPosition,_Dz:optIfODUkPositionSeqPointer,'optIfODUkNimConfigTable':optIfODUkNimConfigTable,'optIfODUkNimConfigEntry':optIfODUkNimConfigEntry,_h:optIfODUkNimDirectionality,_E9:optIfODUkNimDAPIExpected,_EA:optIfODUkNimSAPIExpected,_EB:optIfODUkNimTraceIdentifierAccepted,_EC:optIfODUkNimTIMDetMode,_ED:optIfODUkNimTIMActEnabled,_EE:optIfODUkNimDEGThr,_EF:optIfODUkNimDEGM,_EG:optIfODUkNimCurrentStatus,_EH:optIfODUkNimRowStatus,'optIfGCC12ConfigTable':optIfGCC12ConfigTable,'optIfGCC12ConfigEntry':optIfGCC12ConfigEntry,_i:optIfGCC12Codirectional,_j:optIfGCC12GCCAccess,_EI:optIfGCC12GCCPassThrough,_EJ:optIfGCC12Application,_EK:optIfGCC12RowStatus,'optIfODUkT':optIfODUkT,'optIfODUkTConfigTable':optIfODUkTConfigTable,'optIfODUkTConfigEntry':optIfODUkTConfigEntry,_k:optIfODUkTTcmField,_l:optIfODUkTCodirectional,_EM:optIfODUkTTraceIdentifierTransmitted,_EO:optIfODUkTDAPIExpected,_EP:optIfODUkTSAPIExpected,_EQ:optIfODUkTTraceIdentifierAccepted,_ER:optIfODUkTTIMDetMode,_ES:optIfODUkTTIMActEnabled,_ET:optIfODUkTDEGThr,_EU:optIfODUkTDEGM,_EW:optIfODUkTSinkMode,_EX:optIfODUkTSinkLockSignalAdminState,_EN:optIfODUkTSourceLockSignalAdminState,_EV:optIfODUkTCurrentStatus,_EL:optIfODUkTRowStatus,'optIfODUkTNimConfigTable':optIfODUkTNimConfigTable,'optIfODUkTNimConfigEntry':optIfODUkTNimConfigEntry,_o:optIfODUkTNimTcmField,_p:optIfODUkTNimDirectionality,_EY:optIfODUkTNimDAPIExpected,_EZ:optIfODUkTNimSAPIExpected,_Ea:optIfODUkTNimTraceIdentifierAccepted,_Eb:optIfODUkTNimTIMDetMode,_Ec:optIfODUkTNimTIMActEnabled,_Ed:optIfODUkTNimDEGThr,_Ee:optIfODUkTNimDEGM,_Ef:optIfODUkTNimCurrentStatus,_Eg:optIfODUkTNimRowStatus,'optIfConfs':optIfConfs,'optIfGroups':optIfGroups,_Eh:optIfOTMnGroup,_F6:optIfPerfMonGroup,_Ei:optIfOTSnCommonGroup,_Ej:optIfOTSnSourceGroupFull,_Ek:optIfOTSnAPRStatusGroup,_El:optIfOTSnAPRControlGroup,_Em:optIfOTSnSinkGroupBasic,_En:optIfOTSnSinkGroupFull,_F7:optIfOTSnSinkPreOtnPMGroup,_F8:optIfOTSnSinkPreOtnPMThresholdGroup,_F9:optIfOTSnSourcePreOtnPMGroup,_FA:optIfOTSnSourcePreOtnPMThresholdGroup,_Eo:optIfOMSnCommonGroup,_Ep:optIfOMSnSinkGroupBasic,_FB:optIfOMSnSinkPreOtnPMGroup,_FC:optIfOMSnSinkPreOtnPMThresholdGroup,_FD:optIfOMSnSourcePreOtnPMGroup,_FE:optIfOMSnSourcePreOtnPMThresholdGroup,_Eq:optIfOChGroupCommonGroup,_FF:optIfOChGroupSinkPreOtnPMGroup,_FG:optIfOChGroupSinkPreOtnPMThresholdGroup,_FH:optIfOChGroupSourcePreOtnPMGroup,_FI:optIfOChGroupSourcePreOtnPMThresholdGroup,_Er:optIfOChCommonGroup,_Es:optIfOChSinkGroupBasic,_FJ:optIfOChSinkPreOtnPMGroup,_FK:optIfOChSinkPreOtnPMThresholdGroup,_FL:optIfOChSourcePreOtnPMGroup,_FM:optIfOChSourcePreOtnPMThresholdGroup,_Et:optIfOTUkCommonGroup,_Eu:optIfOTUkSourceGroup,_Ev:optIfOTUkSinkGroup,_Ew:optIfGCC0Group,_Ex:optIfODUkGroup,_Ey:optIfODUkTtpSourceGroup,_Ez:optIfODUkTtpSinkGroup,_E_:optIfODUkNimGroup,_F0:optIfGCC12Group,_F1:optIfODUkTCommonGroup,_F2:optIfODUkTSourceGroup,_F3:optIfODUkTSinkGroup,_F4:optIfODUkTSinkGroupCtp,_F5:optIfODUkTNimGroup,'optIfCompl':optIfCompl,'optIfOtnConfigCompl':optIfOtnConfigCompl,'optIfPreOtnPMCompl':optIfPreOtnPMCompl})

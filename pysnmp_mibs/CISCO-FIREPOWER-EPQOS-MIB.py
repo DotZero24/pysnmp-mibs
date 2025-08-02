@@ -1,0 +1,596 @@
+_M='cfprEpqosEgressInstanceId'
+_L='cfprEpqosDefinitionFsmTaskInstanceId'
+_K='cfprEpqosDefinitionFsmStageInstanceId'
+_J='cfprEpqosDefinitionFsmInstanceId'
+_I='cfprEpqosDefinitionDelTaskFsmTaskInstanceId'
+_H='cfprEpqosDefinitionDelTaskFsmStageInstanceId'
+_G='cfprEpqosDefinitionDelTaskFsmInstanceId'
+_F='cfprEpqosDefinitionDelTaskInstanceId'
+_E='cfprEpqosDefinitionInstanceId'
+_D='not-accessible'
+_C='CISCO-FIREPOWER-EPQOS-MIB'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+CfprManagedObjectDn,CfprManagedObjectId,ciscoFirepowerMIBObjects=mibBuilder.importSymbols('CISCO-FIREPOWER-MIB','CfprManagedObjectDn','CfprManagedObjectId','ciscoFirepowerMIBObjects')
+CfprConditionRemoteInvRslt,CfprEpqosDefinitionDelTaskFsmCurrentFsm,CfprEpqosDefinitionDelTaskFsmStageName,CfprEpqosDefinitionDelTaskFsmTaskItem,CfprEpqosDefinitionFsmCurrentFsm,CfprEpqosDefinitionFsmStageName,CfprEpqosDefinitionFsmTaskItem,CfprFsmCompletion,CfprFsmFlags,CfprFsmFsmStageStatus,CfprPolicyPolicyOwner,CfprQosHostControl,CfprQosPriority=mibBuilder.importSymbols('CISCO-FIREPOWER-TC-MIB','CfprConditionRemoteInvRslt','CfprEpqosDefinitionDelTaskFsmCurrentFsm','CfprEpqosDefinitionDelTaskFsmStageName','CfprEpqosDefinitionDelTaskFsmTaskItem','CfprEpqosDefinitionFsmCurrentFsm','CfprEpqosDefinitionFsmStageName','CfprEpqosDefinitionFsmTaskItem','CfprFsmCompletion','CfprFsmFlags','CfprFsmFsmStageStatus','CfprPolicyPolicyOwner','CfprQosHostControl','CfprQosPriority')
+ciscoMgmt,=mibBuilder.importSymbols('CISCO-SMI','ciscoMgmt')
+CiscoAlarmSeverity,CiscoInetAddressMask,CiscoNetworkAddress,TimeIntervalSec,Unsigned64=mibBuilder.importSymbols('CISCO-TC','CiscoAlarmSeverity','CiscoInetAddressMask','CiscoNetworkAddress','TimeIntervalSec','Unsigned64')
+InetAddressIPv4,InetAddressIPv6=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddressIPv4','InetAddressIPv6')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DateAndTime,DisplayString,MacAddress,PhysAddress,RowPointer,TextualConvention,TimeInterval,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','MacAddress','PhysAddress','RowPointer','TextualConvention','TimeInterval','TimeStamp','TruthValue')
+cfprEpqosObjects=ModuleIdentity((1,3,6,1,4,1,9,9,826,1,19))
+_CfprEpqosDefinitionTable_Object=MibTable
+cfprEpqosDefinitionTable=_CfprEpqosDefinitionTable_Object((1,3,6,1,4,1,9,9,826,1,19,1))
+if mibBuilder.loadTexts:cfprEpqosDefinitionTable.setStatus(_A)
+_CfprEpqosDefinitionEntry_Object=MibTableRow
+cfprEpqosDefinitionEntry=_CfprEpqosDefinitionEntry_Object((1,3,6,1,4,1,9,9,826,1,19,1,1))
+cfprEpqosDefinitionEntry.setIndexNames((0,_C,_E))
+if mibBuilder.loadTexts:cfprEpqosDefinitionEntry.setStatus(_A)
+_CfprEpqosDefinitionInstanceId_Type=CfprManagedObjectId
+_CfprEpqosDefinitionInstanceId_Object=MibTableColumn
+cfprEpqosDefinitionInstanceId=_CfprEpqosDefinitionInstanceId_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,1),_CfprEpqosDefinitionInstanceId_Type())
+cfprEpqosDefinitionInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprEpqosDefinitionInstanceId.setStatus(_A)
+_CfprEpqosDefinitionDn_Type=CfprManagedObjectDn
+_CfprEpqosDefinitionDn_Object=MibTableColumn
+cfprEpqosDefinitionDn=_CfprEpqosDefinitionDn_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,2),_CfprEpqosDefinitionDn_Type())
+cfprEpqosDefinitionDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDn.setStatus(_A)
+_CfprEpqosDefinitionRn_Type=SnmpAdminString
+_CfprEpqosDefinitionRn_Object=MibTableColumn
+cfprEpqosDefinitionRn=_CfprEpqosDefinitionRn_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,3),_CfprEpqosDefinitionRn_Type())
+cfprEpqosDefinitionRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionRn.setStatus(_A)
+_CfprEpqosDefinitionDescr_Type=SnmpAdminString
+_CfprEpqosDefinitionDescr_Object=MibTableColumn
+cfprEpqosDefinitionDescr=_CfprEpqosDefinitionDescr_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,4),_CfprEpqosDefinitionDescr_Type())
+cfprEpqosDefinitionDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDescr.setStatus(_A)
+_CfprEpqosDefinitionFsmDescr_Type=SnmpAdminString
+_CfprEpqosDefinitionFsmDescr_Object=MibTableColumn
+cfprEpqosDefinitionFsmDescr=_CfprEpqosDefinitionFsmDescr_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,5),_CfprEpqosDefinitionFsmDescr_Type())
+cfprEpqosDefinitionFsmDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmDescr.setStatus(_A)
+_CfprEpqosDefinitionFsmPrev_Type=SnmpAdminString
+_CfprEpqosDefinitionFsmPrev_Object=MibTableColumn
+cfprEpqosDefinitionFsmPrev=_CfprEpqosDefinitionFsmPrev_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,6),_CfprEpqosDefinitionFsmPrev_Type())
+cfprEpqosDefinitionFsmPrev.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmPrev.setStatus(_A)
+_CfprEpqosDefinitionFsmProgr_Type=Gauge32
+_CfprEpqosDefinitionFsmProgr_Object=MibTableColumn
+cfprEpqosDefinitionFsmProgr=_CfprEpqosDefinitionFsmProgr_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,7),_CfprEpqosDefinitionFsmProgr_Type())
+cfprEpqosDefinitionFsmProgr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmProgr.setStatus(_A)
+_CfprEpqosDefinitionFsmRmtInvErrCode_Type=Gauge32
+_CfprEpqosDefinitionFsmRmtInvErrCode_Object=MibTableColumn
+cfprEpqosDefinitionFsmRmtInvErrCode=_CfprEpqosDefinitionFsmRmtInvErrCode_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,8),_CfprEpqosDefinitionFsmRmtInvErrCode_Type())
+cfprEpqosDefinitionFsmRmtInvErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmRmtInvErrCode.setStatus(_A)
+_CfprEpqosDefinitionFsmRmtInvErrDescr_Type=SnmpAdminString
+_CfprEpqosDefinitionFsmRmtInvErrDescr_Object=MibTableColumn
+cfprEpqosDefinitionFsmRmtInvErrDescr=_CfprEpqosDefinitionFsmRmtInvErrDescr_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,9),_CfprEpqosDefinitionFsmRmtInvErrDescr_Type())
+cfprEpqosDefinitionFsmRmtInvErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmRmtInvErrDescr.setStatus(_A)
+_CfprEpqosDefinitionFsmRmtInvRslt_Type=CfprConditionRemoteInvRslt
+_CfprEpqosDefinitionFsmRmtInvRslt_Object=MibTableColumn
+cfprEpqosDefinitionFsmRmtInvRslt=_CfprEpqosDefinitionFsmRmtInvRslt_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,10),_CfprEpqosDefinitionFsmRmtInvRslt_Type())
+cfprEpqosDefinitionFsmRmtInvRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmRmtInvRslt.setStatus(_A)
+_CfprEpqosDefinitionFsmStageDescr_Type=SnmpAdminString
+_CfprEpqosDefinitionFsmStageDescr_Object=MibTableColumn
+cfprEpqosDefinitionFsmStageDescr=_CfprEpqosDefinitionFsmStageDescr_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,11),_CfprEpqosDefinitionFsmStageDescr_Type())
+cfprEpqosDefinitionFsmStageDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmStageDescr.setStatus(_A)
+_CfprEpqosDefinitionFsmStamp_Type=DateAndTime
+_CfprEpqosDefinitionFsmStamp_Object=MibTableColumn
+cfprEpqosDefinitionFsmStamp=_CfprEpqosDefinitionFsmStamp_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,12),_CfprEpqosDefinitionFsmStamp_Type())
+cfprEpqosDefinitionFsmStamp.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmStamp.setStatus(_A)
+_CfprEpqosDefinitionFsmStatus_Type=SnmpAdminString
+_CfprEpqosDefinitionFsmStatus_Object=MibTableColumn
+cfprEpqosDefinitionFsmStatus=_CfprEpqosDefinitionFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,13),_CfprEpqosDefinitionFsmStatus_Type())
+cfprEpqosDefinitionFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmStatus.setStatus(_A)
+_CfprEpqosDefinitionFsmTry_Type=Gauge32
+_CfprEpqosDefinitionFsmTry_Object=MibTableColumn
+cfprEpqosDefinitionFsmTry=_CfprEpqosDefinitionFsmTry_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,14),_CfprEpqosDefinitionFsmTry_Type())
+cfprEpqosDefinitionFsmTry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmTry.setStatus(_A)
+_CfprEpqosDefinitionIntId_Type=SnmpAdminString
+_CfprEpqosDefinitionIntId_Object=MibTableColumn
+cfprEpqosDefinitionIntId=_CfprEpqosDefinitionIntId_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,15),_CfprEpqosDefinitionIntId_Type())
+cfprEpqosDefinitionIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionIntId.setStatus(_A)
+_CfprEpqosDefinitionName_Type=SnmpAdminString
+_CfprEpqosDefinitionName_Object=MibTableColumn
+cfprEpqosDefinitionName=_CfprEpqosDefinitionName_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,16),_CfprEpqosDefinitionName_Type())
+cfprEpqosDefinitionName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionName.setStatus(_A)
+_CfprEpqosDefinitionPolicyLevel_Type=Gauge32
+_CfprEpqosDefinitionPolicyLevel_Object=MibTableColumn
+cfprEpqosDefinitionPolicyLevel=_CfprEpqosDefinitionPolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,17),_CfprEpqosDefinitionPolicyLevel_Type())
+cfprEpqosDefinitionPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionPolicyLevel.setStatus(_A)
+_CfprEpqosDefinitionPolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprEpqosDefinitionPolicyOwner_Object=MibTableColumn
+cfprEpqosDefinitionPolicyOwner=_CfprEpqosDefinitionPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,19,1,1,18),_CfprEpqosDefinitionPolicyOwner_Type())
+cfprEpqosDefinitionPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionPolicyOwner.setStatus(_A)
+_CfprEpqosDefinitionDelTaskTable_Object=MibTable
+cfprEpqosDefinitionDelTaskTable=_CfprEpqosDefinitionDelTaskTable_Object((1,3,6,1,4,1,9,9,826,1,19,2))
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskTable.setStatus(_A)
+_CfprEpqosDefinitionDelTaskEntry_Object=MibTableRow
+cfprEpqosDefinitionDelTaskEntry=_CfprEpqosDefinitionDelTaskEntry_Object((1,3,6,1,4,1,9,9,826,1,19,2,1))
+cfprEpqosDefinitionDelTaskEntry.setIndexNames((0,_C,_F))
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskEntry.setStatus(_A)
+_CfprEpqosDefinitionDelTaskInstanceId_Type=CfprManagedObjectId
+_CfprEpqosDefinitionDelTaskInstanceId_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskInstanceId=_CfprEpqosDefinitionDelTaskInstanceId_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,1),_CfprEpqosDefinitionDelTaskInstanceId_Type())
+cfprEpqosDefinitionDelTaskInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskInstanceId.setStatus(_A)
+_CfprEpqosDefinitionDelTaskDn_Type=CfprManagedObjectDn
+_CfprEpqosDefinitionDelTaskDn_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskDn=_CfprEpqosDefinitionDelTaskDn_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,2),_CfprEpqosDefinitionDelTaskDn_Type())
+cfprEpqosDefinitionDelTaskDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskDn.setStatus(_A)
+_CfprEpqosDefinitionDelTaskRn_Type=SnmpAdminString
+_CfprEpqosDefinitionDelTaskRn_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskRn=_CfprEpqosDefinitionDelTaskRn_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,3),_CfprEpqosDefinitionDelTaskRn_Type())
+cfprEpqosDefinitionDelTaskRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskRn.setStatus(_A)
+_CfprEpqosDefinitionDelTaskDefDn_Type=SnmpAdminString
+_CfprEpqosDefinitionDelTaskDefDn_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskDefDn=_CfprEpqosDefinitionDelTaskDefDn_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,4),_CfprEpqosDefinitionDelTaskDefDn_Type())
+cfprEpqosDefinitionDelTaskDefDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskDefDn.setStatus(_A)
+_CfprEpqosDefinitionDelTaskDefIntId_Type=SnmpAdminString
+_CfprEpqosDefinitionDelTaskDefIntId_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskDefIntId=_CfprEpqosDefinitionDelTaskDefIntId_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,5),_CfprEpqosDefinitionDelTaskDefIntId_Type())
+cfprEpqosDefinitionDelTaskDefIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskDefIntId.setStatus(_A)
+_CfprEpqosDefinitionDelTaskDescr_Type=SnmpAdminString
+_CfprEpqosDefinitionDelTaskDescr_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskDescr=_CfprEpqosDefinitionDelTaskDescr_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,6),_CfprEpqosDefinitionDelTaskDescr_Type())
+cfprEpqosDefinitionDelTaskDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskDescr.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmDescr_Type=SnmpAdminString
+_CfprEpqosDefinitionDelTaskFsmDescr_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmDescr=_CfprEpqosDefinitionDelTaskFsmDescr_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,7),_CfprEpqosDefinitionDelTaskFsmDescr_Type())
+cfprEpqosDefinitionDelTaskFsmDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmDescr.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmPrev_Type=SnmpAdminString
+_CfprEpqosDefinitionDelTaskFsmPrev_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmPrev=_CfprEpqosDefinitionDelTaskFsmPrev_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,8),_CfprEpqosDefinitionDelTaskFsmPrev_Type())
+cfprEpqosDefinitionDelTaskFsmPrev.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmPrev.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmProgr_Type=Gauge32
+_CfprEpqosDefinitionDelTaskFsmProgr_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmProgr=_CfprEpqosDefinitionDelTaskFsmProgr_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,9),_CfprEpqosDefinitionDelTaskFsmProgr_Type())
+cfprEpqosDefinitionDelTaskFsmProgr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmProgr.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmRmtInvErrCode_Type=Gauge32
+_CfprEpqosDefinitionDelTaskFsmRmtInvErrCode_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmRmtInvErrCode=_CfprEpqosDefinitionDelTaskFsmRmtInvErrCode_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,10),_CfprEpqosDefinitionDelTaskFsmRmtInvErrCode_Type())
+cfprEpqosDefinitionDelTaskFsmRmtInvErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmRmtInvErrCode.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmRmtInvErrDescr_Type=SnmpAdminString
+_CfprEpqosDefinitionDelTaskFsmRmtInvErrDescr_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmRmtInvErrDescr=_CfprEpqosDefinitionDelTaskFsmRmtInvErrDescr_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,11),_CfprEpqosDefinitionDelTaskFsmRmtInvErrDescr_Type())
+cfprEpqosDefinitionDelTaskFsmRmtInvErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmRmtInvErrDescr.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmRmtInvRslt_Type=CfprConditionRemoteInvRslt
+_CfprEpqosDefinitionDelTaskFsmRmtInvRslt_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmRmtInvRslt=_CfprEpqosDefinitionDelTaskFsmRmtInvRslt_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,12),_CfprEpqosDefinitionDelTaskFsmRmtInvRslt_Type())
+cfprEpqosDefinitionDelTaskFsmRmtInvRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmRmtInvRslt.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmStageDescr_Type=SnmpAdminString
+_CfprEpqosDefinitionDelTaskFsmStageDescr_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmStageDescr=_CfprEpqosDefinitionDelTaskFsmStageDescr_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,13),_CfprEpqosDefinitionDelTaskFsmStageDescr_Type())
+cfprEpqosDefinitionDelTaskFsmStageDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmStageDescr.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmStamp_Type=DateAndTime
+_CfprEpqosDefinitionDelTaskFsmStamp_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmStamp=_CfprEpqosDefinitionDelTaskFsmStamp_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,14),_CfprEpqosDefinitionDelTaskFsmStamp_Type())
+cfprEpqosDefinitionDelTaskFsmStamp.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmStamp.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmStatus_Type=SnmpAdminString
+_CfprEpqosDefinitionDelTaskFsmStatus_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmStatus=_CfprEpqosDefinitionDelTaskFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,15),_CfprEpqosDefinitionDelTaskFsmStatus_Type())
+cfprEpqosDefinitionDelTaskFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmStatus.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmTry_Type=Gauge32
+_CfprEpqosDefinitionDelTaskFsmTry_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmTry=_CfprEpqosDefinitionDelTaskFsmTry_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,16),_CfprEpqosDefinitionDelTaskFsmTry_Type())
+cfprEpqosDefinitionDelTaskFsmTry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmTry.setStatus(_A)
+_CfprEpqosDefinitionDelTaskIntId_Type=SnmpAdminString
+_CfprEpqosDefinitionDelTaskIntId_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskIntId=_CfprEpqosDefinitionDelTaskIntId_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,17),_CfprEpqosDefinitionDelTaskIntId_Type())
+cfprEpqosDefinitionDelTaskIntId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskIntId.setStatus(_A)
+_CfprEpqosDefinitionDelTaskName_Type=SnmpAdminString
+_CfprEpqosDefinitionDelTaskName_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskName=_CfprEpqosDefinitionDelTaskName_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,18),_CfprEpqosDefinitionDelTaskName_Type())
+cfprEpqosDefinitionDelTaskName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskName.setStatus(_A)
+_CfprEpqosDefinitionDelTaskPolicyLevel_Type=Gauge32
+_CfprEpqosDefinitionDelTaskPolicyLevel_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskPolicyLevel=_CfprEpqosDefinitionDelTaskPolicyLevel_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,19),_CfprEpqosDefinitionDelTaskPolicyLevel_Type())
+cfprEpqosDefinitionDelTaskPolicyLevel.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskPolicyLevel.setStatus(_A)
+_CfprEpqosDefinitionDelTaskPolicyOwner_Type=CfprPolicyPolicyOwner
+_CfprEpqosDefinitionDelTaskPolicyOwner_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskPolicyOwner=_CfprEpqosDefinitionDelTaskPolicyOwner_Object((1,3,6,1,4,1,9,9,826,1,19,2,1,20),_CfprEpqosDefinitionDelTaskPolicyOwner_Type())
+cfprEpqosDefinitionDelTaskPolicyOwner.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskPolicyOwner.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmTable_Object=MibTable
+cfprEpqosDefinitionDelTaskFsmTable=_CfprEpqosDefinitionDelTaskFsmTable_Object((1,3,6,1,4,1,9,9,826,1,19,3))
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmTable.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmEntry_Object=MibTableRow
+cfprEpqosDefinitionDelTaskFsmEntry=_CfprEpqosDefinitionDelTaskFsmEntry_Object((1,3,6,1,4,1,9,9,826,1,19,3,1))
+cfprEpqosDefinitionDelTaskFsmEntry.setIndexNames((0,_C,_G))
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmEntry.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmInstanceId_Type=CfprManagedObjectId
+_CfprEpqosDefinitionDelTaskFsmInstanceId_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmInstanceId=_CfprEpqosDefinitionDelTaskFsmInstanceId_Object((1,3,6,1,4,1,9,9,826,1,19,3,1,1),_CfprEpqosDefinitionDelTaskFsmInstanceId_Type())
+cfprEpqosDefinitionDelTaskFsmInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmInstanceId.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmDn_Type=CfprManagedObjectDn
+_CfprEpqosDefinitionDelTaskFsmDn_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmDn=_CfprEpqosDefinitionDelTaskFsmDn_Object((1,3,6,1,4,1,9,9,826,1,19,3,1,2),_CfprEpqosDefinitionDelTaskFsmDn_Type())
+cfprEpqosDefinitionDelTaskFsmDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmDn.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmRn_Type=SnmpAdminString
+_CfprEpqosDefinitionDelTaskFsmRn_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmRn=_CfprEpqosDefinitionDelTaskFsmRn_Object((1,3,6,1,4,1,9,9,826,1,19,3,1,3),_CfprEpqosDefinitionDelTaskFsmRn_Type())
+cfprEpqosDefinitionDelTaskFsmRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmRn.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmCompletionTime_Type=DateAndTime
+_CfprEpqosDefinitionDelTaskFsmCompletionTime_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmCompletionTime=_CfprEpqosDefinitionDelTaskFsmCompletionTime_Object((1,3,6,1,4,1,9,9,826,1,19,3,1,4),_CfprEpqosDefinitionDelTaskFsmCompletionTime_Type())
+cfprEpqosDefinitionDelTaskFsmCompletionTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmCompletionTime.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmCurrentFsm_Type=CfprEpqosDefinitionDelTaskFsmCurrentFsm
+_CfprEpqosDefinitionDelTaskFsmCurrentFsm_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmCurrentFsm=_CfprEpqosDefinitionDelTaskFsmCurrentFsm_Object((1,3,6,1,4,1,9,9,826,1,19,3,1,5),_CfprEpqosDefinitionDelTaskFsmCurrentFsm_Type())
+cfprEpqosDefinitionDelTaskFsmCurrentFsm.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmCurrentFsm.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmDescrData_Type=SnmpAdminString
+_CfprEpqosDefinitionDelTaskFsmDescrData_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmDescrData=_CfprEpqosDefinitionDelTaskFsmDescrData_Object((1,3,6,1,4,1,9,9,826,1,19,3,1,6),_CfprEpqosDefinitionDelTaskFsmDescrData_Type())
+cfprEpqosDefinitionDelTaskFsmDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmDescrData.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmFsmStatus_Type=CfprFsmFsmStageStatus
+_CfprEpqosDefinitionDelTaskFsmFsmStatus_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmFsmStatus=_CfprEpqosDefinitionDelTaskFsmFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,19,3,1,7),_CfprEpqosDefinitionDelTaskFsmFsmStatus_Type())
+cfprEpqosDefinitionDelTaskFsmFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmFsmStatus.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmProgress_Type=Gauge32
+_CfprEpqosDefinitionDelTaskFsmProgress_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmProgress=_CfprEpqosDefinitionDelTaskFsmProgress_Object((1,3,6,1,4,1,9,9,826,1,19,3,1,8),_CfprEpqosDefinitionDelTaskFsmProgress_Type())
+cfprEpqosDefinitionDelTaskFsmProgress.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmProgress.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmRmtErrCode_Type=Gauge32
+_CfprEpqosDefinitionDelTaskFsmRmtErrCode_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmRmtErrCode=_CfprEpqosDefinitionDelTaskFsmRmtErrCode_Object((1,3,6,1,4,1,9,9,826,1,19,3,1,9),_CfprEpqosDefinitionDelTaskFsmRmtErrCode_Type())
+cfprEpqosDefinitionDelTaskFsmRmtErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmRmtErrCode.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmRmtErrDescr_Type=SnmpAdminString
+_CfprEpqosDefinitionDelTaskFsmRmtErrDescr_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmRmtErrDescr=_CfprEpqosDefinitionDelTaskFsmRmtErrDescr_Object((1,3,6,1,4,1,9,9,826,1,19,3,1,10),_CfprEpqosDefinitionDelTaskFsmRmtErrDescr_Type())
+cfprEpqosDefinitionDelTaskFsmRmtErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmRmtErrDescr.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmRmtRslt_Type=CfprConditionRemoteInvRslt
+_CfprEpqosDefinitionDelTaskFsmRmtRslt_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmRmtRslt=_CfprEpqosDefinitionDelTaskFsmRmtRslt_Object((1,3,6,1,4,1,9,9,826,1,19,3,1,11),_CfprEpqosDefinitionDelTaskFsmRmtRslt_Type())
+cfprEpqosDefinitionDelTaskFsmRmtRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmRmtRslt.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmStageTable_Object=MibTable
+cfprEpqosDefinitionDelTaskFsmStageTable=_CfprEpqosDefinitionDelTaskFsmStageTable_Object((1,3,6,1,4,1,9,9,826,1,19,4))
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmStageTable.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmStageEntry_Object=MibTableRow
+cfprEpqosDefinitionDelTaskFsmStageEntry=_CfprEpqosDefinitionDelTaskFsmStageEntry_Object((1,3,6,1,4,1,9,9,826,1,19,4,1))
+cfprEpqosDefinitionDelTaskFsmStageEntry.setIndexNames((0,_C,_H))
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmStageEntry.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmStageInstanceId_Type=CfprManagedObjectId
+_CfprEpqosDefinitionDelTaskFsmStageInstanceId_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmStageInstanceId=_CfprEpqosDefinitionDelTaskFsmStageInstanceId_Object((1,3,6,1,4,1,9,9,826,1,19,4,1,1),_CfprEpqosDefinitionDelTaskFsmStageInstanceId_Type())
+cfprEpqosDefinitionDelTaskFsmStageInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmStageInstanceId.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmStageDn_Type=CfprManagedObjectDn
+_CfprEpqosDefinitionDelTaskFsmStageDn_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmStageDn=_CfprEpqosDefinitionDelTaskFsmStageDn_Object((1,3,6,1,4,1,9,9,826,1,19,4,1,2),_CfprEpqosDefinitionDelTaskFsmStageDn_Type())
+cfprEpqosDefinitionDelTaskFsmStageDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmStageDn.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmStageRn_Type=SnmpAdminString
+_CfprEpqosDefinitionDelTaskFsmStageRn_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmStageRn=_CfprEpqosDefinitionDelTaskFsmStageRn_Object((1,3,6,1,4,1,9,9,826,1,19,4,1,3),_CfprEpqosDefinitionDelTaskFsmStageRn_Type())
+cfprEpqosDefinitionDelTaskFsmStageRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmStageRn.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmStageDescrData_Type=SnmpAdminString
+_CfprEpqosDefinitionDelTaskFsmStageDescrData_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmStageDescrData=_CfprEpqosDefinitionDelTaskFsmStageDescrData_Object((1,3,6,1,4,1,9,9,826,1,19,4,1,4),_CfprEpqosDefinitionDelTaskFsmStageDescrData_Type())
+cfprEpqosDefinitionDelTaskFsmStageDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmStageDescrData.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmStageLastUpdateTime_Type=DateAndTime
+_CfprEpqosDefinitionDelTaskFsmStageLastUpdateTime_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmStageLastUpdateTime=_CfprEpqosDefinitionDelTaskFsmStageLastUpdateTime_Object((1,3,6,1,4,1,9,9,826,1,19,4,1,5),_CfprEpqosDefinitionDelTaskFsmStageLastUpdateTime_Type())
+cfprEpqosDefinitionDelTaskFsmStageLastUpdateTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmStageLastUpdateTime.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmStageName_Type=CfprEpqosDefinitionDelTaskFsmStageName
+_CfprEpqosDefinitionDelTaskFsmStageName_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmStageName=_CfprEpqosDefinitionDelTaskFsmStageName_Object((1,3,6,1,4,1,9,9,826,1,19,4,1,6),_CfprEpqosDefinitionDelTaskFsmStageName_Type())
+cfprEpqosDefinitionDelTaskFsmStageName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmStageName.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmStageOrder_Type=Gauge32
+_CfprEpqosDefinitionDelTaskFsmStageOrder_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmStageOrder=_CfprEpqosDefinitionDelTaskFsmStageOrder_Object((1,3,6,1,4,1,9,9,826,1,19,4,1,7),_CfprEpqosDefinitionDelTaskFsmStageOrder_Type())
+cfprEpqosDefinitionDelTaskFsmStageOrder.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmStageOrder.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmStageRetry_Type=Gauge32
+_CfprEpqosDefinitionDelTaskFsmStageRetry_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmStageRetry=_CfprEpqosDefinitionDelTaskFsmStageRetry_Object((1,3,6,1,4,1,9,9,826,1,19,4,1,8),_CfprEpqosDefinitionDelTaskFsmStageRetry_Type())
+cfprEpqosDefinitionDelTaskFsmStageRetry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmStageRetry.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmStageStageStatus_Type=CfprFsmFsmStageStatus
+_CfprEpqosDefinitionDelTaskFsmStageStageStatus_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmStageStageStatus=_CfprEpqosDefinitionDelTaskFsmStageStageStatus_Object((1,3,6,1,4,1,9,9,826,1,19,4,1,9),_CfprEpqosDefinitionDelTaskFsmStageStageStatus_Type())
+cfprEpqosDefinitionDelTaskFsmStageStageStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmStageStageStatus.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmTaskTable_Object=MibTable
+cfprEpqosDefinitionDelTaskFsmTaskTable=_CfprEpqosDefinitionDelTaskFsmTaskTable_Object((1,3,6,1,4,1,9,9,826,1,19,5))
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmTaskTable.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmTaskEntry_Object=MibTableRow
+cfprEpqosDefinitionDelTaskFsmTaskEntry=_CfprEpqosDefinitionDelTaskFsmTaskEntry_Object((1,3,6,1,4,1,9,9,826,1,19,5,1))
+cfprEpqosDefinitionDelTaskFsmTaskEntry.setIndexNames((0,_C,_I))
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmTaskEntry.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmTaskInstanceId_Type=CfprManagedObjectId
+_CfprEpqosDefinitionDelTaskFsmTaskInstanceId_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmTaskInstanceId=_CfprEpqosDefinitionDelTaskFsmTaskInstanceId_Object((1,3,6,1,4,1,9,9,826,1,19,5,1,1),_CfprEpqosDefinitionDelTaskFsmTaskInstanceId_Type())
+cfprEpqosDefinitionDelTaskFsmTaskInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmTaskInstanceId.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmTaskDn_Type=CfprManagedObjectDn
+_CfprEpqosDefinitionDelTaskFsmTaskDn_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmTaskDn=_CfprEpqosDefinitionDelTaskFsmTaskDn_Object((1,3,6,1,4,1,9,9,826,1,19,5,1,2),_CfprEpqosDefinitionDelTaskFsmTaskDn_Type())
+cfprEpqosDefinitionDelTaskFsmTaskDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmTaskDn.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmTaskRn_Type=SnmpAdminString
+_CfprEpqosDefinitionDelTaskFsmTaskRn_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmTaskRn=_CfprEpqosDefinitionDelTaskFsmTaskRn_Object((1,3,6,1,4,1,9,9,826,1,19,5,1,3),_CfprEpqosDefinitionDelTaskFsmTaskRn_Type())
+cfprEpqosDefinitionDelTaskFsmTaskRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmTaskRn.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmTaskCompletion_Type=CfprFsmCompletion
+_CfprEpqosDefinitionDelTaskFsmTaskCompletion_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmTaskCompletion=_CfprEpqosDefinitionDelTaskFsmTaskCompletion_Object((1,3,6,1,4,1,9,9,826,1,19,5,1,4),_CfprEpqosDefinitionDelTaskFsmTaskCompletion_Type())
+cfprEpqosDefinitionDelTaskFsmTaskCompletion.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmTaskCompletion.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmTaskFlags_Type=CfprFsmFlags
+_CfprEpqosDefinitionDelTaskFsmTaskFlags_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmTaskFlags=_CfprEpqosDefinitionDelTaskFsmTaskFlags_Object((1,3,6,1,4,1,9,9,826,1,19,5,1,5),_CfprEpqosDefinitionDelTaskFsmTaskFlags_Type())
+cfprEpqosDefinitionDelTaskFsmTaskFlags.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmTaskFlags.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmTaskItem_Type=CfprEpqosDefinitionDelTaskFsmTaskItem
+_CfprEpqosDefinitionDelTaskFsmTaskItem_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmTaskItem=_CfprEpqosDefinitionDelTaskFsmTaskItem_Object((1,3,6,1,4,1,9,9,826,1,19,5,1,6),_CfprEpqosDefinitionDelTaskFsmTaskItem_Type())
+cfprEpqosDefinitionDelTaskFsmTaskItem.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmTaskItem.setStatus(_A)
+_CfprEpqosDefinitionDelTaskFsmTaskSeqId_Type=Gauge32
+_CfprEpqosDefinitionDelTaskFsmTaskSeqId_Object=MibTableColumn
+cfprEpqosDefinitionDelTaskFsmTaskSeqId=_CfprEpqosDefinitionDelTaskFsmTaskSeqId_Object((1,3,6,1,4,1,9,9,826,1,19,5,1,7),_CfprEpqosDefinitionDelTaskFsmTaskSeqId_Type())
+cfprEpqosDefinitionDelTaskFsmTaskSeqId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionDelTaskFsmTaskSeqId.setStatus(_A)
+_CfprEpqosDefinitionFsmTable_Object=MibTable
+cfprEpqosDefinitionFsmTable=_CfprEpqosDefinitionFsmTable_Object((1,3,6,1,4,1,9,9,826,1,19,6))
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmTable.setStatus(_A)
+_CfprEpqosDefinitionFsmEntry_Object=MibTableRow
+cfprEpqosDefinitionFsmEntry=_CfprEpqosDefinitionFsmEntry_Object((1,3,6,1,4,1,9,9,826,1,19,6,1))
+cfprEpqosDefinitionFsmEntry.setIndexNames((0,_C,_J))
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmEntry.setStatus(_A)
+_CfprEpqosDefinitionFsmInstanceId_Type=CfprManagedObjectId
+_CfprEpqosDefinitionFsmInstanceId_Object=MibTableColumn
+cfprEpqosDefinitionFsmInstanceId=_CfprEpqosDefinitionFsmInstanceId_Object((1,3,6,1,4,1,9,9,826,1,19,6,1,1),_CfprEpqosDefinitionFsmInstanceId_Type())
+cfprEpqosDefinitionFsmInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmInstanceId.setStatus(_A)
+_CfprEpqosDefinitionFsmDn_Type=CfprManagedObjectDn
+_CfprEpqosDefinitionFsmDn_Object=MibTableColumn
+cfprEpqosDefinitionFsmDn=_CfprEpqosDefinitionFsmDn_Object((1,3,6,1,4,1,9,9,826,1,19,6,1,2),_CfprEpqosDefinitionFsmDn_Type())
+cfprEpqosDefinitionFsmDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmDn.setStatus(_A)
+_CfprEpqosDefinitionFsmRn_Type=SnmpAdminString
+_CfprEpqosDefinitionFsmRn_Object=MibTableColumn
+cfprEpqosDefinitionFsmRn=_CfprEpqosDefinitionFsmRn_Object((1,3,6,1,4,1,9,9,826,1,19,6,1,3),_CfprEpqosDefinitionFsmRn_Type())
+cfprEpqosDefinitionFsmRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmRn.setStatus(_A)
+_CfprEpqosDefinitionFsmCompletionTime_Type=DateAndTime
+_CfprEpqosDefinitionFsmCompletionTime_Object=MibTableColumn
+cfprEpqosDefinitionFsmCompletionTime=_CfprEpqosDefinitionFsmCompletionTime_Object((1,3,6,1,4,1,9,9,826,1,19,6,1,4),_CfprEpqosDefinitionFsmCompletionTime_Type())
+cfprEpqosDefinitionFsmCompletionTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmCompletionTime.setStatus(_A)
+_CfprEpqosDefinitionFsmCurrentFsm_Type=CfprEpqosDefinitionFsmCurrentFsm
+_CfprEpqosDefinitionFsmCurrentFsm_Object=MibTableColumn
+cfprEpqosDefinitionFsmCurrentFsm=_CfprEpqosDefinitionFsmCurrentFsm_Object((1,3,6,1,4,1,9,9,826,1,19,6,1,5),_CfprEpqosDefinitionFsmCurrentFsm_Type())
+cfprEpqosDefinitionFsmCurrentFsm.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmCurrentFsm.setStatus(_A)
+_CfprEpqosDefinitionFsmDescrData_Type=SnmpAdminString
+_CfprEpqosDefinitionFsmDescrData_Object=MibTableColumn
+cfprEpqosDefinitionFsmDescrData=_CfprEpqosDefinitionFsmDescrData_Object((1,3,6,1,4,1,9,9,826,1,19,6,1,6),_CfprEpqosDefinitionFsmDescrData_Type())
+cfprEpqosDefinitionFsmDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmDescrData.setStatus(_A)
+_CfprEpqosDefinitionFsmFsmStatus_Type=CfprFsmFsmStageStatus
+_CfprEpqosDefinitionFsmFsmStatus_Object=MibTableColumn
+cfprEpqosDefinitionFsmFsmStatus=_CfprEpqosDefinitionFsmFsmStatus_Object((1,3,6,1,4,1,9,9,826,1,19,6,1,7),_CfprEpqosDefinitionFsmFsmStatus_Type())
+cfprEpqosDefinitionFsmFsmStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmFsmStatus.setStatus(_A)
+_CfprEpqosDefinitionFsmProgress_Type=Gauge32
+_CfprEpqosDefinitionFsmProgress_Object=MibTableColumn
+cfprEpqosDefinitionFsmProgress=_CfprEpqosDefinitionFsmProgress_Object((1,3,6,1,4,1,9,9,826,1,19,6,1,8),_CfprEpqosDefinitionFsmProgress_Type())
+cfprEpqosDefinitionFsmProgress.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmProgress.setStatus(_A)
+_CfprEpqosDefinitionFsmRmtErrCode_Type=Gauge32
+_CfprEpqosDefinitionFsmRmtErrCode_Object=MibTableColumn
+cfprEpqosDefinitionFsmRmtErrCode=_CfprEpqosDefinitionFsmRmtErrCode_Object((1,3,6,1,4,1,9,9,826,1,19,6,1,9),_CfprEpqosDefinitionFsmRmtErrCode_Type())
+cfprEpqosDefinitionFsmRmtErrCode.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmRmtErrCode.setStatus(_A)
+_CfprEpqosDefinitionFsmRmtErrDescr_Type=SnmpAdminString
+_CfprEpqosDefinitionFsmRmtErrDescr_Object=MibTableColumn
+cfprEpqosDefinitionFsmRmtErrDescr=_CfprEpqosDefinitionFsmRmtErrDescr_Object((1,3,6,1,4,1,9,9,826,1,19,6,1,10),_CfprEpqosDefinitionFsmRmtErrDescr_Type())
+cfprEpqosDefinitionFsmRmtErrDescr.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmRmtErrDescr.setStatus(_A)
+_CfprEpqosDefinitionFsmRmtRslt_Type=CfprConditionRemoteInvRslt
+_CfprEpqosDefinitionFsmRmtRslt_Object=MibTableColumn
+cfprEpqosDefinitionFsmRmtRslt=_CfprEpqosDefinitionFsmRmtRslt_Object((1,3,6,1,4,1,9,9,826,1,19,6,1,11),_CfprEpqosDefinitionFsmRmtRslt_Type())
+cfprEpqosDefinitionFsmRmtRslt.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmRmtRslt.setStatus(_A)
+_CfprEpqosDefinitionFsmStageTable_Object=MibTable
+cfprEpqosDefinitionFsmStageTable=_CfprEpqosDefinitionFsmStageTable_Object((1,3,6,1,4,1,9,9,826,1,19,7))
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmStageTable.setStatus(_A)
+_CfprEpqosDefinitionFsmStageEntry_Object=MibTableRow
+cfprEpqosDefinitionFsmStageEntry=_CfprEpqosDefinitionFsmStageEntry_Object((1,3,6,1,4,1,9,9,826,1,19,7,1))
+cfprEpqosDefinitionFsmStageEntry.setIndexNames((0,_C,_K))
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmStageEntry.setStatus(_A)
+_CfprEpqosDefinitionFsmStageInstanceId_Type=CfprManagedObjectId
+_CfprEpqosDefinitionFsmStageInstanceId_Object=MibTableColumn
+cfprEpqosDefinitionFsmStageInstanceId=_CfprEpqosDefinitionFsmStageInstanceId_Object((1,3,6,1,4,1,9,9,826,1,19,7,1,1),_CfprEpqosDefinitionFsmStageInstanceId_Type())
+cfprEpqosDefinitionFsmStageInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmStageInstanceId.setStatus(_A)
+_CfprEpqosDefinitionFsmStageDn_Type=CfprManagedObjectDn
+_CfprEpqosDefinitionFsmStageDn_Object=MibTableColumn
+cfprEpqosDefinitionFsmStageDn=_CfprEpqosDefinitionFsmStageDn_Object((1,3,6,1,4,1,9,9,826,1,19,7,1,2),_CfprEpqosDefinitionFsmStageDn_Type())
+cfprEpqosDefinitionFsmStageDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmStageDn.setStatus(_A)
+_CfprEpqosDefinitionFsmStageRn_Type=SnmpAdminString
+_CfprEpqosDefinitionFsmStageRn_Object=MibTableColumn
+cfprEpqosDefinitionFsmStageRn=_CfprEpqosDefinitionFsmStageRn_Object((1,3,6,1,4,1,9,9,826,1,19,7,1,3),_CfprEpqosDefinitionFsmStageRn_Type())
+cfprEpqosDefinitionFsmStageRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmStageRn.setStatus(_A)
+_CfprEpqosDefinitionFsmStageDescrData_Type=SnmpAdminString
+_CfprEpqosDefinitionFsmStageDescrData_Object=MibTableColumn
+cfprEpqosDefinitionFsmStageDescrData=_CfprEpqosDefinitionFsmStageDescrData_Object((1,3,6,1,4,1,9,9,826,1,19,7,1,4),_CfprEpqosDefinitionFsmStageDescrData_Type())
+cfprEpqosDefinitionFsmStageDescrData.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmStageDescrData.setStatus(_A)
+_CfprEpqosDefinitionFsmStageLastUpdateTime_Type=DateAndTime
+_CfprEpqosDefinitionFsmStageLastUpdateTime_Object=MibTableColumn
+cfprEpqosDefinitionFsmStageLastUpdateTime=_CfprEpqosDefinitionFsmStageLastUpdateTime_Object((1,3,6,1,4,1,9,9,826,1,19,7,1,5),_CfprEpqosDefinitionFsmStageLastUpdateTime_Type())
+cfprEpqosDefinitionFsmStageLastUpdateTime.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmStageLastUpdateTime.setStatus(_A)
+_CfprEpqosDefinitionFsmStageName_Type=CfprEpqosDefinitionFsmStageName
+_CfprEpqosDefinitionFsmStageName_Object=MibTableColumn
+cfprEpqosDefinitionFsmStageName=_CfprEpqosDefinitionFsmStageName_Object((1,3,6,1,4,1,9,9,826,1,19,7,1,6),_CfprEpqosDefinitionFsmStageName_Type())
+cfprEpqosDefinitionFsmStageName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmStageName.setStatus(_A)
+_CfprEpqosDefinitionFsmStageOrder_Type=Gauge32
+_CfprEpqosDefinitionFsmStageOrder_Object=MibTableColumn
+cfprEpqosDefinitionFsmStageOrder=_CfprEpqosDefinitionFsmStageOrder_Object((1,3,6,1,4,1,9,9,826,1,19,7,1,7),_CfprEpqosDefinitionFsmStageOrder_Type())
+cfprEpqosDefinitionFsmStageOrder.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmStageOrder.setStatus(_A)
+_CfprEpqosDefinitionFsmStageRetry_Type=Gauge32
+_CfprEpqosDefinitionFsmStageRetry_Object=MibTableColumn
+cfprEpqosDefinitionFsmStageRetry=_CfprEpqosDefinitionFsmStageRetry_Object((1,3,6,1,4,1,9,9,826,1,19,7,1,8),_CfprEpqosDefinitionFsmStageRetry_Type())
+cfprEpqosDefinitionFsmStageRetry.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmStageRetry.setStatus(_A)
+_CfprEpqosDefinitionFsmStageStageStatus_Type=CfprFsmFsmStageStatus
+_CfprEpqosDefinitionFsmStageStageStatus_Object=MibTableColumn
+cfprEpqosDefinitionFsmStageStageStatus=_CfprEpqosDefinitionFsmStageStageStatus_Object((1,3,6,1,4,1,9,9,826,1,19,7,1,9),_CfprEpqosDefinitionFsmStageStageStatus_Type())
+cfprEpqosDefinitionFsmStageStageStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmStageStageStatus.setStatus(_A)
+_CfprEpqosDefinitionFsmTaskTable_Object=MibTable
+cfprEpqosDefinitionFsmTaskTable=_CfprEpqosDefinitionFsmTaskTable_Object((1,3,6,1,4,1,9,9,826,1,19,8))
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmTaskTable.setStatus(_A)
+_CfprEpqosDefinitionFsmTaskEntry_Object=MibTableRow
+cfprEpqosDefinitionFsmTaskEntry=_CfprEpqosDefinitionFsmTaskEntry_Object((1,3,6,1,4,1,9,9,826,1,19,8,1))
+cfprEpqosDefinitionFsmTaskEntry.setIndexNames((0,_C,_L))
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmTaskEntry.setStatus(_A)
+_CfprEpqosDefinitionFsmTaskInstanceId_Type=CfprManagedObjectId
+_CfprEpqosDefinitionFsmTaskInstanceId_Object=MibTableColumn
+cfprEpqosDefinitionFsmTaskInstanceId=_CfprEpqosDefinitionFsmTaskInstanceId_Object((1,3,6,1,4,1,9,9,826,1,19,8,1,1),_CfprEpqosDefinitionFsmTaskInstanceId_Type())
+cfprEpqosDefinitionFsmTaskInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmTaskInstanceId.setStatus(_A)
+_CfprEpqosDefinitionFsmTaskDn_Type=CfprManagedObjectDn
+_CfprEpqosDefinitionFsmTaskDn_Object=MibTableColumn
+cfprEpqosDefinitionFsmTaskDn=_CfprEpqosDefinitionFsmTaskDn_Object((1,3,6,1,4,1,9,9,826,1,19,8,1,2),_CfprEpqosDefinitionFsmTaskDn_Type())
+cfprEpqosDefinitionFsmTaskDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmTaskDn.setStatus(_A)
+_CfprEpqosDefinitionFsmTaskRn_Type=SnmpAdminString
+_CfprEpqosDefinitionFsmTaskRn_Object=MibTableColumn
+cfprEpqosDefinitionFsmTaskRn=_CfprEpqosDefinitionFsmTaskRn_Object((1,3,6,1,4,1,9,9,826,1,19,8,1,3),_CfprEpqosDefinitionFsmTaskRn_Type())
+cfprEpqosDefinitionFsmTaskRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmTaskRn.setStatus(_A)
+_CfprEpqosDefinitionFsmTaskCompletion_Type=CfprFsmCompletion
+_CfprEpqosDefinitionFsmTaskCompletion_Object=MibTableColumn
+cfprEpqosDefinitionFsmTaskCompletion=_CfprEpqosDefinitionFsmTaskCompletion_Object((1,3,6,1,4,1,9,9,826,1,19,8,1,4),_CfprEpqosDefinitionFsmTaskCompletion_Type())
+cfprEpqosDefinitionFsmTaskCompletion.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmTaskCompletion.setStatus(_A)
+_CfprEpqosDefinitionFsmTaskFlags_Type=CfprFsmFlags
+_CfprEpqosDefinitionFsmTaskFlags_Object=MibTableColumn
+cfprEpqosDefinitionFsmTaskFlags=_CfprEpqosDefinitionFsmTaskFlags_Object((1,3,6,1,4,1,9,9,826,1,19,8,1,5),_CfprEpqosDefinitionFsmTaskFlags_Type())
+cfprEpqosDefinitionFsmTaskFlags.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmTaskFlags.setStatus(_A)
+_CfprEpqosDefinitionFsmTaskItem_Type=CfprEpqosDefinitionFsmTaskItem
+_CfprEpqosDefinitionFsmTaskItem_Object=MibTableColumn
+cfprEpqosDefinitionFsmTaskItem=_CfprEpqosDefinitionFsmTaskItem_Object((1,3,6,1,4,1,9,9,826,1,19,8,1,6),_CfprEpqosDefinitionFsmTaskItem_Type())
+cfprEpqosDefinitionFsmTaskItem.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmTaskItem.setStatus(_A)
+_CfprEpqosDefinitionFsmTaskSeqId_Type=Gauge32
+_CfprEpqosDefinitionFsmTaskSeqId_Object=MibTableColumn
+cfprEpqosDefinitionFsmTaskSeqId=_CfprEpqosDefinitionFsmTaskSeqId_Object((1,3,6,1,4,1,9,9,826,1,19,8,1,7),_CfprEpqosDefinitionFsmTaskSeqId_Type())
+cfprEpqosDefinitionFsmTaskSeqId.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosDefinitionFsmTaskSeqId.setStatus(_A)
+_CfprEpqosEgressTable_Object=MibTable
+cfprEpqosEgressTable=_CfprEpqosEgressTable_Object((1,3,6,1,4,1,9,9,826,1,19,9))
+if mibBuilder.loadTexts:cfprEpqosEgressTable.setStatus(_A)
+_CfprEpqosEgressEntry_Object=MibTableRow
+cfprEpqosEgressEntry=_CfprEpqosEgressEntry_Object((1,3,6,1,4,1,9,9,826,1,19,9,1))
+cfprEpqosEgressEntry.setIndexNames((0,_C,_M))
+if mibBuilder.loadTexts:cfprEpqosEgressEntry.setStatus(_A)
+_CfprEpqosEgressInstanceId_Type=CfprManagedObjectId
+_CfprEpqosEgressInstanceId_Object=MibTableColumn
+cfprEpqosEgressInstanceId=_CfprEpqosEgressInstanceId_Object((1,3,6,1,4,1,9,9,826,1,19,9,1,1),_CfprEpqosEgressInstanceId_Type())
+cfprEpqosEgressInstanceId.setMaxAccess(_D)
+if mibBuilder.loadTexts:cfprEpqosEgressInstanceId.setStatus(_A)
+_CfprEpqosEgressDn_Type=CfprManagedObjectDn
+_CfprEpqosEgressDn_Object=MibTableColumn
+cfprEpqosEgressDn=_CfprEpqosEgressDn_Object((1,3,6,1,4,1,9,9,826,1,19,9,1,2),_CfprEpqosEgressDn_Type())
+cfprEpqosEgressDn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosEgressDn.setStatus(_A)
+_CfprEpqosEgressRn_Type=SnmpAdminString
+_CfprEpqosEgressRn_Object=MibTableColumn
+cfprEpqosEgressRn=_CfprEpqosEgressRn_Object((1,3,6,1,4,1,9,9,826,1,19,9,1,3),_CfprEpqosEgressRn_Type())
+cfprEpqosEgressRn.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosEgressRn.setStatus(_A)
+_CfprEpqosEgressBurst_Type=Gauge32
+_CfprEpqosEgressBurst_Object=MibTableColumn
+cfprEpqosEgressBurst=_CfprEpqosEgressBurst_Object((1,3,6,1,4,1,9,9,826,1,19,9,1,4),_CfprEpqosEgressBurst_Type())
+cfprEpqosEgressBurst.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosEgressBurst.setStatus(_A)
+_CfprEpqosEgressHostControl_Type=CfprQosHostControl
+_CfprEpqosEgressHostControl_Object=MibTableColumn
+cfprEpqosEgressHostControl=_CfprEpqosEgressHostControl_Object((1,3,6,1,4,1,9,9,826,1,19,9,1,5),_CfprEpqosEgressHostControl_Type())
+cfprEpqosEgressHostControl.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosEgressHostControl.setStatus(_A)
+_CfprEpqosEgressName_Type=SnmpAdminString
+_CfprEpqosEgressName_Object=MibTableColumn
+cfprEpqosEgressName=_CfprEpqosEgressName_Object((1,3,6,1,4,1,9,9,826,1,19,9,1,6),_CfprEpqosEgressName_Type())
+cfprEpqosEgressName.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosEgressName.setStatus(_A)
+_CfprEpqosEgressOperPrio_Type=CfprQosPriority
+_CfprEpqosEgressOperPrio_Object=MibTableColumn
+cfprEpqosEgressOperPrio=_CfprEpqosEgressOperPrio_Object((1,3,6,1,4,1,9,9,826,1,19,9,1,7),_CfprEpqosEgressOperPrio_Type())
+cfprEpqosEgressOperPrio.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosEgressOperPrio.setStatus(_A)
+_CfprEpqosEgressPrio_Type=CfprQosPriority
+_CfprEpqosEgressPrio_Object=MibTableColumn
+cfprEpqosEgressPrio=_CfprEpqosEgressPrio_Object((1,3,6,1,4,1,9,9,826,1,19,9,1,8),_CfprEpqosEgressPrio_Type())
+cfprEpqosEgressPrio.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosEgressPrio.setStatus(_A)
+_CfprEpqosEgressRate_Type=Gauge32
+_CfprEpqosEgressRate_Object=MibTableColumn
+cfprEpqosEgressRate=_CfprEpqosEgressRate_Object((1,3,6,1,4,1,9,9,826,1,19,9,1,9),_CfprEpqosEgressRate_Type())
+cfprEpqosEgressRate.setMaxAccess(_B)
+if mibBuilder.loadTexts:cfprEpqosEgressRate.setStatus(_A)
+mibBuilder.exportSymbols(_C,**{'cfprEpqosObjects':cfprEpqosObjects,'cfprEpqosDefinitionTable':cfprEpqosDefinitionTable,'cfprEpqosDefinitionEntry':cfprEpqosDefinitionEntry,_E:cfprEpqosDefinitionInstanceId,'cfprEpqosDefinitionDn':cfprEpqosDefinitionDn,'cfprEpqosDefinitionRn':cfprEpqosDefinitionRn,'cfprEpqosDefinitionDescr':cfprEpqosDefinitionDescr,'cfprEpqosDefinitionFsmDescr':cfprEpqosDefinitionFsmDescr,'cfprEpqosDefinitionFsmPrev':cfprEpqosDefinitionFsmPrev,'cfprEpqosDefinitionFsmProgr':cfprEpqosDefinitionFsmProgr,'cfprEpqosDefinitionFsmRmtInvErrCode':cfprEpqosDefinitionFsmRmtInvErrCode,'cfprEpqosDefinitionFsmRmtInvErrDescr':cfprEpqosDefinitionFsmRmtInvErrDescr,'cfprEpqosDefinitionFsmRmtInvRslt':cfprEpqosDefinitionFsmRmtInvRslt,'cfprEpqosDefinitionFsmStageDescr':cfprEpqosDefinitionFsmStageDescr,'cfprEpqosDefinitionFsmStamp':cfprEpqosDefinitionFsmStamp,'cfprEpqosDefinitionFsmStatus':cfprEpqosDefinitionFsmStatus,'cfprEpqosDefinitionFsmTry':cfprEpqosDefinitionFsmTry,'cfprEpqosDefinitionIntId':cfprEpqosDefinitionIntId,'cfprEpqosDefinitionName':cfprEpqosDefinitionName,'cfprEpqosDefinitionPolicyLevel':cfprEpqosDefinitionPolicyLevel,'cfprEpqosDefinitionPolicyOwner':cfprEpqosDefinitionPolicyOwner,'cfprEpqosDefinitionDelTaskTable':cfprEpqosDefinitionDelTaskTable,'cfprEpqosDefinitionDelTaskEntry':cfprEpqosDefinitionDelTaskEntry,_F:cfprEpqosDefinitionDelTaskInstanceId,'cfprEpqosDefinitionDelTaskDn':cfprEpqosDefinitionDelTaskDn,'cfprEpqosDefinitionDelTaskRn':cfprEpqosDefinitionDelTaskRn,'cfprEpqosDefinitionDelTaskDefDn':cfprEpqosDefinitionDelTaskDefDn,'cfprEpqosDefinitionDelTaskDefIntId':cfprEpqosDefinitionDelTaskDefIntId,'cfprEpqosDefinitionDelTaskDescr':cfprEpqosDefinitionDelTaskDescr,'cfprEpqosDefinitionDelTaskFsmDescr':cfprEpqosDefinitionDelTaskFsmDescr,'cfprEpqosDefinitionDelTaskFsmPrev':cfprEpqosDefinitionDelTaskFsmPrev,'cfprEpqosDefinitionDelTaskFsmProgr':cfprEpqosDefinitionDelTaskFsmProgr,'cfprEpqosDefinitionDelTaskFsmRmtInvErrCode':cfprEpqosDefinitionDelTaskFsmRmtInvErrCode,'cfprEpqosDefinitionDelTaskFsmRmtInvErrDescr':cfprEpqosDefinitionDelTaskFsmRmtInvErrDescr,'cfprEpqosDefinitionDelTaskFsmRmtInvRslt':cfprEpqosDefinitionDelTaskFsmRmtInvRslt,'cfprEpqosDefinitionDelTaskFsmStageDescr':cfprEpqosDefinitionDelTaskFsmStageDescr,'cfprEpqosDefinitionDelTaskFsmStamp':cfprEpqosDefinitionDelTaskFsmStamp,'cfprEpqosDefinitionDelTaskFsmStatus':cfprEpqosDefinitionDelTaskFsmStatus,'cfprEpqosDefinitionDelTaskFsmTry':cfprEpqosDefinitionDelTaskFsmTry,'cfprEpqosDefinitionDelTaskIntId':cfprEpqosDefinitionDelTaskIntId,'cfprEpqosDefinitionDelTaskName':cfprEpqosDefinitionDelTaskName,'cfprEpqosDefinitionDelTaskPolicyLevel':cfprEpqosDefinitionDelTaskPolicyLevel,'cfprEpqosDefinitionDelTaskPolicyOwner':cfprEpqosDefinitionDelTaskPolicyOwner,'cfprEpqosDefinitionDelTaskFsmTable':cfprEpqosDefinitionDelTaskFsmTable,'cfprEpqosDefinitionDelTaskFsmEntry':cfprEpqosDefinitionDelTaskFsmEntry,_G:cfprEpqosDefinitionDelTaskFsmInstanceId,'cfprEpqosDefinitionDelTaskFsmDn':cfprEpqosDefinitionDelTaskFsmDn,'cfprEpqosDefinitionDelTaskFsmRn':cfprEpqosDefinitionDelTaskFsmRn,'cfprEpqosDefinitionDelTaskFsmCompletionTime':cfprEpqosDefinitionDelTaskFsmCompletionTime,'cfprEpqosDefinitionDelTaskFsmCurrentFsm':cfprEpqosDefinitionDelTaskFsmCurrentFsm,'cfprEpqosDefinitionDelTaskFsmDescrData':cfprEpqosDefinitionDelTaskFsmDescrData,'cfprEpqosDefinitionDelTaskFsmFsmStatus':cfprEpqosDefinitionDelTaskFsmFsmStatus,'cfprEpqosDefinitionDelTaskFsmProgress':cfprEpqosDefinitionDelTaskFsmProgress,'cfprEpqosDefinitionDelTaskFsmRmtErrCode':cfprEpqosDefinitionDelTaskFsmRmtErrCode,'cfprEpqosDefinitionDelTaskFsmRmtErrDescr':cfprEpqosDefinitionDelTaskFsmRmtErrDescr,'cfprEpqosDefinitionDelTaskFsmRmtRslt':cfprEpqosDefinitionDelTaskFsmRmtRslt,'cfprEpqosDefinitionDelTaskFsmStageTable':cfprEpqosDefinitionDelTaskFsmStageTable,'cfprEpqosDefinitionDelTaskFsmStageEntry':cfprEpqosDefinitionDelTaskFsmStageEntry,_H:cfprEpqosDefinitionDelTaskFsmStageInstanceId,'cfprEpqosDefinitionDelTaskFsmStageDn':cfprEpqosDefinitionDelTaskFsmStageDn,'cfprEpqosDefinitionDelTaskFsmStageRn':cfprEpqosDefinitionDelTaskFsmStageRn,'cfprEpqosDefinitionDelTaskFsmStageDescrData':cfprEpqosDefinitionDelTaskFsmStageDescrData,'cfprEpqosDefinitionDelTaskFsmStageLastUpdateTime':cfprEpqosDefinitionDelTaskFsmStageLastUpdateTime,'cfprEpqosDefinitionDelTaskFsmStageName':cfprEpqosDefinitionDelTaskFsmStageName,'cfprEpqosDefinitionDelTaskFsmStageOrder':cfprEpqosDefinitionDelTaskFsmStageOrder,'cfprEpqosDefinitionDelTaskFsmStageRetry':cfprEpqosDefinitionDelTaskFsmStageRetry,'cfprEpqosDefinitionDelTaskFsmStageStageStatus':cfprEpqosDefinitionDelTaskFsmStageStageStatus,'cfprEpqosDefinitionDelTaskFsmTaskTable':cfprEpqosDefinitionDelTaskFsmTaskTable,'cfprEpqosDefinitionDelTaskFsmTaskEntry':cfprEpqosDefinitionDelTaskFsmTaskEntry,_I:cfprEpqosDefinitionDelTaskFsmTaskInstanceId,'cfprEpqosDefinitionDelTaskFsmTaskDn':cfprEpqosDefinitionDelTaskFsmTaskDn,'cfprEpqosDefinitionDelTaskFsmTaskRn':cfprEpqosDefinitionDelTaskFsmTaskRn,'cfprEpqosDefinitionDelTaskFsmTaskCompletion':cfprEpqosDefinitionDelTaskFsmTaskCompletion,'cfprEpqosDefinitionDelTaskFsmTaskFlags':cfprEpqosDefinitionDelTaskFsmTaskFlags,'cfprEpqosDefinitionDelTaskFsmTaskItem':cfprEpqosDefinitionDelTaskFsmTaskItem,'cfprEpqosDefinitionDelTaskFsmTaskSeqId':cfprEpqosDefinitionDelTaskFsmTaskSeqId,'cfprEpqosDefinitionFsmTable':cfprEpqosDefinitionFsmTable,'cfprEpqosDefinitionFsmEntry':cfprEpqosDefinitionFsmEntry,_J:cfprEpqosDefinitionFsmInstanceId,'cfprEpqosDefinitionFsmDn':cfprEpqosDefinitionFsmDn,'cfprEpqosDefinitionFsmRn':cfprEpqosDefinitionFsmRn,'cfprEpqosDefinitionFsmCompletionTime':cfprEpqosDefinitionFsmCompletionTime,'cfprEpqosDefinitionFsmCurrentFsm':cfprEpqosDefinitionFsmCurrentFsm,'cfprEpqosDefinitionFsmDescrData':cfprEpqosDefinitionFsmDescrData,'cfprEpqosDefinitionFsmFsmStatus':cfprEpqosDefinitionFsmFsmStatus,'cfprEpqosDefinitionFsmProgress':cfprEpqosDefinitionFsmProgress,'cfprEpqosDefinitionFsmRmtErrCode':cfprEpqosDefinitionFsmRmtErrCode,'cfprEpqosDefinitionFsmRmtErrDescr':cfprEpqosDefinitionFsmRmtErrDescr,'cfprEpqosDefinitionFsmRmtRslt':cfprEpqosDefinitionFsmRmtRslt,'cfprEpqosDefinitionFsmStageTable':cfprEpqosDefinitionFsmStageTable,'cfprEpqosDefinitionFsmStageEntry':cfprEpqosDefinitionFsmStageEntry,_K:cfprEpqosDefinitionFsmStageInstanceId,'cfprEpqosDefinitionFsmStageDn':cfprEpqosDefinitionFsmStageDn,'cfprEpqosDefinitionFsmStageRn':cfprEpqosDefinitionFsmStageRn,'cfprEpqosDefinitionFsmStageDescrData':cfprEpqosDefinitionFsmStageDescrData,'cfprEpqosDefinitionFsmStageLastUpdateTime':cfprEpqosDefinitionFsmStageLastUpdateTime,'cfprEpqosDefinitionFsmStageName':cfprEpqosDefinitionFsmStageName,'cfprEpqosDefinitionFsmStageOrder':cfprEpqosDefinitionFsmStageOrder,'cfprEpqosDefinitionFsmStageRetry':cfprEpqosDefinitionFsmStageRetry,'cfprEpqosDefinitionFsmStageStageStatus':cfprEpqosDefinitionFsmStageStageStatus,'cfprEpqosDefinitionFsmTaskTable':cfprEpqosDefinitionFsmTaskTable,'cfprEpqosDefinitionFsmTaskEntry':cfprEpqosDefinitionFsmTaskEntry,_L:cfprEpqosDefinitionFsmTaskInstanceId,'cfprEpqosDefinitionFsmTaskDn':cfprEpqosDefinitionFsmTaskDn,'cfprEpqosDefinitionFsmTaskRn':cfprEpqosDefinitionFsmTaskRn,'cfprEpqosDefinitionFsmTaskCompletion':cfprEpqosDefinitionFsmTaskCompletion,'cfprEpqosDefinitionFsmTaskFlags':cfprEpqosDefinitionFsmTaskFlags,'cfprEpqosDefinitionFsmTaskItem':cfprEpqosDefinitionFsmTaskItem,'cfprEpqosDefinitionFsmTaskSeqId':cfprEpqosDefinitionFsmTaskSeqId,'cfprEpqosEgressTable':cfprEpqosEgressTable,'cfprEpqosEgressEntry':cfprEpqosEgressEntry,_M:cfprEpqosEgressInstanceId,'cfprEpqosEgressDn':cfprEpqosEgressDn,'cfprEpqosEgressRn':cfprEpqosEgressRn,'cfprEpqosEgressBurst':cfprEpqosEgressBurst,'cfprEpqosEgressHostControl':cfprEpqosEgressHostControl,'cfprEpqosEgressName':cfprEpqosEgressName,'cfprEpqosEgressOperPrio':cfprEpqosEgressOperPrio,'cfprEpqosEgressPrio':cfprEpqosEgressPrio,'cfprEpqosEgressRate':cfprEpqosEgressRate})

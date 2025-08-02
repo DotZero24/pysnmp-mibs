@@ -1,0 +1,15 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+cienaOme6500,=mibBuilder.importSymbols('CIENA-OME6500-OPTICAL-MIB','cienaOme6500')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+cienaSynoptics=ModuleIdentity((1,3,6,1,4,1,1271,68,11,2))
+if mibBuilder.loadTexts:cienaSynoptics.setRevisions(('2005-10-11 00:00',))
+_CienaSynopticProducts_ObjectIdentity=ObjectIdentity
+cienaSynopticProducts=_CienaSynopticProducts_ObjectIdentity((1,3,6,1,4,1,1271,68,11,2,1))
+_CienaSeries5000_ObjectIdentity=ObjectIdentity
+cienaSeries5000=_CienaSeries5000_ObjectIdentity((1,3,6,1,4,1,1271,68,11,2,1,6))
+mibBuilder.exportSymbols('CIENA-OME6500-SYNOPTICS-ROOT-MIB',**{'cienaSynoptics':cienaSynoptics,'cienaSynopticProducts':cienaSynopticProducts,'cienaSeries5000':cienaSeries5000})

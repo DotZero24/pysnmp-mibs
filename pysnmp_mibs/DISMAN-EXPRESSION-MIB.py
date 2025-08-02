@@ -1,127 +1,331 @@
-#
-# PySNMP MIB module DISMAN-EXPRESSION-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/DISMAN-EXPRESSION-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:07:59 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ModuleCompliance, NotificationGroup, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-( sysUpTime, ) = mibBuilder.importSymbols("SNMPv2-MIB", "sysUpTime")
-( Gauge32, Bits, Unsigned32, Counter64, ObjectIdentity, zeroDotZero, TimeTicks, ModuleIdentity, Integer32, IpAddress, Counter32, mib_2, iso, NotificationType, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Bits", "Unsigned32", "Counter64", "ObjectIdentity", "zeroDotZero", "TimeTicks", "ModuleIdentity", "Integer32", "IpAddress", "Counter32", "mib-2", "iso", "NotificationType", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-( DisplayString, TruthValue, TimeStamp, TextualConvention, RowStatus, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TimeStamp", "TextualConvention", "RowStatus")
-dismanExpressionMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 90)).setRevisions(("2000-10-16 00:00",))
-if mibBuilder.loadTexts: dismanExpressionMIB.setLastUpdated('200010160000Z')
-if mibBuilder.loadTexts: dismanExpressionMIB.setOrganization('IETF Distributed Management Working Group')
-if mibBuilder.loadTexts: dismanExpressionMIB.setContactInfo('Ramanathan Kavasseri\n                  Cisco Systems, Inc.\n                  170 West Tasman Drive,\n                  San Jose CA 95134-1706.\n                  Phone: +1 408 527 2446\n                  Email: ramk@cisco.com')
-if mibBuilder.loadTexts: dismanExpressionMIB.setDescription('The MIB module for defining expressions of MIB objects for\n     management purposes.')
-dismanExpressionMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 90, 1))
-expResource = MibIdentifier((1, 3, 6, 1, 2, 1, 90, 1, 1))
-expDefine = MibIdentifier((1, 3, 6, 1, 2, 1, 90, 1, 2))
-expValue = MibIdentifier((1, 3, 6, 1, 2, 1, 90, 1, 3))
-expResourceDeltaMinimum = MibScalar((1, 3, 6, 1, 2, 1, 90, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1,-1),ValueRangeConstraint(1,600),))).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: expResourceDeltaMinimum.setDescription("The minimum expExpressionDeltaInterval this system will\n     accept.  A system may use the larger values of this minimum to\n     lessen the impact of constantly computing deltas.  For larger\n     delta sampling intervals the system samples less often and\n     suffers less overhead.  This object provides a way to enforce\n     such lower overhead for all expressions created after it is\n     set.\n\n     The value -1 indicates that expResourceDeltaMinimum is\n     irrelevant as the system will not accept 'deltaValue' as a\n     value for expObjectSampleType.\n\n     Unless explicitly resource limited, a system's value for\n     this object should be 1, allowing as small as a 1 second\n     interval for ongoing delta sampling.\n\n     Changing this value will not invalidate an existing setting\n     of expObjectSampleType.")
-expResourceDeltaWildcardInstanceMaximum = MibScalar((1, 3, 6, 1, 2, 1, 90, 1, 1, 2), Unsigned32()).setUnits('instances').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: expResourceDeltaWildcardInstanceMaximum.setDescription("For every instance of a deltaValue object, one dynamic instance\n     entry is needed for holding the instance value from the previous\n     sample, i.e. to maintain state.\n\n     This object limits maximum number of dynamic instance entries\n     this system will support for wildcarded delta objects in\n     expressions. For a given delta expression, the number of\n     dynamic instances is the number of values that meet all criteria\n     to exist times the number of delta values in the expression.\n\n     A value of 0 indicates no preset limit, that is, the limit\n     is dynamic based on system operation and resources.\n\n     Unless explicitly resource limited, a system's value for\n     this object should be 0.\n\n\n     Changing this value will not eliminate or inhibit existing delta\n     wildcard instance objects but will prevent the creation of more\n     such objects.\n\n     An attempt to allocate beyond the limit results in expErrorCode\n     being tooManyWildcardValues for that evaluation attempt.")
-expResourceDeltaWildcardInstances = MibScalar((1, 3, 6, 1, 2, 1, 90, 1, 1, 3), Gauge32()).setUnits('instances').setMaxAccess("readonly")
-if mibBuilder.loadTexts: expResourceDeltaWildcardInstances.setDescription('The number of currently active instance entries as\n     defined for expResourceDeltaWildcardInstanceMaximum.')
-expResourceDeltaWildcardInstancesHigh = MibScalar((1, 3, 6, 1, 2, 1, 90, 1, 1, 4), Gauge32()).setUnits('instances').setMaxAccess("readonly")
-if mibBuilder.loadTexts: expResourceDeltaWildcardInstancesHigh.setDescription('The highest value of expResourceDeltaWildcardInstances\n     that has occurred since initialization of the managed\n     system.')
-expResourceDeltaWildcardInstanceResourceLacks = MibScalar((1, 3, 6, 1, 2, 1, 90, 1, 1, 5), Counter32()).setUnits('instances').setMaxAccess("readonly")
-if mibBuilder.loadTexts: expResourceDeltaWildcardInstanceResourceLacks.setDescription('The number of times this system could not evaluate an\n     expression because that would have created a value instance in\n     excess of expResourceDeltaWildcardInstanceMaximum.')
-expExpressionTable = MibTable((1, 3, 6, 1, 2, 1, 90, 1, 2, 1), )
-if mibBuilder.loadTexts: expExpressionTable.setDescription('A table of expression definitions.')
-expExpressionEntry = MibTableRow((1, 3, 6, 1, 2, 1, 90, 1, 2, 1, 1), ).setIndexNames((0, "DISMAN-EXPRESSION-MIB", "expExpressionOwner"), (0, "DISMAN-EXPRESSION-MIB", "expExpressionName"))
-if mibBuilder.loadTexts: expExpressionEntry.setDescription("Information about a single expression.  New expressions\n     can be created using expExpressionRowStatus.\n\n     To create an expression first create the named entry in this\n     table.  Then use expExpressionName to populate expObjectTable.\n     For expression evaluation to succeed all related entries in\n     expExpressionTable and expObjectTable must be 'active'.  If\n     these conditions are not met the corresponding values in\n     expValue simply are not instantiated.\n\n     Deleting an entry deletes all related entries in expObjectTable\n     and expErrorTable.\n\n     Because of the relationships among the multiple tables for an\n     expression (expExpressionTable, expObjectTable, and\n     expValueTable) and the SNMP rules for independence in setting\n     object values, it is necessary to do final error checking when\n     an expression is evaluated, that is, when one of its instances\n     in expValueTable is read or a delta interval expires.  Earlier\n     checking need not be done and an implementation may not impose\n     any ordering on the creation of objects related to an\n     expression.\n\n     To maintain security of MIB information, when creating a new row in\n     this table, the managed system must record the security credentials\n     of the requester.  These security credentials are the parameters\n     necessary as inputs to isAccessAllowed from the Architecture for\n\n     Describing SNMP Management Frameworks.  When obtaining the objects\n     that make up the expression, the system must (conceptually) use\n     isAccessAllowed to ensure that it does not violate security.\n\n     The evaluation of the expression takes place under the\n     security credentials of the creator of its expExpressionEntry.\n\n     Values of read-write objects in this table may be changed\n\n     at any time.")
-expExpressionOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,32)))
-if mibBuilder.loadTexts: expExpressionOwner.setDescription('The owner of this entry. The exact semantics of this\n     string are subject to the security policy defined by the\n     security administrator.')
-expExpressionName = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 1, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,32)))
-if mibBuilder.loadTexts: expExpressionName.setDescription('The name of the expression.  This is locally unique, within\n     the scope of an expExpressionOwner.')
-expExpression = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1,1024))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: expExpression.setDescription("The expression to be evaluated.  This object is the same\n     as a DisplayString (RFC 1903) except for its maximum length.\n\n     Except for the variable names the expression is in ANSI C\n     syntax.  Only the subset of ANSI C operators and functions\n     listed here is allowed.\n\n     Variables are expressed as a dollar sign ('$') and an\n\n     integer that corresponds to an expObjectIndex.  An\n     example of a valid expression is:\n\n          ($1-$5)*100\n\n     Expressions must not be recursive, that is although an expression\n     may use the results of another expression, it must not contain\n     any variable that is directly or indirectly a result of its own\n     evaluation. The managed system must check for recursive\n     expressions.\n\n     The only allowed operators are:\n\n          ( )\n          - (unary)\n          + - * / %\n          & | ^ << >> ~\n          ! && || == != > >= < <=\n\n     Note the parentheses are included for parenthesizing the\n     expression, not for casting data types.\n\n     The only constant types defined are:\n\n          int (32-bit signed)\n          long (64-bit signed)\n          unsigned int\n          unsigned long\n          hexadecimal\n          character\n          string\n          oid\n\n     The default type for a positive integer is int unless it is too\n     large in which case it is long.\n\n     All but oid are as defined for ANSI C.  Note that a\n     hexadecimal constant may end up as a scalar or an array of\n     8-bit integers.  A string constant is enclosed in double\n     quotes and may contain back-slashed individual characters\n     as in ANSI C.\n\n     An oid constant comprises 32-bit, unsigned integers and at\n     least one period, for example:\n\n          0.\n          .0\n          1.3.6.1\n\n     No additional leading or trailing subidentifiers are automatically\n     added to an OID constant.  The constant is taken as expressed.\n\n     Integer-typed objects are treated as 32- or 64-bit, signed\n     or unsigned integers, as appropriate.  The results of\n     mixing them are as for ANSI C, including the type of the\n     result.  Note that a 32-bit value is thus promoted to 64 bits\n     only in an operation with a 64-bit value.  There is no\n     provision for larger values to handle overflow.\n\n     Relative to SNMP data types, a resulting value becomes\n     unsigned when calculating it uses any unsigned value,\n     including a counter.  To force the final value to be of\n     data type counter the expression must explicitly use the\n     counter32() or counter64() function (defined below).\n\n     OCTET STRINGS and OBJECT IDENTIFIERs are treated as\n     one-dimensioned arrays of unsigned 8-bit integers and\n     unsigned 32-bit integers, respectively.\n\n     IpAddresses are treated as 32-bit, unsigned integers in\n     network byte order, that is, the hex version of 255.0.0.0 is\n     0xff000000.\n\n     Conditional expressions result in a 32-bit, unsigned integer\n     of value 0 for false or 1 for true. When an arbitrary value\n     is used as a boolean 0 is false and non-zero is true.\n\n     Rules for the resulting data type from an operation, based on\n     the operator:\n\n     For << and >> the result is the same as the left hand operand.\n\n     For &&, ||, ==, !=, <, <=, >, and >= the result is always\n     Unsigned32.\n\n     For unary - the result is always Integer32.\n\n     For +, -, *, /, %, &, |, and ^ the result is promoted according\n     to the following rules, in order from most to least preferred:\n\n          If left hand and right hand operands are the same type,\n          use that.\n\n          If either side is Counter64, use that.\n\n          If either side is IpAddress, use that.\n\n\n          If either side is TimeTicks, use that.\n\n          If either side is Counter32, use that.\n\n          Otherwise use Unsigned32.\n\n     The following rules say what operators apply with what data\n     types.  Any combination not explicitly defined does not work.\n\n     For all operators any of the following can be the left hand or\n     right hand operand: Integer32, Counter32, Unsigned32, Counter64.\n\n     The operators +, -, *, /, %, <, <=, >, and >= work with\n     TimeTicks.\n\n     The operators &, |, and ^ work with IpAddress.\n\n     The operators << and >> work with IpAddress but only as the\n     left hand operand.\n\n     The + operator performs a concatenation of two OCTET STRINGs or\n     two OBJECT IDENTIFIERs.\n\n     The operators &, | perform bitwise operations on OCTET STRINGs.\n     If the OCTET STRING happens to be a DisplayString the results\n     may be meaningless, but the agent system does not check this as\n     some such systems do not have this information.\n\n     The operators << and >> perform bitwise operations on OCTET\n     STRINGs appearing as the left hand operand.\n\n     The only functions defined are:\n\n          counter32\n          counter64\n          arraySection\n          stringBegins\n          stringEnds\n          stringContains\n          oidBegins\n          oidEnds\n          oidContains\n          average\n          maximum\n          minimum\n          sum\n          exists\n\n\n     The following function definitions indicate their parameters by\n     naming the data type of the parameter in the parameter's position\n     in the parameter list.  The parameter must be of the type indicated\n     and generally may be a constant, a MIB object, a function, or an\n     expression.\n\n     counter32(integer) - wrapped around an integer value counter32\n     forces Counter32 as a data type.\n\n     counter64(integer) - similar to counter32 except that the\n     resulting data type is 'counter64'.\n\n     arraySection(array, integer, integer) - selects a piece of an\n     array (i.e. part of an OCTET STRING or OBJECT IDENTIFIER).  The\n     integer arguments are in the range 0 to 4,294,967,295.  The\n     first is an initial array index (one-dimensioned) and the second\n     is an ending array index.  A value of 0 indicates first or last\n     element, respectively.  If the first element is larger than the\n     array length the result is 0 length.  If the second integer is\n     less than or equal to the first, the result is 0 length.  If the\n     second is larger than the array length it indicates last\n     element.\n\n     stringBegins/Ends/Contains(octetString, octetString) - looks for\n     the second string (which can be a string constant) in the first\n     and returns the one-dimensioned arrayindex where the match began.\n     A return value of 0 indicates no match (i.e. boolean false).\n\n     oidBegins/Ends/Contains(oid, oid) - looks for the second OID\n     (which can be an OID constant) in the first and returns the\n     the one-dimensioned index where the match began. A return value\n     of 0 indicates no match (i.e. boolean false).\n\n     average/maximum/minimum(integer) - calculates the average,\n     minimum, or maximum value of the integer valued object over\n     multiple sample times.  If the object disappears for any\n     sample period, the accumulation and the resulting value object\n     cease to exist until the object reappears at which point the\n     calculation starts over.\n\n     sum(integerObject*) - sums all available values of the\n     wildcarded integer object, resulting in an integer scalar.  Must\n     be used with caution as it wraps on overflow with no\n     notification.\n\n     exists(anyTypeObject) - verifies the object instance exists. A\n     return value of 0 indicates NoSuchInstance (i.e. boolean\n     false).")
-expExpressionValueType = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8,))).clone(namedValues=NamedValues(("counter32", 1), ("unsigned32", 2), ("timeTicks", 3), ("integer32", 4), ("ipAddress", 5), ("octetString", 6), ("objectId", 7), ("counter64", 8),)).clone('counter32')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: expExpressionValueType.setDescription('The type of the expression value.  One and only one of the\n     value objects in expValueTable will be instantiated to match\n     this type.\n\n     If the result of the expression can not be made into this type,\n     an invalidOperandType error will occur.')
-expExpressionComment = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 1, 1, 5), SnmpAdminString().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: expExpressionComment.setDescription('A comment to explain the use or meaning of the expression.')
-expExpressionDeltaInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,86400))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: expExpressionDeltaInterval.setDescription("Sampling interval for objects in this expression with\n     expObjectSampleType 'deltaValue'.\n\n     This object has no effect if the the expression has no\n     deltaValue objects.\n\n     A value of 0 indicates no automated sampling.  In this case\n     the delta is the difference from the last time the expression\n     was evaluated.  Note that this is subject to unpredictable\n     delta times in the face of retries or multiple managers.\n\n     A value greater than zero is the number of seconds between\n     automated samples.\n\n     Until the delta interval has expired once the delta for the\n\n     object is effectively not instantiated and evaluating\n     the expression has results as if the object itself were not\n     instantiated.\n\n     Note that delta values potentially consume large amounts of\n     system CPU and memory.  Delta state and processing must\n     continue constantly even if the expression is not being used.\n     That is, the expression is being evaluated every delta interval,\n     even if no application is reading those values.  For wildcarded\n     objects this can be substantial overhead.\n\n     Note that delta intervals, external expression value sampling\n     intervals and delta intervals for expressions within other\n     expressions can have unusual interactions as they are impossible\n     to synchronize accurately.  In general one interval embedded\n     below another must be enough shorter that the higher sample\n     sees relatively smooth, predictable behavior.  So, for example,\n     to avoid the higher level getting the same sample twice, the\n     lower level should sample at least twice as fast as the higher\n     level does.")
-expExpressionPrefix = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 1, 1, 7), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: expExpressionPrefix.setDescription('An object prefix to assist an application in determining\n     the instance indexing to use in expValueTable, relieving the\n     application of the need to scan the expObjectTable to\n     determine such a prefix.\n\n     See expObjectTable for information on wildcarded objects.\n\n     If the expValueInstance portion of the value OID may\n     be treated as a scalar (that is, normally, 0) the value of\n     expExpressionPrefix is zero length, that is, no OID at all.\n     Note that zero length implies a null OID, not the OID 0.0.\n\n     Otherwise, the value of expExpressionPrefix is the expObjectID\n     value of any one of the wildcarded objects for the expression.\n     This is sufficient, as the remainder, that is, the instance\n     fragment relevant to instancing the values, must be the same for\n     all wildcarded objects in the expression.')
-expExpressionErrors = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 1, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: expExpressionErrors.setDescription('The number of errors encountered while evaluating this\n     expression.\n\n     Note that an object in the expression not being accessible,\n     is not considered an error. An example of an inaccessible\n     object is when the object is excluded from the view of the\n     user whose security credentials are used in the expression\n     evaluation. In such cases, it is a legitimate condition\n     that causes the corresponding expression value not to be\n     instantiated.')
-expExpressionEntryStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 1, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: expExpressionEntryStatus.setDescription('The control that allows creation and deletion of entries.')
-expErrorTable = MibTable((1, 3, 6, 1, 2, 1, 90, 1, 2, 2), )
-if mibBuilder.loadTexts: expErrorTable.setDescription('A table of expression errors.')
-expErrorEntry = MibTableRow((1, 3, 6, 1, 2, 1, 90, 1, 2, 2, 1), ).setIndexNames((0, "DISMAN-EXPRESSION-MIB", "expExpressionOwner"), (0, "DISMAN-EXPRESSION-MIB", "expExpressionName"))
-if mibBuilder.loadTexts: expErrorEntry.setDescription('Information about errors in processing an expression.\n\n     Entries appear in this table only when there is a matching\n     expExpressionEntry and then only when there has been an\n     error for that expression as reflected by the error codes\n     defined for expErrorCode.')
-expErrorTime = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 2, 1, 1), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: expErrorTime.setDescription('The value of sysUpTime the last time an error caused a\n     failure to evaluate this expression.')
-expErrorIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 2, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: expErrorIndex.setDescription('The one-dimensioned character array index into\n     expExpression for where the error occurred.  The value\n     zero indicates irrelevance.')
-expErrorCode = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,))).clone(namedValues=NamedValues(("invalidSyntax", 1), ("undefinedObjectIndex", 2), ("unrecognizedOperator", 3), ("unrecognizedFunction", 4), ("invalidOperandType", 5), ("unmatchedParenthesis", 6), ("tooManyWildcardValues", 7), ("recursion", 8), ("deltaTooShort", 9), ("resourceUnavailable", 10), ("divideByZero", 11),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: expErrorCode.setDescription("The error that occurred.  In the following explanations the\n     expected timing of the error is in parentheses.  'S' means\n     the error occurs on a Set request.  'E' means the error\n\n     occurs on the attempt to evaluate the expression either due to\n     Get from expValueTable or in ongoing delta processing.\n\n     invalidSyntax       the value sent for expExpression is not\n                    valid Expression MIB expression syntax\n                    (S)\n     undefinedObjectIndex     an object reference ($n) in\n                    expExpression does not have a matching\n                    instance in expObjectTable (E)\n     unrecognizedOperator     the value sent for expExpression held an\n                    unrecognized operator (S)\n     unrecognizedFunction     the value sent for expExpression held an\n                    unrecognized function name (S)\n     invalidOperandType  an operand in expExpression is not the\n                    right type for the associated operator\n                    or result (SE)\n     unmatchedParenthesis     the value sent for expExpression is not\n                    correctly parenthesized (S)\n     tooManyWildcardValues    evaluating the expression exceeded the\n                    limit set by\n                    expResourceDeltaWildcardInstanceMaximum\n                    (E)\n     recursion      through some chain of embedded\n                    expressions the expression invokes itself\n                    (E)\n     deltaTooShort       the delta for the next evaluation passed\n                    before the system could evaluate the\n                    present sample (E)\n     resourceUnavailable some resource, typically dynamic memory,\n                    was unavailable (SE)\n     divideByZero        an attempt to divide by zero occurred\n                    (E)\n\n     For the errors that occur when the attempt is made to set\n     expExpression Set request fails with the SNMP error code\n     'wrongValue'.  Such failures refer to the most recent failure to\n     Set expExpression, not to the present value of expExpression\n     which must be either unset or syntactically correct.\n\n     Errors that occur during evaluation for a Get* operation return\n     the SNMP error code 'genErr' except for 'tooManyWildcardValues'\n     and 'resourceUnavailable' which return the SNMP error code\n     'resourceUnavailable'.")
-expErrorInstance = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 2, 1, 4), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: expErrorInstance.setDescription('The expValueInstance being evaluated when the error\n     occurred.  A zero-length indicates irrelevance.')
-expObjectTable = MibTable((1, 3, 6, 1, 2, 1, 90, 1, 2, 3), )
-if mibBuilder.loadTexts: expObjectTable.setDescription('A table of object definitions for each expExpression.\n\n     Wildcarding instance IDs:\n\n     It is legal to omit all or part of the instance portion for\n     some or all of the objects in an expression. (See the\n     DESCRIPTION of expObjectID for details.  However, note that\n     if more than one object in the same expression is wildcarded\n     in this way, they all must be objects where that portion of\n     the instance is the same.  In other words, all objects may be\n     in the same SEQUENCE or in different SEQUENCEs but with the\n     same semantic index value (e.g., a value of ifIndex)\n     for the wildcarded portion.')
-expObjectEntry = MibTableRow((1, 3, 6, 1, 2, 1, 90, 1, 2, 3, 1), ).setIndexNames((0, "DISMAN-EXPRESSION-MIB", "expExpressionOwner"), (0, "DISMAN-EXPRESSION-MIB", "expExpressionName"), (0, "DISMAN-EXPRESSION-MIB", "expObjectIndex"))
-if mibBuilder.loadTexts: expObjectEntry.setDescription('Information about an object.  An application uses\n     expObjectEntryStatus to create entries in this table while\n     in the process of defining an expression.\n\n     Values of read-create objects in this table may be\n     changed at any time.')
-expObjectIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: expObjectIndex.setDescription("Within an expression, a unique, numeric identification for an\n     object.  Prefixed with a dollar sign ('$') this is used to\n     reference the object in the corresponding expExpression.")
-expObjectID = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 3, 1, 2), ObjectIdentifier()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: expObjectID.setDescription('The OBJECT IDENTIFIER (OID) of this object.  The OID may be\n     fully qualified, meaning it includes a complete instance\n     identifier part (e.g., ifInOctets.1 or sysUpTime.0), or it\n     may not be fully qualified, meaning it may lack all or part\n     of the instance identifier.  If the expObjectID is not fully\n     qualified, then expObjectWildcard must be set to true(1).\n     The value of the expression will be multiple\n     values, as if done for a GetNext sweep of the object.\n\n     An object here may itself be the result of an expression but\n     recursion is not allowed.\n\n     NOTE:  The simplest implementations of this MIB may not allow\n     wildcards.')
-expObjectIDWildcard = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 3, 1, 3), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: expObjectIDWildcard.setDescription('A true value indicates the expObjecID of this row is a wildcard\n        object. False indicates that expObjectID is fully instanced.\n        If all expObjectWildcard values for a given expression are FALSE,\n\n        expExpressionPrefix will reflect a scalar object (i.e. will\n        be 0.0).\n\n        NOTE:  The simplest implementations of this MIB may not allow\n        wildcards.')
-expObjectSampleType = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("absoluteValue", 1), ("deltaValue", 2), ("changedValue", 3),)).clone('absoluteValue')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: expObjectSampleType.setDescription("The method of sampling the selected variable.\n\n     An 'absoluteValue' is simply the present value of the object.\n\n     A 'deltaValue' is the present value minus the previous value,\n     which was sampled expExpressionDeltaInterval seconds ago.\n     This is intended primarily for use with SNMP counters, which are\n     meaningless as an 'absoluteValue', but may be used with any\n     integer-based value.\n\n     A 'changedValue' is a boolean for whether the present value is\n     different from the previous value.  It is applicable to any data\n     type and results in an Unsigned32 with value 1 if the object's\n     value is changed and 0 if not.  In all other respects it is as a\n     'deltaValue' and all statements and operation regarding delta\n     values apply to changed values.\n\n     When an expression contains both delta and absolute values\n     the absolute values are obtained at the end of the delta\n     period.")
-sysUpTimeInstance = MibIdentifier((1, 3, 6, 1, 2, 1, 1, 3, 0))
-expObjectDeltaDiscontinuityID = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 3, 1, 5), ObjectIdentifier().clone((1, 3, 6, 1, 2, 1, 1, 3, 0))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: expObjectDeltaDiscontinuityID.setDescription("The OBJECT IDENTIFIER (OID) of a TimeTicks, TimeStamp, or\n     DateAndTime object that indicates a discontinuity in the value\n     at expObjectID.\n\n\n     This object is instantiated only if expObjectSampleType is\n     'deltaValue' or 'changedValue'.\n\n     The OID may be for a leaf object (e.g. sysUpTime.0) or may\n     be wildcarded to match expObjectID.\n\n     This object supports normal checking for a discontinuity in a\n     counter.  Note that if this object does not point to sysUpTime\n     discontinuity checking must still check sysUpTime for an overall\n     discontinuity.\n\n     If the object identified is not accessible no discontinuity\n     check will be made.")
-expObjectDiscontinuityIDWildcard = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 3, 1, 6), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: expObjectDiscontinuityIDWildcard.setDescription("A true value indicates the expObjectDeltaDiscontinuityID of\n     this row is a wildcard object.  False indicates that\n     expObjectDeltaDiscontinuityID is fully instanced.\n\n     This object is instantiated only if expObjectSampleType is\n     'deltaValue' or 'changedValue'.\n\n     NOTE:  The simplest implementations of this MIB may not allow\n     wildcards.")
-expObjectDiscontinuityIDType = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("timeTicks", 1), ("timeStamp", 2), ("dateAndTime", 3),)).clone('timeTicks')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: expObjectDiscontinuityIDType.setDescription("The value 'timeTicks' indicates the expObjectDeltaDiscontinuityID\n     of this row is of syntax TimeTicks.  The value 'timeStamp' indicates\n     syntax TimeStamp.  The value 'dateAndTime indicates syntax\n     DateAndTime.\n\n     This object is instantiated only if expObjectSampleType is\n     'deltaValue' or 'changedValue'.")
-expObjectConditional = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 3, 1, 8), ObjectIdentifier().clone((0, 0))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: expObjectConditional.setDescription('The OBJECT IDENTIFIER (OID) of an object that overrides\n     whether the instance of expObjectID is to be considered\n     usable.  If the value of the object at expObjectConditional\n     is 0 or not instantiated, the object at expObjectID is\n     treated as if it is not instantiated.  In other words,\n     expObjectConditional is a filter that controls whether or\n     not to use the value at expObjectID.\n\n     The OID may be for a leaf object (e.g. sysObjectID.0) or may be\n     wildcarded to match expObjectID.  If expObject is wildcarded and\n     expObjectID in the same row is not, the wild portion of\n     expObjectConditional must match the wildcarding of the rest of\n     the expression.  If no object in the expression is wildcarded\n     but expObjectConditional is, use the lexically first instance\n     (if any) of expObjectConditional.\n\n     If the value of expObjectConditional is 0.0 operation is\n     as if the value pointed to by expObjectConditional is a\n     non-zero (true) value.\n\n     Note that expObjectConditional can not trivially use an object\n     of syntax TruthValue, since the underlying value is not 0 or 1.')
-expObjectConditionalWildcard = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 3, 1, 9), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: expObjectConditionalWildcard.setDescription('A true value indicates the expObjectConditional of this row is\n     a wildcard object. False indicates that expObjectConditional is\n     fully instanced.\n\n     NOTE: The simplest implementations of this MIB may not allow\n     wildcards.')
-expObjectEntryStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 2, 3, 1, 10), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: expObjectEntryStatus.setDescription('The control that allows creation/deletion of entries.\n\n     Objects in this table may be changed while\n     expObjectEntryStatus is in any state.')
-expValueTable = MibTable((1, 3, 6, 1, 2, 1, 90, 1, 3, 1), )
-if mibBuilder.loadTexts: expValueTable.setDescription('A table of values from evaluated expressions.')
-expValueEntry = MibTableRow((1, 3, 6, 1, 2, 1, 90, 1, 3, 1, 1), ).setIndexNames((0, "DISMAN-EXPRESSION-MIB", "expExpressionOwner"), (0, "DISMAN-EXPRESSION-MIB", "expExpressionName"), (1, "DISMAN-EXPRESSION-MIB", "expValueInstance"))
-if mibBuilder.loadTexts: expValueEntry.setDescription("A single value from an evaluated expression.  For a given\n     instance, only one 'Val' object in the conceptual row will be\n     instantiated, that is, the one with the appropriate type for\n     the value.  For values that contain no objects of\n     expObjectSampleType 'deltaValue' or 'changedValue', reading a\n     value from the table causes the evaluation of the expression\n     for that value.  For those that contain a 'deltaValue' or\n     'changedValue' the value read is as of the last sampling\n     interval.\n\n     If in the attempt to evaluate the expression one or more\n     of the necessary objects is not available, the corresponding\n     entry in this table is effectively not instantiated.\n\n     To maintain security of MIB information, when creating a new\n     row in this table, the managed system must record the security\n     credentials of the requester.  These security credentials are\n     the parameters necessary as inputs to isAccessAllowed from\n     [RFC2571]. When obtaining the objects that make up the\n     expression, the system must (conceptually) use isAccessAllowed to\n     ensure that it does not violate security.\n\n     The evaluation of that expression takes place under the\n\n     security credentials of the creator of its expExpressionEntry.\n\n     To maintain security of MIB information, expression evaluation must\n     take place using security credentials for the implied Gets of the\n     objects in the expression as inputs (conceptually) to\n     isAccessAllowed from the Architecture for Describing SNMP\n     Management Frameworks.  These are the security credentials of the\n     creator of the corresponding expExpressionEntry.")
-expValueInstance = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 3, 1, 1, 1), ObjectIdentifier())
-if mibBuilder.loadTexts: expValueInstance.setDescription("The final instance portion of a value's OID according to\n     the wildcarding in instances of expObjectID for the\n     expression.  The prefix of this OID fragment is 0.0,\n     leading to the following behavior.\n\n     If there is no wildcarding, the value is 0.0.0.  In other\n     words, there is one value which standing alone would have\n     been a scalar with a 0 at the end of its OID.\n\n     If there is wildcarding, the value is 0.0 followed by\n     a value that the wildcard can take, thus defining one value\n     instance for each real, possible value of the wildcard.\n     So, for example, if the wildcard worked out to be an ifIndex,\n     there is an expValueInstance for each applicable ifIndex.")
-expValueCounter32Val = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 3, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: expValueCounter32Val.setDescription("The value when expExpressionValueType is 'counter32'.")
-expValueUnsigned32Val = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 3, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: expValueUnsigned32Val.setDescription("The value when expExpressionValueType is 'unsigned32'.")
-expValueTimeTicksVal = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 3, 1, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: expValueTimeTicksVal.setDescription("The value when expExpressionValueType is 'timeTicks'.")
-expValueInteger32Val = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 3, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: expValueInteger32Val.setDescription("The value when expExpressionValueType is 'integer32'.")
-expValueIpAddressVal = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 3, 1, 1, 6), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: expValueIpAddressVal.setDescription("The value when expExpressionValueType is 'ipAddress'.")
-expValueOctetStringVal = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 3, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,65536))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: expValueOctetStringVal.setDescription("The value when expExpressionValueType is 'octetString'.")
-expValueOidVal = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 3, 1, 1, 8), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: expValueOidVal.setDescription("The value when expExpressionValueType is 'objectId'.")
-expValueCounter64Val = MibTableColumn((1, 3, 6, 1, 2, 1, 90, 1, 3, 1, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: expValueCounter64Val.setDescription("The value when expExpressionValueType is 'counter64'.")
-dismanExpressionMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 90, 3))
-dismanExpressionMIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 90, 3, 1))
-dismanExpressionMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 90, 3, 2))
-dismanExpressionMIBCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 90, 3, 1, 1)).setObjects(*(("DISMAN-EXPRESSION-MIB", "dismanExpressionResourceGroup"), ("DISMAN-EXPRESSION-MIB", "dismanExpressionDefinitionGroup"), ("DISMAN-EXPRESSION-MIB", "dismanExpressionValueGroup"),))
-if mibBuilder.loadTexts: dismanExpressionMIBCompliance.setDescription('The compliance statement for entities which implement\n          the Expression MIB.')
-dismanExpressionResourceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 90, 3, 2, 1)).setObjects(*(("DISMAN-EXPRESSION-MIB", "expResourceDeltaMinimum"), ("DISMAN-EXPRESSION-MIB", "expResourceDeltaWildcardInstanceMaximum"), ("DISMAN-EXPRESSION-MIB", "expResourceDeltaWildcardInstances"), ("DISMAN-EXPRESSION-MIB", "expResourceDeltaWildcardInstancesHigh"), ("DISMAN-EXPRESSION-MIB", "expResourceDeltaWildcardInstanceResourceLacks"),))
-if mibBuilder.loadTexts: dismanExpressionResourceGroup.setDescription('Expression definition resource management.')
-dismanExpressionDefinitionGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 90, 3, 2, 2)).setObjects(*(("DISMAN-EXPRESSION-MIB", "expExpression"), ("DISMAN-EXPRESSION-MIB", "expExpressionValueType"), ("DISMAN-EXPRESSION-MIB", "expExpressionComment"), ("DISMAN-EXPRESSION-MIB", "expExpressionDeltaInterval"), ("DISMAN-EXPRESSION-MIB", "expExpressionPrefix"), ("DISMAN-EXPRESSION-MIB", "expExpressionErrors"), ("DISMAN-EXPRESSION-MIB", "expExpressionEntryStatus"), ("DISMAN-EXPRESSION-MIB", "expErrorTime"), ("DISMAN-EXPRESSION-MIB", "expErrorIndex"), ("DISMAN-EXPRESSION-MIB", "expErrorCode"), ("DISMAN-EXPRESSION-MIB", "expErrorInstance"), ("DISMAN-EXPRESSION-MIB", "expObjectID"), ("DISMAN-EXPRESSION-MIB", "expObjectIDWildcard"), ("DISMAN-EXPRESSION-MIB", "expObjectSampleType"), ("DISMAN-EXPRESSION-MIB", "expObjectDeltaDiscontinuityID"), ("DISMAN-EXPRESSION-MIB", "expObjectDiscontinuityIDWildcard"), ("DISMAN-EXPRESSION-MIB", "expObjectDiscontinuityIDType"), ("DISMAN-EXPRESSION-MIB", "expObjectConditional"), ("DISMAN-EXPRESSION-MIB", "expObjectConditionalWildcard"), ("DISMAN-EXPRESSION-MIB", "expObjectEntryStatus"),))
-if mibBuilder.loadTexts: dismanExpressionDefinitionGroup.setDescription('Expression definition.')
-dismanExpressionValueGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 90, 3, 2, 3)).setObjects(*(("DISMAN-EXPRESSION-MIB", "expValueCounter32Val"), ("DISMAN-EXPRESSION-MIB", "expValueUnsigned32Val"), ("DISMAN-EXPRESSION-MIB", "expValueTimeTicksVal"), ("DISMAN-EXPRESSION-MIB", "expValueInteger32Val"), ("DISMAN-EXPRESSION-MIB", "expValueIpAddressVal"), ("DISMAN-EXPRESSION-MIB", "expValueOctetStringVal"), ("DISMAN-EXPRESSION-MIB", "expValueOidVal"), ("DISMAN-EXPRESSION-MIB", "expValueCounter64Val"),))
-if mibBuilder.loadTexts: dismanExpressionValueGroup.setDescription('Expression value.')
-mibBuilder.exportSymbols("DISMAN-EXPRESSION-MIB", dismanExpressionMIBCompliances=dismanExpressionMIBCompliances, expExpressionComment=expExpressionComment, expObjectDiscontinuityIDType=expObjectDiscontinuityIDType, expObjectDiscontinuityIDWildcard=expObjectDiscontinuityIDWildcard, expValueTable=expValueTable, expResource=expResource, expExpressionPrefix=expExpressionPrefix, expObjectTable=expObjectTable, expValueIpAddressVal=expValueIpAddressVal, expObjectDeltaDiscontinuityID=expObjectDeltaDiscontinuityID, expErrorInstance=expErrorInstance, expObjectEntry=expObjectEntry, dismanExpressionResourceGroup=dismanExpressionResourceGroup, expObjectConditional=expObjectConditional, expExpressionEntryStatus=expExpressionEntryStatus, expExpressionTable=expExpressionTable, expValueCounter32Val=expValueCounter32Val, expErrorTable=expErrorTable, PYSNMP_MODULE_ID=dismanExpressionMIB, expExpressionDeltaInterval=expExpressionDeltaInterval, expValueInstance=expValueInstance, expExpression=expExpression, expValueTimeTicksVal=expValueTimeTicksVal, expErrorTime=expErrorTime, expResourceDeltaWildcardInstanceResourceLacks=expResourceDeltaWildcardInstanceResourceLacks, expValueEntry=expValueEntry, dismanExpressionMIB=dismanExpressionMIB, dismanExpressionMIBGroups=dismanExpressionMIBGroups, expObjectIndex=expObjectIndex, expObjectConditionalWildcard=expObjectConditionalWildcard, dismanExpressionMIBObjects=dismanExpressionMIBObjects, expValueOidVal=expValueOidVal, dismanExpressionMIBConformance=dismanExpressionMIBConformance, expResourceDeltaMinimum=expResourceDeltaMinimum, sysUpTimeInstance=sysUpTimeInstance, expResourceDeltaWildcardInstances=expResourceDeltaWildcardInstances, expExpressionEntry=expExpressionEntry, expExpressionValueType=expExpressionValueType, expObjectSampleType=expObjectSampleType, expErrorCode=expErrorCode, expDefine=expDefine, expExpressionErrors=expExpressionErrors, expValueUnsigned32Val=expValueUnsigned32Val, expValueCounter64Val=expValueCounter64Val, expExpressionOwner=expExpressionOwner, dismanExpressionDefinitionGroup=dismanExpressionDefinitionGroup, dismanExpressionMIBCompliance=dismanExpressionMIBCompliance, expObjectID=expObjectID, expErrorIndex=expErrorIndex, expResourceDeltaWildcardInstancesHigh=expResourceDeltaWildcardInstancesHigh, expValueOctetStringVal=expValueOctetStringVal, expObjectEntryStatus=expObjectEntryStatus, dismanExpressionValueGroup=dismanExpressionValueGroup, expObjectIDWildcard=expObjectIDWildcard, expExpressionName=expExpressionName, expErrorEntry=expErrorEntry, expValueInteger32Val=expValueInteger32Val, expResourceDeltaWildcardInstanceMaximum=expResourceDeltaWildcardInstanceMaximum, expValue=expValue)
+_A2='dismanExpressionValueGroup'
+_A1='dismanExpressionDefinitionGroup'
+_A0='dismanExpressionResourceGroup'
+_z='expValueCounter64Val'
+_y='expValueOidVal'
+_x='expValueOctetStringVal'
+_w='expValueIpAddressVal'
+_v='expValueInteger32Val'
+_u='expValueTimeTicksVal'
+_t='expValueUnsigned32Val'
+_s='expValueCounter32Val'
+_r='expObjectEntryStatus'
+_q='expObjectConditionalWildcard'
+_p='expObjectConditional'
+_o='expObjectDiscontinuityIDType'
+_n='expObjectDiscontinuityIDWildcard'
+_m='expObjectDeltaDiscontinuityID'
+_l='expObjectSampleType'
+_k='expObjectIDWildcard'
+_j='expObjectID'
+_i='expErrorInstance'
+_h='expErrorCode'
+_g='expErrorIndex'
+_f='expErrorTime'
+_e='expExpressionEntryStatus'
+_d='expExpressionErrors'
+_c='expExpressionPrefix'
+_b='expExpressionDeltaInterval'
+_a='expExpressionComment'
+_Z='expExpressionValueType'
+_Y='expExpression'
+_X='expResourceDeltaWildcardInstanceResourceLacks'
+_W='expResourceDeltaWildcardInstancesHigh'
+_V='expResourceDeltaWildcardInstances'
+_U='expResourceDeltaWildcardInstanceMaximum'
+_T='expResourceDeltaMinimum'
+_S='expValueInstance'
+_R='expObjectIndex'
+_Q='timeTicks'
+_P='seconds'
+_O='read-write'
+_N='Unsigned32'
+_M='ObjectIdentifier'
+_L='OctetString'
+_K='not-accessible'
+_J='instances'
+_I='TruthValue'
+_H='SnmpAdminString'
+_G='expExpressionName'
+_F='expExpressionOwner'
+_E='Integer32'
+_D='read-create'
+_C='read-only'
+_B='DISMAN-EXPRESSION-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_L,_M)
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_H)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+sysUpTime,=mibBuilder.importSymbols('SNMPv2-MIB','sysUpTime')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2,zeroDotZero=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_N,'iso','mib-2','zeroDotZero')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention','TimeStamp',_I)
+dismanExpressionMIB=ModuleIdentity((1,3,6,1,2,1,90))
+if mibBuilder.loadTexts:dismanExpressionMIB.setRevisions(('2000-10-16 00:00',))
+_SysUpTimeInstance_ObjectIdentity=ObjectIdentity
+sysUpTimeInstance=_SysUpTimeInstance_ObjectIdentity((1,3,6,1,2,1,1,3,0))
+_DismanExpressionMIBObjects_ObjectIdentity=ObjectIdentity
+dismanExpressionMIBObjects=_DismanExpressionMIBObjects_ObjectIdentity((1,3,6,1,2,1,90,1))
+_ExpResource_ObjectIdentity=ObjectIdentity
+expResource=_ExpResource_ObjectIdentity((1,3,6,1,2,1,90,1,1))
+class _ExpResourceDeltaMinimum_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,-1),ValueRangeConstraint(1,600))
+_ExpResourceDeltaMinimum_Type.__name__=_E
+_ExpResourceDeltaMinimum_Object=MibScalar
+expResourceDeltaMinimum=_ExpResourceDeltaMinimum_Object((1,3,6,1,2,1,90,1,1,1),_ExpResourceDeltaMinimum_Type())
+expResourceDeltaMinimum.setMaxAccess(_O)
+if mibBuilder.loadTexts:expResourceDeltaMinimum.setStatus(_A)
+if mibBuilder.loadTexts:expResourceDeltaMinimum.setUnits(_P)
+_ExpResourceDeltaWildcardInstanceMaximum_Type=Unsigned32
+_ExpResourceDeltaWildcardInstanceMaximum_Object=MibScalar
+expResourceDeltaWildcardInstanceMaximum=_ExpResourceDeltaWildcardInstanceMaximum_Object((1,3,6,1,2,1,90,1,1,2),_ExpResourceDeltaWildcardInstanceMaximum_Type())
+expResourceDeltaWildcardInstanceMaximum.setMaxAccess(_O)
+if mibBuilder.loadTexts:expResourceDeltaWildcardInstanceMaximum.setStatus(_A)
+if mibBuilder.loadTexts:expResourceDeltaWildcardInstanceMaximum.setUnits(_J)
+_ExpResourceDeltaWildcardInstances_Type=Gauge32
+_ExpResourceDeltaWildcardInstances_Object=MibScalar
+expResourceDeltaWildcardInstances=_ExpResourceDeltaWildcardInstances_Object((1,3,6,1,2,1,90,1,1,3),_ExpResourceDeltaWildcardInstances_Type())
+expResourceDeltaWildcardInstances.setMaxAccess(_C)
+if mibBuilder.loadTexts:expResourceDeltaWildcardInstances.setStatus(_A)
+if mibBuilder.loadTexts:expResourceDeltaWildcardInstances.setUnits(_J)
+_ExpResourceDeltaWildcardInstancesHigh_Type=Gauge32
+_ExpResourceDeltaWildcardInstancesHigh_Object=MibScalar
+expResourceDeltaWildcardInstancesHigh=_ExpResourceDeltaWildcardInstancesHigh_Object((1,3,6,1,2,1,90,1,1,4),_ExpResourceDeltaWildcardInstancesHigh_Type())
+expResourceDeltaWildcardInstancesHigh.setMaxAccess(_C)
+if mibBuilder.loadTexts:expResourceDeltaWildcardInstancesHigh.setStatus(_A)
+if mibBuilder.loadTexts:expResourceDeltaWildcardInstancesHigh.setUnits(_J)
+_ExpResourceDeltaWildcardInstanceResourceLacks_Type=Counter32
+_ExpResourceDeltaWildcardInstanceResourceLacks_Object=MibScalar
+expResourceDeltaWildcardInstanceResourceLacks=_ExpResourceDeltaWildcardInstanceResourceLacks_Object((1,3,6,1,2,1,90,1,1,5),_ExpResourceDeltaWildcardInstanceResourceLacks_Type())
+expResourceDeltaWildcardInstanceResourceLacks.setMaxAccess(_C)
+if mibBuilder.loadTexts:expResourceDeltaWildcardInstanceResourceLacks.setStatus(_A)
+if mibBuilder.loadTexts:expResourceDeltaWildcardInstanceResourceLacks.setUnits(_J)
+_ExpDefine_ObjectIdentity=ObjectIdentity
+expDefine=_ExpDefine_ObjectIdentity((1,3,6,1,2,1,90,1,2))
+_ExpExpressionTable_Object=MibTable
+expExpressionTable=_ExpExpressionTable_Object((1,3,6,1,2,1,90,1,2,1))
+if mibBuilder.loadTexts:expExpressionTable.setStatus(_A)
+_ExpExpressionEntry_Object=MibTableRow
+expExpressionEntry=_ExpExpressionEntry_Object((1,3,6,1,2,1,90,1,2,1,1))
+expExpressionEntry.setIndexNames((0,_B,_F),(0,_B,_G))
+if mibBuilder.loadTexts:expExpressionEntry.setStatus(_A)
+class _ExpExpressionOwner_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,32))
+_ExpExpressionOwner_Type.__name__=_H
+_ExpExpressionOwner_Object=MibTableColumn
+expExpressionOwner=_ExpExpressionOwner_Object((1,3,6,1,2,1,90,1,2,1,1,1),_ExpExpressionOwner_Type())
+expExpressionOwner.setMaxAccess(_K)
+if mibBuilder.loadTexts:expExpressionOwner.setStatus(_A)
+class _ExpExpressionName_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_ExpExpressionName_Type.__name__=_H
+_ExpExpressionName_Object=MibTableColumn
+expExpressionName=_ExpExpressionName_Object((1,3,6,1,2,1,90,1,2,1,1,2),_ExpExpressionName_Type())
+expExpressionName.setMaxAccess(_K)
+if mibBuilder.loadTexts:expExpressionName.setStatus(_A)
+class _ExpExpression_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,1024))
+_ExpExpression_Type.__name__=_L
+_ExpExpression_Object=MibTableColumn
+expExpression=_ExpExpression_Object((1,3,6,1,2,1,90,1,2,1,1,3),_ExpExpression_Type())
+expExpression.setMaxAccess(_D)
+if mibBuilder.loadTexts:expExpression.setStatus(_A)
+class _ExpExpressionValueType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('counter32',1),('unsigned32',2),(_Q,3),('integer32',4),('ipAddress',5),('octetString',6),('objectId',7),('counter64',8)))
+_ExpExpressionValueType_Type.__name__=_E
+_ExpExpressionValueType_Object=MibTableColumn
+expExpressionValueType=_ExpExpressionValueType_Object((1,3,6,1,2,1,90,1,2,1,1,4),_ExpExpressionValueType_Type())
+expExpressionValueType.setMaxAccess(_D)
+if mibBuilder.loadTexts:expExpressionValueType.setStatus(_A)
+class _ExpExpressionComment_Type(SnmpAdminString):defaultHexValue=''
+_ExpExpressionComment_Type.__name__=_H
+_ExpExpressionComment_Object=MibTableColumn
+expExpressionComment=_ExpExpressionComment_Object((1,3,6,1,2,1,90,1,2,1,1,5),_ExpExpressionComment_Type())
+expExpressionComment.setMaxAccess(_D)
+if mibBuilder.loadTexts:expExpressionComment.setStatus(_A)
+class _ExpExpressionDeltaInterval_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,86400))
+_ExpExpressionDeltaInterval_Type.__name__=_E
+_ExpExpressionDeltaInterval_Object=MibTableColumn
+expExpressionDeltaInterval=_ExpExpressionDeltaInterval_Object((1,3,6,1,2,1,90,1,2,1,1,6),_ExpExpressionDeltaInterval_Type())
+expExpressionDeltaInterval.setMaxAccess(_D)
+if mibBuilder.loadTexts:expExpressionDeltaInterval.setStatus(_A)
+if mibBuilder.loadTexts:expExpressionDeltaInterval.setUnits(_P)
+_ExpExpressionPrefix_Type=ObjectIdentifier
+_ExpExpressionPrefix_Object=MibTableColumn
+expExpressionPrefix=_ExpExpressionPrefix_Object((1,3,6,1,2,1,90,1,2,1,1,7),_ExpExpressionPrefix_Type())
+expExpressionPrefix.setMaxAccess(_C)
+if mibBuilder.loadTexts:expExpressionPrefix.setStatus(_A)
+_ExpExpressionErrors_Type=Counter32
+_ExpExpressionErrors_Object=MibTableColumn
+expExpressionErrors=_ExpExpressionErrors_Object((1,3,6,1,2,1,90,1,2,1,1,8),_ExpExpressionErrors_Type())
+expExpressionErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:expExpressionErrors.setStatus(_A)
+_ExpExpressionEntryStatus_Type=RowStatus
+_ExpExpressionEntryStatus_Object=MibTableColumn
+expExpressionEntryStatus=_ExpExpressionEntryStatus_Object((1,3,6,1,2,1,90,1,2,1,1,9),_ExpExpressionEntryStatus_Type())
+expExpressionEntryStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:expExpressionEntryStatus.setStatus(_A)
+_ExpErrorTable_Object=MibTable
+expErrorTable=_ExpErrorTable_Object((1,3,6,1,2,1,90,1,2,2))
+if mibBuilder.loadTexts:expErrorTable.setStatus(_A)
+_ExpErrorEntry_Object=MibTableRow
+expErrorEntry=_ExpErrorEntry_Object((1,3,6,1,2,1,90,1,2,2,1))
+expErrorEntry.setIndexNames((0,_B,_F),(0,_B,_G))
+if mibBuilder.loadTexts:expErrorEntry.setStatus(_A)
+_ExpErrorTime_Type=TimeStamp
+_ExpErrorTime_Object=MibTableColumn
+expErrorTime=_ExpErrorTime_Object((1,3,6,1,2,1,90,1,2,2,1,1),_ExpErrorTime_Type())
+expErrorTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:expErrorTime.setStatus(_A)
+_ExpErrorIndex_Type=Integer32
+_ExpErrorIndex_Object=MibTableColumn
+expErrorIndex=_ExpErrorIndex_Object((1,3,6,1,2,1,90,1,2,2,1,2),_ExpErrorIndex_Type())
+expErrorIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:expErrorIndex.setStatus(_A)
+class _ExpErrorCode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('invalidSyntax',1),('undefinedObjectIndex',2),('unrecognizedOperator',3),('unrecognizedFunction',4),('invalidOperandType',5),('unmatchedParenthesis',6),('tooManyWildcardValues',7),('recursion',8),('deltaTooShort',9),('resourceUnavailable',10),('divideByZero',11)))
+_ExpErrorCode_Type.__name__=_E
+_ExpErrorCode_Object=MibTableColumn
+expErrorCode=_ExpErrorCode_Object((1,3,6,1,2,1,90,1,2,2,1,3),_ExpErrorCode_Type())
+expErrorCode.setMaxAccess(_C)
+if mibBuilder.loadTexts:expErrorCode.setStatus(_A)
+_ExpErrorInstance_Type=ObjectIdentifier
+_ExpErrorInstance_Object=MibTableColumn
+expErrorInstance=_ExpErrorInstance_Object((1,3,6,1,2,1,90,1,2,2,1,4),_ExpErrorInstance_Type())
+expErrorInstance.setMaxAccess(_C)
+if mibBuilder.loadTexts:expErrorInstance.setStatus(_A)
+_ExpObjectTable_Object=MibTable
+expObjectTable=_ExpObjectTable_Object((1,3,6,1,2,1,90,1,2,3))
+if mibBuilder.loadTexts:expObjectTable.setStatus(_A)
+_ExpObjectEntry_Object=MibTableRow
+expObjectEntry=_ExpObjectEntry_Object((1,3,6,1,2,1,90,1,2,3,1))
+expObjectEntry.setIndexNames((0,_B,_F),(0,_B,_G),(0,_B,_R))
+if mibBuilder.loadTexts:expObjectEntry.setStatus(_A)
+class _ExpObjectIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_ExpObjectIndex_Type.__name__=_N
+_ExpObjectIndex_Object=MibTableColumn
+expObjectIndex=_ExpObjectIndex_Object((1,3,6,1,2,1,90,1,2,3,1,1),_ExpObjectIndex_Type())
+expObjectIndex.setMaxAccess(_K)
+if mibBuilder.loadTexts:expObjectIndex.setStatus(_A)
+_ExpObjectID_Type=ObjectIdentifier
+_ExpObjectID_Object=MibTableColumn
+expObjectID=_ExpObjectID_Object((1,3,6,1,2,1,90,1,2,3,1,2),_ExpObjectID_Type())
+expObjectID.setMaxAccess(_D)
+if mibBuilder.loadTexts:expObjectID.setStatus(_A)
+class _ExpObjectIDWildcard_Type(TruthValue):defaultValue=2
+_ExpObjectIDWildcard_Type.__name__=_I
+_ExpObjectIDWildcard_Object=MibTableColumn
+expObjectIDWildcard=_ExpObjectIDWildcard_Object((1,3,6,1,2,1,90,1,2,3,1,3),_ExpObjectIDWildcard_Type())
+expObjectIDWildcard.setMaxAccess(_D)
+if mibBuilder.loadTexts:expObjectIDWildcard.setStatus(_A)
+class _ExpObjectSampleType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('absoluteValue',1),('deltaValue',2),('changedValue',3)))
+_ExpObjectSampleType_Type.__name__=_E
+_ExpObjectSampleType_Object=MibTableColumn
+expObjectSampleType=_ExpObjectSampleType_Object((1,3,6,1,2,1,90,1,2,3,1,4),_ExpObjectSampleType_Type())
+expObjectSampleType.setMaxAccess(_D)
+if mibBuilder.loadTexts:expObjectSampleType.setStatus(_A)
+class _ExpObjectDeltaDiscontinuityID_Type(ObjectIdentifier):defaultValue=1,3,6,1,2,1,1,3,0
+_ExpObjectDeltaDiscontinuityID_Type.__name__=_M
+_ExpObjectDeltaDiscontinuityID_Object=MibTableColumn
+expObjectDeltaDiscontinuityID=_ExpObjectDeltaDiscontinuityID_Object((1,3,6,1,2,1,90,1,2,3,1,5),_ExpObjectDeltaDiscontinuityID_Type())
+expObjectDeltaDiscontinuityID.setMaxAccess(_D)
+if mibBuilder.loadTexts:expObjectDeltaDiscontinuityID.setStatus(_A)
+class _ExpObjectDiscontinuityIDWildcard_Type(TruthValue):defaultValue=2
+_ExpObjectDiscontinuityIDWildcard_Type.__name__=_I
+_ExpObjectDiscontinuityIDWildcard_Object=MibTableColumn
+expObjectDiscontinuityIDWildcard=_ExpObjectDiscontinuityIDWildcard_Object((1,3,6,1,2,1,90,1,2,3,1,6),_ExpObjectDiscontinuityIDWildcard_Type())
+expObjectDiscontinuityIDWildcard.setMaxAccess(_D)
+if mibBuilder.loadTexts:expObjectDiscontinuityIDWildcard.setStatus(_A)
+class _ExpObjectDiscontinuityIDType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_Q,1),('timeStamp',2),('dateAndTime',3)))
+_ExpObjectDiscontinuityIDType_Type.__name__=_E
+_ExpObjectDiscontinuityIDType_Object=MibTableColumn
+expObjectDiscontinuityIDType=_ExpObjectDiscontinuityIDType_Object((1,3,6,1,2,1,90,1,2,3,1,7),_ExpObjectDiscontinuityIDType_Type())
+expObjectDiscontinuityIDType.setMaxAccess(_D)
+if mibBuilder.loadTexts:expObjectDiscontinuityIDType.setStatus(_A)
+class _ExpObjectConditional_Type(ObjectIdentifier):defaultValue=0,0
+_ExpObjectConditional_Type.__name__=_M
+_ExpObjectConditional_Object=MibTableColumn
+expObjectConditional=_ExpObjectConditional_Object((1,3,6,1,2,1,90,1,2,3,1,8),_ExpObjectConditional_Type())
+expObjectConditional.setMaxAccess(_D)
+if mibBuilder.loadTexts:expObjectConditional.setStatus(_A)
+class _ExpObjectConditionalWildcard_Type(TruthValue):defaultValue=2
+_ExpObjectConditionalWildcard_Type.__name__=_I
+_ExpObjectConditionalWildcard_Object=MibTableColumn
+expObjectConditionalWildcard=_ExpObjectConditionalWildcard_Object((1,3,6,1,2,1,90,1,2,3,1,9),_ExpObjectConditionalWildcard_Type())
+expObjectConditionalWildcard.setMaxAccess(_D)
+if mibBuilder.loadTexts:expObjectConditionalWildcard.setStatus(_A)
+_ExpObjectEntryStatus_Type=RowStatus
+_ExpObjectEntryStatus_Object=MibTableColumn
+expObjectEntryStatus=_ExpObjectEntryStatus_Object((1,3,6,1,2,1,90,1,2,3,1,10),_ExpObjectEntryStatus_Type())
+expObjectEntryStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:expObjectEntryStatus.setStatus(_A)
+_ExpValue_ObjectIdentity=ObjectIdentity
+expValue=_ExpValue_ObjectIdentity((1,3,6,1,2,1,90,1,3))
+_ExpValueTable_Object=MibTable
+expValueTable=_ExpValueTable_Object((1,3,6,1,2,1,90,1,3,1))
+if mibBuilder.loadTexts:expValueTable.setStatus(_A)
+_ExpValueEntry_Object=MibTableRow
+expValueEntry=_ExpValueEntry_Object((1,3,6,1,2,1,90,1,3,1,1))
+expValueEntry.setIndexNames((0,_B,_F),(0,_B,_G),(1,_B,_S))
+if mibBuilder.loadTexts:expValueEntry.setStatus(_A)
+_ExpValueInstance_Type=ObjectIdentifier
+_ExpValueInstance_Object=MibTableColumn
+expValueInstance=_ExpValueInstance_Object((1,3,6,1,2,1,90,1,3,1,1,1),_ExpValueInstance_Type())
+expValueInstance.setMaxAccess(_K)
+if mibBuilder.loadTexts:expValueInstance.setStatus(_A)
+_ExpValueCounter32Val_Type=Counter32
+_ExpValueCounter32Val_Object=MibTableColumn
+expValueCounter32Val=_ExpValueCounter32Val_Object((1,3,6,1,2,1,90,1,3,1,1,2),_ExpValueCounter32Val_Type())
+expValueCounter32Val.setMaxAccess(_C)
+if mibBuilder.loadTexts:expValueCounter32Val.setStatus(_A)
+_ExpValueUnsigned32Val_Type=Unsigned32
+_ExpValueUnsigned32Val_Object=MibTableColumn
+expValueUnsigned32Val=_ExpValueUnsigned32Val_Object((1,3,6,1,2,1,90,1,3,1,1,3),_ExpValueUnsigned32Val_Type())
+expValueUnsigned32Val.setMaxAccess(_C)
+if mibBuilder.loadTexts:expValueUnsigned32Val.setStatus(_A)
+_ExpValueTimeTicksVal_Type=TimeTicks
+_ExpValueTimeTicksVal_Object=MibTableColumn
+expValueTimeTicksVal=_ExpValueTimeTicksVal_Object((1,3,6,1,2,1,90,1,3,1,1,4),_ExpValueTimeTicksVal_Type())
+expValueTimeTicksVal.setMaxAccess(_C)
+if mibBuilder.loadTexts:expValueTimeTicksVal.setStatus(_A)
+_ExpValueInteger32Val_Type=Integer32
+_ExpValueInteger32Val_Object=MibTableColumn
+expValueInteger32Val=_ExpValueInteger32Val_Object((1,3,6,1,2,1,90,1,3,1,1,5),_ExpValueInteger32Val_Type())
+expValueInteger32Val.setMaxAccess(_C)
+if mibBuilder.loadTexts:expValueInteger32Val.setStatus(_A)
+_ExpValueIpAddressVal_Type=IpAddress
+_ExpValueIpAddressVal_Object=MibTableColumn
+expValueIpAddressVal=_ExpValueIpAddressVal_Object((1,3,6,1,2,1,90,1,3,1,1,6),_ExpValueIpAddressVal_Type())
+expValueIpAddressVal.setMaxAccess(_C)
+if mibBuilder.loadTexts:expValueIpAddressVal.setStatus(_A)
+class _ExpValueOctetStringVal_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,65536))
+_ExpValueOctetStringVal_Type.__name__=_L
+_ExpValueOctetStringVal_Object=MibTableColumn
+expValueOctetStringVal=_ExpValueOctetStringVal_Object((1,3,6,1,2,1,90,1,3,1,1,7),_ExpValueOctetStringVal_Type())
+expValueOctetStringVal.setMaxAccess(_C)
+if mibBuilder.loadTexts:expValueOctetStringVal.setStatus(_A)
+_ExpValueOidVal_Type=ObjectIdentifier
+_ExpValueOidVal_Object=MibTableColumn
+expValueOidVal=_ExpValueOidVal_Object((1,3,6,1,2,1,90,1,3,1,1,8),_ExpValueOidVal_Type())
+expValueOidVal.setMaxAccess(_C)
+if mibBuilder.loadTexts:expValueOidVal.setStatus(_A)
+_ExpValueCounter64Val_Type=Counter64
+_ExpValueCounter64Val_Object=MibTableColumn
+expValueCounter64Val=_ExpValueCounter64Val_Object((1,3,6,1,2,1,90,1,3,1,1,9),_ExpValueCounter64Val_Type())
+expValueCounter64Val.setMaxAccess(_C)
+if mibBuilder.loadTexts:expValueCounter64Val.setStatus(_A)
+_DismanExpressionMIBConformance_ObjectIdentity=ObjectIdentity
+dismanExpressionMIBConformance=_DismanExpressionMIBConformance_ObjectIdentity((1,3,6,1,2,1,90,3))
+_DismanExpressionMIBCompliances_ObjectIdentity=ObjectIdentity
+dismanExpressionMIBCompliances=_DismanExpressionMIBCompliances_ObjectIdentity((1,3,6,1,2,1,90,3,1))
+_DismanExpressionMIBGroups_ObjectIdentity=ObjectIdentity
+dismanExpressionMIBGroups=_DismanExpressionMIBGroups_ObjectIdentity((1,3,6,1,2,1,90,3,2))
+dismanExpressionResourceGroup=ObjectGroup((1,3,6,1,2,1,90,3,2,1))
+dismanExpressionResourceGroup.setObjects(*((_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X)))
+if mibBuilder.loadTexts:dismanExpressionResourceGroup.setStatus(_A)
+dismanExpressionDefinitionGroup=ObjectGroup((1,3,6,1,2,1,90,3,2,2))
+dismanExpressionDefinitionGroup.setObjects(*((_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r)))
+if mibBuilder.loadTexts:dismanExpressionDefinitionGroup.setStatus(_A)
+dismanExpressionValueGroup=ObjectGroup((1,3,6,1,2,1,90,3,2,3))
+dismanExpressionValueGroup.setObjects(*((_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z)))
+if mibBuilder.loadTexts:dismanExpressionValueGroup.setStatus(_A)
+dismanExpressionMIBCompliance=ModuleCompliance((1,3,6,1,2,1,90,3,1,1))
+dismanExpressionMIBCompliance.setObjects(*((_B,_A0),(_B,_A1),(_B,_A2)))
+if mibBuilder.loadTexts:dismanExpressionMIBCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'sysUpTimeInstance':sysUpTimeInstance,'dismanExpressionMIB':dismanExpressionMIB,'dismanExpressionMIBObjects':dismanExpressionMIBObjects,'expResource':expResource,_T:expResourceDeltaMinimum,_U:expResourceDeltaWildcardInstanceMaximum,_V:expResourceDeltaWildcardInstances,_W:expResourceDeltaWildcardInstancesHigh,_X:expResourceDeltaWildcardInstanceResourceLacks,'expDefine':expDefine,'expExpressionTable':expExpressionTable,'expExpressionEntry':expExpressionEntry,_F:expExpressionOwner,_G:expExpressionName,_Y:expExpression,_Z:expExpressionValueType,_a:expExpressionComment,_b:expExpressionDeltaInterval,_c:expExpressionPrefix,_d:expExpressionErrors,_e:expExpressionEntryStatus,'expErrorTable':expErrorTable,'expErrorEntry':expErrorEntry,_f:expErrorTime,_g:expErrorIndex,_h:expErrorCode,_i:expErrorInstance,'expObjectTable':expObjectTable,'expObjectEntry':expObjectEntry,_R:expObjectIndex,_j:expObjectID,_k:expObjectIDWildcard,_l:expObjectSampleType,_m:expObjectDeltaDiscontinuityID,_n:expObjectDiscontinuityIDWildcard,_o:expObjectDiscontinuityIDType,_p:expObjectConditional,_q:expObjectConditionalWildcard,_r:expObjectEntryStatus,'expValue':expValue,'expValueTable':expValueTable,'expValueEntry':expValueEntry,_S:expValueInstance,_s:expValueCounter32Val,_t:expValueUnsigned32Val,_u:expValueTimeTicksVal,_v:expValueInteger32Val,_w:expValueIpAddressVal,_x:expValueOctetStringVal,_y:expValueOidVal,_z:expValueCounter64Val,'dismanExpressionMIBConformance':dismanExpressionMIBConformance,'dismanExpressionMIBCompliances':dismanExpressionMIBCompliances,'dismanExpressionMIBCompliance':dismanExpressionMIBCompliance,'dismanExpressionMIBGroups':dismanExpressionMIBGroups,_A0:dismanExpressionResourceGroup,_A1:dismanExpressionDefinitionGroup,_A2:dismanExpressionValueGroup})

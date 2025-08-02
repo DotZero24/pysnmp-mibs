@@ -1,0 +1,213 @@
+_G='wgIpsecEndpointPairPeerIPToTunnelTunnelID'
+_F='wgIpsecEndpointPairPeerIPToTunnelPeerIP'
+_E='wgIpsecEndpointPairIndex'
+_D='Kbytes'
+_C='WATCHGUARD-IPSEC-ENDPOINT-PAIR-MIB'
+_B='read-only'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+watchguard,=mibBuilder.importSymbols('WATCHGUARD-SMI','watchguard')
+wgIpsecEndpointPairModule=ModuleIdentity((1,3,6,1,4,1,3097,5))
+if mibBuilder.loadTexts:wgIpsecEndpointPairModule.setRevisions(('2007-01-25 12:00',))
+_WgIpsecEndpointPairMIB_ObjectIdentity=ObjectIdentity
+wgIpsecEndpointPairMIB=_WgIpsecEndpointPairMIB_ObjectIdentity((1,3,6,1,4,1,3097,5,1))
+if mibBuilder.loadTexts:wgIpsecEndpointPairMIB.setStatus(_A)
+_WgIpsecEndpointPair_ObjectIdentity=ObjectIdentity
+wgIpsecEndpointPair=_WgIpsecEndpointPair_ObjectIdentity((1,3,6,1,4,1,3097,5,1,1))
+if mibBuilder.loadTexts:wgIpsecEndpointPair.setStatus(_A)
+_WgIpsecEndpointPairNum_Type=Unsigned32
+_WgIpsecEndpointPairNum_Object=MibScalar
+wgIpsecEndpointPairNum=_WgIpsecEndpointPairNum_Object((1,3,6,1,4,1,3097,5,1,1,1),_WgIpsecEndpointPairNum_Type())
+wgIpsecEndpointPairNum.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairNum.setStatus(_A)
+_WgIpsecEndpointPairTable_Object=MibTable
+wgIpsecEndpointPairTable=_WgIpsecEndpointPairTable_Object((1,3,6,1,4,1,3097,5,1,1,2))
+if mibBuilder.loadTexts:wgIpsecEndpointPairTable.setStatus(_A)
+_WgIpsecEndpointPairEntry_Object=MibTableRow
+wgIpsecEndpointPairEntry=_WgIpsecEndpointPairEntry_Object((1,3,6,1,4,1,3097,5,1,1,2,1))
+wgIpsecEndpointPairEntry.setIndexNames((0,_C,_E))
+if mibBuilder.loadTexts:wgIpsecEndpointPairEntry.setStatus(_A)
+_WgIpsecEndpointPairIndex_Type=Integer32
+_WgIpsecEndpointPairIndex_Object=MibTableColumn
+wgIpsecEndpointPairIndex=_WgIpsecEndpointPairIndex_Object((1,3,6,1,4,1,3097,5,1,1,2,1,1),_WgIpsecEndpointPairIndex_Type())
+wgIpsecEndpointPairIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairIndex.setStatus(_A)
+_WgIpsecEndpointPairLocalAddr_Type=IpAddress
+_WgIpsecEndpointPairLocalAddr_Object=MibTableColumn
+wgIpsecEndpointPairLocalAddr=_WgIpsecEndpointPairLocalAddr_Object((1,3,6,1,4,1,3097,5,1,1,2,1,2),_WgIpsecEndpointPairLocalAddr_Type())
+wgIpsecEndpointPairLocalAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairLocalAddr.setStatus(_A)
+_WgIpsecEndpointPairPeerAddr_Type=IpAddress
+_WgIpsecEndpointPairPeerAddr_Object=MibTableColumn
+wgIpsecEndpointPairPeerAddr=_WgIpsecEndpointPairPeerAddr_Object((1,3,6,1,4,1,3097,5,1,1,2,1,3),_WgIpsecEndpointPairPeerAddr_Type())
+wgIpsecEndpointPairPeerAddr.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairPeerAddr.setStatus(_A)
+_WgIpsecEndpointPairInSAs_Type=Unsigned32
+_WgIpsecEndpointPairInSAs_Object=MibTableColumn
+wgIpsecEndpointPairInSAs=_WgIpsecEndpointPairInSAs_Object((1,3,6,1,4,1,3097,5,1,1,2,1,4),_WgIpsecEndpointPairInSAs_Type())
+wgIpsecEndpointPairInSAs.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairInSAs.setStatus(_A)
+_WgIpsecEndpointPairOutSAs_Type=Unsigned32
+_WgIpsecEndpointPairOutSAs_Object=MibTableColumn
+wgIpsecEndpointPairOutSAs=_WgIpsecEndpointPairOutSAs_Object((1,3,6,1,4,1,3097,5,1,1,2,1,5),_WgIpsecEndpointPairOutSAs_Type())
+wgIpsecEndpointPairOutSAs.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairOutSAs.setStatus(_A)
+_WgIpsecEndpointPairInAccKbytes_Type=Counter64
+_WgIpsecEndpointPairInAccKbytes_Object=MibTableColumn
+wgIpsecEndpointPairInAccKbytes=_WgIpsecEndpointPairInAccKbytes_Object((1,3,6,1,4,1,3097,5,1,1,2,1,6),_WgIpsecEndpointPairInAccKbytes_Type())
+wgIpsecEndpointPairInAccKbytes.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairInAccKbytes.setStatus(_A)
+if mibBuilder.loadTexts:wgIpsecEndpointPairInAccKbytes.setUnits(_D)
+_WgIpsecEndpointPairOutAccKbytes_Type=Counter64
+_WgIpsecEndpointPairOutAccKbytes_Object=MibTableColumn
+wgIpsecEndpointPairOutAccKbytes=_WgIpsecEndpointPairOutAccKbytes_Object((1,3,6,1,4,1,3097,5,1,1,2,1,7),_WgIpsecEndpointPairOutAccKbytes_Type())
+wgIpsecEndpointPairOutAccKbytes.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairOutAccKbytes.setStatus(_A)
+if mibBuilder.loadTexts:wgIpsecEndpointPairOutAccKbytes.setUnits(_D)
+_WgIpsecEndpointPairInPackets_Type=Counter64
+_WgIpsecEndpointPairInPackets_Object=MibTableColumn
+wgIpsecEndpointPairInPackets=_WgIpsecEndpointPairInPackets_Object((1,3,6,1,4,1,3097,5,1,1,2,1,8),_WgIpsecEndpointPairInPackets_Type())
+wgIpsecEndpointPairInPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairInPackets.setStatus(_A)
+_WgIpsecEndpointPairOutPackets_Type=Counter64
+_WgIpsecEndpointPairOutPackets_Object=MibTableColumn
+wgIpsecEndpointPairOutPackets=_WgIpsecEndpointPairOutPackets_Object((1,3,6,1,4,1,3097,5,1,1,2,1,9),_WgIpsecEndpointPairOutPackets_Type())
+wgIpsecEndpointPairOutPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairOutPackets.setStatus(_A)
+_WgIpsecEndpointPairDecryptErrors_Type=Counter32
+_WgIpsecEndpointPairDecryptErrors_Object=MibTableColumn
+wgIpsecEndpointPairDecryptErrors=_WgIpsecEndpointPairDecryptErrors_Object((1,3,6,1,4,1,3097,5,1,1,2,1,10),_WgIpsecEndpointPairDecryptErrors_Type())
+wgIpsecEndpointPairDecryptErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairDecryptErrors.setStatus(_A)
+_WgIpsecEndpointPairAuthErrors_Type=Counter32
+_WgIpsecEndpointPairAuthErrors_Object=MibTableColumn
+wgIpsecEndpointPairAuthErrors=_WgIpsecEndpointPairAuthErrors_Object((1,3,6,1,4,1,3097,5,1,1,2,1,11),_WgIpsecEndpointPairAuthErrors_Type())
+wgIpsecEndpointPairAuthErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairAuthErrors.setStatus(_A)
+_WgIpsecEndpointPairReplayErrors_Type=Counter32
+_WgIpsecEndpointPairReplayErrors_Object=MibTableColumn
+wgIpsecEndpointPairReplayErrors=_WgIpsecEndpointPairReplayErrors_Object((1,3,6,1,4,1,3097,5,1,1,2,1,12),_WgIpsecEndpointPairReplayErrors_Type())
+wgIpsecEndpointPairReplayErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairReplayErrors.setStatus(_A)
+_WgIpsecEndpointPairPolicyErrors_Type=Counter32
+_WgIpsecEndpointPairPolicyErrors_Object=MibTableColumn
+wgIpsecEndpointPairPolicyErrors=_WgIpsecEndpointPairPolicyErrors_Object((1,3,6,1,4,1,3097,5,1,1,2,1,13),_WgIpsecEndpointPairPolicyErrors_Type())
+wgIpsecEndpointPairPolicyErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairPolicyErrors.setStatus(_A)
+_WgIpsecEndpointPairPadErrors_Type=Counter32
+_WgIpsecEndpointPairPadErrors_Object=MibTableColumn
+wgIpsecEndpointPairPadErrors=_WgIpsecEndpointPairPadErrors_Object((1,3,6,1,4,1,3097,5,1,1,2,1,14),_WgIpsecEndpointPairPadErrors_Type())
+wgIpsecEndpointPairPadErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairPadErrors.setStatus(_A)
+_WgIpsecEndpointPairOtherReceiveErrors_Type=Counter32
+_WgIpsecEndpointPairOtherReceiveErrors_Object=MibTableColumn
+wgIpsecEndpointPairOtherReceiveErrors=_WgIpsecEndpointPairOtherReceiveErrors_Object((1,3,6,1,4,1,3097,5,1,1,2,1,15),_WgIpsecEndpointPairOtherReceiveErrors_Type())
+wgIpsecEndpointPairOtherReceiveErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairOtherReceiveErrors.setStatus(_A)
+_WgIpsecEndpointPairSendErrors_Type=Counter32
+_WgIpsecEndpointPairSendErrors_Object=MibTableColumn
+wgIpsecEndpointPairSendErrors=_WgIpsecEndpointPairSendErrors_Object((1,3,6,1,4,1,3097,5,1,1,2,1,16),_WgIpsecEndpointPairSendErrors_Type())
+wgIpsecEndpointPairSendErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairSendErrors.setStatus(_A)
+_WgIpsecEndpointPairStatistics_ObjectIdentity=ObjectIdentity
+wgIpsecEndpointPairStatistics=_WgIpsecEndpointPairStatistics_ObjectIdentity((1,3,6,1,4,1,3097,5,1,2))
+if mibBuilder.loadTexts:wgIpsecEndpointPairStatistics.setStatus(_A)
+_WgIpsecEndpointPairTotalInSAs_Type=Gauge32
+_WgIpsecEndpointPairTotalInSAs_Object=MibScalar
+wgIpsecEndpointPairTotalInSAs=_WgIpsecEndpointPairTotalInSAs_Object((1,3,6,1,4,1,3097,5,1,2,1),_WgIpsecEndpointPairTotalInSAs_Type())
+wgIpsecEndpointPairTotalInSAs.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairTotalInSAs.setStatus(_A)
+_WgIpsecEndpointPairTotalOutSAs_Type=Gauge32
+_WgIpsecEndpointPairTotalOutSAs_Object=MibScalar
+wgIpsecEndpointPairTotalOutSAs=_WgIpsecEndpointPairTotalOutSAs_Object((1,3,6,1,4,1,3097,5,1,2,2),_WgIpsecEndpointPairTotalOutSAs_Type())
+wgIpsecEndpointPairTotalOutSAs.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairTotalOutSAs.setStatus(_A)
+_WgIpsecEndpointPairTotalInAccKbytes_Type=Counter64
+_WgIpsecEndpointPairTotalInAccKbytes_Object=MibScalar
+wgIpsecEndpointPairTotalInAccKbytes=_WgIpsecEndpointPairTotalInAccKbytes_Object((1,3,6,1,4,1,3097,5,1,2,3),_WgIpsecEndpointPairTotalInAccKbytes_Type())
+wgIpsecEndpointPairTotalInAccKbytes.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairTotalInAccKbytes.setStatus(_A)
+if mibBuilder.loadTexts:wgIpsecEndpointPairTotalInAccKbytes.setUnits(_D)
+_WgIpsecEndpointPairTotalOutAccKbytes_Type=Counter64
+_WgIpsecEndpointPairTotalOutAccKbytes_Object=MibScalar
+wgIpsecEndpointPairTotalOutAccKbytes=_WgIpsecEndpointPairTotalOutAccKbytes_Object((1,3,6,1,4,1,3097,5,1,2,4),_WgIpsecEndpointPairTotalOutAccKbytes_Type())
+wgIpsecEndpointPairTotalOutAccKbytes.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairTotalOutAccKbytes.setStatus(_A)
+_WgIpsecEndpointPairTotalInPackets_Type=Counter64
+_WgIpsecEndpointPairTotalInPackets_Object=MibScalar
+wgIpsecEndpointPairTotalInPackets=_WgIpsecEndpointPairTotalInPackets_Object((1,3,6,1,4,1,3097,5,1,2,5),_WgIpsecEndpointPairTotalInPackets_Type())
+wgIpsecEndpointPairTotalInPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairTotalInPackets.setStatus(_A)
+if mibBuilder.loadTexts:wgIpsecEndpointPairTotalInPackets.setUnits(_D)
+_WgIpsecEndpointPairTotalOutPackets_Type=Counter64
+_WgIpsecEndpointPairTotalOutPackets_Object=MibScalar
+wgIpsecEndpointPairTotalOutPackets=_WgIpsecEndpointPairTotalOutPackets_Object((1,3,6,1,4,1,3097,5,1,2,6),_WgIpsecEndpointPairTotalOutPackets_Type())
+wgIpsecEndpointPairTotalOutPackets.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairTotalOutPackets.setStatus(_A)
+_WgIpsecEndpointPairTotalDecryptErrors_Type=Counter32
+_WgIpsecEndpointPairTotalDecryptErrors_Object=MibScalar
+wgIpsecEndpointPairTotalDecryptErrors=_WgIpsecEndpointPairTotalDecryptErrors_Object((1,3,6,1,4,1,3097,5,1,2,7),_WgIpsecEndpointPairTotalDecryptErrors_Type())
+wgIpsecEndpointPairTotalDecryptErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairTotalDecryptErrors.setStatus(_A)
+_WgIpsecEndpointPairTotalAuthErrors_Type=Counter32
+_WgIpsecEndpointPairTotalAuthErrors_Object=MibScalar
+wgIpsecEndpointPairTotalAuthErrors=_WgIpsecEndpointPairTotalAuthErrors_Object((1,3,6,1,4,1,3097,5,1,2,8),_WgIpsecEndpointPairTotalAuthErrors_Type())
+wgIpsecEndpointPairTotalAuthErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairTotalAuthErrors.setStatus(_A)
+_WgIpsecEndpointPairTotalReplayErrors_Type=Counter32
+_WgIpsecEndpointPairTotalReplayErrors_Object=MibScalar
+wgIpsecEndpointPairTotalReplayErrors=_WgIpsecEndpointPairTotalReplayErrors_Object((1,3,6,1,4,1,3097,5,1,2,9),_WgIpsecEndpointPairTotalReplayErrors_Type())
+wgIpsecEndpointPairTotalReplayErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairTotalReplayErrors.setStatus(_A)
+_WgIpsecEndpointPairTotalPolicyErrors_Type=Counter32
+_WgIpsecEndpointPairTotalPolicyErrors_Object=MibScalar
+wgIpsecEndpointPairTotalPolicyErrors=_WgIpsecEndpointPairTotalPolicyErrors_Object((1,3,6,1,4,1,3097,5,1,2,10),_WgIpsecEndpointPairTotalPolicyErrors_Type())
+wgIpsecEndpointPairTotalPolicyErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairTotalPolicyErrors.setStatus(_A)
+_WgIpsecEndpointPairTotalPadErrors_Type=Counter32
+_WgIpsecEndpointPairTotalPadErrors_Object=MibScalar
+wgIpsecEndpointPairTotalPadErrors=_WgIpsecEndpointPairTotalPadErrors_Object((1,3,6,1,4,1,3097,5,1,2,11),_WgIpsecEndpointPairTotalPadErrors_Type())
+wgIpsecEndpointPairTotalPadErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairTotalPadErrors.setStatus(_A)
+_WgIpsecEndpointPairTotalOtherReceiveErrors_Type=Counter32
+_WgIpsecEndpointPairTotalOtherReceiveErrors_Object=MibScalar
+wgIpsecEndpointPairTotalOtherReceiveErrors=_WgIpsecEndpointPairTotalOtherReceiveErrors_Object((1,3,6,1,4,1,3097,5,1,2,12),_WgIpsecEndpointPairTotalOtherReceiveErrors_Type())
+wgIpsecEndpointPairTotalOtherReceiveErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairTotalOtherReceiveErrors.setStatus(_A)
+_WgIpsecEndpointPairTotalSendErrors_Type=Counter32
+_WgIpsecEndpointPairTotalSendErrors_Object=MibScalar
+wgIpsecEndpointPairTotalSendErrors=_WgIpsecEndpointPairTotalSendErrors_Object((1,3,6,1,4,1,3097,5,1,2,13),_WgIpsecEndpointPairTotalSendErrors_Type())
+wgIpsecEndpointPairTotalSendErrors.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairTotalSendErrors.setStatus(_A)
+_WgIpsecEndpointPairPeerIPToTunnel_ObjectIdentity=ObjectIdentity
+wgIpsecEndpointPairPeerIPToTunnel=_WgIpsecEndpointPairPeerIPToTunnel_ObjectIdentity((1,3,6,1,4,1,3097,5,1,3))
+if mibBuilder.loadTexts:wgIpsecEndpointPairPeerIPToTunnel.setStatus(_A)
+_WgIpsecEndpointPairPeerIPToTunnelNum_Type=Unsigned32
+_WgIpsecEndpointPairPeerIPToTunnelNum_Object=MibScalar
+wgIpsecEndpointPairPeerIPToTunnelNum=_WgIpsecEndpointPairPeerIPToTunnelNum_Object((1,3,6,1,4,1,3097,5,1,3,1),_WgIpsecEndpointPairPeerIPToTunnelNum_Type())
+wgIpsecEndpointPairPeerIPToTunnelNum.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairPeerIPToTunnelNum.setStatus(_A)
+_WgIpsecEndpointPairPeerIPToTunnelTable_Object=MibTable
+wgIpsecEndpointPairPeerIPToTunnelTable=_WgIpsecEndpointPairPeerIPToTunnelTable_Object((1,3,6,1,4,1,3097,5,1,3,2))
+if mibBuilder.loadTexts:wgIpsecEndpointPairPeerIPToTunnelTable.setStatus(_A)
+_WgIpsecEndpointPairPeerIPToTunnelEntry_Object=MibTableRow
+wgIpsecEndpointPairPeerIPToTunnelEntry=_WgIpsecEndpointPairPeerIPToTunnelEntry_Object((1,3,6,1,4,1,3097,5,1,3,2,1))
+wgIpsecEndpointPairPeerIPToTunnelEntry.setIndexNames((0,_C,_F),(0,_C,_G))
+if mibBuilder.loadTexts:wgIpsecEndpointPairPeerIPToTunnelEntry.setStatus(_A)
+_WgIpsecEndpointPairPeerIPToTunnelPeerIP_Type=IpAddress
+_WgIpsecEndpointPairPeerIPToTunnelPeerIP_Object=MibTableColumn
+wgIpsecEndpointPairPeerIPToTunnelPeerIP=_WgIpsecEndpointPairPeerIPToTunnelPeerIP_Object((1,3,6,1,4,1,3097,5,1,3,2,1,1),_WgIpsecEndpointPairPeerIPToTunnelPeerIP_Type())
+wgIpsecEndpointPairPeerIPToTunnelPeerIP.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairPeerIPToTunnelPeerIP.setStatus(_A)
+_WgIpsecEndpointPairPeerIPToTunnelTunnelID_Type=Unsigned32
+_WgIpsecEndpointPairPeerIPToTunnelTunnelID_Object=MibTableColumn
+wgIpsecEndpointPairPeerIPToTunnelTunnelID=_WgIpsecEndpointPairPeerIPToTunnelTunnelID_Object((1,3,6,1,4,1,3097,5,1,3,2,1,2),_WgIpsecEndpointPairPeerIPToTunnelTunnelID_Type())
+wgIpsecEndpointPairPeerIPToTunnelTunnelID.setMaxAccess(_B)
+if mibBuilder.loadTexts:wgIpsecEndpointPairPeerIPToTunnelTunnelID.setStatus(_A)
+mibBuilder.exportSymbols(_C,**{'wgIpsecEndpointPairModule':wgIpsecEndpointPairModule,'wgIpsecEndpointPairMIB':wgIpsecEndpointPairMIB,'wgIpsecEndpointPair':wgIpsecEndpointPair,'wgIpsecEndpointPairNum':wgIpsecEndpointPairNum,'wgIpsecEndpointPairTable':wgIpsecEndpointPairTable,'wgIpsecEndpointPairEntry':wgIpsecEndpointPairEntry,_E:wgIpsecEndpointPairIndex,'wgIpsecEndpointPairLocalAddr':wgIpsecEndpointPairLocalAddr,'wgIpsecEndpointPairPeerAddr':wgIpsecEndpointPairPeerAddr,'wgIpsecEndpointPairInSAs':wgIpsecEndpointPairInSAs,'wgIpsecEndpointPairOutSAs':wgIpsecEndpointPairOutSAs,'wgIpsecEndpointPairInAccKbytes':wgIpsecEndpointPairInAccKbytes,'wgIpsecEndpointPairOutAccKbytes':wgIpsecEndpointPairOutAccKbytes,'wgIpsecEndpointPairInPackets':wgIpsecEndpointPairInPackets,'wgIpsecEndpointPairOutPackets':wgIpsecEndpointPairOutPackets,'wgIpsecEndpointPairDecryptErrors':wgIpsecEndpointPairDecryptErrors,'wgIpsecEndpointPairAuthErrors':wgIpsecEndpointPairAuthErrors,'wgIpsecEndpointPairReplayErrors':wgIpsecEndpointPairReplayErrors,'wgIpsecEndpointPairPolicyErrors':wgIpsecEndpointPairPolicyErrors,'wgIpsecEndpointPairPadErrors':wgIpsecEndpointPairPadErrors,'wgIpsecEndpointPairOtherReceiveErrors':wgIpsecEndpointPairOtherReceiveErrors,'wgIpsecEndpointPairSendErrors':wgIpsecEndpointPairSendErrors,'wgIpsecEndpointPairStatistics':wgIpsecEndpointPairStatistics,'wgIpsecEndpointPairTotalInSAs':wgIpsecEndpointPairTotalInSAs,'wgIpsecEndpointPairTotalOutSAs':wgIpsecEndpointPairTotalOutSAs,'wgIpsecEndpointPairTotalInAccKbytes':wgIpsecEndpointPairTotalInAccKbytes,'wgIpsecEndpointPairTotalOutAccKbytes':wgIpsecEndpointPairTotalOutAccKbytes,'wgIpsecEndpointPairTotalInPackets':wgIpsecEndpointPairTotalInPackets,'wgIpsecEndpointPairTotalOutPackets':wgIpsecEndpointPairTotalOutPackets,'wgIpsecEndpointPairTotalDecryptErrors':wgIpsecEndpointPairTotalDecryptErrors,'wgIpsecEndpointPairTotalAuthErrors':wgIpsecEndpointPairTotalAuthErrors,'wgIpsecEndpointPairTotalReplayErrors':wgIpsecEndpointPairTotalReplayErrors,'wgIpsecEndpointPairTotalPolicyErrors':wgIpsecEndpointPairTotalPolicyErrors,'wgIpsecEndpointPairTotalPadErrors':wgIpsecEndpointPairTotalPadErrors,'wgIpsecEndpointPairTotalOtherReceiveErrors':wgIpsecEndpointPairTotalOtherReceiveErrors,'wgIpsecEndpointPairTotalSendErrors':wgIpsecEndpointPairTotalSendErrors,'wgIpsecEndpointPairPeerIPToTunnel':wgIpsecEndpointPairPeerIPToTunnel,'wgIpsecEndpointPairPeerIPToTunnelNum':wgIpsecEndpointPairPeerIPToTunnelNum,'wgIpsecEndpointPairPeerIPToTunnelTable':wgIpsecEndpointPairPeerIPToTunnelTable,'wgIpsecEndpointPairPeerIPToTunnelEntry':wgIpsecEndpointPairPeerIPToTunnelEntry,_F:wgIpsecEndpointPairPeerIPToTunnelPeerIP,_G:wgIpsecEndpointPairPeerIPToTunnelTunnelID})

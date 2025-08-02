@@ -1,0 +1,304 @@
+_v='subscriberServicesProcessingVer1'
+_u='subscriberServicesActivationDigitmapsVer1'
+_t='subscriberServicesCallForwardActivationVer1'
+_s='subscriberServicesActivationVer1'
+_r='subscriberServicesEnablingVer1'
+_q='subscriberServicesProcessingTrigger'
+_p='subscriberServicesCallWaitingPermanentDigitMapDisable'
+_o='subscriberServicesCallWaitingPermanentDigitMapEnable'
+_n='subscriberServicesCallWaitingCancelDigitMap'
+_m='subscriberServicesCallForwardOnNoAnswerDisableDigitMap'
+_l='subscriberServicesCallForwardOnNoAnswerEnableDigitMap'
+_k='subscriberServicesCallForwardOnBusyDisableDigitMap'
+_j='subscriberServicesCallForwardOnBusyEnableDigitMap'
+_i='subscriberServicesCallForwardUnconditionalDisableDigitMap'
+_h='subscriberServicesCallForwardUnconditionalEnableDigitMap'
+_g='subscriberServicesCallForwardOnNoAnswerTimeout'
+_f='subscriberServicesCallForwardOnNoAnswerForwardingAddress'
+_e='subscriberServicesCallForwardOnNoAnswerActivation'
+_d='subscriberServicesCallForwardOnBusyForwardingAddress'
+_c='subscriberServicesCallForwardOnBusyActivation'
+_b='subscriberServicesCallForwardUnconditionalForwardingAddress'
+_a='subscriberServicesCallForwardUnconditionalActivation'
+_Z='subscriberServicesConferenceStatus'
+_Y='subscriberServicesAttendedTransferStatus'
+_X='subscriberServicesBlindTransferStatus'
+_W='subscriberServicesSecondCallStatus'
+_V='subscriberServicesCallWaitingStatus'
+_U='subscriberServicesHoldStatus'
+_T='subscriberServicesCallForwardOnNoAnswerEnable'
+_S='subscriberServicesCallForwardOnBusyEnable'
+_R='subscriberServicesCallForwardUnconditionalEnable'
+_Q='subscriberServicesConferenceEnable'
+_P='subscriberServicesAttendedTransferEnable'
+_O='subscriberServicesBlindTransferEnable'
+_N='subscriberServicesSecondCallEnable'
+_M='subscriberServicesCallWaitingEnable'
+_L='subscriberServicesHoldEnable'
+_K='Unsigned32'
+_J='Integer32'
+_I='ifIndex'
+_H='IF-MIB'
+_G='read-only'
+_F='MxEnableState'
+_E='MxActivationState'
+_D='OctetString'
+_C='read-write'
+_B='MX-SUBSCRIBER-SERVICES-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_D,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ifIndex,=mibBuilder.importSymbols(_H,_I)
+mediatrixConfig,=mibBuilder.importSymbols('MX-SMI','mediatrixConfig')
+MxActivationState,MxEnableState=mibBuilder.importSymbols('MX-TC',_E,_F)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_J,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_K,'iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+subscriberServicesMIB=ModuleIdentity((1,3,6,1,4,1,4935,15,62))
+if mibBuilder.loadTexts:subscriberServicesMIB.setRevisions(('2010-07-30 00:00','2008-06-12 00:00','2008-06-10 00:00','2005-07-14 00:00','2003-05-28 00:00'))
+_SubscriberServicesMIBObjects_ObjectIdentity=ObjectIdentity
+subscriberServicesMIBObjects=_SubscriberServicesMIBObjects_ObjectIdentity((1,3,6,1,4,1,4935,15,62,1))
+_SubscriberServicesIfEnablingTable_Object=MibTable
+subscriberServicesIfEnablingTable=_SubscriberServicesIfEnablingTable_Object((1,3,6,1,4,1,4935,15,62,1,10))
+if mibBuilder.loadTexts:subscriberServicesIfEnablingTable.setStatus(_A)
+_SubscriberServicesIfEnablingEntry_Object=MibTableRow
+subscriberServicesIfEnablingEntry=_SubscriberServicesIfEnablingEntry_Object((1,3,6,1,4,1,4935,15,62,1,10,1))
+subscriberServicesIfEnablingEntry.setIndexNames((0,_H,_I))
+if mibBuilder.loadTexts:subscriberServicesIfEnablingEntry.setStatus(_A)
+class _SubscriberServicesHoldEnable_Type(MxEnableState):defaultValue=1
+_SubscriberServicesHoldEnable_Type.__name__=_F
+_SubscriberServicesHoldEnable_Object=MibTableColumn
+subscriberServicesHoldEnable=_SubscriberServicesHoldEnable_Object((1,3,6,1,4,1,4935,15,62,1,10,1,5),_SubscriberServicesHoldEnable_Type())
+subscriberServicesHoldEnable.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesHoldEnable.setStatus(_A)
+class _SubscriberServicesCallWaitingEnable_Type(MxEnableState):defaultValue=1
+_SubscriberServicesCallWaitingEnable_Type.__name__=_F
+_SubscriberServicesCallWaitingEnable_Object=MibTableColumn
+subscriberServicesCallWaitingEnable=_SubscriberServicesCallWaitingEnable_Object((1,3,6,1,4,1,4935,15,62,1,10,1,10),_SubscriberServicesCallWaitingEnable_Type())
+subscriberServicesCallWaitingEnable.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallWaitingEnable.setStatus(_A)
+class _SubscriberServicesSecondCallEnable_Type(MxEnableState):defaultValue=1
+_SubscriberServicesSecondCallEnable_Type.__name__=_F
+_SubscriberServicesSecondCallEnable_Object=MibTableColumn
+subscriberServicesSecondCallEnable=_SubscriberServicesSecondCallEnable_Object((1,3,6,1,4,1,4935,15,62,1,10,1,15),_SubscriberServicesSecondCallEnable_Type())
+subscriberServicesSecondCallEnable.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesSecondCallEnable.setStatus(_A)
+class _SubscriberServicesBlindTransferEnable_Type(MxEnableState):defaultValue=1
+_SubscriberServicesBlindTransferEnable_Type.__name__=_F
+_SubscriberServicesBlindTransferEnable_Object=MibTableColumn
+subscriberServicesBlindTransferEnable=_SubscriberServicesBlindTransferEnable_Object((1,3,6,1,4,1,4935,15,62,1,10,1,20),_SubscriberServicesBlindTransferEnable_Type())
+subscriberServicesBlindTransferEnable.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesBlindTransferEnable.setStatus(_A)
+class _SubscriberServicesAttendedTransferEnable_Type(MxEnableState):defaultValue=1
+_SubscriberServicesAttendedTransferEnable_Type.__name__=_F
+_SubscriberServicesAttendedTransferEnable_Object=MibTableColumn
+subscriberServicesAttendedTransferEnable=_SubscriberServicesAttendedTransferEnable_Object((1,3,6,1,4,1,4935,15,62,1,10,1,25),_SubscriberServicesAttendedTransferEnable_Type())
+subscriberServicesAttendedTransferEnable.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesAttendedTransferEnable.setStatus(_A)
+class _SubscriberServicesConferenceEnable_Type(MxEnableState):defaultValue=1
+_SubscriberServicesConferenceEnable_Type.__name__=_F
+_SubscriberServicesConferenceEnable_Object=MibTableColumn
+subscriberServicesConferenceEnable=_SubscriberServicesConferenceEnable_Object((1,3,6,1,4,1,4935,15,62,1,10,1,30),_SubscriberServicesConferenceEnable_Type())
+subscriberServicesConferenceEnable.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesConferenceEnable.setStatus(_A)
+class _SubscriberServicesCallForwardUnconditionalEnable_Type(MxEnableState):defaultValue=0
+_SubscriberServicesCallForwardUnconditionalEnable_Type.__name__=_F
+_SubscriberServicesCallForwardUnconditionalEnable_Object=MibTableColumn
+subscriberServicesCallForwardUnconditionalEnable=_SubscriberServicesCallForwardUnconditionalEnable_Object((1,3,6,1,4,1,4935,15,62,1,10,1,35),_SubscriberServicesCallForwardUnconditionalEnable_Type())
+subscriberServicesCallForwardUnconditionalEnable.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallForwardUnconditionalEnable.setStatus(_A)
+class _SubscriberServicesCallForwardOnBusyEnable_Type(MxEnableState):defaultValue=0
+_SubscriberServicesCallForwardOnBusyEnable_Type.__name__=_F
+_SubscriberServicesCallForwardOnBusyEnable_Object=MibTableColumn
+subscriberServicesCallForwardOnBusyEnable=_SubscriberServicesCallForwardOnBusyEnable_Object((1,3,6,1,4,1,4935,15,62,1,10,1,40),_SubscriberServicesCallForwardOnBusyEnable_Type())
+subscriberServicesCallForwardOnBusyEnable.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallForwardOnBusyEnable.setStatus(_A)
+class _SubscriberServicesCallForwardOnNoAnswerEnable_Type(MxEnableState):defaultValue=0
+_SubscriberServicesCallForwardOnNoAnswerEnable_Type.__name__=_F
+_SubscriberServicesCallForwardOnNoAnswerEnable_Object=MibTableColumn
+subscriberServicesCallForwardOnNoAnswerEnable=_SubscriberServicesCallForwardOnNoAnswerEnable_Object((1,3,6,1,4,1,4935,15,62,1,10,1,45),_SubscriberServicesCallForwardOnNoAnswerEnable_Type())
+subscriberServicesCallForwardOnNoAnswerEnable.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallForwardOnNoAnswerEnable.setStatus(_A)
+_SubscriberServicesIfStatusTable_Object=MibTable
+subscriberServicesIfStatusTable=_SubscriberServicesIfStatusTable_Object((1,3,6,1,4,1,4935,15,62,1,15))
+if mibBuilder.loadTexts:subscriberServicesIfStatusTable.setStatus(_A)
+_SubscriberServicesIfStatusEntry_Object=MibTableRow
+subscriberServicesIfStatusEntry=_SubscriberServicesIfStatusEntry_Object((1,3,6,1,4,1,4935,15,62,1,15,1))
+subscriberServicesIfStatusEntry.setIndexNames((0,_H,_I))
+if mibBuilder.loadTexts:subscriberServicesIfStatusEntry.setStatus(_A)
+class _SubscriberServicesHoldStatus_Type(MxActivationState):defaultValue=1
+_SubscriberServicesHoldStatus_Type.__name__=_E
+_SubscriberServicesHoldStatus_Object=MibTableColumn
+subscriberServicesHoldStatus=_SubscriberServicesHoldStatus_Object((1,3,6,1,4,1,4935,15,62,1,15,1,5),_SubscriberServicesHoldStatus_Type())
+subscriberServicesHoldStatus.setMaxAccess(_G)
+if mibBuilder.loadTexts:subscriberServicesHoldStatus.setStatus(_A)
+class _SubscriberServicesCallWaitingStatus_Type(MxActivationState):defaultValue=1
+_SubscriberServicesCallWaitingStatus_Type.__name__=_E
+_SubscriberServicesCallWaitingStatus_Object=MibTableColumn
+subscriberServicesCallWaitingStatus=_SubscriberServicesCallWaitingStatus_Object((1,3,6,1,4,1,4935,15,62,1,15,1,10),_SubscriberServicesCallWaitingStatus_Type())
+subscriberServicesCallWaitingStatus.setMaxAccess(_G)
+if mibBuilder.loadTexts:subscriberServicesCallWaitingStatus.setStatus(_A)
+class _SubscriberServicesSecondCallStatus_Type(MxActivationState):defaultValue=1
+_SubscriberServicesSecondCallStatus_Type.__name__=_E
+_SubscriberServicesSecondCallStatus_Object=MibTableColumn
+subscriberServicesSecondCallStatus=_SubscriberServicesSecondCallStatus_Object((1,3,6,1,4,1,4935,15,62,1,15,1,15),_SubscriberServicesSecondCallStatus_Type())
+subscriberServicesSecondCallStatus.setMaxAccess(_G)
+if mibBuilder.loadTexts:subscriberServicesSecondCallStatus.setStatus(_A)
+class _SubscriberServicesBlindTransferStatus_Type(MxActivationState):defaultValue=1
+_SubscriberServicesBlindTransferStatus_Type.__name__=_E
+_SubscriberServicesBlindTransferStatus_Object=MibTableColumn
+subscriberServicesBlindTransferStatus=_SubscriberServicesBlindTransferStatus_Object((1,3,6,1,4,1,4935,15,62,1,15,1,20),_SubscriberServicesBlindTransferStatus_Type())
+subscriberServicesBlindTransferStatus.setMaxAccess(_G)
+if mibBuilder.loadTexts:subscriberServicesBlindTransferStatus.setStatus(_A)
+class _SubscriberServicesAttendedTransferStatus_Type(MxActivationState):defaultValue=1
+_SubscriberServicesAttendedTransferStatus_Type.__name__=_E
+_SubscriberServicesAttendedTransferStatus_Object=MibTableColumn
+subscriberServicesAttendedTransferStatus=_SubscriberServicesAttendedTransferStatus_Object((1,3,6,1,4,1,4935,15,62,1,15,1,25),_SubscriberServicesAttendedTransferStatus_Type())
+subscriberServicesAttendedTransferStatus.setMaxAccess(_G)
+if mibBuilder.loadTexts:subscriberServicesAttendedTransferStatus.setStatus(_A)
+class _SubscriberServicesConferenceStatus_Type(MxActivationState):defaultValue=1
+_SubscriberServicesConferenceStatus_Type.__name__=_E
+_SubscriberServicesConferenceStatus_Object=MibTableColumn
+subscriberServicesConferenceStatus=_SubscriberServicesConferenceStatus_Object((1,3,6,1,4,1,4935,15,62,1,15,1,30),_SubscriberServicesConferenceStatus_Type())
+subscriberServicesConferenceStatus.setMaxAccess(_G)
+if mibBuilder.loadTexts:subscriberServicesConferenceStatus.setStatus(_A)
+_SubscriberServicesIfCallForwardActivationTable_Object=MibTable
+subscriberServicesIfCallForwardActivationTable=_SubscriberServicesIfCallForwardActivationTable_Object((1,3,6,1,4,1,4935,15,62,1,21))
+if mibBuilder.loadTexts:subscriberServicesIfCallForwardActivationTable.setStatus(_A)
+_SubscriberServicesIfCallForwardActivationEntry_Object=MibTableRow
+subscriberServicesIfCallForwardActivationEntry=_SubscriberServicesIfCallForwardActivationEntry_Object((1,3,6,1,4,1,4935,15,62,1,21,1))
+subscriberServicesIfCallForwardActivationEntry.setIndexNames((0,_H,_I))
+if mibBuilder.loadTexts:subscriberServicesIfCallForwardActivationEntry.setStatus(_A)
+class _SubscriberServicesCallForwardUnconditionalActivation_Type(MxActivationState):defaultValue=0
+_SubscriberServicesCallForwardUnconditionalActivation_Type.__name__=_E
+_SubscriberServicesCallForwardUnconditionalActivation_Object=MibTableColumn
+subscriberServicesCallForwardUnconditionalActivation=_SubscriberServicesCallForwardUnconditionalActivation_Object((1,3,6,1,4,1,4935,15,62,1,21,1,5),_SubscriberServicesCallForwardUnconditionalActivation_Type())
+subscriberServicesCallForwardUnconditionalActivation.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallForwardUnconditionalActivation.setStatus(_A)
+class _SubscriberServicesCallForwardUnconditionalForwardingAddress_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
+_SubscriberServicesCallForwardUnconditionalForwardingAddress_Type.__name__=_D
+_SubscriberServicesCallForwardUnconditionalForwardingAddress_Object=MibTableColumn
+subscriberServicesCallForwardUnconditionalForwardingAddress=_SubscriberServicesCallForwardUnconditionalForwardingAddress_Object((1,3,6,1,4,1,4935,15,62,1,21,1,10),_SubscriberServicesCallForwardUnconditionalForwardingAddress_Type())
+subscriberServicesCallForwardUnconditionalForwardingAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallForwardUnconditionalForwardingAddress.setStatus(_A)
+class _SubscriberServicesCallForwardOnBusyActivation_Type(MxActivationState):defaultValue=0
+_SubscriberServicesCallForwardOnBusyActivation_Type.__name__=_E
+_SubscriberServicesCallForwardOnBusyActivation_Object=MibTableColumn
+subscriberServicesCallForwardOnBusyActivation=_SubscriberServicesCallForwardOnBusyActivation_Object((1,3,6,1,4,1,4935,15,62,1,21,1,15),_SubscriberServicesCallForwardOnBusyActivation_Type())
+subscriberServicesCallForwardOnBusyActivation.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallForwardOnBusyActivation.setStatus(_A)
+class _SubscriberServicesCallForwardOnBusyForwardingAddress_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
+_SubscriberServicesCallForwardOnBusyForwardingAddress_Type.__name__=_D
+_SubscriberServicesCallForwardOnBusyForwardingAddress_Object=MibTableColumn
+subscriberServicesCallForwardOnBusyForwardingAddress=_SubscriberServicesCallForwardOnBusyForwardingAddress_Object((1,3,6,1,4,1,4935,15,62,1,21,1,20),_SubscriberServicesCallForwardOnBusyForwardingAddress_Type())
+subscriberServicesCallForwardOnBusyForwardingAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallForwardOnBusyForwardingAddress.setStatus(_A)
+class _SubscriberServicesCallForwardOnNoAnswerActivation_Type(MxActivationState):defaultValue=0
+_SubscriberServicesCallForwardOnNoAnswerActivation_Type.__name__=_E
+_SubscriberServicesCallForwardOnNoAnswerActivation_Object=MibTableColumn
+subscriberServicesCallForwardOnNoAnswerActivation=_SubscriberServicesCallForwardOnNoAnswerActivation_Object((1,3,6,1,4,1,4935,15,62,1,21,1,25),_SubscriberServicesCallForwardOnNoAnswerActivation_Type())
+subscriberServicesCallForwardOnNoAnswerActivation.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallForwardOnNoAnswerActivation.setStatus(_A)
+class _SubscriberServicesCallForwardOnNoAnswerForwardingAddress_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,127))
+_SubscriberServicesCallForwardOnNoAnswerForwardingAddress_Type.__name__=_D
+_SubscriberServicesCallForwardOnNoAnswerForwardingAddress_Object=MibTableColumn
+subscriberServicesCallForwardOnNoAnswerForwardingAddress=_SubscriberServicesCallForwardOnNoAnswerForwardingAddress_Object((1,3,6,1,4,1,4935,15,62,1,21,1,30),_SubscriberServicesCallForwardOnNoAnswerForwardingAddress_Type())
+subscriberServicesCallForwardOnNoAnswerForwardingAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallForwardOnNoAnswerForwardingAddress.setStatus(_A)
+class _SubscriberServicesCallForwardOnNoAnswerTimeout_Type(Unsigned32):defaultValue=5000;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(200,120000))
+_SubscriberServicesCallForwardOnNoAnswerTimeout_Type.__name__=_K
+_SubscriberServicesCallForwardOnNoAnswerTimeout_Object=MibTableColumn
+subscriberServicesCallForwardOnNoAnswerTimeout=_SubscriberServicesCallForwardOnNoAnswerTimeout_Object((1,3,6,1,4,1,4935,15,62,1,21,1,35),_SubscriberServicesCallForwardOnNoAnswerTimeout_Type())
+subscriberServicesCallForwardOnNoAnswerTimeout.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallForwardOnNoAnswerTimeout.setStatus(_A)
+_SubscriberServicesActivationDigitmaps_ObjectIdentity=ObjectIdentity
+subscriberServicesActivationDigitmaps=_SubscriberServicesActivationDigitmaps_ObjectIdentity((1,3,6,1,4,1,4935,15,62,1,25))
+class _SubscriberServicesCallForwardUnconditionalEnableDigitMap_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_SubscriberServicesCallForwardUnconditionalEnableDigitMap_Type.__name__=_D
+_SubscriberServicesCallForwardUnconditionalEnableDigitMap_Object=MibScalar
+subscriberServicesCallForwardUnconditionalEnableDigitMap=_SubscriberServicesCallForwardUnconditionalEnableDigitMap_Object((1,3,6,1,4,1,4935,15,62,1,25,5),_SubscriberServicesCallForwardUnconditionalEnableDigitMap_Type())
+subscriberServicesCallForwardUnconditionalEnableDigitMap.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallForwardUnconditionalEnableDigitMap.setStatus(_A)
+class _SubscriberServicesCallForwardUnconditionalDisableDigitMap_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_SubscriberServicesCallForwardUnconditionalDisableDigitMap_Type.__name__=_D
+_SubscriberServicesCallForwardUnconditionalDisableDigitMap_Object=MibScalar
+subscriberServicesCallForwardUnconditionalDisableDigitMap=_SubscriberServicesCallForwardUnconditionalDisableDigitMap_Object((1,3,6,1,4,1,4935,15,62,1,25,10),_SubscriberServicesCallForwardUnconditionalDisableDigitMap_Type())
+subscriberServicesCallForwardUnconditionalDisableDigitMap.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallForwardUnconditionalDisableDigitMap.setStatus(_A)
+class _SubscriberServicesCallForwardOnBusyEnableDigitMap_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_SubscriberServicesCallForwardOnBusyEnableDigitMap_Type.__name__=_D
+_SubscriberServicesCallForwardOnBusyEnableDigitMap_Object=MibScalar
+subscriberServicesCallForwardOnBusyEnableDigitMap=_SubscriberServicesCallForwardOnBusyEnableDigitMap_Object((1,3,6,1,4,1,4935,15,62,1,25,15),_SubscriberServicesCallForwardOnBusyEnableDigitMap_Type())
+subscriberServicesCallForwardOnBusyEnableDigitMap.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallForwardOnBusyEnableDigitMap.setStatus(_A)
+class _SubscriberServicesCallForwardOnBusyDisableDigitMap_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_SubscriberServicesCallForwardOnBusyDisableDigitMap_Type.__name__=_D
+_SubscriberServicesCallForwardOnBusyDisableDigitMap_Object=MibScalar
+subscriberServicesCallForwardOnBusyDisableDigitMap=_SubscriberServicesCallForwardOnBusyDisableDigitMap_Object((1,3,6,1,4,1,4935,15,62,1,25,20),_SubscriberServicesCallForwardOnBusyDisableDigitMap_Type())
+subscriberServicesCallForwardOnBusyDisableDigitMap.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallForwardOnBusyDisableDigitMap.setStatus(_A)
+class _SubscriberServicesCallForwardOnNoAnswerEnableDigitMap_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_SubscriberServicesCallForwardOnNoAnswerEnableDigitMap_Type.__name__=_D
+_SubscriberServicesCallForwardOnNoAnswerEnableDigitMap_Object=MibScalar
+subscriberServicesCallForwardOnNoAnswerEnableDigitMap=_SubscriberServicesCallForwardOnNoAnswerEnableDigitMap_Object((1,3,6,1,4,1,4935,15,62,1,25,25),_SubscriberServicesCallForwardOnNoAnswerEnableDigitMap_Type())
+subscriberServicesCallForwardOnNoAnswerEnableDigitMap.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallForwardOnNoAnswerEnableDigitMap.setStatus(_A)
+class _SubscriberServicesCallForwardOnNoAnswerDisableDigitMap_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_SubscriberServicesCallForwardOnNoAnswerDisableDigitMap_Type.__name__=_D
+_SubscriberServicesCallForwardOnNoAnswerDisableDigitMap_Object=MibScalar
+subscriberServicesCallForwardOnNoAnswerDisableDigitMap=_SubscriberServicesCallForwardOnNoAnswerDisableDigitMap_Object((1,3,6,1,4,1,4935,15,62,1,25,30),_SubscriberServicesCallForwardOnNoAnswerDisableDigitMap_Type())
+subscriberServicesCallForwardOnNoAnswerDisableDigitMap.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallForwardOnNoAnswerDisableDigitMap.setStatus(_A)
+class _SubscriberServicesCallWaitingCancelDigitMap_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_SubscriberServicesCallWaitingCancelDigitMap_Type.__name__=_D
+_SubscriberServicesCallWaitingCancelDigitMap_Object=MibScalar
+subscriberServicesCallWaitingCancelDigitMap=_SubscriberServicesCallWaitingCancelDigitMap_Object((1,3,6,1,4,1,4935,15,62,1,25,35),_SubscriberServicesCallWaitingCancelDigitMap_Type())
+subscriberServicesCallWaitingCancelDigitMap.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallWaitingCancelDigitMap.setStatus(_A)
+class _SubscriberServicesCallWaitingPermanentDigitMapEnable_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_SubscriberServicesCallWaitingPermanentDigitMapEnable_Type.__name__=_D
+_SubscriberServicesCallWaitingPermanentDigitMapEnable_Object=MibScalar
+subscriberServicesCallWaitingPermanentDigitMapEnable=_SubscriberServicesCallWaitingPermanentDigitMapEnable_Object((1,3,6,1,4,1,4935,15,62,1,25,40),_SubscriberServicesCallWaitingPermanentDigitMapEnable_Type())
+subscriberServicesCallWaitingPermanentDigitMapEnable.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallWaitingPermanentDigitMapEnable.setStatus(_A)
+class _SubscriberServicesCallWaitingPermanentDigitMapDisable_Type(OctetString):defaultValue=OctetString('');subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,63))
+_SubscriberServicesCallWaitingPermanentDigitMapDisable_Type.__name__=_D
+_SubscriberServicesCallWaitingPermanentDigitMapDisable_Object=MibScalar
+subscriberServicesCallWaitingPermanentDigitMapDisable=_SubscriberServicesCallWaitingPermanentDigitMapDisable_Object((1,3,6,1,4,1,4935,15,62,1,25,45),_SubscriberServicesCallWaitingPermanentDigitMapDisable_Type())
+subscriberServicesCallWaitingPermanentDigitMapDisable.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesCallWaitingPermanentDigitMapDisable.setStatus(_A)
+_SubscriberServicesProcessing_ObjectIdentity=ObjectIdentity
+subscriberServicesProcessing=_SubscriberServicesProcessing_ObjectIdentity((1,3,6,1,4,1,4935,15,62,1,50))
+class _SubscriberServicesProcessingTrigger_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1)));namedValues=NamedValues(*(('flashHook',0),('flashHookAndDigits',1)))
+_SubscriberServicesProcessingTrigger_Type.__name__=_J
+_SubscriberServicesProcessingTrigger_Object=MibScalar
+subscriberServicesProcessingTrigger=_SubscriberServicesProcessingTrigger_Object((1,3,6,1,4,1,4935,15,62,1,50,5),_SubscriberServicesProcessingTrigger_Type())
+subscriberServicesProcessingTrigger.setMaxAccess(_C)
+if mibBuilder.loadTexts:subscriberServicesProcessingTrigger.setStatus(_A)
+_SubscriberServicesConformance_ObjectIdentity=ObjectIdentity
+subscriberServicesConformance=_SubscriberServicesConformance_ObjectIdentity((1,3,6,1,4,1,4935,15,62,2))
+_SubscriberServicesCompliances_ObjectIdentity=ObjectIdentity
+subscriberServicesCompliances=_SubscriberServicesCompliances_ObjectIdentity((1,3,6,1,4,1,4935,15,62,2,1))
+_SubscriberServicesGroups_ObjectIdentity=ObjectIdentity
+subscriberServicesGroups=_SubscriberServicesGroups_ObjectIdentity((1,3,6,1,4,1,4935,15,62,2,5))
+subscriberServicesEnablingVer1=ObjectGroup((1,3,6,1,4,1,4935,15,62,2,5,3))
+subscriberServicesEnablingVer1.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T)))
+if mibBuilder.loadTexts:subscriberServicesEnablingVer1.setStatus(_A)
+subscriberServicesActivationVer1=ObjectGroup((1,3,6,1,4,1,4935,15,62,2,5,10))
+subscriberServicesActivationVer1.setObjects(*((_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z)))
+if mibBuilder.loadTexts:subscriberServicesActivationVer1.setStatus(_A)
+subscriberServicesCallForwardActivationVer1=ObjectGroup((1,3,6,1,4,1,4935,15,62,2,5,12))
+subscriberServicesCallForwardActivationVer1.setObjects(*((_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g)))
+if mibBuilder.loadTexts:subscriberServicesCallForwardActivationVer1.setStatus(_A)
+subscriberServicesActivationDigitmapsVer1=ObjectGroup((1,3,6,1,4,1,4935,15,62,2,5,15))
+subscriberServicesActivationDigitmapsVer1.setObjects(*((_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p)))
+if mibBuilder.loadTexts:subscriberServicesActivationDigitmapsVer1.setStatus(_A)
+subscriberServicesProcessingVer1=ObjectGroup((1,3,6,1,4,1,4935,15,62,2,5,18))
+subscriberServicesProcessingVer1.setObjects((_B,_q))
+if mibBuilder.loadTexts:subscriberServicesProcessingVer1.setStatus(_A)
+subscriberServicesComplVer1=ModuleCompliance((1,3,6,1,4,1,4935,15,62,2,1,1))
+subscriberServicesComplVer1.setObjects(*((_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v)))
+if mibBuilder.loadTexts:subscriberServicesComplVer1.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'subscriberServicesMIB':subscriberServicesMIB,'subscriberServicesMIBObjects':subscriberServicesMIBObjects,'subscriberServicesIfEnablingTable':subscriberServicesIfEnablingTable,'subscriberServicesIfEnablingEntry':subscriberServicesIfEnablingEntry,_L:subscriberServicesHoldEnable,_M:subscriberServicesCallWaitingEnable,_N:subscriberServicesSecondCallEnable,_O:subscriberServicesBlindTransferEnable,_P:subscriberServicesAttendedTransferEnable,_Q:subscriberServicesConferenceEnable,_R:subscriberServicesCallForwardUnconditionalEnable,_S:subscriberServicesCallForwardOnBusyEnable,_T:subscriberServicesCallForwardOnNoAnswerEnable,'subscriberServicesIfStatusTable':subscriberServicesIfStatusTable,'subscriberServicesIfStatusEntry':subscriberServicesIfStatusEntry,_U:subscriberServicesHoldStatus,_V:subscriberServicesCallWaitingStatus,_W:subscriberServicesSecondCallStatus,_X:subscriberServicesBlindTransferStatus,_Y:subscriberServicesAttendedTransferStatus,_Z:subscriberServicesConferenceStatus,'subscriberServicesIfCallForwardActivationTable':subscriberServicesIfCallForwardActivationTable,'subscriberServicesIfCallForwardActivationEntry':subscriberServicesIfCallForwardActivationEntry,_a:subscriberServicesCallForwardUnconditionalActivation,_b:subscriberServicesCallForwardUnconditionalForwardingAddress,_c:subscriberServicesCallForwardOnBusyActivation,_d:subscriberServicesCallForwardOnBusyForwardingAddress,_e:subscriberServicesCallForwardOnNoAnswerActivation,_f:subscriberServicesCallForwardOnNoAnswerForwardingAddress,_g:subscriberServicesCallForwardOnNoAnswerTimeout,'subscriberServicesActivationDigitmaps':subscriberServicesActivationDigitmaps,_h:subscriberServicesCallForwardUnconditionalEnableDigitMap,_i:subscriberServicesCallForwardUnconditionalDisableDigitMap,_j:subscriberServicesCallForwardOnBusyEnableDigitMap,_k:subscriberServicesCallForwardOnBusyDisableDigitMap,_l:subscriberServicesCallForwardOnNoAnswerEnableDigitMap,_m:subscriberServicesCallForwardOnNoAnswerDisableDigitMap,_n:subscriberServicesCallWaitingCancelDigitMap,_o:subscriberServicesCallWaitingPermanentDigitMapEnable,_p:subscriberServicesCallWaitingPermanentDigitMapDisable,'subscriberServicesProcessing':subscriberServicesProcessing,_q:subscriberServicesProcessingTrigger,'subscriberServicesConformance':subscriberServicesConformance,'subscriberServicesCompliances':subscriberServicesCompliances,'subscriberServicesComplVer1':subscriberServicesComplVer1,'subscriberServicesGroups':subscriberServicesGroups,_r:subscriberServicesEnablingVer1,_s:subscriberServicesActivationVer1,_t:subscriberServicesCallForwardActivationVer1,_u:subscriberServicesActivationDigitmapsVer1,_v:subscriberServicesProcessingVer1})

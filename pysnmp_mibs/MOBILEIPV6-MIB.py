@@ -1,440 +1,1123 @@
-#
-# PySNMP MIB module MOBILEIPV6-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/MOBILEIPV6-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:20:23 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, ObjectIdentifier, Integer, ) = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
-( InetAddress, InetAddressType, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
-( ipv6InterfaceIfIndex, ) = mibBuilder.importSymbols("IP-MIB", "ipv6InterfaceIfIndex")
-( NotificationGroup, ObjectGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-( MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Gauge32, mib_2, Integer32, TimeTicks, Bits, Unsigned32, NotificationType, ObjectIdentity, IpAddress, iso, Counter64, ModuleIdentity, Counter32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Gauge32", "mib-2", "Integer32", "TimeTicks", "Bits", "Unsigned32", "NotificationType", "ObjectIdentity", "IpAddress", "iso", "Counter64", "ModuleIdentity", "Counter32")
-( DisplayString, DateAndTime, TextualConvention, TruthValue, TimeStamp, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "DateAndTime", "TextualConvention", "TruthValue", "TimeStamp")
-mip6MIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 133)).setRevisions(("2006-02-01 00:00",))
-if mibBuilder.loadTexts: mip6MIB.setLastUpdated('200602010000Z')
-if mibBuilder.loadTexts: mip6MIB.setOrganization('IETF mip6 Working Group')
-if mibBuilder.loadTexts: mip6MIB.setContactInfo('                      Glenn Mansfield Keeni\n                        Postal: Cyber Solutions Inc.\n                                6-6-3, Minami Yoshinari\n                                Aoba-ku, Sendai, Japan 989-3204.\n                           Tel: +81-22-303-4012\n                           Fax: +81-22-303-4015\n                        E-mail: glenn@cysols.com\n\n                                Kenichi Nagami\n                        Postal: INTEC NetCore Inc.\n                                1-3-3, Shin-suna\n                                Koto-ku, Tokyo, 135-0075\n                                Japan\n\n                           Tel: +81-3-5665-5069\n                        E-mail: nagami@inetcore.com\n\n                                Kazuhide Koide\n                        Postal: Tohoku University\n                                2-1-1, Katahira\n                                Aoba-ku, Sendai, 980-8577\n                                Japan\n\n                           Tel: +81-22-217-5454\n                        E-mail: koide@shiratori.riec.tohoku.ac.jp\n                                Sri Gundavelli\n                        Postal: Cisco Systems\n                                170 W.Tasman Drive,\n                                San Jose, CA 95134\n                                USA\n\n                           Tel: +1-408-527-6109\n                        E-mail: sgundave@cisco.com\n\n             Support Group E-mail: mip6@ietf.org')
-if mibBuilder.loadTexts: mip6MIB.setDescription('The MIB module for monitoring Mobile-IPv6\n                      entities.\n\n                      Copyright (C) The Internet Society 2006.  This\n                      version of this MIB module is part of RFC 4295;\n                      see the RFC itself for full legal notices.\n                     ')
-mip6Notifications = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 0))
-mip6Objects = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1))
-mip6Conformance = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 2))
-mip6Core = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 1))
-mip6Mn = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 2))
-mip6Cn = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 3))
-mip6Ha = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 4))
-mip6System = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 1, 1))
-mip6Bindings = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 1, 2))
-mip6Stats = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 1, 3))
-mip6MnSystem = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 2, 1))
-mip6MnConf = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 2, 2))
-mip6MnRegistration = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 2, 3))
-mip6CnSystem = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 3, 1))
-mip6CnStats = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 3, 2))
-mip6HaAdvertisement = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 4, 1))
-mip6HaStats = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 4, 2))
-class Mip6BURequestRejectionCode(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,))
-    namedValues = NamedValues(("reasonUnspecified", 1), ("admProhibited", 2), ("insufficientResource", 3), ("homeRegistrationNotSupported", 4), ("notHomeSubnet", 5), ("notHomeAgentForThisMobileNode", 6), ("duplicateAddressDetectionFailed", 7), ("sequenceNumberOutOfWindow", 8), ("expiredHomeNonceIndex", 9), ("expiredCareofNonceIndex", 10), ("expiredNonces", 11), ("registrationTypeChangeDisallowed", 12),)
-
-mip6Capabilities = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 1, 1, 1), Bits().clone(namedValues=NamedValues(("mobileNode", 0), ("homeAgent", 1), ("correspondentNode", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6Capabilities.setDescription('This object indicates the Mobile IPv6 functions that\n                    are supported by this managed entity.  Multiple\n                    Mobile IPv6 functions may be supported by a single\n                    entity.\n                   ')
-mip6Status = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mip6Status.setDescription('This object indicates whether the Mobile IPv6\n                    function is enabled for the managed entity.  If it\n                    is enabled, the agent discovery and registration\n                    functions will be operational.\n                    Changing the status from enabled(1) to disabled(2)\n                    will terminate the agent discovery and registration\n                    functions.  On the other hand, changing the status\n                    from disabled(2) to enabled(1) will start the agent\n                    discovery and registration functions.\n\n                    The value of this object SHOULD remain unchanged\n                    across reboots of the managed entity.\n                   ')
-mip6BindingCacheTable = MibTable((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 1), )
-if mibBuilder.loadTexts: mip6BindingCacheTable.setDescription('This table models the Binding Cache on the\n                    managed entity.  The cache is maintained by home\n                    agents and correspondent nodes.  It contains\n                    both correspondent registration entries and home\n                    registration entries.\n\n                    Entries in this table are not required to survive\n                    a reboot of the managed entity.\n                   ')
-mip6BindingCacheEntry = MibTableRow((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 1, 1), ).setIndexNames((0, "MOBILEIPV6-MIB", "mip6BindingHomeAddressType"), (0, "MOBILEIPV6-MIB", "mip6BindingHomeAddress"))
-if mibBuilder.loadTexts: mip6BindingCacheEntry.setDescription('This entry represents a conceptual row in the\n                    binding cache table.  It represents a single Binding\n                    Update.\n\n                    Implementors need to be aware that if the total\n                    number of octets in mip6BindingHomeAddress\n                    exceeds 113, then OIDs of column\n                    instances in this row will have more than 128\n                    sub-identifiers and cannot be accessed using\n                    SNMPv1, SNMPv2c, or SNMPv3.\n                   ')
-mip6BindingHomeAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 1, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: mip6BindingHomeAddressType.setDescription('The InetAddressType of the mip6BindingHomeAddress\n                    that follows.\n                   ')
-mip6BindingHomeAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 1, 1, 2), InetAddress())
-if mibBuilder.loadTexts: mip6BindingHomeAddress.setDescription("The home address of the mobile node corresponding\n                    to the Binding Cache entry.  This field is used as\n                    the key for searching the mobile node's current\n                    care-of address in the Binding Cache.\n\n                    The type of the address represented by this object\n                    is specified by the corresponding\n                    mip6BindingHomeAddressType object.\n                   ")
-mip6BindingCOAType = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 1, 1, 3), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6BindingCOAType.setDescription('The InetAddressType of the mip6BindingCOA that\n                    follows.\n                   ')
-mip6BindingCOA = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 1, 1, 4), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6BindingCOA.setDescription('The care-of address of the mobile node indicated by\n                    the home address field (mip6BindingHomeAddress) in\n                    this Binding Cache entry.\n\n                    The type of the address represented by this object\n                    is specified by the corresponding mip6BindingCOAType\n                    object.\n                   ')
-mip6BindingTimeRegistered = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 1, 1, 5), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6BindingTimeRegistered.setDescription('The timestamp when this Binding Cache entry was\n                    created.\n                   ')
-mip6BindingTimeGranted = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 1, 1, 6), Gauge32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6BindingTimeGranted.setDescription('The lifetime in seconds granted to the mobile node\n                    for this registration.\n                   ')
-mip6BindingTimeRemaining = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 1, 1, 7), Gauge32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6BindingTimeRemaining.setDescription('The lifetime in seconds remaining for this\n                    registration.\n                   ')
-mip6BindingHomeRegn = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 1, 1, 8), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6BindingHomeRegn.setDescription('This object indicates whether or not this Binding\n                    Cache entry is a home registration entry (applicable\n                    only on nodes that support home agent\n                    functionality).\n                   ')
-mip6BindingMaxSeq = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 1, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65536))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6BindingMaxSeq.setDescription('The maximum value of the Sequence Number field\n                    received in previous Binding Updates for this home\n                    address (mip6BindingHomeAddress).\n                   ')
-mip6BindingUsageTS = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 1, 1, 10), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6BindingUsageTS.setDescription('The timestamp when this entry was last looked up.\n                   ')
-mip6BindingUsageCount = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 1, 1, 11), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6BindingUsageCount.setDescription('The number of times this entry was looked up.\n                   ')
-mip6BindingAdminStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mip6BindingAdminStatus.setDescription("This is an administrative object used to control\n                    the status of a binding cache entry.  By default\n                    the value will be 'active'(1).\n                    A value of 'inactive'(2) will indicate that the\n                    validity of the entry is suspended.  It does not\n                    exist in the binding cache for all practical\n                    purposes.\n                    The state can be changed from 'active' to\n                    'inactive' by operator intervention.\n                    Causing the state to change to 'inactive' results\n                    in the entry being deleted from the cache.\n                    Attempts to change the status from 'inactive'\n                    to 'active' will be rejected.\n                   ")
-mip6BindingHistoryTable = MibTable((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 2), )
-if mibBuilder.loadTexts: mip6BindingHistoryTable.setDescription('A table containing a record of the bindings.\n                   ')
-mip6BindingHistoryEntry = MibTableRow((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 2, 1), ).setIndexNames((0, "MOBILEIPV6-MIB", "mip6BindingHstHomeAddressType"), (0, "MOBILEIPV6-MIB", "mip6BindingHstHomeAddress"), (0, "MOBILEIPV6-MIB", "mip6BindingHstIndex"))
-if mibBuilder.loadTexts: mip6BindingHistoryEntry.setDescription('The record of a binding.\n\n                    Implementors need to be aware that if the total\n                    number of octets in mip6BindingHstHomeAddress\n                    exceeds 112, then OIDs of column\n                    instances in this row will have more than 128\n                    sub-identifiers and cannot be accessed using\n                    SNMPv1, SNMPv2c, or SNMPv3.\n                   ')
-mip6BindingHstHomeAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 2, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: mip6BindingHstHomeAddressType.setDescription('The InetAddressType of the\n                    mip6BindingHstHomeAddress that follows.\n                   ')
-mip6BindingHstHomeAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 2, 1, 2), InetAddress())
-if mibBuilder.loadTexts: mip6BindingHstHomeAddress.setDescription("Mobile node's home address.\n\n                    The type of the address represented by this object\n                    is specified by the corresponding\n                    mip6BindingHstHomeAddressType object.\n                   ")
-mip6BindingHstIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4294967295)))
-if mibBuilder.loadTexts: mip6BindingHstIndex.setDescription("The index to uniquely identify this record along\n                    with the mobile node's HomeAddress type and\n                    HomeAddress.  It should be monotonically increasing.\n                    It may wrap after reaching its max value.")
-mip6BindingHstCOAType = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 2, 1, 4), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6BindingHstCOAType.setDescription('The InetAddressType of the mip6BindingHstCOA that\n                    follows.\n                   ')
-mip6BindingHstCOA = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 2, 1, 5), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6BindingHstCOA.setDescription("Mobile node's care-of address.  One mobile node can\n                    have multiple bindings with different\n                    care-of addresses.\n                    The type of the address represented by this object\n                    is specified by the corresponding\n                    mip6BindingHstCOAType object.\n                   ")
-mip6BindingHstTimeRegistered = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 2, 1, 6), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6BindingHstTimeRegistered.setDescription('The timestamp when this Binding Cache entry was\n                    created.\n                   ')
-mip6BindingHstTimeExpired = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 2, 1, 7), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6BindingHstTimeExpired.setDescription('The timestamp when this Binding Cache entry expired.\n                   ')
-mip6BindingHstHomeRegn = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 2, 1, 8), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6BindingHstHomeRegn.setDescription('This object indicates whether or not this Binding\n                    Cache entry is a home registration entry (applicable\n                    only on nodes that support home agent\n                    functionality).\n                   ')
-mip6BindingHstUsageTS = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 2, 1, 9), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6BindingHstUsageTS.setDescription('The timestamp when this entry was last looked up.\n                   ')
-mip6BindingHstUsageCount = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 2, 2, 1, 10), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6BindingHstUsageCount.setDescription('The number of times this entry was looked up.\n                   ')
-mip6TotalTraffic = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 1))
-mip6InOctets = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6InOctets.setDescription("The total number of octets in the MIPv6 datagrams\n                   received by the MIPv6 entity.  This will include\n                   datagrams with the Mobility Header, the Home Address\n                   option in the Destination Option extension header\n                   (Next Header value = 60), or the type 2 Routing\n                   Header.  It will also include the IPv6 datagrams that\n                   are reverse tunneled to a home agent from a mobile\n                   node's home address.\n                   Discontinuities in the value of this counter can\n                   occur at re-initialization of the management system,\n                   and at other times as indicated by the value of\n                   mip6CounterDiscontinuityTime.\n                  ")
-mip6HCInOctets = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HCInOctets.setDescription("The total number of octets in the MIPv6 datagrams\n                   received by the MIPv6 entity.  This will include\n                   datagrams with the Mobility Header, the Home Address\n                   option in the Destination Option extension header\n                   (Next Header value = 60), or the type 2 Routing\n                   Header.  It will also include the IPv6 datagrams that\n                   are reverse tunneled to a home agent from a mobile\n                   node's home address.\n                   This object is a 64-bit version of mip6InOctets.\n                   Discontinuities in the value of this counter can\n                   occur at re-initialization of the management system,\n                   and at other times as indicated by the value of\n                   mip6CounterDiscontinuityTime.\n                  ")
-mip6InPkts = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6InPkts.setDescription("The number of MIPv6 datagrams received by the MIPv6\n                    entity.  This will include datagrams with the\n                    Mobility Header, the Home Address option in the\n                    Destination Option extension header (Next Header\n                    value = 60), or the type 2 Routing Header.\n                    It will also include the IPv6 datagrams that are\n                    reverse tunneled to a home agent from a mobile\n                    node's home address.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6HCInPkts = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HCInPkts.setDescription("The number of MIPv6 datagrams received by the MIPv6\n                    entity.  This will include datagrams with the\n                    Mobility Header, the Home Address option in the\n                    Destination Option extension header (Next Header\n                    value = 60), or the type 2 Routing Header.  It will\n                    also include the IPv6 datagrams that are reverse\n                    tunneled to a home agent from a mobile node's home\n                    address.\n                    This object is a 64-bit version of mip6InPkts.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6OutOctets = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6OutOctets.setDescription("The total number of octets in the MIPv6 datagrams\n                   sent by the MIPv6 entity.  This will include\n                   datagrams with the Mobility Header, the Home Address\n                   option in the Destination Option extension header\n                   (Next Header value = 60), or the type 2 Routing\n                   Header.  It will also include the IPv6 datagrams that\n                   are reverse tunneled to a home agent from a mobile\n                   node's home address.\n                   Discontinuities in the value of this counter can\n                   occur at re-initialization of the management system,\n                   and at other times as indicated by the value of\n                   mip6CounterDiscontinuityTime.\n                  ")
-mip6HCOutOctets = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HCOutOctets.setDescription("The total number of octets in the MIPv6 datagrams\n                   sent by the MIPv6 entity.  This will include\n                   datagrams with the Mobility Header, the Home Address\n                   option in the Destination Option extension header\n                   (Next Header value = 60), or the type 2 Routing\n                   Header.  It will also include the IPv6 datagrams that\n                   are reverse tunneled to a home agent from a mobile\n                   node's home address.\n                   This object is a 64-bit version of mip6OutOctets.\n                   Discontinuities in the value of this counter can\n                   occur at re-initialization of the management system,\n                   and at other times as indicated by the value of\n                   mip6CounterDiscontinuityTime.\n                  ")
-mip6OutPkts = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6OutPkts.setDescription("The number of MIPv6 datagrams sent by the MIPv6\n                    entity.  This will include the datagrams with\n                    Mobility Header, the Home Address option in the\n                    Destination Option extension header (Next Header\n                    value = 60), or the type 2 Routing Header.  It will\n                    also include the IPv6 datagrams that are reverse\n                    tunneled to a home agent from a mobile node's home\n                    address.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6HCOutPkts = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HCOutPkts.setDescription("The number of MIPv6 datagrams sent by the MIPv6\n                    entity.  This will include datagrams with the\n                    Mobility Header, the Home Address option in the\n                    Destination Option extension header (Next Header\n                    value = 60), or the type 2 Routing Header.  It will\n                    also include the IPv6 datagrams that are reverse\n                    tunneled to a home agent from a mobile node's home\n                    address.\n                    This object is a 64-bit version of mip6OutPkts.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6CounterDiscontinuityTime = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 1, 9), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CounterDiscontinuityTime.setDescription("The value of sysUpTime on the most recent occasion\n                    at which any one or more of this MIPv6 entities\n                    global counters, viz., counters with OID prefix\n                    'mip6TotalTraffic' or 'mip6CnGlobalStats' or\n                    'mip6HaGlobalStats' suffered a discontinuity.\n                    If no such discontinuities have occurred since the\n                    last re-initialization of the local management\n                    subsystem, then this object will have a zero value.\n                   ")
-mip6NodeTrafficTable = MibTable((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 2), )
-if mibBuilder.loadTexts: mip6NodeTrafficTable.setDescription('A table containing MIPv6 traffic counters per mobile\n                    node.\n                   ')
-mip6NodeTrafficEntry = MibTableRow((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 2, 1), ).setIndexNames((0, "MOBILEIPV6-MIB", "mip6BindingHomeAddressType"), (0, "MOBILEIPV6-MIB", "mip6BindingHomeAddress"))
-if mibBuilder.loadTexts: mip6NodeTrafficEntry.setDescription('The MIPv6 traffic statistics for a mobile node.\n\n                    Implementors need to be aware that if the total\n                    number of octets in mip6BindingHomeAddress\n                    exceeds 113, then OIDs of column\n                    instances in this row will have more than 128\n                    sub-identifiers and cannot be accessed using\n                    SNMPv1, SNMPv2c, or SNMPv3.\n                   ')
-mip6NodeInOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 2, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6NodeInOctets.setDescription("The total number of octets in the MIPv6 datagrams\n                    received from the mobile node by the MIPv6 entity.\n                    This will include datagrams with the Mobility\n                    Header or the Home Address option in the Destination\n                    Option extension header (Next Header value = 60).\n                    It will also include the IPv6 datagrams that are\n                    reverse tunneled to a home agent from the mobile\n                    node's home address.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6NodeCtrDiscontinuityTime.\n                   ")
-mip6HCNodeInOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 2, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HCNodeInOctets.setDescription("The total number of octets in the MIPv6 datagrams\n                    received from the mobile node by the MIPv6 entity.\n                    This will include datagrams with the Mobility\n                    Header or the Home Address option in the Destination\n                    Option extension header (Next Header value = 60).\n                    It will also include the IPv6 datagrams that are\n                    reverse tunneled to a home agent from the mobile\n                    node's home address.\n                    This object is a 64-bit version of mip6NodeInOctets.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6NodeCtrDiscontinuityTime.\n                   ")
-mip6NodeInPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6NodeInPkts.setDescription("The number of MIPv6 datagrams received from the\n                    mobile node by the MIPv6 entity.  This will include\n                    the datagrams with the Mobility Header or\n                    the Home Address option in the Destination\n                    Option extension header (Next Header value = 60).\n                    It will also include the IPv6 datagrams that are\n                    reverse tunneled to a home agent from the mobile\n                    node's home address.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6NodeCtrDiscontinuityTime.\n                   ")
-mip6HCNodeInPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 2, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HCNodeInPkts.setDescription("The number of MIPv6 datagrams received from the\n                    mobile node by the MIPv6 entity.  This will include\n                    datagrams with the Mobility Header or the Home\n                    Address option in the Destination Option extension\n                    header (Next Header value = 60).  It will also\n                    include the IPv6 datagrams that are reverse tunneled\n                    to a home agent from the mobile node's home address.\n                    This object is a 64-bit version of mip6NodeInPkts.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6NodeCtrDiscontinuityTime.\n                   ")
-mip6NodeOutOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 2, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6NodeOutOctets.setDescription('The total number of octets in the MIPv6 datagrams\n                    sent to the mobile node by the MIPv6 entity.  This\n                    will include datagrams with the Mobility Header\n                    or the type 2 Routing Header.  It will also include\n                    the IPv6 datagrams that are tunneled by a home agent\n                    to the mobile node.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6NodeCtrDiscontinuityTime.\n                   ')
-mip6HCNodeOutOctets = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 2, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HCNodeOutOctets.setDescription('The total number of octets in the MIPv6 datagrams\n                   sent to the mobile node by the MIPv6 entity.  This\n                   will include datagrams with the Mobility Header\n                   or the type 2 Routing Header.  It will also include\n                   the IPv6 datagrams that are tunneled by a home agent\n                   to the mobile node.\n                   This object is a 64-bit version of mip6NodeOutOctets.\n                   Discontinuities in the value of this counter can\n                   occur at re-initialization of the management system,\n                   and at other times as indicated by the value of\n                   mip6NodeCtrDiscontinuityTime.\n                  ')
-mip6NodeOutPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 2, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6NodeOutPkts.setDescription('The number of MIPv6 datagrams sent to the mobile\n                    node by the MIPv6 entity.  This will include\n                    datagrams with the Mobility Header or the type 2\n                    Routing Header.  It will also include the IPv6\n                    datagrams that are tunneled by a home agent to the\n                    mobile node.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6NodeCtrDiscontinuityTime.\n                   ')
-mip6HCNodeOutPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 2, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HCNodeOutPkts.setDescription('The number of MIPv6 datagrams sent to the mobile\n                   node by the MIPv6 entity.  This will include\n                   datagrams with the Mobility Header or the type 2\n                   Routing Header.  It will also include the IPv6\n                   datagrams that are tunneled by a home agent to the\n                   mobile node.\n                   This object is a 64-bit version of mip6NodeOutOctets.\n                   Discontinuities in the value of this counter can\n                   occur at re-initialization of the management system,\n                   and at other times as indicated by the value of\n                   mip6NodeCtrDiscontinuityTime.\n                  ')
-mip6NodeCtrDiscontinuityTime = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 1, 3, 2, 1, 9), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6NodeCtrDiscontinuityTime.setDescription('The value of sysUpTime on the most recent occasion\n                    at which any one or more of the counters in this row\n                    suffered a discontinuity.  The relevant counters are\n                    the specific instances of any Counter32 or Counter64\n                    objects in this row.\n                    If no such discontinuities have occurred since the\n                    last re-initialization of the local management\n                    subsystem, then this object contains a zero value.\n                   ')
-mip6MnHomeAddressTable = MibTable((1, 3, 6, 1, 2, 1, 133, 1, 2, 1, 1), )
-if mibBuilder.loadTexts: mip6MnHomeAddressTable.setDescription('A table containing registration status for all the\n                    home addresses pertaining to the mobile node.\n                   ')
-mip6MnHomeAddressEntry = MibTableRow((1, 3, 6, 1, 2, 1, 133, 1, 2, 1, 1, 1), ).setIndexNames((0, "MOBILEIPV6-MIB", "mip6MnHomeAddressType"), (0, "MOBILEIPV6-MIB", "mip6MnHomeAddress"))
-if mibBuilder.loadTexts: mip6MnHomeAddressEntry.setDescription('The registration status for a home address.\n\n                    Implementors need to be aware that if the total\n                    number of octets in mip6MnHomeAddress\n                    exceeds 113, then OIDs of column instances in\n                    this row will have more than 128 sub-identifiers and\n                    cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3.\n                   ')
-mip6MnHomeAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 2, 1, 1, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: mip6MnHomeAddressType.setDescription('The InetAddressType of the mip6MnHomeAddress that\n                    follows.\n                   ')
-mip6MnHomeAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 2, 1, 1, 1, 2), InetAddress())
-if mibBuilder.loadTexts: mip6MnHomeAddress.setDescription("A unicast routable address assigned to the mobile\n                   node.  This is used as the 'permanent address' of the\n                   mobile node in the sense that it remains unchanged\n                   regardless of the mobile node's current point of\n                   attachment.  If mobile node doesn't have a home\n                   address assigned yet, then this object will take the\n                   default 'unspecified' value ::0.\n\n                   The type of the address represented by this object\n                   is specified by the corresponding\n                   mip6MnHomeAddressType object.\n                  ")
-mip6MnHomeAddressState = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 2, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("unknown", 1), ("home", 2), ("registered", 3), ("pending", 4), ("isolated", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnHomeAddressState.setDescription('This object indicates the state of the mobile node:\n                    unknown     -- The state of the mobile node\n                                   cannot be determined.\n                    home        -- mobile node is on the home network.\n                    registered  -- mobile node is on a foreign network\n                                   and is registered with the home\n                                   agent.\n                    pending     -- mobile node has sent registration\n                                   request to the home agent and is\n                                   waiting for the reply.\n                    isolated    -- mobile node is isolated from network,\n                                   i.e., it is not in its home network,\n                                   it is not registered, and no\n                                   registration ack is pending.\n                   ')
-mip6MnDiscoveryRequests = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 2, 2, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnDiscoveryRequests.setDescription('Total number of ICMP Dynamic Home Agent Address\n                    Discovery Requests sent by the mobile node.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6MnDiscoveryReplies = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 2, 2, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnDiscoveryReplies.setDescription('Total number of ICMP Dynamic Home Agent Address\n                    Discovery Replies received by the mobile node.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6MnDiscoveryTimeouts = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 2, 2, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnDiscoveryTimeouts.setDescription('Total number of ICMP Dynamic Home Agent Address\n                    Discovery Requests that timed out.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6MnPrefixSolicitationsSent = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 2, 2, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnPrefixSolicitationsSent.setDescription('Total number of ICMP Mobile Prefix Solicitations\n                    sent by the mobile node.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6MnPrefixAdvsRecd = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 2, 2, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnPrefixAdvsRecd.setDescription('Total number of ICMP Mobile Prefix Advertisements\n                    received by the mobile node.  This will include the\n                    ICMP Mobile Prefix Advertisements that failed the\n                    validity checks.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6MnPrefixAdvsIgnored = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 2, 2, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnPrefixAdvsIgnored.setDescription('Total number of Mobile Prefix Advertisements\n                    discarded by the validity check.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6MnMovedToFN = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 2, 2, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnMovedToFN.setDescription('Number of times the mobile node has detected\n                    movement to a foreign network from another\n                    foreign network or from the home network, has\n                    reconstructed its care-of address and has initiated\n                    the care-of address registration process.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6MnMovedToHN = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 2, 2, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnMovedToHN.setDescription('Number of times the mobile node has detected\n                    movement from a foreign network to its home\n                    network.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6MnBLTable = MibTable((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 1), )
-if mibBuilder.loadTexts: mip6MnBLTable.setDescription('This table corresponds to the Binding Update List\n                   (BL) that is maintained by the mobile node.  The list\n                   holds an item for every binding that the mobile node\n                   has established or is trying to establish.  Both\n                   correspondent and home registrations are included in\n                   this table.  Entries from the table are deleted as\n                   the lifetime of the binding expires.\n                  ')
-mip6MnBLEntry = MibTableRow((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 1, 1), ).setIndexNames((0, "MOBILEIPV6-MIB", "mip6MnHomeAddressType"), (0, "MOBILEIPV6-MIB", "mip6MnHomeAddress"), (0, "MOBILEIPV6-MIB", "mip6MnBLNodeAddressType"), (0, "MOBILEIPV6-MIB", "mip6MnBLNodeAddress"))
-if mibBuilder.loadTexts: mip6MnBLEntry.setDescription('Information about a Binding Update sent by the\n                    mobile node either to its home agent or to one of\n                    its correspondent nodes.\n\n                    Implementors need to be aware that if the total\n                    number of octets in mip6MnHomeAddress and\n                    mip6MnBLNodeAddress exceeds 111, then OIDs of column\n                    instances in this row will have more than 128\n                    sub-identifiers and cannot be accessed using\n                    SNMPv1, SNMPv2c, or SNMPv3.\n                   ')
-mip6MnBLNodeAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 1, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: mip6MnBLNodeAddressType.setDescription('The InetAddressType of the mip6MnBLNodeAddress\n                     that follows.\n                    ')
-mip6MnBLNodeAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 1, 1, 2), InetAddress())
-if mibBuilder.loadTexts: mip6MnBLNodeAddress.setDescription('The address of the agent as used in the destination\n                    address of the Binding Update.  The agent\n                    may be a home agent or a correspondent node.\n\n                    The type of the address represented by this object\n                    is specified by the corresponding\n                    mip6MnBLNodeAddressType object.\n\n                    ')
-mip6MnBLCOAType = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 1, 1, 3), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnBLCOAType.setDescription('The InetAddressType of the mip6MnBLCOA that follows.\n                   ')
-mip6MnBLCOA = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 1, 1, 4), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnBLCOA.setDescription('Care-of address that the mobile node intends to\n                    register in the Binding Update request.\n\n                    The type of the address represented by this object\n                    is specified by the corresponding mip6MnBLCOAType\n                    object.\n                   ')
-mip6MnBLLifeTimeRequested = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 1, 1, 5), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnBLLifeTimeRequested.setDescription('The lifetime requested by the mobile node (in\n                    seconds) in the Binding Update.\n                   ')
-mip6MnBLLifeTimeGranted = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 1, 1, 6), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnBLLifeTimeGranted.setDescription('The lifetime granted to the mobile node for this\n                    binding.  This field will be inaccessible if the\n                    Binding Update request has not been accepted.\n                    The lifetime remaining (lR) can be calculated using\n                    the current time (cT), mip6MnBLAcceptedTime (aT) and\n                    mip6MnBLLifeTimeGranted (lG) as follows:\n                            lR  = lG - (cT - aT).\n                    When lR is zero, this entry will be deleted from the\n                    Binding Update List and consequently from this\n                    table.\n                   ')
-mip6MnBLMaxSeq = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65536))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnBLMaxSeq.setDescription('The maximum value of the Sequence Number field sent\n                    in previous Binding Updates to this destination.\n                   ')
-mip6MnBLTimeSent = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 1, 1, 8), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnBLTimeSent.setDescription('The time when the last (re-)transmission occurred.')
-mip6MnBLAccepted = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 1, 1, 9), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnBLAccepted.setDescription('true(1) if the mobile node has received a\n                    binding acknowledgment indicating that service has\n                    been accepted (status code 0 or 1); false(2)\n                    otherwise.  false(2) implies that the registration\n                    is still pending.\n                   ')
-mip6MnBLAcceptedTime = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 1, 1, 10), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnBLAcceptedTime.setDescription('The time at which the mobile node receives a binding\n                    acknowledgment indicating that Binding Update has\n                    been accepted (status code 0 or 1);\n                    This object will be inaccessible if the Binding\n                    Update request is still pending.\n                   ')
-mip6MnBLRetransmissions = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 1, 1, 11), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnBLRetransmissions.setDescription('The number of Binding Update retransmissions.\n                   ')
-mip6MnBLDontSendBUFlag = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 1, 1, 12), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnBLDontSendBUFlag.setDescription('true(1) indicates that future binding updates\n                    will not be sent to mip6MnBLNodeAddress.\n                    false(2) implies that binding updates will be\n                    sent to mip6MnBLNodeAddress.\n                    The mobile node sets this flag in the when it\n                    receives an ICMP Parameter Problem, Code 1,\n                    error message in response to a return\n                    routability message or Binding Update sent to\n                    mip6MnBLNodeAddress.\n                   ')
-mip6MnRegnCounters = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 2))
-mip6MnMobilityMessagesSent = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 2, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnMobilityMessagesSent.setDescription('The total number of mobility messages, i.e., IPv6\n                    datagrams with Mobility Header, sent by the mobile\n                    node.  There are 3 types of mobility messages, viz.,\n                    Home Test Init, Care-of Test Init, and Binding\n                    Updates, that are sent by mobile nodes.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6MnMobilityMessagesRecd = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 2, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnMobilityMessagesRecd.setDescription('The total number of mobility messages, i.e., IPv6\n                    datagrams with Mobility Header, received by the\n                    mobile node.  There are 5 types of mobility\n                    messages, viz., Home Test, Care-of Test, Binding\n                    Acknowledgment, Binding Refresh Request, and Binding\n                    Error, that are sent to mobile nodes.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6MnBUsToHA = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 2, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnBUsToHA.setDescription("Total number of Binding Updates sent to the mobile\n                    node's home agent(s).\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6MnBUAcksFromHA = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 2, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnBUAcksFromHA.setDescription("Total number of valid binding acknowledgments\n                    received from the mobile node's home agent(s).\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6MnBUsToCN = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 2, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnBUsToCN.setDescription('Total number of Binding Updates sent to\n                    correspondent nodes by the mobile node.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6MnBUAcksFromCN = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 2, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnBUAcksFromCN.setDescription('Total number of valid Binding Update acks\n                    received from all the correspondent nodes.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6MnBindingErrorsFromCN = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 2, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnBindingErrorsFromCN.setDescription('Total number of Binding Error messages received\n                    by mobile node from CN.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6MnICMPErrorsRecd = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 2, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnICMPErrorsRecd.setDescription('Total number of ICMP Error messages of type ICMP\n                    Parameter Problem, Code 1 or Code 2, received by\n                    the mobile node from a correspondent node in\n                    response to a return routability procedure, a\n                    Binding Update, or a packet with the Home Address\n                    option.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6MnBRRequestsRecd = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 2, 3, 2, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6MnBRRequestsRecd.setDescription('The total number of Binding Refresh requests\n                    received by the mobile node from correspondent\n                    nodes.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6CnGlobalStats = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1))
-mip6CnHomeTestInitsRecd = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnHomeTestInitsRecd.setDescription('Total number of Home Test Init messages received.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6CnHomeTestsSent = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnHomeTestsSent.setDescription('Total number of Home Test messages sent.  If a Home\n                    Test Init message is found to be valid, a Home Test\n                    message will be generated and sent.  Otherwise the\n                    Home Test message is silently discarded.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6CnCareOfTestInitsRecd = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnCareOfTestInitsRecd.setDescription('Total number of Care-of Test Init messages received.\n                   ')
-mip6CnCareOfTestsSent = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnCareOfTestsSent.setDescription('Total number of Care-of Test messages sent.  If a\n                    Care-of Test Init message is found to be valid, a\n                    Care-of Test message will be generated and sent.\n                    Otherwise the Care-of Test message is silently\n                    discarded.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6CnBUsRecd = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnBUsRecd.setDescription('Total number of Binding Updates received by the\n                    correspondent node from mobile nodes.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6CnBUAcksSent = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnBUAcksSent.setDescription('Total number of acknowledgments sent by the\n                    correspondent node for the Binding Updates received.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6CnBRsSent = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnBRsSent.setDescription('Total number of Binding Refresh Request messages\n                    sent by the correspondent node.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6CnBindingErrors = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnBindingErrors.setDescription('Total number of Binding Error messages sent by the\n                    correspondent node to the mobile node.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6CnBUsAccepted = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnBUsAccepted.setDescription('Total number of Binding Updates accepted by the\n                    correspondent node.  If a Binding Acknowledgment\n                    message is sent for the Binding Update request,\n                    the Status code field in the message will have\n                    a value less than 128.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6CnBUsRejected = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnBUsRejected.setDescription('Total number of Binding Update requests rejected\n                    by the correspondent node.  If a Binding\n                    Acknowledgment message has been sent for the Binding\n                    Update request, the Status code field in the\n                    message will have a value greater than or equal to\n                    128.  Otherwise the Binding Update request will be\n                    silently discarded.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6CnReasonUnspecified = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnReasonUnspecified.setDescription("Total number of Binding Update requests rejected by\n                    the correspondent node with status code in the\n                    Binding Acknowledgment message indicating 'reason\n                    unspecified' (Code 128).\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6CnInsufficientResource = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnInsufficientResource.setDescription("Total number of Binding Update requests rejected by\n                    the correspondent node with status code in the\n                    Binding Acknowledgment message indicating\n                    'insufficient resources' (Code 130).\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6CnHomeRegnNotSupported = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnHomeRegnNotSupported.setDescription("Total number of Binding Update requests rejected by\n                   correspondent node with status code in the Binding\n                   Acknowledgment message indicating 'home registration\n                   not supported' (Code 131).\n                   Discontinuities in the value of this counter can\n                   occur at re-initialization of the management system,\n                   and at other times as indicated by the value of\n                   mip6CounterDiscontinuityTime.\n                  ")
-mip6CnSeqNumberOutOfWindow = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnSeqNumberOutOfWindow.setDescription("Total number of Binding Updates rejected by\n                    correspondent node with status code in the Binding\n                    Acknowledgment message indicating 'sequence number\n                    out of window' (Code 135).\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6CnExpiredHomeNonceIndex = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnExpiredHomeNonceIndex.setDescription("The total number of Binding Updates rejected by\n                    correspondent node with status code in the Binding\n                    Acknowledgment message indicating 'expired home\n                    nonce index' (Code 136).\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6CnExpiredCareOfNonceIndex = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnExpiredCareOfNonceIndex.setDescription("The total number of Binding Updates rejected by\n                    correspondent node with status code in the Binding\n                    Acknowledgment message indicating 'expired\n                    care-of nonce index' (Code 137).\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6CnExpiredNonce = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnExpiredNonce.setDescription("The total number of Binding Updates rejected by\n                    correspondent node with status code in the Binding\n                    Acknowledgment message indicating 'expired nonces'\n                    (Code 138), i.e., the correspondent node no longer\n                    recognizes the Home Nonce Index value and the\n                    Care-of Nonce Index value.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6CnRegTypeChangeDisallowed = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnRegTypeChangeDisallowed.setDescription("The total number of Binding Updates rejected by\n                    correspondent node with status code in the Binding\n                    Acknowledgment message indicating 'registration\n                    type change disallowed' (Code 139), i.e., a binding\n                    already exists for the given home address and the\n                    home registration flag has a different value than\n                    the Home Registration (H) bit in the Binding Update.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6CnCounterTable = MibTable((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 2), )
-if mibBuilder.loadTexts: mip6CnCounterTable.setDescription('A table containing each mobile .')
-mip6CnCounterEntry = MibTableRow((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 2, 1), ).setIndexNames((0, "MOBILEIPV6-MIB", "mip6BindingHomeAddressType"), (0, "MOBILEIPV6-MIB", "mip6BindingHomeAddress"))
-if mibBuilder.loadTexts: mip6CnCounterEntry.setDescription('The set of correspondent node counters for a mobile\n                    node.\n\n                    Implementors need to be aware that if the total\n                    number of octets in mip6BindingHomeAddress\n                    exceeds 113, then OIDs of column instances in\n                    this row will have more than 128 sub-identifiers and\n                    cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3.\n                   ')
-mip6CnBURequestsAccepted = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 2, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnBURequestsAccepted.setDescription('Total number of Binding Update requests from the\n                    mobile node accepted by the correspondent node.\n                    If Binding Acknowledgment messages are sent, then\n                    the status code in the message will have a value\n                    less than 128.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CnCtrDiscontinuityTime.\n                   ')
-mip6CnBURequestsRejected = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 2, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnBURequestsRejected.setDescription('Total number of Binding Update requests from the\n                   mobile node that have been rejected by the\n                   correspondent node.  This includes the Binding Update\n                   requests for which a Binding Acknowledgment message\n                   has been sent with status code value greater than or\n                   equal to 128 and the Binding Acknowledgment requests\n                   that have been silently discarded.\n                   Discontinuities in the value of this counter can\n                   occur at re-initialization of the management system,\n                   and at other times as indicated by the value of\n                   mip6CnCtrDiscontinuityTime.\n                  ')
-mip6CnBCEntryCreationTime = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 2, 1, 3), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnBCEntryCreationTime.setDescription('The time when the current Binding Cache entry was\n                    created for the mobile node.\n                   ')
-mip6CnBUAcceptedTime = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 2, 1, 4), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnBUAcceptedTime.setDescription('The time at which the last Binding Update was\n                    accepted by the correspondent node and the\n                    corresponding Binding Cache entry was updated.\n                   ')
-mip6CnBURejectionTime = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 2, 1, 5), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnBURejectionTime.setDescription('The time at which the last Binding Update message\n                    was rejected by the correspondent node.\n                    If there have been no rejections, then this object\n                    will be inaccessible.\n                   ')
-mip6CnBURejectionCode = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 2, 1, 6), Mip6BURequestRejectionCode()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnBURejectionCode.setDescription('If a Binding Acknowledgment is sent to the mobile\n                      node, this is the status code (> 128) that is\n                      returned in the Binding Acknowledgment.\n                      In case a Binding Acknowledgment is not sent to\n                      the mobile node, then this will be the value\n                      of the Status code that corresponds to the reason\n                      of the rejection.  If there have been no\n                      rejections, then this object will be inaccessible.\n                     ')
-mip6CnCtrDiscontinuityTime = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 3, 2, 2, 1, 7), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6CnCtrDiscontinuityTime.setDescription("The value of sysUpTime on the most recent occasion\n                   at which any one or more of counters in this row,\n                   viz., instances of 'mip6CnBURequestsAccepted' and\n                   'mip6CnBURequestsRejected', suffered a discontinuity.\n                   If no such discontinuities have occurred since the\n                   last re-initialization of the local management\n                   subsystem, then this object will have a zero value.\n                  ")
-mip6HaAdvsRecd = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaAdvsRecd.setDescription('Total number of valid Router Advertisements\n                    received with the Home Agent (H) bit set, on\n                    all the links on which it is serving as a Home\n                    Agent.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6HaAdvsSent = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaAdvsSent.setDescription('Total number of unsolicited multicast Router\n                    Advertisements sent with the Home Agent (H) bit set,\n                    on all the links on which the router is serving as\n                    a Home Agent.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6HaConfTable = MibTable((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 3), )
-if mibBuilder.loadTexts: mip6HaConfTable.setDescription('A table containing configurable advertisement\n                   parameters for all interfaces on which the\n                   home agent service is advertised.\n                   It is RECOMMENDED that the last written values\n                   of the objects in the conceptual rows of this\n                   table will remain unchanged across reboots of\n                   the managed entity provided that the interfaces\n                   have not been renumbered after the reboot.\n                  ')
-mip6HaConfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 3, 1), ).setIndexNames((0, "IP-MIB", "ipv6InterfaceIfIndex"))
-if mibBuilder.loadTexts: mip6HaConfEntry.setDescription('Advertisement parameters for an interface.\n                   The instances of the columnar objects in this entry\n                   pertain to the interface that is uniquely identified\n                   by the ipv6InterfaceIfIndex of the interface.  The\n                   same ipv6InterfaceIfIndex object is used to uniquely\n                   identify instances of the columnar objects of this\n                   conceptual row.\n                  ')
-mip6HaAdvPreference = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65536))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mip6HaAdvPreference.setDescription('The preference value for the home agent to\n                   be used in the Router Advertisements.  Higher\n                   value denotes greater preference.\n                  ')
-mip6HaAdvLifetime = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mip6HaAdvLifetime.setDescription('The lifetime value for the home agent to be\n                   used in the Router Advertisements.\n                  ')
-mip6HaPrefixAdv = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mip6HaPrefixAdv.setDescription('Indicates whether the home agent should support\n                    sending of the ICMP Mobile Prefix Advertisements.\n                    If it is disabled(2), the home agent will not\n                    send ICMP Mobile Prefix Advertisements to the\n                    mobile nodes.\n                    The state can be changed from enabled(1) to\n                    disabled(2) and vice versa by operator\n                    intervention.\n                    Causing the state to change from enabled(1) to\n                    disabled(2) will result in the home agent\n                    disabling the Prefix advertisement function.\n                    On the other hand, changing the status from\n                    disabled(2) to enabled(1) will start the prefix\n                    advertisement function.\n                   ')
-mip6HaPrefixSolicitation = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mip6HaPrefixSolicitation.setDescription('Indicates whether the home agent should respond\n                    to ICMP Mobile Prefix Solicitation messages it\n                    receives from the mobile nodes.  By default, the\n                    value will be set to enabled(1).  If it is\n                    disabled(2), the home agent will not respond to\n                    any ICMP Mobile Prefix Solicitation messages.\n                    The state can be changed from enabled(1) to\n                    disabled(2), by operator intervention.  Causing\n                    the state to change from enabled(1) to\n                    disabled(2) will result in the home agent not\n                    responding to any ICMP Mobile Prefix\n                    Solicitation messages it receives from the\n                    mobile nodes.\n                   ')
-mip6HaMCastCtlMsgSupport = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mip6HaMCastCtlMsgSupport.setDescription('Indicates whether the home agent should enable\n                    support for the processing of the multicast\n                    group membership control messages it receives\n                    from the mobile nodes.  By default, the value\n                    will be set to enabled(1).  If it is\n                    disabled(2), the home agent will not process\n                    any multicast group control messages it receives\n                    from the mobile nodes.\n                    The state can be changed from enabled(1) to\n                    disabled(2), by operator intervention.  Causing\n                    the state to change from enabled(1) to\n                    disabled(2) will result in the home agent\n                    disabling the processing of the multicast group\n                    control messages it received from the mobile\n                    nodes.\n                   ')
-mip6HaGlobalStats = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1))
-mip6HaHomeTestInitsRecd = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaHomeTestInitsRecd.setDescription('Total number of Home Test Init messages received by\n                    the home agent.  This will include Home Test Init\n                    messages that failed the validity checks.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6HaHomeTestsSent = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaHomeTestsSent.setDescription('Total number of Home Test messages sent by the\n                    home agent.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6HaBUsRecd = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaBUsRecd.setDescription('Total number of Binding Updates received by the\n                    home agent.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6HaBUAcksSent = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaBUAcksSent.setDescription('Total number of Binding Acknowledgments sent\n                    by the home agent.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6HaBRAdviceSent = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaBRAdviceSent.setDescription('Total number of Binding Acknowledgments sent\n                    by the home agent with Binding Refresh Advice\n                    mobility option included.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6HaBUsAccepted = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaBUsAccepted.setDescription('Total number of Binding Updates accepted by this HA.\n                    Binding Acknowledgment with status code of 0 or 1.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ')
-mip6HaPrefDiscoverReqd = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaPrefDiscoverReqd.setDescription("The total number of Binding Acknowledgments sent by\n                    the home agent with status code indicating 'accepted\n                    but prefix discovery necessary'  (Code 1).\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6HaReasonUnspecified = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaReasonUnspecified.setDescription("Total number of Binding Update requests rejected by\n                    the home agent with status code in the Binding\n                    Acknowledgment message indicating 'reason\n                    unspecified' (Code 128).\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6HaAdmProhibited = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaAdmProhibited.setDescription("Total number of Binding Update requests rejected by\n                    the home agent with status code in the Binding\n                    Acknowledgment message indicating 'administratively\n                    prohibited' (Code 129).\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6HaInsufficientResource = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaInsufficientResource.setDescription("Total number of Binding Update requests rejected by\n                    the home agent with status code in the Binding\n                    Acknowledgment message indicating 'insufficient\n                    resources' (Code 130).\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6HaHomeRegnNotSupported = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaHomeRegnNotSupported.setDescription("Total number of Binding Update requests rejected by\n                    the home agent with status code in the Binding\n                    Acknowledgment message indicating 'home\n                    registration not supported' (Code 131).\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6HaNotHomeSubnet = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaNotHomeSubnet.setDescription("Total number of Binding Update requests rejected by\n                    the home agent with status code in the Binding\n                    Acknowledgment message indicating 'not home subnet'\n                    (Code 132).\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6HaNotHomeAgentForThisMN = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaNotHomeAgentForThisMN.setDescription("Total number of Binding Update requests rejected by\n                    the home agent with status code in the Binding\n                    Acknowledgment message indicating 'not home agent\n                    for this mobile node' (Code 133).\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6HaDupAddrDetectionFailed = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaDupAddrDetectionFailed.setDescription("Total number of Binding Update requests rejected by\n                    the home agent with status code in the Binding\n                    Acknowledgment message indicating 'Duplicate\n                    Address Detection failed' (Code 134).\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6HaSeqNumberOutOfWindow = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaSeqNumberOutOfWindow.setDescription("Total number of Binding Update requests rejected by\n                    the home agent with status code in the Binding\n                    Acknowledgment message indicating 'sequence number\n                    out of window' (Code 135).\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6HaExpiredHomeNonceIndex = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaExpiredHomeNonceIndex.setDescription("Total number of Binding Update requests rejected by\n                    the home agent with status code in the Binding\n                    Acknowledgment message indicating 'expired home\n                    nonce index' (Code 136).\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6HaRegTypeChangeDisallowed = MibScalar((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaRegTypeChangeDisallowed.setDescription("Total number of Binding Update requests rejected by\n                    the home agent with status code in the Binding\n                    Acknowledgment message indicating 'registration\n                    type change disallowed' (Code 139), i.e., a binding\n                    already exists for the given home address and the\n                    home registration flag has a different value than\n                    the Home Registration (H) bit in the Binding Update.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6CounterDiscontinuityTime.\n                   ")
-mip6HaCounterTable = MibTable((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 2), )
-if mibBuilder.loadTexts: mip6HaCounterTable.setDescription('A table containing registration statistics for all\n                    mobile nodes registered with the home agent.\n                   ')
-mip6HaCounterEntry = MibTableRow((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 2, 1), ).setIndexNames((0, "MOBILEIPV6-MIB", "mip6BindingHomeAddressType"), (0, "MOBILEIPV6-MIB", "mip6BindingHomeAddress"))
-if mibBuilder.loadTexts: mip6HaCounterEntry.setDescription('Home agent registration statistics for a mobile\n                    node.\n\n                    Implementors need to be aware that if the total\n                    number of octets in mip6BindingHomeAddress\n                    exceeds 113, then OIDs of column instances in\n                    this row will have more than 128 sub-identifiers and\n                    cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3.\n                   ')
-mip6HaBURequestsAccepted = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 2, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaBURequestsAccepted.setDescription('Total number of service requests for the mobile node\n                    accepted by the home agent.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6HaCtrDiscontinuityTime.\n                   ')
-mip6HaBURequestsDenied = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 2, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaBURequestsDenied.setDescription('Total number of service requests for the mobile node\n                    rejected by the home agent.\n                    Discontinuities in the value of this counter can\n                    occur at re-initialization of the management system,\n                    and at other times as indicated by the value of\n                    mip6HaCtrDiscontinuityTime.\n                   ')
-mip6HaBCEntryCreationTime = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 2, 1, 3), DateAndTime()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaBCEntryCreationTime.setDescription('The time when the current Binding Cache entry was\n                    created for the mobile node.\n                   ')
-mip6HaBUAcceptedTime = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 2, 1, 4), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaBUAcceptedTime.setDescription('The time at which the last Binding Update was\n                    accepted by the home agent for this mobile node.\n                   ')
-mip6HaBURejectionTime = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 2, 1, 5), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaBURejectionTime.setDescription('The time at which the last Binding Update was\n                    rejected by the home agent for this mobile node.\n                    If there have been no rejections, then this object\n                    will be inaccessible.\n                   ')
-mip6HaRecentBURejectionCode = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 2, 1, 6), Mip6BURequestRejectionCode()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaRecentBURejectionCode.setDescription('If a Binding Acknowledgment is sent to the mobile\n                    node, this is the status code (> 128) that is\n                    returned in the Binding Acknowledgment.\n                    In case a Binding Acknowledgment is not sent to the\n                    mobile node, then this will be the value of the\n                    status code that corresponds to the reason of the\n                    rejection.\n                    If there have been no rejections, then this object\n                    will be inaccessible.\n                   ')
-mip6HaCtrDiscontinuityTime = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 2, 2, 1, 7), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaCtrDiscontinuityTime.setDescription("The value of sysUpTime on the most recent occasion\n                   at which any one or more of counters in this row,\n                   viz., instances of 'mip6HaBURequestsAccepted' and\n                   'mip6HaBURequestsRejected', suffered a discontinuity.\n                   If no such discontinuities have occurred since the\n                   last re-initialization of the local management\n                   subsystem, then this object will have a zero value.\n                  ")
-mip6HaListTable = MibTable((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 4), )
-if mibBuilder.loadTexts: mip6HaListTable.setDescription('This table models the Home Agents List that contains\n                    the list of all routers that are acting as home\n                    agents on each of the interfaces on which the home\n                    agent service is offered by this router.\n                   ')
-mip6HaListEntry = MibTableRow((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 4, 1), ).setIndexNames((0, "IP-MIB", "ipv6InterfaceIfIndex"), (0, "MOBILEIPV6-MIB", "mip6HaLinkLocalAddressType"), (0, "MOBILEIPV6-MIB", "mip6HaLinkLocalAddress"))
-if mibBuilder.loadTexts: mip6HaListEntry.setDescription('Information about a router that is offering home\n                   agent service.\n                   The instances of the columnar objects in this entry\n                   pertain to an interface for a particular value of\n                   mip6HaLinkLocalAddressType and\n                   mip6HaLinkLocalAddress.  The interface is uniquely\n                   identified by its ipv6InterfaceIfIndex.  The same\n                   ipv6InterfaceIfIndex object is used in conjunction\n                   with the mip6HaLinkLocalAddressType and\n                   mip6HaLinkLocalAddress to uniquely identify\n                   instances of the columnar objects of this row.\n\n                   Implementors need to be aware that if the total\n                   number of octets in mip6HaLinkLocalAddress\n                   exceeds 112, then OIDs of column instances in\n                   this row will have more than 128 sub-identifiers and\n                   cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3.\n                  ')
-mip6HaLinkLocalAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 4, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: mip6HaLinkLocalAddressType.setDescription('The address type for the link-local address\n                    of the home agent that follows.\n                   ')
-mip6HaLinkLocalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 4, 1, 2), InetAddress())
-if mibBuilder.loadTexts: mip6HaLinkLocalAddress.setDescription('The link local address of the home agent.\n\n                    The type of the address represented by this object\n                    is specified by the corresponding\n                    mip6HaLinkLocalAddressType object.\n                   ')
-mip6HaPreference = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 4, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaPreference.setDescription('The preference value of this home agent.\n                    Higher values indicate a more preferable home\n                    agent.  The preference value is obtained from\n                    the preference field of the received Router\n                    Advertisement.\n                   ')
-mip6HaRecvLifeTime = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 4, 1, 4), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaRecvLifeTime.setDescription('The lifetime for this home agent.\n                   ')
-mip6HaRecvTimeStamp = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 4, 1, 5), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaRecvTimeStamp.setDescription('The time when the home agent advertisement was\n                    received.\n                   ')
-mip6HaGlAddrTable = MibTable((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 5), )
-if mibBuilder.loadTexts: mip6HaGlAddrTable.setDescription('This table contains the global addresses of the home\n                    agents in the Home Agents List.\n                   ')
-mip6HaGlAddrEntry = MibTableRow((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 5, 1), ).setIndexNames((0, "IP-MIB", "ipv6InterfaceIfIndex"), (0, "MOBILEIPV6-MIB", "mip6HaLinkLocalAddressType"), (0, "MOBILEIPV6-MIB", "mip6HaLinkLocalAddress"), (0, "MOBILEIPV6-MIB", "mip6HaGaAddrSeqNo"))
-if mibBuilder.loadTexts: mip6HaGlAddrEntry.setDescription('A global address for a home agent in the Home Agents\n                   List.\n                   The instances of the columnar objects in this entry\n                   pertain to an interface for a particular value of\n                   mip6HaLinkLocalAddressType, mip6HaLinkLocalAddress\n                   and mip6HaGaAddrSeqNo.\n                   The mip6HaGaAddrSeqNo object is used to distinguish\n                   between multiple instances of the home agent global\n                   addresses on the same interface for the same set of\n                   mip6HaLinkLocalAddressType, mip6HaLinkLocalAddress,\n                   values.\n                   There is no upper-bound on the maximum number of\n                   global addresses on an interface but, for practical\n                   purposes, the upper-bound of the value\n                   mip6HaGaAddrSeqNo is set to 1024.\n                   The interface is uniquely identified by its\n                   ipv6InterfaceIfIndex.  The same ipv6InterfaceIfIndex\n                   object is used in conjunction with the\n                   mip6HaLinkLocalAddressType, mip6HaLinkLocalAddress,\n                   and mip6HaGaAddrSeqNo to uniquely identify instances\n                   of the columnar objects of this row.\n\n                   Implementors need to be aware that if the total\n                   number of octets in mip6HaLinkLocalAddress\n                   exceeds 111, then OIDs of column instances in\n                   this row will have more than 128 sub-identifiers and\n                   cannot be accessed using SNMPv1, SNMPv2c, or SNMPv3.\n                  ')
-mip6HaGaAddrSeqNo = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,1024)))
-if mibBuilder.loadTexts: mip6HaGaAddrSeqNo.setDescription('The index that along with ipv6InterfaceIfIndex,\n                    mip6HaLinkLocalAddressType, and\n                    mip6HaLinkLocalAddress uniquely identifies this row.\n                   ')
-mip6HaGaGlobalAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 5, 1, 2), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaGaGlobalAddressType.setDescription('The address type for the global address of the\n                    home agent that follows.\n                   ')
-mip6HaGaGlobalAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 133, 1, 4, 1, 5, 1, 3), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mip6HaGaGlobalAddress.setDescription('A global address of the home agent.\n\n                    The type of the address represented by this object\n                    is specified by the corresponding\n                    mip6HaGaGlobalAddressType object.\n                   ')
-mip6MnRegistered = NotificationType((1, 3, 6, 1, 2, 1, 133, 0, 1)).setObjects(*(("MOBILEIPV6-MIB", "mip6BindingTimeRegistered"), ("MOBILEIPV6-MIB", "mip6BindingCOAType"), ("MOBILEIPV6-MIB", "mip6BindingCOA"),))
-if mibBuilder.loadTexts: mip6MnRegistered.setDescription('This notification is sent by a home agent when\n                    a mobile node registers with the home agent\n                    for the first time.\n                    Notifications will not be sent for subsequent\n                    updates and/or refreshes.\n                    The MO instances in the notifications will be\n                    identified by the mip6BindingHomeAddressType\n                    and mip6BindingHomeAddress for the mobile node\n                    in the mip6BindingCacheTable.\n                   ')
-mip6MnDeRegistered = NotificationType((1, 3, 6, 1, 2, 1, 133, 0, 2)).setObjects(*(("MOBILEIPV6-MIB", "mip6BindingTimeRegistered"), ("MOBILEIPV6-MIB", "mip6BindingCOAType"), ("MOBILEIPV6-MIB", "mip6BindingCOA"),))
-if mibBuilder.loadTexts: mip6MnDeRegistered.setDescription('This notification is sent by a home agent every\n                    time a mobile node de-registers with the home\n                    agent by sending a Binding Update that requests\n                    the home agent to delete a binding.\n                    The MO instances in the notifications will be\n                    identified by the mip6BindingHomeAddressType\n                    and mip6BindingHomeAddress for the mobile node\n                    in the mip6BindingCacheTable.\n                   ')
-mip6MnCOAChanged = NotificationType((1, 3, 6, 1, 2, 1, 133, 0, 3)).setObjects(*(("MOBILEIPV6-MIB", "mip6BindingTimeRegistered"), ("MOBILEIPV6-MIB", "mip6BindingCOAType"), ("MOBILEIPV6-MIB", "mip6BindingCOA"),))
-if mibBuilder.loadTexts: mip6MnCOAChanged.setDescription('This notification is sent by a home agent every\n                    time a mobile node sends a Binding Update with\n                    a new care-of address (for an existing Binding\n                    Cache entry).\n                    Notifications will not be sent for subsequent\n                    updates and/or refreshes for the same Care-of\n                    address.\n                    The registration of a new care-of address may\n                    indicate that the mobile node has moved or that\n                    the primary care-of address of the mobile node\n                    has become deprecated.\n                    The MO instances in the notifications will be\n                    identified by the mip6BindingHomeAddressType\n                    and mip6BindingHomeAddress for the mobile node\n                    in the mip6BindingCacheTable.\n                   ')
-mip6MnBindingExpiredAtHA = NotificationType((1, 3, 6, 1, 2, 1, 133, 0, 4)).setObjects(*(("MOBILEIPV6-MIB", "mip6BindingTimeRegistered"), ("MOBILEIPV6-MIB", "mip6BindingCOAType"), ("MOBILEIPV6-MIB", "mip6BindingCOA"),))
-if mibBuilder.loadTexts: mip6MnBindingExpiredAtHA.setDescription('This notification is sent by a home agent when a\n                    binding for the mobile node at the home agent\n                    expired (no timely Binding Updates were received).\n                    The MO instances in the notifications will be\n                    identified by the mip6BindingHomeAddressType\n                    and mip6BindingHomeAddress for the mobile node\n                    in the mip6BindingCacheTable.\n                   ')
-mip6MnBindingExpiredAtCN = NotificationType((1, 3, 6, 1, 2, 1, 133, 0, 5)).setObjects(*(("MOBILEIPV6-MIB", "mip6BindingTimeRegistered"), ("MOBILEIPV6-MIB", "mip6BindingCOAType"), ("MOBILEIPV6-MIB", "mip6BindingCOA"),))
-if mibBuilder.loadTexts: mip6MnBindingExpiredAtCN.setDescription('This notification is sent by a correspondent node\n                    when a binding for the mobile node at the\n                    correspondent node expired (no timely Binding\n                    Updates were received).\n                    The MO instances in the notifications will be\n                    identified by the mip6BindingHomeAddressType\n                    and mip6BindingHomeAddress for the mobile node\n                    in the mip6BindingCacheTable.\n                   ')
-mip6Groups = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 2, 1))
-mip6Compliances = MibIdentifier((1, 3, 6, 1, 2, 1, 133, 2, 2))
-mip6SystemGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 133, 2, 1, 1)).setObjects(*(("MOBILEIPV6-MIB", "mip6Capabilities"), ("MOBILEIPV6-MIB", "mip6Status"),))
-if mibBuilder.loadTexts: mip6SystemGroup.setDescription(' A collection of objects for basic MIPv6\n                     monitoring.')
-mip6BindingCacheGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 133, 2, 1, 2)).setObjects(*(("MOBILEIPV6-MIB", "mip6BindingCOAType"), ("MOBILEIPV6-MIB", "mip6BindingCOA"), ("MOBILEIPV6-MIB", "mip6BindingTimeRegistered"), ("MOBILEIPV6-MIB", "mip6BindingTimeGranted"), ("MOBILEIPV6-MIB", "mip6BindingTimeRemaining"), ("MOBILEIPV6-MIB", "mip6BindingMaxSeq"), ("MOBILEIPV6-MIB", "mip6BindingHomeRegn"), ("MOBILEIPV6-MIB", "mip6BindingUsageTS"), ("MOBILEIPV6-MIB", "mip6BindingUsageCount"), ("MOBILEIPV6-MIB", "mip6BindingAdminStatus"),))
-if mibBuilder.loadTexts: mip6BindingCacheGroup.setDescription(' A collection of objects for monitoring the\n                     Binding Cache.\n                   ')
-mip6BindingHstGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 133, 2, 1, 3)).setObjects(*(("MOBILEIPV6-MIB", "mip6BindingHstCOAType"), ("MOBILEIPV6-MIB", "mip6BindingHstCOA"), ("MOBILEIPV6-MIB", "mip6BindingHstTimeRegistered"), ("MOBILEIPV6-MIB", "mip6BindingHstTimeExpired"), ("MOBILEIPV6-MIB", "mip6BindingHstHomeRegn"), ("MOBILEIPV6-MIB", "mip6BindingHstUsageTS"), ("MOBILEIPV6-MIB", "mip6BindingHstUsageCount"),))
-if mibBuilder.loadTexts: mip6BindingHstGroup.setDescription(' A collection of objects for monitoring the\n                     Binding History.  This can be used to monitor\n                     the movement of the mobile node.\n                   ')
-mip6TotalTrafficGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 133, 2, 1, 4)).setObjects(*(("MOBILEIPV6-MIB", "mip6InOctets"), ("MOBILEIPV6-MIB", "mip6HCInOctets"), ("MOBILEIPV6-MIB", "mip6InPkts"), ("MOBILEIPV6-MIB", "mip6HCInPkts"), ("MOBILEIPV6-MIB", "mip6OutOctets"), ("MOBILEIPV6-MIB", "mip6HCOutOctets"), ("MOBILEIPV6-MIB", "mip6OutPkts"), ("MOBILEIPV6-MIB", "mip6HCOutPkts"), ("MOBILEIPV6-MIB", "mip6CounterDiscontinuityTime"),))
-if mibBuilder.loadTexts: mip6TotalTrafficGroup.setDescription(' A collection of objects for monitoring the\n                     total MIPv6 traffic.\n                   ')
-mip6NodeTrafficGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 133, 2, 1, 5)).setObjects(*(("MOBILEIPV6-MIB", "mip6NodeInOctets"), ("MOBILEIPV6-MIB", "mip6HCNodeInOctets"), ("MOBILEIPV6-MIB", "mip6NodeInPkts"), ("MOBILEIPV6-MIB", "mip6HCNodeInPkts"), ("MOBILEIPV6-MIB", "mip6NodeOutOctets"), ("MOBILEIPV6-MIB", "mip6HCNodeOutOctets"), ("MOBILEIPV6-MIB", "mip6NodeOutPkts"), ("MOBILEIPV6-MIB", "mip6HCNodeOutPkts"), ("MOBILEIPV6-MIB", "mip6NodeCtrDiscontinuityTime"),))
-if mibBuilder.loadTexts: mip6NodeTrafficGroup.setDescription(' A collection of objects for monitoring the\n                     MIPv6 traffic due to a mobile node.\n                   ')
-mip6MnSystemGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 133, 2, 1, 6)).setObjects(*(("MOBILEIPV6-MIB", "mip6MnHomeAddressState"),))
-if mibBuilder.loadTexts: mip6MnSystemGroup.setDescription(' A collection of objects for basic monitoring\n                     of the mobile node.\n                   ')
-mip6MnConfGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 133, 2, 1, 7)).setObjects(*(("MOBILEIPV6-MIB", "mip6MnDiscoveryRequests"), ("MOBILEIPV6-MIB", "mip6MnDiscoveryReplies"), ("MOBILEIPV6-MIB", "mip6MnDiscoveryTimeouts"), ("MOBILEIPV6-MIB", "mip6MnPrefixSolicitationsSent"), ("MOBILEIPV6-MIB", "mip6MnPrefixAdvsRecd"), ("MOBILEIPV6-MIB", "mip6MnPrefixAdvsIgnored"), ("MOBILEIPV6-MIB", "mip6MnMovedToFN"), ("MOBILEIPV6-MIB", "mip6MnMovedToHN"),))
-if mibBuilder.loadTexts: mip6MnConfGroup.setDescription(' A collection of objects for monitoring\n                     the advertisement-related info on the\n                     mobile node.\n                   ')
-mip6MnRegistrationGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 133, 2, 1, 8)).setObjects(*(("MOBILEIPV6-MIB", "mip6MnBLCOAType"), ("MOBILEIPV6-MIB", "mip6MnBLCOA"), ("MOBILEIPV6-MIB", "mip6MnBLLifeTimeRequested"), ("MOBILEIPV6-MIB", "mip6MnBLLifeTimeGranted"), ("MOBILEIPV6-MIB", "mip6MnBLMaxSeq"), ("MOBILEIPV6-MIB", "mip6MnBLTimeSent"), ("MOBILEIPV6-MIB", "mip6MnBLAccepted"), ("MOBILEIPV6-MIB", "mip6MnBLAcceptedTime"), ("MOBILEIPV6-MIB", "mip6MnBLRetransmissions"), ("MOBILEIPV6-MIB", "mip6MnBLDontSendBUFlag"), ("MOBILEIPV6-MIB", "mip6MnMobilityMessagesSent"), ("MOBILEIPV6-MIB", "mip6MnMobilityMessagesRecd"), ("MOBILEIPV6-MIB", "mip6MnBUsToHA"), ("MOBILEIPV6-MIB", "mip6MnBUAcksFromHA"), ("MOBILEIPV6-MIB", "mip6MnBUsToCN"), ("MOBILEIPV6-MIB", "mip6MnBUAcksFromCN"), ("MOBILEIPV6-MIB", "mip6MnBindingErrorsFromCN"), ("MOBILEIPV6-MIB", "mip6MnICMPErrorsRecd"), ("MOBILEIPV6-MIB", "mip6MnBRRequestsRecd"),))
-if mibBuilder.loadTexts: mip6MnRegistrationGroup.setDescription(' A collection of objects for monitoring\n                     the registration statistics for the mobile node.\n                   ')
-mip6CnStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 133, 2, 1, 9)).setObjects(*(("MOBILEIPV6-MIB", "mip6CnBURequestsAccepted"), ("MOBILEIPV6-MIB", "mip6CnBURequestsRejected"), ("MOBILEIPV6-MIB", "mip6CnBCEntryCreationTime"), ("MOBILEIPV6-MIB", "mip6CnBUAcceptedTime"), ("MOBILEIPV6-MIB", "mip6CnBURejectionTime"), ("MOBILEIPV6-MIB", "mip6CnBURejectionCode"), ("MOBILEIPV6-MIB", "mip6CnCtrDiscontinuityTime"),))
-if mibBuilder.loadTexts: mip6CnStatsGroup.setDescription(' A collection of objects for monitoring\n                     the control messages and corresponding\n                     statistics for each mobile node\n                     communicating with the correspondent\n                     node.\n                   ')
-mip6HaSystemGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 133, 2, 1, 10)).setObjects(*(("MOBILEIPV6-MIB", "mip6HaAdvsRecd"), ("MOBILEIPV6-MIB", "mip6HaAdvsSent"), ("MOBILEIPV6-MIB", "mip6HaAdvPreference"), ("MOBILEIPV6-MIB", "mip6HaAdvLifetime"), ("MOBILEIPV6-MIB", "mip6HaPrefixAdv"), ("MOBILEIPV6-MIB", "mip6HaPrefixSolicitation"), ("MOBILEIPV6-MIB", "mip6HaMCastCtlMsgSupport"),))
-if mibBuilder.loadTexts: mip6HaSystemGroup.setDescription(' A collection of objects for monitoring\n                     the advertisement-related parameters and\n                     statistics for the home agent.\n                   ')
-mip6HaListGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 133, 2, 1, 11)).setObjects(*(("MOBILEIPV6-MIB", "mip6HaPreference"), ("MOBILEIPV6-MIB", "mip6HaRecvLifeTime"), ("MOBILEIPV6-MIB", "mip6HaRecvTimeStamp"), ("MOBILEIPV6-MIB", "mip6HaGaGlobalAddressType"), ("MOBILEIPV6-MIB", "mip6HaGaGlobalAddress"),))
-if mibBuilder.loadTexts: mip6HaListGroup.setDescription(' A collection of objects for monitoring\n                     the Home Agent List on the home agent.\n                   ')
-mip6HaStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 133, 2, 1, 12)).setObjects(*(("MOBILEIPV6-MIB", "mip6HaBURequestsAccepted"), ("MOBILEIPV6-MIB", "mip6HaBURequestsDenied"), ("MOBILEIPV6-MIB", "mip6HaBCEntryCreationTime"), ("MOBILEIPV6-MIB", "mip6HaBUAcceptedTime"), ("MOBILEIPV6-MIB", "mip6HaBURejectionTime"), ("MOBILEIPV6-MIB", "mip6HaRecentBURejectionCode"), ("MOBILEIPV6-MIB", "mip6HaCtrDiscontinuityTime"),))
-if mibBuilder.loadTexts: mip6HaStatsGroup.setDescription(' A collection of objects for monitoring\n                     registration-related statistics on the home agent.\n                   ')
-mip6CnGlobalStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 133, 2, 1, 13)).setObjects(*(("MOBILEIPV6-MIB", "mip6CnHomeTestInitsRecd"), ("MOBILEIPV6-MIB", "mip6CnHomeTestsSent"), ("MOBILEIPV6-MIB", "mip6CnCareOfTestInitsRecd"), ("MOBILEIPV6-MIB", "mip6CnCareOfTestsSent"), ("MOBILEIPV6-MIB", "mip6CnBUsRecd"), ("MOBILEIPV6-MIB", "mip6CnBUAcksSent"), ("MOBILEIPV6-MIB", "mip6CnBRsSent"), ("MOBILEIPV6-MIB", "mip6CnBindingErrors"), ("MOBILEIPV6-MIB", "mip6CnBUsAccepted"), ("MOBILEIPV6-MIB", "mip6CnBUsRejected"), ("MOBILEIPV6-MIB", "mip6CnReasonUnspecified"), ("MOBILEIPV6-MIB", "mip6CnInsufficientResource"), ("MOBILEIPV6-MIB", "mip6CnHomeRegnNotSupported"), ("MOBILEIPV6-MIB", "mip6CnSeqNumberOutOfWindow"), ("MOBILEIPV6-MIB", "mip6CnExpiredHomeNonceIndex"), ("MOBILEIPV6-MIB", "mip6CnExpiredCareOfNonceIndex"), ("MOBILEIPV6-MIB", "mip6CnExpiredNonce"), ("MOBILEIPV6-MIB", "mip6CnRegTypeChangeDisallowed"),))
-if mibBuilder.loadTexts: mip6CnGlobalStatsGroup.setDescription(' A collection of objects for monitoring\n                     advertisement and registration statistics on\n                     a correspondent node.\n                   ')
-mip6HaGlobalStatsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 133, 2, 1, 14)).setObjects(*(("MOBILEIPV6-MIB", "mip6HaHomeTestInitsRecd"), ("MOBILEIPV6-MIB", "mip6HaHomeTestsSent"), ("MOBILEIPV6-MIB", "mip6HaBUsRecd"), ("MOBILEIPV6-MIB", "mip6HaBUAcksSent"), ("MOBILEIPV6-MIB", "mip6HaBRAdviceSent"), ("MOBILEIPV6-MIB", "mip6HaBUsAccepted"), ("MOBILEIPV6-MIB", "mip6HaPrefDiscoverReqd"), ("MOBILEIPV6-MIB", "mip6HaReasonUnspecified"), ("MOBILEIPV6-MIB", "mip6HaAdmProhibited"), ("MOBILEIPV6-MIB", "mip6HaInsufficientResource"), ("MOBILEIPV6-MIB", "mip6HaHomeRegnNotSupported"), ("MOBILEIPV6-MIB", "mip6HaNotHomeSubnet"), ("MOBILEIPV6-MIB", "mip6HaNotHomeAgentForThisMN"), ("MOBILEIPV6-MIB", "mip6HaDupAddrDetectionFailed"), ("MOBILEIPV6-MIB", "mip6HaSeqNumberOutOfWindow"), ("MOBILEIPV6-MIB", "mip6HaExpiredHomeNonceIndex"), ("MOBILEIPV6-MIB", "mip6HaRegTypeChangeDisallowed"),))
-if mibBuilder.loadTexts: mip6HaGlobalStatsGroup.setDescription(' A collection of objects for monitoring\n                     advertisement and registration statistics on\n                     a home agent.\n                   ')
-mip6BindingCacheCtlGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 133, 2, 1, 15)).setObjects(*(("MOBILEIPV6-MIB", "mip6BindingAdminStatus"),))
-if mibBuilder.loadTexts: mip6BindingCacheCtlGroup.setDescription('A collection of objects for controlling the\n                    Binding Cache.\n                   ')
-mip6NotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 133, 2, 1, 16)).setObjects(*(("MOBILEIPV6-MIB", "mip6MnRegistered"), ("MOBILEIPV6-MIB", "mip6MnDeRegistered"), ("MOBILEIPV6-MIB", "mip6MnCOAChanged"), ("MOBILEIPV6-MIB", "mip6MnBindingExpiredAtHA"), ("MOBILEIPV6-MIB", "mip6MnBindingExpiredAtCN"),))
-if mibBuilder.loadTexts: mip6NotificationGroup.setDescription('A collection of notifications from a home agent\n                    or correspondent node to the Manager about the\n                    status of a mobile node.\n                   ')
-mip6CoreCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 133, 2, 2, 1)).setObjects(*(("MOBILEIPV6-MIB", "mip6SystemGroup"),))
-if mibBuilder.loadTexts: mip6CoreCompliance.setDescription('The compliance statement for SNMP entities\n                   that implement the MOBILEIPV6-MIB.\n                  ')
-mip6Compliance2 = ModuleCompliance((1, 3, 6, 1, 2, 1, 133, 2, 2, 2)).setObjects(*(("MOBILEIPV6-MIB", "mip6SystemGroup"), ("MOBILEIPV6-MIB", "mip6BindingCacheGroup"), ("MOBILEIPV6-MIB", "mip6TotalTrafficGroup"),))
-if mibBuilder.loadTexts: mip6Compliance2.setDescription('The compliance statement for SNMP entities\n                   that implement the MOBILEIPV6-MIB and support\n                   monitoring of the Binding Cache and the Total\n                   Traffic.\n                   There are a number of INDEX objects that cannot be\n                   represented in the form of OBJECT clauses in SMIv2,\n                   but for which there are compliance requirements,\n                   expressed in OBJECT clause form in this description:\n                   -- OBJECT      mip6BindingHomeAddressType\n                   -- SYNTAX      InetAddressType { ipv6(2) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6BindingHomeAddress\n                   -- SYNTAX      InetAddress (SIZE(16))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                  ')
-mip6Compliance3 = ModuleCompliance((1, 3, 6, 1, 2, 1, 133, 2, 2, 3)).setObjects(*(("MOBILEIPV6-MIB", "mip6SystemGroup"), ("MOBILEIPV6-MIB", "mip6BindingCacheGroup"), ("MOBILEIPV6-MIB", "mip6BindingHstGroup"), ("MOBILEIPV6-MIB", "mip6TotalTrafficGroup"), ("MOBILEIPV6-MIB", "mip6NodeTrafficGroup"),))
-if mibBuilder.loadTexts: mip6Compliance3.setDescription('The compliance statement for SNMP entities\n                   that implement the MOBILEIPV6-MIB and\n                   support monitoring of the Binding Cache,\n                   the Binding History, the total traffic, and\n                   the mobile node-wide traffic.\n                   There are a number of INDEX objects that cannot be\n                   represented in the form of OBJECT clauses in SMIv2,\n                   but for which there are compliance requirements,\n                   expressed in OBJECT clause form in this description:\n                   -- OBJECT      mip6BindingHomeAddressType\n                   -- SYNTAX      InetAddressType { ipv6(2) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6BindingHomeAddress\n                   -- SYNTAX      InetAddress (SIZE(16))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6BindingHstHomeAddressType\n                   -- SYNTAX      InetAddressType { ipv6(2) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the\n                   --     mip6BindingHstHomeAddress object.\n                   --\n                   -- OBJECT      mip6BindingHstHomeAddress\n                   -- SYNTAX      InetAddress (SIZE(16))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the\n                   --     mip6BindingHstHomeAddress object.\n                   --\n                  ')
-mip6CoreReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 133, 2, 2, 4)).setObjects(*(("MOBILEIPV6-MIB", "mip6SystemGroup"),))
-if mibBuilder.loadTexts: mip6CoreReadOnlyCompliance.setDescription('The compliance statement for SNMP entities\n                   that implement the MOBILEIPV6-MIB without support\n                   for read-write (i.e., in read-only mode).\n                  ')
-mip6ReadOnlyCompliance2 = ModuleCompliance((1, 3, 6, 1, 2, 1, 133, 2, 2, 5)).setObjects(*(("MOBILEIPV6-MIB", "mip6SystemGroup"), ("MOBILEIPV6-MIB", "mip6BindingCacheGroup"), ("MOBILEIPV6-MIB", "mip6TotalTrafficGroup"),))
-if mibBuilder.loadTexts: mip6ReadOnlyCompliance2.setDescription('The compliance statement for SNMP entities\n                   that implement the MOBILEIPV6-MIB without support\n                   for read-write (i.e., in read-only mode) and\n                   support monitoring of the Binding Cache and Total\n                   Traffic.\n                   There are a number of INDEX objects that cannot be\n                   represented in the form of OBJECT clauses in SMIv2,\n                   but for which there are compliance requirements,\n                   expressed in OBJECT clause form in this description:\n                   -- OBJECT      mip6BindingHomeAddressType\n                   -- SYNTAX      InetAddressType { ipv6(2) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6BindingHomeAddress\n                   -- SYNTAX      InetAddress (SIZE(16))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                  ')
-mip6ReadOnlyCompliance3 = ModuleCompliance((1, 3, 6, 1, 2, 1, 133, 2, 2, 6)).setObjects(*(("MOBILEIPV6-MIB", "mip6SystemGroup"), ("MOBILEIPV6-MIB", "mip6BindingCacheGroup"), ("MOBILEIPV6-MIB", "mip6BindingHstGroup"), ("MOBILEIPV6-MIB", "mip6TotalTrafficGroup"), ("MOBILEIPV6-MIB", "mip6NodeTrafficGroup"),))
-if mibBuilder.loadTexts: mip6ReadOnlyCompliance3.setDescription('The compliance statement for SNMP entities\n                   that implement the MOBILEIPV6-MIB without support\n                   for read-write (i.e., in read-only mode) and support\n                   monitoring of the Binding Cache, the Binding History,\n                   the total traffic, and the mobile node-wide traffic.\n                   There are a number of INDEX objects that cannot be\n                   represented in the form of OBJECT clauses in SMIv2,\n                   but for which there are compliance requirements,\n                   expressed in OBJECT clause form in this description:\n                   -- OBJECT      mip6BindingHomeAddressType\n                   -- SYNTAX      InetAddressType { ipv6(2) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6BindingHomeAddress\n                   -- SYNTAX      InetAddress (SIZE(16))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6BindingHstHomeAddressType\n                   -- SYNTAX      InetAddressType { ipv6(2) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the\n                   --     mip6BindingHstHomeAddress object.\n                   --\n                   -- OBJECT      mip6BindingHstHomeAddress\n                   -- SYNTAX      InetAddress (SIZE(16))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the\n                   --     mip6BindingHstHomeAddress object.\n                   --\n                  ')
-mip6MnCoreCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 133, 2, 2, 7)).setObjects(*(("MOBILEIPV6-MIB", "mip6MnSystemGroup"),))
-if mibBuilder.loadTexts: mip6MnCoreCompliance.setDescription('The compliance statement for SNMP entities\n                   that implement the MOBILEIPV6-MIB and\n                   support monitoring of the basic mobile node\n                   functionality.\n                   There are a number of INDEX objects that cannot be\n                   represented in the form of OBJECT clauses in SMIv2,\n                   but for which there are compliance requirements,\n                   expressed in OBJECT clause form in this description:\n                   -- OBJECT      mip6MnHomeAddressType\n                   -- SYNTAX      InetAddressType { ipv6(2) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6MnHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6MnHomeAddress\n                   -- SYNTAX      InetAddress (SIZE(16))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6MnHomeAddress\n                   --     object.\n                   --\n                  ')
-mip6MnCompliance2 = ModuleCompliance((1, 3, 6, 1, 2, 1, 133, 2, 2, 8)).setObjects(*(("MOBILEIPV6-MIB", "mip6MnSystemGroup"), ("MOBILEIPV6-MIB", "mip6MnConfGroup"), ("MOBILEIPV6-MIB", "mip6MnRegistrationGroup"), ("MOBILEIPV6-MIB", "mip6TotalTrafficGroup"),))
-if mibBuilder.loadTexts: mip6MnCompliance2.setDescription('The compliance statement for SNMP entities\n                   that implement the MOBILEIPV6-MIB and\n                   support monitoring of the mobile node\n                   functionality specifically the Discovery- and\n                   Registration-related statistics,\n                   There are a number of INDEX objects that cannot be\n                   represented in the form of OBJECT clauses in SMIv2,\n                   but for which there are compliance requirements,\n                   expressed in OBJECT clause form in this description:\n                   -- OBJECT      mip6MnHomeAddressType\n                   -- SYNTAX      InetAddressType { ipv6(2) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6MnHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6MnHomeAddress\n                   -- SYNTAX      InetAddress (SIZE(16))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6MnHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6MnBLNodeAddressType\n                   -- SYNTAX      InetAddressType { ipv6(2) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6MnBLNodeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6MnBLNodeAddress\n                   -- SYNTAX      InetAddress (SIZE(16))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6MnBLNodeAddress\n                   --     object.\n                   --\n                  ')
-mip6CnCoreCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 133, 2, 2, 9)).setObjects(*(("MOBILEIPV6-MIB", "mip6CnGlobalStatsGroup"), ("MOBILEIPV6-MIB", "mip6TotalTrafficGroup"),))
-if mibBuilder.loadTexts: mip6CnCoreCompliance.setDescription('The compliance statement for SNMP entities\n                    that implement the MOBILEIPV6-MIB and\n                    support monitoring of the basic correspondent node\n                    functionality.\n                   ')
-mip6CnCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 133, 2, 2, 10)).setObjects(*(("MOBILEIPV6-MIB", "mip6CnGlobalStatsGroup"), ("MOBILEIPV6-MIB", "mip6CnStatsGroup"), ("MOBILEIPV6-MIB", "mip6TotalTrafficGroup"),))
-if mibBuilder.loadTexts: mip6CnCompliance.setDescription('The compliance statement for SNMP entities\n                   that implement the MOBILEIPV6-MIB and\n                   support monitoring of the basic correspondent node\n                   functionality.\n                   There are a number of INDEX objects that cannot be\n                   represented in the form of OBJECT clauses in SMIv2,\n                   but for which there are compliance requirements,\n                   expressed in OBJECT clause form in this description:\n                   -- OBJECT      mip6BindingHomeAddressType\n                   -- SYNTAX      InetAddressType { ipv6(2) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6BindingHomeAddress\n                   -- SYNTAX      InetAddress (SIZE(16))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n\n                  ')
-mip6HaCoreCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 133, 2, 2, 11)).setObjects(*(("MOBILEIPV6-MIB", "mip6HaSystemGroup"),))
-if mibBuilder.loadTexts: mip6HaCoreCompliance.setDescription('The compliance statement for SNMP entities\n                    that implement the MOBILEIPV6-MIB and\n                    support monitoring of the basic home agent\n                    functionality.\n                   ')
-mip6HaCompliance2 = ModuleCompliance((1, 3, 6, 1, 2, 1, 133, 2, 2, 12)).setObjects(*(("MOBILEIPV6-MIB", "mip6HaSystemGroup"), ("MOBILEIPV6-MIB", "mip6HaListGroup"), ("MOBILEIPV6-MIB", "mip6HaStatsGroup"), ("MOBILEIPV6-MIB", "mip6HaGlobalStatsGroup"), ("MOBILEIPV6-MIB", "mip6TotalTrafficGroup"),))
-if mibBuilder.loadTexts: mip6HaCompliance2.setDescription('The compliance statement for SNMP entities\n                   that implement the MOBILEIPV6-MIB and\n                   support monitoring of the home agent\n                   functionality specifically the Home Agent List\n                   and the home-agent-registration-related statistics,\n                   There are a number of INDEX objects that cannot be\n                   represented in the form of OBJECT clauses in SMIv2,\n                   but for which there are compliance requirements,\n                   expressed in OBJECT clause form in this description:\n                   -- OBJECT      mip6BindingHomeAddressType\n                   -- SYNTAX      InetAddressType { ipv6(2) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6BindingHomeAddress\n                   -- SYNTAX      InetAddress (SIZE(16))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6HaLinkLocalAddressType\n                   -- SYNTAX      InetAddressType { ipv6z(4) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for local\n                   --     ipv6 addresses for the mip6HaLinkLocalAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6HaLinkLocalAddress\n                   -- SYNTAX      InetAddress (SIZE(20))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for local\n                   --     ipv6 addresses for the mip6HaLinkLocalAddress\n                   --     object.\n                   --\n                  ')
-mip6HaCompliance3 = ModuleCompliance((1, 3, 6, 1, 2, 1, 133, 2, 2, 13)).setObjects(*(("MOBILEIPV6-MIB", "mip6HaSystemGroup"), ("MOBILEIPV6-MIB", "mip6HaListGroup"), ("MOBILEIPV6-MIB", "mip6HaStatsGroup"), ("MOBILEIPV6-MIB", "mip6HaGlobalStatsGroup"), ("MOBILEIPV6-MIB", "mip6BindingCacheCtlGroup"), ("MOBILEIPV6-MIB", "mip6TotalTrafficGroup"),))
-if mibBuilder.loadTexts: mip6HaCompliance3.setDescription('The compliance statement for SNMP entities\n                   that implement the MOBILEIPV6-MIB and\n                   support monitoring and control of the home agent\n                   functionality specifically the Home Agent List\n                   and the home-agent-registration-related statistics,\n\n                   There are a number of INDEX objects that cannot be\n                   represented in the form of OBJECT clauses in SMIv2,\n                   but for which there are compliance requirements,\n                   expressed in OBJECT clause form in this description:\n                   -- OBJECT      mip6BindingHomeAddressType\n                   -- SYNTAX      InetAddressType { ipv6(2) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6BindingHomeAddress\n                   -- SYNTAX      InetAddress (SIZE(16))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6HaLinkLocalAddressType\n                   -- SYNTAX      InetAddressType { ipv6z(4) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for local\n                   --     ipv6 addresses for the mip6HaLinkLocalAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6HaLinkLocalAddress\n                   -- SYNTAX      InetAddress (SIZE(20))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for local\n                   --     ipv6 addresses for the mip6HaLinkLocalAddress\n                   --     object.\n                   --\n                  ')
-mip6HaCoreReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 133, 2, 2, 14)).setObjects(*(("MOBILEIPV6-MIB", "mip6HaSystemGroup"),))
-if mibBuilder.loadTexts: mip6HaCoreReadOnlyCompliance.setDescription('The compliance statement for SNMP entities\n                   that implement the MOBILEIPV6-MIB without support\n                   for read-write (i.e., in read-only mode) and\n                   support monitoring of the basic home agent\n                   functionality.\n                  ')
-mip6HaReadOnlyCompliance2 = ModuleCompliance((1, 3, 6, 1, 2, 1, 133, 2, 2, 15)).setObjects(*(("MOBILEIPV6-MIB", "mip6HaSystemGroup"), ("MOBILEIPV6-MIB", "mip6HaListGroup"), ("MOBILEIPV6-MIB", "mip6HaStatsGroup"), ("MOBILEIPV6-MIB", "mip6HaGlobalStatsGroup"), ("MOBILEIPV6-MIB", "mip6TotalTrafficGroup"),))
-if mibBuilder.loadTexts: mip6HaReadOnlyCompliance2.setDescription('The compliance statement for SNMP entities\n                   that implement the MOBILEIPV6-MIB without support\n                   for read-write (i.e., in read-only mode) and\n                   support monitoring of the home agent\n                   functionality specifically the Home Agent List\n                   and the home-agent-registration-related statistics.\n\n                   There are a number of INDEX objects that cannot be\n                   represented in the form of OBJECT clauses in SMIv2,\n                   but for which there are compliance requirements,\n                   expressed in OBJECT clause form in this description:\n                   -- OBJECT      mip6BindingHomeAddressType\n                   -- SYNTAX      InetAddressType { ipv6(2) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6BindingHomeAddress\n                   -- SYNTAX      InetAddress (SIZE(16))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6HaLinkLocalAddressType\n                   -- SYNTAX      InetAddressType { ipv6z(4) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for local\n                   --     ipv6 addresses for the mip6HaLinkLocalAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6HaLinkLocalAddress\n                   -- SYNTAX      InetAddress (SIZE(20))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for local\n                   --     ipv6 addresses for the mip6HaLinkLocalAddress\n                   --     object.\n                   --\n                  ')
-mip6HaReadOnlyCompliance3 = ModuleCompliance((1, 3, 6, 1, 2, 1, 133, 2, 2, 16)).setObjects(*(("MOBILEIPV6-MIB", "mip6HaSystemGroup"), ("MOBILEIPV6-MIB", "mip6HaListGroup"), ("MOBILEIPV6-MIB", "mip6HaStatsGroup"), ("MOBILEIPV6-MIB", "mip6HaGlobalStatsGroup"), ("MOBILEIPV6-MIB", "mip6BindingCacheCtlGroup"), ("MOBILEIPV6-MIB", "mip6TotalTrafficGroup"),))
-if mibBuilder.loadTexts: mip6HaReadOnlyCompliance3.setDescription('The compliance statement for SNMP entities\n                   that implement the MOBILEIPV6-MIB without support\n                   for read-write (i.e., in read-only mode) and\n                   support monitoring and control of the home agent\n                   functionality specifically the Home Agent List\n                   and the home-agent-registration-related statistics,\n\n                   There are a number of INDEX objects that cannot be\n                   represented in the form of OBJECT clauses in SMIv2,\n                   but for which there are compliance requirements,\n                   expressed in OBJECT clause form in this description:\n                   -- OBJECT      mip6BindingHomeAddressType\n                   -- SYNTAX      InetAddressType { ipv6(2) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6BindingHomeAddress\n                   -- SYNTAX      InetAddress (SIZE(16))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6HaLinkLocalAddressType\n                   -- SYNTAX      InetAddressType { ipv6z(4) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for local\n                   --     ipv6 addresses for the mip6HaLinkLocalAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6HaLinkLocalAddress\n                   -- SYNTAX      InetAddress (SIZE(20))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for local\n                   --     ipv6 addresses for the mip6HaLinkLocalAddress\n                   --     object.\n                   --\n                  ')
-mip6NotificationCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 133, 2, 2, 17)).setObjects(*(("MOBILEIPV6-MIB", "mip6NotificationGroup"),))
-if mibBuilder.loadTexts: mip6NotificationCompliance.setDescription('The compliance statement for SNMP entities\n                   that implement the MOBILEIPV6-MIB and\n                   support Notification from home agent or\n                   correspondent node to management stations\n                   about the mobile node status.\n                   There are a number of INDEX objects that cannot be\n                   represented in the form of OBJECT clauses in SMIv2,\n                   but for which there are compliance requirements,\n                   expressed in OBJECT clause form in this description:\n                   -- OBJECT      mip6BindingHomeAddressType\n                   -- SYNTAX      InetAddressType { ipv6(2) }\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                   --\n                   -- OBJECT      mip6BindingHomeAddress\n                   -- SYNTAX      InetAddress (SIZE(16))\n                   -- DESCRIPTION\n                   --     This MIB module requires support for global\n                   --     ipv6 addresses for the mip6BindingHomeAddress\n                   --     object.\n                  ')
-mibBuilder.exportSymbols("MOBILEIPV6-MIB", mip6MnBLMaxSeq=mip6MnBLMaxSeq, mip6MnBindingExpiredAtCN=mip6MnBindingExpiredAtCN, mip6Compliances=mip6Compliances, mip6CnBUsRejected=mip6CnBUsRejected, mip6HaGlobalStats=mip6HaGlobalStats, mip6Compliance2=mip6Compliance2, mip6BindingCacheEntry=mip6BindingCacheEntry, mip6TotalTrafficGroup=mip6TotalTrafficGroup, mip6Conformance=mip6Conformance, mip6HaPrefDiscoverReqd=mip6HaPrefDiscoverReqd, mip6CnCompliance=mip6CnCompliance, mip6CoreCompliance=mip6CoreCompliance, mip6CnBURejectionTime=mip6CnBURejectionTime, mip6MnRegnCounters=mip6MnRegnCounters, mip6CnRegTypeChangeDisallowed=mip6CnRegTypeChangeDisallowed, mip6HaPrefixAdv=mip6HaPrefixAdv, mip6Mn=mip6Mn, mip6HaCoreCompliance=mip6HaCoreCompliance, mip6NodeTrafficGroup=mip6NodeTrafficGroup, mip6CnCareOfTestInitsRecd=mip6CnCareOfTestInitsRecd, mip6BindingHomeAddress=mip6BindingHomeAddress, mip6System=mip6System, mip6HaLinkLocalAddress=mip6HaLinkLocalAddress, mip6MnBindingErrorsFromCN=mip6MnBindingErrorsFromCN, mip6HCInOctets=mip6HCInOctets, mip6Ha=mip6Ha, mip6HaGlAddrTable=mip6HaGlAddrTable, mip6HaAdvPreference=mip6HaAdvPreference, mip6CnBUsAccepted=mip6CnBUsAccepted, mip6MnPrefixAdvsIgnored=mip6MnPrefixAdvsIgnored, mip6MnBUAcksFromHA=mip6MnBUAcksFromHA, mip6BindingHstCOAType=mip6BindingHstCOAType, mip6MnHomeAddressType=mip6MnHomeAddressType, mip6MnBUsToHA=mip6MnBUsToHA, mip6CnBUAcksSent=mip6CnBUAcksSent, mip6HaLinkLocalAddressType=mip6HaLinkLocalAddressType, mip6HaAdvsSent=mip6HaAdvsSent, mip6HCNodeOutOctets=mip6HCNodeOutOctets, mip6BindingHstHomeAddressType=mip6BindingHstHomeAddressType, mip6HaPrefixSolicitation=mip6HaPrefixSolicitation, mip6Core=mip6Core, mip6BindingHstCOA=mip6BindingHstCOA, mip6HaBRAdviceSent=mip6HaBRAdviceSent, mip6BindingCOAType=mip6BindingCOAType, mip6HaBURejectionTime=mip6HaBURejectionTime, mip6HaStats=mip6HaStats, mip6Objects=mip6Objects, mip6BindingTimeRemaining=mip6BindingTimeRemaining, mip6HaCompliance3=mip6HaCompliance3, Mip6BURequestRejectionCode=Mip6BURequestRejectionCode, mip6BindingCOA=mip6BindingCOA, mip6BindingHstTimeExpired=mip6BindingHstTimeExpired, mip6NotificationGroup=mip6NotificationGroup, mip6MnBLTimeSent=mip6MnBLTimeSent, mip6CnBCEntryCreationTime=mip6CnBCEntryCreationTime, mip6MnBLNodeAddressType=mip6MnBLNodeAddressType, mip6Groups=mip6Groups, mip6Stats=mip6Stats, mip6MnHomeAddressState=mip6MnHomeAddressState, mip6MnBLNodeAddress=mip6MnBLNodeAddress, mip6MnMovedToHN=mip6MnMovedToHN, mip6CnCareOfTestsSent=mip6CnCareOfTestsSent, mip6MnSystemGroup=mip6MnSystemGroup, mip6CoreReadOnlyCompliance=mip6CoreReadOnlyCompliance, mip6HaListGroup=mip6HaListGroup, mip6MnRegistered=mip6MnRegistered, mip6HaBUsAccepted=mip6HaBUsAccepted, mip6Cn=mip6Cn, mip6HaAdvLifetime=mip6HaAdvLifetime, mip6HaSeqNumberOutOfWindow=mip6HaSeqNumberOutOfWindow, mip6BindingHstHomeAddress=mip6BindingHstHomeAddress, mip6HaHomeRegnNotSupported=mip6HaHomeRegnNotSupported, mip6BindingTimeGranted=mip6BindingTimeGranted, mip6MnMovedToFN=mip6MnMovedToFN, mip6HaRecvLifeTime=mip6HaRecvLifeTime, mip6MnPrefixSolicitationsSent=mip6MnPrefixSolicitationsSent, mip6CnBUAcceptedTime=mip6CnBUAcceptedTime, mip6HaHomeTestsSent=mip6HaHomeTestsSent, mip6NodeInOctets=mip6NodeInOctets, mip6MnBUAcksFromCN=mip6MnBUAcksFromCN, mip6BindingAdminStatus=mip6BindingAdminStatus, mip6BindingHstGroup=mip6BindingHstGroup, mip6MnBLTable=mip6MnBLTable, mip6HaHomeTestInitsRecd=mip6HaHomeTestInitsRecd, mip6MnCoreCompliance=mip6MnCoreCompliance, mip6CnCounterTable=mip6CnCounterTable, mip6HaCtrDiscontinuityTime=mip6HaCtrDiscontinuityTime, mip6HaGlAddrEntry=mip6HaGlAddrEntry, mip6MnMobilityMessagesSent=mip6MnMobilityMessagesSent, mip6HaAdmProhibited=mip6HaAdmProhibited, mip6HaListEntry=mip6HaListEntry, mip6HaNotHomeAgentForThisMN=mip6HaNotHomeAgentForThisMN, mip6BindingTimeRegistered=mip6BindingTimeRegistered, mip6Notifications=mip6Notifications, mip6BindingCacheGroup=mip6BindingCacheGroup, mip6ReadOnlyCompliance2=mip6ReadOnlyCompliance2, mip6CnBURequestsAccepted=mip6CnBURequestsAccepted, mip6HaGaGlobalAddress=mip6HaGaGlobalAddress, mip6MnBLEntry=mip6MnBLEntry, mip6MnBRRequestsRecd=mip6MnBRRequestsRecd, mip6HaConfTable=mip6HaConfTable, mip6HaBURequestsAccepted=mip6HaBURequestsAccepted, mip6BindingHstIndex=mip6BindingHstIndex, mip6MnMobilityMessagesRecd=mip6MnMobilityMessagesRecd, mip6BindingHomeAddressType=mip6BindingHomeAddressType, mip6HaStatsGroup=mip6HaStatsGroup, mip6MnBLAcceptedTime=mip6MnBLAcceptedTime, mip6HaSystemGroup=mip6HaSystemGroup, mip6HaExpiredHomeNonceIndex=mip6HaExpiredHomeNonceIndex, mip6MnCOAChanged=mip6MnCOAChanged, mip6CnHomeTestInitsRecd=mip6CnHomeTestInitsRecd, mip6BindingCacheCtlGroup=mip6BindingCacheCtlGroup, mip6Bindings=mip6Bindings, mip6NodeCtrDiscontinuityTime=mip6NodeCtrDiscontinuityTime, mip6MnSystem=mip6MnSystem, mip6MnDiscoveryRequests=mip6MnDiscoveryRequests, mip6CnReasonUnspecified=mip6CnReasonUnspecified, mip6CnExpiredNonce=mip6CnExpiredNonce, mip6MnBLCOA=mip6MnBLCOA, mip6HaConfEntry=mip6HaConfEntry, mip6CnBURejectionCode=mip6CnBURejectionCode, mip6MnBUsToCN=mip6MnBUsToCN, mip6InPkts=mip6InPkts, mip6MnBLAccepted=mip6MnBLAccepted, mip6MnRegistrationGroup=mip6MnRegistrationGroup, mip6BindingHomeRegn=mip6BindingHomeRegn, mip6HaRegTypeChangeDisallowed=mip6HaRegTypeChangeDisallowed, mip6CnStatsGroup=mip6CnStatsGroup, mip6MnPrefixAdvsRecd=mip6MnPrefixAdvsRecd, mip6OutOctets=mip6OutOctets, mip6NodeTrafficEntry=mip6NodeTrafficEntry, mip6HaBURequestsDenied=mip6HaBURequestsDenied, mip6BindingMaxSeq=mip6BindingMaxSeq, mip6HaGaAddrSeqNo=mip6HaGaAddrSeqNo, mip6InOctets=mip6InOctets, mip6CnExpiredHomeNonceIndex=mip6CnExpiredHomeNonceIndex, mip6MnBindingExpiredAtHA=mip6MnBindingExpiredAtHA, mip6HaAdvertisement=mip6HaAdvertisement, mip6CnBUsRecd=mip6CnBUsRecd, mip6MnBLRetransmissions=mip6MnBLRetransmissions, mip6CnStats=mip6CnStats, mip6BindingHstHomeRegn=mip6BindingHstHomeRegn, mip6CnBRsSent=mip6CnBRsSent, mip6MnHomeAddressTable=mip6MnHomeAddressTable, mip6CnGlobalStats=mip6CnGlobalStats, mip6HaRecentBURejectionCode=mip6HaRecentBURejectionCode, mip6MnRegistration=mip6MnRegistration, mip6ReadOnlyCompliance3=mip6ReadOnlyCompliance3, PYSNMP_MODULE_ID=mip6MIB, mip6CnCoreCompliance=mip6CnCoreCompliance, mip6NodeOutOctets=mip6NodeOutOctets, mip6CnInsufficientResource=mip6CnInsufficientResource, mip6CnHomeRegnNotSupported=mip6CnHomeRegnNotSupported, mip6HCNodeOutPkts=mip6HCNodeOutPkts, mip6HaGlobalStatsGroup=mip6HaGlobalStatsGroup, mip6HaBUsRecd=mip6HaBUsRecd, mip6HaListTable=mip6HaListTable, mip6HaRecvTimeStamp=mip6HaRecvTimeStamp, mip6BindingCacheTable=mip6BindingCacheTable, mip6CnHomeTestsSent=mip6CnHomeTestsSent, mip6BindingHistoryTable=mip6BindingHistoryTable, mip6HaReasonUnspecified=mip6HaReasonUnspecified, mip6MnDeRegistered=mip6MnDeRegistered, mip6BindingHstUsageCount=mip6BindingHstUsageCount, mip6HaMCastCtlMsgSupport=mip6HaMCastCtlMsgSupport, mip6MnBLDontSendBUFlag=mip6MnBLDontSendBUFlag, mip6CnSystem=mip6CnSystem, mip6HaCounterTable=mip6HaCounterTable, mip6MnBLLifeTimeGranted=mip6MnBLLifeTimeGranted, mip6CnCtrDiscontinuityTime=mip6CnCtrDiscontinuityTime, mip6HaGaGlobalAddressType=mip6HaGaGlobalAddressType, mip6BindingUsageCount=mip6BindingUsageCount, mip6Status=mip6Status, mip6NodeInPkts=mip6NodeInPkts, mip6BindingHstTimeRegistered=mip6BindingHstTimeRegistered, mip6HaPreference=mip6HaPreference, mip6MnDiscoveryReplies=mip6MnDiscoveryReplies, mip6HaAdvsRecd=mip6HaAdvsRecd, mip6HaBCEntryCreationTime=mip6HaBCEntryCreationTime, mip6HaInsufficientResource=mip6HaInsufficientResource, mip6MnICMPErrorsRecd=mip6MnICMPErrorsRecd, mip6HCNodeInOctets=mip6HCNodeInOctets, mip6BindingUsageTS=mip6BindingUsageTS, mip6CnExpiredCareOfNonceIndex=mip6CnExpiredCareOfNonceIndex, mip6BindingHistoryEntry=mip6BindingHistoryEntry, mip6MnHomeAddress=mip6MnHomeAddress, mip6HCOutOctets=mip6HCOutOctets, mip6CnBURequestsRejected=mip6CnBURequestsRejected, mip6MnConfGroup=mip6MnConfGroup, mip6BindingHstUsageTS=mip6BindingHstUsageTS, mip6MnConf=mip6MnConf, mip6OutPkts=mip6OutPkts, mip6HaCoreReadOnlyCompliance=mip6HaCoreReadOnlyCompliance, mip6NodeOutPkts=mip6NodeOutPkts, mip6HaDupAddrDetectionFailed=mip6HaDupAddrDetectionFailed, mip6HaBUAcksSent=mip6HaBUAcksSent, mip6MnBLLifeTimeRequested=mip6MnBLLifeTimeRequested, mip6HaNotHomeSubnet=mip6HaNotHomeSubnet, mip6SystemGroup=mip6SystemGroup, mip6CnBindingErrors=mip6CnBindingErrors, mip6HaReadOnlyCompliance2=mip6HaReadOnlyCompliance2, mip6HaCounterEntry=mip6HaCounterEntry, mip6HaCompliance2=mip6HaCompliance2, mip6Capabilities=mip6Capabilities, mip6MIB=mip6MIB, mip6CnGlobalStatsGroup=mip6CnGlobalStatsGroup, mip6Compliance3=mip6Compliance3, mip6HCOutPkts=mip6HCOutPkts, mip6MnHomeAddressEntry=mip6MnHomeAddressEntry, mip6NotificationCompliance=mip6NotificationCompliance, mip6MnDiscoveryTimeouts=mip6MnDiscoveryTimeouts, mip6MnCompliance2=mip6MnCompliance2, mip6MnBLCOAType=mip6MnBLCOAType, mip6HCInPkts=mip6HCInPkts, mip6NodeTrafficTable=mip6NodeTrafficTable, mip6HCNodeInPkts=mip6HCNodeInPkts, mip6TotalTraffic=mip6TotalTraffic, mip6CounterDiscontinuityTime=mip6CounterDiscontinuityTime, mip6HaReadOnlyCompliance3=mip6HaReadOnlyCompliance3, mip6CnSeqNumberOutOfWindow=mip6CnSeqNumberOutOfWindow, mip6HaBUAcceptedTime=mip6HaBUAcceptedTime, mip6CnCounterEntry=mip6CnCounterEntry)
+_Bt='mip6NotificationGroup'
+_Bs='mip6CnStatsGroup'
+_Br='mip6MnRegistrationGroup'
+_Bq='mip6MnConfGroup'
+_Bp='mip6MnBindingExpiredAtCN'
+_Bo='mip6MnBindingExpiredAtHA'
+_Bn='mip6MnCOAChanged'
+_Bm='mip6MnDeRegistered'
+_Bl='mip6MnRegistered'
+_Bk='mip6HaRegTypeChangeDisallowed'
+_Bj='mip6HaExpiredHomeNonceIndex'
+_Bi='mip6HaSeqNumberOutOfWindow'
+_Bh='mip6HaDupAddrDetectionFailed'
+_Bg='mip6HaNotHomeAgentForThisMN'
+_Bf='mip6HaNotHomeSubnet'
+_Be='mip6HaHomeRegnNotSupported'
+_Bd='mip6HaInsufficientResource'
+_Bc='mip6HaAdmProhibited'
+_Bb='mip6HaReasonUnspecified'
+_Ba='mip6HaPrefDiscoverReqd'
+_BZ='mip6HaBUsAccepted'
+_BY='mip6HaBRAdviceSent'
+_BX='mip6HaBUAcksSent'
+_BW='mip6HaBUsRecd'
+_BV='mip6HaHomeTestsSent'
+_BU='mip6HaHomeTestInitsRecd'
+_BT='mip6CnRegTypeChangeDisallowed'
+_BS='mip6CnExpiredNonce'
+_BR='mip6CnExpiredCareOfNonceIndex'
+_BQ='mip6CnExpiredHomeNonceIndex'
+_BP='mip6CnSeqNumberOutOfWindow'
+_BO='mip6CnHomeRegnNotSupported'
+_BN='mip6CnInsufficientResource'
+_BM='mip6CnReasonUnspecified'
+_BL='mip6CnBUsRejected'
+_BK='mip6CnBUsAccepted'
+_BJ='mip6CnBindingErrors'
+_BI='mip6CnBRsSent'
+_BH='mip6CnBUAcksSent'
+_BG='mip6CnBUsRecd'
+_BF='mip6CnCareOfTestsSent'
+_BE='mip6CnCareOfTestInitsRecd'
+_BD='mip6CnHomeTestsSent'
+_BC='mip6CnHomeTestInitsRecd'
+_BB='mip6HaCtrDiscontinuityTime'
+_BA='mip6HaRecentBURejectionCode'
+_B9='mip6HaBURejectionTime'
+_B8='mip6HaBUAcceptedTime'
+_B7='mip6HaBCEntryCreationTime'
+_B6='mip6HaBURequestsDenied'
+_B5='mip6HaBURequestsAccepted'
+_B4='mip6HaGaGlobalAddress'
+_B3='mip6HaGaGlobalAddressType'
+_B2='mip6HaRecvTimeStamp'
+_B1='mip6HaRecvLifeTime'
+_B0='mip6HaPreference'
+_A_='mip6HaMCastCtlMsgSupport'
+_Az='mip6HaPrefixSolicitation'
+_Ay='mip6HaPrefixAdv'
+_Ax='mip6HaAdvLifetime'
+_Aw='mip6HaAdvPreference'
+_Av='mip6HaAdvsSent'
+_Au='mip6HaAdvsRecd'
+_At='mip6CnCtrDiscontinuityTime'
+_As='mip6CnBURejectionCode'
+_Ar='mip6CnBURejectionTime'
+_Aq='mip6CnBUAcceptedTime'
+_Ap='mip6CnBCEntryCreationTime'
+_Ao='mip6CnBURequestsRejected'
+_An='mip6CnBURequestsAccepted'
+_Am='mip6MnBRRequestsRecd'
+_Al='mip6MnICMPErrorsRecd'
+_Ak='mip6MnBindingErrorsFromCN'
+_Aj='mip6MnBUAcksFromCN'
+_Ai='mip6MnBUsToCN'
+_Ah='mip6MnBUAcksFromHA'
+_Ag='mip6MnBUsToHA'
+_Af='mip6MnMobilityMessagesRecd'
+_Ae='mip6MnMobilityMessagesSent'
+_Ad='mip6MnBLDontSendBUFlag'
+_Ac='mip6MnBLRetransmissions'
+_Ab='mip6MnBLAcceptedTime'
+_Aa='mip6MnBLAccepted'
+_AZ='mip6MnBLTimeSent'
+_AY='mip6MnBLMaxSeq'
+_AX='mip6MnBLLifeTimeGranted'
+_AW='mip6MnBLLifeTimeRequested'
+_AV='mip6MnBLCOA'
+_AU='mip6MnBLCOAType'
+_AT='mip6MnMovedToHN'
+_AS='mip6MnMovedToFN'
+_AR='mip6MnPrefixAdvsIgnored'
+_AQ='mip6MnPrefixAdvsRecd'
+_AP='mip6MnPrefixSolicitationsSent'
+_AO='mip6MnDiscoveryTimeouts'
+_AN='mip6MnDiscoveryReplies'
+_AM='mip6MnDiscoveryRequests'
+_AL='mip6MnHomeAddressState'
+_AK='mip6NodeCtrDiscontinuityTime'
+_AJ='mip6HCNodeOutPkts'
+_AI='mip6NodeOutPkts'
+_AH='mip6HCNodeOutOctets'
+_AG='mip6NodeOutOctets'
+_AF='mip6HCNodeInPkts'
+_AE='mip6NodeInPkts'
+_AD='mip6HCNodeInOctets'
+_AC='mip6NodeInOctets'
+_AB='mip6CounterDiscontinuityTime'
+_AA='mip6HCOutPkts'
+_A9='mip6OutPkts'
+_A8='mip6HCOutOctets'
+_A7='mip6OutOctets'
+_A6='mip6HCInPkts'
+_A5='mip6InPkts'
+_A4='mip6HCInOctets'
+_A3='mip6InOctets'
+_A2='mip6BindingHstUsageCount'
+_A1='mip6BindingHstUsageTS'
+_A0='mip6BindingHstHomeRegn'
+_z='mip6BindingHstTimeExpired'
+_y='mip6BindingHstTimeRegistered'
+_x='mip6BindingHstCOA'
+_w='mip6BindingHstCOAType'
+_v='mip6BindingUsageCount'
+_u='mip6BindingUsageTS'
+_t='mip6BindingHomeRegn'
+_s='mip6BindingMaxSeq'
+_r='mip6BindingTimeRemaining'
+_q='mip6BindingTimeGranted'
+_p='mip6Status'
+_o='mip6Capabilities'
+_n='mip6HaGaAddrSeqNo'
+_m='mip6MnBLNodeAddress'
+_l='mip6MnBLNodeAddressType'
+_k='mip6BindingHstIndex'
+_j='mip6BindingHstHomeAddress'
+_i='mip6BindingHstHomeAddressType'
+_h='mip6BindingCacheCtlGroup'
+_g='mip6CnGlobalStatsGroup'
+_f='mip6MnSystemGroup'
+_e='mip6NodeTrafficGroup'
+_d='mip6BindingHstGroup'
+_c='mip6BindingAdminStatus'
+_b='mip6HaLinkLocalAddress'
+_a='mip6HaLinkLocalAddressType'
+_Z='mip6MnHomeAddress'
+_Y='mip6MnHomeAddressType'
+_X='disabled'
+_W='enabled'
+_V='Unsigned32'
+_U='ipv6InterfaceIfIndex'
+_T='IP-MIB'
+_S='mip6HaGlobalStatsGroup'
+_R='mip6HaStatsGroup'
+_Q='mip6HaListGroup'
+_P='mip6BindingCacheGroup'
+_O='mip6BindingHomeAddress'
+_N='mip6BindingHomeAddressType'
+_M='seconds'
+_L='mip6HaSystemGroup'
+_K='mip6SystemGroup'
+_J='mip6BindingTimeRegistered'
+_I='mip6BindingCOA'
+_H='mip6BindingCOAType'
+_G='read-write'
+_F='Integer32'
+_E='mip6TotalTrafficGroup'
+_D='not-accessible'
+_C='read-only'
+_B='current'
+_A='MOBILEIPV6-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
+ipv6InterfaceIfIndex,=mibBuilder.importSymbols(_T,_U)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_F,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_V,'iso','mib-2')
+DateAndTime,DisplayString,PhysAddress,TextualConvention,TimeStamp,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention','TimeStamp','TruthValue')
+mip6MIB=ModuleIdentity((1,3,6,1,2,1,133))
+if mibBuilder.loadTexts:mip6MIB.setRevisions(('2006-02-01 00:00',))
+class Mip6BURequestRejectionCode(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12)));namedValues=NamedValues(*(('reasonUnspecified',1),('admProhibited',2),('insufficientResource',3),('homeRegistrationNotSupported',4),('notHomeSubnet',5),('notHomeAgentForThisMobileNode',6),('duplicateAddressDetectionFailed',7),('sequenceNumberOutOfWindow',8),('expiredHomeNonceIndex',9),('expiredCareofNonceIndex',10),('expiredNonces',11),('registrationTypeChangeDisallowed',12)))
+_Mip6Notifications_ObjectIdentity=ObjectIdentity
+mip6Notifications=_Mip6Notifications_ObjectIdentity((1,3,6,1,2,1,133,0))
+_Mip6Objects_ObjectIdentity=ObjectIdentity
+mip6Objects=_Mip6Objects_ObjectIdentity((1,3,6,1,2,1,133,1))
+_Mip6Core_ObjectIdentity=ObjectIdentity
+mip6Core=_Mip6Core_ObjectIdentity((1,3,6,1,2,1,133,1,1))
+_Mip6System_ObjectIdentity=ObjectIdentity
+mip6System=_Mip6System_ObjectIdentity((1,3,6,1,2,1,133,1,1,1))
+class _Mip6Capabilities_Type(Bits):namedValues=NamedValues(*(('mobileNode',0),('homeAgent',1),('correspondentNode',2)))
+_Mip6Capabilities_Type.__name__='Bits'
+_Mip6Capabilities_Object=MibScalar
+mip6Capabilities=_Mip6Capabilities_Object((1,3,6,1,2,1,133,1,1,1,1),_Mip6Capabilities_Type())
+mip6Capabilities.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6Capabilities.setStatus(_B)
+class _Mip6Status_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_W,1),(_X,2)))
+_Mip6Status_Type.__name__=_F
+_Mip6Status_Object=MibScalar
+mip6Status=_Mip6Status_Object((1,3,6,1,2,1,133,1,1,1,2),_Mip6Status_Type())
+mip6Status.setMaxAccess(_G)
+if mibBuilder.loadTexts:mip6Status.setStatus(_B)
+_Mip6Bindings_ObjectIdentity=ObjectIdentity
+mip6Bindings=_Mip6Bindings_ObjectIdentity((1,3,6,1,2,1,133,1,1,2))
+_Mip6BindingCacheTable_Object=MibTable
+mip6BindingCacheTable=_Mip6BindingCacheTable_Object((1,3,6,1,2,1,133,1,1,2,1))
+if mibBuilder.loadTexts:mip6BindingCacheTable.setStatus(_B)
+_Mip6BindingCacheEntry_Object=MibTableRow
+mip6BindingCacheEntry=_Mip6BindingCacheEntry_Object((1,3,6,1,2,1,133,1,1,2,1,1))
+mip6BindingCacheEntry.setIndexNames((0,_A,_N),(0,_A,_O))
+if mibBuilder.loadTexts:mip6BindingCacheEntry.setStatus(_B)
+_Mip6BindingHomeAddressType_Type=InetAddressType
+_Mip6BindingHomeAddressType_Object=MibTableColumn
+mip6BindingHomeAddressType=_Mip6BindingHomeAddressType_Object((1,3,6,1,2,1,133,1,1,2,1,1,1),_Mip6BindingHomeAddressType_Type())
+mip6BindingHomeAddressType.setMaxAccess(_D)
+if mibBuilder.loadTexts:mip6BindingHomeAddressType.setStatus(_B)
+_Mip6BindingHomeAddress_Type=InetAddress
+_Mip6BindingHomeAddress_Object=MibTableColumn
+mip6BindingHomeAddress=_Mip6BindingHomeAddress_Object((1,3,6,1,2,1,133,1,1,2,1,1,2),_Mip6BindingHomeAddress_Type())
+mip6BindingHomeAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:mip6BindingHomeAddress.setStatus(_B)
+_Mip6BindingCOAType_Type=InetAddressType
+_Mip6BindingCOAType_Object=MibTableColumn
+mip6BindingCOAType=_Mip6BindingCOAType_Object((1,3,6,1,2,1,133,1,1,2,1,1,3),_Mip6BindingCOAType_Type())
+mip6BindingCOAType.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6BindingCOAType.setStatus(_B)
+_Mip6BindingCOA_Type=InetAddress
+_Mip6BindingCOA_Object=MibTableColumn
+mip6BindingCOA=_Mip6BindingCOA_Object((1,3,6,1,2,1,133,1,1,2,1,1,4),_Mip6BindingCOA_Type())
+mip6BindingCOA.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6BindingCOA.setStatus(_B)
+_Mip6BindingTimeRegistered_Type=DateAndTime
+_Mip6BindingTimeRegistered_Object=MibTableColumn
+mip6BindingTimeRegistered=_Mip6BindingTimeRegistered_Object((1,3,6,1,2,1,133,1,1,2,1,1,5),_Mip6BindingTimeRegistered_Type())
+mip6BindingTimeRegistered.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6BindingTimeRegistered.setStatus(_B)
+_Mip6BindingTimeGranted_Type=Gauge32
+_Mip6BindingTimeGranted_Object=MibTableColumn
+mip6BindingTimeGranted=_Mip6BindingTimeGranted_Object((1,3,6,1,2,1,133,1,1,2,1,1,6),_Mip6BindingTimeGranted_Type())
+mip6BindingTimeGranted.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6BindingTimeGranted.setStatus(_B)
+if mibBuilder.loadTexts:mip6BindingTimeGranted.setUnits(_M)
+_Mip6BindingTimeRemaining_Type=Gauge32
+_Mip6BindingTimeRemaining_Object=MibTableColumn
+mip6BindingTimeRemaining=_Mip6BindingTimeRemaining_Object((1,3,6,1,2,1,133,1,1,2,1,1,7),_Mip6BindingTimeRemaining_Type())
+mip6BindingTimeRemaining.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6BindingTimeRemaining.setStatus(_B)
+if mibBuilder.loadTexts:mip6BindingTimeRemaining.setUnits(_M)
+_Mip6BindingHomeRegn_Type=TruthValue
+_Mip6BindingHomeRegn_Object=MibTableColumn
+mip6BindingHomeRegn=_Mip6BindingHomeRegn_Object((1,3,6,1,2,1,133,1,1,2,1,1,8),_Mip6BindingHomeRegn_Type())
+mip6BindingHomeRegn.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6BindingHomeRegn.setStatus(_B)
+class _Mip6BindingMaxSeq_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65536))
+_Mip6BindingMaxSeq_Type.__name__=_V
+_Mip6BindingMaxSeq_Object=MibTableColumn
+mip6BindingMaxSeq=_Mip6BindingMaxSeq_Object((1,3,6,1,2,1,133,1,1,2,1,1,9),_Mip6BindingMaxSeq_Type())
+mip6BindingMaxSeq.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6BindingMaxSeq.setStatus(_B)
+_Mip6BindingUsageTS_Type=DateAndTime
+_Mip6BindingUsageTS_Object=MibTableColumn
+mip6BindingUsageTS=_Mip6BindingUsageTS_Object((1,3,6,1,2,1,133,1,1,2,1,1,10),_Mip6BindingUsageTS_Type())
+mip6BindingUsageTS.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6BindingUsageTS.setStatus(_B)
+_Mip6BindingUsageCount_Type=Gauge32
+_Mip6BindingUsageCount_Object=MibTableColumn
+mip6BindingUsageCount=_Mip6BindingUsageCount_Object((1,3,6,1,2,1,133,1,1,2,1,1,11),_Mip6BindingUsageCount_Type())
+mip6BindingUsageCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6BindingUsageCount.setStatus(_B)
+class _Mip6BindingAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('active',1),('inactive',2)))
+_Mip6BindingAdminStatus_Type.__name__=_F
+_Mip6BindingAdminStatus_Object=MibTableColumn
+mip6BindingAdminStatus=_Mip6BindingAdminStatus_Object((1,3,6,1,2,1,133,1,1,2,1,1,12),_Mip6BindingAdminStatus_Type())
+mip6BindingAdminStatus.setMaxAccess(_G)
+if mibBuilder.loadTexts:mip6BindingAdminStatus.setStatus(_B)
+_Mip6BindingHistoryTable_Object=MibTable
+mip6BindingHistoryTable=_Mip6BindingHistoryTable_Object((1,3,6,1,2,1,133,1,1,2,2))
+if mibBuilder.loadTexts:mip6BindingHistoryTable.setStatus(_B)
+_Mip6BindingHistoryEntry_Object=MibTableRow
+mip6BindingHistoryEntry=_Mip6BindingHistoryEntry_Object((1,3,6,1,2,1,133,1,1,2,2,1))
+mip6BindingHistoryEntry.setIndexNames((0,_A,_i),(0,_A,_j),(0,_A,_k))
+if mibBuilder.loadTexts:mip6BindingHistoryEntry.setStatus(_B)
+_Mip6BindingHstHomeAddressType_Type=InetAddressType
+_Mip6BindingHstHomeAddressType_Object=MibTableColumn
+mip6BindingHstHomeAddressType=_Mip6BindingHstHomeAddressType_Object((1,3,6,1,2,1,133,1,1,2,2,1,1),_Mip6BindingHstHomeAddressType_Type())
+mip6BindingHstHomeAddressType.setMaxAccess(_D)
+if mibBuilder.loadTexts:mip6BindingHstHomeAddressType.setStatus(_B)
+_Mip6BindingHstHomeAddress_Type=InetAddress
+_Mip6BindingHstHomeAddress_Object=MibTableColumn
+mip6BindingHstHomeAddress=_Mip6BindingHstHomeAddress_Object((1,3,6,1,2,1,133,1,1,2,2,1,2),_Mip6BindingHstHomeAddress_Type())
+mip6BindingHstHomeAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:mip6BindingHstHomeAddress.setStatus(_B)
+class _Mip6BindingHstIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4294967295))
+_Mip6BindingHstIndex_Type.__name__=_V
+_Mip6BindingHstIndex_Object=MibTableColumn
+mip6BindingHstIndex=_Mip6BindingHstIndex_Object((1,3,6,1,2,1,133,1,1,2,2,1,3),_Mip6BindingHstIndex_Type())
+mip6BindingHstIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:mip6BindingHstIndex.setStatus(_B)
+_Mip6BindingHstCOAType_Type=InetAddressType
+_Mip6BindingHstCOAType_Object=MibTableColumn
+mip6BindingHstCOAType=_Mip6BindingHstCOAType_Object((1,3,6,1,2,1,133,1,1,2,2,1,4),_Mip6BindingHstCOAType_Type())
+mip6BindingHstCOAType.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6BindingHstCOAType.setStatus(_B)
+_Mip6BindingHstCOA_Type=InetAddress
+_Mip6BindingHstCOA_Object=MibTableColumn
+mip6BindingHstCOA=_Mip6BindingHstCOA_Object((1,3,6,1,2,1,133,1,1,2,2,1,5),_Mip6BindingHstCOA_Type())
+mip6BindingHstCOA.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6BindingHstCOA.setStatus(_B)
+_Mip6BindingHstTimeRegistered_Type=DateAndTime
+_Mip6BindingHstTimeRegistered_Object=MibTableColumn
+mip6BindingHstTimeRegistered=_Mip6BindingHstTimeRegistered_Object((1,3,6,1,2,1,133,1,1,2,2,1,6),_Mip6BindingHstTimeRegistered_Type())
+mip6BindingHstTimeRegistered.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6BindingHstTimeRegistered.setStatus(_B)
+_Mip6BindingHstTimeExpired_Type=DateAndTime
+_Mip6BindingHstTimeExpired_Object=MibTableColumn
+mip6BindingHstTimeExpired=_Mip6BindingHstTimeExpired_Object((1,3,6,1,2,1,133,1,1,2,2,1,7),_Mip6BindingHstTimeExpired_Type())
+mip6BindingHstTimeExpired.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6BindingHstTimeExpired.setStatus(_B)
+_Mip6BindingHstHomeRegn_Type=TruthValue
+_Mip6BindingHstHomeRegn_Object=MibTableColumn
+mip6BindingHstHomeRegn=_Mip6BindingHstHomeRegn_Object((1,3,6,1,2,1,133,1,1,2,2,1,8),_Mip6BindingHstHomeRegn_Type())
+mip6BindingHstHomeRegn.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6BindingHstHomeRegn.setStatus(_B)
+_Mip6BindingHstUsageTS_Type=DateAndTime
+_Mip6BindingHstUsageTS_Object=MibTableColumn
+mip6BindingHstUsageTS=_Mip6BindingHstUsageTS_Object((1,3,6,1,2,1,133,1,1,2,2,1,9),_Mip6BindingHstUsageTS_Type())
+mip6BindingHstUsageTS.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6BindingHstUsageTS.setStatus(_B)
+_Mip6BindingHstUsageCount_Type=Gauge32
+_Mip6BindingHstUsageCount_Object=MibTableColumn
+mip6BindingHstUsageCount=_Mip6BindingHstUsageCount_Object((1,3,6,1,2,1,133,1,1,2,2,1,10),_Mip6BindingHstUsageCount_Type())
+mip6BindingHstUsageCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6BindingHstUsageCount.setStatus(_B)
+_Mip6Stats_ObjectIdentity=ObjectIdentity
+mip6Stats=_Mip6Stats_ObjectIdentity((1,3,6,1,2,1,133,1,1,3))
+_Mip6TotalTraffic_ObjectIdentity=ObjectIdentity
+mip6TotalTraffic=_Mip6TotalTraffic_ObjectIdentity((1,3,6,1,2,1,133,1,1,3,1))
+_Mip6InOctets_Type=Counter32
+_Mip6InOctets_Object=MibScalar
+mip6InOctets=_Mip6InOctets_Object((1,3,6,1,2,1,133,1,1,3,1,1),_Mip6InOctets_Type())
+mip6InOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6InOctets.setStatus(_B)
+_Mip6HCInOctets_Type=Counter64
+_Mip6HCInOctets_Object=MibScalar
+mip6HCInOctets=_Mip6HCInOctets_Object((1,3,6,1,2,1,133,1,1,3,1,2),_Mip6HCInOctets_Type())
+mip6HCInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HCInOctets.setStatus(_B)
+_Mip6InPkts_Type=Counter32
+_Mip6InPkts_Object=MibScalar
+mip6InPkts=_Mip6InPkts_Object((1,3,6,1,2,1,133,1,1,3,1,3),_Mip6InPkts_Type())
+mip6InPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6InPkts.setStatus(_B)
+_Mip6HCInPkts_Type=Counter64
+_Mip6HCInPkts_Object=MibScalar
+mip6HCInPkts=_Mip6HCInPkts_Object((1,3,6,1,2,1,133,1,1,3,1,4),_Mip6HCInPkts_Type())
+mip6HCInPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HCInPkts.setStatus(_B)
+_Mip6OutOctets_Type=Counter32
+_Mip6OutOctets_Object=MibScalar
+mip6OutOctets=_Mip6OutOctets_Object((1,3,6,1,2,1,133,1,1,3,1,5),_Mip6OutOctets_Type())
+mip6OutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6OutOctets.setStatus(_B)
+_Mip6HCOutOctets_Type=Counter64
+_Mip6HCOutOctets_Object=MibScalar
+mip6HCOutOctets=_Mip6HCOutOctets_Object((1,3,6,1,2,1,133,1,1,3,1,6),_Mip6HCOutOctets_Type())
+mip6HCOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HCOutOctets.setStatus(_B)
+_Mip6OutPkts_Type=Counter32
+_Mip6OutPkts_Object=MibScalar
+mip6OutPkts=_Mip6OutPkts_Object((1,3,6,1,2,1,133,1,1,3,1,7),_Mip6OutPkts_Type())
+mip6OutPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6OutPkts.setStatus(_B)
+_Mip6HCOutPkts_Type=Counter64
+_Mip6HCOutPkts_Object=MibScalar
+mip6HCOutPkts=_Mip6HCOutPkts_Object((1,3,6,1,2,1,133,1,1,3,1,8),_Mip6HCOutPkts_Type())
+mip6HCOutPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HCOutPkts.setStatus(_B)
+_Mip6CounterDiscontinuityTime_Type=TimeStamp
+_Mip6CounterDiscontinuityTime_Object=MibScalar
+mip6CounterDiscontinuityTime=_Mip6CounterDiscontinuityTime_Object((1,3,6,1,2,1,133,1,1,3,1,9),_Mip6CounterDiscontinuityTime_Type())
+mip6CounterDiscontinuityTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CounterDiscontinuityTime.setStatus(_B)
+_Mip6NodeTrafficTable_Object=MibTable
+mip6NodeTrafficTable=_Mip6NodeTrafficTable_Object((1,3,6,1,2,1,133,1,1,3,2))
+if mibBuilder.loadTexts:mip6NodeTrafficTable.setStatus(_B)
+_Mip6NodeTrafficEntry_Object=MibTableRow
+mip6NodeTrafficEntry=_Mip6NodeTrafficEntry_Object((1,3,6,1,2,1,133,1,1,3,2,1))
+mip6NodeTrafficEntry.setIndexNames((0,_A,_N),(0,_A,_O))
+if mibBuilder.loadTexts:mip6NodeTrafficEntry.setStatus(_B)
+_Mip6NodeInOctets_Type=Counter32
+_Mip6NodeInOctets_Object=MibTableColumn
+mip6NodeInOctets=_Mip6NodeInOctets_Object((1,3,6,1,2,1,133,1,1,3,2,1,1),_Mip6NodeInOctets_Type())
+mip6NodeInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6NodeInOctets.setStatus(_B)
+_Mip6HCNodeInOctets_Type=Counter64
+_Mip6HCNodeInOctets_Object=MibTableColumn
+mip6HCNodeInOctets=_Mip6HCNodeInOctets_Object((1,3,6,1,2,1,133,1,1,3,2,1,2),_Mip6HCNodeInOctets_Type())
+mip6HCNodeInOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HCNodeInOctets.setStatus(_B)
+_Mip6NodeInPkts_Type=Counter32
+_Mip6NodeInPkts_Object=MibTableColumn
+mip6NodeInPkts=_Mip6NodeInPkts_Object((1,3,6,1,2,1,133,1,1,3,2,1,3),_Mip6NodeInPkts_Type())
+mip6NodeInPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6NodeInPkts.setStatus(_B)
+_Mip6HCNodeInPkts_Type=Counter64
+_Mip6HCNodeInPkts_Object=MibTableColumn
+mip6HCNodeInPkts=_Mip6HCNodeInPkts_Object((1,3,6,1,2,1,133,1,1,3,2,1,4),_Mip6HCNodeInPkts_Type())
+mip6HCNodeInPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HCNodeInPkts.setStatus(_B)
+_Mip6NodeOutOctets_Type=Counter32
+_Mip6NodeOutOctets_Object=MibTableColumn
+mip6NodeOutOctets=_Mip6NodeOutOctets_Object((1,3,6,1,2,1,133,1,1,3,2,1,5),_Mip6NodeOutOctets_Type())
+mip6NodeOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6NodeOutOctets.setStatus(_B)
+_Mip6HCNodeOutOctets_Type=Counter64
+_Mip6HCNodeOutOctets_Object=MibTableColumn
+mip6HCNodeOutOctets=_Mip6HCNodeOutOctets_Object((1,3,6,1,2,1,133,1,1,3,2,1,6),_Mip6HCNodeOutOctets_Type())
+mip6HCNodeOutOctets.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HCNodeOutOctets.setStatus(_B)
+_Mip6NodeOutPkts_Type=Counter32
+_Mip6NodeOutPkts_Object=MibTableColumn
+mip6NodeOutPkts=_Mip6NodeOutPkts_Object((1,3,6,1,2,1,133,1,1,3,2,1,7),_Mip6NodeOutPkts_Type())
+mip6NodeOutPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6NodeOutPkts.setStatus(_B)
+_Mip6HCNodeOutPkts_Type=Counter64
+_Mip6HCNodeOutPkts_Object=MibTableColumn
+mip6HCNodeOutPkts=_Mip6HCNodeOutPkts_Object((1,3,6,1,2,1,133,1,1,3,2,1,8),_Mip6HCNodeOutPkts_Type())
+mip6HCNodeOutPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HCNodeOutPkts.setStatus(_B)
+_Mip6NodeCtrDiscontinuityTime_Type=TimeStamp
+_Mip6NodeCtrDiscontinuityTime_Object=MibTableColumn
+mip6NodeCtrDiscontinuityTime=_Mip6NodeCtrDiscontinuityTime_Object((1,3,6,1,2,1,133,1,1,3,2,1,9),_Mip6NodeCtrDiscontinuityTime_Type())
+mip6NodeCtrDiscontinuityTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6NodeCtrDiscontinuityTime.setStatus(_B)
+_Mip6Mn_ObjectIdentity=ObjectIdentity
+mip6Mn=_Mip6Mn_ObjectIdentity((1,3,6,1,2,1,133,1,2))
+_Mip6MnSystem_ObjectIdentity=ObjectIdentity
+mip6MnSystem=_Mip6MnSystem_ObjectIdentity((1,3,6,1,2,1,133,1,2,1))
+_Mip6MnHomeAddressTable_Object=MibTable
+mip6MnHomeAddressTable=_Mip6MnHomeAddressTable_Object((1,3,6,1,2,1,133,1,2,1,1))
+if mibBuilder.loadTexts:mip6MnHomeAddressTable.setStatus(_B)
+_Mip6MnHomeAddressEntry_Object=MibTableRow
+mip6MnHomeAddressEntry=_Mip6MnHomeAddressEntry_Object((1,3,6,1,2,1,133,1,2,1,1,1))
+mip6MnHomeAddressEntry.setIndexNames((0,_A,_Y),(0,_A,_Z))
+if mibBuilder.loadTexts:mip6MnHomeAddressEntry.setStatus(_B)
+_Mip6MnHomeAddressType_Type=InetAddressType
+_Mip6MnHomeAddressType_Object=MibTableColumn
+mip6MnHomeAddressType=_Mip6MnHomeAddressType_Object((1,3,6,1,2,1,133,1,2,1,1,1,1),_Mip6MnHomeAddressType_Type())
+mip6MnHomeAddressType.setMaxAccess(_D)
+if mibBuilder.loadTexts:mip6MnHomeAddressType.setStatus(_B)
+_Mip6MnHomeAddress_Type=InetAddress
+_Mip6MnHomeAddress_Object=MibTableColumn
+mip6MnHomeAddress=_Mip6MnHomeAddress_Object((1,3,6,1,2,1,133,1,2,1,1,1,2),_Mip6MnHomeAddress_Type())
+mip6MnHomeAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:mip6MnHomeAddress.setStatus(_B)
+class _Mip6MnHomeAddressState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('unknown',1),('home',2),('registered',3),('pending',4),('isolated',5)))
+_Mip6MnHomeAddressState_Type.__name__=_F
+_Mip6MnHomeAddressState_Object=MibTableColumn
+mip6MnHomeAddressState=_Mip6MnHomeAddressState_Object((1,3,6,1,2,1,133,1,2,1,1,1,3),_Mip6MnHomeAddressState_Type())
+mip6MnHomeAddressState.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnHomeAddressState.setStatus(_B)
+_Mip6MnConf_ObjectIdentity=ObjectIdentity
+mip6MnConf=_Mip6MnConf_ObjectIdentity((1,3,6,1,2,1,133,1,2,2))
+_Mip6MnDiscoveryRequests_Type=Counter32
+_Mip6MnDiscoveryRequests_Object=MibScalar
+mip6MnDiscoveryRequests=_Mip6MnDiscoveryRequests_Object((1,3,6,1,2,1,133,1,2,2,1),_Mip6MnDiscoveryRequests_Type())
+mip6MnDiscoveryRequests.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnDiscoveryRequests.setStatus(_B)
+_Mip6MnDiscoveryReplies_Type=Counter32
+_Mip6MnDiscoveryReplies_Object=MibScalar
+mip6MnDiscoveryReplies=_Mip6MnDiscoveryReplies_Object((1,3,6,1,2,1,133,1,2,2,2),_Mip6MnDiscoveryReplies_Type())
+mip6MnDiscoveryReplies.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnDiscoveryReplies.setStatus(_B)
+_Mip6MnDiscoveryTimeouts_Type=Counter32
+_Mip6MnDiscoveryTimeouts_Object=MibScalar
+mip6MnDiscoveryTimeouts=_Mip6MnDiscoveryTimeouts_Object((1,3,6,1,2,1,133,1,2,2,3),_Mip6MnDiscoveryTimeouts_Type())
+mip6MnDiscoveryTimeouts.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnDiscoveryTimeouts.setStatus(_B)
+_Mip6MnPrefixSolicitationsSent_Type=Counter32
+_Mip6MnPrefixSolicitationsSent_Object=MibScalar
+mip6MnPrefixSolicitationsSent=_Mip6MnPrefixSolicitationsSent_Object((1,3,6,1,2,1,133,1,2,2,4),_Mip6MnPrefixSolicitationsSent_Type())
+mip6MnPrefixSolicitationsSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnPrefixSolicitationsSent.setStatus(_B)
+_Mip6MnPrefixAdvsRecd_Type=Counter32
+_Mip6MnPrefixAdvsRecd_Object=MibScalar
+mip6MnPrefixAdvsRecd=_Mip6MnPrefixAdvsRecd_Object((1,3,6,1,2,1,133,1,2,2,5),_Mip6MnPrefixAdvsRecd_Type())
+mip6MnPrefixAdvsRecd.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnPrefixAdvsRecd.setStatus(_B)
+_Mip6MnPrefixAdvsIgnored_Type=Counter32
+_Mip6MnPrefixAdvsIgnored_Object=MibScalar
+mip6MnPrefixAdvsIgnored=_Mip6MnPrefixAdvsIgnored_Object((1,3,6,1,2,1,133,1,2,2,6),_Mip6MnPrefixAdvsIgnored_Type())
+mip6MnPrefixAdvsIgnored.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnPrefixAdvsIgnored.setStatus(_B)
+_Mip6MnMovedToFN_Type=Counter32
+_Mip6MnMovedToFN_Object=MibScalar
+mip6MnMovedToFN=_Mip6MnMovedToFN_Object((1,3,6,1,2,1,133,1,2,2,7),_Mip6MnMovedToFN_Type())
+mip6MnMovedToFN.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnMovedToFN.setStatus(_B)
+_Mip6MnMovedToHN_Type=Counter32
+_Mip6MnMovedToHN_Object=MibScalar
+mip6MnMovedToHN=_Mip6MnMovedToHN_Object((1,3,6,1,2,1,133,1,2,2,8),_Mip6MnMovedToHN_Type())
+mip6MnMovedToHN.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnMovedToHN.setStatus(_B)
+_Mip6MnRegistration_ObjectIdentity=ObjectIdentity
+mip6MnRegistration=_Mip6MnRegistration_ObjectIdentity((1,3,6,1,2,1,133,1,2,3))
+_Mip6MnBLTable_Object=MibTable
+mip6MnBLTable=_Mip6MnBLTable_Object((1,3,6,1,2,1,133,1,2,3,1))
+if mibBuilder.loadTexts:mip6MnBLTable.setStatus(_B)
+_Mip6MnBLEntry_Object=MibTableRow
+mip6MnBLEntry=_Mip6MnBLEntry_Object((1,3,6,1,2,1,133,1,2,3,1,1))
+mip6MnBLEntry.setIndexNames((0,_A,_Y),(0,_A,_Z),(0,_A,_l),(0,_A,_m))
+if mibBuilder.loadTexts:mip6MnBLEntry.setStatus(_B)
+_Mip6MnBLNodeAddressType_Type=InetAddressType
+_Mip6MnBLNodeAddressType_Object=MibTableColumn
+mip6MnBLNodeAddressType=_Mip6MnBLNodeAddressType_Object((1,3,6,1,2,1,133,1,2,3,1,1,1),_Mip6MnBLNodeAddressType_Type())
+mip6MnBLNodeAddressType.setMaxAccess(_D)
+if mibBuilder.loadTexts:mip6MnBLNodeAddressType.setStatus(_B)
+_Mip6MnBLNodeAddress_Type=InetAddress
+_Mip6MnBLNodeAddress_Object=MibTableColumn
+mip6MnBLNodeAddress=_Mip6MnBLNodeAddress_Object((1,3,6,1,2,1,133,1,2,3,1,1,2),_Mip6MnBLNodeAddress_Type())
+mip6MnBLNodeAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:mip6MnBLNodeAddress.setStatus(_B)
+_Mip6MnBLCOAType_Type=InetAddressType
+_Mip6MnBLCOAType_Object=MibTableColumn
+mip6MnBLCOAType=_Mip6MnBLCOAType_Object((1,3,6,1,2,1,133,1,2,3,1,1,3),_Mip6MnBLCOAType_Type())
+mip6MnBLCOAType.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnBLCOAType.setStatus(_B)
+_Mip6MnBLCOA_Type=InetAddress
+_Mip6MnBLCOA_Object=MibTableColumn
+mip6MnBLCOA=_Mip6MnBLCOA_Object((1,3,6,1,2,1,133,1,2,3,1,1,4),_Mip6MnBLCOA_Type())
+mip6MnBLCOA.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnBLCOA.setStatus(_B)
+_Mip6MnBLLifeTimeRequested_Type=Unsigned32
+_Mip6MnBLLifeTimeRequested_Object=MibTableColumn
+mip6MnBLLifeTimeRequested=_Mip6MnBLLifeTimeRequested_Object((1,3,6,1,2,1,133,1,2,3,1,1,5),_Mip6MnBLLifeTimeRequested_Type())
+mip6MnBLLifeTimeRequested.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnBLLifeTimeRequested.setStatus(_B)
+if mibBuilder.loadTexts:mip6MnBLLifeTimeRequested.setUnits(_M)
+_Mip6MnBLLifeTimeGranted_Type=Unsigned32
+_Mip6MnBLLifeTimeGranted_Object=MibTableColumn
+mip6MnBLLifeTimeGranted=_Mip6MnBLLifeTimeGranted_Object((1,3,6,1,2,1,133,1,2,3,1,1,6),_Mip6MnBLLifeTimeGranted_Type())
+mip6MnBLLifeTimeGranted.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnBLLifeTimeGranted.setStatus(_B)
+if mibBuilder.loadTexts:mip6MnBLLifeTimeGranted.setUnits(_M)
+class _Mip6MnBLMaxSeq_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65536))
+_Mip6MnBLMaxSeq_Type.__name__=_V
+_Mip6MnBLMaxSeq_Object=MibTableColumn
+mip6MnBLMaxSeq=_Mip6MnBLMaxSeq_Object((1,3,6,1,2,1,133,1,2,3,1,1,7),_Mip6MnBLMaxSeq_Type())
+mip6MnBLMaxSeq.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnBLMaxSeq.setStatus(_B)
+_Mip6MnBLTimeSent_Type=DateAndTime
+_Mip6MnBLTimeSent_Object=MibTableColumn
+mip6MnBLTimeSent=_Mip6MnBLTimeSent_Object((1,3,6,1,2,1,133,1,2,3,1,1,8),_Mip6MnBLTimeSent_Type())
+mip6MnBLTimeSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnBLTimeSent.setStatus(_B)
+_Mip6MnBLAccepted_Type=TruthValue
+_Mip6MnBLAccepted_Object=MibTableColumn
+mip6MnBLAccepted=_Mip6MnBLAccepted_Object((1,3,6,1,2,1,133,1,2,3,1,1,9),_Mip6MnBLAccepted_Type())
+mip6MnBLAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnBLAccepted.setStatus(_B)
+_Mip6MnBLAcceptedTime_Type=DateAndTime
+_Mip6MnBLAcceptedTime_Object=MibTableColumn
+mip6MnBLAcceptedTime=_Mip6MnBLAcceptedTime_Object((1,3,6,1,2,1,133,1,2,3,1,1,10),_Mip6MnBLAcceptedTime_Type())
+mip6MnBLAcceptedTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnBLAcceptedTime.setStatus(_B)
+_Mip6MnBLRetransmissions_Type=Gauge32
+_Mip6MnBLRetransmissions_Object=MibTableColumn
+mip6MnBLRetransmissions=_Mip6MnBLRetransmissions_Object((1,3,6,1,2,1,133,1,2,3,1,1,11),_Mip6MnBLRetransmissions_Type())
+mip6MnBLRetransmissions.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnBLRetransmissions.setStatus(_B)
+_Mip6MnBLDontSendBUFlag_Type=TruthValue
+_Mip6MnBLDontSendBUFlag_Object=MibTableColumn
+mip6MnBLDontSendBUFlag=_Mip6MnBLDontSendBUFlag_Object((1,3,6,1,2,1,133,1,2,3,1,1,12),_Mip6MnBLDontSendBUFlag_Type())
+mip6MnBLDontSendBUFlag.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnBLDontSendBUFlag.setStatus(_B)
+_Mip6MnRegnCounters_ObjectIdentity=ObjectIdentity
+mip6MnRegnCounters=_Mip6MnRegnCounters_ObjectIdentity((1,3,6,1,2,1,133,1,2,3,2))
+_Mip6MnMobilityMessagesSent_Type=Counter32
+_Mip6MnMobilityMessagesSent_Object=MibScalar
+mip6MnMobilityMessagesSent=_Mip6MnMobilityMessagesSent_Object((1,3,6,1,2,1,133,1,2,3,2,1),_Mip6MnMobilityMessagesSent_Type())
+mip6MnMobilityMessagesSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnMobilityMessagesSent.setStatus(_B)
+_Mip6MnMobilityMessagesRecd_Type=Counter32
+_Mip6MnMobilityMessagesRecd_Object=MibScalar
+mip6MnMobilityMessagesRecd=_Mip6MnMobilityMessagesRecd_Object((1,3,6,1,2,1,133,1,2,3,2,2),_Mip6MnMobilityMessagesRecd_Type())
+mip6MnMobilityMessagesRecd.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnMobilityMessagesRecd.setStatus(_B)
+_Mip6MnBUsToHA_Type=Counter32
+_Mip6MnBUsToHA_Object=MibScalar
+mip6MnBUsToHA=_Mip6MnBUsToHA_Object((1,3,6,1,2,1,133,1,2,3,2,3),_Mip6MnBUsToHA_Type())
+mip6MnBUsToHA.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnBUsToHA.setStatus(_B)
+_Mip6MnBUAcksFromHA_Type=Counter32
+_Mip6MnBUAcksFromHA_Object=MibScalar
+mip6MnBUAcksFromHA=_Mip6MnBUAcksFromHA_Object((1,3,6,1,2,1,133,1,2,3,2,4),_Mip6MnBUAcksFromHA_Type())
+mip6MnBUAcksFromHA.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnBUAcksFromHA.setStatus(_B)
+_Mip6MnBUsToCN_Type=Counter32
+_Mip6MnBUsToCN_Object=MibScalar
+mip6MnBUsToCN=_Mip6MnBUsToCN_Object((1,3,6,1,2,1,133,1,2,3,2,5),_Mip6MnBUsToCN_Type())
+mip6MnBUsToCN.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnBUsToCN.setStatus(_B)
+_Mip6MnBUAcksFromCN_Type=Counter32
+_Mip6MnBUAcksFromCN_Object=MibScalar
+mip6MnBUAcksFromCN=_Mip6MnBUAcksFromCN_Object((1,3,6,1,2,1,133,1,2,3,2,6),_Mip6MnBUAcksFromCN_Type())
+mip6MnBUAcksFromCN.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnBUAcksFromCN.setStatus(_B)
+_Mip6MnBindingErrorsFromCN_Type=Counter32
+_Mip6MnBindingErrorsFromCN_Object=MibScalar
+mip6MnBindingErrorsFromCN=_Mip6MnBindingErrorsFromCN_Object((1,3,6,1,2,1,133,1,2,3,2,7),_Mip6MnBindingErrorsFromCN_Type())
+mip6MnBindingErrorsFromCN.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnBindingErrorsFromCN.setStatus(_B)
+_Mip6MnICMPErrorsRecd_Type=Counter32
+_Mip6MnICMPErrorsRecd_Object=MibScalar
+mip6MnICMPErrorsRecd=_Mip6MnICMPErrorsRecd_Object((1,3,6,1,2,1,133,1,2,3,2,8),_Mip6MnICMPErrorsRecd_Type())
+mip6MnICMPErrorsRecd.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnICMPErrorsRecd.setStatus(_B)
+_Mip6MnBRRequestsRecd_Type=Counter32
+_Mip6MnBRRequestsRecd_Object=MibScalar
+mip6MnBRRequestsRecd=_Mip6MnBRRequestsRecd_Object((1,3,6,1,2,1,133,1,2,3,2,9),_Mip6MnBRRequestsRecd_Type())
+mip6MnBRRequestsRecd.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6MnBRRequestsRecd.setStatus(_B)
+_Mip6Cn_ObjectIdentity=ObjectIdentity
+mip6Cn=_Mip6Cn_ObjectIdentity((1,3,6,1,2,1,133,1,3))
+_Mip6CnSystem_ObjectIdentity=ObjectIdentity
+mip6CnSystem=_Mip6CnSystem_ObjectIdentity((1,3,6,1,2,1,133,1,3,1))
+_Mip6CnStats_ObjectIdentity=ObjectIdentity
+mip6CnStats=_Mip6CnStats_ObjectIdentity((1,3,6,1,2,1,133,1,3,2))
+_Mip6CnGlobalStats_ObjectIdentity=ObjectIdentity
+mip6CnGlobalStats=_Mip6CnGlobalStats_ObjectIdentity((1,3,6,1,2,1,133,1,3,2,1))
+_Mip6CnHomeTestInitsRecd_Type=Counter32
+_Mip6CnHomeTestInitsRecd_Object=MibScalar
+mip6CnHomeTestInitsRecd=_Mip6CnHomeTestInitsRecd_Object((1,3,6,1,2,1,133,1,3,2,1,1),_Mip6CnHomeTestInitsRecd_Type())
+mip6CnHomeTestInitsRecd.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnHomeTestInitsRecd.setStatus(_B)
+_Mip6CnHomeTestsSent_Type=Counter32
+_Mip6CnHomeTestsSent_Object=MibScalar
+mip6CnHomeTestsSent=_Mip6CnHomeTestsSent_Object((1,3,6,1,2,1,133,1,3,2,1,2),_Mip6CnHomeTestsSent_Type())
+mip6CnHomeTestsSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnHomeTestsSent.setStatus(_B)
+_Mip6CnCareOfTestInitsRecd_Type=Counter32
+_Mip6CnCareOfTestInitsRecd_Object=MibScalar
+mip6CnCareOfTestInitsRecd=_Mip6CnCareOfTestInitsRecd_Object((1,3,6,1,2,1,133,1,3,2,1,3),_Mip6CnCareOfTestInitsRecd_Type())
+mip6CnCareOfTestInitsRecd.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnCareOfTestInitsRecd.setStatus(_B)
+_Mip6CnCareOfTestsSent_Type=Counter32
+_Mip6CnCareOfTestsSent_Object=MibScalar
+mip6CnCareOfTestsSent=_Mip6CnCareOfTestsSent_Object((1,3,6,1,2,1,133,1,3,2,1,4),_Mip6CnCareOfTestsSent_Type())
+mip6CnCareOfTestsSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnCareOfTestsSent.setStatus(_B)
+_Mip6CnBUsRecd_Type=Counter32
+_Mip6CnBUsRecd_Object=MibScalar
+mip6CnBUsRecd=_Mip6CnBUsRecd_Object((1,3,6,1,2,1,133,1,3,2,1,5),_Mip6CnBUsRecd_Type())
+mip6CnBUsRecd.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnBUsRecd.setStatus(_B)
+_Mip6CnBUAcksSent_Type=Counter32
+_Mip6CnBUAcksSent_Object=MibScalar
+mip6CnBUAcksSent=_Mip6CnBUAcksSent_Object((1,3,6,1,2,1,133,1,3,2,1,6),_Mip6CnBUAcksSent_Type())
+mip6CnBUAcksSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnBUAcksSent.setStatus(_B)
+_Mip6CnBRsSent_Type=Counter32
+_Mip6CnBRsSent_Object=MibScalar
+mip6CnBRsSent=_Mip6CnBRsSent_Object((1,3,6,1,2,1,133,1,3,2,1,7),_Mip6CnBRsSent_Type())
+mip6CnBRsSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnBRsSent.setStatus(_B)
+_Mip6CnBindingErrors_Type=Counter32
+_Mip6CnBindingErrors_Object=MibScalar
+mip6CnBindingErrors=_Mip6CnBindingErrors_Object((1,3,6,1,2,1,133,1,3,2,1,8),_Mip6CnBindingErrors_Type())
+mip6CnBindingErrors.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnBindingErrors.setStatus(_B)
+_Mip6CnBUsAccepted_Type=Counter32
+_Mip6CnBUsAccepted_Object=MibScalar
+mip6CnBUsAccepted=_Mip6CnBUsAccepted_Object((1,3,6,1,2,1,133,1,3,2,1,9),_Mip6CnBUsAccepted_Type())
+mip6CnBUsAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnBUsAccepted.setStatus(_B)
+_Mip6CnBUsRejected_Type=Counter32
+_Mip6CnBUsRejected_Object=MibScalar
+mip6CnBUsRejected=_Mip6CnBUsRejected_Object((1,3,6,1,2,1,133,1,3,2,1,10),_Mip6CnBUsRejected_Type())
+mip6CnBUsRejected.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnBUsRejected.setStatus(_B)
+_Mip6CnReasonUnspecified_Type=Counter32
+_Mip6CnReasonUnspecified_Object=MibScalar
+mip6CnReasonUnspecified=_Mip6CnReasonUnspecified_Object((1,3,6,1,2,1,133,1,3,2,1,11),_Mip6CnReasonUnspecified_Type())
+mip6CnReasonUnspecified.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnReasonUnspecified.setStatus(_B)
+_Mip6CnInsufficientResource_Type=Counter32
+_Mip6CnInsufficientResource_Object=MibScalar
+mip6CnInsufficientResource=_Mip6CnInsufficientResource_Object((1,3,6,1,2,1,133,1,3,2,1,12),_Mip6CnInsufficientResource_Type())
+mip6CnInsufficientResource.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnInsufficientResource.setStatus(_B)
+_Mip6CnHomeRegnNotSupported_Type=Counter32
+_Mip6CnHomeRegnNotSupported_Object=MibScalar
+mip6CnHomeRegnNotSupported=_Mip6CnHomeRegnNotSupported_Object((1,3,6,1,2,1,133,1,3,2,1,13),_Mip6CnHomeRegnNotSupported_Type())
+mip6CnHomeRegnNotSupported.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnHomeRegnNotSupported.setStatus(_B)
+_Mip6CnSeqNumberOutOfWindow_Type=Counter32
+_Mip6CnSeqNumberOutOfWindow_Object=MibScalar
+mip6CnSeqNumberOutOfWindow=_Mip6CnSeqNumberOutOfWindow_Object((1,3,6,1,2,1,133,1,3,2,1,14),_Mip6CnSeqNumberOutOfWindow_Type())
+mip6CnSeqNumberOutOfWindow.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnSeqNumberOutOfWindow.setStatus(_B)
+_Mip6CnExpiredHomeNonceIndex_Type=Counter32
+_Mip6CnExpiredHomeNonceIndex_Object=MibScalar
+mip6CnExpiredHomeNonceIndex=_Mip6CnExpiredHomeNonceIndex_Object((1,3,6,1,2,1,133,1,3,2,1,15),_Mip6CnExpiredHomeNonceIndex_Type())
+mip6CnExpiredHomeNonceIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnExpiredHomeNonceIndex.setStatus(_B)
+_Mip6CnExpiredCareOfNonceIndex_Type=Counter32
+_Mip6CnExpiredCareOfNonceIndex_Object=MibScalar
+mip6CnExpiredCareOfNonceIndex=_Mip6CnExpiredCareOfNonceIndex_Object((1,3,6,1,2,1,133,1,3,2,1,16),_Mip6CnExpiredCareOfNonceIndex_Type())
+mip6CnExpiredCareOfNonceIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnExpiredCareOfNonceIndex.setStatus(_B)
+_Mip6CnExpiredNonce_Type=Counter32
+_Mip6CnExpiredNonce_Object=MibScalar
+mip6CnExpiredNonce=_Mip6CnExpiredNonce_Object((1,3,6,1,2,1,133,1,3,2,1,17),_Mip6CnExpiredNonce_Type())
+mip6CnExpiredNonce.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnExpiredNonce.setStatus(_B)
+_Mip6CnRegTypeChangeDisallowed_Type=Counter32
+_Mip6CnRegTypeChangeDisallowed_Object=MibScalar
+mip6CnRegTypeChangeDisallowed=_Mip6CnRegTypeChangeDisallowed_Object((1,3,6,1,2,1,133,1,3,2,1,18),_Mip6CnRegTypeChangeDisallowed_Type())
+mip6CnRegTypeChangeDisallowed.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnRegTypeChangeDisallowed.setStatus(_B)
+_Mip6CnCounterTable_Object=MibTable
+mip6CnCounterTable=_Mip6CnCounterTable_Object((1,3,6,1,2,1,133,1,3,2,2))
+if mibBuilder.loadTexts:mip6CnCounterTable.setStatus(_B)
+_Mip6CnCounterEntry_Object=MibTableRow
+mip6CnCounterEntry=_Mip6CnCounterEntry_Object((1,3,6,1,2,1,133,1,3,2,2,1))
+mip6CnCounterEntry.setIndexNames((0,_A,_N),(0,_A,_O))
+if mibBuilder.loadTexts:mip6CnCounterEntry.setStatus(_B)
+_Mip6CnBURequestsAccepted_Type=Counter32
+_Mip6CnBURequestsAccepted_Object=MibTableColumn
+mip6CnBURequestsAccepted=_Mip6CnBURequestsAccepted_Object((1,3,6,1,2,1,133,1,3,2,2,1,1),_Mip6CnBURequestsAccepted_Type())
+mip6CnBURequestsAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnBURequestsAccepted.setStatus(_B)
+_Mip6CnBURequestsRejected_Type=Counter32
+_Mip6CnBURequestsRejected_Object=MibTableColumn
+mip6CnBURequestsRejected=_Mip6CnBURequestsRejected_Object((1,3,6,1,2,1,133,1,3,2,2,1,2),_Mip6CnBURequestsRejected_Type())
+mip6CnBURequestsRejected.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnBURequestsRejected.setStatus(_B)
+_Mip6CnBCEntryCreationTime_Type=DateAndTime
+_Mip6CnBCEntryCreationTime_Object=MibTableColumn
+mip6CnBCEntryCreationTime=_Mip6CnBCEntryCreationTime_Object((1,3,6,1,2,1,133,1,3,2,2,1,3),_Mip6CnBCEntryCreationTime_Type())
+mip6CnBCEntryCreationTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnBCEntryCreationTime.setStatus(_B)
+_Mip6CnBUAcceptedTime_Type=DateAndTime
+_Mip6CnBUAcceptedTime_Object=MibTableColumn
+mip6CnBUAcceptedTime=_Mip6CnBUAcceptedTime_Object((1,3,6,1,2,1,133,1,3,2,2,1,4),_Mip6CnBUAcceptedTime_Type())
+mip6CnBUAcceptedTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnBUAcceptedTime.setStatus(_B)
+_Mip6CnBURejectionTime_Type=DateAndTime
+_Mip6CnBURejectionTime_Object=MibTableColumn
+mip6CnBURejectionTime=_Mip6CnBURejectionTime_Object((1,3,6,1,2,1,133,1,3,2,2,1,5),_Mip6CnBURejectionTime_Type())
+mip6CnBURejectionTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnBURejectionTime.setStatus(_B)
+_Mip6CnBURejectionCode_Type=Mip6BURequestRejectionCode
+_Mip6CnBURejectionCode_Object=MibTableColumn
+mip6CnBURejectionCode=_Mip6CnBURejectionCode_Object((1,3,6,1,2,1,133,1,3,2,2,1,6),_Mip6CnBURejectionCode_Type())
+mip6CnBURejectionCode.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnBURejectionCode.setStatus(_B)
+_Mip6CnCtrDiscontinuityTime_Type=TimeStamp
+_Mip6CnCtrDiscontinuityTime_Object=MibTableColumn
+mip6CnCtrDiscontinuityTime=_Mip6CnCtrDiscontinuityTime_Object((1,3,6,1,2,1,133,1,3,2,2,1,7),_Mip6CnCtrDiscontinuityTime_Type())
+mip6CnCtrDiscontinuityTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6CnCtrDiscontinuityTime.setStatus(_B)
+_Mip6Ha_ObjectIdentity=ObjectIdentity
+mip6Ha=_Mip6Ha_ObjectIdentity((1,3,6,1,2,1,133,1,4))
+_Mip6HaAdvertisement_ObjectIdentity=ObjectIdentity
+mip6HaAdvertisement=_Mip6HaAdvertisement_ObjectIdentity((1,3,6,1,2,1,133,1,4,1))
+_Mip6HaAdvsRecd_Type=Counter32
+_Mip6HaAdvsRecd_Object=MibScalar
+mip6HaAdvsRecd=_Mip6HaAdvsRecd_Object((1,3,6,1,2,1,133,1,4,1,1),_Mip6HaAdvsRecd_Type())
+mip6HaAdvsRecd.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaAdvsRecd.setStatus(_B)
+_Mip6HaAdvsSent_Type=Counter32
+_Mip6HaAdvsSent_Object=MibScalar
+mip6HaAdvsSent=_Mip6HaAdvsSent_Object((1,3,6,1,2,1,133,1,4,1,2),_Mip6HaAdvsSent_Type())
+mip6HaAdvsSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaAdvsSent.setStatus(_B)
+_Mip6HaConfTable_Object=MibTable
+mip6HaConfTable=_Mip6HaConfTable_Object((1,3,6,1,2,1,133,1,4,1,3))
+if mibBuilder.loadTexts:mip6HaConfTable.setStatus(_B)
+_Mip6HaConfEntry_Object=MibTableRow
+mip6HaConfEntry=_Mip6HaConfEntry_Object((1,3,6,1,2,1,133,1,4,1,3,1))
+mip6HaConfEntry.setIndexNames((0,_T,_U))
+if mibBuilder.loadTexts:mip6HaConfEntry.setStatus(_B)
+class _Mip6HaAdvPreference_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65536))
+_Mip6HaAdvPreference_Type.__name__=_F
+_Mip6HaAdvPreference_Object=MibTableColumn
+mip6HaAdvPreference=_Mip6HaAdvPreference_Object((1,3,6,1,2,1,133,1,4,1,3,1,1),_Mip6HaAdvPreference_Type())
+mip6HaAdvPreference.setMaxAccess(_G)
+if mibBuilder.loadTexts:mip6HaAdvPreference.setStatus(_B)
+class _Mip6HaAdvLifetime_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_Mip6HaAdvLifetime_Type.__name__=_F
+_Mip6HaAdvLifetime_Object=MibTableColumn
+mip6HaAdvLifetime=_Mip6HaAdvLifetime_Object((1,3,6,1,2,1,133,1,4,1,3,1,2),_Mip6HaAdvLifetime_Type())
+mip6HaAdvLifetime.setMaxAccess(_G)
+if mibBuilder.loadTexts:mip6HaAdvLifetime.setStatus(_B)
+if mibBuilder.loadTexts:mip6HaAdvLifetime.setUnits(_M)
+class _Mip6HaPrefixAdv_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_W,1),(_X,2)))
+_Mip6HaPrefixAdv_Type.__name__=_F
+_Mip6HaPrefixAdv_Object=MibTableColumn
+mip6HaPrefixAdv=_Mip6HaPrefixAdv_Object((1,3,6,1,2,1,133,1,4,1,3,1,3),_Mip6HaPrefixAdv_Type())
+mip6HaPrefixAdv.setMaxAccess(_G)
+if mibBuilder.loadTexts:mip6HaPrefixAdv.setStatus(_B)
+class _Mip6HaPrefixSolicitation_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_W,1),(_X,2)))
+_Mip6HaPrefixSolicitation_Type.__name__=_F
+_Mip6HaPrefixSolicitation_Object=MibTableColumn
+mip6HaPrefixSolicitation=_Mip6HaPrefixSolicitation_Object((1,3,6,1,2,1,133,1,4,1,3,1,4),_Mip6HaPrefixSolicitation_Type())
+mip6HaPrefixSolicitation.setMaxAccess(_G)
+if mibBuilder.loadTexts:mip6HaPrefixSolicitation.setStatus(_B)
+class _Mip6HaMCastCtlMsgSupport_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_W,1),(_X,2)))
+_Mip6HaMCastCtlMsgSupport_Type.__name__=_F
+_Mip6HaMCastCtlMsgSupport_Object=MibTableColumn
+mip6HaMCastCtlMsgSupport=_Mip6HaMCastCtlMsgSupport_Object((1,3,6,1,2,1,133,1,4,1,3,1,5),_Mip6HaMCastCtlMsgSupport_Type())
+mip6HaMCastCtlMsgSupport.setMaxAccess(_G)
+if mibBuilder.loadTexts:mip6HaMCastCtlMsgSupport.setStatus(_B)
+_Mip6HaListTable_Object=MibTable
+mip6HaListTable=_Mip6HaListTable_Object((1,3,6,1,2,1,133,1,4,1,4))
+if mibBuilder.loadTexts:mip6HaListTable.setStatus(_B)
+_Mip6HaListEntry_Object=MibTableRow
+mip6HaListEntry=_Mip6HaListEntry_Object((1,3,6,1,2,1,133,1,4,1,4,1))
+mip6HaListEntry.setIndexNames((0,_T,_U),(0,_A,_a),(0,_A,_b))
+if mibBuilder.loadTexts:mip6HaListEntry.setStatus(_B)
+_Mip6HaLinkLocalAddressType_Type=InetAddressType
+_Mip6HaLinkLocalAddressType_Object=MibTableColumn
+mip6HaLinkLocalAddressType=_Mip6HaLinkLocalAddressType_Object((1,3,6,1,2,1,133,1,4,1,4,1,1),_Mip6HaLinkLocalAddressType_Type())
+mip6HaLinkLocalAddressType.setMaxAccess(_D)
+if mibBuilder.loadTexts:mip6HaLinkLocalAddressType.setStatus(_B)
+_Mip6HaLinkLocalAddress_Type=InetAddress
+_Mip6HaLinkLocalAddress_Object=MibTableColumn
+mip6HaLinkLocalAddress=_Mip6HaLinkLocalAddress_Object((1,3,6,1,2,1,133,1,4,1,4,1,2),_Mip6HaLinkLocalAddress_Type())
+mip6HaLinkLocalAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:mip6HaLinkLocalAddress.setStatus(_B)
+_Mip6HaPreference_Type=Integer32
+_Mip6HaPreference_Object=MibTableColumn
+mip6HaPreference=_Mip6HaPreference_Object((1,3,6,1,2,1,133,1,4,1,4,1,3),_Mip6HaPreference_Type())
+mip6HaPreference.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaPreference.setStatus(_B)
+_Mip6HaRecvLifeTime_Type=Gauge32
+_Mip6HaRecvLifeTime_Object=MibTableColumn
+mip6HaRecvLifeTime=_Mip6HaRecvLifeTime_Object((1,3,6,1,2,1,133,1,4,1,4,1,4),_Mip6HaRecvLifeTime_Type())
+mip6HaRecvLifeTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaRecvLifeTime.setStatus(_B)
+_Mip6HaRecvTimeStamp_Type=DateAndTime
+_Mip6HaRecvTimeStamp_Object=MibTableColumn
+mip6HaRecvTimeStamp=_Mip6HaRecvTimeStamp_Object((1,3,6,1,2,1,133,1,4,1,4,1,5),_Mip6HaRecvTimeStamp_Type())
+mip6HaRecvTimeStamp.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaRecvTimeStamp.setStatus(_B)
+_Mip6HaGlAddrTable_Object=MibTable
+mip6HaGlAddrTable=_Mip6HaGlAddrTable_Object((1,3,6,1,2,1,133,1,4,1,5))
+if mibBuilder.loadTexts:mip6HaGlAddrTable.setStatus(_B)
+_Mip6HaGlAddrEntry_Object=MibTableRow
+mip6HaGlAddrEntry=_Mip6HaGlAddrEntry_Object((1,3,6,1,2,1,133,1,4,1,5,1))
+mip6HaGlAddrEntry.setIndexNames((0,_T,_U),(0,_A,_a),(0,_A,_b),(0,_A,_n))
+if mibBuilder.loadTexts:mip6HaGlAddrEntry.setStatus(_B)
+class _Mip6HaGaAddrSeqNo_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,1024))
+_Mip6HaGaAddrSeqNo_Type.__name__=_F
+_Mip6HaGaAddrSeqNo_Object=MibTableColumn
+mip6HaGaAddrSeqNo=_Mip6HaGaAddrSeqNo_Object((1,3,6,1,2,1,133,1,4,1,5,1,1),_Mip6HaGaAddrSeqNo_Type())
+mip6HaGaAddrSeqNo.setMaxAccess(_D)
+if mibBuilder.loadTexts:mip6HaGaAddrSeqNo.setStatus(_B)
+_Mip6HaGaGlobalAddressType_Type=InetAddressType
+_Mip6HaGaGlobalAddressType_Object=MibTableColumn
+mip6HaGaGlobalAddressType=_Mip6HaGaGlobalAddressType_Object((1,3,6,1,2,1,133,1,4,1,5,1,2),_Mip6HaGaGlobalAddressType_Type())
+mip6HaGaGlobalAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaGaGlobalAddressType.setStatus(_B)
+_Mip6HaGaGlobalAddress_Type=InetAddress
+_Mip6HaGaGlobalAddress_Object=MibTableColumn
+mip6HaGaGlobalAddress=_Mip6HaGaGlobalAddress_Object((1,3,6,1,2,1,133,1,4,1,5,1,3),_Mip6HaGaGlobalAddress_Type())
+mip6HaGaGlobalAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaGaGlobalAddress.setStatus(_B)
+_Mip6HaStats_ObjectIdentity=ObjectIdentity
+mip6HaStats=_Mip6HaStats_ObjectIdentity((1,3,6,1,2,1,133,1,4,2))
+_Mip6HaGlobalStats_ObjectIdentity=ObjectIdentity
+mip6HaGlobalStats=_Mip6HaGlobalStats_ObjectIdentity((1,3,6,1,2,1,133,1,4,2,1))
+_Mip6HaHomeTestInitsRecd_Type=Counter32
+_Mip6HaHomeTestInitsRecd_Object=MibScalar
+mip6HaHomeTestInitsRecd=_Mip6HaHomeTestInitsRecd_Object((1,3,6,1,2,1,133,1,4,2,1,1),_Mip6HaHomeTestInitsRecd_Type())
+mip6HaHomeTestInitsRecd.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaHomeTestInitsRecd.setStatus(_B)
+_Mip6HaHomeTestsSent_Type=Counter32
+_Mip6HaHomeTestsSent_Object=MibScalar
+mip6HaHomeTestsSent=_Mip6HaHomeTestsSent_Object((1,3,6,1,2,1,133,1,4,2,1,2),_Mip6HaHomeTestsSent_Type())
+mip6HaHomeTestsSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaHomeTestsSent.setStatus(_B)
+_Mip6HaBUsRecd_Type=Counter32
+_Mip6HaBUsRecd_Object=MibScalar
+mip6HaBUsRecd=_Mip6HaBUsRecd_Object((1,3,6,1,2,1,133,1,4,2,1,3),_Mip6HaBUsRecd_Type())
+mip6HaBUsRecd.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaBUsRecd.setStatus(_B)
+_Mip6HaBUAcksSent_Type=Counter32
+_Mip6HaBUAcksSent_Object=MibScalar
+mip6HaBUAcksSent=_Mip6HaBUAcksSent_Object((1,3,6,1,2,1,133,1,4,2,1,4),_Mip6HaBUAcksSent_Type())
+mip6HaBUAcksSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaBUAcksSent.setStatus(_B)
+_Mip6HaBRAdviceSent_Type=Counter32
+_Mip6HaBRAdviceSent_Object=MibScalar
+mip6HaBRAdviceSent=_Mip6HaBRAdviceSent_Object((1,3,6,1,2,1,133,1,4,2,1,5),_Mip6HaBRAdviceSent_Type())
+mip6HaBRAdviceSent.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaBRAdviceSent.setStatus(_B)
+_Mip6HaBUsAccepted_Type=Counter32
+_Mip6HaBUsAccepted_Object=MibScalar
+mip6HaBUsAccepted=_Mip6HaBUsAccepted_Object((1,3,6,1,2,1,133,1,4,2,1,6),_Mip6HaBUsAccepted_Type())
+mip6HaBUsAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaBUsAccepted.setStatus(_B)
+_Mip6HaPrefDiscoverReqd_Type=Counter32
+_Mip6HaPrefDiscoverReqd_Object=MibScalar
+mip6HaPrefDiscoverReqd=_Mip6HaPrefDiscoverReqd_Object((1,3,6,1,2,1,133,1,4,2,1,7),_Mip6HaPrefDiscoverReqd_Type())
+mip6HaPrefDiscoverReqd.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaPrefDiscoverReqd.setStatus(_B)
+_Mip6HaReasonUnspecified_Type=Counter32
+_Mip6HaReasonUnspecified_Object=MibScalar
+mip6HaReasonUnspecified=_Mip6HaReasonUnspecified_Object((1,3,6,1,2,1,133,1,4,2,1,8),_Mip6HaReasonUnspecified_Type())
+mip6HaReasonUnspecified.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaReasonUnspecified.setStatus(_B)
+_Mip6HaAdmProhibited_Type=Counter32
+_Mip6HaAdmProhibited_Object=MibScalar
+mip6HaAdmProhibited=_Mip6HaAdmProhibited_Object((1,3,6,1,2,1,133,1,4,2,1,9),_Mip6HaAdmProhibited_Type())
+mip6HaAdmProhibited.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaAdmProhibited.setStatus(_B)
+_Mip6HaInsufficientResource_Type=Counter32
+_Mip6HaInsufficientResource_Object=MibScalar
+mip6HaInsufficientResource=_Mip6HaInsufficientResource_Object((1,3,6,1,2,1,133,1,4,2,1,10),_Mip6HaInsufficientResource_Type())
+mip6HaInsufficientResource.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaInsufficientResource.setStatus(_B)
+_Mip6HaHomeRegnNotSupported_Type=Counter32
+_Mip6HaHomeRegnNotSupported_Object=MibScalar
+mip6HaHomeRegnNotSupported=_Mip6HaHomeRegnNotSupported_Object((1,3,6,1,2,1,133,1,4,2,1,11),_Mip6HaHomeRegnNotSupported_Type())
+mip6HaHomeRegnNotSupported.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaHomeRegnNotSupported.setStatus(_B)
+_Mip6HaNotHomeSubnet_Type=Counter32
+_Mip6HaNotHomeSubnet_Object=MibScalar
+mip6HaNotHomeSubnet=_Mip6HaNotHomeSubnet_Object((1,3,6,1,2,1,133,1,4,2,1,12),_Mip6HaNotHomeSubnet_Type())
+mip6HaNotHomeSubnet.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaNotHomeSubnet.setStatus(_B)
+_Mip6HaNotHomeAgentForThisMN_Type=Counter32
+_Mip6HaNotHomeAgentForThisMN_Object=MibScalar
+mip6HaNotHomeAgentForThisMN=_Mip6HaNotHomeAgentForThisMN_Object((1,3,6,1,2,1,133,1,4,2,1,13),_Mip6HaNotHomeAgentForThisMN_Type())
+mip6HaNotHomeAgentForThisMN.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaNotHomeAgentForThisMN.setStatus(_B)
+_Mip6HaDupAddrDetectionFailed_Type=Counter32
+_Mip6HaDupAddrDetectionFailed_Object=MibScalar
+mip6HaDupAddrDetectionFailed=_Mip6HaDupAddrDetectionFailed_Object((1,3,6,1,2,1,133,1,4,2,1,14),_Mip6HaDupAddrDetectionFailed_Type())
+mip6HaDupAddrDetectionFailed.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaDupAddrDetectionFailed.setStatus(_B)
+_Mip6HaSeqNumberOutOfWindow_Type=Counter32
+_Mip6HaSeqNumberOutOfWindow_Object=MibScalar
+mip6HaSeqNumberOutOfWindow=_Mip6HaSeqNumberOutOfWindow_Object((1,3,6,1,2,1,133,1,4,2,1,15),_Mip6HaSeqNumberOutOfWindow_Type())
+mip6HaSeqNumberOutOfWindow.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaSeqNumberOutOfWindow.setStatus(_B)
+_Mip6HaExpiredHomeNonceIndex_Type=Counter32
+_Mip6HaExpiredHomeNonceIndex_Object=MibScalar
+mip6HaExpiredHomeNonceIndex=_Mip6HaExpiredHomeNonceIndex_Object((1,3,6,1,2,1,133,1,4,2,1,16),_Mip6HaExpiredHomeNonceIndex_Type())
+mip6HaExpiredHomeNonceIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaExpiredHomeNonceIndex.setStatus(_B)
+_Mip6HaRegTypeChangeDisallowed_Type=Counter32
+_Mip6HaRegTypeChangeDisallowed_Object=MibScalar
+mip6HaRegTypeChangeDisallowed=_Mip6HaRegTypeChangeDisallowed_Object((1,3,6,1,2,1,133,1,4,2,1,17),_Mip6HaRegTypeChangeDisallowed_Type())
+mip6HaRegTypeChangeDisallowed.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaRegTypeChangeDisallowed.setStatus(_B)
+_Mip6HaCounterTable_Object=MibTable
+mip6HaCounterTable=_Mip6HaCounterTable_Object((1,3,6,1,2,1,133,1,4,2,2))
+if mibBuilder.loadTexts:mip6HaCounterTable.setStatus(_B)
+_Mip6HaCounterEntry_Object=MibTableRow
+mip6HaCounterEntry=_Mip6HaCounterEntry_Object((1,3,6,1,2,1,133,1,4,2,2,1))
+mip6HaCounterEntry.setIndexNames((0,_A,_N),(0,_A,_O))
+if mibBuilder.loadTexts:mip6HaCounterEntry.setStatus(_B)
+_Mip6HaBURequestsAccepted_Type=Counter32
+_Mip6HaBURequestsAccepted_Object=MibTableColumn
+mip6HaBURequestsAccepted=_Mip6HaBURequestsAccepted_Object((1,3,6,1,2,1,133,1,4,2,2,1,1),_Mip6HaBURequestsAccepted_Type())
+mip6HaBURequestsAccepted.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaBURequestsAccepted.setStatus(_B)
+_Mip6HaBURequestsDenied_Type=Counter32
+_Mip6HaBURequestsDenied_Object=MibTableColumn
+mip6HaBURequestsDenied=_Mip6HaBURequestsDenied_Object((1,3,6,1,2,1,133,1,4,2,2,1,2),_Mip6HaBURequestsDenied_Type())
+mip6HaBURequestsDenied.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaBURequestsDenied.setStatus(_B)
+_Mip6HaBCEntryCreationTime_Type=DateAndTime
+_Mip6HaBCEntryCreationTime_Object=MibTableColumn
+mip6HaBCEntryCreationTime=_Mip6HaBCEntryCreationTime_Object((1,3,6,1,2,1,133,1,4,2,2,1,3),_Mip6HaBCEntryCreationTime_Type())
+mip6HaBCEntryCreationTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaBCEntryCreationTime.setStatus(_B)
+if mibBuilder.loadTexts:mip6HaBCEntryCreationTime.setUnits(_M)
+_Mip6HaBUAcceptedTime_Type=DateAndTime
+_Mip6HaBUAcceptedTime_Object=MibTableColumn
+mip6HaBUAcceptedTime=_Mip6HaBUAcceptedTime_Object((1,3,6,1,2,1,133,1,4,2,2,1,4),_Mip6HaBUAcceptedTime_Type())
+mip6HaBUAcceptedTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaBUAcceptedTime.setStatus(_B)
+_Mip6HaBURejectionTime_Type=DateAndTime
+_Mip6HaBURejectionTime_Object=MibTableColumn
+mip6HaBURejectionTime=_Mip6HaBURejectionTime_Object((1,3,6,1,2,1,133,1,4,2,2,1,5),_Mip6HaBURejectionTime_Type())
+mip6HaBURejectionTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaBURejectionTime.setStatus(_B)
+_Mip6HaRecentBURejectionCode_Type=Mip6BURequestRejectionCode
+_Mip6HaRecentBURejectionCode_Object=MibTableColumn
+mip6HaRecentBURejectionCode=_Mip6HaRecentBURejectionCode_Object((1,3,6,1,2,1,133,1,4,2,2,1,6),_Mip6HaRecentBURejectionCode_Type())
+mip6HaRecentBURejectionCode.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaRecentBURejectionCode.setStatus(_B)
+_Mip6HaCtrDiscontinuityTime_Type=TimeStamp
+_Mip6HaCtrDiscontinuityTime_Object=MibTableColumn
+mip6HaCtrDiscontinuityTime=_Mip6HaCtrDiscontinuityTime_Object((1,3,6,1,2,1,133,1,4,2,2,1,7),_Mip6HaCtrDiscontinuityTime_Type())
+mip6HaCtrDiscontinuityTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:mip6HaCtrDiscontinuityTime.setStatus(_B)
+_Mip6Conformance_ObjectIdentity=ObjectIdentity
+mip6Conformance=_Mip6Conformance_ObjectIdentity((1,3,6,1,2,1,133,2))
+_Mip6Groups_ObjectIdentity=ObjectIdentity
+mip6Groups=_Mip6Groups_ObjectIdentity((1,3,6,1,2,1,133,2,1))
+_Mip6Compliances_ObjectIdentity=ObjectIdentity
+mip6Compliances=_Mip6Compliances_ObjectIdentity((1,3,6,1,2,1,133,2,2))
+mip6SystemGroup=ObjectGroup((1,3,6,1,2,1,133,2,1,1))
+mip6SystemGroup.setObjects(*((_A,_o),(_A,_p)))
+if mibBuilder.loadTexts:mip6SystemGroup.setStatus(_B)
+mip6BindingCacheGroup=ObjectGroup((1,3,6,1,2,1,133,2,1,2))
+mip6BindingCacheGroup.setObjects(*((_A,_H),(_A,_I),(_A,_J),(_A,_q),(_A,_r),(_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_c)))
+if mibBuilder.loadTexts:mip6BindingCacheGroup.setStatus(_B)
+mip6BindingHstGroup=ObjectGroup((1,3,6,1,2,1,133,2,1,3))
+mip6BindingHstGroup.setObjects(*((_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2)))
+if mibBuilder.loadTexts:mip6BindingHstGroup.setStatus(_B)
+mip6TotalTrafficGroup=ObjectGroup((1,3,6,1,2,1,133,2,1,4))
+mip6TotalTrafficGroup.setObjects(*((_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB)))
+if mibBuilder.loadTexts:mip6TotalTrafficGroup.setStatus(_B)
+mip6NodeTrafficGroup=ObjectGroup((1,3,6,1,2,1,133,2,1,5))
+mip6NodeTrafficGroup.setObjects(*((_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK)))
+if mibBuilder.loadTexts:mip6NodeTrafficGroup.setStatus(_B)
+mip6MnSystemGroup=ObjectGroup((1,3,6,1,2,1,133,2,1,6))
+mip6MnSystemGroup.setObjects((_A,_AL))
+if mibBuilder.loadTexts:mip6MnSystemGroup.setStatus(_B)
+mip6MnConfGroup=ObjectGroup((1,3,6,1,2,1,133,2,1,7))
+mip6MnConfGroup.setObjects(*((_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT)))
+if mibBuilder.loadTexts:mip6MnConfGroup.setStatus(_B)
+mip6MnRegistrationGroup=ObjectGroup((1,3,6,1,2,1,133,2,1,8))
+mip6MnRegistrationGroup.setObjects(*((_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am)))
+if mibBuilder.loadTexts:mip6MnRegistrationGroup.setStatus(_B)
+mip6CnStatsGroup=ObjectGroup((1,3,6,1,2,1,133,2,1,9))
+mip6CnStatsGroup.setObjects(*((_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At)))
+if mibBuilder.loadTexts:mip6CnStatsGroup.setStatus(_B)
+mip6HaSystemGroup=ObjectGroup((1,3,6,1,2,1,133,2,1,10))
+mip6HaSystemGroup.setObjects(*((_A,_Au),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_)))
+if mibBuilder.loadTexts:mip6HaSystemGroup.setStatus(_B)
+mip6HaListGroup=ObjectGroup((1,3,6,1,2,1,133,2,1,11))
+mip6HaListGroup.setObjects(*((_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4)))
+if mibBuilder.loadTexts:mip6HaListGroup.setStatus(_B)
+mip6HaStatsGroup=ObjectGroup((1,3,6,1,2,1,133,2,1,12))
+mip6HaStatsGroup.setObjects(*((_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB)))
+if mibBuilder.loadTexts:mip6HaStatsGroup.setStatus(_B)
+mip6CnGlobalStatsGroup=ObjectGroup((1,3,6,1,2,1,133,2,1,13))
+mip6CnGlobalStatsGroup.setObjects(*((_A,_BC),(_A,_BD),(_A,_BE),(_A,_BF),(_A,_BG),(_A,_BH),(_A,_BI),(_A,_BJ),(_A,_BK),(_A,_BL),(_A,_BM),(_A,_BN),(_A,_BO),(_A,_BP),(_A,_BQ),(_A,_BR),(_A,_BS),(_A,_BT)))
+if mibBuilder.loadTexts:mip6CnGlobalStatsGroup.setStatus(_B)
+mip6HaGlobalStatsGroup=ObjectGroup((1,3,6,1,2,1,133,2,1,14))
+mip6HaGlobalStatsGroup.setObjects(*((_A,_BU),(_A,_BV),(_A,_BW),(_A,_BX),(_A,_BY),(_A,_BZ),(_A,_Ba),(_A,_Bb),(_A,_Bc),(_A,_Bd),(_A,_Be),(_A,_Bf),(_A,_Bg),(_A,_Bh),(_A,_Bi),(_A,_Bj),(_A,_Bk)))
+if mibBuilder.loadTexts:mip6HaGlobalStatsGroup.setStatus(_B)
+mip6BindingCacheCtlGroup=ObjectGroup((1,3,6,1,2,1,133,2,1,15))
+mip6BindingCacheCtlGroup.setObjects((_A,_c))
+if mibBuilder.loadTexts:mip6BindingCacheCtlGroup.setStatus(_B)
+mip6MnRegistered=NotificationType((1,3,6,1,2,1,133,0,1))
+mip6MnRegistered.setObjects(*((_A,_J),(_A,_H),(_A,_I)))
+if mibBuilder.loadTexts:mip6MnRegistered.setStatus(_B)
+mip6MnDeRegistered=NotificationType((1,3,6,1,2,1,133,0,2))
+mip6MnDeRegistered.setObjects(*((_A,_J),(_A,_H),(_A,_I)))
+if mibBuilder.loadTexts:mip6MnDeRegistered.setStatus(_B)
+mip6MnCOAChanged=NotificationType((1,3,6,1,2,1,133,0,3))
+mip6MnCOAChanged.setObjects(*((_A,_J),(_A,_H),(_A,_I)))
+if mibBuilder.loadTexts:mip6MnCOAChanged.setStatus(_B)
+mip6MnBindingExpiredAtHA=NotificationType((1,3,6,1,2,1,133,0,4))
+mip6MnBindingExpiredAtHA.setObjects(*((_A,_J),(_A,_H),(_A,_I)))
+if mibBuilder.loadTexts:mip6MnBindingExpiredAtHA.setStatus(_B)
+mip6MnBindingExpiredAtCN=NotificationType((1,3,6,1,2,1,133,0,5))
+mip6MnBindingExpiredAtCN.setObjects(*((_A,_J),(_A,_H),(_A,_I)))
+if mibBuilder.loadTexts:mip6MnBindingExpiredAtCN.setStatus(_B)
+mip6NotificationGroup=NotificationGroup((1,3,6,1,2,1,133,2,1,16))
+mip6NotificationGroup.setObjects(*((_A,_Bl),(_A,_Bm),(_A,_Bn),(_A,_Bo),(_A,_Bp)))
+if mibBuilder.loadTexts:mip6NotificationGroup.setStatus(_B)
+mip6CoreCompliance=ModuleCompliance((1,3,6,1,2,1,133,2,2,1))
+mip6CoreCompliance.setObjects((_A,_K))
+if mibBuilder.loadTexts:mip6CoreCompliance.setStatus(_B)
+mip6Compliance2=ModuleCompliance((1,3,6,1,2,1,133,2,2,2))
+mip6Compliance2.setObjects(*((_A,_K),(_A,_P),(_A,_E)))
+if mibBuilder.loadTexts:mip6Compliance2.setStatus(_B)
+mip6Compliance3=ModuleCompliance((1,3,6,1,2,1,133,2,2,3))
+mip6Compliance3.setObjects(*((_A,_K),(_A,_P),(_A,_d),(_A,_E),(_A,_e)))
+if mibBuilder.loadTexts:mip6Compliance3.setStatus(_B)
+mip6CoreReadOnlyCompliance=ModuleCompliance((1,3,6,1,2,1,133,2,2,4))
+mip6CoreReadOnlyCompliance.setObjects((_A,_K))
+if mibBuilder.loadTexts:mip6CoreReadOnlyCompliance.setStatus(_B)
+mip6ReadOnlyCompliance2=ModuleCompliance((1,3,6,1,2,1,133,2,2,5))
+mip6ReadOnlyCompliance2.setObjects(*((_A,_K),(_A,_P),(_A,_E)))
+if mibBuilder.loadTexts:mip6ReadOnlyCompliance2.setStatus(_B)
+mip6ReadOnlyCompliance3=ModuleCompliance((1,3,6,1,2,1,133,2,2,6))
+mip6ReadOnlyCompliance3.setObjects(*((_A,_K),(_A,_P),(_A,_d),(_A,_E),(_A,_e)))
+if mibBuilder.loadTexts:mip6ReadOnlyCompliance3.setStatus(_B)
+mip6MnCoreCompliance=ModuleCompliance((1,3,6,1,2,1,133,2,2,7))
+mip6MnCoreCompliance.setObjects((_A,_f))
+if mibBuilder.loadTexts:mip6MnCoreCompliance.setStatus(_B)
+mip6MnCompliance2=ModuleCompliance((1,3,6,1,2,1,133,2,2,8))
+mip6MnCompliance2.setObjects(*((_A,_f),(_A,_Bq),(_A,_Br),(_A,_E)))
+if mibBuilder.loadTexts:mip6MnCompliance2.setStatus(_B)
+mip6CnCoreCompliance=ModuleCompliance((1,3,6,1,2,1,133,2,2,9))
+mip6CnCoreCompliance.setObjects(*((_A,_g),(_A,_E)))
+if mibBuilder.loadTexts:mip6CnCoreCompliance.setStatus(_B)
+mip6CnCompliance=ModuleCompliance((1,3,6,1,2,1,133,2,2,10))
+mip6CnCompliance.setObjects(*((_A,_g),(_A,_Bs),(_A,_E)))
+if mibBuilder.loadTexts:mip6CnCompliance.setStatus(_B)
+mip6HaCoreCompliance=ModuleCompliance((1,3,6,1,2,1,133,2,2,11))
+mip6HaCoreCompliance.setObjects((_A,_L))
+if mibBuilder.loadTexts:mip6HaCoreCompliance.setStatus(_B)
+mip6HaCompliance2=ModuleCompliance((1,3,6,1,2,1,133,2,2,12))
+mip6HaCompliance2.setObjects(*((_A,_L),(_A,_Q),(_A,_R),(_A,_S),(_A,_E)))
+if mibBuilder.loadTexts:mip6HaCompliance2.setStatus(_B)
+mip6HaCompliance3=ModuleCompliance((1,3,6,1,2,1,133,2,2,13))
+mip6HaCompliance3.setObjects(*((_A,_L),(_A,_Q),(_A,_R),(_A,_S),(_A,_h),(_A,_E)))
+if mibBuilder.loadTexts:mip6HaCompliance3.setStatus(_B)
+mip6HaCoreReadOnlyCompliance=ModuleCompliance((1,3,6,1,2,1,133,2,2,14))
+mip6HaCoreReadOnlyCompliance.setObjects((_A,_L))
+if mibBuilder.loadTexts:mip6HaCoreReadOnlyCompliance.setStatus(_B)
+mip6HaReadOnlyCompliance2=ModuleCompliance((1,3,6,1,2,1,133,2,2,15))
+mip6HaReadOnlyCompliance2.setObjects(*((_A,_L),(_A,_Q),(_A,_R),(_A,_S),(_A,_E)))
+if mibBuilder.loadTexts:mip6HaReadOnlyCompliance2.setStatus(_B)
+mip6HaReadOnlyCompliance3=ModuleCompliance((1,3,6,1,2,1,133,2,2,16))
+mip6HaReadOnlyCompliance3.setObjects(*((_A,_L),(_A,_Q),(_A,_R),(_A,_S),(_A,_h),(_A,_E)))
+if mibBuilder.loadTexts:mip6HaReadOnlyCompliance3.setStatus(_B)
+mip6NotificationCompliance=ModuleCompliance((1,3,6,1,2,1,133,2,2,17))
+mip6NotificationCompliance.setObjects((_A,_Bt))
+if mibBuilder.loadTexts:mip6NotificationCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'Mip6BURequestRejectionCode':Mip6BURequestRejectionCode,'mip6MIB':mip6MIB,'mip6Notifications':mip6Notifications,_Bl:mip6MnRegistered,_Bm:mip6MnDeRegistered,_Bn:mip6MnCOAChanged,_Bo:mip6MnBindingExpiredAtHA,_Bp:mip6MnBindingExpiredAtCN,'mip6Objects':mip6Objects,'mip6Core':mip6Core,'mip6System':mip6System,_o:mip6Capabilities,_p:mip6Status,'mip6Bindings':mip6Bindings,'mip6BindingCacheTable':mip6BindingCacheTable,'mip6BindingCacheEntry':mip6BindingCacheEntry,_N:mip6BindingHomeAddressType,_O:mip6BindingHomeAddress,_H:mip6BindingCOAType,_I:mip6BindingCOA,_J:mip6BindingTimeRegistered,_q:mip6BindingTimeGranted,_r:mip6BindingTimeRemaining,_t:mip6BindingHomeRegn,_s:mip6BindingMaxSeq,_u:mip6BindingUsageTS,_v:mip6BindingUsageCount,_c:mip6BindingAdminStatus,'mip6BindingHistoryTable':mip6BindingHistoryTable,'mip6BindingHistoryEntry':mip6BindingHistoryEntry,_i:mip6BindingHstHomeAddressType,_j:mip6BindingHstHomeAddress,_k:mip6BindingHstIndex,_w:mip6BindingHstCOAType,_x:mip6BindingHstCOA,_y:mip6BindingHstTimeRegistered,_z:mip6BindingHstTimeExpired,_A0:mip6BindingHstHomeRegn,_A1:mip6BindingHstUsageTS,_A2:mip6BindingHstUsageCount,'mip6Stats':mip6Stats,'mip6TotalTraffic':mip6TotalTraffic,_A3:mip6InOctets,_A4:mip6HCInOctets,_A5:mip6InPkts,_A6:mip6HCInPkts,_A7:mip6OutOctets,_A8:mip6HCOutOctets,_A9:mip6OutPkts,_AA:mip6HCOutPkts,_AB:mip6CounterDiscontinuityTime,'mip6NodeTrafficTable':mip6NodeTrafficTable,'mip6NodeTrafficEntry':mip6NodeTrafficEntry,_AC:mip6NodeInOctets,_AD:mip6HCNodeInOctets,_AE:mip6NodeInPkts,_AF:mip6HCNodeInPkts,_AG:mip6NodeOutOctets,_AH:mip6HCNodeOutOctets,_AI:mip6NodeOutPkts,_AJ:mip6HCNodeOutPkts,_AK:mip6NodeCtrDiscontinuityTime,'mip6Mn':mip6Mn,'mip6MnSystem':mip6MnSystem,'mip6MnHomeAddressTable':mip6MnHomeAddressTable,'mip6MnHomeAddressEntry':mip6MnHomeAddressEntry,_Y:mip6MnHomeAddressType,_Z:mip6MnHomeAddress,_AL:mip6MnHomeAddressState,'mip6MnConf':mip6MnConf,_AM:mip6MnDiscoveryRequests,_AN:mip6MnDiscoveryReplies,_AO:mip6MnDiscoveryTimeouts,_AP:mip6MnPrefixSolicitationsSent,_AQ:mip6MnPrefixAdvsRecd,_AR:mip6MnPrefixAdvsIgnored,_AS:mip6MnMovedToFN,_AT:mip6MnMovedToHN,'mip6MnRegistration':mip6MnRegistration,'mip6MnBLTable':mip6MnBLTable,'mip6MnBLEntry':mip6MnBLEntry,_l:mip6MnBLNodeAddressType,_m:mip6MnBLNodeAddress,_AU:mip6MnBLCOAType,_AV:mip6MnBLCOA,_AW:mip6MnBLLifeTimeRequested,_AX:mip6MnBLLifeTimeGranted,_AY:mip6MnBLMaxSeq,_AZ:mip6MnBLTimeSent,_Aa:mip6MnBLAccepted,_Ab:mip6MnBLAcceptedTime,_Ac:mip6MnBLRetransmissions,_Ad:mip6MnBLDontSendBUFlag,'mip6MnRegnCounters':mip6MnRegnCounters,_Ae:mip6MnMobilityMessagesSent,_Af:mip6MnMobilityMessagesRecd,_Ag:mip6MnBUsToHA,_Ah:mip6MnBUAcksFromHA,_Ai:mip6MnBUsToCN,_Aj:mip6MnBUAcksFromCN,_Ak:mip6MnBindingErrorsFromCN,_Al:mip6MnICMPErrorsRecd,_Am:mip6MnBRRequestsRecd,'mip6Cn':mip6Cn,'mip6CnSystem':mip6CnSystem,'mip6CnStats':mip6CnStats,'mip6CnGlobalStats':mip6CnGlobalStats,_BC:mip6CnHomeTestInitsRecd,_BD:mip6CnHomeTestsSent,_BE:mip6CnCareOfTestInitsRecd,_BF:mip6CnCareOfTestsSent,_BG:mip6CnBUsRecd,_BH:mip6CnBUAcksSent,_BI:mip6CnBRsSent,_BJ:mip6CnBindingErrors,_BK:mip6CnBUsAccepted,_BL:mip6CnBUsRejected,_BM:mip6CnReasonUnspecified,_BN:mip6CnInsufficientResource,_BO:mip6CnHomeRegnNotSupported,_BP:mip6CnSeqNumberOutOfWindow,_BQ:mip6CnExpiredHomeNonceIndex,_BR:mip6CnExpiredCareOfNonceIndex,_BS:mip6CnExpiredNonce,_BT:mip6CnRegTypeChangeDisallowed,'mip6CnCounterTable':mip6CnCounterTable,'mip6CnCounterEntry':mip6CnCounterEntry,_An:mip6CnBURequestsAccepted,_Ao:mip6CnBURequestsRejected,_Ap:mip6CnBCEntryCreationTime,_Aq:mip6CnBUAcceptedTime,_Ar:mip6CnBURejectionTime,_As:mip6CnBURejectionCode,_At:mip6CnCtrDiscontinuityTime,'mip6Ha':mip6Ha,'mip6HaAdvertisement':mip6HaAdvertisement,_Au:mip6HaAdvsRecd,_Av:mip6HaAdvsSent,'mip6HaConfTable':mip6HaConfTable,'mip6HaConfEntry':mip6HaConfEntry,_Aw:mip6HaAdvPreference,_Ax:mip6HaAdvLifetime,_Ay:mip6HaPrefixAdv,_Az:mip6HaPrefixSolicitation,_A_:mip6HaMCastCtlMsgSupport,'mip6HaListTable':mip6HaListTable,'mip6HaListEntry':mip6HaListEntry,_a:mip6HaLinkLocalAddressType,_b:mip6HaLinkLocalAddress,_B0:mip6HaPreference,_B1:mip6HaRecvLifeTime,_B2:mip6HaRecvTimeStamp,'mip6HaGlAddrTable':mip6HaGlAddrTable,'mip6HaGlAddrEntry':mip6HaGlAddrEntry,_n:mip6HaGaAddrSeqNo,_B3:mip6HaGaGlobalAddressType,_B4:mip6HaGaGlobalAddress,'mip6HaStats':mip6HaStats,'mip6HaGlobalStats':mip6HaGlobalStats,_BU:mip6HaHomeTestInitsRecd,_BV:mip6HaHomeTestsSent,_BW:mip6HaBUsRecd,_BX:mip6HaBUAcksSent,_BY:mip6HaBRAdviceSent,_BZ:mip6HaBUsAccepted,_Ba:mip6HaPrefDiscoverReqd,_Bb:mip6HaReasonUnspecified,_Bc:mip6HaAdmProhibited,_Bd:mip6HaInsufficientResource,_Be:mip6HaHomeRegnNotSupported,_Bf:mip6HaNotHomeSubnet,_Bg:mip6HaNotHomeAgentForThisMN,_Bh:mip6HaDupAddrDetectionFailed,_Bi:mip6HaSeqNumberOutOfWindow,_Bj:mip6HaExpiredHomeNonceIndex,_Bk:mip6HaRegTypeChangeDisallowed,'mip6HaCounterTable':mip6HaCounterTable,'mip6HaCounterEntry':mip6HaCounterEntry,_B5:mip6HaBURequestsAccepted,_B6:mip6HaBURequestsDenied,_B7:mip6HaBCEntryCreationTime,_B8:mip6HaBUAcceptedTime,_B9:mip6HaBURejectionTime,_BA:mip6HaRecentBURejectionCode,_BB:mip6HaCtrDiscontinuityTime,'mip6Conformance':mip6Conformance,'mip6Groups':mip6Groups,_K:mip6SystemGroup,_P:mip6BindingCacheGroup,_d:mip6BindingHstGroup,_E:mip6TotalTrafficGroup,_e:mip6NodeTrafficGroup,_f:mip6MnSystemGroup,_Bq:mip6MnConfGroup,_Br:mip6MnRegistrationGroup,_Bs:mip6CnStatsGroup,_L:mip6HaSystemGroup,_Q:mip6HaListGroup,_R:mip6HaStatsGroup,_g:mip6CnGlobalStatsGroup,_S:mip6HaGlobalStatsGroup,_h:mip6BindingCacheCtlGroup,_Bt:mip6NotificationGroup,'mip6Compliances':mip6Compliances,'mip6CoreCompliance':mip6CoreCompliance,'mip6Compliance2':mip6Compliance2,'mip6Compliance3':mip6Compliance3,'mip6CoreReadOnlyCompliance':mip6CoreReadOnlyCompliance,'mip6ReadOnlyCompliance2':mip6ReadOnlyCompliance2,'mip6ReadOnlyCompliance3':mip6ReadOnlyCompliance3,'mip6MnCoreCompliance':mip6MnCoreCompliance,'mip6MnCompliance2':mip6MnCompliance2,'mip6CnCoreCompliance':mip6CnCoreCompliance,'mip6CnCompliance':mip6CnCompliance,'mip6HaCoreCompliance':mip6HaCoreCompliance,'mip6HaCompliance2':mip6HaCompliance2,'mip6HaCompliance3':mip6HaCompliance3,'mip6HaCoreReadOnlyCompliance':mip6HaCoreReadOnlyCompliance,'mip6HaReadOnlyCompliance2':mip6HaReadOnlyCompliance2,'mip6HaReadOnlyCompliance3':mip6HaReadOnlyCompliance3,'mip6NotificationCompliance':mip6NotificationCompliance})

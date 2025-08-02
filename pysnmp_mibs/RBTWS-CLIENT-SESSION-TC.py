@@ -1,0 +1,18 @@
+_B='wired'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+rbtwsMibs,=mibBuilder.importSymbols('RBTWS-ROOT-MIB','rbtwsMibs')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+rbtwsClientSessionTc=ModuleIdentity((1,3,6,1,4,1,52,4,15,1,4,10))
+if mibBuilder.loadTexts:rbtwsClientSessionTc.setRevisions(('2007-10-08 00:10','2006-09-26 00:01'))
+class RbtwsUserAccessType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('mac',1),('web',2),('dot1x',3),('last-resort',4)))
+class RbtwsClientSessionState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11)));namedValues=NamedValues(*(('associated',1),('authorizing',2),('authorized',3),('active',4),('de-associated',5),('roaming-away',6),('updated-to-roam',7),(_B,8),('clearing',9),('invalid',10),('web-authing',11)))
+class RbtwsClientDot1xState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8)));namedValues=NamedValues(*(('initialize',1),('disconnected',2),('connecting',3),('authenticating',4),('authenticated',5),(_B,6),('aborting',7),('held',8)))
+class RbtwsClientAuthenProtocolType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7)));namedValues=NamedValues(*(('none',1),('eap-tls',2),('eap-ttls',3),('md5',4),('peap',5),('leap',6),('pass-through',7)))
+class RbtwsClientAccessMode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('other',1),('ap',2),(_B,3)))
+mibBuilder.exportSymbols('RBTWS-CLIENT-SESSION-TC',**{'RbtwsUserAccessType':RbtwsUserAccessType,'RbtwsClientSessionState':RbtwsClientSessionState,'RbtwsClientDot1xState':RbtwsClientDot1xState,'RbtwsClientAuthenProtocolType':RbtwsClientAuthenProtocolType,'RbtwsClientAccessMode':RbtwsClientAccessMode,'rbtwsClientSessionTc':rbtwsClientSessionTc})

@@ -1,131 +1,323 @@
-#
-# PySNMP MIB module RFC1381-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/RFC1381-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:26:21 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-( PositiveInteger, ) = mibBuilder.importSymbols("RFC1253-MIB", "PositiveInteger")
-( NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-( Integer32, TimeTicks, MibIdentifier, transmission, Counter64, IpAddress, Counter32, Bits, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Unsigned32, ObjectIdentity, ModuleIdentity, Gauge32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "TimeTicks", "MibIdentifier", "transmission", "Counter64", "IpAddress", "Counter32", "Bits", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Unsigned32", "ObjectIdentity", "ModuleIdentity", "Gauge32")
-( DisplayString, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-lapb = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 16))
-class IfIndexType(Integer32):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(1,2147483647)
-
-lapbAdmnTable = MibTable((1, 3, 6, 1, 2, 1, 10, 16, 1), )
-if mibBuilder.loadTexts: lapbAdmnTable.setDescription('This table contains objects that can be\n                          changed to manage a LAPB interface.\n                          Changing one of these parameters may take\n                          effect in the operating LAPB immediately or\n                          may wait until the interface is restarted\n                          depending on the details of the\n                          implementation.\n\n                          Most of the objects in this read-write table\n                          have corresponding read-only objects in the\n                          lapbOperTable that return the current\n                          operating value.\n\n                          The operating values may be different from\n                          these configured values if changed by XID\n                          negotiation or if a configured parameter was\n                          changed after the interface was started.')
-lapbAdmnEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 16, 1, 1), ).setIndexNames((0, "RFC1381-MIB", "lapbAdmnIndex"))
-if mibBuilder.loadTexts: lapbAdmnEntry.setDescription('Configured parameter values for a specific\n                          LAPB.')
-lapbAdmnIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 1, 1, 1), IfIndexType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbAdmnIndex.setDescription('The ifIndex value for the LAPB interface.')
-lapbAdmnStationType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("dte", 1), ("dce", 2), ("dxe", 3),)).clone('dte')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbAdmnStationType.setDescription('Identifies the desired station type of this\n                          interface.')
-lapbAdmnControlField = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("modulo8", 1), ("modulo128", 2),)).clone('modulo8')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbAdmnControlField.setDescription('The desired size of the sequence numbers\n                          used to number frames.')
-lapbAdmnTransmitN1FrameSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 1, 1, 4), PositiveInteger().clone(36000)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbAdmnTransmitN1FrameSize.setDescription('The default maximum N1 frame size desired\n                          in number of bits for a frame transmitted by\n                          this DTE.  This excludes flags and 0 bits\n                          inserted for transparency.')
-lapbAdmnReceiveN1FrameSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 1, 1, 5), PositiveInteger().clone(36000)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbAdmnReceiveN1FrameSize.setDescription('The default maximum N1 frame size desired\n                          in number of bits for a frame the DCE/remote\n                          DTE transmits to this DTE.  This excludes\n                          flags and 0 bits inserted for transparency.')
-lapbAdmnTransmitKWindowSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,127)).clone(7)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbAdmnTransmitKWindowSize.setDescription('The default transmit window size for this\n                          Interface.  This is the maximum number of\n                          unacknowledged sequenced PDUs that may be\n                          outstanding from this DTE at any one time.')
-lapbAdmnReceiveKWindowSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,127)).clone(7)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbAdmnReceiveKWindowSize.setDescription('The default receive window size for this\n                          Interface.  This is the maximum number of\n\n\n                          unacknowledged sequenced PDUs that may be\n                          outstanding from the DCE/remote DTE at any\n                          one time.')
-lapbAdmnN2RxmitCount = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)).clone(20)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbAdmnN2RxmitCount.setDescription('The default N2 retry counter for this\n                          interface.  This specifies the number of\n                          times a PDU will be resent after the T1\n                          timer expires without an acknowledgement for\n                          the PDU.')
-lapbAdmnT1AckTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 1, 1, 9), PositiveInteger().clone(3000)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbAdmnT1AckTimer.setDescription('The default T1 timer for this interface.\n                          This specifies the maximum time in\n                          Milliseconds to wait for acknowledgment of a\n                          PDU.')
-lapbAdmnT2AckDelayTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 1, 1, 10), PositiveInteger()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbAdmnT2AckDelayTimer.setDescription('The default T2 timer for this interface.\n                          This specifies the maximum time in\n                          Milliseconds to wait before sending an\n                          acknowledgment for a sequenced PDU.  A value\n                          of zero means there will be no delay in\n                          acknowledgement generation.')
-lapbAdmnT3DisconnectTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 1, 1, 11), PositiveInteger().clone(60000)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbAdmnT3DisconnectTimer.setDescription('The T3 timer for this interface.  This\n                          specifies the time in Milliseconds to wait\n                          before considering the link disconnected.  A\n                          value of zero indicates the link will be\n                          considered disconnected upon completion of\n                          the frame exchange to disconnect the link.')
-lapbAdmnT4IdleTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 1, 1, 12), PositiveInteger().clone(2147483647)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbAdmnT4IdleTimer.setDescription('The T4 timer for this interface.  This\n                          specifies the maximum time in Milliseconds\n                          to allow without frames being exchanged on\n                          the data link.  A value of 2147483647\n                          indicates no idle timer is being kept.')
-lapbAdmnActionInitiate = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("sendSABM", 1), ("sendDISC", 2), ("sendDM", 3), ("none", 4), ("other", 5),)).clone('sendSABM')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbAdmnActionInitiate.setDescription('This identifies the action LAPB will take\n                          to initiate link set-up.')
-lapbAdmnActionRecvDM = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("sendSABM", 1), ("sendDISC", 2), ("other", 3),)).clone('sendSABM')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbAdmnActionRecvDM.setDescription('This identifies the action LAPB will take\n                          when it receives a DM response.')
-lapbOperTable = MibTable((1, 3, 6, 1, 2, 1, 10, 16, 2), )
-if mibBuilder.loadTexts: lapbOperTable.setDescription('This table contains configuration\n                          information about interface parameters\n                          currently set in the interface.  Many of\n                          these objects have corresponding objects in\n                  the lapbAdmnTable.')
-lapbOperEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 16, 2, 1), ).setIndexNames((0, "RFC1381-MIB", "lapbOperIndex"))
-if mibBuilder.loadTexts: lapbOperEntry.setDescription('Currently set parameter values for a\n                          specific LAPB.')
-lapbOperIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 2, 1, 1), IfIndexType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbOperIndex.setDescription('The ifIndex value for the LAPB interface.')
-lapbOperStationType = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("dte", 1), ("dce", 2), ("dxe", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbOperStationType.setDescription('Identifies the current operating station\n                          type of this interface.  A value of dxe (3)\n                          indicates XID negotiation has not yet taken\n                          place.')
-lapbOperControlField = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("modulo8", 1), ("modulo128", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbOperControlField.setDescription('The current operating size of the sequence\n                          numbers used to number frames.')
-lapbOperTransmitN1FrameSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 2, 1, 4), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbOperTransmitN1FrameSize.setDescription('The current operating N1 frame size used\n                          for the maximum number of bits in a frame\n                          this DTE can transmit.  This excludes flags\n                          and 0 bits inserted for transparency.')
-lapbOperReceiveN1FrameSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 2, 1, 5), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbOperReceiveN1FrameSize.setDescription('The current operating N1 frame size used\n                          for the maximum number of bits in a frame\n                          the DCE/remote DTE can transmit.  This\n                          excludes flags and 0 bits inserted for\n                          transparency.')
-lapbOperTransmitKWindowSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,127))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbOperTransmitKWindowSize.setDescription('The current PDU window size this Interface\n                          uses to transmit.  This is the maximum\n\n\n                          number of unacknowledged sequenced PDUs that\n                          may be outstanding from this DTE at any one\n                          time.')
-lapbOperReceiveKWindowSize = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,127))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbOperReceiveKWindowSize.setDescription('The current receive PDU window size for\n                          this Interface.  This is the maximum number\n                          of unacknowledged sequenced PDUs that may be\n                          outstanding from the DCE/remote DTE at any\n                          one time.')
-lapbOperN2RxmitCount = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbOperN2RxmitCount.setDescription('The current N2 retry counter used for this\n                          interface.  This specifies the number of\n                          times a PDU will be resent after the T1\n                          timer expires without an acknowledgement for\n                          the PDU.')
-lapbOperT1AckTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 2, 1, 9), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbOperT1AckTimer.setDescription('The current T1 timer for this interface.\n                          This specifies the maximum time in\n                          Milliseconds to wait for acknowledgment of a\n                          PDU.')
-lapbOperT2AckDelayTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 2, 1, 10), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbOperT2AckDelayTimer.setDescription('The current T2 timer for this interface.\n                          This specifies the maximum time in\n                          Milliseconds to wait before sending an\n                          acknowledgment for a sequenced PDU.  A value\n                          of zero means there will be no delay in\n                          acknowledgement generation.')
-lapbOperT3DisconnectTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 2, 1, 11), PositiveInteger()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbOperT3DisconnectTimer.setDescription('The current T3 timer for this interface.\n                          This specifies the time in Milliseconds to\n                          wait before considering the link\n                          disconnected.  A value of zero indicates the\n                          link will be considered disconnected upon\n                          completion of the frame exchange to\n                          disconnect the link.')
-lapbOperT4IdleTimer = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 2, 1, 12), PositiveInteger()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbOperT4IdleTimer.setDescription('The current T4 timer for this interface.\n                          This specifies the maximum time in\n                          Milliseconds to allow without frames being\n                          exchanged on the data link.  A value of\n                          2147483647 indicates no idle timer is being\n                          kept.')
-lapbOperPortId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 2, 1, 13), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbOperPortId.setDescription('This object identifies an instance of the\n                          index object in the first group of objects\n                          in the MIB specific to the physical device\n                          or interface used to send and receive\n\n\n                          frames.  If an agent does not support any\n                          such objects, it should return nullSpec\n                          OBJECT IDENTIFIER {0 0}.')
-lapbOperProtocolVersionId = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 2, 1, 14), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbOperProtocolVersionId.setDescription('This object identifies the version of the\n                          lapb protocol implemented by this\n                          interface.')
-lapbFlowTable = MibTable((1, 3, 6, 1, 2, 1, 10, 16, 3), )
-if mibBuilder.loadTexts: lapbFlowTable.setDescription('This table defines the objects recorded by\n                          LAPB to provide information about the\n                          traffic flow through the interface.')
-lapbFlowEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 16, 3, 1), ).setIndexNames((0, "RFC1381-MIB", "lapbFlowIfIndex"))
-if mibBuilder.loadTexts: lapbFlowEntry.setDescription('The information regarding the effects of\n                          flow controls in LAPB.')
-lapbFlowIfIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 3, 1, 1), IfIndexType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbFlowIfIndex.setDescription('The ifIndex value for the LAPB Interface.')
-lapbFlowStateChanges = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 3, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbFlowStateChanges.setDescription('The number of LAPB State Changes, including\n                          resets.')
-lapbFlowChangeReason = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,))).clone(namedValues=NamedValues(("notStarted", 1), ("abmEntered", 2), ("abmeEntered", 3), ("abmReset", 4), ("abmeReset", 5), ("dmReceived", 6), ("dmSent", 7), ("discReceived", 8), ("discSent", 9), ("frmrReceived", 10), ("frmrSent", 11), ("n2Timeout", 12), ("other", 13),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbFlowChangeReason.setDescription('The reason for the most recent incrementing\n                          of lapbFlowStateChanges.  A DM or DISC frame\n                          generated to initiate link set-up does not\n                          alter this object.  When the MIB-II object\n                          ifOperStatus does not have a value of\n                          testing, there exists a correlation between\n                          this object and ifOperStatus.  IfOperStatus\n                          will have a value of up when this object\n                          contains:  abmEntered, abmeEntered,\n                          abmReset, or abmeReset.  IfOperStatus will\n                          have a value of down when this object has a\n                          value of notStarted, or dmReceived through\n                          n2Timeout.  There is no correlation when\n                          this object has the value other.')
-lapbFlowCurrentMode = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,))).clone(namedValues=NamedValues(("disconnected", 1), ("linkSetup", 2), ("frameReject", 3), ("disconnectRequest", 4), ("informationTransfer", 5), ("rejFrameSent", 6), ("waitingAcknowledgement", 7), ("stationBusy", 8), ("remoteStationBusy", 9), ("bothStationsBusy", 10), ("waitingAckStationBusy", 11), ("waitingAckRemoteBusy", 12), ("waitingAckBothBusy", 13), ("rejFrameSentRemoteBusy", 14), ("xidFrameSent", 15), ("error", 16), ("other", 17),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbFlowCurrentMode.setDescription('The current condition of the conversation.')
-lapbFlowBusyDefers = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 3, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbFlowBusyDefers.setDescription('The number of times this device was unable\n                          to transmit a frame due to a perceived\n                          remote busy condition.  Busy conditions can\n\n\n                          result from the receipt of an RNR from the\n                          remote device, the lack of valid sequence\n                          number space (window saturation), or other\n                          conditions.')
-lapbFlowRejOutPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 3, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbFlowRejOutPkts.setDescription('The number of REJ or SREJ frames sent by\n                          this station.')
-lapbFlowRejInPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 3, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbFlowRejInPkts.setDescription('The number of REJ or SREJ frames received\n                          by this station.')
-lapbFlowT1Timeouts = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 3, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbFlowT1Timeouts.setDescription('The number of times a re-transmission was\n                          effected by the T1 Timer expiring.')
-lapbFlowFrmrSent = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 3, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,7))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbFlowFrmrSent.setDescription("The Information Field of the FRMR most\n                          recently sent.  If no FRMR has been sent\n                          (the normal case) or the information isn't\n                          available, this will be an OCTET STRING of\n                          zero length.")
-lapbFlowFrmrReceived = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 3, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,7))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbFlowFrmrReceived.setDescription("The Information Field of the FRMR most\n                          recently received.  If no FRMR has been\n                          received (the normal case) or the\n                          information isn't available, this will be an\n                          OCTET STRING of zero length.")
-lapbFlowXidReceived = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 3, 1, 11), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,8206))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbFlowXidReceived.setDescription('The Information Field of the XID frame most\n                          recently received.  If no XID frame has been\n                          received, this will be an OCTET STRING of\n                          zero length.')
-lapbXidTable = MibTable((1, 3, 6, 1, 2, 1, 10, 16, 4), )
-if mibBuilder.loadTexts: lapbXidTable.setDescription("This table defines values to use for XID\n                          negotiation that are not found in the\n                          lapbAdmnTable.  This table is optional for\n                          implementations that don't support XID and\n                          mandatory for implementations that do\n                          initiate XID negotiation.")
-lapbXidEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 16, 4, 1), ).setIndexNames((0, "RFC1381-MIB", "lapbXidIndex"))
-if mibBuilder.loadTexts: lapbXidEntry.setDescription('XId negotiation parameter values for a\n                          specific LAPB.')
-lapbXidIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 4, 1, 1), IfIndexType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lapbXidIndex.setDescription('The ifIndex value for the LAPB interface.')
-lapbXidAdRIdentifier = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 4, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbXidAdRIdentifier.setDescription('The value of the Address Resolution\n                          Identifier.  A zero length string indicates\n                          no Identifier value has been assigned.')
-lapbXidAdRAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 4, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbXidAdRAddress.setDescription('The value of the Address Resolution\n                          Address.  A zero length string indicates no\n                          Address value has been assigned.')
-lapbXidParameterUniqueIdentifier = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 4, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbXidParameterUniqueIdentifier.setDescription('The value of the parameter unique\n                          Identifier.  A zero length string indicates\n                          no Unique identifier value has been\n                          assigned.')
-lapbXidGroupAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 4, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbXidGroupAddress.setDescription('The value of the parameter Group address.\n                          A zero length string indicates no Group\n                          address value has been assigned.')
-lapbXidPortNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 4, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbXidPortNumber.setDescription('The port number assigned for this link.  A\n                          zero length string indicates no local port\n                          number identifier has been assigned.')
-lapbXidUserDataSubfield = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 16, 4, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,8206)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lapbXidUserDataSubfield.setDescription('A user data subfield, if any, to be\n                          transmitted in an XID frame.  A zero length\n                          frame indicates no user data subfield has\n                          been assigned.  The octet string should\n                          include both the User data identifier and\n                          User data field as shown in Figures 1 and\n                          4.')
-lapbProtocolVersion = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 16, 5))
-lapbProtocolIso7776v1986 = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 16, 5, 1))
-lapbProtocolCcittV1980 = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 16, 5, 2))
-lapbProtocolCcittV1984 = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 16, 5, 3))
-mibBuilder.exportSymbols("RFC1381-MIB", lapbXidPortNumber=lapbXidPortNumber, lapbOperTransmitN1FrameSize=lapbOperTransmitN1FrameSize, lapbProtocolCcittV1984=lapbProtocolCcittV1984, lapbOperT4IdleTimer=lapbOperT4IdleTimer, lapbAdmnReceiveKWindowSize=lapbAdmnReceiveKWindowSize, lapbFlowTable=lapbFlowTable, lapbAdmnN2RxmitCount=lapbAdmnN2RxmitCount, lapbAdmnT3DisconnectTimer=lapbAdmnT3DisconnectTimer, lapbAdmnT4IdleTimer=lapbAdmnT4IdleTimer, lapbFlowFrmrSent=lapbFlowFrmrSent, lapbAdmnControlField=lapbAdmnControlField, lapbOperPortId=lapbOperPortId, lapbOperIndex=lapbOperIndex, lapbAdmnTransmitKWindowSize=lapbAdmnTransmitKWindowSize, lapbOperTransmitKWindowSize=lapbOperTransmitKWindowSize, lapbFlowStateChanges=lapbFlowStateChanges, lapbAdmnEntry=lapbAdmnEntry, lapbXidIndex=lapbXidIndex, lapbAdmnReceiveN1FrameSize=lapbAdmnReceiveN1FrameSize, lapbFlowT1Timeouts=lapbFlowT1Timeouts, lapbOperReceiveN1FrameSize=lapbOperReceiveN1FrameSize, lapbFlowEntry=lapbFlowEntry, lapbXidTable=lapbXidTable, lapbProtocolCcittV1980=lapbProtocolCcittV1980, lapbAdmnIndex=lapbAdmnIndex, lapbAdmnTransmitN1FrameSize=lapbAdmnTransmitN1FrameSize, lapbFlowRejOutPkts=lapbFlowRejOutPkts, lapbFlowFrmrReceived=lapbFlowFrmrReceived, lapbXidUserDataSubfield=lapbXidUserDataSubfield, lapbOperT2AckDelayTimer=lapbOperT2AckDelayTimer, lapbXidGroupAddress=lapbXidGroupAddress, lapbFlowChangeReason=lapbFlowChangeReason, lapbFlowRejInPkts=lapbFlowRejInPkts, lapbAdmnActionRecvDM=lapbAdmnActionRecvDM, lapbOperProtocolVersionId=lapbOperProtocolVersionId, lapbFlowBusyDefers=lapbFlowBusyDefers, lapbFlowCurrentMode=lapbFlowCurrentMode, lapbFlowXidReceived=lapbFlowXidReceived, lapb=lapb, lapbOperN2RxmitCount=lapbOperN2RxmitCount, lapbAdmnT2AckDelayTimer=lapbAdmnT2AckDelayTimer, lapbOperT3DisconnectTimer=lapbOperT3DisconnectTimer, lapbXidEntry=lapbXidEntry, lapbOperReceiveKWindowSize=lapbOperReceiveKWindowSize, IfIndexType=IfIndexType, lapbAdmnActionInitiate=lapbAdmnActionInitiate, lapbProtocolVersion=lapbProtocolVersion, lapbAdmnStationType=lapbAdmnStationType, lapbAdmnT1AckTimer=lapbAdmnT1AckTimer, lapbXidAdRIdentifier=lapbXidAdRIdentifier, lapbOperControlField=lapbOperControlField, lapbOperT1AckTimer=lapbOperT1AckTimer, lapbFlowIfIndex=lapbFlowIfIndex, lapbXidParameterUniqueIdentifier=lapbXidParameterUniqueIdentifier, lapbOperEntry=lapbOperEntry, lapbXidAdRAddress=lapbXidAdRAddress, lapbProtocolIso7776v1986=lapbProtocolIso7776v1986, lapbAdmnTable=lapbAdmnTable, lapbOperTable=lapbOperTable, lapbOperStationType=lapbOperStationType)
+_P='lapbXidIndex'
+_O='lapbFlowIfIndex'
+_N='lapbOperIndex'
+_M='sendDISC'
+_L='sendSABM'
+_K='modulo128'
+_J='modulo8'
+_I='lapbAdmnIndex'
+_H='other'
+_G='RFC1381-MIB'
+_F='PositiveInteger'
+_E='OctetString'
+_D='Integer32'
+_C='read-write'
+_B='read-only'
+_A='mandatory'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_E,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,transmission=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','transmission')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+class PositiveInteger(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+class IfIndexType(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_Lapb_ObjectIdentity=ObjectIdentity
+lapb=_Lapb_ObjectIdentity((1,3,6,1,2,1,10,16))
+_LapbAdmnTable_Object=MibTable
+lapbAdmnTable=_LapbAdmnTable_Object((1,3,6,1,2,1,10,16,1))
+if mibBuilder.loadTexts:lapbAdmnTable.setStatus(_A)
+_LapbAdmnEntry_Object=MibTableRow
+lapbAdmnEntry=_LapbAdmnEntry_Object((1,3,6,1,2,1,10,16,1,1))
+lapbAdmnEntry.setIndexNames((0,_G,_I))
+if mibBuilder.loadTexts:lapbAdmnEntry.setStatus(_A)
+_LapbAdmnIndex_Type=IfIndexType
+_LapbAdmnIndex_Object=MibTableColumn
+lapbAdmnIndex=_LapbAdmnIndex_Object((1,3,6,1,2,1,10,16,1,1,1),_LapbAdmnIndex_Type())
+lapbAdmnIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbAdmnIndex.setStatus(_A)
+class _LapbAdmnStationType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('dte',1),('dce',2),('dxe',3)))
+_LapbAdmnStationType_Type.__name__=_D
+_LapbAdmnStationType_Object=MibTableColumn
+lapbAdmnStationType=_LapbAdmnStationType_Object((1,3,6,1,2,1,10,16,1,1,2),_LapbAdmnStationType_Type())
+lapbAdmnStationType.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbAdmnStationType.setStatus(_A)
+class _LapbAdmnControlField_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_J,1),(_K,2)))
+_LapbAdmnControlField_Type.__name__=_D
+_LapbAdmnControlField_Object=MibTableColumn
+lapbAdmnControlField=_LapbAdmnControlField_Object((1,3,6,1,2,1,10,16,1,1,3),_LapbAdmnControlField_Type())
+lapbAdmnControlField.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbAdmnControlField.setStatus(_A)
+class _LapbAdmnTransmitN1FrameSize_Type(PositiveInteger):defaultValue=36000
+_LapbAdmnTransmitN1FrameSize_Type.__name__=_F
+_LapbAdmnTransmitN1FrameSize_Object=MibTableColumn
+lapbAdmnTransmitN1FrameSize=_LapbAdmnTransmitN1FrameSize_Object((1,3,6,1,2,1,10,16,1,1,4),_LapbAdmnTransmitN1FrameSize_Type())
+lapbAdmnTransmitN1FrameSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbAdmnTransmitN1FrameSize.setStatus(_A)
+class _LapbAdmnReceiveN1FrameSize_Type(PositiveInteger):defaultValue=36000
+_LapbAdmnReceiveN1FrameSize_Type.__name__=_F
+_LapbAdmnReceiveN1FrameSize_Object=MibTableColumn
+lapbAdmnReceiveN1FrameSize=_LapbAdmnReceiveN1FrameSize_Object((1,3,6,1,2,1,10,16,1,1,5),_LapbAdmnReceiveN1FrameSize_Type())
+lapbAdmnReceiveN1FrameSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbAdmnReceiveN1FrameSize.setStatus(_A)
+class _LapbAdmnTransmitKWindowSize_Type(Integer32):defaultValue=7;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,127))
+_LapbAdmnTransmitKWindowSize_Type.__name__=_D
+_LapbAdmnTransmitKWindowSize_Object=MibTableColumn
+lapbAdmnTransmitKWindowSize=_LapbAdmnTransmitKWindowSize_Object((1,3,6,1,2,1,10,16,1,1,6),_LapbAdmnTransmitKWindowSize_Type())
+lapbAdmnTransmitKWindowSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbAdmnTransmitKWindowSize.setStatus(_A)
+class _LapbAdmnReceiveKWindowSize_Type(Integer32):defaultValue=7;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,127))
+_LapbAdmnReceiveKWindowSize_Type.__name__=_D
+_LapbAdmnReceiveKWindowSize_Object=MibTableColumn
+lapbAdmnReceiveKWindowSize=_LapbAdmnReceiveKWindowSize_Object((1,3,6,1,2,1,10,16,1,1,7),_LapbAdmnReceiveKWindowSize_Type())
+lapbAdmnReceiveKWindowSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbAdmnReceiveKWindowSize.setStatus(_A)
+class _LapbAdmnN2RxmitCount_Type(Integer32):defaultValue=20;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_LapbAdmnN2RxmitCount_Type.__name__=_D
+_LapbAdmnN2RxmitCount_Object=MibTableColumn
+lapbAdmnN2RxmitCount=_LapbAdmnN2RxmitCount_Object((1,3,6,1,2,1,10,16,1,1,8),_LapbAdmnN2RxmitCount_Type())
+lapbAdmnN2RxmitCount.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbAdmnN2RxmitCount.setStatus(_A)
+class _LapbAdmnT1AckTimer_Type(PositiveInteger):defaultValue=3000
+_LapbAdmnT1AckTimer_Type.__name__=_F
+_LapbAdmnT1AckTimer_Object=MibTableColumn
+lapbAdmnT1AckTimer=_LapbAdmnT1AckTimer_Object((1,3,6,1,2,1,10,16,1,1,9),_LapbAdmnT1AckTimer_Type())
+lapbAdmnT1AckTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbAdmnT1AckTimer.setStatus(_A)
+class _LapbAdmnT2AckDelayTimer_Type(PositiveInteger):defaultValue=0
+_LapbAdmnT2AckDelayTimer_Type.__name__=_F
+_LapbAdmnT2AckDelayTimer_Object=MibTableColumn
+lapbAdmnT2AckDelayTimer=_LapbAdmnT2AckDelayTimer_Object((1,3,6,1,2,1,10,16,1,1,10),_LapbAdmnT2AckDelayTimer_Type())
+lapbAdmnT2AckDelayTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbAdmnT2AckDelayTimer.setStatus(_A)
+class _LapbAdmnT3DisconnectTimer_Type(PositiveInteger):defaultValue=60000
+_LapbAdmnT3DisconnectTimer_Type.__name__=_F
+_LapbAdmnT3DisconnectTimer_Object=MibTableColumn
+lapbAdmnT3DisconnectTimer=_LapbAdmnT3DisconnectTimer_Object((1,3,6,1,2,1,10,16,1,1,11),_LapbAdmnT3DisconnectTimer_Type())
+lapbAdmnT3DisconnectTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbAdmnT3DisconnectTimer.setStatus(_A)
+class _LapbAdmnT4IdleTimer_Type(PositiveInteger):defaultValue=2147483647
+_LapbAdmnT4IdleTimer_Type.__name__=_F
+_LapbAdmnT4IdleTimer_Object=MibTableColumn
+lapbAdmnT4IdleTimer=_LapbAdmnT4IdleTimer_Object((1,3,6,1,2,1,10,16,1,1,12),_LapbAdmnT4IdleTimer_Type())
+lapbAdmnT4IdleTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbAdmnT4IdleTimer.setStatus(_A)
+class _LapbAdmnActionInitiate_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_L,1),(_M,2),('sendDM',3),('none',4),(_H,5)))
+_LapbAdmnActionInitiate_Type.__name__=_D
+_LapbAdmnActionInitiate_Object=MibTableColumn
+lapbAdmnActionInitiate=_LapbAdmnActionInitiate_Object((1,3,6,1,2,1,10,16,1,1,13),_LapbAdmnActionInitiate_Type())
+lapbAdmnActionInitiate.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbAdmnActionInitiate.setStatus(_A)
+class _LapbAdmnActionRecvDM_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_L,1),(_M,2),(_H,3)))
+_LapbAdmnActionRecvDM_Type.__name__=_D
+_LapbAdmnActionRecvDM_Object=MibTableColumn
+lapbAdmnActionRecvDM=_LapbAdmnActionRecvDM_Object((1,3,6,1,2,1,10,16,1,1,14),_LapbAdmnActionRecvDM_Type())
+lapbAdmnActionRecvDM.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbAdmnActionRecvDM.setStatus(_A)
+_LapbOperTable_Object=MibTable
+lapbOperTable=_LapbOperTable_Object((1,3,6,1,2,1,10,16,2))
+if mibBuilder.loadTexts:lapbOperTable.setStatus(_A)
+_LapbOperEntry_Object=MibTableRow
+lapbOperEntry=_LapbOperEntry_Object((1,3,6,1,2,1,10,16,2,1))
+lapbOperEntry.setIndexNames((0,_G,_N))
+if mibBuilder.loadTexts:lapbOperEntry.setStatus(_A)
+_LapbOperIndex_Type=IfIndexType
+_LapbOperIndex_Object=MibTableColumn
+lapbOperIndex=_LapbOperIndex_Object((1,3,6,1,2,1,10,16,2,1,1),_LapbOperIndex_Type())
+lapbOperIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbOperIndex.setStatus(_A)
+class _LapbOperStationType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('dte',1),('dce',2),('dxe',3)))
+_LapbOperStationType_Type.__name__=_D
+_LapbOperStationType_Object=MibTableColumn
+lapbOperStationType=_LapbOperStationType_Object((1,3,6,1,2,1,10,16,2,1,2),_LapbOperStationType_Type())
+lapbOperStationType.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbOperStationType.setStatus(_A)
+class _LapbOperControlField_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_J,1),(_K,2)))
+_LapbOperControlField_Type.__name__=_D
+_LapbOperControlField_Object=MibTableColumn
+lapbOperControlField=_LapbOperControlField_Object((1,3,6,1,2,1,10,16,2,1,3),_LapbOperControlField_Type())
+lapbOperControlField.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbOperControlField.setStatus(_A)
+_LapbOperTransmitN1FrameSize_Type=PositiveInteger
+_LapbOperTransmitN1FrameSize_Object=MibTableColumn
+lapbOperTransmitN1FrameSize=_LapbOperTransmitN1FrameSize_Object((1,3,6,1,2,1,10,16,2,1,4),_LapbOperTransmitN1FrameSize_Type())
+lapbOperTransmitN1FrameSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbOperTransmitN1FrameSize.setStatus(_A)
+_LapbOperReceiveN1FrameSize_Type=PositiveInteger
+_LapbOperReceiveN1FrameSize_Object=MibTableColumn
+lapbOperReceiveN1FrameSize=_LapbOperReceiveN1FrameSize_Object((1,3,6,1,2,1,10,16,2,1,5),_LapbOperReceiveN1FrameSize_Type())
+lapbOperReceiveN1FrameSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbOperReceiveN1FrameSize.setStatus(_A)
+class _LapbOperTransmitKWindowSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,127))
+_LapbOperTransmitKWindowSize_Type.__name__=_D
+_LapbOperTransmitKWindowSize_Object=MibTableColumn
+lapbOperTransmitKWindowSize=_LapbOperTransmitKWindowSize_Object((1,3,6,1,2,1,10,16,2,1,6),_LapbOperTransmitKWindowSize_Type())
+lapbOperTransmitKWindowSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbOperTransmitKWindowSize.setStatus(_A)
+class _LapbOperReceiveKWindowSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,127))
+_LapbOperReceiveKWindowSize_Type.__name__=_D
+_LapbOperReceiveKWindowSize_Object=MibTableColumn
+lapbOperReceiveKWindowSize=_LapbOperReceiveKWindowSize_Object((1,3,6,1,2,1,10,16,2,1,7),_LapbOperReceiveKWindowSize_Type())
+lapbOperReceiveKWindowSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbOperReceiveKWindowSize.setStatus(_A)
+class _LapbOperN2RxmitCount_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_LapbOperN2RxmitCount_Type.__name__=_D
+_LapbOperN2RxmitCount_Object=MibTableColumn
+lapbOperN2RxmitCount=_LapbOperN2RxmitCount_Object((1,3,6,1,2,1,10,16,2,1,8),_LapbOperN2RxmitCount_Type())
+lapbOperN2RxmitCount.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbOperN2RxmitCount.setStatus(_A)
+_LapbOperT1AckTimer_Type=PositiveInteger
+_LapbOperT1AckTimer_Object=MibTableColumn
+lapbOperT1AckTimer=_LapbOperT1AckTimer_Object((1,3,6,1,2,1,10,16,2,1,9),_LapbOperT1AckTimer_Type())
+lapbOperT1AckTimer.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbOperT1AckTimer.setStatus(_A)
+_LapbOperT2AckDelayTimer_Type=PositiveInteger
+_LapbOperT2AckDelayTimer_Object=MibTableColumn
+lapbOperT2AckDelayTimer=_LapbOperT2AckDelayTimer_Object((1,3,6,1,2,1,10,16,2,1,10),_LapbOperT2AckDelayTimer_Type())
+lapbOperT2AckDelayTimer.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbOperT2AckDelayTimer.setStatus(_A)
+_LapbOperT3DisconnectTimer_Type=PositiveInteger
+_LapbOperT3DisconnectTimer_Object=MibTableColumn
+lapbOperT3DisconnectTimer=_LapbOperT3DisconnectTimer_Object((1,3,6,1,2,1,10,16,2,1,11),_LapbOperT3DisconnectTimer_Type())
+lapbOperT3DisconnectTimer.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbOperT3DisconnectTimer.setStatus(_A)
+_LapbOperT4IdleTimer_Type=PositiveInteger
+_LapbOperT4IdleTimer_Object=MibTableColumn
+lapbOperT4IdleTimer=_LapbOperT4IdleTimer_Object((1,3,6,1,2,1,10,16,2,1,12),_LapbOperT4IdleTimer_Type())
+lapbOperT4IdleTimer.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbOperT4IdleTimer.setStatus(_A)
+_LapbOperPortId_Type=ObjectIdentifier
+_LapbOperPortId_Object=MibTableColumn
+lapbOperPortId=_LapbOperPortId_Object((1,3,6,1,2,1,10,16,2,1,13),_LapbOperPortId_Type())
+lapbOperPortId.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbOperPortId.setStatus(_A)
+_LapbOperProtocolVersionId_Type=ObjectIdentifier
+_LapbOperProtocolVersionId_Object=MibTableColumn
+lapbOperProtocolVersionId=_LapbOperProtocolVersionId_Object((1,3,6,1,2,1,10,16,2,1,14),_LapbOperProtocolVersionId_Type())
+lapbOperProtocolVersionId.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbOperProtocolVersionId.setStatus(_A)
+_LapbFlowTable_Object=MibTable
+lapbFlowTable=_LapbFlowTable_Object((1,3,6,1,2,1,10,16,3))
+if mibBuilder.loadTexts:lapbFlowTable.setStatus(_A)
+_LapbFlowEntry_Object=MibTableRow
+lapbFlowEntry=_LapbFlowEntry_Object((1,3,6,1,2,1,10,16,3,1))
+lapbFlowEntry.setIndexNames((0,_G,_O))
+if mibBuilder.loadTexts:lapbFlowEntry.setStatus(_A)
+_LapbFlowIfIndex_Type=IfIndexType
+_LapbFlowIfIndex_Object=MibTableColumn
+lapbFlowIfIndex=_LapbFlowIfIndex_Object((1,3,6,1,2,1,10,16,3,1,1),_LapbFlowIfIndex_Type())
+lapbFlowIfIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbFlowIfIndex.setStatus(_A)
+_LapbFlowStateChanges_Type=Counter32
+_LapbFlowStateChanges_Object=MibTableColumn
+lapbFlowStateChanges=_LapbFlowStateChanges_Object((1,3,6,1,2,1,10,16,3,1,2),_LapbFlowStateChanges_Type())
+lapbFlowStateChanges.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbFlowStateChanges.setStatus(_A)
+class _LapbFlowChangeReason_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13)));namedValues=NamedValues(*(('notStarted',1),('abmEntered',2),('abmeEntered',3),('abmReset',4),('abmeReset',5),('dmReceived',6),('dmSent',7),('discReceived',8),('discSent',9),('frmrReceived',10),('frmrSent',11),('n2Timeout',12),(_H,13)))
+_LapbFlowChangeReason_Type.__name__=_D
+_LapbFlowChangeReason_Object=MibTableColumn
+lapbFlowChangeReason=_LapbFlowChangeReason_Object((1,3,6,1,2,1,10,16,3,1,3),_LapbFlowChangeReason_Type())
+lapbFlowChangeReason.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbFlowChangeReason.setStatus(_A)
+class _LapbFlowCurrentMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17)));namedValues=NamedValues(*(('disconnected',1),('linkSetup',2),('frameReject',3),('disconnectRequest',4),('informationTransfer',5),('rejFrameSent',6),('waitingAcknowledgement',7),('stationBusy',8),('remoteStationBusy',9),('bothStationsBusy',10),('waitingAckStationBusy',11),('waitingAckRemoteBusy',12),('waitingAckBothBusy',13),('rejFrameSentRemoteBusy',14),('xidFrameSent',15),('error',16),(_H,17)))
+_LapbFlowCurrentMode_Type.__name__=_D
+_LapbFlowCurrentMode_Object=MibTableColumn
+lapbFlowCurrentMode=_LapbFlowCurrentMode_Object((1,3,6,1,2,1,10,16,3,1,4),_LapbFlowCurrentMode_Type())
+lapbFlowCurrentMode.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbFlowCurrentMode.setStatus(_A)
+_LapbFlowBusyDefers_Type=Counter32
+_LapbFlowBusyDefers_Object=MibTableColumn
+lapbFlowBusyDefers=_LapbFlowBusyDefers_Object((1,3,6,1,2,1,10,16,3,1,5),_LapbFlowBusyDefers_Type())
+lapbFlowBusyDefers.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbFlowBusyDefers.setStatus(_A)
+_LapbFlowRejOutPkts_Type=Counter32
+_LapbFlowRejOutPkts_Object=MibTableColumn
+lapbFlowRejOutPkts=_LapbFlowRejOutPkts_Object((1,3,6,1,2,1,10,16,3,1,6),_LapbFlowRejOutPkts_Type())
+lapbFlowRejOutPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbFlowRejOutPkts.setStatus(_A)
+_LapbFlowRejInPkts_Type=Counter32
+_LapbFlowRejInPkts_Object=MibTableColumn
+lapbFlowRejInPkts=_LapbFlowRejInPkts_Object((1,3,6,1,2,1,10,16,3,1,7),_LapbFlowRejInPkts_Type())
+lapbFlowRejInPkts.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbFlowRejInPkts.setStatus(_A)
+_LapbFlowT1Timeouts_Type=Counter32
+_LapbFlowT1Timeouts_Object=MibTableColumn
+lapbFlowT1Timeouts=_LapbFlowT1Timeouts_Object((1,3,6,1,2,1,10,16,3,1,8),_LapbFlowT1Timeouts_Type())
+lapbFlowT1Timeouts.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbFlowT1Timeouts.setStatus(_A)
+class _LapbFlowFrmrSent_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,7))
+_LapbFlowFrmrSent_Type.__name__=_E
+_LapbFlowFrmrSent_Object=MibTableColumn
+lapbFlowFrmrSent=_LapbFlowFrmrSent_Object((1,3,6,1,2,1,10,16,3,1,9),_LapbFlowFrmrSent_Type())
+lapbFlowFrmrSent.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbFlowFrmrSent.setStatus(_A)
+class _LapbFlowFrmrReceived_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,7))
+_LapbFlowFrmrReceived_Type.__name__=_E
+_LapbFlowFrmrReceived_Object=MibTableColumn
+lapbFlowFrmrReceived=_LapbFlowFrmrReceived_Object((1,3,6,1,2,1,10,16,3,1,10),_LapbFlowFrmrReceived_Type())
+lapbFlowFrmrReceived.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbFlowFrmrReceived.setStatus(_A)
+class _LapbFlowXidReceived_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8206))
+_LapbFlowXidReceived_Type.__name__=_E
+_LapbFlowXidReceived_Object=MibTableColumn
+lapbFlowXidReceived=_LapbFlowXidReceived_Object((1,3,6,1,2,1,10,16,3,1,11),_LapbFlowXidReceived_Type())
+lapbFlowXidReceived.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbFlowXidReceived.setStatus(_A)
+_LapbXidTable_Object=MibTable
+lapbXidTable=_LapbXidTable_Object((1,3,6,1,2,1,10,16,4))
+if mibBuilder.loadTexts:lapbXidTable.setStatus(_A)
+_LapbXidEntry_Object=MibTableRow
+lapbXidEntry=_LapbXidEntry_Object((1,3,6,1,2,1,10,16,4,1))
+lapbXidEntry.setIndexNames((0,_G,_P))
+if mibBuilder.loadTexts:lapbXidEntry.setStatus(_A)
+_LapbXidIndex_Type=IfIndexType
+_LapbXidIndex_Object=MibTableColumn
+lapbXidIndex=_LapbXidIndex_Object((1,3,6,1,2,1,10,16,4,1,1),_LapbXidIndex_Type())
+lapbXidIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:lapbXidIndex.setStatus(_A)
+class _LapbXidAdRIdentifier_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_LapbXidAdRIdentifier_Type.__name__=_E
+_LapbXidAdRIdentifier_Object=MibTableColumn
+lapbXidAdRIdentifier=_LapbXidAdRIdentifier_Object((1,3,6,1,2,1,10,16,4,1,2),_LapbXidAdRIdentifier_Type())
+lapbXidAdRIdentifier.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbXidAdRIdentifier.setStatus(_A)
+class _LapbXidAdRAddress_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_LapbXidAdRAddress_Type.__name__=_E
+_LapbXidAdRAddress_Object=MibTableColumn
+lapbXidAdRAddress=_LapbXidAdRAddress_Object((1,3,6,1,2,1,10,16,4,1,3),_LapbXidAdRAddress_Type())
+lapbXidAdRAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbXidAdRAddress.setStatus(_A)
+class _LapbXidParameterUniqueIdentifier_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_LapbXidParameterUniqueIdentifier_Type.__name__=_E
+_LapbXidParameterUniqueIdentifier_Object=MibTableColumn
+lapbXidParameterUniqueIdentifier=_LapbXidParameterUniqueIdentifier_Object((1,3,6,1,2,1,10,16,4,1,4),_LapbXidParameterUniqueIdentifier_Type())
+lapbXidParameterUniqueIdentifier.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbXidParameterUniqueIdentifier.setStatus(_A)
+class _LapbXidGroupAddress_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_LapbXidGroupAddress_Type.__name__=_E
+_LapbXidGroupAddress_Object=MibTableColumn
+lapbXidGroupAddress=_LapbXidGroupAddress_Object((1,3,6,1,2,1,10,16,4,1,5),_LapbXidGroupAddress_Type())
+lapbXidGroupAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbXidGroupAddress.setStatus(_A)
+class _LapbXidPortNumber_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_LapbXidPortNumber_Type.__name__=_E
+_LapbXidPortNumber_Object=MibTableColumn
+lapbXidPortNumber=_LapbXidPortNumber_Object((1,3,6,1,2,1,10,16,4,1,6),_LapbXidPortNumber_Type())
+lapbXidPortNumber.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbXidPortNumber.setStatus(_A)
+class _LapbXidUserDataSubfield_Type(OctetString):defaultHexValue='';subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8206))
+_LapbXidUserDataSubfield_Type.__name__=_E
+_LapbXidUserDataSubfield_Object=MibTableColumn
+lapbXidUserDataSubfield=_LapbXidUserDataSubfield_Object((1,3,6,1,2,1,10,16,4,1,7),_LapbXidUserDataSubfield_Type())
+lapbXidUserDataSubfield.setMaxAccess(_C)
+if mibBuilder.loadTexts:lapbXidUserDataSubfield.setStatus(_A)
+_LapbProtocolVersion_ObjectIdentity=ObjectIdentity
+lapbProtocolVersion=_LapbProtocolVersion_ObjectIdentity((1,3,6,1,2,1,10,16,5))
+_LapbProtocolIso7776v1986_ObjectIdentity=ObjectIdentity
+lapbProtocolIso7776v1986=_LapbProtocolIso7776v1986_ObjectIdentity((1,3,6,1,2,1,10,16,5,1))
+_LapbProtocolCcittV1980_ObjectIdentity=ObjectIdentity
+lapbProtocolCcittV1980=_LapbProtocolCcittV1980_ObjectIdentity((1,3,6,1,2,1,10,16,5,2))
+_LapbProtocolCcittV1984_ObjectIdentity=ObjectIdentity
+lapbProtocolCcittV1984=_LapbProtocolCcittV1984_ObjectIdentity((1,3,6,1,2,1,10,16,5,3))
+mibBuilder.exportSymbols(_G,**{_F:PositiveInteger,'IfIndexType':IfIndexType,'lapb':lapb,'lapbAdmnTable':lapbAdmnTable,'lapbAdmnEntry':lapbAdmnEntry,_I:lapbAdmnIndex,'lapbAdmnStationType':lapbAdmnStationType,'lapbAdmnControlField':lapbAdmnControlField,'lapbAdmnTransmitN1FrameSize':lapbAdmnTransmitN1FrameSize,'lapbAdmnReceiveN1FrameSize':lapbAdmnReceiveN1FrameSize,'lapbAdmnTransmitKWindowSize':lapbAdmnTransmitKWindowSize,'lapbAdmnReceiveKWindowSize':lapbAdmnReceiveKWindowSize,'lapbAdmnN2RxmitCount':lapbAdmnN2RxmitCount,'lapbAdmnT1AckTimer':lapbAdmnT1AckTimer,'lapbAdmnT2AckDelayTimer':lapbAdmnT2AckDelayTimer,'lapbAdmnT3DisconnectTimer':lapbAdmnT3DisconnectTimer,'lapbAdmnT4IdleTimer':lapbAdmnT4IdleTimer,'lapbAdmnActionInitiate':lapbAdmnActionInitiate,'lapbAdmnActionRecvDM':lapbAdmnActionRecvDM,'lapbOperTable':lapbOperTable,'lapbOperEntry':lapbOperEntry,_N:lapbOperIndex,'lapbOperStationType':lapbOperStationType,'lapbOperControlField':lapbOperControlField,'lapbOperTransmitN1FrameSize':lapbOperTransmitN1FrameSize,'lapbOperReceiveN1FrameSize':lapbOperReceiveN1FrameSize,'lapbOperTransmitKWindowSize':lapbOperTransmitKWindowSize,'lapbOperReceiveKWindowSize':lapbOperReceiveKWindowSize,'lapbOperN2RxmitCount':lapbOperN2RxmitCount,'lapbOperT1AckTimer':lapbOperT1AckTimer,'lapbOperT2AckDelayTimer':lapbOperT2AckDelayTimer,'lapbOperT3DisconnectTimer':lapbOperT3DisconnectTimer,'lapbOperT4IdleTimer':lapbOperT4IdleTimer,'lapbOperPortId':lapbOperPortId,'lapbOperProtocolVersionId':lapbOperProtocolVersionId,'lapbFlowTable':lapbFlowTable,'lapbFlowEntry':lapbFlowEntry,_O:lapbFlowIfIndex,'lapbFlowStateChanges':lapbFlowStateChanges,'lapbFlowChangeReason':lapbFlowChangeReason,'lapbFlowCurrentMode':lapbFlowCurrentMode,'lapbFlowBusyDefers':lapbFlowBusyDefers,'lapbFlowRejOutPkts':lapbFlowRejOutPkts,'lapbFlowRejInPkts':lapbFlowRejInPkts,'lapbFlowT1Timeouts':lapbFlowT1Timeouts,'lapbFlowFrmrSent':lapbFlowFrmrSent,'lapbFlowFrmrReceived':lapbFlowFrmrReceived,'lapbFlowXidReceived':lapbFlowXidReceived,'lapbXidTable':lapbXidTable,'lapbXidEntry':lapbXidEntry,_P:lapbXidIndex,'lapbXidAdRIdentifier':lapbXidAdRIdentifier,'lapbXidAdRAddress':lapbXidAdRAddress,'lapbXidParameterUniqueIdentifier':lapbXidParameterUniqueIdentifier,'lapbXidGroupAddress':lapbXidGroupAddress,'lapbXidPortNumber':lapbXidPortNumber,'lapbXidUserDataSubfield':lapbXidUserDataSubfield,'lapbProtocolVersion':lapbProtocolVersion,'lapbProtocolIso7776v1986':lapbProtocolIso7776v1986,'lapbProtocolCcittV1980':lapbProtocolCcittV1980,'lapbProtocolCcittV1984':lapbProtocolCcittV1984})

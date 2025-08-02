@@ -1,0 +1,19 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+dlink_mgmt,dlink_products=mibBuilder.importSymbols('DLINK-ID-REC-MIB','dlink-mgmt','dlink-products')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+_Dlink_Des3810Series_ObjectIdentity=ObjectIdentity
+dlink_Des3810Series=_Dlink_Des3810Series_ObjectIdentity((1,3,6,1,4,1,171,11,114))
+_Des3810_ObjectIdentity=ObjectIdentity
+des3810=_Des3810_ObjectIdentity((1,3,6,1,4,1,171,11,114,1))
+_Des3810_28_ObjectIdentity=ObjectIdentity
+des3810_28=_Des3810_28_ObjectIdentity((1,3,6,1,4,1,171,11,114,1,1))
+_Des3810_28DC_ObjectIdentity=ObjectIdentity
+des3810_28DC=_Des3810_28DC_ObjectIdentity((1,3,6,1,4,1,171,11,114,1,2))
+_Des3810_52_ObjectIdentity=ObjectIdentity
+des3810_52=_Des3810_52_ObjectIdentity((1,3,6,1,4,1,171,11,114,1,3))
+mibBuilder.exportSymbols('SW3810PRIMGMT-MIB',**{'dlink-Des3810Series':dlink_Des3810Series,'des3810':des3810,'des3810-28':des3810_28,'des3810-28DC':des3810_28DC,'des3810-52':des3810_52})

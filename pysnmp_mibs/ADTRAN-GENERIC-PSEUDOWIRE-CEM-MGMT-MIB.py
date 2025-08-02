@@ -1,0 +1,361 @@
+_T='adGenEasyPseudowireCEMIndex'
+_S='adGenPseudowireCEMCesopPhyTimeslot'
+_R='adGenPseudowireCEMCesopPhysicalPortIfIndex'
+_Q='adGenPseudowireCEMCesopPweTimeslot'
+_P='adGenPseudowireCEMCesopPweIfIndex'
+_O='oosMaintenance'
+_N='oosUnassigned'
+_M='inService'
+_L='cesopCas'
+_K='cesopBasic'
+_J='DisplayString'
+_I='ifIndex'
+_H='IF-MIB'
+_G='adGenSlotInfoIndex'
+_F='ADTRAN-GENSLOT-MIB'
+_E='ADTRAN-GENERIC-PSEUDOWIRE-CEM-MGMT-MIB'
+_D='read-only'
+_C='Integer32'
+_B='read-create'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+adGenSlotInfoIndex,=mibBuilder.importSymbols(_F,_G)
+adGenPseudowireCEMMgmt,adGenPseudowireCEMMgmtID=mibBuilder.importSymbols('ADTRAN-SHARED-CND-SYSTEM-MIB','adGenPseudowireCEMMgmt','adGenPseudowireCEMMgmtID')
+InterfaceIndex,InterfaceIndexOrZero,ifIndex=mibBuilder.importSymbols(_H,'InterfaceIndex','InterfaceIndexOrZero',_I)
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_C,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,MacAddress,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_J,'MacAddress','PhysAddress','RowStatus','TextualConvention','TruthValue')
+adGenPseudowireCEMMgmtModuleIdentity=ModuleIdentity((1,3,6,1,4,1,664,6,10000,70,30,1))
+if mibBuilder.loadTexts:adGenPseudowireCEMMgmtModuleIdentity.setRevisions(('2014-12-17 11:15','2012-05-18 11:15'))
+_AdGenPseudowireCEMProv_ObjectIdentity=ObjectIdentity
+adGenPseudowireCEMProv=_AdGenPseudowireCEMProv_ObjectIdentity((1,3,6,1,4,1,664,5,70,30,1))
+_AdGenPseudowireCEMProvTable_Object=MibTable
+adGenPseudowireCEMProvTable=_AdGenPseudowireCEMProvTable_Object((1,3,6,1,4,1,664,5,70,30,1,1))
+if mibBuilder.loadTexts:adGenPseudowireCEMProvTable.setStatus(_A)
+_AdGenPseudowireCEMProvTableEntry_Object=MibTableRow
+adGenPseudowireCEMProvTableEntry=_AdGenPseudowireCEMProvTableEntry_Object((1,3,6,1,4,1,664,5,70,30,1,1,1))
+adGenPseudowireCEMProvTableEntry.setIndexNames((0,_H,_I))
+if mibBuilder.loadTexts:adGenPseudowireCEMProvTableEntry.setStatus(_A)
+class _AdGenPseudowireCEMType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('satop',1),(_K,2),(_L,3)))
+_AdGenPseudowireCEMType_Type.__name__=_C
+_AdGenPseudowireCEMType_Object=MibTableColumn
+adGenPseudowireCEMType=_AdGenPseudowireCEMType_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,1),_AdGenPseudowireCEMType_Type())
+adGenPseudowireCEMType.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMType.setStatus(_A)
+_AdGenPseudowireCEMPhysicalPortIfIndex_Type=InterfaceIndexOrZero
+_AdGenPseudowireCEMPhysicalPortIfIndex_Object=MibTableColumn
+adGenPseudowireCEMPhysicalPortIfIndex=_AdGenPseudowireCEMPhysicalPortIfIndex_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,2),_AdGenPseudowireCEMPhysicalPortIfIndex_Type())
+adGenPseudowireCEMPhysicalPortIfIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMPhysicalPortIfIndex.setStatus(_A)
+_AdGenPseudowireCEMDestinationNode_Type=Integer32
+_AdGenPseudowireCEMDestinationNode_Object=MibTableColumn
+adGenPseudowireCEMDestinationNode=_AdGenPseudowireCEMDestinationNode_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,3),_AdGenPseudowireCEMDestinationNode_Type())
+adGenPseudowireCEMDestinationNode.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMDestinationNode.setStatus(_A)
+_AdGenPseudowireCEMDestinationShelf_Type=Integer32
+_AdGenPseudowireCEMDestinationShelf_Object=MibTableColumn
+adGenPseudowireCEMDestinationShelf=_AdGenPseudowireCEMDestinationShelf_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,4),_AdGenPseudowireCEMDestinationShelf_Type())
+adGenPseudowireCEMDestinationShelf.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMDestinationShelf.setStatus(_A)
+_AdGenPseudowireCEMDestinationSlot_Type=InterfaceIndex
+_AdGenPseudowireCEMDestinationSlot_Object=MibTableColumn
+adGenPseudowireCEMDestinationSlot=_AdGenPseudowireCEMDestinationSlot_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,5),_AdGenPseudowireCEMDestinationSlot_Type())
+adGenPseudowireCEMDestinationSlot.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMDestinationSlot.setStatus(_A)
+_AdGenPseudowireCEMDestinationChannel_Type=InterfaceIndex
+_AdGenPseudowireCEMDestinationChannel_Object=MibTableColumn
+adGenPseudowireCEMDestinationChannel=_AdGenPseudowireCEMDestinationChannel_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,6),_AdGenPseudowireCEMDestinationChannel_Type())
+adGenPseudowireCEMDestinationChannel.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMDestinationChannel.setStatus(_A)
+_AdGenPseudowireCEMDestinationONTNumber_Type=InterfaceIndex
+_AdGenPseudowireCEMDestinationONTNumber_Object=MibTableColumn
+adGenPseudowireCEMDestinationONTNumber=_AdGenPseudowireCEMDestinationONTNumber_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,7),_AdGenPseudowireCEMDestinationONTNumber_Type())
+adGenPseudowireCEMDestinationONTNumber.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMDestinationONTNumber.setStatus(_A)
+_AdGenPseudowireCEMDestinationONTSlot_Type=InterfaceIndex
+_AdGenPseudowireCEMDestinationONTSlot_Object=MibTableColumn
+adGenPseudowireCEMDestinationONTSlot=_AdGenPseudowireCEMDestinationONTSlot_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,8),_AdGenPseudowireCEMDestinationONTSlot_Type())
+adGenPseudowireCEMDestinationONTSlot.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMDestinationONTSlot.setStatus(_A)
+_AdGenPseudowireCEMDestinationONTPort_Type=InterfaceIndex
+_AdGenPseudowireCEMDestinationONTPort_Object=MibTableColumn
+adGenPseudowireCEMDestinationONTPort=_AdGenPseudowireCEMDestinationONTPort_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,9),_AdGenPseudowireCEMDestinationONTPort_Type())
+adGenPseudowireCEMDestinationONTPort.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMDestinationONTPort.setStatus(_A)
+_AdGenPseudowireCEMRowStatus_Type=RowStatus
+_AdGenPseudowireCEMRowStatus_Object=MibTableColumn
+adGenPseudowireCEMRowStatus=_AdGenPseudowireCEMRowStatus_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,10),_AdGenPseudowireCEMRowStatus_Type())
+adGenPseudowireCEMRowStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMRowStatus.setStatus(_A)
+_AdGenPseudowireCEMErrorStr_Type=DisplayString
+_AdGenPseudowireCEMErrorStr_Object=MibTableColumn
+adGenPseudowireCEMErrorStr=_AdGenPseudowireCEMErrorStr_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,11),_AdGenPseudowireCEMErrorStr_Type())
+adGenPseudowireCEMErrorStr.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMErrorStr.setStatus(_A)
+_AdGenPseudowireCEMCircuitIdentifierStr_Type=DisplayString
+_AdGenPseudowireCEMCircuitIdentifierStr_Object=MibTableColumn
+adGenPseudowireCEMCircuitIdentifierStr=_AdGenPseudowireCEMCircuitIdentifierStr_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,12),_AdGenPseudowireCEMCircuitIdentifierStr_Type())
+adGenPseudowireCEMCircuitIdentifierStr.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMCircuitIdentifierStr.setStatus(_A)
+class _AdGenPseudowireCEMPktJitterBufferDepth_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
+_AdGenPseudowireCEMPktJitterBufferDepth_Type.__name__=_C
+_AdGenPseudowireCEMPktJitterBufferDepth_Object=MibTableColumn
+adGenPseudowireCEMPktJitterBufferDepth=_AdGenPseudowireCEMPktJitterBufferDepth_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,13),_AdGenPseudowireCEMPktJitterBufferDepth_Type())
+adGenPseudowireCEMPktJitterBufferDepth.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMPktJitterBufferDepth.setStatus(_A)
+class _AdGenPseudowireCEMPktPayloadSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(25,958))
+_AdGenPseudowireCEMPktPayloadSize_Type.__name__=_C
+_AdGenPseudowireCEMPktPayloadSize_Object=MibTableColumn
+adGenPseudowireCEMPktPayloadSize=_AdGenPseudowireCEMPktPayloadSize_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,14),_AdGenPseudowireCEMPktPayloadSize_Type())
+adGenPseudowireCEMPktPayloadSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMPktPayloadSize.setStatus(_A)
+class _AdGenPseudowireCEMPktRTPPayloadType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(96,127))
+_AdGenPseudowireCEMPktRTPPayloadType_Type.__name__=_C
+_AdGenPseudowireCEMPktRTPPayloadType_Object=MibTableColumn
+adGenPseudowireCEMPktRTPPayloadType=_AdGenPseudowireCEMPktRTPPayloadType_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,15),_AdGenPseudowireCEMPktRTPPayloadType_Type())
+adGenPseudowireCEMPktRTPPayloadType.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMPktRTPPayloadType.setStatus(_A)
+class _AdGenPseudowireCEMPktRTPFrequency_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(8,13200))
+_AdGenPseudowireCEMPktRTPFrequency_Type.__name__=_C
+_AdGenPseudowireCEMPktRTPFrequency_Object=MibTableColumn
+adGenPseudowireCEMPktRTPFrequency=_AdGenPseudowireCEMPktRTPFrequency_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,16),_AdGenPseudowireCEMPktRTPFrequency_Type())
+adGenPseudowireCEMPktRTPFrequency.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMPktRTPFrequency.setStatus(_A)
+class _AdGenPseudowireCEMDscp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,63))
+_AdGenPseudowireCEMDscp_Type.__name__=_C
+_AdGenPseudowireCEMDscp_Object=MibTableColumn
+adGenPseudowireCEMDscp=_AdGenPseudowireCEMDscp_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,17),_AdGenPseudowireCEMDscp_Type())
+adGenPseudowireCEMDscp.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMDscp.setStatus(_A)
+class _AdGenPseudowireCEMServiceState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_M,1),(_N,2),(_O,3)))
+_AdGenPseudowireCEMServiceState_Type.__name__=_C
+_AdGenPseudowireCEMServiceState_Object=MibTableColumn
+adGenPseudowireCEMServiceState=_AdGenPseudowireCEMServiceState_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,18),_AdGenPseudowireCEMServiceState_Type())
+adGenPseudowireCEMServiceState.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenPseudowireCEMServiceState.setStatus(_A)
+class _AdGenPseudowireCEMDetailedOperStatus_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_AdGenPseudowireCEMDetailedOperStatus_Type.__name__=_J
+_AdGenPseudowireCEMDetailedOperStatus_Object=MibTableColumn
+adGenPseudowireCEMDetailedOperStatus=_AdGenPseudowireCEMDetailedOperStatus_Object((1,3,6,1,4,1,664,5,70,30,1,1,1,19),_AdGenPseudowireCEMDetailedOperStatus_Type())
+adGenPseudowireCEMDetailedOperStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenPseudowireCEMDetailedOperStatus.setStatus(_A)
+_AdGenAdvancedPseudowireCEMProv_ObjectIdentity=ObjectIdentity
+adGenAdvancedPseudowireCEMProv=_AdGenAdvancedPseudowireCEMProv_ObjectIdentity((1,3,6,1,4,1,664,5,70,30,2))
+_AdGenAdvancedPseudowireCEMProvTable_Object=MibTable
+adGenAdvancedPseudowireCEMProvTable=_AdGenAdvancedPseudowireCEMProvTable_Object((1,3,6,1,4,1,664,5,70,30,2,1))
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMProvTable.setStatus(_A)
+_AdGenAdvancedPseudowireCEMProvTableEntry_Object=MibTableRow
+adGenAdvancedPseudowireCEMProvTableEntry=_AdGenAdvancedPseudowireCEMProvTableEntry_Object((1,3,6,1,4,1,664,5,70,30,2,1,1))
+adGenAdvancedPseudowireCEMProvTableEntry.setIndexNames((0,_H,_I))
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMProvTableEntry.setStatus(_A)
+class _AdGenAdvancedPseudowireCEMType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('satop',1),(_K,2),(_L,3)))
+_AdGenAdvancedPseudowireCEMType_Type.__name__=_C
+_AdGenAdvancedPseudowireCEMType_Object=MibTableColumn
+adGenAdvancedPseudowireCEMType=_AdGenAdvancedPseudowireCEMType_Object((1,3,6,1,4,1,664,5,70,30,2,1,1,1),_AdGenAdvancedPseudowireCEMType_Type())
+adGenAdvancedPseudowireCEMType.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMType.setStatus(_A)
+_AdGenAdvancedPseudowireCEMSourceUDP_Type=Integer32
+_AdGenAdvancedPseudowireCEMSourceUDP_Object=MibTableColumn
+adGenAdvancedPseudowireCEMSourceUDP=_AdGenAdvancedPseudowireCEMSourceUDP_Object((1,3,6,1,4,1,664,5,70,30,2,1,1,2),_AdGenAdvancedPseudowireCEMSourceUDP_Type())
+adGenAdvancedPseudowireCEMSourceUDP.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMSourceUDP.setStatus(_A)
+_AdGenAdvancedPseudowireCEMPhysicalPortIfIndex_Type=InterfaceIndexOrZero
+_AdGenAdvancedPseudowireCEMPhysicalPortIfIndex_Object=MibTableColumn
+adGenAdvancedPseudowireCEMPhysicalPortIfIndex=_AdGenAdvancedPseudowireCEMPhysicalPortIfIndex_Object((1,3,6,1,4,1,664,5,70,30,2,1,1,3),_AdGenAdvancedPseudowireCEMPhysicalPortIfIndex_Type())
+adGenAdvancedPseudowireCEMPhysicalPortIfIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMPhysicalPortIfIndex.setStatus(_A)
+_AdGenAdvancedPseudowireCEMDestinationUDP_Type=Integer32
+_AdGenAdvancedPseudowireCEMDestinationUDP_Object=MibTableColumn
+adGenAdvancedPseudowireCEMDestinationUDP=_AdGenAdvancedPseudowireCEMDestinationUDP_Object((1,3,6,1,4,1,664,5,70,30,2,1,1,4),_AdGenAdvancedPseudowireCEMDestinationUDP_Type())
+adGenAdvancedPseudowireCEMDestinationUDP.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMDestinationUDP.setStatus(_A)
+_AdGenAdvancedPseudowireCEMDestinationIP_Type=IpAddress
+_AdGenAdvancedPseudowireCEMDestinationIP_Object=MibTableColumn
+adGenAdvancedPseudowireCEMDestinationIP=_AdGenAdvancedPseudowireCEMDestinationIP_Object((1,3,6,1,4,1,664,5,70,30,2,1,1,5),_AdGenAdvancedPseudowireCEMDestinationIP_Type())
+adGenAdvancedPseudowireCEMDestinationIP.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMDestinationIP.setStatus(_A)
+_AdGenAdvancedPseudowireCEMDestinationMac_Type=MacAddress
+_AdGenAdvancedPseudowireCEMDestinationMac_Object=MibTableColumn
+adGenAdvancedPseudowireCEMDestinationMac=_AdGenAdvancedPseudowireCEMDestinationMac_Object((1,3,6,1,4,1,664,5,70,30,2,1,1,6),_AdGenAdvancedPseudowireCEMDestinationMac_Type())
+adGenAdvancedPseudowireCEMDestinationMac.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMDestinationMac.setStatus(_A)
+_AdGenAdvancedPseudowireCEMRowStatus_Type=RowStatus
+_AdGenAdvancedPseudowireCEMRowStatus_Object=MibTableColumn
+adGenAdvancedPseudowireCEMRowStatus=_AdGenAdvancedPseudowireCEMRowStatus_Object((1,3,6,1,4,1,664,5,70,30,2,1,1,7),_AdGenAdvancedPseudowireCEMRowStatus_Type())
+adGenAdvancedPseudowireCEMRowStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMRowStatus.setStatus(_A)
+_AdGenAdvancedPseudowireCEMErrorStr_Type=DisplayString
+_AdGenAdvancedPseudowireCEMErrorStr_Object=MibTableColumn
+adGenAdvancedPseudowireCEMErrorStr=_AdGenAdvancedPseudowireCEMErrorStr_Object((1,3,6,1,4,1,664,5,70,30,2,1,1,8),_AdGenAdvancedPseudowireCEMErrorStr_Type())
+adGenAdvancedPseudowireCEMErrorStr.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMErrorStr.setStatus(_A)
+_AdGenAdvancedPseudowireCEMCircuitIdentifierStr_Type=DisplayString
+_AdGenAdvancedPseudowireCEMCircuitIdentifierStr_Object=MibTableColumn
+adGenAdvancedPseudowireCEMCircuitIdentifierStr=_AdGenAdvancedPseudowireCEMCircuitIdentifierStr_Object((1,3,6,1,4,1,664,5,70,30,2,1,1,9),_AdGenAdvancedPseudowireCEMCircuitIdentifierStr_Type())
+adGenAdvancedPseudowireCEMCircuitIdentifierStr.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMCircuitIdentifierStr.setStatus(_A)
+class _AdGenAdvancedPseudowireCEMPktJitterBufferDepth_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
+_AdGenAdvancedPseudowireCEMPktJitterBufferDepth_Type.__name__=_C
+_AdGenAdvancedPseudowireCEMPktJitterBufferDepth_Object=MibTableColumn
+adGenAdvancedPseudowireCEMPktJitterBufferDepth=_AdGenAdvancedPseudowireCEMPktJitterBufferDepth_Object((1,3,6,1,4,1,664,5,70,30,2,1,1,10),_AdGenAdvancedPseudowireCEMPktJitterBufferDepth_Type())
+adGenAdvancedPseudowireCEMPktJitterBufferDepth.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMPktJitterBufferDepth.setStatus(_A)
+class _AdGenAdvancedPseudowireCEMPktPayloadSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(25,958))
+_AdGenAdvancedPseudowireCEMPktPayloadSize_Type.__name__=_C
+_AdGenAdvancedPseudowireCEMPktPayloadSize_Object=MibTableColumn
+adGenAdvancedPseudowireCEMPktPayloadSize=_AdGenAdvancedPseudowireCEMPktPayloadSize_Object((1,3,6,1,4,1,664,5,70,30,2,1,1,11),_AdGenAdvancedPseudowireCEMPktPayloadSize_Type())
+adGenAdvancedPseudowireCEMPktPayloadSize.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMPktPayloadSize.setStatus(_A)
+class _AdGenAdvancedPseudowireCEMPktRTPPayloadType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(96,127))
+_AdGenAdvancedPseudowireCEMPktRTPPayloadType_Type.__name__=_C
+_AdGenAdvancedPseudowireCEMPktRTPPayloadType_Object=MibTableColumn
+adGenAdvancedPseudowireCEMPktRTPPayloadType=_AdGenAdvancedPseudowireCEMPktRTPPayloadType_Object((1,3,6,1,4,1,664,5,70,30,2,1,1,12),_AdGenAdvancedPseudowireCEMPktRTPPayloadType_Type())
+adGenAdvancedPseudowireCEMPktRTPPayloadType.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMPktRTPPayloadType.setStatus(_A)
+class _AdGenAdvancedPseudowireCEMPktRTPFrequency_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(8,13200))
+_AdGenAdvancedPseudowireCEMPktRTPFrequency_Type.__name__=_C
+_AdGenAdvancedPseudowireCEMPktRTPFrequency_Object=MibTableColumn
+adGenAdvancedPseudowireCEMPktRTPFrequency=_AdGenAdvancedPseudowireCEMPktRTPFrequency_Object((1,3,6,1,4,1,664,5,70,30,2,1,1,13),_AdGenAdvancedPseudowireCEMPktRTPFrequency_Type())
+adGenAdvancedPseudowireCEMPktRTPFrequency.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMPktRTPFrequency.setStatus(_A)
+class _AdGenAdvancedPseudowireCEMDscp_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,63))
+_AdGenAdvancedPseudowireCEMDscp_Type.__name__=_C
+_AdGenAdvancedPseudowireCEMDscp_Object=MibTableColumn
+adGenAdvancedPseudowireCEMDscp=_AdGenAdvancedPseudowireCEMDscp_Object((1,3,6,1,4,1,664,5,70,30,2,1,1,14),_AdGenAdvancedPseudowireCEMDscp_Type())
+adGenAdvancedPseudowireCEMDscp.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMDscp.setStatus(_A)
+class _AdGenAdvancedPseudowireCEMServiceState_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*((_M,1),(_N,2),(_O,3)))
+_AdGenAdvancedPseudowireCEMServiceState_Type.__name__=_C
+_AdGenAdvancedPseudowireCEMServiceState_Object=MibTableColumn
+adGenAdvancedPseudowireCEMServiceState=_AdGenAdvancedPseudowireCEMServiceState_Object((1,3,6,1,4,1,664,5,70,30,2,1,1,15),_AdGenAdvancedPseudowireCEMServiceState_Type())
+adGenAdvancedPseudowireCEMServiceState.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMServiceState.setStatus(_A)
+class _AdGenAdvancedPseudowireCEMDetailedOperStatus_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_AdGenAdvancedPseudowireCEMDetailedOperStatus_Type.__name__=_J
+_AdGenAdvancedPseudowireCEMDetailedOperStatus_Object=MibTableColumn
+adGenAdvancedPseudowireCEMDetailedOperStatus=_AdGenAdvancedPseudowireCEMDetailedOperStatus_Object((1,3,6,1,4,1,664,5,70,30,2,1,1,16),_AdGenAdvancedPseudowireCEMDetailedOperStatus_Type())
+adGenAdvancedPseudowireCEMDetailedOperStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenAdvancedPseudowireCEMDetailedOperStatus.setStatus(_A)
+_AdGenPseudowireCEMCesopTimeslotProv_ObjectIdentity=ObjectIdentity
+adGenPseudowireCEMCesopTimeslotProv=_AdGenPseudowireCEMCesopTimeslotProv_ObjectIdentity((1,3,6,1,4,1,664,5,70,30,3))
+_AdGenPseudowireCEMCesopTimeslotTable_Object=MibTable
+adGenPseudowireCEMCesopTimeslotTable=_AdGenPseudowireCEMCesopTimeslotTable_Object((1,3,6,1,4,1,664,5,70,30,3,1))
+if mibBuilder.loadTexts:adGenPseudowireCEMCesopTimeslotTable.setStatus(_A)
+_AdGenPseudowireCEMCesopTimeslotTableEntry_Object=MibTableRow
+adGenPseudowireCEMCesopTimeslotTableEntry=_AdGenPseudowireCEMCesopTimeslotTableEntry_Object((1,3,6,1,4,1,664,5,70,30,3,1,1))
+adGenPseudowireCEMCesopTimeslotTableEntry.setIndexNames((0,_E,_P),(0,_E,_Q),(0,_E,_R),(0,_E,_S))
+if mibBuilder.loadTexts:adGenPseudowireCEMCesopTimeslotTableEntry.setStatus(_A)
+_AdGenPseudowireCEMCesopPweIfIndex_Type=InterfaceIndex
+_AdGenPseudowireCEMCesopPweIfIndex_Object=MibTableColumn
+adGenPseudowireCEMCesopPweIfIndex=_AdGenPseudowireCEMCesopPweIfIndex_Object((1,3,6,1,4,1,664,5,70,30,3,1,1,1),_AdGenPseudowireCEMCesopPweIfIndex_Type())
+adGenPseudowireCEMCesopPweIfIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenPseudowireCEMCesopPweIfIndex.setStatus(_A)
+_AdGenPseudowireCEMCesopPweTimeslot_Type=Integer32
+_AdGenPseudowireCEMCesopPweTimeslot_Object=MibTableColumn
+adGenPseudowireCEMCesopPweTimeslot=_AdGenPseudowireCEMCesopPweTimeslot_Object((1,3,6,1,4,1,664,5,70,30,3,1,1,2),_AdGenPseudowireCEMCesopPweTimeslot_Type())
+adGenPseudowireCEMCesopPweTimeslot.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenPseudowireCEMCesopPweTimeslot.setStatus(_A)
+_AdGenPseudowireCEMCesopPhysicalPortIfIndex_Type=InterfaceIndex
+_AdGenPseudowireCEMCesopPhysicalPortIfIndex_Object=MibTableColumn
+adGenPseudowireCEMCesopPhysicalPortIfIndex=_AdGenPseudowireCEMCesopPhysicalPortIfIndex_Object((1,3,6,1,4,1,664,5,70,30,3,1,1,3),_AdGenPseudowireCEMCesopPhysicalPortIfIndex_Type())
+adGenPseudowireCEMCesopPhysicalPortIfIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenPseudowireCEMCesopPhysicalPortIfIndex.setStatus(_A)
+_AdGenPseudowireCEMCesopPhyTimeslot_Type=Integer32
+_AdGenPseudowireCEMCesopPhyTimeslot_Object=MibTableColumn
+adGenPseudowireCEMCesopPhyTimeslot=_AdGenPseudowireCEMCesopPhyTimeslot_Object((1,3,6,1,4,1,664,5,70,30,3,1,1,4),_AdGenPseudowireCEMCesopPhyTimeslot_Type())
+adGenPseudowireCEMCesopPhyTimeslot.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenPseudowireCEMCesopPhyTimeslot.setStatus(_A)
+class _AdGenPseudowireCEMCesopConnectionStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(1));namedValues=NamedValues(('connected',1))
+_AdGenPseudowireCEMCesopConnectionStatus_Type.__name__=_C
+_AdGenPseudowireCEMCesopConnectionStatus_Object=MibTableColumn
+adGenPseudowireCEMCesopConnectionStatus=_AdGenPseudowireCEMCesopConnectionStatus_Object((1,3,6,1,4,1,664,5,70,30,3,1,1,5),_AdGenPseudowireCEMCesopConnectionStatus_Type())
+adGenPseudowireCEMCesopConnectionStatus.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenPseudowireCEMCesopConnectionStatus.setStatus(_A)
+_AdGenEasyPseudowireCEMProv_ObjectIdentity=ObjectIdentity
+adGenEasyPseudowireCEMProv=_AdGenEasyPseudowireCEMProv_ObjectIdentity((1,3,6,1,4,1,664,5,70,30,4))
+_AdGenEasyPseudowireCEMGetNextTable_Object=MibTable
+adGenEasyPseudowireCEMGetNextTable=_AdGenEasyPseudowireCEMGetNextTable_Object((1,3,6,1,4,1,664,5,70,30,4,1))
+if mibBuilder.loadTexts:adGenEasyPseudowireCEMGetNextTable.setStatus(_A)
+_AdGenEasyPseudowireCEMGetNextEntry_Object=MibTableRow
+adGenEasyPseudowireCEMGetNextEntry=_AdGenEasyPseudowireCEMGetNextEntry_Object((1,3,6,1,4,1,664,5,70,30,4,1,1))
+adGenEasyPseudowireCEMGetNextEntry.setIndexNames((0,_F,_G))
+if mibBuilder.loadTexts:adGenEasyPseudowireCEMGetNextEntry.setStatus(_A)
+_AdGenEasyPseudowireCEMNextIndex_Type=Integer32
+_AdGenEasyPseudowireCEMNextIndex_Object=MibTableColumn
+adGenEasyPseudowireCEMNextIndex=_AdGenEasyPseudowireCEMNextIndex_Object((1,3,6,1,4,1,664,5,70,30,4,1,1,1),_AdGenEasyPseudowireCEMNextIndex_Type())
+adGenEasyPseudowireCEMNextIndex.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenEasyPseudowireCEMNextIndex.setStatus(_A)
+_AdGenEasyPseudowireCEMTimeslotTable_Object=MibTable
+adGenEasyPseudowireCEMTimeslotTable=_AdGenEasyPseudowireCEMTimeslotTable_Object((1,3,6,1,4,1,664,5,70,30,4,2))
+if mibBuilder.loadTexts:adGenEasyPseudowireCEMTimeslotTable.setStatus(_A)
+_AdGenEasyPseudowireCEMTimeslotEntry_Object=MibTableRow
+adGenEasyPseudowireCEMTimeslotEntry=_AdGenEasyPseudowireCEMTimeslotEntry_Object((1,3,6,1,4,1,664,5,70,30,4,2,1))
+adGenEasyPseudowireCEMTimeslotEntry.setIndexNames((0,_F,_G),(0,_E,_T))
+if mibBuilder.loadTexts:adGenEasyPseudowireCEMTimeslotEntry.setStatus(_A)
+_AdGenEasyPseudowireCEMIndex_Type=Integer32
+_AdGenEasyPseudowireCEMIndex_Object=MibTableColumn
+adGenEasyPseudowireCEMIndex=_AdGenEasyPseudowireCEMIndex_Object((1,3,6,1,4,1,664,5,70,30,4,2,1,1),_AdGenEasyPseudowireCEMIndex_Type())
+adGenEasyPseudowireCEMIndex.setMaxAccess('not-accessible')
+if mibBuilder.loadTexts:adGenEasyPseudowireCEMIndex.setStatus(_A)
+_AdGenEasyPseudowireCEMPweIfIndex_Type=InterfaceIndex
+_AdGenEasyPseudowireCEMPweIfIndex_Object=MibTableColumn
+adGenEasyPseudowireCEMPweIfIndex=_AdGenEasyPseudowireCEMPweIfIndex_Object((1,3,6,1,4,1,664,5,70,30,4,2,1,2),_AdGenEasyPseudowireCEMPweIfIndex_Type())
+adGenEasyPseudowireCEMPweIfIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenEasyPseudowireCEMPweIfIndex.setStatus(_A)
+_AdGenEasyPseudowireCEMStartingPweTimeslot_Type=Integer32
+_AdGenEasyPseudowireCEMStartingPweTimeslot_Object=MibTableColumn
+adGenEasyPseudowireCEMStartingPweTimeslot=_AdGenEasyPseudowireCEMStartingPweTimeslot_Object((1,3,6,1,4,1,664,5,70,30,4,2,1,3),_AdGenEasyPseudowireCEMStartingPweTimeslot_Type())
+adGenEasyPseudowireCEMStartingPweTimeslot.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenEasyPseudowireCEMStartingPweTimeslot.setStatus(_A)
+_AdGenEasyPseudowireCEMPhysicalPortIfIndex_Type=InterfaceIndex
+_AdGenEasyPseudowireCEMPhysicalPortIfIndex_Object=MibTableColumn
+adGenEasyPseudowireCEMPhysicalPortIfIndex=_AdGenEasyPseudowireCEMPhysicalPortIfIndex_Object((1,3,6,1,4,1,664,5,70,30,4,2,1,4),_AdGenEasyPseudowireCEMPhysicalPortIfIndex_Type())
+adGenEasyPseudowireCEMPhysicalPortIfIndex.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenEasyPseudowireCEMPhysicalPortIfIndex.setStatus(_A)
+_AdGenEasyPseudowireCEMPhyTimeslots_Type=OctetString
+_AdGenEasyPseudowireCEMPhyTimeslots_Object=MibTableColumn
+adGenEasyPseudowireCEMPhyTimeslots=_AdGenEasyPseudowireCEMPhyTimeslots_Object((1,3,6,1,4,1,664,5,70,30,4,2,1,5),_AdGenEasyPseudowireCEMPhyTimeslots_Type())
+adGenEasyPseudowireCEMPhyTimeslots.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenEasyPseudowireCEMPhyTimeslots.setStatus(_A)
+class _AdGenEasyPseudowireCEMAction_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('add',1),('remove',2)))
+_AdGenEasyPseudowireCEMAction_Type.__name__=_C
+_AdGenEasyPseudowireCEMAction_Object=MibTableColumn
+adGenEasyPseudowireCEMAction=_AdGenEasyPseudowireCEMAction_Object((1,3,6,1,4,1,664,5,70,30,4,2,1,6),_AdGenEasyPseudowireCEMAction_Type())
+adGenEasyPseudowireCEMAction.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenEasyPseudowireCEMAction.setStatus(_A)
+_AdGenEasyPseudowireCEMErrorString_Type=DisplayString
+_AdGenEasyPseudowireCEMErrorString_Object=MibTableColumn
+adGenEasyPseudowireCEMErrorString=_AdGenEasyPseudowireCEMErrorString_Object((1,3,6,1,4,1,664,5,70,30,4,2,1,7),_AdGenEasyPseudowireCEMErrorString_Type())
+adGenEasyPseudowireCEMErrorString.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenEasyPseudowireCEMErrorString.setStatus(_A)
+class _AdGenEasyPseudowireCEMStatusString_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('pass',1),('fail',2),('inProgress',3)))
+_AdGenEasyPseudowireCEMStatusString_Type.__name__=_C
+_AdGenEasyPseudowireCEMStatusString_Object=MibTableColumn
+adGenEasyPseudowireCEMStatusString=_AdGenEasyPseudowireCEMStatusString_Object((1,3,6,1,4,1,664,5,70,30,4,2,1,8),_AdGenEasyPseudowireCEMStatusString_Type())
+adGenEasyPseudowireCEMStatusString.setMaxAccess(_D)
+if mibBuilder.loadTexts:adGenEasyPseudowireCEMStatusString.setStatus(_A)
+_AdGenEasyPseudowireCEMRowStatus_Type=RowStatus
+_AdGenEasyPseudowireCEMRowStatus_Object=MibTableColumn
+adGenEasyPseudowireCEMRowStatus=_AdGenEasyPseudowireCEMRowStatus_Object((1,3,6,1,4,1,664,5,70,30,4,2,1,9),_AdGenEasyPseudowireCEMRowStatus_Type())
+adGenEasyPseudowireCEMRowStatus.setMaxAccess(_B)
+if mibBuilder.loadTexts:adGenEasyPseudowireCEMRowStatus.setStatus(_A)
+_AdGenPseudowireCEMPerformance_ObjectIdentity=ObjectIdentity
+adGenPseudowireCEMPerformance=_AdGenPseudowireCEMPerformance_ObjectIdentity((1,3,6,1,4,1,664,5,70,30,5))
+_AdGenPseudowireCEMPerfInfo_ObjectIdentity=ObjectIdentity
+adGenPseudowireCEMPerfInfo=_AdGenPseudowireCEMPerfInfo_ObjectIdentity((1,3,6,1,4,1,664,5,70,30,5,2))
+_AdGenPseudowireCEMAlarms_ObjectIdentity=ObjectIdentity
+adGenPseudowireCEMAlarms=_AdGenPseudowireCEMAlarms_ObjectIdentity((1,3,6,1,4,1,664,5,70,30,6))
+_AdGenPseudowireCEMEvents_ObjectIdentity=ObjectIdentity
+adGenPseudowireCEMEvents=_AdGenPseudowireCEMEvents_ObjectIdentity((1,3,6,1,4,1,664,5,70,30,6,0))
+_AdGenPseudowireCEMAlarmProv_ObjectIdentity=ObjectIdentity
+adGenPseudowireCEMAlarmProv=_AdGenPseudowireCEMAlarmProv_ObjectIdentity((1,3,6,1,4,1,664,5,70,30,7))
+_AdGenPseudowireCEMPerfID_ObjectIdentity=ObjectIdentity
+adGenPseudowireCEMPerfID=_AdGenPseudowireCEMPerfID_ObjectIdentity((1,3,6,1,4,1,664,6,10000,70,30,2))
+_AdGenPseudowireCEMPerfInfoID_ObjectIdentity=ObjectIdentity
+adGenPseudowireCEMPerfInfoID=_AdGenPseudowireCEMPerfInfoID_ObjectIdentity((1,3,6,1,4,1,664,6,10000,70,30,2,2))
+_AdGenPseudowireCEMAlarmsID_ObjectIdentity=ObjectIdentity
+adGenPseudowireCEMAlarmsID=_AdGenPseudowireCEMAlarmsID_ObjectIdentity((1,3,6,1,4,1,664,6,10000,70,30,3))
+mibBuilder.exportSymbols(_E,**{'adGenPseudowireCEMProv':adGenPseudowireCEMProv,'adGenPseudowireCEMProvTable':adGenPseudowireCEMProvTable,'adGenPseudowireCEMProvTableEntry':adGenPseudowireCEMProvTableEntry,'adGenPseudowireCEMType':adGenPseudowireCEMType,'adGenPseudowireCEMPhysicalPortIfIndex':adGenPseudowireCEMPhysicalPortIfIndex,'adGenPseudowireCEMDestinationNode':adGenPseudowireCEMDestinationNode,'adGenPseudowireCEMDestinationShelf':adGenPseudowireCEMDestinationShelf,'adGenPseudowireCEMDestinationSlot':adGenPseudowireCEMDestinationSlot,'adGenPseudowireCEMDestinationChannel':adGenPseudowireCEMDestinationChannel,'adGenPseudowireCEMDestinationONTNumber':adGenPseudowireCEMDestinationONTNumber,'adGenPseudowireCEMDestinationONTSlot':adGenPseudowireCEMDestinationONTSlot,'adGenPseudowireCEMDestinationONTPort':adGenPseudowireCEMDestinationONTPort,'adGenPseudowireCEMRowStatus':adGenPseudowireCEMRowStatus,'adGenPseudowireCEMErrorStr':adGenPseudowireCEMErrorStr,'adGenPseudowireCEMCircuitIdentifierStr':adGenPseudowireCEMCircuitIdentifierStr,'adGenPseudowireCEMPktJitterBufferDepth':adGenPseudowireCEMPktJitterBufferDepth,'adGenPseudowireCEMPktPayloadSize':adGenPseudowireCEMPktPayloadSize,'adGenPseudowireCEMPktRTPPayloadType':adGenPseudowireCEMPktRTPPayloadType,'adGenPseudowireCEMPktRTPFrequency':adGenPseudowireCEMPktRTPFrequency,'adGenPseudowireCEMDscp':adGenPseudowireCEMDscp,'adGenPseudowireCEMServiceState':adGenPseudowireCEMServiceState,'adGenPseudowireCEMDetailedOperStatus':adGenPseudowireCEMDetailedOperStatus,'adGenAdvancedPseudowireCEMProv':adGenAdvancedPseudowireCEMProv,'adGenAdvancedPseudowireCEMProvTable':adGenAdvancedPseudowireCEMProvTable,'adGenAdvancedPseudowireCEMProvTableEntry':adGenAdvancedPseudowireCEMProvTableEntry,'adGenAdvancedPseudowireCEMType':adGenAdvancedPseudowireCEMType,'adGenAdvancedPseudowireCEMSourceUDP':adGenAdvancedPseudowireCEMSourceUDP,'adGenAdvancedPseudowireCEMPhysicalPortIfIndex':adGenAdvancedPseudowireCEMPhysicalPortIfIndex,'adGenAdvancedPseudowireCEMDestinationUDP':adGenAdvancedPseudowireCEMDestinationUDP,'adGenAdvancedPseudowireCEMDestinationIP':adGenAdvancedPseudowireCEMDestinationIP,'adGenAdvancedPseudowireCEMDestinationMac':adGenAdvancedPseudowireCEMDestinationMac,'adGenAdvancedPseudowireCEMRowStatus':adGenAdvancedPseudowireCEMRowStatus,'adGenAdvancedPseudowireCEMErrorStr':adGenAdvancedPseudowireCEMErrorStr,'adGenAdvancedPseudowireCEMCircuitIdentifierStr':adGenAdvancedPseudowireCEMCircuitIdentifierStr,'adGenAdvancedPseudowireCEMPktJitterBufferDepth':adGenAdvancedPseudowireCEMPktJitterBufferDepth,'adGenAdvancedPseudowireCEMPktPayloadSize':adGenAdvancedPseudowireCEMPktPayloadSize,'adGenAdvancedPseudowireCEMPktRTPPayloadType':adGenAdvancedPseudowireCEMPktRTPPayloadType,'adGenAdvancedPseudowireCEMPktRTPFrequency':adGenAdvancedPseudowireCEMPktRTPFrequency,'adGenAdvancedPseudowireCEMDscp':adGenAdvancedPseudowireCEMDscp,'adGenAdvancedPseudowireCEMServiceState':adGenAdvancedPseudowireCEMServiceState,'adGenAdvancedPseudowireCEMDetailedOperStatus':adGenAdvancedPseudowireCEMDetailedOperStatus,'adGenPseudowireCEMCesopTimeslotProv':adGenPseudowireCEMCesopTimeslotProv,'adGenPseudowireCEMCesopTimeslotTable':adGenPseudowireCEMCesopTimeslotTable,'adGenPseudowireCEMCesopTimeslotTableEntry':adGenPseudowireCEMCesopTimeslotTableEntry,_P:adGenPseudowireCEMCesopPweIfIndex,_Q:adGenPseudowireCEMCesopPweTimeslot,_R:adGenPseudowireCEMCesopPhysicalPortIfIndex,_S:adGenPseudowireCEMCesopPhyTimeslot,'adGenPseudowireCEMCesopConnectionStatus':adGenPseudowireCEMCesopConnectionStatus,'adGenEasyPseudowireCEMProv':adGenEasyPseudowireCEMProv,'adGenEasyPseudowireCEMGetNextTable':adGenEasyPseudowireCEMGetNextTable,'adGenEasyPseudowireCEMGetNextEntry':adGenEasyPseudowireCEMGetNextEntry,'adGenEasyPseudowireCEMNextIndex':adGenEasyPseudowireCEMNextIndex,'adGenEasyPseudowireCEMTimeslotTable':adGenEasyPseudowireCEMTimeslotTable,'adGenEasyPseudowireCEMTimeslotEntry':adGenEasyPseudowireCEMTimeslotEntry,_T:adGenEasyPseudowireCEMIndex,'adGenEasyPseudowireCEMPweIfIndex':adGenEasyPseudowireCEMPweIfIndex,'adGenEasyPseudowireCEMStartingPweTimeslot':adGenEasyPseudowireCEMStartingPweTimeslot,'adGenEasyPseudowireCEMPhysicalPortIfIndex':adGenEasyPseudowireCEMPhysicalPortIfIndex,'adGenEasyPseudowireCEMPhyTimeslots':adGenEasyPseudowireCEMPhyTimeslots,'adGenEasyPseudowireCEMAction':adGenEasyPseudowireCEMAction,'adGenEasyPseudowireCEMErrorString':adGenEasyPseudowireCEMErrorString,'adGenEasyPseudowireCEMStatusString':adGenEasyPseudowireCEMStatusString,'adGenEasyPseudowireCEMRowStatus':adGenEasyPseudowireCEMRowStatus,'adGenPseudowireCEMPerformance':adGenPseudowireCEMPerformance,'adGenPseudowireCEMPerfInfo':adGenPseudowireCEMPerfInfo,'adGenPseudowireCEMAlarms':adGenPseudowireCEMAlarms,'adGenPseudowireCEMEvents':adGenPseudowireCEMEvents,'adGenPseudowireCEMAlarmProv':adGenPseudowireCEMAlarmProv,'adGenPseudowireCEMMgmtModuleIdentity':adGenPseudowireCEMMgmtModuleIdentity,'adGenPseudowireCEMPerfID':adGenPseudowireCEMPerfID,'adGenPseudowireCEMPerfInfoID':adGenPseudowireCEMPerfInfoID,'adGenPseudowireCEMAlarmsID':adGenPseudowireCEMAlarmsID})

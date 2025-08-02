@@ -1,142 +1,317 @@
-#
-# PySNMP MIB module COPS-CLIENT-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/COPS-CLIENT-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:07:10 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, ObjectIdentifier, Integer, ) = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
-( InetAddress, InetAddressType, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( Integer32, Counter64, Gauge32, NotificationType, MibIdentifier, IpAddress, Unsigned32, ObjectIdentity, TimeTicks, iso, ModuleIdentity, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, mib_2, Bits, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Counter64", "Gauge32", "NotificationType", "MibIdentifier", "IpAddress", "Unsigned32", "ObjectIdentity", "TimeTicks", "iso", "ModuleIdentity", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "mib-2", "Bits")
-( DisplayString, TimeStamp, RowStatus, TimeInterval, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TimeStamp", "RowStatus", "TimeInterval", "TextualConvention")
-copsClientMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 89)).setRevisions(("2000-09-28 00:00",))
-if mibBuilder.loadTexts: copsClientMIB.setLastUpdated('200009280000Z')
-if mibBuilder.loadTexts: copsClientMIB.setOrganization('IETF RSVP Admission Policy Working Group')
-if mibBuilder.loadTexts: copsClientMIB.setContactInfo('       Andrew Smith (WG co-chair)\n         Phone: +1 408 579 2821\n         Email: ah_smith@pacbell.net\n\n                Mark Stevens (WG co-chair)\n         Phone: +1 978 287 9102\n         Email: markstevens@lucent.com\n\n         Editor: Andrew Smith\n         Phone: +1 408 579 2821\n         Email: ah_smith@pacbell.net\n\n         Editor: David Partain\n         Phone: +46 13 28 41 44\n         Email: David.Partain@ericsson.com\n\n         Editor: John Seligson\n         Phone: +1 408 495 2992\n         Email: jseligso@nortelnetworks.com')
-if mibBuilder.loadTexts: copsClientMIB.setDescription('The COPS Client MIB module')
-copsClientMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 89, 1))
-class CopsClientState(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))
-    namedValues = NamedValues(("copsClientInvalid", 1), ("copsClientTcpconnected", 2), ("copsClientAuthenticating", 3), ("copsClientSecAccepted", 4), ("copsClientAccepted", 5), ("copsClientTimingout", 6),)
-
-class CopsServerEntryType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2,))
-    namedValues = NamedValues(("copsServerStatic", 1), ("copsServerRedirect", 2),)
-
-class CopsErrorCode(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,))
-    namedValues = NamedValues(("errorOther", 0), ("errorBadHandle", 1), ("errorInvalidHandleReference", 2), ("errorBadMessageFormat", 3), ("errorUnableToProcess", 4), ("errorMandatoryClientSiMissing", 5), ("errorUnsupportedClientType", 6), ("errorMandatoryCopsObjectMissing", 7), ("errorClientFailure", 8), ("errorCommunicationFailure", 9), ("errorUnspecified", 10), ("errorShuttingDown", 11), ("errorRedirectToPreferredServer", 12), ("errorUnknownCopsObject", 13), ("errorAuthenticationFailure", 14), ("errorAuthenticationMissing", 15),)
-
-class CopsTcpPort(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,65535)
-
-class CopsAuthType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5,))
-    namedValues = NamedValues(("authNone", 0), ("authOther", 1), ("authIpSecAh", 2), ("authIpSecEsp", 3), ("authTls", 4), ("authCopsIntegrity", 5),)
-
-copsClientCapabilitiesGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 89, 1, 1))
-copsClientCapabilities = MibScalar((1, 3, 6, 1, 2, 1, 89, 1, 1, 1), Bits().clone(namedValues=NamedValues(("copsClientVersion1", 0), ("copsClientAuthIpSecAh", 1), ("copsClientAuthIpSecEsp", 2), ("copsClientAuthTls", 3), ("copsClientAuthInteg", 4),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientCapabilities.setDescription('A list of the optional capabilities that this COPS client\n        supports.')
-copsClientStatusGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 89, 1, 2))
-copsClientServerCurrentTable = MibTable((1, 3, 6, 1, 2, 1, 89, 1, 2, 1), )
-if mibBuilder.loadTexts: copsClientServerCurrentTable.setDescription('A table of information regarding COPS servers as seen from the\n        point of view of a COPS client. This table contains entries\n        for both statically-configured and dynamically-learned servers\n        (from a PDP Redirect operation). One entry exists in this table\n        for each COPS Client-Type served by the COPS server. In addition,\n        an entry will exist with copsClientServerClientType 0 (zero)\n        representing information about the underlying connection itself:\n        this is consistent with the COPS specification which reserves\n        this value for this purpose.')
-copsClientServerCurrentEntry = MibTableRow((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1), ).setIndexNames((0, "COPS-CLIENT-MIB", "copsClientServerAddressType"), (0, "COPS-CLIENT-MIB", "copsClientServerAddress"), (0, "COPS-CLIENT-MIB", "copsClientServerClientType"))
-if mibBuilder.loadTexts: copsClientServerCurrentEntry.setDescription('A set of information regarding a single COPS server serving\n        a single COPS Client-Type from the point of view of a COPS\n        client.')
-copsClientServerAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: copsClientServerAddressType.setDescription('The type of address in copsClientServerAddress.')
-copsClientServerAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 2), InetAddress())
-if mibBuilder.loadTexts: copsClientServerAddress.setDescription('The IPv4, IPv6 or DNS address of a COPS Server. Note that,\n        since this is an index to the table, the DNS name must be\n        short enough to fit into the maximum length of indices allowed\n        by the management protocol in use.')
-copsClientServerClientType = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)))
-if mibBuilder.loadTexts: copsClientServerClientType.setDescription('The COPS protocol Client-Type for which this entry\n        applies. Multiple Client-Types can be served by a single\n        COPS server. The value 0 (zero) indicates that this\n        entry contains information about the underlying connection\n        itself.')
-copsClientServerTcpPort = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 4), CopsTcpPort()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientServerTcpPort.setDescription('The TCP port number on the COPS server to which the\n        client should connect/is connected.')
-copsClientServerType = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 5), CopsServerEntryType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientServerType.setDescription('Indicator of the source of this COPS server information.\n        COPS servers may be configured by network management\n        into copsClientServerConfigTable and appear in this entry\n        with type copsServerStatic(1). Alternatively, the may be\n        notified from another COPS server by means of the COPS\n        PDP-Redirect mechanism and appear as copsServerRedirect(2).')
-copsClientServerAuthType = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 6), CopsAuthType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientServerAuthType.setDescription('Indicator of the current security mode in use between\n        client and this COPS server.')
-copsClientServerLastConnAttempt = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 7), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientServerLastConnAttempt.setDescription('Timestamp of the last time that this client attempted to\n        connect to this COPS server.')
-copsClientState = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 8), CopsClientState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientState.setDescription('The state of the connection and COPS protocol with respect\n        to this COPS server.')
-copsClientServerKeepaliveTime = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 9), TimeInterval()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientServerKeepaliveTime.setDescription('The value of the COPS protocol Keepalive timeout, in\n        centiseconds, currently in use by this client, as\n        specified by this COPS server in the Client-Accept operation.\n        A value of zero indicates no keepalive activity is expected.')
-copsClientServerAccountingTime = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 10), TimeInterval()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientServerAccountingTime.setDescription('The value of the COPS protocol Accounting timeout, in\n        centiseconds, currently in use by this client, as specified\n        by the COPS server in the Client-Accept operation. A value\n        of zero indicates no accounting activity is to be performed.')
-copsClientInPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientInPkts.setDescription('A count of the total number of COPS messages that this client\n        has received from this COPS server marked for this Client-Type.\n        This value is cumulative since agent restart and is not zeroed\n        on new connections.')
-copsClientOutPkts = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientOutPkts.setDescription('A count of the total number of COPS messages that this client\n        has sent to this COPS server marked for this Client-Type. This\n        value is cumulative since agent restart and is not zeroed on new\n        connections.')
-copsClientInErrs = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientInErrs.setDescription('A count of the total number of COPS messages that this client\n        has received from this COPS server marked for this Client-Type\n        that contained errors in syntax. This value is cumulative since\n        agent restart and is not zeroed on new connections.')
-copsClientLastError = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 14), CopsErrorCode()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientLastError.setDescription('The code contained in the last COPS protocol Error Object\n        received by this client from this COPS server marked for this\n        Client-Type. This value is not zeroed on COPS Client-Open\n        operations.')
-copsClientTcpConnectAttempts = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientTcpConnectAttempts.setDescription('A count of the number of times that this COPS client has tried\n        (successfully or otherwise) to open an TCP connection to a COPS\n        server. This value is cumulative  since agent restart and is not\n        zeroed on new connections. This value is not incremented for\n        entries representing a non-zero Client-Type.')
-copsClientTcpConnectFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientTcpConnectFailures.setDescription('A count of the number of times that this COPS client has failed\n        to open an TCP connection to a COPS server. This value is\n        cumulative since agent restart and is not zeroed on new\n        connections. This value is not incremented for\n        entries representing a non-zero Client-Type.')
-copsClientOpenAttempts = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientOpenAttempts.setDescription('A count of the number of times that this COPS client has tried\n        to perform a COPS Client-Open to a COPS server for this\n        Client-Type. This value is cumulative since agent restart and is\n        not zeroed on new connections.')
-copsClientOpenFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientOpenFailures.setDescription('A count of the number of times that this COPS client has failed\n        to perform a COPS Client-Open to a COPS server for this\n        Client-Type. This value is cumulative since agent restart and is\n        not zeroed on new connections.')
-copsClientErrUnsupportClienttype = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientErrUnsupportClienttype.setDescription('A count of the total number of COPS messages that this client\n        has received from COPS servers that referred to Client-Types\n        that are unsupported by this client. This value is cumulative\n        since agent restart and is not zeroed on new connections. This\n        value is not incremented for entries representing a non-zero\n        Client-Type.')
-copsClientErrUnsupportedVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientErrUnsupportedVersion.setDescription('A count of the total number of COPS messages that this client\n        has received from COPS servers marked for this Client-Type that\n        had a COPS protocol Version number that is unsupported by this\n        client. This value is cumulative since agent restart and is not\n        zeroed on new connections.')
-copsClientErrLengthMismatch = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 21), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientErrLengthMismatch.setDescription('A count of the total number of COPS messages that this client\n        has received from COPS servers marked for this Client-Type that\n        had a COPS protocol Message Length that did not match the actual\n        received message. This value is cumulative since agent restart\n        and is not zeroed on new connections.')
-copsClientErrUnknownOpcode = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 22), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientErrUnknownOpcode.setDescription('A count of the total number of COPS messages that this client\n        has received from COPS servers marked for this Client-Type that\n        had a COPS protocol Op Code that was unrecognised by this\n        client. This value is cumulative since agent restart and is not\n        zeroed on new connections.')
-copsClientErrUnknownCnum = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 23), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientErrUnknownCnum.setDescription('A count of the total number of COPS messages that this client\n        has received from COPS servers marked for this Client-Type that\n        contained a COPS protocol object C-Num that was unrecognised by\n        this client. This value is cumulative since agent restart and is\n        not zeroed on new connections.')
-copsClientErrBadCtype = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 24), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientErrBadCtype.setDescription('A count of the total number of COPS messages that this client\n        has received from COPS servers marked for this Client-Type that\n        contained a COPS protocol object C-Type that was not defined for\n        the C-Nums known by this client. This value is cumulative since\n        agent restart and is not zeroed on new connections.')
-copsClientErrBadSends = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 25), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientErrBadSends.setDescription('A count of the total number of COPS messages that this client\n        attempted to send to COPS servers marked for this Client-Type\n        that resulted in a transmit error. This value is cumulative\n        since agent restart and is not zeroed on new connections.')
-copsClientErrWrongObjects = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 26), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientErrWrongObjects.setDescription('A count of the total number of COPS messages that this client\n        has received from COPS servers marked for this Client-Type that\n        did not contain a permitted set of COPS protocol objects. This\n        value is cumulative since agent restart and is not zeroed on new\n        connections.')
-copsClientErrWrongOpcode = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 27), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientErrWrongOpcode.setDescription('A count of the total number of COPS messages that this client\n        has received from COPS servers marked for this Client-Type that\n        had a COPS protocol Op Code that should not have been sent to a\n        COPS client e.g. Open-Requests. This value is cumulative since\n        agent restart and is not zeroed on new connections.')
-copsClientKaTimedoutClients = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 28), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientKaTimedoutClients.setDescription('A count of the total number of times that this client has\n        been shut down for this Client-Type by COPS servers that had\n        detected a COPS protocol Keepalive timeout. This value is\n        cumulative since agent restart and is not zeroed on new\n        connections.')
-copsClientErrAuthFailures = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 29), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientErrAuthFailures.setDescription('A count of the total number of times that this client has\n        received a COPS message marked for this Client-Type which\n        could not be authenticated using the authentication mechanism\n        used by this client.')
-copsClientErrAuthMissing = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 2, 1, 1, 30), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: copsClientErrAuthMissing.setDescription('A count of the total number of times that this client has\n        received a COPS message marked for this Client-Type which did not\n        contain authentication information.')
-copsClientConfigGroup = MibIdentifier((1, 3, 6, 1, 2, 1, 89, 1, 3))
-copsClientServerConfigTable = MibTable((1, 3, 6, 1, 2, 1, 89, 1, 3, 1), )
-if mibBuilder.loadTexts: copsClientServerConfigTable.setDescription('Table of possible COPS servers to try to connect to in order\n        of copsClientServerConfigPriority. There may be multiple\n        entries in this table for the same server and client-type which\n        specify different security mechanisms: these mechanisms will\n        be attempted by the client in the priority order given. Note\n        that a server learned by means of PDPRedirect always takes\n        priority over any of these configured entries.')
-copsClientServerConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 89, 1, 3, 1, 1), ).setIndexNames((0, "COPS-CLIENT-MIB", "copsClientServerConfigAddrType"), (0, "COPS-CLIENT-MIB", "copsClientServerConfigAddress"), (0, "COPS-CLIENT-MIB", "copsClientServerConfigClientType"), (0, "COPS-CLIENT-MIB", "copsClientServerConfigAuthType"))
-if mibBuilder.loadTexts: copsClientServerConfigEntry.setDescription('A set of configuration information regarding a single\n        COPS server from the point of view of a COPS client.')
-copsClientServerConfigAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 3, 1, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: copsClientServerConfigAddrType.setDescription('The type of address in copsClientServerConfigAddress.')
-copsClientServerConfigAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 3, 1, 1, 2), InetAddress())
-if mibBuilder.loadTexts: copsClientServerConfigAddress.setDescription('The IPv4, IPv6 or DNS address of a COPS Server. Note that,\n        since this is an index to the table, the DNS name must be\n        short enough to fit into the maximum length of indices allowed\n        by the management protocol in use.')
-copsClientServerConfigClientType = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535)))
-if mibBuilder.loadTexts: copsClientServerConfigClientType.setDescription('The COPS protocol Client-Type for which this entry\n        applies and for which this COPS server is capable\n        of serving. Multiple Client-Types can be served by a\n        single COPS server.')
-copsClientServerConfigAuthType = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 3, 1, 1, 4), CopsAuthType())
-if mibBuilder.loadTexts: copsClientServerConfigAuthType.setDescription('The type of authentication mechanism for this COPS client\n        to request when negotiating security at the start of a\n        connection to a COPS server.')
-copsClientServerConfigTcpPort = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 3, 1, 1, 5), CopsTcpPort()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: copsClientServerConfigTcpPort.setDescription('The TCP port number on the COPS server to which the\n        client should connect.')
-copsClientServerConfigPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 3, 1, 1, 6), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: copsClientServerConfigPriority.setDescription('The priority of this entry relative to other entries.\n        COPS client will attempt to contact COPS servers for the\n        appropriate Client-Type. Higher numbers are tried first. The\n        order to be used amongst server entries with the same priority\n        is undefined. COPS servers that are notified to the client using\n        the COPS protocol PDP-Redirect mechanism are always used in\n        preference to any entries in this table.')
-copsClientServerConfigRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 89, 1, 3, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: copsClientServerConfigRowStatus.setDescription('State of this entry in the table.')
-copsClientServerConfigRetryAlgrm = MibScalar((1, 3, 6, 1, 2, 1, 89, 1, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("other", 1), ("sequential", 2), ("roundRobin", 3),)).clone('sequential')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: copsClientServerConfigRetryAlgrm.setDescription('The algorithm by which the client should retry when it\n         fails to connect to a COPS server.')
-copsClientServerConfigRetryCount = MibScalar((1, 3, 6, 1, 2, 1, 89, 1, 3, 3), Unsigned32().clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: copsClientServerConfigRetryCount.setDescription("A retry count for use by the retry algorithm.  Each retry\n         algorithm needs to specify how it uses this value.\n\n         For the 'sequential(2)' algorithm, this value is the\n         number of times the client should retry to connect\n         to one COPS server before moving on to another.\n         For the 'roundRobin(3)' algorithm, this value is not used.")
-copsClientServerConfigRetryIntvl = MibScalar((1, 3, 6, 1, 2, 1, 89, 1, 3, 4), TimeInterval().clone(1000)).setUnits('centi-seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: copsClientServerConfigRetryIntvl.setDescription("A retry interval for use by the retry algorithm.  Each retry\n         algorithm needs to specify how it uses this value.\n\n         For the 'sequential(2)' algorithm, this value is the time to\n         wait between retries of a connection to the same COPS server.\n\n         For the 'roundRobin(3)' algorithm, the client always attempts\n         to connect to each Server in turn, until one succeeds or they\n         all fail; if they all fail, then the client waits for the value\n         of this interval before restarting the algorithm.")
-copsClientConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 89, 2))
-copsClientGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 89, 2, 1))
-copsClientCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 89, 2, 2))
-copsDeviceStatusGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 89, 2, 1, 1)).setObjects(*(("COPS-CLIENT-MIB", "copsClientCapabilities"), ("COPS-CLIENT-MIB", "copsClientServerTcpPort"), ("COPS-CLIENT-MIB", "copsClientServerType"), ("COPS-CLIENT-MIB", "copsClientServerAuthType"), ("COPS-CLIENT-MIB", "copsClientServerLastConnAttempt"), ("COPS-CLIENT-MIB", "copsClientState"), ("COPS-CLIENT-MIB", "copsClientServerKeepaliveTime"), ("COPS-CLIENT-MIB", "copsClientServerAccountingTime"), ("COPS-CLIENT-MIB", "copsClientInPkts"), ("COPS-CLIENT-MIB", "copsClientOutPkts"), ("COPS-CLIENT-MIB", "copsClientInErrs"), ("COPS-CLIENT-MIB", "copsClientLastError"), ("COPS-CLIENT-MIB", "copsClientTcpConnectAttempts"), ("COPS-CLIENT-MIB", "copsClientTcpConnectFailures"), ("COPS-CLIENT-MIB", "copsClientOpenAttempts"), ("COPS-CLIENT-MIB", "copsClientOpenFailures"), ("COPS-CLIENT-MIB", "copsClientErrUnsupportClienttype"), ("COPS-CLIENT-MIB", "copsClientErrUnsupportedVersion"), ("COPS-CLIENT-MIB", "copsClientErrLengthMismatch"), ("COPS-CLIENT-MIB", "copsClientErrUnknownOpcode"), ("COPS-CLIENT-MIB", "copsClientErrUnknownCnum"), ("COPS-CLIENT-MIB", "copsClientErrBadCtype"), ("COPS-CLIENT-MIB", "copsClientErrBadSends"), ("COPS-CLIENT-MIB", "copsClientErrWrongObjects"), ("COPS-CLIENT-MIB", "copsClientErrWrongOpcode"), ("COPS-CLIENT-MIB", "copsClientKaTimedoutClients"), ("COPS-CLIENT-MIB", "copsClientErrAuthFailures"), ("COPS-CLIENT-MIB", "copsClientErrAuthMissing"),))
-if mibBuilder.loadTexts: copsDeviceStatusGroup.setDescription('A collection of objects for monitoring the status of\n        connections to COPS servers and statistics for a COPS client.')
-copsDeviceConfigGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 89, 2, 1, 2)).setObjects(*(("COPS-CLIENT-MIB", "copsClientServerConfigTcpPort"), ("COPS-CLIENT-MIB", "copsClientServerConfigPriority"), ("COPS-CLIENT-MIB", "copsClientServerConfigRowStatus"), ("COPS-CLIENT-MIB", "copsClientServerConfigRetryAlgrm"), ("COPS-CLIENT-MIB", "copsClientServerConfigRetryCount"), ("COPS-CLIENT-MIB", "copsClientServerConfigRetryIntvl"),))
-if mibBuilder.loadTexts: copsDeviceConfigGroup.setDescription('A collection of objects for configuring COPS server\n        information.')
-copsClientCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 89, 2, 2, 1)).setObjects(*(("COPS-CLIENT-MIB", "copsDeviceStatusGroup"), ("COPS-CLIENT-MIB", "copsDeviceConfigGroup"),))
-if mibBuilder.loadTexts: copsClientCompliance.setDescription('The compliance statement for device support of\n        management of the COPS client.')
-mibBuilder.exportSymbols("COPS-CLIENT-MIB", copsClientServerType=copsClientServerType, copsClientMIBObjects=copsClientMIBObjects, copsClientServerConfigPriority=copsClientServerConfigPriority, CopsServerEntryType=CopsServerEntryType, copsClientErrBadSends=copsClientErrBadSends, copsClientServerConfigRetryAlgrm=copsClientServerConfigRetryAlgrm, copsClientErrUnsupportedVersion=copsClientErrUnsupportedVersion, copsClientGroups=copsClientGroups, copsDeviceStatusGroup=copsDeviceStatusGroup, CopsClientState=CopsClientState, copsClientServerCurrentEntry=copsClientServerCurrentEntry, copsClientServerAddressType=copsClientServerAddressType, copsClientCapabilities=copsClientCapabilities, copsClientConformance=copsClientConformance, copsClientState=copsClientState, copsClientErrUnknownCnum=copsClientErrUnknownCnum, copsClientServerConfigEntry=copsClientServerConfigEntry, copsClientServerAuthType=copsClientServerAuthType, copsClientErrAuthMissing=copsClientErrAuthMissing, copsClientServerConfigTable=copsClientServerConfigTable, copsClientTcpConnectAttempts=copsClientTcpConnectAttempts, CopsTcpPort=CopsTcpPort, copsClientCompliances=copsClientCompliances, copsClientMIB=copsClientMIB, copsClientOpenFailures=copsClientOpenFailures, copsClientServerConfigAddress=copsClientServerConfigAddress, copsClientOutPkts=copsClientOutPkts, CopsErrorCode=CopsErrorCode, CopsAuthType=CopsAuthType, copsClientErrWrongOpcode=copsClientErrWrongOpcode, copsClientOpenAttempts=copsClientOpenAttempts, copsClientErrLengthMismatch=copsClientErrLengthMismatch, copsClientErrWrongObjects=copsClientErrWrongObjects, copsClientInErrs=copsClientInErrs, copsClientServerConfigTcpPort=copsClientServerConfigTcpPort, copsClientServerKeepaliveTime=copsClientServerKeepaliveTime, copsClientServerLastConnAttempt=copsClientServerLastConnAttempt, copsClientKaTimedoutClients=copsClientKaTimedoutClients, copsClientServerConfigRowStatus=copsClientServerConfigRowStatus, copsClientStatusGroup=copsClientStatusGroup, copsClientServerTcpPort=copsClientServerTcpPort, copsClientErrAuthFailures=copsClientErrAuthFailures, copsClientErrUnsupportClienttype=copsClientErrUnsupportClienttype, copsClientLastError=copsClientLastError, copsClientErrBadCtype=copsClientErrBadCtype, copsClientConfigGroup=copsClientConfigGroup, copsClientServerConfigAuthType=copsClientServerConfigAuthType, copsClientCompliance=copsClientCompliance, copsClientServerAddress=copsClientServerAddress, copsClientErrUnknownOpcode=copsClientErrUnknownOpcode, copsDeviceConfigGroup=copsDeviceConfigGroup, copsClientServerConfigClientType=copsClientServerConfigClientType, copsClientServerCurrentTable=copsClientServerCurrentTable, copsClientServerAccountingTime=copsClientServerAccountingTime, PYSNMP_MODULE_ID=copsClientMIB, copsClientTcpConnectFailures=copsClientTcpConnectFailures, copsClientCapabilitiesGroup=copsClientCapabilitiesGroup, copsClientServerConfigRetryCount=copsClientServerConfigRetryCount, copsClientServerConfigAddrType=copsClientServerConfigAddrType, copsClientServerConfigRetryIntvl=copsClientServerConfigRetryIntvl, copsClientServerClientType=copsClientServerClientType, copsClientInPkts=copsClientInPkts)
+_z='copsDeviceConfigGroup'
+_y='copsDeviceStatusGroup'
+_x='copsClientServerConfigRetryIntvl'
+_w='copsClientServerConfigRetryCount'
+_v='copsClientServerConfigRetryAlgrm'
+_u='copsClientServerConfigRowStatus'
+_t='copsClientServerConfigPriority'
+_s='copsClientServerConfigTcpPort'
+_r='copsClientErrAuthMissing'
+_q='copsClientErrAuthFailures'
+_p='copsClientKaTimedoutClients'
+_o='copsClientErrWrongOpcode'
+_n='copsClientErrWrongObjects'
+_m='copsClientErrBadSends'
+_l='copsClientErrBadCtype'
+_k='copsClientErrUnknownCnum'
+_j='copsClientErrUnknownOpcode'
+_i='copsClientErrLengthMismatch'
+_h='copsClientErrUnsupportedVersion'
+_g='copsClientErrUnsupportClienttype'
+_f='copsClientOpenFailures'
+_e='copsClientOpenAttempts'
+_d='copsClientTcpConnectFailures'
+_c='copsClientTcpConnectAttempts'
+_b='copsClientLastError'
+_a='copsClientInErrs'
+_Z='copsClientOutPkts'
+_Y='copsClientInPkts'
+_X='copsClientServerAccountingTime'
+_W='copsClientServerKeepaliveTime'
+_V='copsClientState'
+_U='copsClientServerLastConnAttempt'
+_T='copsClientServerAuthType'
+_S='copsClientServerType'
+_R='copsClientServerTcpPort'
+_Q='copsClientCapabilities'
+_P='copsClientServerConfigAuthType'
+_O='copsClientServerConfigClientType'
+_N='copsClientServerConfigAddress'
+_M='copsClientServerConfigAddrType'
+_L='copsClientServerClientType'
+_K='copsClientServerAddress'
+_J='copsClientServerAddressType'
+_I='TimeInterval'
+_H='Unsigned32'
+_G='read-write'
+_F='read-create'
+_E='Integer32'
+_D='not-accessible'
+_C='read-only'
+_B='COPS-CLIENT-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_E,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_H,'iso','mib-2')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TimeInterval,TimeStamp=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_I,'TimeStamp')
+copsClientMIB=ModuleIdentity((1,3,6,1,2,1,89))
+if mibBuilder.loadTexts:copsClientMIB.setRevisions(('2000-09-28 00:00',))
+class CopsClientState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('copsClientInvalid',1),('copsClientTcpconnected',2),('copsClientAuthenticating',3),('copsClientSecAccepted',4),('copsClientAccepted',5),('copsClientTimingout',6)))
+class CopsServerEntryType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('copsServerStatic',1),('copsServerRedirect',2)))
+class CopsErrorCode(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)));namedValues=NamedValues(*(('errorOther',0),('errorBadHandle',1),('errorInvalidHandleReference',2),('errorBadMessageFormat',3),('errorUnableToProcess',4),('errorMandatoryClientSiMissing',5),('errorUnsupportedClientType',6),('errorMandatoryCopsObjectMissing',7),('errorClientFailure',8),('errorCommunicationFailure',9),('errorUnspecified',10),('errorShuttingDown',11),('errorRedirectToPreferredServer',12),('errorUnknownCopsObject',13),('errorAuthenticationFailure',14),('errorAuthenticationMissing',15)))
+class CopsTcpPort(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+class CopsAuthType(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5)));namedValues=NamedValues(*(('authNone',0),('authOther',1),('authIpSecAh',2),('authIpSecEsp',3),('authTls',4),('authCopsIntegrity',5)))
+_CopsClientMIBObjects_ObjectIdentity=ObjectIdentity
+copsClientMIBObjects=_CopsClientMIBObjects_ObjectIdentity((1,3,6,1,2,1,89,1))
+_CopsClientCapabilitiesGroup_ObjectIdentity=ObjectIdentity
+copsClientCapabilitiesGroup=_CopsClientCapabilitiesGroup_ObjectIdentity((1,3,6,1,2,1,89,1,1))
+class _CopsClientCapabilities_Type(Bits):namedValues=NamedValues(*(('copsClientVersion1',0),('copsClientAuthIpSecAh',1),('copsClientAuthIpSecEsp',2),('copsClientAuthTls',3),('copsClientAuthInteg',4)))
+_CopsClientCapabilities_Type.__name__='Bits'
+_CopsClientCapabilities_Object=MibScalar
+copsClientCapabilities=_CopsClientCapabilities_Object((1,3,6,1,2,1,89,1,1,1),_CopsClientCapabilities_Type())
+copsClientCapabilities.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientCapabilities.setStatus(_A)
+_CopsClientStatusGroup_ObjectIdentity=ObjectIdentity
+copsClientStatusGroup=_CopsClientStatusGroup_ObjectIdentity((1,3,6,1,2,1,89,1,2))
+_CopsClientServerCurrentTable_Object=MibTable
+copsClientServerCurrentTable=_CopsClientServerCurrentTable_Object((1,3,6,1,2,1,89,1,2,1))
+if mibBuilder.loadTexts:copsClientServerCurrentTable.setStatus(_A)
+_CopsClientServerCurrentEntry_Object=MibTableRow
+copsClientServerCurrentEntry=_CopsClientServerCurrentEntry_Object((1,3,6,1,2,1,89,1,2,1,1))
+copsClientServerCurrentEntry.setIndexNames((0,_B,_J),(0,_B,_K),(0,_B,_L))
+if mibBuilder.loadTexts:copsClientServerCurrentEntry.setStatus(_A)
+_CopsClientServerAddressType_Type=InetAddressType
+_CopsClientServerAddressType_Object=MibTableColumn
+copsClientServerAddressType=_CopsClientServerAddressType_Object((1,3,6,1,2,1,89,1,2,1,1,1),_CopsClientServerAddressType_Type())
+copsClientServerAddressType.setMaxAccess(_D)
+if mibBuilder.loadTexts:copsClientServerAddressType.setStatus(_A)
+_CopsClientServerAddress_Type=InetAddress
+_CopsClientServerAddress_Object=MibTableColumn
+copsClientServerAddress=_CopsClientServerAddress_Object((1,3,6,1,2,1,89,1,2,1,1,2),_CopsClientServerAddress_Type())
+copsClientServerAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:copsClientServerAddress.setStatus(_A)
+class _CopsClientServerClientType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_CopsClientServerClientType_Type.__name__=_E
+_CopsClientServerClientType_Object=MibTableColumn
+copsClientServerClientType=_CopsClientServerClientType_Object((1,3,6,1,2,1,89,1,2,1,1,3),_CopsClientServerClientType_Type())
+copsClientServerClientType.setMaxAccess(_D)
+if mibBuilder.loadTexts:copsClientServerClientType.setStatus(_A)
+_CopsClientServerTcpPort_Type=CopsTcpPort
+_CopsClientServerTcpPort_Object=MibTableColumn
+copsClientServerTcpPort=_CopsClientServerTcpPort_Object((1,3,6,1,2,1,89,1,2,1,1,4),_CopsClientServerTcpPort_Type())
+copsClientServerTcpPort.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientServerTcpPort.setStatus(_A)
+_CopsClientServerType_Type=CopsServerEntryType
+_CopsClientServerType_Object=MibTableColumn
+copsClientServerType=_CopsClientServerType_Object((1,3,6,1,2,1,89,1,2,1,1,5),_CopsClientServerType_Type())
+copsClientServerType.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientServerType.setStatus(_A)
+_CopsClientServerAuthType_Type=CopsAuthType
+_CopsClientServerAuthType_Object=MibTableColumn
+copsClientServerAuthType=_CopsClientServerAuthType_Object((1,3,6,1,2,1,89,1,2,1,1,6),_CopsClientServerAuthType_Type())
+copsClientServerAuthType.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientServerAuthType.setStatus(_A)
+_CopsClientServerLastConnAttempt_Type=TimeStamp
+_CopsClientServerLastConnAttempt_Object=MibTableColumn
+copsClientServerLastConnAttempt=_CopsClientServerLastConnAttempt_Object((1,3,6,1,2,1,89,1,2,1,1,7),_CopsClientServerLastConnAttempt_Type())
+copsClientServerLastConnAttempt.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientServerLastConnAttempt.setStatus(_A)
+_CopsClientState_Type=CopsClientState
+_CopsClientState_Object=MibTableColumn
+copsClientState=_CopsClientState_Object((1,3,6,1,2,1,89,1,2,1,1,8),_CopsClientState_Type())
+copsClientState.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientState.setStatus(_A)
+_CopsClientServerKeepaliveTime_Type=TimeInterval
+_CopsClientServerKeepaliveTime_Object=MibTableColumn
+copsClientServerKeepaliveTime=_CopsClientServerKeepaliveTime_Object((1,3,6,1,2,1,89,1,2,1,1,9),_CopsClientServerKeepaliveTime_Type())
+copsClientServerKeepaliveTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientServerKeepaliveTime.setStatus(_A)
+_CopsClientServerAccountingTime_Type=TimeInterval
+_CopsClientServerAccountingTime_Object=MibTableColumn
+copsClientServerAccountingTime=_CopsClientServerAccountingTime_Object((1,3,6,1,2,1,89,1,2,1,1,10),_CopsClientServerAccountingTime_Type())
+copsClientServerAccountingTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientServerAccountingTime.setStatus(_A)
+_CopsClientInPkts_Type=Counter32
+_CopsClientInPkts_Object=MibTableColumn
+copsClientInPkts=_CopsClientInPkts_Object((1,3,6,1,2,1,89,1,2,1,1,11),_CopsClientInPkts_Type())
+copsClientInPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientInPkts.setStatus(_A)
+_CopsClientOutPkts_Type=Counter32
+_CopsClientOutPkts_Object=MibTableColumn
+copsClientOutPkts=_CopsClientOutPkts_Object((1,3,6,1,2,1,89,1,2,1,1,12),_CopsClientOutPkts_Type())
+copsClientOutPkts.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientOutPkts.setStatus(_A)
+_CopsClientInErrs_Type=Counter32
+_CopsClientInErrs_Object=MibTableColumn
+copsClientInErrs=_CopsClientInErrs_Object((1,3,6,1,2,1,89,1,2,1,1,13),_CopsClientInErrs_Type())
+copsClientInErrs.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientInErrs.setStatus(_A)
+_CopsClientLastError_Type=CopsErrorCode
+_CopsClientLastError_Object=MibTableColumn
+copsClientLastError=_CopsClientLastError_Object((1,3,6,1,2,1,89,1,2,1,1,14),_CopsClientLastError_Type())
+copsClientLastError.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientLastError.setStatus(_A)
+_CopsClientTcpConnectAttempts_Type=Counter32
+_CopsClientTcpConnectAttempts_Object=MibTableColumn
+copsClientTcpConnectAttempts=_CopsClientTcpConnectAttempts_Object((1,3,6,1,2,1,89,1,2,1,1,15),_CopsClientTcpConnectAttempts_Type())
+copsClientTcpConnectAttempts.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientTcpConnectAttempts.setStatus(_A)
+_CopsClientTcpConnectFailures_Type=Counter32
+_CopsClientTcpConnectFailures_Object=MibTableColumn
+copsClientTcpConnectFailures=_CopsClientTcpConnectFailures_Object((1,3,6,1,2,1,89,1,2,1,1,16),_CopsClientTcpConnectFailures_Type())
+copsClientTcpConnectFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientTcpConnectFailures.setStatus(_A)
+_CopsClientOpenAttempts_Type=Counter32
+_CopsClientOpenAttempts_Object=MibTableColumn
+copsClientOpenAttempts=_CopsClientOpenAttempts_Object((1,3,6,1,2,1,89,1,2,1,1,17),_CopsClientOpenAttempts_Type())
+copsClientOpenAttempts.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientOpenAttempts.setStatus(_A)
+_CopsClientOpenFailures_Type=Counter32
+_CopsClientOpenFailures_Object=MibTableColumn
+copsClientOpenFailures=_CopsClientOpenFailures_Object((1,3,6,1,2,1,89,1,2,1,1,18),_CopsClientOpenFailures_Type())
+copsClientOpenFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientOpenFailures.setStatus(_A)
+_CopsClientErrUnsupportClienttype_Type=Counter32
+_CopsClientErrUnsupportClienttype_Object=MibTableColumn
+copsClientErrUnsupportClienttype=_CopsClientErrUnsupportClienttype_Object((1,3,6,1,2,1,89,1,2,1,1,19),_CopsClientErrUnsupportClienttype_Type())
+copsClientErrUnsupportClienttype.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientErrUnsupportClienttype.setStatus(_A)
+_CopsClientErrUnsupportedVersion_Type=Counter32
+_CopsClientErrUnsupportedVersion_Object=MibTableColumn
+copsClientErrUnsupportedVersion=_CopsClientErrUnsupportedVersion_Object((1,3,6,1,2,1,89,1,2,1,1,20),_CopsClientErrUnsupportedVersion_Type())
+copsClientErrUnsupportedVersion.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientErrUnsupportedVersion.setStatus(_A)
+_CopsClientErrLengthMismatch_Type=Counter32
+_CopsClientErrLengthMismatch_Object=MibTableColumn
+copsClientErrLengthMismatch=_CopsClientErrLengthMismatch_Object((1,3,6,1,2,1,89,1,2,1,1,21),_CopsClientErrLengthMismatch_Type())
+copsClientErrLengthMismatch.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientErrLengthMismatch.setStatus(_A)
+_CopsClientErrUnknownOpcode_Type=Counter32
+_CopsClientErrUnknownOpcode_Object=MibTableColumn
+copsClientErrUnknownOpcode=_CopsClientErrUnknownOpcode_Object((1,3,6,1,2,1,89,1,2,1,1,22),_CopsClientErrUnknownOpcode_Type())
+copsClientErrUnknownOpcode.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientErrUnknownOpcode.setStatus(_A)
+_CopsClientErrUnknownCnum_Type=Counter32
+_CopsClientErrUnknownCnum_Object=MibTableColumn
+copsClientErrUnknownCnum=_CopsClientErrUnknownCnum_Object((1,3,6,1,2,1,89,1,2,1,1,23),_CopsClientErrUnknownCnum_Type())
+copsClientErrUnknownCnum.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientErrUnknownCnum.setStatus(_A)
+_CopsClientErrBadCtype_Type=Counter32
+_CopsClientErrBadCtype_Object=MibTableColumn
+copsClientErrBadCtype=_CopsClientErrBadCtype_Object((1,3,6,1,2,1,89,1,2,1,1,24),_CopsClientErrBadCtype_Type())
+copsClientErrBadCtype.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientErrBadCtype.setStatus(_A)
+_CopsClientErrBadSends_Type=Counter32
+_CopsClientErrBadSends_Object=MibTableColumn
+copsClientErrBadSends=_CopsClientErrBadSends_Object((1,3,6,1,2,1,89,1,2,1,1,25),_CopsClientErrBadSends_Type())
+copsClientErrBadSends.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientErrBadSends.setStatus(_A)
+_CopsClientErrWrongObjects_Type=Counter32
+_CopsClientErrWrongObjects_Object=MibTableColumn
+copsClientErrWrongObjects=_CopsClientErrWrongObjects_Object((1,3,6,1,2,1,89,1,2,1,1,26),_CopsClientErrWrongObjects_Type())
+copsClientErrWrongObjects.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientErrWrongObjects.setStatus(_A)
+_CopsClientErrWrongOpcode_Type=Counter32
+_CopsClientErrWrongOpcode_Object=MibTableColumn
+copsClientErrWrongOpcode=_CopsClientErrWrongOpcode_Object((1,3,6,1,2,1,89,1,2,1,1,27),_CopsClientErrWrongOpcode_Type())
+copsClientErrWrongOpcode.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientErrWrongOpcode.setStatus(_A)
+_CopsClientKaTimedoutClients_Type=Counter32
+_CopsClientKaTimedoutClients_Object=MibTableColumn
+copsClientKaTimedoutClients=_CopsClientKaTimedoutClients_Object((1,3,6,1,2,1,89,1,2,1,1,28),_CopsClientKaTimedoutClients_Type())
+copsClientKaTimedoutClients.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientKaTimedoutClients.setStatus(_A)
+_CopsClientErrAuthFailures_Type=Counter32
+_CopsClientErrAuthFailures_Object=MibTableColumn
+copsClientErrAuthFailures=_CopsClientErrAuthFailures_Object((1,3,6,1,2,1,89,1,2,1,1,29),_CopsClientErrAuthFailures_Type())
+copsClientErrAuthFailures.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientErrAuthFailures.setStatus(_A)
+_CopsClientErrAuthMissing_Type=Counter32
+_CopsClientErrAuthMissing_Object=MibTableColumn
+copsClientErrAuthMissing=_CopsClientErrAuthMissing_Object((1,3,6,1,2,1,89,1,2,1,1,30),_CopsClientErrAuthMissing_Type())
+copsClientErrAuthMissing.setMaxAccess(_C)
+if mibBuilder.loadTexts:copsClientErrAuthMissing.setStatus(_A)
+_CopsClientConfigGroup_ObjectIdentity=ObjectIdentity
+copsClientConfigGroup=_CopsClientConfigGroup_ObjectIdentity((1,3,6,1,2,1,89,1,3))
+_CopsClientServerConfigTable_Object=MibTable
+copsClientServerConfigTable=_CopsClientServerConfigTable_Object((1,3,6,1,2,1,89,1,3,1))
+if mibBuilder.loadTexts:copsClientServerConfigTable.setStatus(_A)
+_CopsClientServerConfigEntry_Object=MibTableRow
+copsClientServerConfigEntry=_CopsClientServerConfigEntry_Object((1,3,6,1,2,1,89,1,3,1,1))
+copsClientServerConfigEntry.setIndexNames((0,_B,_M),(0,_B,_N),(0,_B,_O),(0,_B,_P))
+if mibBuilder.loadTexts:copsClientServerConfigEntry.setStatus(_A)
+_CopsClientServerConfigAddrType_Type=InetAddressType
+_CopsClientServerConfigAddrType_Object=MibTableColumn
+copsClientServerConfigAddrType=_CopsClientServerConfigAddrType_Object((1,3,6,1,2,1,89,1,3,1,1,1),_CopsClientServerConfigAddrType_Type())
+copsClientServerConfigAddrType.setMaxAccess(_D)
+if mibBuilder.loadTexts:copsClientServerConfigAddrType.setStatus(_A)
+_CopsClientServerConfigAddress_Type=InetAddress
+_CopsClientServerConfigAddress_Object=MibTableColumn
+copsClientServerConfigAddress=_CopsClientServerConfigAddress_Object((1,3,6,1,2,1,89,1,3,1,1,2),_CopsClientServerConfigAddress_Type())
+copsClientServerConfigAddress.setMaxAccess(_D)
+if mibBuilder.loadTexts:copsClientServerConfigAddress.setStatus(_A)
+class _CopsClientServerConfigClientType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_CopsClientServerConfigClientType_Type.__name__=_E
+_CopsClientServerConfigClientType_Object=MibTableColumn
+copsClientServerConfigClientType=_CopsClientServerConfigClientType_Object((1,3,6,1,2,1,89,1,3,1,1,3),_CopsClientServerConfigClientType_Type())
+copsClientServerConfigClientType.setMaxAccess(_D)
+if mibBuilder.loadTexts:copsClientServerConfigClientType.setStatus(_A)
+_CopsClientServerConfigAuthType_Type=CopsAuthType
+_CopsClientServerConfigAuthType_Object=MibTableColumn
+copsClientServerConfigAuthType=_CopsClientServerConfigAuthType_Object((1,3,6,1,2,1,89,1,3,1,1,4),_CopsClientServerConfigAuthType_Type())
+copsClientServerConfigAuthType.setMaxAccess(_D)
+if mibBuilder.loadTexts:copsClientServerConfigAuthType.setStatus(_A)
+_CopsClientServerConfigTcpPort_Type=CopsTcpPort
+_CopsClientServerConfigTcpPort_Object=MibTableColumn
+copsClientServerConfigTcpPort=_CopsClientServerConfigTcpPort_Object((1,3,6,1,2,1,89,1,3,1,1,5),_CopsClientServerConfigTcpPort_Type())
+copsClientServerConfigTcpPort.setMaxAccess(_F)
+if mibBuilder.loadTexts:copsClientServerConfigTcpPort.setStatus(_A)
+_CopsClientServerConfigPriority_Type=Integer32
+_CopsClientServerConfigPriority_Object=MibTableColumn
+copsClientServerConfigPriority=_CopsClientServerConfigPriority_Object((1,3,6,1,2,1,89,1,3,1,1,6),_CopsClientServerConfigPriority_Type())
+copsClientServerConfigPriority.setMaxAccess(_F)
+if mibBuilder.loadTexts:copsClientServerConfigPriority.setStatus(_A)
+_CopsClientServerConfigRowStatus_Type=RowStatus
+_CopsClientServerConfigRowStatus_Object=MibTableColumn
+copsClientServerConfigRowStatus=_CopsClientServerConfigRowStatus_Object((1,3,6,1,2,1,89,1,3,1,1,7),_CopsClientServerConfigRowStatus_Type())
+copsClientServerConfigRowStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:copsClientServerConfigRowStatus.setStatus(_A)
+class _CopsClientServerConfigRetryAlgrm_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('other',1),('sequential',2),('roundRobin',3)))
+_CopsClientServerConfigRetryAlgrm_Type.__name__=_E
+_CopsClientServerConfigRetryAlgrm_Object=MibScalar
+copsClientServerConfigRetryAlgrm=_CopsClientServerConfigRetryAlgrm_Object((1,3,6,1,2,1,89,1,3,2),_CopsClientServerConfigRetryAlgrm_Type())
+copsClientServerConfigRetryAlgrm.setMaxAccess(_G)
+if mibBuilder.loadTexts:copsClientServerConfigRetryAlgrm.setStatus(_A)
+class _CopsClientServerConfigRetryCount_Type(Unsigned32):defaultValue=1
+_CopsClientServerConfigRetryCount_Type.__name__=_H
+_CopsClientServerConfigRetryCount_Object=MibScalar
+copsClientServerConfigRetryCount=_CopsClientServerConfigRetryCount_Object((1,3,6,1,2,1,89,1,3,3),_CopsClientServerConfigRetryCount_Type())
+copsClientServerConfigRetryCount.setMaxAccess(_G)
+if mibBuilder.loadTexts:copsClientServerConfigRetryCount.setStatus(_A)
+class _CopsClientServerConfigRetryIntvl_Type(TimeInterval):defaultValue=1000
+_CopsClientServerConfigRetryIntvl_Type.__name__=_I
+_CopsClientServerConfigRetryIntvl_Object=MibScalar
+copsClientServerConfigRetryIntvl=_CopsClientServerConfigRetryIntvl_Object((1,3,6,1,2,1,89,1,3,4),_CopsClientServerConfigRetryIntvl_Type())
+copsClientServerConfigRetryIntvl.setMaxAccess(_G)
+if mibBuilder.loadTexts:copsClientServerConfigRetryIntvl.setStatus(_A)
+if mibBuilder.loadTexts:copsClientServerConfigRetryIntvl.setUnits('centi-seconds')
+_CopsClientConformance_ObjectIdentity=ObjectIdentity
+copsClientConformance=_CopsClientConformance_ObjectIdentity((1,3,6,1,2,1,89,2))
+_CopsClientGroups_ObjectIdentity=ObjectIdentity
+copsClientGroups=_CopsClientGroups_ObjectIdentity((1,3,6,1,2,1,89,2,1))
+_CopsClientCompliances_ObjectIdentity=ObjectIdentity
+copsClientCompliances=_CopsClientCompliances_ObjectIdentity((1,3,6,1,2,1,89,2,2))
+copsDeviceStatusGroup=ObjectGroup((1,3,6,1,2,1,89,2,1,1))
+copsDeviceStatusGroup.setObjects(*((_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r)))
+if mibBuilder.loadTexts:copsDeviceStatusGroup.setStatus(_A)
+copsDeviceConfigGroup=ObjectGroup((1,3,6,1,2,1,89,2,1,2))
+copsDeviceConfigGroup.setObjects(*((_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x)))
+if mibBuilder.loadTexts:copsDeviceConfigGroup.setStatus(_A)
+copsClientCompliance=ModuleCompliance((1,3,6,1,2,1,89,2,2,1))
+copsClientCompliance.setObjects(*((_B,_y),(_B,_z)))
+if mibBuilder.loadTexts:copsClientCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'CopsClientState':CopsClientState,'CopsServerEntryType':CopsServerEntryType,'CopsErrorCode':CopsErrorCode,'CopsTcpPort':CopsTcpPort,'CopsAuthType':CopsAuthType,'copsClientMIB':copsClientMIB,'copsClientMIBObjects':copsClientMIBObjects,'copsClientCapabilitiesGroup':copsClientCapabilitiesGroup,_Q:copsClientCapabilities,'copsClientStatusGroup':copsClientStatusGroup,'copsClientServerCurrentTable':copsClientServerCurrentTable,'copsClientServerCurrentEntry':copsClientServerCurrentEntry,_J:copsClientServerAddressType,_K:copsClientServerAddress,_L:copsClientServerClientType,_R:copsClientServerTcpPort,_S:copsClientServerType,_T:copsClientServerAuthType,_U:copsClientServerLastConnAttempt,_V:copsClientState,_W:copsClientServerKeepaliveTime,_X:copsClientServerAccountingTime,_Y:copsClientInPkts,_Z:copsClientOutPkts,_a:copsClientInErrs,_b:copsClientLastError,_c:copsClientTcpConnectAttempts,_d:copsClientTcpConnectFailures,_e:copsClientOpenAttempts,_f:copsClientOpenFailures,_g:copsClientErrUnsupportClienttype,_h:copsClientErrUnsupportedVersion,_i:copsClientErrLengthMismatch,_j:copsClientErrUnknownOpcode,_k:copsClientErrUnknownCnum,_l:copsClientErrBadCtype,_m:copsClientErrBadSends,_n:copsClientErrWrongObjects,_o:copsClientErrWrongOpcode,_p:copsClientKaTimedoutClients,_q:copsClientErrAuthFailures,_r:copsClientErrAuthMissing,'copsClientConfigGroup':copsClientConfigGroup,'copsClientServerConfigTable':copsClientServerConfigTable,'copsClientServerConfigEntry':copsClientServerConfigEntry,_M:copsClientServerConfigAddrType,_N:copsClientServerConfigAddress,_O:copsClientServerConfigClientType,_P:copsClientServerConfigAuthType,_s:copsClientServerConfigTcpPort,_t:copsClientServerConfigPriority,_u:copsClientServerConfigRowStatus,_v:copsClientServerConfigRetryAlgrm,_w:copsClientServerConfigRetryCount,_x:copsClientServerConfigRetryIntvl,'copsClientConformance':copsClientConformance,'copsClientGroups':copsClientGroups,_y:copsDeviceStatusGroup,_z:copsDeviceConfigGroup,'copsClientCompliances':copsClientCompliances,'copsClientCompliance':copsClientCompliance})

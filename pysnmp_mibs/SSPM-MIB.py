@@ -1,169 +1,397 @@
-#
-# PySNMP MIB module SSPM-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/SSPM-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:29:28 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( AppLocalIndex, ) = mibBuilder.importSymbols("APM-MIB", "AppLocalIndex")
-( ObjectIdentifier, OctetString, Integer, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-( InterfaceIndexOrZero, ) = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-( InetAddress, InetAddressType, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
-( OwnerString, rmon, ) = mibBuilder.importSymbols("RMON-MIB", "OwnerString", "rmon")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( Counter32, ModuleIdentity, Counter64, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, IpAddress, Integer32, NotificationType, iso, Gauge32, Bits, ObjectIdentity, MibIdentifier, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "IpAddress", "Integer32", "NotificationType", "iso", "Gauge32", "Bits", "ObjectIdentity", "MibIdentifier")
-( StorageType, TextualConvention, RowStatus, DisplayString, TruthValue, ) = mibBuilder.importSymbols("SNMPv2-TC", "StorageType", "TextualConvention", "RowStatus", "DisplayString", "TruthValue")
-( Utf8String, ) = mibBuilder.importSymbols("SYSAPPL-MIB", "Utf8String")
-sspmMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 16, 28)).setRevisions(("2005-07-28 00:00",))
-if mibBuilder.loadTexts: sspmMIB.setLastUpdated('200507280000Z')
-if mibBuilder.loadTexts: sspmMIB.setOrganization('IETF RMON MIB working group')
-if mibBuilder.loadTexts: sspmMIB.setContactInfo('        Carl W. Kalbfleisch\n                    Consultant\n\n            E-mail: ietf@kalbfleisch.us\n\n            Working group mailing list: rmonmib@ietf.org\n            To subscribe send email to rmonmib-request@ietf.org')
-if mibBuilder.loadTexts: sspmMIB.setDescription('This SSPM MIB module is applicable to probes\n            implementing Synthetic Source for Performance\n            Monitoring functions.\n\n            Copyright (C) The Internet Society (2005).  This version\n            of this MIB module is part of RFC 4149; see the RFC\n            itself for full legal notices.')
-sspmMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 28, 1))
-sspmMIBNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 28, 2))
-sspmMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 28, 3))
-class SspmMicroSeconds(Unsigned32, TextualConvention):
-    displayHint = 'd'
-
-class SspmClockSource(Integer32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(0,255)
-
-class SspmClockMaxSkew(Integer32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(1,65535)
-
-sspmGeneral = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 28, 1, 1))
-sspmGeneralClockResolution = MibScalar((1, 3, 6, 1, 2, 1, 16, 28, 1, 1, 1), SspmMicroSeconds()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sspmGeneralClockResolution.setDescription('A read-only variable indicating the resolution\n      of the measurements possible by this device.')
-sspmGeneralClockMaxSkew = MibScalar((1, 3, 6, 1, 2, 1, 16, 28, 1, 1, 2), SspmClockMaxSkew()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sspmGeneralClockMaxSkew.setDescription('A read-only variable indicating the maximum offset\n         error due to skew of the local clock over the\n         time interval 86400 seconds, in seconds.')
-sspmGeneralClockSource = MibScalar((1, 3, 6, 1, 2, 1, 16, 28, 1, 1, 3), SspmClockSource()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sspmGeneralClockSource.setDescription('A read-only variable indicating the source of the clock.\n         This is provided to allow a user to determine how accurate\n         the timing mechanism is compared with other devices.  This\n         is needed for the coordination of time values\n         between probes for one-way measurements.')
-sspmGeneralMinFrequency = MibScalar((1, 3, 6, 1, 2, 1, 16, 28, 1, 1, 4), SspmMicroSeconds()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sspmGeneralMinFrequency.setDescription("A read-only variable that indicates the devices'\n          capability for the minimum supported\n          sspmSourceFrequency.  If sspmSourceFrequency is\n          set to a value lower than the value reported\n          by this attribute, then the set of sspmSourceFrequency\n          will fail with an inconsistent value error.")
-sspmCapabilitiesTable = MibTable((1, 3, 6, 1, 2, 1, 16, 28, 1, 1, 5), )
-if mibBuilder.loadTexts: sspmCapabilitiesTable.setDescription('The table of SSPM capabilities.')
-sspmCapabilitiesEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 28, 1, 1, 5, 1), ).setIndexNames((0, "SSPM-MIB", "sspmCapabilitiesInstance"))
-if mibBuilder.loadTexts: sspmCapabilitiesEntry.setDescription('Details about a particular SSPM capability.')
-sspmCapabilitiesInstance = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 1, 5, 1, 1), AppLocalIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sspmCapabilitiesInstance.setDescription('Indicates whether SSPM configuration of the corresponding\n         AppLocalIndex is supported by this device.  Generally,\n         entries in this table are only made by the device when the\n         configuration of the measurement is available.')
-sspmSource = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 28, 1, 2))
-sspmSourceProfileTable = MibTable((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1), )
-if mibBuilder.loadTexts: sspmSourceProfileTable.setDescription('The table of SSPM Source Profiles configured.')
-sspmSourceProfileEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1), ).setIndexNames((0, "SSPM-MIB", "sspmSourceProfileInstance"))
-if mibBuilder.loadTexts: sspmSourceProfileEntry.setDescription('Details about a particular SSPM Source Profile\n         configuration.  Entries must exist in this table\n         in order to be referenced by rows in the\n         sspmSourceControlTable.')
-sspmSourceProfileInstance = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: sspmSourceProfileInstance.setDescription('An arbitrary index.')
-sspmSourceProfileType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 2), AppLocalIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceProfileType.setDescription("The AppLocalIndex value that uniquely identifies the\n         measurement per the APM-MIB.  In order to create a row\n         in this table, there must be a corresponding row in the\n         sspmCapabilitiesTable.\n\n         When attempting to set this object, if no\n         corresponding row exists in the sspmCapabilitiesTable,\n         then the agent should return a 'badValue' error.")
-sspmSourceProfilePacketSize = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 3), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceProfilePacketSize.setDescription("The size of packet to be transmitted in bytes.  The\n         size accounts for all data within the IPv4 or IPv6\n         payloads, excluding the IP headers, IP header options\n         and link-level protocol headers.\n\n         If the size is set smaller than the minimum allowed\n         packet size or greater than the maximum allowed\n         packet size, then the set should fail, and the agent\n         should return a 'badValue' error.")
-sspmSourceProfilePacketFillType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("random", 1), ("pattern", 2), ("url", 3),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceProfilePacketFillType.setDescription("Indicates how the packet is filled.\n\n         'random' indicates that the packet contains random\n         data patterns.  This is probe and implementation\n         dependent.\n\n         'pattern' indicates that the pattern defined in the\n         sspmSourceProfilePacketFillValue attribute is used to\n         fill the packet.\n\n         'url' indicates that the value of\n         sspmSourceProfilePacketFillValue should\n         contain a URL.  The contents of the document\n         at that URL are retrieved when sspmSourceStatus becomes\n         active and utilized in the packet.  If the attempt to\n         access that URL fails, then the row status is set to\n         'notReady', and the set should fail with\n         'inconsistentValue'.  This value must contain a\n         dereferencable URL of the type 'http:', 'https:', or\n         'ftp:' only.")
-sspmSourceProfilePacketFillValue = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceProfilePacketFillValue.setDescription("The string value with which to fill the packet.  If\n         sspmSourceProfilePacketFillType is set to 'pattern',\n         then this pattern is repeated until the packet is\n         sspmSourcePacketSize in bytes.  Note that if the\n         length of the octet string specified for this\n         value does not divide evenly into the packet\n         size, then an incomplete last copy of this data\n         may be copied into the packet.  If the value of\n         sspmSourceProfilePacketFillType is set to 'random', then\n         this attribute is unused.  If the value of the\n         sspmSourceProfilePacketFillType is set to 'url', then\n         the URL specified in this attribute is retrieved\n         and used by the probe.  In the case of a URL, this value\n         must contain a dereferencable URL of the type\n         'http:', 'https:', or 'ftp:' only.")
-sspmSourceProfileTOS = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceProfileTOS.setDescription('Represents the TOS field in the IP packet header.  The\n        value of this object defaults to zero if not set.')
-sspmSourceProfileFlowLabel = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,1048575))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceProfileFlowLabel.setDescription('This object is used to specify the Flow Label in a IPv6\n         packet (RFC 2460) to force special handling by the IPv6\n         routers; e.g., non-default quality-of-service handling.\n\n         This object is meaningful only when the object\n         sspmSourceDestAddressType is IPv6(2).\n         The value of this object defaults to zero if not set.')
-sspmSourceProfileLooseSrcRteFill = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,240))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceProfileLooseSrcRteFill.setDescription('In the event that the test should run over a\n         specific route, the intent is to force the route using the\n         Loose Source Route option in IPv4 [RFC791] and\n         IPv6 [RFC2460].  This object contains a\n         series of IP addresses along the path that would be\n         put into the loose source route option in the IP header.\n\n         The IPv4 addresses are to be listed as 32-bit\n         address values, and the IPv6 addresses are to be\n         listed as a string of 128-bit addresses.  The\n         maximum length allowed within the IPv4 source route\n         option is 63 addresses.  To simply account for\n         IPv6 addresses as well, the maximum length of the\n         octet string is 240.  This allows up to 60\n         IPv4 addresses or up to 15 IPv6 addresses in the\n         string.')
-sspmSourceProfileLooseSrcRteLen = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,240))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceProfileLooseSrcRteLen.setDescription('In the event that the test should run over a\n         specific route, the intent is to force the route.\n         This attribute specifies the length of data to\n         be copied from the sspmSourceProfileLooseSrcRteFill\n         into the route data fields of the loose source route\n\n         options in the IPv4 or IPv6 headers.')
-sspmSourceProfileTTL = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceProfileTTL.setDescription('If non-zero, this specifies the value to place into\n         the TTL field on transmission.')
-sspmSourceProfileNoFrag = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 11), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceProfileNoFrag.setDescription("When true, the 'Don't Fragment Bit' should be set\n         on the packet header.")
-sspmSourceProfile8021Tagging = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1,65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceProfile8021Tagging.setDescription("IEEE 802.1Q tagging used in IEEE 802.1D bridged\n        environments.\n\n        A value of -1 indicates that the packets are untagged.\n\n        A value of 0 to 65535 is the value of the tag to be\n        inserted in the tagged packets.\n\n        Note that according to IEEE 802.1Q, VLAN-ID tags with\n        a value of 4095 shall not be transmitted on the wire.\n        As the VLAN-ID is encoded in the 12 least significant\n        bits on the tag, values that translate in a binary\n        representation of all 1's in the last 12 bits\n        SHALL NOT be configured.  In this case, the set should\n        fail, and return an error-status of 'inconsistentValue'.")
-sspmSourceProfileUsername = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 13), Utf8String()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceProfileUsername.setDescription('An optional username used by the application protocol.')
-sspmSourceProfilePassword = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 14), Utf8String()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceProfilePassword.setDescription('An optional password used by the application protocol.')
-sspmSourceProfileParameter = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 15), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceProfileParameter.setDescription('An optional parameter used by the application protocol.\n         For DNS, this would be the hostname or IP.  For HTTP,\n         this would be the URL.  For nntp, this would be the\n         news group.  For TCP, this would be the port number.\n         For SMTP, this would be the recipient (and could\n         assume the message is predefined).')
-sspmSourceProfileOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 16), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceProfileOwner.setDescription('Name of the management station/application that\n        set up the profile.')
-sspmSourceProfileStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 17), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceProfileStorageType.setDescription("The storage type of this sspmSourceProfileEntry.  If the\n        value of this object is 'permanent', no objects in this row\n        need to be writable.")
-sspmSourceProfileStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 1, 1, 18), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceProfileStatus.setDescription('Status of this profile.\n\n        An entry may not exist in the active state unless all\n        objects in the entry have an appropriate value.\n\n        Once this object is set to active(1), no objects in the\n        sspmSourceProfileTable can be changed.')
-sspmSourceControlTable = MibTable((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 2), )
-if mibBuilder.loadTexts: sspmSourceControlTable.setDescription('The table of SSPM measurements configured.')
-sspmSourceControlEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 2, 1), ).setIndexNames((0, "SSPM-MIB", "sspmSourceControlInstance"))
-if mibBuilder.loadTexts: sspmSourceControlEntry.setDescription('Details about a particular SSPM configuration.')
-sspmSourceControlInstance = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: sspmSourceControlInstance.setDescription('An arbitrary index.')
-sspmSourceControlProfile = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceControlProfile.setDescription('A pointer to the profile (sspmSourceProfileEntry) that\n         this control entry uses to define the test being\n         performed.')
-sspmSourceControlSrc = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 2, 1, 3), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceControlSrc.setDescription('The ifIndex where the packet should originate from the\n         probe (if it matters).  A value of zero indicates that\n         it does not matter and that the device decides.')
-sspmSourceControlDestAddrType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 2, 1, 4), InetAddressType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceControlDestAddrType.setDescription('The type of Internet address by which the destination\n         is accessed.')
-sspmSourceControlDestAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 2, 1, 5), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceControlDestAddr.setDescription('The Internet address for the destination.  The formatting\n        of this object is controlled by the\n        sspmSourceControlDestAddrType object above.\n\n        When this object contains a DNS name, then the name is\n        resolved to an address each time measurement is to be made.\n        Further, the agent should not cache this address,\n        but instead should perform the resolution prior to each\n        measurement.')
-sspmSourceControlEnabled = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 2, 1, 6), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceControlEnabled.setDescription("When set to 'true', this test is enabled.  When set to\n         'false', it is disabled.")
-sspmSourceControlTimeOut = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 2, 1, 7), SspmMicroSeconds()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceControlTimeOut.setDescription('Timeout value for the measurement response.  If no\n         response is received in the time specified, then\n         the test fails.')
-sspmSourceControlSamplingDist = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("deterministic", 1), ("poisson", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceControlSamplingDist.setDescription("When this attribute is set to 'deterministic', then\n         packets are generated at with a fixed inter-packet\n         injection time specified by sspmSourceFrequency.\n\n         When this attribute is set to 'Poisson', then packets\n         are generated with inter-packet injection times sampled\n         from an exponential distribution with the single\n         distributional parameter determined by the inverse\n         frequency).")
-sspmSourceControlFrequency = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 2, 1, 9), SspmMicroSeconds()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceControlFrequency.setDescription("The inverse of this value is the rate at which packets\n         are generated.  Refer to sspmSourceSamplingDistribution.\n         If the value set is less than the value of\n         sspmGeneralMinFrequency, then the set will fail with an\n         error-status of 'inconsistentValue'.")
-sspmSourceControlFirstSeqNum = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 2, 1, 10), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceControlFirstSeqNum.setDescription('The first sequence number of packets to be transmitted.')
-sspmSourceControlLastSeqNum = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 2, 1, 11), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sspmSourceControlLastSeqNum.setDescription('The last sequence number transmitted.  This value is updated\n         by the agent after packet generation.')
-sspmSourceControlOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 2, 1, 12), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceControlOwner.setDescription('Name of the management station/application that set\n        up the test.')
-sspmSourceControlStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 2, 1, 13), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceControlStorageType.setDescription("The storage type of this sspmSourceControlEntry.  If the\n        value of this object is 'permanent', no objects in this row\n        need to be writable.")
-sspmSourceControlStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 2, 2, 1, 14), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSourceControlStatus.setDescription("Status of this source control entry.\n\n        An entry may not exist in the active state unless all\n        objects in the entry have an appropriate value.\n\n        When this attribute has the value of\n        'active', none of the read-write or read-create attributes\n        in this table may be modified, with the exception of\n        sspmSourceControlEnabled.")
-sspmSink = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 28, 1, 5))
-sspmSinkTable = MibTable((1, 3, 6, 1, 2, 1, 16, 28, 1, 5, 1), )
-if mibBuilder.loadTexts: sspmSinkTable.setDescription('A table configuring the sink for measurements.')
-sspmSinkEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 28, 1, 5, 1, 1), ).setIndexNames((0, "SSPM-MIB", "sspmSinkInstance"))
-if mibBuilder.loadTexts: sspmSinkEntry.setDescription('The details of a particular sink entry.  If the measurement\n         is a round-trip type, then the sink entry will be on the\n         same probe as the corresponding sspmSourceEntry.  If the\n         measurement is a one-way, type then the sink entry will be\n         on a different probe.')
-sspmSinkInstance = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 5, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: sspmSinkInstance.setDescription('An index.  When the measurement is for a round-trip\n         measurement, then this table entry is on the same probe as\n         the corresponding sspmSourceEntry, and the value of this\n         attribute should correspond to the value of\n         sspmSourceInstance.  Management applications configuring\n         sinks for one-way measurements could define some\n         scheme whereby the sspmSinkInstance is unique across\n         all probes.  Note that the unique key to this entry is\n         also constructed with sspmSinkType,\n         sspmSinkSourceAddressType, and sspmSinkSourceAddress.\n         To make the implementation simpler, those other\n         attributes are not included in the index but uniqueness\n         is still needed to receive all the packets.')
-sspmSinkType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 5, 1, 1, 2), AppLocalIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSinkType.setDescription("The AppLocalIndex value that uniquely identifies the\n         measurement per the APM-MIB.  In order to create a row\n         in this table, there must be a corresponding row in the\n         sspmCapabilitiesTable.  If there is no corresponding\n         row in the sspmCapabilitiestable, then the agent will\n         return an error-status of 'inconsistentValue'.")
-sspmSinkSourceAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 5, 1, 1, 3), InetAddressType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSinkSourceAddressType.setDescription('The type of Internet address of the source.')
-sspmSinkSourceAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 5, 1, 1, 4), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSinkSourceAddress.setDescription("The Internet address of the source.  The formatting\n        of this object is controlled by the sspmSinkSourceAddressType\n        object above.\n\n        This object should be set only to a valid device address\n        that has been administratively configured into the\n        device.  If a set attempts to set this object to an\n        address that does not belong (i.e., is not administratively\n        configured into the device), the set should fail, and the\n        agent should return a error-status of 'inconsistentValue'.")
-sspmSinkExpectedRate = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 5, 1, 1, 5), SspmMicroSeconds()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSinkExpectedRate.setDescription('The expected rate at which packets will arrive.')
-sspmSinkEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 5, 1, 1, 6), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSinkEnable.setDescription('Indicates if the sink is enabled or not.')
-sspmSinkExpectedFirstSequenceNum = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 5, 1, 1, 7), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSinkExpectedFirstSequenceNum.setDescription('The expected first sequence number of packets.\n         This is used by the sink to determine if packets\n         were lost at the initiation of the test.')
-sspmSinkLastSequenceNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 5, 1, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sspmSinkLastSequenceNumber.setDescription('The last sequence number received.')
-sspmSinkLastSequenceInvalid = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 5, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sspmSinkLastSequenceInvalid.setDescription('The number of packets that arrived whose\n         sequence number was not one plus the value of\n         sspmSinkLastSequenceNumber.')
-sspmSinkStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 5, 1, 1, 10), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSinkStorageType.setDescription("The storage type of this sspmSinkEntry.  If the value\n        of this object is 'permanent', no objects in this row\n        need to be writable.")
-sspmSinkStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 28, 1, 5, 1, 1, 11), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sspmSinkStatus.setDescription('Status of this conceptual row.\n         An entry may not exist in the active state unless all\n         objects in the entry have an appropriate value.\n\n         Once this object is set to active(1), no objects with\n         MAX-ACCESS of read-create in the sspmSinkTable can\n         be changed.')
-sspmCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 28, 3, 1))
-sspmGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 28, 3, 2))
-sspmGeneralCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 16, 28, 3, 1, 1)).setObjects(*(("SSPM-MIB", "sspmGeneralGroup"), ("SSPM-MIB", "sspmSourceGroup"), ("SSPM-MIB", "sspmSinkGroup"), ("SSPM-MIB", "sspmUserPassGroup"),))
-if mibBuilder.loadTexts: sspmGeneralCompliance.setDescription('A general compliance that allows all things to be optional.')
-sspmSourceFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 16, 28, 3, 1, 2)).setObjects(*(("SSPM-MIB", "sspmGeneralGroup"), ("SSPM-MIB", "sspmSourceGroup"), ("SSPM-MIB", "sspmUserPassGroup"),))
-if mibBuilder.loadTexts: sspmSourceFullCompliance.setDescription('A source compliance.  Use this compliance when implementing\n     a traffic-source-only device.  This is useful for implementing\n     devices that probe other devices for intrusive application\n     monitoring.  It is also useful for implementing the source\n     of one-way tests used with a sink-only device.')
-sspmSinkFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 16, 28, 3, 1, 3)).setObjects(*(("SSPM-MIB", "sspmGeneralGroup"), ("SSPM-MIB", "sspmSinkGroup"),))
-if mibBuilder.loadTexts: sspmSinkFullCompliance.setDescription('A sink-only compliance.  Use this compliance when implementing a\n     sink-only device.  This is useful for devices to receive one-way\n     measurements.')
-sspmGeneralGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 28, 3, 2, 1)).setObjects(*(("SSPM-MIB", "sspmGeneralClockResolution"), ("SSPM-MIB", "sspmGeneralClockMaxSkew"), ("SSPM-MIB", "sspmGeneralClockSource"), ("SSPM-MIB", "sspmGeneralMinFrequency"), ("SSPM-MIB", "sspmCapabilitiesInstance"),))
-if mibBuilder.loadTexts: sspmGeneralGroup.setDescription('The objects in the SSPM General Group.')
-sspmSourceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 28, 3, 2, 2)).setObjects(*(("SSPM-MIB", "sspmSourceProfileType"), ("SSPM-MIB", "sspmSourceProfilePacketSize"), ("SSPM-MIB", "sspmSourceProfilePacketFillType"), ("SSPM-MIB", "sspmSourceProfilePacketFillValue"), ("SSPM-MIB", "sspmSourceProfileTOS"), ("SSPM-MIB", "sspmSourceProfileFlowLabel"), ("SSPM-MIB", "sspmSourceProfileLooseSrcRteFill"), ("SSPM-MIB", "sspmSourceProfileLooseSrcRteLen"), ("SSPM-MIB", "sspmSourceProfileTTL"), ("SSPM-MIB", "sspmSourceProfileNoFrag"), ("SSPM-MIB", "sspmSourceProfile8021Tagging"), ("SSPM-MIB", "sspmSourceProfileUsername"), ("SSPM-MIB", "sspmSourceProfilePassword"), ("SSPM-MIB", "sspmSourceProfileParameter"), ("SSPM-MIB", "sspmSourceProfileOwner"), ("SSPM-MIB", "sspmSourceProfileStorageType"), ("SSPM-MIB", "sspmSourceProfileStatus"), ("SSPM-MIB", "sspmSourceControlProfile"), ("SSPM-MIB", "sspmSourceControlSrc"), ("SSPM-MIB", "sspmSourceControlDestAddrType"), ("SSPM-MIB", "sspmSourceControlDestAddr"), ("SSPM-MIB", "sspmSourceControlEnabled"), ("SSPM-MIB", "sspmSourceControlTimeOut"), ("SSPM-MIB", "sspmSourceControlSamplingDist"), ("SSPM-MIB", "sspmSourceControlFrequency"), ("SSPM-MIB", "sspmSourceControlFirstSeqNum"), ("SSPM-MIB", "sspmSourceControlLastSeqNum"), ("SSPM-MIB", "sspmSourceControlOwner"), ("SSPM-MIB", "sspmSourceControlStorageType"), ("SSPM-MIB", "sspmSourceControlStatus"),))
-if mibBuilder.loadTexts: sspmSourceGroup.setDescription('The objects in the SSPM Source Group.')
-sspmUserPassGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 28, 3, 2, 3)).setObjects(*(("SSPM-MIB", "sspmSourceProfileUsername"), ("SSPM-MIB", "sspmSourceProfilePassword"),))
-if mibBuilder.loadTexts: sspmUserPassGroup.setDescription('The objects in the SSPM Username and password group.')
-sspmSinkGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 28, 3, 2, 4)).setObjects(*(("SSPM-MIB", "sspmSinkType"), ("SSPM-MIB", "sspmSinkSourceAddressType"), ("SSPM-MIB", "sspmSinkSourceAddress"), ("SSPM-MIB", "sspmSinkExpectedRate"), ("SSPM-MIB", "sspmSinkEnable"), ("SSPM-MIB", "sspmSinkExpectedFirstSequenceNum"), ("SSPM-MIB", "sspmSinkLastSequenceNumber"), ("SSPM-MIB", "sspmSinkLastSequenceInvalid"), ("SSPM-MIB", "sspmSinkStorageType"), ("SSPM-MIB", "sspmSinkStatus"),))
-if mibBuilder.loadTexts: sspmSinkGroup.setDescription('The objects in the SSPM Sink Group.')
-mibBuilder.exportSymbols("SSPM-MIB", sspmSinkSourceAddress=sspmSinkSourceAddress, sspmSourceProfilePacketFillType=sspmSourceProfilePacketFillType, sspmGeneralClockSource=sspmGeneralClockSource, SspmClockSource=SspmClockSource, sspmSourceProfileParameter=sspmSourceProfileParameter, sspmSinkSourceAddressType=sspmSinkSourceAddressType, sspmSourceFullCompliance=sspmSourceFullCompliance, sspmSource=sspmSource, sspmSourceProfilePacketSize=sspmSourceProfilePacketSize, sspmSourceControlDestAddr=sspmSourceControlDestAddr, SspmClockMaxSkew=SspmClockMaxSkew, sspmSourceProfileTTL=sspmSourceProfileTTL, sspmSourceProfileOwner=sspmSourceProfileOwner, sspmGeneralMinFrequency=sspmGeneralMinFrequency, sspmSourceProfileEntry=sspmSourceProfileEntry, sspmMIB=sspmMIB, sspmSink=sspmSink, sspmSourceControlLastSeqNum=sspmSourceControlLastSeqNum, sspmCapabilitiesTable=sspmCapabilitiesTable, sspmMIBConformance=sspmMIBConformance, sspmSourceControlSamplingDist=sspmSourceControlSamplingDist, sspmSourceControlStatus=sspmSourceControlStatus, sspmMIBNotifications=sspmMIBNotifications, sspmSinkEnable=sspmSinkEnable, sspmCapabilitiesInstance=sspmCapabilitiesInstance, SspmMicroSeconds=SspmMicroSeconds, sspmSourceProfileFlowLabel=sspmSourceProfileFlowLabel, sspmSourceControlProfile=sspmSourceControlProfile, sspmSourceControlOwner=sspmSourceControlOwner, sspmGeneral=sspmGeneral, sspmSourceProfilePacketFillValue=sspmSourceProfilePacketFillValue, sspmSourceProfileStorageType=sspmSourceProfileStorageType, sspmSinkType=sspmSinkType, sspmSinkInstance=sspmSinkInstance, sspmGeneralCompliance=sspmGeneralCompliance, sspmSourceControlEnabled=sspmSourceControlEnabled, sspmSinkExpectedFirstSequenceNum=sspmSinkExpectedFirstSequenceNum, sspmSourceProfileInstance=sspmSourceProfileInstance, sspmCompliances=sspmCompliances, sspmSinkEntry=sspmSinkEntry, sspmSourceProfileType=sspmSourceProfileType, sspmSourceControlStorageType=sspmSourceControlStorageType, sspmSinkFullCompliance=sspmSinkFullCompliance, sspmSourceControlInstance=sspmSourceControlInstance, sspmSourceProfileLooseSrcRteLen=sspmSourceProfileLooseSrcRteLen, sspmSourceProfileTable=sspmSourceProfileTable, sspmGeneralClockMaxSkew=sspmGeneralClockMaxSkew, sspmSourceControlTable=sspmSourceControlTable, sspmMIBObjects=sspmMIBObjects, sspmGeneralGroup=sspmGeneralGroup, sspmCapabilitiesEntry=sspmCapabilitiesEntry, sspmGroups=sspmGroups, sspmUserPassGroup=sspmUserPassGroup, sspmSourceControlDestAddrType=sspmSourceControlDestAddrType, sspmSourceControlEntry=sspmSourceControlEntry, sspmSourceProfileTOS=sspmSourceProfileTOS, sspmSinkTable=sspmSinkTable, sspmSinkStatus=sspmSinkStatus, sspmSinkLastSequenceNumber=sspmSinkLastSequenceNumber, PYSNMP_MODULE_ID=sspmMIB, sspmSourceProfilePassword=sspmSourceProfilePassword, sspmSinkLastSequenceInvalid=sspmSinkLastSequenceInvalid, sspmGeneralClockResolution=sspmGeneralClockResolution, sspmSourceProfileUsername=sspmSourceProfileUsername, sspmSourceControlTimeOut=sspmSourceControlTimeOut, sspmSourceControlFirstSeqNum=sspmSourceControlFirstSeqNum, sspmSourceProfile8021Tagging=sspmSourceProfile8021Tagging, sspmSinkExpectedRate=sspmSinkExpectedRate, sspmSourceControlFrequency=sspmSourceControlFrequency, sspmSinkGroup=sspmSinkGroup, sspmSourceGroup=sspmSourceGroup, sspmSourceControlSrc=sspmSourceControlSrc, sspmSourceProfileLooseSrcRteFill=sspmSourceProfileLooseSrcRteFill, sspmSourceProfileStatus=sspmSourceProfileStatus, sspmSourceProfileNoFrag=sspmSourceProfileNoFrag, sspmSinkStorageType=sspmSinkStorageType)
+_A7='sspmSinkStatus'
+_A6='sspmSinkStorageType'
+_A5='sspmSinkLastSequenceInvalid'
+_A4='sspmSinkLastSequenceNumber'
+_A3='sspmSinkExpectedFirstSequenceNum'
+_A2='sspmSinkEnable'
+_A1='sspmSinkExpectedRate'
+_A0='sspmSinkSourceAddress'
+_z='sspmSinkSourceAddressType'
+_y='sspmSinkType'
+_x='sspmSourceControlStatus'
+_w='sspmSourceControlStorageType'
+_v='sspmSourceControlOwner'
+_u='sspmSourceControlLastSeqNum'
+_t='sspmSourceControlFirstSeqNum'
+_s='sspmSourceControlFrequency'
+_r='sspmSourceControlSamplingDist'
+_q='sspmSourceControlTimeOut'
+_p='sspmSourceControlEnabled'
+_o='sspmSourceControlDestAddr'
+_n='sspmSourceControlDestAddrType'
+_m='sspmSourceControlSrc'
+_l='sspmSourceControlProfile'
+_k='sspmSourceProfileStatus'
+_j='sspmSourceProfileStorageType'
+_i='sspmSourceProfileOwner'
+_h='sspmSourceProfileParameter'
+_g='sspmSourceProfile8021Tagging'
+_f='sspmSourceProfileNoFrag'
+_e='sspmSourceProfileTTL'
+_d='sspmSourceProfileLooseSrcRteLen'
+_c='sspmSourceProfileLooseSrcRteFill'
+_b='sspmSourceProfileFlowLabel'
+_a='sspmSourceProfileTOS'
+_Z='sspmSourceProfilePacketFillValue'
+_Y='sspmSourceProfilePacketFillType'
+_X='sspmSourceProfilePacketSize'
+_W='sspmSourceProfileType'
+_V='sspmGeneralMinFrequency'
+_U='sspmGeneralClockSource'
+_T='sspmGeneralClockMaxSkew'
+_S='sspmGeneralClockResolution'
+_R='sspmSinkInstance'
+_Q='sspmSourceControlInstance'
+_P='sspmSourceProfileInstance'
+_O='sspmUserPassGroup'
+_N='sspmSinkGroup'
+_M='sspmSourceGroup'
+_L='sspmSourceProfilePassword'
+_K='sspmSourceProfileUsername'
+_J='not-accessible'
+_I='sspmCapabilitiesInstance'
+_H='sspmGeneralGroup'
+_G='Unsigned32'
+_F='OctetString'
+_E='read-only'
+_D='Integer32'
+_C='read-create'
+_B='SSPM-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_F,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+AppLocalIndex,=mibBuilder.importSymbols('APM-MIB','AppLocalIndex')
+InterfaceIndexOrZero,=mibBuilder.importSymbols('IF-MIB','InterfaceIndexOrZero')
+InetAddress,InetAddressType=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType')
+OwnerString,rmon=mibBuilder.importSymbols('RMON-MIB','OwnerString','rmon')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_G,'iso')
+DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','StorageType','TextualConvention','TruthValue')
+Utf8String,=mibBuilder.importSymbols('SYSAPPL-MIB','Utf8String')
+sspmMIB=ModuleIdentity((1,3,6,1,2,1,16,28))
+if mibBuilder.loadTexts:sspmMIB.setRevisions(('2005-07-28 00:00',))
+class SspmMicroSeconds(TextualConvention,Unsigned32):status=_A;displayHint='d'
+class SspmClockSource(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+class SspmClockMaxSkew(TextualConvention,Integer32):status=_A;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_SspmMIBObjects_ObjectIdentity=ObjectIdentity
+sspmMIBObjects=_SspmMIBObjects_ObjectIdentity((1,3,6,1,2,1,16,28,1))
+_SspmGeneral_ObjectIdentity=ObjectIdentity
+sspmGeneral=_SspmGeneral_ObjectIdentity((1,3,6,1,2,1,16,28,1,1))
+_SspmGeneralClockResolution_Type=SspmMicroSeconds
+_SspmGeneralClockResolution_Object=MibScalar
+sspmGeneralClockResolution=_SspmGeneralClockResolution_Object((1,3,6,1,2,1,16,28,1,1,1),_SspmGeneralClockResolution_Type())
+sspmGeneralClockResolution.setMaxAccess(_E)
+if mibBuilder.loadTexts:sspmGeneralClockResolution.setStatus(_A)
+_SspmGeneralClockMaxSkew_Type=SspmClockMaxSkew
+_SspmGeneralClockMaxSkew_Object=MibScalar
+sspmGeneralClockMaxSkew=_SspmGeneralClockMaxSkew_Object((1,3,6,1,2,1,16,28,1,1,2),_SspmGeneralClockMaxSkew_Type())
+sspmGeneralClockMaxSkew.setMaxAccess(_E)
+if mibBuilder.loadTexts:sspmGeneralClockMaxSkew.setStatus(_A)
+_SspmGeneralClockSource_Type=SspmClockSource
+_SspmGeneralClockSource_Object=MibScalar
+sspmGeneralClockSource=_SspmGeneralClockSource_Object((1,3,6,1,2,1,16,28,1,1,3),_SspmGeneralClockSource_Type())
+sspmGeneralClockSource.setMaxAccess(_E)
+if mibBuilder.loadTexts:sspmGeneralClockSource.setStatus(_A)
+_SspmGeneralMinFrequency_Type=SspmMicroSeconds
+_SspmGeneralMinFrequency_Object=MibScalar
+sspmGeneralMinFrequency=_SspmGeneralMinFrequency_Object((1,3,6,1,2,1,16,28,1,1,4),_SspmGeneralMinFrequency_Type())
+sspmGeneralMinFrequency.setMaxAccess(_E)
+if mibBuilder.loadTexts:sspmGeneralMinFrequency.setStatus(_A)
+_SspmCapabilitiesTable_Object=MibTable
+sspmCapabilitiesTable=_SspmCapabilitiesTable_Object((1,3,6,1,2,1,16,28,1,1,5))
+if mibBuilder.loadTexts:sspmCapabilitiesTable.setStatus(_A)
+_SspmCapabilitiesEntry_Object=MibTableRow
+sspmCapabilitiesEntry=_SspmCapabilitiesEntry_Object((1,3,6,1,2,1,16,28,1,1,5,1))
+sspmCapabilitiesEntry.setIndexNames((0,_B,_I))
+if mibBuilder.loadTexts:sspmCapabilitiesEntry.setStatus(_A)
+_SspmCapabilitiesInstance_Type=AppLocalIndex
+_SspmCapabilitiesInstance_Object=MibTableColumn
+sspmCapabilitiesInstance=_SspmCapabilitiesInstance_Object((1,3,6,1,2,1,16,28,1,1,5,1,1),_SspmCapabilitiesInstance_Type())
+sspmCapabilitiesInstance.setMaxAccess(_E)
+if mibBuilder.loadTexts:sspmCapabilitiesInstance.setStatus(_A)
+_SspmSource_ObjectIdentity=ObjectIdentity
+sspmSource=_SspmSource_ObjectIdentity((1,3,6,1,2,1,16,28,1,2))
+_SspmSourceProfileTable_Object=MibTable
+sspmSourceProfileTable=_SspmSourceProfileTable_Object((1,3,6,1,2,1,16,28,1,2,1))
+if mibBuilder.loadTexts:sspmSourceProfileTable.setStatus(_A)
+_SspmSourceProfileEntry_Object=MibTableRow
+sspmSourceProfileEntry=_SspmSourceProfileEntry_Object((1,3,6,1,2,1,16,28,1,2,1,1))
+sspmSourceProfileEntry.setIndexNames((0,_B,_P))
+if mibBuilder.loadTexts:sspmSourceProfileEntry.setStatus(_A)
+class _SspmSourceProfileInstance_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_SspmSourceProfileInstance_Type.__name__=_G
+_SspmSourceProfileInstance_Object=MibTableColumn
+sspmSourceProfileInstance=_SspmSourceProfileInstance_Object((1,3,6,1,2,1,16,28,1,2,1,1,1),_SspmSourceProfileInstance_Type())
+sspmSourceProfileInstance.setMaxAccess(_J)
+if mibBuilder.loadTexts:sspmSourceProfileInstance.setStatus(_A)
+_SspmSourceProfileType_Type=AppLocalIndex
+_SspmSourceProfileType_Object=MibTableColumn
+sspmSourceProfileType=_SspmSourceProfileType_Object((1,3,6,1,2,1,16,28,1,2,1,1,2),_SspmSourceProfileType_Type())
+sspmSourceProfileType.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceProfileType.setStatus(_A)
+_SspmSourceProfilePacketSize_Type=Unsigned32
+_SspmSourceProfilePacketSize_Object=MibTableColumn
+sspmSourceProfilePacketSize=_SspmSourceProfilePacketSize_Object((1,3,6,1,2,1,16,28,1,2,1,1,3),_SspmSourceProfilePacketSize_Type())
+sspmSourceProfilePacketSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceProfilePacketSize.setStatus(_A)
+class _SspmSourceProfilePacketFillType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('random',1),('pattern',2),('url',3)))
+_SspmSourceProfilePacketFillType_Type.__name__=_D
+_SspmSourceProfilePacketFillType_Object=MibTableColumn
+sspmSourceProfilePacketFillType=_SspmSourceProfilePacketFillType_Object((1,3,6,1,2,1,16,28,1,2,1,1,4),_SspmSourceProfilePacketFillType_Type())
+sspmSourceProfilePacketFillType.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceProfilePacketFillType.setStatus(_A)
+class _SspmSourceProfilePacketFillValue_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,255))
+_SspmSourceProfilePacketFillValue_Type.__name__=_F
+_SspmSourceProfilePacketFillValue_Object=MibTableColumn
+sspmSourceProfilePacketFillValue=_SspmSourceProfilePacketFillValue_Object((1,3,6,1,2,1,16,28,1,2,1,1,5),_SspmSourceProfilePacketFillValue_Type())
+sspmSourceProfilePacketFillValue.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceProfilePacketFillValue.setStatus(_A)
+class _SspmSourceProfileTOS_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_SspmSourceProfileTOS_Type.__name__=_D
+_SspmSourceProfileTOS_Object=MibTableColumn
+sspmSourceProfileTOS=_SspmSourceProfileTOS_Object((1,3,6,1,2,1,16,28,1,2,1,1,6),_SspmSourceProfileTOS_Type())
+sspmSourceProfileTOS.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceProfileTOS.setStatus(_A)
+class _SspmSourceProfileFlowLabel_Type(Integer32):defaultValue=0;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,1048575))
+_SspmSourceProfileFlowLabel_Type.__name__=_D
+_SspmSourceProfileFlowLabel_Object=MibTableColumn
+sspmSourceProfileFlowLabel=_SspmSourceProfileFlowLabel_Object((1,3,6,1,2,1,16,28,1,2,1,1,7),_SspmSourceProfileFlowLabel_Type())
+sspmSourceProfileFlowLabel.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceProfileFlowLabel.setStatus(_A)
+class _SspmSourceProfileLooseSrcRteFill_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,240))
+_SspmSourceProfileLooseSrcRteFill_Type.__name__=_F
+_SspmSourceProfileLooseSrcRteFill_Object=MibTableColumn
+sspmSourceProfileLooseSrcRteFill=_SspmSourceProfileLooseSrcRteFill_Object((1,3,6,1,2,1,16,28,1,2,1,1,8),_SspmSourceProfileLooseSrcRteFill_Type())
+sspmSourceProfileLooseSrcRteFill.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceProfileLooseSrcRteFill.setStatus(_A)
+class _SspmSourceProfileLooseSrcRteLen_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,240))
+_SspmSourceProfileLooseSrcRteLen_Type.__name__=_D
+_SspmSourceProfileLooseSrcRteLen_Object=MibTableColumn
+sspmSourceProfileLooseSrcRteLen=_SspmSourceProfileLooseSrcRteLen_Object((1,3,6,1,2,1,16,28,1,2,1,1,9),_SspmSourceProfileLooseSrcRteLen_Type())
+sspmSourceProfileLooseSrcRteLen.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceProfileLooseSrcRteLen.setStatus(_A)
+class _SspmSourceProfileTTL_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_SspmSourceProfileTTL_Type.__name__=_D
+_SspmSourceProfileTTL_Object=MibTableColumn
+sspmSourceProfileTTL=_SspmSourceProfileTTL_Object((1,3,6,1,2,1,16,28,1,2,1,1,10),_SspmSourceProfileTTL_Type())
+sspmSourceProfileTTL.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceProfileTTL.setStatus(_A)
+_SspmSourceProfileNoFrag_Type=TruthValue
+_SspmSourceProfileNoFrag_Object=MibTableColumn
+sspmSourceProfileNoFrag=_SspmSourceProfileNoFrag_Object((1,3,6,1,2,1,16,28,1,2,1,1,11),_SspmSourceProfileNoFrag_Type())
+sspmSourceProfileNoFrag.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceProfileNoFrag.setStatus(_A)
+class _SspmSourceProfile8021Tagging_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-1,65535))
+_SspmSourceProfile8021Tagging_Type.__name__=_D
+_SspmSourceProfile8021Tagging_Object=MibTableColumn
+sspmSourceProfile8021Tagging=_SspmSourceProfile8021Tagging_Object((1,3,6,1,2,1,16,28,1,2,1,1,12),_SspmSourceProfile8021Tagging_Type())
+sspmSourceProfile8021Tagging.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceProfile8021Tagging.setStatus(_A)
+_SspmSourceProfileUsername_Type=Utf8String
+_SspmSourceProfileUsername_Object=MibTableColumn
+sspmSourceProfileUsername=_SspmSourceProfileUsername_Object((1,3,6,1,2,1,16,28,1,2,1,1,13),_SspmSourceProfileUsername_Type())
+sspmSourceProfileUsername.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceProfileUsername.setStatus(_A)
+_SspmSourceProfilePassword_Type=Utf8String
+_SspmSourceProfilePassword_Object=MibTableColumn
+sspmSourceProfilePassword=_SspmSourceProfilePassword_Object((1,3,6,1,2,1,16,28,1,2,1,1,14),_SspmSourceProfilePassword_Type())
+sspmSourceProfilePassword.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceProfilePassword.setStatus(_A)
+class _SspmSourceProfileParameter_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,65535))
+_SspmSourceProfileParameter_Type.__name__=_F
+_SspmSourceProfileParameter_Object=MibTableColumn
+sspmSourceProfileParameter=_SspmSourceProfileParameter_Object((1,3,6,1,2,1,16,28,1,2,1,1,15),_SspmSourceProfileParameter_Type())
+sspmSourceProfileParameter.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceProfileParameter.setStatus(_A)
+_SspmSourceProfileOwner_Type=OwnerString
+_SspmSourceProfileOwner_Object=MibTableColumn
+sspmSourceProfileOwner=_SspmSourceProfileOwner_Object((1,3,6,1,2,1,16,28,1,2,1,1,16),_SspmSourceProfileOwner_Type())
+sspmSourceProfileOwner.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceProfileOwner.setStatus(_A)
+_SspmSourceProfileStorageType_Type=StorageType
+_SspmSourceProfileStorageType_Object=MibTableColumn
+sspmSourceProfileStorageType=_SspmSourceProfileStorageType_Object((1,3,6,1,2,1,16,28,1,2,1,1,17),_SspmSourceProfileStorageType_Type())
+sspmSourceProfileStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceProfileStorageType.setStatus(_A)
+_SspmSourceProfileStatus_Type=RowStatus
+_SspmSourceProfileStatus_Object=MibTableColumn
+sspmSourceProfileStatus=_SspmSourceProfileStatus_Object((1,3,6,1,2,1,16,28,1,2,1,1,18),_SspmSourceProfileStatus_Type())
+sspmSourceProfileStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceProfileStatus.setStatus(_A)
+_SspmSourceControlTable_Object=MibTable
+sspmSourceControlTable=_SspmSourceControlTable_Object((1,3,6,1,2,1,16,28,1,2,2))
+if mibBuilder.loadTexts:sspmSourceControlTable.setStatus(_A)
+_SspmSourceControlEntry_Object=MibTableRow
+sspmSourceControlEntry=_SspmSourceControlEntry_Object((1,3,6,1,2,1,16,28,1,2,2,1))
+sspmSourceControlEntry.setIndexNames((0,_B,_Q))
+if mibBuilder.loadTexts:sspmSourceControlEntry.setStatus(_A)
+class _SspmSourceControlInstance_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_SspmSourceControlInstance_Type.__name__=_G
+_SspmSourceControlInstance_Object=MibTableColumn
+sspmSourceControlInstance=_SspmSourceControlInstance_Object((1,3,6,1,2,1,16,28,1,2,2,1,1),_SspmSourceControlInstance_Type())
+sspmSourceControlInstance.setMaxAccess(_J)
+if mibBuilder.loadTexts:sspmSourceControlInstance.setStatus(_A)
+class _SspmSourceControlProfile_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_SspmSourceControlProfile_Type.__name__=_D
+_SspmSourceControlProfile_Object=MibTableColumn
+sspmSourceControlProfile=_SspmSourceControlProfile_Object((1,3,6,1,2,1,16,28,1,2,2,1,2),_SspmSourceControlProfile_Type())
+sspmSourceControlProfile.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceControlProfile.setStatus(_A)
+_SspmSourceControlSrc_Type=InterfaceIndexOrZero
+_SspmSourceControlSrc_Object=MibTableColumn
+sspmSourceControlSrc=_SspmSourceControlSrc_Object((1,3,6,1,2,1,16,28,1,2,2,1,3),_SspmSourceControlSrc_Type())
+sspmSourceControlSrc.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceControlSrc.setStatus(_A)
+_SspmSourceControlDestAddrType_Type=InetAddressType
+_SspmSourceControlDestAddrType_Object=MibTableColumn
+sspmSourceControlDestAddrType=_SspmSourceControlDestAddrType_Object((1,3,6,1,2,1,16,28,1,2,2,1,4),_SspmSourceControlDestAddrType_Type())
+sspmSourceControlDestAddrType.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceControlDestAddrType.setStatus(_A)
+_SspmSourceControlDestAddr_Type=InetAddress
+_SspmSourceControlDestAddr_Object=MibTableColumn
+sspmSourceControlDestAddr=_SspmSourceControlDestAddr_Object((1,3,6,1,2,1,16,28,1,2,2,1,5),_SspmSourceControlDestAddr_Type())
+sspmSourceControlDestAddr.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceControlDestAddr.setStatus(_A)
+_SspmSourceControlEnabled_Type=TruthValue
+_SspmSourceControlEnabled_Object=MibTableColumn
+sspmSourceControlEnabled=_SspmSourceControlEnabled_Object((1,3,6,1,2,1,16,28,1,2,2,1,6),_SspmSourceControlEnabled_Type())
+sspmSourceControlEnabled.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceControlEnabled.setStatus(_A)
+_SspmSourceControlTimeOut_Type=SspmMicroSeconds
+_SspmSourceControlTimeOut_Object=MibTableColumn
+sspmSourceControlTimeOut=_SspmSourceControlTimeOut_Object((1,3,6,1,2,1,16,28,1,2,2,1,7),_SspmSourceControlTimeOut_Type())
+sspmSourceControlTimeOut.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceControlTimeOut.setStatus(_A)
+class _SspmSourceControlSamplingDist_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('deterministic',1),('poisson',2)))
+_SspmSourceControlSamplingDist_Type.__name__=_D
+_SspmSourceControlSamplingDist_Object=MibTableColumn
+sspmSourceControlSamplingDist=_SspmSourceControlSamplingDist_Object((1,3,6,1,2,1,16,28,1,2,2,1,8),_SspmSourceControlSamplingDist_Type())
+sspmSourceControlSamplingDist.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceControlSamplingDist.setStatus(_A)
+_SspmSourceControlFrequency_Type=SspmMicroSeconds
+_SspmSourceControlFrequency_Object=MibTableColumn
+sspmSourceControlFrequency=_SspmSourceControlFrequency_Object((1,3,6,1,2,1,16,28,1,2,2,1,9),_SspmSourceControlFrequency_Type())
+sspmSourceControlFrequency.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceControlFrequency.setStatus(_A)
+_SspmSourceControlFirstSeqNum_Type=Unsigned32
+_SspmSourceControlFirstSeqNum_Object=MibTableColumn
+sspmSourceControlFirstSeqNum=_SspmSourceControlFirstSeqNum_Object((1,3,6,1,2,1,16,28,1,2,2,1,10),_SspmSourceControlFirstSeqNum_Type())
+sspmSourceControlFirstSeqNum.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceControlFirstSeqNum.setStatus(_A)
+_SspmSourceControlLastSeqNum_Type=Unsigned32
+_SspmSourceControlLastSeqNum_Object=MibTableColumn
+sspmSourceControlLastSeqNum=_SspmSourceControlLastSeqNum_Object((1,3,6,1,2,1,16,28,1,2,2,1,11),_SspmSourceControlLastSeqNum_Type())
+sspmSourceControlLastSeqNum.setMaxAccess(_E)
+if mibBuilder.loadTexts:sspmSourceControlLastSeqNum.setStatus(_A)
+_SspmSourceControlOwner_Type=OwnerString
+_SspmSourceControlOwner_Object=MibTableColumn
+sspmSourceControlOwner=_SspmSourceControlOwner_Object((1,3,6,1,2,1,16,28,1,2,2,1,12),_SspmSourceControlOwner_Type())
+sspmSourceControlOwner.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceControlOwner.setStatus(_A)
+_SspmSourceControlStorageType_Type=StorageType
+_SspmSourceControlStorageType_Object=MibTableColumn
+sspmSourceControlStorageType=_SspmSourceControlStorageType_Object((1,3,6,1,2,1,16,28,1,2,2,1,13),_SspmSourceControlStorageType_Type())
+sspmSourceControlStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceControlStorageType.setStatus(_A)
+_SspmSourceControlStatus_Type=RowStatus
+_SspmSourceControlStatus_Object=MibTableColumn
+sspmSourceControlStatus=_SspmSourceControlStatus_Object((1,3,6,1,2,1,16,28,1,2,2,1,14),_SspmSourceControlStatus_Type())
+sspmSourceControlStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSourceControlStatus.setStatus(_A)
+_SspmSink_ObjectIdentity=ObjectIdentity
+sspmSink=_SspmSink_ObjectIdentity((1,3,6,1,2,1,16,28,1,5))
+_SspmSinkTable_Object=MibTable
+sspmSinkTable=_SspmSinkTable_Object((1,3,6,1,2,1,16,28,1,5,1))
+if mibBuilder.loadTexts:sspmSinkTable.setStatus(_A)
+_SspmSinkEntry_Object=MibTableRow
+sspmSinkEntry=_SspmSinkEntry_Object((1,3,6,1,2,1,16,28,1,5,1,1))
+sspmSinkEntry.setIndexNames((0,_B,_R))
+if mibBuilder.loadTexts:sspmSinkEntry.setStatus(_A)
+class _SspmSinkInstance_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_SspmSinkInstance_Type.__name__=_G
+_SspmSinkInstance_Object=MibTableColumn
+sspmSinkInstance=_SspmSinkInstance_Object((1,3,6,1,2,1,16,28,1,5,1,1,1),_SspmSinkInstance_Type())
+sspmSinkInstance.setMaxAccess(_J)
+if mibBuilder.loadTexts:sspmSinkInstance.setStatus(_A)
+_SspmSinkType_Type=AppLocalIndex
+_SspmSinkType_Object=MibTableColumn
+sspmSinkType=_SspmSinkType_Object((1,3,6,1,2,1,16,28,1,5,1,1,2),_SspmSinkType_Type())
+sspmSinkType.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSinkType.setStatus(_A)
+_SspmSinkSourceAddressType_Type=InetAddressType
+_SspmSinkSourceAddressType_Object=MibTableColumn
+sspmSinkSourceAddressType=_SspmSinkSourceAddressType_Object((1,3,6,1,2,1,16,28,1,5,1,1,3),_SspmSinkSourceAddressType_Type())
+sspmSinkSourceAddressType.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSinkSourceAddressType.setStatus(_A)
+_SspmSinkSourceAddress_Type=InetAddress
+_SspmSinkSourceAddress_Object=MibTableColumn
+sspmSinkSourceAddress=_SspmSinkSourceAddress_Object((1,3,6,1,2,1,16,28,1,5,1,1,4),_SspmSinkSourceAddress_Type())
+sspmSinkSourceAddress.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSinkSourceAddress.setStatus(_A)
+_SspmSinkExpectedRate_Type=SspmMicroSeconds
+_SspmSinkExpectedRate_Object=MibTableColumn
+sspmSinkExpectedRate=_SspmSinkExpectedRate_Object((1,3,6,1,2,1,16,28,1,5,1,1,5),_SspmSinkExpectedRate_Type())
+sspmSinkExpectedRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSinkExpectedRate.setStatus(_A)
+_SspmSinkEnable_Type=TruthValue
+_SspmSinkEnable_Object=MibTableColumn
+sspmSinkEnable=_SspmSinkEnable_Object((1,3,6,1,2,1,16,28,1,5,1,1,6),_SspmSinkEnable_Type())
+sspmSinkEnable.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSinkEnable.setStatus(_A)
+_SspmSinkExpectedFirstSequenceNum_Type=Unsigned32
+_SspmSinkExpectedFirstSequenceNum_Object=MibTableColumn
+sspmSinkExpectedFirstSequenceNum=_SspmSinkExpectedFirstSequenceNum_Object((1,3,6,1,2,1,16,28,1,5,1,1,7),_SspmSinkExpectedFirstSequenceNum_Type())
+sspmSinkExpectedFirstSequenceNum.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSinkExpectedFirstSequenceNum.setStatus(_A)
+_SspmSinkLastSequenceNumber_Type=Unsigned32
+_SspmSinkLastSequenceNumber_Object=MibTableColumn
+sspmSinkLastSequenceNumber=_SspmSinkLastSequenceNumber_Object((1,3,6,1,2,1,16,28,1,5,1,1,8),_SspmSinkLastSequenceNumber_Type())
+sspmSinkLastSequenceNumber.setMaxAccess(_E)
+if mibBuilder.loadTexts:sspmSinkLastSequenceNumber.setStatus(_A)
+_SspmSinkLastSequenceInvalid_Type=Counter32
+_SspmSinkLastSequenceInvalid_Object=MibTableColumn
+sspmSinkLastSequenceInvalid=_SspmSinkLastSequenceInvalid_Object((1,3,6,1,2,1,16,28,1,5,1,1,9),_SspmSinkLastSequenceInvalid_Type())
+sspmSinkLastSequenceInvalid.setMaxAccess(_E)
+if mibBuilder.loadTexts:sspmSinkLastSequenceInvalid.setStatus(_A)
+_SspmSinkStorageType_Type=StorageType
+_SspmSinkStorageType_Object=MibTableColumn
+sspmSinkStorageType=_SspmSinkStorageType_Object((1,3,6,1,2,1,16,28,1,5,1,1,10),_SspmSinkStorageType_Type())
+sspmSinkStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSinkStorageType.setStatus(_A)
+_SspmSinkStatus_Type=RowStatus
+_SspmSinkStatus_Object=MibTableColumn
+sspmSinkStatus=_SspmSinkStatus_Object((1,3,6,1,2,1,16,28,1,5,1,1,11),_SspmSinkStatus_Type())
+sspmSinkStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:sspmSinkStatus.setStatus(_A)
+_SspmMIBNotifications_ObjectIdentity=ObjectIdentity
+sspmMIBNotifications=_SspmMIBNotifications_ObjectIdentity((1,3,6,1,2,1,16,28,2))
+_SspmMIBConformance_ObjectIdentity=ObjectIdentity
+sspmMIBConformance=_SspmMIBConformance_ObjectIdentity((1,3,6,1,2,1,16,28,3))
+_SspmCompliances_ObjectIdentity=ObjectIdentity
+sspmCompliances=_SspmCompliances_ObjectIdentity((1,3,6,1,2,1,16,28,3,1))
+_SspmGroups_ObjectIdentity=ObjectIdentity
+sspmGroups=_SspmGroups_ObjectIdentity((1,3,6,1,2,1,16,28,3,2))
+sspmGeneralGroup=ObjectGroup((1,3,6,1,2,1,16,28,3,2,1))
+sspmGeneralGroup.setObjects(*((_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_I)))
+if mibBuilder.loadTexts:sspmGeneralGroup.setStatus(_A)
+sspmSourceGroup=ObjectGroup((1,3,6,1,2,1,16,28,3,2,2))
+sspmSourceGroup.setObjects(*((_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_K),(_B,_L),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_u),(_B,_v),(_B,_w),(_B,_x)))
+if mibBuilder.loadTexts:sspmSourceGroup.setStatus(_A)
+sspmUserPassGroup=ObjectGroup((1,3,6,1,2,1,16,28,3,2,3))
+sspmUserPassGroup.setObjects(*((_B,_K),(_B,_L)))
+if mibBuilder.loadTexts:sspmUserPassGroup.setStatus(_A)
+sspmSinkGroup=ObjectGroup((1,3,6,1,2,1,16,28,3,2,4))
+sspmSinkGroup.setObjects(*((_B,_y),(_B,_z),(_B,_A0),(_B,_A1),(_B,_A2),(_B,_A3),(_B,_A4),(_B,_A5),(_B,_A6),(_B,_A7)))
+if mibBuilder.loadTexts:sspmSinkGroup.setStatus(_A)
+sspmGeneralCompliance=ModuleCompliance((1,3,6,1,2,1,16,28,3,1,1))
+sspmGeneralCompliance.setObjects(*((_B,_H),(_B,_M),(_B,_N),(_B,_O)))
+if mibBuilder.loadTexts:sspmGeneralCompliance.setStatus(_A)
+sspmSourceFullCompliance=ModuleCompliance((1,3,6,1,2,1,16,28,3,1,2))
+sspmSourceFullCompliance.setObjects(*((_B,_H),(_B,_M),(_B,_O)))
+if mibBuilder.loadTexts:sspmSourceFullCompliance.setStatus(_A)
+sspmSinkFullCompliance=ModuleCompliance((1,3,6,1,2,1,16,28,3,1,3))
+sspmSinkFullCompliance.setObjects(*((_B,_H),(_B,_N)))
+if mibBuilder.loadTexts:sspmSinkFullCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'SspmMicroSeconds':SspmMicroSeconds,'SspmClockSource':SspmClockSource,'SspmClockMaxSkew':SspmClockMaxSkew,'sspmMIB':sspmMIB,'sspmMIBObjects':sspmMIBObjects,'sspmGeneral':sspmGeneral,_S:sspmGeneralClockResolution,_T:sspmGeneralClockMaxSkew,_U:sspmGeneralClockSource,_V:sspmGeneralMinFrequency,'sspmCapabilitiesTable':sspmCapabilitiesTable,'sspmCapabilitiesEntry':sspmCapabilitiesEntry,_I:sspmCapabilitiesInstance,'sspmSource':sspmSource,'sspmSourceProfileTable':sspmSourceProfileTable,'sspmSourceProfileEntry':sspmSourceProfileEntry,_P:sspmSourceProfileInstance,_W:sspmSourceProfileType,_X:sspmSourceProfilePacketSize,_Y:sspmSourceProfilePacketFillType,_Z:sspmSourceProfilePacketFillValue,_a:sspmSourceProfileTOS,_b:sspmSourceProfileFlowLabel,_c:sspmSourceProfileLooseSrcRteFill,_d:sspmSourceProfileLooseSrcRteLen,_e:sspmSourceProfileTTL,_f:sspmSourceProfileNoFrag,_g:sspmSourceProfile8021Tagging,_K:sspmSourceProfileUsername,_L:sspmSourceProfilePassword,_h:sspmSourceProfileParameter,_i:sspmSourceProfileOwner,_j:sspmSourceProfileStorageType,_k:sspmSourceProfileStatus,'sspmSourceControlTable':sspmSourceControlTable,'sspmSourceControlEntry':sspmSourceControlEntry,_Q:sspmSourceControlInstance,_l:sspmSourceControlProfile,_m:sspmSourceControlSrc,_n:sspmSourceControlDestAddrType,_o:sspmSourceControlDestAddr,_p:sspmSourceControlEnabled,_q:sspmSourceControlTimeOut,_r:sspmSourceControlSamplingDist,_s:sspmSourceControlFrequency,_t:sspmSourceControlFirstSeqNum,_u:sspmSourceControlLastSeqNum,_v:sspmSourceControlOwner,_w:sspmSourceControlStorageType,_x:sspmSourceControlStatus,'sspmSink':sspmSink,'sspmSinkTable':sspmSinkTable,'sspmSinkEntry':sspmSinkEntry,_R:sspmSinkInstance,_y:sspmSinkType,_z:sspmSinkSourceAddressType,_A0:sspmSinkSourceAddress,_A1:sspmSinkExpectedRate,_A2:sspmSinkEnable,_A3:sspmSinkExpectedFirstSequenceNum,_A4:sspmSinkLastSequenceNumber,_A5:sspmSinkLastSequenceInvalid,_A6:sspmSinkStorageType,_A7:sspmSinkStatus,'sspmMIBNotifications':sspmMIBNotifications,'sspmMIBConformance':sspmMIBConformance,'sspmCompliances':sspmCompliances,'sspmGeneralCompliance':sspmGeneralCompliance,'sspmSourceFullCompliance':sspmSourceFullCompliance,'sspmSinkFullCompliance':sspmSinkFullCompliance,'sspmGroups':sspmGroups,_H:sspmGeneralGroup,_M:sspmSourceGroup,_O:sspmUserPassGroup,_N:sspmSinkGroup})

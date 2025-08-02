@@ -1,89 +1,194 @@
-#
-# PySNMP MIB module HC-ALARM-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/HC-ALARM-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:14:41 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( Integer, OctetString, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
-( CounterBasedGauge64, ) = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
-( OwnerString, rmonEventGroup, rmon, ) = mibBuilder.importSymbols("RMON-MIB", "OwnerString", "rmonEventGroup", "rmon")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( IpAddress, ObjectIdentity, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Bits, TimeTicks, Integer32, iso, Gauge32, Counter32, MibIdentifier, Counter64, ModuleIdentity, ) = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "ObjectIdentity", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Bits", "TimeTicks", "Integer32", "iso", "Gauge32", "Counter32", "MibIdentifier", "Counter64", "ModuleIdentity")
-( VariablePointer, RowStatus, StorageType, TextualConvention, DisplayString, ) = mibBuilder.importSymbols("SNMPv2-TC", "VariablePointer", "RowStatus", "StorageType", "TextualConvention", "DisplayString")
-hcAlarmMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 16, 29)).setRevisions(("2002-12-16 00:00",))
-if mibBuilder.loadTexts: hcAlarmMIB.setLastUpdated('200212160000Z')
-if mibBuilder.loadTexts: hcAlarmMIB.setOrganization('IETF RMONMIB Working Group')
-if mibBuilder.loadTexts: hcAlarmMIB.setContactInfo('        Andy Bierman\n                     Cisco Systems, Inc.\n                Tel: +1 408 527-3711\n\n             E-mail: abierman@cisco.com\n             Postal: 170 West Tasman Drive\n                     San Jose, CA USA 95134\n\n                     Keith McCloghrie\n                     Cisco Systems, Inc.\n                Tel: +1 408 526-5260\n             E-mail: kzm@cisco.com\n             Postal: 170 West Tasman Drive\n                     San Jose, CA USA 95134\n\n             Send comments to <rmonmib@ietf.org>\n             Mailing list subscription info:\n                 http://www.ietf.org/mailman/listinfo/rmonmib ')
-if mibBuilder.loadTexts: hcAlarmMIB.setDescription('This module defines Remote Monitoring MIB extensions for\n             High Capacity Alarms.\n\n             Copyright (C) The Internet Society (2002). This version\n             of this MIB module is part of RFC 3434; see the RFC\n             itself for full legal notices.')
-hcAlarmObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 29, 1))
-hcAlarmNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 29, 2))
-hcAlarmConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 29, 3))
-hcAlarmControlObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 29, 1, 1))
-hcAlarmCapabilitiesObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 29, 1, 2))
-class HcValueStatus(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3,))
-    namedValues = NamedValues(("valueNotAvailable", 1), ("valuePositive", 2), ("valueNegative", 3),)
-
-hcAlarmTable = MibTable((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1), )
-if mibBuilder.loadTexts: hcAlarmTable.setDescription('A list of entries for the configuration of high capacity\n            alarms.')
-hcAlarmEntry = MibTableRow((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1), ).setIndexNames((0, "HC-ALARM-MIB", "hcAlarmIndex"))
-if mibBuilder.loadTexts: hcAlarmEntry.setDescription('A conceptual row in the hcAlarmTable. Entries are usually\n            created in this table by management application action, but\n            may also be created by agent action as well.')
-hcAlarmIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: hcAlarmIndex.setDescription('An arbitrary integer index value used to uniquely identify\n            this high capacity alarm entry.')
-hcAlarmInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hcAlarmInterval.setDescription('The interval in seconds over which the data is sampled and\n            compared with the rising and falling thresholds.  When\n            setting this variable, care should be taken in the case of\n            deltaValue sampling - the interval should be set short\n            enough that the sampled variable is very unlikely to\n            increase or decrease by more than 2^63 - 1 during a single\n            sampling interval.\n\n\n\n            This object may not be modified if the associated\n            hcAlarmStatus object is equal to active(1).')
-hcAlarmVariable = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 3), VariablePointer()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hcAlarmVariable.setDescription('The object identifier of the particular variable to be\n            sampled.  Only variables that resolve to an ASN.1 primitive\n            type of INTEGER (INTEGER, Integer32, Counter32, Counter64,\n            Gauge, or TimeTicks) may be sampled.\n\n            Because SNMP access control is articulated entirely in terms\n            of the contents of MIB views, no access control mechanism\n            exists that can restrict the value of this object to\n            identify only those objects that exist in a particular MIB\n            view.  Because there is thus no acceptable means of\n            restricting the read access that could be obtained through\n            the alarm mechanism, the probe must only grant write access\n            to this object in those views that have read access to all\n            objects on the probe.\n\n            This object may not be modified if the associated\n            hcAlarmStatus object is equal to active(1).')
-hcAlarmSampleType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("absoluteValue", 1), ("deltaValue", 2),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hcAlarmSampleType.setDescription('The method of sampling the selected variable and\n            calculating the value to be compared against the thresholds.\n            If the value of this object is absoluteValue(1), the value\n            of the selected variable will be compared directly with the\n            thresholds at the end of the sampling interval.  If the\n            value of this object is deltaValue(2), the value of the\n            selected variable at the last sample will be subtracted from\n            the current value, and the difference compared with the\n            thresholds.\n\n            If the associated hcAlarmVariable instance could not be\n            obtained at the previous sample interval, then a delta\n\n            sample is not possible, and the value of the associated\n            hcAlarmValueStatus object for this interval will be\n            valueNotAvailable(1).\n\n            This object may not be modified if the associated\n            hcAlarmStatus object is equal to active(1).')
-hcAlarmAbsValue = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 5), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hcAlarmAbsValue.setDescription("The absolute value (i.e., unsigned value) of the\n            hcAlarmVariable statistic during the last sampling period.\n            The value during the current sampling period is not made\n            available until the period is completed.\n\n            To obtain the true value for this sampling interval, the\n            associated instance of hcAlarmValueStatus must be checked,\n            and the value of this object adjusted as necessary.\n\n            If the MIB instance could not be accessed during the\n            sampling interval, then this object will have a value of\n            zero and the associated instance of hcAlarmValueStatus will\n            be set to 'valueNotAvailable(1)'.")
-hcAlarmValueStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 6), HcValueStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hcAlarmValueStatus.setDescription('This object indicates the validity and sign of the data for\n            the hcAlarmAbsValue object, as described in the\n            HcValueStatus textual convention.')
-hcAlarmStartupAlarm = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("risingAlarm", 1), ("fallingAlarm", 2), ("risingOrFallingAlarm", 3),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hcAlarmStartupAlarm.setDescription('The alarm that may be sent when this entry is first set to\n\n            active.  If the first sample after this entry becomes active\n            is greater than or equal to the rising threshold and this\n            object is equal to risingAlarm(1) or\n            risingOrFallingAlarm(3), then a single rising alarm will be\n            generated.  If the first sample after this entry becomes\n            valid is less than or equal to the falling threshold and\n            this object is equal to fallingAlarm(2) or\n            risingOrFallingAlarm(3), then a single falling alarm will be\n            generated.\n\n            This object may not be modified if the associated\n            hcAlarmStatus object is equal to active(1).')
-hcAlarmRisingThreshAbsValueLo = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 8), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hcAlarmRisingThreshAbsValueLo.setDescription('The lower 32 bits of the absolute value for threshold for\n            the sampled statistic.  The actual threshold value is\n            determined by the associated instances of the\n            hcAlarmRisingThreshAbsValueHi and\n            hcAlarmRisingThresholdValStatus objects, as follows:\n\n               ABS(threshold) = hcAlarmRisingThreshAbsValueLo +\n                     (hcAlarmRisingThreshAbsValueHi * 2^^32)\n\n            The absolute value of the threshold is adjusted as required,\n            as described in the HcValueStatus textual convention.  These\n            three object instances are conceptually combined to\n            represent the rising threshold for this entry.\n\n            When the current sampled value is greater than or equal to\n            this threshold, and the value at the last sampling interval\n            was less than this threshold, a single event will be\n            generated.  A single event will also be generated if the\n            first sample after this entry becomes valid is greater than\n            or equal to this threshold and the associated\n            hcAlarmStartupAlarm is equal to risingAlarm(1) or\n            risingOrFallingAlarm(3).\n\n            After a rising event is generated, another such event will\n            not be generated until the sampled value falls below this\n            threshold and reaches the threshold identified by the\n            hcAlarmFallingThreshAbsValueLo,\n            hcAlarmFallingThreshAbsValueHi, and\n            hcAlarmFallingThresholdValStatus objects.\n\n            This object may not be modified if the associated\n            hcAlarmStatus object is equal to active(1).')
-hcAlarmRisingThreshAbsValueHi = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 9), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hcAlarmRisingThreshAbsValueHi.setDescription('The upper 32 bits of the absolute value for threshold for\n            the sampled statistic.  The actual threshold value is\n            determined by the associated instances of the\n            hcAlarmRisingThreshAbsValueLo and\n            hcAlarmRisingThresholdValStatus objects, as follows:\n\n               ABS(threshold) = hcAlarmRisingThreshAbsValueLo +\n                     (hcAlarmRisingThreshAbsValueHi * 2^^32)\n\n            The absolute value of the threshold is adjusted as required,\n            as described in the HcValueStatus textual convention.  These\n            three object instances are conceptually combined to\n            represent the rising threshold for this entry.\n\n            When the current sampled value is greater than or equal to\n            this threshold, and the value at the last sampling interval\n            was less than this threshold, a single event will be\n            generated.  A single event will also be generated if the\n            first sample after this entry becomes valid is greater than\n            or equal to this threshold and the associated\n            hcAlarmStartupAlarm is equal to risingAlarm(1) or\n            risingOrFallingAlarm(3).\n\n            After a rising event is generated, another such event will\n            not be generated until the sampled value falls below this\n            threshold and reaches the threshold identified by the\n            hcAlarmFallingThreshAbsValueLo,\n            hcAlarmFallingThreshAbsValueHi, and\n            hcAlarmFallingThresholdValStatus objects.\n\n            This object may not be modified if the associated\n            hcAlarmStatus object is equal to active(1).')
-hcAlarmRisingThresholdValStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 10), HcValueStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hcAlarmRisingThresholdValStatus.setDescription("This object indicates the sign of the data for the rising\n            threshold, as defined by the hcAlarmRisingThresAbsValueLo\n            and hcAlarmRisingThresAbsValueHi objects, as described in\n            the HcValueStatus textual convention.\n\n            The enumeration 'valueNotAvailable(1)' is not allowed, and\n            the associated hcAlarmStatus object cannot be equal to\n            'active(1)' if this object is set to this value.\n\n            This object may not be modified if the associated\n            hcAlarmStatus object is equal to active(1).")
-hcAlarmFallingThreshAbsValueLo = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 11), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hcAlarmFallingThreshAbsValueLo.setDescription('The lower 32 bits of the absolute value for threshold for\n            the sampled statistic.  The actual threshold value is\n            determined by the associated instances of the\n            hcAlarmFallingThreshAbsValueHi and\n            hcAlarmFallingThresholdValStatus objects, as follows:\n\n               ABS(threshold) = hcAlarmFallingThreshAbsValueLo +\n                     (hcAlarmFallingThreshAbsValueHi * 2^^32)\n\n            The absolute value of the threshold is adjusted as required,\n            as described in the HcValueStatus textual convention.  These\n            three object instances are conceptually combined to\n            represent the falling threshold for this entry.\n\n            When the current sampled value is less than or equal to this\n            threshold, and the value at the last sampling interval was\n            greater than this threshold, a single event will be\n            generated.  A single event will also be generated if the\n            first sample after this entry becomes valid is less than or\n            equal to this threshold and the associated\n            hcAlarmStartupAlarm is equal to fallingAlarm(2) or\n            risingOrFallingAlarm(3).\n\n            After a falling event is generated, another such event will\n            not be generated until the sampled value rises above this\n            threshold and reaches the threshold identified by the\n            hcAlarmRisingThreshAbsValueLo,\n            hcAlarmRisingThreshAbsValueHi, and\n            hcAlarmRisingThresholdValStatus objects.\n\n            This object may not be modified if the associated\n            hcAlarmStatus object is equal to active(1).')
-hcAlarmFallingThreshAbsValueHi = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 12), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hcAlarmFallingThreshAbsValueHi.setDescription('The upper 32 bits of the absolute value for threshold for\n            the sampled statistic.  The actual threshold value is\n            determined by the associated instances of the\n            hcAlarmFallingThreshAbsValueLo and\n            hcAlarmFallingThresholdValStatus objects, as follows:\n\n               ABS(threshold) = hcAlarmFallingThreshAbsValueLo +\n                     (hcAlarmFallingThreshAbsValueHi * 2^^32)\n\n            The absolute value of the threshold is adjusted as required,\n            as described in the HcValueStatus textual convention.  These\n            three object instances are conceptually combined to\n            represent the falling threshold for this entry.\n\n            When the current sampled value is less than or equal to this\n            threshold, and the value at the last sampling interval was\n            greater than this threshold, a single event will be\n            generated.  A single event will also be generated if the\n            first sample after this entry becomes valid is less than or\n            equal to this threshold and the associated\n            hcAlarmStartupAlarm is equal to fallingAlarm(2) or\n            risingOrFallingAlarm(3).\n\n            After a falling event is generated, another such event will\n            not be generated until the sampled value rises above this\n            threshold and reaches the threshold identified by the\n            hcAlarmRisingThreshAbsValueLo,\n            hcAlarmRisingThreshAbsValueHi, and\n            hcAlarmRisingThresholdValStatus objects.\n\n            This object may not be modified if the associated\n            hcAlarmStatus object is equal to active(1).')
-hcAlarmFallingThresholdValStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 13), HcValueStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hcAlarmFallingThresholdValStatus.setDescription("This object indicates the sign of the data for the falling\n            threshold, as defined by the hcAlarmFallingThreshAbsValueLo\n            and hcAlarmFallingThreshAbsValueHi objects, as described in\n            the HcValueStatus textual convention.\n\n            The enumeration 'valueNotAvailable(1)' is not allowed, and\n            the associated hcAlarmStatus object cannot be equal to\n            'active(1)' if this object is set to this value.\n\n            This object may not be modified if the associated\n            hcAlarmStatus object is equal to active(1).")
-hcAlarmRisingEventIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hcAlarmRisingEventIndex.setDescription('The index of the eventEntry that is used when a rising\n            threshold is crossed.  The eventEntry identified by a\n            particular value of this index is the same as identified by\n            the same value of the eventIndex object.  If there is no\n            corresponding entry in the eventTable, then no association\n            exists.  In particular, if this value is zero, no associated\n            event will be generated, as zero is not a valid event index.\n\n            This object may not be modified if the associated\n            hcAlarmStatus object is equal to active(1).')
-hcAlarmFallingEventIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hcAlarmFallingEventIndex.setDescription('The index of the eventEntry that is used when a falling\n            threshold is crossed.  The eventEntry identified by a\n            particular value of this index is the same as identified by\n            the same value of the eventIndex object.  If there is no\n            corresponding entry in the eventTable, then no association\n            exists.  In particular, if this value is zero, no associated\n            event will be generated, as zero is not a valid event index.\n\n            This object may not be modified if the associated\n            hcAlarmStatus object is equal to active(1).')
-hcAlarmValueFailedAttempts = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hcAlarmValueFailedAttempts.setDescription('The number of times the associated hcAlarmVariable instance\n            was polled on behalf of this hcAlarmEntry, (while in the\n            active state) and the value was not available.  This counter\n            may experience a discontinuity if the agent restarts,\n            indicated by the value of sysUpTime.')
-hcAlarmOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 17), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hcAlarmOwner.setDescription('The entity that configured this entry and is therefore\n            using the resources assigned to it.')
-hcAlarmStorageType = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 18), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hcAlarmStorageType.setDescription("The type of non-volatile storage configured for this entry.\n            If this object is equal to 'permanent(4)', then the\n            associated hcAlarmRisingEventIndex and\n            hcAlarmFallingEventIndex objects must be writable.")
-hcAlarmStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 16, 29, 1, 1, 1, 1, 19), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hcAlarmStatus.setDescription('The status of this row.\n\n            An entry MUST NOT exist in the active state unless all\n            objects in the entry have an appropriate value, as described\n            in the description clause for each writable object.\n\n            The hcAlarmStatus object may be modified if the associated\n            instance of this object is equal to active(1),\n            notInService(2), or notReady(3).  All other writable objects\n            may be modified if the associated instance of this object is\n            equal to notInService(2) or notReady(3).')
-hcAlarmCapabilities = MibScalar((1, 3, 6, 1, 2, 1, 16, 29, 1, 2, 1), Bits().clone(namedValues=NamedValues(("hcAlarmCreation", 0), ("hcAlarmNvStorage", 1),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hcAlarmCapabilities.setDescription("An indication of the high capacity alarm capabilities\n            supported by this agent.\n\n            If the 'hcAlarmCreation' BIT is set, then this agent allows\n            NMS applications to create entries in the hcAlarmTable.\n\n            If the 'hcAlarmNvStorage' BIT is set, then this agent allows\n            entries in the hcAlarmTable which will be recreated after a\n            system restart, as controlled by the hcAlarmStorageType\n            object.")
-hcAlarmNotifPrefix = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 29, 2, 0))
-hcRisingAlarm = NotificationType((1, 3, 6, 1, 2, 1, 16, 29, 2, 0, 1)).setObjects(*(("HC-ALARM-MIB", "hcAlarmVariable"), ("HC-ALARM-MIB", "hcAlarmSampleType"), ("HC-ALARM-MIB", "hcAlarmAbsValue"), ("HC-ALARM-MIB", "hcAlarmValueStatus"), ("HC-ALARM-MIB", "hcAlarmRisingThreshAbsValueLo"), ("HC-ALARM-MIB", "hcAlarmRisingThreshAbsValueHi"), ("HC-ALARM-MIB", "hcAlarmRisingThresholdValStatus"), ("HC-ALARM-MIB", "hcAlarmRisingEventIndex"),))
-if mibBuilder.loadTexts: hcRisingAlarm.setDescription('The SNMP notification that is generated when a high\n            capacity alarm entry crosses its rising threshold and\n            generates an event that is configured for sending SNMP\n            traps.\n\n            The hcAlarmEntry object instances identified in the OBJECTS\n\n            clause are from the entry that causes this notification to\n            be generated.')
-hcFallingAlarm = NotificationType((1, 3, 6, 1, 2, 1, 16, 29, 2, 0, 2)).setObjects(*(("HC-ALARM-MIB", "hcAlarmVariable"), ("HC-ALARM-MIB", "hcAlarmSampleType"), ("HC-ALARM-MIB", "hcAlarmAbsValue"), ("HC-ALARM-MIB", "hcAlarmValueStatus"), ("HC-ALARM-MIB", "hcAlarmFallingThreshAbsValueLo"), ("HC-ALARM-MIB", "hcAlarmFallingThreshAbsValueHi"), ("HC-ALARM-MIB", "hcAlarmFallingThresholdValStatus"), ("HC-ALARM-MIB", "hcAlarmFallingEventIndex"),))
-if mibBuilder.loadTexts: hcFallingAlarm.setDescription('The SNMP notification that is generated when a high\n            capacity alarm entry crosses its falling threshold and\n            generates an event that is configured for sending SNMP\n            traps.\n\n            The hcAlarmEntry object instances identified in the OBJECTS\n            clause are from the entry that causes this notification to\n            be generated.')
-hcAlarmCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 29, 3, 1))
-hcAlarmGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 16, 29, 3, 2))
-hcAlarmCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 16, 29, 3, 1, 1)).setObjects(*(("HC-ALARM-MIB", "hcAlarmControlGroup"), ("HC-ALARM-MIB", "hcAlarmCapabilitiesGroup"), ("HC-ALARM-MIB", "hcAlarmNotificationsGroup"), ("RMON-MIB", "rmonEventGroup"),))
-if mibBuilder.loadTexts: hcAlarmCompliance.setDescription('Describes the requirements for conformance to the High\n            Capacity Alarm MIB.')
-hcAlarmControlGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 29, 3, 2, 1)).setObjects(*(("HC-ALARM-MIB", "hcAlarmInterval"), ("HC-ALARM-MIB", "hcAlarmVariable"), ("HC-ALARM-MIB", "hcAlarmSampleType"), ("HC-ALARM-MIB", "hcAlarmAbsValue"), ("HC-ALARM-MIB", "hcAlarmValueStatus"), ("HC-ALARM-MIB", "hcAlarmStartupAlarm"), ("HC-ALARM-MIB", "hcAlarmRisingThreshAbsValueLo"), ("HC-ALARM-MIB", "hcAlarmRisingThreshAbsValueHi"), ("HC-ALARM-MIB", "hcAlarmRisingThresholdValStatus"), ("HC-ALARM-MIB", "hcAlarmFallingThreshAbsValueLo"), ("HC-ALARM-MIB", "hcAlarmFallingThreshAbsValueHi"), ("HC-ALARM-MIB", "hcAlarmFallingThresholdValStatus"), ("HC-ALARM-MIB", "hcAlarmRisingEventIndex"), ("HC-ALARM-MIB", "hcAlarmFallingEventIndex"), ("HC-ALARM-MIB", "hcAlarmValueFailedAttempts"), ("HC-ALARM-MIB", "hcAlarmOwner"), ("HC-ALARM-MIB", "hcAlarmStorageType"), ("HC-ALARM-MIB", "hcAlarmStatus"),))
-if mibBuilder.loadTexts: hcAlarmControlGroup.setDescription('A collection of objects used to configure entries for high\n            capacity alarm threshold monitoring purposes.')
-hcAlarmCapabilitiesGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 16, 29, 3, 2, 2)).setObjects(*(("HC-ALARM-MIB", "hcAlarmCapabilities"),))
-if mibBuilder.loadTexts: hcAlarmCapabilitiesGroup.setDescription("A collection of objects used to indicate an agent's high\n            capacity alarm threshold monitoring capabilities.")
-hcAlarmNotificationsGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 16, 29, 3, 2, 3)).setObjects(*(("HC-ALARM-MIB", "hcRisingAlarm"), ("HC-ALARM-MIB", "hcFallingAlarm"),))
-if mibBuilder.loadTexts: hcAlarmNotificationsGroup.setDescription('A collection of notifications to deliver information\n            related to a high capacity rising or falling threshold event\n\n            to a management application.')
-mibBuilder.exportSymbols("HC-ALARM-MIB", hcAlarmControlObjects=hcAlarmControlObjects, hcAlarmInterval=hcAlarmInterval, hcAlarmValueStatus=hcAlarmValueStatus, hcAlarmTable=hcAlarmTable, hcAlarmFallingThreshAbsValueLo=hcAlarmFallingThreshAbsValueLo, hcAlarmControlGroup=hcAlarmControlGroup, hcAlarmEntry=hcAlarmEntry, hcAlarmGroups=hcAlarmGroups, hcAlarmAbsValue=hcAlarmAbsValue, hcRisingAlarm=hcRisingAlarm, hcAlarmCompliance=hcAlarmCompliance, hcAlarmSampleType=hcAlarmSampleType, HcValueStatus=HcValueStatus, hcFallingAlarm=hcFallingAlarm, hcAlarmOwner=hcAlarmOwner, hcAlarmStartupAlarm=hcAlarmStartupAlarm, hcAlarmRisingThreshAbsValueHi=hcAlarmRisingThreshAbsValueHi, hcAlarmNotifPrefix=hcAlarmNotifPrefix, hcAlarmFallingThreshAbsValueHi=hcAlarmFallingThreshAbsValueHi, hcAlarmCapabilities=hcAlarmCapabilities, hcAlarmStorageType=hcAlarmStorageType, hcAlarmMIB=hcAlarmMIB, hcAlarmCompliances=hcAlarmCompliances, hcAlarmNotificationsGroup=hcAlarmNotificationsGroup, hcAlarmCapabilitiesObjects=hcAlarmCapabilitiesObjects, hcAlarmNotifications=hcAlarmNotifications, hcAlarmRisingThresholdValStatus=hcAlarmRisingThresholdValStatus, hcAlarmVariable=hcAlarmVariable, hcAlarmStatus=hcAlarmStatus, hcAlarmFallingThresholdValStatus=hcAlarmFallingThresholdValStatus, hcAlarmValueFailedAttempts=hcAlarmValueFailedAttempts, hcAlarmObjects=hcAlarmObjects, hcAlarmConformance=hcAlarmConformance, hcAlarmRisingThreshAbsValueLo=hcAlarmRisingThreshAbsValueLo, hcAlarmRisingEventIndex=hcAlarmRisingEventIndex, hcAlarmCapabilitiesGroup=hcAlarmCapabilitiesGroup, PYSNMP_MODULE_ID=hcAlarmMIB, hcAlarmFallingEventIndex=hcAlarmFallingEventIndex, hcAlarmIndex=hcAlarmIndex)
+_f='hcAlarmNotificationsGroup'
+_e='hcAlarmCapabilitiesGroup'
+_d='hcAlarmControlGroup'
+_c='hcFallingAlarm'
+_b='hcRisingAlarm'
+_a='hcAlarmCapabilities'
+_Z='hcAlarmStatus'
+_Y='hcAlarmStorageType'
+_X='hcAlarmOwner'
+_W='hcAlarmValueFailedAttempts'
+_V='hcAlarmStartupAlarm'
+_U='hcAlarmInterval'
+_T='hcAlarmIndex'
+_S='rmonEventGroup'
+_R='RMON-MIB'
+_Q='hcAlarmFallingEventIndex'
+_P='hcAlarmRisingEventIndex'
+_O='hcAlarmFallingThresholdValStatus'
+_N='hcAlarmFallingThreshAbsValueHi'
+_M='hcAlarmFallingThreshAbsValueLo'
+_L='hcAlarmRisingThresholdValStatus'
+_K='hcAlarmRisingThreshAbsValueHi'
+_J='hcAlarmRisingThreshAbsValueLo'
+_I='hcAlarmValueStatus'
+_H='hcAlarmAbsValue'
+_G='hcAlarmSampleType'
+_F='hcAlarmVariable'
+_E='read-only'
+_D='Integer32'
+_C='read-create'
+_B='current'
+_A='HC-ALARM-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+CounterBasedGauge64,=mibBuilder.importSymbols('HCNUM-TC','CounterBasedGauge64')
+OwnerString,rmon,rmonEventGroup=mibBuilder.importSymbols(_R,'OwnerString','rmon',_S)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention,VariablePointer=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','StorageType','TextualConvention','VariablePointer')
+hcAlarmMIB=ModuleIdentity((1,3,6,1,2,1,16,29))
+if mibBuilder.loadTexts:hcAlarmMIB.setRevisions(('2002-12-16 00:00',))
+class HcValueStatus(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('valueNotAvailable',1),('valuePositive',2),('valueNegative',3)))
+_HcAlarmObjects_ObjectIdentity=ObjectIdentity
+hcAlarmObjects=_HcAlarmObjects_ObjectIdentity((1,3,6,1,2,1,16,29,1))
+_HcAlarmControlObjects_ObjectIdentity=ObjectIdentity
+hcAlarmControlObjects=_HcAlarmControlObjects_ObjectIdentity((1,3,6,1,2,1,16,29,1,1))
+_HcAlarmTable_Object=MibTable
+hcAlarmTable=_HcAlarmTable_Object((1,3,6,1,2,1,16,29,1,1,1))
+if mibBuilder.loadTexts:hcAlarmTable.setStatus(_B)
+_HcAlarmEntry_Object=MibTableRow
+hcAlarmEntry=_HcAlarmEntry_Object((1,3,6,1,2,1,16,29,1,1,1,1))
+hcAlarmEntry.setIndexNames((0,_A,_T))
+if mibBuilder.loadTexts:hcAlarmEntry.setStatus(_B)
+class _HcAlarmIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_HcAlarmIndex_Type.__name__=_D
+_HcAlarmIndex_Object=MibTableColumn
+hcAlarmIndex=_HcAlarmIndex_Object((1,3,6,1,2,1,16,29,1,1,1,1,1),_HcAlarmIndex_Type())
+hcAlarmIndex.setMaxAccess('not-accessible')
+if mibBuilder.loadTexts:hcAlarmIndex.setStatus(_B)
+class _HcAlarmInterval_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_HcAlarmInterval_Type.__name__=_D
+_HcAlarmInterval_Object=MibTableColumn
+hcAlarmInterval=_HcAlarmInterval_Object((1,3,6,1,2,1,16,29,1,1,1,1,2),_HcAlarmInterval_Type())
+hcAlarmInterval.setMaxAccess(_C)
+if mibBuilder.loadTexts:hcAlarmInterval.setStatus(_B)
+if mibBuilder.loadTexts:hcAlarmInterval.setUnits('seconds')
+_HcAlarmVariable_Type=VariablePointer
+_HcAlarmVariable_Object=MibTableColumn
+hcAlarmVariable=_HcAlarmVariable_Object((1,3,6,1,2,1,16,29,1,1,1,1,3),_HcAlarmVariable_Type())
+hcAlarmVariable.setMaxAccess(_C)
+if mibBuilder.loadTexts:hcAlarmVariable.setStatus(_B)
+class _HcAlarmSampleType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('absoluteValue',1),('deltaValue',2)))
+_HcAlarmSampleType_Type.__name__=_D
+_HcAlarmSampleType_Object=MibTableColumn
+hcAlarmSampleType=_HcAlarmSampleType_Object((1,3,6,1,2,1,16,29,1,1,1,1,4),_HcAlarmSampleType_Type())
+hcAlarmSampleType.setMaxAccess(_C)
+if mibBuilder.loadTexts:hcAlarmSampleType.setStatus(_B)
+_HcAlarmAbsValue_Type=CounterBasedGauge64
+_HcAlarmAbsValue_Object=MibTableColumn
+hcAlarmAbsValue=_HcAlarmAbsValue_Object((1,3,6,1,2,1,16,29,1,1,1,1,5),_HcAlarmAbsValue_Type())
+hcAlarmAbsValue.setMaxAccess(_E)
+if mibBuilder.loadTexts:hcAlarmAbsValue.setStatus(_B)
+_HcAlarmValueStatus_Type=HcValueStatus
+_HcAlarmValueStatus_Object=MibTableColumn
+hcAlarmValueStatus=_HcAlarmValueStatus_Object((1,3,6,1,2,1,16,29,1,1,1,1,6),_HcAlarmValueStatus_Type())
+hcAlarmValueStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:hcAlarmValueStatus.setStatus(_B)
+class _HcAlarmStartupAlarm_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('risingAlarm',1),('fallingAlarm',2),('risingOrFallingAlarm',3)))
+_HcAlarmStartupAlarm_Type.__name__=_D
+_HcAlarmStartupAlarm_Object=MibTableColumn
+hcAlarmStartupAlarm=_HcAlarmStartupAlarm_Object((1,3,6,1,2,1,16,29,1,1,1,1,7),_HcAlarmStartupAlarm_Type())
+hcAlarmStartupAlarm.setMaxAccess(_C)
+if mibBuilder.loadTexts:hcAlarmStartupAlarm.setStatus(_B)
+_HcAlarmRisingThreshAbsValueLo_Type=Unsigned32
+_HcAlarmRisingThreshAbsValueLo_Object=MibTableColumn
+hcAlarmRisingThreshAbsValueLo=_HcAlarmRisingThreshAbsValueLo_Object((1,3,6,1,2,1,16,29,1,1,1,1,8),_HcAlarmRisingThreshAbsValueLo_Type())
+hcAlarmRisingThreshAbsValueLo.setMaxAccess(_C)
+if mibBuilder.loadTexts:hcAlarmRisingThreshAbsValueLo.setStatus(_B)
+_HcAlarmRisingThreshAbsValueHi_Type=Unsigned32
+_HcAlarmRisingThreshAbsValueHi_Object=MibTableColumn
+hcAlarmRisingThreshAbsValueHi=_HcAlarmRisingThreshAbsValueHi_Object((1,3,6,1,2,1,16,29,1,1,1,1,9),_HcAlarmRisingThreshAbsValueHi_Type())
+hcAlarmRisingThreshAbsValueHi.setMaxAccess(_C)
+if mibBuilder.loadTexts:hcAlarmRisingThreshAbsValueHi.setStatus(_B)
+_HcAlarmRisingThresholdValStatus_Type=HcValueStatus
+_HcAlarmRisingThresholdValStatus_Object=MibTableColumn
+hcAlarmRisingThresholdValStatus=_HcAlarmRisingThresholdValStatus_Object((1,3,6,1,2,1,16,29,1,1,1,1,10),_HcAlarmRisingThresholdValStatus_Type())
+hcAlarmRisingThresholdValStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:hcAlarmRisingThresholdValStatus.setStatus(_B)
+_HcAlarmFallingThreshAbsValueLo_Type=Unsigned32
+_HcAlarmFallingThreshAbsValueLo_Object=MibTableColumn
+hcAlarmFallingThreshAbsValueLo=_HcAlarmFallingThreshAbsValueLo_Object((1,3,6,1,2,1,16,29,1,1,1,1,11),_HcAlarmFallingThreshAbsValueLo_Type())
+hcAlarmFallingThreshAbsValueLo.setMaxAccess(_C)
+if mibBuilder.loadTexts:hcAlarmFallingThreshAbsValueLo.setStatus(_B)
+_HcAlarmFallingThreshAbsValueHi_Type=Unsigned32
+_HcAlarmFallingThreshAbsValueHi_Object=MibTableColumn
+hcAlarmFallingThreshAbsValueHi=_HcAlarmFallingThreshAbsValueHi_Object((1,3,6,1,2,1,16,29,1,1,1,1,12),_HcAlarmFallingThreshAbsValueHi_Type())
+hcAlarmFallingThreshAbsValueHi.setMaxAccess(_C)
+if mibBuilder.loadTexts:hcAlarmFallingThreshAbsValueHi.setStatus(_B)
+_HcAlarmFallingThresholdValStatus_Type=HcValueStatus
+_HcAlarmFallingThresholdValStatus_Object=MibTableColumn
+hcAlarmFallingThresholdValStatus=_HcAlarmFallingThresholdValStatus_Object((1,3,6,1,2,1,16,29,1,1,1,1,13),_HcAlarmFallingThresholdValStatus_Type())
+hcAlarmFallingThresholdValStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:hcAlarmFallingThresholdValStatus.setStatus(_B)
+class _HcAlarmRisingEventIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_HcAlarmRisingEventIndex_Type.__name__=_D
+_HcAlarmRisingEventIndex_Object=MibTableColumn
+hcAlarmRisingEventIndex=_HcAlarmRisingEventIndex_Object((1,3,6,1,2,1,16,29,1,1,1,1,14),_HcAlarmRisingEventIndex_Type())
+hcAlarmRisingEventIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:hcAlarmRisingEventIndex.setStatus(_B)
+class _HcAlarmFallingEventIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_HcAlarmFallingEventIndex_Type.__name__=_D
+_HcAlarmFallingEventIndex_Object=MibTableColumn
+hcAlarmFallingEventIndex=_HcAlarmFallingEventIndex_Object((1,3,6,1,2,1,16,29,1,1,1,1,15),_HcAlarmFallingEventIndex_Type())
+hcAlarmFallingEventIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:hcAlarmFallingEventIndex.setStatus(_B)
+_HcAlarmValueFailedAttempts_Type=Counter32
+_HcAlarmValueFailedAttempts_Object=MibTableColumn
+hcAlarmValueFailedAttempts=_HcAlarmValueFailedAttempts_Object((1,3,6,1,2,1,16,29,1,1,1,1,16),_HcAlarmValueFailedAttempts_Type())
+hcAlarmValueFailedAttempts.setMaxAccess(_E)
+if mibBuilder.loadTexts:hcAlarmValueFailedAttempts.setStatus(_B)
+_HcAlarmOwner_Type=OwnerString
+_HcAlarmOwner_Object=MibTableColumn
+hcAlarmOwner=_HcAlarmOwner_Object((1,3,6,1,2,1,16,29,1,1,1,1,17),_HcAlarmOwner_Type())
+hcAlarmOwner.setMaxAccess(_C)
+if mibBuilder.loadTexts:hcAlarmOwner.setStatus(_B)
+_HcAlarmStorageType_Type=StorageType
+_HcAlarmStorageType_Object=MibTableColumn
+hcAlarmStorageType=_HcAlarmStorageType_Object((1,3,6,1,2,1,16,29,1,1,1,1,18),_HcAlarmStorageType_Type())
+hcAlarmStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:hcAlarmStorageType.setStatus(_B)
+_HcAlarmStatus_Type=RowStatus
+_HcAlarmStatus_Object=MibTableColumn
+hcAlarmStatus=_HcAlarmStatus_Object((1,3,6,1,2,1,16,29,1,1,1,1,19),_HcAlarmStatus_Type())
+hcAlarmStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:hcAlarmStatus.setStatus(_B)
+_HcAlarmCapabilitiesObjects_ObjectIdentity=ObjectIdentity
+hcAlarmCapabilitiesObjects=_HcAlarmCapabilitiesObjects_ObjectIdentity((1,3,6,1,2,1,16,29,1,2))
+class _HcAlarmCapabilities_Type(Bits):namedValues=NamedValues(*(('hcAlarmCreation',0),('hcAlarmNvStorage',1)))
+_HcAlarmCapabilities_Type.__name__='Bits'
+_HcAlarmCapabilities_Object=MibScalar
+hcAlarmCapabilities=_HcAlarmCapabilities_Object((1,3,6,1,2,1,16,29,1,2,1),_HcAlarmCapabilities_Type())
+hcAlarmCapabilities.setMaxAccess(_E)
+if mibBuilder.loadTexts:hcAlarmCapabilities.setStatus(_B)
+_HcAlarmNotifications_ObjectIdentity=ObjectIdentity
+hcAlarmNotifications=_HcAlarmNotifications_ObjectIdentity((1,3,6,1,2,1,16,29,2))
+_HcAlarmNotifPrefix_ObjectIdentity=ObjectIdentity
+hcAlarmNotifPrefix=_HcAlarmNotifPrefix_ObjectIdentity((1,3,6,1,2,1,16,29,2,0))
+_HcAlarmConformance_ObjectIdentity=ObjectIdentity
+hcAlarmConformance=_HcAlarmConformance_ObjectIdentity((1,3,6,1,2,1,16,29,3))
+_HcAlarmCompliances_ObjectIdentity=ObjectIdentity
+hcAlarmCompliances=_HcAlarmCompliances_ObjectIdentity((1,3,6,1,2,1,16,29,3,1))
+_HcAlarmGroups_ObjectIdentity=ObjectIdentity
+hcAlarmGroups=_HcAlarmGroups_ObjectIdentity((1,3,6,1,2,1,16,29,3,2))
+hcAlarmControlGroup=ObjectGroup((1,3,6,1,2,1,16,29,3,2,1))
+hcAlarmControlGroup.setObjects(*((_A,_U),(_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_V),(_A,_J),(_A,_K),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z)))
+if mibBuilder.loadTexts:hcAlarmControlGroup.setStatus(_B)
+hcAlarmCapabilitiesGroup=ObjectGroup((1,3,6,1,2,1,16,29,3,2,2))
+hcAlarmCapabilitiesGroup.setObjects((_A,_a))
+if mibBuilder.loadTexts:hcAlarmCapabilitiesGroup.setStatus(_B)
+hcRisingAlarm=NotificationType((1,3,6,1,2,1,16,29,2,0,1))
+hcRisingAlarm.setObjects(*((_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_J),(_A,_K),(_A,_L),(_A,_P)))
+if mibBuilder.loadTexts:hcRisingAlarm.setStatus(_B)
+hcFallingAlarm=NotificationType((1,3,6,1,2,1,16,29,2,0,2))
+hcFallingAlarm.setObjects(*((_A,_F),(_A,_G),(_A,_H),(_A,_I),(_A,_M),(_A,_N),(_A,_O),(_A,_Q)))
+if mibBuilder.loadTexts:hcFallingAlarm.setStatus(_B)
+hcAlarmNotificationsGroup=NotificationGroup((1,3,6,1,2,1,16,29,3,2,3))
+hcAlarmNotificationsGroup.setObjects(*((_A,_b),(_A,_c)))
+if mibBuilder.loadTexts:hcAlarmNotificationsGroup.setStatus(_B)
+hcAlarmCompliance=ModuleCompliance((1,3,6,1,2,1,16,29,3,1,1))
+hcAlarmCompliance.setObjects(*((_A,_d),(_A,_e),(_A,_f),(_R,_S)))
+if mibBuilder.loadTexts:hcAlarmCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'HcValueStatus':HcValueStatus,'hcAlarmMIB':hcAlarmMIB,'hcAlarmObjects':hcAlarmObjects,'hcAlarmControlObjects':hcAlarmControlObjects,'hcAlarmTable':hcAlarmTable,'hcAlarmEntry':hcAlarmEntry,_T:hcAlarmIndex,_U:hcAlarmInterval,_F:hcAlarmVariable,_G:hcAlarmSampleType,_H:hcAlarmAbsValue,_I:hcAlarmValueStatus,_V:hcAlarmStartupAlarm,_J:hcAlarmRisingThreshAbsValueLo,_K:hcAlarmRisingThreshAbsValueHi,_L:hcAlarmRisingThresholdValStatus,_M:hcAlarmFallingThreshAbsValueLo,_N:hcAlarmFallingThreshAbsValueHi,_O:hcAlarmFallingThresholdValStatus,_P:hcAlarmRisingEventIndex,_Q:hcAlarmFallingEventIndex,_W:hcAlarmValueFailedAttempts,_X:hcAlarmOwner,_Y:hcAlarmStorageType,_Z:hcAlarmStatus,'hcAlarmCapabilitiesObjects':hcAlarmCapabilitiesObjects,_a:hcAlarmCapabilities,'hcAlarmNotifications':hcAlarmNotifications,'hcAlarmNotifPrefix':hcAlarmNotifPrefix,_b:hcRisingAlarm,_c:hcFallingAlarm,'hcAlarmConformance':hcAlarmConformance,'hcAlarmCompliances':hcAlarmCompliances,'hcAlarmCompliance':hcAlarmCompliance,'hcAlarmGroups':hcAlarmGroups,_d:hcAlarmControlGroup,_e:hcAlarmCapabilitiesGroup,_f:hcAlarmNotificationsGroup})

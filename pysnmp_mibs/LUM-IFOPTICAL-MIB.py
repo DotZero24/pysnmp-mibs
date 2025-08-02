@@ -1,0 +1,854 @@
+_BN='ifOpticalFecGroupV2'
+_BM='ifOpticalTransLaneCarrierGroupGroupV2'
+_BL='ifOpticalTransLaneCarrierGroupGroupV1'
+_BK='ifOpticalGeneralGroupV2'
+_BJ='ifOpticalTransSectionGroupV1'
+_BI='ifOpticalGeneralGroupV1'
+_BH='ifOpticalChannelLineCoding'
+_BG='ifOpticalTransSectionLaserForcedOn'
+_BF='ifOpticalFecDecModeMismatch'
+_BE='ifOpticalTransLaneCarrierGroupReceiverLaneSensitivity'
+_BD='ifOpticalTransLaneCarrierGroupMinimumLaneRxPowerLevel'
+_BC='ifOpticalTransLaneCarrierCounterSesReset'
+_BB='ifOpticalTransLaneCarrierCounterSes'
+_BA='ifOpticalTransLaneCarrierTxFrequency'
+_B9='ifOpticalTransLaneCarrierRxPowerLevelLow'
+_B8='ifOpticalTransLaneCarrierReceiverSensitivity'
+_B7='ifOpticalTransLaneCarrierLossOfSignal'
+_B6='ifOpticalTransLaneCarrierRxPowerLevel'
+_B5='ifOpticalTransLaneCarrierRxSignalStatus'
+_B4='ifOpticalTransLaneCarrierTxSignalStatus'
+_B3='ifOpticalTransLaneCarrierLaneId'
+_B2='ifOpticalTransLaneCarrierConnIfOpticalTransLaneCarrierGrIndex'
+_B1='ifOpticalTransLaneCarrierConnIfBasicIfIndex'
+_B0='ifOpticalTransLaneCarrierName'
+_A_='ifOpticalGeneralIfOpticalTransLaneCarrierGrStateLastChangeTime'
+_Az='ifOpticalGeneralIfOpticalTransLaneCarrierGrConfigLastChangeTime'
+_Ay='ifOpticalGeneralIfOpticalTransLaneCarrierGroupTableSize'
+_Ax='ifOpticalGeneralIfOpticalTransLaneCarrierStateLastChangeTime'
+_Aw='ifOpticalGeneralIfOpticalTransLaneCarrierConfigLastChangeTime'
+_Av='ifOpticalGeneralIfOpticalTransLaneCarrierTableSize'
+_Au='ifOpticalDigitalSignalRateBitrateUnavailable'
+_At='ifOpticalDigitalSignalRateLossOfLock'
+_As='ifOpticalDigitalSignalRateRxSignalStatus'
+_Ar='ifOpticalDigitalSignalRateTxSignalStatus'
+_Aq='ifOpticalDigitalSignalRateMinBitRate'
+_Ap='ifOpticalDigitalSignalRateMaxBitRate'
+_Ao='ifOpticalDigitalSignalRateConnIfBasicIfIndex'
+_An='ifOpticalDigitalSignalRateName'
+_Am='Unsigned32'
+_Al='Integer32'
+_Ak='LaserMode'
+_Aj='DispersionSearchLimit'
+_Ai='BerLevelMTOSI'
+_Ah='ifOpticalChannelGroupV4'
+_Ag='ifOpticalTransSectionGroupV3'
+_Af='ifOpticalChannelLaserNotTuned'
+_Ae='ifOpticalFecUId'
+_Ad='ifOpticalFecTypeUnavailable'
+_Ac='ifOpticalTransSectionLossThld'
+_Ab='ifOpticalTransLaneCarrierGroupCounterSesReset'
+_Aa='ifOpticalGeneralIfOpticalFecStateLastChangeTime'
+_AZ='ifOpticalGeneralIfOpticalFecConfigLastChangeTime'
+_AY='ifOpticalGeneralIfOpticalFecTableSize'
+_AX='ifOpticalTransLaneCarrierIndex'
+_AW='ifOpticalDigitalSignalRateIndex'
+_AV='ResetWithNA'
+_AU='FrequencyOnlyNotApplicable'
+_AT='ifOpticalFecGroupV3'
+_AS='ifOpticalTransSectionGroupV4'
+_AR='ifOpticalChannelDispersionSearchLimit'
+_AQ='ifOpticalTransLaneCarrierGroupIllegalTxFrequency'
+_AP='ifOpticalTransLaneCarrierGroupUnexpectedTxFrequency'
+_AO='ifOpticalTransLaneCarrierGroupExpectedTxFrequency'
+_AN='ifOpticalTransLaneCarrierGroupTxFrequency'
+_AM='ifOpticalTransLaneCarrierGroupRxPowerLevelLow'
+_AL='ifOpticalTransLaneCarrierGroupRxPowerLevelLowRelativeThld'
+_AK='ifOpticalTransLaneCarrierGroupLossOfSignal'
+_AJ='ifOpticalTransLaneCarrierGroupTxSignalStatus'
+_AI='ifOpticalTransLaneCarrierGroupRxPowerLevel'
+_AH='ifOpticalTransLaneCarrierGroupRxSignalStatus'
+_AG='ifOpticalTransLaneCarrierGroupTxPowerLevel'
+_AF='ifOpticalTransLaneCarrierGroupLaserStatus'
+_AE='ifOpticalTransLaneCarrierGroupForwardAls'
+_AD='ifOpticalTransLaneCarrierGroupConnIfBasicIfIndex'
+_AC='ifOpticalTransLaneCarrierGroupName'
+_AB='ifOpticalTransSectionRxPowerLevelLowAbsoluteThld'
+_AA='ifOpticalFecSignalDegradeThreshold'
+_A9='ifOpticalFecSignalDegraded'
+_A8='ifOpticalFecFailure'
+_A7='ifOpticalFecRxSignalStatus'
+_A6='ifOpticalFecTxSignalStatus'
+_A5='ifOpticalFecType'
+_A4='ifOpticalFecConnIfBasicIfIndex'
+_A3='ifOpticalFecName'
+_A2='ifOpticalGeneralIfOpticalDigitalSignalRateStateLastChangeTime'
+_A1='ifOpticalGeneralIfOpticalDigitalSignalRateConfigLastChangeTime'
+_A0='ifOpticalGeneralIfOpticalDigitalSignalRateTableSize'
+_z='ifOpticalGeneralIfOpticalChannelStateLastChangeTime'
+_y='ifOpticalGeneralIfOpticalChannelConfigLastChangeTime'
+_x='ifOpticalGeneralIfOpticalChannelTableSize'
+_w='ifOpticalGeneralIfOpticalTransSectionStateLastChangeTime'
+_v='ifOpticalGeneralIfOpticalTransSectionConfigLastChangeTime'
+_u='ifOpticalGeneralIfOpticalTransSectionTableSize'
+_t='ifOpticalGeneralStateLastChangeTime'
+_s='ifOpticalGeneralConfigLastChangeTime'
+_r='EnabledDisabledWithNA'
+_q='ifOpticalTransSectionGroupV2'
+_p='ifOpticalChannelNoTxFrequencySet'
+_o='ifOpticalChannelUnexpectedTxFrequency'
+_n='ifOpticalChannelIllegalTxFrequency'
+_m='ifOpticalChannelRxSignalStatus'
+_l='ifOpticalChannelTxSignalStatus'
+_k='ifOpticalChannelExpectedTxFrequency'
+_j='ifOpticalChannelTxFrequency'
+_i='ifOpticalChannelConnIfBasicIfIndex'
+_h='ifOpticalChannelName'
+_g='ifOpticalTransSectionTxPowerLow'
+_f='ifOpticalTransSectionRxExcessiveInputPower'
+_e='ifOpticalTransSectionRxPowerLevelHigh'
+_d='ifOpticalTransSectionRxPowerLevelLow'
+_c='ifOpticalTransSectionLossOfSignal'
+_b='ifOpticalTransSectionRxSignalStatus'
+_a='ifOpticalTransSectionTxSignalStatus'
+_Z='ifOpticalTransSectionReceiverSensitivity'
+_Y='ifOpticalTransSectionLaserStatus'
+_X='ifOpticalTransSectionLaserMode'
+_W='ifOpticalTransSectionTxPowerLevel'
+_V='ifOpticalTransSectionRxPowerLevelLowRelativeThld'
+_U='ifOpticalTransSectionRxPowerLevel'
+_T='ifOpticalTransSectionForwardAls'
+_S='ifOpticalTransSectionConnIfBasicIfIndex'
+_R='ifOpticalTransSectionName'
+_Q='ifOpticalTransLaneCarrierGroupIndex'
+_P='ifOpticalFecIndex'
+_O='Signed32WithNA'
+_N='ifOpticalFecGroupV1'
+_M='ifOpticalChannelIndex'
+_L='ifOpticalTransSectionIndex'
+_K='ifOpticalTransLaneCarrierGroupGroupV3'
+_J='read-write'
+_I='ifOpticalTransLaneCarrierGroupV1'
+_H='ifOpticalGeneralGroupV3'
+_G='ifOpticalChannelGroupV1'
+_F='read-create'
+_E='ifOpticalDigitalSignalRateGroupV1'
+_D='deprecated'
+_C='read-only'
+_B='current'
+_A='LUM-IFOPTICAL-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+lumIfOpticalMIB,lumModules=mibBuilder.importSymbols('LUM-REG','lumIfOpticalMIB','lumModules')
+BerLevelMTOSI,DispersionSearchLimit,EnabledDisabledWithNA,FaultStatus,FaultStatusWithNA,FecType,Frequency,FrequencyOnlyNotApplicable,LaneFrequency,LaserMode,MgmtNameString,OnOff,ResetWithNA,SignalStatusWithNA,Signed32WithNA,Unsigned32WithNA=mibBuilder.importSymbols('LUM-TC',_Ai,_Aj,_r,'FaultStatus','FaultStatusWithNA','FecType','Frequency',_AU,'LaneFrequency',_Ak,'MgmtNameString','OnOff',_AV,'SignalStatusWithNA',_O,'Unsigned32WithNA')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_Al,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_Am,'iso')
+DateAndTime,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DateAndTime','DisplayString','PhysAddress','TextualConvention')
+lumIfOpticalMIBModule=ModuleIdentity((1,3,6,1,4,1,8708,1,1,48))
+if mibBuilder.loadTexts:lumIfOpticalMIBModule.setRevisions(('2017-08-30 00:00','2017-06-15 00:00','2017-04-17 00:00','2016-11-30 00:00','2015-12-22 00:00','2015-11-30 00:00','2014-09-30 00:00','2014-05-16 00:00','2013-11-15 00:00','2013-05-31 00:00','2012-11-20 00:00'))
+_LumIfOpticalConfs_ObjectIdentity=ObjectIdentity
+lumIfOpticalConfs=_LumIfOpticalConfs_ObjectIdentity((1,3,6,1,4,1,8708,2,48,1))
+_LumIfOpticalGroups_ObjectIdentity=ObjectIdentity
+lumIfOpticalGroups=_LumIfOpticalGroups_ObjectIdentity((1,3,6,1,4,1,8708,2,48,1,1))
+_LumIfOpticalCompl_ObjectIdentity=ObjectIdentity
+lumIfOpticalCompl=_LumIfOpticalCompl_ObjectIdentity((1,3,6,1,4,1,8708,2,48,1,2))
+_LumIfOpticalMIBObjects_ObjectIdentity=ObjectIdentity
+lumIfOpticalMIBObjects=_LumIfOpticalMIBObjects_ObjectIdentity((1,3,6,1,4,1,8708,2,48,2))
+_IfOpticalGeneral_ObjectIdentity=ObjectIdentity
+ifOpticalGeneral=_IfOpticalGeneral_ObjectIdentity((1,3,6,1,4,1,8708,2,48,2,1))
+_IfOpticalGeneralConfigLastChangeTime_Type=DateAndTime
+_IfOpticalGeneralConfigLastChangeTime_Object=MibScalar
+ifOpticalGeneralConfigLastChangeTime=_IfOpticalGeneralConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,48,2,1,1),_IfOpticalGeneralConfigLastChangeTime_Type())
+ifOpticalGeneralConfigLastChangeTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralConfigLastChangeTime.setStatus(_B)
+_IfOpticalGeneralStateLastChangeTime_Type=DateAndTime
+_IfOpticalGeneralStateLastChangeTime_Object=MibScalar
+ifOpticalGeneralStateLastChangeTime=_IfOpticalGeneralStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,48,2,1,2),_IfOpticalGeneralStateLastChangeTime_Type())
+ifOpticalGeneralStateLastChangeTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralStateLastChangeTime.setStatus(_B)
+_IfOpticalGeneralIfOpticalTransSectionTableSize_Type=Unsigned32
+_IfOpticalGeneralIfOpticalTransSectionTableSize_Object=MibScalar
+ifOpticalGeneralIfOpticalTransSectionTableSize=_IfOpticalGeneralIfOpticalTransSectionTableSize_Object((1,3,6,1,4,1,8708,2,48,2,1,3),_IfOpticalGeneralIfOpticalTransSectionTableSize_Type())
+ifOpticalGeneralIfOpticalTransSectionTableSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalTransSectionTableSize.setStatus(_B)
+_IfOpticalGeneralIfOpticalTransSectionConfigLastChangeTime_Type=DateAndTime
+_IfOpticalGeneralIfOpticalTransSectionConfigLastChangeTime_Object=MibScalar
+ifOpticalGeneralIfOpticalTransSectionConfigLastChangeTime=_IfOpticalGeneralIfOpticalTransSectionConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,48,2,1,4),_IfOpticalGeneralIfOpticalTransSectionConfigLastChangeTime_Type())
+ifOpticalGeneralIfOpticalTransSectionConfigLastChangeTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalTransSectionConfigLastChangeTime.setStatus(_B)
+_IfOpticalGeneralIfOpticalTransSectionStateLastChangeTime_Type=DateAndTime
+_IfOpticalGeneralIfOpticalTransSectionStateLastChangeTime_Object=MibScalar
+ifOpticalGeneralIfOpticalTransSectionStateLastChangeTime=_IfOpticalGeneralIfOpticalTransSectionStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,48,2,1,5),_IfOpticalGeneralIfOpticalTransSectionStateLastChangeTime_Type())
+ifOpticalGeneralIfOpticalTransSectionStateLastChangeTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalTransSectionStateLastChangeTime.setStatus(_B)
+_IfOpticalGeneralIfOpticalChannelTableSize_Type=Unsigned32
+_IfOpticalGeneralIfOpticalChannelTableSize_Object=MibScalar
+ifOpticalGeneralIfOpticalChannelTableSize=_IfOpticalGeneralIfOpticalChannelTableSize_Object((1,3,6,1,4,1,8708,2,48,2,1,6),_IfOpticalGeneralIfOpticalChannelTableSize_Type())
+ifOpticalGeneralIfOpticalChannelTableSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalChannelTableSize.setStatus(_B)
+_IfOpticalGeneralIfOpticalChannelConfigLastChangeTime_Type=DateAndTime
+_IfOpticalGeneralIfOpticalChannelConfigLastChangeTime_Object=MibScalar
+ifOpticalGeneralIfOpticalChannelConfigLastChangeTime=_IfOpticalGeneralIfOpticalChannelConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,48,2,1,7),_IfOpticalGeneralIfOpticalChannelConfigLastChangeTime_Type())
+ifOpticalGeneralIfOpticalChannelConfigLastChangeTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalChannelConfigLastChangeTime.setStatus(_B)
+_IfOpticalGeneralIfOpticalChannelStateLastChangeTime_Type=DateAndTime
+_IfOpticalGeneralIfOpticalChannelStateLastChangeTime_Object=MibScalar
+ifOpticalGeneralIfOpticalChannelStateLastChangeTime=_IfOpticalGeneralIfOpticalChannelStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,48,2,1,8),_IfOpticalGeneralIfOpticalChannelStateLastChangeTime_Type())
+ifOpticalGeneralIfOpticalChannelStateLastChangeTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalChannelStateLastChangeTime.setStatus(_B)
+_IfOpticalGeneralIfOpticalDigitalSignalRateTableSize_Type=Unsigned32
+_IfOpticalGeneralIfOpticalDigitalSignalRateTableSize_Object=MibScalar
+ifOpticalGeneralIfOpticalDigitalSignalRateTableSize=_IfOpticalGeneralIfOpticalDigitalSignalRateTableSize_Object((1,3,6,1,4,1,8708,2,48,2,1,9),_IfOpticalGeneralIfOpticalDigitalSignalRateTableSize_Type())
+ifOpticalGeneralIfOpticalDigitalSignalRateTableSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalDigitalSignalRateTableSize.setStatus(_B)
+_IfOpticalGeneralIfOpticalDigitalSignalRateConfigLastChangeTime_Type=DateAndTime
+_IfOpticalGeneralIfOpticalDigitalSignalRateConfigLastChangeTime_Object=MibScalar
+ifOpticalGeneralIfOpticalDigitalSignalRateConfigLastChangeTime=_IfOpticalGeneralIfOpticalDigitalSignalRateConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,48,2,1,10),_IfOpticalGeneralIfOpticalDigitalSignalRateConfigLastChangeTime_Type())
+ifOpticalGeneralIfOpticalDigitalSignalRateConfigLastChangeTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalDigitalSignalRateConfigLastChangeTime.setStatus(_B)
+_IfOpticalGeneralIfOpticalDigitalSignalRateStateLastChangeTime_Type=DateAndTime
+_IfOpticalGeneralIfOpticalDigitalSignalRateStateLastChangeTime_Object=MibScalar
+ifOpticalGeneralIfOpticalDigitalSignalRateStateLastChangeTime=_IfOpticalGeneralIfOpticalDigitalSignalRateStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,48,2,1,11),_IfOpticalGeneralIfOpticalDigitalSignalRateStateLastChangeTime_Type())
+ifOpticalGeneralIfOpticalDigitalSignalRateStateLastChangeTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalDigitalSignalRateStateLastChangeTime.setStatus(_B)
+_IfOpticalGeneralIfOpticalFecTableSize_Type=Unsigned32
+_IfOpticalGeneralIfOpticalFecTableSize_Object=MibScalar
+ifOpticalGeneralIfOpticalFecTableSize=_IfOpticalGeneralIfOpticalFecTableSize_Object((1,3,6,1,4,1,8708,2,48,2,1,12),_IfOpticalGeneralIfOpticalFecTableSize_Type())
+ifOpticalGeneralIfOpticalFecTableSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalFecTableSize.setStatus(_B)
+_IfOpticalGeneralIfOpticalFecConfigLastChangeTime_Type=DateAndTime
+_IfOpticalGeneralIfOpticalFecConfigLastChangeTime_Object=MibScalar
+ifOpticalGeneralIfOpticalFecConfigLastChangeTime=_IfOpticalGeneralIfOpticalFecConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,48,2,1,13),_IfOpticalGeneralIfOpticalFecConfigLastChangeTime_Type())
+ifOpticalGeneralIfOpticalFecConfigLastChangeTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalFecConfigLastChangeTime.setStatus(_B)
+_IfOpticalGeneralIfOpticalFecStateLastChangeTime_Type=DateAndTime
+_IfOpticalGeneralIfOpticalFecStateLastChangeTime_Object=MibScalar
+ifOpticalGeneralIfOpticalFecStateLastChangeTime=_IfOpticalGeneralIfOpticalFecStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,48,2,1,14),_IfOpticalGeneralIfOpticalFecStateLastChangeTime_Type())
+ifOpticalGeneralIfOpticalFecStateLastChangeTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalFecStateLastChangeTime.setStatus(_B)
+_IfOpticalGeneralIfOpticalTransLaneCarrierTableSize_Type=Unsigned32
+_IfOpticalGeneralIfOpticalTransLaneCarrierTableSize_Object=MibScalar
+ifOpticalGeneralIfOpticalTransLaneCarrierTableSize=_IfOpticalGeneralIfOpticalTransLaneCarrierTableSize_Object((1,3,6,1,4,1,8708,2,48,2,1,15),_IfOpticalGeneralIfOpticalTransLaneCarrierTableSize_Type())
+ifOpticalGeneralIfOpticalTransLaneCarrierTableSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalTransLaneCarrierTableSize.setStatus(_B)
+_IfOpticalGeneralIfOpticalTransLaneCarrierConfigLastChangeTime_Type=DateAndTime
+_IfOpticalGeneralIfOpticalTransLaneCarrierConfigLastChangeTime_Object=MibScalar
+ifOpticalGeneralIfOpticalTransLaneCarrierConfigLastChangeTime=_IfOpticalGeneralIfOpticalTransLaneCarrierConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,48,2,1,16),_IfOpticalGeneralIfOpticalTransLaneCarrierConfigLastChangeTime_Type())
+ifOpticalGeneralIfOpticalTransLaneCarrierConfigLastChangeTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalTransLaneCarrierConfigLastChangeTime.setStatus(_B)
+_IfOpticalGeneralIfOpticalTransLaneCarrierStateLastChangeTime_Type=DateAndTime
+_IfOpticalGeneralIfOpticalTransLaneCarrierStateLastChangeTime_Object=MibScalar
+ifOpticalGeneralIfOpticalTransLaneCarrierStateLastChangeTime=_IfOpticalGeneralIfOpticalTransLaneCarrierStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,48,2,1,17),_IfOpticalGeneralIfOpticalTransLaneCarrierStateLastChangeTime_Type())
+ifOpticalGeneralIfOpticalTransLaneCarrierStateLastChangeTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalTransLaneCarrierStateLastChangeTime.setStatus(_B)
+_IfOpticalGeneralIfOpticalTransLaneCarrierGroupTableSize_Type=Unsigned32
+_IfOpticalGeneralIfOpticalTransLaneCarrierGroupTableSize_Object=MibScalar
+ifOpticalGeneralIfOpticalTransLaneCarrierGroupTableSize=_IfOpticalGeneralIfOpticalTransLaneCarrierGroupTableSize_Object((1,3,6,1,4,1,8708,2,48,2,1,18),_IfOpticalGeneralIfOpticalTransLaneCarrierGroupTableSize_Type())
+ifOpticalGeneralIfOpticalTransLaneCarrierGroupTableSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalTransLaneCarrierGroupTableSize.setStatus(_B)
+_IfOpticalGeneralIfOpticalTransLaneCarrierGrConfigLastChangeTime_Type=DateAndTime
+_IfOpticalGeneralIfOpticalTransLaneCarrierGrConfigLastChangeTime_Object=MibScalar
+ifOpticalGeneralIfOpticalTransLaneCarrierGrConfigLastChangeTime=_IfOpticalGeneralIfOpticalTransLaneCarrierGrConfigLastChangeTime_Object((1,3,6,1,4,1,8708,2,48,2,1,19),_IfOpticalGeneralIfOpticalTransLaneCarrierGrConfigLastChangeTime_Type())
+ifOpticalGeneralIfOpticalTransLaneCarrierGrConfigLastChangeTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalTransLaneCarrierGrConfigLastChangeTime.setStatus(_B)
+_IfOpticalGeneralIfOpticalTransLaneCarrierGrStateLastChangeTime_Type=DateAndTime
+_IfOpticalGeneralIfOpticalTransLaneCarrierGrStateLastChangeTime_Object=MibScalar
+ifOpticalGeneralIfOpticalTransLaneCarrierGrStateLastChangeTime=_IfOpticalGeneralIfOpticalTransLaneCarrierGrStateLastChangeTime_Object((1,3,6,1,4,1,8708,2,48,2,1,20),_IfOpticalGeneralIfOpticalTransLaneCarrierGrStateLastChangeTime_Type())
+ifOpticalGeneralIfOpticalTransLaneCarrierGrStateLastChangeTime.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalGeneralIfOpticalTransLaneCarrierGrStateLastChangeTime.setStatus(_B)
+_IfOpticalTransSectionList_ObjectIdentity=ObjectIdentity
+ifOpticalTransSectionList=_IfOpticalTransSectionList_ObjectIdentity((1,3,6,1,4,1,8708,2,48,2,2))
+_IfOpticalTransSectionTable_Object=MibTable
+ifOpticalTransSectionTable=_IfOpticalTransSectionTable_Object((1,3,6,1,4,1,8708,2,48,2,2,1))
+if mibBuilder.loadTexts:ifOpticalTransSectionTable.setStatus(_B)
+_IfOpticalTransSectionEntry_Object=MibTableRow
+ifOpticalTransSectionEntry=_IfOpticalTransSectionEntry_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1))
+ifOpticalTransSectionEntry.setIndexNames((0,_A,_L))
+if mibBuilder.loadTexts:ifOpticalTransSectionEntry.setStatus(_B)
+_IfOpticalTransSectionIndex_Type=Unsigned32
+_IfOpticalTransSectionIndex_Object=MibTableColumn
+ifOpticalTransSectionIndex=_IfOpticalTransSectionIndex_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,1),_IfOpticalTransSectionIndex_Type())
+ifOpticalTransSectionIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransSectionIndex.setStatus(_B)
+_IfOpticalTransSectionName_Type=MgmtNameString
+_IfOpticalTransSectionName_Object=MibTableColumn
+ifOpticalTransSectionName=_IfOpticalTransSectionName_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,2),_IfOpticalTransSectionName_Type())
+ifOpticalTransSectionName.setMaxAccess(_F)
+if mibBuilder.loadTexts:ifOpticalTransSectionName.setStatus(_B)
+_IfOpticalTransSectionConnIfBasicIfIndex_Type=Unsigned32WithNA
+_IfOpticalTransSectionConnIfBasicIfIndex_Object=MibTableColumn
+ifOpticalTransSectionConnIfBasicIfIndex=_IfOpticalTransSectionConnIfBasicIfIndex_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,3),_IfOpticalTransSectionConnIfBasicIfIndex_Type())
+ifOpticalTransSectionConnIfBasicIfIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:ifOpticalTransSectionConnIfBasicIfIndex.setStatus(_B)
+class _IfOpticalTransSectionForwardAls_Type(EnabledDisabledWithNA):defaultValue=1
+_IfOpticalTransSectionForwardAls_Type.__name__=_r
+_IfOpticalTransSectionForwardAls_Object=MibTableColumn
+ifOpticalTransSectionForwardAls=_IfOpticalTransSectionForwardAls_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,4),_IfOpticalTransSectionForwardAls_Type())
+ifOpticalTransSectionForwardAls.setMaxAccess(_J)
+if mibBuilder.loadTexts:ifOpticalTransSectionForwardAls.setStatus(_B)
+_IfOpticalTransSectionRxPowerLevel_Type=Signed32WithNA
+_IfOpticalTransSectionRxPowerLevel_Object=MibTableColumn
+ifOpticalTransSectionRxPowerLevel=_IfOpticalTransSectionRxPowerLevel_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,5),_IfOpticalTransSectionRxPowerLevel_Type())
+ifOpticalTransSectionRxPowerLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransSectionRxPowerLevel.setStatus(_B)
+class _IfOpticalTransSectionRxPowerLevelLowRelativeThld_Type(Signed32WithNA):defaultValue=30;subtypeSpec=Signed32WithNA.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-50,100),ValueRangeConstraint(2147483646,2147483646),ValueRangeConstraint(2147483647,2147483647))
+_IfOpticalTransSectionRxPowerLevelLowRelativeThld_Type.__name__=_O
+_IfOpticalTransSectionRxPowerLevelLowRelativeThld_Object=MibTableColumn
+ifOpticalTransSectionRxPowerLevelLowRelativeThld=_IfOpticalTransSectionRxPowerLevelLowRelativeThld_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,6),_IfOpticalTransSectionRxPowerLevelLowRelativeThld_Type())
+ifOpticalTransSectionRxPowerLevelLowRelativeThld.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransSectionRxPowerLevelLowRelativeThld.setStatus(_B)
+_IfOpticalTransSectionTxPowerLevel_Type=Signed32WithNA
+_IfOpticalTransSectionTxPowerLevel_Object=MibTableColumn
+ifOpticalTransSectionTxPowerLevel=_IfOpticalTransSectionTxPowerLevel_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,7),_IfOpticalTransSectionTxPowerLevel_Type())
+ifOpticalTransSectionTxPowerLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransSectionTxPowerLevel.setStatus(_B)
+class _IfOpticalTransSectionLaserMode_Type(LaserMode):defaultValue=1
+_IfOpticalTransSectionLaserMode_Type.__name__=_Ak
+_IfOpticalTransSectionLaserMode_Object=MibTableColumn
+ifOpticalTransSectionLaserMode=_IfOpticalTransSectionLaserMode_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,8),_IfOpticalTransSectionLaserMode_Type())
+ifOpticalTransSectionLaserMode.setMaxAccess(_J)
+if mibBuilder.loadTexts:ifOpticalTransSectionLaserMode.setStatus(_B)
+_IfOpticalTransSectionLaserStatus_Type=OnOff
+_IfOpticalTransSectionLaserStatus_Object=MibTableColumn
+ifOpticalTransSectionLaserStatus=_IfOpticalTransSectionLaserStatus_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,9),_IfOpticalTransSectionLaserStatus_Type())
+ifOpticalTransSectionLaserStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransSectionLaserStatus.setStatus(_B)
+_IfOpticalTransSectionReceiverSensitivity_Type=Signed32WithNA
+_IfOpticalTransSectionReceiverSensitivity_Object=MibTableColumn
+ifOpticalTransSectionReceiverSensitivity=_IfOpticalTransSectionReceiverSensitivity_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,10),_IfOpticalTransSectionReceiverSensitivity_Type())
+ifOpticalTransSectionReceiverSensitivity.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransSectionReceiverSensitivity.setStatus(_B)
+_IfOpticalTransSectionTxSignalStatus_Type=SignalStatusWithNA
+_IfOpticalTransSectionTxSignalStatus_Object=MibTableColumn
+ifOpticalTransSectionTxSignalStatus=_IfOpticalTransSectionTxSignalStatus_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,11),_IfOpticalTransSectionTxSignalStatus_Type())
+ifOpticalTransSectionTxSignalStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransSectionTxSignalStatus.setStatus(_B)
+_IfOpticalTransSectionRxSignalStatus_Type=SignalStatusWithNA
+_IfOpticalTransSectionRxSignalStatus_Object=MibTableColumn
+ifOpticalTransSectionRxSignalStatus=_IfOpticalTransSectionRxSignalStatus_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,12),_IfOpticalTransSectionRxSignalStatus_Type())
+ifOpticalTransSectionRxSignalStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransSectionRxSignalStatus.setStatus(_B)
+_IfOpticalTransSectionLossOfSignal_Type=FaultStatusWithNA
+_IfOpticalTransSectionLossOfSignal_Object=MibTableColumn
+ifOpticalTransSectionLossOfSignal=_IfOpticalTransSectionLossOfSignal_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,13),_IfOpticalTransSectionLossOfSignal_Type())
+ifOpticalTransSectionLossOfSignal.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransSectionLossOfSignal.setStatus(_B)
+_IfOpticalTransSectionRxPowerLevelLow_Type=FaultStatusWithNA
+_IfOpticalTransSectionRxPowerLevelLow_Object=MibTableColumn
+ifOpticalTransSectionRxPowerLevelLow=_IfOpticalTransSectionRxPowerLevelLow_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,14),_IfOpticalTransSectionRxPowerLevelLow_Type())
+ifOpticalTransSectionRxPowerLevelLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransSectionRxPowerLevelLow.setStatus(_B)
+_IfOpticalTransSectionRxPowerLevelHigh_Type=FaultStatusWithNA
+_IfOpticalTransSectionRxPowerLevelHigh_Object=MibTableColumn
+ifOpticalTransSectionRxPowerLevelHigh=_IfOpticalTransSectionRxPowerLevelHigh_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,15),_IfOpticalTransSectionRxPowerLevelHigh_Type())
+ifOpticalTransSectionRxPowerLevelHigh.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransSectionRxPowerLevelHigh.setStatus(_B)
+_IfOpticalTransSectionRxExcessiveInputPower_Type=FaultStatusWithNA
+_IfOpticalTransSectionRxExcessiveInputPower_Object=MibTableColumn
+ifOpticalTransSectionRxExcessiveInputPower=_IfOpticalTransSectionRxExcessiveInputPower_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,16),_IfOpticalTransSectionRxExcessiveInputPower_Type())
+ifOpticalTransSectionRxExcessiveInputPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransSectionRxExcessiveInputPower.setStatus(_B)
+_IfOpticalTransSectionTxPowerLow_Type=FaultStatusWithNA
+_IfOpticalTransSectionTxPowerLow_Object=MibTableColumn
+ifOpticalTransSectionTxPowerLow=_IfOpticalTransSectionTxPowerLow_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,17),_IfOpticalTransSectionTxPowerLow_Type())
+ifOpticalTransSectionTxPowerLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransSectionTxPowerLow.setStatus(_B)
+class _IfOpticalTransSectionRxPowerLevelLowAbsoluteThld_Type(Signed32WithNA):defaultValue=-140;subtypeSpec=Signed32WithNA.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-300,50),ValueRangeConstraint(2147483646,2147483646),ValueRangeConstraint(2147483647,2147483647))
+_IfOpticalTransSectionRxPowerLevelLowAbsoluteThld_Type.__name__=_O
+_IfOpticalTransSectionRxPowerLevelLowAbsoluteThld_Object=MibTableColumn
+ifOpticalTransSectionRxPowerLevelLowAbsoluteThld=_IfOpticalTransSectionRxPowerLevelLowAbsoluteThld_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,18),_IfOpticalTransSectionRxPowerLevelLowAbsoluteThld_Type())
+ifOpticalTransSectionRxPowerLevelLowAbsoluteThld.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransSectionRxPowerLevelLowAbsoluteThld.setStatus(_B)
+class _IfOpticalTransSectionLossThld_Type(Signed32WithNA):defaultValue=-350;subtypeSpec=Signed32WithNA.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-420,60),ValueRangeConstraint(2147483647,2147483647))
+_IfOpticalTransSectionLossThld_Type.__name__=_O
+_IfOpticalTransSectionLossThld_Object=MibTableColumn
+ifOpticalTransSectionLossThld=_IfOpticalTransSectionLossThld_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,19),_IfOpticalTransSectionLossThld_Type())
+ifOpticalTransSectionLossThld.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransSectionLossThld.setStatus(_B)
+class _IfOpticalTransSectionLaserForcedOn_Type(EnabledDisabledWithNA):defaultValue=1
+_IfOpticalTransSectionLaserForcedOn_Type.__name__=_r
+_IfOpticalTransSectionLaserForcedOn_Object=MibTableColumn
+ifOpticalTransSectionLaserForcedOn=_IfOpticalTransSectionLaserForcedOn_Object((1,3,6,1,4,1,8708,2,48,2,2,1,1,20),_IfOpticalTransSectionLaserForcedOn_Type())
+ifOpticalTransSectionLaserForcedOn.setMaxAccess(_J)
+if mibBuilder.loadTexts:ifOpticalTransSectionLaserForcedOn.setStatus(_B)
+_IfOpticalChannelList_ObjectIdentity=ObjectIdentity
+ifOpticalChannelList=_IfOpticalChannelList_ObjectIdentity((1,3,6,1,4,1,8708,2,48,2,3))
+_IfOpticalChannelTable_Object=MibTable
+ifOpticalChannelTable=_IfOpticalChannelTable_Object((1,3,6,1,4,1,8708,2,48,2,3,1))
+if mibBuilder.loadTexts:ifOpticalChannelTable.setStatus(_B)
+_IfOpticalChannelEntry_Object=MibTableRow
+ifOpticalChannelEntry=_IfOpticalChannelEntry_Object((1,3,6,1,4,1,8708,2,48,2,3,1,1))
+ifOpticalChannelEntry.setIndexNames((0,_A,_M))
+if mibBuilder.loadTexts:ifOpticalChannelEntry.setStatus(_B)
+_IfOpticalChannelIndex_Type=Unsigned32
+_IfOpticalChannelIndex_Object=MibTableColumn
+ifOpticalChannelIndex=_IfOpticalChannelIndex_Object((1,3,6,1,4,1,8708,2,48,2,3,1,1,1),_IfOpticalChannelIndex_Type())
+ifOpticalChannelIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalChannelIndex.setStatus(_B)
+_IfOpticalChannelName_Type=MgmtNameString
+_IfOpticalChannelName_Object=MibTableColumn
+ifOpticalChannelName=_IfOpticalChannelName_Object((1,3,6,1,4,1,8708,2,48,2,3,1,1,2),_IfOpticalChannelName_Type())
+ifOpticalChannelName.setMaxAccess(_F)
+if mibBuilder.loadTexts:ifOpticalChannelName.setStatus(_B)
+_IfOpticalChannelConnIfBasicIfIndex_Type=Unsigned32WithNA
+_IfOpticalChannelConnIfBasicIfIndex_Object=MibTableColumn
+ifOpticalChannelConnIfBasicIfIndex=_IfOpticalChannelConnIfBasicIfIndex_Object((1,3,6,1,4,1,8708,2,48,2,3,1,1,3),_IfOpticalChannelConnIfBasicIfIndex_Type())
+ifOpticalChannelConnIfBasicIfIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:ifOpticalChannelConnIfBasicIfIndex.setStatus(_B)
+_IfOpticalChannelTxFrequency_Type=Frequency
+_IfOpticalChannelTxFrequency_Object=MibTableColumn
+ifOpticalChannelTxFrequency=_IfOpticalChannelTxFrequency_Object((1,3,6,1,4,1,8708,2,48,2,3,1,1,4),_IfOpticalChannelTxFrequency_Type())
+ifOpticalChannelTxFrequency.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalChannelTxFrequency.setStatus(_B)
+class _IfOpticalChannelExpectedTxFrequency_Type(FrequencyOnlyNotApplicable):defaultValue=0
+_IfOpticalChannelExpectedTxFrequency_Type.__name__=_AU
+_IfOpticalChannelExpectedTxFrequency_Object=MibTableColumn
+ifOpticalChannelExpectedTxFrequency=_IfOpticalChannelExpectedTxFrequency_Object((1,3,6,1,4,1,8708,2,48,2,3,1,1,5),_IfOpticalChannelExpectedTxFrequency_Type())
+ifOpticalChannelExpectedTxFrequency.setMaxAccess(_J)
+if mibBuilder.loadTexts:ifOpticalChannelExpectedTxFrequency.setStatus(_B)
+_IfOpticalChannelTxSignalStatus_Type=SignalStatusWithNA
+_IfOpticalChannelTxSignalStatus_Object=MibTableColumn
+ifOpticalChannelTxSignalStatus=_IfOpticalChannelTxSignalStatus_Object((1,3,6,1,4,1,8708,2,48,2,3,1,1,6),_IfOpticalChannelTxSignalStatus_Type())
+ifOpticalChannelTxSignalStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalChannelTxSignalStatus.setStatus(_B)
+_IfOpticalChannelRxSignalStatus_Type=SignalStatusWithNA
+_IfOpticalChannelRxSignalStatus_Object=MibTableColumn
+ifOpticalChannelRxSignalStatus=_IfOpticalChannelRxSignalStatus_Object((1,3,6,1,4,1,8708,2,48,2,3,1,1,7),_IfOpticalChannelRxSignalStatus_Type())
+ifOpticalChannelRxSignalStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalChannelRxSignalStatus.setStatus(_B)
+_IfOpticalChannelIllegalTxFrequency_Type=FaultStatusWithNA
+_IfOpticalChannelIllegalTxFrequency_Object=MibTableColumn
+ifOpticalChannelIllegalTxFrequency=_IfOpticalChannelIllegalTxFrequency_Object((1,3,6,1,4,1,8708,2,48,2,3,1,1,8),_IfOpticalChannelIllegalTxFrequency_Type())
+ifOpticalChannelIllegalTxFrequency.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalChannelIllegalTxFrequency.setStatus(_B)
+_IfOpticalChannelUnexpectedTxFrequency_Type=FaultStatusWithNA
+_IfOpticalChannelUnexpectedTxFrequency_Object=MibTableColumn
+ifOpticalChannelUnexpectedTxFrequency=_IfOpticalChannelUnexpectedTxFrequency_Object((1,3,6,1,4,1,8708,2,48,2,3,1,1,9),_IfOpticalChannelUnexpectedTxFrequency_Type())
+ifOpticalChannelUnexpectedTxFrequency.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalChannelUnexpectedTxFrequency.setStatus(_B)
+_IfOpticalChannelNoTxFrequencySet_Type=FaultStatusWithNA
+_IfOpticalChannelNoTxFrequencySet_Object=MibTableColumn
+ifOpticalChannelNoTxFrequencySet=_IfOpticalChannelNoTxFrequencySet_Object((1,3,6,1,4,1,8708,2,48,2,3,1,1,10),_IfOpticalChannelNoTxFrequencySet_Type())
+ifOpticalChannelNoTxFrequencySet.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalChannelNoTxFrequencySet.setStatus(_B)
+class _IfOpticalChannelDispersionSearchLimit_Type(DispersionSearchLimit):defaultValue=22500
+_IfOpticalChannelDispersionSearchLimit_Type.__name__=_Aj
+_IfOpticalChannelDispersionSearchLimit_Object=MibTableColumn
+ifOpticalChannelDispersionSearchLimit=_IfOpticalChannelDispersionSearchLimit_Object((1,3,6,1,4,1,8708,2,48,2,3,1,1,11),_IfOpticalChannelDispersionSearchLimit_Type())
+ifOpticalChannelDispersionSearchLimit.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalChannelDispersionSearchLimit.setStatus(_B)
+_IfOpticalChannelLaserNotTuned_Type=FaultStatusWithNA
+_IfOpticalChannelLaserNotTuned_Object=MibTableColumn
+ifOpticalChannelLaserNotTuned=_IfOpticalChannelLaserNotTuned_Object((1,3,6,1,4,1,8708,2,48,2,3,1,1,12),_IfOpticalChannelLaserNotTuned_Type())
+ifOpticalChannelLaserNotTuned.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalChannelLaserNotTuned.setStatus(_B)
+class _IfOpticalChannelLineCoding_Type(Integer32):defaultValue=2147483647;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,2147483647)));namedValues=NamedValues(*(('qam16',1),('dqpsk',2),('qpsk',3),('notApplicable',2147483647)))
+_IfOpticalChannelLineCoding_Type.__name__=_Al
+_IfOpticalChannelLineCoding_Object=MibTableColumn
+ifOpticalChannelLineCoding=_IfOpticalChannelLineCoding_Object((1,3,6,1,4,1,8708,2,48,2,3,1,1,13),_IfOpticalChannelLineCoding_Type())
+ifOpticalChannelLineCoding.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalChannelLineCoding.setStatus(_B)
+_IfOpticalDigitalSignalRateList_ObjectIdentity=ObjectIdentity
+ifOpticalDigitalSignalRateList=_IfOpticalDigitalSignalRateList_ObjectIdentity((1,3,6,1,4,1,8708,2,48,2,4))
+_IfOpticalDigitalSignalRateTable_Object=MibTable
+ifOpticalDigitalSignalRateTable=_IfOpticalDigitalSignalRateTable_Object((1,3,6,1,4,1,8708,2,48,2,4,1))
+if mibBuilder.loadTexts:ifOpticalDigitalSignalRateTable.setStatus(_B)
+_IfOpticalDigitalSignalRateEntry_Object=MibTableRow
+ifOpticalDigitalSignalRateEntry=_IfOpticalDigitalSignalRateEntry_Object((1,3,6,1,4,1,8708,2,48,2,4,1,1))
+ifOpticalDigitalSignalRateEntry.setIndexNames((0,_A,_AW))
+if mibBuilder.loadTexts:ifOpticalDigitalSignalRateEntry.setStatus(_B)
+_IfOpticalDigitalSignalRateIndex_Type=Unsigned32
+_IfOpticalDigitalSignalRateIndex_Object=MibTableColumn
+ifOpticalDigitalSignalRateIndex=_IfOpticalDigitalSignalRateIndex_Object((1,3,6,1,4,1,8708,2,48,2,4,1,1,1),_IfOpticalDigitalSignalRateIndex_Type())
+ifOpticalDigitalSignalRateIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalDigitalSignalRateIndex.setStatus(_B)
+_IfOpticalDigitalSignalRateName_Type=MgmtNameString
+_IfOpticalDigitalSignalRateName_Object=MibTableColumn
+ifOpticalDigitalSignalRateName=_IfOpticalDigitalSignalRateName_Object((1,3,6,1,4,1,8708,2,48,2,4,1,1,2),_IfOpticalDigitalSignalRateName_Type())
+ifOpticalDigitalSignalRateName.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalDigitalSignalRateName.setStatus(_B)
+_IfOpticalDigitalSignalRateConnIfBasicIfIndex_Type=Unsigned32WithNA
+_IfOpticalDigitalSignalRateConnIfBasicIfIndex_Object=MibTableColumn
+ifOpticalDigitalSignalRateConnIfBasicIfIndex=_IfOpticalDigitalSignalRateConnIfBasicIfIndex_Object((1,3,6,1,4,1,8708,2,48,2,4,1,1,3),_IfOpticalDigitalSignalRateConnIfBasicIfIndex_Type())
+ifOpticalDigitalSignalRateConnIfBasicIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalDigitalSignalRateConnIfBasicIfIndex.setStatus(_B)
+_IfOpticalDigitalSignalRateMaxBitRate_Type=Unsigned32WithNA
+_IfOpticalDigitalSignalRateMaxBitRate_Object=MibTableColumn
+ifOpticalDigitalSignalRateMaxBitRate=_IfOpticalDigitalSignalRateMaxBitRate_Object((1,3,6,1,4,1,8708,2,48,2,4,1,1,5),_IfOpticalDigitalSignalRateMaxBitRate_Type())
+ifOpticalDigitalSignalRateMaxBitRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalDigitalSignalRateMaxBitRate.setStatus(_B)
+_IfOpticalDigitalSignalRateMinBitRate_Type=Unsigned32WithNA
+_IfOpticalDigitalSignalRateMinBitRate_Object=MibTableColumn
+ifOpticalDigitalSignalRateMinBitRate=_IfOpticalDigitalSignalRateMinBitRate_Object((1,3,6,1,4,1,8708,2,48,2,4,1,1,6),_IfOpticalDigitalSignalRateMinBitRate_Type())
+ifOpticalDigitalSignalRateMinBitRate.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalDigitalSignalRateMinBitRate.setStatus(_B)
+_IfOpticalDigitalSignalRateTxSignalStatus_Type=SignalStatusWithNA
+_IfOpticalDigitalSignalRateTxSignalStatus_Object=MibTableColumn
+ifOpticalDigitalSignalRateTxSignalStatus=_IfOpticalDigitalSignalRateTxSignalStatus_Object((1,3,6,1,4,1,8708,2,48,2,4,1,1,7),_IfOpticalDigitalSignalRateTxSignalStatus_Type())
+ifOpticalDigitalSignalRateTxSignalStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalDigitalSignalRateTxSignalStatus.setStatus(_B)
+_IfOpticalDigitalSignalRateRxSignalStatus_Type=SignalStatusWithNA
+_IfOpticalDigitalSignalRateRxSignalStatus_Object=MibTableColumn
+ifOpticalDigitalSignalRateRxSignalStatus=_IfOpticalDigitalSignalRateRxSignalStatus_Object((1,3,6,1,4,1,8708,2,48,2,4,1,1,8),_IfOpticalDigitalSignalRateRxSignalStatus_Type())
+ifOpticalDigitalSignalRateRxSignalStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalDigitalSignalRateRxSignalStatus.setStatus(_B)
+_IfOpticalDigitalSignalRateLossOfLock_Type=FaultStatusWithNA
+_IfOpticalDigitalSignalRateLossOfLock_Object=MibTableColumn
+ifOpticalDigitalSignalRateLossOfLock=_IfOpticalDigitalSignalRateLossOfLock_Object((1,3,6,1,4,1,8708,2,48,2,4,1,1,9),_IfOpticalDigitalSignalRateLossOfLock_Type())
+ifOpticalDigitalSignalRateLossOfLock.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalDigitalSignalRateLossOfLock.setStatus(_B)
+_IfOpticalDigitalSignalRateBitrateUnavailable_Type=FaultStatusWithNA
+_IfOpticalDigitalSignalRateBitrateUnavailable_Object=MibTableColumn
+ifOpticalDigitalSignalRateBitrateUnavailable=_IfOpticalDigitalSignalRateBitrateUnavailable_Object((1,3,6,1,4,1,8708,2,48,2,4,1,1,10),_IfOpticalDigitalSignalRateBitrateUnavailable_Type())
+ifOpticalDigitalSignalRateBitrateUnavailable.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalDigitalSignalRateBitrateUnavailable.setStatus(_B)
+_IfOpticalFecList_ObjectIdentity=ObjectIdentity
+ifOpticalFecList=_IfOpticalFecList_ObjectIdentity((1,3,6,1,4,1,8708,2,48,2,5))
+_IfOpticalFecTable_Object=MibTable
+ifOpticalFecTable=_IfOpticalFecTable_Object((1,3,6,1,4,1,8708,2,48,2,5,1))
+if mibBuilder.loadTexts:ifOpticalFecTable.setStatus(_B)
+_IfOpticalFecEntry_Object=MibTableRow
+ifOpticalFecEntry=_IfOpticalFecEntry_Object((1,3,6,1,4,1,8708,2,48,2,5,1,1))
+ifOpticalFecEntry.setIndexNames((0,_A,_P))
+if mibBuilder.loadTexts:ifOpticalFecEntry.setStatus(_B)
+_IfOpticalFecIndex_Type=Unsigned32
+_IfOpticalFecIndex_Object=MibTableColumn
+ifOpticalFecIndex=_IfOpticalFecIndex_Object((1,3,6,1,4,1,8708,2,48,2,5,1,1,1),_IfOpticalFecIndex_Type())
+ifOpticalFecIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalFecIndex.setStatus(_B)
+_IfOpticalFecName_Type=MgmtNameString
+_IfOpticalFecName_Object=MibTableColumn
+ifOpticalFecName=_IfOpticalFecName_Object((1,3,6,1,4,1,8708,2,48,2,5,1,1,2),_IfOpticalFecName_Type())
+ifOpticalFecName.setMaxAccess(_F)
+if mibBuilder.loadTexts:ifOpticalFecName.setStatus(_B)
+_IfOpticalFecConnIfBasicIfIndex_Type=Unsigned32WithNA
+_IfOpticalFecConnIfBasicIfIndex_Object=MibTableColumn
+ifOpticalFecConnIfBasicIfIndex=_IfOpticalFecConnIfBasicIfIndex_Object((1,3,6,1,4,1,8708,2,48,2,5,1,1,3),_IfOpticalFecConnIfBasicIfIndex_Type())
+ifOpticalFecConnIfBasicIfIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:ifOpticalFecConnIfBasicIfIndex.setStatus(_B)
+class _IfOpticalFecType_Type(FecType):defaultValue=1
+_IfOpticalFecType_Type.__name__='FecType'
+_IfOpticalFecType_Object=MibTableColumn
+ifOpticalFecType=_IfOpticalFecType_Object((1,3,6,1,4,1,8708,2,48,2,5,1,1,4),_IfOpticalFecType_Type())
+ifOpticalFecType.setMaxAccess(_J)
+if mibBuilder.loadTexts:ifOpticalFecType.setStatus(_B)
+_IfOpticalFecTxSignalStatus_Type=SignalStatusWithNA
+_IfOpticalFecTxSignalStatus_Object=MibTableColumn
+ifOpticalFecTxSignalStatus=_IfOpticalFecTxSignalStatus_Object((1,3,6,1,4,1,8708,2,48,2,5,1,1,5),_IfOpticalFecTxSignalStatus_Type())
+ifOpticalFecTxSignalStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalFecTxSignalStatus.setStatus(_B)
+_IfOpticalFecRxSignalStatus_Type=SignalStatusWithNA
+_IfOpticalFecRxSignalStatus_Object=MibTableColumn
+ifOpticalFecRxSignalStatus=_IfOpticalFecRxSignalStatus_Object((1,3,6,1,4,1,8708,2,48,2,5,1,1,6),_IfOpticalFecRxSignalStatus_Type())
+ifOpticalFecRxSignalStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalFecRxSignalStatus.setStatus(_B)
+_IfOpticalFecFailure_Type=FaultStatusWithNA
+_IfOpticalFecFailure_Object=MibTableColumn
+ifOpticalFecFailure=_IfOpticalFecFailure_Object((1,3,6,1,4,1,8708,2,48,2,5,1,1,7),_IfOpticalFecFailure_Type())
+ifOpticalFecFailure.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalFecFailure.setStatus(_B)
+_IfOpticalFecSignalDegraded_Type=FaultStatusWithNA
+_IfOpticalFecSignalDegraded_Object=MibTableColumn
+ifOpticalFecSignalDegraded=_IfOpticalFecSignalDegraded_Object((1,3,6,1,4,1,8708,2,48,2,5,1,1,8),_IfOpticalFecSignalDegraded_Type())
+ifOpticalFecSignalDegraded.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalFecSignalDegraded.setStatus(_B)
+class _IfOpticalFecSignalDegradeThreshold_Type(BerLevelMTOSI):defaultValue=13
+_IfOpticalFecSignalDegradeThreshold_Type.__name__=_Ai
+_IfOpticalFecSignalDegradeThreshold_Object=MibTableColumn
+ifOpticalFecSignalDegradeThreshold=_IfOpticalFecSignalDegradeThreshold_Object((1,3,6,1,4,1,8708,2,48,2,5,1,1,9),_IfOpticalFecSignalDegradeThreshold_Type())
+ifOpticalFecSignalDegradeThreshold.setMaxAccess(_J)
+if mibBuilder.loadTexts:ifOpticalFecSignalDegradeThreshold.setStatus(_B)
+_IfOpticalFecTypeUnavailable_Type=FaultStatus
+_IfOpticalFecTypeUnavailable_Object=MibTableColumn
+ifOpticalFecTypeUnavailable=_IfOpticalFecTypeUnavailable_Object((1,3,6,1,4,1,8708,2,48,2,5,1,1,10),_IfOpticalFecTypeUnavailable_Type())
+ifOpticalFecTypeUnavailable.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalFecTypeUnavailable.setStatus(_B)
+class _IfOpticalFecUId_Type(Unsigned32):defaultValue=0;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_IfOpticalFecUId_Type.__name__=_Am
+_IfOpticalFecUId_Object=MibTableColumn
+ifOpticalFecUId=_IfOpticalFecUId_Object((1,3,6,1,4,1,8708,2,48,2,5,1,1,11),_IfOpticalFecUId_Type())
+ifOpticalFecUId.setMaxAccess(_F)
+if mibBuilder.loadTexts:ifOpticalFecUId.setStatus(_B)
+_IfOpticalFecDecModeMismatch_Type=FaultStatusWithNA
+_IfOpticalFecDecModeMismatch_Object=MibTableColumn
+ifOpticalFecDecModeMismatch=_IfOpticalFecDecModeMismatch_Object((1,3,6,1,4,1,8708,2,48,2,5,1,1,12),_IfOpticalFecDecModeMismatch_Type())
+ifOpticalFecDecModeMismatch.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalFecDecModeMismatch.setStatus(_B)
+_IfOpticalTransLaneCarrierList_ObjectIdentity=ObjectIdentity
+ifOpticalTransLaneCarrierList=_IfOpticalTransLaneCarrierList_ObjectIdentity((1,3,6,1,4,1,8708,2,48,2,6))
+_IfOpticalTransLaneCarrierTable_Object=MibTable
+ifOpticalTransLaneCarrierTable=_IfOpticalTransLaneCarrierTable_Object((1,3,6,1,4,1,8708,2,48,2,6,1))
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierTable.setStatus(_B)
+_IfOpticalTransLaneCarrierEntry_Object=MibTableRow
+ifOpticalTransLaneCarrierEntry=_IfOpticalTransLaneCarrierEntry_Object((1,3,6,1,4,1,8708,2,48,2,6,1,1))
+ifOpticalTransLaneCarrierEntry.setIndexNames((0,_A,_AX))
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierEntry.setStatus(_B)
+_IfOpticalTransLaneCarrierIndex_Type=Unsigned32
+_IfOpticalTransLaneCarrierIndex_Object=MibTableColumn
+ifOpticalTransLaneCarrierIndex=_IfOpticalTransLaneCarrierIndex_Object((1,3,6,1,4,1,8708,2,48,2,6,1,1,1),_IfOpticalTransLaneCarrierIndex_Type())
+ifOpticalTransLaneCarrierIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierIndex.setStatus(_B)
+_IfOpticalTransLaneCarrierName_Type=MgmtNameString
+_IfOpticalTransLaneCarrierName_Object=MibTableColumn
+ifOpticalTransLaneCarrierName=_IfOpticalTransLaneCarrierName_Object((1,3,6,1,4,1,8708,2,48,2,6,1,1,2),_IfOpticalTransLaneCarrierName_Type())
+ifOpticalTransLaneCarrierName.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierName.setStatus(_B)
+_IfOpticalTransLaneCarrierConnIfBasicIfIndex_Type=Unsigned32WithNA
+_IfOpticalTransLaneCarrierConnIfBasicIfIndex_Object=MibTableColumn
+ifOpticalTransLaneCarrierConnIfBasicIfIndex=_IfOpticalTransLaneCarrierConnIfBasicIfIndex_Object((1,3,6,1,4,1,8708,2,48,2,6,1,1,3),_IfOpticalTransLaneCarrierConnIfBasicIfIndex_Type())
+ifOpticalTransLaneCarrierConnIfBasicIfIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierConnIfBasicIfIndex.setStatus(_B)
+_IfOpticalTransLaneCarrierConnIfOpticalTransLaneCarrierGrIndex_Type=Unsigned32WithNA
+_IfOpticalTransLaneCarrierConnIfOpticalTransLaneCarrierGrIndex_Object=MibTableColumn
+ifOpticalTransLaneCarrierConnIfOpticalTransLaneCarrierGrIndex=_IfOpticalTransLaneCarrierConnIfOpticalTransLaneCarrierGrIndex_Object((1,3,6,1,4,1,8708,2,48,2,6,1,1,4),_IfOpticalTransLaneCarrierConnIfOpticalTransLaneCarrierGrIndex_Type())
+ifOpticalTransLaneCarrierConnIfOpticalTransLaneCarrierGrIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierConnIfOpticalTransLaneCarrierGrIndex.setStatus(_B)
+_IfOpticalTransLaneCarrierLaneId_Type=Unsigned32
+_IfOpticalTransLaneCarrierLaneId_Object=MibTableColumn
+ifOpticalTransLaneCarrierLaneId=_IfOpticalTransLaneCarrierLaneId_Object((1,3,6,1,4,1,8708,2,48,2,6,1,1,5),_IfOpticalTransLaneCarrierLaneId_Type())
+ifOpticalTransLaneCarrierLaneId.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierLaneId.setStatus(_B)
+_IfOpticalTransLaneCarrierTxSignalStatus_Type=SignalStatusWithNA
+_IfOpticalTransLaneCarrierTxSignalStatus_Object=MibTableColumn
+ifOpticalTransLaneCarrierTxSignalStatus=_IfOpticalTransLaneCarrierTxSignalStatus_Object((1,3,6,1,4,1,8708,2,48,2,6,1,1,6),_IfOpticalTransLaneCarrierTxSignalStatus_Type())
+ifOpticalTransLaneCarrierTxSignalStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierTxSignalStatus.setStatus(_B)
+_IfOpticalTransLaneCarrierRxSignalStatus_Type=SignalStatusWithNA
+_IfOpticalTransLaneCarrierRxSignalStatus_Object=MibTableColumn
+ifOpticalTransLaneCarrierRxSignalStatus=_IfOpticalTransLaneCarrierRxSignalStatus_Object((1,3,6,1,4,1,8708,2,48,2,6,1,1,7),_IfOpticalTransLaneCarrierRxSignalStatus_Type())
+ifOpticalTransLaneCarrierRxSignalStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierRxSignalStatus.setStatus(_B)
+_IfOpticalTransLaneCarrierRxPowerLevel_Type=Signed32WithNA
+_IfOpticalTransLaneCarrierRxPowerLevel_Object=MibTableColumn
+ifOpticalTransLaneCarrierRxPowerLevel=_IfOpticalTransLaneCarrierRxPowerLevel_Object((1,3,6,1,4,1,8708,2,48,2,6,1,1,8),_IfOpticalTransLaneCarrierRxPowerLevel_Type())
+ifOpticalTransLaneCarrierRxPowerLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierRxPowerLevel.setStatus(_B)
+_IfOpticalTransLaneCarrierLossOfSignal_Type=FaultStatusWithNA
+_IfOpticalTransLaneCarrierLossOfSignal_Object=MibTableColumn
+ifOpticalTransLaneCarrierLossOfSignal=_IfOpticalTransLaneCarrierLossOfSignal_Object((1,3,6,1,4,1,8708,2,48,2,6,1,1,9),_IfOpticalTransLaneCarrierLossOfSignal_Type())
+ifOpticalTransLaneCarrierLossOfSignal.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierLossOfSignal.setStatus(_B)
+_IfOpticalTransLaneCarrierReceiverSensitivity_Type=Signed32WithNA
+_IfOpticalTransLaneCarrierReceiverSensitivity_Object=MibTableColumn
+ifOpticalTransLaneCarrierReceiverSensitivity=_IfOpticalTransLaneCarrierReceiverSensitivity_Object((1,3,6,1,4,1,8708,2,48,2,6,1,1,10),_IfOpticalTransLaneCarrierReceiverSensitivity_Type())
+ifOpticalTransLaneCarrierReceiverSensitivity.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierReceiverSensitivity.setStatus(_B)
+_IfOpticalTransLaneCarrierRxPowerLevelLow_Type=FaultStatusWithNA
+_IfOpticalTransLaneCarrierRxPowerLevelLow_Object=MibTableColumn
+ifOpticalTransLaneCarrierRxPowerLevelLow=_IfOpticalTransLaneCarrierRxPowerLevelLow_Object((1,3,6,1,4,1,8708,2,48,2,6,1,1,11),_IfOpticalTransLaneCarrierRxPowerLevelLow_Type())
+ifOpticalTransLaneCarrierRxPowerLevelLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierRxPowerLevelLow.setStatus(_B)
+_IfOpticalTransLaneCarrierTxFrequency_Type=LaneFrequency
+_IfOpticalTransLaneCarrierTxFrequency_Object=MibTableColumn
+ifOpticalTransLaneCarrierTxFrequency=_IfOpticalTransLaneCarrierTxFrequency_Object((1,3,6,1,4,1,8708,2,48,2,6,1,1,12),_IfOpticalTransLaneCarrierTxFrequency_Type())
+ifOpticalTransLaneCarrierTxFrequency.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierTxFrequency.setStatus(_B)
+_IfOpticalTransLaneCarrierCounterSes_Type=Unsigned32WithNA
+_IfOpticalTransLaneCarrierCounterSes_Object=MibTableColumn
+ifOpticalTransLaneCarrierCounterSes=_IfOpticalTransLaneCarrierCounterSes_Object((1,3,6,1,4,1,8708,2,48,2,6,1,1,13),_IfOpticalTransLaneCarrierCounterSes_Type())
+ifOpticalTransLaneCarrierCounterSes.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierCounterSes.setStatus(_B)
+class _IfOpticalTransLaneCarrierCounterSesReset_Type(ResetWithNA):defaultValue=2
+_IfOpticalTransLaneCarrierCounterSesReset_Type.__name__=_AV
+_IfOpticalTransLaneCarrierCounterSesReset_Object=MibTableColumn
+ifOpticalTransLaneCarrierCounterSesReset=_IfOpticalTransLaneCarrierCounterSesReset_Object((1,3,6,1,4,1,8708,2,48,2,6,1,1,14),_IfOpticalTransLaneCarrierCounterSesReset_Type())
+ifOpticalTransLaneCarrierCounterSesReset.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierCounterSesReset.setStatus(_D)
+_IfOpticalTransLaneCarrierGroupList_ObjectIdentity=ObjectIdentity
+ifOpticalTransLaneCarrierGroupList=_IfOpticalTransLaneCarrierGroupList_ObjectIdentity((1,3,6,1,4,1,8708,2,48,2,7))
+_IfOpticalTransLaneCarrierGroupTable_Object=MibTable
+ifOpticalTransLaneCarrierGroupTable=_IfOpticalTransLaneCarrierGroupTable_Object((1,3,6,1,4,1,8708,2,48,2,7,1))
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupTable.setStatus(_B)
+_IfOpticalTransLaneCarrierGroupEntry_Object=MibTableRow
+ifOpticalTransLaneCarrierGroupEntry=_IfOpticalTransLaneCarrierGroupEntry_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1))
+ifOpticalTransLaneCarrierGroupEntry.setIndexNames((0,_A,_Q))
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupEntry.setStatus(_B)
+_IfOpticalTransLaneCarrierGroupIndex_Type=Unsigned32
+_IfOpticalTransLaneCarrierGroupIndex_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupIndex=_IfOpticalTransLaneCarrierGroupIndex_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,1),_IfOpticalTransLaneCarrierGroupIndex_Type())
+ifOpticalTransLaneCarrierGroupIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupIndex.setStatus(_B)
+_IfOpticalTransLaneCarrierGroupName_Type=MgmtNameString
+_IfOpticalTransLaneCarrierGroupName_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupName=_IfOpticalTransLaneCarrierGroupName_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,2),_IfOpticalTransLaneCarrierGroupName_Type())
+ifOpticalTransLaneCarrierGroupName.setMaxAccess(_F)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupName.setStatus(_B)
+_IfOpticalTransLaneCarrierGroupConnIfBasicIfIndex_Type=Unsigned32WithNA
+_IfOpticalTransLaneCarrierGroupConnIfBasicIfIndex_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupConnIfBasicIfIndex=_IfOpticalTransLaneCarrierGroupConnIfBasicIfIndex_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,3),_IfOpticalTransLaneCarrierGroupConnIfBasicIfIndex_Type())
+ifOpticalTransLaneCarrierGroupConnIfBasicIfIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupConnIfBasicIfIndex.setStatus(_B)
+_IfOpticalTransLaneCarrierGroupTxSignalStatus_Type=SignalStatusWithNA
+_IfOpticalTransLaneCarrierGroupTxSignalStatus_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupTxSignalStatus=_IfOpticalTransLaneCarrierGroupTxSignalStatus_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,4),_IfOpticalTransLaneCarrierGroupTxSignalStatus_Type())
+ifOpticalTransLaneCarrierGroupTxSignalStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupTxSignalStatus.setStatus(_B)
+_IfOpticalTransLaneCarrierGroupRxSignalStatus_Type=SignalStatusWithNA
+_IfOpticalTransLaneCarrierGroupRxSignalStatus_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupRxSignalStatus=_IfOpticalTransLaneCarrierGroupRxSignalStatus_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,5),_IfOpticalTransLaneCarrierGroupRxSignalStatus_Type())
+ifOpticalTransLaneCarrierGroupRxSignalStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupRxSignalStatus.setStatus(_B)
+class _IfOpticalTransLaneCarrierGroupForwardAls_Type(EnabledDisabledWithNA):defaultValue=1
+_IfOpticalTransLaneCarrierGroupForwardAls_Type.__name__=_r
+_IfOpticalTransLaneCarrierGroupForwardAls_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupForwardAls=_IfOpticalTransLaneCarrierGroupForwardAls_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,6),_IfOpticalTransLaneCarrierGroupForwardAls_Type())
+ifOpticalTransLaneCarrierGroupForwardAls.setMaxAccess(_J)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupForwardAls.setStatus(_B)
+_IfOpticalTransLaneCarrierGroupLaserStatus_Type=OnOff
+_IfOpticalTransLaneCarrierGroupLaserStatus_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupLaserStatus=_IfOpticalTransLaneCarrierGroupLaserStatus_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,7),_IfOpticalTransLaneCarrierGroupLaserStatus_Type())
+ifOpticalTransLaneCarrierGroupLaserStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupLaserStatus.setStatus(_B)
+_IfOpticalTransLaneCarrierGroupTxPowerLevel_Type=Signed32WithNA
+_IfOpticalTransLaneCarrierGroupTxPowerLevel_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupTxPowerLevel=_IfOpticalTransLaneCarrierGroupTxPowerLevel_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,8),_IfOpticalTransLaneCarrierGroupTxPowerLevel_Type())
+ifOpticalTransLaneCarrierGroupTxPowerLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupTxPowerLevel.setStatus(_B)
+_IfOpticalTransLaneCarrierGroupRxPowerLevel_Type=Signed32WithNA
+_IfOpticalTransLaneCarrierGroupRxPowerLevel_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupRxPowerLevel=_IfOpticalTransLaneCarrierGroupRxPowerLevel_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,9),_IfOpticalTransLaneCarrierGroupRxPowerLevel_Type())
+ifOpticalTransLaneCarrierGroupRxPowerLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupRxPowerLevel.setStatus(_B)
+_IfOpticalTransLaneCarrierGroupLossOfSignal_Type=FaultStatusWithNA
+_IfOpticalTransLaneCarrierGroupLossOfSignal_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupLossOfSignal=_IfOpticalTransLaneCarrierGroupLossOfSignal_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,10),_IfOpticalTransLaneCarrierGroupLossOfSignal_Type())
+ifOpticalTransLaneCarrierGroupLossOfSignal.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupLossOfSignal.setStatus(_B)
+class _IfOpticalTransLaneCarrierGroupRxPowerLevelLowRelativeThld_Type(Signed32WithNA):defaultValue=30;subtypeSpec=Signed32WithNA.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-50,100),ValueRangeConstraint(2147483646,2147483646),ValueRangeConstraint(2147483647,2147483647))
+_IfOpticalTransLaneCarrierGroupRxPowerLevelLowRelativeThld_Type.__name__=_O
+_IfOpticalTransLaneCarrierGroupRxPowerLevelLowRelativeThld_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupRxPowerLevelLowRelativeThld=_IfOpticalTransLaneCarrierGroupRxPowerLevelLowRelativeThld_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,11),_IfOpticalTransLaneCarrierGroupRxPowerLevelLowRelativeThld_Type())
+ifOpticalTransLaneCarrierGroupRxPowerLevelLowRelativeThld.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupRxPowerLevelLowRelativeThld.setStatus(_B)
+_IfOpticalTransLaneCarrierGroupRxPowerLevelLow_Type=FaultStatusWithNA
+_IfOpticalTransLaneCarrierGroupRxPowerLevelLow_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupRxPowerLevelLow=_IfOpticalTransLaneCarrierGroupRxPowerLevelLow_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,12),_IfOpticalTransLaneCarrierGroupRxPowerLevelLow_Type())
+ifOpticalTransLaneCarrierGroupRxPowerLevelLow.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupRxPowerLevelLow.setStatus(_B)
+_IfOpticalTransLaneCarrierGroupTxFrequency_Type=Frequency
+_IfOpticalTransLaneCarrierGroupTxFrequency_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupTxFrequency=_IfOpticalTransLaneCarrierGroupTxFrequency_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,13),_IfOpticalTransLaneCarrierGroupTxFrequency_Type())
+ifOpticalTransLaneCarrierGroupTxFrequency.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupTxFrequency.setStatus(_B)
+class _IfOpticalTransLaneCarrierGroupExpectedTxFrequency_Type(FrequencyOnlyNotApplicable):defaultValue=0
+_IfOpticalTransLaneCarrierGroupExpectedTxFrequency_Type.__name__=_AU
+_IfOpticalTransLaneCarrierGroupExpectedTxFrequency_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupExpectedTxFrequency=_IfOpticalTransLaneCarrierGroupExpectedTxFrequency_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,14),_IfOpticalTransLaneCarrierGroupExpectedTxFrequency_Type())
+ifOpticalTransLaneCarrierGroupExpectedTxFrequency.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupExpectedTxFrequency.setStatus(_B)
+_IfOpticalTransLaneCarrierGroupUnexpectedTxFrequency_Type=FaultStatusWithNA
+_IfOpticalTransLaneCarrierGroupUnexpectedTxFrequency_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupUnexpectedTxFrequency=_IfOpticalTransLaneCarrierGroupUnexpectedTxFrequency_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,15),_IfOpticalTransLaneCarrierGroupUnexpectedTxFrequency_Type())
+ifOpticalTransLaneCarrierGroupUnexpectedTxFrequency.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupUnexpectedTxFrequency.setStatus(_B)
+_IfOpticalTransLaneCarrierGroupIllegalTxFrequency_Type=FaultStatusWithNA
+_IfOpticalTransLaneCarrierGroupIllegalTxFrequency_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupIllegalTxFrequency=_IfOpticalTransLaneCarrierGroupIllegalTxFrequency_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,16),_IfOpticalTransLaneCarrierGroupIllegalTxFrequency_Type())
+ifOpticalTransLaneCarrierGroupIllegalTxFrequency.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupIllegalTxFrequency.setStatus(_B)
+class _IfOpticalTransLaneCarrierGroupCounterSesReset_Type(ResetWithNA):defaultValue=2
+_IfOpticalTransLaneCarrierGroupCounterSesReset_Type.__name__=_AV
+_IfOpticalTransLaneCarrierGroupCounterSesReset_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupCounterSesReset=_IfOpticalTransLaneCarrierGroupCounterSesReset_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,17),_IfOpticalTransLaneCarrierGroupCounterSesReset_Type())
+ifOpticalTransLaneCarrierGroupCounterSesReset.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupCounterSesReset.setStatus(_B)
+_IfOpticalTransLaneCarrierGroupMinimumLaneRxPowerLevel_Type=Signed32WithNA
+_IfOpticalTransLaneCarrierGroupMinimumLaneRxPowerLevel_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupMinimumLaneRxPowerLevel=_IfOpticalTransLaneCarrierGroupMinimumLaneRxPowerLevel_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,18),_IfOpticalTransLaneCarrierGroupMinimumLaneRxPowerLevel_Type())
+ifOpticalTransLaneCarrierGroupMinimumLaneRxPowerLevel.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupMinimumLaneRxPowerLevel.setStatus(_B)
+_IfOpticalTransLaneCarrierGroupReceiverLaneSensitivity_Type=Signed32WithNA
+_IfOpticalTransLaneCarrierGroupReceiverLaneSensitivity_Object=MibTableColumn
+ifOpticalTransLaneCarrierGroupReceiverLaneSensitivity=_IfOpticalTransLaneCarrierGroupReceiverLaneSensitivity_Object((1,3,6,1,4,1,8708,2,48,2,7,1,1,19),_IfOpticalTransLaneCarrierGroupReceiverLaneSensitivity_Type())
+ifOpticalTransLaneCarrierGroupReceiverLaneSensitivity.setMaxAccess(_C)
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupReceiverLaneSensitivity.setStatus(_B)
+ifOpticalGeneralGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,1))
+ifOpticalGeneralGroupV1.setObjects(*((_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2)))
+if mibBuilder.loadTexts:ifOpticalGeneralGroupV1.setStatus(_D)
+ifOpticalTransSectionGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,2))
+ifOpticalTransSectionGroupV1.setObjects(*((_A,_L),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g)))
+if mibBuilder.loadTexts:ifOpticalTransSectionGroupV1.setStatus(_D)
+ifOpticalChannelGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,3))
+ifOpticalChannelGroupV1.setObjects(*((_A,_M),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p)))
+if mibBuilder.loadTexts:ifOpticalChannelGroupV1.setStatus(_D)
+ifOpticalDigitalSignalRateGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,4))
+ifOpticalDigitalSignalRateGroupV1.setObjects(*((_A,_AW),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au)))
+if mibBuilder.loadTexts:ifOpticalDigitalSignalRateGroupV1.setStatus(_B)
+ifOpticalFecGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,5))
+ifOpticalFecGroupV1.setObjects(*((_A,_P),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA)))
+if mibBuilder.loadTexts:ifOpticalFecGroupV1.setStatus(_D)
+ifOpticalGeneralGroupV2=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,6))
+ifOpticalGeneralGroupV2.setObjects(*((_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_AY),(_A,_AZ),(_A,_Aa)))
+if mibBuilder.loadTexts:ifOpticalGeneralGroupV2.setStatus(_D)
+ifOpticalTransSectionGroupV2=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,7))
+ifOpticalTransSectionGroupV2.setObjects(*((_A,_L),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_AB)))
+if mibBuilder.loadTexts:ifOpticalTransSectionGroupV2.setStatus(_D)
+ifOpticalGeneralGroupV3=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,8))
+ifOpticalGeneralGroupV3.setObjects(*((_A,_s),(_A,_t),(_A,_u),(_A,_v),(_A,_w),(_A,_x),(_A,_y),(_A,_z),(_A,_A0),(_A,_A1),(_A,_A2),(_A,_AY),(_A,_AZ),(_A,_Aa),(_A,_Av),(_A,_Aw),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_)))
+if mibBuilder.loadTexts:ifOpticalGeneralGroupV3.setStatus(_B)
+ifOpticalTransLaneCarrierGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,9))
+ifOpticalTransLaneCarrierGroupV1.setObjects(*((_A,_AX),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC)))
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupV1.setStatus(_B)
+ifOpticalTransLaneCarrierGroupGroupV1=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,10))
+ifOpticalTransLaneCarrierGroupGroupV1.setObjects(*((_A,_Q),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ)))
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupGroupV1.setStatus(_D)
+ifOpticalTransLaneCarrierGroupGroupV2=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,11))
+ifOpticalTransLaneCarrierGroupGroupV2.setObjects(*((_A,_Q),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_Ab)))
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupGroupV2.setStatus(_D)
+ifOpticalTransLaneCarrierGroupGroupV3=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,12))
+ifOpticalTransLaneCarrierGroupGroupV3.setObjects(*((_A,_Q),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_Ab),(_A,_BD),(_A,_BE)))
+if mibBuilder.loadTexts:ifOpticalTransLaneCarrierGroupGroupV3.setStatus(_B)
+ifOpticalTransSectionGroupV3=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,13))
+ifOpticalTransSectionGroupV3.setObjects(*((_A,_L),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_AB),(_A,_Ac)))
+if mibBuilder.loadTexts:ifOpticalTransSectionGroupV3.setStatus(_D)
+ifOpticalChannelGroupV2=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,14))
+ifOpticalChannelGroupV2.setObjects(*((_A,_M),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_AR)))
+if mibBuilder.loadTexts:ifOpticalChannelGroupV2.setStatus(_D)
+ifOpticalFecGroupV2=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,15))
+ifOpticalFecGroupV2.setObjects(*((_A,_P),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_Ad),(_A,_Ae)))
+if mibBuilder.loadTexts:ifOpticalFecGroupV2.setStatus(_D)
+ifOpticalFecGroupV3=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,16))
+ifOpticalFecGroupV3.setObjects(*((_A,_P),(_A,_A3),(_A,_A4),(_A,_A5),(_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_Ad),(_A,_Ae),(_A,_BF)))
+if mibBuilder.loadTexts:ifOpticalFecGroupV3.setStatus(_B)
+ifOpticalChannelGroupV3=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,17))
+ifOpticalChannelGroupV3.setObjects(*((_A,_M),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_AR),(_A,_Af)))
+if mibBuilder.loadTexts:ifOpticalChannelGroupV3.setStatus(_D)
+ifOpticalTransSectionGroupV4=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,18))
+ifOpticalTransSectionGroupV4.setObjects(*((_A,_L),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_V),(_A,_W),(_A,_X),(_A,_Y),(_A,_Z),(_A,_a),(_A,_b),(_A,_c),(_A,_d),(_A,_e),(_A,_f),(_A,_g),(_A,_AB),(_A,_Ac),(_A,_BG)))
+if mibBuilder.loadTexts:ifOpticalTransSectionGroupV4.setStatus(_B)
+ifOpticalChannelGroupV4=ObjectGroup((1,3,6,1,4,1,8708,2,48,1,1,19))
+ifOpticalChannelGroupV4.setObjects(*((_A,_M),(_A,_h),(_A,_i),(_A,_j),(_A,_k),(_A,_l),(_A,_m),(_A,_n),(_A,_o),(_A,_p),(_A,_AR),(_A,_Af),(_A,_BH)))
+if mibBuilder.loadTexts:ifOpticalChannelGroupV4.setStatus(_B)
+lumIfOpticalComplV1=ModuleCompliance((1,3,6,1,4,1,8708,2,48,1,2,1))
+lumIfOpticalComplV1.setObjects(*((_A,_BI),(_A,_BJ),(_A,_G),(_A,_E)))
+if mibBuilder.loadTexts:lumIfOpticalComplV1.setStatus(_D)
+lumIfOpticalComplV2=ModuleCompliance((1,3,6,1,4,1,8708,2,48,1,2,2))
+lumIfOpticalComplV2.setObjects(*((_A,_BK),(_A,_q),(_A,_G),(_A,_E),(_A,_N)))
+if mibBuilder.loadTexts:lumIfOpticalComplV2.setStatus(_D)
+lumIfOpticalComplV3=ModuleCompliance((1,3,6,1,4,1,8708,2,48,1,2,3))
+lumIfOpticalComplV3.setObjects(*((_A,_H),(_A,_q),(_A,_G),(_A,_E),(_A,_N),(_A,_I),(_A,_BL)))
+if mibBuilder.loadTexts:lumIfOpticalComplV3.setStatus(_D)
+lumIfOpticalComplV4=ModuleCompliance((1,3,6,1,4,1,8708,2,48,1,2,4))
+lumIfOpticalComplV4.setObjects(*((_A,_H),(_A,_q),(_A,_G),(_A,_E),(_A,_N),(_A,_I),(_A,_BM)))
+if mibBuilder.loadTexts:lumIfOpticalComplV4.setStatus(_D)
+lumIfOpticalComplV5=ModuleCompliance((1,3,6,1,4,1,8708,2,48,1,2,5))
+lumIfOpticalComplV5.setObjects(*((_A,_H),(_A,_q),(_A,_G),(_A,_E),(_A,_N),(_A,_I),(_A,_K)))
+if mibBuilder.loadTexts:lumIfOpticalComplV5.setStatus(_D)
+lumIfOpticalComplV6=ModuleCompliance((1,3,6,1,4,1,8708,2,48,1,2,6))
+lumIfOpticalComplV6.setObjects(*((_A,_H),(_A,_Ag),(_A,_G),(_A,_E),(_A,_N),(_A,_I),(_A,_K)))
+if mibBuilder.loadTexts:lumIfOpticalComplV6.setStatus(_D)
+lumIfOpticalComplV7=ModuleCompliance((1,3,6,1,4,1,8708,2,48,1,2,7))
+lumIfOpticalComplV7.setObjects(*((_A,_H),(_A,_Ag),(_A,_G),(_A,_E),(_A,_BN),(_A,_I),(_A,_K)))
+if mibBuilder.loadTexts:lumIfOpticalComplV7.setStatus(_D)
+lumIfOpticalComplV8=ModuleCompliance((1,3,6,1,4,1,8708,2,48,1,2,8))
+lumIfOpticalComplV8.setObjects(*((_A,_H),(_A,_AS),(_A,_G),(_A,_E),(_A,_AT),(_A,_I),(_A,_K)))
+if mibBuilder.loadTexts:lumIfOpticalComplV8.setStatus(_D)
+lumIfOpticalComplV9=ModuleCompliance((1,3,6,1,4,1,8708,2,48,1,2,9))
+lumIfOpticalComplV9.setObjects(*((_A,_H),(_A,_AS),(_A,_Ah),(_A,_E),(_A,_AT),(_A,_I),(_A,_K)))
+if mibBuilder.loadTexts:lumIfOpticalComplV9.setStatus(_D)
+lumIfOpticalComplV10=ModuleCompliance((1,3,6,1,4,1,8708,2,48,1,2,10))
+lumIfOpticalComplV10.setObjects(*((_A,_H),(_A,_AS),(_A,_Ah),(_A,_E),(_A,_AT),(_A,_I),(_A,_K)))
+if mibBuilder.loadTexts:lumIfOpticalComplV10.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{'lumIfOpticalMIBModule':lumIfOpticalMIBModule,'lumIfOpticalConfs':lumIfOpticalConfs,'lumIfOpticalGroups':lumIfOpticalGroups,_BI:ifOpticalGeneralGroupV1,_BJ:ifOpticalTransSectionGroupV1,_G:ifOpticalChannelGroupV1,_E:ifOpticalDigitalSignalRateGroupV1,_N:ifOpticalFecGroupV1,_BK:ifOpticalGeneralGroupV2,_q:ifOpticalTransSectionGroupV2,_H:ifOpticalGeneralGroupV3,_I:ifOpticalTransLaneCarrierGroupV1,_BL:ifOpticalTransLaneCarrierGroupGroupV1,_BM:ifOpticalTransLaneCarrierGroupGroupV2,_K:ifOpticalTransLaneCarrierGroupGroupV3,_Ag:ifOpticalTransSectionGroupV3,'ifOpticalChannelGroupV2':ifOpticalChannelGroupV2,_BN:ifOpticalFecGroupV2,_AT:ifOpticalFecGroupV3,'ifOpticalChannelGroupV3':ifOpticalChannelGroupV3,_AS:ifOpticalTransSectionGroupV4,_Ah:ifOpticalChannelGroupV4,'lumIfOpticalCompl':lumIfOpticalCompl,'lumIfOpticalComplV1':lumIfOpticalComplV1,'lumIfOpticalComplV2':lumIfOpticalComplV2,'lumIfOpticalComplV3':lumIfOpticalComplV3,'lumIfOpticalComplV4':lumIfOpticalComplV4,'lumIfOpticalComplV5':lumIfOpticalComplV5,'lumIfOpticalComplV6':lumIfOpticalComplV6,'lumIfOpticalComplV7':lumIfOpticalComplV7,'lumIfOpticalComplV8':lumIfOpticalComplV8,'lumIfOpticalComplV9':lumIfOpticalComplV9,'lumIfOpticalComplV10':lumIfOpticalComplV10,'lumIfOpticalMIBObjects':lumIfOpticalMIBObjects,'ifOpticalGeneral':ifOpticalGeneral,_s:ifOpticalGeneralConfigLastChangeTime,_t:ifOpticalGeneralStateLastChangeTime,_u:ifOpticalGeneralIfOpticalTransSectionTableSize,_v:ifOpticalGeneralIfOpticalTransSectionConfigLastChangeTime,_w:ifOpticalGeneralIfOpticalTransSectionStateLastChangeTime,_x:ifOpticalGeneralIfOpticalChannelTableSize,_y:ifOpticalGeneralIfOpticalChannelConfigLastChangeTime,_z:ifOpticalGeneralIfOpticalChannelStateLastChangeTime,_A0:ifOpticalGeneralIfOpticalDigitalSignalRateTableSize,_A1:ifOpticalGeneralIfOpticalDigitalSignalRateConfigLastChangeTime,_A2:ifOpticalGeneralIfOpticalDigitalSignalRateStateLastChangeTime,_AY:ifOpticalGeneralIfOpticalFecTableSize,_AZ:ifOpticalGeneralIfOpticalFecConfigLastChangeTime,_Aa:ifOpticalGeneralIfOpticalFecStateLastChangeTime,_Av:ifOpticalGeneralIfOpticalTransLaneCarrierTableSize,_Aw:ifOpticalGeneralIfOpticalTransLaneCarrierConfigLastChangeTime,_Ax:ifOpticalGeneralIfOpticalTransLaneCarrierStateLastChangeTime,_Ay:ifOpticalGeneralIfOpticalTransLaneCarrierGroupTableSize,_Az:ifOpticalGeneralIfOpticalTransLaneCarrierGrConfigLastChangeTime,_A_:ifOpticalGeneralIfOpticalTransLaneCarrierGrStateLastChangeTime,'ifOpticalTransSectionList':ifOpticalTransSectionList,'ifOpticalTransSectionTable':ifOpticalTransSectionTable,'ifOpticalTransSectionEntry':ifOpticalTransSectionEntry,_L:ifOpticalTransSectionIndex,_R:ifOpticalTransSectionName,_S:ifOpticalTransSectionConnIfBasicIfIndex,_T:ifOpticalTransSectionForwardAls,_U:ifOpticalTransSectionRxPowerLevel,_V:ifOpticalTransSectionRxPowerLevelLowRelativeThld,_W:ifOpticalTransSectionTxPowerLevel,_X:ifOpticalTransSectionLaserMode,_Y:ifOpticalTransSectionLaserStatus,_Z:ifOpticalTransSectionReceiverSensitivity,_a:ifOpticalTransSectionTxSignalStatus,_b:ifOpticalTransSectionRxSignalStatus,_c:ifOpticalTransSectionLossOfSignal,_d:ifOpticalTransSectionRxPowerLevelLow,_e:ifOpticalTransSectionRxPowerLevelHigh,_f:ifOpticalTransSectionRxExcessiveInputPower,_g:ifOpticalTransSectionTxPowerLow,_AB:ifOpticalTransSectionRxPowerLevelLowAbsoluteThld,_Ac:ifOpticalTransSectionLossThld,_BG:ifOpticalTransSectionLaserForcedOn,'ifOpticalChannelList':ifOpticalChannelList,'ifOpticalChannelTable':ifOpticalChannelTable,'ifOpticalChannelEntry':ifOpticalChannelEntry,_M:ifOpticalChannelIndex,_h:ifOpticalChannelName,_i:ifOpticalChannelConnIfBasicIfIndex,_j:ifOpticalChannelTxFrequency,_k:ifOpticalChannelExpectedTxFrequency,_l:ifOpticalChannelTxSignalStatus,_m:ifOpticalChannelRxSignalStatus,_n:ifOpticalChannelIllegalTxFrequency,_o:ifOpticalChannelUnexpectedTxFrequency,_p:ifOpticalChannelNoTxFrequencySet,_AR:ifOpticalChannelDispersionSearchLimit,_Af:ifOpticalChannelLaserNotTuned,_BH:ifOpticalChannelLineCoding,'ifOpticalDigitalSignalRateList':ifOpticalDigitalSignalRateList,'ifOpticalDigitalSignalRateTable':ifOpticalDigitalSignalRateTable,'ifOpticalDigitalSignalRateEntry':ifOpticalDigitalSignalRateEntry,_AW:ifOpticalDigitalSignalRateIndex,_An:ifOpticalDigitalSignalRateName,_Ao:ifOpticalDigitalSignalRateConnIfBasicIfIndex,_Ap:ifOpticalDigitalSignalRateMaxBitRate,_Aq:ifOpticalDigitalSignalRateMinBitRate,_Ar:ifOpticalDigitalSignalRateTxSignalStatus,_As:ifOpticalDigitalSignalRateRxSignalStatus,_At:ifOpticalDigitalSignalRateLossOfLock,_Au:ifOpticalDigitalSignalRateBitrateUnavailable,'ifOpticalFecList':ifOpticalFecList,'ifOpticalFecTable':ifOpticalFecTable,'ifOpticalFecEntry':ifOpticalFecEntry,_P:ifOpticalFecIndex,_A3:ifOpticalFecName,_A4:ifOpticalFecConnIfBasicIfIndex,_A5:ifOpticalFecType,_A6:ifOpticalFecTxSignalStatus,_A7:ifOpticalFecRxSignalStatus,_A8:ifOpticalFecFailure,_A9:ifOpticalFecSignalDegraded,_AA:ifOpticalFecSignalDegradeThreshold,_Ad:ifOpticalFecTypeUnavailable,_Ae:ifOpticalFecUId,_BF:ifOpticalFecDecModeMismatch,'ifOpticalTransLaneCarrierList':ifOpticalTransLaneCarrierList,'ifOpticalTransLaneCarrierTable':ifOpticalTransLaneCarrierTable,'ifOpticalTransLaneCarrierEntry':ifOpticalTransLaneCarrierEntry,_AX:ifOpticalTransLaneCarrierIndex,_B0:ifOpticalTransLaneCarrierName,_B1:ifOpticalTransLaneCarrierConnIfBasicIfIndex,_B2:ifOpticalTransLaneCarrierConnIfOpticalTransLaneCarrierGrIndex,_B3:ifOpticalTransLaneCarrierLaneId,_B4:ifOpticalTransLaneCarrierTxSignalStatus,_B5:ifOpticalTransLaneCarrierRxSignalStatus,_B6:ifOpticalTransLaneCarrierRxPowerLevel,_B7:ifOpticalTransLaneCarrierLossOfSignal,_B8:ifOpticalTransLaneCarrierReceiverSensitivity,_B9:ifOpticalTransLaneCarrierRxPowerLevelLow,_BA:ifOpticalTransLaneCarrierTxFrequency,_BB:ifOpticalTransLaneCarrierCounterSes,_BC:ifOpticalTransLaneCarrierCounterSesReset,'ifOpticalTransLaneCarrierGroupList':ifOpticalTransLaneCarrierGroupList,'ifOpticalTransLaneCarrierGroupTable':ifOpticalTransLaneCarrierGroupTable,'ifOpticalTransLaneCarrierGroupEntry':ifOpticalTransLaneCarrierGroupEntry,_Q:ifOpticalTransLaneCarrierGroupIndex,_AC:ifOpticalTransLaneCarrierGroupName,_AD:ifOpticalTransLaneCarrierGroupConnIfBasicIfIndex,_AJ:ifOpticalTransLaneCarrierGroupTxSignalStatus,_AH:ifOpticalTransLaneCarrierGroupRxSignalStatus,_AE:ifOpticalTransLaneCarrierGroupForwardAls,_AF:ifOpticalTransLaneCarrierGroupLaserStatus,_AG:ifOpticalTransLaneCarrierGroupTxPowerLevel,_AI:ifOpticalTransLaneCarrierGroupRxPowerLevel,_AK:ifOpticalTransLaneCarrierGroupLossOfSignal,_AL:ifOpticalTransLaneCarrierGroupRxPowerLevelLowRelativeThld,_AM:ifOpticalTransLaneCarrierGroupRxPowerLevelLow,_AN:ifOpticalTransLaneCarrierGroupTxFrequency,_AO:ifOpticalTransLaneCarrierGroupExpectedTxFrequency,_AP:ifOpticalTransLaneCarrierGroupUnexpectedTxFrequency,_AQ:ifOpticalTransLaneCarrierGroupIllegalTxFrequency,_Ab:ifOpticalTransLaneCarrierGroupCounterSesReset,_BD:ifOpticalTransLaneCarrierGroupMinimumLaneRxPowerLevel,_BE:ifOpticalTransLaneCarrierGroupReceiverLaneSensitivity})

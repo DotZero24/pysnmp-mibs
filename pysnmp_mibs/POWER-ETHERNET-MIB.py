@@ -1,114 +1,246 @@
-#
-# PySNMP MIB module POWER-ETHERNET-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/POWER-ETHERNET-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:24:05 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( softentIND1InLinePower, ) = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "softentIND1InLinePower")
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
-( InterfaceIndex, ) = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-( ObjectGroup, NotificationGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-( Bits, Integer32, Counter64, TimeTicks, IpAddress, Gauge32, MibIdentifier, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, iso, NotificationType, ModuleIdentity, Counter32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Integer32", "Counter64", "TimeTicks", "IpAddress", "Gauge32", "MibIdentifier", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "iso", "NotificationType", "ModuleIdentity", "Counter32")
-( TruthValue, DisplayString, TextualConvention, ) = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-powerEthernetMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999)).setRevisions(("2002-12-02 00:00",))
-if mibBuilder.loadTexts: powerEthernetMIB.setLastUpdated('200212020000Z')
-if mibBuilder.loadTexts: powerEthernetMIB.setOrganization('IETF Ethernet Interfaces and Hub MIB\n                         Working Group')
-if mibBuilder.loadTexts: powerEthernetMIB.setContactInfo('\n\n                       Chair: Dan Romascanu\n                                  Avaya Inc.\n                                  Tel:  +972-3-645-8414\n                                  Email: dromasca@avaya.com\n\n                       Editor: Avi Berger\n                                 PowerDsine Inc.\n                                   Tel:    972-9-7755100 Ext 307\n                                  Fax:    972-9-7755120\n                                   E-mail: avib@PowerDsine.com\n           ')
-if mibBuilder.loadTexts: powerEthernetMIB.setDescription('The MIB module for for managing Powered Devices (PD) or\n                   Power Source Equipment (PSE) working according to the IEEE\n                   802.af Powered Ethernet (DTE Power via MDI) standard.\n                  The following terms are used throughout this\n                  MIB module.  For complete formal definitions,\n                  the IEEE 802.3 standards should be consulted\n                  wherever possible:\n\n                  Group - A recommended, but optional, entity\n                  defined by the IEEE 802.3 management standard,\n                  in order to support a modular numbering scheme.\n                  The classical example allows an implementor to\n                  represent field-replaceable units as groups of\n                  ports, with the port numbering matching the\n                  modular hardware implementation.\n\n                   Port - This entity identifies the port within the group\n                   for which this entry contains information. The numbering\n                   scheme for ports is implementation specific.')
-pethNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 0))
-pethObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1))
-pethConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 2))
-pethPsePortTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 1), )
-if mibBuilder.loadTexts: pethPsePortTable.setDescription('A table of objects that display and control the power\n               characteristics power Ethernet ports on a Power Source\n               Entity (PSE) device. This group will be implemented in\n               managed power Ethernet switches and mid-span devices.')
-pethPsePortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 1, 1), ).setIndexNames((0, "POWER-ETHERNET-MIB", "pethPsePortGroupIndex"), (0, "POWER-ETHERNET-MIB", "pethPsePortIndex"))
-if mibBuilder.loadTexts: pethPsePortEntry.setDescription('A set of objects that display and control the power\n                  characteristics of a power Ethernet PSE port.')
-pethPsePortGroupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: pethPsePortGroupIndex.setDescription('This variable uniquely identifies the group\n               containing the port to which a power Ethernet PSE is connected.\n               Group means box in the stack, module in a rack and the value 1\n               MUST be used for non-modular devices .\n               pethPseMidSpanGroupCapacity is the number of Mid-Span PSE\n               groups that can be contained within the Mid-Span PSE.')
-pethPsePortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: pethPsePortIndex.setDescription('This variable uniquely identifies the power Ethernet PSE\n               port within group pethPseGroupIndex to which the\n               power Ethernet PSE entry is connected.')
-pethPsePortAdminEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pethPsePortAdminEnable.setDescription('Enables power supply on this port.\n            Setting this object at a value enable(1) enables power\n            and detection mechanism for this port.\n            Setting this object at a value disable(2) disables power\n            for this port.')
-pethPsePortPowerPairsControlAbility = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 1, 1, 4), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pethPsePortPowerPairsControlAbility.setDescription('Describes the capability of controlling the power pairs\n            functionality to switch pins for sourcing power.\n            The value true indicate that the device has the capability\n            to control the power pairs')
-pethPsePortPowerPairs = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("signal", 1), ("spare", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pethPsePortPowerPairs.setDescription('Describes or controls the pairs in use. If the value of\n            pethPsePortPowerPairsControl is true, this object is\n            writable.\n            A value of signal(1) means that the signal pairs\n            only are in use.\n            A value of spare(2) means that the spare pairs\n            only are in use.')
-pethPsePortPowerDetectionControl = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("auto", 1), ("test", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pethPsePortPowerDetectionControl.setDescription('Controls the power detection mechanism of the port.\n            Setting the value auto(1) enables the power detection\n            mechanism of the port.\n            Setting the value test(2) puts the port in a\n            testmode: force continuous discovery without applying\n            power regardless of whether PD detected.')
-pethPsePortDetectionStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4, 5, 7, 8,))).clone(namedValues=NamedValues(("disabled", 1), ("searching", 2), ("deliveringPower", 4), ("fault", 5), ("test", 7), ("denyLowPriority", 8),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pethPsePortDetectionStatus.setDescription('Describes the operational status of the port PD detection.\n            A value of disabled(1)- indicates that the PSE State diagram is in\n            the state IDLE\n            A value of searching(2)- indicates that the PSE State diagram is in\n            the state DETECTION, CLASSIFICATION, SIGNATURE_INVALID or BACKOFF.\n            A value of deliveringPower(4) - indicates that the PSE State diagram\n            is in the state POWER_UP, POWER_ON or POWER_OFF.\n            A value of fault(5) - indicates that the PSE State diagram is in the\n            state TEST_ERROR or the state IDLE due to the variable error\n            condition.\n            Faults detected are vendor specific.\n            A value of test(7) - indicates that the PSE State diagram is in the\n            state TEST_MODE.\n            A value of denyLowPriority(8) indicates that the port was\n            disabled by the power management system, in order to keep\n            active higher priority ports.\n             ')
-pethPsePortPowerPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("critical", 1), ("high", 2), ("low", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pethPsePortPowerPriority.setDescription('This object controls the priority of the port from the point\n            of view of a power management algorithm. The priority that\n            is set by this variable could be used by a control mechanism\n            that prevents over current situations by disconnecting first\n            ports with lower power priority. Ports that connect devices\n            critical to the operation of the network - like the E911\n            telephones ports - should be set to higher priority.')
-pethPsePortPowerMaintenanceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("ok", 1), ("underCurrent", 2), ("mPSAbsent", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pethPsePortPowerMaintenanceStatus.setDescription('The value ok(1) indicates the Power Maintenance\n            Signature is present and the overcurrent condition has not been\n            detected.\n            The value overCurrent (2) indicates an overcurrent condition\n            has been detected.\n            The value mPSAbsent(3) indicates that the Power Maintenance\n            Signature is absent.')
-pethPsePortMPSAbsentCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pethPsePortMPSAbsentCounter.setDescription('Counts the number of times that the\n                pethPsePortPowerMaintenanceStatus attribute changes from any\n                value to the value mPSAbsent(3).')
-pethPsePortOverCurrentCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 1, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pethPsePortOverCurrentCounter.setDescription('Counts the number of times that the aPSEPowerCurrentStatus\n                 attribute changes from any value to the value overCurrent(2).')
-pethPsePortType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("other", 1), ("telephone", 2), ("webcam", 3), ("wireless", 4),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pethPsePortType.setDescription('A manager will set the value of this variable to a value\n            that indicates the type of the device that is connected\n            to theport. This value can be the result of the mapping\n            the address of the station connected to the port and of\n            the value of the pethPdPortType of the respective PD port.')
-pethPsePortPowerClassifications = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("class0", 1), ("class1", 2), ("class2", 3), ("class3", 4), ("class4", 5),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pethPsePortPowerClassifications.setDescription('Classification is a way to tag different terminals on the\n           Power over LAN network according to their power consumption.\n           Devices such as IP telephones, WLAN access points and others,\n           will be classified according to their power requirements.\n\n          The value is only valid while a valid PD is being detected as\n          indicated by the attribute pethPsePortDetectionStatus reporting\n          the value or deliveringPower(4).')
-pethPdPortTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 2), )
-if mibBuilder.loadTexts: pethPdPortTable.setDescription('A table of objects that display and control the power\n               characteristics power Ethernet ports on a Powered\n               Device(PD) device. This group will be implemented in\n               managed powered and mid-span devices.')
-pethPdPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 2, 1), ).setIndexNames((0, "POWER-ETHERNET-MIB", "pethPdPortIndex"))
-if mibBuilder.loadTexts: pethPdPortEntry.setDescription('A set of objects that display and control the power\n               characteristics of a Powered Device port.')
-pethPdPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 2, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: pethPdPortIndex.setDescription('An index value that uniquely identifies an\n               interface to a PD device.  The\n               interface identified by a particular value of\n               this index is the same interface as identified\n               by the same value of ifIndex. The mapping\n               between the ifIndex values and the numbering of\n               the port on the device is an implementation\n               issue.')
-pethPdPortAdminEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pethPdPortAdminEnable.setDescription('This value  identifies the operational state of the PD functions.\n                 An interface which can provide the PD functions will be enabled\n                 to do so when this attribute has the value enable. When this\n                 attribute has the value disable the interface will act\n                 as it would if it had no PD function.')
-pethMainPseObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 3))
-pethMainPseTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 3, 1), )
-if mibBuilder.loadTexts: pethMainPseTable.setDescription("A table of objects that display and control the Main power\n             on a PSE  device. Example - an Ethernet switch midspan device can\n               control an Ethnternet port and the Main Power supply unit's.")
-pethMainPseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 3, 1, 1), ).setIndexNames((0, "POWER-ETHERNET-MIB", "pethMainPseGroupIndex"))
-if mibBuilder.loadTexts: pethMainPseEntry.setDescription('A set of objects that display and control the Main power\n                of a PSE. ')
-pethMainPseGroupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: pethMainPseGroupIndex.setDescription('This variable uniquely identifies the group to which\n              power Ethernet PSE is connected.Group means (box in the stack,\n              module in a rack) and  the value 1 MUST be  used for non-modular\n              devices ')
-pethMainPsePower = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 3, 1, 1, 2), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(1,65535))).setUnits('Watts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pethMainPsePower.setDescription('The nominal power of the PSE expressed in Watts.')
-pethMainPseOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("on", 1), ("off", 2), ("faulty", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pethMainPseOperStatus.setDescription('The operational status of the main PSE.')
-pethMainPseConsumptionPower = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 3, 1, 1, 4), Gauge32()).setUnits('Watts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pethMainPseConsumptionPower.setDescription('Measured usage power expressed in Watts.')
-pethMainPseUsageThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 3, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,99))).setUnits('%').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pethMainPseUsageThreshold.setDescription('The usage threshold expressed in percents for\n                   comparing the measured power and initiating\n                   an alarm if the threshold is exceeded.')
-pethNotificationControl = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 4))
-pethNotificationControlTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 4, 1), )
-if mibBuilder.loadTexts: pethNotificationControlTable.setDescription('A table of objects that display and control the Notification\n             on a PSE  device.')
-pethNotificationControlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 4, 1, 1), ).setIndexNames((0, "POWER-ETHERNET-MIB", "pethNotificationControlGroupIndex"))
-if mibBuilder.loadTexts: pethNotificationControlEntry.setDescription('A set of objects that control the Notification events.')
-pethNotificationControlGroupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: pethNotificationControlGroupIndex.setDescription('This variable uniquely identifies the group. Group means\n              box in the stack, module in a rack and it is RECOMENDED\n              that the value 1 be used for non-modular devices ')
-pethNotificationControlEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 1, 4, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pethNotificationControlEnable.setDescription('Enable Notification from Agent')
-pethPsePortOnOffNotification = NotificationType((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 0, 1)).setObjects(*(("POWER-ETHERNET-MIB", "pethPsePortDetectionStatus"),))
-if mibBuilder.loadTexts: pethPsePortOnOffNotification.setDescription(' This Notification indicates if Pse Port is  delivering  or\n                       not power to the PD. This Notification SHOULD be sent on\n                       every status change except in the searching mode.')
-pethPsePortPowerMaintenanceStatusNotification = NotificationType((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 0, 2)).setObjects(*(("POWER-ETHERNET-MIB", "pethPsePortPowerMaintenanceStatus"),))
-if mibBuilder.loadTexts: pethPsePortPowerMaintenanceStatusNotification.setDescription(' This Notification indicates a Port Change Status and it\n                        SHOULD be sent on every status change.')
-pethMainPowerUsageOnNotification = NotificationType((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 0, 4)).setObjects(*(("POWER-ETHERNET-MIB", "pethMainPseConsumptionPower"),))
-if mibBuilder.loadTexts: pethMainPowerUsageOnNotification.setDescription(' This Notification indicate PSE Threshold usage indication is\n                       on, the usage power is above the threshold.')
-pethMainPowerUsageOffNotification = NotificationType((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 0, 5)).setObjects(*(("POWER-ETHERNET-MIB", "pethMainPseConsumptionPower"),))
-if mibBuilder.loadTexts: pethMainPowerUsageOffNotification.setDescription(' This Notification indicate PSE Threshold usage indication\n                       off, the usage power is below the threshold.')
-pethCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 2, 1))
-pethGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 2, 2))
-pethCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 2, 1, 1)).setObjects(*(("POWER-ETHERNET-MIB", "pethPsePortGroup"), ("POWER-ETHERNET-MIB", "pethPdPortGroup"), ("POWER-ETHERNET-MIB", "pethMainPseGroup"), ("POWER-ETHERNET-MIB", "pethNotificationControlGroup"),))
-if mibBuilder.loadTexts: pethCompliance.setDescription('Describes the requirements for conformance to the\n               Power Ethernet MIB.')
-pethPseCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 2, 1, 2)).setObjects(*(("POWER-ETHERNET-MIB", "pethPsePortGroup"), ("POWER-ETHERNET-MIB", "pethMainPseGroup"), ("POWER-ETHERNET-MIB", "pethNotificationControlGroup"),))
-if mibBuilder.loadTexts: pethPseCompliance.setDescription('Describes the requirements for conformance to the PSE and MID-\n                Span.')
-pethPdCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 2, 1, 3)).setObjects(*(("POWER-ETHERNET-MIB", "pethPdPortGroup"),))
-if mibBuilder.loadTexts: pethPdCompliance.setDescription('Describes the requirements for conformance to the PD.')
-pethPsePortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 2, 2, 1)).setObjects(*(("POWER-ETHERNET-MIB", "pethPsePortAdminEnable"), ("POWER-ETHERNET-MIB", "pethPsePortPowerPairsControlAbility"), ("POWER-ETHERNET-MIB", "pethPsePortPowerDetectionControl"), ("POWER-ETHERNET-MIB", "pethPsePortPowerPairs"), ("POWER-ETHERNET-MIB", "pethPsePortDetectionStatus"), ("POWER-ETHERNET-MIB", "pethPsePortPowerPriority"), ("POWER-ETHERNET-MIB", "pethPsePortPowerMaintenanceStatus"), ("POWER-ETHERNET-MIB", "pethPsePortMPSAbsentCounter"), ("POWER-ETHERNET-MIB", "pethPsePortOverCurrentCounter"), ("POWER-ETHERNET-MIB", "pethPsePortType"), ("POWER-ETHERNET-MIB", "pethPsePortPowerClassifications"),))
-if mibBuilder.loadTexts: pethPsePortGroup.setDescription('The pethPsePortGroup is mandatory for systems which\n             implement PSE ports.')
-pethPdPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 2, 2, 2)).setObjects(*(("POWER-ETHERNET-MIB", "pethPdPortAdminEnable"),))
-if mibBuilder.loadTexts: pethPdPortGroup.setDescription('The pethPdPortGroup is mandatory for systems which\n        implement PD Ports.')
-pethMainPseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 2, 2, 3)).setObjects(*(("POWER-ETHERNET-MIB", "pethMainPsePower"), ("POWER-ETHERNET-MIB", "pethMainPseOperStatus"), ("POWER-ETHERNET-MIB", "pethMainPseConsumptionPower"), ("POWER-ETHERNET-MIB", "pethMainPseUsageThreshold"),))
-if mibBuilder.loadTexts: pethMainPseGroup.setDescription('Main PSE Objects. ')
-pethNotificationControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 2, 2, 4)).setObjects(*(("POWER-ETHERNET-MIB", "pethNotificationControlEnable"),))
-if mibBuilder.loadTexts: pethNotificationControlGroup.setDescription('Notification Control  Objects. ')
-pethPsePortNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 2, 1, 4)).setObjects(*(("POWER-ETHERNET-MIB", "pethPsePortOnOffNotification"), ("POWER-ETHERNET-MIB", "pethPsePortPowerMaintenanceStatusNotification"),))
-if mibBuilder.loadTexts: pethPsePortNotificationGroup.setDescription('Pse Notification indications')
-pethMainPowerNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 27, 999, 2, 1, 5)).setObjects(*(("POWER-ETHERNET-MIB", "pethMainPowerUsageOnNotification"), ("POWER-ETHERNET-MIB", "pethMainPowerUsageOffNotification"),))
-if mibBuilder.loadTexts: pethMainPowerNotificationGroup.setDescription('Pse Notification indications')
-mibBuilder.exportSymbols("POWER-ETHERNET-MIB", pethPdPortAdminEnable=pethPdPortAdminEnable, pethPsePortMPSAbsentCounter=pethPsePortMPSAbsentCounter, pethPsePortIndex=pethPsePortIndex, pethMainPseTable=pethMainPseTable, pethPsePortOnOffNotification=pethPsePortOnOffNotification, pethPdPortTable=pethPdPortTable, pethMainPseObjects=pethMainPseObjects, pethMainPseConsumptionPower=pethMainPseConsumptionPower, pethConformance=pethConformance, pethPsePortPowerClassifications=pethPsePortPowerClassifications, pethNotificationControl=pethNotificationControl, pethNotificationControlEnable=pethNotificationControlEnable, pethMainPseGroupIndex=pethMainPseGroupIndex, pethPdPortIndex=pethPdPortIndex, pethNotificationControlGroup=pethNotificationControlGroup, pethPsePortGroup=pethPsePortGroup, pethPsePortAdminEnable=pethPsePortAdminEnable, pethPsePortPowerMaintenanceStatusNotification=pethPsePortPowerMaintenanceStatusNotification, pethPsePortPowerDetectionControl=pethPsePortPowerDetectionControl, PYSNMP_MODULE_ID=powerEthernetMIB, pethPsePortType=pethPsePortType, pethNotificationControlGroupIndex=pethNotificationControlGroupIndex, pethMainPowerUsageOnNotification=pethMainPowerUsageOnNotification, pethPdPortEntry=pethPdPortEntry, pethCompliance=pethCompliance, pethPseCompliance=pethPseCompliance, pethObjects=pethObjects, pethPdPortGroup=pethPdPortGroup, pethPsePortPowerMaintenanceStatus=pethPsePortPowerMaintenanceStatus, pethPdCompliance=pethPdCompliance, pethPsePortTable=pethPsePortTable, powerEthernetMIB=powerEthernetMIB, pethPsePortNotificationGroup=pethPsePortNotificationGroup, pethMainPowerNotificationGroup=pethMainPowerNotificationGroup, pethPsePortPowerPairs=pethPsePortPowerPairs, pethNotificationControlTable=pethNotificationControlTable, pethGroups=pethGroups, pethPsePortOverCurrentCounter=pethPsePortOverCurrentCounter, pethMainPseOperStatus=pethMainPseOperStatus, pethPsePortGroupIndex=pethPsePortGroupIndex, pethPsePortEntry=pethPsePortEntry, pethMainPsePower=pethMainPsePower, pethPsePortDetectionStatus=pethPsePortDetectionStatus, pethNotificationControlEntry=pethNotificationControlEntry, pethMainPseEntry=pethMainPseEntry, pethMainPseGroup=pethMainPseGroup, pethPsePortPowerPairsControlAbility=pethPsePortPowerPairsControlAbility, pethCompliances=pethCompliances, pethNotifications=pethNotifications, pethPsePortPowerPriority=pethPsePortPowerPriority, pethMainPowerUsageOffNotification=pethMainPowerUsageOffNotification, pethMainPseUsageThreshold=pethMainPseUsageThreshold)
+_m='pethMainPowerNotificationGroup'
+_l='pethMainPseGroup'
+_k='pethNotificationControlGroup'
+_j='pethPsePortNotificationGroup'
+_i='pethPsePortGroup'
+_h='pethMainPowerUsageOffNotification'
+_g='pethMainPowerUsageOnNotification'
+_f='pethPsePortOnOffNotification'
+_e='pethNotificationControlEnable'
+_d='pethMainPseUsageThreshold'
+_c='pethMainPseOperStatus'
+_b='pethMainPsePower'
+_a='pethPsePortCumulativeEnergy'
+_Z='pethPsePortPowerAccuracy'
+_Y='pethPsePortActualPower'
+_X='pethPsePortPowerClassifications'
+_W='pethPsePortType'
+_V='pethPsePortShortCounter'
+_U='pethPsePortOverLoadCounter'
+_T='pethPsePortPowerDeniedCounter'
+_S='pethPsePortInvalidSignatureCounter'
+_R='pethPsePortMPSAbsentCounter'
+_Q='pethPsePortPowerPriority'
+_P='pethPsePortPowerPairs'
+_O='pethPsePortPowerPairsControlAbility'
+_N='pethPsePortAdminEnable'
+_M='pethNotificationControlGroupIndex'
+_L='pethMainPseGroupIndex'
+_K='pethPsePortIndex'
+_J='pethPsePortGroupIndex'
+_I='Gauge32'
+_H='pethPsePortDetectionStatus'
+_G='pethMainPseConsumptionPower'
+_F='not-accessible'
+_E='read-write'
+_D='Integer32'
+_C='read-only'
+_B='POWER-ETHERNET-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB','SnmpAdminString')
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64',_I,_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention','TruthValue')
+powerEthernetMIB=ModuleIdentity((1,3,6,1,2,1,105))
+if mibBuilder.loadTexts:powerEthernetMIB.setRevisions(('2003-11-24 00:00',))
+_PethNotifications_ObjectIdentity=ObjectIdentity
+pethNotifications=_PethNotifications_ObjectIdentity((1,3,6,1,2,1,105,0))
+_PethObjects_ObjectIdentity=ObjectIdentity
+pethObjects=_PethObjects_ObjectIdentity((1,3,6,1,2,1,105,1))
+_PethPsePortTable_Object=MibTable
+pethPsePortTable=_PethPsePortTable_Object((1,3,6,1,2,1,105,1,1))
+if mibBuilder.loadTexts:pethPsePortTable.setStatus(_A)
+_PethPsePortEntry_Object=MibTableRow
+pethPsePortEntry=_PethPsePortEntry_Object((1,3,6,1,2,1,105,1,1,1))
+pethPsePortEntry.setIndexNames((0,_B,_J),(0,_B,_K))
+if mibBuilder.loadTexts:pethPsePortEntry.setStatus(_A)
+class _PethPsePortGroupIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_PethPsePortGroupIndex_Type.__name__=_D
+_PethPsePortGroupIndex_Object=MibTableColumn
+pethPsePortGroupIndex=_PethPsePortGroupIndex_Object((1,3,6,1,2,1,105,1,1,1,1),_PethPsePortGroupIndex_Type())
+pethPsePortGroupIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:pethPsePortGroupIndex.setStatus(_A)
+class _PethPsePortIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_PethPsePortIndex_Type.__name__=_D
+_PethPsePortIndex_Object=MibTableColumn
+pethPsePortIndex=_PethPsePortIndex_Object((1,3,6,1,2,1,105,1,1,1,2),_PethPsePortIndex_Type())
+pethPsePortIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:pethPsePortIndex.setStatus(_A)
+_PethPsePortAdminEnable_Type=TruthValue
+_PethPsePortAdminEnable_Object=MibTableColumn
+pethPsePortAdminEnable=_PethPsePortAdminEnable_Object((1,3,6,1,2,1,105,1,1,1,3),_PethPsePortAdminEnable_Type())
+pethPsePortAdminEnable.setMaxAccess(_E)
+if mibBuilder.loadTexts:pethPsePortAdminEnable.setStatus(_A)
+_PethPsePortPowerPairsControlAbility_Type=TruthValue
+_PethPsePortPowerPairsControlAbility_Object=MibTableColumn
+pethPsePortPowerPairsControlAbility=_PethPsePortPowerPairsControlAbility_Object((1,3,6,1,2,1,105,1,1,1,4),_PethPsePortPowerPairsControlAbility_Type())
+pethPsePortPowerPairsControlAbility.setMaxAccess(_C)
+if mibBuilder.loadTexts:pethPsePortPowerPairsControlAbility.setStatus(_A)
+class _PethPsePortPowerPairs_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('signal',1),('spare',2)))
+_PethPsePortPowerPairs_Type.__name__=_D
+_PethPsePortPowerPairs_Object=MibTableColumn
+pethPsePortPowerPairs=_PethPsePortPowerPairs_Object((1,3,6,1,2,1,105,1,1,1,5),_PethPsePortPowerPairs_Type())
+pethPsePortPowerPairs.setMaxAccess(_E)
+if mibBuilder.loadTexts:pethPsePortPowerPairs.setStatus(_A)
+class _PethPsePortDetectionStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('disabled',1),('searching',2),('deliveringPower',3),('fault',4),('test',5),('otherFault',6)))
+_PethPsePortDetectionStatus_Type.__name__=_D
+_PethPsePortDetectionStatus_Object=MibTableColumn
+pethPsePortDetectionStatus=_PethPsePortDetectionStatus_Object((1,3,6,1,2,1,105,1,1,1,6),_PethPsePortDetectionStatus_Type())
+pethPsePortDetectionStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:pethPsePortDetectionStatus.setStatus(_A)
+class _PethPsePortPowerPriority_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('critical',1),('high',2),('low',3)))
+_PethPsePortPowerPriority_Type.__name__=_D
+_PethPsePortPowerPriority_Object=MibTableColumn
+pethPsePortPowerPriority=_PethPsePortPowerPriority_Object((1,3,6,1,2,1,105,1,1,1,7),_PethPsePortPowerPriority_Type())
+pethPsePortPowerPriority.setMaxAccess(_E)
+if mibBuilder.loadTexts:pethPsePortPowerPriority.setStatus(_A)
+_PethPsePortMPSAbsentCounter_Type=Counter32
+_PethPsePortMPSAbsentCounter_Object=MibTableColumn
+pethPsePortMPSAbsentCounter=_PethPsePortMPSAbsentCounter_Object((1,3,6,1,2,1,105,1,1,1,8),_PethPsePortMPSAbsentCounter_Type())
+pethPsePortMPSAbsentCounter.setMaxAccess(_C)
+if mibBuilder.loadTexts:pethPsePortMPSAbsentCounter.setStatus(_A)
+_PethPsePortType_Type=SnmpAdminString
+_PethPsePortType_Object=MibTableColumn
+pethPsePortType=_PethPsePortType_Object((1,3,6,1,2,1,105,1,1,1,9),_PethPsePortType_Type())
+pethPsePortType.setMaxAccess(_E)
+if mibBuilder.loadTexts:pethPsePortType.setStatus(_A)
+class _PethPsePortPowerClassifications_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('class0',1),('class1',2),('class2',3),('class3',4),('class4',5)))
+_PethPsePortPowerClassifications_Type.__name__=_D
+_PethPsePortPowerClassifications_Object=MibTableColumn
+pethPsePortPowerClassifications=_PethPsePortPowerClassifications_Object((1,3,6,1,2,1,105,1,1,1,10),_PethPsePortPowerClassifications_Type())
+pethPsePortPowerClassifications.setMaxAccess(_C)
+if mibBuilder.loadTexts:pethPsePortPowerClassifications.setStatus(_A)
+_PethPsePortInvalidSignatureCounter_Type=Counter32
+_PethPsePortInvalidSignatureCounter_Object=MibTableColumn
+pethPsePortInvalidSignatureCounter=_PethPsePortInvalidSignatureCounter_Object((1,3,6,1,2,1,105,1,1,1,11),_PethPsePortInvalidSignatureCounter_Type())
+pethPsePortInvalidSignatureCounter.setMaxAccess(_C)
+if mibBuilder.loadTexts:pethPsePortInvalidSignatureCounter.setStatus(_A)
+_PethPsePortPowerDeniedCounter_Type=Counter32
+_PethPsePortPowerDeniedCounter_Object=MibTableColumn
+pethPsePortPowerDeniedCounter=_PethPsePortPowerDeniedCounter_Object((1,3,6,1,2,1,105,1,1,1,12),_PethPsePortPowerDeniedCounter_Type())
+pethPsePortPowerDeniedCounter.setMaxAccess(_C)
+if mibBuilder.loadTexts:pethPsePortPowerDeniedCounter.setStatus(_A)
+_PethPsePortOverLoadCounter_Type=Counter32
+_PethPsePortOverLoadCounter_Object=MibTableColumn
+pethPsePortOverLoadCounter=_PethPsePortOverLoadCounter_Object((1,3,6,1,2,1,105,1,1,1,13),_PethPsePortOverLoadCounter_Type())
+pethPsePortOverLoadCounter.setMaxAccess(_C)
+if mibBuilder.loadTexts:pethPsePortOverLoadCounter.setStatus(_A)
+_PethPsePortShortCounter_Type=Counter32
+_PethPsePortShortCounter_Object=MibTableColumn
+pethPsePortShortCounter=_PethPsePortShortCounter_Object((1,3,6,1,2,1,105,1,1,1,14),_PethPsePortShortCounter_Type())
+pethPsePortShortCounter.setMaxAccess(_C)
+if mibBuilder.loadTexts:pethPsePortShortCounter.setStatus(_A)
+_PethPsePortActualPower_Type=Integer32
+_PethPsePortActualPower_Object=MibTableColumn
+pethPsePortActualPower=_PethPsePortActualPower_Object((1,3,6,1,2,1,105,1,1,1,15),_PethPsePortActualPower_Type())
+pethPsePortActualPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:pethPsePortActualPower.setStatus(_A)
+_PethPsePortPowerAccuracy_Type=Integer32
+_PethPsePortPowerAccuracy_Object=MibTableColumn
+pethPsePortPowerAccuracy=_PethPsePortPowerAccuracy_Object((1,3,6,1,2,1,105,1,1,1,16),_PethPsePortPowerAccuracy_Type())
+pethPsePortPowerAccuracy.setMaxAccess(_C)
+if mibBuilder.loadTexts:pethPsePortPowerAccuracy.setStatus(_A)
+_PethPsePortCumulativeEnergy_Type=Counter32
+_PethPsePortCumulativeEnergy_Object=MibTableColumn
+pethPsePortCumulativeEnergy=_PethPsePortCumulativeEnergy_Object((1,3,6,1,2,1,105,1,1,1,17),_PethPsePortCumulativeEnergy_Type())
+pethPsePortCumulativeEnergy.setMaxAccess(_C)
+if mibBuilder.loadTexts:pethPsePortCumulativeEnergy.setStatus(_A)
+_PethMainPseObjects_ObjectIdentity=ObjectIdentity
+pethMainPseObjects=_PethMainPseObjects_ObjectIdentity((1,3,6,1,2,1,105,1,3))
+_PethMainPseTable_Object=MibTable
+pethMainPseTable=_PethMainPseTable_Object((1,3,6,1,2,1,105,1,3,1))
+if mibBuilder.loadTexts:pethMainPseTable.setStatus(_A)
+_PethMainPseEntry_Object=MibTableRow
+pethMainPseEntry=_PethMainPseEntry_Object((1,3,6,1,2,1,105,1,3,1,1))
+pethMainPseEntry.setIndexNames((0,_B,_L))
+if mibBuilder.loadTexts:pethMainPseEntry.setStatus(_A)
+class _PethMainPseGroupIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_PethMainPseGroupIndex_Type.__name__=_D
+_PethMainPseGroupIndex_Object=MibTableColumn
+pethMainPseGroupIndex=_PethMainPseGroupIndex_Object((1,3,6,1,2,1,105,1,3,1,1,1),_PethMainPseGroupIndex_Type())
+pethMainPseGroupIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:pethMainPseGroupIndex.setStatus(_A)
+class _PethMainPsePower_Type(Gauge32):subtypeSpec=Gauge32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_PethMainPsePower_Type.__name__=_I
+_PethMainPsePower_Object=MibTableColumn
+pethMainPsePower=_PethMainPsePower_Object((1,3,6,1,2,1,105,1,3,1,1,2),_PethMainPsePower_Type())
+pethMainPsePower.setMaxAccess(_C)
+if mibBuilder.loadTexts:pethMainPsePower.setStatus(_A)
+if mibBuilder.loadTexts:pethMainPsePower.setUnits('Watts')
+class _PethMainPseOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('on',1),('off',2),('faulty',3)))
+_PethMainPseOperStatus_Type.__name__=_D
+_PethMainPseOperStatus_Object=MibTableColumn
+pethMainPseOperStatus=_PethMainPseOperStatus_Object((1,3,6,1,2,1,105,1,3,1,1,3),_PethMainPseOperStatus_Type())
+pethMainPseOperStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:pethMainPseOperStatus.setStatus(_A)
+_PethMainPseConsumptionPower_Type=Gauge32
+_PethMainPseConsumptionPower_Object=MibTableColumn
+pethMainPseConsumptionPower=_PethMainPseConsumptionPower_Object((1,3,6,1,2,1,105,1,3,1,1,4),_PethMainPseConsumptionPower_Type())
+pethMainPseConsumptionPower.setMaxAccess(_C)
+if mibBuilder.loadTexts:pethMainPseConsumptionPower.setStatus(_A)
+if mibBuilder.loadTexts:pethMainPseConsumptionPower.setUnits('Watts')
+class _PethMainPseUsageThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,99))
+_PethMainPseUsageThreshold_Type.__name__=_D
+_PethMainPseUsageThreshold_Object=MibTableColumn
+pethMainPseUsageThreshold=_PethMainPseUsageThreshold_Object((1,3,6,1,2,1,105,1,3,1,1,5),_PethMainPseUsageThreshold_Type())
+pethMainPseUsageThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:pethMainPseUsageThreshold.setStatus(_A)
+if mibBuilder.loadTexts:pethMainPseUsageThreshold.setUnits('%')
+_PethNotificationControl_ObjectIdentity=ObjectIdentity
+pethNotificationControl=_PethNotificationControl_ObjectIdentity((1,3,6,1,2,1,105,1,4))
+_PethNotificationControlTable_Object=MibTable
+pethNotificationControlTable=_PethNotificationControlTable_Object((1,3,6,1,2,1,105,1,4,1))
+if mibBuilder.loadTexts:pethNotificationControlTable.setStatus(_A)
+_PethNotificationControlEntry_Object=MibTableRow
+pethNotificationControlEntry=_PethNotificationControlEntry_Object((1,3,6,1,2,1,105,1,4,1,1))
+pethNotificationControlEntry.setIndexNames((0,_B,_M))
+if mibBuilder.loadTexts:pethNotificationControlEntry.setStatus(_A)
+class _PethNotificationControlGroupIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_PethNotificationControlGroupIndex_Type.__name__=_D
+_PethNotificationControlGroupIndex_Object=MibTableColumn
+pethNotificationControlGroupIndex=_PethNotificationControlGroupIndex_Object((1,3,6,1,2,1,105,1,4,1,1,1),_PethNotificationControlGroupIndex_Type())
+pethNotificationControlGroupIndex.setMaxAccess(_F)
+if mibBuilder.loadTexts:pethNotificationControlGroupIndex.setStatus(_A)
+_PethNotificationControlEnable_Type=TruthValue
+_PethNotificationControlEnable_Object=MibTableColumn
+pethNotificationControlEnable=_PethNotificationControlEnable_Object((1,3,6,1,2,1,105,1,4,1,1,2),_PethNotificationControlEnable_Type())
+pethNotificationControlEnable.setMaxAccess(_E)
+if mibBuilder.loadTexts:pethNotificationControlEnable.setStatus(_A)
+_PethConformance_ObjectIdentity=ObjectIdentity
+pethConformance=_PethConformance_ObjectIdentity((1,3,6,1,2,1,105,2))
+_PethCompliances_ObjectIdentity=ObjectIdentity
+pethCompliances=_PethCompliances_ObjectIdentity((1,3,6,1,2,1,105,2,1))
+_PethGroups_ObjectIdentity=ObjectIdentity
+pethGroups=_PethGroups_ObjectIdentity((1,3,6,1,2,1,105,2,2))
+pethPsePortGroup=ObjectGroup((1,3,6,1,2,1,105,2,2,1))
+pethPsePortGroup.setObjects(*((_B,_N),(_B,_O),(_B,_P),(_B,_H),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_Z),(_B,_a)))
+if mibBuilder.loadTexts:pethPsePortGroup.setStatus(_A)
+pethMainPseGroup=ObjectGroup((1,3,6,1,2,1,105,2,2,2))
+pethMainPseGroup.setObjects(*((_B,_b),(_B,_c),(_B,_G),(_B,_d)))
+if mibBuilder.loadTexts:pethMainPseGroup.setStatus(_A)
+pethNotificationControlGroup=ObjectGroup((1,3,6,1,2,1,105,2,2,3))
+pethNotificationControlGroup.setObjects((_B,_e))
+if mibBuilder.loadTexts:pethNotificationControlGroup.setStatus(_A)
+pethPsePortOnOffNotification=NotificationType((1,3,6,1,2,1,105,0,1))
+pethPsePortOnOffNotification.setObjects((_B,_H))
+if mibBuilder.loadTexts:pethPsePortOnOffNotification.setStatus(_A)
+pethMainPowerUsageOnNotification=NotificationType((1,3,6,1,2,1,105,0,2))
+pethMainPowerUsageOnNotification.setObjects((_B,_G))
+if mibBuilder.loadTexts:pethMainPowerUsageOnNotification.setStatus(_A)
+pethMainPowerUsageOffNotification=NotificationType((1,3,6,1,2,1,105,0,3))
+pethMainPowerUsageOffNotification.setObjects((_B,_G))
+if mibBuilder.loadTexts:pethMainPowerUsageOffNotification.setStatus(_A)
+pethPsePortNotificationGroup=NotificationGroup((1,3,6,1,2,1,105,2,2,4))
+pethPsePortNotificationGroup.setObjects((_B,_f))
+if mibBuilder.loadTexts:pethPsePortNotificationGroup.setStatus(_A)
+pethMainPowerNotificationGroup=NotificationGroup((1,3,6,1,2,1,105,2,2,5))
+pethMainPowerNotificationGroup.setObjects(*((_B,_g),(_B,_h)))
+if mibBuilder.loadTexts:pethMainPowerNotificationGroup.setStatus(_A)
+pethCompliance=ModuleCompliance((1,3,6,1,2,1,105,2,1,1))
+pethCompliance.setObjects(*((_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m)))
+if mibBuilder.loadTexts:pethCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'powerEthernetMIB':powerEthernetMIB,'pethNotifications':pethNotifications,_f:pethPsePortOnOffNotification,_g:pethMainPowerUsageOnNotification,_h:pethMainPowerUsageOffNotification,'pethObjects':pethObjects,'pethPsePortTable':pethPsePortTable,'pethPsePortEntry':pethPsePortEntry,_J:pethPsePortGroupIndex,_K:pethPsePortIndex,_N:pethPsePortAdminEnable,_O:pethPsePortPowerPairsControlAbility,_P:pethPsePortPowerPairs,_H:pethPsePortDetectionStatus,_Q:pethPsePortPowerPriority,_R:pethPsePortMPSAbsentCounter,_W:pethPsePortType,_X:pethPsePortPowerClassifications,_S:pethPsePortInvalidSignatureCounter,_T:pethPsePortPowerDeniedCounter,_U:pethPsePortOverLoadCounter,_V:pethPsePortShortCounter,_Y:pethPsePortActualPower,_Z:pethPsePortPowerAccuracy,_a:pethPsePortCumulativeEnergy,'pethMainPseObjects':pethMainPseObjects,'pethMainPseTable':pethMainPseTable,'pethMainPseEntry':pethMainPseEntry,_L:pethMainPseGroupIndex,_b:pethMainPsePower,_c:pethMainPseOperStatus,_G:pethMainPseConsumptionPower,_d:pethMainPseUsageThreshold,'pethNotificationControl':pethNotificationControl,'pethNotificationControlTable':pethNotificationControlTable,'pethNotificationControlEntry':pethNotificationControlEntry,_M:pethNotificationControlGroupIndex,_e:pethNotificationControlEnable,'pethConformance':pethConformance,'pethCompliances':pethCompliances,'pethCompliance':pethCompliance,'pethGroups':pethGroups,_i:pethPsePortGroup,_l:pethMainPseGroup,_k:pethNotificationControlGroup,_j:pethPsePortNotificationGroup,_m:pethMainPowerNotificationGroup})

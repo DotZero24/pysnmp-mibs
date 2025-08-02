@@ -1,300 +1,880 @@
-#
-# PySNMP MIB module PKTC-IETF-SIG-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/PKTC-IETF-SIG-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:23:55 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, ObjectIdentifier, Integer, ) = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
-( Dscp, ) = mibBuilder.importSymbols("DIFFSERV-DSCP-TC", "Dscp")
-( ifIndex, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-( InetAddress, InetPortNumber, InetAddressType, ) = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetPortNumber", "InetAddressType")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( ModuleCompliance, ObjectGroup, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-( iso, Integer32, Counter32, ObjectIdentity, TimeTicks, Bits, Counter64, IpAddress, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, mib_2, MibIdentifier, Gauge32, Unsigned32, NotificationType, ) = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Integer32", "Counter32", "ObjectIdentity", "TimeTicks", "Bits", "Counter64", "IpAddress", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "mib-2", "MibIdentifier", "Gauge32", "Unsigned32", "NotificationType")
-( TruthValue, DisplayString, TextualConvention, RowStatus, ) = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention", "RowStatus")
-pktcIetfSigMib = ModuleIdentity((1, 3, 6, 1, 2, 1, 169)).setRevisions(("2007-12-18 00:00",))
-if mibBuilder.loadTexts: pktcIetfSigMib.setLastUpdated('200712180000Z')
-if mibBuilder.loadTexts: pktcIetfSigMib.setOrganization('IETF IPCDN Working Group')
-if mibBuilder.loadTexts: pktcIetfSigMib.setContactInfo('Sumanth Channabasappa\n         Cable Television Laboratories, Inc.\n         858 Coal Creek Circle,\n         Louisville, CO 80027, USA\n         Phone: +1 303-661-3307\n         Email: Sumanth@cablelabs.com\n\n         Gordon Beacham\n         Motorola, Inc.\n         6450 Sequence Drive, Bldg. 1\n         San Diego, CA 92121, USA\n         Phone: +1 858-404-2334\n         Email: gordon.beacham@motorola.com\n\n         Satish Kumar Mudugere Eswaraiah\n         Texas Instruments India (P) Ltd.,\n         Golf view, Wind Tunnel Road\n         Murugesh Palya\n         Bangalore 560 017, INDIA\n         Phone:   +91 80 5269451\n         Email:  satish.kumar@ti.com\n\n    IETF IPCDN Working Group\n         General Discussion: ipcdn@ietf.org\n         Subscribe: http://www.ietf.org/mailman/listinfo/ipcdn\n         Archive: ftp://ftp.ietf.org/ietf-mail-archive/ipcdn\n         Co-Chair: Jean-Francois Mule, jf.mule@cablelabs.com\n         Co-Chair: Richard Woundy, Richard_Woundy@cable.comcast.com')
-if mibBuilder.loadTexts: pktcIetfSigMib.setDescription('This MIB module supplies the basic management\n        objects for the PacketCable and IPCablecom Signaling\n        protocols.  This version of the MIB includes\n        common signaling and Network Call Signaling\n\n\n\n        (NCS)-related signaling objects.\n\n        Copyright (C) The IETF Trust (2008).  This version of\n        this MIB module is part of RFC 5098; see the RFC itself for\n        full legal notices.')
-class TenthdBm(Integer32, TextualConvention):
-    displayHint = 'd-1'
-
-class PktcCodecType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("g729", 3), ("reserved", 4), ("g729E", 5), ("pcmu", 6), ("g726at32", 7), ("g728", 8), ("pcma", 9), ("g726at16", 10), ("g726at24", 11), ("g726at40", 12), ("ilbc", 13), ("bv16", 14),)
-
-class PktcRingCadence(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(4,36)
-
-class PktcSigType(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2,))
-    namedValues = NamedValues(("other", 1), ("ncs", 2),)
-
-class DtmfCode(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,))
-    namedValues = NamedValues(("dtmfcode0", 0), ("dtmfcode1", 1), ("dtmfcode2", 2), ("dtmfcode3", 3), ("dtmfcode4", 4), ("dtmfcode5", 5), ("dtmfcode6", 6), ("dtmfcode7", 7), ("dtmfcode8", 8), ("dtmfcode9", 9), ("dtmfcodeStar", 10), ("dtmfcodeHash", 11), ("dtmfcodeA", 12), ("dtmfcodeB", 13), ("dtmfcodeC", 14), ("dtmfcodeD", 15),)
-
-class PktcSubscriberSideSigProtocol(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2,))
-    namedValues = NamedValues(("fsk", 1), ("dtmf", 2),)
-
-pktcSigMibObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 169, 1))
-pktcSigDevObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 169, 1, 1))
-pktcSigEndPntConfigObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 169, 1, 2))
-pktcSigDevCodecTable = MibTable((1, 3, 6, 1, 2, 1, 169, 1, 1, 1), )
-if mibBuilder.loadTexts: pktcSigDevCodecTable.setDescription(' This table describes the MTA-supported codec types.  An MTA\n          MUST populate this table with all possible combinations of\n          codecs it supports for simultaneous operation.  For example,\n          an MTA with two endpoints may be designed with a particular\n          Digital Signal Processing (DSP) and memory architecture that\n          allows it to support the following fixed combinations of\n          codecs for simultaneous operation:\n\n          Codec Type     Maximum Number of Simultaneous Codecs\n          PCMA                             3\n\n          PCMA                             2\n          PCMU                             1\n\n          PCMA                             1\n\n          PCMU                             2\n\n          PCMU                             3\n\n          PCMA                             1\n          G729                             1\n\n          G729                             2\n\n          PCMU                             1\n          G729                             1\n\n          Based on this example, the entries in the codec table\n          would be:\n\n            pktcSigDev        pktcSigDev        pktcSigDev\n          CodecComboIndex     CodecType          CodecMax\n                 1               pcma                3\n                 2               pcma                2\n                 2               pcmu                1\n\n\n\n                 3               pcma                1\n                 3               pcmu                2\n                 4               pcmu                3\n                 5               pcma                1\n                 5               g729                1\n                 6               g729                2\n                 7               pcmu                1\n                 7               g729                1\n\n          An operator querying this table is able to determine all\n          possible codec combinations the MTA is capable of\n          simultaneously supporting.\n\n          This table MUST NOT include non-voice codecs.')
-pktcSigDevCodecEntry = MibTableRow((1, 3, 6, 1, 2, 1, 169, 1, 1, 1, 1), ).setIndexNames((0, "PKTC-IETF-SIG-MIB", "pktcSigDevCodecComboIndex"), (0, "PKTC-IETF-SIG-MIB", "pktcSigDevCodecType"))
-if mibBuilder.loadTexts: pktcSigDevCodecEntry.setDescription('Each entry represents the maximum number of active\n         connections with a particular codec the MTA is capable of\n         supporting.  Each row is indexed by a composite key\n         consisting of a number enumerating the particular codec\n         combination and the codec type.')
-pktcSigDevCodecComboIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,255)))
-if mibBuilder.loadTexts: pktcSigDevCodecComboIndex.setDescription(' The index value that enumerates a particular codec\n          combination in the pktcSigDevCodecTable.')
-pktcSigDevCodecType = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 1, 1, 2), PktcCodecType())
-if mibBuilder.loadTexts: pktcSigDevCodecType.setDescription(' A codec type supported by this MTA.')
-pktcSigDevCodecMax = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigDevCodecMax.setDescription(' The maximum number of simultaneous sessions of a\n          particular codec that the MTA can support.')
-pktcSigDevEchoCancellation = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigDevEchoCancellation.setDescription(' This object specifies if the device is capable of echo\n          cancellation.  The MTA MUST set this MIB object to a\n          value of true(1) if it is capable of echo\n          cancellation, and a value of false(2) if not.')
-pktcSigDevSilenceSuppression = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigDevSilenceSuppression.setDescription(' This object specifies if the device is capable of\n          silence suppression (as a result of Voice Activity\n          Detection).  The MTA MUST set this MIB object to a\n          value of true(1) if it is capable of silence\n          suppression, and a value of false(2) if not.')
-pktcSigDevCidSigProtocol = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 4), PktcSubscriberSideSigProtocol().clone('fsk')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevCidSigProtocol.setDescription('This object is used to configure the subscriber-line\n         protocol used for signaling on-hook caller id information.\n\n\n\n         Different countries define different caller id signaling\n         protocols to support caller identification.\n\n         Setting this object at a value fsk(1) sets the subscriber\n         line protocol to be Frequency Shift Keying (FSK).\n\n         Setting this object at a value dtmf(2) sets the subscriber\n         line protocol to be Dual-Tone Multi-Frequency (DTMF).\n\n         The value of this MIB object MUST NOT persist across MTA\n         reboots.')
-pktcSigDevR0Cadence = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 5), PktcRingCadence()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevR0Cadence.setDescription(' This object specifies ring cadence 0 (a user-defined\n          field).\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.')
-pktcSigDevR1Cadence = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 6), PktcRingCadence()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevR1Cadence.setDescription(' This object specifies ring cadence 1 (a user-defined\n          field).\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.')
-pktcSigDevR2Cadence = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 7), PktcRingCadence()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevR2Cadence.setDescription(' This object specifies ring cadence 2 (a user-defined\n          field).\n\n\n\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.')
-pktcSigDevR3Cadence = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 8), PktcRingCadence()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevR3Cadence.setDescription(' This object specifies ring cadence 3 (a user-defined\n          field).\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.')
-pktcSigDevR4Cadence = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 9), PktcRingCadence()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevR4Cadence.setDescription(' This object specifies ring cadence 4 (a user-defined\n          field).\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.')
-pktcSigDevR5Cadence = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 10), PktcRingCadence()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevR5Cadence.setDescription(' This object specifies ring cadence 5 (a user-defined\n          field).\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.')
-pktcSigDevR6Cadence = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 11), PktcRingCadence()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevR6Cadence.setDescription(' This object specifies ring cadence 6 (a user-defined\n          field).\n\n\n\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.')
-pktcSigDevR7Cadence = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 12), PktcRingCadence()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevR7Cadence.setDescription(' This object specifies ring cadence 7 (a user-defined\n          field).\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.')
-pktcSigDevRgCadence = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 13), PktcRingCadence()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevRgCadence.setDescription(' This object specifies ring cadence rg (a user-defined\n          field).\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.')
-pktcSigDevRsCadence = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 14), PktcRingCadence()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevRsCadence.setDescription(' This object specifies ring cadence rs (a user-defined\n          field).  The MTA MUST reject any attempt to make this object\n          repeatable.\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.')
-pktcSigDefCallSigDscp = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 15), Dscp()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDefCallSigDscp.setDescription(' The default value used in the IP header for setting the\n          Differentiated Services Code Point (DSCP) value for call\n\n\n\n          signaling.\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.')
-pktcSigDefMediaStreamDscp = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 16), Dscp()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDefMediaStreamDscp.setDescription(' This object contains the default value used in the IP\n          header for setting the Differentiated Services Code Point\n          (DSCP) value for media stream packets.  The MTA MUST NOT\n          update this object with the value supplied by the CMS in\n          the NCS messages (if present).  Any currently active\n          connections are not affected by updates to this object.\n          When the value of this object is updated by SNMP, the MTA\n          MUST use the new value as a default starting only from\n          new connections.\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.')
-pktcSigCapabilityTable = MibTable((1, 3, 6, 1, 2, 1, 169, 1, 1, 17), )
-if mibBuilder.loadTexts: pktcSigCapabilityTable.setDescription(' This table describes the signaling types supported by this\n          MTA.')
-pktcSigCapabilityEntry = MibTableRow((1, 3, 6, 1, 2, 1, 169, 1, 1, 17, 1), ).setIndexNames((0, "PKTC-IETF-SIG-MIB", "pktcSigCapabilityIndex"))
-if mibBuilder.loadTexts: pktcSigCapabilityEntry.setDescription(' Entries in pktcMtaDevSigCapabilityTable - list of\n          supported signaling types, versions, and vendor extensions\n\n\n\n          for this MTA.  Each entry in the list provides for one\n          signaling type and version combination.  If the device\n          supports multiple versions of the same signaling type, it\n          will require multiple entries.')
-pktcSigCapabilityIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 17, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,255)))
-if mibBuilder.loadTexts: pktcSigCapabilityIndex.setDescription(' The index value that uniquely identifies an entry in the\n          pktcSigCapabilityTable.')
-pktcSigCapabilityType = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 17, 1, 2), PktcSigType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigCapabilityType.setDescription(' This object identifies the type of signaling used.  This\n          value has to be associated with a single signaling\n          version.')
-pktcSigCapabilityVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 17, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigCapabilityVersion.setDescription(' Provides the version of the signaling type - reference\n          pktcSigCapabilityType.  Examples would be 1.0 or 2.33 etc.')
-pktcSigCapabilityVendorExt = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 17, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigCapabilityVendorExt.setDescription(' The vendor extension allows vendors to provide a list of\n\n\n\n          additional capabilities.\n\n          The syntax for this MIB object in ABNF ([RFC5234]) is\n          specified to be zero or more occurrences of vendor\n          extensions, as follows:\n\n           pktcSigCapabilityVendorExt  = *(vendor-extension)\n           vendor-extension = (ext symbol alphanum) DQUOTE ; DQUOTE\n           ext      = DQUOTE %x58 DQUOTE\n           symbol   = (DQUOTE %x2D DQUOTE)/(DQUOTE %x2D DQUOTE)\n           alphanum = 1*6(ALPHA/DIGIT)\n\n        ')
-pktcSigDefNcsReceiveUdpPort = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 18), InetPortNumber().subtype(subtypeSpec=ValueRangeConstraint(1025,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigDefNcsReceiveUdpPort.setDescription(" This object contains the MTA User Datagram Protocol (UDP)\n          receive port that is being used for NCS call signaling.\n          This object should only be changed by the configuration\n          file.\n\n          Unless changed via configuration, this MIB object MUST\n          reflect a value of '2427'.")
-pktcSigPowerRingFrequency = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9,))).clone(namedValues=NamedValues(("f20Hz", 1), ("f25Hz", 2), ("f33Point33Hz", 3), ("f50Hz", 4), ("f15Hz", 5), ("f16Hz", 6), ("f22Hz", 7), ("f23Hz", 8), ("f45Hz", 9),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigPowerRingFrequency.setDescription(' This object must only be provided via the configuration\n          file during the provisioning process.  The power ring\n\n\n\n          frequency is the frequency at which the sinusoidal voltage\n          must travel down the twisted pair to make terminal\n          equipment ring.  Different countries define different\n          electrical characteristics to make terminal equipment\n          ring.\n\n          The f20Hz setting corresponds to a power ring frequency\n          of 20 Hertz.  The f25Hz setting corresponds to a power ring\n          frequency of 25 Hertz.  The f33Point33Hz setting\n          corresponds to a power ring frequency of 33.33 Hertz.  The\n          f50Hz setting corresponds to a power ring frequency of 50\n          Hertz.  The f15Hz setting corresponds to a power ring\n          frequency of 15 Hertz.  The f16Hz setting corresponds to a\n          power ring frequency of 16 Hertz.  The f22Hz setting\n          corresponds to a power ring frequency of 22 Hertz.  The\n          f23Hz setting corresponds to a power ring frequency of 23\n          Hertz.  The f45Hz setting corresponds to a power ring\n          frequency of 45 Hertz.')
-pktcSigPulseSignalTable = MibTable((1, 3, 6, 1, 2, 1, 169, 1, 1, 20), )
-if mibBuilder.loadTexts: pktcSigPulseSignalTable.setDescription(' The Pulse signal table defines the pulse signal operation.\n          There are nine types of international pulse signals,\n          with each signal having a set of provisionable parameters.\n          The values of the MIB objects in this table take effect\n          only if these parameters are not defined via signaling, in\n          which case, the latter determines the values of the\n          parameters.  The MIB objects in this table do not persist\n          across MTA reboots.')
-pktcSigPulseSignalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 169, 1, 1, 20, 1), ).setIndexNames((0, "PKTC-IETF-SIG-MIB", "pktcSigPulseSignalType"))
-if mibBuilder.loadTexts: pktcSigPulseSignalEntry.setDescription(' This object defines the set of parameters associated with\n          each particular value of pktcSigPulseSignalType.  Each\n          entry in the pktcSigPulseSignalTable is indexed by the\n          pktcSigPulseSignalType object.\n\n\n\n          The conceptual rows MUST NOT persist across MTA reboots.')
-pktcSigPulseSignalType = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 20, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9,))).clone(namedValues=NamedValues(("initialRing", 1), ("pulseLoopClose", 2), ("pulseLoopOpen", 3), ("enableMeterPulse", 4), ("meterPulseBurst", 5), ("pulseNoBattery", 6), ("pulseNormalPolarity", 7), ("pulseReducedBattery", 8), ("pulseReversePolarity", 9),)))
-if mibBuilder.loadTexts: pktcSigPulseSignalType.setDescription('There are nine types of international pulse signals.  These\n         signals are defined as follows:\n         initial ring\n         pulse loop close\n         pulse loop open\n         enable meter pulse\n         meter pulse burst\n         pulse no battery\n         pulse normal polarity\n         pulse reduced battery\n         pulse reverse polarity')
-pktcSigPulseSignalFrequency = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 20, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("twentyfive", 1), ("twelvethousand", 2), ("sixteenthousand", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigPulseSignalFrequency.setDescription(" This object is only applicable to the initialRing,\n          enableMeterPulse, and meterPulseBurst signal types.  This\n          object identifies the frequency of the generated signal.\n          The following table defines the default values for this\n          object depending on signal type:\n\n          pktcSigPulseSignalType     Default\n          initialRing                25\n          enableMeterPulse           16000\n          meterPulseBurst            16000\n\n          The value of twentyfive MUST only be used for the\n          initialRing signal type.  The values of twelvethousand and\n          sixteenthousand MUST only be used for enableMeterPulse and\n          meterPulseBurst signal types.  An attempt to set this\n          object while the value of pktcSigPulseSignalType is not\n          initialRing, enableMeterPulse, or meterPulseBurst will\n          result in an 'inconsistentValue' error.")
-pktcSigPulseSignalDbLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 20, 1, 3), TenthdBm().subtype(subtypeSpec=ValueRangeConstraint(-350,0)).clone(-135)).setUnits('1/10 of a dBm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigPulseSignalDbLevel.setDescription(" This object is only applicable to the enableMeterPulse and\n          meterPulseBurst signal types.  This is the decibel level\n          for each frequency at which tones could be generated at\n          the a and b terminals (TE connection point).  An attempt to\n          set this object while the value of pktcSigPulseSignalType\n          is not enableMeterPulse or meterPulseBurst will result in\n          an 'inconsistentValue' error.")
-pktcSigPulseSignalDuration = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 20, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,5000))).setUnits('Milliseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigPulseSignalDuration.setDescription(" This object specifies the pulse duration for each\n          signal type.  In addition, the MTA must accept the values\n          in the incremental steps specific for each signal type.\n          The following table defines the default values and the\n          incremental steps for this object depending on the signal\n          type:\n\n          pktcSigPulseSignaltype  Default (ms)   Increment (ms)\n          initialRing                 200             50\n          pulseLoopClose              200             10\n          pulseLoopOpen               200             10\n          enableMeterPulse            150             10\n          meterPulseBurst             150             10\n          pulseNoBattery              200             10\n          pulseNormalPolarity         200             10\n          pulseReducedBattery         200             10\n          pulseReversePolarity        200             10\n\n          An attempt to set this object to a value that does not\n          fall on one of the increment boundaries, or on the wrong\n          increment boundary for the specific signal type, will\n          result in an 'inconsistentValue' error.")
-pktcSigPulseSignalPulseInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 20, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,5000))).setUnits('Milliseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigPulseSignalPulseInterval.setDescription(" This object specifies the repeat interval, or the period,\n          for each signal type.  In addition, the MTA must accept\n          the values in the incremental steps specific for each\n          signal type.  The following table defines the default\n          values and the incremental steps for this object, depending\n          on the signal type:\n\n          pktcSigPulseSignaltype  Default (ms)   Increment (ms)\n          initialRing                 200             50\n          pulseLoopClose             1000             10\n          pulseLoopOpen              1000             10\n\n\n\n          enableMeterPulse           1000             10\n          meterPulseBurst            1000             10\n          pulseNoBattery             1000             10\n          pulseNormalPolarity        1000             10\n          pulseReducedBattery        1000             10\n          pulseReversePolarity       1000             10\n\n          An attempt to set this object to a value that does not\n          fall on one of the increment boundaries, or on the wrong\n          increment boundary for the specific signal type, will\n          result in an 'inconsistentValue' error.")
-pktcSigPulseSignalRepeatCount = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 20, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,50))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigPulseSignalRepeatCount.setDescription(" This object specifies how many times to repeat a pulse.\n          This object is not used by the enableMeterPulse signal\n          type, and in that case, the value is irrelevant.  The\n          following table defines the default values and the valid\n          ranges for this object, depending on the signal type:\n\n          pktcSigPulseSignaltype  Default   Range\n\n          initialRing                1       1-5\n          pulseLoopClose             1       1-50\n          pulseLoopOpen              1       1-50\n          enableMeterPulse      (any value)(but not used)\n          meterPulseBurst            1       1-50\n          pulseNoBattery             1       1-50\n          pulseNormalPolarity        1       1-50\n          pulseReducedBattery        1       1-50\n          pulseReversePolarity       1       1-50\n\n          An attempt to set this object to a value that does not\n          fall within the range for the specific\n          signal type will result in an 'inconsistentValue' error.")
-pktcSigDevCidMode = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("duringRingingETS", 1), ("dtAsETS", 2), ("rpAsETS", 3), ("lrAsETS", 4), ("lrETS", 5),)).clone('rpAsETS')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevCidMode.setDescription(' For on-hook caller id, pktcSigDevCidMode selects the method\n          for representing and signaling caller identification.  For\n          the duringRingingETS method, the Frequency Shift Keying\n          (FSK) or the Dual-Tone Multi-Frequency (DTMF) containing\n          the caller identification information is sent between the\n          first and second ring pattern.\n\n          For the dtAsETS,rpAsETS, lrAsETS and lrETS\n          methods, the FSK or DTMF containing the caller id\n          information is sent before the first ring pattern.\n\n          For the dtAsETS method, the FSK or DTMF is sent after the\n          Dual Tone Alert Signal.  For the rpAsETS method, the FSK or\n          DTMF is sent after a Ring Pulse.\n\n          For the lrAsETS method, the Line Reversal occurs first,\n          then the Dual Tone Alert Signal, and, finally, the FSK or\n          DTMF is sent.\n\n          For the lrETS method, the Line Reversal occurs first,\n          then the FSK or DTMF is sent.\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.')
-pktcSigDevCidAfterRing = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 22), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(50,2000),)).clone(550)).setUnits('Milliseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevCidAfterRing.setDescription(" This object specifies the delay between the end of first\n          ringing pattern and the start of the transmission of the\n          FSK or DTMF containing the caller id information.  It is\n          only used when pktcSigDevCidMode is set to a value of\n          'duringRingingETS'.\n\n          The following table defines the default values\n          for this MIB object, depending on the signal type\n\n\n\n         (pktcSigDevCidMode), and MUST be followed:\n\n          Value of pktcSigDevCidMode       Default value\n\n          duringringingETS                 550 ms\n          dtAsETS                          any value (not used)\n          rpAsETS                          any value (not used)\n          lrAsETS                          any value (not used)\n          lrETS                            any value (not used)\n\n          An attempt to set this object while the value of\n          pktcSigDevCidMode is not duringringingETS will result in\n          an 'inconsistentValue' error.\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.")
-pktcSigDevCidAfterDTAS = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 23), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(45,500),)).clone(50)).setUnits('Milliseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevCidAfterDTAS.setDescription(" This object specifies the delay between the end of the\n          Dual Tone Alert Signal (DT-AS) and the start of the\n          transmission of the FSK or DTMF containing the caller id\n          information.  This object is only used when\n          pktcSigDevCidMode is set to a value of 'dtAsETS' or\n          'lrAsETS'.\n\n          The following table defines the default values\n          for this MIB object, depending on the signal type\n         (pktcSigDevCidMode), and MUST be followed:\n\n          Value of pktcSigDevCidMode       Default value\n\n\n          duringringingETS                 any value (not used)\n          dtAsETS                          50 ms\n          rpAsETS                          any value (not used)\n          lrAsETS                          50 ms\n          lrETS                            any value (not used)\n\n          An attempt to set this object while the value of\n\n\n\n          pktcSigDevCidMode is not 'dtAsETS' or 'lrAsETS' will\n          result in an 'inconsistentValue' error.\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.")
-pktcSigDevCidAfterRPAS = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 24), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(500,800),)).clone(650)).setUnits('Milliseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevCidAfterRPAS.setDescription(" This object specifies the delay between the end of the\n          Ring Pulse Alert Signal (RP-AS) and the start of the\n          transmission of the FSK or DTMF containing the caller id\n          information.  This MIB object is only used when\n          pktcSigDevCidMode is set to a value of 'rpAsETS'.\n          The following table defines the default values\n          for this MIB object, depending on the signal type\n         (pktcSigDevCidMode), and MUST be followed:\n\n          Value of pktcSigDevCidMode       Default value\n\n          duringringingETS                 any value  (not used)\n          dtAsETS                          any value  (not used)\n          rpAsETS                          650 ms\n          lrAsETS                          any value  (not used)\n          lrETS                            any value  (not used)\n\n          An attempt to set this object while the value of\n          pktcSigDevCidMode is not 'rpAsETS' will result in an\n          'inconsistentValue' error.\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.")
-pktcSigDevRingAfterCID = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 25), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(50,500),)).clone(250)).setUnits('Milliseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevRingAfterCID.setDescription(" This object specifies the delay between the end of the\n          complete transmission of the FSK or DTMF containing the\n          caller id information and the start of the first ring\n          pattern.  It is only used when pktcSigDevCidMode is\n          set to a value of 'dtAsETS', 'rpAsETS', 'lrAsETS' or\n          'lrETS'.\n\n          The following table defines the default values\n          for this MIB object, depending on the signal type\n         (pktcSigDevCidMode), and MUST be followed:\n\n          Value of pktcSigDevCidMode       Default value\n\n          duringringingETS                 any value  (not used)\n          dtAsETS                          250 ms\n          rpAsETS                          250 ms\n          lrAsETS                          250 ms\n          lrETS                            250 ms\n\n          An attempt to set this object while the value of\n          pktcSigDevCidMode is not 'dtAsETS', 'rpAsETS',\n          'lrAsETS', or 'lrETS' will result in an 'inconsistent\n          value' error.\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.")
-pktcSigDevCidDTASAfterLR = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 26), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(50,655)).clone(250)).setUnits('Milliseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevCidDTASAfterLR.setDescription(" This object specifies the delay between the end of the\n          Line Reversal and the start of the Dual Tone Alert Signal\n          (DT-AS).  This object is only used when pktcSigDevCidMode\n          is set to a value of 'lrAsETS'.\n\n          The following table defines the default values\n          for this MIB object, depending on the signal type\n         (pktcSigDevCidMode), and MUST be followed:\n\n\n\n\n          Value of pktcSigDevCidMode       Default value\n\n          duringringingETS                 any value  (not used)\n          dtAsETS                          any value  (not used)\n          rpAsETS                          any value  (not used)\n          lrAsETS                          250 ms\n          lrETS                            any value  (not used)\n\n          An attempt to set this object while the value of\n          pktcSigDevCidMode is not lrAsETS will result in an\n          'inconsistentValue' error.\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.")
-pktcSigDevVmwiMode = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 27), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5,))).clone(namedValues=NamedValues(("dtAsETS", 1), ("rpAsETS", 2), ("lrAsETS", 3), ("osi", 4), ("lrETS", 5),)).clone('rpAsETS')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevVmwiMode.setDescription(' For visual message waiting indicator (VMWI),\n          pktcSigDevVmwiMode selects the alerting signal method.  For\n          the dtAsETS, rpAsETS, lrAsETS, osi, and lrETS methods,\n          the FSK containing the VMWI information is sent after an\n          alerting signal.\n\n          For the dtAsETS method, the FSK, or DTMF\n          is sent after the Dual Tone Alert Signal.  For the rpAsETS\n          method, the FSK or DTMF is sent after a Ring Pulse.\n\n          For the lrAsETS method, the Line Reversal occurs first,\n          then the Dual Tone Alert Signal, and, finally, the FSK or\n          DTMF is sent.\n\n          For the OSI method, the FSK or DTMF is sent after the Open\n          Switching Interval.\n\n\n\n\n          For the lrETS method, the Line Reversal occurs first,\n          then the FSK or DTMF is sent.\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.')
-pktcSigDevVmwiAfterDTAS = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 28), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(45,500),)).clone(50)).setUnits('Milliseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevVmwiAfterDTAS.setDescription(" This object specifies the delay between the end of the\n          Dual Tone Alert Signal (DT-AS) and the start of the\n          transmission of the FSK or DTMF containing the VMWI\n          information.\n\n          This object is only used when pktcSigDevVmwiMode is\n          set to a value of 'dtAsETS' or 'lrAsETS'.\n\n          The following table defines the default values\n          for this MIB object, depending on the signal type\n         (pktcSigDevVmwiMode), and MUST be followed:\n\n          Value of pktcSigDevVmwiMode       Default value\n\n          dtAsETS                           50 ms\n          rpAsETS                           any value  (not used)\n          lrAsETS                           50 ms\n          lrETS                             any value  (not used)\n\n          An attempt to set this object while the value of\n          pktcSigDevVmwiMode is not 'dtAsETS' or 'lrAsETS' will\n          result in an 'inconsistentValue' error.\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.")
-pktcSigDevVmwiAfterRPAS = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 29), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(500,800),)).clone(650)).setUnits('Milliseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevVmwiAfterRPAS.setDescription(" This object specifies the delay between the end of the\n          Ring Pulse Alert Signal (RP-AS) and the start of the\n          transmission of the FSK or DTMF containing the VMWI\n          information.\n\n          This object is only used when pktcSigDevVmwiMode is\n          set to a value of 'rpAsETS'.\n\n          The following table defines the default values\n          for this MIB object, depending on the signal type\n         (pktcSigDevVmwiMode), and MUST be followed:\n\n          Value of pktcSigDevVmwiMode       Default value\n\n          dtAsETS                           any value  (not used)\n          rpAsETS                           650 ms\n          lrAsETS                           any value  (not used)\n          lrETS                             any value  (not used)\n\n          An attempt to set this object while the value of\n          pktcSigDevVmwiMode is not 'rpAsETS' will result in an\n          'inconsistentValue' error.\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.")
-pktcSigDevVmwiDTASAfterLR = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 30), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(50,655),)).clone(250)).setUnits('Milliseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevVmwiDTASAfterLR.setDescription(" This object specifies the delay between the end of the\n          Line Reversal and the start of the Dual Tone Alert Signal\n          (DT-AS) for VMWI information.  This object is only used\n          when pktcSigDevVmwiMode is set to a value of 'lrAsETS'.\n\n          The following table defines the default values\n          for this MIB object, depending on the signal type\n         (pktcSigDevVmwiMode), and MUST be followed:\n\n\n\n\n          Value of pktcSigDevVmwiMode       Default value\n\n          dtAsETS                           any value  (not used)\n          rpAsETS                           any value  (not used)\n          lrAsETS                           250 ms\n          lrETS                             any value  (not used)\n\n          An attempt to set this object while the value of\n          pktcSigDevVmwiMode is not 'lrAsETS' will result in an\n          'inconsistentValue' error.\n\n          The value of this MIB object MUST NOT persist across MTA\n          reboots.")
-pktcSigDevRingCadenceTable = MibTable((1, 3, 6, 1, 2, 1, 169, 1, 1, 31), )
-if mibBuilder.loadTexts: pktcSigDevRingCadenceTable.setDescription('Cadence rings are defined by the telco governing\n         body for each country.  The MTA must be able to support\n         various ranges of cadence patterns and cadence periods.\n         The MTA will be able to support country-specific\n         provisioning of the cadence and idle period.  Each\n         cadence pattern will be assigned a unique value ranging\n         from 0-127 (inclusive) corresponding to the value of x,\n         where x is the value sent in the cadence ringing (cr)\n         signal cr(x), requested per the appropriate NCS\n         message, and defined in the E package.  The MTA will derive\n         the cadence periods from the ring cadence table entry, as\n         provisioned by the customer.  The MTA is allowed to provide\n         appropriate default values for each of the ring cadences.\n         This table only needs to be supported when the MTA\n         implements the E package.')
-pktcSigDevRingCadenceEntry = MibTableRow((1, 3, 6, 1, 2, 1, 169, 1, 1, 31, 1), ).setIndexNames((0, "PKTC-IETF-SIG-MIB", "pktcSigDevRingCadenceIndex"))
-if mibBuilder.loadTexts: pktcSigDevRingCadenceEntry.setDescription(' Each entry in this row corresponds to a ring cadence\n          that is being supported by the device.  The conceptual\n          rows MUST NOT persist across MTA reboots.')
-pktcSigDevRingCadenceIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 31, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,127)))
-if mibBuilder.loadTexts: pktcSigDevRingCadenceIndex.setDescription(' A unique value ranging from 0 to 127 that corresponds to the\n          value sent by the LE based on country-specific cadences,\n          one row per cadence cycle.  In any given system\n          implementation for a particular country, it is anticipated\n          that a small number of ring cadences will be in use.  Thus,\n          this table most likely will not be populated to its full\n          size.')
-pktcSigDevRingCadence = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 31, 1, 2), PktcRingCadence()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevRingCadence.setDescription('This is the Ring Cadence.')
-pktcSigDevToneTable = MibTable((1, 3, 6, 1, 2, 1, 169, 1, 1, 32), )
-if mibBuilder.loadTexts: pktcSigDevToneTable.setDescription(' The Tone Table defines the composition of tones and\n          various tone operations.\n\n          The definition of the tones callWaiting1 through\n          callWaiting4 in this table MUST only contain the\n          audible tone itself; the delay between tones or the value\n          of the tone repeat count are not applicable for the call\n          waiting tones.\n\n\n\n\n          The delay between tones or the repeat count is controlled\n          by the objects pktcSigEndPntConfigCallWaitingDelay and\n          pktcSigEndPntConfigCallWaitingMaxRep.  If the\n          pktcSigDevToneType is set to either of the values\n          callWaiting1, callWaiting2, callWaiting3, or callWaiting4,\n          then the value of the pktcSigDevToneWholeToneRepeatCount\n          object indicates that the particular frequency group is\n          applicable, as a repeatable part of the tone, based on the\n          value of the MIB object\n          pktcSigDevToneWholeToneRepeatCount.\n\n          The MTA MUST make sure that, after the provisioning\n          cycle, the table is fully populated (i.e., for each\n          possible index, an entry MUST be defined) using\n          reasonable defaults for each row that was not defined\n          by the provisioning information delivered via MTA\n          Configuration.\n\n          The frequency composition of each tone is defined by the\n          pktcSigDevMultiFreqToneTable.  For each tone type defined\n          in pktcSigDevToneTable, the MTA MUST populate at least\n          one entry in the pktcSigDevMultiFreqToneTable.\n\n          For each particular value of pktcSigDevToneType, the\n          pktcSigDevToneTable table can define non-repeating and\n          repeating groups of the frequencies defined by the\n          pktcSigDevMultiFreqToneTable, such that each group is\n          represented by the set of the consecutive rows\n          (frequency group) in the pktcSigDevMultiFreqToneTable.\n\n          Objects in this table do not persist across MTA reboots.\n          For tones with multiple frequencies refer to the MIB table\n          pktcSigDevMultiFreqToneTable.')
-pktcSigDevToneEntry = MibTableRow((1, 3, 6, 1, 2, 1, 169, 1, 1, 32, 1), ).setIndexNames((0, "PKTC-IETF-SIG-MIB", "pktcSigDevToneType"), (0, "PKTC-IETF-SIG-MIB", "pktcSigDevToneFreqGroup"))
-if mibBuilder.loadTexts: pktcSigDevToneEntry.setDescription(' The different tone types that can be provisioned based on\n          country-specific needs.\n\n          Each entry contains the tone generation parameters for\n          a specific frequency group of the specific Tone Type.\n\n\n\n          The different parameters can be provisioned via MTA\n          configuration based on country specific needs.\n          An MTA MUST populate all entries of this table for each\n          tone type.')
-pktcSigDevToneType = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 32, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,))).clone(namedValues=NamedValues(("busy", 1), ("confirmation", 2), ("dial", 3), ("messageWaiting", 4), ("offHookWarning", 5), ("ringBack", 6), ("reOrder", 7), ("stutterdial", 8), ("callWaiting1", 9), ("callWaiting2", 10), ("callWaiting3", 11), ("callWaiting4", 12), ("alertingSignal", 13), ("specialDial", 14), ("specialInfo", 15), ("release", 16), ("congestion", 17), ("userDefined1", 18), ("userDefined2", 19), ("userDefined3", 20), ("userDefined4", 21),)))
-if mibBuilder.loadTexts: pktcSigDevToneType.setDescription('A unique value that will correspond to the different\n         tone types.  These tones can be provisioned based on\n         country-specific needs.  This object defines the type\n         of tone being accessed.\n\n         The alertingSignal, specialDial, specialInfo, release,\n\n\n\n         congestion, userDefined1, userDefined2, userDefined3,\n         and userDefined4 tone types are used in\n         the E line package.')
-pktcSigDevToneFreqGroup = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 32, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,4)))
-if mibBuilder.loadTexts: pktcSigDevToneFreqGroup.setDescription('This MIB object represents the Tone Sequence reference\n           of a multi-sequence tone.')
-pktcSigDevToneFreqCounter = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 32, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigDevToneFreqCounter.setDescription('This MIB object represents the number of consecutive\n           multi-frequency tones for the particular tone type in\n           the multi-frequency table (pktcSigDevMultiFreqToneTable).\n\n           Such a sequence of the consecutive multi-frequency tones\n           forms the tone group for the particular tone type in the\n           pktcSigDevToneTable.')
-pktcSigDevToneWholeToneRepeatCount = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 32, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,5000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigDevToneWholeToneRepeatCount.setDescription('This is the repeat count, which signifies how many times\n         to repeat the entire on-off cadence sequence.  Setting this\n         object may result in a cadence duration longer or shorter\n         than the overall signal duration specified by the time out\n         (TO) object for a particular signal.  If the repeat count\n         results in a longer tone duration than the signal duration\n         specified by the TO, the tone duration defined by the\n         TO object for a particular signal always represents\n         the overall signal duration for a tone.  In this case, the\n         tone duration repeat count will not be fully exercised, and\n         the desired tone duration will be truncated per the TO\n         setting.  If the repeat count results in a shorter tone\n         duration than the signal duration specified by the TO, the\n         tone duration defined by the repeat count takes precedence\n         over the TO and will end the signal event.  In this case,\n\n\n\n         the TO represents a time not to be exceeded for the signal.\n         It is recommended to ensure proper telephony signaling so that\n         the TO duration setting should always be longer than the\n         desired repeat count-time duration.')
-pktcSigDevToneSteady = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 32, 1, 5), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigDevToneSteady.setDescription("This MIB object represents the steady tone status.  A value\n         of 'true(1)' indicates that the steady tone is applied, and\n         a value of 'false(2)' indicates otherwise.\n         Devices must play out the on-off cadence sequence for\n         the number of times indicated by the MIB object\n         'pktcSigDevToneWholeToneRepeatCount' prior to applying the\n         last tone steadily, indefinitely.  If the MIB table\n         'pktcSigDevToneTable' contains multiple rows with this\n         Object set to a value of 'true(1)', the steady tone is\n         applied to the last repeating frequency group of the tone.\n\n         Setting this MIB object may result in a tone duration that is\n         longer or shorter than the overall signal duration\n         specified by the time out (TO) MIB object for a particular\n         signal.  If the repeat count results in a longer tone\n         duration than the signal duration specified by the TO, the\n         tone duration defined by the TO object for a particular\n         signal always represents the overall signal duration for a\n         tone.  In this case, the tone duration repeat count will\n         not be fully exercised, and the desired tone duration will\n         be truncated per the TO setting.  If the repeat count\n         results in a shorter tone duration than the signal duration\n         specified by the TO, the tone duration defined by the\n         repeat count takes precedence over the TO and will end the\n         signal event.  In this case, the TO represents a time not to\n         be exceeded for the signal.\n\n         It is recommended to ensure proper telephony signaling that\n         The TO duration setting should always be longer than the\n         desired repeat count-time duration, plus the desired maximum\n         steady tone period.")
-pktcSigDevMultiFreqToneTable = MibTable((1, 3, 6, 1, 2, 1, 169, 1, 1, 33), )
-if mibBuilder.loadTexts: pktcSigDevMultiFreqToneTable.setDescription(' This MIB table defines the characteristics of tones\n             with multiple frequencies.  The constraints imposed\n             on the tones by the MIB table pktcSigDevToneTable\n             need to be considered for MIB objects in this table\n             as well.\n\n             The MTA MUST populate the corresponding row(s)\n             of the pktcSigDevMultiFreqToneTable for each tone\n             defined in the pktcSigDevToneTable.\n\n             The contents of the table may be provisioned via\n             MTA configuration.')
-pktcSigDevMultiFreqToneEntry = MibTableRow((1, 3, 6, 1, 2, 1, 169, 1, 1, 33, 1), ).setIndexNames((0, "PKTC-IETF-SIG-MIB", "pktcSigDevToneType"), (0, "PKTC-IETF-SIG-MIB", "pktcSigDevToneNumber"))
-if mibBuilder.loadTexts: pktcSigDevMultiFreqToneEntry.setDescription(' The different tone types with multiple frequencies\n             that can be provisioned based on country-specific\n             needs.')
-pktcSigDevToneNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 33, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,8)))
-if mibBuilder.loadTexts: pktcSigDevToneNumber.setDescription('This MIB object represents the frequency reference\n           of a multi-frequency tone.')
-pktcSigDevToneFirstFreqValue = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 33, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigDevToneFirstFreqValue.setDescription('This MIB object represents the value of the first\n          frequency of a tone type.  A value of zero implies\n          absence of the referenced frequency.')
-pktcSigDevToneSecondFreqValue = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 33, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigDevToneSecondFreqValue.setDescription('This MIB object represents the value of the second\n          frequency of a tone type.  A value of zero implies\n          absence of the referenced frequency.')
-pktcSigDevToneThirdFreqValue = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 33, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigDevToneThirdFreqValue.setDescription('This MIB object represents the value of the third\n          frequency of a tone type.  A value of zero implies\n          absence of the referenced frequency.')
-pktcSigDevToneFourthFreqValue = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 33, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigDevToneFourthFreqValue.setDescription('This MIB object represents the value of the fourth\n          frequency of a tone type.  A value of zero implies\n          absence of the referenced frequency.')
-pktcSigDevToneFreqMode = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 33, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("firstModulatedBySecond", 1), ("summation", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigDevToneFreqMode.setDescription("This MIB object provides directive on the\n        modulation or summation of the frequencies\n        involved in the tone.\n\n        It is to be noted that while summation can\n        be done without any constraint on the number\n        of frequencies, the modulation (amplitude)\n        holds good only when there are two frequencies\n        (first and second).\n\n        Thus:\n          - If the mode is set to a value of\n            'firstModulatedBySecond(1)', the first frequency\n            MUST be modulated by the second, and the remaining\n            frequencies (third and fourth) ignored.  The\n            percentage of amplitude modulation to be applied\n            is defined by the MIB object\n            pktcSigDevToneFreqAmpModePrtg.\n\n          - If the mode is set to a value of\n            'summation(2)', all the frequencies MUST be\n            summed without any modulation.\n       ")
-pktcSigDevToneFreqAmpModePrtg = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 33, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigDevToneFreqAmpModePrtg.setDescription("This MIB object represents the percentage of amplitude\n           modulation applied to the second frequency\n           when the MIB object pktcSigDevToneFreqMode is\n           set to a value of 'firstModulatedBySecond (1)'.\n\n           If the MIB object pktcSigDevToneFreqMode is set to\n           value of 'summation (2)', then this MIB object MUST be\n           ignored.")
-pktcSigDevToneDbLevel = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 33, 1, 8), TenthdBm().subtype(subtypeSpec=ValueRangeConstraint(-250,-110)).clone(-120)).setUnits('1/10 of a dBm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigDevToneDbLevel.setDescription('This MIB object contains the decibel level for each\n           analog signal (tone) that is locally generated\n           (versus in-band supervisory tones) and sourced to\n           the a-b terminals (TE connection point).  Each tone\n           in itself may consist of multiple frequencies, as\n           defined by the MIB table pktcSigDevMultiFreqToneTable.\n\n           This MIB object reflects the desired level at\n           the Telco (POTS) a-b (T/R) terminals, including the\n           effect of any MTA receiver gain (loss).  This is required\n           so that locally generated tones are consistent with\n           remotely generated in-band tones at the a-b terminals,\n           consistent with user expectations.\n\n           This MIB object must be set for each tone.\n           When tones are formed by combining multi-frequencies,\n           the level of each frequency shall be set so as to result\n           in the tone level specified in this object at the a-b\n           (T/R) terminals.\n\n           The wide range of levels for this Object is required\n           to provide signal-generator levels across the wide\n           range of gains (losses) -- but does not imply the entire\n           range is to be achievable given the range of gains (losses)\n           in the MTA.')
-pktcSigDevToneFreqOnDuration = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 33, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,5000))).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigDevToneFreqOnDuration.setDescription('This MIB object represents the duration for which the\n           frequency reference corresponding to the tone type\n           is turned on.')
-pktcSigDevToneFreqOffDuration = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 33, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,5000))).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigDevToneFreqOffDuration.setDescription('This MIB object represents the duration for which the\n\n\n\n           frequency reference corresponding to the tone type\n           is turned off.')
-pktcSigDevToneFreqRepeatCount = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 1, 33, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,5000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigDevToneFreqRepeatCount.setDescription('This MIB object indicates the number of times\n       to repeat the cadence cycle represented by the\n       on/off durations (refer to the MIB objects\n       pktcSigDevToneFreqOnDuration and\n       pktcSigDevToneFreqOffDuration).\n\n       Setting this object may result in a tone duration that is\n       longer or shorter than the overall signal duration\n       specified by the time out (TO) object for the\n       corresponding tone type.  If the value of this MIB\n       Object indicates a longer duration than that\n       specified by the TO, the latter overrules the former,\n       and the desired tone duration will be truncated according\n       to the TO.\n\n       However, if the repeat count results in a shorter\n       tone duration than the signal duration specified by\n       the TO, the tone duration defined by the repeat count\n       takes precedence over the TO and will end the signal\n       event.  In this case, the TO represents a time not to\n       be exceeded for the signal.  It is recommended, to\n       ensure proper telephony signaling, that the TO\n       duration setting should always be longer than the\n       desired repeat count-time duration.  A value of zero\n       means the tone sequence is to be played once but not\n       repeated.')
-pktcSigDevCidDelayAfterLR = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 34), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(300,800)).clone(400)).setUnits('Milliseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevCidDelayAfterLR.setDescription("This object specifies the delay between the end of the\n            Line Reversal and the start of the FSK or DTMF signal.\n            This MIB object is used only when pktcSigDevCidMode is\n            set to a value of 'lrETS'.  This timing has a range of\n            300 to 800 ms.\n\n\n\n            The following table defines the default values\n            for this MIB object, depending on the signal type\n           (pktcSigDevCidMode), and MUST be followed:\n\n          Value of pktcSigDevCidMode       Default value\n\n            duringringingETS               any value  (not used)\n            dtAsETS                        any value  (not used)\n            rpAsETS                        any value  (not used)\n            lrAsETS                        any value  (not used)\n            lrETS                          400\n\n            An attempt to set this object while the value of\n            pktcSigDevCidMode is not set to a value of 'lrETS' will\n            result in an 'inconsistentValue' error.\n\n            The value of this MIB object MUST NOT persist across MTA\n            reboots.")
-pktcSigDevCidDtmfStartCode = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 35), DtmfCode().clone('dtmfcodeA')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevCidDtmfStartCode.setDescription("This object identifies optional start codes used when\n            the MIB object pktcSigDevCidSigProtocol is set\n            to a value of 'dtmf(2)'.\n\n            Different countries define different caller id signaling\n            codes to support caller identification.  When Dual-Tone\n            Multi-Frequency (DTMF) is used, the caller id digits are\n            preceded by a 'start code' digit, followed by the digit\n            transmission sequence <S1>...<Sn> (where Sx represents\n            the digits 0-9), and terminated by the 'end code' digit.\n\n            For example,\n              <A><S1>...<Sn> <D><S1>...<Sn> <B><S1>...<Sn> <C>.\n            The start code for calling number delivery may be DTMF\n            'A' or 'D'.  The start code for redirecting a number may be\n            DTMF 'D'.  The DTMF code 'B' may be sent by the network\n            as a start code for the transfer of information values,\n            through which special events can be indicated to the\n            user.  In some countries, the '*' or '#' may be used\n            instead of 'A', 'B', 'C', or 'D'.\n\n            The value of this MIB object MUST NOT persist across MTA\n\n\n\n            reboots.")
-pktcSigDevCidDtmfEndCode = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 36), DtmfCode().clone('dtmfcodeC')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevCidDtmfEndCode.setDescription("This object identifies optional end codes used when the\n            pktcSigDevCidSigProtocol is set to a value of\n            'dtmf(2)'.\n\n            Different countries define different caller id signaling\n            protocols to support caller identification.  When\n            Dual-Tone Multi-Frequency (DTMF) is used, the caller id\n            digits are preceded by a 'start code' digit, followed by\n            the digit transmission sequence <S1>...<Sn> (where Sx\n            represents the digits 0-9), and terminated by the 'end\n            code' digit.\n\n            For example,\n              <A><S1>...<Sn> <D><S1>...<Sn> <B><S1>...<Sn> <C>.\n\n            The DTMF code 'C' may be sent by the network as an\n            end code for the transfer of information values, through\n            which special events can be indicated to the user.  In\n            some countries, the '*' or '#' may be used instead of\n            'A', 'B', 'C', or 'D'.\n\n            The value of this MIB object MUST NOT persist across MTA\n            reboots.")
-pktcSigDevVmwiSigProtocol = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 37), PktcSubscriberSideSigProtocol().clone('fsk')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevVmwiSigProtocol.setDescription('This object identifies the subscriber line protocol used\n            for signaling the information on Visual Message Waiting\n            Indicator (VMWI).  Different countries define different\n            VMWI signaling protocols to support VMWI service.\n\n\n\n            Frequency shift keying (FSK) is most commonly used.\n            DTMF is an alternative.\n\n            The value of this MIB object MUST NOT persist across MTA\n            reboots.')
-pktcSigDevVmwiDelayAfterLR = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 38), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(300,800),)).clone(400)).setUnits('Milliseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevVmwiDelayAfterLR.setDescription("This object specifies the delay between the end of the\n            Line Reversal and the start of the FSK or DTMF signal.\n            This object is only used when pktcSigDevVmwiMode is\n            set to a value of 'lrETS'.\n            This timing has a range of 300 to 800 ms.\n\n            The following table defines the default values\n            for this MIB object, depending on the signal type\n           (pktcSigDevVmwiMode), and MUST be followed:\n\n            Value of pktcSigDevVmwiMode       Default value\n\n            duringringingETS                  any value  (not used)\n            dtAsETS                           any value  (not used)\n            rpAsETS                           any value  (not used)\n            lrAsETS                           any value  (not used)\n            lrETS                             400\n\n            An attempt to set this object while the value of\n            pktcSigDevVmwiMode is not 'lrETS' will result in an\n            'inconsistentValue' error.\n\n            The value of this MIB object MUST NOT persist across MTA\n            reboots.")
-pktcSigDevVmwiDtmfStartCode = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 39), DtmfCode().clone('dtmfcodeA')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevVmwiDtmfStartCode.setDescription("This object identifies optional start codes used when\n\n\n\n            the pktcSigDevVmwiSigProtocol is set to a value of\n            'dtmf(2)'.  Different countries define different On Hook\n            Data Transmission Protocol signaling codes to support\n            VMWI.\n\n            When Dual-Tone Multi-Frequency (DTMF) is used, the VMWI\n            digits are preceded by a 'start code' digit, followed\n            by the digit transmission sequence <S1>...<Sn> (where\n            Sx represents the digits 0-9), and terminated by the 'end\n            code' digit.\n\n            For example,\n              <A><S1>...<Sn> <D><S1>...<Sn> <B><S1>...<Sn> <C>.\n\n            The start code for redirecting VMWI may be DTMF 'D'\n            The DTMF code 'B' may be sent by the network as a start\n            code for the transfer of information values, through\n            which special events can be indicated to the user.  In\n            some countries, the '*' or '#' may be used instead of\n            'A', 'B', 'C', or 'D'.\n\n            The value of this MIB object MUST NOT persist across MTA\n            reboots.")
-pktcSigDevVmwiDtmfEndCode = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 40), DtmfCode().clone('dtmfcodeC')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevVmwiDtmfEndCode.setDescription("This object identifies an optional end code used when the\n            pktcSigDevVmwiSigProtocol is set to a value of\n            'dtmf(2)'.  Different countries define different on-hook\n            Data Transmission Protocol signaling codes to support\n            VMWI.\n\n            When Dual-Tone Multi-Frequency (DTMF) is used, the VMWI\n            digits are preceded by a 'start code' digit, followed\n            by the digit transmission sequence <S1>...<Sn> (where\n            Sx represents the digits 0-9), and terminated by the 'end\n            code' digit.\n\n            For example,\n              <A><S1>...<Sn> <D><S1>...<Sn> <B><S1>...<Sn> <C>.\n\n\n\n\n            The DTMF code 'C' may be sent by the network as an end code\n            for the transfer of information values, through which\n            special events can be indicated to the user.  In some\n            countries, the '*' or '#' may be used instead of 'A',\n            'B', 'C', or 'D'.\n\n            The value of this MIB object MUST NOT persist across MTA\n            reboots.")
-pktcSigDevrpAsDtsDuration = MibScalar((1, 3, 6, 1, 2, 1, 169, 1, 1, 41), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(200,500),)).clone(250)).setUnits('Milliseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcSigDevrpAsDtsDuration.setDescription(" This object specifies the duration of the rpASDTS ring\n             pulse prior to the start of the transmission of the\n             FSK or DTMF containing the caller id information.  It is\n             only used when pktcSigDevCidMode is set to a value of\n             'rpAsETS'.\n\n             The following table defines the default values\n             for this MIB object, depending on the signal type\n            (pktcSigDevCidMode), and MUST be followed:\n\n             Value of pktcSigDevCidMode       Default value\n\n             duringringingETS                 any value  (not used)\n             dtAsETS                          any value  (not used)\n             rpAsETS                          250\n             lrAsETS                          any value  (not used)\n             lrETS                            any value  (not used)\n\n             An attempt to set this object while the value of\n             pktcSigDevCidMode is not 'rpAsETS' will result in\n             an 'inconsistentValue' error.\n\n            The value of this MIB object MUST NOT persist across MTA\n            reboots.")
-pktcSigEndPntConfigTable = MibTable((1, 3, 6, 1, 2, 1, 169, 1, 2, 1), )
-if mibBuilder.loadTexts: pktcSigEndPntConfigTable.setDescription(' This table describes the information pertaining to each\n          endpoint of the MTA.  All entries in this table represent\n          the provisioned endpoints provisioned with the information\n          required by the MTA to maintain the NCS protocol\n          communication with the CMS.  Each endpoint can be assigned\n          to its own CMS.  If the specific endpoint does not have\n          the corresponding CMS information in this table, the\n          endpoint is considered as not provisioned with voice\n          services.  Objects in this table do not persist across\n          MTA reboots.')
-pktcSigEndPntConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: pktcSigEndPntConfigEntry.setDescription('Each entry in the pktcSigEndPntConfigTable represents\n         required signaling parameters for the specific endpoint\n         provisioned with voice services.  The conceptual rows MUST\n         NOT persist across MTA reboots.')
-pktcSigEndPntConfigCallAgentId = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(3,255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigCallAgentId.setDescription(" This object contains a string indicating the call agent\n          name (e.g., ca@example.com).  The call agent name, after\n          the character '@', MUST be a fully qualified domain name\n          (FQDN) and MUST have a corresponding pktcMtaDevCmsFqdn\n          entry in the pktcMtaDevCmsTable.  The object\n          pktcMtaDevCmsFqdn is defined in the PacketCable MIBMTA\n          Specification.  For each particular endpoint, the MTA MUST\n          use the current value of this object to communicate with\n          the corresponding CMS.  The MTA MUST update this object\n          with the value of the 'Notified Entity' parameter of the\n          NCS message.  Because of the high importance of this object\n          to the ability of the MTA to maintain reliable NCS\n          communication with the CMS, it is highly recommended not\n          to change this object's value using SNMP during normal\n          operation.")
-pktcSigEndPntConfigCallAgentUdpPort = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 2), InetPortNumber().subtype(subtypeSpec=ValueRangeConstraint(1025,65535)).clone(2727)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigCallAgentUdpPort.setDescription(" This object contains the current value of the User\n          Datagram Protocol (UDP) receive port on which the\n          call agent will receive NCS from the endpoint.\n          For each particular endpoint, the MTA MUST use the current\n          value of this object to communicate with the corresponding\n          CMS.  The MTA MUST update this object with the value of the\n          'Notified Entity' parameter of the NCS message.  If the\n          Notified Entity parameter does not contain a CallAgent\n          port, the MTA MUST update this object with the default\n          value of 2727.  Because of the high importance of this\n          object to the ability of the MTA to maintain reliable NCS\n          communication with the CMS, it is highly recommended not\n          to change this object's value using SNMP during normal\n          operation.")
-pktcSigEndPntConfigPartialDialTO = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 3), Unsigned32().clone(16)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigPartialDialTO.setDescription("This object contains the value of the partial dial\n         time out.\n         The time out (TO) elements are intended to limit the time a\n         tone or frequency is generated.  When this MIB object is set\n         to a value of '0', the MTA MUST NOT generate the\n         corresponding frequency or tone, regardless of the\n         definitions pertaining to frequency, tone duration, or\n         cadence.")
-pktcSigEndPntConfigCriticalDialTO = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 4), Unsigned32().clone(4)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigCriticalDialTO.setDescription("This object contains the value of the critical\n         dial time out.\n         The time out (TO) elements are intended to limit the time a\n         tone or frequency is generated.  When this MIB object is set\n         to a value of '0', the MTA MUST NOT generate the\n         corresponding frequency or tone, regardless of the\n         definitions pertaining to frequency, tone duration, or\n         cadence.")
-pktcSigEndPntConfigBusyToneTO = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 5), Unsigned32().clone(30)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigBusyToneTO.setDescription(" This object contains the default time out value for busy\n          tone.  The MTA MUST NOT update this object with the\n          value provided in the NCS message (if present).  If\n          the value of the object is modified by the SNMP Management\n          Station, the MTA MUST use the new value as a default only\n          for a new signal requested by the NCS message.\n          The time out (TO) elements are intended to limit the time\n          a tone or frequency is generated.  When this MIB object is\n          set to a value of '0', the MTA MUST NOT generate the\n          corresponding frequency or tone, regardless of the\n          definitions pertaining to frequency, tone duration, or\n          cadence.")
-pktcSigEndPntConfigDialToneTO = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 6), Unsigned32().clone(16)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigDialToneTO.setDescription(" This object contains the default time out value for dial\n          tone.  The MTA MUST NOT update this object with the\n          value provided in the NCS message (if present).  If\n\n\n\n          the value of the object is modified by the SNMP Management\n          Station, the MTA MUST use the new value as a default only\n          for a new signal requested by the NCS message.\n          The time out (TO) elements are intended to limit the time\n          a tone or frequency is generated.  When this MIB object is\n          set to a value of '0', the MTA MUST NOT generate the\n          corresponding frequency or tone, regardless of the\n          definitions pertaining to frequency, tone duration, or\n          cadence.")
-pktcSigEndPntConfigMessageWaitingTO = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 7), Unsigned32().clone(16)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigMessageWaitingTO.setDescription(" This object contains the default time out value for message\n          waiting indicator.  The MTA MUST NOT update this object\n          with the value provided in the NCS message (if\n          present).  If the value of the object is modified by the\n          SNMP Manager application, the MTA MUST use the new value\n          as a default only for a new signal requested by the NCS\n          message.\n          The time out (TO) elements are intended to limit the time\n          a tone or frequency is generated.  When this MIB object is\n          set to a value of '0', the MTA MUST NOT generate the\n          corresponding frequency or tone, regardless of the\n          definitions pertaining to frequency, tone duration, or\n          cadence.")
-pktcSigEndPntConfigOffHookWarnToneTO = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 8), Unsigned32()).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigOffHookWarnToneTO.setDescription(" This object contains the default time out value for the\n          off-hook warning tone.  The MTA MUST NOT update this object\n          with the value provided in the NCS message (if present).  If\n          the value of the object is modified by the SNMP Manager\n\n\n\n          application, the MTA MUST use the new value as a default\n          only for a new signal requested by the NCS message.  The\n          time out (TO) elements are intended to limit the time a tone\n          or frequency is generated.  When this MIB object is set to a\n          value of '0', the MTA MUST NOT generate the corresponding\n          frequency or tone, regardless of the definitions pertaining\n          to frequency, tone duration, or cadence.")
-pktcSigEndPntConfigRingingTO = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 9), Unsigned32().clone(180)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigRingingTO.setDescription(" This object contains the default time out value for\n          ringing.  The MTA MUST NOT update this object with the\n          value provided in the NCS message (if present).  If\n          the value of the object is modified by the SNMP Management\n          Station, the MTA MUST use the new value as a default only\n          for a new signal requested by the NCS message.\n          The time out (TO) elements are intended to limit the time\n          a tone or frequency is generated.  When this MIB object is\n          set to a value of '0', the MTA MUST NOT generate the\n          corresponding frequency or tone, regardless of the\n          definitions pertaining to frequency, tone duration, or\n          cadence.")
-pktcSigEndPntConfigRingBackTO = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 10), Unsigned32().clone(180)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigRingBackTO.setDescription(" This object contains the default time out value for ring\n          back.  The MTA MUST NOT update this object with the\n          value provided in the NCS message (if present).  If\n          the value of the object is modified by the SNMP Management\n          Station, the MTA MUST use the new value as a default only\n          for a new signal requested by the NCS message.\n          The time out (TO) elements are intended to limit the time\n\n\n\n          a tone or frequency is generated.  When this MIB object is\n          set to a value of '0', the MTA MUST NOT generate the\n          corresponding frequency or tone, regardless of the\n          definitions pertaining to frequency, tone duration, or\n          cadence.")
-pktcSigEndPntConfigReorderToneTO = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 11), Unsigned32().clone(30)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigReorderToneTO.setDescription(" This object contains the default time out value for reorder\n          tone.  The MTA MUST NOT update this object with the\n          value provided in the NCS message (if present).  If\n          the value of the object is modified by the SNMP Management\n          Station, the MTA MUST use the new value as a default only\n          for a new signal requested by the NCS message.\n          The time out (TO) elements are intended to limit the time\n          a tone or frequency is generated.  When this MIB object is\n          set to a value of '0', the MTA MUST NOT generate the\n          corresponding frequency or tone, regardless of the\n          definitions pertaining to frequency, tone duration, or\n          cadence.")
-pktcSigEndPntConfigStutterDialToneTO = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 12), Unsigned32().clone(16)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigStutterDialToneTO.setDescription(" This object contains the default time out value for stutter\n          dial tone.  The MTA MUST NOT update this object with the\n          value provided in the NCS message (if present).  If\n          the value of the object is modified by the SNMP Management\n          Station, the MTA MUST use the new value as a default only\n          for a new signal requested by the NCS message.\n          The time out (TO) elements are intended to limit the time\n          a tone or frequency is generated.  When this MIB object is\n          set to a value of '0', the MTA MUST NOT generate the\n\n\n\n          corresponding frequency or tone, regardless of the\n          definitions pertaining to frequency, tone duration, or\n          cadence.")
-pktcSigEndPntConfigTSMax = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 13), Unsigned32().clone(20)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigTSMax.setDescription('This MIB object is used as part of an NCS\n            retransmission algorithm.  Prior to any retransmission,\n            the MTA must check to make sure that the time elapsed\n            since the sending of the initial datagram does not\n            exceed the value specified by this MIB object.  If more\n            than Tsmax time has elapsed, then the retransmissions\n            MUST cease.\n\n            Refer to the MIB object pktcSigEndPntConfigThist for\n            information on when the endpoint becomes disconnected.')
-pktcSigEndPntConfigMax1 = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 14), Unsigned32().clone(5)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigMax1.setDescription('This object contains the suspicious error threshold for\n         signaling messages.  The pktcSigEndPntConfigMax1 object\n         indicates the retransmission threshold at which the MTA MAY\n         actively query the domain name server (DNS) in order to\n         detect the possible change of call agent interfaces.')
-pktcSigEndPntConfigMax2 = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 15), Unsigned32().clone(7)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigMax2.setDescription('This object contains the disconnect error threshold for\n         signaling messages.  The pktcSigEndPntConfigMax2 object\n         indicates the retransmission threshold at which the MTA\n         SHOULD contact the DNS one more time to see if any other\n         interfaces to the call agent have become available.')
-pktcSigEndPntConfigMax1QEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 16), TruthValue().clone('true')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigMax1QEnable.setDescription('This object enables/disables the Max1 domain name server\n         (DNS) query operation when the pktcSigEndPntConfigMax1\n         threshold has been reached.\n         A value of true(1) indicates enabling, and a value of\n         false(2) indicates disabling.')
-pktcSigEndPntConfigMax2QEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 17), TruthValue().clone('true')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigMax2QEnable.setDescription('This object enables/disables the Max2 domain name server\n         (DNS) query operation when the pktcSigEndPntConfigMax2\n         threshold has been reached.\n         A value of true(1) indicates enabling, and a value of\n         false(2) indicates disabling.')
-pktcSigEndPntConfigMWD = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 18), Unsigned32().clone(600)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigMWD.setDescription('Maximum Waiting Delay (MWD) contains the maximum number of\n         seconds an MTA waits, after powering on, before initiating\n         the restart procedure with the call agent.')
-pktcSigEndPntConfigTdinit = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 19), Unsigned32().clone(15)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigTdinit.setDescription("This MIB object represents the 'disconnected' initial\n         waiting delay within the context of an MTA's 'disconnected\n         procedure'.  The 'disconnected procedure' is initiated when\n         an endpoint becomes 'disconnected' while attempting to\n         communicate with a call agent.\n\n         The 'disconnected timer' associated with the 'disconnected\n         Procedure' is initialized to a random value, uniformly\n         distributed between zero and the value contained in this\n         MIB object.\n\n         For more information on the usage of this timer, please\n         refer to the PacketCable NCS Specification.")
-pktcSigEndPntConfigTdmin = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 20), Unsigned32().clone(15)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigTdmin.setDescription("This MIB object represents the 'disconnected' minimum\n             waiting delay within the context of an MTA's\n             'disconnected procedure', specifically when local user\n             activity is detected.\n             The 'disconnected procedure' is initiated when\n             an endpoint becomes 'disconnected' while attempting to\n             communicate with a call agent.\n             For more information on the usage of this timer, please\n             refer to the PacketCable NCS Specification.")
-pktcSigEndPntConfigTdmax = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 21), Unsigned32().clone(600)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigTdmax.setDescription(' This object contains the maximum number of seconds the MTA\n          waits, after a disconnect, before initiating the\n          disconnected procedure with the call agent.\n           ')
-pktcSigEndPntConfigRtoMax = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 22), Unsigned32().clone(4)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigRtoMax.setDescription('This object specifies the maximum number of seconds the MTA\n         waits for a response to an NCS message before initiating\n         a retransmission.')
-pktcSigEndPntConfigRtoInit = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 23), Unsigned32().clone(200)).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigRtoInit.setDescription(' This object contains the initial number of seconds for the\n          retransmission timer.')
-pktcSigEndPntConfigLongDurationKeepAlive = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 24), Unsigned32().clone(60)).setUnits('minutes').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigLongDurationKeepAlive.setDescription(' Specifies a time out value, in minutes, for sending long\n          duration call notification messages.')
-pktcSigEndPntConfigThist = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 25), Unsigned32().clone(30)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigThist.setDescription(' Time out period, in seconds, before no response is declared.')
-pktcSigEndPntConfigStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 26), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigStatus.setDescription(" This object contains the Row Status associated with the\n          pktcSigEndPntConfigTable.  There are no restrictions or\n          dependencies amidst the columnar objects before this\n          row can be activated or for modifications of the\n          columnar objects when this object is set to a\n          value of 'active(1).")
-pktcSigEndPntConfigCallWaitingMaxRep = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 27), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,10)).clone(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigCallWaitingMaxRep.setDescription(' This object contains the default value of the maximum\n          number of repetitions of the Call Waiting tone that the\n          MTA will play from a single CMS request.  The MTA MUST NOT\n          update this object with the information provided in the\n          NCS message (if present).  If the value of the object is\n          modified by the SNMP Manager application, the MTA MUST use\n          the new value as a default only for a new signal\n          requested by the NCS message.')
-pktcSigEndPntConfigCallWaitingDelay = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 28), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,100)).clone(10)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcSigEndPntConfigCallWaitingDelay.setDescription(' This object contains the delay between repetitions of the\n          Call Waiting tone that the MTA will play from a single CMS\n          request.')
-pktcSigEndPntStatusCallIpAddressType = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 29), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigEndPntStatusCallIpAddressType.setDescription(" This object contains the type of Internet address contained\n         in the MIB object 'pktcSigEndPntStatusCallIpAddress'.\n\n         Since pktcSigEndPntStatusCallIpAddress is expected to\n         contain an IP address, a value of dns(16) is disallowed.")
-pktcSigEndPntStatusCallIpAddress = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 30), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigEndPntStatusCallIpAddress.setDescription(" This MIB object contains the chosen IP address of the CMS\n         currently being used for the corresponding endpoint.\n\n         The device determines the IP address by using DNS to\n         resolve the IP address of the CMS from the FQDN stored in\n         the MIB object 'pktcSigEndPntConfigCallAgentId'.  The\n         processes are outlined in the PacketCable NCS and Security\n         specifications, and MUST be followed by the MTA.\n\n         The IP address type contained in this MIB object is\n         indicated by pktcSigEndPntStatusCallIpAddressType.")
-pktcSigEndPntStatusError = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 31), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("operational", 1), ("noSecurityAssociation", 2), ("disconnected", 3),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigEndPntStatusError.setDescription(' This object contains the error status for this interface.\n         The operational status indicates that all operations\n         necessary to put the line in service have occurred, and the\n         CMS has acknowledged the Restart In Progress (RSIP)\n         message successfully.  If pktcMtaDevCmsIpsecCtrl is enabled\n         for the associated call agent, the noSecurityAssociation\n         status indicates that no Security Association (SA) yet\n         exists for this endpoint.  If pktcMtaDevCmsIpsecCtrl is\n         disabled for the associated call agent, the\n         noSecurityAssociation status is not applicable and should\n         not be used by the MTA.  The disconnected status indicates\n         one of the following two:\n         If pktcMtaDevCmsIpsecCtrl is disabled, then no security\n         association is involved with this endpoint.  The NCS\n         signaling software is in process of establishing the NCS\n         signaling link via an RSIP exchange.\n         Otherwise, when pktcMtaDevCmsIpsecCtrl is enabled,\n         security Association has been established, and the NCS\n         signaling software is in process of establishing the NCS\n         signaling link via an RSIP exchange.')
-pktcSigEndPntConfigMinHookFlash = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 32), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(20,1550)).clone(300)).setUnits('Milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigEndPntConfigMinHookFlash.setDescription(" This is the minimum time a line needs to be on-hook for a\n          valid hook flash.  The value of this object MUST be\n          greater than the value of\n          pktcSigEndPntConfigPulseDialMaxBreakTime.  The value of\n          pktcSigEndPntConfigMinHookFlash MUST be less than\n          pktcSigEndPntConfigMaxHookFlash.  This object MUST only be\n          set via the MTA configuration during the provisioning\n          process.\n             Furthermore, given the possibility for the 'pulse dial'\n             and 'hook flash' to overlap, the value of this object\n             MUST be greater than the value contained by the MIB\n             Object 'pktcSigEndPntConfigPulseDialMaxMakeTime'.")
-pktcSigEndPntConfigMaxHookFlash = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 33), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(20,1550)).clone(800)).setUnits('Milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigEndPntConfigMaxHookFlash.setDescription(' This is the maximum time a line needs to be on-hook for a\n          valid hook flash.  The value of\n          pktcSigEndPntConfigMaxHookFlash MUST be greater than\n          pktcSigEndPntConfigMinHookFlash.  This object MUST only be\n          set via the MTA configuration during the provisioning\n          process.')
-pktcSigEndPntConfigPulseDialInterdigitTime = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 34), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(100,1500)).clone(100)).setUnits('Milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigEndPntConfigPulseDialInterdigitTime.setDescription(' This is the pulse dial inter-digit time out.  This object\n          MUST only be set via the MTA configuration during the\n          provisioning process.')
-pktcSigEndPntConfigPulseDialMinMakeTime = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 35), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(20,200)).clone(25)).setUnits('Milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigEndPntConfigPulseDialMinMakeTime.setDescription(' This is the minimum make pulse width for the dial pulse.\n          The value of pktcSigEndPntConfigPulseDialMinMakeTime MUST\n          be less than pktcSigEndPntConfigPulseDialMaxMakeTime.  This\n          object MUST only be set via the MTA configuration during\n          the provisioning process.')
-pktcSigEndPntConfigPulseDialMaxMakeTime = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 36), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(20,200)).clone(55)).setUnits('Milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigEndPntConfigPulseDialMaxMakeTime.setDescription(" This is the maximum make pulse width for the dial pulse.\n\n\n\n          The value of pktcSigEndPntConfigPulseDialMaxMakeTime MUST\n          be greater than pktcSigEndPntConfigPulseDialMinMakeTime.\n          This object MUST only be provided via the configuration\n          file during the provisioning process.\n          Furthermore, given the possibility for the 'pulse dial'\n          and 'hook flash' to overlap, the value of this object MUST\n          be less than the value contained by the MIB object\n          pktcSigEndPntConfigMinHookFlash.")
-pktcSigEndPntConfigPulseDialMinBreakTime = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 37), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(20,200)).clone(45)).setUnits('Milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigEndPntConfigPulseDialMinBreakTime.setDescription(' This is the minimum break pulse width for the dial pulse.\n          The value of pktcSigEndPntConfigPulseDialMinBreakTime MUST\n          be less than pktcSigEndPntConfigPulseDialMaxBreakTime.\n          This object must only be provided via the configuration\n          file during the provisioning process.')
-pktcSigEndPntConfigPulseDialMaxBreakTime = MibTableColumn((1, 3, 6, 1, 2, 1, 169, 1, 2, 1, 1, 38), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(20,200)).clone(75)).setUnits('Milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcSigEndPntConfigPulseDialMaxBreakTime.setDescription(' This is the maximum break pulse width for the dial pulse.\n          The value of pktcSigEndPntConfigPulseDialMaxBreakTime MUST\n          be greater than pktcSigEndPntConfigPulseDialMinBreakTime.\n          This object MUST only be provided via the configuration\n          file during the provisioning process.')
-pktcSigNotification = MibIdentifier((1, 3, 6, 1, 2, 1, 169, 0))
-pktcSigConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 169, 2))
-pktcSigCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 169, 2, 1))
-pktcSigGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 169, 2, 2))
-pktcSigBasicCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 169, 2, 1, 1)).setObjects(*(("PKTC-IETF-SIG-MIB", "pktcSigDeviceGroup"), ("PKTC-IETF-SIG-MIB", "pktcSigEndpointGroup"), ("PKTC-IETF-SIG-MIB", "pktcInternationalGroup"), ("PKTC-IETF-SIG-MIB", "pktcLLinePackageGroup"), ("PKTC-IETF-SIG-MIB", "pktcELinePackageGroup"),))
-if mibBuilder.loadTexts: pktcSigBasicCompliance.setDescription(' The compliance statement for MTAs that implement\n          NCS signaling.')
-pktcSigDeviceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 169, 2, 2, 1)).setObjects(*(("PKTC-IETF-SIG-MIB", "pktcSigDevCodecMax"), ("PKTC-IETF-SIG-MIB", "pktcSigDevEchoCancellation"), ("PKTC-IETF-SIG-MIB", "pktcSigDevSilenceSuppression"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR0Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR1Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR2Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR3Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR4Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR5Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR6Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR7Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevRgCadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevRsCadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDefCallSigDscp"), ("PKTC-IETF-SIG-MIB", "pktcSigDefMediaStreamDscp"), ("PKTC-IETF-SIG-MIB", "pktcSigDevVmwiMode"), ("PKTC-IETF-SIG-MIB", "pktcSigCapabilityType"), ("PKTC-IETF-SIG-MIB", "pktcSigCapabilityVersion"), ("PKTC-IETF-SIG-MIB", "pktcSigCapabilityVendorExt"), ("PKTC-IETF-SIG-MIB", "pktcSigDefNcsReceiveUdpPort"),))
-if mibBuilder.loadTexts: pktcSigDeviceGroup.setDescription('Group of MIB objects containing signaling configuration\n           information that is applicable per-device.')
-pktcSigEndpointGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 169, 2, 2, 2)).setObjects(*(("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigCallAgentId"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigCallAgentUdpPort"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigPartialDialTO"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigCriticalDialTO"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigBusyToneTO"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigDialToneTO"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigMessageWaitingTO"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigOffHookWarnToneTO"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigRingingTO"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigRingBackTO"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigReorderToneTO"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigStutterDialToneTO"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigTSMax"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigMax1"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigMax2"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigMax1QEnable"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigMax2QEnable"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigMWD"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigTdinit"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigTdmin"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigTdmax"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigRtoMax"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigRtoInit"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigLongDurationKeepAlive"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigThist"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigStatus"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigCallWaitingMaxRep"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigCallWaitingDelay"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntStatusCallIpAddressType"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntStatusCallIpAddress"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntStatusError"),))
-if mibBuilder.loadTexts: pktcSigEndpointGroup.setDescription('Group of MIB objects containing signaling configuration\n           information that is applicable per-endpoint.')
-pktcInternationalGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 169, 2, 2, 3)).setObjects(*(("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigMinHookFlash"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigMaxHookFlash"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigPulseDialInterdigitTime"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigPulseDialMinMakeTime"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigPulseDialMaxMakeTime"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigPulseDialMinBreakTime"), ("PKTC-IETF-SIG-MIB", "pktcSigEndPntConfigPulseDialMaxBreakTime"), ("PKTC-IETF-SIG-MIB", "pktcSigDevRingCadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevCidSigProtocol"), ("PKTC-IETF-SIG-MIB", "pktcSigDevCidDelayAfterLR"), ("PKTC-IETF-SIG-MIB", "pktcSigDevCidDtmfStartCode"), ("PKTC-IETF-SIG-MIB", "pktcSigDevCidDtmfEndCode"), ("PKTC-IETF-SIG-MIB", "pktcSigDevVmwiSigProtocol"), ("PKTC-IETF-SIG-MIB", "pktcSigDevVmwiDelayAfterLR"), ("PKTC-IETF-SIG-MIB", "pktcSigDevVmwiDtmfStartCode"), ("PKTC-IETF-SIG-MIB", "pktcSigDevVmwiDtmfEndCode"), ("PKTC-IETF-SIG-MIB", "pktcSigDevrpAsDtsDuration"), ("PKTC-IETF-SIG-MIB", "pktcSigDevCidMode"), ("PKTC-IETF-SIG-MIB", "pktcSigDevCidAfterRing"), ("PKTC-IETF-SIG-MIB", "pktcSigDevCidAfterDTAS"), ("PKTC-IETF-SIG-MIB", "pktcSigDevCidAfterRPAS"), ("PKTC-IETF-SIG-MIB", "pktcSigDevRingAfterCID"), ("PKTC-IETF-SIG-MIB", "pktcSigDevCidDTASAfterLR"), ("PKTC-IETF-SIG-MIB", "pktcSigDevVmwiMode"), ("PKTC-IETF-SIG-MIB", "pktcSigDevVmwiAfterDTAS"), ("PKTC-IETF-SIG-MIB", "pktcSigDevVmwiAfterRPAS"), ("PKTC-IETF-SIG-MIB", "pktcSigDevVmwiDTASAfterLR"), ("PKTC-IETF-SIG-MIB", "pktcSigPowerRingFrequency"), ("PKTC-IETF-SIG-MIB", "pktcSigPulseSignalFrequency"), ("PKTC-IETF-SIG-MIB", "pktcSigPulseSignalDbLevel"), ("PKTC-IETF-SIG-MIB", "pktcSigPulseSignalDuration"), ("PKTC-IETF-SIG-MIB", "pktcSigPulseSignalPulseInterval"), ("PKTC-IETF-SIG-MIB", "pktcSigPulseSignalRepeatCount"), ("PKTC-IETF-SIG-MIB", "pktcSigDevToneDbLevel"), ("PKTC-IETF-SIG-MIB", "pktcSigDevToneFreqCounter"), ("PKTC-IETF-SIG-MIB", "pktcSigDevToneWholeToneRepeatCount"), ("PKTC-IETF-SIG-MIB", "pktcSigDevToneSteady"), ("PKTC-IETF-SIG-MIB", "pktcSigDevToneFirstFreqValue"), ("PKTC-IETF-SIG-MIB", "pktcSigDevToneSecondFreqValue"), ("PKTC-IETF-SIG-MIB", "pktcSigDevToneThirdFreqValue"), ("PKTC-IETF-SIG-MIB", "pktcSigDevToneFourthFreqValue"), ("PKTC-IETF-SIG-MIB", "pktcSigDevToneFreqMode"), ("PKTC-IETF-SIG-MIB", "pktcSigDevToneFreqAmpModePrtg"), ("PKTC-IETF-SIG-MIB", "pktcSigDevToneFreqOnDuration"), ("PKTC-IETF-SIG-MIB", "pktcSigDevToneFreqOffDuration"), ("PKTC-IETF-SIG-MIB", "pktcSigDevToneFreqRepeatCount"),))
-if mibBuilder.loadTexts: pktcInternationalGroup.setDescription(' Group of objects that extend the behavior of existing\n          objects to support operations in the widest possible set\n          of international marketplaces.  Note that many of these\n          objects represent a superset of behaviors described in\n          other objects within this MIB module.')
-pktcLLinePackageGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 169, 2, 2, 4)).setObjects(*(("PKTC-IETF-SIG-MIB", "pktcSigDevR0Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR1Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR2Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR3Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR4Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR5Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR6Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR7Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevRgCadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevRsCadence"),))
-if mibBuilder.loadTexts: pktcLLinePackageGroup.setDescription('Group of Objects to support the L line package.')
-pktcELinePackageGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 169, 2, 2, 5)).setObjects(*(("PKTC-IETF-SIG-MIB", "pktcSigDevR0Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR1Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR2Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR3Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR4Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR5Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR6Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevR7Cadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevRgCadence"), ("PKTC-IETF-SIG-MIB", "pktcSigDevRsCadence"), ("PKTC-IETF-SIG-MIB", "pktcSigPulseSignalFrequency"), ("PKTC-IETF-SIG-MIB", "pktcSigPulseSignalDbLevel"), ("PKTC-IETF-SIG-MIB", "pktcSigPulseSignalDuration"), ("PKTC-IETF-SIG-MIB", "pktcSigPulseSignalPulseInterval"), ("PKTC-IETF-SIG-MIB", "pktcSigPulseSignalRepeatCount"), ("PKTC-IETF-SIG-MIB", "pktcSigDevRingCadence"),))
-if mibBuilder.loadTexts: pktcELinePackageGroup.setDescription('Group of Objects to support the E line package.')
-mibBuilder.exportSymbols("PKTC-IETF-SIG-MIB", pktcSigEndPntConfigPulseDialInterdigitTime=pktcSigEndPntConfigPulseDialInterdigitTime, pktcSigEndPntStatusCallIpAddress=pktcSigEndPntStatusCallIpAddress, pktcSigDevToneFreqOffDuration=pktcSigDevToneFreqOffDuration, pktcSigDevVmwiDtmfEndCode=pktcSigDevVmwiDtmfEndCode, pktcSigEndPntConfigMax1=pktcSigEndPntConfigMax1, pktcSigDevToneSecondFreqValue=pktcSigDevToneSecondFreqValue, pktcSigDefCallSigDscp=pktcSigDefCallSigDscp, pktcSigDevVmwiSigProtocol=pktcSigDevVmwiSigProtocol, pktcSigDevMultiFreqToneTable=pktcSigDevMultiFreqToneTable, pktcSigEndPntConfigTSMax=pktcSigEndPntConfigTSMax, pktcIetfSigMib=pktcIetfSigMib, pktcSigDevRgCadence=pktcSigDevRgCadence, pktcSigDevRingCadenceIndex=pktcSigDevRingCadenceIndex, pktcSigEndPntConfigBusyToneTO=pktcSigEndPntConfigBusyToneTO, pktcSigDevToneWholeToneRepeatCount=pktcSigDevToneWholeToneRepeatCount, pktcSigDevVmwiDtmfStartCode=pktcSigDevVmwiDtmfStartCode, pktcSigCapabilityType=pktcSigCapabilityType, pktcSigDevCidDtmfStartCode=pktcSigDevCidDtmfStartCode, pktcSigPulseSignalRepeatCount=pktcSigPulseSignalRepeatCount, pktcSigDevCidAfterRPAS=pktcSigDevCidAfterRPAS, pktcSigDevCodecTable=pktcSigDevCodecTable, pktcSigDevToneDbLevel=pktcSigDevToneDbLevel, pktcSigEndPntConfigCallWaitingDelay=pktcSigEndPntConfigCallWaitingDelay, pktcSigDevToneFourthFreqValue=pktcSigDevToneFourthFreqValue, pktcSigDevRingAfterCID=pktcSigDevRingAfterCID, pktcSigDefNcsReceiveUdpPort=pktcSigDefNcsReceiveUdpPort, pktcSigDevCidMode=pktcSigDevCidMode, pktcSigDevRingCadenceTable=pktcSigDevRingCadenceTable, pktcSigCapabilityIndex=pktcSigCapabilityIndex, pktcSigDevCidDTASAfterLR=pktcSigDevCidDTASAfterLR, pktcSigBasicCompliance=pktcSigBasicCompliance, pktcSigEndPntConfigRtoMax=pktcSigEndPntConfigRtoMax, pktcSigDevToneType=pktcSigDevToneType, pktcSigEndPntConfigDialToneTO=pktcSigEndPntConfigDialToneTO, pktcSigNotification=pktcSigNotification, pktcSigDevToneFreqMode=pktcSigDevToneFreqMode, pktcSigEndPntConfigPulseDialMaxMakeTime=pktcSigEndPntConfigPulseDialMaxMakeTime, pktcSigPulseSignalPulseInterval=pktcSigPulseSignalPulseInterval, pktcSigEndPntConfigRingBackTO=pktcSigEndPntConfigRingBackTO, pktcSigEndPntConfigThist=pktcSigEndPntConfigThist, pktcSigDevObjects=pktcSigDevObjects, pktcSigEndPntConfigReorderToneTO=pktcSigEndPntConfigReorderToneTO, pktcSigEndPntConfigMessageWaitingTO=pktcSigEndPntConfigMessageWaitingTO, pktcSigPulseSignalTable=pktcSigPulseSignalTable, pktcSigEndPntConfigEntry=pktcSigEndPntConfigEntry, pktcSigPulseSignalEntry=pktcSigPulseSignalEntry, pktcSigEndPntConfigMax2QEnable=pktcSigEndPntConfigMax2QEnable, pktcELinePackageGroup=pktcELinePackageGroup, pktcSigDevVmwiAfterRPAS=pktcSigDevVmwiAfterRPAS, pktcSigDevToneSteady=pktcSigDevToneSteady, pktcSigPulseSignalFrequency=pktcSigPulseSignalFrequency, pktcSigDevEchoCancellation=pktcSigDevEchoCancellation, pktcSigEndPntConfigMinHookFlash=pktcSigEndPntConfigMinHookFlash, pktcSigEndPntConfigPulseDialMinMakeTime=pktcSigEndPntConfigPulseDialMinMakeTime, PktcSubscriberSideSigProtocol=PktcSubscriberSideSigProtocol, pktcSigEndPntConfigCriticalDialTO=pktcSigEndPntConfigCriticalDialTO, pktcSigDevCidDtmfEndCode=pktcSigDevCidDtmfEndCode, pktcSigEndPntConfigRtoInit=pktcSigEndPntConfigRtoInit, pktcSigEndPntConfigPulseDialMinBreakTime=pktcSigEndPntConfigPulseDialMinBreakTime, pktcSigDevR6Cadence=pktcSigDevR6Cadence, pktcSigCapabilityTable=pktcSigCapabilityTable, DtmfCode=DtmfCode, pktcSigCompliances=pktcSigCompliances, pktcSigConformance=pktcSigConformance, pktcSigCapabilityEntry=pktcSigCapabilityEntry, pktcSigDevToneFreqRepeatCount=pktcSigDevToneFreqRepeatCount, pktcSigPowerRingFrequency=pktcSigPowerRingFrequency, pktcSigPulseSignalDuration=pktcSigPulseSignalDuration, pktcSigDevR3Cadence=pktcSigDevR3Cadence, pktcSigEndPntConfigMWD=pktcSigEndPntConfigMWD, pktcSigDevR1Cadence=pktcSigDevR1Cadence, pktcInternationalGroup=pktcInternationalGroup, pktcSigDevR2Cadence=pktcSigDevR2Cadence, PktcCodecType=PktcCodecType, pktcSigEndPntConfigStatus=pktcSigEndPntConfigStatus, pktcSigEndPntConfigPulseDialMaxBreakTime=pktcSigEndPntConfigPulseDialMaxBreakTime, pktcSigDevR5Cadence=pktcSigDevR5Cadence, pktcSigDevCodecMax=pktcSigDevCodecMax, pktcSigDevToneFreqAmpModePrtg=pktcSigDevToneFreqAmpModePrtg, pktcSigEndPntConfigStutterDialToneTO=pktcSigEndPntConfigStutterDialToneTO, pktcSigDevRsCadence=pktcSigDevRsCadence, pktcSigDevToneFreqOnDuration=pktcSigDevToneFreqOnDuration, pktcSigEndPntConfigCallAgentUdpPort=pktcSigEndPntConfigCallAgentUdpPort, pktcSigEndPntConfigTdinit=pktcSigEndPntConfigTdinit, pktcSigDevToneFreqCounter=pktcSigDevToneFreqCounter, pktcSigDevToneFreqGroup=pktcSigDevToneFreqGroup, pktcSigGroups=pktcSigGroups, pktcSigDevVmwiDelayAfterLR=pktcSigDevVmwiDelayAfterLR, pktcSigEndPntConfigObjects=pktcSigEndPntConfigObjects, pktcSigDeviceGroup=pktcSigDeviceGroup, pktcSigDevVmwiAfterDTAS=pktcSigDevVmwiAfterDTAS, pktcSigEndPntStatusError=pktcSigEndPntStatusError, pktcSigDevRingCadence=pktcSigDevRingCadence, pktcSigDevVmwiDTASAfterLR=pktcSigDevVmwiDTASAfterLR, pktcSigDevR0Cadence=pktcSigDevR0Cadence, PktcRingCadence=PktcRingCadence, pktcSigEndpointGroup=pktcSigEndpointGroup, pktcSigCapabilityVersion=pktcSigCapabilityVersion, pktcSigDevToneFirstFreqValue=pktcSigDevToneFirstFreqValue, pktcSigDevCidAfterRing=pktcSigDevCidAfterRing, pktcSigMibObjects=pktcSigMibObjects, pktcSigDevCodecComboIndex=pktcSigDevCodecComboIndex, pktcSigDevCodecEntry=pktcSigDevCodecEntry, pktcSigEndPntConfigTable=pktcSigEndPntConfigTable, pktcSigEndPntConfigLongDurationKeepAlive=pktcSigEndPntConfigLongDurationKeepAlive, pktcSigDevCodecType=pktcSigDevCodecType, PktcSigType=PktcSigType, pktcSigDevR4Cadence=pktcSigDevR4Cadence, pktcLLinePackageGroup=pktcLLinePackageGroup, pktcSigDevToneNumber=pktcSigDevToneNumber, pktcSigDevRingCadenceEntry=pktcSigDevRingCadenceEntry, pktcSigDevMultiFreqToneEntry=pktcSigDevMultiFreqToneEntry, pktcSigEndPntConfigRingingTO=pktcSigEndPntConfigRingingTO, pktcSigEndPntConfigTdmax=pktcSigEndPntConfigTdmax, pktcSigCapabilityVendorExt=pktcSigCapabilityVendorExt, pktcSigEndPntConfigPartialDialTO=pktcSigEndPntConfigPartialDialTO, pktcSigDevCidSigProtocol=pktcSigDevCidSigProtocol, pktcSigEndPntConfigTdmin=pktcSigEndPntConfigTdmin, pktcSigDevR7Cadence=pktcSigDevR7Cadence, pktcSigPulseSignalDbLevel=pktcSigPulseSignalDbLevel, pktcSigEndPntStatusCallIpAddressType=pktcSigEndPntStatusCallIpAddressType, TenthdBm=TenthdBm, pktcSigDevToneEntry=pktcSigDevToneEntry, pktcSigDevToneThirdFreqValue=pktcSigDevToneThirdFreqValue, pktcSigDevCidDelayAfterLR=pktcSigDevCidDelayAfterLR, pktcSigEndPntConfigMaxHookFlash=pktcSigEndPntConfigMaxHookFlash, pktcSigEndPntConfigOffHookWarnToneTO=pktcSigEndPntConfigOffHookWarnToneTO, pktcSigEndPntConfigCallWaitingMaxRep=pktcSigEndPntConfigCallWaitingMaxRep, pktcSigPulseSignalType=pktcSigPulseSignalType, pktcSigDevSilenceSuppression=pktcSigDevSilenceSuppression, pktcSigDevrpAsDtsDuration=pktcSigDevrpAsDtsDuration, pktcSigEndPntConfigCallAgentId=pktcSigEndPntConfigCallAgentId, PYSNMP_MODULE_ID=pktcIetfSigMib, pktcSigEndPntConfigMax1QEnable=pktcSigEndPntConfigMax1QEnable, pktcSigDevToneTable=pktcSigDevToneTable, pktcSigEndPntConfigMax2=pktcSigEndPntConfigMax2, pktcSigDevVmwiMode=pktcSigDevVmwiMode, pktcSigDefMediaStreamDscp=pktcSigDefMediaStreamDscp, pktcSigDevCidAfterDTAS=pktcSigDevCidAfterDTAS)
+_BH='pktcELinePackageGroup'
+_BG='pktcLLinePackageGroup'
+_BF='pktcInternationalGroup'
+_BE='pktcSigEndpointGroup'
+_BD='pktcSigDeviceGroup'
+_BC='pktcSigDevToneFreqRepeatCount'
+_BB='pktcSigDevToneFreqOffDuration'
+_BA='pktcSigDevToneFreqOnDuration'
+_B9='pktcSigDevToneFreqAmpModePrtg'
+_B8='pktcSigDevToneFreqMode'
+_B7='pktcSigDevToneFourthFreqValue'
+_B6='pktcSigDevToneThirdFreqValue'
+_B5='pktcSigDevToneSecondFreqValue'
+_B4='pktcSigDevToneFirstFreqValue'
+_B3='pktcSigDevToneSteady'
+_B2='pktcSigDevToneWholeToneRepeatCount'
+_B1='pktcSigDevToneFreqCounter'
+_B0='pktcSigDevToneDbLevel'
+_A_='pktcSigPowerRingFrequency'
+_Az='pktcSigDevVmwiDTASAfterLR'
+_Ay='pktcSigDevVmwiAfterRPAS'
+_Ax='pktcSigDevVmwiAfterDTAS'
+_Aw='pktcSigDevCidDTASAfterLR'
+_Av='pktcSigDevRingAfterCID'
+_Au='pktcSigDevCidAfterRPAS'
+_At='pktcSigDevCidAfterDTAS'
+_As='pktcSigDevCidAfterRing'
+_Ar='pktcSigDevCidMode'
+_Aq='pktcSigDevrpAsDtsDuration'
+_Ap='pktcSigDevVmwiDtmfEndCode'
+_Ao='pktcSigDevVmwiDtmfStartCode'
+_An='pktcSigDevVmwiDelayAfterLR'
+_Am='pktcSigDevVmwiSigProtocol'
+_Al='pktcSigDevCidDtmfEndCode'
+_Ak='pktcSigDevCidDtmfStartCode'
+_Aj='pktcSigDevCidDelayAfterLR'
+_Ai='pktcSigDevCidSigProtocol'
+_Ah='pktcSigEndPntConfigPulseDialMaxBreakTime'
+_Ag='pktcSigEndPntConfigPulseDialMinBreakTime'
+_Af='pktcSigEndPntConfigPulseDialMaxMakeTime'
+_Ae='pktcSigEndPntConfigPulseDialMinMakeTime'
+_Ad='pktcSigEndPntConfigPulseDialInterdigitTime'
+_Ac='pktcSigEndPntConfigMaxHookFlash'
+_Ab='pktcSigEndPntConfigMinHookFlash'
+_Aa='pktcSigEndPntStatusError'
+_AZ='pktcSigEndPntStatusCallIpAddress'
+_AY='pktcSigEndPntStatusCallIpAddressType'
+_AX='pktcSigEndPntConfigCallWaitingDelay'
+_AW='pktcSigEndPntConfigCallWaitingMaxRep'
+_AV='pktcSigEndPntConfigStatus'
+_AU='pktcSigEndPntConfigThist'
+_AT='pktcSigEndPntConfigLongDurationKeepAlive'
+_AS='pktcSigEndPntConfigRtoInit'
+_AR='pktcSigEndPntConfigRtoMax'
+_AQ='pktcSigEndPntConfigTdmax'
+_AP='pktcSigEndPntConfigTdmin'
+_AO='pktcSigEndPntConfigTdinit'
+_AN='pktcSigEndPntConfigMWD'
+_AM='pktcSigEndPntConfigMax2QEnable'
+_AL='pktcSigEndPntConfigMax1QEnable'
+_AK='pktcSigEndPntConfigMax2'
+_AJ='pktcSigEndPntConfigMax1'
+_AI='pktcSigEndPntConfigTSMax'
+_AH='pktcSigEndPntConfigStutterDialToneTO'
+_AG='pktcSigEndPntConfigReorderToneTO'
+_AF='pktcSigEndPntConfigRingBackTO'
+_AE='pktcSigEndPntConfigRingingTO'
+_AD='pktcSigEndPntConfigOffHookWarnToneTO'
+_AC='pktcSigEndPntConfigMessageWaitingTO'
+_AB='pktcSigEndPntConfigDialToneTO'
+_AA='pktcSigEndPntConfigBusyToneTO'
+_A9='pktcSigEndPntConfigCriticalDialTO'
+_A8='pktcSigEndPntConfigPartialDialTO'
+_A7='pktcSigEndPntConfigCallAgentUdpPort'
+_A6='pktcSigEndPntConfigCallAgentId'
+_A5='pktcSigDefNcsReceiveUdpPort'
+_A4='pktcSigCapabilityVendorExt'
+_A3='pktcSigCapabilityVersion'
+_A2='pktcSigCapabilityType'
+_A1='pktcSigDefMediaStreamDscp'
+_A0='pktcSigDefCallSigDscp'
+_z='pktcSigDevSilenceSuppression'
+_y='pktcSigDevEchoCancellation'
+_x='pktcSigDevCodecMax'
+_w='pktcSigDevToneNumber'
+_v='pktcSigDevToneFreqGroup'
+_u='pktcSigDevRingCadenceIndex'
+_t='lrAsETS'
+_s='rpAsETS'
+_r='dtAsETS'
+_q='1/10 of a dBm'
+_p='pktcSigPulseSignalType'
+_o='pktcSigCapabilityIndex'
+_n='pktcSigDevCodecType'
+_m='pktcSigDevCodecComboIndex'
+_l='SnmpAdminString'
+_k='ifIndex'
+_j='IF-MIB'
+_i='pktcSigPulseSignalRepeatCount'
+_h='pktcSigPulseSignalPulseInterval'
+_g='pktcSigPulseSignalDuration'
+_f='pktcSigPulseSignalDbLevel'
+_e='pktcSigPulseSignalFrequency'
+_d='pktcSigDevRingCadence'
+_c='pktcSigDevVmwiMode'
+_b='milliseconds'
+_a='pktcSigDevToneType'
+_Z='TenthdBm'
+_Y='Dscp'
+_X='PktcSubscriberSideSigProtocol'
+_W='TruthValue'
+_V='InetPortNumber'
+_U='pktcSigDevRsCadence'
+_T='pktcSigDevRgCadence'
+_S='pktcSigDevR7Cadence'
+_R='pktcSigDevR6Cadence'
+_Q='pktcSigDevR5Cadence'
+_P='pktcSigDevR4Cadence'
+_O='pktcSigDevR3Cadence'
+_N='pktcSigDevR2Cadence'
+_M='pktcSigDevR1Cadence'
+_L='pktcSigDevR0Cadence'
+_K='DtmfCode'
+_J='not-accessible'
+_I='Integer32'
+_H='seconds'
+_G='Milliseconds'
+_F='read-create'
+_E='read-only'
+_D='read-write'
+_C='Unsigned32'
+_B='current'
+_A='PKTC-IETF-SIG-MIB'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ifIndex,=mibBuilder.importSymbols(_j,_k)
+InetAddress,InetAddressType,InetPortNumber=mibBuilder.importSymbols('INET-ADDRESS-MIB','InetAddress','InetAddressType',_V)
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_l)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_I,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_C,'iso','mib-2')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_W)
+pktcIetfSigMib=ModuleIdentity((1,3,6,1,2,1,169))
+if mibBuilder.loadTexts:pktcIetfSigMib.setRevisions(('2007-12-18 00:00',))
+class TenthdBm(TextualConvention,Integer32):status=_B;displayHint='d-1'
+class Dscp(TextualConvention,Integer32):status=_B;displayHint='d';subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,63))
+class PktcCodecType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14)));namedValues=NamedValues(*(('other',1),('unknown',2),('g729',3),('reserved',4),('g729E',5),('pcmu',6),('g726at32',7),('g728',8),('pcma',9),('g726at16',10),('g726at24',11),('g726at40',12),('ilbc',13),('bv16',14)))
+class PktcRingCadence(TextualConvention,OctetString):status=_B;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(4,36))
+class PktcSigType(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('other',1),('ncs',2)))
+class DtmfCode(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15)));namedValues=NamedValues(*(('dtmfcode0',0),('dtmfcode1',1),('dtmfcode2',2),('dtmfcode3',3),('dtmfcode4',4),('dtmfcode5',5),('dtmfcode6',6),('dtmfcode7',7),('dtmfcode8',8),('dtmfcode9',9),('dtmfcodeStar',10),('dtmfcodeHash',11),('dtmfcodeA',12),('dtmfcodeB',13),('dtmfcodeC',14),('dtmfcodeD',15)))
+class PktcSubscriberSideSigProtocol(TextualConvention,Integer32):status=_B;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('fsk',1),('dtmf',2)))
+_PktcSigNotification_ObjectIdentity=ObjectIdentity
+pktcSigNotification=_PktcSigNotification_ObjectIdentity((1,3,6,1,2,1,169,0))
+_PktcSigMibObjects_ObjectIdentity=ObjectIdentity
+pktcSigMibObjects=_PktcSigMibObjects_ObjectIdentity((1,3,6,1,2,1,169,1))
+_PktcSigDevObjects_ObjectIdentity=ObjectIdentity
+pktcSigDevObjects=_PktcSigDevObjects_ObjectIdentity((1,3,6,1,2,1,169,1,1))
+_PktcSigDevCodecTable_Object=MibTable
+pktcSigDevCodecTable=_PktcSigDevCodecTable_Object((1,3,6,1,2,1,169,1,1,1))
+if mibBuilder.loadTexts:pktcSigDevCodecTable.setStatus(_B)
+_PktcSigDevCodecEntry_Object=MibTableRow
+pktcSigDevCodecEntry=_PktcSigDevCodecEntry_Object((1,3,6,1,2,1,169,1,1,1,1))
+pktcSigDevCodecEntry.setIndexNames((0,_A,_m),(0,_A,_n))
+if mibBuilder.loadTexts:pktcSigDevCodecEntry.setStatus(_B)
+class _PktcSigDevCodecComboIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_PktcSigDevCodecComboIndex_Type.__name__=_C
+_PktcSigDevCodecComboIndex_Object=MibTableColumn
+pktcSigDevCodecComboIndex=_PktcSigDevCodecComboIndex_Object((1,3,6,1,2,1,169,1,1,1,1,1),_PktcSigDevCodecComboIndex_Type())
+pktcSigDevCodecComboIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:pktcSigDevCodecComboIndex.setStatus(_B)
+_PktcSigDevCodecType_Type=PktcCodecType
+_PktcSigDevCodecType_Object=MibTableColumn
+pktcSigDevCodecType=_PktcSigDevCodecType_Object((1,3,6,1,2,1,169,1,1,1,1,2),_PktcSigDevCodecType_Type())
+pktcSigDevCodecType.setMaxAccess(_J)
+if mibBuilder.loadTexts:pktcSigDevCodecType.setStatus(_B)
+class _PktcSigDevCodecMax_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_PktcSigDevCodecMax_Type.__name__=_C
+_PktcSigDevCodecMax_Object=MibTableColumn
+pktcSigDevCodecMax=_PktcSigDevCodecMax_Object((1,3,6,1,2,1,169,1,1,1,1,3),_PktcSigDevCodecMax_Type())
+pktcSigDevCodecMax.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigDevCodecMax.setStatus(_B)
+_PktcSigDevEchoCancellation_Type=TruthValue
+_PktcSigDevEchoCancellation_Object=MibScalar
+pktcSigDevEchoCancellation=_PktcSigDevEchoCancellation_Object((1,3,6,1,2,1,169,1,1,2),_PktcSigDevEchoCancellation_Type())
+pktcSigDevEchoCancellation.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigDevEchoCancellation.setStatus(_B)
+_PktcSigDevSilenceSuppression_Type=TruthValue
+_PktcSigDevSilenceSuppression_Object=MibScalar
+pktcSigDevSilenceSuppression=_PktcSigDevSilenceSuppression_Object((1,3,6,1,2,1,169,1,1,3),_PktcSigDevSilenceSuppression_Type())
+pktcSigDevSilenceSuppression.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigDevSilenceSuppression.setStatus(_B)
+class _PktcSigDevCidSigProtocol_Type(PktcSubscriberSideSigProtocol):defaultValue=1
+_PktcSigDevCidSigProtocol_Type.__name__=_X
+_PktcSigDevCidSigProtocol_Object=MibScalar
+pktcSigDevCidSigProtocol=_PktcSigDevCidSigProtocol_Object((1,3,6,1,2,1,169,1,1,4),_PktcSigDevCidSigProtocol_Type())
+pktcSigDevCidSigProtocol.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevCidSigProtocol.setStatus(_B)
+_PktcSigDevR0Cadence_Type=PktcRingCadence
+_PktcSigDevR0Cadence_Object=MibScalar
+pktcSigDevR0Cadence=_PktcSigDevR0Cadence_Object((1,3,6,1,2,1,169,1,1,5),_PktcSigDevR0Cadence_Type())
+pktcSigDevR0Cadence.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevR0Cadence.setStatus(_B)
+_PktcSigDevR1Cadence_Type=PktcRingCadence
+_PktcSigDevR1Cadence_Object=MibScalar
+pktcSigDevR1Cadence=_PktcSigDevR1Cadence_Object((1,3,6,1,2,1,169,1,1,6),_PktcSigDevR1Cadence_Type())
+pktcSigDevR1Cadence.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevR1Cadence.setStatus(_B)
+_PktcSigDevR2Cadence_Type=PktcRingCadence
+_PktcSigDevR2Cadence_Object=MibScalar
+pktcSigDevR2Cadence=_PktcSigDevR2Cadence_Object((1,3,6,1,2,1,169,1,1,7),_PktcSigDevR2Cadence_Type())
+pktcSigDevR2Cadence.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevR2Cadence.setStatus(_B)
+_PktcSigDevR3Cadence_Type=PktcRingCadence
+_PktcSigDevR3Cadence_Object=MibScalar
+pktcSigDevR3Cadence=_PktcSigDevR3Cadence_Object((1,3,6,1,2,1,169,1,1,8),_PktcSigDevR3Cadence_Type())
+pktcSigDevR3Cadence.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevR3Cadence.setStatus(_B)
+_PktcSigDevR4Cadence_Type=PktcRingCadence
+_PktcSigDevR4Cadence_Object=MibScalar
+pktcSigDevR4Cadence=_PktcSigDevR4Cadence_Object((1,3,6,1,2,1,169,1,1,9),_PktcSigDevR4Cadence_Type())
+pktcSigDevR4Cadence.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevR4Cadence.setStatus(_B)
+_PktcSigDevR5Cadence_Type=PktcRingCadence
+_PktcSigDevR5Cadence_Object=MibScalar
+pktcSigDevR5Cadence=_PktcSigDevR5Cadence_Object((1,3,6,1,2,1,169,1,1,10),_PktcSigDevR5Cadence_Type())
+pktcSigDevR5Cadence.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevR5Cadence.setStatus(_B)
+_PktcSigDevR6Cadence_Type=PktcRingCadence
+_PktcSigDevR6Cadence_Object=MibScalar
+pktcSigDevR6Cadence=_PktcSigDevR6Cadence_Object((1,3,6,1,2,1,169,1,1,11),_PktcSigDevR6Cadence_Type())
+pktcSigDevR6Cadence.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevR6Cadence.setStatus(_B)
+_PktcSigDevR7Cadence_Type=PktcRingCadence
+_PktcSigDevR7Cadence_Object=MibScalar
+pktcSigDevR7Cadence=_PktcSigDevR7Cadence_Object((1,3,6,1,2,1,169,1,1,12),_PktcSigDevR7Cadence_Type())
+pktcSigDevR7Cadence.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevR7Cadence.setStatus(_B)
+_PktcSigDevRgCadence_Type=PktcRingCadence
+_PktcSigDevRgCadence_Object=MibScalar
+pktcSigDevRgCadence=_PktcSigDevRgCadence_Object((1,3,6,1,2,1,169,1,1,13),_PktcSigDevRgCadence_Type())
+pktcSigDevRgCadence.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevRgCadence.setStatus(_B)
+_PktcSigDevRsCadence_Type=PktcRingCadence
+_PktcSigDevRsCadence_Object=MibScalar
+pktcSigDevRsCadence=_PktcSigDevRsCadence_Object((1,3,6,1,2,1,169,1,1,14),_PktcSigDevRsCadence_Type())
+pktcSigDevRsCadence.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevRsCadence.setStatus(_B)
+class _PktcSigDefCallSigDscp_Type(Dscp):defaultValue=0
+_PktcSigDefCallSigDscp_Type.__name__=_Y
+_PktcSigDefCallSigDscp_Object=MibScalar
+pktcSigDefCallSigDscp=_PktcSigDefCallSigDscp_Object((1,3,6,1,2,1,169,1,1,15),_PktcSigDefCallSigDscp_Type())
+pktcSigDefCallSigDscp.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDefCallSigDscp.setStatus(_B)
+class _PktcSigDefMediaStreamDscp_Type(Dscp):defaultValue=0
+_PktcSigDefMediaStreamDscp_Type.__name__=_Y
+_PktcSigDefMediaStreamDscp_Object=MibScalar
+pktcSigDefMediaStreamDscp=_PktcSigDefMediaStreamDscp_Object((1,3,6,1,2,1,169,1,1,16),_PktcSigDefMediaStreamDscp_Type())
+pktcSigDefMediaStreamDscp.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDefMediaStreamDscp.setStatus(_B)
+_PktcSigCapabilityTable_Object=MibTable
+pktcSigCapabilityTable=_PktcSigCapabilityTable_Object((1,3,6,1,2,1,169,1,1,17))
+if mibBuilder.loadTexts:pktcSigCapabilityTable.setStatus(_B)
+_PktcSigCapabilityEntry_Object=MibTableRow
+pktcSigCapabilityEntry=_PktcSigCapabilityEntry_Object((1,3,6,1,2,1,169,1,1,17,1))
+pktcSigCapabilityEntry.setIndexNames((0,_A,_o))
+if mibBuilder.loadTexts:pktcSigCapabilityEntry.setStatus(_B)
+class _PktcSigCapabilityIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+_PktcSigCapabilityIndex_Type.__name__=_C
+_PktcSigCapabilityIndex_Object=MibTableColumn
+pktcSigCapabilityIndex=_PktcSigCapabilityIndex_Object((1,3,6,1,2,1,169,1,1,17,1,1),_PktcSigCapabilityIndex_Type())
+pktcSigCapabilityIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:pktcSigCapabilityIndex.setStatus(_B)
+_PktcSigCapabilityType_Type=PktcSigType
+_PktcSigCapabilityType_Object=MibTableColumn
+pktcSigCapabilityType=_PktcSigCapabilityType_Object((1,3,6,1,2,1,169,1,1,17,1,2),_PktcSigCapabilityType_Type())
+pktcSigCapabilityType.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigCapabilityType.setStatus(_B)
+_PktcSigCapabilityVersion_Type=SnmpAdminString
+_PktcSigCapabilityVersion_Object=MibTableColumn
+pktcSigCapabilityVersion=_PktcSigCapabilityVersion_Object((1,3,6,1,2,1,169,1,1,17,1,3),_PktcSigCapabilityVersion_Type())
+pktcSigCapabilityVersion.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigCapabilityVersion.setStatus(_B)
+_PktcSigCapabilityVendorExt_Type=SnmpAdminString
+_PktcSigCapabilityVendorExt_Object=MibTableColumn
+pktcSigCapabilityVendorExt=_PktcSigCapabilityVendorExt_Object((1,3,6,1,2,1,169,1,1,17,1,4),_PktcSigCapabilityVendorExt_Type())
+pktcSigCapabilityVendorExt.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigCapabilityVendorExt.setStatus(_B)
+class _PktcSigDefNcsReceiveUdpPort_Type(InetPortNumber):subtypeSpec=InetPortNumber.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1025,65535))
+_PktcSigDefNcsReceiveUdpPort_Type.__name__=_V
+_PktcSigDefNcsReceiveUdpPort_Object=MibScalar
+pktcSigDefNcsReceiveUdpPort=_PktcSigDefNcsReceiveUdpPort_Object((1,3,6,1,2,1,169,1,1,18),_PktcSigDefNcsReceiveUdpPort_Type())
+pktcSigDefNcsReceiveUdpPort.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigDefNcsReceiveUdpPort.setStatus(_B)
+class _PktcSigPowerRingFrequency_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('f20Hz',1),('f25Hz',2),('f33Point33Hz',3),('f50Hz',4),('f15Hz',5),('f16Hz',6),('f22Hz',7),('f23Hz',8),('f45Hz',9)))
+_PktcSigPowerRingFrequency_Type.__name__=_I
+_PktcSigPowerRingFrequency_Object=MibScalar
+pktcSigPowerRingFrequency=_PktcSigPowerRingFrequency_Object((1,3,6,1,2,1,169,1,1,19),_PktcSigPowerRingFrequency_Type())
+pktcSigPowerRingFrequency.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigPowerRingFrequency.setStatus(_B)
+_PktcSigPulseSignalTable_Object=MibTable
+pktcSigPulseSignalTable=_PktcSigPulseSignalTable_Object((1,3,6,1,2,1,169,1,1,20))
+if mibBuilder.loadTexts:pktcSigPulseSignalTable.setStatus(_B)
+_PktcSigPulseSignalEntry_Object=MibTableRow
+pktcSigPulseSignalEntry=_PktcSigPulseSignalEntry_Object((1,3,6,1,2,1,169,1,1,20,1))
+pktcSigPulseSignalEntry.setIndexNames((0,_A,_p))
+if mibBuilder.loadTexts:pktcSigPulseSignalEntry.setStatus(_B)
+class _PktcSigPulseSignalType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9)));namedValues=NamedValues(*(('initialRing',1),('pulseLoopClose',2),('pulseLoopOpen',3),('enableMeterPulse',4),('meterPulseBurst',5),('pulseNoBattery',6),('pulseNormalPolarity',7),('pulseReducedBattery',8),('pulseReversePolarity',9)))
+_PktcSigPulseSignalType_Type.__name__=_I
+_PktcSigPulseSignalType_Object=MibTableColumn
+pktcSigPulseSignalType=_PktcSigPulseSignalType_Object((1,3,6,1,2,1,169,1,1,20,1,1),_PktcSigPulseSignalType_Type())
+pktcSigPulseSignalType.setMaxAccess(_J)
+if mibBuilder.loadTexts:pktcSigPulseSignalType.setStatus(_B)
+class _PktcSigPulseSignalFrequency_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('twentyfive',1),('twelvethousand',2),('sixteenthousand',3)))
+_PktcSigPulseSignalFrequency_Type.__name__=_I
+_PktcSigPulseSignalFrequency_Object=MibTableColumn
+pktcSigPulseSignalFrequency=_PktcSigPulseSignalFrequency_Object((1,3,6,1,2,1,169,1,1,20,1,2),_PktcSigPulseSignalFrequency_Type())
+pktcSigPulseSignalFrequency.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigPulseSignalFrequency.setStatus(_B)
+class _PktcSigPulseSignalDbLevel_Type(TenthdBm):defaultValue=-135;subtypeSpec=TenthdBm.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-350,0))
+_PktcSigPulseSignalDbLevel_Type.__name__=_Z
+_PktcSigPulseSignalDbLevel_Object=MibTableColumn
+pktcSigPulseSignalDbLevel=_PktcSigPulseSignalDbLevel_Object((1,3,6,1,2,1,169,1,1,20,1,3),_PktcSigPulseSignalDbLevel_Type())
+pktcSigPulseSignalDbLevel.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigPulseSignalDbLevel.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigPulseSignalDbLevel.setUnits(_q)
+class _PktcSigPulseSignalDuration_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,5000))
+_PktcSigPulseSignalDuration_Type.__name__=_C
+_PktcSigPulseSignalDuration_Object=MibTableColumn
+pktcSigPulseSignalDuration=_PktcSigPulseSignalDuration_Object((1,3,6,1,2,1,169,1,1,20,1,4),_PktcSigPulseSignalDuration_Type())
+pktcSigPulseSignalDuration.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigPulseSignalDuration.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigPulseSignalDuration.setUnits(_G)
+class _PktcSigPulseSignalPulseInterval_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,5000))
+_PktcSigPulseSignalPulseInterval_Type.__name__=_C
+_PktcSigPulseSignalPulseInterval_Object=MibTableColumn
+pktcSigPulseSignalPulseInterval=_PktcSigPulseSignalPulseInterval_Object((1,3,6,1,2,1,169,1,1,20,1,5),_PktcSigPulseSignalPulseInterval_Type())
+pktcSigPulseSignalPulseInterval.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigPulseSignalPulseInterval.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigPulseSignalPulseInterval.setUnits(_G)
+class _PktcSigPulseSignalRepeatCount_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,50))
+_PktcSigPulseSignalRepeatCount_Type.__name__=_C
+_PktcSigPulseSignalRepeatCount_Object=MibTableColumn
+pktcSigPulseSignalRepeatCount=_PktcSigPulseSignalRepeatCount_Object((1,3,6,1,2,1,169,1,1,20,1,6),_PktcSigPulseSignalRepeatCount_Type())
+pktcSigPulseSignalRepeatCount.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigPulseSignalRepeatCount.setStatus(_B)
+class _PktcSigDevCidMode_Type(Integer32):defaultValue=3;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*(('duringRingingETS',1),(_r,2),(_s,3),(_t,4),('lrETS',5)))
+_PktcSigDevCidMode_Type.__name__=_I
+_PktcSigDevCidMode_Object=MibScalar
+pktcSigDevCidMode=_PktcSigDevCidMode_Object((1,3,6,1,2,1,169,1,1,21),_PktcSigDevCidMode_Type())
+pktcSigDevCidMode.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevCidMode.setStatus(_B)
+class _PktcSigDevCidAfterRing_Type(Unsigned32):defaultValue=550;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(50,2000))
+_PktcSigDevCidAfterRing_Type.__name__=_C
+_PktcSigDevCidAfterRing_Object=MibScalar
+pktcSigDevCidAfterRing=_PktcSigDevCidAfterRing_Object((1,3,6,1,2,1,169,1,1,22),_PktcSigDevCidAfterRing_Type())
+pktcSigDevCidAfterRing.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevCidAfterRing.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigDevCidAfterRing.setUnits(_G)
+class _PktcSigDevCidAfterDTAS_Type(Unsigned32):defaultValue=50;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(45,500))
+_PktcSigDevCidAfterDTAS_Type.__name__=_C
+_PktcSigDevCidAfterDTAS_Object=MibScalar
+pktcSigDevCidAfterDTAS=_PktcSigDevCidAfterDTAS_Object((1,3,6,1,2,1,169,1,1,23),_PktcSigDevCidAfterDTAS_Type())
+pktcSigDevCidAfterDTAS.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevCidAfterDTAS.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigDevCidAfterDTAS.setUnits(_G)
+class _PktcSigDevCidAfterRPAS_Type(Unsigned32):defaultValue=650;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(500,800))
+_PktcSigDevCidAfterRPAS_Type.__name__=_C
+_PktcSigDevCidAfterRPAS_Object=MibScalar
+pktcSigDevCidAfterRPAS=_PktcSigDevCidAfterRPAS_Object((1,3,6,1,2,1,169,1,1,24),_PktcSigDevCidAfterRPAS_Type())
+pktcSigDevCidAfterRPAS.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevCidAfterRPAS.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigDevCidAfterRPAS.setUnits(_G)
+class _PktcSigDevRingAfterCID_Type(Unsigned32):defaultValue=250;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(50,500))
+_PktcSigDevRingAfterCID_Type.__name__=_C
+_PktcSigDevRingAfterCID_Object=MibScalar
+pktcSigDevRingAfterCID=_PktcSigDevRingAfterCID_Object((1,3,6,1,2,1,169,1,1,25),_PktcSigDevRingAfterCID_Type())
+pktcSigDevRingAfterCID.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevRingAfterCID.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigDevRingAfterCID.setUnits(_G)
+class _PktcSigDevCidDTASAfterLR_Type(Unsigned32):defaultValue=250;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(50,655))
+_PktcSigDevCidDTASAfterLR_Type.__name__=_C
+_PktcSigDevCidDTASAfterLR_Object=MibScalar
+pktcSigDevCidDTASAfterLR=_PktcSigDevCidDTASAfterLR_Object((1,3,6,1,2,1,169,1,1,26),_PktcSigDevCidDTASAfterLR_Type())
+pktcSigDevCidDTASAfterLR.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevCidDTASAfterLR.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigDevCidDTASAfterLR.setUnits(_G)
+class _PktcSigDevVmwiMode_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5)));namedValues=NamedValues(*((_r,1),(_s,2),(_t,3),('osi',4),('lrETS',5)))
+_PktcSigDevVmwiMode_Type.__name__=_I
+_PktcSigDevVmwiMode_Object=MibScalar
+pktcSigDevVmwiMode=_PktcSigDevVmwiMode_Object((1,3,6,1,2,1,169,1,1,27),_PktcSigDevVmwiMode_Type())
+pktcSigDevVmwiMode.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevVmwiMode.setStatus(_B)
+class _PktcSigDevVmwiAfterDTAS_Type(Unsigned32):defaultValue=50;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(45,500))
+_PktcSigDevVmwiAfterDTAS_Type.__name__=_C
+_PktcSigDevVmwiAfterDTAS_Object=MibScalar
+pktcSigDevVmwiAfterDTAS=_PktcSigDevVmwiAfterDTAS_Object((1,3,6,1,2,1,169,1,1,28),_PktcSigDevVmwiAfterDTAS_Type())
+pktcSigDevVmwiAfterDTAS.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevVmwiAfterDTAS.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigDevVmwiAfterDTAS.setUnits(_G)
+class _PktcSigDevVmwiAfterRPAS_Type(Unsigned32):defaultValue=650;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(500,800))
+_PktcSigDevVmwiAfterRPAS_Type.__name__=_C
+_PktcSigDevVmwiAfterRPAS_Object=MibScalar
+pktcSigDevVmwiAfterRPAS=_PktcSigDevVmwiAfterRPAS_Object((1,3,6,1,2,1,169,1,1,29),_PktcSigDevVmwiAfterRPAS_Type())
+pktcSigDevVmwiAfterRPAS.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevVmwiAfterRPAS.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigDevVmwiAfterRPAS.setUnits(_G)
+class _PktcSigDevVmwiDTASAfterLR_Type(Unsigned32):defaultValue=250;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(50,655))
+_PktcSigDevVmwiDTASAfterLR_Type.__name__=_C
+_PktcSigDevVmwiDTASAfterLR_Object=MibScalar
+pktcSigDevVmwiDTASAfterLR=_PktcSigDevVmwiDTASAfterLR_Object((1,3,6,1,2,1,169,1,1,30),_PktcSigDevVmwiDTASAfterLR_Type())
+pktcSigDevVmwiDTASAfterLR.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevVmwiDTASAfterLR.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigDevVmwiDTASAfterLR.setUnits(_G)
+_PktcSigDevRingCadenceTable_Object=MibTable
+pktcSigDevRingCadenceTable=_PktcSigDevRingCadenceTable_Object((1,3,6,1,2,1,169,1,1,31))
+if mibBuilder.loadTexts:pktcSigDevRingCadenceTable.setStatus(_B)
+_PktcSigDevRingCadenceEntry_Object=MibTableRow
+pktcSigDevRingCadenceEntry=_PktcSigDevRingCadenceEntry_Object((1,3,6,1,2,1,169,1,1,31,1))
+pktcSigDevRingCadenceEntry.setIndexNames((0,_A,_u))
+if mibBuilder.loadTexts:pktcSigDevRingCadenceEntry.setStatus(_B)
+class _PktcSigDevRingCadenceIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,127))
+_PktcSigDevRingCadenceIndex_Type.__name__=_C
+_PktcSigDevRingCadenceIndex_Object=MibTableColumn
+pktcSigDevRingCadenceIndex=_PktcSigDevRingCadenceIndex_Object((1,3,6,1,2,1,169,1,1,31,1,1),_PktcSigDevRingCadenceIndex_Type())
+pktcSigDevRingCadenceIndex.setMaxAccess(_J)
+if mibBuilder.loadTexts:pktcSigDevRingCadenceIndex.setStatus(_B)
+_PktcSigDevRingCadence_Type=PktcRingCadence
+_PktcSigDevRingCadence_Object=MibTableColumn
+pktcSigDevRingCadence=_PktcSigDevRingCadence_Object((1,3,6,1,2,1,169,1,1,31,1,2),_PktcSigDevRingCadence_Type())
+pktcSigDevRingCadence.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevRingCadence.setStatus(_B)
+_PktcSigDevToneTable_Object=MibTable
+pktcSigDevToneTable=_PktcSigDevToneTable_Object((1,3,6,1,2,1,169,1,1,32))
+if mibBuilder.loadTexts:pktcSigDevToneTable.setStatus(_B)
+_PktcSigDevToneEntry_Object=MibTableRow
+pktcSigDevToneEntry=_PktcSigDevToneEntry_Object((1,3,6,1,2,1,169,1,1,32,1))
+pktcSigDevToneEntry.setIndexNames((0,_A,_a),(0,_A,_v))
+if mibBuilder.loadTexts:pktcSigDevToneEntry.setStatus(_B)
+class _PktcSigDevToneType_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21)));namedValues=NamedValues(*(('busy',1),('confirmation',2),('dial',3),('messageWaiting',4),('offHookWarning',5),('ringBack',6),('reOrder',7),('stutterdial',8),('callWaiting1',9),('callWaiting2',10),('callWaiting3',11),('callWaiting4',12),('alertingSignal',13),('specialDial',14),('specialInfo',15),('release',16),('congestion',17),('userDefined1',18),('userDefined2',19),('userDefined3',20),('userDefined4',21)))
+_PktcSigDevToneType_Type.__name__=_I
+_PktcSigDevToneType_Object=MibTableColumn
+pktcSigDevToneType=_PktcSigDevToneType_Object((1,3,6,1,2,1,169,1,1,32,1,1),_PktcSigDevToneType_Type())
+pktcSigDevToneType.setMaxAccess(_J)
+if mibBuilder.loadTexts:pktcSigDevToneType.setStatus(_B)
+class _PktcSigDevToneFreqGroup_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,4))
+_PktcSigDevToneFreqGroup_Type.__name__=_C
+_PktcSigDevToneFreqGroup_Object=MibTableColumn
+pktcSigDevToneFreqGroup=_PktcSigDevToneFreqGroup_Object((1,3,6,1,2,1,169,1,1,32,1,2),_PktcSigDevToneFreqGroup_Type())
+pktcSigDevToneFreqGroup.setMaxAccess(_J)
+if mibBuilder.loadTexts:pktcSigDevToneFreqGroup.setStatus(_B)
+class _PktcSigDevToneFreqCounter_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
+_PktcSigDevToneFreqCounter_Type.__name__=_C
+_PktcSigDevToneFreqCounter_Object=MibTableColumn
+pktcSigDevToneFreqCounter=_PktcSigDevToneFreqCounter_Object((1,3,6,1,2,1,169,1,1,32,1,3),_PktcSigDevToneFreqCounter_Type())
+pktcSigDevToneFreqCounter.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigDevToneFreqCounter.setStatus(_B)
+class _PktcSigDevToneWholeToneRepeatCount_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,5000))
+_PktcSigDevToneWholeToneRepeatCount_Type.__name__=_C
+_PktcSigDevToneWholeToneRepeatCount_Object=MibTableColumn
+pktcSigDevToneWholeToneRepeatCount=_PktcSigDevToneWholeToneRepeatCount_Object((1,3,6,1,2,1,169,1,1,32,1,4),_PktcSigDevToneWholeToneRepeatCount_Type())
+pktcSigDevToneWholeToneRepeatCount.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigDevToneWholeToneRepeatCount.setStatus(_B)
+_PktcSigDevToneSteady_Type=TruthValue
+_PktcSigDevToneSteady_Object=MibTableColumn
+pktcSigDevToneSteady=_PktcSigDevToneSteady_Object((1,3,6,1,2,1,169,1,1,32,1,5),_PktcSigDevToneSteady_Type())
+pktcSigDevToneSteady.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigDevToneSteady.setStatus(_B)
+_PktcSigDevMultiFreqToneTable_Object=MibTable
+pktcSigDevMultiFreqToneTable=_PktcSigDevMultiFreqToneTable_Object((1,3,6,1,2,1,169,1,1,33))
+if mibBuilder.loadTexts:pktcSigDevMultiFreqToneTable.setStatus(_B)
+_PktcSigDevMultiFreqToneEntry_Object=MibTableRow
+pktcSigDevMultiFreqToneEntry=_PktcSigDevMultiFreqToneEntry_Object((1,3,6,1,2,1,169,1,1,33,1))
+pktcSigDevMultiFreqToneEntry.setIndexNames((0,_A,_a),(0,_A,_w))
+if mibBuilder.loadTexts:pktcSigDevMultiFreqToneEntry.setStatus(_B)
+class _PktcSigDevToneNumber_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,8))
+_PktcSigDevToneNumber_Type.__name__=_C
+_PktcSigDevToneNumber_Object=MibTableColumn
+pktcSigDevToneNumber=_PktcSigDevToneNumber_Object((1,3,6,1,2,1,169,1,1,33,1,1),_PktcSigDevToneNumber_Type())
+pktcSigDevToneNumber.setMaxAccess(_J)
+if mibBuilder.loadTexts:pktcSigDevToneNumber.setStatus(_B)
+class _PktcSigDevToneFirstFreqValue_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4000))
+_PktcSigDevToneFirstFreqValue_Type.__name__=_C
+_PktcSigDevToneFirstFreqValue_Object=MibTableColumn
+pktcSigDevToneFirstFreqValue=_PktcSigDevToneFirstFreqValue_Object((1,3,6,1,2,1,169,1,1,33,1,2),_PktcSigDevToneFirstFreqValue_Type())
+pktcSigDevToneFirstFreqValue.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigDevToneFirstFreqValue.setStatus(_B)
+class _PktcSigDevToneSecondFreqValue_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4000))
+_PktcSigDevToneSecondFreqValue_Type.__name__=_C
+_PktcSigDevToneSecondFreqValue_Object=MibTableColumn
+pktcSigDevToneSecondFreqValue=_PktcSigDevToneSecondFreqValue_Object((1,3,6,1,2,1,169,1,1,33,1,3),_PktcSigDevToneSecondFreqValue_Type())
+pktcSigDevToneSecondFreqValue.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigDevToneSecondFreqValue.setStatus(_B)
+class _PktcSigDevToneThirdFreqValue_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4000))
+_PktcSigDevToneThirdFreqValue_Type.__name__=_C
+_PktcSigDevToneThirdFreqValue_Object=MibTableColumn
+pktcSigDevToneThirdFreqValue=_PktcSigDevToneThirdFreqValue_Object((1,3,6,1,2,1,169,1,1,33,1,4),_PktcSigDevToneThirdFreqValue_Type())
+pktcSigDevToneThirdFreqValue.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigDevToneThirdFreqValue.setStatus(_B)
+class _PktcSigDevToneFourthFreqValue_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4000))
+_PktcSigDevToneFourthFreqValue_Type.__name__=_C
+_PktcSigDevToneFourthFreqValue_Object=MibTableColumn
+pktcSigDevToneFourthFreqValue=_PktcSigDevToneFourthFreqValue_Object((1,3,6,1,2,1,169,1,1,33,1,5),_PktcSigDevToneFourthFreqValue_Type())
+pktcSigDevToneFourthFreqValue.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigDevToneFourthFreqValue.setStatus(_B)
+class _PktcSigDevToneFreqMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('firstModulatedBySecond',1),('summation',2)))
+_PktcSigDevToneFreqMode_Type.__name__=_I
+_PktcSigDevToneFreqMode_Object=MibTableColumn
+pktcSigDevToneFreqMode=_PktcSigDevToneFreqMode_Object((1,3,6,1,2,1,169,1,1,33,1,6),_PktcSigDevToneFreqMode_Type())
+pktcSigDevToneFreqMode.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigDevToneFreqMode.setStatus(_B)
+class _PktcSigDevToneFreqAmpModePrtg_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,100))
+_PktcSigDevToneFreqAmpModePrtg_Type.__name__=_C
+_PktcSigDevToneFreqAmpModePrtg_Object=MibTableColumn
+pktcSigDevToneFreqAmpModePrtg=_PktcSigDevToneFreqAmpModePrtg_Object((1,3,6,1,2,1,169,1,1,33,1,7),_PktcSigDevToneFreqAmpModePrtg_Type())
+pktcSigDevToneFreqAmpModePrtg.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigDevToneFreqAmpModePrtg.setStatus(_B)
+class _PktcSigDevToneDbLevel_Type(TenthdBm):defaultValue=-120;subtypeSpec=TenthdBm.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(-250,-110))
+_PktcSigDevToneDbLevel_Type.__name__=_Z
+_PktcSigDevToneDbLevel_Object=MibTableColumn
+pktcSigDevToneDbLevel=_PktcSigDevToneDbLevel_Object((1,3,6,1,2,1,169,1,1,33,1,8),_PktcSigDevToneDbLevel_Type())
+pktcSigDevToneDbLevel.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigDevToneDbLevel.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigDevToneDbLevel.setUnits(_q)
+class _PktcSigDevToneFreqOnDuration_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,5000))
+_PktcSigDevToneFreqOnDuration_Type.__name__=_C
+_PktcSigDevToneFreqOnDuration_Object=MibTableColumn
+pktcSigDevToneFreqOnDuration=_PktcSigDevToneFreqOnDuration_Object((1,3,6,1,2,1,169,1,1,33,1,9),_PktcSigDevToneFreqOnDuration_Type())
+pktcSigDevToneFreqOnDuration.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigDevToneFreqOnDuration.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigDevToneFreqOnDuration.setUnits(_b)
+class _PktcSigDevToneFreqOffDuration_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,5000))
+_PktcSigDevToneFreqOffDuration_Type.__name__=_C
+_PktcSigDevToneFreqOffDuration_Object=MibTableColumn
+pktcSigDevToneFreqOffDuration=_PktcSigDevToneFreqOffDuration_Object((1,3,6,1,2,1,169,1,1,33,1,10),_PktcSigDevToneFreqOffDuration_Type())
+pktcSigDevToneFreqOffDuration.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigDevToneFreqOffDuration.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigDevToneFreqOffDuration.setUnits(_b)
+class _PktcSigDevToneFreqRepeatCount_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,5000))
+_PktcSigDevToneFreqRepeatCount_Type.__name__=_C
+_PktcSigDevToneFreqRepeatCount_Object=MibTableColumn
+pktcSigDevToneFreqRepeatCount=_PktcSigDevToneFreqRepeatCount_Object((1,3,6,1,2,1,169,1,1,33,1,11),_PktcSigDevToneFreqRepeatCount_Type())
+pktcSigDevToneFreqRepeatCount.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigDevToneFreqRepeatCount.setStatus(_B)
+class _PktcSigDevCidDelayAfterLR_Type(Unsigned32):defaultValue=400;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(300,800))
+_PktcSigDevCidDelayAfterLR_Type.__name__=_C
+_PktcSigDevCidDelayAfterLR_Object=MibScalar
+pktcSigDevCidDelayAfterLR=_PktcSigDevCidDelayAfterLR_Object((1,3,6,1,2,1,169,1,1,34),_PktcSigDevCidDelayAfterLR_Type())
+pktcSigDevCidDelayAfterLR.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevCidDelayAfterLR.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigDevCidDelayAfterLR.setUnits(_G)
+class _PktcSigDevCidDtmfStartCode_Type(DtmfCode):defaultValue=12
+_PktcSigDevCidDtmfStartCode_Type.__name__=_K
+_PktcSigDevCidDtmfStartCode_Object=MibScalar
+pktcSigDevCidDtmfStartCode=_PktcSigDevCidDtmfStartCode_Object((1,3,6,1,2,1,169,1,1,35),_PktcSigDevCidDtmfStartCode_Type())
+pktcSigDevCidDtmfStartCode.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevCidDtmfStartCode.setStatus(_B)
+class _PktcSigDevCidDtmfEndCode_Type(DtmfCode):defaultValue=14
+_PktcSigDevCidDtmfEndCode_Type.__name__=_K
+_PktcSigDevCidDtmfEndCode_Object=MibScalar
+pktcSigDevCidDtmfEndCode=_PktcSigDevCidDtmfEndCode_Object((1,3,6,1,2,1,169,1,1,36),_PktcSigDevCidDtmfEndCode_Type())
+pktcSigDevCidDtmfEndCode.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevCidDtmfEndCode.setStatus(_B)
+class _PktcSigDevVmwiSigProtocol_Type(PktcSubscriberSideSigProtocol):defaultValue=1
+_PktcSigDevVmwiSigProtocol_Type.__name__=_X
+_PktcSigDevVmwiSigProtocol_Object=MibScalar
+pktcSigDevVmwiSigProtocol=_PktcSigDevVmwiSigProtocol_Object((1,3,6,1,2,1,169,1,1,37),_PktcSigDevVmwiSigProtocol_Type())
+pktcSigDevVmwiSigProtocol.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevVmwiSigProtocol.setStatus(_B)
+class _PktcSigDevVmwiDelayAfterLR_Type(Unsigned32):defaultValue=400;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(300,800))
+_PktcSigDevVmwiDelayAfterLR_Type.__name__=_C
+_PktcSigDevVmwiDelayAfterLR_Object=MibScalar
+pktcSigDevVmwiDelayAfterLR=_PktcSigDevVmwiDelayAfterLR_Object((1,3,6,1,2,1,169,1,1,38),_PktcSigDevVmwiDelayAfterLR_Type())
+pktcSigDevVmwiDelayAfterLR.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevVmwiDelayAfterLR.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigDevVmwiDelayAfterLR.setUnits(_G)
+class _PktcSigDevVmwiDtmfStartCode_Type(DtmfCode):defaultValue=12
+_PktcSigDevVmwiDtmfStartCode_Type.__name__=_K
+_PktcSigDevVmwiDtmfStartCode_Object=MibScalar
+pktcSigDevVmwiDtmfStartCode=_PktcSigDevVmwiDtmfStartCode_Object((1,3,6,1,2,1,169,1,1,39),_PktcSigDevVmwiDtmfStartCode_Type())
+pktcSigDevVmwiDtmfStartCode.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevVmwiDtmfStartCode.setStatus(_B)
+class _PktcSigDevVmwiDtmfEndCode_Type(DtmfCode):defaultValue=14
+_PktcSigDevVmwiDtmfEndCode_Type.__name__=_K
+_PktcSigDevVmwiDtmfEndCode_Object=MibScalar
+pktcSigDevVmwiDtmfEndCode=_PktcSigDevVmwiDtmfEndCode_Object((1,3,6,1,2,1,169,1,1,40),_PktcSigDevVmwiDtmfEndCode_Type())
+pktcSigDevVmwiDtmfEndCode.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevVmwiDtmfEndCode.setStatus(_B)
+class _PktcSigDevrpAsDtsDuration_Type(Unsigned32):defaultValue=250;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,0),ValueRangeConstraint(200,500))
+_PktcSigDevrpAsDtsDuration_Type.__name__=_C
+_PktcSigDevrpAsDtsDuration_Object=MibScalar
+pktcSigDevrpAsDtsDuration=_PktcSigDevrpAsDtsDuration_Object((1,3,6,1,2,1,169,1,1,41),_PktcSigDevrpAsDtsDuration_Type())
+pktcSigDevrpAsDtsDuration.setMaxAccess(_D)
+if mibBuilder.loadTexts:pktcSigDevrpAsDtsDuration.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigDevrpAsDtsDuration.setUnits(_G)
+_PktcSigEndPntConfigObjects_ObjectIdentity=ObjectIdentity
+pktcSigEndPntConfigObjects=_PktcSigEndPntConfigObjects_ObjectIdentity((1,3,6,1,2,1,169,1,2))
+_PktcSigEndPntConfigTable_Object=MibTable
+pktcSigEndPntConfigTable=_PktcSigEndPntConfigTable_Object((1,3,6,1,2,1,169,1,2,1))
+if mibBuilder.loadTexts:pktcSigEndPntConfigTable.setStatus(_B)
+_PktcSigEndPntConfigEntry_Object=MibTableRow
+pktcSigEndPntConfigEntry=_PktcSigEndPntConfigEntry_Object((1,3,6,1,2,1,169,1,2,1,1))
+pktcSigEndPntConfigEntry.setIndexNames((0,_j,_k))
+if mibBuilder.loadTexts:pktcSigEndPntConfigEntry.setStatus(_B)
+class _PktcSigEndPntConfigCallAgentId_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(3,255))
+_PktcSigEndPntConfigCallAgentId_Type.__name__=_l
+_PktcSigEndPntConfigCallAgentId_Object=MibTableColumn
+pktcSigEndPntConfigCallAgentId=_PktcSigEndPntConfigCallAgentId_Object((1,3,6,1,2,1,169,1,2,1,1,1),_PktcSigEndPntConfigCallAgentId_Type())
+pktcSigEndPntConfigCallAgentId.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigCallAgentId.setStatus(_B)
+class _PktcSigEndPntConfigCallAgentUdpPort_Type(InetPortNumber):defaultValue=2727;subtypeSpec=InetPortNumber.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1025,65535))
+_PktcSigEndPntConfigCallAgentUdpPort_Type.__name__=_V
+_PktcSigEndPntConfigCallAgentUdpPort_Object=MibTableColumn
+pktcSigEndPntConfigCallAgentUdpPort=_PktcSigEndPntConfigCallAgentUdpPort_Object((1,3,6,1,2,1,169,1,2,1,1,2),_PktcSigEndPntConfigCallAgentUdpPort_Type())
+pktcSigEndPntConfigCallAgentUdpPort.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigCallAgentUdpPort.setStatus(_B)
+class _PktcSigEndPntConfigPartialDialTO_Type(Unsigned32):defaultValue=16
+_PktcSigEndPntConfigPartialDialTO_Type.__name__=_C
+_PktcSigEndPntConfigPartialDialTO_Object=MibTableColumn
+pktcSigEndPntConfigPartialDialTO=_PktcSigEndPntConfigPartialDialTO_Object((1,3,6,1,2,1,169,1,2,1,1,3),_PktcSigEndPntConfigPartialDialTO_Type())
+pktcSigEndPntConfigPartialDialTO.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigPartialDialTO.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigPartialDialTO.setUnits(_H)
+class _PktcSigEndPntConfigCriticalDialTO_Type(Unsigned32):defaultValue=4
+_PktcSigEndPntConfigCriticalDialTO_Type.__name__=_C
+_PktcSigEndPntConfigCriticalDialTO_Object=MibTableColumn
+pktcSigEndPntConfigCriticalDialTO=_PktcSigEndPntConfigCriticalDialTO_Object((1,3,6,1,2,1,169,1,2,1,1,4),_PktcSigEndPntConfigCriticalDialTO_Type())
+pktcSigEndPntConfigCriticalDialTO.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigCriticalDialTO.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigCriticalDialTO.setUnits(_H)
+class _PktcSigEndPntConfigBusyToneTO_Type(Unsigned32):defaultValue=30
+_PktcSigEndPntConfigBusyToneTO_Type.__name__=_C
+_PktcSigEndPntConfigBusyToneTO_Object=MibTableColumn
+pktcSigEndPntConfigBusyToneTO=_PktcSigEndPntConfigBusyToneTO_Object((1,3,6,1,2,1,169,1,2,1,1,5),_PktcSigEndPntConfigBusyToneTO_Type())
+pktcSigEndPntConfigBusyToneTO.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigBusyToneTO.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigBusyToneTO.setUnits(_H)
+class _PktcSigEndPntConfigDialToneTO_Type(Unsigned32):defaultValue=16
+_PktcSigEndPntConfigDialToneTO_Type.__name__=_C
+_PktcSigEndPntConfigDialToneTO_Object=MibTableColumn
+pktcSigEndPntConfigDialToneTO=_PktcSigEndPntConfigDialToneTO_Object((1,3,6,1,2,1,169,1,2,1,1,6),_PktcSigEndPntConfigDialToneTO_Type())
+pktcSigEndPntConfigDialToneTO.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigDialToneTO.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigDialToneTO.setUnits(_H)
+class _PktcSigEndPntConfigMessageWaitingTO_Type(Unsigned32):defaultValue=16
+_PktcSigEndPntConfigMessageWaitingTO_Type.__name__=_C
+_PktcSigEndPntConfigMessageWaitingTO_Object=MibTableColumn
+pktcSigEndPntConfigMessageWaitingTO=_PktcSigEndPntConfigMessageWaitingTO_Object((1,3,6,1,2,1,169,1,2,1,1,7),_PktcSigEndPntConfigMessageWaitingTO_Type())
+pktcSigEndPntConfigMessageWaitingTO.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigMessageWaitingTO.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigMessageWaitingTO.setUnits(_H)
+class _PktcSigEndPntConfigOffHookWarnToneTO_Type(Unsigned32):defaultValue=0
+_PktcSigEndPntConfigOffHookWarnToneTO_Type.__name__=_C
+_PktcSigEndPntConfigOffHookWarnToneTO_Object=MibTableColumn
+pktcSigEndPntConfigOffHookWarnToneTO=_PktcSigEndPntConfigOffHookWarnToneTO_Object((1,3,6,1,2,1,169,1,2,1,1,8),_PktcSigEndPntConfigOffHookWarnToneTO_Type())
+pktcSigEndPntConfigOffHookWarnToneTO.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigOffHookWarnToneTO.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigOffHookWarnToneTO.setUnits(_H)
+class _PktcSigEndPntConfigRingingTO_Type(Unsigned32):defaultValue=180
+_PktcSigEndPntConfigRingingTO_Type.__name__=_C
+_PktcSigEndPntConfigRingingTO_Object=MibTableColumn
+pktcSigEndPntConfigRingingTO=_PktcSigEndPntConfigRingingTO_Object((1,3,6,1,2,1,169,1,2,1,1,9),_PktcSigEndPntConfigRingingTO_Type())
+pktcSigEndPntConfigRingingTO.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigRingingTO.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigRingingTO.setUnits(_H)
+class _PktcSigEndPntConfigRingBackTO_Type(Unsigned32):defaultValue=180
+_PktcSigEndPntConfigRingBackTO_Type.__name__=_C
+_PktcSigEndPntConfigRingBackTO_Object=MibTableColumn
+pktcSigEndPntConfigRingBackTO=_PktcSigEndPntConfigRingBackTO_Object((1,3,6,1,2,1,169,1,2,1,1,10),_PktcSigEndPntConfigRingBackTO_Type())
+pktcSigEndPntConfigRingBackTO.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigRingBackTO.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigRingBackTO.setUnits(_H)
+class _PktcSigEndPntConfigReorderToneTO_Type(Unsigned32):defaultValue=30
+_PktcSigEndPntConfigReorderToneTO_Type.__name__=_C
+_PktcSigEndPntConfigReorderToneTO_Object=MibTableColumn
+pktcSigEndPntConfigReorderToneTO=_PktcSigEndPntConfigReorderToneTO_Object((1,3,6,1,2,1,169,1,2,1,1,11),_PktcSigEndPntConfigReorderToneTO_Type())
+pktcSigEndPntConfigReorderToneTO.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigReorderToneTO.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigReorderToneTO.setUnits(_H)
+class _PktcSigEndPntConfigStutterDialToneTO_Type(Unsigned32):defaultValue=16
+_PktcSigEndPntConfigStutterDialToneTO_Type.__name__=_C
+_PktcSigEndPntConfigStutterDialToneTO_Object=MibTableColumn
+pktcSigEndPntConfigStutterDialToneTO=_PktcSigEndPntConfigStutterDialToneTO_Object((1,3,6,1,2,1,169,1,2,1,1,12),_PktcSigEndPntConfigStutterDialToneTO_Type())
+pktcSigEndPntConfigStutterDialToneTO.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigStutterDialToneTO.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigStutterDialToneTO.setUnits(_H)
+class _PktcSigEndPntConfigTSMax_Type(Unsigned32):defaultValue=20
+_PktcSigEndPntConfigTSMax_Type.__name__=_C
+_PktcSigEndPntConfigTSMax_Object=MibTableColumn
+pktcSigEndPntConfigTSMax=_PktcSigEndPntConfigTSMax_Object((1,3,6,1,2,1,169,1,2,1,1,13),_PktcSigEndPntConfigTSMax_Type())
+pktcSigEndPntConfigTSMax.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigTSMax.setStatus(_B)
+class _PktcSigEndPntConfigMax1_Type(Unsigned32):defaultValue=5
+_PktcSigEndPntConfigMax1_Type.__name__=_C
+_PktcSigEndPntConfigMax1_Object=MibTableColumn
+pktcSigEndPntConfigMax1=_PktcSigEndPntConfigMax1_Object((1,3,6,1,2,1,169,1,2,1,1,14),_PktcSigEndPntConfigMax1_Type())
+pktcSigEndPntConfigMax1.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigMax1.setStatus(_B)
+class _PktcSigEndPntConfigMax2_Type(Unsigned32):defaultValue=7
+_PktcSigEndPntConfigMax2_Type.__name__=_C
+_PktcSigEndPntConfigMax2_Object=MibTableColumn
+pktcSigEndPntConfigMax2=_PktcSigEndPntConfigMax2_Object((1,3,6,1,2,1,169,1,2,1,1,15),_PktcSigEndPntConfigMax2_Type())
+pktcSigEndPntConfigMax2.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigMax2.setStatus(_B)
+class _PktcSigEndPntConfigMax1QEnable_Type(TruthValue):defaultValue=1
+_PktcSigEndPntConfigMax1QEnable_Type.__name__=_W
+_PktcSigEndPntConfigMax1QEnable_Object=MibTableColumn
+pktcSigEndPntConfigMax1QEnable=_PktcSigEndPntConfigMax1QEnable_Object((1,3,6,1,2,1,169,1,2,1,1,16),_PktcSigEndPntConfigMax1QEnable_Type())
+pktcSigEndPntConfigMax1QEnable.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigMax1QEnable.setStatus(_B)
+class _PktcSigEndPntConfigMax2QEnable_Type(TruthValue):defaultValue=1
+_PktcSigEndPntConfigMax2QEnable_Type.__name__=_W
+_PktcSigEndPntConfigMax2QEnable_Object=MibTableColumn
+pktcSigEndPntConfigMax2QEnable=_PktcSigEndPntConfigMax2QEnable_Object((1,3,6,1,2,1,169,1,2,1,1,17),_PktcSigEndPntConfigMax2QEnable_Type())
+pktcSigEndPntConfigMax2QEnable.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigMax2QEnable.setStatus(_B)
+class _PktcSigEndPntConfigMWD_Type(Unsigned32):defaultValue=600
+_PktcSigEndPntConfigMWD_Type.__name__=_C
+_PktcSigEndPntConfigMWD_Object=MibTableColumn
+pktcSigEndPntConfigMWD=_PktcSigEndPntConfigMWD_Object((1,3,6,1,2,1,169,1,2,1,1,18),_PktcSigEndPntConfigMWD_Type())
+pktcSigEndPntConfigMWD.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigMWD.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigMWD.setUnits(_H)
+class _PktcSigEndPntConfigTdinit_Type(Unsigned32):defaultValue=15
+_PktcSigEndPntConfigTdinit_Type.__name__=_C
+_PktcSigEndPntConfigTdinit_Object=MibTableColumn
+pktcSigEndPntConfigTdinit=_PktcSigEndPntConfigTdinit_Object((1,3,6,1,2,1,169,1,2,1,1,19),_PktcSigEndPntConfigTdinit_Type())
+pktcSigEndPntConfigTdinit.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigTdinit.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigTdinit.setUnits(_H)
+class _PktcSigEndPntConfigTdmin_Type(Unsigned32):defaultValue=15
+_PktcSigEndPntConfigTdmin_Type.__name__=_C
+_PktcSigEndPntConfigTdmin_Object=MibTableColumn
+pktcSigEndPntConfigTdmin=_PktcSigEndPntConfigTdmin_Object((1,3,6,1,2,1,169,1,2,1,1,20),_PktcSigEndPntConfigTdmin_Type())
+pktcSigEndPntConfigTdmin.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigTdmin.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigTdmin.setUnits(_H)
+class _PktcSigEndPntConfigTdmax_Type(Unsigned32):defaultValue=600
+_PktcSigEndPntConfigTdmax_Type.__name__=_C
+_PktcSigEndPntConfigTdmax_Object=MibTableColumn
+pktcSigEndPntConfigTdmax=_PktcSigEndPntConfigTdmax_Object((1,3,6,1,2,1,169,1,2,1,1,21),_PktcSigEndPntConfigTdmax_Type())
+pktcSigEndPntConfigTdmax.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigTdmax.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigTdmax.setUnits(_H)
+class _PktcSigEndPntConfigRtoMax_Type(Unsigned32):defaultValue=4
+_PktcSigEndPntConfigRtoMax_Type.__name__=_C
+_PktcSigEndPntConfigRtoMax_Object=MibTableColumn
+pktcSigEndPntConfigRtoMax=_PktcSigEndPntConfigRtoMax_Object((1,3,6,1,2,1,169,1,2,1,1,22),_PktcSigEndPntConfigRtoMax_Type())
+pktcSigEndPntConfigRtoMax.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigRtoMax.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigRtoMax.setUnits(_H)
+class _PktcSigEndPntConfigRtoInit_Type(Unsigned32):defaultValue=200
+_PktcSigEndPntConfigRtoInit_Type.__name__=_C
+_PktcSigEndPntConfigRtoInit_Object=MibTableColumn
+pktcSigEndPntConfigRtoInit=_PktcSigEndPntConfigRtoInit_Object((1,3,6,1,2,1,169,1,2,1,1,23),_PktcSigEndPntConfigRtoInit_Type())
+pktcSigEndPntConfigRtoInit.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigRtoInit.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigRtoInit.setUnits(_b)
+class _PktcSigEndPntConfigLongDurationKeepAlive_Type(Unsigned32):defaultValue=60
+_PktcSigEndPntConfigLongDurationKeepAlive_Type.__name__=_C
+_PktcSigEndPntConfigLongDurationKeepAlive_Object=MibTableColumn
+pktcSigEndPntConfigLongDurationKeepAlive=_PktcSigEndPntConfigLongDurationKeepAlive_Object((1,3,6,1,2,1,169,1,2,1,1,24),_PktcSigEndPntConfigLongDurationKeepAlive_Type())
+pktcSigEndPntConfigLongDurationKeepAlive.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigLongDurationKeepAlive.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigLongDurationKeepAlive.setUnits('minutes')
+class _PktcSigEndPntConfigThist_Type(Unsigned32):defaultValue=30
+_PktcSigEndPntConfigThist_Type.__name__=_C
+_PktcSigEndPntConfigThist_Object=MibTableColumn
+pktcSigEndPntConfigThist=_PktcSigEndPntConfigThist_Object((1,3,6,1,2,1,169,1,2,1,1,25),_PktcSigEndPntConfigThist_Type())
+pktcSigEndPntConfigThist.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigThist.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigThist.setUnits(_H)
+_PktcSigEndPntConfigStatus_Type=RowStatus
+_PktcSigEndPntConfigStatus_Object=MibTableColumn
+pktcSigEndPntConfigStatus=_PktcSigEndPntConfigStatus_Object((1,3,6,1,2,1,169,1,2,1,1,26),_PktcSigEndPntConfigStatus_Type())
+pktcSigEndPntConfigStatus.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigStatus.setStatus(_B)
+class _PktcSigEndPntConfigCallWaitingMaxRep_Type(Unsigned32):defaultValue=1;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,10))
+_PktcSigEndPntConfigCallWaitingMaxRep_Type.__name__=_C
+_PktcSigEndPntConfigCallWaitingMaxRep_Object=MibTableColumn
+pktcSigEndPntConfigCallWaitingMaxRep=_PktcSigEndPntConfigCallWaitingMaxRep_Object((1,3,6,1,2,1,169,1,2,1,1,27),_PktcSigEndPntConfigCallWaitingMaxRep_Type())
+pktcSigEndPntConfigCallWaitingMaxRep.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigCallWaitingMaxRep.setStatus(_B)
+class _PktcSigEndPntConfigCallWaitingDelay_Type(Unsigned32):defaultValue=10;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,100))
+_PktcSigEndPntConfigCallWaitingDelay_Type.__name__=_C
+_PktcSigEndPntConfigCallWaitingDelay_Object=MibTableColumn
+pktcSigEndPntConfigCallWaitingDelay=_PktcSigEndPntConfigCallWaitingDelay_Object((1,3,6,1,2,1,169,1,2,1,1,28),_PktcSigEndPntConfigCallWaitingDelay_Type())
+pktcSigEndPntConfigCallWaitingDelay.setMaxAccess(_F)
+if mibBuilder.loadTexts:pktcSigEndPntConfigCallWaitingDelay.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigCallWaitingDelay.setUnits(_H)
+_PktcSigEndPntStatusCallIpAddressType_Type=InetAddressType
+_PktcSigEndPntStatusCallIpAddressType_Object=MibTableColumn
+pktcSigEndPntStatusCallIpAddressType=_PktcSigEndPntStatusCallIpAddressType_Object((1,3,6,1,2,1,169,1,2,1,1,29),_PktcSigEndPntStatusCallIpAddressType_Type())
+pktcSigEndPntStatusCallIpAddressType.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigEndPntStatusCallIpAddressType.setStatus(_B)
+_PktcSigEndPntStatusCallIpAddress_Type=InetAddress
+_PktcSigEndPntStatusCallIpAddress_Object=MibTableColumn
+pktcSigEndPntStatusCallIpAddress=_PktcSigEndPntStatusCallIpAddress_Object((1,3,6,1,2,1,169,1,2,1,1,30),_PktcSigEndPntStatusCallIpAddress_Type())
+pktcSigEndPntStatusCallIpAddress.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigEndPntStatusCallIpAddress.setStatus(_B)
+class _PktcSigEndPntStatusError_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('operational',1),('noSecurityAssociation',2),('disconnected',3)))
+_PktcSigEndPntStatusError_Type.__name__=_I
+_PktcSigEndPntStatusError_Object=MibTableColumn
+pktcSigEndPntStatusError=_PktcSigEndPntStatusError_Object((1,3,6,1,2,1,169,1,2,1,1,31),_PktcSigEndPntStatusError_Type())
+pktcSigEndPntStatusError.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigEndPntStatusError.setStatus(_B)
+class _PktcSigEndPntConfigMinHookFlash_Type(Unsigned32):defaultValue=300;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(20,1550))
+_PktcSigEndPntConfigMinHookFlash_Type.__name__=_C
+_PktcSigEndPntConfigMinHookFlash_Object=MibTableColumn
+pktcSigEndPntConfigMinHookFlash=_PktcSigEndPntConfigMinHookFlash_Object((1,3,6,1,2,1,169,1,2,1,1,32),_PktcSigEndPntConfigMinHookFlash_Type())
+pktcSigEndPntConfigMinHookFlash.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigEndPntConfigMinHookFlash.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigMinHookFlash.setUnits(_G)
+class _PktcSigEndPntConfigMaxHookFlash_Type(Unsigned32):defaultValue=800;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(20,1550))
+_PktcSigEndPntConfigMaxHookFlash_Type.__name__=_C
+_PktcSigEndPntConfigMaxHookFlash_Object=MibTableColumn
+pktcSigEndPntConfigMaxHookFlash=_PktcSigEndPntConfigMaxHookFlash_Object((1,3,6,1,2,1,169,1,2,1,1,33),_PktcSigEndPntConfigMaxHookFlash_Type())
+pktcSigEndPntConfigMaxHookFlash.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigEndPntConfigMaxHookFlash.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigMaxHookFlash.setUnits(_G)
+class _PktcSigEndPntConfigPulseDialInterdigitTime_Type(Unsigned32):defaultValue=100;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,1500))
+_PktcSigEndPntConfigPulseDialInterdigitTime_Type.__name__=_C
+_PktcSigEndPntConfigPulseDialInterdigitTime_Object=MibTableColumn
+pktcSigEndPntConfigPulseDialInterdigitTime=_PktcSigEndPntConfigPulseDialInterdigitTime_Object((1,3,6,1,2,1,169,1,2,1,1,34),_PktcSigEndPntConfigPulseDialInterdigitTime_Type())
+pktcSigEndPntConfigPulseDialInterdigitTime.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigEndPntConfigPulseDialInterdigitTime.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigPulseDialInterdigitTime.setUnits(_G)
+class _PktcSigEndPntConfigPulseDialMinMakeTime_Type(Unsigned32):defaultValue=25;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(20,200))
+_PktcSigEndPntConfigPulseDialMinMakeTime_Type.__name__=_C
+_PktcSigEndPntConfigPulseDialMinMakeTime_Object=MibTableColumn
+pktcSigEndPntConfigPulseDialMinMakeTime=_PktcSigEndPntConfigPulseDialMinMakeTime_Object((1,3,6,1,2,1,169,1,2,1,1,35),_PktcSigEndPntConfigPulseDialMinMakeTime_Type())
+pktcSigEndPntConfigPulseDialMinMakeTime.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigEndPntConfigPulseDialMinMakeTime.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigPulseDialMinMakeTime.setUnits(_G)
+class _PktcSigEndPntConfigPulseDialMaxMakeTime_Type(Unsigned32):defaultValue=55;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(20,200))
+_PktcSigEndPntConfigPulseDialMaxMakeTime_Type.__name__=_C
+_PktcSigEndPntConfigPulseDialMaxMakeTime_Object=MibTableColumn
+pktcSigEndPntConfigPulseDialMaxMakeTime=_PktcSigEndPntConfigPulseDialMaxMakeTime_Object((1,3,6,1,2,1,169,1,2,1,1,36),_PktcSigEndPntConfigPulseDialMaxMakeTime_Type())
+pktcSigEndPntConfigPulseDialMaxMakeTime.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigEndPntConfigPulseDialMaxMakeTime.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigPulseDialMaxMakeTime.setUnits(_G)
+class _PktcSigEndPntConfigPulseDialMinBreakTime_Type(Unsigned32):defaultValue=45;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(20,200))
+_PktcSigEndPntConfigPulseDialMinBreakTime_Type.__name__=_C
+_PktcSigEndPntConfigPulseDialMinBreakTime_Object=MibTableColumn
+pktcSigEndPntConfigPulseDialMinBreakTime=_PktcSigEndPntConfigPulseDialMinBreakTime_Object((1,3,6,1,2,1,169,1,2,1,1,37),_PktcSigEndPntConfigPulseDialMinBreakTime_Type())
+pktcSigEndPntConfigPulseDialMinBreakTime.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigEndPntConfigPulseDialMinBreakTime.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigPulseDialMinBreakTime.setUnits(_G)
+class _PktcSigEndPntConfigPulseDialMaxBreakTime_Type(Unsigned32):defaultValue=75;subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(20,200))
+_PktcSigEndPntConfigPulseDialMaxBreakTime_Type.__name__=_C
+_PktcSigEndPntConfigPulseDialMaxBreakTime_Object=MibTableColumn
+pktcSigEndPntConfigPulseDialMaxBreakTime=_PktcSigEndPntConfigPulseDialMaxBreakTime_Object((1,3,6,1,2,1,169,1,2,1,1,38),_PktcSigEndPntConfigPulseDialMaxBreakTime_Type())
+pktcSigEndPntConfigPulseDialMaxBreakTime.setMaxAccess(_E)
+if mibBuilder.loadTexts:pktcSigEndPntConfigPulseDialMaxBreakTime.setStatus(_B)
+if mibBuilder.loadTexts:pktcSigEndPntConfigPulseDialMaxBreakTime.setUnits(_G)
+_PktcSigConformance_ObjectIdentity=ObjectIdentity
+pktcSigConformance=_PktcSigConformance_ObjectIdentity((1,3,6,1,2,1,169,2))
+_PktcSigCompliances_ObjectIdentity=ObjectIdentity
+pktcSigCompliances=_PktcSigCompliances_ObjectIdentity((1,3,6,1,2,1,169,2,1))
+_PktcSigGroups_ObjectIdentity=ObjectIdentity
+pktcSigGroups=_PktcSigGroups_ObjectIdentity((1,3,6,1,2,1,169,2,2))
+pktcSigDeviceGroup=ObjectGroup((1,3,6,1,2,1,169,2,2,1))
+pktcSigDeviceGroup.setObjects(*((_A,_x),(_A,_y),(_A,_z),(_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_A0),(_A,_A1),(_A,_c),(_A,_A2),(_A,_A3),(_A,_A4),(_A,_A5)))
+if mibBuilder.loadTexts:pktcSigDeviceGroup.setStatus(_B)
+pktcSigEndpointGroup=ObjectGroup((1,3,6,1,2,1,169,2,2,2))
+pktcSigEndpointGroup.setObjects(*((_A,_A6),(_A,_A7),(_A,_A8),(_A,_A9),(_A,_AA),(_A,_AB),(_A,_AC),(_A,_AD),(_A,_AE),(_A,_AF),(_A,_AG),(_A,_AH),(_A,_AI),(_A,_AJ),(_A,_AK),(_A,_AL),(_A,_AM),(_A,_AN),(_A,_AO),(_A,_AP),(_A,_AQ),(_A,_AR),(_A,_AS),(_A,_AT),(_A,_AU),(_A,_AV),(_A,_AW),(_A,_AX),(_A,_AY),(_A,_AZ),(_A,_Aa)))
+if mibBuilder.loadTexts:pktcSigEndpointGroup.setStatus(_B)
+pktcInternationalGroup=ObjectGroup((1,3,6,1,2,1,169,2,2,3))
+pktcInternationalGroup.setObjects(*((_A,_Ab),(_A,_Ac),(_A,_Ad),(_A,_Ae),(_A,_Af),(_A,_Ag),(_A,_Ah),(_A,_d),(_A,_Ai),(_A,_Aj),(_A,_Ak),(_A,_Al),(_A,_Am),(_A,_An),(_A,_Ao),(_A,_Ap),(_A,_Aq),(_A,_Ar),(_A,_As),(_A,_At),(_A,_Au),(_A,_Av),(_A,_Aw),(_A,_c),(_A,_Ax),(_A,_Ay),(_A,_Az),(_A,_A_),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_B0),(_A,_B1),(_A,_B2),(_A,_B3),(_A,_B4),(_A,_B5),(_A,_B6),(_A,_B7),(_A,_B8),(_A,_B9),(_A,_BA),(_A,_BB),(_A,_BC)))
+if mibBuilder.loadTexts:pktcInternationalGroup.setStatus(_B)
+pktcLLinePackageGroup=ObjectGroup((1,3,6,1,2,1,169,2,2,4))
+pktcLLinePackageGroup.setObjects(*((_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U)))
+if mibBuilder.loadTexts:pktcLLinePackageGroup.setStatus(_B)
+pktcELinePackageGroup=ObjectGroup((1,3,6,1,2,1,169,2,2,5))
+pktcELinePackageGroup.setObjects(*((_A,_L),(_A,_M),(_A,_N),(_A,_O),(_A,_P),(_A,_Q),(_A,_R),(_A,_S),(_A,_T),(_A,_U),(_A,_e),(_A,_f),(_A,_g),(_A,_h),(_A,_i),(_A,_d)))
+if mibBuilder.loadTexts:pktcELinePackageGroup.setStatus(_B)
+pktcSigBasicCompliance=ModuleCompliance((1,3,6,1,2,1,169,2,1,1))
+pktcSigBasicCompliance.setObjects(*((_A,_BD),(_A,_BE),(_A,_BF),(_A,_BG),(_A,_BH)))
+if mibBuilder.loadTexts:pktcSigBasicCompliance.setStatus(_B)
+mibBuilder.exportSymbols(_A,**{_Z:TenthdBm,_Y:Dscp,'PktcCodecType':PktcCodecType,'PktcRingCadence':PktcRingCadence,'PktcSigType':PktcSigType,_K:DtmfCode,_X:PktcSubscriberSideSigProtocol,'pktcIetfSigMib':pktcIetfSigMib,'pktcSigNotification':pktcSigNotification,'pktcSigMibObjects':pktcSigMibObjects,'pktcSigDevObjects':pktcSigDevObjects,'pktcSigDevCodecTable':pktcSigDevCodecTable,'pktcSigDevCodecEntry':pktcSigDevCodecEntry,_m:pktcSigDevCodecComboIndex,_n:pktcSigDevCodecType,_x:pktcSigDevCodecMax,_y:pktcSigDevEchoCancellation,_z:pktcSigDevSilenceSuppression,_Ai:pktcSigDevCidSigProtocol,_L:pktcSigDevR0Cadence,_M:pktcSigDevR1Cadence,_N:pktcSigDevR2Cadence,_O:pktcSigDevR3Cadence,_P:pktcSigDevR4Cadence,_Q:pktcSigDevR5Cadence,_R:pktcSigDevR6Cadence,_S:pktcSigDevR7Cadence,_T:pktcSigDevRgCadence,_U:pktcSigDevRsCadence,_A0:pktcSigDefCallSigDscp,_A1:pktcSigDefMediaStreamDscp,'pktcSigCapabilityTable':pktcSigCapabilityTable,'pktcSigCapabilityEntry':pktcSigCapabilityEntry,_o:pktcSigCapabilityIndex,_A2:pktcSigCapabilityType,_A3:pktcSigCapabilityVersion,_A4:pktcSigCapabilityVendorExt,_A5:pktcSigDefNcsReceiveUdpPort,_A_:pktcSigPowerRingFrequency,'pktcSigPulseSignalTable':pktcSigPulseSignalTable,'pktcSigPulseSignalEntry':pktcSigPulseSignalEntry,_p:pktcSigPulseSignalType,_e:pktcSigPulseSignalFrequency,_f:pktcSigPulseSignalDbLevel,_g:pktcSigPulseSignalDuration,_h:pktcSigPulseSignalPulseInterval,_i:pktcSigPulseSignalRepeatCount,_Ar:pktcSigDevCidMode,_As:pktcSigDevCidAfterRing,_At:pktcSigDevCidAfterDTAS,_Au:pktcSigDevCidAfterRPAS,_Av:pktcSigDevRingAfterCID,_Aw:pktcSigDevCidDTASAfterLR,_c:pktcSigDevVmwiMode,_Ax:pktcSigDevVmwiAfterDTAS,_Ay:pktcSigDevVmwiAfterRPAS,_Az:pktcSigDevVmwiDTASAfterLR,'pktcSigDevRingCadenceTable':pktcSigDevRingCadenceTable,'pktcSigDevRingCadenceEntry':pktcSigDevRingCadenceEntry,_u:pktcSigDevRingCadenceIndex,_d:pktcSigDevRingCadence,'pktcSigDevToneTable':pktcSigDevToneTable,'pktcSigDevToneEntry':pktcSigDevToneEntry,_a:pktcSigDevToneType,_v:pktcSigDevToneFreqGroup,_B1:pktcSigDevToneFreqCounter,_B2:pktcSigDevToneWholeToneRepeatCount,_B3:pktcSigDevToneSteady,'pktcSigDevMultiFreqToneTable':pktcSigDevMultiFreqToneTable,'pktcSigDevMultiFreqToneEntry':pktcSigDevMultiFreqToneEntry,_w:pktcSigDevToneNumber,_B4:pktcSigDevToneFirstFreqValue,_B5:pktcSigDevToneSecondFreqValue,_B6:pktcSigDevToneThirdFreqValue,_B7:pktcSigDevToneFourthFreqValue,_B8:pktcSigDevToneFreqMode,_B9:pktcSigDevToneFreqAmpModePrtg,_B0:pktcSigDevToneDbLevel,_BA:pktcSigDevToneFreqOnDuration,_BB:pktcSigDevToneFreqOffDuration,_BC:pktcSigDevToneFreqRepeatCount,_Aj:pktcSigDevCidDelayAfterLR,_Ak:pktcSigDevCidDtmfStartCode,_Al:pktcSigDevCidDtmfEndCode,_Am:pktcSigDevVmwiSigProtocol,_An:pktcSigDevVmwiDelayAfterLR,_Ao:pktcSigDevVmwiDtmfStartCode,_Ap:pktcSigDevVmwiDtmfEndCode,_Aq:pktcSigDevrpAsDtsDuration,'pktcSigEndPntConfigObjects':pktcSigEndPntConfigObjects,'pktcSigEndPntConfigTable':pktcSigEndPntConfigTable,'pktcSigEndPntConfigEntry':pktcSigEndPntConfigEntry,_A6:pktcSigEndPntConfigCallAgentId,_A7:pktcSigEndPntConfigCallAgentUdpPort,_A8:pktcSigEndPntConfigPartialDialTO,_A9:pktcSigEndPntConfigCriticalDialTO,_AA:pktcSigEndPntConfigBusyToneTO,_AB:pktcSigEndPntConfigDialToneTO,_AC:pktcSigEndPntConfigMessageWaitingTO,_AD:pktcSigEndPntConfigOffHookWarnToneTO,_AE:pktcSigEndPntConfigRingingTO,_AF:pktcSigEndPntConfigRingBackTO,_AG:pktcSigEndPntConfigReorderToneTO,_AH:pktcSigEndPntConfigStutterDialToneTO,_AI:pktcSigEndPntConfigTSMax,_AJ:pktcSigEndPntConfigMax1,_AK:pktcSigEndPntConfigMax2,_AL:pktcSigEndPntConfigMax1QEnable,_AM:pktcSigEndPntConfigMax2QEnable,_AN:pktcSigEndPntConfigMWD,_AO:pktcSigEndPntConfigTdinit,_AP:pktcSigEndPntConfigTdmin,_AQ:pktcSigEndPntConfigTdmax,_AR:pktcSigEndPntConfigRtoMax,_AS:pktcSigEndPntConfigRtoInit,_AT:pktcSigEndPntConfigLongDurationKeepAlive,_AU:pktcSigEndPntConfigThist,_AV:pktcSigEndPntConfigStatus,_AW:pktcSigEndPntConfigCallWaitingMaxRep,_AX:pktcSigEndPntConfigCallWaitingDelay,_AY:pktcSigEndPntStatusCallIpAddressType,_AZ:pktcSigEndPntStatusCallIpAddress,_Aa:pktcSigEndPntStatusError,_Ab:pktcSigEndPntConfigMinHookFlash,_Ac:pktcSigEndPntConfigMaxHookFlash,_Ad:pktcSigEndPntConfigPulseDialInterdigitTime,_Ae:pktcSigEndPntConfigPulseDialMinMakeTime,_Af:pktcSigEndPntConfigPulseDialMaxMakeTime,_Ag:pktcSigEndPntConfigPulseDialMinBreakTime,_Ah:pktcSigEndPntConfigPulseDialMaxBreakTime,'pktcSigConformance':pktcSigConformance,'pktcSigCompliances':pktcSigCompliances,'pktcSigBasicCompliance':pktcSigBasicCompliance,'pktcSigGroups':pktcSigGroups,_BD:pktcSigDeviceGroup,_BE:pktcSigEndpointGroup,_BF:pktcInternationalGroup,_BG:pktcLLinePackageGroup,_BH:pktcELinePackageGroup})

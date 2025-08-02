@@ -1,81 +1,160 @@
-#
-# PySNMP MIB module AGGREGATE-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/AGGREGATE-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:04:25 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, Integer, OctetString, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
-( OwnerString, ) = mibBuilder.importSymbols("RMON-MIB", "OwnerString")
-( SnmpAdminString, ) = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-( NotificationGroup, ModuleCompliance, ObjectGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-( ModuleIdentity, IpAddress, Bits, Gauge32, Opaque, experimental, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, Counter64, MibIdentifier, ObjectIdentity, NotificationType, TimeTicks, Unsigned32, Integer32, ) = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "IpAddress", "Bits", "Gauge32", "Opaque", "experimental", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "Counter64", "MibIdentifier", "ObjectIdentity", "NotificationType", "TimeTicks", "Unsigned32", "Integer32")
-( TextualConvention, DisplayString, RowStatus, StorageType, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus", "StorageType")
-aggrMIB = ModuleIdentity((1, 3, 6, 1, 3, 123)).setRevisions(("2006-04-27 00:00",))
-if mibBuilder.loadTexts: aggrMIB.setLastUpdated('200604270000Z')
-if mibBuilder.loadTexts: aggrMIB.setOrganization('Cyber Solutions Inc. NetMan Working Group')
-if mibBuilder.loadTexts: aggrMIB.setContactInfo('                      Glenn Mansfield Keeni\n                     Postal: Cyber Solutions Inc.\n                             6-6-3, Minami Yoshinari\n                             Aoba-ku, Sendai, Japan 989-3204.\n                        Tel: +81-22-303-4012\n                        Fax: +81-22-303-4015\n                     E-mail: glenn@cysols.com\n\n          Support Group E-mail: mibsupport@cysols.com')
-if mibBuilder.loadTexts: aggrMIB.setDescription('The MIB for servicing aggregate objects.\n\n                   Copyright (C) The Internet Society (2006).  This\n                   version of this MIB module is part of RFC 4498;\n                   see the RFC itself for full legal notices.\n                  ')
-class AggrMOErrorStatus(Opaque, TextualConvention):
-    subtypeSpec = Opaque.subtypeSpec+ValueSizeConstraint(0,1024)
-
-class AggrMOValue(Opaque, TextualConvention):
-    subtypeSpec = Opaque.subtypeSpec+ValueSizeConstraint(0,1024)
-
-class AggrMOCompressedValue(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,1024)
-
-aggrCtlTable = MibTable((1, 3, 6, 1, 3, 123, 1), )
-if mibBuilder.loadTexts: aggrCtlTable.setDescription('A table that controls the aggregation of the MOs.')
-aggrCtlEntry = MibTableRow((1, 3, 6, 1, 3, 123, 1, 1), ).setIndexNames((0, "AGGREGATE-MIB", "aggrCtlEntryID"))
-if mibBuilder.loadTexts: aggrCtlEntry.setDescription('A row of the control table that defines one aggregated\n           MO.\n\n\n\n\n\n           Entries in this table are required to survive a reboot\n           of the managed entity depending on the value of the\n           corresponding aggrCtlEntryStorageType instance.\n          ')
-aggrCtlEntryID = MibTableColumn((1, 3, 6, 1, 3, 123, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1,32)))
-if mibBuilder.loadTexts: aggrCtlEntryID.setDescription('A locally unique, administratively assigned name\n           for this aggregated MO.  It is used as an index to\n           uniquely identify this row in the table.')
-aggrCtlMOIndex = MibTableColumn((1, 3, 6, 1, 3, 123, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aggrCtlMOIndex.setDescription('A pointer to a group of MOs identified by aggrMOEntryID\n           in the aggrMOTable.  This is the group of MOs that will\n           be aggregated.')
-aggrCtlMODescr = MibTableColumn((1, 3, 6, 1, 3, 123, 1, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,64))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aggrCtlMODescr.setDescription('A textual description of the object that is\n           being aggregated.')
-aggrCtlCompressionAlgorithm = MibTableColumn((1, 3, 6, 1, 3, 123, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("none", 1), ("deflate", 2),)).clone('none')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aggrCtlCompressionAlgorithm.setDescription('The compression algorithm that will be used by\n           the agent to compress the value of the aggregated\n           object.\n           The deflate algorithm and corresponding data format\n           specification is described in RFC 1951.  It is\n           compatible with the widely used gzip utility.\n          ')
-aggrCtlEntryOwner = MibTableColumn((1, 3, 6, 1, 3, 123, 1, 1, 5), OwnerString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aggrCtlEntryOwner.setDescription('The entity that created this entry.')
-aggrCtlEntryStorageType = MibTableColumn((1, 3, 6, 1, 3, 123, 1, 1, 6), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aggrCtlEntryStorageType.setDescription("This object defines whether the parameters defined in\n            this row are kept in volatile storage and lost upon\n            reboot or backed up by non-volatile (permanent)\n            storage.\n\n            Conceptual rows having the value 'permanent' need not\n            allow write-access to any columnar objects in the row.\n\n\n\n           ")
-aggrCtlEntryStatus = MibTableColumn((1, 3, 6, 1, 3, 123, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aggrCtlEntryStatus.setDescription("The row status variable, used according to row\n            installation and removal conventions.\n            Objects in a row can be modified only when the value of\n            this object in the corresponding conceptual row is not\n            'active'.\n            Thus, to modify one or more of the objects in this\n            conceptual row,\n              a. change the row status to 'notInService',\n              b. change the values of the row, and\n              c. change the row status to 'active'.\n            The aggrCtlEntryStatus may be changed to 'active' if\n            all the MOs in the conceptual row have been assigned\n            valid values.\n           ")
-aggrMOTable = MibTable((1, 3, 6, 1, 3, 123, 2), )
-if mibBuilder.loadTexts: aggrMOTable.setDescription('The table of primary(simple) MOs that will be aggregated.\n            Each row in this table represents a MO that will be\n            aggregated.  The aggrMOEntryID index is used to identify\n            the group of MOs that will be aggregated.  The\n            aggrMOIndex instance in the corresponding row of the\n            aggrCtlTable will have a value equal to the value of\n            aggrMOEntryID.  The aggrMOEntryMOID index is used to\n            identify an MO in the group.\n           ')
-aggrMOEntry = MibTableRow((1, 3, 6, 1, 3, 123, 2, 1), ).setIndexNames((0, "AGGREGATE-MIB", "aggrMOEntryID"), (0, "AGGREGATE-MIB", "aggrMOEntryMOID"))
-if mibBuilder.loadTexts: aggrMOEntry.setDescription('A row of the table that specifies one MO.\n            Entries in this table are required to survive a reboot\n            of the managed entity depending on the value of the\n            corresponding aggrMOEntryStorageType instance.\n           ')
-aggrMOEntryID = MibTableColumn((1, 3, 6, 1, 3, 123, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,2147483647)))
-if mibBuilder.loadTexts: aggrMOEntryID.setDescription('An index uniquely identifying a group of MOs\n           that will be aggregated.')
-aggrMOEntryMOID = MibTableColumn((1, 3, 6, 1, 3, 123, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: aggrMOEntryMOID.setDescription('An index to uniquely identify an MO instance in the\n           group of MO instances that will be aggregated.')
-aggrMOInstance = MibTableColumn((1, 3, 6, 1, 3, 123, 2, 1, 3), ObjectIdentifier()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aggrMOInstance.setDescription('The OID of the MO instance, the value of which will\n           be sampled by the agent.')
-aggrMODescr = MibTableColumn((1, 3, 6, 1, 3, 123, 2, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0,64))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aggrMODescr.setDescription('A textual description of the object that will\n            be aggregated.')
-aggrMOEntryStorageType = MibTableColumn((1, 3, 6, 1, 3, 123, 2, 1, 5), StorageType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aggrMOEntryStorageType.setDescription("This object defines whether the parameters defined in\n            this row are kept in volatile storage and lost upon\n            reboot or backed up by non-volatile (permanent)\n            storage.\n            Conceptual rows having the value 'permanent' need not\n            allow write-access to any columnar objects in the row.\n           ")
-aggrMOEntryStatus = MibTableColumn((1, 3, 6, 1, 3, 123, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aggrMOEntryStatus.setDescription("The row status variable, used according to row\n            installation and removal conventions.\n            Objects in a row can be modified only when the value of\n            this object in the corresponding conceptual row is not\n            'active'.\n            Thus, to modify one or more of the objects in this\n            conceptual row,\n              a. change the row status to 'notInService',\n              b. change the values of the row, and\n              c. change the row status to 'active'.\n            The aggrMOEntryStatus may be changed to 'active' iff\n            all the MOs in the conceptual row have been assigned\n            valid values.\n           ")
-aggrDataTable = MibTable((1, 3, 6, 1, 3, 123, 3), )
-if mibBuilder.loadTexts: aggrDataTable.setDescription('Each row of this table contains information\n            about an aggregateMO indexed by aggrCtlEntryID.')
-aggrDataEntry = MibTableRow((1, 3, 6, 1, 3, 123, 3, 1), ).setIndexNames((0, "AGGREGATE-MIB", "aggrCtlEntryID"))
-if mibBuilder.loadTexts: aggrDataEntry.setDescription('Entry containing information pertaining to\n            an aggregate MO.')
-aggrDataRecord = MibTableColumn((1, 3, 6, 1, 3, 123, 3, 1, 1), AggrMOValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aggrDataRecord.setDescription('The snapshot value of the aggregated MO.\n           Note that the access privileges to this object will be\n           governed by the access privileges of the component\n           objects.  Thus, an entity attempting to access an\n           instance of this MO MUST have access rights to all the\n           component instance objects and this MO instance.\n          ')
-aggrDataRecordCompressed = MibTableColumn((1, 3, 6, 1, 3, 123, 3, 1, 2), AggrMOCompressedValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aggrDataRecordCompressed.setDescription("The compressed value of the aggregated MO.\n           The compression algorithm will depend on the\n           aggrCtlCompressionAlgorithm given in the corresponding\n           aggrCtlEntry.  If the value of the corresponding\n           aggrCtlCompressionAlgorithm is (1) 'none', then the value\n           of all instances of this object will be a string of zero\n           length.\n           Note that the access privileges to this object will be\n           governed by the access privileges of the component\n           objects.  Thus, an entity attempting to access an instance\n           of this MO MUST have access rights to all the component\n           instance objects and this MO instance.\n          ")
-aggrDataErrorRecord = MibTableColumn((1, 3, 6, 1, 3, 123, 3, 1, 3), AggrMOErrorStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aggrDataErrorRecord.setDescription('The error status corresponding to the MO instances\n            aggregated in aggrDataRecord (and\n            aggrDataRecordCompressed).')
-aggrConformance = MibIdentifier((1, 3, 6, 1, 3, 123, 4))
-aggrGroups = MibIdentifier((1, 3, 6, 1, 3, 123, 4, 1))
-aggrCompliances = MibIdentifier((1, 3, 6, 1, 3, 123, 4, 2))
-aggrMibCompliance = ModuleCompliance((1, 3, 6, 1, 3, 123, 4, 2, 1)).setObjects(*(("AGGREGATE-MIB", "aggrMibBasicGroup"),))
-if mibBuilder.loadTexts: aggrMibCompliance.setDescription('The compliance statement for SNMP entities\n                 that implement the AGGREGATE-MIB.')
-aggrMibBasicGroup = ObjectGroup((1, 3, 6, 1, 3, 123, 4, 1, 1)).setObjects(*(("AGGREGATE-MIB", "aggrCtlMOIndex"), ("AGGREGATE-MIB", "aggrCtlMODescr"), ("AGGREGATE-MIB", "aggrCtlCompressionAlgorithm"), ("AGGREGATE-MIB", "aggrCtlEntryOwner"), ("AGGREGATE-MIB", "aggrCtlEntryStorageType"), ("AGGREGATE-MIB", "aggrCtlEntryStatus"), ("AGGREGATE-MIB", "aggrMOInstance"), ("AGGREGATE-MIB", "aggrMODescr"), ("AGGREGATE-MIB", "aggrMOEntryStorageType"), ("AGGREGATE-MIB", "aggrMOEntryStatus"), ("AGGREGATE-MIB", "aggrDataRecord"), ("AGGREGATE-MIB", "aggrDataRecordCompressed"), ("AGGREGATE-MIB", "aggrDataErrorRecord"),))
-if mibBuilder.loadTexts: aggrMibBasicGroup.setDescription('A collection of objects for aggregation of MOs.')
-mibBuilder.exportSymbols("AGGREGATE-MIB", aggrCtlMODescr=aggrCtlMODescr, aggrMOInstance=aggrMOInstance, PYSNMP_MODULE_ID=aggrMIB, aggrMOEntry=aggrMOEntry, aggrGroups=aggrGroups, aggrMOEntryStorageType=aggrMOEntryStorageType, aggrCompliances=aggrCompliances, aggrCtlEntryStorageType=aggrCtlEntryStorageType, aggrMODescr=aggrMODescr, aggrCtlCompressionAlgorithm=aggrCtlCompressionAlgorithm, aggrDataRecord=aggrDataRecord, aggrCtlEntryOwner=aggrCtlEntryOwner, aggrDataErrorRecord=aggrDataErrorRecord, aggrMibBasicGroup=aggrMibBasicGroup, aggrDataEntry=aggrDataEntry, AggrMOErrorStatus=AggrMOErrorStatus, aggrMOEntryStatus=aggrMOEntryStatus, aggrMIB=aggrMIB, aggrMOTable=aggrMOTable, aggrCtlEntry=aggrCtlEntry, AggrMOValue=AggrMOValue, aggrCtlEntryStatus=aggrCtlEntryStatus, aggrCtlMOIndex=aggrCtlMOIndex, aggrMOEntryMOID=aggrMOEntryMOID, AggrMOCompressedValue=AggrMOCompressedValue, aggrCtlEntryID=aggrCtlEntryID, aggrConformance=aggrConformance, aggrMOEntryID=aggrMOEntryID, aggrCtlTable=aggrCtlTable, aggrDataRecordCompressed=aggrDataRecordCompressed, aggrDataTable=aggrDataTable, aggrMibCompliance=aggrMibCompliance)
+_Y='aggrMibBasicGroup'
+_X='aggrDataErrorRecord'
+_W='aggrDataRecordCompressed'
+_V='aggrDataRecord'
+_U='aggrMOEntryStatus'
+_T='aggrMOEntryStorageType'
+_S='aggrMODescr'
+_R='aggrMOInstance'
+_Q='aggrCtlEntryStatus'
+_P='aggrCtlEntryStorageType'
+_O='aggrCtlEntryOwner'
+_N='aggrCtlCompressionAlgorithm'
+_M='aggrCtlMODescr'
+_L='aggrCtlMOIndex'
+_K='aggrMOEntryMOID'
+_J='aggrMOEntryID'
+_I='Integer32'
+_H='read-only'
+_G='not-accessible'
+_F='aggrCtlEntryID'
+_E='Unsigned32'
+_D='SnmpAdminString'
+_C='read-create'
+_B='AGGREGATE-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+OwnerString,=mibBuilder.importSymbols('RMON-MIB','OwnerString')
+SnmpAdminString,=mibBuilder.importSymbols('SNMP-FRAMEWORK-MIB',_D)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,Opaque,TimeTicks,Unsigned32,experimental,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_I,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','Opaque','TimeTicks',_E,'experimental','iso')
+DisplayString,PhysAddress,RowStatus,StorageType,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','StorageType','TextualConvention')
+aggrMIB=ModuleIdentity((1,3,6,1,3,123))
+if mibBuilder.loadTexts:aggrMIB.setRevisions(('2006-04-27 00:00',))
+class AggrMOErrorStatus(TextualConvention,Opaque):status=_A;subtypeSpec=Opaque.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1024))
+class AggrMOValue(TextualConvention,Opaque):status=_A;subtypeSpec=Opaque.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1024))
+class AggrMOCompressedValue(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,1024))
+_AggrCtlTable_Object=MibTable
+aggrCtlTable=_AggrCtlTable_Object((1,3,6,1,3,123,1))
+if mibBuilder.loadTexts:aggrCtlTable.setStatus(_A)
+_AggrCtlEntry_Object=MibTableRow
+aggrCtlEntry=_AggrCtlEntry_Object((1,3,6,1,3,123,1,1))
+aggrCtlEntry.setIndexNames((0,_B,_F))
+if mibBuilder.loadTexts:aggrCtlEntry.setStatus(_A)
+class _AggrCtlEntryID_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_AggrCtlEntryID_Type.__name__=_D
+_AggrCtlEntryID_Object=MibTableColumn
+aggrCtlEntryID=_AggrCtlEntryID_Object((1,3,6,1,3,123,1,1,1),_AggrCtlEntryID_Type())
+aggrCtlEntryID.setMaxAccess(_G)
+if mibBuilder.loadTexts:aggrCtlEntryID.setStatus(_A)
+class _AggrCtlMOIndex_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_AggrCtlMOIndex_Type.__name__=_E
+_AggrCtlMOIndex_Object=MibTableColumn
+aggrCtlMOIndex=_AggrCtlMOIndex_Object((1,3,6,1,3,123,1,1,2),_AggrCtlMOIndex_Type())
+aggrCtlMOIndex.setMaxAccess(_C)
+if mibBuilder.loadTexts:aggrCtlMOIndex.setStatus(_A)
+class _AggrCtlMODescr_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
+_AggrCtlMODescr_Type.__name__=_D
+_AggrCtlMODescr_Object=MibTableColumn
+aggrCtlMODescr=_AggrCtlMODescr_Object((1,3,6,1,3,123,1,1,3),_AggrCtlMODescr_Type())
+aggrCtlMODescr.setMaxAccess(_C)
+if mibBuilder.loadTexts:aggrCtlMODescr.setStatus(_A)
+class _AggrCtlCompressionAlgorithm_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('none',1),('deflate',2)))
+_AggrCtlCompressionAlgorithm_Type.__name__=_I
+_AggrCtlCompressionAlgorithm_Object=MibTableColumn
+aggrCtlCompressionAlgorithm=_AggrCtlCompressionAlgorithm_Object((1,3,6,1,3,123,1,1,4),_AggrCtlCompressionAlgorithm_Type())
+aggrCtlCompressionAlgorithm.setMaxAccess(_C)
+if mibBuilder.loadTexts:aggrCtlCompressionAlgorithm.setStatus(_A)
+_AggrCtlEntryOwner_Type=OwnerString
+_AggrCtlEntryOwner_Object=MibTableColumn
+aggrCtlEntryOwner=_AggrCtlEntryOwner_Object((1,3,6,1,3,123,1,1,5),_AggrCtlEntryOwner_Type())
+aggrCtlEntryOwner.setMaxAccess(_C)
+if mibBuilder.loadTexts:aggrCtlEntryOwner.setStatus(_A)
+_AggrCtlEntryStorageType_Type=StorageType
+_AggrCtlEntryStorageType_Object=MibTableColumn
+aggrCtlEntryStorageType=_AggrCtlEntryStorageType_Object((1,3,6,1,3,123,1,1,6),_AggrCtlEntryStorageType_Type())
+aggrCtlEntryStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:aggrCtlEntryStorageType.setStatus(_A)
+_AggrCtlEntryStatus_Type=RowStatus
+_AggrCtlEntryStatus_Object=MibTableColumn
+aggrCtlEntryStatus=_AggrCtlEntryStatus_Object((1,3,6,1,3,123,1,1,7),_AggrCtlEntryStatus_Type())
+aggrCtlEntryStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:aggrCtlEntryStatus.setStatus(_A)
+_AggrMOTable_Object=MibTable
+aggrMOTable=_AggrMOTable_Object((1,3,6,1,3,123,2))
+if mibBuilder.loadTexts:aggrMOTable.setStatus(_A)
+_AggrMOEntry_Object=MibTableRow
+aggrMOEntry=_AggrMOEntry_Object((1,3,6,1,3,123,2,1))
+aggrMOEntry.setIndexNames((0,_B,_J),(0,_B,_K))
+if mibBuilder.loadTexts:aggrMOEntry.setStatus(_A)
+class _AggrMOEntryID_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,2147483647))
+_AggrMOEntryID_Type.__name__=_E
+_AggrMOEntryID_Object=MibTableColumn
+aggrMOEntryID=_AggrMOEntryID_Object((1,3,6,1,3,123,2,1,1),_AggrMOEntryID_Type())
+aggrMOEntryID.setMaxAccess(_G)
+if mibBuilder.loadTexts:aggrMOEntryID.setStatus(_A)
+class _AggrMOEntryMOID_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_AggrMOEntryMOID_Type.__name__=_E
+_AggrMOEntryMOID_Object=MibTableColumn
+aggrMOEntryMOID=_AggrMOEntryMOID_Object((1,3,6,1,3,123,2,1,2),_AggrMOEntryMOID_Type())
+aggrMOEntryMOID.setMaxAccess(_G)
+if mibBuilder.loadTexts:aggrMOEntryMOID.setStatus(_A)
+_AggrMOInstance_Type=ObjectIdentifier
+_AggrMOInstance_Object=MibTableColumn
+aggrMOInstance=_AggrMOInstance_Object((1,3,6,1,3,123,2,1,3),_AggrMOInstance_Type())
+aggrMOInstance.setMaxAccess(_C)
+if mibBuilder.loadTexts:aggrMOInstance.setStatus(_A)
+class _AggrMODescr_Type(SnmpAdminString):subtypeSpec=SnmpAdminString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,64))
+_AggrMODescr_Type.__name__=_D
+_AggrMODescr_Object=MibTableColumn
+aggrMODescr=_AggrMODescr_Object((1,3,6,1,3,123,2,1,4),_AggrMODescr_Type())
+aggrMODescr.setMaxAccess(_C)
+if mibBuilder.loadTexts:aggrMODescr.setStatus(_A)
+_AggrMOEntryStorageType_Type=StorageType
+_AggrMOEntryStorageType_Object=MibTableColumn
+aggrMOEntryStorageType=_AggrMOEntryStorageType_Object((1,3,6,1,3,123,2,1,5),_AggrMOEntryStorageType_Type())
+aggrMOEntryStorageType.setMaxAccess(_C)
+if mibBuilder.loadTexts:aggrMOEntryStorageType.setStatus(_A)
+_AggrMOEntryStatus_Type=RowStatus
+_AggrMOEntryStatus_Object=MibTableColumn
+aggrMOEntryStatus=_AggrMOEntryStatus_Object((1,3,6,1,3,123,2,1,6),_AggrMOEntryStatus_Type())
+aggrMOEntryStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:aggrMOEntryStatus.setStatus(_A)
+_AggrDataTable_Object=MibTable
+aggrDataTable=_AggrDataTable_Object((1,3,6,1,3,123,3))
+if mibBuilder.loadTexts:aggrDataTable.setStatus(_A)
+_AggrDataEntry_Object=MibTableRow
+aggrDataEntry=_AggrDataEntry_Object((1,3,6,1,3,123,3,1))
+aggrDataEntry.setIndexNames((0,_B,_F))
+if mibBuilder.loadTexts:aggrDataEntry.setStatus(_A)
+_AggrDataRecord_Type=AggrMOValue
+_AggrDataRecord_Object=MibTableColumn
+aggrDataRecord=_AggrDataRecord_Object((1,3,6,1,3,123,3,1,1),_AggrDataRecord_Type())
+aggrDataRecord.setMaxAccess(_H)
+if mibBuilder.loadTexts:aggrDataRecord.setStatus(_A)
+_AggrDataRecordCompressed_Type=AggrMOCompressedValue
+_AggrDataRecordCompressed_Object=MibTableColumn
+aggrDataRecordCompressed=_AggrDataRecordCompressed_Object((1,3,6,1,3,123,3,1,2),_AggrDataRecordCompressed_Type())
+aggrDataRecordCompressed.setMaxAccess(_H)
+if mibBuilder.loadTexts:aggrDataRecordCompressed.setStatus(_A)
+_AggrDataErrorRecord_Type=AggrMOErrorStatus
+_AggrDataErrorRecord_Object=MibTableColumn
+aggrDataErrorRecord=_AggrDataErrorRecord_Object((1,3,6,1,3,123,3,1,3),_AggrDataErrorRecord_Type())
+aggrDataErrorRecord.setMaxAccess(_H)
+if mibBuilder.loadTexts:aggrDataErrorRecord.setStatus(_A)
+_AggrConformance_ObjectIdentity=ObjectIdentity
+aggrConformance=_AggrConformance_ObjectIdentity((1,3,6,1,3,123,4))
+_AggrGroups_ObjectIdentity=ObjectIdentity
+aggrGroups=_AggrGroups_ObjectIdentity((1,3,6,1,3,123,4,1))
+_AggrCompliances_ObjectIdentity=ObjectIdentity
+aggrCompliances=_AggrCompliances_ObjectIdentity((1,3,6,1,3,123,4,2))
+aggrMibBasicGroup=ObjectGroup((1,3,6,1,3,123,4,1,1))
+aggrMibBasicGroup.setObjects(*((_B,_L),(_B,_M),(_B,_N),(_B,_O),(_B,_P),(_B,_Q),(_B,_R),(_B,_S),(_B,_T),(_B,_U),(_B,_V),(_B,_W),(_B,_X)))
+if mibBuilder.loadTexts:aggrMibBasicGroup.setStatus(_A)
+aggrMibCompliance=ModuleCompliance((1,3,6,1,3,123,4,2,1))
+aggrMibCompliance.setObjects((_B,_Y))
+if mibBuilder.loadTexts:aggrMibCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'AggrMOErrorStatus':AggrMOErrorStatus,'AggrMOValue':AggrMOValue,'AggrMOCompressedValue':AggrMOCompressedValue,'aggrMIB':aggrMIB,'aggrCtlTable':aggrCtlTable,'aggrCtlEntry':aggrCtlEntry,_F:aggrCtlEntryID,_L:aggrCtlMOIndex,_M:aggrCtlMODescr,_N:aggrCtlCompressionAlgorithm,_O:aggrCtlEntryOwner,_P:aggrCtlEntryStorageType,_Q:aggrCtlEntryStatus,'aggrMOTable':aggrMOTable,'aggrMOEntry':aggrMOEntry,_J:aggrMOEntryID,_K:aggrMOEntryMOID,_R:aggrMOInstance,_S:aggrMODescr,_T:aggrMOEntryStorageType,_U:aggrMOEntryStatus,'aggrDataTable':aggrDataTable,'aggrDataEntry':aggrDataEntry,_V:aggrDataRecord,_W:aggrDataRecordCompressed,_X:aggrDataErrorRecord,'aggrConformance':aggrConformance,'aggrGroups':aggrGroups,_Y:aggrMibBasicGroup,'aggrCompliances':aggrCompliances,'aggrMibCompliance':aggrMibCompliance})

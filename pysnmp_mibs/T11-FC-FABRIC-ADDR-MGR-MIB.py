@@ -1,160 +1,371 @@
-#
-# PySNMP MIB module T11-FC-FABRIC-ADDR-MGR-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/T11-FC-FABRIC-ADDR-MGR-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:29:39 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( ObjectIdentifier, OctetString, Integer, ) = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
-( FcNameIdOrZero, fcmInstanceIndex, FcDomainIdOrZero, fcmSwitchIndex, ) = mibBuilder.importSymbols("FC-MGMT-MIB", "FcNameIdOrZero", "fcmInstanceIndex", "FcDomainIdOrZero", "fcmSwitchIndex")
-( ifIndex, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-( ObjectGroup, ModuleCompliance, NotificationGroup, ) = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-( IpAddress, Unsigned32, MibIdentifier, Integer32, TimeTicks, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, mib_2, NotificationType, Counter32, Counter64, ModuleIdentity, iso, Gauge32, Bits, ) = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Unsigned32", "MibIdentifier", "Integer32", "TimeTicks", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "mib-2", "NotificationType", "Counter32", "Counter64", "ModuleIdentity", "iso", "Gauge32", "Bits")
-( TextualConvention, RowStatus, TruthValue, DisplayString, ) = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "TruthValue", "DisplayString")
-( T11FabricIndex, ) = mibBuilder.importSymbols("T11-TC-MIB", "T11FabricIndex")
-t11FcFabricAddrMgrMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 137)).setRevisions(("2006-03-02 00:00",))
-if mibBuilder.loadTexts: t11FcFabricAddrMgrMIB.setLastUpdated('200603020000Z')
-if mibBuilder.loadTexts: t11FcFabricAddrMgrMIB.setOrganization('T11')
-if mibBuilder.loadTexts: t11FcFabricAddrMgrMIB.setContactInfo('     Claudio DeSanti\n                  Cisco Systems, Inc.\n                  170 West Tasman Drive\n                  San Jose, CA 95134 USA\n                  Phone: +1 408 853-9172\n                  EMail: cds@cisco.com\n\n                  Keith McCloghrie\n                  Cisco Systems, Inc.\n                  170 West Tasman Drive\n                  San Jose, CA USA 95134\n                  Phone: +1 408-526-5260\n                  EMail: kzm@cisco.com')
-if mibBuilder.loadTexts: t11FcFabricAddrMgrMIB.setDescription("The MIB module for the Fabric Address management\n           functionality defined by the Fibre Channel standards.  For\n           the purposes of this MIB, Fabric Address Manager refers to\n           the functionality of acquiring DomainID(s) as specified in\n           FC-SW-3, and managing Fibre Channel Identifiers as specified\n           in FC-FS.  An instance of 'Fabric Address Manager' software\n           functionality executes in the Principal Switch, and in each\n           other switch.\n\n           After an agent reboot, the values of read-write objects\n           defined in this MIB module are implementation-dependent.\n\n           Copyright (C) The Internet Society (2006).  This version of\n           this MIB module is part of RFC 4439;  see the RFC itself for\n           full legal notices.")
-t11FamNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 137, 0))
-t11FamMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 137, 1))
-t11FamMIBConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 137, 2))
-t11FamConfiguration = MibIdentifier((1, 3, 6, 1, 2, 1, 137, 1, 1))
-t11FamInfo = MibIdentifier((1, 3, 6, 1, 2, 1, 137, 1, 2))
-t11FamNotifyControl = MibIdentifier((1, 3, 6, 1, 2, 1, 137, 1, 3))
-class T11FamDomainPriority(Unsigned32, TextualConvention):
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec+ValueRangeConstraint(1,255)
-
-class T11FamDomainInterfaceRole(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6,))
-    namedValues = NamedValues(("nonPrincipal", 1), ("principalUpstream", 2), ("principalDownsteam", 3), ("isolated", 4), ("down", 5), ("unknown", 6),)
-
-class T11FamState(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,))
-    namedValues = NamedValues(("other", 1), ("starting", 2), ("unconfigured", 3), ("principalSwitchSelection", 4), ("domainIdDistribution", 5), ("buildFabricPhase", 6), ("reconfigureFabricPhase", 7), ("stable", 8), ("stableWithNoEports", 9), ("noDomains", 10), ("disabled", 11), ("unknown", 12),)
-
-t11FamTable = MibTable((1, 3, 6, 1, 2, 1, 137, 1, 1, 1), )
-if mibBuilder.loadTexts: t11FamTable.setDescription('This table contains Fabric Address Manager related\n           parameters that are able to be configured and monitored\n           in a Fibre Channel switch.  For each of the switches\n           (identified by fcmSwitchIndex) managed by a Fibre Channel\n           management instance (identified by fcmInstanceIndex),\n           there is any entry for each Fabric known to that switch.\n           Entries are implicitly created/removed if and when\n           additional Fabrics are created/deleted.')
-t11FamEntry = MibTableRow((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamFabricIndex"))
-if mibBuilder.loadTexts: t11FamEntry.setDescription('An entry provides information on the local Fabric Address\n           Manager functionality for a Fabric known to a\n           particular switch.')
-t11FamFabricIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 1), T11FabricIndex())
-if mibBuilder.loadTexts: t11FamFabricIndex.setDescription('A unique index value that uniquely identifies a\n           particular Fabric known to a particular switch.\n\n           In a Fabric conformant to FC-SW-3, only a single Fabric\n           can operate within a physical infrastructure, and thus,\n           the value of this Fabric Index will always be 1.\n\n           However, the current standard, FC-SW-4, defines\n           how multiple Fabrics, each with its own management\n           instrumentation, could operate within one (or more)\n           physical infrastructures.  When such multiple Fabrics\n           are in use, this index value is used to uniquely\n           identify a particular Fabric within a physical\n           infrastructure.')
-t11FamConfigDomainId = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 2), FcDomainIdOrZero()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FamConfigDomainId.setDescription("The configured Domain_ID of the particular switch on this\n           Fabric, or zero if no Domain_ID has been configured.\n           The meaning of this object depends on\n           t11FamConfigDomainIdType object.\n\n           If t11FamConfigDomainIdType is 'preferred', then the\n           configured Domain_ID is called the 'preferred Domain_ID'.\n           Valid values are between 0 and 239.  In a situation where\n           this Domain_ID cannot be assigned, any other Domain_ID\n           will be acceptable.  A value of zero means any Domain_ID.\n\n           If t11FamConfigDomainIdType is 'insistent', then the\n           configured Domain_ID is called the 'insistent Domain_ID' and\n           valid values are between 1 and 239.  In a situation where\n           this Domain_ID cannot be assigned, no other Domain_ID is\n           acceptable.\n\n           In both of the above cases, the switch sends an RDI (Request\n           Domain_ID) to request this Domain_ID to the Principal\n           Switch.  If no Domain_ID is able to be granted in the case\n           of 'preferred', or if an 'insistent' Domain_ID is configured\n           but not able to be granted, then it is an error condition.\n           When this error occurs, the switch will continue as if it\n           receives a SW_RJT with a reason/explanation of 'Unable to\n           perform command request'/'Domain_ID not available'.  That\n           is, its E_Ports on that Fabric will be isolated and the\n           administrator informed via a 't11FamDomainIdNotAssigned'\n           notification.\n\n           If t11FamConfigDomainIdType is 'static', then the configured\n           Domain_ID is called the 'static Domain_ID' and valid values\n           are between 1 and 239.  In this situation, there is no\n           Principal Switch in the Fabric and the Domain_ID is simply\n           assigned by configuration, together with the Fabric_Name.\n           A switch configured with a static Domain_ID, on receiving\n           an EFP, BF, RCF, DIA, or RDI SW_ILS, shall reply with an\n           SW_RJT having Reason Code Explanation 'E_Port is Isolated'\n           and shall isolate the receiving E_Port.\n\n           For the persistence of values across reboots, see the\n           MODULE-IDENTITY's DESCRIPTION clause.")
-t11FamConfigDomainIdType = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("preferred", 1), ("insistent", 2), ("static", 3),)).clone('preferred')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FamConfigDomainIdType.setDescription("Type of configured Domain_ID contained in\n           t11FamConfigDomainId.\n\n           For the persistence of values across reboots, see the\n           MODULE-IDENTITY's DESCRIPTION clause.")
-t11FamAutoReconfigure = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FamAutoReconfigure.setDescription("This object determines how a particular switch\n           responds to certain error conditions.\n\n           The condition that might cause these errors is\n           the merging of two disjoint Fabrics that have\n           overlapping Domain_ID lists.\n\n           If value of this object is 'true', the switch will\n           send an RCF (ReConfigureFabric) to rebuild the\n           Fabric.\n\n           If 'false', the switch will isolate the E_Ports on\n           which the errors happened.\n\n           For the persistence of values across reboots, see the\n           MODULE-IDENTITY's DESCRIPTION clause.")
-t11FamContiguousAllocation = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 5), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FamContiguousAllocation.setDescription("Determines how a particular switch behaves when elected as\n           the Principal Switch.\n\n           If true, the switch will only accept RDIs with a contiguous\n           allocation; specifically, it will reject RDIs with\n           non-contiguous Domain_IDs, and if an RDI for a contiguous\n           Domain_ID is not able to be fulfilled, it will try to\n           replace all the Domain_IDs in the list with contiguous\n           Domain_IDs, and if that fails, the RDI will be rejected.\n\n           If false, then the switch acts normally in granting\n           the Domain_IDs even if they are not contiguous.\n\n           For the persistence of values across reboots, see the\n           MODULE-IDENTITY's DESCRIPTION clause.")
-t11FamPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 6), T11FamDomainPriority()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FamPriority.setDescription("The initial or configured priority of a particular switch\n           to be used in Principal Switch selection process.\n\n           For the persistence of values across reboots, see the\n           MODULE-IDENTITY's DESCRIPTION clause.")
-t11FamPrincipalSwitchWwn = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 7), FcNameIdOrZero().clone(hexValue="")).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamPrincipalSwitchWwn.setDescription('The WWN of the Principal Switch on this Fabric,\n           or zero-length string if the identity of the principal\n           switch is unknown.')
-t11FamLocalSwitchWwn = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 8), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamLocalSwitchWwn.setDescription('The WWN of the particular switch on this Fabric.')
-t11FamAssignedAreaIdList = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,256))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamAssignedAreaIdList.setDescription("The list of (zero or more) Area_IDs that have been\n           assigned by a particular switch in this Fabric, formatted\n           as an array of octets in ascending order.\n\n           Each octet represents one Area_ID.  So, the list containing\n           Area_IDs 23, 45, 235, and 56 would be formatted as the\n           4-octet string x'172d38eb'.\n\n           A particular area's Area_ID is used as the index into the\n           t11FamAreaTable to get the statistics on that area.")
-t11FamGrantedFcIds = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamGrantedFcIds.setDescription("The total number of Fibre Channel Address Identifiers\n           granted (for local use, i.e., with a particular switch's\n           Domain_ID) by the Fabric Address Manager on that switch.\n\n           This counter has no discontinuities other than those\n           that all Counter32s have when sysUpTime=0.")
-t11FamRecoveredFcIds = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamRecoveredFcIds.setDescription('The total number of Fibre Channel Address Identifiers that\n           have been recovered by the Fabric Address Manager on a\n           particular switch since the switch has been initialized.\n           A recovered Fibre Channel Address Identifier is one that is\n           explicitly returned after previously being used.\n\n           This counter has no discontinuities other than those\n           that all Counter32s have when sysUpTime=0.')
-t11FamFreeFcIds = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 12), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamFreeFcIds.setDescription('The number of Fibre Channel Address Identifiers that are\n           currently unassigned on this Fabric and could be available\n           for assignment either immediately or at some later time.\n\n           The sum of the instances of FreeFcIds and AssignedFcIds\n           corresponding to a particular Fabric is the total number of\n           Fibre Channel Address Identifiers that the local Fabric\n           Address Management is capable of assigning on that Fabric.')
-t11FamAssignedFcIds = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 13), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamAssignedFcIds.setDescription('The number of Fibre Channel Address Identifiers that are\n           currently assigned on this Fabric.\n\n           The sum of the instances of FreeFcIds and AssignedFcIds\n           corresponding to a particular Fabric is the total number of\n           Fibre Channel Address Identifiers that the local Fabric\n           Address Management is capable of assigning on that Fabric.')
-t11FamAvailableFcIds = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 14), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamAvailableFcIds.setDescription("The number of Fibre Channel Address Identifiers that are\n           unassigned and currently available for immediate assignment\n           on the Fabric, e.g., with the 'Clean Address' bit set to 1.")
-t11FamRunningPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 15), T11FamDomainPriority()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamRunningPriority.setDescription('The running priority of a particular switch on this Fabric.\n           This value is initialized to the value of t11FamPriority,\n           and subsequently altered as specified by the procedures\n           defined in FC-SW-3.')
-t11FamPrincSwRunningPriority = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 16), T11FamDomainPriority()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamPrincSwRunningPriority.setDescription('The running priority of the Principal Switch on this\n           Fabric.')
-t11FamState = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 17), T11FamState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamState.setDescription('The state of the Fabric Address Manager on a particular\n           switch on this Fabric.')
-t11FamLocalPrincipalSwitchSlctns = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamLocalPrincipalSwitchSlctns.setDescription('The number of times a particular switch became the\n           Principal Switch on this Fabric.\n\n           This counter has no discontinuities other than those\n           that all Counter32s have when sysUpTime=0.')
-t11FamPrincipalSwitchSelections = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamPrincipalSwitchSelections.setDescription('The number of Principal Switch selections on this Fabric.\n\n           This counter has no discontinuities other than those\n           that all Counter32s have when sysUpTime=0.')
-t11FamBuildFabrics = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamBuildFabrics.setDescription('The number of non-disruptive fabric reconfigurations (BFs)\n           that have occurred on this Fabric.\n\n           This counter has no discontinuities other than those\n           that all Counter32s have when sysUpTime=0.')
-t11FamFabricReconfigures = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 21), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamFabricReconfigures.setDescription('The number of disruptive fabric reconfigurations (RCFs)\n           that have occurred on this Fabric.\n\n           This counter has no discontinuities other than those\n           that all Counter32s have when sysUpTime=0.')
-t11FamDomainId = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 22), FcDomainIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamDomainId.setDescription('The Domain_ID of a particular switch on this Fabric or\n           zero if no Domain_ID has been assigned.')
-t11FamSticky = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 23), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamSticky.setDescription("An indication of whether a particular switch is supporting\n           the concept of Preferred Domain_IDs via a best-effort\n           attempt to re-assign the same Fibre Channel Address\n           Identifier value to a port on the next occasion when a port\n           requests an assignment on this Fabric.\n\n           If the value of this object is 'true', then the switch is\n           maintaining rows in the t11FamFcIdCacheTable for this\n           Fabric.")
-t11FamRestart = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3,))).clone(namedValues=NamedValues(("nonDisruptive", 1), ("disruptive", 2), ("noOp", 3),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FamRestart.setDescription("This object tells the Fabric Address Manager to\n           request a Fabric reconfiguration.\n\n           If this object is set to 'disruptive', then an RCF\n           (ReConfigure Fabric) is generated in the Fabric\n           in order for the Fabric to recover from the errors.\n\n           If this object is set to 'nonDisruptive', then a\n           BF (Build Fabric) is generated in the Fabric.\n\n           No action is taken if this object is set to 'noOp'.\n           The value of the object when read is always 'noOp'.\n\n           For the persistence of values across reboots, see the\n           MODULE-IDENTITY's DESCRIPTION clause.")
-t11FamRcFabricNotifyEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 25), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FamRcFabricNotifyEnable.setDescription("An indication of whether or not a particular switch\n           should issue a t11FamFabricChangeNotify notification on\n           sending or receiving ReConfigureFabric (RCF) on a Fabric.\n\n           If the value of the object is 'true', then the\n           notification is generated.  If the value is 'false',\n           notification is not generated.\n\n           If an implementation requires all Fabrics to have the\n           same value, then setting one instance of this object\n           to a new object will result in all corresponding\n           instances being set to that same new value.\n\n           For the persistence of values across reboots, see the\n           MODULE-IDENTITY's DESCRIPTION clause.")
-t11FamEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 26), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FamEnable.setDescription("Enables the Fabric Address Manager on this switch\n           on this Fabric.\n\n           If enabled on a Fabric, the switch will participate in\n           Principal Switch selection, and Domain_IDs are assigned\n           dynamically.  If disabled, the switch will not participate\n           in Principal Switch selection, and Domain_IDs are\n           assigned statically.  Thus, the corresponding value of\n           t11FamConfigDomainIdType needs to be 'static'.\n\n           For the persistence of values across reboots, see the\n           MODULE-IDENTITY's DESCRIPTION clause.")
-t11FamFabricName = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 1, 1, 27), FcNameIdOrZero()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: t11FamFabricName.setDescription("The WWN that is configured on this switch to be used as\n           the name of this Fabric when the value of t11FamEnable is\n           'false'.\n\n           If the value of t11FamEnable is 'true', this value is not\n           used.\n\n           Fibre Channel requires that:\n               a) all switches in an operational Fabric be\n                  configured with the same Fabric name; and\n               b) each Fabric have a unique Fabric name.\n           If either of these is violated, either by switches within a\n           single Fabric being configured with different Fabric names,\n           or by multiple Fabrics that share management applications\n           or interact in other ways having the same Fabric name,\n           then the behavior of the switches and associated management\n           functions is not specified by Fibre Channel or Internet\n           standards.\n\n\n\n           For the persistence of values across reboots, see the\n           MODULE-IDENTITY's DESCRIPTION clause.")
-t11FamIfTable = MibTable((1, 3, 6, 1, 2, 1, 137, 1, 1, 2), )
-if mibBuilder.loadTexts: t11FamIfTable.setDescription('This table contains those Fabric Address Manager parameters\n           and status values that are per-interface (identified\n           by an ifIndex value), per-Fabric (identified by a\n           t11FamFabricIndex value), and per-switch (identified by\n           values of fcmInstanceIndex and fcmSwitchIndex).\n\n           An entry in this table is automatically created when\n           an E_Port becomes non-isolated on a particular Fabric.\n\n           An entry is deleted automatically from this table if:\n           a) the corresponding interface is no longer an E_Port (e.g.,\n              a G_Port that is dynamically determined to be an F_Port),\n              and all configuration parameter(s) have default values; or\n           b) the interface identified by ifIndex no longer exists\n              (e.g., because a line-card is physically removed); or\n           c) the row in the t11FamTable corresponding the fabric\n              identified by t11FamFabricID no longer exists.\n\n           Creating an entry in this table via t11FamIfRowStatus\n           provides the means to specify non-default parameter value(s)\n           for an interface at a time when the relevant row in this\n           table does not exist, i.e., because the interface is either\n           down or it is not an E_Port.')
-t11FamIfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 137, 1, 1, 2, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamFabricIndex"), (0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: t11FamIfEntry.setDescription('An entry containing information on the interface\n           configuration on the Fabric identified by\n\n\n\n           t11FamFabricIndex.')
-t11FamIfRcfReject = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 2, 1, 1), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: t11FamIfRcfReject.setDescription("This object determines if the incoming ReConfigure\n           Fabric (RCF) messages on this interface on this\n           Fabric is accepted or not.  If this object is 'true', then\n           the incoming RCF is rejected.  If 'false', incoming RCF is\n           accepted.\n\n           Note that this object does not apply to the outgoing\n           RCFs generated by this interface.\n\n           Implementations that support write-access to this object\n           can do so under whatever conditions they choose.")
-t11FamIfRole = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 2, 1, 2), T11FamDomainInterfaceRole()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamIfRole.setDescription('The role of this interface.')
-t11FamIfRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: t11FamIfRowStatus.setDescription('The status of this row.')
-t11FamAreaTable = MibTable((1, 3, 6, 1, 2, 1, 137, 1, 2, 1), )
-if mibBuilder.loadTexts: t11FamAreaTable.setDescription("This table contains area assignments per-Fabric by a\n           switch's Fabric Address Manager.  Each octet in\n           t11FamAssignedAreaList is able to be used to index into\n           this table to find information on each area.")
-t11FamAreaEntry = MibTableRow((1, 3, 6, 1, 2, 1, 137, 1, 2, 1, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamFabricIndex"), (0, "T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamAreaAreaId"))
-if mibBuilder.loadTexts: t11FamAreaEntry.setDescription('An entry gives information on the Area_ID and all\n           Port_IDs that have been assigned within an area for\n           the Fabric identified by t11FamFabricIndex, by the\n           Fabric Address Manager in the switch identified by\n           fcmInstanceIndex and fcmSwitchIndex.')
-t11FamAreaAreaId = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 2, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,255)))
-if mibBuilder.loadTexts: t11FamAreaAreaId.setDescription('The Area_ID of this area.')
-t11FamAreaAssignedPortIdList = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 2, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0,256))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamAreaAssignedPortIdList.setDescription("The list of Port_IDs which have been assigned in\n           this area and Fabric, formatted as an array of\n           octets in ascending order.  There could be zero or more\n           Port_IDs assigned on this area and Fabric.\n\n           Each octet represents one Port_ID.  So, the list containing\n           the Port_IDs 23, 45, 235, and 56 would be formatted as the\n           4-octet string x'172d38eb'.")
-t11FamDatabaseTable = MibTable((1, 3, 6, 1, 2, 1, 137, 1, 2, 2), )
-if mibBuilder.loadTexts: t11FamDatabaseTable.setDescription('This table contains all information known by\n           a switch about all the domains that have been\n           assigned in each Fabric.')
-t11FamDatabaseEntry = MibTableRow((1, 3, 6, 1, 2, 1, 137, 1, 2, 2, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamFabricIndex"), (0, "T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamDatabaseDomainId"))
-if mibBuilder.loadTexts: t11FamDatabaseEntry.setDescription('An entry (conceptual row) in the t11FamDatabaseTable\n           containing information about one Domain_ID in the\n           Fabric identified by t11FamFabricIndex, and known by\n           the switch identified by t11FamFabricIndex and\n           t11FamDatabaseDomainId.')
-t11FamDatabaseDomainId = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 2, 2, 1, 1), FcDomainIdOrZero().subtype(subtypeSpec=ValueRangeConstraint(1,239)))
-if mibBuilder.loadTexts: t11FamDatabaseDomainId.setDescription('The Domain_ID for which this row contains information.\n           The value must be non-zero.')
-t11FamDatabaseSwitchWwn = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 2, 2, 1, 2), FcNameIdOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamDatabaseSwitchWwn.setDescription('The node name (WWN) of the switch to which the\n            corresponding value of t11FamDatabaseDomainId is currently\n            assigned for the particular Fabric.')
-t11FamMaxFcIdCacheSize = MibScalar((1, 3, 6, 1, 2, 1, 137, 1, 2, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamMaxFcIdCacheSize.setDescription('The maximum number of Fibre Channel Address Identifiers\n           that are able to be cached in the t11FamFcIdCacheTable.\n           If the number is unknown, the value of this object is\n           zero.')
-t11FamFcIdCacheTable = MibTable((1, 3, 6, 1, 2, 1, 137, 1, 2, 4), )
-if mibBuilder.loadTexts: t11FamFcIdCacheTable.setDescription('This table contains all the Fibre Channel Address\n           Identifiers that have recently been released by the\n           Fabric Address Manager in a switch.  So, it lists\n           all the Fibre Channel Address Identifiers that have valid\n           WWN-to-Fibre Channel Address Identifier mappings and are\n           currently not assigned to any ports.  These Fibre Channel\n           Address Identifiers were assigned to ports but have since\n           been released.  These cached Fibre Channel Address\n           Identifiers contain only Area_ID and Port_ID information.\n           This cache is kept to provide best-effort re-assignment of\n           same Fibre Channel Address Identifiers; i.e., when an\n           Nx_Port asks for a Fibre Channel Address Identifier, soon\n           after releasing one, the same value is re-assigned, if\n           possible.')
-t11FamFcIdCacheEntry = MibTableRow((1, 3, 6, 1, 2, 1, 137, 1, 2, 4, 1), ).setIndexNames((0, "FC-MGMT-MIB", "fcmInstanceIndex"), (0, "FC-MGMT-MIB", "fcmSwitchIndex"), (0, "T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamFabricIndex"), (0, "T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamFcIdCacheWwn"))
-if mibBuilder.loadTexts: t11FamFcIdCacheEntry.setDescription('An entry (conceptual row) in the t11FamFcIdCacheTable\n           containing information about one Fibre Channel Address\n           Identifier that was released from a WWN, corresponding to a\n           range of one or more ports connected to the switch\n           (identified by t11FamFabricIndex and t11FamFcIdCacheWwn) in\n           the Fabric (identified by t11FamFabricIndex).  An entry is\n           created when a Fibre Channel Address Identifier is released\n           by the last port in the range.  The oldest entry is deleted\n           if the number of rows in this table reaches\n           t11FamMaxFcIdCacheSize, and its space is required for a new\n           entry.  An entry is also deleted when its Fibre Channel\n           Address Identifier is assigned to a port.')
-t11FamFcIdCacheWwn = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 2, 4, 1, 1), FcNameIdOrZero())
-if mibBuilder.loadTexts: t11FamFcIdCacheWwn.setDescription('The N_Port_Name (WWN) of the port associated with this\n           entry.')
-t11FamFcIdCacheAreaIdPortId = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 2, 4, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2,2)).setFixedLength(2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamFcIdCacheAreaIdPortId.setDescription('The combination of this object and t11FamFcIdCachePortIds\n           represent one range of Fibre Channel Address Identifiers,\n           which were assigned and later released.  This object\n           contains the Area_ID and Port_ID of the first Fibre\n           Channel Address Identifier in the range.\n\n           Note that this object is only 2 bytes.')
-t11FamFcIdCachePortIds = MibTableColumn((1, 3, 6, 1, 2, 1, 137, 1, 2, 4, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0,65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: t11FamFcIdCachePortIds.setDescription('The combination of t11FamFcIdCacheAreaIdPortId and this\n           object represent one range of Fibre Channel Address\n           Identifiers, which were assigned and later released.  This\n           object contains the number of (consecutive) Fibre Channel\n           Address Identifiers in the range.')
-t11FamNotifyFabricIndex = MibScalar((1, 3, 6, 1, 2, 1, 137, 1, 3, 1), T11FabricIndex()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: t11FamNotifyFabricIndex.setDescription('A unique index value that identifies a particular\n           Fabric for which a particular notification is generated.\n\n           In a Fabric conformant to SW-3, only a single Fabric\n           can operate within a physical infrastructure, and thus,\n           the value of this Fabric Index will always be 1.\n\n           However, the current standard, FC-SW-4, defines\n           how multiple Fabrics, each with its own management\n\n\n\n           instrumentation, could operate within one (or more)\n           physical infrastructures.  In order to accommodate this\n           scenario, this index value is used to uniquely identify a\n           particular Fabric within a physical infrastructure.')
-t11FamDomainIdNotAssignedNotify = NotificationType((1, 3, 6, 1, 2, 1, 137, 0, 1)).setObjects(*(("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamLocalSwitchWwn"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamNotifyFabricIndex"),))
-if mibBuilder.loadTexts: t11FamDomainIdNotAssignedNotify.setDescription("This notification indicates that a Domain_ID has not\n           been configured or assigned for a particular Fabric,\n           identified by t11FamNotifyFabricIndex, on a particular\n           switch identified by t11FamLocalSwitchWwn.  This could\n           happen under the following conditions, and results in the\n           switch isolating E_Ports on the Fabric:\n\n            - if the switch's request for a configured static\n              Domain_ID is rejected or no other Domain_ID is\n              assigned, then the E_Ports are isolated.")
-t11FamNewPrincipalSwitchNotify = NotificationType((1, 3, 6, 1, 2, 1, 137, 0, 2)).setObjects(*(("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamLocalSwitchWwn"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamNotifyFabricIndex"),))
-if mibBuilder.loadTexts: t11FamNewPrincipalSwitchNotify.setDescription('This notification indicates that a particular switch,\n           identified by t11FamLocalSwitchWwn, has become the new\n           Principal Switch on the Fabric identified by\n           t11FamNotifyFabricIndex.\n\n           This notification is sent soon after its election as\n           the new Principal Switch, i.e., upon expiration of a\n           Principal Switch selection timer that is equal to\n           twice the Fabric Stability Timeout value (F_S_TOV).')
-t11FamFabricChangeNotify = NotificationType((1, 3, 6, 1, 2, 1, 137, 0, 3)).setObjects(*(("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamLocalSwitchWwn"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamNotifyFabricIndex"),))
-if mibBuilder.loadTexts: t11FamFabricChangeNotify.setDescription("This notification is sent whenever a particular switch,\n           identified by t11FamLocalSwitchWwn, sends or\n           receives a Build Fabric (BF) or a ReConfigure Fabric\n           (RCF) message on the Fabric identified by\n\n\n\n           t11FamNotifyFabricIndex.\n\n           This notification is not sent if a\n           't11FamNewPrincipalSwitchNotify' notification is sent\n           for the same event.")
-t11FamMIBCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 137, 2, 1))
-t11FamMIBGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 137, 2, 2))
-t11FamMIBCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 137, 2, 1, 1)).setObjects(*(("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamGroup"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamDatabaseGroup"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamAreaGroup"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamNotificationGroup"),))
-if mibBuilder.loadTexts: t11FamMIBCompliance.setDescription('The compliance statement for Fibre Channel switches\n           that implement Fabric Address Manager functionality.')
-t11FamGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 137, 2, 2, 1)).setObjects(*(("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamConfigDomainId"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamConfigDomainIdType"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamAutoReconfigure"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamContiguousAllocation"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamPriority"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamPrincipalSwitchWwn"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamLocalSwitchWwn"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamAssignedAreaIdList"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamGrantedFcIds"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamRecoveredFcIds"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamFreeFcIds"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamAssignedFcIds"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamAvailableFcIds"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamRunningPriority"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamPrincSwRunningPriority"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamState"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamLocalPrincipalSwitchSlctns"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamPrincipalSwitchSelections"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamBuildFabrics"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamFabricReconfigures"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamDomainId"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamSticky"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamRestart"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamRcFabricNotifyEnable"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamEnable"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamFabricName"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamIfRcfReject"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamIfRole"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamIfRowStatus"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamNotifyFabricIndex"),))
-if mibBuilder.loadTexts: t11FamGroup.setDescription('A collection of general objects for displaying and\n           configuring Fabric Address management.')
-t11FamCommandGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 137, 2, 2, 2)).setObjects(*(("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamRestart"),))
-if mibBuilder.loadTexts: t11FamCommandGroup.setDescription('A collection of objects used for initiating an\n           operation on the Fabric.')
-t11FamDatabaseGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 137, 2, 2, 3)).setObjects(*(("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamDatabaseSwitchWwn"),))
-if mibBuilder.loadTexts: t11FamDatabaseGroup.setDescription('A collection of objects containing information about\n           Domain-IDs assignments.')
-t11FamAreaGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 137, 2, 2, 4)).setObjects(*(("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamAreaAssignedPortIdList"),))
-if mibBuilder.loadTexts: t11FamAreaGroup.setDescription('A collection of objects containing information about\n           currently assigned addresses within a domain.')
-t11FamCacheGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 137, 2, 2, 5)).setObjects(*(("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamMaxFcIdCacheSize"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamFcIdCacheAreaIdPortId"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamFcIdCachePortIds"),))
-if mibBuilder.loadTexts: t11FamCacheGroup.setDescription('A collection of objects containing information about\n           recently-released Fibre Channel Address Identifiers.')
-t11FamNotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 137, 2, 2, 6)).setObjects(*(("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamDomainIdNotAssignedNotify"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamNewPrincipalSwitchNotify"), ("T11-FC-FABRIC-ADDR-MGR-MIB", "t11FamFabricChangeNotify"),))
-if mibBuilder.loadTexts: t11FamNotificationGroup.setDescription('A collection of notifications for status monitoring\n           and notification.')
-mibBuilder.exportSymbols("T11-FC-FABRIC-ADDR-MGR-MIB", t11FamAvailableFcIds=t11FamAvailableFcIds, t11FamPriority=t11FamPriority, t11FamFcIdCacheEntry=t11FamFcIdCacheEntry, t11FamSticky=t11FamSticky, t11FamCacheGroup=t11FamCacheGroup, t11FamAreaEntry=t11FamAreaEntry, t11FamFabricIndex=t11FamFabricIndex, t11FamGroup=t11FamGroup, T11FamState=T11FamState, t11FamAreaAssignedPortIdList=t11FamAreaAssignedPortIdList, t11FamConfigDomainIdType=t11FamConfigDomainIdType, t11FamAreaGroup=t11FamAreaGroup, t11FamRecoveredFcIds=t11FamRecoveredFcIds, t11FamConfiguration=t11FamConfiguration, t11FamMIBObjects=t11FamMIBObjects, t11FamAutoReconfigure=t11FamAutoReconfigure, t11FamGrantedFcIds=t11FamGrantedFcIds, t11FamContiguousAllocation=t11FamContiguousAllocation, t11FamDomainIdNotAssignedNotify=t11FamDomainIdNotAssignedNotify, t11FamFabricReconfigures=t11FamFabricReconfigures, t11FamRcFabricNotifyEnable=t11FamRcFabricNotifyEnable, t11FamAreaAreaId=t11FamAreaAreaId, t11FamIfRowStatus=t11FamIfRowStatus, t11FamState=t11FamState, t11FamEntry=t11FamEntry, t11FamMaxFcIdCacheSize=t11FamMaxFcIdCacheSize, T11FamDomainPriority=T11FamDomainPriority, t11FamMIBGroups=t11FamMIBGroups, t11FamFcIdCacheAreaIdPortId=t11FamFcIdCacheAreaIdPortId, t11FamConfigDomainId=t11FamConfigDomainId, t11FamMIBConformance=t11FamMIBConformance, t11FamMIBCompliances=t11FamMIBCompliances, t11FamMIBCompliance=t11FamMIBCompliance, t11FamFabricChangeNotify=t11FamFabricChangeNotify, t11FamIfTable=t11FamIfTable, t11FamLocalSwitchWwn=t11FamLocalSwitchWwn, t11FamPrincipalSwitchSelections=t11FamPrincipalSwitchSelections, t11FamNotifications=t11FamNotifications, t11FamFcIdCacheTable=t11FamFcIdCacheTable, t11FamDatabaseDomainId=t11FamDatabaseDomainId, t11FamEnable=t11FamEnable, t11FamAssignedFcIds=t11FamAssignedFcIds, T11FamDomainInterfaceRole=T11FamDomainInterfaceRole, t11FamRestart=t11FamRestart, t11FamDatabaseSwitchWwn=t11FamDatabaseSwitchWwn, t11FamLocalPrincipalSwitchSlctns=t11FamLocalPrincipalSwitchSlctns, t11FamFabricName=t11FamFabricName, t11FamBuildFabrics=t11FamBuildFabrics, t11FamDomainId=t11FamDomainId, t11FamFcIdCachePortIds=t11FamFcIdCachePortIds, t11FamAssignedAreaIdList=t11FamAssignedAreaIdList, t11FamNewPrincipalSwitchNotify=t11FamNewPrincipalSwitchNotify, PYSNMP_MODULE_ID=t11FcFabricAddrMgrMIB, t11FcFabricAddrMgrMIB=t11FcFabricAddrMgrMIB, t11FamNotifyControl=t11FamNotifyControl, t11FamIfEntry=t11FamIfEntry, t11FamInfo=t11FamInfo, t11FamIfRcfReject=t11FamIfRcfReject, t11FamNotificationGroup=t11FamNotificationGroup, t11FamTable=t11FamTable, t11FamDatabaseTable=t11FamDatabaseTable, t11FamFcIdCacheWwn=t11FamFcIdCacheWwn, t11FamNotifyFabricIndex=t11FamNotifyFabricIndex, t11FamRunningPriority=t11FamRunningPriority, t11FamIfRole=t11FamIfRole, t11FamFreeFcIds=t11FamFreeFcIds, t11FamAreaTable=t11FamAreaTable, t11FamDatabaseEntry=t11FamDatabaseEntry, t11FamCommandGroup=t11FamCommandGroup, t11FamDatabaseGroup=t11FamDatabaseGroup, t11FamPrincSwRunningPriority=t11FamPrincSwRunningPriority, t11FamPrincipalSwitchWwn=t11FamPrincipalSwitchWwn)
+_AB='t11FamNotificationGroup'
+_AA='t11FamAreaGroup'
+_A9='t11FamDatabaseGroup'
+_A8='t11FamGroup'
+_A7='t11FamFabricChangeNotify'
+_A6='t11FamNewPrincipalSwitchNotify'
+_A5='t11FamDomainIdNotAssignedNotify'
+_A4='t11FamFcIdCachePortIds'
+_A3='t11FamFcIdCacheAreaIdPortId'
+_A2='t11FamMaxFcIdCacheSize'
+_A1='t11FamAreaAssignedPortIdList'
+_A0='t11FamDatabaseSwitchWwn'
+_z='t11FamIfRowStatus'
+_y='t11FamIfRole'
+_x='t11FamIfRcfReject'
+_w='t11FamFabricName'
+_v='t11FamEnable'
+_u='t11FamRcFabricNotifyEnable'
+_t='t11FamSticky'
+_s='t11FamDomainId'
+_r='t11FamFabricReconfigures'
+_q='t11FamBuildFabrics'
+_p='t11FamPrincipalSwitchSelections'
+_o='t11FamLocalPrincipalSwitchSlctns'
+_n='t11FamState'
+_m='t11FamPrincSwRunningPriority'
+_l='t11FamRunningPriority'
+_k='t11FamAvailableFcIds'
+_j='t11FamAssignedFcIds'
+_i='t11FamFreeFcIds'
+_h='t11FamRecoveredFcIds'
+_g='t11FamGrantedFcIds'
+_f='t11FamAssignedAreaIdList'
+_e='t11FamPrincipalSwitchWwn'
+_d='t11FamPriority'
+_c='t11FamContiguousAllocation'
+_b='t11FamAutoReconfigure'
+_a='t11FamConfigDomainIdType'
+_Z='t11FamConfigDomainId'
+_Y='t11FamFcIdCacheWwn'
+_X='t11FamDatabaseDomainId'
+_W='t11FamAreaAreaId'
+_V='read-create'
+_U='unknown'
+_T='ifIndex'
+_S='IF-MIB'
+_R='FcNameIdOrZero'
+_Q='t11FamRestart'
+_P='Integer32'
+_O='FcDomainIdOrZero'
+_N='not-accessible'
+_M='Unsigned32'
+_L='OctetString'
+_K='t11FamNotifyFabricIndex'
+_J='t11FamLocalSwitchWwn'
+_I='TruthValue'
+_H='t11FamFabricIndex'
+_G='fcmSwitchIndex'
+_F='fcmInstanceIndex'
+_E='read-write'
+_D='FC-MGMT-MIB'
+_C='read-only'
+_B='T11-FC-FABRIC-ADDR-MGR-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer',_L,'ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+FcDomainIdOrZero,FcNameIdOrZero,fcmInstanceIndex,fcmSwitchIndex=mibBuilder.importSymbols(_D,_O,_R,_F,_G)
+ifIndex,=mibBuilder.importSymbols(_S,_T)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_P,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks',_M,'iso','mib-2')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TruthValue=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','RowStatus','TextualConvention',_I)
+T11FabricIndex,=mibBuilder.importSymbols('T11-TC-MIB','T11FabricIndex')
+t11FcFabricAddrMgrMIB=ModuleIdentity((1,3,6,1,2,1,137))
+if mibBuilder.loadTexts:t11FcFabricAddrMgrMIB.setRevisions(('2006-03-02 00:00',))
+class T11FamDomainPriority(TextualConvention,Unsigned32):status=_A;displayHint='d';subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,255))
+class T11FamDomainInterfaceRole(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6)));namedValues=NamedValues(*(('nonPrincipal',1),('principalUpstream',2),('principalDownsteam',3),('isolated',4),('down',5),(_U,6)))
+class T11FamState(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4,5,6,7,8,9,10,11,12)));namedValues=NamedValues(*(('other',1),('starting',2),('unconfigured',3),('principalSwitchSelection',4),('domainIdDistribution',5),('buildFabricPhase',6),('reconfigureFabricPhase',7),('stable',8),('stableWithNoEports',9),('noDomains',10),('disabled',11),(_U,12)))
+_T11FamNotifications_ObjectIdentity=ObjectIdentity
+t11FamNotifications=_T11FamNotifications_ObjectIdentity((1,3,6,1,2,1,137,0))
+_T11FamMIBObjects_ObjectIdentity=ObjectIdentity
+t11FamMIBObjects=_T11FamMIBObjects_ObjectIdentity((1,3,6,1,2,1,137,1))
+_T11FamConfiguration_ObjectIdentity=ObjectIdentity
+t11FamConfiguration=_T11FamConfiguration_ObjectIdentity((1,3,6,1,2,1,137,1,1))
+_T11FamTable_Object=MibTable
+t11FamTable=_T11FamTable_Object((1,3,6,1,2,1,137,1,1,1))
+if mibBuilder.loadTexts:t11FamTable.setStatus(_A)
+_T11FamEntry_Object=MibTableRow
+t11FamEntry=_T11FamEntry_Object((1,3,6,1,2,1,137,1,1,1,1))
+t11FamEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_B,_H))
+if mibBuilder.loadTexts:t11FamEntry.setStatus(_A)
+_T11FamFabricIndex_Type=T11FabricIndex
+_T11FamFabricIndex_Object=MibTableColumn
+t11FamFabricIndex=_T11FamFabricIndex_Object((1,3,6,1,2,1,137,1,1,1,1,1),_T11FamFabricIndex_Type())
+t11FamFabricIndex.setMaxAccess(_N)
+if mibBuilder.loadTexts:t11FamFabricIndex.setStatus(_A)
+class _T11FamConfigDomainId_Type(FcDomainIdOrZero):defaultValue=0
+_T11FamConfigDomainId_Type.__name__=_O
+_T11FamConfigDomainId_Object=MibTableColumn
+t11FamConfigDomainId=_T11FamConfigDomainId_Object((1,3,6,1,2,1,137,1,1,1,1,2),_T11FamConfigDomainId_Type())
+t11FamConfigDomainId.setMaxAccess(_E)
+if mibBuilder.loadTexts:t11FamConfigDomainId.setStatus(_A)
+class _T11FamConfigDomainIdType_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('preferred',1),('insistent',2),('static',3)))
+_T11FamConfigDomainIdType_Type.__name__=_P
+_T11FamConfigDomainIdType_Object=MibTableColumn
+t11FamConfigDomainIdType=_T11FamConfigDomainIdType_Object((1,3,6,1,2,1,137,1,1,1,1,3),_T11FamConfigDomainIdType_Type())
+t11FamConfigDomainIdType.setMaxAccess(_E)
+if mibBuilder.loadTexts:t11FamConfigDomainIdType.setStatus(_A)
+class _T11FamAutoReconfigure_Type(TruthValue):defaultValue=2
+_T11FamAutoReconfigure_Type.__name__=_I
+_T11FamAutoReconfigure_Object=MibTableColumn
+t11FamAutoReconfigure=_T11FamAutoReconfigure_Object((1,3,6,1,2,1,137,1,1,1,1,4),_T11FamAutoReconfigure_Type())
+t11FamAutoReconfigure.setMaxAccess(_E)
+if mibBuilder.loadTexts:t11FamAutoReconfigure.setStatus(_A)
+_T11FamContiguousAllocation_Type=TruthValue
+_T11FamContiguousAllocation_Object=MibTableColumn
+t11FamContiguousAllocation=_T11FamContiguousAllocation_Object((1,3,6,1,2,1,137,1,1,1,1,5),_T11FamContiguousAllocation_Type())
+t11FamContiguousAllocation.setMaxAccess(_E)
+if mibBuilder.loadTexts:t11FamContiguousAllocation.setStatus(_A)
+_T11FamPriority_Type=T11FamDomainPriority
+_T11FamPriority_Object=MibTableColumn
+t11FamPriority=_T11FamPriority_Object((1,3,6,1,2,1,137,1,1,1,1,6),_T11FamPriority_Type())
+t11FamPriority.setMaxAccess(_E)
+if mibBuilder.loadTexts:t11FamPriority.setStatus(_A)
+class _T11FamPrincipalSwitchWwn_Type(FcNameIdOrZero):defaultHexValue=''
+_T11FamPrincipalSwitchWwn_Type.__name__=_R
+_T11FamPrincipalSwitchWwn_Object=MibTableColumn
+t11FamPrincipalSwitchWwn=_T11FamPrincipalSwitchWwn_Object((1,3,6,1,2,1,137,1,1,1,1,7),_T11FamPrincipalSwitchWwn_Type())
+t11FamPrincipalSwitchWwn.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamPrincipalSwitchWwn.setStatus(_A)
+_T11FamLocalSwitchWwn_Type=FcNameIdOrZero
+_T11FamLocalSwitchWwn_Object=MibTableColumn
+t11FamLocalSwitchWwn=_T11FamLocalSwitchWwn_Object((1,3,6,1,2,1,137,1,1,1,1,8),_T11FamLocalSwitchWwn_Type())
+t11FamLocalSwitchWwn.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamLocalSwitchWwn.setStatus(_A)
+class _T11FamAssignedAreaIdList_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
+_T11FamAssignedAreaIdList_Type.__name__=_L
+_T11FamAssignedAreaIdList_Object=MibTableColumn
+t11FamAssignedAreaIdList=_T11FamAssignedAreaIdList_Object((1,3,6,1,2,1,137,1,1,1,1,9),_T11FamAssignedAreaIdList_Type())
+t11FamAssignedAreaIdList.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamAssignedAreaIdList.setStatus(_A)
+_T11FamGrantedFcIds_Type=Counter32
+_T11FamGrantedFcIds_Object=MibTableColumn
+t11FamGrantedFcIds=_T11FamGrantedFcIds_Object((1,3,6,1,2,1,137,1,1,1,1,10),_T11FamGrantedFcIds_Type())
+t11FamGrantedFcIds.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamGrantedFcIds.setStatus(_A)
+_T11FamRecoveredFcIds_Type=Counter32
+_T11FamRecoveredFcIds_Object=MibTableColumn
+t11FamRecoveredFcIds=_T11FamRecoveredFcIds_Object((1,3,6,1,2,1,137,1,1,1,1,11),_T11FamRecoveredFcIds_Type())
+t11FamRecoveredFcIds.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamRecoveredFcIds.setStatus(_A)
+_T11FamFreeFcIds_Type=Gauge32
+_T11FamFreeFcIds_Object=MibTableColumn
+t11FamFreeFcIds=_T11FamFreeFcIds_Object((1,3,6,1,2,1,137,1,1,1,1,12),_T11FamFreeFcIds_Type())
+t11FamFreeFcIds.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamFreeFcIds.setStatus(_A)
+_T11FamAssignedFcIds_Type=Gauge32
+_T11FamAssignedFcIds_Object=MibTableColumn
+t11FamAssignedFcIds=_T11FamAssignedFcIds_Object((1,3,6,1,2,1,137,1,1,1,1,13),_T11FamAssignedFcIds_Type())
+t11FamAssignedFcIds.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamAssignedFcIds.setStatus(_A)
+_T11FamAvailableFcIds_Type=Gauge32
+_T11FamAvailableFcIds_Object=MibTableColumn
+t11FamAvailableFcIds=_T11FamAvailableFcIds_Object((1,3,6,1,2,1,137,1,1,1,1,14),_T11FamAvailableFcIds_Type())
+t11FamAvailableFcIds.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamAvailableFcIds.setStatus(_A)
+_T11FamRunningPriority_Type=T11FamDomainPriority
+_T11FamRunningPriority_Object=MibTableColumn
+t11FamRunningPriority=_T11FamRunningPriority_Object((1,3,6,1,2,1,137,1,1,1,1,15),_T11FamRunningPriority_Type())
+t11FamRunningPriority.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamRunningPriority.setStatus(_A)
+_T11FamPrincSwRunningPriority_Type=T11FamDomainPriority
+_T11FamPrincSwRunningPriority_Object=MibTableColumn
+t11FamPrincSwRunningPriority=_T11FamPrincSwRunningPriority_Object((1,3,6,1,2,1,137,1,1,1,1,16),_T11FamPrincSwRunningPriority_Type())
+t11FamPrincSwRunningPriority.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamPrincSwRunningPriority.setStatus(_A)
+_T11FamState_Type=T11FamState
+_T11FamState_Object=MibTableColumn
+t11FamState=_T11FamState_Object((1,3,6,1,2,1,137,1,1,1,1,17),_T11FamState_Type())
+t11FamState.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamState.setStatus(_A)
+_T11FamLocalPrincipalSwitchSlctns_Type=Counter32
+_T11FamLocalPrincipalSwitchSlctns_Object=MibTableColumn
+t11FamLocalPrincipalSwitchSlctns=_T11FamLocalPrincipalSwitchSlctns_Object((1,3,6,1,2,1,137,1,1,1,1,18),_T11FamLocalPrincipalSwitchSlctns_Type())
+t11FamLocalPrincipalSwitchSlctns.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamLocalPrincipalSwitchSlctns.setStatus(_A)
+_T11FamPrincipalSwitchSelections_Type=Counter32
+_T11FamPrincipalSwitchSelections_Object=MibTableColumn
+t11FamPrincipalSwitchSelections=_T11FamPrincipalSwitchSelections_Object((1,3,6,1,2,1,137,1,1,1,1,19),_T11FamPrincipalSwitchSelections_Type())
+t11FamPrincipalSwitchSelections.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamPrincipalSwitchSelections.setStatus(_A)
+_T11FamBuildFabrics_Type=Counter32
+_T11FamBuildFabrics_Object=MibTableColumn
+t11FamBuildFabrics=_T11FamBuildFabrics_Object((1,3,6,1,2,1,137,1,1,1,1,20),_T11FamBuildFabrics_Type())
+t11FamBuildFabrics.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamBuildFabrics.setStatus(_A)
+_T11FamFabricReconfigures_Type=Counter32
+_T11FamFabricReconfigures_Object=MibTableColumn
+t11FamFabricReconfigures=_T11FamFabricReconfigures_Object((1,3,6,1,2,1,137,1,1,1,1,21),_T11FamFabricReconfigures_Type())
+t11FamFabricReconfigures.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamFabricReconfigures.setStatus(_A)
+_T11FamDomainId_Type=FcDomainIdOrZero
+_T11FamDomainId_Object=MibTableColumn
+t11FamDomainId=_T11FamDomainId_Object((1,3,6,1,2,1,137,1,1,1,1,22),_T11FamDomainId_Type())
+t11FamDomainId.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamDomainId.setStatus(_A)
+_T11FamSticky_Type=TruthValue
+_T11FamSticky_Object=MibTableColumn
+t11FamSticky=_T11FamSticky_Object((1,3,6,1,2,1,137,1,1,1,1,23),_T11FamSticky_Type())
+t11FamSticky.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamSticky.setStatus(_A)
+class _T11FamRestart_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3)));namedValues=NamedValues(*(('nonDisruptive',1),('disruptive',2),('noOp',3)))
+_T11FamRestart_Type.__name__=_P
+_T11FamRestart_Object=MibTableColumn
+t11FamRestart=_T11FamRestart_Object((1,3,6,1,2,1,137,1,1,1,1,24),_T11FamRestart_Type())
+t11FamRestart.setMaxAccess(_E)
+if mibBuilder.loadTexts:t11FamRestart.setStatus(_A)
+class _T11FamRcFabricNotifyEnable_Type(TruthValue):defaultValue=2
+_T11FamRcFabricNotifyEnable_Type.__name__=_I
+_T11FamRcFabricNotifyEnable_Object=MibTableColumn
+t11FamRcFabricNotifyEnable=_T11FamRcFabricNotifyEnable_Object((1,3,6,1,2,1,137,1,1,1,1,25),_T11FamRcFabricNotifyEnable_Type())
+t11FamRcFabricNotifyEnable.setMaxAccess(_E)
+if mibBuilder.loadTexts:t11FamRcFabricNotifyEnable.setStatus(_A)
+class _T11FamEnable_Type(TruthValue):defaultValue=1
+_T11FamEnable_Type.__name__=_I
+_T11FamEnable_Object=MibTableColumn
+t11FamEnable=_T11FamEnable_Object((1,3,6,1,2,1,137,1,1,1,1,26),_T11FamEnable_Type())
+t11FamEnable.setMaxAccess(_E)
+if mibBuilder.loadTexts:t11FamEnable.setStatus(_A)
+_T11FamFabricName_Type=FcNameIdOrZero
+_T11FamFabricName_Object=MibTableColumn
+t11FamFabricName=_T11FamFabricName_Object((1,3,6,1,2,1,137,1,1,1,1,27),_T11FamFabricName_Type())
+t11FamFabricName.setMaxAccess(_E)
+if mibBuilder.loadTexts:t11FamFabricName.setStatus(_A)
+_T11FamIfTable_Object=MibTable
+t11FamIfTable=_T11FamIfTable_Object((1,3,6,1,2,1,137,1,1,2))
+if mibBuilder.loadTexts:t11FamIfTable.setStatus(_A)
+_T11FamIfEntry_Object=MibTableRow
+t11FamIfEntry=_T11FamIfEntry_Object((1,3,6,1,2,1,137,1,1,2,1))
+t11FamIfEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_B,_H),(0,_S,_T))
+if mibBuilder.loadTexts:t11FamIfEntry.setStatus(_A)
+class _T11FamIfRcfReject_Type(TruthValue):defaultValue=2
+_T11FamIfRcfReject_Type.__name__=_I
+_T11FamIfRcfReject_Object=MibTableColumn
+t11FamIfRcfReject=_T11FamIfRcfReject_Object((1,3,6,1,2,1,137,1,1,2,1,1),_T11FamIfRcfReject_Type())
+t11FamIfRcfReject.setMaxAccess(_V)
+if mibBuilder.loadTexts:t11FamIfRcfReject.setStatus(_A)
+_T11FamIfRole_Type=T11FamDomainInterfaceRole
+_T11FamIfRole_Object=MibTableColumn
+t11FamIfRole=_T11FamIfRole_Object((1,3,6,1,2,1,137,1,1,2,1,2),_T11FamIfRole_Type())
+t11FamIfRole.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamIfRole.setStatus(_A)
+_T11FamIfRowStatus_Type=RowStatus
+_T11FamIfRowStatus_Object=MibTableColumn
+t11FamIfRowStatus=_T11FamIfRowStatus_Object((1,3,6,1,2,1,137,1,1,2,1,3),_T11FamIfRowStatus_Type())
+t11FamIfRowStatus.setMaxAccess(_V)
+if mibBuilder.loadTexts:t11FamIfRowStatus.setStatus(_A)
+_T11FamInfo_ObjectIdentity=ObjectIdentity
+t11FamInfo=_T11FamInfo_ObjectIdentity((1,3,6,1,2,1,137,1,2))
+_T11FamAreaTable_Object=MibTable
+t11FamAreaTable=_T11FamAreaTable_Object((1,3,6,1,2,1,137,1,2,1))
+if mibBuilder.loadTexts:t11FamAreaTable.setStatus(_A)
+_T11FamAreaEntry_Object=MibTableRow
+t11FamAreaEntry=_T11FamAreaEntry_Object((1,3,6,1,2,1,137,1,2,1,1))
+t11FamAreaEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_B,_H),(0,_B,_W))
+if mibBuilder.loadTexts:t11FamAreaEntry.setStatus(_A)
+class _T11FamAreaAreaId_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,255))
+_T11FamAreaAreaId_Type.__name__=_M
+_T11FamAreaAreaId_Object=MibTableColumn
+t11FamAreaAreaId=_T11FamAreaAreaId_Object((1,3,6,1,2,1,137,1,2,1,1,1),_T11FamAreaAreaId_Type())
+t11FamAreaAreaId.setMaxAccess(_N)
+if mibBuilder.loadTexts:t11FamAreaAreaId.setStatus(_A)
+class _T11FamAreaAssignedPortIdList_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,256))
+_T11FamAreaAssignedPortIdList_Type.__name__=_L
+_T11FamAreaAssignedPortIdList_Object=MibTableColumn
+t11FamAreaAssignedPortIdList=_T11FamAreaAssignedPortIdList_Object((1,3,6,1,2,1,137,1,2,1,1,2),_T11FamAreaAssignedPortIdList_Type())
+t11FamAreaAssignedPortIdList.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamAreaAssignedPortIdList.setStatus(_A)
+_T11FamDatabaseTable_Object=MibTable
+t11FamDatabaseTable=_T11FamDatabaseTable_Object((1,3,6,1,2,1,137,1,2,2))
+if mibBuilder.loadTexts:t11FamDatabaseTable.setStatus(_A)
+_T11FamDatabaseEntry_Object=MibTableRow
+t11FamDatabaseEntry=_T11FamDatabaseEntry_Object((1,3,6,1,2,1,137,1,2,2,1))
+t11FamDatabaseEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_B,_H),(0,_B,_X))
+if mibBuilder.loadTexts:t11FamDatabaseEntry.setStatus(_A)
+class _T11FamDatabaseDomainId_Type(FcDomainIdOrZero):subtypeSpec=FcDomainIdOrZero.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,239))
+_T11FamDatabaseDomainId_Type.__name__=_O
+_T11FamDatabaseDomainId_Object=MibTableColumn
+t11FamDatabaseDomainId=_T11FamDatabaseDomainId_Object((1,3,6,1,2,1,137,1,2,2,1,1),_T11FamDatabaseDomainId_Type())
+t11FamDatabaseDomainId.setMaxAccess(_N)
+if mibBuilder.loadTexts:t11FamDatabaseDomainId.setStatus(_A)
+_T11FamDatabaseSwitchWwn_Type=FcNameIdOrZero
+_T11FamDatabaseSwitchWwn_Object=MibTableColumn
+t11FamDatabaseSwitchWwn=_T11FamDatabaseSwitchWwn_Object((1,3,6,1,2,1,137,1,2,2,1,2),_T11FamDatabaseSwitchWwn_Type())
+t11FamDatabaseSwitchWwn.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamDatabaseSwitchWwn.setStatus(_A)
+class _T11FamMaxFcIdCacheSize_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,4294967295))
+_T11FamMaxFcIdCacheSize_Type.__name__=_M
+_T11FamMaxFcIdCacheSize_Object=MibScalar
+t11FamMaxFcIdCacheSize=_T11FamMaxFcIdCacheSize_Object((1,3,6,1,2,1,137,1,2,3),_T11FamMaxFcIdCacheSize_Type())
+t11FamMaxFcIdCacheSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamMaxFcIdCacheSize.setStatus(_A)
+_T11FamFcIdCacheTable_Object=MibTable
+t11FamFcIdCacheTable=_T11FamFcIdCacheTable_Object((1,3,6,1,2,1,137,1,2,4))
+if mibBuilder.loadTexts:t11FamFcIdCacheTable.setStatus(_A)
+_T11FamFcIdCacheEntry_Object=MibTableRow
+t11FamFcIdCacheEntry=_T11FamFcIdCacheEntry_Object((1,3,6,1,2,1,137,1,2,4,1))
+t11FamFcIdCacheEntry.setIndexNames((0,_D,_F),(0,_D,_G),(0,_B,_H),(0,_B,_Y))
+if mibBuilder.loadTexts:t11FamFcIdCacheEntry.setStatus(_A)
+_T11FamFcIdCacheWwn_Type=FcNameIdOrZero
+_T11FamFcIdCacheWwn_Object=MibTableColumn
+t11FamFcIdCacheWwn=_T11FamFcIdCacheWwn_Object((1,3,6,1,2,1,137,1,2,4,1,1),_T11FamFcIdCacheWwn_Type())
+t11FamFcIdCacheWwn.setMaxAccess(_N)
+if mibBuilder.loadTexts:t11FamFcIdCacheWwn.setStatus(_A)
+class _T11FamFcIdCacheAreaIdPortId_Type(OctetString):subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(2,2));fixedLength=2
+_T11FamFcIdCacheAreaIdPortId_Type.__name__=_L
+_T11FamFcIdCacheAreaIdPortId_Object=MibTableColumn
+t11FamFcIdCacheAreaIdPortId=_T11FamFcIdCacheAreaIdPortId_Object((1,3,6,1,2,1,137,1,2,4,1,2),_T11FamFcIdCacheAreaIdPortId_Type())
+t11FamFcIdCacheAreaIdPortId.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamFcIdCacheAreaIdPortId.setStatus(_A)
+class _T11FamFcIdCachePortIds_Type(Unsigned32):subtypeSpec=Unsigned32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,65535))
+_T11FamFcIdCachePortIds_Type.__name__=_M
+_T11FamFcIdCachePortIds_Object=MibTableColumn
+t11FamFcIdCachePortIds=_T11FamFcIdCachePortIds_Object((1,3,6,1,2,1,137,1,2,4,1,3),_T11FamFcIdCachePortIds_Type())
+t11FamFcIdCachePortIds.setMaxAccess(_C)
+if mibBuilder.loadTexts:t11FamFcIdCachePortIds.setStatus(_A)
+_T11FamNotifyControl_ObjectIdentity=ObjectIdentity
+t11FamNotifyControl=_T11FamNotifyControl_ObjectIdentity((1,3,6,1,2,1,137,1,3))
+_T11FamNotifyFabricIndex_Type=T11FabricIndex
+_T11FamNotifyFabricIndex_Object=MibScalar
+t11FamNotifyFabricIndex=_T11FamNotifyFabricIndex_Object((1,3,6,1,2,1,137,1,3,1),_T11FamNotifyFabricIndex_Type())
+t11FamNotifyFabricIndex.setMaxAccess('accessible-for-notify')
+if mibBuilder.loadTexts:t11FamNotifyFabricIndex.setStatus(_A)
+_T11FamMIBConformance_ObjectIdentity=ObjectIdentity
+t11FamMIBConformance=_T11FamMIBConformance_ObjectIdentity((1,3,6,1,2,1,137,2))
+_T11FamMIBCompliances_ObjectIdentity=ObjectIdentity
+t11FamMIBCompliances=_T11FamMIBCompliances_ObjectIdentity((1,3,6,1,2,1,137,2,1))
+_T11FamMIBGroups_ObjectIdentity=ObjectIdentity
+t11FamMIBGroups=_T11FamMIBGroups_ObjectIdentity((1,3,6,1,2,1,137,2,2))
+t11FamGroup=ObjectGroup((1,3,6,1,2,1,137,2,2,1))
+t11FamGroup.setObjects(*((_B,_Z),(_B,_a),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_J),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_n),(_B,_o),(_B,_p),(_B,_q),(_B,_r),(_B,_s),(_B,_t),(_B,_Q),(_B,_u),(_B,_v),(_B,_w),(_B,_x),(_B,_y),(_B,_z),(_B,_K)))
+if mibBuilder.loadTexts:t11FamGroup.setStatus(_A)
+t11FamCommandGroup=ObjectGroup((1,3,6,1,2,1,137,2,2,2))
+t11FamCommandGroup.setObjects((_B,_Q))
+if mibBuilder.loadTexts:t11FamCommandGroup.setStatus(_A)
+t11FamDatabaseGroup=ObjectGroup((1,3,6,1,2,1,137,2,2,3))
+t11FamDatabaseGroup.setObjects((_B,_A0))
+if mibBuilder.loadTexts:t11FamDatabaseGroup.setStatus(_A)
+t11FamAreaGroup=ObjectGroup((1,3,6,1,2,1,137,2,2,4))
+t11FamAreaGroup.setObjects((_B,_A1))
+if mibBuilder.loadTexts:t11FamAreaGroup.setStatus(_A)
+t11FamCacheGroup=ObjectGroup((1,3,6,1,2,1,137,2,2,5))
+t11FamCacheGroup.setObjects(*((_B,_A2),(_B,_A3),(_B,_A4)))
+if mibBuilder.loadTexts:t11FamCacheGroup.setStatus(_A)
+t11FamDomainIdNotAssignedNotify=NotificationType((1,3,6,1,2,1,137,0,1))
+t11FamDomainIdNotAssignedNotify.setObjects(*((_B,_J),(_B,_K)))
+if mibBuilder.loadTexts:t11FamDomainIdNotAssignedNotify.setStatus(_A)
+t11FamNewPrincipalSwitchNotify=NotificationType((1,3,6,1,2,1,137,0,2))
+t11FamNewPrincipalSwitchNotify.setObjects(*((_B,_J),(_B,_K)))
+if mibBuilder.loadTexts:t11FamNewPrincipalSwitchNotify.setStatus(_A)
+t11FamFabricChangeNotify=NotificationType((1,3,6,1,2,1,137,0,3))
+t11FamFabricChangeNotify.setObjects(*((_B,_J),(_B,_K)))
+if mibBuilder.loadTexts:t11FamFabricChangeNotify.setStatus(_A)
+t11FamNotificationGroup=NotificationGroup((1,3,6,1,2,1,137,2,2,6))
+t11FamNotificationGroup.setObjects(*((_B,_A5),(_B,_A6),(_B,_A7)))
+if mibBuilder.loadTexts:t11FamNotificationGroup.setStatus(_A)
+t11FamMIBCompliance=ModuleCompliance((1,3,6,1,2,1,137,2,1,1))
+t11FamMIBCompliance.setObjects(*((_B,_A8),(_B,_A9),(_B,_AA),(_B,_AB)))
+if mibBuilder.loadTexts:t11FamMIBCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'T11FamDomainPriority':T11FamDomainPriority,'T11FamDomainInterfaceRole':T11FamDomainInterfaceRole,'T11FamState':T11FamState,'t11FcFabricAddrMgrMIB':t11FcFabricAddrMgrMIB,'t11FamNotifications':t11FamNotifications,_A5:t11FamDomainIdNotAssignedNotify,_A6:t11FamNewPrincipalSwitchNotify,_A7:t11FamFabricChangeNotify,'t11FamMIBObjects':t11FamMIBObjects,'t11FamConfiguration':t11FamConfiguration,'t11FamTable':t11FamTable,'t11FamEntry':t11FamEntry,_H:t11FamFabricIndex,_Z:t11FamConfigDomainId,_a:t11FamConfigDomainIdType,_b:t11FamAutoReconfigure,_c:t11FamContiguousAllocation,_d:t11FamPriority,_e:t11FamPrincipalSwitchWwn,_J:t11FamLocalSwitchWwn,_f:t11FamAssignedAreaIdList,_g:t11FamGrantedFcIds,_h:t11FamRecoveredFcIds,_i:t11FamFreeFcIds,_j:t11FamAssignedFcIds,_k:t11FamAvailableFcIds,_l:t11FamRunningPriority,_m:t11FamPrincSwRunningPriority,_n:t11FamState,_o:t11FamLocalPrincipalSwitchSlctns,_p:t11FamPrincipalSwitchSelections,_q:t11FamBuildFabrics,_r:t11FamFabricReconfigures,_s:t11FamDomainId,_t:t11FamSticky,_Q:t11FamRestart,_u:t11FamRcFabricNotifyEnable,_v:t11FamEnable,_w:t11FamFabricName,'t11FamIfTable':t11FamIfTable,'t11FamIfEntry':t11FamIfEntry,_x:t11FamIfRcfReject,_y:t11FamIfRole,_z:t11FamIfRowStatus,'t11FamInfo':t11FamInfo,'t11FamAreaTable':t11FamAreaTable,'t11FamAreaEntry':t11FamAreaEntry,_W:t11FamAreaAreaId,_A1:t11FamAreaAssignedPortIdList,'t11FamDatabaseTable':t11FamDatabaseTable,'t11FamDatabaseEntry':t11FamDatabaseEntry,_X:t11FamDatabaseDomainId,_A0:t11FamDatabaseSwitchWwn,_A2:t11FamMaxFcIdCacheSize,'t11FamFcIdCacheTable':t11FamFcIdCacheTable,'t11FamFcIdCacheEntry':t11FamFcIdCacheEntry,_Y:t11FamFcIdCacheWwn,_A3:t11FamFcIdCacheAreaIdPortId,_A4:t11FamFcIdCachePortIds,'t11FamNotifyControl':t11FamNotifyControl,_K:t11FamNotifyFabricIndex,'t11FamMIBConformance':t11FamMIBConformance,'t11FamMIBCompliances':t11FamMIBCompliances,'t11FamMIBCompliance':t11FamMIBCompliance,'t11FamMIBGroups':t11FamMIBGroups,_A8:t11FamGroup,'t11FamCommandGroup':t11FamCommandGroup,_A9:t11FamDatabaseGroup,_AA:t11FamAreaGroup,'t11FamCacheGroup':t11FamCacheGroup,_AB:t11FamNotificationGroup})

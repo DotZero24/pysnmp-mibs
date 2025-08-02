@@ -1,0 +1,13 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+nortel,=mibBuilder.importSymbols('NORTEL-MIB','nortel')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
+DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
+nnOpticalGenericMIBs=ModuleIdentity((1,3,6,1,4,1,562,68,10))
+if mibBuilder.loadTexts:nnOpticalGenericMIBs.setRevisions(('2005-07-12 00:00','2008-02-07 00:00'))
+_Opterametro_ObjectIdentity=ObjectIdentity
+opterametro=_Opterametro_ObjectIdentity((1,3,6,1,4,1,562,68))
+mibBuilder.exportSymbols('NORTEL-OPTICAL-GENERIC-MIB',**{'opterametro':opterametro,'nnOpticalGenericMIBs':nnOpticalGenericMIBs})

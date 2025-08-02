@@ -1,0 +1,15 @@
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,enterprises,iso,snmpModules=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32','Integer32','IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','enterprises','iso','snmpModules')
+AutonomousType,DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','AutonomousType','DisplayString','PhysAddress','TextualConvention')
+tripleDESConsortiumMIB=ModuleIdentity((1,3,6,1,4,1,14832))
+if mibBuilder.loadTexts:tripleDESConsortiumMIB.setRevisions(('2003-02-03 00:00',))
+_TripleDESConsortiumPrivProtocols_ObjectIdentity=ObjectIdentity
+tripleDESConsortiumPrivProtocols=_TripleDESConsortiumPrivProtocols_ObjectIdentity((1,3,6,1,4,1,14832,1))
+_Usm3DESPrivProtocol_ObjectIdentity=ObjectIdentity
+usm3DESPrivProtocol=_Usm3DESPrivProtocol_ObjectIdentity((1,3,6,1,4,1,14832,1,1))
+if mibBuilder.loadTexts:usm3DESPrivProtocol.setStatus('current')
+mibBuilder.exportSymbols('TRIPLE-DES-CONSORTIUM-MIB',**{'tripleDESConsortiumMIB':tripleDESConsortiumMIB,'tripleDESConsortiumPrivProtocols':tripleDESConsortiumPrivProtocols,'usm3DESPrivProtocol':usm3DESPrivProtocol})

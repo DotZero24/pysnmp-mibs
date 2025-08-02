@@ -1,113 +1,264 @@
-#
-# PySNMP MIB module ACCOUNTING-CONTROL-MIB (http://pysnmp.sf.net)
-# ASN.1 source http://mibs.snmplabs.com:80/asn1/ACCOUNTING-CONTROL-MIB
-# Produced by pysmi-0.0.7 at Sun Feb 14 00:03:47 2016
-# On host bldfarm platform Linux version 4.1.13-100.fc21.x86_64 by user goose
-# Using Python version 3.5.0 (default, Jan  5 2016, 17:11:52) 
-#
-( OctetString, Integer, ObjectIdentifier, ) = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
-( NamedValues, ) = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-( ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ) = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
-( ifIndex, ) = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-( NotificationGroup, ObjectGroup, ModuleCompliance, ) = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-( Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, NotificationType, MibIdentifier, Bits, Unsigned32, ObjectIdentity, ModuleIdentity, TimeTicks, Counter64, IpAddress, iso, Counter32, mib_2, ) = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "NotificationType", "MibIdentifier", "Bits", "Unsigned32", "ObjectIdentity", "ModuleIdentity", "TimeTicks", "Counter64", "IpAddress", "iso", "Counter32", "mib-2")
-( TruthValue, TextualConvention, DisplayString, TestAndIncr, RowStatus, ) = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString", "TestAndIncr", "RowStatus")
-accountingControlMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 60))
-if mibBuilder.loadTexts: accountingControlMIB.setLastUpdated('9809281000Z')
-if mibBuilder.loadTexts: accountingControlMIB.setOrganization('IETF AToM MIB Working Group')
-if mibBuilder.loadTexts: accountingControlMIB.setContactInfo('Keith McCloghrie\n                  Cisco Systems, Inc.\n                  170 West Tasman Drive,\n                  San Jose CA 95134-1706.\n                  Phone: +1 408 526 5260\n                  Email: kzm@cisco.com')
-if mibBuilder.loadTexts: accountingControlMIB.setDescription('The MIB module for managing the collection and storage of\n            accounting information for connections in a connection-\n            oriented network such as ATM.')
-acctngMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 60, 1))
-acctngSelectionControl = MibIdentifier((1, 3, 6, 1, 2, 1, 60, 1, 1))
-acctngFileControl = MibIdentifier((1, 3, 6, 1, 2, 1, 60, 1, 2))
-acctngInterfaceControl = MibIdentifier((1, 3, 6, 1, 2, 1, 60, 1, 3))
-acctngTrapControl = MibIdentifier((1, 3, 6, 1, 2, 1, 60, 1, 4))
-class DataCollectionSubtree(ObjectIdentifier, TextualConvention):
-    pass
-
-class DataCollectionList(OctetString, TextualConvention):
-    subtypeSpec = OctetString.subtypeSpec+ValueSizeConstraint(0,8)
-
-class FileIndex(Integer32, TextualConvention):
-    subtypeSpec = Integer32.subtypeSpec+ValueRangeConstraint(1,65535)
-
-acctngSelectionTable = MibTable((1, 3, 6, 1, 2, 1, 60, 1, 1, 1), )
-if mibBuilder.loadTexts: acctngSelectionTable.setDescription("A list of accounting information selection entries.\n\n            Note that additions, modifications and deletions of entries\n            in this table can occur at any time, but such changes only\n            take effect on the next occasion when collection begins into\n            a new file.  Thus, between modification and the next 'swap',\n            the content of this table does not reflect the current\n            selection.")
-acctngSelectionEntry = MibTableRow((1, 3, 6, 1, 2, 1, 60, 1, 1, 1, 1), ).setIndexNames((0, "ACCOUNTING-CONTROL-MIB", "acctngSelectionIndex"))
-if mibBuilder.loadTexts: acctngSelectionEntry.setDescription('An entry identifying an (subtree, list) tuple used to\n            select a set of accounting information which is to be\n            collected.')
-acctngSelectionIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1,65535)))
-if mibBuilder.loadTexts: acctngSelectionIndex.setDescription("An arbitrary integer value which uniquely identifies a\n            tuple stored in this table.  This value is required to be\n            the permanent 'handle' for an entry in this table for as\n            long as that entry exists, including across restarts and\n            power outages.")
-acctngSelectionSubtree = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 1, 1, 1, 2), DataCollectionSubtree()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: acctngSelectionSubtree.setDescription('The combination of acctngSelectionSubtree and\n            acctngSelectionList specifies one (subtree, list) tuple\n            which is to be collected.')
-acctngSelectionList = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 1, 1, 1, 3), DataCollectionList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: acctngSelectionList.setDescription('The combination of acctngSelectionSubtree and\n            acctngSelectionList specifies one (subtree, list) tuple\n            which is to be collected.')
-acctngSelectionFile = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 1, 1, 1, 4), FileIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: acctngSelectionFile.setDescription('An indication of the file into which the accounting\n            information identified by this entry is to be stored.  If\n            there is no conceptual row in the acctngFileTable for which\n            the value of acctngFileIndex has the same value as this\n            object, then the information selected by this entry is not\n            collected.')
-acctngSelectionType = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 1, 1, 1, 5), Bits().clone(namedValues=NamedValues(("svcIncoming", 0), ("svcOutgoing", 1), ("svpIncoming", 2), ("svpOutgoing", 3), ("pvc", 4), ("pvp", 5), ("spvcOriginator", 6), ("spvcTarget", 7), ("spvpOriginator", 8), ("spvpTarget", 9),)).clone(namedValues=NamedValues(("svcIncoming", 0), ("svcOutgoing", 1), ("svpIncoming", 2), ("svpOutgoing", 3),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: acctngSelectionType.setDescription('Indicates the types of connections for which the\n            information selected by this entry are to be collected.')
-acctngSelectionRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 1, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: acctngSelectionRowStatus.setDescription("The status of this conceptual row.  An agent may refuse to\n            create new conceptual rows and/or modify existing conceptual\n            rows, if such creation/modification would cause multiple\n            rows to have the same values of acctngSelectionSubtree and\n            acctngSelectionList.\n\n            A conceptual row can not have the status of 'active' until\n            values have been assigned to the acctngSelectionSubtree,\n            acctngSelectionList and acctngSelectionFile columnar objects\n            within that row.\n\n            An agent must not refuse to change the values of the\n            acctngSelectionSubtree, acctngSelectionList and\n            acctngSelectionFile columnar objects within a conceptual row\n            even while that row's status is 'active'.  Similarly, an\n            agent must not refuse to destroy an existing conceptual row\n            while the file referenced by that row's instance of\n            acctngSelectionFile is in active use, i.e., while the\n            corresponding instance of acctngFileRowStatus has the value\n            'active'.  However, such changes only take effect upon the\n            next occasion when collection begins into a new (version of\n            the) file.")
-acctngFileTable = MibTable((1, 3, 6, 1, 2, 1, 60, 1, 2, 1), )
-if mibBuilder.loadTexts: acctngFileTable.setDescription('A list of files into which accounting information is to be\n            stored.')
-acctngFileEntry = MibTableRow((1, 3, 6, 1, 2, 1, 60, 1, 2, 1, 1), ).setIndexNames((0, "ACCOUNTING-CONTROL-MIB", "acctngFileIndex"))
-if mibBuilder.loadTexts: acctngFileEntry.setDescription('An entry identifying a file into which accounting\n            information is to be collected.')
-acctngFileIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 2, 1, 1, 1), FileIndex())
-if mibBuilder.loadTexts: acctngFileIndex.setDescription("A unique value identifying a file into which accounting\n            data is to be stored.  This value is required to be the\n            permanent 'handle' for an entry in this table for as long as\n            that entry exists, including across restarts and power\n            outages.")
-acctngFileName = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 2, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1,32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: acctngFileName.setDescription("The name of the file into which accounting data is to be\n            stored.  If files are named using suffixes, then the name of\n            the current file is the concatenation of acctngFileName and\n            acctngFileNameSuffix.\n\n            An agent will respond with an error (e.g., 'wrongValue') to\n            a management set operation which attempts to modify the\n            value of this object to the same value as already held by\n            another instance of acctngFileName.  An agent will also\n            respond with an error (e.g., 'wrongValue') if the new value\n            is invalid for use as a file name on the local file system\n            (e.g., many file systems do not support white space embedded\n            in file names).\n\n            The value of this object can not be modified while the\n            corresponding instance of acctngFileRowStatus is 'active'.")
-acctngFileNameSuffix = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 2, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0,8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: acctngFileNameSuffix.setDescription('The suffix, if any, of the name of a file into which\n            accounting data is currently being stored.  If suffixes are\n            not used, then the value of this object is the zero-length\n            string.  Note that if a separator, such as a period, is used\n            in appending the suffix to the file name, then that\n            separator appears as the first character of this value.')
-acctngFileDescription = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 2, 1, 1, 4), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: acctngFileDescription.setDescription('The textual description of the accounting data which will\n            be stored (on the next occasion) when header information is\n            stored in the file.  The value of this object may be\n            modified at any time.')
-acctngFileCommand = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4,))).clone(namedValues=NamedValues(("idle", 1), ("cmdInProgress", 2), ("swapToNewFile", 3), ("collectNow", 4),)).clone('idle')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: acctngFileCommand.setDescription("A control object for the collection of accounting data.\n            When read the value is either 'idle' or 'cmdInProgress'.\n            Writing a value is only allowed when the current value is\n            'idle'.  When a value is successfully written, the value\n            changes to 'cmdInProgress' until completion of the action,\n            at which time the value reverts to 'idle'.  Actions are\n            invoked by writing the following values:\n\n               'swapToNewFile' - the collection of data into the current\n                      file is terminated, and collection continues into\n                      a new (version of the) file.\n\n               'collectNow' - the agent creates and stores a connection\n                      record into the current file for each active\n                      connection having a type matching\n                      acctngSelectionType and an age greater than\n                      acctngFileMinAge.")
-acctngFileMaximumSize = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(100,2147483647)).clone(5000000)).setUnits('bytes').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: acctngFileMaximumSize.setDescription("The maximum size of the file (including header\n            information).  When the file of collected data reaches this\n            size, either the agent automatically swaps to a new version\n            (i.e., a new value acctngFileNameSuffix) of the file, or new\n            records are discarded.  Since a file must contain an\n            integral number of connection records, the actual maximum\n            size of the file may be just less OR Just greater than the\n            value of this object.\n\n            The value of this object can not be modified while the\n            corresponding instance of acctngFileRowStatus is 'active'.\n            The largest value of the maximum file size in some agents\n            will be less than 2147483647 bytes.")
-acctngFileCurrentSize = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,2147483647))).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: acctngFileCurrentSize.setDescription('The current size of the file into which data is currently\n            being collected, including header information.')
-acctngFileFormat = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("other", 1), ("ber", 2),)).clone('ber')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: acctngFileFormat.setDescription("An indication of the format in which the accounting data is\n            to be stored in the file.  If the value is modified, the new\n            value takes effect after the next 'swap' to a new file.  The\n            value ber(2) indicates the standard format.")
-acctngFileCollectMode = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 2, 1, 1, 9), Bits().clone(namedValues=NamedValues(("onRelease", 0), ("periodically", 1),)).clone(namedValues=NamedValues(("onRelease", 0),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: acctngFileCollectMode.setDescription("An indication of when accounting data is to be written into\n            this file.  Note that in addition to the occasions indicated\n            by the value of this object, an agent always writes\n            information on appropriate connections to the file when the\n            corresponding instance of acctngFileCommand is set to\n            'collectNow'.\n\n              - 'onRelease' - whenever a connection (or possibly,\n                      connection attempt) is terminated, either through\n                      a Release message or through management removal,\n                      information on that connection is written.\n\n              - 'periodically' - information on appropriate connections\n                      is written on the expiry of a periodic timer,\n\n            This value may be modified at any time.")
-acctngFileCollectFailedAttempts = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 2, 1, 1, 10), Bits().clone(namedValues=NamedValues(("soft", 0), ("regular", 1),)).clone(namedValues=NamedValues(("soft", 0), ("regular", 1),))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: acctngFileCollectFailedAttempts.setDescription("An indication of whether connection data is to be collected\n            for failed connection attempts when the value of the\n            corresponding instance of acctngFileCollectMode includes\n            'onRelease'.  The individual values have the following\n            meaning:\n\n              'soft' - indicates that connection data is to be collected\n            for failed Soft PVCs/PVPs which originate or terminate at\n            the relevant interface.\n\n              'regular' - indicates that connection data is to be\n            collected for failed SVCs, including Soft PVCs/PVPs not\n            originating or terminating at the relevant interface.\n\n            This value may be modified at any time.")
-acctngFileInterval = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 2, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60,86400)).clone(3600)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: acctngFileInterval.setDescription("The number of seconds between the periodic collections of\n            accounting data when the value of the corresponding instance\n            of acctngFileCollectMode includes 'periodically'.  Some\n            agents may impose restrictions on the range of this\n            interval.  This value may be modified at any time.")
-acctngFileMinAge = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 2, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60,86400)).clone(3600)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: acctngFileMinAge.setDescription("The minimum age of a connection, as used to determine the\n            set of connections for which data is to be collected at the\n            periodic intervals and/or when acctngFileCommand is set to\n            'collectNow'.  The age of a connection is the elapsed time\n            since it was last installed.\n\n            When the periodic interval expires for a file or when\n            acctngFileCommand is set to 'collectNow', accounting data is\n            collected and stored in the file for each connection having\n            a type matching acctngSelectionType and whose age at that\n            time is greater than the value of acctngFileMinAge\n            associated with the file.  This value may be modified at any\n            time.")
-acctngFileRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 2, 1, 1, 13), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: acctngFileRowStatus.setDescription("The status of this conceptual row.\n\n            This object can not be set to 'active' until a value has\n            been assigned to the corresponding instance of\n            acctngFileName.  Collection of data into the file does not\n            begin until this object has the value 'active' and one or\n            more (active) instances of acctngSelectionFile refer to it.\n            If this value is modified after a collection has begun,\n            collection into this file terminates and a new (or new\n            version of the) file is immediately made ready for future\n            collection (as if acctngFileCommand had been set to\n            'swapToNewFile'), but collection into the new (or new\n            version of the) file does not begin until the value is\n            subsequently set back to active.")
-acctngAdminStatus = MibScalar((1, 3, 6, 1, 2, 1, 60, 1, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: acctngAdminStatus.setDescription("A control object to indicate the administratively desired\n            state of the collection of accounting records across all\n            interfaces.\n\n            Modifying the value of acctngAdminStatus to 'disabled' does\n            not remove or change the current configuration as\n            represented by the active rows in the acctngSelectionTable,\n            acctngFileTable and acctngInterfaceTable tables.")
-acctngOperStatus = MibScalar((1, 3, 6, 1, 2, 1, 60, 1, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: acctngOperStatus.setDescription("A status object to indicate the operational state of the\n            collection of accounting records across all interfaces.\n\n            When the value of acctngAdminStatus is modified to be\n            'enabled', the value of this object will change to 'enabled'\n            providing it is possible to begin collecting accounting\n            records.\n\n            When the value of acctngAdminStatus is modified to be\n            'disabled', the value of this object will change to\n            'disabled' as soon as the collection of accounting records\n            has terminated.")
-acctngProtection = MibScalar((1, 3, 6, 1, 2, 1, 60, 1, 3, 3), TestAndIncr()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: acctngProtection.setDescription("A control object to protect against duplication of control\n            commands.  Over some transport/network protocols, it is\n            possible for SNMP messages to get duplicated.  Such\n            duplication, if it occurred at just the wrong time could\n            cause serious disruption to the collection and retrieval of\n            accounting data, e.g., if a SNMP message setting\n            acctngFileCommand to 'swapToNewFile' were to be duplicated,\n            a whole file of accounting data could be lost.\n\n            To protect against such duplication, a management\n            application should retrieve the value of this object, and\n            include in the Set operation needing protection, a variable\n            binding which sets this object to the retrieved value.")
-acctngAgentMode = MibScalar((1, 3, 6, 1, 2, 1, 60, 1, 3, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2,))).clone(namedValues=NamedValues(("swapOnCommand", 1), ("swapOnFull", 2),))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: acctngAgentMode.setDescription("An indication of the behaviour mode of the agent when a\n            file becomes full:\n\n               'swapOnCommand' - the agent does not automatically swap\n                      to a new file; rather, it discards newly collected\n                      data until a management application subsequently\n                      instructs it to swap to a new file.\n\n               'swapOnFull' - the agent terminates collection into the\n                      current file as and when that file becomes full.")
-acctngInterfaceTable = MibTable((1, 3, 6, 1, 2, 1, 60, 1, 3, 5), )
-if mibBuilder.loadTexts: acctngInterfaceTable.setDescription('A table controlling the collection of accounting data on\n            specific interfaces of the switch.')
-acctngInterfaceEntry = MibTableRow((1, 3, 6, 1, 2, 1, 60, 1, 3, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: acctngInterfaceEntry.setDescription('An entry which controls whether accounting data is to be\n            collected on an interface.  The types of interfaces which\n            are represented in this table is implementation-specific.')
-acctngInterfaceEnable = MibTableColumn((1, 3, 6, 1, 2, 1, 60, 1, 3, 5, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: acctngInterfaceEnable.setDescription('Indicates whether the collection of accounting data is\n            enabled on this interface.')
-acctngControlTrapThreshold = MibScalar((1, 3, 6, 1, 2, 1, 60, 1, 4, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0,99))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: acctngControlTrapThreshold.setDescription("A percentage of the maximum file size at which a 'nearly-\n            full' trap is generated.  The value of 0 indicates that no\n            'nearly-full' trap is to be generated.")
-acctngControlTrapEnable = MibScalar((1, 3, 6, 1, 2, 1, 60, 1, 4, 2), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: acctngControlTrapEnable.setDescription('An indication of whether the acctngFileNearlyFull and\n            acctngFileFull traps are enabled.')
-acctngNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 60, 2))
-acctngNotifyPrefix = MibIdentifier((1, 3, 6, 1, 2, 1, 60, 2, 0))
-acctngFileNearlyFull = NotificationType((1, 3, 6, 1, 2, 1, 60, 2, 0, 1)).setObjects(*(("ACCOUNTING-CONTROL-MIB", "acctngFileName"), ("ACCOUNTING-CONTROL-MIB", "acctngFileMaximumSize"), ("ACCOUNTING-CONTROL-MIB", "acctngControlTrapThreshold"), ("ACCOUNTING-CONTROL-MIB", "acctngFileNameSuffix"),))
-if mibBuilder.loadTexts: acctngFileNearlyFull.setDescription('An indication that the size of the file into which\n            accounting information is currently being collected has\n            exceeded the threshold percentage of its maximum file size.\n            This notification is generated only at the time of the\n            transition from not-exceeding to exceeding.')
-acctngFileFull = NotificationType((1, 3, 6, 1, 2, 1, 60, 2, 0, 2)).setObjects(*(("ACCOUNTING-CONTROL-MIB", "acctngFileName"), ("ACCOUNTING-CONTROL-MIB", "acctngFileMaximumSize"), ("ACCOUNTING-CONTROL-MIB", "acctngFileNameSuffix"),))
-if mibBuilder.loadTexts: acctngFileFull.setDescription("An indication that the size of the file into which\n            accounting information is currently being collected has\n            transistioned to its maximum file size.  This notification\n            is generated (for all values of acctngAgentMode) at the time\n            of the transition from not-full to full.  If acctngAgentMode\n            has the value 'swapOnCommand', it is also generated\n            periodically thereafter until such time as collection of\n            data is no longer inhibited by the file full condition.")
-acctngConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 60, 3))
-acctngGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 60, 3, 1))
-acctngCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 60, 3, 2))
-acctngCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 60, 3, 2, 1)).setObjects(*(("ACCOUNTING-CONTROL-MIB", "acctngBasicGroup"), ("ACCOUNTING-CONTROL-MIB", "acctngNotificationsGroup"),))
-if mibBuilder.loadTexts: acctngCompliance.setDescription('The compliance statement for switches which implement the\n            Accounting Control MIB.')
-acctngBasicGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 60, 3, 1, 1)).setObjects(*(("ACCOUNTING-CONTROL-MIB", "acctngSelectionSubtree"), ("ACCOUNTING-CONTROL-MIB", "acctngSelectionList"), ("ACCOUNTING-CONTROL-MIB", "acctngSelectionFile"), ("ACCOUNTING-CONTROL-MIB", "acctngSelectionType"), ("ACCOUNTING-CONTROL-MIB", "acctngSelectionRowStatus"), ("ACCOUNTING-CONTROL-MIB", "acctngFileName"), ("ACCOUNTING-CONTROL-MIB", "acctngFileNameSuffix"), ("ACCOUNTING-CONTROL-MIB", "acctngFileDescription"), ("ACCOUNTING-CONTROL-MIB", "acctngFileCommand"), ("ACCOUNTING-CONTROL-MIB", "acctngFileMaximumSize"), ("ACCOUNTING-CONTROL-MIB", "acctngFileCurrentSize"), ("ACCOUNTING-CONTROL-MIB", "acctngFileRowStatus"), ("ACCOUNTING-CONTROL-MIB", "acctngFileFormat"), ("ACCOUNTING-CONTROL-MIB", "acctngFileCollectMode"), ("ACCOUNTING-CONTROL-MIB", "acctngFileCollectFailedAttempts"), ("ACCOUNTING-CONTROL-MIB", "acctngFileInterval"), ("ACCOUNTING-CONTROL-MIB", "acctngFileMinAge"), ("ACCOUNTING-CONTROL-MIB", "acctngAdminStatus"), ("ACCOUNTING-CONTROL-MIB", "acctngOperStatus"), ("ACCOUNTING-CONTROL-MIB", "acctngProtection"), ("ACCOUNTING-CONTROL-MIB", "acctngAgentMode"), ("ACCOUNTING-CONTROL-MIB", "acctngInterfaceEnable"), ("ACCOUNTING-CONTROL-MIB", "acctngControlTrapThreshold"), ("ACCOUNTING-CONTROL-MIB", "acctngControlTrapEnable"),))
-if mibBuilder.loadTexts: acctngBasicGroup.setDescription('A collection of objects providing control of the basic\n            collection of accounting data for connection-oriented\n            networks.')
-acctngNotificationsGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 60, 3, 1, 2)).setObjects(*(("ACCOUNTING-CONTROL-MIB", "acctngFileNearlyFull"), ("ACCOUNTING-CONTROL-MIB", "acctngFileFull"),))
-if mibBuilder.loadTexts: acctngNotificationsGroup.setDescription('The notifications of events relating to controlling the\n            collection of accounting data.')
-mibBuilder.exportSymbols("ACCOUNTING-CONTROL-MIB", DataCollectionSubtree=DataCollectionSubtree, acctngInterfaceTable=acctngInterfaceTable, acctngSelectionTable=acctngSelectionTable, acctngMIBObjects=acctngMIBObjects, acctngInterfaceControl=acctngInterfaceControl, acctngSelectionType=acctngSelectionType, acctngFileCurrentSize=acctngFileCurrentSize, acctngNotificationsGroup=acctngNotificationsGroup, acctngFileMinAge=acctngFileMinAge, acctngFileName=acctngFileName, acctngSelectionControl=acctngSelectionControl, acctngSelectionEntry=acctngSelectionEntry, accountingControlMIB=accountingControlMIB, acctngFileRowStatus=acctngFileRowStatus, acctngNotifyPrefix=acctngNotifyPrefix, acctngOperStatus=acctngOperStatus, acctngFileCommand=acctngFileCommand, acctngAdminStatus=acctngAdminStatus, acctngInterfaceEnable=acctngInterfaceEnable, acctngSelectionIndex=acctngSelectionIndex, acctngFileTable=acctngFileTable, acctngFileEntry=acctngFileEntry, acctngFileCollectMode=acctngFileCollectMode, acctngFileInterval=acctngFileInterval, acctngSelectionFile=acctngSelectionFile, acctngNotifications=acctngNotifications, acctngFileFormat=acctngFileFormat, PYSNMP_MODULE_ID=accountingControlMIB, FileIndex=FileIndex, acctngFileMaximumSize=acctngFileMaximumSize, acctngFileControl=acctngFileControl, acctngFileFull=acctngFileFull, acctngControlTrapEnable=acctngControlTrapEnable, acctngGroups=acctngGroups, acctngFileDescription=acctngFileDescription, acctngFileNearlyFull=acctngFileNearlyFull, acctngInterfaceEntry=acctngInterfaceEntry, acctngProtection=acctngProtection, acctngSelectionList=acctngSelectionList, acctngFileNameSuffix=acctngFileNameSuffix, acctngFileCollectFailedAttempts=acctngFileCollectFailedAttempts, acctngControlTrapThreshold=acctngControlTrapThreshold, acctngCompliances=acctngCompliances, acctngAgentMode=acctngAgentMode, acctngTrapControl=acctngTrapControl, DataCollectionList=DataCollectionList, acctngSelectionRowStatus=acctngSelectionRowStatus, acctngCompliance=acctngCompliance, acctngBasicGroup=acctngBasicGroup, acctngSelectionSubtree=acctngSelectionSubtree, acctngFileIndex=acctngFileIndex, acctngConformance=acctngConformance)
+_r='acctngNotificationsGroup'
+_q='acctngBasicGroup'
+_p='acctngFileFull'
+_o='acctngFileNearlyFull'
+_n='acctngControlTrapEnable'
+_m='acctngInterfaceEnable'
+_l='acctngAgentMode'
+_k='acctngProtection'
+_j='acctngOperStatus'
+_i='acctngAdminStatus'
+_h='acctngFileMinAge'
+_g='acctngFileInterval'
+_f='acctngFileCollectFailedAttempts'
+_e='acctngFileCollectMode'
+_d='acctngFileFormat'
+_c='acctngFileRowStatus'
+_b='acctngFileCurrentSize'
+_a='acctngFileCommand'
+_Z='acctngFileDescription'
+_Y='acctngSelectionRowStatus'
+_X='acctngSelectionType'
+_W='acctngSelectionFile'
+_V='acctngSelectionList'
+_U='acctngSelectionSubtree'
+_T='disabled'
+_S='enabled'
+_R='seconds'
+_Q='acctngFileIndex'
+_P='not-accessible'
+_O='acctngSelectionIndex'
+_N='ifIndex'
+_M='IF-MIB'
+_L='acctngControlTrapThreshold'
+_K='acctngFileMaximumSize'
+_J='acctngFileNameSuffix'
+_I='acctngFileName'
+_H='read-only'
+_G='DisplayString'
+_F='Bits'
+_E='read-write'
+_D='Integer32'
+_C='read-create'
+_B='ACCOUNTING-CONTROL-MIB'
+_A='current'
+if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
+Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
+NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
+ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
+ifIndex,=mibBuilder.importSymbols(_M,_N)
+ModuleCompliance,NotificationGroup,ObjectGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup','ObjectGroup')
+Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso,mib_2=mibBuilder.importSymbols('SNMPv2-SMI',_F,'Counter32','Counter64','Gauge32',_D,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso','mib-2')
+DisplayString,PhysAddress,RowStatus,TextualConvention,TestAndIncr,TruthValue=mibBuilder.importSymbols('SNMPv2-TC',_G,'PhysAddress','RowStatus','TextualConvention','TestAndIncr','TruthValue')
+accountingControlMIB=ModuleIdentity((1,3,6,1,2,1,60))
+class DataCollectionSubtree(TextualConvention,ObjectIdentifier):status=_A
+class DataCollectionList(TextualConvention,OctetString):status=_A;subtypeSpec=OctetString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+class FileIndex(TextualConvention,Integer32):status=_A;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_AcctngMIBObjects_ObjectIdentity=ObjectIdentity
+acctngMIBObjects=_AcctngMIBObjects_ObjectIdentity((1,3,6,1,2,1,60,1))
+_AcctngSelectionControl_ObjectIdentity=ObjectIdentity
+acctngSelectionControl=_AcctngSelectionControl_ObjectIdentity((1,3,6,1,2,1,60,1,1))
+_AcctngSelectionTable_Object=MibTable
+acctngSelectionTable=_AcctngSelectionTable_Object((1,3,6,1,2,1,60,1,1,1))
+if mibBuilder.loadTexts:acctngSelectionTable.setStatus(_A)
+_AcctngSelectionEntry_Object=MibTableRow
+acctngSelectionEntry=_AcctngSelectionEntry_Object((1,3,6,1,2,1,60,1,1,1,1))
+acctngSelectionEntry.setIndexNames((0,_B,_O))
+if mibBuilder.loadTexts:acctngSelectionEntry.setStatus(_A)
+class _AcctngSelectionIndex_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(1,65535))
+_AcctngSelectionIndex_Type.__name__=_D
+_AcctngSelectionIndex_Object=MibTableColumn
+acctngSelectionIndex=_AcctngSelectionIndex_Object((1,3,6,1,2,1,60,1,1,1,1,1),_AcctngSelectionIndex_Type())
+acctngSelectionIndex.setMaxAccess(_P)
+if mibBuilder.loadTexts:acctngSelectionIndex.setStatus(_A)
+_AcctngSelectionSubtree_Type=DataCollectionSubtree
+_AcctngSelectionSubtree_Object=MibTableColumn
+acctngSelectionSubtree=_AcctngSelectionSubtree_Object((1,3,6,1,2,1,60,1,1,1,1,2),_AcctngSelectionSubtree_Type())
+acctngSelectionSubtree.setMaxAccess(_C)
+if mibBuilder.loadTexts:acctngSelectionSubtree.setStatus(_A)
+_AcctngSelectionList_Type=DataCollectionList
+_AcctngSelectionList_Object=MibTableColumn
+acctngSelectionList=_AcctngSelectionList_Object((1,3,6,1,2,1,60,1,1,1,1,3),_AcctngSelectionList_Type())
+acctngSelectionList.setMaxAccess(_C)
+if mibBuilder.loadTexts:acctngSelectionList.setStatus(_A)
+_AcctngSelectionFile_Type=FileIndex
+_AcctngSelectionFile_Object=MibTableColumn
+acctngSelectionFile=_AcctngSelectionFile_Object((1,3,6,1,2,1,60,1,1,1,1,4),_AcctngSelectionFile_Type())
+acctngSelectionFile.setMaxAccess(_C)
+if mibBuilder.loadTexts:acctngSelectionFile.setStatus(_A)
+class _AcctngSelectionType_Type(Bits):defaultBinValue='1111';namedValues=NamedValues(*(('svcIncoming',0),('svcOutgoing',1),('svpIncoming',2),('svpOutgoing',3),('pvc',4),('pvp',5),('spvcOriginator',6),('spvcTarget',7),('spvpOriginator',8),('spvpTarget',9)))
+_AcctngSelectionType_Type.__name__=_F
+_AcctngSelectionType_Object=MibTableColumn
+acctngSelectionType=_AcctngSelectionType_Object((1,3,6,1,2,1,60,1,1,1,1,5),_AcctngSelectionType_Type())
+acctngSelectionType.setMaxAccess(_C)
+if mibBuilder.loadTexts:acctngSelectionType.setStatus(_A)
+_AcctngSelectionRowStatus_Type=RowStatus
+_AcctngSelectionRowStatus_Object=MibTableColumn
+acctngSelectionRowStatus=_AcctngSelectionRowStatus_Object((1,3,6,1,2,1,60,1,1,1,1,6),_AcctngSelectionRowStatus_Type())
+acctngSelectionRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:acctngSelectionRowStatus.setStatus(_A)
+_AcctngFileControl_ObjectIdentity=ObjectIdentity
+acctngFileControl=_AcctngFileControl_ObjectIdentity((1,3,6,1,2,1,60,1,2))
+_AcctngFileTable_Object=MibTable
+acctngFileTable=_AcctngFileTable_Object((1,3,6,1,2,1,60,1,2,1))
+if mibBuilder.loadTexts:acctngFileTable.setStatus(_A)
+_AcctngFileEntry_Object=MibTableRow
+acctngFileEntry=_AcctngFileEntry_Object((1,3,6,1,2,1,60,1,2,1,1))
+acctngFileEntry.setIndexNames((0,_B,_Q))
+if mibBuilder.loadTexts:acctngFileEntry.setStatus(_A)
+_AcctngFileIndex_Type=FileIndex
+_AcctngFileIndex_Object=MibTableColumn
+acctngFileIndex=_AcctngFileIndex_Object((1,3,6,1,2,1,60,1,2,1,1,1),_AcctngFileIndex_Type())
+acctngFileIndex.setMaxAccess(_P)
+if mibBuilder.loadTexts:acctngFileIndex.setStatus(_A)
+class _AcctngFileName_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(1,32))
+_AcctngFileName_Type.__name__=_G
+_AcctngFileName_Object=MibTableColumn
+acctngFileName=_AcctngFileName_Object((1,3,6,1,2,1,60,1,2,1,1,2),_AcctngFileName_Type())
+acctngFileName.setMaxAccess(_C)
+if mibBuilder.loadTexts:acctngFileName.setStatus(_A)
+class _AcctngFileNameSuffix_Type(DisplayString):subtypeSpec=DisplayString.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueSizeConstraint(0,8))
+_AcctngFileNameSuffix_Type.__name__=_G
+_AcctngFileNameSuffix_Object=MibTableColumn
+acctngFileNameSuffix=_AcctngFileNameSuffix_Object((1,3,6,1,2,1,60,1,2,1,1,3),_AcctngFileNameSuffix_Type())
+acctngFileNameSuffix.setMaxAccess(_H)
+if mibBuilder.loadTexts:acctngFileNameSuffix.setStatus(_A)
+class _AcctngFileDescription_Type(DisplayString):defaultValue=OctetString('')
+_AcctngFileDescription_Type.__name__=_G
+_AcctngFileDescription_Object=MibTableColumn
+acctngFileDescription=_AcctngFileDescription_Object((1,3,6,1,2,1,60,1,2,1,1,4),_AcctngFileDescription_Type())
+acctngFileDescription.setMaxAccess(_C)
+if mibBuilder.loadTexts:acctngFileDescription.setStatus(_A)
+class _AcctngFileCommand_Type(Integer32):defaultValue=1;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2,3,4)));namedValues=NamedValues(*(('idle',1),('cmdInProgress',2),('swapToNewFile',3),('collectNow',4)))
+_AcctngFileCommand_Type.__name__=_D
+_AcctngFileCommand_Object=MibTableColumn
+acctngFileCommand=_AcctngFileCommand_Object((1,3,6,1,2,1,60,1,2,1,1,5),_AcctngFileCommand_Type())
+acctngFileCommand.setMaxAccess(_C)
+if mibBuilder.loadTexts:acctngFileCommand.setStatus(_A)
+class _AcctngFileMaximumSize_Type(Integer32):defaultValue=5000000;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(100,2147483647))
+_AcctngFileMaximumSize_Type.__name__=_D
+_AcctngFileMaximumSize_Object=MibTableColumn
+acctngFileMaximumSize=_AcctngFileMaximumSize_Object((1,3,6,1,2,1,60,1,2,1,1,6),_AcctngFileMaximumSize_Type())
+acctngFileMaximumSize.setMaxAccess(_C)
+if mibBuilder.loadTexts:acctngFileMaximumSize.setStatus(_A)
+if mibBuilder.loadTexts:acctngFileMaximumSize.setUnits('bytes')
+class _AcctngFileCurrentSize_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,2147483647))
+_AcctngFileCurrentSize_Type.__name__=_D
+_AcctngFileCurrentSize_Object=MibTableColumn
+acctngFileCurrentSize=_AcctngFileCurrentSize_Object((1,3,6,1,2,1,60,1,2,1,1,7),_AcctngFileCurrentSize_Type())
+acctngFileCurrentSize.setMaxAccess(_H)
+if mibBuilder.loadTexts:acctngFileCurrentSize.setStatus(_A)
+if mibBuilder.loadTexts:acctngFileCurrentSize.setUnits('bytes')
+class _AcctngFileFormat_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('other',1),('ber',2)))
+_AcctngFileFormat_Type.__name__=_D
+_AcctngFileFormat_Object=MibTableColumn
+acctngFileFormat=_AcctngFileFormat_Object((1,3,6,1,2,1,60,1,2,1,1,8),_AcctngFileFormat_Type())
+acctngFileFormat.setMaxAccess(_C)
+if mibBuilder.loadTexts:acctngFileFormat.setStatus(_A)
+class _AcctngFileCollectMode_Type(Bits):defaultBinValue='1';namedValues=NamedValues(*(('onRelease',0),('periodically',1)))
+_AcctngFileCollectMode_Type.__name__=_F
+_AcctngFileCollectMode_Object=MibTableColumn
+acctngFileCollectMode=_AcctngFileCollectMode_Object((1,3,6,1,2,1,60,1,2,1,1,9),_AcctngFileCollectMode_Type())
+acctngFileCollectMode.setMaxAccess(_C)
+if mibBuilder.loadTexts:acctngFileCollectMode.setStatus(_A)
+class _AcctngFileCollectFailedAttempts_Type(Bits):defaultBinValue='11';namedValues=NamedValues(*(('soft',0),('regular',1)))
+_AcctngFileCollectFailedAttempts_Type.__name__=_F
+_AcctngFileCollectFailedAttempts_Object=MibTableColumn
+acctngFileCollectFailedAttempts=_AcctngFileCollectFailedAttempts_Object((1,3,6,1,2,1,60,1,2,1,1,10),_AcctngFileCollectFailedAttempts_Type())
+acctngFileCollectFailedAttempts.setMaxAccess(_C)
+if mibBuilder.loadTexts:acctngFileCollectFailedAttempts.setStatus(_A)
+class _AcctngFileInterval_Type(Integer32):defaultValue=3600;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,86400))
+_AcctngFileInterval_Type.__name__=_D
+_AcctngFileInterval_Object=MibTableColumn
+acctngFileInterval=_AcctngFileInterval_Object((1,3,6,1,2,1,60,1,2,1,1,11),_AcctngFileInterval_Type())
+acctngFileInterval.setMaxAccess(_C)
+if mibBuilder.loadTexts:acctngFileInterval.setStatus(_A)
+if mibBuilder.loadTexts:acctngFileInterval.setUnits(_R)
+class _AcctngFileMinAge_Type(Integer32):defaultValue=3600;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(60,86400))
+_AcctngFileMinAge_Type.__name__=_D
+_AcctngFileMinAge_Object=MibTableColumn
+acctngFileMinAge=_AcctngFileMinAge_Object((1,3,6,1,2,1,60,1,2,1,1,12),_AcctngFileMinAge_Type())
+acctngFileMinAge.setMaxAccess(_C)
+if mibBuilder.loadTexts:acctngFileMinAge.setStatus(_A)
+if mibBuilder.loadTexts:acctngFileMinAge.setUnits(_R)
+_AcctngFileRowStatus_Type=RowStatus
+_AcctngFileRowStatus_Object=MibTableColumn
+acctngFileRowStatus=_AcctngFileRowStatus_Object((1,3,6,1,2,1,60,1,2,1,1,13),_AcctngFileRowStatus_Type())
+acctngFileRowStatus.setMaxAccess(_C)
+if mibBuilder.loadTexts:acctngFileRowStatus.setStatus(_A)
+_AcctngInterfaceControl_ObjectIdentity=ObjectIdentity
+acctngInterfaceControl=_AcctngInterfaceControl_ObjectIdentity((1,3,6,1,2,1,60,1,3))
+class _AcctngAdminStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_S,1),(_T,2)))
+_AcctngAdminStatus_Type.__name__=_D
+_AcctngAdminStatus_Object=MibScalar
+acctngAdminStatus=_AcctngAdminStatus_Object((1,3,6,1,2,1,60,1,3,1),_AcctngAdminStatus_Type())
+acctngAdminStatus.setMaxAccess(_E)
+if mibBuilder.loadTexts:acctngAdminStatus.setStatus(_A)
+class _AcctngOperStatus_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*((_S,1),(_T,2)))
+_AcctngOperStatus_Type.__name__=_D
+_AcctngOperStatus_Object=MibScalar
+acctngOperStatus=_AcctngOperStatus_Object((1,3,6,1,2,1,60,1,3,2),_AcctngOperStatus_Type())
+acctngOperStatus.setMaxAccess(_H)
+if mibBuilder.loadTexts:acctngOperStatus.setStatus(_A)
+_AcctngProtection_Type=TestAndIncr
+_AcctngProtection_Object=MibScalar
+acctngProtection=_AcctngProtection_Object((1,3,6,1,2,1,60,1,3,3),_AcctngProtection_Type())
+acctngProtection.setMaxAccess(_E)
+if mibBuilder.loadTexts:acctngProtection.setStatus(_A)
+class _AcctngAgentMode_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('swapOnCommand',1),('swapOnFull',2)))
+_AcctngAgentMode_Type.__name__=_D
+_AcctngAgentMode_Object=MibScalar
+acctngAgentMode=_AcctngAgentMode_Object((1,3,6,1,2,1,60,1,3,4),_AcctngAgentMode_Type())
+acctngAgentMode.setMaxAccess(_H)
+if mibBuilder.loadTexts:acctngAgentMode.setStatus(_A)
+_AcctngInterfaceTable_Object=MibTable
+acctngInterfaceTable=_AcctngInterfaceTable_Object((1,3,6,1,2,1,60,1,3,5))
+if mibBuilder.loadTexts:acctngInterfaceTable.setStatus(_A)
+_AcctngInterfaceEntry_Object=MibTableRow
+acctngInterfaceEntry=_AcctngInterfaceEntry_Object((1,3,6,1,2,1,60,1,3,5,1))
+acctngInterfaceEntry.setIndexNames((0,_M,_N))
+if mibBuilder.loadTexts:acctngInterfaceEntry.setStatus(_A)
+_AcctngInterfaceEnable_Type=TruthValue
+_AcctngInterfaceEnable_Object=MibTableColumn
+acctngInterfaceEnable=_AcctngInterfaceEnable_Object((1,3,6,1,2,1,60,1,3,5,1,1),_AcctngInterfaceEnable_Type())
+acctngInterfaceEnable.setMaxAccess(_E)
+if mibBuilder.loadTexts:acctngInterfaceEnable.setStatus(_A)
+_AcctngTrapControl_ObjectIdentity=ObjectIdentity
+acctngTrapControl=_AcctngTrapControl_ObjectIdentity((1,3,6,1,2,1,60,1,4))
+class _AcctngControlTrapThreshold_Type(Integer32):subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(ValueRangeConstraint(0,99))
+_AcctngControlTrapThreshold_Type.__name__=_D
+_AcctngControlTrapThreshold_Object=MibScalar
+acctngControlTrapThreshold=_AcctngControlTrapThreshold_Object((1,3,6,1,2,1,60,1,4,1),_AcctngControlTrapThreshold_Type())
+acctngControlTrapThreshold.setMaxAccess(_E)
+if mibBuilder.loadTexts:acctngControlTrapThreshold.setStatus(_A)
+_AcctngControlTrapEnable_Type=TruthValue
+_AcctngControlTrapEnable_Object=MibScalar
+acctngControlTrapEnable=_AcctngControlTrapEnable_Object((1,3,6,1,2,1,60,1,4,2),_AcctngControlTrapEnable_Type())
+acctngControlTrapEnable.setMaxAccess(_E)
+if mibBuilder.loadTexts:acctngControlTrapEnable.setStatus(_A)
+_AcctngNotifications_ObjectIdentity=ObjectIdentity
+acctngNotifications=_AcctngNotifications_ObjectIdentity((1,3,6,1,2,1,60,2))
+_AcctngNotifyPrefix_ObjectIdentity=ObjectIdentity
+acctngNotifyPrefix=_AcctngNotifyPrefix_ObjectIdentity((1,3,6,1,2,1,60,2,0))
+_AcctngConformance_ObjectIdentity=ObjectIdentity
+acctngConformance=_AcctngConformance_ObjectIdentity((1,3,6,1,2,1,60,3))
+_AcctngGroups_ObjectIdentity=ObjectIdentity
+acctngGroups=_AcctngGroups_ObjectIdentity((1,3,6,1,2,1,60,3,1))
+_AcctngCompliances_ObjectIdentity=ObjectIdentity
+acctngCompliances=_AcctngCompliances_ObjectIdentity((1,3,6,1,2,1,60,3,2))
+acctngBasicGroup=ObjectGroup((1,3,6,1,2,1,60,3,1,1))
+acctngBasicGroup.setObjects(*((_B,_U),(_B,_V),(_B,_W),(_B,_X),(_B,_Y),(_B,_I),(_B,_J),(_B,_Z),(_B,_a),(_B,_K),(_B,_b),(_B,_c),(_B,_d),(_B,_e),(_B,_f),(_B,_g),(_B,_h),(_B,_i),(_B,_j),(_B,_k),(_B,_l),(_B,_m),(_B,_L),(_B,_n)))
+if mibBuilder.loadTexts:acctngBasicGroup.setStatus(_A)
+acctngFileNearlyFull=NotificationType((1,3,6,1,2,1,60,2,0,1))
+acctngFileNearlyFull.setObjects(*((_B,_I),(_B,_K),(_B,_L),(_B,_J)))
+if mibBuilder.loadTexts:acctngFileNearlyFull.setStatus(_A)
+acctngFileFull=NotificationType((1,3,6,1,2,1,60,2,0,2))
+acctngFileFull.setObjects(*((_B,_I),(_B,_K),(_B,_J)))
+if mibBuilder.loadTexts:acctngFileFull.setStatus(_A)
+acctngNotificationsGroup=NotificationGroup((1,3,6,1,2,1,60,3,1,2))
+acctngNotificationsGroup.setObjects(*((_B,_o),(_B,_p)))
+if mibBuilder.loadTexts:acctngNotificationsGroup.setStatus(_A)
+acctngCompliance=ModuleCompliance((1,3,6,1,2,1,60,3,2,1))
+acctngCompliance.setObjects(*((_B,_q),(_B,_r)))
+if mibBuilder.loadTexts:acctngCompliance.setStatus(_A)
+mibBuilder.exportSymbols(_B,**{'DataCollectionSubtree':DataCollectionSubtree,'DataCollectionList':DataCollectionList,'FileIndex':FileIndex,'accountingControlMIB':accountingControlMIB,'acctngMIBObjects':acctngMIBObjects,'acctngSelectionControl':acctngSelectionControl,'acctngSelectionTable':acctngSelectionTable,'acctngSelectionEntry':acctngSelectionEntry,_O:acctngSelectionIndex,_U:acctngSelectionSubtree,_V:acctngSelectionList,_W:acctngSelectionFile,_X:acctngSelectionType,_Y:acctngSelectionRowStatus,'acctngFileControl':acctngFileControl,'acctngFileTable':acctngFileTable,'acctngFileEntry':acctngFileEntry,_Q:acctngFileIndex,_I:acctngFileName,_J:acctngFileNameSuffix,_Z:acctngFileDescription,_a:acctngFileCommand,_K:acctngFileMaximumSize,_b:acctngFileCurrentSize,_d:acctngFileFormat,_e:acctngFileCollectMode,_f:acctngFileCollectFailedAttempts,_g:acctngFileInterval,_h:acctngFileMinAge,_c:acctngFileRowStatus,'acctngInterfaceControl':acctngInterfaceControl,_i:acctngAdminStatus,_j:acctngOperStatus,_k:acctngProtection,_l:acctngAgentMode,'acctngInterfaceTable':acctngInterfaceTable,'acctngInterfaceEntry':acctngInterfaceEntry,_m:acctngInterfaceEnable,'acctngTrapControl':acctngTrapControl,_L:acctngControlTrapThreshold,_n:acctngControlTrapEnable,'acctngNotifications':acctngNotifications,'acctngNotifyPrefix':acctngNotifyPrefix,_o:acctngFileNearlyFull,_p:acctngFileFull,'acctngConformance':acctngConformance,'acctngGroups':acctngGroups,_q:acctngBasicGroup,_r:acctngNotificationsGroup,'acctngCompliances':acctngCompliances,'acctngCompliance':acctngCompliance})
